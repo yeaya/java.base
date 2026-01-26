@@ -31,10 +31,10 @@ $FieldInfo _DoubleByte$Decoder_EUC_SIM_FieldInfo_[] = {
 };
 
 $MethodInfo _DoubleByte$Decoder_EUC_SIM_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/charset/Charset;[[C[CIIZ)V", nullptr, $PUBLIC, $method(static_cast<void(DoubleByte$Decoder_EUC_SIM::*)($Charset*,$charArray2*,$chars*,int32_t,int32_t,bool)>(&DoubleByte$Decoder_EUC_SIM::init$))},
-	{"crMalformedOrUnderFlow", "(I)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED},
-	{"crMalformedOrUnmappable", "(II)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED},
-	{"decode", "([BII[C)I", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/nio/charset/Charset;[[C[CIIZ)V", nullptr, $PUBLIC, $method(DoubleByte$Decoder_EUC_SIM, init$, void, $Charset*, $charArray2*, $chars*, int32_t, int32_t, bool)},
+	{"crMalformedOrUnderFlow", "(I)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED, $virtualMethod(DoubleByte$Decoder_EUC_SIM, crMalformedOrUnderFlow, $CoderResult*, int32_t)},
+	{"crMalformedOrUnmappable", "(II)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED, $virtualMethod(DoubleByte$Decoder_EUC_SIM, crMalformedOrUnmappable, $CoderResult*, int32_t, int32_t)},
+	{"decode", "([BII[C)I", nullptr, $PUBLIC, $virtualMethod(DoubleByte$Decoder_EUC_SIM, decode, int32_t, $bytes*, int32_t, int32_t, $chars*)},
 	{}
 };
 

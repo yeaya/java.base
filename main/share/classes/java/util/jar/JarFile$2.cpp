@@ -30,9 +30,9 @@ $FieldInfo _JarFile$2_FieldInfo_[] = {
 };
 
 $MethodInfo _JarFile$2_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/jar/JarFile;Ljava/util/Enumeration;)V", nullptr, 0, $method(static_cast<void(JarFile$2::*)($JarFile*,$Enumeration*)>(&JarFile$2::init$))},
-	{"hasMoreElements", "()Z", nullptr, $PUBLIC},
-	{"nextElement", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/jar/JarFile;Ljava/util/Enumeration;)V", nullptr, 0, $method(JarFile$2, init$, void, $JarFile*, $Enumeration*)},
+	{"hasMoreElements", "()Z", nullptr, $PUBLIC, $virtualMethod(JarFile$2, hasMoreElements, bool)},
+	{"nextElement", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JarFile$2, nextElement, $Object*)},
 	{}
 };
 

@@ -27,9 +27,9 @@ $FieldInfo _Win32ErrorMode_FieldInfo_[] = {
 };
 
 $MethodInfo _Win32ErrorMode_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(Win32ErrorMode::*)()>(&Win32ErrorMode::init$))},
-	{"initialize", "()V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)()>(&Win32ErrorMode::initialize))},
-	{"setErrorMode", "(J)J", nullptr, $PRIVATE | $STATIC | $NATIVE, $method(static_cast<int64_t(*)(int64_t)>(&Win32ErrorMode::setErrorMode))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(Win32ErrorMode, init$, void)},
+	{"initialize", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(Win32ErrorMode, initialize, void)},
+	{"setErrorMode", "(J)J", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Win32ErrorMode, setErrorMode, int64_t, int64_t)},
 	{}
 };
 

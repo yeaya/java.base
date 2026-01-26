@@ -36,11 +36,11 @@ $MethodInfo _DateFormatSymbolsProviderImpl_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lsun/util/locale/provider/LocaleProviderAdapter$Type;Ljava/util/Set;)V", "(Lsun/util/locale/provider/LocaleProviderAdapter$Type;Ljava/util/Set<Ljava/lang/String;>;)V", $PUBLIC, $method(static_cast<void(DateFormatSymbolsProviderImpl::*)($LocaleProviderAdapter$Type*,$Set*)>(&DateFormatSymbolsProviderImpl::init$))},
-	{"getAvailableLanguageTags", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC},
-	{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC},
-	{"getInstance", "(Ljava/util/Locale;)Ljava/text/DateFormatSymbols;", nullptr, $PUBLIC},
-	{"isSupportedLocale", "(Ljava/util/Locale;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/util/locale/provider/LocaleProviderAdapter$Type;Ljava/util/Set;)V", "(Lsun/util/locale/provider/LocaleProviderAdapter$Type;Ljava/util/Set<Ljava/lang/String;>;)V", $PUBLIC, $method(DateFormatSymbolsProviderImpl, init$, void, $LocaleProviderAdapter$Type*, $Set*)},
+	{"getAvailableLanguageTags", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(DateFormatSymbolsProviderImpl, getAvailableLanguageTags, $Set*)},
+	{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(DateFormatSymbolsProviderImpl, getAvailableLocales, $LocaleArray*)},
+	{"getInstance", "(Ljava/util/Locale;)Ljava/text/DateFormatSymbols;", nullptr, $PUBLIC, $virtualMethod(DateFormatSymbolsProviderImpl, getInstance, $DateFormatSymbols*, $Locale*)},
+	{"isSupportedLocale", "(Ljava/util/Locale;)Z", nullptr, $PUBLIC, $virtualMethod(DateFormatSymbolsProviderImpl, isSupportedLocale, bool, $Locale*)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

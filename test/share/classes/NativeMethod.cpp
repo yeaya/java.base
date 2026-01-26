@@ -54,8 +54,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo NativeMethod$$Lambda$lambda$walk$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(NativeMethod$$Lambda$lambda$walk$0::*)()>(&NativeMethod$$Lambda$lambda$walk$0::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(NativeMethod$$Lambda$lambda$walk$0, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(NativeMethod$$Lambda$lambda$walk$0, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo NativeMethod$$Lambda$lambda$walk$0::classInfo$ = {
@@ -87,8 +87,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo NativeMethod$$Lambda$isNativeMethod$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(NativeMethod$$Lambda$isNativeMethod$1::*)()>(&NativeMethod$$Lambda$isNativeMethod$1::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(NativeMethod$$Lambda$isNativeMethod$1, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(NativeMethod$$Lambda$isNativeMethod$1, test, bool, Object$*)},
 	{}
 };
 $ClassInfo NativeMethod$$Lambda$isNativeMethod$1::classInfo$ = {
@@ -111,12 +111,12 @@ $FieldInfo _NativeMethod_FieldInfo_[] = {
 };
 
 $MethodInfo _NativeMethod_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(NativeMethod::*)()>(&NativeMethod::init$))},
-	{"assertTrue", "(ZLjava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)(bool,$String*)>(&NativeMethod::assertTrue))},
-	{"lambda$walk$0", "(Ljava/util/stream/Stream;)Ljava/util/List;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$List*(*)($Stream*)>(&NativeMethod::lambda$walk$0))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<void(*)($StringArray*)>(&NativeMethod::main)), "java.lang.Exception"},
-	{"test", "()V", nullptr, 0, nullptr, "java.lang.Exception"},
-	{"walk", "()V", nullptr, 0},
+	{"<init>", "()V", nullptr, 0, $method(NativeMethod, init$, void)},
+	{"assertTrue", "(ZLjava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(NativeMethod, assertTrue, void, bool, $String*)},
+	{"lambda$walk$0", "(Ljava/util/stream/Stream;)Ljava/util/List;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(NativeMethod, lambda$walk$0, $List*, $Stream*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(NativeMethod, main, void, $StringArray*), "java.lang.Exception"},
+	{"test", "()V", nullptr, 0, $virtualMethod(NativeMethod, test, void), "java.lang.Exception"},
+	{"walk", "()V", nullptr, 0, $virtualMethod(NativeMethod, walk, void)},
 	{}
 };
 

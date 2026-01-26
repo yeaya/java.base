@@ -19,8 +19,8 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $URL = ::java::net::URL;
 
 $MethodInfo _URLParsing_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(URLParsing::*)()>(&URLParsing::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&URLParsing::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(URLParsing, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(URLParsing, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

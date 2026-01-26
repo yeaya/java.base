@@ -14,8 +14,8 @@ $FieldInfo _InitArg_FieldInfo_[] = {
 };
 
 $MethodInfo _InitArg_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(InitArg::*)()>(&InitArg::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&InitArg::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(InitArg, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(InitArg, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

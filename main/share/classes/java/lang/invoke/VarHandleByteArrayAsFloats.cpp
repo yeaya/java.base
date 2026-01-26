@@ -45,9 +45,9 @@ $FieldInfo _VarHandleByteArrayAsFloats_FieldInfo_[] = {
 };
 
 $MethodInfo _VarHandleByteArrayAsFloats_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(VarHandleByteArrayAsFloats::*)()>(&VarHandleByteArrayAsFloats::init$))},
-	{"convEndian", "(ZF)I", nullptr, $STATIC, $method(static_cast<int32_t(*)(bool,float)>(&VarHandleByteArrayAsFloats::convEndian)), nullptr, nullptr, _VarHandleByteArrayAsFloats_MethodAnnotations_convEndian1},
-	{"convEndian", "(ZI)F", nullptr, $STATIC, $method(static_cast<float(*)(bool,int32_t)>(&VarHandleByteArrayAsFloats::convEndian)), nullptr, nullptr, _VarHandleByteArrayAsFloats_MethodAnnotations_convEndian2},
+	{"<init>", "()V", nullptr, 0, $method(VarHandleByteArrayAsFloats, init$, void)},
+	{"convEndian", "(ZF)I", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsFloats, convEndian, int32_t, bool, float), nullptr, nullptr, _VarHandleByteArrayAsFloats_MethodAnnotations_convEndian1},
+	{"convEndian", "(ZI)F", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsFloats, convEndian, float, bool, int32_t), nullptr, nullptr, _VarHandleByteArrayAsFloats_MethodAnnotations_convEndian2},
 	{}
 };
 

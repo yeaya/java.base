@@ -26,10 +26,10 @@ $FieldInfo _ClientAuthType_FieldInfo_[] = {
 };
 
 $MethodInfo _ClientAuthType_MethodInfo_[] = {
-	{"$values", "()[Lsun/security/ssl/ClientAuthType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$ClientAuthTypeArray*(*)()>(&ClientAuthType::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(ClientAuthType::*)($String*,int32_t)>(&ClientAuthType::init$))},
-	{"valueOf", "(Ljava/lang/String;)Lsun/security/ssl/ClientAuthType;", nullptr, $PUBLIC | $STATIC, $method(static_cast<ClientAuthType*(*)($String*)>(&ClientAuthType::valueOf))},
-	{"values", "()[Lsun/security/ssl/ClientAuthType;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$ClientAuthTypeArray*(*)()>(&ClientAuthType::values))},
+	{"$values", "()[Lsun/security/ssl/ClientAuthType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ClientAuthType, $values, $ClientAuthTypeArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(ClientAuthType, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Lsun/security/ssl/ClientAuthType;", nullptr, $PUBLIC | $STATIC, $staticMethod(ClientAuthType, valueOf, ClientAuthType*, $String*)},
+	{"values", "()[Lsun/security/ssl/ClientAuthType;", nullptr, $PUBLIC | $STATIC, $staticMethod(ClientAuthType, values, $ClientAuthTypeArray*)},
 	{}
 };
 

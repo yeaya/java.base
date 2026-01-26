@@ -30,10 +30,10 @@ $FieldInfo _Chronology$1_FieldInfo_[] = {
 };
 
 $MethodInfo _Chronology$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/time/chrono/Chronology;)V", nullptr, 0, $method(static_cast<void(Chronology$1::*)($Chronology*)>(&Chronology$1::init$))},
-	{"getLong", "(Ljava/time/temporal/TemporalField;)J", nullptr, $PUBLIC},
-	{"isSupported", "(Ljava/time/temporal/TemporalField;)Z", nullptr, $PUBLIC},
-	{"query", "(Ljava/time/temporal/TemporalQuery;)Ljava/lang/Object;", "<R:Ljava/lang/Object;>(Ljava/time/temporal/TemporalQuery<TR;>;)TR;", $PUBLIC},
+	{"<init>", "(Ljava/time/chrono/Chronology;)V", nullptr, 0, $method(Chronology$1, init$, void, $Chronology*)},
+	{"getLong", "(Ljava/time/temporal/TemporalField;)J", nullptr, $PUBLIC, $virtualMethod(Chronology$1, getLong, int64_t, $TemporalField*)},
+	{"isSupported", "(Ljava/time/temporal/TemporalField;)Z", nullptr, $PUBLIC, $virtualMethod(Chronology$1, isSupported, bool, $TemporalField*)},
+	{"query", "(Ljava/time/temporal/TemporalQuery;)Ljava/lang/Object;", "<R:Ljava/lang/Object;>(Ljava/time/temporal/TemporalQuery<TR;>;)TR;", $PUBLIC, $virtualMethod(Chronology$1, query, $Object*, $TemporalQuery*)},
 	{}
 };
 

@@ -39,8 +39,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Transform$$Lambda$lambda$test1$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Transform$$Lambda$lambda$test1$0::*)()>(&Transform$$Lambda$lambda$test1$0::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Transform$$Lambda$lambda$test1$0, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Transform$$Lambda$lambda$test1$0, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Transform$$Lambda$lambda$test1$0::classInfo$ = {
@@ -72,8 +72,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Transform$$Lambda$lambda$test1$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Transform$$Lambda$lambda$test1$1$1::*)()>(&Transform$$Lambda$lambda$test1$1$1::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Transform$$Lambda$lambda$test1$1$1, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Transform$$Lambda$lambda$test1$1$1, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Transform$$Lambda$lambda$test1$1$1::classInfo$ = {
@@ -105,8 +105,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Transform$$Lambda$lambda$test1$2$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Transform$$Lambda$lambda$test1$2$2::*)()>(&Transform$$Lambda$lambda$test1$2$2::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Transform$$Lambda$lambda$test1$2$2, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Transform$$Lambda$lambda$test1$2$2, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Transform$$Lambda$lambda$test1$2$2::classInfo$ = {
@@ -138,8 +138,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Transform$$Lambda$lambda$test1$5$3::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Transform$$Lambda$lambda$test1$5$3::*)()>(&Transform$$Lambda$lambda$test1$5$3::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Transform$$Lambda$lambda$test1$5$3, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Transform$$Lambda$lambda$test1$5$3, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Transform$$Lambda$lambda$test1$5$3::classInfo$ = {
@@ -171,8 +171,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Transform$$Lambda$lambda$test1$4$4::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Transform$$Lambda$lambda$test1$4$4::*)()>(&Transform$$Lambda$lambda$test1$4$4::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Transform$$Lambda$lambda$test1$4$4, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Transform$$Lambda$lambda$test1$4$4, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Transform$$Lambda$lambda$test1$4$4::classInfo$ = {
@@ -204,8 +204,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Transform$$Lambda$lambda$test1$3$5::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Transform$$Lambda$lambda$test1$3$5::*)()>(&Transform$$Lambda$lambda$test1$3$5::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Transform$$Lambda$lambda$test1$3$5, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Transform$$Lambda$lambda$test1$3$5, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Transform$$Lambda$lambda$test1$3$5::classInfo$ = {
@@ -223,17 +223,17 @@ $Class* Transform$$Lambda$lambda$test1$3$5::load$($String* name, bool initialize
 $Class* Transform$$Lambda$lambda$test1$3$5::class$ = nullptr;
 
 $MethodInfo _Transform_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Transform::*)()>(&Transform::init$))},
-	{"check", "(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $STATIC, $method(static_cast<void(*)($String*,Object$*,Object$*)>(&Transform::check))},
-	{"lambda$test1$0", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$String*(*)($String*)>(&Transform::lambda$test1$0))},
-	{"lambda$test1$1", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$String*(*)($String*)>(&Transform::lambda$test1$1))},
-	{"lambda$test1$2", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$String*(*)($String*)>(&Transform::lambda$test1$2))},
-	{"lambda$test1$3", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$String*(*)($String*)>(&Transform::lambda$test1$3))},
-	{"lambda$test1$4", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$String*(*)($String*)>(&Transform::lambda$test1$4))},
-	{"lambda$test1$5", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$String*(*)($String*)>(&Transform::lambda$test1$5))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Transform::main))},
-	{"simpleTransform", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/function/Function;)V", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/function/Function<Ljava/lang/String;Ljava/lang/String;>;)V", $STATIC, $method(static_cast<void(*)($String*,$String*,$Function*)>(&Transform::simpleTransform))},
-	{"test1", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&Transform::test1))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Transform, init$, void)},
+	{"check", "(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $STATIC, $staticMethod(Transform, check, void, $String*, Object$*, Object$*)},
+	{"lambda$test1$0", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Transform, lambda$test1$0, $String*, $String*)},
+	{"lambda$test1$1", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Transform, lambda$test1$1, $String*, $String*)},
+	{"lambda$test1$2", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Transform, lambda$test1$2, $String*, $String*)},
+	{"lambda$test1$3", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Transform, lambda$test1$3, $String*, $String*)},
+	{"lambda$test1$4", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Transform, lambda$test1$4, $String*, $String*)},
+	{"lambda$test1$5", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Transform, lambda$test1$5, $String*, $String*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Transform, main, void, $StringArray*)},
+	{"simpleTransform", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/function/Function;)V", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/function/Function<Ljava/lang/String;Ljava/lang/String;>;)V", $STATIC, $staticMethod(Transform, simpleTransform, void, $String*, $String*, $Function*)},
+	{"test1", "()V", nullptr, $STATIC, $staticMethod(Transform, test1, void)},
 	{}
 };
 

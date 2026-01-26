@@ -68,8 +68,8 @@ $FieldInfo CharSequence$$Lambda$lambda$chars$0::fieldInfos[2] = {
 	{}
 };
 $MethodInfo CharSequence$$Lambda$lambda$chars$0::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/CharSequence;)V", nullptr, $PUBLIC, $method(static_cast<void(CharSequence$$Lambda$lambda$chars$0::*)(CharSequence*)>(&CharSequence$$Lambda$lambda$chars$0::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/CharSequence;)V", nullptr, $PUBLIC, $method(CharSequence$$Lambda$lambda$chars$0, init$, void, CharSequence*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(CharSequence$$Lambda$lambda$chars$0, get, $Object*)},
 	{}
 };
 $ClassInfo CharSequence$$Lambda$lambda$chars$0::classInfo$ = {
@@ -108,8 +108,8 @@ $FieldInfo CharSequence$$Lambda$lambda$codePoints$1$1::fieldInfos[2] = {
 	{}
 };
 $MethodInfo CharSequence$$Lambda$lambda$codePoints$1$1::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/CharSequence;)V", nullptr, $PUBLIC, $method(static_cast<void(CharSequence$$Lambda$lambda$codePoints$1$1::*)(CharSequence*)>(&CharSequence$$Lambda$lambda$codePoints$1$1::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/CharSequence;)V", nullptr, $PUBLIC, $method(CharSequence$$Lambda$lambda$codePoints$1$1, init$, void, CharSequence*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(CharSequence$$Lambda$lambda$codePoints$1$1, get, $Object*)},
 	{}
 };
 $ClassInfo CharSequence$$Lambda$lambda$codePoints$1$1::classInfo$ = {
@@ -127,15 +127,15 @@ $Class* CharSequence$$Lambda$lambda$codePoints$1$1::load$($String* name, bool in
 $Class* CharSequence$$Lambda$lambda$codePoints$1$1::class$ = nullptr;
 
 $MethodInfo _CharSequence_MethodInfo_[] = {
-	{"charAt", "(I)C", nullptr, $PUBLIC | $ABSTRACT},
-	{"chars", "()Ljava/util/stream/IntStream;", nullptr, $PUBLIC},
-	{"codePoints", "()Ljava/util/stream/IntStream;", nullptr, $PUBLIC},
-	{"compare", "(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)I", nullptr, $PUBLIC | $STATIC, $method(static_cast<int32_t(*)(CharSequence*,CharSequence*)>(&CharSequence::compare))},
-	{"isEmpty", "()Z", nullptr, $PUBLIC},
-	{"lambda$chars$0", "()Ljava/util/Spliterator$OfInt;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$Spliterator$OfInt*(CharSequence::*)()>(&CharSequence::lambda$chars$0))},
-	{"lambda$codePoints$1", "()Ljava/util/Spliterator$OfInt;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$Spliterator$OfInt*(CharSequence::*)()>(&CharSequence::lambda$codePoints$1))},
-	{"length", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"subSequence", "(II)Ljava/lang/CharSequence;", nullptr, $PUBLIC | $ABSTRACT},
+	{"charAt", "(I)C", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CharSequence, charAt, char16_t, int32_t)},
+	{"chars", "()Ljava/util/stream/IntStream;", nullptr, $PUBLIC, $virtualMethod(CharSequence, chars, $IntStream*)},
+	{"codePoints", "()Ljava/util/stream/IntStream;", nullptr, $PUBLIC, $virtualMethod(CharSequence, codePoints, $IntStream*)},
+	{"compare", "(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(CharSequence, compare, int32_t, CharSequence*, CharSequence*)},
+	{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(CharSequence, isEmpty, bool)},
+	{"lambda$chars$0", "()Ljava/util/Spliterator$OfInt;", nullptr, $PRIVATE | $SYNTHETIC, $method(CharSequence, lambda$chars$0, $Spliterator$OfInt*)},
+	{"lambda$codePoints$1", "()Ljava/util/Spliterator$OfInt;", nullptr, $PRIVATE | $SYNTHETIC, $method(CharSequence, lambda$codePoints$1, $Spliterator$OfInt*)},
+	{"length", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CharSequence, length, int32_t)},
+	{"subSequence", "(II)Ljava/lang/CharSequence;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CharSequence, subSequence, CharSequence*, int32_t, int32_t)},
 	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
 	{}
 };

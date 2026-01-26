@@ -26,9 +26,9 @@ $FieldInfo _B6896088_FieldInfo_[] = {
 };
 
 $MethodInfo _B6896088_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(B6896088::*)()>(&B6896088::init$))},
-	{"bytes", "([I)[B", nullptr, $STATIC, $method(static_cast<$bytes*(*)($ints*)>(&B6896088::bytes))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&B6896088::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(B6896088, init$, void)},
+	{"bytes", "([I)[B", nullptr, $STATIC, $staticMethod(B6896088, bytes, $bytes*, $ints*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(B6896088, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

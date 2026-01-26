@@ -29,7 +29,7 @@ $FieldInfo _GoldenDoubleValues_FieldInfo_[] = {
 };
 
 $MethodInfo _GoldenDoubleValues_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(GoldenDoubleValues::*)()>(&GoldenDoubleValues::init$))},
+	{"<init>", "()V", nullptr, 0, $method(GoldenDoubleValues, init$, void)},
 	{}
 };
 

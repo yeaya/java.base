@@ -39,7 +39,7 @@ $CompoundAttribute _SuppressWarnings_Annotations_[] = {
 };
 
 $MethodInfo _SuppressWarnings_MethodInfo_[] = {
-	{"value", "()[Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
+	{"value", "()[Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SuppressWarnings, value, $StringArray*)},
 	{}
 };
 

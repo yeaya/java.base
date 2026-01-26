@@ -18,7 +18,7 @@ $FieldInfo _AlreadyConnectedException_FieldInfo_[] = {
 };
 
 $MethodInfo _AlreadyConnectedException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(AlreadyConnectedException::*)()>(&AlreadyConnectedException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(AlreadyConnectedException, init$, void)},
 	{}
 };
 

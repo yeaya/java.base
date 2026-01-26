@@ -40,13 +40,13 @@ $FieldInfo _ReferenceQueue_FieldInfo_[] = {
 };
 
 $MethodInfo _ReferenceQueue_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ReferenceQueue::*)()>(&ReferenceQueue::init$))},
-	{"enqueue", "(Ljava/lang/ref/Reference;)Z", "(Ljava/lang/ref/Reference<+TT;>;)Z", 0},
-	{"forEach", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-Ljava/lang/ref/Reference<+TT;>;>;)V", 0},
-	{"poll", "()Ljava/lang/ref/Reference;", "()Ljava/lang/ref/Reference<+TT;>;", $PUBLIC},
-	{"reallyPoll", "()Ljava/lang/ref/Reference;", "()Ljava/lang/ref/Reference<+TT;>;", $PRIVATE, $method(static_cast<$Reference*(ReferenceQueue::*)()>(&ReferenceQueue::reallyPoll))},
-	{"remove", "(J)Ljava/lang/ref/Reference;", "(J)Ljava/lang/ref/Reference<+TT;>;", $PUBLIC, nullptr, "java.lang.IllegalArgumentException,java.lang.InterruptedException"},
-	{"remove", "()Ljava/lang/ref/Reference;", "()Ljava/lang/ref/Reference<+TT;>;", $PUBLIC, nullptr, "java.lang.InterruptedException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ReferenceQueue, init$, void)},
+	{"enqueue", "(Ljava/lang/ref/Reference;)Z", "(Ljava/lang/ref/Reference<+TT;>;)Z", 0, $virtualMethod(ReferenceQueue, enqueue, bool, $Reference*)},
+	{"forEach", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-Ljava/lang/ref/Reference<+TT;>;>;)V", 0, $virtualMethod(ReferenceQueue, forEach, void, $Consumer*)},
+	{"poll", "()Ljava/lang/ref/Reference;", "()Ljava/lang/ref/Reference<+TT;>;", $PUBLIC, $virtualMethod(ReferenceQueue, poll, $Reference*)},
+	{"reallyPoll", "()Ljava/lang/ref/Reference;", "()Ljava/lang/ref/Reference<+TT;>;", $PRIVATE, $method(ReferenceQueue, reallyPoll, $Reference*)},
+	{"remove", "(J)Ljava/lang/ref/Reference;", "(J)Ljava/lang/ref/Reference<+TT;>;", $PUBLIC, $virtualMethod(ReferenceQueue, remove, $Reference*, int64_t), "java.lang.IllegalArgumentException,java.lang.InterruptedException"},
+	{"remove", "()Ljava/lang/ref/Reference;", "()Ljava/lang/ref/Reference<+TT;>;", $PUBLIC, $virtualMethod(ReferenceQueue, remove, $Reference*), "java.lang.InterruptedException"},
 	{}
 };
 

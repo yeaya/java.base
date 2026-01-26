@@ -14,9 +14,9 @@ using $Method = ::java::lang::reflect::Method;
 using $Parameter = ::java::lang::reflect::Parameter;
 
 $MethodInfo _GetAnnotatedTypeTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(GetAnnotatedTypeTest::*)()>(&GetAnnotatedTypeTest::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&GetAnnotatedTypeTest::main)), "java.lang.NoSuchMethodException"},
-	{"meth", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(GetAnnotatedTypeTest, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(GetAnnotatedTypeTest, main, void, $StringArray*), "java.lang.NoSuchMethodException"},
+	{"meth", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(GetAnnotatedTypeTest, meth, void, Object$*)},
 	{}
 };
 

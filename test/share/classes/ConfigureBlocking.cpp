@@ -20,8 +20,8 @@ using $SocketChannel = ::java::nio::channels::SocketChannel;
 using $AbstractSelectableChannel = ::java::nio::channels::spi::AbstractSelectableChannel;
 
 $MethodInfo _ConfigureBlocking_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ConfigureBlocking::*)()>(&ConfigureBlocking::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&ConfigureBlocking::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ConfigureBlocking, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ConfigureBlocking, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

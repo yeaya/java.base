@@ -54,10 +54,10 @@ $FieldInfo _EnclosingConstructorTests_FieldInfo_[] = {
 };
 
 $MethodInfo _EnclosingConstructorTests_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(EnclosingConstructorTests::*)()>(&EnclosingConstructorTests::init$)), nullptr, nullptr, _EnclosingConstructorTests_MethodAnnotations_init$0},
-	{"<init>", "(I)V", nullptr, $PRIVATE, $method(static_cast<void(EnclosingConstructorTests::*)(int32_t)>(&EnclosingConstructorTests::init$)), nullptr, nullptr, _EnclosingConstructorTests_MethodAnnotations_init$1},
-	{"examine", "(Ljava/lang/Class;Ljava/lang/String;)I", "(Ljava/lang/Class<*>;Ljava/lang/String;)I", $STATIC, $method(static_cast<int32_t(*)($Class*,$String*)>(&EnclosingConstructorTests::examine))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&EnclosingConstructorTests::main))},
+	{"<init>", "()V", nullptr, 0, $method(EnclosingConstructorTests, init$, void), nullptr, nullptr, _EnclosingConstructorTests_MethodAnnotations_init$0},
+	{"<init>", "(I)V", nullptr, $PRIVATE, $method(EnclosingConstructorTests, init$, void, int32_t), nullptr, nullptr, _EnclosingConstructorTests_MethodAnnotations_init$1},
+	{"examine", "(Ljava/lang/Class;Ljava/lang/String;)I", "(Ljava/lang/Class<*>;Ljava/lang/String;)I", $STATIC, $staticMethod(EnclosingConstructorTests, examine, int32_t, $Class*, $String*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(EnclosingConstructorTests, main, void, $StringArray*)},
 	{}
 };
 

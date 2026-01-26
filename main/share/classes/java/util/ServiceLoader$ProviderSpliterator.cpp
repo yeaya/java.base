@@ -37,11 +37,11 @@ $FieldInfo _ServiceLoader$ProviderSpliterator_FieldInfo_[] = {
 };
 
 $MethodInfo _ServiceLoader$ProviderSpliterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/ServiceLoader;Ljava/util/Iterator;)V", "(Ljava/util/Iterator<Ljava/util/ServiceLoader$Provider<TT;>;>;)V", 0, $method(static_cast<void(ServiceLoader$ProviderSpliterator::*)($ServiceLoader*,$Iterator*)>(&ServiceLoader$ProviderSpliterator::init$))},
-	{"characteristics", "()I", nullptr, $PUBLIC},
-	{"estimateSize", "()J", nullptr, $PUBLIC},
-	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-Ljava/util/ServiceLoader$Provider<TT;>;>;)Z", $PUBLIC},
-	{"trySplit", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<Ljava/util/ServiceLoader$Provider<TT;>;>;", $PUBLIC},
+	{"<init>", "(Ljava/util/ServiceLoader;Ljava/util/Iterator;)V", "(Ljava/util/Iterator<Ljava/util/ServiceLoader$Provider<TT;>;>;)V", 0, $method(ServiceLoader$ProviderSpliterator, init$, void, $ServiceLoader*, $Iterator*)},
+	{"characteristics", "()I", nullptr, $PUBLIC, $virtualMethod(ServiceLoader$ProviderSpliterator, characteristics, int32_t)},
+	{"estimateSize", "()J", nullptr, $PUBLIC, $virtualMethod(ServiceLoader$ProviderSpliterator, estimateSize, int64_t)},
+	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-Ljava/util/ServiceLoader$Provider<TT;>;>;)Z", $PUBLIC, $virtualMethod(ServiceLoader$ProviderSpliterator, tryAdvance, bool, $Consumer*)},
+	{"trySplit", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<Ljava/util/ServiceLoader$Provider<TT;>;>;", $PUBLIC, $virtualMethod(ServiceLoader$ProviderSpliterator, trySplit, $Spliterator*)},
 	{}
 };
 

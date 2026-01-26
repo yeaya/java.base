@@ -25,8 +25,8 @@ $FieldInfo _Pattern$GroupTail_FieldInfo_[] = {
 };
 
 $MethodInfo _Pattern$GroupTail_MethodInfo_[] = {
-	{"<init>", "(II)V", nullptr, 0, $method(static_cast<void(Pattern$GroupTail::*)(int32_t,int32_t)>(&Pattern$GroupTail::init$))},
-	{"match", "(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z", nullptr, 0},
+	{"<init>", "(II)V", nullptr, 0, $method(Pattern$GroupTail, init$, void, int32_t, int32_t)},
+	{"match", "(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z", nullptr, 0, $virtualMethod(Pattern$GroupTail, match, bool, $Matcher*, int32_t, $CharSequence*)},
 	{}
 };
 

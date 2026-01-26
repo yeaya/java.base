@@ -21,8 +21,8 @@ $FieldInfo _PutAllAction_FieldInfo_[] = {
 };
 
 $MethodInfo _PutAllAction_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/Provider;Ljava/util/Map;)V", "(Ljava/security/Provider;Ljava/util/Map<**>;)V", $PUBLIC, $method(static_cast<void(PutAllAction::*)($Provider*,$Map*)>(&PutAllAction::init$))},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/security/Provider;Ljava/util/Map;)V", "(Ljava/security/Provider;Ljava/util/Map<**>;)V", $PUBLIC, $method(PutAllAction, init$, void, $Provider*, $Map*)},
+	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(PutAllAction, run, $Object*)},
 	{}
 };
 

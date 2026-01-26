@@ -13,8 +13,8 @@ namespace jdk {
 		namespace reflect {
 
 $MethodInfo _ReflectionFactory$GetReflectionFactoryAction_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ReflectionFactory$GetReflectionFactoryAction::*)()>(&ReflectionFactory$GetReflectionFactoryAction::init$))},
-	{"run", "()Ljdk/internal/reflect/ReflectionFactory;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ReflectionFactory$GetReflectionFactoryAction, init$, void)},
+	{"run", "()Ljdk/internal/reflect/ReflectionFactory;", nullptr, $PUBLIC, $virtualMethod(ReflectionFactory$GetReflectionFactoryAction, run, $Object*)},
 	{}
 };
 

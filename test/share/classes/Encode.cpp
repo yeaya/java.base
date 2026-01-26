@@ -45,9 +45,9 @@ $FieldInfo _Encode_FieldInfo_[] = {
 };
 
 $MethodInfo _Encode_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Encode::*)()>(&Encode::init$)), "java.lang.Exception"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Encode::main)), "java.lang.Exception"},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(Encode, init$, void), "java.lang.Exception"},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Encode, main, void, $StringArray*), "java.lang.Exception"},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Encode, run, void)},
 	{}
 };
 

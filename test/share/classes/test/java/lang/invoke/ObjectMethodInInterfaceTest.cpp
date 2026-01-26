@@ -22,8 +22,8 @@ namespace test {
 			namespace invoke {
 
 $MethodInfo _ObjectMethodInInterfaceTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ObjectMethodInInterfaceTest::*)()>(&ObjectMethodInInterfaceTest::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&ObjectMethodInInterfaceTest::main)), "java.lang.Throwable"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ObjectMethodInInterfaceTest, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ObjectMethodInInterfaceTest, main, void, $StringArray*), "java.lang.Throwable"},
 	{}
 };
 

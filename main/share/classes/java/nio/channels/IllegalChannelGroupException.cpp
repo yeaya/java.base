@@ -17,7 +17,7 @@ $FieldInfo _IllegalChannelGroupException_FieldInfo_[] = {
 };
 
 $MethodInfo _IllegalChannelGroupException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(IllegalChannelGroupException::*)()>(&IllegalChannelGroupException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(IllegalChannelGroupException, init$, void)},
 	{}
 };
 

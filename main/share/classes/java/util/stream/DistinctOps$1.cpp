@@ -101,8 +101,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo DistinctOps$1$$Lambda$LinkedHashSet::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DistinctOps$1$$Lambda$LinkedHashSet::*)()>(&DistinctOps$1$$Lambda$LinkedHashSet::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DistinctOps$1$$Lambda$LinkedHashSet, init$, void)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DistinctOps$1$$Lambda$LinkedHashSet, get, $Object*)},
 	{}
 };
 $ClassInfo DistinctOps$1$$Lambda$LinkedHashSet::classInfo$ = {
@@ -134,8 +134,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo DistinctOps$1$$Lambda$add$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DistinctOps$1$$Lambda$add$1::*)()>(&DistinctOps$1$$Lambda$add$1::init$))},
-	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DistinctOps$1$$Lambda$add$1, init$, void)},
+	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(DistinctOps$1$$Lambda$add$1, accept, void, Object$*, Object$*)},
 	{}
 };
 $ClassInfo DistinctOps$1$$Lambda$add$1::classInfo$ = {
@@ -167,8 +167,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo DistinctOps$1$$Lambda$addAll$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DistinctOps$1$$Lambda$addAll$2::*)()>(&DistinctOps$1$$Lambda$addAll$2::init$))},
-	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DistinctOps$1$$Lambda$addAll$2, init$, void)},
+	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(DistinctOps$1$$Lambda$addAll$2, accept, void, Object$*, Object$*)},
 	{}
 };
 $ClassInfo DistinctOps$1$$Lambda$addAll$2::classInfo$ = {
@@ -210,8 +210,8 @@ $FieldInfo DistinctOps$1$$Lambda$lambda$opEvaluateParallel$0$3::fieldInfos[3] = 
 	{}
 };
 $MethodInfo DistinctOps$1$$Lambda$lambda$opEvaluateParallel$0$3::methodInfos[3] = {
-	{"<init>", "(Ljava/util/concurrent/atomic/AtomicBoolean;Ljava/util/concurrent/ConcurrentHashMap;)V", nullptr, $PUBLIC, $method(static_cast<void(DistinctOps$1$$Lambda$lambda$opEvaluateParallel$0$3::*)($AtomicBoolean*,$ConcurrentHashMap*)>(&DistinctOps$1$$Lambda$lambda$opEvaluateParallel$0$3::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/concurrent/atomic/AtomicBoolean;Ljava/util/concurrent/ConcurrentHashMap;)V", nullptr, $PUBLIC, $method(DistinctOps$1$$Lambda$lambda$opEvaluateParallel$0$3, init$, void, $AtomicBoolean*, $ConcurrentHashMap*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(DistinctOps$1$$Lambda$lambda$opEvaluateParallel$0$3, accept, void, Object$*)},
 	{}
 };
 $ClassInfo DistinctOps$1$$Lambda$lambda$opEvaluateParallel$0$3::classInfo$ = {
@@ -229,12 +229,12 @@ $Class* DistinctOps$1$$Lambda$lambda$opEvaluateParallel$0$3::load$($String* name
 $Class* DistinctOps$1$$Lambda$lambda$opEvaluateParallel$0$3::class$ = nullptr;
 
 $MethodInfo _DistinctOps$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/stream/AbstractPipeline;Ljava/util/stream/StreamShape;I)V", nullptr, 0, $method(static_cast<void(DistinctOps$1::*)($AbstractPipeline*,$StreamShape*,int32_t)>(&DistinctOps$1::init$))},
-	{"lambda$opEvaluateParallel$0", "(Ljava/util/concurrent/atomic/AtomicBoolean;Ljava/util/concurrent/ConcurrentHashMap;Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($AtomicBoolean*,$ConcurrentHashMap*,Object$*)>(&DistinctOps$1::lambda$opEvaluateParallel$0))},
-	{"opEvaluateParallel", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;Ljava/util/function/IntFunction;)Ljava/util/stream/Node;", "<P_IN:Ljava/lang/Object;>(Ljava/util/stream/PipelineHelper<TT;>;Ljava/util/Spliterator<TP_IN;>;Ljava/util/function/IntFunction<[TT;>;)Ljava/util/stream/Node<TT;>;", 0},
-	{"opEvaluateParallelLazy", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;)Ljava/util/Spliterator;", "<P_IN:Ljava/lang/Object;>(Ljava/util/stream/PipelineHelper<TT;>;Ljava/util/Spliterator<TP_IN;>;)Ljava/util/Spliterator<TT;>;", 0},
-	{"opWrapSink", "(ILjava/util/stream/Sink;)Ljava/util/stream/Sink;", "(ILjava/util/stream/Sink<TT;>;)Ljava/util/stream/Sink<TT;>;", 0},
-	{"reduce", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;)Ljava/util/stream/Node;", "<P_IN:Ljava/lang/Object;>(Ljava/util/stream/PipelineHelper<TT;>;Ljava/util/Spliterator<TP_IN;>;)Ljava/util/stream/Node<TT;>;", 0},
+	{"<init>", "(Ljava/util/stream/AbstractPipeline;Ljava/util/stream/StreamShape;I)V", nullptr, 0, $method(DistinctOps$1, init$, void, $AbstractPipeline*, $StreamShape*, int32_t)},
+	{"lambda$opEvaluateParallel$0", "(Ljava/util/concurrent/atomic/AtomicBoolean;Ljava/util/concurrent/ConcurrentHashMap;Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DistinctOps$1, lambda$opEvaluateParallel$0, void, $AtomicBoolean*, $ConcurrentHashMap*, Object$*)},
+	{"opEvaluateParallel", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;Ljava/util/function/IntFunction;)Ljava/util/stream/Node;", "<P_IN:Ljava/lang/Object;>(Ljava/util/stream/PipelineHelper<TT;>;Ljava/util/Spliterator<TP_IN;>;Ljava/util/function/IntFunction<[TT;>;)Ljava/util/stream/Node<TT;>;", 0, $virtualMethod(DistinctOps$1, opEvaluateParallel, $Node*, $PipelineHelper*, $Spliterator*, $IntFunction*)},
+	{"opEvaluateParallelLazy", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;)Ljava/util/Spliterator;", "<P_IN:Ljava/lang/Object;>(Ljava/util/stream/PipelineHelper<TT;>;Ljava/util/Spliterator<TP_IN;>;)Ljava/util/Spliterator<TT;>;", 0, $virtualMethod(DistinctOps$1, opEvaluateParallelLazy, $Spliterator*, $PipelineHelper*, $Spliterator*)},
+	{"opWrapSink", "(ILjava/util/stream/Sink;)Ljava/util/stream/Sink;", "(ILjava/util/stream/Sink<TT;>;)Ljava/util/stream/Sink<TT;>;", 0, $virtualMethod(DistinctOps$1, opWrapSink, $Sink*, int32_t, $Sink*)},
+	{"reduce", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;)Ljava/util/stream/Node;", "<P_IN:Ljava/lang/Object;>(Ljava/util/stream/PipelineHelper<TT;>;Ljava/util/Spliterator<TP_IN;>;)Ljava/util/stream/Node<TT;>;", 0, $virtualMethod(DistinctOps$1, reduce, $Node*, $PipelineHelper*, $Spliterator*)},
 	{}
 };
 

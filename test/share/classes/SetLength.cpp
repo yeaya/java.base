@@ -10,8 +10,8 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $StringBuffer = ::java::lang::StringBuffer;
 
 $MethodInfo _SetLength_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SetLength::*)()>(&SetLength::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&SetLength::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SetLength, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SetLength, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

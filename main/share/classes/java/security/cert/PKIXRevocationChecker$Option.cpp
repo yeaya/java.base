@@ -30,10 +30,10 @@ $FieldInfo _PKIXRevocationChecker$Option_FieldInfo_[] = {
 };
 
 $MethodInfo _PKIXRevocationChecker$Option_MethodInfo_[] = {
-	{"$values", "()[Ljava/security/cert/PKIXRevocationChecker$Option;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$PKIXRevocationChecker$OptionArray*(*)()>(&PKIXRevocationChecker$Option::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(PKIXRevocationChecker$Option::*)($String*,int32_t)>(&PKIXRevocationChecker$Option::init$))},
-	{"valueOf", "(Ljava/lang/String;)Ljava/security/cert/PKIXRevocationChecker$Option;", nullptr, $PUBLIC | $STATIC, $method(static_cast<PKIXRevocationChecker$Option*(*)($String*)>(&PKIXRevocationChecker$Option::valueOf))},
-	{"values", "()[Ljava/security/cert/PKIXRevocationChecker$Option;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$PKIXRevocationChecker$OptionArray*(*)()>(&PKIXRevocationChecker$Option::values))},
+	{"$values", "()[Ljava/security/cert/PKIXRevocationChecker$Option;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(PKIXRevocationChecker$Option, $values, $PKIXRevocationChecker$OptionArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(PKIXRevocationChecker$Option, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Ljava/security/cert/PKIXRevocationChecker$Option;", nullptr, $PUBLIC | $STATIC, $staticMethod(PKIXRevocationChecker$Option, valueOf, PKIXRevocationChecker$Option*, $String*)},
+	{"values", "()[Ljava/security/cert/PKIXRevocationChecker$Option;", nullptr, $PUBLIC | $STATIC, $staticMethod(PKIXRevocationChecker$Option, values, $PKIXRevocationChecker$OptionArray*)},
 	{}
 };
 

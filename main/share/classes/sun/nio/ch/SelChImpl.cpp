@@ -8,24 +8,26 @@
 
 #undef NANOSECONDS
 
+using $FileDescriptor = ::java::io::FileDescriptor;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $TimeUnit = ::java::util::concurrent::TimeUnit;
 using $Net = ::sun::nio::ch::Net;
+using $SelectionKeyImpl = ::sun::nio::ch::SelectionKeyImpl;
 
 namespace sun {
 	namespace nio {
 		namespace ch {
 
 $MethodInfo _SelChImpl_MethodInfo_[] = {
-	{"getFD", "()Ljava/io/FileDescriptor;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getFDVal", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"kill", "()V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"park", "(IJ)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"park", "(I)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"translateAndSetReadyOps", "(ILsun/nio/ch/SelectionKeyImpl;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"translateAndUpdateReadyOps", "(ILsun/nio/ch/SelectionKeyImpl;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"translateInterestOps", "(I)I", nullptr, $PUBLIC | $ABSTRACT},
+	{"getFD", "()Ljava/io/FileDescriptor;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SelChImpl, getFD, $FileDescriptor*)},
+	{"getFDVal", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SelChImpl, getFDVal, int32_t)},
+	{"kill", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SelChImpl, kill, void), "java.io.IOException"},
+	{"park", "(IJ)V", nullptr, $PUBLIC, $virtualMethod(SelChImpl, park, void, int32_t, int64_t), "java.io.IOException"},
+	{"park", "(I)V", nullptr, $PUBLIC, $virtualMethod(SelChImpl, park, void, int32_t), "java.io.IOException"},
+	{"translateAndSetReadyOps", "(ILsun/nio/ch/SelectionKeyImpl;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SelChImpl, translateAndSetReadyOps, bool, int32_t, $SelectionKeyImpl*)},
+	{"translateAndUpdateReadyOps", "(ILsun/nio/ch/SelectionKeyImpl;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SelChImpl, translateAndUpdateReadyOps, bool, int32_t, $SelectionKeyImpl*)},
+	{"translateInterestOps", "(I)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SelChImpl, translateInterestOps, int32_t, int32_t)},
 	{}
 };
 

@@ -37,9 +37,9 @@ $FieldInfo _CodePointTrie$Fast$FastStringIterator_FieldInfo_[] = {
 };
 
 $MethodInfo _CodePointTrie$Fast$FastStringIterator_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/icu/util/CodePointTrie$Fast;Ljava/lang/CharSequence;I)V", nullptr, $PRIVATE, $method(static_cast<void(CodePointTrie$Fast$FastStringIterator::*)($CodePointTrie$Fast*,$CharSequence*,int32_t)>(&CodePointTrie$Fast$FastStringIterator::init$))},
-	{"next", "()Z", nullptr, $PUBLIC},
-	{"previous", "()Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/icu/util/CodePointTrie$Fast;Ljava/lang/CharSequence;I)V", nullptr, $PRIVATE, $method(CodePointTrie$Fast$FastStringIterator, init$, void, $CodePointTrie$Fast*, $CharSequence*, int32_t)},
+	{"next", "()Z", nullptr, $PUBLIC, $virtualMethod(CodePointTrie$Fast$FastStringIterator, next, bool)},
+	{"previous", "()Z", nullptr, $PUBLIC, $virtualMethod(CodePointTrie$Fast$FastStringIterator, previous, bool)},
 	{}
 };
 

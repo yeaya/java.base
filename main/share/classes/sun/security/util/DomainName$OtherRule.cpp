@@ -28,7 +28,7 @@ $FieldInfo _DomainName$OtherRule_FieldInfo_[] = {
 };
 
 $MethodInfo _DomainName$OtherRule_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Lsun/security/util/RegisteredDomain$Type;Ljava/util/List;)V", "(Ljava/lang/String;Lsun/security/util/RegisteredDomain$Type;Ljava/util/List<Ljava/lang/String;>;)V", 0, $method(static_cast<void(DomainName$OtherRule::*)($String*,$RegisteredDomain$Type*,$List*)>(&DomainName$OtherRule::init$))},
+	{"<init>", "(Ljava/lang/String;Lsun/security/util/RegisteredDomain$Type;Ljava/util/List;)V", "(Ljava/lang/String;Lsun/security/util/RegisteredDomain$Type;Ljava/util/List<Ljava/lang/String;>;)V", 0, $method(DomainName$OtherRule, init$, void, $String*, $RegisteredDomain$Type*, $List*)},
 	{}
 };
 

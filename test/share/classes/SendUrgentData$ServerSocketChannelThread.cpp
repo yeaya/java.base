@@ -31,10 +31,10 @@ $FieldInfo _SendUrgentData$ServerSocketChannelThread_FieldInfo_[] = {
 };
 
 $MethodInfo _SendUrgentData$ServerSocketChannelThread_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(static_cast<void(SendUrgentData$ServerSocketChannelThread::*)($String*)>(&SendUrgentData$ServerSocketChannelThread::init$))},
-	{"close", "()V", nullptr, $PUBLIC},
-	{"getAddress", "()Ljava/net/InetSocketAddress;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(SendUrgentData$ServerSocketChannelThread, init$, void, $String*)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(SendUrgentData$ServerSocketChannelThread, close, void)},
+	{"getAddress", "()Ljava/net/InetSocketAddress;", nullptr, $PUBLIC, $virtualMethod(SendUrgentData$ServerSocketChannelThread, getAddress, $InetSocketAddress*), "java.io.IOException"},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(SendUrgentData$ServerSocketChannelThread, run, void)},
 	{}
 };
 

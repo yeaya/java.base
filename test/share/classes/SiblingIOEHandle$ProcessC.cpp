@@ -28,9 +28,9 @@ $FieldInfo _SiblingIOEHandle$ProcessC_FieldInfo_[] = {
 };
 
 $MethodInfo _SiblingIOEHandle$ProcessC_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/CyclicBarrier;)V", nullptr, $PUBLIC, $method(static_cast<void(SiblingIOEHandle$ProcessC::*)($CyclicBarrier*)>(&SiblingIOEHandle$ProcessC::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
-	{"waitFor", "()V", nullptr, $PUBLIC, nullptr, "java.lang.InterruptedException"},
+	{"<init>", "(Ljava/util/concurrent/CyclicBarrier;)V", nullptr, $PUBLIC, $method(SiblingIOEHandle$ProcessC, init$, void, $CyclicBarrier*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(SiblingIOEHandle$ProcessC, run, void)},
+	{"waitFor", "()V", nullptr, $PUBLIC, $virtualMethod(SiblingIOEHandle$ProcessC, waitFor, void), "java.lang.InterruptedException"},
 	{}
 };
 

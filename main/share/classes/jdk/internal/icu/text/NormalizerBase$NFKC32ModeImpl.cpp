@@ -30,7 +30,7 @@ $FieldInfo _NormalizerBase$NFKC32ModeImpl_FieldInfo_[] = {
 };
 
 $MethodInfo _NormalizerBase$NFKC32ModeImpl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(NormalizerBase$NFKC32ModeImpl::*)()>(&NormalizerBase$NFKC32ModeImpl::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(NormalizerBase$NFKC32ModeImpl, init$, void)},
 	{}
 };
 

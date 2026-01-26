@@ -47,11 +47,11 @@ $FieldInfo _RoundingMode_FieldInfo_[] = {
 };
 
 $MethodInfo _RoundingMode_MethodInfo_[] = {
-	{"$values", "()[Ljava/math/RoundingMode;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$RoundingModeArray*(*)()>(&RoundingMode::$values))},
-	{"<init>", "(Ljava/lang/String;II)V", "(I)V", $PRIVATE, $method(static_cast<void(RoundingMode::*)($String*,int32_t,int32_t)>(&RoundingMode::init$))},
-	{"valueOf", "(Ljava/lang/String;)Ljava/math/RoundingMode;", nullptr, $PUBLIC | $STATIC, $method(static_cast<RoundingMode*(*)($String*)>(&RoundingMode::valueOf))},
-	{"valueOf", "(I)Ljava/math/RoundingMode;", nullptr, $PUBLIC | $STATIC, $method(static_cast<RoundingMode*(*)(int32_t)>(&RoundingMode::valueOf))},
-	{"values", "()[Ljava/math/RoundingMode;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$RoundingModeArray*(*)()>(&RoundingMode::values))},
+	{"$values", "()[Ljava/math/RoundingMode;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(RoundingMode, $values, $RoundingModeArray*)},
+	{"<init>", "(Ljava/lang/String;II)V", "(I)V", $PRIVATE, $method(RoundingMode, init$, void, $String*, int32_t, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Ljava/math/RoundingMode;", nullptr, $PUBLIC | $STATIC, $staticMethod(RoundingMode, valueOf, RoundingMode*, $String*)},
+	{"valueOf", "(I)Ljava/math/RoundingMode;", nullptr, $PUBLIC | $STATIC, $staticMethod(RoundingMode, valueOf, RoundingMode*, int32_t)},
+	{"values", "()[Ljava/math/RoundingMode;", nullptr, $PUBLIC | $STATIC, $staticMethod(RoundingMode, values, $RoundingModeArray*)},
 	{}
 };
 

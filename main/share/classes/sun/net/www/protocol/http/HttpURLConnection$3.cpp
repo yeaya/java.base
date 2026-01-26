@@ -24,8 +24,8 @@ $FieldInfo _HttpURLConnection$3_FieldInfo_[] = {
 };
 
 $MethodInfo _HttpURLConnection$3_MethodInfo_[] = {
-	{"<init>", "(Lsun/net/www/protocol/http/HttpURLConnection;)V", nullptr, 0, $method(static_cast<void(HttpURLConnection$3::*)($HttpURLConnection*)>(&HttpURLConnection$3::init$))},
-	{"run", "()Ljava/net/ResponseCache;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/net/www/protocol/http/HttpURLConnection;)V", nullptr, 0, $method(HttpURLConnection$3, init$, void, $HttpURLConnection*)},
+	{"run", "()Ljava/net/ResponseCache;", nullptr, $PUBLIC, $virtualMethod(HttpURLConnection$3, run, $Object*)},
 	{}
 };
 

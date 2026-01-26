@@ -18,8 +18,8 @@ using $List = ::java::util::List;
 using $Random = ::java::util::Random;
 
 $MethodInfo _MakeBooleanComparable_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(MakeBooleanComparable::*)()>(&MakeBooleanComparable::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&MakeBooleanComparable::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(MakeBooleanComparable, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(MakeBooleanComparable, main, void, $StringArray*)},
 	{}
 };
 

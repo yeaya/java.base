@@ -50,12 +50,12 @@ $FieldInfo _SynchronousQueue$TransferStack_FieldInfo_[] = {
 };
 
 $MethodInfo _SynchronousQueue$TransferStack_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(SynchronousQueue$TransferStack::*)()>(&SynchronousQueue$TransferStack::init$))},
-	{"casHead", "(Ljava/util/concurrent/SynchronousQueue$TransferStack$SNode;Ljava/util/concurrent/SynchronousQueue$TransferStack$SNode;)Z", nullptr, 0, $method(static_cast<bool(SynchronousQueue$TransferStack::*)($SynchronousQueue$TransferStack$SNode*,$SynchronousQueue$TransferStack$SNode*)>(&SynchronousQueue$TransferStack::casHead))},
-	{"clean", "(Ljava/util/concurrent/SynchronousQueue$TransferStack$SNode;)V", nullptr, 0, $method(static_cast<void(SynchronousQueue$TransferStack::*)($SynchronousQueue$TransferStack$SNode*)>(&SynchronousQueue$TransferStack::clean))},
-	{"isFulfilling", "(I)Z", nullptr, $STATIC, $method(static_cast<bool(*)(int32_t)>(&SynchronousQueue$TransferStack::isFulfilling))},
-	{"snode", "(Ljava/util/concurrent/SynchronousQueue$TransferStack$SNode;Ljava/lang/Object;Ljava/util/concurrent/SynchronousQueue$TransferStack$SNode;I)Ljava/util/concurrent/SynchronousQueue$TransferStack$SNode;", nullptr, $STATIC, $method(static_cast<$SynchronousQueue$TransferStack$SNode*(*)($SynchronousQueue$TransferStack$SNode*,Object$*,$SynchronousQueue$TransferStack$SNode*,int32_t)>(&SynchronousQueue$TransferStack::snode))},
-	{"transfer", "(Ljava/lang/Object;ZJ)Ljava/lang/Object;", "(TE;ZJ)TE;", 0},
+	{"<init>", "()V", nullptr, 0, $method(SynchronousQueue$TransferStack, init$, void)},
+	{"casHead", "(Ljava/util/concurrent/SynchronousQueue$TransferStack$SNode;Ljava/util/concurrent/SynchronousQueue$TransferStack$SNode;)Z", nullptr, 0, $method(SynchronousQueue$TransferStack, casHead, bool, $SynchronousQueue$TransferStack$SNode*, $SynchronousQueue$TransferStack$SNode*)},
+	{"clean", "(Ljava/util/concurrent/SynchronousQueue$TransferStack$SNode;)V", nullptr, 0, $method(SynchronousQueue$TransferStack, clean, void, $SynchronousQueue$TransferStack$SNode*)},
+	{"isFulfilling", "(I)Z", nullptr, $STATIC, $staticMethod(SynchronousQueue$TransferStack, isFulfilling, bool, int32_t)},
+	{"snode", "(Ljava/util/concurrent/SynchronousQueue$TransferStack$SNode;Ljava/lang/Object;Ljava/util/concurrent/SynchronousQueue$TransferStack$SNode;I)Ljava/util/concurrent/SynchronousQueue$TransferStack$SNode;", nullptr, $STATIC, $staticMethod(SynchronousQueue$TransferStack, snode, $SynchronousQueue$TransferStack$SNode*, $SynchronousQueue$TransferStack$SNode*, Object$*, $SynchronousQueue$TransferStack$SNode*, int32_t)},
+	{"transfer", "(Ljava/lang/Object;ZJ)Ljava/lang/Object;", "(TE;ZJ)TE;", 0, $virtualMethod(SynchronousQueue$TransferStack, transfer, $Object*, Object$*, bool, int64_t)},
 	{}
 };
 

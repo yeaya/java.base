@@ -58,18 +58,18 @@ $FieldInfo _VersionProps_FieldInfo_[] = {
 };
 
 $MethodInfo _VersionProps_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(VersionProps::*)()>(&VersionProps::init$))},
-	{"build", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/lang/Integer;>;", $STATIC, $method(static_cast<$Optional*(*)()>(&VersionProps::build))},
-	{"init", "(Ljava/util/Map;)V", "(Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;)V", $PUBLIC | $STATIC, $method(static_cast<void(*)($Map*)>(&VersionProps::init))},
-	{"optional", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/lang/String;>;", $STATIC, $method(static_cast<$Optional*(*)()>(&VersionProps::optional))},
-	{"optionalOf", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/lang/String;>;", $PRIVATE | $STATIC, $method(static_cast<$Optional*(*)($String*)>(&VersionProps::optionalOf))},
-	{"parseVersionNumber", "(Ljava/lang/String;II)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)($String*,int32_t,int32_t)>(&VersionProps::parseVersionNumber))},
-	{"parseVersionNumbers", "(Ljava/lang/String;)Ljava/util/List;", "(Ljava/lang/String;)Ljava/util/List<Ljava/lang/Integer;>;", $STATIC, $method(static_cast<$List*(*)($String*)>(&VersionProps::parseVersionNumbers))},
-	{"pre", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/lang/String;>;", $STATIC, $method(static_cast<$Optional*(*)()>(&VersionProps::pre))},
-	{"print", "(Z)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)(bool)>(&VersionProps::print))},
-	{"print", "(ZZ)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)(bool,bool)>(&VersionProps::print))},
-	{"println", "(Z)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)(bool)>(&VersionProps::println))},
-	{"versionNumbers", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/Integer;>;", $STATIC, $method(static_cast<$List*(*)()>(&VersionProps::versionNumbers))},
+	{"<init>", "()V", nullptr, 0, $method(VersionProps, init$, void)},
+	{"build", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/lang/Integer;>;", $STATIC, $staticMethod(VersionProps, build, $Optional*)},
+	{"init", "(Ljava/util/Map;)V", "(Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;)V", $PUBLIC | $STATIC, $staticMethod(VersionProps, init, void, $Map*)},
+	{"optional", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/lang/String;>;", $STATIC, $staticMethod(VersionProps, optional, $Optional*)},
+	{"optionalOf", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/lang/String;>;", $PRIVATE | $STATIC, $staticMethod(VersionProps, optionalOf, $Optional*, $String*)},
+	{"parseVersionNumber", "(Ljava/lang/String;II)I", nullptr, $PRIVATE | $STATIC, $staticMethod(VersionProps, parseVersionNumber, int32_t, $String*, int32_t, int32_t)},
+	{"parseVersionNumbers", "(Ljava/lang/String;)Ljava/util/List;", "(Ljava/lang/String;)Ljava/util/List<Ljava/lang/Integer;>;", $STATIC, $staticMethod(VersionProps, parseVersionNumbers, $List*, $String*)},
+	{"pre", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/lang/String;>;", $STATIC, $staticMethod(VersionProps, pre, $Optional*)},
+	{"print", "(Z)V", nullptr, $PUBLIC | $STATIC, $staticMethod(VersionProps, print, void, bool)},
+	{"print", "(ZZ)V", nullptr, $PRIVATE | $STATIC, $staticMethod(VersionProps, print, void, bool, bool)},
+	{"println", "(Z)V", nullptr, $PUBLIC | $STATIC, $staticMethod(VersionProps, println, void, bool)},
+	{"versionNumbers", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/Integer;>;", $STATIC, $staticMethod(VersionProps, versionNumbers, $List*)},
 	{}
 };
 

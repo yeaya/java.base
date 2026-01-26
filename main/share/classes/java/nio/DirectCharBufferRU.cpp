@@ -40,21 +40,21 @@ $FieldInfo _DirectCharBufferRU_FieldInfo_[] = {
 };
 
 $MethodInfo _DirectCharBufferRU_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/ch/DirectBuffer;IIIIILjdk/internal/access/foreign/MemorySegmentProxy;)V", nullptr, 0, $method(static_cast<void(DirectCharBufferRU::*)($DirectBuffer*,int32_t,int32_t,int32_t,int32_t,int32_t,$MemorySegmentProxy*)>(&DirectCharBufferRU::init$))},
-	{"asReadOnlyBuffer", "()Ljava/nio/CharBuffer;", nullptr, $PUBLIC},
-	{"base", "()Ljava/lang/Object;", nullptr, 0},
-	{"charRegionOrder", "()Ljava/nio/ByteOrder;", nullptr, 0},
-	{"compact", "()Ljava/nio/CharBuffer;", nullptr, $PUBLIC},
-	{"duplicate", "()Ljava/nio/CharBuffer;", nullptr, $PUBLIC},
-	{"isDirect", "()Z", nullptr, $PUBLIC},
-	{"isReadOnly", "()Z", nullptr, $PUBLIC},
-	{"order", "()Ljava/nio/ByteOrder;", nullptr, $PUBLIC},
-	{"put", "(C)Ljava/nio/CharBuffer;", nullptr, $PUBLIC},
-	{"put", "(IC)Ljava/nio/CharBuffer;", nullptr, $PUBLIC},
-	{"slice", "()Ljava/nio/CharBuffer;", nullptr, $PUBLIC},
-	{"slice", "(II)Ljava/nio/CharBuffer;", nullptr, $PUBLIC},
-	{"subSequence", "(II)Ljava/nio/CharBuffer;", nullptr, $PUBLIC},
-	{"toString", "(II)Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/nio/ch/DirectBuffer;IIIIILjdk/internal/access/foreign/MemorySegmentProxy;)V", nullptr, 0, $method(DirectCharBufferRU, init$, void, $DirectBuffer*, int32_t, int32_t, int32_t, int32_t, int32_t, $MemorySegmentProxy*)},
+	{"asReadOnlyBuffer", "()Ljava/nio/CharBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectCharBufferRU, asReadOnlyBuffer, $CharBuffer*)},
+	{"base", "()Ljava/lang/Object;", nullptr, 0, $virtualMethod(DirectCharBufferRU, base, $Object*)},
+	{"charRegionOrder", "()Ljava/nio/ByteOrder;", nullptr, 0, $virtualMethod(DirectCharBufferRU, charRegionOrder, $ByteOrder*)},
+	{"compact", "()Ljava/nio/CharBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectCharBufferRU, compact, $CharBuffer*)},
+	{"duplicate", "()Ljava/nio/CharBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectCharBufferRU, duplicate, $CharBuffer*)},
+	{"isDirect", "()Z", nullptr, $PUBLIC, $virtualMethod(DirectCharBufferRU, isDirect, bool)},
+	{"isReadOnly", "()Z", nullptr, $PUBLIC, $virtualMethod(DirectCharBufferRU, isReadOnly, bool)},
+	{"order", "()Ljava/nio/ByteOrder;", nullptr, $PUBLIC, $virtualMethod(DirectCharBufferRU, order, $ByteOrder*)},
+	{"put", "(C)Ljava/nio/CharBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectCharBufferRU, put, $CharBuffer*, char16_t)},
+	{"put", "(IC)Ljava/nio/CharBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectCharBufferRU, put, $CharBuffer*, int32_t, char16_t)},
+	{"slice", "()Ljava/nio/CharBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectCharBufferRU, slice, $CharBuffer*)},
+	{"slice", "(II)Ljava/nio/CharBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectCharBufferRU, slice, $CharBuffer*, int32_t, int32_t)},
+	{"subSequence", "(II)Ljava/nio/CharBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectCharBufferRU, subSequence, $CharSequence*, int32_t, int32_t)},
+	{"toString", "(II)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DirectCharBufferRU, toString, $String*, int32_t, int32_t)},
 	{}
 };
 

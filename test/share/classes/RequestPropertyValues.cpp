@@ -27,12 +27,12 @@ using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
 
 $MethodInfo _RequestPropertyValues_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(RequestPropertyValues::*)()>(&RequestPropertyValues::init$))},
-	{"getConnection", "(Ljava/net/URL;)Ljava/net/URLConnection;", nullptr, $STATIC, $method(static_cast<$URLConnection*(*)($URL*)>(&RequestPropertyValues::getConnection))},
-	{"hasFtp", "()Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)()>(&RequestPropertyValues::hasFtp))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&RequestPropertyValues::main)), "java.lang.Exception"},
-	{"part1", "()V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)()>(&RequestPropertyValues::part1)), "java.lang.Exception"},
-	{"part2", "()V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)()>(&RequestPropertyValues::part2)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(RequestPropertyValues, init$, void)},
+	{"getConnection", "(Ljava/net/URL;)Ljava/net/URLConnection;", nullptr, $STATIC, $staticMethod(RequestPropertyValues, getConnection, $URLConnection*, $URL*)},
+	{"hasFtp", "()Z", nullptr, $PRIVATE | $STATIC, $staticMethod(RequestPropertyValues, hasFtp, bool)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(RequestPropertyValues, main, void, $StringArray*), "java.lang.Exception"},
+	{"part1", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(RequestPropertyValues, part1, void), "java.lang.Exception"},
+	{"part2", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(RequestPropertyValues, part2, void), "java.lang.Exception"},
 	{}
 };
 

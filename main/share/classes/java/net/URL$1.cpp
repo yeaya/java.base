@@ -35,10 +35,10 @@ $FieldInfo _URL$1_FieldInfo_[] = {
 };
 
 $MethodInfo _URL$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(URL$1::*)()>(&URL$1::init$))},
-	{"getNext", "()Z", nullptr, $PRIVATE, $method(static_cast<bool(URL$1::*)()>(&URL$1::getNext))},
-	{"hasNext", "()Z", nullptr, $PUBLIC},
-	{"next", "()Ljava/net/spi/URLStreamHandlerProvider;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(URL$1, init$, void)},
+	{"getNext", "()Z", nullptr, $PRIVATE, $method(URL$1, getNext, bool)},
+	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(URL$1, hasNext, bool)},
+	{"next", "()Ljava/net/spi/URLStreamHandlerProvider;", nullptr, $PUBLIC, $virtualMethod(URL$1, next, $Object*)},
 	{}
 };
 

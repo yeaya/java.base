@@ -46,19 +46,19 @@ namespace sun {
 		namespace ch {
 
 $MethodInfo _Reflect_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(Reflect::*)()>(&Reflect::init$))},
-	{"get", "(Ljava/lang/Object;Ljava/lang/reflect/Field;)Ljava/lang/Object;", nullptr, $STATIC, $method(static_cast<$Object*(*)(Object$*,$Field*)>(&Reflect::get))},
-	{"get", "(Ljava/lang/reflect/Field;)Ljava/lang/Object;", nullptr, $STATIC, $method(static_cast<$Object*(*)($Field*)>(&Reflect::get))},
-	{"invoke", "(Ljava/lang/reflect/Constructor;[Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/lang/reflect/Constructor<*>;[Ljava/lang/Object;)Ljava/lang/Object;", $STATIC, $method(static_cast<$Object*(*)($Constructor*,$ObjectArray*)>(&Reflect::invoke))},
-	{"invoke", "(Ljava/lang/reflect/Method;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $STATIC, $method(static_cast<$Object*(*)($Method*,Object$*,$ObjectArray*)>(&Reflect::invoke))},
-	{"invokeIO", "(Ljava/lang/reflect/Method;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $STATIC, $method(static_cast<$Object*(*)($Method*,Object$*,$ObjectArray*)>(&Reflect::invokeIO)), "java.io.IOException"},
-	{"lookupConstructor", "(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Constructor;", "(Ljava/lang/String;[Ljava/lang/Class<*>;)Ljava/lang/reflect/Constructor<*>;", $STATIC, $method(static_cast<$Constructor*(*)($String*,$ClassArray*)>(&Reflect::lookupConstructor))},
-	{"lookupField", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/reflect/Field;", nullptr, $STATIC, $method(static_cast<$Field*(*)($String*,$String*)>(&Reflect::lookupField))},
-	{"lookupMethod", "(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;", "(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Class<*>;)Ljava/lang/reflect/Method;", $STATIC | $TRANSIENT, $method(static_cast<$Method*(*)($String*,$String*,$ClassArray*)>(&Reflect::lookupMethod))},
-	{"set", "(Ljava/lang/Object;Ljava/lang/reflect/Field;Ljava/lang/Object;)V", nullptr, $STATIC, $method(static_cast<void(*)(Object$*,$Field*,Object$*)>(&Reflect::set))},
-	{"setAccessible", "(Ljava/lang/reflect/AccessibleObject;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($AccessibleObject*)>(&Reflect::setAccessible))},
-	{"setBoolean", "(Ljava/lang/Object;Ljava/lang/reflect/Field;Z)V", nullptr, $STATIC, $method(static_cast<void(*)(Object$*,$Field*,bool)>(&Reflect::setBoolean))},
-	{"setInt", "(Ljava/lang/Object;Ljava/lang/reflect/Field;I)V", nullptr, $STATIC, $method(static_cast<void(*)(Object$*,$Field*,int32_t)>(&Reflect::setInt))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(Reflect, init$, void)},
+	{"get", "(Ljava/lang/Object;Ljava/lang/reflect/Field;)Ljava/lang/Object;", nullptr, $STATIC, $staticMethod(Reflect, get, $Object*, Object$*, $Field*)},
+	{"get", "(Ljava/lang/reflect/Field;)Ljava/lang/Object;", nullptr, $STATIC, $staticMethod(Reflect, get, $Object*, $Field*)},
+	{"invoke", "(Ljava/lang/reflect/Constructor;[Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/lang/reflect/Constructor<*>;[Ljava/lang/Object;)Ljava/lang/Object;", $STATIC, $staticMethod(Reflect, invoke, $Object*, $Constructor*, $ObjectArray*)},
+	{"invoke", "(Ljava/lang/reflect/Method;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $STATIC, $staticMethod(Reflect, invoke, $Object*, $Method*, Object$*, $ObjectArray*)},
+	{"invokeIO", "(Ljava/lang/reflect/Method;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $STATIC, $staticMethod(Reflect, invokeIO, $Object*, $Method*, Object$*, $ObjectArray*), "java.io.IOException"},
+	{"lookupConstructor", "(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Constructor;", "(Ljava/lang/String;[Ljava/lang/Class<*>;)Ljava/lang/reflect/Constructor<*>;", $STATIC, $staticMethod(Reflect, lookupConstructor, $Constructor*, $String*, $ClassArray*)},
+	{"lookupField", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/reflect/Field;", nullptr, $STATIC, $staticMethod(Reflect, lookupField, $Field*, $String*, $String*)},
+	{"lookupMethod", "(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;", "(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Class<*>;)Ljava/lang/reflect/Method;", $STATIC | $TRANSIENT, $staticMethod(Reflect, lookupMethod, $Method*, $String*, $String*, $ClassArray*)},
+	{"set", "(Ljava/lang/Object;Ljava/lang/reflect/Field;Ljava/lang/Object;)V", nullptr, $STATIC, $staticMethod(Reflect, set, void, Object$*, $Field*, Object$*)},
+	{"setAccessible", "(Ljava/lang/reflect/AccessibleObject;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Reflect, setAccessible, void, $AccessibleObject*)},
+	{"setBoolean", "(Ljava/lang/Object;Ljava/lang/reflect/Field;Z)V", nullptr, $STATIC, $staticMethod(Reflect, setBoolean, void, Object$*, $Field*, bool)},
+	{"setInt", "(Ljava/lang/Object;Ljava/lang/reflect/Field;I)V", nullptr, $STATIC, $staticMethod(Reflect, setInt, void, Object$*, $Field*, int32_t)},
 	{}
 };
 

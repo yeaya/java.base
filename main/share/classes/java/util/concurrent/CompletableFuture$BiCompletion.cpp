@@ -23,7 +23,7 @@ $FieldInfo _CompletableFuture$BiCompletion_FieldInfo_[] = {
 };
 
 $MethodInfo _CompletableFuture$BiCompletion_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/Executor;Ljava/util/concurrent/CompletableFuture;Ljava/util/concurrent/CompletableFuture;Ljava/util/concurrent/CompletableFuture;)V", "(Ljava/util/concurrent/Executor;Ljava/util/concurrent/CompletableFuture<TV;>;Ljava/util/concurrent/CompletableFuture<TT;>;Ljava/util/concurrent/CompletableFuture<TU;>;)V", 0, $method(static_cast<void(CompletableFuture$BiCompletion::*)($Executor*,$CompletableFuture*,$CompletableFuture*,$CompletableFuture*)>(&CompletableFuture$BiCompletion::init$))},
+	{"<init>", "(Ljava/util/concurrent/Executor;Ljava/util/concurrent/CompletableFuture;Ljava/util/concurrent/CompletableFuture;Ljava/util/concurrent/CompletableFuture;)V", "(Ljava/util/concurrent/Executor;Ljava/util/concurrent/CompletableFuture<TV;>;Ljava/util/concurrent/CompletableFuture<TT;>;Ljava/util/concurrent/CompletableFuture<TU;>;)V", 0, $method(CompletableFuture$BiCompletion, init$, void, $Executor*, $CompletableFuture*, $CompletableFuture*, $CompletableFuture*)},
 	{}
 };
 

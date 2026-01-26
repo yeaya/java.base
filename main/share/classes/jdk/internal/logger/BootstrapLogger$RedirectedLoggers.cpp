@@ -50,12 +50,12 @@ $FieldInfo _BootstrapLogger$RedirectedLoggers_FieldInfo_[] = {
 };
 
 $MethodInfo _BootstrapLogger$RedirectedLoggers_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(BootstrapLogger$RedirectedLoggers::*)()>(&BootstrapLogger$RedirectedLoggers::init$))},
-	{"apply", "(Ljdk/internal/logger/LazyLoggers$LazyLoggerAccessor;)Ljdk/internal/logger/SurrogateLogger;", nullptr, $PUBLIC, $method(static_cast<$SurrogateLogger*(BootstrapLogger$RedirectedLoggers::*)($LazyLoggers$LazyLoggerAccessor*)>(&BootstrapLogger$RedirectedLoggers::apply))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"drainLoggersMap", "()Ljava/util/Map;", "()Ljava/util/Map<Ljdk/internal/logger/LazyLoggers$LazyLoggerAccessor;Ljdk/internal/logger/SurrogateLogger;>;", 0, $method(static_cast<$Map*(BootstrapLogger$RedirectedLoggers::*)()>(&BootstrapLogger$RedirectedLoggers::drainLoggersMap))},
-	{"get", "(Ljdk/internal/logger/LazyLoggers$LazyLoggerAccessor;)Ljdk/internal/logger/SurrogateLogger;", nullptr, 0, $method(static_cast<$SurrogateLogger*(BootstrapLogger$RedirectedLoggers::*)($LazyLoggers$LazyLoggerAccessor*)>(&BootstrapLogger$RedirectedLoggers::get))},
-	{"replaceSurrogateLoggers", "(Ljava/util/Map;)V", "(Ljava/util/Map<Ljdk/internal/logger/LazyLoggers$LazyLoggerAccessor;Ljdk/internal/logger/SurrogateLogger;>;)V", $STATIC, $method(static_cast<void(*)($Map*)>(&BootstrapLogger$RedirectedLoggers::replaceSurrogateLoggers))},
+	{"<init>", "()V", nullptr, 0, $method(BootstrapLogger$RedirectedLoggers, init$, void)},
+	{"apply", "(Ljdk/internal/logger/LazyLoggers$LazyLoggerAccessor;)Ljdk/internal/logger/SurrogateLogger;", nullptr, $PUBLIC, $method(BootstrapLogger$RedirectedLoggers, apply, $SurrogateLogger*, $LazyLoggers$LazyLoggerAccessor*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(BootstrapLogger$RedirectedLoggers, apply, $Object*, Object$*)},
+	{"drainLoggersMap", "()Ljava/util/Map;", "()Ljava/util/Map<Ljdk/internal/logger/LazyLoggers$LazyLoggerAccessor;Ljdk/internal/logger/SurrogateLogger;>;", 0, $method(BootstrapLogger$RedirectedLoggers, drainLoggersMap, $Map*)},
+	{"get", "(Ljdk/internal/logger/LazyLoggers$LazyLoggerAccessor;)Ljdk/internal/logger/SurrogateLogger;", nullptr, 0, $method(BootstrapLogger$RedirectedLoggers, get, $SurrogateLogger*, $LazyLoggers$LazyLoggerAccessor*)},
+	{"replaceSurrogateLoggers", "(Ljava/util/Map;)V", "(Ljava/util/Map<Ljdk/internal/logger/LazyLoggers$LazyLoggerAccessor;Ljdk/internal/logger/SurrogateLogger;>;)V", $STATIC, $staticMethod(BootstrapLogger$RedirectedLoggers, replaceSurrogateLoggers, void, $Map*)},
 	{}
 };
 

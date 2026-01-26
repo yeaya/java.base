@@ -12,6 +12,7 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimePermission = ::java::lang::RuntimePermission;
 using $SecurityManager = ::java::lang::SecurityManager;
 using $Void = ::java::lang::Void;
+using $Path = ::java::nio::file::Path;
 using $BasicPermission = ::java::security::BasicPermission;
 using $Permission = ::java::security::Permission;
 
@@ -21,10 +22,10 @@ namespace java {
 			namespace spi {
 
 $MethodInfo _FileTypeDetector_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Void;)V", nullptr, $PRIVATE, $method(static_cast<void(FileTypeDetector::*)($Void*)>(&FileTypeDetector::init$))},
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(FileTypeDetector::*)()>(&FileTypeDetector::init$))},
-	{"checkPermission", "()Ljava/lang/Void;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$Void*(*)()>(&FileTypeDetector::checkPermission))},
-	{"probeContentType", "(Ljava/nio/file/Path;)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljava/lang/Void;)V", nullptr, $PRIVATE, $method(FileTypeDetector, init$, void, $Void*)},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(FileTypeDetector, init$, void)},
+	{"checkPermission", "()Ljava/lang/Void;", nullptr, $PRIVATE | $STATIC, $staticMethod(FileTypeDetector, checkPermission, $Void*)},
+	{"probeContentType", "(Ljava/nio/file/Path;)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FileTypeDetector, probeContentType, $String*, $Path*), "java.io.IOException"},
 	{}
 };
 

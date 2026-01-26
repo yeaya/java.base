@@ -14,8 +14,8 @@ namespace javax {
 		namespace spec {
 
 $MethodInfo _SecretKeySpec$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(SecretKeySpec$1::*)()>(&SecretKeySpec$1::init$))},
-	{"clearSecretKeySpec", "(Ljavax/crypto/spec/SecretKeySpec;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(SecretKeySpec$1, init$, void)},
+	{"clearSecretKeySpec", "(Ljavax/crypto/spec/SecretKeySpec;)V", nullptr, $PUBLIC, $virtualMethod(SecretKeySpec$1, clearSecretKeySpec, void, $SecretKeySpec*)},
 	{}
 };
 

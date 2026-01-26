@@ -24,12 +24,12 @@ $FieldInfo _Pair_FieldInfo_[] = {
 };
 
 $MethodInfo _Pair_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Pair::*)()>(&Pair::init$))},
-	{"eqname", "([C)Z", nullptr, $PUBLIC},
-	{"eqpref", "([C)Z", nullptr, $PUBLIC},
-	{"local", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"pref", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"qname", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Pair, init$, void)},
+	{"eqname", "([C)Z", nullptr, $PUBLIC, $virtualMethod(Pair, eqname, bool, $chars*)},
+	{"eqpref", "([C)Z", nullptr, $PUBLIC, $virtualMethod(Pair, eqpref, bool, $chars*)},
+	{"local", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Pair, local, $String*)},
+	{"pref", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Pair, pref, $String*)},
+	{"qname", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Pair, qname, $String*)},
 	{}
 };
 

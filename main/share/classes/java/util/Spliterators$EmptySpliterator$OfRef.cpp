@@ -22,10 +22,10 @@ $MethodInfo _Spliterators$EmptySpliterator$OfRef_MethodInfo_[] = {
 	{"*estimateSize", "()J", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Spliterators$EmptySpliterator$OfRef::*)()>(&Spliterators$EmptySpliterator$OfRef::init$))},
-	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "()V", nullptr, 0, $method(Spliterators$EmptySpliterator$OfRef, init$, void)},
+	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Spliterators$EmptySpliterator$OfRef, forEachRemaining, void, $Consumer*)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Spliterators$EmptySpliterator$OfRef, tryAdvance, bool, $Consumer*)},
 	{"*trySplit", "()Ljava/util/Spliterator;", nullptr, $PUBLIC},
 	{}
 };

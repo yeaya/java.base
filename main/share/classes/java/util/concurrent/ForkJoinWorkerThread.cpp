@@ -30,14 +30,14 @@ $FieldInfo _ForkJoinWorkerThread_FieldInfo_[] = {
 };
 
 $MethodInfo _ForkJoinWorkerThread_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/ThreadGroup;Ljava/util/concurrent/ForkJoinPool;ZZ)V", nullptr, 0, $method(static_cast<void(ForkJoinWorkerThread::*)($ThreadGroup*,$ForkJoinPool*,bool,bool)>(&ForkJoinWorkerThread::init$))},
-	{"<init>", "(Ljava/lang/ThreadGroup;Ljava/util/concurrent/ForkJoinPool;)V", nullptr, 0, $method(static_cast<void(ForkJoinWorkerThread::*)($ThreadGroup*,$ForkJoinPool*)>(&ForkJoinWorkerThread::init$))},
-	{"<init>", "(Ljava/util/concurrent/ForkJoinPool;)V", nullptr, $PROTECTED, $method(static_cast<void(ForkJoinWorkerThread::*)($ForkJoinPool*)>(&ForkJoinWorkerThread::init$))},
-	{"getPool", "()Ljava/util/concurrent/ForkJoinPool;", nullptr, $PUBLIC},
-	{"getPoolIndex", "()I", nullptr, $PUBLIC},
-	{"onStart", "()V", nullptr, $PROTECTED},
-	{"onTermination", "(Ljava/lang/Throwable;)V", nullptr, $PROTECTED},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/ThreadGroup;Ljava/util/concurrent/ForkJoinPool;ZZ)V", nullptr, 0, $method(ForkJoinWorkerThread, init$, void, $ThreadGroup*, $ForkJoinPool*, bool, bool)},
+	{"<init>", "(Ljava/lang/ThreadGroup;Ljava/util/concurrent/ForkJoinPool;)V", nullptr, 0, $method(ForkJoinWorkerThread, init$, void, $ThreadGroup*, $ForkJoinPool*)},
+	{"<init>", "(Ljava/util/concurrent/ForkJoinPool;)V", nullptr, $PROTECTED, $method(ForkJoinWorkerThread, init$, void, $ForkJoinPool*)},
+	{"getPool", "()Ljava/util/concurrent/ForkJoinPool;", nullptr, $PUBLIC, $virtualMethod(ForkJoinWorkerThread, getPool, $ForkJoinPool*)},
+	{"getPoolIndex", "()I", nullptr, $PUBLIC, $virtualMethod(ForkJoinWorkerThread, getPoolIndex, int32_t)},
+	{"onStart", "()V", nullptr, $PROTECTED, $virtualMethod(ForkJoinWorkerThread, onStart, void)},
+	{"onTermination", "(Ljava/lang/Throwable;)V", nullptr, $PROTECTED, $virtualMethod(ForkJoinWorkerThread, onTermination, void, $Throwable*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ForkJoinWorkerThread, run, void)},
 	{}
 };
 

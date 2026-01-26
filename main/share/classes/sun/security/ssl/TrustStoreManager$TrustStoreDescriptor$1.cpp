@@ -20,8 +20,8 @@ namespace sun {
 		namespace ssl {
 
 $MethodInfo _TrustStoreManager$TrustStoreDescriptor$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(TrustStoreManager$TrustStoreDescriptor$1::*)()>(&TrustStoreManager$TrustStoreDescriptor$1::init$))},
-	{"run", "()Lsun/security/ssl/TrustStoreManager$TrustStoreDescriptor;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(TrustStoreManager$TrustStoreDescriptor$1, init$, void)},
+	{"run", "()Lsun/security/ssl/TrustStoreManager$TrustStoreDescriptor;", nullptr, $PUBLIC, $virtualMethod(TrustStoreManager$TrustStoreDescriptor$1, run, $Object*)},
 	{}
 };
 

@@ -119,8 +119,8 @@ $FieldInfo Modules$$Lambda$getClassLoader::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Modules$$Lambda$getClassLoader::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/Module;)V", nullptr, $PUBLIC, $method(static_cast<void(Modules$$Lambda$getClassLoader::*)($Module*)>(&Modules$$Lambda$getClassLoader::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Module;)V", nullptr, $PUBLIC, $method(Modules$$Lambda$getClassLoader, init$, void, $Module*)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Modules$$Lambda$getClassLoader, run, $Object*)},
 	{}
 };
 $ClassInfo Modules$$Lambda$getClassLoader::classInfo$ = {
@@ -152,8 +152,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Modules$$Lambda$getName$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Modules$$Lambda$getName$1::*)()>(&Modules$$Lambda$getName$1::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Modules$$Lambda$getName$1, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Modules$$Lambda$getName$1, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Modules$$Lambda$getName$1::classInfo$ = {
@@ -185,8 +185,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Modules$$Lambda$isQualified$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Modules$$Lambda$isQualified$2::*)()>(&Modules$$Lambda$isQualified$2::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Modules$$Lambda$isQualified$2, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Modules$$Lambda$isQualified$2, test, bool, Object$*)},
 	{}
 };
 $ClassInfo Modules$$Lambda$isQualified$2::classInfo$ = {
@@ -228,8 +228,8 @@ $FieldInfo Modules$$Lambda$lambda$loadModule$1$3::fieldInfos[3] = {
 	{}
 };
 $MethodInfo Modules$$Lambda$lambda$loadModule$1$3::methodInfos[3] = {
-	{"<init>", "(Ljava/util/Map;Ljava/lang/Module;)V", nullptr, $PUBLIC, $method(static_cast<void(Modules$$Lambda$lambda$loadModule$1$3::*)($Map*,$Module*)>(&Modules$$Lambda$lambda$loadModule$1$3::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/Map;Ljava/lang/Module;)V", nullptr, $PUBLIC, $method(Modules$$Lambda$lambda$loadModule$1$3, init$, void, $Map*, $Module*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Modules$$Lambda$lambda$loadModule$1$3, accept, void, Object$*)},
 	{}
 };
 $ClassInfo Modules$$Lambda$lambda$loadModule$1$3::classInfo$ = {
@@ -261,8 +261,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Modules$$Lambda$isQualified$4::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Modules$$Lambda$isQualified$4::*)()>(&Modules$$Lambda$isQualified$4::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Modules$$Lambda$isQualified$4, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Modules$$Lambda$isQualified$4, test, bool, Object$*)},
 	{}
 };
 $ClassInfo Modules$$Lambda$isQualified$4::classInfo$ = {
@@ -304,8 +304,8 @@ $FieldInfo Modules$$Lambda$lambda$loadModule$3$5::fieldInfos[3] = {
 	{}
 };
 $MethodInfo Modules$$Lambda$lambda$loadModule$3$5::methodInfos[3] = {
-	{"<init>", "(Ljava/util/Map;Ljava/lang/Module;)V", nullptr, $PUBLIC, $method(static_cast<void(Modules$$Lambda$lambda$loadModule$3$5::*)($Map*,$Module*)>(&Modules$$Lambda$lambda$loadModule$3$5::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/Map;Ljava/lang/Module;)V", nullptr, $PUBLIC, $method(Modules$$Lambda$lambda$loadModule$3$5, init$, void, $Map*, $Module*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Modules$$Lambda$lambda$loadModule$3$5, accept, void, Object$*)},
 	{}
 };
 $ClassInfo Modules$$Lambda$lambda$loadModule$3$5::classInfo$ = {
@@ -337,8 +337,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Modules$$Lambda$lambda$loadModule$4$6::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Modules$$Lambda$lambda$loadModule$4$6::*)()>(&Modules$$Lambda$lambda$loadModule$4$6::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Modules$$Lambda$lambda$loadModule$4$6, init$, void)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Modules$$Lambda$lambda$loadModule$4$6, get, $Object*)},
 	{}
 };
 $ClassInfo Modules$$Lambda$lambda$loadModule$4$6::classInfo$ = {
@@ -383,8 +383,8 @@ $FieldInfo Modules$$Lambda$lambda$loadModule$2$7::fieldInfos[4] = {
 	{}
 };
 $MethodInfo Modules$$Lambda$lambda$loadModule$2$7::methodInfos[3] = {
-	{"<init>", "(Ljava/util/Map;Ljava/lang/Module;Ljava/lang/module/ModuleDescriptor$Opens;)V", nullptr, $PUBLIC, $method(static_cast<void(Modules$$Lambda$lambda$loadModule$2$7::*)($Map*,$Module*,$ModuleDescriptor$Opens*)>(&Modules$$Lambda$lambda$loadModule$2$7::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/Map;Ljava/lang/Module;Ljava/lang/module/ModuleDescriptor$Opens;)V", nullptr, $PUBLIC, $method(Modules$$Lambda$lambda$loadModule$2$7, init$, void, $Map*, $Module*, $ModuleDescriptor$Opens*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Modules$$Lambda$lambda$loadModule$2$7, accept, void, Object$*)},
 	{}
 };
 $ClassInfo Modules$$Lambda$lambda$loadModule$2$7::classInfo$ = {
@@ -429,8 +429,8 @@ $FieldInfo Modules$$Lambda$lambda$loadModule$0$8::fieldInfos[4] = {
 	{}
 };
 $MethodInfo Modules$$Lambda$lambda$loadModule$0$8::methodInfos[3] = {
-	{"<init>", "(Ljava/util/Map;Ljava/lang/Module;Ljava/lang/module/ModuleDescriptor$Exports;)V", nullptr, $PUBLIC, $method(static_cast<void(Modules$$Lambda$lambda$loadModule$0$8::*)($Map*,$Module*,$ModuleDescriptor$Exports*)>(&Modules$$Lambda$lambda$loadModule$0$8::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/Map;Ljava/lang/Module;Ljava/lang/module/ModuleDescriptor$Exports;)V", nullptr, $PUBLIC, $method(Modules$$Lambda$lambda$loadModule$0$8, init$, void, $Map*, $Module*, $ModuleDescriptor$Exports*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Modules$$Lambda$lambda$loadModule$0$8, accept, void, Object$*)},
 	{}
 };
 $ClassInfo Modules$$Lambda$lambda$loadModule$0$8::classInfo$ = {
@@ -456,26 +456,26 @@ $FieldInfo _Modules_FieldInfo_[] = {
 };
 
 $MethodInfo _Modules_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(Modules::*)()>(&Modules::init$))},
-	{"addExports", "(Ljava/lang/Module;Ljava/lang/String;Ljava/lang/Module;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($Module*,$String*,$Module*)>(&Modules::addExports))},
-	{"addExports", "(Ljava/lang/Module;Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($Module*,$String*)>(&Modules::addExports))},
-	{"addExportsToAllUnnamed", "(Ljava/lang/Module;Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($Module*,$String*)>(&Modules::addExportsToAllUnnamed))},
-	{"addOpens", "(Ljava/lang/Module;Ljava/lang/String;Ljava/lang/Module;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($Module*,$String*,$Module*)>(&Modules::addOpens))},
-	{"addOpensToAllUnnamed", "(Ljava/lang/Module;Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($Module*,$String*)>(&Modules::addOpensToAllUnnamed))},
-	{"addProvides", "(Ljava/lang/Module;Ljava/lang/Class;Ljava/lang/Class;)V", "(Ljava/lang/Module;Ljava/lang/Class<*>;Ljava/lang/Class<*>;)V", $PUBLIC | $STATIC, $method(static_cast<void(*)($Module*,$Class*,$Class*)>(&Modules::addProvides))},
-	{"addReads", "(Ljava/lang/Module;Ljava/lang/Module;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($Module*,$Module*)>(&Modules::addReads))},
-	{"addReadsAllUnnamed", "(Ljava/lang/Module;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($Module*)>(&Modules::addReadsAllUnnamed))},
-	{"addUses", "(Ljava/lang/Module;Ljava/lang/Class;)V", "(Ljava/lang/Module;Ljava/lang/Class<*>;)V", $PUBLIC | $STATIC, $method(static_cast<void(*)($Module*,$Class*)>(&Modules::addUses))},
-	{"defineModule", "(Ljava/lang/ClassLoader;Ljava/lang/module/ModuleDescriptor;Ljava/net/URI;)Ljava/lang/Module;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Module*(*)($ClassLoader*,$ModuleDescriptor*,$URI*)>(&Modules::defineModule))},
-	{"findLoadedModule", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/lang/Module;>;", $PUBLIC | $STATIC, $method(static_cast<$Optional*(*)($String*)>(&Modules::findLoadedModule))},
-	{"lambda$loadModule$0", "(Ljava/util/Map;Ljava/lang/Module;Ljava/lang/module/ModuleDescriptor$Exports;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($Map*,$Module*,$ModuleDescriptor$Exports*,$String*)>(&Modules::lambda$loadModule$0))},
-	{"lambda$loadModule$1", "(Ljava/util/Map;Ljava/lang/Module;Ljava/lang/module/ModuleDescriptor$Exports;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($Map*,$Module*,$ModuleDescriptor$Exports*)>(&Modules::lambda$loadModule$1))},
-	{"lambda$loadModule$2", "(Ljava/util/Map;Ljava/lang/Module;Ljava/lang/module/ModuleDescriptor$Opens;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($Map*,$Module*,$ModuleDescriptor$Opens*,$String*)>(&Modules::lambda$loadModule$2))},
-	{"lambda$loadModule$3", "(Ljava/util/Map;Ljava/lang/Module;Ljava/lang/module/ModuleDescriptor$Opens;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($Map*,$Module*,$ModuleDescriptor$Opens*)>(&Modules::lambda$loadModule$3))},
-	{"lambda$loadModule$4", "()Ljava/lang/InternalError;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$InternalError*(*)()>(&Modules::lambda$loadModule$4))},
-	{"loadModule", "(Ljava/lang/String;)Ljava/lang/Module;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $method(static_cast<$Module*(*)($String*)>(&Modules::loadModule))},
-	{"newBootLayerConfiguration", "(Ljava/lang/module/ModuleFinder;Ljava/util/Collection;Ljava/io/PrintStream;)Ljava/lang/module/Configuration;", "(Ljava/lang/module/ModuleFinder;Ljava/util/Collection<Ljava/lang/String;>;Ljava/io/PrintStream;)Ljava/lang/module/Configuration;", $PUBLIC | $STATIC, $method(static_cast<$Configuration*(*)($ModuleFinder*,$Collection*,$PrintStream*)>(&Modules::newBootLayerConfiguration))},
-	{"transformedByAgent", "(Ljava/lang/Module;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($Module*)>(&Modules::transformedByAgent))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(Modules, init$, void)},
+	{"addExports", "(Ljava/lang/Module;Ljava/lang/String;Ljava/lang/Module;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Modules, addExports, void, $Module*, $String*, $Module*)},
+	{"addExports", "(Ljava/lang/Module;Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Modules, addExports, void, $Module*, $String*)},
+	{"addExportsToAllUnnamed", "(Ljava/lang/Module;Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Modules, addExportsToAllUnnamed, void, $Module*, $String*)},
+	{"addOpens", "(Ljava/lang/Module;Ljava/lang/String;Ljava/lang/Module;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Modules, addOpens, void, $Module*, $String*, $Module*)},
+	{"addOpensToAllUnnamed", "(Ljava/lang/Module;Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Modules, addOpensToAllUnnamed, void, $Module*, $String*)},
+	{"addProvides", "(Ljava/lang/Module;Ljava/lang/Class;Ljava/lang/Class;)V", "(Ljava/lang/Module;Ljava/lang/Class<*>;Ljava/lang/Class<*>;)V", $PUBLIC | $STATIC, $staticMethod(Modules, addProvides, void, $Module*, $Class*, $Class*)},
+	{"addReads", "(Ljava/lang/Module;Ljava/lang/Module;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Modules, addReads, void, $Module*, $Module*)},
+	{"addReadsAllUnnamed", "(Ljava/lang/Module;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Modules, addReadsAllUnnamed, void, $Module*)},
+	{"addUses", "(Ljava/lang/Module;Ljava/lang/Class;)V", "(Ljava/lang/Module;Ljava/lang/Class<*>;)V", $PUBLIC | $STATIC, $staticMethod(Modules, addUses, void, $Module*, $Class*)},
+	{"defineModule", "(Ljava/lang/ClassLoader;Ljava/lang/module/ModuleDescriptor;Ljava/net/URI;)Ljava/lang/Module;", nullptr, $PUBLIC | $STATIC, $staticMethod(Modules, defineModule, $Module*, $ClassLoader*, $ModuleDescriptor*, $URI*)},
+	{"findLoadedModule", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/lang/Module;>;", $PUBLIC | $STATIC, $staticMethod(Modules, findLoadedModule, $Optional*, $String*)},
+	{"lambda$loadModule$0", "(Ljava/util/Map;Ljava/lang/Module;Ljava/lang/module/ModuleDescriptor$Exports;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Modules, lambda$loadModule$0, void, $Map*, $Module*, $ModuleDescriptor$Exports*, $String*)},
+	{"lambda$loadModule$1", "(Ljava/util/Map;Ljava/lang/Module;Ljava/lang/module/ModuleDescriptor$Exports;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Modules, lambda$loadModule$1, void, $Map*, $Module*, $ModuleDescriptor$Exports*)},
+	{"lambda$loadModule$2", "(Ljava/util/Map;Ljava/lang/Module;Ljava/lang/module/ModuleDescriptor$Opens;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Modules, lambda$loadModule$2, void, $Map*, $Module*, $ModuleDescriptor$Opens*, $String*)},
+	{"lambda$loadModule$3", "(Ljava/util/Map;Ljava/lang/Module;Ljava/lang/module/ModuleDescriptor$Opens;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Modules, lambda$loadModule$3, void, $Map*, $Module*, $ModuleDescriptor$Opens*)},
+	{"lambda$loadModule$4", "()Ljava/lang/InternalError;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Modules, lambda$loadModule$4, $InternalError*)},
+	{"loadModule", "(Ljava/lang/String;)Ljava/lang/Module;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(Modules, loadModule, $Module*, $String*)},
+	{"newBootLayerConfiguration", "(Ljava/lang/module/ModuleFinder;Ljava/util/Collection;Ljava/io/PrintStream;)Ljava/lang/module/Configuration;", "(Ljava/lang/module/ModuleFinder;Ljava/util/Collection<Ljava/lang/String;>;Ljava/io/PrintStream;)Ljava/lang/module/Configuration;", $PUBLIC | $STATIC, $staticMethod(Modules, newBootLayerConfiguration, $Configuration*, $ModuleFinder*, $Collection*, $PrintStream*)},
+	{"transformedByAgent", "(Ljava/lang/Module;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Modules, transformedByAgent, void, $Module*)},
 	{}
 };
 

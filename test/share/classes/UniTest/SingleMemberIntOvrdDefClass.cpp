@@ -20,7 +20,7 @@ $CompoundAttribute _SingleMemberIntOvrdDefClass_Annotations_[] = {
 };
 
 $MethodInfo _SingleMemberIntOvrdDefClass_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(SingleMemberIntOvrdDefClass::*)()>(&SingleMemberIntOvrdDefClass::init$))},
+	{"<init>", "()V", nullptr, 0, $method(SingleMemberIntOvrdDefClass, init$, void)},
 	{}
 };
 

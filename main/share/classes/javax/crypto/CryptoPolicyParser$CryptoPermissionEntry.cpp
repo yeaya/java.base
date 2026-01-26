@@ -24,9 +24,9 @@ $FieldInfo _CryptoPolicyParser$CryptoPermissionEntry_FieldInfo_[] = {
 };
 
 $MethodInfo _CryptoPolicyParser$CryptoPermissionEntry_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(CryptoPolicyParser$CryptoPermissionEntry::*)()>(&CryptoPolicyParser$CryptoPermissionEntry::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(CryptoPolicyParser$CryptoPermissionEntry, init$, void)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(CryptoPolicyParser$CryptoPermissionEntry, equals, bool, Object$*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(CryptoPolicyParser$CryptoPermissionEntry, hashCode, int32_t)},
 	{}
 };
 

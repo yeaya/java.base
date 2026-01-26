@@ -18,7 +18,7 @@ $FieldInfo _CyclicBarrier$Generation_FieldInfo_[] = {
 };
 
 $MethodInfo _CyclicBarrier$Generation_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(CyclicBarrier$Generation::*)()>(&CyclicBarrier$Generation::init$))},
+	{"<init>", "()V", nullptr, 0, $method(CyclicBarrier$Generation, init$, void)},
 	{}
 };
 

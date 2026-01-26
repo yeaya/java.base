@@ -15,8 +15,8 @@ using $URL = ::java::net::URL;
 using $URLConnection = ::java::net::URLConnection;
 
 $MethodInfo _Connect4URLConnection_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Connect4URLConnection::*)()>(&Connect4URLConnection::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Connect4URLConnection::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Connect4URLConnection, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Connect4URLConnection, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

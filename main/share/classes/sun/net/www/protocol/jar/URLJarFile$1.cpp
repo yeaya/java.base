@@ -50,8 +50,8 @@ $FieldInfo _URLJarFile$1_FieldInfo_[] = {
 };
 
 $MethodInfo _URLJarFile$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/InputStream;Lsun/net/www/protocol/jar/URLJarFile$URLJarFileCloseController;Ljava/lang/Runtime$Version;)V", nullptr, 0, $method(static_cast<void(URLJarFile$1::*)($InputStream*,$URLJarFile$URLJarFileCloseController*,$Runtime$Version*)>(&URLJarFile$1::init$))},
-	{"run", "()Ljava/util/jar/JarFile;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljava/io/InputStream;Lsun/net/www/protocol/jar/URLJarFile$URLJarFileCloseController;Ljava/lang/Runtime$Version;)V", nullptr, 0, $method(URLJarFile$1, init$, void, $InputStream*, $URLJarFile$URLJarFileCloseController*, $Runtime$Version*)},
+	{"run", "()Ljava/util/jar/JarFile;", nullptr, $PUBLIC, $virtualMethod(URLJarFile$1, run, $Object*), "java.io.IOException"},
 	{}
 };
 

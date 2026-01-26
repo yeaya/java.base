@@ -17,9 +17,9 @@ $FieldInfo _EventObject_FieldInfo_[] = {
 };
 
 $MethodInfo _EventObject_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(static_cast<void(EventObject::*)(Object$*)>(&EventObject::init$))},
-	{"getSource", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(EventObject, init$, void, Object$*)},
+	{"getSource", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(EventObject, getSource, $Object*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(EventObject, toString, $String*)},
 	{}
 };
 

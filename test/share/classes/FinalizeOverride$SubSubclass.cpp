@@ -15,8 +15,8 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $AtomicInteger = ::java::util::concurrent::atomic::AtomicInteger;
 
 $MethodInfo _FinalizeOverride$SubSubclass_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, 0, $method(static_cast<void(FinalizeOverride$SubSubclass::*)(int32_t)>(&FinalizeOverride$SubSubclass::init$))},
-	{"finalize", "()V", nullptr, $PROTECTED | $FINAL},
+	{"<init>", "(I)V", nullptr, 0, $method(FinalizeOverride$SubSubclass, init$, void, int32_t)},
+	{"finalize", "()V", nullptr, $PROTECTED | $FINAL, $virtualMethod(FinalizeOverride$SubSubclass, finalize, void)},
 	{}
 };
 

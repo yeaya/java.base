@@ -31,10 +31,10 @@ $FieldInfo _InnerClassLambdaMetafactory$ForwardingMethodGenerator_FieldInfo_[] =
 };
 
 $MethodInfo _InnerClassLambdaMetafactory$ForwardingMethodGenerator_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/invoke/InnerClassLambdaMetafactory;Ljdk/internal/org/objectweb/asm/MethodVisitor;)V", nullptr, 0, $method(static_cast<void(InnerClassLambdaMetafactory$ForwardingMethodGenerator::*)($InnerClassLambdaMetafactory*,$MethodVisitor*)>(&InnerClassLambdaMetafactory$ForwardingMethodGenerator::init$))},
-	{"convertArgumentTypes", "(Ljava/lang/invoke/MethodType;)V", nullptr, $PRIVATE, $method(static_cast<void(InnerClassLambdaMetafactory$ForwardingMethodGenerator::*)($MethodType*)>(&InnerClassLambdaMetafactory$ForwardingMethodGenerator::convertArgumentTypes))},
-	{"generate", "(Ljava/lang/invoke/MethodType;)V", nullptr, 0},
-	{"invocationOpcode", "()I", nullptr, $PRIVATE, $method(static_cast<int32_t(InnerClassLambdaMetafactory$ForwardingMethodGenerator::*)()>(&InnerClassLambdaMetafactory$ForwardingMethodGenerator::invocationOpcode)), "java.lang.InternalError"},
+	{"<init>", "(Ljava/lang/invoke/InnerClassLambdaMetafactory;Ljdk/internal/org/objectweb/asm/MethodVisitor;)V", nullptr, 0, $method(InnerClassLambdaMetafactory$ForwardingMethodGenerator, init$, void, $InnerClassLambdaMetafactory*, $MethodVisitor*)},
+	{"convertArgumentTypes", "(Ljava/lang/invoke/MethodType;)V", nullptr, $PRIVATE, $method(InnerClassLambdaMetafactory$ForwardingMethodGenerator, convertArgumentTypes, void, $MethodType*)},
+	{"generate", "(Ljava/lang/invoke/MethodType;)V", nullptr, 0, $virtualMethod(InnerClassLambdaMetafactory$ForwardingMethodGenerator, generate, void, $MethodType*)},
+	{"invocationOpcode", "()I", nullptr, $PRIVATE, $method(InnerClassLambdaMetafactory$ForwardingMethodGenerator, invocationOpcode, int32_t), "java.lang.InternalError"},
 	{}
 };
 

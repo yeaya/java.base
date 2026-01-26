@@ -20,7 +20,7 @@ $FieldInfo _LinkedBlockingDeque$Node_FieldInfo_[] = {
 };
 
 $MethodInfo _LinkedBlockingDeque$Node_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;)V", "(TE;)V", 0, $method(static_cast<void(LinkedBlockingDeque$Node::*)(Object$*)>(&LinkedBlockingDeque$Node::init$))},
+	{"<init>", "(Ljava/lang/Object;)V", "(TE;)V", 0, $method(LinkedBlockingDeque$Node, init$, void, Object$*)},
 	{}
 };
 

@@ -21,9 +21,9 @@ $FieldInfo _SoftReference_FieldInfo_[] = {
 };
 
 $MethodInfo _SoftReference_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;)V", "(TT;)V", $PUBLIC, $method(static_cast<void(SoftReference::*)(Object$*)>(&SoftReference::init$))},
-	{"<init>", "(Ljava/lang/Object;Ljava/lang/ref/ReferenceQueue;)V", "(TT;Ljava/lang/ref/ReferenceQueue<-TT;>;)V", $PUBLIC, $method(static_cast<void(SoftReference::*)(Object$*,$ReferenceQueue*)>(&SoftReference::init$))},
-	{"get", "()Ljava/lang/Object;", "()TT;", $PUBLIC},
+	{"<init>", "(Ljava/lang/Object;)V", "(TT;)V", $PUBLIC, $method(SoftReference, init$, void, Object$*)},
+	{"<init>", "(Ljava/lang/Object;Ljava/lang/ref/ReferenceQueue;)V", "(TT;Ljava/lang/ref/ReferenceQueue<-TT;>;)V", $PUBLIC, $method(SoftReference, init$, void, Object$*, $ReferenceQueue*)},
+	{"get", "()Ljava/lang/Object;", "()TT;", $PUBLIC, $virtualMethod(SoftReference, get, $Object*)},
 	{}
 };
 

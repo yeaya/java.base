@@ -14,7 +14,7 @@ $CompoundAttribute _SingleMemberDoubleArrAcceptDefClass_Annotations_[] = {
 };
 
 $MethodInfo _SingleMemberDoubleArrAcceptDefClass_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(SingleMemberDoubleArrAcceptDefClass::*)()>(&SingleMemberDoubleArrAcceptDefClass::init$))},
+	{"<init>", "()V", nullptr, 0, $method(SingleMemberDoubleArrAcceptDefClass, init$, void)},
 	{}
 };
 

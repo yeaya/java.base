@@ -16,9 +16,9 @@ $FieldInfo _StackRecorderUtil$TestFrame_FieldInfo_[] = {
 };
 
 $MethodInfo _StackRecorderUtil$TestFrame_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(StackRecorderUtil$TestFrame::*)($Class*,$String*,$String*)>(&StackRecorderUtil$TestFrame::init$))},
-	{"className", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(StackRecorderUtil$TestFrame, init$, void, $Class*, $String*, $String*)},
+	{"className", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StackRecorderUtil$TestFrame, className, $String*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StackRecorderUtil$TestFrame, toString, $String*)},
 	{}
 };
 

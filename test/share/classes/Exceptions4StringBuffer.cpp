@@ -41,11 +41,11 @@ $FieldInfo _Exceptions4StringBuffer_FieldInfo_[] = {
 };
 
 $MethodInfo _Exceptions4StringBuffer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Exceptions4StringBuffer::*)()>(&Exceptions4StringBuffer::init$))},
-	{"fail", "(Ljava/lang/Throwable;Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($Throwable*,$String*,$Throwable*)>(&Exceptions4StringBuffer::fail))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Exceptions4StringBuffer::main))},
-	{"pass", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($String*)>(&Exceptions4StringBuffer::pass))},
-	{"tryCatch", "(Ljava/lang/String;Ljava/lang/Throwable;Ljava/lang/Runnable;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($String*,$Throwable*,$Runnable*)>(&Exceptions4StringBuffer::tryCatch))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Exceptions4StringBuffer, init$, void)},
+	{"fail", "(Ljava/lang/Throwable;Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Exceptions4StringBuffer, fail, void, $Throwable*, $String*, $Throwable*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Exceptions4StringBuffer, main, void, $StringArray*)},
+	{"pass", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Exceptions4StringBuffer, pass, void, $String*)},
+	{"tryCatch", "(Ljava/lang/String;Ljava/lang/Throwable;Ljava/lang/Runnable;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Exceptions4StringBuffer, tryCatch, void, $String*, $Throwable*, $Runnable*)},
 	{}
 };
 

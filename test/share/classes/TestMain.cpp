@@ -18,9 +18,9 @@ using $Method = ::java::lang::reflect::Method;
 using $Optional = ::java::util::Optional;
 
 $MethodInfo _TestMain_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TestMain::*)()>(&TestMain::init$))},
-	{"findClass", "(Ljava/lang/Module;Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/Module;Ljava/lang/String;)Ljava/lang/Class<*>;", $STATIC, $method(static_cast<$Class*(*)($Module*,$String*)>(&TestMain::findClass))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&TestMain::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TestMain, init$, void)},
+	{"findClass", "(Ljava/lang/Module;Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/Module;Ljava/lang/String;)Ljava/lang/Class<*>;", $STATIC, $staticMethod(TestMain, findClass, $Class*, $Module*, $String*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TestMain, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

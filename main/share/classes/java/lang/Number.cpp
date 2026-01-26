@@ -15,13 +15,13 @@ $FieldInfo _Number_FieldInfo_[] = {
 };
 
 $MethodInfo _Number_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Number::*)()>(&Number::init$))},
-	{"byteValue", "()B", nullptr, $PUBLIC},
-	{"doubleValue", "()D", nullptr, $PUBLIC | $ABSTRACT},
-	{"floatValue", "()F", nullptr, $PUBLIC | $ABSTRACT},
-	{"intValue", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"longValue", "()J", nullptr, $PUBLIC | $ABSTRACT},
-	{"shortValue", "()S", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Number, init$, void)},
+	{"byteValue", "()B", nullptr, $PUBLIC, $virtualMethod(Number, byteValue, int8_t)},
+	{"doubleValue", "()D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Number, doubleValue, double)},
+	{"floatValue", "()F", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Number, floatValue, float)},
+	{"intValue", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Number, intValue, int32_t)},
+	{"longValue", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Number, longValue, int64_t)},
+	{"shortValue", "()S", nullptr, $PUBLIC, $virtualMethod(Number, shortValue, int16_t)},
 	{}
 };
 

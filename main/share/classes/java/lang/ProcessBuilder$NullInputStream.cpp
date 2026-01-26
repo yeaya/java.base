@@ -21,9 +21,9 @@ $FieldInfo _ProcessBuilder$NullInputStream_FieldInfo_[] = {
 };
 
 $MethodInfo _ProcessBuilder$NullInputStream_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(ProcessBuilder$NullInputStream::*)()>(&ProcessBuilder$NullInputStream::init$))},
-	{"available", "()I", nullptr, $PUBLIC},
-	{"read", "()I", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(ProcessBuilder$NullInputStream, init$, void)},
+	{"available", "()I", nullptr, $PUBLIC, $virtualMethod(ProcessBuilder$NullInputStream, available, int32_t)},
+	{"read", "()I", nullptr, $PUBLIC, $virtualMethod(ProcessBuilder$NullInputStream, read, int32_t)},
 	{}
 };
 

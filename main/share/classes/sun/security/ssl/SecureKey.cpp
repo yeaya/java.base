@@ -20,12 +20,12 @@ $FieldInfo _SecureKey_FieldInfo_[] = {
 };
 
 $MethodInfo _SecureKey_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;)V", nullptr, 0, $method(static_cast<void(SecureKey::*)(Object$*)>(&SecureKey::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getAppKey", "()Ljava/lang/Object;", nullptr, 0},
-	{"getCurrentSecurityContext", "()Ljava/lang/Object;", nullptr, $STATIC, $method(static_cast<$Object*(*)()>(&SecureKey::getCurrentSecurityContext))},
-	{"getSecurityContext", "()Ljava/lang/Object;", nullptr, 0},
-	{"hashCode", "()I", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Object;)V", nullptr, 0, $method(SecureKey, init$, void, Object$*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(SecureKey, equals, bool, Object$*)},
+	{"getAppKey", "()Ljava/lang/Object;", nullptr, 0, $virtualMethod(SecureKey, getAppKey, $Object*)},
+	{"getCurrentSecurityContext", "()Ljava/lang/Object;", nullptr, $STATIC, $staticMethod(SecureKey, getCurrentSecurityContext, $Object*)},
+	{"getSecurityContext", "()Ljava/lang/Object;", nullptr, 0, $virtualMethod(SecureKey, getSecurityContext, $Object*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(SecureKey, hashCode, int32_t)},
 	{}
 };
 

@@ -26,10 +26,10 @@ $FieldInfo _CheckPermission$FileOperation_FieldInfo_[] = {
 };
 
 $MethodInfo _CheckPermission$FileOperation_MethodInfo_[] = {
-	{"$values", "()[LCheckPermission$FileOperation;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$CheckPermission$FileOperationArray*(*)()>(&CheckPermission$FileOperation::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(CheckPermission$FileOperation::*)($String*,int32_t)>(&CheckPermission$FileOperation::init$))},
-	{"valueOf", "(Ljava/lang/String;)LCheckPermission$FileOperation;", nullptr, $PUBLIC | $STATIC, $method(static_cast<CheckPermission$FileOperation*(*)($String*)>(&CheckPermission$FileOperation::valueOf))},
-	{"values", "()[LCheckPermission$FileOperation;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$CheckPermission$FileOperationArray*(*)()>(&CheckPermission$FileOperation::values))},
+	{"$values", "()[LCheckPermission$FileOperation;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CheckPermission$FileOperation, $values, $CheckPermission$FileOperationArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(CheckPermission$FileOperation, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)LCheckPermission$FileOperation;", nullptr, $PUBLIC | $STATIC, $staticMethod(CheckPermission$FileOperation, valueOf, CheckPermission$FileOperation*, $String*)},
+	{"values", "()[LCheckPermission$FileOperation;", nullptr, $PUBLIC | $STATIC, $staticMethod(CheckPermission$FileOperation, values, $CheckPermission$FileOperationArray*)},
 	{}
 };
 

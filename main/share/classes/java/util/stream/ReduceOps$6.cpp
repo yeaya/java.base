@@ -30,8 +30,8 @@ $FieldInfo _ReduceOps$6_FieldInfo_[] = {
 };
 
 $MethodInfo _ReduceOps$6_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/stream/StreamShape;Ljava/util/function/IntBinaryOperator;I)V", nullptr, 0, $method(static_cast<void(ReduceOps$6::*)($StreamShape*,$IntBinaryOperator*,int32_t)>(&ReduceOps$6::init$))},
-	{"makeSink", "()Ljava/util/stream/ReduceOps$5ReducingSink;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/stream/StreamShape;Ljava/util/function/IntBinaryOperator;I)V", nullptr, 0, $method(ReduceOps$6, init$, void, $StreamShape*, $IntBinaryOperator*, int32_t)},
+	{"makeSink", "()Ljava/util/stream/ReduceOps$5ReducingSink;", nullptr, $PUBLIC, $virtualMethod(ReduceOps$6, makeSink, $ReduceOps$AccumulatingSink*)},
 	{}
 };
 

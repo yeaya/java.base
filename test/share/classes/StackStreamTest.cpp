@@ -25,12 +25,12 @@ using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
 
 $MethodInfo _StackStreamTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(StackStreamTest::*)()>(&StackStreamTest::init$))},
-	{"caller", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&StackStreamTest::caller))},
-	{"equalsOrThrow", "(Ljava/lang/String;Ljava/util/List;Ljava/util/List;)V", "<T:Ljava/lang/Object;>(Ljava/lang/String;Ljava/util/List<TT;>;Ljava/util/List<TT;>;)V", $PRIVATE | $STATIC, $method(static_cast<void(*)($String*,$List*,$List*)>(&StackStreamTest::equalsOrThrow))},
-	{"isTestClass", "(Ljava/lang/StackWalker$StackFrame;)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($StackWalker$StackFrame*)>(&StackStreamTest::isTestClass))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&StackStreamTest::main)), "java.lang.Exception"},
-	{"test", "()V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(StackStreamTest, init$, void)},
+	{"caller", "()V", nullptr, $STATIC, $staticMethod(StackStreamTest, caller, void)},
+	{"equalsOrThrow", "(Ljava/lang/String;Ljava/util/List;Ljava/util/List;)V", "<T:Ljava/lang/Object;>(Ljava/lang/String;Ljava/util/List<TT;>;Ljava/util/List<TT;>;)V", $PRIVATE | $STATIC, $staticMethod(StackStreamTest, equalsOrThrow, void, $String*, $List*, $List*)},
+	{"isTestClass", "(Ljava/lang/StackWalker$StackFrame;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(StackStreamTest, isTestClass, bool, $StackWalker$StackFrame*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StackStreamTest, main, void, $StringArray*), "java.lang.Exception"},
+	{"test", "()V", nullptr, $PUBLIC, $virtualMethod(StackStreamTest, test, void)},
 	{}
 };
 

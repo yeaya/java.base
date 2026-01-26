@@ -69,8 +69,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo DynamicCallSiteDesc$$Lambda$toString::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DynamicCallSiteDesc$$Lambda$toString::*)()>(&DynamicCallSiteDesc$$Lambda$toString::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DynamicCallSiteDesc$$Lambda$toString, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DynamicCallSiteDesc$$Lambda$toString, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo DynamicCallSiteDesc$$Lambda$toString::classInfo$ = {
@@ -97,20 +97,20 @@ $FieldInfo _DynamicCallSiteDesc_FieldInfo_[] = {
 };
 
 $MethodInfo _DynamicCallSiteDesc_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/constant/DirectMethodHandleDesc;Ljava/lang/String;Ljava/lang/constant/MethodTypeDesc;[Ljava/lang/constant/ConstantDesc;)V", nullptr, $PRIVATE, $method(static_cast<void(DynamicCallSiteDesc::*)($DirectMethodHandleDesc*,$String*,$MethodTypeDesc*,$ConstantDescArray*)>(&DynamicCallSiteDesc::init$))},
-	{"bootstrapArgs", "()[Ljava/lang/constant/ConstantDesc;", nullptr, $PUBLIC},
-	{"bootstrapMethod", "()Ljava/lang/constant/MethodHandleDesc;", nullptr, $PUBLIC},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
-	{"hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"invocationName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"invocationType", "()Ljava/lang/constant/MethodTypeDesc;", nullptr, $PUBLIC},
-	{"of", "(Ljava/lang/constant/DirectMethodHandleDesc;Ljava/lang/String;Ljava/lang/constant/MethodTypeDesc;[Ljava/lang/constant/ConstantDesc;)Ljava/lang/constant/DynamicCallSiteDesc;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<DynamicCallSiteDesc*(*)($DirectMethodHandleDesc*,$String*,$MethodTypeDesc*,$ConstantDescArray*)>(&DynamicCallSiteDesc::of))},
-	{"of", "(Ljava/lang/constant/DirectMethodHandleDesc;Ljava/lang/String;Ljava/lang/constant/MethodTypeDesc;)Ljava/lang/constant/DynamicCallSiteDesc;", nullptr, $PUBLIC | $STATIC, $method(static_cast<DynamicCallSiteDesc*(*)($DirectMethodHandleDesc*,$String*,$MethodTypeDesc*)>(&DynamicCallSiteDesc::of))},
-	{"of", "(Ljava/lang/constant/DirectMethodHandleDesc;Ljava/lang/constant/MethodTypeDesc;)Ljava/lang/constant/DynamicCallSiteDesc;", nullptr, $PUBLIC | $STATIC, $method(static_cast<DynamicCallSiteDesc*(*)($DirectMethodHandleDesc*,$MethodTypeDesc*)>(&DynamicCallSiteDesc::of))},
-	{"resolveCallSiteDesc", "(Ljava/lang/invoke/MethodHandles$Lookup;)Ljava/lang/invoke/CallSite;", nullptr, $PUBLIC, nullptr, "java.lang.Throwable"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"withArgs", "([Ljava/lang/constant/ConstantDesc;)Ljava/lang/constant/DynamicCallSiteDesc;", nullptr, $PUBLIC | $TRANSIENT},
-	{"withNameAndType", "(Ljava/lang/String;Ljava/lang/constant/MethodTypeDesc;)Ljava/lang/constant/DynamicCallSiteDesc;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/constant/DirectMethodHandleDesc;Ljava/lang/String;Ljava/lang/constant/MethodTypeDesc;[Ljava/lang/constant/ConstantDesc;)V", nullptr, $PRIVATE, $method(DynamicCallSiteDesc, init$, void, $DirectMethodHandleDesc*, $String*, $MethodTypeDesc*, $ConstantDescArray*)},
+	{"bootstrapArgs", "()[Ljava/lang/constant/ConstantDesc;", nullptr, $PUBLIC, $virtualMethod(DynamicCallSiteDesc, bootstrapArgs, $ConstantDescArray*)},
+	{"bootstrapMethod", "()Ljava/lang/constant/MethodHandleDesc;", nullptr, $PUBLIC, $virtualMethod(DynamicCallSiteDesc, bootstrapMethod, $MethodHandleDesc*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(DynamicCallSiteDesc, equals, bool, Object$*)},
+	{"hashCode", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(DynamicCallSiteDesc, hashCode, int32_t)},
+	{"invocationName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DynamicCallSiteDesc, invocationName, $String*)},
+	{"invocationType", "()Ljava/lang/constant/MethodTypeDesc;", nullptr, $PUBLIC, $virtualMethod(DynamicCallSiteDesc, invocationType, $MethodTypeDesc*)},
+	{"of", "(Ljava/lang/constant/DirectMethodHandleDesc;Ljava/lang/String;Ljava/lang/constant/MethodTypeDesc;[Ljava/lang/constant/ConstantDesc;)Ljava/lang/constant/DynamicCallSiteDesc;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(DynamicCallSiteDesc, of, DynamicCallSiteDesc*, $DirectMethodHandleDesc*, $String*, $MethodTypeDesc*, $ConstantDescArray*)},
+	{"of", "(Ljava/lang/constant/DirectMethodHandleDesc;Ljava/lang/String;Ljava/lang/constant/MethodTypeDesc;)Ljava/lang/constant/DynamicCallSiteDesc;", nullptr, $PUBLIC | $STATIC, $staticMethod(DynamicCallSiteDesc, of, DynamicCallSiteDesc*, $DirectMethodHandleDesc*, $String*, $MethodTypeDesc*)},
+	{"of", "(Ljava/lang/constant/DirectMethodHandleDesc;Ljava/lang/constant/MethodTypeDesc;)Ljava/lang/constant/DynamicCallSiteDesc;", nullptr, $PUBLIC | $STATIC, $staticMethod(DynamicCallSiteDesc, of, DynamicCallSiteDesc*, $DirectMethodHandleDesc*, $MethodTypeDesc*)},
+	{"resolveCallSiteDesc", "(Ljava/lang/invoke/MethodHandles$Lookup;)Ljava/lang/invoke/CallSite;", nullptr, $PUBLIC, $virtualMethod(DynamicCallSiteDesc, resolveCallSiteDesc, $CallSite*, $MethodHandles$Lookup*), "java.lang.Throwable"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DynamicCallSiteDesc, toString, $String*)},
+	{"withArgs", "([Ljava/lang/constant/ConstantDesc;)Ljava/lang/constant/DynamicCallSiteDesc;", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(DynamicCallSiteDesc, withArgs, DynamicCallSiteDesc*, $ConstantDescArray*)},
+	{"withNameAndType", "(Ljava/lang/String;Ljava/lang/constant/MethodTypeDesc;)Ljava/lang/constant/DynamicCallSiteDesc;", nullptr, $PUBLIC, $virtualMethod(DynamicCallSiteDesc, withNameAndType, DynamicCallSiteDesc*, $String*, $MethodTypeDesc*)},
 	{}
 };
 

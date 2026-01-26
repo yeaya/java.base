@@ -23,11 +23,11 @@ $FieldInfo _SerialVersionUIDAdder$Item_FieldInfo_[] = {
 };
 
 $MethodInfo _SerialVersionUIDAdder$Item_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", nullptr, 0, $method(static_cast<void(SerialVersionUIDAdder$Item::*)($String*,int32_t,$String*)>(&SerialVersionUIDAdder$Item::init$))},
-	{"compareTo", "(Ljdk/internal/org/objectweb/asm/commons/SerialVersionUIDAdder$Item;)I", nullptr, $PUBLIC, $method(static_cast<int32_t(SerialVersionUIDAdder$Item::*)(SerialVersionUIDAdder$Item*)>(&SerialVersionUIDAdder$Item::compareTo))},
-	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", nullptr, 0, $method(SerialVersionUIDAdder$Item, init$, void, $String*, int32_t, $String*)},
+	{"compareTo", "(Ljdk/internal/org/objectweb/asm/commons/SerialVersionUIDAdder$Item;)I", nullptr, $PUBLIC, $method(SerialVersionUIDAdder$Item, compareTo, int32_t, SerialVersionUIDAdder$Item*)},
+	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(SerialVersionUIDAdder$Item, compareTo, int32_t, Object$*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(SerialVersionUIDAdder$Item, equals, bool, Object$*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(SerialVersionUIDAdder$Item, hashCode, int32_t)},
 	{}
 };
 

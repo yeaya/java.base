@@ -35,15 +35,15 @@ $MethodInfo _ForkJoinTask$AdaptedInterruptibleCallable_MethodInfo_[] = {
 	{"*get", "()Ljava/lang/Object;", nullptr, $PUBLIC | $FINAL},
 	{"*get", "(JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;", nullptr, $PUBLIC | $FINAL},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/util/concurrent/Callable;)V", "(Ljava/util/concurrent/Callable<+TT;>;)V", 0, $method(static_cast<void(ForkJoinTask$AdaptedInterruptibleCallable::*)($Callable*)>(&ForkJoinTask$AdaptedInterruptibleCallable::init$))},
-	{"cancel", "(Z)Z", nullptr, $PUBLIC | $FINAL},
-	{"exec", "()Z", nullptr, $PUBLIC | $FINAL},
-	{"getRawResult", "()Ljava/lang/Object;", "()TT;", $PUBLIC | $FINAL},
+	{"<init>", "(Ljava/util/concurrent/Callable;)V", "(Ljava/util/concurrent/Callable<+TT;>;)V", 0, $method(ForkJoinTask$AdaptedInterruptibleCallable, init$, void, $Callable*)},
+	{"cancel", "(Z)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(ForkJoinTask$AdaptedInterruptibleCallable, cancel, bool, bool)},
+	{"exec", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(ForkJoinTask$AdaptedInterruptibleCallable, exec, bool)},
+	{"getRawResult", "()Ljava/lang/Object;", "()TT;", $PUBLIC | $FINAL, $virtualMethod(ForkJoinTask$AdaptedInterruptibleCallable, getRawResult, $Object*)},
 	{"*isCancelled", "()Z", nullptr, $PUBLIC | $FINAL},
 	{"*isDone", "()Z", nullptr, $PUBLIC | $FINAL},
-	{"run", "()V", nullptr, $PUBLIC | $FINAL},
-	{"setRawResult", "(Ljava/lang/Object;)V", "(TT;)V", $PUBLIC | $FINAL},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"run", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(ForkJoinTask$AdaptedInterruptibleCallable, run, void)},
+	{"setRawResult", "(Ljava/lang/Object;)V", "(TT;)V", $PUBLIC | $FINAL, $virtualMethod(ForkJoinTask$AdaptedInterruptibleCallable, setRawResult, void, Object$*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ForkJoinTask$AdaptedInterruptibleCallable, toString, $String*)},
 	{}
 };
 

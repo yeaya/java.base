@@ -16,7 +16,7 @@ namespace sun {
 		namespace cs {
 
 $MethodInfo _DoubleByte$Encoder_EUC_SIM_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/charset/Charset;[C[CZ)V", nullptr, $PUBLIC, $method(static_cast<void(DoubleByte$Encoder_EUC_SIM::*)($Charset*,$chars*,$chars*,bool)>(&DoubleByte$Encoder_EUC_SIM::init$))},
+	{"<init>", "(Ljava/nio/charset/Charset;[C[CZ)V", nullptr, $PUBLIC, $method(DoubleByte$Encoder_EUC_SIM, init$, void, $Charset*, $chars*, $chars*, bool)},
 	{}
 };
 

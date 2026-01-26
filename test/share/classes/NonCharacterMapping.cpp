@@ -20,8 +20,8 @@ $FieldInfo _NonCharacterMapping_FieldInfo_[] = {
 };
 
 $MethodInfo _NonCharacterMapping_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(NonCharacterMapping::*)()>(&NonCharacterMapping::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&NonCharacterMapping::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(NonCharacterMapping, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(NonCharacterMapping, main, void, $StringArray*)},
 	{}
 };
 

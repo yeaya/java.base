@@ -17,7 +17,7 @@ $FieldInfo _ThreadDeath_FieldInfo_[] = {
 };
 
 $MethodInfo _ThreadDeath_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ThreadDeath::*)()>(&ThreadDeath::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ThreadDeath, init$, void)},
 	{}
 };
 

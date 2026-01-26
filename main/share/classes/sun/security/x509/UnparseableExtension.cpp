@@ -27,8 +27,8 @@ $FieldInfo _UnparseableExtension_FieldInfo_[] = {
 };
 
 $MethodInfo _UnparseableExtension_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/x509/Extension;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(UnparseableExtension::*)($Extension*,$Throwable*)>(&UnparseableExtension::init$))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/security/x509/Extension;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(UnparseableExtension, init$, void, $Extension*, $Throwable*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UnparseableExtension, toString, $String*)},
 	{}
 };
 

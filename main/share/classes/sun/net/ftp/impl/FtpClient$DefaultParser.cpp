@@ -47,8 +47,8 @@ $FieldInfo _FtpClient$DefaultParser_FieldInfo_[] = {
 };
 
 $MethodInfo _FtpClient$DefaultParser_MethodInfo_[] = {
-	{"<init>", "(Lsun/net/ftp/impl/FtpClient;)V", nullptr, $PRIVATE, $method(static_cast<void(FtpClient$DefaultParser::*)($FtpClient*)>(&FtpClient$DefaultParser::init$))},
-	{"parseLine", "(Ljava/lang/String;)Lsun/net/ftp/FtpDirEntry;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/net/ftp/impl/FtpClient;)V", nullptr, $PRIVATE, $method(FtpClient$DefaultParser, init$, void, $FtpClient*)},
+	{"parseLine", "(Ljava/lang/String;)Lsun/net/ftp/FtpDirEntry;", nullptr, $PUBLIC, $virtualMethod(FtpClient$DefaultParser, parseLine, $FtpDirEntry*, $String*)},
 	{}
 };
 

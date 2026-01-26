@@ -86,8 +86,8 @@ $FieldInfo ObjectStreamClass$RecordSupport$$Lambda$getRecordComponents::fieldInf
 	{}
 };
 $MethodInfo ObjectStreamClass$RecordSupport$$Lambda$getRecordComponents::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/Class;)V", nullptr, $PUBLIC, $method(static_cast<void(ObjectStreamClass$RecordSupport$$Lambda$getRecordComponents::*)($Class*)>(&ObjectStreamClass$RecordSupport$$Lambda$getRecordComponents::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Class;)V", nullptr, $PUBLIC, $method(ObjectStreamClass$RecordSupport$$Lambda$getRecordComponents, init$, void, $Class*)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ObjectStreamClass$RecordSupport$$Lambda$getRecordComponents, run, $Object*)},
 	{}
 };
 $ClassInfo ObjectStreamClass$RecordSupport$$Lambda$getRecordComponents::classInfo$ = {
@@ -110,10 +110,10 @@ $FieldInfo _ObjectStreamClass$RecordSupport_FieldInfo_[] = {
 };
 
 $MethodInfo _ObjectStreamClass$RecordSupport_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ObjectStreamClass$RecordSupport::*)()>(&ObjectStreamClass$RecordSupport::init$))},
-	{"deserializationCtr", "(Ljava/io/ObjectStreamClass;)Ljava/lang/invoke/MethodHandle;", nullptr, $STATIC, $method(static_cast<$MethodHandle*(*)($ObjectStreamClass*)>(&ObjectStreamClass$RecordSupport::deserializationCtr))},
-	{"numberPrimValues", "(Ljava/io/ObjectStreamClass;)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)($ObjectStreamClass*)>(&ObjectStreamClass$RecordSupport::numberPrimValues))},
-	{"streamFieldExtractor", "(Ljava/lang/String;Ljava/lang/Class;Ljava/io/ObjectStreamClass;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/String;Ljava/lang/Class<*>;Ljava/io/ObjectStreamClass;)Ljava/lang/invoke/MethodHandle;", $PRIVATE | $STATIC, $method(static_cast<$MethodHandle*(*)($String*,$Class*,$ObjectStreamClass*)>(&ObjectStreamClass$RecordSupport::streamFieldExtractor))},
+	{"<init>", "()V", nullptr, 0, $method(ObjectStreamClass$RecordSupport, init$, void)},
+	{"deserializationCtr", "(Ljava/io/ObjectStreamClass;)Ljava/lang/invoke/MethodHandle;", nullptr, $STATIC, $staticMethod(ObjectStreamClass$RecordSupport, deserializationCtr, $MethodHandle*, $ObjectStreamClass*)},
+	{"numberPrimValues", "(Ljava/io/ObjectStreamClass;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(ObjectStreamClass$RecordSupport, numberPrimValues, int32_t, $ObjectStreamClass*)},
+	{"streamFieldExtractor", "(Ljava/lang/String;Ljava/lang/Class;Ljava/io/ObjectStreamClass;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/String;Ljava/lang/Class<*>;Ljava/io/ObjectStreamClass;)Ljava/lang/invoke/MethodHandle;", $PRIVATE | $STATIC, $staticMethod(ObjectStreamClass$RecordSupport, streamFieldExtractor, $MethodHandle*, $String*, $Class*, $ObjectStreamClass*)},
 	{}
 };
 

@@ -32,20 +32,20 @@ $FieldInfo _LongAdder_FieldInfo_[] = {
 };
 
 $MethodInfo _LongAdder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(LongAdder::*)()>(&LongAdder::init$))},
-	{"add", "(J)V", nullptr, $PUBLIC},
-	{"decrement", "()V", nullptr, $PUBLIC},
-	{"doubleValue", "()D", nullptr, $PUBLIC},
-	{"floatValue", "()F", nullptr, $PUBLIC},
-	{"increment", "()V", nullptr, $PUBLIC},
-	{"intValue", "()I", nullptr, $PUBLIC},
-	{"longValue", "()J", nullptr, $PUBLIC},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(LongAdder::*)($ObjectInputStream*)>(&LongAdder::readObject)), "java.io.InvalidObjectException"},
-	{"reset", "()V", nullptr, $PUBLIC},
-	{"sum", "()J", nullptr, $PUBLIC},
-	{"sumThenReset", "()J", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"writeReplace", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(static_cast<$Object*(LongAdder::*)()>(&LongAdder::writeReplace))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(LongAdder, init$, void)},
+	{"add", "(J)V", nullptr, $PUBLIC, $virtualMethod(LongAdder, add, void, int64_t)},
+	{"decrement", "()V", nullptr, $PUBLIC, $virtualMethod(LongAdder, decrement, void)},
+	{"doubleValue", "()D", nullptr, $PUBLIC, $virtualMethod(LongAdder, doubleValue, double)},
+	{"floatValue", "()F", nullptr, $PUBLIC, $virtualMethod(LongAdder, floatValue, float)},
+	{"increment", "()V", nullptr, $PUBLIC, $virtualMethod(LongAdder, increment, void)},
+	{"intValue", "()I", nullptr, $PUBLIC, $virtualMethod(LongAdder, intValue, int32_t)},
+	{"longValue", "()J", nullptr, $PUBLIC, $virtualMethod(LongAdder, longValue, int64_t)},
+	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(LongAdder, readObject, void, $ObjectInputStream*), "java.io.InvalidObjectException"},
+	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(LongAdder, reset, void)},
+	{"sum", "()J", nullptr, $PUBLIC, $virtualMethod(LongAdder, sum, int64_t)},
+	{"sumThenReset", "()J", nullptr, $PUBLIC, $virtualMethod(LongAdder, sumThenReset, int64_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LongAdder, toString, $String*)},
+	{"writeReplace", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(LongAdder, writeReplace, $Object*)},
 	{}
 };
 

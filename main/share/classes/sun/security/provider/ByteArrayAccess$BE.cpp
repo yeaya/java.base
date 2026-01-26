@@ -29,7 +29,7 @@ $FieldInfo _ByteArrayAccess$BE_FieldInfo_[] = {
 };
 
 $MethodInfo _ByteArrayAccess$BE_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ByteArrayAccess$BE::*)()>(&ByteArrayAccess$BE::init$))},
+	{"<init>", "()V", nullptr, 0, $method(ByteArrayAccess$BE, init$, void)},
 	{}
 };
 

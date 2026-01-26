@@ -32,10 +32,10 @@ $FieldInfo _DelegateHttpsURLConnection_FieldInfo_[] = {
 };
 
 $MethodInfo _DelegateHttpsURLConnection_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/URL;Lsun/net/www/protocol/http/Handler;Ljavax/net/ssl/HttpsURLConnection;)V", nullptr, 0, $method(static_cast<void(DelegateHttpsURLConnection::*)($URL*,$Handler*,$HttpsURLConnection*)>(&DelegateHttpsURLConnection::init$)), "java.io.IOException"},
-	{"<init>", "(Ljava/net/URL;Ljava/net/Proxy;Lsun/net/www/protocol/http/Handler;Ljavax/net/ssl/HttpsURLConnection;)V", nullptr, 0, $method(static_cast<void(DelegateHttpsURLConnection::*)($URL*,$Proxy*,$Handler*,$HttpsURLConnection*)>(&DelegateHttpsURLConnection::init$)), "java.io.IOException"},
-	{"getHostnameVerifier", "()Ljavax/net/ssl/HostnameVerifier;", nullptr, $PROTECTED},
-	{"getSSLSocketFactory", "()Ljavax/net/ssl/SSLSocketFactory;", nullptr, $PROTECTED},
+	{"<init>", "(Ljava/net/URL;Lsun/net/www/protocol/http/Handler;Ljavax/net/ssl/HttpsURLConnection;)V", nullptr, 0, $method(DelegateHttpsURLConnection, init$, void, $URL*, $Handler*, $HttpsURLConnection*), "java.io.IOException"},
+	{"<init>", "(Ljava/net/URL;Ljava/net/Proxy;Lsun/net/www/protocol/http/Handler;Ljavax/net/ssl/HttpsURLConnection;)V", nullptr, 0, $method(DelegateHttpsURLConnection, init$, void, $URL*, $Proxy*, $Handler*, $HttpsURLConnection*), "java.io.IOException"},
+	{"getHostnameVerifier", "()Ljavax/net/ssl/HostnameVerifier;", nullptr, $PROTECTED, $virtualMethod(DelegateHttpsURLConnection, getHostnameVerifier, $HostnameVerifier*)},
+	{"getSSLSocketFactory", "()Ljavax/net/ssl/SSLSocketFactory;", nullptr, $PROTECTED, $virtualMethod(DelegateHttpsURLConnection, getSSLSocketFactory, $SSLSocketFactory*)},
 	{}
 };
 

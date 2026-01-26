@@ -7,6 +7,9 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Map = ::java::util::Map;
+using $Subject = ::javax::security::auth::Subject;
+using $CallbackHandler = ::javax::security::auth::callback::CallbackHandler;
 
 namespace javax {
 	namespace security {
@@ -14,11 +17,11 @@ namespace javax {
 			namespace spi {
 
 $MethodInfo _LoginModule_MethodInfo_[] = {
-	{"abort", "()Z", nullptr, $PUBLIC | $ABSTRACT, nullptr, "javax.security.auth.login.LoginException"},
-	{"commit", "()Z", nullptr, $PUBLIC | $ABSTRACT, nullptr, "javax.security.auth.login.LoginException"},
-	{"initialize", "(Ljavax/security/auth/Subject;Ljavax/security/auth/callback/CallbackHandler;Ljava/util/Map;Ljava/util/Map;)V", "(Ljavax/security/auth/Subject;Ljavax/security/auth/callback/CallbackHandler;Ljava/util/Map<Ljava/lang/String;*>;Ljava/util/Map<Ljava/lang/String;*>;)V", $PUBLIC | $ABSTRACT},
-	{"login", "()Z", nullptr, $PUBLIC | $ABSTRACT, nullptr, "javax.security.auth.login.LoginException"},
-	{"logout", "()Z", nullptr, $PUBLIC | $ABSTRACT, nullptr, "javax.security.auth.login.LoginException"},
+	{"abort", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LoginModule, abort, bool), "javax.security.auth.login.LoginException"},
+	{"commit", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LoginModule, commit, bool), "javax.security.auth.login.LoginException"},
+	{"initialize", "(Ljavax/security/auth/Subject;Ljavax/security/auth/callback/CallbackHandler;Ljava/util/Map;Ljava/util/Map;)V", "(Ljavax/security/auth/Subject;Ljavax/security/auth/callback/CallbackHandler;Ljava/util/Map<Ljava/lang/String;*>;Ljava/util/Map<Ljava/lang/String;*>;)V", $PUBLIC | $ABSTRACT, $virtualMethod(LoginModule, initialize, void, $Subject*, $CallbackHandler*, $Map*, $Map*)},
+	{"login", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LoginModule, login, bool), "javax.security.auth.login.LoginException"},
+	{"logout", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LoginModule, logout, bool), "javax.security.auth.login.LoginException"},
 	{}
 };
 

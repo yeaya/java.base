@@ -22,12 +22,12 @@ $FieldInfo _TlsMasterSecretGenerator$TlsMasterSecretKey_FieldInfo_[] = {
 };
 
 $MethodInfo _TlsMasterSecretGenerator$TlsMasterSecretKey_MethodInfo_[] = {
-	{"<init>", "([BII)V", nullptr, 0, $method(static_cast<void(TlsMasterSecretGenerator$TlsMasterSecretKey::*)($bytes*,int32_t,int32_t)>(&TlsMasterSecretGenerator$TlsMasterSecretKey::init$))},
-	{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getEncoded", "()[B", nullptr, $PUBLIC},
-	{"getFormat", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getMajorVersion", "()I", nullptr, $PUBLIC},
-	{"getMinorVersion", "()I", nullptr, $PUBLIC},
+	{"<init>", "([BII)V", nullptr, 0, $method(TlsMasterSecretGenerator$TlsMasterSecretKey, init$, void, $bytes*, int32_t, int32_t)},
+	{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TlsMasterSecretGenerator$TlsMasterSecretKey, getAlgorithm, $String*)},
+	{"getEncoded", "()[B", nullptr, $PUBLIC, $virtualMethod(TlsMasterSecretGenerator$TlsMasterSecretKey, getEncoded, $bytes*)},
+	{"getFormat", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TlsMasterSecretGenerator$TlsMasterSecretKey, getFormat, $String*)},
+	{"getMajorVersion", "()I", nullptr, $PUBLIC, $virtualMethod(TlsMasterSecretGenerator$TlsMasterSecretKey, getMajorVersion, int32_t)},
+	{"getMinorVersion", "()I", nullptr, $PUBLIC, $virtualMethod(TlsMasterSecretGenerator$TlsMasterSecretKey, getMinorVersion, int32_t)},
 	{}
 };
 

@@ -14,8 +14,8 @@ using $Process = ::java::lang::Process;
 using $Runtime = ::java::lang::Runtime;
 
 $MethodInfo _FeelingLucky_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(FeelingLucky::*)()>(&FeelingLucky::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&FeelingLucky::main)), "java.lang.Throwable"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(FeelingLucky, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(FeelingLucky, main, void, $StringArray*), "java.lang.Throwable"},
 	{}
 };
 

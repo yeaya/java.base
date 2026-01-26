@@ -99,8 +99,8 @@ $FieldInfo FileExtensionAndMap$$Lambda$lambda$main$1::fieldInfos[2] = {
 	{}
 };
 $MethodInfo FileExtensionAndMap$$Lambda$lambda$main$1::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(FileExtensionAndMap$$Lambda$lambda$main$1::*)($String*)>(&FileExtensionAndMap$$Lambda$lambda$main$1::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(FileExtensionAndMap$$Lambda$lambda$main$1, init$, void, $String*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(FileExtensionAndMap$$Lambda$lambda$main$1, run, void)},
 	{}
 };
 $ClassInfo FileExtensionAndMap$$Lambda$lambda$main$1::classInfo$ = {
@@ -151,8 +151,8 @@ $FieldInfo FileExtensionAndMap$$Lambda$lambda$testCreateBigFile$2$1::fieldInfos[
 	{}
 };
 $MethodInfo FileExtensionAndMap$$Lambda$lambda$testCreateBigFile$2$1::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;Ljava/nio/channels/FileChannel;JILjava/util/concurrent/Semaphore;)V", nullptr, $PUBLIC, $method(static_cast<void(FileExtensionAndMap$$Lambda$lambda$testCreateBigFile$2$1::*)($String*,$FileChannel*,int64_t,int32_t,$Semaphore*)>(&FileExtensionAndMap$$Lambda$lambda$testCreateBigFile$2$1::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Ljava/nio/channels/FileChannel;JILjava/util/concurrent/Semaphore;)V", nullptr, $PUBLIC, $method(FileExtensionAndMap$$Lambda$lambda$testCreateBigFile$2$1, init$, void, $String*, $FileChannel*, int64_t, int32_t, $Semaphore*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(FileExtensionAndMap$$Lambda$lambda$testCreateBigFile$2$1, run, void)},
 	{}
 };
 $ClassInfo FileExtensionAndMap$$Lambda$lambda$testCreateBigFile$2$1::classInfo$ = {
@@ -200,8 +200,8 @@ $FieldInfo FileExtensionAndMap$$Lambda$lambda$writeTemplateData$4$2::fieldInfos[
 	{}
 };
 $MethodInfo FileExtensionAndMap$$Lambda$lambda$writeTemplateData$4$2::methodInfos[3] = {
-	{"<init>", "(Ljava/nio/MappedByteBuffer;[BLjava/lang/String;J)V", nullptr, $PUBLIC, $method(static_cast<void(FileExtensionAndMap$$Lambda$lambda$writeTemplateData$4$2::*)($MappedByteBuffer*,$bytes*,$String*,int64_t)>(&FileExtensionAndMap$$Lambda$lambda$writeTemplateData$4$2::init$))},
-	{"accept", "(I)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/nio/MappedByteBuffer;[BLjava/lang/String;J)V", nullptr, $PUBLIC, $method(FileExtensionAndMap$$Lambda$lambda$writeTemplateData$4$2, init$, void, $MappedByteBuffer*, $bytes*, $String*, int64_t)},
+	{"accept", "(I)V", nullptr, $PUBLIC, $virtualMethod(FileExtensionAndMap$$Lambda$lambda$writeTemplateData$4$2, accept, void, int32_t)},
 	{}
 };
 $ClassInfo FileExtensionAndMap$$Lambda$lambda$writeTemplateData$4$2::classInfo$ = {
@@ -240,8 +240,8 @@ $FieldInfo FileExtensionAndMap$$Lambda$lambda$main$0$3::fieldInfos[2] = {
 	{}
 };
 $MethodInfo FileExtensionAndMap$$Lambda$lambda$main$0$3::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(FileExtensionAndMap$$Lambda$lambda$main$0$3::*)($String*)>(&FileExtensionAndMap$$Lambda$lambda$main$0$3::init$))},
-	{"accept", "(I)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(FileExtensionAndMap$$Lambda$lambda$main$0$3, init$, void, $String*)},
+	{"accept", "(I)V", nullptr, $PUBLIC, $virtualMethod(FileExtensionAndMap$$Lambda$lambda$main$0$3, accept, void, int32_t)},
 	{}
 };
 $ClassInfo FileExtensionAndMap$$Lambda$lambda$main$0$3::classInfo$ = {
@@ -266,15 +266,15 @@ $FieldInfo _FileExtensionAndMap_FieldInfo_[] = {
 };
 
 $MethodInfo _FileExtensionAndMap_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(FileExtensionAndMap::*)()>(&FileExtensionAndMap::init$))},
-	{"lambda$main$0", "(Ljava/lang/String;I)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($String*,int32_t)>(&FileExtensionAndMap::lambda$main$0))},
-	{"lambda$main$1", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($String*)>(&FileExtensionAndMap::lambda$main$1))},
-	{"lambda$testCreateBigFile$2", "(Ljava/lang/String;Ljava/nio/channels/FileChannel;JILjava/util/concurrent/Semaphore;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($String*,$FileChannel*,int64_t,int32_t,$Semaphore*)>(&FileExtensionAndMap::lambda$testCreateBigFile$2))},
-	{"lambda$writeTemplateData$4", "(Ljava/nio/MappedByteBuffer;[BLjava/lang/String;JI)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($MappedByteBuffer*,$bytes*,$String*,int64_t,int32_t)>(&FileExtensionAndMap::lambda$writeTemplateData$4))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&FileExtensionAndMap::main)), "java.lang.Exception"},
-	{"testCreateBigFile", "(Ljava/nio/file/Path;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($Path*)>(&FileExtensionAndMap::testCreateBigFile)), "java.io.IOException"},
-	{"testFileCopy", "(Ljava/nio/file/Path;Ljava/nio/file/Path;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($Path*,$Path*)>(&FileExtensionAndMap::testFileCopy)), "java.io.IOException"},
-	{"writeTemplateData", "(Ljava/lang/String;Ljava/nio/channels/FileChannel;JILjava/util/concurrent/Semaphore;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($String*,$FileChannel*,int64_t,int32_t,$Semaphore*)>(&FileExtensionAndMap::writeTemplateData))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(FileExtensionAndMap, init$, void)},
+	{"lambda$main$0", "(Ljava/lang/String;I)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(FileExtensionAndMap, lambda$main$0, void, $String*, int32_t)},
+	{"lambda$main$1", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(FileExtensionAndMap, lambda$main$1, void, $String*)},
+	{"lambda$testCreateBigFile$2", "(Ljava/lang/String;Ljava/nio/channels/FileChannel;JILjava/util/concurrent/Semaphore;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(FileExtensionAndMap, lambda$testCreateBigFile$2, void, $String*, $FileChannel*, int64_t, int32_t, $Semaphore*)},
+	{"lambda$writeTemplateData$4", "(Ljava/nio/MappedByteBuffer;[BLjava/lang/String;JI)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(FileExtensionAndMap, lambda$writeTemplateData$4, void, $MappedByteBuffer*, $bytes*, $String*, int64_t, int32_t)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(FileExtensionAndMap, main, void, $StringArray*), "java.lang.Exception"},
+	{"testCreateBigFile", "(Ljava/nio/file/Path;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(FileExtensionAndMap, testCreateBigFile, void, $Path*), "java.io.IOException"},
+	{"testFileCopy", "(Ljava/nio/file/Path;Ljava/nio/file/Path;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(FileExtensionAndMap, testFileCopy, void, $Path*, $Path*), "java.io.IOException"},
+	{"writeTemplateData", "(Ljava/lang/String;Ljava/nio/channels/FileChannel;JILjava/util/concurrent/Semaphore;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(FileExtensionAndMap, writeTemplateData, void, $String*, $FileChannel*, int64_t, int32_t, $Semaphore*)},
 	{}
 };
 

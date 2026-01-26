@@ -12,7 +12,7 @@ namespace jdk {
 		namespace reflect {
 
 $MethodInfo _DelegatingClassLoader_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/ClassLoader;)V", nullptr, 0, $method(static_cast<void(DelegatingClassLoader::*)($ClassLoader*)>(&DelegatingClassLoader::init$))},
+	{"<init>", "(Ljava/lang/ClassLoader;)V", nullptr, 0, $method(DelegatingClassLoader, init$, void, $ClassLoader*)},
 	{}
 };
 

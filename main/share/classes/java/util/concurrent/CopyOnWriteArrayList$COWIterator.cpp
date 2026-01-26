@@ -28,17 +28,17 @@ $FieldInfo _CopyOnWriteArrayList$COWIterator_FieldInfo_[] = {
 };
 
 $MethodInfo _CopyOnWriteArrayList$COWIterator_MethodInfo_[] = {
-	{"<init>", "([Ljava/lang/Object;I)V", nullptr, 0, $method(static_cast<void(CopyOnWriteArrayList$COWIterator::*)($ObjectArray*,int32_t)>(&CopyOnWriteArrayList$COWIterator::init$))},
-	{"add", "(Ljava/lang/Object;)V", "(TE;)V", $PUBLIC},
-	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC},
-	{"hasNext", "()Z", nullptr, $PUBLIC},
-	{"hasPrevious", "()Z", nullptr, $PUBLIC},
-	{"next", "()Ljava/lang/Object;", "()TE;", $PUBLIC},
-	{"nextIndex", "()I", nullptr, $PUBLIC},
-	{"previous", "()Ljava/lang/Object;", "()TE;", $PUBLIC},
-	{"previousIndex", "()I", nullptr, $PUBLIC},
-	{"remove", "()V", nullptr, $PUBLIC},
-	{"set", "(Ljava/lang/Object;)V", "(TE;)V", $PUBLIC},
+	{"<init>", "([Ljava/lang/Object;I)V", nullptr, 0, $method(CopyOnWriteArrayList$COWIterator, init$, void, $ObjectArray*, int32_t)},
+	{"add", "(Ljava/lang/Object;)V", "(TE;)V", $PUBLIC, $virtualMethod(CopyOnWriteArrayList$COWIterator, add, void, Object$*)},
+	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC, $virtualMethod(CopyOnWriteArrayList$COWIterator, forEachRemaining, void, $Consumer*)},
+	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(CopyOnWriteArrayList$COWIterator, hasNext, bool)},
+	{"hasPrevious", "()Z", nullptr, $PUBLIC, $virtualMethod(CopyOnWriteArrayList$COWIterator, hasPrevious, bool)},
+	{"next", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(CopyOnWriteArrayList$COWIterator, next, $Object*)},
+	{"nextIndex", "()I", nullptr, $PUBLIC, $virtualMethod(CopyOnWriteArrayList$COWIterator, nextIndex, int32_t)},
+	{"previous", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(CopyOnWriteArrayList$COWIterator, previous, $Object*)},
+	{"previousIndex", "()I", nullptr, $PUBLIC, $virtualMethod(CopyOnWriteArrayList$COWIterator, previousIndex, int32_t)},
+	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(CopyOnWriteArrayList$COWIterator, remove, void)},
+	{"set", "(Ljava/lang/Object;)V", "(TE;)V", $PUBLIC, $virtualMethod(CopyOnWriteArrayList$COWIterator, set, void, Object$*)},
 	{}
 };
 

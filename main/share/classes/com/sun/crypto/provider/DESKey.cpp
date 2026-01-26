@@ -72,8 +72,8 @@ $FieldInfo DESKey$$Lambda$lambda$new$0::fieldInfos[2] = {
 	{}
 };
 $MethodInfo DESKey$$Lambda$lambda$new$0::methodInfos[3] = {
-	{"<init>", "([B)V", nullptr, $PUBLIC, $method(static_cast<void(DESKey$$Lambda$lambda$new$0::*)($bytes*)>(&DESKey$$Lambda$lambda$new$0::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "([B)V", nullptr, $PUBLIC, $method(DESKey$$Lambda$lambda$new$0, init$, void, $bytes*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(DESKey$$Lambda$lambda$new$0, run, void)},
 	{}
 };
 $ClassInfo DESKey$$Lambda$lambda$new$0::classInfo$ = {
@@ -97,16 +97,16 @@ $FieldInfo _DESKey_FieldInfo_[] = {
 };
 
 $MethodInfo _DESKey_MethodInfo_[] = {
-	{"<init>", "([B)V", nullptr, 0, $method(static_cast<void(DESKey::*)($bytes*)>(&DESKey::init$)), "java.security.InvalidKeyException"},
-	{"<init>", "([BI)V", nullptr, 0, $method(static_cast<void(DESKey::*)($bytes*,int32_t)>(&DESKey::init$)), "java.security.InvalidKeyException"},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getEncoded", "()[B", nullptr, $PUBLIC},
-	{"getFormat", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"lambda$new$0", "([B)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($bytes*)>(&DESKey::lambda$new$0))},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(DESKey::*)($ObjectInputStream*)>(&DESKey::readObject)), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"writeReplace", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(static_cast<$Object*(DESKey::*)()>(&DESKey::writeReplace)), "java.io.ObjectStreamException"},
+	{"<init>", "([B)V", nullptr, 0, $method(DESKey, init$, void, $bytes*), "java.security.InvalidKeyException"},
+	{"<init>", "([BI)V", nullptr, 0, $method(DESKey, init$, void, $bytes*, int32_t), "java.security.InvalidKeyException"},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(DESKey, equals, bool, Object$*)},
+	{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DESKey, getAlgorithm, $String*)},
+	{"getEncoded", "()[B", nullptr, $PUBLIC, $virtualMethod(DESKey, getEncoded, $bytes*)},
+	{"getFormat", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DESKey, getFormat, $String*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(DESKey, hashCode, int32_t)},
+	{"lambda$new$0", "([B)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DESKey, lambda$new$0, void, $bytes*)},
+	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(DESKey, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+	{"writeReplace", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(DESKey, writeReplace, $Object*), "java.io.ObjectStreamException"},
 	{}
 };
 

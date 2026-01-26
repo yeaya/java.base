@@ -27,8 +27,8 @@ $FieldInfo _ConcurrentHashMap$ForEachKeyTask_FieldInfo_[] = {
 };
 
 $MethodInfo _ConcurrentHashMap$ForEachKeyTask_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/ConcurrentHashMap$BulkTask;III[Ljava/util/concurrent/ConcurrentHashMap$Node;Ljava/util/function/Consumer;)V", "(Ljava/util/concurrent/ConcurrentHashMap$BulkTask<TK;TV;*>;III[Ljava/util/concurrent/ConcurrentHashMap$Node<TK;TV;>;Ljava/util/function/Consumer<-TK;>;)V", 0, $method(static_cast<void(ConcurrentHashMap$ForEachKeyTask::*)($ConcurrentHashMap$BulkTask*,int32_t,int32_t,int32_t,$ConcurrentHashMap$NodeArray*,$Consumer*)>(&ConcurrentHashMap$ForEachKeyTask::init$))},
-	{"compute", "()V", nullptr, $PUBLIC | $FINAL},
+	{"<init>", "(Ljava/util/concurrent/ConcurrentHashMap$BulkTask;III[Ljava/util/concurrent/ConcurrentHashMap$Node;Ljava/util/function/Consumer;)V", "(Ljava/util/concurrent/ConcurrentHashMap$BulkTask<TK;TV;*>;III[Ljava/util/concurrent/ConcurrentHashMap$Node<TK;TV;>;Ljava/util/function/Consumer<-TK;>;)V", 0, $method(ConcurrentHashMap$ForEachKeyTask, init$, void, $ConcurrentHashMap$BulkTask*, int32_t, int32_t, int32_t, $ConcurrentHashMap$NodeArray*, $Consumer*)},
+	{"compute", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(ConcurrentHashMap$ForEachKeyTask, compute, void)},
 	{}
 };
 

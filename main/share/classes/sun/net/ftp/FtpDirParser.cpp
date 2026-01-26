@@ -5,13 +5,14 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $FtpDirEntry = ::sun::net::ftp::FtpDirEntry;
 
 namespace sun {
 	namespace net {
 		namespace ftp {
 
 $MethodInfo _FtpDirParser_MethodInfo_[] = {
-	{"parseLine", "(Ljava/lang/String;)Lsun/net/ftp/FtpDirEntry;", nullptr, $PUBLIC | $ABSTRACT},
+	{"parseLine", "(Ljava/lang/String;)Lsun/net/ftp/FtpDirEntry;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FtpDirParser, parseLine, $FtpDirEntry*, $String*)},
 	{}
 };
 

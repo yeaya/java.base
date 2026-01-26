@@ -17,12 +17,12 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _GenerifyStackTraces$ThreadOne_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(GenerifyStackTraces$ThreadOne::*)()>(&GenerifyStackTraces$ThreadOne::init$))},
-	{"A", "()V", nullptr, $PRIVATE, $method(static_cast<void(GenerifyStackTraces$ThreadOne::*)()>(&GenerifyStackTraces$ThreadOne::A))},
-	{"B", "()V", nullptr, $PRIVATE, $method(static_cast<void(GenerifyStackTraces$ThreadOne::*)()>(&GenerifyStackTraces$ThreadOne::B))},
-	{"C", "()V", nullptr, $PRIVATE, $method(static_cast<void(GenerifyStackTraces$ThreadOne::*)()>(&GenerifyStackTraces$ThreadOne::C))},
-	{"Done", "()V", nullptr, $PRIVATE, $method(static_cast<void(GenerifyStackTraces$ThreadOne::*)()>(&GenerifyStackTraces$ThreadOne::Done))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(GenerifyStackTraces$ThreadOne, init$, void)},
+	{"A", "()V", nullptr, $PRIVATE, $method(GenerifyStackTraces$ThreadOne, A, void)},
+	{"B", "()V", nullptr, $PRIVATE, $method(GenerifyStackTraces$ThreadOne, B, void)},
+	{"C", "()V", nullptr, $PRIVATE, $method(GenerifyStackTraces$ThreadOne, C, void)},
+	{"Done", "()V", nullptr, $PRIVATE, $method(GenerifyStackTraces$ThreadOne, Done, void)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(GenerifyStackTraces$ThreadOne, run, void)},
 	{}
 };
 

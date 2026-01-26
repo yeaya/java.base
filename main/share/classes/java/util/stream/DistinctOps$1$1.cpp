@@ -26,10 +26,10 @@ $FieldInfo _DistinctOps$1$1_FieldInfo_[] = {
 };
 
 $MethodInfo _DistinctOps$1$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/stream/DistinctOps$1;Ljava/util/stream/Sink;)V", nullptr, 0, $method(static_cast<void(DistinctOps$1$1::*)($DistinctOps$1*,$Sink*)>(&DistinctOps$1$1::init$))},
-	{"accept", "(Ljava/lang/Object;)V", "(TT;)V", $PUBLIC},
-	{"begin", "(J)V", nullptr, $PUBLIC},
-	{"end", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/stream/DistinctOps$1;Ljava/util/stream/Sink;)V", nullptr, 0, $method(DistinctOps$1$1, init$, void, $DistinctOps$1*, $Sink*)},
+	{"accept", "(Ljava/lang/Object;)V", "(TT;)V", $PUBLIC, $virtualMethod(DistinctOps$1$1, accept, void, Object$*)},
+	{"begin", "(J)V", nullptr, $PUBLIC, $virtualMethod(DistinctOps$1$1, begin, void, int64_t)},
+	{"end", "()V", nullptr, $PUBLIC, $virtualMethod(DistinctOps$1$1, end, void)},
 	{}
 };
 

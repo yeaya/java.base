@@ -36,15 +36,15 @@ $FieldInfo _CertPathValidatorException$BasicReason_FieldInfo_[] = {
 };
 
 $MethodInfo _CertPathValidatorException$BasicReason_MethodInfo_[] = {
-	{"$values", "()[Ljava/security/cert/CertPathValidatorException$BasicReason;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$CertPathValidatorException$BasicReasonArray*(*)()>(&CertPathValidatorException$BasicReason::$values))},
+	{"$values", "()[Ljava/security/cert/CertPathValidatorException$BasicReason;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CertPathValidatorException$BasicReason, $values, $CertPathValidatorException$BasicReasonArray*)},
 	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
 	{"*finalize", "()V", nullptr, $PROTECTED | $FINAL},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(CertPathValidatorException$BasicReason::*)($String*,int32_t)>(&CertPathValidatorException$BasicReason::init$))},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(CertPathValidatorException$BasicReason, init$, void, $String*, int32_t)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"valueOf", "(Ljava/lang/String;)Ljava/security/cert/CertPathValidatorException$BasicReason;", nullptr, $PUBLIC | $STATIC, $method(static_cast<CertPathValidatorException$BasicReason*(*)($String*)>(&CertPathValidatorException$BasicReason::valueOf))},
-	{"values", "()[Ljava/security/cert/CertPathValidatorException$BasicReason;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$CertPathValidatorException$BasicReasonArray*(*)()>(&CertPathValidatorException$BasicReason::values))},
+	{"valueOf", "(Ljava/lang/String;)Ljava/security/cert/CertPathValidatorException$BasicReason;", nullptr, $PUBLIC | $STATIC, $staticMethod(CertPathValidatorException$BasicReason, valueOf, CertPathValidatorException$BasicReason*, $String*)},
+	{"values", "()[Ljava/security/cert/CertPathValidatorException$BasicReason;", nullptr, $PUBLIC | $STATIC, $staticMethod(CertPathValidatorException$BasicReason, values, $CertPathValidatorException$BasicReasonArray*)},
 	{}
 };
 

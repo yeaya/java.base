@@ -77,22 +77,22 @@ $FieldInfo _RBTableBuilder_FieldInfo_[] = {
 };
 
 $MethodInfo _RBTableBuilder_MethodInfo_[] = {
-	{"<init>", "(Ljava/text/RBCollationTables$BuildAPI;)V", nullptr, $PUBLIC, $method(static_cast<void(RBTableBuilder::*)($RBCollationTables$BuildAPI*)>(&RBTableBuilder::init$))},
-	{"addComposedChars", "()V", nullptr, $PRIVATE, $method(static_cast<void(RBTableBuilder::*)()>(&RBTableBuilder::addComposedChars)), "java.text.ParseException"},
-	{"addContractFlags", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(static_cast<void(RBTableBuilder::*)($String*)>(&RBTableBuilder::addContractFlags))},
-	{"addContractOrder", "(Ljava/lang/String;I)V", nullptr, $PRIVATE | $FINAL, $method(static_cast<void(RBTableBuilder::*)($String*,int32_t)>(&RBTableBuilder::addContractOrder))},
-	{"addContractOrder", "(Ljava/lang/String;IZ)V", nullptr, $PRIVATE | $FINAL, $method(static_cast<void(RBTableBuilder::*)($String*,int32_t,bool)>(&RBTableBuilder::addContractOrder))},
-	{"addExpandOrder", "(Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PRIVATE | $FINAL, $method(static_cast<void(RBTableBuilder::*)($String*,$String*,int32_t)>(&RBTableBuilder::addExpandOrder)), "java.text.ParseException"},
-	{"addExpandOrder", "(ILjava/lang/String;I)V", nullptr, $PRIVATE | $FINAL, $method(static_cast<void(RBTableBuilder::*)(int32_t,$String*,int32_t)>(&RBTableBuilder::addExpandOrder)), "java.text.ParseException"},
-	{"addExpansion", "(ILjava/lang/String;)I", nullptr, $PRIVATE, $method(static_cast<int32_t(RBTableBuilder::*)(int32_t,$String*)>(&RBTableBuilder::addExpansion))},
-	{"addOrder", "(II)V", nullptr, $PRIVATE | $FINAL, $method(static_cast<void(RBTableBuilder::*)(int32_t,int32_t)>(&RBTableBuilder::addOrder))},
-	{"build", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(static_cast<void(RBTableBuilder::*)($String*,int32_t)>(&RBTableBuilder::build)), "java.text.ParseException"},
-	{"commit", "()V", nullptr, $PRIVATE | $FINAL, $method(static_cast<void(RBTableBuilder::*)()>(&RBTableBuilder::commit))},
-	{"getCharOrder", "(I)I", nullptr, $PRIVATE | $FINAL, $method(static_cast<int32_t(RBTableBuilder::*)(int32_t)>(&RBTableBuilder::getCharOrder))},
-	{"getContractOrder", "(Ljava/lang/String;)I", nullptr, $PRIVATE, $method(static_cast<int32_t(RBTableBuilder::*)($String*)>(&RBTableBuilder::getContractOrder))},
-	{"getContractValues", "(I)Ljava/util/Vector;", "(I)Ljava/util/Vector<Ljava/text/EntryPair;>;", $PRIVATE, $method(static_cast<$Vector*(RBTableBuilder::*)(int32_t)>(&RBTableBuilder::getContractValues))},
-	{"getContractValuesImpl", "(I)Ljava/util/Vector;", "(I)Ljava/util/Vector<Ljava/text/EntryPair;>;", $PRIVATE, $method(static_cast<$Vector*(RBTableBuilder::*)(int32_t)>(&RBTableBuilder::getContractValuesImpl))},
-	{"increment", "(II)I", nullptr, $PRIVATE | $FINAL, $method(static_cast<int32_t(RBTableBuilder::*)(int32_t,int32_t)>(&RBTableBuilder::increment))},
+	{"<init>", "(Ljava/text/RBCollationTables$BuildAPI;)V", nullptr, $PUBLIC, $method(RBTableBuilder, init$, void, $RBCollationTables$BuildAPI*)},
+	{"addComposedChars", "()V", nullptr, $PRIVATE, $method(RBTableBuilder, addComposedChars, void), "java.text.ParseException"},
+	{"addContractFlags", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(RBTableBuilder, addContractFlags, void, $String*)},
+	{"addContractOrder", "(Ljava/lang/String;I)V", nullptr, $PRIVATE | $FINAL, $method(RBTableBuilder, addContractOrder, void, $String*, int32_t)},
+	{"addContractOrder", "(Ljava/lang/String;IZ)V", nullptr, $PRIVATE | $FINAL, $method(RBTableBuilder, addContractOrder, void, $String*, int32_t, bool)},
+	{"addExpandOrder", "(Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PRIVATE | $FINAL, $method(RBTableBuilder, addExpandOrder, void, $String*, $String*, int32_t), "java.text.ParseException"},
+	{"addExpandOrder", "(ILjava/lang/String;I)V", nullptr, $PRIVATE | $FINAL, $method(RBTableBuilder, addExpandOrder, void, int32_t, $String*, int32_t), "java.text.ParseException"},
+	{"addExpansion", "(ILjava/lang/String;)I", nullptr, $PRIVATE, $method(RBTableBuilder, addExpansion, int32_t, int32_t, $String*)},
+	{"addOrder", "(II)V", nullptr, $PRIVATE | $FINAL, $method(RBTableBuilder, addOrder, void, int32_t, int32_t)},
+	{"build", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(RBTableBuilder, build, void, $String*, int32_t), "java.text.ParseException"},
+	{"commit", "()V", nullptr, $PRIVATE | $FINAL, $method(RBTableBuilder, commit, void)},
+	{"getCharOrder", "(I)I", nullptr, $PRIVATE | $FINAL, $method(RBTableBuilder, getCharOrder, int32_t, int32_t)},
+	{"getContractOrder", "(Ljava/lang/String;)I", nullptr, $PRIVATE, $method(RBTableBuilder, getContractOrder, int32_t, $String*)},
+	{"getContractValues", "(I)Ljava/util/Vector;", "(I)Ljava/util/Vector<Ljava/text/EntryPair;>;", $PRIVATE, $method(RBTableBuilder, getContractValues, $Vector*, int32_t)},
+	{"getContractValuesImpl", "(I)Ljava/util/Vector;", "(I)Ljava/util/Vector<Ljava/text/EntryPair;>;", $PRIVATE, $method(RBTableBuilder, getContractValuesImpl, $Vector*, int32_t)},
+	{"increment", "(II)I", nullptr, $PRIVATE | $FINAL, $method(RBTableBuilder, increment, int32_t, int32_t, int32_t)},
 	{}
 };
 

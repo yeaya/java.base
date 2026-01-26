@@ -27,9 +27,9 @@ namespace java {
 		namespace invoke {
 
 $MethodInfo _StringConcatFactory$3_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(StringConcatFactory$3::*)()>(&StringConcatFactory$3::init$))},
-	{"apply", "(Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodHandle;", $PUBLIC},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "()V", nullptr, 0, $method(StringConcatFactory$3, init$, void)},
+	{"apply", "(Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodHandle;", $PUBLIC, $virtualMethod(StringConcatFactory$3, apply, $MethodHandle*, $Class*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(StringConcatFactory$3, apply, $Object*, Object$*)},
 	{}
 };
 

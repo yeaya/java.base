@@ -25,9 +25,9 @@ $FieldInfo _Iocp$1_FieldInfo_[] = {
 };
 
 $MethodInfo _Iocp$1_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/ch/Iocp;Ljava/nio/channels/Channel;)V", "()V", 0, $method(static_cast<void(Iocp$1::*)($Iocp*,$Channel*)>(&Iocp$1::init$))},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"getByOverlapped", "(J)Lsun/nio/ch/PendingFuture;", "<V:Ljava/lang/Object;A:Ljava/lang/Object;>(J)Lsun/nio/ch/PendingFuture<TV;TA;>;", $PUBLIC},
+	{"<init>", "(Lsun/nio/ch/Iocp;Ljava/nio/channels/Channel;)V", "()V", 0, $method(Iocp$1, init$, void, $Iocp*, $Channel*)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(Iocp$1, close, void), "java.io.IOException"},
+	{"getByOverlapped", "(J)Lsun/nio/ch/PendingFuture;", "<V:Ljava/lang/Object;A:Ljava/lang/Object;>(J)Lsun/nio/ch/PendingFuture<TV;TA;>;", $PUBLIC, $virtualMethod(Iocp$1, getByOverlapped, $PendingFuture*, int64_t)},
 	{}
 };
 

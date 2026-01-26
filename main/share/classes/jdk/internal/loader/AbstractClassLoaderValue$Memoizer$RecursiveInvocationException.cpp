@@ -20,7 +20,7 @@ $FieldInfo _AbstractClassLoaderValue$Memoizer$RecursiveInvocationException_Field
 };
 
 $MethodInfo _AbstractClassLoaderValue$Memoizer$RecursiveInvocationException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(AbstractClassLoaderValue$Memoizer$RecursiveInvocationException::*)()>(&AbstractClassLoaderValue$Memoizer$RecursiveInvocationException::init$))},
+	{"<init>", "()V", nullptr, 0, $method(AbstractClassLoaderValue$Memoizer$RecursiveInvocationException, init$, void)},
 	{}
 };
 

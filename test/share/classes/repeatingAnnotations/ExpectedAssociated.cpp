@@ -3,6 +3,7 @@
 #include <repeatingAnnotations/Ann.h>
 #include <jcpp.h>
 
+using $AnnArray = $Array<::repeatingAnnotations::Ann>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -21,7 +22,7 @@ $CompoundAttribute _ExpectedAssociated_Annotations_[] = {
 };
 
 $MethodInfo _ExpectedAssociated_MethodInfo_[] = {
-	{"value", "()[LrepeatingAnnotations/Ann;", nullptr, $PUBLIC | $ABSTRACT},
+	{"value", "()[LrepeatingAnnotations/Ann;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ExpectedAssociated, value, $AnnArray*)},
 	{}
 };
 

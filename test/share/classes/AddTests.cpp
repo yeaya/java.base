@@ -40,18 +40,18 @@ $FieldInfo _AddTests_FieldInfo_[] = {
 };
 
 $MethodInfo _AddTests_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(AddTests::*)()>(&AddTests::init$))},
-	{"addWithoutException", "(Ljava/math/BigDecimal;Ljava/math/BigDecimal;Ljava/math/MathContext;)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)($BigDecimal*,$BigDecimal*,$MathContext*)>(&AddTests::addWithoutException))},
-	{"arithmeticExceptionTest", "()I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)()>(&AddTests::arithmeticExceptionTest))},
-	{"extremaTests", "()I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)()>(&AddTests::extremaTests))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&AddTests::main))},
-	{"precisionConsistencyTest", "()I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)()>(&AddTests::precisionConsistencyTest))},
-	{"printAddition", "(Ljava/math/BigDecimal;Ljava/math/BigDecimal;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($BigDecimal*,$BigDecimal*,$String*)>(&AddTests::printAddition))},
-	{"roundAway", "(Ljava/math/BigDecimal;Ljava/math/BigDecimal;)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)($BigDecimal*,$BigDecimal*)>(&AddTests::roundAway))},
-	{"roundAway0", "(Ljava/math/BigDecimal;Ljava/math/BigDecimal;)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)($BigDecimal*,$BigDecimal*)>(&AddTests::roundAway0))},
-	{"roundAway1", "(Ljava/math/BigDecimal;Ljava/math/BigDecimal;)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)($BigDecimal*,$BigDecimal*)>(&AddTests::roundAway1))},
-	{"roundingGradationTests", "()I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)()>(&AddTests::roundingGradationTests))},
-	{"simpleTests", "()I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)()>(&AddTests::simpleTests))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(AddTests, init$, void)},
+	{"addWithoutException", "(Ljava/math/BigDecimal;Ljava/math/BigDecimal;Ljava/math/MathContext;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(AddTests, addWithoutException, int32_t, $BigDecimal*, $BigDecimal*, $MathContext*)},
+	{"arithmeticExceptionTest", "()I", nullptr, $PRIVATE | $STATIC, $staticMethod(AddTests, arithmeticExceptionTest, int32_t)},
+	{"extremaTests", "()I", nullptr, $PRIVATE | $STATIC, $staticMethod(AddTests, extremaTests, int32_t)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(AddTests, main, void, $StringArray*)},
+	{"precisionConsistencyTest", "()I", nullptr, $PRIVATE | $STATIC, $staticMethod(AddTests, precisionConsistencyTest, int32_t)},
+	{"printAddition", "(Ljava/math/BigDecimal;Ljava/math/BigDecimal;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(AddTests, printAddition, void, $BigDecimal*, $BigDecimal*, $String*)},
+	{"roundAway", "(Ljava/math/BigDecimal;Ljava/math/BigDecimal;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(AddTests, roundAway, int32_t, $BigDecimal*, $BigDecimal*)},
+	{"roundAway0", "(Ljava/math/BigDecimal;Ljava/math/BigDecimal;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(AddTests, roundAway0, int32_t, $BigDecimal*, $BigDecimal*)},
+	{"roundAway1", "(Ljava/math/BigDecimal;Ljava/math/BigDecimal;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(AddTests, roundAway1, int32_t, $BigDecimal*, $BigDecimal*)},
+	{"roundingGradationTests", "()I", nullptr, $PRIVATE | $STATIC, $staticMethod(AddTests, roundingGradationTests, int32_t)},
+	{"simpleTests", "()I", nullptr, $PRIVATE | $STATIC, $staticMethod(AddTests, simpleTests, int32_t)},
 	{}
 };
 

@@ -69,8 +69,8 @@ $FieldInfo ModuleHashesBuilder$Graph$$Lambda$addNode::fieldInfos[2] = {
 	{}
 };
 $MethodInfo ModuleHashesBuilder$Graph$$Lambda$addNode::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/module/ModuleHashesBuilder$Graph$Builder;)V", nullptr, $PUBLIC, $method(static_cast<void(ModuleHashesBuilder$Graph$$Lambda$addNode::*)($ModuleHashesBuilder$Graph$Builder*)>(&ModuleHashesBuilder$Graph$$Lambda$addNode::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/module/ModuleHashesBuilder$Graph$Builder;)V", nullptr, $PUBLIC, $method(ModuleHashesBuilder$Graph$$Lambda$addNode, init$, void, $ModuleHashesBuilder$Graph$Builder*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ModuleHashesBuilder$Graph$$Lambda$addNode, accept, void, Object$*)},
 	{}
 };
 $ClassInfo ModuleHashesBuilder$Graph$$Lambda$addNode::classInfo$ = {
@@ -112,8 +112,8 @@ $FieldInfo ModuleHashesBuilder$Graph$$Lambda$lambda$transpose$1$1::fieldInfos[3]
 	{}
 };
 $MethodInfo ModuleHashesBuilder$Graph$$Lambda$lambda$transpose$1$1::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/module/ModuleHashesBuilder$Graph;Ljdk/internal/module/ModuleHashesBuilder$Graph$Builder;)V", nullptr, $PUBLIC, $method(static_cast<void(ModuleHashesBuilder$Graph$$Lambda$lambda$transpose$1$1::*)(ModuleHashesBuilder$Graph*,$ModuleHashesBuilder$Graph$Builder*)>(&ModuleHashesBuilder$Graph$$Lambda$lambda$transpose$1$1::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/module/ModuleHashesBuilder$Graph;Ljdk/internal/module/ModuleHashesBuilder$Graph$Builder;)V", nullptr, $PUBLIC, $method(ModuleHashesBuilder$Graph$$Lambda$lambda$transpose$1$1, init$, void, ModuleHashesBuilder$Graph*, $ModuleHashesBuilder$Graph$Builder*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ModuleHashesBuilder$Graph$$Lambda$lambda$transpose$1$1, accept, void, Object$*)},
 	{}
 };
 $ClassInfo ModuleHashesBuilder$Graph$$Lambda$lambda$transpose$1$1::classInfo$ = {
@@ -152,8 +152,8 @@ $FieldInfo ModuleHashesBuilder$Graph$$Lambda$lambda$dfs$2$2::fieldInfos[2] = {
 	{}
 };
 $MethodInfo ModuleHashesBuilder$Graph$$Lambda$lambda$dfs$2$2::methodInfos[3] = {
-	{"<init>", "(Ljava/util/Set;)V", nullptr, $PUBLIC, $method(static_cast<void(ModuleHashesBuilder$Graph$$Lambda$lambda$dfs$2$2::*)($Set*)>(&ModuleHashesBuilder$Graph$$Lambda$lambda$dfs$2$2::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/Set;)V", nullptr, $PUBLIC, $method(ModuleHashesBuilder$Graph$$Lambda$lambda$dfs$2$2, init$, void, $Set*)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ModuleHashesBuilder$Graph$$Lambda$lambda$dfs$2$2, test, bool, Object$*)},
 	{}
 };
 $ClassInfo ModuleHashesBuilder$Graph$$Lambda$lambda$dfs$2$2::classInfo$ = {
@@ -192,8 +192,8 @@ $FieldInfo ModuleHashesBuilder$Graph$$Lambda$push$3::fieldInfos[2] = {
 	{}
 };
 $MethodInfo ModuleHashesBuilder$Graph$$Lambda$push$3::methodInfos[3] = {
-	{"<init>", "(Ljava/util/ArrayDeque;)V", nullptr, $PUBLIC, $method(static_cast<void(ModuleHashesBuilder$Graph$$Lambda$push$3::*)($ArrayDeque*)>(&ModuleHashesBuilder$Graph$$Lambda$push$3::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/ArrayDeque;)V", nullptr, $PUBLIC, $method(ModuleHashesBuilder$Graph$$Lambda$push$3, init$, void, $ArrayDeque*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ModuleHashesBuilder$Graph$$Lambda$push$3, accept, void, Object$*)},
 	{}
 };
 $ClassInfo ModuleHashesBuilder$Graph$$Lambda$push$3::classInfo$ = {
@@ -235,8 +235,8 @@ $FieldInfo ModuleHashesBuilder$Graph$$Lambda$lambda$printGraph$4$4::fieldInfos[3
 	{}
 };
 $MethodInfo ModuleHashesBuilder$Graph$$Lambda$lambda$printGraph$4$4::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/module/ModuleHashesBuilder$Graph;Ljava/io/PrintStream;)V", nullptr, $PUBLIC, $method(static_cast<void(ModuleHashesBuilder$Graph$$Lambda$lambda$printGraph$4$4::*)(ModuleHashesBuilder$Graph*,$PrintStream*)>(&ModuleHashesBuilder$Graph$$Lambda$lambda$printGraph$4$4::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/module/ModuleHashesBuilder$Graph;Ljava/io/PrintStream;)V", nullptr, $PUBLIC, $method(ModuleHashesBuilder$Graph$$Lambda$lambda$printGraph$4$4, init$, void, ModuleHashesBuilder$Graph*, $PrintStream*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ModuleHashesBuilder$Graph$$Lambda$lambda$printGraph$4$4, accept, void, Object$*)},
 	{}
 };
 $ClassInfo ModuleHashesBuilder$Graph$$Lambda$lambda$printGraph$4$4::classInfo$ = {
@@ -278,8 +278,8 @@ $FieldInfo ModuleHashesBuilder$Graph$$Lambda$lambda$printGraph$3$5::fieldInfos[3
 	{}
 };
 $MethodInfo ModuleHashesBuilder$Graph$$Lambda$lambda$printGraph$3$5::methodInfos[3] = {
-	{"<init>", "(Ljava/io/PrintStream;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(static_cast<void(ModuleHashesBuilder$Graph$$Lambda$lambda$printGraph$3$5::*)($PrintStream*,Object$*)>(&ModuleHashesBuilder$Graph$$Lambda$lambda$printGraph$3$5::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/io/PrintStream;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(ModuleHashesBuilder$Graph$$Lambda$lambda$printGraph$3$5, init$, void, $PrintStream*, Object$*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ModuleHashesBuilder$Graph$$Lambda$lambda$printGraph$3$5, accept, void, Object$*)},
 	{}
 };
 $ClassInfo ModuleHashesBuilder$Graph$$Lambda$lambda$printGraph$3$5::classInfo$ = {
@@ -321,8 +321,8 @@ $FieldInfo ModuleHashesBuilder$Graph$$Lambda$lambda$transpose$0$6::fieldInfos[3]
 	{}
 };
 $MethodInfo ModuleHashesBuilder$Graph$$Lambda$lambda$transpose$0$6::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/module/ModuleHashesBuilder$Graph$Builder;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(static_cast<void(ModuleHashesBuilder$Graph$$Lambda$lambda$transpose$0$6::*)($ModuleHashesBuilder$Graph$Builder*,Object$*)>(&ModuleHashesBuilder$Graph$$Lambda$lambda$transpose$0$6::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/module/ModuleHashesBuilder$Graph$Builder;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(ModuleHashesBuilder$Graph$$Lambda$lambda$transpose$0$6, init$, void, $ModuleHashesBuilder$Graph$Builder*, Object$*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ModuleHashesBuilder$Graph$$Lambda$lambda$transpose$0$6, accept, void, Object$*)},
 	{}
 };
 $ClassInfo ModuleHashesBuilder$Graph$$Lambda$lambda$transpose$0$6::classInfo$ = {
@@ -346,23 +346,23 @@ $FieldInfo _ModuleHashesBuilder$Graph_FieldInfo_[] = {
 };
 
 $MethodInfo _ModuleHashesBuilder$Graph_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Set;Ljava/util/Map;)V", "(Ljava/util/Set<TT;>;Ljava/util/Map<TT;Ljava/util/Set<TT;>;>;)V", $PUBLIC, $method(static_cast<void(ModuleHashesBuilder$Graph::*)($Set*,$Map*)>(&ModuleHashesBuilder$Graph::init$))},
-	{"adjacentNodes", "(Ljava/lang/Object;)Ljava/util/Set;", "(TT;)Ljava/util/Set<TT;>;", $PUBLIC},
-	{"contains", "(Ljava/lang/Object;)Z", "(TT;)Z", $PUBLIC},
-	{"dfs", "(Ljava/lang/Object;)Ljava/util/Set;", "(TT;)Ljava/util/Set<TT;>;", $PUBLIC},
-	{"dfs", "(Ljava/util/Set;)Ljava/util/Set;", "(Ljava/util/Set<TT;>;)Ljava/util/Set<TT;>;", $PUBLIC},
-	{"edges", "()Ljava/util/Map;", "()Ljava/util/Map<TT;Ljava/util/Set<TT;>;>;", $PUBLIC},
-	{"lambda$dfs$2", "(Ljava/util/Set;Ljava/lang/Object;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($Set*,Object$*)>(&ModuleHashesBuilder$Graph::lambda$dfs$2))},
-	{"lambda$printGraph$3", "(Ljava/io/PrintStream;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($PrintStream*,Object$*,Object$*)>(&ModuleHashesBuilder$Graph::lambda$printGraph$3))},
-	{"lambda$printGraph$4", "(Ljava/io/PrintStream;Ljava/lang/Object;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(ModuleHashesBuilder$Graph::*)($PrintStream*,Object$*)>(&ModuleHashesBuilder$Graph::lambda$printGraph$4))},
-	{"lambda$transpose$0", "(Ljdk/internal/module/ModuleHashesBuilder$Graph$Builder;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($ModuleHashesBuilder$Graph$Builder*,Object$*,Object$*)>(&ModuleHashesBuilder$Graph::lambda$transpose$0))},
-	{"lambda$transpose$1", "(Ljdk/internal/module/ModuleHashesBuilder$Graph$Builder;Ljava/lang/Object;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(ModuleHashesBuilder$Graph::*)($ModuleHashesBuilder$Graph$Builder*,Object$*)>(&ModuleHashesBuilder$Graph::lambda$transpose$1))},
-	{"nodes", "()Ljava/util/Set;", "()Ljava/util/Set<TT;>;", $PUBLIC},
-	{"ordered", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<TT;>;)V", $PUBLIC},
-	{"orderedNodes", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<TT;>;", $PUBLIC},
-	{"printGraph", "(Ljava/io/PrintStream;)V", nullptr, $PUBLIC},
-	{"reverse", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<TT;>;)V", $PUBLIC},
-	{"transpose", "()Ljdk/internal/module/ModuleHashesBuilder$Graph;", "()Ljdk/internal/module/ModuleHashesBuilder$Graph<TT;>;", $PUBLIC},
+	{"<init>", "(Ljava/util/Set;Ljava/util/Map;)V", "(Ljava/util/Set<TT;>;Ljava/util/Map<TT;Ljava/util/Set<TT;>;>;)V", $PUBLIC, $method(ModuleHashesBuilder$Graph, init$, void, $Set*, $Map*)},
+	{"adjacentNodes", "(Ljava/lang/Object;)Ljava/util/Set;", "(TT;)Ljava/util/Set<TT;>;", $PUBLIC, $virtualMethod(ModuleHashesBuilder$Graph, adjacentNodes, $Set*, Object$*)},
+	{"contains", "(Ljava/lang/Object;)Z", "(TT;)Z", $PUBLIC, $virtualMethod(ModuleHashesBuilder$Graph, contains, bool, Object$*)},
+	{"dfs", "(Ljava/lang/Object;)Ljava/util/Set;", "(TT;)Ljava/util/Set<TT;>;", $PUBLIC, $virtualMethod(ModuleHashesBuilder$Graph, dfs, $Set*, Object$*)},
+	{"dfs", "(Ljava/util/Set;)Ljava/util/Set;", "(Ljava/util/Set<TT;>;)Ljava/util/Set<TT;>;", $PUBLIC, $virtualMethod(ModuleHashesBuilder$Graph, dfs, $Set*, $Set*)},
+	{"edges", "()Ljava/util/Map;", "()Ljava/util/Map<TT;Ljava/util/Set<TT;>;>;", $PUBLIC, $virtualMethod(ModuleHashesBuilder$Graph, edges, $Map*)},
+	{"lambda$dfs$2", "(Ljava/util/Set;Ljava/lang/Object;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ModuleHashesBuilder$Graph, lambda$dfs$2, bool, $Set*, Object$*)},
+	{"lambda$printGraph$3", "(Ljava/io/PrintStream;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ModuleHashesBuilder$Graph, lambda$printGraph$3, void, $PrintStream*, Object$*, Object$*)},
+	{"lambda$printGraph$4", "(Ljava/io/PrintStream;Ljava/lang/Object;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(ModuleHashesBuilder$Graph, lambda$printGraph$4, void, $PrintStream*, Object$*)},
+	{"lambda$transpose$0", "(Ljdk/internal/module/ModuleHashesBuilder$Graph$Builder;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ModuleHashesBuilder$Graph, lambda$transpose$0, void, $ModuleHashesBuilder$Graph$Builder*, Object$*, Object$*)},
+	{"lambda$transpose$1", "(Ljdk/internal/module/ModuleHashesBuilder$Graph$Builder;Ljava/lang/Object;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(ModuleHashesBuilder$Graph, lambda$transpose$1, void, $ModuleHashesBuilder$Graph$Builder*, Object$*)},
+	{"nodes", "()Ljava/util/Set;", "()Ljava/util/Set<TT;>;", $PUBLIC, $virtualMethod(ModuleHashesBuilder$Graph, nodes, $Set*)},
+	{"ordered", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<TT;>;)V", $PUBLIC, $virtualMethod(ModuleHashesBuilder$Graph, ordered, void, $Consumer*)},
+	{"orderedNodes", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<TT;>;", $PUBLIC, $virtualMethod(ModuleHashesBuilder$Graph, orderedNodes, $Stream*)},
+	{"printGraph", "(Ljava/io/PrintStream;)V", nullptr, $PUBLIC, $virtualMethod(ModuleHashesBuilder$Graph, printGraph, void, $PrintStream*)},
+	{"reverse", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<TT;>;)V", $PUBLIC, $virtualMethod(ModuleHashesBuilder$Graph, reverse, void, $Consumer*)},
+	{"transpose", "()Ljdk/internal/module/ModuleHashesBuilder$Graph;", "()Ljdk/internal/module/ModuleHashesBuilder$Graph<TT;>;", $PUBLIC, $virtualMethod(ModuleHashesBuilder$Graph, transpose, ModuleHashesBuilder$Graph*)},
 	{}
 };
 

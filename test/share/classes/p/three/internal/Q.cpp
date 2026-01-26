@@ -14,7 +14,7 @@ namespace p {
 		namespace internal {
 
 $MethodInfo _Q_MethodInfo_[] = {
-	{"m", "()I", nullptr, $PUBLIC},
+	{"m", "()I", nullptr, $PUBLIC, $virtualMethod(Q, m, int32_t)},
 	{}
 };
 

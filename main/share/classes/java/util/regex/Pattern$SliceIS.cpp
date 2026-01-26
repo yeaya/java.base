@@ -23,9 +23,9 @@ namespace java {
 		namespace regex {
 
 $MethodInfo _Pattern$SliceIS_MethodInfo_[] = {
-	{"<init>", "([I)V", nullptr, 0, $method(static_cast<void(Pattern$SliceIS::*)($ints*)>(&Pattern$SliceIS::init$))},
-	{"match", "(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z", nullptr, 0},
-	{"toLower", "(I)I", nullptr, 0},
+	{"<init>", "([I)V", nullptr, 0, $method(Pattern$SliceIS, init$, void, $ints*)},
+	{"match", "(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z", nullptr, 0, $virtualMethod(Pattern$SliceIS, match, bool, $Matcher*, int32_t, $CharSequence*)},
+	{"toLower", "(I)I", nullptr, 0, $virtualMethod(Pattern$SliceIS, toLower, int32_t, int32_t)},
 	{}
 };
 

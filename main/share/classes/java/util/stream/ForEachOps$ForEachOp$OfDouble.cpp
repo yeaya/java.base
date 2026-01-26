@@ -44,12 +44,12 @@ $MethodInfo _ForEachOps$ForEachOp$OfDouble_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/util/function/DoubleConsumer;Z)V", nullptr, 0, $method(static_cast<void(ForEachOps$ForEachOp$OfDouble::*)($DoubleConsumer*,bool)>(&ForEachOps$ForEachOp$OfDouble::init$))},
-	{"accept", "(D)V", nullptr, $PUBLIC},
-	{"evaluateParallel", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"evaluateSequential", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"inputShape", "()Ljava/util/stream/StreamShape;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/function/DoubleConsumer;Z)V", nullptr, 0, $method(ForEachOps$ForEachOp$OfDouble, init$, void, $DoubleConsumer*, bool)},
+	{"accept", "(D)V", nullptr, $PUBLIC, $virtualMethod(ForEachOps$ForEachOp$OfDouble, accept, void, double)},
+	{"evaluateParallel", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ForEachOps$ForEachOp$OfDouble, evaluateParallel, $Object*, $PipelineHelper*, $Spliterator*)},
+	{"evaluateSequential", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ForEachOps$ForEachOp$OfDouble, evaluateSequential, $Object*, $PipelineHelper*, $Spliterator*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ForEachOps$ForEachOp$OfDouble, get, $Object*)},
+	{"inputShape", "()Ljava/util/stream/StreamShape;", nullptr, $PUBLIC, $virtualMethod(ForEachOps$ForEachOp$OfDouble, inputShape, $StreamShape*)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

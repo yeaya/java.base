@@ -20,9 +20,9 @@ $FieldInfo _Arrays$ArrayItr_FieldInfo_[] = {
 };
 
 $MethodInfo _Arrays$ArrayItr_MethodInfo_[] = {
-	{"<init>", "([Ljava/lang/Object;)V", "([TE;)V", 0, $method(static_cast<void(Arrays$ArrayItr::*)($ObjectArray*)>(&Arrays$ArrayItr::init$))},
-	{"hasNext", "()Z", nullptr, $PUBLIC},
-	{"next", "()Ljava/lang/Object;", "()TE;", $PUBLIC},
+	{"<init>", "([Ljava/lang/Object;)V", "([TE;)V", 0, $method(Arrays$ArrayItr, init$, void, $ObjectArray*)},
+	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(Arrays$ArrayItr, hasNext, bool)},
+	{"next", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(Arrays$ArrayItr, next, $Object*)},
 	{}
 };
 

@@ -36,15 +36,15 @@ $FieldInfo _HashMap$Values_FieldInfo_[] = {
 };
 
 $MethodInfo _HashMap$Values_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/HashMap;)V", nullptr, 0, $method(static_cast<void(HashMap$Values::*)($HashMap*)>(&HashMap$Values::init$))},
-	{"clear", "()V", nullptr, $PUBLIC | $FINAL},
-	{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
-	{"forEach", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TV;>;)V", $PUBLIC | $FINAL},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TV;>;", $PUBLIC | $FINAL},
-	{"size", "()I", nullptr, $PUBLIC | $FINAL},
-	{"spliterator", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TV;>;", $PUBLIC | $FINAL},
-	{"toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", "<T:Ljava/lang/Object;>([TT;)[TT;", $PUBLIC},
+	{"<init>", "(Ljava/util/HashMap;)V", nullptr, 0, $method(HashMap$Values, init$, void, $HashMap*)},
+	{"clear", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(HashMap$Values, clear, void)},
+	{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(HashMap$Values, contains, bool, Object$*)},
+	{"forEach", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TV;>;)V", $PUBLIC | $FINAL, $virtualMethod(HashMap$Values, forEach, void, $Consumer*)},
+	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TV;>;", $PUBLIC | $FINAL, $virtualMethod(HashMap$Values, iterator, $Iterator*)},
+	{"size", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(HashMap$Values, size, int32_t)},
+	{"spliterator", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TV;>;", $PUBLIC | $FINAL, $virtualMethod(HashMap$Values, spliterator, $Spliterator*)},
+	{"toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HashMap$Values, toArray, $ObjectArray*)},
+	{"toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", "<T:Ljava/lang/Object;>([TT;)[TT;", $PUBLIC, $virtualMethod(HashMap$Values, toArray, $ObjectArray*, $ObjectArray*)},
 	{}
 };
 

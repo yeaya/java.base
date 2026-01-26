@@ -44,7 +44,7 @@ $TypeAnnotation _TestConstructorParameterTypeAnnotations$StaticNestedClass2_Meth
 };
 
 $MethodInfo _TestConstructorParameterTypeAnnotations$StaticNestedClass2_MethodInfo_[] = {
-	{"<init>", "(II)V", nullptr, $PUBLIC, $method(static_cast<void(TestConstructorParameterTypeAnnotations$StaticNestedClass2::*)(int32_t,int32_t)>(&TestConstructorParameterTypeAnnotations$StaticNestedClass2::init$)), nullptr, nullptr, nullptr, _TestConstructorParameterTypeAnnotations$StaticNestedClass2_MethodTypeAnnotations_init$0},
+	{"<init>", "(II)V", nullptr, $PUBLIC, $method(TestConstructorParameterTypeAnnotations$StaticNestedClass2, init$, void, int32_t, int32_t), nullptr, nullptr, nullptr, _TestConstructorParameterTypeAnnotations$StaticNestedClass2_MethodTypeAnnotations_init$0},
 	{}
 };
 

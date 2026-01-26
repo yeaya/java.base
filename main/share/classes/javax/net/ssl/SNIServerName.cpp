@@ -27,13 +27,13 @@ $FieldInfo _SNIServerName_FieldInfo_[] = {
 };
 
 $MethodInfo _SNIServerName_MethodInfo_[] = {
-	{"<init>", "(I[B)V", nullptr, $PROTECTED, $method(static_cast<void(SNIServerName::*)(int32_t,$bytes*)>(&SNIServerName::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getEncoded", "()[B", nullptr, $PUBLIC | $FINAL, $method(static_cast<$bytes*(SNIServerName::*)()>(&SNIServerName::getEncoded))},
-	{"getType", "()I", nullptr, $PUBLIC | $FINAL, $method(static_cast<int32_t(SNIServerName::*)()>(&SNIServerName::getType))},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"toHexString", "([B)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($bytes*)>(&SNIServerName::toHexString))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(I[B)V", nullptr, $PROTECTED, $method(SNIServerName, init$, void, int32_t, $bytes*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(SNIServerName, equals, bool, Object$*)},
+	{"getEncoded", "()[B", nullptr, $PUBLIC | $FINAL, $method(SNIServerName, getEncoded, $bytes*)},
+	{"getType", "()I", nullptr, $PUBLIC | $FINAL, $method(SNIServerName, getType, int32_t)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(SNIServerName, hashCode, int32_t)},
+	{"toHexString", "([B)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(SNIServerName, toHexString, $String*, $bytes*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SNIServerName, toString, $String*)},
 	{}
 };
 

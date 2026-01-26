@@ -31,10 +31,10 @@ $FieldInfo _ConcurrentSkipListMap$SubMap$SubMapKeyIterator_FieldInfo_[] = {
 };
 
 $MethodInfo _ConcurrentSkipListMap$SubMap$SubMapKeyIterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/ConcurrentSkipListMap$SubMap;)V", nullptr, 0, $method(static_cast<void(ConcurrentSkipListMap$SubMap$SubMapKeyIterator::*)($ConcurrentSkipListMap$SubMap*)>(&ConcurrentSkipListMap$SubMap$SubMapKeyIterator::init$))},
-	{"characteristics", "()I", nullptr, $PUBLIC},
-	{"getComparator", "()Ljava/util/Comparator;", "()Ljava/util/Comparator<-TK;>;", $PUBLIC | $FINAL},
-	{"next", "()Ljava/lang/Object;", "()TK;", $PUBLIC},
+	{"<init>", "(Ljava/util/concurrent/ConcurrentSkipListMap$SubMap;)V", nullptr, 0, $method(ConcurrentSkipListMap$SubMap$SubMapKeyIterator, init$, void, $ConcurrentSkipListMap$SubMap*)},
+	{"characteristics", "()I", nullptr, $PUBLIC, $virtualMethod(ConcurrentSkipListMap$SubMap$SubMapKeyIterator, characteristics, int32_t)},
+	{"getComparator", "()Ljava/util/Comparator;", "()Ljava/util/Comparator<-TK;>;", $PUBLIC | $FINAL, $virtualMethod(ConcurrentSkipListMap$SubMap$SubMapKeyIterator, getComparator, $Comparator*)},
+	{"next", "()Ljava/lang/Object;", "()TK;", $PUBLIC, $virtualMethod(ConcurrentSkipListMap$SubMap$SubMapKeyIterator, next, $Object*)},
 	{}
 };
 

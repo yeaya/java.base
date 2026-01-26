@@ -39,12 +39,12 @@ $FieldInfo _Server_FieldInfo_[] = {
 };
 
 $MethodInfo _Server_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(Server::*)($String*,$String*)>(&Server::init$)), "com.sun.security.ntlm.NTLMException"},
-	{"debug", "([B)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"debug", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"getPassword", "(Ljava/lang/String;Ljava/lang/String;)[C", nullptr, $PUBLIC | $ABSTRACT},
-	{"type2", "([B[B)[B", nullptr, $PUBLIC, nullptr, "com.sun.security.ntlm.NTLMException"},
-	{"verify", "([B[B)[Ljava/lang/String;", nullptr, $PUBLIC, nullptr, "com.sun.security.ntlm.NTLMException"},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Server, init$, void, $String*, $String*), "com.sun.security.ntlm.NTLMException"},
+	{"debug", "([B)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Server, debug, void, $bytes*)},
+	{"debug", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Server, debug, void, $String*, $ObjectArray*)},
+	{"getPassword", "(Ljava/lang/String;Ljava/lang/String;)[C", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Server, getPassword, $chars*, $String*, $String*)},
+	{"type2", "([B[B)[B", nullptr, $PUBLIC, $virtualMethod(Server, type2, $bytes*, $bytes*, $bytes*), "com.sun.security.ntlm.NTLMException"},
+	{"verify", "([B[B)[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Server, verify, $StringArray*, $bytes*, $bytes*), "com.sun.security.ntlm.NTLMException"},
 	{}
 };
 

@@ -45,8 +45,8 @@ $FieldInfo BinaryOperator$$Lambda$lambda$minBy$0::fieldInfos[2] = {
 	{}
 };
 $MethodInfo BinaryOperator$$Lambda$lambda$minBy$0::methodInfos[3] = {
-	{"<init>", "(Ljava/util/Comparator;)V", nullptr, $PUBLIC, $method(static_cast<void(BinaryOperator$$Lambda$lambda$minBy$0::*)($Comparator*)>(&BinaryOperator$$Lambda$lambda$minBy$0::init$))},
-	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/Comparator;)V", nullptr, $PUBLIC, $method(BinaryOperator$$Lambda$lambda$minBy$0, init$, void, $Comparator*)},
+	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(BinaryOperator$$Lambda$lambda$minBy$0, apply, $Object*, Object$*, Object$*)},
 	{}
 };
 $ClassInfo BinaryOperator$$Lambda$lambda$minBy$0::classInfo$ = {
@@ -85,8 +85,8 @@ $FieldInfo BinaryOperator$$Lambda$lambda$maxBy$1$1::fieldInfos[2] = {
 	{}
 };
 $MethodInfo BinaryOperator$$Lambda$lambda$maxBy$1$1::methodInfos[3] = {
-	{"<init>", "(Ljava/util/Comparator;)V", nullptr, $PUBLIC, $method(static_cast<void(BinaryOperator$$Lambda$lambda$maxBy$1$1::*)($Comparator*)>(&BinaryOperator$$Lambda$lambda$maxBy$1$1::init$))},
-	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/Comparator;)V", nullptr, $PUBLIC, $method(BinaryOperator$$Lambda$lambda$maxBy$1$1, init$, void, $Comparator*)},
+	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(BinaryOperator$$Lambda$lambda$maxBy$1$1, apply, $Object*, Object$*, Object$*)},
 	{}
 };
 $ClassInfo BinaryOperator$$Lambda$lambda$maxBy$1$1::classInfo$ = {
@@ -109,10 +109,10 @@ $CompoundAttribute _BinaryOperator_Annotations_[] = {
 };
 
 $MethodInfo _BinaryOperator_MethodInfo_[] = {
-	{"lambda$maxBy$1", "(Ljava/util/Comparator;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Object*(*)($Comparator*,Object$*,Object$*)>(&BinaryOperator::lambda$maxBy$1))},
-	{"lambda$minBy$0", "(Ljava/util/Comparator;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Object*(*)($Comparator*,Object$*,Object$*)>(&BinaryOperator::lambda$minBy$0))},
-	{"maxBy", "(Ljava/util/Comparator;)Ljava/util/function/BinaryOperator;", "<T:Ljava/lang/Object;>(Ljava/util/Comparator<-TT;>;)Ljava/util/function/BinaryOperator<TT;>;", $PUBLIC | $STATIC, $method(static_cast<BinaryOperator*(*)($Comparator*)>(&BinaryOperator::maxBy))},
-	{"minBy", "(Ljava/util/Comparator;)Ljava/util/function/BinaryOperator;", "<T:Ljava/lang/Object;>(Ljava/util/Comparator<-TT;>;)Ljava/util/function/BinaryOperator<TT;>;", $PUBLIC | $STATIC, $method(static_cast<BinaryOperator*(*)($Comparator*)>(&BinaryOperator::minBy))},
+	{"lambda$maxBy$1", "(Ljava/util/Comparator;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(BinaryOperator, lambda$maxBy$1, $Object*, $Comparator*, Object$*, Object$*)},
+	{"lambda$minBy$0", "(Ljava/util/Comparator;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(BinaryOperator, lambda$minBy$0, $Object*, $Comparator*, Object$*, Object$*)},
+	{"maxBy", "(Ljava/util/Comparator;)Ljava/util/function/BinaryOperator;", "<T:Ljava/lang/Object;>(Ljava/util/Comparator<-TT;>;)Ljava/util/function/BinaryOperator<TT;>;", $PUBLIC | $STATIC, $staticMethod(BinaryOperator, maxBy, BinaryOperator*, $Comparator*)},
+	{"minBy", "(Ljava/util/Comparator;)Ljava/util/function/BinaryOperator;", "<T:Ljava/lang/Object;>(Ljava/util/Comparator<-TT;>;)Ljava/util/function/BinaryOperator<TT;>;", $PUBLIC | $STATIC, $staticMethod(BinaryOperator, minBy, BinaryOperator*, $Comparator*)},
 	{}
 };
 

@@ -16,10 +16,10 @@ using $Enumeration = ::java::util::Enumeration;
 namespace p2 {
 
 $MethodInfo _Main_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(Main::*)()>(&Main::init$))},
-	{"getResourceAsStreamInClassLoader", "(Ljava/lang/String;)Ljava/io/InputStream;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$InputStream*(*)($String*)>(&Main::getResourceAsStreamInClassLoader))},
-	{"getResourceInClassLoader", "(Ljava/lang/String;)Ljava/net/URL;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$URL*(*)($String*)>(&Main::getResourceInClassLoader))},
-	{"getResourcesInClassLoader", "(Ljava/lang/String;)Ljava/util/Enumeration;", "(Ljava/lang/String;)Ljava/util/Enumeration<Ljava/net/URL;>;", $PUBLIC | $STATIC, $method(static_cast<$Enumeration*(*)($String*)>(&Main::getResourcesInClassLoader)), "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(Main, init$, void)},
+	{"getResourceAsStreamInClassLoader", "(Ljava/lang/String;)Ljava/io/InputStream;", nullptr, $PUBLIC | $STATIC, $staticMethod(Main, getResourceAsStreamInClassLoader, $InputStream*, $String*)},
+	{"getResourceInClassLoader", "(Ljava/lang/String;)Ljava/net/URL;", nullptr, $PUBLIC | $STATIC, $staticMethod(Main, getResourceInClassLoader, $URL*, $String*)},
+	{"getResourcesInClassLoader", "(Ljava/lang/String;)Ljava/util/Enumeration;", "(Ljava/lang/String;)Ljava/util/Enumeration<Ljava/net/URL;>;", $PUBLIC | $STATIC, $staticMethod(Main, getResourcesInClassLoader, $Enumeration*, $String*), "java.io.IOException"},
 	{}
 };
 

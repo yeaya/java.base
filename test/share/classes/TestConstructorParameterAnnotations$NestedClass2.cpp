@@ -52,7 +52,7 @@ $FieldInfo _TestConstructorParameterAnnotations$NestedClass2_FieldInfo_[] = {
 };
 
 $MethodInfo _TestConstructorParameterAnnotations$NestedClass2_MethodInfo_[] = {
-	{"<init>", "(LTestConstructorParameterAnnotations;II)V", nullptr, $PUBLIC, $method(static_cast<void(TestConstructorParameterAnnotations$NestedClass2::*)($TestConstructorParameterAnnotations*,int32_t,int32_t)>(&TestConstructorParameterAnnotations$NestedClass2::init$)), nullptr, nullptr, nullptr, nullptr, _TestConstructorParameterAnnotations$NestedClass2_MethodParamAnnotations_init$0},
+	{"<init>", "(LTestConstructorParameterAnnotations;II)V", nullptr, $PUBLIC, $method(TestConstructorParameterAnnotations$NestedClass2, init$, void, $TestConstructorParameterAnnotations*, int32_t, int32_t), nullptr, nullptr, nullptr, nullptr, _TestConstructorParameterAnnotations$NestedClass2_MethodParamAnnotations_init$0},
 	{}
 };
 

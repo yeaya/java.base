@@ -21,8 +21,8 @@ $FieldInfo _RacyHandler$CustomHttpHandler_FieldInfo_[] = {
 };
 
 $MethodInfo _RacyHandler$CustomHttpHandler_MethodInfo_[] = {
-	{"<init>", "(LRacyHandler;)V", nullptr, 0, $method(static_cast<void(RacyHandler$CustomHttpHandler::*)($RacyHandler*)>(&RacyHandler$CustomHttpHandler::init$))},
-	{"openConnection", "(Ljava/net/URL;)Ljava/net/URLConnection;", nullptr, $PROTECTED, nullptr, "java.io.IOException"},
+	{"<init>", "(LRacyHandler;)V", nullptr, 0, $method(RacyHandler$CustomHttpHandler, init$, void, $RacyHandler*)},
+	{"openConnection", "(Ljava/net/URL;)Ljava/net/URLConnection;", nullptr, $PROTECTED, $virtualMethod(RacyHandler$CustomHttpHandler, openConnection, $URLConnection*, $URL*), "java.io.IOException"},
 	{}
 };
 

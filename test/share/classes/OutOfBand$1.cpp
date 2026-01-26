@@ -21,8 +21,8 @@ $FieldInfo _OutOfBand$1_FieldInfo_[] = {
 };
 
 $MethodInfo _OutOfBand$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/channels/SocketChannel;)V", "()V", 0, $method(static_cast<void(OutOfBand$1::*)($SocketChannel*)>(&OutOfBand$1::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/nio/channels/SocketChannel;)V", "()V", 0, $method(OutOfBand$1, init$, void, $SocketChannel*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(OutOfBand$1, run, void)},
 	{}
 };
 

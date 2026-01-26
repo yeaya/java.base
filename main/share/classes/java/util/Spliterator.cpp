@@ -38,14 +38,14 @@ $FieldInfo _Spliterator_FieldInfo_[] = {
 };
 
 $MethodInfo _Spliterator_MethodInfo_[] = {
-	{"characteristics", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"estimateSize", "()J", nullptr, $PUBLIC | $ABSTRACT},
-	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TT;>;)V", $PUBLIC},
-	{"getComparator", "()Ljava/util/Comparator;", "()Ljava/util/Comparator<-TT;>;", $PUBLIC},
-	{"getExactSizeIfKnown", "()J", nullptr, $PUBLIC},
-	{"hasCharacteristics", "(I)Z", nullptr, $PUBLIC},
-	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-TT;>;)Z", $PUBLIC | $ABSTRACT},
-	{"trySplit", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TT;>;", $PUBLIC | $ABSTRACT},
+	{"characteristics", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Spliterator, characteristics, int32_t)},
+	{"estimateSize", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Spliterator, estimateSize, int64_t)},
+	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TT;>;)V", $PUBLIC, $virtualMethod(Spliterator, forEachRemaining, void, $Consumer*)},
+	{"getComparator", "()Ljava/util/Comparator;", "()Ljava/util/Comparator<-TT;>;", $PUBLIC, $virtualMethod(Spliterator, getComparator, $Comparator*)},
+	{"getExactSizeIfKnown", "()J", nullptr, $PUBLIC, $virtualMethod(Spliterator, getExactSizeIfKnown, int64_t)},
+	{"hasCharacteristics", "(I)Z", nullptr, $PUBLIC, $virtualMethod(Spliterator, hasCharacteristics, bool, int32_t)},
+	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-TT;>;)Z", $PUBLIC | $ABSTRACT, $virtualMethod(Spliterator, tryAdvance, bool, $Consumer*)},
+	{"trySplit", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TT;>;", $PUBLIC | $ABSTRACT, $virtualMethod(Spliterator, trySplit, Spliterator*)},
 	{}
 };
 

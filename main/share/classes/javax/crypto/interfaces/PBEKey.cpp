@@ -22,9 +22,9 @@ $FieldInfo _PBEKey_FieldInfo_[] = {
 };
 
 $MethodInfo _PBEKey_MethodInfo_[] = {
-	{"getIterationCount", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"getPassword", "()[C", nullptr, $PUBLIC | $ABSTRACT},
-	{"getSalt", "()[B", nullptr, $PUBLIC | $ABSTRACT},
+	{"getIterationCount", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PBEKey, getIterationCount, int32_t)},
+	{"getPassword", "()[C", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PBEKey, getPassword, $chars*)},
+	{"getSalt", "()[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PBEKey, getSalt, $bytes*)},
 	{}
 };
 

@@ -8,7 +8,7 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _GetAnnotatedReceiverType$Nested_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(GetAnnotatedReceiverType$Nested::*)()>(&GetAnnotatedReceiverType$Nested::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(GetAnnotatedReceiverType$Nested, init$, void)},
 	{}
 };
 

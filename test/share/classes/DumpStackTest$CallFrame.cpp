@@ -15,12 +15,12 @@ $FieldInfo _DumpStackTest$CallFrame_FieldInfo_[] = {
 };
 
 $MethodInfo _DumpStackTest$CallFrame_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Class;Ljava/lang/String;)V", "(Ljava/lang/Class<*>;Ljava/lang/String;)V", 0, $method(static_cast<void(DumpStackTest$CallFrame::*)($Class*,$String*)>(&DumpStackTest$CallFrame::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(DumpStackTest$CallFrame::*)($String*,$String*)>(&DumpStackTest$CallFrame::init$))},
-	{"getClassName", "()Ljava/lang/String;", nullptr, 0},
-	{"getFileName", "()Ljava/lang/String;", nullptr, 0},
-	{"getMethodName", "()Ljava/lang/String;", nullptr, 0},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Class;Ljava/lang/String;)V", "(Ljava/lang/Class<*>;Ljava/lang/String;)V", 0, $method(DumpStackTest$CallFrame, init$, void, $Class*, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(DumpStackTest$CallFrame, init$, void, $String*, $String*)},
+	{"getClassName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(DumpStackTest$CallFrame, getClassName, $String*)},
+	{"getFileName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(DumpStackTest$CallFrame, getFileName, $String*)},
+	{"getMethodName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(DumpStackTest$CallFrame, getMethodName, $String*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DumpStackTest$CallFrame, toString, $String*)},
 	{}
 };
 

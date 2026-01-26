@@ -17,10 +17,10 @@ using $SoftReference = ::java::lang::ref::SoftReference;
 using $WeakReference = ::java::lang::ref::WeakReference;
 
 $MethodInfo _ReferenceRefersTo_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ReferenceRefersTo::*)()>(&ReferenceRefersTo::init$))},
-	{"fail", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $FINAL, $method(static_cast<void(*)($String*)>(&ReferenceRefersTo::fail)), "java.lang.Exception"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&ReferenceRefersTo::main)), "java.lang.Exception"},
-	{"test", "(Ljava/lang/ref/Reference;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/String;)V", "<T:Ljava/lang/ref/Reference;>(TT;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/String;)V", $PRIVATE | $STATIC | $FINAL, $method(static_cast<void(*)($Reference*,Object$*,Object$*,$String*)>(&ReferenceRefersTo::test)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ReferenceRefersTo, init$, void)},
+	{"fail", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(ReferenceRefersTo, fail, void, $String*), "java.lang.Exception"},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ReferenceRefersTo, main, void, $StringArray*), "java.lang.Exception"},
+	{"test", "(Ljava/lang/ref/Reference;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/String;)V", "<T:Ljava/lang/ref/Reference;>(TT;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/String;)V", $PRIVATE | $STATIC | $FINAL, $staticMethod(ReferenceRefersTo, test, void, $Reference*, Object$*, Object$*, $String*), "java.lang.Exception"},
 	{}
 };
 

@@ -10,8 +10,8 @@ namespace javax {
 		namespace auth {
 
 $MethodInfo _Refreshable_MethodInfo_[] = {
-	{"isCurrent", "()Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"refresh", "()V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "javax.security.auth.RefreshFailedException"},
+	{"isCurrent", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Refreshable, isCurrent, bool)},
+	{"refresh", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Refreshable, refresh, void), "javax.security.auth.RefreshFailedException"},
 	{}
 };
 

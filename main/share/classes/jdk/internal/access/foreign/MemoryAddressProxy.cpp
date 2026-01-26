@@ -21,13 +21,13 @@ namespace jdk {
 			namespace foreign {
 
 $MethodInfo _MemoryAddressProxy_MethodInfo_[] = {
-	{"addOffsets", "(JJLjdk/internal/access/foreign/MemoryAddressProxy;)J", nullptr, $PUBLIC | $STATIC, $method(static_cast<int64_t(*)(int64_t,int64_t,MemoryAddressProxy*)>(&MemoryAddressProxy::addOffsets))},
-	{"checkAccess", "(JJZ)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"isSmall", "()Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"multiplyOffsets", "(JJLjdk/internal/access/foreign/MemoryAddressProxy;)J", nullptr, $PUBLIC | $STATIC, $method(static_cast<int64_t(*)(int64_t,int64_t,MemoryAddressProxy*)>(&MemoryAddressProxy::multiplyOffsets))},
-	{"overflowException", "(JJ)Ljava/lang/IndexOutOfBoundsException;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$IndexOutOfBoundsException*(*)(int64_t,int64_t)>(&MemoryAddressProxy::overflowException))},
-	{"unsafeGetBase", "()Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
-	{"unsafeGetOffset", "()J", nullptr, $PUBLIC | $ABSTRACT},
+	{"addOffsets", "(JJLjdk/internal/access/foreign/MemoryAddressProxy;)J", nullptr, $PUBLIC | $STATIC, $staticMethod(MemoryAddressProxy, addOffsets, int64_t, int64_t, int64_t, MemoryAddressProxy*)},
+	{"checkAccess", "(JJZ)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MemoryAddressProxy, checkAccess, void, int64_t, int64_t, bool)},
+	{"isSmall", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MemoryAddressProxy, isSmall, bool)},
+	{"multiplyOffsets", "(JJLjdk/internal/access/foreign/MemoryAddressProxy;)J", nullptr, $PUBLIC | $STATIC, $staticMethod(MemoryAddressProxy, multiplyOffsets, int64_t, int64_t, int64_t, MemoryAddressProxy*)},
+	{"overflowException", "(JJ)Ljava/lang/IndexOutOfBoundsException;", nullptr, $PRIVATE | $STATIC, $staticMethod(MemoryAddressProxy, overflowException, $IndexOutOfBoundsException*, int64_t, int64_t)},
+	{"unsafeGetBase", "()Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MemoryAddressProxy, unsafeGetBase, $Object*)},
+	{"unsafeGetOffset", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MemoryAddressProxy, unsafeGetOffset, int64_t)},
 	{}
 };
 

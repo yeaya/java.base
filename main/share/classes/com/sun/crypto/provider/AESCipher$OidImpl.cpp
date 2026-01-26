@@ -19,7 +19,7 @@ namespace com {
 			namespace provider {
 
 $MethodInfo _AESCipher$OidImpl_MethodInfo_[] = {
-	{"<init>", "(ILjava/lang/String;Ljava/lang/String;)V", nullptr, $PROTECTED, $method(static_cast<void(AESCipher$OidImpl::*)(int32_t,$String*,$String*)>(&AESCipher$OidImpl::init$))},
+	{"<init>", "(ILjava/lang/String;Ljava/lang/String;)V", nullptr, $PROTECTED, $method(AESCipher$OidImpl, init$, void, int32_t, $String*, $String*)},
 	{}
 };
 

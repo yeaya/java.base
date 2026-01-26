@@ -21,15 +21,15 @@ namespace java {
 	namespace io {
 
 $MethodInfo _FileWriter_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(FileWriter::*)($String*)>(&FileWriter::init$)), "java.io.IOException"},
-	{"<init>", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(static_cast<void(FileWriter::*)($String*,bool)>(&FileWriter::init$)), "java.io.IOException"},
-	{"<init>", "(Ljava/io/File;)V", nullptr, $PUBLIC, $method(static_cast<void(FileWriter::*)($File*)>(&FileWriter::init$)), "java.io.IOException"},
-	{"<init>", "(Ljava/io/File;Z)V", nullptr, $PUBLIC, $method(static_cast<void(FileWriter::*)($File*,bool)>(&FileWriter::init$)), "java.io.IOException"},
-	{"<init>", "(Ljava/io/FileDescriptor;)V", nullptr, $PUBLIC, $method(static_cast<void(FileWriter::*)($FileDescriptor*)>(&FileWriter::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/nio/charset/Charset;)V", nullptr, $PUBLIC, $method(static_cast<void(FileWriter::*)($String*,$Charset*)>(&FileWriter::init$)), "java.io.IOException"},
-	{"<init>", "(Ljava/lang/String;Ljava/nio/charset/Charset;Z)V", nullptr, $PUBLIC, $method(static_cast<void(FileWriter::*)($String*,$Charset*,bool)>(&FileWriter::init$)), "java.io.IOException"},
-	{"<init>", "(Ljava/io/File;Ljava/nio/charset/Charset;)V", nullptr, $PUBLIC, $method(static_cast<void(FileWriter::*)($File*,$Charset*)>(&FileWriter::init$)), "java.io.IOException"},
-	{"<init>", "(Ljava/io/File;Ljava/nio/charset/Charset;Z)V", nullptr, $PUBLIC, $method(static_cast<void(FileWriter::*)($File*,$Charset*,bool)>(&FileWriter::init$)), "java.io.IOException"},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(FileWriter, init$, void, $String*), "java.io.IOException"},
+	{"<init>", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(FileWriter, init$, void, $String*, bool), "java.io.IOException"},
+	{"<init>", "(Ljava/io/File;)V", nullptr, $PUBLIC, $method(FileWriter, init$, void, $File*), "java.io.IOException"},
+	{"<init>", "(Ljava/io/File;Z)V", nullptr, $PUBLIC, $method(FileWriter, init$, void, $File*, bool), "java.io.IOException"},
+	{"<init>", "(Ljava/io/FileDescriptor;)V", nullptr, $PUBLIC, $method(FileWriter, init$, void, $FileDescriptor*)},
+	{"<init>", "(Ljava/lang/String;Ljava/nio/charset/Charset;)V", nullptr, $PUBLIC, $method(FileWriter, init$, void, $String*, $Charset*), "java.io.IOException"},
+	{"<init>", "(Ljava/lang/String;Ljava/nio/charset/Charset;Z)V", nullptr, $PUBLIC, $method(FileWriter, init$, void, $String*, $Charset*, bool), "java.io.IOException"},
+	{"<init>", "(Ljava/io/File;Ljava/nio/charset/Charset;)V", nullptr, $PUBLIC, $method(FileWriter, init$, void, $File*, $Charset*), "java.io.IOException"},
+	{"<init>", "(Ljava/io/File;Ljava/nio/charset/Charset;Z)V", nullptr, $PUBLIC, $method(FileWriter, init$, void, $File*, $Charset*, bool), "java.io.IOException"},
 	{}
 };
 

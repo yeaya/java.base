@@ -25,10 +25,10 @@ $FieldInfo _NativeThreadSet_FieldInfo_[] = {
 };
 
 $MethodInfo _NativeThreadSet_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, 0, $method(static_cast<void(NativeThreadSet::*)(int32_t)>(&NativeThreadSet::init$))},
-	{"add", "()I", nullptr, 0},
-	{"remove", "(I)V", nullptr, 0},
-	{"signalAndWait", "()V", nullptr, $SYNCHRONIZED},
+	{"<init>", "(I)V", nullptr, 0, $method(NativeThreadSet, init$, void, int32_t)},
+	{"add", "()I", nullptr, 0, $virtualMethod(NativeThreadSet, add, int32_t)},
+	{"remove", "(I)V", nullptr, 0, $virtualMethod(NativeThreadSet, remove, void, int32_t)},
+	{"signalAndWait", "()V", nullptr, $SYNCHRONIZED, $virtualMethod(NativeThreadSet, signalAndWait, void)},
 	{}
 };
 

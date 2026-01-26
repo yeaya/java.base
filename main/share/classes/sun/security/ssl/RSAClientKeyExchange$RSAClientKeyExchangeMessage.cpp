@@ -59,12 +59,12 @@ $FieldInfo _RSAClientKeyExchange$RSAClientKeyExchangeMessage_FieldInfo_[] = {
 };
 
 $MethodInfo _RSAClientKeyExchange$RSAClientKeyExchangeMessage_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/ssl/HandshakeContext;Lsun/security/ssl/RSAKeyExchange$RSAPremasterSecret;Ljava/security/PublicKey;)V", nullptr, 0, $method(static_cast<void(RSAClientKeyExchange$RSAClientKeyExchangeMessage::*)($HandshakeContext*,$RSAKeyExchange$RSAPremasterSecret*,$PublicKey*)>(&RSAClientKeyExchange$RSAClientKeyExchangeMessage::init$)), "java.security.GeneralSecurityException"},
-	{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)V", nullptr, 0, $method(static_cast<void(RSAClientKeyExchange$RSAClientKeyExchangeMessage::*)($HandshakeContext*,$ByteBuffer*)>(&RSAClientKeyExchange$RSAClientKeyExchangeMessage::init$)), "java.io.IOException"},
-	{"handshakeType", "()Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC},
-	{"messageLength", "()I", nullptr, $PUBLIC},
-	{"send", "(Lsun/security/ssl/HandshakeOutStream;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/security/ssl/HandshakeContext;Lsun/security/ssl/RSAKeyExchange$RSAPremasterSecret;Ljava/security/PublicKey;)V", nullptr, 0, $method(RSAClientKeyExchange$RSAClientKeyExchangeMessage, init$, void, $HandshakeContext*, $RSAKeyExchange$RSAPremasterSecret*, $PublicKey*), "java.security.GeneralSecurityException"},
+	{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)V", nullptr, 0, $method(RSAClientKeyExchange$RSAClientKeyExchangeMessage, init$, void, $HandshakeContext*, $ByteBuffer*), "java.io.IOException"},
+	{"handshakeType", "()Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC, $virtualMethod(RSAClientKeyExchange$RSAClientKeyExchangeMessage, handshakeType, $SSLHandshake*)},
+	{"messageLength", "()I", nullptr, $PUBLIC, $virtualMethod(RSAClientKeyExchange$RSAClientKeyExchangeMessage, messageLength, int32_t)},
+	{"send", "(Lsun/security/ssl/HandshakeOutStream;)V", nullptr, $PUBLIC, $virtualMethod(RSAClientKeyExchange$RSAClientKeyExchangeMessage, send, void, $HandshakeOutStream*), "java.io.IOException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RSAClientKeyExchange$RSAClientKeyExchangeMessage, toString, $String*)},
 	{}
 };
 

@@ -21,9 +21,9 @@ $FieldInfo _KQueuePort$Event_FieldInfo_[] = {
 };
 
 $MethodInfo _KQueuePort$Event_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/ch/Port$PollableChannel;I)V", nullptr, 0, $method(static_cast<void(KQueuePort$Event::*)($Port$PollableChannel*,int32_t)>(&KQueuePort$Event::init$))},
-	{"channel", "()Lsun/nio/ch/Port$PollableChannel;", nullptr, 0},
-	{"events", "()I", nullptr, 0},
+	{"<init>", "(Lsun/nio/ch/Port$PollableChannel;I)V", nullptr, 0, $method(KQueuePort$Event, init$, void, $Port$PollableChannel*, int32_t)},
+	{"channel", "()Lsun/nio/ch/Port$PollableChannel;", nullptr, 0, $virtualMethod(KQueuePort$Event, channel, $Port$PollableChannel*)},
+	{"events", "()I", nullptr, 0, $virtualMethod(KQueuePort$Event, events, int32_t)},
 	{}
 };
 

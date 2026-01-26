@@ -26,10 +26,10 @@ $FieldInfo _ConcurrentSkipListMap$Iter_FieldInfo_[] = {
 };
 
 $MethodInfo _ConcurrentSkipListMap$Iter_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/ConcurrentSkipListMap;)V", nullptr, 0, $method(static_cast<void(ConcurrentSkipListMap$Iter::*)($ConcurrentSkipListMap*)>(&ConcurrentSkipListMap$Iter::init$))},
-	{"advance", "(Ljava/util/concurrent/ConcurrentSkipListMap$Node;)V", "(Ljava/util/concurrent/ConcurrentSkipListMap$Node<TK;TV;>;)V", $FINAL, $method(static_cast<void(ConcurrentSkipListMap$Iter::*)($ConcurrentSkipListMap$Node*)>(&ConcurrentSkipListMap$Iter::advance))},
-	{"hasNext", "()Z", nullptr, $PUBLIC | $FINAL},
-	{"remove", "()V", nullptr, $PUBLIC | $FINAL},
+	{"<init>", "(Ljava/util/concurrent/ConcurrentSkipListMap;)V", nullptr, 0, $method(ConcurrentSkipListMap$Iter, init$, void, $ConcurrentSkipListMap*)},
+	{"advance", "(Ljava/util/concurrent/ConcurrentSkipListMap$Node;)V", "(Ljava/util/concurrent/ConcurrentSkipListMap$Node<TK;TV;>;)V", $FINAL, $method(ConcurrentSkipListMap$Iter, advance, void, $ConcurrentSkipListMap$Node*)},
+	{"hasNext", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(ConcurrentSkipListMap$Iter, hasNext, bool)},
+	{"remove", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(ConcurrentSkipListMap$Iter, remove, void)},
 	{}
 };
 

@@ -11,8 +11,8 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace p {
 
 $MethodInfo _B_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(B::*)()>(&B::init$))},
-	{"hello", "()V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)()>(&B::hello))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(B, init$, void)},
+	{"hello", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(B, hello, void)},
 	{}
 };
 

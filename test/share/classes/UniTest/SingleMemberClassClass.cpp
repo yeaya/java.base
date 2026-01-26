@@ -20,7 +20,7 @@ $CompoundAttribute _SingleMemberClassClass_Annotations_[] = {
 };
 
 $MethodInfo _SingleMemberClassClass_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(SingleMemberClassClass::*)()>(&SingleMemberClassClass::init$))},
+	{"<init>", "()V", nullptr, 0, $method(SingleMemberClassClass, init$, void)},
 	{}
 };
 

@@ -52,16 +52,16 @@ $FieldInfo _SliceOps$SliceTask_FieldInfo_[] = {
 };
 
 $MethodInfo _SliceOps$SliceTask_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/stream/AbstractPipeline;Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;Ljava/util/function/IntFunction;JJ)V", "(Ljava/util/stream/AbstractPipeline<TP_OUT;TP_OUT;*>;Ljava/util/stream/PipelineHelper<TP_OUT;>;Ljava/util/Spliterator<TP_IN;>;Ljava/util/function/IntFunction<[TP_OUT;>;JJ)V", 0, $method(static_cast<void(SliceOps$SliceTask::*)($AbstractPipeline*,$PipelineHelper*,$Spliterator*,$IntFunction*,int64_t,int64_t)>(&SliceOps$SliceTask::init$))},
-	{"<init>", "(Ljava/util/stream/SliceOps$SliceTask;Ljava/util/Spliterator;)V", "(Ljava/util/stream/SliceOps$SliceTask<TP_IN;TP_OUT;>;Ljava/util/Spliterator<TP_IN;>;)V", 0, $method(static_cast<void(SliceOps$SliceTask::*)(SliceOps$SliceTask*,$Spliterator*)>(&SliceOps$SliceTask::init$))},
-	{"cancel", "()V", nullptr, $PROTECTED},
-	{"completedSize", "(J)J", nullptr, $PRIVATE, $method(static_cast<int64_t(SliceOps$SliceTask::*)(int64_t)>(&SliceOps$SliceTask::completedSize))},
-	{"doLeaf", "()Ljava/util/stream/Node;", "()Ljava/util/stream/Node<TP_OUT;>;", $PROTECTED | $FINAL},
-	{"doTruncate", "(Ljava/util/stream/Node;)Ljava/util/stream/Node;", "(Ljava/util/stream/Node<TP_OUT;>;)Ljava/util/stream/Node<TP_OUT;>;", $PRIVATE, $method(static_cast<$Node*(SliceOps$SliceTask::*)($Node*)>(&SliceOps$SliceTask::doTruncate))},
-	{"getEmptyResult", "()Ljava/util/stream/Node;", "()Ljava/util/stream/Node<TP_OUT;>;", $PROTECTED | $FINAL},
-	{"isLeftCompleted", "(J)Z", nullptr, $PRIVATE, $method(static_cast<bool(SliceOps$SliceTask::*)(int64_t)>(&SliceOps$SliceTask::isLeftCompleted))},
-	{"makeChild", "(Ljava/util/Spliterator;)Ljava/util/stream/SliceOps$SliceTask;", "(Ljava/util/Spliterator<TP_IN;>;)Ljava/util/stream/SliceOps$SliceTask<TP_IN;TP_OUT;>;", $PROTECTED},
-	{"onCompletion", "(Ljava/util/concurrent/CountedCompleter;)V", "(Ljava/util/concurrent/CountedCompleter<*>;)V", $PUBLIC | $FINAL},
+	{"<init>", "(Ljava/util/stream/AbstractPipeline;Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;Ljava/util/function/IntFunction;JJ)V", "(Ljava/util/stream/AbstractPipeline<TP_OUT;TP_OUT;*>;Ljava/util/stream/PipelineHelper<TP_OUT;>;Ljava/util/Spliterator<TP_IN;>;Ljava/util/function/IntFunction<[TP_OUT;>;JJ)V", 0, $method(SliceOps$SliceTask, init$, void, $AbstractPipeline*, $PipelineHelper*, $Spliterator*, $IntFunction*, int64_t, int64_t)},
+	{"<init>", "(Ljava/util/stream/SliceOps$SliceTask;Ljava/util/Spliterator;)V", "(Ljava/util/stream/SliceOps$SliceTask<TP_IN;TP_OUT;>;Ljava/util/Spliterator<TP_IN;>;)V", 0, $method(SliceOps$SliceTask, init$, void, SliceOps$SliceTask*, $Spliterator*)},
+	{"cancel", "()V", nullptr, $PROTECTED, $virtualMethod(SliceOps$SliceTask, cancel, void)},
+	{"completedSize", "(J)J", nullptr, $PRIVATE, $method(SliceOps$SliceTask, completedSize, int64_t, int64_t)},
+	{"doLeaf", "()Ljava/util/stream/Node;", "()Ljava/util/stream/Node<TP_OUT;>;", $PROTECTED | $FINAL, $virtualMethod(SliceOps$SliceTask, doLeaf, $Object*)},
+	{"doTruncate", "(Ljava/util/stream/Node;)Ljava/util/stream/Node;", "(Ljava/util/stream/Node<TP_OUT;>;)Ljava/util/stream/Node<TP_OUT;>;", $PRIVATE, $method(SliceOps$SliceTask, doTruncate, $Node*, $Node*)},
+	{"getEmptyResult", "()Ljava/util/stream/Node;", "()Ljava/util/stream/Node<TP_OUT;>;", $PROTECTED | $FINAL, $virtualMethod(SliceOps$SliceTask, getEmptyResult, $Object*)},
+	{"isLeftCompleted", "(J)Z", nullptr, $PRIVATE, $method(SliceOps$SliceTask, isLeftCompleted, bool, int64_t)},
+	{"makeChild", "(Ljava/util/Spliterator;)Ljava/util/stream/SliceOps$SliceTask;", "(Ljava/util/Spliterator<TP_IN;>;)Ljava/util/stream/SliceOps$SliceTask<TP_IN;TP_OUT;>;", $PROTECTED, $virtualMethod(SliceOps$SliceTask, makeChild, SliceOps$SliceTask*, $Spliterator*)},
+	{"onCompletion", "(Ljava/util/concurrent/CountedCompleter;)V", "(Ljava/util/concurrent/CountedCompleter<*>;)V", $PUBLIC | $FINAL, $virtualMethod(SliceOps$SliceTask, onCompletion, void, $CountedCompleter*)},
 	{}
 };
 

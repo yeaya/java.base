@@ -8,13 +8,15 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $InetAddress = ::java::net::InetAddress;
+using $SdpProvider$Action = ::sun::net::sdp::SdpProvider$Action;
 
 namespace sun {
 	namespace net {
 		namespace sdp {
 
 $MethodInfo _SdpProvider$Rule_MethodInfo_[] = {
-	{"match", "(Lsun/net/sdp/SdpProvider$Action;Ljava/net/InetAddress;I)Z", nullptr, $PUBLIC | $ABSTRACT},
+	{"match", "(Lsun/net/sdp/SdpProvider$Action;Ljava/net/InetAddress;I)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SdpProvider$Rule, match, bool, $SdpProvider$Action*, $InetAddress*, int32_t)},
 	{}
 };
 

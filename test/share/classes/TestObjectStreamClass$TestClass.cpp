@@ -15,7 +15,7 @@ $FieldInfo _TestObjectStreamClass$TestClass_FieldInfo_[] = {
 };
 
 $MethodInfo _TestObjectStreamClass$TestClass_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(TestObjectStreamClass$TestClass::*)()>(&TestObjectStreamClass$TestClass::init$))},
+	{"<init>", "()V", nullptr, 0, $method(TestObjectStreamClass$TestClass, init$, void)},
 	{}
 };
 

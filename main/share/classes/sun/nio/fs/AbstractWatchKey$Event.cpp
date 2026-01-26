@@ -22,11 +22,11 @@ $FieldInfo _AbstractWatchKey$Event_FieldInfo_[] = {
 };
 
 $MethodInfo _AbstractWatchKey$Event_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/file/WatchEvent$Kind;Ljava/lang/Object;)V", "(Ljava/nio/file/WatchEvent$Kind<TT;>;TT;)V", 0, $method(static_cast<void(AbstractWatchKey$Event::*)($WatchEvent$Kind*,Object$*)>(&AbstractWatchKey$Event::init$))},
-	{"context", "()Ljava/lang/Object;", "()TT;", $PUBLIC},
-	{"count", "()I", nullptr, $PUBLIC},
-	{"increment", "()V", nullptr, 0},
-	{"kind", "()Ljava/nio/file/WatchEvent$Kind;", "()Ljava/nio/file/WatchEvent$Kind<TT;>;", $PUBLIC},
+	{"<init>", "(Ljava/nio/file/WatchEvent$Kind;Ljava/lang/Object;)V", "(Ljava/nio/file/WatchEvent$Kind<TT;>;TT;)V", 0, $method(AbstractWatchKey$Event, init$, void, $WatchEvent$Kind*, Object$*)},
+	{"context", "()Ljava/lang/Object;", "()TT;", $PUBLIC, $virtualMethod(AbstractWatchKey$Event, context, $Object*)},
+	{"count", "()I", nullptr, $PUBLIC, $virtualMethod(AbstractWatchKey$Event, count, int32_t)},
+	{"increment", "()V", nullptr, 0, $virtualMethod(AbstractWatchKey$Event, increment, void)},
+	{"kind", "()Ljava/nio/file/WatchEvent$Kind;", "()Ljava/nio/file/WatchEvent$Kind<TT;>;", $PUBLIC, $virtualMethod(AbstractWatchKey$Event, kind, $WatchEvent$Kind*)},
 	{}
 };
 

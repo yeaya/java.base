@@ -21,8 +21,8 @@ $FieldInfo _Configuration$3_FieldInfo_[] = {
 };
 
 $MethodInfo _Configuration$3_MethodInfo_[] = {
-	{"<init>", "(Ljavax/security/auth/login/Configuration;)V", nullptr, 0, $method(static_cast<void(Configuration$3::*)($Configuration*)>(&Configuration$3::init$))},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC},
+	{"<init>", "(Ljavax/security/auth/login/Configuration;)V", nullptr, 0, $method(Configuration$3, init$, void, $Configuration*)},
+	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(Configuration$3, run, $Object*)},
 	{}
 };
 

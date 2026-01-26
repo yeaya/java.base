@@ -24,9 +24,9 @@ $FieldInfo _PrivateCredentialPermission$CredOwner_FieldInfo_[] = {
 };
 
 $MethodInfo _PrivateCredentialPermission$CredOwner_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(PrivateCredentialPermission$CredOwner::*)($String*,$String*)>(&PrivateCredentialPermission$CredOwner::init$))},
-	{"implies", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(PrivateCredentialPermission$CredOwner, init$, void, $String*, $String*)},
+	{"implies", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(PrivateCredentialPermission$CredOwner, implies, bool, Object$*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PrivateCredentialPermission$CredOwner, toString, $String*)},
 	{}
 };
 

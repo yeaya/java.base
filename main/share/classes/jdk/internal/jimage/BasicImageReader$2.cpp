@@ -34,8 +34,8 @@ $FieldInfo _BasicImageReader$2_FieldInfo_[] = {
 };
 
 $MethodInfo _BasicImageReader$2_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/jimage/BasicImageReader;)V", nullptr, 0, $method(static_cast<void(BasicImageReader$2::*)($BasicImageReader*)>(&BasicImageReader$2::init$))},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/jimage/BasicImageReader;)V", nullptr, 0, $method(BasicImageReader$2, init$, void, $BasicImageReader*)},
+	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(BasicImageReader$2, run, $Object*)},
 	{}
 };
 

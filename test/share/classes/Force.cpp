@@ -16,10 +16,10 @@ using $ByteBuffer = ::java::nio::ByteBuffer;
 using $FileChannel = ::java::nio::channels::FileChannel;
 
 $MethodInfo _Force_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Force::*)()>(&Force::init$))},
-	{"forceReadableOnly", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&Force::forceReadableOnly)), "java.lang.Exception"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Force::main)), "java.lang.Exception"},
-	{"writeAfterForce", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&Force::writeAfterForce)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Force, init$, void)},
+	{"forceReadableOnly", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(Force, forceReadableOnly, void), "java.lang.Exception"},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Force, main, void, $StringArray*), "java.lang.Exception"},
+	{"writeAfterForce", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(Force, writeAfterForce, void), "java.lang.Exception"},
 	{}
 };
 

@@ -23,11 +23,11 @@ $FieldInfo _CryptoPolicyParser$GrantEntry_FieldInfo_[] = {
 };
 
 $MethodInfo _CryptoPolicyParser$GrantEntry_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(CryptoPolicyParser$GrantEntry::*)()>(&CryptoPolicyParser$GrantEntry::init$))},
-	{"add", "(Ljavax/crypto/CryptoPolicyParser$CryptoPermissionEntry;)V", nullptr, 0},
-	{"contains", "(Ljavax/crypto/CryptoPolicyParser$CryptoPermissionEntry;)Z", nullptr, 0},
-	{"permissionElements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljavax/crypto/CryptoPolicyParser$CryptoPermissionEntry;>;", 0},
-	{"remove", "(Ljavax/crypto/CryptoPolicyParser$CryptoPermissionEntry;)Z", nullptr, 0},
+	{"<init>", "()V", nullptr, 0, $method(CryptoPolicyParser$GrantEntry, init$, void)},
+	{"add", "(Ljavax/crypto/CryptoPolicyParser$CryptoPermissionEntry;)V", nullptr, 0, $virtualMethod(CryptoPolicyParser$GrantEntry, add, void, $CryptoPolicyParser$CryptoPermissionEntry*)},
+	{"contains", "(Ljavax/crypto/CryptoPolicyParser$CryptoPermissionEntry;)Z", nullptr, 0, $virtualMethod(CryptoPolicyParser$GrantEntry, contains, bool, $CryptoPolicyParser$CryptoPermissionEntry*)},
+	{"permissionElements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljavax/crypto/CryptoPolicyParser$CryptoPermissionEntry;>;", 0, $virtualMethod(CryptoPolicyParser$GrantEntry, permissionElements, $Enumeration*)},
+	{"remove", "(Ljavax/crypto/CryptoPolicyParser$CryptoPermissionEntry;)Z", nullptr, 0, $virtualMethod(CryptoPolicyParser$GrantEntry, remove, bool, $CryptoPolicyParser$CryptoPermissionEntry*)},
 	{}
 };
 

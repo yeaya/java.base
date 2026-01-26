@@ -17,9 +17,9 @@ using $URLConnection = ::java::net::URLConnection;
 using $URLStreamHandler = ::java::net::URLStreamHandler;
 
 $MethodInfo _B6529759$a_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(B6529759$a::*)()>(&B6529759$a::init$))},
-	{"openConnection", "(Ljava/net/URL;)Ljava/net/URLConnection;", nullptr, $PROTECTED},
-	{"parseURL", "(Ljava/net/URL;Ljava/lang/String;II)V", nullptr, $PROTECTED},
+	{"<init>", "()V", nullptr, 0, $method(B6529759$a, init$, void)},
+	{"openConnection", "(Ljava/net/URL;)Ljava/net/URLConnection;", nullptr, $PROTECTED, $virtualMethod(B6529759$a, openConnection, $URLConnection*, $URL*)},
+	{"parseURL", "(Ljava/net/URL;Ljava/lang/String;II)V", nullptr, $PROTECTED, $virtualMethod(B6529759$a, parseURL, void, $URL*, $String*, int32_t, int32_t)},
 	{}
 };
 

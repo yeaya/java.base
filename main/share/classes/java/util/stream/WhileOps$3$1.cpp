@@ -27,10 +27,10 @@ $FieldInfo _WhileOps$3$1_FieldInfo_[] = {
 };
 
 $MethodInfo _WhileOps$3$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/stream/WhileOps$3;Ljava/util/stream/Sink;)V", nullptr, 0, $method(static_cast<void(WhileOps$3$1::*)($WhileOps$3*,$Sink*)>(&WhileOps$3$1::init$))},
-	{"accept", "(J)V", nullptr, $PUBLIC},
-	{"begin", "(J)V", nullptr, $PUBLIC},
-	{"cancellationRequested", "()Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/stream/WhileOps$3;Ljava/util/stream/Sink;)V", nullptr, 0, $method(WhileOps$3$1, init$, void, $WhileOps$3*, $Sink*)},
+	{"accept", "(J)V", nullptr, $PUBLIC, $virtualMethod(WhileOps$3$1, accept, void, int64_t)},
+	{"begin", "(J)V", nullptr, $PUBLIC, $virtualMethod(WhileOps$3$1, begin, void, int64_t)},
+	{"cancellationRequested", "()Z", nullptr, $PUBLIC, $virtualMethod(WhileOps$3$1, cancellationRequested, bool)},
 	{}
 };
 

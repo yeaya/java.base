@@ -10,11 +10,11 @@ using $Exception = ::java::lang::Exception;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _GetParent_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(GetParent::*)()>(&GetParent::init$))},
-	{"check", "(Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $STATIC, $method(static_cast<void(*)($String*,$StringArray*)>(&GetParent::check)), "java.lang.Exception"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&GetParent::main)), "java.lang.Exception"},
-	{"testUnix", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&GetParent::testUnix)), "java.lang.Exception"},
-	{"testWin32", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&GetParent::testWin32)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(GetParent, init$, void)},
+	{"check", "(Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(GetParent, check, void, $String*, $StringArray*), "java.lang.Exception"},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(GetParent, main, void, $StringArray*), "java.lang.Exception"},
+	{"testUnix", "()V", nullptr, $STATIC, $staticMethod(GetParent, testUnix, void), "java.lang.Exception"},
+	{"testWin32", "()V", nullptr, $STATIC, $staticMethod(GetParent, testWin32, void), "java.lang.Exception"},
 	{}
 };
 

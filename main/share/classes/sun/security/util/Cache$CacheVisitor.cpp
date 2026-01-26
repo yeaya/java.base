@@ -7,13 +7,14 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Map = ::java::util::Map;
 
 namespace sun {
 	namespace security {
 		namespace util {
 
 $MethodInfo _Cache$CacheVisitor_MethodInfo_[] = {
-	{"visit", "(Ljava/util/Map;)V", "(Ljava/util/Map<TK;TV;>;)V", $PUBLIC | $ABSTRACT},
+	{"visit", "(Ljava/util/Map;)V", "(Ljava/util/Map<TK;TV;>;)V", $PUBLIC | $ABSTRACT, $virtualMethod(Cache$CacheVisitor, visit, void, $Map*)},
 	{}
 };
 

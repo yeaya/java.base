@@ -6,6 +6,8 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $URL = ::java::net::URL;
+using $JarFile = ::java::util::jar::JarFile;
 
 namespace sun {
 	namespace net {
@@ -14,7 +16,7 @@ namespace sun {
 				namespace jar {
 
 $MethodInfo _URLJarFileCallBack_MethodInfo_[] = {
-	{"retrieve", "(Ljava/net/URL;)Ljava/util/jar/JarFile;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
+	{"retrieve", "(Ljava/net/URL;)Ljava/util/jar/JarFile;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(URLJarFileCallBack, retrieve, $JarFile*, $URL*), "java.io.IOException"},
 	{}
 };
 

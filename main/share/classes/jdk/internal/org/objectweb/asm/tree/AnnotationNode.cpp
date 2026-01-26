@@ -36,17 +36,17 @@ $FieldInfo _AnnotationNode_FieldInfo_[] = {
 };
 
 $MethodInfo _AnnotationNode_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(AnnotationNode::*)($String*)>(&AnnotationNode::init$))},
-	{"<init>", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(AnnotationNode::*)(int32_t,$String*)>(&AnnotationNode::init$))},
-	{"<init>", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/lang/Object;>;)V", 0, $method(static_cast<void(AnnotationNode::*)($List*)>(&AnnotationNode::init$))},
-	{"accept", "(Ljdk/internal/org/objectweb/asm/AnnotationVisitor;)V", nullptr, $PUBLIC},
-	{"accept", "(Ljdk/internal/org/objectweb/asm/AnnotationVisitor;Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $STATIC, $method(static_cast<void(*)($AnnotationVisitor*,$String*,Object$*)>(&AnnotationNode::accept))},
-	{"check", "(I)V", nullptr, $PUBLIC},
-	{"visit", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC},
-	{"visitAnnotation", "(Ljava/lang/String;Ljava/lang/String;)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC},
-	{"visitArray", "(Ljava/lang/String;)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC},
-	{"visitEnd", "()V", nullptr, $PUBLIC},
-	{"visitEnum", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(AnnotationNode, init$, void, $String*)},
+	{"<init>", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $method(AnnotationNode, init$, void, int32_t, $String*)},
+	{"<init>", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/lang/Object;>;)V", 0, $method(AnnotationNode, init$, void, $List*)},
+	{"accept", "(Ljdk/internal/org/objectweb/asm/AnnotationVisitor;)V", nullptr, $PUBLIC, $virtualMethod(AnnotationNode, accept, void, $AnnotationVisitor*)},
+	{"accept", "(Ljdk/internal/org/objectweb/asm/AnnotationVisitor;Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $STATIC, $staticMethod(AnnotationNode, accept, void, $AnnotationVisitor*, $String*, Object$*)},
+	{"check", "(I)V", nullptr, $PUBLIC, $virtualMethod(AnnotationNode, check, void, int32_t)},
+	{"visit", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(AnnotationNode, visit, void, $String*, Object$*)},
+	{"visitAnnotation", "(Ljava/lang/String;Ljava/lang/String;)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(AnnotationNode, visitAnnotation, $AnnotationVisitor*, $String*, $String*)},
+	{"visitArray", "(Ljava/lang/String;)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(AnnotationNode, visitArray, $AnnotationVisitor*, $String*)},
+	{"visitEnd", "()V", nullptr, $PUBLIC, $virtualMethod(AnnotationNode, visitEnd, void)},
+	{"visitEnum", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(AnnotationNode, visitEnum, void, $String*, $String*, $String*)},
 	{}
 };
 

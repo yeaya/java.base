@@ -82,12 +82,12 @@ $FieldInfo _CertificateMessage$T12CertificateMessage_FieldInfo_[] = {
 };
 
 $MethodInfo _CertificateMessage$T12CertificateMessage_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/ssl/HandshakeContext;[Ljava/security/cert/X509Certificate;)V", nullptr, 0, $method(static_cast<void(CertificateMessage$T12CertificateMessage::*)($HandshakeContext*,$X509CertificateArray*)>(&CertificateMessage$T12CertificateMessage::init$)), "javax.net.ssl.SSLException"},
-	{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)V", nullptr, 0, $method(static_cast<void(CertificateMessage$T12CertificateMessage::*)($HandshakeContext*,$ByteBuffer*)>(&CertificateMessage$T12CertificateMessage::init$)), "java.io.IOException"},
-	{"handshakeType", "()Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC},
-	{"messageLength", "()I", nullptr, $PUBLIC},
-	{"send", "(Lsun/security/ssl/HandshakeOutStream;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/security/ssl/HandshakeContext;[Ljava/security/cert/X509Certificate;)V", nullptr, 0, $method(CertificateMessage$T12CertificateMessage, init$, void, $HandshakeContext*, $X509CertificateArray*), "javax.net.ssl.SSLException"},
+	{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)V", nullptr, 0, $method(CertificateMessage$T12CertificateMessage, init$, void, $HandshakeContext*, $ByteBuffer*), "java.io.IOException"},
+	{"handshakeType", "()Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC, $virtualMethod(CertificateMessage$T12CertificateMessage, handshakeType, $SSLHandshake*)},
+	{"messageLength", "()I", nullptr, $PUBLIC, $virtualMethod(CertificateMessage$T12CertificateMessage, messageLength, int32_t)},
+	{"send", "(Lsun/security/ssl/HandshakeOutStream;)V", nullptr, $PUBLIC, $virtualMethod(CertificateMessage$T12CertificateMessage, send, void, $HandshakeOutStream*), "java.io.IOException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CertificateMessage$T12CertificateMessage, toString, $String*)},
 	{}
 };
 

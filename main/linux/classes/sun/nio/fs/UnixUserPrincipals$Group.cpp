@@ -22,7 +22,7 @@ $MethodInfo _UnixUserPrincipals$Group_MethodInfo_[] = {
 	{"*getName", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{"*hashCode", "()I", nullptr, $PUBLIC},
 	{"*implies", "(Ljavax/security/auth/Subject;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"<init>", "(ILjava/lang/String;)V", nullptr, 0, $method(static_cast<void(UnixUserPrincipals$Group::*)(int32_t,$String*)>(&UnixUserPrincipals$Group::init$))},
+	{"<init>", "(ILjava/lang/String;)V", nullptr, 0, $method(UnixUserPrincipals$Group, init$, void, int32_t, $String*)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

@@ -8,10 +8,10 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 
 $MethodInfo _Formatted_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Formatted::*)()>(&Formatted::init$))},
-	{"check", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $STATIC, $method(static_cast<void(*)($String*,$String*,$String*)>(&Formatted::check))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Formatted::main))},
-	{"test1", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&Formatted::test1))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Formatted, init$, void)},
+	{"check", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(Formatted, check, void, $String*, $String*, $String*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Formatted, main, void, $StringArray*)},
+	{"test1", "()V", nullptr, $STATIC, $staticMethod(Formatted, test1, void)},
 	{}
 };
 

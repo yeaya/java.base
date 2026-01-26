@@ -17,8 +17,8 @@ namespace sun {
 			namespace provider {
 
 $MethodInfo _AuxLocaleProviderAdapter$NullProvider_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(AuxLocaleProviderAdapter$NullProvider::*)()>(&AuxLocaleProviderAdapter$NullProvider::init$))},
-	{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(AuxLocaleProviderAdapter$NullProvider, init$, void)},
+	{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(AuxLocaleProviderAdapter$NullProvider, getAvailableLocales, $LocaleArray*)},
 	{}
 };
 

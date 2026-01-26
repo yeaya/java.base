@@ -94,13 +94,13 @@ $FieldInfo _RSAServerKeyExchange$RSAServerKeyExchangeMessage_FieldInfo_[] = {
 };
 
 $MethodInfo _RSAServerKeyExchange$RSAServerKeyExchangeMessage_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/ssl/HandshakeContext;Lsun/security/ssl/X509Authentication$X509Possession;Lsun/security/ssl/RSAKeyExchange$EphemeralRSAPossession;)V", nullptr, $PRIVATE, $method(static_cast<void(RSAServerKeyExchange$RSAServerKeyExchangeMessage::*)($HandshakeContext*,$X509Authentication$X509Possession*,$RSAKeyExchange$EphemeralRSAPossession*)>(&RSAServerKeyExchange$RSAServerKeyExchangeMessage::init$)), "java.io.IOException"},
-	{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)V", nullptr, 0, $method(static_cast<void(RSAServerKeyExchange$RSAServerKeyExchangeMessage::*)($HandshakeContext*,$ByteBuffer*)>(&RSAServerKeyExchange$RSAServerKeyExchangeMessage::init$)), "java.io.IOException"},
-	{"handshakeType", "()Lsun/security/ssl/SSLHandshake;", nullptr, 0},
-	{"messageLength", "()I", nullptr, 0},
-	{"send", "(Lsun/security/ssl/HandshakeOutStream;)V", nullptr, 0, nullptr, "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"updateSignature", "(Ljava/security/Signature;[B[B)V", nullptr, $PRIVATE, $method(static_cast<void(RSAServerKeyExchange$RSAServerKeyExchangeMessage::*)($Signature*,$bytes*,$bytes*)>(&RSAServerKeyExchange$RSAServerKeyExchangeMessage::updateSignature)), "java.security.SignatureException"},
+	{"<init>", "(Lsun/security/ssl/HandshakeContext;Lsun/security/ssl/X509Authentication$X509Possession;Lsun/security/ssl/RSAKeyExchange$EphemeralRSAPossession;)V", nullptr, $PRIVATE, $method(RSAServerKeyExchange$RSAServerKeyExchangeMessage, init$, void, $HandshakeContext*, $X509Authentication$X509Possession*, $RSAKeyExchange$EphemeralRSAPossession*), "java.io.IOException"},
+	{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)V", nullptr, 0, $method(RSAServerKeyExchange$RSAServerKeyExchangeMessage, init$, void, $HandshakeContext*, $ByteBuffer*), "java.io.IOException"},
+	{"handshakeType", "()Lsun/security/ssl/SSLHandshake;", nullptr, 0, $virtualMethod(RSAServerKeyExchange$RSAServerKeyExchangeMessage, handshakeType, $SSLHandshake*)},
+	{"messageLength", "()I", nullptr, 0, $virtualMethod(RSAServerKeyExchange$RSAServerKeyExchangeMessage, messageLength, int32_t)},
+	{"send", "(Lsun/security/ssl/HandshakeOutStream;)V", nullptr, 0, $virtualMethod(RSAServerKeyExchange$RSAServerKeyExchangeMessage, send, void, $HandshakeOutStream*), "java.io.IOException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RSAServerKeyExchange$RSAServerKeyExchangeMessage, toString, $String*)},
+	{"updateSignature", "(Ljava/security/Signature;[B[B)V", nullptr, $PRIVATE, $method(RSAServerKeyExchange$RSAServerKeyExchangeMessage, updateSignature, void, $Signature*, $bytes*, $bytes*), "java.security.SignatureException"},
 	{}
 };
 

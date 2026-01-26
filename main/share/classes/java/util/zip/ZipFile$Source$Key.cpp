@@ -31,9 +31,9 @@ $FieldInfo _ZipFile$Source$Key_FieldInfo_[] = {
 };
 
 $MethodInfo _ZipFile$Source$Key_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/File;Ljava/nio/file/attribute/BasicFileAttributes;Ljava/util/zip/ZipCoder;)V", nullptr, $PUBLIC, $method(static_cast<void(ZipFile$Source$Key::*)($File*,$BasicFileAttributes*,$ZipCoder*)>(&ZipFile$Source$Key::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/io/File;Ljava/nio/file/attribute/BasicFileAttributes;Ljava/util/zip/ZipCoder;)V", nullptr, $PUBLIC, $method(ZipFile$Source$Key, init$, void, $File*, $BasicFileAttributes*, $ZipCoder*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ZipFile$Source$Key, equals, bool, Object$*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ZipFile$Source$Key, hashCode, int32_t)},
 	{}
 };
 

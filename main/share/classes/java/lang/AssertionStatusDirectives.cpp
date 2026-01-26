@@ -19,7 +19,7 @@ $FieldInfo _AssertionStatusDirectives_FieldInfo_[] = {
 };
 
 $MethodInfo _AssertionStatusDirectives_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(AssertionStatusDirectives::*)()>(&AssertionStatusDirectives::init$))},
+	{"<init>", "()V", nullptr, 0, $method(AssertionStatusDirectives, init$, void)},
 	{}
 };
 

@@ -34,12 +34,12 @@ $FieldInfo _CLDRBaseLocaleDataMetaInfo_FieldInfo_[] = {
 };
 
 $MethodInfo _CLDRBaseLocaleDataMetaInfo_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CLDRBaseLocaleDataMetaInfo::*)()>(&CLDRBaseLocaleDataMetaInfo::init$))},
-	{"availableLanguageTags", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getLanguageAliasMap", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PUBLIC},
-	{"getType", "()Lsun/util/locale/provider/LocaleProviderAdapter$Type;", nullptr, $PUBLIC},
-	{"parentLocales", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/util/Locale;[Ljava/lang/String;>;", $PUBLIC},
-	{"tzCanonicalIDs", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CLDRBaseLocaleDataMetaInfo, init$, void)},
+	{"availableLanguageTags", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CLDRBaseLocaleDataMetaInfo, availableLanguageTags, $String*, $String*)},
+	{"getLanguageAliasMap", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PUBLIC, $virtualMethod(CLDRBaseLocaleDataMetaInfo, getLanguageAliasMap, $Map*)},
+	{"getType", "()Lsun/util/locale/provider/LocaleProviderAdapter$Type;", nullptr, $PUBLIC, $virtualMethod(CLDRBaseLocaleDataMetaInfo, getType, $LocaleProviderAdapter$Type*)},
+	{"parentLocales", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/util/Locale;[Ljava/lang/String;>;", $PUBLIC, $virtualMethod(CLDRBaseLocaleDataMetaInfo, parentLocales, $Map*)},
+	{"tzCanonicalIDs", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PUBLIC, $virtualMethod(CLDRBaseLocaleDataMetaInfo, tzCanonicalIDs, $Map*)},
 	{}
 };
 

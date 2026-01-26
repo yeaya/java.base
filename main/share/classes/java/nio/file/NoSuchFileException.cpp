@@ -18,8 +18,8 @@ $FieldInfo _NoSuchFileException_FieldInfo_[] = {
 };
 
 $MethodInfo _NoSuchFileException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(NoSuchFileException::*)($String*)>(&NoSuchFileException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(NoSuchFileException::*)($String*,$String*,$String*)>(&NoSuchFileException::init$))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NoSuchFileException, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NoSuchFileException, init$, void, $String*, $String*, $String*)},
 	{}
 };
 

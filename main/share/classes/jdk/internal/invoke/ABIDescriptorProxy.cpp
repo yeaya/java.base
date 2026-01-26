@@ -10,7 +10,7 @@ namespace jdk {
 		namespace invoke {
 
 $MethodInfo _ABIDescriptorProxy_MethodInfo_[] = {
-	{"shadowSpaceBytes", "()I", nullptr, $PUBLIC | $ABSTRACT},
+	{"shadowSpaceBytes", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ABIDescriptorProxy, shadowSpaceBytes, int32_t)},
 	{}
 };
 

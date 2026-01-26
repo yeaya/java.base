@@ -128,8 +128,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo LocaleResources$$Lambda$lambda$getZoneStrings$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(LocaleResources$$Lambda$lambda$getZoneStrings$0::*)()>(&LocaleResources$$Lambda$lambda$getZoneStrings$0::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(LocaleResources$$Lambda$lambda$getZoneStrings$0, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(LocaleResources$$Lambda$lambda$getZoneStrings$0, test, bool, Object$*)},
 	{}
 };
 $ClassInfo LocaleResources$$Lambda$lambda$getZoneStrings$0::classInfo$ = {
@@ -174,8 +174,8 @@ $FieldInfo LocaleResources$$Lambda$lambda$getZoneStrings$1$1::fieldInfos[4] = {
 	{}
 };
 $MethodInfo LocaleResources$$Lambda$lambda$getZoneStrings$1$1::methodInfos[3] = {
-	{"<init>", "(Ljava/util/Set;Lsun/util/resources/TimeZoneNamesBundle;Ljava/util/Set;)V", nullptr, $PUBLIC, $method(static_cast<void(LocaleResources$$Lambda$lambda$getZoneStrings$1$1::*)($Set*,$TimeZoneNamesBundle*,$Set*)>(&LocaleResources$$Lambda$lambda$getZoneStrings$1$1::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/Set;Lsun/util/resources/TimeZoneNamesBundle;Ljava/util/Set;)V", nullptr, $PUBLIC, $method(LocaleResources$$Lambda$lambda$getZoneStrings$1$1, init$, void, $Set*, $TimeZoneNamesBundle*, $Set*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(LocaleResources$$Lambda$lambda$getZoneStrings$1$1, accept, void, Object$*)},
 	{}
 };
 $ClassInfo LocaleResources$$Lambda$lambda$getZoneStrings$1$1::classInfo$ = {
@@ -219,32 +219,32 @@ $FieldInfo _LocaleResources_FieldInfo_[] = {
 };
 
 $MethodInfo _LocaleResources_MethodInfo_[] = {
-	{"<init>", "(Lsun/util/locale/provider/ResourceBundleBasedAdapter;Ljava/util/Locale;)V", nullptr, 0, $method(static_cast<void(LocaleResources::*)($ResourceBundleBasedAdapter*,$Locale*)>(&LocaleResources::init$))},
-	{"getBreakIteratorInfo", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, 0},
-	{"getBreakIteratorResources", "(Ljava/lang/String;)[B", nullptr, 0},
-	{"getCNPatterns", "(Ljava/text/NumberFormat$Style;)[Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getCalendarData", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getCalendarNames", "(Ljava/lang/String;)[Ljava/lang/String;", nullptr, 0},
-	{"getCollationData", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getCurrencyName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getDateTimePattern", "(IILjava/util/Calendar;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getDateTimePattern", "(Ljava/lang/String;IILjava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(LocaleResources::*)($String*,int32_t,int32_t,$String*)>(&LocaleResources::getDateTimePattern))},
-	{"getDateTimePattern", "(Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(LocaleResources::*)($String*,$String*,int32_t,$String*)>(&LocaleResources::getDateTimePattern))},
-	{"getDecimalFormatSymbolsData", "()[Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"getJavaTimeDateTimePattern", "(IILjava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getJavaTimeFormatData", "()Ljava/util/ResourceBundle;", nullptr, $PUBLIC},
-	{"getJavaTimeNames", "(Ljava/lang/String;)[Ljava/lang/String;", nullptr, 0},
-	{"getLocaleName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getNumberPatterns", "()[Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getNumberStrings", "(Ljava/util/ResourceBundle;Ljava/lang/String;)[Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$StringArray*(LocaleResources::*)($ResourceBundle*,$String*)>(&LocaleResources::getNumberStrings))},
-	{"getRules", "()[Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getTimeZoneNames", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"getZoneIDs", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", 0},
-	{"getZoneStrings", "()[[Ljava/lang/String;", nullptr, 0},
-	{"lambda$getZoneStrings$0", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($String*)>(&LocaleResources::lambda$getZoneStrings$0))},
-	{"lambda$getZoneStrings$1", "(Ljava/util/Set;Lsun/util/resources/TimeZoneNamesBundle;Ljava/util/Set;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($Set*,$TimeZoneNamesBundle*,$Set*,$String*)>(&LocaleResources::lambda$getZoneStrings$1))},
-	{"removeEmptyReferences", "()V", nullptr, $PRIVATE, $method(static_cast<void(LocaleResources::*)()>(&LocaleResources::removeEmptyReferences))},
-	{"trace", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<void(*)($String*,$ObjectArray*)>(&LocaleResources::trace))},
+	{"<init>", "(Lsun/util/locale/provider/ResourceBundleBasedAdapter;Ljava/util/Locale;)V", nullptr, 0, $method(LocaleResources, init$, void, $ResourceBundleBasedAdapter*, $Locale*)},
+	{"getBreakIteratorInfo", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, 0, $virtualMethod(LocaleResources, getBreakIteratorInfo, $Object*, $String*)},
+	{"getBreakIteratorResources", "(Ljava/lang/String;)[B", nullptr, 0, $virtualMethod(LocaleResources, getBreakIteratorResources, $bytes*, $String*)},
+	{"getCNPatterns", "(Ljava/text/NumberFormat$Style;)[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LocaleResources, getCNPatterns, $StringArray*, $NumberFormat$Style*)},
+	{"getCalendarData", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LocaleResources, getCalendarData, $String*, $String*)},
+	{"getCalendarNames", "(Ljava/lang/String;)[Ljava/lang/String;", nullptr, 0, $virtualMethod(LocaleResources, getCalendarNames, $StringArray*, $String*)},
+	{"getCollationData", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LocaleResources, getCollationData, $String*)},
+	{"getCurrencyName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LocaleResources, getCurrencyName, $String*, $String*)},
+	{"getDateTimePattern", "(IILjava/util/Calendar;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LocaleResources, getDateTimePattern, $String*, int32_t, int32_t, $Calendar*)},
+	{"getDateTimePattern", "(Ljava/lang/String;IILjava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(LocaleResources, getDateTimePattern, $String*, $String*, int32_t, int32_t, $String*)},
+	{"getDateTimePattern", "(Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(LocaleResources, getDateTimePattern, $String*, $String*, $String*, int32_t, $String*)},
+	{"getDecimalFormatSymbolsData", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LocaleResources, getDecimalFormatSymbolsData, $ObjectArray*)},
+	{"getJavaTimeDateTimePattern", "(IILjava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LocaleResources, getJavaTimeDateTimePattern, $String*, int32_t, int32_t, $String*)},
+	{"getJavaTimeFormatData", "()Ljava/util/ResourceBundle;", nullptr, $PUBLIC, $virtualMethod(LocaleResources, getJavaTimeFormatData, $ResourceBundle*)},
+	{"getJavaTimeNames", "(Ljava/lang/String;)[Ljava/lang/String;", nullptr, 0, $virtualMethod(LocaleResources, getJavaTimeNames, $StringArray*, $String*)},
+	{"getLocaleName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LocaleResources, getLocaleName, $String*, $String*)},
+	{"getNumberPatterns", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LocaleResources, getNumberPatterns, $StringArray*)},
+	{"getNumberStrings", "(Ljava/util/ResourceBundle;Ljava/lang/String;)[Ljava/lang/String;", nullptr, $PRIVATE, $method(LocaleResources, getNumberStrings, $StringArray*, $ResourceBundle*, $String*)},
+	{"getRules", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LocaleResources, getRules, $StringArray*)},
+	{"getTimeZoneNames", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LocaleResources, getTimeZoneNames, $Object*, $String*)},
+	{"getZoneIDs", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", 0, $virtualMethod(LocaleResources, getZoneIDs, $Set*)},
+	{"getZoneStrings", "()[[Ljava/lang/String;", nullptr, 0, $virtualMethod(LocaleResources, getZoneStrings, $StringArray2*)},
+	{"lambda$getZoneStrings$0", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LocaleResources, lambda$getZoneStrings$0, bool, $String*)},
+	{"lambda$getZoneStrings$1", "(Ljava/util/Set;Lsun/util/resources/TimeZoneNamesBundle;Ljava/util/Set;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LocaleResources, lambda$getZoneStrings$1, void, $Set*, $TimeZoneNamesBundle*, $Set*, $String*)},
+	{"removeEmptyReferences", "()V", nullptr, $PRIVATE, $method(LocaleResources, removeEmptyReferences, void)},
+	{"trace", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(LocaleResources, trace, void, $String*, $ObjectArray*)},
 	{}
 };
 

@@ -37,10 +37,10 @@ $FieldInfo _OCSPResponse$ResponseStatus_FieldInfo_[] = {
 };
 
 $MethodInfo _OCSPResponse$ResponseStatus_MethodInfo_[] = {
-	{"$values", "()[Lsun/security/provider/certpath/OCSPResponse$ResponseStatus;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$OCSPResponse$ResponseStatusArray*(*)()>(&OCSPResponse$ResponseStatus::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(OCSPResponse$ResponseStatus::*)($String*,int32_t)>(&OCSPResponse$ResponseStatus::init$))},
-	{"valueOf", "(Ljava/lang/String;)Lsun/security/provider/certpath/OCSPResponse$ResponseStatus;", nullptr, $PUBLIC | $STATIC, $method(static_cast<OCSPResponse$ResponseStatus*(*)($String*)>(&OCSPResponse$ResponseStatus::valueOf))},
-	{"values", "()[Lsun/security/provider/certpath/OCSPResponse$ResponseStatus;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$OCSPResponse$ResponseStatusArray*(*)()>(&OCSPResponse$ResponseStatus::values))},
+	{"$values", "()[Lsun/security/provider/certpath/OCSPResponse$ResponseStatus;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(OCSPResponse$ResponseStatus, $values, $OCSPResponse$ResponseStatusArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(OCSPResponse$ResponseStatus, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Lsun/security/provider/certpath/OCSPResponse$ResponseStatus;", nullptr, $PUBLIC | $STATIC, $staticMethod(OCSPResponse$ResponseStatus, valueOf, OCSPResponse$ResponseStatus*, $String*)},
+	{"values", "()[Lsun/security/provider/certpath/OCSPResponse$ResponseStatus;", nullptr, $PUBLIC | $STATIC, $staticMethod(OCSPResponse$ResponseStatus, values, $OCSPResponse$ResponseStatusArray*)},
 	{}
 };
 

@@ -30,9 +30,9 @@ $FieldInfo _ConcurrentHashMap$SearchValuesTask_FieldInfo_[] = {
 };
 
 $MethodInfo _ConcurrentHashMap$SearchValuesTask_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/ConcurrentHashMap$BulkTask;III[Ljava/util/concurrent/ConcurrentHashMap$Node;Ljava/util/function/Function;Ljava/util/concurrent/atomic/AtomicReference;)V", "(Ljava/util/concurrent/ConcurrentHashMap$BulkTask<TK;TV;*>;III[Ljava/util/concurrent/ConcurrentHashMap$Node<TK;TV;>;Ljava/util/function/Function<-TV;+TU;>;Ljava/util/concurrent/atomic/AtomicReference<TU;>;)V", 0, $method(static_cast<void(ConcurrentHashMap$SearchValuesTask::*)($ConcurrentHashMap$BulkTask*,int32_t,int32_t,int32_t,$ConcurrentHashMap$NodeArray*,$Function*,$AtomicReference*)>(&ConcurrentHashMap$SearchValuesTask::init$))},
-	{"compute", "()V", nullptr, $PUBLIC | $FINAL},
-	{"getRawResult", "()Ljava/lang/Object;", "()TU;", $PUBLIC | $FINAL},
+	{"<init>", "(Ljava/util/concurrent/ConcurrentHashMap$BulkTask;III[Ljava/util/concurrent/ConcurrentHashMap$Node;Ljava/util/function/Function;Ljava/util/concurrent/atomic/AtomicReference;)V", "(Ljava/util/concurrent/ConcurrentHashMap$BulkTask<TK;TV;*>;III[Ljava/util/concurrent/ConcurrentHashMap$Node<TK;TV;>;Ljava/util/function/Function<-TV;+TU;>;Ljava/util/concurrent/atomic/AtomicReference<TU;>;)V", 0, $method(ConcurrentHashMap$SearchValuesTask, init$, void, $ConcurrentHashMap$BulkTask*, int32_t, int32_t, int32_t, $ConcurrentHashMap$NodeArray*, $Function*, $AtomicReference*)},
+	{"compute", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(ConcurrentHashMap$SearchValuesTask, compute, void)},
+	{"getRawResult", "()Ljava/lang/Object;", "()TU;", $PUBLIC | $FINAL, $virtualMethod(ConcurrentHashMap$SearchValuesTask, getRawResult, $Object*)},
 	{}
 };
 

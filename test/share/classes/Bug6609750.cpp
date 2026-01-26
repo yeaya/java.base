@@ -21,8 +21,8 @@ using $Date = ::java::util::Date;
 using $Locale = ::java::util::Locale;
 
 $MethodInfo _Bug6609750_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Bug6609750::*)()>(&Bug6609750::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Bug6609750::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Bug6609750, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Bug6609750, main, void, $StringArray*)},
 	{}
 };
 

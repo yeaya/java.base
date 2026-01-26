@@ -22,9 +22,9 @@ $FieldInfo _MethodHandle$1_FieldInfo_[] = {
 };
 
 $MethodInfo _MethodHandle$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/invoke/MethodHandle;)V", nullptr, 0, $method(static_cast<void(MethodHandle$1::*)($MethodHandle*)>(&MethodHandle$1::init$))},
-	{"apply", "(Ljava/lang/invoke/LambdaForm;)Ljava/lang/invoke/LambdaForm;", nullptr, $PUBLIC},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "(Ljava/lang/invoke/MethodHandle;)V", nullptr, 0, $method(MethodHandle$1, init$, void, $MethodHandle*)},
+	{"apply", "(Ljava/lang/invoke/LambdaForm;)Ljava/lang/invoke/LambdaForm;", nullptr, $PUBLIC, $virtualMethod(MethodHandle$1, apply, $LambdaForm*, $LambdaForm*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(MethodHandle$1, apply, $Object*, Object$*)},
 	{}
 };
 

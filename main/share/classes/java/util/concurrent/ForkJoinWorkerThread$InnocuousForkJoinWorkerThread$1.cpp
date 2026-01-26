@@ -14,8 +14,8 @@ namespace java {
 		namespace concurrent {
 
 $MethodInfo _ForkJoinWorkerThread$InnocuousForkJoinWorkerThread$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ForkJoinWorkerThread$InnocuousForkJoinWorkerThread$1::*)()>(&ForkJoinWorkerThread$InnocuousForkJoinWorkerThread$1::init$))},
-	{"run", "()Ljava/lang/ThreadGroup;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(ForkJoinWorkerThread$InnocuousForkJoinWorkerThread$1, init$, void)},
+	{"run", "()Ljava/lang/ThreadGroup;", nullptr, $PUBLIC, $virtualMethod(ForkJoinWorkerThread$InnocuousForkJoinWorkerThread$1, run, $Object*)},
 	{}
 };
 

@@ -28,14 +28,14 @@ $FieldInfo _Hashtable$EntrySet_FieldInfo_[] = {
 };
 
 $MethodInfo _Hashtable$EntrySet_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Hashtable;)V", nullptr, $PRIVATE, $method(static_cast<void(Hashtable$EntrySet::*)($Hashtable*)>(&Hashtable$EntrySet::init$))},
-	{"add", "(Ljava/util/Map$Entry;)Z", "(Ljava/util/Map$Entry<TK;TV;>;)Z", $PUBLIC},
-	{"add", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"clear", "()V", nullptr, $PUBLIC},
-	{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/util/Map$Entry<TK;TV;>;>;", $PUBLIC},
-	{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"size", "()I", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/Hashtable;)V", nullptr, $PRIVATE, $method(Hashtable$EntrySet, init$, void, $Hashtable*)},
+	{"add", "(Ljava/util/Map$Entry;)Z", "(Ljava/util/Map$Entry<TK;TV;>;)Z", $PUBLIC, $virtualMethod(Hashtable$EntrySet, add, bool, $Map$Entry*)},
+	{"add", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Hashtable$EntrySet, add, bool, Object$*)},
+	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(Hashtable$EntrySet, clear, void)},
+	{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Hashtable$EntrySet, contains, bool, Object$*)},
+	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/util/Map$Entry<TK;TV;>;>;", $PUBLIC, $virtualMethod(Hashtable$EntrySet, iterator, $Iterator*)},
+	{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Hashtable$EntrySet, remove, bool, Object$*)},
+	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(Hashtable$EntrySet, size, int32_t)},
 	{}
 };
 

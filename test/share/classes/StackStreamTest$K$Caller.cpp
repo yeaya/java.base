@@ -24,8 +24,8 @@ $FieldInfo _StackStreamTest$K$Caller_FieldInfo_[] = {
 };
 
 $MethodInfo _StackStreamTest$K$Caller_MethodInfo_[] = {
-	{"<init>", "(LStackStreamTest$K;)V", nullptr, 0, $method(static_cast<void(StackStreamTest$K$Caller::*)($StackStreamTest$K*)>(&StackStreamTest$K$Caller::init$))},
-	{"test", "()V", nullptr, 0},
+	{"<init>", "(LStackStreamTest$K;)V", nullptr, 0, $method(StackStreamTest$K$Caller, init$, void, $StackStreamTest$K*)},
+	{"test", "()V", nullptr, 0, $virtualMethod(StackStreamTest$K$Caller, test, void)},
 	{}
 };
 

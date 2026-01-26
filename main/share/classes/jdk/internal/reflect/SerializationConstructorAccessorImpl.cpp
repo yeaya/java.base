@@ -12,7 +12,7 @@ namespace jdk {
 		namespace reflect {
 
 $MethodInfo _SerializationConstructorAccessorImpl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(SerializationConstructorAccessorImpl::*)()>(&SerializationConstructorAccessorImpl::init$))},
+	{"<init>", "()V", nullptr, 0, $method(SerializationConstructorAccessorImpl, init$, void)},
 	{}
 };
 

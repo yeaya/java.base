@@ -28,10 +28,10 @@ $FieldInfo _DelayQueue$Itr_FieldInfo_[] = {
 };
 
 $MethodInfo _DelayQueue$Itr_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/DelayQueue;[Ljava/lang/Object;)V", nullptr, 0, $method(static_cast<void(DelayQueue$Itr::*)($DelayQueue*,$ObjectArray*)>(&DelayQueue$Itr::init$))},
-	{"hasNext", "()Z", nullptr, $PUBLIC},
-	{"next", "()Ljava/util/concurrent/Delayed;", "()TE;", $PUBLIC},
-	{"remove", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/concurrent/DelayQueue;[Ljava/lang/Object;)V", nullptr, 0, $method(DelayQueue$Itr, init$, void, $DelayQueue*, $ObjectArray*)},
+	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(DelayQueue$Itr, hasNext, bool)},
+	{"next", "()Ljava/util/concurrent/Delayed;", "()TE;", $PUBLIC, $virtualMethod(DelayQueue$Itr, next, $Object*)},
+	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(DelayQueue$Itr, remove, void)},
 	{}
 };
 

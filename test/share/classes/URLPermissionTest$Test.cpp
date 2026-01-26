@@ -14,8 +14,8 @@ $FieldInfo _URLPermissionTest$Test_FieldInfo_[] = {
 };
 
 $MethodInfo _URLPermissionTest$Test_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(URLPermissionTest$Test::*)()>(&URLPermissionTest$Test::init$))},
-	{"execute", "()Z", nullptr, $ABSTRACT},
+	{"<init>", "()V", nullptr, 0, $method(URLPermissionTest$Test, init$, void)},
+	{"execute", "()Z", nullptr, $ABSTRACT, $virtualMethod(URLPermissionTest$Test, execute, bool)},
 	{}
 };
 

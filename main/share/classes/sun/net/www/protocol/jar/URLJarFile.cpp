@@ -76,19 +76,19 @@ $FieldInfo _URLJarFile_FieldInfo_[] = {
 };
 
 $MethodInfo _URLJarFile_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/File;)V", nullptr, $PUBLIC, $method(static_cast<void(URLJarFile::*)($File*)>(&URLJarFile::init$)), "java.io.IOException"},
-	{"<init>", "(Ljava/io/File;Lsun/net/www/protocol/jar/URLJarFile$URLJarFileCloseController;)V", nullptr, $PUBLIC, $method(static_cast<void(URLJarFile::*)($File*,$URLJarFile$URLJarFileCloseController*)>(&URLJarFile::init$)), "java.io.IOException"},
-	{"<init>", "(Ljava/io/File;Lsun/net/www/protocol/jar/URLJarFile$URLJarFileCloseController;Ljava/lang/Runtime$Version;)V", nullptr, $PRIVATE, $method(static_cast<void(URLJarFile::*)($File*,$URLJarFile$URLJarFileCloseController*,$Runtime$Version*)>(&URLJarFile::init$)), "java.io.IOException"},
-	{"<init>", "(Ljava/net/URL;Lsun/net/www/protocol/jar/URLJarFile$URLJarFileCloseController;Ljava/lang/Runtime$Version;)V", nullptr, $PRIVATE, $method(static_cast<void(URLJarFile::*)($URL*,$URLJarFile$URLJarFileCloseController*,$Runtime$Version*)>(&URLJarFile::init$)), "java.io.IOException"},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"getEntry", "(Ljava/lang/String;)Ljava/util/zip/ZipEntry;", nullptr, $PUBLIC},
-	{"getJarFile", "(Ljava/net/URL;)Ljava/util/jar/JarFile;", nullptr, $STATIC, $method(static_cast<$JarFile*(*)($URL*)>(&URLJarFile::getJarFile)), "java.io.IOException"},
-	{"getJarFile", "(Ljava/net/URL;Lsun/net/www/protocol/jar/URLJarFile$URLJarFileCloseController;)Ljava/util/jar/JarFile;", nullptr, $STATIC, $method(static_cast<$JarFile*(*)($URL*,$URLJarFile$URLJarFileCloseController*)>(&URLJarFile::getJarFile)), "java.io.IOException"},
-	{"getManifest", "()Ljava/util/jar/Manifest;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"isFileURL", "(Ljava/net/URL;)Z", nullptr, $STATIC, $method(static_cast<bool(*)($URL*)>(&URLJarFile::isFileURL))},
-	{"isSuperMan", "()Z", nullptr, $PRIVATE | $SYNCHRONIZED, $method(static_cast<bool(URLJarFile::*)()>(&URLJarFile::isSuperMan)), "java.io.IOException"},
-	{"retrieve", "(Ljava/net/URL;Lsun/net/www/protocol/jar/URLJarFile$URLJarFileCloseController;)Ljava/util/jar/JarFile;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$JarFile*(*)($URL*,$URLJarFile$URLJarFileCloseController*)>(&URLJarFile::retrieve)), "java.io.IOException"},
-	{"setCallBack", "(Lsun/net/www/protocol/jar/URLJarFileCallBack;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($URLJarFileCallBack*)>(&URLJarFile::setCallBack))},
+	{"<init>", "(Ljava/io/File;)V", nullptr, $PUBLIC, $method(URLJarFile, init$, void, $File*), "java.io.IOException"},
+	{"<init>", "(Ljava/io/File;Lsun/net/www/protocol/jar/URLJarFile$URLJarFileCloseController;)V", nullptr, $PUBLIC, $method(URLJarFile, init$, void, $File*, $URLJarFile$URLJarFileCloseController*), "java.io.IOException"},
+	{"<init>", "(Ljava/io/File;Lsun/net/www/protocol/jar/URLJarFile$URLJarFileCloseController;Ljava/lang/Runtime$Version;)V", nullptr, $PRIVATE, $method(URLJarFile, init$, void, $File*, $URLJarFile$URLJarFileCloseController*, $Runtime$Version*), "java.io.IOException"},
+	{"<init>", "(Ljava/net/URL;Lsun/net/www/protocol/jar/URLJarFile$URLJarFileCloseController;Ljava/lang/Runtime$Version;)V", nullptr, $PRIVATE, $method(URLJarFile, init$, void, $URL*, $URLJarFile$URLJarFileCloseController*, $Runtime$Version*), "java.io.IOException"},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(URLJarFile, close, void), "java.io.IOException"},
+	{"getEntry", "(Ljava/lang/String;)Ljava/util/zip/ZipEntry;", nullptr, $PUBLIC, $virtualMethod(URLJarFile, getEntry, $ZipEntry*, $String*)},
+	{"getJarFile", "(Ljava/net/URL;)Ljava/util/jar/JarFile;", nullptr, $STATIC, $staticMethod(URLJarFile, getJarFile, $JarFile*, $URL*), "java.io.IOException"},
+	{"getJarFile", "(Ljava/net/URL;Lsun/net/www/protocol/jar/URLJarFile$URLJarFileCloseController;)Ljava/util/jar/JarFile;", nullptr, $STATIC, $staticMethod(URLJarFile, getJarFile, $JarFile*, $URL*, $URLJarFile$URLJarFileCloseController*), "java.io.IOException"},
+	{"getManifest", "()Ljava/util/jar/Manifest;", nullptr, $PUBLIC, $virtualMethod(URLJarFile, getManifest, $Manifest*), "java.io.IOException"},
+	{"isFileURL", "(Ljava/net/URL;)Z", nullptr, $STATIC, $staticMethod(URLJarFile, isFileURL, bool, $URL*)},
+	{"isSuperMan", "()Z", nullptr, $PRIVATE | $SYNCHRONIZED, $method(URLJarFile, isSuperMan, bool), "java.io.IOException"},
+	{"retrieve", "(Ljava/net/URL;Lsun/net/www/protocol/jar/URLJarFile$URLJarFileCloseController;)Ljava/util/jar/JarFile;", nullptr, $PRIVATE | $STATIC, $staticMethod(URLJarFile, retrieve, $JarFile*, $URL*, $URLJarFile$URLJarFileCloseController*), "java.io.IOException"},
+	{"setCallBack", "(Lsun/net/www/protocol/jar/URLJarFileCallBack;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(URLJarFile, setCallBack, void, $URLJarFileCallBack*)},
 	{}
 };
 

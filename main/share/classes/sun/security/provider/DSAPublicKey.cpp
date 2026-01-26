@@ -53,13 +53,13 @@ $MethodInfo _DSAPublicKey_MethodInfo_[] = {
 	{"*getEncoded", "()[B", nullptr, $PUBLIC},
 	{"*getFormat", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DSAPublicKey::*)()>(&DSAPublicKey::init$))},
-	{"<init>", "(Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;)V", nullptr, $PUBLIC, $method(static_cast<void(DSAPublicKey::*)($BigInteger*,$BigInteger*,$BigInteger*,$BigInteger*)>(&DSAPublicKey::init$)), "java.security.InvalidKeyException"},
-	{"<init>", "([B)V", nullptr, $PUBLIC, $method(static_cast<void(DSAPublicKey::*)($bytes*)>(&DSAPublicKey::init$)), "java.security.InvalidKeyException"},
-	{"getParams", "()Ljava/security/interfaces/DSAParams;", nullptr, $PUBLIC},
-	{"getY", "()Ljava/math/BigInteger;", nullptr, $PUBLIC},
-	{"parseKeyBits", "()V", nullptr, $PROTECTED, nullptr, "java.security.InvalidKeyException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DSAPublicKey, init$, void)},
+	{"<init>", "(Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;)V", nullptr, $PUBLIC, $method(DSAPublicKey, init$, void, $BigInteger*, $BigInteger*, $BigInteger*, $BigInteger*), "java.security.InvalidKeyException"},
+	{"<init>", "([B)V", nullptr, $PUBLIC, $method(DSAPublicKey, init$, void, $bytes*), "java.security.InvalidKeyException"},
+	{"getParams", "()Ljava/security/interfaces/DSAParams;", nullptr, $PUBLIC, $virtualMethod(DSAPublicKey, getParams, $DSAParams*)},
+	{"getY", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(DSAPublicKey, getY, $BigInteger*)},
+	{"parseKeyBits", "()V", nullptr, $PROTECTED, $virtualMethod(DSAPublicKey, parseKeyBits, void), "java.security.InvalidKeyException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DSAPublicKey, toString, $String*)},
 	{}
 };
 

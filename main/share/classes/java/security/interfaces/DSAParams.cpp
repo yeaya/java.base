@@ -5,15 +5,16 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $BigInteger = ::java::math::BigInteger;
 
 namespace java {
 	namespace security {
 		namespace interfaces {
 
 $MethodInfo _DSAParams_MethodInfo_[] = {
-	{"getG", "()Ljava/math/BigInteger;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getP", "()Ljava/math/BigInteger;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getQ", "()Ljava/math/BigInteger;", nullptr, $PUBLIC | $ABSTRACT},
+	{"getG", "()Ljava/math/BigInteger;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DSAParams, getG, $BigInteger*)},
+	{"getP", "()Ljava/math/BigInteger;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DSAParams, getP, $BigInteger*)},
+	{"getQ", "()Ljava/math/BigInteger;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DSAParams, getQ, $BigInteger*)},
 	{}
 };
 

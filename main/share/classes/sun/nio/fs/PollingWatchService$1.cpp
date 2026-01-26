@@ -24,8 +24,8 @@ $FieldInfo _PollingWatchService$1_FieldInfo_[] = {
 };
 
 $MethodInfo _PollingWatchService$1_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/fs/PollingWatchService;)V", nullptr, 0, $method(static_cast<void(PollingWatchService$1::*)($PollingWatchService*)>(&PollingWatchService$1::init$))},
-	{"newThread", "(Ljava/lang/Runnable;)Ljava/lang/Thread;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/nio/fs/PollingWatchService;)V", nullptr, 0, $method(PollingWatchService$1, init$, void, $PollingWatchService*)},
+	{"newThread", "(Ljava/lang/Runnable;)Ljava/lang/Thread;", nullptr, $PUBLIC, $virtualMethod(PollingWatchService$1, newThread, $Thread*, $Runnable*)},
 	{}
 };
 

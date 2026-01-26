@@ -11,17 +11,17 @@ namespace java {
 	namespace io {
 
 $MethodInfo _ObjectInput_MethodInfo_[] = {
-	{"available", "()I", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
+	{"available", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ObjectInput, available, int32_t), "java.io.IOException"},
 	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
 	{"close", "()V", nullptr, $PUBLIC | $ABSTRACT},
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"read", "()I", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"read", "([B)I", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"read", "([BII)I", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"readObject", "()Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.lang.ClassNotFoundException,java.io.IOException"},
-	{"skip", "(J)J", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
+	{"read", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ObjectInput, read, int32_t), "java.io.IOException"},
+	{"read", "([B)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ObjectInput, read, int32_t, $bytes*), "java.io.IOException"},
+	{"read", "([BII)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ObjectInput, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
+	{"readObject", "()Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ObjectInput, readObject, $Object*), "java.lang.ClassNotFoundException,java.io.IOException"},
+	{"skip", "(J)J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ObjectInput, skip, int64_t, int64_t), "java.io.IOException"},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

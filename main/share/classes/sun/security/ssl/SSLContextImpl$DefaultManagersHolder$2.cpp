@@ -21,8 +21,8 @@ $FieldInfo _SSLContextImpl$DefaultManagersHolder$2_FieldInfo_[] = {
 };
 
 $MethodInfo _SSLContextImpl$DefaultManagersHolder$2_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", "()V", 0, $method(static_cast<void(SSLContextImpl$DefaultManagersHolder$2::*)($String*)>(&SSLContextImpl$DefaultManagersHolder$2::init$))},
-	{"run", "()Ljava/io/FileInputStream;", nullptr, $PUBLIC, nullptr, "java.lang.Exception"},
+	{"<init>", "(Ljava/lang/String;)V", "()V", 0, $method(SSLContextImpl$DefaultManagersHolder$2, init$, void, $String*)},
+	{"run", "()Ljava/io/FileInputStream;", nullptr, $PUBLIC, $virtualMethod(SSLContextImpl$DefaultManagersHolder$2, run, $Object*), "java.lang.Exception"},
 	{}
 };
 

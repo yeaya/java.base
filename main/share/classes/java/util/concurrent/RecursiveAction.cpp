@@ -19,12 +19,12 @@ $FieldInfo _RecursiveAction_FieldInfo_[] = {
 };
 
 $MethodInfo _RecursiveAction_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(RecursiveAction::*)()>(&RecursiveAction::init$))},
-	{"compute", "()V", nullptr, $PROTECTED | $ABSTRACT},
-	{"exec", "()Z", nullptr, $PROTECTED | $FINAL},
-	{"getRawResult", "()Ljava/lang/Void;", nullptr, $PUBLIC | $FINAL},
-	{"setRawResult", "(Ljava/lang/Void;)V", nullptr, $PROTECTED | $FINAL, $method(static_cast<void(RecursiveAction::*)($Void*)>(&RecursiveAction::setRawResult))},
-	{"setRawResult", "(Ljava/lang/Object;)V", nullptr, $PROTECTED | $VOLATILE | $SYNTHETIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(RecursiveAction, init$, void)},
+	{"compute", "()V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(RecursiveAction, compute, void)},
+	{"exec", "()Z", nullptr, $PROTECTED | $FINAL, $virtualMethod(RecursiveAction, exec, bool)},
+	{"getRawResult", "()Ljava/lang/Void;", nullptr, $PUBLIC | $FINAL, $virtualMethod(RecursiveAction, getRawResult, $Object*)},
+	{"setRawResult", "(Ljava/lang/Void;)V", nullptr, $PROTECTED | $FINAL, $method(RecursiveAction, setRawResult, void, $Void*)},
+	{"setRawResult", "(Ljava/lang/Object;)V", nullptr, $PROTECTED | $VOLATILE | $SYNTHETIC, $virtualMethod(RecursiveAction, setRawResult, void, Object$*)},
 	{}
 };
 

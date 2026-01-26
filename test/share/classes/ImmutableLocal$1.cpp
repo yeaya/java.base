@@ -11,8 +11,8 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _ImmutableLocal$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ImmutableLocal$1::*)()>(&ImmutableLocal$1::init$))},
-	{"initialValue", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(ImmutableLocal$1, init$, void)},
+	{"initialValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ImmutableLocal$1, initialValue, $Object*)},
 	{}
 };
 

@@ -33,8 +33,8 @@ $Attribute _WithoutParameters$ParameterizedInfo_DefaultValue_value1 = {
 };
 
 $MethodInfo _WithoutParameters$ParameterizedInfo_MethodInfo_[] = {
-	{"string", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, nullptr, nullptr, &_WithoutParameters$ParameterizedInfo_DefaultValue_string0},
-	{"value", "()Ljava/lang/Class;", "()Ljava/lang/Class<+Ljava/lang/reflect/Type;>;", $PUBLIC | $ABSTRACT, nullptr, nullptr, &_WithoutParameters$ParameterizedInfo_DefaultValue_value1},
+	{"string", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(WithoutParameters$ParameterizedInfo, string, $String*), nullptr, &_WithoutParameters$ParameterizedInfo_DefaultValue_string0},
+	{"value", "()Ljava/lang/Class;", "()Ljava/lang/Class<+Ljava/lang/reflect/Type;>;", $PUBLIC | $ABSTRACT, $virtualMethod(WithoutParameters$ParameterizedInfo, value, $Class*), nullptr, &_WithoutParameters$ParameterizedInfo_DefaultValue_value1},
 	{}
 };
 

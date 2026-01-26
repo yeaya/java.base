@@ -10,7 +10,7 @@ using $MethodInfo = ::java::lang::MethodInfo;
 $MethodInfo _A1B_MethodInfo_[] = {
 	{"baz", "()V", nullptr, $PUBLIC | $ABSTRACT},
 	{"foo", "()V", nullptr, $PUBLIC | $ABSTRACT},
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(A1B::*)()>(&A1B::init$))},
+	{"<init>", "()V", nullptr, 0, $method(A1B, init$, void)},
 	{}
 };
 

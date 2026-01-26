@@ -22,8 +22,8 @@ $FieldInfo _PSource$PSpecified_FieldInfo_[] = {
 };
 
 $MethodInfo _PSource$PSpecified_MethodInfo_[] = {
-	{"<init>", "([B)V", nullptr, $PUBLIC, $method(static_cast<void(PSource$PSpecified::*)($bytes*)>(&PSource$PSpecified::init$))},
-	{"getValue", "()[B", nullptr, $PUBLIC, $method(static_cast<$bytes*(PSource$PSpecified::*)()>(&PSource$PSpecified::getValue))},
+	{"<init>", "([B)V", nullptr, $PUBLIC, $method(PSource$PSpecified, init$, void, $bytes*)},
+	{"getValue", "()[B", nullptr, $PUBLIC, $method(PSource$PSpecified, getValue, $bytes*)},
 	{}
 };
 

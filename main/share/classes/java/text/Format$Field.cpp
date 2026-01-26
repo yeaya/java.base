@@ -19,7 +19,7 @@ $FieldInfo _Format$Field_FieldInfo_[] = {
 };
 
 $MethodInfo _Format$Field_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $method(static_cast<void(Format$Field::*)($String*)>(&Format$Field::init$))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $method(Format$Field, init$, void, $String*)},
 	{}
 };
 

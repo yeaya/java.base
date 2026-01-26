@@ -28,8 +28,8 @@ $FieldInfo _PollingWatchService$2_FieldInfo_[] = {
 };
 
 $MethodInfo _PollingWatchService$2_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/fs/PollingWatchService;Ljava/nio/file/Path;Ljava/util/Set;I)V", "()V", 0, $method(static_cast<void(PollingWatchService$2::*)($PollingWatchService*,$Path*,$Set*,int32_t)>(&PollingWatchService$2::init$))},
-	{"run", "()Lsun/nio/fs/PollingWatchService$PollingWatchKey;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Lsun/nio/fs/PollingWatchService;Ljava/nio/file/Path;Ljava/util/Set;I)V", "()V", 0, $method(PollingWatchService$2, init$, void, $PollingWatchService*, $Path*, $Set*, int32_t)},
+	{"run", "()Lsun/nio/fs/PollingWatchService$PollingWatchKey;", nullptr, $PUBLIC, $virtualMethod(PollingWatchService$2, run, $Object*), "java.io.IOException"},
 	{}
 };
 

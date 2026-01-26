@@ -15,8 +15,8 @@ namespace java {
 	namespace io {
 
 $MethodInfo _RandomAccessFile$2_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(RandomAccessFile$2::*)()>(&RandomAccessFile$2::init$))},
-	{"openAndDelete", "(Ljava/io/File;Ljava/lang/String;)Ljava/io/RandomAccessFile;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, 0, $method(RandomAccessFile$2, init$, void)},
+	{"openAndDelete", "(Ljava/io/File;Ljava/lang/String;)Ljava/io/RandomAccessFile;", nullptr, $PUBLIC, $virtualMethod(RandomAccessFile$2, openAndDelete, $RandomAccessFile*, $File*, $String*), "java.io.IOException"},
 	{}
 };
 

@@ -31,16 +31,16 @@ $FieldInfo _InsnList$InsnListIterator_FieldInfo_[] = {
 };
 
 $MethodInfo _InsnList$InsnListIterator_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/org/objectweb/asm/tree/InsnList;I)V", nullptr, 0, $method(static_cast<void(InsnList$InsnListIterator::*)($InsnList*,int32_t)>(&InsnList$InsnListIterator::init$))},
-	{"add", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
-	{"hasNext", "()Z", nullptr, $PUBLIC},
-	{"hasPrevious", "()Z", nullptr, $PUBLIC},
-	{"next", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"nextIndex", "()I", nullptr, $PUBLIC},
-	{"previous", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"previousIndex", "()I", nullptr, $PUBLIC},
-	{"remove", "()V", nullptr, $PUBLIC},
-	{"set", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/org/objectweb/asm/tree/InsnList;I)V", nullptr, 0, $method(InsnList$InsnListIterator, init$, void, $InsnList*, int32_t)},
+	{"add", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(InsnList$InsnListIterator, add, void, Object$*)},
+	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(InsnList$InsnListIterator, hasNext, bool)},
+	{"hasPrevious", "()Z", nullptr, $PUBLIC, $virtualMethod(InsnList$InsnListIterator, hasPrevious, bool)},
+	{"next", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(InsnList$InsnListIterator, next, $Object*)},
+	{"nextIndex", "()I", nullptr, $PUBLIC, $virtualMethod(InsnList$InsnListIterator, nextIndex, int32_t)},
+	{"previous", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(InsnList$InsnListIterator, previous, $Object*)},
+	{"previousIndex", "()I", nullptr, $PUBLIC, $virtualMethod(InsnList$InsnListIterator, previousIndex, int32_t)},
+	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(InsnList$InsnListIterator, remove, void)},
+	{"set", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(InsnList$InsnListIterator, set, void, Object$*)},
 	{}
 };
 

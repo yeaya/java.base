@@ -27,20 +27,20 @@ $FieldInfo _LinuxDosFileAttributeView$1_FieldInfo_[] = {
 };
 
 $MethodInfo _LinuxDosFileAttributeView$1_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/fs/LinuxDosFileAttributeView;Lsun/nio/fs/UnixFileAttributes;I)V", "()V", 0, $method(static_cast<void(LinuxDosFileAttributeView$1::*)($LinuxDosFileAttributeView*,$UnixFileAttributes*,int32_t)>(&LinuxDosFileAttributeView$1::init$))},
-	{"creationTime", "()Ljava/nio/file/attribute/FileTime;", nullptr, $PUBLIC},
-	{"fileKey", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"isArchive", "()Z", nullptr, $PUBLIC},
-	{"isDirectory", "()Z", nullptr, $PUBLIC},
-	{"isHidden", "()Z", nullptr, $PUBLIC},
-	{"isOther", "()Z", nullptr, $PUBLIC},
-	{"isReadOnly", "()Z", nullptr, $PUBLIC},
-	{"isRegularFile", "()Z", nullptr, $PUBLIC},
-	{"isSymbolicLink", "()Z", nullptr, $PUBLIC},
-	{"isSystem", "()Z", nullptr, $PUBLIC},
-	{"lastAccessTime", "()Ljava/nio/file/attribute/FileTime;", nullptr, $PUBLIC},
-	{"lastModifiedTime", "()Ljava/nio/file/attribute/FileTime;", nullptr, $PUBLIC},
-	{"size", "()J", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/nio/fs/LinuxDosFileAttributeView;Lsun/nio/fs/UnixFileAttributes;I)V", "()V", 0, $method(LinuxDosFileAttributeView$1, init$, void, $LinuxDosFileAttributeView*, $UnixFileAttributes*, int32_t)},
+	{"creationTime", "()Ljava/nio/file/attribute/FileTime;", nullptr, $PUBLIC, $virtualMethod(LinuxDosFileAttributeView$1, creationTime, $FileTime*)},
+	{"fileKey", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LinuxDosFileAttributeView$1, fileKey, $Object*)},
+	{"isArchive", "()Z", nullptr, $PUBLIC, $virtualMethod(LinuxDosFileAttributeView$1, isArchive, bool)},
+	{"isDirectory", "()Z", nullptr, $PUBLIC, $virtualMethod(LinuxDosFileAttributeView$1, isDirectory, bool)},
+	{"isHidden", "()Z", nullptr, $PUBLIC, $virtualMethod(LinuxDosFileAttributeView$1, isHidden, bool)},
+	{"isOther", "()Z", nullptr, $PUBLIC, $virtualMethod(LinuxDosFileAttributeView$1, isOther, bool)},
+	{"isReadOnly", "()Z", nullptr, $PUBLIC, $virtualMethod(LinuxDosFileAttributeView$1, isReadOnly, bool)},
+	{"isRegularFile", "()Z", nullptr, $PUBLIC, $virtualMethod(LinuxDosFileAttributeView$1, isRegularFile, bool)},
+	{"isSymbolicLink", "()Z", nullptr, $PUBLIC, $virtualMethod(LinuxDosFileAttributeView$1, isSymbolicLink, bool)},
+	{"isSystem", "()Z", nullptr, $PUBLIC, $virtualMethod(LinuxDosFileAttributeView$1, isSystem, bool)},
+	{"lastAccessTime", "()Ljava/nio/file/attribute/FileTime;", nullptr, $PUBLIC, $virtualMethod(LinuxDosFileAttributeView$1, lastAccessTime, $FileTime*)},
+	{"lastModifiedTime", "()Ljava/nio/file/attribute/FileTime;", nullptr, $PUBLIC, $virtualMethod(LinuxDosFileAttributeView$1, lastModifiedTime, $FileTime*)},
+	{"size", "()J", nullptr, $PUBLIC, $virtualMethod(LinuxDosFileAttributeView$1, size, int64_t)},
 	{}
 };
 

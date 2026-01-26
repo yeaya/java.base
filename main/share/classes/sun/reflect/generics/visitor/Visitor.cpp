@@ -6,6 +6,8 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $ClassSignature = ::sun::reflect::generics::tree::ClassSignature;
+using $MethodTypeSignature = ::sun::reflect::generics::tree::MethodTypeSignature;
 
 namespace sun {
 	namespace reflect {
@@ -13,8 +15,8 @@ namespace sun {
 			namespace visitor {
 
 $MethodInfo _Visitor_MethodInfo_[] = {
-	{"visitClassSignature", "(Lsun/reflect/generics/tree/ClassSignature;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"visitMethodTypeSignature", "(Lsun/reflect/generics/tree/MethodTypeSignature;)V", nullptr, $PUBLIC | $ABSTRACT},
+	{"visitClassSignature", "(Lsun/reflect/generics/tree/ClassSignature;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Visitor, visitClassSignature, void, $ClassSignature*)},
+	{"visitMethodTypeSignature", "(Lsun/reflect/generics/tree/MethodTypeSignature;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Visitor, visitMethodTypeSignature, void, $MethodTypeSignature*)},
 	{}
 };
 

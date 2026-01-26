@@ -20,8 +20,8 @@ $FieldInfo _DynamicConstantDescTest$Task_FieldInfo_[] = {
 };
 
 $MethodInfo _DynamicConstantDescTest$Task_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/util/concurrent/CountDownLatch;)V", nullptr, $PRIVATE, $method(static_cast<void(DynamicConstantDescTest$Task::*)($String*,$CountDownLatch*)>(&DynamicConstantDescTest$Task::init$))},
-	{"call", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Ljava/util/concurrent/CountDownLatch;)V", nullptr, $PRIVATE, $method(DynamicConstantDescTest$Task, init$, void, $String*, $CountDownLatch*)},
+	{"call", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(DynamicConstantDescTest$Task, call, $Object*)},
 	{}
 };
 

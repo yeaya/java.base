@@ -36,13 +36,13 @@ $FieldInfo _NativeBuffers_FieldInfo_[] = {
 };
 
 $MethodInfo _NativeBuffers_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(NativeBuffers::*)()>(&NativeBuffers::init$))},
-	{"allocNativeBuffer", "(I)Lsun/nio/fs/NativeBuffer;", nullptr, $STATIC, $method(static_cast<$NativeBuffer*(*)(int32_t)>(&NativeBuffers::allocNativeBuffer))},
-	{"asNativeBuffer", "([B)Lsun/nio/fs/NativeBuffer;", nullptr, $STATIC, $method(static_cast<$NativeBuffer*(*)($bytes*)>(&NativeBuffers::asNativeBuffer))},
-	{"copyCStringToNativeBuffer", "([BLsun/nio/fs/NativeBuffer;)V", nullptr, $STATIC, $method(static_cast<void(*)($bytes*,$NativeBuffer*)>(&NativeBuffers::copyCStringToNativeBuffer))},
-	{"getNativeBuffer", "(I)Lsun/nio/fs/NativeBuffer;", nullptr, $STATIC, $method(static_cast<$NativeBuffer*(*)(int32_t)>(&NativeBuffers::getNativeBuffer))},
-	{"getNativeBufferFromCache", "(I)Lsun/nio/fs/NativeBuffer;", nullptr, $STATIC, $method(static_cast<$NativeBuffer*(*)(int32_t)>(&NativeBuffers::getNativeBufferFromCache))},
-	{"releaseNativeBuffer", "(Lsun/nio/fs/NativeBuffer;)V", nullptr, $STATIC, $method(static_cast<void(*)($NativeBuffer*)>(&NativeBuffers::releaseNativeBuffer))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(NativeBuffers, init$, void)},
+	{"allocNativeBuffer", "(I)Lsun/nio/fs/NativeBuffer;", nullptr, $STATIC, $staticMethod(NativeBuffers, allocNativeBuffer, $NativeBuffer*, int32_t)},
+	{"asNativeBuffer", "([B)Lsun/nio/fs/NativeBuffer;", nullptr, $STATIC, $staticMethod(NativeBuffers, asNativeBuffer, $NativeBuffer*, $bytes*)},
+	{"copyCStringToNativeBuffer", "([BLsun/nio/fs/NativeBuffer;)V", nullptr, $STATIC, $staticMethod(NativeBuffers, copyCStringToNativeBuffer, void, $bytes*, $NativeBuffer*)},
+	{"getNativeBuffer", "(I)Lsun/nio/fs/NativeBuffer;", nullptr, $STATIC, $staticMethod(NativeBuffers, getNativeBuffer, $NativeBuffer*, int32_t)},
+	{"getNativeBufferFromCache", "(I)Lsun/nio/fs/NativeBuffer;", nullptr, $STATIC, $staticMethod(NativeBuffers, getNativeBufferFromCache, $NativeBuffer*, int32_t)},
+	{"releaseNativeBuffer", "(Lsun/nio/fs/NativeBuffer;)V", nullptr, $STATIC, $staticMethod(NativeBuffers, releaseNativeBuffer, void, $NativeBuffer*)},
 	{}
 };
 

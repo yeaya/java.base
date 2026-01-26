@@ -21,9 +21,9 @@ $FieldInfo _Lock$IOHandler_FieldInfo_[] = {
 };
 
 $MethodInfo _Lock$IOHandler_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/InputStream;)V", nullptr, 0, $method(static_cast<void(Lock$IOHandler::*)($InputStream*)>(&Lock$IOHandler::init$))},
-	{"handle", "(Ljava/io/InputStream;)V", nullptr, $STATIC, $method(static_cast<void(*)($InputStream*)>(&Lock$IOHandler::handle))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/io/InputStream;)V", nullptr, 0, $method(Lock$IOHandler, init$, void, $InputStream*)},
+	{"handle", "(Ljava/io/InputStream;)V", nullptr, $STATIC, $staticMethod(Lock$IOHandler, handle, void, $InputStream*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Lock$IOHandler, run, void)},
 	{}
 };
 

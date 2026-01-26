@@ -19,11 +19,11 @@ namespace java {
 	namespace net {
 
 $MethodInfo _InetAddress$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(InetAddress$1::*)()>(&InetAddress$1::init$))},
-	{"addressBytes", "(Ljava/net/Inet6Address;)[B", nullptr, $PUBLIC},
-	{"addressValue", "(Ljava/net/Inet4Address;)I", nullptr, $PUBLIC},
-	{"getByName", "(Ljava/lang/String;Ljava/net/InetAddress;)Ljava/net/InetAddress;", nullptr, $PUBLIC, nullptr, "java.net.UnknownHostException"},
-	{"getOriginalHostName", "(Ljava/net/InetAddress;)Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(InetAddress$1, init$, void)},
+	{"addressBytes", "(Ljava/net/Inet6Address;)[B", nullptr, $PUBLIC, $virtualMethod(InetAddress$1, addressBytes, $bytes*, $Inet6Address*)},
+	{"addressValue", "(Ljava/net/Inet4Address;)I", nullptr, $PUBLIC, $virtualMethod(InetAddress$1, addressValue, int32_t, $Inet4Address*)},
+	{"getByName", "(Ljava/lang/String;Ljava/net/InetAddress;)Ljava/net/InetAddress;", nullptr, $PUBLIC, $virtualMethod(InetAddress$1, getByName, $InetAddress*, $String*, $InetAddress*), "java.net.UnknownHostException"},
+	{"getOriginalHostName", "(Ljava/net/InetAddress;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(InetAddress$1, getOriginalHostName, $String*, $InetAddress*)},
 	{}
 };
 

@@ -23,8 +23,8 @@ $FieldInfo _Race$1_FieldInfo_[] = {
 };
 
 $MethodInfo _Race$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/Phaser;Ljava/io/InputStream;)V", nullptr, 0, $method(static_cast<void(Race$1::*)($Phaser*,$InputStream*)>(&Race$1::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/concurrent/Phaser;Ljava/io/InputStream;)V", nullptr, 0, $method(Race$1, init$, void, $Phaser*, $InputStream*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Race$1, run, void)},
 	{}
 };
 

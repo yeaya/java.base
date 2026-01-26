@@ -17,8 +17,8 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $Path = ::java::nio::file::Path;
 
 $MethodInfo _NameTooLong_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(NameTooLong::*)()>(&NameTooLong::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&NameTooLong::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(NameTooLong, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(NameTooLong, main, void, $StringArray*)},
 	{}
 };
 

@@ -61,17 +61,17 @@ $FieldInfo _Poly1305_FieldInfo_[] = {
 };
 
 $MethodInfo _Poly1305_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Poly1305::*)()>(&Poly1305::init$))},
-	{"engineDoFinal", "()[B", nullptr, 0, $method(static_cast<$bytes*(Poly1305::*)()>(&Poly1305::engineDoFinal))},
-	{"engineGetMacLength", "()I", nullptr, 0, $method(static_cast<int32_t(Poly1305::*)()>(&Poly1305::engineGetMacLength))},
-	{"engineInit", "(Ljava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, 0, $method(static_cast<void(Poly1305::*)($Key*,$AlgorithmParameterSpec*)>(&Poly1305::engineInit)), "java.security.InvalidKeyException"},
-	{"engineReset", "()V", nullptr, 0, $method(static_cast<void(Poly1305::*)()>(&Poly1305::engineReset))},
-	{"engineUpdate", "(Ljava/nio/ByteBuffer;)V", nullptr, 0, $method(static_cast<void(Poly1305::*)($ByteBuffer*)>(&Poly1305::engineUpdate))},
-	{"engineUpdate", "([BII)V", nullptr, 0, $method(static_cast<void(Poly1305::*)($bytes*,int32_t,int32_t)>(&Poly1305::engineUpdate))},
-	{"engineUpdate", "(B)V", nullptr, 0, $method(static_cast<void(Poly1305::*)(int8_t)>(&Poly1305::engineUpdate))},
-	{"processBlock", "(Ljava/nio/ByteBuffer;I)V", nullptr, $PRIVATE, $method(static_cast<void(Poly1305::*)($ByteBuffer*,int32_t)>(&Poly1305::processBlock))},
-	{"processBlock", "([BII)V", nullptr, $PRIVATE, $method(static_cast<void(Poly1305::*)($bytes*,int32_t,int32_t)>(&Poly1305::processBlock))},
-	{"setRSVals", "()V", nullptr, $PRIVATE, $method(static_cast<void(Poly1305::*)()>(&Poly1305::setRSVals))},
+	{"<init>", "()V", nullptr, 0, $method(Poly1305, init$, void)},
+	{"engineDoFinal", "()[B", nullptr, 0, $method(Poly1305, engineDoFinal, $bytes*)},
+	{"engineGetMacLength", "()I", nullptr, 0, $method(Poly1305, engineGetMacLength, int32_t)},
+	{"engineInit", "(Ljava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, 0, $method(Poly1305, engineInit, void, $Key*, $AlgorithmParameterSpec*), "java.security.InvalidKeyException"},
+	{"engineReset", "()V", nullptr, 0, $method(Poly1305, engineReset, void)},
+	{"engineUpdate", "(Ljava/nio/ByteBuffer;)V", nullptr, 0, $method(Poly1305, engineUpdate, void, $ByteBuffer*)},
+	{"engineUpdate", "([BII)V", nullptr, 0, $method(Poly1305, engineUpdate, void, $bytes*, int32_t, int32_t)},
+	{"engineUpdate", "(B)V", nullptr, 0, $method(Poly1305, engineUpdate, void, int8_t)},
+	{"processBlock", "(Ljava/nio/ByteBuffer;I)V", nullptr, $PRIVATE, $method(Poly1305, processBlock, void, $ByteBuffer*, int32_t)},
+	{"processBlock", "([BII)V", nullptr, $PRIVATE, $method(Poly1305, processBlock, void, $bytes*, int32_t, int32_t)},
+	{"setRSVals", "()V", nullptr, $PRIVATE, $method(Poly1305, setRSVals, void)},
 	{}
 };
 

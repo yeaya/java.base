@@ -43,8 +43,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo DefaultSelectorProvider$$Lambda$EPollSelectorProvider::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DefaultSelectorProvider$$Lambda$EPollSelectorProvider::*)()>(&DefaultSelectorProvider$$Lambda$EPollSelectorProvider::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DefaultSelectorProvider$$Lambda$EPollSelectorProvider, init$, void)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DefaultSelectorProvider$$Lambda$EPollSelectorProvider, run, $Object*)},
 	{}
 };
 $ClassInfo DefaultSelectorProvider$$Lambda$EPollSelectorProvider::classInfo$ = {
@@ -67,8 +67,8 @@ $FieldInfo _DefaultSelectorProvider_FieldInfo_[] = {
 };
 
 $MethodInfo _DefaultSelectorProvider_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(DefaultSelectorProvider::*)()>(&DefaultSelectorProvider::init$))},
-	{"get", "()Lsun/nio/ch/SelectorProviderImpl;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$SelectorProviderImpl*(*)()>(&DefaultSelectorProvider::get))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(DefaultSelectorProvider, init$, void)},
+	{"get", "()Lsun/nio/ch/SelectorProviderImpl;", nullptr, $PUBLIC | $STATIC, $staticMethod(DefaultSelectorProvider, get, $SelectorProviderImpl*)},
 	{}
 };
 

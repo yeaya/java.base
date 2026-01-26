@@ -25,9 +25,9 @@ $FieldInfo _TreeMap$TreeMapSpliterator_FieldInfo_[] = {
 };
 
 $MethodInfo _TreeMap$TreeMapSpliterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/TreeMap;Ljava/util/TreeMap$Entry;Ljava/util/TreeMap$Entry;III)V", "(Ljava/util/TreeMap<TK;TV;>;Ljava/util/TreeMap$Entry<TK;TV;>;Ljava/util/TreeMap$Entry<TK;TV;>;III)V", 0, $method(static_cast<void(TreeMap$TreeMapSpliterator::*)($TreeMap*,$TreeMap$Entry*,$TreeMap$Entry*,int32_t,int32_t,int32_t)>(&TreeMap$TreeMapSpliterator::init$))},
-	{"estimateSize", "()J", nullptr, $PUBLIC | $FINAL, $method(static_cast<int64_t(TreeMap$TreeMapSpliterator::*)()>(&TreeMap$TreeMapSpliterator::estimateSize))},
-	{"getEstimate", "()I", nullptr, $FINAL, $method(static_cast<int32_t(TreeMap$TreeMapSpliterator::*)()>(&TreeMap$TreeMapSpliterator::getEstimate))},
+	{"<init>", "(Ljava/util/TreeMap;Ljava/util/TreeMap$Entry;Ljava/util/TreeMap$Entry;III)V", "(Ljava/util/TreeMap<TK;TV;>;Ljava/util/TreeMap$Entry<TK;TV;>;Ljava/util/TreeMap$Entry<TK;TV;>;III)V", 0, $method(TreeMap$TreeMapSpliterator, init$, void, $TreeMap*, $TreeMap$Entry*, $TreeMap$Entry*, int32_t, int32_t, int32_t)},
+	{"estimateSize", "()J", nullptr, $PUBLIC | $FINAL, $method(TreeMap$TreeMapSpliterator, estimateSize, int64_t)},
+	{"getEstimate", "()I", nullptr, $FINAL, $method(TreeMap$TreeMapSpliterator, getEstimate, int32_t)},
 	{}
 };
 

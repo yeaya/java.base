@@ -35,14 +35,14 @@ using $ConcurrentModificationException = ::java::util::ConcurrentModificationExc
 using $Objects = ::java::util::Objects;
 
 $MethodInfo _Exceptions_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Exceptions::*)()>(&Exceptions::init$))},
-	{"deserialize", "([B)Ljava/lang/Object;", nullptr, $STATIC, $method(static_cast<$Object*(*)($bytes*)>(&Exceptions::deserialize)), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"hackCause", "(Ljava/lang/Throwable;Ljava/lang/Throwable;)V", nullptr, $STATIC, $method(static_cast<void(*)($Throwable*,$Throwable*)>(&Exceptions::hackCause)), "java.lang.NoSuchFieldException,java.lang.IllegalAccessException"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Exceptions::main)), "java.lang.Exception"},
-	{"serialize", "(Ljava/lang/Object;)[B", nullptr, $STATIC, $method(static_cast<$bytes*(*)(Object$*)>(&Exceptions::serialize)), "java.io.IOException"},
-	{"testDirectoryIteratorException", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&Exceptions::testDirectoryIteratorException)), "java.lang.Exception"},
-	{"testFileSystemException", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&Exceptions::testFileSystemException)), "java.lang.Exception"},
-	{"testFileSystemException", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $STATIC, $method(static_cast<void(*)($String*,$String*,$String*)>(&Exceptions::testFileSystemException))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Exceptions, init$, void)},
+	{"deserialize", "([B)Ljava/lang/Object;", nullptr, $STATIC, $staticMethod(Exceptions, deserialize, $Object*, $bytes*), "java.io.IOException,java.lang.ClassNotFoundException"},
+	{"hackCause", "(Ljava/lang/Throwable;Ljava/lang/Throwable;)V", nullptr, $STATIC, $staticMethod(Exceptions, hackCause, void, $Throwable*, $Throwable*), "java.lang.NoSuchFieldException,java.lang.IllegalAccessException"},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Exceptions, main, void, $StringArray*), "java.lang.Exception"},
+	{"serialize", "(Ljava/lang/Object;)[B", nullptr, $STATIC, $staticMethod(Exceptions, serialize, $bytes*, Object$*), "java.io.IOException"},
+	{"testDirectoryIteratorException", "()V", nullptr, $STATIC, $staticMethod(Exceptions, testDirectoryIteratorException, void), "java.lang.Exception"},
+	{"testFileSystemException", "()V", nullptr, $STATIC, $staticMethod(Exceptions, testFileSystemException, void), "java.lang.Exception"},
+	{"testFileSystemException", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(Exceptions, testFileSystemException, void, $String*, $String*, $String*)},
 	{}
 };
 

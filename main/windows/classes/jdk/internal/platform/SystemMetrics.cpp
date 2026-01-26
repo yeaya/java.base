@@ -12,8 +12,8 @@ namespace jdk {
 		namespace platform {
 
 $MethodInfo _SystemMetrics_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SystemMetrics::*)()>(&SystemMetrics::init$))},
-	{"instance", "()Ljdk/internal/platform/Metrics;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Metrics*(*)()>(&SystemMetrics::instance))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SystemMetrics, init$, void)},
+	{"instance", "()Ljdk/internal/platform/Metrics;", nullptr, $PUBLIC | $STATIC, $staticMethod(SystemMetrics, instance, $Metrics*)},
 	{}
 };
 

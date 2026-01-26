@@ -46,15 +46,15 @@ $FieldInfo _CertPathValidator_FieldInfo_[] = {
 };
 
 $MethodInfo _CertPathValidator_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/cert/CertPathValidatorSpi;Ljava/security/Provider;Ljava/lang/String;)V", nullptr, $PROTECTED, $method(static_cast<void(CertPathValidator::*)($CertPathValidatorSpi*,$Provider*,$String*)>(&CertPathValidator::init$))},
-	{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$String*(CertPathValidator::*)()>(&CertPathValidator::getAlgorithm))},
-	{"getDefaultType", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $method(static_cast<$String*(*)()>(&CertPathValidator::getDefaultType))},
-	{"getInstance", "(Ljava/lang/String;)Ljava/security/cert/CertPathValidator;", nullptr, $PUBLIC | $STATIC, $method(static_cast<CertPathValidator*(*)($String*)>(&CertPathValidator::getInstance)), "java.security.NoSuchAlgorithmException"},
-	{"getInstance", "(Ljava/lang/String;Ljava/lang/String;)Ljava/security/cert/CertPathValidator;", nullptr, $PUBLIC | $STATIC, $method(static_cast<CertPathValidator*(*)($String*,$String*)>(&CertPathValidator::getInstance)), "java.security.NoSuchAlgorithmException,java.security.NoSuchProviderException"},
-	{"getInstance", "(Ljava/lang/String;Ljava/security/Provider;)Ljava/security/cert/CertPathValidator;", nullptr, $PUBLIC | $STATIC, $method(static_cast<CertPathValidator*(*)($String*,$Provider*)>(&CertPathValidator::getInstance)), "java.security.NoSuchAlgorithmException"},
-	{"getProvider", "()Ljava/security/Provider;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$Provider*(CertPathValidator::*)()>(&CertPathValidator::getProvider))},
-	{"getRevocationChecker", "()Ljava/security/cert/CertPathChecker;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$CertPathChecker*(CertPathValidator::*)()>(&CertPathValidator::getRevocationChecker))},
-	{"validate", "(Ljava/security/cert/CertPath;Ljava/security/cert/CertPathParameters;)Ljava/security/cert/CertPathValidatorResult;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$CertPathValidatorResult*(CertPathValidator::*)($CertPath*,$CertPathParameters*)>(&CertPathValidator::validate)), "java.security.cert.CertPathValidatorException,java.security.InvalidAlgorithmParameterException"},
+	{"<init>", "(Ljava/security/cert/CertPathValidatorSpi;Ljava/security/Provider;Ljava/lang/String;)V", nullptr, $PROTECTED, $method(CertPathValidator, init$, void, $CertPathValidatorSpi*, $Provider*, $String*)},
+	{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(CertPathValidator, getAlgorithm, $String*)},
+	{"getDefaultType", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(CertPathValidator, getDefaultType, $String*)},
+	{"getInstance", "(Ljava/lang/String;)Ljava/security/cert/CertPathValidator;", nullptr, $PUBLIC | $STATIC, $staticMethod(CertPathValidator, getInstance, CertPathValidator*, $String*), "java.security.NoSuchAlgorithmException"},
+	{"getInstance", "(Ljava/lang/String;Ljava/lang/String;)Ljava/security/cert/CertPathValidator;", nullptr, $PUBLIC | $STATIC, $staticMethod(CertPathValidator, getInstance, CertPathValidator*, $String*, $String*), "java.security.NoSuchAlgorithmException,java.security.NoSuchProviderException"},
+	{"getInstance", "(Ljava/lang/String;Ljava/security/Provider;)Ljava/security/cert/CertPathValidator;", nullptr, $PUBLIC | $STATIC, $staticMethod(CertPathValidator, getInstance, CertPathValidator*, $String*, $Provider*), "java.security.NoSuchAlgorithmException"},
+	{"getProvider", "()Ljava/security/Provider;", nullptr, $PUBLIC | $FINAL, $method(CertPathValidator, getProvider, $Provider*)},
+	{"getRevocationChecker", "()Ljava/security/cert/CertPathChecker;", nullptr, $PUBLIC | $FINAL, $method(CertPathValidator, getRevocationChecker, $CertPathChecker*)},
+	{"validate", "(Ljava/security/cert/CertPath;Ljava/security/cert/CertPathParameters;)Ljava/security/cert/CertPathValidatorResult;", nullptr, $PUBLIC | $FINAL, $method(CertPathValidator, validate, $CertPathValidatorResult*, $CertPath*, $CertPathParameters*), "java.security.cert.CertPathValidatorException,java.security.InvalidAlgorithmParameterException"},
 	{}
 };
 

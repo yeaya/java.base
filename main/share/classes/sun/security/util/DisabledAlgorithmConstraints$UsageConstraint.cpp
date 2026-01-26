@@ -43,8 +43,8 @@ $FieldInfo _DisabledAlgorithmConstraints$UsageConstraint_FieldInfo_[] = {
 };
 
 $MethodInfo _DisabledAlgorithmConstraints$UsageConstraint_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;[Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(DisabledAlgorithmConstraints$UsageConstraint::*)($String*,$StringArray*)>(&DisabledAlgorithmConstraints$UsageConstraint::init$))},
-	{"permits", "(Lsun/security/util/ConstraintsParameters;)V", nullptr, $PUBLIC, nullptr, "java.security.cert.CertPathValidatorException"},
+	{"<init>", "(Ljava/lang/String;[Ljava/lang/String;)V", nullptr, 0, $method(DisabledAlgorithmConstraints$UsageConstraint, init$, void, $String*, $StringArray*)},
+	{"permits", "(Lsun/security/util/ConstraintsParameters;)V", nullptr, $PUBLIC, $virtualMethod(DisabledAlgorithmConstraints$UsageConstraint, permits, void, $ConstraintsParameters*), "java.security.cert.CertPathValidatorException"},
 	{}
 };
 

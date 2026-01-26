@@ -17,8 +17,8 @@ $FieldInfo _UnsatisfiedLinkError_FieldInfo_[] = {
 };
 
 $MethodInfo _UnsatisfiedLinkError_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(UnsatisfiedLinkError::*)()>(&UnsatisfiedLinkError::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(UnsatisfiedLinkError::*)($String*)>(&UnsatisfiedLinkError::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(UnsatisfiedLinkError, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(UnsatisfiedLinkError, init$, void, $String*)},
 	{}
 };
 

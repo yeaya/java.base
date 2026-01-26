@@ -29,9 +29,9 @@ $FieldInfo _ObjectStreamClass$FieldReflectorKey_FieldInfo_[] = {
 };
 
 $MethodInfo _ObjectStreamClass$FieldReflectorKey_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Class;[Ljava/io/ObjectStreamField;Ljava/lang/ref/ReferenceQueue;)V", "(Ljava/lang/Class<*>;[Ljava/io/ObjectStreamField;Ljava/lang/ref/ReferenceQueue<Ljava/lang/Class<*>;>;)V", 0, $method(static_cast<void(ObjectStreamClass$FieldReflectorKey::*)($Class*,$ObjectStreamFieldArray*,$ReferenceQueue*)>(&ObjectStreamClass$FieldReflectorKey::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Class;[Ljava/io/ObjectStreamField;Ljava/lang/ref/ReferenceQueue;)V", "(Ljava/lang/Class<*>;[Ljava/io/ObjectStreamField;Ljava/lang/ref/ReferenceQueue<Ljava/lang/Class<*>;>;)V", 0, $method(ObjectStreamClass$FieldReflectorKey, init$, void, $Class*, $ObjectStreamFieldArray*, $ReferenceQueue*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ObjectStreamClass$FieldReflectorKey, equals, bool, Object$*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ObjectStreamClass$FieldReflectorKey, hashCode, int32_t)},
 	{}
 };
 

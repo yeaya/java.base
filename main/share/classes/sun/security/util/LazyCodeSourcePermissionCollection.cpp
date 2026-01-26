@@ -43,13 +43,13 @@ $FieldInfo _LazyCodeSourcePermissionCollection_FieldInfo_[] = {
 };
 
 $MethodInfo _LazyCodeSourcePermissionCollection_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/PermissionCollection;Ljava/security/CodeSource;)V", nullptr, $PUBLIC, $method(static_cast<void(LazyCodeSourcePermissionCollection::*)($PermissionCollection*,$CodeSource*)>(&LazyCodeSourcePermissionCollection::init$))},
-	{"add", "(Ljava/security/Permission;)V", nullptr, $PUBLIC},
-	{"elements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/security/Permission;>;", $PUBLIC},
-	{"ensureAdded", "()V", nullptr, $PRIVATE, $method(static_cast<void(LazyCodeSourcePermissionCollection::*)()>(&LazyCodeSourcePermissionCollection::ensureAdded))},
-	{"implies", "(Ljava/security/Permission;)Z", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"writeReplace", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(static_cast<$Object*(LazyCodeSourcePermissionCollection::*)()>(&LazyCodeSourcePermissionCollection::writeReplace))},
+	{"<init>", "(Ljava/security/PermissionCollection;Ljava/security/CodeSource;)V", nullptr, $PUBLIC, $method(LazyCodeSourcePermissionCollection, init$, void, $PermissionCollection*, $CodeSource*)},
+	{"add", "(Ljava/security/Permission;)V", nullptr, $PUBLIC, $virtualMethod(LazyCodeSourcePermissionCollection, add, void, $Permission*)},
+	{"elements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/security/Permission;>;", $PUBLIC, $virtualMethod(LazyCodeSourcePermissionCollection, elements, $Enumeration*)},
+	{"ensureAdded", "()V", nullptr, $PRIVATE, $method(LazyCodeSourcePermissionCollection, ensureAdded, void)},
+	{"implies", "(Ljava/security/Permission;)Z", nullptr, $PUBLIC, $virtualMethod(LazyCodeSourcePermissionCollection, implies, bool, $Permission*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LazyCodeSourcePermissionCollection, toString, $String*)},
+	{"writeReplace", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(LazyCodeSourcePermissionCollection, writeReplace, $Object*)},
 	{}
 };
 

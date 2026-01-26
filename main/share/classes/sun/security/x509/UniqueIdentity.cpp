@@ -25,13 +25,13 @@ $FieldInfo _UniqueIdentity_FieldInfo_[] = {
 };
 
 $MethodInfo _UniqueIdentity_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/util/BitArray;)V", nullptr, $PUBLIC, $method(static_cast<void(UniqueIdentity::*)($BitArray*)>(&UniqueIdentity::init$))},
-	{"<init>", "([B)V", nullptr, $PUBLIC, $method(static_cast<void(UniqueIdentity::*)($bytes*)>(&UniqueIdentity::init$))},
-	{"<init>", "(Lsun/security/util/DerInputStream;)V", nullptr, $PUBLIC, $method(static_cast<void(UniqueIdentity::*)($DerInputStream*)>(&UniqueIdentity::init$)), "java.io.IOException"},
-	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(static_cast<void(UniqueIdentity::*)($DerValue*)>(&UniqueIdentity::init$)), "java.io.IOException"},
-	{"encode", "(Lsun/security/util/DerOutputStream;B)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"getId", "()[Z", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/security/util/BitArray;)V", nullptr, $PUBLIC, $method(UniqueIdentity, init$, void, $BitArray*)},
+	{"<init>", "([B)V", nullptr, $PUBLIC, $method(UniqueIdentity, init$, void, $bytes*)},
+	{"<init>", "(Lsun/security/util/DerInputStream;)V", nullptr, $PUBLIC, $method(UniqueIdentity, init$, void, $DerInputStream*), "java.io.IOException"},
+	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(UniqueIdentity, init$, void, $DerValue*), "java.io.IOException"},
+	{"encode", "(Lsun/security/util/DerOutputStream;B)V", nullptr, $PUBLIC, $virtualMethod(UniqueIdentity, encode, void, $DerOutputStream*, int8_t), "java.io.IOException"},
+	{"getId", "()[Z", nullptr, $PUBLIC, $virtualMethod(UniqueIdentity, getId, $booleans*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UniqueIdentity, toString, $String*)},
 	{}
 };
 

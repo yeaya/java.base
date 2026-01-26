@@ -19,8 +19,8 @@ namespace sun {
 		namespace www {
 
 $MethodInfo _MimeTable$DefaultInstanceHolder$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(MimeTable$DefaultInstanceHolder$1::*)()>(&MimeTable$DefaultInstanceHolder$1::init$))},
-	{"run", "()Lsun/net/www/MimeTable;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(MimeTable$DefaultInstanceHolder$1, init$, void)},
+	{"run", "()Lsun/net/www/MimeTable;", nullptr, $PUBLIC, $virtualMethod(MimeTable$DefaultInstanceHolder$1, run, $Object*)},
 	{}
 };
 

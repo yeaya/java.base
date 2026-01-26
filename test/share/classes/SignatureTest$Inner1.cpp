@@ -15,7 +15,7 @@ $FieldInfo _SignatureTest$Inner1_FieldInfo_[] = {
 };
 
 $MethodInfo _SignatureTest$Inner1_MethodInfo_[] = {
-	{"<init>", "(LSignatureTest;)V", nullptr, 0, $method(static_cast<void(SignatureTest$Inner1::*)($SignatureTest*)>(&SignatureTest$Inner1::init$))},
+	{"<init>", "(LSignatureTest;)V", nullptr, 0, $method(SignatureTest$Inner1, init$, void, $SignatureTest*)},
 	{}
 };
 

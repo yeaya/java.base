@@ -45,11 +45,11 @@ $FieldInfo _NetProperties_FieldInfo_[] = {
 };
 
 $MethodInfo _NetProperties_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(NetProperties::*)()>(&NetProperties::init$))},
-	{"get", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)($String*)>(&NetProperties::get))},
-	{"getBoolean", "(Ljava/lang/String;)Ljava/lang/Boolean;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Boolean*(*)($String*)>(&NetProperties::getBoolean))},
-	{"getInteger", "(Ljava/lang/String;I)Ljava/lang/Integer;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Integer*(*)($String*,int32_t)>(&NetProperties::getInteger))},
-	{"loadDefaultProperties", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&NetProperties::loadDefaultProperties))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(NetProperties, init$, void)},
+	{"get", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(NetProperties, get, $String*, $String*)},
+	{"getBoolean", "(Ljava/lang/String;)Ljava/lang/Boolean;", nullptr, $PUBLIC | $STATIC, $staticMethod(NetProperties, getBoolean, $Boolean*, $String*)},
+	{"getInteger", "(Ljava/lang/String;I)Ljava/lang/Integer;", nullptr, $PUBLIC | $STATIC, $staticMethod(NetProperties, getInteger, $Integer*, $String*, int32_t)},
+	{"loadDefaultProperties", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(NetProperties, loadDefaultProperties, void)},
 	{}
 };
 

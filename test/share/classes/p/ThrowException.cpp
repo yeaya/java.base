@@ -10,8 +10,8 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace p {
 
 $MethodInfo _ThrowException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ThrowException::*)()>(&ThrowException::init$))},
-	{"throwError", "()V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)()>(&ThrowException::throwError))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ThrowException, init$, void)},
+	{"throwError", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(ThrowException, throwError, void)},
 	{}
 };
 

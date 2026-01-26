@@ -25,7 +25,7 @@ $Attribute _NonRepeated_DefaultValue_value0 = {
 };
 
 $MethodInfo _NonRepeated_MethodInfo_[] = {
-	{"value", "()I", nullptr, $PUBLIC | $ABSTRACT, nullptr, nullptr, &_NonRepeated_DefaultValue_value0},
+	{"value", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NonRepeated, value, int32_t), nullptr, &_NonRepeated_DefaultValue_value0},
 	{}
 };
 

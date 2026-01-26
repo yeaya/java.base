@@ -28,10 +28,10 @@ $FieldInfo _UnixFileStore$FeatureStatus_FieldInfo_[] = {
 };
 
 $MethodInfo _UnixFileStore$FeatureStatus_MethodInfo_[] = {
-	{"$values", "()[Lsun/nio/fs/UnixFileStore$FeatureStatus;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$UnixFileStore$FeatureStatusArray*(*)()>(&UnixFileStore$FeatureStatus::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(UnixFileStore$FeatureStatus::*)($String*,int32_t)>(&UnixFileStore$FeatureStatus::init$))},
-	{"valueOf", "(Ljava/lang/String;)Lsun/nio/fs/UnixFileStore$FeatureStatus;", nullptr, $PUBLIC | $STATIC, $method(static_cast<UnixFileStore$FeatureStatus*(*)($String*)>(&UnixFileStore$FeatureStatus::valueOf))},
-	{"values", "()[Lsun/nio/fs/UnixFileStore$FeatureStatus;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$UnixFileStore$FeatureStatusArray*(*)()>(&UnixFileStore$FeatureStatus::values))},
+	{"$values", "()[Lsun/nio/fs/UnixFileStore$FeatureStatus;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(UnixFileStore$FeatureStatus, $values, $UnixFileStore$FeatureStatusArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(UnixFileStore$FeatureStatus, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Lsun/nio/fs/UnixFileStore$FeatureStatus;", nullptr, $PUBLIC | $STATIC, $staticMethod(UnixFileStore$FeatureStatus, valueOf, UnixFileStore$FeatureStatus*, $String*)},
+	{"values", "()[Lsun/nio/fs/UnixFileStore$FeatureStatus;", nullptr, $PUBLIC | $STATIC, $staticMethod(UnixFileStore$FeatureStatus, values, $UnixFileStore$FeatureStatusArray*)},
 	{}
 };
 

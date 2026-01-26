@@ -12,8 +12,8 @@ namespace jdk {
 		namespace math {
 
 $MethodInfo _FloatingDecimal$ASCIIToBinaryConverter_MethodInfo_[] = {
-	{"doubleValue", "()D", nullptr, $PUBLIC | $ABSTRACT},
-	{"floatValue", "()F", nullptr, $PUBLIC | $ABSTRACT},
+	{"doubleValue", "()D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FloatingDecimal$ASCIIToBinaryConverter, doubleValue, double)},
+	{"floatValue", "()F", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FloatingDecimal$ASCIIToBinaryConverter, floatValue, float)},
 	{}
 };
 

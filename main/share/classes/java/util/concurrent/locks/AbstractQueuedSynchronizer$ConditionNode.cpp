@@ -27,9 +27,9 @@ $MethodInfo _AbstractQueuedSynchronizer$ConditionNode_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(AbstractQueuedSynchronizer$ConditionNode::*)()>(&AbstractQueuedSynchronizer$ConditionNode::init$))},
-	{"block", "()Z", nullptr, $PUBLIC | $FINAL},
-	{"isReleasable", "()Z", nullptr, $PUBLIC | $FINAL},
+	{"<init>", "()V", nullptr, 0, $method(AbstractQueuedSynchronizer$ConditionNode, init$, void)},
+	{"block", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractQueuedSynchronizer$ConditionNode, block, bool)},
+	{"isReleasable", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractQueuedSynchronizer$ConditionNode, isReleasable, bool)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

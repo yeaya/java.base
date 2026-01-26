@@ -20,21 +20,21 @@ $FieldInfo _ByteVector_FieldInfo_[] = {
 };
 
 $MethodInfo _ByteVector_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ByteVector::*)()>(&ByteVector::init$))},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(static_cast<void(ByteVector::*)(int32_t)>(&ByteVector::init$))},
-	{"<init>", "([B)V", nullptr, 0, $method(static_cast<void(ByteVector::*)($bytes*)>(&ByteVector::init$))},
-	{"encodeUtf8", "(Ljava/lang/String;II)Ljdk/internal/org/objectweb/asm/ByteVector;", nullptr, $FINAL, $method(static_cast<ByteVector*(ByteVector::*)($String*,int32_t,int32_t)>(&ByteVector::encodeUtf8))},
-	{"enlarge", "(I)V", nullptr, $PRIVATE, $method(static_cast<void(ByteVector::*)(int32_t)>(&ByteVector::enlarge))},
-	{"put11", "(II)Ljdk/internal/org/objectweb/asm/ByteVector;", nullptr, $FINAL, $method(static_cast<ByteVector*(ByteVector::*)(int32_t,int32_t)>(&ByteVector::put11))},
-	{"put112", "(III)Ljdk/internal/org/objectweb/asm/ByteVector;", nullptr, $FINAL, $method(static_cast<ByteVector*(ByteVector::*)(int32_t,int32_t,int32_t)>(&ByteVector::put112))},
-	{"put12", "(II)Ljdk/internal/org/objectweb/asm/ByteVector;", nullptr, $FINAL, $method(static_cast<ByteVector*(ByteVector::*)(int32_t,int32_t)>(&ByteVector::put12))},
-	{"put122", "(III)Ljdk/internal/org/objectweb/asm/ByteVector;", nullptr, $FINAL, $method(static_cast<ByteVector*(ByteVector::*)(int32_t,int32_t,int32_t)>(&ByteVector::put122))},
-	{"putByte", "(I)Ljdk/internal/org/objectweb/asm/ByteVector;", nullptr, $PUBLIC},
-	{"putByteArray", "([BII)Ljdk/internal/org/objectweb/asm/ByteVector;", nullptr, $PUBLIC},
-	{"putInt", "(I)Ljdk/internal/org/objectweb/asm/ByteVector;", nullptr, $PUBLIC},
-	{"putLong", "(J)Ljdk/internal/org/objectweb/asm/ByteVector;", nullptr, $PUBLIC},
-	{"putShort", "(I)Ljdk/internal/org/objectweb/asm/ByteVector;", nullptr, $PUBLIC},
-	{"putUTF8", "(Ljava/lang/String;)Ljdk/internal/org/objectweb/asm/ByteVector;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ByteVector, init$, void)},
+	{"<init>", "(I)V", nullptr, $PUBLIC, $method(ByteVector, init$, void, int32_t)},
+	{"<init>", "([B)V", nullptr, 0, $method(ByteVector, init$, void, $bytes*)},
+	{"encodeUtf8", "(Ljava/lang/String;II)Ljdk/internal/org/objectweb/asm/ByteVector;", nullptr, $FINAL, $method(ByteVector, encodeUtf8, ByteVector*, $String*, int32_t, int32_t)},
+	{"enlarge", "(I)V", nullptr, $PRIVATE, $method(ByteVector, enlarge, void, int32_t)},
+	{"put11", "(II)Ljdk/internal/org/objectweb/asm/ByteVector;", nullptr, $FINAL, $method(ByteVector, put11, ByteVector*, int32_t, int32_t)},
+	{"put112", "(III)Ljdk/internal/org/objectweb/asm/ByteVector;", nullptr, $FINAL, $method(ByteVector, put112, ByteVector*, int32_t, int32_t, int32_t)},
+	{"put12", "(II)Ljdk/internal/org/objectweb/asm/ByteVector;", nullptr, $FINAL, $method(ByteVector, put12, ByteVector*, int32_t, int32_t)},
+	{"put122", "(III)Ljdk/internal/org/objectweb/asm/ByteVector;", nullptr, $FINAL, $method(ByteVector, put122, ByteVector*, int32_t, int32_t, int32_t)},
+	{"putByte", "(I)Ljdk/internal/org/objectweb/asm/ByteVector;", nullptr, $PUBLIC, $virtualMethod(ByteVector, putByte, ByteVector*, int32_t)},
+	{"putByteArray", "([BII)Ljdk/internal/org/objectweb/asm/ByteVector;", nullptr, $PUBLIC, $virtualMethod(ByteVector, putByteArray, ByteVector*, $bytes*, int32_t, int32_t)},
+	{"putInt", "(I)Ljdk/internal/org/objectweb/asm/ByteVector;", nullptr, $PUBLIC, $virtualMethod(ByteVector, putInt, ByteVector*, int32_t)},
+	{"putLong", "(J)Ljdk/internal/org/objectweb/asm/ByteVector;", nullptr, $PUBLIC, $virtualMethod(ByteVector, putLong, ByteVector*, int64_t)},
+	{"putShort", "(I)Ljdk/internal/org/objectweb/asm/ByteVector;", nullptr, $PUBLIC, $virtualMethod(ByteVector, putShort, ByteVector*, int32_t)},
+	{"putUTF8", "(Ljava/lang/String;)Ljdk/internal/org/objectweb/asm/ByteVector;", nullptr, $PUBLIC, $virtualMethod(ByteVector, putUTF8, ByteVector*, $String*)},
 	{}
 };
 

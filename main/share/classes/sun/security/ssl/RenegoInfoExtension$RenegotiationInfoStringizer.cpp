@@ -20,8 +20,8 @@ namespace sun {
 		namespace ssl {
 
 $MethodInfo _RenegoInfoExtension$RenegotiationInfoStringizer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(RenegoInfoExtension$RenegotiationInfoStringizer::*)()>(&RenegoInfoExtension$RenegotiationInfoStringizer::init$))},
-	{"toString", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(RenegoInfoExtension$RenegotiationInfoStringizer, init$, void)},
+	{"toString", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RenegoInfoExtension$RenegotiationInfoStringizer, toString, $String*, $HandshakeContext*, $ByteBuffer*)},
 	{}
 };
 

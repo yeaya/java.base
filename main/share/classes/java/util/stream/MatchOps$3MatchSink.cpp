@@ -41,8 +41,8 @@ $MethodInfo _MatchOps$3MatchSink_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/util/stream/MatchOps$MatchKind;Ljava/util/function/LongPredicate;)V", "()V", 0, $method(static_cast<void(MatchOps$3MatchSink::*)($MatchOps$MatchKind*,$LongPredicate*)>(&MatchOps$3MatchSink::init$))},
-	{"accept", "(J)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/stream/MatchOps$MatchKind;Ljava/util/function/LongPredicate;)V", "()V", 0, $method(MatchOps$3MatchSink, init$, void, $MatchOps$MatchKind*, $LongPredicate*)},
+	{"accept", "(J)V", nullptr, $PUBLIC, $virtualMethod(MatchOps$3MatchSink, accept, void, int64_t)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

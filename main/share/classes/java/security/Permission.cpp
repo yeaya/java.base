@@ -26,13 +26,13 @@ $MethodInfo _Permission_MethodInfo_[] = {
 	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"hashCode", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(Permission::*)($String*)>(&Permission::init$))},
-	{"checkGuard", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, nullptr, "java.lang.SecurityException"},
-	{"getActions", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$String*(Permission::*)()>(&Permission::getName))},
-	{"implies", "(Ljava/security/Permission;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"newPermissionCollection", "()Ljava/security/PermissionCollection;", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Permission, init$, void, $String*)},
+	{"checkGuard", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Permission, checkGuard, void, Object$*), "java.lang.SecurityException"},
+	{"getActions", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Permission, getActions, $String*)},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(Permission, getName, $String*)},
+	{"implies", "(Ljava/security/Permission;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Permission, implies, bool, Permission*)},
+	{"newPermissionCollection", "()Ljava/security/PermissionCollection;", nullptr, $PUBLIC, $virtualMethod(Permission, newPermissionCollection, $PermissionCollection*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Permission, toString, $String*)},
 	{}
 };
 

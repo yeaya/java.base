@@ -31,8 +31,8 @@ $FieldInfo _ProcessHandleImpl$1_FieldInfo_[] = {
 };
 
 $MethodInfo _ProcessHandleImpl$1_MethodInfo_[] = {
-	{"<init>", "(JZLjava/lang/ProcessHandleImpl$ExitCompletion;)V", "()V", 0, $method(static_cast<void(ProcessHandleImpl$1::*)(int64_t,bool,$ProcessHandleImpl$ExitCompletion*)>(&ProcessHandleImpl$1::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(JZLjava/lang/ProcessHandleImpl$ExitCompletion;)V", "()V", 0, $method(ProcessHandleImpl$1, init$, void, int64_t, bool, $ProcessHandleImpl$ExitCompletion*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ProcessHandleImpl$1, run, void)},
 	{}
 };
 

@@ -34,11 +34,11 @@ $FieldInfo _NamedPackage_FieldInfo_[] = {
 };
 
 $MethodInfo _NamedPackage_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Module;)V", nullptr, 0, $method(static_cast<void(NamedPackage::*)($String*,$Module*)>(&NamedPackage::init$))},
-	{"location", "()Ljava/net/URI;", nullptr, 0},
-	{"module", "()Ljava/lang/Module;", nullptr, 0},
-	{"packageName", "()Ljava/lang/String;", nullptr, 0},
-	{"toPackage", "(Ljava/lang/String;Ljava/lang/Module;)Ljava/lang/Package;", nullptr, $STATIC, $method(static_cast<$Package*(*)($String*,$Module*)>(&NamedPackage::toPackage))},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Module;)V", nullptr, 0, $method(NamedPackage, init$, void, $String*, $Module*)},
+	{"location", "()Ljava/net/URI;", nullptr, 0, $virtualMethod(NamedPackage, location, $URI*)},
+	{"module", "()Ljava/lang/Module;", nullptr, 0, $virtualMethod(NamedPackage, module, $Module*)},
+	{"packageName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(NamedPackage, packageName, $String*)},
+	{"toPackage", "(Ljava/lang/String;Ljava/lang/Module;)Ljava/lang/Package;", nullptr, $STATIC, $staticMethod(NamedPackage, toPackage, $Package*, $String*, $Module*)},
 	{}
 };
 

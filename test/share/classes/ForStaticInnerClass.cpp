@@ -12,8 +12,8 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Modifier = ::java::lang::reflect::Modifier;
 
 $MethodInfo _ForStaticInnerClass_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ForStaticInnerClass::*)()>(&ForStaticInnerClass::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&ForStaticInnerClass::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ForStaticInnerClass, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ForStaticInnerClass, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

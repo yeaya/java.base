@@ -28,13 +28,13 @@ namespace jdk {
 		namespace module {
 
 $MethodInfo _Resources_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(Resources::*)()>(&Resources::init$))},
-	{"canEncapsulate", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)($String*)>(&Resources::canEncapsulate))},
-	{"mayTranslate", "(Ljava/lang/String;II)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($String*,int32_t,int32_t)>(&Resources::mayTranslate))},
-	{"toFilePath", "(Ljava/nio/file/Path;Ljava/lang/String;)Ljava/nio/file/Path;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Path*(*)($Path*,$String*)>(&Resources::toFilePath)), "java.io.IOException"},
-	{"toPackageName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)($String*)>(&Resources::toPackageName))},
-	{"toResourceName", "(Ljava/nio/file/Path;Ljava/nio/file/Path;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)($Path*,$Path*)>(&Resources::toResourceName))},
-	{"toSafeFilePath", "(Ljava/nio/file/FileSystem;Ljava/lang/String;)Ljava/nio/file/Path;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$Path*(*)($FileSystem*,$String*)>(&Resources::toSafeFilePath))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(Resources, init$, void)},
+	{"canEncapsulate", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Resources, canEncapsulate, bool, $String*)},
+	{"mayTranslate", "(Ljava/lang/String;II)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Resources, mayTranslate, bool, $String*, int32_t, int32_t)},
+	{"toFilePath", "(Ljava/nio/file/Path;Ljava/lang/String;)Ljava/nio/file/Path;", nullptr, $PUBLIC | $STATIC, $staticMethod(Resources, toFilePath, $Path*, $Path*, $String*), "java.io.IOException"},
+	{"toPackageName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Resources, toPackageName, $String*, $String*)},
+	{"toResourceName", "(Ljava/nio/file/Path;Ljava/nio/file/Path;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Resources, toResourceName, $String*, $Path*, $Path*)},
+	{"toSafeFilePath", "(Ljava/nio/file/FileSystem;Ljava/lang/String;)Ljava/nio/file/Path;", nullptr, $PRIVATE | $STATIC, $staticMethod(Resources, toSafeFilePath, $Path*, $FileSystem*, $String*)},
 	{}
 };
 

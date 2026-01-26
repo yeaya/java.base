@@ -21,8 +21,8 @@ using $SeekableByteChannel = ::java::nio::channels::SeekableByteChannel;
 using $WritableByteChannel = ::java::nio::channels::WritableByteChannel;
 
 $MethodInfo _TransferToNonWritable_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TransferToNonWritable::*)()>(&TransferToNonWritable::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&TransferToNonWritable::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TransferToNonWritable, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TransferToNonWritable, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

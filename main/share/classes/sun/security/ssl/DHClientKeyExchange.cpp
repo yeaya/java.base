@@ -22,7 +22,7 @@ $FieldInfo _DHClientKeyExchange_FieldInfo_[] = {
 };
 
 $MethodInfo _DHClientKeyExchange_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(DHClientKeyExchange::*)()>(&DHClientKeyExchange::init$))},
+	{"<init>", "()V", nullptr, 0, $method(DHClientKeyExchange, init$, void)},
 	{}
 };
 

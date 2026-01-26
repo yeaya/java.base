@@ -26,9 +26,9 @@ $FieldInfo _MultiThreadStackWalk$Test_FieldInfo_[] = {
 };
 
 $MethodInfo _MultiThreadStackWalk$Test_MethodInfo_[] = {
-	{"<init>", "(LMultiThreadStackWalk$Call$WalkType;)V", nullptr, 0, $method(static_cast<void(MultiThreadStackWalk$Test::*)($MultiThreadStackWalk$Call$WalkType*)>(&MultiThreadStackWalk$Test::init$))},
-	{"call", "(LMultiThreadStackWalk$Env;LMultiThreadStackWalk$Call;III)V", nullptr, $PUBLIC},
-	{"getWalkType", "()LMultiThreadStackWalk$Call$WalkType;", nullptr, $PUBLIC},
+	{"<init>", "(LMultiThreadStackWalk$Call$WalkType;)V", nullptr, 0, $method(MultiThreadStackWalk$Test, init$, void, $MultiThreadStackWalk$Call$WalkType*)},
+	{"call", "(LMultiThreadStackWalk$Env;LMultiThreadStackWalk$Call;III)V", nullptr, $PUBLIC, $virtualMethod(MultiThreadStackWalk$Test, call, void, $MultiThreadStackWalk$Env*, $MultiThreadStackWalk$Call*, int32_t, int32_t, int32_t)},
+	{"getWalkType", "()LMultiThreadStackWalk$Call$WalkType;", nullptr, $PUBLIC, $virtualMethod(MultiThreadStackWalk$Test, getWalkType, $MultiThreadStackWalk$Call$WalkType*)},
 	{}
 };
 

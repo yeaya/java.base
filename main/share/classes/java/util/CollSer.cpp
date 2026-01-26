@@ -54,10 +54,10 @@ $FieldInfo _CollSer_FieldInfo_[] = {
 };
 
 $MethodInfo _CollSer_MethodInfo_[] = {
-	{"<init>", "(I[Ljava/lang/Object;)V", nullptr, $TRANSIENT, $method(static_cast<void(CollSer::*)(int32_t,$ObjectArray*)>(&CollSer::init$))},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(CollSer::*)($ObjectInputStream*)>(&CollSer::readObject)), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"readResolve", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(static_cast<$Object*(CollSer::*)()>(&CollSer::readResolve)), "java.io.ObjectStreamException"},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(CollSer::*)($ObjectOutputStream*)>(&CollSer::writeObject)), "java.io.IOException"},
+	{"<init>", "(I[Ljava/lang/Object;)V", nullptr, $TRANSIENT, $method(CollSer, init$, void, int32_t, $ObjectArray*)},
+	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(CollSer, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+	{"readResolve", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(CollSer, readResolve, $Object*), "java.io.ObjectStreamException"},
+	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(CollSer, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
 	{}
 };
 

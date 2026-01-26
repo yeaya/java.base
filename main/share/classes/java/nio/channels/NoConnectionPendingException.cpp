@@ -18,7 +18,7 @@ $FieldInfo _NoConnectionPendingException_FieldInfo_[] = {
 };
 
 $MethodInfo _NoConnectionPendingException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(NoConnectionPendingException::*)()>(&NoConnectionPendingException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(NoConnectionPendingException, init$, void)},
 	{}
 };
 

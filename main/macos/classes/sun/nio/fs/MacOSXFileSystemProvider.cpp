@@ -33,9 +33,9 @@ namespace sun {
 		namespace fs {
 
 $MethodInfo _MacOSXFileSystemProvider_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(MacOSXFileSystemProvider::*)()>(&MacOSXFileSystemProvider::init$))},
-	{"getFileTypeDetector", "()Ljava/nio/file/spi/FileTypeDetector;", nullptr, 0},
-	{"newFileSystem", "(Ljava/lang/String;)Lsun/nio/fs/MacOSXFileSystem;", nullptr, 0},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(MacOSXFileSystemProvider, init$, void)},
+	{"getFileTypeDetector", "()Ljava/nio/file/spi/FileTypeDetector;", nullptr, 0, $virtualMethod(MacOSXFileSystemProvider, getFileTypeDetector, $FileTypeDetector*)},
+	{"newFileSystem", "(Ljava/lang/String;)Lsun/nio/fs/MacOSXFileSystem;", nullptr, 0, $virtualMethod(MacOSXFileSystemProvider, newFileSystem, $UnixFileSystem*, $String*)},
 	{}
 };
 

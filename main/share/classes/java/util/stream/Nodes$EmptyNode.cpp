@@ -14,11 +14,11 @@ namespace java {
 		namespace stream {
 
 $MethodInfo _Nodes$EmptyNode_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Nodes$EmptyNode::*)()>(&Nodes$EmptyNode::init$))},
-	{"asArray", "(Ljava/util/function/IntFunction;)[Ljava/lang/Object;", "(Ljava/util/function/IntFunction<[TT;>;)[TT;", $PUBLIC},
-	{"copyInto", "(Ljava/lang/Object;I)V", "(TT_ARR;I)V", $PUBLIC},
-	{"count", "()J", nullptr, $PUBLIC},
-	{"forEach", "(Ljava/lang/Object;)V", "(TT_CONS;)V", $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(Nodes$EmptyNode, init$, void)},
+	{"asArray", "(Ljava/util/function/IntFunction;)[Ljava/lang/Object;", "(Ljava/util/function/IntFunction<[TT;>;)[TT;", $PUBLIC, $virtualMethod(Nodes$EmptyNode, asArray, $ObjectArray*, $IntFunction*)},
+	{"copyInto", "(Ljava/lang/Object;I)V", "(TT_ARR;I)V", $PUBLIC, $virtualMethod(Nodes$EmptyNode, copyInto, void, Object$*, int32_t)},
+	{"count", "()J", nullptr, $PUBLIC, $virtualMethod(Nodes$EmptyNode, count, int64_t)},
+	{"forEach", "(Ljava/lang/Object;)V", "(TT_CONS;)V", $PUBLIC, $virtualMethod(Nodes$EmptyNode, forEach, void, Object$*)},
 	{}
 };
 

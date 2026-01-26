@@ -28,13 +28,13 @@ $FieldInfo _MaxFragExtension$MaxFragLenEnum_FieldInfo_[] = {
 };
 
 $MethodInfo _MaxFragExtension$MaxFragLenEnum_MethodInfo_[] = {
-	{"$values", "()[Lsun/security/ssl/MaxFragExtension$MaxFragLenEnum;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$MaxFragExtension$MaxFragLenEnumArray*(*)()>(&MaxFragExtension$MaxFragLenEnum::$values))},
-	{"<init>", "(Ljava/lang/String;IBILjava/lang/String;)V", "(BILjava/lang/String;)V", $PRIVATE, $method(static_cast<void(MaxFragExtension$MaxFragLenEnum::*)($String*,int32_t,int8_t,int32_t,$String*)>(&MaxFragExtension$MaxFragLenEnum::init$))},
-	{"nameOf", "(B)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)(int8_t)>(&MaxFragExtension$MaxFragLenEnum::nameOf))},
-	{"valueOf", "(Ljava/lang/String;)Lsun/security/ssl/MaxFragExtension$MaxFragLenEnum;", nullptr, $PUBLIC | $STATIC, $method(static_cast<MaxFragExtension$MaxFragLenEnum*(*)($String*)>(&MaxFragExtension$MaxFragLenEnum::valueOf))},
-	{"valueOf", "(B)Lsun/security/ssl/MaxFragExtension$MaxFragLenEnum;", nullptr, $PRIVATE | $STATIC, $method(static_cast<MaxFragExtension$MaxFragLenEnum*(*)(int8_t)>(&MaxFragExtension$MaxFragLenEnum::valueOf))},
-	{"valueOf", "(I)Lsun/security/ssl/MaxFragExtension$MaxFragLenEnum;", nullptr, $STATIC, $method(static_cast<MaxFragExtension$MaxFragLenEnum*(*)(int32_t)>(&MaxFragExtension$MaxFragLenEnum::valueOf))},
-	{"values", "()[Lsun/security/ssl/MaxFragExtension$MaxFragLenEnum;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$MaxFragExtension$MaxFragLenEnumArray*(*)()>(&MaxFragExtension$MaxFragLenEnum::values))},
+	{"$values", "()[Lsun/security/ssl/MaxFragExtension$MaxFragLenEnum;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MaxFragExtension$MaxFragLenEnum, $values, $MaxFragExtension$MaxFragLenEnumArray*)},
+	{"<init>", "(Ljava/lang/String;IBILjava/lang/String;)V", "(BILjava/lang/String;)V", $PRIVATE, $method(MaxFragExtension$MaxFragLenEnum, init$, void, $String*, int32_t, int8_t, int32_t, $String*)},
+	{"nameOf", "(B)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(MaxFragExtension$MaxFragLenEnum, nameOf, $String*, int8_t)},
+	{"valueOf", "(Ljava/lang/String;)Lsun/security/ssl/MaxFragExtension$MaxFragLenEnum;", nullptr, $PUBLIC | $STATIC, $staticMethod(MaxFragExtension$MaxFragLenEnum, valueOf, MaxFragExtension$MaxFragLenEnum*, $String*)},
+	{"valueOf", "(B)Lsun/security/ssl/MaxFragExtension$MaxFragLenEnum;", nullptr, $PRIVATE | $STATIC, $staticMethod(MaxFragExtension$MaxFragLenEnum, valueOf, MaxFragExtension$MaxFragLenEnum*, int8_t)},
+	{"valueOf", "(I)Lsun/security/ssl/MaxFragExtension$MaxFragLenEnum;", nullptr, $STATIC, $staticMethod(MaxFragExtension$MaxFragLenEnum, valueOf, MaxFragExtension$MaxFragLenEnum*, int32_t)},
+	{"values", "()[Lsun/security/ssl/MaxFragExtension$MaxFragLenEnum;", nullptr, $PUBLIC | $STATIC, $staticMethod(MaxFragExtension$MaxFragLenEnum, values, $MaxFragExtension$MaxFragLenEnumArray*)},
 	{}
 };
 

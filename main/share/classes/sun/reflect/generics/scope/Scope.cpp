@@ -5,6 +5,7 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $TypeVariable = ::java::lang::reflect::TypeVariable;
 
 namespace sun {
 	namespace reflect {
@@ -12,7 +13,7 @@ namespace sun {
 			namespace scope {
 
 $MethodInfo _Scope_MethodInfo_[] = {
-	{"lookup", "(Ljava/lang/String;)Ljava/lang/reflect/TypeVariable;", "(Ljava/lang/String;)Ljava/lang/reflect/TypeVariable<*>;", $PUBLIC | $ABSTRACT},
+	{"lookup", "(Ljava/lang/String;)Ljava/lang/reflect/TypeVariable;", "(Ljava/lang/String;)Ljava/lang/reflect/TypeVariable<*>;", $PUBLIC | $ABSTRACT, $virtualMethod(Scope, lookup, $TypeVariable*, $String*)},
 	{}
 };
 

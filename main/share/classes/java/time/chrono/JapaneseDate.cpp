@@ -80,7 +80,7 @@ using $ChronoLocalDateImpl = ::java::time::chrono::ChronoLocalDateImpl;
 using $ChronoLocalDateTime = ::java::time::chrono::ChronoLocalDateTime;
 using $ChronoPeriod = ::java::time::chrono::ChronoPeriod;
 using $Chronology = ::java::time::chrono::Chronology;
-using $1Era = ::java::time::chrono::Era;
+using $Era = ::java::time::chrono::Era;
 using $JapaneseChronology = ::java::time::chrono::JapaneseChronology;
 using $JapaneseDate$1 = ::java::time::chrono::JapaneseDate$1;
 using $JapaneseEra = ::java::time::chrono::JapaneseEra;
@@ -99,7 +99,7 @@ using $Objects = ::java::util::Objects;
 using $TimeZone = ::java::util::TimeZone;
 using $BaseCalendar$Date = ::sun::util::calendar::BaseCalendar$Date;
 using $CalendarDate = ::sun::util::calendar::CalendarDate;
-using $Era = ::sun::util::calendar::Era;
+using $1Era = ::sun::util::calendar::Era;
 using $LocalGregorianCalendar = ::sun::util::calendar::LocalGregorianCalendar;
 using $LocalGregorianCalendar$Date = ::sun::util::calendar::LocalGregorianCalendar$Date;
 
@@ -122,51 +122,51 @@ $FieldInfo _JapaneseDate_FieldInfo_[] = {
 };
 
 $MethodInfo _JapaneseDate_MethodInfo_[] = {
-	{"<init>", "(Ljava/time/LocalDate;)V", nullptr, 0, $method(static_cast<void(JapaneseDate::*)($LocalDate*)>(&JapaneseDate::init$))},
-	{"<init>", "(Ljava/time/chrono/JapaneseEra;ILjava/time/LocalDate;)V", nullptr, 0, $method(static_cast<void(JapaneseDate::*)($JapaneseEra*,int32_t,$LocalDate*)>(&JapaneseDate::init$))},
-	{"atTime", "(Ljava/time/LocalTime;)Ljava/time/chrono/ChronoLocalDateTime;", "(Ljava/time/LocalTime;)Ljava/time/chrono/ChronoLocalDateTime<Ljava/time/chrono/JapaneseDate;>;", $PUBLIC | $FINAL},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"from", "(Ljava/time/temporal/TemporalAccessor;)Ljava/time/chrono/JapaneseDate;", nullptr, $PUBLIC | $STATIC, $method(static_cast<JapaneseDate*(*)($TemporalAccessor*)>(&JapaneseDate::from))},
-	{"getChronology", "()Ljava/time/chrono/JapaneseChronology;", nullptr, $PUBLIC},
-	{"getEra", "()Ljava/time/chrono/JapaneseEra;", nullptr, $PUBLIC},
-	{"getLong", "(Ljava/time/temporal/TemporalField;)J", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"isSupported", "(Ljava/time/temporal/TemporalField;)Z", nullptr, $PUBLIC},
-	{"lengthOfMonth", "()I", nullptr, $PUBLIC},
-	{"lengthOfYear", "()I", nullptr, $PUBLIC},
-	{"minus", "(Ljava/time/temporal/TemporalAmount;)Ljava/time/chrono/JapaneseDate;", nullptr, $PUBLIC},
-	{"minus", "(JLjava/time/temporal/TemporalUnit;)Ljava/time/chrono/JapaneseDate;", nullptr, $PUBLIC},
-	{"minusDays", "(J)Ljava/time/chrono/JapaneseDate;", nullptr, 0},
-	{"minusMonths", "(J)Ljava/time/chrono/JapaneseDate;", nullptr, 0},
-	{"minusWeeks", "(J)Ljava/time/chrono/JapaneseDate;", nullptr, 0},
-	{"minusYears", "(J)Ljava/time/chrono/JapaneseDate;", nullptr, 0},
-	{"now", "()Ljava/time/chrono/JapaneseDate;", nullptr, $PUBLIC | $STATIC, $method(static_cast<JapaneseDate*(*)()>(&JapaneseDate::now))},
-	{"now", "(Ljava/time/ZoneId;)Ljava/time/chrono/JapaneseDate;", nullptr, $PUBLIC | $STATIC, $method(static_cast<JapaneseDate*(*)($ZoneId*)>(&JapaneseDate::now))},
-	{"now", "(Ljava/time/Clock;)Ljava/time/chrono/JapaneseDate;", nullptr, $PUBLIC | $STATIC, $method(static_cast<JapaneseDate*(*)($Clock*)>(&JapaneseDate::now))},
-	{"of", "(Ljava/time/chrono/JapaneseEra;III)Ljava/time/chrono/JapaneseDate;", nullptr, $PUBLIC | $STATIC, $method(static_cast<JapaneseDate*(*)($JapaneseEra*,int32_t,int32_t,int32_t)>(&JapaneseDate::of))},
-	{"of", "(III)Ljava/time/chrono/JapaneseDate;", nullptr, $PUBLIC | $STATIC, $method(static_cast<JapaneseDate*(*)(int32_t,int32_t,int32_t)>(&JapaneseDate::of))},
-	{"ofYearDay", "(Ljava/time/chrono/JapaneseEra;II)Ljava/time/chrono/JapaneseDate;", nullptr, $STATIC, $method(static_cast<JapaneseDate*(*)($JapaneseEra*,int32_t,int32_t)>(&JapaneseDate::ofYearDay))},
-	{"plus", "(Ljava/time/temporal/TemporalAmount;)Ljava/time/chrono/JapaneseDate;", nullptr, $PUBLIC},
-	{"plus", "(JLjava/time/temporal/TemporalUnit;)Ljava/time/chrono/JapaneseDate;", nullptr, $PUBLIC},
-	{"plusDays", "(J)Ljava/time/chrono/JapaneseDate;", nullptr, 0},
-	{"plusMonths", "(J)Ljava/time/chrono/JapaneseDate;", nullptr, 0},
-	{"plusWeeks", "(J)Ljava/time/chrono/JapaneseDate;", nullptr, 0},
-	{"plusYears", "(J)Ljava/time/chrono/JapaneseDate;", nullptr, 0},
-	{"range", "(Ljava/time/temporal/TemporalField;)Ljava/time/temporal/ValueRange;", nullptr, $PUBLIC},
-	{"readExternal", "(Ljava/io/DataInput;)Ljava/time/chrono/JapaneseDate;", nullptr, $STATIC, $method(static_cast<JapaneseDate*(*)($DataInput*)>(&JapaneseDate::readExternal)), "java.io.IOException"},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(JapaneseDate::*)($ObjectInputStream*)>(&JapaneseDate::readObject)), "java.io.InvalidObjectException"},
-	{"toEpochDay", "()J", nullptr, $PUBLIC},
-	{"toPrivateJapaneseDate", "(Ljava/time/LocalDate;)Lsun/util/calendar/LocalGregorianCalendar$Date;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$LocalGregorianCalendar$Date*(*)($LocalDate*)>(&JapaneseDate::toPrivateJapaneseDate))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"until", "(Ljava/time/chrono/ChronoLocalDate;)Ljava/time/chrono/ChronoPeriod;", nullptr, $PUBLIC},
-	{"until", "(Ljava/time/temporal/Temporal;Ljava/time/temporal/TemporalUnit;)J", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"with", "(Ljava/time/temporal/TemporalField;J)Ljava/time/chrono/JapaneseDate;", nullptr, $PUBLIC},
-	{"with", "(Ljava/time/temporal/TemporalAdjuster;)Ljava/time/chrono/JapaneseDate;", nullptr, $PUBLIC},
-	{"with", "(Ljava/time/LocalDate;)Ljava/time/chrono/JapaneseDate;", nullptr, $PRIVATE, $method(static_cast<JapaneseDate*(JapaneseDate::*)($LocalDate*)>(&JapaneseDate::with))},
-	{"withYear", "(Ljava/time/chrono/JapaneseEra;I)Ljava/time/chrono/JapaneseDate;", nullptr, $PRIVATE, $method(static_cast<JapaneseDate*(JapaneseDate::*)($JapaneseEra*,int32_t)>(&JapaneseDate::withYear))},
-	{"withYear", "(I)Ljava/time/chrono/JapaneseDate;", nullptr, $PRIVATE, $method(static_cast<JapaneseDate*(JapaneseDate::*)(int32_t)>(&JapaneseDate::withYear))},
-	{"writeExternal", "(Ljava/io/DataOutput;)V", nullptr, 0, $method(static_cast<void(JapaneseDate::*)($DataOutput*)>(&JapaneseDate::writeExternal)), "java.io.IOException"},
-	{"writeReplace", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(static_cast<$Object*(JapaneseDate::*)()>(&JapaneseDate::writeReplace))},
+	{"<init>", "(Ljava/time/LocalDate;)V", nullptr, 0, $method(JapaneseDate, init$, void, $LocalDate*)},
+	{"<init>", "(Ljava/time/chrono/JapaneseEra;ILjava/time/LocalDate;)V", nullptr, 0, $method(JapaneseDate, init$, void, $JapaneseEra*, int32_t, $LocalDate*)},
+	{"atTime", "(Ljava/time/LocalTime;)Ljava/time/chrono/ChronoLocalDateTime;", "(Ljava/time/LocalTime;)Ljava/time/chrono/ChronoLocalDateTime<Ljava/time/chrono/JapaneseDate;>;", $PUBLIC | $FINAL, $virtualMethod(JapaneseDate, atTime, $ChronoLocalDateTime*, $LocalTime*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(JapaneseDate, equals, bool, Object$*)},
+	{"from", "(Ljava/time/temporal/TemporalAccessor;)Ljava/time/chrono/JapaneseDate;", nullptr, $PUBLIC | $STATIC, $staticMethod(JapaneseDate, from, JapaneseDate*, $TemporalAccessor*)},
+	{"getChronology", "()Ljava/time/chrono/JapaneseChronology;", nullptr, $PUBLIC, $virtualMethod(JapaneseDate, getChronology, $Chronology*)},
+	{"getEra", "()Ljava/time/chrono/JapaneseEra;", nullptr, $PUBLIC, $virtualMethod(JapaneseDate, getEra, $Era*)},
+	{"getLong", "(Ljava/time/temporal/TemporalField;)J", nullptr, $PUBLIC, $virtualMethod(JapaneseDate, getLong, int64_t, $TemporalField*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(JapaneseDate, hashCode, int32_t)},
+	{"isSupported", "(Ljava/time/temporal/TemporalField;)Z", nullptr, $PUBLIC, $virtualMethod(JapaneseDate, isSupported, bool, $TemporalField*)},
+	{"lengthOfMonth", "()I", nullptr, $PUBLIC, $virtualMethod(JapaneseDate, lengthOfMonth, int32_t)},
+	{"lengthOfYear", "()I", nullptr, $PUBLIC, $virtualMethod(JapaneseDate, lengthOfYear, int32_t)},
+	{"minus", "(Ljava/time/temporal/TemporalAmount;)Ljava/time/chrono/JapaneseDate;", nullptr, $PUBLIC, $virtualMethod(JapaneseDate, minus, JapaneseDate*, $TemporalAmount*)},
+	{"minus", "(JLjava/time/temporal/TemporalUnit;)Ljava/time/chrono/JapaneseDate;", nullptr, $PUBLIC, $virtualMethod(JapaneseDate, minus, JapaneseDate*, int64_t, $TemporalUnit*)},
+	{"minusDays", "(J)Ljava/time/chrono/JapaneseDate;", nullptr, 0, $virtualMethod(JapaneseDate, minusDays, JapaneseDate*, int64_t)},
+	{"minusMonths", "(J)Ljava/time/chrono/JapaneseDate;", nullptr, 0, $virtualMethod(JapaneseDate, minusMonths, JapaneseDate*, int64_t)},
+	{"minusWeeks", "(J)Ljava/time/chrono/JapaneseDate;", nullptr, 0, $virtualMethod(JapaneseDate, minusWeeks, JapaneseDate*, int64_t)},
+	{"minusYears", "(J)Ljava/time/chrono/JapaneseDate;", nullptr, 0, $virtualMethod(JapaneseDate, minusYears, JapaneseDate*, int64_t)},
+	{"now", "()Ljava/time/chrono/JapaneseDate;", nullptr, $PUBLIC | $STATIC, $staticMethod(JapaneseDate, now, JapaneseDate*)},
+	{"now", "(Ljava/time/ZoneId;)Ljava/time/chrono/JapaneseDate;", nullptr, $PUBLIC | $STATIC, $staticMethod(JapaneseDate, now, JapaneseDate*, $ZoneId*)},
+	{"now", "(Ljava/time/Clock;)Ljava/time/chrono/JapaneseDate;", nullptr, $PUBLIC | $STATIC, $staticMethod(JapaneseDate, now, JapaneseDate*, $Clock*)},
+	{"of", "(Ljava/time/chrono/JapaneseEra;III)Ljava/time/chrono/JapaneseDate;", nullptr, $PUBLIC | $STATIC, $staticMethod(JapaneseDate, of, JapaneseDate*, $JapaneseEra*, int32_t, int32_t, int32_t)},
+	{"of", "(III)Ljava/time/chrono/JapaneseDate;", nullptr, $PUBLIC | $STATIC, $staticMethod(JapaneseDate, of, JapaneseDate*, int32_t, int32_t, int32_t)},
+	{"ofYearDay", "(Ljava/time/chrono/JapaneseEra;II)Ljava/time/chrono/JapaneseDate;", nullptr, $STATIC, $staticMethod(JapaneseDate, ofYearDay, JapaneseDate*, $JapaneseEra*, int32_t, int32_t)},
+	{"plus", "(Ljava/time/temporal/TemporalAmount;)Ljava/time/chrono/JapaneseDate;", nullptr, $PUBLIC, $virtualMethod(JapaneseDate, plus, JapaneseDate*, $TemporalAmount*)},
+	{"plus", "(JLjava/time/temporal/TemporalUnit;)Ljava/time/chrono/JapaneseDate;", nullptr, $PUBLIC, $virtualMethod(JapaneseDate, plus, JapaneseDate*, int64_t, $TemporalUnit*)},
+	{"plusDays", "(J)Ljava/time/chrono/JapaneseDate;", nullptr, 0, $virtualMethod(JapaneseDate, plusDays, JapaneseDate*, int64_t)},
+	{"plusMonths", "(J)Ljava/time/chrono/JapaneseDate;", nullptr, 0, $virtualMethod(JapaneseDate, plusMonths, JapaneseDate*, int64_t)},
+	{"plusWeeks", "(J)Ljava/time/chrono/JapaneseDate;", nullptr, 0, $virtualMethod(JapaneseDate, plusWeeks, JapaneseDate*, int64_t)},
+	{"plusYears", "(J)Ljava/time/chrono/JapaneseDate;", nullptr, 0, $virtualMethod(JapaneseDate, plusYears, JapaneseDate*, int64_t)},
+	{"range", "(Ljava/time/temporal/TemporalField;)Ljava/time/temporal/ValueRange;", nullptr, $PUBLIC, $virtualMethod(JapaneseDate, range, $ValueRange*, $TemporalField*)},
+	{"readExternal", "(Ljava/io/DataInput;)Ljava/time/chrono/JapaneseDate;", nullptr, $STATIC, $staticMethod(JapaneseDate, readExternal, JapaneseDate*, $DataInput*), "java.io.IOException"},
+	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(JapaneseDate, readObject, void, $ObjectInputStream*), "java.io.InvalidObjectException"},
+	{"toEpochDay", "()J", nullptr, $PUBLIC, $virtualMethod(JapaneseDate, toEpochDay, int64_t)},
+	{"toPrivateJapaneseDate", "(Ljava/time/LocalDate;)Lsun/util/calendar/LocalGregorianCalendar$Date;", nullptr, $PRIVATE | $STATIC, $staticMethod(JapaneseDate, toPrivateJapaneseDate, $LocalGregorianCalendar$Date*, $LocalDate*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JapaneseDate, toString, $String*)},
+	{"until", "(Ljava/time/chrono/ChronoLocalDate;)Ljava/time/chrono/ChronoPeriod;", nullptr, $PUBLIC, $virtualMethod(JapaneseDate, until, $ChronoPeriod*, $ChronoLocalDate*)},
+	{"until", "(Ljava/time/temporal/Temporal;Ljava/time/temporal/TemporalUnit;)J", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JapaneseDate, until, int64_t, $Temporal*, $TemporalUnit*)},
+	{"with", "(Ljava/time/temporal/TemporalField;J)Ljava/time/chrono/JapaneseDate;", nullptr, $PUBLIC, $virtualMethod(JapaneseDate, with, JapaneseDate*, $TemporalField*, int64_t)},
+	{"with", "(Ljava/time/temporal/TemporalAdjuster;)Ljava/time/chrono/JapaneseDate;", nullptr, $PUBLIC, $virtualMethod(JapaneseDate, with, JapaneseDate*, $TemporalAdjuster*)},
+	{"with", "(Ljava/time/LocalDate;)Ljava/time/chrono/JapaneseDate;", nullptr, $PRIVATE, $method(JapaneseDate, with, JapaneseDate*, $LocalDate*)},
+	{"withYear", "(Ljava/time/chrono/JapaneseEra;I)Ljava/time/chrono/JapaneseDate;", nullptr, $PRIVATE, $method(JapaneseDate, withYear, JapaneseDate*, $JapaneseEra*, int32_t)},
+	{"withYear", "(I)Ljava/time/chrono/JapaneseDate;", nullptr, $PRIVATE, $method(JapaneseDate, withYear, JapaneseDate*, int32_t)},
+	{"writeExternal", "(Ljava/io/DataOutput;)V", nullptr, 0, $method(JapaneseDate, writeExternal, void, $DataOutput*), "java.io.IOException"},
+	{"writeReplace", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(JapaneseDate, writeReplace, $Object*)},
 	{}
 };
 
@@ -289,7 +289,7 @@ $Chronology* JapaneseDate::getChronology() {
 	return $JapaneseChronology::INSTANCE;
 }
 
-$1Era* JapaneseDate::getEra() {
+$Era* JapaneseDate::getEra() {
 	return this->era;
 }
 
@@ -397,7 +397,7 @@ $LocalGregorianCalendar$Date* JapaneseDate::toPrivateJapaneseDate($LocalDate* is
 	$useLocalCurrentObjectStackCache();
 	$init($JapaneseChronology);
 	$var($LocalGregorianCalendar$Date, jdate, $cast($LocalGregorianCalendar$Date, $nc($JapaneseChronology::JCAL)->newCalendarDate(nullptr)));
-	$var($Era, sunEra, $JapaneseEra::privateEraFrom(isoDate));
+	$var($1Era, sunEra, $JapaneseEra::privateEraFrom(isoDate));
 	int32_t year = $nc(isoDate)->getYear();
 	if (sunEra != nullptr) {
 		year -= $nc($(sunEra->getSinceDate()))->getYear() - 1;

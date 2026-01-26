@@ -28,15 +28,15 @@ $FieldInfo _RuntimeImageReader$Resource_FieldInfo_[] = {
 };
 
 $MethodInfo _RuntimeImageReader$Resource_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/jimage/RuntimeImageLocation;Ljava/nio/file/attribute/BasicFileAttributes;)V", nullptr, $PRIVATE, $method(static_cast<void(RuntimeImageReader$Resource::*)($RuntimeImageLocation*,$BasicFileAttributes*)>(&RuntimeImageReader$Resource::init$))},
-	{"compressedSize", "()J", nullptr, $PUBLIC},
-	{"contentOffset", "()J", nullptr, $PUBLIC},
-	{"create", "(Ljdk/internal/jimage/ImageReader$Directory;Ljdk/internal/jimage/RuntimeImageLocation;Ljava/nio/file/attribute/BasicFileAttributes;)Ljdk/internal/jimage/RuntimeImageReader$Resource;", nullptr, $STATIC, $method(static_cast<RuntimeImageReader$Resource*(*)($ImageReader$Directory*,$RuntimeImageLocation*,$BasicFileAttributes*)>(&RuntimeImageReader$Resource::create))},
-	{"extension", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getLocation", "()Ljdk/internal/jimage/RuntimeImageLocation;", nullptr, $PUBLIC},
-	{"isCompleted", "()Z", nullptr, $PUBLIC},
-	{"isResource", "()Z", nullptr, $PUBLIC},
-	{"size", "()J", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/jimage/RuntimeImageLocation;Ljava/nio/file/attribute/BasicFileAttributes;)V", nullptr, $PRIVATE, $method(RuntimeImageReader$Resource, init$, void, $RuntimeImageLocation*, $BasicFileAttributes*)},
+	{"compressedSize", "()J", nullptr, $PUBLIC, $virtualMethod(RuntimeImageReader$Resource, compressedSize, int64_t)},
+	{"contentOffset", "()J", nullptr, $PUBLIC, $virtualMethod(RuntimeImageReader$Resource, contentOffset, int64_t)},
+	{"create", "(Ljdk/internal/jimage/ImageReader$Directory;Ljdk/internal/jimage/RuntimeImageLocation;Ljava/nio/file/attribute/BasicFileAttributes;)Ljdk/internal/jimage/RuntimeImageReader$Resource;", nullptr, $STATIC, $staticMethod(RuntimeImageReader$Resource, create, RuntimeImageReader$Resource*, $ImageReader$Directory*, $RuntimeImageLocation*, $BasicFileAttributes*)},
+	{"extension", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RuntimeImageReader$Resource, extension, $String*)},
+	{"getLocation", "()Ljdk/internal/jimage/RuntimeImageLocation;", nullptr, $PUBLIC, $virtualMethod(RuntimeImageReader$Resource, getLocation, $ImageLocation*)},
+	{"isCompleted", "()Z", nullptr, $PUBLIC, $virtualMethod(RuntimeImageReader$Resource, isCompleted, bool)},
+	{"isResource", "()Z", nullptr, $PUBLIC, $virtualMethod(RuntimeImageReader$Resource, isResource, bool)},
+	{"size", "()J", nullptr, $PUBLIC, $virtualMethod(RuntimeImageReader$Resource, size, int64_t)},
 	{}
 };
 

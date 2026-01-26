@@ -18,7 +18,7 @@ $FieldInfo _AlreadyBoundException_FieldInfo_[] = {
 };
 
 $MethodInfo _AlreadyBoundException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(AlreadyBoundException::*)()>(&AlreadyBoundException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(AlreadyBoundException, init$, void)},
 	{}
 };
 

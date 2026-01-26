@@ -19,8 +19,8 @@ $FieldInfo _OptionalDataException_FieldInfo_[] = {
 };
 
 $MethodInfo _OptionalDataException_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, 0, $method(static_cast<void(OptionalDataException::*)(int32_t)>(&OptionalDataException::init$))},
-	{"<init>", "(Z)V", nullptr, 0, $method(static_cast<void(OptionalDataException::*)(bool)>(&OptionalDataException::init$))},
+	{"<init>", "(I)V", nullptr, 0, $method(OptionalDataException, init$, void, int32_t)},
+	{"<init>", "(Z)V", nullptr, 0, $method(OptionalDataException, init$, void, bool)},
 	{}
 };
 

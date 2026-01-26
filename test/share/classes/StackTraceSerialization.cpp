@@ -53,19 +53,19 @@ $FieldInfo _StackTraceSerialization_FieldInfo_[] = {
 };
 
 $MethodInfo _StackTraceSerialization_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(StackTraceSerialization::*)()>(&StackTraceSerialization::init$))},
-	{"a", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&StackTraceSerialization::a)), "HighLevelException"},
-	{"assertEmptyStackTrace", "(Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($Throwable*)>(&StackTraceSerialization::assertEmptyStackTrace))},
-	{"b", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&StackTraceSerialization::b)), "MidLevelException"},
-	{"c", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&StackTraceSerialization::c)), "MidLevelException"},
-	{"check", "(Ljava/lang/StackTraceElement;Ljava/lang/String;I)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($StackTraceElement*,$String*,int32_t)>(&StackTraceSerialization::check))},
-	{"d", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&StackTraceSerialization::d)), "LowLevelException"},
-	{"e", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&StackTraceSerialization::e)), "LowLevelException"},
-	{"equal", "(Ljava/lang/Throwable;Ljava/lang/Throwable;)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($Throwable*,$Throwable*)>(&StackTraceSerialization::equal))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&StackTraceSerialization::main)), "java.lang.Exception"},
-	{"reconstitute", "(Ljava/lang/Throwable;)Ljava/lang/Throwable;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$Throwable*(*)($Throwable*)>(&StackTraceSerialization::reconstitute))},
-	{"testWithFillInStackTrace", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&StackTraceSerialization::testWithFillInStackTrace))},
-	{"testWithSetStackTrace", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&StackTraceSerialization::testWithSetStackTrace))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(StackTraceSerialization, init$, void)},
+	{"a", "()V", nullptr, $STATIC, $staticMethod(StackTraceSerialization, a, void), "HighLevelException"},
+	{"assertEmptyStackTrace", "(Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(StackTraceSerialization, assertEmptyStackTrace, void, $Throwable*)},
+	{"b", "()V", nullptr, $STATIC, $staticMethod(StackTraceSerialization, b, void), "MidLevelException"},
+	{"c", "()V", nullptr, $STATIC, $staticMethod(StackTraceSerialization, c, void), "MidLevelException"},
+	{"check", "(Ljava/lang/StackTraceElement;Ljava/lang/String;I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(StackTraceSerialization, check, void, $StackTraceElement*, $String*, int32_t)},
+	{"d", "()V", nullptr, $STATIC, $staticMethod(StackTraceSerialization, d, void), "LowLevelException"},
+	{"e", "()V", nullptr, $STATIC, $staticMethod(StackTraceSerialization, e, void), "LowLevelException"},
+	{"equal", "(Ljava/lang/Throwable;Ljava/lang/Throwable;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(StackTraceSerialization, equal, bool, $Throwable*, $Throwable*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StackTraceSerialization, main, void, $StringArray*), "java.lang.Exception"},
+	{"reconstitute", "(Ljava/lang/Throwable;)Ljava/lang/Throwable;", nullptr, $PRIVATE | $STATIC, $staticMethod(StackTraceSerialization, reconstitute, $Throwable*, $Throwable*)},
+	{"testWithFillInStackTrace", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(StackTraceSerialization, testWithFillInStackTrace, void)},
+	{"testWithSetStackTrace", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(StackTraceSerialization, testWithSetStackTrace, void)},
 	{}
 };
 

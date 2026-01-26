@@ -28,9 +28,9 @@ $FieldInfo _DoubleByte$Decoder_DBCSONLY_FieldInfo_[] = {
 };
 
 $MethodInfo _DoubleByte$Decoder_DBCSONLY_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/charset/Charset;[[C[CIIZ)V", nullptr, $PUBLIC, $method(static_cast<void(DoubleByte$Decoder_DBCSONLY::*)($Charset*,$charArray2*,$chars*,int32_t,int32_t,bool)>(&DoubleByte$Decoder_DBCSONLY::init$))},
-	{"<init>", "(Ljava/nio/charset/Charset;[[C[CII)V", nullptr, $PUBLIC, $method(static_cast<void(DoubleByte$Decoder_DBCSONLY::*)($Charset*,$charArray2*,$chars*,int32_t,int32_t)>(&DoubleByte$Decoder_DBCSONLY::init$))},
-	{"crMalformedOrUnmappable", "(II)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED},
+	{"<init>", "(Ljava/nio/charset/Charset;[[C[CIIZ)V", nullptr, $PUBLIC, $method(DoubleByte$Decoder_DBCSONLY, init$, void, $Charset*, $charArray2*, $chars*, int32_t, int32_t, bool)},
+	{"<init>", "(Ljava/nio/charset/Charset;[[C[CII)V", nullptr, $PUBLIC, $method(DoubleByte$Decoder_DBCSONLY, init$, void, $Charset*, $charArray2*, $chars*, int32_t, int32_t)},
+	{"crMalformedOrUnmappable", "(II)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED, $virtualMethod(DoubleByte$Decoder_DBCSONLY, crMalformedOrUnmappable, $CoderResult*, int32_t, int32_t)},
 	{}
 };
 

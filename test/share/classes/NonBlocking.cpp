@@ -14,9 +14,9 @@ using $Pipe$SinkChannel = ::java::nio::channels::Pipe$SinkChannel;
 using $Pipe$SourceChannel = ::java::nio::channels::Pipe$SourceChannel;
 
 $MethodInfo _NonBlocking_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(NonBlocking::*)()>(&NonBlocking::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&NonBlocking::main)), "java.lang.Exception"},
-	{"test1", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&NonBlocking::test1)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(NonBlocking, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(NonBlocking, main, void, $StringArray*), "java.lang.Exception"},
+	{"test1", "()V", nullptr, $STATIC, $staticMethod(NonBlocking, test1, void), "java.lang.Exception"},
 	{}
 };
 

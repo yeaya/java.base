@@ -9,9 +9,9 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 
 $MethodInfo _GetCanonicalPath_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(GetCanonicalPath::*)()>(&GetCanonicalPath::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&GetCanonicalPath::main)), "java.lang.Exception"},
-	{"testDriveLetter", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&GetCanonicalPath::testDriveLetter)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(GetCanonicalPath, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(GetCanonicalPath, main, void, $StringArray*), "java.lang.Exception"},
+	{"testDriveLetter", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(GetCanonicalPath, testDriveLetter, void), "java.lang.Exception"},
 	{}
 };
 

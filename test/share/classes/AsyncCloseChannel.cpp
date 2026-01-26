@@ -37,9 +37,9 @@ $FieldInfo _AsyncCloseChannel_FieldInfo_[] = {
 };
 
 $MethodInfo _AsyncCloseChannel_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(AsyncCloseChannel::*)()>(&AsyncCloseChannel::init$))},
-	{"closeIt", "(Ljava/net/Socket;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($Socket*)>(&AsyncCloseChannel::closeIt))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&AsyncCloseChannel::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(AsyncCloseChannel, init$, void)},
+	{"closeIt", "(Ljava/net/Socket;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(AsyncCloseChannel, closeIt, void, $Socket*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(AsyncCloseChannel, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

@@ -9,7 +9,7 @@ namespace java {
 	namespace security {
 
 $MethodInfo _Guard_MethodInfo_[] = {
-	{"checkGuard", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.lang.SecurityException"},
+	{"checkGuard", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Guard, checkGuard, void, Object$*), "java.lang.SecurityException"},
 	{}
 };
 

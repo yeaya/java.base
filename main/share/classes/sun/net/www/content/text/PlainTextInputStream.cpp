@@ -16,7 +16,7 @@ namespace sun {
 				namespace text {
 
 $MethodInfo _PlainTextInputStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/InputStream;)V", nullptr, 0, $method(static_cast<void(PlainTextInputStream::*)($InputStream*)>(&PlainTextInputStream::init$))},
+	{"<init>", "(Ljava/io/InputStream;)V", nullptr, 0, $method(PlainTextInputStream, init$, void, $InputStream*)},
 	{}
 };
 

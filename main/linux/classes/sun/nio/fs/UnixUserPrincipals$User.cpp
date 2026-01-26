@@ -22,14 +22,14 @@ $FieldInfo _UnixUserPrincipals$User_FieldInfo_[] = {
 };
 
 $MethodInfo _UnixUserPrincipals$User_MethodInfo_[] = {
-	{"<init>", "(IZLjava/lang/String;)V", nullptr, $PRIVATE, $method(static_cast<void(UnixUserPrincipals$User::*)(int32_t,bool,$String*)>(&UnixUserPrincipals$User::init$))},
-	{"<init>", "(ILjava/lang/String;)V", nullptr, 0, $method(static_cast<void(UnixUserPrincipals$User::*)(int32_t,$String*)>(&UnixUserPrincipals$User::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"gid", "()I", nullptr, 0},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"uid", "()I", nullptr, 0},
+	{"<init>", "(IZLjava/lang/String;)V", nullptr, $PRIVATE, $method(UnixUserPrincipals$User, init$, void, int32_t, bool, $String*)},
+	{"<init>", "(ILjava/lang/String;)V", nullptr, 0, $method(UnixUserPrincipals$User, init$, void, int32_t, $String*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(UnixUserPrincipals$User, equals, bool, Object$*)},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UnixUserPrincipals$User, getName, $String*)},
+	{"gid", "()I", nullptr, 0, $virtualMethod(UnixUserPrincipals$User, gid, int32_t)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(UnixUserPrincipals$User, hashCode, int32_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UnixUserPrincipals$User, toString, $String*)},
+	{"uid", "()I", nullptr, 0, $virtualMethod(UnixUserPrincipals$User, uid, int32_t)},
 	{}
 };
 

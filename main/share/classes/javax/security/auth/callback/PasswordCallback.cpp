@@ -27,12 +27,12 @@ $MethodInfo _PasswordCallback_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(static_cast<void(PasswordCallback::*)($String*,bool)>(&PasswordCallback::init$))},
-	{"clearPassword", "()V", nullptr, $PUBLIC},
-	{"getPassword", "()[C", nullptr, $PUBLIC},
-	{"getPrompt", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"isEchoOn", "()Z", nullptr, $PUBLIC},
-	{"setPassword", "([C)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(PasswordCallback, init$, void, $String*, bool)},
+	{"clearPassword", "()V", nullptr, $PUBLIC, $virtualMethod(PasswordCallback, clearPassword, void)},
+	{"getPassword", "()[C", nullptr, $PUBLIC, $virtualMethod(PasswordCallback, getPassword, $chars*)},
+	{"getPrompt", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PasswordCallback, getPrompt, $String*)},
+	{"isEchoOn", "()Z", nullptr, $PUBLIC, $virtualMethod(PasswordCallback, isEchoOn, bool)},
+	{"setPassword", "([C)V", nullptr, $PUBLIC, $virtualMethod(PasswordCallback, setPassword, void, $chars*)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

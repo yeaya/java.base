@@ -78,17 +78,17 @@ $FieldInfo _SunX509KeyManagerImpl_FieldInfo_[] = {
 };
 
 $MethodInfo _SunX509KeyManagerImpl_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/KeyStore;[C)V", nullptr, 0, $method(static_cast<void(SunX509KeyManagerImpl::*)($KeyStore*,$chars*)>(&SunX509KeyManagerImpl::init$)), "java.security.KeyStoreException,java.security.NoSuchAlgorithmException,java.security.UnrecoverableKeyException"},
-	{"chooseClientAlias", "([Ljava/lang/String;[Ljava/security/Principal;Ljava/net/Socket;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"chooseEngineClientAlias", "([Ljava/lang/String;[Ljava/security/Principal;Ljavax/net/ssl/SSLEngine;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"chooseEngineServerAlias", "(Ljava/lang/String;[Ljava/security/Principal;Ljavax/net/ssl/SSLEngine;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"chooseServerAlias", "(Ljava/lang/String;[Ljava/security/Principal;Ljava/net/Socket;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"convertPrincipals", "([Ljava/security/Principal;)[Ljavax/security/auth/x500/X500Principal;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$X500PrincipalArray*(*)($PrincipalArray*)>(&SunX509KeyManagerImpl::convertPrincipals))},
-	{"getAliases", "(Ljava/lang/String;[Ljava/security/Principal;)[Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$StringArray*(SunX509KeyManagerImpl::*)($String*,$PrincipalArray*)>(&SunX509KeyManagerImpl::getAliases))},
-	{"getCertificateChain", "(Ljava/lang/String;)[Ljava/security/cert/X509Certificate;", nullptr, $PUBLIC},
-	{"getClientAliases", "(Ljava/lang/String;[Ljava/security/Principal;)[Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getPrivateKey", "(Ljava/lang/String;)Ljava/security/PrivateKey;", nullptr, $PUBLIC},
-	{"getServerAliases", "(Ljava/lang/String;[Ljava/security/Principal;)[Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/security/KeyStore;[C)V", nullptr, 0, $method(SunX509KeyManagerImpl, init$, void, $KeyStore*, $chars*), "java.security.KeyStoreException,java.security.NoSuchAlgorithmException,java.security.UnrecoverableKeyException"},
+	{"chooseClientAlias", "([Ljava/lang/String;[Ljava/security/Principal;Ljava/net/Socket;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SunX509KeyManagerImpl, chooseClientAlias, $String*, $StringArray*, $PrincipalArray*, $Socket*)},
+	{"chooseEngineClientAlias", "([Ljava/lang/String;[Ljava/security/Principal;Ljavax/net/ssl/SSLEngine;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SunX509KeyManagerImpl, chooseEngineClientAlias, $String*, $StringArray*, $PrincipalArray*, $SSLEngine*)},
+	{"chooseEngineServerAlias", "(Ljava/lang/String;[Ljava/security/Principal;Ljavax/net/ssl/SSLEngine;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SunX509KeyManagerImpl, chooseEngineServerAlias, $String*, $String*, $PrincipalArray*, $SSLEngine*)},
+	{"chooseServerAlias", "(Ljava/lang/String;[Ljava/security/Principal;Ljava/net/Socket;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SunX509KeyManagerImpl, chooseServerAlias, $String*, $String*, $PrincipalArray*, $Socket*)},
+	{"convertPrincipals", "([Ljava/security/Principal;)[Ljavax/security/auth/x500/X500Principal;", nullptr, $PRIVATE | $STATIC, $staticMethod(SunX509KeyManagerImpl, convertPrincipals, $X500PrincipalArray*, $PrincipalArray*)},
+	{"getAliases", "(Ljava/lang/String;[Ljava/security/Principal;)[Ljava/lang/String;", nullptr, $PRIVATE, $method(SunX509KeyManagerImpl, getAliases, $StringArray*, $String*, $PrincipalArray*)},
+	{"getCertificateChain", "(Ljava/lang/String;)[Ljava/security/cert/X509Certificate;", nullptr, $PUBLIC, $virtualMethod(SunX509KeyManagerImpl, getCertificateChain, $X509CertificateArray*, $String*)},
+	{"getClientAliases", "(Ljava/lang/String;[Ljava/security/Principal;)[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SunX509KeyManagerImpl, getClientAliases, $StringArray*, $String*, $PrincipalArray*)},
+	{"getPrivateKey", "(Ljava/lang/String;)Ljava/security/PrivateKey;", nullptr, $PUBLIC, $virtualMethod(SunX509KeyManagerImpl, getPrivateKey, $PrivateKey*, $String*)},
+	{"getServerAliases", "(Ljava/lang/String;[Ljava/security/Principal;)[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SunX509KeyManagerImpl, getServerAliases, $StringArray*, $String*, $PrincipalArray*)},
 	{}
 };
 

@@ -100,8 +100,8 @@ $FieldInfo ResourceBundle$ResourceBundleProviderHelper$$Lambda$lambda$newResourc
 	{}
 };
 $MethodInfo ResourceBundle$ResourceBundleProviderHelper$$Lambda$lambda$newResourceBundle$0::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/reflect/Constructor;)V", nullptr, $PUBLIC, $method(static_cast<void(ResourceBundle$ResourceBundleProviderHelper$$Lambda$lambda$newResourceBundle$0::*)($Constructor*)>(&ResourceBundle$ResourceBundleProviderHelper$$Lambda$lambda$newResourceBundle$0::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/reflect/Constructor;)V", nullptr, $PUBLIC, $method(ResourceBundle$ResourceBundleProviderHelper$$Lambda$lambda$newResourceBundle$0, init$, void, $Constructor*)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ResourceBundle$ResourceBundleProviderHelper$$Lambda$lambda$newResourceBundle$0, run, $Object*)},
 	{}
 };
 $ClassInfo ResourceBundle$ResourceBundleProviderHelper$$Lambda$lambda$newResourceBundle$0::classInfo$ = {
@@ -143,8 +143,8 @@ $FieldInfo ResourceBundle$ResourceBundleProviderHelper$$Lambda$lambda$loadResour
 	{}
 };
 $MethodInfo ResourceBundle$ResourceBundleProviderHelper$$Lambda$lambda$loadResourceBundle$1$1::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/Module;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(ResourceBundle$ResourceBundleProviderHelper$$Lambda$lambda$loadResourceBundle$1$1::*)($Module*,$String*)>(&ResourceBundle$ResourceBundleProviderHelper$$Lambda$lambda$loadResourceBundle$1$1::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Module;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ResourceBundle$ResourceBundleProviderHelper$$Lambda$lambda$loadResourceBundle$1$1, init$, void, $Module*, $String*)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ResourceBundle$ResourceBundleProviderHelper$$Lambda$lambda$loadResourceBundle$1$1, run, $Object*)},
 	{}
 };
 $ClassInfo ResourceBundle$ResourceBundleProviderHelper$$Lambda$lambda$loadResourceBundle$1$1::classInfo$ = {
@@ -189,8 +189,8 @@ $FieldInfo ResourceBundle$ResourceBundleProviderHelper$$Lambda$lambda$loadProper
 	{}
 };
 $MethodInfo ResourceBundle$ResourceBundleProviderHelper$$Lambda$lambda$loadPropertyResourceBundle$2$2::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Module;Ljava/lang/Module;)V", nullptr, $PUBLIC, $method(static_cast<void(ResourceBundle$ResourceBundleProviderHelper$$Lambda$lambda$loadPropertyResourceBundle$2$2::*)($String*,$Module*,$Module*)>(&ResourceBundle$ResourceBundleProviderHelper$$Lambda$lambda$loadPropertyResourceBundle$2$2::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Module;Ljava/lang/Module;)V", nullptr, $PUBLIC, $method(ResourceBundle$ResourceBundleProviderHelper$$Lambda$lambda$loadPropertyResourceBundle$2$2, init$, void, $String*, $Module*, $Module*)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ResourceBundle$ResourceBundleProviderHelper$$Lambda$lambda$loadPropertyResourceBundle$2$2, run, $Object*)},
 	{}
 };
 $ClassInfo ResourceBundle$ResourceBundleProviderHelper$$Lambda$lambda$loadPropertyResourceBundle$2$2::classInfo$ = {
@@ -208,15 +208,15 @@ $Class* ResourceBundle$ResourceBundleProviderHelper$$Lambda$lambda$loadPropertyR
 $Class* ResourceBundle$ResourceBundleProviderHelper$$Lambda$lambda$loadPropertyResourceBundle$2$2::class$ = nullptr;
 
 $MethodInfo _ResourceBundle$ResourceBundleProviderHelper_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(ResourceBundle$ResourceBundleProviderHelper::*)()>(&ResourceBundle$ResourceBundleProviderHelper::init$))},
-	{"isAccessible", "(Ljava/lang/Module;Ljava/lang/Module;Ljava/lang/String;)Z", nullptr, $STATIC, $method(static_cast<bool(*)($Module*,$Module*,$String*)>(&ResourceBundle$ResourceBundleProviderHelper::isAccessible))},
-	{"lambda$loadPropertyResourceBundle$2", "(Ljava/lang/String;Ljava/lang/Module;Ljava/lang/Module;)Ljava/io/InputStream;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$InputStream*(*)($String*,$Module*,$Module*)>(&ResourceBundle$ResourceBundleProviderHelper::lambda$loadPropertyResourceBundle$2))},
-	{"lambda$loadResourceBundle$1", "(Ljava/lang/Module;Ljava/lang/String;)Ljava/lang/Class;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Class*(*)($Module*,$String*)>(&ResourceBundle$ResourceBundleProviderHelper::lambda$loadResourceBundle$1))},
-	{"lambda$newResourceBundle$0", "(Ljava/lang/reflect/Constructor;)Ljava/lang/Void;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Void*(*)($Constructor*)>(&ResourceBundle$ResourceBundleProviderHelper::lambda$newResourceBundle$0))},
-	{"loadPropertyResourceBundle", "(Ljava/lang/Module;Ljava/lang/Module;Ljava/lang/String;Ljava/util/Locale;)Ljava/util/ResourceBundle;", nullptr, $STATIC, $method(static_cast<$ResourceBundle*(*)($Module*,$Module*,$String*,$Locale*)>(&ResourceBundle$ResourceBundleProviderHelper::loadPropertyResourceBundle)), "java.io.IOException"},
-	{"loadResourceBundle", "(Ljava/lang/Module;Ljava/lang/Module;Ljava/lang/String;Ljava/util/Locale;)Ljava/util/ResourceBundle;", nullptr, $STATIC, $method(static_cast<$ResourceBundle*(*)($Module*,$Module*,$String*,$Locale*)>(&ResourceBundle$ResourceBundleProviderHelper::loadResourceBundle))},
-	{"newResourceBundle", "(Ljava/lang/Class;)Ljava/util/ResourceBundle;", "(Ljava/lang/Class<+Ljava/util/ResourceBundle;>;)Ljava/util/ResourceBundle;", $STATIC, $method(static_cast<$ResourceBundle*(*)($Class*)>(&ResourceBundle$ResourceBundleProviderHelper::newResourceBundle))},
-	{"toPackageName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($String*)>(&ResourceBundle$ResourceBundleProviderHelper::toPackageName))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(ResourceBundle$ResourceBundleProviderHelper, init$, void)},
+	{"isAccessible", "(Ljava/lang/Module;Ljava/lang/Module;Ljava/lang/String;)Z", nullptr, $STATIC, $staticMethod(ResourceBundle$ResourceBundleProviderHelper, isAccessible, bool, $Module*, $Module*, $String*)},
+	{"lambda$loadPropertyResourceBundle$2", "(Ljava/lang/String;Ljava/lang/Module;Ljava/lang/Module;)Ljava/io/InputStream;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ResourceBundle$ResourceBundleProviderHelper, lambda$loadPropertyResourceBundle$2, $InputStream*, $String*, $Module*, $Module*)},
+	{"lambda$loadResourceBundle$1", "(Ljava/lang/Module;Ljava/lang/String;)Ljava/lang/Class;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ResourceBundle$ResourceBundleProviderHelper, lambda$loadResourceBundle$1, $Class*, $Module*, $String*)},
+	{"lambda$newResourceBundle$0", "(Ljava/lang/reflect/Constructor;)Ljava/lang/Void;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ResourceBundle$ResourceBundleProviderHelper, lambda$newResourceBundle$0, $Void*, $Constructor*)},
+	{"loadPropertyResourceBundle", "(Ljava/lang/Module;Ljava/lang/Module;Ljava/lang/String;Ljava/util/Locale;)Ljava/util/ResourceBundle;", nullptr, $STATIC, $staticMethod(ResourceBundle$ResourceBundleProviderHelper, loadPropertyResourceBundle, $ResourceBundle*, $Module*, $Module*, $String*, $Locale*), "java.io.IOException"},
+	{"loadResourceBundle", "(Ljava/lang/Module;Ljava/lang/Module;Ljava/lang/String;Ljava/util/Locale;)Ljava/util/ResourceBundle;", nullptr, $STATIC, $staticMethod(ResourceBundle$ResourceBundleProviderHelper, loadResourceBundle, $ResourceBundle*, $Module*, $Module*, $String*, $Locale*)},
+	{"newResourceBundle", "(Ljava/lang/Class;)Ljava/util/ResourceBundle;", "(Ljava/lang/Class<+Ljava/util/ResourceBundle;>;)Ljava/util/ResourceBundle;", $STATIC, $staticMethod(ResourceBundle$ResourceBundleProviderHelper, newResourceBundle, $ResourceBundle*, $Class*)},
+	{"toPackageName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(ResourceBundle$ResourceBundleProviderHelper, toPackageName, $String*, $String*)},
 	{}
 };
 

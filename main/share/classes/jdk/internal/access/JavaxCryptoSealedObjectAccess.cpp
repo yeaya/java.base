@@ -5,15 +5,18 @@
 #include <javax/crypto/SealedObject.h>
 #include <jcpp.h>
 
+using $ObjectInputStream = ::java::io::ObjectInputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Cipher = ::javax::crypto::Cipher;
+using $SealedObject = ::javax::crypto::SealedObject;
 
 namespace jdk {
 	namespace internal {
 		namespace access {
 
 $MethodInfo _JavaxCryptoSealedObjectAccess_MethodInfo_[] = {
-	{"getExtObjectInputStream", "(Ljavax/crypto/SealedObject;Ljavax/crypto/Cipher;)Ljava/io/ObjectInputStream;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "javax.crypto.BadPaddingException,javax.crypto.IllegalBlockSizeException,java.io.IOException"},
+	{"getExtObjectInputStream", "(Ljavax/crypto/SealedObject;Ljavax/crypto/Cipher;)Ljava/io/ObjectInputStream;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JavaxCryptoSealedObjectAccess, getExtObjectInputStream, $ObjectInputStream*, $SealedObject*, $Cipher*), "javax.crypto.BadPaddingException,javax.crypto.IllegalBlockSizeException,java.io.IOException"},
 	{}
 };
 

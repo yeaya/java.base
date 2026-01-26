@@ -33,12 +33,12 @@ $FieldInfo _LinkedTransferQueue$Itr_FieldInfo_[] = {
 };
 
 $MethodInfo _LinkedTransferQueue$Itr_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/LinkedTransferQueue;)V", nullptr, 0, $method(static_cast<void(LinkedTransferQueue$Itr::*)($LinkedTransferQueue*)>(&LinkedTransferQueue$Itr::init$))},
-	{"advance", "(Ljava/util/concurrent/LinkedTransferQueue$Node;)V", nullptr, $PRIVATE, $method(static_cast<void(LinkedTransferQueue$Itr::*)($LinkedTransferQueue$Node*)>(&LinkedTransferQueue$Itr::advance))},
-	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC},
-	{"hasNext", "()Z", nullptr, $PUBLIC | $FINAL},
-	{"next", "()Ljava/lang/Object;", "()TE;", $PUBLIC | $FINAL},
-	{"remove", "()V", nullptr, $PUBLIC | $FINAL},
+	{"<init>", "(Ljava/util/concurrent/LinkedTransferQueue;)V", nullptr, 0, $method(LinkedTransferQueue$Itr, init$, void, $LinkedTransferQueue*)},
+	{"advance", "(Ljava/util/concurrent/LinkedTransferQueue$Node;)V", nullptr, $PRIVATE, $method(LinkedTransferQueue$Itr, advance, void, $LinkedTransferQueue$Node*)},
+	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC, $virtualMethod(LinkedTransferQueue$Itr, forEachRemaining, void, $Consumer*)},
+	{"hasNext", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(LinkedTransferQueue$Itr, hasNext, bool)},
+	{"next", "()Ljava/lang/Object;", "()TE;", $PUBLIC | $FINAL, $virtualMethod(LinkedTransferQueue$Itr, next, $Object*)},
+	{"remove", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(LinkedTransferQueue$Itr, remove, void)},
 	{}
 };
 

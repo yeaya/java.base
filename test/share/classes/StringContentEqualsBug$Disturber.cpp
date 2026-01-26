@@ -12,8 +12,8 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $StringBuffer = ::java::lang::StringBuffer;
 
 $MethodInfo _StringContentEqualsBug$Disturber_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/StringBuffer;)V", nullptr, 0, $method(static_cast<void(StringContentEqualsBug$Disturber::*)($StringBuffer*)>(&StringContentEqualsBug$Disturber::init$))},
-	{"doWith", "(Ljava/lang/StringBuffer;)V", nullptr, $PROTECTED},
+	{"<init>", "(Ljava/lang/StringBuffer;)V", nullptr, 0, $method(StringContentEqualsBug$Disturber, init$, void, $StringBuffer*)},
+	{"doWith", "(Ljava/lang/StringBuffer;)V", nullptr, $PROTECTED, $virtualMethod(StringContentEqualsBug$Disturber, doWith, void, $StringBuffer*)},
 	{}
 };
 

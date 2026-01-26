@@ -32,16 +32,16 @@ $FieldInfo _LocalGregorianCalendar$Date_FieldInfo_[] = {
 };
 
 $MethodInfo _LocalGregorianCalendar$Date_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(LocalGregorianCalendar$Date::*)()>(&LocalGregorianCalendar$Date::init$))},
-	{"<init>", "(Ljava/util/TimeZone;)V", nullptr, $PROTECTED, $method(static_cast<void(LocalGregorianCalendar$Date::*)($TimeZone*)>(&LocalGregorianCalendar$Date::init$))},
-	{"addYear", "(I)Lsun/util/calendar/LocalGregorianCalendar$Date;", nullptr, $PUBLIC},
-	{"getNormalizedYear", "()I", nullptr, $PUBLIC},
-	{"setEra", "(Lsun/util/calendar/Era;)Lsun/util/calendar/LocalGregorianCalendar$Date;", nullptr, $PUBLIC},
-	{"setLocalEra", "(Lsun/util/calendar/Era;)V", nullptr, 0},
-	{"setLocalYear", "(I)V", nullptr, 0},
-	{"setNormalizedYear", "(I)V", nullptr, $PUBLIC},
-	{"setYear", "(I)Lsun/util/calendar/LocalGregorianCalendar$Date;", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(LocalGregorianCalendar$Date, init$, void)},
+	{"<init>", "(Ljava/util/TimeZone;)V", nullptr, $PROTECTED, $method(LocalGregorianCalendar$Date, init$, void, $TimeZone*)},
+	{"addYear", "(I)Lsun/util/calendar/LocalGregorianCalendar$Date;", nullptr, $PUBLIC, $virtualMethod(LocalGregorianCalendar$Date, addYear, LocalGregorianCalendar$Date*, int32_t)},
+	{"getNormalizedYear", "()I", nullptr, $PUBLIC, $virtualMethod(LocalGregorianCalendar$Date, getNormalizedYear, int32_t)},
+	{"setEra", "(Lsun/util/calendar/Era;)Lsun/util/calendar/LocalGregorianCalendar$Date;", nullptr, $PUBLIC, $virtualMethod(LocalGregorianCalendar$Date, setEra, LocalGregorianCalendar$Date*, $Era*)},
+	{"setLocalEra", "(Lsun/util/calendar/Era;)V", nullptr, 0, $virtualMethod(LocalGregorianCalendar$Date, setLocalEra, void, $Era*)},
+	{"setLocalYear", "(I)V", nullptr, 0, $virtualMethod(LocalGregorianCalendar$Date, setLocalYear, void, int32_t)},
+	{"setNormalizedYear", "(I)V", nullptr, $PUBLIC, $virtualMethod(LocalGregorianCalendar$Date, setNormalizedYear, void, int32_t)},
+	{"setYear", "(I)Lsun/util/calendar/LocalGregorianCalendar$Date;", nullptr, $PUBLIC, $virtualMethod(LocalGregorianCalendar$Date, setYear, LocalGregorianCalendar$Date*, int32_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LocalGregorianCalendar$Date, toString, $String*)},
 	{}
 };
 

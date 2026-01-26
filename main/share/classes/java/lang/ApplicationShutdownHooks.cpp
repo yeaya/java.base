@@ -35,10 +35,10 @@ $FieldInfo _ApplicationShutdownHooks_FieldInfo_[] = {
 };
 
 $MethodInfo _ApplicationShutdownHooks_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(ApplicationShutdownHooks::*)()>(&ApplicationShutdownHooks::init$))},
-	{"add", "(Ljava/lang/Thread;)V", nullptr, $STATIC | $SYNCHRONIZED, $method(static_cast<void(*)($Thread*)>(&ApplicationShutdownHooks::add))},
-	{"remove", "(Ljava/lang/Thread;)Z", nullptr, $STATIC | $SYNCHRONIZED, $method(static_cast<bool(*)($Thread*)>(&ApplicationShutdownHooks::remove))},
-	{"runHooks", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&ApplicationShutdownHooks::runHooks))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(ApplicationShutdownHooks, init$, void)},
+	{"add", "(Ljava/lang/Thread;)V", nullptr, $STATIC | $SYNCHRONIZED, $staticMethod(ApplicationShutdownHooks, add, void, $Thread*)},
+	{"remove", "(Ljava/lang/Thread;)Z", nullptr, $STATIC | $SYNCHRONIZED, $staticMethod(ApplicationShutdownHooks, remove, bool, $Thread*)},
+	{"runHooks", "()V", nullptr, $STATIC, $staticMethod(ApplicationShutdownHooks, runHooks, void)},
 	{}
 };
 

@@ -12,9 +12,9 @@ using $URLDecoder = ::java::net::URLDecoder;
 using $URLEncoder = ::java::net::URLEncoder;
 
 $MethodInfo _Decoder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Decoder::*)()>(&Decoder::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Decoder::main)), "java.lang.Exception"},
-	{"printString", "(Ljava/lang/String;)V", nullptr, $STATIC, $method(static_cast<void(*)($String*)>(&Decoder::printString))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Decoder, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Decoder, main, void, $StringArray*), "java.lang.Exception"},
+	{"printString", "(Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(Decoder, printString, void, $String*)},
 	{}
 };
 

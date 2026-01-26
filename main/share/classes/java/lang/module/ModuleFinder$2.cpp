@@ -73,8 +73,8 @@ $FieldInfo ModuleFinder$2$$Lambda$lambda$find$0::fieldInfos[2] = {
 	{}
 };
 $MethodInfo ModuleFinder$2$$Lambda$lambda$find$0::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(ModuleFinder$2$$Lambda$lambda$find$0::*)($String*)>(&ModuleFinder$2$$Lambda$lambda$find$0::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ModuleFinder$2$$Lambda$lambda$find$0, init$, void, $String*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ModuleFinder$2$$Lambda$lambda$find$0, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo ModuleFinder$2$$Lambda$lambda$find$0::classInfo$ = {
@@ -106,8 +106,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ModuleFinder$2$$Lambda$stream$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ModuleFinder$2$$Lambda$stream$1::*)()>(&ModuleFinder$2$$Lambda$stream$1::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ModuleFinder$2$$Lambda$stream$1, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ModuleFinder$2$$Lambda$stream$1, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo ModuleFinder$2$$Lambda$stream$1::classInfo$ = {
@@ -149,8 +149,8 @@ $FieldInfo ModuleFinder$2$$Lambda$lambda$find$1$2::fieldInfos[3] = {
 	{}
 };
 $MethodInfo ModuleFinder$2$$Lambda$lambda$find$1$2::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/module/ModuleFinder$2;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(ModuleFinder$2$$Lambda$lambda$find$1$2::*)(ModuleFinder$2*,$String*)>(&ModuleFinder$2$$Lambda$lambda$find$1$2::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/module/ModuleFinder$2;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ModuleFinder$2$$Lambda$lambda$find$1$2, init$, void, ModuleFinder$2*, $String*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ModuleFinder$2$$Lambda$lambda$find$1$2, accept, void, Object$*)},
 	{}
 };
 $ClassInfo ModuleFinder$2$$Lambda$lambda$find$1$2::classInfo$ = {
@@ -182,8 +182,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ModuleFinder$2$$Lambda$lambda$findAll$2$3::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ModuleFinder$2$$Lambda$lambda$findAll$2$3::*)()>(&ModuleFinder$2$$Lambda$lambda$findAll$2$3::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ModuleFinder$2$$Lambda$lambda$findAll$2$3, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ModuleFinder$2$$Lambda$lambda$findAll$2$3, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo ModuleFinder$2$$Lambda$lambda$findAll$2$3::classInfo$ = {
@@ -225,8 +225,8 @@ $FieldInfo ModuleFinder$2$$Lambda$lambda$findAll$3$4::fieldInfos[3] = {
 	{}
 };
 $MethodInfo ModuleFinder$2$$Lambda$lambda$findAll$3$4::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/module/ModuleFinder$2;Ljava/util/Set;)V", nullptr, $PUBLIC, $method(static_cast<void(ModuleFinder$2$$Lambda$lambda$findAll$3$4::*)(ModuleFinder$2*,$Set*)>(&ModuleFinder$2$$Lambda$lambda$findAll$3$4::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/module/ModuleFinder$2;Ljava/util/Set;)V", nullptr, $PUBLIC, $method(ModuleFinder$2$$Lambda$lambda$findAll$3$4, init$, void, ModuleFinder$2*, $Set*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ModuleFinder$2$$Lambda$lambda$findAll$3$4, accept, void, Object$*)},
 	{}
 };
 $ClassInfo ModuleFinder$2$$Lambda$lambda$findAll$3$4::classInfo$ = {
@@ -251,13 +251,13 @@ $FieldInfo _ModuleFinder$2_FieldInfo_[] = {
 };
 
 $MethodInfo _ModuleFinder$2_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/List;)V", "()V", 0, $method(static_cast<void(ModuleFinder$2::*)($List*)>(&ModuleFinder$2::init$))},
-	{"find", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/lang/module/ModuleReference;>;", $PUBLIC},
-	{"findAll", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/module/ModuleReference;>;", $PUBLIC},
-	{"lambda$find$0", "(Ljava/lang/String;Ljava/lang/module/ModuleFinder;)Ljava/util/Optional;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Optional*(*)($String*,$ModuleFinder*)>(&ModuleFinder$2::lambda$find$0))},
-	{"lambda$find$1", "(Ljava/lang/String;Ljava/lang/module/ModuleReference;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(ModuleFinder$2::*)($String*,$ModuleReference*)>(&ModuleFinder$2::lambda$find$1))},
-	{"lambda$findAll$2", "(Ljava/lang/module/ModuleFinder;)Ljava/util/stream/Stream;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Stream*(*)($ModuleFinder*)>(&ModuleFinder$2::lambda$findAll$2))},
-	{"lambda$findAll$3", "(Ljava/util/Set;Ljava/lang/module/ModuleReference;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(ModuleFinder$2::*)($Set*,$ModuleReference*)>(&ModuleFinder$2::lambda$findAll$3))},
+	{"<init>", "(Ljava/util/List;)V", "()V", 0, $method(ModuleFinder$2, init$, void, $List*)},
+	{"find", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/lang/module/ModuleReference;>;", $PUBLIC, $virtualMethod(ModuleFinder$2, find, $Optional*, $String*)},
+	{"findAll", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/module/ModuleReference;>;", $PUBLIC, $virtualMethod(ModuleFinder$2, findAll, $Set*)},
+	{"lambda$find$0", "(Ljava/lang/String;Ljava/lang/module/ModuleFinder;)Ljava/util/Optional;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ModuleFinder$2, lambda$find$0, $Optional*, $String*, $ModuleFinder*)},
+	{"lambda$find$1", "(Ljava/lang/String;Ljava/lang/module/ModuleReference;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(ModuleFinder$2, lambda$find$1, void, $String*, $ModuleReference*)},
+	{"lambda$findAll$2", "(Ljava/lang/module/ModuleFinder;)Ljava/util/stream/Stream;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ModuleFinder$2, lambda$findAll$2, $Stream*, $ModuleFinder*)},
+	{"lambda$findAll$3", "(Ljava/util/Set;Ljava/lang/module/ModuleReference;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(ModuleFinder$2, lambda$findAll$3, void, $Set*, $ModuleReference*)},
 	{}
 };
 

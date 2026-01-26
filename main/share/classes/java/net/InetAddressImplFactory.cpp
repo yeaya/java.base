@@ -13,9 +13,9 @@ namespace java {
 	namespace net {
 
 $MethodInfo _InetAddressImplFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(InetAddressImplFactory::*)()>(&InetAddressImplFactory::init$))},
-	{"create", "()Ljava/net/InetAddressImpl;", nullptr, $STATIC, $method(static_cast<$InetAddressImpl*(*)()>(&InetAddressImplFactory::create))},
-	{"isIPv6Supported", "()Z", nullptr, $STATIC | $NATIVE, $method(static_cast<bool(*)()>(&InetAddressImplFactory::isIPv6Supported))},
+	{"<init>", "()V", nullptr, 0, $method(InetAddressImplFactory, init$, void)},
+	{"create", "()Ljava/net/InetAddressImpl;", nullptr, $STATIC, $staticMethod(InetAddressImplFactory, create, $InetAddressImpl*)},
+	{"isIPv6Supported", "()Z", nullptr, $STATIC | $NATIVE, $staticMethod(InetAddressImplFactory, isIPv6Supported, bool)},
 	{}
 };
 

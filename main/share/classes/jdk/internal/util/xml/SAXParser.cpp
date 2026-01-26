@@ -36,15 +36,15 @@ namespace jdk {
 			namespace xml {
 
 $MethodInfo _SAXParser_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(SAXParser::*)()>(&SAXParser::init$))},
-	{"getXMLReader", "()Ljdk/internal/org/xml/sax/XMLReader;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "jdk.internal.org.xml.sax.SAXException"},
-	{"isNamespaceAware", "()Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"isValidating", "()Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"isXIncludeAware", "()Z", nullptr, $PUBLIC},
-	{"parse", "(Ljava/io/InputStream;Ljdk/internal/org/xml/sax/helpers/DefaultHandler;)V", nullptr, $PUBLIC, nullptr, "jdk.internal.org.xml.sax.SAXException,java.io.IOException"},
-	{"parse", "(Ljava/lang/String;Ljdk/internal/org/xml/sax/helpers/DefaultHandler;)V", nullptr, $PUBLIC, nullptr, "jdk.internal.org.xml.sax.SAXException,java.io.IOException"},
-	{"parse", "(Ljava/io/File;Ljdk/internal/org/xml/sax/helpers/DefaultHandler;)V", nullptr, $PUBLIC, nullptr, "jdk.internal.org.xml.sax.SAXException,java.io.IOException"},
-	{"parse", "(Ljdk/internal/org/xml/sax/InputSource;Ljdk/internal/org/xml/sax/helpers/DefaultHandler;)V", nullptr, $PUBLIC, nullptr, "jdk.internal.org.xml.sax.SAXException,java.io.IOException"},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(SAXParser, init$, void)},
+	{"getXMLReader", "()Ljdk/internal/org/xml/sax/XMLReader;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SAXParser, getXMLReader, $XMLReader*), "jdk.internal.org.xml.sax.SAXException"},
+	{"isNamespaceAware", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SAXParser, isNamespaceAware, bool)},
+	{"isValidating", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SAXParser, isValidating, bool)},
+	{"isXIncludeAware", "()Z", nullptr, $PUBLIC, $virtualMethod(SAXParser, isXIncludeAware, bool)},
+	{"parse", "(Ljava/io/InputStream;Ljdk/internal/org/xml/sax/helpers/DefaultHandler;)V", nullptr, $PUBLIC, $virtualMethod(SAXParser, parse, void, $InputStream*, $DefaultHandler*), "jdk.internal.org.xml.sax.SAXException,java.io.IOException"},
+	{"parse", "(Ljava/lang/String;Ljdk/internal/org/xml/sax/helpers/DefaultHandler;)V", nullptr, $PUBLIC, $virtualMethod(SAXParser, parse, void, $String*, $DefaultHandler*), "jdk.internal.org.xml.sax.SAXException,java.io.IOException"},
+	{"parse", "(Ljava/io/File;Ljdk/internal/org/xml/sax/helpers/DefaultHandler;)V", nullptr, $PUBLIC, $virtualMethod(SAXParser, parse, void, $File*, $DefaultHandler*), "jdk.internal.org.xml.sax.SAXException,java.io.IOException"},
+	{"parse", "(Ljdk/internal/org/xml/sax/InputSource;Ljdk/internal/org/xml/sax/helpers/DefaultHandler;)V", nullptr, $PUBLIC, $virtualMethod(SAXParser, parse, void, $InputSource*, $DefaultHandler*), "jdk.internal.org.xml.sax.SAXException,java.io.IOException"},
 	{}
 };
 

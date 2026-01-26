@@ -26,11 +26,11 @@ $FieldInfo _JCAUtil_FieldInfo_[] = {
 };
 
 $MethodInfo _JCAUtil_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(JCAUtil::*)()>(&JCAUtil::init$))},
-	{"clearDefSecureRandom", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&JCAUtil::clearDefSecureRandom))},
-	{"getDefSecureRandom", "()Ljava/security/SecureRandom;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$SecureRandom*(*)()>(&JCAUtil::getDefSecureRandom))},
-	{"getSecureRandom", "()Ljava/security/SecureRandom;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$SecureRandom*(*)()>(&JCAUtil::getSecureRandom))},
-	{"getTempArraySize", "(I)I", nullptr, $PUBLIC | $STATIC, $method(static_cast<int32_t(*)(int32_t)>(&JCAUtil::getTempArraySize))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(JCAUtil, init$, void)},
+	{"clearDefSecureRandom", "()V", nullptr, $STATIC, $staticMethod(JCAUtil, clearDefSecureRandom, void)},
+	{"getDefSecureRandom", "()Ljava/security/SecureRandom;", nullptr, $PUBLIC | $STATIC, $staticMethod(JCAUtil, getDefSecureRandom, $SecureRandom*)},
+	{"getSecureRandom", "()Ljava/security/SecureRandom;", nullptr, $PUBLIC | $STATIC, $staticMethod(JCAUtil, getSecureRandom, $SecureRandom*)},
+	{"getTempArraySize", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(JCAUtil, getTempArraySize, int32_t, int32_t)},
 	{}
 };
 

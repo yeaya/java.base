@@ -11,8 +11,8 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _CheckPermission$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(CheckPermission$1::*)()>(&CheckPermission$1::init$))},
-	{"accept", "(Ljava/io/File;Ljava/lang/String;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(CheckPermission$1, init$, void)},
+	{"accept", "(Ljava/io/File;Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(CheckPermission$1, accept, bool, $File*, $String*)},
 	{}
 };
 

@@ -31,7 +31,7 @@ $FieldInfo _HelloRequest_FieldInfo_[] = {
 };
 
 $MethodInfo _HelloRequest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(HelloRequest::*)()>(&HelloRequest::init$))},
+	{"<init>", "()V", nullptr, 0, $method(HelloRequest, init$, void)},
 	{}
 };
 

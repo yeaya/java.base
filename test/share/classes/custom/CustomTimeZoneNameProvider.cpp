@@ -26,11 +26,11 @@ $FieldInfo _CustomTimeZoneNameProvider_FieldInfo_[] = {
 };
 
 $MethodInfo _CustomTimeZoneNameProvider_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CustomTimeZoneNameProvider::*)()>(&CustomTimeZoneNameProvider::init$))},
-	{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC},
-	{"getDisplayName", "(Ljava/lang/String;ZILjava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getGenericDisplayName", "(Ljava/lang/String;ILjava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"isSupportedLocale", "(Ljava/util/Locale;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CustomTimeZoneNameProvider, init$, void)},
+	{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(CustomTimeZoneNameProvider, getAvailableLocales, $LocaleArray*)},
+	{"getDisplayName", "(Ljava/lang/String;ZILjava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CustomTimeZoneNameProvider, getDisplayName, $String*, $String*, bool, int32_t, $Locale*)},
+	{"getGenericDisplayName", "(Ljava/lang/String;ILjava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CustomTimeZoneNameProvider, getGenericDisplayName, $String*, $String*, int32_t, $Locale*)},
+	{"isSupportedLocale", "(Ljava/util/Locale;)Z", nullptr, $PUBLIC, $virtualMethod(CustomTimeZoneNameProvider, isSupportedLocale, bool, $Locale*)},
 	{}
 };
 

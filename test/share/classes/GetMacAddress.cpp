@@ -62,8 +62,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo GetMacAddress$$Lambda$lambda$static$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(GetMacAddress$$Lambda$lambda$static$0::*)()>(&GetMacAddress$$Lambda$lambda$static$0::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(GetMacAddress$$Lambda$lambda$static$0, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(GetMacAddress$$Lambda$lambda$static$0, test, bool, Object$*)},
 	{}
 };
 $ClassInfo GetMacAddress$$Lambda$lambda$static$0::classInfo$ = {
@@ -92,11 +92,11 @@ $FieldInfo _GetMacAddress_FieldInfo_[] = {
 };
 
 $MethodInfo _GetMacAddress_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/NetworkInterface;Ljava/lang/String;Ljava/util/concurrent/Phaser;)V", nullptr, $PUBLIC, $method(static_cast<void(GetMacAddress::*)($NetworkInterface*,$String*,$Phaser*)>(&GetMacAddress::init$))},
-	{"call", "()Ljava/lang/Exception;", nullptr, $PUBLIC},
-	{"getNetworkInterfacesAsStream", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljava/net/NetworkInterface;>;", $PUBLIC | $STATIC, $method(static_cast<$Stream*(*)()>(&GetMacAddress::getNetworkInterfacesAsStream)), "java.lang.Exception"},
-	{"lambda$static$0", "(Ljava/net/NetworkInterface;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($NetworkInterface*)>(&GetMacAddress::lambda$static$0))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&GetMacAddress::main)), "java.lang.Exception"},
+	{"<init>", "(Ljava/net/NetworkInterface;Ljava/lang/String;Ljava/util/concurrent/Phaser;)V", nullptr, $PUBLIC, $method(GetMacAddress, init$, void, $NetworkInterface*, $String*, $Phaser*)},
+	{"call", "()Ljava/lang/Exception;", nullptr, $PUBLIC, $virtualMethod(GetMacAddress, call, $Object*)},
+	{"getNetworkInterfacesAsStream", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljava/net/NetworkInterface;>;", $PUBLIC | $STATIC, $staticMethod(GetMacAddress, getNetworkInterfacesAsStream, $Stream*), "java.lang.Exception"},
+	{"lambda$static$0", "(Ljava/net/NetworkInterface;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(GetMacAddress, lambda$static$0, bool, $NetworkInterface*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(GetMacAddress, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

@@ -19,9 +19,9 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace indify {
 
 $MethodInfo _Indify$Method_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Indify$Method::*)()>(&Indify$Method::init$))},
-	{"code", "()Lindify/Indify$Code;", nullptr, $PUBLIC},
-	{"instructions", "()Lindify/Indify$Instruction;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Indify$Method, init$, void)},
+	{"code", "()Lindify/Indify$Code;", nullptr, $PUBLIC, $virtualMethod(Indify$Method, code, $Indify$Code*)},
+	{"instructions", "()Lindify/Indify$Instruction;", nullptr, $PUBLIC, $virtualMethod(Indify$Method, instructions, $Indify$Instruction*)},
 	{}
 };
 

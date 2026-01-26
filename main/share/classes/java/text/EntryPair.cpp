@@ -17,8 +17,8 @@ $FieldInfo _EntryPair_FieldInfo_[] = {
 };
 
 $MethodInfo _EntryPair_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(static_cast<void(EntryPair::*)($String*,int32_t)>(&EntryPair::init$))},
-	{"<init>", "(Ljava/lang/String;IZ)V", nullptr, $PUBLIC, $method(static_cast<void(EntryPair::*)($String*,int32_t,bool)>(&EntryPair::init$))},
+	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(EntryPair, init$, void, $String*, int32_t)},
+	{"<init>", "(Ljava/lang/String;IZ)V", nullptr, $PUBLIC, $method(EntryPair, init$, void, $String*, int32_t, bool)},
 	{}
 };
 

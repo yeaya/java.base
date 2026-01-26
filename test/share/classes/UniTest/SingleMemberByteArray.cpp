@@ -20,7 +20,7 @@ $CompoundAttribute _SingleMemberByteArray_Annotations_[] = {
 };
 
 $MethodInfo _SingleMemberByteArray_MethodInfo_[] = {
-	{"value", "()[B", nullptr, $PUBLIC | $ABSTRACT},
+	{"value", "()[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SingleMemberByteArray, value, $bytes*)},
 	{}
 };
 

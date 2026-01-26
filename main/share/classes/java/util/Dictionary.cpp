@@ -5,19 +5,20 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Enumeration = ::java::util::Enumeration;
 
 namespace java {
 	namespace util {
 
 $MethodInfo _Dictionary_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Dictionary::*)()>(&Dictionary::init$))},
-	{"elements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<TV;>;", $PUBLIC | $ABSTRACT},
-	{"get", "(Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/lang/Object;)TV;", $PUBLIC | $ABSTRACT},
-	{"isEmpty", "()Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"keys", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<TK;>;", $PUBLIC | $ABSTRACT},
-	{"put", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", "(TK;TV;)TV;", $PUBLIC | $ABSTRACT},
-	{"remove", "(Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/lang/Object;)TV;", $PUBLIC | $ABSTRACT},
-	{"size", "()I", nullptr, $PUBLIC | $ABSTRACT},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Dictionary, init$, void)},
+	{"elements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<TV;>;", $PUBLIC | $ABSTRACT, $virtualMethod(Dictionary, elements, $Enumeration*)},
+	{"get", "(Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/lang/Object;)TV;", $PUBLIC | $ABSTRACT, $virtualMethod(Dictionary, get, $Object*, Object$*)},
+	{"isEmpty", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Dictionary, isEmpty, bool)},
+	{"keys", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<TK;>;", $PUBLIC | $ABSTRACT, $virtualMethod(Dictionary, keys, $Enumeration*)},
+	{"put", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", "(TK;TV;)TV;", $PUBLIC | $ABSTRACT, $virtualMethod(Dictionary, put, $Object*, Object$*, Object$*)},
+	{"remove", "(Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/lang/Object;)TV;", $PUBLIC | $ABSTRACT, $virtualMethod(Dictionary, remove, $Object*, Object$*)},
+	{"size", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Dictionary, size, int32_t)},
 	{}
 };
 

@@ -13,8 +13,8 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Socket = ::java::net::Socket;
 
 $MethodInfo _Streams$InputStreamGetter_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/Socket;)V", nullptr, $PUBLIC, $method(static_cast<void(Streams$InputStreamGetter::*)($Socket*)>(&Streams$InputStreamGetter::init$))},
-	{"getStream", "()V", nullptr, 0, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljava/net/Socket;)V", nullptr, $PUBLIC, $method(Streams$InputStreamGetter, init$, void, $Socket*)},
+	{"getStream", "()V", nullptr, 0, $virtualMethod(Streams$InputStreamGetter, getStream, void), "java.io.IOException"},
 	{}
 };
 

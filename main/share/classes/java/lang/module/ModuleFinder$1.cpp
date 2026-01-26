@@ -18,9 +18,9 @@ namespace java {
 		namespace module {
 
 $MethodInfo _ModuleFinder$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ModuleFinder$1::*)()>(&ModuleFinder$1::init$))},
-	{"find", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/lang/module/ModuleReference;>;", $PUBLIC},
-	{"findAll", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/module/ModuleReference;>;", $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(ModuleFinder$1, init$, void)},
+	{"find", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/lang/module/ModuleReference;>;", $PUBLIC, $virtualMethod(ModuleFinder$1, find, $Optional*, $String*)},
+	{"findAll", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/module/ModuleReference;>;", $PUBLIC, $virtualMethod(ModuleFinder$1, findAll, $Set*)},
 	{}
 };
 

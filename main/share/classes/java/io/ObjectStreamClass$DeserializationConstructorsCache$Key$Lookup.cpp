@@ -21,10 +21,10 @@ $FieldInfo _ObjectStreamClass$DeserializationConstructorsCache$Key$Lookup_FieldI
 };
 
 $MethodInfo _ObjectStreamClass$DeserializationConstructorsCache$Key$Lookup_MethodInfo_[] = {
-	{"<init>", "([Ljava/io/ObjectStreamField;)V", nullptr, 0, $method(static_cast<void(ObjectStreamClass$DeserializationConstructorsCache$Key$Lookup::*)($ObjectStreamFieldArray*)>(&ObjectStreamClass$DeserializationConstructorsCache$Key$Lookup::init$))},
-	{"fieldName", "(I)Ljava/lang/String;", nullptr, 0},
-	{"fieldType", "(I)Ljava/lang/Class;", "(I)Ljava/lang/Class<*>;", 0},
-	{"length", "()I", nullptr, 0},
+	{"<init>", "([Ljava/io/ObjectStreamField;)V", nullptr, 0, $method(ObjectStreamClass$DeserializationConstructorsCache$Key$Lookup, init$, void, $ObjectStreamFieldArray*)},
+	{"fieldName", "(I)Ljava/lang/String;", nullptr, 0, $virtualMethod(ObjectStreamClass$DeserializationConstructorsCache$Key$Lookup, fieldName, $String*, int32_t)},
+	{"fieldType", "(I)Ljava/lang/Class;", "(I)Ljava/lang/Class<*>;", 0, $virtualMethod(ObjectStreamClass$DeserializationConstructorsCache$Key$Lookup, fieldType, $Class*, int32_t)},
+	{"length", "()I", nullptr, 0, $virtualMethod(ObjectStreamClass$DeserializationConstructorsCache$Key$Lookup, length, int32_t)},
 	{}
 };
 

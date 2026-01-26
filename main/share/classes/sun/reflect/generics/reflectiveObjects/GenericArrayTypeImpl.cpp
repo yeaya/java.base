@@ -23,12 +23,12 @@ $FieldInfo _GenericArrayTypeImpl_FieldInfo_[] = {
 };
 
 $MethodInfo _GenericArrayTypeImpl_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/reflect/Type;)V", nullptr, $PRIVATE, $method(static_cast<void(GenericArrayTypeImpl::*)($Type*)>(&GenericArrayTypeImpl::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getGenericComponentType", "()Ljava/lang/reflect/Type;", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"make", "(Ljava/lang/reflect/Type;)Lsun/reflect/generics/reflectiveObjects/GenericArrayTypeImpl;", nullptr, $PUBLIC | $STATIC, $method(static_cast<GenericArrayTypeImpl*(*)($Type*)>(&GenericArrayTypeImpl::make))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/reflect/Type;)V", nullptr, $PRIVATE, $method(GenericArrayTypeImpl, init$, void, $Type*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(GenericArrayTypeImpl, equals, bool, Object$*)},
+	{"getGenericComponentType", "()Ljava/lang/reflect/Type;", nullptr, $PUBLIC, $virtualMethod(GenericArrayTypeImpl, getGenericComponentType, $Type*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(GenericArrayTypeImpl, hashCode, int32_t)},
+	{"make", "(Ljava/lang/reflect/Type;)Lsun/reflect/generics/reflectiveObjects/GenericArrayTypeImpl;", nullptr, $PUBLIC | $STATIC, $staticMethod(GenericArrayTypeImpl, make, GenericArrayTypeImpl*, $Type*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(GenericArrayTypeImpl, toString, $String*)},
 	{}
 };
 

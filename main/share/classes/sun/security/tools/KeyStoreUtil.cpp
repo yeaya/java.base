@@ -83,18 +83,18 @@ namespace sun {
 		namespace tools {
 
 $MethodInfo _KeyStoreUtil_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(KeyStoreUtil::*)()>(&KeyStoreUtil::init$))},
-	{"expandArgs", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)[Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$StringArray*(*)($String*,$String*,$String*,$String*,$StringArray*)>(&KeyStoreUtil::expandArgs)), "java.io.IOException,sun.security.util.PropertyExpander$ExpandException"},
-	{"getCacerts", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)()>(&KeyStoreUtil::getCacerts))},
-	{"getCacertsKeyStore", "()Ljava/security/KeyStore;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$KeyStore*(*)()>(&KeyStoreUtil::getCacertsKeyStore)), "java.lang.Exception"},
-	{"getPassWithModifier", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/ResourceBundle;Ljava/text/Collator;)[C", nullptr, $PUBLIC | $STATIC, $method(static_cast<$chars*(*)($String*,$String*,$ResourceBundle*,$Collator*)>(&KeyStoreUtil::getPassWithModifier))},
-	{"isSelfSigned", "(Ljava/security/cert/X509Certificate;)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)($X509Certificate*)>(&KeyStoreUtil::isSelfSigned))},
-	{"isWindowsKeyStore", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)($String*)>(&KeyStoreUtil::isWindowsKeyStore))},
-	{"loadProviderByClass", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/ClassLoader;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($String*,$String*,$ClassLoader*)>(&KeyStoreUtil::loadProviderByClass))},
-	{"loadProviderByName", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($String*,$String*)>(&KeyStoreUtil::loadProviderByName))},
-	{"niceStoreTypeName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)($String*)>(&KeyStoreUtil::niceStoreTypeName))},
-	{"parseArgsLine", "(Ljava/util/List;Ljava/lang/String;)V", "(Ljava/util/List<Ljava/lang/String;>;Ljava/lang/String;)V", $PRIVATE | $STATIC, $method(static_cast<void(*)($List*,$String*)>(&KeyStoreUtil::parseArgsLine)), "java.io.IOException,sun.security.util.PropertyExpander$ExpandException"},
-	{"signedBy", "(Ljava/security/cert/X509Certificate;Ljava/security/cert/X509Certificate;)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)($X509Certificate*,$X509Certificate*)>(&KeyStoreUtil::signedBy))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(KeyStoreUtil, init$, void)},
+	{"expandArgs", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)[Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyStoreUtil, expandArgs, $StringArray*, $String*, $String*, $String*, $String*, $StringArray*), "java.io.IOException,sun.security.util.PropertyExpander$ExpandException"},
+	{"getCacerts", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyStoreUtil, getCacerts, $String*)},
+	{"getCacertsKeyStore", "()Ljava/security/KeyStore;", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyStoreUtil, getCacertsKeyStore, $KeyStore*), "java.lang.Exception"},
+	{"getPassWithModifier", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/ResourceBundle;Ljava/text/Collator;)[C", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyStoreUtil, getPassWithModifier, $chars*, $String*, $String*, $ResourceBundle*, $Collator*)},
+	{"isSelfSigned", "(Ljava/security/cert/X509Certificate;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyStoreUtil, isSelfSigned, bool, $X509Certificate*)},
+	{"isWindowsKeyStore", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyStoreUtil, isWindowsKeyStore, bool, $String*)},
+	{"loadProviderByClass", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/ClassLoader;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyStoreUtil, loadProviderByClass, void, $String*, $String*, $ClassLoader*)},
+	{"loadProviderByName", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyStoreUtil, loadProviderByName, void, $String*, $String*)},
+	{"niceStoreTypeName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyStoreUtil, niceStoreTypeName, $String*, $String*)},
+	{"parseArgsLine", "(Ljava/util/List;Ljava/lang/String;)V", "(Ljava/util/List<Ljava/lang/String;>;Ljava/lang/String;)V", $PRIVATE | $STATIC, $staticMethod(KeyStoreUtil, parseArgsLine, void, $List*, $String*), "java.io.IOException,sun.security.util.PropertyExpander$ExpandException"},
+	{"signedBy", "(Ljava/security/cert/X509Certificate;Ljava/security/cert/X509Certificate;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyStoreUtil, signedBy, bool, $X509Certificate*, $X509Certificate*)},
 	{}
 };
 

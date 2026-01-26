@@ -22,13 +22,13 @@ $FieldInfo _Extension_FieldInfo_[] = {
 };
 
 $MethodInfo _Extension_MethodInfo_[] = {
-	{"<init>", "(C)V", nullptr, $PROTECTED, $method(static_cast<void(Extension::*)(char16_t)>(&Extension::init$))},
-	{"<init>", "(CLjava/lang/String;)V", nullptr, 0, $method(static_cast<void(Extension::*)(char16_t,$String*)>(&Extension::init$))},
-	{"getID", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getKey", "()C", nullptr, $PUBLIC},
-	{"getValue", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"setValue", "(Ljava/lang/String;)V", nullptr, $PROTECTED},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(C)V", nullptr, $PROTECTED, $method(Extension, init$, void, char16_t)},
+	{"<init>", "(CLjava/lang/String;)V", nullptr, 0, $method(Extension, init$, void, char16_t, $String*)},
+	{"getID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Extension, getID, $String*)},
+	{"getKey", "()C", nullptr, $PUBLIC, $virtualMethod(Extension, getKey, char16_t)},
+	{"getValue", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Extension, getValue, $String*)},
+	{"setValue", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(Extension, setValue, void, $String*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Extension, toString, $String*)},
 	{}
 };
 

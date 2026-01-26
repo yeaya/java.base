@@ -28,10 +28,10 @@ $FieldInfo _PassThroughFileSystem$PassThroughProvider$1$1_FieldInfo_[] = {
 };
 
 $MethodInfo _PassThroughFileSystem$PassThroughProvider$1$1_MethodInfo_[] = {
-	{"<init>", "(LPassThroughFileSystem$PassThroughProvider$1;Ljava/util/Iterator;)V", "()V", 0, $method(static_cast<void(PassThroughFileSystem$PassThroughProvider$1$1::*)($PassThroughFileSystem$PassThroughProvider$1*,$Iterator*)>(&PassThroughFileSystem$PassThroughProvider$1$1::init$))},
-	{"hasNext", "()Z", nullptr, $PUBLIC},
-	{"next", "()Ljava/nio/file/Path;", nullptr, $PUBLIC},
-	{"remove", "()V", nullptr, $PUBLIC},
+	{"<init>", "(LPassThroughFileSystem$PassThroughProvider$1;Ljava/util/Iterator;)V", "()V", 0, $method(PassThroughFileSystem$PassThroughProvider$1$1, init$, void, $PassThroughFileSystem$PassThroughProvider$1*, $Iterator*)},
+	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(PassThroughFileSystem$PassThroughProvider$1$1, hasNext, bool)},
+	{"next", "()Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(PassThroughFileSystem$PassThroughProvider$1$1, next, $Object*)},
+	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(PassThroughFileSystem$PassThroughProvider$1$1, remove, void)},
 	{}
 };
 

@@ -27,11 +27,11 @@ using $Annotation = ::java::lang::annotation::Annotation;
 using $Field = ::java::lang::reflect::Field;
 
 $MethodInfo _AnnotationToStringTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(AnnotationToStringTest::*)()>(&AnnotationToStringTest::init$))},
-	{"arrayAnnotationTest", "()I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)()>(&AnnotationToStringTest::arrayAnnotationTest))},
-	{"check", "(Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)($String*,$String*)>(&AnnotationToStringTest::check))},
-	{"classyTest", "()I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)()>(&AnnotationToStringTest::classyTest))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<void(*)($StringArray*)>(&AnnotationToStringTest::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(AnnotationToStringTest, init$, void)},
+	{"arrayAnnotationTest", "()I", nullptr, $PRIVATE | $STATIC, $staticMethod(AnnotationToStringTest, arrayAnnotationTest, int32_t)},
+	{"check", "(Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(AnnotationToStringTest, check, int32_t, $String*, $String*)},
+	{"classyTest", "()I", nullptr, $PRIVATE | $STATIC, $staticMethod(AnnotationToStringTest, classyTest, int32_t)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(AnnotationToStringTest, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

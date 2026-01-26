@@ -36,16 +36,16 @@ $FieldInfo _CalendarBuilder_FieldInfo_[] = {
 };
 
 $MethodInfo _CalendarBuilder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(CalendarBuilder::*)()>(&CalendarBuilder::init$))},
-	{"addYear", "(I)Ljava/text/CalendarBuilder;", nullptr, 0},
-	{"clear", "(I)Ljava/text/CalendarBuilder;", nullptr, 0},
-	{"establish", "(Ljava/util/Calendar;)Ljava/util/Calendar;", nullptr, 0},
-	{"isSet", "(I)Z", nullptr, 0},
-	{"isValidDayOfWeek", "(I)Z", nullptr, $STATIC, $method(static_cast<bool(*)(int32_t)>(&CalendarBuilder::isValidDayOfWeek))},
-	{"set", "(II)Ljava/text/CalendarBuilder;", nullptr, 0},
-	{"toCalendarDayOfWeek", "(I)I", nullptr, $STATIC, $method(static_cast<int32_t(*)(int32_t)>(&CalendarBuilder::toCalendarDayOfWeek))},
-	{"toISODayOfWeek", "(I)I", nullptr, $STATIC, $method(static_cast<int32_t(*)(int32_t)>(&CalendarBuilder::toISODayOfWeek))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(CalendarBuilder, init$, void)},
+	{"addYear", "(I)Ljava/text/CalendarBuilder;", nullptr, 0, $virtualMethod(CalendarBuilder, addYear, CalendarBuilder*, int32_t)},
+	{"clear", "(I)Ljava/text/CalendarBuilder;", nullptr, 0, $virtualMethod(CalendarBuilder, clear, CalendarBuilder*, int32_t)},
+	{"establish", "(Ljava/util/Calendar;)Ljava/util/Calendar;", nullptr, 0, $virtualMethod(CalendarBuilder, establish, $Calendar*, $Calendar*)},
+	{"isSet", "(I)Z", nullptr, 0, $virtualMethod(CalendarBuilder, isSet, bool, int32_t)},
+	{"isValidDayOfWeek", "(I)Z", nullptr, $STATIC, $staticMethod(CalendarBuilder, isValidDayOfWeek, bool, int32_t)},
+	{"set", "(II)Ljava/text/CalendarBuilder;", nullptr, 0, $virtualMethod(CalendarBuilder, set, CalendarBuilder*, int32_t, int32_t)},
+	{"toCalendarDayOfWeek", "(I)I", nullptr, $STATIC, $staticMethod(CalendarBuilder, toCalendarDayOfWeek, int32_t, int32_t)},
+	{"toISODayOfWeek", "(I)I", nullptr, $STATIC, $staticMethod(CalendarBuilder, toISODayOfWeek, int32_t, int32_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CalendarBuilder, toString, $String*)},
 	{}
 };
 

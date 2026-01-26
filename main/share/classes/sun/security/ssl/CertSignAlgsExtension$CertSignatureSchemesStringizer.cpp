@@ -20,8 +20,8 @@ namespace sun {
 		namespace ssl {
 
 $MethodInfo _CertSignAlgsExtension$CertSignatureSchemesStringizer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(CertSignAlgsExtension$CertSignatureSchemesStringizer::*)()>(&CertSignAlgsExtension$CertSignatureSchemesStringizer::init$))},
-	{"toString", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(CertSignAlgsExtension$CertSignatureSchemesStringizer, init$, void)},
+	{"toString", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CertSignAlgsExtension$CertSignatureSchemesStringizer, toString, $String*, $HandshakeContext*, $ByteBuffer*)},
 	{}
 };
 

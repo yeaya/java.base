@@ -25,14 +25,14 @@ $FieldInfo _PBEKeySpec_FieldInfo_[] = {
 };
 
 $MethodInfo _PBEKeySpec_MethodInfo_[] = {
-	{"<init>", "([C)V", nullptr, $PUBLIC, $method(static_cast<void(PBEKeySpec::*)($chars*)>(&PBEKeySpec::init$))},
-	{"<init>", "([C[BII)V", nullptr, $PUBLIC, $method(static_cast<void(PBEKeySpec::*)($chars*,$bytes*,int32_t,int32_t)>(&PBEKeySpec::init$))},
-	{"<init>", "([C[BI)V", nullptr, $PUBLIC, $method(static_cast<void(PBEKeySpec::*)($chars*,$bytes*,int32_t)>(&PBEKeySpec::init$))},
-	{"clearPassword", "()V", nullptr, $PUBLIC | $FINAL, $method(static_cast<void(PBEKeySpec::*)()>(&PBEKeySpec::clearPassword))},
-	{"getIterationCount", "()I", nullptr, $PUBLIC | $FINAL, $method(static_cast<int32_t(PBEKeySpec::*)()>(&PBEKeySpec::getIterationCount))},
-	{"getKeyLength", "()I", nullptr, $PUBLIC | $FINAL, $method(static_cast<int32_t(PBEKeySpec::*)()>(&PBEKeySpec::getKeyLength))},
-	{"getPassword", "()[C", nullptr, $PUBLIC | $FINAL, $method(static_cast<$chars*(PBEKeySpec::*)()>(&PBEKeySpec::getPassword))},
-	{"getSalt", "()[B", nullptr, $PUBLIC | $FINAL, $method(static_cast<$bytes*(PBEKeySpec::*)()>(&PBEKeySpec::getSalt))},
+	{"<init>", "([C)V", nullptr, $PUBLIC, $method(PBEKeySpec, init$, void, $chars*)},
+	{"<init>", "([C[BII)V", nullptr, $PUBLIC, $method(PBEKeySpec, init$, void, $chars*, $bytes*, int32_t, int32_t)},
+	{"<init>", "([C[BI)V", nullptr, $PUBLIC, $method(PBEKeySpec, init$, void, $chars*, $bytes*, int32_t)},
+	{"clearPassword", "()V", nullptr, $PUBLIC | $FINAL, $method(PBEKeySpec, clearPassword, void)},
+	{"getIterationCount", "()I", nullptr, $PUBLIC | $FINAL, $method(PBEKeySpec, getIterationCount, int32_t)},
+	{"getKeyLength", "()I", nullptr, $PUBLIC | $FINAL, $method(PBEKeySpec, getKeyLength, int32_t)},
+	{"getPassword", "()[C", nullptr, $PUBLIC | $FINAL, $method(PBEKeySpec, getPassword, $chars*)},
+	{"getSalt", "()[B", nullptr, $PUBLIC | $FINAL, $method(PBEKeySpec, getSalt, $bytes*)},
 	{}
 };
 

@@ -38,18 +38,18 @@ $FieldInfo _ProgressMonitor_FieldInfo_[] = {
 };
 
 $MethodInfo _ProgressMonitor_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ProgressMonitor::*)()>(&ProgressMonitor::init$))},
-	{"addProgressListener", "(Lsun/net/ProgressListener;)V", nullptr, $PUBLIC},
-	{"getDefault", "()Lsun/net/ProgressMonitor;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $method(static_cast<ProgressMonitor*(*)()>(&ProgressMonitor::getDefault))},
-	{"getProgressSources", "()Ljava/util/ArrayList;", "()Ljava/util/ArrayList<Lsun/net/ProgressSource;>;", $PUBLIC},
-	{"getProgressUpdateThreshold", "()I", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"registerSource", "(Lsun/net/ProgressSource;)V", nullptr, $PUBLIC},
-	{"removeProgressListener", "(Lsun/net/ProgressListener;)V", nullptr, $PUBLIC},
-	{"setDefault", "(Lsun/net/ProgressMonitor;)V", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $method(static_cast<void(*)(ProgressMonitor*)>(&ProgressMonitor::setDefault))},
-	{"setMeteringPolicy", "(Lsun/net/ProgressMeteringPolicy;)V", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $method(static_cast<void(*)($ProgressMeteringPolicy*)>(&ProgressMonitor::setMeteringPolicy))},
-	{"shouldMeterInput", "(Ljava/net/URL;Ljava/lang/String;)Z", nullptr, $PUBLIC},
-	{"unregisterSource", "(Lsun/net/ProgressSource;)V", nullptr, $PUBLIC},
-	{"updateProgress", "(Lsun/net/ProgressSource;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ProgressMonitor, init$, void)},
+	{"addProgressListener", "(Lsun/net/ProgressListener;)V", nullptr, $PUBLIC, $virtualMethod(ProgressMonitor, addProgressListener, void, $ProgressListener*)},
+	{"getDefault", "()Lsun/net/ProgressMonitor;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(ProgressMonitor, getDefault, ProgressMonitor*)},
+	{"getProgressSources", "()Ljava/util/ArrayList;", "()Ljava/util/ArrayList<Lsun/net/ProgressSource;>;", $PUBLIC, $virtualMethod(ProgressMonitor, getProgressSources, $ArrayList*)},
+	{"getProgressUpdateThreshold", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ProgressMonitor, getProgressUpdateThreshold, int32_t)},
+	{"registerSource", "(Lsun/net/ProgressSource;)V", nullptr, $PUBLIC, $virtualMethod(ProgressMonitor, registerSource, void, $ProgressSource*)},
+	{"removeProgressListener", "(Lsun/net/ProgressListener;)V", nullptr, $PUBLIC, $virtualMethod(ProgressMonitor, removeProgressListener, void, $ProgressListener*)},
+	{"setDefault", "(Lsun/net/ProgressMonitor;)V", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(ProgressMonitor, setDefault, void, ProgressMonitor*)},
+	{"setMeteringPolicy", "(Lsun/net/ProgressMeteringPolicy;)V", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(ProgressMonitor, setMeteringPolicy, void, $ProgressMeteringPolicy*)},
+	{"shouldMeterInput", "(Ljava/net/URL;Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(ProgressMonitor, shouldMeterInput, bool, $URL*, $String*)},
+	{"unregisterSource", "(Lsun/net/ProgressSource;)V", nullptr, $PUBLIC, $virtualMethod(ProgressMonitor, unregisterSource, void, $ProgressSource*)},
+	{"updateProgress", "(Lsun/net/ProgressSource;)V", nullptr, $PUBLIC, $virtualMethod(ProgressMonitor, updateProgress, void, $ProgressSource*)},
 	{}
 };
 

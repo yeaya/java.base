@@ -15,8 +15,8 @@ using $ClosedChannelException = ::java::nio::channels::ClosedChannelException;
 using $DatagramChannel = ::java::nio::channels::DatagramChannel;
 
 $MethodInfo _Receive_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Receive::*)()>(&Receive::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Receive::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Receive, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Receive, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

@@ -33,9 +33,9 @@ $FieldInfo _PipeImpl_FieldInfo_[] = {
 };
 
 $MethodInfo _PipeImpl_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/channels/spi/SelectorProvider;)V", nullptr, 0, $method(static_cast<void(PipeImpl::*)($SelectorProvider*)>(&PipeImpl::init$)), "java.io.IOException"},
-	{"sink", "()Ljava/nio/channels/Pipe$SinkChannel;", nullptr, $PUBLIC},
-	{"source", "()Ljava/nio/channels/Pipe$SourceChannel;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/nio/channels/spi/SelectorProvider;)V", nullptr, 0, $method(PipeImpl, init$, void, $SelectorProvider*), "java.io.IOException"},
+	{"sink", "()Ljava/nio/channels/Pipe$SinkChannel;", nullptr, $PUBLIC, $virtualMethod(PipeImpl, sink, $Pipe$SinkChannel*)},
+	{"source", "()Ljava/nio/channels/Pipe$SourceChannel;", nullptr, $PUBLIC, $virtualMethod(PipeImpl, source, $Pipe$SourceChannel*)},
 	{}
 };
 

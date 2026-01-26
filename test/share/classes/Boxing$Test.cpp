@@ -8,7 +8,7 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _Boxing$Test_MethodInfo_[] = {
-	{"m", "(BCDFIJSZ)V", nullptr, $PUBLIC | $ABSTRACT},
+	{"m", "(BCDFIJSZ)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Boxing$Test, m, void, int8_t, char16_t, double, float, int32_t, int64_t, int16_t, bool)},
 	{}
 };
 

@@ -26,7 +26,7 @@ $FieldInfo _FileInputStreamPool$StreamRef_FieldInfo_[] = {
 };
 
 $MethodInfo _FileInputStreamPool$StreamRef_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/File;Lsun/security/provider/FileInputStreamPool$UnclosableInputStream;Ljava/lang/ref/ReferenceQueue;)V", "(Ljava/io/File;Lsun/security/provider/FileInputStreamPool$UnclosableInputStream;Ljava/lang/ref/ReferenceQueue<Lsun/security/provider/FileInputStreamPool$UnclosableInputStream;>;)V", 0, $method(static_cast<void(FileInputStreamPool$StreamRef::*)($File*,$FileInputStreamPool$UnclosableInputStream*,$ReferenceQueue*)>(&FileInputStreamPool$StreamRef::init$))},
+	{"<init>", "(Ljava/io/File;Lsun/security/provider/FileInputStreamPool$UnclosableInputStream;Ljava/lang/ref/ReferenceQueue;)V", "(Ljava/io/File;Lsun/security/provider/FileInputStreamPool$UnclosableInputStream;Ljava/lang/ref/ReferenceQueue<Lsun/security/provider/FileInputStreamPool$UnclosableInputStream;>;)V", 0, $method(FileInputStreamPool$StreamRef, init$, void, $File*, $FileInputStreamPool$UnclosableInputStream*, $ReferenceQueue*)},
 	{}
 };
 

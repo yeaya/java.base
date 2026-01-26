@@ -132,8 +132,8 @@ $FieldInfo ModuleLayer$$Lambda$lambda$defineModulesWithOneLoader$0::fieldInfos[2
 	{}
 };
 $MethodInfo ModuleLayer$$Lambda$lambda$defineModulesWithOneLoader$0::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/loader/Loader;)V", nullptr, $PUBLIC, $method(static_cast<void(ModuleLayer$$Lambda$lambda$defineModulesWithOneLoader$0::*)($Loader*)>(&ModuleLayer$$Lambda$lambda$defineModulesWithOneLoader$0::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/loader/Loader;)V", nullptr, $PUBLIC, $method(ModuleLayer$$Lambda$lambda$defineModulesWithOneLoader$0, init$, void, $Loader*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ModuleLayer$$Lambda$lambda$defineModulesWithOneLoader$0, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo ModuleLayer$$Lambda$lambda$defineModulesWithOneLoader$0::classInfo$ = {
@@ -172,8 +172,8 @@ $FieldInfo ModuleLayer$$Lambda$loaderFor$1::fieldInfos[2] = {
 	{}
 };
 $MethodInfo ModuleLayer$$Lambda$loaderFor$1::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/loader/LoaderPool;)V", nullptr, $PUBLIC, $method(static_cast<void(ModuleLayer$$Lambda$loaderFor$1::*)($LoaderPool*)>(&ModuleLayer$$Lambda$loaderFor$1::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/loader/LoaderPool;)V", nullptr, $PUBLIC, $method(ModuleLayer$$Lambda$loaderFor$1, init$, void, $LoaderPool*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ModuleLayer$$Lambda$loaderFor$1, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo ModuleLayer$$Lambda$loaderFor$1::classInfo$ = {
@@ -205,8 +205,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ModuleLayer$$Lambda$lambda$checkForDuplicatePkgs$1$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ModuleLayer$$Lambda$lambda$checkForDuplicatePkgs$1$2::*)()>(&ModuleLayer$$Lambda$lambda$checkForDuplicatePkgs$1$2::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ModuleLayer$$Lambda$lambda$checkForDuplicatePkgs$1$2, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ModuleLayer$$Lambda$lambda$checkForDuplicatePkgs$1$2, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo ModuleLayer$$Lambda$lambda$checkForDuplicatePkgs$1$2::classInfo$ = {
@@ -245,8 +245,8 @@ $FieldInfo ModuleLayer$$Lambda$lambda$findModule$2$3::fieldInfos[2] = {
 	{}
 };
 $MethodInfo ModuleLayer$$Lambda$lambda$findModule$2$3::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(ModuleLayer$$Lambda$lambda$findModule$2$3::*)($String*)>(&ModuleLayer$$Lambda$lambda$findModule$2$3::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ModuleLayer$$Lambda$lambda$findModule$2$3, init$, void, $String*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ModuleLayer$$Lambda$lambda$findModule$2$3, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo ModuleLayer$$Lambda$lambda$findModule$2$3::classInfo$ = {
@@ -278,8 +278,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ModuleLayer$$Lambda$nonNull$4::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ModuleLayer$$Lambda$nonNull$4::*)()>(&ModuleLayer$$Lambda$nonNull$4::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ModuleLayer$$Lambda$nonNull$4, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ModuleLayer$$Lambda$nonNull$4, test, bool, Object$*)},
 	{}
 };
 $ClassInfo ModuleLayer$$Lambda$nonNull$4::classInfo$ = {
@@ -311,8 +311,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ModuleLayer$$Lambda$getName$5::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ModuleLayer$$Lambda$getName$5::*)()>(&ModuleLayer$$Lambda$getName$5::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ModuleLayer$$Lambda$getName$5, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ModuleLayer$$Lambda$getName$5, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo ModuleLayer$$Lambda$getName$5::classInfo$ = {
@@ -347,33 +347,33 @@ $FieldInfo _ModuleLayer_FieldInfo_[] = {
 };
 
 $MethodInfo _ModuleLayer_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/module/Configuration;Ljava/util/List;Ljava/util/function/Function;)V", "(Ljava/lang/module/Configuration;Ljava/util/List<Ljava/lang/ModuleLayer;>;Ljava/util/function/Function<Ljava/lang/String;Ljava/lang/ClassLoader;>;)V", $PRIVATE, $method(static_cast<void(ModuleLayer::*)($Configuration*,$List*,$Function*)>(&ModuleLayer::init$))},
-	{"bindToLoader", "(Ljava/lang/ClassLoader;)V", nullptr, 0, $method(static_cast<void(ModuleLayer::*)($ClassLoader*)>(&ModuleLayer::bindToLoader))},
-	{"boot", "()Ljava/lang/ModuleLayer;", nullptr, $PUBLIC | $STATIC, $method(static_cast<ModuleLayer*(*)()>(&ModuleLayer::boot))},
-	{"checkConfiguration", "(Ljava/lang/module/Configuration;Ljava/util/List;)V", "(Ljava/lang/module/Configuration;Ljava/util/List<Ljava/lang/ModuleLayer;>;)V", $PRIVATE | $STATIC, $method(static_cast<void(*)($Configuration*,$List*)>(&ModuleLayer::checkConfiguration))},
-	{"checkCreateClassLoaderPermission", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&ModuleLayer::checkCreateClassLoaderPermission))},
-	{"checkForDuplicatePkgs", "(Ljava/lang/module/Configuration;Ljava/util/function/Function;)V", "(Ljava/lang/module/Configuration;Ljava/util/function/Function<Ljava/lang/String;Ljava/lang/ClassLoader;>;)V", $PRIVATE | $STATIC, $method(static_cast<void(*)($Configuration*,$Function*)>(&ModuleLayer::checkForDuplicatePkgs))},
-	{"checkGetClassLoaderPermission", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&ModuleLayer::checkGetClassLoaderPermission))},
-	{"configuration", "()Ljava/lang/module/Configuration;", nullptr, $PUBLIC, $method(static_cast<$Configuration*(ModuleLayer::*)()>(&ModuleLayer::configuration))},
-	{"defineModules", "(Ljava/lang/module/Configuration;Ljava/util/function/Function;)Ljava/lang/ModuleLayer;", "(Ljava/lang/module/Configuration;Ljava/util/function/Function<Ljava/lang/String;Ljava/lang/ClassLoader;>;)Ljava/lang/ModuleLayer;", $PUBLIC, $method(static_cast<ModuleLayer*(ModuleLayer::*)($Configuration*,$Function*)>(&ModuleLayer::defineModules))},
-	{"defineModules", "(Ljava/lang/module/Configuration;Ljava/util/List;Ljava/util/function/Function;)Ljava/lang/ModuleLayer$Controller;", "(Ljava/lang/module/Configuration;Ljava/util/List<Ljava/lang/ModuleLayer;>;Ljava/util/function/Function<Ljava/lang/String;Ljava/lang/ClassLoader;>;)Ljava/lang/ModuleLayer$Controller;", $PUBLIC | $STATIC, $method(static_cast<$ModuleLayer$Controller*(*)($Configuration*,$List*,$Function*)>(&ModuleLayer::defineModules))},
-	{"defineModulesWithManyLoaders", "(Ljava/lang/module/Configuration;Ljava/lang/ClassLoader;)Ljava/lang/ModuleLayer;", nullptr, $PUBLIC, $method(static_cast<ModuleLayer*(ModuleLayer::*)($Configuration*,$ClassLoader*)>(&ModuleLayer::defineModulesWithManyLoaders))},
-	{"defineModulesWithManyLoaders", "(Ljava/lang/module/Configuration;Ljava/util/List;Ljava/lang/ClassLoader;)Ljava/lang/ModuleLayer$Controller;", "(Ljava/lang/module/Configuration;Ljava/util/List<Ljava/lang/ModuleLayer;>;Ljava/lang/ClassLoader;)Ljava/lang/ModuleLayer$Controller;", $PUBLIC | $STATIC, $method(static_cast<$ModuleLayer$Controller*(*)($Configuration*,$List*,$ClassLoader*)>(&ModuleLayer::defineModulesWithManyLoaders))},
-	{"defineModulesWithOneLoader", "(Ljava/lang/module/Configuration;Ljava/lang/ClassLoader;)Ljava/lang/ModuleLayer;", nullptr, $PUBLIC, $method(static_cast<ModuleLayer*(ModuleLayer::*)($Configuration*,$ClassLoader*)>(&ModuleLayer::defineModulesWithOneLoader))},
-	{"defineModulesWithOneLoader", "(Ljava/lang/module/Configuration;Ljava/util/List;Ljava/lang/ClassLoader;)Ljava/lang/ModuleLayer$Controller;", "(Ljava/lang/module/Configuration;Ljava/util/List<Ljava/lang/ModuleLayer;>;Ljava/lang/ClassLoader;)Ljava/lang/ModuleLayer$Controller;", $PUBLIC | $STATIC, $method(static_cast<$ModuleLayer$Controller*(*)($Configuration*,$List*,$ClassLoader*)>(&ModuleLayer::defineModulesWithOneLoader))},
-	{"empty", "()Ljava/lang/ModuleLayer;", nullptr, $PUBLIC | $STATIC, $method(static_cast<ModuleLayer*(*)()>(&ModuleLayer::empty))},
-	{"fail", "(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/LayerInstantiationException;", nullptr, $PRIVATE | $STATIC | $TRANSIENT, $method(static_cast<$LayerInstantiationException*(*)($String*,$ObjectArray*)>(&ModuleLayer::fail))},
-	{"findLoader", "(Ljava/lang/String;)Ljava/lang/ClassLoader;", nullptr, $PUBLIC, $method(static_cast<$ClassLoader*(ModuleLayer::*)($String*)>(&ModuleLayer::findLoader))},
-	{"findModule", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/lang/Module;>;", $PUBLIC, $method(static_cast<$Optional*(ModuleLayer::*)($String*)>(&ModuleLayer::findModule))},
-	{"getServicesCatalog", "()Ljdk/internal/module/ServicesCatalog;", nullptr, 0, $method(static_cast<$ServicesCatalog*(ModuleLayer::*)()>(&ModuleLayer::getServicesCatalog))},
-	{"lambda$checkForDuplicatePkgs$1", "(Ljava/lang/ClassLoader;)Ljava/util/Set;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Set*(*)($ClassLoader*)>(&ModuleLayer::lambda$checkForDuplicatePkgs$1))},
-	{"lambda$defineModulesWithOneLoader$0", "(Ljdk/internal/loader/Loader;Ljava/lang/String;)Ljava/lang/ClassLoader;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$ClassLoader*(*)($Loader*,$String*)>(&ModuleLayer::lambda$defineModulesWithOneLoader$0))},
-	{"lambda$findModule$2", "(Ljava/lang/String;Ljava/lang/ModuleLayer;)Ljava/lang/Module;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Module*(*)($String*,ModuleLayer*)>(&ModuleLayer::lambda$findModule$2))},
-	{"layers", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljava/lang/ModuleLayer;>;", 0, $method(static_cast<$Stream*(ModuleLayer::*)()>(&ModuleLayer::layers))},
-	{"layers", "(Ljava/lang/ClassLoader;)Ljava/util/stream/Stream;", "(Ljava/lang/ClassLoader;)Ljava/util/stream/Stream<Ljava/lang/ModuleLayer;>;", $STATIC, $method(static_cast<$Stream*(*)($ClassLoader*)>(&ModuleLayer::layers))},
-	{"modules", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/Module;>;", $PUBLIC, $method(static_cast<$Set*(ModuleLayer::*)()>(&ModuleLayer::modules))},
-	{"parents", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/ModuleLayer;>;", $PUBLIC, $method(static_cast<$List*(ModuleLayer::*)()>(&ModuleLayer::parents))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/module/Configuration;Ljava/util/List;Ljava/util/function/Function;)V", "(Ljava/lang/module/Configuration;Ljava/util/List<Ljava/lang/ModuleLayer;>;Ljava/util/function/Function<Ljava/lang/String;Ljava/lang/ClassLoader;>;)V", $PRIVATE, $method(ModuleLayer, init$, void, $Configuration*, $List*, $Function*)},
+	{"bindToLoader", "(Ljava/lang/ClassLoader;)V", nullptr, 0, $method(ModuleLayer, bindToLoader, void, $ClassLoader*)},
+	{"boot", "()Ljava/lang/ModuleLayer;", nullptr, $PUBLIC | $STATIC, $staticMethod(ModuleLayer, boot, ModuleLayer*)},
+	{"checkConfiguration", "(Ljava/lang/module/Configuration;Ljava/util/List;)V", "(Ljava/lang/module/Configuration;Ljava/util/List<Ljava/lang/ModuleLayer;>;)V", $PRIVATE | $STATIC, $staticMethod(ModuleLayer, checkConfiguration, void, $Configuration*, $List*)},
+	{"checkCreateClassLoaderPermission", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(ModuleLayer, checkCreateClassLoaderPermission, void)},
+	{"checkForDuplicatePkgs", "(Ljava/lang/module/Configuration;Ljava/util/function/Function;)V", "(Ljava/lang/module/Configuration;Ljava/util/function/Function<Ljava/lang/String;Ljava/lang/ClassLoader;>;)V", $PRIVATE | $STATIC, $staticMethod(ModuleLayer, checkForDuplicatePkgs, void, $Configuration*, $Function*)},
+	{"checkGetClassLoaderPermission", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(ModuleLayer, checkGetClassLoaderPermission, void)},
+	{"configuration", "()Ljava/lang/module/Configuration;", nullptr, $PUBLIC, $method(ModuleLayer, configuration, $Configuration*)},
+	{"defineModules", "(Ljava/lang/module/Configuration;Ljava/util/function/Function;)Ljava/lang/ModuleLayer;", "(Ljava/lang/module/Configuration;Ljava/util/function/Function<Ljava/lang/String;Ljava/lang/ClassLoader;>;)Ljava/lang/ModuleLayer;", $PUBLIC, $method(ModuleLayer, defineModules, ModuleLayer*, $Configuration*, $Function*)},
+	{"defineModules", "(Ljava/lang/module/Configuration;Ljava/util/List;Ljava/util/function/Function;)Ljava/lang/ModuleLayer$Controller;", "(Ljava/lang/module/Configuration;Ljava/util/List<Ljava/lang/ModuleLayer;>;Ljava/util/function/Function<Ljava/lang/String;Ljava/lang/ClassLoader;>;)Ljava/lang/ModuleLayer$Controller;", $PUBLIC | $STATIC, $staticMethod(ModuleLayer, defineModules, $ModuleLayer$Controller*, $Configuration*, $List*, $Function*)},
+	{"defineModulesWithManyLoaders", "(Ljava/lang/module/Configuration;Ljava/lang/ClassLoader;)Ljava/lang/ModuleLayer;", nullptr, $PUBLIC, $method(ModuleLayer, defineModulesWithManyLoaders, ModuleLayer*, $Configuration*, $ClassLoader*)},
+	{"defineModulesWithManyLoaders", "(Ljava/lang/module/Configuration;Ljava/util/List;Ljava/lang/ClassLoader;)Ljava/lang/ModuleLayer$Controller;", "(Ljava/lang/module/Configuration;Ljava/util/List<Ljava/lang/ModuleLayer;>;Ljava/lang/ClassLoader;)Ljava/lang/ModuleLayer$Controller;", $PUBLIC | $STATIC, $staticMethod(ModuleLayer, defineModulesWithManyLoaders, $ModuleLayer$Controller*, $Configuration*, $List*, $ClassLoader*)},
+	{"defineModulesWithOneLoader", "(Ljava/lang/module/Configuration;Ljava/lang/ClassLoader;)Ljava/lang/ModuleLayer;", nullptr, $PUBLIC, $method(ModuleLayer, defineModulesWithOneLoader, ModuleLayer*, $Configuration*, $ClassLoader*)},
+	{"defineModulesWithOneLoader", "(Ljava/lang/module/Configuration;Ljava/util/List;Ljava/lang/ClassLoader;)Ljava/lang/ModuleLayer$Controller;", "(Ljava/lang/module/Configuration;Ljava/util/List<Ljava/lang/ModuleLayer;>;Ljava/lang/ClassLoader;)Ljava/lang/ModuleLayer$Controller;", $PUBLIC | $STATIC, $staticMethod(ModuleLayer, defineModulesWithOneLoader, $ModuleLayer$Controller*, $Configuration*, $List*, $ClassLoader*)},
+	{"empty", "()Ljava/lang/ModuleLayer;", nullptr, $PUBLIC | $STATIC, $staticMethod(ModuleLayer, empty, ModuleLayer*)},
+	{"fail", "(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/LayerInstantiationException;", nullptr, $PRIVATE | $STATIC | $TRANSIENT, $staticMethod(ModuleLayer, fail, $LayerInstantiationException*, $String*, $ObjectArray*)},
+	{"findLoader", "(Ljava/lang/String;)Ljava/lang/ClassLoader;", nullptr, $PUBLIC, $method(ModuleLayer, findLoader, $ClassLoader*, $String*)},
+	{"findModule", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/lang/Module;>;", $PUBLIC, $method(ModuleLayer, findModule, $Optional*, $String*)},
+	{"getServicesCatalog", "()Ljdk/internal/module/ServicesCatalog;", nullptr, 0, $method(ModuleLayer, getServicesCatalog, $ServicesCatalog*)},
+	{"lambda$checkForDuplicatePkgs$1", "(Ljava/lang/ClassLoader;)Ljava/util/Set;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ModuleLayer, lambda$checkForDuplicatePkgs$1, $Set*, $ClassLoader*)},
+	{"lambda$defineModulesWithOneLoader$0", "(Ljdk/internal/loader/Loader;Ljava/lang/String;)Ljava/lang/ClassLoader;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ModuleLayer, lambda$defineModulesWithOneLoader$0, $ClassLoader*, $Loader*, $String*)},
+	{"lambda$findModule$2", "(Ljava/lang/String;Ljava/lang/ModuleLayer;)Ljava/lang/Module;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ModuleLayer, lambda$findModule$2, $Module*, $String*, ModuleLayer*)},
+	{"layers", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljava/lang/ModuleLayer;>;", 0, $method(ModuleLayer, layers, $Stream*)},
+	{"layers", "(Ljava/lang/ClassLoader;)Ljava/util/stream/Stream;", "(Ljava/lang/ClassLoader;)Ljava/util/stream/Stream<Ljava/lang/ModuleLayer;>;", $STATIC, $staticMethod(ModuleLayer, layers, $Stream*, $ClassLoader*)},
+	{"modules", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/Module;>;", $PUBLIC, $method(ModuleLayer, modules, $Set*)},
+	{"parents", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/ModuleLayer;>;", $PUBLIC, $method(ModuleLayer, parents, $List*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ModuleLayer, toString, $String*)},
 	{}
 };
 

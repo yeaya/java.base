@@ -53,17 +53,17 @@ $FieldInfo _TestObjectMethods_FieldInfo_[] = {
 };
 
 $MethodInfo _TestObjectMethods_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TestObjectMethods::*)()>(&TestObjectMethods::init$))},
-	{"checkTypesForEquality", "(Ljava/lang/reflect/AnnotatedType;Ljava/lang/reflect/AnnotatedType;Z)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($AnnotatedType*,$AnnotatedType*,bool)>(&TestObjectMethods::checkTypesForEquality))},
-	{"extractWildcard", "(Ljava/lang/String;)Ljava/lang/reflect/AnnotatedWildcardType;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$AnnotatedWildcardType*(*)($String*)>(&TestObjectMethods::extractWildcard))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<void(*)($StringArray*)>(&TestObjectMethods::main))},
-	{"testAnnotationsMatterForEquals", "(Ljava/lang/Class;Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)V", $STATIC, $method(static_cast<void(*)($Class*,$Class*)>(&TestObjectMethods::testAnnotationsMatterForEquals))},
-	{"testEquals", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $STATIC, $method(static_cast<void(*)($Class*)>(&TestObjectMethods::testEquals))},
-	{"testEqualsReflexivity", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $STATIC, $method(static_cast<void(*)($Class*)>(&TestObjectMethods::testEqualsReflexivity))},
-	{"testFbounds", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&TestObjectMethods::testFbounds))},
-	{"testGetAnnotations", "(Ljava/lang/Class;Z)V", "(Ljava/lang/Class<*>;Z)V", $STATIC, $method(static_cast<void(*)($Class*,bool)>(&TestObjectMethods::testGetAnnotations))},
-	{"testToString", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $STATIC, $method(static_cast<void(*)($Class*)>(&TestObjectMethods::testToString))},
-	{"testWildcards", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&TestObjectMethods::testWildcards))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TestObjectMethods, init$, void)},
+	{"checkTypesForEquality", "(Ljava/lang/reflect/AnnotatedType;Ljava/lang/reflect/AnnotatedType;Z)V", nullptr, $PRIVATE | $STATIC, $staticMethod(TestObjectMethods, checkTypesForEquality, void, $AnnotatedType*, $AnnotatedType*, bool)},
+	{"extractWildcard", "(Ljava/lang/String;)Ljava/lang/reflect/AnnotatedWildcardType;", nullptr, $PRIVATE | $STATIC, $staticMethod(TestObjectMethods, extractWildcard, $AnnotatedWildcardType*, $String*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(TestObjectMethods, main, void, $StringArray*)},
+	{"testAnnotationsMatterForEquals", "(Ljava/lang/Class;Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)V", $STATIC, $staticMethod(TestObjectMethods, testAnnotationsMatterForEquals, void, $Class*, $Class*)},
+	{"testEquals", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $STATIC, $staticMethod(TestObjectMethods, testEquals, void, $Class*)},
+	{"testEqualsReflexivity", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $STATIC, $staticMethod(TestObjectMethods, testEqualsReflexivity, void, $Class*)},
+	{"testFbounds", "()V", nullptr, $STATIC, $staticMethod(TestObjectMethods, testFbounds, void)},
+	{"testGetAnnotations", "(Ljava/lang/Class;Z)V", "(Ljava/lang/Class<*>;Z)V", $STATIC, $staticMethod(TestObjectMethods, testGetAnnotations, void, $Class*, bool)},
+	{"testToString", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $STATIC, $staticMethod(TestObjectMethods, testToString, void, $Class*)},
+	{"testWildcards", "()V", nullptr, $STATIC, $staticMethod(TestObjectMethods, testWildcards, void)},
 	{}
 };
 

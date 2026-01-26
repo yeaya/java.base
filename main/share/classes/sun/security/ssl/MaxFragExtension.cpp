@@ -51,7 +51,7 @@ $FieldInfo _MaxFragExtension_FieldInfo_[] = {
 };
 
 $MethodInfo _MaxFragExtension_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(MaxFragExtension::*)()>(&MaxFragExtension::init$))},
+	{"<init>", "()V", nullptr, 0, $method(MaxFragExtension, init$, void)},
 	{}
 };
 

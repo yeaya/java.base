@@ -44,10 +44,10 @@ $FieldInfo _MethodHandleImpl$Intrinsic_FieldInfo_[] = {
 };
 
 $MethodInfo _MethodHandleImpl$Intrinsic_MethodInfo_[] = {
-	{"$values", "()[Ljava/lang/invoke/MethodHandleImpl$Intrinsic;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$MethodHandleImpl$IntrinsicArray*(*)()>(&MethodHandleImpl$Intrinsic::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(MethodHandleImpl$Intrinsic::*)($String*,int32_t)>(&MethodHandleImpl$Intrinsic::init$))},
-	{"valueOf", "(Ljava/lang/String;)Ljava/lang/invoke/MethodHandleImpl$Intrinsic;", nullptr, $PUBLIC | $STATIC, $method(static_cast<MethodHandleImpl$Intrinsic*(*)($String*)>(&MethodHandleImpl$Intrinsic::valueOf))},
-	{"values", "()[Ljava/lang/invoke/MethodHandleImpl$Intrinsic;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$MethodHandleImpl$IntrinsicArray*(*)()>(&MethodHandleImpl$Intrinsic::values))},
+	{"$values", "()[Ljava/lang/invoke/MethodHandleImpl$Intrinsic;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MethodHandleImpl$Intrinsic, $values, $MethodHandleImpl$IntrinsicArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(MethodHandleImpl$Intrinsic, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Ljava/lang/invoke/MethodHandleImpl$Intrinsic;", nullptr, $PUBLIC | $STATIC, $staticMethod(MethodHandleImpl$Intrinsic, valueOf, MethodHandleImpl$Intrinsic*, $String*)},
+	{"values", "()[Ljava/lang/invoke/MethodHandleImpl$Intrinsic;", nullptr, $PUBLIC | $STATIC, $staticMethod(MethodHandleImpl$Intrinsic, values, $MethodHandleImpl$IntrinsicArray*)},
 	{}
 };
 

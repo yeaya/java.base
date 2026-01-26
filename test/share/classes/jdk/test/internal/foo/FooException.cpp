@@ -12,7 +12,7 @@ namespace jdk {
 			namespace foo {
 
 $MethodInfo _FooException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(FooException::*)()>(&FooException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(FooException, init$, void)},
 	{}
 };
 

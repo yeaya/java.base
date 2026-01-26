@@ -7,7 +7,7 @@ using $Exception = ::java::lang::Exception;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _HighLevelException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, 0, $method(static_cast<void(HighLevelException::*)($Throwable*)>(&HighLevelException::init$))},
+	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, 0, $method(HighLevelException, init$, void, $Throwable*)},
 	{}
 };
 

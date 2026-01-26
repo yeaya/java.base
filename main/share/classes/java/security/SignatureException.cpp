@@ -17,10 +17,10 @@ $FieldInfo _SignatureException_FieldInfo_[] = {
 };
 
 $MethodInfo _SignatureException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SignatureException::*)()>(&SignatureException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(SignatureException::*)($String*)>(&SignatureException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(SignatureException::*)($String*,$Throwable*)>(&SignatureException::init$))},
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(SignatureException::*)($Throwable*)>(&SignatureException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SignatureException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SignatureException, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SignatureException, init$, void, $String*, $Throwable*)},
+	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SignatureException, init$, void, $Throwable*)},
 	{}
 };
 

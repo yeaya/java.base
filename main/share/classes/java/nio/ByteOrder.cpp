@@ -24,9 +24,9 @@ $FieldInfo _ByteOrder_FieldInfo_[] = {
 };
 
 $MethodInfo _ByteOrder_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(static_cast<void(ByteOrder::*)($String*)>(&ByteOrder::init$))},
-	{"nativeOrder", "()Ljava/nio/ByteOrder;", nullptr, $PUBLIC | $STATIC, $method(static_cast<ByteOrder*(*)()>(&ByteOrder::nativeOrder))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(ByteOrder, init$, void, $String*)},
+	{"nativeOrder", "()Ljava/nio/ByteOrder;", nullptr, $PUBLIC | $STATIC, $staticMethod(ByteOrder, nativeOrder, ByteOrder*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ByteOrder, toString, $String*)},
 	{}
 };
 

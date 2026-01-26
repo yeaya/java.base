@@ -18,10 +18,10 @@ namespace java {
 		namespace Math2 {
 
 $MethodInfo _AbsPositiveZero_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(AbsPositiveZero::*)()>(&AbsPositiveZero::init$))},
-	{"isPositiveZero", "(F)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)(float)>(&AbsPositiveZero::isPositiveZero))},
-	{"isPositiveZero", "(D)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)(double)>(&AbsPositiveZero::isPositiveZero))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&AbsPositiveZero::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(AbsPositiveZero, init$, void)},
+	{"isPositiveZero", "(F)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(AbsPositiveZero, isPositiveZero, bool, float)},
+	{"isPositiveZero", "(D)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(AbsPositiveZero, isPositiveZero, bool, double)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(AbsPositiveZero, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

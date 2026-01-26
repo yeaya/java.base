@@ -17,10 +17,10 @@ namespace sun {
 		namespace calendar {
 
 $MethodInfo _Gregorian$Date_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(Gregorian$Date::*)()>(&Gregorian$Date::init$))},
-	{"<init>", "(Ljava/util/TimeZone;)V", nullptr, $PROTECTED, $method(static_cast<void(Gregorian$Date::*)($TimeZone*)>(&Gregorian$Date::init$))},
-	{"getNormalizedYear", "()I", nullptr, $PUBLIC},
-	{"setNormalizedYear", "(I)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(Gregorian$Date, init$, void)},
+	{"<init>", "(Ljava/util/TimeZone;)V", nullptr, $PROTECTED, $method(Gregorian$Date, init$, void, $TimeZone*)},
+	{"getNormalizedYear", "()I", nullptr, $PUBLIC, $virtualMethod(Gregorian$Date, getNormalizedYear, int32_t)},
+	{"setNormalizedYear", "(I)V", nullptr, $PUBLIC, $virtualMethod(Gregorian$Date, setNormalizedYear, void, int32_t)},
 	{}
 };
 

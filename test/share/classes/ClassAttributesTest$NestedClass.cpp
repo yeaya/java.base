@@ -15,7 +15,7 @@ $FieldInfo _ClassAttributesTest$NestedClass_FieldInfo_[] = {
 };
 
 $MethodInfo _ClassAttributesTest$NestedClass_MethodInfo_[] = {
-	{"<init>", "(LClassAttributesTest;)V", nullptr, 0, $method(static_cast<void(ClassAttributesTest$NestedClass::*)($ClassAttributesTest*)>(&ClassAttributesTest$NestedClass::init$))},
+	{"<init>", "(LClassAttributesTest;)V", nullptr, 0, $method(ClassAttributesTest$NestedClass, init$, void, $ClassAttributesTest*)},
 	{}
 };
 

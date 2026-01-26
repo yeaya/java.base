@@ -12,8 +12,8 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $MessageFormat = ::java::text::MessageFormat;
 
 $MethodInfo _Bug6481179_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Bug6481179::*)()>(&Bug6481179::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Bug6481179::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Bug6481179, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Bug6481179, main, void, $StringArray*)},
 	{}
 };
 

@@ -19,12 +19,12 @@ $FieldInfo _URLPermission$Authority_FieldInfo_[] = {
 };
 
 $MethodInfo _URLPermission$Authority_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(URLPermission$Authority::*)($String*,$String*)>(&URLPermission$Authority::init$))},
-	{"equals", "(Ljava/net/URLPermission$Authority;)Z", nullptr, 0},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"implies", "(Ljava/net/URLPermission$Authority;)Z", nullptr, 0},
-	{"impliesHostrange", "(Ljava/net/URLPermission$Authority;)Z", nullptr, $PRIVATE, $method(static_cast<bool(URLPermission$Authority::*)(URLPermission$Authority*)>(&URLPermission$Authority::impliesHostrange))},
-	{"impliesPortrange", "(Ljava/net/URLPermission$Authority;)Z", nullptr, $PRIVATE, $method(static_cast<bool(URLPermission$Authority::*)(URLPermission$Authority*)>(&URLPermission$Authority::impliesPortrange))},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(URLPermission$Authority, init$, void, $String*, $String*)},
+	{"equals", "(Ljava/net/URLPermission$Authority;)Z", nullptr, 0, $virtualMethod(URLPermission$Authority, equals, bool, URLPermission$Authority*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(URLPermission$Authority, hashCode, int32_t)},
+	{"implies", "(Ljava/net/URLPermission$Authority;)Z", nullptr, 0, $virtualMethod(URLPermission$Authority, implies, bool, URLPermission$Authority*)},
+	{"impliesHostrange", "(Ljava/net/URLPermission$Authority;)Z", nullptr, $PRIVATE, $method(URLPermission$Authority, impliesHostrange, bool, URLPermission$Authority*)},
+	{"impliesPortrange", "(Ljava/net/URLPermission$Authority;)Z", nullptr, $PRIVATE, $method(URLPermission$Authority, impliesPortrange, bool, URLPermission$Authority*)},
 	{}
 };
 

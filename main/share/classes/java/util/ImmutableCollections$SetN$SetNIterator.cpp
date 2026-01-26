@@ -27,9 +27,9 @@ $FieldInfo _ImmutableCollections$SetN$SetNIterator_FieldInfo_[] = {
 };
 
 $MethodInfo _ImmutableCollections$SetN$SetNIterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/ImmutableCollections$SetN;)V", nullptr, 0, $method(static_cast<void(ImmutableCollections$SetN$SetNIterator::*)($ImmutableCollections$SetN*)>(&ImmutableCollections$SetN$SetNIterator::init$))},
-	{"hasNext", "()Z", nullptr, $PUBLIC},
-	{"next", "()Ljava/lang/Object;", "()TE;", $PUBLIC},
+	{"<init>", "(Ljava/util/ImmutableCollections$SetN;)V", nullptr, 0, $method(ImmutableCollections$SetN$SetNIterator, init$, void, $ImmutableCollections$SetN*)},
+	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(ImmutableCollections$SetN$SetNIterator, hasNext, bool)},
+	{"next", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(ImmutableCollections$SetN$SetNIterator, next, $Object*)},
 	{}
 };
 

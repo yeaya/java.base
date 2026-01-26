@@ -11,7 +11,7 @@ namespace java {
 	namespace security {
 
 $MethodInfo _ProtectionDomain$Key_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ProtectionDomain$Key::*)()>(&ProtectionDomain$Key::init$))},
+	{"<init>", "()V", nullptr, 0, $method(ProtectionDomain$Key, init$, void)},
 	{}
 };
 

@@ -39,14 +39,14 @@ $FieldInfo _LocaleProviderAdapter$Type_FieldInfo_[] = {
 };
 
 $MethodInfo _LocaleProviderAdapter$Type_MethodInfo_[] = {
-	{"$values", "()[Lsun/util/locale/provider/LocaleProviderAdapter$Type;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$LocaleProviderAdapter$TypeArray*(*)()>(&LocaleProviderAdapter$Type::$values))},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "(Ljava/lang/String;)V", $PRIVATE, $method(static_cast<void(LocaleProviderAdapter$Type::*)($String*,int32_t,$String*)>(&LocaleProviderAdapter$Type::init$))},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", $PRIVATE, $method(static_cast<void(LocaleProviderAdapter$Type::*)($String*,int32_t,$String*,$String*,$String*)>(&LocaleProviderAdapter$Type::init$))},
-	{"getAdapterClassName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(static_cast<$String*(LocaleProviderAdapter$Type::*)()>(&LocaleProviderAdapter$Type::getAdapterClassName))},
-	{"getTextResourcesPackage", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(static_cast<$String*(LocaleProviderAdapter$Type::*)()>(&LocaleProviderAdapter$Type::getTextResourcesPackage))},
-	{"getUtilResourcesPackage", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(static_cast<$String*(LocaleProviderAdapter$Type::*)()>(&LocaleProviderAdapter$Type::getUtilResourcesPackage))},
-	{"valueOf", "(Ljava/lang/String;)Lsun/util/locale/provider/LocaleProviderAdapter$Type;", nullptr, $PUBLIC | $STATIC, $method(static_cast<LocaleProviderAdapter$Type*(*)($String*)>(&LocaleProviderAdapter$Type::valueOf))},
-	{"values", "()[Lsun/util/locale/provider/LocaleProviderAdapter$Type;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$LocaleProviderAdapter$TypeArray*(*)()>(&LocaleProviderAdapter$Type::values))},
+	{"$values", "()[Lsun/util/locale/provider/LocaleProviderAdapter$Type;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LocaleProviderAdapter$Type, $values, $LocaleProviderAdapter$TypeArray*)},
+	{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "(Ljava/lang/String;)V", $PRIVATE, $method(LocaleProviderAdapter$Type, init$, void, $String*, int32_t, $String*)},
+	{"<init>", "(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", $PRIVATE, $method(LocaleProviderAdapter$Type, init$, void, $String*, int32_t, $String*, $String*, $String*)},
+	{"getAdapterClassName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(LocaleProviderAdapter$Type, getAdapterClassName, $String*)},
+	{"getTextResourcesPackage", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(LocaleProviderAdapter$Type, getTextResourcesPackage, $String*)},
+	{"getUtilResourcesPackage", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(LocaleProviderAdapter$Type, getUtilResourcesPackage, $String*)},
+	{"valueOf", "(Ljava/lang/String;)Lsun/util/locale/provider/LocaleProviderAdapter$Type;", nullptr, $PUBLIC | $STATIC, $staticMethod(LocaleProviderAdapter$Type, valueOf, LocaleProviderAdapter$Type*, $String*)},
+	{"values", "()[Lsun/util/locale/provider/LocaleProviderAdapter$Type;", nullptr, $PUBLIC | $STATIC, $staticMethod(LocaleProviderAdapter$Type, values, $LocaleProviderAdapter$TypeArray*)},
 	{}
 };
 

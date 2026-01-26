@@ -23,8 +23,8 @@ $FieldInfo _Args$3_FieldInfo_[] = {
 };
 
 $MethodInfo _Args$3_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/channels/FileChannel;)V", "()V", 0, $method(static_cast<void(Args$3::*)($FileChannel*)>(&Args$3::init$))},
-	{"run", "()V", nullptr, $PUBLIC, nullptr, "java.lang.Exception"},
+	{"<init>", "(Ljava/nio/channels/FileChannel;)V", "()V", 0, $method(Args$3, init$, void, $FileChannel*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Args$3, run, void), "java.lang.Exception"},
 	{}
 };
 

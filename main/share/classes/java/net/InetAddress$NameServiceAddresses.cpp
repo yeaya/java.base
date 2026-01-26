@@ -36,8 +36,8 @@ $FieldInfo _InetAddress$NameServiceAddresses_FieldInfo_[] = {
 };
 
 $MethodInfo _InetAddress$NameServiceAddresses_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/net/InetAddress;)V", nullptr, 0, $method(static_cast<void(InetAddress$NameServiceAddresses::*)($String*,$InetAddress*)>(&InetAddress$NameServiceAddresses::init$))},
-	{"get", "()[Ljava/net/InetAddress;", nullptr, $PUBLIC, nullptr, "java.net.UnknownHostException"},
+	{"<init>", "(Ljava/lang/String;Ljava/net/InetAddress;)V", nullptr, 0, $method(InetAddress$NameServiceAddresses, init$, void, $String*, $InetAddress*)},
+	{"get", "()[Ljava/net/InetAddress;", nullptr, $PUBLIC, $virtualMethod(InetAddress$NameServiceAddresses, get, $InetAddressArray*), "java.net.UnknownHostException"},
 	{}
 };
 

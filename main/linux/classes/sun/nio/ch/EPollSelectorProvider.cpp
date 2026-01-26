@@ -24,9 +24,9 @@ namespace sun {
 		namespace ch {
 
 $MethodInfo _EPollSelectorProvider_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(EPollSelectorProvider::*)()>(&EPollSelectorProvider::init$))},
-	{"inheritedChannel", "()Ljava/nio/channels/Channel;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"openSelector", "()Ljava/nio/channels/spi/AbstractSelector;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(EPollSelectorProvider, init$, void)},
+	{"inheritedChannel", "()Ljava/nio/channels/Channel;", nullptr, $PUBLIC, $virtualMethod(EPollSelectorProvider, inheritedChannel, $Channel*), "java.io.IOException"},
+	{"openSelector", "()Ljava/nio/channels/spi/AbstractSelector;", nullptr, $PUBLIC, $virtualMethod(EPollSelectorProvider, openSelector, $AbstractSelector*), "java.io.IOException"},
 	{}
 };
 

@@ -39,12 +39,12 @@ $FieldInfo _TestN1_FieldInfo_[] = {
 };
 
 $MethodInfo _TestN1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TestN1::*)()>(&TestN1::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&TestN1::main)), "java.lang.Throwable"},
-	{"testInner1", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&TestN1::testInner1))},
-	{"testInner2", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&TestN1::testInner2)), "java.lang.NoSuchFieldException"},
-	{"testInner3", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&TestN1::testInner3))},
-	{"testTypeParameters", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&TestN1::testTypeParameters))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TestN1, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TestN1, main, void, $StringArray*), "java.lang.Throwable"},
+	{"testInner1", "()V", nullptr, $STATIC, $staticMethod(TestN1, testInner1, void)},
+	{"testInner2", "()V", nullptr, $STATIC, $staticMethod(TestN1, testInner2, void), "java.lang.NoSuchFieldException"},
+	{"testInner3", "()V", nullptr, $STATIC, $staticMethod(TestN1, testInner3, void)},
+	{"testTypeParameters", "()V", nullptr, $STATIC, $staticMethod(TestN1, testTypeParameters, void)},
 	{}
 };
 

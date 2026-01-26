@@ -21,9 +21,9 @@ $FieldInfo _ConcurrentSkipListMap$SubMap$SubMapValueIterator_FieldInfo_[] = {
 };
 
 $MethodInfo _ConcurrentSkipListMap$SubMap$SubMapValueIterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/ConcurrentSkipListMap$SubMap;)V", nullptr, 0, $method(static_cast<void(ConcurrentSkipListMap$SubMap$SubMapValueIterator::*)($ConcurrentSkipListMap$SubMap*)>(&ConcurrentSkipListMap$SubMap$SubMapValueIterator::init$))},
-	{"characteristics", "()I", nullptr, $PUBLIC},
-	{"next", "()Ljava/lang/Object;", "()TV;", $PUBLIC},
+	{"<init>", "(Ljava/util/concurrent/ConcurrentSkipListMap$SubMap;)V", nullptr, 0, $method(ConcurrentSkipListMap$SubMap$SubMapValueIterator, init$, void, $ConcurrentSkipListMap$SubMap*)},
+	{"characteristics", "()I", nullptr, $PUBLIC, $virtualMethod(ConcurrentSkipListMap$SubMap$SubMapValueIterator, characteristics, int32_t)},
+	{"next", "()Ljava/lang/Object;", "()TV;", $PUBLIC, $virtualMethod(ConcurrentSkipListMap$SubMap$SubMapValueIterator, next, $Object*)},
 	{}
 };
 

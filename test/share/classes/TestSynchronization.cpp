@@ -82,12 +82,12 @@ $FieldInfo _TestSynchronization_FieldInfo_[] = {
 };
 
 $MethodInfo _TestSynchronization_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TestSynchronization::*)()>(&TestSynchronization::init$))},
-	{"invokeMethod", "(Ljava/lang/Class;Ljava/lang/reflect/Method;[Ljava/lang/Object;)V", "(Ljava/lang/Class<*>;Ljava/lang/reflect/Method;[Ljava/lang/Object;)V", $PRIVATE | $STATIC, $method(static_cast<void(*)($Class*,$Method*,$ObjectArray*)>(&TestSynchronization::invokeMethod)), "TestSynchronization$TestFailedException,java.lang.Exception"},
-	{"isSynchronized", "(Ljava/lang/reflect/Method;Ljava/lang/Object;[Ljava/lang/Object;)Z", nullptr, $PRIVATE | $STATIC | $TRANSIENT, $method(static_cast<bool(*)($Method*,Object$*,$ObjectArray*)>(&TestSynchronization::isSynchronized))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<void(*)($StringArray*)>(&TestSynchronization::main)), "java.lang.Exception"},
-	{"testClass", "(Ljava/lang/Class;Z)V", "(Ljava/lang/Class<*>;Z)V", $PRIVATE | $STATIC, $method(static_cast<void(*)($Class*,bool)>(&TestSynchronization::testClass)), "java.lang.Exception"},
-	{"testMethod", "(Ljava/lang/Class;Ljava/lang/reflect/Method;)V", "(Ljava/lang/Class<*>;Ljava/lang/reflect/Method;)V", $PRIVATE | $STATIC, $method(static_cast<void(*)($Class*,$Method*)>(&TestSynchronization::testMethod)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TestSynchronization, init$, void)},
+	{"invokeMethod", "(Ljava/lang/Class;Ljava/lang/reflect/Method;[Ljava/lang/Object;)V", "(Ljava/lang/Class<*>;Ljava/lang/reflect/Method;[Ljava/lang/Object;)V", $PRIVATE | $STATIC, $staticMethod(TestSynchronization, invokeMethod, void, $Class*, $Method*, $ObjectArray*), "TestSynchronization$TestFailedException,java.lang.Exception"},
+	{"isSynchronized", "(Ljava/lang/reflect/Method;Ljava/lang/Object;[Ljava/lang/Object;)Z", nullptr, $PRIVATE | $STATIC | $TRANSIENT, $staticMethod(TestSynchronization, isSynchronized, bool, $Method*, Object$*, $ObjectArray*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(TestSynchronization, main, void, $StringArray*), "java.lang.Exception"},
+	{"testClass", "(Ljava/lang/Class;Z)V", "(Ljava/lang/Class<*>;Z)V", $PRIVATE | $STATIC, $staticMethod(TestSynchronization, testClass, void, $Class*, bool), "java.lang.Exception"},
+	{"testMethod", "(Ljava/lang/Class;Ljava/lang/reflect/Method;)V", "(Ljava/lang/Class<*>;Ljava/lang/reflect/Method;)V", $PRIVATE | $STATIC, $staticMethod(TestSynchronization, testMethod, void, $Class*, $Method*), "java.lang.Exception"},
 	{}
 };
 

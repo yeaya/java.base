@@ -25,12 +25,12 @@ $FieldInfo _HugeCapacity_FieldInfo_[] = {
 };
 
 $MethodInfo _HugeCapacity_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(HugeCapacity::*)()>(&HugeCapacity::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&HugeCapacity::main))},
-	{"testHugeInitialCharSequence", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&HugeCapacity::testHugeInitialCharSequence))},
-	{"testHugeInitialString", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&HugeCapacity::testHugeInitialString))},
-	{"testLatin1", "(Z)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)(bool)>(&HugeCapacity::testLatin1))},
-	{"testUtf16", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&HugeCapacity::testUtf16))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(HugeCapacity, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HugeCapacity, main, void, $StringArray*)},
+	{"testHugeInitialCharSequence", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(HugeCapacity, testHugeInitialCharSequence, void)},
+	{"testHugeInitialString", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(HugeCapacity, testHugeInitialString, void)},
+	{"testLatin1", "(Z)V", nullptr, $PRIVATE | $STATIC, $staticMethod(HugeCapacity, testLatin1, void, bool)},
+	{"testUtf16", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(HugeCapacity, testUtf16, void)},
 	{}
 };
 

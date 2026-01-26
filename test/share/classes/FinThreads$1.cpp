@@ -19,8 +19,8 @@ $FieldInfo _FinThreads$1_FieldInfo_[] = {
 };
 
 $MethodInfo _FinThreads$1_MethodInfo_[] = {
-	{"<init>", "(JLjava/lang/Thread;)V", "()V", 0, $method(static_cast<void(FinThreads$1::*)(int64_t,$Thread*)>(&FinThreads$1::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(JLjava/lang/Thread;)V", "()V", 0, $method(FinThreads$1, init$, void, int64_t, $Thread*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(FinThreads$1, run, void)},
 	{}
 };
 

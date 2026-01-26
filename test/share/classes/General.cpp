@@ -46,21 +46,21 @@ $FieldInfo _General_FieldInfo_[] = {
 };
 
 $MethodInfo _General_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(General::*)()>(&General::init$))},
-	{"check", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($String*,$String*)>(&General::check)), "java.io.IOException"},
-	{"checkNames", "(IZLjava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)(int32_t,bool,$String*,$String*)>(&General::checkNames)), "java.lang.Exception"},
-	{"checkSlash", "(IZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)(int32_t,bool,$String*,$String*,$String*)>(&General::checkSlash)), "java.lang.Exception"},
-	{"checkSlashes", "(IZLjava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)(int32_t,bool,$String*,$String*)>(&General::checkSlashes)), "java.lang.Exception"},
-	{"ensureNon", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($String*)>(&General::ensureNon))},
-	{"findNon", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($String*)>(&General::findNon))},
-	{"findSomeDir", "(Ljava/lang/String;Z)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($String*,bool)>(&General::findSomeDir))},
-	{"findSomeFile", "(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($String*,$String*,$StringArray*)>(&General::findSomeFile))},
-	{"findSomeFile", "(Ljava/lang/String;Z)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($String*,bool)>(&General::findSomeFile))},
-	{"gensym", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)()>(&General::gensym))},
-	{"initTestData", "(I)V", nullptr, $PROTECTED | $STATIC, $method(static_cast<void(*)(int32_t)>(&General::initTestData)), "java.io.IOException"},
-	{"isSlash", "(C)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)(char16_t)>(&General::isSlash))},
-	{"pathConcat", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($String*,$String*)>(&General::pathConcat))},
-	{"trimTrailingSlashes", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($String*)>(&General::trimTrailingSlashes))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(General, init$, void)},
+	{"check", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(General, check, void, $String*, $String*), "java.io.IOException"},
+	{"checkNames", "(IZLjava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(General, checkNames, void, int32_t, bool, $String*, $String*), "java.lang.Exception"},
+	{"checkSlash", "(IZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(General, checkSlash, void, int32_t, bool, $String*, $String*, $String*), "java.lang.Exception"},
+	{"checkSlashes", "(IZLjava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(General, checkSlashes, void, int32_t, bool, $String*, $String*), "java.lang.Exception"},
+	{"ensureNon", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(General, ensureNon, void, $String*)},
+	{"findNon", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(General, findNon, $String*, $String*)},
+	{"findSomeDir", "(Ljava/lang/String;Z)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(General, findSomeDir, $String*, $String*, bool)},
+	{"findSomeFile", "(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(General, findSomeFile, $String*, $String*, $String*, $StringArray*)},
+	{"findSomeFile", "(Ljava/lang/String;Z)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(General, findSomeFile, $String*, $String*, bool)},
+	{"gensym", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(General, gensym, $String*)},
+	{"initTestData", "(I)V", nullptr, $PROTECTED | $STATIC, $staticMethod(General, initTestData, void, int32_t), "java.io.IOException"},
+	{"isSlash", "(C)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(General, isSlash, bool, char16_t)},
+	{"pathConcat", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(General, pathConcat, $String*, $String*, $String*)},
+	{"trimTrailingSlashes", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(General, trimTrailingSlashes, $String*, $String*)},
 	{}
 };
 

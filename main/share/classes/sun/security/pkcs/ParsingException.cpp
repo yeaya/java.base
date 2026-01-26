@@ -18,8 +18,8 @@ $FieldInfo _ParsingException_FieldInfo_[] = {
 };
 
 $MethodInfo _ParsingException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ParsingException::*)()>(&ParsingException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(ParsingException::*)($String*)>(&ParsingException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ParsingException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ParsingException, init$, void, $String*)},
 	{}
 };
 

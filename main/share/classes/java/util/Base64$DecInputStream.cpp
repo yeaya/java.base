@@ -32,14 +32,14 @@ $FieldInfo _Base64$DecInputStream_FieldInfo_[] = {
 };
 
 $MethodInfo _Base64$DecInputStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/InputStream;[IZ)V", nullptr, 0, $method(static_cast<void(Base64$DecInputStream::*)($InputStream*,$ints*,bool)>(&Base64$DecInputStream::init$))},
-	{"available", "()I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"eof", "([BIII)I", nullptr, $PRIVATE, $method(static_cast<int32_t(Base64$DecInputStream::*)($bytes*,int32_t,int32_t,int32_t)>(&Base64$DecInputStream::eof)), "java.io.IOException"},
-	{"leftovers", "([BIII)I", nullptr, $PRIVATE, $method(static_cast<int32_t(Base64$DecInputStream::*)($bytes*,int32_t,int32_t,int32_t)>(&Base64$DecInputStream::leftovers))},
-	{"padding", "([BIII)I", nullptr, $PRIVATE, $method(static_cast<int32_t(Base64$DecInputStream::*)($bytes*,int32_t,int32_t,int32_t)>(&Base64$DecInputStream::padding)), "java.io.IOException"},
-	{"read", "()I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"read", "([BII)I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljava/io/InputStream;[IZ)V", nullptr, 0, $method(Base64$DecInputStream, init$, void, $InputStream*, $ints*, bool)},
+	{"available", "()I", nullptr, $PUBLIC, $virtualMethod(Base64$DecInputStream, available, int32_t), "java.io.IOException"},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(Base64$DecInputStream, close, void), "java.io.IOException"},
+	{"eof", "([BIII)I", nullptr, $PRIVATE, $method(Base64$DecInputStream, eof, int32_t, $bytes*, int32_t, int32_t, int32_t), "java.io.IOException"},
+	{"leftovers", "([BIII)I", nullptr, $PRIVATE, $method(Base64$DecInputStream, leftovers, int32_t, $bytes*, int32_t, int32_t, int32_t)},
+	{"padding", "([BIII)I", nullptr, $PRIVATE, $method(Base64$DecInputStream, padding, int32_t, $bytes*, int32_t, int32_t, int32_t), "java.io.IOException"},
+	{"read", "()I", nullptr, $PUBLIC, $virtualMethod(Base64$DecInputStream, read, int32_t), "java.io.IOException"},
+	{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(Base64$DecInputStream, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
 	{}
 };
 

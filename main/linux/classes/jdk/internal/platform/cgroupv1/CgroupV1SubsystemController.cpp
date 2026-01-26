@@ -46,8 +46,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo CgroupV1SubsystemController$$Lambda$convertHierachicalLimitLine::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CgroupV1SubsystemController$$Lambda$convertHierachicalLimitLine::*)()>(&CgroupV1SubsystemController$$Lambda$convertHierachicalLimitLine::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CgroupV1SubsystemController$$Lambda$convertHierachicalLimitLine, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(CgroupV1SubsystemController$$Lambda$convertHierachicalLimitLine, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo CgroupV1SubsystemController$$Lambda$convertHierachicalLimitLine::classInfo$ = {
@@ -74,15 +74,15 @@ $FieldInfo _CgroupV1SubsystemController_FieldInfo_[] = {
 };
 
 $MethodInfo _CgroupV1SubsystemController_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(CgroupV1SubsystemController::*)($String*,$String*)>(&CgroupV1SubsystemController::init$))},
-	{"convertHierachicalLimitLine", "(Ljava/lang/String;)J", nullptr, $PUBLIC | $STATIC, $method(static_cast<int64_t(*)($String*)>(&CgroupV1SubsystemController::convertHierachicalLimitLine))},
-	{"convertStringToLong", "(Ljava/lang/String;)J", nullptr, $PUBLIC | $STATIC, $method(static_cast<int64_t(*)($String*)>(&CgroupV1SubsystemController::convertStringToLong))},
-	{"getDoubleValue", "(Ljdk/internal/platform/CgroupSubsystemController;Ljava/lang/String;)D", nullptr, $PUBLIC | $STATIC, $method(static_cast<double(*)($CgroupSubsystemController*,$String*)>(&CgroupV1SubsystemController::getDoubleValue))},
-	{"getLongEntry", "(Ljdk/internal/platform/CgroupSubsystemController;Ljava/lang/String;Ljava/lang/String;)J", nullptr, $PUBLIC | $STATIC, $method(static_cast<int64_t(*)($CgroupSubsystemController*,$String*,$String*)>(&CgroupV1SubsystemController::getLongEntry))},
-	{"getLongValueMatchingLine", "(Ljdk/internal/platform/CgroupSubsystemController;Ljava/lang/String;Ljava/lang/String;)J", nullptr, $PUBLIC | $STATIC, $method(static_cast<int64_t(*)($CgroupSubsystemController*,$String*,$String*)>(&CgroupV1SubsystemController::getLongValueMatchingLine))},
-	{"longValOrUnlimited", "(J)J", nullptr, $PUBLIC | $STATIC, $method(static_cast<int64_t(*)(int64_t)>(&CgroupV1SubsystemController::longValOrUnlimited))},
-	{"path", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"setPath", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(CgroupV1SubsystemController, init$, void, $String*, $String*)},
+	{"convertHierachicalLimitLine", "(Ljava/lang/String;)J", nullptr, $PUBLIC | $STATIC, $staticMethod(CgroupV1SubsystemController, convertHierachicalLimitLine, int64_t, $String*)},
+	{"convertStringToLong", "(Ljava/lang/String;)J", nullptr, $PUBLIC | $STATIC, $staticMethod(CgroupV1SubsystemController, convertStringToLong, int64_t, $String*)},
+	{"getDoubleValue", "(Ljdk/internal/platform/CgroupSubsystemController;Ljava/lang/String;)D", nullptr, $PUBLIC | $STATIC, $staticMethod(CgroupV1SubsystemController, getDoubleValue, double, $CgroupSubsystemController*, $String*)},
+	{"getLongEntry", "(Ljdk/internal/platform/CgroupSubsystemController;Ljava/lang/String;Ljava/lang/String;)J", nullptr, $PUBLIC | $STATIC, $staticMethod(CgroupV1SubsystemController, getLongEntry, int64_t, $CgroupSubsystemController*, $String*, $String*)},
+	{"getLongValueMatchingLine", "(Ljdk/internal/platform/CgroupSubsystemController;Ljava/lang/String;Ljava/lang/String;)J", nullptr, $PUBLIC | $STATIC, $staticMethod(CgroupV1SubsystemController, getLongValueMatchingLine, int64_t, $CgroupSubsystemController*, $String*, $String*)},
+	{"longValOrUnlimited", "(J)J", nullptr, $PUBLIC | $STATIC, $staticMethod(CgroupV1SubsystemController, longValOrUnlimited, int64_t, int64_t)},
+	{"path", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CgroupV1SubsystemController, path, $String*)},
+	{"setPath", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CgroupV1SubsystemController, setPath, void, $String*)},
 	{}
 };
 

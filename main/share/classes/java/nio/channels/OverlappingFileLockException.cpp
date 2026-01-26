@@ -18,7 +18,7 @@ $FieldInfo _OverlappingFileLockException_FieldInfo_[] = {
 };
 
 $MethodInfo _OverlappingFileLockException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(OverlappingFileLockException::*)()>(&OverlappingFileLockException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(OverlappingFileLockException, init$, void)},
 	{}
 };
 

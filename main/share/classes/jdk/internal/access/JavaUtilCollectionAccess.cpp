@@ -5,14 +5,15 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $List = ::java::util::List;
 
 namespace jdk {
 	namespace internal {
 		namespace access {
 
 $MethodInfo _JavaUtilCollectionAccess_MethodInfo_[] = {
-	{"listFromTrustedArray", "([Ljava/lang/Object;)Ljava/util/List;", "<E:Ljava/lang/Object;>([Ljava/lang/Object;)Ljava/util/List<TE;>;", $PUBLIC | $ABSTRACT},
-	{"listFromTrustedArrayNullsAllowed", "([Ljava/lang/Object;)Ljava/util/List;", "<E:Ljava/lang/Object;>([Ljava/lang/Object;)Ljava/util/List<TE;>;", $PUBLIC | $ABSTRACT},
+	{"listFromTrustedArray", "([Ljava/lang/Object;)Ljava/util/List;", "<E:Ljava/lang/Object;>([Ljava/lang/Object;)Ljava/util/List<TE;>;", $PUBLIC | $ABSTRACT, $virtualMethod(JavaUtilCollectionAccess, listFromTrustedArray, $List*, $ObjectArray*)},
+	{"listFromTrustedArrayNullsAllowed", "([Ljava/lang/Object;)Ljava/util/List;", "<E:Ljava/lang/Object;>([Ljava/lang/Object;)Ljava/util/List<TE;>;", $PUBLIC | $ABSTRACT, $virtualMethod(JavaUtilCollectionAccess, listFromTrustedArrayNullsAllowed, $List*, $ObjectArray*)},
 	{}
 };
 

@@ -57,8 +57,8 @@ $FieldInfo WeakPairMap$$Lambda$lambda$computeIfAbsent$0::fieldInfos[2] = {
 	{}
 };
 $MethodInfo WeakPairMap$$Lambda$lambda$computeIfAbsent$0::methodInfos[3] = {
-	{"<init>", "(Ljava/util/function/BiFunction;)V", nullptr, $PUBLIC, $method(static_cast<void(WeakPairMap$$Lambda$lambda$computeIfAbsent$0::*)($BiFunction*)>(&WeakPairMap$$Lambda$lambda$computeIfAbsent$0::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/function/BiFunction;)V", nullptr, $PUBLIC, $method(WeakPairMap$$Lambda$lambda$computeIfAbsent$0, init$, void, $BiFunction*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WeakPairMap$$Lambda$lambda$computeIfAbsent$0, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo WeakPairMap$$Lambda$lambda$computeIfAbsent$0::classInfo$ = {
@@ -82,15 +82,15 @@ $FieldInfo _WeakPairMap_FieldInfo_[] = {
 };
 
 $MethodInfo _WeakPairMap_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(WeakPairMap::*)()>(&WeakPairMap::init$))},
-	{"computeIfAbsent", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;", "(TK1;TK2;Ljava/util/function/BiFunction<-TK1;-TK2;+TV;>;)TV;", $PUBLIC, $method(static_cast<$Object*(WeakPairMap::*)(Object$*,Object$*,$BiFunction*)>(&WeakPairMap::computeIfAbsent))},
-	{"containsKeyPair", "(Ljava/lang/Object;Ljava/lang/Object;)Z", "(TK1;TK2;)Z", $PUBLIC, $method(static_cast<bool(WeakPairMap::*)(Object$*,Object$*)>(&WeakPairMap::containsKeyPair))},
-	{"expungeStaleAssociations", "()V", nullptr, $PRIVATE, $method(static_cast<void(WeakPairMap::*)()>(&WeakPairMap::expungeStaleAssociations))},
-	{"get", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", "(TK1;TK2;)TV;", $PUBLIC, $method(static_cast<$Object*(WeakPairMap::*)(Object$*,Object$*)>(&WeakPairMap::get))},
-	{"lambda$computeIfAbsent$0", "(Ljava/util/function/BiFunction;Ljava/lang/WeakPairMap$Pair;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Object*(*)($BiFunction*,$WeakPairMap$Pair*)>(&WeakPairMap::lambda$computeIfAbsent$0))},
-	{"put", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", "(TK1;TK2;TV;)TV;", $PUBLIC, $method(static_cast<$Object*(WeakPairMap::*)(Object$*,Object$*,Object$*)>(&WeakPairMap::put))},
-	{"putIfAbsent", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", "(TK1;TK2;TV;)TV;", $PUBLIC, $method(static_cast<$Object*(WeakPairMap::*)(Object$*,Object$*,Object$*)>(&WeakPairMap::putIfAbsent))},
-	{"values", "()Ljava/util/Collection;", "()Ljava/util/Collection<TV;>;", $PUBLIC, $method(static_cast<$Collection*(WeakPairMap::*)()>(&WeakPairMap::values))},
+	{"<init>", "()V", nullptr, 0, $method(WeakPairMap, init$, void)},
+	{"computeIfAbsent", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;", "(TK1;TK2;Ljava/util/function/BiFunction<-TK1;-TK2;+TV;>;)TV;", $PUBLIC, $method(WeakPairMap, computeIfAbsent, $Object*, Object$*, Object$*, $BiFunction*)},
+	{"containsKeyPair", "(Ljava/lang/Object;Ljava/lang/Object;)Z", "(TK1;TK2;)Z", $PUBLIC, $method(WeakPairMap, containsKeyPair, bool, Object$*, Object$*)},
+	{"expungeStaleAssociations", "()V", nullptr, $PRIVATE, $method(WeakPairMap, expungeStaleAssociations, void)},
+	{"get", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", "(TK1;TK2;)TV;", $PUBLIC, $method(WeakPairMap, get, $Object*, Object$*, Object$*)},
+	{"lambda$computeIfAbsent$0", "(Ljava/util/function/BiFunction;Ljava/lang/WeakPairMap$Pair;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(WeakPairMap, lambda$computeIfAbsent$0, $Object*, $BiFunction*, $WeakPairMap$Pair*)},
+	{"put", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", "(TK1;TK2;TV;)TV;", $PUBLIC, $method(WeakPairMap, put, $Object*, Object$*, Object$*, Object$*)},
+	{"putIfAbsent", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", "(TK1;TK2;TV;)TV;", $PUBLIC, $method(WeakPairMap, putIfAbsent, $Object*, Object$*, Object$*, Object$*)},
+	{"values", "()Ljava/util/Collection;", "()Ljava/util/Collection<TV;>;", $PUBLIC, $method(WeakPairMap, values, $Collection*)},
 	{}
 };
 

@@ -26,13 +26,13 @@ namespace java {
 		namespace stream {
 
 $MethodInfo _WhileOps$UnorderedWhileSpliterator$OfDouble$Dropping_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Spliterator$OfDouble;ZLjava/util/function/DoublePredicate;)V", nullptr, 0, $method(static_cast<void(WhileOps$UnorderedWhileSpliterator$OfDouble$Dropping::*)($Spliterator$OfDouble*,bool,$DoublePredicate*)>(&WhileOps$UnorderedWhileSpliterator$OfDouble$Dropping::init$))},
-	{"<init>", "(Ljava/util/Spliterator$OfDouble;Ljava/util/stream/WhileOps$UnorderedWhileSpliterator$OfDouble;)V", nullptr, 0, $method(static_cast<void(WhileOps$UnorderedWhileSpliterator$OfDouble$Dropping::*)($Spliterator$OfDouble*,$WhileOps$UnorderedWhileSpliterator$OfDouble*)>(&WhileOps$UnorderedWhileSpliterator$OfDouble$Dropping::init$))},
-	{"makeSpliterator", "(Ljava/util/Spliterator$OfDouble;)Ljava/util/Spliterator$OfDouble;", nullptr, 0, $method(static_cast<$Spliterator$OfDouble*(WhileOps$UnorderedWhileSpliterator$OfDouble$Dropping::*)($Spliterator$OfDouble*)>(&WhileOps$UnorderedWhileSpliterator$OfDouble$Dropping::makeSpliterator))},
-	{"makeSpliterator", "(Ljava/util/Spliterator;)Ljava/util/Spliterator;", nullptr, $VOLATILE | $SYNTHETIC},
-	{"tryAdvance", "(Ljava/util/function/DoubleConsumer;)Z", nullptr, $PUBLIC},
-	{"tryAdvance", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"trySplit", "()Ljava/util/Spliterator$OfDouble;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "(Ljava/util/Spliterator$OfDouble;ZLjava/util/function/DoublePredicate;)V", nullptr, 0, $method(WhileOps$UnorderedWhileSpliterator$OfDouble$Dropping, init$, void, $Spliterator$OfDouble*, bool, $DoublePredicate*)},
+	{"<init>", "(Ljava/util/Spliterator$OfDouble;Ljava/util/stream/WhileOps$UnorderedWhileSpliterator$OfDouble;)V", nullptr, 0, $method(WhileOps$UnorderedWhileSpliterator$OfDouble$Dropping, init$, void, $Spliterator$OfDouble*, $WhileOps$UnorderedWhileSpliterator$OfDouble*)},
+	{"makeSpliterator", "(Ljava/util/Spliterator$OfDouble;)Ljava/util/Spliterator$OfDouble;", nullptr, 0, $method(WhileOps$UnorderedWhileSpliterator$OfDouble$Dropping, makeSpliterator, $Spliterator$OfDouble*, $Spliterator$OfDouble*)},
+	{"makeSpliterator", "(Ljava/util/Spliterator;)Ljava/util/Spliterator;", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(WhileOps$UnorderedWhileSpliterator$OfDouble$Dropping, makeSpliterator, $Spliterator*, $Spliterator*)},
+	{"tryAdvance", "(Ljava/util/function/DoubleConsumer;)Z", nullptr, $PUBLIC, $virtualMethod(WhileOps$UnorderedWhileSpliterator$OfDouble$Dropping, tryAdvance, bool, $DoubleConsumer*)},
+	{"tryAdvance", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(WhileOps$UnorderedWhileSpliterator$OfDouble$Dropping, tryAdvance, bool, Object$*)},
+	{"trySplit", "()Ljava/util/Spliterator$OfDouble;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(WhileOps$UnorderedWhileSpliterator$OfDouble$Dropping, trySplit, $Spliterator*)},
 	{}
 };
 

@@ -7,6 +7,8 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Collator = ::java::text::Collator;
+using $Locale = ::java::util::Locale;
 using $LocaleServiceProvider = ::java::util::spi::LocaleServiceProvider;
 
 namespace java {
@@ -14,8 +16,8 @@ namespace java {
 		namespace spi {
 
 $MethodInfo _CollatorProvider_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(CollatorProvider::*)()>(&CollatorProvider::init$))},
-	{"getInstance", "(Ljava/util/Locale;)Ljava/text/Collator;", nullptr, $PUBLIC | $ABSTRACT},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(CollatorProvider, init$, void)},
+	{"getInstance", "(Ljava/util/Locale;)Ljava/text/Collator;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CollatorProvider, getInstance, $Collator*, $Locale*)},
 	{}
 };
 

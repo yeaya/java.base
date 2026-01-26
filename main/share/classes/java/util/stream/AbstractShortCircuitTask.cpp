@@ -27,17 +27,17 @@ $FieldInfo _AbstractShortCircuitTask_FieldInfo_[] = {
 };
 
 $MethodInfo _AbstractShortCircuitTask_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;)V", "(Ljava/util/stream/PipelineHelper<TP_OUT;>;Ljava/util/Spliterator<TP_IN;>;)V", $PROTECTED, $method(static_cast<void(AbstractShortCircuitTask::*)($PipelineHelper*,$Spliterator*)>(&AbstractShortCircuitTask::init$))},
-	{"<init>", "(Ljava/util/stream/AbstractShortCircuitTask;Ljava/util/Spliterator;)V", "(TK;Ljava/util/Spliterator<TP_IN;>;)V", $PROTECTED, $method(static_cast<void(AbstractShortCircuitTask::*)(AbstractShortCircuitTask*,$Spliterator*)>(&AbstractShortCircuitTask::init$))},
-	{"cancel", "()V", nullptr, $PROTECTED},
-	{"cancelLaterNodes", "()V", nullptr, $PROTECTED},
-	{"compute", "()V", nullptr, $PUBLIC},
-	{"getEmptyResult", "()Ljava/lang/Object;", "()TR;", $PROTECTED | $ABSTRACT},
-	{"getLocalResult", "()Ljava/lang/Object;", "()TR;", $PUBLIC},
-	{"getRawResult", "()Ljava/lang/Object;", "()TR;", $PUBLIC},
-	{"setLocalResult", "(Ljava/lang/Object;)V", "(TR;)V", $PROTECTED},
-	{"shortCircuit", "(Ljava/lang/Object;)V", "(TR;)V", $PROTECTED},
-	{"taskCanceled", "()Z", nullptr, $PROTECTED},
+	{"<init>", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;)V", "(Ljava/util/stream/PipelineHelper<TP_OUT;>;Ljava/util/Spliterator<TP_IN;>;)V", $PROTECTED, $method(AbstractShortCircuitTask, init$, void, $PipelineHelper*, $Spliterator*)},
+	{"<init>", "(Ljava/util/stream/AbstractShortCircuitTask;Ljava/util/Spliterator;)V", "(TK;Ljava/util/Spliterator<TP_IN;>;)V", $PROTECTED, $method(AbstractShortCircuitTask, init$, void, AbstractShortCircuitTask*, $Spliterator*)},
+	{"cancel", "()V", nullptr, $PROTECTED, $virtualMethod(AbstractShortCircuitTask, cancel, void)},
+	{"cancelLaterNodes", "()V", nullptr, $PROTECTED, $virtualMethod(AbstractShortCircuitTask, cancelLaterNodes, void)},
+	{"compute", "()V", nullptr, $PUBLIC, $virtualMethod(AbstractShortCircuitTask, compute, void)},
+	{"getEmptyResult", "()Ljava/lang/Object;", "()TR;", $PROTECTED | $ABSTRACT, $virtualMethod(AbstractShortCircuitTask, getEmptyResult, $Object*)},
+	{"getLocalResult", "()Ljava/lang/Object;", "()TR;", $PUBLIC, $virtualMethod(AbstractShortCircuitTask, getLocalResult, $Object*)},
+	{"getRawResult", "()Ljava/lang/Object;", "()TR;", $PUBLIC, $virtualMethod(AbstractShortCircuitTask, getRawResult, $Object*)},
+	{"setLocalResult", "(Ljava/lang/Object;)V", "(TR;)V", $PROTECTED, $virtualMethod(AbstractShortCircuitTask, setLocalResult, void, Object$*)},
+	{"shortCircuit", "(Ljava/lang/Object;)V", "(TR;)V", $PROTECTED, $virtualMethod(AbstractShortCircuitTask, shortCircuit, void, Object$*)},
+	{"taskCanceled", "()Z", nullptr, $PROTECTED, $virtualMethod(AbstractShortCircuitTask, taskCanceled, bool)},
 	{}
 };
 

@@ -23,9 +23,9 @@ $FieldInfo _Path$1_FieldInfo_[] = {
 };
 
 $MethodInfo _Path$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/file/Path;)V", nullptr, 0, $method(static_cast<void(Path$1::*)($Path*)>(&Path$1::init$))},
-	{"hasNext", "()Z", nullptr, $PUBLIC},
-	{"next", "()Ljava/nio/file/Path;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/nio/file/Path;)V", nullptr, 0, $method(Path$1, init$, void, $Path*)},
+	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(Path$1, hasNext, bool)},
+	{"next", "()Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(Path$1, next, $Object*)},
 	{}
 };
 

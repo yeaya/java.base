@@ -17,8 +17,8 @@ namespace sun {
 	namespace net {
 
 $MethodInfo _InetAddressCachePolicy$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(InetAddressCachePolicy$1::*)()>(&InetAddressCachePolicy$1::init$))},
-	{"run", "()Ljava/lang/Integer;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(InetAddressCachePolicy$1, init$, void)},
+	{"run", "()Ljava/lang/Integer;", nullptr, $PUBLIC, $virtualMethod(InetAddressCachePolicy$1, run, $Object*)},
 	{}
 };
 

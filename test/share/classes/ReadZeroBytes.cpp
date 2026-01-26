@@ -12,8 +12,8 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _ReadZeroBytes_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ReadZeroBytes::*)()>(&ReadZeroBytes::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&ReadZeroBytes::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ReadZeroBytes, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ReadZeroBytes, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

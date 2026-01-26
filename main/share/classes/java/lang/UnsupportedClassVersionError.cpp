@@ -17,8 +17,8 @@ $FieldInfo _UnsupportedClassVersionError_FieldInfo_[] = {
 };
 
 $MethodInfo _UnsupportedClassVersionError_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(UnsupportedClassVersionError::*)()>(&UnsupportedClassVersionError::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(UnsupportedClassVersionError::*)($String*)>(&UnsupportedClassVersionError::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(UnsupportedClassVersionError, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(UnsupportedClassVersionError, init$, void, $String*)},
 	{}
 };
 

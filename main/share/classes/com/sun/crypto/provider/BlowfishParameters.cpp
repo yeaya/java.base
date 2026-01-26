@@ -29,14 +29,14 @@ $FieldInfo _BlowfishParameters_FieldInfo_[] = {
 };
 
 $MethodInfo _BlowfishParameters_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(BlowfishParameters::*)()>(&BlowfishParameters::init$))},
-	{"engineGetEncoded", "()[B", nullptr, $PROTECTED, nullptr, "java.io.IOException"},
-	{"engineGetEncoded", "(Ljava/lang/String;)[B", nullptr, $PROTECTED, nullptr, "java.io.IOException"},
-	{"engineGetParameterSpec", "(Ljava/lang/Class;)Ljava/security/spec/AlgorithmParameterSpec;", "<T::Ljava/security/spec/AlgorithmParameterSpec;>(Ljava/lang/Class<TT;>;)TT;", $PROTECTED, nullptr, "java.security.spec.InvalidParameterSpecException"},
-	{"engineInit", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PROTECTED, nullptr, "java.security.spec.InvalidParameterSpecException"},
-	{"engineInit", "([B)V", nullptr, $PROTECTED, nullptr, "java.io.IOException"},
-	{"engineInit", "([BLjava/lang/String;)V", nullptr, $PROTECTED, nullptr, "java.io.IOException"},
-	{"engineToString", "()Ljava/lang/String;", nullptr, $PROTECTED},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(BlowfishParameters, init$, void)},
+	{"engineGetEncoded", "()[B", nullptr, $PROTECTED, $virtualMethod(BlowfishParameters, engineGetEncoded, $bytes*), "java.io.IOException"},
+	{"engineGetEncoded", "(Ljava/lang/String;)[B", nullptr, $PROTECTED, $virtualMethod(BlowfishParameters, engineGetEncoded, $bytes*, $String*), "java.io.IOException"},
+	{"engineGetParameterSpec", "(Ljava/lang/Class;)Ljava/security/spec/AlgorithmParameterSpec;", "<T::Ljava/security/spec/AlgorithmParameterSpec;>(Ljava/lang/Class<TT;>;)TT;", $PROTECTED, $virtualMethod(BlowfishParameters, engineGetParameterSpec, $AlgorithmParameterSpec*, $Class*), "java.security.spec.InvalidParameterSpecException"},
+	{"engineInit", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PROTECTED, $virtualMethod(BlowfishParameters, engineInit, void, $AlgorithmParameterSpec*), "java.security.spec.InvalidParameterSpecException"},
+	{"engineInit", "([B)V", nullptr, $PROTECTED, $virtualMethod(BlowfishParameters, engineInit, void, $bytes*), "java.io.IOException"},
+	{"engineInit", "([BLjava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(BlowfishParameters, engineInit, void, $bytes*, $String*), "java.io.IOException"},
+	{"engineToString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(BlowfishParameters, engineToString, $String*)},
 	{}
 };
 

@@ -11,8 +11,8 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $ThreadLocal = ::java::lang::ThreadLocal;
 
 $MethodInfo _Identity$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Identity$1::*)()>(&Identity$1::init$))},
-	{"initialValue", "()Ljava/lang/Integer;", nullptr, $PROTECTED},
+	{"<init>", "()V", nullptr, 0, $method(Identity$1, init$, void)},
+	{"initialValue", "()Ljava/lang/Integer;", nullptr, $PROTECTED, $virtualMethod(Identity$1, initialValue, $Object*)},
 	{}
 };
 

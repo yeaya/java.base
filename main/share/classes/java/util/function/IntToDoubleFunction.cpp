@@ -16,7 +16,7 @@ $CompoundAttribute _IntToDoubleFunction_Annotations_[] = {
 };
 
 $MethodInfo _IntToDoubleFunction_MethodInfo_[] = {
-	{"applyAsDouble", "(I)D", nullptr, $PUBLIC | $ABSTRACT},
+	{"applyAsDouble", "(I)D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(IntToDoubleFunction, applyAsDouble, double, int32_t)},
 	{}
 };
 

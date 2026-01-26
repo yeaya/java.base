@@ -34,8 +34,8 @@ namespace sun {
 		namespace ssl {
 
 $MethodInfo _SupportedVersionsExtension$SHSupportedVersionsProducer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(SupportedVersionsExtension$SHSupportedVersionsProducer::*)()>(&SupportedVersionsExtension$SHSupportedVersionsProducer::init$))},
-	{"produce", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)[B", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(SupportedVersionsExtension$SHSupportedVersionsProducer, init$, void)},
+	{"produce", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)[B", nullptr, $PUBLIC, $virtualMethod(SupportedVersionsExtension$SHSupportedVersionsProducer, produce, $bytes*, $ConnectionContext*, $SSLHandshake$HandshakeMessage*), "java.io.IOException"},
 	{}
 };
 

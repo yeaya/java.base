@@ -30,7 +30,7 @@ $Attribute _SingleMemberBooleanArrayDef_DefaultValue_value0 = {
 };
 
 $MethodInfo _SingleMemberBooleanArrayDef_MethodInfo_[] = {
-	{"value", "()[Z", nullptr, $PUBLIC | $ABSTRACT, nullptr, nullptr, &_SingleMemberBooleanArrayDef_DefaultValue_value0},
+	{"value", "()[Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SingleMemberBooleanArrayDef, value, $booleans*), nullptr, &_SingleMemberBooleanArrayDef_DefaultValue_value0},
 	{}
 };
 

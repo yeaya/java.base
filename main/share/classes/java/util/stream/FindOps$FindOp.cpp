@@ -45,11 +45,11 @@ $FieldInfo _FindOps$FindOp_FieldInfo_[] = {
 };
 
 $MethodInfo _FindOps$FindOp_MethodInfo_[] = {
-	{"<init>", "(ZLjava/util/stream/StreamShape;Ljava/lang/Object;Ljava/util/function/Predicate;Ljava/util/function/Supplier;)V", "(ZLjava/util/stream/StreamShape;TO;Ljava/util/function/Predicate<TO;>;Ljava/util/function/Supplier<Ljava/util/stream/TerminalSink<TT;TO;>;>;)V", 0, $method(static_cast<void(FindOps$FindOp::*)(bool,$StreamShape*,Object$*,$Predicate*,$Supplier*)>(&FindOps$FindOp::init$))},
-	{"evaluateParallel", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;)Ljava/lang/Object;", "<P_IN:Ljava/lang/Object;>(Ljava/util/stream/PipelineHelper<TT;>;Ljava/util/Spliterator<TP_IN;>;)TO;", $PUBLIC},
-	{"evaluateSequential", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;)Ljava/lang/Object;", "<S:Ljava/lang/Object;>(Ljava/util/stream/PipelineHelper<TT;>;Ljava/util/Spliterator<TS;>;)TO;", $PUBLIC},
-	{"getOpFlags", "()I", nullptr, $PUBLIC},
-	{"inputShape", "()Ljava/util/stream/StreamShape;", nullptr, $PUBLIC},
+	{"<init>", "(ZLjava/util/stream/StreamShape;Ljava/lang/Object;Ljava/util/function/Predicate;Ljava/util/function/Supplier;)V", "(ZLjava/util/stream/StreamShape;TO;Ljava/util/function/Predicate<TO;>;Ljava/util/function/Supplier<Ljava/util/stream/TerminalSink<TT;TO;>;>;)V", 0, $method(FindOps$FindOp, init$, void, bool, $StreamShape*, Object$*, $Predicate*, $Supplier*)},
+	{"evaluateParallel", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;)Ljava/lang/Object;", "<P_IN:Ljava/lang/Object;>(Ljava/util/stream/PipelineHelper<TT;>;Ljava/util/Spliterator<TP_IN;>;)TO;", $PUBLIC, $virtualMethod(FindOps$FindOp, evaluateParallel, $Object*, $PipelineHelper*, $Spliterator*)},
+	{"evaluateSequential", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;)Ljava/lang/Object;", "<S:Ljava/lang/Object;>(Ljava/util/stream/PipelineHelper<TT;>;Ljava/util/Spliterator<TS;>;)TO;", $PUBLIC, $virtualMethod(FindOps$FindOp, evaluateSequential, $Object*, $PipelineHelper*, $Spliterator*)},
+	{"getOpFlags", "()I", nullptr, $PUBLIC, $virtualMethod(FindOps$FindOp, getOpFlags, int32_t)},
+	{"inputShape", "()Ljava/util/stream/StreamShape;", nullptr, $PUBLIC, $virtualMethod(FindOps$FindOp, inputShape, $StreamShape*)},
 	{}
 };
 

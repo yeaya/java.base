@@ -21,10 +21,10 @@ $FieldInfo _IllegalFormatConversionException_FieldInfo_[] = {
 };
 
 $MethodInfo _IllegalFormatConversionException_MethodInfo_[] = {
-	{"<init>", "(CLjava/lang/Class;)V", "(CLjava/lang/Class<*>;)V", $PUBLIC, $method(static_cast<void(IllegalFormatConversionException::*)(char16_t,$Class*)>(&IllegalFormatConversionException::init$))},
-	{"getArgumentClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC},
-	{"getConversion", "()C", nullptr, $PUBLIC},
-	{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(CLjava/lang/Class;)V", "(CLjava/lang/Class<*>;)V", $PUBLIC, $method(IllegalFormatConversionException, init$, void, char16_t, $Class*)},
+	{"getArgumentClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(IllegalFormatConversionException, getArgumentClass, $Class*)},
+	{"getConversion", "()C", nullptr, $PUBLIC, $virtualMethod(IllegalFormatConversionException, getConversion, char16_t)},
+	{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IllegalFormatConversionException, getMessage, $String*)},
 	{}
 };
 

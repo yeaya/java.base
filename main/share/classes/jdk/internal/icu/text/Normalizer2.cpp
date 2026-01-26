@@ -8,6 +8,7 @@
 #include <jdk/internal/icu/impl/Norm2AllModes.h>
 #include <jcpp.h>
 
+using $Appendable = ::java::lang::Appendable;
 using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -20,21 +21,21 @@ namespace jdk {
 			namespace text {
 
 $MethodInfo _Normalizer2_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(Normalizer2::*)()>(&Normalizer2::init$))},
-	{"append", "(Ljava/lang/StringBuilder;Ljava/lang/CharSequence;)Ljava/lang/StringBuilder;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getCombiningClass", "(I)I", nullptr, $PUBLIC},
-	{"getDecomposition", "(I)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getNFCInstance", "()Ljdk/internal/icu/text/Normalizer2;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Normalizer2*(*)()>(&Normalizer2::getNFCInstance))},
-	{"getNFDInstance", "()Ljdk/internal/icu/text/Normalizer2;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Normalizer2*(*)()>(&Normalizer2::getNFDInstance))},
-	{"getNFKCInstance", "()Ljdk/internal/icu/text/Normalizer2;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Normalizer2*(*)()>(&Normalizer2::getNFKCInstance))},
-	{"getNFKDInstance", "()Ljdk/internal/icu/text/Normalizer2;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Normalizer2*(*)()>(&Normalizer2::getNFKDInstance))},
-	{"hasBoundaryBefore", "(I)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"isNormalized", "(Ljava/lang/CharSequence;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"normalize", "(Ljava/lang/CharSequence;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"normalize", "(Ljava/lang/CharSequence;Ljava/lang/StringBuilder;)Ljava/lang/StringBuilder;", nullptr, $PUBLIC | $ABSTRACT},
-	{"normalize", "(Ljava/lang/CharSequence;Ljava/lang/Appendable;)Ljava/lang/Appendable;", nullptr, $PUBLIC | $ABSTRACT},
-	{"normalizeSecondAndAppend", "(Ljava/lang/StringBuilder;Ljava/lang/CharSequence;)Ljava/lang/StringBuilder;", nullptr, $PUBLIC | $ABSTRACT},
-	{"spanQuickCheckYes", "(Ljava/lang/CharSequence;)I", nullptr, $PUBLIC | $ABSTRACT},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(Normalizer2, init$, void)},
+	{"append", "(Ljava/lang/StringBuilder;Ljava/lang/CharSequence;)Ljava/lang/StringBuilder;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Normalizer2, append, $StringBuilder*, $StringBuilder*, $CharSequence*)},
+	{"getCombiningClass", "(I)I", nullptr, $PUBLIC, $virtualMethod(Normalizer2, getCombiningClass, int32_t, int32_t)},
+	{"getDecomposition", "(I)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Normalizer2, getDecomposition, $String*, int32_t)},
+	{"getNFCInstance", "()Ljdk/internal/icu/text/Normalizer2;", nullptr, $PUBLIC | $STATIC, $staticMethod(Normalizer2, getNFCInstance, Normalizer2*)},
+	{"getNFDInstance", "()Ljdk/internal/icu/text/Normalizer2;", nullptr, $PUBLIC | $STATIC, $staticMethod(Normalizer2, getNFDInstance, Normalizer2*)},
+	{"getNFKCInstance", "()Ljdk/internal/icu/text/Normalizer2;", nullptr, $PUBLIC | $STATIC, $staticMethod(Normalizer2, getNFKCInstance, Normalizer2*)},
+	{"getNFKDInstance", "()Ljdk/internal/icu/text/Normalizer2;", nullptr, $PUBLIC | $STATIC, $staticMethod(Normalizer2, getNFKDInstance, Normalizer2*)},
+	{"hasBoundaryBefore", "(I)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Normalizer2, hasBoundaryBefore, bool, int32_t)},
+	{"isNormalized", "(Ljava/lang/CharSequence;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Normalizer2, isNormalized, bool, $CharSequence*)},
+	{"normalize", "(Ljava/lang/CharSequence;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Normalizer2, normalize, $String*, $CharSequence*)},
+	{"normalize", "(Ljava/lang/CharSequence;Ljava/lang/StringBuilder;)Ljava/lang/StringBuilder;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Normalizer2, normalize, $StringBuilder*, $CharSequence*, $StringBuilder*)},
+	{"normalize", "(Ljava/lang/CharSequence;Ljava/lang/Appendable;)Ljava/lang/Appendable;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Normalizer2, normalize, $Appendable*, $CharSequence*, $Appendable*)},
+	{"normalizeSecondAndAppend", "(Ljava/lang/StringBuilder;Ljava/lang/CharSequence;)Ljava/lang/StringBuilder;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Normalizer2, normalizeSecondAndAppend, $StringBuilder*, $StringBuilder*, $CharSequence*)},
+	{"spanQuickCheckYes", "(Ljava/lang/CharSequence;)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Normalizer2, spanQuickCheckYes, int32_t, $CharSequence*)},
 	{}
 };
 

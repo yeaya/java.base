@@ -27,10 +27,10 @@ $FieldInfo _Proxy$Type_FieldInfo_[] = {
 };
 
 $MethodInfo _Proxy$Type_MethodInfo_[] = {
-	{"$values", "()[Ljava/net/Proxy$Type;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Proxy$TypeArray*(*)()>(&Proxy$Type::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(Proxy$Type::*)($String*,int32_t)>(&Proxy$Type::init$))},
-	{"valueOf", "(Ljava/lang/String;)Ljava/net/Proxy$Type;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Proxy$Type*(*)($String*)>(&Proxy$Type::valueOf))},
-	{"values", "()[Ljava/net/Proxy$Type;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Proxy$TypeArray*(*)()>(&Proxy$Type::values))},
+	{"$values", "()[Ljava/net/Proxy$Type;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Proxy$Type, $values, $Proxy$TypeArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Proxy$Type, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Ljava/net/Proxy$Type;", nullptr, $PUBLIC | $STATIC, $staticMethod(Proxy$Type, valueOf, Proxy$Type*, $String*)},
+	{"values", "()[Ljava/net/Proxy$Type;", nullptr, $PUBLIC | $STATIC, $staticMethod(Proxy$Type, values, $Proxy$TypeArray*)},
 	{}
 };
 

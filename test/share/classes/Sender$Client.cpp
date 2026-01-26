@@ -31,9 +31,9 @@ $FieldInfo _Sender$Client_FieldInfo_[] = {
 };
 
 $MethodInfo _Sender$Client_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, 0, $method(static_cast<void(Sender$Client::*)(int32_t)>(&Sender$Client::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
-	{"throwException", "()V", nullptr, 0, nullptr, "java.lang.Exception"},
+	{"<init>", "(I)V", nullptr, 0, $method(Sender$Client, init$, void, int32_t)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Sender$Client, run, void)},
+	{"throwException", "()V", nullptr, 0, $virtualMethod(Sender$Client, throwException, void), "java.lang.Exception"},
 	{}
 };
 

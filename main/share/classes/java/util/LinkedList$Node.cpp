@@ -19,7 +19,7 @@ $FieldInfo _LinkedList$Node_FieldInfo_[] = {
 };
 
 $MethodInfo _LinkedList$Node_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/LinkedList$Node;Ljava/lang/Object;Ljava/util/LinkedList$Node;)V", "(Ljava/util/LinkedList$Node<TE;>;TE;Ljava/util/LinkedList$Node<TE;>;)V", 0, $method(static_cast<void(LinkedList$Node::*)(LinkedList$Node*,Object$*,LinkedList$Node*)>(&LinkedList$Node::init$))},
+	{"<init>", "(Ljava/util/LinkedList$Node;Ljava/lang/Object;Ljava/util/LinkedList$Node;)V", "(Ljava/util/LinkedList$Node<TE;>;TE;Ljava/util/LinkedList$Node<TE;>;)V", 0, $method(LinkedList$Node, init$, void, LinkedList$Node*, Object$*, LinkedList$Node*)},
 	{}
 };
 

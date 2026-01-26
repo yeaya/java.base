@@ -20,8 +20,8 @@ namespace sun {
 		namespace ssl {
 
 $MethodInfo _ECPointFormatsExtension$ECPointFormatsStringizer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(ECPointFormatsExtension$ECPointFormatsStringizer::*)()>(&ECPointFormatsExtension$ECPointFormatsStringizer::init$))},
-	{"toString", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(ECPointFormatsExtension$ECPointFormatsStringizer, init$, void)},
+	{"toString", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ECPointFormatsExtension$ECPointFormatsStringizer, toString, $String*, $HandshakeContext*, $ByteBuffer*)},
 	{}
 };
 

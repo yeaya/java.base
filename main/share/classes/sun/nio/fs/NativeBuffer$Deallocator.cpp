@@ -21,8 +21,8 @@ $FieldInfo _NativeBuffer$Deallocator_FieldInfo_[] = {
 };
 
 $MethodInfo _NativeBuffer$Deallocator_MethodInfo_[] = {
-	{"<init>", "(J)V", nullptr, 0, $method(static_cast<void(NativeBuffer$Deallocator::*)(int64_t)>(&NativeBuffer$Deallocator::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(J)V", nullptr, 0, $method(NativeBuffer$Deallocator, init$, void, int64_t)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(NativeBuffer$Deallocator, run, void)},
 	{}
 };
 

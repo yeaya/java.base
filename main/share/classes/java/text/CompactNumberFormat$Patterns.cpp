@@ -53,8 +53,8 @@ $FieldInfo CompactNumberFormat$Patterns$$Lambda$lambda$expandAffix$0::fieldInfos
 	{}
 };
 $MethodInfo CompactNumberFormat$Patterns$$Lambda$lambda$expandAffix$0::methodInfos[3] = {
-	{"<init>", "(Ljava/text/CompactNumberFormat$Patterns;Ljava/text/CompactNumberFormat$Patterns;)V", nullptr, $PUBLIC, $method(static_cast<void(CompactNumberFormat$Patterns$$Lambda$lambda$expandAffix$0::*)(CompactNumberFormat$Patterns*,CompactNumberFormat$Patterns*)>(&CompactNumberFormat$Patterns$$Lambda$lambda$expandAffix$0::init$))},
-	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/text/CompactNumberFormat$Patterns;Ljava/text/CompactNumberFormat$Patterns;)V", nullptr, $PUBLIC, $method(CompactNumberFormat$Patterns$$Lambda$lambda$expandAffix$0, init$, void, CompactNumberFormat$Patterns*, CompactNumberFormat$Patterns*)},
+	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(CompactNumberFormat$Patterns$$Lambda$lambda$expandAffix$0, accept, void, Object$*, Object$*)},
 	{}
 };
 $ClassInfo CompactNumberFormat$Patterns$$Lambda$lambda$expandAffix$0::classInfo$ = {
@@ -78,11 +78,11 @@ $FieldInfo _CompactNumberFormat$Patterns_FieldInfo_[] = {
 };
 
 $MethodInfo _CompactNumberFormat$Patterns_MethodInfo_[] = {
-	{"<init>", "(Ljava/text/CompactNumberFormat;)V", nullptr, $PRIVATE, $method(static_cast<void(CompactNumberFormat$Patterns::*)($CompactNumberFormat*)>(&CompactNumberFormat$Patterns::init$))},
-	{"expandAffix", "()Ljava/text/CompactNumberFormat$Patterns;", nullptr, 0, $method(static_cast<CompactNumberFormat$Patterns*(CompactNumberFormat$Patterns::*)()>(&CompactNumberFormat$Patterns::expandAffix))},
-	{"get", "(D)Ljava/lang/String;", nullptr, 0, $method(static_cast<$String*(CompactNumberFormat$Patterns::*)(double)>(&CompactNumberFormat$Patterns::get))},
-	{"lambda$expandAffix$0", "(Ljava/text/CompactNumberFormat$Patterns;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(CompactNumberFormat$Patterns::*)(CompactNumberFormat$Patterns*,$String*,$String*)>(&CompactNumberFormat$Patterns::lambda$expandAffix$0))},
-	{"put", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(CompactNumberFormat$Patterns::*)($String*,$String*)>(&CompactNumberFormat$Patterns::put))},
+	{"<init>", "(Ljava/text/CompactNumberFormat;)V", nullptr, $PRIVATE, $method(CompactNumberFormat$Patterns, init$, void, $CompactNumberFormat*)},
+	{"expandAffix", "()Ljava/text/CompactNumberFormat$Patterns;", nullptr, 0, $method(CompactNumberFormat$Patterns, expandAffix, CompactNumberFormat$Patterns*)},
+	{"get", "(D)Ljava/lang/String;", nullptr, 0, $method(CompactNumberFormat$Patterns, get, $String*, double)},
+	{"lambda$expandAffix$0", "(Ljava/text/CompactNumberFormat$Patterns;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(CompactNumberFormat$Patterns, lambda$expandAffix$0, void, CompactNumberFormat$Patterns*, $String*, $String*)},
+	{"put", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(CompactNumberFormat$Patterns, put, void, $String*, $String*)},
 	{}
 };
 

@@ -31,8 +31,8 @@ $FieldInfo _Sharing$OpenClose_FieldInfo_[] = {
 };
 
 $MethodInfo _Sharing$OpenClose_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/FileDescriptor;Ljava/util/concurrent/CountDownLatch;)V", nullptr, 0, $method(static_cast<void(Sharing$OpenClose::*)($FileDescriptor*,$CountDownLatch*)>(&Sharing$OpenClose::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/io/FileDescriptor;Ljava/util/concurrent/CountDownLatch;)V", nullptr, 0, $method(Sharing$OpenClose, init$, void, $FileDescriptor*, $CountDownLatch*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Sharing$OpenClose, run, void)},
 	{}
 };
 

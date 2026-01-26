@@ -28,14 +28,14 @@ $FieldInfo _ProcessEnvironment$CheckedEntrySet_FieldInfo_[] = {
 };
 
 $MethodInfo _ProcessEnvironment$CheckedEntrySet_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Set;)V", "(Ljava/util/Set<Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/String;>;>;)V", $PUBLIC, $method(static_cast<void(ProcessEnvironment$CheckedEntrySet::*)($Set*)>(&ProcessEnvironment$CheckedEntrySet::init$))},
-	{"checkedEntry", "(Ljava/lang/Object;)Ljava/util/Map$Entry;", "(Ljava/lang/Object;)Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE | $STATIC, $method(static_cast<$Map$Entry*(*)(Object$*)>(&ProcessEnvironment$CheckedEntrySet::checkedEntry))},
-	{"clear", "()V", nullptr, $PUBLIC},
-	{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"isEmpty", "()Z", nullptr, $PUBLIC},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/String;>;>;", $PUBLIC},
-	{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"size", "()I", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/Set;)V", "(Ljava/util/Set<Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/String;>;>;)V", $PUBLIC, $method(ProcessEnvironment$CheckedEntrySet, init$, void, $Set*)},
+	{"checkedEntry", "(Ljava/lang/Object;)Ljava/util/Map$Entry;", "(Ljava/lang/Object;)Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE | $STATIC, $staticMethod(ProcessEnvironment$CheckedEntrySet, checkedEntry, $Map$Entry*, Object$*)},
+	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(ProcessEnvironment$CheckedEntrySet, clear, void)},
+	{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ProcessEnvironment$CheckedEntrySet, contains, bool, Object$*)},
+	{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(ProcessEnvironment$CheckedEntrySet, isEmpty, bool)},
+	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/String;>;>;", $PUBLIC, $virtualMethod(ProcessEnvironment$CheckedEntrySet, iterator, $Iterator*)},
+	{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ProcessEnvironment$CheckedEntrySet, remove, bool, Object$*)},
+	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(ProcessEnvironment$CheckedEntrySet, size, int32_t)},
 	{}
 };
 

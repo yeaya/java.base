@@ -6,6 +6,7 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $BigInteger = ::java::math::BigInteger;
 using $XECKey = ::java::security::interfaces::XECKey;
 
 namespace java {
@@ -16,7 +17,7 @@ $MethodInfo _XECPublicKey_MethodInfo_[] = {
 	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"getU", "()Ljava/math/BigInteger;", nullptr, $PUBLIC | $ABSTRACT},
+	{"getU", "()Ljava/math/BigInteger;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XECPublicKey, getU, $BigInteger*)},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}

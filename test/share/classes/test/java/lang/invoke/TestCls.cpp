@@ -26,9 +26,9 @@ $FieldInfo _TestCls_FieldInfo_[] = {
 };
 
 $MethodInfo _TestCls_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TestCls::*)()>(&TestCls::init$))},
-	{"getLookupForPrivateSIC", "()Ljava/lang/invoke/MethodHandles$Lookup;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$MethodHandles$Lookup*(*)()>(&TestCls::getLookupForPrivateSIC))},
-	{"getPrivateSIC", "()Ljava/lang/Class;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Class*(*)()>(&TestCls::getPrivateSIC))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TestCls, init$, void)},
+	{"getLookupForPrivateSIC", "()Ljava/lang/invoke/MethodHandles$Lookup;", nullptr, $PUBLIC | $STATIC, $staticMethod(TestCls, getLookupForPrivateSIC, $MethodHandles$Lookup*)},
+	{"getPrivateSIC", "()Ljava/lang/Class;", nullptr, $PUBLIC | $STATIC, $staticMethod(TestCls, getPrivateSIC, $Class*)},
 	{}
 };
 

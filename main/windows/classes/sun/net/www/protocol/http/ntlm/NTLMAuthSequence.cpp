@@ -39,12 +39,12 @@ $FieldInfo _NTLMAuthSequence_FieldInfo_[] = {
 };
 
 $MethodInfo _NTLMAuthSequence_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(NTLMAuthSequence::*)($String*,$String*,$String*)>(&NTLMAuthSequence::init$)), "java.io.IOException"},
-	{"getAuthHeader", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"getCredentialsHandle", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)J", nullptr, $PRIVATE | $NATIVE, $method(static_cast<int64_t(NTLMAuthSequence::*)($String*,$String*,$String*)>(&NTLMAuthSequence::getCredentialsHandle))},
-	{"getNextToken", "(J[BLsun/net/www/protocol/http/ntlm/NTLMAuthSequence$Status;)[B", nullptr, $PRIVATE | $NATIVE, $method(static_cast<$bytes*(NTLMAuthSequence::*)(int64_t,$bytes*,$NTLMAuthSequence$Status*)>(&NTLMAuthSequence::getNextToken))},
-	{"initFirst", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<Lsun/net/www/protocol/http/ntlm/NTLMAuthSequence$Status;>;)V", $PRIVATE | $STATIC | $NATIVE, $method(static_cast<void(*)($Class*)>(&NTLMAuthSequence::initFirst))},
-	{"isComplete", "()Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(NTLMAuthSequence, init$, void, $String*, $String*, $String*), "java.io.IOException"},
+	{"getAuthHeader", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NTLMAuthSequence, getAuthHeader, $String*, $String*), "java.io.IOException"},
+	{"getCredentialsHandle", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)J", nullptr, $PRIVATE | $NATIVE, $method(NTLMAuthSequence, getCredentialsHandle, int64_t, $String*, $String*, $String*)},
+	{"getNextToken", "(J[BLsun/net/www/protocol/http/ntlm/NTLMAuthSequence$Status;)[B", nullptr, $PRIVATE | $NATIVE, $method(NTLMAuthSequence, getNextToken, $bytes*, int64_t, $bytes*, $NTLMAuthSequence$Status*)},
+	{"initFirst", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<Lsun/net/www/protocol/http/ntlm/NTLMAuthSequence$Status;>;)V", $PRIVATE | $STATIC | $NATIVE, $staticMethod(NTLMAuthSequence, initFirst, void, $Class*)},
+	{"isComplete", "()Z", nullptr, $PUBLIC, $virtualMethod(NTLMAuthSequence, isComplete, bool)},
 	{}
 };
 

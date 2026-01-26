@@ -17,8 +17,8 @@ namespace jdk {
 		namespace loader {
 
 $MethodInfo _ClassLoaders$BootClassLoader_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/loader/URLClassPath;)V", nullptr, 0, $method(static_cast<void(ClassLoaders$BootClassLoader::*)($URLClassPath*)>(&ClassLoaders$BootClassLoader::init$))},
-	{"loadClassOrNull", "(Ljava/lang/String;Z)Ljava/lang/Class;", "(Ljava/lang/String;Z)Ljava/lang/Class<*>;", $PROTECTED},
+	{"<init>", "(Ljdk/internal/loader/URLClassPath;)V", nullptr, 0, $method(ClassLoaders$BootClassLoader, init$, void, $URLClassPath*)},
+	{"loadClassOrNull", "(Ljava/lang/String;Z)Ljava/lang/Class;", "(Ljava/lang/String;Z)Ljava/lang/Class<*>;", $PROTECTED, $virtualMethod(ClassLoaders$BootClassLoader, loadClassOrNull, $Class*, $String*, bool)},
 	{}
 };
 

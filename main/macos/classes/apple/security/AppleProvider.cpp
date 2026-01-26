@@ -30,8 +30,8 @@ $FieldInfo _AppleProvider_FieldInfo_[] = {
 };
 
 $MethodInfo _AppleProvider_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(AppleProvider::*)()>(&AppleProvider::init$))},
-	{"access$000", "(Lapple/security/AppleProvider;Ljava/security/Provider$Service;)V", nullptr, $STATIC | $SYNTHETIC, $method(static_cast<void(*)(AppleProvider*,$Provider$Service*)>(&AppleProvider::access$000))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(AppleProvider, init$, void)},
+	{"access$000", "(Lapple/security/AppleProvider;Ljava/security/Provider$Service;)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AppleProvider, access$000, void, AppleProvider*, $Provider$Service*)},
 	{}
 };
 

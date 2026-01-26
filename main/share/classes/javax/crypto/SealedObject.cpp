@@ -83,8 +83,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo SealedObject$$Lambda$lambda$static$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SealedObject$$Lambda$lambda$static$0::*)()>(&SealedObject$$Lambda$lambda$static$0::init$))},
-	{"getExtObjectInputStream", "(Ljavax/crypto/SealedObject;Ljavax/crypto/Cipher;)Ljava/io/ObjectInputStream;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SealedObject$$Lambda$lambda$static$0, init$, void)},
+	{"getExtObjectInputStream", "(Ljavax/crypto/SealedObject;Ljavax/crypto/Cipher;)Ljava/io/ObjectInputStream;", nullptr, $PUBLIC, $virtualMethod(SealedObject$$Lambda$lambda$static$0, getExtObjectInputStream, $ObjectInputStream*, SealedObject*, $Cipher*)},
 	{}
 };
 $ClassInfo SealedObject$$Lambda$lambda$static$0::classInfo$ = {
@@ -111,16 +111,16 @@ $FieldInfo _SealedObject_FieldInfo_[] = {
 };
 
 $MethodInfo _SealedObject_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/Serializable;Ljavax/crypto/Cipher;)V", nullptr, $PUBLIC, $method(static_cast<void(SealedObject::*)($Serializable*,$Cipher*)>(&SealedObject::init$)), "java.io.IOException,javax.crypto.IllegalBlockSizeException"},
-	{"<init>", "(Ljavax/crypto/SealedObject;)V", nullptr, $PROTECTED, $method(static_cast<void(SealedObject::*)(SealedObject*)>(&SealedObject::init$))},
-	{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$String*(SealedObject::*)()>(&SealedObject::getAlgorithm))},
-	{"getExtObjectInputStream", "(Ljavax/crypto/Cipher;)Ljava/io/ObjectInputStream;", nullptr, $PRIVATE, $method(static_cast<$ObjectInputStream*(SealedObject::*)($Cipher*)>(&SealedObject::getExtObjectInputStream)), "javax.crypto.BadPaddingException,javax.crypto.IllegalBlockSizeException,java.io.IOException"},
-	{"getObject", "(Ljava/security/Key;)Ljava/lang/Object;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$Object*(SealedObject::*)($Key*)>(&SealedObject::getObject)), "java.io.IOException,java.lang.ClassNotFoundException,java.security.NoSuchAlgorithmException,java.security.InvalidKeyException"},
-	{"getObject", "(Ljavax/crypto/Cipher;)Ljava/lang/Object;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$Object*(SealedObject::*)($Cipher*)>(&SealedObject::getObject)), "java.io.IOException,java.lang.ClassNotFoundException,javax.crypto.IllegalBlockSizeException,javax.crypto.BadPaddingException"},
-	{"getObject", "(Ljava/security/Key;Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$Object*(SealedObject::*)($Key*,$String*)>(&SealedObject::getObject)), "java.io.IOException,java.lang.ClassNotFoundException,java.security.NoSuchAlgorithmException,java.security.NoSuchProviderException,java.security.InvalidKeyException"},
-	{"lambda$static$0", "(Ljavax/crypto/SealedObject;Ljavax/crypto/Cipher;)Ljava/io/ObjectInputStream;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$ObjectInputStream*(*)(SealedObject*,$Cipher*)>(&SealedObject::lambda$static$0)), "javax.crypto.BadPaddingException,javax.crypto.IllegalBlockSizeException,java.io.IOException"},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(SealedObject::*)($ObjectInputStream*)>(&SealedObject::readObject)), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"unseal", "(Ljava/security/Key;Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PRIVATE, $method(static_cast<$Object*(SealedObject::*)($Key*,$String*)>(&SealedObject::unseal)), "java.io.IOException,java.lang.ClassNotFoundException,java.security.NoSuchAlgorithmException,java.security.NoSuchProviderException,java.security.InvalidKeyException,javax.crypto.IllegalBlockSizeException,javax.crypto.BadPaddingException"},
+	{"<init>", "(Ljava/io/Serializable;Ljavax/crypto/Cipher;)V", nullptr, $PUBLIC, $method(SealedObject, init$, void, $Serializable*, $Cipher*), "java.io.IOException,javax.crypto.IllegalBlockSizeException"},
+	{"<init>", "(Ljavax/crypto/SealedObject;)V", nullptr, $PROTECTED, $method(SealedObject, init$, void, SealedObject*)},
+	{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(SealedObject, getAlgorithm, $String*)},
+	{"getExtObjectInputStream", "(Ljavax/crypto/Cipher;)Ljava/io/ObjectInputStream;", nullptr, $PRIVATE, $method(SealedObject, getExtObjectInputStream, $ObjectInputStream*, $Cipher*), "javax.crypto.BadPaddingException,javax.crypto.IllegalBlockSizeException,java.io.IOException"},
+	{"getObject", "(Ljava/security/Key;)Ljava/lang/Object;", nullptr, $PUBLIC | $FINAL, $method(SealedObject, getObject, $Object*, $Key*), "java.io.IOException,java.lang.ClassNotFoundException,java.security.NoSuchAlgorithmException,java.security.InvalidKeyException"},
+	{"getObject", "(Ljavax/crypto/Cipher;)Ljava/lang/Object;", nullptr, $PUBLIC | $FINAL, $method(SealedObject, getObject, $Object*, $Cipher*), "java.io.IOException,java.lang.ClassNotFoundException,javax.crypto.IllegalBlockSizeException,javax.crypto.BadPaddingException"},
+	{"getObject", "(Ljava/security/Key;Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC | $FINAL, $method(SealedObject, getObject, $Object*, $Key*, $String*), "java.io.IOException,java.lang.ClassNotFoundException,java.security.NoSuchAlgorithmException,java.security.NoSuchProviderException,java.security.InvalidKeyException"},
+	{"lambda$static$0", "(Ljavax/crypto/SealedObject;Ljavax/crypto/Cipher;)Ljava/io/ObjectInputStream;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SealedObject, lambda$static$0, $ObjectInputStream*, SealedObject*, $Cipher*), "javax.crypto.BadPaddingException,javax.crypto.IllegalBlockSizeException,java.io.IOException"},
+	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(SealedObject, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+	{"unseal", "(Ljava/security/Key;Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PRIVATE, $method(SealedObject, unseal, $Object*, $Key*, $String*), "java.io.IOException,java.lang.ClassNotFoundException,java.security.NoSuchAlgorithmException,java.security.NoSuchProviderException,java.security.InvalidKeyException,javax.crypto.IllegalBlockSizeException,javax.crypto.BadPaddingException"},
 	{}
 };
 

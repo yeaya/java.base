@@ -30,8 +30,8 @@ namespace sun {
 		namespace ssl {
 
 $MethodInfo _CertificateVerify$T13CertificateVerifyConsumer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(CertificateVerify$T13CertificateVerifyConsumer::*)()>(&CertificateVerify$T13CertificateVerifyConsumer::init$))},
-	{"consume", "(Lsun/security/ssl/ConnectionContext;Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(CertificateVerify$T13CertificateVerifyConsumer, init$, void)},
+	{"consume", "(Lsun/security/ssl/ConnectionContext;Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(CertificateVerify$T13CertificateVerifyConsumer, consume, void, $ConnectionContext*, $ByteBuffer*), "java.io.IOException"},
 	{}
 };
 

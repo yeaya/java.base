@@ -76,8 +76,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo WhileOps$2Op$$Lambda$lambda$opEvaluateParallelLazy$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(WhileOps$2Op$$Lambda$lambda$opEvaluateParallelLazy$0::*)()>(&WhileOps$2Op$$Lambda$lambda$opEvaluateParallelLazy$0::init$))},
-	{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(WhileOps$2Op$$Lambda$lambda$opEvaluateParallelLazy$0, init$, void)},
+	{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WhileOps$2Op$$Lambda$lambda$opEvaluateParallelLazy$0, apply, $Object*, int32_t)},
 	{}
 };
 $ClassInfo WhileOps$2Op$$Lambda$lambda$opEvaluateParallelLazy$0::classInfo$ = {
@@ -104,12 +104,12 @@ $MethodInfo _WhileOps$2Op_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/util/stream/AbstractPipeline;Ljava/util/stream/StreamShape;ILjava/util/function/IntPredicate;)V", "(Ljava/util/stream/AbstractPipeline<*Ljava/lang/Integer;*>;Ljava/util/stream/StreamShape;I)V", $PUBLIC, $method(static_cast<void(WhileOps$2Op::*)($AbstractPipeline*,$StreamShape*,int32_t,$IntPredicate*)>(&WhileOps$2Op::init$))},
-	{"lambda$opEvaluateParallelLazy$0", "(I)[Ljava/lang/Integer;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$IntegerArray*(*)(int32_t)>(&WhileOps$2Op::lambda$opEvaluateParallelLazy$0))},
-	{"opEvaluateParallel", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;Ljava/util/function/IntFunction;)Ljava/util/stream/Node;", "<P_IN:Ljava/lang/Object;>(Ljava/util/stream/PipelineHelper<Ljava/lang/Integer;>;Ljava/util/Spliterator<TP_IN;>;Ljava/util/function/IntFunction<[Ljava/lang/Integer;>;)Ljava/util/stream/Node<Ljava/lang/Integer;>;", 0},
-	{"opEvaluateParallelLazy", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;)Ljava/util/Spliterator;", "<P_IN:Ljava/lang/Object;>(Ljava/util/stream/PipelineHelper<Ljava/lang/Integer;>;Ljava/util/Spliterator<TP_IN;>;)Ljava/util/Spliterator<Ljava/lang/Integer;>;", 0},
-	{"opWrapSink", "(ILjava/util/stream/Sink;)Ljava/util/stream/Sink;", "(ILjava/util/stream/Sink<Ljava/lang/Integer;>;)Ljava/util/stream/Sink<Ljava/lang/Integer;>;", 0},
-	{"opWrapSink", "(Ljava/util/stream/Sink;Z)Ljava/util/stream/WhileOps$DropWhileSink;", "(Ljava/util/stream/Sink<Ljava/lang/Integer;>;Z)Ljava/util/stream/WhileOps$DropWhileSink<Ljava/lang/Integer;>;", $PUBLIC},
+	{"<init>", "(Ljava/util/stream/AbstractPipeline;Ljava/util/stream/StreamShape;ILjava/util/function/IntPredicate;)V", "(Ljava/util/stream/AbstractPipeline<*Ljava/lang/Integer;*>;Ljava/util/stream/StreamShape;I)V", $PUBLIC, $method(WhileOps$2Op, init$, void, $AbstractPipeline*, $StreamShape*, int32_t, $IntPredicate*)},
+	{"lambda$opEvaluateParallelLazy$0", "(I)[Ljava/lang/Integer;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(WhileOps$2Op, lambda$opEvaluateParallelLazy$0, $IntegerArray*, int32_t)},
+	{"opEvaluateParallel", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;Ljava/util/function/IntFunction;)Ljava/util/stream/Node;", "<P_IN:Ljava/lang/Object;>(Ljava/util/stream/PipelineHelper<Ljava/lang/Integer;>;Ljava/util/Spliterator<TP_IN;>;Ljava/util/function/IntFunction<[Ljava/lang/Integer;>;)Ljava/util/stream/Node<Ljava/lang/Integer;>;", 0, $virtualMethod(WhileOps$2Op, opEvaluateParallel, $Node*, $PipelineHelper*, $Spliterator*, $IntFunction*)},
+	{"opEvaluateParallelLazy", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;)Ljava/util/Spliterator;", "<P_IN:Ljava/lang/Object;>(Ljava/util/stream/PipelineHelper<Ljava/lang/Integer;>;Ljava/util/Spliterator<TP_IN;>;)Ljava/util/Spliterator<Ljava/lang/Integer;>;", 0, $virtualMethod(WhileOps$2Op, opEvaluateParallelLazy, $Spliterator*, $PipelineHelper*, $Spliterator*)},
+	{"opWrapSink", "(ILjava/util/stream/Sink;)Ljava/util/stream/Sink;", "(ILjava/util/stream/Sink<Ljava/lang/Integer;>;)Ljava/util/stream/Sink<Ljava/lang/Integer;>;", 0, $virtualMethod(WhileOps$2Op, opWrapSink, $Sink*, int32_t, $Sink*)},
+	{"opWrapSink", "(Ljava/util/stream/Sink;Z)Ljava/util/stream/WhileOps$DropWhileSink;", "(Ljava/util/stream/Sink<Ljava/lang/Integer;>;Z)Ljava/util/stream/WhileOps$DropWhileSink<Ljava/lang/Integer;>;", $PUBLIC, $virtualMethod(WhileOps$2Op, opWrapSink, $WhileOps$DropWhileSink*, $Sink*, bool)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

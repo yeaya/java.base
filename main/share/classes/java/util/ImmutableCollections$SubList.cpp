@@ -59,20 +59,20 @@ $FieldInfo _ImmutableCollections$SubList_FieldInfo_[] = {
 };
 
 $MethodInfo _ImmutableCollections$SubList_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/ImmutableCollections$AbstractImmutableList;II)V", "(Ljava/util/ImmutableCollections$AbstractImmutableList<TE;>;II)V", $PRIVATE, $method(static_cast<void(ImmutableCollections$SubList::*)($ImmutableCollections$AbstractImmutableList*,int32_t,int32_t)>(&ImmutableCollections$SubList::init$))},
-	{"allowNulls", "()Z", nullptr, $PRIVATE, $method(static_cast<bool(ImmutableCollections$SubList::*)()>(&ImmutableCollections$SubList::allowNulls))},
-	{"fromList", "(Ljava/util/ImmutableCollections$AbstractImmutableList;II)Ljava/util/ImmutableCollections$SubList;", "<E:Ljava/lang/Object;>(Ljava/util/ImmutableCollections$AbstractImmutableList<TE;>;II)Ljava/util/ImmutableCollections$SubList<TE;>;", $STATIC, $method(static_cast<ImmutableCollections$SubList*(*)($ImmutableCollections$AbstractImmutableList*,int32_t,int32_t)>(&ImmutableCollections$SubList::fromList))},
-	{"fromSubList", "(Ljava/util/ImmutableCollections$SubList;II)Ljava/util/ImmutableCollections$SubList;", "<E:Ljava/lang/Object;>(Ljava/util/ImmutableCollections$SubList<TE;>;II)Ljava/util/ImmutableCollections$SubList<TE;>;", $STATIC, $method(static_cast<ImmutableCollections$SubList*(*)(ImmutableCollections$SubList*,int32_t,int32_t)>(&ImmutableCollections$SubList::fromSubList))},
-	{"get", "(I)Ljava/lang/Object;", "(I)TE;", $PUBLIC},
-	{"indexOf", "(Ljava/lang/Object;)I", nullptr, $PUBLIC},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TE;>;", $PUBLIC},
-	{"lastIndexOf", "(Ljava/lang/Object;)I", nullptr, $PUBLIC},
-	{"listIterator", "(I)Ljava/util/ListIterator;", "(I)Ljava/util/ListIterator<TE;>;", $PUBLIC},
-	{"rangeCheck", "(I)V", nullptr, $PRIVATE, $method(static_cast<void(ImmutableCollections$SubList::*)(int32_t)>(&ImmutableCollections$SubList::rangeCheck))},
-	{"size", "()I", nullptr, $PUBLIC},
-	{"subList", "(II)Ljava/util/List;", "(II)Ljava/util/List<TE;>;", $PUBLIC},
-	{"toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", "<T:Ljava/lang/Object;>([TT;)[TT;", $PUBLIC},
+	{"<init>", "(Ljava/util/ImmutableCollections$AbstractImmutableList;II)V", "(Ljava/util/ImmutableCollections$AbstractImmutableList<TE;>;II)V", $PRIVATE, $method(ImmutableCollections$SubList, init$, void, $ImmutableCollections$AbstractImmutableList*, int32_t, int32_t)},
+	{"allowNulls", "()Z", nullptr, $PRIVATE, $method(ImmutableCollections$SubList, allowNulls, bool)},
+	{"fromList", "(Ljava/util/ImmutableCollections$AbstractImmutableList;II)Ljava/util/ImmutableCollections$SubList;", "<E:Ljava/lang/Object;>(Ljava/util/ImmutableCollections$AbstractImmutableList<TE;>;II)Ljava/util/ImmutableCollections$SubList<TE;>;", $STATIC, $staticMethod(ImmutableCollections$SubList, fromList, ImmutableCollections$SubList*, $ImmutableCollections$AbstractImmutableList*, int32_t, int32_t)},
+	{"fromSubList", "(Ljava/util/ImmutableCollections$SubList;II)Ljava/util/ImmutableCollections$SubList;", "<E:Ljava/lang/Object;>(Ljava/util/ImmutableCollections$SubList<TE;>;II)Ljava/util/ImmutableCollections$SubList<TE;>;", $STATIC, $staticMethod(ImmutableCollections$SubList, fromSubList, ImmutableCollections$SubList*, ImmutableCollections$SubList*, int32_t, int32_t)},
+	{"get", "(I)Ljava/lang/Object;", "(I)TE;", $PUBLIC, $virtualMethod(ImmutableCollections$SubList, get, $Object*, int32_t)},
+	{"indexOf", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(ImmutableCollections$SubList, indexOf, int32_t, Object$*)},
+	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TE;>;", $PUBLIC, $virtualMethod(ImmutableCollections$SubList, iterator, $Iterator*)},
+	{"lastIndexOf", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(ImmutableCollections$SubList, lastIndexOf, int32_t, Object$*)},
+	{"listIterator", "(I)Ljava/util/ListIterator;", "(I)Ljava/util/ListIterator<TE;>;", $PUBLIC, $virtualMethod(ImmutableCollections$SubList, listIterator, $ListIterator*, int32_t)},
+	{"rangeCheck", "(I)V", nullptr, $PRIVATE, $method(ImmutableCollections$SubList, rangeCheck, void, int32_t)},
+	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(ImmutableCollections$SubList, size, int32_t)},
+	{"subList", "(II)Ljava/util/List;", "(II)Ljava/util/List<TE;>;", $PUBLIC, $virtualMethod(ImmutableCollections$SubList, subList, $List*, int32_t, int32_t)},
+	{"toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ImmutableCollections$SubList, toArray, $ObjectArray*)},
+	{"toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", "<T:Ljava/lang/Object;>([TT;)[TT;", $PUBLIC, $virtualMethod(ImmutableCollections$SubList, toArray, $ObjectArray*, $ObjectArray*)},
 	{}
 };
 

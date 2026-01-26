@@ -29,9 +29,9 @@ $CompoundAttribute _Base_MethodAnnotations_quux2[] = {
 };
 
 $MethodInfo _Base_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Base::*)()>(&Base::init$))},
-	{"baz", "()V", nullptr, $PUBLIC | $ABSTRACT, nullptr, nullptr, nullptr, _Base_MethodAnnotations_baz1},
-	{"quux", "()V", nullptr, $PUBLIC, nullptr, nullptr, nullptr, _Base_MethodAnnotations_quux2},
+	{"<init>", "()V", nullptr, 0, $method(Base, init$, void)},
+	{"baz", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Base, baz, void), nullptr, nullptr, _Base_MethodAnnotations_baz1},
+	{"quux", "()V", nullptr, $PUBLIC, $virtualMethod(Base, quux, void), nullptr, nullptr, _Base_MethodAnnotations_quux2},
 	{}
 };
 

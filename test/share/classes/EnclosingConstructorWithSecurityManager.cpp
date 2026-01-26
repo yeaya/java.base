@@ -12,8 +12,8 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $SecurityManager = ::java::lang::SecurityManager;
 
 $MethodInfo _EnclosingConstructorWithSecurityManager_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(EnclosingConstructorWithSecurityManager::*)()>(&EnclosingConstructorWithSecurityManager::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&EnclosingConstructorWithSecurityManager::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(EnclosingConstructorWithSecurityManager, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(EnclosingConstructorWithSecurityManager, main, void, $StringArray*)},
 	{}
 };
 

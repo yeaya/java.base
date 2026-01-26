@@ -24,10 +24,10 @@ $FieldInfo _FileChannelImpl$DefaultUnmapper_FieldInfo_[] = {
 };
 
 $MethodInfo _FileChannelImpl$DefaultUnmapper_MethodInfo_[] = {
-	{"<init>", "(JJJLjava/io/FileDescriptor;I)V", nullptr, $PUBLIC, $method(static_cast<void(FileChannelImpl$DefaultUnmapper::*)(int64_t,int64_t,int64_t,$FileDescriptor*,int32_t)>(&FileChannelImpl$DefaultUnmapper::init$))},
-	{"decrementStats", "()V", nullptr, $PROTECTED},
-	{"incrementStats", "()V", nullptr, $PROTECTED},
-	{"isSync", "()Z", nullptr, $PUBLIC},
+	{"<init>", "(JJJLjava/io/FileDescriptor;I)V", nullptr, $PUBLIC, $method(FileChannelImpl$DefaultUnmapper, init$, void, int64_t, int64_t, int64_t, $FileDescriptor*, int32_t)},
+	{"decrementStats", "()V", nullptr, $PROTECTED, $virtualMethod(FileChannelImpl$DefaultUnmapper, decrementStats, void)},
+	{"incrementStats", "()V", nullptr, $PROTECTED, $virtualMethod(FileChannelImpl$DefaultUnmapper, incrementStats, void)},
+	{"isSync", "()Z", nullptr, $PUBLIC, $virtualMethod(FileChannelImpl$DefaultUnmapper, isSync, bool)},
 	{}
 };
 

@@ -3,6 +3,7 @@
 #include <Foo4OrderUnitTest.h>
 #include <jcpp.h>
 
+using $Foo4OrderUnitTestArray = $Array<Foo4OrderUnitTest>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -19,7 +20,7 @@ $CompoundAttribute _FooContainer_Annotations_[] = {
 };
 
 $MethodInfo _FooContainer_MethodInfo_[] = {
-	{"value", "()[LFoo4OrderUnitTest;", nullptr, $PUBLIC | $ABSTRACT},
+	{"value", "()[LFoo4OrderUnitTest;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FooContainer, value, $Foo4OrderUnitTestArray*)},
 	{}
 };
 

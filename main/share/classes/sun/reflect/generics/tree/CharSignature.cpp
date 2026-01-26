@@ -19,9 +19,9 @@ $FieldInfo _CharSignature_FieldInfo_[] = {
 };
 
 $MethodInfo _CharSignature_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(CharSignature::*)()>(&CharSignature::init$))},
-	{"accept", "(Lsun/reflect/generics/visitor/TypeTreeVisitor;)V", "(Lsun/reflect/generics/visitor/TypeTreeVisitor<*>;)V", $PUBLIC},
-	{"make", "()Lsun/reflect/generics/tree/CharSignature;", nullptr, $PUBLIC | $STATIC, $method(static_cast<CharSignature*(*)()>(&CharSignature::make))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(CharSignature, init$, void)},
+	{"accept", "(Lsun/reflect/generics/visitor/TypeTreeVisitor;)V", "(Lsun/reflect/generics/visitor/TypeTreeVisitor<*>;)V", $PUBLIC, $virtualMethod(CharSignature, accept, void, $TypeTreeVisitor*)},
+	{"make", "()Lsun/reflect/generics/tree/CharSignature;", nullptr, $PUBLIC | $STATIC, $staticMethod(CharSignature, make, CharSignature*)},
 	{}
 };
 

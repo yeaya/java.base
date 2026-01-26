@@ -18,8 +18,8 @@ using $Date = ::java::util::Date;
 using $Locale = ::java::util::Locale;
 
 $MethodInfo _Bug8081794_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Bug8081794::*)()>(&Bug8081794::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Bug8081794::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Bug8081794, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Bug8081794, main, void, $StringArray*)},
 	{}
 };
 

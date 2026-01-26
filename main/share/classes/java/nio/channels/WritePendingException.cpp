@@ -18,7 +18,7 @@ $FieldInfo _WritePendingException_FieldInfo_[] = {
 };
 
 $MethodInfo _WritePendingException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(WritePendingException::*)()>(&WritePendingException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(WritePendingException, init$, void)},
 	{}
 };
 

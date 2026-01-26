@@ -6,13 +6,15 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $TSRequest = ::sun::security::timestamp::TSRequest;
+using $TSResponse = ::sun::security::timestamp::TSResponse;
 
 namespace sun {
 	namespace security {
 		namespace timestamp {
 
 $MethodInfo _Timestamper_MethodInfo_[] = {
-	{"generateTimestamp", "(Lsun/security/timestamp/TSRequest;)Lsun/security/timestamp/TSResponse;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
+	{"generateTimestamp", "(Lsun/security/timestamp/TSRequest;)Lsun/security/timestamp/TSResponse;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Timestamper, generateTimestamp, $TSResponse*, $TSRequest*), "java.io.IOException"},
 	{}
 };
 

@@ -40,7 +40,7 @@ $Attribute _Contended_DefaultValue_value0 = {
 };
 
 $MethodInfo _Contended_MethodInfo_[] = {
-	{"value", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, nullptr, nullptr, &_Contended_DefaultValue_value0},
+	{"value", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Contended, value, $String*), nullptr, &_Contended_DefaultValue_value0},
 	{}
 };
 

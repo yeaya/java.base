@@ -69,8 +69,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo RSACore$$Lambda$lambda$getBlindingRandomPair$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(RSACore$$Lambda$lambda$getBlindingRandomPair$0::*)()>(&RSACore$$Lambda$lambda$getBlindingRandomPair$0::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(RSACore$$Lambda$lambda$getBlindingRandomPair$0, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(RSACore$$Lambda$lambda$getBlindingRandomPair$0, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo RSACore$$Lambda$lambda$getBlindingRandomPair$0::classInfo$ = {
@@ -101,20 +101,20 @@ $FieldInfo _RSACore_FieldInfo_[] = {
 };
 
 $MethodInfo _RSACore_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(RSACore::*)()>(&RSACore::init$))},
-	{"convert", "([BII)[B", nullptr, $PUBLIC | $STATIC, $method(static_cast<$bytes*(*)($bytes*,int32_t,int32_t)>(&RSACore::convert))},
-	{"crtCrypt", "([BLjava/security/interfaces/RSAPrivateCrtKey;Z)[B", nullptr, $PRIVATE | $STATIC, $method(static_cast<$bytes*(*)($bytes*,$RSAPrivateCrtKey*,bool)>(&RSACore::crtCrypt)), "javax.crypto.BadPaddingException"},
-	{"crypt", "([BLjava/math/BigInteger;Ljava/math/BigInteger;)[B", nullptr, $PRIVATE | $STATIC, $method(static_cast<$bytes*(*)($bytes*,$BigInteger*,$BigInteger*)>(&RSACore::crypt)), "javax.crypto.BadPaddingException"},
-	{"getBlindingRandomPair", "(Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;)Lsun/security/rsa/RSACore$BlindingRandomPair;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$RSACore$BlindingRandomPair*(*)($BigInteger*,$BigInteger*,$BigInteger*)>(&RSACore::getBlindingRandomPair))},
-	{"getByteLength", "(Ljava/math/BigInteger;)I", nullptr, $PUBLIC | $STATIC, $method(static_cast<int32_t(*)($BigInteger*)>(&RSACore::getByteLength))},
-	{"getByteLength", "(Ljava/security/interfaces/RSAKey;)I", nullptr, $PUBLIC | $STATIC, $method(static_cast<int32_t(*)($RSAKey*)>(&RSACore::getByteLength))},
-	{"lambda$getBlindingRandomPair$0", "(Ljava/math/BigInteger;)Ljava/util/concurrent/ConcurrentLinkedQueue;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$ConcurrentLinkedQueue*(*)($BigInteger*)>(&RSACore::lambda$getBlindingRandomPair$0))},
-	{"parseMsg", "([BLjava/math/BigInteger;)Ljava/math/BigInteger;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$BigInteger*(*)($bytes*,$BigInteger*)>(&RSACore::parseMsg)), "javax.crypto.BadPaddingException"},
-	{"priCrypt", "([BLjava/math/BigInteger;Ljava/math/BigInteger;)[B", nullptr, $PRIVATE | $STATIC, $method(static_cast<$bytes*(*)($bytes*,$BigInteger*,$BigInteger*)>(&RSACore::priCrypt)), "javax.crypto.BadPaddingException"},
-	{"rsa", "([BLjava/security/interfaces/RSAPublicKey;)[B", nullptr, $PUBLIC | $STATIC, $method(static_cast<$bytes*(*)($bytes*,$RSAPublicKey*)>(&RSACore::rsa)), "javax.crypto.BadPaddingException"},
-	{"rsa", "([BLjava/security/interfaces/RSAPrivateKey;)[B", nullptr, $PUBLIC | $STATIC | $DEPRECATED, $method(static_cast<$bytes*(*)($bytes*,$RSAPrivateKey*)>(&RSACore::rsa)), "javax.crypto.BadPaddingException", nullptr, _RSACore_MethodAnnotations_rsa11},
-	{"rsa", "([BLjava/security/interfaces/RSAPrivateKey;Z)[B", nullptr, $PUBLIC | $STATIC, $method(static_cast<$bytes*(*)($bytes*,$RSAPrivateKey*,bool)>(&RSACore::rsa)), "javax.crypto.BadPaddingException"},
-	{"toByteArray", "(Ljava/math/BigInteger;I)[B", nullptr, $PRIVATE | $STATIC, $method(static_cast<$bytes*(*)($BigInteger*,int32_t)>(&RSACore::toByteArray))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(RSACore, init$, void)},
+	{"convert", "([BII)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(RSACore, convert, $bytes*, $bytes*, int32_t, int32_t)},
+	{"crtCrypt", "([BLjava/security/interfaces/RSAPrivateCrtKey;Z)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(RSACore, crtCrypt, $bytes*, $bytes*, $RSAPrivateCrtKey*, bool), "javax.crypto.BadPaddingException"},
+	{"crypt", "([BLjava/math/BigInteger;Ljava/math/BigInteger;)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(RSACore, crypt, $bytes*, $bytes*, $BigInteger*, $BigInteger*), "javax.crypto.BadPaddingException"},
+	{"getBlindingRandomPair", "(Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;)Lsun/security/rsa/RSACore$BlindingRandomPair;", nullptr, $PRIVATE | $STATIC, $staticMethod(RSACore, getBlindingRandomPair, $RSACore$BlindingRandomPair*, $BigInteger*, $BigInteger*, $BigInteger*)},
+	{"getByteLength", "(Ljava/math/BigInteger;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(RSACore, getByteLength, int32_t, $BigInteger*)},
+	{"getByteLength", "(Ljava/security/interfaces/RSAKey;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(RSACore, getByteLength, int32_t, $RSAKey*)},
+	{"lambda$getBlindingRandomPair$0", "(Ljava/math/BigInteger;)Ljava/util/concurrent/ConcurrentLinkedQueue;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(RSACore, lambda$getBlindingRandomPair$0, $ConcurrentLinkedQueue*, $BigInteger*)},
+	{"parseMsg", "([BLjava/math/BigInteger;)Ljava/math/BigInteger;", nullptr, $PRIVATE | $STATIC, $staticMethod(RSACore, parseMsg, $BigInteger*, $bytes*, $BigInteger*), "javax.crypto.BadPaddingException"},
+	{"priCrypt", "([BLjava/math/BigInteger;Ljava/math/BigInteger;)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(RSACore, priCrypt, $bytes*, $bytes*, $BigInteger*, $BigInteger*), "javax.crypto.BadPaddingException"},
+	{"rsa", "([BLjava/security/interfaces/RSAPublicKey;)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(RSACore, rsa, $bytes*, $bytes*, $RSAPublicKey*), "javax.crypto.BadPaddingException"},
+	{"rsa", "([BLjava/security/interfaces/RSAPrivateKey;)[B", nullptr, $PUBLIC | $STATIC | $DEPRECATED, $staticMethod(RSACore, rsa, $bytes*, $bytes*, $RSAPrivateKey*), "javax.crypto.BadPaddingException", nullptr, _RSACore_MethodAnnotations_rsa11},
+	{"rsa", "([BLjava/security/interfaces/RSAPrivateKey;Z)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(RSACore, rsa, $bytes*, $bytes*, $RSAPrivateKey*, bool), "javax.crypto.BadPaddingException"},
+	{"toByteArray", "(Ljava/math/BigInteger;I)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(RSACore, toByteArray, $bytes*, $BigInteger*, int32_t)},
 	{}
 };
 

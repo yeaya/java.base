@@ -25,11 +25,11 @@ $FieldInfo _AbstractScope_FieldInfo_[] = {
 };
 
 $MethodInfo _AbstractScope_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/reflect/GenericDeclaration;)V", "(TD;)V", $PROTECTED, $method(static_cast<void(AbstractScope::*)($GenericDeclaration*)>(&AbstractScope::init$))},
-	{"computeEnclosingScope", "()Lsun/reflect/generics/scope/Scope;", nullptr, $PROTECTED | $ABSTRACT},
-	{"getEnclosingScope", "()Lsun/reflect/generics/scope/Scope;", nullptr, $PROTECTED},
-	{"getRecvr", "()Ljava/lang/reflect/GenericDeclaration;", "()TD;", $PROTECTED},
-	{"lookup", "(Ljava/lang/String;)Ljava/lang/reflect/TypeVariable;", "(Ljava/lang/String;)Ljava/lang/reflect/TypeVariable<*>;", $PUBLIC},
+	{"<init>", "(Ljava/lang/reflect/GenericDeclaration;)V", "(TD;)V", $PROTECTED, $method(AbstractScope, init$, void, $GenericDeclaration*)},
+	{"computeEnclosingScope", "()Lsun/reflect/generics/scope/Scope;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(AbstractScope, computeEnclosingScope, $Scope*)},
+	{"getEnclosingScope", "()Lsun/reflect/generics/scope/Scope;", nullptr, $PROTECTED, $virtualMethod(AbstractScope, getEnclosingScope, $Scope*)},
+	{"getRecvr", "()Ljava/lang/reflect/GenericDeclaration;", "()TD;", $PROTECTED, $virtualMethod(AbstractScope, getRecvr, $GenericDeclaration*)},
+	{"lookup", "(Ljava/lang/String;)Ljava/lang/reflect/TypeVariable;", "(Ljava/lang/String;)Ljava/lang/reflect/TypeVariable<*>;", $PUBLIC, $virtualMethod(AbstractScope, lookup, $TypeVariable*, $String*)},
 	{}
 };
 

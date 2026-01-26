@@ -10,8 +10,8 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace anotherpkg {
 
 $MethodInfo _MethodSupplierOuter$MethodSupplier_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(MethodSupplierOuter$MethodSupplier::*)()>(&MethodSupplierOuter$MethodSupplier::init$))},
-	{"m", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(MethodSupplierOuter$MethodSupplier, init$, void)},
+	{"m", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MethodSupplierOuter$MethodSupplier, m, $String*)},
 	{}
 };
 

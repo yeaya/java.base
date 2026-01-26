@@ -46,8 +46,8 @@ $FieldInfo LongPredicate$$Lambda$lambda$and$0::fieldInfos[3] = {
 	{}
 };
 $MethodInfo LongPredicate$$Lambda$lambda$and$0::methodInfos[3] = {
-	{"<init>", "(Ljava/util/function/LongPredicate;Ljava/util/function/LongPredicate;)V", nullptr, $PUBLIC, $method(static_cast<void(LongPredicate$$Lambda$lambda$and$0::*)(LongPredicate*,LongPredicate*)>(&LongPredicate$$Lambda$lambda$and$0::init$))},
-	{"test", "(J)Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/function/LongPredicate;Ljava/util/function/LongPredicate;)V", nullptr, $PUBLIC, $method(LongPredicate$$Lambda$lambda$and$0, init$, void, LongPredicate*, LongPredicate*)},
+	{"test", "(J)Z", nullptr, $PUBLIC, $virtualMethod(LongPredicate$$Lambda$lambda$and$0, test, bool, int64_t)},
 	{}
 };
 $ClassInfo LongPredicate$$Lambda$lambda$and$0::classInfo$ = {
@@ -86,8 +86,8 @@ $FieldInfo LongPredicate$$Lambda$lambda$negate$1$1::fieldInfos[2] = {
 	{}
 };
 $MethodInfo LongPredicate$$Lambda$lambda$negate$1$1::methodInfos[3] = {
-	{"<init>", "(Ljava/util/function/LongPredicate;)V", nullptr, $PUBLIC, $method(static_cast<void(LongPredicate$$Lambda$lambda$negate$1$1::*)(LongPredicate*)>(&LongPredicate$$Lambda$lambda$negate$1$1::init$))},
-	{"test", "(J)Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/function/LongPredicate;)V", nullptr, $PUBLIC, $method(LongPredicate$$Lambda$lambda$negate$1$1, init$, void, LongPredicate*)},
+	{"test", "(J)Z", nullptr, $PUBLIC, $virtualMethod(LongPredicate$$Lambda$lambda$negate$1$1, test, bool, int64_t)},
 	{}
 };
 $ClassInfo LongPredicate$$Lambda$lambda$negate$1$1::classInfo$ = {
@@ -129,8 +129,8 @@ $FieldInfo LongPredicate$$Lambda$lambda$or$2$2::fieldInfos[3] = {
 	{}
 };
 $MethodInfo LongPredicate$$Lambda$lambda$or$2$2::methodInfos[3] = {
-	{"<init>", "(Ljava/util/function/LongPredicate;Ljava/util/function/LongPredicate;)V", nullptr, $PUBLIC, $method(static_cast<void(LongPredicate$$Lambda$lambda$or$2$2::*)(LongPredicate*,LongPredicate*)>(&LongPredicate$$Lambda$lambda$or$2$2::init$))},
-	{"test", "(J)Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/function/LongPredicate;Ljava/util/function/LongPredicate;)V", nullptr, $PUBLIC, $method(LongPredicate$$Lambda$lambda$or$2$2, init$, void, LongPredicate*, LongPredicate*)},
+	{"test", "(J)Z", nullptr, $PUBLIC, $virtualMethod(LongPredicate$$Lambda$lambda$or$2$2, test, bool, int64_t)},
 	{}
 };
 $ClassInfo LongPredicate$$Lambda$lambda$or$2$2::classInfo$ = {
@@ -153,13 +153,13 @@ $CompoundAttribute _LongPredicate_Annotations_[] = {
 };
 
 $MethodInfo _LongPredicate_MethodInfo_[] = {
-	{"and", "(Ljava/util/function/LongPredicate;)Ljava/util/function/LongPredicate;", nullptr, $PUBLIC},
-	{"lambda$and$0", "(Ljava/util/function/LongPredicate;J)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<bool(LongPredicate::*)(LongPredicate*,int64_t)>(&LongPredicate::lambda$and$0))},
-	{"lambda$negate$1", "(J)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<bool(LongPredicate::*)(int64_t)>(&LongPredicate::lambda$negate$1))},
-	{"lambda$or$2", "(Ljava/util/function/LongPredicate;J)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<bool(LongPredicate::*)(LongPredicate*,int64_t)>(&LongPredicate::lambda$or$2))},
-	{"negate", "()Ljava/util/function/LongPredicate;", nullptr, $PUBLIC},
-	{"or", "(Ljava/util/function/LongPredicate;)Ljava/util/function/LongPredicate;", nullptr, $PUBLIC},
-	{"test", "(J)Z", nullptr, $PUBLIC | $ABSTRACT},
+	{"and", "(Ljava/util/function/LongPredicate;)Ljava/util/function/LongPredicate;", nullptr, $PUBLIC, $virtualMethod(LongPredicate, and$, LongPredicate*, LongPredicate*)},
+	{"lambda$and$0", "(Ljava/util/function/LongPredicate;J)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(LongPredicate, lambda$and$0, bool, LongPredicate*, int64_t)},
+	{"lambda$negate$1", "(J)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(LongPredicate, lambda$negate$1, bool, int64_t)},
+	{"lambda$or$2", "(Ljava/util/function/LongPredicate;J)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(LongPredicate, lambda$or$2, bool, LongPredicate*, int64_t)},
+	{"negate", "()Ljava/util/function/LongPredicate;", nullptr, $PUBLIC, $virtualMethod(LongPredicate, negate, LongPredicate*)},
+	{"or", "(Ljava/util/function/LongPredicate;)Ljava/util/function/LongPredicate;", nullptr, $PUBLIC, $virtualMethod(LongPredicate, or$, LongPredicate*, LongPredicate*)},
+	{"test", "(J)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LongPredicate, test, bool, int64_t)},
 	{}
 };
 

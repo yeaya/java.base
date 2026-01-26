@@ -23,10 +23,10 @@ $FieldInfo _Nodes$ToArrayTask$OfPrimitive_FieldInfo_[] = {
 };
 
 $MethodInfo _Nodes$ToArrayTask$OfPrimitive_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/stream/Node$OfPrimitive;Ljava/lang/Object;I)V", "(TT_NODE;TT_ARR;I)V", $PRIVATE, $method(static_cast<void(Nodes$ToArrayTask$OfPrimitive::*)($Node$OfPrimitive*,Object$*,int32_t)>(&Nodes$ToArrayTask$OfPrimitive::init$))},
-	{"<init>", "(Ljava/util/stream/Nodes$ToArrayTask$OfPrimitive;Ljava/util/stream/Node$OfPrimitive;I)V", "(Ljava/util/stream/Nodes$ToArrayTask$OfPrimitive<TT;TT_CONS;TT_ARR;TT_SPLITR;TT_NODE;>;TT_NODE;I)V", $PRIVATE, $method(static_cast<void(Nodes$ToArrayTask$OfPrimitive::*)(Nodes$ToArrayTask$OfPrimitive*,$Node$OfPrimitive*,int32_t)>(&Nodes$ToArrayTask$OfPrimitive::init$))},
-	{"copyNodeToArray", "()V", nullptr, 0},
-	{"makeChild", "(II)Ljava/util/stream/Nodes$ToArrayTask$OfPrimitive;", "(II)Ljava/util/stream/Nodes$ToArrayTask$OfPrimitive<TT;TT_CONS;TT_ARR;TT_SPLITR;TT_NODE;>;", 0},
+	{"<init>", "(Ljava/util/stream/Node$OfPrimitive;Ljava/lang/Object;I)V", "(TT_NODE;TT_ARR;I)V", $PRIVATE, $method(Nodes$ToArrayTask$OfPrimitive, init$, void, $Node$OfPrimitive*, Object$*, int32_t)},
+	{"<init>", "(Ljava/util/stream/Nodes$ToArrayTask$OfPrimitive;Ljava/util/stream/Node$OfPrimitive;I)V", "(Ljava/util/stream/Nodes$ToArrayTask$OfPrimitive<TT;TT_CONS;TT_ARR;TT_SPLITR;TT_NODE;>;TT_NODE;I)V", $PRIVATE, $method(Nodes$ToArrayTask$OfPrimitive, init$, void, Nodes$ToArrayTask$OfPrimitive*, $Node$OfPrimitive*, int32_t)},
+	{"copyNodeToArray", "()V", nullptr, 0, $virtualMethod(Nodes$ToArrayTask$OfPrimitive, copyNodeToArray, void)},
+	{"makeChild", "(II)Ljava/util/stream/Nodes$ToArrayTask$OfPrimitive;", "(II)Ljava/util/stream/Nodes$ToArrayTask$OfPrimitive<TT;TT_CONS;TT_ARR;TT_SPLITR;TT_NODE;>;", 0, $virtualMethod(Nodes$ToArrayTask$OfPrimitive, makeChild, Nodes$ToArrayTask$OfPrimitive*, int32_t, int32_t)},
 	{}
 };
 

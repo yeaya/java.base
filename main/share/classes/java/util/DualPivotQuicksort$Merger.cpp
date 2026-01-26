@@ -30,9 +30,9 @@ $FieldInfo _DualPivotQuicksort$Merger_FieldInfo_[] = {
 };
 
 $MethodInfo _DualPivotQuicksort$Merger_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/CountedCompleter;Ljava/lang/Object;ILjava/lang/Object;IILjava/lang/Object;II)V", "(Ljava/util/concurrent/CountedCompleter<*>;Ljava/lang/Object;ILjava/lang/Object;IILjava/lang/Object;II)V", $PRIVATE, $method(static_cast<void(DualPivotQuicksort$Merger::*)($CountedCompleter*,Object$*,int32_t,Object$*,int32_t,int32_t,Object$*,int32_t,int32_t)>(&DualPivotQuicksort$Merger::init$))},
-	{"compute", "()V", nullptr, $PUBLIC | $FINAL},
-	{"forkMerger", "(Ljava/lang/Object;ILjava/lang/Object;IILjava/lang/Object;II)V", nullptr, $PRIVATE, $method(static_cast<void(DualPivotQuicksort$Merger::*)(Object$*,int32_t,Object$*,int32_t,int32_t,Object$*,int32_t,int32_t)>(&DualPivotQuicksort$Merger::forkMerger))},
+	{"<init>", "(Ljava/util/concurrent/CountedCompleter;Ljava/lang/Object;ILjava/lang/Object;IILjava/lang/Object;II)V", "(Ljava/util/concurrent/CountedCompleter<*>;Ljava/lang/Object;ILjava/lang/Object;IILjava/lang/Object;II)V", $PRIVATE, $method(DualPivotQuicksort$Merger, init$, void, $CountedCompleter*, Object$*, int32_t, Object$*, int32_t, int32_t, Object$*, int32_t, int32_t)},
+	{"compute", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(DualPivotQuicksort$Merger, compute, void)},
+	{"forkMerger", "(Ljava/lang/Object;ILjava/lang/Object;IILjava/lang/Object;II)V", nullptr, $PRIVATE, $method(DualPivotQuicksort$Merger, forkMerger, void, Object$*, int32_t, Object$*, int32_t, int32_t, Object$*, int32_t, int32_t)},
 	{}
 };
 

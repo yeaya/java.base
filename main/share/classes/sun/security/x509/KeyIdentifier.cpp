@@ -38,14 +38,14 @@ $FieldInfo _KeyIdentifier_FieldInfo_[] = {
 };
 
 $MethodInfo _KeyIdentifier_MethodInfo_[] = {
-	{"<init>", "([B)V", nullptr, $PUBLIC, $method(static_cast<void(KeyIdentifier::*)($bytes*)>(&KeyIdentifier::init$))},
-	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(static_cast<void(KeyIdentifier::*)($DerValue*)>(&KeyIdentifier::init$)), "java.io.IOException"},
-	{"<init>", "(Ljava/security/PublicKey;)V", nullptr, $PUBLIC, $method(static_cast<void(KeyIdentifier::*)($PublicKey*)>(&KeyIdentifier::init$)), "java.io.IOException"},
-	{"encode", "(Lsun/security/util/DerOutputStream;)V", nullptr, 0, nullptr, "java.io.IOException"},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getIdentifier", "()[B", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "([B)V", nullptr, $PUBLIC, $method(KeyIdentifier, init$, void, $bytes*)},
+	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(KeyIdentifier, init$, void, $DerValue*), "java.io.IOException"},
+	{"<init>", "(Ljava/security/PublicKey;)V", nullptr, $PUBLIC, $method(KeyIdentifier, init$, void, $PublicKey*), "java.io.IOException"},
+	{"encode", "(Lsun/security/util/DerOutputStream;)V", nullptr, 0, $virtualMethod(KeyIdentifier, encode, void, $DerOutputStream*), "java.io.IOException"},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(KeyIdentifier, equals, bool, Object$*)},
+	{"getIdentifier", "()[B", nullptr, $PUBLIC, $virtualMethod(KeyIdentifier, getIdentifier, $bytes*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(KeyIdentifier, hashCode, int32_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KeyIdentifier, toString, $String*)},
 	{}
 };
 

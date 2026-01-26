@@ -32,7 +32,7 @@ $FieldInfo _MS950_HKSCS$Encoder_FieldInfo_[] = {
 };
 
 $MethodInfo _MS950_HKSCS$Encoder_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PRIVATE, $method(static_cast<void(MS950_HKSCS$Encoder::*)($Charset*)>(&MS950_HKSCS$Encoder::init$))},
+	{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PRIVATE, $method(MS950_HKSCS$Encoder, init$, void, $Charset*)},
 	{}
 };
 

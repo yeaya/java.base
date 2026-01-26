@@ -57,8 +57,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo DumpStackTest$$Lambda$lambda$testLambda$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DumpStackTest$$Lambda$lambda$testLambda$0::*)()>(&DumpStackTest$$Lambda$lambda$testLambda$0::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DumpStackTest$$Lambda$lambda$testLambda$0, init$, void)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(DumpStackTest$$Lambda$lambda$testLambda$0, accept, void, Object$*)},
 	{}
 };
 $ClassInfo DumpStackTest$$Lambda$lambda$testLambda$0::classInfo$ = {
@@ -90,8 +90,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo DumpStackTest$$Lambda$lambda$assertStackTrace$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DumpStackTest$$Lambda$lambda$assertStackTrace$1$1::*)()>(&DumpStackTest$$Lambda$lambda$assertStackTrace$1$1::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DumpStackTest$$Lambda$lambda$assertStackTrace$1$1, init$, void)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(DumpStackTest$$Lambda$lambda$assertStackTrace$1$1, accept, void, Object$*)},
 	{}
 };
 $ClassInfo DumpStackTest$$Lambda$lambda$assertStackTrace$1$1::classInfo$ = {
@@ -123,8 +123,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo DumpStackTest$$Lambda$lambda$assertStackTrace$2$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DumpStackTest$$Lambda$lambda$assertStackTrace$2$2::*)()>(&DumpStackTest$$Lambda$lambda$assertStackTrace$2$2::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DumpStackTest$$Lambda$lambda$assertStackTrace$2$2, init$, void)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(DumpStackTest$$Lambda$lambda$assertStackTrace$2$2, accept, void, Object$*)},
 	{}
 };
 $ClassInfo DumpStackTest$$Lambda$lambda$assertStackTrace$2$2::classInfo$ = {
@@ -142,22 +142,22 @@ $Class* DumpStackTest$$Lambda$lambda$assertStackTrace$2$2::load$($String* name, 
 $Class* DumpStackTest$$Lambda$lambda$assertStackTrace$2$2::class$ = nullptr;
 
 $MethodInfo _DumpStackTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DumpStackTest::*)()>(&DumpStackTest::init$))},
-	{"assertEquals", "(Ljava/lang/StackTraceElement;LDumpStackTest$CallFrame;I)V", nullptr, $STATIC, $method(static_cast<void(*)($StackTraceElement*,$DumpStackTest$CallFrame*,int32_t)>(&DumpStackTest::assertEquals))},
-	{"assertStackTrace", "([Ljava/lang/StackTraceElement;[LDumpStackTest$CallFrame;)V", nullptr, $STATIC, $method(static_cast<void(*)($StackTraceElementArray*,$DumpStackTest$CallFrameArray*)>(&DumpStackTest::assertStackTrace))},
-	{"consumeLambda", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&DumpStackTest::consumeLambda))},
-	{"getStackTrace", "([LDumpStackTest$CallFrame;)V", nullptr, $STATIC, $method(static_cast<void(*)($DumpStackTest$CallFrameArray*)>(&DumpStackTest::getStackTrace))},
-	{"lambda$assertStackTrace$1", "(Ljava/lang/StackTraceElement;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($StackTraceElement*)>(&DumpStackTest::lambda$assertStackTrace$1))},
-	{"lambda$assertStackTrace$2", "(LDumpStackTest$CallFrame;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($DumpStackTest$CallFrame*)>(&DumpStackTest::lambda$assertStackTrace$2))},
-	{"lambda$testLambda$0", "(Ljava/lang/Void;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($Void*)>(&DumpStackTest::lambda$testLambda$0))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&DumpStackTest::main))},
-	{"methodHandle", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&DumpStackTest::methodHandle))},
-	{"methodInvoke", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&DumpStackTest::methodInvoke))},
-	{"test", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&DumpStackTest::test))},
-	{"testLambda", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&DumpStackTest::testLambda))},
-	{"testMethodHandle", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&DumpStackTest::testMethodHandle))},
-	{"testMethodInvoke", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&DumpStackTest::testMethodInvoke))},
-	{"testThread", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&DumpStackTest::testThread))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DumpStackTest, init$, void)},
+	{"assertEquals", "(Ljava/lang/StackTraceElement;LDumpStackTest$CallFrame;I)V", nullptr, $STATIC, $staticMethod(DumpStackTest, assertEquals, void, $StackTraceElement*, $DumpStackTest$CallFrame*, int32_t)},
+	{"assertStackTrace", "([Ljava/lang/StackTraceElement;[LDumpStackTest$CallFrame;)V", nullptr, $STATIC, $staticMethod(DumpStackTest, assertStackTrace, void, $StackTraceElementArray*, $DumpStackTest$CallFrameArray*)},
+	{"consumeLambda", "()V", nullptr, $STATIC, $staticMethod(DumpStackTest, consumeLambda, void)},
+	{"getStackTrace", "([LDumpStackTest$CallFrame;)V", nullptr, $STATIC, $staticMethod(DumpStackTest, getStackTrace, void, $DumpStackTest$CallFrameArray*)},
+	{"lambda$assertStackTrace$1", "(Ljava/lang/StackTraceElement;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DumpStackTest, lambda$assertStackTrace$1, void, $StackTraceElement*)},
+	{"lambda$assertStackTrace$2", "(LDumpStackTest$CallFrame;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DumpStackTest, lambda$assertStackTrace$2, void, $DumpStackTest$CallFrame*)},
+	{"lambda$testLambda$0", "(Ljava/lang/Void;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DumpStackTest, lambda$testLambda$0, void, $Void*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(DumpStackTest, main, void, $StringArray*)},
+	{"methodHandle", "()V", nullptr, $STATIC, $staticMethod(DumpStackTest, methodHandle, void)},
+	{"methodInvoke", "()V", nullptr, $STATIC, $staticMethod(DumpStackTest, methodInvoke, void)},
+	{"test", "()V", nullptr, $STATIC, $staticMethod(DumpStackTest, test, void)},
+	{"testLambda", "()V", nullptr, $STATIC, $staticMethod(DumpStackTest, testLambda, void)},
+	{"testMethodHandle", "()V", nullptr, $STATIC, $staticMethod(DumpStackTest, testMethodHandle, void)},
+	{"testMethodInvoke", "()V", nullptr, $STATIC, $staticMethod(DumpStackTest, testMethodInvoke, void)},
+	{"testThread", "()V", nullptr, $STATIC, $staticMethod(DumpStackTest, testThread, void)},
 	{}
 };
 

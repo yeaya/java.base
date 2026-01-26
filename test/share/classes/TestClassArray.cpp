@@ -77,8 +77,8 @@ $MethodInfo _TestClassArray_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(TestClassArray::*)()>(&TestClassArray::init$))},
-	{"foo", "()[[[Ljava/lang/Object;", nullptr, $PUBLIC, nullptr, nullptr, nullptr, nullptr, _TestClassArray_MethodTypeAnnotations_foo1},
+	{"<init>", "()V", nullptr, 0, $method(TestClassArray, init$, void)},
+	{"foo", "()[[[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TestClassArray, foo, $ObjectArray3*), nullptr, nullptr, nullptr, _TestClassArray_MethodTypeAnnotations_foo1},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

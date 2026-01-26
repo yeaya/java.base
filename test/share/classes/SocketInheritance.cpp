@@ -34,11 +34,11 @@ using $ServerSocketChannel = ::java::nio::channels::ServerSocketChannel;
 using $SocketChannel = ::java::nio::channels::SocketChannel;
 
 $MethodInfo _SocketInheritance_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SocketInheritance::*)()>(&SocketInheritance::init$))},
-	{"child", "(I)V", nullptr, $STATIC, $method(static_cast<void(*)(int32_t)>(&SocketInheritance::child))},
-	{"connect", "(I)Ljava/nio/channels/SocketChannel;", nullptr, $STATIC, $method(static_cast<$SocketChannel*(*)(int32_t)>(&SocketInheritance::connect)), "java.io.IOException"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&SocketInheritance::main)), "java.lang.Exception"},
-	{"start", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&SocketInheritance::start)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SocketInheritance, init$, void)},
+	{"child", "(I)V", nullptr, $STATIC, $staticMethod(SocketInheritance, child, void, int32_t)},
+	{"connect", "(I)Ljava/nio/channels/SocketChannel;", nullptr, $STATIC, $staticMethod(SocketInheritance, connect, $SocketChannel*, int32_t), "java.io.IOException"},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SocketInheritance, main, void, $StringArray*), "java.lang.Exception"},
+	{"start", "()V", nullptr, $STATIC, $staticMethod(SocketInheritance, start, void), "java.lang.Exception"},
 	{}
 };
 

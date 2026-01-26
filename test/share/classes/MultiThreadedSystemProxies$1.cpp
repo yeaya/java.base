@@ -23,8 +23,8 @@ $FieldInfo _MultiThreadedSystemProxies$1_FieldInfo_[] = {
 };
 
 $MethodInfo _MultiThreadedSystemProxies$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/ProxySelector;Ljava/net/URI;)V", "()V", 0, $method(static_cast<void(MultiThreadedSystemProxies$1::*)($ProxySelector*,$URI*)>(&MultiThreadedSystemProxies$1::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/net/ProxySelector;Ljava/net/URI;)V", "()V", 0, $method(MultiThreadedSystemProxies$1, init$, void, $ProxySelector*, $URI*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(MultiThreadedSystemProxies$1, run, void)},
 	{}
 };
 

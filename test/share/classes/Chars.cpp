@@ -14,10 +14,10 @@ using $Random = ::java::util::Random;
 using $IntStream = ::java::util::stream::IntStream;
 
 $MethodInfo _Chars_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Chars::*)()>(&Chars::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Chars::main))},
-	{"testCPs", "([C[I)V", nullptr, $STATIC, $method(static_cast<void(*)($chars*,$ints*)>(&Chars::testCPs))},
-	{"testChars", "([C[I)V", nullptr, $STATIC, $method(static_cast<void(*)($chars*,$ints*)>(&Chars::testChars))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Chars, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Chars, main, void, $StringArray*)},
+	{"testCPs", "([C[I)V", nullptr, $STATIC, $staticMethod(Chars, testCPs, void, $chars*, $ints*)},
+	{"testChars", "([C[I)V", nullptr, $STATIC, $staticMethod(Chars, testChars, void, $chars*, $ints*)},
 	{}
 };
 

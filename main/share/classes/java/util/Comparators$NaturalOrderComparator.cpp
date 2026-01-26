@@ -27,18 +27,18 @@ $FieldInfo _Comparators$NaturalOrderComparator_FieldInfo_[] = {
 };
 
 $MethodInfo _Comparators$NaturalOrderComparator_MethodInfo_[] = {
-	{"$values", "()[Ljava/util/Comparators$NaturalOrderComparator;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Comparators$NaturalOrderComparatorArray*(*)()>(&Comparators$NaturalOrderComparator::$values))},
+	{"$values", "()[Ljava/util/Comparators$NaturalOrderComparator;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Comparators$NaturalOrderComparator, $values, $Comparators$NaturalOrderComparatorArray*)},
 	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
 	{"*finalize", "()V", nullptr, $PROTECTED | $FINAL},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(Comparators$NaturalOrderComparator::*)($String*,int32_t)>(&Comparators$NaturalOrderComparator::init$))},
-	{"compare", "(Ljava/lang/Comparable;Ljava/lang/Comparable;)I", "(Ljava/lang/Comparable<Ljava/lang/Object;>;Ljava/lang/Comparable<Ljava/lang/Object;>;)I", $PUBLIC, $method(static_cast<int32_t(Comparators$NaturalOrderComparator::*)($Comparable*,$Comparable*)>(&Comparators$NaturalOrderComparator::compare))},
-	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"reversed", "()Ljava/util/Comparator;", "()Ljava/util/Comparator<Ljava/lang/Comparable<Ljava/lang/Object;>;>;", $PUBLIC},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Comparators$NaturalOrderComparator, init$, void, $String*, int32_t)},
+	{"compare", "(Ljava/lang/Comparable;Ljava/lang/Comparable;)I", "(Ljava/lang/Comparable<Ljava/lang/Object;>;Ljava/lang/Comparable<Ljava/lang/Object;>;)I", $PUBLIC, $method(Comparators$NaturalOrderComparator, compare, int32_t, $Comparable*, $Comparable*)},
+	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Comparators$NaturalOrderComparator, compare, int32_t, Object$*, Object$*)},
+	{"reversed", "()Ljava/util/Comparator;", "()Ljava/util/Comparator<Ljava/lang/Comparable<Ljava/lang/Object;>;>;", $PUBLIC, $virtualMethod(Comparators$NaturalOrderComparator, reversed, $Comparator*)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"valueOf", "(Ljava/lang/String;)Ljava/util/Comparators$NaturalOrderComparator;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Comparators$NaturalOrderComparator*(*)($String*)>(&Comparators$NaturalOrderComparator::valueOf))},
-	{"values", "()[Ljava/util/Comparators$NaturalOrderComparator;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Comparators$NaturalOrderComparatorArray*(*)()>(&Comparators$NaturalOrderComparator::values))},
+	{"valueOf", "(Ljava/lang/String;)Ljava/util/Comparators$NaturalOrderComparator;", nullptr, $PUBLIC | $STATIC, $staticMethod(Comparators$NaturalOrderComparator, valueOf, Comparators$NaturalOrderComparator*, $String*)},
+	{"values", "()[Ljava/util/Comparators$NaturalOrderComparator;", nullptr, $PUBLIC | $STATIC, $staticMethod(Comparators$NaturalOrderComparator, values, $Comparators$NaturalOrderComparatorArray*)},
 	{}
 };
 

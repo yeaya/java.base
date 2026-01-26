@@ -17,7 +17,7 @@ $FieldInfo _SyncFailedException_FieldInfo_[] = {
 };
 
 $MethodInfo _SyncFailedException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(SyncFailedException::*)($String*)>(&SyncFailedException::init$))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SyncFailedException, init$, void, $String*)},
 	{}
 };
 

@@ -18,8 +18,8 @@ using $Exception = ::java::lang::Exception;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _ClearErrorStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/OutputStream;Z)V", nullptr, $PUBLIC, $method(static_cast<void(ClearErrorStream::*)($OutputStream*,bool)>(&ClearErrorStream::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&ClearErrorStream::main)), "java.lang.Exception"},
+	{"<init>", "(Ljava/io/OutputStream;Z)V", nullptr, $PUBLIC, $method(ClearErrorStream, init$, void, $OutputStream*, bool)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ClearErrorStream, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

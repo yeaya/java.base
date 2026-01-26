@@ -27,13 +27,13 @@ $FieldInfo _Timestamp_FieldInfo_[] = {
 };
 
 $MethodInfo _Timestamp_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Date;Ljava/security/cert/CertPath;)V", nullptr, $PUBLIC, $method(static_cast<void(Timestamp::*)($Date*,$CertPath*)>(&Timestamp::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getSignerCertPath", "()Ljava/security/cert/CertPath;", nullptr, $PUBLIC, $method(static_cast<$CertPath*(Timestamp::*)()>(&Timestamp::getSignerCertPath))},
-	{"getTimestamp", "()Ljava/util/Date;", nullptr, $PUBLIC, $method(static_cast<$Date*(Timestamp::*)()>(&Timestamp::getTimestamp))},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(Timestamp::*)($ObjectInputStream*)>(&Timestamp::readObject)), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/Date;Ljava/security/cert/CertPath;)V", nullptr, $PUBLIC, $method(Timestamp, init$, void, $Date*, $CertPath*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Timestamp, equals, bool, Object$*)},
+	{"getSignerCertPath", "()Ljava/security/cert/CertPath;", nullptr, $PUBLIC, $method(Timestamp, getSignerCertPath, $CertPath*)},
+	{"getTimestamp", "()Ljava/util/Date;", nullptr, $PUBLIC, $method(Timestamp, getTimestamp, $Date*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Timestamp, hashCode, int32_t)},
+	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(Timestamp, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Timestamp, toString, $String*)},
 	{}
 };
 

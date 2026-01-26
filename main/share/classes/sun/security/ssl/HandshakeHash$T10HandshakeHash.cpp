@@ -40,11 +40,11 @@ $FieldInfo _HandshakeHash$T10HandshakeHash_FieldInfo_[] = {
 };
 
 $MethodInfo _HandshakeHash$T10HandshakeHash_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/ssl/CipherSuite;)V", nullptr, 0, $method(static_cast<void(HandshakeHash$T10HandshakeHash::*)($CipherSuite*)>(&HandshakeHash$T10HandshakeHash::init$))},
-	{"archived", "()[B", nullptr, $PUBLIC},
-	{"digest", "()[B", nullptr, $PUBLIC},
-	{"digest", "(Ljava/lang/String;)[B", nullptr, 0, $method(static_cast<$bytes*(HandshakeHash$T10HandshakeHash::*)($String*)>(&HandshakeHash$T10HandshakeHash::digest))},
-	{"update", "([BII)V", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/security/ssl/CipherSuite;)V", nullptr, 0, $method(HandshakeHash$T10HandshakeHash, init$, void, $CipherSuite*)},
+	{"archived", "()[B", nullptr, $PUBLIC, $virtualMethod(HandshakeHash$T10HandshakeHash, archived, $bytes*)},
+	{"digest", "()[B", nullptr, $PUBLIC, $virtualMethod(HandshakeHash$T10HandshakeHash, digest, $bytes*)},
+	{"digest", "(Ljava/lang/String;)[B", nullptr, 0, $method(HandshakeHash$T10HandshakeHash, digest, $bytes*, $String*)},
+	{"update", "([BII)V", nullptr, $PUBLIC, $virtualMethod(HandshakeHash$T10HandshakeHash, update, void, $bytes*, int32_t, int32_t)},
 	{}
 };
 

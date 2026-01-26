@@ -17,8 +17,8 @@ $FieldInfo _Spliterators$AbstractLongSpliterator$HoldingLongConsumer_FieldInfo_[
 };
 
 $MethodInfo _Spliterators$AbstractLongSpliterator$HoldingLongConsumer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Spliterators$AbstractLongSpliterator$HoldingLongConsumer::*)()>(&Spliterators$AbstractLongSpliterator$HoldingLongConsumer::init$))},
-	{"accept", "(J)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(Spliterators$AbstractLongSpliterator$HoldingLongConsumer, init$, void)},
+	{"accept", "(J)V", nullptr, $PUBLIC, $virtualMethod(Spliterators$AbstractLongSpliterator$HoldingLongConsumer, accept, void, int64_t)},
 	{}
 };
 

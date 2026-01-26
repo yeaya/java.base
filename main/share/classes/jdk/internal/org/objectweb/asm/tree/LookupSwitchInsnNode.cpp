@@ -44,10 +44,10 @@ $FieldInfo _LookupSwitchInsnNode_FieldInfo_[] = {
 };
 
 $MethodInfo _LookupSwitchInsnNode_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/org/objectweb/asm/tree/LabelNode;[I[Ljdk/internal/org/objectweb/asm/tree/LabelNode;)V", nullptr, $PUBLIC, $method(static_cast<void(LookupSwitchInsnNode::*)($LabelNode*,$ints*,$LabelNodeArray*)>(&LookupSwitchInsnNode::init$))},
-	{"accept", "(Ljdk/internal/org/objectweb/asm/MethodVisitor;)V", nullptr, $PUBLIC},
-	{"clone", "(Ljava/util/Map;)Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;", "(Ljava/util/Map<Ljdk/internal/org/objectweb/asm/tree/LabelNode;Ljdk/internal/org/objectweb/asm/tree/LabelNode;>;)Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;", $PUBLIC},
-	{"getType", "()I", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/org/objectweb/asm/tree/LabelNode;[I[Ljdk/internal/org/objectweb/asm/tree/LabelNode;)V", nullptr, $PUBLIC, $method(LookupSwitchInsnNode, init$, void, $LabelNode*, $ints*, $LabelNodeArray*)},
+	{"accept", "(Ljdk/internal/org/objectweb/asm/MethodVisitor;)V", nullptr, $PUBLIC, $virtualMethod(LookupSwitchInsnNode, accept, void, $MethodVisitor*)},
+	{"clone", "(Ljava/util/Map;)Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;", "(Ljava/util/Map<Ljdk/internal/org/objectweb/asm/tree/LabelNode;Ljdk/internal/org/objectweb/asm/tree/LabelNode;>;)Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;", $PUBLIC, $virtualMethod(LookupSwitchInsnNode, clone, $AbstractInsnNode*, $Map*)},
+	{"getType", "()I", nullptr, $PUBLIC, $virtualMethod(LookupSwitchInsnNode, getType, int32_t)},
 	{}
 };
 

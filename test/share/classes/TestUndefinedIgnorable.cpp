@@ -16,8 +16,8 @@ $FieldInfo _TestUndefinedIgnorable_FieldInfo_[] = {
 };
 
 $MethodInfo _TestUndefinedIgnorable_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TestUndefinedIgnorable::*)()>(&TestUndefinedIgnorable::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&TestUndefinedIgnorable::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TestUndefinedIgnorable, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TestUndefinedIgnorable, main, void, $StringArray*)},
 	{}
 };
 

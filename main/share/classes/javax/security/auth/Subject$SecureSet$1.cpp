@@ -53,10 +53,10 @@ $FieldInfo _Subject$SecureSet$1_FieldInfo_[] = {
 };
 
 $MethodInfo _Subject$SecureSet$1_MethodInfo_[] = {
-	{"<init>", "(Ljavax/security/auth/Subject$SecureSet;Ljava/util/LinkedList;)V", "()V", 0, $method(static_cast<void(Subject$SecureSet$1::*)($Subject$SecureSet*,$LinkedList*)>(&Subject$SecureSet$1::init$))},
-	{"hasNext", "()Z", nullptr, $PUBLIC},
-	{"next", "()Ljava/lang/Object;", "()TE;", $PUBLIC},
-	{"remove", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljavax/security/auth/Subject$SecureSet;Ljava/util/LinkedList;)V", "()V", 0, $method(Subject$SecureSet$1, init$, void, $Subject$SecureSet*, $LinkedList*)},
+	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(Subject$SecureSet$1, hasNext, bool)},
+	{"next", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(Subject$SecureSet$1, next, $Object*)},
+	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(Subject$SecureSet$1, remove, void)},
 	{}
 };
 

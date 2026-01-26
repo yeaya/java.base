@@ -26,9 +26,9 @@ $FieldInfo _UnresolvedPermissionCollection$1_FieldInfo_[] = {
 };
 
 $MethodInfo _UnresolvedPermissionCollection$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/UnresolvedPermissionCollection;Ljava/security/UnresolvedPermission;)V", nullptr, 0, $method(static_cast<void(UnresolvedPermissionCollection$1::*)($UnresolvedPermissionCollection*,$UnresolvedPermission*)>(&UnresolvedPermissionCollection$1::init$))},
-	{"apply", "(Ljava/lang/String;Ljava/util/List;)Ljava/util/List;", "(Ljava/lang/String;Ljava/util/List<Ljava/security/UnresolvedPermission;>;)Ljava/util/List<Ljava/security/UnresolvedPermission;>;", $PUBLIC},
-	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "(Ljava/security/UnresolvedPermissionCollection;Ljava/security/UnresolvedPermission;)V", nullptr, 0, $method(UnresolvedPermissionCollection$1, init$, void, $UnresolvedPermissionCollection*, $UnresolvedPermission*)},
+	{"apply", "(Ljava/lang/String;Ljava/util/List;)Ljava/util/List;", "(Ljava/lang/String;Ljava/util/List<Ljava/security/UnresolvedPermission;>;)Ljava/util/List<Ljava/security/UnresolvedPermission;>;", $PUBLIC, $virtualMethod(UnresolvedPermissionCollection$1, apply, $List*, $String*, $List*)},
+	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(UnresolvedPermissionCollection$1, apply, $Object*, Object$*, Object$*)},
 	{}
 };
 

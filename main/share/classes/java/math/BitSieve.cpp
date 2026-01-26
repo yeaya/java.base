@@ -23,15 +23,15 @@ $FieldInfo _BitSieve_FieldInfo_[] = {
 };
 
 $MethodInfo _BitSieve_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(BitSieve::*)()>(&BitSieve::init$))},
-	{"<init>", "(Ljava/math/BigInteger;I)V", nullptr, 0, $method(static_cast<void(BitSieve::*)($BigInteger*,int32_t)>(&BitSieve::init$))},
-	{"bit", "(I)J", nullptr, $PRIVATE | $STATIC, $method(static_cast<int64_t(*)(int32_t)>(&BitSieve::bit))},
-	{"get", "(I)Z", nullptr, $PRIVATE, $method(static_cast<bool(BitSieve::*)(int32_t)>(&BitSieve::get))},
-	{"retrieve", "(Ljava/math/BigInteger;ILjava/util/Random;)Ljava/math/BigInteger;", nullptr, 0},
-	{"set", "(I)V", nullptr, $PRIVATE, $method(static_cast<void(BitSieve::*)(int32_t)>(&BitSieve::set))},
-	{"sieveSearch", "(II)I", nullptr, $PRIVATE, $method(static_cast<int32_t(BitSieve::*)(int32_t,int32_t)>(&BitSieve::sieveSearch))},
-	{"sieveSingle", "(III)V", nullptr, $PRIVATE, $method(static_cast<void(BitSieve::*)(int32_t,int32_t,int32_t)>(&BitSieve::sieveSingle))},
-	{"unitIndex", "(I)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)(int32_t)>(&BitSieve::unitIndex))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(BitSieve, init$, void)},
+	{"<init>", "(Ljava/math/BigInteger;I)V", nullptr, 0, $method(BitSieve, init$, void, $BigInteger*, int32_t)},
+	{"bit", "(I)J", nullptr, $PRIVATE | $STATIC, $staticMethod(BitSieve, bit, int64_t, int32_t)},
+	{"get", "(I)Z", nullptr, $PRIVATE, $method(BitSieve, get, bool, int32_t)},
+	{"retrieve", "(Ljava/math/BigInteger;ILjava/util/Random;)Ljava/math/BigInteger;", nullptr, 0, $virtualMethod(BitSieve, retrieve, $BigInteger*, $BigInteger*, int32_t, $Random*)},
+	{"set", "(I)V", nullptr, $PRIVATE, $method(BitSieve, set, void, int32_t)},
+	{"sieveSearch", "(II)I", nullptr, $PRIVATE, $method(BitSieve, sieveSearch, int32_t, int32_t, int32_t)},
+	{"sieveSingle", "(III)V", nullptr, $PRIVATE, $method(BitSieve, sieveSingle, void, int32_t, int32_t, int32_t)},
+	{"unitIndex", "(I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(BitSieve, unitIndex, int32_t, int32_t)},
 	{}
 };
 

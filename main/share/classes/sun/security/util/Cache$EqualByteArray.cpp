@@ -21,9 +21,9 @@ $FieldInfo _Cache$EqualByteArray_FieldInfo_[] = {
 };
 
 $MethodInfo _Cache$EqualByteArray_MethodInfo_[] = {
-	{"<init>", "([B)V", nullptr, $PUBLIC, $method(static_cast<void(Cache$EqualByteArray::*)($bytes*)>(&Cache$EqualByteArray::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
+	{"<init>", "([B)V", nullptr, $PUBLIC, $method(Cache$EqualByteArray, init$, void, $bytes*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Cache$EqualByteArray, equals, bool, Object$*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Cache$EqualByteArray, hashCode, int32_t)},
 	{}
 };
 

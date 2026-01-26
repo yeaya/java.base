@@ -58,9 +58,9 @@ $FieldInfo _FloatingDecimal$ASCIIToBinaryBuffer_FieldInfo_[] = {
 };
 
 $MethodInfo _FloatingDecimal$ASCIIToBinaryBuffer_MethodInfo_[] = {
-	{"<init>", "(ZI[CI)V", nullptr, 0, $method(static_cast<void(FloatingDecimal$ASCIIToBinaryBuffer::*)(bool,int32_t,$chars*,int32_t)>(&FloatingDecimal$ASCIIToBinaryBuffer::init$))},
-	{"doubleValue", "()D", nullptr, $PUBLIC},
-	{"floatValue", "()F", nullptr, $PUBLIC},
+	{"<init>", "(ZI[CI)V", nullptr, 0, $method(FloatingDecimal$ASCIIToBinaryBuffer, init$, void, bool, int32_t, $chars*, int32_t)},
+	{"doubleValue", "()D", nullptr, $PUBLIC, $virtualMethod(FloatingDecimal$ASCIIToBinaryBuffer, doubleValue, double)},
+	{"floatValue", "()F", nullptr, $PUBLIC, $virtualMethod(FloatingDecimal$ASCIIToBinaryBuffer, floatValue, float)},
 	{}
 };
 

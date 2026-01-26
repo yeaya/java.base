@@ -37,13 +37,13 @@ $MethodInfo _Streams$ConcatSpliterator$OfLong_MethodInfo_[] = {
 	{"*getExactSizeIfKnown", "()J", nullptr, $PUBLIC | $ABSTRACT},
 	{"*hasCharacteristics", "(I)Z", nullptr, $PUBLIC | $ABSTRACT},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/util/Spliterator$OfLong;Ljava/util/Spliterator$OfLong;)V", nullptr, 0, $method(static_cast<void(Streams$ConcatSpliterator$OfLong::*)($Spliterator$OfLong*,$Spliterator$OfLong*)>(&Streams$ConcatSpliterator$OfLong::init$))},
-	{"forEachRemaining", "(Ljava/util/function/LongConsumer;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "(Ljava/util/Spliterator$OfLong;Ljava/util/Spliterator$OfLong;)V", nullptr, 0, $method(Streams$ConcatSpliterator$OfLong, init$, void, $Spliterator$OfLong*, $Spliterator$OfLong*)},
+	{"forEachRemaining", "(Ljava/util/function/LongConsumer;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Streams$ConcatSpliterator$OfLong, forEachRemaining, void, $LongConsumer*)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{"*tryAdvance", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*tryAdvance", "(Ljava/util/function/Consumer;)Z", nullptr, $PUBLIC},
-	{"tryAdvance", "(Ljava/util/function/LongConsumer;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"trySplit", "()Ljava/util/Spliterator$OfLong;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"tryAdvance", "(Ljava/util/function/LongConsumer;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Streams$ConcatSpliterator$OfLong, tryAdvance, bool, $LongConsumer*)},
+	{"trySplit", "()Ljava/util/Spliterator$OfLong;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Streams$ConcatSpliterator$OfLong, trySplit, $Spliterator*)},
 	{}
 };
 

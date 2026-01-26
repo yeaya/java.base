@@ -37,15 +37,15 @@ $FieldInfo _DistributionPointName_FieldInfo_[] = {
 };
 
 $MethodInfo _DistributionPointName_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/x509/GeneralNames;)V", nullptr, $PUBLIC, $method(static_cast<void(DistributionPointName::*)($GeneralNames*)>(&DistributionPointName::init$))},
-	{"<init>", "(Lsun/security/x509/RDN;)V", nullptr, $PUBLIC, $method(static_cast<void(DistributionPointName::*)($RDN*)>(&DistributionPointName::init$))},
-	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(static_cast<void(DistributionPointName::*)($DerValue*)>(&DistributionPointName::init$)), "java.io.IOException"},
-	{"encode", "(Lsun/security/util/DerOutputStream;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getFullName", "()Lsun/security/x509/GeneralNames;", nullptr, $PUBLIC},
-	{"getRelativeName", "()Lsun/security/x509/RDN;", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/security/x509/GeneralNames;)V", nullptr, $PUBLIC, $method(DistributionPointName, init$, void, $GeneralNames*)},
+	{"<init>", "(Lsun/security/x509/RDN;)V", nullptr, $PUBLIC, $method(DistributionPointName, init$, void, $RDN*)},
+	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(DistributionPointName, init$, void, $DerValue*), "java.io.IOException"},
+	{"encode", "(Lsun/security/util/DerOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(DistributionPointName, encode, void, $DerOutputStream*), "java.io.IOException"},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(DistributionPointName, equals, bool, Object$*)},
+	{"getFullName", "()Lsun/security/x509/GeneralNames;", nullptr, $PUBLIC, $virtualMethod(DistributionPointName, getFullName, $GeneralNames*)},
+	{"getRelativeName", "()Lsun/security/x509/RDN;", nullptr, $PUBLIC, $virtualMethod(DistributionPointName, getRelativeName, $RDN*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(DistributionPointName, hashCode, int32_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DistributionPointName, toString, $String*)},
 	{}
 };
 

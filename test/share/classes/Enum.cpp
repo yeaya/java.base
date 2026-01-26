@@ -18,10 +18,10 @@ $FieldInfo _Enum_FieldInfo_[] = {
 };
 
 $MethodInfo _Enum_MethodInfo_[] = {
-	{"$values", "()[LEnum;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$EnumArray*(*)()>(&Enum::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(Enum::*)($String*,int32_t)>(&Enum::init$))},
-	{"valueOf", "(Ljava/lang/String;)LEnum;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Enum*(*)($String*)>(&Enum::valueOf))},
-	{"values", "()[LEnum;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$EnumArray*(*)()>(&Enum::values))},
+	{"$values", "()[LEnum;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Enum, $values, $EnumArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Enum, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)LEnum;", nullptr, $PUBLIC | $STATIC, $staticMethod(Enum, valueOf, Enum*, $String*)},
+	{"values", "()[LEnum;", nullptr, $PUBLIC | $STATIC, $staticMethod(Enum, values, $EnumArray*)},
 	{}
 };
 

@@ -34,10 +34,10 @@ $FieldInfo _WeakHashMap$HashIterator_FieldInfo_[] = {
 };
 
 $MethodInfo _WeakHashMap$HashIterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/WeakHashMap;)V", nullptr, 0, $method(static_cast<void(WeakHashMap$HashIterator::*)($WeakHashMap*)>(&WeakHashMap$HashIterator::init$))},
-	{"hasNext", "()Z", nullptr, $PUBLIC},
-	{"nextEntry", "()Ljava/util/WeakHashMap$Entry;", "()Ljava/util/WeakHashMap$Entry<TK;TV;>;", $PROTECTED},
-	{"remove", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/WeakHashMap;)V", nullptr, 0, $method(WeakHashMap$HashIterator, init$, void, $WeakHashMap*)},
+	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(WeakHashMap$HashIterator, hasNext, bool)},
+	{"nextEntry", "()Ljava/util/WeakHashMap$Entry;", "()Ljava/util/WeakHashMap$Entry<TK;TV;>;", $PROTECTED, $virtualMethod(WeakHashMap$HashIterator, nextEntry, $WeakHashMap$Entry*)},
+	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(WeakHashMap$HashIterator, remove, void)},
 	{}
 };
 

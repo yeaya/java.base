@@ -19,11 +19,11 @@ $FieldInfo _ProcessEnvironment$ExternalData_FieldInfo_[] = {
 };
 
 $MethodInfo _ProcessEnvironment$ExternalData_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;[B)V", nullptr, $PROTECTED, $method(static_cast<void(ProcessEnvironment$ExternalData::*)($String*,$bytes*)>(&ProcessEnvironment$ExternalData::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getBytes", "()[B", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;[B)V", nullptr, $PROTECTED, $method(ProcessEnvironment$ExternalData, init$, void, $String*, $bytes*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ProcessEnvironment$ExternalData, equals, bool, Object$*)},
+	{"getBytes", "()[B", nullptr, $PUBLIC, $virtualMethod(ProcessEnvironment$ExternalData, getBytes, $bytes*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ProcessEnvironment$ExternalData, hashCode, int32_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ProcessEnvironment$ExternalData, toString, $String*)},
 	{}
 };
 

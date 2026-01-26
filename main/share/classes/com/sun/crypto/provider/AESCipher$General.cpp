@@ -14,7 +14,7 @@ namespace com {
 			namespace provider {
 
 $MethodInfo _AESCipher$General_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(AESCipher$General::*)()>(&AESCipher$General::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(AESCipher$General, init$, void)},
 	{}
 };
 

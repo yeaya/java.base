@@ -37,9 +37,9 @@ $FieldInfo _EarlyTimeout_FieldInfo_[] = {
 };
 
 $MethodInfo _EarlyTimeout_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(EarlyTimeout::*)()>(&EarlyTimeout::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&EarlyTimeout::main)), "java.lang.Exception"},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(EarlyTimeout, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(EarlyTimeout, main, void, $StringArray*), "java.lang.Exception"},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(EarlyTimeout, run, void)},
 	{}
 };
 

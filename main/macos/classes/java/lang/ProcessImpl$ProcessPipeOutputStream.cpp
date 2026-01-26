@@ -26,8 +26,8 @@ namespace java {
 	namespace lang {
 
 $MethodInfo _ProcessImpl$ProcessPipeOutputStream_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, 0, $method(static_cast<void(ProcessImpl$ProcessPipeOutputStream::*)(int32_t)>(&ProcessImpl$ProcessPipeOutputStream::init$))},
-	{"processExited", "()V", nullptr, $SYNCHRONIZED},
+	{"<init>", "(I)V", nullptr, 0, $method(ProcessImpl$ProcessPipeOutputStream, init$, void, int32_t)},
+	{"processExited", "()V", nullptr, $SYNCHRONIZED, $virtualMethod(ProcessImpl$ProcessPipeOutputStream, processExited, void)},
 	{}
 };
 

@@ -91,17 +91,17 @@ $FieldInfo _BaseLocale_FieldInfo_[] = {
 };
 
 $MethodInfo _BaseLocale_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, $PRIVATE, $method(static_cast<void(BaseLocale::*)($String*,$String*,$String*,$String*,bool)>(&BaseLocale::init$))},
-	{"convertOldISOCodes", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)($String*)>(&BaseLocale::convertOldISOCodes))},
-	{"createInstance", "(Ljava/lang/String;Ljava/lang/String;)Lsun/util/locale/BaseLocale;", nullptr, $PRIVATE | $STATIC, $method(static_cast<BaseLocale*(*)($String*,$String*)>(&BaseLocale::createInstance))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getInstance", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lsun/util/locale/BaseLocale;", nullptr, $PUBLIC | $STATIC, $method(static_cast<BaseLocale*(*)($String*,$String*,$String*,$String*)>(&BaseLocale::getInstance))},
-	{"getLanguage", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(static_cast<$String*(BaseLocale::*)()>(&BaseLocale::getLanguage))},
-	{"getRegion", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(static_cast<$String*(BaseLocale::*)()>(&BaseLocale::getRegion))},
-	{"getScript", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(static_cast<$String*(BaseLocale::*)()>(&BaseLocale::getScript))},
-	{"getVariant", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(static_cast<$String*(BaseLocale::*)()>(&BaseLocale::getVariant))},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, $PRIVATE, $method(BaseLocale, init$, void, $String*, $String*, $String*, $String*, bool)},
+	{"convertOldISOCodes", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(BaseLocale, convertOldISOCodes, $String*, $String*)},
+	{"createInstance", "(Ljava/lang/String;Ljava/lang/String;)Lsun/util/locale/BaseLocale;", nullptr, $PRIVATE | $STATIC, $staticMethod(BaseLocale, createInstance, BaseLocale*, $String*, $String*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(BaseLocale, equals, bool, Object$*)},
+	{"getInstance", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lsun/util/locale/BaseLocale;", nullptr, $PUBLIC | $STATIC, $staticMethod(BaseLocale, getInstance, BaseLocale*, $String*, $String*, $String*, $String*)},
+	{"getLanguage", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(BaseLocale, getLanguage, $String*)},
+	{"getRegion", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(BaseLocale, getRegion, $String*)},
+	{"getScript", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(BaseLocale, getScript, $String*)},
+	{"getVariant", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(BaseLocale, getVariant, $String*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(BaseLocale, hashCode, int32_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BaseLocale, toString, $String*)},
 	{}
 };
 

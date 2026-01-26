@@ -24,7 +24,7 @@ $CompoundAttribute _DirectlyAndIndirectlyPresent_Annotations_[] = {
 };
 
 $MethodInfo _DirectlyAndIndirectlyPresent_MethodInfo_[] = {
-	{"value", "()I", nullptr, $PUBLIC | $ABSTRACT},
+	{"value", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DirectlyAndIndirectlyPresent, value, int32_t)},
 	{}
 };
 

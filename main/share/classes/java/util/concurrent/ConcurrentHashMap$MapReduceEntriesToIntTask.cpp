@@ -36,9 +36,9 @@ $FieldInfo _ConcurrentHashMap$MapReduceEntriesToIntTask_FieldInfo_[] = {
 };
 
 $MethodInfo _ConcurrentHashMap$MapReduceEntriesToIntTask_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/ConcurrentHashMap$BulkTask;III[Ljava/util/concurrent/ConcurrentHashMap$Node;Ljava/util/concurrent/ConcurrentHashMap$MapReduceEntriesToIntTask;Ljava/util/function/ToIntFunction;ILjava/util/function/IntBinaryOperator;)V", "(Ljava/util/concurrent/ConcurrentHashMap$BulkTask<TK;TV;*>;III[Ljava/util/concurrent/ConcurrentHashMap$Node<TK;TV;>;Ljava/util/concurrent/ConcurrentHashMap$MapReduceEntriesToIntTask<TK;TV;>;Ljava/util/function/ToIntFunction<Ljava/util/Map$Entry<TK;TV;>;>;ILjava/util/function/IntBinaryOperator;)V", 0, $method(static_cast<void(ConcurrentHashMap$MapReduceEntriesToIntTask::*)($ConcurrentHashMap$BulkTask*,int32_t,int32_t,int32_t,$ConcurrentHashMap$NodeArray*,ConcurrentHashMap$MapReduceEntriesToIntTask*,$ToIntFunction*,int32_t,$IntBinaryOperator*)>(&ConcurrentHashMap$MapReduceEntriesToIntTask::init$))},
-	{"compute", "()V", nullptr, $PUBLIC | $FINAL},
-	{"getRawResult", "()Ljava/lang/Integer;", nullptr, $PUBLIC | $FINAL},
+	{"<init>", "(Ljava/util/concurrent/ConcurrentHashMap$BulkTask;III[Ljava/util/concurrent/ConcurrentHashMap$Node;Ljava/util/concurrent/ConcurrentHashMap$MapReduceEntriesToIntTask;Ljava/util/function/ToIntFunction;ILjava/util/function/IntBinaryOperator;)V", "(Ljava/util/concurrent/ConcurrentHashMap$BulkTask<TK;TV;*>;III[Ljava/util/concurrent/ConcurrentHashMap$Node<TK;TV;>;Ljava/util/concurrent/ConcurrentHashMap$MapReduceEntriesToIntTask<TK;TV;>;Ljava/util/function/ToIntFunction<Ljava/util/Map$Entry<TK;TV;>;>;ILjava/util/function/IntBinaryOperator;)V", 0, $method(ConcurrentHashMap$MapReduceEntriesToIntTask, init$, void, $ConcurrentHashMap$BulkTask*, int32_t, int32_t, int32_t, $ConcurrentHashMap$NodeArray*, ConcurrentHashMap$MapReduceEntriesToIntTask*, $ToIntFunction*, int32_t, $IntBinaryOperator*)},
+	{"compute", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(ConcurrentHashMap$MapReduceEntriesToIntTask, compute, void)},
+	{"getRawResult", "()Ljava/lang/Integer;", nullptr, $PUBLIC | $FINAL, $virtualMethod(ConcurrentHashMap$MapReduceEntriesToIntTask, getRawResult, $Object*)},
 	{}
 };
 

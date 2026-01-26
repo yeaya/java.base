@@ -61,17 +61,17 @@ $FieldInfo _URLPermissionTest_FieldInfo_[] = {
 };
 
 $MethodInfo _URLPermissionTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(URLPermissionTest::*)()>(&URLPermissionTest::init$))},
-	{"actest", "(Ljava/lang/String;Ljava/lang/String;Z)LURLPermissionTest$ActionImpliesTest;", nullptr, $STATIC, $method(static_cast<$URLPermissionTest$ActionImpliesTest*(*)($String*,$String*,bool)>(&URLPermissionTest::actest))},
-	{"actest", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)LURLPermissionTest$ActionImpliesTest;", nullptr, $STATIC, $method(static_cast<$URLPermissionTest$ActionImpliesTest*(*)($String*,$String*,$String*,$String*,bool)>(&URLPermissionTest::actest))},
-	{"actionstest", "(Ljava/lang/String;Ljava/lang/String;)LURLPermissionTest$ActionsStringTest;", nullptr, $STATIC, $method(static_cast<$URLPermissionTest$ActionsStringTest*(*)($String*,$String*)>(&URLPermissionTest::actionstest))},
-	{"createtest", "(Ljava/lang/String;)LURLPermissionTest$CreateTest;", nullptr, $STATIC, $method(static_cast<$URLPermissionTest$CreateTest*(*)($String*)>(&URLPermissionTest::createtest))},
-	{"eqtest", "(Ljava/lang/String;Ljava/lang/String;Z)LURLPermissionTest$URLEqualityTest;", nullptr, $STATIC, $method(static_cast<$URLPermissionTest$URLEqualityTest*(*)($String*,$String*,bool)>(&URLPermissionTest::eqtest))},
-	{"extest", "(Ljava/lang/String;)LURLPermissionTest$ExTest;", nullptr, $STATIC, $method(static_cast<$URLPermissionTest$ExTest*(*)($String*)>(&URLPermissionTest::extest))},
-	{"hashtest", "(Ljava/lang/String;Ljava/lang/String;I)LURLPermissionTest$HashCodeTest;", nullptr, $STATIC, $method(static_cast<$URLPermissionTest$HashCodeTest*(*)($String*,$String*,int32_t)>(&URLPermissionTest::hashtest))},
-	{"imtest", "(Ljava/lang/String;Ljava/lang/String;Z)LURLPermissionTest$URLImpliesTest;", nullptr, $STATIC, $method(static_cast<$URLPermissionTest$URLImpliesTest*(*)($String*,$String*,bool)>(&URLPermissionTest::imtest))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&URLPermissionTest::main)), "java.lang.Exception"},
-	{"serializationTest", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $STATIC, $method(static_cast<void(*)($String*,$String*)>(&URLPermissionTest::serializationTest)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(URLPermissionTest, init$, void)},
+	{"actest", "(Ljava/lang/String;Ljava/lang/String;Z)LURLPermissionTest$ActionImpliesTest;", nullptr, $STATIC, $staticMethod(URLPermissionTest, actest, $URLPermissionTest$ActionImpliesTest*, $String*, $String*, bool)},
+	{"actest", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)LURLPermissionTest$ActionImpliesTest;", nullptr, $STATIC, $staticMethod(URLPermissionTest, actest, $URLPermissionTest$ActionImpliesTest*, $String*, $String*, $String*, $String*, bool)},
+	{"actionstest", "(Ljava/lang/String;Ljava/lang/String;)LURLPermissionTest$ActionsStringTest;", nullptr, $STATIC, $staticMethod(URLPermissionTest, actionstest, $URLPermissionTest$ActionsStringTest*, $String*, $String*)},
+	{"createtest", "(Ljava/lang/String;)LURLPermissionTest$CreateTest;", nullptr, $STATIC, $staticMethod(URLPermissionTest, createtest, $URLPermissionTest$CreateTest*, $String*)},
+	{"eqtest", "(Ljava/lang/String;Ljava/lang/String;Z)LURLPermissionTest$URLEqualityTest;", nullptr, $STATIC, $staticMethod(URLPermissionTest, eqtest, $URLPermissionTest$URLEqualityTest*, $String*, $String*, bool)},
+	{"extest", "(Ljava/lang/String;)LURLPermissionTest$ExTest;", nullptr, $STATIC, $staticMethod(URLPermissionTest, extest, $URLPermissionTest$ExTest*, $String*)},
+	{"hashtest", "(Ljava/lang/String;Ljava/lang/String;I)LURLPermissionTest$HashCodeTest;", nullptr, $STATIC, $staticMethod(URLPermissionTest, hashtest, $URLPermissionTest$HashCodeTest*, $String*, $String*, int32_t)},
+	{"imtest", "(Ljava/lang/String;Ljava/lang/String;Z)LURLPermissionTest$URLImpliesTest;", nullptr, $STATIC, $staticMethod(URLPermissionTest, imtest, $URLPermissionTest$URLImpliesTest*, $String*, $String*, bool)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(URLPermissionTest, main, void, $StringArray*), "java.lang.Exception"},
+	{"serializationTest", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(URLPermissionTest, serializationTest, void, $String*, $String*), "java.lang.Exception"},
 	{}
 };
 

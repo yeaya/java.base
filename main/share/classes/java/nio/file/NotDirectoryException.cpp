@@ -18,7 +18,7 @@ $FieldInfo _NotDirectoryException_FieldInfo_[] = {
 };
 
 $MethodInfo _NotDirectoryException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(NotDirectoryException::*)($String*)>(&NotDirectoryException::init$))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NotDirectoryException, init$, void, $String*)},
 	{}
 };
 

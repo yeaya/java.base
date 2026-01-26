@@ -31,12 +31,12 @@ $MethodInfo _TreeMap$ValueSpliterator_MethodInfo_[] = {
 	{"*estimateSize", "()J", nullptr, $PUBLIC | $FINAL},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/util/TreeMap;Ljava/util/TreeMap$Entry;Ljava/util/TreeMap$Entry;III)V", "(Ljava/util/TreeMap<TK;TV;>;Ljava/util/TreeMap$Entry<TK;TV;>;Ljava/util/TreeMap$Entry<TK;TV;>;III)V", 0, $method(static_cast<void(TreeMap$ValueSpliterator::*)($TreeMap*,$TreeMap$Entry*,$TreeMap$Entry*,int32_t,int32_t,int32_t)>(&TreeMap$ValueSpliterator::init$))},
-	{"characteristics", "()I", nullptr, $PUBLIC},
-	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TV;>;)V", $PUBLIC},
+	{"<init>", "(Ljava/util/TreeMap;Ljava/util/TreeMap$Entry;Ljava/util/TreeMap$Entry;III)V", "(Ljava/util/TreeMap<TK;TV;>;Ljava/util/TreeMap$Entry<TK;TV;>;Ljava/util/TreeMap$Entry<TK;TV;>;III)V", 0, $method(TreeMap$ValueSpliterator, init$, void, $TreeMap*, $TreeMap$Entry*, $TreeMap$Entry*, int32_t, int32_t, int32_t)},
+	{"characteristics", "()I", nullptr, $PUBLIC, $virtualMethod(TreeMap$ValueSpliterator, characteristics, int32_t)},
+	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TV;>;)V", $PUBLIC, $virtualMethod(TreeMap$ValueSpliterator, forEachRemaining, void, $Consumer*)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-TV;>;)Z", $PUBLIC},
-	{"trySplit", "()Ljava/util/TreeMap$ValueSpliterator;", "()Ljava/util/TreeMap$ValueSpliterator<TK;TV;>;", $PUBLIC},
+	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-TV;>;)Z", $PUBLIC, $virtualMethod(TreeMap$ValueSpliterator, tryAdvance, bool, $Consumer*)},
+	{"trySplit", "()Ljava/util/TreeMap$ValueSpliterator;", "()Ljava/util/TreeMap$ValueSpliterator<TK;TV;>;", $PUBLIC, $virtualMethod(TreeMap$ValueSpliterator, trySplit, $Spliterator*)},
 	{}
 };
 

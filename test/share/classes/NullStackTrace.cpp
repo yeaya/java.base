@@ -17,8 +17,8 @@ $FieldInfo _NullStackTrace_FieldInfo_[] = {
 };
 
 $MethodInfo _NullStackTrace_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(NullStackTrace::*)()>(&NullStackTrace::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&NullStackTrace::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(NullStackTrace, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(NullStackTrace, main, void, $StringArray*)},
 	{}
 };
 

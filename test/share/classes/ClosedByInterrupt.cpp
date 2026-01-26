@@ -37,13 +37,13 @@ $FieldInfo _ClosedByInterrupt_FieldInfo_[] = {
 };
 
 $MethodInfo _ClosedByInterrupt_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ClosedByInterrupt::*)()>(&ClosedByInterrupt::init$))},
-	{"expected", "(Ljava/lang/Exception;)V", nullptr, $STATIC, $method(static_cast<void(*)($Exception*)>(&ClosedByInterrupt::expected))},
-	{"expected", "(Ljava/lang/String;)V", nullptr, $STATIC, $method(static_cast<void(*)($String*)>(&ClosedByInterrupt::expected))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&ClosedByInterrupt::main)), "java.lang.Exception"},
-	{"test", "(Ljava/io/File;I)V", nullptr, $STATIC, $method(static_cast<void(*)($File*,int32_t)>(&ClosedByInterrupt::test)), "java.lang.Exception"},
-	{"unexpected", "(Ljava/lang/Exception;)V", nullptr, $STATIC, $method(static_cast<void(*)($Exception*)>(&ClosedByInterrupt::unexpected))},
-	{"unexpected", "(Ljava/lang/String;)V", nullptr, $STATIC, $method(static_cast<void(*)($String*)>(&ClosedByInterrupt::unexpected))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ClosedByInterrupt, init$, void)},
+	{"expected", "(Ljava/lang/Exception;)V", nullptr, $STATIC, $staticMethod(ClosedByInterrupt, expected, void, $Exception*)},
+	{"expected", "(Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(ClosedByInterrupt, expected, void, $String*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ClosedByInterrupt, main, void, $StringArray*), "java.lang.Exception"},
+	{"test", "(Ljava/io/File;I)V", nullptr, $STATIC, $staticMethod(ClosedByInterrupt, test, void, $File*, int32_t), "java.lang.Exception"},
+	{"unexpected", "(Ljava/lang/Exception;)V", nullptr, $STATIC, $staticMethod(ClosedByInterrupt, unexpected, void, $Exception*)},
+	{"unexpected", "(Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(ClosedByInterrupt, unexpected, void, $String*)},
 	{}
 };
 

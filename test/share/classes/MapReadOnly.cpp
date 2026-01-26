@@ -22,8 +22,8 @@ using $FileChannel = ::java::nio::channels::FileChannel;
 using $FileChannel$MapMode = ::java::nio::channels::FileChannel$MapMode;
 
 $MethodInfo _MapReadOnly_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(MapReadOnly::*)()>(&MapReadOnly::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&MapReadOnly::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(MapReadOnly, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(MapReadOnly, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

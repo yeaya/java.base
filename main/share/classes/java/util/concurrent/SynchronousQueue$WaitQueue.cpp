@@ -12,7 +12,7 @@ namespace java {
 		namespace concurrent {
 
 $MethodInfo _SynchronousQueue$WaitQueue_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(SynchronousQueue$WaitQueue::*)()>(&SynchronousQueue$WaitQueue::init$))},
+	{"<init>", "()V", nullptr, 0, $method(SynchronousQueue$WaitQueue, init$, void)},
 	{}
 };
 

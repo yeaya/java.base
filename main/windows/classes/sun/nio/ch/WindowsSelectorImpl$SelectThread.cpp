@@ -35,10 +35,10 @@ $FieldInfo _WindowsSelectorImpl$SelectThread_FieldInfo_[] = {
 };
 
 $MethodInfo _WindowsSelectorImpl$SelectThread_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/ch/WindowsSelectorImpl;I)V", nullptr, $PRIVATE, $method(static_cast<void(WindowsSelectorImpl$SelectThread::*)($WindowsSelectorImpl*,int32_t)>(&WindowsSelectorImpl$SelectThread::init$))},
-	{"isZombie", "()Z", nullptr, 0, $method(static_cast<bool(WindowsSelectorImpl$SelectThread::*)()>(&WindowsSelectorImpl$SelectThread::isZombie))},
-	{"makeZombie", "()V", nullptr, 0, $method(static_cast<void(WindowsSelectorImpl$SelectThread::*)()>(&WindowsSelectorImpl$SelectThread::makeZombie))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/nio/ch/WindowsSelectorImpl;I)V", nullptr, $PRIVATE, $method(WindowsSelectorImpl$SelectThread, init$, void, $WindowsSelectorImpl*, int32_t)},
+	{"isZombie", "()Z", nullptr, 0, $method(WindowsSelectorImpl$SelectThread, isZombie, bool)},
+	{"makeZombie", "()V", nullptr, 0, $method(WindowsSelectorImpl$SelectThread, makeZombie, void)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(WindowsSelectorImpl$SelectThread, run, void)},
 	{}
 };
 

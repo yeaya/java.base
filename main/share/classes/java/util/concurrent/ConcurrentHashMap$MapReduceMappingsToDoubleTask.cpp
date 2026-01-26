@@ -36,9 +36,9 @@ $FieldInfo _ConcurrentHashMap$MapReduceMappingsToDoubleTask_FieldInfo_[] = {
 };
 
 $MethodInfo _ConcurrentHashMap$MapReduceMappingsToDoubleTask_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/ConcurrentHashMap$BulkTask;III[Ljava/util/concurrent/ConcurrentHashMap$Node;Ljava/util/concurrent/ConcurrentHashMap$MapReduceMappingsToDoubleTask;Ljava/util/function/ToDoubleBiFunction;DLjava/util/function/DoubleBinaryOperator;)V", "(Ljava/util/concurrent/ConcurrentHashMap$BulkTask<TK;TV;*>;III[Ljava/util/concurrent/ConcurrentHashMap$Node<TK;TV;>;Ljava/util/concurrent/ConcurrentHashMap$MapReduceMappingsToDoubleTask<TK;TV;>;Ljava/util/function/ToDoubleBiFunction<-TK;-TV;>;DLjava/util/function/DoubleBinaryOperator;)V", 0, $method(static_cast<void(ConcurrentHashMap$MapReduceMappingsToDoubleTask::*)($ConcurrentHashMap$BulkTask*,int32_t,int32_t,int32_t,$ConcurrentHashMap$NodeArray*,ConcurrentHashMap$MapReduceMappingsToDoubleTask*,$ToDoubleBiFunction*,double,$DoubleBinaryOperator*)>(&ConcurrentHashMap$MapReduceMappingsToDoubleTask::init$))},
-	{"compute", "()V", nullptr, $PUBLIC | $FINAL},
-	{"getRawResult", "()Ljava/lang/Double;", nullptr, $PUBLIC | $FINAL},
+	{"<init>", "(Ljava/util/concurrent/ConcurrentHashMap$BulkTask;III[Ljava/util/concurrent/ConcurrentHashMap$Node;Ljava/util/concurrent/ConcurrentHashMap$MapReduceMappingsToDoubleTask;Ljava/util/function/ToDoubleBiFunction;DLjava/util/function/DoubleBinaryOperator;)V", "(Ljava/util/concurrent/ConcurrentHashMap$BulkTask<TK;TV;*>;III[Ljava/util/concurrent/ConcurrentHashMap$Node<TK;TV;>;Ljava/util/concurrent/ConcurrentHashMap$MapReduceMappingsToDoubleTask<TK;TV;>;Ljava/util/function/ToDoubleBiFunction<-TK;-TV;>;DLjava/util/function/DoubleBinaryOperator;)V", 0, $method(ConcurrentHashMap$MapReduceMappingsToDoubleTask, init$, void, $ConcurrentHashMap$BulkTask*, int32_t, int32_t, int32_t, $ConcurrentHashMap$NodeArray*, ConcurrentHashMap$MapReduceMappingsToDoubleTask*, $ToDoubleBiFunction*, double, $DoubleBinaryOperator*)},
+	{"compute", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(ConcurrentHashMap$MapReduceMappingsToDoubleTask, compute, void)},
+	{"getRawResult", "()Ljava/lang/Double;", nullptr, $PUBLIC | $FINAL, $virtualMethod(ConcurrentHashMap$MapReduceMappingsToDoubleTask, getRawResult, $Object*)},
 	{}
 };
 

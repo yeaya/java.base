@@ -29,9 +29,9 @@ using $ExpectedAssociated = ::repeatingAnnotations::ExpectedAssociated;
 namespace repeatingAnnotations {
 
 $MethodInfo _InheritedAssociatedAnnotations_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(InheritedAssociatedAnnotations::*)()>(&InheritedAssociatedAnnotations::init$))},
-	{"checkAssociated", "(Ljava/lang/reflect/AnnotatedElement;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($AnnotatedElement*)>(&InheritedAssociatedAnnotations::checkAssociated))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&InheritedAssociatedAnnotations::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(InheritedAssociatedAnnotations, init$, void)},
+	{"checkAssociated", "(Ljava/lang/reflect/AnnotatedElement;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(InheritedAssociatedAnnotations, checkAssociated, void, $AnnotatedElement*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(InheritedAssociatedAnnotations, main, void, $StringArray*)},
 	{}
 };
 

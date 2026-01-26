@@ -45,13 +45,13 @@ $FieldInfo _ConstructorRepository_FieldInfo_[] = {
 };
 
 $MethodInfo _ConstructorRepository_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Lsun/reflect/generics/factory/GenericsFactory;)V", nullptr, $PROTECTED, $method(static_cast<void(ConstructorRepository::*)($String*,$GenericsFactory*)>(&ConstructorRepository::init$))},
-	{"computeExceptionTypes", "()[Ljava/lang/reflect/Type;", nullptr, $PRIVATE, $method(static_cast<$TypeArray*(ConstructorRepository::*)()>(&ConstructorRepository::computeExceptionTypes))},
-	{"computeParameterTypes", "()[Ljava/lang/reflect/Type;", nullptr, $PRIVATE, $method(static_cast<$TypeArray*(ConstructorRepository::*)()>(&ConstructorRepository::computeParameterTypes))},
-	{"getExceptionTypes", "()[Ljava/lang/reflect/Type;", nullptr, $PUBLIC},
-	{"getParameterTypes", "()[Ljava/lang/reflect/Type;", nullptr, $PUBLIC},
-	{"make", "(Ljava/lang/String;Lsun/reflect/generics/factory/GenericsFactory;)Lsun/reflect/generics/repository/ConstructorRepository;", nullptr, $PUBLIC | $STATIC, $method(static_cast<ConstructorRepository*(*)($String*,$GenericsFactory*)>(&ConstructorRepository::make))},
-	{"parse", "(Ljava/lang/String;)Lsun/reflect/generics/tree/MethodTypeSignature;", nullptr, $PROTECTED},
+	{"<init>", "(Ljava/lang/String;Lsun/reflect/generics/factory/GenericsFactory;)V", nullptr, $PROTECTED, $method(ConstructorRepository, init$, void, $String*, $GenericsFactory*)},
+	{"computeExceptionTypes", "()[Ljava/lang/reflect/Type;", nullptr, $PRIVATE, $method(ConstructorRepository, computeExceptionTypes, $TypeArray*)},
+	{"computeParameterTypes", "()[Ljava/lang/reflect/Type;", nullptr, $PRIVATE, $method(ConstructorRepository, computeParameterTypes, $TypeArray*)},
+	{"getExceptionTypes", "()[Ljava/lang/reflect/Type;", nullptr, $PUBLIC, $virtualMethod(ConstructorRepository, getExceptionTypes, $TypeArray*)},
+	{"getParameterTypes", "()[Ljava/lang/reflect/Type;", nullptr, $PUBLIC, $virtualMethod(ConstructorRepository, getParameterTypes, $TypeArray*)},
+	{"make", "(Ljava/lang/String;Lsun/reflect/generics/factory/GenericsFactory;)Lsun/reflect/generics/repository/ConstructorRepository;", nullptr, $PUBLIC | $STATIC, $staticMethod(ConstructorRepository, make, ConstructorRepository*, $String*, $GenericsFactory*)},
+	{"parse", "(Ljava/lang/String;)Lsun/reflect/generics/tree/MethodTypeSignature;", nullptr, $PROTECTED, $virtualMethod(ConstructorRepository, parse, $Tree*, $String*)},
 	{}
 };
 

@@ -86,15 +86,15 @@ $FieldInfo _UnixUriUtils_FieldInfo_[] = {
 };
 
 $MethodInfo _UnixUriUtils_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(UnixUriUtils::*)()>(&UnixUriUtils::init$))},
-	{"decode", "(C)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)(char16_t)>(&UnixUriUtils::decode))},
-	{"fromUri", "(Lsun/nio/fs/UnixFileSystem;Ljava/net/URI;)Ljava/nio/file/Path;", nullptr, $STATIC, $method(static_cast<$Path*(*)($UnixFileSystem*,$URI*)>(&UnixUriUtils::fromUri))},
-	{"highMask", "(Ljava/lang/String;)J", nullptr, $PRIVATE | $STATIC, $method(static_cast<int64_t(*)($String*)>(&UnixUriUtils::highMask))},
-	{"highMask", "(CC)J", nullptr, $PRIVATE | $STATIC, $method(static_cast<int64_t(*)(char16_t,char16_t)>(&UnixUriUtils::highMask))},
-	{"lowMask", "(Ljava/lang/String;)J", nullptr, $PRIVATE | $STATIC, $method(static_cast<int64_t(*)($String*)>(&UnixUriUtils::lowMask))},
-	{"lowMask", "(CC)J", nullptr, $PRIVATE | $STATIC, $method(static_cast<int64_t(*)(char16_t,char16_t)>(&UnixUriUtils::lowMask))},
-	{"match", "(CJJ)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)(char16_t,int64_t,int64_t)>(&UnixUriUtils::match))},
-	{"toUri", "(Lsun/nio/fs/UnixPath;)Ljava/net/URI;", nullptr, $STATIC, $method(static_cast<$URI*(*)($UnixPath*)>(&UnixUriUtils::toUri))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(UnixUriUtils, init$, void)},
+	{"decode", "(C)I", nullptr, $PRIVATE | $STATIC, $staticMethod(UnixUriUtils, decode, int32_t, char16_t)},
+	{"fromUri", "(Lsun/nio/fs/UnixFileSystem;Ljava/net/URI;)Ljava/nio/file/Path;", nullptr, $STATIC, $staticMethod(UnixUriUtils, fromUri, $Path*, $UnixFileSystem*, $URI*)},
+	{"highMask", "(Ljava/lang/String;)J", nullptr, $PRIVATE | $STATIC, $staticMethod(UnixUriUtils, highMask, int64_t, $String*)},
+	{"highMask", "(CC)J", nullptr, $PRIVATE | $STATIC, $staticMethod(UnixUriUtils, highMask, int64_t, char16_t, char16_t)},
+	{"lowMask", "(Ljava/lang/String;)J", nullptr, $PRIVATE | $STATIC, $staticMethod(UnixUriUtils, lowMask, int64_t, $String*)},
+	{"lowMask", "(CC)J", nullptr, $PRIVATE | $STATIC, $staticMethod(UnixUriUtils, lowMask, int64_t, char16_t, char16_t)},
+	{"match", "(CJJ)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(UnixUriUtils, match, bool, char16_t, int64_t, int64_t)},
+	{"toUri", "(Lsun/nio/fs/UnixPath;)Ljava/net/URI;", nullptr, $STATIC, $staticMethod(UnixUriUtils, toUri, $URI*, $UnixPath*)},
 	{}
 };
 

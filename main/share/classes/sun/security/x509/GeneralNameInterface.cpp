@@ -21,6 +21,7 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $DerOutputStream = ::sun::security::util::DerOutputStream;
 
 namespace sun {
 	namespace security {
@@ -45,10 +46,10 @@ $FieldInfo _GeneralNameInterface_FieldInfo_[] = {
 };
 
 $MethodInfo _GeneralNameInterface_MethodInfo_[] = {
-	{"constrains", "(Lsun/security/x509/GeneralNameInterface;)I", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.lang.UnsupportedOperationException"},
-	{"encode", "(Lsun/security/util/DerOutputStream;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"getType", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"subtreeDepth", "()I", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.lang.UnsupportedOperationException"},
+	{"constrains", "(Lsun/security/x509/GeneralNameInterface;)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GeneralNameInterface, constrains, int32_t, GeneralNameInterface*), "java.lang.UnsupportedOperationException"},
+	{"encode", "(Lsun/security/util/DerOutputStream;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GeneralNameInterface, encode, void, $DerOutputStream*), "java.io.IOException"},
+	{"getType", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GeneralNameInterface, getType, int32_t)},
+	{"subtreeDepth", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GeneralNameInterface, subtreeDepth, int32_t), "java.lang.UnsupportedOperationException"},
 	{}
 };
 

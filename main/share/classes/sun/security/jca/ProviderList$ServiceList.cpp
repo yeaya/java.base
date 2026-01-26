@@ -52,14 +52,14 @@ $FieldInfo _ProviderList$ServiceList_FieldInfo_[] = {
 };
 
 $MethodInfo _ProviderList$ServiceList_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/jca/ProviderList;Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(ProviderList$ServiceList::*)($ProviderList*,$String*,$String*)>(&ProviderList$ServiceList::init$))},
-	{"<init>", "(Lsun/security/jca/ProviderList;Ljava/util/List;)V", "(Ljava/util/List<Lsun/security/jca/ServiceId;>;)V", 0, $method(static_cast<void(ProviderList$ServiceList::*)($ProviderList*,$List*)>(&ProviderList$ServiceList::init$))},
-	{"addService", "(Ljava/security/Provider$Service;)V", nullptr, $PRIVATE, $method(static_cast<void(ProviderList$ServiceList::*)($Provider$Service*)>(&ProviderList$ServiceList::addService))},
-	{"get", "(I)Ljava/security/Provider$Service;", nullptr, $PUBLIC},
-	{"isEmpty", "()Z", nullptr, $PUBLIC},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/security/Provider$Service;>;", $PUBLIC},
-	{"size", "()I", nullptr, $PUBLIC},
-	{"tryGet", "(I)Ljava/security/Provider$Service;", nullptr, $PRIVATE, $method(static_cast<$Provider$Service*(ProviderList$ServiceList::*)(int32_t)>(&ProviderList$ServiceList::tryGet))},
+	{"<init>", "(Lsun/security/jca/ProviderList;Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(ProviderList$ServiceList, init$, void, $ProviderList*, $String*, $String*)},
+	{"<init>", "(Lsun/security/jca/ProviderList;Ljava/util/List;)V", "(Ljava/util/List<Lsun/security/jca/ServiceId;>;)V", 0, $method(ProviderList$ServiceList, init$, void, $ProviderList*, $List*)},
+	{"addService", "(Ljava/security/Provider$Service;)V", nullptr, $PRIVATE, $method(ProviderList$ServiceList, addService, void, $Provider$Service*)},
+	{"get", "(I)Ljava/security/Provider$Service;", nullptr, $PUBLIC, $virtualMethod(ProviderList$ServiceList, get, $Object*, int32_t)},
+	{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(ProviderList$ServiceList, isEmpty, bool)},
+	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/security/Provider$Service;>;", $PUBLIC, $virtualMethod(ProviderList$ServiceList, iterator, $Iterator*)},
+	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(ProviderList$ServiceList, size, int32_t)},
+	{"tryGet", "(I)Ljava/security/Provider$Service;", nullptr, $PRIVATE, $method(ProviderList$ServiceList, tryGet, $Provider$Service*, int32_t)},
 	{}
 };
 

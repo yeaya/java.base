@@ -14,8 +14,8 @@ namespace sun {
 		namespace util {
 
 $MethodInfo _FilePaths_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(FilePaths::*)()>(&FilePaths::init$))},
-	{"cacerts", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)()>(&FilePaths::cacerts))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(FilePaths, init$, void)},
+	{"cacerts", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(FilePaths, cacerts, $String*)},
 	{}
 };
 

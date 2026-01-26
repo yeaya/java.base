@@ -27,9 +27,9 @@ $FieldInfo _DateTimeFormatterBuilder$DefaultValueParser_FieldInfo_[] = {
 };
 
 $MethodInfo _DateTimeFormatterBuilder$DefaultValueParser_MethodInfo_[] = {
-	{"<init>", "(Ljava/time/temporal/TemporalField;J)V", nullptr, 0, $method(static_cast<void(DateTimeFormatterBuilder$DefaultValueParser::*)($TemporalField*,int64_t)>(&DateTimeFormatterBuilder$DefaultValueParser::init$))},
-	{"format", "(Ljava/time/format/DateTimePrintContext;Ljava/lang/StringBuilder;)Z", nullptr, $PUBLIC},
-	{"parse", "(Ljava/time/format/DateTimeParseContext;Ljava/lang/CharSequence;I)I", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/time/temporal/TemporalField;J)V", nullptr, 0, $method(DateTimeFormatterBuilder$DefaultValueParser, init$, void, $TemporalField*, int64_t)},
+	{"format", "(Ljava/time/format/DateTimePrintContext;Ljava/lang/StringBuilder;)Z", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$DefaultValueParser, format, bool, $DateTimePrintContext*, $StringBuilder*)},
+	{"parse", "(Ljava/time/format/DateTimeParseContext;Ljava/lang/CharSequence;I)I", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$DefaultValueParser, parse, int32_t, $DateTimeParseContext*, $CharSequence*, int32_t)},
 	{}
 };
 

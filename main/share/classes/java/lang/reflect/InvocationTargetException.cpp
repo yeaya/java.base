@@ -19,11 +19,11 @@ $FieldInfo _InvocationTargetException_FieldInfo_[] = {
 };
 
 $MethodInfo _InvocationTargetException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(InvocationTargetException::*)()>(&InvocationTargetException::init$))},
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(InvocationTargetException::*)($Throwable*)>(&InvocationTargetException::init$))},
-	{"<init>", "(Ljava/lang/Throwable;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(InvocationTargetException::*)($Throwable*,$String*)>(&InvocationTargetException::init$))},
-	{"getCause", "()Ljava/lang/Throwable;", nullptr, $PUBLIC},
-	{"getTargetException", "()Ljava/lang/Throwable;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(InvocationTargetException, init$, void)},
+	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(InvocationTargetException, init$, void, $Throwable*)},
+	{"<init>", "(Ljava/lang/Throwable;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InvocationTargetException, init$, void, $Throwable*, $String*)},
+	{"getCause", "()Ljava/lang/Throwable;", nullptr, $PUBLIC, $virtualMethod(InvocationTargetException, getCause, $Throwable*)},
+	{"getTargetException", "()Ljava/lang/Throwable;", nullptr, $PUBLIC, $virtualMethod(InvocationTargetException, getTargetException, $Throwable*)},
 	{}
 };
 

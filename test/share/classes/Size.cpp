@@ -34,11 +34,11 @@ using $FileChannel$MapMode = ::java::nio::channels::FileChannel$MapMode;
 using $Random = ::java::util::Random;
 
 $MethodInfo _Size_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Size::*)()>(&Size::init$))},
-	{"initTestFile", "(Ljava/io/File;J)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($File*,int64_t)>(&Size::initTestFile)), "java.lang.Exception"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Size::main)), "java.lang.Exception"},
-	{"testLargeFile", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&Size::testLargeFile)), "java.lang.Exception"},
-	{"testSmallFile", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&Size::testSmallFile)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Size, init$, void)},
+	{"initTestFile", "(Ljava/io/File;J)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Size, initTestFile, void, $File*, int64_t), "java.lang.Exception"},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Size, main, void, $StringArray*), "java.lang.Exception"},
+	{"testLargeFile", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(Size, testLargeFile, void), "java.lang.Exception"},
+	{"testSmallFile", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(Size, testSmallFile, void), "java.lang.Exception"},
 	{}
 };
 

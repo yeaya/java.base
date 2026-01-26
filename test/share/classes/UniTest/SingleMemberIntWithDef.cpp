@@ -25,7 +25,7 @@ $Attribute _SingleMemberIntWithDef_DefaultValue_value0 = {
 };
 
 $MethodInfo _SingleMemberIntWithDef_MethodInfo_[] = {
-	{"value", "()I", nullptr, $PUBLIC | $ABSTRACT, nullptr, nullptr, &_SingleMemberIntWithDef_DefaultValue_value0},
+	{"value", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SingleMemberIntWithDef, value, int32_t), nullptr, &_SingleMemberIntWithDef_DefaultValue_value0},
 	{}
 };
 

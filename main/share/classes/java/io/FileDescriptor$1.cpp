@@ -17,17 +17,17 @@ namespace java {
 	namespace io {
 
 $MethodInfo _FileDescriptor$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(FileDescriptor$1::*)()>(&FileDescriptor$1::init$))},
-	{"close", "(Ljava/io/FileDescriptor;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"get", "(Ljava/io/FileDescriptor;)I", nullptr, $PUBLIC},
-	{"getAppend", "(Ljava/io/FileDescriptor;)Z", nullptr, $PUBLIC},
-	{"getHandle", "(Ljava/io/FileDescriptor;)J", nullptr, $PUBLIC},
-	{"registerCleanup", "(Ljava/io/FileDescriptor;)V", nullptr, $PUBLIC},
-	{"registerCleanup", "(Ljava/io/FileDescriptor;Ljdk/internal/ref/PhantomCleanable;)V", "(Ljava/io/FileDescriptor;Ljdk/internal/ref/PhantomCleanable<Ljava/io/FileDescriptor;>;)V", $PUBLIC},
-	{"set", "(Ljava/io/FileDescriptor;I)V", nullptr, $PUBLIC},
-	{"setAppend", "(Ljava/io/FileDescriptor;Z)V", nullptr, $PUBLIC},
-	{"setHandle", "(Ljava/io/FileDescriptor;J)V", nullptr, $PUBLIC},
-	{"unregisterCleanup", "(Ljava/io/FileDescriptor;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(FileDescriptor$1, init$, void)},
+	{"close", "(Ljava/io/FileDescriptor;)V", nullptr, $PUBLIC, $virtualMethod(FileDescriptor$1, close, void, $FileDescriptor*), "java.io.IOException"},
+	{"get", "(Ljava/io/FileDescriptor;)I", nullptr, $PUBLIC, $virtualMethod(FileDescriptor$1, get, int32_t, $FileDescriptor*)},
+	{"getAppend", "(Ljava/io/FileDescriptor;)Z", nullptr, $PUBLIC, $virtualMethod(FileDescriptor$1, getAppend, bool, $FileDescriptor*)},
+	{"getHandle", "(Ljava/io/FileDescriptor;)J", nullptr, $PUBLIC, $virtualMethod(FileDescriptor$1, getHandle, int64_t, $FileDescriptor*)},
+	{"registerCleanup", "(Ljava/io/FileDescriptor;)V", nullptr, $PUBLIC, $virtualMethod(FileDescriptor$1, registerCleanup, void, $FileDescriptor*)},
+	{"registerCleanup", "(Ljava/io/FileDescriptor;Ljdk/internal/ref/PhantomCleanable;)V", "(Ljava/io/FileDescriptor;Ljdk/internal/ref/PhantomCleanable<Ljava/io/FileDescriptor;>;)V", $PUBLIC, $virtualMethod(FileDescriptor$1, registerCleanup, void, $FileDescriptor*, $PhantomCleanable*)},
+	{"set", "(Ljava/io/FileDescriptor;I)V", nullptr, $PUBLIC, $virtualMethod(FileDescriptor$1, set, void, $FileDescriptor*, int32_t)},
+	{"setAppend", "(Ljava/io/FileDescriptor;Z)V", nullptr, $PUBLIC, $virtualMethod(FileDescriptor$1, setAppend, void, $FileDescriptor*, bool)},
+	{"setHandle", "(Ljava/io/FileDescriptor;J)V", nullptr, $PUBLIC, $virtualMethod(FileDescriptor$1, setHandle, void, $FileDescriptor*, int64_t)},
+	{"unregisterCleanup", "(Ljava/io/FileDescriptor;)V", nullptr, $PUBLIC, $virtualMethod(FileDescriptor$1, unregisterCleanup, void, $FileDescriptor*)},
 	{}
 };
 

@@ -20,7 +20,7 @@ $CompoundAttribute _SingleMemberDoubleOvrdDefClass_Annotations_[] = {
 };
 
 $MethodInfo _SingleMemberDoubleOvrdDefClass_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(SingleMemberDoubleOvrdDefClass::*)()>(&SingleMemberDoubleOvrdDefClass::init$))},
+	{"<init>", "()V", nullptr, 0, $method(SingleMemberDoubleOvrdDefClass, init$, void)},
 	{}
 };
 

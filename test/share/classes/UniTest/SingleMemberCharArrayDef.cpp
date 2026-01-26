@@ -30,7 +30,7 @@ $Attribute _SingleMemberCharArrayDef_DefaultValue_value0 = {
 };
 
 $MethodInfo _SingleMemberCharArrayDef_MethodInfo_[] = {
-	{"value", "()[C", nullptr, $PUBLIC | $ABSTRACT, nullptr, nullptr, &_SingleMemberCharArrayDef_DefaultValue_value0},
+	{"value", "()[C", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SingleMemberCharArrayDef, value, $chars*), nullptr, &_SingleMemberCharArrayDef_DefaultValue_value0},
 	{}
 };
 

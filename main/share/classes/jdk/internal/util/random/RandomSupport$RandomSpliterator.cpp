@@ -27,9 +27,9 @@ $FieldInfo _RandomSupport$RandomSpliterator_FieldInfo_[] = {
 };
 
 $MethodInfo _RandomSupport$RandomSpliterator_MethodInfo_[] = {
-	{"<init>", "(JJ)V", nullptr, $PUBLIC, $method(static_cast<void(RandomSupport$RandomSpliterator::*)(int64_t,int64_t)>(&RandomSupport$RandomSpliterator::init$))},
-	{"characteristics", "()I", nullptr, $PUBLIC},
-	{"estimateSize", "()J", nullptr, $PUBLIC},
+	{"<init>", "(JJ)V", nullptr, $PUBLIC, $method(RandomSupport$RandomSpliterator, init$, void, int64_t, int64_t)},
+	{"characteristics", "()I", nullptr, $PUBLIC, $virtualMethod(RandomSupport$RandomSpliterator, characteristics, int32_t)},
+	{"estimateSize", "()J", nullptr, $PUBLIC, $virtualMethod(RandomSupport$RandomSpliterator, estimateSize, int64_t)},
 	{}
 };
 

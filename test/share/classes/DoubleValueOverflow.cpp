@@ -18,8 +18,8 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $BigInteger = ::java::math::BigInteger;
 
 $MethodInfo _DoubleValueOverflow_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DoubleValueOverflow::*)()>(&DoubleValueOverflow::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&DoubleValueOverflow::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DoubleValueOverflow, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(DoubleValueOverflow, main, void, $StringArray*)},
 	{}
 };
 

@@ -79,12 +79,12 @@ $FieldInfo _LegacyChainedExceptionSerialization_FieldInfo_[] = {
 };
 
 $MethodInfo _LegacyChainedExceptionSerialization_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(LegacyChainedExceptionSerialization::*)()>(&LegacyChainedExceptionSerialization::init$))},
-	{"deserialize", "(Ljava/lang/String;)Ljava/lang/Throwable;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$Throwable*(*)($String*)>(&LegacyChainedExceptionSerialization::deserialize)), "java.lang.Exception"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&LegacyChainedExceptionSerialization::main)), "java.lang.Exception"},
-	{"test", "(Ljava/lang/Throwable;)Ljava/lang/Throwable;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$Throwable*(*)($Throwable*)>(&LegacyChainedExceptionSerialization::test)), "java.lang.Exception"},
-	{"testOverriddenGetCause", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&LegacyChainedExceptionSerialization::testOverriddenGetCause)), "java.lang.Exception"},
-	{"verify", "(Ljava/lang/Throwable;Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($Throwable*,$Throwable*)>(&LegacyChainedExceptionSerialization::verify))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(LegacyChainedExceptionSerialization, init$, void)},
+	{"deserialize", "(Ljava/lang/String;)Ljava/lang/Throwable;", nullptr, $PRIVATE | $STATIC, $staticMethod(LegacyChainedExceptionSerialization, deserialize, $Throwable*, $String*), "java.lang.Exception"},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(LegacyChainedExceptionSerialization, main, void, $StringArray*), "java.lang.Exception"},
+	{"test", "(Ljava/lang/Throwable;)Ljava/lang/Throwable;", nullptr, $PRIVATE | $STATIC, $staticMethod(LegacyChainedExceptionSerialization, test, $Throwable*, $Throwable*), "java.lang.Exception"},
+	{"testOverriddenGetCause", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(LegacyChainedExceptionSerialization, testOverriddenGetCause, void), "java.lang.Exception"},
+	{"verify", "(Ljava/lang/Throwable;Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(LegacyChainedExceptionSerialization, verify, void, $Throwable*, $Throwable*)},
 	{}
 };
 

@@ -5,13 +5,14 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $ByteBuffer = ::java::nio::ByteBuffer;
 
 namespace java {
 	namespace nio {
 		namespace channels {
 
 $MethodInfo _ReadableByteChannel_MethodInfo_[] = {
-	{"read", "(Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
+	{"read", "(Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ReadableByteChannel, read, int32_t, $ByteBuffer*), "java.io.IOException"},
 	{}
 };
 

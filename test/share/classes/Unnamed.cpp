@@ -10,8 +10,8 @@ using $MethodHandles = ::java::lang::invoke::MethodHandles;
 using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
 
 $MethodInfo _Unnamed_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Unnamed::*)()>(&Unnamed::init$))},
-	{"lookup", "()Ljava/lang/invoke/MethodHandles$Lookup;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$MethodHandles$Lookup*(*)()>(&Unnamed::lookup))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Unnamed, init$, void)},
+	{"lookup", "()Ljava/lang/invoke/MethodHandles$Lookup;", nullptr, $PUBLIC | $STATIC, $staticMethod(Unnamed, lookup, $MethodHandles$Lookup*)},
 	{}
 };
 

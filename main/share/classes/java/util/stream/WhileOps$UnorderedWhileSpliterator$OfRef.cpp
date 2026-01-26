@@ -30,9 +30,9 @@ $MethodInfo _WhileOps$UnorderedWhileSpliterator$OfRef_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/util/Spliterator;ZLjava/util/function/Predicate;)V", "(Ljava/util/Spliterator<TT;>;ZLjava/util/function/Predicate<-TT;>;)V", 0, $method(static_cast<void(WhileOps$UnorderedWhileSpliterator$OfRef::*)($Spliterator*,bool,$Predicate*)>(&WhileOps$UnorderedWhileSpliterator$OfRef::init$))},
-	{"<init>", "(Ljava/util/Spliterator;Ljava/util/stream/WhileOps$UnorderedWhileSpliterator$OfRef;)V", "(Ljava/util/Spliterator<TT;>;Ljava/util/stream/WhileOps$UnorderedWhileSpliterator$OfRef<TT;>;)V", 0, $method(static_cast<void(WhileOps$UnorderedWhileSpliterator$OfRef::*)($Spliterator*,WhileOps$UnorderedWhileSpliterator$OfRef*)>(&WhileOps$UnorderedWhileSpliterator$OfRef::init$))},
-	{"accept", "(Ljava/lang/Object;)V", "(TT;)V", $PUBLIC},
+	{"<init>", "(Ljava/util/Spliterator;ZLjava/util/function/Predicate;)V", "(Ljava/util/Spliterator<TT;>;ZLjava/util/function/Predicate<-TT;>;)V", 0, $method(WhileOps$UnorderedWhileSpliterator$OfRef, init$, void, $Spliterator*, bool, $Predicate*)},
+	{"<init>", "(Ljava/util/Spliterator;Ljava/util/stream/WhileOps$UnorderedWhileSpliterator$OfRef;)V", "(Ljava/util/Spliterator<TT;>;Ljava/util/stream/WhileOps$UnorderedWhileSpliterator$OfRef<TT;>;)V", 0, $method(WhileOps$UnorderedWhileSpliterator$OfRef, init$, void, $Spliterator*, WhileOps$UnorderedWhileSpliterator$OfRef*)},
+	{"accept", "(Ljava/lang/Object;)V", "(TT;)V", $PUBLIC, $virtualMethod(WhileOps$UnorderedWhileSpliterator$OfRef, accept, void, Object$*)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

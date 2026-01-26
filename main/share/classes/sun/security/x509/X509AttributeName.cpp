@@ -20,9 +20,9 @@ $FieldInfo _X509AttributeName_FieldInfo_[] = {
 };
 
 $MethodInfo _X509AttributeName_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(X509AttributeName::*)($String*)>(&X509AttributeName::init$))},
-	{"getPrefix", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getSuffix", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(X509AttributeName, init$, void, $String*)},
+	{"getPrefix", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(X509AttributeName, getPrefix, $String*)},
+	{"getSuffix", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(X509AttributeName, getSuffix, $String*)},
 	{}
 };
 

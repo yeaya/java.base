@@ -30,8 +30,8 @@ $FieldInfo _TypeAnnotationNode_FieldInfo_[] = {
 };
 
 $MethodInfo _TypeAnnotationNode_MethodInfo_[] = {
-	{"<init>", "(ILjdk/internal/org/objectweb/asm/TypePath;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(TypeAnnotationNode::*)(int32_t,$TypePath*,$String*)>(&TypeAnnotationNode::init$))},
-	{"<init>", "(IILjdk/internal/org/objectweb/asm/TypePath;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(TypeAnnotationNode::*)(int32_t,int32_t,$TypePath*,$String*)>(&TypeAnnotationNode::init$))},
+	{"<init>", "(ILjdk/internal/org/objectweb/asm/TypePath;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(TypeAnnotationNode, init$, void, int32_t, $TypePath*, $String*)},
+	{"<init>", "(IILjdk/internal/org/objectweb/asm/TypePath;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(TypeAnnotationNode, init$, void, int32_t, int32_t, $TypePath*, $String*)},
 	{}
 };
 

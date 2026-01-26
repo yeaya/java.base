@@ -9,6 +9,7 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $StackTraceElement = ::java::lang::StackTraceElement;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
 using $MethodType = ::java::lang::invoke::MethodType;
 
@@ -16,16 +17,16 @@ namespace java {
 	namespace lang {
 
 $MethodInfo _StackWalker$StackFrame_MethodInfo_[] = {
-	{"getByteCodeIndex", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"getClassName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getDeclaringClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC | $ABSTRACT},
-	{"getDescriptor", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getFileName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getLineNumber", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"getMethodName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getMethodType", "()Ljava/lang/invoke/MethodType;", nullptr, $PUBLIC},
-	{"isNativeMethod", "()Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"toStackTraceElement", "()Ljava/lang/StackTraceElement;", nullptr, $PUBLIC | $ABSTRACT},
+	{"getByteCodeIndex", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(StackWalker$StackFrame, getByteCodeIndex, int32_t)},
+	{"getClassName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(StackWalker$StackFrame, getClassName, $String*)},
+	{"getDeclaringClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC | $ABSTRACT, $virtualMethod(StackWalker$StackFrame, getDeclaringClass, $Class*)},
+	{"getDescriptor", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StackWalker$StackFrame, getDescriptor, $String*)},
+	{"getFileName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(StackWalker$StackFrame, getFileName, $String*)},
+	{"getLineNumber", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(StackWalker$StackFrame, getLineNumber, int32_t)},
+	{"getMethodName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(StackWalker$StackFrame, getMethodName, $String*)},
+	{"getMethodType", "()Ljava/lang/invoke/MethodType;", nullptr, $PUBLIC, $virtualMethod(StackWalker$StackFrame, getMethodType, $MethodType*)},
+	{"isNativeMethod", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(StackWalker$StackFrame, isNativeMethod, bool)},
+	{"toStackTraceElement", "()Ljava/lang/StackTraceElement;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(StackWalker$StackFrame, toStackTraceElement, $StackTraceElement*)},
 	{}
 };
 

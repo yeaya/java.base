@@ -10,8 +10,8 @@ using $URL = ::java::net::URL;
 using $URLConnection = ::java::net::URLConnection;
 
 $MethodInfo _UNCTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(UNCTest::*)()>(&UNCTest::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&UNCTest::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(UNCTest, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(UNCTest, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

@@ -42,12 +42,12 @@ namespace sun {
 		namespace ssl {
 
 $MethodInfo _NewSessionTicket$T12NewSessionTicketMessage_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/ssl/HandshakeContext;I[B)V", nullptr, 0, $method(static_cast<void(NewSessionTicket$T12NewSessionTicketMessage::*)($HandshakeContext*,int32_t,$bytes*)>(&NewSessionTicket$T12NewSessionTicketMessage::init$))},
-	{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)V", nullptr, 0, $method(static_cast<void(NewSessionTicket$T12NewSessionTicketMessage::*)($HandshakeContext*,$ByteBuffer*)>(&NewSessionTicket$T12NewSessionTicketMessage::init$)), "java.io.IOException"},
-	{"handshakeType", "()Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC},
-	{"messageLength", "()I", nullptr, $PUBLIC},
-	{"send", "(Lsun/security/ssl/HandshakeOutStream;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/security/ssl/HandshakeContext;I[B)V", nullptr, 0, $method(NewSessionTicket$T12NewSessionTicketMessage, init$, void, $HandshakeContext*, int32_t, $bytes*)},
+	{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)V", nullptr, 0, $method(NewSessionTicket$T12NewSessionTicketMessage, init$, void, $HandshakeContext*, $ByteBuffer*), "java.io.IOException"},
+	{"handshakeType", "()Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC, $virtualMethod(NewSessionTicket$T12NewSessionTicketMessage, handshakeType, $SSLHandshake*)},
+	{"messageLength", "()I", nullptr, $PUBLIC, $virtualMethod(NewSessionTicket$T12NewSessionTicketMessage, messageLength, int32_t)},
+	{"send", "(Lsun/security/ssl/HandshakeOutStream;)V", nullptr, $PUBLIC, $virtualMethod(NewSessionTicket$T12NewSessionTicketMessage, send, void, $HandshakeOutStream*), "java.io.IOException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NewSessionTicket$T12NewSessionTicketMessage, toString, $String*)},
 	{}
 };
 

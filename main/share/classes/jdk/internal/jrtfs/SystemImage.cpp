@@ -22,6 +22,7 @@
 #include <java/security/PrivilegedAction.h>
 #include <java/security/ProtectionDomain.h>
 #include <jdk/internal/jimage/ImageReader$Directory.h>
+#include <jdk/internal/jimage/ImageReader$Node.h>
 #include <jdk/internal/jimage/ImageReader.h>
 #include <jdk/internal/jrtfs/ExplodedImage.h>
 #include <jdk/internal/jrtfs/SystemImage$1.h>
@@ -55,6 +56,7 @@ using $AccessController = ::java::security::AccessController;
 using $CodeSource = ::java::security::CodeSource;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $ProtectionDomain = ::java::security::ProtectionDomain;
+using $ImageReader$Node = ::jdk::internal::jimage::ImageReader$Node;
 using $SystemImage$2 = ::jdk::internal::jrtfs::SystemImage$2;
 
 namespace jdk {
@@ -76,8 +78,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo SystemImage$$Lambda$findHome::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SystemImage$$Lambda$findHome::*)()>(&SystemImage$$Lambda$findHome::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SystemImage$$Lambda$findHome, init$, void)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SystemImage$$Lambda$findHome, run, $Object*)},
 	{}
 };
 $ClassInfo SystemImage$$Lambda$findHome::classInfo$ = {
@@ -103,12 +105,12 @@ $FieldInfo _SystemImage_FieldInfo_[] = {
 };
 
 $MethodInfo _SystemImage_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(SystemImage::*)()>(&SystemImage::init$))},
-	{"close", "()V", nullptr, $ABSTRACT, nullptr, "java.io.IOException"},
-	{"findHome", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)()>(&SystemImage::findHome))},
-	{"findNode", "(Ljava/lang/String;)Ljdk/internal/jimage/ImageReader$Node;", nullptr, $ABSTRACT, nullptr, "java.io.IOException"},
-	{"getResource", "(Ljdk/internal/jimage/ImageReader$Node;)[B", nullptr, $ABSTRACT, nullptr, "java.io.IOException"},
-	{"open", "()Ljdk/internal/jrtfs/SystemImage;", nullptr, $STATIC, $method(static_cast<SystemImage*(*)()>(&SystemImage::open)), "java.io.IOException"},
+	{"<init>", "()V", nullptr, 0, $method(SystemImage, init$, void)},
+	{"close", "()V", nullptr, $ABSTRACT, $virtualMethod(SystemImage, close, void), "java.io.IOException"},
+	{"findHome", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(SystemImage, findHome, $String*)},
+	{"findNode", "(Ljava/lang/String;)Ljdk/internal/jimage/ImageReader$Node;", nullptr, $ABSTRACT, $virtualMethod(SystemImage, findNode, $ImageReader$Node*, $String*), "java.io.IOException"},
+	{"getResource", "(Ljdk/internal/jimage/ImageReader$Node;)[B", nullptr, $ABSTRACT, $virtualMethod(SystemImage, getResource, $bytes*, $ImageReader$Node*), "java.io.IOException"},
+	{"open", "()Ljdk/internal/jrtfs/SystemImage;", nullptr, $STATIC, $staticMethod(SystemImage, open, SystemImage*), "java.io.IOException"},
 	{}
 };
 

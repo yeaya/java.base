@@ -7,6 +7,9 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $List = ::java::util::List;
+using $Locale = ::java::util::Locale;
+using $LocaleData = ::sun::util::resources::LocaleData;
 
 namespace sun {
 	namespace util {
@@ -14,8 +17,8 @@ namespace sun {
 			namespace provider {
 
 $MethodInfo _ResourceBundleBasedAdapter_MethodInfo_[] = {
-	{"getCandidateLocales", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/util/List;", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/util/List<Ljava/util/Locale;>;", $PUBLIC | $ABSTRACT},
-	{"getLocaleData", "()Lsun/util/resources/LocaleData;", nullptr, $PUBLIC | $ABSTRACT},
+	{"getCandidateLocales", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/util/List;", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/util/List<Ljava/util/Locale;>;", $PUBLIC | $ABSTRACT, $virtualMethod(ResourceBundleBasedAdapter, getCandidateLocales, $List*, $String*, $Locale*)},
+	{"getLocaleData", "()Lsun/util/resources/LocaleData;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ResourceBundleBasedAdapter, getLocaleData, $LocaleData*)},
 	{}
 };
 

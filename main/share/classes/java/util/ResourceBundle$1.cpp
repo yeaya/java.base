@@ -20,13 +20,13 @@ namespace java {
 	namespace util {
 
 $MethodInfo _ResourceBundle$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ResourceBundle$1::*)()>(&ResourceBundle$1::init$))},
-	{"getBundle", "(Ljava/lang/String;Ljava/util/Locale;Ljava/lang/Module;)Ljava/util/ResourceBundle;", nullptr, $PUBLIC},
-	{"getParent", "(Ljava/util/ResourceBundle;)Ljava/util/ResourceBundle;", nullptr, $PUBLIC},
-	{"newResourceBundle", "(Ljava/lang/Class;)Ljava/util/ResourceBundle;", "(Ljava/lang/Class<+Ljava/util/ResourceBundle;>;)Ljava/util/ResourceBundle;", $PUBLIC},
-	{"setLocale", "(Ljava/util/ResourceBundle;Ljava/util/Locale;)V", nullptr, $PUBLIC},
-	{"setName", "(Ljava/util/ResourceBundle;Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"setParent", "(Ljava/util/ResourceBundle;Ljava/util/ResourceBundle;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(ResourceBundle$1, init$, void)},
+	{"getBundle", "(Ljava/lang/String;Ljava/util/Locale;Ljava/lang/Module;)Ljava/util/ResourceBundle;", nullptr, $PUBLIC, $virtualMethod(ResourceBundle$1, getBundle, $ResourceBundle*, $String*, $Locale*, $Module*)},
+	{"getParent", "(Ljava/util/ResourceBundle;)Ljava/util/ResourceBundle;", nullptr, $PUBLIC, $virtualMethod(ResourceBundle$1, getParent, $ResourceBundle*, $ResourceBundle*)},
+	{"newResourceBundle", "(Ljava/lang/Class;)Ljava/util/ResourceBundle;", "(Ljava/lang/Class<+Ljava/util/ResourceBundle;>;)Ljava/util/ResourceBundle;", $PUBLIC, $virtualMethod(ResourceBundle$1, newResourceBundle, $ResourceBundle*, $Class*)},
+	{"setLocale", "(Ljava/util/ResourceBundle;Ljava/util/Locale;)V", nullptr, $PUBLIC, $virtualMethod(ResourceBundle$1, setLocale, void, $ResourceBundle*, $Locale*)},
+	{"setName", "(Ljava/util/ResourceBundle;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ResourceBundle$1, setName, void, $ResourceBundle*, $String*)},
+	{"setParent", "(Ljava/util/ResourceBundle;Ljava/util/ResourceBundle;)V", nullptr, $PUBLIC, $virtualMethod(ResourceBundle$1, setParent, void, $ResourceBundle*, $ResourceBundle*)},
 	{}
 };
 

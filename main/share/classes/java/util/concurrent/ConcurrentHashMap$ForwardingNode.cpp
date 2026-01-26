@@ -22,8 +22,8 @@ $FieldInfo _ConcurrentHashMap$ForwardingNode_FieldInfo_[] = {
 };
 
 $MethodInfo _ConcurrentHashMap$ForwardingNode_MethodInfo_[] = {
-	{"<init>", "([Ljava/util/concurrent/ConcurrentHashMap$Node;)V", "([Ljava/util/concurrent/ConcurrentHashMap$Node<TK;TV;>;)V", 0, $method(static_cast<void(ConcurrentHashMap$ForwardingNode::*)($ConcurrentHashMap$NodeArray*)>(&ConcurrentHashMap$ForwardingNode::init$))},
-	{"find", "(ILjava/lang/Object;)Ljava/util/concurrent/ConcurrentHashMap$Node;", "(ILjava/lang/Object;)Ljava/util/concurrent/ConcurrentHashMap$Node<TK;TV;>;", 0},
+	{"<init>", "([Ljava/util/concurrent/ConcurrentHashMap$Node;)V", "([Ljava/util/concurrent/ConcurrentHashMap$Node<TK;TV;>;)V", 0, $method(ConcurrentHashMap$ForwardingNode, init$, void, $ConcurrentHashMap$NodeArray*)},
+	{"find", "(ILjava/lang/Object;)Ljava/util/concurrent/ConcurrentHashMap$Node;", "(ILjava/lang/Object;)Ljava/util/concurrent/ConcurrentHashMap$Node<TK;TV;>;", 0, $virtualMethod(ConcurrentHashMap$ForwardingNode, find, $ConcurrentHashMap$Node*, int32_t, Object$*)},
 	{}
 };
 

@@ -34,11 +34,11 @@ $FieldInfo _UntrustedChecker_FieldInfo_[] = {
 };
 
 $MethodInfo _UntrustedChecker_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(UntrustedChecker::*)()>(&UntrustedChecker::init$))},
-	{"check", "(Ljava/security/cert/Certificate;Ljava/util/Collection;)V", "(Ljava/security/cert/Certificate;Ljava/util/Collection<Ljava/lang/String;>;)V", $PUBLIC, nullptr, "java.security.cert.CertPathValidatorException"},
-	{"getSupportedExtensions", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC},
-	{"init", "(Z)V", nullptr, $PUBLIC, nullptr, "java.security.cert.CertPathValidatorException"},
-	{"isForwardCheckingSupported", "()Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(UntrustedChecker, init$, void)},
+	{"check", "(Ljava/security/cert/Certificate;Ljava/util/Collection;)V", "(Ljava/security/cert/Certificate;Ljava/util/Collection<Ljava/lang/String;>;)V", $PUBLIC, $virtualMethod(UntrustedChecker, check, void, $Certificate*, $Collection*), "java.security.cert.CertPathValidatorException"},
+	{"getSupportedExtensions", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(UntrustedChecker, getSupportedExtensions, $Set*)},
+	{"init", "(Z)V", nullptr, $PUBLIC, $virtualMethod(UntrustedChecker, init, void, bool), "java.security.cert.CertPathValidatorException"},
+	{"isForwardCheckingSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(UntrustedChecker, isForwardCheckingSupported, bool)},
 	{}
 };
 

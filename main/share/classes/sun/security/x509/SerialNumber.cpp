@@ -30,15 +30,15 @@ $FieldInfo _SerialNumber_FieldInfo_[] = {
 };
 
 $MethodInfo _SerialNumber_MethodInfo_[] = {
-	{"<init>", "(Ljava/math/BigInteger;)V", nullptr, $PUBLIC, $method(static_cast<void(SerialNumber::*)($BigInteger*)>(&SerialNumber::init$))},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(static_cast<void(SerialNumber::*)(int32_t)>(&SerialNumber::init$))},
-	{"<init>", "(Lsun/security/util/DerInputStream;)V", nullptr, $PUBLIC, $method(static_cast<void(SerialNumber::*)($DerInputStream*)>(&SerialNumber::init$)), "java.io.IOException"},
-	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(static_cast<void(SerialNumber::*)($DerValue*)>(&SerialNumber::init$)), "java.io.IOException"},
-	{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(static_cast<void(SerialNumber::*)($InputStream*)>(&SerialNumber::init$)), "java.io.IOException"},
-	{"construct", "(Lsun/security/util/DerValue;)V", nullptr, $PRIVATE, $method(static_cast<void(SerialNumber::*)($DerValue*)>(&SerialNumber::construct)), "java.io.IOException"},
-	{"encode", "(Lsun/security/util/DerOutputStream;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"getNumber", "()Ljava/math/BigInteger;", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/math/BigInteger;)V", nullptr, $PUBLIC, $method(SerialNumber, init$, void, $BigInteger*)},
+	{"<init>", "(I)V", nullptr, $PUBLIC, $method(SerialNumber, init$, void, int32_t)},
+	{"<init>", "(Lsun/security/util/DerInputStream;)V", nullptr, $PUBLIC, $method(SerialNumber, init$, void, $DerInputStream*), "java.io.IOException"},
+	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(SerialNumber, init$, void, $DerValue*), "java.io.IOException"},
+	{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(SerialNumber, init$, void, $InputStream*), "java.io.IOException"},
+	{"construct", "(Lsun/security/util/DerValue;)V", nullptr, $PRIVATE, $method(SerialNumber, construct, void, $DerValue*), "java.io.IOException"},
+	{"encode", "(Lsun/security/util/DerOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(SerialNumber, encode, void, $DerOutputStream*), "java.io.IOException"},
+	{"getNumber", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(SerialNumber, getNumber, $BigInteger*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SerialNumber, toString, $String*)},
 	{}
 };
 

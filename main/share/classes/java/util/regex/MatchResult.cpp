@@ -10,13 +10,13 @@ namespace java {
 		namespace regex {
 
 $MethodInfo _MatchResult_MethodInfo_[] = {
-	{"end", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"end", "(I)I", nullptr, $PUBLIC | $ABSTRACT},
-	{"group", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"group", "(I)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"groupCount", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"start", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"start", "(I)I", nullptr, $PUBLIC | $ABSTRACT},
+	{"end", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MatchResult, end, int32_t)},
+	{"end", "(I)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MatchResult, end, int32_t, int32_t)},
+	{"group", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MatchResult, group, $String*)},
+	{"group", "(I)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MatchResult, group, $String*, int32_t)},
+	{"groupCount", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MatchResult, groupCount, int32_t)},
+	{"start", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MatchResult, start, int32_t)},
+	{"start", "(I)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MatchResult, start, int32_t, int32_t)},
 	{}
 };
 

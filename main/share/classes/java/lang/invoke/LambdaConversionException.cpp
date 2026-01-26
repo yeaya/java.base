@@ -17,11 +17,11 @@ $FieldInfo _LambdaConversionException_FieldInfo_[] = {
 };
 
 $MethodInfo _LambdaConversionException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(LambdaConversionException::*)()>(&LambdaConversionException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(LambdaConversionException::*)($String*)>(&LambdaConversionException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(LambdaConversionException::*)($String*,$Throwable*)>(&LambdaConversionException::init$))},
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(LambdaConversionException::*)($Throwable*)>(&LambdaConversionException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;ZZ)V", nullptr, $PUBLIC, $method(static_cast<void(LambdaConversionException::*)($String*,$Throwable*,bool,bool)>(&LambdaConversionException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(LambdaConversionException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(LambdaConversionException, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(LambdaConversionException, init$, void, $String*, $Throwable*)},
+	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(LambdaConversionException, init$, void, $Throwable*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;ZZ)V", nullptr, $PUBLIC, $method(LambdaConversionException, init$, void, $String*, $Throwable*, bool, bool)},
 	{}
 };
 

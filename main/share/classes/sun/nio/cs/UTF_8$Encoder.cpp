@@ -40,14 +40,14 @@ $FieldInfo _UTF_8$Encoder_FieldInfo_[] = {
 };
 
 $MethodInfo _UTF_8$Encoder_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PRIVATE, $method(static_cast<void(UTF_8$Encoder::*)($Charset*)>(&UTF_8$Encoder::init$))},
-	{"canEncode", "(C)Z", nullptr, $PUBLIC},
-	{"encodeArrayLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(static_cast<$CoderResult*(UTF_8$Encoder::*)($CharBuffer*,$ByteBuffer*)>(&UTF_8$Encoder::encodeArrayLoop))},
-	{"encodeBufferLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(static_cast<$CoderResult*(UTF_8$Encoder::*)($CharBuffer*,$ByteBuffer*)>(&UTF_8$Encoder::encodeBufferLoop))},
-	{"encodeLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED | $FINAL},
-	{"isLegalReplacement", "([B)Z", nullptr, $PUBLIC},
-	{"overflow", "(Ljava/nio/CharBuffer;ILjava/nio/ByteBuffer;I)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$CoderResult*(*)($CharBuffer*,int32_t,$ByteBuffer*,int32_t)>(&UTF_8$Encoder::overflow))},
-	{"overflow", "(Ljava/nio/CharBuffer;I)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$CoderResult*(*)($CharBuffer*,int32_t)>(&UTF_8$Encoder::overflow))},
+	{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PRIVATE, $method(UTF_8$Encoder, init$, void, $Charset*)},
+	{"canEncode", "(C)Z", nullptr, $PUBLIC, $virtualMethod(UTF_8$Encoder, canEncode, bool, char16_t)},
+	{"encodeArrayLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(UTF_8$Encoder, encodeArrayLoop, $CoderResult*, $CharBuffer*, $ByteBuffer*)},
+	{"encodeBufferLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(UTF_8$Encoder, encodeBufferLoop, $CoderResult*, $CharBuffer*, $ByteBuffer*)},
+	{"encodeLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED | $FINAL, $virtualMethod(UTF_8$Encoder, encodeLoop, $CoderResult*, $CharBuffer*, $ByteBuffer*)},
+	{"isLegalReplacement", "([B)Z", nullptr, $PUBLIC, $virtualMethod(UTF_8$Encoder, isLegalReplacement, bool, $bytes*)},
+	{"overflow", "(Ljava/nio/CharBuffer;ILjava/nio/ByteBuffer;I)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE | $STATIC, $staticMethod(UTF_8$Encoder, overflow, $CoderResult*, $CharBuffer*, int32_t, $ByteBuffer*, int32_t)},
+	{"overflow", "(Ljava/nio/CharBuffer;I)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE | $STATIC, $staticMethod(UTF_8$Encoder, overflow, $CoderResult*, $CharBuffer*, int32_t)},
 	{}
 };
 

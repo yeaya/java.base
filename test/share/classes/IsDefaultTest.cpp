@@ -43,8 +43,8 @@ using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
 
 $MethodInfo _IsDefaultTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(IsDefaultTest::*)()>(&IsDefaultTest::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<void(*)($StringArray*)>(&IsDefaultTest::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(IsDefaultTest, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(IsDefaultTest, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

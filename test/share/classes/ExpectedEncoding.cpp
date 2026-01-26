@@ -8,8 +8,8 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 
 $MethodInfo _ExpectedEncoding_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ExpectedEncoding::*)()>(&ExpectedEncoding::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&ExpectedEncoding::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ExpectedEncoding, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ExpectedEncoding, main, void, $StringArray*)},
 	{}
 };
 

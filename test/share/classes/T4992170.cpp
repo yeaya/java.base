@@ -16,8 +16,8 @@ using $Type = ::java::lang::reflect::Type;
 using $TypeVariable = ::java::lang::reflect::TypeVariable;
 
 $MethodInfo _T4992170_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(T4992170::*)()>(&T4992170::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&T4992170::main)), "java.lang.NoSuchFieldException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(T4992170, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(T4992170, main, void, $StringArray*), "java.lang.NoSuchFieldException"},
 	{}
 };
 

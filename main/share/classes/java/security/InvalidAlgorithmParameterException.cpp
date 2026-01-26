@@ -17,10 +17,10 @@ $FieldInfo _InvalidAlgorithmParameterException_FieldInfo_[] = {
 };
 
 $MethodInfo _InvalidAlgorithmParameterException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(InvalidAlgorithmParameterException::*)()>(&InvalidAlgorithmParameterException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(InvalidAlgorithmParameterException::*)($String*)>(&InvalidAlgorithmParameterException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(InvalidAlgorithmParameterException::*)($String*,$Throwable*)>(&InvalidAlgorithmParameterException::init$))},
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(InvalidAlgorithmParameterException::*)($Throwable*)>(&InvalidAlgorithmParameterException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(InvalidAlgorithmParameterException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InvalidAlgorithmParameterException, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(InvalidAlgorithmParameterException, init$, void, $String*, $Throwable*)},
+	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(InvalidAlgorithmParameterException, init$, void, $Throwable*)},
 	{}
 };
 

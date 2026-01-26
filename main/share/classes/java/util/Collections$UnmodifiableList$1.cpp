@@ -30,17 +30,17 @@ $FieldInfo _Collections$UnmodifiableList$1_FieldInfo_[] = {
 };
 
 $MethodInfo _Collections$UnmodifiableList$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Collections$UnmodifiableList;I)V", "()V", 0, $method(static_cast<void(Collections$UnmodifiableList$1::*)($Collections$UnmodifiableList*,int32_t)>(&Collections$UnmodifiableList$1::init$))},
-	{"add", "(Ljava/lang/Object;)V", "(TE;)V", $PUBLIC},
-	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC},
-	{"hasNext", "()Z", nullptr, $PUBLIC},
-	{"hasPrevious", "()Z", nullptr, $PUBLIC},
-	{"next", "()Ljava/lang/Object;", "()TE;", $PUBLIC},
-	{"nextIndex", "()I", nullptr, $PUBLIC},
-	{"previous", "()Ljava/lang/Object;", "()TE;", $PUBLIC},
-	{"previousIndex", "()I", nullptr, $PUBLIC},
-	{"remove", "()V", nullptr, $PUBLIC},
-	{"set", "(Ljava/lang/Object;)V", "(TE;)V", $PUBLIC},
+	{"<init>", "(Ljava/util/Collections$UnmodifiableList;I)V", "()V", 0, $method(Collections$UnmodifiableList$1, init$, void, $Collections$UnmodifiableList*, int32_t)},
+	{"add", "(Ljava/lang/Object;)V", "(TE;)V", $PUBLIC, $virtualMethod(Collections$UnmodifiableList$1, add, void, Object$*)},
+	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC, $virtualMethod(Collections$UnmodifiableList$1, forEachRemaining, void, $Consumer*)},
+	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(Collections$UnmodifiableList$1, hasNext, bool)},
+	{"hasPrevious", "()Z", nullptr, $PUBLIC, $virtualMethod(Collections$UnmodifiableList$1, hasPrevious, bool)},
+	{"next", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(Collections$UnmodifiableList$1, next, $Object*)},
+	{"nextIndex", "()I", nullptr, $PUBLIC, $virtualMethod(Collections$UnmodifiableList$1, nextIndex, int32_t)},
+	{"previous", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(Collections$UnmodifiableList$1, previous, $Object*)},
+	{"previousIndex", "()I", nullptr, $PUBLIC, $virtualMethod(Collections$UnmodifiableList$1, previousIndex, int32_t)},
+	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(Collections$UnmodifiableList$1, remove, void)},
+	{"set", "(Ljava/lang/Object;)V", "(TE;)V", $PUBLIC, $virtualMethod(Collections$UnmodifiableList$1, set, void, Object$*)},
 	{}
 };
 

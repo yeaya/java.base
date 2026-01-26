@@ -20,11 +20,11 @@ $FieldInfo _BidiRun_FieldInfo_[] = {
 };
 
 $MethodInfo _BidiRun_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(BidiRun::*)()>(&BidiRun::init$))},
-	{"<init>", "(IIB)V", nullptr, 0, $method(static_cast<void(BidiRun::*)(int32_t,int32_t,int8_t)>(&BidiRun::init$))},
-	{"copyFrom", "(Ljdk/internal/icu/text/BidiRun;)V", nullptr, 0},
-	{"getEmbeddingLevel", "()B", nullptr, 0},
-	{"isEvenRun", "()Z", nullptr, 0},
+	{"<init>", "()V", nullptr, 0, $method(BidiRun, init$, void)},
+	{"<init>", "(IIB)V", nullptr, 0, $method(BidiRun, init$, void, int32_t, int32_t, int8_t)},
+	{"copyFrom", "(Ljdk/internal/icu/text/BidiRun;)V", nullptr, 0, $virtualMethod(BidiRun, copyFrom, void, BidiRun*)},
+	{"getEmbeddingLevel", "()B", nullptr, 0, $virtualMethod(BidiRun, getEmbeddingLevel, int8_t)},
+	{"isEvenRun", "()Z", nullptr, 0, $virtualMethod(BidiRun, isEvenRun, bool)},
 	{}
 };
 

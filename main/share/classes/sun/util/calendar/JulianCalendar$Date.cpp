@@ -26,13 +26,13 @@ namespace sun {
 		namespace calendar {
 
 $MethodInfo _JulianCalendar$Date_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(JulianCalendar$Date::*)()>(&JulianCalendar$Date::init$))},
-	{"<init>", "(Ljava/util/TimeZone;)V", nullptr, $PROTECTED, $method(static_cast<void(JulianCalendar$Date::*)($TimeZone*)>(&JulianCalendar$Date::init$))},
-	{"getNormalizedYear", "()I", nullptr, $PUBLIC},
-	{"setEra", "(Lsun/util/calendar/Era;)Lsun/util/calendar/JulianCalendar$Date;", nullptr, $PUBLIC},
-	{"setKnownEra", "(Lsun/util/calendar/Era;)V", nullptr, $PROTECTED},
-	{"setNormalizedYear", "(I)V", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(JulianCalendar$Date, init$, void)},
+	{"<init>", "(Ljava/util/TimeZone;)V", nullptr, $PROTECTED, $method(JulianCalendar$Date, init$, void, $TimeZone*)},
+	{"getNormalizedYear", "()I", nullptr, $PUBLIC, $virtualMethod(JulianCalendar$Date, getNormalizedYear, int32_t)},
+	{"setEra", "(Lsun/util/calendar/Era;)Lsun/util/calendar/JulianCalendar$Date;", nullptr, $PUBLIC, $virtualMethod(JulianCalendar$Date, setEra, JulianCalendar$Date*, $Era*)},
+	{"setKnownEra", "(Lsun/util/calendar/Era;)V", nullptr, $PROTECTED, $virtualMethod(JulianCalendar$Date, setKnownEra, void, $Era*)},
+	{"setNormalizedYear", "(I)V", nullptr, $PUBLIC, $virtualMethod(JulianCalendar$Date, setNormalizedYear, void, int32_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JulianCalendar$Date, toString, $String*)},
 	{}
 };
 

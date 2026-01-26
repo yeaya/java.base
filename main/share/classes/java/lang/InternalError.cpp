@@ -17,10 +17,10 @@ $FieldInfo _InternalError_FieldInfo_[] = {
 };
 
 $MethodInfo _InternalError_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(InternalError::*)()>(&InternalError::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(InternalError::*)($String*)>(&InternalError::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(InternalError::*)($String*,$Throwable*)>(&InternalError::init$))},
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(InternalError::*)($Throwable*)>(&InternalError::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(InternalError, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InternalError, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(InternalError, init$, void, $String*, $Throwable*)},
+	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(InternalError, init$, void, $Throwable*)},
 	{}
 };
 

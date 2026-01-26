@@ -26,8 +26,8 @@ $FieldInfo _VerifyAccess$1_FieldInfo_[] = {
 };
 
 $MethodInfo _VerifyAccess$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/ClassLoader;)V", nullptr, 0, $method(static_cast<void(VerifyAccess$1::*)($String*,$ClassLoader*)>(&VerifyAccess$1::init$))},
-	{"run", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/ClassLoader;)V", nullptr, 0, $method(VerifyAccess$1, init$, void, $String*, $ClassLoader*)},
+	{"run", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(VerifyAccess$1, run, $Object*)},
 	{}
 };
 

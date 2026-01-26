@@ -33,21 +33,21 @@ $FieldInfo _ByteArrayOutputStream_FieldInfo_[] = {
 };
 
 $MethodInfo _ByteArrayOutputStream_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ByteArrayOutputStream::*)()>(&ByteArrayOutputStream::init$))},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(static_cast<void(ByteArrayOutputStream::*)(int32_t)>(&ByteArrayOutputStream::init$))},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"ensureCapacity", "(I)V", nullptr, $PRIVATE, $method(static_cast<void(ByteArrayOutputStream::*)(int32_t)>(&ByteArrayOutputStream::ensureCapacity))},
-	{"reset", "()V", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"size", "()I", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"toByteArray", "()[B", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"toString", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED, nullptr, "java.io.UnsupportedEncodingException"},
-	{"toString", "(Ljava/nio/charset/Charset;)Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"toString", "(I)Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED | $DEPRECATED, nullptr, nullptr, nullptr, _ByteArrayOutputStream_MethodAnnotations_toString10},
-	{"write", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"write", "([BII)V", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"writeBytes", "([B)V", nullptr, $PUBLIC},
-	{"writeTo", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC | $SYNCHRONIZED, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ByteArrayOutputStream, init$, void)},
+	{"<init>", "(I)V", nullptr, $PUBLIC, $method(ByteArrayOutputStream, init$, void, int32_t)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(ByteArrayOutputStream, close, void), "java.io.IOException"},
+	{"ensureCapacity", "(I)V", nullptr, $PRIVATE, $method(ByteArrayOutputStream, ensureCapacity, void, int32_t)},
+	{"reset", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ByteArrayOutputStream, reset, void)},
+	{"size", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ByteArrayOutputStream, size, int32_t)},
+	{"toByteArray", "()[B", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ByteArrayOutputStream, toByteArray, $bytes*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ByteArrayOutputStream, toString, $String*)},
+	{"toString", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ByteArrayOutputStream, toString, $String*, $String*), "java.io.UnsupportedEncodingException"},
+	{"toString", "(Ljava/nio/charset/Charset;)Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ByteArrayOutputStream, toString, $String*, $Charset*)},
+	{"toString", "(I)Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED | $DEPRECATED, $virtualMethod(ByteArrayOutputStream, toString, $String*, int32_t), nullptr, nullptr, _ByteArrayOutputStream_MethodAnnotations_toString10},
+	{"write", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ByteArrayOutputStream, write, void, int32_t)},
+	{"write", "([BII)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ByteArrayOutputStream, write, void, $bytes*, int32_t, int32_t)},
+	{"writeBytes", "([B)V", nullptr, $PUBLIC, $virtualMethod(ByteArrayOutputStream, writeBytes, void, $bytes*)},
+	{"writeTo", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ByteArrayOutputStream, writeTo, void, $OutputStream*), "java.io.IOException"},
 	{}
 };
 

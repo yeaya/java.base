@@ -40,15 +40,15 @@ $FieldInfo _StandardOpenOption_FieldInfo_[] = {
 };
 
 $MethodInfo _StandardOpenOption_MethodInfo_[] = {
-	{"$values", "()[Ljava/nio/file/StandardOpenOption;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$StandardOpenOptionArray*(*)()>(&StandardOpenOption::$values))},
+	{"$values", "()[Ljava/nio/file/StandardOpenOption;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StandardOpenOption, $values, $StandardOpenOptionArray*)},
 	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
 	{"*finalize", "()V", nullptr, $PROTECTED | $FINAL},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(StandardOpenOption::*)($String*,int32_t)>(&StandardOpenOption::init$))},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(StandardOpenOption, init$, void, $String*, int32_t)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"valueOf", "(Ljava/lang/String;)Ljava/nio/file/StandardOpenOption;", nullptr, $PUBLIC | $STATIC, $method(static_cast<StandardOpenOption*(*)($String*)>(&StandardOpenOption::valueOf))},
-	{"values", "()[Ljava/nio/file/StandardOpenOption;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$StandardOpenOptionArray*(*)()>(&StandardOpenOption::values))},
+	{"valueOf", "(Ljava/lang/String;)Ljava/nio/file/StandardOpenOption;", nullptr, $PUBLIC | $STATIC, $staticMethod(StandardOpenOption, valueOf, StandardOpenOption*, $String*)},
+	{"values", "()[Ljava/nio/file/StandardOpenOption;", nullptr, $PUBLIC | $STATIC, $staticMethod(StandardOpenOption, values, $StandardOpenOptionArray*)},
 	{}
 };
 

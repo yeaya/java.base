@@ -61,8 +61,8 @@ $FieldInfo _DHKeyExchange$DHEPossessionGenerator_FieldInfo_[] = {
 };
 
 $MethodInfo _DHKeyExchange$DHEPossessionGenerator_MethodInfo_[] = {
-	{"<init>", "(Z)V", nullptr, $PRIVATE, $method(static_cast<void(DHKeyExchange$DHEPossessionGenerator::*)(bool)>(&DHKeyExchange$DHEPossessionGenerator::init$))},
-	{"createPossession", "(Lsun/security/ssl/HandshakeContext;)Lsun/security/ssl/SSLPossession;", nullptr, $PUBLIC},
+	{"<init>", "(Z)V", nullptr, $PRIVATE, $method(DHKeyExchange$DHEPossessionGenerator, init$, void, bool)},
+	{"createPossession", "(Lsun/security/ssl/HandshakeContext;)Lsun/security/ssl/SSLPossession;", nullptr, $PUBLIC, $virtualMethod(DHKeyExchange$DHEPossessionGenerator, createPossession, $SSLPossession*, $HandshakeContext*)},
 	{}
 };
 

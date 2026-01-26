@@ -31,9 +31,9 @@ $FieldInfo _WinDirRelative_FieldInfo_[] = {
 };
 
 $MethodInfo _WinDirRelative_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(WinDirRelative::*)()>(&WinDirRelative::init$))},
-	{"isLetter", "(C)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)(char16_t)>(&WinDirRelative::isLetter))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&WinDirRelative::main)), "java.lang.Throwable"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(WinDirRelative, init$, void)},
+	{"isLetter", "(C)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(WinDirRelative, isLetter, bool, char16_t)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(WinDirRelative, main, void, $StringArray*), "java.lang.Throwable"},
 	{}
 };
 

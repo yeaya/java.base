@@ -8,7 +8,7 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _I1B_MethodInfo_[] = {
-	{"foo", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TX2;)TX1;", $PUBLIC | $ABSTRACT},
+	{"foo", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TX2;)TX1;", $PUBLIC | $ABSTRACT, $virtualMethod(I1B, foo, $Object*, Object$*)},
 	{}
 };
 

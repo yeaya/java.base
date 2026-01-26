@@ -33,10 +33,10 @@ $FieldInfo _URLJarFile$URLJarFileEntry_FieldInfo_[] = {
 };
 
 $MethodInfo _URLJarFile$URLJarFileEntry_MethodInfo_[] = {
-	{"<init>", "(Lsun/net/www/protocol/jar/URLJarFile;Ljava/util/jar/JarEntry;)V", nullptr, 0, $method(static_cast<void(URLJarFile$URLJarFileEntry::*)($URLJarFile*,$JarEntry*)>(&URLJarFile$URLJarFileEntry::init$))},
-	{"getAttributes", "()Ljava/util/jar/Attributes;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"getCertificates", "()[Ljava/security/cert/Certificate;", nullptr, $PUBLIC},
-	{"getCodeSigners", "()[Ljava/security/CodeSigner;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/net/www/protocol/jar/URLJarFile;Ljava/util/jar/JarEntry;)V", nullptr, 0, $method(URLJarFile$URLJarFileEntry, init$, void, $URLJarFile*, $JarEntry*)},
+	{"getAttributes", "()Ljava/util/jar/Attributes;", nullptr, $PUBLIC, $virtualMethod(URLJarFile$URLJarFileEntry, getAttributes, $Attributes*), "java.io.IOException"},
+	{"getCertificates", "()[Ljava/security/cert/Certificate;", nullptr, $PUBLIC, $virtualMethod(URLJarFile$URLJarFileEntry, getCertificates, $CertificateArray*)},
+	{"getCodeSigners", "()[Ljava/security/CodeSigner;", nullptr, $PUBLIC, $virtualMethod(URLJarFile$URLJarFileEntry, getCodeSigners, $CodeSignerArray*)},
 	{}
 };
 

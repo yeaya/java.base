@@ -28,10 +28,10 @@ $FieldInfo _InnerClassToString_FieldInfo_[] = {
 };
 
 $MethodInfo _InnerClassToString_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(InnerClassToString::*)()>(&InnerClassToString::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&InnerClassToString::main)), "java.lang.Exception"},
-	{"run", "()V", nullptr, $PRIVATE, $method(static_cast<void(InnerClassToString::*)()>(&InnerClassToString::run)), "java.lang.Exception"},
-	{"test", "(Ljava/lang/reflect/Constructor;[Ljava/lang/Class;)V", "(Ljava/lang/reflect/Constructor<LInnerClassToString$MyEntity;>;[Ljava/lang/Class<*>;)V", $PRIVATE, $method(static_cast<void(InnerClassToString::*)($Constructor*,$ClassArray*)>(&InnerClassToString::test))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(InnerClassToString, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(InnerClassToString, main, void, $StringArray*), "java.lang.Exception"},
+	{"run", "()V", nullptr, $PRIVATE, $method(InnerClassToString, run, void), "java.lang.Exception"},
+	{"test", "(Ljava/lang/reflect/Constructor;[Ljava/lang/Class;)V", "(Ljava/lang/reflect/Constructor<LInnerClassToString$MyEntity;>;[Ljava/lang/Class<*>;)V", $PRIVATE, $method(InnerClassToString, test, void, $Constructor*, $ClassArray*)},
 	{}
 };
 

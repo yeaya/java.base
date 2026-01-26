@@ -30,8 +30,8 @@ $FieldInfo _Executors$DefaultThreadFactory_FieldInfo_[] = {
 };
 
 $MethodInfo _Executors$DefaultThreadFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Executors$DefaultThreadFactory::*)()>(&Executors$DefaultThreadFactory::init$))},
-	{"newThread", "(Ljava/lang/Runnable;)Ljava/lang/Thread;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(Executors$DefaultThreadFactory, init$, void)},
+	{"newThread", "(Ljava/lang/Runnable;)Ljava/lang/Thread;", nullptr, $PUBLIC, $virtualMethod(Executors$DefaultThreadFactory, newThread, $Thread*, $Runnable*)},
 	{}
 };
 

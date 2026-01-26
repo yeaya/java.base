@@ -25,21 +25,21 @@ $FieldInfo _MappedMemoryUtils_FieldInfo_[] = {
 };
 
 $MethodInfo _MappedMemoryUtils_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(MappedMemoryUtils::*)()>(&MappedMemoryUtils::init$))},
-	{"alignDown", "(JI)J", nullptr, $PRIVATE | $STATIC, $method(static_cast<int64_t(*)(int64_t,int32_t)>(&MappedMemoryUtils::alignDown))},
-	{"force", "(Ljava/io/FileDescriptor;JZJJ)V", nullptr, $STATIC, $method(static_cast<void(*)($FileDescriptor*,int64_t,bool,int64_t,int64_t)>(&MappedMemoryUtils::force))},
-	{"force0", "(Ljava/io/FileDescriptor;JJ)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $method(static_cast<void(*)($FileDescriptor*,int64_t,int64_t)>(&MappedMemoryUtils::force0)), "java.io.IOException"},
-	{"isLoaded", "(JZJ)Z", nullptr, $STATIC, $method(static_cast<bool(*)(int64_t,bool,int64_t)>(&MappedMemoryUtils::isLoaded))},
-	{"isLoaded0", "(JJJ)Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $method(static_cast<bool(*)(int64_t,int64_t,int64_t)>(&MappedMemoryUtils::isLoaded0))},
-	{"load", "(JZJ)V", nullptr, $STATIC, $method(static_cast<void(*)(int64_t,bool,int64_t)>(&MappedMemoryUtils::load))},
-	{"load0", "(JJ)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $method(static_cast<void(*)(int64_t,int64_t)>(&MappedMemoryUtils::load0))},
-	{"mappingAddress", "(JJ)J", nullptr, $PRIVATE | $STATIC, $method(static_cast<int64_t(*)(int64_t,int64_t)>(&MappedMemoryUtils::mappingAddress))},
-	{"mappingAddress", "(JJJ)J", nullptr, $PRIVATE | $STATIC, $method(static_cast<int64_t(*)(int64_t,int64_t,int64_t)>(&MappedMemoryUtils::mappingAddress))},
-	{"mappingLength", "(JJ)J", nullptr, $PRIVATE | $STATIC, $method(static_cast<int64_t(*)(int64_t,int64_t)>(&MappedMemoryUtils::mappingLength))},
-	{"mappingOffset", "(J)J", nullptr, $PRIVATE | $STATIC, $method(static_cast<int64_t(*)(int64_t)>(&MappedMemoryUtils::mappingOffset))},
-	{"mappingOffset", "(JJ)J", nullptr, $PRIVATE | $STATIC, $method(static_cast<int64_t(*)(int64_t,int64_t)>(&MappedMemoryUtils::mappingOffset))},
-	{"unload", "(JZJ)V", nullptr, $STATIC, $method(static_cast<void(*)(int64_t,bool,int64_t)>(&MappedMemoryUtils::unload))},
-	{"unload0", "(JJ)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $method(static_cast<void(*)(int64_t,int64_t)>(&MappedMemoryUtils::unload0))},
+	{"<init>", "()V", nullptr, 0, $method(MappedMemoryUtils, init$, void)},
+	{"alignDown", "(JI)J", nullptr, $PRIVATE | $STATIC, $staticMethod(MappedMemoryUtils, alignDown, int64_t, int64_t, int32_t)},
+	{"force", "(Ljava/io/FileDescriptor;JZJJ)V", nullptr, $STATIC, $staticMethod(MappedMemoryUtils, force, void, $FileDescriptor*, int64_t, bool, int64_t, int64_t)},
+	{"force0", "(Ljava/io/FileDescriptor;JJ)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(MappedMemoryUtils, force0, void, $FileDescriptor*, int64_t, int64_t), "java.io.IOException"},
+	{"isLoaded", "(JZJ)Z", nullptr, $STATIC, $staticMethod(MappedMemoryUtils, isLoaded, bool, int64_t, bool, int64_t)},
+	{"isLoaded0", "(JJJ)Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(MappedMemoryUtils, isLoaded0, bool, int64_t, int64_t, int64_t)},
+	{"load", "(JZJ)V", nullptr, $STATIC, $staticMethod(MappedMemoryUtils, load, void, int64_t, bool, int64_t)},
+	{"load0", "(JJ)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(MappedMemoryUtils, load0, void, int64_t, int64_t)},
+	{"mappingAddress", "(JJ)J", nullptr, $PRIVATE | $STATIC, $staticMethod(MappedMemoryUtils, mappingAddress, int64_t, int64_t, int64_t)},
+	{"mappingAddress", "(JJJ)J", nullptr, $PRIVATE | $STATIC, $staticMethod(MappedMemoryUtils, mappingAddress, int64_t, int64_t, int64_t, int64_t)},
+	{"mappingLength", "(JJ)J", nullptr, $PRIVATE | $STATIC, $staticMethod(MappedMemoryUtils, mappingLength, int64_t, int64_t, int64_t)},
+	{"mappingOffset", "(J)J", nullptr, $PRIVATE | $STATIC, $staticMethod(MappedMemoryUtils, mappingOffset, int64_t, int64_t)},
+	{"mappingOffset", "(JJ)J", nullptr, $PRIVATE | $STATIC, $staticMethod(MappedMemoryUtils, mappingOffset, int64_t, int64_t, int64_t)},
+	{"unload", "(JZJ)V", nullptr, $STATIC, $staticMethod(MappedMemoryUtils, unload, void, int64_t, bool, int64_t)},
+	{"unload0", "(JJ)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(MappedMemoryUtils, unload0, void, int64_t, int64_t)},
 	{}
 };
 

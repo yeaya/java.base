@@ -23,15 +23,15 @@ $FieldInfo _ObjectInputStream$PeekInputStream_FieldInfo_[] = {
 };
 
 $MethodInfo _ObjectInputStream$PeekInputStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/InputStream;)V", nullptr, 0, $method(static_cast<void(ObjectInputStream$PeekInputStream::*)($InputStream*)>(&ObjectInputStream$PeekInputStream::init$))},
-	{"available", "()I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"getBytesRead", "()J", nullptr, $PUBLIC},
-	{"peek", "()I", nullptr, 0, nullptr, "java.io.IOException"},
-	{"read", "()I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"read", "([BII)I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"readFully", "([BII)V", nullptr, 0, nullptr, "java.io.IOException"},
-	{"skip", "(J)J", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljava/io/InputStream;)V", nullptr, 0, $method(ObjectInputStream$PeekInputStream, init$, void, $InputStream*)},
+	{"available", "()I", nullptr, $PUBLIC, $virtualMethod(ObjectInputStream$PeekInputStream, available, int32_t), "java.io.IOException"},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(ObjectInputStream$PeekInputStream, close, void), "java.io.IOException"},
+	{"getBytesRead", "()J", nullptr, $PUBLIC, $virtualMethod(ObjectInputStream$PeekInputStream, getBytesRead, int64_t)},
+	{"peek", "()I", nullptr, 0, $virtualMethod(ObjectInputStream$PeekInputStream, peek, int32_t), "java.io.IOException"},
+	{"read", "()I", nullptr, $PUBLIC, $virtualMethod(ObjectInputStream$PeekInputStream, read, int32_t), "java.io.IOException"},
+	{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(ObjectInputStream$PeekInputStream, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
+	{"readFully", "([BII)V", nullptr, 0, $virtualMethod(ObjectInputStream$PeekInputStream, readFully, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
+	{"skip", "(J)J", nullptr, $PUBLIC, $virtualMethod(ObjectInputStream$PeekInputStream, skip, int64_t, int64_t), "java.io.IOException"},
 	{}
 };
 

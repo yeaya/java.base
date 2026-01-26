@@ -8,7 +8,7 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _ClassRestrictions$Bar_MethodInfo_[] = {
-	{"foo", "()I", nullptr, $PUBLIC | $ABSTRACT},
+	{"foo", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ClassRestrictions$Bar, foo, int32_t)},
 	{}
 };
 

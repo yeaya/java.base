@@ -50,8 +50,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo DatagramChannelImpl$AbstractSelectableChannels$$Lambda$lambda$static$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DatagramChannelImpl$AbstractSelectableChannels$$Lambda$lambda$static$0::*)()>(&DatagramChannelImpl$AbstractSelectableChannels$$Lambda$lambda$static$0::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DatagramChannelImpl$AbstractSelectableChannels$$Lambda$lambda$static$0, init$, void)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DatagramChannelImpl$AbstractSelectableChannels$$Lambda$lambda$static$0, run, $Object*)},
 	{}
 };
 $ClassInfo DatagramChannelImpl$AbstractSelectableChannels$$Lambda$lambda$static$0::classInfo$ = {
@@ -74,9 +74,9 @@ $FieldInfo _DatagramChannelImpl$AbstractSelectableChannels_FieldInfo_[] = {
 };
 
 $MethodInfo _DatagramChannelImpl$AbstractSelectableChannels_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(DatagramChannelImpl$AbstractSelectableChannels::*)()>(&DatagramChannelImpl$AbstractSelectableChannels::init$))},
-	{"forEach", "(Ljava/nio/channels/spi/AbstractSelectableChannel;Ljava/util/function/Consumer;)V", "(Ljava/nio/channels/spi/AbstractSelectableChannel;Ljava/util/function/Consumer<Lsun/nio/ch/SelectionKeyImpl;>;)V", $STATIC, $method(static_cast<void(*)($AbstractSelectableChannel*,$Consumer*)>(&DatagramChannelImpl$AbstractSelectableChannels::forEach))},
-	{"lambda$static$0", "()Ljava/lang/reflect/Method;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Method*(*)()>(&DatagramChannelImpl$AbstractSelectableChannels::lambda$static$0)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(DatagramChannelImpl$AbstractSelectableChannels, init$, void)},
+	{"forEach", "(Ljava/nio/channels/spi/AbstractSelectableChannel;Ljava/util/function/Consumer;)V", "(Ljava/nio/channels/spi/AbstractSelectableChannel;Ljava/util/function/Consumer<Lsun/nio/ch/SelectionKeyImpl;>;)V", $STATIC, $staticMethod(DatagramChannelImpl$AbstractSelectableChannels, forEach, void, $AbstractSelectableChannel*, $Consumer*)},
+	{"lambda$static$0", "()Ljava/lang/reflect/Method;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DatagramChannelImpl$AbstractSelectableChannels, lambda$static$0, $Method*), "java.lang.Exception"},
 	{}
 };
 

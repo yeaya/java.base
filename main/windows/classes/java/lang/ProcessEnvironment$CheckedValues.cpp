@@ -24,13 +24,13 @@ $FieldInfo _ProcessEnvironment$CheckedValues_FieldInfo_[] = {
 };
 
 $MethodInfo _ProcessEnvironment$CheckedValues_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Collection;)V", "(Ljava/util/Collection<Ljava/lang/String;>;)V", $PUBLIC, $method(static_cast<void(ProcessEnvironment$CheckedValues::*)($Collection*)>(&ProcessEnvironment$CheckedValues::init$))},
-	{"clear", "()V", nullptr, $PUBLIC},
-	{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"isEmpty", "()Z", nullptr, $PUBLIC},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/lang/String;>;", $PUBLIC},
-	{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"size", "()I", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/Collection;)V", "(Ljava/util/Collection<Ljava/lang/String;>;)V", $PUBLIC, $method(ProcessEnvironment$CheckedValues, init$, void, $Collection*)},
+	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(ProcessEnvironment$CheckedValues, clear, void)},
+	{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ProcessEnvironment$CheckedValues, contains, bool, Object$*)},
+	{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(ProcessEnvironment$CheckedValues, isEmpty, bool)},
+	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(ProcessEnvironment$CheckedValues, iterator, $Iterator*)},
+	{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ProcessEnvironment$CheckedValues, remove, bool, Object$*)},
+	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(ProcessEnvironment$CheckedValues, size, int32_t)},
 	{}
 };
 

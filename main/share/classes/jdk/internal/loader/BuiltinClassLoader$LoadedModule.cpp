@@ -42,12 +42,12 @@ $FieldInfo _BuiltinClassLoader$LoadedModule_FieldInfo_[] = {
 };
 
 $MethodInfo _BuiltinClassLoader$LoadedModule_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/loader/BuiltinClassLoader;Ljava/lang/module/ModuleReference;)V", nullptr, 0, $method(static_cast<void(BuiltinClassLoader$LoadedModule::*)($BuiltinClassLoader*,$ModuleReference*)>(&BuiltinClassLoader$LoadedModule::init$))},
-	{"codeSourceURL", "()Ljava/net/URL;", nullptr, 0},
-	{"createURL", "(Ljava/net/URI;)Ljava/net/URL;", nullptr, $PRIVATE, $method(static_cast<$URL*(BuiltinClassLoader$LoadedModule::*)($URI*)>(&BuiltinClassLoader$LoadedModule::createURL))},
-	{"loader", "()Ljdk/internal/loader/BuiltinClassLoader;", nullptr, 0},
-	{"mref", "()Ljava/lang/module/ModuleReference;", nullptr, 0},
-	{"name", "()Ljava/lang/String;", nullptr, 0},
+	{"<init>", "(Ljdk/internal/loader/BuiltinClassLoader;Ljava/lang/module/ModuleReference;)V", nullptr, 0, $method(BuiltinClassLoader$LoadedModule, init$, void, $BuiltinClassLoader*, $ModuleReference*)},
+	{"codeSourceURL", "()Ljava/net/URL;", nullptr, 0, $virtualMethod(BuiltinClassLoader$LoadedModule, codeSourceURL, $URL*)},
+	{"createURL", "(Ljava/net/URI;)Ljava/net/URL;", nullptr, $PRIVATE, $method(BuiltinClassLoader$LoadedModule, createURL, $URL*, $URI*)},
+	{"loader", "()Ljdk/internal/loader/BuiltinClassLoader;", nullptr, 0, $virtualMethod(BuiltinClassLoader$LoadedModule, loader, $BuiltinClassLoader*)},
+	{"mref", "()Ljava/lang/module/ModuleReference;", nullptr, 0, $virtualMethod(BuiltinClassLoader$LoadedModule, mref, $ModuleReference*)},
+	{"name", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(BuiltinClassLoader$LoadedModule, name, $String*)},
 	{}
 };
 

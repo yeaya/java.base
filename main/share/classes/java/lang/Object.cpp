@@ -27,18 +27,18 @@ namespace java {
 	namespace lang {
 
 MethodInfo _Object_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(&Object::init$)},
-	{"getClass", "()Ljava/lang/Class;", nullptr, $PUBLIC | $FINAL | $NATIVE, $method(&Object::getClass)},
-	{"hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"notify", "()V", nullptr, $PUBLIC | $FINAL | $NATIVE, $method(&Object::notify)},
-	{"notifyAll", "()V", nullptr, $PUBLIC | $FINAL | $NATIVE, $method(&Object::notifyAll)},
-	{"wait", "()V", nullptr, $PUBLIC | $FINAL, $method(static_cast<void(Object::*)()const>(&Object::wait))},
-	{"wait", "(J)V", nullptr, $PUBLIC | $FINAL | $NATIVE, $method(static_cast<void(Object::*)(int64_t)const>(&Object::wait))},
-	{"wait", "(JI)V", nullptr, $PUBLIC | $FINAL, $method(static_cast<void(Object::*)(int64_t, int32_t)const>(&Object::wait))},
-	{"finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Object, init$, void)},
+	{"getClass", "()Ljava/lang/Class;", nullptr, $PUBLIC | $FINAL | $NATIVE, $constMethod(Object, getClass, Class*)},
+	{"hashCode", "()I", nullptr, $PUBLIC | $NATIVE, $virtualMethod(Object, hashCode, int32_t)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Object, equals, bool, Object$*)},
+	{"clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE, $virtualMethod(Object, clone, Object*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Object, toString, String*)},
+	{"notify", "()V", nullptr, $PUBLIC | $FINAL | $NATIVE, $constMethod(Object, notify, void)},
+	{"notifyAll", "()V", nullptr, $PUBLIC | $FINAL | $NATIVE, $constMethod(Object, notifyAll, void)},
+	{"wait", "()V", nullptr, $PUBLIC | $FINAL, $constMethod(Object, wait, void)},
+	{"wait", "(J)V", nullptr, $PUBLIC | $FINAL | $NATIVE, $constMethod(Object, wait, void, int64_t)},
+	{"wait", "(JI)V", nullptr, $PUBLIC | $FINAL, $constMethod(Object, wait, void, int64_t, int32_t)},
+	{"finalize", "()V", nullptr, $PROTECTED | $DEPRECATED, $virtualMethod(Object, finalize, void)},
 	{}
 };
 

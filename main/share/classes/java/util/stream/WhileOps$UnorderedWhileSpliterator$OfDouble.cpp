@@ -48,14 +48,14 @@ $MethodInfo _WhileOps$UnorderedWhileSpliterator$OfDouble_MethodInfo_[] = {
 	{"*getExactSizeIfKnown", "()J", nullptr, $PUBLIC},
 	{"*hasCharacteristics", "(I)Z", nullptr, $PUBLIC | $ABSTRACT},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/util/Spliterator$OfDouble;ZLjava/util/function/DoublePredicate;)V", nullptr, 0, $method(static_cast<void(WhileOps$UnorderedWhileSpliterator$OfDouble::*)($Spliterator$OfDouble*,bool,$DoublePredicate*)>(&WhileOps$UnorderedWhileSpliterator$OfDouble::init$))},
-	{"<init>", "(Ljava/util/Spliterator$OfDouble;Ljava/util/stream/WhileOps$UnorderedWhileSpliterator$OfDouble;)V", nullptr, 0, $method(static_cast<void(WhileOps$UnorderedWhileSpliterator$OfDouble::*)($Spliterator$OfDouble*,WhileOps$UnorderedWhileSpliterator$OfDouble*)>(&WhileOps$UnorderedWhileSpliterator$OfDouble::init$))},
-	{"accept", "(D)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/Spliterator$OfDouble;ZLjava/util/function/DoublePredicate;)V", nullptr, 0, $method(WhileOps$UnorderedWhileSpliterator$OfDouble, init$, void, $Spliterator$OfDouble*, bool, $DoublePredicate*)},
+	{"<init>", "(Ljava/util/Spliterator$OfDouble;Ljava/util/stream/WhileOps$UnorderedWhileSpliterator$OfDouble;)V", nullptr, 0, $method(WhileOps$UnorderedWhileSpliterator$OfDouble, init$, void, $Spliterator$OfDouble*, WhileOps$UnorderedWhileSpliterator$OfDouble*)},
+	{"accept", "(D)V", nullptr, $PUBLIC, $virtualMethod(WhileOps$UnorderedWhileSpliterator$OfDouble, accept, void, double)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{"*tryAdvance", "(Ljava/util/function/Consumer;)Z", nullptr, $PUBLIC | $ABSTRACT},
 	{"*tryAdvance", "(Ljava/util/function/DoubleConsumer;)Z", nullptr, $PUBLIC | $ABSTRACT},
 	{"*tryAdvance", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $SYNTHETIC},
-	{"trySplit", "()Ljava/util/Spliterator$OfDouble;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"trySplit", "()Ljava/util/Spliterator$OfDouble;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(WhileOps$UnorderedWhileSpliterator$OfDouble, trySplit, $Spliterator*)},
 	{}
 };
 

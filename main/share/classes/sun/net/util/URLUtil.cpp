@@ -18,10 +18,10 @@ namespace sun {
 		namespace util {
 
 $MethodInfo _URLUtil_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(URLUtil::*)()>(&URLUtil::init$))},
-	{"getConnectPermission", "(Ljava/net/URL;)Ljava/security/Permission;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Permission*(*)($URL*)>(&URLUtil::getConnectPermission)), "java.io.IOException"},
-	{"getURLConnectPermission", "(Ljava/net/URL;)Ljava/security/Permission;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$Permission*(*)($URL*)>(&URLUtil::getURLConnectPermission))},
-	{"urlNoFragString", "(Ljava/net/URL;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)($URL*)>(&URLUtil::urlNoFragString))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(URLUtil, init$, void)},
+	{"getConnectPermission", "(Ljava/net/URL;)Ljava/security/Permission;", nullptr, $PUBLIC | $STATIC, $staticMethod(URLUtil, getConnectPermission, $Permission*, $URL*), "java.io.IOException"},
+	{"getURLConnectPermission", "(Ljava/net/URL;)Ljava/security/Permission;", nullptr, $PRIVATE | $STATIC, $staticMethod(URLUtil, getURLConnectPermission, $Permission*, $URL*)},
+	{"urlNoFragString", "(Ljava/net/URL;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(URLUtil, urlNoFragString, $String*, $URL*)},
 	{}
 };
 

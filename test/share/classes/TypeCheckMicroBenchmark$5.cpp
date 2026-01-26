@@ -25,8 +25,8 @@ $FieldInfo _TypeCheckMicroBenchmark$5_FieldInfo_[] = {
 };
 
 $MethodInfo _TypeCheckMicroBenchmark$5_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;ILjava/util/List;)V", nullptr, 0, $method(static_cast<void(TypeCheckMicroBenchmark$5::*)($String*,int32_t,$List*)>(&TypeCheckMicroBenchmark$5::init$))},
-	{"work", "()V", nullptr, 0},
+	{"<init>", "(Ljava/lang/String;ILjava/util/List;)V", nullptr, 0, $method(TypeCheckMicroBenchmark$5, init$, void, $String*, int32_t, $List*)},
+	{"work", "()V", nullptr, 0, $virtualMethod(TypeCheckMicroBenchmark$5, work, void)},
 	{}
 };
 

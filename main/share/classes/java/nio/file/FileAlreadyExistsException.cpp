@@ -18,8 +18,8 @@ $FieldInfo _FileAlreadyExistsException_FieldInfo_[] = {
 };
 
 $MethodInfo _FileAlreadyExistsException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(FileAlreadyExistsException::*)($String*)>(&FileAlreadyExistsException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(FileAlreadyExistsException::*)($String*,$String*,$String*)>(&FileAlreadyExistsException::init$))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(FileAlreadyExistsException, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(FileAlreadyExistsException, init$, void, $String*, $String*, $String*)},
 	{}
 };
 

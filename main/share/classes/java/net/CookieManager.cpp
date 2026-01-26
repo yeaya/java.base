@@ -61,16 +61,16 @@ $FieldInfo _CookieManager_FieldInfo_[] = {
 };
 
 $MethodInfo _CookieManager_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CookieManager::*)()>(&CookieManager::init$))},
-	{"<init>", "(Ljava/net/CookieStore;Ljava/net/CookiePolicy;)V", nullptr, $PUBLIC, $method(static_cast<void(CookieManager::*)($CookieStore*,$CookiePolicy*)>(&CookieManager::init$))},
-	{"get", "(Ljava/net/URI;Ljava/util/Map;)Ljava/util/Map;", "(Ljava/net/URI;Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;)Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;", $PUBLIC, nullptr, "java.io.IOException"},
-	{"getCookieStore", "()Ljava/net/CookieStore;", nullptr, $PUBLIC},
-	{"isInPortList", "(Ljava/lang/String;I)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($String*,int32_t)>(&CookieManager::isInPortList))},
-	{"pathMatches", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(static_cast<bool(CookieManager::*)($String*,$String*)>(&CookieManager::pathMatches))},
-	{"put", "(Ljava/net/URI;Ljava/util/Map;)V", "(Ljava/net/URI;Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;)V", $PUBLIC, nullptr, "java.io.IOException"},
-	{"setCookiePolicy", "(Ljava/net/CookiePolicy;)V", nullptr, $PUBLIC},
-	{"shouldAcceptInternal", "(Ljava/net/URI;Ljava/net/HttpCookie;)Z", nullptr, $PRIVATE, $method(static_cast<bool(CookieManager::*)($URI*,$HttpCookie*)>(&CookieManager::shouldAcceptInternal))},
-	{"sortByPathAndAge", "(Ljava/util/List;)Ljava/util/List;", "(Ljava/util/List<Ljava/net/HttpCookie;>;)Ljava/util/List<Ljava/lang/String;>;", $STATIC, $method(static_cast<$List*(*)($List*)>(&CookieManager::sortByPathAndAge))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CookieManager, init$, void)},
+	{"<init>", "(Ljava/net/CookieStore;Ljava/net/CookiePolicy;)V", nullptr, $PUBLIC, $method(CookieManager, init$, void, $CookieStore*, $CookiePolicy*)},
+	{"get", "(Ljava/net/URI;Ljava/util/Map;)Ljava/util/Map;", "(Ljava/net/URI;Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;)Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;", $PUBLIC, $virtualMethod(CookieManager, get, $Map*, $URI*, $Map*), "java.io.IOException"},
+	{"getCookieStore", "()Ljava/net/CookieStore;", nullptr, $PUBLIC, $virtualMethod(CookieManager, getCookieStore, $CookieStore*)},
+	{"isInPortList", "(Ljava/lang/String;I)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(CookieManager, isInPortList, bool, $String*, int32_t)},
+	{"pathMatches", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(CookieManager, pathMatches, bool, $String*, $String*)},
+	{"put", "(Ljava/net/URI;Ljava/util/Map;)V", "(Ljava/net/URI;Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;)V", $PUBLIC, $virtualMethod(CookieManager, put, void, $URI*, $Map*), "java.io.IOException"},
+	{"setCookiePolicy", "(Ljava/net/CookiePolicy;)V", nullptr, $PUBLIC, $virtualMethod(CookieManager, setCookiePolicy, void, $CookiePolicy*)},
+	{"shouldAcceptInternal", "(Ljava/net/URI;Ljava/net/HttpCookie;)Z", nullptr, $PRIVATE, $method(CookieManager, shouldAcceptInternal, bool, $URI*, $HttpCookie*)},
+	{"sortByPathAndAge", "(Ljava/util/List;)Ljava/util/List;", "(Ljava/util/List<Ljava/net/HttpCookie;>;)Ljava/util/List<Ljava/lang/String;>;", $STATIC, $staticMethod(CookieManager, sortByPathAndAge, $List*, $List*)},
 	{}
 };
 

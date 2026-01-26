@@ -55,10 +55,10 @@ $FieldInfo _UnixFileAttributeViews$Unix_FieldInfo_[] = {
 };
 
 $MethodInfo _UnixFileAttributeViews$Unix_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/fs/UnixPath;Z)V", nullptr, 0, $method(static_cast<void(UnixFileAttributeViews$Unix::*)($UnixPath*,bool)>(&UnixFileAttributeViews$Unix::init$))},
-	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"readAttributes", "([Ljava/lang/String;)Ljava/util/Map;", "([Ljava/lang/String;)Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;", $PUBLIC, nullptr, "java.io.IOException"},
-	{"setAttribute", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Lsun/nio/fs/UnixPath;Z)V", nullptr, 0, $method(UnixFileAttributeViews$Unix, init$, void, $UnixPath*, bool)},
+	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UnixFileAttributeViews$Unix, name, $String*)},
+	{"readAttributes", "([Ljava/lang/String;)Ljava/util/Map;", "([Ljava/lang/String;)Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;", $PUBLIC, $virtualMethod(UnixFileAttributeViews$Unix, readAttributes, $Map*, $StringArray*), "java.io.IOException"},
+	{"setAttribute", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(UnixFileAttributeViews$Unix, setAttribute, void, $String*, Object$*), "java.io.IOException"},
 	{}
 };
 

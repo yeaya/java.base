@@ -36,11 +36,11 @@ $FieldInfo _SocketExceptions_FieldInfo_[] = {
 };
 
 $MethodInfo _SocketExceptions_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(SocketExceptions::*)()>(&SocketExceptions::init$))},
-	{"create", "(Ljava/io/IOException;Ljava/lang/String;)Ljava/io/IOException;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$IOException*(*)($IOException*,$String*)>(&SocketExceptions::create))},
-	{"of", "(Ljava/io/IOException;Ljava/net/SocketAddress;)Ljava/io/IOException;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$IOException*(*)($IOException*,$SocketAddress*)>(&SocketExceptions::of))},
-	{"ofInet", "(Ljava/io/IOException;Ljava/net/InetSocketAddress;)Ljava/io/IOException;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$IOException*(*)($IOException*,$InetSocketAddress*)>(&SocketExceptions::ofInet))},
-	{"ofUnixDomain", "(Ljava/io/IOException;Ljava/net/UnixDomainSocketAddress;)Ljava/io/IOException;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$IOException*(*)($IOException*,$UnixDomainSocketAddress*)>(&SocketExceptions::ofUnixDomain))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(SocketExceptions, init$, void)},
+	{"create", "(Ljava/io/IOException;Ljava/lang/String;)Ljava/io/IOException;", nullptr, $PRIVATE | $STATIC, $staticMethod(SocketExceptions, create, $IOException*, $IOException*, $String*)},
+	{"of", "(Ljava/io/IOException;Ljava/net/SocketAddress;)Ljava/io/IOException;", nullptr, $PUBLIC | $STATIC, $staticMethod(SocketExceptions, of, $IOException*, $IOException*, $SocketAddress*)},
+	{"ofInet", "(Ljava/io/IOException;Ljava/net/InetSocketAddress;)Ljava/io/IOException;", nullptr, $PRIVATE | $STATIC, $staticMethod(SocketExceptions, ofInet, $IOException*, $IOException*, $InetSocketAddress*)},
+	{"ofUnixDomain", "(Ljava/io/IOException;Ljava/net/UnixDomainSocketAddress;)Ljava/io/IOException;", nullptr, $PRIVATE | $STATIC, $staticMethod(SocketExceptions, ofUnixDomain, $IOException*, $IOException*, $UnixDomainSocketAddress*)},
 	{}
 };
 

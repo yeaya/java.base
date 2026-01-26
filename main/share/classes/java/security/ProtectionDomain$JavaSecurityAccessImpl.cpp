@@ -24,12 +24,12 @@ namespace java {
 	namespace security {
 
 $MethodInfo _ProtectionDomain$JavaSecurityAccessImpl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(ProtectionDomain$JavaSecurityAccessImpl::*)()>(&ProtectionDomain$JavaSecurityAccessImpl::init$))},
-	{"doIntersectionPrivilege", "(Ljava/security/PrivilegedAction;Ljava/security/AccessControlContext;Ljava/security/AccessControlContext;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/security/PrivilegedAction<TT;>;Ljava/security/AccessControlContext;Ljava/security/AccessControlContext;)TT;", $PUBLIC},
-	{"doIntersectionPrivilege", "(Ljava/security/PrivilegedAction;Ljava/security/AccessControlContext;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/security/PrivilegedAction<TT;>;Ljava/security/AccessControlContext;)TT;", $PUBLIC},
-	{"getCombinedACC", "(Ljava/security/AccessControlContext;Ljava/security/AccessControlContext;)Ljava/security/AccessControlContext;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$AccessControlContext*(*)($AccessControlContext*,$AccessControlContext*)>(&ProtectionDomain$JavaSecurityAccessImpl::getCombinedACC))},
-	{"getProtectDomains", "(Ljava/security/AccessControlContext;)[Ljava/security/ProtectionDomain;", nullptr, $PUBLIC},
-	{"getProtectionDomainCache", "()Ljdk/internal/access/JavaSecurityAccess$ProtectionDomainCache;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(ProtectionDomain$JavaSecurityAccessImpl, init$, void)},
+	{"doIntersectionPrivilege", "(Ljava/security/PrivilegedAction;Ljava/security/AccessControlContext;Ljava/security/AccessControlContext;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/security/PrivilegedAction<TT;>;Ljava/security/AccessControlContext;Ljava/security/AccessControlContext;)TT;", $PUBLIC, $virtualMethod(ProtectionDomain$JavaSecurityAccessImpl, doIntersectionPrivilege, $Object*, $PrivilegedAction*, $AccessControlContext*, $AccessControlContext*)},
+	{"doIntersectionPrivilege", "(Ljava/security/PrivilegedAction;Ljava/security/AccessControlContext;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/security/PrivilegedAction<TT;>;Ljava/security/AccessControlContext;)TT;", $PUBLIC, $virtualMethod(ProtectionDomain$JavaSecurityAccessImpl, doIntersectionPrivilege, $Object*, $PrivilegedAction*, $AccessControlContext*)},
+	{"getCombinedACC", "(Ljava/security/AccessControlContext;Ljava/security/AccessControlContext;)Ljava/security/AccessControlContext;", nullptr, $PRIVATE | $STATIC, $staticMethod(ProtectionDomain$JavaSecurityAccessImpl, getCombinedACC, $AccessControlContext*, $AccessControlContext*, $AccessControlContext*)},
+	{"getProtectDomains", "(Ljava/security/AccessControlContext;)[Ljava/security/ProtectionDomain;", nullptr, $PUBLIC, $virtualMethod(ProtectionDomain$JavaSecurityAccessImpl, getProtectDomains, $ProtectionDomainArray*, $AccessControlContext*)},
+	{"getProtectionDomainCache", "()Ljdk/internal/access/JavaSecurityAccess$ProtectionDomainCache;", nullptr, $PUBLIC, $virtualMethod(ProtectionDomain$JavaSecurityAccessImpl, getProtectionDomainCache, $JavaSecurityAccess$ProtectionDomainCache*)},
 	{}
 };
 

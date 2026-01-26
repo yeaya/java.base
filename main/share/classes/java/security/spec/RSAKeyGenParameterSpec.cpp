@@ -24,11 +24,11 @@ $FieldInfo _RSAKeyGenParameterSpec_FieldInfo_[] = {
 };
 
 $MethodInfo _RSAKeyGenParameterSpec_MethodInfo_[] = {
-	{"<init>", "(ILjava/math/BigInteger;)V", nullptr, $PUBLIC, $method(static_cast<void(RSAKeyGenParameterSpec::*)(int32_t,$BigInteger*)>(&RSAKeyGenParameterSpec::init$))},
-	{"<init>", "(ILjava/math/BigInteger;Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PUBLIC, $method(static_cast<void(RSAKeyGenParameterSpec::*)(int32_t,$BigInteger*,$AlgorithmParameterSpec*)>(&RSAKeyGenParameterSpec::init$))},
-	{"getKeyParams", "()Ljava/security/spec/AlgorithmParameterSpec;", nullptr, $PUBLIC},
-	{"getKeysize", "()I", nullptr, $PUBLIC},
-	{"getPublicExponent", "()Ljava/math/BigInteger;", nullptr, $PUBLIC},
+	{"<init>", "(ILjava/math/BigInteger;)V", nullptr, $PUBLIC, $method(RSAKeyGenParameterSpec, init$, void, int32_t, $BigInteger*)},
+	{"<init>", "(ILjava/math/BigInteger;Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PUBLIC, $method(RSAKeyGenParameterSpec, init$, void, int32_t, $BigInteger*, $AlgorithmParameterSpec*)},
+	{"getKeyParams", "()Ljava/security/spec/AlgorithmParameterSpec;", nullptr, $PUBLIC, $virtualMethod(RSAKeyGenParameterSpec, getKeyParams, $AlgorithmParameterSpec*)},
+	{"getKeysize", "()I", nullptr, $PUBLIC, $virtualMethod(RSAKeyGenParameterSpec, getKeysize, int32_t)},
+	{"getPublicExponent", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(RSAKeyGenParameterSpec, getPublicExponent, $BigInteger*)},
 	{}
 };
 

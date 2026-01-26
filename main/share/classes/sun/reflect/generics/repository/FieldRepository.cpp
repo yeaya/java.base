@@ -37,11 +37,11 @@ $FieldInfo _FieldRepository_FieldInfo_[] = {
 };
 
 $MethodInfo _FieldRepository_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Lsun/reflect/generics/factory/GenericsFactory;)V", nullptr, $PROTECTED, $method(static_cast<void(FieldRepository::*)($String*,$GenericsFactory*)>(&FieldRepository::init$))},
-	{"computeGenericType", "()Ljava/lang/reflect/Type;", nullptr, $PRIVATE, $method(static_cast<$Type*(FieldRepository::*)()>(&FieldRepository::computeGenericType))},
-	{"getGenericType", "()Ljava/lang/reflect/Type;", nullptr, $PUBLIC},
-	{"make", "(Ljava/lang/String;Lsun/reflect/generics/factory/GenericsFactory;)Lsun/reflect/generics/repository/FieldRepository;", nullptr, $PUBLIC | $STATIC, $method(static_cast<FieldRepository*(*)($String*,$GenericsFactory*)>(&FieldRepository::make))},
-	{"parse", "(Ljava/lang/String;)Lsun/reflect/generics/tree/TypeSignature;", nullptr, $PROTECTED},
+	{"<init>", "(Ljava/lang/String;Lsun/reflect/generics/factory/GenericsFactory;)V", nullptr, $PROTECTED, $method(FieldRepository, init$, void, $String*, $GenericsFactory*)},
+	{"computeGenericType", "()Ljava/lang/reflect/Type;", nullptr, $PRIVATE, $method(FieldRepository, computeGenericType, $Type*)},
+	{"getGenericType", "()Ljava/lang/reflect/Type;", nullptr, $PUBLIC, $virtualMethod(FieldRepository, getGenericType, $Type*)},
+	{"make", "(Ljava/lang/String;Lsun/reflect/generics/factory/GenericsFactory;)Lsun/reflect/generics/repository/FieldRepository;", nullptr, $PUBLIC | $STATIC, $staticMethod(FieldRepository, make, FieldRepository*, $String*, $GenericsFactory*)},
+	{"parse", "(Ljava/lang/String;)Lsun/reflect/generics/tree/TypeSignature;", nullptr, $PROTECTED, $virtualMethod(FieldRepository, parse, $Tree*, $String*)},
 	{}
 };
 

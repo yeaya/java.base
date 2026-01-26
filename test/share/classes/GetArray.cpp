@@ -2,11 +2,12 @@
 
 #include <jcpp.h>
 
+using $doubleArray3 = $Array<double, 3>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _GetArray_MethodInfo_[] = {
-	{"get", "([[[D)[Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
+	{"get", "([[[D)[Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GetArray, get, $ObjectArray*, $doubleArray3*)},
 	{}
 };
 

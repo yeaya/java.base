@@ -20,10 +20,10 @@ $FieldInfo _DHPrivateKeySpec_FieldInfo_[] = {
 };
 
 $MethodInfo _DHPrivateKeySpec_MethodInfo_[] = {
-	{"<init>", "(Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;)V", nullptr, $PUBLIC, $method(static_cast<void(DHPrivateKeySpec::*)($BigInteger*,$BigInteger*,$BigInteger*)>(&DHPrivateKeySpec::init$))},
-	{"getG", "()Ljava/math/BigInteger;", nullptr, $PUBLIC},
-	{"getP", "()Ljava/math/BigInteger;", nullptr, $PUBLIC},
-	{"getX", "()Ljava/math/BigInteger;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;)V", nullptr, $PUBLIC, $method(DHPrivateKeySpec, init$, void, $BigInteger*, $BigInteger*, $BigInteger*)},
+	{"getG", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(DHPrivateKeySpec, getG, $BigInteger*)},
+	{"getP", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(DHPrivateKeySpec, getP, $BigInteger*)},
+	{"getX", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(DHPrivateKeySpec, getX, $BigInteger*)},
 	{}
 };
 

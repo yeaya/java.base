@@ -30,12 +30,12 @@ $FieldInfo _JarVerifier$VerifierCodeSource_FieldInfo_[] = {
 };
 
 $MethodInfo _JarVerifier$VerifierCodeSource_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;Ljava/net/URL;[Ljava/security/CodeSigner;)V", nullptr, 0, $method(static_cast<void(JarVerifier$VerifierCodeSource::*)(Object$*,$URL*,$CodeSignerArray*)>(&JarVerifier$VerifierCodeSource::init$))},
-	{"<init>", "(Ljava/lang/Object;Ljava/net/URL;[Ljava/security/cert/Certificate;)V", nullptr, 0, $method(static_cast<void(JarVerifier$VerifierCodeSource::*)(Object$*,$URL*,$CertificateArray*)>(&JarVerifier$VerifierCodeSource::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getPrivateCertificates", "()[Ljava/security/cert/Certificate;", nullptr, $PRIVATE, $method(static_cast<$CertificateArray*(JarVerifier$VerifierCodeSource::*)()>(&JarVerifier$VerifierCodeSource::getPrivateCertificates))},
-	{"getPrivateSigners", "()[Ljava/security/CodeSigner;", nullptr, $PRIVATE, $method(static_cast<$CodeSignerArray*(JarVerifier$VerifierCodeSource::*)()>(&JarVerifier$VerifierCodeSource::getPrivateSigners))},
-	{"isSameDomain", "(Ljava/lang/Object;)Z", nullptr, 0},
+	{"<init>", "(Ljava/lang/Object;Ljava/net/URL;[Ljava/security/CodeSigner;)V", nullptr, 0, $method(JarVerifier$VerifierCodeSource, init$, void, Object$*, $URL*, $CodeSignerArray*)},
+	{"<init>", "(Ljava/lang/Object;Ljava/net/URL;[Ljava/security/cert/Certificate;)V", nullptr, 0, $method(JarVerifier$VerifierCodeSource, init$, void, Object$*, $URL*, $CertificateArray*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(JarVerifier$VerifierCodeSource, equals, bool, Object$*)},
+	{"getPrivateCertificates", "()[Ljava/security/cert/Certificate;", nullptr, $PRIVATE, $method(JarVerifier$VerifierCodeSource, getPrivateCertificates, $CertificateArray*)},
+	{"getPrivateSigners", "()[Ljava/security/CodeSigner;", nullptr, $PRIVATE, $method(JarVerifier$VerifierCodeSource, getPrivateSigners, $CodeSignerArray*)},
+	{"isSameDomain", "(Ljava/lang/Object;)Z", nullptr, 0, $virtualMethod(JarVerifier$VerifierCodeSource, isSameDomain, bool, Object$*)},
 	{}
 };
 

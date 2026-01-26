@@ -22,13 +22,13 @@ $FieldInfo _SunCertPathBuilderException_FieldInfo_[] = {
 };
 
 $MethodInfo _SunCertPathBuilderException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SunCertPathBuilderException::*)()>(&SunCertPathBuilderException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(SunCertPathBuilderException::*)($String*)>(&SunCertPathBuilderException::init$))},
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(SunCertPathBuilderException::*)($Throwable*)>(&SunCertPathBuilderException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(SunCertPathBuilderException::*)($String*,$Throwable*)>(&SunCertPathBuilderException::init$))},
-	{"<init>", "(Ljava/lang/String;Lsun/security/provider/certpath/AdjacencyList;)V", nullptr, 0, $method(static_cast<void(SunCertPathBuilderException::*)($String*,$AdjacencyList*)>(&SunCertPathBuilderException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;Lsun/security/provider/certpath/AdjacencyList;)V", nullptr, 0, $method(static_cast<void(SunCertPathBuilderException::*)($String*,$Throwable*,$AdjacencyList*)>(&SunCertPathBuilderException::init$))},
-	{"getAdjacencyList", "()Lsun/security/provider/certpath/AdjacencyList;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SunCertPathBuilderException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SunCertPathBuilderException, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SunCertPathBuilderException, init$, void, $Throwable*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SunCertPathBuilderException, init$, void, $String*, $Throwable*)},
+	{"<init>", "(Ljava/lang/String;Lsun/security/provider/certpath/AdjacencyList;)V", nullptr, 0, $method(SunCertPathBuilderException, init$, void, $String*, $AdjacencyList*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;Lsun/security/provider/certpath/AdjacencyList;)V", nullptr, 0, $method(SunCertPathBuilderException, init$, void, $String*, $Throwable*, $AdjacencyList*)},
+	{"getAdjacencyList", "()Lsun/security/provider/certpath/AdjacencyList;", nullptr, $PUBLIC, $virtualMethod(SunCertPathBuilderException, getAdjacencyList, $AdjacencyList*)},
 	{}
 };
 

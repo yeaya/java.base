@@ -25,8 +25,8 @@ $FieldInfo _DefaultLoggerFinder$1_FieldInfo_[] = {
 };
 
 $MethodInfo _DefaultLoggerFinder$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Module;)V", nullptr, 0, $method(static_cast<void(DefaultLoggerFinder$1::*)($Module*)>(&DefaultLoggerFinder$1::init$))},
-	{"run", "()Ljava/lang/Boolean;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Module;)V", nullptr, 0, $method(DefaultLoggerFinder$1, init$, void, $Module*)},
+	{"run", "()Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(DefaultLoggerFinder$1, run, $Object*)},
 	{}
 };
 

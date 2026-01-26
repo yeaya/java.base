@@ -20,9 +20,9 @@ $FieldInfo _Throwable$WrappedPrintWriter_FieldInfo_[] = {
 };
 
 $MethodInfo _Throwable$WrappedPrintWriter_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/PrintWriter;)V", nullptr, 0, $method(static_cast<void(Throwable$WrappedPrintWriter::*)($PrintWriter*)>(&Throwable$WrappedPrintWriter::init$))},
-	{"lock", "()Ljava/lang/Object;", nullptr, 0},
-	{"println", "(Ljava/lang/Object;)V", nullptr, 0},
+	{"<init>", "(Ljava/io/PrintWriter;)V", nullptr, 0, $method(Throwable$WrappedPrintWriter, init$, void, $PrintWriter*)},
+	{"lock", "()Ljava/lang/Object;", nullptr, 0, $virtualMethod(Throwable$WrappedPrintWriter, lock, $Object*)},
+	{"println", "(Ljava/lang/Object;)V", nullptr, 0, $virtualMethod(Throwable$WrappedPrintWriter, println, void, Object$*)},
 	{}
 };
 

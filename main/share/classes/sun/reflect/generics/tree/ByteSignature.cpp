@@ -19,9 +19,9 @@ $FieldInfo _ByteSignature_FieldInfo_[] = {
 };
 
 $MethodInfo _ByteSignature_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(ByteSignature::*)()>(&ByteSignature::init$))},
-	{"accept", "(Lsun/reflect/generics/visitor/TypeTreeVisitor;)V", "(Lsun/reflect/generics/visitor/TypeTreeVisitor<*>;)V", $PUBLIC},
-	{"make", "()Lsun/reflect/generics/tree/ByteSignature;", nullptr, $PUBLIC | $STATIC, $method(static_cast<ByteSignature*(*)()>(&ByteSignature::make))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(ByteSignature, init$, void)},
+	{"accept", "(Lsun/reflect/generics/visitor/TypeTreeVisitor;)V", "(Lsun/reflect/generics/visitor/TypeTreeVisitor<*>;)V", $PUBLIC, $virtualMethod(ByteSignature, accept, void, $TypeTreeVisitor*)},
+	{"make", "()Lsun/reflect/generics/tree/ByteSignature;", nullptr, $PUBLIC | $STATIC, $staticMethod(ByteSignature, make, ByteSignature*)},
 	{}
 };
 

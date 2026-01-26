@@ -29,12 +29,12 @@ $FieldInfo _MutableCallSite_FieldInfo_[] = {
 };
 
 $MethodInfo _MutableCallSite_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/invoke/MethodType;)V", nullptr, $PUBLIC, $method(static_cast<void(MutableCallSite::*)($MethodType*)>(&MutableCallSite::init$))},
-	{"<init>", "(Ljava/lang/invoke/MethodHandle;)V", nullptr, $PUBLIC, $method(static_cast<void(MutableCallSite::*)($MethodHandle*)>(&MutableCallSite::init$))},
-	{"dynamicInvoker", "()Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC | $FINAL},
-	{"getTarget", "()Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC | $FINAL},
-	{"setTarget", "(Ljava/lang/invoke/MethodHandle;)V", nullptr, $PUBLIC},
-	{"syncAll", "([Ljava/lang/invoke/MutableCallSite;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($MutableCallSiteArray*)>(&MutableCallSite::syncAll))},
+	{"<init>", "(Ljava/lang/invoke/MethodType;)V", nullptr, $PUBLIC, $method(MutableCallSite, init$, void, $MethodType*)},
+	{"<init>", "(Ljava/lang/invoke/MethodHandle;)V", nullptr, $PUBLIC, $method(MutableCallSite, init$, void, $MethodHandle*)},
+	{"dynamicInvoker", "()Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC | $FINAL, $virtualMethod(MutableCallSite, dynamicInvoker, $MethodHandle*)},
+	{"getTarget", "()Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC | $FINAL, $virtualMethod(MutableCallSite, getTarget, $MethodHandle*)},
+	{"setTarget", "(Ljava/lang/invoke/MethodHandle;)V", nullptr, $PUBLIC, $virtualMethod(MutableCallSite, setTarget, void, $MethodHandle*)},
+	{"syncAll", "([Ljava/lang/invoke/MutableCallSite;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(MutableCallSite, syncAll, void, $MutableCallSiteArray*)},
 	{}
 };
 

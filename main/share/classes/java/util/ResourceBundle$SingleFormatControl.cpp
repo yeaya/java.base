@@ -29,8 +29,8 @@ $FieldInfo _ResourceBundle$SingleFormatControl_FieldInfo_[] = {
 };
 
 $MethodInfo _ResourceBundle$SingleFormatControl_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/lang/String;>;)V", $PROTECTED, $method(static_cast<void(ResourceBundle$SingleFormatControl::*)($List*)>(&ResourceBundle$SingleFormatControl::init$))},
-	{"getFormats", "(Ljava/lang/String;)Ljava/util/List;", "(Ljava/lang/String;)Ljava/util/List<Ljava/lang/String;>;", $PUBLIC},
+	{"<init>", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/lang/String;>;)V", $PROTECTED, $method(ResourceBundle$SingleFormatControl, init$, void, $List*)},
+	{"getFormats", "(Ljava/lang/String;)Ljava/util/List;", "(Ljava/lang/String;)Ljava/util/List<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(ResourceBundle$SingleFormatControl, getFormats, $List*, $String*)},
 	{}
 };
 

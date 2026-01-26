@@ -10,7 +10,7 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _MetafactoryParameterCastTest$C_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(MetafactoryParameterCastTest$C::*)()>(&MetafactoryParameterCastTest$C::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(MetafactoryParameterCastTest$C, init$, void)},
 	{}
 };
 

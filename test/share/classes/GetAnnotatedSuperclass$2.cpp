@@ -10,7 +10,7 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _GetAnnotatedSuperclass$2_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(GetAnnotatedSuperclass$2::*)()>(&GetAnnotatedSuperclass$2::init$))},
+	{"<init>", "()V", nullptr, 0, $method(GetAnnotatedSuperclass$2, init$, void)},
 	{}
 };
 

@@ -25,13 +25,13 @@ $FieldInfo _TreeMap$Entry_FieldInfo_[] = {
 };
 
 $MethodInfo _TreeMap$Entry_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/util/TreeMap$Entry;)V", "(TK;TV;Ljava/util/TreeMap$Entry<TK;TV;>;)V", 0, $method(static_cast<void(TreeMap$Entry::*)(Object$*,Object$*,TreeMap$Entry*)>(&TreeMap$Entry::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getKey", "()Ljava/lang/Object;", "()TK;", $PUBLIC},
-	{"getValue", "()Ljava/lang/Object;", "()TV;", $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"setValue", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TV;)TV;", $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/util/TreeMap$Entry;)V", "(TK;TV;Ljava/util/TreeMap$Entry<TK;TV;>;)V", 0, $method(TreeMap$Entry, init$, void, Object$*, Object$*, TreeMap$Entry*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(TreeMap$Entry, equals, bool, Object$*)},
+	{"getKey", "()Ljava/lang/Object;", "()TK;", $PUBLIC, $virtualMethod(TreeMap$Entry, getKey, $Object*)},
+	{"getValue", "()Ljava/lang/Object;", "()TV;", $PUBLIC, $virtualMethod(TreeMap$Entry, getValue, $Object*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(TreeMap$Entry, hashCode, int32_t)},
+	{"setValue", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TV;)TV;", $PUBLIC, $virtualMethod(TreeMap$Entry, setValue, $Object*, Object$*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TreeMap$Entry, toString, $String*)},
 	{}
 };
 

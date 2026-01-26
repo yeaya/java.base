@@ -25,7 +25,7 @@ $MethodInfo _FieldAccessorImpl_MethodInfo_[] = {
 	{"getLong", "(Ljava/lang/Object;)J", nullptr, $PUBLIC | $ABSTRACT},
 	{"getShort", "(Ljava/lang/Object;)S", nullptr, $PUBLIC | $ABSTRACT},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(FieldAccessorImpl::*)()>(&FieldAccessorImpl::init$))},
+	{"<init>", "()V", nullptr, 0, $method(FieldAccessorImpl, init$, void)},
 	{"set", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC | $ABSTRACT},
 	{"setBoolean", "(Ljava/lang/Object;Z)V", nullptr, $PUBLIC | $ABSTRACT},
 	{"setByte", "(Ljava/lang/Object;B)V", nullptr, $PUBLIC | $ABSTRACT},

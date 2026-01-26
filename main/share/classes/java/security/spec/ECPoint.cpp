@@ -23,12 +23,12 @@ $FieldInfo _ECPoint_FieldInfo_[] = {
 };
 
 $MethodInfo _ECPoint_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(ECPoint::*)()>(&ECPoint::init$))},
-	{"<init>", "(Ljava/math/BigInteger;Ljava/math/BigInteger;)V", nullptr, $PUBLIC, $method(static_cast<void(ECPoint::*)($BigInteger*,$BigInteger*)>(&ECPoint::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getAffineX", "()Ljava/math/BigInteger;", nullptr, $PUBLIC},
-	{"getAffineY", "()Ljava/math/BigInteger;", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(ECPoint, init$, void)},
+	{"<init>", "(Ljava/math/BigInteger;Ljava/math/BigInteger;)V", nullptr, $PUBLIC, $method(ECPoint, init$, void, $BigInteger*, $BigInteger*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ECPoint, equals, bool, Object$*)},
+	{"getAffineX", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(ECPoint, getAffineX, $BigInteger*)},
+	{"getAffineY", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(ECPoint, getAffineY, $BigInteger*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ECPoint, hashCode, int32_t)},
 	{}
 };
 

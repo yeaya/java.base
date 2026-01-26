@@ -48,13 +48,13 @@ $MethodInfo _RandomSupport$AbstractArbitrarilyJumpableGenerator$RandomDoublesSpl
 	{"*estimateSize", "()J", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/util/random/RandomGenerator$ArbitrarilyJumpableGenerator;JJDD)V", nullptr, 0, $method(static_cast<void(RandomSupport$AbstractArbitrarilyJumpableGenerator$RandomDoublesSpliterator::*)($RandomGenerator$ArbitrarilyJumpableGenerator*,int64_t,int64_t,double,double)>(&RandomSupport$AbstractArbitrarilyJumpableGenerator$RandomDoublesSpliterator::init$))},
-	{"forEachRemaining", "(Ljava/util/function/DoubleConsumer;)V", nullptr, $PUBLIC},
-	{"forEachRemaining", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "(Ljava/util/random/RandomGenerator$ArbitrarilyJumpableGenerator;JJDD)V", nullptr, 0, $method(RandomSupport$AbstractArbitrarilyJumpableGenerator$RandomDoublesSpliterator, init$, void, $RandomGenerator$ArbitrarilyJumpableGenerator*, int64_t, int64_t, double, double)},
+	{"forEachRemaining", "(Ljava/util/function/DoubleConsumer;)V", nullptr, $PUBLIC, $virtualMethod(RandomSupport$AbstractArbitrarilyJumpableGenerator$RandomDoublesSpliterator, forEachRemaining, void, $DoubleConsumer*)},
+	{"forEachRemaining", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(RandomSupport$AbstractArbitrarilyJumpableGenerator$RandomDoublesSpliterator, forEachRemaining, void, Object$*)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"tryAdvance", "(Ljava/util/function/DoubleConsumer;)Z", nullptr, $PUBLIC},
-	{"tryAdvance", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"trySplit", "()Ljava/util/Spliterator$OfDouble;", nullptr, $PUBLIC},
+	{"tryAdvance", "(Ljava/util/function/DoubleConsumer;)Z", nullptr, $PUBLIC, $virtualMethod(RandomSupport$AbstractArbitrarilyJumpableGenerator$RandomDoublesSpliterator, tryAdvance, bool, $DoubleConsumer*)},
+	{"tryAdvance", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(RandomSupport$AbstractArbitrarilyJumpableGenerator$RandomDoublesSpliterator, tryAdvance, bool, Object$*)},
+	{"trySplit", "()Ljava/util/Spliterator$OfDouble;", nullptr, $PUBLIC, $virtualMethod(RandomSupport$AbstractArbitrarilyJumpableGenerator$RandomDoublesSpliterator, trySplit, $Spliterator$OfDouble*)},
 	{}
 };
 

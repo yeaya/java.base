@@ -27,12 +27,12 @@ $MethodInfo _NameCallback_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(NameCallback::*)($String*)>(&NameCallback::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(NameCallback::*)($String*,$String*)>(&NameCallback::init$))},
-	{"getDefaultName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getPrompt", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"setName", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NameCallback, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NameCallback, init$, void, $String*, $String*)},
+	{"getDefaultName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NameCallback, getDefaultName, $String*)},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NameCallback, getName, $String*)},
+	{"getPrompt", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NameCallback, getPrompt, $String*)},
+	{"setName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(NameCallback, setName, void, $String*)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

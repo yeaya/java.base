@@ -64,8 +64,8 @@ namespace sun {
 		namespace ssl {
 
 $MethodInfo _ChangeCipherSpec$T10ChangeCipherSpecProducer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(ChangeCipherSpec$T10ChangeCipherSpecProducer::*)()>(&ChangeCipherSpec$T10ChangeCipherSpecProducer::init$))},
-	{"produce", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)[B", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(ChangeCipherSpec$T10ChangeCipherSpecProducer, init$, void)},
+	{"produce", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)[B", nullptr, $PUBLIC, $virtualMethod(ChangeCipherSpec$T10ChangeCipherSpecProducer, produce, $bytes*, $ConnectionContext*, $SSLHandshake$HandshakeMessage*), "java.io.IOException"},
 	{}
 };
 

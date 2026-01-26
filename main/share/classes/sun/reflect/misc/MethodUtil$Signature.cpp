@@ -24,9 +24,9 @@ $FieldInfo _MethodUtil$Signature_FieldInfo_[] = {
 };
 
 $MethodInfo _MethodUtil$Signature_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/reflect/Method;)V", nullptr, 0, $method(static_cast<void(MethodUtil$Signature::*)($Method*)>(&MethodUtil$Signature::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/reflect/Method;)V", nullptr, 0, $method(MethodUtil$Signature, init$, void, $Method*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(MethodUtil$Signature, equals, bool, Object$*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(MethodUtil$Signature, hashCode, int32_t)},
 	{}
 };
 

@@ -40,13 +40,13 @@ $MethodInfo _ConcurrentHashMap$EntrySpliterator_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "([Ljava/util/concurrent/ConcurrentHashMap$Node;IIIJLjava/util/concurrent/ConcurrentHashMap;)V", "([Ljava/util/concurrent/ConcurrentHashMap$Node<TK;TV;>;IIIJLjava/util/concurrent/ConcurrentHashMap<TK;TV;>;)V", 0, $method(static_cast<void(ConcurrentHashMap$EntrySpliterator::*)($ConcurrentHashMap$NodeArray*,int32_t,int32_t,int32_t,int64_t,$ConcurrentHashMap*)>(&ConcurrentHashMap$EntrySpliterator::init$))},
-	{"characteristics", "()I", nullptr, $PUBLIC},
-	{"estimateSize", "()J", nullptr, $PUBLIC},
-	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-Ljava/util/Map$Entry<TK;TV;>;>;)V", $PUBLIC},
+	{"<init>", "([Ljava/util/concurrent/ConcurrentHashMap$Node;IIIJLjava/util/concurrent/ConcurrentHashMap;)V", "([Ljava/util/concurrent/ConcurrentHashMap$Node<TK;TV;>;IIIJLjava/util/concurrent/ConcurrentHashMap<TK;TV;>;)V", 0, $method(ConcurrentHashMap$EntrySpliterator, init$, void, $ConcurrentHashMap$NodeArray*, int32_t, int32_t, int32_t, int64_t, $ConcurrentHashMap*)},
+	{"characteristics", "()I", nullptr, $PUBLIC, $virtualMethod(ConcurrentHashMap$EntrySpliterator, characteristics, int32_t)},
+	{"estimateSize", "()J", nullptr, $PUBLIC, $virtualMethod(ConcurrentHashMap$EntrySpliterator, estimateSize, int64_t)},
+	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-Ljava/util/Map$Entry<TK;TV;>;>;)V", $PUBLIC, $virtualMethod(ConcurrentHashMap$EntrySpliterator, forEachRemaining, void, $Consumer*)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-Ljava/util/Map$Entry<TK;TV;>;>;)Z", $PUBLIC},
-	{"trySplit", "()Ljava/util/concurrent/ConcurrentHashMap$EntrySpliterator;", "()Ljava/util/concurrent/ConcurrentHashMap$EntrySpliterator<TK;TV;>;", $PUBLIC},
+	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-Ljava/util/Map$Entry<TK;TV;>;>;)Z", $PUBLIC, $virtualMethod(ConcurrentHashMap$EntrySpliterator, tryAdvance, bool, $Consumer*)},
+	{"trySplit", "()Ljava/util/concurrent/ConcurrentHashMap$EntrySpliterator;", "()Ljava/util/concurrent/ConcurrentHashMap$EntrySpliterator<TK;TV;>;", $PUBLIC, $virtualMethod(ConcurrentHashMap$EntrySpliterator, trySplit, $Spliterator*)},
 	{}
 };
 

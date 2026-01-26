@@ -22,8 +22,8 @@ $FieldInfo _UnknownContentHandler_FieldInfo_[] = {
 };
 
 $MethodInfo _UnknownContentHandler_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(UnknownContentHandler::*)()>(&UnknownContentHandler::init$))},
-	{"getContent", "(Ljava/net/URLConnection;)Ljava/lang/Object;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, 0, $method(UnknownContentHandler, init$, void)},
+	{"getContent", "(Ljava/net/URLConnection;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(UnknownContentHandler, getContent, $Object*, $URLConnection*), "java.io.IOException"},
 	{}
 };
 

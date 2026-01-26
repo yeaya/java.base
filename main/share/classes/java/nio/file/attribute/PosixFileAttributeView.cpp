@@ -8,6 +8,8 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $BasicFileAttributeView = ::java::nio::file::attribute::BasicFileAttributeView;
+using $GroupPrincipal = ::java::nio::file::attribute::GroupPrincipal;
+using $Set = ::java::util::Set;
 
 namespace java {
 	namespace nio {
@@ -21,8 +23,8 @@ $MethodInfo _PosixFileAttributeView_MethodInfo_[] = {
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
 	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
 	{"readAttributes", "()Ljava/nio/file/attribute/BasicFileAttributes;", nullptr, $PUBLIC | $ABSTRACT},
-	{"setGroup", "(Ljava/nio/file/attribute/GroupPrincipal;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"setPermissions", "(Ljava/util/Set;)V", "(Ljava/util/Set<Ljava/nio/file/attribute/PosixFilePermission;>;)V", $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
+	{"setGroup", "(Ljava/nio/file/attribute/GroupPrincipal;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PosixFileAttributeView, setGroup, void, $GroupPrincipal*), "java.io.IOException"},
+	{"setPermissions", "(Ljava/util/Set;)V", "(Ljava/util/Set<Ljava/nio/file/attribute/PosixFilePermission;>;)V", $PUBLIC | $ABSTRACT, $virtualMethod(PosixFileAttributeView, setPermissions, void, $Set*), "java.io.IOException"},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

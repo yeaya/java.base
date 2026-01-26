@@ -18,7 +18,7 @@ $CompoundAttribute _FloatArray_Annotations_[] = {
 };
 
 $MethodInfo _FloatArray_MethodInfo_[] = {
-	{"value", "()[F", nullptr, $PUBLIC | $ABSTRACT},
+	{"value", "()[F", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FloatArray, value, $floats*)},
 	{}
 };
 

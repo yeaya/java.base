@@ -85,8 +85,8 @@ $FieldInfo KeyShareExtension$SHKeyShareConsumer$$Lambda$lambda$consume$0::fieldI
 	{}
 };
 $MethodInfo KeyShareExtension$SHKeyShareConsumer$$Lambda$lambda$consume$0::methodInfos[3] = {
-	{"<init>", "(Lsun/security/ssl/ClientHandshakeContext;)V", nullptr, $PUBLIC, $method(static_cast<void(KeyShareExtension$SHKeyShareConsumer$$Lambda$lambda$consume$0::*)($ClientHandshakeContext*)>(&KeyShareExtension$SHKeyShareConsumer$$Lambda$lambda$consume$0::init$))},
-	{"apply", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/security/ssl/ClientHandshakeContext;)V", nullptr, $PUBLIC, $method(KeyShareExtension$SHKeyShareConsumer$$Lambda$lambda$consume$0, init$, void, $ClientHandshakeContext*)},
+	{"apply", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(KeyShareExtension$SHKeyShareConsumer$$Lambda$lambda$consume$0, apply, void, $String*)},
 	{}
 };
 $ClassInfo KeyShareExtension$SHKeyShareConsumer$$Lambda$lambda$consume$0::classInfo$ = {
@@ -104,9 +104,9 @@ $Class* KeyShareExtension$SHKeyShareConsumer$$Lambda$lambda$consume$0::load$($St
 $Class* KeyShareExtension$SHKeyShareConsumer$$Lambda$lambda$consume$0::class$ = nullptr;
 
 $MethodInfo _KeyShareExtension$SHKeyShareConsumer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(KeyShareExtension$SHKeyShareConsumer::*)()>(&KeyShareExtension$SHKeyShareConsumer::init$))},
-	{"consume", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"lambda$consume$0", "(Lsun/security/ssl/ClientHandshakeContext;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($ClientHandshakeContext*,$String*)>(&KeyShareExtension$SHKeyShareConsumer::lambda$consume$0)), "javax.net.ssl.SSLException"},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(KeyShareExtension$SHKeyShareConsumer, init$, void)},
+	{"consume", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(KeyShareExtension$SHKeyShareConsumer, consume, void, $ConnectionContext*, $SSLHandshake$HandshakeMessage*, $ByteBuffer*), "java.io.IOException"},
+	{"lambda$consume$0", "(Lsun/security/ssl/ClientHandshakeContext;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(KeyShareExtension$SHKeyShareConsumer, lambda$consume$0, void, $ClientHandshakeContext*, $String*), "javax.net.ssl.SSLException"},
 	{}
 };
 

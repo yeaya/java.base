@@ -62,8 +62,8 @@ $FieldInfo Enum$$Lambda$lambda$describeConstable$0::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Enum$$Lambda$lambda$describeConstable$0::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/Enum;)V", nullptr, $PUBLIC, $method(static_cast<void(Enum$$Lambda$lambda$describeConstable$0::*)(Enum*)>(&Enum$$Lambda$lambda$describeConstable$0::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Enum;)V", nullptr, $PUBLIC, $method(Enum$$Lambda$lambda$describeConstable$0, init$, void, Enum*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Enum$$Lambda$lambda$describeConstable$0, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Enum$$Lambda$lambda$describeConstable$0::classInfo$ = {
@@ -87,22 +87,22 @@ $FieldInfo _Enum_FieldInfo_[] = {
 };
 
 $MethodInfo _Enum_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PROTECTED, $method(static_cast<void(Enum::*)($String*,int32_t)>(&Enum::init$))},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, nullptr, "java.lang.CloneNotSupportedException"},
-	{"compareTo", "(Ljava/lang/Enum;)I", "(TE;)I", $PUBLIC | $FINAL, $method(static_cast<int32_t(Enum::*)(Enum*)>(&Enum::compareTo))},
-	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"describeConstable", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/lang/Enum$EnumDesc<TE;>;>;", $PUBLIC | $FINAL},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
-	{"finalize", "()V", nullptr, $PROTECTED | $FINAL},
-	{"getDeclaringClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<TE;>;", $PUBLIC | $FINAL, $method(static_cast<$Class*(Enum::*)()>(&Enum::getDeclaringClass))},
-	{"hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"lambda$describeConstable$0", "(Ljava/lang/constant/ClassDesc;)Ljava/lang/Enum$EnumDesc;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$Enum$EnumDesc*(Enum::*)($ClassDesc*)>(&Enum::lambda$describeConstable$0))},
-	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$String*(Enum::*)()>(&Enum::name))},
-	{"ordinal", "()I", nullptr, $PUBLIC | $FINAL, $method(static_cast<int32_t(Enum::*)()>(&Enum::ordinal))},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(Enum::*)($ObjectInputStream*)>(&Enum::readObject)), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"readObjectNoData", "()V", nullptr, $PRIVATE, $method(static_cast<void(Enum::*)()>(&Enum::readObjectNoData)), "java.io.ObjectStreamException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"valueOf", "(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;", "<T:Ljava/lang/Enum<TT;>;>(Ljava/lang/Class<TT;>;Ljava/lang/String;)TT;", $PUBLIC | $STATIC, $method(static_cast<Enum*(*)($Class*,$String*)>(&Enum::valueOf))},
+	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PROTECTED, $method(Enum, init$, void, $String*, int32_t)},
+	{"clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(Enum, clone, $Object*), "java.lang.CloneNotSupportedException"},
+	{"compareTo", "(Ljava/lang/Enum;)I", "(TE;)I", $PUBLIC | $FINAL, $method(Enum, compareTo, int32_t, Enum*)},
+	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Enum, compareTo, int32_t, Object$*)},
+	{"describeConstable", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/lang/Enum$EnumDesc<TE;>;>;", $PUBLIC | $FINAL, $virtualMethod(Enum, describeConstable, $Optional*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(Enum, equals, bool, Object$*)},
+	{"finalize", "()V", nullptr, $PROTECTED | $FINAL, $virtualMethod(Enum, finalize, void)},
+	{"getDeclaringClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<TE;>;", $PUBLIC | $FINAL, $method(Enum, getDeclaringClass, $Class*)},
+	{"hashCode", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(Enum, hashCode, int32_t)},
+	{"lambda$describeConstable$0", "(Ljava/lang/constant/ClassDesc;)Ljava/lang/Enum$EnumDesc;", nullptr, $PRIVATE | $SYNTHETIC, $method(Enum, lambda$describeConstable$0, $Enum$EnumDesc*, $ClassDesc*)},
+	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(Enum, name, $String*)},
+	{"ordinal", "()I", nullptr, $PUBLIC | $FINAL, $method(Enum, ordinal, int32_t)},
+	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(Enum, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+	{"readObjectNoData", "()V", nullptr, $PRIVATE, $method(Enum, readObjectNoData, void), "java.io.ObjectStreamException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Enum, toString, $String*)},
+	{"valueOf", "(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;", "<T:Ljava/lang/Enum<TT;>;>(Ljava/lang/Class<TT;>;Ljava/lang/String;)TT;", $PUBLIC | $STATIC, $staticMethod(Enum, valueOf, Enum*, $Class*, $String*)},
 	{}
 };
 

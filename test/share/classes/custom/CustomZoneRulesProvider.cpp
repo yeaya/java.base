@@ -20,10 +20,10 @@ using $TreeMap = ::java::util::TreeMap;
 namespace custom {
 
 $MethodInfo _CustomZoneRulesProvider_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CustomZoneRulesProvider::*)()>(&CustomZoneRulesProvider::init$))},
-	{"provideRules", "(Ljava/lang/String;Z)Ljava/time/zone/ZoneRules;", nullptr, $PROTECTED},
-	{"provideVersions", "(Ljava/lang/String;)Ljava/util/NavigableMap;", "(Ljava/lang/String;)Ljava/util/NavigableMap<Ljava/lang/String;Ljava/time/zone/ZoneRules;>;", $PROTECTED},
-	{"provideZoneIds", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PROTECTED},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CustomZoneRulesProvider, init$, void)},
+	{"provideRules", "(Ljava/lang/String;Z)Ljava/time/zone/ZoneRules;", nullptr, $PROTECTED, $virtualMethod(CustomZoneRulesProvider, provideRules, $ZoneRules*, $String*, bool)},
+	{"provideVersions", "(Ljava/lang/String;)Ljava/util/NavigableMap;", "(Ljava/lang/String;)Ljava/util/NavigableMap<Ljava/lang/String;Ljava/time/zone/ZoneRules;>;", $PROTECTED, $virtualMethod(CustomZoneRulesProvider, provideVersions, $NavigableMap*, $String*)},
+	{"provideZoneIds", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PROTECTED, $virtualMethod(CustomZoneRulesProvider, provideZoneIds, $Set*)},
 	{}
 };
 

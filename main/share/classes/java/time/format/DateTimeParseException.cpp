@@ -22,10 +22,10 @@ $FieldInfo _DateTimeParseException_FieldInfo_[] = {
 };
 
 $MethodInfo _DateTimeParseException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/CharSequence;I)V", nullptr, $PUBLIC, $method(static_cast<void(DateTimeParseException::*)($String*,$CharSequence*,int32_t)>(&DateTimeParseException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/CharSequence;ILjava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(DateTimeParseException::*)($String*,$CharSequence*,int32_t,$Throwable*)>(&DateTimeParseException::init$))},
-	{"getErrorIndex", "()I", nullptr, $PUBLIC},
-	{"getParsedString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/CharSequence;I)V", nullptr, $PUBLIC, $method(DateTimeParseException, init$, void, $String*, $CharSequence*, int32_t)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/CharSequence;ILjava/lang/Throwable;)V", nullptr, $PUBLIC, $method(DateTimeParseException, init$, void, $String*, $CharSequence*, int32_t, $Throwable*)},
+	{"getErrorIndex", "()I", nullptr, $PUBLIC, $virtualMethod(DateTimeParseException, getErrorIndex, int32_t)},
+	{"getParsedString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DateTimeParseException, getParsedString, $String*)},
 	{}
 };
 

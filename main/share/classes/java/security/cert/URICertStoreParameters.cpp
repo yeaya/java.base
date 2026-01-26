@@ -24,12 +24,12 @@ $FieldInfo _URICertStoreParameters_FieldInfo_[] = {
 };
 
 $MethodInfo _URICertStoreParameters_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/URI;)V", nullptr, $PUBLIC, $method(static_cast<void(URICertStoreParameters::*)($URI*)>(&URICertStoreParameters::init$))},
-	{"clone", "()Ljava/security/cert/URICertStoreParameters;", nullptr, $PUBLIC},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getURI", "()Ljava/net/URI;", nullptr, $PUBLIC, $method(static_cast<$URI*(URICertStoreParameters::*)()>(&URICertStoreParameters::getURI))},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/net/URI;)V", nullptr, $PUBLIC, $method(URICertStoreParameters, init$, void, $URI*)},
+	{"clone", "()Ljava/security/cert/URICertStoreParameters;", nullptr, $PUBLIC, $virtualMethod(URICertStoreParameters, clone, URICertStoreParameters*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(URICertStoreParameters, equals, bool, Object$*)},
+	{"getURI", "()Ljava/net/URI;", nullptr, $PUBLIC, $method(URICertStoreParameters, getURI, $URI*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(URICertStoreParameters, hashCode, int32_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(URICertStoreParameters, toString, $String*)},
 	{}
 };
 

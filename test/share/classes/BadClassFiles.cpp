@@ -39,10 +39,10 @@ $FieldInfo _BadClassFiles_FieldInfo_[] = {
 };
 
 $MethodInfo _BadClassFiles_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(BadClassFiles::*)()>(&BadClassFiles::init$)), "java.lang.ClassNotFoundException"},
-	{"assertBadParameters", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $PUBLIC, nullptr, "java.lang.NoSuchMethodException"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<void(*)($StringArray*)>(&BadClassFiles::main)), "java.lang.NoSuchMethodException,java.io.IOException,java.lang.ClassNotFoundException"},
-	{"run", "()V", nullptr, $PUBLIC, nullptr, "java.lang.NoSuchMethodException"},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(BadClassFiles, init$, void), "java.lang.ClassNotFoundException"},
+	{"assertBadParameters", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $PUBLIC, $virtualMethod(BadClassFiles, assertBadParameters, void, $Class*), "java.lang.NoSuchMethodException"},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(BadClassFiles, main, void, $StringArray*), "java.lang.NoSuchMethodException,java.io.IOException,java.lang.ClassNotFoundException"},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(BadClassFiles, run, void), "java.lang.NoSuchMethodException"},
 	{}
 };
 

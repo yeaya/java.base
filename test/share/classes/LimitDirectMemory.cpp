@@ -28,10 +28,10 @@ $FieldInfo _LimitDirectMemory_FieldInfo_[] = {
 };
 
 $MethodInfo _LimitDirectMemory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(LimitDirectMemory::*)()>(&LimitDirectMemory::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&LimitDirectMemory::main)), "java.lang.Exception"},
-	{"parseSize", "(Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)($String*)>(&LimitDirectMemory::parseSize)), "java.lang.Exception"},
-	{"parseThrow", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($String*)>(&LimitDirectMemory::parseThrow))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(LimitDirectMemory, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(LimitDirectMemory, main, void, $StringArray*), "java.lang.Exception"},
+	{"parseSize", "(Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(LimitDirectMemory, parseSize, int32_t, $String*), "java.lang.Exception"},
+	{"parseThrow", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(LimitDirectMemory, parseThrow, bool, $String*)},
 	{}
 };
 

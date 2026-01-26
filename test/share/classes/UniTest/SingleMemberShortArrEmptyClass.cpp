@@ -25,7 +25,7 @@ $CompoundAttribute _SingleMemberShortArrEmptyClass_Annotations_[] = {
 };
 
 $MethodInfo _SingleMemberShortArrEmptyClass_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(SingleMemberShortArrEmptyClass::*)()>(&SingleMemberShortArrEmptyClass::init$))},
+	{"<init>", "()V", nullptr, 0, $method(SingleMemberShortArrEmptyClass, init$, void)},
 	{}
 };
 

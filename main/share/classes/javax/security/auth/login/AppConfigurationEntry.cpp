@@ -32,10 +32,10 @@ $FieldInfo _AppConfigurationEntry_FieldInfo_[] = {
 };
 
 $MethodInfo _AppConfigurationEntry_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljavax/security/auth/login/AppConfigurationEntry$LoginModuleControlFlag;Ljava/util/Map;)V", "(Ljava/lang/String;Ljavax/security/auth/login/AppConfigurationEntry$LoginModuleControlFlag;Ljava/util/Map<Ljava/lang/String;*>;)V", $PUBLIC, $method(static_cast<void(AppConfigurationEntry::*)($String*,$AppConfigurationEntry$LoginModuleControlFlag*,$Map*)>(&AppConfigurationEntry::init$))},
-	{"getControlFlag", "()Ljavax/security/auth/login/AppConfigurationEntry$LoginModuleControlFlag;", nullptr, $PUBLIC},
-	{"getLoginModuleName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getOptions", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;*>;", $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Ljavax/security/auth/login/AppConfigurationEntry$LoginModuleControlFlag;Ljava/util/Map;)V", "(Ljava/lang/String;Ljavax/security/auth/login/AppConfigurationEntry$LoginModuleControlFlag;Ljava/util/Map<Ljava/lang/String;*>;)V", $PUBLIC, $method(AppConfigurationEntry, init$, void, $String*, $AppConfigurationEntry$LoginModuleControlFlag*, $Map*)},
+	{"getControlFlag", "()Ljavax/security/auth/login/AppConfigurationEntry$LoginModuleControlFlag;", nullptr, $PUBLIC, $virtualMethod(AppConfigurationEntry, getControlFlag, $AppConfigurationEntry$LoginModuleControlFlag*)},
+	{"getLoginModuleName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AppConfigurationEntry, getLoginModuleName, $String*)},
+	{"getOptions", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;*>;", $PUBLIC, $virtualMethod(AppConfigurationEntry, getOptions, $Map*)},
 	{}
 };
 

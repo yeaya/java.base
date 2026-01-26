@@ -25,8 +25,8 @@ $FieldInfo _URL$2_FieldInfo_[] = {
 };
 
 $MethodInfo _URL$2_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(URL$2::*)($String*)>(&URL$2::init$))},
-	{"run", "()Ljava/net/URLStreamHandler;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(URL$2, init$, void, $String*)},
+	{"run", "()Ljava/net/URLStreamHandler;", nullptr, $PUBLIC, $virtualMethod(URL$2, run, $Object*)},
 	{}
 };
 

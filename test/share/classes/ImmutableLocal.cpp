@@ -20,8 +20,8 @@ $FieldInfo _ImmutableLocal_FieldInfo_[] = {
 };
 
 $MethodInfo _ImmutableLocal_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ImmutableLocal::*)()>(&ImmutableLocal::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&ImmutableLocal::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ImmutableLocal, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ImmutableLocal, main, void, $StringArray*)},
 	{}
 };
 

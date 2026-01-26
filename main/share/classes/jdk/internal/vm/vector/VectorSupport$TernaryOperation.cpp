@@ -13,7 +13,7 @@ namespace jdk {
 			namespace vector {
 
 $MethodInfo _VectorSupport$TernaryOperation_MethodInfo_[] = {
-	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", "(TV;TV;TV;)TV;", $PUBLIC | $ABSTRACT},
+	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", "(TV;TV;TV;)TV;", $PUBLIC | $ABSTRACT, $virtualMethod(VectorSupport$TernaryOperation, apply, $Object*, Object$*, Object$*, Object$*)},
 	{}
 };
 

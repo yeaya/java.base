@@ -37,9 +37,9 @@ $FieldInfo _MaxFragExtension$MaxFragLenSpec_FieldInfo_[] = {
 };
 
 $MethodInfo _MaxFragExtension$MaxFragLenSpec_MethodInfo_[] = {
-	{"<init>", "(B)V", nullptr, $PRIVATE, $method(static_cast<void(MaxFragExtension$MaxFragLenSpec::*)(int8_t)>(&MaxFragExtension$MaxFragLenSpec::init$))},
-	{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE, $method(static_cast<void(MaxFragExtension$MaxFragLenSpec::*)($HandshakeContext*,$ByteBuffer*)>(&MaxFragExtension$MaxFragLenSpec::init$)), "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(B)V", nullptr, $PRIVATE, $method(MaxFragExtension$MaxFragLenSpec, init$, void, int8_t)},
+	{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE, $method(MaxFragExtension$MaxFragLenSpec, init$, void, $HandshakeContext*, $ByteBuffer*), "java.io.IOException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MaxFragExtension$MaxFragLenSpec, toString, $String*)},
 	{}
 };
 

@@ -58,8 +58,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ModuleBootstrap$SafeModuleFinder$$Lambda$lambda$find$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ModuleBootstrap$SafeModuleFinder$$Lambda$lambda$find$0::*)()>(&ModuleBootstrap$SafeModuleFinder$$Lambda$lambda$find$0::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ModuleBootstrap$SafeModuleFinder$$Lambda$lambda$find$0, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ModuleBootstrap$SafeModuleFinder$$Lambda$lambda$find$0, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo ModuleBootstrap$SafeModuleFinder$$Lambda$lambda$find$0::classInfo$ = {
@@ -83,10 +83,10 @@ $FieldInfo _ModuleBootstrap$SafeModuleFinder_FieldInfo_[] = {
 };
 
 $MethodInfo _ModuleBootstrap$SafeModuleFinder_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/module/ModuleFinder;)V", nullptr, 0, $method(static_cast<void(ModuleBootstrap$SafeModuleFinder::*)($ModuleFinder*)>(&ModuleBootstrap$SafeModuleFinder::init$))},
-	{"find", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/lang/module/ModuleReference;>;", $PUBLIC},
-	{"findAll", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/module/ModuleReference;>;", $PUBLIC},
-	{"lambda$find$0", "(Ljava/lang/module/ModuleReference;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$String*(*)($ModuleReference*)>(&ModuleBootstrap$SafeModuleFinder::lambda$find$0))},
+	{"<init>", "(Ljava/lang/module/ModuleFinder;)V", nullptr, 0, $method(ModuleBootstrap$SafeModuleFinder, init$, void, $ModuleFinder*)},
+	{"find", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/lang/module/ModuleReference;>;", $PUBLIC, $virtualMethod(ModuleBootstrap$SafeModuleFinder, find, $Optional*, $String*)},
+	{"findAll", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/module/ModuleReference;>;", $PUBLIC, $virtualMethod(ModuleBootstrap$SafeModuleFinder, findAll, $Set*)},
+	{"lambda$find$0", "(Ljava/lang/module/ModuleReference;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ModuleBootstrap$SafeModuleFinder, lambda$find$0, $String*, $ModuleReference*)},
 	{}
 };
 

@@ -23,7 +23,7 @@ $FieldInfo _BidiBase$InsertPoints_FieldInfo_[] = {
 };
 
 $MethodInfo _BidiBase$InsertPoints_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(BidiBase$InsertPoints::*)()>(&BidiBase$InsertPoints::init$))},
+	{"<init>", "()V", nullptr, 0, $method(BidiBase$InsertPoints, init$, void)},
 	{}
 };
 

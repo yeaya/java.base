@@ -29,19 +29,19 @@ using $SocketAddress = ::java::net::SocketAddress;
 using $SocketException = ::java::net::SocketException;
 
 $MethodInfo _ReuseAddressTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ReuseAddressTest::*)()>(&ReuseAddressTest::init$))},
-	{"DatagramSocket0029", "()V", nullptr, $PUBLIC, nullptr, "java.lang.Exception"},
-	{"DatagramSocket0030", "()V", nullptr, $PUBLIC, nullptr, "java.lang.Exception"},
-	{"DatagramSocket0031", "()V", nullptr, $PUBLIC, nullptr, "java.lang.Exception"},
-	{"DatagramSocket0032", "()V", nullptr, $PUBLIC, nullptr, "java.lang.Exception"},
-	{"DatagramSocket0034", "()V", nullptr, $PUBLIC, nullptr, "java.lang.Exception"},
-	{"DatagramSocket0035", "()V", nullptr, $PUBLIC, nullptr, "java.lang.Exception"},
-	{"DatagramSocket2028", "()V", nullptr, $PUBLIC, nullptr, "java.lang.Exception"},
-	{"DatagramSocket2029", "()V", nullptr, $PUBLIC, nullptr, "java.lang.Exception"},
-	{"DatagramSocket2030", "()V", nullptr, $PUBLIC, nullptr, "java.lang.Exception"},
-	{"createSocketAddress", "(I)Ljava/net/InetSocketAddress;", nullptr, $STATIC, $method(static_cast<$InetSocketAddress*(*)(int32_t)>(&ReuseAddressTest::createSocketAddress)), "java.lang.Exception"},
-	{"getInfo", "(Ljava/net/DatagramSocket;)Ljava/lang/String;", nullptr, 0},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&ReuseAddressTest::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ReuseAddressTest, init$, void)},
+	{"DatagramSocket0029", "()V", nullptr, $PUBLIC, $virtualMethod(ReuseAddressTest, DatagramSocket0029, void), "java.lang.Exception"},
+	{"DatagramSocket0030", "()V", nullptr, $PUBLIC, $virtualMethod(ReuseAddressTest, DatagramSocket0030, void), "java.lang.Exception"},
+	{"DatagramSocket0031", "()V", nullptr, $PUBLIC, $virtualMethod(ReuseAddressTest, DatagramSocket0031, void), "java.lang.Exception"},
+	{"DatagramSocket0032", "()V", nullptr, $PUBLIC, $virtualMethod(ReuseAddressTest, DatagramSocket0032, void), "java.lang.Exception"},
+	{"DatagramSocket0034", "()V", nullptr, $PUBLIC, $virtualMethod(ReuseAddressTest, DatagramSocket0034, void), "java.lang.Exception"},
+	{"DatagramSocket0035", "()V", nullptr, $PUBLIC, $virtualMethod(ReuseAddressTest, DatagramSocket0035, void), "java.lang.Exception"},
+	{"DatagramSocket2028", "()V", nullptr, $PUBLIC, $virtualMethod(ReuseAddressTest, DatagramSocket2028, void), "java.lang.Exception"},
+	{"DatagramSocket2029", "()V", nullptr, $PUBLIC, $virtualMethod(ReuseAddressTest, DatagramSocket2029, void), "java.lang.Exception"},
+	{"DatagramSocket2030", "()V", nullptr, $PUBLIC, $virtualMethod(ReuseAddressTest, DatagramSocket2030, void), "java.lang.Exception"},
+	{"createSocketAddress", "(I)Ljava/net/InetSocketAddress;", nullptr, $STATIC, $staticMethod(ReuseAddressTest, createSocketAddress, $InetSocketAddress*, int32_t), "java.lang.Exception"},
+	{"getInfo", "(Ljava/net/DatagramSocket;)Ljava/lang/String;", nullptr, 0, $virtualMethod(ReuseAddressTest, getInfo, $String*, $DatagramSocket*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ReuseAddressTest, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

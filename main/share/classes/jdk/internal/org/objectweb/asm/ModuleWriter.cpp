@@ -50,18 +50,18 @@ $FieldInfo _ModuleWriter_FieldInfo_[] = {
 };
 
 $MethodInfo _ModuleWriter_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/org/objectweb/asm/SymbolTable;III)V", nullptr, 0, $method(static_cast<void(ModuleWriter::*)($SymbolTable*,int32_t,int32_t,int32_t)>(&ModuleWriter::init$))},
-	{"computeAttributesSize", "()I", nullptr, 0, $method(static_cast<int32_t(ModuleWriter::*)()>(&ModuleWriter::computeAttributesSize))},
-	{"getAttributeCount", "()I", nullptr, 0, $method(static_cast<int32_t(ModuleWriter::*)()>(&ModuleWriter::getAttributeCount))},
-	{"putAttributes", "(Ljdk/internal/org/objectweb/asm/ByteVector;)V", nullptr, 0, $method(static_cast<void(ModuleWriter::*)($ByteVector*)>(&ModuleWriter::putAttributes))},
-	{"visitEnd", "()V", nullptr, $PUBLIC},
-	{"visitExport", "(Ljava/lang/String;I[Ljava/lang/String;)V", nullptr, $PUBLIC | $TRANSIENT},
-	{"visitMainClass", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"visitOpen", "(Ljava/lang/String;I[Ljava/lang/String;)V", nullptr, $PUBLIC | $TRANSIENT},
-	{"visitPackage", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"visitProvide", "(Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $PUBLIC | $TRANSIENT},
-	{"visitRequire", "(Ljava/lang/String;ILjava/lang/String;)V", nullptr, $PUBLIC},
-	{"visitUse", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/org/objectweb/asm/SymbolTable;III)V", nullptr, 0, $method(ModuleWriter, init$, void, $SymbolTable*, int32_t, int32_t, int32_t)},
+	{"computeAttributesSize", "()I", nullptr, 0, $method(ModuleWriter, computeAttributesSize, int32_t)},
+	{"getAttributeCount", "()I", nullptr, 0, $method(ModuleWriter, getAttributeCount, int32_t)},
+	{"putAttributes", "(Ljdk/internal/org/objectweb/asm/ByteVector;)V", nullptr, 0, $method(ModuleWriter, putAttributes, void, $ByteVector*)},
+	{"visitEnd", "()V", nullptr, $PUBLIC, $virtualMethod(ModuleWriter, visitEnd, void)},
+	{"visitExport", "(Ljava/lang/String;I[Ljava/lang/String;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(ModuleWriter, visitExport, void, $String*, int32_t, $StringArray*)},
+	{"visitMainClass", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ModuleWriter, visitMainClass, void, $String*)},
+	{"visitOpen", "(Ljava/lang/String;I[Ljava/lang/String;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(ModuleWriter, visitOpen, void, $String*, int32_t, $StringArray*)},
+	{"visitPackage", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ModuleWriter, visitPackage, void, $String*)},
+	{"visitProvide", "(Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(ModuleWriter, visitProvide, void, $String*, $StringArray*)},
+	{"visitRequire", "(Ljava/lang/String;ILjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ModuleWriter, visitRequire, void, $String*, int32_t, $String*)},
+	{"visitUse", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ModuleWriter, visitUse, void, $String*)},
 	{}
 };
 

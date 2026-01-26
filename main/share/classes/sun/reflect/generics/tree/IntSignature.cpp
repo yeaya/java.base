@@ -19,9 +19,9 @@ $FieldInfo _IntSignature_FieldInfo_[] = {
 };
 
 $MethodInfo _IntSignature_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(IntSignature::*)()>(&IntSignature::init$))},
-	{"accept", "(Lsun/reflect/generics/visitor/TypeTreeVisitor;)V", "(Lsun/reflect/generics/visitor/TypeTreeVisitor<*>;)V", $PUBLIC},
-	{"make", "()Lsun/reflect/generics/tree/IntSignature;", nullptr, $PUBLIC | $STATIC, $method(static_cast<IntSignature*(*)()>(&IntSignature::make))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(IntSignature, init$, void)},
+	{"accept", "(Lsun/reflect/generics/visitor/TypeTreeVisitor;)V", "(Lsun/reflect/generics/visitor/TypeTreeVisitor<*>;)V", $PUBLIC, $virtualMethod(IntSignature, accept, void, $TypeTreeVisitor*)},
+	{"make", "()Lsun/reflect/generics/tree/IntSignature;", nullptr, $PUBLIC | $STATIC, $staticMethod(IntSignature, make, IntSignature*)},
 	{}
 };
 

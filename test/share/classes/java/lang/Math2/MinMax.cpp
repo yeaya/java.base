@@ -16,10 +16,10 @@ namespace java {
 		namespace Math2 {
 
 $MethodInfo _MinMax_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(MinMax::*)()>(&MinMax::init$))},
-	{"go", "(Ljava/lang/String;FF)V", nullptr, $STATIC, $method(static_cast<void(*)($String*,float,float)>(&MinMax::go))},
-	{"go", "(Ljava/lang/String;DD)V", nullptr, $STATIC, $method(static_cast<void(*)($String*,double,double)>(&MinMax::go))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&MinMax::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(MinMax, init$, void)},
+	{"go", "(Ljava/lang/String;FF)V", nullptr, $STATIC, $staticMethod(MinMax, go, void, $String*, float, float)},
+	{"go", "(Ljava/lang/String;DD)V", nullptr, $STATIC, $staticMethod(MinMax, go, void, $String*, double, double)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(MinMax, main, void, $StringArray*)},
 	{}
 };
 

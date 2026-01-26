@@ -40,8 +40,8 @@ namespace sun {
 		namespace ssl {
 
 $MethodInfo _CertStatusExtension$CHCertStatusReqV2Consumer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(CertStatusExtension$CHCertStatusReqV2Consumer::*)()>(&CertStatusExtension$CHCertStatusReqV2Consumer::init$))},
-	{"consume", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(CertStatusExtension$CHCertStatusReqV2Consumer, init$, void)},
+	{"consume", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(CertStatusExtension$CHCertStatusReqV2Consumer, consume, void, $ConnectionContext*, $SSLHandshake$HandshakeMessage*, $ByteBuffer*), "java.io.IOException"},
 	{}
 };
 

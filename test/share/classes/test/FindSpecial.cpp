@@ -36,11 +36,11 @@ $FieldInfo _FindSpecial_FieldInfo_[] = {
 };
 
 $MethodInfo _FindSpecial_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(FindSpecial::*)()>(&FindSpecial::init$))},
-	{"findSpecialTest", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&FindSpecial::findSpecialTest)), "java.lang.Throwable"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<void(*)($StringArray*)>(&FindSpecial::main)), "java.lang.Throwable"},
-	{"reflectMethodInvoke", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&FindSpecial::reflectMethodInvoke)), "java.lang.Throwable"},
-	{"unreflectSpecialTest", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&FindSpecial::unreflectSpecialTest)), "java.lang.Throwable"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(FindSpecial, init$, void)},
+	{"findSpecialTest", "()V", nullptr, $STATIC, $staticMethod(FindSpecial, findSpecialTest, void), "java.lang.Throwable"},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(FindSpecial, main, void, $StringArray*), "java.lang.Throwable"},
+	{"reflectMethodInvoke", "()V", nullptr, $STATIC, $staticMethod(FindSpecial, reflectMethodInvoke, void), "java.lang.Throwable"},
+	{"unreflectSpecialTest", "()V", nullptr, $STATIC, $staticMethod(FindSpecial, unreflectSpecialTest, void), "java.lang.Throwable"},
 	{}
 };
 

@@ -24,7 +24,7 @@ $FieldInfo _DTLSOutputRecord$RecordMemo_FieldInfo_[] = {
 };
 
 $MethodInfo _DTLSOutputRecord$RecordMemo_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(DTLSOutputRecord$RecordMemo::*)()>(&DTLSOutputRecord$RecordMemo::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(DTLSOutputRecord$RecordMemo, init$, void)},
 	{}
 };
 

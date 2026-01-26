@@ -18,14 +18,14 @@ $FieldInfo _TransferTo$ThrowingInputStream_FieldInfo_[] = {
 };
 
 $MethodInfo _TransferTo$ThrowingInputStream_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(TransferTo$ThrowingInputStream::*)()>(&TransferTo$ThrowingInputStream::init$))},
-	{"available", "()I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"read", "([B)I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"read", "([BII)I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"read", "()I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"reset", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"skip", "(J)J", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(TransferTo$ThrowingInputStream, init$, void)},
+	{"available", "()I", nullptr, $PUBLIC, $virtualMethod(TransferTo$ThrowingInputStream, available, int32_t), "java.io.IOException"},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(TransferTo$ThrowingInputStream, close, void), "java.io.IOException"},
+	{"read", "([B)I", nullptr, $PUBLIC, $virtualMethod(TransferTo$ThrowingInputStream, read, int32_t, $bytes*), "java.io.IOException"},
+	{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(TransferTo$ThrowingInputStream, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
+	{"read", "()I", nullptr, $PUBLIC, $virtualMethod(TransferTo$ThrowingInputStream, read, int32_t), "java.io.IOException"},
+	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(TransferTo$ThrowingInputStream, reset, void), "java.io.IOException"},
+	{"skip", "(J)J", nullptr, $PUBLIC, $virtualMethod(TransferTo$ThrowingInputStream, skip, int64_t, int64_t), "java.io.IOException"},
 	{}
 };
 

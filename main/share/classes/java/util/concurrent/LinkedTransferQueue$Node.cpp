@@ -30,17 +30,17 @@ $FieldInfo _LinkedTransferQueue$Node_FieldInfo_[] = {
 };
 
 $MethodInfo _LinkedTransferQueue$Node_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;)V", nullptr, 0, $method(static_cast<void(LinkedTransferQueue$Node::*)(Object$*)>(&LinkedTransferQueue$Node::init$))},
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(LinkedTransferQueue$Node::*)()>(&LinkedTransferQueue$Node::init$))},
-	{"appendRelaxed", "(Ljava/util/concurrent/LinkedTransferQueue$Node;)V", nullptr, $FINAL, $method(static_cast<void(LinkedTransferQueue$Node::*)(LinkedTransferQueue$Node*)>(&LinkedTransferQueue$Node::appendRelaxed))},
-	{"block", "()Z", nullptr, $PUBLIC | $FINAL},
-	{"cannotPrecede", "(Z)Z", nullptr, $FINAL, $method(static_cast<bool(LinkedTransferQueue$Node::*)(bool)>(&LinkedTransferQueue$Node::cannotPrecede))},
-	{"casItem", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $FINAL, $method(static_cast<bool(LinkedTransferQueue$Node::*)(Object$*,Object$*)>(&LinkedTransferQueue$Node::casItem))},
-	{"casNext", "(Ljava/util/concurrent/LinkedTransferQueue$Node;Ljava/util/concurrent/LinkedTransferQueue$Node;)Z", nullptr, $FINAL, $method(static_cast<bool(LinkedTransferQueue$Node::*)(LinkedTransferQueue$Node*,LinkedTransferQueue$Node*)>(&LinkedTransferQueue$Node::casNext))},
-	{"isMatched", "()Z", nullptr, $FINAL, $method(static_cast<bool(LinkedTransferQueue$Node::*)()>(&LinkedTransferQueue$Node::isMatched))},
-	{"isReleasable", "()Z", nullptr, $PUBLIC | $FINAL},
-	{"selfLink", "()V", nullptr, $FINAL, $method(static_cast<void(LinkedTransferQueue$Node::*)()>(&LinkedTransferQueue$Node::selfLink))},
-	{"tryMatch", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $FINAL, $method(static_cast<bool(LinkedTransferQueue$Node::*)(Object$*,Object$*)>(&LinkedTransferQueue$Node::tryMatch))},
+	{"<init>", "(Ljava/lang/Object;)V", nullptr, 0, $method(LinkedTransferQueue$Node, init$, void, Object$*)},
+	{"<init>", "()V", nullptr, 0, $method(LinkedTransferQueue$Node, init$, void)},
+	{"appendRelaxed", "(Ljava/util/concurrent/LinkedTransferQueue$Node;)V", nullptr, $FINAL, $method(LinkedTransferQueue$Node, appendRelaxed, void, LinkedTransferQueue$Node*)},
+	{"block", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(LinkedTransferQueue$Node, block, bool)},
+	{"cannotPrecede", "(Z)Z", nullptr, $FINAL, $method(LinkedTransferQueue$Node, cannotPrecede, bool, bool)},
+	{"casItem", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $FINAL, $method(LinkedTransferQueue$Node, casItem, bool, Object$*, Object$*)},
+	{"casNext", "(Ljava/util/concurrent/LinkedTransferQueue$Node;Ljava/util/concurrent/LinkedTransferQueue$Node;)Z", nullptr, $FINAL, $method(LinkedTransferQueue$Node, casNext, bool, LinkedTransferQueue$Node*, LinkedTransferQueue$Node*)},
+	{"isMatched", "()Z", nullptr, $FINAL, $method(LinkedTransferQueue$Node, isMatched, bool)},
+	{"isReleasable", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(LinkedTransferQueue$Node, isReleasable, bool)},
+	{"selfLink", "()V", nullptr, $FINAL, $method(LinkedTransferQueue$Node, selfLink, void)},
+	{"tryMatch", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $FINAL, $method(LinkedTransferQueue$Node, tryMatch, bool, Object$*, Object$*)},
 	{}
 };
 

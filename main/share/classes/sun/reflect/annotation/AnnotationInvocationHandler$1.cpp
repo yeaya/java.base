@@ -25,8 +25,8 @@ $FieldInfo _AnnotationInvocationHandler$1_FieldInfo_[] = {
 };
 
 $MethodInfo _AnnotationInvocationHandler$1_MethodInfo_[] = {
-	{"<init>", "(Lsun/reflect/annotation/AnnotationInvocationHandler;)V", nullptr, 0, $method(static_cast<void(AnnotationInvocationHandler$1::*)($AnnotationInvocationHandler*)>(&AnnotationInvocationHandler$1::init$))},
-	{"run", "()[Ljava/lang/reflect/Method;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/reflect/annotation/AnnotationInvocationHandler;)V", nullptr, 0, $method(AnnotationInvocationHandler$1, init$, void, $AnnotationInvocationHandler*)},
+	{"run", "()[Ljava/lang/reflect/Method;", nullptr, $PUBLIC, $virtualMethod(AnnotationInvocationHandler$1, run, $Object*)},
 	{}
 };
 

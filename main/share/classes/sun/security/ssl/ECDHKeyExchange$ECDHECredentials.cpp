@@ -44,10 +44,10 @@ $FieldInfo _ECDHKeyExchange$ECDHECredentials_FieldInfo_[] = {
 };
 
 $MethodInfo _ECDHKeyExchange$ECDHECredentials_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/interfaces/ECPublicKey;Lsun/security/ssl/NamedGroup;)V", nullptr, 0, $method(static_cast<void(ECDHKeyExchange$ECDHECredentials::*)($ECPublicKey*,$NamedGroup*)>(&ECDHKeyExchange$ECDHECredentials::init$))},
-	{"getNamedGroup", "()Lsun/security/ssl/NamedGroup;", nullptr, $PUBLIC},
-	{"getPublicKey", "()Ljava/security/PublicKey;", nullptr, $PUBLIC},
-	{"valueOf", "(Lsun/security/ssl/NamedGroup;[B)Lsun/security/ssl/ECDHKeyExchange$ECDHECredentials;", nullptr, $STATIC, $method(static_cast<ECDHKeyExchange$ECDHECredentials*(*)($NamedGroup*,$bytes*)>(&ECDHKeyExchange$ECDHECredentials::valueOf)), "java.io.IOException,java.security.GeneralSecurityException"},
+	{"<init>", "(Ljava/security/interfaces/ECPublicKey;Lsun/security/ssl/NamedGroup;)V", nullptr, 0, $method(ECDHKeyExchange$ECDHECredentials, init$, void, $ECPublicKey*, $NamedGroup*)},
+	{"getNamedGroup", "()Lsun/security/ssl/NamedGroup;", nullptr, $PUBLIC, $virtualMethod(ECDHKeyExchange$ECDHECredentials, getNamedGroup, $NamedGroup*)},
+	{"getPublicKey", "()Ljava/security/PublicKey;", nullptr, $PUBLIC, $virtualMethod(ECDHKeyExchange$ECDHECredentials, getPublicKey, $PublicKey*)},
+	{"valueOf", "(Lsun/security/ssl/NamedGroup;[B)Lsun/security/ssl/ECDHKeyExchange$ECDHECredentials;", nullptr, $STATIC, $staticMethod(ECDHKeyExchange$ECDHECredentials, valueOf, ECDHKeyExchange$ECDHECredentials*, $NamedGroup*, $bytes*), "java.io.IOException,java.security.GeneralSecurityException"},
 	{}
 };
 

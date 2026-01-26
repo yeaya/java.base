@@ -19,7 +19,7 @@ $FieldInfo _SecurityPropertyModificationEvent_FieldInfo_[] = {
 };
 
 $MethodInfo _SecurityPropertyModificationEvent_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SecurityPropertyModificationEvent::*)()>(&SecurityPropertyModificationEvent::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SecurityPropertyModificationEvent, init$, void)},
 	{}
 };
 

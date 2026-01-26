@@ -51,19 +51,19 @@ $FieldInfo _UnicodeLocaleExtension_FieldInfo_[] = {
 };
 
 $MethodInfo _UnicodeLocaleExtension_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(static_cast<void(UnicodeLocaleExtension::*)($String*,$String*)>(&UnicodeLocaleExtension::init$))},
-	{"<init>", "(Ljava/util/SortedSet;Ljava/util/SortedMap;)V", "(Ljava/util/SortedSet<Ljava/lang/String;>;Ljava/util/SortedMap<Ljava/lang/String;Ljava/lang/String;>;)V", 0, $method(static_cast<void(UnicodeLocaleExtension::*)($SortedSet*,$SortedMap*)>(&UnicodeLocaleExtension::init$))},
-	{"getID", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"getKey", "()C", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"getUnicodeLocaleAttributes", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC},
-	{"getUnicodeLocaleKeys", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC},
-	{"getUnicodeLocaleType", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getValue", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"isAttribute", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)($String*)>(&UnicodeLocaleExtension::isAttribute))},
-	{"isKey", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)($String*)>(&UnicodeLocaleExtension::isKey))},
-	{"isSingletonChar", "(C)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)(char16_t)>(&UnicodeLocaleExtension::isSingletonChar))},
-	{"isTypeSubtag", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)($String*)>(&UnicodeLocaleExtension::isTypeSubtag))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(UnicodeLocaleExtension, init$, void, $String*, $String*)},
+	{"<init>", "(Ljava/util/SortedSet;Ljava/util/SortedMap;)V", "(Ljava/util/SortedSet<Ljava/lang/String;>;Ljava/util/SortedMap<Ljava/lang/String;Ljava/lang/String;>;)V", 0, $method(UnicodeLocaleExtension, init$, void, $SortedSet*, $SortedMap*)},
+	{"getID", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(UnicodeLocaleExtension, getID, $String*)},
+	{"getKey", "()C", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(UnicodeLocaleExtension, getKey, char16_t)},
+	{"getUnicodeLocaleAttributes", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(UnicodeLocaleExtension, getUnicodeLocaleAttributes, $Set*)},
+	{"getUnicodeLocaleKeys", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(UnicodeLocaleExtension, getUnicodeLocaleKeys, $Set*)},
+	{"getUnicodeLocaleType", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UnicodeLocaleExtension, getUnicodeLocaleType, $String*, $String*)},
+	{"getValue", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(UnicodeLocaleExtension, getValue, $String*)},
+	{"isAttribute", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(UnicodeLocaleExtension, isAttribute, bool, $String*)},
+	{"isKey", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(UnicodeLocaleExtension, isKey, bool, $String*)},
+	{"isSingletonChar", "(C)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(UnicodeLocaleExtension, isSingletonChar, bool, char16_t)},
+	{"isTypeSubtag", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(UnicodeLocaleExtension, isTypeSubtag, bool, $String*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(UnicodeLocaleExtension, toString, $String*)},
 	{}
 };
 

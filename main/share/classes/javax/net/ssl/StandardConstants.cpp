@@ -20,7 +20,7 @@ $FieldInfo _StandardConstants_FieldInfo_[] = {
 };
 
 $MethodInfo _StandardConstants_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(StandardConstants::*)()>(&StandardConstants::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(StandardConstants, init$, void)},
 	{}
 };
 

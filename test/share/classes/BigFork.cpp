@@ -38,10 +38,10 @@ $FieldInfo _BigFork_FieldInfo_[] = {
 };
 
 $MethodInfo _BigFork_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(BigFork::*)()>(&BigFork::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&BigFork::main)), "java.lang.Throwable"},
-	{"showCommittedMemory", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&BigFork::showCommittedMemory)), "java.io.IOException"},
-	{"touchPages", "([B)V", nullptr, $STATIC, $method(static_cast<void(*)($bytes*)>(&BigFork::touchPages))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(BigFork, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(BigFork, main, void, $StringArray*), "java.lang.Throwable"},
+	{"showCommittedMemory", "()V", nullptr, $STATIC, $staticMethod(BigFork, showCommittedMemory, void), "java.io.IOException"},
+	{"touchPages", "([B)V", nullptr, $STATIC, $staticMethod(BigFork, touchPages, void, $bytes*)},
 	{}
 };
 

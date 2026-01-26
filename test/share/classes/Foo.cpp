@@ -6,8 +6,8 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _Foo_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Foo::*)()>(&Foo::init$))},
-	{"privateMethod", "()V", nullptr, $PRIVATE, $method(static_cast<void(Foo::*)()>(&Foo::privateMethod))},
+	{"<init>", "()V", nullptr, 0, $method(Foo, init$, void)},
+	{"privateMethod", "()V", nullptr, $PRIVATE, $method(Foo, privateMethod, void)},
 	{}
 };
 

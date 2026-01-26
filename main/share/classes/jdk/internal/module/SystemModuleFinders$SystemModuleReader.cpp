@@ -86,8 +86,8 @@ $FieldInfo SystemModuleFinders$SystemModuleReader$$Lambda$toInputStream::fieldIn
 	{}
 };
 $MethodInfo SystemModuleFinders$SystemModuleReader$$Lambda$toInputStream::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/module/SystemModuleFinders$SystemModuleReader;)V", nullptr, $PUBLIC, $method(static_cast<void(SystemModuleFinders$SystemModuleReader$$Lambda$toInputStream::*)(SystemModuleFinders$SystemModuleReader*)>(&SystemModuleFinders$SystemModuleReader$$Lambda$toInputStream::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/module/SystemModuleFinders$SystemModuleReader;)V", nullptr, $PUBLIC, $method(SystemModuleFinders$SystemModuleReader$$Lambda$toInputStream, init$, void, SystemModuleFinders$SystemModuleReader*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SystemModuleFinders$SystemModuleReader$$Lambda$toInputStream, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo SystemModuleFinders$SystemModuleReader$$Lambda$toInputStream::classInfo$ = {
@@ -111,17 +111,17 @@ $FieldInfo _SystemModuleFinders$SystemModuleReader_FieldInfo_[] = {
 };
 
 $MethodInfo _SystemModuleFinders$SystemModuleReader_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/net/URI;)V", nullptr, 0, $method(static_cast<void(SystemModuleFinders$SystemModuleReader::*)($String*,$URI*)>(&SystemModuleFinders$SystemModuleReader::init$))},
-	{"checkPermissionToConnect", "(Ljava/net/URI;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($URI*)>(&SystemModuleFinders$SystemModuleReader::checkPermissionToConnect))},
-	{"close", "()V", nullptr, $PUBLIC},
-	{"containsImageLocation", "(Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(static_cast<bool(SystemModuleFinders$SystemModuleReader::*)($String*)>(&SystemModuleFinders$SystemModuleReader::containsImageLocation)), "java.io.IOException"},
-	{"find", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/net/URI;>;", $PUBLIC, nullptr, "java.io.IOException"},
-	{"findImageLocation", "(Ljava/lang/String;)Ljdk/internal/jimage/ImageLocation;", nullptr, $PRIVATE, $method(static_cast<$ImageLocation*(SystemModuleFinders$SystemModuleReader::*)($String*)>(&SystemModuleFinders$SystemModuleReader::findImageLocation)), "java.io.IOException"},
-	{"list", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljava/lang/String;>;", $PUBLIC, nullptr, "java.io.IOException"},
-	{"open", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/io/InputStream;>;", $PUBLIC, nullptr, "java.io.IOException"},
-	{"read", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/nio/ByteBuffer;>;", $PUBLIC, nullptr, "java.io.IOException"},
-	{"release", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC},
-	{"toInputStream", "(Ljava/nio/ByteBuffer;)Ljava/io/InputStream;", nullptr, $PRIVATE, $method(static_cast<$InputStream*(SystemModuleFinders$SystemModuleReader::*)($ByteBuffer*)>(&SystemModuleFinders$SystemModuleReader::toInputStream))},
+	{"<init>", "(Ljava/lang/String;Ljava/net/URI;)V", nullptr, 0, $method(SystemModuleFinders$SystemModuleReader, init$, void, $String*, $URI*)},
+	{"checkPermissionToConnect", "(Ljava/net/URI;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(SystemModuleFinders$SystemModuleReader, checkPermissionToConnect, void, $URI*)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(SystemModuleFinders$SystemModuleReader, close, void)},
+	{"containsImageLocation", "(Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(SystemModuleFinders$SystemModuleReader, containsImageLocation, bool, $String*), "java.io.IOException"},
+	{"find", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/net/URI;>;", $PUBLIC, $virtualMethod(SystemModuleFinders$SystemModuleReader, find, $Optional*, $String*), "java.io.IOException"},
+	{"findImageLocation", "(Ljava/lang/String;)Ljdk/internal/jimage/ImageLocation;", nullptr, $PRIVATE, $method(SystemModuleFinders$SystemModuleReader, findImageLocation, $ImageLocation*, $String*), "java.io.IOException"},
+	{"list", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(SystemModuleFinders$SystemModuleReader, list, $Stream*), "java.io.IOException"},
+	{"open", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/io/InputStream;>;", $PUBLIC, $virtualMethod(SystemModuleFinders$SystemModuleReader, open, $Optional*, $String*), "java.io.IOException"},
+	{"read", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/nio/ByteBuffer;>;", $PUBLIC, $virtualMethod(SystemModuleFinders$SystemModuleReader, read, $Optional*, $String*), "java.io.IOException"},
+	{"release", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(SystemModuleFinders$SystemModuleReader, release, void, $ByteBuffer*)},
+	{"toInputStream", "(Ljava/nio/ByteBuffer;)Ljava/io/InputStream;", nullptr, $PRIVATE, $method(SystemModuleFinders$SystemModuleReader, toInputStream, $InputStream*, $ByteBuffer*)},
 	{}
 };
 

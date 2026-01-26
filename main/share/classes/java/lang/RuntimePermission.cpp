@@ -17,8 +17,8 @@ $FieldInfo _RuntimePermission_FieldInfo_[] = {
 };
 
 $MethodInfo _RuntimePermission_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(RuntimePermission::*)($String*)>(&RuntimePermission::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(RuntimePermission::*)($String*,$String*)>(&RuntimePermission::init$))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(RuntimePermission, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(RuntimePermission, init$, void, $String*, $String*)},
 	{}
 };
 

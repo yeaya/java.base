@@ -48,17 +48,17 @@ $FieldInfo _CheckModuleAdapter_FieldInfo_[] = {
 };
 
 $MethodInfo _CheckModuleAdapter_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/org/objectweb/asm/ModuleVisitor;Z)V", nullptr, $PUBLIC, $method(static_cast<void(CheckModuleAdapter::*)($ModuleVisitor*,bool)>(&CheckModuleAdapter::init$))},
-	{"<init>", "(ILjdk/internal/org/objectweb/asm/ModuleVisitor;Z)V", nullptr, $PROTECTED, $method(static_cast<void(CheckModuleAdapter::*)(int32_t,$ModuleVisitor*,bool)>(&CheckModuleAdapter::init$))},
-	{"checkVisitEndNotCalled", "()V", nullptr, $PRIVATE, $method(static_cast<void(CheckModuleAdapter::*)()>(&CheckModuleAdapter::checkVisitEndNotCalled))},
-	{"visitEnd", "()V", nullptr, $PUBLIC},
-	{"visitExport", "(Ljava/lang/String;I[Ljava/lang/String;)V", nullptr, $PUBLIC | $TRANSIENT},
-	{"visitMainClass", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"visitOpen", "(Ljava/lang/String;I[Ljava/lang/String;)V", nullptr, $PUBLIC | $TRANSIENT},
-	{"visitPackage", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"visitProvide", "(Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $PUBLIC | $TRANSIENT},
-	{"visitRequire", "(Ljava/lang/String;ILjava/lang/String;)V", nullptr, $PUBLIC},
-	{"visitUse", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/org/objectweb/asm/ModuleVisitor;Z)V", nullptr, $PUBLIC, $method(CheckModuleAdapter, init$, void, $ModuleVisitor*, bool)},
+	{"<init>", "(ILjdk/internal/org/objectweb/asm/ModuleVisitor;Z)V", nullptr, $PROTECTED, $method(CheckModuleAdapter, init$, void, int32_t, $ModuleVisitor*, bool)},
+	{"checkVisitEndNotCalled", "()V", nullptr, $PRIVATE, $method(CheckModuleAdapter, checkVisitEndNotCalled, void)},
+	{"visitEnd", "()V", nullptr, $PUBLIC, $virtualMethod(CheckModuleAdapter, visitEnd, void)},
+	{"visitExport", "(Ljava/lang/String;I[Ljava/lang/String;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(CheckModuleAdapter, visitExport, void, $String*, int32_t, $StringArray*)},
+	{"visitMainClass", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CheckModuleAdapter, visitMainClass, void, $String*)},
+	{"visitOpen", "(Ljava/lang/String;I[Ljava/lang/String;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(CheckModuleAdapter, visitOpen, void, $String*, int32_t, $StringArray*)},
+	{"visitPackage", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CheckModuleAdapter, visitPackage, void, $String*)},
+	{"visitProvide", "(Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(CheckModuleAdapter, visitProvide, void, $String*, $StringArray*)},
+	{"visitRequire", "(Ljava/lang/String;ILjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CheckModuleAdapter, visitRequire, void, $String*, int32_t, $String*)},
+	{"visitUse", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CheckModuleAdapter, visitUse, void, $String*)},
 	{}
 };
 

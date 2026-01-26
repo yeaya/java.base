@@ -32,13 +32,13 @@ $FieldInfo _TreeMap$Values_FieldInfo_[] = {
 };
 
 $MethodInfo _TreeMap$Values_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/TreeMap;)V", nullptr, 0, $method(static_cast<void(TreeMap$Values::*)($TreeMap*)>(&TreeMap$Values::init$))},
-	{"clear", "()V", nullptr, $PUBLIC},
-	{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TV;>;", $PUBLIC},
-	{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"size", "()I", nullptr, $PUBLIC},
-	{"spliterator", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TV;>;", $PUBLIC},
+	{"<init>", "(Ljava/util/TreeMap;)V", nullptr, 0, $method(TreeMap$Values, init$, void, $TreeMap*)},
+	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(TreeMap$Values, clear, void)},
+	{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(TreeMap$Values, contains, bool, Object$*)},
+	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TV;>;", $PUBLIC, $virtualMethod(TreeMap$Values, iterator, $Iterator*)},
+	{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(TreeMap$Values, remove, bool, Object$*)},
+	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(TreeMap$Values, size, int32_t)},
+	{"spliterator", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TV;>;", $PUBLIC, $virtualMethod(TreeMap$Values, spliterator, $Spliterator*)},
 	{}
 };
 

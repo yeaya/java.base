@@ -44,12 +44,12 @@ $FieldInfo _SupportedGroupsExtension$SupportedGroups_FieldInfo_[] = {
 };
 
 $MethodInfo _SupportedGroupsExtension$SupportedGroups_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(SupportedGroupsExtension$SupportedGroups::*)()>(&SupportedGroupsExtension$SupportedGroups::init$))},
-	{"getPreferredGroup", "(Lsun/security/ssl/ProtocolVersion;Ljava/security/AlgorithmConstraints;[Lsun/security/ssl/NamedGroup$NamedGroupSpec;Ljava/util/List;)Lsun/security/ssl/NamedGroup;", "(Lsun/security/ssl/ProtocolVersion;Ljava/security/AlgorithmConstraints;[Lsun/security/ssl/NamedGroup$NamedGroupSpec;Ljava/util/List<Lsun/security/ssl/NamedGroup;>;)Lsun/security/ssl/NamedGroup;", $STATIC, $method(static_cast<$NamedGroup*(*)($ProtocolVersion*,$AlgorithmConstraints*,$NamedGroup$NamedGroupSpecArray*,$List*)>(&SupportedGroupsExtension$SupportedGroups::getPreferredGroup))},
-	{"getPreferredGroup", "(Lsun/security/ssl/ProtocolVersion;Ljava/security/AlgorithmConstraints;[Lsun/security/ssl/NamedGroup$NamedGroupSpec;)Lsun/security/ssl/NamedGroup;", nullptr, $STATIC, $method(static_cast<$NamedGroup*(*)($ProtocolVersion*,$AlgorithmConstraints*,$NamedGroup$NamedGroupSpecArray*)>(&SupportedGroupsExtension$SupportedGroups::getPreferredGroup))},
-	{"isActivatable", "(Ljava/security/AlgorithmConstraints;Lsun/security/ssl/NamedGroup$NamedGroupSpec;)Z", nullptr, $STATIC, $method(static_cast<bool(*)($AlgorithmConstraints*,$NamedGroup$NamedGroupSpec*)>(&SupportedGroupsExtension$SupportedGroups::isActivatable))},
-	{"isActivatable", "(Ljava/security/AlgorithmConstraints;Lsun/security/ssl/NamedGroup;)Z", nullptr, $STATIC, $method(static_cast<bool(*)($AlgorithmConstraints*,$NamedGroup*)>(&SupportedGroupsExtension$SupportedGroups::isActivatable))},
-	{"isSupported", "(Lsun/security/ssl/NamedGroup;)Z", nullptr, $STATIC, $method(static_cast<bool(*)($NamedGroup*)>(&SupportedGroupsExtension$SupportedGroups::isSupported))},
+	{"<init>", "()V", nullptr, 0, $method(SupportedGroupsExtension$SupportedGroups, init$, void)},
+	{"getPreferredGroup", "(Lsun/security/ssl/ProtocolVersion;Ljava/security/AlgorithmConstraints;[Lsun/security/ssl/NamedGroup$NamedGroupSpec;Ljava/util/List;)Lsun/security/ssl/NamedGroup;", "(Lsun/security/ssl/ProtocolVersion;Ljava/security/AlgorithmConstraints;[Lsun/security/ssl/NamedGroup$NamedGroupSpec;Ljava/util/List<Lsun/security/ssl/NamedGroup;>;)Lsun/security/ssl/NamedGroup;", $STATIC, $staticMethod(SupportedGroupsExtension$SupportedGroups, getPreferredGroup, $NamedGroup*, $ProtocolVersion*, $AlgorithmConstraints*, $NamedGroup$NamedGroupSpecArray*, $List*)},
+	{"getPreferredGroup", "(Lsun/security/ssl/ProtocolVersion;Ljava/security/AlgorithmConstraints;[Lsun/security/ssl/NamedGroup$NamedGroupSpec;)Lsun/security/ssl/NamedGroup;", nullptr, $STATIC, $staticMethod(SupportedGroupsExtension$SupportedGroups, getPreferredGroup, $NamedGroup*, $ProtocolVersion*, $AlgorithmConstraints*, $NamedGroup$NamedGroupSpecArray*)},
+	{"isActivatable", "(Ljava/security/AlgorithmConstraints;Lsun/security/ssl/NamedGroup$NamedGroupSpec;)Z", nullptr, $STATIC, $staticMethod(SupportedGroupsExtension$SupportedGroups, isActivatable, bool, $AlgorithmConstraints*, $NamedGroup$NamedGroupSpec*)},
+	{"isActivatable", "(Ljava/security/AlgorithmConstraints;Lsun/security/ssl/NamedGroup;)Z", nullptr, $STATIC, $staticMethod(SupportedGroupsExtension$SupportedGroups, isActivatable, bool, $AlgorithmConstraints*, $NamedGroup*)},
+	{"isSupported", "(Lsun/security/ssl/NamedGroup;)Z", nullptr, $STATIC, $staticMethod(SupportedGroupsExtension$SupportedGroups, isSupported, bool, $NamedGroup*)},
 	{}
 };
 

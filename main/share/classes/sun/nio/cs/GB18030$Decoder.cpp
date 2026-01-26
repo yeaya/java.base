@@ -35,13 +35,13 @@ $FieldInfo _GB18030$Decoder_FieldInfo_[] = {
 };
 
 $MethodInfo _GB18030$Decoder_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PRIVATE, $method(static_cast<void(GB18030$Decoder::*)($Charset*)>(&GB18030$Decoder::init$))},
-	{"decodeArrayLoop", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(static_cast<$CoderResult*(GB18030$Decoder::*)($ByteBuffer*,$CharBuffer*)>(&GB18030$Decoder::decodeArrayLoop))},
-	{"decodeBufferLoop", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(static_cast<$CoderResult*(GB18030$Decoder::*)($ByteBuffer*,$CharBuffer*)>(&GB18030$Decoder::decodeBufferLoop))},
-	{"decodeDouble", "(II)C", nullptr, $PROTECTED},
-	{"decodeLoop", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED},
-	{"getChar", "(I)C", nullptr, $PRIVATE, $method(static_cast<char16_t(GB18030$Decoder::*)(int32_t)>(&GB18030$Decoder::getChar))},
-	{"implReset", "()V", nullptr, $PROTECTED},
+	{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PRIVATE, $method(GB18030$Decoder, init$, void, $Charset*)},
+	{"decodeArrayLoop", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(GB18030$Decoder, decodeArrayLoop, $CoderResult*, $ByteBuffer*, $CharBuffer*)},
+	{"decodeBufferLoop", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(GB18030$Decoder, decodeBufferLoop, $CoderResult*, $ByteBuffer*, $CharBuffer*)},
+	{"decodeDouble", "(II)C", nullptr, $PROTECTED, $virtualMethod(GB18030$Decoder, decodeDouble, char16_t, int32_t, int32_t)},
+	{"decodeLoop", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED, $virtualMethod(GB18030$Decoder, decodeLoop, $CoderResult*, $ByteBuffer*, $CharBuffer*)},
+	{"getChar", "(I)C", nullptr, $PRIVATE, $method(GB18030$Decoder, getChar, char16_t, int32_t)},
+	{"implReset", "()V", nullptr, $PROTECTED, $virtualMethod(GB18030$Decoder, implReset, void)},
 	{}
 };
 

@@ -14,8 +14,8 @@ using $MalformedURLException = ::java::net::MalformedURLException;
 using $URL = ::java::net::URL;
 
 $MethodInfo _TestPort_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TestPort::*)()>(&TestPort::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&TestPort::main)), "java.net.MalformedURLException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TestPort, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TestPort, main, void, $StringArray*), "java.net.MalformedURLException"},
 	{}
 };
 

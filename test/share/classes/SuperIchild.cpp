@@ -28,9 +28,9 @@ $CompoundAttribute _SuperIchild_MethodAnnotations_foo2[] = {
 };
 
 $MethodInfo _SuperIchild_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(SuperIchild::*)()>(&SuperIchild::init$))},
-	{"bar", "()V", nullptr, $PUBLIC, nullptr, nullptr, nullptr, _SuperIchild_MethodAnnotations_bar1},
-	{"foo", "()V", nullptr, $PUBLIC, nullptr, nullptr, nullptr, _SuperIchild_MethodAnnotations_foo2},
+	{"<init>", "()V", nullptr, 0, $method(SuperIchild, init$, void)},
+	{"bar", "()V", nullptr, $PUBLIC, $virtualMethod(SuperIchild, bar, void), nullptr, nullptr, _SuperIchild_MethodAnnotations_bar1},
+	{"foo", "()V", nullptr, $PUBLIC, $virtualMethod(SuperIchild, foo, void), nullptr, nullptr, _SuperIchild_MethodAnnotations_foo2},
 	{}
 };
 

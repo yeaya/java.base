@@ -17,8 +17,8 @@ $FieldInfo _ConnectionResetException_FieldInfo_[] = {
 };
 
 $MethodInfo _ConnectionResetException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(ConnectionResetException::*)($String*)>(&ConnectionResetException::init$))},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ConnectionResetException::*)()>(&ConnectionResetException::init$))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ConnectionResetException, init$, void, $String*)},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ConnectionResetException, init$, void)},
 	{}
 };
 

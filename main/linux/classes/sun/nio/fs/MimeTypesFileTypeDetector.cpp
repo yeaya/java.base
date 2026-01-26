@@ -48,11 +48,11 @@ $FieldInfo _MimeTypesFileTypeDetector_FieldInfo_[] = {
 };
 
 $MethodInfo _MimeTypesFileTypeDetector_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/file/Path;)V", nullptr, $PUBLIC, $method(static_cast<void(MimeTypesFileTypeDetector::*)($Path*)>(&MimeTypesFileTypeDetector::init$))},
-	{"implProbeContentType", "(Ljava/nio/file/Path;)Ljava/lang/String;", nullptr, $PROTECTED},
-	{"loadMimeTypes", "()V", nullptr, $PRIVATE, $method(static_cast<void(MimeTypesFileTypeDetector::*)()>(&MimeTypesFileTypeDetector::loadMimeTypes))},
-	{"parseMimeEntry", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(static_cast<void(MimeTypesFileTypeDetector::*)($String*)>(&MimeTypesFileTypeDetector::parseMimeEntry))},
-	{"putIfAbsent", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(static_cast<void(MimeTypesFileTypeDetector::*)($String*,$String*)>(&MimeTypesFileTypeDetector::putIfAbsent))},
+	{"<init>", "(Ljava/nio/file/Path;)V", nullptr, $PUBLIC, $method(MimeTypesFileTypeDetector, init$, void, $Path*)},
+	{"implProbeContentType", "(Ljava/nio/file/Path;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(MimeTypesFileTypeDetector, implProbeContentType, $String*, $Path*)},
+	{"loadMimeTypes", "()V", nullptr, $PRIVATE, $method(MimeTypesFileTypeDetector, loadMimeTypes, void)},
+	{"parseMimeEntry", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(MimeTypesFileTypeDetector, parseMimeEntry, void, $String*)},
+	{"putIfAbsent", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(MimeTypesFileTypeDetector, putIfAbsent, void, $String*, $String*)},
 	{}
 };
 

@@ -102,21 +102,21 @@ $FieldInfo _PKCS9Attribute_FieldInfo_[] = {
 };
 
 $MethodInfo _PKCS9Attribute_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/util/ObjectIdentifier;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(static_cast<void(PKCS9Attribute::*)($ObjectIdentifier*,Object$*)>(&PKCS9Attribute::init$)), "java.lang.IllegalArgumentException"},
-	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(static_cast<void(PKCS9Attribute::*)($DerValue*)>(&PKCS9Attribute::init$)), "java.io.IOException"},
-	{"derEncode", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getName", "(Lsun/security/util/ObjectIdentifier;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)($ObjectIdentifier*)>(&PKCS9Attribute::getName))},
-	{"getOID", "()Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC},
-	{"getOID", "(Ljava/lang/String;)Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$ObjectIdentifier*(*)($String*)>(&PKCS9Attribute::getOID))},
-	{"getValue", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"indexOf", "(Ljava/lang/Object;[Ljava/lang/Object;I)I", nullptr, $STATIC, $method(static_cast<int32_t(*)(Object$*,$ObjectArray*,int32_t)>(&PKCS9Attribute::indexOf))},
-	{"init", "(Lsun/security/util/ObjectIdentifier;Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(static_cast<void(PKCS9Attribute::*)($ObjectIdentifier*,Object$*)>(&PKCS9Attribute::init)), "java.lang.IllegalArgumentException"},
-	{"isKnown", "()Z", nullptr, $PUBLIC},
-	{"isSingleValued", "()Z", nullptr, $PUBLIC},
-	{"throwSingleValuedException", "()V", nullptr, $PRIVATE, $method(static_cast<void(PKCS9Attribute::*)()>(&PKCS9Attribute::throwSingleValuedException)), "java.io.IOException"},
-	{"throwTagException", "(Ljava/lang/Byte;)V", nullptr, $PRIVATE, $method(static_cast<void(PKCS9Attribute::*)($Byte*)>(&PKCS9Attribute::throwTagException)), "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/security/util/ObjectIdentifier;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(PKCS9Attribute, init$, void, $ObjectIdentifier*, Object$*), "java.lang.IllegalArgumentException"},
+	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(PKCS9Attribute, init$, void, $DerValue*), "java.io.IOException"},
+	{"derEncode", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(PKCS9Attribute, derEncode, void, $OutputStream*), "java.io.IOException"},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PKCS9Attribute, getName, $String*)},
+	{"getName", "(Lsun/security/util/ObjectIdentifier;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(PKCS9Attribute, getName, $String*, $ObjectIdentifier*)},
+	{"getOID", "()Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC, $virtualMethod(PKCS9Attribute, getOID, $ObjectIdentifier*)},
+	{"getOID", "(Ljava/lang/String;)Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC, $staticMethod(PKCS9Attribute, getOID, $ObjectIdentifier*, $String*)},
+	{"getValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PKCS9Attribute, getValue, $Object*)},
+	{"indexOf", "(Ljava/lang/Object;[Ljava/lang/Object;I)I", nullptr, $STATIC, $staticMethod(PKCS9Attribute, indexOf, int32_t, Object$*, $ObjectArray*, int32_t)},
+	{"init", "(Lsun/security/util/ObjectIdentifier;Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(PKCS9Attribute, init, void, $ObjectIdentifier*, Object$*), "java.lang.IllegalArgumentException"},
+	{"isKnown", "()Z", nullptr, $PUBLIC, $virtualMethod(PKCS9Attribute, isKnown, bool)},
+	{"isSingleValued", "()Z", nullptr, $PUBLIC, $virtualMethod(PKCS9Attribute, isSingleValued, bool)},
+	{"throwSingleValuedException", "()V", nullptr, $PRIVATE, $method(PKCS9Attribute, throwSingleValuedException, void), "java.io.IOException"},
+	{"throwTagException", "(Ljava/lang/Byte;)V", nullptr, $PRIVATE, $method(PKCS9Attribute, throwTagException, void, $Byte*), "java.io.IOException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PKCS9Attribute, toString, $String*)},
 	{}
 };
 

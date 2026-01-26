@@ -30,8 +30,8 @@ $FieldInfo _Proxy$2_FieldInfo_[] = {
 };
 
 $MethodInfo _Proxy$2_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Class;Ljava/lang/invoke/MethodHandles$Lookup;)V", nullptr, 0, $method(static_cast<void(Proxy$2::*)($Class*,$MethodHandles$Lookup*)>(&Proxy$2::init$))},
-	{"run", "()Ljava/lang/invoke/MethodHandles$Lookup;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Class;Ljava/lang/invoke/MethodHandles$Lookup;)V", nullptr, 0, $method(Proxy$2, init$, void, $Class*, $MethodHandles$Lookup*)},
+	{"run", "()Ljava/lang/invoke/MethodHandles$Lookup;", nullptr, $PUBLIC, $virtualMethod(Proxy$2, run, $Object*)},
 	{}
 };
 

@@ -76,8 +76,8 @@ $FieldInfo LotsOfCloses$$Lambda$lambda$newCloserTask$0::fieldInfos[2] = {
 	{}
 };
 $MethodInfo LotsOfCloses$$Lambda$lambda$newCloserTask$0::methodInfos[3] = {
-	{"<init>", "(Ljava/nio/file/WatchService;)V", nullptr, $PUBLIC, $method(static_cast<void(LotsOfCloses$$Lambda$lambda$newCloserTask$0::*)($WatchService*)>(&LotsOfCloses$$Lambda$lambda$newCloserTask$0::init$))},
-	{"call", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/nio/file/WatchService;)V", nullptr, $PUBLIC, $method(LotsOfCloses$$Lambda$lambda$newCloserTask$0, init$, void, $WatchService*)},
+	{"call", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LotsOfCloses$$Lambda$lambda$newCloserTask$0, call, $Object*)},
 	{}
 };
 $ClassInfo LotsOfCloses$$Lambda$lambda$newCloserTask$0::classInfo$ = {
@@ -119,8 +119,8 @@ $FieldInfo LotsOfCloses$$Lambda$lambda$newRegisterTask$1$1::fieldInfos[3] = {
 	{}
 };
 $MethodInfo LotsOfCloses$$Lambda$lambda$newRegisterTask$1$1::methodInfos[3] = {
-	{"<init>", "(Ljava/nio/file/Path;Ljava/nio/file/WatchService;)V", nullptr, $PUBLIC, $method(static_cast<void(LotsOfCloses$$Lambda$lambda$newRegisterTask$1$1::*)($Path*,$WatchService*)>(&LotsOfCloses$$Lambda$lambda$newRegisterTask$1$1::init$))},
-	{"call", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/nio/file/Path;Ljava/nio/file/WatchService;)V", nullptr, $PUBLIC, $method(LotsOfCloses$$Lambda$lambda$newRegisterTask$1$1, init$, void, $Path*, $WatchService*)},
+	{"call", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LotsOfCloses$$Lambda$lambda$newRegisterTask$1$1, call, $Object*)},
 	{}
 };
 $ClassInfo LotsOfCloses$$Lambda$lambda$newRegisterTask$1$1::classInfo$ = {
@@ -143,13 +143,13 @@ $FieldInfo _LotsOfCloses_FieldInfo_[] = {
 };
 
 $MethodInfo _LotsOfCloses_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(LotsOfCloses::*)()>(&LotsOfCloses::init$))},
-	{"lambda$newCloserTask$0", "(Ljava/nio/file/WatchService;)Ljava/lang/Void;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Void*(*)($WatchService*)>(&LotsOfCloses::lambda$newCloserTask$0)), "java.lang.Exception"},
-	{"lambda$newRegisterTask$1", "(Ljava/nio/file/Path;Ljava/nio/file/WatchService;)Ljava/lang/Boolean;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Boolean*(*)($Path*,$WatchService*)>(&LotsOfCloses::lambda$newRegisterTask$1)), "java.lang.Exception"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&LotsOfCloses::main)), "java.lang.Exception"},
-	{"newCloserTask", "(Ljava/nio/file/WatchService;)Ljava/util/concurrent/Callable;", "(Ljava/nio/file/WatchService;)Ljava/util/concurrent/Callable<Ljava/lang/Void;>;", $STATIC, $method(static_cast<$Callable*(*)($WatchService*)>(&LotsOfCloses::newCloserTask))},
-	{"newRegisterTask", "(Ljava/nio/file/WatchService;Ljava/nio/file/Path;)Ljava/util/concurrent/Callable;", "(Ljava/nio/file/WatchService;Ljava/nio/file/Path;)Ljava/util/concurrent/Callable<Ljava/lang/Boolean;>;", $STATIC, $method(static_cast<$Callable*(*)($WatchService*,$Path*)>(&LotsOfCloses::newRegisterTask))},
-	{"test", "(Ljava/nio/file/Path;Ljava/util/concurrent/ExecutorService;)V", nullptr, $STATIC, $method(static_cast<void(*)($Path*,$ExecutorService*)>(&LotsOfCloses::test)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(LotsOfCloses, init$, void)},
+	{"lambda$newCloserTask$0", "(Ljava/nio/file/WatchService;)Ljava/lang/Void;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LotsOfCloses, lambda$newCloserTask$0, $Void*, $WatchService*), "java.lang.Exception"},
+	{"lambda$newRegisterTask$1", "(Ljava/nio/file/Path;Ljava/nio/file/WatchService;)Ljava/lang/Boolean;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LotsOfCloses, lambda$newRegisterTask$1, $Boolean*, $Path*, $WatchService*), "java.lang.Exception"},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(LotsOfCloses, main, void, $StringArray*), "java.lang.Exception"},
+	{"newCloserTask", "(Ljava/nio/file/WatchService;)Ljava/util/concurrent/Callable;", "(Ljava/nio/file/WatchService;)Ljava/util/concurrent/Callable<Ljava/lang/Void;>;", $STATIC, $staticMethod(LotsOfCloses, newCloserTask, $Callable*, $WatchService*)},
+	{"newRegisterTask", "(Ljava/nio/file/WatchService;Ljava/nio/file/Path;)Ljava/util/concurrent/Callable;", "(Ljava/nio/file/WatchService;Ljava/nio/file/Path;)Ljava/util/concurrent/Callable<Ljava/lang/Boolean;>;", $STATIC, $staticMethod(LotsOfCloses, newRegisterTask, $Callable*, $WatchService*, $Path*)},
+	{"test", "(Ljava/nio/file/Path;Ljava/util/concurrent/ExecutorService;)V", nullptr, $STATIC, $staticMethod(LotsOfCloses, test, void, $Path*, $ExecutorService*), "java.lang.Exception"},
 	{}
 };
 

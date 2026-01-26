@@ -41,12 +41,12 @@ $FieldInfo _Basic4ref_FieldInfo_[] = {
 };
 
 $MethodInfo _Basic4ref_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Basic4ref::*)()>(&Basic4ref::init$))},
-	{"createNoise", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&Basic4ref::createNoise)), "java.lang.InterruptedException"},
-	{"finalize", "()V", nullptr, $PROTECTED},
-	{"fork", "(Ljava/lang/Runnable;)V", nullptr, $STATIC, $method(static_cast<void(*)($Runnable*)>(&Basic4ref::fork)), "java.lang.InterruptedException"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Basic4ref::main)), "java.lang.Exception"},
-	{"showReferences", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&Basic4ref::showReferences)), "java.lang.InterruptedException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Basic4ref, init$, void)},
+	{"createNoise", "()V", nullptr, $STATIC, $staticMethod(Basic4ref, createNoise, void), "java.lang.InterruptedException"},
+	{"finalize", "()V", nullptr, $PROTECTED, $virtualMethod(Basic4ref, finalize, void)},
+	{"fork", "(Ljava/lang/Runnable;)V", nullptr, $STATIC, $staticMethod(Basic4ref, fork, void, $Runnable*), "java.lang.InterruptedException"},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Basic4ref, main, void, $StringArray*), "java.lang.Exception"},
+	{"showReferences", "()V", nullptr, $STATIC, $staticMethod(Basic4ref, showReferences, void), "java.lang.InterruptedException"},
 	{}
 };
 

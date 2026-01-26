@@ -37,12 +37,12 @@ $MethodInfo _SPILocaleProviderAdapter$CalendarNameProviderDelegate_MethodInfo_[]
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(SPILocaleProviderAdapter$CalendarNameProviderDelegate::*)()>(&SPILocaleProviderAdapter$CalendarNameProviderDelegate::init$))},
-	{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC},
-	{"getDelegateMap", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/util/Locale;Ljava/util/spi/CalendarNameProvider;>;", $PUBLIC},
-	{"getDisplayName", "(Ljava/lang/String;IIILjava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getDisplayNames", "(Ljava/lang/String;IILjava/util/Locale;)Ljava/util/Map;", "(Ljava/lang/String;IILjava/util/Locale;)Ljava/util/Map<Ljava/lang/String;Ljava/lang/Integer;>;", $PUBLIC},
-	{"isSupportedLocale", "(Ljava/util/Locale;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(SPILocaleProviderAdapter$CalendarNameProviderDelegate, init$, void)},
+	{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$CalendarNameProviderDelegate, getAvailableLocales, $LocaleArray*)},
+	{"getDelegateMap", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/util/Locale;Ljava/util/spi/CalendarNameProvider;>;", $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$CalendarNameProviderDelegate, getDelegateMap, $Map*)},
+	{"getDisplayName", "(Ljava/lang/String;IIILjava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$CalendarNameProviderDelegate, getDisplayName, $String*, $String*, int32_t, int32_t, int32_t, $Locale*)},
+	{"getDisplayNames", "(Ljava/lang/String;IILjava/util/Locale;)Ljava/util/Map;", "(Ljava/lang/String;IILjava/util/Locale;)Ljava/util/Map<Ljava/lang/String;Ljava/lang/Integer;>;", $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$CalendarNameProviderDelegate, getDisplayNames, $Map*, $String*, int32_t, int32_t, $Locale*)},
+	{"isSupportedLocale", "(Ljava/util/Locale;)Z", nullptr, $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$CalendarNameProviderDelegate, isSupportedLocale, bool, $Locale*)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

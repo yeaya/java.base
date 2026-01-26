@@ -5,13 +5,14 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $MethodHandle = ::java::lang::invoke::MethodHandle;
 
 namespace sun {
 	namespace invoke {
 
 $MethodInfo _WrapperInstance_MethodInfo_[] = {
-	{"getWrapperInstanceTarget", "()Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getWrapperInstanceType", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC | $ABSTRACT},
+	{"getWrapperInstanceTarget", "()Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(WrapperInstance, getWrapperInstanceTarget, $MethodHandle*)},
+	{"getWrapperInstanceType", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC | $ABSTRACT, $virtualMethod(WrapperInstance, getWrapperInstanceType, $Class*)},
 	{}
 };
 

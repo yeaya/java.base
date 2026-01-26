@@ -61,8 +61,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Node$OfDouble$$Lambda$lambda$truncate$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Node$OfDouble$$Lambda$lambda$truncate$0::*)()>(&Node$OfDouble$$Lambda$lambda$truncate$0::init$))},
-	{"accept", "(D)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Node$OfDouble$$Lambda$lambda$truncate$0, init$, void)},
+	{"accept", "(D)V", nullptr, $PUBLIC, $virtualMethod(Node$OfDouble$$Lambda$lambda$truncate$0, accept, void, double)},
 	{}
 };
 $ClassInfo Node$OfDouble$$Lambda$lambda$truncate$0::classInfo$ = {
@@ -80,13 +80,13 @@ $Class* Node$OfDouble$$Lambda$lambda$truncate$0::load$($String* name, bool initi
 $Class* Node$OfDouble$$Lambda$lambda$truncate$0::class$ = nullptr;
 
 $MethodInfo _Node$OfDouble_MethodInfo_[] = {
-	{"copyInto", "([Ljava/lang/Double;I)V", nullptr, $PUBLIC},
-	{"copyInto", "([Ljava/lang/Object;I)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"forEach", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-Ljava/lang/Double;>;)V", $PUBLIC},
-	{"getShape", "()Ljava/util/stream/StreamShape;", nullptr, $PUBLIC},
-	{"lambda$truncate$0", "(D)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)(double)>(&Node$OfDouble::lambda$truncate$0))},
-	{"newArray", "(I)[D", nullptr, $PUBLIC},
-	{"truncate", "(JJLjava/util/function/IntFunction;)Ljava/util/stream/Node$OfDouble;", "(JJLjava/util/function/IntFunction<[Ljava/lang/Double;>;)Ljava/util/stream/Node$OfDouble;", $PUBLIC},
+	{"copyInto", "([Ljava/lang/Double;I)V", nullptr, $PUBLIC, $virtualMethod(Node$OfDouble, copyInto, void, $DoubleArray*, int32_t)},
+	{"copyInto", "([Ljava/lang/Object;I)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Node$OfDouble, copyInto, void, $ObjectArray*, int32_t)},
+	{"forEach", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-Ljava/lang/Double;>;)V", $PUBLIC, $virtualMethod(Node$OfDouble, forEach, void, $Consumer*)},
+	{"getShape", "()Ljava/util/stream/StreamShape;", nullptr, $PUBLIC, $virtualMethod(Node$OfDouble, getShape, $StreamShape*)},
+	{"lambda$truncate$0", "(D)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Node$OfDouble, lambda$truncate$0, void, double)},
+	{"newArray", "(I)[D", nullptr, $PUBLIC, $virtualMethod(Node$OfDouble, newArray, $Object*, int32_t)},
+	{"truncate", "(JJLjava/util/function/IntFunction;)Ljava/util/stream/Node$OfDouble;", "(JJLjava/util/function/IntFunction<[Ljava/lang/Double;>;)Ljava/util/stream/Node$OfDouble;", $PUBLIC, $virtualMethod(Node$OfDouble, truncate, Node$OfDouble*, int64_t, int64_t, $IntFunction*)},
 	{}
 };
 

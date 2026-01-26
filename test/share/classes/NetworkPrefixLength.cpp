@@ -28,12 +28,12 @@ $FieldInfo _NetworkPrefixLength_FieldInfo_[] = {
 };
 
 $MethodInfo _NetworkPrefixLength_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(NetworkPrefixLength::*)()>(&NetworkPrefixLength::init$))},
-	{"checkIPv4PrefixLength", "(I)Z", nullptr, $STATIC, $method(static_cast<bool(*)(int32_t)>(&NetworkPrefixLength::checkIPv4PrefixLength))},
-	{"checkIPv6PrefixLength", "(I)Z", nullptr, $STATIC, $method(static_cast<bool(*)(int32_t)>(&NetworkPrefixLength::checkIPv6PrefixLength))},
-	{"checkPrefix", "(Ljava/net/InterfaceAddress;)Z", nullptr, $STATIC, $method(static_cast<bool(*)($InterfaceAddress*)>(&NetworkPrefixLength::checkPrefix))},
-	{"debug", "(Ljava/lang/String;Ljava/net/InterfaceAddress;)V", nullptr, $STATIC, $method(static_cast<void(*)($String*,$InterfaceAddress*)>(&NetworkPrefixLength::debug))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&NetworkPrefixLength::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(NetworkPrefixLength, init$, void)},
+	{"checkIPv4PrefixLength", "(I)Z", nullptr, $STATIC, $staticMethod(NetworkPrefixLength, checkIPv4PrefixLength, bool, int32_t)},
+	{"checkIPv6PrefixLength", "(I)Z", nullptr, $STATIC, $staticMethod(NetworkPrefixLength, checkIPv6PrefixLength, bool, int32_t)},
+	{"checkPrefix", "(Ljava/net/InterfaceAddress;)Z", nullptr, $STATIC, $staticMethod(NetworkPrefixLength, checkPrefix, bool, $InterfaceAddress*)},
+	{"debug", "(Ljava/lang/String;Ljava/net/InterfaceAddress;)V", nullptr, $STATIC, $staticMethod(NetworkPrefixLength, debug, void, $String*, $InterfaceAddress*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(NetworkPrefixLength, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

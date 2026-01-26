@@ -37,6 +37,7 @@
 #undef ZONE_REGION_TYPE
 
 using $Map$EntryArray = $Array<::java::util::Map$Entry>;
+using $DataOutput = ::java::io::DataOutput;
 using $InvalidObjectException = ::java::io::InvalidObjectException;
 using $ObjectInputStream = ::java::io::ObjectInputStream;
 using $Serializable = ::java::io::Serializable;
@@ -87,26 +88,26 @@ $FieldInfo _ZoneId_FieldInfo_[] = {
 };
 
 $MethodInfo _ZoneId_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ZoneId::*)()>(&ZoneId::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"from", "(Ljava/time/temporal/TemporalAccessor;)Ljava/time/ZoneId;", nullptr, $PUBLIC | $STATIC, $method(static_cast<ZoneId*(*)($TemporalAccessor*)>(&ZoneId::from))},
-	{"getAvailableZoneIds", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC | $STATIC, $method(static_cast<$Set*(*)()>(&ZoneId::getAvailableZoneIds))},
-	{"getDisplayName", "(Ljava/time/format/TextStyle;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getId", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getRules", "()Ljava/time/zone/ZoneRules;", nullptr, $PUBLIC | $ABSTRACT},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"normalized", "()Ljava/time/ZoneId;", nullptr, $PUBLIC},
-	{"of", "(Ljava/lang/String;Ljava/util/Map;)Ljava/time/ZoneId;", "(Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;)Ljava/time/ZoneId;", $PUBLIC | $STATIC, $method(static_cast<ZoneId*(*)($String*,$Map*)>(&ZoneId::of))},
-	{"of", "(Ljava/lang/String;)Ljava/time/ZoneId;", nullptr, $PUBLIC | $STATIC, $method(static_cast<ZoneId*(*)($String*)>(&ZoneId::of))},
-	{"of", "(Ljava/lang/String;Z)Ljava/time/ZoneId;", nullptr, $STATIC, $method(static_cast<ZoneId*(*)($String*,bool)>(&ZoneId::of))},
-	{"ofOffset", "(Ljava/lang/String;Ljava/time/ZoneOffset;)Ljava/time/ZoneId;", nullptr, $PUBLIC | $STATIC, $method(static_cast<ZoneId*(*)($String*,$ZoneOffset*)>(&ZoneId::ofOffset))},
-	{"ofWithPrefix", "(Ljava/lang/String;IZ)Ljava/time/ZoneId;", nullptr, $PRIVATE | $STATIC, $method(static_cast<ZoneId*(*)($String*,int32_t,bool)>(&ZoneId::ofWithPrefix))},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(ZoneId::*)($ObjectInputStream*)>(&ZoneId::readObject)), "java.io.InvalidObjectException"},
-	{"systemDefault", "()Ljava/time/ZoneId;", nullptr, $PUBLIC | $STATIC, $method(static_cast<ZoneId*(*)()>(&ZoneId::systemDefault))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"toTemporal", "()Ljava/time/temporal/TemporalAccessor;", nullptr, $PRIVATE, $method(static_cast<$TemporalAccessor*(ZoneId::*)()>(&ZoneId::toTemporal))},
-	{"write", "(Ljava/io/DataOutput;)V", nullptr, $ABSTRACT, nullptr, "java.io.IOException"},
-	{"writeReplace", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(static_cast<$Object*(ZoneId::*)()>(&ZoneId::writeReplace))},
+	{"<init>", "()V", nullptr, 0, $method(ZoneId, init$, void)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ZoneId, equals, bool, Object$*)},
+	{"from", "(Ljava/time/temporal/TemporalAccessor;)Ljava/time/ZoneId;", nullptr, $PUBLIC | $STATIC, $staticMethod(ZoneId, from, ZoneId*, $TemporalAccessor*)},
+	{"getAvailableZoneIds", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC | $STATIC, $staticMethod(ZoneId, getAvailableZoneIds, $Set*)},
+	{"getDisplayName", "(Ljava/time/format/TextStyle;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ZoneId, getDisplayName, $String*, $TextStyle*, $Locale*)},
+	{"getId", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ZoneId, getId, $String*)},
+	{"getRules", "()Ljava/time/zone/ZoneRules;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ZoneId, getRules, $ZoneRules*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ZoneId, hashCode, int32_t)},
+	{"normalized", "()Ljava/time/ZoneId;", nullptr, $PUBLIC, $virtualMethod(ZoneId, normalized, ZoneId*)},
+	{"of", "(Ljava/lang/String;Ljava/util/Map;)Ljava/time/ZoneId;", "(Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;)Ljava/time/ZoneId;", $PUBLIC | $STATIC, $staticMethod(ZoneId, of, ZoneId*, $String*, $Map*)},
+	{"of", "(Ljava/lang/String;)Ljava/time/ZoneId;", nullptr, $PUBLIC | $STATIC, $staticMethod(ZoneId, of, ZoneId*, $String*)},
+	{"of", "(Ljava/lang/String;Z)Ljava/time/ZoneId;", nullptr, $STATIC, $staticMethod(ZoneId, of, ZoneId*, $String*, bool)},
+	{"ofOffset", "(Ljava/lang/String;Ljava/time/ZoneOffset;)Ljava/time/ZoneId;", nullptr, $PUBLIC | $STATIC, $staticMethod(ZoneId, ofOffset, ZoneId*, $String*, $ZoneOffset*)},
+	{"ofWithPrefix", "(Ljava/lang/String;IZ)Ljava/time/ZoneId;", nullptr, $PRIVATE | $STATIC, $staticMethod(ZoneId, ofWithPrefix, ZoneId*, $String*, int32_t, bool)},
+	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(ZoneId, readObject, void, $ObjectInputStream*), "java.io.InvalidObjectException"},
+	{"systemDefault", "()Ljava/time/ZoneId;", nullptr, $PUBLIC | $STATIC, $staticMethod(ZoneId, systemDefault, ZoneId*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ZoneId, toString, $String*)},
+	{"toTemporal", "()Ljava/time/temporal/TemporalAccessor;", nullptr, $PRIVATE, $method(ZoneId, toTemporal, $TemporalAccessor*)},
+	{"write", "(Ljava/io/DataOutput;)V", nullptr, $ABSTRACT, $virtualMethod(ZoneId, write, void, $DataOutput*), "java.io.IOException"},
+	{"writeReplace", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(ZoneId, writeReplace, $Object*)},
 	{}
 };
 

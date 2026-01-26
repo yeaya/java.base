@@ -25,15 +25,15 @@ namespace jdk {
 			namespace impl {
 
 $MethodInfo _Norm2AllModes$NoopNormalizer2_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Norm2AllModes$NoopNormalizer2::*)()>(&Norm2AllModes$NoopNormalizer2::init$))},
-	{"append", "(Ljava/lang/StringBuilder;Ljava/lang/CharSequence;)Ljava/lang/StringBuilder;", nullptr, $PUBLIC},
-	{"getDecomposition", "(I)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"hasBoundaryBefore", "(I)Z", nullptr, $PUBLIC},
-	{"isNormalized", "(Ljava/lang/CharSequence;)Z", nullptr, $PUBLIC},
-	{"normalize", "(Ljava/lang/CharSequence;Ljava/lang/StringBuilder;)Ljava/lang/StringBuilder;", nullptr, $PUBLIC},
-	{"normalize", "(Ljava/lang/CharSequence;Ljava/lang/Appendable;)Ljava/lang/Appendable;", nullptr, $PUBLIC},
-	{"normalizeSecondAndAppend", "(Ljava/lang/StringBuilder;Ljava/lang/CharSequence;)Ljava/lang/StringBuilder;", nullptr, $PUBLIC},
-	{"spanQuickCheckYes", "(Ljava/lang/CharSequence;)I", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Norm2AllModes$NoopNormalizer2, init$, void)},
+	{"append", "(Ljava/lang/StringBuilder;Ljava/lang/CharSequence;)Ljava/lang/StringBuilder;", nullptr, $PUBLIC, $virtualMethod(Norm2AllModes$NoopNormalizer2, append, $StringBuilder*, $StringBuilder*, $CharSequence*)},
+	{"getDecomposition", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Norm2AllModes$NoopNormalizer2, getDecomposition, $String*, int32_t)},
+	{"hasBoundaryBefore", "(I)Z", nullptr, $PUBLIC, $virtualMethod(Norm2AllModes$NoopNormalizer2, hasBoundaryBefore, bool, int32_t)},
+	{"isNormalized", "(Ljava/lang/CharSequence;)Z", nullptr, $PUBLIC, $virtualMethod(Norm2AllModes$NoopNormalizer2, isNormalized, bool, $CharSequence*)},
+	{"normalize", "(Ljava/lang/CharSequence;Ljava/lang/StringBuilder;)Ljava/lang/StringBuilder;", nullptr, $PUBLIC, $virtualMethod(Norm2AllModes$NoopNormalizer2, normalize, $StringBuilder*, $CharSequence*, $StringBuilder*)},
+	{"normalize", "(Ljava/lang/CharSequence;Ljava/lang/Appendable;)Ljava/lang/Appendable;", nullptr, $PUBLIC, $virtualMethod(Norm2AllModes$NoopNormalizer2, normalize, $Appendable*, $CharSequence*, $Appendable*)},
+	{"normalizeSecondAndAppend", "(Ljava/lang/StringBuilder;Ljava/lang/CharSequence;)Ljava/lang/StringBuilder;", nullptr, $PUBLIC, $virtualMethod(Norm2AllModes$NoopNormalizer2, normalizeSecondAndAppend, $StringBuilder*, $StringBuilder*, $CharSequence*)},
+	{"spanQuickCheckYes", "(Ljava/lang/CharSequence;)I", nullptr, $PUBLIC, $virtualMethod(Norm2AllModes$NoopNormalizer2, spanQuickCheckYes, int32_t, $CharSequence*)},
 	{}
 };
 

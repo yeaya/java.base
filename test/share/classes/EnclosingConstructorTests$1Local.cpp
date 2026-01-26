@@ -16,7 +16,7 @@ $FieldInfo _EnclosingConstructorTests$1Local_FieldInfo_[] = {
 };
 
 $MethodInfo _EnclosingConstructorTests$1Local_MethodInfo_[] = {
-	{"<init>", "(LEnclosingConstructorTests;)V", nullptr, 0, $method(static_cast<void(EnclosingConstructorTests$1Local::*)($EnclosingConstructorTests*)>(&EnclosingConstructorTests$1Local::init$))},
+	{"<init>", "(LEnclosingConstructorTests;)V", nullptr, 0, $method(EnclosingConstructorTests$1Local, init$, void, $EnclosingConstructorTests*)},
 	{}
 };
 

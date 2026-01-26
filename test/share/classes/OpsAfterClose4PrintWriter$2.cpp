@@ -12,8 +12,8 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _OpsAfterClose4PrintWriter$2_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(static_cast<void(OpsAfterClose4PrintWriter$2::*)($String*,int32_t)>(&OpsAfterClose4PrintWriter$2::init$))},
-	{"check", "(Ljava/io/PrintWriter;)Z", nullptr, 0},
+	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(OpsAfterClose4PrintWriter$2, init$, void, $String*, int32_t)},
+	{"check", "(Ljava/io/PrintWriter;)Z", nullptr, 0, $virtualMethod(OpsAfterClose4PrintWriter$2, check, bool, $PrintWriter*)},
 	{}
 };
 

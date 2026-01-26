@@ -22,8 +22,8 @@ $FieldInfo _Pattern$SliceNode_FieldInfo_[] = {
 };
 
 $MethodInfo _Pattern$SliceNode_MethodInfo_[] = {
-	{"<init>", "([I)V", nullptr, 0, $method(static_cast<void(Pattern$SliceNode::*)($ints*)>(&Pattern$SliceNode::init$))},
-	{"study", "(Ljava/util/regex/Pattern$TreeInfo;)Z", nullptr, 0},
+	{"<init>", "([I)V", nullptr, 0, $method(Pattern$SliceNode, init$, void, $ints*)},
+	{"study", "(Ljava/util/regex/Pattern$TreeInfo;)Z", nullptr, 0, $virtualMethod(Pattern$SliceNode, study, bool, $Pattern$TreeInfo*)},
 	{}
 };
 

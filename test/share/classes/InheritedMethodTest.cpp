@@ -40,12 +40,12 @@ $FieldInfo _InheritedMethodTest_FieldInfo_[] = {
 };
 
 $MethodInfo _InheritedMethodTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(InheritedMethodTest::*)()>(&InheritedMethodTest::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<void(*)($StringArray*)>(&InheritedMethodTest::main)), "java.lang.Throwable"},
-	{"mt", "(Ljava/lang/Class;[Ljava/lang/Class;)Ljava/lang/invoke/MethodType;", "(Ljava/lang/Class<*>;[Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodType;", $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<$MethodType*(*)($Class*,$ClassArray*)>(&InheritedMethodTest::mt))},
-	{"test", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/String;)V", nullptr, $STATIC, $method(static_cast<void(*)($MethodHandle*,$String*)>(&InheritedMethodTest::test)), "java.lang.Throwable"},
-	{"testAltMetafactory", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/String;)V", nullptr, $STATIC, $method(static_cast<void(*)($MethodHandle*,$String*)>(&InheritedMethodTest::testAltMetafactory)), "java.lang.Throwable"},
-	{"testMetafactory", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/String;)V", nullptr, $STATIC, $method(static_cast<void(*)($MethodHandle*,$String*)>(&InheritedMethodTest::testMetafactory)), "java.lang.Throwable"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(InheritedMethodTest, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(InheritedMethodTest, main, void, $StringArray*), "java.lang.Throwable"},
+	{"mt", "(Ljava/lang/Class;[Ljava/lang/Class;)Ljava/lang/invoke/MethodType;", "(Ljava/lang/Class<*>;[Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodType;", $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(InheritedMethodTest, mt, $MethodType*, $Class*, $ClassArray*)},
+	{"test", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(InheritedMethodTest, test, void, $MethodHandle*, $String*), "java.lang.Throwable"},
+	{"testAltMetafactory", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(InheritedMethodTest, testAltMetafactory, void, $MethodHandle*, $String*), "java.lang.Throwable"},
+	{"testMetafactory", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(InheritedMethodTest, testMetafactory, void, $MethodHandle*, $String*), "java.lang.Throwable"},
 	{}
 };
 

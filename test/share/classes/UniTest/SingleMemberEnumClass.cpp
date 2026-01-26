@@ -20,7 +20,7 @@ $CompoundAttribute _SingleMemberEnumClass_Annotations_[] = {
 };
 
 $MethodInfo _SingleMemberEnumClass_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(SingleMemberEnumClass::*)()>(&SingleMemberEnumClass::init$))},
+	{"<init>", "()V", nullptr, 0, $method(SingleMemberEnumClass, init$, void)},
 	{}
 };
 

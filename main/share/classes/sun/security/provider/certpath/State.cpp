@@ -7,6 +7,7 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Cloneable = ::java::lang::Cloneable;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $X509Certificate = ::java::security::cert::X509Certificate;
 
 namespace sun {
 	namespace security {
@@ -15,9 +16,9 @@ namespace sun {
 
 $MethodInfo _State_MethodInfo_[] = {
 	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
-	{"isInitial", "()Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"keyParamsNeeded", "()Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"updateState", "(Ljava/security/cert/X509Certificate;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.security.cert.CertificateException,java.io.IOException,java.security.cert.CertPathValidatorException"},
+	{"isInitial", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(State, isInitial, bool)},
+	{"keyParamsNeeded", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(State, keyParamsNeeded, bool)},
+	{"updateState", "(Ljava/security/cert/X509Certificate;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(State, updateState, void, $X509Certificate*), "java.security.cert.CertificateException,java.io.IOException,java.security.cert.CertPathValidatorException"},
 	{}
 };
 

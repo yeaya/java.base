@@ -30,11 +30,11 @@ $FieldInfo _SdpSupport_FieldInfo_[] = {
 };
 
 $MethodInfo _SdpSupport_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(SdpSupport::*)()>(&SdpSupport::init$))},
-	{"convert0", "(I)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $method(static_cast<void(*)(int32_t)>(&SdpSupport::convert0)), "java.io.IOException"},
-	{"convertSocket", "(Ljava/io/FileDescriptor;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($FileDescriptor*)>(&SdpSupport::convertSocket)), "java.io.IOException"},
-	{"create0", "()I", nullptr, $PRIVATE | $STATIC | $NATIVE, $method(static_cast<int32_t(*)()>(&SdpSupport::create0)), "java.io.IOException"},
-	{"createSocket", "()Ljava/io/FileDescriptor;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$FileDescriptor*(*)()>(&SdpSupport::createSocket)), "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(SdpSupport, init$, void)},
+	{"convert0", "(I)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(SdpSupport, convert0, void, int32_t), "java.io.IOException"},
+	{"convertSocket", "(Ljava/io/FileDescriptor;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SdpSupport, convertSocket, void, $FileDescriptor*), "java.io.IOException"},
+	{"create0", "()I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(SdpSupport, create0, int32_t), "java.io.IOException"},
+	{"createSocket", "()Ljava/io/FileDescriptor;", nullptr, $PUBLIC | $STATIC, $staticMethod(SdpSupport, createSocket, $FileDescriptor*), "java.io.IOException"},
 	{}
 };
 

@@ -50,20 +50,20 @@ $FieldInfo _SerializedLambda_FieldInfo_[] = {
 };
 
 $MethodInfo _SerializedLambda_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V", "(Ljava/lang/Class<*>;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V", $PUBLIC, $method(static_cast<void(SerializedLambda::*)($Class*,$String*,$String*,$String*,int32_t,$String*,$String*,$String*,$String*,$ObjectArray*)>(&SerializedLambda::init$))},
-	{"getCapturedArg", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $method(static_cast<$Object*(SerializedLambda::*)(int32_t)>(&SerializedLambda::getCapturedArg))},
-	{"getCapturedArgCount", "()I", nullptr, $PUBLIC, $method(static_cast<int32_t(SerializedLambda::*)()>(&SerializedLambda::getCapturedArgCount))},
-	{"getCapturingClass", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(static_cast<$String*(SerializedLambda::*)()>(&SerializedLambda::getCapturingClass))},
-	{"getFunctionalInterfaceClass", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(static_cast<$String*(SerializedLambda::*)()>(&SerializedLambda::getFunctionalInterfaceClass))},
-	{"getFunctionalInterfaceMethodName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(static_cast<$String*(SerializedLambda::*)()>(&SerializedLambda::getFunctionalInterfaceMethodName))},
-	{"getFunctionalInterfaceMethodSignature", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(static_cast<$String*(SerializedLambda::*)()>(&SerializedLambda::getFunctionalInterfaceMethodSignature))},
-	{"getImplClass", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(static_cast<$String*(SerializedLambda::*)()>(&SerializedLambda::getImplClass))},
-	{"getImplMethodKind", "()I", nullptr, $PUBLIC, $method(static_cast<int32_t(SerializedLambda::*)()>(&SerializedLambda::getImplMethodKind))},
-	{"getImplMethodName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(static_cast<$String*(SerializedLambda::*)()>(&SerializedLambda::getImplMethodName))},
-	{"getImplMethodSignature", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(static_cast<$String*(SerializedLambda::*)()>(&SerializedLambda::getImplMethodSignature))},
-	{"getInstantiatedMethodType", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$String*(SerializedLambda::*)()>(&SerializedLambda::getInstantiatedMethodType))},
-	{"readResolve", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(static_cast<$Object*(SerializedLambda::*)()>(&SerializedLambda::readResolve)), "java.io.ObjectStreamException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V", "(Ljava/lang/Class<*>;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V", $PUBLIC, $method(SerializedLambda, init$, void, $Class*, $String*, $String*, $String*, int32_t, $String*, $String*, $String*, $String*, $ObjectArray*)},
+	{"getCapturedArg", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $method(SerializedLambda, getCapturedArg, $Object*, int32_t)},
+	{"getCapturedArgCount", "()I", nullptr, $PUBLIC, $method(SerializedLambda, getCapturedArgCount, int32_t)},
+	{"getCapturingClass", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(SerializedLambda, getCapturingClass, $String*)},
+	{"getFunctionalInterfaceClass", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(SerializedLambda, getFunctionalInterfaceClass, $String*)},
+	{"getFunctionalInterfaceMethodName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(SerializedLambda, getFunctionalInterfaceMethodName, $String*)},
+	{"getFunctionalInterfaceMethodSignature", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(SerializedLambda, getFunctionalInterfaceMethodSignature, $String*)},
+	{"getImplClass", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(SerializedLambda, getImplClass, $String*)},
+	{"getImplMethodKind", "()I", nullptr, $PUBLIC, $method(SerializedLambda, getImplMethodKind, int32_t)},
+	{"getImplMethodName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(SerializedLambda, getImplMethodName, $String*)},
+	{"getImplMethodSignature", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(SerializedLambda, getImplMethodSignature, $String*)},
+	{"getInstantiatedMethodType", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(SerializedLambda, getInstantiatedMethodType, $String*)},
+	{"readResolve", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(SerializedLambda, readResolve, $Object*), "java.io.ObjectStreamException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SerializedLambda, toString, $String*)},
 	{}
 };
 

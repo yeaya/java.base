@@ -23,9 +23,9 @@ using $ByteBuffer = ::java::nio::ByteBuffer;
 using $DatagramChannel = ::java::nio::channels::DatagramChannel;
 
 $MethodInfo _ThereCanBeOnlyOne_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ThereCanBeOnlyOne::*)()>(&ThereCanBeOnlyOne::init$))},
-	{"doTest", "(Ljava/net/InetAddress;Z)V", nullptr, $STATIC, $method(static_cast<void(*)($InetAddress*,bool)>(&ThereCanBeOnlyOne::doTest)), "java.lang.Exception"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&ThereCanBeOnlyOne::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ThereCanBeOnlyOne, init$, void)},
+	{"doTest", "(Ljava/net/InetAddress;Z)V", nullptr, $STATIC, $staticMethod(ThereCanBeOnlyOne, doTest, void, $InetAddress*, bool), "java.lang.Exception"},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ThereCanBeOnlyOne, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

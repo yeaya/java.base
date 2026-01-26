@@ -30,8 +30,8 @@ using $ByteBuffer = ::java::nio::ByteBuffer;
 using $SocketChannel = ::java::nio::channels::SocketChannel;
 
 $MethodInfo _SendUrgentData_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SendUrgentData::*)()>(&SendUrgentData::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&SendUrgentData::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SendUrgentData, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SendUrgentData, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

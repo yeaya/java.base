@@ -30,8 +30,8 @@ $FieldInfo _Pattern$BnMS_FieldInfo_[] = {
 };
 
 $MethodInfo _Pattern$BnMS_MethodInfo_[] = {
-	{"<init>", "([I[I[ILjava/util/regex/Pattern$Node;)V", nullptr, 0, $method(static_cast<void(Pattern$BnMS::*)($ints*,$ints*,$ints*,$Pattern$Node*)>(&Pattern$BnMS::init$))},
-	{"match", "(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z", nullptr, 0},
+	{"<init>", "([I[I[ILjava/util/regex/Pattern$Node;)V", nullptr, 0, $method(Pattern$BnMS, init$, void, $ints*, $ints*, $ints*, $Pattern$Node*)},
+	{"match", "(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z", nullptr, 0, $virtualMethod(Pattern$BnMS, match, bool, $Matcher*, int32_t, $CharSequence*)},
 	{}
 };
 

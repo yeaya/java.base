@@ -18,9 +18,14 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimePermission = ::java::lang::RuntimePermission;
 using $SecurityManager = ::java::lang::SecurityManager;
 using $Void = ::java::lang::Void;
+using $AsynchronousChannelGroup = ::java::nio::channels::AsynchronousChannelGroup;
+using $AsynchronousServerSocketChannel = ::java::nio::channels::AsynchronousServerSocketChannel;
+using $AsynchronousSocketChannel = ::java::nio::channels::AsynchronousSocketChannel;
 using $AsynchronousChannelProvider$ProviderHolder = ::java::nio::channels::spi::AsynchronousChannelProvider$ProviderHolder;
 using $BasicPermission = ::java::security::BasicPermission;
 using $Permission = ::java::security::Permission;
+using $ExecutorService = ::java::util::concurrent::ExecutorService;
+using $ThreadFactory = ::java::util::concurrent::ThreadFactory;
 
 namespace java {
 	namespace nio {
@@ -28,14 +33,14 @@ namespace java {
 			namespace spi {
 
 $MethodInfo _AsynchronousChannelProvider_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Void;)V", nullptr, $PRIVATE, $method(static_cast<void(AsynchronousChannelProvider::*)($Void*)>(&AsynchronousChannelProvider::init$))},
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(AsynchronousChannelProvider::*)()>(&AsynchronousChannelProvider::init$))},
-	{"checkPermission", "()Ljava/lang/Void;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$Void*(*)()>(&AsynchronousChannelProvider::checkPermission))},
-	{"openAsynchronousChannelGroup", "(ILjava/util/concurrent/ThreadFactory;)Ljava/nio/channels/AsynchronousChannelGroup;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"openAsynchronousChannelGroup", "(Ljava/util/concurrent/ExecutorService;I)Ljava/nio/channels/AsynchronousChannelGroup;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"openAsynchronousServerSocketChannel", "(Ljava/nio/channels/AsynchronousChannelGroup;)Ljava/nio/channels/AsynchronousServerSocketChannel;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"openAsynchronousSocketChannel", "(Ljava/nio/channels/AsynchronousChannelGroup;)Ljava/nio/channels/AsynchronousSocketChannel;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"provider", "()Ljava/nio/channels/spi/AsynchronousChannelProvider;", nullptr, $PUBLIC | $STATIC, $method(static_cast<AsynchronousChannelProvider*(*)()>(&AsynchronousChannelProvider::provider))},
+	{"<init>", "(Ljava/lang/Void;)V", nullptr, $PRIVATE, $method(AsynchronousChannelProvider, init$, void, $Void*)},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(AsynchronousChannelProvider, init$, void)},
+	{"checkPermission", "()Ljava/lang/Void;", nullptr, $PRIVATE | $STATIC, $staticMethod(AsynchronousChannelProvider, checkPermission, $Void*)},
+	{"openAsynchronousChannelGroup", "(ILjava/util/concurrent/ThreadFactory;)Ljava/nio/channels/AsynchronousChannelGroup;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AsynchronousChannelProvider, openAsynchronousChannelGroup, $AsynchronousChannelGroup*, int32_t, $ThreadFactory*), "java.io.IOException"},
+	{"openAsynchronousChannelGroup", "(Ljava/util/concurrent/ExecutorService;I)Ljava/nio/channels/AsynchronousChannelGroup;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AsynchronousChannelProvider, openAsynchronousChannelGroup, $AsynchronousChannelGroup*, $ExecutorService*, int32_t), "java.io.IOException"},
+	{"openAsynchronousServerSocketChannel", "(Ljava/nio/channels/AsynchronousChannelGroup;)Ljava/nio/channels/AsynchronousServerSocketChannel;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AsynchronousChannelProvider, openAsynchronousServerSocketChannel, $AsynchronousServerSocketChannel*, $AsynchronousChannelGroup*), "java.io.IOException"},
+	{"openAsynchronousSocketChannel", "(Ljava/nio/channels/AsynchronousChannelGroup;)Ljava/nio/channels/AsynchronousSocketChannel;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AsynchronousChannelProvider, openAsynchronousSocketChannel, $AsynchronousSocketChannel*, $AsynchronousChannelGroup*), "java.io.IOException"},
+	{"provider", "()Ljava/nio/channels/spi/AsynchronousChannelProvider;", nullptr, $PUBLIC | $STATIC, $staticMethod(AsynchronousChannelProvider, provider, AsynchronousChannelProvider*)},
 	{}
 };
 

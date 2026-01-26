@@ -43,16 +43,16 @@ $FieldInfo _SimpleMethodHandle_FieldInfo_[] = {
 };
 
 $MethodInfo _SimpleMethodHandle_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/invoke/MethodType;Ljava/lang/invoke/LambdaForm;)V", nullptr, $PRIVATE, $method(static_cast<void(SimpleMethodHandle::*)($MethodType*,$LambdaForm*)>(&SimpleMethodHandle::init$))},
-	{"copyWith", "(Ljava/lang/invoke/MethodType;Ljava/lang/invoke/LambdaForm;)Ljava/lang/invoke/BoundMethodHandle;", nullptr, 0},
-	{"copyWithExtendD", "(Ljava/lang/invoke/MethodType;Ljava/lang/invoke/LambdaForm;D)Ljava/lang/invoke/BoundMethodHandle;", nullptr, $FINAL},
-	{"copyWithExtendF", "(Ljava/lang/invoke/MethodType;Ljava/lang/invoke/LambdaForm;F)Ljava/lang/invoke/BoundMethodHandle;", nullptr, $FINAL},
-	{"copyWithExtendI", "(Ljava/lang/invoke/MethodType;Ljava/lang/invoke/LambdaForm;I)Ljava/lang/invoke/BoundMethodHandle;", nullptr, $FINAL},
-	{"copyWithExtendJ", "(Ljava/lang/invoke/MethodType;Ljava/lang/invoke/LambdaForm;J)Ljava/lang/invoke/BoundMethodHandle;", nullptr, $FINAL},
-	{"copyWithExtendL", "(Ljava/lang/invoke/MethodType;Ljava/lang/invoke/LambdaForm;Ljava/lang/Object;)Ljava/lang/invoke/BoundMethodHandle;", nullptr, $FINAL},
-	{"internalProperties", "()Ljava/lang/String;", nullptr, 0},
-	{"make", "(Ljava/lang/invoke/MethodType;Ljava/lang/invoke/LambdaForm;)Ljava/lang/invoke/BoundMethodHandle;", nullptr, $STATIC, $method(static_cast<$BoundMethodHandle*(*)($MethodType*,$LambdaForm*)>(&SimpleMethodHandle::make))},
-	{"speciesData", "()Ljava/lang/invoke/BoundMethodHandle$SpeciesData;", nullptr, 0},
+	{"<init>", "(Ljava/lang/invoke/MethodType;Ljava/lang/invoke/LambdaForm;)V", nullptr, $PRIVATE, $method(SimpleMethodHandle, init$, void, $MethodType*, $LambdaForm*)},
+	{"copyWith", "(Ljava/lang/invoke/MethodType;Ljava/lang/invoke/LambdaForm;)Ljava/lang/invoke/BoundMethodHandle;", nullptr, 0, $virtualMethod(SimpleMethodHandle, copyWith, $BoundMethodHandle*, $MethodType*, $LambdaForm*)},
+	{"copyWithExtendD", "(Ljava/lang/invoke/MethodType;Ljava/lang/invoke/LambdaForm;D)Ljava/lang/invoke/BoundMethodHandle;", nullptr, $FINAL, $virtualMethod(SimpleMethodHandle, copyWithExtendD, $BoundMethodHandle*, $MethodType*, $LambdaForm*, double)},
+	{"copyWithExtendF", "(Ljava/lang/invoke/MethodType;Ljava/lang/invoke/LambdaForm;F)Ljava/lang/invoke/BoundMethodHandle;", nullptr, $FINAL, $virtualMethod(SimpleMethodHandle, copyWithExtendF, $BoundMethodHandle*, $MethodType*, $LambdaForm*, float)},
+	{"copyWithExtendI", "(Ljava/lang/invoke/MethodType;Ljava/lang/invoke/LambdaForm;I)Ljava/lang/invoke/BoundMethodHandle;", nullptr, $FINAL, $virtualMethod(SimpleMethodHandle, copyWithExtendI, $BoundMethodHandle*, $MethodType*, $LambdaForm*, int32_t)},
+	{"copyWithExtendJ", "(Ljava/lang/invoke/MethodType;Ljava/lang/invoke/LambdaForm;J)Ljava/lang/invoke/BoundMethodHandle;", nullptr, $FINAL, $virtualMethod(SimpleMethodHandle, copyWithExtendJ, $BoundMethodHandle*, $MethodType*, $LambdaForm*, int64_t)},
+	{"copyWithExtendL", "(Ljava/lang/invoke/MethodType;Ljava/lang/invoke/LambdaForm;Ljava/lang/Object;)Ljava/lang/invoke/BoundMethodHandle;", nullptr, $FINAL, $virtualMethod(SimpleMethodHandle, copyWithExtendL, $BoundMethodHandle*, $MethodType*, $LambdaForm*, Object$*)},
+	{"internalProperties", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(SimpleMethodHandle, internalProperties, $Object*)},
+	{"make", "(Ljava/lang/invoke/MethodType;Ljava/lang/invoke/LambdaForm;)Ljava/lang/invoke/BoundMethodHandle;", nullptr, $STATIC, $staticMethod(SimpleMethodHandle, make, $BoundMethodHandle*, $MethodType*, $LambdaForm*)},
+	{"speciesData", "()Ljava/lang/invoke/BoundMethodHandle$SpeciesData;", nullptr, 0, $virtualMethod(SimpleMethodHandle, speciesData, $BoundMethodHandle$SpeciesData*)},
 	{}
 };
 

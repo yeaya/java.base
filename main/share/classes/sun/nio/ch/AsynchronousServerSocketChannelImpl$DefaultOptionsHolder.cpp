@@ -40,8 +40,8 @@ $FieldInfo _AsynchronousServerSocketChannelImpl$DefaultOptionsHolder_FieldInfo_[
 };
 
 $MethodInfo _AsynchronousServerSocketChannelImpl$DefaultOptionsHolder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(AsynchronousServerSocketChannelImpl$DefaultOptionsHolder::*)()>(&AsynchronousServerSocketChannelImpl$DefaultOptionsHolder::init$))},
-	{"defaultOptions", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/net/SocketOption<*>;>;", $PRIVATE | $STATIC, $method(static_cast<$Set*(*)()>(&AsynchronousServerSocketChannelImpl$DefaultOptionsHolder::defaultOptions))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(AsynchronousServerSocketChannelImpl$DefaultOptionsHolder, init$, void)},
+	{"defaultOptions", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/net/SocketOption<*>;>;", $PRIVATE | $STATIC, $staticMethod(AsynchronousServerSocketChannelImpl$DefaultOptionsHolder, defaultOptions, $Set*)},
 	{}
 };
 

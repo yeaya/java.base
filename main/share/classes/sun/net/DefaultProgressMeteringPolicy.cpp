@@ -11,9 +11,9 @@ namespace sun {
 	namespace net {
 
 $MethodInfo _DefaultProgressMeteringPolicy_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(DefaultProgressMeteringPolicy::*)()>(&DefaultProgressMeteringPolicy::init$))},
-	{"getProgressUpdateThreshold", "()I", nullptr, $PUBLIC},
-	{"shouldMeterInput", "(Ljava/net/URL;Ljava/lang/String;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(DefaultProgressMeteringPolicy, init$, void)},
+	{"getProgressUpdateThreshold", "()I", nullptr, $PUBLIC, $virtualMethod(DefaultProgressMeteringPolicy, getProgressUpdateThreshold, int32_t)},
+	{"shouldMeterInput", "(Ljava/net/URL;Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(DefaultProgressMeteringPolicy, shouldMeterInput, bool, $URL*, $String*)},
 	{}
 };
 

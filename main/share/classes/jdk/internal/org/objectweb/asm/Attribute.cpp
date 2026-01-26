@@ -41,19 +41,19 @@ $FieldInfo _Attribute_FieldInfo_[] = {
 };
 
 $MethodInfo _Attribute_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $method(static_cast<void(Attribute::*)($String*)>(&Attribute::init$))},
-	{"computeAttributesSize", "(Ljdk/internal/org/objectweb/asm/SymbolTable;)I", nullptr, $FINAL, $method(static_cast<int32_t(Attribute::*)($SymbolTable*)>(&Attribute::computeAttributesSize))},
-	{"computeAttributesSize", "(Ljdk/internal/org/objectweb/asm/SymbolTable;[BIII)I", nullptr, $FINAL, $method(static_cast<int32_t(Attribute::*)($SymbolTable*,$bytes*,int32_t,int32_t,int32_t)>(&Attribute::computeAttributesSize))},
-	{"computeAttributesSize", "(Ljdk/internal/org/objectweb/asm/SymbolTable;II)I", nullptr, $STATIC, $method(static_cast<int32_t(*)($SymbolTable*,int32_t,int32_t)>(&Attribute::computeAttributesSize))},
-	{"getAttributeCount", "()I", nullptr, $FINAL, $method(static_cast<int32_t(Attribute::*)()>(&Attribute::getAttributeCount))},
-	{"getLabels", "()[Ljdk/internal/org/objectweb/asm/Label;", nullptr, $PROTECTED},
-	{"isCodeAttribute", "()Z", nullptr, $PUBLIC},
-	{"isUnknown", "()Z", nullptr, $PUBLIC},
-	{"putAttributes", "(Ljdk/internal/org/objectweb/asm/SymbolTable;Ljdk/internal/org/objectweb/asm/ByteVector;)V", nullptr, $FINAL, $method(static_cast<void(Attribute::*)($SymbolTable*,$ByteVector*)>(&Attribute::putAttributes))},
-	{"putAttributes", "(Ljdk/internal/org/objectweb/asm/SymbolTable;[BIIILjdk/internal/org/objectweb/asm/ByteVector;)V", nullptr, $FINAL, $method(static_cast<void(Attribute::*)($SymbolTable*,$bytes*,int32_t,int32_t,int32_t,$ByteVector*)>(&Attribute::putAttributes))},
-	{"putAttributes", "(Ljdk/internal/org/objectweb/asm/SymbolTable;IILjdk/internal/org/objectweb/asm/ByteVector;)V", nullptr, $STATIC, $method(static_cast<void(*)($SymbolTable*,int32_t,int32_t,$ByteVector*)>(&Attribute::putAttributes))},
-	{"read", "(Ljdk/internal/org/objectweb/asm/ClassReader;II[CI[Ljdk/internal/org/objectweb/asm/Label;)Ljdk/internal/org/objectweb/asm/Attribute;", nullptr, $PROTECTED},
-	{"write", "(Ljdk/internal/org/objectweb/asm/ClassWriter;[BIII)Ljdk/internal/org/objectweb/asm/ByteVector;", nullptr, $PROTECTED},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $method(Attribute, init$, void, $String*)},
+	{"computeAttributesSize", "(Ljdk/internal/org/objectweb/asm/SymbolTable;)I", nullptr, $FINAL, $method(Attribute, computeAttributesSize, int32_t, $SymbolTable*)},
+	{"computeAttributesSize", "(Ljdk/internal/org/objectweb/asm/SymbolTable;[BIII)I", nullptr, $FINAL, $method(Attribute, computeAttributesSize, int32_t, $SymbolTable*, $bytes*, int32_t, int32_t, int32_t)},
+	{"computeAttributesSize", "(Ljdk/internal/org/objectweb/asm/SymbolTable;II)I", nullptr, $STATIC, $staticMethod(Attribute, computeAttributesSize, int32_t, $SymbolTable*, int32_t, int32_t)},
+	{"getAttributeCount", "()I", nullptr, $FINAL, $method(Attribute, getAttributeCount, int32_t)},
+	{"getLabels", "()[Ljdk/internal/org/objectweb/asm/Label;", nullptr, $PROTECTED, $virtualMethod(Attribute, getLabels, $LabelArray*)},
+	{"isCodeAttribute", "()Z", nullptr, $PUBLIC, $virtualMethod(Attribute, isCodeAttribute, bool)},
+	{"isUnknown", "()Z", nullptr, $PUBLIC, $virtualMethod(Attribute, isUnknown, bool)},
+	{"putAttributes", "(Ljdk/internal/org/objectweb/asm/SymbolTable;Ljdk/internal/org/objectweb/asm/ByteVector;)V", nullptr, $FINAL, $method(Attribute, putAttributes, void, $SymbolTable*, $ByteVector*)},
+	{"putAttributes", "(Ljdk/internal/org/objectweb/asm/SymbolTable;[BIIILjdk/internal/org/objectweb/asm/ByteVector;)V", nullptr, $FINAL, $method(Attribute, putAttributes, void, $SymbolTable*, $bytes*, int32_t, int32_t, int32_t, $ByteVector*)},
+	{"putAttributes", "(Ljdk/internal/org/objectweb/asm/SymbolTable;IILjdk/internal/org/objectweb/asm/ByteVector;)V", nullptr, $STATIC, $staticMethod(Attribute, putAttributes, void, $SymbolTable*, int32_t, int32_t, $ByteVector*)},
+	{"read", "(Ljdk/internal/org/objectweb/asm/ClassReader;II[CI[Ljdk/internal/org/objectweb/asm/Label;)Ljdk/internal/org/objectweb/asm/Attribute;", nullptr, $PROTECTED, $virtualMethod(Attribute, read, Attribute*, $ClassReader*, int32_t, int32_t, $chars*, int32_t, $LabelArray*)},
+	{"write", "(Ljdk/internal/org/objectweb/asm/ClassWriter;[BIII)Ljdk/internal/org/objectweb/asm/ByteVector;", nullptr, $PROTECTED, $virtualMethod(Attribute, write, $ByteVector*, $ClassWriter*, $bytes*, int32_t, int32_t, int32_t)},
 	{}
 };
 

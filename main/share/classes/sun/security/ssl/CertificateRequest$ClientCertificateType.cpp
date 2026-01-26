@@ -66,8 +66,8 @@ $FieldInfo CertificateRequest$ClientCertificateType$$Lambda$lambda$getKeyTypes$0
 	{}
 };
 $MethodInfo CertificateRequest$ClientCertificateType$$Lambda$lambda$getKeyTypes$0::methodInfos[3] = {
-	{"<init>", "(Ljava/util/ArrayList;)V", nullptr, $PUBLIC, $method(static_cast<void(CertificateRequest$ClientCertificateType$$Lambda$lambda$getKeyTypes$0::*)($ArrayList*)>(&CertificateRequest$ClientCertificateType$$Lambda$lambda$getKeyTypes$0::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/ArrayList;)V", nullptr, $PUBLIC, $method(CertificateRequest$ClientCertificateType$$Lambda$lambda$getKeyTypes$0, init$, void, $ArrayList*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(CertificateRequest$ClientCertificateType$$Lambda$lambda$getKeyTypes$0, accept, void, Object$*)},
 	{}
 };
 $ClassInfo CertificateRequest$ClientCertificateType$$Lambda$lambda$getKeyTypes$0::classInfo$ = {
@@ -105,15 +105,15 @@ $FieldInfo _CertificateRequest$ClientCertificateType_FieldInfo_[] = {
 };
 
 $MethodInfo _CertificateRequest$ClientCertificateType_MethodInfo_[] = {
-	{"$values", "()[Lsun/security/ssl/CertificateRequest$ClientCertificateType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$CertificateRequest$ClientCertificateTypeArray*(*)()>(&CertificateRequest$ClientCertificateType::$values))},
-	{"<init>", "(Ljava/lang/String;IBLjava/lang/String;)V", "(BLjava/lang/String;)V", $PRIVATE, $method(static_cast<void(CertificateRequest$ClientCertificateType::*)($String*,int32_t,int8_t,$String*)>(&CertificateRequest$ClientCertificateType::init$))},
-	{"<init>", "(Ljava/lang/String;IBLjava/lang/String;Ljava/util/List;Z)V", "(BLjava/lang/String;Ljava/util/List<Ljava/lang/String;>;Z)V", $PRIVATE, $method(static_cast<void(CertificateRequest$ClientCertificateType::*)($String*,int32_t,int8_t,$String*,$List*,bool)>(&CertificateRequest$ClientCertificateType::init$))},
-	{"getKeyTypes", "([B)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$StringArray*(*)($bytes*)>(&CertificateRequest$ClientCertificateType::getKeyTypes))},
-	{"lambda$getKeyTypes$0", "(Ljava/util/ArrayList;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($ArrayList*,$String*)>(&CertificateRequest$ClientCertificateType::lambda$getKeyTypes$0))},
-	{"nameOf", "(B)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)(int8_t)>(&CertificateRequest$ClientCertificateType::nameOf))},
-	{"valueOf", "(Ljava/lang/String;)Lsun/security/ssl/CertificateRequest$ClientCertificateType;", nullptr, $PUBLIC | $STATIC, $method(static_cast<CertificateRequest$ClientCertificateType*(*)($String*)>(&CertificateRequest$ClientCertificateType::valueOf))},
-	{"valueOf", "(B)Lsun/security/ssl/CertificateRequest$ClientCertificateType;", nullptr, $PRIVATE | $STATIC, $method(static_cast<CertificateRequest$ClientCertificateType*(*)(int8_t)>(&CertificateRequest$ClientCertificateType::valueOf))},
-	{"values", "()[Lsun/security/ssl/CertificateRequest$ClientCertificateType;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$CertificateRequest$ClientCertificateTypeArray*(*)()>(&CertificateRequest$ClientCertificateType::values))},
+	{"$values", "()[Lsun/security/ssl/CertificateRequest$ClientCertificateType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CertificateRequest$ClientCertificateType, $values, $CertificateRequest$ClientCertificateTypeArray*)},
+	{"<init>", "(Ljava/lang/String;IBLjava/lang/String;)V", "(BLjava/lang/String;)V", $PRIVATE, $method(CertificateRequest$ClientCertificateType, init$, void, $String*, int32_t, int8_t, $String*)},
+	{"<init>", "(Ljava/lang/String;IBLjava/lang/String;Ljava/util/List;Z)V", "(BLjava/lang/String;Ljava/util/List<Ljava/lang/String;>;Z)V", $PRIVATE, $method(CertificateRequest$ClientCertificateType, init$, void, $String*, int32_t, int8_t, $String*, $List*, bool)},
+	{"getKeyTypes", "([B)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(CertificateRequest$ClientCertificateType, getKeyTypes, $StringArray*, $bytes*)},
+	{"lambda$getKeyTypes$0", "(Ljava/util/ArrayList;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CertificateRequest$ClientCertificateType, lambda$getKeyTypes$0, void, $ArrayList*, $String*)},
+	{"nameOf", "(B)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(CertificateRequest$ClientCertificateType, nameOf, $String*, int8_t)},
+	{"valueOf", "(Ljava/lang/String;)Lsun/security/ssl/CertificateRequest$ClientCertificateType;", nullptr, $PUBLIC | $STATIC, $staticMethod(CertificateRequest$ClientCertificateType, valueOf, CertificateRequest$ClientCertificateType*, $String*)},
+	{"valueOf", "(B)Lsun/security/ssl/CertificateRequest$ClientCertificateType;", nullptr, $PRIVATE | $STATIC, $staticMethod(CertificateRequest$ClientCertificateType, valueOf, CertificateRequest$ClientCertificateType*, int8_t)},
+	{"values", "()[Lsun/security/ssl/CertificateRequest$ClientCertificateType;", nullptr, $PUBLIC | $STATIC, $staticMethod(CertificateRequest$ClientCertificateType, values, $CertificateRequest$ClientCertificateTypeArray*)},
 	{}
 };
 

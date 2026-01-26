@@ -12,7 +12,7 @@ namespace sun {
 		namespace resources {
 
 $MethodInfo _LocaleNamesBundle_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(LocaleNamesBundle::*)()>(&LocaleNamesBundle::init$))},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(LocaleNamesBundle, init$, void)},
 	{}
 };
 

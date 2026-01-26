@@ -162,8 +162,8 @@ $FieldInfo Loader$$Lambda$lambda$new$0::fieldInfos[3] = {
 	{}
 };
 $MethodInfo Loader$$Lambda$lambda$new$0::methodInfos[3] = {
-	{"<init>", "(Ljava/util/Map;Ljdk/internal/loader/Loader$LoadedModule;)V", nullptr, $PUBLIC, $method(static_cast<void(Loader$$Lambda$lambda$new$0::*)($Map*,$Loader$LoadedModule*)>(&Loader$$Lambda$lambda$new$0::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/Map;Ljdk/internal/loader/Loader$LoadedModule;)V", nullptr, $PUBLIC, $method(Loader$$Lambda$lambda$new$0, init$, void, $Map*, $Loader$LoadedModule*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Loader$$Lambda$lambda$new$0, accept, void, Object$*)},
 	{}
 };
 $ClassInfo Loader$$Lambda$lambda$new$0::classInfo$ = {
@@ -205,8 +205,8 @@ $FieldInfo Loader$$Lambda$lambda$new$1$1::fieldInfos[3] = {
 	{}
 };
 $MethodInfo Loader$$Lambda$lambda$new$1$1::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/module/ModuleReference;Ljava/util/Map;)V", nullptr, $PUBLIC, $method(static_cast<void(Loader$$Lambda$lambda$new$1$1::*)($ModuleReference*,$Map*)>(&Loader$$Lambda$lambda$new$1$1::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/module/ModuleReference;Ljava/util/Map;)V", nullptr, $PUBLIC, $method(Loader$$Lambda$lambda$new$1$1, init$, void, $ModuleReference*, $Map*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Loader$$Lambda$lambda$new$1$1, accept, void, Object$*)},
 	{}
 };
 $ClassInfo Loader$$Lambda$lambda$new$1$1::classInfo$ = {
@@ -248,8 +248,8 @@ $FieldInfo Loader$$Lambda$lambda$initRemotePackageMap$2$2::fieldInfos[3] = {
 	{}
 };
 $MethodInfo Loader$$Lambda$lambda$initRemotePackageMap$2$2::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/loader/Loader;Ljava/lang/module/ResolvedModule;)V", nullptr, $PUBLIC, $method(static_cast<void(Loader$$Lambda$lambda$initRemotePackageMap$2$2::*)(Loader*,$ResolvedModule*)>(&Loader$$Lambda$lambda$initRemotePackageMap$2$2::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/loader/Loader;Ljava/lang/module/ResolvedModule;)V", nullptr, $PUBLIC, $method(Loader$$Lambda$lambda$initRemotePackageMap$2$2, init$, void, Loader*, $ResolvedModule*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Loader$$Lambda$lambda$initRemotePackageMap$2$2, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Loader$$Lambda$lambda$initRemotePackageMap$2$2::classInfo$ = {
@@ -281,8 +281,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Loader$$Lambda$stream$3::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Loader$$Lambda$stream$3::*)()>(&Loader$$Lambda$stream$3::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Loader$$Lambda$stream$3, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Loader$$Lambda$stream$3, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Loader$$Lambda$stream$3::classInfo$ = {
@@ -314,8 +314,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Loader$$Lambda$lambda$initRemotePackageMap$3$4::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Loader$$Lambda$lambda$initRemotePackageMap$3$4::*)()>(&Loader$$Lambda$lambda$initRemotePackageMap$3$4::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Loader$$Lambda$lambda$initRemotePackageMap$3$4, init$, void)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Loader$$Lambda$lambda$initRemotePackageMap$3$4, get, $Object*)},
 	{}
 };
 $ClassInfo Loader$$Lambda$lambda$initRemotePackageMap$3$4::classInfo$ = {
@@ -357,8 +357,8 @@ $FieldInfo Loader$$Lambda$lambda$initRemotePackageMap$4$5::fieldInfos[3] = {
 	{}
 };
 $MethodInfo Loader$$Lambda$lambda$initRemotePackageMap$4$5::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/loader/Loader;Ljava/lang/ClassLoader;)V", nullptr, $PUBLIC, $method(static_cast<void(Loader$$Lambda$lambda$initRemotePackageMap$4$5::*)(Loader*,$ClassLoader*)>(&Loader$$Lambda$lambda$initRemotePackageMap$4$5::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/loader/Loader;Ljava/lang/ClassLoader;)V", nullptr, $PUBLIC, $method(Loader$$Lambda$lambda$initRemotePackageMap$4$5, init$, void, Loader*, $ClassLoader*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Loader$$Lambda$lambda$initRemotePackageMap$4$5, accept, void, Object$*)},
 	{}
 };
 $ClassInfo Loader$$Lambda$lambda$initRemotePackageMap$4$5::classInfo$ = {
@@ -397,8 +397,8 @@ $FieldInfo Loader$$Lambda$lambda$findModuleLayer$5$6::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Loader$$Lambda$lambda$findModuleLayer$5$6::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/module/Configuration;)V", nullptr, $PUBLIC, $method(static_cast<void(Loader$$Lambda$lambda$findModuleLayer$5$6::*)($Configuration*)>(&Loader$$Lambda$lambda$findModuleLayer$5$6::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/module/Configuration;)V", nullptr, $PUBLIC, $method(Loader$$Lambda$lambda$findModuleLayer$5$6, init$, void, $Configuration*)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Loader$$Lambda$lambda$findModuleLayer$5$6, test, bool, Object$*)},
 	{}
 };
 $ClassInfo Loader$$Lambda$lambda$findModuleLayer$5$6::classInfo$ = {
@@ -443,8 +443,8 @@ $FieldInfo Loader$$Lambda$lambda$findClassInModuleOrNull$6$7::fieldInfos[4] = {
 	{}
 };
 $MethodInfo Loader$$Lambda$lambda$findClassInModuleOrNull$6$7::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/loader/Loader;Ljava/lang/String;Ljdk/internal/loader/Loader$LoadedModule;)V", nullptr, $PUBLIC, $method(static_cast<void(Loader$$Lambda$lambda$findClassInModuleOrNull$6$7::*)(Loader*,$String*,$Loader$LoadedModule*)>(&Loader$$Lambda$lambda$findClassInModuleOrNull$6$7::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/loader/Loader;Ljava/lang/String;Ljdk/internal/loader/Loader$LoadedModule;)V", nullptr, $PUBLIC, $method(Loader$$Lambda$lambda$findClassInModuleOrNull$6$7, init$, void, Loader*, $String*, $Loader$LoadedModule*)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Loader$$Lambda$lambda$findClassInModuleOrNull$6$7, run, $Object*)},
 	{}
 };
 $ClassInfo Loader$$Lambda$lambda$findClassInModuleOrNull$6$7::classInfo$ = {
@@ -486,8 +486,8 @@ $FieldInfo Loader$$Lambda$lambda$moduleReaderFor$7$8::fieldInfos[3] = {
 	{}
 };
 $MethodInfo Loader$$Lambda$lambda$moduleReaderFor$7$8::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/loader/Loader;Ljava/lang/module/ModuleReference;)V", nullptr, $PUBLIC, $method(static_cast<void(Loader$$Lambda$lambda$moduleReaderFor$7$8::*)(Loader*,$ModuleReference*)>(&Loader$$Lambda$lambda$moduleReaderFor$7$8::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/loader/Loader;Ljava/lang/module/ModuleReference;)V", nullptr, $PUBLIC, $method(Loader$$Lambda$lambda$moduleReaderFor$7$8, init$, void, Loader*, $ModuleReference*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Loader$$Lambda$lambda$moduleReaderFor$7$8, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Loader$$Lambda$lambda$moduleReaderFor$7$8::classInfo$ = {
@@ -517,37 +517,37 @@ $FieldInfo _Loader_FieldInfo_[] = {
 };
 
 $MethodInfo _Loader_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/module/ResolvedModule;Ljdk/internal/loader/LoaderPool;Ljava/lang/ClassLoader;)V", nullptr, $PUBLIC, $method(static_cast<void(Loader::*)($ResolvedModule*,$LoaderPool*,$ClassLoader*)>(&Loader::init$))},
-	{"<init>", "(Ljava/util/Collection;Ljava/lang/ClassLoader;)V", "(Ljava/util/Collection<Ljava/lang/module/ResolvedModule;>;Ljava/lang/ClassLoader;)V", $PUBLIC, $method(static_cast<void(Loader::*)($Collection*,$ClassLoader*)>(&Loader::init$))},
-	{"createModuleReader", "(Ljava/lang/module/ModuleReference;)Ljava/lang/module/ModuleReader;", nullptr, $PRIVATE, $method(static_cast<$ModuleReader*(Loader::*)($ModuleReference*)>(&Loader::createModuleReader))},
-	{"defineClass", "(Ljava/lang/String;Ljdk/internal/loader/Loader$LoadedModule;)Ljava/lang/Class;", "(Ljava/lang/String;Ljdk/internal/loader/Loader$LoadedModule;)Ljava/lang/Class<*>;", $PRIVATE, $method(static_cast<$Class*(Loader::*)($String*,$Loader$LoadedModule*)>(&Loader::defineClass))},
-	{"findClass", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $PROTECTED, nullptr, "java.lang.ClassNotFoundException"},
-	{"findClass", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/Class<*>;", $PROTECTED},
-	{"findClassInModuleOrNull", "(Ljdk/internal/loader/Loader$LoadedModule;Ljava/lang/String;)Ljava/lang/Class;", "(Ljdk/internal/loader/Loader$LoadedModule;Ljava/lang/String;)Ljava/lang/Class<*>;", $PRIVATE, $method(static_cast<$Class*(Loader::*)($Loader$LoadedModule*,$String*)>(&Loader::findClassInModuleOrNull))},
-	{"findLoadedModule", "(Ljava/lang/String;)Ljdk/internal/loader/Loader$LoadedModule;", nullptr, $PRIVATE, $method(static_cast<$Loader$LoadedModule*(Loader::*)($String*)>(&Loader::findLoadedModule))},
-	{"findModuleLayer", "(Ljava/lang/ModuleLayer;Ljava/lang/module/Configuration;)Ljava/util/Optional;", "(Ljava/lang/ModuleLayer;Ljava/lang/module/Configuration;)Ljava/util/Optional<Ljava/lang/ModuleLayer;>;", $PRIVATE, $method(static_cast<$Optional*(Loader::*)($ModuleLayer*,$Configuration*)>(&Loader::findModuleLayer))},
-	{"findResource", "(Ljava/lang/String;Ljava/lang/String;)Ljava/net/URL;", nullptr, $PROTECTED, nullptr, "java.io.IOException"},
-	{"findResource", "(Ljava/lang/String;)Ljava/net/URL;", nullptr, $PUBLIC},
-	{"findResources", "(Ljava/lang/String;)Ljava/util/Enumeration;", "(Ljava/lang/String;)Ljava/util/Enumeration<Ljava/net/URL;>;", $PUBLIC, nullptr, "java.io.IOException"},
-	{"findResourcesAsList", "(Ljava/lang/String;)Ljava/util/List;", "(Ljava/lang/String;)Ljava/util/List<Ljava/net/URL;>;", $PRIVATE, $method(static_cast<$List*(Loader::*)($String*)>(&Loader::findResourcesAsList)), "java.io.IOException"},
-	{"getPermissions", "(Ljava/security/CodeSource;)Ljava/security/PermissionCollection;", nullptr, $PROTECTED},
-	{"getResource", "(Ljava/lang/String;)Ljava/net/URL;", nullptr, $PUBLIC},
-	{"getResources", "(Ljava/lang/String;)Ljava/util/Enumeration;", "(Ljava/lang/String;)Ljava/util/Enumeration<Ljava/net/URL;>;", $PUBLIC, nullptr, "java.io.IOException"},
-	{"initRemotePackageMap", "(Ljava/lang/module/Configuration;Ljava/util/List;)Ljdk/internal/loader/Loader;", "(Ljava/lang/module/Configuration;Ljava/util/List<Ljava/lang/ModuleLayer;>;)Ljdk/internal/loader/Loader;", $PUBLIC, $method(static_cast<Loader*(Loader::*)($Configuration*,$List*)>(&Loader::initRemotePackageMap))},
-	{"isOpen", "(Ljava/lang/module/ModuleReference;Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(static_cast<bool(Loader::*)($ModuleReference*,$String*)>(&Loader::isOpen))},
-	{"lambda$findClassInModuleOrNull$6", "(Ljava/lang/String;Ljdk/internal/loader/Loader$LoadedModule;)Ljava/lang/Class;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$Class*(Loader::*)($String*,$Loader$LoadedModule*)>(&Loader::lambda$findClassInModuleOrNull$6))},
-	{"lambda$findModuleLayer$5", "(Ljava/lang/module/Configuration;Ljava/lang/ModuleLayer;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($Configuration*,$ModuleLayer*)>(&Loader::lambda$findModuleLayer$5))},
-	{"lambda$initRemotePackageMap$2", "(Ljava/lang/module/ResolvedModule;Ljava/lang/ModuleLayer;)Ljava/util/Optional;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$Optional*(Loader::*)($ResolvedModule*,$ModuleLayer*)>(&Loader::lambda$initRemotePackageMap$2))},
-	{"lambda$initRemotePackageMap$3", "()Ljava/lang/InternalError;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$InternalError*(*)()>(&Loader::lambda$initRemotePackageMap$3))},
-	{"lambda$initRemotePackageMap$4", "(Ljava/lang/ClassLoader;Ljava/lang/String;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(Loader::*)($ClassLoader*,$String*)>(&Loader::lambda$initRemotePackageMap$4))},
-	{"lambda$moduleReaderFor$7", "(Ljava/lang/module/ModuleReference;Ljava/lang/module/ModuleReference;)Ljava/lang/module/ModuleReader;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$ModuleReader*(Loader::*)($ModuleReference*,$ModuleReference*)>(&Loader::lambda$moduleReaderFor$7))},
-	{"lambda$new$0", "(Ljava/util/Map;Ljdk/internal/loader/Loader$LoadedModule;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($Map*,$Loader$LoadedModule*,$String*)>(&Loader::lambda$new$0))},
-	{"lambda$new$1", "(Ljava/lang/module/ModuleReference;Ljava/util/Map;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($ModuleReference*,$Map*,$String*)>(&Loader::lambda$new$1))},
-	{"loadClass", "(Ljava/lang/String;Z)Ljava/lang/Class;", "(Ljava/lang/String;Z)Ljava/lang/Class<*>;", $PROTECTED, nullptr, "java.lang.ClassNotFoundException"},
-	{"moduleReaderFor", "(Ljava/lang/module/ModuleReference;)Ljava/lang/module/ModuleReader;", nullptr, $PRIVATE, $method(static_cast<$ModuleReader*(Loader::*)($ModuleReference*)>(&Loader::moduleReaderFor))},
-	{"packageName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(Loader::*)($String*)>(&Loader::packageName))},
-	{"pool", "()Ljdk/internal/loader/LoaderPool;", nullptr, $PUBLIC, $method(static_cast<$LoaderPool*(Loader::*)()>(&Loader::pool))},
-	{"remotePackage", "(Ljava/lang/String;Ljava/lang/ClassLoader;)V", nullptr, $PRIVATE, $method(static_cast<void(Loader::*)($String*,$ClassLoader*)>(&Loader::remotePackage))},
+	{"<init>", "(Ljava/lang/module/ResolvedModule;Ljdk/internal/loader/LoaderPool;Ljava/lang/ClassLoader;)V", nullptr, $PUBLIC, $method(Loader, init$, void, $ResolvedModule*, $LoaderPool*, $ClassLoader*)},
+	{"<init>", "(Ljava/util/Collection;Ljava/lang/ClassLoader;)V", "(Ljava/util/Collection<Ljava/lang/module/ResolvedModule;>;Ljava/lang/ClassLoader;)V", $PUBLIC, $method(Loader, init$, void, $Collection*, $ClassLoader*)},
+	{"createModuleReader", "(Ljava/lang/module/ModuleReference;)Ljava/lang/module/ModuleReader;", nullptr, $PRIVATE, $method(Loader, createModuleReader, $ModuleReader*, $ModuleReference*)},
+	{"defineClass", "(Ljava/lang/String;Ljdk/internal/loader/Loader$LoadedModule;)Ljava/lang/Class;", "(Ljava/lang/String;Ljdk/internal/loader/Loader$LoadedModule;)Ljava/lang/Class<*>;", $PRIVATE, $method(Loader, defineClass, $Class*, $String*, $Loader$LoadedModule*)},
+	{"findClass", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $PROTECTED, $virtualMethod(Loader, findClass, $Class*, $String*), "java.lang.ClassNotFoundException"},
+	{"findClass", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/Class<*>;", $PROTECTED, $virtualMethod(Loader, findClass, $Class*, $String*, $String*)},
+	{"findClassInModuleOrNull", "(Ljdk/internal/loader/Loader$LoadedModule;Ljava/lang/String;)Ljava/lang/Class;", "(Ljdk/internal/loader/Loader$LoadedModule;Ljava/lang/String;)Ljava/lang/Class<*>;", $PRIVATE, $method(Loader, findClassInModuleOrNull, $Class*, $Loader$LoadedModule*, $String*)},
+	{"findLoadedModule", "(Ljava/lang/String;)Ljdk/internal/loader/Loader$LoadedModule;", nullptr, $PRIVATE, $method(Loader, findLoadedModule, $Loader$LoadedModule*, $String*)},
+	{"findModuleLayer", "(Ljava/lang/ModuleLayer;Ljava/lang/module/Configuration;)Ljava/util/Optional;", "(Ljava/lang/ModuleLayer;Ljava/lang/module/Configuration;)Ljava/util/Optional<Ljava/lang/ModuleLayer;>;", $PRIVATE, $method(Loader, findModuleLayer, $Optional*, $ModuleLayer*, $Configuration*)},
+	{"findResource", "(Ljava/lang/String;Ljava/lang/String;)Ljava/net/URL;", nullptr, $PROTECTED, $virtualMethod(Loader, findResource, $URL*, $String*, $String*), "java.io.IOException"},
+	{"findResource", "(Ljava/lang/String;)Ljava/net/URL;", nullptr, $PUBLIC, $virtualMethod(Loader, findResource, $URL*, $String*)},
+	{"findResources", "(Ljava/lang/String;)Ljava/util/Enumeration;", "(Ljava/lang/String;)Ljava/util/Enumeration<Ljava/net/URL;>;", $PUBLIC, $virtualMethod(Loader, findResources, $Enumeration*, $String*), "java.io.IOException"},
+	{"findResourcesAsList", "(Ljava/lang/String;)Ljava/util/List;", "(Ljava/lang/String;)Ljava/util/List<Ljava/net/URL;>;", $PRIVATE, $method(Loader, findResourcesAsList, $List*, $String*), "java.io.IOException"},
+	{"getPermissions", "(Ljava/security/CodeSource;)Ljava/security/PermissionCollection;", nullptr, $PROTECTED, $virtualMethod(Loader, getPermissions, $PermissionCollection*, $CodeSource*)},
+	{"getResource", "(Ljava/lang/String;)Ljava/net/URL;", nullptr, $PUBLIC, $virtualMethod(Loader, getResource, $URL*, $String*)},
+	{"getResources", "(Ljava/lang/String;)Ljava/util/Enumeration;", "(Ljava/lang/String;)Ljava/util/Enumeration<Ljava/net/URL;>;", $PUBLIC, $virtualMethod(Loader, getResources, $Enumeration*, $String*), "java.io.IOException"},
+	{"initRemotePackageMap", "(Ljava/lang/module/Configuration;Ljava/util/List;)Ljdk/internal/loader/Loader;", "(Ljava/lang/module/Configuration;Ljava/util/List<Ljava/lang/ModuleLayer;>;)Ljdk/internal/loader/Loader;", $PUBLIC, $method(Loader, initRemotePackageMap, Loader*, $Configuration*, $List*)},
+	{"isOpen", "(Ljava/lang/module/ModuleReference;Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(Loader, isOpen, bool, $ModuleReference*, $String*)},
+	{"lambda$findClassInModuleOrNull$6", "(Ljava/lang/String;Ljdk/internal/loader/Loader$LoadedModule;)Ljava/lang/Class;", nullptr, $PRIVATE | $SYNTHETIC, $method(Loader, lambda$findClassInModuleOrNull$6, $Class*, $String*, $Loader$LoadedModule*)},
+	{"lambda$findModuleLayer$5", "(Ljava/lang/module/Configuration;Ljava/lang/ModuleLayer;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Loader, lambda$findModuleLayer$5, bool, $Configuration*, $ModuleLayer*)},
+	{"lambda$initRemotePackageMap$2", "(Ljava/lang/module/ResolvedModule;Ljava/lang/ModuleLayer;)Ljava/util/Optional;", nullptr, $PRIVATE | $SYNTHETIC, $method(Loader, lambda$initRemotePackageMap$2, $Optional*, $ResolvedModule*, $ModuleLayer*)},
+	{"lambda$initRemotePackageMap$3", "()Ljava/lang/InternalError;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Loader, lambda$initRemotePackageMap$3, $InternalError*)},
+	{"lambda$initRemotePackageMap$4", "(Ljava/lang/ClassLoader;Ljava/lang/String;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Loader, lambda$initRemotePackageMap$4, void, $ClassLoader*, $String*)},
+	{"lambda$moduleReaderFor$7", "(Ljava/lang/module/ModuleReference;Ljava/lang/module/ModuleReference;)Ljava/lang/module/ModuleReader;", nullptr, $PRIVATE | $SYNTHETIC, $method(Loader, lambda$moduleReaderFor$7, $ModuleReader*, $ModuleReference*, $ModuleReference*)},
+	{"lambda$new$0", "(Ljava/util/Map;Ljdk/internal/loader/Loader$LoadedModule;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Loader, lambda$new$0, void, $Map*, $Loader$LoadedModule*, $String*)},
+	{"lambda$new$1", "(Ljava/lang/module/ModuleReference;Ljava/util/Map;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Loader, lambda$new$1, void, $ModuleReference*, $Map*, $String*)},
+	{"loadClass", "(Ljava/lang/String;Z)Ljava/lang/Class;", "(Ljava/lang/String;Z)Ljava/lang/Class<*>;", $PROTECTED, $virtualMethod(Loader, loadClass, $Class*, $String*, bool), "java.lang.ClassNotFoundException"},
+	{"moduleReaderFor", "(Ljava/lang/module/ModuleReference;)Ljava/lang/module/ModuleReader;", nullptr, $PRIVATE, $method(Loader, moduleReaderFor, $ModuleReader*, $ModuleReference*)},
+	{"packageName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(Loader, packageName, $String*, $String*)},
+	{"pool", "()Ljdk/internal/loader/LoaderPool;", nullptr, $PUBLIC, $method(Loader, pool, $LoaderPool*)},
+	{"remotePackage", "(Ljava/lang/String;Ljava/lang/ClassLoader;)V", nullptr, $PRIVATE, $method(Loader, remotePackage, void, $String*, $ClassLoader*)},
 	{}
 };
 

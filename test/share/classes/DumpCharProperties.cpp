@@ -21,9 +21,9 @@ $FieldInfo _DumpCharProperties_FieldInfo_[] = {
 };
 
 $MethodInfo _DumpCharProperties_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DumpCharProperties::*)()>(&DumpCharProperties::init$))},
-	{"charProps", "(I)Ljava/lang/String;", nullptr, $STATIC, $method(static_cast<$String*(*)(int32_t)>(&DumpCharProperties::charProps))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&DumpCharProperties::main)), "java.lang.Throwable"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DumpCharProperties, init$, void)},
+	{"charProps", "(I)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(DumpCharProperties, charProps, $String*, int32_t)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(DumpCharProperties, main, void, $StringArray*), "java.lang.Throwable"},
 	{}
 };
 

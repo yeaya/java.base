@@ -6,7 +6,7 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _Target2_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Target2::*)()>(&Target2::init$))},
+	{"<init>", "()V", nullptr, 0, $method(Target2, init$, void)},
 	{}
 };
 

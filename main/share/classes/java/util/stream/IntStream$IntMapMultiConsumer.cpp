@@ -8,6 +8,7 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $IntConsumer = ::java::util::function::IntConsumer;
 
 namespace java {
 	namespace util {
@@ -19,7 +20,7 @@ $CompoundAttribute _IntStream$IntMapMultiConsumer_Annotations_[] = {
 };
 
 $MethodInfo _IntStream$IntMapMultiConsumer_MethodInfo_[] = {
-	{"accept", "(ILjava/util/function/IntConsumer;)V", nullptr, $PUBLIC | $ABSTRACT},
+	{"accept", "(ILjava/util/function/IntConsumer;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(IntStream$IntMapMultiConsumer, accept, void, int32_t, $IntConsumer*)},
 	{}
 };
 

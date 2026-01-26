@@ -63,15 +63,15 @@ $FieldInfo _Trie_FieldInfo_[] = {
 };
 
 $MethodInfo _Trie_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/InputStream;Ljdk/internal/icu/impl/Trie$DataManipulate;)V", nullptr, $PROTECTED, $method(static_cast<void(Trie::*)($InputStream*,$Trie$DataManipulate*)>(&Trie::init$)), "java.io.IOException"},
-	{"checkHeader", "(I)Z", nullptr, $PRIVATE | $FINAL, $method(static_cast<bool(Trie::*)(int32_t)>(&Trie::checkHeader))},
-	{"getBMPOffset", "(C)I", nullptr, $PROTECTED | $FINAL, $method(static_cast<int32_t(Trie::*)(char16_t)>(&Trie::getBMPOffset))},
-	{"getCodePointOffset", "(I)I", nullptr, $PROTECTED | $FINAL, $method(static_cast<int32_t(Trie::*)(int32_t)>(&Trie::getCodePointOffset))},
-	{"getLeadOffset", "(C)I", nullptr, $PROTECTED | $FINAL, $method(static_cast<int32_t(Trie::*)(char16_t)>(&Trie::getLeadOffset))},
-	{"getRawOffset", "(IC)I", nullptr, $PROTECTED | $FINAL, $method(static_cast<int32_t(Trie::*)(int32_t,char16_t)>(&Trie::getRawOffset))},
-	{"getSurrogateOffset", "(CC)I", nullptr, $PROTECTED | $ABSTRACT},
-	{"isCharTrie", "()Z", nullptr, $PROTECTED | $FINAL, $method(static_cast<bool(Trie::*)()>(&Trie::isCharTrie))},
-	{"unserialize", "(Ljava/io/InputStream;)V", nullptr, $PROTECTED, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljava/io/InputStream;Ljdk/internal/icu/impl/Trie$DataManipulate;)V", nullptr, $PROTECTED, $method(Trie, init$, void, $InputStream*, $Trie$DataManipulate*), "java.io.IOException"},
+	{"checkHeader", "(I)Z", nullptr, $PRIVATE | $FINAL, $method(Trie, checkHeader, bool, int32_t)},
+	{"getBMPOffset", "(C)I", nullptr, $PROTECTED | $FINAL, $method(Trie, getBMPOffset, int32_t, char16_t)},
+	{"getCodePointOffset", "(I)I", nullptr, $PROTECTED | $FINAL, $method(Trie, getCodePointOffset, int32_t, int32_t)},
+	{"getLeadOffset", "(C)I", nullptr, $PROTECTED | $FINAL, $method(Trie, getLeadOffset, int32_t, char16_t)},
+	{"getRawOffset", "(IC)I", nullptr, $PROTECTED | $FINAL, $method(Trie, getRawOffset, int32_t, int32_t, char16_t)},
+	{"getSurrogateOffset", "(CC)I", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(Trie, getSurrogateOffset, int32_t, char16_t, char16_t)},
+	{"isCharTrie", "()Z", nullptr, $PROTECTED | $FINAL, $method(Trie, isCharTrie, bool)},
+	{"unserialize", "(Ljava/io/InputStream;)V", nullptr, $PROTECTED, $virtualMethod(Trie, unserialize, void, $InputStream*), "java.io.IOException"},
 	{}
 };
 

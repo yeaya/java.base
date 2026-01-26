@@ -17,8 +17,8 @@ using $SecurityException = ::java::lang::SecurityException;
 namespace p {
 
 $MethodInfo _App_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(App::*)()>(&App::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&App::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(App, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(App, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

@@ -37,16 +37,16 @@ $FieldInfo _AESKeyWrap_FieldInfo_[] = {
 };
 
 $MethodInfo _AESKeyWrap_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(AESKeyWrap::*)()>(&AESKeyWrap::init$))},
-	{"decrypt", "([BII[BI)I", nullptr, 0},
-	{"decryptFinal", "([BII[BI)I", nullptr, 0, nullptr, "javax.crypto.IllegalBlockSizeException"},
-	{"encrypt", "([BII[BI)I", nullptr, 0},
-	{"encryptFinal", "([BII[BI)I", nullptr, 0, nullptr, "javax.crypto.IllegalBlockSizeException"},
-	{"getFeedback", "()Ljava/lang/String;", nullptr, 0},
-	{"init", "(ZLjava/lang/String;[B[B)V", nullptr, 0, nullptr, "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
-	{"reset", "()V", nullptr, 0},
-	{"restore", "()V", nullptr, 0},
-	{"save", "()V", nullptr, 0},
+	{"<init>", "()V", nullptr, 0, $method(AESKeyWrap, init$, void)},
+	{"decrypt", "([BII[BI)I", nullptr, 0, $virtualMethod(AESKeyWrap, decrypt, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t)},
+	{"decryptFinal", "([BII[BI)I", nullptr, 0, $virtualMethod(AESKeyWrap, decryptFinal, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t), "javax.crypto.IllegalBlockSizeException"},
+	{"encrypt", "([BII[BI)I", nullptr, 0, $virtualMethod(AESKeyWrap, encrypt, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t)},
+	{"encryptFinal", "([BII[BI)I", nullptr, 0, $virtualMethod(AESKeyWrap, encryptFinal, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t), "javax.crypto.IllegalBlockSizeException"},
+	{"getFeedback", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(AESKeyWrap, getFeedback, $String*)},
+	{"init", "(ZLjava/lang/String;[B[B)V", nullptr, 0, $virtualMethod(AESKeyWrap, init, void, bool, $String*, $bytes*, $bytes*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
+	{"reset", "()V", nullptr, 0, $virtualMethod(AESKeyWrap, reset, void)},
+	{"restore", "()V", nullptr, 0, $virtualMethod(AESKeyWrap, restore, void)},
+	{"save", "()V", nullptr, 0, $virtualMethod(AESKeyWrap, save, void)},
 	{}
 };
 

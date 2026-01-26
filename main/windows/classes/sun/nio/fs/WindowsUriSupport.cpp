@@ -36,10 +36,10 @@ $FieldInfo _WindowsUriSupport_FieldInfo_[] = {
 };
 
 $MethodInfo _WindowsUriSupport_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(WindowsUriSupport::*)()>(&WindowsUriSupport::init$))},
-	{"fromUri", "(Lsun/nio/fs/WindowsFileSystem;Ljava/net/URI;)Lsun/nio/fs/WindowsPath;", nullptr, $STATIC, $method(static_cast<$WindowsPath*(*)($WindowsFileSystem*,$URI*)>(&WindowsUriSupport::fromUri))},
-	{"toUri", "(Ljava/lang/String;ZZ)Ljava/net/URI;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$URI*(*)($String*,bool,bool)>(&WindowsUriSupport::toUri))},
-	{"toUri", "(Lsun/nio/fs/WindowsPath;)Ljava/net/URI;", nullptr, $STATIC, $method(static_cast<$URI*(*)($WindowsPath*)>(&WindowsUriSupport::toUri))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(WindowsUriSupport, init$, void)},
+	{"fromUri", "(Lsun/nio/fs/WindowsFileSystem;Ljava/net/URI;)Lsun/nio/fs/WindowsPath;", nullptr, $STATIC, $staticMethod(WindowsUriSupport, fromUri, $WindowsPath*, $WindowsFileSystem*, $URI*)},
+	{"toUri", "(Ljava/lang/String;ZZ)Ljava/net/URI;", nullptr, $PRIVATE | $STATIC, $staticMethod(WindowsUriSupport, toUri, $URI*, $String*, bool, bool)},
+	{"toUri", "(Lsun/nio/fs/WindowsPath;)Ljava/net/URI;", nullptr, $STATIC, $staticMethod(WindowsUriSupport, toUri, $URI*, $WindowsPath*)},
 	{}
 };
 

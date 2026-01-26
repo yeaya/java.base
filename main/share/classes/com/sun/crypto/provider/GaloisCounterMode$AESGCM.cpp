@@ -18,7 +18,7 @@ namespace com {
 			namespace provider {
 
 $MethodInfo _GaloisCounterMode$AESGCM_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(GaloisCounterMode$AESGCM::*)()>(&GaloisCounterMode$AESGCM::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(GaloisCounterMode$AESGCM, init$, void)},
 	{}
 };
 

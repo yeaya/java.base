@@ -34,10 +34,10 @@ $FieldInfo _SystemModuleFinders$SystemModuleFinder_FieldInfo_[] = {
 };
 
 $MethodInfo _SystemModuleFinders$SystemModuleFinder_MethodInfo_[] = {
-	{"<init>", "([Ljava/lang/module/ModuleReference;[Ljava/util/Map$Entry;)V", "([Ljava/lang/module/ModuleReference;[Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/module/ModuleReference;>;)V", 0, $method(static_cast<void(SystemModuleFinders$SystemModuleFinder::*)($ModuleReferenceArray*,$Map$EntryArray*)>(&SystemModuleFinders$SystemModuleFinder::init$))},
-	{"<init>", "(Ljava/util/Set;Ljava/util/Map;)V", "(Ljava/util/Set<Ljava/lang/module/ModuleReference;>;Ljava/util/Map<Ljava/lang/String;Ljava/lang/module/ModuleReference;>;)V", 0, $method(static_cast<void(SystemModuleFinders$SystemModuleFinder::*)($Set*,$Map*)>(&SystemModuleFinders$SystemModuleFinder::init$))},
-	{"find", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/lang/module/ModuleReference;>;", $PUBLIC},
-	{"findAll", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/module/ModuleReference;>;", $PUBLIC},
+	{"<init>", "([Ljava/lang/module/ModuleReference;[Ljava/util/Map$Entry;)V", "([Ljava/lang/module/ModuleReference;[Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/module/ModuleReference;>;)V", 0, $method(SystemModuleFinders$SystemModuleFinder, init$, void, $ModuleReferenceArray*, $Map$EntryArray*)},
+	{"<init>", "(Ljava/util/Set;Ljava/util/Map;)V", "(Ljava/util/Set<Ljava/lang/module/ModuleReference;>;Ljava/util/Map<Ljava/lang/String;Ljava/lang/module/ModuleReference;>;)V", 0, $method(SystemModuleFinders$SystemModuleFinder, init$, void, $Set*, $Map*)},
+	{"find", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/lang/module/ModuleReference;>;", $PUBLIC, $virtualMethod(SystemModuleFinders$SystemModuleFinder, find, $Optional*, $String*)},
+	{"findAll", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/module/ModuleReference;>;", $PUBLIC, $virtualMethod(SystemModuleFinders$SystemModuleFinder, findAll, $Set*)},
 	{}
 };
 

@@ -71,13 +71,13 @@ $FieldInfo _OpsAfterClose4RandomAccessFile_FieldInfo_[] = {
 };
 
 $MethodInfo _OpsAfterClose4RandomAccessFile_MethodInfo_[] = {
-	{"$values", "()[LOpsAfterClose4RandomAccessFile;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$OpsAfterClose4RandomAccessFileArray*(*)()>(&OpsAfterClose4RandomAccessFile::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(OpsAfterClose4RandomAccessFile::*)($String*,int32_t)>(&OpsAfterClose4RandomAccessFile::init$))},
-	{"check", "(Ljava/io/RandomAccessFile;)Z", nullptr, $ABSTRACT},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&OpsAfterClose4RandomAccessFile::main)), "java.lang.Exception"},
-	{"testRandomAccessFile", "(Ljava/io/RandomAccessFile;)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($RandomAccessFile*)>(&OpsAfterClose4RandomAccessFile::testRandomAccessFile)), "java.lang.Exception"},
-	{"valueOf", "(Ljava/lang/String;)LOpsAfterClose4RandomAccessFile;", nullptr, $PUBLIC | $STATIC, $method(static_cast<OpsAfterClose4RandomAccessFile*(*)($String*)>(&OpsAfterClose4RandomAccessFile::valueOf))},
-	{"values", "()[LOpsAfterClose4RandomAccessFile;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$OpsAfterClose4RandomAccessFileArray*(*)()>(&OpsAfterClose4RandomAccessFile::values))},
+	{"$values", "()[LOpsAfterClose4RandomAccessFile;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(OpsAfterClose4RandomAccessFile, $values, $OpsAfterClose4RandomAccessFileArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(OpsAfterClose4RandomAccessFile, init$, void, $String*, int32_t)},
+	{"check", "(Ljava/io/RandomAccessFile;)Z", nullptr, $ABSTRACT, $virtualMethod(OpsAfterClose4RandomAccessFile, check, bool, $RandomAccessFile*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(OpsAfterClose4RandomAccessFile, main, void, $StringArray*), "java.lang.Exception"},
+	{"testRandomAccessFile", "(Ljava/io/RandomAccessFile;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(OpsAfterClose4RandomAccessFile, testRandomAccessFile, bool, $RandomAccessFile*), "java.lang.Exception"},
+	{"valueOf", "(Ljava/lang/String;)LOpsAfterClose4RandomAccessFile;", nullptr, $PUBLIC | $STATIC, $staticMethod(OpsAfterClose4RandomAccessFile, valueOf, OpsAfterClose4RandomAccessFile*, $String*)},
+	{"values", "()[LOpsAfterClose4RandomAccessFile;", nullptr, $PUBLIC | $STATIC, $staticMethod(OpsAfterClose4RandomAccessFile, values, $OpsAfterClose4RandomAccessFileArray*)},
 	{}
 };
 

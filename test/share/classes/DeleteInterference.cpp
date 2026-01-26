@@ -79,8 +79,8 @@ $FieldInfo DeleteInterference$$Lambda$lambda$main$0::fieldInfos[2] = {
 	{}
 };
 $MethodInfo DeleteInterference$$Lambda$lambda$main$0::methodInfos[3] = {
-	{"<init>", "(Ljava/nio/file/Path;)V", nullptr, $PUBLIC, $method(static_cast<void(DeleteInterference$$Lambda$lambda$main$0::*)($Path*)>(&DeleteInterference$$Lambda$lambda$main$0::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/nio/file/Path;)V", nullptr, $PUBLIC, $method(DeleteInterference$$Lambda$lambda$main$0, init$, void, $Path*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(DeleteInterference$$Lambda$lambda$main$0, run, void)},
 	{}
 };
 $ClassInfo DeleteInterference$$Lambda$lambda$main$0::classInfo$ = {
@@ -119,8 +119,8 @@ $FieldInfo DeleteInterference$$Lambda$lambda$main$1$1::fieldInfos[2] = {
 	{}
 };
 $MethodInfo DeleteInterference$$Lambda$lambda$main$1$1::methodInfos[3] = {
-	{"<init>", "(Ljava/nio/file/Path;)V", nullptr, $PUBLIC, $method(static_cast<void(DeleteInterference$$Lambda$lambda$main$1$1::*)($Path*)>(&DeleteInterference$$Lambda$lambda$main$1$1::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/nio/file/Path;)V", nullptr, $PUBLIC, $method(DeleteInterference$$Lambda$lambda$main$1$1, init$, void, $Path*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(DeleteInterference$$Lambda$lambda$main$1$1, run, void)},
 	{}
 };
 $ClassInfo DeleteInterference$$Lambda$lambda$main$1$1::classInfo$ = {
@@ -143,13 +143,13 @@ $FieldInfo _DeleteInterference_FieldInfo_[] = {
 };
 
 $MethodInfo _DeleteInterference_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DeleteInterference::*)()>(&DeleteInterference::init$))},
-	{"deleteAndRecreateDirectory", "(Ljava/nio/file/Path;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($Path*)>(&DeleteInterference::deleteAndRecreateDirectory))},
-	{"deleteFileTree", "(Ljava/nio/file/Path;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($Path*)>(&DeleteInterference::deleteFileTree))},
-	{"lambda$main$0", "(Ljava/nio/file/Path;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($Path*)>(&DeleteInterference::lambda$main$0))},
-	{"lambda$main$1", "(Ljava/nio/file/Path;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($Path*)>(&DeleteInterference::lambda$main$1))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&DeleteInterference::main)), "java.lang.Exception"},
-	{"openAndCloseWatcher", "(Ljava/nio/file/Path;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($Path*)>(&DeleteInterference::openAndCloseWatcher))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DeleteInterference, init$, void)},
+	{"deleteAndRecreateDirectory", "(Ljava/nio/file/Path;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(DeleteInterference, deleteAndRecreateDirectory, void, $Path*)},
+	{"deleteFileTree", "(Ljava/nio/file/Path;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(DeleteInterference, deleteFileTree, void, $Path*)},
+	{"lambda$main$0", "(Ljava/nio/file/Path;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DeleteInterference, lambda$main$0, void, $Path*)},
+	{"lambda$main$1", "(Ljava/nio/file/Path;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DeleteInterference, lambda$main$1, void, $Path*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(DeleteInterference, main, void, $StringArray*), "java.lang.Exception"},
+	{"openAndCloseWatcher", "(Ljava/nio/file/Path;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(DeleteInterference, openAndCloseWatcher, void, $Path*)},
 	{}
 };
 

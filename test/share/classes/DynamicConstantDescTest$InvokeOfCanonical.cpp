@@ -43,9 +43,9 @@ $FieldInfo _DynamicConstantDescTest$InvokeOfCanonical_FieldInfo_[] = {
 };
 
 $MethodInfo _DynamicConstantDescTest$InvokeOfCanonical_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/CountDownLatch;)V", nullptr, $PRIVATE, $method(static_cast<void(DynamicConstantDescTest$InvokeOfCanonical::*)($CountDownLatch*)>(&DynamicConstantDescTest$InvokeOfCanonical::init$))},
-	{"boostrapMethodForEnumConstant", "()Ljava/lang/constant/DirectMethodHandleDesc;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$DirectMethodHandleDesc*(*)()>(&DynamicConstantDescTest$InvokeOfCanonical::boostrapMethodForEnumConstant))},
-	{"call", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/concurrent/CountDownLatch;)V", nullptr, $PRIVATE, $method(DynamicConstantDescTest$InvokeOfCanonical, init$, void, $CountDownLatch*)},
+	{"boostrapMethodForEnumConstant", "()Ljava/lang/constant/DirectMethodHandleDesc;", nullptr, $PRIVATE | $STATIC, $staticMethod(DynamicConstantDescTest$InvokeOfCanonical, boostrapMethodForEnumConstant, $DirectMethodHandleDesc*)},
+	{"call", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DynamicConstantDescTest$InvokeOfCanonical, call, $Object*)},
 	{}
 };
 

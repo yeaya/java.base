@@ -17,7 +17,9 @@ using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $MethodHandleNatives = ::java::lang::invoke::MethodHandleNatives;
 using $MethodHandleStatics = ::java::lang::invoke::MethodHandleStatics;
+using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
 using $MethodType = ::java::lang::invoke::MethodType;
+using $Member = ::java::lang::reflect::Member;
 using $Modifier = ::java::lang::reflect::Modifier;
 using $Objects = ::java::util::Objects;
 
@@ -39,15 +41,15 @@ $FieldInfo _MethodHandleInfo_FieldInfo_[] = {
 };
 
 $MethodInfo _MethodHandleInfo_MethodInfo_[] = {
-	{"getDeclaringClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC | $ABSTRACT},
-	{"getMethodType", "()Ljava/lang/invoke/MethodType;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getModifiers", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getReferenceKind", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"isVarArgs", "()Z", nullptr, $PUBLIC},
-	{"referenceKindToString", "(I)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)(int32_t)>(&MethodHandleInfo::referenceKindToString))},
-	{"reflectAs", "(Ljava/lang/Class;Ljava/lang/invoke/MethodHandles$Lookup;)Ljava/lang/reflect/Member;", "<T::Ljava/lang/reflect/Member;>(Ljava/lang/Class<TT;>;Ljava/lang/invoke/MethodHandles$Lookup;)TT;", $PUBLIC | $ABSTRACT},
-	{"toString", "(ILjava/lang/Class;Ljava/lang/String;Ljava/lang/invoke/MethodType;)Ljava/lang/String;", "(ILjava/lang/Class<*>;Ljava/lang/String;Ljava/lang/invoke/MethodType;)Ljava/lang/String;", $PUBLIC | $STATIC, $method(static_cast<$String*(*)(int32_t,$Class*,$String*,$MethodType*)>(&MethodHandleInfo::toString))},
+	{"getDeclaringClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC | $ABSTRACT, $virtualMethod(MethodHandleInfo, getDeclaringClass, $Class*)},
+	{"getMethodType", "()Ljava/lang/invoke/MethodType;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MethodHandleInfo, getMethodType, $MethodType*)},
+	{"getModifiers", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MethodHandleInfo, getModifiers, int32_t)},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MethodHandleInfo, getName, $String*)},
+	{"getReferenceKind", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MethodHandleInfo, getReferenceKind, int32_t)},
+	{"isVarArgs", "()Z", nullptr, $PUBLIC, $virtualMethod(MethodHandleInfo, isVarArgs, bool)},
+	{"referenceKindToString", "(I)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(MethodHandleInfo, referenceKindToString, $String*, int32_t)},
+	{"reflectAs", "(Ljava/lang/Class;Ljava/lang/invoke/MethodHandles$Lookup;)Ljava/lang/reflect/Member;", "<T::Ljava/lang/reflect/Member;>(Ljava/lang/Class<TT;>;Ljava/lang/invoke/MethodHandles$Lookup;)TT;", $PUBLIC | $ABSTRACT, $virtualMethod(MethodHandleInfo, reflectAs, $Member*, $Class*, $MethodHandles$Lookup*)},
+	{"toString", "(ILjava/lang/Class;Ljava/lang/String;Ljava/lang/invoke/MethodType;)Ljava/lang/String;", "(ILjava/lang/Class<*>;Ljava/lang/String;Ljava/lang/invoke/MethodType;)Ljava/lang/String;", $PUBLIC | $STATIC, $staticMethod(MethodHandleInfo, toString, $String*, int32_t, $Class*, $String*, $MethodType*)},
 	{}
 };
 

@@ -46,13 +46,13 @@ $FieldInfo _LinuxAsynchronousChannelProvider_FieldInfo_[] = {
 };
 
 $MethodInfo _LinuxAsynchronousChannelProvider_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(LinuxAsynchronousChannelProvider::*)()>(&LinuxAsynchronousChannelProvider::init$))},
-	{"defaultEventPort", "()Lsun/nio/ch/EPollPort;", nullptr, $PRIVATE, $method(static_cast<$EPollPort*(LinuxAsynchronousChannelProvider::*)()>(&LinuxAsynchronousChannelProvider::defaultEventPort)), "java.io.IOException"},
-	{"openAsynchronousChannelGroup", "(ILjava/util/concurrent/ThreadFactory;)Ljava/nio/channels/AsynchronousChannelGroup;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"openAsynchronousChannelGroup", "(Ljava/util/concurrent/ExecutorService;I)Ljava/nio/channels/AsynchronousChannelGroup;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"openAsynchronousServerSocketChannel", "(Ljava/nio/channels/AsynchronousChannelGroup;)Ljava/nio/channels/AsynchronousServerSocketChannel;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"openAsynchronousSocketChannel", "(Ljava/nio/channels/AsynchronousChannelGroup;)Ljava/nio/channels/AsynchronousSocketChannel;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"toPort", "(Ljava/nio/channels/AsynchronousChannelGroup;)Lsun/nio/ch/Port;", nullptr, $PRIVATE, $method(static_cast<$Port*(LinuxAsynchronousChannelProvider::*)($AsynchronousChannelGroup*)>(&LinuxAsynchronousChannelProvider::toPort)), "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(LinuxAsynchronousChannelProvider, init$, void)},
+	{"defaultEventPort", "()Lsun/nio/ch/EPollPort;", nullptr, $PRIVATE, $method(LinuxAsynchronousChannelProvider, defaultEventPort, $EPollPort*), "java.io.IOException"},
+	{"openAsynchronousChannelGroup", "(ILjava/util/concurrent/ThreadFactory;)Ljava/nio/channels/AsynchronousChannelGroup;", nullptr, $PUBLIC, $virtualMethod(LinuxAsynchronousChannelProvider, openAsynchronousChannelGroup, $AsynchronousChannelGroup*, int32_t, $ThreadFactory*), "java.io.IOException"},
+	{"openAsynchronousChannelGroup", "(Ljava/util/concurrent/ExecutorService;I)Ljava/nio/channels/AsynchronousChannelGroup;", nullptr, $PUBLIC, $virtualMethod(LinuxAsynchronousChannelProvider, openAsynchronousChannelGroup, $AsynchronousChannelGroup*, $ExecutorService*, int32_t), "java.io.IOException"},
+	{"openAsynchronousServerSocketChannel", "(Ljava/nio/channels/AsynchronousChannelGroup;)Ljava/nio/channels/AsynchronousServerSocketChannel;", nullptr, $PUBLIC, $virtualMethod(LinuxAsynchronousChannelProvider, openAsynchronousServerSocketChannel, $AsynchronousServerSocketChannel*, $AsynchronousChannelGroup*), "java.io.IOException"},
+	{"openAsynchronousSocketChannel", "(Ljava/nio/channels/AsynchronousChannelGroup;)Ljava/nio/channels/AsynchronousSocketChannel;", nullptr, $PUBLIC, $virtualMethod(LinuxAsynchronousChannelProvider, openAsynchronousSocketChannel, $AsynchronousSocketChannel*, $AsynchronousChannelGroup*), "java.io.IOException"},
+	{"toPort", "(Ljava/nio/channels/AsynchronousChannelGroup;)Lsun/nio/ch/Port;", nullptr, $PRIVATE, $method(LinuxAsynchronousChannelProvider, toPort, $Port*, $AsynchronousChannelGroup*), "java.io.IOException"},
 	{}
 };
 

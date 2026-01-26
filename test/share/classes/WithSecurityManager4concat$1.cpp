@@ -13,8 +13,8 @@ using $SecurityManager = ::java::lang::SecurityManager;
 using $Permission = ::java::security::Permission;
 
 $MethodInfo _WithSecurityManager4concat$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(WithSecurityManager4concat$1::*)()>(&WithSecurityManager4concat$1::init$))},
-	{"checkPermission", "(Ljava/security/Permission;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(WithSecurityManager4concat$1, init$, void)},
+	{"checkPermission", "(Ljava/security/Permission;)V", nullptr, $PUBLIC, $virtualMethod(WithSecurityManager4concat$1, checkPermission, void, $Permission*)},
 	{}
 };
 

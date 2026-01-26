@@ -24,8 +24,8 @@ $FieldInfo _WithParameters$Foo_FieldInfo_[] = {
 };
 
 $MethodInfo _WithParameters$Foo_MethodInfo_[] = {
-	{"<init>", "(LWithParameters;)V", nullptr, $PUBLIC, $method(static_cast<void(WithParameters$Foo::*)($WithParameters*)>(&WithParameters$Foo::init$))},
-	{"qux", "(ILWithParameters$Foo;Ljava/util/List;Ljava/util/List;Ljava/util/List;[Ljava/lang/String;)V", "(ILWithParameters$Foo;Ljava/util/List<*>;Ljava/util/List<LWithParameters$Foo;>;Ljava/util/List<+LWithParameters$Foo;>;[Ljava/lang/String;)V", $PUBLIC | $TRANSIENT, nullptr, nullptr, nullptr, nullptr, nullptr, _WithParameters$Foo_MethodParamAnnotations_qux1},
+	{"<init>", "(LWithParameters;)V", nullptr, $PUBLIC, $method(WithParameters$Foo, init$, void, $WithParameters*)},
+	{"qux", "(ILWithParameters$Foo;Ljava/util/List;Ljava/util/List;Ljava/util/List;[Ljava/lang/String;)V", "(ILWithParameters$Foo;Ljava/util/List<*>;Ljava/util/List<LWithParameters$Foo;>;Ljava/util/List<+LWithParameters$Foo;>;[Ljava/lang/String;)V", $PUBLIC | $TRANSIENT, $virtualMethod(WithParameters$Foo, qux, void, int32_t, WithParameters$Foo*, $List*, $List*, $List*, $StringArray*), nullptr, nullptr, nullptr, nullptr, _WithParameters$Foo_MethodParamAnnotations_qux1},
 	{}
 };
 

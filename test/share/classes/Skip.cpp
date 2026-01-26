@@ -9,8 +9,8 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 
 $MethodInfo _Skip_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Skip::*)()>(&Skip::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Skip::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Skip, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Skip, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

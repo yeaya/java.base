@@ -6,13 +6,14 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Node = ::java::util::stream::Node;
 
 namespace java {
 	namespace util {
 		namespace stream {
 
 $MethodInfo _Node$Builder_MethodInfo_[] = {
-	{"build", "()Ljava/util/stream/Node;", "()Ljava/util/stream/Node<TT;>;", $PUBLIC | $ABSTRACT},
+	{"build", "()Ljava/util/stream/Node;", "()Ljava/util/stream/Node<TT;>;", $PUBLIC | $ABSTRACT, $virtualMethod(Node$Builder, build, $Node*)},
 	{}
 };
 

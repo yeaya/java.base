@@ -67,12 +67,12 @@ $FieldInfo _CurveDB_FieldInfo_[] = {
 };
 
 $MethodInfo _CurveDB_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CurveDB::*)()>(&CurveDB::init$))},
-	{"add", "(Lsun/security/util/KnownOIDs;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($KnownOIDs*,int32_t,$String*,$String*,$String*,$String*,$String*,$String*,int32_t)>(&CurveDB::add))},
-	{"bi", "(Ljava/lang/String;)Ljava/math/BigInteger;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$BigInteger*(*)($String*)>(&CurveDB::bi))},
-	{"lookup", "(Ljava/lang/String;)Lsun/security/util/NamedCurve;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$NamedCurve*(*)($String*)>(&CurveDB::lookup))},
-	{"lookup", "(I)Lsun/security/util/NamedCurve;", nullptr, $STATIC, $method(static_cast<$NamedCurve*(*)(int32_t)>(&CurveDB::lookup))},
-	{"lookup", "(Ljava/security/spec/ECParameterSpec;)Lsun/security/util/NamedCurve;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$NamedCurve*(*)($ECParameterSpec*)>(&CurveDB::lookup))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CurveDB, init$, void)},
+	{"add", "(Lsun/security/util/KnownOIDs;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(CurveDB, add, void, $KnownOIDs*, int32_t, $String*, $String*, $String*, $String*, $String*, $String*, int32_t)},
+	{"bi", "(Ljava/lang/String;)Ljava/math/BigInteger;", nullptr, $PRIVATE | $STATIC, $staticMethod(CurveDB, bi, $BigInteger*, $String*)},
+	{"lookup", "(Ljava/lang/String;)Lsun/security/util/NamedCurve;", nullptr, $PUBLIC | $STATIC, $staticMethod(CurveDB, lookup, $NamedCurve*, $String*)},
+	{"lookup", "(I)Lsun/security/util/NamedCurve;", nullptr, $STATIC, $staticMethod(CurveDB, lookup, $NamedCurve*, int32_t)},
+	{"lookup", "(Ljava/security/spec/ECParameterSpec;)Lsun/security/util/NamedCurve;", nullptr, $PUBLIC | $STATIC, $staticMethod(CurveDB, lookup, $NamedCurve*, $ECParameterSpec*)},
 	{}
 };
 

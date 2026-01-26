@@ -30,10 +30,10 @@ $FieldInfo _TryCatchBlockSorter$1_FieldInfo_[] = {
 };
 
 $MethodInfo _TryCatchBlockSorter$1_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/org/objectweb/asm/commons/TryCatchBlockSorter;)V", nullptr, 0, $method(static_cast<void(TryCatchBlockSorter$1::*)($TryCatchBlockSorter*)>(&TryCatchBlockSorter$1::init$))},
-	{"blockLength", "(Ljdk/internal/org/objectweb/asm/tree/TryCatchBlockNode;)I", nullptr, $PRIVATE, $method(static_cast<int32_t(TryCatchBlockSorter$1::*)($TryCatchBlockNode*)>(&TryCatchBlockSorter$1::blockLength))},
-	{"compare", "(Ljdk/internal/org/objectweb/asm/tree/TryCatchBlockNode;Ljdk/internal/org/objectweb/asm/tree/TryCatchBlockNode;)I", nullptr, $PUBLIC},
-	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "(Ljdk/internal/org/objectweb/asm/commons/TryCatchBlockSorter;)V", nullptr, 0, $method(TryCatchBlockSorter$1, init$, void, $TryCatchBlockSorter*)},
+	{"blockLength", "(Ljdk/internal/org/objectweb/asm/tree/TryCatchBlockNode;)I", nullptr, $PRIVATE, $method(TryCatchBlockSorter$1, blockLength, int32_t, $TryCatchBlockNode*)},
+	{"compare", "(Ljdk/internal/org/objectweb/asm/tree/TryCatchBlockNode;Ljdk/internal/org/objectweb/asm/tree/TryCatchBlockNode;)I", nullptr, $PUBLIC, $virtualMethod(TryCatchBlockSorter$1, compare, int32_t, $TryCatchBlockNode*, $TryCatchBlockNode*)},
+	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(TryCatchBlockSorter$1, compare, int32_t, Object$*, Object$*)},
 	{}
 };
 

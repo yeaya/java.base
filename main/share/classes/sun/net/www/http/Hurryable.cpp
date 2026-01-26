@@ -11,7 +11,7 @@ namespace sun {
 			namespace http {
 
 $MethodInfo _Hurryable_MethodInfo_[] = {
-	{"hurry", "()Z", nullptr, $PUBLIC | $ABSTRACT},
+	{"hurry", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Hurryable, hurry, bool)},
 	{}
 };
 

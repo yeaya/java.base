@@ -34,17 +34,17 @@ namespace java {
 		namespace invoke {
 
 $MethodInfo _ConstantGroup_MethodInfo_[] = {
-	{"asList", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/Object;>;", $PUBLIC},
-	{"asList", "(Ljava/lang/Object;)Ljava/util/List;", "(Ljava/lang/Object;)Ljava/util/List<Ljava/lang/Object;>;", $PUBLIC},
-	{"copyConstants", "(II[Ljava/lang/Object;I)I", nullptr, $PUBLIC, nullptr, "java.lang.LinkageError"},
-	{"copyConstants", "(II[Ljava/lang/Object;ILjava/lang/Object;)I", nullptr, $PUBLIC},
-	{"get", "(I)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.lang.LinkageError"},
-	{"get", "(ILjava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
-	{"isPresent", "(I)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"makeConstantGroup", "(Ljava/util/List;Ljava/lang/Object;Ljava/util/function/IntFunction;)Ljava/lang/invoke/ConstantGroup;", "(Ljava/util/List<Ljava/lang/Object;>;Ljava/lang/Object;Ljava/util/function/IntFunction<Ljava/lang/Object;>;)Ljava/lang/invoke/ConstantGroup;", $PUBLIC | $STATIC, $method(static_cast<ConstantGroup*(*)($List*,Object$*,$IntFunction*)>(&ConstantGroup::makeConstantGroup))},
-	{"makeConstantGroup", "(Ljava/util/List;)Ljava/lang/invoke/ConstantGroup;", "(Ljava/util/List<Ljava/lang/Object;>;)Ljava/lang/invoke/ConstantGroup;", $PUBLIC | $STATIC, $method(static_cast<ConstantGroup*(*)($List*)>(&ConstantGroup::makeConstantGroup))},
-	{"size", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"subGroup", "(II)Ljava/lang/invoke/ConstantGroup;", nullptr, $PUBLIC},
+	{"asList", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/Object;>;", $PUBLIC, $virtualMethod(ConstantGroup, asList, $List*)},
+	{"asList", "(Ljava/lang/Object;)Ljava/util/List;", "(Ljava/lang/Object;)Ljava/util/List<Ljava/lang/Object;>;", $PUBLIC, $virtualMethod(ConstantGroup, asList, $List*, Object$*)},
+	{"copyConstants", "(II[Ljava/lang/Object;I)I", nullptr, $PUBLIC, $virtualMethod(ConstantGroup, copyConstants, int32_t, int32_t, int32_t, $ObjectArray*, int32_t), "java.lang.LinkageError"},
+	{"copyConstants", "(II[Ljava/lang/Object;ILjava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(ConstantGroup, copyConstants, int32_t, int32_t, int32_t, $ObjectArray*, int32_t, Object$*)},
+	{"get", "(I)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ConstantGroup, get, $Object*, int32_t), "java.lang.LinkageError"},
+	{"get", "(ILjava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ConstantGroup, get, $Object*, int32_t, Object$*)},
+	{"isPresent", "(I)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ConstantGroup, isPresent, bool, int32_t)},
+	{"makeConstantGroup", "(Ljava/util/List;Ljava/lang/Object;Ljava/util/function/IntFunction;)Ljava/lang/invoke/ConstantGroup;", "(Ljava/util/List<Ljava/lang/Object;>;Ljava/lang/Object;Ljava/util/function/IntFunction<Ljava/lang/Object;>;)Ljava/lang/invoke/ConstantGroup;", $PUBLIC | $STATIC, $staticMethod(ConstantGroup, makeConstantGroup, ConstantGroup*, $List*, Object$*, $IntFunction*)},
+	{"makeConstantGroup", "(Ljava/util/List;)Ljava/lang/invoke/ConstantGroup;", "(Ljava/util/List<Ljava/lang/Object;>;)Ljava/lang/invoke/ConstantGroup;", $PUBLIC | $STATIC, $staticMethod(ConstantGroup, makeConstantGroup, ConstantGroup*, $List*)},
+	{"size", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ConstantGroup, size, int32_t)},
+	{"subGroup", "(II)Ljava/lang/invoke/ConstantGroup;", nullptr, $PUBLIC, $virtualMethod(ConstantGroup, subGroup, ConstantGroup*, int32_t, int32_t)},
 	{}
 };
 

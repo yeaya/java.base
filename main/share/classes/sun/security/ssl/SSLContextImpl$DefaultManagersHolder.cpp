@@ -67,9 +67,9 @@ $FieldInfo _SSLContextImpl$DefaultManagersHolder_FieldInfo_[] = {
 };
 
 $MethodInfo _SSLContextImpl$DefaultManagersHolder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(SSLContextImpl$DefaultManagersHolder::*)()>(&SSLContextImpl$DefaultManagersHolder::init$))},
-	{"getKeyManagers", "()[Ljavax/net/ssl/KeyManager;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$KeyManagerArray*(*)()>(&SSLContextImpl$DefaultManagersHolder::getKeyManagers)), "java.lang.Exception"},
-	{"getTrustManagers", "()[Ljavax/net/ssl/TrustManager;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$TrustManagerArray*(*)()>(&SSLContextImpl$DefaultManagersHolder::getTrustManagers)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(SSLContextImpl$DefaultManagersHolder, init$, void)},
+	{"getKeyManagers", "()[Ljavax/net/ssl/KeyManager;", nullptr, $PRIVATE | $STATIC, $staticMethod(SSLContextImpl$DefaultManagersHolder, getKeyManagers, $KeyManagerArray*), "java.lang.Exception"},
+	{"getTrustManagers", "()[Ljavax/net/ssl/TrustManager;", nullptr, $PRIVATE | $STATIC, $staticMethod(SSLContextImpl$DefaultManagersHolder, getTrustManagers, $TrustManagerArray*), "java.lang.Exception"},
 	{}
 };
 

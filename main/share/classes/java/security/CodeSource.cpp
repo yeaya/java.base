@@ -73,21 +73,21 @@ $FieldInfo _CodeSource_FieldInfo_[] = {
 };
 
 $MethodInfo _CodeSource_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/URL;[Ljava/security/cert/Certificate;)V", nullptr, $PUBLIC, $method(static_cast<void(CodeSource::*)($URL*,$CertificateArray*)>(&CodeSource::init$))},
-	{"<init>", "(Ljava/net/URL;[Ljava/security/CodeSigner;)V", nullptr, $PUBLIC, $method(static_cast<void(CodeSource::*)($URL*,$CodeSignerArray*)>(&CodeSource::init$))},
-	{"convertCertArrayToSignerArray", "([Ljava/security/cert/Certificate;)[Ljava/security/CodeSigner;", nullptr, $PRIVATE, $method(static_cast<$CodeSignerArray*(CodeSource::*)($CertificateArray*)>(&CodeSource::convertCertArrayToSignerArray))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getCertificates", "()[Ljava/security/cert/Certificate;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$CertificateArray*(CodeSource::*)()>(&CodeSource::getCertificates))},
-	{"getCodeSigners", "()[Ljava/security/CodeSigner;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$CodeSignerArray*(CodeSource::*)()>(&CodeSource::getCodeSigners))},
-	{"getLocation", "()Ljava/net/URL;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$URL*(CodeSource::*)()>(&CodeSource::getLocation))},
-	{"getLocationNoFragString", "()Ljava/lang/String;", nullptr, 0},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"implies", "(Ljava/security/CodeSource;)Z", nullptr, $PUBLIC},
-	{"matchCerts", "(Ljava/security/CodeSource;Z)Z", nullptr, 0},
-	{"matchLocation", "(Ljava/security/CodeSource;)Z", nullptr, $PRIVATE, $method(static_cast<bool(CodeSource::*)(CodeSource*)>(&CodeSource::matchLocation))},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(CodeSource::*)($ObjectInputStream*)>(&CodeSource::readObject)), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(CodeSource::*)($ObjectOutputStream*)>(&CodeSource::writeObject)), "java.io.IOException"},
+	{"<init>", "(Ljava/net/URL;[Ljava/security/cert/Certificate;)V", nullptr, $PUBLIC, $method(CodeSource, init$, void, $URL*, $CertificateArray*)},
+	{"<init>", "(Ljava/net/URL;[Ljava/security/CodeSigner;)V", nullptr, $PUBLIC, $method(CodeSource, init$, void, $URL*, $CodeSignerArray*)},
+	{"convertCertArrayToSignerArray", "([Ljava/security/cert/Certificate;)[Ljava/security/CodeSigner;", nullptr, $PRIVATE, $method(CodeSource, convertCertArrayToSignerArray, $CodeSignerArray*, $CertificateArray*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(CodeSource, equals, bool, Object$*)},
+	{"getCertificates", "()[Ljava/security/cert/Certificate;", nullptr, $PUBLIC | $FINAL, $method(CodeSource, getCertificates, $CertificateArray*)},
+	{"getCodeSigners", "()[Ljava/security/CodeSigner;", nullptr, $PUBLIC | $FINAL, $method(CodeSource, getCodeSigners, $CodeSignerArray*)},
+	{"getLocation", "()Ljava/net/URL;", nullptr, $PUBLIC | $FINAL, $method(CodeSource, getLocation, $URL*)},
+	{"getLocationNoFragString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(CodeSource, getLocationNoFragString, $String*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(CodeSource, hashCode, int32_t)},
+	{"implies", "(Ljava/security/CodeSource;)Z", nullptr, $PUBLIC, $virtualMethod(CodeSource, implies, bool, CodeSource*)},
+	{"matchCerts", "(Ljava/security/CodeSource;Z)Z", nullptr, 0, $virtualMethod(CodeSource, matchCerts, bool, CodeSource*, bool)},
+	{"matchLocation", "(Ljava/security/CodeSource;)Z", nullptr, $PRIVATE, $method(CodeSource, matchLocation, bool, CodeSource*)},
+	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(CodeSource, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CodeSource, toString, $String*)},
+	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(CodeSource, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
 	{}
 };
 

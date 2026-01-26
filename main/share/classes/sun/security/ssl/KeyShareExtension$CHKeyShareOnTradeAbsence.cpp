@@ -32,8 +32,8 @@ namespace sun {
 		namespace ssl {
 
 $MethodInfo _KeyShareExtension$CHKeyShareOnTradeAbsence_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(KeyShareExtension$CHKeyShareOnTradeAbsence::*)()>(&KeyShareExtension$CHKeyShareOnTradeAbsence::init$))},
-	{"absent", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(KeyShareExtension$CHKeyShareOnTradeAbsence, init$, void)},
+	{"absent", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)V", nullptr, $PUBLIC, $virtualMethod(KeyShareExtension$CHKeyShareOnTradeAbsence, absent, void, $ConnectionContext*, $SSLHandshake$HandshakeMessage*), "java.io.IOException"},
 	{}
 };
 

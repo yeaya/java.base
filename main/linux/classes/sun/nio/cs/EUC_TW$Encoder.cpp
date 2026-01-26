@@ -50,16 +50,16 @@ $FieldInfo _EUC_TW$Encoder_FieldInfo_[] = {
 };
 
 $MethodInfo _EUC_TW$Encoder_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PUBLIC, $method(static_cast<void(EUC_TW$Encoder::*)($Charset*)>(&EUC_TW$Encoder::init$))},
-	{"canEncode", "(C)Z", nullptr, $PUBLIC},
-	{"canEncode", "(Ljava/lang/CharSequence;)Z", nullptr, $PUBLIC},
-	{"encode", "(CC[B)I", nullptr, $STATIC, $method(static_cast<int32_t(*)(char16_t,char16_t,$bytes*)>(&EUC_TW$Encoder::encode))},
-	{"encode", "(C[B)I", nullptr, $STATIC, $method(static_cast<int32_t(*)(char16_t,$bytes*)>(&EUC_TW$Encoder::encode))},
-	{"encodeArrayLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(static_cast<$CoderResult*(EUC_TW$Encoder::*)($CharBuffer*,$ByteBuffer*)>(&EUC_TW$Encoder::encodeArrayLoop))},
-	{"encodeBufferLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(static_cast<$CoderResult*(EUC_TW$Encoder::*)($CharBuffer*,$ByteBuffer*)>(&EUC_TW$Encoder::encodeBufferLoop))},
-	{"encodeLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED},
-	{"toEUC", "(CC[B)I", nullptr, $PUBLIC},
-	{"toEUC", "(C[B)I", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PUBLIC, $method(EUC_TW$Encoder, init$, void, $Charset*)},
+	{"canEncode", "(C)Z", nullptr, $PUBLIC, $virtualMethod(EUC_TW$Encoder, canEncode, bool, char16_t)},
+	{"canEncode", "(Ljava/lang/CharSequence;)Z", nullptr, $PUBLIC, $virtualMethod(EUC_TW$Encoder, canEncode, bool, $CharSequence*)},
+	{"encode", "(CC[B)I", nullptr, $STATIC, $staticMethod(EUC_TW$Encoder, encode, int32_t, char16_t, char16_t, $bytes*)},
+	{"encode", "(C[B)I", nullptr, $STATIC, $staticMethod(EUC_TW$Encoder, encode, int32_t, char16_t, $bytes*)},
+	{"encodeArrayLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(EUC_TW$Encoder, encodeArrayLoop, $CoderResult*, $CharBuffer*, $ByteBuffer*)},
+	{"encodeBufferLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(EUC_TW$Encoder, encodeBufferLoop, $CoderResult*, $CharBuffer*, $ByteBuffer*)},
+	{"encodeLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED, $virtualMethod(EUC_TW$Encoder, encodeLoop, $CoderResult*, $CharBuffer*, $ByteBuffer*)},
+	{"toEUC", "(CC[B)I", nullptr, $PUBLIC, $virtualMethod(EUC_TW$Encoder, toEUC, int32_t, char16_t, char16_t, $bytes*)},
+	{"toEUC", "(C[B)I", nullptr, $PUBLIC, $virtualMethod(EUC_TW$Encoder, toEUC, int32_t, char16_t, $bytes*)},
 	{}
 };
 

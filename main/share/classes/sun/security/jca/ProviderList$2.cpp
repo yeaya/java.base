@@ -14,8 +14,8 @@ namespace sun {
 		namespace jca {
 
 $MethodInfo _ProviderList$2_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ProviderList$2::*)()>(&ProviderList$2::init$))},
-	{"run", "()Lsun/security/jca/ProviderList;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(ProviderList$2, init$, void)},
+	{"run", "()Lsun/security/jca/ProviderList;", nullptr, $PUBLIC, $virtualMethod(ProviderList$2, run, $Object*)},
 	{}
 };
 

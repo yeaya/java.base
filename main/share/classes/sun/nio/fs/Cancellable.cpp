@@ -33,14 +33,14 @@ $FieldInfo _Cancellable_FieldInfo_[] = {
 };
 
 $MethodInfo _Cancellable_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(Cancellable::*)()>(&Cancellable::init$))},
-	{"addressToPollForCancel", "()J", nullptr, $PROTECTED},
-	{"cancel", "()V", nullptr, $FINAL, $method(static_cast<void(Cancellable::*)()>(&Cancellable::cancel))},
-	{"cancelValue", "()I", nullptr, $PROTECTED},
-	{"exception", "()Ljava/lang/Throwable;", nullptr, $PRIVATE, $method(static_cast<$Throwable*(Cancellable::*)()>(&Cancellable::exception))},
-	{"implRun", "()V", nullptr, $ABSTRACT, nullptr, "java.lang.Throwable"},
-	{"run", "()V", nullptr, $PUBLIC | $FINAL},
-	{"runInterruptibly", "(Lsun/nio/fs/Cancellable;)V", nullptr, $STATIC, $method(static_cast<void(*)(Cancellable*)>(&Cancellable::runInterruptibly)), "java.util.concurrent.ExecutionException"},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(Cancellable, init$, void)},
+	{"addressToPollForCancel", "()J", nullptr, $PROTECTED, $virtualMethod(Cancellable, addressToPollForCancel, int64_t)},
+	{"cancel", "()V", nullptr, $FINAL, $method(Cancellable, cancel, void)},
+	{"cancelValue", "()I", nullptr, $PROTECTED, $virtualMethod(Cancellable, cancelValue, int32_t)},
+	{"exception", "()Ljava/lang/Throwable;", nullptr, $PRIVATE, $method(Cancellable, exception, $Throwable*)},
+	{"implRun", "()V", nullptr, $ABSTRACT, $virtualMethod(Cancellable, implRun, void), "java.lang.Throwable"},
+	{"run", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(Cancellable, run, void)},
+	{"runInterruptibly", "(Lsun/nio/fs/Cancellable;)V", nullptr, $STATIC, $staticMethod(Cancellable, runInterruptibly, void, Cancellable*), "java.util.concurrent.ExecutionException"},
 	{}
 };
 

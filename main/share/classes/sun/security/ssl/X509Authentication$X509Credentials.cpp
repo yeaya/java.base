@@ -23,7 +23,7 @@ $FieldInfo _X509Authentication$X509Credentials_FieldInfo_[] = {
 };
 
 $MethodInfo _X509Authentication$X509Credentials_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/PublicKey;[Ljava/security/cert/X509Certificate;)V", nullptr, 0, $method(static_cast<void(X509Authentication$X509Credentials::*)($PublicKey*,$X509CertificateArray*)>(&X509Authentication$X509Credentials::init$))},
+	{"<init>", "(Ljava/security/PublicKey;[Ljava/security/cert/X509Certificate;)V", nullptr, 0, $method(X509Authentication$X509Credentials, init$, void, $PublicKey*, $X509CertificateArray*)},
 	{}
 };
 

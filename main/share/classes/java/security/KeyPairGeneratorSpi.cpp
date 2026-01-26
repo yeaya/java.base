@@ -9,6 +9,7 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
+using $KeyPair = ::java::security::KeyPair;
 using $SecureRandom = ::java::security::SecureRandom;
 using $AlgorithmParameterSpec = ::java::security::spec::AlgorithmParameterSpec;
 
@@ -16,10 +17,10 @@ namespace java {
 	namespace security {
 
 $MethodInfo _KeyPairGeneratorSpi_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(KeyPairGeneratorSpi::*)()>(&KeyPairGeneratorSpi::init$))},
-	{"generateKeyPair", "()Ljava/security/KeyPair;", nullptr, $PUBLIC | $ABSTRACT},
-	{"initialize", "(ILjava/security/SecureRandom;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"initialize", "(Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, $PUBLIC, nullptr, "java.security.InvalidAlgorithmParameterException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(KeyPairGeneratorSpi, init$, void)},
+	{"generateKeyPair", "()Ljava/security/KeyPair;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(KeyPairGeneratorSpi, generateKeyPair, $KeyPair*)},
+	{"initialize", "(ILjava/security/SecureRandom;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(KeyPairGeneratorSpi, initialize, void, int32_t, $SecureRandom*)},
+	{"initialize", "(Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, $PUBLIC, $virtualMethod(KeyPairGeneratorSpi, initialize, void, $AlgorithmParameterSpec*, $SecureRandom*), "java.security.InvalidAlgorithmParameterException"},
 	{}
 };
 

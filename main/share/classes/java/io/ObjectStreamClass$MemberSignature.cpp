@@ -35,9 +35,9 @@ $FieldInfo _ObjectStreamClass$MemberSignature_FieldInfo_[] = {
 };
 
 $MethodInfo _ObjectStreamClass$MemberSignature_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/reflect/Field;)V", nullptr, $PUBLIC, $method(static_cast<void(ObjectStreamClass$MemberSignature::*)($Field*)>(&ObjectStreamClass$MemberSignature::init$))},
-	{"<init>", "(Ljava/lang/reflect/Constructor;)V", "(Ljava/lang/reflect/Constructor<*>;)V", $PUBLIC, $method(static_cast<void(ObjectStreamClass$MemberSignature::*)($Constructor*)>(&ObjectStreamClass$MemberSignature::init$))},
-	{"<init>", "(Ljava/lang/reflect/Method;)V", nullptr, $PUBLIC, $method(static_cast<void(ObjectStreamClass$MemberSignature::*)($Method*)>(&ObjectStreamClass$MemberSignature::init$))},
+	{"<init>", "(Ljava/lang/reflect/Field;)V", nullptr, $PUBLIC, $method(ObjectStreamClass$MemberSignature, init$, void, $Field*)},
+	{"<init>", "(Ljava/lang/reflect/Constructor;)V", "(Ljava/lang/reflect/Constructor<*>;)V", $PUBLIC, $method(ObjectStreamClass$MemberSignature, init$, void, $Constructor*)},
+	{"<init>", "(Ljava/lang/reflect/Method;)V", nullptr, $PUBLIC, $method(ObjectStreamClass$MemberSignature, init$, void, $Method*)},
 	{}
 };
 

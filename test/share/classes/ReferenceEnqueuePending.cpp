@@ -33,14 +33,14 @@ $FieldInfo _ReferenceEnqueuePending_FieldInfo_[] = {
 };
 
 $MethodInfo _ReferenceEnqueuePending_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ReferenceEnqueuePending::*)()>(&ReferenceEnqueuePending::init$))},
-	{"checkResult", "(Ljava/lang/ref/ReferenceQueue;I)V", "(Ljava/lang/ref/ReferenceQueue<Ljava/lang/Integer;>;I)V", $PRIVATE | $STATIC, $method(static_cast<void(*)($ReferenceQueue*,int32_t)>(&ReferenceEnqueuePending::checkResult))},
-	{"forceGc", "(J)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)(int64_t)>(&ReferenceEnqueuePending::forceGc)), "java.lang.InterruptedException"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&ReferenceEnqueuePending::main)), "java.lang.Exception"},
-	{"printMissingElements", "(II)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)(int32_t,int32_t)>(&ReferenceEnqueuePending::printMissingElements))},
-	{"raisePriority", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&ReferenceEnqueuePending::raisePriority))},
-	{"sort", "(I)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)(int32_t)>(&ReferenceEnqueuePending::sort))},
-	{"waitForReference", "(Ljava/lang/ref/ReferenceQueue;)LReferenceEnqueuePending$NumberedWeakReference;", "(Ljava/lang/ref/ReferenceQueue<Ljava/lang/Integer;>;)LReferenceEnqueuePending$NumberedWeakReference;", $PRIVATE | $STATIC, $method(static_cast<$ReferenceEnqueuePending$NumberedWeakReference*(*)($ReferenceQueue*)>(&ReferenceEnqueuePending::waitForReference))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ReferenceEnqueuePending, init$, void)},
+	{"checkResult", "(Ljava/lang/ref/ReferenceQueue;I)V", "(Ljava/lang/ref/ReferenceQueue<Ljava/lang/Integer;>;I)V", $PRIVATE | $STATIC, $staticMethod(ReferenceEnqueuePending, checkResult, void, $ReferenceQueue*, int32_t)},
+	{"forceGc", "(J)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ReferenceEnqueuePending, forceGc, void, int64_t), "java.lang.InterruptedException"},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ReferenceEnqueuePending, main, void, $StringArray*), "java.lang.Exception"},
+	{"printMissingElements", "(II)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ReferenceEnqueuePending, printMissingElements, void, int32_t, int32_t)},
+	{"raisePriority", "()V", nullptr, $STATIC, $staticMethod(ReferenceEnqueuePending, raisePriority, void)},
+	{"sort", "(I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ReferenceEnqueuePending, sort, void, int32_t)},
+	{"waitForReference", "(Ljava/lang/ref/ReferenceQueue;)LReferenceEnqueuePending$NumberedWeakReference;", "(Ljava/lang/ref/ReferenceQueue<Ljava/lang/Integer;>;)LReferenceEnqueuePending$NumberedWeakReference;", $PRIVATE | $STATIC, $staticMethod(ReferenceEnqueuePending, waitForReference, $ReferenceEnqueuePending$NumberedWeakReference*, $ReferenceQueue*)},
 	{}
 };
 

@@ -19,9 +19,9 @@ $FieldInfo _LinkPermission_FieldInfo_[] = {
 };
 
 $MethodInfo _LinkPermission_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(LinkPermission::*)($String*)>(&LinkPermission::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(LinkPermission::*)($String*,$String*)>(&LinkPermission::init$))},
-	{"checkName", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(static_cast<void(LinkPermission::*)($String*)>(&LinkPermission::checkName))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(LinkPermission, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(LinkPermission, init$, void, $String*, $String*)},
+	{"checkName", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(LinkPermission, checkName, void, $String*)},
 	{}
 };
 

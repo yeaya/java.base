@@ -39,13 +39,13 @@ $MethodInfo _StreamSpliterators$DelegatingSpliterator$OfLong_MethodInfo_[] = {
 	{"*getExactSizeIfKnown", "()J", nullptr, $PUBLIC},
 	{"*hasCharacteristics", "(I)Z", nullptr, $PUBLIC | $ABSTRACT},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/util/function/Supplier;)V", "(Ljava/util/function/Supplier<Ljava/util/Spliterator$OfLong;>;)V", 0, $method(static_cast<void(StreamSpliterators$DelegatingSpliterator$OfLong::*)($Supplier*)>(&StreamSpliterators$DelegatingSpliterator$OfLong::init$))},
-	{"forEachRemaining", "(Ljava/util/function/LongConsumer;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $method(static_cast<void(StreamSpliterators$DelegatingSpliterator$OfLong::*)($LongConsumer*)>(&StreamSpliterators$DelegatingSpliterator$OfLong::forEachRemaining))},
+	{"<init>", "(Ljava/util/function/Supplier;)V", "(Ljava/util/function/Supplier<Ljava/util/Spliterator$OfLong;>;)V", 0, $method(StreamSpliterators$DelegatingSpliterator$OfLong, init$, void, $Supplier*)},
+	{"forEachRemaining", "(Ljava/util/function/LongConsumer;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $method(StreamSpliterators$DelegatingSpliterator$OfLong, forEachRemaining, void, $LongConsumer*)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{"*tryAdvance", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*tryAdvance", "(Ljava/util/function/Consumer;)Z", nullptr, $PUBLIC},
-	{"tryAdvance", "(Ljava/util/function/LongConsumer;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $method(static_cast<bool(StreamSpliterators$DelegatingSpliterator$OfLong::*)($LongConsumer*)>(&StreamSpliterators$DelegatingSpliterator$OfLong::tryAdvance))},
-	{"trySplit", "()Ljava/util/Spliterator$OfLong;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"tryAdvance", "(Ljava/util/function/LongConsumer;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $method(StreamSpliterators$DelegatingSpliterator$OfLong, tryAdvance, bool, $LongConsumer*)},
+	{"trySplit", "()Ljava/util/Spliterator$OfLong;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(StreamSpliterators$DelegatingSpliterator$OfLong, trySplit, $Spliterator*)},
 	{}
 };
 

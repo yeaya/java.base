@@ -53,8 +53,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo DatagramSocketAdaptor$DatagramSockets$$Lambda$lambda$static$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DatagramSocketAdaptor$DatagramSockets$$Lambda$lambda$static$0::*)()>(&DatagramSocketAdaptor$DatagramSockets$$Lambda$lambda$static$0::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DatagramSocketAdaptor$DatagramSockets$$Lambda$lambda$static$0, init$, void)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DatagramSocketAdaptor$DatagramSockets$$Lambda$lambda$static$0, run, $Object*)},
 	{}
 };
 $ClassInfo DatagramSocketAdaptor$DatagramSockets$$Lambda$lambda$static$0::classInfo$ = {
@@ -77,8 +77,8 @@ $FieldInfo _DatagramSocketAdaptor$DatagramSockets_FieldInfo_[] = {
 };
 
 $MethodInfo _DatagramSocketAdaptor$DatagramSockets_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(DatagramSocketAdaptor$DatagramSockets::*)()>(&DatagramSocketAdaptor$DatagramSockets::init$))},
-	{"lambda$static$0", "()Ljava/lang/invoke/MethodHandles$Lookup;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$MethodHandles$Lookup*(*)()>(&DatagramSocketAdaptor$DatagramSockets::lambda$static$0)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(DatagramSocketAdaptor$DatagramSockets, init$, void)},
+	{"lambda$static$0", "()Ljava/lang/invoke/MethodHandles$Lookup;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DatagramSocketAdaptor$DatagramSockets, lambda$static$0, $MethodHandles$Lookup*), "java.lang.Exception"},
 	{}
 };
 

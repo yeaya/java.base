@@ -19,8 +19,8 @@ $FieldInfo _InvalidJarIndexError_FieldInfo_[] = {
 };
 
 $MethodInfo _InvalidJarIndexError_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(InvalidJarIndexError::*)()>(&InvalidJarIndexError::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(InvalidJarIndexError::*)($String*)>(&InvalidJarIndexError::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(InvalidJarIndexError, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InvalidJarIndexError, init$, void, $String*)},
 	{}
 };
 

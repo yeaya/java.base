@@ -22,8 +22,8 @@ $FieldInfo _AtomicAttachTest$1_FieldInfo_[] = {
 };
 
 $MethodInfo _AtomicAttachTest$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/channels/SelectionKey;Ljava/util/concurrent/atomic/AtomicInteger;)V", nullptr, 0, $method(static_cast<void(AtomicAttachTest$1::*)($SelectionKey*,$AtomicInteger*)>(&AtomicAttachTest$1::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/nio/channels/SelectionKey;Ljava/util/concurrent/atomic/AtomicInteger;)V", nullptr, 0, $method(AtomicAttachTest$1, init$, void, $SelectionKey*, $AtomicInteger*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(AtomicAttachTest$1, run, void)},
 	{}
 };
 

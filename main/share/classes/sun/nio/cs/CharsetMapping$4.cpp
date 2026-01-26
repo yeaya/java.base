@@ -14,10 +14,10 @@ namespace sun {
 		namespace cs {
 
 $MethodInfo _CharsetMapping$4_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(CharsetMapping$4::*)()>(&CharsetMapping$4::init$))},
-	{"compare", "(Lsun/nio/cs/CharsetMapping$Entry;Lsun/nio/cs/CharsetMapping$Entry;)I", nullptr, $PUBLIC},
-	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(CharsetMapping$4, init$, void)},
+	{"compare", "(Lsun/nio/cs/CharsetMapping$Entry;Lsun/nio/cs/CharsetMapping$Entry;)I", nullptr, $PUBLIC, $virtualMethod(CharsetMapping$4, compare, int32_t, $CharsetMapping$Entry*, $CharsetMapping$Entry*)},
+	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(CharsetMapping$4, compare, int32_t, Object$*, Object$*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(CharsetMapping$4, equals, bool, Object$*)},
 	{}
 };
 

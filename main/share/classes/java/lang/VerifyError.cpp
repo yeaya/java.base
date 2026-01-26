@@ -17,8 +17,8 @@ $FieldInfo _VerifyError_FieldInfo_[] = {
 };
 
 $MethodInfo _VerifyError_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(VerifyError::*)()>(&VerifyError::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(VerifyError::*)($String*)>(&VerifyError::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(VerifyError, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(VerifyError, init$, void, $String*)},
 	{}
 };
 

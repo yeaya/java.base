@@ -31,16 +31,16 @@ $FieldInfo _WindowsPathParser_FieldInfo_[] = {
 };
 
 $MethodInfo _WindowsPathParser_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(WindowsPathParser::*)()>(&WindowsPathParser::init$))},
-	{"isInvalidPathChar", "(C)Z", nullptr, $PRIVATE | $STATIC | $FINAL, $method(static_cast<bool(*)(char16_t)>(&WindowsPathParser::isInvalidPathChar))},
-	{"isLetter", "(C)Z", nullptr, $PRIVATE | $STATIC | $FINAL, $method(static_cast<bool(*)(char16_t)>(&WindowsPathParser::isLetter))},
-	{"isSlash", "(C)Z", nullptr, $PRIVATE | $STATIC | $FINAL, $method(static_cast<bool(*)(char16_t)>(&WindowsPathParser::isSlash))},
-	{"nextNonSlash", "(Ljava/lang/String;II)I", nullptr, $PRIVATE | $STATIC | $FINAL, $method(static_cast<int32_t(*)($String*,int32_t,int32_t)>(&WindowsPathParser::nextNonSlash))},
-	{"nextSlash", "(Ljava/lang/String;II)I", nullptr, $PRIVATE | $STATIC | $FINAL, $method(static_cast<int32_t(*)($String*,int32_t,int32_t)>(&WindowsPathParser::nextSlash))},
-	{"normalize", "(Ljava/lang/StringBuilder;Ljava/lang/String;I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($StringBuilder*,$String*,int32_t)>(&WindowsPathParser::normalize))},
-	{"parse", "(Ljava/lang/String;)Lsun/nio/fs/WindowsPathParser$Result;", nullptr, $STATIC, $method(static_cast<$WindowsPathParser$Result*(*)($String*)>(&WindowsPathParser::parse))},
-	{"parse", "(Ljava/lang/String;Z)Lsun/nio/fs/WindowsPathParser$Result;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$WindowsPathParser$Result*(*)($String*,bool)>(&WindowsPathParser::parse))},
-	{"parseNormalizedPath", "(Ljava/lang/String;)Lsun/nio/fs/WindowsPathParser$Result;", nullptr, $STATIC, $method(static_cast<$WindowsPathParser$Result*(*)($String*)>(&WindowsPathParser::parseNormalizedPath))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(WindowsPathParser, init$, void)},
+	{"isInvalidPathChar", "(C)Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(WindowsPathParser, isInvalidPathChar, bool, char16_t)},
+	{"isLetter", "(C)Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(WindowsPathParser, isLetter, bool, char16_t)},
+	{"isSlash", "(C)Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(WindowsPathParser, isSlash, bool, char16_t)},
+	{"nextNonSlash", "(Ljava/lang/String;II)I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(WindowsPathParser, nextNonSlash, int32_t, $String*, int32_t, int32_t)},
+	{"nextSlash", "(Ljava/lang/String;II)I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(WindowsPathParser, nextSlash, int32_t, $String*, int32_t, int32_t)},
+	{"normalize", "(Ljava/lang/StringBuilder;Ljava/lang/String;I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(WindowsPathParser, normalize, $String*, $StringBuilder*, $String*, int32_t)},
+	{"parse", "(Ljava/lang/String;)Lsun/nio/fs/WindowsPathParser$Result;", nullptr, $STATIC, $staticMethod(WindowsPathParser, parse, $WindowsPathParser$Result*, $String*)},
+	{"parse", "(Ljava/lang/String;Z)Lsun/nio/fs/WindowsPathParser$Result;", nullptr, $PRIVATE | $STATIC, $staticMethod(WindowsPathParser, parse, $WindowsPathParser$Result*, $String*, bool)},
+	{"parseNormalizedPath", "(Ljava/lang/String;)Lsun/nio/fs/WindowsPathParser$Result;", nullptr, $STATIC, $staticMethod(WindowsPathParser, parseNormalizedPath, $WindowsPathParser$Result*, $String*)},
 	{}
 };
 

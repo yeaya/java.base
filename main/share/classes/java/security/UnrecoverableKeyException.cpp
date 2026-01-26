@@ -17,8 +17,8 @@ $FieldInfo _UnrecoverableKeyException_FieldInfo_[] = {
 };
 
 $MethodInfo _UnrecoverableKeyException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(UnrecoverableKeyException::*)()>(&UnrecoverableKeyException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(UnrecoverableKeyException::*)($String*)>(&UnrecoverableKeyException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(UnrecoverableKeyException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(UnrecoverableKeyException, init$, void, $String*)},
 	{}
 };
 

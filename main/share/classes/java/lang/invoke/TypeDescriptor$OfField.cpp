@@ -11,10 +11,10 @@ namespace java {
 		namespace invoke {
 
 $MethodInfo _TypeDescriptor$OfField_MethodInfo_[] = {
-	{"arrayType", "()Ljava/lang/invoke/TypeDescriptor$OfField;", "()TF;", $PUBLIC | $ABSTRACT},
-	{"componentType", "()Ljava/lang/invoke/TypeDescriptor$OfField;", "()TF;", $PUBLIC | $ABSTRACT},
-	{"isArray", "()Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"isPrimitive", "()Z", nullptr, $PUBLIC | $ABSTRACT},
+	{"arrayType", "()Ljava/lang/invoke/TypeDescriptor$OfField;", "()TF;", $PUBLIC | $ABSTRACT, $virtualMethod(TypeDescriptor$OfField, arrayType, TypeDescriptor$OfField*)},
+	{"componentType", "()Ljava/lang/invoke/TypeDescriptor$OfField;", "()TF;", $PUBLIC | $ABSTRACT, $virtualMethod(TypeDescriptor$OfField, componentType, TypeDescriptor$OfField*)},
+	{"isArray", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TypeDescriptor$OfField, isArray, bool)},
+	{"isPrimitive", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TypeDescriptor$OfField, isPrimitive, bool)},
 	{}
 };
 

@@ -26,7 +26,7 @@ $CompoundAttribute _NonInheritableContainee$NonInheritedAnnotationRepeated_Annot
 };
 
 $MethodInfo _NonInheritableContainee$NonInheritedAnnotationRepeated_MethodInfo_[] = {
-	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
+	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NonInheritableContainee$NonInheritedAnnotationRepeated, name, $String*)},
 	{}
 };
 

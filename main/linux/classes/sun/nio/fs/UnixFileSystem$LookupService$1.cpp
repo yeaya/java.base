@@ -20,9 +20,9 @@ namespace sun {
 		namespace fs {
 
 $MethodInfo _UnixFileSystem$LookupService$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(UnixFileSystem$LookupService$1::*)()>(&UnixFileSystem$LookupService$1::init$))},
-	{"lookupPrincipalByGroupName", "(Ljava/lang/String;)Ljava/nio/file/attribute/GroupPrincipal;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"lookupPrincipalByName", "(Ljava/lang/String;)Ljava/nio/file/attribute/UserPrincipal;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, 0, $method(UnixFileSystem$LookupService$1, init$, void)},
+	{"lookupPrincipalByGroupName", "(Ljava/lang/String;)Ljava/nio/file/attribute/GroupPrincipal;", nullptr, $PUBLIC, $virtualMethod(UnixFileSystem$LookupService$1, lookupPrincipalByGroupName, $GroupPrincipal*, $String*), "java.io.IOException"},
+	{"lookupPrincipalByName", "(Ljava/lang/String;)Ljava/nio/file/attribute/UserPrincipal;", nullptr, $PUBLIC, $virtualMethod(UnixFileSystem$LookupService$1, lookupPrincipalByName, $UserPrincipal*, $String*), "java.io.IOException"},
 	{}
 };
 

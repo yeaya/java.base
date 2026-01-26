@@ -13,8 +13,8 @@ using $BigDecimal = ::java::math::BigDecimal;
 using $BigInteger = ::java::math::BigInteger;
 
 $MethodInfo _ScaleByPowerOfTenTests_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ScaleByPowerOfTenTests::*)()>(&ScaleByPowerOfTenTests::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&ScaleByPowerOfTenTests::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ScaleByPowerOfTenTests, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ScaleByPowerOfTenTests, main, void, $StringArray*)},
 	{}
 };
 

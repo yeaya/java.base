@@ -54,8 +54,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo LambdaClassLoaderSerialization$MyCode$$Lambda$lambda$run$776879b6$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(LambdaClassLoaderSerialization$MyCode$$Lambda$lambda$run$776879b6$1::*)()>(&LambdaClassLoaderSerialization$MyCode$$Lambda$lambda$run$776879b6$1::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(LambdaClassLoaderSerialization$MyCode$$Lambda$lambda$run$776879b6$1, init$, void)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(LambdaClassLoaderSerialization$MyCode$$Lambda$lambda$run$776879b6$1, run, void)},
 	{}
 };
 $ClassInfo LambdaClassLoaderSerialization$MyCode$$Lambda$lambda$run$776879b6$1::classInfo$ = {
@@ -73,12 +73,12 @@ $Class* LambdaClassLoaderSerialization$MyCode$$Lambda$lambda$run$776879b6$1::loa
 $Class* LambdaClassLoaderSerialization$MyCode$$Lambda$lambda$run$776879b6$1::class$ = nullptr;
 
 $MethodInfo _LambdaClassLoaderSerialization$MyCode_MethodInfo_[] = {
-	{"$deserializeLambda$", "(Ljava/lang/invoke/SerializedLambda;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Object*(*)($SerializedLambda*)>(&LambdaClassLoaderSerialization$MyCode::$deserializeLambda$))},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(LambdaClassLoaderSerialization$MyCode::*)()>(&LambdaClassLoaderSerialization$MyCode::init$))},
-	{"deserialize", "([B)Ljava/lang/Object;", "<T:Ljava/lang/Object;>([B)TT;", $PRIVATE, $method(static_cast<$Object*(LambdaClassLoaderSerialization$MyCode::*)($bytes*)>(&LambdaClassLoaderSerialization$MyCode::deserialize))},
-	{"lambda$run$776879b6$1", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)()>(&LambdaClassLoaderSerialization$MyCode::lambda$run$776879b6$1))},
-	{"run", "()V", nullptr, $PUBLIC},
-	{"serialize", "(Ljava/lang/Object;)[B", nullptr, $PRIVATE, $method(static_cast<$bytes*(LambdaClassLoaderSerialization$MyCode::*)(Object$*)>(&LambdaClassLoaderSerialization$MyCode::serialize))},
+	{"$deserializeLambda$", "(Ljava/lang/invoke/SerializedLambda;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LambdaClassLoaderSerialization$MyCode, $deserializeLambda$, $Object*, $SerializedLambda*)},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(LambdaClassLoaderSerialization$MyCode, init$, void)},
+	{"deserialize", "([B)Ljava/lang/Object;", "<T:Ljava/lang/Object;>([B)TT;", $PRIVATE, $method(LambdaClassLoaderSerialization$MyCode, deserialize, $Object*, $bytes*)},
+	{"lambda$run$776879b6$1", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LambdaClassLoaderSerialization$MyCode, lambda$run$776879b6$1, void)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(LambdaClassLoaderSerialization$MyCode, run, void)},
+	{"serialize", "(Ljava/lang/Object;)[B", nullptr, $PRIVATE, $method(LambdaClassLoaderSerialization$MyCode, serialize, $bytes*, Object$*)},
 	{}
 };
 

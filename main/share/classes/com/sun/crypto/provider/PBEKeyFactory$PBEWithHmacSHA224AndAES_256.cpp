@@ -14,7 +14,7 @@ namespace com {
 			namespace provider {
 
 $MethodInfo _PBEKeyFactory$PBEWithHmacSHA224AndAES_256_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PBEKeyFactory$PBEWithHmacSHA224AndAES_256::*)()>(&PBEKeyFactory$PBEWithHmacSHA224AndAES_256::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PBEKeyFactory$PBEWithHmacSHA224AndAES_256, init$, void)},
 	{}
 };
 

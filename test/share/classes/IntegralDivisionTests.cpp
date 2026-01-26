@@ -24,14 +24,14 @@ using $MathContext = ::java::math::MathContext;
 using $RoundingMode = ::java::math::RoundingMode;
 
 $MethodInfo _IntegralDivisionTests_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(IntegralDivisionTests::*)()>(&IntegralDivisionTests::init$))},
-	{"divideContextTest", "(Ljava/math/BigDecimal;Ljava/math/BigDecimal;Ljava/math/BigDecimal;Ljava/math/MathContext;)I", nullptr, $STATIC, $method(static_cast<int32_t(*)($BigDecimal*,$BigDecimal*,$BigDecimal*,$MathContext*)>(&IntegralDivisionTests::divideContextTest))},
-	{"divideContextTestPrecs", "(Ljava/math/BigDecimal;Ljava/math/BigDecimal;[Ljava/math/BigDecimal;)I", nullptr, $STATIC, $method(static_cast<int32_t(*)($BigDecimal*,$BigDecimal*,$BigDecimalArray*)>(&IntegralDivisionTests::divideContextTestPrecs))},
-	{"divideContextTests", "(Ljava/math/BigDecimal;Ljava/math/BigDecimal;Ljava/math/BigDecimal;Ljava/math/MathContext;)I", nullptr, $STATIC, $method(static_cast<int32_t(*)($BigDecimal*,$BigDecimal*,$BigDecimal*,$MathContext*)>(&IntegralDivisionTests::divideContextTests))},
-	{"dividetoIntegralValueRoundedTests", "()I", nullptr, $STATIC, $method(static_cast<int32_t(*)()>(&IntegralDivisionTests::dividetoIntegralValueRoundedTests))},
-	{"dividetoIntegralValueScalingTests", "()I", nullptr, $STATIC, $method(static_cast<int32_t(*)()>(&IntegralDivisionTests::dividetoIntegralValueScalingTests))},
-	{"dividetoIntegralValueTests", "()I", nullptr, $STATIC, $method(static_cast<int32_t(*)()>(&IntegralDivisionTests::dividetoIntegralValueTests))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&IntegralDivisionTests::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(IntegralDivisionTests, init$, void)},
+	{"divideContextTest", "(Ljava/math/BigDecimal;Ljava/math/BigDecimal;Ljava/math/BigDecimal;Ljava/math/MathContext;)I", nullptr, $STATIC, $staticMethod(IntegralDivisionTests, divideContextTest, int32_t, $BigDecimal*, $BigDecimal*, $BigDecimal*, $MathContext*)},
+	{"divideContextTestPrecs", "(Ljava/math/BigDecimal;Ljava/math/BigDecimal;[Ljava/math/BigDecimal;)I", nullptr, $STATIC, $staticMethod(IntegralDivisionTests, divideContextTestPrecs, int32_t, $BigDecimal*, $BigDecimal*, $BigDecimalArray*)},
+	{"divideContextTests", "(Ljava/math/BigDecimal;Ljava/math/BigDecimal;Ljava/math/BigDecimal;Ljava/math/MathContext;)I", nullptr, $STATIC, $staticMethod(IntegralDivisionTests, divideContextTests, int32_t, $BigDecimal*, $BigDecimal*, $BigDecimal*, $MathContext*)},
+	{"dividetoIntegralValueRoundedTests", "()I", nullptr, $STATIC, $staticMethod(IntegralDivisionTests, dividetoIntegralValueRoundedTests, int32_t)},
+	{"dividetoIntegralValueScalingTests", "()I", nullptr, $STATIC, $staticMethod(IntegralDivisionTests, dividetoIntegralValueScalingTests, int32_t)},
+	{"dividetoIntegralValueTests", "()I", nullptr, $STATIC, $staticMethod(IntegralDivisionTests, dividetoIntegralValueTests, int32_t)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(IntegralDivisionTests, main, void, $StringArray*)},
 	{}
 };
 

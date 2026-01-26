@@ -32,11 +32,11 @@ $FieldInfo _MethodHandles$Lookup$ClassOption_FieldInfo_[] = {
 };
 
 $MethodInfo _MethodHandles$Lookup$ClassOption_MethodInfo_[] = {
-	{"$values", "()[Ljava/lang/invoke/MethodHandles$Lookup$ClassOption;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$MethodHandles$Lookup$ClassOptionArray*(*)()>(&MethodHandles$Lookup$ClassOption::$values))},
-	{"<init>", "(Ljava/lang/String;II)V", "(I)V", $PRIVATE, $method(static_cast<void(MethodHandles$Lookup$ClassOption::*)($String*,int32_t,int32_t)>(&MethodHandles$Lookup$ClassOption::init$))},
-	{"optionsToFlag", "(Ljava/util/Set;)I", "(Ljava/util/Set<Ljava/lang/invoke/MethodHandles$Lookup$ClassOption;>;)I", $STATIC, $method(static_cast<int32_t(*)($Set*)>(&MethodHandles$Lookup$ClassOption::optionsToFlag))},
-	{"valueOf", "(Ljava/lang/String;)Ljava/lang/invoke/MethodHandles$Lookup$ClassOption;", nullptr, $PUBLIC | $STATIC, $method(static_cast<MethodHandles$Lookup$ClassOption*(*)($String*)>(&MethodHandles$Lookup$ClassOption::valueOf))},
-	{"values", "()[Ljava/lang/invoke/MethodHandles$Lookup$ClassOption;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$MethodHandles$Lookup$ClassOptionArray*(*)()>(&MethodHandles$Lookup$ClassOption::values))},
+	{"$values", "()[Ljava/lang/invoke/MethodHandles$Lookup$ClassOption;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MethodHandles$Lookup$ClassOption, $values, $MethodHandles$Lookup$ClassOptionArray*)},
+	{"<init>", "(Ljava/lang/String;II)V", "(I)V", $PRIVATE, $method(MethodHandles$Lookup$ClassOption, init$, void, $String*, int32_t, int32_t)},
+	{"optionsToFlag", "(Ljava/util/Set;)I", "(Ljava/util/Set<Ljava/lang/invoke/MethodHandles$Lookup$ClassOption;>;)I", $STATIC, $staticMethod(MethodHandles$Lookup$ClassOption, optionsToFlag, int32_t, $Set*)},
+	{"valueOf", "(Ljava/lang/String;)Ljava/lang/invoke/MethodHandles$Lookup$ClassOption;", nullptr, $PUBLIC | $STATIC, $staticMethod(MethodHandles$Lookup$ClassOption, valueOf, MethodHandles$Lookup$ClassOption*, $String*)},
+	{"values", "()[Ljava/lang/invoke/MethodHandles$Lookup$ClassOption;", nullptr, $PUBLIC | $STATIC, $staticMethod(MethodHandles$Lookup$ClassOption, values, $MethodHandles$Lookup$ClassOptionArray*)},
 	{}
 };
 

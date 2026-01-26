@@ -23,13 +23,13 @@ $FieldInfo _InterfaceAddress_FieldInfo_[] = {
 };
 
 $MethodInfo _InterfaceAddress_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(InterfaceAddress::*)()>(&InterfaceAddress::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getAddress", "()Ljava/net/InetAddress;", nullptr, $PUBLIC},
-	{"getBroadcast", "()Ljava/net/InetAddress;", nullptr, $PUBLIC},
-	{"getNetworkPrefixLength", "()S", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(InterfaceAddress, init$, void)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(InterfaceAddress, equals, bool, Object$*)},
+	{"getAddress", "()Ljava/net/InetAddress;", nullptr, $PUBLIC, $virtualMethod(InterfaceAddress, getAddress, $InetAddress*)},
+	{"getBroadcast", "()Ljava/net/InetAddress;", nullptr, $PUBLIC, $virtualMethod(InterfaceAddress, getBroadcast, $InetAddress*)},
+	{"getNetworkPrefixLength", "()S", nullptr, $PUBLIC, $virtualMethod(InterfaceAddress, getNetworkPrefixLength, int16_t)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(InterfaceAddress, hashCode, int32_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(InterfaceAddress, toString, $String*)},
 	{}
 };
 

@@ -58,16 +58,16 @@ $FieldInfo _SSLAlgorithmConstraints_FieldInfo_[] = {
 };
 
 $MethodInfo _SSLAlgorithmConstraints_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/AlgorithmConstraints;)V", nullptr, 0, $method(static_cast<void(SSLAlgorithmConstraints::*)($AlgorithmConstraints*)>(&SSLAlgorithmConstraints::init$))},
-	{"<init>", "(Ljavax/net/ssl/SSLSocket;Z)V", nullptr, 0, $method(static_cast<void(SSLAlgorithmConstraints::*)($SSLSocket*,bool)>(&SSLAlgorithmConstraints::init$))},
-	{"<init>", "(Ljavax/net/ssl/SSLEngine;Z)V", nullptr, 0, $method(static_cast<void(SSLAlgorithmConstraints::*)($SSLEngine*,bool)>(&SSLAlgorithmConstraints::init$))},
-	{"<init>", "(Ljavax/net/ssl/SSLSocket;[Ljava/lang/String;Z)V", nullptr, 0, $method(static_cast<void(SSLAlgorithmConstraints::*)($SSLSocket*,$StringArray*,bool)>(&SSLAlgorithmConstraints::init$))},
-	{"<init>", "(Ljavax/net/ssl/SSLEngine;[Ljava/lang/String;Z)V", nullptr, 0, $method(static_cast<void(SSLAlgorithmConstraints::*)($SSLEngine*,$StringArray*,bool)>(&SSLAlgorithmConstraints::init$))},
-	{"getUserSpecifiedConstraints", "(Ljavax/net/ssl/SSLEngine;)Ljava/security/AlgorithmConstraints;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$AlgorithmConstraints*(*)($SSLEngine*)>(&SSLAlgorithmConstraints::getUserSpecifiedConstraints))},
-	{"getUserSpecifiedConstraints", "(Ljavax/net/ssl/SSLSocket;)Ljava/security/AlgorithmConstraints;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$AlgorithmConstraints*(*)($SSLSocket*)>(&SSLAlgorithmConstraints::getUserSpecifiedConstraints))},
-	{"permits", "(Ljava/util/Set;Ljava/lang/String;Ljava/security/AlgorithmParameters;)Z", "(Ljava/util/Set<Ljava/security/CryptoPrimitive;>;Ljava/lang/String;Ljava/security/AlgorithmParameters;)Z", $PUBLIC},
-	{"permits", "(Ljava/util/Set;Ljava/security/Key;)Z", "(Ljava/util/Set<Ljava/security/CryptoPrimitive;>;Ljava/security/Key;)Z", $PUBLIC},
-	{"permits", "(Ljava/util/Set;Ljava/lang/String;Ljava/security/Key;Ljava/security/AlgorithmParameters;)Z", "(Ljava/util/Set<Ljava/security/CryptoPrimitive;>;Ljava/lang/String;Ljava/security/Key;Ljava/security/AlgorithmParameters;)Z", $PUBLIC},
+	{"<init>", "(Ljava/security/AlgorithmConstraints;)V", nullptr, 0, $method(SSLAlgorithmConstraints, init$, void, $AlgorithmConstraints*)},
+	{"<init>", "(Ljavax/net/ssl/SSLSocket;Z)V", nullptr, 0, $method(SSLAlgorithmConstraints, init$, void, $SSLSocket*, bool)},
+	{"<init>", "(Ljavax/net/ssl/SSLEngine;Z)V", nullptr, 0, $method(SSLAlgorithmConstraints, init$, void, $SSLEngine*, bool)},
+	{"<init>", "(Ljavax/net/ssl/SSLSocket;[Ljava/lang/String;Z)V", nullptr, 0, $method(SSLAlgorithmConstraints, init$, void, $SSLSocket*, $StringArray*, bool)},
+	{"<init>", "(Ljavax/net/ssl/SSLEngine;[Ljava/lang/String;Z)V", nullptr, 0, $method(SSLAlgorithmConstraints, init$, void, $SSLEngine*, $StringArray*, bool)},
+	{"getUserSpecifiedConstraints", "(Ljavax/net/ssl/SSLEngine;)Ljava/security/AlgorithmConstraints;", nullptr, $PRIVATE | $STATIC, $staticMethod(SSLAlgorithmConstraints, getUserSpecifiedConstraints, $AlgorithmConstraints*, $SSLEngine*)},
+	{"getUserSpecifiedConstraints", "(Ljavax/net/ssl/SSLSocket;)Ljava/security/AlgorithmConstraints;", nullptr, $PRIVATE | $STATIC, $staticMethod(SSLAlgorithmConstraints, getUserSpecifiedConstraints, $AlgorithmConstraints*, $SSLSocket*)},
+	{"permits", "(Ljava/util/Set;Ljava/lang/String;Ljava/security/AlgorithmParameters;)Z", "(Ljava/util/Set<Ljava/security/CryptoPrimitive;>;Ljava/lang/String;Ljava/security/AlgorithmParameters;)Z", $PUBLIC, $virtualMethod(SSLAlgorithmConstraints, permits, bool, $Set*, $String*, $AlgorithmParameters*)},
+	{"permits", "(Ljava/util/Set;Ljava/security/Key;)Z", "(Ljava/util/Set<Ljava/security/CryptoPrimitive;>;Ljava/security/Key;)Z", $PUBLIC, $virtualMethod(SSLAlgorithmConstraints, permits, bool, $Set*, $Key*)},
+	{"permits", "(Ljava/util/Set;Ljava/lang/String;Ljava/security/Key;Ljava/security/AlgorithmParameters;)Z", "(Ljava/util/Set<Ljava/security/CryptoPrimitive;>;Ljava/lang/String;Ljava/security/Key;Ljava/security/AlgorithmParameters;)Z", $PUBLIC, $virtualMethod(SSLAlgorithmConstraints, permits, bool, $Set*, $String*, $Key*, $AlgorithmParameters*)},
 	{}
 };
 

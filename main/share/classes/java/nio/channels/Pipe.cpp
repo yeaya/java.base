@@ -8,6 +8,8 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Pipe$SinkChannel = ::java::nio::channels::Pipe$SinkChannel;
+using $Pipe$SourceChannel = ::java::nio::channels::Pipe$SourceChannel;
 using $SelectorProvider = ::java::nio::channels::spi::SelectorProvider;
 
 namespace java {
@@ -15,10 +17,10 @@ namespace java {
 		namespace channels {
 
 $MethodInfo _Pipe_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(Pipe::*)()>(&Pipe::init$))},
-	{"open", "()Ljava/nio/channels/Pipe;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Pipe*(*)()>(&Pipe::open)), "java.io.IOException"},
-	{"sink", "()Ljava/nio/channels/Pipe$SinkChannel;", nullptr, $PUBLIC | $ABSTRACT},
-	{"source", "()Ljava/nio/channels/Pipe$SourceChannel;", nullptr, $PUBLIC | $ABSTRACT},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(Pipe, init$, void)},
+	{"open", "()Ljava/nio/channels/Pipe;", nullptr, $PUBLIC | $STATIC, $staticMethod(Pipe, open, Pipe*), "java.io.IOException"},
+	{"sink", "()Ljava/nio/channels/Pipe$SinkChannel;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Pipe, sink, $Pipe$SinkChannel*)},
+	{"source", "()Ljava/nio/channels/Pipe$SourceChannel;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Pipe, source, $Pipe$SourceChannel*)},
 	{}
 };
 

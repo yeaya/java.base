@@ -27,8 +27,8 @@ $FieldInfo _NTLMAuthentication$1_FieldInfo_[] = {
 };
 
 $MethodInfo _NTLMAuthentication$1_MethodInfo_[] = {
-	{"<init>", "(Lsun/net/www/protocol/http/ntlm/NTLMAuthentication;)V", nullptr, 0, $method(static_cast<void(NTLMAuthentication$1::*)($NTLMAuthentication*)>(&NTLMAuthentication$1::init$))},
-	{"run", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/net/www/protocol/http/ntlm/NTLMAuthentication;)V", nullptr, 0, $method(NTLMAuthentication$1, init$, void, $NTLMAuthentication*)},
+	{"run", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NTLMAuthentication$1, run, $Object*)},
 	{}
 };
 

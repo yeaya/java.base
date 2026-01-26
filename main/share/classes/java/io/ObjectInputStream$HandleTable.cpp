@@ -37,17 +37,17 @@ $FieldInfo _ObjectInputStream$HandleTable_FieldInfo_[] = {
 };
 
 $MethodInfo _ObjectInputStream$HandleTable_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, 0, $method(static_cast<void(ObjectInputStream$HandleTable::*)(int32_t)>(&ObjectInputStream$HandleTable::init$))},
-	{"assign", "(Ljava/lang/Object;)I", nullptr, 0},
-	{"clear", "()V", nullptr, 0},
-	{"finish", "(I)V", nullptr, 0},
-	{"grow", "()V", nullptr, $PRIVATE, $method(static_cast<void(ObjectInputStream$HandleTable::*)()>(&ObjectInputStream$HandleTable::grow))},
-	{"lookupException", "(I)Ljava/lang/ClassNotFoundException;", nullptr, 0},
-	{"lookupObject", "(I)Ljava/lang/Object;", nullptr, 0},
-	{"markDependency", "(II)V", nullptr, 0},
-	{"markException", "(ILjava/lang/ClassNotFoundException;)V", nullptr, 0},
-	{"setObject", "(ILjava/lang/Object;)V", nullptr, 0},
-	{"size", "()I", nullptr, 0},
+	{"<init>", "(I)V", nullptr, 0, $method(ObjectInputStream$HandleTable, init$, void, int32_t)},
+	{"assign", "(Ljava/lang/Object;)I", nullptr, 0, $virtualMethod(ObjectInputStream$HandleTable, assign, int32_t, Object$*)},
+	{"clear", "()V", nullptr, 0, $virtualMethod(ObjectInputStream$HandleTable, clear, void)},
+	{"finish", "(I)V", nullptr, 0, $virtualMethod(ObjectInputStream$HandleTable, finish, void, int32_t)},
+	{"grow", "()V", nullptr, $PRIVATE, $method(ObjectInputStream$HandleTable, grow, void)},
+	{"lookupException", "(I)Ljava/lang/ClassNotFoundException;", nullptr, 0, $virtualMethod(ObjectInputStream$HandleTable, lookupException, $ClassNotFoundException*, int32_t)},
+	{"lookupObject", "(I)Ljava/lang/Object;", nullptr, 0, $virtualMethod(ObjectInputStream$HandleTable, lookupObject, $Object*, int32_t)},
+	{"markDependency", "(II)V", nullptr, 0, $virtualMethod(ObjectInputStream$HandleTable, markDependency, void, int32_t, int32_t)},
+	{"markException", "(ILjava/lang/ClassNotFoundException;)V", nullptr, 0, $virtualMethod(ObjectInputStream$HandleTable, markException, void, int32_t, $ClassNotFoundException*)},
+	{"setObject", "(ILjava/lang/Object;)V", nullptr, 0, $virtualMethod(ObjectInputStream$HandleTable, setObject, void, int32_t, Object$*)},
+	{"size", "()I", nullptr, 0, $virtualMethod(ObjectInputStream$HandleTable, size, int32_t)},
 	{}
 };
 

@@ -10,11 +10,11 @@ namespace java {
 
 $MethodInfo _Queue_MethodInfo_[] = {
 	{"add", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"element", "()Ljava/lang/Object;", "()TE;", $PUBLIC | $ABSTRACT},
-	{"offer", "(Ljava/lang/Object;)Z", "(TE;)Z", $PUBLIC | $ABSTRACT},
-	{"peek", "()Ljava/lang/Object;", "()TE;", $PUBLIC | $ABSTRACT},
-	{"poll", "()Ljava/lang/Object;", "()TE;", $PUBLIC | $ABSTRACT},
-	{"remove", "()Ljava/lang/Object;", "()TE;", $PUBLIC | $ABSTRACT},
+	{"element", "()Ljava/lang/Object;", "()TE;", $PUBLIC | $ABSTRACT, $virtualMethod(Queue, element, $Object*)},
+	{"offer", "(Ljava/lang/Object;)Z", "(TE;)Z", $PUBLIC | $ABSTRACT, $virtualMethod(Queue, offer, bool, Object$*)},
+	{"peek", "()Ljava/lang/Object;", "()TE;", $PUBLIC | $ABSTRACT, $virtualMethod(Queue, peek, $Object*)},
+	{"poll", "()Ljava/lang/Object;", "()TE;", $PUBLIC | $ABSTRACT, $virtualMethod(Queue, poll, $Object*)},
+	{"remove", "()Ljava/lang/Object;", "()TE;", $PUBLIC | $ABSTRACT, $virtualMethod(Queue, remove, $Object*)},
 	{}
 };
 

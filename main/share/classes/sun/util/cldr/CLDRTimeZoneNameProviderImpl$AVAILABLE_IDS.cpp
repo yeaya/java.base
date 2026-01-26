@@ -45,8 +45,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo CLDRTimeZoneNameProviderImpl$AVAILABLE_IDS$$Lambda$lambda$static$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CLDRTimeZoneNameProviderImpl$AVAILABLE_IDS$$Lambda$lambda$static$0::*)()>(&CLDRTimeZoneNameProviderImpl$AVAILABLE_IDS$$Lambda$lambda$static$0::init$))},
-	{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CLDRTimeZoneNameProviderImpl$AVAILABLE_IDS$$Lambda$lambda$static$0, init$, void)},
+	{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(CLDRTimeZoneNameProviderImpl$AVAILABLE_IDS$$Lambda$lambda$static$0, apply, $Object*, int32_t)},
 	{}
 };
 $ClassInfo CLDRTimeZoneNameProviderImpl$AVAILABLE_IDS$$Lambda$lambda$static$0::classInfo$ = {
@@ -69,8 +69,8 @@ $FieldInfo _CLDRTimeZoneNameProviderImpl$AVAILABLE_IDS_FieldInfo_[] = {
 };
 
 $MethodInfo _CLDRTimeZoneNameProviderImpl$AVAILABLE_IDS_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(CLDRTimeZoneNameProviderImpl$AVAILABLE_IDS::*)()>(&CLDRTimeZoneNameProviderImpl$AVAILABLE_IDS::init$))},
-	{"lambda$static$0", "(I)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$StringArray*(*)(int32_t)>(&CLDRTimeZoneNameProviderImpl$AVAILABLE_IDS::lambda$static$0))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(CLDRTimeZoneNameProviderImpl$AVAILABLE_IDS, init$, void)},
+	{"lambda$static$0", "(I)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CLDRTimeZoneNameProviderImpl$AVAILABLE_IDS, lambda$static$0, $StringArray*, int32_t)},
 	{}
 };
 

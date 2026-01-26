@@ -15,9 +15,9 @@ $FieldInfo _DateFormatSymbolsCloneTest_FieldInfo_[] = {
 };
 
 $MethodInfo _DateFormatSymbolsCloneTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DateFormatSymbolsCloneTest::*)()>(&DateFormatSymbolsCloneTest::init$))},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&DateFormatSymbolsCloneTest::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DateFormatSymbolsCloneTest, init$, void)},
+	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DateFormatSymbolsCloneTest, clone, $Object*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(DateFormatSymbolsCloneTest, main, void, $StringArray*)},
 	{}
 };
 

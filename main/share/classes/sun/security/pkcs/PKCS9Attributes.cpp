@@ -49,21 +49,21 @@ $FieldInfo _PKCS9Attributes_FieldInfo_[] = {
 };
 
 $MethodInfo _PKCS9Attributes_MethodInfo_[] = {
-	{"<init>", "([Lsun/security/util/ObjectIdentifier;Lsun/security/util/DerInputStream;)V", nullptr, $PUBLIC, $method(static_cast<void(PKCS9Attributes::*)($ObjectIdentifierArray*,$DerInputStream*)>(&PKCS9Attributes::init$)), "java.io.IOException"},
-	{"<init>", "(Lsun/security/util/DerInputStream;)V", nullptr, $PUBLIC, $method(static_cast<void(PKCS9Attributes::*)($DerInputStream*)>(&PKCS9Attributes::init$)), "java.io.IOException"},
-	{"<init>", "(Lsun/security/util/DerInputStream;Z)V", nullptr, $PUBLIC, $method(static_cast<void(PKCS9Attributes::*)($DerInputStream*,bool)>(&PKCS9Attributes::init$)), "java.io.IOException"},
-	{"<init>", "([Lsun/security/pkcs/PKCS9Attribute;)V", nullptr, $PUBLIC, $method(static_cast<void(PKCS9Attributes::*)($PKCS9AttributeArray*)>(&PKCS9Attributes::init$)), "java.lang.IllegalArgumentException,java.io.IOException"},
-	{"castToDerEncoder", "([Ljava/lang/Object;)[Lsun/security/util/DerEncoder;", nullptr, $STATIC, $method(static_cast<$DerEncoderArray*(*)($ObjectArray*)>(&PKCS9Attributes::castToDerEncoder))},
-	{"decode", "(Lsun/security/util/DerInputStream;)[B", nullptr, $PRIVATE, $method(static_cast<$bytes*(PKCS9Attributes::*)($DerInputStream*)>(&PKCS9Attributes::decode)), "java.io.IOException"},
-	{"encode", "(BLjava/io/OutputStream;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"generateDerEncoding", "()[B", nullptr, $PRIVATE, $method(static_cast<$bytes*(PKCS9Attributes::*)()>(&PKCS9Attributes::generateDerEncoding)), "java.io.IOException"},
-	{"getAttribute", "(Lsun/security/util/ObjectIdentifier;)Lsun/security/pkcs/PKCS9Attribute;", nullptr, $PUBLIC},
-	{"getAttribute", "(Ljava/lang/String;)Lsun/security/pkcs/PKCS9Attribute;", nullptr, $PUBLIC},
-	{"getAttributeValue", "(Lsun/security/util/ObjectIdentifier;)Ljava/lang/Object;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"getAttributeValue", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"getAttributes", "()[Lsun/security/pkcs/PKCS9Attribute;", nullptr, $PUBLIC},
-	{"getDerEncoding", "()[B", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "([Lsun/security/util/ObjectIdentifier;Lsun/security/util/DerInputStream;)V", nullptr, $PUBLIC, $method(PKCS9Attributes, init$, void, $ObjectIdentifierArray*, $DerInputStream*), "java.io.IOException"},
+	{"<init>", "(Lsun/security/util/DerInputStream;)V", nullptr, $PUBLIC, $method(PKCS9Attributes, init$, void, $DerInputStream*), "java.io.IOException"},
+	{"<init>", "(Lsun/security/util/DerInputStream;Z)V", nullptr, $PUBLIC, $method(PKCS9Attributes, init$, void, $DerInputStream*, bool), "java.io.IOException"},
+	{"<init>", "([Lsun/security/pkcs/PKCS9Attribute;)V", nullptr, $PUBLIC, $method(PKCS9Attributes, init$, void, $PKCS9AttributeArray*), "java.lang.IllegalArgumentException,java.io.IOException"},
+	{"castToDerEncoder", "([Ljava/lang/Object;)[Lsun/security/util/DerEncoder;", nullptr, $STATIC, $staticMethod(PKCS9Attributes, castToDerEncoder, $DerEncoderArray*, $ObjectArray*)},
+	{"decode", "(Lsun/security/util/DerInputStream;)[B", nullptr, $PRIVATE, $method(PKCS9Attributes, decode, $bytes*, $DerInputStream*), "java.io.IOException"},
+	{"encode", "(BLjava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(PKCS9Attributes, encode, void, int8_t, $OutputStream*), "java.io.IOException"},
+	{"generateDerEncoding", "()[B", nullptr, $PRIVATE, $method(PKCS9Attributes, generateDerEncoding, $bytes*), "java.io.IOException"},
+	{"getAttribute", "(Lsun/security/util/ObjectIdentifier;)Lsun/security/pkcs/PKCS9Attribute;", nullptr, $PUBLIC, $virtualMethod(PKCS9Attributes, getAttribute, $PKCS9Attribute*, $ObjectIdentifier*)},
+	{"getAttribute", "(Ljava/lang/String;)Lsun/security/pkcs/PKCS9Attribute;", nullptr, $PUBLIC, $virtualMethod(PKCS9Attributes, getAttribute, $PKCS9Attribute*, $String*)},
+	{"getAttributeValue", "(Lsun/security/util/ObjectIdentifier;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PKCS9Attributes, getAttributeValue, $Object*, $ObjectIdentifier*), "java.io.IOException"},
+	{"getAttributeValue", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PKCS9Attributes, getAttributeValue, $Object*, $String*), "java.io.IOException"},
+	{"getAttributes", "()[Lsun/security/pkcs/PKCS9Attribute;", nullptr, $PUBLIC, $virtualMethod(PKCS9Attributes, getAttributes, $PKCS9AttributeArray*)},
+	{"getDerEncoding", "()[B", nullptr, $PUBLIC, $virtualMethod(PKCS9Attributes, getDerEncoding, $bytes*), "java.io.IOException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PKCS9Attributes, toString, $String*)},
 	{}
 };
 

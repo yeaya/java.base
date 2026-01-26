@@ -46,20 +46,20 @@ $FieldInfo _IPAddressName_FieldInfo_[] = {
 };
 
 $MethodInfo _IPAddressName_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(static_cast<void(IPAddressName::*)($DerValue*)>(&IPAddressName::init$)), "java.io.IOException"},
-	{"<init>", "([B)V", nullptr, $PUBLIC, $method(static_cast<void(IPAddressName::*)($bytes*)>(&IPAddressName::init$)), "java.io.IOException"},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(IPAddressName::*)($String*)>(&IPAddressName::init$)), "java.io.IOException"},
-	{"constrains", "(Lsun/security/x509/GeneralNameInterface;)I", nullptr, $PUBLIC, nullptr, "java.lang.UnsupportedOperationException"},
-	{"encode", "(Lsun/security/util/DerOutputStream;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getBytes", "()[B", nullptr, $PUBLIC},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"getType", "()I", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"parseIPv4", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(static_cast<void(IPAddressName::*)($String*)>(&IPAddressName::parseIPv4)), "java.io.IOException"},
-	{"parseIPv6", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(static_cast<void(IPAddressName::*)($String*)>(&IPAddressName::parseIPv6)), "java.io.IOException"},
-	{"subtreeDepth", "()I", nullptr, $PUBLIC, nullptr, "java.lang.UnsupportedOperationException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(IPAddressName, init$, void, $DerValue*), "java.io.IOException"},
+	{"<init>", "([B)V", nullptr, $PUBLIC, $method(IPAddressName, init$, void, $bytes*), "java.io.IOException"},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(IPAddressName, init$, void, $String*), "java.io.IOException"},
+	{"constrains", "(Lsun/security/x509/GeneralNameInterface;)I", nullptr, $PUBLIC, $virtualMethod(IPAddressName, constrains, int32_t, $GeneralNameInterface*), "java.lang.UnsupportedOperationException"},
+	{"encode", "(Lsun/security/util/DerOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(IPAddressName, encode, void, $DerOutputStream*), "java.io.IOException"},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(IPAddressName, equals, bool, Object$*)},
+	{"getBytes", "()[B", nullptr, $PUBLIC, $virtualMethod(IPAddressName, getBytes, $bytes*)},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IPAddressName, getName, $String*), "java.io.IOException"},
+	{"getType", "()I", nullptr, $PUBLIC, $virtualMethod(IPAddressName, getType, int32_t)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(IPAddressName, hashCode, int32_t)},
+	{"parseIPv4", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(IPAddressName, parseIPv4, void, $String*), "java.io.IOException"},
+	{"parseIPv6", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(IPAddressName, parseIPv6, void, $String*), "java.io.IOException"},
+	{"subtreeDepth", "()I", nullptr, $PUBLIC, $virtualMethod(IPAddressName, subtreeDepth, int32_t), "java.lang.UnsupportedOperationException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IPAddressName, toString, $String*)},
 	{}
 };
 

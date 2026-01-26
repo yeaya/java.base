@@ -15,8 +15,8 @@ using $Socket = ::java::net::Socket;
 using $SocketException = ::java::net::SocketException;
 
 $MethodInfo _SetOption_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SetOption::*)()>(&SetOption::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&SetOption::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SetOption, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SetOption, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

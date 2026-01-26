@@ -28,14 +28,14 @@ $FieldInfo _SequenceInputStream_FieldInfo_[] = {
 };
 
 $MethodInfo _SequenceInputStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Enumeration;)V", "(Ljava/util/Enumeration<+Ljava/io/InputStream;>;)V", $PUBLIC, $method(static_cast<void(SequenceInputStream::*)($Enumeration*)>(&SequenceInputStream::init$))},
-	{"<init>", "(Ljava/io/InputStream;Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(static_cast<void(SequenceInputStream::*)($InputStream*,$InputStream*)>(&SequenceInputStream::init$))},
-	{"available", "()I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"nextStream", "()V", nullptr, $FINAL, $method(static_cast<void(SequenceInputStream::*)()>(&SequenceInputStream::nextStream)), "java.io.IOException"},
-	{"peekNextStream", "()V", nullptr, $PRIVATE, $method(static_cast<void(SequenceInputStream::*)()>(&SequenceInputStream::peekNextStream))},
-	{"read", "()I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"read", "([BII)I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljava/util/Enumeration;)V", "(Ljava/util/Enumeration<+Ljava/io/InputStream;>;)V", $PUBLIC, $method(SequenceInputStream, init$, void, $Enumeration*)},
+	{"<init>", "(Ljava/io/InputStream;Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(SequenceInputStream, init$, void, $InputStream*, $InputStream*)},
+	{"available", "()I", nullptr, $PUBLIC, $virtualMethod(SequenceInputStream, available, int32_t), "java.io.IOException"},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(SequenceInputStream, close, void), "java.io.IOException"},
+	{"nextStream", "()V", nullptr, $FINAL, $method(SequenceInputStream, nextStream, void), "java.io.IOException"},
+	{"peekNextStream", "()V", nullptr, $PRIVATE, $method(SequenceInputStream, peekNextStream, void)},
+	{"read", "()I", nullptr, $PUBLIC, $virtualMethod(SequenceInputStream, read, int32_t), "java.io.IOException"},
+	{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(SequenceInputStream, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
 	{}
 };
 

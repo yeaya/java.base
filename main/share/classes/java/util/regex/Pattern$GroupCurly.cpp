@@ -37,12 +37,12 @@ $FieldInfo _Pattern$GroupCurly_FieldInfo_[] = {
 };
 
 $MethodInfo _Pattern$GroupCurly_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/regex/Pattern$Node;IILjava/util/regex/Pattern$Qtype;IIZ)V", nullptr, 0, $method(static_cast<void(Pattern$GroupCurly::*)($Pattern$Node*,int32_t,int32_t,$Pattern$Qtype*,int32_t,int32_t,bool)>(&Pattern$GroupCurly::init$))},
-	{"match", "(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z", nullptr, 0},
-	{"match0", "(Ljava/util/regex/Matcher;IILjava/lang/CharSequence;)Z", nullptr, 0, $method(static_cast<bool(Pattern$GroupCurly::*)($Matcher*,int32_t,int32_t,$CharSequence*)>(&Pattern$GroupCurly::match0))},
-	{"match1", "(Ljava/util/regex/Matcher;IILjava/lang/CharSequence;)Z", nullptr, 0, $method(static_cast<bool(Pattern$GroupCurly::*)($Matcher*,int32_t,int32_t,$CharSequence*)>(&Pattern$GroupCurly::match1))},
-	{"match2", "(Ljava/util/regex/Matcher;IILjava/lang/CharSequence;)Z", nullptr, 0, $method(static_cast<bool(Pattern$GroupCurly::*)($Matcher*,int32_t,int32_t,$CharSequence*)>(&Pattern$GroupCurly::match2))},
-	{"study", "(Ljava/util/regex/Pattern$TreeInfo;)Z", nullptr, 0},
+	{"<init>", "(Ljava/util/regex/Pattern$Node;IILjava/util/regex/Pattern$Qtype;IIZ)V", nullptr, 0, $method(Pattern$GroupCurly, init$, void, $Pattern$Node*, int32_t, int32_t, $Pattern$Qtype*, int32_t, int32_t, bool)},
+	{"match", "(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z", nullptr, 0, $virtualMethod(Pattern$GroupCurly, match, bool, $Matcher*, int32_t, $CharSequence*)},
+	{"match0", "(Ljava/util/regex/Matcher;IILjava/lang/CharSequence;)Z", nullptr, 0, $method(Pattern$GroupCurly, match0, bool, $Matcher*, int32_t, int32_t, $CharSequence*)},
+	{"match1", "(Ljava/util/regex/Matcher;IILjava/lang/CharSequence;)Z", nullptr, 0, $method(Pattern$GroupCurly, match1, bool, $Matcher*, int32_t, int32_t, $CharSequence*)},
+	{"match2", "(Ljava/util/regex/Matcher;IILjava/lang/CharSequence;)Z", nullptr, 0, $method(Pattern$GroupCurly, match2, bool, $Matcher*, int32_t, int32_t, $CharSequence*)},
+	{"study", "(Ljava/util/regex/Pattern$TreeInfo;)Z", nullptr, 0, $virtualMethod(Pattern$GroupCurly, study, bool, $Pattern$TreeInfo*)},
 	{}
 };
 

@@ -26,8 +26,8 @@ $FieldInfo _AsyncCloseChannel$SensorServer$1_FieldInfo_[] = {
 };
 
 $MethodInfo _AsyncCloseChannel$SensorServer$1_MethodInfo_[] = {
-	{"<init>", "(LAsyncCloseChannel$SensorServer;Ljava/net/Socket;)V", nullptr, 0, $method(static_cast<void(AsyncCloseChannel$SensorServer$1::*)($AsyncCloseChannel$SensorServer*,$Socket*)>(&AsyncCloseChannel$SensorServer$1::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(LAsyncCloseChannel$SensorServer;Ljava/net/Socket;)V", nullptr, 0, $method(AsyncCloseChannel$SensorServer$1, init$, void, $AsyncCloseChannel$SensorServer*, $Socket*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(AsyncCloseChannel$SensorServer$1, run, void)},
 	{}
 };
 

@@ -14,7 +14,7 @@ namespace sun {
 		namespace ssl {
 
 $MethodInfo _SSLContextImpl$DTLSContext_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SSLContextImpl$DTLSContext::*)()>(&SSLContextImpl$DTLSContext::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SSLContextImpl$DTLSContext, init$, void)},
 	{}
 };
 

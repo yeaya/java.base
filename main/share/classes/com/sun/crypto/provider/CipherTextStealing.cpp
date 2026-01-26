@@ -18,10 +18,10 @@ namespace com {
 			namespace provider {
 
 $MethodInfo _CipherTextStealing_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/crypto/provider/SymmetricCipher;)V", nullptr, 0, $method(static_cast<void(CipherTextStealing::*)($SymmetricCipher*)>(&CipherTextStealing::init$))},
-	{"decryptFinal", "([BII[BI)I", nullptr, 0, nullptr, "javax.crypto.IllegalBlockSizeException"},
-	{"encryptFinal", "([BII[BI)I", nullptr, 0, nullptr, "javax.crypto.IllegalBlockSizeException"},
-	{"getFeedback", "()Ljava/lang/String;", nullptr, 0},
+	{"<init>", "(Lcom/sun/crypto/provider/SymmetricCipher;)V", nullptr, 0, $method(CipherTextStealing, init$, void, $SymmetricCipher*)},
+	{"decryptFinal", "([BII[BI)I", nullptr, 0, $virtualMethod(CipherTextStealing, decryptFinal, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t), "javax.crypto.IllegalBlockSizeException"},
+	{"encryptFinal", "([BII[BI)I", nullptr, 0, $virtualMethod(CipherTextStealing, encryptFinal, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t), "javax.crypto.IllegalBlockSizeException"},
+	{"getFeedback", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(CipherTextStealing, getFeedback, $String*)},
 	{}
 };
 

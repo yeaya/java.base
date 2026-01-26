@@ -25,7 +25,7 @@ $FieldInfo _BidiBase$IsoRun_FieldInfo_[] = {
 };
 
 $MethodInfo _BidiBase$IsoRun_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(BidiBase$IsoRun::*)()>(&BidiBase$IsoRun::init$))},
+	{"<init>", "()V", nullptr, 0, $method(BidiBase$IsoRun, init$, void)},
 	{}
 };
 

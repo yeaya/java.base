@@ -17,9 +17,9 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $BigDecimal = ::java::math::BigDecimal;
 
 $MethodInfo _PowTests_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PowTests::*)()>(&PowTests::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&PowTests::main))},
-	{"zeroAndOneTests", "()I", nullptr, $STATIC, $method(static_cast<int32_t(*)()>(&PowTests::zeroAndOneTests))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PowTests, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(PowTests, main, void, $StringArray*)},
+	{"zeroAndOneTests", "()I", nullptr, $STATIC, $staticMethod(PowTests, zeroAndOneTests, int32_t)},
 	{}
 };
 

@@ -27,12 +27,12 @@ $FieldInfo _ByteServer_FieldInfo_[] = {
 };
 
 $MethodInfo _ByteServer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ByteServer::*)()>(&ByteServer::init$)), "java.io.IOException"},
-	{"acceptConnection", "()V", nullptr, 0, nullptr, "java.io.IOException"},
-	{"address", "()Ljava/net/SocketAddress;", nullptr, 0},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"closeConnection", "()V", nullptr, 0, nullptr, "java.io.IOException"},
-	{"write", "(I)V", nullptr, 0, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, 0, $method(ByteServer, init$, void), "java.io.IOException"},
+	{"acceptConnection", "()V", nullptr, 0, $virtualMethod(ByteServer, acceptConnection, void), "java.io.IOException"},
+	{"address", "()Ljava/net/SocketAddress;", nullptr, 0, $virtualMethod(ByteServer, address, $SocketAddress*)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(ByteServer, close, void), "java.io.IOException"},
+	{"closeConnection", "()V", nullptr, 0, $virtualMethod(ByteServer, closeConnection, void), "java.io.IOException"},
+	{"write", "(I)V", nullptr, 0, $virtualMethod(ByteServer, write, void, int32_t), "java.io.IOException"},
 	{}
 };
 

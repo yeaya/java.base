@@ -42,22 +42,22 @@ $FieldInfo _SHA5_FieldInfo_[] = {
 };
 
 $MethodInfo _SHA5_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;I[J)V", nullptr, 0, $method(static_cast<void(SHA5::*)($String*,int32_t,$longs*)>(&SHA5::init$))},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, nullptr, "java.lang.CloneNotSupportedException"},
-	{"implCompress", "([BI)V", nullptr, $FINAL},
-	{"implCompress0", "([BI)V", nullptr, $PRIVATE | $FINAL, $method(static_cast<void(SHA5::*)($bytes*,int32_t)>(&SHA5::implCompress0)), nullptr, nullptr, _SHA5_MethodAnnotations_implCompress03},
-	{"implCompressCheck", "([BI)V", nullptr, $PRIVATE, $method(static_cast<void(SHA5::*)($bytes*,int32_t)>(&SHA5::implCompressCheck))},
-	{"implDigest", "([BI)V", nullptr, $FINAL},
-	{"implReset", "()V", nullptr, $FINAL},
-	{"lf_R", "(JI)J", nullptr, $PRIVATE | $STATIC, $method(static_cast<int64_t(*)(int64_t,int32_t)>(&SHA5::lf_R))},
-	{"lf_S", "(JI)J", nullptr, $PRIVATE | $STATIC, $method(static_cast<int64_t(*)(int64_t,int32_t)>(&SHA5::lf_S))},
-	{"lf_ch", "(JJJ)J", nullptr, $PRIVATE | $STATIC, $method(static_cast<int64_t(*)(int64_t,int64_t,int64_t)>(&SHA5::lf_ch))},
-	{"lf_delta0", "(J)J", nullptr, $PRIVATE | $STATIC, $method(static_cast<int64_t(*)(int64_t)>(&SHA5::lf_delta0))},
-	{"lf_delta1", "(J)J", nullptr, $PRIVATE | $STATIC, $method(static_cast<int64_t(*)(int64_t)>(&SHA5::lf_delta1))},
-	{"lf_maj", "(JJJ)J", nullptr, $PRIVATE | $STATIC, $method(static_cast<int64_t(*)(int64_t,int64_t,int64_t)>(&SHA5::lf_maj))},
-	{"lf_sigma0", "(J)J", nullptr, $PRIVATE | $STATIC, $method(static_cast<int64_t(*)(int64_t)>(&SHA5::lf_sigma0))},
-	{"lf_sigma1", "(J)J", nullptr, $PRIVATE | $STATIC, $method(static_cast<int64_t(*)(int64_t)>(&SHA5::lf_sigma1))},
-	{"resetHashes", "()V", nullptr, $PRIVATE, $method(static_cast<void(SHA5::*)()>(&SHA5::resetHashes))},
+	{"<init>", "(Ljava/lang/String;I[J)V", nullptr, 0, $method(SHA5, init$, void, $String*, int32_t, $longs*)},
+	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SHA5, clone, $Object*), "java.lang.CloneNotSupportedException"},
+	{"implCompress", "([BI)V", nullptr, $FINAL, $virtualMethod(SHA5, implCompress, void, $bytes*, int32_t)},
+	{"implCompress0", "([BI)V", nullptr, $PRIVATE | $FINAL, $method(SHA5, implCompress0, void, $bytes*, int32_t), nullptr, nullptr, _SHA5_MethodAnnotations_implCompress03},
+	{"implCompressCheck", "([BI)V", nullptr, $PRIVATE, $method(SHA5, implCompressCheck, void, $bytes*, int32_t)},
+	{"implDigest", "([BI)V", nullptr, $FINAL, $virtualMethod(SHA5, implDigest, void, $bytes*, int32_t)},
+	{"implReset", "()V", nullptr, $FINAL, $virtualMethod(SHA5, implReset, void)},
+	{"lf_R", "(JI)J", nullptr, $PRIVATE | $STATIC, $staticMethod(SHA5, lf_R, int64_t, int64_t, int32_t)},
+	{"lf_S", "(JI)J", nullptr, $PRIVATE | $STATIC, $staticMethod(SHA5, lf_S, int64_t, int64_t, int32_t)},
+	{"lf_ch", "(JJJ)J", nullptr, $PRIVATE | $STATIC, $staticMethod(SHA5, lf_ch, int64_t, int64_t, int64_t, int64_t)},
+	{"lf_delta0", "(J)J", nullptr, $PRIVATE | $STATIC, $staticMethod(SHA5, lf_delta0, int64_t, int64_t)},
+	{"lf_delta1", "(J)J", nullptr, $PRIVATE | $STATIC, $staticMethod(SHA5, lf_delta1, int64_t, int64_t)},
+	{"lf_maj", "(JJJ)J", nullptr, $PRIVATE | $STATIC, $staticMethod(SHA5, lf_maj, int64_t, int64_t, int64_t, int64_t)},
+	{"lf_sigma0", "(J)J", nullptr, $PRIVATE | $STATIC, $staticMethod(SHA5, lf_sigma0, int64_t, int64_t)},
+	{"lf_sigma1", "(J)J", nullptr, $PRIVATE | $STATIC, $staticMethod(SHA5, lf_sigma1, int64_t, int64_t)},
+	{"resetHashes", "()V", nullptr, $PRIVATE, $method(SHA5, resetHashes, void)},
 	{}
 };
 

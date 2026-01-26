@@ -52,8 +52,8 @@ $FieldInfo PrimitiveIterator$OfInt$$Lambda$accept::fieldInfos[2] = {
 	{}
 };
 $MethodInfo PrimitiveIterator$OfInt$$Lambda$accept::methodInfos[3] = {
-	{"<init>", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC, $method(static_cast<void(PrimitiveIterator$OfInt$$Lambda$accept::*)($Consumer*)>(&PrimitiveIterator$OfInt$$Lambda$accept::init$))},
-	{"accept", "(I)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC, $method(PrimitiveIterator$OfInt$$Lambda$accept, init$, void, $Consumer*)},
+	{"accept", "(I)V", nullptr, $PUBLIC, $virtualMethod(PrimitiveIterator$OfInt$$Lambda$accept, accept, void, int32_t)},
 	{}
 };
 $ClassInfo PrimitiveIterator$OfInt$$Lambda$accept::classInfo$ = {
@@ -71,11 +71,11 @@ $Class* PrimitiveIterator$OfInt$$Lambda$accept::load$($String* name, bool initia
 $Class* PrimitiveIterator$OfInt$$Lambda$accept::class$ = nullptr;
 
 $MethodInfo _PrimitiveIterator$OfInt_MethodInfo_[] = {
-	{"forEachRemaining", "(Ljava/util/function/IntConsumer;)V", nullptr, $PUBLIC},
-	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-Ljava/lang/Integer;>;)V", $PUBLIC},
-	{"forEachRemaining", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"next", "()Ljava/lang/Integer;", nullptr, $PUBLIC},
-	{"nextInt", "()I", nullptr, $PUBLIC | $ABSTRACT},
+	{"forEachRemaining", "(Ljava/util/function/IntConsumer;)V", nullptr, $PUBLIC, $virtualMethod(PrimitiveIterator$OfInt, forEachRemaining, void, $IntConsumer*)},
+	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-Ljava/lang/Integer;>;)V", $PUBLIC, $virtualMethod(PrimitiveIterator$OfInt, forEachRemaining, void, $Consumer*)},
+	{"forEachRemaining", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(PrimitiveIterator$OfInt, forEachRemaining, void, Object$*)},
+	{"next", "()Ljava/lang/Integer;", nullptr, $PUBLIC, $virtualMethod(PrimitiveIterator$OfInt, next, $Object*)},
+	{"nextInt", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PrimitiveIterator$OfInt, nextInt, int32_t)},
 	{}
 };
 

@@ -24,7 +24,7 @@ $FieldInfo _LocaleEquivalentMaps_FieldInfo_[] = {
 };
 
 $MethodInfo _LocaleEquivalentMaps_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(LocaleEquivalentMaps::*)()>(&LocaleEquivalentMaps::init$))},
+	{"<init>", "()V", nullptr, 0, $method(LocaleEquivalentMaps, init$, void)},
 	{}
 };
 

@@ -22,10 +22,10 @@ $FieldInfo _DomainName$RegisteredDomainImpl_FieldInfo_[] = {
 };
 
 $MethodInfo _DomainName$RegisteredDomainImpl_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Lsun/security/util/RegisteredDomain$Type;Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(DomainName$RegisteredDomainImpl::*)($String*,$RegisteredDomain$Type*,$String*)>(&DomainName$RegisteredDomainImpl::init$))},
-	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"publicSuffix", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"type", "()Lsun/security/util/RegisteredDomain$Type;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Lsun/security/util/RegisteredDomain$Type;Ljava/lang/String;)V", nullptr, 0, $method(DomainName$RegisteredDomainImpl, init$, void, $String*, $RegisteredDomain$Type*, $String*)},
+	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DomainName$RegisteredDomainImpl, name, $String*)},
+	{"publicSuffix", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DomainName$RegisteredDomainImpl, publicSuffix, $String*)},
+	{"type", "()Lsun/security/util/RegisteredDomain$Type;", nullptr, $PUBLIC, $virtualMethod(DomainName$RegisteredDomainImpl, type, $RegisteredDomain$Type*)},
 	{}
 };
 

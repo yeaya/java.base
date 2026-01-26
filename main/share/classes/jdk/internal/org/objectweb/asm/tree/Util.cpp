@@ -27,19 +27,19 @@ namespace jdk {
 					namespace tree {
 
 $MethodInfo _Util_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(Util::*)()>(&Util::init$))},
-	{"add", "(Ljava/util/List;Ljava/lang/Object;)Ljava/util/List;", "<T:Ljava/lang/Object;>(Ljava/util/List<TT;>;TT;)Ljava/util/List<TT;>;", $STATIC, $method(static_cast<$List*(*)($List*,Object$*)>(&Util::add))},
-	{"asArrayList", "(I)Ljava/util/List;", "<T:Ljava/lang/Object;>(I)Ljava/util/List<TT;>;", $STATIC, $method(static_cast<$List*(*)(int32_t)>(&Util::asArrayList))},
-	{"asArrayList", "([Ljava/lang/Object;)Ljava/util/List;", "<T:Ljava/lang/Object;>([TT;)Ljava/util/List<TT;>;", $STATIC, $method(static_cast<$List*(*)($ObjectArray*)>(&Util::asArrayList))},
-	{"asArrayList", "([B)Ljava/util/List;", "([B)Ljava/util/List<Ljava/lang/Byte;>;", $STATIC, $method(static_cast<$List*(*)($bytes*)>(&Util::asArrayList))},
-	{"asArrayList", "([Z)Ljava/util/List;", "([Z)Ljava/util/List<Ljava/lang/Boolean;>;", $STATIC, $method(static_cast<$List*(*)($booleans*)>(&Util::asArrayList))},
-	{"asArrayList", "([S)Ljava/util/List;", "([S)Ljava/util/List<Ljava/lang/Short;>;", $STATIC, $method(static_cast<$List*(*)($shorts*)>(&Util::asArrayList))},
-	{"asArrayList", "([C)Ljava/util/List;", "([C)Ljava/util/List<Ljava/lang/Character;>;", $STATIC, $method(static_cast<$List*(*)($chars*)>(&Util::asArrayList))},
-	{"asArrayList", "([I)Ljava/util/List;", "([I)Ljava/util/List<Ljava/lang/Integer;>;", $STATIC, $method(static_cast<$List*(*)($ints*)>(&Util::asArrayList))},
-	{"asArrayList", "([F)Ljava/util/List;", "([F)Ljava/util/List<Ljava/lang/Float;>;", $STATIC, $method(static_cast<$List*(*)($floats*)>(&Util::asArrayList))},
-	{"asArrayList", "([J)Ljava/util/List;", "([J)Ljava/util/List<Ljava/lang/Long;>;", $STATIC, $method(static_cast<$List*(*)($longs*)>(&Util::asArrayList))},
-	{"asArrayList", "([D)Ljava/util/List;", "([D)Ljava/util/List<Ljava/lang/Double;>;", $STATIC, $method(static_cast<$List*(*)($doubles*)>(&Util::asArrayList))},
-	{"asArrayList", "(I[Ljava/lang/Object;)Ljava/util/List;", "<T:Ljava/lang/Object;>(I[TT;)Ljava/util/List<TT;>;", $STATIC, $method(static_cast<$List*(*)(int32_t,$ObjectArray*)>(&Util::asArrayList))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(Util, init$, void)},
+	{"add", "(Ljava/util/List;Ljava/lang/Object;)Ljava/util/List;", "<T:Ljava/lang/Object;>(Ljava/util/List<TT;>;TT;)Ljava/util/List<TT;>;", $STATIC, $staticMethod(Util, add, $List*, $List*, Object$*)},
+	{"asArrayList", "(I)Ljava/util/List;", "<T:Ljava/lang/Object;>(I)Ljava/util/List<TT;>;", $STATIC, $staticMethod(Util, asArrayList, $List*, int32_t)},
+	{"asArrayList", "([Ljava/lang/Object;)Ljava/util/List;", "<T:Ljava/lang/Object;>([TT;)Ljava/util/List<TT;>;", $STATIC, $staticMethod(Util, asArrayList, $List*, $ObjectArray*)},
+	{"asArrayList", "([B)Ljava/util/List;", "([B)Ljava/util/List<Ljava/lang/Byte;>;", $STATIC, $staticMethod(Util, asArrayList, $List*, $bytes*)},
+	{"asArrayList", "([Z)Ljava/util/List;", "([Z)Ljava/util/List<Ljava/lang/Boolean;>;", $STATIC, $staticMethod(Util, asArrayList, $List*, $booleans*)},
+	{"asArrayList", "([S)Ljava/util/List;", "([S)Ljava/util/List<Ljava/lang/Short;>;", $STATIC, $staticMethod(Util, asArrayList, $List*, $shorts*)},
+	{"asArrayList", "([C)Ljava/util/List;", "([C)Ljava/util/List<Ljava/lang/Character;>;", $STATIC, $staticMethod(Util, asArrayList, $List*, $chars*)},
+	{"asArrayList", "([I)Ljava/util/List;", "([I)Ljava/util/List<Ljava/lang/Integer;>;", $STATIC, $staticMethod(Util, asArrayList, $List*, $ints*)},
+	{"asArrayList", "([F)Ljava/util/List;", "([F)Ljava/util/List<Ljava/lang/Float;>;", $STATIC, $staticMethod(Util, asArrayList, $List*, $floats*)},
+	{"asArrayList", "([J)Ljava/util/List;", "([J)Ljava/util/List<Ljava/lang/Long;>;", $STATIC, $staticMethod(Util, asArrayList, $List*, $longs*)},
+	{"asArrayList", "([D)Ljava/util/List;", "([D)Ljava/util/List<Ljava/lang/Double;>;", $STATIC, $staticMethod(Util, asArrayList, $List*, $doubles*)},
+	{"asArrayList", "(I[Ljava/lang/Object;)Ljava/util/List;", "<T:Ljava/lang/Object;>(I[TT;)Ljava/util/List<TT;>;", $STATIC, $staticMethod(Util, asArrayList, $List*, int32_t, $ObjectArray*)},
 	{}
 };
 

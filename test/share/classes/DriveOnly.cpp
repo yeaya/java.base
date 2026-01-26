@@ -11,8 +11,8 @@ using $Exception = ::java::lang::Exception;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _DriveOnly_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DriveOnly::*)()>(&DriveOnly::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&DriveOnly::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DriveOnly, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(DriveOnly, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

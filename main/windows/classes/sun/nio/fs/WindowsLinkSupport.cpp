@@ -64,14 +64,14 @@ $FieldInfo _WindowsLinkSupport_FieldInfo_[] = {
 };
 
 $MethodInfo _WindowsLinkSupport_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(WindowsLinkSupport::*)()>(&WindowsLinkSupport::init$))},
-	{"getFinalPath", "(Lsun/nio/fs/WindowsPath;)Ljava/lang/String;", nullptr, $STATIC, $method(static_cast<$String*(*)($WindowsPath*)>(&WindowsLinkSupport::getFinalPath)), "java.io.IOException"},
-	{"getFinalPath", "(Lsun/nio/fs/WindowsPath;Z)Ljava/lang/String;", nullptr, $STATIC, $method(static_cast<$String*(*)($WindowsPath*,bool)>(&WindowsLinkSupport::getFinalPath)), "java.io.IOException"},
-	{"getRealPath", "(Lsun/nio/fs/WindowsPath;Z)Ljava/lang/String;", nullptr, $STATIC, $method(static_cast<$String*(*)($WindowsPath*,bool)>(&WindowsLinkSupport::getRealPath)), "java.io.IOException"},
-	{"readLink", "(Lsun/nio/fs/WindowsPath;)Ljava/lang/String;", nullptr, $STATIC, $method(static_cast<$String*(*)($WindowsPath*)>(&WindowsLinkSupport::readLink)), "java.io.IOException"},
-	{"readLinkImpl", "(J)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)(int64_t)>(&WindowsLinkSupport::readLinkImpl)), "java.io.IOException"},
-	{"resolveAllLinks", "(Lsun/nio/fs/WindowsPath;)Lsun/nio/fs/WindowsPath;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$WindowsPath*(*)($WindowsPath*)>(&WindowsLinkSupport::resolveAllLinks)), "java.io.IOException"},
-	{"stripPrefix", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($String*)>(&WindowsLinkSupport::stripPrefix))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(WindowsLinkSupport, init$, void)},
+	{"getFinalPath", "(Lsun/nio/fs/WindowsPath;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(WindowsLinkSupport, getFinalPath, $String*, $WindowsPath*), "java.io.IOException"},
+	{"getFinalPath", "(Lsun/nio/fs/WindowsPath;Z)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(WindowsLinkSupport, getFinalPath, $String*, $WindowsPath*, bool), "java.io.IOException"},
+	{"getRealPath", "(Lsun/nio/fs/WindowsPath;Z)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(WindowsLinkSupport, getRealPath, $String*, $WindowsPath*, bool), "java.io.IOException"},
+	{"readLink", "(Lsun/nio/fs/WindowsPath;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(WindowsLinkSupport, readLink, $String*, $WindowsPath*), "java.io.IOException"},
+	{"readLinkImpl", "(J)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(WindowsLinkSupport, readLinkImpl, $String*, int64_t), "java.io.IOException"},
+	{"resolveAllLinks", "(Lsun/nio/fs/WindowsPath;)Lsun/nio/fs/WindowsPath;", nullptr, $PRIVATE | $STATIC, $staticMethod(WindowsLinkSupport, resolveAllLinks, $WindowsPath*, $WindowsPath*), "java.io.IOException"},
+	{"stripPrefix", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(WindowsLinkSupport, stripPrefix, $String*, $String*)},
 	{}
 };
 

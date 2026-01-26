@@ -14,7 +14,7 @@ namespace com {
 			namespace provider {
 
 $MethodInfo _KeyGeneratorCore$HmacKG$SHA3_224_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(KeyGeneratorCore$HmacKG$SHA3_224::*)()>(&KeyGeneratorCore$HmacKG$SHA3_224::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(KeyGeneratorCore$HmacKG$SHA3_224, init$, void)},
 	{}
 };
 

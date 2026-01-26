@@ -29,20 +29,20 @@ $FieldInfo _PushbackReader_FieldInfo_[] = {
 };
 
 $MethodInfo _PushbackReader_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/Reader;I)V", nullptr, $PUBLIC, $method(static_cast<void(PushbackReader::*)($Reader*,int32_t)>(&PushbackReader::init$))},
-	{"<init>", "(Ljava/io/Reader;)V", nullptr, $PUBLIC, $method(static_cast<void(PushbackReader::*)($Reader*)>(&PushbackReader::init$))},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"ensureOpen", "()V", nullptr, $PRIVATE, $method(static_cast<void(PushbackReader::*)()>(&PushbackReader::ensureOpen)), "java.io.IOException"},
-	{"mark", "(I)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"markSupported", "()Z", nullptr, $PUBLIC},
-	{"read", "()I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"read", "([CII)I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"ready", "()Z", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"reset", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"skip", "(J)J", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"unread", "(I)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"unread", "([CII)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"unread", "([C)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljava/io/Reader;I)V", nullptr, $PUBLIC, $method(PushbackReader, init$, void, $Reader*, int32_t)},
+	{"<init>", "(Ljava/io/Reader;)V", nullptr, $PUBLIC, $method(PushbackReader, init$, void, $Reader*)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(PushbackReader, close, void), "java.io.IOException"},
+	{"ensureOpen", "()V", nullptr, $PRIVATE, $method(PushbackReader, ensureOpen, void), "java.io.IOException"},
+	{"mark", "(I)V", nullptr, $PUBLIC, $virtualMethod(PushbackReader, mark, void, int32_t), "java.io.IOException"},
+	{"markSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(PushbackReader, markSupported, bool)},
+	{"read", "()I", nullptr, $PUBLIC, $virtualMethod(PushbackReader, read, int32_t), "java.io.IOException"},
+	{"read", "([CII)I", nullptr, $PUBLIC, $virtualMethod(PushbackReader, read, int32_t, $chars*, int32_t, int32_t), "java.io.IOException"},
+	{"ready", "()Z", nullptr, $PUBLIC, $virtualMethod(PushbackReader, ready, bool), "java.io.IOException"},
+	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(PushbackReader, reset, void), "java.io.IOException"},
+	{"skip", "(J)J", nullptr, $PUBLIC, $virtualMethod(PushbackReader, skip, int64_t, int64_t), "java.io.IOException"},
+	{"unread", "(I)V", nullptr, $PUBLIC, $virtualMethod(PushbackReader, unread, void, int32_t), "java.io.IOException"},
+	{"unread", "([CII)V", nullptr, $PUBLIC, $virtualMethod(PushbackReader, unread, void, $chars*, int32_t, int32_t), "java.io.IOException"},
+	{"unread", "([C)V", nullptr, $PUBLIC, $virtualMethod(PushbackReader, unread, void, $chars*), "java.io.IOException"},
 	{}
 };
 

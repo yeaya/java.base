@@ -9,8 +9,8 @@ namespace java {
 	namespace fake {
 
 $MethodInfo _Fake_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Fake::*)()>(&Fake::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Fake, init$, void)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Fake, run, void)},
 	{}
 };
 

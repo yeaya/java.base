@@ -21,8 +21,8 @@ $FieldInfo _StringPrep$Values_FieldInfo_[] = {
 };
 
 $MethodInfo _StringPrep$Values_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(StringPrep$Values::*)()>(&StringPrep$Values::init$))},
-	{"reset", "()V", nullptr, $PUBLIC, $method(static_cast<void(StringPrep$Values::*)()>(&StringPrep$Values::reset))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(StringPrep$Values, init$, void)},
+	{"reset", "()V", nullptr, $PUBLIC, $method(StringPrep$Values, reset, void)},
 	{}
 };
 

@@ -66,8 +66,8 @@ $FieldInfo Connect4DatagramChannel$$Lambda$lambda$wait$1::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Connect4DatagramChannel$$Lambda$lambda$wait$1::methodInfos[3] = {
-	{"<init>", "(Ljava/util/concurrent/CompletableFuture;)V", nullptr, $PUBLIC, $method(static_cast<void(Connect4DatagramChannel$$Lambda$lambda$wait$1::*)($CompletableFuture*)>(&Connect4DatagramChannel$$Lambda$lambda$wait$1::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/concurrent/CompletableFuture;)V", nullptr, $PUBLIC, $method(Connect4DatagramChannel$$Lambda$lambda$wait$1, init$, void, $CompletableFuture*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Connect4DatagramChannel$$Lambda$lambda$wait$1, accept, void, Object$*)},
 	{}
 };
 $ClassInfo Connect4DatagramChannel$$Lambda$lambda$wait$1::classInfo$ = {
@@ -106,8 +106,8 @@ $FieldInfo Connect4DatagramChannel$$Lambda$lambda$wait$0$1::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Connect4DatagramChannel$$Lambda$lambda$wait$0$1::methodInfos[3] = {
-	{"<init>", "(Ljava/util/concurrent/CompletableFuture;)V", nullptr, $PUBLIC, $method(static_cast<void(Connect4DatagramChannel$$Lambda$lambda$wait$0$1::*)($CompletableFuture*)>(&Connect4DatagramChannel$$Lambda$lambda$wait$0$1::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/concurrent/CompletableFuture;)V", nullptr, $PUBLIC, $method(Connect4DatagramChannel$$Lambda$lambda$wait$0$1, init$, void, $CompletableFuture*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Connect4DatagramChannel$$Lambda$lambda$wait$0$1, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Connect4DatagramChannel$$Lambda$lambda$wait$0$1::classInfo$ = {
@@ -130,14 +130,14 @@ $FieldInfo _Connect4DatagramChannel_FieldInfo_[] = {
 };
 
 $MethodInfo _Connect4DatagramChannel_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Connect4DatagramChannel::*)()>(&Connect4DatagramChannel::init$))},
-	{"invoke", "(Ljava/util/concurrent/ExecutorService;Ljava/lang/Runnable;Ljava/lang/Runnable;)V", nullptr, $STATIC, $method(static_cast<void(*)($ExecutorService*,$Runnable*,$Runnable*)>(&Connect4DatagramChannel::invoke)), "java.util.concurrent.CompletionException"},
-	{"lambda$wait$0", "(Ljava/util/concurrent/CompletableFuture;Ljava/lang/Throwable;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Object*(*)($CompletableFuture*,$Throwable*)>(&Connect4DatagramChannel::lambda$wait$0))},
-	{"lambda$wait$1", "(Ljava/util/concurrent/CompletableFuture;Ljava/util/concurrent/CompletableFuture;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($CompletableFuture*,$CompletableFuture*)>(&Connect4DatagramChannel::lambda$wait$1))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Connect4DatagramChannel::main)), "java.lang.Exception"},
-	{"test", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&Connect4DatagramChannel::test)), "java.lang.Exception"},
-	{"toConnectAddress", "(Ljava/net/SocketAddress;)Ljava/net/SocketAddress;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$SocketAddress*(*)($SocketAddress*)>(&Connect4DatagramChannel::toConnectAddress))},
-	{"wait", "([Ljava/util/concurrent/CompletableFuture;)V", "([Ljava/util/concurrent/CompletableFuture<*>;)V", $PRIVATE | $STATIC | $TRANSIENT, $method(static_cast<void(*)($CompletableFutureArray*)>(&Connect4DatagramChannel::wait)), "java.util.concurrent.CompletionException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Connect4DatagramChannel, init$, void)},
+	{"invoke", "(Ljava/util/concurrent/ExecutorService;Ljava/lang/Runnable;Ljava/lang/Runnable;)V", nullptr, $STATIC, $staticMethod(Connect4DatagramChannel, invoke, void, $ExecutorService*, $Runnable*, $Runnable*), "java.util.concurrent.CompletionException"},
+	{"lambda$wait$0", "(Ljava/util/concurrent/CompletableFuture;Ljava/lang/Throwable;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Connect4DatagramChannel, lambda$wait$0, $Object*, $CompletableFuture*, $Throwable*)},
+	{"lambda$wait$1", "(Ljava/util/concurrent/CompletableFuture;Ljava/util/concurrent/CompletableFuture;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Connect4DatagramChannel, lambda$wait$1, void, $CompletableFuture*, $CompletableFuture*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Connect4DatagramChannel, main, void, $StringArray*), "java.lang.Exception"},
+	{"test", "()V", nullptr, $STATIC, $staticMethod(Connect4DatagramChannel, test, void), "java.lang.Exception"},
+	{"toConnectAddress", "(Ljava/net/SocketAddress;)Ljava/net/SocketAddress;", nullptr, $PRIVATE | $STATIC, $staticMethod(Connect4DatagramChannel, toConnectAddress, $SocketAddress*, $SocketAddress*)},
+	{"wait", "([Ljava/util/concurrent/CompletableFuture;)V", "([Ljava/util/concurrent/CompletableFuture<*>;)V", $PRIVATE | $STATIC | $TRANSIENT, $staticMethod(Connect4DatagramChannel, wait, void, $CompletableFutureArray*), "java.util.concurrent.CompletionException"},
 	{}
 };
 

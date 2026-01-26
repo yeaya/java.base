@@ -5,19 +5,20 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Comparator = ::java::util::Comparator;
 
 namespace java {
 	namespace util {
 
 $MethodInfo _SortedMap_MethodInfo_[] = {
-	{"comparator", "()Ljava/util/Comparator;", "()Ljava/util/Comparator<-TK;>;", $PUBLIC | $ABSTRACT},
+	{"comparator", "()Ljava/util/Comparator;", "()Ljava/util/Comparator<-TK;>;", $PUBLIC | $ABSTRACT, $virtualMethod(SortedMap, comparator, $Comparator*)},
 	{"entrySet", "()Ljava/util/Set;", nullptr, $PUBLIC | $ABSTRACT},
-	{"firstKey", "()Ljava/lang/Object;", "()TK;", $PUBLIC | $ABSTRACT},
-	{"headMap", "(Ljava/lang/Object;)Ljava/util/SortedMap;", "(TK;)Ljava/util/SortedMap<TK;TV;>;", $PUBLIC | $ABSTRACT},
+	{"firstKey", "()Ljava/lang/Object;", "()TK;", $PUBLIC | $ABSTRACT, $virtualMethod(SortedMap, firstKey, $Object*)},
+	{"headMap", "(Ljava/lang/Object;)Ljava/util/SortedMap;", "(TK;)Ljava/util/SortedMap<TK;TV;>;", $PUBLIC | $ABSTRACT, $virtualMethod(SortedMap, headMap, SortedMap*, Object$*)},
 	{"keySet", "()Ljava/util/Set;", nullptr, $PUBLIC | $ABSTRACT},
-	{"lastKey", "()Ljava/lang/Object;", "()TK;", $PUBLIC | $ABSTRACT},
-	{"subMap", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/SortedMap;", "(TK;TK;)Ljava/util/SortedMap<TK;TV;>;", $PUBLIC | $ABSTRACT},
-	{"tailMap", "(Ljava/lang/Object;)Ljava/util/SortedMap;", "(TK;)Ljava/util/SortedMap<TK;TV;>;", $PUBLIC | $ABSTRACT},
+	{"lastKey", "()Ljava/lang/Object;", "()TK;", $PUBLIC | $ABSTRACT, $virtualMethod(SortedMap, lastKey, $Object*)},
+	{"subMap", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/SortedMap;", "(TK;TK;)Ljava/util/SortedMap<TK;TV;>;", $PUBLIC | $ABSTRACT, $virtualMethod(SortedMap, subMap, SortedMap*, Object$*, Object$*)},
+	{"tailMap", "(Ljava/lang/Object;)Ljava/util/SortedMap;", "(TK;)Ljava/util/SortedMap<TK;TV;>;", $PUBLIC | $ABSTRACT, $virtualMethod(SortedMap, tailMap, SortedMap*, Object$*)},
 	{"values", "()Ljava/util/Collection;", nullptr, $PUBLIC | $ABSTRACT},
 	{}
 };

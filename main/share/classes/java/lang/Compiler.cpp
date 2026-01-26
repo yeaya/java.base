@@ -22,12 +22,12 @@ $CompoundAttribute _Compiler_Annotations_[] = {
 };
 
 $MethodInfo _Compiler_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(Compiler::*)()>(&Compiler::init$))},
-	{"command", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Object*(*)(Object$*)>(&Compiler::command))},
-	{"compileClass", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PUBLIC | $STATIC, $method(static_cast<bool(*)($Class*)>(&Compiler::compileClass))},
-	{"compileClasses", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)($String*)>(&Compiler::compileClasses))},
-	{"disable", "()V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)()>(&Compiler::disable))},
-	{"enable", "()V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)()>(&Compiler::enable))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(Compiler, init$, void)},
+	{"command", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC, $staticMethod(Compiler, command, $Object*, Object$*)},
+	{"compileClass", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PUBLIC | $STATIC, $staticMethod(Compiler, compileClass, bool, $Class*)},
+	{"compileClasses", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Compiler, compileClasses, bool, $String*)},
+	{"disable", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(Compiler, disable, void)},
+	{"enable", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(Compiler, enable, void)},
 	{}
 };
 

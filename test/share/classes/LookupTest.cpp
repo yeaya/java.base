@@ -56,10 +56,10 @@ $FieldInfo _LookupTest_FieldInfo_[] = {
 };
 
 $MethodInfo _LookupTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(LookupTest::*)()>(&LookupTest::init$))},
-	{"addMappingToHostsFile", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($String*,$String*,$String*,bool)>(&LookupTest::addMappingToHostsFile)), "java.io.IOException"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&LookupTest::main)), "java.lang.Exception"},
-	{"test", "(Ljava/lang/String;ZZ)V", nullptr, $STATIC, $method(static_cast<void(*)($String*,bool,bool)>(&LookupTest::test))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(LookupTest, init$, void)},
+	{"addMappingToHostsFile", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, $PRIVATE | $STATIC, $staticMethod(LookupTest, addMappingToHostsFile, void, $String*, $String*, $String*, bool), "java.io.IOException"},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(LookupTest, main, void, $StringArray*), "java.lang.Exception"},
+	{"test", "(Ljava/lang/String;ZZ)V", nullptr, $STATIC, $staticMethod(LookupTest, test, void, $String*, bool, bool)},
 	{}
 };
 

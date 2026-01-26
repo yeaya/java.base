@@ -44,14 +44,14 @@ $MethodInfo _AbstractConstantGroup$BSCIWithCache_MethodInfo_[] = {
 	{"*get", "(I)Ljava/lang/Object;", nullptr, $PUBLIC},
 	{"*get", "(ILjava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/String;Ljava/lang/Object;I)V", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/String;TT;I)V", 0, $method(static_cast<void(AbstractConstantGroup$BSCIWithCache::*)($MethodHandle*,$String*,Object$*,int32_t)>(&AbstractConstantGroup$BSCIWithCache::init$))},
-	{"bootstrapMethod", "()Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC},
-	{"invocationName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"invocationType", "()Ljava/lang/Object;", "()TT;", $PUBLIC},
+	{"<init>", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/String;Ljava/lang/Object;I)V", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/String;TT;I)V", 0, $method(AbstractConstantGroup$BSCIWithCache, init$, void, $MethodHandle*, $String*, Object$*, int32_t)},
+	{"bootstrapMethod", "()Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC, $virtualMethod(AbstractConstantGroup$BSCIWithCache, bootstrapMethod, $MethodHandle*)},
+	{"invocationName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractConstantGroup$BSCIWithCache, invocationName, $String*)},
+	{"invocationType", "()Ljava/lang/Object;", "()TT;", $PUBLIC, $virtualMethod(AbstractConstantGroup$BSCIWithCache, invocationType, $Object*)},
 	{"*isPresent", "(I)Z", nullptr, $PUBLIC},
 	{"*size", "()I", nullptr, $PUBLIC | $FINAL},
 	{"*subGroup", "(II)Ljava/lang/invoke/ConstantGroup;", nullptr, $PUBLIC | $ABSTRACT},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractConstantGroup$BSCIWithCache, toString, $String*)},
 	{}
 };
 

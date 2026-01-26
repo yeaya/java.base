@@ -14,8 +14,8 @@ using $BreakIterator = ::java::text::BreakIterator;
 using $Locale = ::java::util::Locale;
 
 $MethodInfo _Bug8032446_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Bug8032446::*)()>(&Bug8032446::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Bug8032446::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Bug8032446, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Bug8032446, main, void, $StringArray*)},
 	{}
 };
 

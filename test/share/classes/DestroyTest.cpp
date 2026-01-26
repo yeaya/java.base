@@ -17,9 +17,9 @@ using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 
 $MethodInfo _DestroyTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DestroyTest::*)()>(&DestroyTest::init$))},
-	{"getTest", "()LProcessTest;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$ProcessTest*(*)()>(&DestroyTest::getTest)), "java.lang.Exception"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&DestroyTest::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DestroyTest, init$, void)},
+	{"getTest", "()LProcessTest;", nullptr, $PUBLIC | $STATIC, $staticMethod(DestroyTest, getTest, $ProcessTest*), "java.lang.Exception"},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(DestroyTest, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

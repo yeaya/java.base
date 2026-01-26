@@ -6,15 +6,17 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $KeySpec = ::java::security::spec::KeySpec;
+using $SecretKey = ::javax::crypto::SecretKey;
 
 namespace javax {
 	namespace crypto {
 
 $MethodInfo _SecretKeyFactorySpi_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SecretKeyFactorySpi::*)()>(&SecretKeyFactorySpi::init$))},
-	{"engineGenerateSecret", "(Ljava/security/spec/KeySpec;)Ljavax/crypto/SecretKey;", nullptr, $PROTECTED | $ABSTRACT, nullptr, "java.security.spec.InvalidKeySpecException"},
-	{"engineGetKeySpec", "(Ljavax/crypto/SecretKey;Ljava/lang/Class;)Ljava/security/spec/KeySpec;", "(Ljavax/crypto/SecretKey;Ljava/lang/Class<*>;)Ljava/security/spec/KeySpec;", $PROTECTED | $ABSTRACT, nullptr, "java.security.spec.InvalidKeySpecException"},
-	{"engineTranslateKey", "(Ljavax/crypto/SecretKey;)Ljavax/crypto/SecretKey;", nullptr, $PROTECTED | $ABSTRACT, nullptr, "java.security.InvalidKeyException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SecretKeyFactorySpi, init$, void)},
+	{"engineGenerateSecret", "(Ljava/security/spec/KeySpec;)Ljavax/crypto/SecretKey;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(SecretKeyFactorySpi, engineGenerateSecret, $SecretKey*, $KeySpec*), "java.security.spec.InvalidKeySpecException"},
+	{"engineGetKeySpec", "(Ljavax/crypto/SecretKey;Ljava/lang/Class;)Ljava/security/spec/KeySpec;", "(Ljavax/crypto/SecretKey;Ljava/lang/Class<*>;)Ljava/security/spec/KeySpec;", $PROTECTED | $ABSTRACT, $virtualMethod(SecretKeyFactorySpi, engineGetKeySpec, $KeySpec*, $SecretKey*, $Class*), "java.security.spec.InvalidKeySpecException"},
+	{"engineTranslateKey", "(Ljavax/crypto/SecretKey;)Ljavax/crypto/SecretKey;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(SecretKeyFactorySpi, engineTranslateKey, $SecretKey*, $SecretKey*), "java.security.InvalidKeyException"},
 	{}
 };
 

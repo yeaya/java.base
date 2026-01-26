@@ -26,11 +26,11 @@ $FieldInfo _SuppressedException$OutputStreamFailsWithException_FieldInfo_[] = {
 };
 
 $MethodInfo _SuppressedException$OutputStreamFailsWithException_MethodInfo_[] = {
-	{"<init>", "(LSuppressedException;)V", nullptr, 0, $method(static_cast<void(SuppressedException$OutputStreamFailsWithException::*)($SuppressedException*)>(&SuppressedException$OutputStreamFailsWithException::init$))},
-	{"<init>", "(LSuppressedException;ZZ)V", nullptr, 0, $method(static_cast<void(SuppressedException$OutputStreamFailsWithException::*)($SuppressedException*,bool,bool)>(&SuppressedException$OutputStreamFailsWithException::init$))},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"flush", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"write", "(I)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(LSuppressedException;)V", nullptr, 0, $method(SuppressedException$OutputStreamFailsWithException, init$, void, $SuppressedException*)},
+	{"<init>", "(LSuppressedException;ZZ)V", nullptr, 0, $method(SuppressedException$OutputStreamFailsWithException, init$, void, $SuppressedException*, bool, bool)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(SuppressedException$OutputStreamFailsWithException, close, void), "java.io.IOException"},
+	{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(SuppressedException$OutputStreamFailsWithException, flush, void), "java.io.IOException"},
+	{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(SuppressedException$OutputStreamFailsWithException, write, void, int32_t), "java.io.IOException"},
 	{}
 };
 

@@ -24,16 +24,16 @@ $FieldInfo _BaseCalendar$Date_FieldInfo_[] = {
 };
 
 $MethodInfo _BaseCalendar$Date_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(BaseCalendar$Date::*)()>(&BaseCalendar$Date::init$))},
-	{"<init>", "(Ljava/util/TimeZone;)V", nullptr, $PROTECTED, $method(static_cast<void(BaseCalendar$Date::*)($TimeZone*)>(&BaseCalendar$Date::init$))},
-	{"getCachedJan1", "()J", nullptr, $PROTECTED},
-	{"getCachedYear", "()I", nullptr, $PROTECTED},
-	{"getNormalizedYear", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"hit", "(I)Z", nullptr, $PROTECTED | $FINAL, $method(static_cast<bool(BaseCalendar$Date::*)(int32_t)>(&BaseCalendar$Date::hit))},
-	{"hit", "(J)Z", nullptr, $PROTECTED | $FINAL, $method(static_cast<bool(BaseCalendar$Date::*)(int64_t)>(&BaseCalendar$Date::hit))},
-	{"setCache", "(IJI)V", nullptr, $PROTECTED},
-	{"setNormalizedDate", "(III)Lsun/util/calendar/BaseCalendar$Date;", nullptr, $PUBLIC},
-	{"setNormalizedYear", "(I)V", nullptr, $PUBLIC | $ABSTRACT},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(BaseCalendar$Date, init$, void)},
+	{"<init>", "(Ljava/util/TimeZone;)V", nullptr, $PROTECTED, $method(BaseCalendar$Date, init$, void, $TimeZone*)},
+	{"getCachedJan1", "()J", nullptr, $PROTECTED, $virtualMethod(BaseCalendar$Date, getCachedJan1, int64_t)},
+	{"getCachedYear", "()I", nullptr, $PROTECTED, $virtualMethod(BaseCalendar$Date, getCachedYear, int32_t)},
+	{"getNormalizedYear", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(BaseCalendar$Date, getNormalizedYear, int32_t)},
+	{"hit", "(I)Z", nullptr, $PROTECTED | $FINAL, $method(BaseCalendar$Date, hit, bool, int32_t)},
+	{"hit", "(J)Z", nullptr, $PROTECTED | $FINAL, $method(BaseCalendar$Date, hit, bool, int64_t)},
+	{"setCache", "(IJI)V", nullptr, $PROTECTED, $virtualMethod(BaseCalendar$Date, setCache, void, int32_t, int64_t, int32_t)},
+	{"setNormalizedDate", "(III)Lsun/util/calendar/BaseCalendar$Date;", nullptr, $PUBLIC, $virtualMethod(BaseCalendar$Date, setNormalizedDate, BaseCalendar$Date*, int32_t, int32_t, int32_t)},
+	{"setNormalizedYear", "(I)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(BaseCalendar$Date, setNormalizedYear, void, int32_t)},
 	{}
 };
 

@@ -41,11 +41,11 @@ $FieldInfo _Exceptions4StringBuilder_FieldInfo_[] = {
 };
 
 $MethodInfo _Exceptions4StringBuilder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Exceptions4StringBuilder::*)()>(&Exceptions4StringBuilder::init$))},
-	{"fail", "(Ljava/lang/Throwable;Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($Throwable*,$String*,$Throwable*)>(&Exceptions4StringBuilder::fail))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Exceptions4StringBuilder::main))},
-	{"pass", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($String*)>(&Exceptions4StringBuilder::pass))},
-	{"tryCatch", "(Ljava/lang/String;Ljava/lang/Throwable;Ljava/lang/Runnable;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($String*,$Throwable*,$Runnable*)>(&Exceptions4StringBuilder::tryCatch))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Exceptions4StringBuilder, init$, void)},
+	{"fail", "(Ljava/lang/Throwable;Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Exceptions4StringBuilder, fail, void, $Throwable*, $String*, $Throwable*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Exceptions4StringBuilder, main, void, $StringArray*)},
+	{"pass", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Exceptions4StringBuilder, pass, void, $String*)},
+	{"tryCatch", "(Ljava/lang/String;Ljava/lang/Throwable;Ljava/lang/Runnable;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Exceptions4StringBuilder, tryCatch, void, $String*, $Throwable*, $Runnable*)},
 	{}
 };
 

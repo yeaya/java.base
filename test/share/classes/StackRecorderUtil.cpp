@@ -46,11 +46,11 @@ $FieldInfo _StackRecorderUtil_FieldInfo_[] = {
 };
 
 $MethodInfo _StackRecorderUtil_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Set;)V", "(Ljava/util/Set<Ljava/lang/StackWalker$Option;>;)V", $PUBLIC, $method(static_cast<void(StackRecorderUtil::*)($Set*)>(&StackRecorderUtil::init$))},
-	{"add", "(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"compareFrame", "(ILjava/lang/StackWalker$StackFrame;)V", nullptr, $PUBLIC},
-	{"frameCount", "()I", nullptr, $PUBLIC},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<LStackRecorderUtil$TestFrame;>;", $PUBLIC},
+	{"<init>", "(Ljava/util/Set;)V", "(Ljava/util/Set<Ljava/lang/StackWalker$Option;>;)V", $PUBLIC, $method(StackRecorderUtil, init$, void, $Set*)},
+	{"add", "(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(StackRecorderUtil, add, void, $Class*, $String*, $String*)},
+	{"compareFrame", "(ILjava/lang/StackWalker$StackFrame;)V", nullptr, $PUBLIC, $virtualMethod(StackRecorderUtil, compareFrame, void, int32_t, $StackWalker$StackFrame*)},
+	{"frameCount", "()I", nullptr, $PUBLIC, $virtualMethod(StackRecorderUtil, frameCount, int32_t)},
+	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<LStackRecorderUtil$TestFrame;>;", $PUBLIC, $virtualMethod(StackRecorderUtil, iterator, $Iterator*)},
 	{}
 };
 

@@ -38,11 +38,11 @@ $FieldInfo _MethodHandles$Lookup$ClassFile_FieldInfo_[] = {
 };
 
 $MethodInfo _MethodHandles$Lookup$ClassFile_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;I[B)V", nullptr, 0, $method(static_cast<void(MethodHandles$Lookup$ClassFile::*)($String*,int32_t,$bytes*)>(&MethodHandles$Lookup$ClassFile::init$))},
-	{"newInstance", "([BLjava/lang/String;)Ljava/lang/invoke/MethodHandles$Lookup$ClassFile;", nullptr, $STATIC, $method(static_cast<MethodHandles$Lookup$ClassFile*(*)($bytes*,$String*)>(&MethodHandles$Lookup$ClassFile::newInstance))},
-	{"newInstanceNoCheck", "(Ljava/lang/String;[B)Ljava/lang/invoke/MethodHandles$Lookup$ClassFile;", nullptr, $STATIC, $method(static_cast<MethodHandles$Lookup$ClassFile*(*)($String*,$bytes*)>(&MethodHandles$Lookup$ClassFile::newInstanceNoCheck))},
-	{"readInt", "([BI)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)($bytes*,int32_t)>(&MethodHandles$Lookup$ClassFile::readInt))},
-	{"readUnsignedShort", "([BI)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)($bytes*,int32_t)>(&MethodHandles$Lookup$ClassFile::readUnsignedShort))},
+	{"<init>", "(Ljava/lang/String;I[B)V", nullptr, 0, $method(MethodHandles$Lookup$ClassFile, init$, void, $String*, int32_t, $bytes*)},
+	{"newInstance", "([BLjava/lang/String;)Ljava/lang/invoke/MethodHandles$Lookup$ClassFile;", nullptr, $STATIC, $staticMethod(MethodHandles$Lookup$ClassFile, newInstance, MethodHandles$Lookup$ClassFile*, $bytes*, $String*)},
+	{"newInstanceNoCheck", "(Ljava/lang/String;[B)Ljava/lang/invoke/MethodHandles$Lookup$ClassFile;", nullptr, $STATIC, $staticMethod(MethodHandles$Lookup$ClassFile, newInstanceNoCheck, MethodHandles$Lookup$ClassFile*, $String*, $bytes*)},
+	{"readInt", "([BI)I", nullptr, $PRIVATE | $STATIC, $staticMethod(MethodHandles$Lookup$ClassFile, readInt, int32_t, $bytes*, int32_t)},
+	{"readUnsignedShort", "([BI)I", nullptr, $PRIVATE | $STATIC, $staticMethod(MethodHandles$Lookup$ClassFile, readUnsignedShort, int32_t, $bytes*, int32_t)},
 	{}
 };
 

@@ -22,15 +22,15 @@ $FieldInfo _RC5ParameterSpec_FieldInfo_[] = {
 };
 
 $MethodInfo _RC5ParameterSpec_MethodInfo_[] = {
-	{"<init>", "(III)V", nullptr, $PUBLIC, $method(static_cast<void(RC5ParameterSpec::*)(int32_t,int32_t,int32_t)>(&RC5ParameterSpec::init$))},
-	{"<init>", "(III[B)V", nullptr, $PUBLIC, $method(static_cast<void(RC5ParameterSpec::*)(int32_t,int32_t,int32_t,$bytes*)>(&RC5ParameterSpec::init$))},
-	{"<init>", "(III[BI)V", nullptr, $PUBLIC, $method(static_cast<void(RC5ParameterSpec::*)(int32_t,int32_t,int32_t,$bytes*,int32_t)>(&RC5ParameterSpec::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getIV", "()[B", nullptr, $PUBLIC},
-	{"getRounds", "()I", nullptr, $PUBLIC},
-	{"getVersion", "()I", nullptr, $PUBLIC},
-	{"getWordSize", "()I", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
+	{"<init>", "(III)V", nullptr, $PUBLIC, $method(RC5ParameterSpec, init$, void, int32_t, int32_t, int32_t)},
+	{"<init>", "(III[B)V", nullptr, $PUBLIC, $method(RC5ParameterSpec, init$, void, int32_t, int32_t, int32_t, $bytes*)},
+	{"<init>", "(III[BI)V", nullptr, $PUBLIC, $method(RC5ParameterSpec, init$, void, int32_t, int32_t, int32_t, $bytes*, int32_t)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(RC5ParameterSpec, equals, bool, Object$*)},
+	{"getIV", "()[B", nullptr, $PUBLIC, $virtualMethod(RC5ParameterSpec, getIV, $bytes*)},
+	{"getRounds", "()I", nullptr, $PUBLIC, $virtualMethod(RC5ParameterSpec, getRounds, int32_t)},
+	{"getVersion", "()I", nullptr, $PUBLIC, $virtualMethod(RC5ParameterSpec, getVersion, int32_t)},
+	{"getWordSize", "()I", nullptr, $PUBLIC, $virtualMethod(RC5ParameterSpec, getWordSize, int32_t)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(RC5ParameterSpec, hashCode, int32_t)},
 	{}
 };
 

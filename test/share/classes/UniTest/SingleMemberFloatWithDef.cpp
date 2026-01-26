@@ -25,7 +25,7 @@ $Attribute _SingleMemberFloatWithDef_DefaultValue_value0 = {
 };
 
 $MethodInfo _SingleMemberFloatWithDef_MethodInfo_[] = {
-	{"value", "()F", nullptr, $PUBLIC | $ABSTRACT, nullptr, nullptr, &_SingleMemberFloatWithDef_DefaultValue_value0},
+	{"value", "()F", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SingleMemberFloatWithDef, value, float), nullptr, &_SingleMemberFloatWithDef_DefaultValue_value0},
 	{}
 };
 

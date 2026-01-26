@@ -68,13 +68,13 @@ $FieldInfo _UnresolvedPermissionCollection_FieldInfo_[] = {
 };
 
 $MethodInfo _UnresolvedPermissionCollection_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(UnresolvedPermissionCollection::*)()>(&UnresolvedPermissionCollection::init$))},
-	{"add", "(Ljava/security/Permission;)V", nullptr, $PUBLIC},
-	{"elements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/security/Permission;>;", $PUBLIC},
-	{"getUnresolvedPermissions", "(Ljava/security/Permission;)Ljava/util/List;", "(Ljava/security/Permission;)Ljava/util/List<Ljava/security/UnresolvedPermission;>;", 0, $method(static_cast<$List*(UnresolvedPermissionCollection::*)($Permission*)>(&UnresolvedPermissionCollection::getUnresolvedPermissions))},
-	{"implies", "(Ljava/security/Permission;)Z", nullptr, $PUBLIC},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(UnresolvedPermissionCollection::*)($ObjectInputStream*)>(&UnresolvedPermissionCollection::readObject)), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(UnresolvedPermissionCollection::*)($ObjectOutputStream*)>(&UnresolvedPermissionCollection::writeObject)), "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(UnresolvedPermissionCollection, init$, void)},
+	{"add", "(Ljava/security/Permission;)V", nullptr, $PUBLIC, $virtualMethod(UnresolvedPermissionCollection, add, void, $Permission*)},
+	{"elements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/security/Permission;>;", $PUBLIC, $virtualMethod(UnresolvedPermissionCollection, elements, $Enumeration*)},
+	{"getUnresolvedPermissions", "(Ljava/security/Permission;)Ljava/util/List;", "(Ljava/security/Permission;)Ljava/util/List<Ljava/security/UnresolvedPermission;>;", 0, $method(UnresolvedPermissionCollection, getUnresolvedPermissions, $List*, $Permission*)},
+	{"implies", "(Ljava/security/Permission;)Z", nullptr, $PUBLIC, $virtualMethod(UnresolvedPermissionCollection, implies, bool, $Permission*)},
+	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(UnresolvedPermissionCollection, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(UnresolvedPermissionCollection, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
 	{}
 };
 

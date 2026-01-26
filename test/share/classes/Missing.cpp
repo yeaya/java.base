@@ -18,7 +18,7 @@ $CompoundAttribute _Missing_Annotations_[] = {
 };
 
 $MethodInfo _Missing_MethodInfo_[] = {
-	{"value", "()I", nullptr, $PUBLIC | $ABSTRACT},
+	{"value", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Missing, value, int32_t)},
 	{}
 };
 

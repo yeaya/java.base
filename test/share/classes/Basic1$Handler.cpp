@@ -18,8 +18,8 @@ $FieldInfo _Basic1$Handler_FieldInfo_[] = {
 };
 
 $MethodInfo _Basic1$Handler_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Basic1$Handler::*)()>(&Basic1$Handler::init$))},
-	{"invoke", "(Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, nullptr, "java.lang.Throwable"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Basic1$Handler, init$, void)},
+	{"invoke", "(Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Basic1$Handler, invoke, $Object*, Object$*, $Method*, $ObjectArray*), "java.lang.Throwable"},
 	{}
 };
 

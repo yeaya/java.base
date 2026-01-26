@@ -8,7 +8,7 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _PrivateInterfaceCall$C4_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(PrivateInterfaceCall$C4::*)()>(&PrivateInterfaceCall$C4::init$))},
+	{"<init>", "()V", nullptr, 0, $method(PrivateInterfaceCall$C4, init$, void)},
 	{}
 };
 

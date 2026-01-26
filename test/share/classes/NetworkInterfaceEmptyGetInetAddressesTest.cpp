@@ -21,11 +21,11 @@ $FieldInfo _NetworkInterfaceEmptyGetInetAddressesTest_FieldInfo_[] = {
 };
 
 $MethodInfo _NetworkInterfaceEmptyGetInetAddressesTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(NetworkInterfaceEmptyGetInetAddressesTest::*)()>(&NetworkInterfaceEmptyGetInetAddressesTest::init$))},
-	{"incrementExceptionCount", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&NetworkInterfaceEmptyGetInetAddressesTest::incrementExceptionCount))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&NetworkInterfaceEmptyGetInetAddressesTest::main)), "java.lang.Exception"},
-	{"testMethods", "(Ljava/net/NetworkInterface;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($NetworkInterface*)>(&NetworkInterfaceEmptyGetInetAddressesTest::testMethods)), "java.lang.Exception"},
-	{"testNetworkInterface_getInterfaceAddresses", "(Ljava/net/NetworkInterface;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($NetworkInterface*)>(&NetworkInterfaceEmptyGetInetAddressesTest::testNetworkInterface_getInterfaceAddresses))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(NetworkInterfaceEmptyGetInetAddressesTest, init$, void)},
+	{"incrementExceptionCount", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(NetworkInterfaceEmptyGetInetAddressesTest, incrementExceptionCount, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(NetworkInterfaceEmptyGetInetAddressesTest, main, void, $StringArray*), "java.lang.Exception"},
+	{"testMethods", "(Ljava/net/NetworkInterface;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(NetworkInterfaceEmptyGetInetAddressesTest, testMethods, void, $NetworkInterface*), "java.lang.Exception"},
+	{"testNetworkInterface_getInterfaceAddresses", "(Ljava/net/NetworkInterface;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(NetworkInterfaceEmptyGetInetAddressesTest, testNetworkInterface_getInterfaceAddresses, void, $NetworkInterface*)},
 	{}
 };
 

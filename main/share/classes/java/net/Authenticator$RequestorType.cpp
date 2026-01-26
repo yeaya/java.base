@@ -25,10 +25,10 @@ $FieldInfo _Authenticator$RequestorType_FieldInfo_[] = {
 };
 
 $MethodInfo _Authenticator$RequestorType_MethodInfo_[] = {
-	{"$values", "()[Ljava/net/Authenticator$RequestorType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Authenticator$RequestorTypeArray*(*)()>(&Authenticator$RequestorType::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(Authenticator$RequestorType::*)($String*,int32_t)>(&Authenticator$RequestorType::init$))},
-	{"valueOf", "(Ljava/lang/String;)Ljava/net/Authenticator$RequestorType;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Authenticator$RequestorType*(*)($String*)>(&Authenticator$RequestorType::valueOf))},
-	{"values", "()[Ljava/net/Authenticator$RequestorType;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Authenticator$RequestorTypeArray*(*)()>(&Authenticator$RequestorType::values))},
+	{"$values", "()[Ljava/net/Authenticator$RequestorType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Authenticator$RequestorType, $values, $Authenticator$RequestorTypeArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Authenticator$RequestorType, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Ljava/net/Authenticator$RequestorType;", nullptr, $PUBLIC | $STATIC, $staticMethod(Authenticator$RequestorType, valueOf, Authenticator$RequestorType*, $String*)},
+	{"values", "()[Ljava/net/Authenticator$RequestorType;", nullptr, $PUBLIC | $STATIC, $staticMethod(Authenticator$RequestorType, values, $Authenticator$RequestorTypeArray*)},
 	{}
 };
 

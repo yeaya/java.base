@@ -123,17 +123,17 @@ $FieldInfo _AlgorithmChecker_FieldInfo_[] = {
 };
 
 $MethodInfo _AlgorithmChecker_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/cert/TrustAnchor;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(AlgorithmChecker::*)($TrustAnchor*,$String*)>(&AlgorithmChecker::init$))},
-	{"<init>", "(Ljava/security/AlgorithmConstraints;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(AlgorithmChecker::*)($AlgorithmConstraints*,$String*)>(&AlgorithmChecker::init$))},
-	{"<init>", "(Ljava/security/cert/TrustAnchor;Ljava/security/AlgorithmConstraints;Ljava/util/Date;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(AlgorithmChecker::*)($TrustAnchor*,$AlgorithmConstraints*,$Date*,$String*)>(&AlgorithmChecker::init$))},
-	{"<init>", "(Ljava/security/cert/TrustAnchor;Ljava/util/Date;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(AlgorithmChecker::*)($TrustAnchor*,$Date*,$String*)>(&AlgorithmChecker::init$))},
-	{"check", "(Ljava/security/cert/Certificate;Ljava/util/Collection;)V", "(Ljava/security/cert/Certificate;Ljava/util/Collection<Ljava/lang/String;>;)V", $PUBLIC, nullptr, "java.security.cert.CertPathValidatorException"},
-	{"check", "(Ljava/security/PublicKey;Ljava/security/cert/X509CRL;Ljava/lang/String;Ljava/security/cert/TrustAnchor;)V", nullptr, $STATIC, $method(static_cast<void(*)($PublicKey*,$X509CRL*,$String*,$TrustAnchor*)>(&AlgorithmChecker::check)), "java.security.cert.CertPathValidatorException"},
-	{"check", "(Ljava/security/PublicKey;Lsun/security/x509/AlgorithmId;Ljava/lang/String;Ljava/security/cert/TrustAnchor;)V", nullptr, $STATIC, $method(static_cast<void(*)($PublicKey*,$AlgorithmId*,$String*,$TrustAnchor*)>(&AlgorithmChecker::check)), "java.security.cert.CertPathValidatorException"},
-	{"getSupportedExtensions", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC},
-	{"init", "(Z)V", nullptr, $PUBLIC, nullptr, "java.security.cert.CertPathValidatorException"},
-	{"isForwardCheckingSupported", "()Z", nullptr, $PUBLIC},
-	{"trySetTrustAnchor", "(Ljava/security/cert/TrustAnchor;)V", nullptr, 0, $method(static_cast<void(AlgorithmChecker::*)($TrustAnchor*)>(&AlgorithmChecker::trySetTrustAnchor))},
+	{"<init>", "(Ljava/security/cert/TrustAnchor;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(AlgorithmChecker, init$, void, $TrustAnchor*, $String*)},
+	{"<init>", "(Ljava/security/AlgorithmConstraints;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(AlgorithmChecker, init$, void, $AlgorithmConstraints*, $String*)},
+	{"<init>", "(Ljava/security/cert/TrustAnchor;Ljava/security/AlgorithmConstraints;Ljava/util/Date;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(AlgorithmChecker, init$, void, $TrustAnchor*, $AlgorithmConstraints*, $Date*, $String*)},
+	{"<init>", "(Ljava/security/cert/TrustAnchor;Ljava/util/Date;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(AlgorithmChecker, init$, void, $TrustAnchor*, $Date*, $String*)},
+	{"check", "(Ljava/security/cert/Certificate;Ljava/util/Collection;)V", "(Ljava/security/cert/Certificate;Ljava/util/Collection<Ljava/lang/String;>;)V", $PUBLIC, $virtualMethod(AlgorithmChecker, check, void, $Certificate*, $Collection*), "java.security.cert.CertPathValidatorException"},
+	{"check", "(Ljava/security/PublicKey;Ljava/security/cert/X509CRL;Ljava/lang/String;Ljava/security/cert/TrustAnchor;)V", nullptr, $STATIC, $staticMethod(AlgorithmChecker, check, void, $PublicKey*, $X509CRL*, $String*, $TrustAnchor*), "java.security.cert.CertPathValidatorException"},
+	{"check", "(Ljava/security/PublicKey;Lsun/security/x509/AlgorithmId;Ljava/lang/String;Ljava/security/cert/TrustAnchor;)V", nullptr, $STATIC, $staticMethod(AlgorithmChecker, check, void, $PublicKey*, $AlgorithmId*, $String*, $TrustAnchor*), "java.security.cert.CertPathValidatorException"},
+	{"getSupportedExtensions", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(AlgorithmChecker, getSupportedExtensions, $Set*)},
+	{"init", "(Z)V", nullptr, $PUBLIC, $virtualMethod(AlgorithmChecker, init, void, bool), "java.security.cert.CertPathValidatorException"},
+	{"isForwardCheckingSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(AlgorithmChecker, isForwardCheckingSupported, bool)},
+	{"trySetTrustAnchor", "(Ljava/security/cert/TrustAnchor;)V", nullptr, 0, $method(AlgorithmChecker, trySetTrustAnchor, void, $TrustAnchor*)},
 	{}
 };
 

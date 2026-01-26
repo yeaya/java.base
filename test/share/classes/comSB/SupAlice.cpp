@@ -9,7 +9,7 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace comSB {
 
 $MethodInfo _SupAlice_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SupAlice::*)()>(&SupAlice::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SupAlice, init$, void)},
 	{}
 };
 

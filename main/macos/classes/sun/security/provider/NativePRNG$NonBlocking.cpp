@@ -31,11 +31,11 @@ $FieldInfo _NativePRNG$NonBlocking_FieldInfo_[] = {
 };
 
 $MethodInfo _NativePRNG$NonBlocking_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(NativePRNG$NonBlocking::*)()>(&NativePRNG$NonBlocking::init$))},
-	{"engineGenerateSeed", "(I)[B", nullptr, $PROTECTED},
-	{"engineNextBytes", "([B)V", nullptr, $PROTECTED},
-	{"engineSetSeed", "([B)V", nullptr, $PROTECTED},
-	{"isAvailable", "()Z", nullptr, $STATIC, $method(static_cast<bool(*)()>(&NativePRNG$NonBlocking::isAvailable))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(NativePRNG$NonBlocking, init$, void)},
+	{"engineGenerateSeed", "(I)[B", nullptr, $PROTECTED, $virtualMethod(NativePRNG$NonBlocking, engineGenerateSeed, $bytes*, int32_t)},
+	{"engineNextBytes", "([B)V", nullptr, $PROTECTED, $virtualMethod(NativePRNG$NonBlocking, engineNextBytes, void, $bytes*)},
+	{"engineSetSeed", "([B)V", nullptr, $PROTECTED, $virtualMethod(NativePRNG$NonBlocking, engineSetSeed, void, $bytes*)},
+	{"isAvailable", "()Z", nullptr, $STATIC, $staticMethod(NativePRNG$NonBlocking, isAvailable, bool)},
 	{}
 };
 

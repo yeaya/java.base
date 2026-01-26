@@ -15,7 +15,7 @@ namespace jdk {
 			namespace vector {
 
 $MethodInfo _VectorSupport$Vector_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(static_cast<void(VectorSupport$Vector::*)(Object$*)>(&VectorSupport$Vector::init$))},
+	{"<init>", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(VectorSupport$Vector, init$, void, Object$*)},
 	{}
 };
 

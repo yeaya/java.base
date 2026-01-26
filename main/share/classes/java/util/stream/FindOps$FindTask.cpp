@@ -38,13 +38,13 @@ $FieldInfo _FindOps$FindTask_FieldInfo_[] = {
 };
 
 $MethodInfo _FindOps$FindTask_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/stream/FindOps$FindOp;ZLjava/util/stream/PipelineHelper;Ljava/util/Spliterator;)V", "(Ljava/util/stream/FindOps$FindOp<TP_OUT;TO;>;ZLjava/util/stream/PipelineHelper<TP_OUT;>;Ljava/util/Spliterator<TP_IN;>;)V", 0, $method(static_cast<void(FindOps$FindTask::*)($FindOps$FindOp*,bool,$PipelineHelper*,$Spliterator*)>(&FindOps$FindTask::init$))},
-	{"<init>", "(Ljava/util/stream/FindOps$FindTask;Ljava/util/Spliterator;)V", "(Ljava/util/stream/FindOps$FindTask<TP_IN;TP_OUT;TO;>;Ljava/util/Spliterator<TP_IN;>;)V", 0, $method(static_cast<void(FindOps$FindTask::*)(FindOps$FindTask*,$Spliterator*)>(&FindOps$FindTask::init$))},
-	{"doLeaf", "()Ljava/lang/Object;", "()TO;", $PROTECTED},
-	{"foundResult", "(Ljava/lang/Object;)V", "(TO;)V", $PRIVATE, $method(static_cast<void(FindOps$FindTask::*)(Object$*)>(&FindOps$FindTask::foundResult))},
-	{"getEmptyResult", "()Ljava/lang/Object;", "()TO;", $PROTECTED},
-	{"makeChild", "(Ljava/util/Spliterator;)Ljava/util/stream/FindOps$FindTask;", "(Ljava/util/Spliterator<TP_IN;>;)Ljava/util/stream/FindOps$FindTask<TP_IN;TP_OUT;TO;>;", $PROTECTED},
-	{"onCompletion", "(Ljava/util/concurrent/CountedCompleter;)V", "(Ljava/util/concurrent/CountedCompleter<*>;)V", $PUBLIC},
+	{"<init>", "(Ljava/util/stream/FindOps$FindOp;ZLjava/util/stream/PipelineHelper;Ljava/util/Spliterator;)V", "(Ljava/util/stream/FindOps$FindOp<TP_OUT;TO;>;ZLjava/util/stream/PipelineHelper<TP_OUT;>;Ljava/util/Spliterator<TP_IN;>;)V", 0, $method(FindOps$FindTask, init$, void, $FindOps$FindOp*, bool, $PipelineHelper*, $Spliterator*)},
+	{"<init>", "(Ljava/util/stream/FindOps$FindTask;Ljava/util/Spliterator;)V", "(Ljava/util/stream/FindOps$FindTask<TP_IN;TP_OUT;TO;>;Ljava/util/Spliterator<TP_IN;>;)V", 0, $method(FindOps$FindTask, init$, void, FindOps$FindTask*, $Spliterator*)},
+	{"doLeaf", "()Ljava/lang/Object;", "()TO;", $PROTECTED, $virtualMethod(FindOps$FindTask, doLeaf, $Object*)},
+	{"foundResult", "(Ljava/lang/Object;)V", "(TO;)V", $PRIVATE, $method(FindOps$FindTask, foundResult, void, Object$*)},
+	{"getEmptyResult", "()Ljava/lang/Object;", "()TO;", $PROTECTED, $virtualMethod(FindOps$FindTask, getEmptyResult, $Object*)},
+	{"makeChild", "(Ljava/util/Spliterator;)Ljava/util/stream/FindOps$FindTask;", "(Ljava/util/Spliterator<TP_IN;>;)Ljava/util/stream/FindOps$FindTask<TP_IN;TP_OUT;TO;>;", $PROTECTED, $virtualMethod(FindOps$FindTask, makeChild, FindOps$FindTask*, $Spliterator*)},
+	{"onCompletion", "(Ljava/util/concurrent/CountedCompleter;)V", "(Ljava/util/concurrent/CountedCompleter<*>;)V", $PUBLIC, $virtualMethod(FindOps$FindTask, onCompletion, void, $CountedCompleter*)},
 	{}
 };
 

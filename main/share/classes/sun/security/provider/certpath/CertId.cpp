@@ -58,17 +58,17 @@ $FieldInfo _CertId_FieldInfo_[] = {
 };
 
 $MethodInfo _CertId_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/cert/X509Certificate;Lsun/security/x509/SerialNumber;)V", nullptr, $PUBLIC, $method(static_cast<void(CertId::*)($X509Certificate*,$SerialNumber*)>(&CertId::init$)), "java.io.IOException"},
-	{"<init>", "(Ljavax/security/auth/x500/X500Principal;Ljava/security/PublicKey;Lsun/security/x509/SerialNumber;)V", nullptr, $PUBLIC, $method(static_cast<void(CertId::*)($X500Principal*,$PublicKey*,$SerialNumber*)>(&CertId::init$)), "java.io.IOException"},
-	{"<init>", "(Lsun/security/util/DerInputStream;)V", nullptr, $PUBLIC, $method(static_cast<void(CertId::*)($DerInputStream*)>(&CertId::init$)), "java.io.IOException"},
-	{"encode", "(Lsun/security/util/DerOutputStream;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getHashAlgorithm", "()Lsun/security/x509/AlgorithmId;", nullptr, $PUBLIC},
-	{"getIssuerKeyHash", "()[B", nullptr, $PUBLIC},
-	{"getIssuerNameHash", "()[B", nullptr, $PUBLIC},
-	{"getSerialNumber", "()Ljava/math/BigInteger;", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/security/cert/X509Certificate;Lsun/security/x509/SerialNumber;)V", nullptr, $PUBLIC, $method(CertId, init$, void, $X509Certificate*, $SerialNumber*), "java.io.IOException"},
+	{"<init>", "(Ljavax/security/auth/x500/X500Principal;Ljava/security/PublicKey;Lsun/security/x509/SerialNumber;)V", nullptr, $PUBLIC, $method(CertId, init$, void, $X500Principal*, $PublicKey*, $SerialNumber*), "java.io.IOException"},
+	{"<init>", "(Lsun/security/util/DerInputStream;)V", nullptr, $PUBLIC, $method(CertId, init$, void, $DerInputStream*), "java.io.IOException"},
+	{"encode", "(Lsun/security/util/DerOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(CertId, encode, void, $DerOutputStream*), "java.io.IOException"},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(CertId, equals, bool, Object$*)},
+	{"getHashAlgorithm", "()Lsun/security/x509/AlgorithmId;", nullptr, $PUBLIC, $virtualMethod(CertId, getHashAlgorithm, $AlgorithmId*)},
+	{"getIssuerKeyHash", "()[B", nullptr, $PUBLIC, $virtualMethod(CertId, getIssuerKeyHash, $bytes*)},
+	{"getIssuerNameHash", "()[B", nullptr, $PUBLIC, $virtualMethod(CertId, getIssuerNameHash, $bytes*)},
+	{"getSerialNumber", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(CertId, getSerialNumber, $BigInteger*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(CertId, hashCode, int32_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CertId, toString, $String*)},
 	{}
 };
 

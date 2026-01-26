@@ -16,9 +16,9 @@ namespace java {
 		namespace ref {
 
 $MethodInfo _Cleaner$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Cleaner$1::*)()>(&Cleaner$1::init$))},
-	{"apply", "(Ljava/lang/ref/Cleaner;)Ljdk/internal/ref/CleanerImpl;", nullptr, $PUBLIC},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "()V", nullptr, 0, $method(Cleaner$1, init$, void)},
+	{"apply", "(Ljava/lang/ref/Cleaner;)Ljdk/internal/ref/CleanerImpl;", nullptr, $PUBLIC, $virtualMethod(Cleaner$1, apply, $CleanerImpl*, $Cleaner*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Cleaner$1, apply, $Object*, Object$*)},
 	{}
 };
 

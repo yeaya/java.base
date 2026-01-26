@@ -16,10 +16,10 @@ using $Exception = ::java::lang::Exception;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _MarkReset_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(MarkReset::*)()>(&MarkReset::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&MarkReset::main)), "java.lang.Exception"},
-	{"testMark", "(Ljava/io/PushbackReader;)Z", nullptr, $STATIC, $method(static_cast<bool(*)($PushbackReader*)>(&MarkReset::testMark))},
-	{"testReset", "(Ljava/io/PushbackReader;)Z", nullptr, $STATIC, $method(static_cast<bool(*)($PushbackReader*)>(&MarkReset::testReset))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(MarkReset, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(MarkReset, main, void, $StringArray*), "java.lang.Exception"},
+	{"testMark", "(Ljava/io/PushbackReader;)Z", nullptr, $STATIC, $staticMethod(MarkReset, testMark, bool, $PushbackReader*)},
+	{"testReset", "(Ljava/io/PushbackReader;)Z", nullptr, $STATIC, $staticMethod(MarkReset, testReset, bool, $PushbackReader*)},
 	{}
 };
 

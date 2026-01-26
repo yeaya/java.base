@@ -56,12 +56,12 @@ namespace com {
 			namespace provider {
 
 $MethodInfo _ConstructKeys_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ConstructKeys::*)()>(&ConstructKeys::init$))},
-	{"constructKey", "([BLjava/lang/String;I)Ljava/security/Key;", nullptr, $STATIC | $FINAL, $method(static_cast<$Key*(*)($bytes*,$String*,int32_t)>(&ConstructKeys::constructKey)), "java.security.InvalidKeyException,java.security.NoSuchAlgorithmException"},
-	{"constructKey", "([BIILjava/lang/String;I)Ljava/security/Key;", nullptr, $STATIC | $FINAL, $method(static_cast<$Key*(*)($bytes*,int32_t,int32_t,$String*,int32_t)>(&ConstructKeys::constructKey)), "java.security.InvalidKeyException,java.security.NoSuchAlgorithmException"},
-	{"constructPrivateKey", "([BIILjava/lang/String;)Ljava/security/PrivateKey;", nullptr, $PRIVATE | $STATIC | $FINAL, $method(static_cast<$PrivateKey*(*)($bytes*,int32_t,int32_t,$String*)>(&ConstructKeys::constructPrivateKey)), "java.security.InvalidKeyException,java.security.NoSuchAlgorithmException"},
-	{"constructPublicKey", "([BIILjava/lang/String;)Ljava/security/PublicKey;", nullptr, $PRIVATE | $STATIC | $FINAL, $method(static_cast<$PublicKey*(*)($bytes*,int32_t,int32_t,$String*)>(&ConstructKeys::constructPublicKey)), "java.security.InvalidKeyException,java.security.NoSuchAlgorithmException"},
-	{"constructSecretKey", "([BIILjava/lang/String;)Ljavax/crypto/SecretKey;", nullptr, $PRIVATE | $STATIC | $FINAL, $method(static_cast<$SecretKey*(*)($bytes*,int32_t,int32_t,$String*)>(&ConstructKeys::constructSecretKey))},
+	{"<init>", "()V", nullptr, 0, $method(ConstructKeys, init$, void)},
+	{"constructKey", "([BLjava/lang/String;I)Ljava/security/Key;", nullptr, $STATIC | $FINAL, $staticMethod(ConstructKeys, constructKey, $Key*, $bytes*, $String*, int32_t), "java.security.InvalidKeyException,java.security.NoSuchAlgorithmException"},
+	{"constructKey", "([BIILjava/lang/String;I)Ljava/security/Key;", nullptr, $STATIC | $FINAL, $staticMethod(ConstructKeys, constructKey, $Key*, $bytes*, int32_t, int32_t, $String*, int32_t), "java.security.InvalidKeyException,java.security.NoSuchAlgorithmException"},
+	{"constructPrivateKey", "([BIILjava/lang/String;)Ljava/security/PrivateKey;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(ConstructKeys, constructPrivateKey, $PrivateKey*, $bytes*, int32_t, int32_t, $String*), "java.security.InvalidKeyException,java.security.NoSuchAlgorithmException"},
+	{"constructPublicKey", "([BIILjava/lang/String;)Ljava/security/PublicKey;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(ConstructKeys, constructPublicKey, $PublicKey*, $bytes*, int32_t, int32_t, $String*), "java.security.InvalidKeyException,java.security.NoSuchAlgorithmException"},
+	{"constructSecretKey", "([BIILjava/lang/String;)Ljavax/crypto/SecretKey;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(ConstructKeys, constructSecretKey, $SecretKey*, $bytes*, int32_t, int32_t, $String*)},
 	{}
 };
 

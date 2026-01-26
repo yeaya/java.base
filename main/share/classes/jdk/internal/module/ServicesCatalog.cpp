@@ -53,15 +53,15 @@ $FieldInfo _ServicesCatalog_FieldInfo_[] = {
 };
 
 $MethodInfo _ServicesCatalog_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(ServicesCatalog::*)()>(&ServicesCatalog::init$))},
-	{"addProvider", "(Ljava/lang/Module;Ljava/lang/Class;Ljava/lang/Class;)V", "(Ljava/lang/Module;Ljava/lang/Class<*>;Ljava/lang/Class<*>;)V", $PUBLIC, $method(static_cast<void(ServicesCatalog::*)($Module*,$Class*,$Class*)>(&ServicesCatalog::addProvider))},
-	{"addProviders", "(Ljava/lang/String;[Ljdk/internal/module/ServicesCatalog$ServiceProvider;)V", nullptr, $PRIVATE | $TRANSIENT, $method(static_cast<void(ServicesCatalog::*)($String*,$ServicesCatalog$ServiceProviderArray*)>(&ServicesCatalog::addProviders))},
-	{"create", "()Ljdk/internal/module/ServicesCatalog;", nullptr, $PUBLIC | $STATIC, $method(static_cast<ServicesCatalog*(*)()>(&ServicesCatalog::create))},
-	{"findServices", "(Ljava/lang/String;)Ljava/util/List;", "(Ljava/lang/String;)Ljava/util/List<Ljdk/internal/module/ServicesCatalog$ServiceProvider;>;", $PUBLIC, $method(static_cast<$List*(ServicesCatalog::*)($String*)>(&ServicesCatalog::findServices))},
-	{"getServicesCatalog", "(Ljava/lang/ClassLoader;)Ljdk/internal/module/ServicesCatalog;", nullptr, $PUBLIC | $STATIC, $method(static_cast<ServicesCatalog*(*)($ClassLoader*)>(&ServicesCatalog::getServicesCatalog))},
-	{"getServicesCatalogOrNull", "(Ljava/lang/ClassLoader;)Ljdk/internal/module/ServicesCatalog;", nullptr, $PUBLIC | $STATIC, $method(static_cast<ServicesCatalog*(*)($ClassLoader*)>(&ServicesCatalog::getServicesCatalogOrNull))},
-	{"putServicesCatalog", "(Ljava/lang/ClassLoader;Ljdk/internal/module/ServicesCatalog;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($ClassLoader*,ServicesCatalog*)>(&ServicesCatalog::putServicesCatalog))},
-	{"register", "(Ljava/lang/Module;)V", nullptr, $PUBLIC, $method(static_cast<void(ServicesCatalog::*)($Module*)>(&ServicesCatalog::register$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(ServicesCatalog, init$, void)},
+	{"addProvider", "(Ljava/lang/Module;Ljava/lang/Class;Ljava/lang/Class;)V", "(Ljava/lang/Module;Ljava/lang/Class<*>;Ljava/lang/Class<*>;)V", $PUBLIC, $method(ServicesCatalog, addProvider, void, $Module*, $Class*, $Class*)},
+	{"addProviders", "(Ljava/lang/String;[Ljdk/internal/module/ServicesCatalog$ServiceProvider;)V", nullptr, $PRIVATE | $TRANSIENT, $method(ServicesCatalog, addProviders, void, $String*, $ServicesCatalog$ServiceProviderArray*)},
+	{"create", "()Ljdk/internal/module/ServicesCatalog;", nullptr, $PUBLIC | $STATIC, $staticMethod(ServicesCatalog, create, ServicesCatalog*)},
+	{"findServices", "(Ljava/lang/String;)Ljava/util/List;", "(Ljava/lang/String;)Ljava/util/List<Ljdk/internal/module/ServicesCatalog$ServiceProvider;>;", $PUBLIC, $method(ServicesCatalog, findServices, $List*, $String*)},
+	{"getServicesCatalog", "(Ljava/lang/ClassLoader;)Ljdk/internal/module/ServicesCatalog;", nullptr, $PUBLIC | $STATIC, $staticMethod(ServicesCatalog, getServicesCatalog, ServicesCatalog*, $ClassLoader*)},
+	{"getServicesCatalogOrNull", "(Ljava/lang/ClassLoader;)Ljdk/internal/module/ServicesCatalog;", nullptr, $PUBLIC | $STATIC, $staticMethod(ServicesCatalog, getServicesCatalogOrNull, ServicesCatalog*, $ClassLoader*)},
+	{"putServicesCatalog", "(Ljava/lang/ClassLoader;Ljdk/internal/module/ServicesCatalog;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ServicesCatalog, putServicesCatalog, void, $ClassLoader*, ServicesCatalog*)},
+	{"register", "(Ljava/lang/Module;)V", nullptr, $PUBLIC, $method(ServicesCatalog, register$, void, $Module*)},
 	{}
 };
 

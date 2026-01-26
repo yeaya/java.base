@@ -37,17 +37,17 @@ $FieldInfo _Era_FieldInfo_[] = {
 };
 
 $MethodInfo _Era_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;JZ)V", nullptr, $PUBLIC, $method(static_cast<void(Era::*)($String*,$String*,int64_t,bool)>(&Era::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getAbbreviation", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(static_cast<$String*(Era::*)()>(&Era::getAbbreviation))},
-	{"getDiaplayAbbreviation", "(Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $method(static_cast<$String*(Era::*)($Locale*)>(&Era::getDiaplayAbbreviation))},
-	{"getDisplayName", "(Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $method(static_cast<$String*(Era::*)($Locale*)>(&Era::getDisplayName))},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(static_cast<$String*(Era::*)()>(&Era::getName))},
-	{"getSince", "(Ljava/util/TimeZone;)J", nullptr, $PUBLIC, $method(static_cast<int64_t(Era::*)($TimeZone*)>(&Era::getSince))},
-	{"getSinceDate", "()Lsun/util/calendar/CalendarDate;", nullptr, $PUBLIC, $method(static_cast<$CalendarDate*(Era::*)()>(&Era::getSinceDate))},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"isLocalTime", "()Z", nullptr, $PUBLIC, $method(static_cast<bool(Era::*)()>(&Era::isLocalTime))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;JZ)V", nullptr, $PUBLIC, $method(Era, init$, void, $String*, $String*, int64_t, bool)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Era, equals, bool, Object$*)},
+	{"getAbbreviation", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(Era, getAbbreviation, $String*)},
+	{"getDiaplayAbbreviation", "(Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $method(Era, getDiaplayAbbreviation, $String*, $Locale*)},
+	{"getDisplayName", "(Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $method(Era, getDisplayName, $String*, $Locale*)},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(Era, getName, $String*)},
+	{"getSince", "(Ljava/util/TimeZone;)J", nullptr, $PUBLIC, $method(Era, getSince, int64_t, $TimeZone*)},
+	{"getSinceDate", "()Lsun/util/calendar/CalendarDate;", nullptr, $PUBLIC, $method(Era, getSinceDate, $CalendarDate*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Era, hashCode, int32_t)},
+	{"isLocalTime", "()Z", nullptr, $PUBLIC, $method(Era, isLocalTime, bool)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Era, toString, $String*)},
 	{}
 };
 

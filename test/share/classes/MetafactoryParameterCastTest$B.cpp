@@ -10,11 +10,11 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _MetafactoryParameterCastTest$B_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(MetafactoryParameterCastTest$B::*)()>(&MetafactoryParameterCastTest$B::init$))},
-	{"instance0", "()V", nullptr, 0},
-	{"instance1", "(LMetafactoryParameterCastTest$B;)V", nullptr, 0},
-	{"static1", "(LMetafactoryParameterCastTest$B;)V", nullptr, $STATIC, $method(static_cast<void(*)(MetafactoryParameterCastTest$B*)>(&MetafactoryParameterCastTest$B::static1))},
-	{"static2", "(LMetafactoryParameterCastTest$B;LMetafactoryParameterCastTest$B;)V", nullptr, $STATIC, $method(static_cast<void(*)(MetafactoryParameterCastTest$B*,MetafactoryParameterCastTest$B*)>(&MetafactoryParameterCastTest$B::static2))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(MetafactoryParameterCastTest$B, init$, void)},
+	{"instance0", "()V", nullptr, 0, $virtualMethod(MetafactoryParameterCastTest$B, instance0, void)},
+	{"instance1", "(LMetafactoryParameterCastTest$B;)V", nullptr, 0, $virtualMethod(MetafactoryParameterCastTest$B, instance1, void, MetafactoryParameterCastTest$B*)},
+	{"static1", "(LMetafactoryParameterCastTest$B;)V", nullptr, $STATIC, $staticMethod(MetafactoryParameterCastTest$B, static1, void, MetafactoryParameterCastTest$B*)},
+	{"static2", "(LMetafactoryParameterCastTest$B;LMetafactoryParameterCastTest$B;)V", nullptr, $STATIC, $staticMethod(MetafactoryParameterCastTest$B, static2, void, MetafactoryParameterCastTest$B*, MetafactoryParameterCastTest$B*)},
 	{}
 };
 

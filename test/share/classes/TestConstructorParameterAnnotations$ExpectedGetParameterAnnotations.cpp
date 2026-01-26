@@ -32,7 +32,7 @@ $CompoundAttribute _TestConstructorParameterAnnotations$ExpectedGetParameterAnno
 };
 
 $MethodInfo _TestConstructorParameterAnnotations$ExpectedGetParameterAnnotations_MethodInfo_[] = {
-	{"value", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
+	{"value", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TestConstructorParameterAnnotations$ExpectedGetParameterAnnotations, value, $String*)},
 	{}
 };
 

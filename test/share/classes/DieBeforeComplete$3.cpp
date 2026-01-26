@@ -22,8 +22,8 @@ $FieldInfo _DieBeforeComplete$3_FieldInfo_[] = {
 };
 
 $MethodInfo _DieBeforeComplete$3_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/channels/AsynchronousSocketChannel;Ljava/nio/ByteBuffer;)V", "()V", 0, $method(static_cast<void(DieBeforeComplete$3::*)($AsynchronousSocketChannel*,$ByteBuffer*)>(&DieBeforeComplete$3::init$))},
-	{"run", "()Ljava/util/concurrent/Future;", "()Ljava/util/concurrent/Future<Ljava/lang/Integer;>;", $PUBLIC},
+	{"<init>", "(Ljava/nio/channels/AsynchronousSocketChannel;Ljava/nio/ByteBuffer;)V", "()V", 0, $method(DieBeforeComplete$3, init$, void, $AsynchronousSocketChannel*, $ByteBuffer*)},
+	{"run", "()Ljava/util/concurrent/Future;", "()Ljava/util/concurrent/Future<Ljava/lang/Integer;>;", $PUBLIC, $virtualMethod(DieBeforeComplete$3, run, $Future*)},
 	{}
 };
 

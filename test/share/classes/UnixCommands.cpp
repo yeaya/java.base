@@ -25,16 +25,16 @@ $FieldInfo _UnixCommands_FieldInfo_[] = {
 };
 
 $MethodInfo _UnixCommands_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(UnixCommands::*)()>(&UnixCommands::init$))},
-	{"cat", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)()>(&UnixCommands::cat))},
-	{"echo", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)()>(&UnixCommands::echo))},
-	{"ensureCommandsAvailable", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<void(*)($StringArray*)>(&UnixCommands::ensureCommandsAvailable))},
-	{"findCommand", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)($String*)>(&UnixCommands::findCommand))},
-	{"findCommand0", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($String*)>(&UnixCommands::findCommand0))},
-	{"kill", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)()>(&UnixCommands::kill))},
-	{"sh", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)()>(&UnixCommands::sh))},
-	{"sleep", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)()>(&UnixCommands::sleep))},
-	{"tee", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)()>(&UnixCommands::tee))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(UnixCommands, init$, void)},
+	{"cat", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(UnixCommands, cat, $String*)},
+	{"echo", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(UnixCommands, echo, $String*)},
+	{"ensureCommandsAvailable", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(UnixCommands, ensureCommandsAvailable, void, $StringArray*)},
+	{"findCommand", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(UnixCommands, findCommand, $String*, $String*)},
+	{"findCommand0", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(UnixCommands, findCommand0, $String*, $String*)},
+	{"kill", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(UnixCommands, kill, $String*)},
+	{"sh", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(UnixCommands, sh, $String*)},
+	{"sleep", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(UnixCommands, sleep, $String*)},
+	{"tee", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(UnixCommands, tee, $String*)},
 	{}
 };
 

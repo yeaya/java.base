@@ -52,9 +52,9 @@ using $Method = ::java::lang::reflect::Method;
 using $Objects = ::java::util::Objects;
 
 $MethodInfo _DefaultMethodModeling_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DefaultMethodModeling::*)()>(&DefaultMethodModeling::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<void(*)($StringArray*)>(&DefaultMethodModeling::main))},
-	{"testMethod", "(Ljava/lang/reflect/Method;)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)($Method*)>(&DefaultMethodModeling::testMethod))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DefaultMethodModeling, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(DefaultMethodModeling, main, void, $StringArray*)},
+	{"testMethod", "(Ljava/lang/reflect/Method;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(DefaultMethodModeling, testMethod, int32_t, $Method*)},
 	{}
 };
 

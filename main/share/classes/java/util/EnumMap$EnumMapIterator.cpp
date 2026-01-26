@@ -22,10 +22,10 @@ $FieldInfo _EnumMap$EnumMapIterator_FieldInfo_[] = {
 };
 
 $MethodInfo _EnumMap$EnumMapIterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/EnumMap;)V", nullptr, $PRIVATE, $method(static_cast<void(EnumMap$EnumMapIterator::*)($EnumMap*)>(&EnumMap$EnumMapIterator::init$))},
-	{"checkLastReturnedIndex", "()V", nullptr, $PRIVATE, $method(static_cast<void(EnumMap$EnumMapIterator::*)()>(&EnumMap$EnumMapIterator::checkLastReturnedIndex))},
-	{"hasNext", "()Z", nullptr, $PUBLIC},
-	{"remove", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/EnumMap;)V", nullptr, $PRIVATE, $method(EnumMap$EnumMapIterator, init$, void, $EnumMap*)},
+	{"checkLastReturnedIndex", "()V", nullptr, $PRIVATE, $method(EnumMap$EnumMapIterator, checkLastReturnedIndex, void)},
+	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(EnumMap$EnumMapIterator, hasNext, bool)},
+	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(EnumMap$EnumMapIterator, remove, void)},
 	{}
 };
 

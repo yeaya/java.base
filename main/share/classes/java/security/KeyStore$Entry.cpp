@@ -16,7 +16,7 @@ namespace java {
 	namespace security {
 
 $MethodInfo _KeyStore$Entry_MethodInfo_[] = {
-	{"getAttributes", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/security/KeyStore$Entry$Attribute;>;", $PUBLIC},
+	{"getAttributes", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/security/KeyStore$Entry$Attribute;>;", $PUBLIC, $virtualMethod(KeyStore$Entry, getAttributes, $Set*)},
 	{}
 };
 

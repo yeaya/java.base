@@ -7,8 +7,8 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _MyInt_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(MyInt::*)()>(&MyInt::init$))},
-	{"main", "()V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(MyInt, init$, void)},
+	{"main", "()V", nullptr, $PUBLIC, $virtualMethod(MyInt, main, void)},
 	{}
 };
 

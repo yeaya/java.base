@@ -46,8 +46,8 @@ $FieldInfo _DatagramChannelImpl$DefaultOptionsHolder_FieldInfo_[] = {
 };
 
 $MethodInfo _DatagramChannelImpl$DefaultOptionsHolder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(DatagramChannelImpl$DefaultOptionsHolder::*)()>(&DatagramChannelImpl$DefaultOptionsHolder::init$))},
-	{"defaultOptions", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/net/SocketOption<*>;>;", $PRIVATE | $STATIC, $method(static_cast<$Set*(*)()>(&DatagramChannelImpl$DefaultOptionsHolder::defaultOptions))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(DatagramChannelImpl$DefaultOptionsHolder, init$, void)},
+	{"defaultOptions", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/net/SocketOption<*>;>;", $PRIVATE | $STATIC, $staticMethod(DatagramChannelImpl$DefaultOptionsHolder, defaultOptions, $Set*)},
 	{}
 };
 

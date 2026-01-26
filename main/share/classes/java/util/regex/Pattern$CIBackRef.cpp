@@ -30,9 +30,9 @@ $FieldInfo _Pattern$CIBackRef_FieldInfo_[] = {
 };
 
 $MethodInfo _Pattern$CIBackRef_MethodInfo_[] = {
-	{"<init>", "(IZ)V", nullptr, 0, $method(static_cast<void(Pattern$CIBackRef::*)(int32_t,bool)>(&Pattern$CIBackRef::init$))},
-	{"match", "(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z", nullptr, 0},
-	{"study", "(Ljava/util/regex/Pattern$TreeInfo;)Z", nullptr, 0},
+	{"<init>", "(IZ)V", nullptr, 0, $method(Pattern$CIBackRef, init$, void, int32_t, bool)},
+	{"match", "(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z", nullptr, 0, $virtualMethod(Pattern$CIBackRef, match, bool, $Matcher*, int32_t, $CharSequence*)},
+	{"study", "(Ljava/util/regex/Pattern$TreeInfo;)Z", nullptr, 0, $virtualMethod(Pattern$CIBackRef, study, bool, $Pattern$TreeInfo*)},
 	{}
 };
 

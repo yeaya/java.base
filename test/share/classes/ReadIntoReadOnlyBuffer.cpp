@@ -25,9 +25,9 @@ $FieldInfo _ReadIntoReadOnlyBuffer_FieldInfo_[] = {
 };
 
 $MethodInfo _ReadIntoReadOnlyBuffer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ReadIntoReadOnlyBuffer::*)()>(&ReadIntoReadOnlyBuffer::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&ReadIntoReadOnlyBuffer::main)), "java.lang.Exception"},
-	{"read", "(Ljava/io/Reader;Ljava/nio/CharBuffer;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($Reader*,$CharBuffer*)>(&ReadIntoReadOnlyBuffer::read)), "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ReadIntoReadOnlyBuffer, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ReadIntoReadOnlyBuffer, main, void, $StringArray*), "java.lang.Exception"},
+	{"read", "(Ljava/io/Reader;Ljava/nio/CharBuffer;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ReadIntoReadOnlyBuffer, read, void, $Reader*, $CharBuffer*), "java.io.IOException"},
 	{}
 };
 

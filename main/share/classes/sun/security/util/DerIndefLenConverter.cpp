@@ -46,21 +46,21 @@ $FieldInfo _DerIndefLenConverter_FieldInfo_[] = {
 };
 
 $MethodInfo _DerIndefLenConverter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(DerIndefLenConverter::*)()>(&DerIndefLenConverter::init$))},
-	{"convertBytes", "([B)[B", nullptr, 0, nullptr, "java.io.IOException"},
-	{"convertStream", "(Ljava/io/InputStream;B)[B", nullptr, $PUBLIC | $STATIC, $method(static_cast<$bytes*(*)($InputStream*,int8_t)>(&DerIndefLenConverter::convertStream)), "java.io.IOException"},
-	{"getLengthBytes", "(I)[B", nullptr, $PRIVATE, $method(static_cast<$bytes*(DerIndefLenConverter::*)(int32_t)>(&DerIndefLenConverter::getLengthBytes))},
-	{"getNumOfLenBytes", "(I)I", nullptr, $PRIVATE, $method(static_cast<int32_t(DerIndefLenConverter::*)(int32_t)>(&DerIndefLenConverter::getNumOfLenBytes))},
-	{"isEOC", "(I)Z", nullptr, $PRIVATE, $method(static_cast<bool(DerIndefLenConverter::*)(int32_t)>(&DerIndefLenConverter::isEOC))},
-	{"isIndefinite", "(I)Z", nullptr, $STATIC, $method(static_cast<bool(*)(int32_t)>(&DerIndefLenConverter::isIndefinite))},
-	{"isLongForm", "(I)Z", nullptr, $STATIC, $method(static_cast<bool(*)(int32_t)>(&DerIndefLenConverter::isLongForm))},
-	{"parseLength", "()I", nullptr, $PRIVATE, $method(static_cast<int32_t(DerIndefLenConverter::*)()>(&DerIndefLenConverter::parseLength)), "java.io.IOException"},
-	{"parseTag", "()V", nullptr, $PRIVATE, $method(static_cast<void(DerIndefLenConverter::*)()>(&DerIndefLenConverter::parseTag)), "java.io.IOException"},
-	{"parseValue", "(I)V", nullptr, $PRIVATE, $method(static_cast<void(DerIndefLenConverter::*)(int32_t)>(&DerIndefLenConverter::parseValue))},
-	{"writeLength", "(I)V", nullptr, $PRIVATE, $method(static_cast<void(DerIndefLenConverter::*)(int32_t)>(&DerIndefLenConverter::writeLength))},
-	{"writeLengthAndValue", "()V", nullptr, $PRIVATE, $method(static_cast<void(DerIndefLenConverter::*)()>(&DerIndefLenConverter::writeLengthAndValue)), "java.io.IOException"},
-	{"writeTag", "()V", nullptr, $PRIVATE, $method(static_cast<void(DerIndefLenConverter::*)()>(&DerIndefLenConverter::writeTag))},
-	{"writeValue", "(I)V", nullptr, $PRIVATE, $method(static_cast<void(DerIndefLenConverter::*)(int32_t)>(&DerIndefLenConverter::writeValue))},
+	{"<init>", "()V", nullptr, 0, $method(DerIndefLenConverter, init$, void)},
+	{"convertBytes", "([B)[B", nullptr, 0, $virtualMethod(DerIndefLenConverter, convertBytes, $bytes*, $bytes*), "java.io.IOException"},
+	{"convertStream", "(Ljava/io/InputStream;B)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(DerIndefLenConverter, convertStream, $bytes*, $InputStream*, int8_t), "java.io.IOException"},
+	{"getLengthBytes", "(I)[B", nullptr, $PRIVATE, $method(DerIndefLenConverter, getLengthBytes, $bytes*, int32_t)},
+	{"getNumOfLenBytes", "(I)I", nullptr, $PRIVATE, $method(DerIndefLenConverter, getNumOfLenBytes, int32_t, int32_t)},
+	{"isEOC", "(I)Z", nullptr, $PRIVATE, $method(DerIndefLenConverter, isEOC, bool, int32_t)},
+	{"isIndefinite", "(I)Z", nullptr, $STATIC, $staticMethod(DerIndefLenConverter, isIndefinite, bool, int32_t)},
+	{"isLongForm", "(I)Z", nullptr, $STATIC, $staticMethod(DerIndefLenConverter, isLongForm, bool, int32_t)},
+	{"parseLength", "()I", nullptr, $PRIVATE, $method(DerIndefLenConverter, parseLength, int32_t), "java.io.IOException"},
+	{"parseTag", "()V", nullptr, $PRIVATE, $method(DerIndefLenConverter, parseTag, void), "java.io.IOException"},
+	{"parseValue", "(I)V", nullptr, $PRIVATE, $method(DerIndefLenConverter, parseValue, void, int32_t)},
+	{"writeLength", "(I)V", nullptr, $PRIVATE, $method(DerIndefLenConverter, writeLength, void, int32_t)},
+	{"writeLengthAndValue", "()V", nullptr, $PRIVATE, $method(DerIndefLenConverter, writeLengthAndValue, void), "java.io.IOException"},
+	{"writeTag", "()V", nullptr, $PRIVATE, $method(DerIndefLenConverter, writeTag, void)},
+	{"writeValue", "(I)V", nullptr, $PRIVATE, $method(DerIndefLenConverter, writeValue, void, int32_t)},
 	{}
 };
 

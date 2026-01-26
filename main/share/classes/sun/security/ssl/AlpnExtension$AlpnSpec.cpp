@@ -49,9 +49,9 @@ $FieldInfo _AlpnExtension$AlpnSpec_FieldInfo_[] = {
 };
 
 $MethodInfo _AlpnExtension$AlpnSpec_MethodInfo_[] = {
-	{"<init>", "([Ljava/lang/String;)V", nullptr, $PRIVATE, $method(static_cast<void(AlpnExtension$AlpnSpec::*)($StringArray*)>(&AlpnExtension$AlpnSpec::init$))},
-	{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE, $method(static_cast<void(AlpnExtension$AlpnSpec::*)($HandshakeContext*,$ByteBuffer*)>(&AlpnExtension$AlpnSpec::init$)), "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "([Ljava/lang/String;)V", nullptr, $PRIVATE, $method(AlpnExtension$AlpnSpec, init$, void, $StringArray*)},
+	{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE, $method(AlpnExtension$AlpnSpec, init$, void, $HandshakeContext*, $ByteBuffer*), "java.io.IOException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AlpnExtension$AlpnSpec, toString, $String*)},
 	{}
 };
 

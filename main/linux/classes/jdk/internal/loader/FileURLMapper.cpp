@@ -23,9 +23,9 @@ $FieldInfo _FileURLMapper_FieldInfo_[] = {
 };
 
 $MethodInfo _FileURLMapper_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/URL;)V", nullptr, $PUBLIC, $method(static_cast<void(FileURLMapper::*)($URL*)>(&FileURLMapper::init$))},
-	{"exists", "()Z", nullptr, $PUBLIC},
-	{"getPath", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/net/URL;)V", nullptr, $PUBLIC, $method(FileURLMapper, init$, void, $URL*)},
+	{"exists", "()Z", nullptr, $PUBLIC, $virtualMethod(FileURLMapper, exists, bool)},
+	{"getPath", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FileURLMapper, getPath, $String*)},
 	{}
 };
 

@@ -43,18 +43,18 @@ $FieldInfo _ParallelListResourceBundle_FieldInfo_[] = {
 };
 
 $MethodInfo _ParallelListResourceBundle_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(ParallelListResourceBundle::*)()>(&ParallelListResourceBundle::init$))},
-	{"areParallelContentsComplete", "()Z", nullptr, 0},
-	{"containsKey", "(Ljava/lang/String;)Z", nullptr, $PUBLIC},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $ABSTRACT},
-	{"getKeys", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC},
-	{"getParent", "()Ljava/util/ResourceBundle;", nullptr, 0},
-	{"handleGetObject", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PROTECTED},
-	{"handleKeySet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PROTECTED},
-	{"keySet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC},
-	{"loadLookupTablesIfNecessary", "()V", nullptr, 0},
-	{"resetKeySet", "()V", nullptr, $SYNCHRONIZED},
-	{"setParallelContents", "(Lsun/util/resources/OpenListResourceBundle;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(ParallelListResourceBundle, init$, void)},
+	{"areParallelContentsComplete", "()Z", nullptr, 0, $virtualMethod(ParallelListResourceBundle, areParallelContentsComplete, bool)},
+	{"containsKey", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(ParallelListResourceBundle, containsKey, bool, $String*)},
+	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(ParallelListResourceBundle, getContents, $ObjectArray2*)},
+	{"getKeys", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(ParallelListResourceBundle, getKeys, $Enumeration*)},
+	{"getParent", "()Ljava/util/ResourceBundle;", nullptr, 0, $virtualMethod(ParallelListResourceBundle, getParent, $ResourceBundle*)},
+	{"handleGetObject", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(ParallelListResourceBundle, handleGetObject, $Object*, $String*)},
+	{"handleKeySet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PROTECTED, $virtualMethod(ParallelListResourceBundle, handleKeySet, $Set*)},
+	{"keySet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(ParallelListResourceBundle, keySet, $Set*)},
+	{"loadLookupTablesIfNecessary", "()V", nullptr, 0, $virtualMethod(ParallelListResourceBundle, loadLookupTablesIfNecessary, void)},
+	{"resetKeySet", "()V", nullptr, $SYNCHRONIZED, $virtualMethod(ParallelListResourceBundle, resetKeySet, void)},
+	{"setParallelContents", "(Lsun/util/resources/OpenListResourceBundle;)V", nullptr, $PUBLIC, $virtualMethod(ParallelListResourceBundle, setParallelContents, void, $OpenListResourceBundle*)},
 	{}
 };
 

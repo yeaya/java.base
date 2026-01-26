@@ -33,8 +33,8 @@ $FieldInfo _VerifyStackTrace$1_FieldInfo_[] = {
 };
 
 $MethodInfo _VerifyStackTrace$1_MethodInfo_[] = {
-	{"<init>", "(LVerifyStackTrace$Handle;)V", "()V", 0, $method(static_cast<void(VerifyStackTrace$1::*)($VerifyStackTrace$Handle*)>(&VerifyStackTrace$1::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(LVerifyStackTrace$Handle;)V", "()V", 0, $method(VerifyStackTrace$1, init$, void, $VerifyStackTrace$Handle*)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(VerifyStackTrace$1, run, $Object*)},
 	{}
 };
 

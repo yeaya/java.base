@@ -21,7 +21,7 @@ $FieldInfo _WindowsSelectorImpl$MapEntry_FieldInfo_[] = {
 };
 
 $MethodInfo _WindowsSelectorImpl$MapEntry_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/ch/SelectionKeyImpl;)V", nullptr, 0, $method(static_cast<void(WindowsSelectorImpl$MapEntry::*)($SelectionKeyImpl*)>(&WindowsSelectorImpl$MapEntry::init$))},
+	{"<init>", "(Lsun/nio/ch/SelectionKeyImpl;)V", nullptr, 0, $method(WindowsSelectorImpl$MapEntry, init$, void, $SelectionKeyImpl*)},
 	{}
 };
 

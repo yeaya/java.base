@@ -52,9 +52,9 @@ $FieldInfo _LauncherHelper$FXHelper_FieldInfo_[] = {
 };
 
 $MethodInfo _LauncherHelper$FXHelper_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(LauncherHelper$FXHelper::*)()>(&LauncherHelper$FXHelper::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<void(*)($StringArray*)>(&LauncherHelper$FXHelper::main)), "java.lang.Exception"},
-	{"setFXLaunchParameters", "(Ljava/lang/String;I)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($String*,int32_t)>(&LauncherHelper$FXHelper::setFXLaunchParameters))},
+	{"<init>", "()V", nullptr, 0, $method(LauncherHelper$FXHelper, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(LauncherHelper$FXHelper, main, void, $StringArray*), "java.lang.Exception"},
+	{"setFXLaunchParameters", "(Ljava/lang/String;I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(LauncherHelper$FXHelper, setFXLaunchParameters, void, $String*, int32_t)},
 	{}
 };
 

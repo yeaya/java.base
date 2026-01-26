@@ -20,9 +20,9 @@ $FieldInfo _MyThreadFactory_FieldInfo_[] = {
 };
 
 $MethodInfo _MyThreadFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(MyThreadFactory::*)()>(&MyThreadFactory::init$))},
-	{"created", "(Ljava/lang/Thread;)Z", nullptr, $STATIC, $method(static_cast<bool(*)($Thread*)>(&MyThreadFactory::created))},
-	{"newThread", "(Ljava/lang/Runnable;)Ljava/lang/Thread;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(MyThreadFactory, init$, void)},
+	{"created", "(Ljava/lang/Thread;)Z", nullptr, $STATIC, $staticMethod(MyThreadFactory, created, bool, $Thread*)},
+	{"newThread", "(Ljava/lang/Runnable;)Ljava/lang/Thread;", nullptr, $PUBLIC, $virtualMethod(MyThreadFactory, newThread, $Thread*, $Runnable*)},
 	{}
 };
 

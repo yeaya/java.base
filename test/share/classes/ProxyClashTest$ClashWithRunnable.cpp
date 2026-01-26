@@ -8,8 +8,8 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _ProxyClashTest$ClashWithRunnable_MethodInfo_[] = {
-	{"foo", "()V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)()>(&ProxyClashTest$ClashWithRunnable::foo))},
-	{"run", "()I", nullptr, $PUBLIC | $STATIC, $method(static_cast<int32_t(*)()>(&ProxyClashTest$ClashWithRunnable::run))},
+	{"foo", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(ProxyClashTest$ClashWithRunnable, foo, void)},
+	{"run", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(ProxyClashTest$ClashWithRunnable, run, int32_t)},
 	{}
 };
 

@@ -24,8 +24,8 @@ $FieldInfo _FindClassSecurityManager_FieldInfo_[] = {
 };
 
 $MethodInfo _FindClassSecurityManager_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(FindClassSecurityManager::*)()>(&FindClassSecurityManager::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&FindClassSecurityManager::main)), "java.lang.Throwable"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(FindClassSecurityManager, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(FindClassSecurityManager, main, void, $StringArray*), "java.lang.Throwable"},
 	{}
 };
 

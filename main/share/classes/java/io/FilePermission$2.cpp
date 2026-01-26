@@ -23,8 +23,8 @@ $FieldInfo _FilePermission$2_FieldInfo_[] = {
 };
 
 $MethodInfo _FilePermission$2_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/FilePermission;)V", nullptr, 0, $method(static_cast<void(FilePermission$2::*)($FilePermission*)>(&FilePermission$2::init$))},
-	{"run", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/io/FilePermission;)V", nullptr, 0, $method(FilePermission$2, init$, void, $FilePermission*)},
+	{"run", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FilePermission$2, run, $Object*)},
 	{}
 };
 

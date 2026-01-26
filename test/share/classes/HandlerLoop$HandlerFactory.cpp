@@ -33,8 +33,8 @@ $FieldInfo _HandlerLoop$HandlerFactory_FieldInfo_[] = {
 };
 
 $MethodInfo _HandlerLoop$HandlerFactory_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(HandlerLoop$HandlerFactory::*)($String*)>(&HandlerLoop$HandlerFactory::init$))},
-	{"createURLStreamHandler", "(Ljava/lang/String;)Ljava/net/URLStreamHandler;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(HandlerLoop$HandlerFactory, init$, void, $String*)},
+	{"createURLStreamHandler", "(Ljava/lang/String;)Ljava/net/URLStreamHandler;", nullptr, $PUBLIC, $virtualMethod(HandlerLoop$HandlerFactory, createURLStreamHandler, $URLStreamHandler*, $String*)},
 	{}
 };
 

@@ -28,8 +28,8 @@ $FieldInfo _UCharacterProperty$1_FieldInfo_[] = {
 };
 
 $MethodInfo _UCharacterProperty$1_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/icu/impl/UCharacterProperty;)V", nullptr, 0, $method(static_cast<void(UCharacterProperty$1::*)($UCharacterProperty*)>(&UCharacterProperty$1::init$))},
-	{"getValue", "(I)I", nullptr, 0},
+	{"<init>", "(Ljdk/internal/icu/impl/UCharacterProperty;)V", nullptr, 0, $method(UCharacterProperty$1, init$, void, $UCharacterProperty*)},
+	{"getValue", "(I)I", nullptr, 0, $virtualMethod(UCharacterProperty$1, getValue, int32_t, int32_t)},
 	{}
 };
 

@@ -14,7 +14,7 @@ $FieldInfo _Type_FieldInfo_[] = {
 };
 
 $MethodInfo _Type_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Type::*)()>(&Type::init$))},
+	{"<init>", "()V", nullptr, 0, $method(Type, init$, void)},
 	{}
 };
 

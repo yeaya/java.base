@@ -19,10 +19,10 @@ $FieldInfo _PollingWatchService$CacheEntry_FieldInfo_[] = {
 };
 
 $MethodInfo _PollingWatchService$CacheEntry_MethodInfo_[] = {
-	{"<init>", "(JI)V", nullptr, 0, $method(static_cast<void(PollingWatchService$CacheEntry::*)(int64_t,int32_t)>(&PollingWatchService$CacheEntry::init$))},
-	{"lastModified", "()J", nullptr, 0},
-	{"lastTickCount", "()I", nullptr, 0},
-	{"update", "(JI)V", nullptr, 0},
+	{"<init>", "(JI)V", nullptr, 0, $method(PollingWatchService$CacheEntry, init$, void, int64_t, int32_t)},
+	{"lastModified", "()J", nullptr, 0, $virtualMethod(PollingWatchService$CacheEntry, lastModified, int64_t)},
+	{"lastTickCount", "()I", nullptr, 0, $virtualMethod(PollingWatchService$CacheEntry, lastTickCount, int32_t)},
+	{"update", "(JI)V", nullptr, 0, $virtualMethod(PollingWatchService$CacheEntry, update, void, int64_t, int32_t)},
 	{}
 };
 

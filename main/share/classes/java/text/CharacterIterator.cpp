@@ -20,15 +20,15 @@ $FieldInfo _CharacterIterator_FieldInfo_[] = {
 
 $MethodInfo _CharacterIterator_MethodInfo_[] = {
 	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
-	{"current", "()C", nullptr, $PUBLIC | $ABSTRACT},
-	{"first", "()C", nullptr, $PUBLIC | $ABSTRACT},
-	{"getBeginIndex", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"getEndIndex", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"getIndex", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"last", "()C", nullptr, $PUBLIC | $ABSTRACT},
-	{"next", "()C", nullptr, $PUBLIC | $ABSTRACT},
-	{"previous", "()C", nullptr, $PUBLIC | $ABSTRACT},
-	{"setIndex", "(I)C", nullptr, $PUBLIC | $ABSTRACT},
+	{"current", "()C", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CharacterIterator, current, char16_t)},
+	{"first", "()C", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CharacterIterator, first, char16_t)},
+	{"getBeginIndex", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CharacterIterator, getBeginIndex, int32_t)},
+	{"getEndIndex", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CharacterIterator, getEndIndex, int32_t)},
+	{"getIndex", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CharacterIterator, getIndex, int32_t)},
+	{"last", "()C", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CharacterIterator, last, char16_t)},
+	{"next", "()C", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CharacterIterator, next, char16_t)},
+	{"previous", "()C", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CharacterIterator, previous, char16_t)},
+	{"setIndex", "(I)C", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CharacterIterator, setIndex, char16_t, int32_t)},
 	{}
 };
 

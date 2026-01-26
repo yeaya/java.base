@@ -39,17 +39,17 @@ namespace sun {
 		namespace util {
 
 $MethodInfo _BytecodeDescriptor_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(BytecodeDescriptor::*)()>(&BytecodeDescriptor::init$))},
-	{"parseError", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($String*,$String*)>(&BytecodeDescriptor::parseError))},
-	{"parseMethod", "(Ljava/lang/String;Ljava/lang/ClassLoader;)Ljava/util/List;", "(Ljava/lang/String;Ljava/lang/ClassLoader;)Ljava/util/List<Ljava/lang/Class<*>;>;", $PUBLIC | $STATIC, $method(static_cast<$List*(*)($String*,$ClassLoader*)>(&BytecodeDescriptor::parseMethod))},
-	{"parseMethod", "(Ljava/lang/String;IILjava/lang/ClassLoader;)Ljava/util/List;", "(Ljava/lang/String;IILjava/lang/ClassLoader;)Ljava/util/List<Ljava/lang/Class<*>;>;", $STATIC, $method(static_cast<$List*(*)($String*,int32_t,int32_t,$ClassLoader*)>(&BytecodeDescriptor::parseMethod))},
-	{"parseSig", "(Ljava/lang/String;[IILjava/lang/ClassLoader;)Ljava/lang/Class;", "(Ljava/lang/String;[IILjava/lang/ClassLoader;)Ljava/lang/Class<*>;", $PRIVATE | $STATIC, $method(static_cast<$Class*(*)($String*,$ints*,int32_t,$ClassLoader*)>(&BytecodeDescriptor::parseSig))},
-	{"unparse", "(Ljava/lang/Class;)Ljava/lang/String;", "(Ljava/lang/Class<*>;)Ljava/lang/String;", $PUBLIC | $STATIC, $method(static_cast<$String*(*)($Class*)>(&BytecodeDescriptor::unparse))},
-	{"unparse", "(Ljava/lang/invoke/MethodType;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)($MethodType*)>(&BytecodeDescriptor::unparse))},
-	{"unparse", "(Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)(Object$*)>(&BytecodeDescriptor::unparse))},
-	{"unparseMethod", "(Ljava/lang/Class;Ljava/util/List;)Ljava/lang/String;", "(Ljava/lang/Class<*>;Ljava/util/List<Ljava/lang/Class<*>;>;)Ljava/lang/String;", $PUBLIC | $STATIC, $method(static_cast<$String*(*)($Class*,$List*)>(&BytecodeDescriptor::unparseMethod))},
-	{"unparseMethod", "(Ljava/lang/Class;[Ljava/lang/Class;)Ljava/lang/String;", "(Ljava/lang/Class<*>;[Ljava/lang/Class<*>;)Ljava/lang/String;", $PUBLIC | $STATIC, $method(static_cast<$String*(*)($Class*,$ClassArray*)>(&BytecodeDescriptor::unparseMethod))},
-	{"unparseSig", "(Ljava/lang/Class;Ljava/lang/StringBuilder;)V", "(Ljava/lang/Class<*>;Ljava/lang/StringBuilder;)V", $PRIVATE | $STATIC, $method(static_cast<void(*)($Class*,$StringBuilder*)>(&BytecodeDescriptor::unparseSig))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(BytecodeDescriptor, init$, void)},
+	{"parseError", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(BytecodeDescriptor, parseError, void, $String*, $String*)},
+	{"parseMethod", "(Ljava/lang/String;Ljava/lang/ClassLoader;)Ljava/util/List;", "(Ljava/lang/String;Ljava/lang/ClassLoader;)Ljava/util/List<Ljava/lang/Class<*>;>;", $PUBLIC | $STATIC, $staticMethod(BytecodeDescriptor, parseMethod, $List*, $String*, $ClassLoader*)},
+	{"parseMethod", "(Ljava/lang/String;IILjava/lang/ClassLoader;)Ljava/util/List;", "(Ljava/lang/String;IILjava/lang/ClassLoader;)Ljava/util/List<Ljava/lang/Class<*>;>;", $STATIC, $staticMethod(BytecodeDescriptor, parseMethod, $List*, $String*, int32_t, int32_t, $ClassLoader*)},
+	{"parseSig", "(Ljava/lang/String;[IILjava/lang/ClassLoader;)Ljava/lang/Class;", "(Ljava/lang/String;[IILjava/lang/ClassLoader;)Ljava/lang/Class<*>;", $PRIVATE | $STATIC, $staticMethod(BytecodeDescriptor, parseSig, $Class*, $String*, $ints*, int32_t, $ClassLoader*)},
+	{"unparse", "(Ljava/lang/Class;)Ljava/lang/String;", "(Ljava/lang/Class<*>;)Ljava/lang/String;", $PUBLIC | $STATIC, $staticMethod(BytecodeDescriptor, unparse, $String*, $Class*)},
+	{"unparse", "(Ljava/lang/invoke/MethodType;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(BytecodeDescriptor, unparse, $String*, $MethodType*)},
+	{"unparse", "(Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(BytecodeDescriptor, unparse, $String*, Object$*)},
+	{"unparseMethod", "(Ljava/lang/Class;Ljava/util/List;)Ljava/lang/String;", "(Ljava/lang/Class<*>;Ljava/util/List<Ljava/lang/Class<*>;>;)Ljava/lang/String;", $PUBLIC | $STATIC, $staticMethod(BytecodeDescriptor, unparseMethod, $String*, $Class*, $List*)},
+	{"unparseMethod", "(Ljava/lang/Class;[Ljava/lang/Class;)Ljava/lang/String;", "(Ljava/lang/Class<*>;[Ljava/lang/Class<*>;)Ljava/lang/String;", $PUBLIC | $STATIC, $staticMethod(BytecodeDescriptor, unparseMethod, $String*, $Class*, $ClassArray*)},
+	{"unparseSig", "(Ljava/lang/Class;Ljava/lang/StringBuilder;)V", "(Ljava/lang/Class<*>;Ljava/lang/StringBuilder;)V", $PRIVATE | $STATIC, $staticMethod(BytecodeDescriptor, unparseSig, void, $Class*, $StringBuilder*)},
 	{}
 };
 

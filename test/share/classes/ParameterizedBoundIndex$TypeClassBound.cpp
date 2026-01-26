@@ -14,7 +14,7 @@ $TypeAnnotation _ParameterizedBoundIndex$TypeClassBound_TypeAnnotations_[] = {
 };
 
 $MethodInfo _ParameterizedBoundIndex$TypeClassBound_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ParameterizedBoundIndex$TypeClassBound::*)()>(&ParameterizedBoundIndex$TypeClassBound::init$))},
+	{"<init>", "()V", nullptr, 0, $method(ParameterizedBoundIndex$TypeClassBound, init$, void)},
 	{}
 };
 

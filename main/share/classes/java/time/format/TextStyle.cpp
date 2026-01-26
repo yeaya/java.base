@@ -40,15 +40,15 @@ $FieldInfo _TextStyle_FieldInfo_[] = {
 };
 
 $MethodInfo _TextStyle_MethodInfo_[] = {
-	{"$values", "()[Ljava/time/format/TextStyle;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$TextStyleArray*(*)()>(&TextStyle::$values))},
-	{"<init>", "(Ljava/lang/String;III)V", "(II)V", $PRIVATE, $method(static_cast<void(TextStyle::*)($String*,int32_t,int32_t,int32_t)>(&TextStyle::init$))},
-	{"asNormal", "()Ljava/time/format/TextStyle;", nullptr, $PUBLIC, $method(static_cast<TextStyle*(TextStyle::*)()>(&TextStyle::asNormal))},
-	{"asStandalone", "()Ljava/time/format/TextStyle;", nullptr, $PUBLIC, $method(static_cast<TextStyle*(TextStyle::*)()>(&TextStyle::asStandalone))},
-	{"isStandalone", "()Z", nullptr, $PUBLIC, $method(static_cast<bool(TextStyle::*)()>(&TextStyle::isStandalone))},
-	{"toCalendarStyle", "()I", nullptr, 0, $method(static_cast<int32_t(TextStyle::*)()>(&TextStyle::toCalendarStyle))},
-	{"valueOf", "(Ljava/lang/String;)Ljava/time/format/TextStyle;", nullptr, $PUBLIC | $STATIC, $method(static_cast<TextStyle*(*)($String*)>(&TextStyle::valueOf))},
-	{"values", "()[Ljava/time/format/TextStyle;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$TextStyleArray*(*)()>(&TextStyle::values))},
-	{"zoneNameStyleIndex", "()I", nullptr, 0, $method(static_cast<int32_t(TextStyle::*)()>(&TextStyle::zoneNameStyleIndex))},
+	{"$values", "()[Ljava/time/format/TextStyle;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TextStyle, $values, $TextStyleArray*)},
+	{"<init>", "(Ljava/lang/String;III)V", "(II)V", $PRIVATE, $method(TextStyle, init$, void, $String*, int32_t, int32_t, int32_t)},
+	{"asNormal", "()Ljava/time/format/TextStyle;", nullptr, $PUBLIC, $method(TextStyle, asNormal, TextStyle*)},
+	{"asStandalone", "()Ljava/time/format/TextStyle;", nullptr, $PUBLIC, $method(TextStyle, asStandalone, TextStyle*)},
+	{"isStandalone", "()Z", nullptr, $PUBLIC, $method(TextStyle, isStandalone, bool)},
+	{"toCalendarStyle", "()I", nullptr, 0, $method(TextStyle, toCalendarStyle, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Ljava/time/format/TextStyle;", nullptr, $PUBLIC | $STATIC, $staticMethod(TextStyle, valueOf, TextStyle*, $String*)},
+	{"values", "()[Ljava/time/format/TextStyle;", nullptr, $PUBLIC | $STATIC, $staticMethod(TextStyle, values, $TextStyleArray*)},
+	{"zoneNameStyleIndex", "()I", nullptr, 0, $method(TextStyle, zoneNameStyleIndex, int32_t)},
 	{}
 };
 

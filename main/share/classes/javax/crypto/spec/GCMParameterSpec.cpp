@@ -18,11 +18,11 @@ $FieldInfo _GCMParameterSpec_FieldInfo_[] = {
 };
 
 $MethodInfo _GCMParameterSpec_MethodInfo_[] = {
-	{"<init>", "(I[B)V", nullptr, $PUBLIC, $method(static_cast<void(GCMParameterSpec::*)(int32_t,$bytes*)>(&GCMParameterSpec::init$))},
-	{"<init>", "(I[BII)V", nullptr, $PUBLIC, $method(static_cast<void(GCMParameterSpec::*)(int32_t,$bytes*,int32_t,int32_t)>(&GCMParameterSpec::init$))},
-	{"getIV", "()[B", nullptr, $PUBLIC},
-	{"getTLen", "()I", nullptr, $PUBLIC},
-	{"init", "(I[BII)V", nullptr, $PRIVATE, $method(static_cast<void(GCMParameterSpec::*)(int32_t,$bytes*,int32_t,int32_t)>(&GCMParameterSpec::init))},
+	{"<init>", "(I[B)V", nullptr, $PUBLIC, $method(GCMParameterSpec, init$, void, int32_t, $bytes*)},
+	{"<init>", "(I[BII)V", nullptr, $PUBLIC, $method(GCMParameterSpec, init$, void, int32_t, $bytes*, int32_t, int32_t)},
+	{"getIV", "()[B", nullptr, $PUBLIC, $virtualMethod(GCMParameterSpec, getIV, $bytes*)},
+	{"getTLen", "()I", nullptr, $PUBLIC, $virtualMethod(GCMParameterSpec, getTLen, int32_t)},
+	{"init", "(I[BII)V", nullptr, $PRIVATE, $method(GCMParameterSpec, init, void, int32_t, $bytes*, int32_t, int32_t)},
 	{}
 };
 

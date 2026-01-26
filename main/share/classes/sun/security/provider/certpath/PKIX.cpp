@@ -41,10 +41,10 @@ $FieldInfo _PKIX_FieldInfo_[] = {
 };
 
 $MethodInfo _PKIX_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(PKIX::*)()>(&PKIX::init$))},
-	{"checkBuilderParams", "(Ljava/security/cert/CertPathParameters;)Lsun/security/provider/certpath/PKIX$BuilderParams;", nullptr, $STATIC, $method(static_cast<$PKIX$BuilderParams*(*)($CertPathParameters*)>(&PKIX::checkBuilderParams)), "java.security.InvalidAlgorithmParameterException"},
-	{"checkParams", "(Ljava/security/cert/CertPath;Ljava/security/cert/CertPathParameters;)Lsun/security/provider/certpath/PKIX$ValidatorParams;", nullptr, $STATIC, $method(static_cast<$PKIX$ValidatorParams*(*)($CertPath*,$CertPathParameters*)>(&PKIX::checkParams)), "java.security.InvalidAlgorithmParameterException"},
-	{"isDSAPublicKeyWithoutParams", "(Ljava/security/PublicKey;)Z", nullptr, $STATIC, $method(static_cast<bool(*)($PublicKey*)>(&PKIX::isDSAPublicKeyWithoutParams))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(PKIX, init$, void)},
+	{"checkBuilderParams", "(Ljava/security/cert/CertPathParameters;)Lsun/security/provider/certpath/PKIX$BuilderParams;", nullptr, $STATIC, $staticMethod(PKIX, checkBuilderParams, $PKIX$BuilderParams*, $CertPathParameters*), "java.security.InvalidAlgorithmParameterException"},
+	{"checkParams", "(Ljava/security/cert/CertPath;Ljava/security/cert/CertPathParameters;)Lsun/security/provider/certpath/PKIX$ValidatorParams;", nullptr, $STATIC, $staticMethod(PKIX, checkParams, $PKIX$ValidatorParams*, $CertPath*, $CertPathParameters*), "java.security.InvalidAlgorithmParameterException"},
+	{"isDSAPublicKeyWithoutParams", "(Ljava/security/PublicKey;)Z", nullptr, $STATIC, $staticMethod(PKIX, isDSAPublicKeyWithoutParams, bool, $PublicKey*)},
 	{}
 };
 

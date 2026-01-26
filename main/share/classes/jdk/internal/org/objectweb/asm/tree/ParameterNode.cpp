@@ -22,8 +22,8 @@ $FieldInfo _ParameterNode_FieldInfo_[] = {
 };
 
 $MethodInfo _ParameterNode_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(static_cast<void(ParameterNode::*)($String*,int32_t)>(&ParameterNode::init$))},
-	{"accept", "(Ljdk/internal/org/objectweb/asm/MethodVisitor;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(ParameterNode, init$, void, $String*, int32_t)},
+	{"accept", "(Ljdk/internal/org/objectweb/asm/MethodVisitor;)V", nullptr, $PUBLIC, $virtualMethod(ParameterNode, accept, void, $MethodVisitor*)},
 	{}
 };
 

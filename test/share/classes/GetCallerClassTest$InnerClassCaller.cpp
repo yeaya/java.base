@@ -17,8 +17,8 @@ $FieldInfo _GetCallerClassTest$InnerClassCaller_FieldInfo_[] = {
 };
 
 $MethodInfo _GetCallerClassTest$InnerClassCaller_MethodInfo_[] = {
-	{"<init>", "(LGetCallerClassTest;)V", nullptr, 0, $method(static_cast<void(GetCallerClassTest$InnerClassCaller::*)($GetCallerClassTest*)>(&GetCallerClassTest$InnerClassCaller::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(LGetCallerClassTest;)V", nullptr, 0, $method(GetCallerClassTest$InnerClassCaller, init$, void, $GetCallerClassTest*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(GetCallerClassTest$InnerClassCaller, run, void)},
 	{}
 };
 

@@ -27,15 +27,15 @@ $FieldInfo _ResolvedModule_FieldInfo_[] = {
 };
 
 $MethodInfo _ResolvedModule_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/module/Configuration;Ljava/lang/module/ModuleReference;)V", nullptr, 0, $method(static_cast<void(ResolvedModule::*)($Configuration*,$ModuleReference*)>(&ResolvedModule::init$))},
-	{"configuration", "()Ljava/lang/module/Configuration;", nullptr, $PUBLIC, $method(static_cast<$Configuration*(ResolvedModule::*)()>(&ResolvedModule::configuration))},
-	{"descriptor", "()Ljava/lang/module/ModuleDescriptor;", nullptr, 0, $method(static_cast<$ModuleDescriptor*(ResolvedModule::*)()>(&ResolvedModule::descriptor))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(static_cast<$String*(ResolvedModule::*)()>(&ResolvedModule::name))},
-	{"reads", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/module/ResolvedModule;>;", $PUBLIC, $method(static_cast<$Set*(ResolvedModule::*)()>(&ResolvedModule::reads))},
-	{"reference", "()Ljava/lang/module/ModuleReference;", nullptr, $PUBLIC, $method(static_cast<$ModuleReference*(ResolvedModule::*)()>(&ResolvedModule::reference))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/module/Configuration;Ljava/lang/module/ModuleReference;)V", nullptr, 0, $method(ResolvedModule, init$, void, $Configuration*, $ModuleReference*)},
+	{"configuration", "()Ljava/lang/module/Configuration;", nullptr, $PUBLIC, $method(ResolvedModule, configuration, $Configuration*)},
+	{"descriptor", "()Ljava/lang/module/ModuleDescriptor;", nullptr, 0, $method(ResolvedModule, descriptor, $ModuleDescriptor*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ResolvedModule, equals, bool, Object$*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ResolvedModule, hashCode, int32_t)},
+	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(ResolvedModule, name, $String*)},
+	{"reads", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/module/ResolvedModule;>;", $PUBLIC, $method(ResolvedModule, reads, $Set*)},
+	{"reference", "()Ljava/lang/module/ModuleReference;", nullptr, $PUBLIC, $method(ResolvedModule, reference, $ModuleReference*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ResolvedModule, toString, $String*)},
 	{}
 };
 

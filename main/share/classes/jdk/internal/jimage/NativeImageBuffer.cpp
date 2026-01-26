@@ -19,8 +19,8 @@ namespace jdk {
 		namespace jimage {
 
 $MethodInfo _NativeImageBuffer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(NativeImageBuffer::*)()>(&NativeImageBuffer::init$))},
-	{"getNativeMap", "(Ljava/lang/String;)Ljava/nio/ByteBuffer;", nullptr, $STATIC | $NATIVE, $method(static_cast<$ByteBuffer*(*)($String*)>(&NativeImageBuffer::getNativeMap))},
+	{"<init>", "()V", nullptr, 0, $method(NativeImageBuffer, init$, void)},
+	{"getNativeMap", "(Ljava/lang/String;)Ljava/nio/ByteBuffer;", nullptr, $STATIC | $NATIVE, $staticMethod(NativeImageBuffer, getNativeMap, $ByteBuffer*, $String*)},
 	{}
 };
 

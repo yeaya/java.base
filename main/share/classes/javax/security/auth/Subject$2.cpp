@@ -27,8 +27,8 @@ $FieldInfo _Subject$2_FieldInfo_[] = {
 };
 
 $MethodInfo _Subject$2_MethodInfo_[] = {
-	{"<init>", "(Ljavax/security/auth/Subject;Ljava/security/AccessControlContext;)V", nullptr, 0, $method(static_cast<void(Subject$2::*)($Subject*,$AccessControlContext*)>(&Subject$2::init$))},
-	{"run", "()Ljava/security/AccessControlContext;", nullptr, $PUBLIC},
+	{"<init>", "(Ljavax/security/auth/Subject;Ljava/security/AccessControlContext;)V", nullptr, 0, $method(Subject$2, init$, void, $Subject*, $AccessControlContext*)},
+	{"run", "()Ljava/security/AccessControlContext;", nullptr, $PUBLIC, $virtualMethod(Subject$2, run, $Object*)},
 	{}
 };
 

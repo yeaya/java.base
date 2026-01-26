@@ -56,11 +56,11 @@ $FieldInfo _SSLCipher$T10BlockReadCipherGenerator$BlockReadCipher_FieldInfo_[] =
 };
 
 $MethodInfo _SSLCipher$T10BlockReadCipherGenerator$BlockReadCipher_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/ssl/Authenticator;Lsun/security/ssl/ProtocolVersion;Ljava/lang/String;Ljava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, 0, $method(static_cast<void(SSLCipher$T10BlockReadCipherGenerator$BlockReadCipher::*)($Authenticator*,$ProtocolVersion*,$String*,$Key*,$AlgorithmParameterSpec*,$SecureRandom*)>(&SSLCipher$T10BlockReadCipherGenerator$BlockReadCipher::init$)), "java.security.GeneralSecurityException"},
-	{"decrypt", "(BLjava/nio/ByteBuffer;[B)Lsun/security/ssl/Plaintext;", nullptr, $PUBLIC, nullptr, "java.security.GeneralSecurityException"},
-	{"dispose", "()V", nullptr, 0},
-	{"estimateFragmentSize", "(II)I", nullptr, 0},
-	{"sanityCheck", "(II)Z", nullptr, $PRIVATE, $method(static_cast<bool(SSLCipher$T10BlockReadCipherGenerator$BlockReadCipher::*)(int32_t,int32_t)>(&SSLCipher$T10BlockReadCipherGenerator$BlockReadCipher::sanityCheck))},
+	{"<init>", "(Lsun/security/ssl/Authenticator;Lsun/security/ssl/ProtocolVersion;Ljava/lang/String;Ljava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, 0, $method(SSLCipher$T10BlockReadCipherGenerator$BlockReadCipher, init$, void, $Authenticator*, $ProtocolVersion*, $String*, $Key*, $AlgorithmParameterSpec*, $SecureRandom*), "java.security.GeneralSecurityException"},
+	{"decrypt", "(BLjava/nio/ByteBuffer;[B)Lsun/security/ssl/Plaintext;", nullptr, $PUBLIC, $virtualMethod(SSLCipher$T10BlockReadCipherGenerator$BlockReadCipher, decrypt, $Plaintext*, int8_t, $ByteBuffer*, $bytes*), "java.security.GeneralSecurityException"},
+	{"dispose", "()V", nullptr, 0, $virtualMethod(SSLCipher$T10BlockReadCipherGenerator$BlockReadCipher, dispose, void)},
+	{"estimateFragmentSize", "(II)I", nullptr, 0, $virtualMethod(SSLCipher$T10BlockReadCipherGenerator$BlockReadCipher, estimateFragmentSize, int32_t, int32_t, int32_t)},
+	{"sanityCheck", "(II)Z", nullptr, $PRIVATE, $method(SSLCipher$T10BlockReadCipherGenerator$BlockReadCipher, sanityCheck, bool, int32_t, int32_t)},
 	{}
 };
 

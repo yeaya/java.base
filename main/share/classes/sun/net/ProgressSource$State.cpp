@@ -29,10 +29,10 @@ $FieldInfo _ProgressSource$State_FieldInfo_[] = {
 };
 
 $MethodInfo _ProgressSource$State_MethodInfo_[] = {
-	{"$values", "()[Lsun/net/ProgressSource$State;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$ProgressSource$StateArray*(*)()>(&ProgressSource$State::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(ProgressSource$State::*)($String*,int32_t)>(&ProgressSource$State::init$))},
-	{"valueOf", "(Ljava/lang/String;)Lsun/net/ProgressSource$State;", nullptr, $PUBLIC | $STATIC, $method(static_cast<ProgressSource$State*(*)($String*)>(&ProgressSource$State::valueOf))},
-	{"values", "()[Lsun/net/ProgressSource$State;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$ProgressSource$StateArray*(*)()>(&ProgressSource$State::values))},
+	{"$values", "()[Lsun/net/ProgressSource$State;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ProgressSource$State, $values, $ProgressSource$StateArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(ProgressSource$State, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Lsun/net/ProgressSource$State;", nullptr, $PUBLIC | $STATIC, $staticMethod(ProgressSource$State, valueOf, ProgressSource$State*, $String*)},
+	{"values", "()[Lsun/net/ProgressSource$State;", nullptr, $PUBLIC | $STATIC, $staticMethod(ProgressSource$State, values, $ProgressSource$StateArray*)},
 	{}
 };
 

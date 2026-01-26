@@ -69,8 +69,8 @@ $FieldInfo _ServerHello_FieldInfo_[] = {
 };
 
 $MethodInfo _ServerHello_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ServerHello::*)()>(&ServerHello::init$))},
-	{"setUpPskKD", "(Lsun/security/ssl/HandshakeContext;Ljavax/crypto/SecretKey;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($HandshakeContext*,$SecretKey*)>(&ServerHello::setUpPskKD)), "javax.net.ssl.SSLHandshakeException"},
+	{"<init>", "()V", nullptr, 0, $method(ServerHello, init$, void)},
+	{"setUpPskKD", "(Lsun/security/ssl/HandshakeContext;Ljavax/crypto/SecretKey;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ServerHello, setUpPskKD, void, $HandshakeContext*, $SecretKey*), "javax.net.ssl.SSLHandshakeException"},
 	{}
 };
 

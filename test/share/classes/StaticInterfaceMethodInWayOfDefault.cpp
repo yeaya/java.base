@@ -17,8 +17,8 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $Callable = ::java::util::concurrent::Callable;
 
 $MethodInfo _StaticInterfaceMethodInWayOfDefault_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(StaticInterfaceMethodInWayOfDefault::*)()>(&StaticInterfaceMethodInWayOfDefault::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&StaticInterfaceMethodInWayOfDefault::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(StaticInterfaceMethodInWayOfDefault, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StaticInterfaceMethodInWayOfDefault, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

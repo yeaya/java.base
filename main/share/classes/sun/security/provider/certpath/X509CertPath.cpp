@@ -80,19 +80,19 @@ $FieldInfo _X509CertPath_FieldInfo_[] = {
 };
 
 $MethodInfo _X509CertPath_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/List;)V", "(Ljava/util/List<+Ljava/security/cert/Certificate;>;)V", $PUBLIC, $method(static_cast<void(X509CertPath::*)($List*)>(&X509CertPath::init$)), "java.security.cert.CertificateException"},
-	{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(static_cast<void(X509CertPath::*)($InputStream*)>(&X509CertPath::init$)), "java.security.cert.CertificateException"},
-	{"<init>", "(Ljava/io/InputStream;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(X509CertPath::*)($InputStream*,$String*)>(&X509CertPath::init$)), "java.security.cert.CertificateException"},
-	{"encodePKCS7", "()[B", nullptr, $PRIVATE, $method(static_cast<$bytes*(X509CertPath::*)()>(&X509CertPath::encodePKCS7)), "java.security.cert.CertificateEncodingException"},
-	{"encodePKIPATH", "()[B", nullptr, $PRIVATE, $method(static_cast<$bytes*(X509CertPath::*)()>(&X509CertPath::encodePKIPATH)), "java.security.cert.CertificateEncodingException"},
-	{"getCertificates", "()Ljava/util/List;", "()Ljava/util/List<Ljava/security/cert/X509Certificate;>;", $PUBLIC},
-	{"getEncoded", "()[B", nullptr, $PUBLIC, nullptr, "java.security.cert.CertificateEncodingException"},
-	{"getEncoded", "(Ljava/lang/String;)[B", nullptr, $PUBLIC, nullptr, "java.security.cert.CertificateEncodingException"},
-	{"getEncodings", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/lang/String;>;", $PUBLIC},
-	{"getEncodingsStatic", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/lang/String;>;", $PUBLIC | $STATIC, $method(static_cast<$Iterator*(*)()>(&X509CertPath::getEncodingsStatic))},
-	{"parsePKCS7", "(Ljava/io/InputStream;)Ljava/util/List;", "(Ljava/io/InputStream;)Ljava/util/List<Ljava/security/cert/X509Certificate;>;", $PRIVATE | $STATIC, $method(static_cast<$List*(*)($InputStream*)>(&X509CertPath::parsePKCS7)), "java.security.cert.CertificateException"},
-	{"parsePKIPATH", "(Ljava/io/InputStream;)Ljava/util/List;", "(Ljava/io/InputStream;)Ljava/util/List<Ljava/security/cert/X509Certificate;>;", $PRIVATE | $STATIC, $method(static_cast<$List*(*)($InputStream*)>(&X509CertPath::parsePKIPATH)), "java.security.cert.CertificateException"},
-	{"readAllBytes", "(Ljava/io/InputStream;)[B", nullptr, $PRIVATE | $STATIC, $method(static_cast<$bytes*(*)($InputStream*)>(&X509CertPath::readAllBytes)), "java.io.IOException"},
+	{"<init>", "(Ljava/util/List;)V", "(Ljava/util/List<+Ljava/security/cert/Certificate;>;)V", $PUBLIC, $method(X509CertPath, init$, void, $List*), "java.security.cert.CertificateException"},
+	{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(X509CertPath, init$, void, $InputStream*), "java.security.cert.CertificateException"},
+	{"<init>", "(Ljava/io/InputStream;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(X509CertPath, init$, void, $InputStream*, $String*), "java.security.cert.CertificateException"},
+	{"encodePKCS7", "()[B", nullptr, $PRIVATE, $method(X509CertPath, encodePKCS7, $bytes*), "java.security.cert.CertificateEncodingException"},
+	{"encodePKIPATH", "()[B", nullptr, $PRIVATE, $method(X509CertPath, encodePKIPATH, $bytes*), "java.security.cert.CertificateEncodingException"},
+	{"getCertificates", "()Ljava/util/List;", "()Ljava/util/List<Ljava/security/cert/X509Certificate;>;", $PUBLIC, $virtualMethod(X509CertPath, getCertificates, $List*)},
+	{"getEncoded", "()[B", nullptr, $PUBLIC, $virtualMethod(X509CertPath, getEncoded, $bytes*), "java.security.cert.CertificateEncodingException"},
+	{"getEncoded", "(Ljava/lang/String;)[B", nullptr, $PUBLIC, $virtualMethod(X509CertPath, getEncoded, $bytes*, $String*), "java.security.cert.CertificateEncodingException"},
+	{"getEncodings", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(X509CertPath, getEncodings, $Iterator*)},
+	{"getEncodingsStatic", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/lang/String;>;", $PUBLIC | $STATIC, $staticMethod(X509CertPath, getEncodingsStatic, $Iterator*)},
+	{"parsePKCS7", "(Ljava/io/InputStream;)Ljava/util/List;", "(Ljava/io/InputStream;)Ljava/util/List<Ljava/security/cert/X509Certificate;>;", $PRIVATE | $STATIC, $staticMethod(X509CertPath, parsePKCS7, $List*, $InputStream*), "java.security.cert.CertificateException"},
+	{"parsePKIPATH", "(Ljava/io/InputStream;)Ljava/util/List;", "(Ljava/io/InputStream;)Ljava/util/List<Ljava/security/cert/X509Certificate;>;", $PRIVATE | $STATIC, $staticMethod(X509CertPath, parsePKIPATH, $List*, $InputStream*), "java.security.cert.CertificateException"},
+	{"readAllBytes", "(Ljava/io/InputStream;)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(X509CertPath, readAllBytes, $bytes*, $InputStream*), "java.io.IOException"},
 	{}
 };
 

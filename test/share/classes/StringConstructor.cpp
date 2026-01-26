@@ -17,10 +17,10 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $BigInteger = ::java::math::BigInteger;
 
 $MethodInfo _StringConstructor_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(StringConstructor::*)()>(&StringConstructor::init$))},
-	{"constructWithError", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($String*)>(&StringConstructor::constructWithError))},
-	{"constructWithoutError", "(Ljava/lang/String;J)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($String*,int64_t)>(&StringConstructor::constructWithoutError))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&StringConstructor::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(StringConstructor, init$, void)},
+	{"constructWithError", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(StringConstructor, constructWithError, void, $String*)},
+	{"constructWithoutError", "(Ljava/lang/String;J)V", nullptr, $PRIVATE | $STATIC, $staticMethod(StringConstructor, constructWithoutError, void, $String*, int64_t)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StringConstructor, main, void, $StringArray*)},
 	{}
 };
 

@@ -10,8 +10,8 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 
 $MethodInfo _NonAnsiFileEncodingTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(NonAnsiFileEncodingTest::*)()>(&NonAnsiFileEncodingTest::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&NonAnsiFileEncodingTest::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(NonAnsiFileEncodingTest, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(NonAnsiFileEncodingTest, main, void, $StringArray*)},
 	{}
 };
 

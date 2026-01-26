@@ -36,9 +36,9 @@ $FieldInfo _ExtendedMasterSecretExtension$ExtendedMasterSecretSpec_FieldInfo_[] 
 };
 
 $MethodInfo _ExtendedMasterSecretExtension$ExtendedMasterSecretSpec_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(ExtendedMasterSecretExtension$ExtendedMasterSecretSpec::*)()>(&ExtendedMasterSecretExtension$ExtendedMasterSecretSpec::init$))},
-	{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE, $method(static_cast<void(ExtendedMasterSecretExtension$ExtendedMasterSecretSpec::*)($HandshakeContext*,$ByteBuffer*)>(&ExtendedMasterSecretExtension$ExtendedMasterSecretSpec::init$)), "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(ExtendedMasterSecretExtension$ExtendedMasterSecretSpec, init$, void)},
+	{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE, $method(ExtendedMasterSecretExtension$ExtendedMasterSecretSpec, init$, void, $HandshakeContext*, $ByteBuffer*), "java.io.IOException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ExtendedMasterSecretExtension$ExtendedMasterSecretSpec, toString, $String*)},
 	{}
 };
 

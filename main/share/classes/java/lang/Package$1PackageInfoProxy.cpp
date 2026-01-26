@@ -19,7 +19,7 @@ $FieldInfo _Package$1PackageInfoProxy_FieldInfo_[] = {
 };
 
 $MethodInfo _Package$1PackageInfoProxy_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Package;)V", nullptr, 0, $method(static_cast<void(Package$1PackageInfoProxy::*)($Package*)>(&Package$1PackageInfoProxy::init$))},
+	{"<init>", "(Ljava/lang/Package;)V", nullptr, 0, $method(Package$1PackageInfoProxy, init$, void, $Package*)},
 	{}
 };
 

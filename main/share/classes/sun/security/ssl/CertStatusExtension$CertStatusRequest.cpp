@@ -31,8 +31,8 @@ $FieldInfo _CertStatusExtension$CertStatusRequest_FieldInfo_[] = {
 };
 
 $MethodInfo _CertStatusExtension$CertStatusRequest_MethodInfo_[] = {
-	{"<init>", "(B[B)V", nullptr, $PROTECTED, $method(static_cast<void(CertStatusExtension$CertStatusRequest::*)(int8_t,$bytes*)>(&CertStatusExtension$CertStatusRequest::init$))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(B[B)V", nullptr, $PROTECTED, $method(CertStatusExtension$CertStatusRequest, init$, void, int8_t, $bytes*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CertStatusExtension$CertStatusRequest, toString, $String*)},
 	{}
 };
 

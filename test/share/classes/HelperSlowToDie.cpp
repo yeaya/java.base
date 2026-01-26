@@ -34,8 +34,8 @@ $FieldInfo _HelperSlowToDie_FieldInfo_[] = {
 };
 
 $MethodInfo _HelperSlowToDie_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(HelperSlowToDie::*)()>(&HelperSlowToDie::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&HelperSlowToDie::main)), "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(HelperSlowToDie, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HelperSlowToDie, main, void, $StringArray*), "java.io.IOException"},
 	{}
 };
 

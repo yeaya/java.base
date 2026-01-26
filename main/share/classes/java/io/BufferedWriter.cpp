@@ -26,17 +26,17 @@ $FieldInfo _BufferedWriter_FieldInfo_[] = {
 };
 
 $MethodInfo _BufferedWriter_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/Writer;)V", nullptr, $PUBLIC, $method(static_cast<void(BufferedWriter::*)($Writer*)>(&BufferedWriter::init$))},
-	{"<init>", "(Ljava/io/Writer;I)V", nullptr, $PUBLIC, $method(static_cast<void(BufferedWriter::*)($Writer*,int32_t)>(&BufferedWriter::init$))},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"ensureOpen", "()V", nullptr, $PRIVATE, $method(static_cast<void(BufferedWriter::*)()>(&BufferedWriter::ensureOpen)), "java.io.IOException"},
-	{"flush", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"flushBuffer", "()V", nullptr, 0, nullptr, "java.io.IOException"},
-	{"min", "(II)I", nullptr, $PRIVATE, $method(static_cast<int32_t(BufferedWriter::*)(int32_t,int32_t)>(&BufferedWriter::min))},
-	{"newLine", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"write", "(I)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"write", "([CII)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"write", "(Ljava/lang/String;II)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljava/io/Writer;)V", nullptr, $PUBLIC, $method(BufferedWriter, init$, void, $Writer*)},
+	{"<init>", "(Ljava/io/Writer;I)V", nullptr, $PUBLIC, $method(BufferedWriter, init$, void, $Writer*, int32_t)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(BufferedWriter, close, void), "java.io.IOException"},
+	{"ensureOpen", "()V", nullptr, $PRIVATE, $method(BufferedWriter, ensureOpen, void), "java.io.IOException"},
+	{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(BufferedWriter, flush, void), "java.io.IOException"},
+	{"flushBuffer", "()V", nullptr, 0, $virtualMethod(BufferedWriter, flushBuffer, void), "java.io.IOException"},
+	{"min", "(II)I", nullptr, $PRIVATE, $method(BufferedWriter, min, int32_t, int32_t, int32_t)},
+	{"newLine", "()V", nullptr, $PUBLIC, $virtualMethod(BufferedWriter, newLine, void), "java.io.IOException"},
+	{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(BufferedWriter, write, void, int32_t), "java.io.IOException"},
+	{"write", "([CII)V", nullptr, $PUBLIC, $virtualMethod(BufferedWriter, write, void, $chars*, int32_t, int32_t), "java.io.IOException"},
+	{"write", "(Ljava/lang/String;II)V", nullptr, $PUBLIC, $virtualMethod(BufferedWriter, write, void, $String*, int32_t, int32_t), "java.io.IOException"},
 	{}
 };
 

@@ -28,9 +28,9 @@ $FieldInfo _FreshestCRLExtension_FieldInfo_[] = {
 };
 
 $MethodInfo _FreshestCRLExtension_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/List;)V", "(Ljava/util/List<Lsun/security/x509/DistributionPoint;>;)V", $PUBLIC, $method(static_cast<void(FreshestCRLExtension::*)($List*)>(&FreshestCRLExtension::init$)), "java.io.IOException"},
-	{"<init>", "(Ljava/lang/Boolean;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(static_cast<void(FreshestCRLExtension::*)($Boolean*,Object$*)>(&FreshestCRLExtension::init$)), "java.io.IOException"},
-	{"encode", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljava/util/List;)V", "(Ljava/util/List<Lsun/security/x509/DistributionPoint;>;)V", $PUBLIC, $method(FreshestCRLExtension, init$, void, $List*), "java.io.IOException"},
+	{"<init>", "(Ljava/lang/Boolean;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(FreshestCRLExtension, init$, void, $Boolean*, Object$*), "java.io.IOException"},
+	{"encode", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(FreshestCRLExtension, encode, void, $OutputStream*), "java.io.IOException"},
 	{}
 };
 

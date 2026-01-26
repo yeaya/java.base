@@ -28,10 +28,10 @@ $FieldInfo _JumboEnumSet$EnumSetIterator_FieldInfo_[] = {
 };
 
 $MethodInfo _JumboEnumSet$EnumSetIterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/JumboEnumSet;)V", nullptr, 0, $method(static_cast<void(JumboEnumSet$EnumSetIterator::*)($JumboEnumSet*)>(&JumboEnumSet$EnumSetIterator::init$))},
-	{"hasNext", "()Z", nullptr, $PUBLIC},
-	{"next", "()Ljava/lang/Enum;", "()TE;", $PUBLIC},
-	{"remove", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/JumboEnumSet;)V", nullptr, 0, $method(JumboEnumSet$EnumSetIterator, init$, void, $JumboEnumSet*)},
+	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(JumboEnumSet$EnumSetIterator, hasNext, bool)},
+	{"next", "()Ljava/lang/Enum;", "()TE;", $PUBLIC, $virtualMethod(JumboEnumSet$EnumSetIterator, next, $Object*)},
+	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(JumboEnumSet$EnumSetIterator, remove, void)},
 	{}
 };
 

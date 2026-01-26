@@ -21,7 +21,7 @@ $FieldInfo _ConcurrentHashMap$Segment_FieldInfo_[] = {
 };
 
 $MethodInfo _ConcurrentHashMap$Segment_MethodInfo_[] = {
-	{"<init>", "(F)V", nullptr, 0, $method(static_cast<void(ConcurrentHashMap$Segment::*)(float)>(&ConcurrentHashMap$Segment::init$))},
+	{"<init>", "(F)V", nullptr, 0, $method(ConcurrentHashMap$Segment, init$, void, float)},
 	{}
 };
 

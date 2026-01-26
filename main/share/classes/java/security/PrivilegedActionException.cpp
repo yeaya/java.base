@@ -32,11 +32,11 @@ $FieldInfo _PrivilegedActionException_FieldInfo_[] = {
 };
 
 $MethodInfo _PrivilegedActionException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(static_cast<void(PrivilegedActionException::*)($Exception*)>(&PrivilegedActionException::init$))},
-	{"getException", "()Ljava/lang/Exception;", nullptr, $PUBLIC},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(PrivilegedActionException::*)($ObjectInputStream*)>(&PrivilegedActionException::readObject)), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(PrivilegedActionException::*)($ObjectOutputStream*)>(&PrivilegedActionException::writeObject)), "java.io.IOException"},
+	{"<init>", "(Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(PrivilegedActionException, init$, void, $Exception*)},
+	{"getException", "()Ljava/lang/Exception;", nullptr, $PUBLIC, $virtualMethod(PrivilegedActionException, getException, $Exception*)},
+	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(PrivilegedActionException, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PrivilegedActionException, toString, $String*)},
+	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(PrivilegedActionException, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
 	{}
 };
 

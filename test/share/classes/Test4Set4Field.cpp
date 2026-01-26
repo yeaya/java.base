@@ -24,17 +24,17 @@ $FieldInfo _Test4Set4Field_FieldInfo_[] = {
 };
 
 $MethodInfo _Test4Set4Field_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Test4Set4Field::*)()>(&Test4Set4Field::init$))},
-	{"testAccessibleObject", "()Z", nullptr, 0, nullptr, "java.lang.NoSuchFieldException"},
-	{"testAccessiblePrimitive", "()Z", nullptr, 0, nullptr, "java.lang.NoSuchFieldException"},
-	{"testAccessibleStaticObject", "()Z", nullptr, 0, nullptr, "java.lang.NoSuchFieldException"},
-	{"testAccessibleStaticPrimitive", "()Z", nullptr, 0, nullptr, "java.lang.NoSuchFieldException"},
-	{"testObject", "()Z", nullptr, 0, nullptr, "java.lang.NoSuchFieldException"},
-	{"testPrimitive", "()Z", nullptr, 0, nullptr, "java.lang.NoSuchFieldException"},
-	{"testStaticObject", "()Z", nullptr, 0, nullptr, "java.lang.NoSuchFieldException"},
-	{"testStaticPrimitive", "()Z", nullptr, 0, nullptr, "java.lang.NoSuchFieldException"},
-	{"testVolatileObject", "()Z", nullptr, 0, nullptr, "java.lang.NoSuchFieldException"},
-	{"testVolatilePrimitive", "()Z", nullptr, 0, nullptr, "java.lang.NoSuchFieldException"},
+	{"<init>", "()V", nullptr, 0, $method(Test4Set4Field, init$, void)},
+	{"testAccessibleObject", "()Z", nullptr, 0, $virtualMethod(Test4Set4Field, testAccessibleObject, bool), "java.lang.NoSuchFieldException"},
+	{"testAccessiblePrimitive", "()Z", nullptr, 0, $virtualMethod(Test4Set4Field, testAccessiblePrimitive, bool), "java.lang.NoSuchFieldException"},
+	{"testAccessibleStaticObject", "()Z", nullptr, 0, $virtualMethod(Test4Set4Field, testAccessibleStaticObject, bool), "java.lang.NoSuchFieldException"},
+	{"testAccessibleStaticPrimitive", "()Z", nullptr, 0, $virtualMethod(Test4Set4Field, testAccessibleStaticPrimitive, bool), "java.lang.NoSuchFieldException"},
+	{"testObject", "()Z", nullptr, 0, $virtualMethod(Test4Set4Field, testObject, bool), "java.lang.NoSuchFieldException"},
+	{"testPrimitive", "()Z", nullptr, 0, $virtualMethod(Test4Set4Field, testPrimitive, bool), "java.lang.NoSuchFieldException"},
+	{"testStaticObject", "()Z", nullptr, 0, $virtualMethod(Test4Set4Field, testStaticObject, bool), "java.lang.NoSuchFieldException"},
+	{"testStaticPrimitive", "()Z", nullptr, 0, $virtualMethod(Test4Set4Field, testStaticPrimitive, bool), "java.lang.NoSuchFieldException"},
+	{"testVolatileObject", "()Z", nullptr, 0, $virtualMethod(Test4Set4Field, testVolatileObject, bool), "java.lang.NoSuchFieldException"},
+	{"testVolatilePrimitive", "()Z", nullptr, 0, $virtualMethod(Test4Set4Field, testVolatilePrimitive, bool), "java.lang.NoSuchFieldException"},
 	{}
 };
 

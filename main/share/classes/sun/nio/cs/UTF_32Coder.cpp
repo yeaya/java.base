@@ -27,7 +27,7 @@ $FieldInfo _UTF_32Coder_FieldInfo_[] = {
 };
 
 $MethodInfo _UTF_32Coder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(UTF_32Coder::*)()>(&UTF_32Coder::init$))},
+	{"<init>", "()V", nullptr, 0, $method(UTF_32Coder, init$, void)},
 	{}
 };
 

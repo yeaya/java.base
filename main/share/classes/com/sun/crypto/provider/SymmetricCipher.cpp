@@ -11,11 +11,11 @@ namespace com {
 			namespace provider {
 
 $MethodInfo _SymmetricCipher_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(SymmetricCipher::*)()>(&SymmetricCipher::init$))},
-	{"decryptBlock", "([BI[BI)V", nullptr, $ABSTRACT},
-	{"encryptBlock", "([BI[BI)V", nullptr, $ABSTRACT},
-	{"getBlockSize", "()I", nullptr, $ABSTRACT},
-	{"init", "(ZLjava/lang/String;[B)V", nullptr, $ABSTRACT, nullptr, "java.security.InvalidKeyException"},
+	{"<init>", "()V", nullptr, 0, $method(SymmetricCipher, init$, void)},
+	{"decryptBlock", "([BI[BI)V", nullptr, $ABSTRACT, $virtualMethod(SymmetricCipher, decryptBlock, void, $bytes*, int32_t, $bytes*, int32_t)},
+	{"encryptBlock", "([BI[BI)V", nullptr, $ABSTRACT, $virtualMethod(SymmetricCipher, encryptBlock, void, $bytes*, int32_t, $bytes*, int32_t)},
+	{"getBlockSize", "()I", nullptr, $ABSTRACT, $virtualMethod(SymmetricCipher, getBlockSize, int32_t)},
+	{"init", "(ZLjava/lang/String;[B)V", nullptr, $ABSTRACT, $virtualMethod(SymmetricCipher, init, void, bool, $String*, $bytes*), "java.security.InvalidKeyException"},
 	{}
 };
 

@@ -28,10 +28,10 @@ $FieldInfo _MessageHeader$HeaderIterator_FieldInfo_[] = {
 };
 
 $MethodInfo _MessageHeader$HeaderIterator_MethodInfo_[] = {
-	{"<init>", "(Lsun/net/www/MessageHeader;Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(static_cast<void(MessageHeader$HeaderIterator::*)($MessageHeader*,$String*,Object$*)>(&MessageHeader$HeaderIterator::init$))},
-	{"hasNext", "()Z", nullptr, $PUBLIC},
-	{"next", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"remove", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/net/www/MessageHeader;Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(MessageHeader$HeaderIterator, init$, void, $MessageHeader*, $String*, Object$*)},
+	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(MessageHeader$HeaderIterator, hasNext, bool)},
+	{"next", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MessageHeader$HeaderIterator, next, $Object*)},
+	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(MessageHeader$HeaderIterator, remove, void)},
 	{}
 };
 

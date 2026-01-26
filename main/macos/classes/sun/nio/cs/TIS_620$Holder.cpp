@@ -23,7 +23,7 @@ $FieldInfo _TIS_620$Holder_FieldInfo_[] = {
 };
 
 $MethodInfo _TIS_620$Holder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(TIS_620$Holder::*)()>(&TIS_620$Holder::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(TIS_620$Holder, init$, void)},
 	{}
 };
 

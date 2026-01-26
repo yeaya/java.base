@@ -25,7 +25,7 @@ $Attribute _SingleMemberCharWithDef_DefaultValue_value0 = {
 };
 
 $MethodInfo _SingleMemberCharWithDef_MethodInfo_[] = {
-	{"value", "()C", nullptr, $PUBLIC | $ABSTRACT, nullptr, nullptr, &_SingleMemberCharWithDef_DefaultValue_value0},
+	{"value", "()C", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SingleMemberCharWithDef, value, char16_t), nullptr, &_SingleMemberCharWithDef_DefaultValue_value0},
 	{}
 };
 

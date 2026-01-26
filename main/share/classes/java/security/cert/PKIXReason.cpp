@@ -37,15 +37,15 @@ $FieldInfo _PKIXReason_FieldInfo_[] = {
 };
 
 $MethodInfo _PKIXReason_MethodInfo_[] = {
-	{"$values", "()[Ljava/security/cert/PKIXReason;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$PKIXReasonArray*(*)()>(&PKIXReason::$values))},
+	{"$values", "()[Ljava/security/cert/PKIXReason;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(PKIXReason, $values, $PKIXReasonArray*)},
 	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
 	{"*finalize", "()V", nullptr, $PROTECTED | $FINAL},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(PKIXReason::*)($String*,int32_t)>(&PKIXReason::init$))},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(PKIXReason, init$, void, $String*, int32_t)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"valueOf", "(Ljava/lang/String;)Ljava/security/cert/PKIXReason;", nullptr, $PUBLIC | $STATIC, $method(static_cast<PKIXReason*(*)($String*)>(&PKIXReason::valueOf))},
-	{"values", "()[Ljava/security/cert/PKIXReason;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$PKIXReasonArray*(*)()>(&PKIXReason::values))},
+	{"valueOf", "(Ljava/lang/String;)Ljava/security/cert/PKIXReason;", nullptr, $PUBLIC | $STATIC, $staticMethod(PKIXReason, valueOf, PKIXReason*, $String*)},
+	{"values", "()[Ljava/security/cert/PKIXReason;", nullptr, $PUBLIC | $STATIC, $staticMethod(PKIXReason, values, $PKIXReasonArray*)},
 	{}
 };
 

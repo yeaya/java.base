@@ -31,8 +31,8 @@ $FieldInfo _CompletableFuture$DelayedExecutor_FieldInfo_[] = {
 };
 
 $MethodInfo _CompletableFuture$DelayedExecutor_MethodInfo_[] = {
-	{"<init>", "(JLjava/util/concurrent/TimeUnit;Ljava/util/concurrent/Executor;)V", nullptr, 0, $method(static_cast<void(CompletableFuture$DelayedExecutor::*)(int64_t,$TimeUnit*,$Executor*)>(&CompletableFuture$DelayedExecutor::init$))},
-	{"execute", "(Ljava/lang/Runnable;)V", nullptr, $PUBLIC},
+	{"<init>", "(JLjava/util/concurrent/TimeUnit;Ljava/util/concurrent/Executor;)V", nullptr, 0, $method(CompletableFuture$DelayedExecutor, init$, void, int64_t, $TimeUnit*, $Executor*)},
+	{"execute", "(Ljava/lang/Runnable;)V", nullptr, $PUBLIC, $virtualMethod(CompletableFuture$DelayedExecutor, execute, void, $Runnable*)},
 	{}
 };
 

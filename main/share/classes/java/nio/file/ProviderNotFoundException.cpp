@@ -17,8 +17,8 @@ $FieldInfo _ProviderNotFoundException_FieldInfo_[] = {
 };
 
 $MethodInfo _ProviderNotFoundException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ProviderNotFoundException::*)()>(&ProviderNotFoundException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(ProviderNotFoundException::*)($String*)>(&ProviderNotFoundException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ProviderNotFoundException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ProviderNotFoundException, init$, void, $String*)},
 	{}
 };
 

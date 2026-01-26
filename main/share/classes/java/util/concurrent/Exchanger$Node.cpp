@@ -30,7 +30,7 @@ $FieldInfo _Exchanger$Node_FieldInfo_[] = {
 };
 
 $MethodInfo _Exchanger$Node_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Exchanger$Node::*)()>(&Exchanger$Node::init$))},
+	{"<init>", "()V", nullptr, 0, $method(Exchanger$Node, init$, void)},
 	{}
 };
 

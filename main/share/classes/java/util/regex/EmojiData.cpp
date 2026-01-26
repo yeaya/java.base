@@ -10,9 +10,9 @@ namespace java {
 		namespace regex {
 
 $MethodInfo _EmojiData_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(EmojiData::*)()>(&EmojiData::init$))},
-	{"isExtendedPictographic", "(I)Z", nullptr, $STATIC, $method(static_cast<bool(*)(int32_t)>(&EmojiData::isExtendedPictographic))},
-	{"isHigh", "(I)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)(int32_t)>(&EmojiData::isHigh))},
+	{"<init>", "()V", nullptr, 0, $method(EmojiData, init$, void)},
+	{"isExtendedPictographic", "(I)Z", nullptr, $STATIC, $staticMethod(EmojiData, isExtendedPictographic, bool, int32_t)},
+	{"isHigh", "(I)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(EmojiData, isHigh, bool, int32_t)},
 	{}
 };
 

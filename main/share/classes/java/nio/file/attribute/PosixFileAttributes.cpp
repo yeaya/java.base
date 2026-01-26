@@ -1,11 +1,15 @@
 #include <java/nio/file/attribute/PosixFileAttributes.h>
 
 #include <java/nio/file/attribute/GroupPrincipal.h>
+#include <java/nio/file/attribute/UserPrincipal.h>
 #include <java/util/Set.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $GroupPrincipal = ::java::nio::file::attribute::GroupPrincipal;
+using $UserPrincipal = ::java::nio::file::attribute::UserPrincipal;
+using $Set = ::java::util::Set;
 
 namespace java {
 	namespace nio {
@@ -13,9 +17,9 @@ namespace java {
 			namespace attribute {
 
 $MethodInfo _PosixFileAttributes_MethodInfo_[] = {
-	{"group", "()Ljava/nio/file/attribute/GroupPrincipal;", nullptr, $PUBLIC | $ABSTRACT},
-	{"owner", "()Ljava/nio/file/attribute/UserPrincipal;", nullptr, $PUBLIC | $ABSTRACT},
-	{"permissions", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/nio/file/attribute/PosixFilePermission;>;", $PUBLIC | $ABSTRACT},
+	{"group", "()Ljava/nio/file/attribute/GroupPrincipal;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PosixFileAttributes, group, $GroupPrincipal*)},
+	{"owner", "()Ljava/nio/file/attribute/UserPrincipal;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PosixFileAttributes, owner, $UserPrincipal*)},
+	{"permissions", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/nio/file/attribute/PosixFilePermission;>;", $PUBLIC | $ABSTRACT, $virtualMethod(PosixFileAttributes, permissions, $Set*)},
 	{}
 };
 

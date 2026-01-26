@@ -13,8 +13,8 @@ namespace sun {
 		namespace resources {
 
 $MethodInfo _CollationData_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CollationData::*)()>(&CollationData::init$))},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CollationData, init$, void)},
+	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(CollationData, getContents, $ObjectArray2*)},
 	{}
 };
 

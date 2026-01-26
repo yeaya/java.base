@@ -27,8 +27,8 @@ $FieldInfo _ConstantGroup$1Impl_FieldInfo_[] = {
 };
 
 $MethodInfo _ConstantGroup$1Impl_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/List;Ljava/lang/Object;Ljava/util/function/IntFunction;)V", "()V", 0, $method(static_cast<void(ConstantGroup$1Impl::*)($List*,Object$*,$IntFunction*)>(&ConstantGroup$1Impl::init$))},
-	{"fillCache", "(I)Ljava/lang/Object;", nullptr, 0},
+	{"<init>", "(Ljava/util/List;Ljava/lang/Object;Ljava/util/function/IntFunction;)V", "()V", 0, $method(ConstantGroup$1Impl, init$, void, $List*, Object$*, $IntFunction*)},
+	{"fillCache", "(I)Ljava/lang/Object;", nullptr, 0, $virtualMethod(ConstantGroup$1Impl, fillCache, $Object*, int32_t)},
 	{}
 };
 

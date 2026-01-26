@@ -26,7 +26,7 @@ $FieldInfo _RSAServerKeyExchange_FieldInfo_[] = {
 };
 
 $MethodInfo _RSAServerKeyExchange_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(RSAServerKeyExchange::*)()>(&RSAServerKeyExchange::init$))},
+	{"<init>", "()V", nullptr, 0, $method(RSAServerKeyExchange, init$, void)},
 	{}
 };
 

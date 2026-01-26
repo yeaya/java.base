@@ -17,7 +17,7 @@ $FieldInfo _ReadOnlyBufferException_FieldInfo_[] = {
 };
 
 $MethodInfo _ReadOnlyBufferException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ReadOnlyBufferException::*)()>(&ReadOnlyBufferException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ReadOnlyBufferException, init$, void)},
 	{}
 };
 

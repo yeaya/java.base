@@ -7,9 +7,10 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $NetworkChannel = ::java::nio::channels::NetworkChannel;
 
 $MethodInfo _NetworkChannelTests$ChannelFactory_MethodInfo_[] = {
-	{"open", "()Ljava/nio/channels/NetworkChannel;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
+	{"open", "()Ljava/nio/channels/NetworkChannel;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NetworkChannelTests$ChannelFactory, open, $NetworkChannel*), "java.io.IOException"},
 	{}
 };
 

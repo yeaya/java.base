@@ -63,13 +63,13 @@ $FieldInfo _Formatter$Conversion_FieldInfo_[] = {
 };
 
 $MethodInfo _Formatter$Conversion_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(Formatter$Conversion::*)()>(&Formatter$Conversion::init$))},
-	{"isCharacter", "(C)Z", nullptr, $STATIC, $method(static_cast<bool(*)(char16_t)>(&Formatter$Conversion::isCharacter))},
-	{"isFloat", "(C)Z", nullptr, $STATIC, $method(static_cast<bool(*)(char16_t)>(&Formatter$Conversion::isFloat))},
-	{"isGeneral", "(C)Z", nullptr, $STATIC, $method(static_cast<bool(*)(char16_t)>(&Formatter$Conversion::isGeneral))},
-	{"isInteger", "(C)Z", nullptr, $STATIC, $method(static_cast<bool(*)(char16_t)>(&Formatter$Conversion::isInteger))},
-	{"isText", "(C)Z", nullptr, $STATIC, $method(static_cast<bool(*)(char16_t)>(&Formatter$Conversion::isText))},
-	{"isValid", "(C)Z", nullptr, $STATIC, $method(static_cast<bool(*)(char16_t)>(&Formatter$Conversion::isValid))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(Formatter$Conversion, init$, void)},
+	{"isCharacter", "(C)Z", nullptr, $STATIC, $staticMethod(Formatter$Conversion, isCharacter, bool, char16_t)},
+	{"isFloat", "(C)Z", nullptr, $STATIC, $staticMethod(Formatter$Conversion, isFloat, bool, char16_t)},
+	{"isGeneral", "(C)Z", nullptr, $STATIC, $staticMethod(Formatter$Conversion, isGeneral, bool, char16_t)},
+	{"isInteger", "(C)Z", nullptr, $STATIC, $staticMethod(Formatter$Conversion, isInteger, bool, char16_t)},
+	{"isText", "(C)Z", nullptr, $STATIC, $staticMethod(Formatter$Conversion, isText, bool, char16_t)},
+	{"isValid", "(C)Z", nullptr, $STATIC, $staticMethod(Formatter$Conversion, isValid, bool, char16_t)},
 	{}
 };
 

@@ -32,9 +32,9 @@ $FieldInfo _ObjectInputFilter$Config$RejectUndecidedFilter_FieldInfo_[] = {
 };
 
 $MethodInfo _ObjectInputFilter$Config$RejectUndecidedFilter_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/ObjectInputFilter;)V", nullptr, $PRIVATE, $method(static_cast<void(ObjectInputFilter$Config$RejectUndecidedFilter::*)($ObjectInputFilter*)>(&ObjectInputFilter$Config$RejectUndecidedFilter::init$))},
-	{"checkInput", "(Ljava/io/ObjectInputFilter$FilterInfo;)Ljava/io/ObjectInputFilter$Status;", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/io/ObjectInputFilter;)V", nullptr, $PRIVATE, $method(ObjectInputFilter$Config$RejectUndecidedFilter, init$, void, $ObjectInputFilter*)},
+	{"checkInput", "(Ljava/io/ObjectInputFilter$FilterInfo;)Ljava/io/ObjectInputFilter$Status;", nullptr, $PUBLIC, $virtualMethod(ObjectInputFilter$Config$RejectUndecidedFilter, checkInput, $ObjectInputFilter$Status*, $ObjectInputFilter$FilterInfo*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ObjectInputFilter$Config$RejectUndecidedFilter, toString, $String*)},
 	{}
 };
 

@@ -14,8 +14,8 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _OpsAfterClose$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(static_cast<void(OpsAfterClose$1::*)($String*,int32_t)>(&OpsAfterClose$1::init$))},
-	{"check", "(Ljava/io/Reader;)Z", nullptr, 0},
+	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(OpsAfterClose$1, init$, void, $String*, int32_t)},
+	{"check", "(Ljava/io/Reader;)Z", nullptr, 0, $virtualMethod(OpsAfterClose$1, check, bool, $Reader*)},
 	{}
 };
 

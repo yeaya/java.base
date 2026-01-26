@@ -14,15 +14,15 @@ $FieldInfo _AsyncCloseTest_FieldInfo_[] = {
 };
 
 $MethodInfo _AsyncCloseTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(AsyncCloseTest::*)()>(&AsyncCloseTest::init$))},
-	{"closed", "()V", nullptr, $PROTECTED | $SYNCHRONIZED},
-	{"description", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"failed", "(Ljava/lang/String;)LAsyncCloseTest;", nullptr, $PROTECTED | $SYNCHRONIZED},
-	{"failureReason", "()Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"go", "()LAsyncCloseTest;", nullptr, $PUBLIC | $ABSTRACT},
-	{"hasPassed", "()Z", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"isClosed", "()Z", nullptr, $PROTECTED | $SYNCHRONIZED},
-	{"passed", "()LAsyncCloseTest;", nullptr, $PROTECTED | $SYNCHRONIZED},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(AsyncCloseTest, init$, void)},
+	{"closed", "()V", nullptr, $PROTECTED | $SYNCHRONIZED, $virtualMethod(AsyncCloseTest, closed, void)},
+	{"description", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AsyncCloseTest, description, $String*)},
+	{"failed", "(Ljava/lang/String;)LAsyncCloseTest;", nullptr, $PROTECTED | $SYNCHRONIZED, $virtualMethod(AsyncCloseTest, failed, AsyncCloseTest*, $String*)},
+	{"failureReason", "()Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(AsyncCloseTest, failureReason, $String*)},
+	{"go", "()LAsyncCloseTest;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AsyncCloseTest, go, AsyncCloseTest*)},
+	{"hasPassed", "()Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(AsyncCloseTest, hasPassed, bool)},
+	{"isClosed", "()Z", nullptr, $PROTECTED | $SYNCHRONIZED, $virtualMethod(AsyncCloseTest, isClosed, bool)},
+	{"passed", "()LAsyncCloseTest;", nullptr, $PROTECTED | $SYNCHRONIZED, $virtualMethod(AsyncCloseTest, passed, AsyncCloseTest*)},
 	{}
 };
 

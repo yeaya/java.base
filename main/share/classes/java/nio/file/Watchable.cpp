@@ -6,16 +6,20 @@
 #include <java/nio/file/WatchService.h>
 #include <jcpp.h>
 
+using $WatchEvent$KindArray = $Array<::java::nio::file::WatchEvent$Kind>;
+using $WatchEvent$ModifierArray = $Array<::java::nio::file::WatchEvent$Modifier>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $WatchKey = ::java::nio::file::WatchKey;
+using $WatchService = ::java::nio::file::WatchService;
 
 namespace java {
 	namespace nio {
 		namespace file {
 
 $MethodInfo _Watchable_MethodInfo_[] = {
-	{"register", "(Ljava/nio/file/WatchService;[Ljava/nio/file/WatchEvent$Kind;[Ljava/nio/file/WatchEvent$Modifier;)Ljava/nio/file/WatchKey;", "(Ljava/nio/file/WatchService;[Ljava/nio/file/WatchEvent$Kind<*>;[Ljava/nio/file/WatchEvent$Modifier;)Ljava/nio/file/WatchKey;", $PUBLIC | $TRANSIENT | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"register", "(Ljava/nio/file/WatchService;[Ljava/nio/file/WatchEvent$Kind;)Ljava/nio/file/WatchKey;", "(Ljava/nio/file/WatchService;[Ljava/nio/file/WatchEvent$Kind<*>;)Ljava/nio/file/WatchKey;", $PUBLIC | $TRANSIENT | $ABSTRACT, nullptr, "java.io.IOException"},
+	{"register", "(Ljava/nio/file/WatchService;[Ljava/nio/file/WatchEvent$Kind;[Ljava/nio/file/WatchEvent$Modifier;)Ljava/nio/file/WatchKey;", "(Ljava/nio/file/WatchService;[Ljava/nio/file/WatchEvent$Kind<*>;[Ljava/nio/file/WatchEvent$Modifier;)Ljava/nio/file/WatchKey;", $PUBLIC | $TRANSIENT | $ABSTRACT, $virtualMethod(Watchable, register$, $WatchKey*, $WatchService*, $WatchEvent$KindArray*, $WatchEvent$ModifierArray*), "java.io.IOException"},
+	{"register", "(Ljava/nio/file/WatchService;[Ljava/nio/file/WatchEvent$Kind;)Ljava/nio/file/WatchKey;", "(Ljava/nio/file/WatchService;[Ljava/nio/file/WatchEvent$Kind<*>;)Ljava/nio/file/WatchKey;", $PUBLIC | $TRANSIENT | $ABSTRACT, $virtualMethod(Watchable, register$, $WatchKey*, $WatchService*, $WatchEvent$KindArray*), "java.io.IOException"},
 	{}
 };
 

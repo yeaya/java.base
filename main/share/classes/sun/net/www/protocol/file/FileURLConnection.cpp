@@ -98,19 +98,19 @@ $FieldInfo _FileURLConnection_FieldInfo_[] = {
 };
 
 $MethodInfo _FileURLConnection_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/URL;Ljava/io/File;)V", nullptr, $PROTECTED, $method(static_cast<void(FileURLConnection::*)($URL*,$File*)>(&FileURLConnection::init$))},
-	{"connect", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"getContentLength", "()I", nullptr, $PUBLIC},
-	{"getContentLengthLong", "()J", nullptr, $PUBLIC},
-	{"getHeaderField", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getHeaderField", "(I)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getHeaderFieldKey", "(I)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getHeaderFields", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;", $PUBLIC},
-	{"getInputStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC | $SYNCHRONIZED, nullptr, "java.io.IOException"},
-	{"getLastModified", "()J", nullptr, $PUBLIC},
-	{"getPermission", "()Ljava/security/Permission;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"getProperties", "()Lsun/net/www/MessageHeader;", nullptr, $PUBLIC},
-	{"initializeHeaders", "()V", nullptr, $PRIVATE, $method(static_cast<void(FileURLConnection::*)()>(&FileURLConnection::initializeHeaders))},
+	{"<init>", "(Ljava/net/URL;Ljava/io/File;)V", nullptr, $PROTECTED, $method(FileURLConnection, init$, void, $URL*, $File*)},
+	{"connect", "()V", nullptr, $PUBLIC, $virtualMethod(FileURLConnection, connect, void), "java.io.IOException"},
+	{"getContentLength", "()I", nullptr, $PUBLIC, $virtualMethod(FileURLConnection, getContentLength, int32_t)},
+	{"getContentLengthLong", "()J", nullptr, $PUBLIC, $virtualMethod(FileURLConnection, getContentLengthLong, int64_t)},
+	{"getHeaderField", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FileURLConnection, getHeaderField, $String*, $String*)},
+	{"getHeaderField", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FileURLConnection, getHeaderField, $String*, int32_t)},
+	{"getHeaderFieldKey", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FileURLConnection, getHeaderFieldKey, $String*, int32_t)},
+	{"getHeaderFields", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;", $PUBLIC, $virtualMethod(FileURLConnection, getHeaderFields, $Map*)},
+	{"getInputStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(FileURLConnection, getInputStream, $InputStream*), "java.io.IOException"},
+	{"getLastModified", "()J", nullptr, $PUBLIC, $virtualMethod(FileURLConnection, getLastModified, int64_t)},
+	{"getPermission", "()Ljava/security/Permission;", nullptr, $PUBLIC, $virtualMethod(FileURLConnection, getPermission, $Permission*), "java.io.IOException"},
+	{"getProperties", "()Lsun/net/www/MessageHeader;", nullptr, $PUBLIC, $virtualMethod(FileURLConnection, getProperties, $MessageHeader*)},
+	{"initializeHeaders", "()V", nullptr, $PRIVATE, $method(FileURLConnection, initializeHeaders, void)},
 	{}
 };
 

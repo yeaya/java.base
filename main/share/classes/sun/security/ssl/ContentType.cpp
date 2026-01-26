@@ -39,12 +39,12 @@ $FieldInfo _ContentType_FieldInfo_[] = {
 };
 
 $MethodInfo _ContentType_MethodInfo_[] = {
-	{"$values", "()[Lsun/security/ssl/ContentType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$ContentTypeArray*(*)()>(&ContentType::$values))},
-	{"<init>", "(Ljava/lang/String;IBLjava/lang/String;[Lsun/security/ssl/ProtocolVersion;)V", "(BLjava/lang/String;[Lsun/security/ssl/ProtocolVersion;)V", $PRIVATE, $method(static_cast<void(ContentType::*)($String*,int32_t,int8_t,$String*,$ProtocolVersionArray*)>(&ContentType::init$))},
-	{"nameOf", "(B)Ljava/lang/String;", nullptr, $STATIC, $method(static_cast<$String*(*)(int8_t)>(&ContentType::nameOf))},
-	{"valueOf", "(Ljava/lang/String;)Lsun/security/ssl/ContentType;", nullptr, $PUBLIC | $STATIC, $method(static_cast<ContentType*(*)($String*)>(&ContentType::valueOf))},
-	{"valueOf", "(B)Lsun/security/ssl/ContentType;", nullptr, $STATIC, $method(static_cast<ContentType*(*)(int8_t)>(&ContentType::valueOf))},
-	{"values", "()[Lsun/security/ssl/ContentType;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$ContentTypeArray*(*)()>(&ContentType::values))},
+	{"$values", "()[Lsun/security/ssl/ContentType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ContentType, $values, $ContentTypeArray*)},
+	{"<init>", "(Ljava/lang/String;IBLjava/lang/String;[Lsun/security/ssl/ProtocolVersion;)V", "(BLjava/lang/String;[Lsun/security/ssl/ProtocolVersion;)V", $PRIVATE, $method(ContentType, init$, void, $String*, int32_t, int8_t, $String*, $ProtocolVersionArray*)},
+	{"nameOf", "(B)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(ContentType, nameOf, $String*, int8_t)},
+	{"valueOf", "(Ljava/lang/String;)Lsun/security/ssl/ContentType;", nullptr, $PUBLIC | $STATIC, $staticMethod(ContentType, valueOf, ContentType*, $String*)},
+	{"valueOf", "(B)Lsun/security/ssl/ContentType;", nullptr, $STATIC, $staticMethod(ContentType, valueOf, ContentType*, int8_t)},
+	{"values", "()[Lsun/security/ssl/ContentType;", nullptr, $PUBLIC | $STATIC, $staticMethod(ContentType, values, $ContentTypeArray*)},
 	{}
 };
 

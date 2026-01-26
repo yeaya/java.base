@@ -18,6 +18,7 @@ using $CertPathChecker = ::java::security::cert::CertPathChecker;
 using $Certificate = ::java::security::cert::Certificate;
 using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
+using $Set = ::java::util::Set;
 
 namespace java {
 	namespace security {
@@ -28,11 +29,11 @@ $MethodInfo _PKIXCertPathChecker_MethodInfo_[] = {
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
 	{"init", "(Z)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(PKIXCertPathChecker::*)()>(&PKIXCertPathChecker::init$))},
-	{"check", "(Ljava/security/cert/Certificate;Ljava/util/Collection;)V", "(Ljava/security/cert/Certificate;Ljava/util/Collection<Ljava/lang/String;>;)V", $PUBLIC | $ABSTRACT, nullptr, "java.security.cert.CertPathValidatorException"},
-	{"check", "(Ljava/security/cert/Certificate;)V", nullptr, $PUBLIC, nullptr, "java.security.cert.CertPathValidatorException"},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"getSupportedExtensions", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC | $ABSTRACT},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(PKIXCertPathChecker, init$, void)},
+	{"check", "(Ljava/security/cert/Certificate;Ljava/util/Collection;)V", "(Ljava/security/cert/Certificate;Ljava/util/Collection<Ljava/lang/String;>;)V", $PUBLIC | $ABSTRACT, $virtualMethod(PKIXCertPathChecker, check, void, $Certificate*, $Collection*), "java.security.cert.CertPathValidatorException"},
+	{"check", "(Ljava/security/cert/Certificate;)V", nullptr, $PUBLIC, $virtualMethod(PKIXCertPathChecker, check, void, $Certificate*), "java.security.cert.CertPathValidatorException"},
+	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PKIXCertPathChecker, clone, $Object*)},
+	{"getSupportedExtensions", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC | $ABSTRACT, $virtualMethod(PKIXCertPathChecker, getSupportedExtensions, $Set*)},
 	{"isForwardCheckingSupported", "()Z", nullptr, $PUBLIC | $ABSTRACT},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}

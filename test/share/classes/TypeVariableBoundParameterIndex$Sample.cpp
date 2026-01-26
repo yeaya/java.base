@@ -15,7 +15,7 @@ $TypeAnnotation _TypeVariableBoundParameterIndex$Sample_TypeAnnotations_[] = {
 };
 
 $MethodInfo _TypeVariableBoundParameterIndex$Sample_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(TypeVariableBoundParameterIndex$Sample::*)()>(&TypeVariableBoundParameterIndex$Sample::init$))},
+	{"<init>", "()V", nullptr, 0, $method(TypeVariableBoundParameterIndex$Sample, init$, void)},
 	{}
 };
 

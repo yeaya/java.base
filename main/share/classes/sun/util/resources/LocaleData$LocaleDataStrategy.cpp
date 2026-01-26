@@ -56,11 +56,11 @@ $FieldInfo _LocaleData$LocaleDataStrategy_FieldInfo_[] = {
 };
 
 $MethodInfo _LocaleData$LocaleDataStrategy_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(LocaleData$LocaleDataStrategy::*)()>(&LocaleData$LocaleDataStrategy::init$))},
-	{"getCandidateLocales", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/util/List;", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/util/List<Ljava/util/Locale;>;", $PUBLIC},
-	{"getResourceBundleProviderType", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/lang/Class;", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/lang/Class<+Ljava/util/spi/ResourceBundleProvider;>;", $PUBLIC},
-	{"inJavaBaseModule", "(Ljava/lang/String;Ljava/util/Locale;)Z", nullptr, 0},
-	{"toBundleName", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(LocaleData$LocaleDataStrategy, init$, void)},
+	{"getCandidateLocales", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/util/List;", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/util/List<Ljava/util/Locale;>;", $PUBLIC, $virtualMethod(LocaleData$LocaleDataStrategy, getCandidateLocales, $List*, $String*, $Locale*)},
+	{"getResourceBundleProviderType", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/lang/Class;", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/lang/Class<+Ljava/util/spi/ResourceBundleProvider;>;", $PUBLIC, $virtualMethod(LocaleData$LocaleDataStrategy, getResourceBundleProviderType, $Class*, $String*, $Locale*)},
+	{"inJavaBaseModule", "(Ljava/lang/String;Ljava/util/Locale;)Z", nullptr, 0, $virtualMethod(LocaleData$LocaleDataStrategy, inJavaBaseModule, bool, $String*, $Locale*)},
+	{"toBundleName", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LocaleData$LocaleDataStrategy, toBundleName, $String*, $String*, $Locale*)},
 	{}
 };
 

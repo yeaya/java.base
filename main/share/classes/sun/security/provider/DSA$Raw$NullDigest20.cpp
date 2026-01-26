@@ -29,14 +29,14 @@ $FieldInfo _DSA$Raw$NullDigest20_FieldInfo_[] = {
 };
 
 $MethodInfo _DSA$Raw$NullDigest20_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(DSA$Raw$NullDigest20::*)()>(&DSA$Raw$NullDigest20::init$))},
-	{"engineDigest", "()[B", nullptr, $PROTECTED, nullptr, "java.lang.RuntimeException"},
-	{"engineDigest", "([BII)I", nullptr, $PROTECTED, nullptr, "java.security.DigestException"},
-	{"engineGetDigestLength", "()I", nullptr, $PROTECTED | $FINAL},
-	{"engineReset", "()V", nullptr, $PROTECTED},
-	{"engineUpdate", "(B)V", nullptr, $PROTECTED},
-	{"engineUpdate", "([BII)V", nullptr, $PROTECTED},
-	{"engineUpdate", "(Ljava/nio/ByteBuffer;)V", nullptr, $PROTECTED | $FINAL},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(DSA$Raw$NullDigest20, init$, void)},
+	{"engineDigest", "()[B", nullptr, $PROTECTED, $virtualMethod(DSA$Raw$NullDigest20, engineDigest, $bytes*), "java.lang.RuntimeException"},
+	{"engineDigest", "([BII)I", nullptr, $PROTECTED, $virtualMethod(DSA$Raw$NullDigest20, engineDigest, int32_t, $bytes*, int32_t, int32_t), "java.security.DigestException"},
+	{"engineGetDigestLength", "()I", nullptr, $PROTECTED | $FINAL, $virtualMethod(DSA$Raw$NullDigest20, engineGetDigestLength, int32_t)},
+	{"engineReset", "()V", nullptr, $PROTECTED, $virtualMethod(DSA$Raw$NullDigest20, engineReset, void)},
+	{"engineUpdate", "(B)V", nullptr, $PROTECTED, $virtualMethod(DSA$Raw$NullDigest20, engineUpdate, void, int8_t)},
+	{"engineUpdate", "([BII)V", nullptr, $PROTECTED, $virtualMethod(DSA$Raw$NullDigest20, engineUpdate, void, $bytes*, int32_t, int32_t)},
+	{"engineUpdate", "(Ljava/nio/ByteBuffer;)V", nullptr, $PROTECTED | $FINAL, $virtualMethod(DSA$Raw$NullDigest20, engineUpdate, void, $ByteBuffer*)},
 	{}
 };
 

@@ -30,8 +30,8 @@ $FieldInfo _HttpURLConnection$4_FieldInfo_[] = {
 };
 
 $MethodInfo _HttpURLConnection$4_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;[Z)V", nullptr, 0, $method(static_cast<void(HttpURLConnection$4::*)($String*,$String*,$booleans*)>(&HttpURLConnection$4::init$))},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;[Z)V", nullptr, 0, $method(HttpURLConnection$4, init$, void, $String*, $String*, $booleans*)},
+	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(HttpURLConnection$4, run, $Object*)},
 	{}
 };
 

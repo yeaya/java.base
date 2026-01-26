@@ -18,7 +18,7 @@ $CompoundAttribute _ShortArray_Annotations_[] = {
 };
 
 $MethodInfo _ShortArray_MethodInfo_[] = {
-	{"value", "()[S", nullptr, $PUBLIC | $ABSTRACT},
+	{"value", "()[S", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ShortArray, value, $shorts*)},
 	{}
 };
 

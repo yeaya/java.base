@@ -1,8 +1,10 @@
 #include <jcpp/test/TestASIF2.h>
 
+#include <java/lang/CharSequence.h>
 #include <jcpp/test/TestASIF3.h>
 #include <jcpp.h>
 
+using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $TestASIF3 = ::jcpp::test::TestASIF3;
@@ -14,8 +16,8 @@ $MethodInfo _TestASIF2_MethodInfo_[] = {
 	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"get", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"get2", "()Ljava/lang/CharSequence;", nullptr, $PUBLIC | $ABSTRACT},
+	{"get", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TestASIF2, get, $String*)},
+	{"get2", "()Ljava/lang/CharSequence;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TestASIF2, get2, $CharSequence*)},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}

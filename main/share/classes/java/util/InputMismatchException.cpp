@@ -17,8 +17,8 @@ $FieldInfo _InputMismatchException_FieldInfo_[] = {
 };
 
 $MethodInfo _InputMismatchException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(InputMismatchException::*)()>(&InputMismatchException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(InputMismatchException::*)($String*)>(&InputMismatchException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(InputMismatchException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InputMismatchException, init$, void, $String*)},
 	{}
 };
 

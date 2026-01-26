@@ -5,6 +5,7 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $InputSource = ::jdk::internal::org::xml::sax::InputSource;
 
 namespace jdk {
 	namespace internal {
@@ -13,7 +14,7 @@ namespace jdk {
 				namespace sax {
 
 $MethodInfo _EntityResolver_MethodInfo_[] = {
-	{"resolveEntity", "(Ljava/lang/String;Ljava/lang/String;)Ljdk/internal/org/xml/sax/InputSource;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "jdk.internal.org.xml.sax.SAXException,java.io.IOException"},
+	{"resolveEntity", "(Ljava/lang/String;Ljava/lang/String;)Ljdk/internal/org/xml/sax/InputSource;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(EntityResolver, resolveEntity, $InputSource*, $String*, $String*), "jdk.internal.org.xml.sax.SAXException,java.io.IOException"},
 	{}
 };
 

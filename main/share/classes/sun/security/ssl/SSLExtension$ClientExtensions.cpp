@@ -41,7 +41,7 @@ $FieldInfo _SSLExtension$ClientExtensions_FieldInfo_[] = {
 };
 
 $MethodInfo _SSLExtension$ClientExtensions_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(SSLExtension$ClientExtensions::*)()>(&SSLExtension$ClientExtensions::init$))},
+	{"<init>", "()V", nullptr, 0, $method(SSLExtension$ClientExtensions, init$, void)},
 	{}
 };
 

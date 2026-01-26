@@ -131,8 +131,8 @@ $FieldInfo _SocketOptionRegistry$LazyInitialization_FieldInfo_[] = {
 };
 
 $MethodInfo _SocketOptionRegistry$LazyInitialization_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(SocketOptionRegistry$LazyInitialization::*)()>(&SocketOptionRegistry$LazyInitialization::init$))},
-	{"options", "()Ljava/util/Map;", "()Ljava/util/Map<Lsun/nio/ch/SocketOptionRegistry$RegistryKey;Lsun/nio/ch/OptionKey;>;", $PRIVATE | $STATIC, $method(static_cast<$Map*(*)()>(&SocketOptionRegistry$LazyInitialization::options))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(SocketOptionRegistry$LazyInitialization, init$, void)},
+	{"options", "()Ljava/util/Map;", "()Ljava/util/Map<Lsun/nio/ch/SocketOptionRegistry$RegistryKey;Lsun/nio/ch/OptionKey;>;", $PRIVATE | $STATIC, $staticMethod(SocketOptionRegistry$LazyInitialization, options, $Map*)},
 	{}
 };
 

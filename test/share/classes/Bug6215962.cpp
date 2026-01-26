@@ -19,14 +19,14 @@ using $MessageFormat = ::java::text::MessageFormat;
 using $Locale = ::java::util::Locale;
 
 $MethodInfo _Bug6215962_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Bug6215962::*)()>(&Bug6215962::init$))},
-	{"check", "(Ljava/text/MessageFormat;Ljava/text/MessageFormat;Z)V", nullptr, $STATIC, $method(static_cast<void(*)($MessageFormat*,$MessageFormat*,bool)>(&Bug6215962::check))},
-	{"check", "(Ljava/text/ChoiceFormat;Ljava/text/ChoiceFormat;Z)V", nullptr, $STATIC, $method(static_cast<void(*)($ChoiceFormat*,$ChoiceFormat*,bool)>(&Bug6215962::check))},
-	{"check", "(Ljava/text/DateFormatSymbols;Ljava/text/DateFormatSymbols;Z)V", nullptr, $STATIC, $method(static_cast<void(*)($DateFormatSymbols*,$DateFormatSymbols*,bool)>(&Bug6215962::check))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Bug6215962::main))},
-	{"testChoiceFormat", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&Bug6215962::testChoiceFormat))},
-	{"testDateFormatSymbols", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&Bug6215962::testDateFormatSymbols))},
-	{"testMessageFormat", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&Bug6215962::testMessageFormat))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Bug6215962, init$, void)},
+	{"check", "(Ljava/text/MessageFormat;Ljava/text/MessageFormat;Z)V", nullptr, $STATIC, $staticMethod(Bug6215962, check, void, $MessageFormat*, $MessageFormat*, bool)},
+	{"check", "(Ljava/text/ChoiceFormat;Ljava/text/ChoiceFormat;Z)V", nullptr, $STATIC, $staticMethod(Bug6215962, check, void, $ChoiceFormat*, $ChoiceFormat*, bool)},
+	{"check", "(Ljava/text/DateFormatSymbols;Ljava/text/DateFormatSymbols;Z)V", nullptr, $STATIC, $staticMethod(Bug6215962, check, void, $DateFormatSymbols*, $DateFormatSymbols*, bool)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Bug6215962, main, void, $StringArray*)},
+	{"testChoiceFormat", "()V", nullptr, $STATIC, $staticMethod(Bug6215962, testChoiceFormat, void)},
+	{"testDateFormatSymbols", "()V", nullptr, $STATIC, $staticMethod(Bug6215962, testDateFormatSymbols, void)},
+	{"testMessageFormat", "()V", nullptr, $STATIC, $staticMethod(Bug6215962, testMessageFormat, void)},
 	{}
 };
 

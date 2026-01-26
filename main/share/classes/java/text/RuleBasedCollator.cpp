@@ -63,18 +63,18 @@ $FieldInfo _RuleBasedCollator_FieldInfo_[] = {
 };
 
 $MethodInfo _RuleBasedCollator_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(RuleBasedCollator::*)($String*)>(&RuleBasedCollator::init$)), "java.text.ParseException"},
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, 0, $method(static_cast<void(RuleBasedCollator::*)($String*,int32_t)>(&RuleBasedCollator::init$)), "java.text.ParseException"},
-	{"<init>", "(Ljava/text/RuleBasedCollator;)V", nullptr, $PRIVATE, $method(static_cast<void(RuleBasedCollator::*)(RuleBasedCollator*)>(&RuleBasedCollator::init$))},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"compare", "(Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getCollationElementIterator", "(Ljava/lang/String;)Ljava/text/CollationElementIterator;", nullptr, $PUBLIC},
-	{"getCollationElementIterator", "(Ljava/text/CharacterIterator;)Ljava/text/CollationElementIterator;", nullptr, $PUBLIC},
-	{"getCollationKey", "(Ljava/lang/String;)Ljava/text/CollationKey;", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"getRules", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getTables", "()Ljava/text/RBCollationTables;", nullptr, 0},
-	{"hashCode", "()I", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(RuleBasedCollator, init$, void, $String*), "java.text.ParseException"},
+	{"<init>", "(Ljava/lang/String;I)V", nullptr, 0, $method(RuleBasedCollator, init$, void, $String*, int32_t), "java.text.ParseException"},
+	{"<init>", "(Ljava/text/RuleBasedCollator;)V", nullptr, $PRIVATE, $method(RuleBasedCollator, init$, void, RuleBasedCollator*)},
+	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(RuleBasedCollator, clone, $Object*)},
+	{"compare", "(Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(RuleBasedCollator, compare, int32_t, $String*, $String*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(RuleBasedCollator, equals, bool, Object$*)},
+	{"getCollationElementIterator", "(Ljava/lang/String;)Ljava/text/CollationElementIterator;", nullptr, $PUBLIC, $virtualMethod(RuleBasedCollator, getCollationElementIterator, $CollationElementIterator*, $String*)},
+	{"getCollationElementIterator", "(Ljava/text/CharacterIterator;)Ljava/text/CollationElementIterator;", nullptr, $PUBLIC, $virtualMethod(RuleBasedCollator, getCollationElementIterator, $CollationElementIterator*, $CharacterIterator*)},
+	{"getCollationKey", "(Ljava/lang/String;)Ljava/text/CollationKey;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(RuleBasedCollator, getCollationKey, $CollationKey*, $String*)},
+	{"getRules", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RuleBasedCollator, getRules, $String*)},
+	{"getTables", "()Ljava/text/RBCollationTables;", nullptr, 0, $virtualMethod(RuleBasedCollator, getTables, $RBCollationTables*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(RuleBasedCollator, hashCode, int32_t)},
 	{}
 };
 

@@ -50,20 +50,20 @@ $FieldInfo _Timer_FieldInfo_[] = {
 };
 
 $MethodInfo _Timer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Timer::*)()>(&Timer::init$))},
-	{"<init>", "(Z)V", nullptr, $PUBLIC, $method(static_cast<void(Timer::*)(bool)>(&Timer::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(Timer::*)($String*)>(&Timer::init$))},
-	{"<init>", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(static_cast<void(Timer::*)($String*,bool)>(&Timer::init$))},
-	{"cancel", "()V", nullptr, $PUBLIC},
-	{"purge", "()I", nullptr, $PUBLIC},
-	{"sched", "(Ljava/util/TimerTask;JJ)V", nullptr, $PRIVATE, $method(static_cast<void(Timer::*)($TimerTask*,int64_t,int64_t)>(&Timer::sched))},
-	{"schedule", "(Ljava/util/TimerTask;J)V", nullptr, $PUBLIC},
-	{"schedule", "(Ljava/util/TimerTask;Ljava/util/Date;)V", nullptr, $PUBLIC},
-	{"schedule", "(Ljava/util/TimerTask;JJ)V", nullptr, $PUBLIC},
-	{"schedule", "(Ljava/util/TimerTask;Ljava/util/Date;J)V", nullptr, $PUBLIC},
-	{"scheduleAtFixedRate", "(Ljava/util/TimerTask;JJ)V", nullptr, $PUBLIC},
-	{"scheduleAtFixedRate", "(Ljava/util/TimerTask;Ljava/util/Date;J)V", nullptr, $PUBLIC},
-	{"serialNumber", "()I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)()>(&Timer::serialNumber))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Timer, init$, void)},
+	{"<init>", "(Z)V", nullptr, $PUBLIC, $method(Timer, init$, void, bool)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Timer, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(Timer, init$, void, $String*, bool)},
+	{"cancel", "()V", nullptr, $PUBLIC, $virtualMethod(Timer, cancel, void)},
+	{"purge", "()I", nullptr, $PUBLIC, $virtualMethod(Timer, purge, int32_t)},
+	{"sched", "(Ljava/util/TimerTask;JJ)V", nullptr, $PRIVATE, $method(Timer, sched, void, $TimerTask*, int64_t, int64_t)},
+	{"schedule", "(Ljava/util/TimerTask;J)V", nullptr, $PUBLIC, $virtualMethod(Timer, schedule, void, $TimerTask*, int64_t)},
+	{"schedule", "(Ljava/util/TimerTask;Ljava/util/Date;)V", nullptr, $PUBLIC, $virtualMethod(Timer, schedule, void, $TimerTask*, $Date*)},
+	{"schedule", "(Ljava/util/TimerTask;JJ)V", nullptr, $PUBLIC, $virtualMethod(Timer, schedule, void, $TimerTask*, int64_t, int64_t)},
+	{"schedule", "(Ljava/util/TimerTask;Ljava/util/Date;J)V", nullptr, $PUBLIC, $virtualMethod(Timer, schedule, void, $TimerTask*, $Date*, int64_t)},
+	{"scheduleAtFixedRate", "(Ljava/util/TimerTask;JJ)V", nullptr, $PUBLIC, $virtualMethod(Timer, scheduleAtFixedRate, void, $TimerTask*, int64_t, int64_t)},
+	{"scheduleAtFixedRate", "(Ljava/util/TimerTask;Ljava/util/Date;J)V", nullptr, $PUBLIC, $virtualMethod(Timer, scheduleAtFixedRate, void, $TimerTask*, $Date*, int64_t)},
+	{"serialNumber", "()I", nullptr, $PRIVATE | $STATIC, $staticMethod(Timer, serialNumber, int32_t)},
 	{}
 };
 

@@ -10,8 +10,8 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _EnqueuePollRace_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(EnqueuePollRace::*)()>(&EnqueuePollRace::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&EnqueuePollRace::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(EnqueuePollRace, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(EnqueuePollRace, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

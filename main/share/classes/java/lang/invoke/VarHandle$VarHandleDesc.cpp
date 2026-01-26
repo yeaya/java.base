@@ -48,13 +48,13 @@ $FieldInfo _VarHandle$VarHandleDesc_FieldInfo_[] = {
 };
 
 $MethodInfo _VarHandle$VarHandleDesc_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/invoke/VarHandle$VarHandleDesc$Kind;Ljava/lang/String;Ljava/lang/constant/ClassDesc;Ljava/lang/constant/ClassDesc;)V", nullptr, $PRIVATE, $method(static_cast<void(VarHandle$VarHandleDesc::*)($VarHandle$VarHandleDesc$Kind*,$String*,$ClassDesc*,$ClassDesc*)>(&VarHandle$VarHandleDesc::init$))},
-	{"ofArray", "(Ljava/lang/constant/ClassDesc;)Ljava/lang/invoke/VarHandle$VarHandleDesc;", nullptr, $PUBLIC | $STATIC, $method(static_cast<VarHandle$VarHandleDesc*(*)($ClassDesc*)>(&VarHandle$VarHandleDesc::ofArray))},
-	{"ofField", "(Ljava/lang/constant/ClassDesc;Ljava/lang/String;Ljava/lang/constant/ClassDesc;)Ljava/lang/invoke/VarHandle$VarHandleDesc;", nullptr, $PUBLIC | $STATIC, $method(static_cast<VarHandle$VarHandleDesc*(*)($ClassDesc*,$String*,$ClassDesc*)>(&VarHandle$VarHandleDesc::ofField))},
-	{"ofStaticField", "(Ljava/lang/constant/ClassDesc;Ljava/lang/String;Ljava/lang/constant/ClassDesc;)Ljava/lang/invoke/VarHandle$VarHandleDesc;", nullptr, $PUBLIC | $STATIC, $method(static_cast<VarHandle$VarHandleDesc*(*)($ClassDesc*,$String*,$ClassDesc*)>(&VarHandle$VarHandleDesc::ofStaticField))},
-	{"resolveConstantDesc", "(Ljava/lang/invoke/MethodHandles$Lookup;)Ljava/lang/invoke/VarHandle;", nullptr, $PUBLIC, nullptr, "java.lang.ReflectiveOperationException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"varType", "()Ljava/lang/constant/ClassDesc;", nullptr, $PUBLIC, $method(static_cast<$ClassDesc*(VarHandle$VarHandleDesc::*)()>(&VarHandle$VarHandleDesc::varType))},
+	{"<init>", "(Ljava/lang/invoke/VarHandle$VarHandleDesc$Kind;Ljava/lang/String;Ljava/lang/constant/ClassDesc;Ljava/lang/constant/ClassDesc;)V", nullptr, $PRIVATE, $method(VarHandle$VarHandleDesc, init$, void, $VarHandle$VarHandleDesc$Kind*, $String*, $ClassDesc*, $ClassDesc*)},
+	{"ofArray", "(Ljava/lang/constant/ClassDesc;)Ljava/lang/invoke/VarHandle$VarHandleDesc;", nullptr, $PUBLIC | $STATIC, $staticMethod(VarHandle$VarHandleDesc, ofArray, VarHandle$VarHandleDesc*, $ClassDesc*)},
+	{"ofField", "(Ljava/lang/constant/ClassDesc;Ljava/lang/String;Ljava/lang/constant/ClassDesc;)Ljava/lang/invoke/VarHandle$VarHandleDesc;", nullptr, $PUBLIC | $STATIC, $staticMethod(VarHandle$VarHandleDesc, ofField, VarHandle$VarHandleDesc*, $ClassDesc*, $String*, $ClassDesc*)},
+	{"ofStaticField", "(Ljava/lang/constant/ClassDesc;Ljava/lang/String;Ljava/lang/constant/ClassDesc;)Ljava/lang/invoke/VarHandle$VarHandleDesc;", nullptr, $PUBLIC | $STATIC, $staticMethod(VarHandle$VarHandleDesc, ofStaticField, VarHandle$VarHandleDesc*, $ClassDesc*, $String*, $ClassDesc*)},
+	{"resolveConstantDesc", "(Ljava/lang/invoke/MethodHandles$Lookup;)Ljava/lang/invoke/VarHandle;", nullptr, $PUBLIC, $virtualMethod(VarHandle$VarHandleDesc, resolveConstantDesc, $Object*, $MethodHandles$Lookup*), "java.lang.ReflectiveOperationException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(VarHandle$VarHandleDesc, toString, $String*)},
+	{"varType", "()Ljava/lang/constant/ClassDesc;", nullptr, $PUBLIC, $method(VarHandle$VarHandleDesc, varType, $ClassDesc*)},
 	{}
 };
 

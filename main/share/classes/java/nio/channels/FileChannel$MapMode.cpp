@@ -25,8 +25,8 @@ $FieldInfo _FileChannel$MapMode_FieldInfo_[] = {
 };
 
 $MethodInfo _FileChannel$MapMode_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(static_cast<void(FileChannel$MapMode::*)($String*)>(&FileChannel$MapMode::init$))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(FileChannel$MapMode, init$, void, $String*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FileChannel$MapMode, toString, $String*)},
 	{}
 };
 

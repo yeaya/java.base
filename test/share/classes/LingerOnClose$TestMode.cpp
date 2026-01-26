@@ -24,10 +24,10 @@ $FieldInfo _LingerOnClose$TestMode_FieldInfo_[] = {
 };
 
 $MethodInfo _LingerOnClose$TestMode_MethodInfo_[] = {
-	{"$values", "()[LLingerOnClose$TestMode;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$LingerOnClose$TestModeArray*(*)()>(&LingerOnClose$TestMode::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(LingerOnClose$TestMode::*)($String*,int32_t)>(&LingerOnClose$TestMode::init$))},
-	{"valueOf", "(Ljava/lang/String;)LLingerOnClose$TestMode;", nullptr, $PUBLIC | $STATIC, $method(static_cast<LingerOnClose$TestMode*(*)($String*)>(&LingerOnClose$TestMode::valueOf))},
-	{"values", "()[LLingerOnClose$TestMode;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$LingerOnClose$TestModeArray*(*)()>(&LingerOnClose$TestMode::values))},
+	{"$values", "()[LLingerOnClose$TestMode;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LingerOnClose$TestMode, $values, $LingerOnClose$TestModeArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(LingerOnClose$TestMode, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)LLingerOnClose$TestMode;", nullptr, $PUBLIC | $STATIC, $staticMethod(LingerOnClose$TestMode, valueOf, LingerOnClose$TestMode*, $String*)},
+	{"values", "()[LLingerOnClose$TestMode;", nullptr, $PUBLIC | $STATIC, $staticMethod(LingerOnClose$TestMode, values, $LingerOnClose$TestModeArray*)},
 	{}
 };
 

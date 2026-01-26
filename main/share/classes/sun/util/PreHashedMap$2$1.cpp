@@ -30,10 +30,10 @@ $FieldInfo _PreHashedMap$2$1_FieldInfo_[] = {
 };
 
 $MethodInfo _PreHashedMap$2$1_MethodInfo_[] = {
-	{"<init>", "(Lsun/util/PreHashedMap$2;)V", nullptr, 0, $method(static_cast<void(PreHashedMap$2$1::*)($PreHashedMap$2*)>(&PreHashedMap$2$1::init$))},
-	{"hasNext", "()Z", nullptr, $PUBLIC},
-	{"next", "()Ljava/util/Map$Entry;", "()Ljava/util/Map$Entry<Ljava/lang/String;TV;>;", $PUBLIC},
-	{"remove", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/util/PreHashedMap$2;)V", nullptr, 0, $method(PreHashedMap$2$1, init$, void, $PreHashedMap$2*)},
+	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(PreHashedMap$2$1, hasNext, bool)},
+	{"next", "()Ljava/util/Map$Entry;", "()Ljava/util/Map$Entry<Ljava/lang/String;TV;>;", $PUBLIC, $virtualMethod(PreHashedMap$2$1, next, $Object*)},
+	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(PreHashedMap$2$1, remove, void)},
 	{}
 };
 

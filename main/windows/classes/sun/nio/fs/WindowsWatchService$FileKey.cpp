@@ -20,9 +20,9 @@ $FieldInfo _WindowsWatchService$FileKey_FieldInfo_[] = {
 };
 
 $MethodInfo _WindowsWatchService$FileKey_MethodInfo_[] = {
-	{"<init>", "(III)V", nullptr, 0, $method(static_cast<void(WindowsWatchService$FileKey::*)(int32_t,int32_t,int32_t)>(&WindowsWatchService$FileKey::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
+	{"<init>", "(III)V", nullptr, 0, $method(WindowsWatchService$FileKey, init$, void, int32_t, int32_t, int32_t)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(WindowsWatchService$FileKey, equals, bool, Object$*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(WindowsWatchService$FileKey, hashCode, int32_t)},
 	{}
 };
 

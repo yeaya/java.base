@@ -7,17 +7,18 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $ScopedMemoryAccess$Scope$Handle = ::jdk::internal::misc::ScopedMemoryAccess$Scope$Handle;
 
 namespace jdk {
 	namespace internal {
 		namespace misc {
 
 $MethodInfo _ScopedMemoryAccess$Scope_MethodInfo_[] = {
-	{"acquire", "()Ljdk/internal/misc/ScopedMemoryAccess$Scope$Handle;", nullptr, $PUBLIC | $ABSTRACT},
-	{"checkValidState", "()V", nullptr, $PUBLIC | $ABSTRACT},
-	{"isImplicit", "()Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"ownerThread", "()Ljava/lang/Thread;", nullptr, $PUBLIC | $ABSTRACT},
-	{"release", "(Ljdk/internal/misc/ScopedMemoryAccess$Scope$Handle;)V", nullptr, $PUBLIC | $ABSTRACT},
+	{"acquire", "()Ljdk/internal/misc/ScopedMemoryAccess$Scope$Handle;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ScopedMemoryAccess$Scope, acquire, $ScopedMemoryAccess$Scope$Handle*)},
+	{"checkValidState", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ScopedMemoryAccess$Scope, checkValidState, void)},
+	{"isImplicit", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ScopedMemoryAccess$Scope, isImplicit, bool)},
+	{"ownerThread", "()Ljava/lang/Thread;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ScopedMemoryAccess$Scope, ownerThread, $Thread*)},
+	{"release", "(Ljdk/internal/misc/ScopedMemoryAccess$Scope$Handle;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ScopedMemoryAccess$Scope, release, void, $ScopedMemoryAccess$Scope$Handle*)},
 	{}
 };
 

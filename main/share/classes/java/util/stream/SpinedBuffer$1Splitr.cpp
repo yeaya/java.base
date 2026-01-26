@@ -36,12 +36,12 @@ $FieldInfo _SpinedBuffer$1Splitr_FieldInfo_[] = {
 };
 
 $MethodInfo _SpinedBuffer$1Splitr_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/stream/SpinedBuffer;IIII)V", nullptr, 0, $method(static_cast<void(SpinedBuffer$1Splitr::*)($SpinedBuffer*,int32_t,int32_t,int32_t,int32_t)>(&SpinedBuffer$1Splitr::init$))},
-	{"characteristics", "()I", nullptr, $PUBLIC},
-	{"estimateSize", "()J", nullptr, $PUBLIC},
-	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC},
-	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-TE;>;)Z", $PUBLIC},
-	{"trySplit", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TE;>;", $PUBLIC},
+	{"<init>", "(Ljava/util/stream/SpinedBuffer;IIII)V", nullptr, 0, $method(SpinedBuffer$1Splitr, init$, void, $SpinedBuffer*, int32_t, int32_t, int32_t, int32_t)},
+	{"characteristics", "()I", nullptr, $PUBLIC, $virtualMethod(SpinedBuffer$1Splitr, characteristics, int32_t)},
+	{"estimateSize", "()J", nullptr, $PUBLIC, $virtualMethod(SpinedBuffer$1Splitr, estimateSize, int64_t)},
+	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC, $virtualMethod(SpinedBuffer$1Splitr, forEachRemaining, void, $Consumer*)},
+	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-TE;>;)Z", $PUBLIC, $virtualMethod(SpinedBuffer$1Splitr, tryAdvance, bool, $Consumer*)},
+	{"trySplit", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TE;>;", $PUBLIC, $virtualMethod(SpinedBuffer$1Splitr, trySplit, $Spliterator*)},
 	{}
 };
 

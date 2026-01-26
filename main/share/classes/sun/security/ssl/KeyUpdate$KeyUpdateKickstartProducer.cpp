@@ -27,8 +27,8 @@ namespace sun {
 		namespace ssl {
 
 $MethodInfo _KeyUpdate$KeyUpdateKickstartProducer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(KeyUpdate$KeyUpdateKickstartProducer::*)()>(&KeyUpdate$KeyUpdateKickstartProducer::init$))},
-	{"produce", "(Lsun/security/ssl/ConnectionContext;)[B", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(KeyUpdate$KeyUpdateKickstartProducer, init$, void)},
+	{"produce", "(Lsun/security/ssl/ConnectionContext;)[B", nullptr, $PUBLIC, $virtualMethod(KeyUpdate$KeyUpdateKickstartProducer, produce, $bytes*, $ConnectionContext*), "java.io.IOException"},
 	{}
 };
 

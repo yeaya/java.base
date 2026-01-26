@@ -43,16 +43,16 @@ $FieldInfo _CertificateX509Key_FieldInfo_[] = {
 };
 
 $MethodInfo _CertificateX509Key_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/PublicKey;)V", nullptr, $PUBLIC, $method(static_cast<void(CertificateX509Key::*)($PublicKey*)>(&CertificateX509Key::init$))},
-	{"<init>", "(Lsun/security/util/DerInputStream;)V", nullptr, $PUBLIC, $method(static_cast<void(CertificateX509Key::*)($DerInputStream*)>(&CertificateX509Key::init$)), "java.io.IOException"},
-	{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(static_cast<void(CertificateX509Key::*)($InputStream*)>(&CertificateX509Key::init$)), "java.io.IOException"},
-	{"delete", "(Ljava/lang/String;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"encode", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"get", "(Ljava/lang/String;)Ljava/security/PublicKey;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"getElements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"set", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/security/PublicKey;)V", nullptr, $PUBLIC, $method(CertificateX509Key, init$, void, $PublicKey*)},
+	{"<init>", "(Lsun/security/util/DerInputStream;)V", nullptr, $PUBLIC, $method(CertificateX509Key, init$, void, $DerInputStream*), "java.io.IOException"},
+	{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(CertificateX509Key, init$, void, $InputStream*), "java.io.IOException"},
+	{"delete", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CertificateX509Key, delete$, void, $String*), "java.io.IOException"},
+	{"encode", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(CertificateX509Key, encode, void, $OutputStream*), "java.io.IOException"},
+	{"get", "(Ljava/lang/String;)Ljava/security/PublicKey;", nullptr, $PUBLIC, $virtualMethod(CertificateX509Key, get, $Object*, $String*), "java.io.IOException"},
+	{"getElements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(CertificateX509Key, getElements, $Enumeration*)},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CertificateX509Key, getName, $String*)},
+	{"set", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(CertificateX509Key, set, void, $String*, Object$*), "java.io.IOException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CertificateX509Key, toString, $String*)},
 	{}
 };
 

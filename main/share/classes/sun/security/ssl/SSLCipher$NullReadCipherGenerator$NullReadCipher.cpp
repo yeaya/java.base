@@ -29,10 +29,10 @@ namespace sun {
 		namespace ssl {
 
 $MethodInfo _SSLCipher$NullReadCipherGenerator$NullReadCipher_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/ssl/Authenticator;Lsun/security/ssl/ProtocolVersion;)V", nullptr, 0, $method(static_cast<void(SSLCipher$NullReadCipherGenerator$NullReadCipher::*)($Authenticator*,$ProtocolVersion*)>(&SSLCipher$NullReadCipherGenerator$NullReadCipher::init$))},
-	{"decrypt", "(BLjava/nio/ByteBuffer;[B)Lsun/security/ssl/Plaintext;", nullptr, $PUBLIC, nullptr, "java.security.GeneralSecurityException"},
-	{"estimateFragmentSize", "(II)I", nullptr, 0},
-	{"isNullCipher", "()Z", nullptr, 0},
+	{"<init>", "(Lsun/security/ssl/Authenticator;Lsun/security/ssl/ProtocolVersion;)V", nullptr, 0, $method(SSLCipher$NullReadCipherGenerator$NullReadCipher, init$, void, $Authenticator*, $ProtocolVersion*)},
+	{"decrypt", "(BLjava/nio/ByteBuffer;[B)Lsun/security/ssl/Plaintext;", nullptr, $PUBLIC, $virtualMethod(SSLCipher$NullReadCipherGenerator$NullReadCipher, decrypt, $Plaintext*, int8_t, $ByteBuffer*, $bytes*), "java.security.GeneralSecurityException"},
+	{"estimateFragmentSize", "(II)I", nullptr, 0, $virtualMethod(SSLCipher$NullReadCipherGenerator$NullReadCipher, estimateFragmentSize, int32_t, int32_t, int32_t)},
+	{"isNullCipher", "()Z", nullptr, 0, $virtualMethod(SSLCipher$NullReadCipherGenerator$NullReadCipher, isNullCipher, bool)},
 	{}
 };
 

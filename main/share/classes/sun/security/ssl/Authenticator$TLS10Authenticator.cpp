@@ -25,8 +25,8 @@ $FieldInfo _Authenticator$TLS10Authenticator_FieldInfo_[] = {
 };
 
 $MethodInfo _Authenticator$TLS10Authenticator_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/ssl/ProtocolVersion;)V", nullptr, $PRIVATE, $method(static_cast<void(Authenticator$TLS10Authenticator::*)($ProtocolVersion*)>(&Authenticator$TLS10Authenticator::init$))},
-	{"acquireAuthenticationBytes", "(BI[B)[B", nullptr, 0},
+	{"<init>", "(Lsun/security/ssl/ProtocolVersion;)V", nullptr, $PRIVATE, $method(Authenticator$TLS10Authenticator, init$, void, $ProtocolVersion*)},
+	{"acquireAuthenticationBytes", "(BI[B)[B", nullptr, 0, $virtualMethod(Authenticator$TLS10Authenticator, acquireAuthenticationBytes, $bytes*, int8_t, int32_t, $bytes*)},
 	{}
 };
 

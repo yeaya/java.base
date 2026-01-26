@@ -21,7 +21,7 @@ $FieldInfo _SSLEngineOutputRecord$HandshakeMemo_FieldInfo_[] = {
 };
 
 $MethodInfo _SSLEngineOutputRecord$HandshakeMemo_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(SSLEngineOutputRecord$HandshakeMemo::*)()>(&SSLEngineOutputRecord$HandshakeMemo::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(SSLEngineOutputRecord$HandshakeMemo, init$, void)},
 	{}
 };
 

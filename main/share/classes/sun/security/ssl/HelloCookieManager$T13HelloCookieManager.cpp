@@ -60,9 +60,9 @@ $FieldInfo _HelloCookieManager$T13HelloCookieManager_FieldInfo_[] = {
 };
 
 $MethodInfo _HelloCookieManager$T13HelloCookieManager_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/SecureRandom;)V", nullptr, 0, $method(static_cast<void(HelloCookieManager$T13HelloCookieManager::*)($SecureRandom*)>(&HelloCookieManager$T13HelloCookieManager::init$))},
-	{"createCookie", "(Lsun/security/ssl/ServerHandshakeContext;Lsun/security/ssl/ClientHello$ClientHelloMessage;)[B", nullptr, 0, nullptr, "java.io.IOException"},
-	{"isCookieValid", "(Lsun/security/ssl/ServerHandshakeContext;Lsun/security/ssl/ClientHello$ClientHelloMessage;[B)Z", nullptr, 0, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljava/security/SecureRandom;)V", nullptr, 0, $method(HelloCookieManager$T13HelloCookieManager, init$, void, $SecureRandom*)},
+	{"createCookie", "(Lsun/security/ssl/ServerHandshakeContext;Lsun/security/ssl/ClientHello$ClientHelloMessage;)[B", nullptr, 0, $virtualMethod(HelloCookieManager$T13HelloCookieManager, createCookie, $bytes*, $ServerHandshakeContext*, $ClientHello$ClientHelloMessage*), "java.io.IOException"},
+	{"isCookieValid", "(Lsun/security/ssl/ServerHandshakeContext;Lsun/security/ssl/ClientHello$ClientHelloMessage;[B)Z", nullptr, 0, $virtualMethod(HelloCookieManager$T13HelloCookieManager, isCookieValid, bool, $ServerHandshakeContext*, $ClientHello$ClientHelloMessage*, $bytes*), "java.io.IOException"},
 	{}
 };
 

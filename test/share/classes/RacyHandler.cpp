@@ -58,8 +58,8 @@ $FieldInfo RacyHandler$$Lambda$lambda$runTest$1::fieldInfos[2] = {
 	{}
 };
 $MethodInfo RacyHandler$$Lambda$lambda$runTest$1::methodInfos[3] = {
-	{"<init>", "(LRacyHandler;)V", nullptr, $PUBLIC, $method(static_cast<void(RacyHandler$$Lambda$lambda$runTest$1::*)(RacyHandler*)>(&RacyHandler$$Lambda$lambda$runTest$1::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(LRacyHandler;)V", nullptr, $PUBLIC, $method(RacyHandler$$Lambda$lambda$runTest$1, init$, void, RacyHandler*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(RacyHandler$$Lambda$lambda$runTest$1, run, void)},
 	{}
 };
 $ClassInfo RacyHandler$$Lambda$lambda$runTest$1::classInfo$ = {
@@ -98,8 +98,8 @@ $FieldInfo RacyHandler$$Lambda$lambda$runTest$2$1::fieldInfos[2] = {
 	{}
 };
 $MethodInfo RacyHandler$$Lambda$lambda$runTest$2$1::methodInfos[3] = {
-	{"<init>", "(LRacyHandler;)V", nullptr, $PUBLIC, $method(static_cast<void(RacyHandler$$Lambda$lambda$runTest$2$1::*)(RacyHandler*)>(&RacyHandler$$Lambda$lambda$runTest$2$1::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(LRacyHandler;)V", nullptr, $PUBLIC, $method(RacyHandler$$Lambda$lambda$runTest$2$1, init$, void, RacyHandler*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(RacyHandler$$Lambda$lambda$runTest$2$1, run, void)},
 	{}
 };
 $ClassInfo RacyHandler$$Lambda$lambda$runTest$2$1::classInfo$ = {
@@ -138,8 +138,8 @@ $FieldInfo RacyHandler$$Lambda$lambda$runTest$0$2::fieldInfos[2] = {
 	{}
 };
 $MethodInfo RacyHandler$$Lambda$lambda$runTest$0$2::methodInfos[3] = {
-	{"<init>", "(LRacyHandler;)V", nullptr, $PUBLIC, $method(static_cast<void(RacyHandler$$Lambda$lambda$runTest$0$2::*)(RacyHandler*)>(&RacyHandler$$Lambda$lambda$runTest$0$2::init$))},
-	{"createURLStreamHandler", "(Ljava/lang/String;)Ljava/net/URLStreamHandler;", nullptr, $PUBLIC},
+	{"<init>", "(LRacyHandler;)V", nullptr, $PUBLIC, $method(RacyHandler$$Lambda$lambda$runTest$0$2, init$, void, RacyHandler*)},
+	{"createURLStreamHandler", "(Ljava/lang/String;)Ljava/net/URLStreamHandler;", nullptr, $PUBLIC, $virtualMethod(RacyHandler$$Lambda$lambda$runTest$0$2, createURLStreamHandler, $URLStreamHandler*, $String*)},
 	{}
 };
 $ClassInfo RacyHandler$$Lambda$lambda$runTest$0$2::classInfo$ = {
@@ -164,13 +164,13 @@ $FieldInfo _RacyHandler_FieldInfo_[] = {
 };
 
 $MethodInfo _RacyHandler_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(RacyHandler::*)()>(&RacyHandler::init$))},
-	{"getURLStreamHandler", "()Ljava/net/URLStreamHandler;", nullptr, $PUBLIC},
-	{"lambda$runTest$0", "(Ljava/lang/String;)Ljava/net/URLStreamHandler;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$URLStreamHandler*(RacyHandler::*)($String*)>(&RacyHandler::lambda$runTest$0))},
-	{"lambda$runTest$1", "()V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(RacyHandler::*)()>(&RacyHandler::lambda$runTest$1))},
-	{"lambda$runTest$2", "()V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(RacyHandler::*)()>(&RacyHandler::lambda$runTest$2))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&RacyHandler::main))},
-	{"runTest", "()V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(RacyHandler, init$, void)},
+	{"getURLStreamHandler", "()Ljava/net/URLStreamHandler;", nullptr, $PUBLIC, $virtualMethod(RacyHandler, getURLStreamHandler, $URLStreamHandler*)},
+	{"lambda$runTest$0", "(Ljava/lang/String;)Ljava/net/URLStreamHandler;", nullptr, $PRIVATE | $SYNTHETIC, $method(RacyHandler, lambda$runTest$0, $URLStreamHandler*, $String*)},
+	{"lambda$runTest$1", "()V", nullptr, $PRIVATE | $SYNTHETIC, $method(RacyHandler, lambda$runTest$1, void)},
+	{"lambda$runTest$2", "()V", nullptr, $PRIVATE | $SYNTHETIC, $method(RacyHandler, lambda$runTest$2, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(RacyHandler, main, void, $StringArray*)},
+	{"runTest", "()V", nullptr, $PUBLIC, $virtualMethod(RacyHandler, runTest, void)},
 	{}
 };
 

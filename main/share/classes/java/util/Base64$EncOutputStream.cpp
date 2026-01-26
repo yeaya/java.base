@@ -37,12 +37,12 @@ $FieldInfo _Base64$EncOutputStream_FieldInfo_[] = {
 };
 
 $MethodInfo _Base64$EncOutputStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/OutputStream;[C[BIZ)V", nullptr, 0, $method(static_cast<void(Base64$EncOutputStream::*)($OutputStream*,$chars*,$bytes*,int32_t,bool)>(&Base64$EncOutputStream::init$))},
-	{"checkNewline", "()V", nullptr, $PRIVATE, $method(static_cast<void(Base64$EncOutputStream::*)()>(&Base64$EncOutputStream::checkNewline)), "java.io.IOException"},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"write", "(I)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"write", "([BII)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"writeb4", "(CCCC)V", nullptr, $PRIVATE, $method(static_cast<void(Base64$EncOutputStream::*)(char16_t,char16_t,char16_t,char16_t)>(&Base64$EncOutputStream::writeb4)), "java.io.IOException"},
+	{"<init>", "(Ljava/io/OutputStream;[C[BIZ)V", nullptr, 0, $method(Base64$EncOutputStream, init$, void, $OutputStream*, $chars*, $bytes*, int32_t, bool)},
+	{"checkNewline", "()V", nullptr, $PRIVATE, $method(Base64$EncOutputStream, checkNewline, void), "java.io.IOException"},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(Base64$EncOutputStream, close, void), "java.io.IOException"},
+	{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(Base64$EncOutputStream, write, void, int32_t), "java.io.IOException"},
+	{"write", "([BII)V", nullptr, $PUBLIC, $virtualMethod(Base64$EncOutputStream, write, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
+	{"writeb4", "(CCCC)V", nullptr, $PRIVATE, $method(Base64$EncOutputStream, writeb4, void, char16_t, char16_t, char16_t, char16_t), "java.io.IOException"},
 	{}
 };
 

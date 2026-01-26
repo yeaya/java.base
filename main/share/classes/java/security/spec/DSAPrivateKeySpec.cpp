@@ -21,11 +21,11 @@ $FieldInfo _DSAPrivateKeySpec_FieldInfo_[] = {
 };
 
 $MethodInfo _DSAPrivateKeySpec_MethodInfo_[] = {
-	{"<init>", "(Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;)V", nullptr, $PUBLIC, $method(static_cast<void(DSAPrivateKeySpec::*)($BigInteger*,$BigInteger*,$BigInteger*,$BigInteger*)>(&DSAPrivateKeySpec::init$))},
-	{"getG", "()Ljava/math/BigInteger;", nullptr, $PUBLIC},
-	{"getP", "()Ljava/math/BigInteger;", nullptr, $PUBLIC},
-	{"getQ", "()Ljava/math/BigInteger;", nullptr, $PUBLIC},
-	{"getX", "()Ljava/math/BigInteger;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;)V", nullptr, $PUBLIC, $method(DSAPrivateKeySpec, init$, void, $BigInteger*, $BigInteger*, $BigInteger*, $BigInteger*)},
+	{"getG", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(DSAPrivateKeySpec, getG, $BigInteger*)},
+	{"getP", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(DSAPrivateKeySpec, getP, $BigInteger*)},
+	{"getQ", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(DSAPrivateKeySpec, getQ, $BigInteger*)},
+	{"getX", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(DSAPrivateKeySpec, getX, $BigInteger*)},
 	{}
 };
 

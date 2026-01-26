@@ -37,9 +37,9 @@ $FieldInfo _RSACore$BlindingParameters_FieldInfo_[] = {
 };
 
 $MethodInfo _RSACore$BlindingParameters_MethodInfo_[] = {
-	{"<init>", "(Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;)V", nullptr, 0, $method(static_cast<void(RSACore$BlindingParameters::*)($BigInteger*,$BigInteger*,$BigInteger*)>(&RSACore$BlindingParameters::init$))},
-	{"getBlindingRandomPair", "(Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;)Lsun/security/rsa/RSACore$BlindingRandomPair;", nullptr, 0, $method(static_cast<$RSACore$BlindingRandomPair*(RSACore$BlindingParameters::*)($BigInteger*,$BigInteger*,$BigInteger*)>(&RSACore$BlindingParameters::getBlindingRandomPair))},
-	{"isReusable", "()Z", nullptr, 0, $method(static_cast<bool(RSACore$BlindingParameters::*)()>(&RSACore$BlindingParameters::isReusable))},
+	{"<init>", "(Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;)V", nullptr, 0, $method(RSACore$BlindingParameters, init$, void, $BigInteger*, $BigInteger*, $BigInteger*)},
+	{"getBlindingRandomPair", "(Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;)Lsun/security/rsa/RSACore$BlindingRandomPair;", nullptr, 0, $method(RSACore$BlindingParameters, getBlindingRandomPair, $RSACore$BlindingRandomPair*, $BigInteger*, $BigInteger*, $BigInteger*)},
+	{"isReusable", "()Z", nullptr, 0, $method(RSACore$BlindingParameters, isReusable, bool)},
 	{}
 };
 

@@ -28,10 +28,10 @@ $FieldInfo _Event$ReporterCategory_FieldInfo_[] = {
 };
 
 $MethodInfo _Event$ReporterCategory_MethodInfo_[] = {
-	{"$values", "()[Lsun/security/util/Event$ReporterCategory;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Event$ReporterCategoryArray*(*)()>(&Event$ReporterCategory::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(Event$ReporterCategory::*)($String*,int32_t)>(&Event$ReporterCategory::init$))},
-	{"valueOf", "(Ljava/lang/String;)Lsun/security/util/Event$ReporterCategory;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Event$ReporterCategory*(*)($String*)>(&Event$ReporterCategory::valueOf))},
-	{"values", "()[Lsun/security/util/Event$ReporterCategory;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Event$ReporterCategoryArray*(*)()>(&Event$ReporterCategory::values))},
+	{"$values", "()[Lsun/security/util/Event$ReporterCategory;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Event$ReporterCategory, $values, $Event$ReporterCategoryArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Event$ReporterCategory, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Lsun/security/util/Event$ReporterCategory;", nullptr, $PUBLIC | $STATIC, $staticMethod(Event$ReporterCategory, valueOf, Event$ReporterCategory*, $String*)},
+	{"values", "()[Lsun/security/util/Event$ReporterCategory;", nullptr, $PUBLIC | $STATIC, $staticMethod(Event$ReporterCategory, values, $Event$ReporterCategoryArray*)},
 	{}
 };
 

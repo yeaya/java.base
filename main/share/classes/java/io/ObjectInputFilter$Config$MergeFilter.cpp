@@ -31,9 +31,9 @@ $FieldInfo _ObjectInputFilter$Config$MergeFilter_FieldInfo_[] = {
 };
 
 $MethodInfo _ObjectInputFilter$Config$MergeFilter_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/ObjectInputFilter;Ljava/io/ObjectInputFilter;)V", nullptr, 0, $method(static_cast<void(ObjectInputFilter$Config$MergeFilter::*)($ObjectInputFilter*,$ObjectInputFilter*)>(&ObjectInputFilter$Config$MergeFilter::init$))},
-	{"checkInput", "(Ljava/io/ObjectInputFilter$FilterInfo;)Ljava/io/ObjectInputFilter$Status;", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/io/ObjectInputFilter;Ljava/io/ObjectInputFilter;)V", nullptr, 0, $method(ObjectInputFilter$Config$MergeFilter, init$, void, $ObjectInputFilter*, $ObjectInputFilter*)},
+	{"checkInput", "(Ljava/io/ObjectInputFilter$FilterInfo;)Ljava/io/ObjectInputFilter$Status;", nullptr, $PUBLIC, $virtualMethod(ObjectInputFilter$Config$MergeFilter, checkInput, $ObjectInputFilter$Status*, $ObjectInputFilter$FilterInfo*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ObjectInputFilter$Config$MergeFilter, toString, $String*)},
 	{}
 };
 

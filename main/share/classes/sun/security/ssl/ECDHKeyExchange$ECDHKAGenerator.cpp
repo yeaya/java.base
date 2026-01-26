@@ -55,10 +55,10 @@ namespace sun {
 		namespace ssl {
 
 $MethodInfo _ECDHKeyExchange$ECDHKAGenerator_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(ECDHKeyExchange$ECDHKAGenerator::*)()>(&ECDHKeyExchange$ECDHKAGenerator::init$))},
-	{"createClientKeyDerivation", "(Lsun/security/ssl/ClientHandshakeContext;)Lsun/security/ssl/SSLKeyDerivation;", nullptr, $PRIVATE, $method(static_cast<$SSLKeyDerivation*(ECDHKeyExchange$ECDHKAGenerator::*)($ClientHandshakeContext*)>(&ECDHKeyExchange$ECDHKAGenerator::createClientKeyDerivation)), "java.io.IOException"},
-	{"createKeyDerivation", "(Lsun/security/ssl/HandshakeContext;)Lsun/security/ssl/SSLKeyDerivation;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"createServerKeyDerivation", "(Lsun/security/ssl/ServerHandshakeContext;)Lsun/security/ssl/SSLKeyDerivation;", nullptr, $PRIVATE, $method(static_cast<$SSLKeyDerivation*(ECDHKeyExchange$ECDHKAGenerator::*)($ServerHandshakeContext*)>(&ECDHKeyExchange$ECDHKAGenerator::createServerKeyDerivation)), "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(ECDHKeyExchange$ECDHKAGenerator, init$, void)},
+	{"createClientKeyDerivation", "(Lsun/security/ssl/ClientHandshakeContext;)Lsun/security/ssl/SSLKeyDerivation;", nullptr, $PRIVATE, $method(ECDHKeyExchange$ECDHKAGenerator, createClientKeyDerivation, $SSLKeyDerivation*, $ClientHandshakeContext*), "java.io.IOException"},
+	{"createKeyDerivation", "(Lsun/security/ssl/HandshakeContext;)Lsun/security/ssl/SSLKeyDerivation;", nullptr, $PUBLIC, $virtualMethod(ECDHKeyExchange$ECDHKAGenerator, createKeyDerivation, $SSLKeyDerivation*, $HandshakeContext*), "java.io.IOException"},
+	{"createServerKeyDerivation", "(Lsun/security/ssl/ServerHandshakeContext;)Lsun/security/ssl/SSLKeyDerivation;", nullptr, $PRIVATE, $method(ECDHKeyExchange$ECDHKAGenerator, createServerKeyDerivation, $SSLKeyDerivation*, $ServerHandshakeContext*), "java.io.IOException"},
 	{}
 };
 

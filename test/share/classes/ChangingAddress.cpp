@@ -19,9 +19,9 @@ using $SocketAddress = ::java::net::SocketAddress;
 using $DatagramChannel = ::java::nio::channels::DatagramChannel;
 
 $MethodInfo _ChangingAddress_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ChangingAddress::*)()>(&ChangingAddress::init$))},
-	{"check", "(Ljava/net/DatagramSocket;Ljava/nio/channels/DatagramChannel;)V", nullptr, $STATIC, $method(static_cast<void(*)($DatagramSocket*,$DatagramChannel*)>(&ChangingAddress::check))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&ChangingAddress::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ChangingAddress, init$, void)},
+	{"check", "(Ljava/net/DatagramSocket;Ljava/nio/channels/DatagramChannel;)V", nullptr, $STATIC, $staticMethod(ChangingAddress, check, void, $DatagramSocket*, $DatagramChannel*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ChangingAddress, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

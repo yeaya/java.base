@@ -19,9 +19,9 @@ $FieldInfo _JceSecurity$IdentityWrapper_FieldInfo_[] = {
 };
 
 $MethodInfo _JceSecurity$IdentityWrapper_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/Provider;)V", nullptr, 0, $method(static_cast<void(JceSecurity$IdentityWrapper::*)($Provider*)>(&JceSecurity$IdentityWrapper::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/security/Provider;)V", nullptr, 0, $method(JceSecurity$IdentityWrapper, init$, void, $Provider*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(JceSecurity$IdentityWrapper, equals, bool, Object$*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(JceSecurity$IdentityWrapper, hashCode, int32_t)},
 	{}
 };
 

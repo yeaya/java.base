@@ -18,8 +18,8 @@ $FieldInfo _ZipException_FieldInfo_[] = {
 };
 
 $MethodInfo _ZipException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ZipException::*)()>(&ZipException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(ZipException::*)($String*)>(&ZipException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ZipException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ZipException, init$, void, $String*)},
 	{}
 };
 

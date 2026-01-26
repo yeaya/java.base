@@ -30,7 +30,7 @@ $Attribute _SingleMemberClassArrayDef_DefaultValue_value0 = {
 };
 
 $MethodInfo _SingleMemberClassArrayDef_MethodInfo_[] = {
-	{"value", "()[Ljava/lang/Class;", nullptr, $PUBLIC | $ABSTRACT, nullptr, nullptr, &_SingleMemberClassArrayDef_DefaultValue_value0},
+	{"value", "()[Ljava/lang/Class;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SingleMemberClassArrayDef, value, $ClassArray*), nullptr, &_SingleMemberClassArrayDef_DefaultValue_value0},
 	{}
 };
 

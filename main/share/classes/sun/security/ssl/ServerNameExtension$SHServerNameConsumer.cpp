@@ -42,8 +42,8 @@ namespace sun {
 		namespace ssl {
 
 $MethodInfo _ServerNameExtension$SHServerNameConsumer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(ServerNameExtension$SHServerNameConsumer::*)()>(&ServerNameExtension$SHServerNameConsumer::init$))},
-	{"consume", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(ServerNameExtension$SHServerNameConsumer, init$, void)},
+	{"consume", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(ServerNameExtension$SHServerNameConsumer, consume, void, $ConnectionContext*, $SSLHandshake$HandshakeMessage*, $ByteBuffer*), "java.io.IOException"},
 	{}
 };
 

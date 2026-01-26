@@ -209,8 +209,8 @@ $FieldInfo FtpClient$$Lambda$lambda$openPassiveDataConnection$0::fieldInfos[2] =
 	{}
 };
 $MethodInfo FtpClient$$Lambda$lambda$openPassiveDataConnection$0::methodInfos[3] = {
-	{"<init>", "(Lsun/net/ftp/impl/FtpClient;)V", nullptr, $PUBLIC, $method(static_cast<void(FtpClient$$Lambda$lambda$openPassiveDataConnection$0::*)(FtpClient*)>(&FtpClient$$Lambda$lambda$openPassiveDataConnection$0::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/net/ftp/impl/FtpClient;)V", nullptr, $PUBLIC, $method(FtpClient$$Lambda$lambda$openPassiveDataConnection$0, init$, void, FtpClient*)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(FtpClient$$Lambda$lambda$openPassiveDataConnection$0, run, $Object*)},
 	{}
 };
 $ClassInfo FtpClient$$Lambda$lambda$openPassiveDataConnection$0::classInfo$ = {
@@ -249,8 +249,8 @@ $FieldInfo FtpClient$$Lambda$lambda$openPassiveDataConnection$1$1::fieldInfos[2]
 	{}
 };
 $MethodInfo FtpClient$$Lambda$lambda$openPassiveDataConnection$1$1::methodInfos[3] = {
-	{"<init>", "(Lsun/net/ftp/impl/FtpClient;)V", nullptr, $PUBLIC, $method(static_cast<void(FtpClient$$Lambda$lambda$openPassiveDataConnection$1$1::*)(FtpClient*)>(&FtpClient$$Lambda$lambda$openPassiveDataConnection$1$1::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/net/ftp/impl/FtpClient;)V", nullptr, $PUBLIC, $method(FtpClient$$Lambda$lambda$openPassiveDataConnection$1$1, init$, void, FtpClient*)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(FtpClient$$Lambda$lambda$openPassiveDataConnection$1$1, run, $Object*)},
 	{}
 };
 $ClassInfo FtpClient$$Lambda$lambda$openPassiveDataConnection$1$1::classInfo$ = {
@@ -282,8 +282,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo FtpClient$$Lambda$getHostAddress$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(FtpClient$$Lambda$getHostAddress$2::*)()>(&FtpClient$$Lambda$getHostAddress$2::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(FtpClient$$Lambda$getHostAddress$2, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(FtpClient$$Lambda$getHostAddress$2, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo FtpClient$$Lambda$getHostAddress$2::classInfo$ = {
@@ -322,8 +322,8 @@ $FieldInfo FtpClient$$Lambda$equalsIgnoreCase$3::fieldInfos[2] = {
 	{}
 };
 $MethodInfo FtpClient$$Lambda$equalsIgnoreCase$3::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(FtpClient$$Lambda$equalsIgnoreCase$3::*)($String*)>(&FtpClient$$Lambda$equalsIgnoreCase$3::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(FtpClient$$Lambda$equalsIgnoreCase$3, init$, void, $String*)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(FtpClient$$Lambda$equalsIgnoreCase$3, test, bool, Object$*)},
 	{}
 };
 $ClassInfo FtpClient$$Lambda$equalsIgnoreCase$3::classInfo$ = {
@@ -355,8 +355,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo FtpClient$$Lambda$getLocalHost$4::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(FtpClient$$Lambda$getLocalHost$4::*)()>(&FtpClient$$Lambda$getLocalHost$4::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(FtpClient$$Lambda$getLocalHost$4, init$, void)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(FtpClient$$Lambda$getLocalHost$4, run, $Object*)},
 	{}
 };
 $ClassInfo FtpClient$$Lambda$getLocalHost$4::classInfo$ = {
@@ -395,8 +395,8 @@ $FieldInfo FtpClient$$Lambda$lambda$privilegedGetAllByName$2$5::fieldInfos[2] = 
 	{}
 };
 $MethodInfo FtpClient$$Lambda$lambda$privilegedGetAllByName$2$5::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(FtpClient$$Lambda$lambda$privilegedGetAllByName$2$5::*)($String*)>(&FtpClient$$Lambda$lambda$privilegedGetAllByName$2$5::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(FtpClient$$Lambda$lambda$privilegedGetAllByName$2$5, init$, void, $String*)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(FtpClient$$Lambda$lambda$privilegedGetAllByName$2$5, run, $Object*)},
 	{}
 };
 $ClassInfo FtpClient$$Lambda$lambda$privilegedGetAllByName$2$5::classInfo$ = {
@@ -455,90 +455,90 @@ $FieldInfo _FtpClient_FieldInfo_[] = {
 };
 
 $MethodInfo _FtpClient_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(FtpClient::*)()>(&FtpClient::init$))},
-	{"abort", "()Lsun/net/ftp/FtpClient;", nullptr, $PUBLIC, nullptr, "sun.net.ftp.FtpProtocolException,java.io.IOException"},
-	{"allocate", "(J)Lsun/net/ftp/FtpClient;", nullptr, $PUBLIC, nullptr, "sun.net.ftp.FtpProtocolException,java.io.IOException"},
-	{"appendFile", "(Ljava/lang/String;Ljava/io/InputStream;)Lsun/net/ftp/FtpClient;", nullptr, $PUBLIC, nullptr, "sun.net.ftp.FtpProtocolException,java.io.IOException"},
-	{"changeDirectory", "(Ljava/lang/String;)Lsun/net/ftp/FtpClient;", nullptr, $PUBLIC, nullptr, "sun.net.ftp.FtpProtocolException,java.io.IOException"},
-	{"changeToParentDirectory", "()Lsun/net/ftp/FtpClient;", nullptr, $PUBLIC, nullptr, "sun.net.ftp.FtpProtocolException,java.io.IOException"},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"completePending", "()Lsun/net/ftp/FtpClient;", nullptr, $PUBLIC, nullptr, "sun.net.ftp.FtpProtocolException,java.io.IOException"},
-	{"connect", "(Ljava/net/SocketAddress;)Lsun/net/ftp/FtpClient;", nullptr, $PUBLIC, nullptr, "sun.net.ftp.FtpProtocolException,java.io.IOException"},
-	{"connect", "(Ljava/net/SocketAddress;I)Lsun/net/ftp/FtpClient;", nullptr, $PUBLIC, nullptr, "sun.net.ftp.FtpProtocolException,java.io.IOException"},
-	{"create", "()Lsun/net/ftp/FtpClient;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$FtpClient*(*)()>(&FtpClient::create))},
-	{"createInputStream", "(Ljava/io/InputStream;)Ljava/io/InputStream;", nullptr, $PRIVATE, $method(static_cast<$InputStream*(FtpClient::*)($InputStream*)>(&FtpClient::createInputStream))},
-	{"createOutputStream", "(Ljava/io/OutputStream;)Ljava/io/OutputStream;", nullptr, $PRIVATE, $method(static_cast<$OutputStream*(FtpClient::*)($OutputStream*)>(&FtpClient::createOutputStream))},
-	{"deleteFile", "(Ljava/lang/String;)Lsun/net/ftp/FtpClient;", nullptr, $PUBLIC, nullptr, "sun.net.ftp.FtpProtocolException,java.io.IOException"},
-	{"disconnect", "()V", nullptr, $PRIVATE, $method(static_cast<void(FtpClient::*)()>(&FtpClient::disconnect)), "java.io.IOException"},
-	{"doConnect", "(Ljava/net/InetSocketAddress;I)Ljava/net/Socket;", nullptr, $PRIVATE, $method(static_cast<$Socket*(FtpClient::*)($InetSocketAddress*,int32_t)>(&FtpClient::doConnect)), "java.io.IOException"},
-	{"enablePassiveMode", "(Z)Lsun/net/ftp/FtpClient;", nullptr, $PUBLIC},
-	{"endSecureSession", "()Lsun/net/ftp/FtpClient;", nullptr, $PUBLIC, nullptr, "sun.net.ftp.FtpProtocolException,java.io.IOException"},
-	{"getConnectTimeout", "()I", nullptr, $PUBLIC},
-	{"getFeatures", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PUBLIC, nullptr, "sun.net.ftp.FtpProtocolException,java.io.IOException"},
-	{"getFile", "(Ljava/lang/String;Ljava/io/OutputStream;)Lsun/net/ftp/FtpClient;", nullptr, $PUBLIC, nullptr, "sun.net.ftp.FtpProtocolException,java.io.IOException"},
-	{"getFileStream", "(Ljava/lang/String;)Ljava/io/InputStream;", nullptr, $PUBLIC, nullptr, "sun.net.ftp.FtpProtocolException,java.io.IOException"},
-	{"getHelp", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, nullptr, "sun.net.ftp.FtpProtocolException,java.io.IOException"},
-	{"getLastFileName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getLastModified", "(Ljava/lang/String;)Ljava/util/Date;", nullptr, $PUBLIC, nullptr, "sun.net.ftp.FtpProtocolException,java.io.IOException"},
-	{"getLastReplyCode", "()Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC},
-	{"getLastResponseString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getLastTransferSize", "()J", nullptr, $PUBLIC},
-	{"getProxy", "()Ljava/net/Proxy;", nullptr, $PUBLIC},
-	{"getReadTimeout", "()I", nullptr, $PUBLIC},
-	{"getResponseString", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(FtpClient::*)()>(&FtpClient::getResponseString))},
-	{"getResponseStrings", "()Ljava/util/Vector;", "()Ljava/util/Vector<Ljava/lang/String;>;", $PRIVATE, $method(static_cast<$Vector*(FtpClient::*)()>(&FtpClient::getResponseStrings))},
-	{"getSecurityData", "()[B", nullptr, $PRIVATE, $method(static_cast<$bytes*(FtpClient::*)()>(&FtpClient::getSecurityData))},
-	{"getServerAddress", "()Ljava/net/SocketAddress;", nullptr, $PUBLIC},
-	{"getSize", "(Ljava/lang/String;)J", nullptr, $PUBLIC, nullptr, "sun.net.ftp.FtpProtocolException,java.io.IOException"},
-	{"getStatus", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, nullptr, "sun.net.ftp.FtpProtocolException,java.io.IOException"},
-	{"getSystem", "()Ljava/lang/String;", nullptr, $PUBLIC, nullptr, "sun.net.ftp.FtpProtocolException,java.io.IOException"},
-	{"getTransferName", "()V", nullptr, $PRIVATE, $method(static_cast<void(FtpClient::*)()>(&FtpClient::getTransferName))},
-	{"getTransferSize", "()V", nullptr, $PRIVATE, $method(static_cast<void(FtpClient::*)()>(&FtpClient::getTransferSize))},
-	{"getWelcomeMsg", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getWorkingDirectory", "()Ljava/lang/String;", nullptr, $PUBLIC, nullptr, "sun.net.ftp.FtpProtocolException,java.io.IOException"},
-	{"isASCIISuperset", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($String*)>(&FtpClient::isASCIISuperset)), "java.lang.Exception"},
-	{"isConnected", "()Z", nullptr, $PUBLIC},
-	{"isLoggedIn", "()Z", nullptr, $PUBLIC},
-	{"isPassiveModeEnabled", "()Z", nullptr, $PUBLIC},
-	{"issueCommand", "(Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(static_cast<bool(FtpClient::*)($String*)>(&FtpClient::issueCommand)), "java.io.IOException,sun.net.ftp.FtpProtocolException"},
-	{"issueCommandCheck", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(static_cast<void(FtpClient::*)($String*)>(&FtpClient::issueCommandCheck)), "sun.net.ftp.FtpProtocolException,java.io.IOException"},
-	{"lambda$openPassiveDataConnection$0", "()Ljava/net/Socket;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$Socket*(FtpClient::*)()>(&FtpClient::lambda$openPassiveDataConnection$0))},
-	{"lambda$openPassiveDataConnection$1", "()Ljava/net/InetAddress;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$InetAddress*(FtpClient::*)()>(&FtpClient::lambda$openPassiveDataConnection$1))},
-	{"lambda$privilegedGetAllByName$2", "(Ljava/lang/String;)[Ljava/net/InetAddress;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$InetAddressArray*(*)($String*)>(&FtpClient::lambda$privilegedGetAllByName$2)), "java.lang.Exception"},
-	{"list", "(Ljava/lang/String;)Ljava/io/InputStream;", nullptr, $PUBLIC, nullptr, "sun.net.ftp.FtpProtocolException,java.io.IOException"},
-	{"listFiles", "(Ljava/lang/String;)Ljava/util/Iterator;", "(Ljava/lang/String;)Ljava/util/Iterator<Lsun/net/ftp/FtpDirEntry;>;", $PUBLIC, nullptr, "sun.net.ftp.FtpProtocolException,java.io.IOException"},
-	{"login", "(Ljava/lang/String;[C)Lsun/net/ftp/FtpClient;", nullptr, $PUBLIC, nullptr, "sun.net.ftp.FtpProtocolException,java.io.IOException"},
-	{"login", "(Ljava/lang/String;[CLjava/lang/String;)Lsun/net/ftp/FtpClient;", nullptr, $PUBLIC, nullptr, "sun.net.ftp.FtpProtocolException,java.io.IOException"},
-	{"makeDirectory", "(Ljava/lang/String;)Lsun/net/ftp/FtpClient;", nullptr, $PUBLIC, nullptr, "sun.net.ftp.FtpProtocolException,java.io.IOException"},
-	{"nameList", "(Ljava/lang/String;)Ljava/io/InputStream;", nullptr, $PUBLIC, nullptr, "sun.net.ftp.FtpProtocolException,java.io.IOException"},
-	{"noop", "()Lsun/net/ftp/FtpClient;", nullptr, $PUBLIC, nullptr, "sun.net.ftp.FtpProtocolException,java.io.IOException"},
-	{"openDataConnection", "(Ljava/lang/String;)Ljava/net/Socket;", nullptr, $PRIVATE, $method(static_cast<$Socket*(FtpClient::*)($String*)>(&FtpClient::openDataConnection)), "sun.net.ftp.FtpProtocolException,java.io.IOException"},
-	{"openPassiveDataConnection", "(Ljava/lang/String;)Ljava/net/Socket;", nullptr, $PRIVATE, $method(static_cast<$Socket*(FtpClient::*)($String*)>(&FtpClient::openPassiveDataConnection)), "sun.net.ftp.FtpProtocolException,java.io.IOException"},
-	{"parseRfc3659TimeValue", "(Ljava/lang/String;)Ljava/util/Date;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$Date*(*)($String*)>(&FtpClient::parseRfc3659TimeValue))},
-	{"privilegedGetAllByName", "(Ljava/lang/String;)[Ljava/net/InetAddress;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$InetAddressArray*(*)($String*)>(&FtpClient::privilegedGetAllByName)), "sun.net.ftp.FtpProtocolException"},
-	{"privilegedLocalHost", "()Ljava/net/InetAddress;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$InetAddress*(*)()>(&FtpClient::privilegedLocalHost)), "sun.net.ftp.FtpProtocolException"},
-	{"putFile", "(Ljava/lang/String;Ljava/io/InputStream;Z)Lsun/net/ftp/FtpClient;", nullptr, $PUBLIC, nullptr, "sun.net.ftp.FtpProtocolException,java.io.IOException"},
-	{"putFileStream", "(Ljava/lang/String;Z)Ljava/io/OutputStream;", nullptr, $PUBLIC, nullptr, "sun.net.ftp.FtpProtocolException,java.io.IOException"},
-	{"reInit", "()Lsun/net/ftp/FtpClient;", nullptr, $PUBLIC, nullptr, "sun.net.ftp.FtpProtocolException,java.io.IOException"},
-	{"readReply", "()Z", nullptr, $PRIVATE, $method(static_cast<bool(FtpClient::*)()>(&FtpClient::readReply)), "java.io.IOException"},
-	{"readServerResponse", "()I", nullptr, $PRIVATE, $method(static_cast<int32_t(FtpClient::*)()>(&FtpClient::readServerResponse)), "java.io.IOException"},
-	{"removeDirectory", "(Ljava/lang/String;)Lsun/net/ftp/FtpClient;", nullptr, $PUBLIC, nullptr, "sun.net.ftp.FtpProtocolException,java.io.IOException"},
-	{"rename", "(Ljava/lang/String;Ljava/lang/String;)Lsun/net/ftp/FtpClient;", nullptr, $PUBLIC, nullptr, "sun.net.ftp.FtpProtocolException,java.io.IOException"},
-	{"sendSecurityData", "([B)Z", nullptr, $PRIVATE, $method(static_cast<bool(FtpClient::*)($bytes*)>(&FtpClient::sendSecurityData)), "java.io.IOException,sun.net.ftp.FtpProtocolException"},
-	{"sendServer", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(static_cast<void(FtpClient::*)($String*)>(&FtpClient::sendServer))},
-	{"setConnectTimeout", "(I)Lsun/net/ftp/FtpClient;", nullptr, $PUBLIC},
-	{"setDirParser", "(Lsun/net/ftp/FtpDirParser;)Lsun/net/ftp/FtpClient;", nullptr, $PUBLIC},
-	{"setProxy", "(Ljava/net/Proxy;)Lsun/net/ftp/FtpClient;", nullptr, $PUBLIC},
-	{"setReadTimeout", "(I)Lsun/net/ftp/FtpClient;", nullptr, $PUBLIC},
-	{"setRestartOffset", "(J)Lsun/net/ftp/FtpClient;", nullptr, $PUBLIC},
-	{"setType", "(Lsun/net/ftp/FtpClient$TransferType;)Lsun/net/ftp/FtpClient;", nullptr, $PUBLIC, nullptr, "sun.net.ftp.FtpProtocolException,java.io.IOException"},
-	{"siteCmd", "(Ljava/lang/String;)Lsun/net/ftp/FtpClient;", nullptr, $PUBLIC, nullptr, "sun.net.ftp.FtpProtocolException,java.io.IOException"},
-	{"startSecureSession", "()Lsun/net/ftp/FtpClient;", nullptr, $PUBLIC, nullptr, "sun.net.ftp.FtpProtocolException,java.io.IOException"},
-	{"structureMount", "(Ljava/lang/String;)Lsun/net/ftp/FtpClient;", nullptr, $PUBLIC, nullptr, "sun.net.ftp.FtpProtocolException,java.io.IOException"},
-	{"tryConnect", "(Ljava/net/InetSocketAddress;I)V", nullptr, $PRIVATE, $method(static_cast<void(FtpClient::*)($InetSocketAddress*,int32_t)>(&FtpClient::tryConnect)), "java.io.IOException"},
-	{"tryLogin", "(Ljava/lang/String;[C)V", nullptr, $PRIVATE, $method(static_cast<void(FtpClient::*)($String*,$chars*)>(&FtpClient::tryLogin)), "sun.net.ftp.FtpProtocolException,java.io.IOException"},
-	{"useKerberos", "()Lsun/net/ftp/FtpClient;", nullptr, $PUBLIC, nullptr, "sun.net.ftp.FtpProtocolException,java.io.IOException"},
-	{"validatePasvAddress", "(ILjava/lang/String;Ljava/net/InetAddress;)Ljava/net/InetSocketAddress;", nullptr, $PRIVATE, $method(static_cast<$InetSocketAddress*(FtpClient::*)(int32_t,$String*,$InetAddress*)>(&FtpClient::validatePasvAddress)), "sun.net.ftp.FtpProtocolException"},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(FtpClient, init$, void)},
+	{"abort", "()Lsun/net/ftp/FtpClient;", nullptr, $PUBLIC, $virtualMethod(FtpClient, abort, $FtpClient*), "sun.net.ftp.FtpProtocolException,java.io.IOException"},
+	{"allocate", "(J)Lsun/net/ftp/FtpClient;", nullptr, $PUBLIC, $virtualMethod(FtpClient, allocate, $FtpClient*, int64_t), "sun.net.ftp.FtpProtocolException,java.io.IOException"},
+	{"appendFile", "(Ljava/lang/String;Ljava/io/InputStream;)Lsun/net/ftp/FtpClient;", nullptr, $PUBLIC, $virtualMethod(FtpClient, appendFile, $FtpClient*, $String*, $InputStream*), "sun.net.ftp.FtpProtocolException,java.io.IOException"},
+	{"changeDirectory", "(Ljava/lang/String;)Lsun/net/ftp/FtpClient;", nullptr, $PUBLIC, $virtualMethod(FtpClient, changeDirectory, $FtpClient*, $String*), "sun.net.ftp.FtpProtocolException,java.io.IOException"},
+	{"changeToParentDirectory", "()Lsun/net/ftp/FtpClient;", nullptr, $PUBLIC, $virtualMethod(FtpClient, changeToParentDirectory, $FtpClient*), "sun.net.ftp.FtpProtocolException,java.io.IOException"},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(FtpClient, close, void), "java.io.IOException"},
+	{"completePending", "()Lsun/net/ftp/FtpClient;", nullptr, $PUBLIC, $virtualMethod(FtpClient, completePending, $FtpClient*), "sun.net.ftp.FtpProtocolException,java.io.IOException"},
+	{"connect", "(Ljava/net/SocketAddress;)Lsun/net/ftp/FtpClient;", nullptr, $PUBLIC, $virtualMethod(FtpClient, connect, $FtpClient*, $SocketAddress*), "sun.net.ftp.FtpProtocolException,java.io.IOException"},
+	{"connect", "(Ljava/net/SocketAddress;I)Lsun/net/ftp/FtpClient;", nullptr, $PUBLIC, $virtualMethod(FtpClient, connect, $FtpClient*, $SocketAddress*, int32_t), "sun.net.ftp.FtpProtocolException,java.io.IOException"},
+	{"create", "()Lsun/net/ftp/FtpClient;", nullptr, $PUBLIC | $STATIC, $staticMethod(FtpClient, create, $FtpClient*)},
+	{"createInputStream", "(Ljava/io/InputStream;)Ljava/io/InputStream;", nullptr, $PRIVATE, $method(FtpClient, createInputStream, $InputStream*, $InputStream*)},
+	{"createOutputStream", "(Ljava/io/OutputStream;)Ljava/io/OutputStream;", nullptr, $PRIVATE, $method(FtpClient, createOutputStream, $OutputStream*, $OutputStream*)},
+	{"deleteFile", "(Ljava/lang/String;)Lsun/net/ftp/FtpClient;", nullptr, $PUBLIC, $virtualMethod(FtpClient, deleteFile, $FtpClient*, $String*), "sun.net.ftp.FtpProtocolException,java.io.IOException"},
+	{"disconnect", "()V", nullptr, $PRIVATE, $method(FtpClient, disconnect, void), "java.io.IOException"},
+	{"doConnect", "(Ljava/net/InetSocketAddress;I)Ljava/net/Socket;", nullptr, $PRIVATE, $method(FtpClient, doConnect, $Socket*, $InetSocketAddress*, int32_t), "java.io.IOException"},
+	{"enablePassiveMode", "(Z)Lsun/net/ftp/FtpClient;", nullptr, $PUBLIC, $virtualMethod(FtpClient, enablePassiveMode, $FtpClient*, bool)},
+	{"endSecureSession", "()Lsun/net/ftp/FtpClient;", nullptr, $PUBLIC, $virtualMethod(FtpClient, endSecureSession, $FtpClient*), "sun.net.ftp.FtpProtocolException,java.io.IOException"},
+	{"getConnectTimeout", "()I", nullptr, $PUBLIC, $virtualMethod(FtpClient, getConnectTimeout, int32_t)},
+	{"getFeatures", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(FtpClient, getFeatures, $List*), "sun.net.ftp.FtpProtocolException,java.io.IOException"},
+	{"getFile", "(Ljava/lang/String;Ljava/io/OutputStream;)Lsun/net/ftp/FtpClient;", nullptr, $PUBLIC, $virtualMethod(FtpClient, getFile, $FtpClient*, $String*, $OutputStream*), "sun.net.ftp.FtpProtocolException,java.io.IOException"},
+	{"getFileStream", "(Ljava/lang/String;)Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(FtpClient, getFileStream, $InputStream*, $String*), "sun.net.ftp.FtpProtocolException,java.io.IOException"},
+	{"getHelp", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FtpClient, getHelp, $String*, $String*), "sun.net.ftp.FtpProtocolException,java.io.IOException"},
+	{"getLastFileName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FtpClient, getLastFileName, $String*)},
+	{"getLastModified", "(Ljava/lang/String;)Ljava/util/Date;", nullptr, $PUBLIC, $virtualMethod(FtpClient, getLastModified, $Date*, $String*), "sun.net.ftp.FtpProtocolException,java.io.IOException"},
+	{"getLastReplyCode", "()Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC, $virtualMethod(FtpClient, getLastReplyCode, $FtpReplyCode*)},
+	{"getLastResponseString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FtpClient, getLastResponseString, $String*)},
+	{"getLastTransferSize", "()J", nullptr, $PUBLIC, $virtualMethod(FtpClient, getLastTransferSize, int64_t)},
+	{"getProxy", "()Ljava/net/Proxy;", nullptr, $PUBLIC, $virtualMethod(FtpClient, getProxy, $Proxy*)},
+	{"getReadTimeout", "()I", nullptr, $PUBLIC, $virtualMethod(FtpClient, getReadTimeout, int32_t)},
+	{"getResponseString", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(FtpClient, getResponseString, $String*)},
+	{"getResponseStrings", "()Ljava/util/Vector;", "()Ljava/util/Vector<Ljava/lang/String;>;", $PRIVATE, $method(FtpClient, getResponseStrings, $Vector*)},
+	{"getSecurityData", "()[B", nullptr, $PRIVATE, $method(FtpClient, getSecurityData, $bytes*)},
+	{"getServerAddress", "()Ljava/net/SocketAddress;", nullptr, $PUBLIC, $virtualMethod(FtpClient, getServerAddress, $SocketAddress*)},
+	{"getSize", "(Ljava/lang/String;)J", nullptr, $PUBLIC, $virtualMethod(FtpClient, getSize, int64_t, $String*), "sun.net.ftp.FtpProtocolException,java.io.IOException"},
+	{"getStatus", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FtpClient, getStatus, $String*, $String*), "sun.net.ftp.FtpProtocolException,java.io.IOException"},
+	{"getSystem", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FtpClient, getSystem, $String*), "sun.net.ftp.FtpProtocolException,java.io.IOException"},
+	{"getTransferName", "()V", nullptr, $PRIVATE, $method(FtpClient, getTransferName, void)},
+	{"getTransferSize", "()V", nullptr, $PRIVATE, $method(FtpClient, getTransferSize, void)},
+	{"getWelcomeMsg", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FtpClient, getWelcomeMsg, $String*)},
+	{"getWorkingDirectory", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FtpClient, getWorkingDirectory, $String*), "sun.net.ftp.FtpProtocolException,java.io.IOException"},
+	{"isASCIISuperset", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(FtpClient, isASCIISuperset, bool, $String*), "java.lang.Exception"},
+	{"isConnected", "()Z", nullptr, $PUBLIC, $virtualMethod(FtpClient, isConnected, bool)},
+	{"isLoggedIn", "()Z", nullptr, $PUBLIC, $virtualMethod(FtpClient, isLoggedIn, bool)},
+	{"isPassiveModeEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(FtpClient, isPassiveModeEnabled, bool)},
+	{"issueCommand", "(Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(FtpClient, issueCommand, bool, $String*), "java.io.IOException,sun.net.ftp.FtpProtocolException"},
+	{"issueCommandCheck", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(FtpClient, issueCommandCheck, void, $String*), "sun.net.ftp.FtpProtocolException,java.io.IOException"},
+	{"lambda$openPassiveDataConnection$0", "()Ljava/net/Socket;", nullptr, $PRIVATE | $SYNTHETIC, $method(FtpClient, lambda$openPassiveDataConnection$0, $Socket*)},
+	{"lambda$openPassiveDataConnection$1", "()Ljava/net/InetAddress;", nullptr, $PRIVATE | $SYNTHETIC, $method(FtpClient, lambda$openPassiveDataConnection$1, $InetAddress*)},
+	{"lambda$privilegedGetAllByName$2", "(Ljava/lang/String;)[Ljava/net/InetAddress;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(FtpClient, lambda$privilegedGetAllByName$2, $InetAddressArray*, $String*), "java.lang.Exception"},
+	{"list", "(Ljava/lang/String;)Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(FtpClient, list, $InputStream*, $String*), "sun.net.ftp.FtpProtocolException,java.io.IOException"},
+	{"listFiles", "(Ljava/lang/String;)Ljava/util/Iterator;", "(Ljava/lang/String;)Ljava/util/Iterator<Lsun/net/ftp/FtpDirEntry;>;", $PUBLIC, $virtualMethod(FtpClient, listFiles, $Iterator*, $String*), "sun.net.ftp.FtpProtocolException,java.io.IOException"},
+	{"login", "(Ljava/lang/String;[C)Lsun/net/ftp/FtpClient;", nullptr, $PUBLIC, $virtualMethod(FtpClient, login, $FtpClient*, $String*, $chars*), "sun.net.ftp.FtpProtocolException,java.io.IOException"},
+	{"login", "(Ljava/lang/String;[CLjava/lang/String;)Lsun/net/ftp/FtpClient;", nullptr, $PUBLIC, $virtualMethod(FtpClient, login, $FtpClient*, $String*, $chars*, $String*), "sun.net.ftp.FtpProtocolException,java.io.IOException"},
+	{"makeDirectory", "(Ljava/lang/String;)Lsun/net/ftp/FtpClient;", nullptr, $PUBLIC, $virtualMethod(FtpClient, makeDirectory, $FtpClient*, $String*), "sun.net.ftp.FtpProtocolException,java.io.IOException"},
+	{"nameList", "(Ljava/lang/String;)Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(FtpClient, nameList, $InputStream*, $String*), "sun.net.ftp.FtpProtocolException,java.io.IOException"},
+	{"noop", "()Lsun/net/ftp/FtpClient;", nullptr, $PUBLIC, $virtualMethod(FtpClient, noop, $FtpClient*), "sun.net.ftp.FtpProtocolException,java.io.IOException"},
+	{"openDataConnection", "(Ljava/lang/String;)Ljava/net/Socket;", nullptr, $PRIVATE, $method(FtpClient, openDataConnection, $Socket*, $String*), "sun.net.ftp.FtpProtocolException,java.io.IOException"},
+	{"openPassiveDataConnection", "(Ljava/lang/String;)Ljava/net/Socket;", nullptr, $PRIVATE, $method(FtpClient, openPassiveDataConnection, $Socket*, $String*), "sun.net.ftp.FtpProtocolException,java.io.IOException"},
+	{"parseRfc3659TimeValue", "(Ljava/lang/String;)Ljava/util/Date;", nullptr, $PRIVATE | $STATIC, $staticMethod(FtpClient, parseRfc3659TimeValue, $Date*, $String*)},
+	{"privilegedGetAllByName", "(Ljava/lang/String;)[Ljava/net/InetAddress;", nullptr, $PRIVATE | $STATIC, $staticMethod(FtpClient, privilegedGetAllByName, $InetAddressArray*, $String*), "sun.net.ftp.FtpProtocolException"},
+	{"privilegedLocalHost", "()Ljava/net/InetAddress;", nullptr, $PRIVATE | $STATIC, $staticMethod(FtpClient, privilegedLocalHost, $InetAddress*), "sun.net.ftp.FtpProtocolException"},
+	{"putFile", "(Ljava/lang/String;Ljava/io/InputStream;Z)Lsun/net/ftp/FtpClient;", nullptr, $PUBLIC, $virtualMethod(FtpClient, putFile, $FtpClient*, $String*, $InputStream*, bool), "sun.net.ftp.FtpProtocolException,java.io.IOException"},
+	{"putFileStream", "(Ljava/lang/String;Z)Ljava/io/OutputStream;", nullptr, $PUBLIC, $virtualMethod(FtpClient, putFileStream, $OutputStream*, $String*, bool), "sun.net.ftp.FtpProtocolException,java.io.IOException"},
+	{"reInit", "()Lsun/net/ftp/FtpClient;", nullptr, $PUBLIC, $virtualMethod(FtpClient, reInit, $FtpClient*), "sun.net.ftp.FtpProtocolException,java.io.IOException"},
+	{"readReply", "()Z", nullptr, $PRIVATE, $method(FtpClient, readReply, bool), "java.io.IOException"},
+	{"readServerResponse", "()I", nullptr, $PRIVATE, $method(FtpClient, readServerResponse, int32_t), "java.io.IOException"},
+	{"removeDirectory", "(Ljava/lang/String;)Lsun/net/ftp/FtpClient;", nullptr, $PUBLIC, $virtualMethod(FtpClient, removeDirectory, $FtpClient*, $String*), "sun.net.ftp.FtpProtocolException,java.io.IOException"},
+	{"rename", "(Ljava/lang/String;Ljava/lang/String;)Lsun/net/ftp/FtpClient;", nullptr, $PUBLIC, $virtualMethod(FtpClient, rename, $FtpClient*, $String*, $String*), "sun.net.ftp.FtpProtocolException,java.io.IOException"},
+	{"sendSecurityData", "([B)Z", nullptr, $PRIVATE, $method(FtpClient, sendSecurityData, bool, $bytes*), "java.io.IOException,sun.net.ftp.FtpProtocolException"},
+	{"sendServer", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(FtpClient, sendServer, void, $String*)},
+	{"setConnectTimeout", "(I)Lsun/net/ftp/FtpClient;", nullptr, $PUBLIC, $virtualMethod(FtpClient, setConnectTimeout, $FtpClient*, int32_t)},
+	{"setDirParser", "(Lsun/net/ftp/FtpDirParser;)Lsun/net/ftp/FtpClient;", nullptr, $PUBLIC, $virtualMethod(FtpClient, setDirParser, $FtpClient*, $FtpDirParser*)},
+	{"setProxy", "(Ljava/net/Proxy;)Lsun/net/ftp/FtpClient;", nullptr, $PUBLIC, $virtualMethod(FtpClient, setProxy, $FtpClient*, $Proxy*)},
+	{"setReadTimeout", "(I)Lsun/net/ftp/FtpClient;", nullptr, $PUBLIC, $virtualMethod(FtpClient, setReadTimeout, $FtpClient*, int32_t)},
+	{"setRestartOffset", "(J)Lsun/net/ftp/FtpClient;", nullptr, $PUBLIC, $virtualMethod(FtpClient, setRestartOffset, $FtpClient*, int64_t)},
+	{"setType", "(Lsun/net/ftp/FtpClient$TransferType;)Lsun/net/ftp/FtpClient;", nullptr, $PUBLIC, $virtualMethod(FtpClient, setType, $FtpClient*, $FtpClient$TransferType*), "sun.net.ftp.FtpProtocolException,java.io.IOException"},
+	{"siteCmd", "(Ljava/lang/String;)Lsun/net/ftp/FtpClient;", nullptr, $PUBLIC, $virtualMethod(FtpClient, siteCmd, $FtpClient*, $String*), "sun.net.ftp.FtpProtocolException,java.io.IOException"},
+	{"startSecureSession", "()Lsun/net/ftp/FtpClient;", nullptr, $PUBLIC, $virtualMethod(FtpClient, startSecureSession, $FtpClient*), "sun.net.ftp.FtpProtocolException,java.io.IOException"},
+	{"structureMount", "(Ljava/lang/String;)Lsun/net/ftp/FtpClient;", nullptr, $PUBLIC, $virtualMethod(FtpClient, structureMount, $FtpClient*, $String*), "sun.net.ftp.FtpProtocolException,java.io.IOException"},
+	{"tryConnect", "(Ljava/net/InetSocketAddress;I)V", nullptr, $PRIVATE, $method(FtpClient, tryConnect, void, $InetSocketAddress*, int32_t), "java.io.IOException"},
+	{"tryLogin", "(Ljava/lang/String;[C)V", nullptr, $PRIVATE, $method(FtpClient, tryLogin, void, $String*, $chars*), "sun.net.ftp.FtpProtocolException,java.io.IOException"},
+	{"useKerberos", "()Lsun/net/ftp/FtpClient;", nullptr, $PUBLIC, $virtualMethod(FtpClient, useKerberos, $FtpClient*), "sun.net.ftp.FtpProtocolException,java.io.IOException"},
+	{"validatePasvAddress", "(ILjava/lang/String;Ljava/net/InetAddress;)Ljava/net/InetSocketAddress;", nullptr, $PRIVATE, $method(FtpClient, validatePasvAddress, $InetSocketAddress*, int32_t, $String*, $InetAddress*), "sun.net.ftp.FtpProtocolException"},
 	{}
 };
 

@@ -43,14 +43,14 @@ $FieldInfo _SecureRandom_FieldInfo_[] = {
 };
 
 $MethodInfo _SecureRandom_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SecureRandom::*)()>(&SecureRandom::init$))},
-	{"<init>", "([B)V", nullptr, $PRIVATE, $method(static_cast<void(SecureRandom::*)($bytes*)>(&SecureRandom::init$))},
-	{"engineGenerateSeed", "(I)[B", nullptr, $PUBLIC},
-	{"engineNextBytes", "([B)V", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"engineSetSeed", "([B)V", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"init", "([B)V", nullptr, $PRIVATE, $method(static_cast<void(SecureRandom::*)($bytes*)>(&SecureRandom::init))},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(SecureRandom::*)($ObjectInputStream*)>(&SecureRandom::readObject)), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"updateState", "([B[B)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($bytes*,$bytes*)>(&SecureRandom::updateState))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SecureRandom, init$, void)},
+	{"<init>", "([B)V", nullptr, $PRIVATE, $method(SecureRandom, init$, void, $bytes*)},
+	{"engineGenerateSeed", "(I)[B", nullptr, $PUBLIC, $virtualMethod(SecureRandom, engineGenerateSeed, $bytes*, int32_t)},
+	{"engineNextBytes", "([B)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(SecureRandom, engineNextBytes, void, $bytes*)},
+	{"engineSetSeed", "([B)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(SecureRandom, engineSetSeed, void, $bytes*)},
+	{"init", "([B)V", nullptr, $PRIVATE, $method(SecureRandom, init, void, $bytes*)},
+	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(SecureRandom, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+	{"updateState", "([B[B)V", nullptr, $PRIVATE | $STATIC, $staticMethod(SecureRandom, updateState, void, $bytes*, $bytes*)},
 	{}
 };
 

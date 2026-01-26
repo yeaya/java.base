@@ -14,7 +14,7 @@ namespace jdk {
 						namespace analysis {
 
 $MethodInfo _Value_MethodInfo_[] = {
-	{"getSize", "()I", nullptr, $PUBLIC | $ABSTRACT},
+	{"getSize", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Value, getSize, int32_t)},
 	{}
 };
 

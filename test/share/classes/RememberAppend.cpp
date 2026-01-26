@@ -18,8 +18,8 @@ $FieldInfo _RememberAppend_FieldInfo_[] = {
 };
 
 $MethodInfo _RememberAppend_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(RememberAppend::*)()>(&RememberAppend::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&RememberAppend::main)), "java.lang.Throwable"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(RememberAppend, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(RememberAppend, main, void, $StringArray*), "java.lang.Throwable"},
 	{}
 };
 

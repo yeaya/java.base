@@ -77,14 +77,14 @@ $FieldInfo _MethodHandleImpl$BindCaller_FieldInfo_[] = {
 };
 
 $MethodInfo _MethodHandleImpl$BindCaller_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(MethodHandleImpl$BindCaller::*)()>(&MethodHandleImpl$BindCaller::init$))},
-	{"bindCaller", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodHandle;", $STATIC, $method(static_cast<$MethodHandle*(*)($MethodHandle*,$Class*)>(&MethodHandleImpl$BindCaller::bindCaller))},
-	{"checkCallerClass", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PRIVATE | $STATIC, $method(static_cast<bool(*)($Class*)>(&MethodHandleImpl$BindCaller::checkCallerClass)), nullptr, nullptr, _MethodHandleImpl$BindCaller_MethodAnnotations_checkCallerClass2},
-	{"checkInjectedInvoker", "(Ljava/lang/Class;Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)Z", $PRIVATE | $STATIC, $method(static_cast<bool(*)($Class*,$Class*)>(&MethodHandleImpl$BindCaller::checkInjectedInvoker))},
-	{"generateInvokerTemplate", "()[B", nullptr, $PRIVATE | $STATIC, $method(static_cast<$bytes*(*)()>(&MethodHandleImpl$BindCaller::generateInvokerTemplate))},
-	{"makeInjectedInvoker", "(Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodHandle;", $PRIVATE | $STATIC, $method(static_cast<$MethodHandle*(*)($Class*)>(&MethodHandleImpl$BindCaller::makeInjectedInvoker))},
-	{"prepareForInvoker", "(Ljava/lang/invoke/MethodHandle;)Ljava/lang/invoke/MethodHandle;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$MethodHandle*(*)($MethodHandle*)>(&MethodHandleImpl$BindCaller::prepareForInvoker))},
-	{"restoreToType", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandle;Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandle;Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodHandle;", $PRIVATE | $STATIC, $method(static_cast<$MethodHandle*(*)($MethodHandle*,$MethodHandle*,$Class*)>(&MethodHandleImpl$BindCaller::restoreToType))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(MethodHandleImpl$BindCaller, init$, void)},
+	{"bindCaller", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodHandle;", $STATIC, $staticMethod(MethodHandleImpl$BindCaller, bindCaller, $MethodHandle*, $MethodHandle*, $Class*)},
+	{"checkCallerClass", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PRIVATE | $STATIC, $staticMethod(MethodHandleImpl$BindCaller, checkCallerClass, bool, $Class*), nullptr, nullptr, _MethodHandleImpl$BindCaller_MethodAnnotations_checkCallerClass2},
+	{"checkInjectedInvoker", "(Ljava/lang/Class;Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)Z", $PRIVATE | $STATIC, $staticMethod(MethodHandleImpl$BindCaller, checkInjectedInvoker, bool, $Class*, $Class*)},
+	{"generateInvokerTemplate", "()[B", nullptr, $PRIVATE | $STATIC, $staticMethod(MethodHandleImpl$BindCaller, generateInvokerTemplate, $bytes*)},
+	{"makeInjectedInvoker", "(Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodHandle;", $PRIVATE | $STATIC, $staticMethod(MethodHandleImpl$BindCaller, makeInjectedInvoker, $MethodHandle*, $Class*)},
+	{"prepareForInvoker", "(Ljava/lang/invoke/MethodHandle;)Ljava/lang/invoke/MethodHandle;", nullptr, $PRIVATE | $STATIC, $staticMethod(MethodHandleImpl$BindCaller, prepareForInvoker, $MethodHandle*, $MethodHandle*)},
+	{"restoreToType", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandle;Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandle;Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodHandle;", $PRIVATE | $STATIC, $staticMethod(MethodHandleImpl$BindCaller, restoreToType, $MethodHandle*, $MethodHandle*, $MethodHandle*, $Class*)},
 	{}
 };
 

@@ -67,16 +67,16 @@ $FieldInfo _PrintPattern_FieldInfo_[] = {
 };
 
 $MethodInfo _PrintPattern_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(PrintPattern::*)()>(&PrintPattern::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&PrintPattern::main))},
-	{"print", "(Ljava/util/regex/Pattern$Node;Ljava/lang/String;I)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($Pattern$Node*,$String*,int32_t)>(&PrintPattern::print))},
-	{"print", "(Ljava/lang/String;I)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($String*,int32_t)>(&PrintPattern::print))},
-	{"toString", "(Ljava/util/regex/Pattern$Node;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($Pattern$Node*)>(&PrintPattern::toString))},
-	{"toStringCP", "(I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)(int32_t)>(&PrintPattern::toStringCP))},
-	{"toStringCPS", "([I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($ints*)>(&PrintPattern::toStringCPS))},
-	{"toStringCtype", "(I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)(int32_t)>(&PrintPattern::toStringCtype))},
-	{"toStringRange", "(II)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)(int32_t,int32_t)>(&PrintPattern::toStringRange))},
-	{"walk", "(Ljava/util/regex/Pattern$Node;I)V", nullptr, $STATIC, $method(static_cast<void(*)($Pattern$Node*,int32_t)>(&PrintPattern::walk))},
+	{"<init>", "()V", nullptr, 0, $method(PrintPattern, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(PrintPattern, main, void, $StringArray*)},
+	{"print", "(Ljava/util/regex/Pattern$Node;Ljava/lang/String;I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(PrintPattern, print, void, $Pattern$Node*, $String*, int32_t)},
+	{"print", "(Ljava/lang/String;I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(PrintPattern, print, void, $String*, int32_t)},
+	{"toString", "(Ljava/util/regex/Pattern$Node;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(PrintPattern, toString, $String*, $Pattern$Node*)},
+	{"toStringCP", "(I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(PrintPattern, toStringCP, $String*, int32_t)},
+	{"toStringCPS", "([I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(PrintPattern, toStringCPS, $String*, $ints*)},
+	{"toStringCtype", "(I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(PrintPattern, toStringCtype, $String*, int32_t)},
+	{"toStringRange", "(II)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(PrintPattern, toStringRange, $String*, int32_t, int32_t)},
+	{"walk", "(Ljava/util/regex/Pattern$Node;I)V", nullptr, $STATIC, $staticMethod(PrintPattern, walk, void, $Pattern$Node*, int32_t)},
 	{}
 };
 

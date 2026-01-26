@@ -21,7 +21,7 @@ $FieldInfo _ZipFile$Source$End_FieldInfo_[] = {
 };
 
 $MethodInfo _ZipFile$Source$End_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(ZipFile$Source$End::*)()>(&ZipFile$Source$End::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(ZipFile$Source$End, init$, void)},
 	{}
 };
 

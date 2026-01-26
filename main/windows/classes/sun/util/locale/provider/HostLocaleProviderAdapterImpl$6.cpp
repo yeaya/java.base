@@ -31,11 +31,11 @@ namespace sun {
 			namespace provider {
 
 $MethodInfo _HostLocaleProviderAdapterImpl$6_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(HostLocaleProviderAdapterImpl$6::*)()>(&HostLocaleProviderAdapterImpl$6::init$))},
-	{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC},
-	{"getDisplayName", "(Ljava/lang/String;IIILjava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getDisplayNames", "(Ljava/lang/String;IILjava/util/Locale;)Ljava/util/Map;", "(Ljava/lang/String;IILjava/util/Locale;)Ljava/util/Map<Ljava/lang/String;Ljava/lang/Integer;>;", $PUBLIC},
-	{"isSupportedLocale", "(Ljava/util/Locale;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(HostLocaleProviderAdapterImpl$6, init$, void)},
+	{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(HostLocaleProviderAdapterImpl$6, getAvailableLocales, $LocaleArray*)},
+	{"getDisplayName", "(Ljava/lang/String;IIILjava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HostLocaleProviderAdapterImpl$6, getDisplayName, $String*, $String*, int32_t, int32_t, int32_t, $Locale*)},
+	{"getDisplayNames", "(Ljava/lang/String;IILjava/util/Locale;)Ljava/util/Map;", "(Ljava/lang/String;IILjava/util/Locale;)Ljava/util/Map<Ljava/lang/String;Ljava/lang/Integer;>;", $PUBLIC, $virtualMethod(HostLocaleProviderAdapterImpl$6, getDisplayNames, $Map*, $String*, int32_t, int32_t, $Locale*)},
+	{"isSupportedLocale", "(Ljava/util/Locale;)Z", nullptr, $PUBLIC, $virtualMethod(HostLocaleProviderAdapterImpl$6, isSupportedLocale, bool, $Locale*)},
 	{}
 };
 

@@ -18,15 +18,15 @@ namespace sun {
 		namespace ch {
 
 $MethodInfo _SocketDispatcher_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(SocketDispatcher::*)()>(&SocketDispatcher::init$))},
-	{"close", "(Ljava/io/FileDescriptor;)V", nullptr, 0, nullptr, "java.io.IOException"},
-	{"preClose", "(Ljava/io/FileDescriptor;)V", nullptr, 0, nullptr, "java.io.IOException"},
-	{"read", "(Ljava/io/FileDescriptor;JI)I", nullptr, 0, nullptr, "java.io.IOException"},
-	{"read0", "(Ljava/io/FileDescriptor;JI)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $method(static_cast<int32_t(*)($FileDescriptor*,int64_t,int32_t)>(&SocketDispatcher::read0)), "java.io.IOException"},
-	{"readv", "(Ljava/io/FileDescriptor;JI)J", nullptr, 0, nullptr, "java.io.IOException"},
-	{"readv0", "(Ljava/io/FileDescriptor;JI)J", nullptr, $PRIVATE | $STATIC | $NATIVE, $method(static_cast<int64_t(*)($FileDescriptor*,int64_t,int32_t)>(&SocketDispatcher::readv0)), "java.io.IOException"},
-	{"write", "(Ljava/io/FileDescriptor;JI)I", nullptr, 0, nullptr, "java.io.IOException"},
-	{"writev", "(Ljava/io/FileDescriptor;JI)J", nullptr, 0, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, 0, $method(SocketDispatcher, init$, void)},
+	{"close", "(Ljava/io/FileDescriptor;)V", nullptr, 0, $virtualMethod(SocketDispatcher, close, void, $FileDescriptor*), "java.io.IOException"},
+	{"preClose", "(Ljava/io/FileDescriptor;)V", nullptr, 0, $virtualMethod(SocketDispatcher, preClose, void, $FileDescriptor*), "java.io.IOException"},
+	{"read", "(Ljava/io/FileDescriptor;JI)I", nullptr, 0, $virtualMethod(SocketDispatcher, read, int32_t, $FileDescriptor*, int64_t, int32_t), "java.io.IOException"},
+	{"read0", "(Ljava/io/FileDescriptor;JI)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(SocketDispatcher, read0, int32_t, $FileDescriptor*, int64_t, int32_t), "java.io.IOException"},
+	{"readv", "(Ljava/io/FileDescriptor;JI)J", nullptr, 0, $virtualMethod(SocketDispatcher, readv, int64_t, $FileDescriptor*, int64_t, int32_t), "java.io.IOException"},
+	{"readv0", "(Ljava/io/FileDescriptor;JI)J", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(SocketDispatcher, readv0, int64_t, $FileDescriptor*, int64_t, int32_t), "java.io.IOException"},
+	{"write", "(Ljava/io/FileDescriptor;JI)I", nullptr, 0, $virtualMethod(SocketDispatcher, write, int32_t, $FileDescriptor*, int64_t, int32_t), "java.io.IOException"},
+	{"writev", "(Ljava/io/FileDescriptor;JI)J", nullptr, 0, $virtualMethod(SocketDispatcher, writev, int64_t, $FileDescriptor*, int64_t, int32_t), "java.io.IOException"},
 	{}
 };
 

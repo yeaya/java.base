@@ -9,8 +9,8 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $URL = ::java::net::URL;
 
 $MethodInfo _GetDefaultPort_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(GetDefaultPort::*)()>(&GetDefaultPort::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&GetDefaultPort::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(GetDefaultPort, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(GetDefaultPort, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

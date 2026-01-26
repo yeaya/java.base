@@ -10,7 +10,7 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _PrivateInterfaceCall$I1_MethodInfo_[] = {
-	{"priv_m", "()V", nullptr, $PRIVATE, $method(static_cast<void(PrivateInterfaceCall$I1::*)()>(&PrivateInterfaceCall$I1::priv_m))},
+	{"priv_m", "()V", nullptr, $PRIVATE, $method(PrivateInterfaceCall$I1, priv_m, void)},
 	{}
 };
 

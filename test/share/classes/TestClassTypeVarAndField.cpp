@@ -116,11 +116,11 @@ $FieldInfo _TestClassTypeVarAndField_FieldInfo_[] = {
 };
 
 $MethodInfo _TestClassTypeVarAndField_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(TestClassTypeVarAndField::*)()>(&TestClassTypeVarAndField::init$))},
-	{"foo", "()Ljava/lang/Object;", "()TT;", $PUBLIC, nullptr, nullptr, nullptr, nullptr, _TestClassTypeVarAndField_MethodTypeAnnotations_foo1},
-	{"foo2", "()Ljava/lang/Runnable;", "<M::Ljava/lang/Runnable;>()TM;", $PUBLIC, nullptr, nullptr, nullptr, nullptr, _TestClassTypeVarAndField_MethodTypeAnnotations_foo22},
-	{"foo3", "()Ljava/lang/Cloneable;", "<K::Ljava/lang/Cloneable;L:Ljava/lang/Object;>()TK;", $PUBLIC, nullptr, nullptr, nullptr, nullptr, _TestClassTypeVarAndField_MethodTypeAnnotations_foo33},
-	{"foo4", "()Ljava/lang/Object;", "<L:Ljava/lang/Object;>()TL;", $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(TestClassTypeVarAndField, init$, void)},
+	{"foo", "()Ljava/lang/Object;", "()TT;", $PUBLIC, $virtualMethod(TestClassTypeVarAndField, foo, $Object*), nullptr, nullptr, nullptr, _TestClassTypeVarAndField_MethodTypeAnnotations_foo1},
+	{"foo2", "()Ljava/lang/Runnable;", "<M::Ljava/lang/Runnable;>()TM;", $PUBLIC, $virtualMethod(TestClassTypeVarAndField, foo2, $Runnable*), nullptr, nullptr, nullptr, _TestClassTypeVarAndField_MethodTypeAnnotations_foo22},
+	{"foo3", "()Ljava/lang/Cloneable;", "<K::Ljava/lang/Cloneable;L:Ljava/lang/Object;>()TK;", $PUBLIC, $virtualMethod(TestClassTypeVarAndField, foo3, $Cloneable*), nullptr, nullptr, nullptr, _TestClassTypeVarAndField_MethodTypeAnnotations_foo33},
+	{"foo4", "()Ljava/lang/Object;", "<L:Ljava/lang/Object;>()TL;", $PUBLIC, $virtualMethod(TestClassTypeVarAndField, foo4, $Object*)},
 	{}
 };
 

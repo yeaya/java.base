@@ -17,10 +17,10 @@ $FieldInfo _NoSuchAlgorithmException_FieldInfo_[] = {
 };
 
 $MethodInfo _NoSuchAlgorithmException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(NoSuchAlgorithmException::*)()>(&NoSuchAlgorithmException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(NoSuchAlgorithmException::*)($String*)>(&NoSuchAlgorithmException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(NoSuchAlgorithmException::*)($String*,$Throwable*)>(&NoSuchAlgorithmException::init$))},
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(NoSuchAlgorithmException::*)($Throwable*)>(&NoSuchAlgorithmException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(NoSuchAlgorithmException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NoSuchAlgorithmException, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(NoSuchAlgorithmException, init$, void, $String*, $Throwable*)},
+	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(NoSuchAlgorithmException, init$, void, $Throwable*)},
 	{}
 };
 

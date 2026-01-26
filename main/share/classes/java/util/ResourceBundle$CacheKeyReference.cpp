@@ -7,12 +7,13 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $ResourceBundle$CacheKey = ::java::util::ResourceBundle$CacheKey;
 
 namespace java {
 	namespace util {
 
 $MethodInfo _ResourceBundle$CacheKeyReference_MethodInfo_[] = {
-	{"getCacheKey", "()Ljava/util/ResourceBundle$CacheKey;", nullptr, $PUBLIC | $ABSTRACT},
+	{"getCacheKey", "()Ljava/util/ResourceBundle$CacheKey;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ResourceBundle$CacheKeyReference, getCacheKey, $ResourceBundle$CacheKey*)},
 	{}
 };
 

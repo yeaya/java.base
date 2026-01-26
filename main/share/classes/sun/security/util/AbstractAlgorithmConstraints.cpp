@@ -42,9 +42,9 @@ $FieldInfo _AbstractAlgorithmConstraints_FieldInfo_[] = {
 };
 
 $MethodInfo _AbstractAlgorithmConstraints_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/util/AlgorithmDecomposer;)V", nullptr, $PROTECTED, $method(static_cast<void(AbstractAlgorithmConstraints::*)($AlgorithmDecomposer*)>(&AbstractAlgorithmConstraints::init$))},
-	{"checkAlgorithm", "(Ljava/util/List;Ljava/lang/String;Lsun/security/util/AlgorithmDecomposer;)Z", "(Ljava/util/List<Ljava/lang/String;>;Ljava/lang/String;Lsun/security/util/AlgorithmDecomposer;)Z", $STATIC, $method(static_cast<bool(*)($List*,$String*,$AlgorithmDecomposer*)>(&AbstractAlgorithmConstraints::checkAlgorithm))},
-	{"getAlgorithms", "(Ljava/lang/String;)Ljava/util/List;", "(Ljava/lang/String;)Ljava/util/List<Ljava/lang/String;>;", $STATIC, $method(static_cast<$List*(*)($String*)>(&AbstractAlgorithmConstraints::getAlgorithms))},
+	{"<init>", "(Lsun/security/util/AlgorithmDecomposer;)V", nullptr, $PROTECTED, $method(AbstractAlgorithmConstraints, init$, void, $AlgorithmDecomposer*)},
+	{"checkAlgorithm", "(Ljava/util/List;Ljava/lang/String;Lsun/security/util/AlgorithmDecomposer;)Z", "(Ljava/util/List<Ljava/lang/String;>;Ljava/lang/String;Lsun/security/util/AlgorithmDecomposer;)Z", $STATIC, $staticMethod(AbstractAlgorithmConstraints, checkAlgorithm, bool, $List*, $String*, $AlgorithmDecomposer*)},
+	{"getAlgorithms", "(Ljava/lang/String;)Ljava/util/List;", "(Ljava/lang/String;)Ljava/util/List<Ljava/lang/String;>;", $STATIC, $staticMethod(AbstractAlgorithmConstraints, getAlgorithms, $List*, $String*)},
 	{}
 };
 

@@ -20,7 +20,7 @@ $CompoundAttribute _SingleMemberDouble_Annotations_[] = {
 };
 
 $MethodInfo _SingleMemberDouble_MethodInfo_[] = {
-	{"value", "()D", nullptr, $PUBLIC | $ABSTRACT},
+	{"value", "()D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SingleMemberDouble, value, double)},
 	{}
 };
 

@@ -17,8 +17,8 @@ $FieldInfo _NotSerializableException_FieldInfo_[] = {
 };
 
 $MethodInfo _NotSerializableException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(NotSerializableException::*)($String*)>(&NotSerializableException::init$))},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(NotSerializableException::*)()>(&NotSerializableException::init$))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NotSerializableException, init$, void, $String*)},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(NotSerializableException, init$, void)},
 	{}
 };
 

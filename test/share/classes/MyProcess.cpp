@@ -20,14 +20,14 @@ $FieldInfo _MyProcess_FieldInfo_[] = {
 };
 
 $MethodInfo _MyProcess_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Process;)V", nullptr, $PUBLIC, $method(static_cast<void(MyProcess::*)($Process*)>(&MyProcess::init$))},
-	{"destroy", "()V", nullptr, $PUBLIC},
-	{"exitValue", "()I", nullptr, $PUBLIC},
-	{"getErrorStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC},
-	{"getInputStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC},
-	{"getOutputStream", "()Ljava/io/OutputStream;", nullptr, $PUBLIC},
-	{"toHandle", "()Ljava/lang/ProcessHandle;", nullptr, $PUBLIC},
-	{"waitFor", "()I", nullptr, $PUBLIC, nullptr, "java.lang.InterruptedException"},
+	{"<init>", "(Ljava/lang/Process;)V", nullptr, $PUBLIC, $method(MyProcess, init$, void, $Process*)},
+	{"destroy", "()V", nullptr, $PUBLIC, $virtualMethod(MyProcess, destroy, void)},
+	{"exitValue", "()I", nullptr, $PUBLIC, $virtualMethod(MyProcess, exitValue, int32_t)},
+	{"getErrorStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(MyProcess, getErrorStream, $InputStream*)},
+	{"getInputStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(MyProcess, getInputStream, $InputStream*)},
+	{"getOutputStream", "()Ljava/io/OutputStream;", nullptr, $PUBLIC, $virtualMethod(MyProcess, getOutputStream, $OutputStream*)},
+	{"toHandle", "()Ljava/lang/ProcessHandle;", nullptr, $PUBLIC, $virtualMethod(MyProcess, toHandle, $ProcessHandle*)},
+	{"waitFor", "()I", nullptr, $PUBLIC, $virtualMethod(MyProcess, waitFor, int32_t), "java.lang.InterruptedException"},
 	{}
 };
 

@@ -36,10 +36,10 @@ $FieldInfo _URLClassLoader$3_FieldInfo_[] = {
 };
 
 $MethodInfo _URLClassLoader$3_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/URLClassLoader;Ljava/util/Enumeration;)V", nullptr, 0, $method(static_cast<void(URLClassLoader$3::*)($URLClassLoader*,$Enumeration*)>(&URLClassLoader$3::init$))},
-	{"hasMoreElements", "()Z", nullptr, $PUBLIC},
-	{"next", "()Z", nullptr, $PRIVATE, $method(static_cast<bool(URLClassLoader$3::*)()>(&URLClassLoader$3::next))},
-	{"nextElement", "()Ljava/net/URL;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/net/URLClassLoader;Ljava/util/Enumeration;)V", nullptr, 0, $method(URLClassLoader$3, init$, void, $URLClassLoader*, $Enumeration*)},
+	{"hasMoreElements", "()Z", nullptr, $PUBLIC, $virtualMethod(URLClassLoader$3, hasMoreElements, bool)},
+	{"next", "()Z", nullptr, $PRIVATE, $method(URLClassLoader$3, next, bool)},
+	{"nextElement", "()Ljava/net/URL;", nullptr, $PUBLIC, $virtualMethod(URLClassLoader$3, nextElement, $Object*)},
 	{}
 };
 

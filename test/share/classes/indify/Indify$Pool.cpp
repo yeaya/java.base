@@ -38,17 +38,17 @@ $FieldInfo _Indify$Pool_FieldInfo_[] = {
 };
 
 $MethodInfo _Indify$Pool_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Indify$Pool::*)()>(&Indify$Pool::init$))},
-	{"addConstant", "(BLjava/lang/Object;)Lindify/Indify$Constant;", "<T:Ljava/lang/Object;>(BTT;)Lindify/Indify$Constant;", $PUBLIC},
-	{"get", "(I)Lindify/Indify$Constant;", nullptr, $PUBLIC},
-	{"getMemberRef", "(S)[Ljava/lang/Short;", nullptr, 0},
-	{"getString", "(BS)Ljava/lang/String;", nullptr, 0},
-	{"getString", "(S)Ljava/lang/String;", nullptr, 0},
-	{"getStrings", "([Ljava/lang/Short;)[Ljava/lang/String;", nullptr, 0},
-	{"readConstant", "(Ljava/io/DataInputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(Indify$Pool::*)($DataInputStream*)>(&Indify$Pool::readConstant)), "java.io.IOException"},
-	{"readFrom", "(Ljava/io/DataInputStream;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"stringIndex", "(Ljava/lang/String;Z)I", nullptr, 0},
-	{"writeTo", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Indify$Pool, init$, void)},
+	{"addConstant", "(BLjava/lang/Object;)Lindify/Indify$Constant;", "<T:Ljava/lang/Object;>(BTT;)Lindify/Indify$Constant;", $PUBLIC, $virtualMethod(Indify$Pool, addConstant, $Indify$Constant*, int8_t, Object$*)},
+	{"get", "(I)Lindify/Indify$Constant;", nullptr, $PUBLIC, $virtualMethod(Indify$Pool, get, $Object*, int32_t)},
+	{"getMemberRef", "(S)[Ljava/lang/Short;", nullptr, 0, $virtualMethod(Indify$Pool, getMemberRef, $ShortArray*, int16_t)},
+	{"getString", "(BS)Ljava/lang/String;", nullptr, 0, $virtualMethod(Indify$Pool, getString, $String*, int8_t, int16_t)},
+	{"getString", "(S)Ljava/lang/String;", nullptr, 0, $virtualMethod(Indify$Pool, getString, $String*, int16_t)},
+	{"getStrings", "([Ljava/lang/Short;)[Ljava/lang/String;", nullptr, 0, $virtualMethod(Indify$Pool, getStrings, $StringArray*, $ShortArray*)},
+	{"readConstant", "(Ljava/io/DataInputStream;)V", nullptr, $PRIVATE, $method(Indify$Pool, readConstant, void, $DataInputStream*), "java.io.IOException"},
+	{"readFrom", "(Ljava/io/DataInputStream;)V", nullptr, $PUBLIC, $virtualMethod(Indify$Pool, readFrom, void, $DataInputStream*), "java.io.IOException"},
+	{"stringIndex", "(Ljava/lang/String;Z)I", nullptr, 0, $virtualMethod(Indify$Pool, stringIndex, int32_t, $String*, bool)},
+	{"writeTo", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Indify$Pool, writeTo, void, $DataOutputStream*), "java.io.IOException"},
 	{}
 };
 

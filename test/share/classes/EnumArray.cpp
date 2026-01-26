@@ -3,6 +3,7 @@
 #include <java/lang/annotation/RetentionPolicy.h>
 #include <jcpp.h>
 
+using $RetentionPolicyArray = $Array<::java::lang::annotation::RetentionPolicy>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -19,7 +20,7 @@ $CompoundAttribute _EnumArray_Annotations_[] = {
 };
 
 $MethodInfo _EnumArray_MethodInfo_[] = {
-	{"value", "()[Ljava/lang/annotation/RetentionPolicy;", nullptr, $PUBLIC | $ABSTRACT},
+	{"value", "()[Ljava/lang/annotation/RetentionPolicy;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(EnumArray, value, $RetentionPolicyArray*)},
 	{}
 };
 

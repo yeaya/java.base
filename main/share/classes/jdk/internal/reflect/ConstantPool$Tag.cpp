@@ -54,11 +54,11 @@ $FieldInfo _ConstantPool$Tag_FieldInfo_[] = {
 };
 
 $MethodInfo _ConstantPool$Tag_MethodInfo_[] = {
-	{"$values", "()[Ljdk/internal/reflect/ConstantPool$Tag;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$ConstantPool$TagArray*(*)()>(&ConstantPool$Tag::$values))},
-	{"<init>", "(Ljava/lang/String;II)V", "(I)V", $PRIVATE, $method(static_cast<void(ConstantPool$Tag::*)($String*,int32_t,int32_t)>(&ConstantPool$Tag::init$))},
-	{"valueOf", "(Ljava/lang/String;)Ljdk/internal/reflect/ConstantPool$Tag;", nullptr, $PUBLIC | $STATIC, $method(static_cast<ConstantPool$Tag*(*)($String*)>(&ConstantPool$Tag::valueOf))},
-	{"valueOf", "(B)Ljdk/internal/reflect/ConstantPool$Tag;", nullptr, $PRIVATE | $STATIC, $method(static_cast<ConstantPool$Tag*(*)(int8_t)>(&ConstantPool$Tag::valueOf))},
-	{"values", "()[Ljdk/internal/reflect/ConstantPool$Tag;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$ConstantPool$TagArray*(*)()>(&ConstantPool$Tag::values))},
+	{"$values", "()[Ljdk/internal/reflect/ConstantPool$Tag;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ConstantPool$Tag, $values, $ConstantPool$TagArray*)},
+	{"<init>", "(Ljava/lang/String;II)V", "(I)V", $PRIVATE, $method(ConstantPool$Tag, init$, void, $String*, int32_t, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Ljdk/internal/reflect/ConstantPool$Tag;", nullptr, $PUBLIC | $STATIC, $staticMethod(ConstantPool$Tag, valueOf, ConstantPool$Tag*, $String*)},
+	{"valueOf", "(B)Ljdk/internal/reflect/ConstantPool$Tag;", nullptr, $PRIVATE | $STATIC, $staticMethod(ConstantPool$Tag, valueOf, ConstantPool$Tag*, int8_t)},
+	{"values", "()[Ljdk/internal/reflect/ConstantPool$Tag;", nullptr, $PUBLIC | $STATIC, $staticMethod(ConstantPool$Tag, values, $ConstantPool$TagArray*)},
 	{}
 };
 

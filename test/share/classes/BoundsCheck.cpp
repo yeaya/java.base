@@ -15,8 +15,8 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 
 $MethodInfo _BoundsCheck_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(BoundsCheck::*)()>(&BoundsCheck::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&BoundsCheck::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(BoundsCheck, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(BoundsCheck, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

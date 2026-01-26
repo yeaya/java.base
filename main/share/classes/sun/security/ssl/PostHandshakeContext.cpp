@@ -54,10 +54,10 @@ namespace sun {
 		namespace ssl {
 
 $MethodInfo _PostHandshakeContext_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/ssl/TransportContext;)V", nullptr, 0, $method(static_cast<void(PostHandshakeContext::*)($TransportContext*)>(&PostHandshakeContext::init$)), "java.io.IOException"},
-	{"dispatch", "(BLjava/nio/ByteBuffer;)V", nullptr, 0, nullptr, "java.io.IOException"},
-	{"isConsumable", "(Lsun/security/ssl/TransportContext;B)Z", nullptr, $STATIC, $method(static_cast<bool(*)($TransportContext*,int8_t)>(&PostHandshakeContext::isConsumable))},
-	{"kickstart", "()V", nullptr, 0, nullptr, "java.io.IOException"},
+	{"<init>", "(Lsun/security/ssl/TransportContext;)V", nullptr, 0, $method(PostHandshakeContext, init$, void, $TransportContext*), "java.io.IOException"},
+	{"dispatch", "(BLjava/nio/ByteBuffer;)V", nullptr, 0, $virtualMethod(PostHandshakeContext, dispatch, void, int8_t, $ByteBuffer*), "java.io.IOException"},
+	{"isConsumable", "(Lsun/security/ssl/TransportContext;B)Z", nullptr, $STATIC, $staticMethod(PostHandshakeContext, isConsumable, bool, $TransportContext*, int8_t)},
+	{"kickstart", "()V", nullptr, 0, $virtualMethod(PostHandshakeContext, kickstart, void), "java.io.IOException"},
 	{}
 };
 

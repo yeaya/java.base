@@ -10,9 +10,9 @@ namespace sun {
 		namespace util {
 
 $MethodInfo _ByteArrayLexOrder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ByteArrayLexOrder::*)()>(&ByteArrayLexOrder::init$))},
-	{"compare", "([B[B)I", nullptr, $PUBLIC | $FINAL, $method(static_cast<int32_t(ByteArrayLexOrder::*)($bytes*,$bytes*)>(&ByteArrayLexOrder::compare))},
-	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ByteArrayLexOrder, init$, void)},
+	{"compare", "([B[B)I", nullptr, $PUBLIC | $FINAL, $method(ByteArrayLexOrder, compare, int32_t, $bytes*, $bytes*)},
+	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ByteArrayLexOrder, compare, int32_t, Object$*, Object$*)},
 	{}
 };
 

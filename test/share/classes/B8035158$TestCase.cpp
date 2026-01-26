@@ -65,8 +65,8 @@ $FieldInfo B8035158$TestCase$$Lambda$lambda$run$0::fieldInfos[2] = {
 	{}
 };
 $MethodInfo B8035158$TestCase$$Lambda$lambda$run$0::methodInfos[3] = {
-	{"<init>", "(LB8035158$TestCase;)V", nullptr, $PUBLIC, $method(static_cast<void(B8035158$TestCase$$Lambda$lambda$run$0::*)(B8035158$TestCase*)>(&B8035158$TestCase$$Lambda$lambda$run$0::init$))},
-	{"call", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(LB8035158$TestCase;)V", nullptr, $PUBLIC, $method(B8035158$TestCase$$Lambda$lambda$run$0, init$, void, B8035158$TestCase*)},
+	{"call", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(B8035158$TestCase$$Lambda$lambda$run$0, call, $Object*)},
 	{}
 };
 $ClassInfo B8035158$TestCase$$Lambda$lambda$run$0::classInfo$ = {
@@ -91,12 +91,12 @@ $FieldInfo _B8035158$TestCase_FieldInfo_[] = {
 };
 
 $MethodInfo _B8035158$TestCase_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, 0, $method(static_cast<void(B8035158$TestCase::*)($String*,$String*,bool)>(&B8035158$TestCase::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, 0, $method(static_cast<void(B8035158$TestCase::*)($String*,$String*,$String*,bool)>(&B8035158$TestCase::init$))},
-	{"<init>", "(Ljava/util/Map;Ljava/lang/String;Z)V", "(Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;Ljava/lang/String;Z)V", 0, $method(static_cast<void(B8035158$TestCase::*)($Map*,$String*,bool)>(&B8035158$TestCase::init$))},
-	{"lambda$run$0", "()Ljava/util/List;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$List*(B8035158$TestCase::*)()>(&B8035158$TestCase::lambda$run$0)), "java.lang.Exception"},
-	{"run", "()V", nullptr, 0},
-	{"verify", "(Ljava/util/List;)V", "(Ljava/util/List<+Ljava/net/Proxy;>;)V", 0},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, 0, $method(B8035158$TestCase, init$, void, $String*, $String*, bool)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, 0, $method(B8035158$TestCase, init$, void, $String*, $String*, $String*, bool)},
+	{"<init>", "(Ljava/util/Map;Ljava/lang/String;Z)V", "(Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;Ljava/lang/String;Z)V", 0, $method(B8035158$TestCase, init$, void, $Map*, $String*, bool)},
+	{"lambda$run$0", "()Ljava/util/List;", nullptr, $PRIVATE | $SYNTHETIC, $method(B8035158$TestCase, lambda$run$0, $List*), "java.lang.Exception"},
+	{"run", "()V", nullptr, 0, $virtualMethod(B8035158$TestCase, run, void)},
+	{"verify", "(Ljava/util/List;)V", "(Ljava/util/List<+Ljava/net/Proxy;>;)V", 0, $virtualMethod(B8035158$TestCase, verify, void, $List*)},
 	{}
 };
 

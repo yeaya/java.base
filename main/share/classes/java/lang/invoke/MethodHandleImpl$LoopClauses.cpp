@@ -31,8 +31,8 @@ $FieldInfo _MethodHandleImpl$LoopClauses_FieldInfo_[] = {
 };
 
 $MethodInfo _MethodHandleImpl$LoopClauses_MethodInfo_[] = {
-	{"<init>", "([[Ljava/lang/invoke/MethodHandle;)V", nullptr, 0, $method(static_cast<void(MethodHandleImpl$LoopClauses::*)($MethodHandleArray2*)>(&MethodHandleImpl$LoopClauses::init$))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "([[Ljava/lang/invoke/MethodHandle;)V", nullptr, 0, $method(MethodHandleImpl$LoopClauses, init$, void, $MethodHandleArray2*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MethodHandleImpl$LoopClauses, toString, $String*)},
 	{}
 };
 

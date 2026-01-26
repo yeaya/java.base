@@ -29,11 +29,11 @@ $FieldInfo _NameLimits_FieldInfo_[] = {
 };
 
 $MethodInfo _NameLimits_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(NameLimits::*)()>(&NameLimits::init$))},
-	{"generatePath", "(I)Ljava/nio/file/Path;", nullptr, $STATIC, $method(static_cast<$Path*(*)(int32_t)>(&NameLimits::generatePath))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&NameLimits::main)), "java.lang.Exception"},
-	{"tryCreateDirectory", "(I)Z", nullptr, $STATIC, $method(static_cast<bool(*)(int32_t)>(&NameLimits::tryCreateDirectory)), "java.io.IOException"},
-	{"tryCreateFile", "(I)Z", nullptr, $STATIC, $method(static_cast<bool(*)(int32_t)>(&NameLimits::tryCreateFile)), "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(NameLimits, init$, void)},
+	{"generatePath", "(I)Ljava/nio/file/Path;", nullptr, $STATIC, $staticMethod(NameLimits, generatePath, $Path*, int32_t)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(NameLimits, main, void, $StringArray*), "java.lang.Exception"},
+	{"tryCreateDirectory", "(I)Z", nullptr, $STATIC, $staticMethod(NameLimits, tryCreateDirectory, bool, int32_t), "java.io.IOException"},
+	{"tryCreateFile", "(I)Z", nullptr, $STATIC, $staticMethod(NameLimits, tryCreateFile, bool, int32_t), "java.io.IOException"},
 	{}
 };
 

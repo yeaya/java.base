@@ -30,10 +30,10 @@ $MethodInfo _ReduceOps$CountingSink$OfInt_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ReduceOps$CountingSink$OfInt::*)()>(&ReduceOps$CountingSink$OfInt::init$))},
-	{"accept", "(I)V", nullptr, $PUBLIC},
-	{"combine", "(Ljava/util/stream/ReduceOps$AccumulatingSink;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "()V", nullptr, 0, $method(ReduceOps$CountingSink$OfInt, init$, void)},
+	{"accept", "(I)V", nullptr, $PUBLIC, $virtualMethod(ReduceOps$CountingSink$OfInt, accept, void, int32_t)},
+	{"combine", "(Ljava/util/stream/ReduceOps$AccumulatingSink;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ReduceOps$CountingSink$OfInt, combine, void, $ReduceOps$AccumulatingSink*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ReduceOps$CountingSink$OfInt, get, $Object*)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

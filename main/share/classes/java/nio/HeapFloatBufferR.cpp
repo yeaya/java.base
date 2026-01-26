@@ -36,22 +36,22 @@ $FieldInfo _HeapFloatBufferR_FieldInfo_[] = {
 };
 
 $MethodInfo _HeapFloatBufferR_MethodInfo_[] = {
-	{"<init>", "(IILjdk/internal/access/foreign/MemorySegmentProxy;)V", nullptr, 0, $method(static_cast<void(HeapFloatBufferR::*)(int32_t,int32_t,$MemorySegmentProxy*)>(&HeapFloatBufferR::init$))},
-	{"<init>", "([FIILjdk/internal/access/foreign/MemorySegmentProxy;)V", nullptr, 0, $method(static_cast<void(HeapFloatBufferR::*)($floats*,int32_t,int32_t,$MemorySegmentProxy*)>(&HeapFloatBufferR::init$))},
-	{"<init>", "([FIIIIILjdk/internal/access/foreign/MemorySegmentProxy;)V", nullptr, $PROTECTED, $method(static_cast<void(HeapFloatBufferR::*)($floats*,int32_t,int32_t,int32_t,int32_t,int32_t,$MemorySegmentProxy*)>(&HeapFloatBufferR::init$))},
-	{"asReadOnlyBuffer", "()Ljava/nio/FloatBuffer;", nullptr, $PUBLIC},
-	{"compact", "()Ljava/nio/FloatBuffer;", nullptr, $PUBLIC},
-	{"duplicate", "()Ljava/nio/FloatBuffer;", nullptr, $PUBLIC},
-	{"isReadOnly", "()Z", nullptr, $PUBLIC},
-	{"order", "()Ljava/nio/ByteOrder;", nullptr, $PUBLIC},
-	{"put", "(F)Ljava/nio/FloatBuffer;", nullptr, $PUBLIC},
-	{"put", "(IF)Ljava/nio/FloatBuffer;", nullptr, $PUBLIC},
-	{"put", "([FII)Ljava/nio/FloatBuffer;", nullptr, $PUBLIC},
-	{"put", "(Ljava/nio/FloatBuffer;)Ljava/nio/FloatBuffer;", nullptr, $PUBLIC},
-	{"put", "(ILjava/nio/FloatBuffer;II)Ljava/nio/FloatBuffer;", nullptr, $PUBLIC},
-	{"put", "(I[FII)Ljava/nio/FloatBuffer;", nullptr, $PUBLIC},
-	{"slice", "()Ljava/nio/FloatBuffer;", nullptr, $PUBLIC},
-	{"slice", "(II)Ljava/nio/FloatBuffer;", nullptr, $PUBLIC},
+	{"<init>", "(IILjdk/internal/access/foreign/MemorySegmentProxy;)V", nullptr, 0, $method(HeapFloatBufferR, init$, void, int32_t, int32_t, $MemorySegmentProxy*)},
+	{"<init>", "([FIILjdk/internal/access/foreign/MemorySegmentProxy;)V", nullptr, 0, $method(HeapFloatBufferR, init$, void, $floats*, int32_t, int32_t, $MemorySegmentProxy*)},
+	{"<init>", "([FIIIIILjdk/internal/access/foreign/MemorySegmentProxy;)V", nullptr, $PROTECTED, $method(HeapFloatBufferR, init$, void, $floats*, int32_t, int32_t, int32_t, int32_t, int32_t, $MemorySegmentProxy*)},
+	{"asReadOnlyBuffer", "()Ljava/nio/FloatBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapFloatBufferR, asReadOnlyBuffer, $FloatBuffer*)},
+	{"compact", "()Ljava/nio/FloatBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapFloatBufferR, compact, $FloatBuffer*)},
+	{"duplicate", "()Ljava/nio/FloatBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapFloatBufferR, duplicate, $FloatBuffer*)},
+	{"isReadOnly", "()Z", nullptr, $PUBLIC, $virtualMethod(HeapFloatBufferR, isReadOnly, bool)},
+	{"order", "()Ljava/nio/ByteOrder;", nullptr, $PUBLIC, $virtualMethod(HeapFloatBufferR, order, $ByteOrder*)},
+	{"put", "(F)Ljava/nio/FloatBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapFloatBufferR, put, $FloatBuffer*, float)},
+	{"put", "(IF)Ljava/nio/FloatBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapFloatBufferR, put, $FloatBuffer*, int32_t, float)},
+	{"put", "([FII)Ljava/nio/FloatBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapFloatBufferR, put, $FloatBuffer*, $floats*, int32_t, int32_t)},
+	{"put", "(Ljava/nio/FloatBuffer;)Ljava/nio/FloatBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapFloatBufferR, put, $FloatBuffer*, $FloatBuffer*)},
+	{"put", "(ILjava/nio/FloatBuffer;II)Ljava/nio/FloatBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapFloatBufferR, put, $FloatBuffer*, int32_t, $FloatBuffer*, int32_t, int32_t)},
+	{"put", "(I[FII)Ljava/nio/FloatBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapFloatBufferR, put, $FloatBuffer*, int32_t, $floats*, int32_t, int32_t)},
+	{"slice", "()Ljava/nio/FloatBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapFloatBufferR, slice, $FloatBuffer*)},
+	{"slice", "(II)Ljava/nio/FloatBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapFloatBufferR, slice, $FloatBuffer*, int32_t, int32_t)},
 	{}
 };
 

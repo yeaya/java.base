@@ -19,8 +19,8 @@ $FieldInfo _AccountNotFoundException_FieldInfo_[] = {
 };
 
 $MethodInfo _AccountNotFoundException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(AccountNotFoundException::*)()>(&AccountNotFoundException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(AccountNotFoundException::*)($String*)>(&AccountNotFoundException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(AccountNotFoundException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(AccountNotFoundException, init$, void, $String*)},
 	{}
 };
 

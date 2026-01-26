@@ -8,14 +8,16 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Stream = ::java::util::stream::Stream;
+using $Resource = ::jdk::internal::loader::Resource;
 
 namespace jdk {
 	namespace internal {
 		namespace module {
 
 $MethodInfo _ModulePatcher$ResourceFinder_MethodInfo_[] = {
-	{"find", "(Ljava/lang/String;)Ljdk/internal/loader/Resource;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"list", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljava/lang/String;>;", $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
+	{"find", "(Ljava/lang/String;)Ljdk/internal/loader/Resource;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ModulePatcher$ResourceFinder, find, $Resource*, $String*), "java.io.IOException"},
+	{"list", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljava/lang/String;>;", $PUBLIC | $ABSTRACT, $virtualMethod(ModulePatcher$ResourceFinder, list, $Stream*), "java.io.IOException"},
 	{}
 };
 

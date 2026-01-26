@@ -22,7 +22,7 @@ $CompoundAttribute _B2_Annotations_[] = {
 };
 
 $MethodInfo _B2_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(B2::*)()>(&B2::init$))},
+	{"<init>", "()V", nullptr, 0, $method(B2, init$, void)},
 	{}
 };
 

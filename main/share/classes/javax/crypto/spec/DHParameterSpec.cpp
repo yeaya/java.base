@@ -20,11 +20,11 @@ $FieldInfo _DHParameterSpec_FieldInfo_[] = {
 };
 
 $MethodInfo _DHParameterSpec_MethodInfo_[] = {
-	{"<init>", "(Ljava/math/BigInteger;Ljava/math/BigInteger;)V", nullptr, $PUBLIC, $method(static_cast<void(DHParameterSpec::*)($BigInteger*,$BigInteger*)>(&DHParameterSpec::init$))},
-	{"<init>", "(Ljava/math/BigInteger;Ljava/math/BigInteger;I)V", nullptr, $PUBLIC, $method(static_cast<void(DHParameterSpec::*)($BigInteger*,$BigInteger*,int32_t)>(&DHParameterSpec::init$))},
-	{"getG", "()Ljava/math/BigInteger;", nullptr, $PUBLIC},
-	{"getL", "()I", nullptr, $PUBLIC},
-	{"getP", "()Ljava/math/BigInteger;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/math/BigInteger;Ljava/math/BigInteger;)V", nullptr, $PUBLIC, $method(DHParameterSpec, init$, void, $BigInteger*, $BigInteger*)},
+	{"<init>", "(Ljava/math/BigInteger;Ljava/math/BigInteger;I)V", nullptr, $PUBLIC, $method(DHParameterSpec, init$, void, $BigInteger*, $BigInteger*, int32_t)},
+	{"getG", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(DHParameterSpec, getG, $BigInteger*)},
+	{"getL", "()I", nullptr, $PUBLIC, $virtualMethod(DHParameterSpec, getL, int32_t)},
+	{"getP", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(DHParameterSpec, getP, $BigInteger*)},
 	{}
 };
 

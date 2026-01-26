@@ -26,7 +26,7 @@ $FieldInfo _JIS_X_0208_Solaris$DecodeHolder_FieldInfo_[] = {
 };
 
 $MethodInfo _JIS_X_0208_Solaris$DecodeHolder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(JIS_X_0208_Solaris$DecodeHolder::*)()>(&JIS_X_0208_Solaris$DecodeHolder::init$))},
+	{"<init>", "()V", nullptr, 0, $method(JIS_X_0208_Solaris$DecodeHolder, init$, void)},
 	{}
 };
 

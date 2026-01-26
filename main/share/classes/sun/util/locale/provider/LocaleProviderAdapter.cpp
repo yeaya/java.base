@@ -72,6 +72,12 @@ using $System$Logger$Level = ::java::lang::System$Logger$Level;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
 using $Constructor = ::java::lang::reflect::Constructor;
 using $InvocationTargetException = ::java::lang::reflect::InvocationTargetException;
+using $BreakIteratorProvider = ::java::text::spi::BreakIteratorProvider;
+using $CollatorProvider = ::java::text::spi::CollatorProvider;
+using $DateFormatProvider = ::java::text::spi::DateFormatProvider;
+using $DateFormatSymbolsProvider = ::java::text::spi::DateFormatSymbolsProvider;
+using $DecimalFormatSymbolsProvider = ::java::text::spi::DecimalFormatSymbolsProvider;
+using $NumberFormatProvider = ::java::text::spi::NumberFormatProvider;
 using $AbstractList = ::java::util::AbstractList;
 using $AbstractMap = ::java::util::AbstractMap;
 using $ArrayList = ::java::util::ArrayList;
@@ -85,11 +91,19 @@ using $ServiceConfigurationError = ::java::util::ServiceConfigurationError;
 using $Set = ::java::util::Set;
 using $ConcurrentHashMap = ::java::util::concurrent::ConcurrentHashMap;
 using $ConcurrentMap = ::java::util::concurrent::ConcurrentMap;
+using $CalendarDataProvider = ::java::util::spi::CalendarDataProvider;
+using $CalendarNameProvider = ::java::util::spi::CalendarNameProvider;
+using $CurrencyNameProvider = ::java::util::spi::CurrencyNameProvider;
+using $LocaleNameProvider = ::java::util::spi::LocaleNameProvider;
 using $LocaleServiceProvider = ::java::util::spi::LocaleServiceProvider;
+using $TimeZoneNameProvider = ::java::util::spi::TimeZoneNameProvider;
 using $GetPropertyAction = ::sun::security::action::GetPropertyAction;
+using $JavaTimeDateTimePatternProvider = ::sun::text::spi::JavaTimeDateTimePatternProvider;
 using $JRELocaleConstants = ::sun::util::locale::provider::JRELocaleConstants;
 using $LocaleProviderAdapter$1 = ::sun::util::locale::provider::LocaleProviderAdapter$1;
 using $LocaleProviderAdapter$Type = ::sun::util::locale::provider::LocaleProviderAdapter$Type;
+using $LocaleResources = ::sun::util::locale::provider::LocaleResources;
+using $CalendarProvider = ::sun::util::spi::CalendarProvider;
 
 namespace sun {
 	namespace util {
@@ -106,32 +120,32 @@ $FieldInfo _LocaleProviderAdapter_FieldInfo_[] = {
 };
 
 $MethodInfo _LocaleProviderAdapter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(LocaleProviderAdapter::*)()>(&LocaleProviderAdapter::init$))},
-	{"findAdapter", "(Ljava/lang/Class;Ljava/util/Locale;)Lsun/util/locale/provider/LocaleProviderAdapter;", "(Ljava/lang/Class<+Ljava/util/spi/LocaleServiceProvider;>;Ljava/util/Locale;)Lsun/util/locale/provider/LocaleProviderAdapter;", $PRIVATE | $STATIC, $method(static_cast<LocaleProviderAdapter*(*)($Class*,$Locale*)>(&LocaleProviderAdapter::findAdapter))},
-	{"forJRE", "()Lsun/util/locale/provider/LocaleProviderAdapter;", nullptr, $PUBLIC | $STATIC, $method(static_cast<LocaleProviderAdapter*(*)()>(&LocaleProviderAdapter::forJRE))},
-	{"forType", "(Lsun/util/locale/provider/LocaleProviderAdapter$Type;)Lsun/util/locale/provider/LocaleProviderAdapter;", nullptr, $PUBLIC | $STATIC, $method(static_cast<LocaleProviderAdapter*(*)($LocaleProviderAdapter$Type*)>(&LocaleProviderAdapter::forType))},
-	{"getAdapter", "(Ljava/lang/Class;Ljava/util/Locale;)Lsun/util/locale/provider/LocaleProviderAdapter;", "(Ljava/lang/Class<+Ljava/util/spi/LocaleServiceProvider;>;Ljava/util/Locale;)Lsun/util/locale/provider/LocaleProviderAdapter;", $PUBLIC | $STATIC, $method(static_cast<LocaleProviderAdapter*(*)($Class*,$Locale*)>(&LocaleProviderAdapter::getAdapter))},
-	{"getAdapterPreference", "()Ljava/util/List;", "()Ljava/util/List<Lsun/util/locale/provider/LocaleProviderAdapter$Type;>;", $PUBLIC | $STATIC, $method(static_cast<$List*(*)()>(&LocaleProviderAdapter::getAdapterPreference))},
-	{"getAdapterType", "()Lsun/util/locale/provider/LocaleProviderAdapter$Type;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getBreakIteratorProvider", "()Ljava/text/spi/BreakIteratorProvider;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getCalendarDataProvider", "()Ljava/util/spi/CalendarDataProvider;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getCalendarNameProvider", "()Ljava/util/spi/CalendarNameProvider;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getCalendarProvider", "()Lsun/util/spi/CalendarProvider;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getCollatorProvider", "()Ljava/text/spi/CollatorProvider;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getCurrencyNameProvider", "()Ljava/util/spi/CurrencyNameProvider;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getDateFormatProvider", "()Ljava/text/spi/DateFormatProvider;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getDateFormatSymbolsProvider", "()Ljava/text/spi/DateFormatSymbolsProvider;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getDecimalFormatSymbolsProvider", "()Ljava/text/spi/DecimalFormatSymbolsProvider;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getJavaTimeDateTimePatternProvider", "()Lsun/text/spi/JavaTimeDateTimePatternProvider;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getLocaleNameProvider", "()Ljava/util/spi/LocaleNameProvider;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getLocaleResources", "(Ljava/util/Locale;)Lsun/util/locale/provider/LocaleResources;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getLocaleServiceProvider", "(Ljava/lang/Class;)Ljava/util/spi/LocaleServiceProvider;", "<P:Ljava/util/spi/LocaleServiceProvider;>(Ljava/lang/Class<TP;>;)TP;", $PUBLIC | $ABSTRACT},
-	{"getNumberFormatProvider", "()Ljava/text/spi/NumberFormatProvider;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getResourceBundleBased", "()Lsun/util/locale/provider/LocaleProviderAdapter;", nullptr, $PUBLIC | $STATIC, $method(static_cast<LocaleProviderAdapter*(*)()>(&LocaleProviderAdapter::getResourceBundleBased))},
-	{"getTimeZoneNameProvider", "()Ljava/util/spi/TimeZoneNameProvider;", nullptr, $PUBLIC | $ABSTRACT},
-	{"isSupportedProviderLocale", "(Ljava/util/Locale;Ljava/util/Set;)Z", "(Ljava/util/Locale;Ljava/util/Set<Ljava/lang/String;>;)Z", $PUBLIC},
-	{"toLocaleArray", "(Ljava/util/Set;)[Ljava/util/Locale;", "(Ljava/util/Set<Ljava/lang/String;>;)[Ljava/util/Locale;", $PUBLIC | $STATIC, $method(static_cast<$LocaleArray*(*)($Set*)>(&LocaleProviderAdapter::toLocaleArray))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(LocaleProviderAdapter, init$, void)},
+	{"findAdapter", "(Ljava/lang/Class;Ljava/util/Locale;)Lsun/util/locale/provider/LocaleProviderAdapter;", "(Ljava/lang/Class<+Ljava/util/spi/LocaleServiceProvider;>;Ljava/util/Locale;)Lsun/util/locale/provider/LocaleProviderAdapter;", $PRIVATE | $STATIC, $staticMethod(LocaleProviderAdapter, findAdapter, LocaleProviderAdapter*, $Class*, $Locale*)},
+	{"forJRE", "()Lsun/util/locale/provider/LocaleProviderAdapter;", nullptr, $PUBLIC | $STATIC, $staticMethod(LocaleProviderAdapter, forJRE, LocaleProviderAdapter*)},
+	{"forType", "(Lsun/util/locale/provider/LocaleProviderAdapter$Type;)Lsun/util/locale/provider/LocaleProviderAdapter;", nullptr, $PUBLIC | $STATIC, $staticMethod(LocaleProviderAdapter, forType, LocaleProviderAdapter*, $LocaleProviderAdapter$Type*)},
+	{"getAdapter", "(Ljava/lang/Class;Ljava/util/Locale;)Lsun/util/locale/provider/LocaleProviderAdapter;", "(Ljava/lang/Class<+Ljava/util/spi/LocaleServiceProvider;>;Ljava/util/Locale;)Lsun/util/locale/provider/LocaleProviderAdapter;", $PUBLIC | $STATIC, $staticMethod(LocaleProviderAdapter, getAdapter, LocaleProviderAdapter*, $Class*, $Locale*)},
+	{"getAdapterPreference", "()Ljava/util/List;", "()Ljava/util/List<Lsun/util/locale/provider/LocaleProviderAdapter$Type;>;", $PUBLIC | $STATIC, $staticMethod(LocaleProviderAdapter, getAdapterPreference, $List*)},
+	{"getAdapterType", "()Lsun/util/locale/provider/LocaleProviderAdapter$Type;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LocaleProviderAdapter, getAdapterType, $LocaleProviderAdapter$Type*)},
+	{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LocaleProviderAdapter, getAvailableLocales, $LocaleArray*)},
+	{"getBreakIteratorProvider", "()Ljava/text/spi/BreakIteratorProvider;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LocaleProviderAdapter, getBreakIteratorProvider, $BreakIteratorProvider*)},
+	{"getCalendarDataProvider", "()Ljava/util/spi/CalendarDataProvider;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LocaleProviderAdapter, getCalendarDataProvider, $CalendarDataProvider*)},
+	{"getCalendarNameProvider", "()Ljava/util/spi/CalendarNameProvider;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LocaleProviderAdapter, getCalendarNameProvider, $CalendarNameProvider*)},
+	{"getCalendarProvider", "()Lsun/util/spi/CalendarProvider;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LocaleProviderAdapter, getCalendarProvider, $CalendarProvider*)},
+	{"getCollatorProvider", "()Ljava/text/spi/CollatorProvider;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LocaleProviderAdapter, getCollatorProvider, $CollatorProvider*)},
+	{"getCurrencyNameProvider", "()Ljava/util/spi/CurrencyNameProvider;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LocaleProviderAdapter, getCurrencyNameProvider, $CurrencyNameProvider*)},
+	{"getDateFormatProvider", "()Ljava/text/spi/DateFormatProvider;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LocaleProviderAdapter, getDateFormatProvider, $DateFormatProvider*)},
+	{"getDateFormatSymbolsProvider", "()Ljava/text/spi/DateFormatSymbolsProvider;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LocaleProviderAdapter, getDateFormatSymbolsProvider, $DateFormatSymbolsProvider*)},
+	{"getDecimalFormatSymbolsProvider", "()Ljava/text/spi/DecimalFormatSymbolsProvider;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LocaleProviderAdapter, getDecimalFormatSymbolsProvider, $DecimalFormatSymbolsProvider*)},
+	{"getJavaTimeDateTimePatternProvider", "()Lsun/text/spi/JavaTimeDateTimePatternProvider;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LocaleProviderAdapter, getJavaTimeDateTimePatternProvider, $JavaTimeDateTimePatternProvider*)},
+	{"getLocaleNameProvider", "()Ljava/util/spi/LocaleNameProvider;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LocaleProviderAdapter, getLocaleNameProvider, $LocaleNameProvider*)},
+	{"getLocaleResources", "(Ljava/util/Locale;)Lsun/util/locale/provider/LocaleResources;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LocaleProviderAdapter, getLocaleResources, $LocaleResources*, $Locale*)},
+	{"getLocaleServiceProvider", "(Ljava/lang/Class;)Ljava/util/spi/LocaleServiceProvider;", "<P:Ljava/util/spi/LocaleServiceProvider;>(Ljava/lang/Class<TP;>;)TP;", $PUBLIC | $ABSTRACT, $virtualMethod(LocaleProviderAdapter, getLocaleServiceProvider, $LocaleServiceProvider*, $Class*)},
+	{"getNumberFormatProvider", "()Ljava/text/spi/NumberFormatProvider;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LocaleProviderAdapter, getNumberFormatProvider, $NumberFormatProvider*)},
+	{"getResourceBundleBased", "()Lsun/util/locale/provider/LocaleProviderAdapter;", nullptr, $PUBLIC | $STATIC, $staticMethod(LocaleProviderAdapter, getResourceBundleBased, LocaleProviderAdapter*)},
+	{"getTimeZoneNameProvider", "()Ljava/util/spi/TimeZoneNameProvider;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LocaleProviderAdapter, getTimeZoneNameProvider, $TimeZoneNameProvider*)},
+	{"isSupportedProviderLocale", "(Ljava/util/Locale;Ljava/util/Set;)Z", "(Ljava/util/Locale;Ljava/util/Set<Ljava/lang/String;>;)Z", $PUBLIC, $virtualMethod(LocaleProviderAdapter, isSupportedProviderLocale, bool, $Locale*, $Set*)},
+	{"toLocaleArray", "(Ljava/util/Set;)[Ljava/util/Locale;", "(Ljava/util/Set<Ljava/lang/String;>;)[Ljava/util/Locale;", $PUBLIC | $STATIC, $staticMethod(LocaleProviderAdapter, toLocaleArray, $LocaleArray*, $Set*)},
 	{}
 };
 

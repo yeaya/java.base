@@ -34,11 +34,11 @@ $FieldInfo _HmacMD5KeyGenerator_FieldInfo_[] = {
 };
 
 $MethodInfo _HmacMD5KeyGenerator_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(HmacMD5KeyGenerator::*)()>(&HmacMD5KeyGenerator::init$))},
-	{"engineGenerateKey", "()Ljavax/crypto/SecretKey;", nullptr, $PROTECTED},
-	{"engineInit", "(Ljava/security/SecureRandom;)V", nullptr, $PROTECTED},
-	{"engineInit", "(Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, nullptr, "java.security.InvalidAlgorithmParameterException"},
-	{"engineInit", "(ILjava/security/SecureRandom;)V", nullptr, $PROTECTED},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(HmacMD5KeyGenerator, init$, void)},
+	{"engineGenerateKey", "()Ljavax/crypto/SecretKey;", nullptr, $PROTECTED, $virtualMethod(HmacMD5KeyGenerator, engineGenerateKey, $SecretKey*)},
+	{"engineInit", "(Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(HmacMD5KeyGenerator, engineInit, void, $SecureRandom*)},
+	{"engineInit", "(Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(HmacMD5KeyGenerator, engineInit, void, $AlgorithmParameterSpec*, $SecureRandom*), "java.security.InvalidAlgorithmParameterException"},
+	{"engineInit", "(ILjava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(HmacMD5KeyGenerator, engineInit, void, int32_t, $SecureRandom*)},
 	{}
 };
 

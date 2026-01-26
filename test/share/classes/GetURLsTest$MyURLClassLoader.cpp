@@ -13,8 +13,8 @@ using $URL = ::java::net::URL;
 using $URLClassLoader = ::java::net::URLClassLoader;
 
 $MethodInfo _GetURLsTest$MyURLClassLoader_MethodInfo_[] = {
-	{"<init>", "([Ljava/net/URL;)V", nullptr, $PUBLIC, $method(static_cast<void(GetURLsTest$MyURLClassLoader::*)($URLArray*)>(&GetURLsTest$MyURLClassLoader::init$))},
-	{"addURL", "(Ljava/net/URL;)V", nullptr, $PUBLIC},
+	{"<init>", "([Ljava/net/URL;)V", nullptr, $PUBLIC, $method(GetURLsTest$MyURLClassLoader, init$, void, $URLArray*)},
+	{"addURL", "(Ljava/net/URL;)V", nullptr, $PUBLIC, $virtualMethod(GetURLsTest$MyURLClassLoader, addURL, void, $URL*)},
 	{}
 };
 

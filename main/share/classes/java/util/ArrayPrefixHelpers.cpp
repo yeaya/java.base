@@ -24,7 +24,7 @@ $FieldInfo _ArrayPrefixHelpers_FieldInfo_[] = {
 };
 
 $MethodInfo _ArrayPrefixHelpers_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(ArrayPrefixHelpers::*)()>(&ArrayPrefixHelpers::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(ArrayPrefixHelpers, init$, void)},
 	{}
 };
 

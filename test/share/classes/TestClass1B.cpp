@@ -197,9 +197,9 @@ $CompoundAttribute _TestClass1B_MethodAnnotations_foo2[] = {
 };
 
 $MethodInfo _TestClass1B_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(TestClass1B::*)()>(&TestClass1B::init$))},
-	{"bar", "()V", nullptr, $PUBLIC, nullptr, nullptr, nullptr, _TestClass1B_MethodAnnotations_bar1},
-	{"foo", "()V", nullptr, $PUBLIC, nullptr, nullptr, nullptr, _TestClass1B_MethodAnnotations_foo2},
+	{"<init>", "()V", nullptr, 0, $method(TestClass1B, init$, void)},
+	{"bar", "()V", nullptr, $PUBLIC, $virtualMethod(TestClass1B, bar, void), nullptr, nullptr, _TestClass1B_MethodAnnotations_bar1},
+	{"foo", "()V", nullptr, $PUBLIC, $virtualMethod(TestClass1B, foo, void), nullptr, nullptr, _TestClass1B_MethodAnnotations_foo2},
 	{}
 };
 

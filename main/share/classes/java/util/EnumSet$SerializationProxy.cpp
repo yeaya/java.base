@@ -27,8 +27,8 @@ $FieldInfo _EnumSet$SerializationProxy_FieldInfo_[] = {
 };
 
 $MethodInfo _EnumSet$SerializationProxy_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/EnumSet;)V", "(Ljava/util/EnumSet<TE;>;)V", 0, $method(static_cast<void(EnumSet$SerializationProxy::*)($EnumSet*)>(&EnumSet$SerializationProxy::init$))},
-	{"readResolve", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(static_cast<$Object*(EnumSet$SerializationProxy::*)()>(&EnumSet$SerializationProxy::readResolve))},
+	{"<init>", "(Ljava/util/EnumSet;)V", "(Ljava/util/EnumSet<TE;>;)V", 0, $method(EnumSet$SerializationProxy, init$, void, $EnumSet*)},
+	{"readResolve", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(EnumSet$SerializationProxy, readResolve, $Object*)},
 	{}
 };
 

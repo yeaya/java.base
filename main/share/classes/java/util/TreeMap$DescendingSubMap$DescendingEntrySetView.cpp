@@ -30,8 +30,8 @@ $FieldInfo _TreeMap$DescendingSubMap$DescendingEntrySetView_FieldInfo_[] = {
 };
 
 $MethodInfo _TreeMap$DescendingSubMap$DescendingEntrySetView_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/TreeMap$DescendingSubMap;)V", nullptr, 0, $method(static_cast<void(TreeMap$DescendingSubMap$DescendingEntrySetView::*)($TreeMap$DescendingSubMap*)>(&TreeMap$DescendingSubMap$DescendingEntrySetView::init$))},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/util/Map$Entry<TK;TV;>;>;", $PUBLIC},
+	{"<init>", "(Ljava/util/TreeMap$DescendingSubMap;)V", nullptr, 0, $method(TreeMap$DescendingSubMap$DescendingEntrySetView, init$, void, $TreeMap$DescendingSubMap*)},
+	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/util/Map$Entry<TK;TV;>;>;", $PUBLIC, $virtualMethod(TreeMap$DescendingSubMap$DescendingEntrySetView, iterator, $Iterator*)},
 	{}
 };
 

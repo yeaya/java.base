@@ -35,12 +35,12 @@ $FieldInfo _BigDecimalCompatibilityTest_FieldInfo_[] = {
 };
 
 $MethodInfo _BigDecimalCompatibilityTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(BigDecimalCompatibilityTest::*)()>(&BigDecimalCompatibilityTest::init$))},
-	{"check", "(Ljava/lang/Number;Ljava/math/BigDecimal;I)V", nullptr, $STATIC, $method(static_cast<void(*)($Number*,$BigDecimal*,int32_t)>(&BigDecimalCompatibilityTest::check))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&BigDecimalCompatibilityTest::main)), "java.lang.Exception"},
-	{"test", "(Ljava/text/DecimalFormat;Ljava/lang/String;I)V", nullptr, $STATIC, $method(static_cast<void(*)($DecimalFormat*,$String*,int32_t)>(&BigDecimalCompatibilityTest::test))},
-	{"testBigDecimal", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&BigDecimalCompatibilityTest::testBigDecimal))},
-	{"testBigInteger", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&BigDecimalCompatibilityTest::testBigInteger))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(BigDecimalCompatibilityTest, init$, void)},
+	{"check", "(Ljava/lang/Number;Ljava/math/BigDecimal;I)V", nullptr, $STATIC, $staticMethod(BigDecimalCompatibilityTest, check, void, $Number*, $BigDecimal*, int32_t)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(BigDecimalCompatibilityTest, main, void, $StringArray*), "java.lang.Exception"},
+	{"test", "(Ljava/text/DecimalFormat;Ljava/lang/String;I)V", nullptr, $STATIC, $staticMethod(BigDecimalCompatibilityTest, test, void, $DecimalFormat*, $String*, int32_t)},
+	{"testBigDecimal", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(BigDecimalCompatibilityTest, testBigDecimal, void)},
+	{"testBigInteger", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(BigDecimalCompatibilityTest, testBigInteger, void)},
 	{}
 };
 

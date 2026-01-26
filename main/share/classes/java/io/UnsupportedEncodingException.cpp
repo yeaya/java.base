@@ -17,8 +17,8 @@ $FieldInfo _UnsupportedEncodingException_FieldInfo_[] = {
 };
 
 $MethodInfo _UnsupportedEncodingException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(UnsupportedEncodingException::*)()>(&UnsupportedEncodingException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(UnsupportedEncodingException::*)($String*)>(&UnsupportedEncodingException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(UnsupportedEncodingException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(UnsupportedEncodingException, init$, void, $String*)},
 	{}
 };
 

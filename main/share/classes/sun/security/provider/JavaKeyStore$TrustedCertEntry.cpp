@@ -21,7 +21,7 @@ $FieldInfo _JavaKeyStore$TrustedCertEntry_FieldInfo_[] = {
 };
 
 $MethodInfo _JavaKeyStore$TrustedCertEntry_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(JavaKeyStore$TrustedCertEntry::*)()>(&JavaKeyStore$TrustedCertEntry::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(JavaKeyStore$TrustedCertEntry, init$, void)},
 	{}
 };
 

@@ -17,8 +17,8 @@ using $NumberFormat = ::java::text::NumberFormat;
 using $Locale = ::java::util::Locale;
 
 $MethodInfo _TestgetPatternSeparator_ja_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TestgetPatternSeparator_ja::*)()>(&TestgetPatternSeparator_ja::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&TestgetPatternSeparator_ja::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TestgetPatternSeparator_ja, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TestgetPatternSeparator_ja, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

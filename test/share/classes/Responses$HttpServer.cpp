@@ -47,11 +47,11 @@ $FieldInfo _Responses$HttpServer_FieldInfo_[] = {
 };
 
 $MethodInfo _Responses$HttpServer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Responses$HttpServer::*)()>(&Responses$HttpServer::init$))},
-	{"authority", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"port", "()I", nullptr, $PUBLIC},
-	{"run", "()V", nullptr, $PUBLIC},
-	{"shutdown", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Responses$HttpServer, init$, void)},
+	{"authority", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Responses$HttpServer, authority, $String*)},
+	{"port", "()I", nullptr, $PUBLIC, $virtualMethod(Responses$HttpServer, port, int32_t)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Responses$HttpServer, run, void)},
+	{"shutdown", "()V", nullptr, $PUBLIC, $virtualMethod(Responses$HttpServer, shutdown, void), "java.io.IOException"},
 	{}
 };
 

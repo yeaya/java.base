@@ -28,7 +28,7 @@ $FieldInfo _DomainKeyStore$KeyStoreBuilderComponents_FieldInfo_[] = {
 };
 
 $MethodInfo _DomainKeyStore$KeyStoreBuilderComponents_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/security/Provider;Ljava/io/File;Ljava/security/KeyStore$ProtectionParameter;)V", nullptr, 0, $method(static_cast<void(DomainKeyStore$KeyStoreBuilderComponents::*)($String*,$String*,$Provider*,$File*,$KeyStore$ProtectionParameter*)>(&DomainKeyStore$KeyStoreBuilderComponents::init$))},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/security/Provider;Ljava/io/File;Ljava/security/KeyStore$ProtectionParameter;)V", nullptr, 0, $method(DomainKeyStore$KeyStoreBuilderComponents, init$, void, $String*, $String*, $Provider*, $File*, $KeyStore$ProtectionParameter*)},
 	{}
 };
 

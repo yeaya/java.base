@@ -80,8 +80,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo AnnotatedTypeFactory$AnnotatedParameterizedTypeImpl$$Lambda$toString::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(AnnotatedTypeFactory$AnnotatedParameterizedTypeImpl$$Lambda$toString::*)()>(&AnnotatedTypeFactory$AnnotatedParameterizedTypeImpl$$Lambda$toString::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(AnnotatedTypeFactory$AnnotatedParameterizedTypeImpl$$Lambda$toString, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AnnotatedTypeFactory$AnnotatedParameterizedTypeImpl$$Lambda$toString, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo AnnotatedTypeFactory$AnnotatedParameterizedTypeImpl$$Lambda$toString::classInfo$ = {
@@ -108,14 +108,14 @@ $MethodInfo _AnnotatedTypeFactory$AnnotatedParameterizedTypeImpl_MethodInfo_[] =
 	{"*getDeclaredAnnotations", "()[Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC | $FINAL},
 	{"*getDeclaredAnnotationsByType", "(Ljava/lang/Class;)[Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC | $FINAL},
 	{"*getType", "()Ljava/lang/reflect/Type;", nullptr, $PUBLIC | $FINAL},
-	{"<init>", "(Ljava/lang/reflect/ParameterizedType;Lsun/reflect/annotation/TypeAnnotation$LocationInfo;[Lsun/reflect/annotation/TypeAnnotation;[Lsun/reflect/annotation/TypeAnnotation;Ljava/lang/reflect/AnnotatedElement;)V", nullptr, 0, $method(static_cast<void(AnnotatedTypeFactory$AnnotatedParameterizedTypeImpl::*)($ParameterizedType*,$TypeAnnotation$LocationInfo*,$TypeAnnotationArray*,$TypeAnnotationArray*,$AnnotatedElement*)>(&AnnotatedTypeFactory$AnnotatedParameterizedTypeImpl::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getAnnotatedActualTypeArguments", "()[Ljava/lang/reflect/AnnotatedType;", nullptr, $PUBLIC},
-	{"getAnnotatedOwnerType", "()Ljava/lang/reflect/AnnotatedType;", nullptr, $PUBLIC},
-	{"getParameterizedType", "()Ljava/lang/reflect/ParameterizedType;", nullptr, $PRIVATE, $method(static_cast<$ParameterizedType*(AnnotatedTypeFactory$AnnotatedParameterizedTypeImpl::*)()>(&AnnotatedTypeFactory$AnnotatedParameterizedTypeImpl::getParameterizedType))},
-	{"hashCode", "()I", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/reflect/ParameterizedType;Lsun/reflect/annotation/TypeAnnotation$LocationInfo;[Lsun/reflect/annotation/TypeAnnotation;[Lsun/reflect/annotation/TypeAnnotation;Ljava/lang/reflect/AnnotatedElement;)V", nullptr, 0, $method(AnnotatedTypeFactory$AnnotatedParameterizedTypeImpl, init$, void, $ParameterizedType*, $TypeAnnotation$LocationInfo*, $TypeAnnotationArray*, $TypeAnnotationArray*, $AnnotatedElement*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(AnnotatedTypeFactory$AnnotatedParameterizedTypeImpl, equals, bool, Object$*)},
+	{"getAnnotatedActualTypeArguments", "()[Ljava/lang/reflect/AnnotatedType;", nullptr, $PUBLIC, $virtualMethod(AnnotatedTypeFactory$AnnotatedParameterizedTypeImpl, getAnnotatedActualTypeArguments, $AnnotatedTypeArray*)},
+	{"getAnnotatedOwnerType", "()Ljava/lang/reflect/AnnotatedType;", nullptr, $PUBLIC, $virtualMethod(AnnotatedTypeFactory$AnnotatedParameterizedTypeImpl, getAnnotatedOwnerType, $AnnotatedType*)},
+	{"getParameterizedType", "()Ljava/lang/reflect/ParameterizedType;", nullptr, $PRIVATE, $method(AnnotatedTypeFactory$AnnotatedParameterizedTypeImpl, getParameterizedType, $ParameterizedType*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(AnnotatedTypeFactory$AnnotatedParameterizedTypeImpl, hashCode, int32_t)},
 	{"*isAnnotationPresent", "(Ljava/lang/Class;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AnnotatedTypeFactory$AnnotatedParameterizedTypeImpl, toString, $String*)},
 	{}
 };
 

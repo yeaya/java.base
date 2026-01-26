@@ -17,8 +17,8 @@ $FieldInfo _IncompatibleClassChangeError_FieldInfo_[] = {
 };
 
 $MethodInfo _IncompatibleClassChangeError_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(IncompatibleClassChangeError::*)()>(&IncompatibleClassChangeError::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(IncompatibleClassChangeError::*)($String*)>(&IncompatibleClassChangeError::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(IncompatibleClassChangeError, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(IncompatibleClassChangeError, init$, void, $String*)},
 	{}
 };
 

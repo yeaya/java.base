@@ -94,8 +94,8 @@ $FieldInfo SDFTCKZoneNamesTest$$Lambda$lambda$main$0::fieldInfos[2] = {
 	{}
 };
 $MethodInfo SDFTCKZoneNamesTest$$Lambda$lambda$main$0::methodInfos[3] = {
-	{"<init>", "(LSDFTCKZoneNamesTest;)V", nullptr, $PUBLIC, $method(static_cast<void(SDFTCKZoneNamesTest$$Lambda$lambda$main$0::*)(SDFTCKZoneNamesTest*)>(&SDFTCKZoneNamesTest$$Lambda$lambda$main$0::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(LSDFTCKZoneNamesTest;)V", nullptr, $PUBLIC, $method(SDFTCKZoneNamesTest$$Lambda$lambda$main$0, init$, void, SDFTCKZoneNamesTest*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(SDFTCKZoneNamesTest$$Lambda$lambda$main$0, accept, void, Object$*)},
 	{}
 };
 $ClassInfo SDFTCKZoneNamesTest$$Lambda$lambda$main$0::classInfo$ = {
@@ -124,14 +124,14 @@ $FieldInfo _SDFTCKZoneNamesTest_FieldInfo_[] = {
 };
 
 $MethodInfo _SDFTCKZoneNamesTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SDFTCKZoneNamesTest::*)()>(&SDFTCKZoneNamesTest::init$))},
-	{"SimpleDateFormat0062", "()V", nullptr, $PUBLIC},
-	{"getZoneIndex", "(Ljava/lang/String;Ljava/text/DateFormatSymbols;)I", nullptr, 0},
-	{"lambda$main$0", "(LSDFTCKZoneNamesTest;Ljava/util/Locale;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)(SDFTCKZoneNamesTest*,$Locale*)>(&SDFTCKZoneNamesTest::lambda$main$0))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&SDFTCKZoneNamesTest::main))},
-	{"myFormat", "(Ljava/util/Date;Ljava/text/SimpleDateFormat;)Ljava/lang/StringBuffer;", nullptr, 0},
-	{"subFormat", "(CILjava/util/Date;Ljava/text/SimpleDateFormat;)Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(SDFTCKZoneNamesTest::*)(char16_t,int32_t,$Date*,$SimpleDateFormat*)>(&SDFTCKZoneNamesTest::subFormat)), "java.lang.IllegalArgumentException"},
-	{"zeroPaddingNumber", "(JIILjava/text/NumberFormat;)Ljava/lang/String;", nullptr, 0},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SDFTCKZoneNamesTest, init$, void)},
+	{"SimpleDateFormat0062", "()V", nullptr, $PUBLIC, $virtualMethod(SDFTCKZoneNamesTest, SimpleDateFormat0062, void)},
+	{"getZoneIndex", "(Ljava/lang/String;Ljava/text/DateFormatSymbols;)I", nullptr, 0, $virtualMethod(SDFTCKZoneNamesTest, getZoneIndex, int32_t, $String*, $DateFormatSymbols*)},
+	{"lambda$main$0", "(LSDFTCKZoneNamesTest;Ljava/util/Locale;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SDFTCKZoneNamesTest, lambda$main$0, void, SDFTCKZoneNamesTest*, $Locale*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SDFTCKZoneNamesTest, main, void, $StringArray*)},
+	{"myFormat", "(Ljava/util/Date;Ljava/text/SimpleDateFormat;)Ljava/lang/StringBuffer;", nullptr, 0, $virtualMethod(SDFTCKZoneNamesTest, myFormat, $StringBuffer*, $Date*, $SimpleDateFormat*)},
+	{"subFormat", "(CILjava/util/Date;Ljava/text/SimpleDateFormat;)Ljava/lang/String;", nullptr, $PRIVATE, $method(SDFTCKZoneNamesTest, subFormat, $String*, char16_t, int32_t, $Date*, $SimpleDateFormat*), "java.lang.IllegalArgumentException"},
+	{"zeroPaddingNumber", "(JIILjava/text/NumberFormat;)Ljava/lang/String;", nullptr, 0, $virtualMethod(SDFTCKZoneNamesTest, zeroPaddingNumber, $String*, int64_t, int32_t, int32_t, $NumberFormat*)},
 	{}
 };
 

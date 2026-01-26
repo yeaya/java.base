@@ -24,8 +24,8 @@ $FieldInfo _GZIPInputStream$1_FieldInfo_[] = {
 };
 
 $MethodInfo _GZIPInputStream$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/zip/GZIPInputStream;Ljava/io/InputStream;)V", nullptr, 0, $method(static_cast<void(GZIPInputStream$1::*)($GZIPInputStream*,$InputStream*)>(&GZIPInputStream$1::init$))},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljava/util/zip/GZIPInputStream;Ljava/io/InputStream;)V", nullptr, 0, $method(GZIPInputStream$1, init$, void, $GZIPInputStream*, $InputStream*)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(GZIPInputStream$1, close, void), "java.io.IOException"},
 	{}
 };
 

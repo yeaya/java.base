@@ -21,8 +21,8 @@ $FieldInfo _RandomAccessFile$1_FieldInfo_[] = {
 };
 
 $MethodInfo _RandomAccessFile$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/RandomAccessFile;)V", nullptr, 0, $method(static_cast<void(RandomAccessFile$1::*)($RandomAccessFile*)>(&RandomAccessFile$1::init$))},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljava/io/RandomAccessFile;)V", nullptr, 0, $method(RandomAccessFile$1, init$, void, $RandomAccessFile*)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(RandomAccessFile$1, close, void), "java.io.IOException"},
 	{}
 };
 

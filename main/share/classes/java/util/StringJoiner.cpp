@@ -38,15 +38,15 @@ $FieldInfo _StringJoiner_FieldInfo_[] = {
 };
 
 $MethodInfo _StringJoiner_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/CharSequence;)V", nullptr, $PUBLIC, $method(static_cast<void(StringJoiner::*)($CharSequence*)>(&StringJoiner::init$))},
-	{"<init>", "(Ljava/lang/CharSequence;Ljava/lang/CharSequence;Ljava/lang/CharSequence;)V", nullptr, $PUBLIC, $method(static_cast<void(StringJoiner::*)($CharSequence*,$CharSequence*,$CharSequence*)>(&StringJoiner::init$))},
-	{"add", "(Ljava/lang/CharSequence;)Ljava/util/StringJoiner;", nullptr, $PUBLIC, $method(static_cast<StringJoiner*(StringJoiner::*)($CharSequence*)>(&StringJoiner::add))},
-	{"checkAddLength", "(II)I", nullptr, $PRIVATE, $method(static_cast<int32_t(StringJoiner::*)(int32_t,int32_t)>(&StringJoiner::checkAddLength))},
-	{"compactElts", "()V", nullptr, $PRIVATE, $method(static_cast<void(StringJoiner::*)()>(&StringJoiner::compactElts))},
-	{"length", "()I", nullptr, $PUBLIC, $method(static_cast<int32_t(StringJoiner::*)()>(&StringJoiner::length))},
-	{"merge", "(Ljava/util/StringJoiner;)Ljava/util/StringJoiner;", nullptr, $PUBLIC, $method(static_cast<StringJoiner*(StringJoiner::*)(StringJoiner*)>(&StringJoiner::merge))},
-	{"setEmptyValue", "(Ljava/lang/CharSequence;)Ljava/util/StringJoiner;", nullptr, $PUBLIC, $method(static_cast<StringJoiner*(StringJoiner::*)($CharSequence*)>(&StringJoiner::setEmptyValue))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/CharSequence;)V", nullptr, $PUBLIC, $method(StringJoiner, init$, void, $CharSequence*)},
+	{"<init>", "(Ljava/lang/CharSequence;Ljava/lang/CharSequence;Ljava/lang/CharSequence;)V", nullptr, $PUBLIC, $method(StringJoiner, init$, void, $CharSequence*, $CharSequence*, $CharSequence*)},
+	{"add", "(Ljava/lang/CharSequence;)Ljava/util/StringJoiner;", nullptr, $PUBLIC, $method(StringJoiner, add, StringJoiner*, $CharSequence*)},
+	{"checkAddLength", "(II)I", nullptr, $PRIVATE, $method(StringJoiner, checkAddLength, int32_t, int32_t, int32_t)},
+	{"compactElts", "()V", nullptr, $PRIVATE, $method(StringJoiner, compactElts, void)},
+	{"length", "()I", nullptr, $PUBLIC, $method(StringJoiner, length, int32_t)},
+	{"merge", "(Ljava/util/StringJoiner;)Ljava/util/StringJoiner;", nullptr, $PUBLIC, $method(StringJoiner, merge, StringJoiner*, StringJoiner*)},
+	{"setEmptyValue", "(Ljava/lang/CharSequence;)Ljava/util/StringJoiner;", nullptr, $PUBLIC, $method(StringJoiner, setEmptyValue, StringJoiner*, $CharSequence*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StringJoiner, toString, $String*)},
 	{}
 };
 

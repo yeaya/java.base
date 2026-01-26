@@ -33,15 +33,15 @@ $FieldInfo _EnumMap$EntrySet_FieldInfo_[] = {
 };
 
 $MethodInfo _EnumMap$EntrySet_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/EnumMap;)V", nullptr, $PRIVATE, $method(static_cast<void(EnumMap$EntrySet::*)($EnumMap*)>(&EnumMap$EntrySet::init$))},
-	{"clear", "()V", nullptr, $PUBLIC},
-	{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"fillEntryArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", nullptr, $PRIVATE, $method(static_cast<$ObjectArray*(EnumMap$EntrySet::*)($ObjectArray*)>(&EnumMap$EntrySet::fillEntryArray))},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/util/Map$Entry<TK;TV;>;>;", $PUBLIC},
-	{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"size", "()I", nullptr, $PUBLIC},
-	{"toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", "<T:Ljava/lang/Object;>([TT;)[TT;", $PUBLIC},
+	{"<init>", "(Ljava/util/EnumMap;)V", nullptr, $PRIVATE, $method(EnumMap$EntrySet, init$, void, $EnumMap*)},
+	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(EnumMap$EntrySet, clear, void)},
+	{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(EnumMap$EntrySet, contains, bool, Object$*)},
+	{"fillEntryArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", nullptr, $PRIVATE, $method(EnumMap$EntrySet, fillEntryArray, $ObjectArray*, $ObjectArray*)},
+	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/util/Map$Entry<TK;TV;>;>;", $PUBLIC, $virtualMethod(EnumMap$EntrySet, iterator, $Iterator*)},
+	{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(EnumMap$EntrySet, remove, bool, Object$*)},
+	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(EnumMap$EntrySet, size, int32_t)},
+	{"toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(EnumMap$EntrySet, toArray, $ObjectArray*)},
+	{"toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", "<T:Ljava/lang/Object;>([TT;)[TT;", $PUBLIC, $virtualMethod(EnumMap$EntrySet, toArray, $ObjectArray*, $ObjectArray*)},
 	{}
 };
 

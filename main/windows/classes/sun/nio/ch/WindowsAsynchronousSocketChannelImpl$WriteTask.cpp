@@ -73,15 +73,15 @@ $MethodInfo _WindowsAsynchronousSocketChannelImpl$WriteTask_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lsun/nio/ch/WindowsAsynchronousSocketChannelImpl;[Ljava/nio/ByteBuffer;ZLsun/nio/ch/PendingFuture;)V", "([Ljava/nio/ByteBuffer;ZLsun/nio/ch/PendingFuture<TV;TA;>;)V", 0, $method(static_cast<void(WindowsAsynchronousSocketChannelImpl$WriteTask::*)($WindowsAsynchronousSocketChannelImpl*,$ByteBufferArray*,bool,$PendingFuture*)>(&WindowsAsynchronousSocketChannelImpl$WriteTask::init$))},
-	{"completed", "(IZ)V", nullptr, $PUBLIC},
-	{"failed", "(ILjava/io/IOException;)V", nullptr, $PUBLIC},
-	{"prepareBuffers", "()V", nullptr, 0},
-	{"releaseBuffers", "()V", nullptr, 0},
-	{"run", "()V", nullptr, $PUBLIC},
-	{"timeout", "()V", nullptr, 0},
+	{"<init>", "(Lsun/nio/ch/WindowsAsynchronousSocketChannelImpl;[Ljava/nio/ByteBuffer;ZLsun/nio/ch/PendingFuture;)V", "([Ljava/nio/ByteBuffer;ZLsun/nio/ch/PendingFuture<TV;TA;>;)V", 0, $method(WindowsAsynchronousSocketChannelImpl$WriteTask, init$, void, $WindowsAsynchronousSocketChannelImpl*, $ByteBufferArray*, bool, $PendingFuture*)},
+	{"completed", "(IZ)V", nullptr, $PUBLIC, $virtualMethod(WindowsAsynchronousSocketChannelImpl$WriteTask, completed, void, int32_t, bool)},
+	{"failed", "(ILjava/io/IOException;)V", nullptr, $PUBLIC, $virtualMethod(WindowsAsynchronousSocketChannelImpl$WriteTask, failed, void, int32_t, $IOException*)},
+	{"prepareBuffers", "()V", nullptr, 0, $virtualMethod(WindowsAsynchronousSocketChannelImpl$WriteTask, prepareBuffers, void)},
+	{"releaseBuffers", "()V", nullptr, 0, $virtualMethod(WindowsAsynchronousSocketChannelImpl$WriteTask, releaseBuffers, void)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(WindowsAsynchronousSocketChannelImpl$WriteTask, run, void)},
+	{"timeout", "()V", nullptr, 0, $virtualMethod(WindowsAsynchronousSocketChannelImpl$WriteTask, timeout, void)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"updateBuffers", "(I)V", nullptr, 0},
+	{"updateBuffers", "(I)V", nullptr, 0, $virtualMethod(WindowsAsynchronousSocketChannelImpl$WriteTask, updateBuffers, void, int32_t)},
 	{}
 };
 

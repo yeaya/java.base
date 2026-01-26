@@ -67,13 +67,13 @@ $FieldInfo _HttpCapture_FieldInfo_[] = {
 };
 
 $MethodInfo _HttpCapture_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/File;Ljava/net/URL;)V", nullptr, $PRIVATE, $method(static_cast<void(HttpCapture::*)($File*,$URL*)>(&HttpCapture::init$))},
-	{"flush", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, nullptr, "java.io.IOException"},
-	{"getCapture", "(Ljava/net/URL;)Lsun/net/www/http/HttpCapture;", nullptr, $PUBLIC | $STATIC, $method(static_cast<HttpCapture*(*)($URL*)>(&HttpCapture::getCapture))},
-	{"init", "()V", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $method(static_cast<void(*)()>(&HttpCapture::init))},
-	{"isInitialized", "()Z", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $method(static_cast<bool(*)()>(&HttpCapture::isInitialized))},
-	{"received", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, nullptr, "java.io.IOException"},
-	{"sent", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljava/io/File;Ljava/net/URL;)V", nullptr, $PRIVATE, $method(HttpCapture, init$, void, $File*, $URL*)},
+	{"flush", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(HttpCapture, flush, void), "java.io.IOException"},
+	{"getCapture", "(Ljava/net/URL;)Lsun/net/www/http/HttpCapture;", nullptr, $PUBLIC | $STATIC, $staticMethod(HttpCapture, getCapture, HttpCapture*, $URL*)},
+	{"init", "()V", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(HttpCapture, init, void)},
+	{"isInitialized", "()Z", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(HttpCapture, isInitialized, bool)},
+	{"received", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(HttpCapture, received, void, int32_t), "java.io.IOException"},
+	{"sent", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(HttpCapture, sent, void, int32_t), "java.io.IOException"},
 	{}
 };
 

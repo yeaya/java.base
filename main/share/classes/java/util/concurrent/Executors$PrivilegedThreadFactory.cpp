@@ -41,8 +41,8 @@ $FieldInfo _Executors$PrivilegedThreadFactory_FieldInfo_[] = {
 };
 
 $MethodInfo _Executors$PrivilegedThreadFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Executors$PrivilegedThreadFactory::*)()>(&Executors$PrivilegedThreadFactory::init$))},
-	{"newThread", "(Ljava/lang/Runnable;)Ljava/lang/Thread;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(Executors$PrivilegedThreadFactory, init$, void)},
+	{"newThread", "(Ljava/lang/Runnable;)Ljava/lang/Thread;", nullptr, $PUBLIC, $virtualMethod(Executors$PrivilegedThreadFactory, newThread, $Thread*, $Runnable*)},
 	{}
 };
 

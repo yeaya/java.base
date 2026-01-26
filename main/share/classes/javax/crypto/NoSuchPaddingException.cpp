@@ -17,8 +17,8 @@ $FieldInfo _NoSuchPaddingException_FieldInfo_[] = {
 };
 
 $MethodInfo _NoSuchPaddingException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(NoSuchPaddingException::*)()>(&NoSuchPaddingException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(NoSuchPaddingException::*)($String*)>(&NoSuchPaddingException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(NoSuchPaddingException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NoSuchPaddingException, init$, void, $String*)},
 	{}
 };
 

@@ -46,19 +46,19 @@ $FieldInfo _URLPermission_FieldInfo_[] = {
 };
 
 $MethodInfo _URLPermission_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(URLPermission::*)($String*,$String*)>(&URLPermission::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(URLPermission::*)($String*)>(&URLPermission::init$))},
-	{"actions", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(URLPermission::*)()>(&URLPermission::actions))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getActions", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"implies", "(Ljava/security/Permission;)Z", nullptr, $PUBLIC},
-	{"init", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(static_cast<void(URLPermission::*)($String*)>(&URLPermission::init))},
-	{"normalize", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($String*)>(&URLPermission::normalize))},
-	{"normalizeHeaders", "(Ljava/lang/String;)Ljava/util/List;", "(Ljava/lang/String;)Ljava/util/List<Ljava/lang/String;>;", $PRIVATE, $method(static_cast<$List*(URLPermission::*)($String*)>(&URLPermission::normalizeHeaders))},
-	{"normalizeMethods", "(Ljava/lang/String;)Ljava/util/List;", "(Ljava/lang/String;)Ljava/util/List<Ljava/lang/String;>;", $PRIVATE, $method(static_cast<$List*(URLPermission::*)($String*)>(&URLPermission::normalizeMethods))},
-	{"parseURI", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(static_cast<void(URLPermission::*)($String*)>(&URLPermission::parseURI))},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(URLPermission::*)($ObjectInputStream*)>(&URLPermission::readObject)), "java.io.IOException,java.lang.ClassNotFoundException"},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(URLPermission, init$, void, $String*, $String*)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(URLPermission, init$, void, $String*)},
+	{"actions", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(URLPermission, actions, $String*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(URLPermission, equals, bool, Object$*)},
+	{"getActions", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(URLPermission, getActions, $String*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(URLPermission, hashCode, int32_t)},
+	{"implies", "(Ljava/security/Permission;)Z", nullptr, $PUBLIC, $virtualMethod(URLPermission, implies, bool, $Permission*)},
+	{"init", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(URLPermission, init, void, $String*)},
+	{"normalize", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(URLPermission, normalize, $String*, $String*)},
+	{"normalizeHeaders", "(Ljava/lang/String;)Ljava/util/List;", "(Ljava/lang/String;)Ljava/util/List<Ljava/lang/String;>;", $PRIVATE, $method(URLPermission, normalizeHeaders, $List*, $String*)},
+	{"normalizeMethods", "(Ljava/lang/String;)Ljava/util/List;", "(Ljava/lang/String;)Ljava/util/List<Ljava/lang/String;>;", $PRIVATE, $method(URLPermission, normalizeMethods, $List*, $String*)},
+	{"parseURI", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(URLPermission, parseURI, void, $String*)},
+	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(URLPermission, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
 	{}
 };
 

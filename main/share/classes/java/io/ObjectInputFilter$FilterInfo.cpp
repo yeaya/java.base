@@ -11,11 +11,11 @@ namespace java {
 	namespace io {
 
 $MethodInfo _ObjectInputFilter$FilterInfo_MethodInfo_[] = {
-	{"arrayLength", "()J", nullptr, $PUBLIC | $ABSTRACT},
-	{"depth", "()J", nullptr, $PUBLIC | $ABSTRACT},
-	{"references", "()J", nullptr, $PUBLIC | $ABSTRACT},
-	{"serialClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC | $ABSTRACT},
-	{"streamBytes", "()J", nullptr, $PUBLIC | $ABSTRACT},
+	{"arrayLength", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ObjectInputFilter$FilterInfo, arrayLength, int64_t)},
+	{"depth", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ObjectInputFilter$FilterInfo, depth, int64_t)},
+	{"references", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ObjectInputFilter$FilterInfo, references, int64_t)},
+	{"serialClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC | $ABSTRACT, $virtualMethod(ObjectInputFilter$FilterInfo, serialClass, $Class*)},
+	{"streamBytes", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ObjectInputFilter$FilterInfo, streamBytes, int64_t)},
 	{}
 };
 

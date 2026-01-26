@@ -24,8 +24,8 @@ $FieldInfo _CloseAfterConnect$1_FieldInfo_[] = {
 };
 
 $MethodInfo _CloseAfterConnect$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/channels/SocketChannel;Ljava/net/InetSocketAddress;)V", "()V", 0, $method(static_cast<void(CloseAfterConnect$1::*)($SocketChannel*,$InetSocketAddress*)>(&CloseAfterConnect$1::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/nio/channels/SocketChannel;Ljava/net/InetSocketAddress;)V", "()V", 0, $method(CloseAfterConnect$1, init$, void, $SocketChannel*, $InetSocketAddress*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(CloseAfterConnect$1, run, void)},
 	{}
 };
 

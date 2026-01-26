@@ -55,21 +55,21 @@ $FieldInfo _IDN_FieldInfo_[] = {
 };
 
 $MethodInfo _IDN_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(IDN::*)()>(&IDN::init$))},
-	{"isAllASCII", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($String*)>(&IDN::isAllASCII))},
-	{"isLabelSeparator", "(C)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)(char16_t)>(&IDN::isLabelSeparator))},
-	{"isNonLDHAsciiCodePoint", "(I)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)(int32_t)>(&IDN::isNonLDHAsciiCodePoint))},
-	{"isRootLabel", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($String*)>(&IDN::isRootLabel))},
-	{"searchDots", "(Ljava/lang/String;I)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)($String*,int32_t)>(&IDN::searchDots))},
-	{"startsWithACEPrefix", "(Ljava/lang/StringBuffer;)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($StringBuffer*)>(&IDN::startsWithACEPrefix))},
-	{"toASCII", "(Ljava/lang/String;I)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)($String*,int32_t)>(&IDN::toASCII))},
-	{"toASCII", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)($String*)>(&IDN::toASCII))},
-	{"toASCIIInternal", "(Ljava/lang/String;I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($String*,int32_t)>(&IDN::toASCIIInternal))},
-	{"toASCIILower", "(C)C", nullptr, $PRIVATE | $STATIC, $method(static_cast<char16_t(*)(char16_t)>(&IDN::toASCIILower))},
-	{"toASCIILower", "(Ljava/lang/StringBuffer;)Ljava/lang/StringBuffer;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$StringBuffer*(*)($StringBuffer*)>(&IDN::toASCIILower))},
-	{"toUnicode", "(Ljava/lang/String;I)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)($String*,int32_t)>(&IDN::toUnicode))},
-	{"toUnicode", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)($String*)>(&IDN::toUnicode))},
-	{"toUnicodeInternal", "(Ljava/lang/String;I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($String*,int32_t)>(&IDN::toUnicodeInternal))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(IDN, init$, void)},
+	{"isAllASCII", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(IDN, isAllASCII, bool, $String*)},
+	{"isLabelSeparator", "(C)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(IDN, isLabelSeparator, bool, char16_t)},
+	{"isNonLDHAsciiCodePoint", "(I)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(IDN, isNonLDHAsciiCodePoint, bool, int32_t)},
+	{"isRootLabel", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(IDN, isRootLabel, bool, $String*)},
+	{"searchDots", "(Ljava/lang/String;I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(IDN, searchDots, int32_t, $String*, int32_t)},
+	{"startsWithACEPrefix", "(Ljava/lang/StringBuffer;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(IDN, startsWithACEPrefix, bool, $StringBuffer*)},
+	{"toASCII", "(Ljava/lang/String;I)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(IDN, toASCII, $String*, $String*, int32_t)},
+	{"toASCII", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(IDN, toASCII, $String*, $String*)},
+	{"toASCIIInternal", "(Ljava/lang/String;I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(IDN, toASCIIInternal, $String*, $String*, int32_t)},
+	{"toASCIILower", "(C)C", nullptr, $PRIVATE | $STATIC, $staticMethod(IDN, toASCIILower, char16_t, char16_t)},
+	{"toASCIILower", "(Ljava/lang/StringBuffer;)Ljava/lang/StringBuffer;", nullptr, $PRIVATE | $STATIC, $staticMethod(IDN, toASCIILower, $StringBuffer*, $StringBuffer*)},
+	{"toUnicode", "(Ljava/lang/String;I)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(IDN, toUnicode, $String*, $String*, int32_t)},
+	{"toUnicode", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(IDN, toUnicode, $String*, $String*)},
+	{"toUnicodeInternal", "(Ljava/lang/String;I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(IDN, toUnicodeInternal, $String*, $String*, int32_t)},
 	{}
 };
 

@@ -16,8 +16,8 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 
 $MethodInfo _CloseStream_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CloseStream::*)()>(&CloseStream::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&CloseStream::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CloseStream, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(CloseStream, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

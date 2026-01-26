@@ -24,8 +24,8 @@ $FieldInfo _ModuleProvideNode_FieldInfo_[] = {
 };
 
 $MethodInfo _ModuleProvideNode_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/util/List;)V", "(Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;)V", $PUBLIC, $method(static_cast<void(ModuleProvideNode::*)($String*,$List*)>(&ModuleProvideNode::init$))},
-	{"accept", "(Ljdk/internal/org/objectweb/asm/ModuleVisitor;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Ljava/util/List;)V", "(Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;)V", $PUBLIC, $method(ModuleProvideNode, init$, void, $String*, $List*)},
+	{"accept", "(Ljdk/internal/org/objectweb/asm/ModuleVisitor;)V", nullptr, $PUBLIC, $virtualMethod(ModuleProvideNode, accept, void, $ModuleVisitor*)},
 	{}
 };
 

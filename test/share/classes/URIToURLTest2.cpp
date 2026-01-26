@@ -22,9 +22,9 @@ using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
 
 $MethodInfo _URIToURLTest2_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(URIToURLTest2::*)()>(&URIToURLTest2::init$))},
-	{"hasFtp", "()Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)()>(&URIToURLTest2::hasFtp))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&URIToURLTest2::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(URIToURLTest2, init$, void)},
+	{"hasFtp", "()Z", nullptr, $PRIVATE | $STATIC, $staticMethod(URIToURLTest2, hasFtp, bool)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(URIToURLTest2, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

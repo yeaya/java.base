@@ -23,7 +23,7 @@ $FieldInfo _Thread$Caches_FieldInfo_[] = {
 };
 
 $MethodInfo _Thread$Caches_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(Thread$Caches::*)()>(&Thread$Caches::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(Thread$Caches, init$, void)},
 	{}
 };
 

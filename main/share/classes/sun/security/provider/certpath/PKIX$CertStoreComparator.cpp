@@ -18,9 +18,9 @@ namespace sun {
 			namespace certpath {
 
 $MethodInfo _PKIX$CertStoreComparator_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(PKIX$CertStoreComparator::*)()>(&PKIX$CertStoreComparator::init$))},
-	{"compare", "(Ljava/security/cert/CertStore;Ljava/security/cert/CertStore;)I", nullptr, $PUBLIC},
-	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(PKIX$CertStoreComparator, init$, void)},
+	{"compare", "(Ljava/security/cert/CertStore;Ljava/security/cert/CertStore;)I", nullptr, $PUBLIC, $virtualMethod(PKIX$CertStoreComparator, compare, int32_t, $CertStore*, $CertStore*)},
+	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(PKIX$CertStoreComparator, compare, int32_t, Object$*, Object$*)},
 	{}
 };
 

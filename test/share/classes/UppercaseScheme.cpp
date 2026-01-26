@@ -8,8 +8,8 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $URL = ::java::net::URL;
 
 $MethodInfo _UppercaseScheme_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(UppercaseScheme::*)()>(&UppercaseScheme::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&UppercaseScheme::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(UppercaseScheme, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(UppercaseScheme, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

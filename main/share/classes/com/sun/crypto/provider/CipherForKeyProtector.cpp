@@ -17,7 +17,7 @@ namespace com {
 			namespace provider {
 
 $MethodInfo _CipherForKeyProtector_MethodInfo_[] = {
-	{"<init>", "(Ljavax/crypto/CipherSpi;Ljava/security/Provider;Ljava/lang/String;)V", nullptr, $PROTECTED, $method(static_cast<void(CipherForKeyProtector::*)($CipherSpi*,$Provider*,$String*)>(&CipherForKeyProtector::init$))},
+	{"<init>", "(Ljavax/crypto/CipherSpi;Ljava/security/Provider;Ljava/lang/String;)V", nullptr, $PROTECTED, $method(CipherForKeyProtector, init$, void, $CipherSpi*, $Provider*, $String*)},
 	{}
 };
 

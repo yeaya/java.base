@@ -23,7 +23,7 @@ $FieldInfo _ExtendedSocketOption_FieldInfo_[] = {
 };
 
 $MethodInfo _ExtendedSocketOption_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(ExtendedSocketOption::*)()>(&ExtendedSocketOption::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(ExtendedSocketOption, init$, void)},
 	{}
 };
 

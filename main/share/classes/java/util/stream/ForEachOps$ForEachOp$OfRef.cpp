@@ -25,11 +25,11 @@ $FieldInfo _ForEachOps$ForEachOp$OfRef_FieldInfo_[] = {
 };
 
 $MethodInfo _ForEachOps$ForEachOp$OfRef_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/function/Consumer;Z)V", "(Ljava/util/function/Consumer<-TT;>;Z)V", 0, $method(static_cast<void(ForEachOps$ForEachOp$OfRef::*)($Consumer*,bool)>(&ForEachOps$ForEachOp$OfRef::init$))},
-	{"accept", "(Ljava/lang/Object;)V", "(TT;)V", $PUBLIC},
-	{"evaluateParallel", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"evaluateSequential", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "(Ljava/util/function/Consumer;Z)V", "(Ljava/util/function/Consumer<-TT;>;Z)V", 0, $method(ForEachOps$ForEachOp$OfRef, init$, void, $Consumer*, bool)},
+	{"accept", "(Ljava/lang/Object;)V", "(TT;)V", $PUBLIC, $virtualMethod(ForEachOps$ForEachOp$OfRef, accept, void, Object$*)},
+	{"evaluateParallel", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ForEachOps$ForEachOp$OfRef, evaluateParallel, $Object*, $PipelineHelper*, $Spliterator*)},
+	{"evaluateSequential", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ForEachOps$ForEachOp$OfRef, evaluateSequential, $Object*, $PipelineHelper*, $Spliterator*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ForEachOps$ForEachOp$OfRef, get, $Object*)},
 	{}
 };
 

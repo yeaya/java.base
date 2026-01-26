@@ -21,11 +21,11 @@ $FieldInfo _CodePointMap$Range_FieldInfo_[] = {
 };
 
 $MethodInfo _CodePointMap$Range_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CodePointMap$Range::*)()>(&CodePointMap$Range::init$))},
-	{"getEnd", "()I", nullptr, $PUBLIC, $method(static_cast<int32_t(CodePointMap$Range::*)()>(&CodePointMap$Range::getEnd))},
-	{"getStart", "()I", nullptr, $PUBLIC, $method(static_cast<int32_t(CodePointMap$Range::*)()>(&CodePointMap$Range::getStart))},
-	{"getValue", "()I", nullptr, $PUBLIC, $method(static_cast<int32_t(CodePointMap$Range::*)()>(&CodePointMap$Range::getValue))},
-	{"set", "(III)V", nullptr, $PUBLIC, $method(static_cast<void(CodePointMap$Range::*)(int32_t,int32_t,int32_t)>(&CodePointMap$Range::set))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CodePointMap$Range, init$, void)},
+	{"getEnd", "()I", nullptr, $PUBLIC, $method(CodePointMap$Range, getEnd, int32_t)},
+	{"getStart", "()I", nullptr, $PUBLIC, $method(CodePointMap$Range, getStart, int32_t)},
+	{"getValue", "()I", nullptr, $PUBLIC, $method(CodePointMap$Range, getValue, int32_t)},
+	{"set", "(III)V", nullptr, $PUBLIC, $method(CodePointMap$Range, set, void, int32_t, int32_t, int32_t)},
 	{}
 };
 

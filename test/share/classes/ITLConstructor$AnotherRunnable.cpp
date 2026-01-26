@@ -29,8 +29,8 @@ $FieldInfo _ITLConstructor$AnotherRunnable_FieldInfo_[] = {
 };
 
 $MethodInfo _ITLConstructor$AnotherRunnable_MethodInfo_[] = {
-	{"<init>", "(I[IZ)V", nullptr, 0, $method(static_cast<void(ITLConstructor$AnotherRunnable::*)(int32_t,$ints*,bool)>(&ITLConstructor$AnotherRunnable::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(I[IZ)V", nullptr, 0, $method(ITLConstructor$AnotherRunnable, init$, void, int32_t, $ints*, bool)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ITLConstructor$AnotherRunnable, run, void)},
 	{}
 };
 

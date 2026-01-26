@@ -37,11 +37,11 @@ $FieldInfo _ConstantCallSite_FieldInfo_[] = {
 };
 
 $MethodInfo _ConstantCallSite_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/invoke/MethodHandle;)V", nullptr, $PUBLIC, $method(static_cast<void(ConstantCallSite::*)($MethodHandle*)>(&ConstantCallSite::init$))},
-	{"<init>", "(Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;)V", nullptr, $PROTECTED, $method(static_cast<void(ConstantCallSite::*)($MethodType*,$MethodHandle*)>(&ConstantCallSite::init$)), "java.lang.Throwable"},
-	{"dynamicInvoker", "()Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC | $FINAL},
-	{"getTarget", "()Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC | $FINAL},
-	{"setTarget", "(Ljava/lang/invoke/MethodHandle;)V", nullptr, $PUBLIC | $FINAL},
+	{"<init>", "(Ljava/lang/invoke/MethodHandle;)V", nullptr, $PUBLIC, $method(ConstantCallSite, init$, void, $MethodHandle*)},
+	{"<init>", "(Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;)V", nullptr, $PROTECTED, $method(ConstantCallSite, init$, void, $MethodType*, $MethodHandle*), "java.lang.Throwable"},
+	{"dynamicInvoker", "()Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC | $FINAL, $virtualMethod(ConstantCallSite, dynamicInvoker, $MethodHandle*)},
+	{"getTarget", "()Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC | $FINAL, $virtualMethod(ConstantCallSite, getTarget, $MethodHandle*)},
+	{"setTarget", "(Ljava/lang/invoke/MethodHandle;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(ConstantCallSite, setTarget, void, $MethodHandle*)},
 	{}
 };
 

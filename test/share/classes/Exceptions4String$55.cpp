@@ -11,8 +11,8 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Locale = ::java::util::Locale;
 
 $MethodInfo _Exceptions4String$55_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Exceptions4String$55::*)()>(&Exceptions4String$55::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(Exceptions4String$55, init$, void)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Exceptions4String$55, run, void)},
 	{}
 };
 

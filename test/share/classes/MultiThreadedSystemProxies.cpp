@@ -23,8 +23,8 @@ $FieldInfo _MultiThreadedSystemProxies_FieldInfo_[] = {
 };
 
 $MethodInfo _MultiThreadedSystemProxies_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(MultiThreadedSystemProxies::*)()>(&MultiThreadedSystemProxies::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&MultiThreadedSystemProxies::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(MultiThreadedSystemProxies, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(MultiThreadedSystemProxies, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

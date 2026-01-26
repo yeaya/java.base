@@ -16,7 +16,7 @@ $CompoundAttribute _Callable_Annotations_[] = {
 };
 
 $MethodInfo _Callable_MethodInfo_[] = {
-	{"call", "()Ljava/lang/Object;", "()TV;", $PUBLIC | $ABSTRACT, nullptr, "java.lang.Exception"},
+	{"call", "()Ljava/lang/Object;", "()TV;", $PUBLIC | $ABSTRACT, $virtualMethod(Callable, call, $Object*), "java.lang.Exception"},
 	{}
 };
 

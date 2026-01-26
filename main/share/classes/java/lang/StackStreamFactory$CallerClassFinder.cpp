@@ -35,12 +35,12 @@ $FieldInfo _StackStreamFactory$CallerClassFinder_FieldInfo_[] = {
 };
 
 $MethodInfo _StackStreamFactory$CallerClassFinder_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/StackWalker;)V", nullptr, 0, $method(static_cast<void(StackStreamFactory$CallerClassFinder::*)($StackWalker*)>(&StackStreamFactory$CallerClassFinder::init$))},
-	{"batchSize", "(I)I", nullptr, $PROTECTED},
-	{"consumeFrames", "()Ljava/lang/Integer;", nullptr, $PROTECTED},
-	{"findCaller", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", 0, $method(static_cast<$Class*(StackStreamFactory$CallerClassFinder::*)()>(&StackStreamFactory$CallerClassFinder::findCaller))},
-	{"getNextBatchSize", "()I", nullptr, $PROTECTED},
-	{"initFrameBuffer", "()V", nullptr, $PROTECTED},
+	{"<init>", "(Ljava/lang/StackWalker;)V", nullptr, 0, $method(StackStreamFactory$CallerClassFinder, init$, void, $StackWalker*)},
+	{"batchSize", "(I)I", nullptr, $PROTECTED, $virtualMethod(StackStreamFactory$CallerClassFinder, batchSize, int32_t, int32_t)},
+	{"consumeFrames", "()Ljava/lang/Integer;", nullptr, $PROTECTED, $virtualMethod(StackStreamFactory$CallerClassFinder, consumeFrames, $Object*)},
+	{"findCaller", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", 0, $method(StackStreamFactory$CallerClassFinder, findCaller, $Class*)},
+	{"getNextBatchSize", "()I", nullptr, $PROTECTED, $virtualMethod(StackStreamFactory$CallerClassFinder, getNextBatchSize, int32_t)},
+	{"initFrameBuffer", "()V", nullptr, $PROTECTED, $virtualMethod(StackStreamFactory$CallerClassFinder, initFrameBuffer, void)},
 	{}
 };
 

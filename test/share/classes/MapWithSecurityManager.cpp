@@ -23,8 +23,8 @@ using $Files = ::java::nio::file::Files;
 using $Path = ::java::nio::file::Path;
 
 $MethodInfo _MapWithSecurityManager_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(MapWithSecurityManager::*)()>(&MapWithSecurityManager::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&MapWithSecurityManager::main)), "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(MapWithSecurityManager, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(MapWithSecurityManager, main, void, $StringArray*), "java.io.IOException"},
 	{}
 };
 

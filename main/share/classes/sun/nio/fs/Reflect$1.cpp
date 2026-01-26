@@ -21,8 +21,8 @@ $FieldInfo _Reflect$1_FieldInfo_[] = {
 };
 
 $MethodInfo _Reflect$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/reflect/AccessibleObject;)V", "()V", 0, $method(static_cast<void(Reflect$1::*)($AccessibleObject*)>(&Reflect$1::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/reflect/AccessibleObject;)V", "()V", 0, $method(Reflect$1, init$, void, $AccessibleObject*)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Reflect$1, run, $Object*)},
 	{}
 };
 

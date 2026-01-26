@@ -27,15 +27,15 @@ $FieldInfo _CompletedFuture_FieldInfo_[] = {
 };
 
 $MethodInfo _CompletedFuture_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;Ljava/lang/Throwable;)V", "(TV;Ljava/lang/Throwable;)V", $PRIVATE, $method(static_cast<void(CompletedFuture::*)(Object$*,$Throwable*)>(&CompletedFuture::init$))},
-	{"cancel", "(Z)Z", nullptr, $PUBLIC},
-	{"get", "()Ljava/lang/Object;", "()TV;", $PUBLIC, nullptr, "java.util.concurrent.ExecutionException"},
-	{"get", "(JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;", "(JLjava/util/concurrent/TimeUnit;)TV;", $PUBLIC, nullptr, "java.util.concurrent.ExecutionException"},
-	{"isCancelled", "()Z", nullptr, $PUBLIC},
-	{"isDone", "()Z", nullptr, $PUBLIC},
-	{"withFailure", "(Ljava/lang/Throwable;)Lsun/nio/ch/CompletedFuture;", "<V:Ljava/lang/Object;>(Ljava/lang/Throwable;)Lsun/nio/ch/CompletedFuture<TV;>;", $STATIC, $method(static_cast<CompletedFuture*(*)($Throwable*)>(&CompletedFuture::withFailure))},
-	{"withResult", "(Ljava/lang/Object;)Lsun/nio/ch/CompletedFuture;", "<V:Ljava/lang/Object;>(TV;)Lsun/nio/ch/CompletedFuture<TV;>;", $STATIC, $method(static_cast<CompletedFuture*(*)(Object$*)>(&CompletedFuture::withResult))},
-	{"withResult", "(Ljava/lang/Object;Ljava/lang/Throwable;)Lsun/nio/ch/CompletedFuture;", "<V:Ljava/lang/Object;>(TV;Ljava/lang/Throwable;)Lsun/nio/ch/CompletedFuture<TV;>;", $STATIC, $method(static_cast<CompletedFuture*(*)(Object$*,$Throwable*)>(&CompletedFuture::withResult))},
+	{"<init>", "(Ljava/lang/Object;Ljava/lang/Throwable;)V", "(TV;Ljava/lang/Throwable;)V", $PRIVATE, $method(CompletedFuture, init$, void, Object$*, $Throwable*)},
+	{"cancel", "(Z)Z", nullptr, $PUBLIC, $virtualMethod(CompletedFuture, cancel, bool, bool)},
+	{"get", "()Ljava/lang/Object;", "()TV;", $PUBLIC, $virtualMethod(CompletedFuture, get, $Object*), "java.util.concurrent.ExecutionException"},
+	{"get", "(JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;", "(JLjava/util/concurrent/TimeUnit;)TV;", $PUBLIC, $virtualMethod(CompletedFuture, get, $Object*, int64_t, $TimeUnit*), "java.util.concurrent.ExecutionException"},
+	{"isCancelled", "()Z", nullptr, $PUBLIC, $virtualMethod(CompletedFuture, isCancelled, bool)},
+	{"isDone", "()Z", nullptr, $PUBLIC, $virtualMethod(CompletedFuture, isDone, bool)},
+	{"withFailure", "(Ljava/lang/Throwable;)Lsun/nio/ch/CompletedFuture;", "<V:Ljava/lang/Object;>(Ljava/lang/Throwable;)Lsun/nio/ch/CompletedFuture<TV;>;", $STATIC, $staticMethod(CompletedFuture, withFailure, CompletedFuture*, $Throwable*)},
+	{"withResult", "(Ljava/lang/Object;)Lsun/nio/ch/CompletedFuture;", "<V:Ljava/lang/Object;>(TV;)Lsun/nio/ch/CompletedFuture<TV;>;", $STATIC, $staticMethod(CompletedFuture, withResult, CompletedFuture*, Object$*)},
+	{"withResult", "(Ljava/lang/Object;Ljava/lang/Throwable;)Lsun/nio/ch/CompletedFuture;", "<V:Ljava/lang/Object;>(TV;Ljava/lang/Throwable;)Lsun/nio/ch/CompletedFuture<TV;>;", $STATIC, $staticMethod(CompletedFuture, withResult, CompletedFuture*, Object$*, $Throwable*)},
 	{}
 };
 

@@ -55,8 +55,8 @@ $FieldInfo _DHKeyExchange$DHEKAGenerator_FieldInfo_[] = {
 };
 
 $MethodInfo _DHKeyExchange$DHEKAGenerator_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(DHKeyExchange$DHEKAGenerator::*)()>(&DHKeyExchange$DHEKAGenerator::init$))},
-	{"createKeyDerivation", "(Lsun/security/ssl/HandshakeContext;)Lsun/security/ssl/SSLKeyDerivation;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(DHKeyExchange$DHEKAGenerator, init$, void)},
+	{"createKeyDerivation", "(Lsun/security/ssl/HandshakeContext;)Lsun/security/ssl/SSLKeyDerivation;", nullptr, $PUBLIC, $virtualMethod(DHKeyExchange$DHEKAGenerator, createKeyDerivation, $SSLKeyDerivation*, $HandshakeContext*), "java.io.IOException"},
 	{}
 };
 

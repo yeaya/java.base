@@ -12,11 +12,11 @@ namespace sun {
 		namespace util {
 
 $MethodInfo _MemoryCache$CacheEntry_MethodInfo_[] = {
-	{"getExpirationTime", "()J", nullptr, $PUBLIC | $ABSTRACT},
-	{"getKey", "()Ljava/lang/Object;", "()TK;", $PUBLIC | $ABSTRACT},
-	{"getValue", "()Ljava/lang/Object;", "()TV;", $PUBLIC | $ABSTRACT},
-	{"invalidate", "()V", nullptr, $PUBLIC | $ABSTRACT},
-	{"isValid", "(J)Z", nullptr, $PUBLIC | $ABSTRACT},
+	{"getExpirationTime", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MemoryCache$CacheEntry, getExpirationTime, int64_t)},
+	{"getKey", "()Ljava/lang/Object;", "()TK;", $PUBLIC | $ABSTRACT, $virtualMethod(MemoryCache$CacheEntry, getKey, $Object*)},
+	{"getValue", "()Ljava/lang/Object;", "()TV;", $PUBLIC | $ABSTRACT, $virtualMethod(MemoryCache$CacheEntry, getValue, $Object*)},
+	{"invalidate", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MemoryCache$CacheEntry, invalidate, void)},
+	{"isValid", "(J)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MemoryCache$CacheEntry, isValid, bool, int64_t)},
 	{}
 };
 

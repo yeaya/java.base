@@ -39,11 +39,11 @@ $MethodInfo _SPILocaleProviderAdapter$CollatorProviderDelegate_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(SPILocaleProviderAdapter$CollatorProviderDelegate::*)()>(&SPILocaleProviderAdapter$CollatorProviderDelegate::init$))},
-	{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC},
-	{"getDelegateMap", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/util/Locale;Ljava/text/spi/CollatorProvider;>;", $PUBLIC},
-	{"getInstance", "(Ljava/util/Locale;)Ljava/text/Collator;", nullptr, $PUBLIC},
-	{"isSupportedLocale", "(Ljava/util/Locale;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(SPILocaleProviderAdapter$CollatorProviderDelegate, init$, void)},
+	{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$CollatorProviderDelegate, getAvailableLocales, $LocaleArray*)},
+	{"getDelegateMap", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/util/Locale;Ljava/text/spi/CollatorProvider;>;", $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$CollatorProviderDelegate, getDelegateMap, $Map*)},
+	{"getInstance", "(Ljava/util/Locale;)Ljava/text/Collator;", nullptr, $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$CollatorProviderDelegate, getInstance, $Collator*, $Locale*)},
+	{"isSupportedLocale", "(Ljava/util/Locale;)Z", nullptr, $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$CollatorProviderDelegate, isSupportedLocale, bool, $Locale*)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

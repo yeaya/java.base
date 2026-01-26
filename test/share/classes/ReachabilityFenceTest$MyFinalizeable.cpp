@@ -16,8 +16,8 @@ $FieldInfo _ReachabilityFenceTest$MyFinalizeable_FieldInfo_[] = {
 };
 
 $MethodInfo _ReachabilityFenceTest$MyFinalizeable_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/atomic/AtomicBoolean;)V", nullptr, $PUBLIC, $method(static_cast<void(ReachabilityFenceTest$MyFinalizeable::*)($AtomicBoolean*)>(&ReachabilityFenceTest$MyFinalizeable::init$))},
-	{"finalize", "()V", nullptr, $PROTECTED, nullptr, "java.lang.Throwable"},
+	{"<init>", "(Ljava/util/concurrent/atomic/AtomicBoolean;)V", nullptr, $PUBLIC, $method(ReachabilityFenceTest$MyFinalizeable, init$, void, $AtomicBoolean*)},
+	{"finalize", "()V", nullptr, $PROTECTED, $virtualMethod(ReachabilityFenceTest$MyFinalizeable, finalize, void), "java.lang.Throwable"},
 	{}
 };
 

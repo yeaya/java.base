@@ -49,11 +49,11 @@ $FieldInfo _DateTimeFormatterBuilder$LocalizedPrinterParser_FieldInfo_[] = {
 };
 
 $MethodInfo _DateTimeFormatterBuilder$LocalizedPrinterParser_MethodInfo_[] = {
-	{"<init>", "(Ljava/time/format/FormatStyle;Ljava/time/format/FormatStyle;)V", nullptr, 0, $method(static_cast<void(DateTimeFormatterBuilder$LocalizedPrinterParser::*)($FormatStyle*,$FormatStyle*)>(&DateTimeFormatterBuilder$LocalizedPrinterParser::init$))},
-	{"format", "(Ljava/time/format/DateTimePrintContext;Ljava/lang/StringBuilder;)Z", nullptr, $PUBLIC},
-	{"formatter", "(Ljava/util/Locale;Ljava/time/chrono/Chronology;)Ljava/time/format/DateTimeFormatter;", nullptr, $PRIVATE, $method(static_cast<$DateTimeFormatter*(DateTimeFormatterBuilder$LocalizedPrinterParser::*)($Locale*,$Chronology*)>(&DateTimeFormatterBuilder$LocalizedPrinterParser::formatter))},
-	{"parse", "(Ljava/time/format/DateTimeParseContext;Ljava/lang/CharSequence;I)I", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/time/format/FormatStyle;Ljava/time/format/FormatStyle;)V", nullptr, 0, $method(DateTimeFormatterBuilder$LocalizedPrinterParser, init$, void, $FormatStyle*, $FormatStyle*)},
+	{"format", "(Ljava/time/format/DateTimePrintContext;Ljava/lang/StringBuilder;)Z", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$LocalizedPrinterParser, format, bool, $DateTimePrintContext*, $StringBuilder*)},
+	{"formatter", "(Ljava/util/Locale;Ljava/time/chrono/Chronology;)Ljava/time/format/DateTimeFormatter;", nullptr, $PRIVATE, $method(DateTimeFormatterBuilder$LocalizedPrinterParser, formatter, $DateTimeFormatter*, $Locale*, $Chronology*)},
+	{"parse", "(Ljava/time/format/DateTimeParseContext;Ljava/lang/CharSequence;I)I", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$LocalizedPrinterParser, parse, int32_t, $DateTimeParseContext*, $CharSequence*, int32_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$LocalizedPrinterParser, toString, $String*)},
 	{}
 };
 

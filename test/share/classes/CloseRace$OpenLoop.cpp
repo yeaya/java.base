@@ -28,8 +28,8 @@ using $List = ::java::util::List;
 using $CountDownLatch = ::java::util::concurrent::CountDownLatch;
 
 $MethodInfo _CloseRace$OpenLoop_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(CloseRace$OpenLoop::*)()>(&CloseRace$OpenLoop::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(CloseRace$OpenLoop, init$, void)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(CloseRace$OpenLoop, run, void)},
 	{}
 };
 

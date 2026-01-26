@@ -39,16 +39,16 @@ $FieldInfo _OpenListResourceBundle_FieldInfo_[] = {
 };
 
 $MethodInfo _OpenListResourceBundle_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(OpenListResourceBundle::*)()>(&OpenListResourceBundle::init$))},
-	{"createMap", "(I)Ljava/util/Map;", "<K:Ljava/lang/Object;V:Ljava/lang/Object;>(I)Ljava/util/Map<TK;TV;>;", $PROTECTED},
-	{"createSet", "()Ljava/util/Set;", "<E:Ljava/lang/Object;>()Ljava/util/Set<TE;>;", $PROTECTED},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $ABSTRACT},
-	{"getKeys", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC},
-	{"handleGetObject", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PROTECTED},
-	{"handleKeySet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PROTECTED},
-	{"keySet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC},
-	{"loadLookup", "()V", nullptr, $PRIVATE, $method(static_cast<void(OpenListResourceBundle::*)()>(&OpenListResourceBundle::loadLookup))},
-	{"loadLookupTablesIfNecessary", "()V", nullptr, 0},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(OpenListResourceBundle, init$, void)},
+	{"createMap", "(I)Ljava/util/Map;", "<K:Ljava/lang/Object;V:Ljava/lang/Object;>(I)Ljava/util/Map<TK;TV;>;", $PROTECTED, $virtualMethod(OpenListResourceBundle, createMap, $Map*, int32_t)},
+	{"createSet", "()Ljava/util/Set;", "<E:Ljava/lang/Object;>()Ljava/util/Set<TE;>;", $PROTECTED, $virtualMethod(OpenListResourceBundle, createSet, $Set*)},
+	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(OpenListResourceBundle, getContents, $ObjectArray2*)},
+	{"getKeys", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(OpenListResourceBundle, getKeys, $Enumeration*)},
+	{"handleGetObject", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(OpenListResourceBundle, handleGetObject, $Object*, $String*)},
+	{"handleKeySet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PROTECTED, $virtualMethod(OpenListResourceBundle, handleKeySet, $Set*)},
+	{"keySet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(OpenListResourceBundle, keySet, $Set*)},
+	{"loadLookup", "()V", nullptr, $PRIVATE, $method(OpenListResourceBundle, loadLookup, void)},
+	{"loadLookupTablesIfNecessary", "()V", nullptr, 0, $virtualMethod(OpenListResourceBundle, loadLookupTablesIfNecessary, void)},
 	{}
 };
 

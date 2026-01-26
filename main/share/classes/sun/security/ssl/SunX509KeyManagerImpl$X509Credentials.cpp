@@ -32,8 +32,8 @@ $FieldInfo _SunX509KeyManagerImpl$X509Credentials_FieldInfo_[] = {
 };
 
 $MethodInfo _SunX509KeyManagerImpl$X509Credentials_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/PrivateKey;[Ljava/security/cert/X509Certificate;)V", nullptr, 0, $method(static_cast<void(SunX509KeyManagerImpl$X509Credentials::*)($PrivateKey*,$X509CertificateArray*)>(&SunX509KeyManagerImpl$X509Credentials::init$))},
-	{"getIssuerX500Principals", "()Ljava/util/Set;", "()Ljava/util/Set<Ljavax/security/auth/x500/X500Principal;>;", 0},
+	{"<init>", "(Ljava/security/PrivateKey;[Ljava/security/cert/X509Certificate;)V", nullptr, 0, $method(SunX509KeyManagerImpl$X509Credentials, init$, void, $PrivateKey*, $X509CertificateArray*)},
+	{"getIssuerX500Principals", "()Ljava/util/Set;", "()Ljava/util/Set<Ljavax/security/auth/x500/X500Principal;>;", 0, $virtualMethod(SunX509KeyManagerImpl$X509Credentials, getIssuerX500Principals, $Set*)},
 	{}
 };
 

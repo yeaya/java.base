@@ -34,21 +34,21 @@ $FieldInfo _DigestAuthentication$Parameters_FieldInfo_[] = {
 };
 
 $MethodInfo _DigestAuthentication$Parameters_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(DigestAuthentication$Parameters::*)()>(&DigestAuthentication$Parameters::init$))},
-	{"authQop", "()Z", nullptr, 0},
-	{"getAlgorithm", "()Ljava/lang/String;", nullptr, $SYNCHRONIZED},
-	{"getCachedHA1", "()Ljava/lang/String;", nullptr, $SYNCHRONIZED},
-	{"getCnonce", "()Ljava/lang/String;", nullptr, $SYNCHRONIZED},
-	{"getNCCount", "()I", nullptr, $SYNCHRONIZED},
-	{"getNonce", "()Ljava/lang/String;", nullptr, $SYNCHRONIZED},
-	{"getOpaque", "()Ljava/lang/String;", nullptr, $SYNCHRONIZED},
-	{"incrementNC", "()V", nullptr, $SYNCHRONIZED},
-	{"setAlgorithm", "(Ljava/lang/String;)V", nullptr, $SYNCHRONIZED},
-	{"setCachedHA1", "(Ljava/lang/String;)V", nullptr, $SYNCHRONIZED},
-	{"setNewCnonce", "()V", nullptr, $SYNCHRONIZED},
-	{"setNonce", "(Ljava/lang/String;)V", nullptr, $SYNCHRONIZED},
-	{"setOpaque", "(Ljava/lang/String;)V", nullptr, $SYNCHRONIZED},
-	{"setQop", "(Ljava/lang/String;)V", nullptr, $SYNCHRONIZED},
+	{"<init>", "()V", nullptr, 0, $method(DigestAuthentication$Parameters, init$, void)},
+	{"authQop", "()Z", nullptr, 0, $virtualMethod(DigestAuthentication$Parameters, authQop, bool)},
+	{"getAlgorithm", "()Ljava/lang/String;", nullptr, $SYNCHRONIZED, $virtualMethod(DigestAuthentication$Parameters, getAlgorithm, $String*)},
+	{"getCachedHA1", "()Ljava/lang/String;", nullptr, $SYNCHRONIZED, $virtualMethod(DigestAuthentication$Parameters, getCachedHA1, $String*)},
+	{"getCnonce", "()Ljava/lang/String;", nullptr, $SYNCHRONIZED, $virtualMethod(DigestAuthentication$Parameters, getCnonce, $String*)},
+	{"getNCCount", "()I", nullptr, $SYNCHRONIZED, $virtualMethod(DigestAuthentication$Parameters, getNCCount, int32_t)},
+	{"getNonce", "()Ljava/lang/String;", nullptr, $SYNCHRONIZED, $virtualMethod(DigestAuthentication$Parameters, getNonce, $String*)},
+	{"getOpaque", "()Ljava/lang/String;", nullptr, $SYNCHRONIZED, $virtualMethod(DigestAuthentication$Parameters, getOpaque, $String*)},
+	{"incrementNC", "()V", nullptr, $SYNCHRONIZED, $virtualMethod(DigestAuthentication$Parameters, incrementNC, void)},
+	{"setAlgorithm", "(Ljava/lang/String;)V", nullptr, $SYNCHRONIZED, $virtualMethod(DigestAuthentication$Parameters, setAlgorithm, void, $String*)},
+	{"setCachedHA1", "(Ljava/lang/String;)V", nullptr, $SYNCHRONIZED, $virtualMethod(DigestAuthentication$Parameters, setCachedHA1, void, $String*)},
+	{"setNewCnonce", "()V", nullptr, $SYNCHRONIZED, $virtualMethod(DigestAuthentication$Parameters, setNewCnonce, void)},
+	{"setNonce", "(Ljava/lang/String;)V", nullptr, $SYNCHRONIZED, $virtualMethod(DigestAuthentication$Parameters, setNonce, void, $String*)},
+	{"setOpaque", "(Ljava/lang/String;)V", nullptr, $SYNCHRONIZED, $virtualMethod(DigestAuthentication$Parameters, setOpaque, void, $String*)},
+	{"setQop", "(Ljava/lang/String;)V", nullptr, $SYNCHRONIZED, $virtualMethod(DigestAuthentication$Parameters, setQop, void, $String*)},
 	{}
 };
 

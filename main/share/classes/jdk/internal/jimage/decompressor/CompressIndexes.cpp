@@ -38,14 +38,14 @@ $FieldInfo _CompressIndexes_FieldInfo_[] = {
 };
 
 $MethodInfo _CompressIndexes_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CompressIndexes::*)()>(&CompressIndexes::init$))},
-	{"compress", "(I)[B", nullptr, $PUBLIC | $STATIC, $method(static_cast<$bytes*(*)(int32_t)>(&CompressIndexes::compress))},
-	{"decompress", "([BI)I", nullptr, $PUBLIC | $STATIC, $method(static_cast<int32_t(*)($bytes*,int32_t)>(&CompressIndexes::decompress))},
-	{"decompressFlow", "([B)Ljava/util/List;", "([B)Ljava/util/List<Ljava/lang/Integer;>;", $PUBLIC | $STATIC, $method(static_cast<$List*(*)($bytes*)>(&CompressIndexes::decompressFlow))},
-	{"getHeaderLength", "(B)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)(int8_t)>(&CompressIndexes::getHeaderLength))},
-	{"getHeaderValue", "(B)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)(int8_t)>(&CompressIndexes::getHeaderValue))},
-	{"isCompressed", "(B)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)(int8_t)>(&CompressIndexes::isCompressed))},
-	{"readInt", "(Ljava/io/DataInputStream;)I", nullptr, $PUBLIC | $STATIC, $method(static_cast<int32_t(*)($DataInputStream*)>(&CompressIndexes::readInt)), "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CompressIndexes, init$, void)},
+	{"compress", "(I)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(CompressIndexes, compress, $bytes*, int32_t)},
+	{"decompress", "([BI)I", nullptr, $PUBLIC | $STATIC, $staticMethod(CompressIndexes, decompress, int32_t, $bytes*, int32_t)},
+	{"decompressFlow", "([B)Ljava/util/List;", "([B)Ljava/util/List<Ljava/lang/Integer;>;", $PUBLIC | $STATIC, $staticMethod(CompressIndexes, decompressFlow, $List*, $bytes*)},
+	{"getHeaderLength", "(B)I", nullptr, $PRIVATE | $STATIC, $staticMethod(CompressIndexes, getHeaderLength, int32_t, int8_t)},
+	{"getHeaderValue", "(B)I", nullptr, $PRIVATE | $STATIC, $staticMethod(CompressIndexes, getHeaderValue, int32_t, int8_t)},
+	{"isCompressed", "(B)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(CompressIndexes, isCompressed, bool, int8_t)},
+	{"readInt", "(Ljava/io/DataInputStream;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(CompressIndexes, readInt, int32_t, $DataInputStream*), "java.io.IOException"},
 	{}
 };
 

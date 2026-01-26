@@ -18,9 +18,9 @@ $FieldInfo _LauncherHelper$StdArg_FieldInfo_[] = {
 };
 
 $MethodInfo _LauncherHelper$StdArg_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Z)V", nullptr, 0, $method(static_cast<void(LauncherHelper$StdArg::*)($String*,bool)>(&LauncherHelper$StdArg::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(LauncherHelper$StdArg::*)($String*)>(&LauncherHelper$StdArg::init$))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Z)V", nullptr, 0, $method(LauncherHelper$StdArg, init$, void, $String*, bool)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(LauncherHelper$StdArg, init$, void, $String*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LauncherHelper$StdArg, toString, $String*)},
 	{}
 };
 

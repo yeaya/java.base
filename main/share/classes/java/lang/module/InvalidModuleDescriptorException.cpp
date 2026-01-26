@@ -17,8 +17,8 @@ $FieldInfo _InvalidModuleDescriptorException_FieldInfo_[] = {
 };
 
 $MethodInfo _InvalidModuleDescriptorException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(InvalidModuleDescriptorException::*)()>(&InvalidModuleDescriptorException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(InvalidModuleDescriptorException::*)($String*)>(&InvalidModuleDescriptorException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(InvalidModuleDescriptorException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InvalidModuleDescriptorException, init$, void, $String*)},
 	{}
 };
 

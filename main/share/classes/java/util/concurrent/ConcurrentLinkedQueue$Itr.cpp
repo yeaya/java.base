@@ -32,10 +32,10 @@ $FieldInfo _ConcurrentLinkedQueue$Itr_FieldInfo_[] = {
 };
 
 $MethodInfo _ConcurrentLinkedQueue$Itr_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/ConcurrentLinkedQueue;)V", nullptr, 0, $method(static_cast<void(ConcurrentLinkedQueue$Itr::*)($ConcurrentLinkedQueue*)>(&ConcurrentLinkedQueue$Itr::init$))},
-	{"hasNext", "()Z", nullptr, $PUBLIC},
-	{"next", "()Ljava/lang/Object;", "()TE;", $PUBLIC},
-	{"remove", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/concurrent/ConcurrentLinkedQueue;)V", nullptr, 0, $method(ConcurrentLinkedQueue$Itr, init$, void, $ConcurrentLinkedQueue*)},
+	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(ConcurrentLinkedQueue$Itr, hasNext, bool)},
+	{"next", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(ConcurrentLinkedQueue$Itr, next, $Object*)},
+	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(ConcurrentLinkedQueue$Itr, remove, void)},
 	{}
 };
 

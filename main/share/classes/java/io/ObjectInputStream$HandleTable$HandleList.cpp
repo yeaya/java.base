@@ -20,10 +20,10 @@ $FieldInfo _ObjectInputStream$HandleTable$HandleList_FieldInfo_[] = {
 };
 
 $MethodInfo _ObjectInputStream$HandleTable$HandleList_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ObjectInputStream$HandleTable$HandleList::*)()>(&ObjectInputStream$HandleTable$HandleList::init$))},
-	{"add", "(I)V", nullptr, $PUBLIC},
-	{"get", "(I)I", nullptr, $PUBLIC},
-	{"size", "()I", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ObjectInputStream$HandleTable$HandleList, init$, void)},
+	{"add", "(I)V", nullptr, $PUBLIC, $virtualMethod(ObjectInputStream$HandleTable$HandleList, add, void, int32_t)},
+	{"get", "(I)I", nullptr, $PUBLIC, $virtualMethod(ObjectInputStream$HandleTable$HandleList, get, int32_t, int32_t)},
+	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(ObjectInputStream$HandleTable$HandleList, size, int32_t)},
 	{}
 };
 

@@ -153,8 +153,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Nodes$$Lambda$lambda$castingArray$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Nodes$$Lambda$lambda$castingArray$0::*)()>(&Nodes$$Lambda$lambda$castingArray$0::init$))},
-	{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Nodes$$Lambda$lambda$castingArray$0, init$, void)},
+	{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Nodes$$Lambda$lambda$castingArray$0, apply, $Object*, int32_t)},
 	{}
 };
 $ClassInfo Nodes$$Lambda$lambda$castingArray$0::classInfo$ = {
@@ -185,32 +185,32 @@ $FieldInfo _Nodes_FieldInfo_[] = {
 };
 
 $MethodInfo _Nodes_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(Nodes::*)()>(&Nodes::init$))},
-	{"builder", "(JLjava/util/function/IntFunction;)Ljava/util/stream/Node$Builder;", "<T:Ljava/lang/Object;>(JLjava/util/function/IntFunction<[TT;>;)Ljava/util/stream/Node$Builder<TT;>;", $STATIC, $method(static_cast<$Node$Builder*(*)(int64_t,$IntFunction*)>(&Nodes::builder))},
-	{"builder", "()Ljava/util/stream/Node$Builder;", "<T:Ljava/lang/Object;>()Ljava/util/stream/Node$Builder<TT;>;", $STATIC, $method(static_cast<$Node$Builder*(*)()>(&Nodes::builder))},
-	{"castingArray", "()Ljava/util/function/IntFunction;", "<T:Ljava/lang/Object;>()Ljava/util/function/IntFunction<[TT;>;", $STATIC, $method(static_cast<$IntFunction*(*)()>(&Nodes::castingArray))},
-	{"collect", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;ZLjava/util/function/IntFunction;)Ljava/util/stream/Node;", "<P_IN:Ljava/lang/Object;P_OUT:Ljava/lang/Object;>(Ljava/util/stream/PipelineHelper<TP_OUT;>;Ljava/util/Spliterator<TP_IN;>;ZLjava/util/function/IntFunction<[TP_OUT;>;)Ljava/util/stream/Node<TP_OUT;>;", $PUBLIC | $STATIC, $method(static_cast<$Node*(*)($PipelineHelper*,$Spliterator*,bool,$IntFunction*)>(&Nodes::collect))},
-	{"collectDouble", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;Z)Ljava/util/stream/Node$OfDouble;", "<P_IN:Ljava/lang/Object;>(Ljava/util/stream/PipelineHelper<Ljava/lang/Double;>;Ljava/util/Spliterator<TP_IN;>;Z)Ljava/util/stream/Node$OfDouble;", $PUBLIC | $STATIC, $method(static_cast<$Node$OfDouble*(*)($PipelineHelper*,$Spliterator*,bool)>(&Nodes::collectDouble))},
-	{"collectInt", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;Z)Ljava/util/stream/Node$OfInt;", "<P_IN:Ljava/lang/Object;>(Ljava/util/stream/PipelineHelper<Ljava/lang/Integer;>;Ljava/util/Spliterator<TP_IN;>;Z)Ljava/util/stream/Node$OfInt;", $PUBLIC | $STATIC, $method(static_cast<$Node$OfInt*(*)($PipelineHelper*,$Spliterator*,bool)>(&Nodes::collectInt))},
-	{"collectLong", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;Z)Ljava/util/stream/Node$OfLong;", "<P_IN:Ljava/lang/Object;>(Ljava/util/stream/PipelineHelper<Ljava/lang/Long;>;Ljava/util/Spliterator<TP_IN;>;Z)Ljava/util/stream/Node$OfLong;", $PUBLIC | $STATIC, $method(static_cast<$Node$OfLong*(*)($PipelineHelper*,$Spliterator*,bool)>(&Nodes::collectLong))},
-	{"conc", "(Ljava/util/stream/StreamShape;Ljava/util/stream/Node;Ljava/util/stream/Node;)Ljava/util/stream/Node;", "<T:Ljava/lang/Object;>(Ljava/util/stream/StreamShape;Ljava/util/stream/Node<TT;>;Ljava/util/stream/Node<TT;>;)Ljava/util/stream/Node<TT;>;", $STATIC, $method(static_cast<$Node*(*)($StreamShape*,$Node*,$Node*)>(&Nodes::conc))},
-	{"doubleBuilder", "(J)Ljava/util/stream/Node$Builder$OfDouble;", nullptr, $STATIC, $method(static_cast<$Node$Builder$OfDouble*(*)(int64_t)>(&Nodes::doubleBuilder))},
-	{"doubleBuilder", "()Ljava/util/stream/Node$Builder$OfDouble;", nullptr, $STATIC, $method(static_cast<$Node$Builder$OfDouble*(*)()>(&Nodes::doubleBuilder))},
-	{"emptyNode", "(Ljava/util/stream/StreamShape;)Ljava/util/stream/Node;", "<T:Ljava/lang/Object;>(Ljava/util/stream/StreamShape;)Ljava/util/stream/Node<TT;>;", $STATIC, $method(static_cast<$Node*(*)($StreamShape*)>(&Nodes::emptyNode))},
-	{"flatten", "(Ljava/util/stream/Node;Ljava/util/function/IntFunction;)Ljava/util/stream/Node;", "<T:Ljava/lang/Object;>(Ljava/util/stream/Node<TT;>;Ljava/util/function/IntFunction<[TT;>;)Ljava/util/stream/Node<TT;>;", $PUBLIC | $STATIC, $method(static_cast<$Node*(*)($Node*,$IntFunction*)>(&Nodes::flatten))},
-	{"flattenDouble", "(Ljava/util/stream/Node$OfDouble;)Ljava/util/stream/Node$OfDouble;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Node$OfDouble*(*)($Node$OfDouble*)>(&Nodes::flattenDouble))},
-	{"flattenInt", "(Ljava/util/stream/Node$OfInt;)Ljava/util/stream/Node$OfInt;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Node$OfInt*(*)($Node$OfInt*)>(&Nodes::flattenInt))},
-	{"flattenLong", "(Ljava/util/stream/Node$OfLong;)Ljava/util/stream/Node$OfLong;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Node$OfLong*(*)($Node$OfLong*)>(&Nodes::flattenLong))},
-	{"intBuilder", "(J)Ljava/util/stream/Node$Builder$OfInt;", nullptr, $STATIC, $method(static_cast<$Node$Builder$OfInt*(*)(int64_t)>(&Nodes::intBuilder))},
-	{"intBuilder", "()Ljava/util/stream/Node$Builder$OfInt;", nullptr, $STATIC, $method(static_cast<$Node$Builder$OfInt*(*)()>(&Nodes::intBuilder))},
-	{"lambda$castingArray$0", "(I)[Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$ObjectArray*(*)(int32_t)>(&Nodes::lambda$castingArray$0))},
-	{"longBuilder", "(J)Ljava/util/stream/Node$Builder$OfLong;", nullptr, $STATIC, $method(static_cast<$Node$Builder$OfLong*(*)(int64_t)>(&Nodes::longBuilder))},
-	{"longBuilder", "()Ljava/util/stream/Node$Builder$OfLong;", nullptr, $STATIC, $method(static_cast<$Node$Builder$OfLong*(*)()>(&Nodes::longBuilder))},
-	{"node", "([Ljava/lang/Object;)Ljava/util/stream/Node;", "<T:Ljava/lang/Object;>([TT;)Ljava/util/stream/Node<TT;>;", $STATIC, $method(static_cast<$Node*(*)($ObjectArray*)>(&Nodes::node))},
-	{"node", "(Ljava/util/Collection;)Ljava/util/stream/Node;", "<T:Ljava/lang/Object;>(Ljava/util/Collection<TT;>;)Ljava/util/stream/Node<TT;>;", $STATIC, $method(static_cast<$Node*(*)($Collection*)>(&Nodes::node))},
-	{"node", "([I)Ljava/util/stream/Node$OfInt;", nullptr, $STATIC, $method(static_cast<$Node$OfInt*(*)($ints*)>(&Nodes::node))},
-	{"node", "([J)Ljava/util/stream/Node$OfLong;", nullptr, $STATIC, $method(static_cast<$Node$OfLong*(*)($longs*)>(&Nodes::node))},
-	{"node", "([D)Ljava/util/stream/Node$OfDouble;", nullptr, $STATIC, $method(static_cast<$Node$OfDouble*(*)($doubles*)>(&Nodes::node))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(Nodes, init$, void)},
+	{"builder", "(JLjava/util/function/IntFunction;)Ljava/util/stream/Node$Builder;", "<T:Ljava/lang/Object;>(JLjava/util/function/IntFunction<[TT;>;)Ljava/util/stream/Node$Builder<TT;>;", $STATIC, $staticMethod(Nodes, builder, $Node$Builder*, int64_t, $IntFunction*)},
+	{"builder", "()Ljava/util/stream/Node$Builder;", "<T:Ljava/lang/Object;>()Ljava/util/stream/Node$Builder<TT;>;", $STATIC, $staticMethod(Nodes, builder, $Node$Builder*)},
+	{"castingArray", "()Ljava/util/function/IntFunction;", "<T:Ljava/lang/Object;>()Ljava/util/function/IntFunction<[TT;>;", $STATIC, $staticMethod(Nodes, castingArray, $IntFunction*)},
+	{"collect", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;ZLjava/util/function/IntFunction;)Ljava/util/stream/Node;", "<P_IN:Ljava/lang/Object;P_OUT:Ljava/lang/Object;>(Ljava/util/stream/PipelineHelper<TP_OUT;>;Ljava/util/Spliterator<TP_IN;>;ZLjava/util/function/IntFunction<[TP_OUT;>;)Ljava/util/stream/Node<TP_OUT;>;", $PUBLIC | $STATIC, $staticMethod(Nodes, collect, $Node*, $PipelineHelper*, $Spliterator*, bool, $IntFunction*)},
+	{"collectDouble", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;Z)Ljava/util/stream/Node$OfDouble;", "<P_IN:Ljava/lang/Object;>(Ljava/util/stream/PipelineHelper<Ljava/lang/Double;>;Ljava/util/Spliterator<TP_IN;>;Z)Ljava/util/stream/Node$OfDouble;", $PUBLIC | $STATIC, $staticMethod(Nodes, collectDouble, $Node$OfDouble*, $PipelineHelper*, $Spliterator*, bool)},
+	{"collectInt", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;Z)Ljava/util/stream/Node$OfInt;", "<P_IN:Ljava/lang/Object;>(Ljava/util/stream/PipelineHelper<Ljava/lang/Integer;>;Ljava/util/Spliterator<TP_IN;>;Z)Ljava/util/stream/Node$OfInt;", $PUBLIC | $STATIC, $staticMethod(Nodes, collectInt, $Node$OfInt*, $PipelineHelper*, $Spliterator*, bool)},
+	{"collectLong", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;Z)Ljava/util/stream/Node$OfLong;", "<P_IN:Ljava/lang/Object;>(Ljava/util/stream/PipelineHelper<Ljava/lang/Long;>;Ljava/util/Spliterator<TP_IN;>;Z)Ljava/util/stream/Node$OfLong;", $PUBLIC | $STATIC, $staticMethod(Nodes, collectLong, $Node$OfLong*, $PipelineHelper*, $Spliterator*, bool)},
+	{"conc", "(Ljava/util/stream/StreamShape;Ljava/util/stream/Node;Ljava/util/stream/Node;)Ljava/util/stream/Node;", "<T:Ljava/lang/Object;>(Ljava/util/stream/StreamShape;Ljava/util/stream/Node<TT;>;Ljava/util/stream/Node<TT;>;)Ljava/util/stream/Node<TT;>;", $STATIC, $staticMethod(Nodes, conc, $Node*, $StreamShape*, $Node*, $Node*)},
+	{"doubleBuilder", "(J)Ljava/util/stream/Node$Builder$OfDouble;", nullptr, $STATIC, $staticMethod(Nodes, doubleBuilder, $Node$Builder$OfDouble*, int64_t)},
+	{"doubleBuilder", "()Ljava/util/stream/Node$Builder$OfDouble;", nullptr, $STATIC, $staticMethod(Nodes, doubleBuilder, $Node$Builder$OfDouble*)},
+	{"emptyNode", "(Ljava/util/stream/StreamShape;)Ljava/util/stream/Node;", "<T:Ljava/lang/Object;>(Ljava/util/stream/StreamShape;)Ljava/util/stream/Node<TT;>;", $STATIC, $staticMethod(Nodes, emptyNode, $Node*, $StreamShape*)},
+	{"flatten", "(Ljava/util/stream/Node;Ljava/util/function/IntFunction;)Ljava/util/stream/Node;", "<T:Ljava/lang/Object;>(Ljava/util/stream/Node<TT;>;Ljava/util/function/IntFunction<[TT;>;)Ljava/util/stream/Node<TT;>;", $PUBLIC | $STATIC, $staticMethod(Nodes, flatten, $Node*, $Node*, $IntFunction*)},
+	{"flattenDouble", "(Ljava/util/stream/Node$OfDouble;)Ljava/util/stream/Node$OfDouble;", nullptr, $PUBLIC | $STATIC, $staticMethod(Nodes, flattenDouble, $Node$OfDouble*, $Node$OfDouble*)},
+	{"flattenInt", "(Ljava/util/stream/Node$OfInt;)Ljava/util/stream/Node$OfInt;", nullptr, $PUBLIC | $STATIC, $staticMethod(Nodes, flattenInt, $Node$OfInt*, $Node$OfInt*)},
+	{"flattenLong", "(Ljava/util/stream/Node$OfLong;)Ljava/util/stream/Node$OfLong;", nullptr, $PUBLIC | $STATIC, $staticMethod(Nodes, flattenLong, $Node$OfLong*, $Node$OfLong*)},
+	{"intBuilder", "(J)Ljava/util/stream/Node$Builder$OfInt;", nullptr, $STATIC, $staticMethod(Nodes, intBuilder, $Node$Builder$OfInt*, int64_t)},
+	{"intBuilder", "()Ljava/util/stream/Node$Builder$OfInt;", nullptr, $STATIC, $staticMethod(Nodes, intBuilder, $Node$Builder$OfInt*)},
+	{"lambda$castingArray$0", "(I)[Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Nodes, lambda$castingArray$0, $ObjectArray*, int32_t)},
+	{"longBuilder", "(J)Ljava/util/stream/Node$Builder$OfLong;", nullptr, $STATIC, $staticMethod(Nodes, longBuilder, $Node$Builder$OfLong*, int64_t)},
+	{"longBuilder", "()Ljava/util/stream/Node$Builder$OfLong;", nullptr, $STATIC, $staticMethod(Nodes, longBuilder, $Node$Builder$OfLong*)},
+	{"node", "([Ljava/lang/Object;)Ljava/util/stream/Node;", "<T:Ljava/lang/Object;>([TT;)Ljava/util/stream/Node<TT;>;", $STATIC, $staticMethod(Nodes, node, $Node*, $ObjectArray*)},
+	{"node", "(Ljava/util/Collection;)Ljava/util/stream/Node;", "<T:Ljava/lang/Object;>(Ljava/util/Collection<TT;>;)Ljava/util/stream/Node<TT;>;", $STATIC, $staticMethod(Nodes, node, $Node*, $Collection*)},
+	{"node", "([I)Ljava/util/stream/Node$OfInt;", nullptr, $STATIC, $staticMethod(Nodes, node, $Node$OfInt*, $ints*)},
+	{"node", "([J)Ljava/util/stream/Node$OfLong;", nullptr, $STATIC, $staticMethod(Nodes, node, $Node$OfLong*, $longs*)},
+	{"node", "([D)Ljava/util/stream/Node$OfDouble;", nullptr, $STATIC, $staticMethod(Nodes, node, $Node$OfDouble*, $doubles*)},
 	{}
 };
 

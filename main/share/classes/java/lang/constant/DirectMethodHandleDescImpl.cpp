@@ -50,20 +50,20 @@ $FieldInfo _DirectMethodHandleDescImpl_FieldInfo_[] = {
 };
 
 $MethodInfo _DirectMethodHandleDescImpl_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/constant/DirectMethodHandleDesc$Kind;Ljava/lang/constant/ClassDesc;Ljava/lang/String;Ljava/lang/constant/MethodTypeDesc;)V", nullptr, 0, $method(static_cast<void(DirectMethodHandleDescImpl::*)($DirectMethodHandleDesc$Kind*,$ClassDesc*,$String*,$MethodTypeDesc*)>(&DirectMethodHandleDescImpl::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"invocationType", "()Ljava/lang/constant/MethodTypeDesc;", nullptr, $PUBLIC},
-	{"isOwnerInterface", "()Z", nullptr, $PUBLIC},
-	{"kind", "()Ljava/lang/constant/DirectMethodHandleDesc$Kind;", nullptr, $PUBLIC},
-	{"lookupDescriptor", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"methodName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"owner", "()Ljava/lang/constant/ClassDesc;", nullptr, $PUBLIC},
-	{"refKind", "()I", nullptr, $PUBLIC},
-	{"resolveConstantDesc", "(Ljava/lang/invoke/MethodHandles$Lookup;)Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC, nullptr, "java.lang.ReflectiveOperationException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"validateConstructor", "(Ljava/lang/constant/MethodTypeDesc;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($MethodTypeDesc*)>(&DirectMethodHandleDescImpl::validateConstructor))},
-	{"validateFieldType", "(Ljava/lang/constant/MethodTypeDesc;ZZ)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($MethodTypeDesc*,bool,bool)>(&DirectMethodHandleDescImpl::validateFieldType))},
+	{"<init>", "(Ljava/lang/constant/DirectMethodHandleDesc$Kind;Ljava/lang/constant/ClassDesc;Ljava/lang/String;Ljava/lang/constant/MethodTypeDesc;)V", nullptr, 0, $method(DirectMethodHandleDescImpl, init$, void, $DirectMethodHandleDesc$Kind*, $ClassDesc*, $String*, $MethodTypeDesc*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(DirectMethodHandleDescImpl, equals, bool, Object$*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(DirectMethodHandleDescImpl, hashCode, int32_t)},
+	{"invocationType", "()Ljava/lang/constant/MethodTypeDesc;", nullptr, $PUBLIC, $virtualMethod(DirectMethodHandleDescImpl, invocationType, $MethodTypeDesc*)},
+	{"isOwnerInterface", "()Z", nullptr, $PUBLIC, $virtualMethod(DirectMethodHandleDescImpl, isOwnerInterface, bool)},
+	{"kind", "()Ljava/lang/constant/DirectMethodHandleDesc$Kind;", nullptr, $PUBLIC, $virtualMethod(DirectMethodHandleDescImpl, kind, $DirectMethodHandleDesc$Kind*)},
+	{"lookupDescriptor", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DirectMethodHandleDescImpl, lookupDescriptor, $String*)},
+	{"methodName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DirectMethodHandleDescImpl, methodName, $String*)},
+	{"owner", "()Ljava/lang/constant/ClassDesc;", nullptr, $PUBLIC, $virtualMethod(DirectMethodHandleDescImpl, owner, $ClassDesc*)},
+	{"refKind", "()I", nullptr, $PUBLIC, $virtualMethod(DirectMethodHandleDescImpl, refKind, int32_t)},
+	{"resolveConstantDesc", "(Ljava/lang/invoke/MethodHandles$Lookup;)Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC, $virtualMethod(DirectMethodHandleDescImpl, resolveConstantDesc, $Object*, $MethodHandles$Lookup*), "java.lang.ReflectiveOperationException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DirectMethodHandleDescImpl, toString, $String*)},
+	{"validateConstructor", "(Ljava/lang/constant/MethodTypeDesc;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(DirectMethodHandleDescImpl, validateConstructor, void, $MethodTypeDesc*)},
+	{"validateFieldType", "(Ljava/lang/constant/MethodTypeDesc;ZZ)V", nullptr, $PRIVATE | $STATIC, $staticMethod(DirectMethodHandleDescImpl, validateFieldType, void, $MethodTypeDesc*, bool, bool)},
 	{}
 };
 

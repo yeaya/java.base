@@ -31,12 +31,12 @@ $FieldInfo _Vector$Itr_FieldInfo_[] = {
 };
 
 $MethodInfo _Vector$Itr_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Vector;)V", nullptr, $PRIVATE, $method(static_cast<void(Vector$Itr::*)($Vector*)>(&Vector$Itr::init$))},
-	{"checkForComodification", "()V", nullptr, $FINAL, $method(static_cast<void(Vector$Itr::*)()>(&Vector$Itr::checkForComodification))},
-	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC},
-	{"hasNext", "()Z", nullptr, $PUBLIC},
-	{"next", "()Ljava/lang/Object;", "()TE;", $PUBLIC},
-	{"remove", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/Vector;)V", nullptr, $PRIVATE, $method(Vector$Itr, init$, void, $Vector*)},
+	{"checkForComodification", "()V", nullptr, $FINAL, $method(Vector$Itr, checkForComodification, void)},
+	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC, $virtualMethod(Vector$Itr, forEachRemaining, void, $Consumer*)},
+	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(Vector$Itr, hasNext, bool)},
+	{"next", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(Vector$Itr, next, $Object*)},
+	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(Vector$Itr, remove, void)},
 	{}
 };
 

@@ -7,15 +7,18 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $AlgorithmParameters = ::java::security::AlgorithmParameters;
+using $SecureRandom = ::java::security::SecureRandom;
+using $AlgorithmParameterSpec = ::java::security::spec::AlgorithmParameterSpec;
 
 namespace java {
 	namespace security {
 
 $MethodInfo _AlgorithmParameterGeneratorSpi_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(AlgorithmParameterGeneratorSpi::*)()>(&AlgorithmParameterGeneratorSpi::init$))},
-	{"engineGenerateParameters", "()Ljava/security/AlgorithmParameters;", nullptr, $PROTECTED | $ABSTRACT},
-	{"engineInit", "(ILjava/security/SecureRandom;)V", nullptr, $PROTECTED | $ABSTRACT},
-	{"engineInit", "(Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED | $ABSTRACT, nullptr, "java.security.InvalidAlgorithmParameterException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(AlgorithmParameterGeneratorSpi, init$, void)},
+	{"engineGenerateParameters", "()Ljava/security/AlgorithmParameters;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(AlgorithmParameterGeneratorSpi, engineGenerateParameters, $AlgorithmParameters*)},
+	{"engineInit", "(ILjava/security/SecureRandom;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(AlgorithmParameterGeneratorSpi, engineInit, void, int32_t, $SecureRandom*)},
+	{"engineInit", "(Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(AlgorithmParameterGeneratorSpi, engineInit, void, $AlgorithmParameterSpec*, $SecureRandom*), "java.security.InvalidAlgorithmParameterException"},
 	{}
 };
 

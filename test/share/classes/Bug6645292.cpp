@@ -20,8 +20,8 @@ using $Locale = ::java::util::Locale;
 using $TimeZone = ::java::util::TimeZone;
 
 $MethodInfo _Bug6645292_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Bug6645292::*)()>(&Bug6645292::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Bug6645292::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Bug6645292, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Bug6645292, main, void, $StringArray*)},
 	{}
 };
 

@@ -64,8 +64,8 @@ $TypeAnnotation _TypeParam_MethodTypeAnnotations_foo1[] = {
 };
 
 $MethodInfo _TypeParam_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(TypeParam::*)()>(&TypeParam::init$))},
-	{"foo", "()V", "<X:Ljava/lang/Object;Y:Ljava/lang/Object;Z::Ljava/lang/Cloneable;>()V", $PUBLIC, nullptr, nullptr, nullptr, nullptr, _TypeParam_MethodTypeAnnotations_foo1},
+	{"<init>", "()V", nullptr, 0, $method(TypeParam, init$, void)},
+	{"foo", "()V", "<X:Ljava/lang/Object;Y:Ljava/lang/Object;Z::Ljava/lang/Cloneable;>()V", $PUBLIC, $virtualMethod(TypeParam, foo, void), nullptr, nullptr, nullptr, _TypeParam_MethodTypeAnnotations_foo1},
 	{}
 };
 

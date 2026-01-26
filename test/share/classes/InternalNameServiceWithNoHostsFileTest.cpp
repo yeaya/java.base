@@ -12,8 +12,8 @@ using $InetAddress = ::java::net::InetAddress;
 using $UnknownHostException = ::java::net::UnknownHostException;
 
 $MethodInfo _InternalNameServiceWithNoHostsFileTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(InternalNameServiceWithNoHostsFileTest::*)()>(&InternalNameServiceWithNoHostsFileTest::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&InternalNameServiceWithNoHostsFileTest::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(InternalNameServiceWithNoHostsFileTest, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(InternalNameServiceWithNoHostsFileTest, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

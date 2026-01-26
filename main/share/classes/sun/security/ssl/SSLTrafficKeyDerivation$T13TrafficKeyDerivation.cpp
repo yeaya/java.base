@@ -43,9 +43,9 @@ $FieldInfo _SSLTrafficKeyDerivation$T13TrafficKeyDerivation_FieldInfo_[] = {
 };
 
 $MethodInfo _SSLTrafficKeyDerivation$T13TrafficKeyDerivation_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljavax/crypto/SecretKey;)V", nullptr, 0, $method(static_cast<void(SSLTrafficKeyDerivation$T13TrafficKeyDerivation::*)($HandshakeContext*,$SecretKey*)>(&SSLTrafficKeyDerivation$T13TrafficKeyDerivation::init$))},
-	{"createHkdfInfo", "([BI)[B", nullptr, $PRIVATE | $STATIC, $method(static_cast<$bytes*(*)($bytes*,int32_t)>(&SSLTrafficKeyDerivation$T13TrafficKeyDerivation::createHkdfInfo)), "java.io.IOException"},
-	{"deriveKey", "(Ljava/lang/String;Ljava/security/spec/AlgorithmParameterSpec;)Ljavax/crypto/SecretKey;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljavax/crypto/SecretKey;)V", nullptr, 0, $method(SSLTrafficKeyDerivation$T13TrafficKeyDerivation, init$, void, $HandshakeContext*, $SecretKey*)},
+	{"createHkdfInfo", "([BI)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(SSLTrafficKeyDerivation$T13TrafficKeyDerivation, createHkdfInfo, $bytes*, $bytes*, int32_t), "java.io.IOException"},
+	{"deriveKey", "(Ljava/lang/String;Ljava/security/spec/AlgorithmParameterSpec;)Ljavax/crypto/SecretKey;", nullptr, $PUBLIC, $virtualMethod(SSLTrafficKeyDerivation$T13TrafficKeyDerivation, deriveKey, $SecretKey*, $String*, $AlgorithmParameterSpec*), "java.io.IOException"},
 	{}
 };
 

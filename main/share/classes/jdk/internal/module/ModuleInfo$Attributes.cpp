@@ -29,11 +29,11 @@ $FieldInfo _ModuleInfo$Attributes_FieldInfo_[] = {
 };
 
 $MethodInfo _ModuleInfo$Attributes_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/module/ModuleDescriptor;Ljdk/internal/module/ModuleTarget;Ljdk/internal/module/ModuleHashes;Ljdk/internal/module/ModuleResolution;)V", nullptr, 0, $method(static_cast<void(ModuleInfo$Attributes::*)($ModuleDescriptor*,$ModuleTarget*,$ModuleHashes*,$ModuleResolution*)>(&ModuleInfo$Attributes::init$))},
-	{"descriptor", "()Ljava/lang/module/ModuleDescriptor;", nullptr, $PUBLIC, $method(static_cast<$ModuleDescriptor*(ModuleInfo$Attributes::*)()>(&ModuleInfo$Attributes::descriptor))},
-	{"moduleResolution", "()Ljdk/internal/module/ModuleResolution;", nullptr, $PUBLIC, $method(static_cast<$ModuleResolution*(ModuleInfo$Attributes::*)()>(&ModuleInfo$Attributes::moduleResolution))},
-	{"recordedHashes", "()Ljdk/internal/module/ModuleHashes;", nullptr, $PUBLIC, $method(static_cast<$ModuleHashes*(ModuleInfo$Attributes::*)()>(&ModuleInfo$Attributes::recordedHashes))},
-	{"target", "()Ljdk/internal/module/ModuleTarget;", nullptr, $PUBLIC, $method(static_cast<$ModuleTarget*(ModuleInfo$Attributes::*)()>(&ModuleInfo$Attributes::target))},
+	{"<init>", "(Ljava/lang/module/ModuleDescriptor;Ljdk/internal/module/ModuleTarget;Ljdk/internal/module/ModuleHashes;Ljdk/internal/module/ModuleResolution;)V", nullptr, 0, $method(ModuleInfo$Attributes, init$, void, $ModuleDescriptor*, $ModuleTarget*, $ModuleHashes*, $ModuleResolution*)},
+	{"descriptor", "()Ljava/lang/module/ModuleDescriptor;", nullptr, $PUBLIC, $method(ModuleInfo$Attributes, descriptor, $ModuleDescriptor*)},
+	{"moduleResolution", "()Ljdk/internal/module/ModuleResolution;", nullptr, $PUBLIC, $method(ModuleInfo$Attributes, moduleResolution, $ModuleResolution*)},
+	{"recordedHashes", "()Ljdk/internal/module/ModuleHashes;", nullptr, $PUBLIC, $method(ModuleInfo$Attributes, recordedHashes, $ModuleHashes*)},
+	{"target", "()Ljdk/internal/module/ModuleTarget;", nullptr, $PUBLIC, $method(ModuleInfo$Attributes, target, $ModuleTarget*)},
 	{}
 };
 

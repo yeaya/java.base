@@ -44,12 +44,12 @@ $MethodInfo _ForEachOps$ForEachOp$OfInt_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/util/function/IntConsumer;Z)V", nullptr, 0, $method(static_cast<void(ForEachOps$ForEachOp$OfInt::*)($IntConsumer*,bool)>(&ForEachOps$ForEachOp$OfInt::init$))},
-	{"accept", "(I)V", nullptr, $PUBLIC},
-	{"evaluateParallel", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"evaluateSequential", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"inputShape", "()Ljava/util/stream/StreamShape;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/function/IntConsumer;Z)V", nullptr, 0, $method(ForEachOps$ForEachOp$OfInt, init$, void, $IntConsumer*, bool)},
+	{"accept", "(I)V", nullptr, $PUBLIC, $virtualMethod(ForEachOps$ForEachOp$OfInt, accept, void, int32_t)},
+	{"evaluateParallel", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ForEachOps$ForEachOp$OfInt, evaluateParallel, $Object*, $PipelineHelper*, $Spliterator*)},
+	{"evaluateSequential", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ForEachOps$ForEachOp$OfInt, evaluateSequential, $Object*, $PipelineHelper*, $Spliterator*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ForEachOps$ForEachOp$OfInt, get, $Object*)},
+	{"inputShape", "()Ljava/util/stream/StreamShape;", nullptr, $PUBLIC, $virtualMethod(ForEachOps$ForEachOp$OfInt, inputShape, $StreamShape*)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

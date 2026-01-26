@@ -16,10 +16,10 @@ $FieldInfo _IndexOutOfBoundsException_FieldInfo_[] = {
 };
 
 $MethodInfo _IndexOutOfBoundsException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(IndexOutOfBoundsException::*)()>(&IndexOutOfBoundsException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(IndexOutOfBoundsException::*)($String*)>(&IndexOutOfBoundsException::init$))},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(static_cast<void(IndexOutOfBoundsException::*)(int32_t)>(&IndexOutOfBoundsException::init$))},
-	{"<init>", "(J)V", nullptr, $PUBLIC, $method(static_cast<void(IndexOutOfBoundsException::*)(int64_t)>(&IndexOutOfBoundsException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(IndexOutOfBoundsException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(IndexOutOfBoundsException, init$, void, $String*)},
+	{"<init>", "(I)V", nullptr, $PUBLIC, $method(IndexOutOfBoundsException, init$, void, int32_t)},
+	{"<init>", "(J)V", nullptr, $PUBLIC, $method(IndexOutOfBoundsException, init$, void, int64_t)},
 	{}
 };
 

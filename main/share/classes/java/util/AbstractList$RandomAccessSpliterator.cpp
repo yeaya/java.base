@@ -44,16 +44,16 @@ $FieldInfo _AbstractList$RandomAccessSpliterator_FieldInfo_[] = {
 };
 
 $MethodInfo _AbstractList$RandomAccessSpliterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/List;)V", "(Ljava/util/List<TE;>;)V", 0, $method(static_cast<void(AbstractList$RandomAccessSpliterator::*)($List*)>(&AbstractList$RandomAccessSpliterator::init$))},
-	{"<init>", "(Ljava/util/AbstractList$RandomAccessSpliterator;II)V", "(Ljava/util/AbstractList$RandomAccessSpliterator<TE;>;II)V", $PRIVATE, $method(static_cast<void(AbstractList$RandomAccessSpliterator::*)(AbstractList$RandomAccessSpliterator*,int32_t,int32_t)>(&AbstractList$RandomAccessSpliterator::init$))},
-	{"characteristics", "()I", nullptr, $PUBLIC},
-	{"checkAbstractListModCount", "(Ljava/util/AbstractList;I)V", "(Ljava/util/AbstractList<*>;I)V", $STATIC, $method(static_cast<void(*)($AbstractList*,int32_t)>(&AbstractList$RandomAccessSpliterator::checkAbstractListModCount))},
-	{"estimateSize", "()J", nullptr, $PUBLIC},
-	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC},
-	{"get", "(Ljava/util/List;I)Ljava/lang/Object;", "<E:Ljava/lang/Object;>(Ljava/util/List<TE;>;I)TE;", $PRIVATE | $STATIC, $method(static_cast<$Object*(*)($List*,int32_t)>(&AbstractList$RandomAccessSpliterator::get))},
-	{"getFence", "()I", nullptr, $PRIVATE, $method(static_cast<int32_t(AbstractList$RandomAccessSpliterator::*)()>(&AbstractList$RandomAccessSpliterator::getFence))},
-	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-TE;>;)Z", $PUBLIC},
-	{"trySplit", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TE;>;", $PUBLIC},
+	{"<init>", "(Ljava/util/List;)V", "(Ljava/util/List<TE;>;)V", 0, $method(AbstractList$RandomAccessSpliterator, init$, void, $List*)},
+	{"<init>", "(Ljava/util/AbstractList$RandomAccessSpliterator;II)V", "(Ljava/util/AbstractList$RandomAccessSpliterator<TE;>;II)V", $PRIVATE, $method(AbstractList$RandomAccessSpliterator, init$, void, AbstractList$RandomAccessSpliterator*, int32_t, int32_t)},
+	{"characteristics", "()I", nullptr, $PUBLIC, $virtualMethod(AbstractList$RandomAccessSpliterator, characteristics, int32_t)},
+	{"checkAbstractListModCount", "(Ljava/util/AbstractList;I)V", "(Ljava/util/AbstractList<*>;I)V", $STATIC, $staticMethod(AbstractList$RandomAccessSpliterator, checkAbstractListModCount, void, $AbstractList*, int32_t)},
+	{"estimateSize", "()J", nullptr, $PUBLIC, $virtualMethod(AbstractList$RandomAccessSpliterator, estimateSize, int64_t)},
+	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC, $virtualMethod(AbstractList$RandomAccessSpliterator, forEachRemaining, void, $Consumer*)},
+	{"get", "(Ljava/util/List;I)Ljava/lang/Object;", "<E:Ljava/lang/Object;>(Ljava/util/List<TE;>;I)TE;", $PRIVATE | $STATIC, $staticMethod(AbstractList$RandomAccessSpliterator, get, $Object*, $List*, int32_t)},
+	{"getFence", "()I", nullptr, $PRIVATE, $method(AbstractList$RandomAccessSpliterator, getFence, int32_t)},
+	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-TE;>;)Z", $PUBLIC, $virtualMethod(AbstractList$RandomAccessSpliterator, tryAdvance, bool, $Consumer*)},
+	{"trySplit", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TE;>;", $PUBLIC, $virtualMethod(AbstractList$RandomAccessSpliterator, trySplit, $Spliterator*)},
 	{}
 };
 

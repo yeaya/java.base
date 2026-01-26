@@ -42,13 +42,13 @@ $FieldInfo _KeyStore$Builder_FieldInfo_[] = {
 };
 
 $MethodInfo _KeyStore$Builder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(KeyStore$Builder::*)()>(&KeyStore$Builder::init$))},
-	{"getKeyStore", "()Ljava/security/KeyStore;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.security.KeyStoreException"},
-	{"getProtectionParameter", "(Ljava/lang/String;)Ljava/security/KeyStore$ProtectionParameter;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.security.KeyStoreException"},
-	{"newInstance", "(Ljava/security/KeyStore;Ljava/security/KeyStore$ProtectionParameter;)Ljava/security/KeyStore$Builder;", nullptr, $PUBLIC | $STATIC, $method(static_cast<KeyStore$Builder*(*)($KeyStore*,$KeyStore$ProtectionParameter*)>(&KeyStore$Builder::newInstance))},
-	{"newInstance", "(Ljava/lang/String;Ljava/security/Provider;Ljava/io/File;Ljava/security/KeyStore$ProtectionParameter;)Ljava/security/KeyStore$Builder;", nullptr, $PUBLIC | $STATIC, $method(static_cast<KeyStore$Builder*(*)($String*,$Provider*,$File*,$KeyStore$ProtectionParameter*)>(&KeyStore$Builder::newInstance))},
-	{"newInstance", "(Ljava/io/File;Ljava/security/KeyStore$ProtectionParameter;)Ljava/security/KeyStore$Builder;", nullptr, $PUBLIC | $STATIC, $method(static_cast<KeyStore$Builder*(*)($File*,$KeyStore$ProtectionParameter*)>(&KeyStore$Builder::newInstance))},
-	{"newInstance", "(Ljava/lang/String;Ljava/security/Provider;Ljava/security/KeyStore$ProtectionParameter;)Ljava/security/KeyStore$Builder;", nullptr, $PUBLIC | $STATIC, $method(static_cast<KeyStore$Builder*(*)($String*,$Provider*,$KeyStore$ProtectionParameter*)>(&KeyStore$Builder::newInstance))},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(KeyStore$Builder, init$, void)},
+	{"getKeyStore", "()Ljava/security/KeyStore;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(KeyStore$Builder, getKeyStore, $KeyStore*), "java.security.KeyStoreException"},
+	{"getProtectionParameter", "(Ljava/lang/String;)Ljava/security/KeyStore$ProtectionParameter;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(KeyStore$Builder, getProtectionParameter, $KeyStore$ProtectionParameter*, $String*), "java.security.KeyStoreException"},
+	{"newInstance", "(Ljava/security/KeyStore;Ljava/security/KeyStore$ProtectionParameter;)Ljava/security/KeyStore$Builder;", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyStore$Builder, newInstance, KeyStore$Builder*, $KeyStore*, $KeyStore$ProtectionParameter*)},
+	{"newInstance", "(Ljava/lang/String;Ljava/security/Provider;Ljava/io/File;Ljava/security/KeyStore$ProtectionParameter;)Ljava/security/KeyStore$Builder;", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyStore$Builder, newInstance, KeyStore$Builder*, $String*, $Provider*, $File*, $KeyStore$ProtectionParameter*)},
+	{"newInstance", "(Ljava/io/File;Ljava/security/KeyStore$ProtectionParameter;)Ljava/security/KeyStore$Builder;", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyStore$Builder, newInstance, KeyStore$Builder*, $File*, $KeyStore$ProtectionParameter*)},
+	{"newInstance", "(Ljava/lang/String;Ljava/security/Provider;Ljava/security/KeyStore$ProtectionParameter;)Ljava/security/KeyStore$Builder;", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyStore$Builder, newInstance, KeyStore$Builder*, $String*, $Provider*, $KeyStore$ProtectionParameter*)},
 	{}
 };
 

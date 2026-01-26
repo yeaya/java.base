@@ -11,8 +11,8 @@ namespace jdk {
 	namespace test {
 
 $MethodInfo _NP_MethodInfo_[] = {
-	{"m", "()I", nullptr, $PUBLIC},
-	{"test", "()V", nullptr, $PUBLIC | $ABSTRACT},
+	{"m", "()I", nullptr, $PUBLIC, $virtualMethod(NP, m, int32_t)},
+	{"test", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NP, test, void)},
 	{}
 };
 

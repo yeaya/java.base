@@ -41,8 +41,8 @@ $FieldInfo _Unbounded_FieldInfo_[] = {
 };
 
 $MethodInfo _Unbounded_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Unbounded::*)()>(&Unbounded::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Unbounded::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Unbounded, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Unbounded, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

@@ -21,9 +21,9 @@ $FieldInfo _EdECPrivateKeySpec_FieldInfo_[] = {
 };
 
 $MethodInfo _EdECPrivateKeySpec_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/spec/NamedParameterSpec;[B)V", nullptr, $PUBLIC, $method(static_cast<void(EdECPrivateKeySpec::*)($NamedParameterSpec*,$bytes*)>(&EdECPrivateKeySpec::init$))},
-	{"getBytes", "()[B", nullptr, $PUBLIC, $method(static_cast<$bytes*(EdECPrivateKeySpec::*)()>(&EdECPrivateKeySpec::getBytes))},
-	{"getParams", "()Ljava/security/spec/NamedParameterSpec;", nullptr, $PUBLIC, $method(static_cast<$NamedParameterSpec*(EdECPrivateKeySpec::*)()>(&EdECPrivateKeySpec::getParams))},
+	{"<init>", "(Ljava/security/spec/NamedParameterSpec;[B)V", nullptr, $PUBLIC, $method(EdECPrivateKeySpec, init$, void, $NamedParameterSpec*, $bytes*)},
+	{"getBytes", "()[B", nullptr, $PUBLIC, $method(EdECPrivateKeySpec, getBytes, $bytes*)},
+	{"getParams", "()Ljava/security/spec/NamedParameterSpec;", nullptr, $PUBLIC, $method(EdECPrivateKeySpec, getParams, $NamedParameterSpec*)},
 	{}
 };
 

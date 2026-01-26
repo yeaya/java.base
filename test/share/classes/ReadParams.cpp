@@ -44,9 +44,9 @@ $FieldInfo _ReadParams_FieldInfo_[] = {
 };
 
 $MethodInfo _ReadParams_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ReadParams::*)()>(&ReadParams::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&ReadParams::main)), "java.lang.Exception"},
-	{"test", "(Ljava/io/Reader;)V", nullptr, $STATIC, $method(static_cast<void(*)($Reader*)>(&ReadParams::test)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ReadParams, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ReadParams, main, void, $StringArray*), "java.lang.Exception"},
+	{"test", "(Ljava/io/Reader;)V", nullptr, $STATIC, $staticMethod(ReadParams, test, void, $Reader*), "java.lang.Exception"},
 	{}
 };
 

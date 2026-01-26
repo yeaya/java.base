@@ -31,9 +31,9 @@ $FieldInfo _Files$FileTypeDetectors_FieldInfo_[] = {
 };
 
 $MethodInfo _Files$FileTypeDetectors_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(Files$FileTypeDetectors::*)()>(&Files$FileTypeDetectors::init$))},
-	{"createDefaultFileTypeDetector", "()Ljava/nio/file/spi/FileTypeDetector;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$FileTypeDetector*(*)()>(&Files$FileTypeDetectors::createDefaultFileTypeDetector))},
-	{"loadInstalledDetectors", "()Ljava/util/List;", "()Ljava/util/List<Ljava/nio/file/spi/FileTypeDetector;>;", $PRIVATE | $STATIC, $method(static_cast<$List*(*)()>(&Files$FileTypeDetectors::loadInstalledDetectors))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(Files$FileTypeDetectors, init$, void)},
+	{"createDefaultFileTypeDetector", "()Ljava/nio/file/spi/FileTypeDetector;", nullptr, $PRIVATE | $STATIC, $staticMethod(Files$FileTypeDetectors, createDefaultFileTypeDetector, $FileTypeDetector*)},
+	{"loadInstalledDetectors", "()Ljava/util/List;", "()Ljava/util/List<Ljava/nio/file/spi/FileTypeDetector;>;", $PRIVATE | $STATIC, $staticMethod(Files$FileTypeDetectors, loadInstalledDetectors, $List*)},
 	{}
 };
 

@@ -9,8 +9,8 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _Truncate$4_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Truncate$4::*)()>(&Truncate$4::init$))},
-	{"uncaughtException", "(Ljava/lang/Thread;Ljava/lang/Throwable;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(Truncate$4, init$, void)},
+	{"uncaughtException", "(Ljava/lang/Thread;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(Truncate$4, uncaughtException, void, $Thread*, $Throwable*)},
 	{}
 };
 

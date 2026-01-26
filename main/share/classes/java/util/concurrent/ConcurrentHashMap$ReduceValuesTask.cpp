@@ -31,9 +31,9 @@ $FieldInfo _ConcurrentHashMap$ReduceValuesTask_FieldInfo_[] = {
 };
 
 $MethodInfo _ConcurrentHashMap$ReduceValuesTask_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/ConcurrentHashMap$BulkTask;III[Ljava/util/concurrent/ConcurrentHashMap$Node;Ljava/util/concurrent/ConcurrentHashMap$ReduceValuesTask;Ljava/util/function/BiFunction;)V", "(Ljava/util/concurrent/ConcurrentHashMap$BulkTask<TK;TV;*>;III[Ljava/util/concurrent/ConcurrentHashMap$Node<TK;TV;>;Ljava/util/concurrent/ConcurrentHashMap$ReduceValuesTask<TK;TV;>;Ljava/util/function/BiFunction<-TV;-TV;+TV;>;)V", 0, $method(static_cast<void(ConcurrentHashMap$ReduceValuesTask::*)($ConcurrentHashMap$BulkTask*,int32_t,int32_t,int32_t,$ConcurrentHashMap$NodeArray*,ConcurrentHashMap$ReduceValuesTask*,$BiFunction*)>(&ConcurrentHashMap$ReduceValuesTask::init$))},
-	{"compute", "()V", nullptr, $PUBLIC | $FINAL},
-	{"getRawResult", "()Ljava/lang/Object;", "()TV;", $PUBLIC | $FINAL},
+	{"<init>", "(Ljava/util/concurrent/ConcurrentHashMap$BulkTask;III[Ljava/util/concurrent/ConcurrentHashMap$Node;Ljava/util/concurrent/ConcurrentHashMap$ReduceValuesTask;Ljava/util/function/BiFunction;)V", "(Ljava/util/concurrent/ConcurrentHashMap$BulkTask<TK;TV;*>;III[Ljava/util/concurrent/ConcurrentHashMap$Node<TK;TV;>;Ljava/util/concurrent/ConcurrentHashMap$ReduceValuesTask<TK;TV;>;Ljava/util/function/BiFunction<-TV;-TV;+TV;>;)V", 0, $method(ConcurrentHashMap$ReduceValuesTask, init$, void, $ConcurrentHashMap$BulkTask*, int32_t, int32_t, int32_t, $ConcurrentHashMap$NodeArray*, ConcurrentHashMap$ReduceValuesTask*, $BiFunction*)},
+	{"compute", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(ConcurrentHashMap$ReduceValuesTask, compute, void)},
+	{"getRawResult", "()Ljava/lang/Object;", "()TV;", $PUBLIC | $FINAL, $virtualMethod(ConcurrentHashMap$ReduceValuesTask, getRawResult, $Object*)},
 	{}
 };
 

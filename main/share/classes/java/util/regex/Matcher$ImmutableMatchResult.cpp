@@ -28,15 +28,15 @@ $FieldInfo _Matcher$ImmutableMatchResult_FieldInfo_[] = {
 };
 
 $MethodInfo _Matcher$ImmutableMatchResult_MethodInfo_[] = {
-	{"<init>", "(III[ILjava/lang/String;)V", nullptr, 0, $method(static_cast<void(Matcher$ImmutableMatchResult::*)(int32_t,int32_t,int32_t,$ints*,$String*)>(&Matcher$ImmutableMatchResult::init$))},
-	{"checkMatch", "()V", nullptr, $PRIVATE, $method(static_cast<void(Matcher$ImmutableMatchResult::*)()>(&Matcher$ImmutableMatchResult::checkMatch))},
-	{"end", "()I", nullptr, $PUBLIC},
-	{"end", "(I)I", nullptr, $PUBLIC},
-	{"group", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"group", "(I)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"groupCount", "()I", nullptr, $PUBLIC},
-	{"start", "()I", nullptr, $PUBLIC},
-	{"start", "(I)I", nullptr, $PUBLIC},
+	{"<init>", "(III[ILjava/lang/String;)V", nullptr, 0, $method(Matcher$ImmutableMatchResult, init$, void, int32_t, int32_t, int32_t, $ints*, $String*)},
+	{"checkMatch", "()V", nullptr, $PRIVATE, $method(Matcher$ImmutableMatchResult, checkMatch, void)},
+	{"end", "()I", nullptr, $PUBLIC, $virtualMethod(Matcher$ImmutableMatchResult, end, int32_t)},
+	{"end", "(I)I", nullptr, $PUBLIC, $virtualMethod(Matcher$ImmutableMatchResult, end, int32_t, int32_t)},
+	{"group", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Matcher$ImmutableMatchResult, group, $String*)},
+	{"group", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Matcher$ImmutableMatchResult, group, $String*, int32_t)},
+	{"groupCount", "()I", nullptr, $PUBLIC, $virtualMethod(Matcher$ImmutableMatchResult, groupCount, int32_t)},
+	{"start", "()I", nullptr, $PUBLIC, $virtualMethod(Matcher$ImmutableMatchResult, start, int32_t)},
+	{"start", "(I)I", nullptr, $PUBLIC, $virtualMethod(Matcher$ImmutableMatchResult, start, int32_t, int32_t)},
 	{}
 };
 

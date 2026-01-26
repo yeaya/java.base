@@ -25,9 +25,9 @@ $FieldInfo _PreHashedMap$1_FieldInfo_[] = {
 };
 
 $MethodInfo _PreHashedMap$1_MethodInfo_[] = {
-	{"<init>", "(Lsun/util/PreHashedMap;)V", nullptr, 0, $method(static_cast<void(PreHashedMap$1::*)($PreHashedMap*)>(&PreHashedMap$1::init$))},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/lang/String;>;", $PUBLIC},
-	{"size", "()I", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/util/PreHashedMap;)V", nullptr, 0, $method(PreHashedMap$1, init$, void, $PreHashedMap*)},
+	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(PreHashedMap$1, iterator, $Iterator*)},
+	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(PreHashedMap$1, size, int32_t)},
 	{}
 };
 

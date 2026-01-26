@@ -18,7 +18,7 @@ $CompoundAttribute _Classy_Annotations_[] = {
 };
 
 $MethodInfo _Classy_MethodInfo_[] = {
-	{"value", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC | $ABSTRACT},
+	{"value", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC | $ABSTRACT, $virtualMethod(Classy, value, $Class*)},
 	{}
 };
 

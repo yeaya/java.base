@@ -18,9 +18,9 @@ $FieldInfo _EnumConstantNotPresentException_FieldInfo_[] = {
 };
 
 $MethodInfo _EnumConstantNotPresentException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Class;Ljava/lang/String;)V", "(Ljava/lang/Class<+Ljava/lang/Enum;>;Ljava/lang/String;)V", $PUBLIC, $method(static_cast<void(EnumConstantNotPresentException::*)($Class*,$String*)>(&EnumConstantNotPresentException::init$))},
-	{"constantName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"enumType", "()Ljava/lang/Class;", "()Ljava/lang/Class<+Ljava/lang/Enum;>;", $PUBLIC},
+	{"<init>", "(Ljava/lang/Class;Ljava/lang/String;)V", "(Ljava/lang/Class<+Ljava/lang/Enum;>;Ljava/lang/String;)V", $PUBLIC, $method(EnumConstantNotPresentException, init$, void, $Class*, $String*)},
+	{"constantName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(EnumConstantNotPresentException, constantName, $String*)},
+	{"enumType", "()Ljava/lang/Class;", "()Ljava/lang/Class<+Ljava/lang/Enum;>;", $PUBLIC, $virtualMethod(EnumConstantNotPresentException, enumType, $Class*)},
 	{}
 };
 

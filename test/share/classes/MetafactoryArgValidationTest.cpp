@@ -42,17 +42,17 @@ using $MethodType = ::java::lang::invoke::MethodType;
 using $Arrays = ::java::util::Arrays;
 
 $MethodInfo _MetafactoryArgValidationTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(MetafactoryArgValidationTest::*)()>(&MetafactoryArgValidationTest::init$))},
-	{"amfFail", "(Ljava/lang/Class;Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;[Ljava/lang/Object;)V", "(Ljava/lang/Class<*>;Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;[Ljava/lang/Object;)V", $STATIC, $method(static_cast<void(*)($Class*,$MethodHandles$Lookup*,$String*,$MethodType*,$ObjectArray*)>(&MetafactoryArgValidationTest::amfFail))},
-	{"amfSucceed", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;[Ljava/lang/Object;)Ljava/lang/invoke/CallSite;", nullptr, $STATIC, $method(static_cast<$CallSite*(*)($MethodHandles$Lookup*,$String*,$MethodType*,$ObjectArray*)>(&MetafactoryArgValidationTest::amfSucceed))},
-	{"arr", "([Ljava/lang/Object;)[Ljava/lang/Object;", nullptr, $STATIC | $TRANSIENT, $method(static_cast<$ObjectArray*(*)($ObjectArray*)>(&MetafactoryArgValidationTest::arr))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<void(*)($StringArray*)>(&MetafactoryArgValidationTest::main))},
-	{"mfFail", "(Ljava/lang/Class;Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)V", "(Ljava/lang/Class<*>;Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)V", $STATIC, $method(static_cast<void(*)($Class*,$MethodHandles$Lookup*,$String*,$MethodType*,$MethodType*,$MethodHandle*,$MethodType*)>(&MetafactoryArgValidationTest::mfFail))},
-	{"mfSucceed", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/CallSite;", nullptr, $STATIC, $method(static_cast<$CallSite*(*)($MethodHandles$Lookup*,$String*,$MethodType*,$MethodType*,$MethodHandle*,$MethodType*)>(&MetafactoryArgValidationTest::mfSucceed))},
-	{"mt", "(Ljava/lang/Class;[Ljava/lang/Class;)Ljava/lang/invoke/MethodType;", "(Ljava/lang/Class<*>;[Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodType;", $STATIC | $TRANSIENT, $method(static_cast<$MethodType*(*)($Class*,$ClassArray*)>(&MetafactoryArgValidationTest::mt))},
-	{"testIAE", "()V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)()>(&MetafactoryArgValidationTest::testIAE))},
-	{"testLCE", "()V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)()>(&MetafactoryArgValidationTest::testLCE))},
-	{"testNPE", "()V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)()>(&MetafactoryArgValidationTest::testNPE))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(MetafactoryArgValidationTest, init$, void)},
+	{"amfFail", "(Ljava/lang/Class;Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;[Ljava/lang/Object;)V", "(Ljava/lang/Class<*>;Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;[Ljava/lang/Object;)V", $STATIC, $staticMethod(MetafactoryArgValidationTest, amfFail, void, $Class*, $MethodHandles$Lookup*, $String*, $MethodType*, $ObjectArray*)},
+	{"amfSucceed", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;[Ljava/lang/Object;)Ljava/lang/invoke/CallSite;", nullptr, $STATIC, $staticMethod(MetafactoryArgValidationTest, amfSucceed, $CallSite*, $MethodHandles$Lookup*, $String*, $MethodType*, $ObjectArray*)},
+	{"arr", "([Ljava/lang/Object;)[Ljava/lang/Object;", nullptr, $STATIC | $TRANSIENT, $staticMethod(MetafactoryArgValidationTest, arr, $ObjectArray*, $ObjectArray*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(MetafactoryArgValidationTest, main, void, $StringArray*)},
+	{"mfFail", "(Ljava/lang/Class;Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)V", "(Ljava/lang/Class<*>;Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)V", $STATIC, $staticMethod(MetafactoryArgValidationTest, mfFail, void, $Class*, $MethodHandles$Lookup*, $String*, $MethodType*, $MethodType*, $MethodHandle*, $MethodType*)},
+	{"mfSucceed", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/CallSite;", nullptr, $STATIC, $staticMethod(MetafactoryArgValidationTest, mfSucceed, $CallSite*, $MethodHandles$Lookup*, $String*, $MethodType*, $MethodType*, $MethodHandle*, $MethodType*)},
+	{"mt", "(Ljava/lang/Class;[Ljava/lang/Class;)Ljava/lang/invoke/MethodType;", "(Ljava/lang/Class<*>;[Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodType;", $STATIC | $TRANSIENT, $staticMethod(MetafactoryArgValidationTest, mt, $MethodType*, $Class*, $ClassArray*)},
+	{"testIAE", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(MetafactoryArgValidationTest, testIAE, void)},
+	{"testLCE", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(MetafactoryArgValidationTest, testLCE, void)},
+	{"testNPE", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(MetafactoryArgValidationTest, testNPE, void)},
 	{}
 };
 

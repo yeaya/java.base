@@ -21,9 +21,9 @@ $FieldInfo _KeyPair_FieldInfo_[] = {
 };
 
 $MethodInfo _KeyPair_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/PublicKey;Ljava/security/PrivateKey;)V", nullptr, $PUBLIC, $method(static_cast<void(KeyPair::*)($PublicKey*,$PrivateKey*)>(&KeyPair::init$))},
-	{"getPrivate", "()Ljava/security/PrivateKey;", nullptr, $PUBLIC, $method(static_cast<$PrivateKey*(KeyPair::*)()>(&KeyPair::getPrivate))},
-	{"getPublic", "()Ljava/security/PublicKey;", nullptr, $PUBLIC, $method(static_cast<$PublicKey*(KeyPair::*)()>(&KeyPair::getPublic))},
+	{"<init>", "(Ljava/security/PublicKey;Ljava/security/PrivateKey;)V", nullptr, $PUBLIC, $method(KeyPair, init$, void, $PublicKey*, $PrivateKey*)},
+	{"getPrivate", "()Ljava/security/PrivateKey;", nullptr, $PUBLIC, $method(KeyPair, getPrivate, $PrivateKey*)},
+	{"getPublic", "()Ljava/security/PublicKey;", nullptr, $PUBLIC, $method(KeyPair, getPublic, $PublicKey*)},
 	{}
 };
 

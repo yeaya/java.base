@@ -17,8 +17,8 @@ $FieldInfo _BindException_FieldInfo_[] = {
 };
 
 $MethodInfo _BindException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(BindException::*)($String*)>(&BindException::init$))},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(BindException::*)()>(&BindException::init$))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(BindException, init$, void, $String*)},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(BindException, init$, void)},
 	{}
 };
 

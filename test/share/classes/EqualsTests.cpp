@@ -26,9 +26,9 @@ using $BigDecimal = ::java::math::BigDecimal;
 using $BigInteger = ::java::math::BigInteger;
 
 $MethodInfo _EqualsTests_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(EqualsTests::*)()>(&EqualsTests::init$))},
-	{"equalsTest", "(Ljava/math/BigDecimal;Ljava/math/BigDecimal;Z)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)($BigDecimal*,$BigDecimal*,bool)>(&EqualsTests::equalsTest))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&EqualsTests::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(EqualsTests, init$, void)},
+	{"equalsTest", "(Ljava/math/BigDecimal;Ljava/math/BigDecimal;Z)I", nullptr, $PRIVATE | $STATIC, $staticMethod(EqualsTests, equalsTest, int32_t, $BigDecimal*, $BigDecimal*, bool)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(EqualsTests, main, void, $StringArray*)},
 	{}
 };
 

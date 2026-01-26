@@ -9,7 +9,7 @@ namespace java {
 	namespace net {
 
 $MethodInfo _FileNameMap_MethodInfo_[] = {
-	{"getContentTypeFor", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
+	{"getContentTypeFor", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FileNameMap, getContentTypeFor, $String*, $String*)},
 	{}
 };
 

@@ -27,8 +27,8 @@ $FieldInfo _WindowsAsynchronousServerSocketChannelImpl$AcceptTask$1_FieldInfo_[]
 };
 
 $MethodInfo _WindowsAsynchronousServerSocketChannelImpl$AcceptTask$1_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/ch/WindowsAsynchronousServerSocketChannelImpl$AcceptTask;Ljava/net/InetSocketAddress;)V", "()V", 0, $method(static_cast<void(WindowsAsynchronousServerSocketChannelImpl$AcceptTask$1::*)($WindowsAsynchronousServerSocketChannelImpl$AcceptTask*,$InetSocketAddress*)>(&WindowsAsynchronousServerSocketChannelImpl$AcceptTask$1::init$))},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/nio/ch/WindowsAsynchronousServerSocketChannelImpl$AcceptTask;Ljava/net/InetSocketAddress;)V", "()V", 0, $method(WindowsAsynchronousServerSocketChannelImpl$AcceptTask$1, init$, void, $WindowsAsynchronousServerSocketChannelImpl$AcceptTask*, $InetSocketAddress*)},
+	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(WindowsAsynchronousServerSocketChannelImpl$AcceptTask$1, run, $Object*)},
 	{}
 };
 

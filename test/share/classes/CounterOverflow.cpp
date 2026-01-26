@@ -16,8 +16,8 @@ using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _CounterOverflow_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $method(static_cast<void(CounterOverflow::*)($OutputStream*)>(&CounterOverflow::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&CounterOverflow::main)), "java.lang.Exception"},
+	{"<init>", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $method(CounterOverflow, init$, void, $OutputStream*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(CounterOverflow, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

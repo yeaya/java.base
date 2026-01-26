@@ -22,12 +22,12 @@ $FieldInfo _Hashtable$KeySet_FieldInfo_[] = {
 };
 
 $MethodInfo _Hashtable$KeySet_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Hashtable;)V", nullptr, $PRIVATE, $method(static_cast<void(Hashtable$KeySet::*)($Hashtable*)>(&Hashtable$KeySet::init$))},
-	{"clear", "()V", nullptr, $PUBLIC},
-	{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TK;>;", $PUBLIC},
-	{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"size", "()I", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/Hashtable;)V", nullptr, $PRIVATE, $method(Hashtable$KeySet, init$, void, $Hashtable*)},
+	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(Hashtable$KeySet, clear, void)},
+	{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Hashtable$KeySet, contains, bool, Object$*)},
+	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TK;>;", $PUBLIC, $virtualMethod(Hashtable$KeySet, iterator, $Iterator*)},
+	{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Hashtable$KeySet, remove, bool, Object$*)},
+	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(Hashtable$KeySet, size, int32_t)},
 	{}
 };
 

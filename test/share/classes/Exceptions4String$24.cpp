@@ -10,8 +10,8 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _Exceptions4String$24_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Exceptions4String$24::*)()>(&Exceptions4String$24::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(Exceptions4String$24, init$, void)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Exceptions4String$24, run, void)},
 	{}
 };
 

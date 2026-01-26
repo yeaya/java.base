@@ -20,8 +20,8 @@ $FieldInfo _URLPermissionTest$HashCodeTest_FieldInfo_[] = {
 };
 
 $MethodInfo _URLPermissionTest$HashCodeTest_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;I)V", nullptr, 0, $method(static_cast<void(URLPermissionTest$HashCodeTest::*)($String*,$String*,int32_t)>(&URLPermissionTest$HashCodeTest::init$))},
-	{"execute", "()Z", nullptr, 0},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;I)V", nullptr, 0, $method(URLPermissionTest$HashCodeTest, init$, void, $String*, $String*, int32_t)},
+	{"execute", "()Z", nullptr, 0, $virtualMethod(URLPermissionTest$HashCodeTest, execute, bool)},
 	{}
 };
 

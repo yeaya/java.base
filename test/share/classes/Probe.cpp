@@ -73,9 +73,9 @@ $CompoundAttribute _Probe_Annotations_[] = {
 };
 
 $MethodInfo _Probe_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Probe::*)()>(&Probe::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<void(*)($StringArray*)>(&Probe::main)), "java.lang.Throwable"},
-	{"probe", "(Ljava/lang/Class;)I", nullptr, $STATIC, $method(static_cast<int32_t(*)($Class*)>(&Probe::probe))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Probe, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(Probe, main, void, $StringArray*), "java.lang.Throwable"},
+	{"probe", "(Ljava/lang/Class;)I", nullptr, $STATIC, $staticMethod(Probe, probe, int32_t, $Class*)},
 	{}
 };
 

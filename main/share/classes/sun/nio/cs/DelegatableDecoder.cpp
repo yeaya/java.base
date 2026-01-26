@@ -7,15 +7,18 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $ByteBuffer = ::java::nio::ByteBuffer;
+using $CharBuffer = ::java::nio::CharBuffer;
+using $CoderResult = ::java::nio::charset::CoderResult;
 
 namespace sun {
 	namespace nio {
 		namespace cs {
 
 $MethodInfo _DelegatableDecoder_MethodInfo_[] = {
-	{"decodeLoop", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PUBLIC | $ABSTRACT},
-	{"implFlush", "(Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PUBLIC | $ABSTRACT},
-	{"implReset", "()V", nullptr, $PUBLIC | $ABSTRACT},
+	{"decodeLoop", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DelegatableDecoder, decodeLoop, $CoderResult*, $ByteBuffer*, $CharBuffer*)},
+	{"implFlush", "(Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DelegatableDecoder, implFlush, $CoderResult*, $CharBuffer*)},
+	{"implReset", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DelegatableDecoder, implReset, void)},
 	{}
 };
 

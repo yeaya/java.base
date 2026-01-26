@@ -17,8 +17,8 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Runtime = ::java::lang::Runtime;
 
 $MethodInfo _MaxCapacity_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(MaxCapacity::*)()>(&MaxCapacity::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&MaxCapacity::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(MaxCapacity, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(MaxCapacity, main, void, $StringArray*)},
 	{}
 };
 

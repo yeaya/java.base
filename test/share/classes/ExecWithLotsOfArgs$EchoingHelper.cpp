@@ -9,8 +9,8 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _ExecWithLotsOfArgs$EchoingHelper_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ExecWithLotsOfArgs$EchoingHelper::*)()>(&ExecWithLotsOfArgs$EchoingHelper::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&ExecWithLotsOfArgs$EchoingHelper::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ExecWithLotsOfArgs$EchoingHelper, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ExecWithLotsOfArgs$EchoingHelper, main, void, $StringArray*)},
 	{}
 };
 

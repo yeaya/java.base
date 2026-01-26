@@ -10,7 +10,7 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _Test7157574$Sub_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Test7157574$Sub::*)()>(&Test7157574$Sub::init$))},
+	{"<init>", "()V", nullptr, 0, $method(Test7157574$Sub, init$, void)},
 	{}
 };
 

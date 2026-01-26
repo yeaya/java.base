@@ -77,8 +77,8 @@ $FieldInfo ReadCloseRaceNPE$$Lambda$lambda$testReader$0::fieldInfos[4] = {
 	{}
 };
 $MethodInfo ReadCloseRaceNPE$$Lambda$lambda$testReader$0::methodInfos[3] = {
-	{"<init>", "(Ljava/util/concurrent/atomic/AtomicReference;Ljava/util/function/Supplier;Ljava/util/concurrent/atomic/AtomicBoolean;)V", nullptr, $PUBLIC, $method(static_cast<void(ReadCloseRaceNPE$$Lambda$lambda$testReader$0::*)($AtomicReference*,$Supplier*,$AtomicBoolean*)>(&ReadCloseRaceNPE$$Lambda$lambda$testReader$0::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/concurrent/atomic/AtomicReference;Ljava/util/function/Supplier;Ljava/util/concurrent/atomic/AtomicBoolean;)V", nullptr, $PUBLIC, $method(ReadCloseRaceNPE$$Lambda$lambda$testReader$0, init$, void, $AtomicReference*, $Supplier*, $AtomicBoolean*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ReadCloseRaceNPE$$Lambda$lambda$testReader$0, run, void)},
 	{}
 };
 $ClassInfo ReadCloseRaceNPE$$Lambda$lambda$testReader$0::classInfo$ = {
@@ -120,8 +120,8 @@ $FieldInfo ReadCloseRaceNPE$$Lambda$lambda$testReader$1$1::fieldInfos[3] = {
 	{}
 };
 $MethodInfo ReadCloseRaceNPE$$Lambda$lambda$testReader$1$1::methodInfos[3] = {
-	{"<init>", "(Ljava/util/concurrent/atomic/AtomicBoolean;Ljava/util/concurrent/atomic/AtomicReference;)V", nullptr, $PUBLIC, $method(static_cast<void(ReadCloseRaceNPE$$Lambda$lambda$testReader$1$1::*)($AtomicBoolean*,$AtomicReference*)>(&ReadCloseRaceNPE$$Lambda$lambda$testReader$1$1::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/concurrent/atomic/AtomicBoolean;Ljava/util/concurrent/atomic/AtomicReference;)V", nullptr, $PUBLIC, $method(ReadCloseRaceNPE$$Lambda$lambda$testReader$1$1, init$, void, $AtomicBoolean*, $AtomicReference*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ReadCloseRaceNPE$$Lambda$lambda$testReader$1$1, run, void)},
 	{}
 };
 $ClassInfo ReadCloseRaceNPE$$Lambda$lambda$testReader$1$1::classInfo$ = {
@@ -153,8 +153,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ReadCloseRaceNPE$$Lambda$lambda$main$2$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ReadCloseRaceNPE$$Lambda$lambda$main$2$2::*)()>(&ReadCloseRaceNPE$$Lambda$lambda$main$2$2::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ReadCloseRaceNPE$$Lambda$lambda$main$2$2, init$, void)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ReadCloseRaceNPE$$Lambda$lambda$main$2$2, get, $Object*)},
 	{}
 };
 $ClassInfo ReadCloseRaceNPE$$Lambda$lambda$main$2$2::classInfo$ = {
@@ -186,8 +186,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ReadCloseRaceNPE$$Lambda$lambda$main$3$3::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ReadCloseRaceNPE$$Lambda$lambda$main$3$3::*)()>(&ReadCloseRaceNPE$$Lambda$lambda$main$3$3::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ReadCloseRaceNPE$$Lambda$lambda$main$3$3, init$, void)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ReadCloseRaceNPE$$Lambda$lambda$main$3$3, get, $Object*)},
 	{}
 };
 $ClassInfo ReadCloseRaceNPE$$Lambda$lambda$main$3$3::classInfo$ = {
@@ -219,8 +219,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ReadCloseRaceNPE$$Lambda$lambda$main$4$4::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ReadCloseRaceNPE$$Lambda$lambda$main$4$4::*)()>(&ReadCloseRaceNPE$$Lambda$lambda$main$4$4::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ReadCloseRaceNPE$$Lambda$lambda$main$4$4, init$, void)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ReadCloseRaceNPE$$Lambda$lambda$main$4$4, accept, void, Object$*)},
 	{}
 };
 $ClassInfo ReadCloseRaceNPE$$Lambda$lambda$main$4$4::classInfo$ = {
@@ -245,14 +245,14 @@ $FieldInfo _ReadCloseRaceNPE_FieldInfo_[] = {
 };
 
 $MethodInfo _ReadCloseRaceNPE_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ReadCloseRaceNPE::*)()>(&ReadCloseRaceNPE::init$))},
-	{"lambda$main$2", "()Ljava/io/Reader;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Reader*(*)()>(&ReadCloseRaceNPE::lambda$main$2))},
-	{"lambda$main$3", "()Ljava/io/Reader;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Reader*(*)()>(&ReadCloseRaceNPE::lambda$main$3))},
-	{"lambda$main$4", "(Ljava/lang/Exception;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($Exception*)>(&ReadCloseRaceNPE::lambda$main$4))},
-	{"lambda$testReader$0", "(Ljava/util/concurrent/atomic/AtomicReference;Ljava/util/function/Supplier;Ljava/util/concurrent/atomic/AtomicBoolean;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($AtomicReference*,$Supplier*,$AtomicBoolean*)>(&ReadCloseRaceNPE::lambda$testReader$0))},
-	{"lambda$testReader$1", "(Ljava/util/concurrent/atomic/AtomicBoolean;Ljava/util/concurrent/atomic/AtomicReference;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($AtomicBoolean*,$AtomicReference*)>(&ReadCloseRaceNPE::lambda$testReader$1))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&ReadCloseRaceNPE::main)), "java.lang.Throwable"},
-	{"testReader", "(Ljava/util/function/Supplier;)V", "(Ljava/util/function/Supplier<Ljava/io/Reader;>;)V", $PRIVATE | $STATIC, $method(static_cast<void(*)($Supplier*)>(&ReadCloseRaceNPE::testReader)), "java.lang.InterruptedException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ReadCloseRaceNPE, init$, void)},
+	{"lambda$main$2", "()Ljava/io/Reader;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ReadCloseRaceNPE, lambda$main$2, $Reader*)},
+	{"lambda$main$3", "()Ljava/io/Reader;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ReadCloseRaceNPE, lambda$main$3, $Reader*)},
+	{"lambda$main$4", "(Ljava/lang/Exception;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ReadCloseRaceNPE, lambda$main$4, void, $Exception*)},
+	{"lambda$testReader$0", "(Ljava/util/concurrent/atomic/AtomicReference;Ljava/util/function/Supplier;Ljava/util/concurrent/atomic/AtomicBoolean;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ReadCloseRaceNPE, lambda$testReader$0, void, $AtomicReference*, $Supplier*, $AtomicBoolean*)},
+	{"lambda$testReader$1", "(Ljava/util/concurrent/atomic/AtomicBoolean;Ljava/util/concurrent/atomic/AtomicReference;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ReadCloseRaceNPE, lambda$testReader$1, void, $AtomicBoolean*, $AtomicReference*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ReadCloseRaceNPE, main, void, $StringArray*), "java.lang.Throwable"},
+	{"testReader", "(Ljava/util/function/Supplier;)V", "(Ljava/util/function/Supplier<Ljava/io/Reader;>;)V", $PRIVATE | $STATIC, $staticMethod(ReadCloseRaceNPE, testReader, void, $Supplier*), "java.lang.InterruptedException"},
 	{}
 };
 

@@ -8,9 +8,9 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace e1 {
 
 $MethodInfo _Statics_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Statics::*)()>(&Statics::init$))},
-	{"packageMethod", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&Statics::packageMethod))},
-	{"privateMethod", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&Statics::privateMethod))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Statics, init$, void)},
+	{"packageMethod", "()V", nullptr, $STATIC, $staticMethod(Statics, packageMethod, void)},
+	{"privateMethod", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(Statics, privateMethod, void)},
 	{}
 };
 

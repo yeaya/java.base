@@ -48,11 +48,11 @@ $FieldInfo _AtomicAppend_FieldInfo_[] = {
 };
 
 $MethodInfo _AtomicAppend_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(AtomicAppend::*)()>(&AtomicAppend::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&AtomicAppend::main)), "java.lang.Throwable"},
-	{"newFileChannel", "(Ljava/io/File;)Ljava/nio/channels/FileChannel;", nullptr, $STATIC, $method(static_cast<$FileChannel*(*)($File*)>(&AtomicAppend::newFileChannel)), "java.io.IOException"},
-	{"newOutputStream", "(Ljava/io/File;)Ljava/io/OutputStream;", nullptr, $STATIC, $method(static_cast<$OutputStream*(*)($File*)>(&AtomicAppend::newOutputStream)), "java.io.IOException"},
-	{"write", "(Ljava/nio/channels/FileChannel;I)V", nullptr, $STATIC, $method(static_cast<void(*)($FileChannel*,int32_t)>(&AtomicAppend::write)), "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(AtomicAppend, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(AtomicAppend, main, void, $StringArray*), "java.lang.Throwable"},
+	{"newFileChannel", "(Ljava/io/File;)Ljava/nio/channels/FileChannel;", nullptr, $STATIC, $staticMethod(AtomicAppend, newFileChannel, $FileChannel*, $File*), "java.io.IOException"},
+	{"newOutputStream", "(Ljava/io/File;)Ljava/io/OutputStream;", nullptr, $STATIC, $staticMethod(AtomicAppend, newOutputStream, $OutputStream*, $File*), "java.io.IOException"},
+	{"write", "(Ljava/nio/channels/FileChannel;I)V", nullptr, $STATIC, $staticMethod(AtomicAppend, write, void, $FileChannel*, int32_t), "java.io.IOException"},
 	{}
 };
 

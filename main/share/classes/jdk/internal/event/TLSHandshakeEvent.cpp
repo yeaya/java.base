@@ -22,7 +22,7 @@ $FieldInfo _TLSHandshakeEvent_FieldInfo_[] = {
 };
 
 $MethodInfo _TLSHandshakeEvent_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TLSHandshakeEvent::*)()>(&TLSHandshakeEvent::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TLSHandshakeEvent, init$, void)},
 	{}
 };
 

@@ -24,9 +24,9 @@ $FieldInfo _BigDecimal$UnsafeHolder_FieldInfo_[] = {
 };
 
 $MethodInfo _BigDecimal$UnsafeHolder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(BigDecimal$UnsafeHolder::*)()>(&BigDecimal$UnsafeHolder::init$))},
-	{"setIntCompact", "(Ljava/math/BigDecimal;J)V", nullptr, $STATIC, $method(static_cast<void(*)($BigDecimal*,int64_t)>(&BigDecimal$UnsafeHolder::setIntCompact))},
-	{"setIntValVolatile", "(Ljava/math/BigDecimal;Ljava/math/BigInteger;)V", nullptr, $STATIC, $method(static_cast<void(*)($BigDecimal*,$BigInteger*)>(&BigDecimal$UnsafeHolder::setIntValVolatile))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(BigDecimal$UnsafeHolder, init$, void)},
+	{"setIntCompact", "(Ljava/math/BigDecimal;J)V", nullptr, $STATIC, $staticMethod(BigDecimal$UnsafeHolder, setIntCompact, void, $BigDecimal*, int64_t)},
+	{"setIntValVolatile", "(Ljava/math/BigDecimal;Ljava/math/BigInteger;)V", nullptr, $STATIC, $staticMethod(BigDecimal$UnsafeHolder, setIntValVolatile, void, $BigDecimal*, $BigInteger*)},
 	{}
 };
 

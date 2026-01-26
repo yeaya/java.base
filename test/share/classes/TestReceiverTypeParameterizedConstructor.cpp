@@ -24,9 +24,9 @@ using $AnnotatedType = ::java::lang::reflect::AnnotatedType;
 using $Constructor = ::java::lang::reflect::Constructor;
 
 $MethodInfo _TestReceiverTypeParameterizedConstructor_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TestReceiverTypeParameterizedConstructor::*)()>(&TestReceiverTypeParameterizedConstructor::init$))},
-	{"doAssert", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $PRIVATE | $STATIC, $method(static_cast<void(*)($Class*)>(&TestReceiverTypeParameterizedConstructor::doAssert)), "java.lang.NoSuchMethodException"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&TestReceiverTypeParameterizedConstructor::main)), "java.lang.NoSuchMethodException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TestReceiverTypeParameterizedConstructor, init$, void)},
+	{"doAssert", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $PRIVATE | $STATIC, $staticMethod(TestReceiverTypeParameterizedConstructor, doAssert, void, $Class*), "java.lang.NoSuchMethodException"},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TestReceiverTypeParameterizedConstructor, main, void, $StringArray*), "java.lang.NoSuchMethodException"},
 	{}
 };
 

@@ -31,7 +31,9 @@
 #include <java/lang/ClassCastException.h>
 #include <java/lang/RuntimeException.h>
 #include <java/lang/ArrayIndexOutOfBoundsException.h>
-
+#include <java/lang/ArithmeticException.h>
+#include <java/lang/NegativeArraySizeException.h>
+#include <java/lang/StackTraceElement.h>
 #include <java/lang/reflect/Array.h>
 #include <java/lang/reflect/Modifier.h>
 #include <java/lang/reflect/Constructor.h>
@@ -58,18 +60,28 @@
 #include <jdk/internal/reflect/ConstantPackage.h>
 #include <jdk/internal/reflect/ConstantString.h>
 #include <jdk/internal/reflect/ConstantUTF8.h>
+#include <java/lang/invoke/LambdaMetafactory.h>
+#include <java/lang/invoke/MethodHandle.h>
+#include <java/lang/invoke/MethodHandles.h>
+#include <java/lang/invoke/MethodType.h>
+#include <java/lang/invoke/CallSite.h>
+#include <java/lang/invoke/MethodHandles$Lookup.h>
 
 #include <jcpp.h>
 
 using namespace ::java::lang;
 using _Array = ::java::lang::reflect::Array;
 using namespace ::java::lang::reflect;
+using namespace ::java::lang::invoke;
 using namespace ::java::util;
 using namespace ::jdk::internal::reflect;
+using $ClassInfo = ::java::lang::ClassInfo;
 
 namespace java {
 	namespace lang {
 		namespace interpreter {
+
+int32_t calcCategory0(Class* type);
 
 static inline int32_t addOverflow(int32_t a, int32_t b) {
 	return (int32_t)((uint32_t)a + (uint32_t)b);
@@ -129,1229 +141,1265 @@ enum class ArrayPrimitiveTypes {
 	T_LONG = 11,
 };
 
-Interpreter::Interpreter() {
+ThreadLocal* ByteCodeInterpreter::currentInterpreters = nullptr;
+$Class* ByteCodeInterpreter::class$ = nullptr;
+Class* ByteCodeInterpreter::load$(String* name, bool initialize) {
+	static $ClassInfo _ClassInfo_ = {
+		$PUBLIC,
+		"java.lang.interpreter.ByteCodeInterpreter",
+		"java.lang.Object"
+	};
+	$loadClass(ByteCodeInterpreter, name, initialize, &_ClassInfo_, [](Class* clazz)->void {
+		$assignStatic(currentInterpreters, $new(ThreadLocal));
+	});
+	return class$;
 }
 
-void Interpreter::init$(ByteCodeClass* clazz) {
-	$set(this, clazz, clazz);
-	$set(this, constantPool, clazz->getConstantPool());
-	$set(this, memory, $new($longs, 4 * 1024));
-	$set(this, memoryObject, $new($ObjectArray, 4 * 1024));
-	$set(this, frames, $new(::java::util::ArrayList));
+ByteCodeInterpreter::ByteCodeInterpreter() {
 }
 
-$Value Interpreter::interpret(ByteCodeMethod* method, Object* instance, Class* returnType,
-		$ClassArray* parameterTypes, $Value* argv) {
-	int32_t frameSize = frames->size();
-	$set(this, frame, $new<Frame>(this, method, method->stack_slots_for_parameters, true));
-	this->prepareArgs(instance, parameterTypes, argv);
+void ByteCodeInterpreter::init$(ByteCodeClass* clazz) {
+	$set(this, memory, $new($longs, 128));
+	$set(this, memoryObject, $new($ObjectArray, 128));
+}
 
-	while (!shouldExit) {
-		if (currentException != nullptr) {
-			handleThrow();
-		} else {
-			executeInstruction();
+bool ByteCodeInterpreter::existsStackTraceElement() {
+	$init(ByteCodeInterpreter);
+	ByteCodeInterpreter* iterpreter = (ByteCodeInterpreter*)$nc(currentInterpreters)->get();
+	return iterpreter != nullptr;
+}
+
+void ByteCodeInterpreter::initStackTraceElements($Array<StackTraceElement>* elements) {
+	ByteCodeInterpreter* iterpreter = (ByteCodeInterpreter*)currentInterpreters->get();
+	int32_t elementsIndex = 0;
+	while (iterpreter != nullptr) {
+		initStackTraceElements(iterpreter->frame, elements, elementsIndex);
+		Frame* frame = iterpreter->frameStack;
+		while (frame != nullptr) {
+			initStackTraceElements(frame, elements, elementsIndex);
+			frame = frame->next;
+		}
+		iterpreter = iterpreter->next;
+		elementsIndex++;
+	}
+}
+
+void ByteCodeInterpreter::initStackTraceElements(Frame* frame, $Array<StackTraceElement>* elements, int32_t& elementsIndex) {
+	if (elementsIndex >= elements->length) {
+		return;
+	}
+	if (frame->byteCodeMethod != nullptr) {
+		ByteCodeClass* byteCodeClass = frame->byteCodeMethod->clazz;
+		if (byteCodeClass->name != nullptr && frame->byteCodeMethod->name != nullptr) {
+			$var(StackTraceElement, ste, $allocOrNull(StackTraceElement));
+			if (ste != nullptr) {
+				$set(ste, declaringClass, byteCodeClass->name);
+				$set(ste, methodName, frame->byteCodeMethod->name);
+				$set(ste, fileName, ""_s);
+				ste->lineNumber = -1;
+				$set(ste, declaringClassObject, byteCodeClass);
+				elements->set(elementsIndex++, ste);
+			}
 		}
 	}
+}
 
-	assert(this->frames->size() == frameSize);
-	assert(this->memoryUsed == memoryUsed);
-
-	if (method->return_category != 0 && returnType != nullptr) {
+int iii = 0;
+$Value ByteCodeInterpreter::interpret(ByteCodeMethod* byteCodeMethod, Object$* instance, Class* returnType,
+		$ClassArray* parameterTypes, $Value* argv) {
+	$set(this, frame, $new(Frame, this, byteCodeMethod, byteCodeMethod->stackSlotsForParameters));
+	this->prepareArgs(instance, parameterTypes, argv);
+	//if (method->clazz->name->equals("com.mysql.cj.conf.AbstractPropertyDefinition") && method->name->equals("<init>"_s)) {
+	//	iii++;
+	//}
+	ByteCodeInterpreter* last = (ByteCodeInterpreter*)currentInterpreters->get();
+	if (last != nullptr) {
+		$set(this, next, last);
+	}
+	currentInterpreters->set(this);
+	try {
+		while (!shouldExit) {
+			if (currentException != nullptr) {
+				handleThrow();
+			} else {
+				executeInstruction();
+			}
+		}
+	} catch (Throwable& e) {
+		currentInterpreters->set(last);
+		$throw(e);
+	}
+	currentInterpreters->set(last);
+	if (byteCodeMethod->returnCategory != 0 && returnType != nullptr) {
 		return frame->getReturn(returnType);
 	}
 	return $of();
 }
 
-int32_t index = 0;
-inline void Interpreter::executeInstruction() {
-	ByteArray& code = *frame->method->code;
-	auto opcode = code[frame->pc];
-	switch (static_cast<OpCodes>(opcode)) {
-		case OpCodes::nop:
-			break;
-		case OpCodes::aconst_null:
-			frame->push(nullptr);
-			break;
-		case OpCodes::iconst_m1:
-		case OpCodes::iconst_0:
-		case OpCodes::iconst_1:
-		case OpCodes::iconst_2:
-		case OpCodes::iconst_3:
-		case OpCodes::iconst_4:
-		case OpCodes::iconst_5:
-			frame->pushs4(opcode - static_cast<uint8_t>(OpCodes::iconst_0), INT_TYPE);
-			break;
-		case OpCodes::lconst_0:
-		case OpCodes::lconst_1:
-			frame->pushs8(opcode - static_cast<uint8_t>(OpCodes::lconst_0));
-			break;
-		case OpCodes::fconst_0:
-		case OpCodes::fconst_1:
-		case OpCodes::fconst_2:
-			frame->pushfloat(static_cast<float>(opcode - static_cast<uint8_t>(OpCodes::fconst_0)));
-			break;
-		case OpCodes::dconst_0:
-		case OpCodes::dconst_1:
-			frame->pushdouble(static_cast<double>(opcode - static_cast<uint8_t>(OpCodes::dconst_0)));
-			break;
-		case OpCodes::bipush: {
-			int8_t v = frame->consume_u1();
-			frame->pushs4(static_cast<int32_t>(v), BYTE_TYPE);
-			break;
-		}
-		case OpCodes::sipush: {
-			int16_t value = frame->consume_u2();
-			frame->pushs4(static_cast<int32_t>(value), SHORT_TYPE);
-			break;
-		}
-		case OpCodes::ldc: {
-			uint8_t index = frame->consume_u1();
-			int8_t tag = constantPool->getTag(index);
-			switch (tag) {
-			case ConstantBase::Tag_Integer:
-				frame->pushs4(constantPool->getInt(index), INT_TYPE);
+Object$* getParameter(Class* type, Frame* frame, int32_t localIndex);
+
+inline uint8_t readUint8(ByteArray* code, int32_t pos) {
+	uint8_t u1 = code->get(pos) & (uint8_t)255;
+	return u1;
+}
+
+inline uint8_t consumeUint8(ByteArray* code, int32_t& pos) {
+	uint8_t u1 = readUint8(code, pos);
+	pos++;
+	return u1;
+}
+
+inline uint16_t readUint16(ByteArray* code, int32_t pos) {
+	uint8_t u0 = readUint8(code, pos);
+	uint8_t u1 = readUint8(code, pos + 1);
+	return static_cast<uint16_t>(u0 << 8) | u1;
+}
+
+inline uint16_t consumeUint16(ByteArray* code, int32_t& pos) {
+	uint16_t u2 = readUint16(code, pos);
+	pos += 2;
+	return u2;
+}
+
+inline uint32_t readUint32(ByteArray* code, int32_t pos) {
+	uint8_t u0 = readUint8(code, pos);
+	uint8_t u1 = readUint8(code, pos + 1);
+	uint8_t u2 = readUint8(code, pos + 2);
+	uint8_t u3 = readUint8(code, pos + 3);
+	return static_cast<uint32_t>(u0 << 24) | static_cast<uint32_t>(u1 << 16) | static_cast<uint32_t>(u2 << 8) | u3;
+}
+
+inline uint32_t consumeUint32(ByteArray* code, int32_t& pos) {
+	uint32_t u4 = readUint32(code, pos);
+	pos += 4;
+	return u4;
+}
+
+inline void align4(int32_t& pos) {
+	pos = (pos + 3) & -4ul;
+}
+
+inline void ByteCodeInterpreter::executeInstruction() {
+	ByteArray* code = frame->byteCodeMethod->code;
+	int32_t startPc = frame->pc;
+	int32_t pos = startPc;
+	try {
+		uint8_t opcode = consumeUint8(code, pos);
+		switch (static_cast<OpCodes>(opcode)) {
+			case OpCodes::nop:
 				break;
-			case ConstantBase::Tag_Float:
-				frame->pushfloat(constantPool->getFloat(index));
+			case OpCodes::aconst_null:
+				frame->pushObject(nullptr);
 				break;
-			case ConstantBase::Tag_Class: {
-				ConstantClass* constantClass = constantPool->getClass(index);
-				$var(Class, clazz, loadClass(constantClass->utf8));
-				frame->pushpointer(clazz);
+			case OpCodes::iconst_m1:
+			case OpCodes::iconst_0:
+			case OpCodes::iconst_1:
+			case OpCodes::iconst_2:
+			case OpCodes::iconst_3:
+			case OpCodes::iconst_4:
+			case OpCodes::iconst_5:
+				frame->pushInt32(opcode - static_cast<uint8_t>(OpCodes::iconst_0));
 				break;
-			}
-			case ConstantBase::Tag_String: {
-				ConstantString* str = constantPool->getString(index);
-				frame->pushpointer(str->utf8);
+			case OpCodes::lconst_0:
+			case OpCodes::lconst_1:
+				frame->pushInt64(opcode - static_cast<uint8_t>(OpCodes::lconst_0));
 				break;
-			}
-			case ConstantBase::Tag_Dynamic: {
-				// TODO
-				ConstantDynamic* constantDynamic = constantPool->getDynamic(index);
-				frame->pushpointer(constantDynamic);
+			case OpCodes::fconst_0:
+			case OpCodes::fconst_1:
+			case OpCodes::fconst_2:
+				frame->pushFloat(static_cast<float>(opcode - static_cast<uint8_t>(OpCodes::fconst_0)));
 				break;
-			}
-			default:
-				// TODO
-				$throwNew(RuntimeException, "ldc refers to invalid/unimplemented type"_s);
-			}
-			break;
-		}
-		case OpCodes::ldc_w: {
-			int32_t index = frame->consume_u2();
-			int8_t tag = constantPool->getTag(index);
-			switch (tag) {
-			case ConstantBase::Tag_Integer:
-				frame->pushs4(constantPool->getInt(index), INT_TYPE);
+			case OpCodes::dconst_0:
+			case OpCodes::dconst_1:
+				frame->pushDouble(static_cast<double>(opcode - static_cast<uint8_t>(OpCodes::dconst_0)));
 				break;
-			case ConstantBase::Tag_Float:
-				frame->pushfloat(constantPool->getFloat(index));
-				break;
-			case ConstantBase::Tag_Class: {
-				ConstantClass* constantClass = constantPool->getClass(index);
-				$var(Class, clazz, loadClass(constantClass->utf8));
-				frame->pushpointer(clazz);
+			case OpCodes::bipush: {
+				int8_t v = consumeUint8(code, pos);
+				frame->pushInt8(static_cast<int32_t>(v));
 				break;
 			}
-			case ConstantBase::Tag_String: {
-				ConstantString* str = constantPool->getString(index);
-				frame->pushpointer(str->utf8);
+			case OpCodes::sipush: {
+				int16_t value = consumeUint16(code, pos);
+				frame->pushInt16(static_cast<int32_t>(value));
 				break;
 			}
-			default:
-				// TODO
-				$throwNew(RuntimeException, "ldc refers to invalid/unimplemented type"_s);
-			}
-			break;
-		}
-		case OpCodes::ldc2_w: {
-			int32_t index = frame->consume_u2();
-			int8_t tag = constantPool->getTag(index);
-			if (tag == ConstantBase::Tag_Long) {
-				frame->pushs8(constantPool->getLong(index));
-			} else if (tag == ConstantBase::Tag_Double) {
-				frame->pushdouble(constantPool->getDouble(index));
-			} else {
-				// TODO
-				$throwNew(RuntimeException, "ldc2_w refers to invalid/unimplemented type"_s);
-			}
-			break;
-		}
-
-		case OpCodes::iload: {
-			frame->pushs4(frame->getLocalInt(frame->consume_u1()), INT_TYPE);
-			break;
-		}
-		case OpCodes::lload: {
-			frame->pushs8(frame->getLocalLong(frame->consume_u1()));
-			break;
-		}
-		case OpCodes::fload: {
-			frame->pushfloat(frame->getLocalFloat(frame->consume_u1()));
-		}
-			break;
-		case OpCodes::dload: {
-			frame->pushdouble(frame->getLocalDouble(frame->consume_u1()));
-		}
-			break;
-		case OpCodes::aload: {
-			$var(Object, obj, frame->getLocalPointer(frame->consume_u1()));
-			frame->pushpointer(obj);
-		}
-			break;
-
-		case OpCodes::iload_0:
-		case OpCodes::iload_1:
-		case OpCodes::iload_2:
-		case OpCodes::iload_3: {
-			frame->pushs4(frame->getLocalInt(opcode - static_cast<uint8_t>(OpCodes::iload_0)), INT_TYPE);
-		}
-			break;
-		case OpCodes::lload_0:
-		case OpCodes::lload_1:
-		case OpCodes::lload_2:
-		case OpCodes::lload_3: {
-			frame->pushs8(frame->getLocalLong(static_cast<uint8_t>(opcode - static_cast<uint8_t>(OpCodes::lload_0))));
-		}
-			break;
-		case OpCodes::fload_0:
-		case OpCodes::fload_1:
-		case OpCodes::fload_2:
-		case OpCodes::fload_3: {
-			frame->pushfloat(frame->getLocalFloat(opcode - static_cast<uint8_t>(OpCodes::fload_0)));
-		}
-			break;
-		case OpCodes::dload_0:
-		case OpCodes::dload_1:
-		case OpCodes::dload_2:
-		case OpCodes::dload_3: {
-			frame->pushdouble(frame->getLocalDouble(static_cast<uint8_t>(opcode - static_cast<uint8_t>(OpCodes::dload_0))));
-		}
-			break;
-		case OpCodes::aload_0:
-		case OpCodes::aload_1:
-		case OpCodes::aload_2:
-		case OpCodes::aload_3: {
-			$var(Object, obj, frame->getLocalPointer(opcode - static_cast<uint8_t>(OpCodes::aload_0)));
-			frame->pushpointer(obj);
-		}
-			break;
-		case OpCodes::iaload:
-			frame->arrayLoadInt();
-			break;
-		case OpCodes::laload:
-			frame->arrayLoadLong();
-			break;
-		case OpCodes::faload:
-			frame->arrayLoadFloat();
-			break;
-		case OpCodes::daload:
-			frame->arrayLoadDouble();
-			break;
-		case OpCodes::aaload:
-			frame->arrayLoadPointer();
-			break;
-		case OpCodes::baload:
-			frame->arrayLoadByte();
-			break;
-		case OpCodes::caload:
-			frame->arrayLoadChar();
-			break;
-		case OpCodes::saload:
-			frame->arrayLoadShort();
-			break;
-
-		case OpCodes::istore: {
-			int32_t value = frame->pops4();
-			frame->setLocalInt(frame->consume_u1(), value);
-		}
-			break;
-		case OpCodes::lstore: {
-			int64_t value = frame->pops8();
-			frame->setLocalLong(frame->consume_u1(), value);
-		}
-			break;
-		case OpCodes::fstore: {
-			float value = frame->popfloat();
-			frame->setLocalFloat(frame->consume_u1(), value);
-		}
-			break;
-		case OpCodes::dstore: {
-			double value = frame->popdouble();
-			frame->setLocalDouble(frame->consume_u1(), value);
-		}
-			break;
-		case OpCodes::astore: {
-			$var(Object, value, frame->poppointer());
-			frame->setLocalPointer(frame->consume_u1(), value);
-		}
-			break;
-		case OpCodes::istore_0:
-		case OpCodes::istore_1:
-		case OpCodes::istore_2:
-		case OpCodes::istore_3: {
-			int32_t value = frame->pops4();
-			frame->setLocalInt(opcode - static_cast<uint8_t>(OpCodes::istore_0), value);
-		}
-			break;
-		case OpCodes::lstore_0:
-		case OpCodes::lstore_1:
-		case OpCodes::lstore_2:
-		case OpCodes::lstore_3: {
-			int64_t value = frame->pops8();
-			frame->setLocalLong(opcode - static_cast<uint8_t>(OpCodes::lstore_0), value);
-		}
-			break;
-		case OpCodes::fstore_0:
-		case OpCodes::fstore_1:
-		case OpCodes::fstore_2:
-		case OpCodes::fstore_3: {
-			float value = frame->popfloat();
-			frame->setLocalFloat(opcode - static_cast<uint8_t>(OpCodes::fstore_0), value);
-		}
-			break;
-		case OpCodes::dstore_0:
-		case OpCodes::dstore_1:
-		case OpCodes::dstore_2:
-		case OpCodes::dstore_3: {
-			double value = frame->popdouble();
-			frame->setLocalDouble(opcode - static_cast<uint8_t>(OpCodes::dstore_0), value);
-		}
-			break;
-		case OpCodes::astore_0:
-		case OpCodes::astore_1:
-		case OpCodes::astore_2:
-		case OpCodes::astore_3: {
-			$var(Object, value, frame->poppointer());
-			frame->setLocalPointer(opcode - static_cast<uint8_t>(OpCodes::astore_0), value);
-		}
-			break;
-		case OpCodes::iastore:
-			frame->arrayStoreInt();
-			break;
-		case OpCodes::lastore:
-			frame->arrayStoreLong();
-			break;
-		case OpCodes::fastore:
-			frame->arrayStoreFloat();
-			break;
-		case OpCodes::dastore:
-			frame->arrayStoreDouble();
-			break;
-		case OpCodes::aastore:
-			frame->arrayStorePointer();
-			break;
-		case OpCodes::bastore:
-			frame->arrayStoreByte();
-			break;
-		case OpCodes::castore:
-			frame->arrayStoreChar();
-			break;
-		case OpCodes::sastore:
-			frame->arrayStoreShort();
-			break;
-
-		case OpCodes::pop: {
-			frame->pops4();
-			break;
-		}
-		case OpCodes::pop2:
-			frame->pop2();
-			break;
-		case OpCodes::dup: {
-			MemoryItem value = frame->pop();
-			frame->push(value);
-			frame->push(value);
-			break;
-		}
-		case OpCodes::dup_x1: {
-			MemoryItem value1 = frame->pop();
-			MemoryItem value2 = frame->pop();
-			frame->push(value1);
-			frame->push(value2);
-			frame->push(value1);
-			break;
-		}
-		case OpCodes::dup_x2: {
-			MemoryItem value1 = frame->pop();
-			MemoryItem value2 = frame->pop();
-			MemoryItem value3 = frame->pop();
-			frame->push(value1);
-			frame->push(value3);
-			frame->push(value2);
-			frame->push(value1);
-			break;
-		}
-		case OpCodes::dup2: {
-			MemoryItem value1 = frame->pop();
-			MemoryItem value2 = frame->pop();
-			frame->push(value2);
-			frame->push(value1);
-			frame->push(value2);
-			frame->push(value1);
-			break;
-		}
-		case OpCodes::dup2_x1: {
-			MemoryItem value1 = frame->pop();
-			MemoryItem value2 = frame->pop();
-			MemoryItem value3 = frame->pop();
-			frame->push(value2);
-			frame->push(value1);
-			frame->push(value3);
-			frame->push(value2);
-			frame->push(value1);
-			break;
-		}
-		case OpCodes::dup2_x2: {
-			MemoryItem value1 = frame->pop();
-			MemoryItem value2 = frame->pop();
-			MemoryItem value3 = frame->pop();
-			MemoryItem value4 = frame->pop();
-			frame->push(value2);
-			frame->push(value1);
-			frame->push(value4);
-			frame->push(value3);
-			frame->push(value2);
-			frame->push(value1);
-			break;
-		}
-		case OpCodes::swap: {
-			MemoryItem value1 = frame->pop();
-			MemoryItem value2 = frame->pop();
-			frame->push(value1);
-			frame->push(value2);
-			break;
-		}
-
-		case OpCodes::iadd: {
-			int32_t b = frame->pops4();
-			int32_t a = frame->pops4();
-			int32_t result = addOverflow(a, b);
-			frame->pushs4(result, INT_TYPE);
-			break;
-		}
-		case OpCodes::ladd: {
-			int64_t b = frame->pops8();
-			int64_t a = frame->pops8();
-			int64_t result = addOverflow(a, b);
-			frame->pushs8(result);
-			break;
-		}
-		case OpCodes::fadd: {
-			float b = frame->popfloat();
-			float a = frame->popfloat();
-			frame->pushfloat(a + b);
-			break;
-		}
-		case OpCodes::dadd: {
-			double b = frame->popdouble();
-			double a = frame->popdouble();
-			frame->pushdouble(a + b);
-			break;
-		}
-		case OpCodes::isub: {
-			int32_t b = frame->pops4();
-			int32_t a = frame->pops4();
-			int32_t result = subOverflow(a, b);
-			frame->pushs4(result, INT_TYPE);
-			break;
-		}
-		case OpCodes::lsub: {
-			int64_t b = frame->pops8();
-			int64_t a = frame->pops8();
-			frame->pushs8(subOverflow(a, b));
-			break;
-		}
-		case OpCodes::fsub: {
-			float b = frame->popfloat();
-			float a = frame->popfloat();
-			frame->pushfloat(a - b);
-			break;
-		}
-		case OpCodes::dsub: {
-			double b = frame->popdouble();
-			double a = frame->popdouble();
-			frame->pushdouble(a - b);
-			break;
-		}
-		case OpCodes::imul: {
-			int32_t a = frame->pops4();
-			int32_t b = frame->pops4();
-			frame->pushs4(mulOverflow(a, b), INT_TYPE);
-			break;
-		}
-		case OpCodes::lmul: {
-			int64_t a = frame->pops8();
-			int64_t b = frame->pops8();
-			frame->pushs8(mulOverflow(a, b));
-			break;
-		}
-		case OpCodes::fmul: {
-			float a = frame->popfloat();
-			float b = frame->popfloat();
-			frame->pushfloat(a * b);
-			break;
-		}
-		case OpCodes::dmul: {
-			double a = frame->popdouble();
-			double b = frame->popdouble();
-			frame->pushdouble(a * b);
-			break;
-		}
-		case OpCodes::idiv: {
-			int32_t divisor = frame->pops4();
-			int32_t dividend = frame->pops4();
-			if (divisor == 0) {
-				return throw_new_ArithmeticException_division_by_zero();
-			}
-			frame->pushs4(divOverflow(dividend, divisor), INT_TYPE);
-			break;
-		}
-		case OpCodes::ldiv: {
-			int64_t divisor = frame->pops8();
-			int64_t dividend = frame->pops8();
-			if (divisor == 0) {
-				return throw_new_ArithmeticException_division_by_zero();
-			}
-			frame->pushs8(divOverflow(dividend, divisor));
-			break;
-		}
-		case OpCodes::fdiv: {
-			float divisor = frame->popfloat();
-			float dividend = frame->popfloat();
-			frame->pushfloat(dividend / divisor);
-			break;
-		}
-		case OpCodes::ddiv: {
-			double divisor = frame->popdouble();
-			double dividend = frame->popdouble();
-			frame->pushdouble(dividend / divisor);
-			break;
-		}
-
-		case OpCodes::irem: {
-			int32_t divisor = frame->pops4();
-			int32_t dividend = frame->pops4();
-			if (divisor == 0) {
-				return throw_new_ArithmeticException_division_by_zero();
-			}
-			int32_t result = dividend - mulOverflow(divOverflow(dividend, divisor), divisor);
-			frame->pushs4(result, INT_TYPE);
-			break;
-		}
-		case OpCodes::lrem: {
-			int64_t divisor = frame->pops8();
-			int64_t dividend = frame->pops8();
-			if (divisor == 0) {
-				return throw_new_ArithmeticException_division_by_zero();
-			}
-			int64_t result = dividend - mulOverflow(divOverflow(dividend, divisor), divisor);
-			frame->pushs8(result);
-			break;
-		}
-		case OpCodes::frem: {
-			float divisor = frame->popfloat();
-			float dividend = frame->popfloat();
-			float result = std::fmod(dividend, divisor);
-			frame->pushfloat(result);
-			break;
-		}
-		case OpCodes::drem: {
-			double divisor = frame->popdouble();
-			double dividend = frame->popdouble();
-			double result = std::fmod(dividend, divisor);
-			frame->pushdouble(result);
-			break;
-		}
-		case OpCodes::ineg: {
-			int32_t a = frame->pops4();
-			frame->pushs4(subOverflow(static_cast<int32_t>(0), a), INT_TYPE);
-			break;
-		}
-		case OpCodes::lneg: {
-			int64_t a = frame->pops8();
-			frame->pushs8(subOverflow(static_cast<int64_t>(0), a));
-			break;
-		}
-		case OpCodes::fneg: {
-			float a = frame->popfloat();
-			frame->pushfloat(-a);
-			break;
-		}
-		case OpCodes::dneg: {
-			double a = frame->popdouble();
-			frame->pushdouble(-a);
-			break;
-		}
-		case OpCodes::ishl: {
-			int32_t shift = frame->pops4();
-			int32_t value = frame->pops4();
-			int32_t result = $sl(value, shift);
-			frame->pushs4(result, INT_TYPE);
-			break;
-		}
-		case OpCodes::lshl: {
-			int32_t shift = frame->pops4();
-			int64_t value = frame->pops8();
-			int64_t result = $sl(value, shift);
-			frame->pushs8(result);
-			break;
-		}
-		case OpCodes::ishr: {
-			int32_t shift = frame->pops4();
-			int32_t value = frame->pops4();
-			int32_t result = $sr(value, shift);
-			frame->pushs4(result, INT_TYPE);
-			break;
-		}
-		case OpCodes::lshr: {
-			int32_t shift = frame->pops4();
-			int64_t value = frame->pops8();
-			int64_t result = $sr(value, shift);
-			frame->pushs8(result);
-			break;
-		}
-		case OpCodes::iushr: {
-			int32_t shift = frame->pops4();
-			int32_t value = frame->pops4();
-			int32_t result = $usr(value, shift);
-			frame->pushs4(result, INT_TYPE);
-			break;
-		}
-		case OpCodes::lushr: {
-			int32_t shift = frame->pops4();
-			int64_t value = frame->pops8();
-			int64_t result = $usr(value, shift);
-			frame->pushs8(result);
-			break;
-		}
-		case OpCodes::iand:
-			frame->pushs4(frame->pops4() & frame->pops4(), INT_TYPE);
-			break;
-		case OpCodes::land:
-			frame->pushs8(frame->pops8() & frame->pops8());
-			break;
-		case OpCodes::ior:
-			frame->pushs4(frame->pops4() | frame->pops4(), INT_TYPE);
-			break;
-		case OpCodes::lor:
-			frame->pushs8(frame->pops8() | frame->pops8());
-			break;
-		case OpCodes::ixor:
-			frame->pushs4(frame->pops4() ^ frame->pops4(), INT_TYPE);
-			break;
-		case OpCodes::lxor:
-			frame->pushs8(frame->pops8() ^ frame->pops8());
-			break;
-		case OpCodes::iinc: {
-			int32_t local = frame->consume_u1();
-			int8_t value = frame->consume_u1();
-			int32_t result = addOverflow(frame->getLocalInt(local), value);
-			frame->setLocalInt(local, result);
-			break;
-		}
-
-		case OpCodes::i2l:
-			frame->pushs8(static_cast<int64_t>(frame->pops4()));
-			break;
-		case OpCodes::i2f:
-			frame->pushfloat(static_cast<float>(frame->pops4()));
-			break;
-		case OpCodes::i2d:
-			frame->pushdouble(static_cast<double>(frame->pops4()));
-			break;
-		case OpCodes::l2i:
-			frame->pushs4(static_cast<int32_t>(frame->pops8()), INT_TYPE);
-			break;
-		case OpCodes::l2f:
-			frame->pushfloat(static_cast<float>(frame->pops8()));
-			break;
-		case OpCodes::l2d:
-			frame->pushdouble(static_cast<double>(frame->pops8()));
-			break;
-		case OpCodes::f2i: {
-			frame->pushs4(floatingToInteger<float, int32_t>(frame->popfloat()), INT_TYPE);
-			break;
-		}
-		case OpCodes::f2l:
-			frame->pushs8(floatingToInteger<float, int64_t>(frame->popfloat()));
-			break;
-		case OpCodes::f2d:
-			frame->pushdouble(static_cast<double>(frame->popfloat()));
-			break;
-		case OpCodes::d2i:
-			frame->pushs4(floatingToInteger<double, int32_t>(frame->popdouble()), INT_TYPE);
-			break;
-		case OpCodes::d2l:
-			frame->pushs8(floatingToInteger<double, int64_t>(frame->popdouble()));
-			break;
-		case OpCodes::d2f:
-			frame->pushfloat(static_cast<float>(frame->popdouble()));
-			break;
-		case OpCodes::i2b:
-			frame->pushs4(static_cast<int32_t>(static_cast<int8_t>(frame->pops4())), BYTE_TYPE);
-			break;
-		case OpCodes::i2c:
-			frame->pushs4(static_cast<int32_t>(static_cast<uint16_t>(frame->pops4())), CHAR_TYPE);
-			break;
-		case OpCodes::i2s:
-			frame->pushs4(static_cast<int32_t>(static_cast<int16_t>(frame->pops4())), SHORT_TYPE);
-			break;
-
-		case OpCodes::lcmp: {
-			auto b = frame->pops8();
-			auto a = frame->pops8();
-			if (a > b) {
-				frame->pushs4(1, INT_TYPE);
-			} else if (a == b) {
-				frame->pushs4(0, INT_TYPE);
-			} else {
-				frame->pushs4(-1, INT_TYPE);
-			}
-			break;
-		}
-		case OpCodes::fcmpl:
-		case OpCodes::fcmpg: {
-			// TODO "value set conversion" ?
-			float b = frame->popfloat();
-			float a = frame->popfloat();
-			if (a > b) {
-				frame->pushs4(1, INT_TYPE);
-			} else if (a == b) {
-				frame->pushs4(0, INT_TYPE);
-			} else if (a < b) {
-				frame->pushs4(-1, INT_TYPE);
-			} else {
-				// at least one of a' or b' is NaN
-				frame->pushs4(static_cast<OpCodes>(opcode) == OpCodes::fcmpg ? -1 : 1, INT_TYPE);
-			}
-			break;
-		}
-		case OpCodes::dcmpl:
-		case OpCodes::dcmpg: {
-			// TODO "value set conversion" ?
-			auto b = frame->popdouble();
-			auto a = frame->popdouble();
-			if (a > b) {
-				frame->pushs4(1, INT_TYPE);
-			} else if (a == b) {
-				frame->pushs4(0, INT_TYPE);
-			} else if (a < b) {
-				frame->pushs4(-1, INT_TYPE);
-			} else {
-				// at least one of a' or b' is NaN
-				frame->pushs4(static_cast<OpCodes>(opcode) == OpCodes::dcmpl ? -1 : 1, INT_TYPE);
-			}
-			break;
-		}
-		case OpCodes::ifeq:
-			execute_comparison(frame->pops4() == 0);
-			return;
-		case OpCodes::ifne:
-			execute_comparison(frame->pops4() != 0);
-			return;
-		case OpCodes::iflt:
-			execute_comparison(frame->pops4() < 0);
-			return;
-		case OpCodes::ifge:
-			execute_comparison(frame->pops4() >= 0);
-			return;
-		case OpCodes::ifgt:
-			execute_comparison(frame->pops4() > 0);
-			return;
-		case OpCodes::ifle:
-			execute_comparison(frame->pops4() <= 0);
-			return;
-		case OpCodes::if_icmpeq:
-			execute_comparison(frame->pops4() == frame->pops4());
-			return;
-		case OpCodes::if_icmpne:
-			execute_comparison(frame->pops4() != frame->pops4());
-			return;
-		case OpCodes::if_icmplt:
-			execute_comparison(frame->pops4() > frame->pops4());
-			return;
-		case OpCodes::if_icmpge:
-			execute_comparison(frame->pops4() <= frame->pops4());
-			return;
-		case OpCodes::if_icmpgt:
-			execute_comparison(frame->pops4() < frame->pops4());
-			return;
-		case OpCodes::if_icmple:
-			execute_comparison(frame->pops4() >= frame->pops4());
-			return;
-		case OpCodes::if_acmpeq:
-			execute_comparison($equals($ref(frame->poppointer()), $ref(frame->poppointer())));
-			return;
-		case OpCodes::if_acmpne:
-			execute_comparison(!$equals($ref(frame->poppointer()), $ref(frame->poppointer())));
-			return;
-
-		case OpCodes::goto_:
-			goto_();
-			return;
-		case OpCodes::jsr:
-		case OpCodes::ret:
-			$throwNew(RuntimeException, "jsr and ret are unsupported"_s);
-		case OpCodes::tableswitch: {
-			int32_t pc = frame->pc;
-			int32_t opcode_address = pc;
-
-			// skip opcode + 0-3 bytes of padding
-			pc = (pc + 4) & -4ul;
-
-			int32_t default_ = static_cast<int32_t>((code[pc] << 24) | (code[pc + 1] << 16) | (code[pc + 2] << 8) | code[pc + 3]);
-			pc += 4;
-			int32_t low = static_cast<int32_t>((code[pc] << 24) | (code[pc + 1] << 16) | (code[pc + 2] << 8) | code[pc + 3]);
-			pc += 4;
-			int32_t high = static_cast<int32_t>((code[pc] << 24) | (code[pc + 1] << 16) | (code[pc + 2] << 8) | code[pc + 3]);
-			pc += 4;
-			assert(low <= high);
-
-//			s4 count  = high - low + 1;
-			int32_t index = frame->pops4();
-
-			int32_t offset;
-			if (index < low || index > high) {
-				offset = default_;
-			} else {
-				pc += 4 * static_cast<uint32_t>(index - low);
-				offset = static_cast<int32_t>((code[pc] << 24) | (code[pc + 1] << 16) | (code[pc + 2] << 8) | code[pc + 3]);
-			}
-
-			frame->pc = opcode_address + static_cast<int32_t>(static_cast<int64_t>(offset));
-			return;
-		}
-		case OpCodes::lookupswitch: {
-			auto pc = frame->pc;
-			int32_t opcode_address = pc;
-
-			// skip opcode + 0-3 bytes of padding
-			pc = (pc + 4) & -4ul;
-
-			int32_t default_ = static_cast<int32_t>((code[pc] << 24) | (code[pc + 1] << 16) | (code[pc + 2] << 8) | code[pc + 3]);
-			pc += 4;
-			int32_t npairs = static_cast<int32_t>((code[pc] << 24) | (code[pc + 1] << 16) | (code[pc + 2] << 8) | code[pc + 3]);
-			pc += 4;
-			assert(npairs >= 0);
-
-			int32_t key = frame->pops4();
-			int32_t offset = default_;
-
-			for (int32_t i = 0; i < npairs; ++i) {
-				int32_t match = static_cast<int32_t>((code[pc] << 24) | (code[pc + 1] << 16) | (code[pc + 2] << 8) |
-										   code[pc + 3]);
-				pc += 4;
-				if (key == match) {
-					offset = static_cast<int32_t>((code[pc] << 24) | (code[pc + 1] << 16) | (code[pc + 2] << 8) |
-											 code[pc + 3]);
+			case OpCodes::ldc: {
+				uint8_t index = consumeUint8(code, pos);
+				ConstantPool* constantPool = frame->byteCodeMethod->clazz->getConstantPool();
+				int8_t tag = constantPool->getTag(index);
+				switch (tag) {
+				case ConstantBase::Tag_Integer:
+					frame->pushInt32(constantPool->getInt(index));
+					break;
+				case ConstantBase::Tag_Float:
+					frame->pushFloat(constantPool->getFloat(index));
+					break;
+				case ConstantBase::Tag_Class: {
+					ConstantClass* constantClass = constantPool->getClass(index);
+					Class* clazz = loadClass($nc(constantClass)->utf8);
+					frame->pushObject(clazz);
 					break;
 				}
-				pc += 4;
-			}
-
-			frame->pc = opcode_address + static_cast<int32_t>(static_cast<int64_t>(offset));
-			return;
-		}
-
-		case OpCodes::ireturn:
-			frame->setLocalInt(0, frame->pops4());
-			popFrame();
-			return;
-		case OpCodes::lreturn:
-			frame->setLocalLong(0, frame->pop2());
-			popFrame();
-			return;
-		case OpCodes::freturn:
-			frame->setLocalFloat(0, frame->popfloat());
-			popFrame();
-			return;
-		case OpCodes::dreturn:
-			frame->setLocalDouble(0, frame->popdouble());
-			popFrame();
-			return;
-		case OpCodes::areturn:
-			frame->setLocalPointer(0, $ref(frame->poppointer()));
-			popFrame();
-			return;
-		case OpCodes::return_: {
-			popFrame();
-			return;
-		}
-
-		case OpCodes::getstatic:
-		case OpCodes::putstatic:
-		case OpCodes::getfield:
-		case OpCodes::putfield: {
-			uint16_t index = frame->read_u2();
-			$var(Field, field0, resolveField(index));
-
-			frame->pc += 2;
-
-			switch (static_cast<OpCodes>(opcode)) {
-				case OpCodes::getstatic: {
-					getStatic(field0);
+				case ConstantBase::Tag_String: {
+					ConstantString* str = constantPool->getString(index);
+					frame->pushObject(str->utf8);
 					break;
 				}
-				case OpCodes::putstatic: {
-					putStatic(field0);
-					break;
-				}
-				case OpCodes::getfield: {
-					getField(field0);
-					break;
-				}
-				case OpCodes::putfield: {
-					putField(field0);
+				case ConstantBase::Tag_Dynamic: {
+					// TODO
+					ConstantDynamic* constantDynamic = constantPool->getDynamic(index);
+					frame->pushObject(constantDynamic);
 					break;
 				}
 				default:
-					assert(false);
-			}
-
-			break;
-		}
-		case OpCodes::invokevirtual: {
-			uint16_t method_index = frame->read_u2();
-			frame->invokeLength = 3;
-			$var(MethodCache, methodCache, clazz->findMethodCache(method_index));
-			if (methodCache->method->getClass() == ::java::lang::reflect::Method::class$) {
-				$set(this, frame, pushAndCreateFrame4Native(frame, methodCache));
-				nativeCall(methodCache, false);
-			} else {
-				ByteCodeMethod* method0 = $fcast<ByteCodeMethod>(methodCache->method);
-				$set(this, frame, pushAndCreateFrame(frame, method0));
-			}
-			return;
-		}
-		case OpCodes::invokespecial: {
-			uint16_t method_index = frame->read_u2();
-			frame->invokeLength = 3;
-			$var(MethodCache, methodCache, clazz->findMethodCache(method_index));
-			if (methodCache->method->getClass() == ::java::lang::reflect::Method::class$) {
-				$set(this, frame, pushAndCreateFrame4Native(frame, methodCache));
-				nativeCall(methodCache, true);
-			} else if (methodCache->method->getClass() == ::java::lang::reflect::Constructor::class$) {
-				$set(this, frame, pushAndCreateFrame4Native(frame, methodCache));
-				nativeCall(methodCache, true);
-			} else {
-				ByteCodeMethod* method0 = $fcast<ByteCodeMethod>(methodCache->method);
-				$set(this, frame, pushAndCreateFrame(frame, method0));
-			}
-			return;
-		}
-		case OpCodes::invokestatic: {
-			uint16_t method_index = frame->read_u2();
-			frame->invokeLength = 3;
-			$var(MethodCache, methodCache, clazz->findMethodCache(method_index));
-			if (methodCache->method->getClass() == ::java::lang::reflect::Method::class$) {
-				$set(this, frame, pushAndCreateFrame4Native(frame, methodCache));
-				nativeCall(methodCache, false);
-			} else {
-				ByteCodeMethod* method0 = $fcast<ByteCodeMethod>(methodCache->method);
-				$set(this, frame, pushAndCreateFrame(frame, method0));
-			}
-			return;
-		}
-		case OpCodes::invokeinterface: {
-			uint16_t method_index = frame->read_u2();
-			frame->invokeLength = 5;
-			$var(MethodCache, methodCache, clazz->findMethodCache(method_index));
-			if (methodCache->method->getClass() == ::java::lang::reflect::Method::class$) {
-				$set(this, frame, pushAndCreateFrame4Native(frame, methodCache));
-				nativeCall(methodCache, false);
-			} else {
-				ByteCodeMethod* method0 = $fcast<ByteCodeMethod>(methodCache->method);
-				$set(this, frame, pushAndCreateFrame(frame, method0));
-			}
-			return;
-		}
-		case OpCodes::new_: {
-			// TODO
-			uint16_t index = frame->read_u2();
-			ConstantClass* constantClass = constantPool->getClass(index);
-			frame->pc += 2;
-			$var(Class, clazz, loadClass(constantClass->utf8));
-			$var(Object, instance, clazz->allocateInstance());
-			frame->pushpointer(instance);
-			// TODO: the next two instructions are probably dup+invokespecial. We could optimize for that pattern.
-			break;
-		}
-		case OpCodes::newarray: {
-			int32_t count = frame->pops4();
-			if (count < 0) {
-				$throwNew(RuntimeException, "TODO NegativeArraySizeException"_s);
-			}
-			int32_t type = frame->consume_u1();
-
-			switch (static_cast<ArrayPrimitiveTypes>(type)) {
-				case ArrayPrimitiveTypes::T_INT: {
-					$var(Object, reference, $new<$ints>(count));
-					frame->pushpointer(reference);
+					$throwNew(RuntimeException, "ldc refers to invalid/unimplemented type"_s);
 					break;
 				}
-				case ArrayPrimitiveTypes::T_BOOLEAN: {
-					$var(Object, reference, $new<$booleans>(count));
-					frame->pushpointer(reference);
-					break;
-				}
-				case ArrayPrimitiveTypes::T_CHAR: {
-					$var(Object, reference, $new<$chars>(count));
-					frame->pushpointer(reference);
-					break;
-				}
-				case ArrayPrimitiveTypes::T_FLOAT: {
-					$var(Object, reference, $new<$floats>(count));
-					frame->pushpointer(reference);
-					break;
-				}
-				case ArrayPrimitiveTypes::T_DOUBLE: {
-					$var(Object, reference, $new<$doubles>(count));
-					frame->pushpointer(reference);
-					break;
-				}
-				case ArrayPrimitiveTypes::T_BYTE: {
-					$var(Object, reference, $new<$bytes>(count));
-					frame->pushpointer(reference);
-					break;
-				}
-				case ArrayPrimitiveTypes::T_SHORT: {
-					$var(Object, reference, $new<$shorts>(count));
-					frame->pushpointer(reference);
-					break;
-				}
-				case ArrayPrimitiveTypes::T_LONG: {
-					$var(Object, reference, $new<$longs>(count));
-					frame->pushpointer(reference);
-					break;
-				}
-			}
-			break;
-		}
-		case OpCodes::anewarray: {
-			uint16_t index = frame->read_u2();
-			ConstantClass* constClass = constantPool->getClass(index);
-			frame->pc += 2;
-
-			int32_t count = frame->pops4();
-			if (count < 0) {
-				$throwNew(RuntimeException, "TODO NegativeArraySizeException"_s);
-			}
-
-			$var(Class, clazz0, loadClass(constClass->utf8));
-			$var(Object, array, _Array::newArray(clazz0, count));
-			frame->pushpointer(array);
-			break;
-		}
-		case OpCodes::arraylength: {
-			$var(Object, arrayref, frame->poppointer());
-			$nullcheck(arrayref);
-			int32_t length = _Array::getLength(arrayref);
-			frame->pushs4(length, INT_TYPE);
-			break;
-		}
-
-		case OpCodes::athrow: {
-			$var(Object, value, frame->poppointer());
-			$nullcheck(value);
-			throwIt($cast<Throwable>(value));
-			return;
-		}
-
-		case OpCodes::checkcast: {
-			uint16_t index = frame->read_u2();
-			ConstantClass* constantClass = constantPool->getClass(index);
-			Class* clazz = nullptr;
-			try {
-				clazz = this->loadClass(constantClass->utf8);
-			} catch (Throwable& e) {
-				$set(this, currentException, e);
-				return;
-			}
-
-			$var(Object, objectref, frame->poppointer());
-			frame->pushpointer(objectref);
-
-			if (objectref != nullptr) {
-				if (!clazz->isInstance(objectref)) {
-					$set(this, currentException, $new<ClassCastException>(constantClass->utf8));
-					return;
-				}
-
-				//if (resolve_class(class_info)) {
-				//	return;
-				//}
-
-				// TODO
-				//if (!objectref.object()->clazz->is_instance_of(class_info->clazz)) {
-				//	return throw_new(thread, frame, Names::java_lang_ClassCastException);
-				//}
-			}
-			frame->pc += 2;
-			break;
-		}
-
-		case OpCodes::instanceof: {
-			uint16_t index = frame->read_u2();
-			ConstantClass* constantClass = constantPool->getClass(index);
-			Class* clazz = nullptr;
-			try {
-				clazz = this->loadClass(constantClass->utf8);
-			} catch (Throwable& e) {
-				$set(this, currentException, e);
-				return;
-			}
-
-			$var(Object, objectref, frame->poppointer());
-			if (objectref == nullptr) {
-			 //   frame->pushs4(0);
-				frame->pushbool(false);
-			} else {
-			//	frame->pushpointer(objectref);
-	/*			if (resolve_class(class_info)) {
-					return;
-				}*/
-			//	frame->poppointer();
-				bool ret = clazz->isInstance(objectref);
-				frame->pushbool(ret);
-				// TODO
-				//frame->push<bool>(objectref.object()->clazz->is_instance_of(class_info->clazz));
-			}
-			frame->pc += 2;
-			break;
-		}
-		case OpCodes::monitorenter: {
-			$var(Object, reference, frame->poppointer());
-			$sureObject0(reference)->lock();
-			break;
-		}
-		case OpCodes::monitorexit: {
-			$var(Object, reference, frame->poppointer());
-			$sureObject0(reference)->unlock();
-			break;
-		}
-
-		case OpCodes::wide: {
-			uint8_t type = frame->consume_u1();
-			uint16_t index = frame->consume_u2();
-	  //	  $var(Object, local, frame->locals->get(index));
-
-			switch (static_cast<OpCodes>(type)) {
-			case OpCodes::iload: {
-				frame->pushs4(frame->getLocalInt(index), INT_TYPE);
-			}
 				break;
-			case OpCodes::lload: {
-				frame->pushs8(frame->getLocalLong(index));
 			}
-				   break;
-			case OpCodes::fload: {
-				frame->pushfloat(frame->getLocalFloat(index));
-			}
+			case OpCodes::ldc_w: {
+				int32_t index = consumeUint16(code, pos);
+				ConstantPool* constantPool = getConstantPool();
+				int8_t tag = constantPool->getTag(index);
+				switch (tag) {
+				case ConstantBase::Tag_Integer:
+					frame->pushInt32(constantPool->getInt(index));
 					break;
-			case OpCodes::dload: {
-				frame->pushdouble(frame->getLocalDouble(index));
-			}
+				case ConstantBase::Tag_Float:
+					frame->pushFloat(constantPool->getFloat(index));
 					break;
+				case ConstantBase::Tag_Class: {
+					ConstantClass* constantClass = constantPool->getClass(index);
+					Class* clazz = loadClass($nc(constantClass)->utf8);
+					frame->pushObject(clazz);
+					break;
+				}
+				case ConstantBase::Tag_String: {
+					ConstantString* str = constantPool->getString(index);
+					frame->pushObject($nc(str)->utf8);
+					break;
+				}
+				default:
+					$throwNew(RuntimeException, "ldc_w refers to invalid/unimplemented type"_s);
+					break;
+				}
+				break;
+			}
+			case OpCodes::ldc2_w: {
+				int32_t index = consumeUint16(code, pos);
+				ConstantPool* constantPool = getConstantPool();
+				int8_t tag = constantPool->getTag(index);
+				if (tag == ConstantBase::Tag_Long) {
+					frame->pushInt64(constantPool->getLong(index));
+				} else if (tag == ConstantBase::Tag_Double) {
+					frame->pushDouble(constantPool->getDouble(index));
+				} else {
+					$throwNew(RuntimeException, "ldc2_w refers to invalid/unimplemented type"_s);
+					break;
+				}
+				break;
+			}
+			case OpCodes::iload:
+				frame->pushInt32(frame->getLocalInt(consumeUint8(code, pos)));
+				break;
+			case OpCodes::lload:
+				frame->pushInt64(frame->getLocalLong(consumeUint8(code, pos)));
+				break;
+			case OpCodes::fload:
+				frame->pushFloat(frame->getLocalFloat(consumeUint8(code, pos)));
+				break;
+			case OpCodes::dload:
+				frame->pushDouble(frame->getLocalDouble(consumeUint8(code, pos)));
+				break;
 			case OpCodes::aload: {
-				$var(Object, local, frame->getLocalPointer(index));
-				frame->pushpointer(local);
+				$var(Object, obj, frame->getLocalPointer(consumeUint8(code, pos)));
+				frame->pushObject(obj);
+				break;
 			}
+			case OpCodes::iload_0:
+			case OpCodes::iload_1:
+			case OpCodes::iload_2:
+			case OpCodes::iload_3:
+				frame->pushInt32(frame->getLocalInt(opcode - static_cast<uint8_t>(OpCodes::iload_0)));
+				break;
+			case OpCodes::lload_0:
+			case OpCodes::lload_1:
+			case OpCodes::lload_2:
+			case OpCodes::lload_3:
+				frame->pushInt64(frame->getLocalLong(static_cast<uint8_t>(opcode - static_cast<uint8_t>(OpCodes::lload_0))));
+				break;
+			case OpCodes::fload_0:
+			case OpCodes::fload_1:
+			case OpCodes::fload_2:
+			case OpCodes::fload_3:
+				frame->pushFloat(frame->getLocalFloat(opcode - static_cast<uint8_t>(OpCodes::fload_0)));
+				break;
+			case OpCodes::dload_0:
+			case OpCodes::dload_1:
+			case OpCodes::dload_2:
+			case OpCodes::dload_3:
+				frame->pushDouble(frame->getLocalDouble(static_cast<uint8_t>(opcode - static_cast<uint8_t>(OpCodes::dload_0))));
+				break;
+			case OpCodes::aload_0:
+			case OpCodes::aload_1:
+			case OpCodes::aload_2:
+			case OpCodes::aload_3: {
+				$var(Object, obj, frame->getLocalPointer(opcode - static_cast<uint8_t>(OpCodes::aload_0)));
+				frame->pushObject(obj);
+				break;
+			}
+			case OpCodes::iaload:
+				frame->arrayLoadInt();
+				break;
+			case OpCodes::laload:
+				frame->arrayLoadLong();
+				break;
+			case OpCodes::faload:
+				frame->arrayLoadFloat();
+				break;
+			case OpCodes::daload:
+				frame->arrayLoadDouble();
+				break;
+			case OpCodes::aaload:
+				frame->arrayLoadPointer();
+				break;
+			case OpCodes::baload:
+				frame->arrayLoadByte();
+				break;
+			case OpCodes::caload:
+				frame->arrayLoadChar();
+				break;
+			case OpCodes::saload:
+				frame->arrayLoadShort();
+				break;
+			case OpCodes::istore: {
+				int32_t value = frame->popInt32();
+				frame->setLocalInt(consumeUint8(code, pos), value);
+				break;
+			}
+			case OpCodes::lstore: {
+				int64_t value = frame->popInt64();
+				frame->setLocalLong(consumeUint8(code, pos), value);
+				break;
+			}
+			case OpCodes::fstore: {
+				float value = frame->popFloat();
+				frame->setLocalFloat(consumeUint8(code, pos), value);
+				break;
+			}
+			case OpCodes::dstore: {
+				double value = frame->popDouble();
+				frame->setLocalDouble(consumeUint8(code, pos), value);
+				break;
+			}
+			case OpCodes::astore: {
+				$var(Object, value, frame->popObject());
+				frame->setLocalPointer(consumeUint8(code, pos), value);
+				break;
+			}
+			case OpCodes::istore_0:
+			case OpCodes::istore_1:
+			case OpCodes::istore_2:
+			case OpCodes::istore_3: {
+				int32_t value = frame->popInt32();
+				frame->setLocalInt(opcode - static_cast<uint8_t>(OpCodes::istore_0), value);
+				break;
+			}
+			case OpCodes::lstore_0:
+			case OpCodes::lstore_1:
+			case OpCodes::lstore_2:
+			case OpCodes::lstore_3: {
+				int64_t value = frame->popInt64();
+				frame->setLocalLong(opcode - static_cast<uint8_t>(OpCodes::lstore_0), value);
+				break;
+			}
+			case OpCodes::fstore_0:
+			case OpCodes::fstore_1:
+			case OpCodes::fstore_2:
+			case OpCodes::fstore_3: {
+				float value = frame->popFloat();
+				frame->setLocalFloat(opcode - static_cast<uint8_t>(OpCodes::fstore_0), value);
+				break;
+			}
+			case OpCodes::dstore_0:
+			case OpCodes::dstore_1:
+			case OpCodes::dstore_2:
+			case OpCodes::dstore_3: {
+				double value = frame->popDouble();
+				frame->setLocalDouble(opcode - static_cast<uint8_t>(OpCodes::dstore_0), value);
+				break;
+			}
+			case OpCodes::astore_0:
+			case OpCodes::astore_1:
+			case OpCodes::astore_2:
+			case OpCodes::astore_3: {
+				$var(Object, value, frame->popObject());
+				frame->setLocalPointer(opcode - static_cast<uint8_t>(OpCodes::astore_0), value);
+				break;
+			}
+			case OpCodes::iastore:
+				frame->arrayStoreInt();
+				break;
+			case OpCodes::lastore:
+				frame->arrayStoreLong();
+				break;
+			case OpCodes::fastore:
+				frame->arrayStoreFloat();
+				break;
+			case OpCodes::dastore:
+				frame->arrayStoreDouble();
+				break;
+			case OpCodes::aastore:
+				frame->arrayStorePointer();
+				break;
+			case OpCodes::bastore:
+				frame->arrayStoreByte();
+				break;
+			case OpCodes::castore:
+				frame->arrayStoreChar();
+				break;
+			case OpCodes::sastore:
+				frame->arrayStoreShort();
+				break;
+			case OpCodes::pop: {
+				frame->popInt32();
+				break;
+			}
+			case OpCodes::pop2:
+				frame->popInt64();
+				break;
+			case OpCodes::dup: {
+				MemoryItem value = frame->pop();
+				frame->push(value);
+				frame->push(value);
+				break;
+			}
+			case OpCodes::dup_x1: {
+				MemoryItem value1 = frame->pop();
+				MemoryItem value2 = frame->pop();
+				frame->push(value1);
+				frame->push(value2);
+				frame->push(value1);
+				break;
+			}
+			case OpCodes::dup_x2: {
+				MemoryItem value1 = frame->pop();
+				MemoryItem value2 = frame->pop();
+				MemoryItem value3 = frame->pop();
+				frame->push(value1);
+				frame->push(value3);
+				frame->push(value2);
+				frame->push(value1);
+				break;
+			}
+			case OpCodes::dup2: {
+				MemoryItem value1 = frame->pop();
+				MemoryItem value2 = frame->pop();
+				frame->push(value2);
+				frame->push(value1);
+				frame->push(value2);
+				frame->push(value1);
+				break;
+			}
+			case OpCodes::dup2_x1: {
+				MemoryItem value1 = frame->pop();
+				MemoryItem value2 = frame->pop();
+				MemoryItem value3 = frame->pop();
+				frame->push(value2);
+				frame->push(value1);
+				frame->push(value3);
+				frame->push(value2);
+				frame->push(value1);
+				break;
+			}
+			case OpCodes::dup2_x2: {
+				MemoryItem value1 = frame->pop();
+				MemoryItem value2 = frame->pop();
+				MemoryItem value3 = frame->pop();
+				MemoryItem value4 = frame->pop();
+				frame->push(value2);
+				frame->push(value1);
+				frame->push(value4);
+				frame->push(value3);
+				frame->push(value2);
+				frame->push(value1);
+				break;
+			}
+			case OpCodes::swap: {
+				MemoryItem value1 = frame->pop();
+				MemoryItem value2 = frame->pop();
+				frame->push(value1);
+				frame->push(value2);
+				break;
+			}
+			case OpCodes::iadd: {
+				int32_t b = frame->popInt32();
+				int32_t a = frame->popInt32();
+				int32_t result = addOverflow(a, b);
+				frame->pushInt32(result);
+				break;
+			}
+			case OpCodes::ladd: {
+				int64_t b = frame->popInt64();
+				int64_t a = frame->popInt64();
+				int64_t result = addOverflow(a, b);
+				frame->pushInt64(result);
+				break;
+			}
+			case OpCodes::fadd: {
+				float b = frame->popFloat();
+				float a = frame->popFloat();
+				frame->pushFloat(a + b);
+				break;
+			}
+			case OpCodes::dadd: {
+				double b = frame->popDouble();
+				double a = frame->popDouble();
+				frame->pushDouble(a + b);
+				break;
+			}
+			case OpCodes::isub: {
+				int32_t b = frame->popInt32();
+				int32_t a = frame->popInt32();
+				int32_t result = subOverflow(a, b);
+				frame->pushInt32(result);
+				break;
+			}
+			case OpCodes::lsub: {
+				int64_t b = frame->popInt64();
+				int64_t a = frame->popInt64();
+				frame->pushInt64(subOverflow(a, b));
+				break;
+			}
+			case OpCodes::fsub: {
+				float b = frame->popFloat();
+				float a = frame->popFloat();
+				frame->pushFloat(a - b);
+				break;
+			}
+			case OpCodes::dsub: {
+				double b = frame->popDouble();
+				double a = frame->popDouble();
+				frame->pushDouble(a - b);
+				break;
+			}
+			case OpCodes::imul: {
+				int32_t a = frame->popInt32();
+				int32_t b = frame->popInt32();
+				frame->pushInt32(mulOverflow(a, b));
+				break;
+			}
+			case OpCodes::lmul: {
+				int64_t a = frame->popInt64();
+				int64_t b = frame->popInt64();
+				frame->pushInt64(mulOverflow(a, b));
+				break;
+			}
+			case OpCodes::fmul: {
+				float a = frame->popFloat();
+				float b = frame->popFloat();
+				frame->pushFloat(a * b);
+				break;
+			}
+			case OpCodes::dmul: {
+				double a = frame->popDouble();
+				double b = frame->popDouble();
+				frame->pushDouble(a * b);
+				break;
+			}
+			case OpCodes::idiv: {
+				int32_t divisor = frame->popInt32();
+				int32_t dividend = frame->popInt32();
+				if (divisor == 0) {
+					throwNewArithmeticExceptionDivisionByZero();
 					break;
+				}
+				frame->pushInt32(divOverflow(dividend, divisor));
+				break;
+			}
+			case OpCodes::ldiv: {
+				int64_t divisor = frame->popInt64();
+				int64_t dividend = frame->popInt64();
+				if (divisor == 0) {
+					throwNewArithmeticExceptionDivisionByZero();
+					break;
+				}
+				frame->pushInt64(divOverflow(dividend, divisor));
+				break;
+			}
+			case OpCodes::fdiv: {
+				float divisor = frame->popFloat();
+				float dividend = frame->popFloat();
+				frame->pushFloat(dividend / divisor);
+				break;
+			}
+			case OpCodes::ddiv: {
+				double divisor = frame->popDouble();
+				double dividend = frame->popDouble();
+				frame->pushDouble(dividend / divisor);
+				break;
+			}
+			case OpCodes::irem: {
+				int32_t divisor = frame->popInt32();
+				int32_t dividend = frame->popInt32();
+				if (divisor == 0) {
+					throwNewArithmeticExceptionDivisionByZero();
+					break;
+				}
+				int32_t result = dividend - mulOverflow(divOverflow(dividend, divisor), divisor);
+				frame->pushInt32(result);
+				break;
+			}
+			case OpCodes::lrem: {
+				int64_t divisor = frame->popInt64();
+				int64_t dividend = frame->popInt64();
+				if (divisor == 0) {
+					throwNewArithmeticExceptionDivisionByZero();
+					break;
+				}
+				int64_t result = dividend - mulOverflow(divOverflow(dividend, divisor), divisor);
+				frame->pushInt64(result);
+				break;
+			}
+			case OpCodes::frem: {
+				float divisor = frame->popFloat();
+				float dividend = frame->popFloat();
+				float result = std::fmod(dividend, divisor);
+				frame->pushFloat(result);
+				break;
+			}
+			case OpCodes::drem: {
+				double divisor = frame->popDouble();
+				double dividend = frame->popDouble();
+				double result = std::fmod(dividend, divisor);
+				frame->pushDouble(result);
+				break;
+			}
+			case OpCodes::ineg: {
+				int32_t a = frame->popInt32();
+				frame->pushInt32(subOverflow(static_cast<int32_t>(0), a));
+				break;
+			}
+			case OpCodes::lneg: {
+				int64_t a = frame->popInt64();
+				frame->pushInt64(subOverflow(static_cast<int64_t>(0), a));
+				break;
+			}
+			case OpCodes::fneg: {
+				float a = frame->popFloat();
+				frame->pushFloat(-a);
+				break;
+			}
+			case OpCodes::dneg: {
+				double a = frame->popDouble();
+				frame->pushDouble(-a);
+				break;
+			}
+			case OpCodes::ishl: {
+				int32_t shift = frame->popInt32();
+				int32_t value = frame->popInt32();
+				int32_t result = $sl(value, shift);
+				frame->pushInt32(result);
+				break;
+			}
+			case OpCodes::lshl: {
+				int32_t shift = frame->popInt32();
+				int64_t value = frame->popInt64();
+				int64_t result = $sl(value, shift);
+				frame->pushInt64(result);
+				break;
+			}
+			case OpCodes::ishr: {
+				int32_t shift = frame->popInt32();
+				int32_t value = frame->popInt32();
+				int32_t result = $sr(value, shift);
+				frame->pushInt32(result);
+				break;
+			}
+			case OpCodes::lshr: {
+				int32_t shift = frame->popInt32();
+				int64_t value = frame->popInt64();
+				int64_t result = $sr(value, shift);
+				frame->pushInt64(result);
+				break;
+			}
+			case OpCodes::iushr: {
+				int32_t shift = frame->popInt32();
+				int32_t value = frame->popInt32();
+				int32_t result = $usr(value, shift);
+				frame->pushInt32(result);
+				break;
+			}
+			case OpCodes::lushr: {
+				int32_t shift = frame->popInt32();
+				int64_t value = frame->popInt64();
+				int64_t result = $usr(value, shift);
+				frame->pushInt64(result);
+				break;
+			}
+			case OpCodes::iand:
+				frame->pushInt32(frame->popInt32() & frame->popInt32());
+				break;
+			case OpCodes::land:
+				frame->pushInt64(frame->popInt64() & frame->popInt64());
+				break;
+			case OpCodes::ior:
+				frame->pushInt32(frame->popInt32() | frame->popInt32());
+				break;
+			case OpCodes::lor:
+				frame->pushInt64(frame->popInt64() | frame->popInt64());
+				break;
+			case OpCodes::ixor:
+				frame->pushInt32(frame->popInt32() ^ frame->popInt32());
+				break;
+			case OpCodes::lxor:
+				frame->pushInt64(frame->popInt64() ^ frame->popInt64());
+				break;
+			case OpCodes::iinc: {
+				int32_t local = consumeUint8(code, pos);
+				int8_t value = consumeUint8(code, pos);
+				int32_t result = addOverflow(frame->getLocalInt(local), value);
+				frame->setLocalInt(local, result);
+				break;
+			}
+			case OpCodes::i2l:
+				frame->pushInt64(static_cast<int64_t>(frame->popInt32()));
+				break;
+			case OpCodes::i2f:
+				frame->pushFloat(static_cast<float>(frame->popInt32()));
+				break;
+			case OpCodes::i2d:
+				frame->pushDouble(static_cast<double>(frame->popInt32()));
+				break;
+			case OpCodes::l2i:
+				frame->pushInt32(static_cast<int32_t>(frame->popInt64()));
+				break;
+			case OpCodes::l2f:
+				frame->pushFloat(static_cast<float>(frame->popInt64()));
+				break;
+			case OpCodes::l2d:
+				frame->pushDouble(static_cast<double>(frame->popInt64()));
+				break;
+			case OpCodes::f2i:
+				frame->pushInt32(floatingToInteger<float, int32_t>(frame->popFloat()));
+				break;
+			case OpCodes::f2l:
+				frame->pushInt64(floatingToInteger<float, int64_t>(frame->popFloat()));
+				break;
+			case OpCodes::f2d:
+				frame->pushDouble(static_cast<double>(frame->popFloat()));
+				break;
+			case OpCodes::d2i:
+				frame->pushInt32(floatingToInteger<double, int32_t>(frame->popDouble()));
+				break;
+			case OpCodes::d2l:
+				frame->pushInt64(floatingToInteger<double, int64_t>(frame->popDouble()));
+				break;
+			case OpCodes::d2f:
+				frame->pushFloat(static_cast<float>(frame->popDouble()));
+				break;
+			case OpCodes::i2b:
+				frame->pushInt8(static_cast<int8_t>(frame->popInt32()));
+				break;
+			case OpCodes::i2c:
+				frame->pushChar16(static_cast<char16_t>(frame->popInt32()));
+				break;
+			case OpCodes::i2s:
+				frame->pushInt16(static_cast<int16_t>(frame->popInt32()));
+				break;
+			case OpCodes::lcmp: {
+				int64_t b = frame->popInt64();
+				int64_t a = frame->popInt64();
+				if (a > b) {
+					frame->pushInt32(1);
+				} else if (a == b) {
+					frame->pushInt32(0);
+				} else {
+					frame->pushInt32(-1);
+				}
+				break;
+			}
+			case OpCodes::fcmpl:
+			case OpCodes::fcmpg: {
+				// TODO "value set conversion" ?
+				float b = frame->popFloat();
+				float a = frame->popFloat();
+				if (a > b) {
+					frame->pushInt32(1);
+				} else if (a == b) {
+					frame->pushInt32(0);
+				} else if (a < b) {
+					frame->pushInt32(-1);
+				} else {
+					// at least one of a' or b' is NaN
+					frame->pushInt32(static_cast<OpCodes>(opcode) == OpCodes::fcmpg ? -1 : 1);
+				}
+				break;
+			}
+			case OpCodes::dcmpl:
+			case OpCodes::dcmpg: {
+				// TODO "value set conversion" ?
+				double b = frame->popDouble();
+				double a = frame->popDouble();
+				if (a > b) {
+					frame->pushInt32(1);
+				} else if (a == b) {
+					frame->pushInt32(0);
+				} else if (a < b) {
+					frame->pushInt32(-1);
+				} else {
+					// at least one of a' or b' is NaN
+					frame->pushInt32(static_cast<OpCodes>(opcode) == OpCodes::dcmpl ? -1 : 1);
+				}
+				break;
+			}
+			case OpCodes::ifeq:
+				executeComparison(frame->popInt32() == 0, code, pos, startPc);
+				return;
+			case OpCodes::ifne:
+				executeComparison(frame->popInt32() != 0, code, pos, startPc);
+				return;
+			case OpCodes::iflt:
+				executeComparison(frame->popInt32() < 0, code, pos, startPc);
+				return;
+			case OpCodes::ifge:
+				executeComparison(frame->popInt32() >= 0, code, pos, startPc);
+				return;
+			case OpCodes::ifgt:
+				executeComparison(frame->popInt32() > 0, code, pos, startPc);
+				return;
+			case OpCodes::ifle:
+				executeComparison(frame->popInt32() <= 0, code, pos, startPc);
+				return;
+			case OpCodes::if_icmpeq:
+				executeComparison(frame->popInt32() == frame->popInt32(), code, pos, startPc);
+				return;
+			case OpCodes::if_icmpne:
+				executeComparison(frame->popInt32() != frame->popInt32(), code, pos, startPc);
+				return;
+			case OpCodes::if_icmplt: {
+				int32_t r = frame->popInt32();
+				int32_t l = frame->popInt32();
+				executeComparison(l < r, code, pos, startPc);
+				return;
+			}
+			case OpCodes::if_icmpge: {
+				int32_t r = frame->popInt32();
+				int32_t l = frame->popInt32();
+				executeComparison(l >= r, code, pos, startPc);
+				return;
+			}
+			case OpCodes::if_icmpgt: {
+				int32_t r = frame->popInt32();
+				int32_t l = frame->popInt32();
+				executeComparison(l > r, code, pos, startPc);
+				return;
+			}
+			case OpCodes::if_icmple: {
+				int32_t r = frame->popInt32();
+				int32_t l = frame->popInt32();
+				executeComparison(l <= r, code, pos, startPc);
+				return;
+			}
+			case OpCodes::if_acmpeq:
+				executeComparison($equals($ref(frame->popObject()), $ref(frame->popObject())), code, pos, startPc);
+				return;
+			case OpCodes::if_acmpne:
+				executeComparison(!$equals($ref(frame->popObject()), $ref(frame->popObject())), code, pos, startPc);
+				return;
+			case OpCodes::goto_: {
+				int16_t offset = readUint16(code, pos);
+				frame->pc = startPc + offset;
+				return;
+			}
+			case OpCodes::jsr: {
+				$throwNew(RuntimeException, "jsr is unsupported"_s);
+				break;
+			}
+			case OpCodes::ret: {
+				$throwNew(RuntimeException, "ret is unsupported"_s);
+				break;
+			}
+			case OpCodes::tableswitch: {
+				// skip opcode + 0-3 bytes of padding
+				align4(pos);
 
+				int32_t default_ = consumeUint32(code, pos);
+				int32_t low = consumeUint32(code, pos);
+				int32_t high = consumeUint32(code, pos);
+
+				assert(low <= high);
+
+	//			s4 count  = high - low + 1;
+				int32_t index = frame->popInt32();
+
+				int32_t offset;
+				if (index < low || index > high) {
+					offset = default_;
+				} else {
+					pos += 4 * static_cast<uint32_t>(index - low);
+					offset = readUint32(code, pos);
+				}
+				pos = startPc + offset;
+				break;
+			}
+			case OpCodes::lookupswitch: {
+				// skip opcode + 0-3 bytes of padding
+				align4(pos);
+
+				int32_t default_ = consumeUint32(code, pos);
+				int32_t npairs = consumeUint32(code, pos);
+				assert(npairs >= 0);
+
+				int32_t key = frame->popInt32();
+				int32_t offset = default_;
+
+				for (int32_t i = 0; i < npairs; ++i) {
+					int32_t match = consumeUint32(code, pos);
+					if (key == match) {
+						offset = consumeUint32(code, pos);
+						break;
+					}
+					pos += 4;
+				}
+				pos = startPc + offset;
+				break;
+			}
+			case OpCodes::ireturn:
+				frame->setLocalInt(0, frame->popInt32());
+				popFrame();
+				return;
+			case OpCodes::lreturn:
+				frame->setLocalLong(0, frame->popInt64());
+				popFrame();
+				return;
+			case OpCodes::freturn:
+				frame->setLocalFloat(0, frame->popFloat());
+				popFrame();
+				return;
+			case OpCodes::dreturn:
+				frame->setLocalDouble(0, frame->popDouble());
+				popFrame();
+				return;
+			case OpCodes::areturn:
+				frame->setLocalPointer(0, $ref(frame->popObject()));
+				popFrame();
+				return;
+			case OpCodes::return_: {
+				popFrame();
+				return;
+			}
+			case OpCodes::getstatic:
+			case OpCodes::putstatic:
+			case OpCodes::getfield:
+			case OpCodes::putfield: {
+				uint16_t index = consumeUint16(code, pos);
+				$var(Field, field0, resolveField(index));
+				switch (static_cast<OpCodes>(opcode)) {
+					case OpCodes::getstatic: {
+						getStatic(field0);
+						break;
+					}
+					case OpCodes::putstatic: {
+						putStatic(field0);
+						break;
+					}
+					case OpCodes::getfield: {
+						getField(field0);
+						break;
+					}
+					case OpCodes::putfield: {
+						putField(field0);
+						break;
+					}
+					default:
+						assert(false);
+				}
+				break;
+			}
+			case OpCodes::invokevirtual: {
+				uint16_t methodIndex = readUint16(code, pos);
+				frame->invokeLength = 3;
+				$var(MethodCache, methodCache, getCurrentClass()->findMethodCache(methodIndex));
+				if (methodCache->method->getClass() == Method::class$) {
+					nativeCall(methodCache, false);
+				} else {
+					virtualCall(methodCache);
+				}
+				return;
+			}
+			case OpCodes::invokespecial: {
+				uint16_t methodIndex = readUint16(code, pos);
+				frame->invokeLength = 3;
+				$var(MethodCache, methodCache, getCurrentClass()->findMethodCache(methodIndex));
+				if (methodCache->method->getClass() == Method::class$) {
+					nativeCall(methodCache, true);
+				} else if (methodCache->method->getClass() == Constructor::class$) {
+					nativeCall(methodCache, true);
+				} else {
+					ByteCodeMethod* method0 = $fcast<ByteCodeMethod>(methodCache->method);
+					pushAndCreateFrame(method0);
+				}
+				return;
+			}
+			case OpCodes::invokestatic: {
+				uint16_t methodIndex = readUint16(code, pos);
+				frame->invokeLength = 3;
+				$var(MethodCache, methodCache, getCurrentClass()->findMethodCache(methodIndex));
+				if (methodCache->method->getClass() == Method::class$) {
+					nativeCall(methodCache, false);
+				} else {
+					ByteCodeMethod* method0 = $fcast<ByteCodeMethod>(methodCache->method);
+					pushAndCreateFrame(method0);
+				}
+				return;
+			}
+			case OpCodes::invokeinterface: {
+				uint16_t methodIndex = readUint16(code, pos);
+				frame->invokeLength = 5;
+				$var(MethodCache, methodCache, getCurrentClass()->findMethodCache(methodIndex));
+				if (methodCache->method->getClass() == Method::class$) {
+					nativeCall(methodCache, false);
+				} else {
+					virtualCall(methodCache);
+				}
+				return;
+			}
+			case OpCodes::invokedynamic: {
+				uint16_t methodIndex = readUint16(code, pos);
+				frame->invokeLength = 5;
+				invokeDynamic(methodIndex);
+				return;
+			}
+			case OpCodes::new_: {
+				uint16_t index = consumeUint16(code, pos);
+				ConstantPool* constantPool = getConstantPool();
+				ConstantClass* constantClass = constantPool->getClass(index);
+				Class* clazz = loadClass($nc(constantClass)->utf8);
+				$var(Object, instance, clazz->allocateInstance());
+				frame->pushObject(instance);
+				break;
+			}
+			case OpCodes::newarray: {
+				int32_t count = frame->popInt32();
+				if (count < 0) {
+					$throwNew(NegativeArraySizeException, $$str(count));
+					break;
+				}
+				int32_t type = consumeUint8(code, pos);
+				switch (static_cast<ArrayPrimitiveTypes>(type)) {
+					case ArrayPrimitiveTypes::T_INT: {
+						$var(Object, reference, $new($ints, count));
+						frame->pushObject(reference);
+						break;
+					}
+					case ArrayPrimitiveTypes::T_BOOLEAN: {
+						$var(Object, reference, $new($booleans, count));
+						frame->pushObject(reference);
+						break;
+					}
+					case ArrayPrimitiveTypes::T_CHAR: {
+						$var(Object, reference, $new($chars, count));
+						frame->pushObject(reference);
+						break;
+					}
+					case ArrayPrimitiveTypes::T_FLOAT: {
+						$var(Object, reference, $new($floats, count));
+						frame->pushObject(reference);
+						break;
+					}
+					case ArrayPrimitiveTypes::T_DOUBLE: {
+						$var(Object, reference, $new($doubles, count));
+						frame->pushObject(reference);
+						break;
+					}
+					case ArrayPrimitiveTypes::T_BYTE: {
+						$var(Object, reference, $new($bytes, count));
+						frame->pushObject(reference);
+						break;
+					}
+					case ArrayPrimitiveTypes::T_SHORT: {
+						$var(Object, reference, $new($shorts, count));
+						frame->pushObject(reference);
+						break;
+					}
+					case ArrayPrimitiveTypes::T_LONG: {
+						$var(Object, reference, $new($longs, count));
+						frame->pushObject(reference);
+						break;
+					}
+				}
+				break;
+			}
+			case OpCodes::anewarray: {
+				uint16_t index = consumeUint16(code, pos);
+				ConstantPool* constantPool = getConstantPool();
+				ConstantClass* constClass = constantPool->getClass(index);
+				int32_t count = frame->popInt32();
+				if (count < 0) {
+					$throwNew(NegativeArraySizeException, $$str(count));
+					break;
+				}
+				Class* clazz0 = loadClass(constClass->utf8);
+				$var(Object, array, _Array::newArray(clazz0, count));
+				frame->pushObject(array);
+				break;
+			}
+			case OpCodes::arraylength: {
+				$var(Object, array, frame->popObject());
+				int32_t length = _Array::getLength(array);
+				frame->pushInt32(length);
+				break;
+			}
+			case OpCodes::athrow: {
+				$var(Object, value, frame->popObject());
+				throwIt($sure(Throwable, value));
+				break;
+			}
+			case OpCodes::checkcast: {
+				uint16_t index = consumeUint16(code, pos);
+				ConstantPool* constantPool = getConstantPool();
+				ConstantClass* constantClass = constantPool->getClass(index);
+				Class* clazz = this->loadClass($nc(constantClass)->utf8);;
+				$var(Object, objectref, frame->popObject());
+				frame->pushObject(objectref);
+				if (objectref != nullptr) {
+					if (!clazz->isInstance(objectref)) {
+						$throwNew(ClassCastException, constantClass->utf8);
+						break;
+					}
+				}
+				break;
+			}
+			case OpCodes::instanceof: {
+				uint16_t index = consumeUint16(code, pos);
+				ConstantPool* constantPool = getConstantPool();
+				ConstantClass* constantClass = constantPool->getClass(index);
+				Class* clazz = this->loadClass($nc(constantClass)->utf8);;
+				$var(Object, objectref, frame->popObject());
+				if (objectref == nullptr) {
+					frame->pushBool(false);
+				} else {
+					bool ret = clazz->isInstance(objectref);
+					frame->pushBool(ret);
+				}
+				break;
+			}
+			case OpCodes::monitorenter: {
+				$var(Object, reference, frame->popObject());
+				$sureObject0(reference)->lock();
+				break;
+			}
+			case OpCodes::monitorexit: {
+				$var(Object, reference, frame->popObject());
+				$sureObject0(reference)->unlock();
+				break;
+			}
+			case OpCodes::wide: {
+				uint8_t type = consumeUint8(code, pos);
+				uint16_t index = consumeUint16(code, pos);
+				switch (static_cast<OpCodes>(type)) {
+				case OpCodes::iload:
+					frame->pushInt32(frame->getLocalInt(index));
+					break;
+				case OpCodes::lload:
+					frame->pushInt64(frame->getLocalLong(index));
+					break;
+				case OpCodes::fload:
+					frame->pushFloat(frame->getLocalFloat(index));
+					break;
+				case OpCodes::dload:
+					frame->pushDouble(frame->getLocalDouble(index));
+					break;
+				case OpCodes::aload: {
+					$var(Object, local, frame->getLocalPointer(index));
+					frame->pushObject(local);
+					break;
+				}
 				case OpCodes::istore:
-					frame->setLocalInt(index, frame->pops4());
+					frame->setLocalInt(index, frame->popInt32());
 					break;
 				case OpCodes::lstore:
-					frame->setLocalLong(index, frame->pops8());
+					frame->setLocalLong(index, frame->popInt64());
 					break;
 				case OpCodes::fstore:
-					frame->setLocalFloat(index, frame->popfloat());
+					frame->setLocalFloat(index, frame->popFloat());
 					break;
 				case OpCodes::dstore:
-					frame->setLocalDouble(index, frame->popdouble());
+					frame->setLocalDouble(index, frame->popDouble());
 					break;
 				case OpCodes::astore: {
-					$var(Object, local, frame->poppointer());
+					$var(Object, local, frame->popObject());
 					frame->setLocalPointer(index, local);
-				}
 					break;
-
+				}
 				case OpCodes::iinc: {
 					int32_t local = frame->getLocalInt(index);
-					int16_t constant = frame->consume_u2();
+					int16_t constant = consumeUint16(code, pos);
 					frame->setLocalInt(index, local + constant);
-					frame->pc++;
-					return;
+					break;
 				}
-
 				case OpCodes::ret:
-					$throwNew(RuntimeException, "jsr and ret are unsupported"_s);
+					$throwNew(RuntimeException, "wide_ret is unsupported"_s);
 				default:
-					abort();
+					$throwNew(RuntimeException, $$str({ "wide type:"_s, $$str(type), " is unsupported"_s }));
+				}
+				break;
 			}
-			break;
-		}
-		case OpCodes::multianewarray: {
-			uint16_t index = frame->read_u2();
-			ConstantClass* constantClass = constantPool->getClass(index);
-			frame->pc += 2;
-
-			Class* componentType = this->loadClass(constantClass->utf8);
-			uint8_t dimensions = frame->consume_u1();
-			assert(dimensions >= 1);
-
-			$var($ints, dims, $new<$ints>(dimensions));
-			for (int32_t i = 0; i < dimensions; i++) {
-				int32_t count = frame->pops4();
-				dims->set(i, count);
+			case OpCodes::multianewarray: {
+				uint16_t index = consumeUint16(code, pos);
+				ConstantPool* constantPool = getConstantPool();
+				ConstantClass* constantClass = constantPool->getClass(index);
+				Class* componentType = this->loadClass($nc(constantClass)->utf8);
+				uint8_t dimensions = consumeUint8(code, pos);
+				assert(dimensions >= 1);
+				$var($ints, dims, $new($ints, dimensions));
+				for (int32_t i = 0; i < dimensions; i++) {
+					int32_t count = frame->popInt32();
+					dims->set(i, count);
+				}
+				frame->pushObject($(_Array::multiNewArray(componentType, dims)));
+				break;
 			}
-			frame->pushpointer(_Array::multiNewArray(componentType, dims));
-			break;
+			case OpCodes::ifnull:
+				executeComparison(frame->popObject() == nullptr, code, pos, startPc);
+				return;
+			case OpCodes::ifnonnull:
+				executeComparison(frame->popObject() != nullptr, code, pos, startPc);
+				return;
+			case OpCodes::goto_w: {
+				int32_t offset = consumeUint32(code, pos);
+				pos = startPc + offset;
+				break;
+			}
+			case OpCodes::jsr_w:
+				$throwNew(RuntimeException, "jsr_w is unsupported"_s);
+				return;
+			default:
+				$throwNew(RuntimeException, $ref(String::valueOf({ "Unimplemented/unknown opcode "_s, $$str(opcode), " at "_s, $$str(frame->pc) })));
+				return;
 		}
-		case OpCodes::ifnull:
-			execute_comparison(frame->poppointer() == nullptr);
-			return;
-		case OpCodes::ifnonnull:
-			execute_comparison(frame->poppointer() != nullptr);
-			return;
-		case OpCodes::goto_w: {
-			auto pc = frame->pc;
-			int32_t offset = static_cast<int32_t>((code[pc + 1] << 24) | (code[pc + 2] << 16) | (code[pc + 3] << 8) |
-										code[pc + 4]);
-			frame->pc += static_cast<int32_t>(static_cast<int64_t>(offset));
-			return;
-		}
-		case OpCodes::jsr_w:
-			$throwNew(RuntimeException, "jsr and ret are unsupported"_s);
-
-		default:
-			$throwNew(RuntimeException,
-				$ref(String::valueOf({ $cstr("Unimplemented/unknown opcode "), $$str(opcode), $cstr(" at "), $$str((int64_t)frame->pc) }))
-			);
+	} catch(Throwable& e) {
+		$set(this, currentException, e);
+		return;
 	}
-
-	frame->pc++;
+	if (currentException == nullptr) {
+		frame->pc = pos;
+	}
 }
 
-void Interpreter::execute_comparison(bool condition) {
+void ByteCodeInterpreter::executeComparison(bool condition, ByteArray* code, int32_t pos, int32_t startPc) {
 	if (condition) {
-		return goto_();
+		int16_t offset = readUint16(code, pos);
+		frame->pc = startPc + offset;
 	} else {
-		frame->pc += 3;
+		frame->pc = startPc + 3;
 	}
 }
 
-void Interpreter::goto_() {
-	int16_t offset = frame->read_u2();
-	frame->pc = frame->pc + offset;
-}
-
-void Interpreter::handleThrow() {
+void ByteCodeInterpreter::handleThrow() {
 	while (true) {
-		std::vector<ExceptionTableEntry>& exceptionTable = frame->method->exception_table;
-
+		std::vector<ExceptionTableEntry>& exceptionTable = frame->byteCodeMethod->exceptionTable;
 		int32_t index = 0;
 		bool matched = false;
 		for (; index < exceptionTable.size(); index++) {
@@ -1361,8 +1409,9 @@ void Interpreter::handleThrow() {
 					matched = true;
 					break;
 				} else {
-					ConstantClass* constantClass = this->constantPool->getClass(e.catch_type);
-					$var(String, className, constantClass->utf8->replace('/', '.'));
+					ConstantPool* constantPool = getConstantPool();
+					ConstantClass* constantClass = constantPool->getClass(e.catch_type);
+					$var(String, className, $nc(constantClass)->utf8->replace('/', '.'));
 					Class* c = currentException->getClass();
 					while (c != nullptr) {
 						if (className->equals(c->getName())) {
@@ -1380,13 +1429,12 @@ void Interpreter::handleThrow() {
 				break;
 			}
 		}
-
 		if (!matched) {
 			popFrame();
 			$throw(this->currentException);
 		} else {
 			frame->clear();
-			frame->pushpointer(currentException);
+			frame->pushObject(currentException);
 			frame->pc = exceptionTable[index].handler_pc;
 			$set(this, currentException, nullptr);
 			return;
@@ -1394,72 +1442,59 @@ void Interpreter::handleThrow() {
 	}
 }
 
-void Interpreter::popFrame() {
-	memoryUsed = frame->previousStackMemoryUsage;
-	if (frame->is_root_frame) {
-		shouldExit = true;
-	} else {
-		$set(this, frame, popFrame0());
-
+void ByteCodeInterpreter::popFrame() {
+	if (frameStack != nullptr) {
+		$set(this, frame, frameStack);
+		$set(this, frameStack, frameStack->next);
 		if (currentException == nullptr) {
 			frame->pc += frame->invokeLength;
 		}
+	} else {
+		shouldExit = true;
 	}
 }
+
+//Class* Frame::class$ = nullptr;
+//Class* Frame::load$(String* name, bool initialize) {
+//	$loadClass(Frame, name, initialize, (ClassInfo*)nullptr, ($InitClassFunction)nullptr);
+//	return class$;
+//}
 
 Frame::Frame() {
-
 }
 
-void Frame::init$(Interpreter* interpreter, ByteCodeMethod* method, int32_t operand_stack_top, bool is_root_frame) {
+void Frame::init$(ByteCodeInterpreter* interpreter, ByteCodeMethod* byteCodeMethod, int32_t operandStackTop) {
 	Object::init$();
-	this->method = (method);
-	//this->code = (nullptr);
-	this->operandsTop = (0),
-	this->previousStackMemoryUsage = (interpreter->memoryUsed),
-	this->pc = (0),
-	this->invokeLength = (0),
-	this->is_root_frame = (is_root_frame);
+	this->interpreter = interpreter;
+	this->byteCodeMethod = byteCodeMethod;
+	this->operandsTop = 0;
+	this->pc = 0;
+	this->invokeLength = 0;
+	firstLocalIndex = operandStackTop - byteCodeMethod->stackSlotsForParameters;
 
-	$set(this, interpreter, interpreter);
-	firstLocalIndex = operand_stack_top - method->stack_slots_for_parameters;
-
-	if (method->code != nullptr && method->code->length > 0) {
-	 //   code = &method->code;
-	 //   code = method->code->begin();
-		firstOperandIndex = firstLocalIndex + method->max_locals;
-		interpreter->memoryUsed = firstOperandIndex + method->max_stack;
+	if (byteCodeMethod->code != nullptr && byteCodeMethod->code->length > 0) {
+		firstOperandIndex = firstLocalIndex + byteCodeMethod->maxLocals;
 	} else {
-		firstOperandIndex = operand_stack_top;
-		interpreter->memoryUsed = operand_stack_top;
+		firstOperandIndex = operandStackTop;
 	}
 }
 
-void Frame::init$(Interpreter* interpreter, int32_t operand_stack_top, int32_t stack_slots_for_parameters, bool is_root_frame) {
+void Frame::init$(ByteCodeInterpreter* interpreter, int32_t operandStackTop, int32_t stackSlotsForParameters) {
 	Object::init$();
-	this->method = (nullptr),
-	//	this->code = (nullptr),
-		this->operandsTop = (0),
-		this->previousStackMemoryUsage = (interpreter->memoryUsed),
-		this->pc = (0),
-		this->invokeLength = (0),
-		this->is_root_frame = (is_root_frame);
-	//assert(method->code_attribute->max_locals >= method->parameter_count);
-	//assert(stack->memory_used >= stack_slots_for_parameters);
-	//assert(operand_stack_top >= stack_slots_for_parameters);
-
-	this->stack_slots_for_parameters = stack_slots_for_parameters;
-	$set(this, interpreter, interpreter);
-	firstLocalIndex = operand_stack_top - stack_slots_for_parameters;
-
-	firstOperandIndex = operand_stack_top;
-	interpreter->memoryUsed = operand_stack_top;
+	this->interpreter = interpreter;
+	this->byteCodeMethod = nullptr;
+	this->operandsTop = 0;
+	this->pc = 0;
+	this->invokeLength = 0;
+	this->stackSlotsForParameters = stackSlotsForParameters;
+	firstLocalIndex = operandStackTop - stackSlotsForParameters;
+	firstOperandIndex = operandStackTop;
 }
 
 inline MemoryItem Frame::getLocal(int32_t index) {
 	int32_t index0 = firstLocalIndex + index;
-	MemoryItem* begin = interpreter->memory->begin() + index0;
-	return begin[0];
+	MemoryItem mi = interpreter->getMemoryItem(index0);
+	return mi;
 }
 
 void Frame::setLocal(int32_t index, Class* type, Object* value) {
@@ -1523,10 +1558,6 @@ inline Object$* Frame::getLocal(int32_t index, Class* type) {
 inline MemoryItem Frame::markMemoryItem(int32_t value, MemoryItemType type) {
 	MemoryItem mv = value;
 	mv = (mv << 32) | type | PRIMITIVE_TYPE_PADDING;
-	// TODO remove
- //   if (mv == 1610612735) {
- //	   mv = 1610612735;
- //   }
 	return mv;
 }
 
@@ -1552,14 +1583,14 @@ inline MemoryItem Frame::markObjectMemoryItem(Object$* value) {
 
 inline int32_t Frame::getLocalInt(int32_t index) {
 	int32_t index0 = firstLocalIndex + index;
-	MemoryItem* begin = interpreter->memory->begin() + index0;
-	return getMemoryItemValue(begin[0]);
+	MemoryItem mi = interpreter->getMemoryItem(index0);
+	return getMemoryItemValue(mi);
 }
 
 inline void Frame::setLocalInt(int32_t index, int32_t value) {
 	int32_t index0 = firstLocalIndex + index;
-	MemoryItem* begin = interpreter->memory->begin() + index0;
-	begin[0] = markMemoryItem(value, INT_TYPE);
+	MemoryItem mi = markMemoryItem(value, INT_TYPE);
+	interpreter->setMemoryItem(index0, mi);	
 }
 
 inline int64_t Frame::getLocalLong(int32_t index) {
@@ -1575,11 +1606,10 @@ inline void Frame::setLocalLong(int32_t index, int64_t value) {
 	uint64_t u64 = value;
 	int32_t low32 = (int32_t)(u64 & (uint32_t)0xFFFFFFFF);
 	int32_t high32 = (int32_t)((u64 >> 32) & (uint32_t)0xFFFFFFFF);
-
 	int32_t index0 = firstLocalIndex + index;
-	MemoryItem* begin = interpreter->memory->begin() + index0;
-	begin[0] = markMemoryItem(high32, LONG_TYPE);
-	begin[1] = markMemoryItem(low32, INT_TYPE);
+	MemoryItem mi0 = markMemoryItem(high32, LONG_TYPE);
+	MemoryItem mi1 = markMemoryItem(low32, INT_TYPE);
+	interpreter->setMemoryItem(index0, mi0, mi1);
 }
 
 inline float Frame::getLocalFloat(int32_t index) {
@@ -1590,11 +1620,9 @@ inline float Frame::getLocalFloat(int32_t index) {
 
 inline void Frame::setLocalFloat(int32_t index, float value) {
 	int32_t index0 = firstLocalIndex + index;
-	MemoryItem* begin = interpreter->memory->begin() + index0;
-	
- //   begin[0] = markMemoryItem(future::bit_cast<int32_t, float>(value), FLOAT_TYPE);
 	int32_t result = Float::floatToRawIntBits(value);
-	begin[0] = markMemoryItem(result, FLOAT_TYPE);
+	MemoryItem mi = markMemoryItem(result, FLOAT_TYPE);
+	interpreter->setMemoryItem(index0, mi);
 }
 
 inline double Frame::getLocalDouble(int32_t index) {
@@ -1607,476 +1635,380 @@ inline void Frame::setLocalDouble(int32_t index, double value) {
 	uint64_t u64 = Double::doubleToRawLongBits(value);
 	int32_t low32 = (int32_t)(u64 & (uint32_t)0xFFFFFFFF);
 	int32_t high32 = (int32_t)((u64 >> 32) & (uint32_t)0xFFFFFFFF);
-
 	int32_t index0 = firstLocalIndex + index;
-	MemoryItem* begin = interpreter->memory->begin() + index0;
-	begin[0] = markMemoryItem(high32, DOUBLE_TYPE);
-	begin[1] = markMemoryItem(low32, INT_TYPE);
+	MemoryItem mi0 = markMemoryItem(high32, DOUBLE_TYPE);
+	MemoryItem mi1 = markMemoryItem(low32, INT_TYPE);
+	interpreter->setMemoryItem(index0, mi0, mi1);
 }
 
 inline Object* Frame::getLocalPointer(int32_t index) {
 	int32_t index0 = firstLocalIndex + index;
-	MemoryItem* begin = interpreter->memory->begin() + index0;
-	Object* obj = (Object*)begin[0];
-	return obj;
+	MemoryItem mi = interpreter->getMemoryItem(index0);
+	return getObjectFromMemoryItem(mi);
 }
 
-inline void Frame::setLocalPointer(int32_t index, Object* value) {
+inline void Frame::setLocalPointer(int32_t index, Object$* value) {
 	int32_t index0 = firstLocalIndex + index;
-	MemoryItem* begin = interpreter->memory->begin() + index0;
-
-	MemoryItemType oldType = getMemoryItemType(begin[0]);
-  //  if (oldType != MemoryItemType::OBJECT_TYPE) {
-   //	 begin[0] = 0;
-  //  }
-	interpreter->memoryObject->set(index0, value);
- //   $set(interpreter->memory, (Object$*&)begin[0], value);
-	begin[0] = (MemoryItem)value;
+	MemoryItem mi = markObjectMemoryItem(value);
+	interpreter->setMemoryItem(index0, mi);
+	interpreter->saveMemoryObject(index0, value);
 }
 
 inline MemoryItem Frame::pop() {
 	int32_t index0 = firstOperandIndex + (--operandsTop);
-	MemoryItem* begin = interpreter->memory->begin() + index0;
-//	return begin[0];
-
-	MemoryItem item = begin[0];
-	MemoryItemType oldType = getMemoryItemType(begin[0]);
+	MemoryItem mi = interpreter->getMemoryItem(index0);
+	MemoryItemType oldType = getMemoryItemType(mi);
 	if (oldType == MemoryItemType::OBJECT_TYPE) {
-	 //  $set(interpreter->memory, (Object$*&)begin[0], nullptr);
-		interpreter->memoryObject->set(index0, nullptr);
+		interpreter->clearMemoryObject(index0);
 	}
-	return item;
+	return mi;
 }
 
 inline void Frame::push(MemoryItem item) {
 	int32_t index0 = firstOperandIndex + operandsTop;
-	MemoryItem* begin = interpreter->memory->begin() + index0;
-	begin[0] = item;
-//	begin[0] = 0;
+	interpreter->setMemoryItem(index0, item);
 	MemoryItemType type = getMemoryItemType(item);
 	if (type == MemoryItemType::OBJECT_TYPE) {
-	//   $set(interpreter->memory, (Object$*&)begin[0], getObjectFromMemoryItem(item));
-		interpreter->memoryObject->set(index0, getObjectFromMemoryItem(item));
-	} else {
-	//	begin[0] = item;
+		interpreter->saveMemoryObject(index0, getObjectFromMemoryItem(item));
 	}
 	operandsTop++;
 }
 
-inline int64_t Frame::pop2() {
-	int32_t low32 = pops4();
-	int64_t high32 = pops4();
+inline int64_t Frame::popInt64() {
+	int32_t low32 = popInt32();
+	int64_t high32 = popInt32();
 	int64_t i64 = (high32 << 32) | (low32 & (uint32_t)0xFFFFFFFF);
 	return i64;
 }
 
-inline void Frame::push(Object$* operand$OBJ) {
+inline void Frame::pushObject(Object$* operand) {
 	int32_t index0 = firstOperandIndex + operandsTop;
-	MemoryItem* begin = interpreter->memory->begin() + index0;
-  //  begin[0] = 0;
-	begin[0] = markObjectMemoryItem(operand$OBJ);
-  //  $set(interpreter->memory, (Object$*&)begin[0], operand$OBJ);
-	interpreter->memoryObject->set(index0, operand$OBJ);
+	MemoryItem mi = markObjectMemoryItem(operand);
+	interpreter->setMemoryItem(index0, mi);
+	interpreter->saveMemoryObject(index0, operand);
 	operandsTop++;
 }
 
-inline void Frame::pushs4(int32_t value, MemoryItemType type) {
+inline void Frame::push(int32_t value, MemoryItemType type) {
 	int32_t index0 = firstOperandIndex + operandsTop;
-	MemoryItem* begin = interpreter->memory->begin() + index0;
-	begin[0] = markMemoryItem(value, type);
+	MemoryItem mi = markMemoryItem(value, type);
+	interpreter->setMemoryItem(index0, mi);
 	operandsTop++;
 }
 
-inline void Frame::pushbool(bool value) {
-	pushs4(value, BOOL_TYPE);
+inline void Frame::pushBool(bool value) {
+	push(value, BOOL_TYPE);
 }
 
-inline void Frame::pushs1(int8_t value) {
-	pushs4(value, BYTE_TYPE);
+inline void Frame::pushInt8(int8_t value) {
+	push(value, BYTE_TYPE);
 }
 
-inline void Frame::pushs2(int16_t value) {
-	pushs4(value, SHORT_TYPE);
+inline void Frame::pushInt16(int16_t value) {
+	push(value, SHORT_TYPE);
 }
 
-inline void Frame::pushu2(uint16_t value) {
-	pushs4(value, CHAR_TYPE);
+void Frame::pushInt32(int32_t value) {
+	push(value, INT_TYPE);
 }
 
-inline void Frame::pushfloat(float value) {
+inline void Frame::pushChar16(char16_t value) {
+	push(value, CHAR_TYPE);
+}
+
+inline void Frame::pushFloat(float value) {
 	int32_t result = Float::floatToRawIntBits(value);
-	pushs4(result, FLOAT_TYPE);
+	push(result, FLOAT_TYPE);
 }
 
-inline void Frame::pushpointer(void* value) {
-	push(static_cast<Object*>(value));
-}
-
-inline int32_t Frame::pops4() {
+inline int32_t Frame::popInt32() {
 	int32_t index0 = firstOperandIndex + (--operandsTop);
-	MemoryItem* begin = interpreter->memory->begin() + index0;
-	return getMemoryItemValue(begin[0]);
+	MemoryItem mi = interpreter->getMemoryItem(index0);
+	return getMemoryItemValue(mi);
 }
 
-inline bool Frame::popbool() {
-	return static_cast<bool>(pops4() != 0);
+inline bool Frame::popBool() {
+	return popInt32() != 0;
 }
 
-inline int8_t Frame::pops1() {
-	return static_cast<int8_t>(pops4());
+inline int8_t Frame::popInt8() {
+	return static_cast<int8_t>(popInt32());
 }
 
-inline int16_t Frame::pops2() {
-	return static_cast<int16_t>(pops4());
+inline int16_t Frame::popInt16() {
+	return static_cast<int16_t>(popInt32());
 }
 
-inline uint16_t Frame::popu2() {
-	return static_cast<uint16_t>(pops4());
+inline char16_t Frame::popChar16() {
+	return static_cast<char16_t>(popInt32());
 }
 
-inline float Frame::popfloat() {
-	int32_t s4 = pops4();
+inline float Frame::popFloat() {
+	int32_t s4 = popInt32();
 	float result = Float::intBitsToFloat(s4);
 	return result;
 }
 
-inline Object* Frame::poppointer() {
+inline Object* Frame::popObject() {
 	int32_t index0 = firstOperandIndex + (--operandsTop);
-	MemoryItem* begin = interpreter->memory->begin() + index0;
-	$var(Object, obj, getObjectFromMemoryItem(begin[0]));
-   // $set(interpreter->memory, (Object$*&)begin[0], nullptr);
-	interpreter->memoryObject->set(index0, nullptr);
+	MemoryItem mi = interpreter->getMemoryItem(index0);
+	$var(Object, obj, getObjectFromMemoryItem(mi));
+	interpreter->clearMemoryObject(index0);
 	return obj;
 }
 
-inline void Frame::pushs8(int64_t value) {
+inline void Frame::pushInt64(int64_t value) {
 	uint64_t u64 = value;
 	int32_t low32 = (int32_t)(u64 & (uint32_t)0xFFFFFFFF);
 	int32_t high32 = (int32_t)((u64 >> 32) & (uint32_t)0xFFFFFFFF);
-	pushs4(high32, LONG_TYPE);
-	pushs4(low32, LONG_TYPE);
+	push(high32, LONG_TYPE);
+	push(low32, LONG_TYPE);
 }
 
-inline void Frame::pushdouble(double value) {
+inline void Frame::pushDouble(double value) {
 	uint64_t u64 = Double::doubleToRawLongBits(value);
 	int32_t low32 = (int32_t)(u64 & (uint32_t)0xFFFFFFFF);
 	int32_t high32 = (int32_t)((u64 >> 32) & (uint32_t)0xFFFFFFFF);
-	pushs4(high32, DOUBLE_TYPE);
-	pushs4(low32, DOUBLE_TYPE);
+	push(high32, DOUBLE_TYPE);
+	push(low32, DOUBLE_TYPE);
 }
 
-inline int64_t Frame::pops8() {
-	return pop2();
-}
-
-inline double Frame::popdouble() {
-	int64_t value = pop2();
+inline double Frame::popDouble() {
+	int64_t value = popInt64();
 	double result = Double::longBitsToDouble(value);
 	return result;
 }
 
 inline void Frame::arrayStoreByte() {
-	int8_t value = pops1();
-	int32_t index = pops4();
-
-	$var(ByteArray, arrayref, (ByteArray*)poppointer());
-	if (arrayref == nullptr) {
+	int8_t value = popInt8();
+	int32_t index = popInt32();
+	$var(ByteArray, array, (ByteArray*)popObject());
+	if (array == nullptr) {
 		interpreter->throwIt($$new(NullPointerException));
 		return;
 	}
-
-	if (index < 0 || index >= arrayref->length) {
+	if (index < 0 || index >= array->length) {
 		interpreter->throwIt($$new(ArrayIndexOutOfBoundsException));
 		return;
 	}
-	arrayref->set(index, value);
+	array->set(index, value);
 }
 
 inline void Frame::arrayStoreShort() {
-	int16_t value = pops2();
-	int32_t index = pops4();
-
-	$var(ShortArray, arrayref, (ShortArray*)poppointer());
-	if (arrayref == nullptr) {
+	int16_t value = popInt16();
+	int32_t index = popInt32();
+	$var(ShortArray, array, (ShortArray*)popObject());
+	if (array == nullptr) {
 		interpreter->throwIt($$new(NullPointerException));
 		return;
 	}
-
-	if (index < 0 || index >= arrayref->length) {
+	if (index < 0 || index >= array->length) {
 		interpreter->throwIt($$new(ArrayIndexOutOfBoundsException));
 		return;
 	}
-	arrayref->set(index, value);
+	array->set(index, value);
 }
 
 inline void Frame::arrayStoreInt() {
-	int32_t value = pops4();
-	int32_t index = pops4();
-
-	$var(IntArray, arrayref, (IntArray*)poppointer());
-	if (arrayref == nullptr) {
+	int32_t value = popInt32();
+	int32_t index = popInt32();
+	$var(IntArray, array, (IntArray*)popObject());
+	if (array == nullptr) {
 		interpreter->throwIt($$new(NullPointerException));
 		return;
 	}
-
-	if (index < 0 || index >= arrayref->length) {
+	if (index < 0 || index >= array->length) {
 		interpreter->throwIt($$new(ArrayIndexOutOfBoundsException));
 		return;
 	}
-	arrayref->set(index, value);
+	array->set(index, value);
 }
 
 inline void Frame::arrayStoreLong() {
-	int64_t value = pops8();
-	int32_t index = pops4();
-
-	$var(LongArray, arrayref, (LongArray*)poppointer());
-	if (arrayref == nullptr) {
+	int64_t value = popInt64();
+	int32_t index = popInt32();
+	$var(LongArray, array, (LongArray*)popObject());
+	if (array == nullptr) {
 		interpreter->throwIt($$new(NullPointerException));
 		return;
 	}
-
-	if (index < 0 || index >= arrayref->length) {
+	if (index < 0 || index >= array->length) {
 		interpreter->throwIt($$new(ArrayIndexOutOfBoundsException));
 		return;
 	}
-	arrayref->set(index, value);
+	array->set(index, value);
 }
 
 inline void Frame::arrayStoreFloat() {
-	float value = popfloat();
-	int32_t index = pops4();
-
-	$var(FloatArray, arrayref, (FloatArray*)poppointer());
-	if (arrayref == nullptr) {
+	float value = popFloat();
+	int32_t index = popInt32();
+	$var(FloatArray, array, (FloatArray*)popObject());
+	if (array == nullptr) {
 		interpreter->throwIt($$new(NullPointerException));
 		return;
 	}
-
-	if (index < 0 || index >= arrayref->length) {
+	if (index < 0 || index >= array->length) {
 		interpreter->throwIt($$new(ArrayIndexOutOfBoundsException));
 		return;
 	}
-	arrayref->set(index, value);
+	array->set(index, value);
 }
 
 inline void Frame::arrayStoreDouble() {
-	double value = popdouble();
-	int32_t index = pops4();
-
-	$var(DoubleArray, arrayref, (DoubleArray*)poppointer());
-	if (arrayref == nullptr) {
+	double value = popDouble();
+	int32_t index = popInt32();
+	$var(DoubleArray, array, (DoubleArray*)popObject());
+	if (array == nullptr) {
 		interpreter->throwIt($$new(NullPointerException));
 		return;
 	}
-
-	if (index < 0 || index >= arrayref->length) {
+	if (index < 0 || index >= array->length) {
 		interpreter->throwIt($$new(ArrayIndexOutOfBoundsException));
 		return;
 	}
-	arrayref->set(index, value);
+	array->set(index, value);
 }
 
 inline void Frame::arrayStoreChar() {
-	char16_t value = popu2();
-	int32_t index = pops4();
-
-	$var(CharArray, arrayref, (CharArray*)poppointer());
-	if (arrayref == nullptr) {
+	char16_t value = popChar16();
+	int32_t index = popInt32();
+	$var(CharArray, array, (CharArray*)popObject());
+	if (array == nullptr) {
 		interpreter->throwIt($$new(NullPointerException));
 		return;
 	}
-
-	if (index < 0 || index >= arrayref->length) {
+	if (index < 0 || index >= array->length) {
 		interpreter->throwIt($$new(ArrayIndexOutOfBoundsException));
 		return;
 	}
-	arrayref->set(index, value);
+	array->set(index, value);
 }
 
 inline void Frame::arrayStorePointer() {
-	$var(Object, value, poppointer());
-	int32_t index = pops4();
-
-	$var($ObjectArray, arrayref, ($ObjectArray*)poppointer());
-	if (arrayref == nullptr) {
+	$var(Object, value, popObject());
+	int32_t index = popInt32();
+	$var($ObjectArray, array, ($ObjectArray*)popObject());
+	if (array == nullptr) {
 		interpreter->throwIt($$new(NullPointerException));
 		return;
 	}
-
-	if (index < 0 || index >= arrayref->length) {
+	if (index < 0 || index >= array->length) {
 		interpreter->throwIt($$new(ArrayIndexOutOfBoundsException));
 		return;
 	}
-	arrayref->set(index, value);
+	array->set(index, value);
 }
 
 inline void Frame::arrayLoadByte() {
-	int32_t index = pops4();
-
-	$var(ByteArray, arrayref, (ByteArray*)poppointer());
-	if (arrayref == nullptr) {
+	int32_t index = popInt32();
+	$var(ByteArray, array, (ByteArray*)popObject());
+	if (array == nullptr) {
 		interpreter->throwIt($$new(NullPointerException));
 		return;
 	}
-
-	if (index < 0 || index >= arrayref->length) {
+	if (index < 0 || index >= array->length) {
 		interpreter->throwIt($$new(ArrayIndexOutOfBoundsException));
 		return;
 	}
-	pushs1(arrayref->get(index));
+	pushInt8(array->get(index));
 }
 
 inline void Frame::arrayLoadShort() {
-	int32_t index = pops4();
-
-	$var(ShortArray, arrayref, (ShortArray*)poppointer());
-	if (arrayref == nullptr) {
+	int32_t index = popInt32();
+	$var(ShortArray, array, (ShortArray*)popObject());
+	if (array == nullptr) {
 		interpreter->throwIt($$new(NullPointerException));
 		return;
 	}
-
-	if (index < 0 || index >= arrayref->length) {
+	if (index < 0 || index >= array->length) {
 		interpreter->throwIt($$new(ArrayIndexOutOfBoundsException));
 		return;
 	}
-	pushs4(arrayref->get(index), SHORT_TYPE);
+	pushInt16(array->get(index));
 }
 
 inline void Frame::arrayLoadInt() {
-	int32_t index = pops4();
-
-	$var(IntArray, arrayref, (IntArray*)poppointer());
-	if (arrayref == nullptr) {
+	int32_t index = popInt32();
+	$var(IntArray, array, (IntArray*)popObject());
+	if (array == nullptr) {
 		interpreter->throwIt($$new(NullPointerException));
 		return;
 	}
-
-	if (index < 0 || index >= arrayref->length) {
+	if (index < 0 || index >= array->length) {
 		interpreter->throwIt($$new(ArrayIndexOutOfBoundsException));
 		return;
 	}
-	pushs4(arrayref->get(index), INT_TYPE);
+	pushInt32(array->get(index));
 }
 
 inline void Frame::arrayLoadLong() {
-	int32_t index = pops4();
-
-	$var(LongArray, arrayref, (LongArray*)poppointer());
-	if (arrayref == nullptr) {
+	int32_t index = popInt32();
+	$var(LongArray, array, (LongArray*)popObject());
+	if (array == nullptr) {
 		interpreter->throwIt($$new(NullPointerException));
 		return;
 	}
-
-	if (index < 0 || index >= arrayref->length) {
+	if (index < 0 || index >= array->length) {
 		interpreter->throwIt($$new(ArrayIndexOutOfBoundsException));
 		return;
 	}
-	pushs8(arrayref->get(index));
+	pushInt64(array->get(index));
 }
 
 inline void Frame::arrayLoadFloat() {
-	int32_t index = pops4();
-
-	$var(FloatArray, arrayref, (FloatArray*)poppointer());
-	if (arrayref == nullptr) {
+	int32_t index = popInt32();
+	$var(FloatArray, array, (FloatArray*)popObject());
+	if (array == nullptr) {
 		interpreter->throwIt($$new(NullPointerException));
 		return;
 	}
-
-	if (index < 0 || index >= arrayref->length) {
+	if (index < 0 || index >= array->length) {
 		interpreter->throwIt($$new(ArrayIndexOutOfBoundsException));
 		return;
 	}
-	pushfloat(arrayref->get(index));
+	pushFloat(array->get(index));
 }
 
 inline void Frame::arrayLoadDouble() {
-	int32_t index = pops4();
-
-	$var(DoubleArray, arrayref, (DoubleArray*)poppointer());
-	if (arrayref == nullptr) {
+	int32_t index = popInt32();
+	$var(DoubleArray, array, (DoubleArray*)popObject());
+	if (array == nullptr) {
 		interpreter->throwIt($$new(NullPointerException));
 		return;
 	}
-
-	if (index < 0 || index >= arrayref->length) {
+	if (index < 0 || index >= array->length) {
 		interpreter->throwIt($$new(ArrayIndexOutOfBoundsException));
 		return;
 	}
-	pushdouble(arrayref->get(index));
+	pushDouble(array->get(index));
 }
 
 inline void Frame::arrayLoadChar() {
-	int32_t index = pops4();
-
-	$var(CharArray, arrayref, (CharArray*)poppointer());
-	if (arrayref == nullptr) {
+	int32_t index = popInt32();
+	$var(CharArray, array, (CharArray*)popObject());
+	if (array == nullptr) {
 		interpreter->throwIt($$new(NullPointerException));
 		return;
 	}
-
-	if (index < 0 || index >= arrayref->length) {
+	if (index < 0 || index >= array->length) {
 		interpreter->throwIt($$new(ArrayIndexOutOfBoundsException));
 		return;
 	}
-	pushu2(arrayref->get(index));
+	pushChar16(array->get(index));
 }
 
 inline void Frame::arrayLoadPointer() {
-	int32_t index = pops4();
-
-	$var($ObjectArray, arrayref, ($ObjectArray*)poppointer());
-	if (arrayref == nullptr) {
+	int32_t index = popInt32();
+	$var($ObjectArray, array, ($ObjectArray*)popObject());
+	if (array == nullptr) {
 		interpreter->throwIt($$new(NullPointerException));
 		return;
 	}
-
-	if (index < 0 || index >= arrayref->length) {
+	if (index < 0 || index >= array->length) {
 		interpreter->throwIt($$new(ArrayIndexOutOfBoundsException));
 		return;
 	}
-	pushpointer(arrayref->get(index));
-}
-
-int32_t calc_category(Class* type) {
-	if (type->isArray()) {
-		return 1;
-	}
-	if (type == Void::TYPE) {
-		return 0;
-	}
-	if (!type->isPrimitive()) {
-		return 1;
-	}
-	if (type == Long::TYPE || type == Double::TYPE) {
-		return 2;
-	}
-	return 1;
-}
-
-int32_t calc_stack_slots_for_parameters(::java::lang::reflect::Method* method) {
-	int32_t stack_slots_for_parameters = 0;
-	if (!method->isStatic()) {
-		stack_slots_for_parameters++;
-	}
-	$var($ClassArray, parameterTypes, method->getParameterTypes());
-	for (int32_t i = 0; i < parameterTypes->length; i++) {
-		$var(Class, type, parameterTypes->get(i));
-		stack_slots_for_parameters += calc_category(type);
-	}
-	return stack_slots_for_parameters;
-}
-
-int32_t calc_stack_slots_for_parameters(::java::lang::reflect::Constructor* constructor) {
-	int32_t stack_slots_for_parameters = 1;
-
-	$var($ClassArray, parameterTypes, constructor->getParameterTypes());
-	for (int32_t i = 0; i < parameterTypes->length; i++) {
-		$var(Class, type, parameterTypes->get(i));
-		stack_slots_for_parameters += calc_category(type);
-	}
-	return stack_slots_for_parameters;
+	pushObject(array->get(index));
 }
 
 Object$* getParameter(Class* type, Frame* frame, int32_t localIndex) {
@@ -2085,16 +2017,6 @@ Object$* getParameter(Class* type, Frame* frame, int32_t localIndex) {
 	}
 	MemoryItem item = frame->getLocal(localIndex);
 	MemoryItemType localType = Frame::getMemoryItemType(item);
-	/*
-		BOOL_TYPE = 0x10000000,
-	BYTE_TYPE = 0x20000000,
-	SHORT_TYPE = 0x30000000,
-	INT_TYPE = 0x40000000,
-	LONG_TYPE = 0x50000000,
-	FLOAT_TYPE = 0x60000000,
-	DOUBLE_TYPE = 0x70000000,
-	CHAR_TYPE = 0x80000000,
-	*/
 	if (type->isPrimitive()) {
 		if (type == Boolean::TYPE) {
 			return Boolean::valueOf(frame->getLocalInt(localIndex) != 0);
@@ -2150,61 +2072,61 @@ Object$* getParameter(Class* type, Frame* frame, int32_t localIndex) {
 	$throwNew(IllegalArgumentException);
 }
 
-Class* Interpreter::loadClass(String* name) {
-	return clazz->loadClass(name);
-}
-
-Field* Interpreter::resolveField(int16_t constIndex) {
-	$var(ConstantFieldRef, fieldRef, constantPool->getFieldRef(constIndex));
-//		assert(!fieldref_info->resolved);
-	$var(Class, clazz, this->loadClass(fieldRef->clazz));
-	$var(Field, field, clazz->getDeclaredField(fieldRef->name));
-	if (field != nullptr) {
-
+Class* ByteCodeInterpreter::loadClass(String* name) {
+	//return getCurrentClass()->loadClass(name);
+	$var(String, name0, name->replace('/', '.'));
+	if (frame->byteCodeMethod != nullptr) {
+		ByteCodeClass* currentClass = frame->byteCodeMethod->clazz;
+		if (name0->equals($(currentClass->getName()))) {
+			return currentClass;
+		}
+		return currentClass->loadClass(name0);
+	} else {
+		return Class::forName(name0);
 	}
-	return field;
 }
 
-$ObjectArray* Interpreter::makeArgs(bool isVarArgs, int32_t localIndex, int32_t slots, $ClassArray* parameterTypes) {
+Field* ByteCodeInterpreter::resolveField(int16_t constIndex) {
+	ConstantPool* constantPool = getConstantPool();
+	$var(ConstantFieldRef, fieldRef, constantPool->getFieldRef(constIndex));
+	Class* clazz = this->loadClass($nc(fieldRef)->clazz);
+	return clazz->refField(fieldRef->name);
+}
+
+$ObjectArray* ByteCodeInterpreter::makeArgs(bool isVarArgs, int32_t localIndex, int32_t slots, $ClassArray* parameterTypes) {
 	$var($ObjectArray, args, nullptr);
 	if (isVarArgs) {
 		$var(ArrayList, arrayList, $new(ArrayList));
-		Class* varType = $fcast<Class>(parameterTypes->get(parameterTypes->length - 1));
+		Class* varType = parameterTypes->get(parameterTypes->length - 1);
 		$var(Object, arg, nullptr);
 		for (int32_t i = 0; i < parameterTypes->length - 1; i++) {
-			Class* type = $fcast<Class>(parameterTypes->get(i));
+			Class* type = parameterTypes->get(i);
 			$assign(arg, getParameter(type, frame, localIndex));
-
 			arrayList->add(arg);
-			int32_t category = calc_category(type);
+			int32_t category = calcCategory0(type);
 			slots += category;
 			localIndex += category;
 		}
 
-		if (slots == frame->stack_slots_for_parameters) {
-			//	   if (arrayList->size() == 1 && arg->getClass() == varType) {
-			 //		  _assign(args, arg);
-			//	   }
-			   //	else {
+		if (slots == frame->stackSlotsForParameters) {
 			$assign(args, arrayList->toArray());
-			//	   }
-		} else if (slots < this->frame->stack_slots_for_parameters) {
-			Class* type = $fcast<Class>(parameterTypes->get(parameterTypes->length - 1));
+		} else if (slots < this->frame->stackSlotsForParameters) {
+			Class* type = parameterTypes->get(parameterTypes->length - 1);
 			type = type->getComponentType();
 			$var(Object, arg, getParameter(Object::class$, frame, localIndex));
-			int32_t category = 1;//calc_category(Object::class$);
+			int32_t category = 1; // calcCategory0(Object::class$);
 			slots += category;
 			localIndex += category;
-			if (slots == frame->stack_slots_for_parameters && arg->getClass() == varType) {
+			if (slots == frame->stackSlotsForParameters && arg->getClass() == varType) {
 				arrayList->add(arg);
 				$assign(args, arrayList->toArray());
 			} else {
 				$var(ArrayList, arrayList2, $new(ArrayList));
 				arrayList2->add(arg);
-				while (slots < frame->stack_slots_for_parameters) {
+				while (slots < frame->stackSlotsForParameters) {
 					$var(Object, arg, getParameter(type, frame, localIndex));
 					arrayList2->add(arg);
-					category = calc_category(type);
+					category = calcCategory0(type);
 					slots += category;
 					localIndex += category;
 				}
@@ -2213,46 +2135,40 @@ $ObjectArray* Interpreter::makeArgs(bool isVarArgs, int32_t localIndex, int32_t 
 			}
 		}
 	} else {
-		$assign(args, $new<$ObjectArray>(parameterTypes->length));
+		$assign(args, $new($ObjectArray, parameterTypes->length));
 		for (int32_t i = 0; i < parameterTypes->length; i++) {
-			$var(Class, type, parameterTypes->get(i));
+			Class* type = parameterTypes->get(i);
 			$var(Object, arg, getParameter(type, frame, localIndex));
 			args->set(i, arg);
-			int32_t category = calc_category(type);
+			int32_t category = calcCategory0(type);
 			localIndex += category;
 		}
 	}
 	return args;
 }
 
-void Interpreter::nativeCall(MethodCache* methodCache, bool special) {
-	// during native calls we push the current frame
-	pushFrame(frame);
-	$var(Object, this_obj, nullptr);
-	int32_t localIndex = 0;
-	//int32_t slots = 0;
-	if (methodCache->hasThisArg()) {
-		$assign(this_obj, frame->getLocalPointer(localIndex));
-		localIndex++;
-
-		//slots += calc_category($nullcheck(this_obj)->getClass());
-	}
-	//$var(Class_Array, parameterTypes, method->getParameterTypes());
-	//$var(ObjectArray, args, makeArgs(method->isVarArgs(), localIndex, slots, methodCache->argsTypes));
-	$var($ObjectArray, args, $new<$ObjectArray>(methodCache->argsTypes->length));
-	for (int32_t i = 0; i < methodCache->argsTypes->length; i++) {
-		Class* type = methodCache->argsTypes->get(i);
-		$var(Object, arg, getParameter(type, frame, localIndex));
-		args->set(i, arg);
-		int32_t category = calc_category(type);
-		localIndex += category;
-	}
-
+void ByteCodeInterpreter::nativeCall(MethodCache* methodCache, bool special) {
+	ByteCodeClass* clazz = getCurrentClass();
+	WillCallCallerSensitive wccs(clazz);
+	pushAndCreateFrame4Native(methodCache->stackSlotsForArgs, methodCache->realReturnCategory);
 	try {
+		$var(Object, this_obj, nullptr);
+		int32_t localIndex = 0;
+		if (methodCache->hasThisArg()) {
+			$assign(this_obj, frame->getLocalPointer(localIndex));
+			localIndex++;
+		}
+		$var($ObjectArray, args, $new($ObjectArray, methodCache->argsTypes->length));
+		for (int32_t i = 0; i < methodCache->argsTypes->length; i++) {
+			Class* type = methodCache->argsTypes->get(i);
+			$var(Object, arg, getParameter(type, frame, localIndex));
+			args->set(i, arg);
+			int32_t category = calcCategory0(type);
+			localIndex += category;
+		}
 		if (methodCache->method->getClass() == Method::class$) {
 			$var(Object, returnValue, nullptr);
 			Method* method = $fcast<Method>(methodCache->method);
-			WillCallCallerSensitive wccs(this->clazz);
 			if (special) {
 				$assign(returnValue, method->invokeSpecial(this_obj, args));
 			} else {
@@ -2263,29 +2179,135 @@ void Interpreter::nativeCall(MethodCache* methodCache, bool special) {
 			}
 		} else {
 			Constructor* constructor = $fcast<Constructor>(methodCache->method);
-			WillCallCallerSensitive wccs(this->clazz);
 			constructor->initInstance(this_obj, args);
+			frame->setLocalPointer(0, this_obj);
 		}
 	} catch (InvocationTargetException& ite) {
 		$set(this, currentException, ite->target);
 	} catch (Throwable& e) {
 		$set(this, currentException, e);
 	}
-	// restore the native frame
-	popFrame();
-
-	// remove the native frame
 	popFrame();
 }
 
-void Interpreter::prepareArgs(Object* instance, $ClassArray* parameterTypes, $Value* argv) {
+void ByteCodeInterpreter::virtualCall(MethodCache* methodCache) {
+	ByteCodeMethod* method = $fcast<ByteCodeMethod>(methodCache->method);
+
+	int32_t stackSlotsForParameters = 0;
+	if ((method->accessFlags & Modifier::VARARGS) != 0) {
+		stackSlotsForParameters = frame->operandsTop;
+	} else {
+		stackSlotsForParameters = method->stackSlotsForParameters;
+	}
+	int32_t localIndex = frame->firstOperandIndex + frame->operandsTop - stackSlotsForParameters - frame->firstLocalIndex;
+	$var(Object, this_obj, frame->getLocalPointer(localIndex));
+	$Class* clazz = $toObject0(this_obj)->getClass();
+	if (method->clazz != clazz) {
+		ByteCodeMethod* bcMethod = nullptr;
+		if (clazz->byteCodeClass) {
+			ByteCodeClass* byteCodeClass = (ByteCodeClass*)clazz;
+			bcMethod = byteCodeClass->findByteCodeMethod(method->name, method->descriptor);
+		}
+		if (bcMethod != nullptr) {
+			pushAndCreateFrame(bcMethod);
+		} else {
+			pushAndCreateFrame4Native(methodCache->stackSlotsForArgs, methodCache->realReturnCategory);
+			try {
+				$var(Method, m, clazz->getMethodEx(method->name, method->descriptor));
+				$var($ObjectArray, args, $new($ObjectArray, methodCache->argsTypes->length));
+				localIndex = 1;
+				for (int32_t i = 0; i < methodCache->argsTypes->length; i++) {
+					Class* type = methodCache->argsTypes->get(i);
+					$var(Object, arg, getParameter(type, frame, localIndex));
+					args->set(i, arg);
+					int32_t category = calcCategory0(type);
+					localIndex += category;
+				}
+				$var(Object, returnValue, nullptr);
+				$assign(returnValue, m->invoke(this_obj, args));
+				if (methodCache->realReturnType != Void::TYPE) {
+					frame->setReturn(methodCache->realReturnType, returnValue); // TODO
+				}
+			} catch (InvocationTargetException& ite) {
+				$set(this, currentException, ite->target);
+			} catch(Throwable& e) {
+				$set(this, currentException, e);
+			}
+			popFrame();
+		}
+	} else {
+		pushAndCreateFrame(method);
+	}
+}
+
+void ByteCodeInterpreter::invokeDynamic(uint16_t methodIndex) {
+	ByteCodeClass* clazz = getCurrentClass();
+	WillCallCallerSensitive wccs(clazz);
+	$var(ConstantPool, constantPool, clazz->getConstantPool());
+	ConstantBase* base = constantPool->getBase(methodIndex);
+	ConstantInvokeDynamic* constantInvokeDynamic = (ConstantInvokeDynamic*)$nc(base);
+	String* descriptor = constantInvokeDynamic->descriptor;
+	$var(ArrayList, list, ByteCodeClass::parseMethodDescriptor(descriptor));
+	$var($ClassArray, ptypes, $new($ClassArray, list->size() - 1));
+	for (int32_t i = 0; i < list->size() - 1; i++) {
+		$var(String, type, $fcast<String>(list->get(i)));
+		Class* clazz = loadClass(type);
+		ptypes->set(i, clazz);
+	}
+	pushAndCreateFrame4Invokedynamic(ptypes);
+
+	try {
+		String* methodName = constantInvokeDynamic->name;
+		$var($Array<BootstrapMethod>, bootstrapMethods, clazz->getByteCodeClassData(false)->bootstrapMethods);
+		BootstrapMethod* bootstrapMethod = bootstrapMethods->get(constantInvokeDynamic->bootstrapMethodAttrIndex);
+		$nc(bootstrapMethod);
+		ConstantMethodHandle* methodHandle = (ConstantMethodHandle*)bootstrapMethod->methodHandle;
+		ConstantMethodType* cmt0 = (ConstantMethodType*)bootstrapMethod->bootstrapArguments->get(0);
+		$var(MethodType, mt0, MethodType::fromMethodDescriptorString(cmt0->descriptor, clazz->classLoader));
+		ConstantMethodHandle* cmh1 = (ConstantMethodHandle*)bootstrapMethod->bootstrapArguments->get(1);
+		ConstantMethodRef* cmref = constantPool->getMethodRef(cmh1->referenceIndex);
+		Class* methodClazz = Class::forName($(cmref->clazz->replace('/', '.')), false, clazz->classLoader);
+		$var(Method, method, methodClazz->getMethodEx(cmref->name, cmref->descriptor));
+		$var(MethodHandles$Lookup, lookup, MethodHandles::lookup());
+		$var(MethodHandle, mh, nullptr);
+		if (method->isStatic()) {
+			$assign(mh, lookup->findStatic(methodClazz, cmref->name, MethodType::fromMethodDescriptorString(cmref->descriptor, clazz->classLoader)));
+		} else {
+			$assign(mh, lookup->findVirtual(methodClazz, cmref->name, MethodType::fromMethodDescriptorString(cmref->descriptor, clazz->classLoader)));
+		}
+		ConstantMethodType* cmt2 = (ConstantMethodType*)bootstrapMethod->bootstrapArguments->get(2);
+		$var(MethodType, mt2, MethodType::fromMethodDescriptorString(cmt2->descriptor, clazz->classLoader));
+		$var(String, returnType, $fcast<String>(list->get(list->size() - 1)));
+		$var(MethodType, mt, MethodType::methodType(loadClass(returnType), ptypes));
+		$var(CallSite, cs, LambdaMetafactory::metafactory(lookup, methodName, mt, mt0, mh, mt2));
+		$var(MethodHandle, target, cs->getTarget());
+		int32_t localIndex = 0;
+		$var($ObjectArray, args, $new($ObjectArray, ptypes->length));
+		for (int32_t i = 0; i < ptypes->length; i++) {
+			Class* type = ptypes->get(i);
+			$var(Object, arg, getParameter(type, frame, localIndex));
+			args->set(i, arg);
+			int32_t category = calcCategory0(type);
+			localIndex += category;
+		}
+		$var(Object, ret, target->invokeExact(args));
+		frame->setReturn(Object::class$, ret);
+	} catch (InvocationTargetException& ite) {
+		$set(this, currentException, ite->target);
+	} catch (Throwable& e) {
+		$set(this, currentException, e);
+	}
+	popFrame();
+}
+
+void ByteCodeInterpreter::prepareArgs(Object$* instance, $ClassArray* parameterTypes, $Value* argv) {
 	int32_t argIndex = 0;
 	if (instance != nullptr) {
 		frame->setLocalPointer(argIndex++, instance);
 	}
 	if (parameterTypes != nullptr) {
 		for (int32_t i = 0; i < parameterTypes->length; i++) {
-			Class* type = $fcast<Class>(parameterTypes->get(i));
+			Class* type = parameterTypes->get(i);
 			if (type->isPrimitive()) {
 				if (type == Integer::TYPE) {
 					frame->setLocalInt(argIndex++, argv[i].intValue());
@@ -2313,131 +2335,138 @@ void Interpreter::prepareArgs(Object* instance, $ClassArray* parameterTypes, $Va
 	}
 }
 
-void Interpreter::pushFrame(Frame* frame) {
-	frames->add(frame);
+void ByteCodeInterpreter::pushFrame(Frame* frame) {
+	$set(frame, next, frameStack);
+	$set(this, frameStack, frame);
 }
 
-Frame* Interpreter::pushAndCreateFrame(Frame* current_frame, ByteCodeMethod* method) {
-	int32_t stack_slots_for_parameters = 0;
+void ByteCodeInterpreter::pushAndCreateFrame(ByteCodeMethod* method) {
+	int32_t stackSlotsForParameters = 0;
 	if ((method->accessFlags & Modifier::VARARGS) != 0) {
-		stack_slots_for_parameters = current_frame->operandsTop;
+		stackSlotsForParameters = frame->operandsTop;
 	} else {
-		stack_slots_for_parameters = method->stack_slots_for_parameters;
+		stackSlotsForParameters = method->stackSlotsForParameters;
 	}
-	int32_t operand_stack_top = current_frame->firstOperandIndex + current_frame->operandsTop;
-	current_frame->operandsTop += -stack_slots_for_parameters + method->return_category;
+	int32_t operandStackTop = frame->firstOperandIndex + frame->operandsTop;
+	$var(Frame, newFrame, $new(Frame, this, method, operandStackTop));
 
-	pushFrame(current_frame);
-
-	if (memoryUsed > memory->length) {
-		$throwNew(RuntimeException, "stack overflow"_s);
-	}
-	return $new<Frame>(this, method, operand_stack_top, false);
+	frame->operandsTop += -stackSlotsForParameters + method->returnCategory;
+	pushFrame(frame);
+	$set(this, frame, newFrame);
 }
 
-Frame* Interpreter::pushAndCreateFrame4Native(Frame* current_frame, MethodCache* methodCache) {
-	int32_t operand_stack_top = current_frame->firstOperandIndex + current_frame->operandsTop;
-	current_frame->operandsTop += -methodCache->stackSlotsForArgs + methodCache->realReturnCategory;
-	pushFrame(current_frame);
+void ByteCodeInterpreter::pushAndCreateFrame4Native(int32_t stackSlotsForArgs, int32_t realReturnCategory) {
+	int32_t operandStackTop = frame->firstOperandIndex + frame->operandsTop;
+	$var(Frame, newFrame, $new(Frame, this, operandStackTop, stackSlotsForArgs));
 
-	if (memoryUsed > memory->length) {
-		$throwNew(RuntimeException, "stack overflow"_s);
+	frame->operandsTop += -stackSlotsForArgs + realReturnCategory;
+	pushFrame(frame);
+	$set(this, frame, newFrame);
+}
+
+void ByteCodeInterpreter::pushAndCreateFrame4Invokedynamic($ClassArray* ptypes) {
+	int stackSlotsForArgs = 0;
+	int realReturnCategory = 1;
+	for (int32_t i = 0; i < ptypes->length; i++) {
+		Class* argType = ptypes->get(i);
+		stackSlotsForArgs += calcCategory0(argType);
 	}
-	return $new<Frame>(this, operand_stack_top, methodCache->stackSlotsForArgs, false);
+	int32_t operandStackTop = frame->firstOperandIndex + frame->operandsTop;
+	$var(Frame, newFrame, $new(Frame, this, operandStackTop, stackSlotsForArgs));
+
+	frame->operandsTop += -stackSlotsForArgs + realReturnCategory;
+	pushFrame(frame);
+	$set(this, frame, newFrame);
 }
 
-Frame* Interpreter::popFrame0() {
-	return $fcast<Frame>(frames->remove(frames->size() - 1));
-}
-
-void Interpreter::getStatic(::java::lang::reflect::Field* field) {
+void ByteCodeInterpreter::getStatic(Field* field) {
 	if (!field->override$) {
 		field->override$ = true;
 	}
 	if (field->type->isPrimitive()) {
 		if (field->type == Boolean::TYPE) {
-			frame->pushbool(field->getBoolean(nullptr));
+			frame->pushBool(field->getBoolean(nullptr));
 		} else if (field->type == Byte::TYPE) {
-			frame->pushs1(field->getByte(nullptr));
+			frame->pushInt8(field->getByte(nullptr));
 		} else if (field->type == Short::TYPE) {
-			frame->pushu2(field->getShort(nullptr));
+			frame->pushInt16(field->getShort(nullptr));
 		} else if (field->type == Integer::TYPE) {
-			frame->pushs4(field->getInt(nullptr), INT_TYPE);
+			frame->pushInt32(field->getInt(nullptr));
 		} else if (field->type == Long::TYPE) {
-			frame->pushs8(field->getLong(nullptr));
+			frame->pushInt64(field->getLong(nullptr));
 		} else if (field->type == Float::TYPE) {
-			frame->pushfloat(field->getFloat(nullptr));
+			frame->pushFloat(field->getFloat(nullptr));
 		} else if (field->type == Double::TYPE) {
-			frame->pushdouble(field->getDouble(nullptr));
+			frame->pushDouble(field->getDouble(nullptr));
 		} else if (field->type == Character::TYPE) {
-			frame->pushu2(field->getChar(nullptr));
+			frame->pushChar16(field->getChar(nullptr));
 		}
 	} else {
-		frame->pushpointer(field->get(nullptr));
+		frame->pushObject(field->get(nullptr));
 	}
 }
 
-void Interpreter::putStatic(::java::lang::reflect::Field* field) {
+void ByteCodeInterpreter::putStatic(Field* field) {
 	if (!field->override$) {
 		field->override$ = true;
 	}
 	if (field->type->isPrimitive()) {
 		if (field->type == Boolean::TYPE) {
-			field->setBoolean(nullptr, frame->popbool());
+			field->setBoolean(nullptr, frame->popBool());
 		} else if (field->type == Byte::TYPE) {
-			field->setByte(nullptr, frame->pops1());
+			field->setByte(nullptr, frame->popInt8());
 		} else if (field->type == Short::TYPE) {
-			field->setShort(nullptr, frame->popu2());
+			field->setShort(nullptr, frame->popInt16());
 		} else if (field->type == Integer::TYPE) {
-			field->setInt(nullptr, frame->pops4());
+			field->setInt(nullptr, frame->popInt32());
 		} else if (field->type == Long::TYPE) {
-			field->setLong(nullptr, frame->pops8());
+			field->setLong(nullptr, frame->popInt64());
 		} else if (field->type == Float::TYPE) {
-			field->setFloat(nullptr, frame->popfloat());
+			field->setFloat(nullptr, frame->popFloat());
 		} else if (field->type == Double::TYPE) {
-			field->setDouble(nullptr, frame->popdouble());
+			field->setDouble(nullptr, frame->popDouble());
 		} else if (field->type == Character::TYPE) {
-			field->setInt(nullptr, frame->popu2());
+			field->setChar(nullptr, frame->popChar16());
 		}
 	} else {
 		// TODO
 		if (field->root != nullptr && Modifier::isFinal(field->root->modifiers)) {
 			field->root->modifiers &= ~Modifier::FINAL;
 		}
-		$var(Object, obj, frame->poppointer());
+		$var(Object, obj, frame->popObject());
 		field->set(nullptr, obj);
 	}
 }
 
-void Interpreter::getField(::java::lang::reflect::Field* field) {
+void ByteCodeInterpreter::getField(Field* field) {
 	if (!field->override$) {
 		field->override$ = true;
 	}
-	$var(Object, obj, frame->poppointer());
+	$var(Object, obj, frame->popObject());
 	if (field->type->isPrimitive()) {
 		if (field->type == Boolean::TYPE) {
-			frame->pushbool(field->getBoolean(obj));
+			frame->pushBool(field->getBoolean(obj));
 		} else if (field->type == Byte::TYPE) {
-			frame->pushs1(field->getByte(obj));
+			frame->pushInt8(field->getByte(obj));
 		} else if (field->type == Short::TYPE) {
-			frame->pushs2(field->getShort(obj));
+			frame->pushInt16(field->getShort(obj));
 		} else if (field->type == Integer::TYPE) {
-			frame->pushs4(field->getInt(obj), INT_TYPE);
+			frame->pushInt32(field->getInt(obj));
 		} else if (field->type == Long::TYPE) {
-			frame->pushs8(field->getLong(obj));
+			frame->pushInt64(field->getLong(obj));
 		} else if (field->type == Float::TYPE) {
-			frame->pushfloat(field->getFloat(obj));
+			frame->pushFloat(field->getFloat(obj));
 		} else if (field->type == Double::TYPE) {
-			frame->pushdouble(field->getDouble(obj));
+			frame->pushDouble(field->getDouble(obj));
 		} else if (field->type == Character::TYPE) {
-			frame->pushu2(field->getChar(obj));
+			frame->pushChar16(field->getChar(obj));
 		}
 	} else {
-		frame->pushpointer(field->get(obj));
+		frame->pushObject(field->get(obj));
 	}
 }
 
-void Interpreter::putField(::java::lang::reflect::Field* field) {
+void ByteCodeInterpreter::putField(Field* field) {
 	// TODO
    // if (field->root != nullptr && Modifier::isFinal(field->root->modifiers)) {
 		if (!field->override$) {
@@ -2448,43 +2477,104 @@ void Interpreter::putField(::java::lang::reflect::Field* field) {
    // }
 	if (field->type->isPrimitive()) {
 		if (field->type == Boolean::TYPE) {
-			bool value = frame->popbool();
-			$var(Object, obj, frame->poppointer());
+			bool value = frame->popBool();
+			$var(Object, obj, frame->popObject());
 			field->setBoolean(obj, value);
 		} else if (field->type == Byte::TYPE) {
-			int8_t value = frame->pops1();
-			$var(Object, obj, frame->poppointer());
+			int8_t value = frame->popInt8();
+			$var(Object, obj, frame->popObject());
 			field->setByte(obj, value);
 		} else if (field->type == Short::TYPE) {
-			int16_t value = frame->popu2();
-			$var(Object, obj, frame->poppointer());
+			int16_t value = frame->popInt16();
+			$var(Object, obj, frame->popObject());
 			field->setShort(obj, value);
 		} else if (field->type == Integer::TYPE) {
-			int32_t value = frame->pops4();
-			$var(Object, obj, frame->poppointer());
+			int32_t value = frame->popInt32();
+			$var(Object, obj, frame->popObject());
 			field->setInt(obj, value);
 		} else if (field->type == Long::TYPE) {
-			int64_t value = frame->pops8();
-			$var(Object, obj, frame->poppointer());
+			int64_t value = frame->popInt64();
+			$var(Object, obj, frame->popObject());
 			field->setLong(obj, value);
 		} else if (field->type == Float::TYPE) {
-			float value = frame->popfloat();
-			$var(Object, obj, frame->poppointer());
+			float value = frame->popFloat();
+			$var(Object, obj, frame->popObject());
 			field->setFloat(obj, value);
 		} else if (field->type == Double::TYPE) {
-			double value = frame->popdouble();
-			$var(Object, obj, frame->poppointer());
+			double value = frame->popDouble();
+			$var(Object, obj, frame->popObject());
 			field->setDouble(obj, value);
 		} else if (field->type == Character::TYPE) {
-			char16_t value = frame->popu2();
-			$var(Object, obj, frame->poppointer());
+			char16_t value = frame->popChar16();
+			$var(Object, obj, frame->popObject());
 			field->setChar(obj, value);
 		}
 	} else {
-		$var(Object, value, frame->poppointer());
-		$var(Object, obj, frame->poppointer());
+		$var(Object, value, frame->popObject());
+		$var(Object, obj, frame->popObject());
 		field->set(obj, value);
 	}
+}
+
+void ByteCodeInterpreter::throwNewArithmeticExceptionDivisionByZero() {
+	$throwNew(ArithmeticException, "division by zero"_s);
+	//$set(this, currentException, $new(ArithmeticException, "division by zero"_s));
+}
+
+inline ByteCodeClass* ByteCodeInterpreter::getCurrentClass() {
+	return frame->byteCodeMethod->clazz;
+}
+
+inline ConstantPool* ByteCodeInterpreter::getConstantPool() {
+	return frame->byteCodeMethod->clazz->getConstantPool();
+}
+
+inline void ByteCodeInterpreter::setMemoryItem(int32_t index, MemoryItem value) {
+	if ((uint32_t)index >= (uint32_t)memory->length) {
+		if (index < 0) {
+			memory->check(index);
+		}
+		if (index >= memory->length) {
+			$var($longs, newMemory, $new($longs, index + 128));
+			newMemory->setArray(0, memory, 0, memory->length);
+			$set(this, memory, newMemory);
+		}
+	}
+	int64_t* begin = memory->begin() + index;
+	begin[0] = value;
+}
+
+inline void ByteCodeInterpreter::setMemoryItem(int32_t index, MemoryItem value0, MemoryItem value1) {
+	if ((uint32_t)index >= (uint32_t)memory->length - 1) {
+		setMemoryItem(index, value0);
+		setMemoryItem(index + 1, value1);
+	} else {
+		int64_t* begin = memory->begin() + index;
+		begin[0] = value0;
+		begin[1] = value1;
+	}
+}
+
+inline MemoryItem ByteCodeInterpreter::getMemoryItem(int32_t index) {
+	return memory->get(index);
+}
+
+inline void ByteCodeInterpreter::saveMemoryObject(int32_t index, Object$* obj) {
+	if ((uint32_t)index >= (uint32_t)memoryObject->length) {
+		if (index < 0) {
+			memoryObject->check(index);
+		}
+		if (index >= memoryObject->length) {
+			$var($ObjectArray, newMemoryObject, $new($ObjectArray, index + 128));
+			newMemoryObject->setArray(0, memoryObject, 0, memoryObject->length);
+			$set(this, memoryObject, newMemoryObject);
+		}
+	}
+	memoryObject->set(index, obj);
+}
+
+inline void ByteCodeInterpreter::clearMemoryObject(int32_t index) {
+	saveMemoryObject(index, nullptr);
 }
 
 		} // interpreter

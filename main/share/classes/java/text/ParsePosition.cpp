@@ -16,14 +16,14 @@ $FieldInfo _ParsePosition_FieldInfo_[] = {
 };
 
 $MethodInfo _ParsePosition_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(static_cast<void(ParsePosition::*)(int32_t)>(&ParsePosition::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getErrorIndex", "()I", nullptr, $PUBLIC},
-	{"getIndex", "()I", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"setErrorIndex", "(I)V", nullptr, $PUBLIC},
-	{"setIndex", "(I)V", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(I)V", nullptr, $PUBLIC, $method(ParsePosition, init$, void, int32_t)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ParsePosition, equals, bool, Object$*)},
+	{"getErrorIndex", "()I", nullptr, $PUBLIC, $virtualMethod(ParsePosition, getErrorIndex, int32_t)},
+	{"getIndex", "()I", nullptr, $PUBLIC, $virtualMethod(ParsePosition, getIndex, int32_t)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ParsePosition, hashCode, int32_t)},
+	{"setErrorIndex", "(I)V", nullptr, $PUBLIC, $virtualMethod(ParsePosition, setErrorIndex, void, int32_t)},
+	{"setIndex", "(I)V", nullptr, $PUBLIC, $virtualMethod(ParsePosition, setIndex, void, int32_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ParsePosition, toString, $String*)},
 	{}
 };
 

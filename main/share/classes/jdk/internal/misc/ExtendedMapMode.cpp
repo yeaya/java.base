@@ -52,8 +52,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ExtendedMapMode$$Lambda$lambda$static$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ExtendedMapMode$$Lambda$lambda$static$0::*)()>(&ExtendedMapMode$$Lambda$lambda$static$0::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ExtendedMapMode$$Lambda$lambda$static$0, init$, void)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ExtendedMapMode$$Lambda$lambda$static$0, run, $Object*)},
 	{}
 };
 $ClassInfo ExtendedMapMode$$Lambda$lambda$static$0::classInfo$ = {
@@ -78,9 +78,9 @@ $FieldInfo _ExtendedMapMode_FieldInfo_[] = {
 };
 
 $MethodInfo _ExtendedMapMode_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(ExtendedMapMode::*)()>(&ExtendedMapMode::init$))},
-	{"lambda$static$0", "()Ljava/lang/invoke/MethodHandles$Lookup;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$MethodHandles$Lookup*(*)()>(&ExtendedMapMode::lambda$static$0)), "java.lang.Exception"},
-	{"newMapMode", "(Ljava/lang/String;)Ljava/nio/channels/FileChannel$MapMode;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$FileChannel$MapMode*(*)($String*)>(&ExtendedMapMode::newMapMode))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(ExtendedMapMode, init$, void)},
+	{"lambda$static$0", "()Ljava/lang/invoke/MethodHandles$Lookup;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ExtendedMapMode, lambda$static$0, $MethodHandles$Lookup*), "java.lang.Exception"},
+	{"newMapMode", "(Ljava/lang/String;)Ljava/nio/channels/FileChannel$MapMode;", nullptr, $PRIVATE | $STATIC, $staticMethod(ExtendedMapMode, newMapMode, $FileChannel$MapMode*, $String*)},
 	{}
 };
 

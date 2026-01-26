@@ -15,8 +15,10 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $SocketAddress = ::java::net::SocketAddress;
 using $AsynchronousChannel = ::java::nio::channels::AsynchronousChannel;
 using $AsynchronousChannelGroup = ::java::nio::channels::AsynchronousChannelGroup;
+using $CompletionHandler = ::java::nio::channels::CompletionHandler;
 using $NetworkChannel = ::java::nio::channels::NetworkChannel;
 using $AsynchronousChannelProvider = ::java::nio::channels::spi::AsynchronousChannelProvider;
+using $Future = ::java::util::concurrent::Future;
 
 namespace java {
 	namespace nio {
@@ -34,15 +36,15 @@ $MethodInfo _AsynchronousServerSocketChannel_MethodInfo_[] = {
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"getLocalAddress", "()Ljava/net/SocketAddress;", nullptr, $PUBLIC | $ABSTRACT},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/nio/channels/spi/AsynchronousChannelProvider;)V", nullptr, $PROTECTED, $method(static_cast<void(AsynchronousServerSocketChannel::*)($AsynchronousChannelProvider*)>(&AsynchronousServerSocketChannel::init$))},
-	{"accept", "(Ljava/lang/Object;Ljava/nio/channels/CompletionHandler;)V", "<A:Ljava/lang/Object;>(TA;Ljava/nio/channels/CompletionHandler<Ljava/nio/channels/AsynchronousSocketChannel;-TA;>;)V", $PUBLIC | $ABSTRACT},
-	{"accept", "()Ljava/util/concurrent/Future;", "()Ljava/util/concurrent/Future<Ljava/nio/channels/AsynchronousSocketChannel;>;", $PUBLIC | $ABSTRACT},
-	{"bind", "(Ljava/net/SocketAddress;)Ljava/nio/channels/AsynchronousServerSocketChannel;", nullptr, $PUBLIC | $FINAL, nullptr, "java.io.IOException"},
-	{"bind", "(Ljava/net/SocketAddress;I)Ljava/nio/channels/AsynchronousServerSocketChannel;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljava/nio/channels/spi/AsynchronousChannelProvider;)V", nullptr, $PROTECTED, $method(AsynchronousServerSocketChannel, init$, void, $AsynchronousChannelProvider*)},
+	{"accept", "(Ljava/lang/Object;Ljava/nio/channels/CompletionHandler;)V", "<A:Ljava/lang/Object;>(TA;Ljava/nio/channels/CompletionHandler<Ljava/nio/channels/AsynchronousSocketChannel;-TA;>;)V", $PUBLIC | $ABSTRACT, $virtualMethod(AsynchronousServerSocketChannel, accept, void, Object$*, $CompletionHandler*)},
+	{"accept", "()Ljava/util/concurrent/Future;", "()Ljava/util/concurrent/Future<Ljava/nio/channels/AsynchronousSocketChannel;>;", $PUBLIC | $ABSTRACT, $virtualMethod(AsynchronousServerSocketChannel, accept, $Future*)},
+	{"bind", "(Ljava/net/SocketAddress;)Ljava/nio/channels/AsynchronousServerSocketChannel;", nullptr, $PUBLIC | $FINAL, $virtualMethod(AsynchronousServerSocketChannel, bind, $NetworkChannel*, $SocketAddress*), "java.io.IOException"},
+	{"bind", "(Ljava/net/SocketAddress;I)Ljava/nio/channels/AsynchronousServerSocketChannel;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AsynchronousServerSocketChannel, bind, AsynchronousServerSocketChannel*, $SocketAddress*, int32_t), "java.io.IOException"},
 	{"*isOpen", "()Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"open", "(Ljava/nio/channels/AsynchronousChannelGroup;)Ljava/nio/channels/AsynchronousServerSocketChannel;", nullptr, $PUBLIC | $STATIC, $method(static_cast<AsynchronousServerSocketChannel*(*)($AsynchronousChannelGroup*)>(&AsynchronousServerSocketChannel::open)), "java.io.IOException"},
-	{"open", "()Ljava/nio/channels/AsynchronousServerSocketChannel;", nullptr, $PUBLIC | $STATIC, $method(static_cast<AsynchronousServerSocketChannel*(*)()>(&AsynchronousServerSocketChannel::open)), "java.io.IOException"},
-	{"provider", "()Ljava/nio/channels/spi/AsynchronousChannelProvider;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$AsynchronousChannelProvider*(AsynchronousServerSocketChannel::*)()>(&AsynchronousServerSocketChannel::provider))},
+	{"open", "(Ljava/nio/channels/AsynchronousChannelGroup;)Ljava/nio/channels/AsynchronousServerSocketChannel;", nullptr, $PUBLIC | $STATIC, $staticMethod(AsynchronousServerSocketChannel, open, AsynchronousServerSocketChannel*, $AsynchronousChannelGroup*), "java.io.IOException"},
+	{"open", "()Ljava/nio/channels/AsynchronousServerSocketChannel;", nullptr, $PUBLIC | $STATIC, $staticMethod(AsynchronousServerSocketChannel, open, AsynchronousServerSocketChannel*), "java.io.IOException"},
+	{"provider", "()Ljava/nio/channels/spi/AsynchronousChannelProvider;", nullptr, $PUBLIC | $FINAL, $method(AsynchronousServerSocketChannel, provider, $AsynchronousChannelProvider*)},
 	{"setOption", "(Ljava/net/SocketOption;Ljava/lang/Object;)Ljava/nio/channels/NetworkChannel;", nullptr, $PUBLIC | $ABSTRACT},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}

@@ -59,8 +59,8 @@ $FieldInfo ConcurrentMap$$Lambda$lambda$replaceAll$0::fieldInfos[3] = {
 	{}
 };
 $MethodInfo ConcurrentMap$$Lambda$lambda$replaceAll$0::methodInfos[3] = {
-	{"<init>", "(Ljava/util/concurrent/ConcurrentMap;Ljava/util/function/BiFunction;)V", nullptr, $PUBLIC, $method(static_cast<void(ConcurrentMap$$Lambda$lambda$replaceAll$0::*)(ConcurrentMap*,$BiFunction*)>(&ConcurrentMap$$Lambda$lambda$replaceAll$0::init$))},
-	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/concurrent/ConcurrentMap;Ljava/util/function/BiFunction;)V", nullptr, $PUBLIC, $method(ConcurrentMap$$Lambda$lambda$replaceAll$0, init$, void, ConcurrentMap*, $BiFunction*)},
+	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ConcurrentMap$$Lambda$lambda$replaceAll$0, accept, void, Object$*, Object$*)},
 	{}
 };
 $ClassInfo ConcurrentMap$$Lambda$lambda$replaceAll$0::classInfo$ = {
@@ -78,18 +78,18 @@ $Class* ConcurrentMap$$Lambda$lambda$replaceAll$0::load$($String* name, bool ini
 $Class* ConcurrentMap$$Lambda$lambda$replaceAll$0::class$ = nullptr;
 
 $MethodInfo _ConcurrentMap_MethodInfo_[] = {
-	{"compute", "(Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;", "(TK;Ljava/util/function/BiFunction<-TK;-TV;+TV;>;)TV;", $PUBLIC},
-	{"computeIfAbsent", "(Ljava/lang/Object;Ljava/util/function/Function;)Ljava/lang/Object;", "(TK;Ljava/util/function/Function<-TK;+TV;>;)TV;", $PUBLIC},
-	{"computeIfPresent", "(Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;", "(TK;Ljava/util/function/BiFunction<-TK;-TV;+TV;>;)TV;", $PUBLIC},
-	{"forEach", "(Ljava/util/function/BiConsumer;)V", "(Ljava/util/function/BiConsumer<-TK;-TV;>;)V", $PUBLIC},
-	{"getOrDefault", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/lang/Object;TV;)TV;", $PUBLIC},
-	{"lambda$replaceAll$0", "(Ljava/util/function/BiFunction;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(ConcurrentMap::*)($BiFunction*,Object$*,Object$*)>(&ConcurrentMap::lambda$replaceAll$0))},
-	{"merge", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;", "(TK;TV;Ljava/util/function/BiFunction<-TV;-TV;+TV;>;)TV;", $PUBLIC},
-	{"putIfAbsent", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", "(TK;TV;)TV;", $PUBLIC | $ABSTRACT},
-	{"remove", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"replace", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Z", "(TK;TV;TV;)Z", $PUBLIC | $ABSTRACT},
-	{"replace", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", "(TK;TV;)TV;", $PUBLIC | $ABSTRACT},
-	{"replaceAll", "(Ljava/util/function/BiFunction;)V", "(Ljava/util/function/BiFunction<-TK;-TV;+TV;>;)V", $PUBLIC},
+	{"compute", "(Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;", "(TK;Ljava/util/function/BiFunction<-TK;-TV;+TV;>;)TV;", $PUBLIC, $virtualMethod(ConcurrentMap, compute, $Object*, Object$*, $BiFunction*)},
+	{"computeIfAbsent", "(Ljava/lang/Object;Ljava/util/function/Function;)Ljava/lang/Object;", "(TK;Ljava/util/function/Function<-TK;+TV;>;)TV;", $PUBLIC, $virtualMethod(ConcurrentMap, computeIfAbsent, $Object*, Object$*, $Function*)},
+	{"computeIfPresent", "(Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;", "(TK;Ljava/util/function/BiFunction<-TK;-TV;+TV;>;)TV;", $PUBLIC, $virtualMethod(ConcurrentMap, computeIfPresent, $Object*, Object$*, $BiFunction*)},
+	{"forEach", "(Ljava/util/function/BiConsumer;)V", "(Ljava/util/function/BiConsumer<-TK;-TV;>;)V", $PUBLIC, $virtualMethod(ConcurrentMap, forEach, void, $BiConsumer*)},
+	{"getOrDefault", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/lang/Object;TV;)TV;", $PUBLIC, $virtualMethod(ConcurrentMap, getOrDefault, $Object*, Object$*, Object$*)},
+	{"lambda$replaceAll$0", "(Ljava/util/function/BiFunction;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(ConcurrentMap, lambda$replaceAll$0, void, $BiFunction*, Object$*, Object$*)},
+	{"merge", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;", "(TK;TV;Ljava/util/function/BiFunction<-TV;-TV;+TV;>;)TV;", $PUBLIC, $virtualMethod(ConcurrentMap, merge, $Object*, Object$*, Object$*, $BiFunction*)},
+	{"putIfAbsent", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", "(TK;TV;)TV;", $PUBLIC | $ABSTRACT, $virtualMethod(ConcurrentMap, putIfAbsent, $Object*, Object$*, Object$*)},
+	{"remove", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ConcurrentMap, remove, bool, Object$*, Object$*)},
+	{"replace", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Z", "(TK;TV;TV;)Z", $PUBLIC | $ABSTRACT, $virtualMethod(ConcurrentMap, replace, bool, Object$*, Object$*, Object$*)},
+	{"replace", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", "(TK;TV;)TV;", $PUBLIC | $ABSTRACT, $virtualMethod(ConcurrentMap, replace, $Object*, Object$*, Object$*)},
+	{"replaceAll", "(Ljava/util/function/BiFunction;)V", "(Ljava/util/function/BiFunction<-TK;-TV;+TV;>;)V", $PUBLIC, $virtualMethod(ConcurrentMap, replaceAll, void, $BiFunction*)},
 	{}
 };
 

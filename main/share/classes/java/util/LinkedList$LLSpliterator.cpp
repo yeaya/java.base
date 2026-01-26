@@ -42,13 +42,13 @@ $FieldInfo _LinkedList$LLSpliterator_FieldInfo_[] = {
 };
 
 $MethodInfo _LinkedList$LLSpliterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/LinkedList;II)V", "(Ljava/util/LinkedList<TE;>;II)V", 0, $method(static_cast<void(LinkedList$LLSpliterator::*)($LinkedList*,int32_t,int32_t)>(&LinkedList$LLSpliterator::init$))},
-	{"characteristics", "()I", nullptr, $PUBLIC},
-	{"estimateSize", "()J", nullptr, $PUBLIC},
-	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC},
-	{"getEst", "()I", nullptr, $FINAL, $method(static_cast<int32_t(LinkedList$LLSpliterator::*)()>(&LinkedList$LLSpliterator::getEst))},
-	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-TE;>;)Z", $PUBLIC},
-	{"trySplit", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TE;>;", $PUBLIC},
+	{"<init>", "(Ljava/util/LinkedList;II)V", "(Ljava/util/LinkedList<TE;>;II)V", 0, $method(LinkedList$LLSpliterator, init$, void, $LinkedList*, int32_t, int32_t)},
+	{"characteristics", "()I", nullptr, $PUBLIC, $virtualMethod(LinkedList$LLSpliterator, characteristics, int32_t)},
+	{"estimateSize", "()J", nullptr, $PUBLIC, $virtualMethod(LinkedList$LLSpliterator, estimateSize, int64_t)},
+	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC, $virtualMethod(LinkedList$LLSpliterator, forEachRemaining, void, $Consumer*)},
+	{"getEst", "()I", nullptr, $FINAL, $method(LinkedList$LLSpliterator, getEst, int32_t)},
+	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-TE;>;)Z", $PUBLIC, $virtualMethod(LinkedList$LLSpliterator, tryAdvance, bool, $Consumer*)},
+	{"trySplit", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TE;>;", $PUBLIC, $virtualMethod(LinkedList$LLSpliterator, trySplit, $Spliterator*)},
 	{}
 };
 

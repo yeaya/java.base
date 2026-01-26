@@ -49,16 +49,16 @@ $FieldInfo _DateTimeFormatterBuilder$FractionPrinterParser_FieldInfo_[] = {
 };
 
 $MethodInfo _DateTimeFormatterBuilder$FractionPrinterParser_MethodInfo_[] = {
-	{"<init>", "(Ljava/time/temporal/TemporalField;IIZ)V", nullptr, 0, $method(static_cast<void(DateTimeFormatterBuilder$FractionPrinterParser::*)($TemporalField*,int32_t,int32_t,bool)>(&DateTimeFormatterBuilder$FractionPrinterParser::init$))},
-	{"<init>", "(Ljava/time/temporal/TemporalField;IIZI)V", nullptr, 0, $method(static_cast<void(DateTimeFormatterBuilder$FractionPrinterParser::*)($TemporalField*,int32_t,int32_t,bool,int32_t)>(&DateTimeFormatterBuilder$FractionPrinterParser::init$))},
-	{"convertFromFraction", "(Ljava/math/BigDecimal;)J", nullptr, $PRIVATE, $method(static_cast<int64_t(DateTimeFormatterBuilder$FractionPrinterParser::*)($BigDecimal*)>(&DateTimeFormatterBuilder$FractionPrinterParser::convertFromFraction))},
-	{"convertToFraction", "(J)Ljava/math/BigDecimal;", nullptr, $PRIVATE, $method(static_cast<$BigDecimal*(DateTimeFormatterBuilder$FractionPrinterParser::*)(int64_t)>(&DateTimeFormatterBuilder$FractionPrinterParser::convertToFraction))},
-	{"format", "(Ljava/time/format/DateTimePrintContext;Ljava/lang/StringBuilder;)Z", nullptr, $PUBLIC},
-	{"isFixedWidth", "(Ljava/time/format/DateTimeParseContext;)Z", nullptr, 0},
-	{"parse", "(Ljava/time/format/DateTimeParseContext;Ljava/lang/CharSequence;I)I", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"withFixedWidth", "()Ljava/time/format/DateTimeFormatterBuilder$FractionPrinterParser;", nullptr, 0},
-	{"withSubsequentWidth", "(I)Ljava/time/format/DateTimeFormatterBuilder$FractionPrinterParser;", nullptr, 0},
+	{"<init>", "(Ljava/time/temporal/TemporalField;IIZ)V", nullptr, 0, $method(DateTimeFormatterBuilder$FractionPrinterParser, init$, void, $TemporalField*, int32_t, int32_t, bool)},
+	{"<init>", "(Ljava/time/temporal/TemporalField;IIZI)V", nullptr, 0, $method(DateTimeFormatterBuilder$FractionPrinterParser, init$, void, $TemporalField*, int32_t, int32_t, bool, int32_t)},
+	{"convertFromFraction", "(Ljava/math/BigDecimal;)J", nullptr, $PRIVATE, $method(DateTimeFormatterBuilder$FractionPrinterParser, convertFromFraction, int64_t, $BigDecimal*)},
+	{"convertToFraction", "(J)Ljava/math/BigDecimal;", nullptr, $PRIVATE, $method(DateTimeFormatterBuilder$FractionPrinterParser, convertToFraction, $BigDecimal*, int64_t)},
+	{"format", "(Ljava/time/format/DateTimePrintContext;Ljava/lang/StringBuilder;)Z", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$FractionPrinterParser, format, bool, $DateTimePrintContext*, $StringBuilder*)},
+	{"isFixedWidth", "(Ljava/time/format/DateTimeParseContext;)Z", nullptr, 0, $virtualMethod(DateTimeFormatterBuilder$FractionPrinterParser, isFixedWidth, bool, $DateTimeParseContext*)},
+	{"parse", "(Ljava/time/format/DateTimeParseContext;Ljava/lang/CharSequence;I)I", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$FractionPrinterParser, parse, int32_t, $DateTimeParseContext*, $CharSequence*, int32_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$FractionPrinterParser, toString, $String*)},
+	{"withFixedWidth", "()Ljava/time/format/DateTimeFormatterBuilder$FractionPrinterParser;", nullptr, 0, $virtualMethod(DateTimeFormatterBuilder$FractionPrinterParser, withFixedWidth, DateTimeFormatterBuilder$FractionPrinterParser*)},
+	{"withSubsequentWidth", "(I)Ljava/time/format/DateTimeFormatterBuilder$FractionPrinterParser;", nullptr, 0, $virtualMethod(DateTimeFormatterBuilder$FractionPrinterParser, withSubsequentWidth, DateTimeFormatterBuilder$FractionPrinterParser*, int32_t)},
 	{}
 };
 

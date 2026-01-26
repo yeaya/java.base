@@ -37,6 +37,7 @@
 #include <jcpp.h>
 
 using $PermissionArray = $Array<::java::security::Permission>;
+using $FileDescriptor = ::java::io::FileDescriptor;
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -47,6 +48,7 @@ using $Runnable = ::java::lang::Runnable;
 using $RuntimePermission = ::java::lang::RuntimePermission;
 using $SecurityManager = ::java::lang::SecurityManager;
 using $AsynchronousChannelGroup = ::java::nio::channels::AsynchronousChannelGroup;
+using $Channel = ::java::nio::channels::Channel;
 using $AsynchronousChannelProvider = ::java::nio::channels::spi::AsynchronousChannelProvider;
 using $AccessControlContext = ::java::security::AccessControlContext;
 using $AccessController = ::java::security::AccessController;
@@ -93,33 +95,33 @@ $MethodInfo _AsynchronousChannelGroupImpl_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/nio/channels/spi/AsynchronousChannelProvider;Lsun/nio/ch/ThreadPool;)V", nullptr, 0, $method(static_cast<void(AsynchronousChannelGroupImpl::*)($AsynchronousChannelProvider*,$ThreadPool*)>(&AsynchronousChannelGroupImpl::init$))},
-	{"attachForeignChannel", "(Ljava/nio/channels/Channel;Ljava/io/FileDescriptor;)Ljava/lang/Object;", nullptr, $ABSTRACT, nullptr, "java.io.IOException"},
-	{"awaitTermination", "(JLjava/util/concurrent/TimeUnit;)Z", nullptr, $PUBLIC | $FINAL, nullptr, "java.lang.InterruptedException"},
-	{"bindToGroup", "(Ljava/lang/Runnable;)Ljava/lang/Runnable;", nullptr, $PRIVATE, $method(static_cast<$Runnable*(AsynchronousChannelGroupImpl::*)($Runnable*)>(&AsynchronousChannelGroupImpl::bindToGroup))},
-	{"closeAllChannels", "()V", nullptr, $ABSTRACT, nullptr, "java.io.IOException"},
-	{"detachForeignChannel", "(Ljava/lang/Object;)V", nullptr, $ABSTRACT},
-	{"detachFromThreadPool", "()V", nullptr, $FINAL, $method(static_cast<void(AsynchronousChannelGroupImpl::*)()>(&AsynchronousChannelGroupImpl::detachFromThreadPool))},
-	{"execute", "(Ljava/lang/Runnable;)V", nullptr, $PUBLIC | $FINAL},
-	{"executeOnHandlerTask", "(Ljava/lang/Runnable;)V", nullptr, $ABSTRACT},
-	{"executeOnPooledThread", "(Ljava/lang/Runnable;)V", nullptr, $FINAL, $method(static_cast<void(AsynchronousChannelGroupImpl::*)($Runnable*)>(&AsynchronousChannelGroupImpl::executeOnPooledThread))},
-	{"executor", "()Ljava/util/concurrent/ExecutorService;", nullptr, $FINAL, $method(static_cast<$ExecutorService*(AsynchronousChannelGroupImpl::*)()>(&AsynchronousChannelGroupImpl::executor))},
-	{"fixedThreadCount", "()I", nullptr, $FINAL, $method(static_cast<int32_t(AsynchronousChannelGroupImpl::*)()>(&AsynchronousChannelGroupImpl::fixedThreadCount))},
-	{"isEmpty", "()Z", nullptr, $ABSTRACT},
-	{"isFixedThreadPool", "()Z", nullptr, $FINAL, $method(static_cast<bool(AsynchronousChannelGroupImpl::*)()>(&AsynchronousChannelGroupImpl::isFixedThreadPool))},
-	{"isShutdown", "()Z", nullptr, $PUBLIC | $FINAL},
-	{"isTerminated", "()Z", nullptr, $PUBLIC | $FINAL},
-	{"offerTask", "(Ljava/lang/Runnable;)V", nullptr, $FINAL, $method(static_cast<void(AsynchronousChannelGroupImpl::*)($Runnable*)>(&AsynchronousChannelGroupImpl::offerTask))},
-	{"pollTask", "()Ljava/lang/Runnable;", nullptr, $FINAL, $method(static_cast<$Runnable*(AsynchronousChannelGroupImpl::*)()>(&AsynchronousChannelGroupImpl::pollTask))},
-	{"schedule", "(Ljava/lang/Runnable;JLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/Future;", "(Ljava/lang/Runnable;JLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/Future<*>;", $FINAL, $method(static_cast<$Future*(AsynchronousChannelGroupImpl::*)($Runnable*,int64_t,$TimeUnit*)>(&AsynchronousChannelGroupImpl::schedule))},
-	{"shutdown", "()V", nullptr, $PUBLIC | $FINAL},
-	{"shutdownExecutors", "()V", nullptr, $PRIVATE, $method(static_cast<void(AsynchronousChannelGroupImpl::*)()>(&AsynchronousChannelGroupImpl::shutdownExecutors))},
-	{"shutdownHandlerTasks", "()V", nullptr, $ABSTRACT},
-	{"shutdownNow", "()V", nullptr, $PUBLIC | $FINAL, nullptr, "java.io.IOException"},
-	{"startInternalThread", "(Ljava/lang/Runnable;)V", nullptr, $PRIVATE, $method(static_cast<void(AsynchronousChannelGroupImpl::*)($Runnable*)>(&AsynchronousChannelGroupImpl::startInternalThread))},
-	{"startThreads", "(Ljava/lang/Runnable;)V", nullptr, $PROTECTED | $FINAL, $method(static_cast<void(AsynchronousChannelGroupImpl::*)($Runnable*)>(&AsynchronousChannelGroupImpl::startThreads))},
-	{"threadCount", "()I", nullptr, $FINAL, $method(static_cast<int32_t(AsynchronousChannelGroupImpl::*)()>(&AsynchronousChannelGroupImpl::threadCount))},
-	{"threadExit", "(Ljava/lang/Runnable;Z)I", nullptr, $FINAL, $method(static_cast<int32_t(AsynchronousChannelGroupImpl::*)($Runnable*,bool)>(&AsynchronousChannelGroupImpl::threadExit))},
+	{"<init>", "(Ljava/nio/channels/spi/AsynchronousChannelProvider;Lsun/nio/ch/ThreadPool;)V", nullptr, 0, $method(AsynchronousChannelGroupImpl, init$, void, $AsynchronousChannelProvider*, $ThreadPool*)},
+	{"attachForeignChannel", "(Ljava/nio/channels/Channel;Ljava/io/FileDescriptor;)Ljava/lang/Object;", nullptr, $ABSTRACT, $virtualMethod(AsynchronousChannelGroupImpl, attachForeignChannel, $Object*, $Channel*, $FileDescriptor*), "java.io.IOException"},
+	{"awaitTermination", "(JLjava/util/concurrent/TimeUnit;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(AsynchronousChannelGroupImpl, awaitTermination, bool, int64_t, $TimeUnit*), "java.lang.InterruptedException"},
+	{"bindToGroup", "(Ljava/lang/Runnable;)Ljava/lang/Runnable;", nullptr, $PRIVATE, $method(AsynchronousChannelGroupImpl, bindToGroup, $Runnable*, $Runnable*)},
+	{"closeAllChannels", "()V", nullptr, $ABSTRACT, $virtualMethod(AsynchronousChannelGroupImpl, closeAllChannels, void), "java.io.IOException"},
+	{"detachForeignChannel", "(Ljava/lang/Object;)V", nullptr, $ABSTRACT, $virtualMethod(AsynchronousChannelGroupImpl, detachForeignChannel, void, Object$*)},
+	{"detachFromThreadPool", "()V", nullptr, $FINAL, $method(AsynchronousChannelGroupImpl, detachFromThreadPool, void)},
+	{"execute", "(Ljava/lang/Runnable;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(AsynchronousChannelGroupImpl, execute, void, $Runnable*)},
+	{"executeOnHandlerTask", "(Ljava/lang/Runnable;)V", nullptr, $ABSTRACT, $virtualMethod(AsynchronousChannelGroupImpl, executeOnHandlerTask, void, $Runnable*)},
+	{"executeOnPooledThread", "(Ljava/lang/Runnable;)V", nullptr, $FINAL, $method(AsynchronousChannelGroupImpl, executeOnPooledThread, void, $Runnable*)},
+	{"executor", "()Ljava/util/concurrent/ExecutorService;", nullptr, $FINAL, $method(AsynchronousChannelGroupImpl, executor, $ExecutorService*)},
+	{"fixedThreadCount", "()I", nullptr, $FINAL, $method(AsynchronousChannelGroupImpl, fixedThreadCount, int32_t)},
+	{"isEmpty", "()Z", nullptr, $ABSTRACT, $virtualMethod(AsynchronousChannelGroupImpl, isEmpty, bool)},
+	{"isFixedThreadPool", "()Z", nullptr, $FINAL, $method(AsynchronousChannelGroupImpl, isFixedThreadPool, bool)},
+	{"isShutdown", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(AsynchronousChannelGroupImpl, isShutdown, bool)},
+	{"isTerminated", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(AsynchronousChannelGroupImpl, isTerminated, bool)},
+	{"offerTask", "(Ljava/lang/Runnable;)V", nullptr, $FINAL, $method(AsynchronousChannelGroupImpl, offerTask, void, $Runnable*)},
+	{"pollTask", "()Ljava/lang/Runnable;", nullptr, $FINAL, $method(AsynchronousChannelGroupImpl, pollTask, $Runnable*)},
+	{"schedule", "(Ljava/lang/Runnable;JLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/Future;", "(Ljava/lang/Runnable;JLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/Future<*>;", $FINAL, $method(AsynchronousChannelGroupImpl, schedule, $Future*, $Runnable*, int64_t, $TimeUnit*)},
+	{"shutdown", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(AsynchronousChannelGroupImpl, shutdown, void)},
+	{"shutdownExecutors", "()V", nullptr, $PRIVATE, $method(AsynchronousChannelGroupImpl, shutdownExecutors, void)},
+	{"shutdownHandlerTasks", "()V", nullptr, $ABSTRACT, $virtualMethod(AsynchronousChannelGroupImpl, shutdownHandlerTasks, void)},
+	{"shutdownNow", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(AsynchronousChannelGroupImpl, shutdownNow, void), "java.io.IOException"},
+	{"startInternalThread", "(Ljava/lang/Runnable;)V", nullptr, $PRIVATE, $method(AsynchronousChannelGroupImpl, startInternalThread, void, $Runnable*)},
+	{"startThreads", "(Ljava/lang/Runnable;)V", nullptr, $PROTECTED | $FINAL, $method(AsynchronousChannelGroupImpl, startThreads, void, $Runnable*)},
+	{"threadCount", "()I", nullptr, $FINAL, $method(AsynchronousChannelGroupImpl, threadCount, int32_t)},
+	{"threadExit", "(Ljava/lang/Runnable;Z)I", nullptr, $FINAL, $method(AsynchronousChannelGroupImpl, threadExit, int32_t, $Runnable*, bool)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

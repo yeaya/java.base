@@ -46,8 +46,8 @@ $FieldInfo _HttpURLConnection$1_FieldInfo_[] = {
 };
 
 $MethodInfo _HttpURLConnection$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/net/URL;Ljava/net/Authenticator;Ljava/net/InetAddress;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/net/Authenticator$RequestorType;)V", nullptr, 0, $method(static_cast<void(HttpURLConnection$1::*)($String*,$URL*,$Authenticator*,$InetAddress*,int32_t,$String*,$String*,$String*,$Authenticator$RequestorType*)>(&HttpURLConnection$1::init$))},
-	{"run", "()Ljava/net/PasswordAuthentication;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Ljava/net/URL;Ljava/net/Authenticator;Ljava/net/InetAddress;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/net/Authenticator$RequestorType;)V", nullptr, 0, $method(HttpURLConnection$1, init$, void, $String*, $URL*, $Authenticator*, $InetAddress*, int32_t, $String*, $String*, $String*, $Authenticator$RequestorType*)},
+	{"run", "()Ljava/net/PasswordAuthentication;", nullptr, $PUBLIC, $virtualMethod(HttpURLConnection$1, run, $Object*)},
 	{}
 };
 

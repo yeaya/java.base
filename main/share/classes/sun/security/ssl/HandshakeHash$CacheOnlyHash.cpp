@@ -27,11 +27,11 @@ $FieldInfo _HandshakeHash$CacheOnlyHash_FieldInfo_[] = {
 };
 
 $MethodInfo _HandshakeHash$CacheOnlyHash_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(HandshakeHash$CacheOnlyHash::*)()>(&HandshakeHash$CacheOnlyHash::init$))},
-	{"archived", "()[B", nullptr, $PUBLIC},
-	{"copy", "()Lsun/security/ssl/HandshakeHash$CacheOnlyHash;", nullptr, 0, $method(static_cast<HandshakeHash$CacheOnlyHash*(HandshakeHash$CacheOnlyHash::*)()>(&HandshakeHash$CacheOnlyHash::copy))},
-	{"digest", "()[B", nullptr, $PUBLIC},
-	{"update", "([BII)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(HandshakeHash$CacheOnlyHash, init$, void)},
+	{"archived", "()[B", nullptr, $PUBLIC, $virtualMethod(HandshakeHash$CacheOnlyHash, archived, $bytes*)},
+	{"copy", "()Lsun/security/ssl/HandshakeHash$CacheOnlyHash;", nullptr, 0, $method(HandshakeHash$CacheOnlyHash, copy, HandshakeHash$CacheOnlyHash*)},
+	{"digest", "()[B", nullptr, $PUBLIC, $virtualMethod(HandshakeHash$CacheOnlyHash, digest, $bytes*)},
+	{"update", "([BII)V", nullptr, $PUBLIC, $virtualMethod(HandshakeHash$CacheOnlyHash, update, void, $bytes*, int32_t, int32_t)},
 	{}
 };
 

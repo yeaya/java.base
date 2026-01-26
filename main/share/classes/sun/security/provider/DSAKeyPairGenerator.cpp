@@ -66,16 +66,16 @@ $FieldInfo _DSAKeyPairGenerator_FieldInfo_[] = {
 };
 
 $MethodInfo _DSAKeyPairGenerator_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, 0, $method(static_cast<void(DSAKeyPairGenerator::*)(int32_t)>(&DSAKeyPairGenerator::init$))},
-	{"checkStrength", "(II)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)(int32_t,int32_t)>(&DSAKeyPairGenerator::checkStrength))},
-	{"generateKeyPair", "()Ljava/security/KeyPair;", nullptr, $PUBLIC},
-	{"generateKeyPair", "(Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/security/SecureRandom;)Ljava/security/KeyPair;", nullptr, $PRIVATE, $method(static_cast<$KeyPair*(DSAKeyPairGenerator::*)($BigInteger*,$BigInteger*,$BigInteger*,$SecureRandom*)>(&DSAKeyPairGenerator::generateKeyPair))},
-	{"generateX", "(Ljava/security/SecureRandom;Ljava/math/BigInteger;)Ljava/math/BigInteger;", nullptr, $PRIVATE, $method(static_cast<$BigInteger*(DSAKeyPairGenerator::*)($SecureRandom*,$BigInteger*)>(&DSAKeyPairGenerator::generateX))},
-	{"generateY", "(Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;)Ljava/math/BigInteger;", nullptr, 0},
-	{"init", "(ILjava/security/SecureRandom;Z)V", nullptr, 0},
-	{"init", "(Ljava/security/spec/DSAParameterSpec;Ljava/security/SecureRandom;Z)V", nullptr, 0},
-	{"initialize", "(ILjava/security/SecureRandom;)V", nullptr, $PUBLIC},
-	{"initialize", "(Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, $PUBLIC, nullptr, "java.security.InvalidAlgorithmParameterException"},
+	{"<init>", "(I)V", nullptr, 0, $method(DSAKeyPairGenerator, init$, void, int32_t)},
+	{"checkStrength", "(II)V", nullptr, $PRIVATE | $STATIC, $staticMethod(DSAKeyPairGenerator, checkStrength, void, int32_t, int32_t)},
+	{"generateKeyPair", "()Ljava/security/KeyPair;", nullptr, $PUBLIC, $virtualMethod(DSAKeyPairGenerator, generateKeyPair, $KeyPair*)},
+	{"generateKeyPair", "(Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/security/SecureRandom;)Ljava/security/KeyPair;", nullptr, $PRIVATE, $method(DSAKeyPairGenerator, generateKeyPair, $KeyPair*, $BigInteger*, $BigInteger*, $BigInteger*, $SecureRandom*)},
+	{"generateX", "(Ljava/security/SecureRandom;Ljava/math/BigInteger;)Ljava/math/BigInteger;", nullptr, $PRIVATE, $method(DSAKeyPairGenerator, generateX, $BigInteger*, $SecureRandom*, $BigInteger*)},
+	{"generateY", "(Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;)Ljava/math/BigInteger;", nullptr, 0, $virtualMethod(DSAKeyPairGenerator, generateY, $BigInteger*, $BigInteger*, $BigInteger*, $BigInteger*)},
+	{"init", "(ILjava/security/SecureRandom;Z)V", nullptr, 0, $virtualMethod(DSAKeyPairGenerator, init, void, int32_t, $SecureRandom*, bool)},
+	{"init", "(Ljava/security/spec/DSAParameterSpec;Ljava/security/SecureRandom;Z)V", nullptr, 0, $virtualMethod(DSAKeyPairGenerator, init, void, $DSAParameterSpec*, $SecureRandom*, bool)},
+	{"initialize", "(ILjava/security/SecureRandom;)V", nullptr, $PUBLIC, $virtualMethod(DSAKeyPairGenerator, initialize, void, int32_t, $SecureRandom*)},
+	{"initialize", "(Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, $PUBLIC, $virtualMethod(DSAKeyPairGenerator, initialize, void, $AlgorithmParameterSpec*, $SecureRandom*), "java.security.InvalidAlgorithmParameterException"},
 	{}
 };
 

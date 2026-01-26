@@ -18,8 +18,8 @@ $FieldInfo _SerializablePermission_FieldInfo_[] = {
 };
 
 $MethodInfo _SerializablePermission_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(SerializablePermission::*)($String*)>(&SerializablePermission::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(SerializablePermission::*)($String*,$String*)>(&SerializablePermission::init$))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SerializablePermission, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SerializablePermission, init$, void, $String*, $String*)},
 	{}
 };
 

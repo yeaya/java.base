@@ -40,10 +40,10 @@ $MethodInfo _AbstractAclFileAttributeView_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(AbstractAclFileAttributeView::*)()>(&AbstractAclFileAttributeView::init$))},
-	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL},
-	{"readAttributes", "([Ljava/lang/String;)Ljava/util/Map;", "([Ljava/lang/String;)Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;", $PUBLIC | $FINAL, nullptr, "java.io.IOException"},
-	{"setAttribute", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC | $FINAL, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, 0, $method(AbstractAclFileAttributeView, init$, void)},
+	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractAclFileAttributeView, name, $String*)},
+	{"readAttributes", "([Ljava/lang/String;)Ljava/util/Map;", "([Ljava/lang/String;)Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;", $PUBLIC | $FINAL, $virtualMethod(AbstractAclFileAttributeView, readAttributes, $Map*, $StringArray*), "java.io.IOException"},
+	{"setAttribute", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractAclFileAttributeView, setAttribute, void, $String*, Object$*), "java.io.IOException"},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

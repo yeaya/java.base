@@ -22,9 +22,9 @@ $FieldInfo _SocketPermissionCollection$1_FieldInfo_[] = {
 };
 
 $MethodInfo _SocketPermissionCollection$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/SocketPermissionCollection;Ljava/net/SocketPermission;)V", nullptr, 0, $method(static_cast<void(SocketPermissionCollection$1::*)($SocketPermissionCollection*,$SocketPermission*)>(&SocketPermissionCollection$1::init$))},
-	{"apply", "(Ljava/net/SocketPermission;Ljava/net/SocketPermission;)Ljava/net/SocketPermission;", nullptr, $PUBLIC},
-	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "(Ljava/net/SocketPermissionCollection;Ljava/net/SocketPermission;)V", nullptr, 0, $method(SocketPermissionCollection$1, init$, void, $SocketPermissionCollection*, $SocketPermission*)},
+	{"apply", "(Ljava/net/SocketPermission;Ljava/net/SocketPermission;)Ljava/net/SocketPermission;", nullptr, $PUBLIC, $virtualMethod(SocketPermissionCollection$1, apply, $SocketPermission*, $SocketPermission*, $SocketPermission*)},
+	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(SocketPermissionCollection$1, apply, $Object*, Object$*, Object$*)},
 	{}
 };
 

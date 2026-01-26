@@ -49,12 +49,12 @@ $FieldInfo _OpsAfterClose4PrintWriter_FieldInfo_[] = {
 };
 
 $MethodInfo _OpsAfterClose4PrintWriter_MethodInfo_[] = {
-	{"$values", "()[LOpsAfterClose4PrintWriter;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$OpsAfterClose4PrintWriterArray*(*)()>(&OpsAfterClose4PrintWriter::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(OpsAfterClose4PrintWriter::*)($String*,int32_t)>(&OpsAfterClose4PrintWriter::init$))},
-	{"check", "(Ljava/io/PrintWriter;)Z", nullptr, $ABSTRACT},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&OpsAfterClose4PrintWriter::main)), "java.lang.Exception"},
-	{"valueOf", "(Ljava/lang/String;)LOpsAfterClose4PrintWriter;", nullptr, $PUBLIC | $STATIC, $method(static_cast<OpsAfterClose4PrintWriter*(*)($String*)>(&OpsAfterClose4PrintWriter::valueOf))},
-	{"values", "()[LOpsAfterClose4PrintWriter;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$OpsAfterClose4PrintWriterArray*(*)()>(&OpsAfterClose4PrintWriter::values))},
+	{"$values", "()[LOpsAfterClose4PrintWriter;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(OpsAfterClose4PrintWriter, $values, $OpsAfterClose4PrintWriterArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(OpsAfterClose4PrintWriter, init$, void, $String*, int32_t)},
+	{"check", "(Ljava/io/PrintWriter;)Z", nullptr, $ABSTRACT, $virtualMethod(OpsAfterClose4PrintWriter, check, bool, $PrintWriter*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(OpsAfterClose4PrintWriter, main, void, $StringArray*), "java.lang.Exception"},
+	{"valueOf", "(Ljava/lang/String;)LOpsAfterClose4PrintWriter;", nullptr, $PUBLIC | $STATIC, $staticMethod(OpsAfterClose4PrintWriter, valueOf, OpsAfterClose4PrintWriter*, $String*)},
+	{"values", "()[LOpsAfterClose4PrintWriter;", nullptr, $PUBLIC | $STATIC, $staticMethod(OpsAfterClose4PrintWriter, values, $OpsAfterClose4PrintWriterArray*)},
 	{}
 };
 

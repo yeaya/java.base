@@ -17,8 +17,8 @@ $FieldInfo _Basic4ThreadLocal$1_FieldInfo_[] = {
 };
 
 $MethodInfo _Basic4ThreadLocal$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Basic4ThreadLocal$1::*)()>(&Basic4ThreadLocal$1::init$))},
-	{"initialValue", "()Ljava/lang/Object;", nullptr, $PROTECTED | $SYNCHRONIZED},
+	{"<init>", "()V", nullptr, 0, $method(Basic4ThreadLocal$1, init$, void)},
+	{"initialValue", "()Ljava/lang/Object;", nullptr, $PROTECTED | $SYNCHRONIZED, $virtualMethod(Basic4ThreadLocal$1, initialValue, $Object*)},
 	{}
 };
 

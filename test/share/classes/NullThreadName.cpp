@@ -29,8 +29,8 @@ $FieldInfo _NullThreadName_FieldInfo_[] = {
 };
 
 $MethodInfo _NullThreadName_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(NullThreadName::*)()>(&NullThreadName::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&NullThreadName::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(NullThreadName, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(NullThreadName, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

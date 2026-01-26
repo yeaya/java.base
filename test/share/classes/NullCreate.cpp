@@ -12,8 +12,8 @@ using $NullPointerException = ::java::lang::NullPointerException;
 using $RuntimeException = ::java::lang::RuntimeException;
 
 $MethodInfo _NullCreate_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(NullCreate::*)()>(&NullCreate::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&NullCreate::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(NullCreate, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(NullCreate, main, void, $StringArray*)},
 	{}
 };
 

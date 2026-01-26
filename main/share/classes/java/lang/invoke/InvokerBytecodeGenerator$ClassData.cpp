@@ -20,9 +20,9 @@ $FieldInfo _InvokerBytecodeGenerator$ClassData_FieldInfo_[] = {
 };
 
 $MethodInfo _InvokerBytecodeGenerator$ClassData_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;)V", nullptr, 0, $method(static_cast<void(InvokerBytecodeGenerator$ClassData::*)($String*,$String*,Object$*)>(&InvokerBytecodeGenerator$ClassData::init$))},
-	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;)V", nullptr, 0, $method(InvokerBytecodeGenerator$ClassData, init$, void, $String*, $String*, Object$*)},
+	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(InvokerBytecodeGenerator$ClassData, name, $String*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(InvokerBytecodeGenerator$ClassData, toString, $String*)},
 	{}
 };
 

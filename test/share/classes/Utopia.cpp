@@ -18,10 +18,10 @@ $FieldInfo _Utopia_FieldInfo_[] = {
 };
 
 $MethodInfo _Utopia_MethodInfo_[] = {
-	{"$values", "()[LUtopia;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$UtopiaArray*(*)()>(&Utopia::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(Utopia::*)($String*,int32_t)>(&Utopia::init$))},
-	{"valueOf", "(Ljava/lang/String;)LUtopia;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Utopia*(*)($String*)>(&Utopia::valueOf))},
-	{"values", "()[LUtopia;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$UtopiaArray*(*)()>(&Utopia::values))},
+	{"$values", "()[LUtopia;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Utopia, $values, $UtopiaArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Utopia, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)LUtopia;", nullptr, $PUBLIC | $STATIC, $staticMethod(Utopia, valueOf, Utopia*, $String*)},
+	{"values", "()[LUtopia;", nullptr, $PUBLIC | $STATIC, $staticMethod(Utopia, values, $UtopiaArray*)},
 	{}
 };
 

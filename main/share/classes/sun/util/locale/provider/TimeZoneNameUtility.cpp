@@ -70,15 +70,15 @@ $FieldInfo _TimeZoneNameUtility_FieldInfo_[] = {
 };
 
 $MethodInfo _TimeZoneNameUtility_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(TimeZoneNameUtility::*)()>(&TimeZoneNameUtility::init$))},
-	{"canonicalTZID", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/lang/String;>;", $PUBLIC | $STATIC, $method(static_cast<$Optional*(*)($String*)>(&TimeZoneNameUtility::canonicalTZID))},
-	{"convertLDMLShortID", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/lang/String;>;", $PUBLIC | $STATIC, $method(static_cast<$Optional*(*)($String*)>(&TimeZoneNameUtility::convertLDMLShortID))},
-	{"getZoneStrings", "(Ljava/util/Locale;)[[Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$StringArray2*(*)($Locale*)>(&TimeZoneNameUtility::getZoneStrings))},
-	{"loadZoneStrings", "(Ljava/util/Locale;)[[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$StringArray2*(*)($Locale*)>(&TimeZoneNameUtility::loadZoneStrings))},
-	{"retrieveDisplayName", "(Ljava/lang/String;ZILjava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)($String*,bool,int32_t,$Locale*)>(&TimeZoneNameUtility::retrieveDisplayName))},
-	{"retrieveDisplayNames", "(Ljava/lang/String;Ljava/util/Locale;)[Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$StringArray*(*)($String*,$Locale*)>(&TimeZoneNameUtility::retrieveDisplayNames))},
-	{"retrieveDisplayNamesImpl", "(Ljava/lang/String;Ljava/util/Locale;)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$StringArray*(*)($String*,$Locale*)>(&TimeZoneNameUtility::retrieveDisplayNamesImpl))},
-	{"retrieveGenericDisplayName", "(Ljava/lang/String;ILjava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)($String*,int32_t,$Locale*)>(&TimeZoneNameUtility::retrieveGenericDisplayName))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(TimeZoneNameUtility, init$, void)},
+	{"canonicalTZID", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/lang/String;>;", $PUBLIC | $STATIC, $staticMethod(TimeZoneNameUtility, canonicalTZID, $Optional*, $String*)},
+	{"convertLDMLShortID", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/lang/String;>;", $PUBLIC | $STATIC, $staticMethod(TimeZoneNameUtility, convertLDMLShortID, $Optional*, $String*)},
+	{"getZoneStrings", "(Ljava/util/Locale;)[[Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(TimeZoneNameUtility, getZoneStrings, $StringArray2*, $Locale*)},
+	{"loadZoneStrings", "(Ljava/util/Locale;)[[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(TimeZoneNameUtility, loadZoneStrings, $StringArray2*, $Locale*)},
+	{"retrieveDisplayName", "(Ljava/lang/String;ZILjava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(TimeZoneNameUtility, retrieveDisplayName, $String*, $String*, bool, int32_t, $Locale*)},
+	{"retrieveDisplayNames", "(Ljava/lang/String;Ljava/util/Locale;)[Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(TimeZoneNameUtility, retrieveDisplayNames, $StringArray*, $String*, $Locale*)},
+	{"retrieveDisplayNamesImpl", "(Ljava/lang/String;Ljava/util/Locale;)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(TimeZoneNameUtility, retrieveDisplayNamesImpl, $StringArray*, $String*, $Locale*)},
+	{"retrieveGenericDisplayName", "(Ljava/lang/String;ILjava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(TimeZoneNameUtility, retrieveGenericDisplayName, $String*, $String*, int32_t, $Locale*)},
 	{}
 };
 

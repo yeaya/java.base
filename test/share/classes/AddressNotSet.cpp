@@ -30,11 +30,11 @@ $FieldInfo _AddressNotSet_FieldInfo_[] = {
 };
 
 $MethodInfo _AddressNotSet_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(AddressNotSet::*)()>(&AddressNotSet::init$)), "java.lang.Exception"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&AddressNotSet::main)), "java.lang.Exception"},
-	{"run", "()V", nullptr, $PUBLIC, nullptr, "java.lang.Exception"},
-	{"test", "(Ljava/net/DatagramSocket;)V", nullptr, $PRIVATE, $method(static_cast<void(AddressNotSet::*)($DatagramSocket*)>(&AddressNotSet::test)), "java.lang.Exception"},
-	{"testTTL", "(Ljava/net/MulticastSocket;)V", nullptr, $PRIVATE, $method(static_cast<void(AddressNotSet::*)($MulticastSocket*)>(&AddressNotSet::testTTL)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, 0, $method(AddressNotSet, init$, void), "java.lang.Exception"},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(AddressNotSet, main, void, $StringArray*), "java.lang.Exception"},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(AddressNotSet, run, void), "java.lang.Exception"},
+	{"test", "(Ljava/net/DatagramSocket;)V", nullptr, $PRIVATE, $method(AddressNotSet, test, void, $DatagramSocket*), "java.lang.Exception"},
+	{"testTTL", "(Ljava/net/MulticastSocket;)V", nullptr, $PRIVATE, $method(AddressNotSet, testTTL, void, $MulticastSocket*), "java.lang.Exception"},
 	{}
 };
 

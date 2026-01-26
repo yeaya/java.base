@@ -33,16 +33,16 @@ $FieldInfo _CertPath_FieldInfo_[] = {
 };
 
 $MethodInfo _CertPath_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $method(static_cast<void(CertPath::*)($String*)>(&CertPath::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getCertificates", "()Ljava/util/List;", "()Ljava/util/List<+Ljava/security/cert/Certificate;>;", $PUBLIC | $ABSTRACT},
-	{"getEncoded", "()[B", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.security.cert.CertificateEncodingException"},
-	{"getEncoded", "(Ljava/lang/String;)[B", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.security.cert.CertificateEncodingException"},
-	{"getEncodings", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/lang/String;>;", $PUBLIC | $ABSTRACT},
-	{"getType", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"writeReplace", "()Ljava/lang/Object;", nullptr, $PROTECTED, nullptr, "java.io.ObjectStreamException"},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $method(CertPath, init$, void, $String*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(CertPath, equals, bool, Object$*)},
+	{"getCertificates", "()Ljava/util/List;", "()Ljava/util/List<+Ljava/security/cert/Certificate;>;", $PUBLIC | $ABSTRACT, $virtualMethod(CertPath, getCertificates, $List*)},
+	{"getEncoded", "()[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CertPath, getEncoded, $bytes*), "java.security.cert.CertificateEncodingException"},
+	{"getEncoded", "(Ljava/lang/String;)[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CertPath, getEncoded, $bytes*, $String*), "java.security.cert.CertificateEncodingException"},
+	{"getEncodings", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/lang/String;>;", $PUBLIC | $ABSTRACT, $virtualMethod(CertPath, getEncodings, $Iterator*)},
+	{"getType", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CertPath, getType, $String*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(CertPath, hashCode, int32_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CertPath, toString, $String*)},
+	{"writeReplace", "()Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(CertPath, writeReplace, $Object*), "java.io.ObjectStreamException"},
 	{}
 };
 

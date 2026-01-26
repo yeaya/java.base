@@ -31,10 +31,10 @@ $FieldInfo _IincInsnNode_FieldInfo_[] = {
 };
 
 $MethodInfo _IincInsnNode_MethodInfo_[] = {
-	{"<init>", "(II)V", nullptr, $PUBLIC, $method(static_cast<void(IincInsnNode::*)(int32_t,int32_t)>(&IincInsnNode::init$))},
-	{"accept", "(Ljdk/internal/org/objectweb/asm/MethodVisitor;)V", nullptr, $PUBLIC},
-	{"clone", "(Ljava/util/Map;)Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;", "(Ljava/util/Map<Ljdk/internal/org/objectweb/asm/tree/LabelNode;Ljdk/internal/org/objectweb/asm/tree/LabelNode;>;)Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;", $PUBLIC},
-	{"getType", "()I", nullptr, $PUBLIC},
+	{"<init>", "(II)V", nullptr, $PUBLIC, $method(IincInsnNode, init$, void, int32_t, int32_t)},
+	{"accept", "(Ljdk/internal/org/objectweb/asm/MethodVisitor;)V", nullptr, $PUBLIC, $virtualMethod(IincInsnNode, accept, void, $MethodVisitor*)},
+	{"clone", "(Ljava/util/Map;)Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;", "(Ljava/util/Map<Ljdk/internal/org/objectweb/asm/tree/LabelNode;Ljdk/internal/org/objectweb/asm/tree/LabelNode;>;)Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;", $PUBLIC, $virtualMethod(IincInsnNode, clone, $AbstractInsnNode*, $Map*)},
+	{"getType", "()I", nullptr, $PUBLIC, $virtualMethod(IincInsnNode, getType, int32_t)},
 	{}
 };
 

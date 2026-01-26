@@ -8,7 +8,7 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _x123_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(x123::*)()>(&x123::init$))},
+	{"<init>", "()V", nullptr, 0, $method(x123, init$, void)},
 	{}
 };
 

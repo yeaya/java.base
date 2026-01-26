@@ -39,20 +39,20 @@ $FieldInfo _ExemptionMechanism_FieldInfo_[] = {
 };
 
 $MethodInfo _ExemptionMechanism_MethodInfo_[] = {
-	{"<init>", "(Ljavax/crypto/ExemptionMechanismSpi;Ljava/security/Provider;Ljava/lang/String;)V", nullptr, $PROTECTED, $method(static_cast<void(ExemptionMechanism::*)($ExemptionMechanismSpi*,$Provider*,$String*)>(&ExemptionMechanism::init$))},
-	{"genExemptionBlob", "()[B", nullptr, $PUBLIC | $FINAL, $method(static_cast<$bytes*(ExemptionMechanism::*)()>(&ExemptionMechanism::genExemptionBlob)), "java.lang.IllegalStateException,javax.crypto.ExemptionMechanismException"},
-	{"genExemptionBlob", "([B)I", nullptr, $PUBLIC | $FINAL, $method(static_cast<int32_t(ExemptionMechanism::*)($bytes*)>(&ExemptionMechanism::genExemptionBlob)), "java.lang.IllegalStateException,javax.crypto.ShortBufferException,javax.crypto.ExemptionMechanismException"},
-	{"genExemptionBlob", "([BI)I", nullptr, $PUBLIC | $FINAL, $method(static_cast<int32_t(ExemptionMechanism::*)($bytes*,int32_t)>(&ExemptionMechanism::genExemptionBlob)), "java.lang.IllegalStateException,javax.crypto.ShortBufferException,javax.crypto.ExemptionMechanismException"},
-	{"getInstance", "(Ljava/lang/String;)Ljavax/crypto/ExemptionMechanism;", nullptr, $PUBLIC | $STATIC | $FINAL, $method(static_cast<ExemptionMechanism*(*)($String*)>(&ExemptionMechanism::getInstance)), "java.security.NoSuchAlgorithmException"},
-	{"getInstance", "(Ljava/lang/String;Ljava/lang/String;)Ljavax/crypto/ExemptionMechanism;", nullptr, $PUBLIC | $STATIC | $FINAL, $method(static_cast<ExemptionMechanism*(*)($String*,$String*)>(&ExemptionMechanism::getInstance)), "java.security.NoSuchAlgorithmException,java.security.NoSuchProviderException"},
-	{"getInstance", "(Ljava/lang/String;Ljava/security/Provider;)Ljavax/crypto/ExemptionMechanism;", nullptr, $PUBLIC | $STATIC | $FINAL, $method(static_cast<ExemptionMechanism*(*)($String*,$Provider*)>(&ExemptionMechanism::getInstance)), "java.security.NoSuchAlgorithmException"},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$String*(ExemptionMechanism::*)()>(&ExemptionMechanism::getName))},
-	{"getOutputSize", "(I)I", nullptr, $PUBLIC | $FINAL, $method(static_cast<int32_t(ExemptionMechanism::*)(int32_t)>(&ExemptionMechanism::getOutputSize)), "java.lang.IllegalStateException"},
-	{"getProvider", "()Ljava/security/Provider;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$Provider*(ExemptionMechanism::*)()>(&ExemptionMechanism::getProvider))},
-	{"init", "(Ljava/security/Key;)V", nullptr, $PUBLIC | $FINAL, $method(static_cast<void(ExemptionMechanism::*)($Key*)>(&ExemptionMechanism::init)), "java.security.InvalidKeyException,javax.crypto.ExemptionMechanismException"},
-	{"init", "(Ljava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PUBLIC | $FINAL, $method(static_cast<void(ExemptionMechanism::*)($Key*,$AlgorithmParameterSpec*)>(&ExemptionMechanism::init)), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException,javax.crypto.ExemptionMechanismException"},
-	{"init", "(Ljava/security/Key;Ljava/security/AlgorithmParameters;)V", nullptr, $PUBLIC | $FINAL, $method(static_cast<void(ExemptionMechanism::*)($Key*,$AlgorithmParameters*)>(&ExemptionMechanism::init)), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException,javax.crypto.ExemptionMechanismException"},
-	{"isCryptoAllowed", "(Ljava/security/Key;)Z", nullptr, $PUBLIC | $FINAL, $method(static_cast<bool(ExemptionMechanism::*)($Key*)>(&ExemptionMechanism::isCryptoAllowed)), "javax.crypto.ExemptionMechanismException"},
+	{"<init>", "(Ljavax/crypto/ExemptionMechanismSpi;Ljava/security/Provider;Ljava/lang/String;)V", nullptr, $PROTECTED, $method(ExemptionMechanism, init$, void, $ExemptionMechanismSpi*, $Provider*, $String*)},
+	{"genExemptionBlob", "()[B", nullptr, $PUBLIC | $FINAL, $method(ExemptionMechanism, genExemptionBlob, $bytes*), "java.lang.IllegalStateException,javax.crypto.ExemptionMechanismException"},
+	{"genExemptionBlob", "([B)I", nullptr, $PUBLIC | $FINAL, $method(ExemptionMechanism, genExemptionBlob, int32_t, $bytes*), "java.lang.IllegalStateException,javax.crypto.ShortBufferException,javax.crypto.ExemptionMechanismException"},
+	{"genExemptionBlob", "([BI)I", nullptr, $PUBLIC | $FINAL, $method(ExemptionMechanism, genExemptionBlob, int32_t, $bytes*, int32_t), "java.lang.IllegalStateException,javax.crypto.ShortBufferException,javax.crypto.ExemptionMechanismException"},
+	{"getInstance", "(Ljava/lang/String;)Ljavax/crypto/ExemptionMechanism;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(ExemptionMechanism, getInstance, ExemptionMechanism*, $String*), "java.security.NoSuchAlgorithmException"},
+	{"getInstance", "(Ljava/lang/String;Ljava/lang/String;)Ljavax/crypto/ExemptionMechanism;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(ExemptionMechanism, getInstance, ExemptionMechanism*, $String*, $String*), "java.security.NoSuchAlgorithmException,java.security.NoSuchProviderException"},
+	{"getInstance", "(Ljava/lang/String;Ljava/security/Provider;)Ljavax/crypto/ExemptionMechanism;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(ExemptionMechanism, getInstance, ExemptionMechanism*, $String*, $Provider*), "java.security.NoSuchAlgorithmException"},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(ExemptionMechanism, getName, $String*)},
+	{"getOutputSize", "(I)I", nullptr, $PUBLIC | $FINAL, $method(ExemptionMechanism, getOutputSize, int32_t, int32_t), "java.lang.IllegalStateException"},
+	{"getProvider", "()Ljava/security/Provider;", nullptr, $PUBLIC | $FINAL, $method(ExemptionMechanism, getProvider, $Provider*)},
+	{"init", "(Ljava/security/Key;)V", nullptr, $PUBLIC | $FINAL, $method(ExemptionMechanism, init, void, $Key*), "java.security.InvalidKeyException,javax.crypto.ExemptionMechanismException"},
+	{"init", "(Ljava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PUBLIC | $FINAL, $method(ExemptionMechanism, init, void, $Key*, $AlgorithmParameterSpec*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException,javax.crypto.ExemptionMechanismException"},
+	{"init", "(Ljava/security/Key;Ljava/security/AlgorithmParameters;)V", nullptr, $PUBLIC | $FINAL, $method(ExemptionMechanism, init, void, $Key*, $AlgorithmParameters*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException,javax.crypto.ExemptionMechanismException"},
+	{"isCryptoAllowed", "(Ljava/security/Key;)Z", nullptr, $PUBLIC | $FINAL, $method(ExemptionMechanism, isCryptoAllowed, bool, $Key*), "javax.crypto.ExemptionMechanismException"},
 	{}
 };
 

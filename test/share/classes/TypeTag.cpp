@@ -12,8 +12,8 @@ using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _TypeTag_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TypeTag::*)()>(&TypeTag::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&TypeTag::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TypeTag, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TypeTag, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

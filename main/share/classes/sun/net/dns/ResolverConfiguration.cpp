@@ -9,6 +9,8 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $List = ::java::util::List;
+using $ResolverConfiguration$Options = ::sun::net::dns::ResolverConfiguration$Options;
 using $ResolverConfigurationImpl = ::sun::net::dns::ResolverConfigurationImpl;
 
 namespace sun {
@@ -22,11 +24,11 @@ $FieldInfo _ResolverConfiguration_FieldInfo_[] = {
 };
 
 $MethodInfo _ResolverConfiguration_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(ResolverConfiguration::*)()>(&ResolverConfiguration::init$))},
-	{"nameservers", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PUBLIC | $ABSTRACT},
-	{"open", "()Lsun/net/dns/ResolverConfiguration;", nullptr, $PUBLIC | $STATIC, $method(static_cast<ResolverConfiguration*(*)()>(&ResolverConfiguration::open))},
-	{"options", "()Lsun/net/dns/ResolverConfiguration$Options;", nullptr, $PUBLIC | $ABSTRACT},
-	{"searchlist", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PUBLIC | $ABSTRACT},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(ResolverConfiguration, init$, void)},
+	{"nameservers", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PUBLIC | $ABSTRACT, $virtualMethod(ResolverConfiguration, nameservers, $List*)},
+	{"open", "()Lsun/net/dns/ResolverConfiguration;", nullptr, $PUBLIC | $STATIC, $staticMethod(ResolverConfiguration, open, ResolverConfiguration*)},
+	{"options", "()Lsun/net/dns/ResolverConfiguration$Options;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ResolverConfiguration, options, $ResolverConfiguration$Options*)},
+	{"searchlist", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PUBLIC | $ABSTRACT, $virtualMethod(ResolverConfiguration, searchlist, $List*)},
 	{}
 };
 

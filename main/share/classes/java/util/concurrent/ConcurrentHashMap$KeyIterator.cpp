@@ -28,9 +28,9 @@ $MethodInfo _ConcurrentHashMap$KeyIterator_MethodInfo_[] = {
 	{"*hasMoreElements", "()Z", nullptr, $PUBLIC | $FINAL},
 	{"*hasNext", "()Z", nullptr, $PUBLIC | $FINAL},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "([Ljava/util/concurrent/ConcurrentHashMap$Node;IIILjava/util/concurrent/ConcurrentHashMap;)V", "([Ljava/util/concurrent/ConcurrentHashMap$Node<TK;TV;>;IIILjava/util/concurrent/ConcurrentHashMap<TK;TV;>;)V", 0, $method(static_cast<void(ConcurrentHashMap$KeyIterator::*)($ConcurrentHashMap$NodeArray*,int32_t,int32_t,int32_t,$ConcurrentHashMap*)>(&ConcurrentHashMap$KeyIterator::init$))},
-	{"next", "()Ljava/lang/Object;", "()TK;", $PUBLIC | $FINAL},
-	{"nextElement", "()Ljava/lang/Object;", "()TK;", $PUBLIC | $FINAL},
+	{"<init>", "([Ljava/util/concurrent/ConcurrentHashMap$Node;IIILjava/util/concurrent/ConcurrentHashMap;)V", "([Ljava/util/concurrent/ConcurrentHashMap$Node<TK;TV;>;IIILjava/util/concurrent/ConcurrentHashMap<TK;TV;>;)V", 0, $method(ConcurrentHashMap$KeyIterator, init$, void, $ConcurrentHashMap$NodeArray*, int32_t, int32_t, int32_t, $ConcurrentHashMap*)},
+	{"next", "()Ljava/lang/Object;", "()TK;", $PUBLIC | $FINAL, $virtualMethod(ConcurrentHashMap$KeyIterator, next, $Object*)},
+	{"nextElement", "()Ljava/lang/Object;", "()TK;", $PUBLIC | $FINAL, $virtualMethod(ConcurrentHashMap$KeyIterator, nextElement, $Object*)},
 	{"*remove", "()V", nullptr, $PUBLIC | $FINAL},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}

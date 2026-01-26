@@ -18,7 +18,7 @@ $FieldInfo _SmtpProtocolException_FieldInfo_[] = {
 };
 
 $MethodInfo _SmtpProtocolException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(SmtpProtocolException::*)($String*)>(&SmtpProtocolException::init$))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(SmtpProtocolException, init$, void, $String*)},
 	{}
 };
 

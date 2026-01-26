@@ -32,10 +32,10 @@ $FieldInfo _AuthenticatorKeys_FieldInfo_[] = {
 };
 
 $MethodInfo _AuthenticatorKeys_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(AuthenticatorKeys::*)()>(&AuthenticatorKeys::init$))},
-	{"computeKey", "(Ljava/net/Authenticator;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)($Authenticator*)>(&AuthenticatorKeys::computeKey))},
-	{"getKey", "(Ljava/net/Authenticator;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)($Authenticator*)>(&AuthenticatorKeys::getKey))},
-	{"setAuthenticatorKeyAccess", "(Lsun/net/www/protocol/http/AuthenticatorKeys$AuthenticatorKeyAccess;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($AuthenticatorKeys$AuthenticatorKeyAccess*)>(&AuthenticatorKeys::setAuthenticatorKeyAccess))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(AuthenticatorKeys, init$, void)},
+	{"computeKey", "(Ljava/net/Authenticator;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(AuthenticatorKeys, computeKey, $String*, $Authenticator*)},
+	{"getKey", "(Ljava/net/Authenticator;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(AuthenticatorKeys, getKey, $String*, $Authenticator*)},
+	{"setAuthenticatorKeyAccess", "(Lsun/net/www/protocol/http/AuthenticatorKeys$AuthenticatorKeyAccess;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(AuthenticatorKeys, setAuthenticatorKeyAccess, void, $AuthenticatorKeys$AuthenticatorKeyAccess*)},
 	{}
 };
 

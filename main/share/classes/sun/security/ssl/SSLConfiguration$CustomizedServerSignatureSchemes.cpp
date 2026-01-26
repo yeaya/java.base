@@ -21,7 +21,7 @@ $FieldInfo _SSLConfiguration$CustomizedServerSignatureSchemes_FieldInfo_[] = {
 };
 
 $MethodInfo _SSLConfiguration$CustomizedServerSignatureSchemes_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(SSLConfiguration$CustomizedServerSignatureSchemes::*)()>(&SSLConfiguration$CustomizedServerSignatureSchemes::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(SSLConfiguration$CustomizedServerSignatureSchemes, init$, void)},
 	{}
 };
 

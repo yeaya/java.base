@@ -15,7 +15,7 @@ $FieldInfo _Sanity$Derived$DPackage_FieldInfo_[] = {
 };
 
 $MethodInfo _Sanity$Derived$DPackage_MethodInfo_[] = {
-	{"<init>", "(LSanity$Derived;)V", nullptr, 0, $method(static_cast<void(Sanity$Derived$DPackage::*)($Sanity$Derived*)>(&Sanity$Derived$DPackage::init$))},
+	{"<init>", "(LSanity$Derived;)V", nullptr, 0, $method(Sanity$Derived$DPackage, init$, void, $Sanity$Derived*)},
 	{}
 };
 

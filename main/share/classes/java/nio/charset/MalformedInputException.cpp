@@ -19,9 +19,9 @@ $FieldInfo _MalformedInputException_FieldInfo_[] = {
 };
 
 $MethodInfo _MalformedInputException_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(static_cast<void(MalformedInputException::*)(int32_t)>(&MalformedInputException::init$))},
-	{"getInputLength", "()I", nullptr, $PUBLIC},
-	{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(I)V", nullptr, $PUBLIC, $method(MalformedInputException, init$, void, int32_t)},
+	{"getInputLength", "()I", nullptr, $PUBLIC, $virtualMethod(MalformedInputException, getInputLength, int32_t)},
+	{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MalformedInputException, getMessage, $String*)},
 	{}
 };
 

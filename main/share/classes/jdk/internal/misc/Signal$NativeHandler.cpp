@@ -26,10 +26,10 @@ $FieldInfo _Signal$NativeHandler_FieldInfo_[] = {
 };
 
 $MethodInfo _Signal$NativeHandler_MethodInfo_[] = {
-	{"<init>", "(J)V", nullptr, 0, $method(static_cast<void(Signal$NativeHandler::*)(int64_t)>(&Signal$NativeHandler::init$))},
-	{"getHandler", "()J", nullptr, 0, $method(static_cast<int64_t(Signal$NativeHandler::*)()>(&Signal$NativeHandler::getHandler))},
-	{"handle", "(Ljdk/internal/misc/Signal;)V", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(J)V", nullptr, 0, $method(Signal$NativeHandler, init$, void, int64_t)},
+	{"getHandler", "()J", nullptr, 0, $method(Signal$NativeHandler, getHandler, int64_t)},
+	{"handle", "(Ljdk/internal/misc/Signal;)V", nullptr, $PUBLIC, $virtualMethod(Signal$NativeHandler, handle, void, $Signal*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Signal$NativeHandler, toString, $String*)},
 	{}
 };
 

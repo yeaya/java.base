@@ -34,12 +34,12 @@ $FieldInfo _ImageReader$Directory_FieldInfo_[] = {
 };
 
 $MethodInfo _ImageReader$Directory_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/nio/file/attribute/BasicFileAttributes;)V", nullptr, $PRIVATE, $method(static_cast<void(ImageReader$Directory::*)($String*,$BasicFileAttributes*)>(&ImageReader$Directory::init$))},
-	{"addChild", "(Ljdk/internal/jimage/ImageReader$Node;)V", nullptr, 0, $method(static_cast<void(ImageReader$Directory::*)($ImageReader$Node*)>(&ImageReader$Directory::addChild))},
-	{"create", "(Ljdk/internal/jimage/ImageReader$Directory;Ljava/lang/String;Ljava/nio/file/attribute/BasicFileAttributes;)Ljdk/internal/jimage/ImageReader$Directory;", nullptr, $STATIC, $method(static_cast<ImageReader$Directory*(*)(ImageReader$Directory*,$String*,$BasicFileAttributes*)>(&ImageReader$Directory::create))},
-	{"getChildren", "()Ljava/util/List;", "()Ljava/util/List<Ljdk/internal/jimage/ImageReader$Node;>;", $PUBLIC},
-	{"isDirectory", "()Z", nullptr, $PUBLIC},
-	{"walk", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-Ljdk/internal/jimage/ImageReader$Node;>;)V", $PUBLIC, $method(static_cast<void(ImageReader$Directory::*)($Consumer*)>(&ImageReader$Directory::walk))},
+	{"<init>", "(Ljava/lang/String;Ljava/nio/file/attribute/BasicFileAttributes;)V", nullptr, $PRIVATE, $method(ImageReader$Directory, init$, void, $String*, $BasicFileAttributes*)},
+	{"addChild", "(Ljdk/internal/jimage/ImageReader$Node;)V", nullptr, 0, $method(ImageReader$Directory, addChild, void, $ImageReader$Node*)},
+	{"create", "(Ljdk/internal/jimage/ImageReader$Directory;Ljava/lang/String;Ljava/nio/file/attribute/BasicFileAttributes;)Ljdk/internal/jimage/ImageReader$Directory;", nullptr, $STATIC, $staticMethod(ImageReader$Directory, create, ImageReader$Directory*, ImageReader$Directory*, $String*, $BasicFileAttributes*)},
+	{"getChildren", "()Ljava/util/List;", "()Ljava/util/List<Ljdk/internal/jimage/ImageReader$Node;>;", $PUBLIC, $virtualMethod(ImageReader$Directory, getChildren, $List*)},
+	{"isDirectory", "()Z", nullptr, $PUBLIC, $virtualMethod(ImageReader$Directory, isDirectory, bool)},
+	{"walk", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-Ljdk/internal/jimage/ImageReader$Node;>;)V", $PUBLIC, $method(ImageReader$Directory, walk, void, $Consumer*)},
 	{}
 };
 

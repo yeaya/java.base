@@ -16,7 +16,7 @@ $CompoundAttribute _DoubleFunction_Annotations_[] = {
 };
 
 $MethodInfo _DoubleFunction_MethodInfo_[] = {
-	{"apply", "(D)Ljava/lang/Object;", "(D)TR;", $PUBLIC | $ABSTRACT},
+	{"apply", "(D)Ljava/lang/Object;", "(D)TR;", $PUBLIC | $ABSTRACT, $virtualMethod(DoubleFunction, apply, $Object*, double)},
 	{}
 };
 

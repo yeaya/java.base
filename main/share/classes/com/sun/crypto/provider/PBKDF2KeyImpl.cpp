@@ -98,8 +98,8 @@ $FieldInfo PBKDF2KeyImpl$$Lambda$lambda$new$0::fieldInfos[3] = {
 	{}
 };
 $MethodInfo PBKDF2KeyImpl$$Lambda$lambda$new$0::methodInfos[3] = {
-	{"<init>", "([B[C)V", nullptr, $PUBLIC, $method(static_cast<void(PBKDF2KeyImpl$$Lambda$lambda$new$0::*)($bytes*,$chars*)>(&PBKDF2KeyImpl$$Lambda$lambda$new$0::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "([B[C)V", nullptr, $PUBLIC, $method(PBKDF2KeyImpl$$Lambda$lambda$new$0, init$, void, $bytes*, $chars*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(PBKDF2KeyImpl$$Lambda$lambda$new$0, run, void)},
 	{}
 };
 $ClassInfo PBKDF2KeyImpl$$Lambda$lambda$new$0::classInfo$ = {
@@ -127,20 +127,20 @@ $FieldInfo _PBKDF2KeyImpl_FieldInfo_[] = {
 };
 
 $MethodInfo _PBKDF2KeyImpl_MethodInfo_[] = {
-	{"<init>", "(Ljavax/crypto/spec/PBEKeySpec;Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(PBKDF2KeyImpl::*)($PBEKeySpec*,$String*)>(&PBKDF2KeyImpl::init$)), "java.security.spec.InvalidKeySpecException"},
-	{"clearPassword", "()V", nullptr, $PUBLIC, $method(static_cast<void(PBKDF2KeyImpl::*)()>(&PBKDF2KeyImpl::clearPassword))},
-	{"deriveKey", "(Ljavax/crypto/Mac;[B[BII)[B", nullptr, $PRIVATE | $STATIC, $method(static_cast<$bytes*(*)($Mac*,$bytes*,$bytes*,int32_t,int32_t)>(&PBKDF2KeyImpl::deriveKey))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getEncoded", "()[B", nullptr, $PUBLIC},
-	{"getFormat", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getIterationCount", "()I", nullptr, $PUBLIC},
-	{"getPassword", "()[C", nullptr, $PUBLIC},
-	{"getPasswordBytes", "([C)[B", nullptr, $PRIVATE | $STATIC, $method(static_cast<$bytes*(*)($chars*)>(&PBKDF2KeyImpl::getPasswordBytes))},
-	{"getSalt", "()[B", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"lambda$new$0", "([B[C)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($bytes*,$chars*)>(&PBKDF2KeyImpl::lambda$new$0))},
-	{"writeReplace", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(static_cast<$Object*(PBKDF2KeyImpl::*)()>(&PBKDF2KeyImpl::writeReplace)), "java.io.ObjectStreamException"},
+	{"<init>", "(Ljavax/crypto/spec/PBEKeySpec;Ljava/lang/String;)V", nullptr, 0, $method(PBKDF2KeyImpl, init$, void, $PBEKeySpec*, $String*), "java.security.spec.InvalidKeySpecException"},
+	{"clearPassword", "()V", nullptr, $PUBLIC, $method(PBKDF2KeyImpl, clearPassword, void)},
+	{"deriveKey", "(Ljavax/crypto/Mac;[B[BII)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(PBKDF2KeyImpl, deriveKey, $bytes*, $Mac*, $bytes*, $bytes*, int32_t, int32_t)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(PBKDF2KeyImpl, equals, bool, Object$*)},
+	{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PBKDF2KeyImpl, getAlgorithm, $String*)},
+	{"getEncoded", "()[B", nullptr, $PUBLIC, $virtualMethod(PBKDF2KeyImpl, getEncoded, $bytes*)},
+	{"getFormat", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PBKDF2KeyImpl, getFormat, $String*)},
+	{"getIterationCount", "()I", nullptr, $PUBLIC, $virtualMethod(PBKDF2KeyImpl, getIterationCount, int32_t)},
+	{"getPassword", "()[C", nullptr, $PUBLIC, $virtualMethod(PBKDF2KeyImpl, getPassword, $chars*)},
+	{"getPasswordBytes", "([C)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(PBKDF2KeyImpl, getPasswordBytes, $bytes*, $chars*)},
+	{"getSalt", "()[B", nullptr, $PUBLIC, $virtualMethod(PBKDF2KeyImpl, getSalt, $bytes*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(PBKDF2KeyImpl, hashCode, int32_t)},
+	{"lambda$new$0", "([B[C)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(PBKDF2KeyImpl, lambda$new$0, void, $bytes*, $chars*)},
+	{"writeReplace", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(PBKDF2KeyImpl, writeReplace, $Object*), "java.io.ObjectStreamException"},
 	{}
 };
 

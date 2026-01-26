@@ -22,14 +22,14 @@ namespace jdk {
 		namespace module {
 
 $MethodInfo _ExplodedSystemModules_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ExplodedSystemModules::*)()>(&ExplodedSystemModules::init$))},
-	{"hasIncubatorModules", "()Z", nullptr, $PUBLIC},
-	{"hasSplitPackages", "()Z", nullptr, $PUBLIC},
-	{"moduleDescriptors", "()[Ljava/lang/module/ModuleDescriptor;", nullptr, $PUBLIC},
-	{"moduleHashes", "()[Ljdk/internal/module/ModuleHashes;", nullptr, $PUBLIC},
-	{"moduleReads", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/util/Set<Ljava/lang/String;>;>;", $PUBLIC},
-	{"moduleResolutions", "()[Ljdk/internal/module/ModuleResolution;", nullptr, $PUBLIC},
-	{"moduleTargets", "()[Ljdk/internal/module/ModuleTarget;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(ExplodedSystemModules, init$, void)},
+	{"hasIncubatorModules", "()Z", nullptr, $PUBLIC, $virtualMethod(ExplodedSystemModules, hasIncubatorModules, bool)},
+	{"hasSplitPackages", "()Z", nullptr, $PUBLIC, $virtualMethod(ExplodedSystemModules, hasSplitPackages, bool)},
+	{"moduleDescriptors", "()[Ljava/lang/module/ModuleDescriptor;", nullptr, $PUBLIC, $virtualMethod(ExplodedSystemModules, moduleDescriptors, $ModuleDescriptorArray*)},
+	{"moduleHashes", "()[Ljdk/internal/module/ModuleHashes;", nullptr, $PUBLIC, $virtualMethod(ExplodedSystemModules, moduleHashes, $ModuleHashesArray*)},
+	{"moduleReads", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/util/Set<Ljava/lang/String;>;>;", $PUBLIC, $virtualMethod(ExplodedSystemModules, moduleReads, $Map*)},
+	{"moduleResolutions", "()[Ljdk/internal/module/ModuleResolution;", nullptr, $PUBLIC, $virtualMethod(ExplodedSystemModules, moduleResolutions, $ModuleResolutionArray*)},
+	{"moduleTargets", "()[Ljdk/internal/module/ModuleTarget;", nullptr, $PUBLIC, $virtualMethod(ExplodedSystemModules, moduleTargets, $ModuleTargetArray*)},
 	{}
 };
 

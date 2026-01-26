@@ -19,11 +19,11 @@ $FieldInfo _HttpRetryException_FieldInfo_[] = {
 };
 
 $MethodInfo _HttpRetryException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(static_cast<void(HttpRetryException::*)($String*,int32_t)>(&HttpRetryException::init$))},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(HttpRetryException::*)($String*,int32_t,$String*)>(&HttpRetryException::init$))},
-	{"getLocation", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getReason", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"responseCode", "()I", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(HttpRetryException, init$, void, $String*, int32_t)},
+	{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", nullptr, $PUBLIC, $method(HttpRetryException, init$, void, $String*, int32_t, $String*)},
+	{"getLocation", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HttpRetryException, getLocation, $String*)},
+	{"getReason", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HttpRetryException, getReason, $String*)},
+	{"responseCode", "()I", nullptr, $PUBLIC, $virtualMethod(HttpRetryException, responseCode, int32_t)},
 	{}
 };
 

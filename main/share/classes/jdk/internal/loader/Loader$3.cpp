@@ -31,9 +31,9 @@ $FieldInfo _Loader$3_FieldInfo_[] = {
 };
 
 $MethodInfo _Loader$3_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/loader/Loader;Ljava/util/List;Ljava/util/Enumeration;)V", nullptr, 0, $method(static_cast<void(Loader$3::*)($Loader*,$List*,$Enumeration*)>(&Loader$3::init$))},
-	{"hasMoreElements", "()Z", nullptr, $PUBLIC},
-	{"nextElement", "()Ljava/net/URL;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/loader/Loader;Ljava/util/List;Ljava/util/Enumeration;)V", nullptr, 0, $method(Loader$3, init$, void, $Loader*, $List*, $Enumeration*)},
+	{"hasMoreElements", "()Z", nullptr, $PUBLIC, $virtualMethod(Loader$3, hasMoreElements, bool)},
+	{"nextElement", "()Ljava/net/URL;", nullptr, $PUBLIC, $virtualMethod(Loader$3, nextElement, $Object*)},
 	{}
 };
 

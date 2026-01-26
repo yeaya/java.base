@@ -39,15 +39,15 @@ $FieldInfo _ValidatorException_FieldInfo_[] = {
 };
 
 $MethodInfo _ValidatorException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(ValidatorException::*)($String*)>(&ValidatorException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(ValidatorException::*)($String*,$Throwable*)>(&ValidatorException::init$))},
-	{"<init>", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(static_cast<void(ValidatorException::*)(Object$*)>(&ValidatorException::init$))},
-	{"<init>", "(Ljava/lang/Object;Ljava/security/cert/X509Certificate;)V", nullptr, $PUBLIC, $method(static_cast<void(ValidatorException::*)(Object$*,$X509Certificate*)>(&ValidatorException::init$))},
-	{"<init>", "(Ljava/lang/Object;Ljava/security/cert/X509Certificate;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(ValidatorException::*)(Object$*,$X509Certificate*,$Throwable*)>(&ValidatorException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Object;Ljava/security/cert/X509Certificate;)V", nullptr, $PUBLIC, $method(static_cast<void(ValidatorException::*)($String*,Object$*,$X509Certificate*)>(&ValidatorException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Object;Ljava/security/cert/X509Certificate;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(ValidatorException::*)($String*,Object$*,$X509Certificate*,$Throwable*)>(&ValidatorException::init$))},
-	{"getErrorCertificate", "()Ljava/security/cert/X509Certificate;", nullptr, $PUBLIC},
-	{"getErrorType", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ValidatorException, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(ValidatorException, init$, void, $String*, $Throwable*)},
+	{"<init>", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(ValidatorException, init$, void, Object$*)},
+	{"<init>", "(Ljava/lang/Object;Ljava/security/cert/X509Certificate;)V", nullptr, $PUBLIC, $method(ValidatorException, init$, void, Object$*, $X509Certificate*)},
+	{"<init>", "(Ljava/lang/Object;Ljava/security/cert/X509Certificate;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(ValidatorException, init$, void, Object$*, $X509Certificate*, $Throwable*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Object;Ljava/security/cert/X509Certificate;)V", nullptr, $PUBLIC, $method(ValidatorException, init$, void, $String*, Object$*, $X509Certificate*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Object;Ljava/security/cert/X509Certificate;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(ValidatorException, init$, void, $String*, Object$*, $X509Certificate*, $Throwable*)},
+	{"getErrorCertificate", "()Ljava/security/cert/X509Certificate;", nullptr, $PUBLIC, $virtualMethod(ValidatorException, getErrorCertificate, $X509Certificate*)},
+	{"getErrorType", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ValidatorException, getErrorType, $Object*)},
 	{}
 };
 

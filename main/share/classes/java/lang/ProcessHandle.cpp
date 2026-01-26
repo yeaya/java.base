@@ -13,8 +13,10 @@ using $Comparable = ::java::lang::Comparable;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $ProcessHandle$Info = ::java::lang::ProcessHandle$Info;
 using $ProcessHandleImpl = ::java::lang::ProcessHandleImpl;
 using $Optional = ::java::util::Optional;
+using $CompletableFuture = ::java::util::concurrent::CompletableFuture;
 using $Stream = ::java::util::stream::Stream;
 
 namespace java {
@@ -26,23 +28,23 @@ $CompoundAttribute _ProcessHandle_Annotations_[] = {
 };
 
 $MethodInfo _ProcessHandle_MethodInfo_[] = {
-	{"allProcesses", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljava/lang/ProcessHandle;>;", $PUBLIC | $STATIC, $method(static_cast<$Stream*(*)()>(&ProcessHandle::allProcesses))},
-	{"children", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljava/lang/ProcessHandle;>;", $PUBLIC | $ABSTRACT},
-	{"compareTo", "(Ljava/lang/ProcessHandle;)I", nullptr, $PUBLIC | $ABSTRACT},
-	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"current", "()Ljava/lang/ProcessHandle;", nullptr, $PUBLIC | $STATIC, $method(static_cast<ProcessHandle*(*)()>(&ProcessHandle::current))},
-	{"descendants", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljava/lang/ProcessHandle;>;", $PUBLIC | $ABSTRACT},
-	{"destroy", "()Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"destroyForcibly", "()Z", nullptr, $PUBLIC | $ABSTRACT},
+	{"allProcesses", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljava/lang/ProcessHandle;>;", $PUBLIC | $STATIC, $staticMethod(ProcessHandle, allProcesses, $Stream*)},
+	{"children", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljava/lang/ProcessHandle;>;", $PUBLIC | $ABSTRACT, $virtualMethod(ProcessHandle, children, $Stream*)},
+	{"compareTo", "(Ljava/lang/ProcessHandle;)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ProcessHandle, compareTo, int32_t, ProcessHandle*)},
+	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ProcessHandle, compareTo, int32_t, Object$*)},
+	{"current", "()Ljava/lang/ProcessHandle;", nullptr, $PUBLIC | $STATIC, $staticMethod(ProcessHandle, current, ProcessHandle*)},
+	{"descendants", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljava/lang/ProcessHandle;>;", $PUBLIC | $ABSTRACT, $virtualMethod(ProcessHandle, descendants, $Stream*)},
+	{"destroy", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ProcessHandle, destroy, bool)},
+	{"destroyForcibly", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ProcessHandle, destroyForcibly, bool)},
 	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
 	{"hashCode", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"info", "()Ljava/lang/ProcessHandle$Info;", nullptr, $PUBLIC | $ABSTRACT},
-	{"isAlive", "()Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"of", "(J)Ljava/util/Optional;", "(J)Ljava/util/Optional<Ljava/lang/ProcessHandle;>;", $PUBLIC | $STATIC, $method(static_cast<$Optional*(*)(int64_t)>(&ProcessHandle::of))},
-	{"onExit", "()Ljava/util/concurrent/CompletableFuture;", "()Ljava/util/concurrent/CompletableFuture<Ljava/lang/ProcessHandle;>;", $PUBLIC | $ABSTRACT},
-	{"parent", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/lang/ProcessHandle;>;", $PUBLIC | $ABSTRACT},
-	{"pid", "()J", nullptr, $PUBLIC | $ABSTRACT},
-	{"supportsNormalTermination", "()Z", nullptr, $PUBLIC | $ABSTRACT},
+	{"info", "()Ljava/lang/ProcessHandle$Info;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ProcessHandle, info, $ProcessHandle$Info*)},
+	{"isAlive", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ProcessHandle, isAlive, bool)},
+	{"of", "(J)Ljava/util/Optional;", "(J)Ljava/util/Optional<Ljava/lang/ProcessHandle;>;", $PUBLIC | $STATIC, $staticMethod(ProcessHandle, of, $Optional*, int64_t)},
+	{"onExit", "()Ljava/util/concurrent/CompletableFuture;", "()Ljava/util/concurrent/CompletableFuture<Ljava/lang/ProcessHandle;>;", $PUBLIC | $ABSTRACT, $virtualMethod(ProcessHandle, onExit, $CompletableFuture*)},
+	{"parent", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/lang/ProcessHandle;>;", $PUBLIC | $ABSTRACT, $virtualMethod(ProcessHandle, parent, $Optional*)},
+	{"pid", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ProcessHandle, pid, int64_t)},
+	{"supportsNormalTermination", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ProcessHandle, supportsNormalTermination, bool)},
 	{}
 };
 

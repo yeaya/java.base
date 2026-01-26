@@ -34,8 +34,8 @@ $FieldInfo _JceKeyStore$DeserializationChecker_FieldInfo_[] = {
 };
 
 $MethodInfo _JceKeyStore$DeserializationChecker_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(static_cast<void(JceKeyStore$DeserializationChecker::*)(int32_t)>(&JceKeyStore$DeserializationChecker::init$))},
-	{"checkInput", "(Ljava/io/ObjectInputFilter$FilterInfo;)Ljava/io/ObjectInputFilter$Status;", nullptr, $PUBLIC},
+	{"<init>", "(I)V", nullptr, $PUBLIC, $method(JceKeyStore$DeserializationChecker, init$, void, int32_t)},
+	{"checkInput", "(Ljava/io/ObjectInputFilter$FilterInfo;)Ljava/io/ObjectInputFilter$Status;", nullptr, $PUBLIC, $virtualMethod(JceKeyStore$DeserializationChecker, checkInput, $ObjectInputFilter$Status*, $ObjectInputFilter$FilterInfo*)},
 	{}
 };
 

@@ -22,11 +22,11 @@ $FieldInfo _MessageFormatsByArgumentIndex_FieldInfo_[] = {
 };
 
 $MethodInfo _MessageFormatsByArgumentIndex_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(MessageFormatsByArgumentIndex::*)()>(&MessageFormatsByArgumentIndex::init$))},
-	{"checkPattern", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($String*,$String*)>(&MessageFormatsByArgumentIndex::checkPattern))},
-	{"checkSubformat", "([Ljava/text/Format;ILjava/text/Format;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($FormatArray*,int32_t,$Format*)>(&MessageFormatsByArgumentIndex::checkSubformat))},
-	{"checkSubformatLength", "([Ljava/text/Format;I)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($FormatArray*,int32_t)>(&MessageFormatsByArgumentIndex::checkSubformatLength))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&MessageFormatsByArgumentIndex::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(MessageFormatsByArgumentIndex, init$, void)},
+	{"checkPattern", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(MessageFormatsByArgumentIndex, checkPattern, void, $String*, $String*)},
+	{"checkSubformat", "([Ljava/text/Format;ILjava/text/Format;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(MessageFormatsByArgumentIndex, checkSubformat, void, $FormatArray*, int32_t, $Format*)},
+	{"checkSubformatLength", "([Ljava/text/Format;I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(MessageFormatsByArgumentIndex, checkSubformatLength, void, $FormatArray*, int32_t)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(MessageFormatsByArgumentIndex, main, void, $StringArray*)},
 	{}
 };
 

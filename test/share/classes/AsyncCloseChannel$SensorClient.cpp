@@ -29,9 +29,9 @@ $FieldInfo _AsyncCloseChannel$SensorClient_FieldInfo_[] = {
 };
 
 $MethodInfo _AsyncCloseChannel$SensorClient_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(AsyncCloseChannel$SensorClient::*)()>(&AsyncCloseChannel$SensorClient::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
-	{"wakeMe", "()V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)()>(&AsyncCloseChannel$SensorClient::wakeMe))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(AsyncCloseChannel$SensorClient, init$, void)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(AsyncCloseChannel$SensorClient, run, void)},
+	{"wakeMe", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(AsyncCloseChannel$SensorClient, wakeMe, void)},
 	{}
 };
 

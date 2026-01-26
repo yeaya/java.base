@@ -30,8 +30,8 @@ $FieldInfo _AppConfigurationEntry$LoginModuleControlFlag_FieldInfo_[] = {
 };
 
 $MethodInfo _AppConfigurationEntry$LoginModuleControlFlag_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(static_cast<void(AppConfigurationEntry$LoginModuleControlFlag::*)($String*)>(&AppConfigurationEntry$LoginModuleControlFlag::init$))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(AppConfigurationEntry$LoginModuleControlFlag, init$, void, $String*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AppConfigurationEntry$LoginModuleControlFlag, toString, $String*)},
 	{}
 };
 

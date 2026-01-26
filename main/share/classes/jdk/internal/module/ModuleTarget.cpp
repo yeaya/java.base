@@ -16,8 +16,8 @@ $FieldInfo _ModuleTarget_FieldInfo_[] = {
 };
 
 $MethodInfo _ModuleTarget_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(ModuleTarget::*)($String*)>(&ModuleTarget::init$))},
-	{"targetPlatform", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(static_cast<$String*(ModuleTarget::*)()>(&ModuleTarget::targetPlatform))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ModuleTarget, init$, void, $String*)},
+	{"targetPlatform", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(ModuleTarget, targetPlatform, $String*)},
 	{}
 };
 

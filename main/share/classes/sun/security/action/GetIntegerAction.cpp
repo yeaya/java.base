@@ -24,11 +24,11 @@ $FieldInfo _GetIntegerAction_FieldInfo_[] = {
 };
 
 $MethodInfo _GetIntegerAction_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(GetIntegerAction::*)($String*)>(&GetIntegerAction::init$))},
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(static_cast<void(GetIntegerAction::*)($String*,int32_t)>(&GetIntegerAction::init$))},
-	{"privilegedGetProperty", "(Ljava/lang/String;)Ljava/lang/Integer;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Integer*(*)($String*)>(&GetIntegerAction::privilegedGetProperty))},
-	{"privilegedGetProperty", "(Ljava/lang/String;I)Ljava/lang/Integer;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Integer*(*)($String*,int32_t)>(&GetIntegerAction::privilegedGetProperty))},
-	{"run", "()Ljava/lang/Integer;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(GetIntegerAction, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(GetIntegerAction, init$, void, $String*, int32_t)},
+	{"privilegedGetProperty", "(Ljava/lang/String;)Ljava/lang/Integer;", nullptr, $PUBLIC | $STATIC, $staticMethod(GetIntegerAction, privilegedGetProperty, $Integer*, $String*)},
+	{"privilegedGetProperty", "(Ljava/lang/String;I)Ljava/lang/Integer;", nullptr, $PUBLIC | $STATIC, $staticMethod(GetIntegerAction, privilegedGetProperty, $Integer*, $String*, int32_t)},
+	{"run", "()Ljava/lang/Integer;", nullptr, $PUBLIC, $virtualMethod(GetIntegerAction, run, $Object*)},
 	{}
 };
 

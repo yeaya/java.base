@@ -36,14 +36,14 @@ $FieldInfo _TimestampToken_FieldInfo_[] = {
 };
 
 $MethodInfo _TimestampToken_MethodInfo_[] = {
-	{"<init>", "([B)V", nullptr, $PUBLIC, $method(static_cast<void(TimestampToken::*)($bytes*)>(&TimestampToken::init$)), "java.io.IOException"},
-	{"getDate", "()Ljava/util/Date;", nullptr, $PUBLIC},
-	{"getHashAlgorithm", "()Lsun/security/x509/AlgorithmId;", nullptr, $PUBLIC},
-	{"getHashedMessage", "()[B", nullptr, $PUBLIC},
-	{"getNonce", "()Ljava/math/BigInteger;", nullptr, $PUBLIC},
-	{"getPolicyID", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getSerialNumber", "()Ljava/math/BigInteger;", nullptr, $PUBLIC},
-	{"parse", "([B)V", nullptr, $PRIVATE, $method(static_cast<void(TimestampToken::*)($bytes*)>(&TimestampToken::parse)), "java.io.IOException"},
+	{"<init>", "([B)V", nullptr, $PUBLIC, $method(TimestampToken, init$, void, $bytes*), "java.io.IOException"},
+	{"getDate", "()Ljava/util/Date;", nullptr, $PUBLIC, $virtualMethod(TimestampToken, getDate, $Date*)},
+	{"getHashAlgorithm", "()Lsun/security/x509/AlgorithmId;", nullptr, $PUBLIC, $virtualMethod(TimestampToken, getHashAlgorithm, $AlgorithmId*)},
+	{"getHashedMessage", "()[B", nullptr, $PUBLIC, $virtualMethod(TimestampToken, getHashedMessage, $bytes*)},
+	{"getNonce", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(TimestampToken, getNonce, $BigInteger*)},
+	{"getPolicyID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TimestampToken, getPolicyID, $String*)},
+	{"getSerialNumber", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(TimestampToken, getSerialNumber, $BigInteger*)},
+	{"parse", "([B)V", nullptr, $PRIVATE, $method(TimestampToken, parse, void, $bytes*), "java.io.IOException"},
 	{}
 };
 

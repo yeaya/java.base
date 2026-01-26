@@ -24,7 +24,7 @@ $FieldInfo _LoginContext$ModuleInfo_FieldInfo_[] = {
 };
 
 $MethodInfo _LoginContext$ModuleInfo_MethodInfo_[] = {
-	{"<init>", "(Ljavax/security/auth/login/AppConfigurationEntry;Ljavax/security/auth/spi/LoginModule;)V", nullptr, 0, $method(static_cast<void(LoginContext$ModuleInfo::*)($AppConfigurationEntry*,$LoginModule*)>(&LoginContext$ModuleInfo::init$))},
+	{"<init>", "(Ljavax/security/auth/login/AppConfigurationEntry;Ljavax/security/auth/spi/LoginModule;)V", nullptr, 0, $method(LoginContext$ModuleInfo, init$, void, $AppConfigurationEntry*, $LoginModule*)},
 	{}
 };
 

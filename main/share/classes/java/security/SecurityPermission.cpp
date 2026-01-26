@@ -17,8 +17,8 @@ $FieldInfo _SecurityPermission_FieldInfo_[] = {
 };
 
 $MethodInfo _SecurityPermission_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(SecurityPermission::*)($String*)>(&SecurityPermission::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(SecurityPermission::*)($String*,$String*)>(&SecurityPermission::init$))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SecurityPermission, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SecurityPermission, init$, void, $String*, $String*)},
 	{}
 };
 

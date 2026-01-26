@@ -21,10 +21,10 @@ $FieldInfo _Nodes$ToArrayTask$OfRef_FieldInfo_[] = {
 };
 
 $MethodInfo _Nodes$ToArrayTask$OfRef_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/stream/Node;[Ljava/lang/Object;I)V", "(Ljava/util/stream/Node<TT;>;[TT;I)V", $PRIVATE, $method(static_cast<void(Nodes$ToArrayTask$OfRef::*)($Node*,$ObjectArray*,int32_t)>(&Nodes$ToArrayTask$OfRef::init$))},
-	{"<init>", "(Ljava/util/stream/Nodes$ToArrayTask$OfRef;Ljava/util/stream/Node;I)V", "(Ljava/util/stream/Nodes$ToArrayTask$OfRef<TT;>;Ljava/util/stream/Node<TT;>;I)V", $PRIVATE, $method(static_cast<void(Nodes$ToArrayTask$OfRef::*)(Nodes$ToArrayTask$OfRef*,$Node*,int32_t)>(&Nodes$ToArrayTask$OfRef::init$))},
-	{"copyNodeToArray", "()V", nullptr, 0},
-	{"makeChild", "(II)Ljava/util/stream/Nodes$ToArrayTask$OfRef;", "(II)Ljava/util/stream/Nodes$ToArrayTask$OfRef<TT;>;", 0},
+	{"<init>", "(Ljava/util/stream/Node;[Ljava/lang/Object;I)V", "(Ljava/util/stream/Node<TT;>;[TT;I)V", $PRIVATE, $method(Nodes$ToArrayTask$OfRef, init$, void, $Node*, $ObjectArray*, int32_t)},
+	{"<init>", "(Ljava/util/stream/Nodes$ToArrayTask$OfRef;Ljava/util/stream/Node;I)V", "(Ljava/util/stream/Nodes$ToArrayTask$OfRef<TT;>;Ljava/util/stream/Node<TT;>;I)V", $PRIVATE, $method(Nodes$ToArrayTask$OfRef, init$, void, Nodes$ToArrayTask$OfRef*, $Node*, int32_t)},
+	{"copyNodeToArray", "()V", nullptr, 0, $virtualMethod(Nodes$ToArrayTask$OfRef, copyNodeToArray, void)},
+	{"makeChild", "(II)Ljava/util/stream/Nodes$ToArrayTask$OfRef;", "(II)Ljava/util/stream/Nodes$ToArrayTask$OfRef<TT;>;", 0, $virtualMethod(Nodes$ToArrayTask$OfRef, makeChild, Nodes$ToArrayTask$OfRef*, int32_t, int32_t)},
 	{}
 };
 

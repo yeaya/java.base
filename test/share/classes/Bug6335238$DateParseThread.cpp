@@ -23,8 +23,8 @@ $FieldInfo _Bug6335238$DateParseThread_FieldInfo_[] = {
 };
 
 $MethodInfo _Bug6335238$DateParseThread_MethodInfo_[] = {
-	{"<init>", "(LBug6335238;)V", nullptr, 0, $method(static_cast<void(Bug6335238$DateParseThread::*)($Bug6335238*)>(&Bug6335238$DateParseThread::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(LBug6335238;)V", nullptr, 0, $method(Bug6335238$DateParseThread, init$, void, $Bug6335238*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Bug6335238$DateParseThread, run, void)},
 	{}
 };
 

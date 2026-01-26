@@ -26,15 +26,15 @@ $FieldInfo _RuntimeImageLocation_FieldInfo_[] = {
 };
 
 $MethodInfo _RuntimeImageLocation_MethodInfo_[] = {
-	{"<init>", "([JLjdk/internal/jimage/ImageStrings;)V", nullptr, $PUBLIC, $method(static_cast<void(RuntimeImageLocation::*)($longs*,$ImageStrings*)>(&RuntimeImageLocation::init$))},
-	{"buildName", "(ZZZ)Ljava/lang/String;", nullptr, 0},
-	{"getBase", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getCompressedSize", "()J", nullptr, $PUBLIC},
-	{"getExtension", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getFullName", "(Z)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getModule", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getParent", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getUncompressedSize", "()J", nullptr, $PUBLIC},
+	{"<init>", "([JLjdk/internal/jimage/ImageStrings;)V", nullptr, $PUBLIC, $method(RuntimeImageLocation, init$, void, $longs*, $ImageStrings*)},
+	{"buildName", "(ZZZ)Ljava/lang/String;", nullptr, 0, $virtualMethod(RuntimeImageLocation, buildName, $String*, bool, bool, bool)},
+	{"getBase", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RuntimeImageLocation, getBase, $String*)},
+	{"getCompressedSize", "()J", nullptr, $PUBLIC, $virtualMethod(RuntimeImageLocation, getCompressedSize, int64_t)},
+	{"getExtension", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RuntimeImageLocation, getExtension, $String*)},
+	{"getFullName", "(Z)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RuntimeImageLocation, getFullName, $String*, bool)},
+	{"getModule", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RuntimeImageLocation, getModule, $String*)},
+	{"getParent", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RuntimeImageLocation, getParent, $String*)},
+	{"getUncompressedSize", "()J", nullptr, $PUBLIC, $virtualMethod(RuntimeImageLocation, getUncompressedSize, int64_t)},
 	{}
 };
 

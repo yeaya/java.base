@@ -23,7 +23,7 @@ $FieldInfo _Big5$EncodeHolder_FieldInfo_[] = {
 };
 
 $MethodInfo _Big5$EncodeHolder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Big5$EncodeHolder::*)()>(&Big5$EncodeHolder::init$))},
+	{"<init>", "()V", nullptr, 0, $method(Big5$EncodeHolder, init$, void)},
 	{}
 };
 

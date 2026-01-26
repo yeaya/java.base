@@ -23,8 +23,8 @@ $FieldInfo _B4148751_FieldInfo_[] = {
 };
 
 $MethodInfo _B4148751_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(B4148751::*)()>(&B4148751::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&B4148751::main)), "java.net.URISyntaxException,java.net.MalformedURLException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(B4148751, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(B4148751, main, void, $StringArray*), "java.net.URISyntaxException,java.net.MalformedURLException"},
 	{}
 };
 

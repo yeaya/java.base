@@ -8,7 +8,7 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _GetAnnotatedSuperclass$Clz_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(GetAnnotatedSuperclass$Clz::*)()>(&GetAnnotatedSuperclass$Clz::init$))},
+	{"<init>", "()V", nullptr, 0, $method(GetAnnotatedSuperclass$Clz, init$, void)},
 	{}
 };
 

@@ -24,8 +24,8 @@ $FieldInfo _Policy$2_FieldInfo_[] = {
 };
 
 $MethodInfo _Policy$2_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(Policy$2::*)($String*)>(&Policy$2::init$))},
-	{"run", "()Ljava/security/Policy;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(Policy$2, init$, void, $String*)},
+	{"run", "()Ljava/security/Policy;", nullptr, $PUBLIC, $virtualMethod(Policy$2, run, $Object*)},
 	{}
 };
 

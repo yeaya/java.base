@@ -29,10 +29,10 @@ $FieldInfo _Surrogate$Generator_FieldInfo_[] = {
 };
 
 $MethodInfo _Surrogate$Generator_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Surrogate$Generator::*)()>(&Surrogate$Generator::init$))},
-	{"error", "()Ljava/nio/charset/CoderResult;", nullptr, $PUBLIC},
-	{"generate", "(IILjava/nio/CharBuffer;)I", nullptr, $PUBLIC},
-	{"generate", "(II[CII)I", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Surrogate$Generator, init$, void)},
+	{"error", "()Ljava/nio/charset/CoderResult;", nullptr, $PUBLIC, $virtualMethod(Surrogate$Generator, error, $CoderResult*)},
+	{"generate", "(IILjava/nio/CharBuffer;)I", nullptr, $PUBLIC, $virtualMethod(Surrogate$Generator, generate, int32_t, int32_t, int32_t, $CharBuffer*)},
+	{"generate", "(II[CII)I", nullptr, $PUBLIC, $virtualMethod(Surrogate$Generator, generate, int32_t, int32_t, int32_t, $chars*, int32_t, int32_t)},
 	{}
 };
 

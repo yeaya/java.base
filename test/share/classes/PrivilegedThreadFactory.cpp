@@ -17,9 +17,9 @@ using $AccessController = ::java::security::AccessController;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
 
 $MethodInfo _PrivilegedThreadFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PrivilegedThreadFactory::*)()>(&PrivilegedThreadFactory::init$))},
-	{"PrivilegedThreadPoolFactory", "()V", nullptr, $PUBLIC},
-	{"newThread", "(Ljava/lang/Runnable;)Ljava/lang/Thread;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PrivilegedThreadFactory, init$, void)},
+	{"PrivilegedThreadPoolFactory", "()V", nullptr, $PUBLIC, $virtualMethod(PrivilegedThreadFactory, PrivilegedThreadPoolFactory, void)},
+	{"newThread", "(Ljava/lang/Runnable;)Ljava/lang/Thread;", nullptr, $PUBLIC, $virtualMethod(PrivilegedThreadFactory, newThread, $Thread*, $Runnable*)},
 	{}
 };
 

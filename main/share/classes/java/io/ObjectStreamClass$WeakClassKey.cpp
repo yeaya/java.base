@@ -22,9 +22,9 @@ $FieldInfo _ObjectStreamClass$WeakClassKey_FieldInfo_[] = {
 };
 
 $MethodInfo _ObjectStreamClass$WeakClassKey_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Class;Ljava/lang/ref/ReferenceQueue;)V", "(Ljava/lang/Class<*>;Ljava/lang/ref/ReferenceQueue<Ljava/lang/Class<*>;>;)V", 0, $method(static_cast<void(ObjectStreamClass$WeakClassKey::*)($Class*,$ReferenceQueue*)>(&ObjectStreamClass$WeakClassKey::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Class;Ljava/lang/ref/ReferenceQueue;)V", "(Ljava/lang/Class<*>;Ljava/lang/ref/ReferenceQueue<Ljava/lang/Class<*>;>;)V", 0, $method(ObjectStreamClass$WeakClassKey, init$, void, $Class*, $ReferenceQueue*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ObjectStreamClass$WeakClassKey, equals, bool, Object$*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ObjectStreamClass$WeakClassKey, hashCode, int32_t)},
 	{}
 };
 

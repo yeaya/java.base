@@ -36,8 +36,8 @@ $FieldInfo _SunRsaSign_FieldInfo_[] = {
 };
 
 $MethodInfo _SunRsaSign_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SunRsaSign::*)()>(&SunRsaSign::init$))},
-	{"putEntries", "(Ljava/util/Iterator;)V", "(Ljava/util/Iterator<Ljava/security/Provider$Service;>;)V", 0, $method(static_cast<void(SunRsaSign::*)($Iterator*)>(&SunRsaSign::putEntries))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SunRsaSign, init$, void)},
+	{"putEntries", "(Ljava/util/Iterator;)V", "(Ljava/util/Iterator<Ljava/security/Provider$Service;>;)V", 0, $method(SunRsaSign, putEntries, void, $Iterator*)},
 	{}
 };
 

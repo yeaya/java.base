@@ -25,17 +25,17 @@ $FieldInfo _Manifest$FastInputStream_FieldInfo_[] = {
 };
 
 $MethodInfo _Manifest$FastInputStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/InputStream;)V", nullptr, 0, $method(static_cast<void(Manifest$FastInputStream::*)($InputStream*)>(&Manifest$FastInputStream::init$))},
-	{"<init>", "(Ljava/io/InputStream;I)V", nullptr, 0, $method(static_cast<void(Manifest$FastInputStream::*)($InputStream*,int32_t)>(&Manifest$FastInputStream::init$))},
-	{"available", "()I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"fill", "()V", nullptr, $PRIVATE, $method(static_cast<void(Manifest$FastInputStream::*)()>(&Manifest$FastInputStream::fill)), "java.io.IOException"},
-	{"peek", "()B", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"read", "()I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"read", "([BII)I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"readLine", "([BII)I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"readLine", "([B)I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"skip", "(J)J", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljava/io/InputStream;)V", nullptr, 0, $method(Manifest$FastInputStream, init$, void, $InputStream*)},
+	{"<init>", "(Ljava/io/InputStream;I)V", nullptr, 0, $method(Manifest$FastInputStream, init$, void, $InputStream*, int32_t)},
+	{"available", "()I", nullptr, $PUBLIC, $virtualMethod(Manifest$FastInputStream, available, int32_t), "java.io.IOException"},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(Manifest$FastInputStream, close, void), "java.io.IOException"},
+	{"fill", "()V", nullptr, $PRIVATE, $method(Manifest$FastInputStream, fill, void), "java.io.IOException"},
+	{"peek", "()B", nullptr, $PUBLIC, $virtualMethod(Manifest$FastInputStream, peek, int8_t), "java.io.IOException"},
+	{"read", "()I", nullptr, $PUBLIC, $virtualMethod(Manifest$FastInputStream, read, int32_t), "java.io.IOException"},
+	{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(Manifest$FastInputStream, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
+	{"readLine", "([BII)I", nullptr, $PUBLIC, $virtualMethod(Manifest$FastInputStream, readLine, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
+	{"readLine", "([B)I", nullptr, $PUBLIC, $virtualMethod(Manifest$FastInputStream, readLine, int32_t, $bytes*), "java.io.IOException"},
+	{"skip", "(J)J", nullptr, $PUBLIC, $virtualMethod(Manifest$FastInputStream, skip, int64_t, int64_t), "java.io.IOException"},
 	{}
 };
 

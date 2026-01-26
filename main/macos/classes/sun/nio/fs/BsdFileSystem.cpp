@@ -49,12 +49,12 @@ namespace sun {
 		namespace fs {
 
 $MethodInfo _BsdFileSystem_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/fs/UnixFileSystemProvider;Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(BsdFileSystem::*)($UnixFileSystemProvider*,$String*)>(&BsdFileSystem::init$))},
-	{"copyNonPosixAttributes", "(II)V", nullptr, 0},
-	{"getFileStore", "(Lsun/nio/fs/UnixMountEntry;)Ljava/nio/file/FileStore;", nullptr, 0, nullptr, "java.io.IOException"},
-	{"getMountEntries", "()Ljava/lang/Iterable;", "()Ljava/lang/Iterable<Lsun/nio/fs/UnixMountEntry;>;", 0},
-	{"newWatchService", "()Ljava/nio/file/WatchService;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"supportedFileAttributeViews", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC},
+	{"<init>", "(Lsun/nio/fs/UnixFileSystemProvider;Ljava/lang/String;)V", nullptr, 0, $method(BsdFileSystem, init$, void, $UnixFileSystemProvider*, $String*)},
+	{"copyNonPosixAttributes", "(II)V", nullptr, 0, $virtualMethod(BsdFileSystem, copyNonPosixAttributes, void, int32_t, int32_t)},
+	{"getFileStore", "(Lsun/nio/fs/UnixMountEntry;)Ljava/nio/file/FileStore;", nullptr, 0, $virtualMethod(BsdFileSystem, getFileStore, $FileStore*, $UnixMountEntry*), "java.io.IOException"},
+	{"getMountEntries", "()Ljava/lang/Iterable;", "()Ljava/lang/Iterable<Lsun/nio/fs/UnixMountEntry;>;", 0, $virtualMethod(BsdFileSystem, getMountEntries, $Iterable*)},
+	{"newWatchService", "()Ljava/nio/file/WatchService;", nullptr, $PUBLIC, $virtualMethod(BsdFileSystem, newWatchService, $WatchService*), "java.io.IOException"},
+	{"supportedFileAttributeViews", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(BsdFileSystem, supportedFileAttributeViews, $Set*)},
 	{}
 };
 

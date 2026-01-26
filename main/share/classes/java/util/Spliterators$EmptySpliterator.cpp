@@ -18,12 +18,12 @@ namespace java {
 	namespace util {
 
 $MethodInfo _Spliterators$EmptySpliterator_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Spliterators$EmptySpliterator::*)()>(&Spliterators$EmptySpliterator::init$))},
-	{"characteristics", "()I", nullptr, $PUBLIC},
-	{"estimateSize", "()J", nullptr, $PUBLIC},
-	{"forEachRemaining", "(Ljava/lang/Object;)V", "(TC;)V", $PUBLIC},
-	{"tryAdvance", "(Ljava/lang/Object;)Z", "(TC;)Z", $PUBLIC},
-	{"trySplit", "()Ljava/util/Spliterator;", "()TS;", $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(Spliterators$EmptySpliterator, init$, void)},
+	{"characteristics", "()I", nullptr, $PUBLIC, $virtualMethod(Spliterators$EmptySpliterator, characteristics, int32_t)},
+	{"estimateSize", "()J", nullptr, $PUBLIC, $virtualMethod(Spliterators$EmptySpliterator, estimateSize, int64_t)},
+	{"forEachRemaining", "(Ljava/lang/Object;)V", "(TC;)V", $PUBLIC, $virtualMethod(Spliterators$EmptySpliterator, forEachRemaining, void, Object$*)},
+	{"tryAdvance", "(Ljava/lang/Object;)Z", "(TC;)Z", $PUBLIC, $virtualMethod(Spliterators$EmptySpliterator, tryAdvance, bool, Object$*)},
+	{"trySplit", "()Ljava/util/Spliterator;", "()TS;", $PUBLIC, $virtualMethod(Spliterators$EmptySpliterator, trySplit, $Spliterator*)},
 	{}
 };
 

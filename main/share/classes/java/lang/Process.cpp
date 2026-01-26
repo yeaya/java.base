@@ -37,7 +37,9 @@
 
 using $BufferedReader = ::java::io::BufferedReader;
 using $BufferedWriter = ::java::io::BufferedWriter;
+using $InputStream = ::java::io::InputStream;
 using $InputStreamReader = ::java::io::InputStreamReader;
+using $OutputStream = ::java::io::OutputStream;
 using $OutputStreamWriter = ::java::io::OutputStreamWriter;
 using $Reader = ::java::io::Reader;
 using $Serializable = ::java::io::Serializable;
@@ -90,8 +92,8 @@ $FieldInfo Process$$Lambda$waitForInternal::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Process$$Lambda$waitForInternal::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/Process;)V", nullptr, $PUBLIC, $method(static_cast<void(Process$$Lambda$waitForInternal::*)(Process*)>(&Process$$Lambda$waitForInternal::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Process;)V", nullptr, $PUBLIC, $method(Process$$Lambda$waitForInternal, init$, void, Process*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Process$$Lambda$waitForInternal, get, $Object*)},
 	{}
 };
 $ClassInfo Process$$Lambda$waitForInternal::classInfo$ = {
@@ -119,31 +121,31 @@ $FieldInfo _Process_FieldInfo_[] = {
 };
 
 $MethodInfo _Process_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Process::*)()>(&Process::init$))},
-	{"children", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljava/lang/ProcessHandle;>;", $PUBLIC},
-	{"descendants", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljava/lang/ProcessHandle;>;", $PUBLIC},
-	{"destroy", "()V", nullptr, $PUBLIC | $ABSTRACT},
-	{"destroyForcibly", "()Ljava/lang/Process;", nullptr, $PUBLIC},
-	{"errorReader", "()Ljava/io/BufferedReader;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$BufferedReader*(Process::*)()>(&Process::errorReader))},
-	{"errorReader", "(Ljava/nio/charset/Charset;)Ljava/io/BufferedReader;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$BufferedReader*(Process::*)($Charset*)>(&Process::errorReader))},
-	{"exitValue", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"getErrorStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getInputStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getOutputStream", "()Ljava/io/OutputStream;", nullptr, $PUBLIC | $ABSTRACT},
-	{"hasExited", "()Z", nullptr, $PRIVATE, $method(static_cast<bool(Process::*)()>(&Process::hasExited))},
-	{"info", "()Ljava/lang/ProcessHandle$Info;", nullptr, $PUBLIC},
-	{"inputReader", "()Ljava/io/BufferedReader;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$BufferedReader*(Process::*)()>(&Process::inputReader))},
-	{"inputReader", "(Ljava/nio/charset/Charset;)Ljava/io/BufferedReader;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$BufferedReader*(Process::*)($Charset*)>(&Process::inputReader))},
-	{"isAlive", "()Z", nullptr, $PUBLIC},
-	{"onExit", "()Ljava/util/concurrent/CompletableFuture;", "()Ljava/util/concurrent/CompletableFuture<Ljava/lang/Process;>;", $PUBLIC},
-	{"outputWriter", "()Ljava/io/BufferedWriter;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$BufferedWriter*(Process::*)()>(&Process::outputWriter))},
-	{"outputWriter", "(Ljava/nio/charset/Charset;)Ljava/io/BufferedWriter;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$BufferedWriter*(Process::*)($Charset*)>(&Process::outputWriter))},
-	{"pid", "()J", nullptr, $PUBLIC},
-	{"supportsNormalTermination", "()Z", nullptr, $PUBLIC},
-	{"toHandle", "()Ljava/lang/ProcessHandle;", nullptr, $PUBLIC},
-	{"waitFor", "()I", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.lang.InterruptedException"},
-	{"waitFor", "(JLjava/util/concurrent/TimeUnit;)Z", nullptr, $PUBLIC, nullptr, "java.lang.InterruptedException"},
-	{"waitForInternal", "()Ljava/lang/Process;", nullptr, $PRIVATE, $method(static_cast<Process*(Process::*)()>(&Process::waitForInternal))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Process, init$, void)},
+	{"children", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljava/lang/ProcessHandle;>;", $PUBLIC, $virtualMethod(Process, children, $Stream*)},
+	{"descendants", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljava/lang/ProcessHandle;>;", $PUBLIC, $virtualMethod(Process, descendants, $Stream*)},
+	{"destroy", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Process, destroy, void)},
+	{"destroyForcibly", "()Ljava/lang/Process;", nullptr, $PUBLIC, $virtualMethod(Process, destroyForcibly, Process*)},
+	{"errorReader", "()Ljava/io/BufferedReader;", nullptr, $PUBLIC | $FINAL, $method(Process, errorReader, $BufferedReader*)},
+	{"errorReader", "(Ljava/nio/charset/Charset;)Ljava/io/BufferedReader;", nullptr, $PUBLIC | $FINAL, $method(Process, errorReader, $BufferedReader*, $Charset*)},
+	{"exitValue", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Process, exitValue, int32_t)},
+	{"getErrorStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Process, getErrorStream, $InputStream*)},
+	{"getInputStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Process, getInputStream, $InputStream*)},
+	{"getOutputStream", "()Ljava/io/OutputStream;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Process, getOutputStream, $OutputStream*)},
+	{"hasExited", "()Z", nullptr, $PRIVATE, $method(Process, hasExited, bool)},
+	{"info", "()Ljava/lang/ProcessHandle$Info;", nullptr, $PUBLIC, $virtualMethod(Process, info, $ProcessHandle$Info*)},
+	{"inputReader", "()Ljava/io/BufferedReader;", nullptr, $PUBLIC | $FINAL, $method(Process, inputReader, $BufferedReader*)},
+	{"inputReader", "(Ljava/nio/charset/Charset;)Ljava/io/BufferedReader;", nullptr, $PUBLIC | $FINAL, $method(Process, inputReader, $BufferedReader*, $Charset*)},
+	{"isAlive", "()Z", nullptr, $PUBLIC, $virtualMethod(Process, isAlive, bool)},
+	{"onExit", "()Ljava/util/concurrent/CompletableFuture;", "()Ljava/util/concurrent/CompletableFuture<Ljava/lang/Process;>;", $PUBLIC, $virtualMethod(Process, onExit, $CompletableFuture*)},
+	{"outputWriter", "()Ljava/io/BufferedWriter;", nullptr, $PUBLIC | $FINAL, $method(Process, outputWriter, $BufferedWriter*)},
+	{"outputWriter", "(Ljava/nio/charset/Charset;)Ljava/io/BufferedWriter;", nullptr, $PUBLIC | $FINAL, $method(Process, outputWriter, $BufferedWriter*, $Charset*)},
+	{"pid", "()J", nullptr, $PUBLIC, $virtualMethod(Process, pid, int64_t)},
+	{"supportsNormalTermination", "()Z", nullptr, $PUBLIC, $virtualMethod(Process, supportsNormalTermination, bool)},
+	{"toHandle", "()Ljava/lang/ProcessHandle;", nullptr, $PUBLIC, $virtualMethod(Process, toHandle, $ProcessHandle*)},
+	{"waitFor", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Process, waitFor, int32_t), "java.lang.InterruptedException"},
+	{"waitFor", "(JLjava/util/concurrent/TimeUnit;)Z", nullptr, $PUBLIC, $virtualMethod(Process, waitFor, bool, int64_t, $TimeUnit*), "java.lang.InterruptedException"},
+	{"waitForInternal", "()Ljava/lang/Process;", nullptr, $PRIVATE, $method(Process, waitForInternal, Process*)},
 	{}
 };
 

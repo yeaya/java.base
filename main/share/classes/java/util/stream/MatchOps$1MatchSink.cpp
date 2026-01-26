@@ -26,8 +26,8 @@ $FieldInfo _MatchOps$1MatchSink_FieldInfo_[] = {
 };
 
 $MethodInfo _MatchOps$1MatchSink_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/stream/MatchOps$MatchKind;Ljava/util/function/Predicate;)V", "()V", 0, $method(static_cast<void(MatchOps$1MatchSink::*)($MatchOps$MatchKind*,$Predicate*)>(&MatchOps$1MatchSink::init$))},
-	{"accept", "(Ljava/lang/Object;)V", "(TT;)V", $PUBLIC},
+	{"<init>", "(Ljava/util/stream/MatchOps$MatchKind;Ljava/util/function/Predicate;)V", "()V", 0, $method(MatchOps$1MatchSink, init$, void, $MatchOps$MatchKind*, $Predicate*)},
+	{"accept", "(Ljava/lang/Object;)V", "(TT;)V", $PUBLIC, $virtualMethod(MatchOps$1MatchSink, accept, void, Object$*)},
 	{}
 };
 

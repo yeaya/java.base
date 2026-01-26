@@ -25,8 +25,8 @@ $FieldInfo _NativeLibraries$1_FieldInfo_[] = {
 };
 
 $MethodInfo _NativeLibraries$1_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/loader/NativeLibraries;Ljava/io/File;)V", nullptr, 0, $method(static_cast<void(NativeLibraries$1::*)($NativeLibraries*,$File*)>(&NativeLibraries$1::init$))},
-	{"run", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/loader/NativeLibraries;Ljava/io/File;)V", nullptr, 0, $method(NativeLibraries$1, init$, void, $NativeLibraries*, $File*)},
+	{"run", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NativeLibraries$1, run, $Object*)},
 	{}
 };
 

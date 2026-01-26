@@ -23,10 +23,10 @@ $FieldInfo _InterruptDeadlock$Reader_FieldInfo_[] = {
 };
 
 $MethodInfo _InterruptDeadlock$Reader_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/channels/FileChannel;)V", nullptr, 0, $method(static_cast<void(InterruptDeadlock$Reader::*)($FileChannel*)>(&InterruptDeadlock$Reader::init$))},
-	{"exception", "()Ljava/lang/Exception;", nullptr, 0},
-	{"run", "()V", nullptr, $PUBLIC},
-	{"startReader", "(Ljava/nio/channels/FileChannel;)LInterruptDeadlock$Reader;", nullptr, $STATIC, $method(static_cast<InterruptDeadlock$Reader*(*)($FileChannel*)>(&InterruptDeadlock$Reader::startReader))},
+	{"<init>", "(Ljava/nio/channels/FileChannel;)V", nullptr, 0, $method(InterruptDeadlock$Reader, init$, void, $FileChannel*)},
+	{"exception", "()Ljava/lang/Exception;", nullptr, 0, $virtualMethod(InterruptDeadlock$Reader, exception, $Exception*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(InterruptDeadlock$Reader, run, void)},
+	{"startReader", "(Ljava/nio/channels/FileChannel;)LInterruptDeadlock$Reader;", nullptr, $STATIC, $staticMethod(InterruptDeadlock$Reader, startReader, InterruptDeadlock$Reader*, $FileChannel*)},
 	{}
 };
 

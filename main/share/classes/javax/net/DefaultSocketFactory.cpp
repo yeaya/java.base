@@ -15,12 +15,12 @@ namespace javax {
 	namespace net {
 
 $MethodInfo _DefaultSocketFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(DefaultSocketFactory::*)()>(&DefaultSocketFactory::init$))},
-	{"createSocket", "()Ljava/net/Socket;", nullptr, $PUBLIC},
-	{"createSocket", "(Ljava/lang/String;I)Ljava/net/Socket;", nullptr, $PUBLIC, nullptr, "java.io.IOException,java.net.UnknownHostException"},
-	{"createSocket", "(Ljava/net/InetAddress;I)Ljava/net/Socket;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"createSocket", "(Ljava/lang/String;ILjava/net/InetAddress;I)Ljava/net/Socket;", nullptr, $PUBLIC, nullptr, "java.io.IOException,java.net.UnknownHostException"},
-	{"createSocket", "(Ljava/net/InetAddress;ILjava/net/InetAddress;I)Ljava/net/Socket;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, 0, $method(DefaultSocketFactory, init$, void)},
+	{"createSocket", "()Ljava/net/Socket;", nullptr, $PUBLIC, $virtualMethod(DefaultSocketFactory, createSocket, $Socket*)},
+	{"createSocket", "(Ljava/lang/String;I)Ljava/net/Socket;", nullptr, $PUBLIC, $virtualMethod(DefaultSocketFactory, createSocket, $Socket*, $String*, int32_t), "java.io.IOException,java.net.UnknownHostException"},
+	{"createSocket", "(Ljava/net/InetAddress;I)Ljava/net/Socket;", nullptr, $PUBLIC, $virtualMethod(DefaultSocketFactory, createSocket, $Socket*, $InetAddress*, int32_t), "java.io.IOException"},
+	{"createSocket", "(Ljava/lang/String;ILjava/net/InetAddress;I)Ljava/net/Socket;", nullptr, $PUBLIC, $virtualMethod(DefaultSocketFactory, createSocket, $Socket*, $String*, int32_t, $InetAddress*, int32_t), "java.io.IOException,java.net.UnknownHostException"},
+	{"createSocket", "(Ljava/net/InetAddress;ILjava/net/InetAddress;I)Ljava/net/Socket;", nullptr, $PUBLIC, $virtualMethod(DefaultSocketFactory, createSocket, $Socket*, $InetAddress*, int32_t, $InetAddress*, int32_t), "java.io.IOException"},
 	{}
 };
 

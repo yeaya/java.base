@@ -21,9 +21,9 @@ $FieldInfo _NetworkInterface$1_FieldInfo_[] = {
 };
 
 $MethodInfo _NetworkInterface$1_MethodInfo_[] = {
-	{"<init>", "([Ljava/lang/Object;)V", nullptr, 0, $method(static_cast<void(NetworkInterface$1::*)($ObjectArray*)>(&NetworkInterface$1::init$))},
-	{"hasMoreElements", "()Z", nullptr, $PUBLIC},
-	{"nextElement", "()Ljava/lang/Object;", "()TT;", $PUBLIC},
+	{"<init>", "([Ljava/lang/Object;)V", nullptr, 0, $method(NetworkInterface$1, init$, void, $ObjectArray*)},
+	{"hasMoreElements", "()Z", nullptr, $PUBLIC, $virtualMethod(NetworkInterface$1, hasMoreElements, bool)},
+	{"nextElement", "()Ljava/lang/Object;", "()TT;", $PUBLIC, $virtualMethod(NetworkInterface$1, nextElement, $Object*)},
 	{}
 };
 

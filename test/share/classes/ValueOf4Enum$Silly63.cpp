@@ -80,10 +80,10 @@ $FieldInfo _ValueOf4Enum$Silly63_FieldInfo_[] = {
 };
 
 $MethodInfo _ValueOf4Enum$Silly63_MethodInfo_[] = {
-	{"$values", "()[LValueOf4Enum$Silly63;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$ValueOf4Enum$Silly63Array*(*)()>(&ValueOf4Enum$Silly63::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(ValueOf4Enum$Silly63::*)($String*,int32_t)>(&ValueOf4Enum$Silly63::init$))},
-	{"valueOf", "(Ljava/lang/String;)LValueOf4Enum$Silly63;", nullptr, $PUBLIC | $STATIC, $method(static_cast<ValueOf4Enum$Silly63*(*)($String*)>(&ValueOf4Enum$Silly63::valueOf))},
-	{"values", "()[LValueOf4Enum$Silly63;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$ValueOf4Enum$Silly63Array*(*)()>(&ValueOf4Enum$Silly63::values))},
+	{"$values", "()[LValueOf4Enum$Silly63;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ValueOf4Enum$Silly63, $values, $ValueOf4Enum$Silly63Array*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(ValueOf4Enum$Silly63, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)LValueOf4Enum$Silly63;", nullptr, $PUBLIC | $STATIC, $staticMethod(ValueOf4Enum$Silly63, valueOf, ValueOf4Enum$Silly63*, $String*)},
+	{"values", "()[LValueOf4Enum$Silly63;", nullptr, $PUBLIC | $STATIC, $staticMethod(ValueOf4Enum$Silly63, values, $ValueOf4Enum$Silly63Array*)},
 	{}
 };
 

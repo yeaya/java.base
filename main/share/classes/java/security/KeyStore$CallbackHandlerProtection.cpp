@@ -20,8 +20,8 @@ $FieldInfo _KeyStore$CallbackHandlerProtection_FieldInfo_[] = {
 };
 
 $MethodInfo _KeyStore$CallbackHandlerProtection_MethodInfo_[] = {
-	{"<init>", "(Ljavax/security/auth/callback/CallbackHandler;)V", nullptr, $PUBLIC, $method(static_cast<void(KeyStore$CallbackHandlerProtection::*)($CallbackHandler*)>(&KeyStore$CallbackHandlerProtection::init$))},
-	{"getCallbackHandler", "()Ljavax/security/auth/callback/CallbackHandler;", nullptr, $PUBLIC},
+	{"<init>", "(Ljavax/security/auth/callback/CallbackHandler;)V", nullptr, $PUBLIC, $method(KeyStore$CallbackHandlerProtection, init$, void, $CallbackHandler*)},
+	{"getCallbackHandler", "()Ljavax/security/auth/callback/CallbackHandler;", nullptr, $PUBLIC, $virtualMethod(KeyStore$CallbackHandlerProtection, getCallbackHandler, $CallbackHandler*)},
 	{}
 };
 

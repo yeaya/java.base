@@ -12,8 +12,8 @@ namespace sun {
 		namespace ch {
 
 $MethodInfo _Net$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Net$1::*)()>(&Net$1::init$))},
-	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(Net$1, init$, void)},
+	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Net$1, name, $String*)},
 	{}
 };
 

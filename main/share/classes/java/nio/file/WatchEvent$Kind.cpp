@@ -12,8 +12,8 @@ namespace java {
 		namespace file {
 
 $MethodInfo _WatchEvent$Kind_MethodInfo_[] = {
-	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"type", "()Ljava/lang/Class;", "()Ljava/lang/Class<TT;>;", $PUBLIC | $ABSTRACT},
+	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(WatchEvent$Kind, name, $String*)},
+	{"type", "()Ljava/lang/Class;", "()Ljava/lang/Class<TT;>;", $PUBLIC | $ABSTRACT, $virtualMethod(WatchEvent$Kind, type, $Class*)},
 	{}
 };
 

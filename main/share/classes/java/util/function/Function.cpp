@@ -46,8 +46,8 @@ $FieldInfo Function$$Lambda$lambda$compose$0::fieldInfos[3] = {
 	{}
 };
 $MethodInfo Function$$Lambda$lambda$compose$0::methodInfos[3] = {
-	{"<init>", "(Ljava/util/function/Function;Ljava/util/function/Function;)V", nullptr, $PUBLIC, $method(static_cast<void(Function$$Lambda$lambda$compose$0::*)(Function*,Function*)>(&Function$$Lambda$lambda$compose$0::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/function/Function;Ljava/util/function/Function;)V", nullptr, $PUBLIC, $method(Function$$Lambda$lambda$compose$0, init$, void, Function*, Function*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Function$$Lambda$lambda$compose$0, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Function$$Lambda$lambda$compose$0::classInfo$ = {
@@ -89,8 +89,8 @@ $FieldInfo Function$$Lambda$lambda$andThen$1$1::fieldInfos[3] = {
 	{}
 };
 $MethodInfo Function$$Lambda$lambda$andThen$1$1::methodInfos[3] = {
-	{"<init>", "(Ljava/util/function/Function;Ljava/util/function/Function;)V", nullptr, $PUBLIC, $method(static_cast<void(Function$$Lambda$lambda$andThen$1$1::*)(Function*,Function*)>(&Function$$Lambda$lambda$andThen$1$1::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/function/Function;Ljava/util/function/Function;)V", nullptr, $PUBLIC, $method(Function$$Lambda$lambda$andThen$1$1, init$, void, Function*, Function*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Function$$Lambda$lambda$andThen$1$1, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Function$$Lambda$lambda$andThen$1$1::classInfo$ = {
@@ -122,8 +122,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Function$$Lambda$lambda$identity$2$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Function$$Lambda$lambda$identity$2$2::*)()>(&Function$$Lambda$lambda$identity$2$2::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Function$$Lambda$lambda$identity$2$2, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Function$$Lambda$lambda$identity$2$2, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Function$$Lambda$lambda$identity$2$2::classInfo$ = {
@@ -146,13 +146,13 @@ $CompoundAttribute _Function_Annotations_[] = {
 };
 
 $MethodInfo _Function_MethodInfo_[] = {
-	{"andThen", "(Ljava/util/function/Function;)Ljava/util/function/Function;", "<V:Ljava/lang/Object;>(Ljava/util/function/Function<-TR;+TV;>;)Ljava/util/function/Function<TT;TV;>;", $PUBLIC},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TT;)TR;", $PUBLIC | $ABSTRACT},
-	{"compose", "(Ljava/util/function/Function;)Ljava/util/function/Function;", "<V:Ljava/lang/Object;>(Ljava/util/function/Function<-TV;+TT;>;)Ljava/util/function/Function<TV;TR;>;", $PUBLIC},
-	{"identity", "()Ljava/util/function/Function;", "<T:Ljava/lang/Object;>()Ljava/util/function/Function<TT;TT;>;", $PUBLIC | $STATIC, $method(static_cast<Function*(*)()>(&Function::identity))},
-	{"lambda$andThen$1", "(Ljava/util/function/Function;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$Object*(Function::*)(Function*,Object$*)>(&Function::lambda$andThen$1))},
-	{"lambda$compose$0", "(Ljava/util/function/Function;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$Object*(Function::*)(Function*,Object$*)>(&Function::lambda$compose$0))},
-	{"lambda$identity$2", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Object*(*)(Object$*)>(&Function::lambda$identity$2))},
+	{"andThen", "(Ljava/util/function/Function;)Ljava/util/function/Function;", "<V:Ljava/lang/Object;>(Ljava/util/function/Function<-TR;+TV;>;)Ljava/util/function/Function<TT;TV;>;", $PUBLIC, $virtualMethod(Function, andThen, Function*, Function*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TT;)TR;", $PUBLIC | $ABSTRACT, $virtualMethod(Function, apply, $Object*, Object$*)},
+	{"compose", "(Ljava/util/function/Function;)Ljava/util/function/Function;", "<V:Ljava/lang/Object;>(Ljava/util/function/Function<-TV;+TT;>;)Ljava/util/function/Function<TV;TR;>;", $PUBLIC, $virtualMethod(Function, compose, Function*, Function*)},
+	{"identity", "()Ljava/util/function/Function;", "<T:Ljava/lang/Object;>()Ljava/util/function/Function<TT;TT;>;", $PUBLIC | $STATIC, $staticMethod(Function, identity, Function*)},
+	{"lambda$andThen$1", "(Ljava/util/function/Function;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $SYNTHETIC, $method(Function, lambda$andThen$1, $Object*, Function*, Object$*)},
+	{"lambda$compose$0", "(Ljava/util/function/Function;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $SYNTHETIC, $method(Function, lambda$compose$0, $Object*, Function*, Object$*)},
+	{"lambda$identity$2", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Function, lambda$identity$2, $Object*, Object$*)},
 	{}
 };
 

@@ -18,7 +18,7 @@ $CompoundAttribute _CharArray_Annotations_[] = {
 };
 
 $MethodInfo _CharArray_MethodInfo_[] = {
-	{"value", "()[C", nullptr, $PUBLIC | $ABSTRACT},
+	{"value", "()[C", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CharArray, value, $chars*)},
 	{}
 };
 

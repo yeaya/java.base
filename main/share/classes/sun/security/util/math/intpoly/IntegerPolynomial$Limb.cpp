@@ -20,7 +20,7 @@ $FieldInfo _IntegerPolynomial$Limb_FieldInfo_[] = {
 };
 
 $MethodInfo _IntegerPolynomial$Limb_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, 0, $method(static_cast<void(IntegerPolynomial$Limb::*)(int32_t)>(&IntegerPolynomial$Limb::init$))},
+	{"<init>", "(I)V", nullptr, 0, $method(IntegerPolynomial$Limb, init$, void, int32_t)},
 	{}
 };
 

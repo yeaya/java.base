@@ -13,7 +13,7 @@ namespace jdk {
 			namespace vector {
 
 $MethodInfo _VectorSupport$VectorConvertOp_MethodInfo_[] = {
-	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", "(TVIN;TS;)TVOUT;", $PUBLIC | $ABSTRACT},
+	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", "(TVIN;TS;)TVOUT;", $PUBLIC | $ABSTRACT, $virtualMethod(VectorSupport$VectorConvertOp, apply, $Object*, Object$*, Object$*)},
 	{}
 };
 

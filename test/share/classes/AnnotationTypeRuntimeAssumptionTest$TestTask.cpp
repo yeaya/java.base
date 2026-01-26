@@ -21,8 +21,8 @@ $CompoundAttribute _AnnotationTypeRuntimeAssumptionTest$TestTask_Annotations_[] 
 };
 
 $MethodInfo _AnnotationTypeRuntimeAssumptionTest$TestTask_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(AnnotationTypeRuntimeAssumptionTest$TestTask::*)()>(&AnnotationTypeRuntimeAssumptionTest$TestTask::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(AnnotationTypeRuntimeAssumptionTest$TestTask, init$, void)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(AnnotationTypeRuntimeAssumptionTest$TestTask, run, void)},
 	{}
 };
 

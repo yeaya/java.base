@@ -19,7 +19,7 @@ $FieldInfo _StrictMath$RandomNumberGeneratorHolder_FieldInfo_[] = {
 };
 
 $MethodInfo _StrictMath$RandomNumberGeneratorHolder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(StrictMath$RandomNumberGeneratorHolder::*)()>(&StrictMath$RandomNumberGeneratorHolder::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(StrictMath$RandomNumberGeneratorHolder, init$, void)},
 	{}
 };
 

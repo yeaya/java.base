@@ -24,9 +24,9 @@ $FieldInfo _ModuleInfoExtender$1$1_FieldInfo_[] = {
 };
 
 $MethodInfo _ModuleInfoExtender$1$1_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/module/ModuleInfoExtender$1;ILjdk/internal/org/objectweb/asm/ModuleVisitor;)V", nullptr, 0, $method(static_cast<void(ModuleInfoExtender$1$1::*)($ModuleInfoExtender$1*,int32_t,$ModuleVisitor*)>(&ModuleInfoExtender$1$1::init$))},
-	{"visitMainClass", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"visitPackage", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/module/ModuleInfoExtender$1;ILjdk/internal/org/objectweb/asm/ModuleVisitor;)V", nullptr, 0, $method(ModuleInfoExtender$1$1, init$, void, $ModuleInfoExtender$1*, int32_t, $ModuleVisitor*)},
+	{"visitMainClass", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ModuleInfoExtender$1$1, visitMainClass, void, $String*)},
+	{"visitPackage", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ModuleInfoExtender$1$1, visitPackage, void, $String*)},
 	{}
 };
 

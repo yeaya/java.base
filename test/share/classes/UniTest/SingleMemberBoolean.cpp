@@ -20,7 +20,7 @@ $CompoundAttribute _SingleMemberBoolean_Annotations_[] = {
 };
 
 $MethodInfo _SingleMemberBoolean_MethodInfo_[] = {
-	{"value", "()Z", nullptr, $PUBLIC | $ABSTRACT},
+	{"value", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SingleMemberBoolean, value, bool)},
 	{}
 };
 

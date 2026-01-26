@@ -73,8 +73,8 @@ $FieldInfo TemporalAdjusters$$Lambda$lambda$ofDateAdjuster$0::fieldInfos[2] = {
 	{}
 };
 $MethodInfo TemporalAdjusters$$Lambda$lambda$ofDateAdjuster$0::methodInfos[3] = {
-	{"<init>", "(Ljava/util/function/UnaryOperator;)V", nullptr, $PUBLIC, $method(static_cast<void(TemporalAdjusters$$Lambda$lambda$ofDateAdjuster$0::*)($UnaryOperator*)>(&TemporalAdjusters$$Lambda$lambda$ofDateAdjuster$0::init$))},
-	{"adjustInto", "(Ljava/time/temporal/Temporal;)Ljava/time/temporal/Temporal;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/function/UnaryOperator;)V", nullptr, $PUBLIC, $method(TemporalAdjusters$$Lambda$lambda$ofDateAdjuster$0, init$, void, $UnaryOperator*)},
+	{"adjustInto", "(Ljava/time/temporal/Temporal;)Ljava/time/temporal/Temporal;", nullptr, $PUBLIC, $virtualMethod(TemporalAdjusters$$Lambda$lambda$ofDateAdjuster$0, adjustInto, $Temporal*, $Temporal*)},
 	{}
 };
 $ClassInfo TemporalAdjusters$$Lambda$lambda$ofDateAdjuster$0::classInfo$ = {
@@ -106,8 +106,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo TemporalAdjusters$$Lambda$lambda$firstDayOfMonth$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TemporalAdjusters$$Lambda$lambda$firstDayOfMonth$1$1::*)()>(&TemporalAdjusters$$Lambda$lambda$firstDayOfMonth$1$1::init$))},
-	{"adjustInto", "(Ljava/time/temporal/Temporal;)Ljava/time/temporal/Temporal;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TemporalAdjusters$$Lambda$lambda$firstDayOfMonth$1$1, init$, void)},
+	{"adjustInto", "(Ljava/time/temporal/Temporal;)Ljava/time/temporal/Temporal;", nullptr, $PUBLIC, $virtualMethod(TemporalAdjusters$$Lambda$lambda$firstDayOfMonth$1$1, adjustInto, $Temporal*, $Temporal*)},
 	{}
 };
 $ClassInfo TemporalAdjusters$$Lambda$lambda$firstDayOfMonth$1$1::classInfo$ = {
@@ -139,8 +139,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo TemporalAdjusters$$Lambda$lambda$lastDayOfMonth$2$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TemporalAdjusters$$Lambda$lambda$lastDayOfMonth$2$2::*)()>(&TemporalAdjusters$$Lambda$lambda$lastDayOfMonth$2$2::init$))},
-	{"adjustInto", "(Ljava/time/temporal/Temporal;)Ljava/time/temporal/Temporal;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TemporalAdjusters$$Lambda$lambda$lastDayOfMonth$2$2, init$, void)},
+	{"adjustInto", "(Ljava/time/temporal/Temporal;)Ljava/time/temporal/Temporal;", nullptr, $PUBLIC, $virtualMethod(TemporalAdjusters$$Lambda$lambda$lastDayOfMonth$2$2, adjustInto, $Temporal*, $Temporal*)},
 	{}
 };
 $ClassInfo TemporalAdjusters$$Lambda$lambda$lastDayOfMonth$2$2::classInfo$ = {
@@ -172,8 +172,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo TemporalAdjusters$$Lambda$lambda$firstDayOfNextMonth$3$3::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TemporalAdjusters$$Lambda$lambda$firstDayOfNextMonth$3$3::*)()>(&TemporalAdjusters$$Lambda$lambda$firstDayOfNextMonth$3$3::init$))},
-	{"adjustInto", "(Ljava/time/temporal/Temporal;)Ljava/time/temporal/Temporal;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TemporalAdjusters$$Lambda$lambda$firstDayOfNextMonth$3$3, init$, void)},
+	{"adjustInto", "(Ljava/time/temporal/Temporal;)Ljava/time/temporal/Temporal;", nullptr, $PUBLIC, $virtualMethod(TemporalAdjusters$$Lambda$lambda$firstDayOfNextMonth$3$3, adjustInto, $Temporal*, $Temporal*)},
 	{}
 };
 $ClassInfo TemporalAdjusters$$Lambda$lambda$firstDayOfNextMonth$3$3::classInfo$ = {
@@ -205,8 +205,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo TemporalAdjusters$$Lambda$lambda$firstDayOfYear$4$4::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TemporalAdjusters$$Lambda$lambda$firstDayOfYear$4$4::*)()>(&TemporalAdjusters$$Lambda$lambda$firstDayOfYear$4$4::init$))},
-	{"adjustInto", "(Ljava/time/temporal/Temporal;)Ljava/time/temporal/Temporal;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TemporalAdjusters$$Lambda$lambda$firstDayOfYear$4$4, init$, void)},
+	{"adjustInto", "(Ljava/time/temporal/Temporal;)Ljava/time/temporal/Temporal;", nullptr, $PUBLIC, $virtualMethod(TemporalAdjusters$$Lambda$lambda$firstDayOfYear$4$4, adjustInto, $Temporal*, $Temporal*)},
 	{}
 };
 $ClassInfo TemporalAdjusters$$Lambda$lambda$firstDayOfYear$4$4::classInfo$ = {
@@ -238,8 +238,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo TemporalAdjusters$$Lambda$lambda$lastDayOfYear$5$5::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TemporalAdjusters$$Lambda$lambda$lastDayOfYear$5$5::*)()>(&TemporalAdjusters$$Lambda$lambda$lastDayOfYear$5$5::init$))},
-	{"adjustInto", "(Ljava/time/temporal/Temporal;)Ljava/time/temporal/Temporal;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TemporalAdjusters$$Lambda$lambda$lastDayOfYear$5$5, init$, void)},
+	{"adjustInto", "(Ljava/time/temporal/Temporal;)Ljava/time/temporal/Temporal;", nullptr, $PUBLIC, $virtualMethod(TemporalAdjusters$$Lambda$lambda$lastDayOfYear$5$5, adjustInto, $Temporal*, $Temporal*)},
 	{}
 };
 $ClassInfo TemporalAdjusters$$Lambda$lambda$lastDayOfYear$5$5::classInfo$ = {
@@ -271,8 +271,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo TemporalAdjusters$$Lambda$lambda$firstDayOfNextYear$6$6::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TemporalAdjusters$$Lambda$lambda$firstDayOfNextYear$6$6::*)()>(&TemporalAdjusters$$Lambda$lambda$firstDayOfNextYear$6$6::init$))},
-	{"adjustInto", "(Ljava/time/temporal/Temporal;)Ljava/time/temporal/Temporal;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TemporalAdjusters$$Lambda$lambda$firstDayOfNextYear$6$6, init$, void)},
+	{"adjustInto", "(Ljava/time/temporal/Temporal;)Ljava/time/temporal/Temporal;", nullptr, $PUBLIC, $virtualMethod(TemporalAdjusters$$Lambda$lambda$firstDayOfNextYear$6$6, adjustInto, $Temporal*, $Temporal*)},
 	{}
 };
 $ClassInfo TemporalAdjusters$$Lambda$lambda$firstDayOfNextYear$6$6::classInfo$ = {
@@ -314,8 +314,8 @@ $FieldInfo TemporalAdjusters$$Lambda$lambda$dayOfWeekInMonth$7$7::fieldInfos[3] 
 	{}
 };
 $MethodInfo TemporalAdjusters$$Lambda$lambda$dayOfWeekInMonth$7$7::methodInfos[3] = {
-	{"<init>", "(II)V", nullptr, $PUBLIC, $method(static_cast<void(TemporalAdjusters$$Lambda$lambda$dayOfWeekInMonth$7$7::*)(int32_t,int32_t)>(&TemporalAdjusters$$Lambda$lambda$dayOfWeekInMonth$7$7::init$))},
-	{"adjustInto", "(Ljava/time/temporal/Temporal;)Ljava/time/temporal/Temporal;", nullptr, $PUBLIC},
+	{"<init>", "(II)V", nullptr, $PUBLIC, $method(TemporalAdjusters$$Lambda$lambda$dayOfWeekInMonth$7$7, init$, void, int32_t, int32_t)},
+	{"adjustInto", "(Ljava/time/temporal/Temporal;)Ljava/time/temporal/Temporal;", nullptr, $PUBLIC, $virtualMethod(TemporalAdjusters$$Lambda$lambda$dayOfWeekInMonth$7$7, adjustInto, $Temporal*, $Temporal*)},
 	{}
 };
 $ClassInfo TemporalAdjusters$$Lambda$lambda$dayOfWeekInMonth$7$7::classInfo$ = {
@@ -357,8 +357,8 @@ $FieldInfo TemporalAdjusters$$Lambda$lambda$dayOfWeekInMonth$8$8::fieldInfos[3] 
 	{}
 };
 $MethodInfo TemporalAdjusters$$Lambda$lambda$dayOfWeekInMonth$8$8::methodInfos[3] = {
-	{"<init>", "(II)V", nullptr, $PUBLIC, $method(static_cast<void(TemporalAdjusters$$Lambda$lambda$dayOfWeekInMonth$8$8::*)(int32_t,int32_t)>(&TemporalAdjusters$$Lambda$lambda$dayOfWeekInMonth$8$8::init$))},
-	{"adjustInto", "(Ljava/time/temporal/Temporal;)Ljava/time/temporal/Temporal;", nullptr, $PUBLIC},
+	{"<init>", "(II)V", nullptr, $PUBLIC, $method(TemporalAdjusters$$Lambda$lambda$dayOfWeekInMonth$8$8, init$, void, int32_t, int32_t)},
+	{"adjustInto", "(Ljava/time/temporal/Temporal;)Ljava/time/temporal/Temporal;", nullptr, $PUBLIC, $virtualMethod(TemporalAdjusters$$Lambda$lambda$dayOfWeekInMonth$8$8, adjustInto, $Temporal*, $Temporal*)},
 	{}
 };
 $ClassInfo TemporalAdjusters$$Lambda$lambda$dayOfWeekInMonth$8$8::classInfo$ = {
@@ -397,8 +397,8 @@ $FieldInfo TemporalAdjusters$$Lambda$lambda$next$9$9::fieldInfos[2] = {
 	{}
 };
 $MethodInfo TemporalAdjusters$$Lambda$lambda$next$9$9::methodInfos[3] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(static_cast<void(TemporalAdjusters$$Lambda$lambda$next$9$9::*)(int32_t)>(&TemporalAdjusters$$Lambda$lambda$next$9$9::init$))},
-	{"adjustInto", "(Ljava/time/temporal/Temporal;)Ljava/time/temporal/Temporal;", nullptr, $PUBLIC},
+	{"<init>", "(I)V", nullptr, $PUBLIC, $method(TemporalAdjusters$$Lambda$lambda$next$9$9, init$, void, int32_t)},
+	{"adjustInto", "(Ljava/time/temporal/Temporal;)Ljava/time/temporal/Temporal;", nullptr, $PUBLIC, $virtualMethod(TemporalAdjusters$$Lambda$lambda$next$9$9, adjustInto, $Temporal*, $Temporal*)},
 	{}
 };
 $ClassInfo TemporalAdjusters$$Lambda$lambda$next$9$9::classInfo$ = {
@@ -437,8 +437,8 @@ $FieldInfo TemporalAdjusters$$Lambda$lambda$nextOrSame$10$10::fieldInfos[2] = {
 	{}
 };
 $MethodInfo TemporalAdjusters$$Lambda$lambda$nextOrSame$10$10::methodInfos[3] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(static_cast<void(TemporalAdjusters$$Lambda$lambda$nextOrSame$10$10::*)(int32_t)>(&TemporalAdjusters$$Lambda$lambda$nextOrSame$10$10::init$))},
-	{"adjustInto", "(Ljava/time/temporal/Temporal;)Ljava/time/temporal/Temporal;", nullptr, $PUBLIC},
+	{"<init>", "(I)V", nullptr, $PUBLIC, $method(TemporalAdjusters$$Lambda$lambda$nextOrSame$10$10, init$, void, int32_t)},
+	{"adjustInto", "(Ljava/time/temporal/Temporal;)Ljava/time/temporal/Temporal;", nullptr, $PUBLIC, $virtualMethod(TemporalAdjusters$$Lambda$lambda$nextOrSame$10$10, adjustInto, $Temporal*, $Temporal*)},
 	{}
 };
 $ClassInfo TemporalAdjusters$$Lambda$lambda$nextOrSame$10$10::classInfo$ = {
@@ -477,8 +477,8 @@ $FieldInfo TemporalAdjusters$$Lambda$lambda$previous$11$11::fieldInfos[2] = {
 	{}
 };
 $MethodInfo TemporalAdjusters$$Lambda$lambda$previous$11$11::methodInfos[3] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(static_cast<void(TemporalAdjusters$$Lambda$lambda$previous$11$11::*)(int32_t)>(&TemporalAdjusters$$Lambda$lambda$previous$11$11::init$))},
-	{"adjustInto", "(Ljava/time/temporal/Temporal;)Ljava/time/temporal/Temporal;", nullptr, $PUBLIC},
+	{"<init>", "(I)V", nullptr, $PUBLIC, $method(TemporalAdjusters$$Lambda$lambda$previous$11$11, init$, void, int32_t)},
+	{"adjustInto", "(Ljava/time/temporal/Temporal;)Ljava/time/temporal/Temporal;", nullptr, $PUBLIC, $virtualMethod(TemporalAdjusters$$Lambda$lambda$previous$11$11, adjustInto, $Temporal*, $Temporal*)},
 	{}
 };
 $ClassInfo TemporalAdjusters$$Lambda$lambda$previous$11$11::classInfo$ = {
@@ -517,8 +517,8 @@ $FieldInfo TemporalAdjusters$$Lambda$lambda$previousOrSame$12$12::fieldInfos[2] 
 	{}
 };
 $MethodInfo TemporalAdjusters$$Lambda$lambda$previousOrSame$12$12::methodInfos[3] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(static_cast<void(TemporalAdjusters$$Lambda$lambda$previousOrSame$12$12::*)(int32_t)>(&TemporalAdjusters$$Lambda$lambda$previousOrSame$12$12::init$))},
-	{"adjustInto", "(Ljava/time/temporal/Temporal;)Ljava/time/temporal/Temporal;", nullptr, $PUBLIC},
+	{"<init>", "(I)V", nullptr, $PUBLIC, $method(TemporalAdjusters$$Lambda$lambda$previousOrSame$12$12, init$, void, int32_t)},
+	{"adjustInto", "(Ljava/time/temporal/Temporal;)Ljava/time/temporal/Temporal;", nullptr, $PUBLIC, $virtualMethod(TemporalAdjusters$$Lambda$lambda$previousOrSame$12$12, adjustInto, $Temporal*, $Temporal*)},
 	{}
 };
 $ClassInfo TemporalAdjusters$$Lambda$lambda$previousOrSame$12$12::classInfo$ = {
@@ -536,34 +536,34 @@ $Class* TemporalAdjusters$$Lambda$lambda$previousOrSame$12$12::load$($String* na
 $Class* TemporalAdjusters$$Lambda$lambda$previousOrSame$12$12::class$ = nullptr;
 
 $MethodInfo _TemporalAdjusters_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(TemporalAdjusters::*)()>(&TemporalAdjusters::init$))},
-	{"dayOfWeekInMonth", "(ILjava/time/DayOfWeek;)Ljava/time/temporal/TemporalAdjuster;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$TemporalAdjuster*(*)(int32_t,$DayOfWeek*)>(&TemporalAdjusters::dayOfWeekInMonth))},
-	{"firstDayOfMonth", "()Ljava/time/temporal/TemporalAdjuster;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$TemporalAdjuster*(*)()>(&TemporalAdjusters::firstDayOfMonth))},
-	{"firstDayOfNextMonth", "()Ljava/time/temporal/TemporalAdjuster;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$TemporalAdjuster*(*)()>(&TemporalAdjusters::firstDayOfNextMonth))},
-	{"firstDayOfNextYear", "()Ljava/time/temporal/TemporalAdjuster;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$TemporalAdjuster*(*)()>(&TemporalAdjusters::firstDayOfNextYear))},
-	{"firstDayOfYear", "()Ljava/time/temporal/TemporalAdjuster;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$TemporalAdjuster*(*)()>(&TemporalAdjusters::firstDayOfYear))},
-	{"firstInMonth", "(Ljava/time/DayOfWeek;)Ljava/time/temporal/TemporalAdjuster;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$TemporalAdjuster*(*)($DayOfWeek*)>(&TemporalAdjusters::firstInMonth))},
-	{"lambda$dayOfWeekInMonth$7", "(IILjava/time/temporal/Temporal;)Ljava/time/temporal/Temporal;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Temporal*(*)(int32_t,int32_t,$Temporal*)>(&TemporalAdjusters::lambda$dayOfWeekInMonth$7))},
-	{"lambda$dayOfWeekInMonth$8", "(IILjava/time/temporal/Temporal;)Ljava/time/temporal/Temporal;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Temporal*(*)(int32_t,int32_t,$Temporal*)>(&TemporalAdjusters::lambda$dayOfWeekInMonth$8))},
-	{"lambda$firstDayOfMonth$1", "(Ljava/time/temporal/Temporal;)Ljava/time/temporal/Temporal;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Temporal*(*)($Temporal*)>(&TemporalAdjusters::lambda$firstDayOfMonth$1))},
-	{"lambda$firstDayOfNextMonth$3", "(Ljava/time/temporal/Temporal;)Ljava/time/temporal/Temporal;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Temporal*(*)($Temporal*)>(&TemporalAdjusters::lambda$firstDayOfNextMonth$3))},
-	{"lambda$firstDayOfNextYear$6", "(Ljava/time/temporal/Temporal;)Ljava/time/temporal/Temporal;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Temporal*(*)($Temporal*)>(&TemporalAdjusters::lambda$firstDayOfNextYear$6))},
-	{"lambda$firstDayOfYear$4", "(Ljava/time/temporal/Temporal;)Ljava/time/temporal/Temporal;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Temporal*(*)($Temporal*)>(&TemporalAdjusters::lambda$firstDayOfYear$4))},
-	{"lambda$lastDayOfMonth$2", "(Ljava/time/temporal/Temporal;)Ljava/time/temporal/Temporal;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Temporal*(*)($Temporal*)>(&TemporalAdjusters::lambda$lastDayOfMonth$2))},
-	{"lambda$lastDayOfYear$5", "(Ljava/time/temporal/Temporal;)Ljava/time/temporal/Temporal;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Temporal*(*)($Temporal*)>(&TemporalAdjusters::lambda$lastDayOfYear$5))},
-	{"lambda$next$9", "(ILjava/time/temporal/Temporal;)Ljava/time/temporal/Temporal;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Temporal*(*)(int32_t,$Temporal*)>(&TemporalAdjusters::lambda$next$9))},
-	{"lambda$nextOrSame$10", "(ILjava/time/temporal/Temporal;)Ljava/time/temporal/Temporal;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Temporal*(*)(int32_t,$Temporal*)>(&TemporalAdjusters::lambda$nextOrSame$10))},
-	{"lambda$ofDateAdjuster$0", "(Ljava/util/function/UnaryOperator;Ljava/time/temporal/Temporal;)Ljava/time/temporal/Temporal;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Temporal*(*)($UnaryOperator*,$Temporal*)>(&TemporalAdjusters::lambda$ofDateAdjuster$0))},
-	{"lambda$previous$11", "(ILjava/time/temporal/Temporal;)Ljava/time/temporal/Temporal;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Temporal*(*)(int32_t,$Temporal*)>(&TemporalAdjusters::lambda$previous$11))},
-	{"lambda$previousOrSame$12", "(ILjava/time/temporal/Temporal;)Ljava/time/temporal/Temporal;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Temporal*(*)(int32_t,$Temporal*)>(&TemporalAdjusters::lambda$previousOrSame$12))},
-	{"lastDayOfMonth", "()Ljava/time/temporal/TemporalAdjuster;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$TemporalAdjuster*(*)()>(&TemporalAdjusters::lastDayOfMonth))},
-	{"lastDayOfYear", "()Ljava/time/temporal/TemporalAdjuster;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$TemporalAdjuster*(*)()>(&TemporalAdjusters::lastDayOfYear))},
-	{"lastInMonth", "(Ljava/time/DayOfWeek;)Ljava/time/temporal/TemporalAdjuster;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$TemporalAdjuster*(*)($DayOfWeek*)>(&TemporalAdjusters::lastInMonth))},
-	{"next", "(Ljava/time/DayOfWeek;)Ljava/time/temporal/TemporalAdjuster;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$TemporalAdjuster*(*)($DayOfWeek*)>(&TemporalAdjusters::next))},
-	{"nextOrSame", "(Ljava/time/DayOfWeek;)Ljava/time/temporal/TemporalAdjuster;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$TemporalAdjuster*(*)($DayOfWeek*)>(&TemporalAdjusters::nextOrSame))},
-	{"ofDateAdjuster", "(Ljava/util/function/UnaryOperator;)Ljava/time/temporal/TemporalAdjuster;", "(Ljava/util/function/UnaryOperator<Ljava/time/LocalDate;>;)Ljava/time/temporal/TemporalAdjuster;", $PUBLIC | $STATIC, $method(static_cast<$TemporalAdjuster*(*)($UnaryOperator*)>(&TemporalAdjusters::ofDateAdjuster))},
-	{"previous", "(Ljava/time/DayOfWeek;)Ljava/time/temporal/TemporalAdjuster;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$TemporalAdjuster*(*)($DayOfWeek*)>(&TemporalAdjusters::previous))},
-	{"previousOrSame", "(Ljava/time/DayOfWeek;)Ljava/time/temporal/TemporalAdjuster;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$TemporalAdjuster*(*)($DayOfWeek*)>(&TemporalAdjusters::previousOrSame))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(TemporalAdjusters, init$, void)},
+	{"dayOfWeekInMonth", "(ILjava/time/DayOfWeek;)Ljava/time/temporal/TemporalAdjuster;", nullptr, $PUBLIC | $STATIC, $staticMethod(TemporalAdjusters, dayOfWeekInMonth, $TemporalAdjuster*, int32_t, $DayOfWeek*)},
+	{"firstDayOfMonth", "()Ljava/time/temporal/TemporalAdjuster;", nullptr, $PUBLIC | $STATIC, $staticMethod(TemporalAdjusters, firstDayOfMonth, $TemporalAdjuster*)},
+	{"firstDayOfNextMonth", "()Ljava/time/temporal/TemporalAdjuster;", nullptr, $PUBLIC | $STATIC, $staticMethod(TemporalAdjusters, firstDayOfNextMonth, $TemporalAdjuster*)},
+	{"firstDayOfNextYear", "()Ljava/time/temporal/TemporalAdjuster;", nullptr, $PUBLIC | $STATIC, $staticMethod(TemporalAdjusters, firstDayOfNextYear, $TemporalAdjuster*)},
+	{"firstDayOfYear", "()Ljava/time/temporal/TemporalAdjuster;", nullptr, $PUBLIC | $STATIC, $staticMethod(TemporalAdjusters, firstDayOfYear, $TemporalAdjuster*)},
+	{"firstInMonth", "(Ljava/time/DayOfWeek;)Ljava/time/temporal/TemporalAdjuster;", nullptr, $PUBLIC | $STATIC, $staticMethod(TemporalAdjusters, firstInMonth, $TemporalAdjuster*, $DayOfWeek*)},
+	{"lambda$dayOfWeekInMonth$7", "(IILjava/time/temporal/Temporal;)Ljava/time/temporal/Temporal;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TemporalAdjusters, lambda$dayOfWeekInMonth$7, $Temporal*, int32_t, int32_t, $Temporal*)},
+	{"lambda$dayOfWeekInMonth$8", "(IILjava/time/temporal/Temporal;)Ljava/time/temporal/Temporal;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TemporalAdjusters, lambda$dayOfWeekInMonth$8, $Temporal*, int32_t, int32_t, $Temporal*)},
+	{"lambda$firstDayOfMonth$1", "(Ljava/time/temporal/Temporal;)Ljava/time/temporal/Temporal;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TemporalAdjusters, lambda$firstDayOfMonth$1, $Temporal*, $Temporal*)},
+	{"lambda$firstDayOfNextMonth$3", "(Ljava/time/temporal/Temporal;)Ljava/time/temporal/Temporal;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TemporalAdjusters, lambda$firstDayOfNextMonth$3, $Temporal*, $Temporal*)},
+	{"lambda$firstDayOfNextYear$6", "(Ljava/time/temporal/Temporal;)Ljava/time/temporal/Temporal;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TemporalAdjusters, lambda$firstDayOfNextYear$6, $Temporal*, $Temporal*)},
+	{"lambda$firstDayOfYear$4", "(Ljava/time/temporal/Temporal;)Ljava/time/temporal/Temporal;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TemporalAdjusters, lambda$firstDayOfYear$4, $Temporal*, $Temporal*)},
+	{"lambda$lastDayOfMonth$2", "(Ljava/time/temporal/Temporal;)Ljava/time/temporal/Temporal;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TemporalAdjusters, lambda$lastDayOfMonth$2, $Temporal*, $Temporal*)},
+	{"lambda$lastDayOfYear$5", "(Ljava/time/temporal/Temporal;)Ljava/time/temporal/Temporal;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TemporalAdjusters, lambda$lastDayOfYear$5, $Temporal*, $Temporal*)},
+	{"lambda$next$9", "(ILjava/time/temporal/Temporal;)Ljava/time/temporal/Temporal;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TemporalAdjusters, lambda$next$9, $Temporal*, int32_t, $Temporal*)},
+	{"lambda$nextOrSame$10", "(ILjava/time/temporal/Temporal;)Ljava/time/temporal/Temporal;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TemporalAdjusters, lambda$nextOrSame$10, $Temporal*, int32_t, $Temporal*)},
+	{"lambda$ofDateAdjuster$0", "(Ljava/util/function/UnaryOperator;Ljava/time/temporal/Temporal;)Ljava/time/temporal/Temporal;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TemporalAdjusters, lambda$ofDateAdjuster$0, $Temporal*, $UnaryOperator*, $Temporal*)},
+	{"lambda$previous$11", "(ILjava/time/temporal/Temporal;)Ljava/time/temporal/Temporal;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TemporalAdjusters, lambda$previous$11, $Temporal*, int32_t, $Temporal*)},
+	{"lambda$previousOrSame$12", "(ILjava/time/temporal/Temporal;)Ljava/time/temporal/Temporal;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TemporalAdjusters, lambda$previousOrSame$12, $Temporal*, int32_t, $Temporal*)},
+	{"lastDayOfMonth", "()Ljava/time/temporal/TemporalAdjuster;", nullptr, $PUBLIC | $STATIC, $staticMethod(TemporalAdjusters, lastDayOfMonth, $TemporalAdjuster*)},
+	{"lastDayOfYear", "()Ljava/time/temporal/TemporalAdjuster;", nullptr, $PUBLIC | $STATIC, $staticMethod(TemporalAdjusters, lastDayOfYear, $TemporalAdjuster*)},
+	{"lastInMonth", "(Ljava/time/DayOfWeek;)Ljava/time/temporal/TemporalAdjuster;", nullptr, $PUBLIC | $STATIC, $staticMethod(TemporalAdjusters, lastInMonth, $TemporalAdjuster*, $DayOfWeek*)},
+	{"next", "(Ljava/time/DayOfWeek;)Ljava/time/temporal/TemporalAdjuster;", nullptr, $PUBLIC | $STATIC, $staticMethod(TemporalAdjusters, next, $TemporalAdjuster*, $DayOfWeek*)},
+	{"nextOrSame", "(Ljava/time/DayOfWeek;)Ljava/time/temporal/TemporalAdjuster;", nullptr, $PUBLIC | $STATIC, $staticMethod(TemporalAdjusters, nextOrSame, $TemporalAdjuster*, $DayOfWeek*)},
+	{"ofDateAdjuster", "(Ljava/util/function/UnaryOperator;)Ljava/time/temporal/TemporalAdjuster;", "(Ljava/util/function/UnaryOperator<Ljava/time/LocalDate;>;)Ljava/time/temporal/TemporalAdjuster;", $PUBLIC | $STATIC, $staticMethod(TemporalAdjusters, ofDateAdjuster, $TemporalAdjuster*, $UnaryOperator*)},
+	{"previous", "(Ljava/time/DayOfWeek;)Ljava/time/temporal/TemporalAdjuster;", nullptr, $PUBLIC | $STATIC, $staticMethod(TemporalAdjusters, previous, $TemporalAdjuster*, $DayOfWeek*)},
+	{"previousOrSame", "(Ljava/time/DayOfWeek;)Ljava/time/temporal/TemporalAdjuster;", nullptr, $PUBLIC | $STATIC, $staticMethod(TemporalAdjusters, previousOrSame, $TemporalAdjuster*, $DayOfWeek*)},
 	{}
 };
 

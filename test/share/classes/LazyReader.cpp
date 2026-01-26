@@ -17,8 +17,8 @@ $FieldInfo _LazyReader_FieldInfo_[] = {
 };
 
 $MethodInfo _LazyReader_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/PipedInputStream;)V", nullptr, $PUBLIC, $method(static_cast<void(LazyReader::*)($PipedInputStream*)>(&LazyReader::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/io/PipedInputStream;)V", nullptr, $PUBLIC, $method(LazyReader, init$, void, $PipedInputStream*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(LazyReader, run, void)},
 	{}
 };
 

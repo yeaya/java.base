@@ -25,21 +25,21 @@ $FieldInfo _CustomSocketImplFactory$CustomSocketImpl_FieldInfo_[] = {
 };
 
 $MethodInfo _CustomSocketImplFactory$CustomSocketImpl_MethodInfo_[] = {
-	{"<init>", "(LCustomSocketImplFactory;)V", nullptr, 0, $method(static_cast<void(CustomSocketImplFactory$CustomSocketImpl::*)($CustomSocketImplFactory*)>(&CustomSocketImplFactory$CustomSocketImpl::init$))},
-	{"accept", "(Ljava/net/SocketImpl;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"available", "()I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"bind", "(Ljava/net/InetAddress;I)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"connect", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"connect", "(Ljava/net/InetAddress;I)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"connect", "(Ljava/net/SocketAddress;I)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"create", "(Z)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"getInputStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"getOption", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, nullptr, "java.net.SocketException"},
-	{"getOutputStream", "()Ljava/io/OutputStream;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"listen", "(I)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"sendUrgentData", "(I)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"setOption", "(ILjava/lang/Object;)V", nullptr, $PUBLIC, nullptr, "java.net.SocketException"},
+	{"<init>", "(LCustomSocketImplFactory;)V", nullptr, 0, $method(CustomSocketImplFactory$CustomSocketImpl, init$, void, $CustomSocketImplFactory*)},
+	{"accept", "(Ljava/net/SocketImpl;)V", nullptr, $PUBLIC, $virtualMethod(CustomSocketImplFactory$CustomSocketImpl, accept, void, $SocketImpl*), "java.io.IOException"},
+	{"available", "()I", nullptr, $PUBLIC, $virtualMethod(CustomSocketImplFactory$CustomSocketImpl, available, int32_t), "java.io.IOException"},
+	{"bind", "(Ljava/net/InetAddress;I)V", nullptr, $PUBLIC, $virtualMethod(CustomSocketImplFactory$CustomSocketImpl, bind, void, $InetAddress*, int32_t), "java.io.IOException"},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(CustomSocketImplFactory$CustomSocketImpl, close, void), "java.io.IOException"},
+	{"connect", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $virtualMethod(CustomSocketImplFactory$CustomSocketImpl, connect, void, $String*, int32_t), "java.io.IOException"},
+	{"connect", "(Ljava/net/InetAddress;I)V", nullptr, $PUBLIC, $virtualMethod(CustomSocketImplFactory$CustomSocketImpl, connect, void, $InetAddress*, int32_t), "java.io.IOException"},
+	{"connect", "(Ljava/net/SocketAddress;I)V", nullptr, $PUBLIC, $virtualMethod(CustomSocketImplFactory$CustomSocketImpl, connect, void, $SocketAddress*, int32_t), "java.io.IOException"},
+	{"create", "(Z)V", nullptr, $PUBLIC, $virtualMethod(CustomSocketImplFactory$CustomSocketImpl, create, void, bool), "java.io.IOException"},
+	{"getInputStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(CustomSocketImplFactory$CustomSocketImpl, getInputStream, $InputStream*), "java.io.IOException"},
+	{"getOption", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(CustomSocketImplFactory$CustomSocketImpl, getOption, $Object*, int32_t), "java.net.SocketException"},
+	{"getOutputStream", "()Ljava/io/OutputStream;", nullptr, $PUBLIC, $virtualMethod(CustomSocketImplFactory$CustomSocketImpl, getOutputStream, $OutputStream*), "java.io.IOException"},
+	{"listen", "(I)V", nullptr, $PUBLIC, $virtualMethod(CustomSocketImplFactory$CustomSocketImpl, listen, void, int32_t), "java.io.IOException"},
+	{"sendUrgentData", "(I)V", nullptr, $PUBLIC, $virtualMethod(CustomSocketImplFactory$CustomSocketImpl, sendUrgentData, void, int32_t), "java.io.IOException"},
+	{"setOption", "(ILjava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(CustomSocketImplFactory$CustomSocketImpl, setOption, void, int32_t, Object$*), "java.net.SocketException"},
 	{}
 };
 

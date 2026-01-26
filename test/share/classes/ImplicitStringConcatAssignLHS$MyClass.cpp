@@ -16,7 +16,7 @@ $FieldInfo _ImplicitStringConcatAssignLHS$MyClass_FieldInfo_[] = {
 };
 
 $MethodInfo _ImplicitStringConcatAssignLHS$MyClass_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ImplicitStringConcatAssignLHS$MyClass::*)()>(&ImplicitStringConcatAssignLHS$MyClass::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ImplicitStringConcatAssignLHS$MyClass, init$, void)},
 	{}
 };
 

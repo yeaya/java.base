@@ -21,8 +21,8 @@ $FieldInfo _TestReceiverTypeOwner$Inner_FieldInfo_[] = {
 };
 
 $MethodInfo _TestReceiverTypeOwner$Inner_MethodInfo_[] = {
-	{"<init>", "(LTestReceiverTypeOwner;)V", nullptr, 0, $method(static_cast<void(TestReceiverTypeOwner$Inner::*)($TestReceiverTypeOwner*)>(&TestReceiverTypeOwner$Inner::init$))},
-	{"m", "()V", nullptr, 0, nullptr, nullptr, nullptr, nullptr, _TestReceiverTypeOwner$Inner_MethodTypeAnnotations_m1},
+	{"<init>", "(LTestReceiverTypeOwner;)V", nullptr, 0, $method(TestReceiverTypeOwner$Inner, init$, void, $TestReceiverTypeOwner*)},
+	{"m", "()V", nullptr, 0, $virtualMethod(TestReceiverTypeOwner$Inner, m, void), nullptr, nullptr, nullptr, _TestReceiverTypeOwner$Inner_MethodTypeAnnotations_m1},
 	{}
 };
 

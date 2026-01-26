@@ -5,6 +5,7 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $AuthCacheValue = ::sun::net::www::protocol::http::AuthCacheValue;
 
 namespace sun {
 	namespace net {
@@ -13,9 +14,9 @@ namespace sun {
 				namespace http {
 
 $MethodInfo _AuthCache_MethodInfo_[] = {
-	{"get", "(Ljava/lang/String;Ljava/lang/String;)Lsun/net/www/protocol/http/AuthCacheValue;", nullptr, $PUBLIC | $ABSTRACT},
-	{"put", "(Ljava/lang/String;Lsun/net/www/protocol/http/AuthCacheValue;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"remove", "(Ljava/lang/String;Lsun/net/www/protocol/http/AuthCacheValue;)V", nullptr, $PUBLIC | $ABSTRACT},
+	{"get", "(Ljava/lang/String;Ljava/lang/String;)Lsun/net/www/protocol/http/AuthCacheValue;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AuthCache, get, $AuthCacheValue*, $String*, $String*)},
+	{"put", "(Ljava/lang/String;Lsun/net/www/protocol/http/AuthCacheValue;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AuthCache, put, void, $String*, $AuthCacheValue*)},
+	{"remove", "(Ljava/lang/String;Lsun/net/www/protocol/http/AuthCacheValue;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AuthCache, remove, void, $String*, $AuthCacheValue*)},
 	{}
 };
 

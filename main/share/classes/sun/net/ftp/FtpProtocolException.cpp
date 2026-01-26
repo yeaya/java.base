@@ -22,9 +22,9 @@ $FieldInfo _FtpProtocolException_FieldInfo_[] = {
 };
 
 $MethodInfo _FtpProtocolException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(FtpProtocolException::*)($String*)>(&FtpProtocolException::init$))},
-	{"<init>", "(Ljava/lang/String;Lsun/net/ftp/FtpReplyCode;)V", nullptr, $PUBLIC, $method(static_cast<void(FtpProtocolException::*)($String*,$FtpReplyCode*)>(&FtpProtocolException::init$))},
-	{"getReplyCode", "()Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(FtpProtocolException, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;Lsun/net/ftp/FtpReplyCode;)V", nullptr, $PUBLIC, $method(FtpProtocolException, init$, void, $String*, $FtpReplyCode*)},
+	{"getReplyCode", "()Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC, $virtualMethod(FtpProtocolException, getReplyCode, $FtpReplyCode*)},
 	{}
 };
 

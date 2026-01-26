@@ -6,8 +6,8 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _Equals2A_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Equals2A::*)()>(&Equals2A::init$))},
-	{"m", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(Equals2A, init$, void)},
+	{"m", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Equals2A, m, $Object*)},
 	{}
 };
 

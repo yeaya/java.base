@@ -23,7 +23,7 @@ $FieldInfo _BidiBase$ImpTabPair_FieldInfo_[] = {
 };
 
 $MethodInfo _BidiBase$ImpTabPair_MethodInfo_[] = {
-	{"<init>", "([[B[[B[S[S)V", nullptr, 0, $method(static_cast<void(BidiBase$ImpTabPair::*)($byteArray2*,$byteArray2*,$shorts*,$shorts*)>(&BidiBase$ImpTabPair::init$))},
+	{"<init>", "([[B[[B[S[S)V", nullptr, 0, $method(BidiBase$ImpTabPair, init$, void, $byteArray2*, $byteArray2*, $shorts*, $shorts*)},
 	{}
 };
 

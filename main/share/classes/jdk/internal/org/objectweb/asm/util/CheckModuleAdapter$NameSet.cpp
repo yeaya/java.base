@@ -25,8 +25,8 @@ $FieldInfo _CheckModuleAdapter$NameSet_FieldInfo_[] = {
 };
 
 $MethodInfo _CheckModuleAdapter$NameSet_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(CheckModuleAdapter$NameSet::*)($String*)>(&CheckModuleAdapter$NameSet::init$))},
-	{"checkNameNotAlreadyDeclared", "(Ljava/lang/String;)V", nullptr, 0},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(CheckModuleAdapter$NameSet, init$, void, $String*)},
+	{"checkNameNotAlreadyDeclared", "(Ljava/lang/String;)V", nullptr, 0, $virtualMethod(CheckModuleAdapter$NameSet, checkNameNotAlreadyDeclared, void, $String*)},
 	{}
 };
 

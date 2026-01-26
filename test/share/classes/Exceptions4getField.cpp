@@ -25,9 +25,9 @@ $FieldInfo _Exceptions4getField_FieldInfo_[] = {
 };
 
 $MethodInfo _Exceptions4getField_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Exceptions4getField::*)()>(&Exceptions4getField::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Exceptions4getField::main))},
-	{"test", "(Ljava/lang/String;Ljava/lang/Class;)V", nullptr, $PRIVATE, $method(static_cast<void(Exceptions4getField::*)($String*,$Class*)>(&Exceptions4getField::test))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Exceptions4getField, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Exceptions4getField, main, void, $StringArray*)},
+	{"test", "(Ljava/lang/String;Ljava/lang/Class;)V", nullptr, $PRIVATE, $method(Exceptions4getField, test, void, $String*, $Class*)},
 	{}
 };
 

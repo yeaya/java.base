@@ -23,9 +23,9 @@ $FieldInfo _Sender_FieldInfo_[] = {
 };
 
 $MethodInfo _Sender_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Sender::*)()>(&Sender::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Sender::main)), "java.lang.Exception"},
-	{"test", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&Sender::test)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Sender, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Sender, main, void, $StringArray*), "java.lang.Exception"},
+	{"test", "()V", nullptr, $STATIC, $staticMethod(Sender, test, void), "java.lang.Exception"},
 	{}
 };
 

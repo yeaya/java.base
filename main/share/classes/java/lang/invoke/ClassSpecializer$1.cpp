@@ -12,8 +12,8 @@ namespace java {
 		namespace invoke {
 
 $MethodInfo _ClassSpecializer$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ClassSpecializer$1::*)()>(&ClassSpecializer$1::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(ClassSpecializer$1, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ClassSpecializer$1, apply, $Object*, Object$*)},
 	{}
 };
 

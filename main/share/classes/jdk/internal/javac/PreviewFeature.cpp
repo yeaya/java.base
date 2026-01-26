@@ -9,6 +9,7 @@ using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
+using $PreviewFeature$Feature = ::jdk::internal::javac::PreviewFeature$Feature;
 
 namespace jdk {
 	namespace internal {
@@ -45,8 +46,8 @@ $Attribute _PreviewFeature_DefaultValue_reflective1 = {
 };
 
 $MethodInfo _PreviewFeature_MethodInfo_[] = {
-	{"feature", "()Ljdk/internal/javac/PreviewFeature$Feature;", nullptr, $PUBLIC | $ABSTRACT},
-	{"reflective", "()Z", nullptr, $PUBLIC | $ABSTRACT, nullptr, nullptr, &_PreviewFeature_DefaultValue_reflective1},
+	{"feature", "()Ljdk/internal/javac/PreviewFeature$Feature;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PreviewFeature, feature, $PreviewFeature$Feature*)},
+	{"reflective", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PreviewFeature, reflective, bool), nullptr, &_PreviewFeature_DefaultValue_reflective1},
 	{}
 };
 

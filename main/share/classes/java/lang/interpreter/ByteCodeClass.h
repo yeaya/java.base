@@ -90,42 +90,45 @@ public:
 	uint16_t catch_type;
 };
 
-class ByteCodeMethod : public ::java::lang::Object {
+class ByteCodeClass;
+
+class ByteCodeMethod : public $Object {
+	//$class(ByteCodeMethod, $NO_CLASS_INIT, $Object)
 public:
 	ByteCodeMethod() {
 
 	}
 	void init$() {
-		::java::lang::Object::init$();
+		$Object::init$();
 	}
 
-	::java::lang::String* name = nullptr;
-	::java::lang::String* descriptor = nullptr;
-	::java::lang::String* signature = nullptr;
+	ByteCodeClass* clazz = nullptr;
+	$String* name = nullptr;
+	$String* descriptor = nullptr;
+	$String* signature = nullptr;
 	uint16_t accessFlags = 0;
 
     // Code_attribute begin
-	uint16_t max_stack;
-	uint16_t max_locals;
+	uint16_t maxStack;
+	uint16_t maxLocals;
 	$bytes* code = nullptr;
-    std::vector<ExceptionTableEntry> exception_table;
+    std::vector<ExceptionTableEntry> exceptionTable;
     // Code_attribute end
 
 	// This is called nargs in the invoke* descriptions: https://docs.oracle.com/javase/specs/jvms/se16/html/jvms-6.html#jvms-6.5.invokestatic
-	uint8_t parameter_count;
+	uint8_t parameterCount;
 	// Some parameters require 2 local variable slots
-	uint16_t stack_slots_for_parameters;
+	uint16_t stackSlotsForParameters;
 
-	uint8_t return_category; // 0, 1, 2
+	uint8_t returnCategory; // 0, 1, 2
 
 	inline bool is_static() const {
 		return (accessFlags & static_cast<uint16_t>(MethodInfoAccessFlags::ACC_STATIC)) != 0;
 	}
 };
 
-class ByteCodeClass;
-
-class VfptrInfo : public ::java::lang::Object {
+class VfptrInfo : public $Object {
+	//$class(VfptrInfo, $NO_CLASS_INIT, $Object)
 public:
 	VfptrInfo();
 	void init$() {}
@@ -138,10 +141,18 @@ public:
 	$Array<::java::lang::reflect::Method>* forwardMethods = nullptr;
 };
 
-class ByteCodeClassData : public ::java::lang::Object {
+class BootstrapMethod : public $Object {
+	//$class(BootstrapMethod, $NO_CLASS_INIT, $Object)
+public:
+	$Object* methodHandle = nullptr;
+	$ObjectArray* bootstrapArguments = nullptr;
+};
+
+class ByteCodeClassData : public $Object {
+	//$class(ByteCodeClassData, $NO_CLASS_INIT, $Object)
 public:
 	void init$();
-	void parse($bytes* b, ClassInfo* classInfo);
+	void parse(ByteCodeClass* clazz, $bytes* b, ClassInfo* classInfo);
 	void parseFieldAttributes(::java::io::DataInputStream* is, ::java::lang::FieldInfo* fieldInfo);
 	void parseMethodAttributes(::java::io::DataInputStream* is, ::java::lang::MethodInfo* methodInfo, ByteCodeMethod* byteCodeMethod);
 	void parseMethodCodeAttributes(::java::io::DataInputStream* is, ::java::lang::MethodInfo* methodInfo);
@@ -150,7 +161,7 @@ public:
 	void parseNamedAttribute(::java::io::DataInputStream* is, NamedAttribute* namedAttribute);
 	void parseAttribute(::java::io::DataInputStream* is, Attribute* attribute);
 
-	const char* makeCharPtrForClassInfo(::java::lang::String* str);
+	const char* makeCharPtrForClassInfo($String* str);
 	FieldInfo* makeFieldInfosForClassInfo(int32_t count);
 	MethodInfo* makeMethodInfosForClassInfo(int32_t count);
 	InnerClassInfo* makeInnerClassInfosForClassInfo(int32_t count);
@@ -168,11 +179,13 @@ public:
 	::jdk::internal::reflect::ConstantPool* constantPool = nullptr;
 	::java::util::HashMap* methodCacheMap = nullptr;
 	::java::util::ArrayList* classInfoStore = nullptr;
+	$Array<BootstrapMethod>* bootstrapMethods = nullptr;
 };
 
-class MethodCache : public ::java::lang::Object {
+class MethodCache : public $Object {
+	//$class(MethodCache, $NO_CLASS_INIT, $Object)
 public:
-	::java::lang::Object* method = nullptr;
+	$Object* method = nullptr;
 	$ClassArray* argsTypes = nullptr;
 	$Class* realReturnType = nullptr;
 	bool hasThisArg();
@@ -182,8 +195,8 @@ public:
 	int32_t stackSlotsForArgs = 0;
 };
 
-class ByteCodeClass : public ::java::lang::Class {
-    $class(ByteCodeClass, $NO_CLASS_INIT, ::java::lang::Class)
+class ByteCodeClass : public $Class {
+    $class(ByteCodeClass, $NO_CLASS_INIT, $Class)
 public:
 	ByteCodeClass();
 	void init$();
@@ -197,20 +210,21 @@ public:
 	void initMethods();
 	void initVfTab();
 
-	void assembleVfTab(::java::lang::Object* obj);
+	void assembleVfTab($Object* obj);
 
 	ClassInfo classInfo0;
 	::java::util::ArrayList* classInfoStore = nullptr;
 
-	::java::lang::Class* loadClass(::java::lang::String* name);
+	$Class* loadClass($String* name);
 	ByteCodeClassData* getByteCodeClassData(bool genClassInfo);
 	MethodCache* findMethodCache(int32_t methodIndex);
+	ByteCodeMethod* findByteCodeMethod($String* name, $String* descriptor);
 
 	$ObjectArray* vfptrs = nullptr;
 	$volatile(::java::lang::ref::SoftReference*) byteCodeClassData = nullptr;
 	$bytes* bytes = nullptr;
 	$bytes* staticFieldBuffer = nullptr;
-	static ::java::util::ArrayList* parseMethodDescriptor(::java::lang::String* descriptor);
+	static ::java::util::ArrayList* parseMethodDescriptor($String* descriptor);
 
 	bool inited = false;
 	int32_t classIndex = 0;

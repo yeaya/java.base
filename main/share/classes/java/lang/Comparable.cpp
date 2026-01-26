@@ -9,7 +9,7 @@ namespace java {
 	namespace lang {
 
 $MethodInfo _Comparable_MethodInfo_[] = {
-	{"compareTo", "(Ljava/lang/Object;)I", "(TT;)I", $PUBLIC | $ABSTRACT},
+	{"compareTo", "(Ljava/lang/Object;)I", "(TT;)I", $PUBLIC | $ABSTRACT, $virtualMethod(Comparable, compareTo, int32_t, Object$*)},
 	{}
 };
 

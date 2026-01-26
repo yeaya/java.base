@@ -29,12 +29,12 @@ $FieldInfo _ClassNotFoundException_FieldInfo_[] = {
 };
 
 $MethodInfo _ClassNotFoundException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ClassNotFoundException::*)()>(&ClassNotFoundException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(ClassNotFoundException::*)($String*)>(&ClassNotFoundException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(ClassNotFoundException::*)($String*,$Throwable*)>(&ClassNotFoundException::init$))},
-	{"getException", "()Ljava/lang/Throwable;", nullptr, $PUBLIC},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(ClassNotFoundException::*)($ObjectInputStream*)>(&ClassNotFoundException::readObject)), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(ClassNotFoundException::*)($ObjectOutputStream*)>(&ClassNotFoundException::writeObject)), "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ClassNotFoundException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ClassNotFoundException, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(ClassNotFoundException, init$, void, $String*, $Throwable*)},
+	{"getException", "()Ljava/lang/Throwable;", nullptr, $PUBLIC, $virtualMethod(ClassNotFoundException, getException, $Throwable*)},
+	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(ClassNotFoundException, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(ClassNotFoundException, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
 	{}
 };
 

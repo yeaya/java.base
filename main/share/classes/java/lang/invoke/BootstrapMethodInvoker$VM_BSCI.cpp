@@ -51,11 +51,11 @@ $FieldInfo _BootstrapMethodInvoker$VM_BSCI_FieldInfo_[] = {
 };
 
 $MethodInfo _BootstrapMethodInvoker$VM_BSCI_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/String;Ljava/lang/Object;Ljava/lang/invoke/MethodHandles$Lookup;[I)V", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/String;TT;Ljava/lang/invoke/MethodHandles$Lookup;[I)V", 0, $method(static_cast<void(BootstrapMethodInvoker$VM_BSCI::*)($MethodHandle*,$String*,Object$*,$MethodHandles$Lookup*,$ints*)>(&BootstrapMethodInvoker$VM_BSCI::init$))},
-	{"copyConstants", "(II[Ljava/lang/Object;I)I", nullptr, $PUBLIC},
-	{"fillCache", "(I)Ljava/lang/Object;", nullptr, 0},
-	{"maybePrefetchIntoCache", "(IZ)V", nullptr, $PRIVATE, $method(static_cast<void(BootstrapMethodInvoker$VM_BSCI::*)(int32_t,bool)>(&BootstrapMethodInvoker$VM_BSCI::maybePrefetchIntoCache))},
-	{"prefetchIntoCache", "(II)V", nullptr, $PRIVATE, $method(static_cast<void(BootstrapMethodInvoker$VM_BSCI::*)(int32_t,int32_t)>(&BootstrapMethodInvoker$VM_BSCI::prefetchIntoCache))},
+	{"<init>", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/String;Ljava/lang/Object;Ljava/lang/invoke/MethodHandles$Lookup;[I)V", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/String;TT;Ljava/lang/invoke/MethodHandles$Lookup;[I)V", 0, $method(BootstrapMethodInvoker$VM_BSCI, init$, void, $MethodHandle*, $String*, Object$*, $MethodHandles$Lookup*, $ints*)},
+	{"copyConstants", "(II[Ljava/lang/Object;I)I", nullptr, $PUBLIC, $virtualMethod(BootstrapMethodInvoker$VM_BSCI, copyConstants, int32_t, int32_t, int32_t, $ObjectArray*, int32_t)},
+	{"fillCache", "(I)Ljava/lang/Object;", nullptr, 0, $virtualMethod(BootstrapMethodInvoker$VM_BSCI, fillCache, $Object*, int32_t)},
+	{"maybePrefetchIntoCache", "(IZ)V", nullptr, $PRIVATE, $method(BootstrapMethodInvoker$VM_BSCI, maybePrefetchIntoCache, void, int32_t, bool)},
+	{"prefetchIntoCache", "(II)V", nullptr, $PRIVATE, $method(BootstrapMethodInvoker$VM_BSCI, prefetchIntoCache, void, int32_t, int32_t)},
 	{}
 };
 

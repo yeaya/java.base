@@ -49,8 +49,8 @@ namespace sun {
 		namespace ssl {
 
 $MethodInfo _CertSignAlgsExtension$CHCertSignatureSchemesUpdate_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(CertSignAlgsExtension$CHCertSignatureSchemesUpdate::*)()>(&CertSignAlgsExtension$CHCertSignatureSchemesUpdate::init$))},
-	{"consume", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(CertSignAlgsExtension$CHCertSignatureSchemesUpdate, init$, void)},
+	{"consume", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)V", nullptr, $PUBLIC, $virtualMethod(CertSignAlgsExtension$CHCertSignatureSchemesUpdate, consume, void, $ConnectionContext*, $SSLHandshake$HandshakeMessage*), "java.io.IOException"},
 	{}
 };
 

@@ -31,8 +31,8 @@ $FieldInfo _UnixCopyFile$1_FieldInfo_[] = {
 };
 
 $MethodInfo _UnixCopyFile$1_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/fs/UnixPath;Lsun/nio/fs/UnixFileAttributes;Lsun/nio/fs/UnixPath;Lsun/nio/fs/UnixCopyFile$Flags;)V", nullptr, 0, $method(static_cast<void(UnixCopyFile$1::*)($UnixPath*,$UnixFileAttributes*,$UnixPath*,$UnixCopyFile$Flags*)>(&UnixCopyFile$1::init$))},
-	{"implRun", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Lsun/nio/fs/UnixPath;Lsun/nio/fs/UnixFileAttributes;Lsun/nio/fs/UnixPath;Lsun/nio/fs/UnixCopyFile$Flags;)V", nullptr, 0, $method(UnixCopyFile$1, init$, void, $UnixPath*, $UnixFileAttributes*, $UnixPath*, $UnixCopyFile$Flags*)},
+	{"implRun", "()V", nullptr, $PUBLIC, $virtualMethod(UnixCopyFile$1, implRun, void), "java.io.IOException"},
 	{}
 };
 

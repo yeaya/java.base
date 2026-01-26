@@ -52,12 +52,12 @@ $FieldInfo _Wrapper$Format_FieldInfo_[] = {
 };
 
 $MethodInfo _Wrapper$Format_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(Wrapper$Format::*)()>(&Wrapper$Format::init$))},
-	{"floating", "(I)I", nullptr, $STATIC, $method(static_cast<int32_t(*)(int32_t)>(&Wrapper$Format::floating))},
-	{"format", "(III)I", nullptr, $STATIC, $method(static_cast<int32_t(*)(int32_t,int32_t,int32_t)>(&Wrapper$Format::format))},
-	{"other", "(I)I", nullptr, $STATIC, $method(static_cast<int32_t(*)(int32_t)>(&Wrapper$Format::other))},
-	{"signed", "(I)I", nullptr, $STATIC, $method(static_cast<int32_t(*)(int32_t)>(&Wrapper$Format::signed$))},
-	{"unsigned", "(I)I", nullptr, $STATIC, $method(static_cast<int32_t(*)(int32_t)>(&Wrapper$Format::unsigned$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(Wrapper$Format, init$, void)},
+	{"floating", "(I)I", nullptr, $STATIC, $staticMethod(Wrapper$Format, floating, int32_t, int32_t)},
+	{"format", "(III)I", nullptr, $STATIC, $staticMethod(Wrapper$Format, format, int32_t, int32_t, int32_t, int32_t)},
+	{"other", "(I)I", nullptr, $STATIC, $staticMethod(Wrapper$Format, other, int32_t, int32_t)},
+	{"signed", "(I)I", nullptr, $STATIC, $staticMethod(Wrapper$Format, signed$, int32_t, int32_t)},
+	{"unsigned", "(I)I", nullptr, $STATIC, $staticMethod(Wrapper$Format, unsigned$, int32_t, int32_t)},
 	{}
 };
 

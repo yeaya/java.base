@@ -45,8 +45,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo RandomGenerator$SplittableGenerator$$Lambda$lambda$rngs$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(RandomGenerator$SplittableGenerator$$Lambda$lambda$rngs$0::*)()>(&RandomGenerator$SplittableGenerator$$Lambda$lambda$rngs$0::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(RandomGenerator$SplittableGenerator$$Lambda$lambda$rngs$0, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(RandomGenerator$SplittableGenerator$$Lambda$lambda$rngs$0, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo RandomGenerator$SplittableGenerator$$Lambda$lambda$rngs$0::classInfo$ = {
@@ -64,16 +64,16 @@ $Class* RandomGenerator$SplittableGenerator$$Lambda$lambda$rngs$0::load$($String
 $Class* RandomGenerator$SplittableGenerator$$Lambda$lambda$rngs$0::class$ = nullptr;
 
 $MethodInfo _RandomGenerator$SplittableGenerator_MethodInfo_[] = {
-	{"lambda$rngs$0", "(Ljava/util/random/RandomGenerator$SplittableGenerator;)Ljava/util/random/RandomGenerator;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$RandomGenerator*(*)(RandomGenerator$SplittableGenerator*)>(&RandomGenerator$SplittableGenerator::lambda$rngs$0))},
-	{"of", "(Ljava/lang/String;)Ljava/util/random/RandomGenerator$SplittableGenerator;", nullptr, $PUBLIC | $STATIC, $method(static_cast<RandomGenerator$SplittableGenerator*(*)($String*)>(&RandomGenerator$SplittableGenerator::of))},
-	{"rngs", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljava/util/random/RandomGenerator;>;", $PUBLIC},
-	{"rngs", "(J)Ljava/util/stream/Stream;", "(J)Ljava/util/stream/Stream<Ljava/util/random/RandomGenerator;>;", $PUBLIC},
-	{"split", "()Ljava/util/random/RandomGenerator$SplittableGenerator;", nullptr, $PUBLIC | $ABSTRACT},
-	{"split", "(Ljava/util/random/RandomGenerator$SplittableGenerator;)Ljava/util/random/RandomGenerator$SplittableGenerator;", nullptr, $PUBLIC | $ABSTRACT},
-	{"splits", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljava/util/random/RandomGenerator$SplittableGenerator;>;", $PUBLIC},
-	{"splits", "(J)Ljava/util/stream/Stream;", "(J)Ljava/util/stream/Stream<Ljava/util/random/RandomGenerator$SplittableGenerator;>;", $PUBLIC | $ABSTRACT},
-	{"splits", "(Ljava/util/random/RandomGenerator$SplittableGenerator;)Ljava/util/stream/Stream;", "(Ljava/util/random/RandomGenerator$SplittableGenerator;)Ljava/util/stream/Stream<Ljava/util/random/RandomGenerator$SplittableGenerator;>;", $PUBLIC | $ABSTRACT},
-	{"splits", "(JLjava/util/random/RandomGenerator$SplittableGenerator;)Ljava/util/stream/Stream;", "(JLjava/util/random/RandomGenerator$SplittableGenerator;)Ljava/util/stream/Stream<Ljava/util/random/RandomGenerator$SplittableGenerator;>;", $PUBLIC | $ABSTRACT},
+	{"lambda$rngs$0", "(Ljava/util/random/RandomGenerator$SplittableGenerator;)Ljava/util/random/RandomGenerator;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(RandomGenerator$SplittableGenerator, lambda$rngs$0, $RandomGenerator*, RandomGenerator$SplittableGenerator*)},
+	{"of", "(Ljava/lang/String;)Ljava/util/random/RandomGenerator$SplittableGenerator;", nullptr, $PUBLIC | $STATIC, $staticMethod(RandomGenerator$SplittableGenerator, of, RandomGenerator$SplittableGenerator*, $String*)},
+	{"rngs", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljava/util/random/RandomGenerator;>;", $PUBLIC, $virtualMethod(RandomGenerator$SplittableGenerator, rngs, $Stream*)},
+	{"rngs", "(J)Ljava/util/stream/Stream;", "(J)Ljava/util/stream/Stream<Ljava/util/random/RandomGenerator;>;", $PUBLIC, $virtualMethod(RandomGenerator$SplittableGenerator, rngs, $Stream*, int64_t)},
+	{"split", "()Ljava/util/random/RandomGenerator$SplittableGenerator;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RandomGenerator$SplittableGenerator, split, RandomGenerator$SplittableGenerator*)},
+	{"split", "(Ljava/util/random/RandomGenerator$SplittableGenerator;)Ljava/util/random/RandomGenerator$SplittableGenerator;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RandomGenerator$SplittableGenerator, split, RandomGenerator$SplittableGenerator*, RandomGenerator$SplittableGenerator*)},
+	{"splits", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljava/util/random/RandomGenerator$SplittableGenerator;>;", $PUBLIC, $virtualMethod(RandomGenerator$SplittableGenerator, splits, $Stream*)},
+	{"splits", "(J)Ljava/util/stream/Stream;", "(J)Ljava/util/stream/Stream<Ljava/util/random/RandomGenerator$SplittableGenerator;>;", $PUBLIC | $ABSTRACT, $virtualMethod(RandomGenerator$SplittableGenerator, splits, $Stream*, int64_t)},
+	{"splits", "(Ljava/util/random/RandomGenerator$SplittableGenerator;)Ljava/util/stream/Stream;", "(Ljava/util/random/RandomGenerator$SplittableGenerator;)Ljava/util/stream/Stream<Ljava/util/random/RandomGenerator$SplittableGenerator;>;", $PUBLIC | $ABSTRACT, $virtualMethod(RandomGenerator$SplittableGenerator, splits, $Stream*, RandomGenerator$SplittableGenerator*)},
+	{"splits", "(JLjava/util/random/RandomGenerator$SplittableGenerator;)Ljava/util/stream/Stream;", "(JLjava/util/random/RandomGenerator$SplittableGenerator;)Ljava/util/stream/Stream<Ljava/util/random/RandomGenerator$SplittableGenerator;>;", $PUBLIC | $ABSTRACT, $virtualMethod(RandomGenerator$SplittableGenerator, splits, $Stream*, int64_t, RandomGenerator$SplittableGenerator*)},
 	{}
 };
 

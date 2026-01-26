@@ -37,14 +37,14 @@ $FieldInfo _ClientVector_FieldInfo_[] = {
 };
 
 $MethodInfo _ClientVector_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, 0, $method(static_cast<void(ClientVector::*)(int32_t)>(&ClientVector::init$))},
-	{"get", "()Lsun/net/www/http/HttpClient;", nullptr, 0},
-	{"lock", "()V", nullptr, $FINAL, $method(static_cast<void(ClientVector::*)()>(&ClientVector::lock))},
-	{"put", "(Lsun/net/www/http/HttpClient;)V", nullptr, 0},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(ClientVector::*)($ObjectInputStream*)>(&ClientVector::readObject)), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"remove", "(Lsun/net/www/http/HttpClient;)Z", nullptr, 0},
-	{"unlock", "()V", nullptr, $FINAL, $method(static_cast<void(ClientVector::*)()>(&ClientVector::unlock))},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(ClientVector::*)($ObjectOutputStream*)>(&ClientVector::writeObject)), "java.io.IOException"},
+	{"<init>", "(I)V", nullptr, 0, $method(ClientVector, init$, void, int32_t)},
+	{"get", "()Lsun/net/www/http/HttpClient;", nullptr, 0, $virtualMethod(ClientVector, get, $HttpClient*)},
+	{"lock", "()V", nullptr, $FINAL, $method(ClientVector, lock, void)},
+	{"put", "(Lsun/net/www/http/HttpClient;)V", nullptr, 0, $virtualMethod(ClientVector, put, void, $HttpClient*)},
+	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(ClientVector, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+	{"remove", "(Lsun/net/www/http/HttpClient;)Z", nullptr, 0, $virtualMethod(ClientVector, remove, bool, $HttpClient*)},
+	{"unlock", "()V", nullptr, $FINAL, $method(ClientVector, unlock, void)},
+	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(ClientVector, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
 	{}
 };
 

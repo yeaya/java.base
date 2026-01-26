@@ -35,11 +35,11 @@ $FieldInfo _LinuxWatchService$LinuxWatchKey_FieldInfo_[] = {
 };
 
 $MethodInfo _LinuxWatchService$LinuxWatchKey_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/fs/UnixPath;Lsun/nio/fs/LinuxWatchService;II)V", nullptr, 0, $method(static_cast<void(LinuxWatchService$LinuxWatchKey::*)($UnixPath*,$LinuxWatchService*,int32_t,int32_t)>(&LinuxWatchService$LinuxWatchKey::init$))},
-	{"cancel", "()V", nullptr, $PUBLIC},
-	{"descriptor", "()I", nullptr, 0},
-	{"invalidate", "(Z)V", nullptr, 0},
-	{"isValid", "()Z", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/nio/fs/UnixPath;Lsun/nio/fs/LinuxWatchService;II)V", nullptr, 0, $method(LinuxWatchService$LinuxWatchKey, init$, void, $UnixPath*, $LinuxWatchService*, int32_t, int32_t)},
+	{"cancel", "()V", nullptr, $PUBLIC, $virtualMethod(LinuxWatchService$LinuxWatchKey, cancel, void)},
+	{"descriptor", "()I", nullptr, 0, $virtualMethod(LinuxWatchService$LinuxWatchKey, descriptor, int32_t)},
+	{"invalidate", "(Z)V", nullptr, 0, $virtualMethod(LinuxWatchService$LinuxWatchKey, invalidate, void, bool)},
+	{"isValid", "()Z", nullptr, $PUBLIC, $virtualMethod(LinuxWatchService$LinuxWatchKey, isValid, bool)},
 	{}
 };
 

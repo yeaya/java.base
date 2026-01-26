@@ -31,10 +31,10 @@ namespace java {
 	namespace util {
 
 $MethodInfo _ResourceBundle$Control$CandidateListCache_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(ResourceBundle$Control$CandidateListCache::*)()>(&ResourceBundle$Control$CandidateListCache::init$))},
-	{"createObject", "(Lsun/util/locale/BaseLocale;)Ljava/util/List;", "(Lsun/util/locale/BaseLocale;)Ljava/util/List<Ljava/util/Locale;>;", $PROTECTED},
-	{"createObject", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PROTECTED | $VOLATILE | $SYNTHETIC},
-	{"getDefaultList", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/util/List;", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/util/List<Ljava/util/Locale;>;", $PRIVATE | $STATIC, $method(static_cast<$List*(*)($String*,$String*,$String*,$String*)>(&ResourceBundle$Control$CandidateListCache::getDefaultList))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(ResourceBundle$Control$CandidateListCache, init$, void)},
+	{"createObject", "(Lsun/util/locale/BaseLocale;)Ljava/util/List;", "(Lsun/util/locale/BaseLocale;)Ljava/util/List<Ljava/util/Locale;>;", $PROTECTED, $virtualMethod(ResourceBundle$Control$CandidateListCache, createObject, $List*, $BaseLocale*)},
+	{"createObject", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PROTECTED | $VOLATILE | $SYNTHETIC, $virtualMethod(ResourceBundle$Control$CandidateListCache, createObject, $Object*, Object$*)},
+	{"getDefaultList", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/util/List;", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/util/List<Ljava/util/Locale;>;", $PRIVATE | $STATIC, $staticMethod(ResourceBundle$Control$CandidateListCache, getDefaultList, $List*, $String*, $String*, $String*, $String*)},
 	{}
 };
 

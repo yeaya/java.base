@@ -23,11 +23,11 @@ namespace java {
 		namespace stream {
 
 $MethodInfo _WhileOps$UnorderedWhileSpliterator$OfRef$Taking_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Spliterator;ZLjava/util/function/Predicate;)V", "(Ljava/util/Spliterator<TT;>;ZLjava/util/function/Predicate<-TT;>;)V", 0, $method(static_cast<void(WhileOps$UnorderedWhileSpliterator$OfRef$Taking::*)($Spliterator*,bool,$Predicate*)>(&WhileOps$UnorderedWhileSpliterator$OfRef$Taking::init$))},
-	{"<init>", "(Ljava/util/Spliterator;Ljava/util/stream/WhileOps$UnorderedWhileSpliterator$OfRef$Taking;)V", "(Ljava/util/Spliterator<TT;>;Ljava/util/stream/WhileOps$UnorderedWhileSpliterator$OfRef$Taking<TT;>;)V", 0, $method(static_cast<void(WhileOps$UnorderedWhileSpliterator$OfRef$Taking::*)($Spliterator*,WhileOps$UnorderedWhileSpliterator$OfRef$Taking*)>(&WhileOps$UnorderedWhileSpliterator$OfRef$Taking::init$))},
-	{"makeSpliterator", "(Ljava/util/Spliterator;)Ljava/util/Spliterator;", "(Ljava/util/Spliterator<TT;>;)Ljava/util/Spliterator<TT;>;", 0},
-	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-TT;>;)Z", $PUBLIC},
-	{"trySplit", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TT;>;", $PUBLIC},
+	{"<init>", "(Ljava/util/Spliterator;ZLjava/util/function/Predicate;)V", "(Ljava/util/Spliterator<TT;>;ZLjava/util/function/Predicate<-TT;>;)V", 0, $method(WhileOps$UnorderedWhileSpliterator$OfRef$Taking, init$, void, $Spliterator*, bool, $Predicate*)},
+	{"<init>", "(Ljava/util/Spliterator;Ljava/util/stream/WhileOps$UnorderedWhileSpliterator$OfRef$Taking;)V", "(Ljava/util/Spliterator<TT;>;Ljava/util/stream/WhileOps$UnorderedWhileSpliterator$OfRef$Taking<TT;>;)V", 0, $method(WhileOps$UnorderedWhileSpliterator$OfRef$Taking, init$, void, $Spliterator*, WhileOps$UnorderedWhileSpliterator$OfRef$Taking*)},
+	{"makeSpliterator", "(Ljava/util/Spliterator;)Ljava/util/Spliterator;", "(Ljava/util/Spliterator<TT;>;)Ljava/util/Spliterator<TT;>;", 0, $virtualMethod(WhileOps$UnorderedWhileSpliterator$OfRef$Taking, makeSpliterator, $Spliterator*, $Spliterator*)},
+	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-TT;>;)Z", $PUBLIC, $virtualMethod(WhileOps$UnorderedWhileSpliterator$OfRef$Taking, tryAdvance, bool, $Consumer*)},
+	{"trySplit", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TT;>;", $PUBLIC, $virtualMethod(WhileOps$UnorderedWhileSpliterator$OfRef$Taking, trySplit, $Spliterator*)},
 	{}
 };
 

@@ -27,8 +27,8 @@ namespace java {
 		namespace stream {
 
 $MethodInfo _DistinctOps_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(DistinctOps::*)()>(&DistinctOps::init$))},
-	{"makeRef", "(Ljava/util/stream/AbstractPipeline;)Ljava/util/stream/ReferencePipeline;", "<T:Ljava/lang/Object;>(Ljava/util/stream/AbstractPipeline<*TT;*>;)Ljava/util/stream/ReferencePipeline<TT;TT;>;", $STATIC, $method(static_cast<$ReferencePipeline*(*)($AbstractPipeline*)>(&DistinctOps::makeRef))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(DistinctOps, init$, void)},
+	{"makeRef", "(Ljava/util/stream/AbstractPipeline;)Ljava/util/stream/ReferencePipeline;", "<T:Ljava/lang/Object;>(Ljava/util/stream/AbstractPipeline<*TT;*>;)Ljava/util/stream/ReferencePipeline<TT;TT;>;", $STATIC, $staticMethod(DistinctOps, makeRef, $ReferencePipeline*, $AbstractPipeline*)},
 	{}
 };
 

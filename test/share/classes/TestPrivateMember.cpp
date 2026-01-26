@@ -25,9 +25,9 @@ using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
 using $MethodType = ::java::lang::invoke::MethodType;
 
 $MethodInfo _TestPrivateMember_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TestPrivateMember::*)()>(&TestPrivateMember::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<void(*)($StringArray*)>(&TestPrivateMember::main)), "java.lang.Throwable"},
-	{"test", "()V", nullptr, $PUBLIC, nullptr, "java.lang.Throwable"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TestPrivateMember, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(TestPrivateMember, main, void, $StringArray*), "java.lang.Throwable"},
+	{"test", "()V", nullptr, $PUBLIC, $virtualMethod(TestPrivateMember, test, void), "java.lang.Throwable"},
 	{}
 };
 

@@ -9,19 +9,21 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $CacheResponse = ::java::net::CacheResponse;
+using $Principal = ::java::security::Principal;
+using $List = ::java::util::List;
 using $Optional = ::java::util::Optional;
 
 namespace java {
 	namespace net {
 
 $MethodInfo _SecureCacheResponse_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SecureCacheResponse::*)()>(&SecureCacheResponse::init$))},
-	{"getCipherSuite", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getLocalCertificateChain", "()Ljava/util/List;", "()Ljava/util/List<Ljava/security/cert/Certificate;>;", $PUBLIC | $ABSTRACT},
-	{"getLocalPrincipal", "()Ljava/security/Principal;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getPeerPrincipal", "()Ljava/security/Principal;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "javax.net.ssl.SSLPeerUnverifiedException"},
-	{"getSSLSession", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljavax/net/ssl/SSLSession;>;", $PUBLIC},
-	{"getServerCertificateChain", "()Ljava/util/List;", "()Ljava/util/List<Ljava/security/cert/Certificate;>;", $PUBLIC | $ABSTRACT, nullptr, "javax.net.ssl.SSLPeerUnverifiedException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SecureCacheResponse, init$, void)},
+	{"getCipherSuite", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SecureCacheResponse, getCipherSuite, $String*)},
+	{"getLocalCertificateChain", "()Ljava/util/List;", "()Ljava/util/List<Ljava/security/cert/Certificate;>;", $PUBLIC | $ABSTRACT, $virtualMethod(SecureCacheResponse, getLocalCertificateChain, $List*)},
+	{"getLocalPrincipal", "()Ljava/security/Principal;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SecureCacheResponse, getLocalPrincipal, $Principal*)},
+	{"getPeerPrincipal", "()Ljava/security/Principal;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SecureCacheResponse, getPeerPrincipal, $Principal*), "javax.net.ssl.SSLPeerUnverifiedException"},
+	{"getSSLSession", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljavax/net/ssl/SSLSession;>;", $PUBLIC, $virtualMethod(SecureCacheResponse, getSSLSession, $Optional*)},
+	{"getServerCertificateChain", "()Ljava/util/List;", "()Ljava/util/List<Ljava/security/cert/Certificate;>;", $PUBLIC | $ABSTRACT, $virtualMethod(SecureCacheResponse, getServerCertificateChain, $List*), "javax.net.ssl.SSLPeerUnverifiedException"},
 	{}
 };
 

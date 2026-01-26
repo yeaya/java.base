@@ -5,12 +5,13 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $SocketImpl = ::java::net::SocketImpl;
 
 namespace java {
 	namespace net {
 
 $MethodInfo _SocketImplFactory_MethodInfo_[] = {
-	{"createSocketImpl", "()Ljava/net/SocketImpl;", nullptr, $PUBLIC | $ABSTRACT},
+	{"createSocketImpl", "()Ljava/net/SocketImpl;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SocketImplFactory, createSocketImpl, $SocketImpl*)},
 	{}
 };
 

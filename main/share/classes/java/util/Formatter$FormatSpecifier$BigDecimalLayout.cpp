@@ -33,12 +33,12 @@ $FieldInfo _Formatter$FormatSpecifier$BigDecimalLayout_FieldInfo_[] = {
 };
 
 $MethodInfo _Formatter$FormatSpecifier$BigDecimalLayout_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Formatter$FormatSpecifier;Ljava/math/BigInteger;ILjava/util/Formatter$BigDecimalLayoutForm;)V", nullptr, $PUBLIC, $method(static_cast<void(Formatter$FormatSpecifier$BigDecimalLayout::*)($Formatter$FormatSpecifier*,$BigInteger*,int32_t,$Formatter$BigDecimalLayoutForm*)>(&Formatter$FormatSpecifier$BigDecimalLayout::init$))},
-	{"exponent", "()Ljava/lang/StringBuilder;", nullptr, $PUBLIC},
-	{"hasDot", "()Z", nullptr, $PUBLIC},
-	{"layout", "(Ljava/math/BigInteger;ILjava/util/Formatter$BigDecimalLayoutForm;)V", nullptr, $PRIVATE, $method(static_cast<void(Formatter$FormatSpecifier$BigDecimalLayout::*)($BigInteger*,int32_t,$Formatter$BigDecimalLayoutForm*)>(&Formatter$FormatSpecifier$BigDecimalLayout::layout))},
-	{"mantissa", "()Ljava/lang/StringBuilder;", nullptr, $PUBLIC},
-	{"scale", "()I", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/Formatter$FormatSpecifier;Ljava/math/BigInteger;ILjava/util/Formatter$BigDecimalLayoutForm;)V", nullptr, $PUBLIC, $method(Formatter$FormatSpecifier$BigDecimalLayout, init$, void, $Formatter$FormatSpecifier*, $BigInteger*, int32_t, $Formatter$BigDecimalLayoutForm*)},
+	{"exponent", "()Ljava/lang/StringBuilder;", nullptr, $PUBLIC, $virtualMethod(Formatter$FormatSpecifier$BigDecimalLayout, exponent, $StringBuilder*)},
+	{"hasDot", "()Z", nullptr, $PUBLIC, $virtualMethod(Formatter$FormatSpecifier$BigDecimalLayout, hasDot, bool)},
+	{"layout", "(Ljava/math/BigInteger;ILjava/util/Formatter$BigDecimalLayoutForm;)V", nullptr, $PRIVATE, $method(Formatter$FormatSpecifier$BigDecimalLayout, layout, void, $BigInteger*, int32_t, $Formatter$BigDecimalLayoutForm*)},
+	{"mantissa", "()Ljava/lang/StringBuilder;", nullptr, $PUBLIC, $virtualMethod(Formatter$FormatSpecifier$BigDecimalLayout, mantissa, $StringBuilder*)},
+	{"scale", "()I", nullptr, $PUBLIC, $virtualMethod(Formatter$FormatSpecifier$BigDecimalLayout, scale, int32_t)},
 	{}
 };
 

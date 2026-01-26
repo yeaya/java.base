@@ -18,7 +18,7 @@ $FieldInfo _SSLPeerUnverifiedException_FieldInfo_[] = {
 };
 
 $MethodInfo _SSLPeerUnverifiedException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(SSLPeerUnverifiedException::*)($String*)>(&SSLPeerUnverifiedException::init$))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SSLPeerUnverifiedException, init$, void, $String*)},
 	{}
 };
 

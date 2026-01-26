@@ -38,10 +38,10 @@ $FieldInfo _ProcessImpl$ProcessPipeInputStream_FieldInfo_[] = {
 };
 
 $MethodInfo _ProcessImpl$ProcessPipeInputStream_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, 0, $method(static_cast<void(ProcessImpl$ProcessPipeInputStream::*)(int32_t)>(&ProcessImpl$ProcessPipeInputStream::init$))},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"drainInputStream", "(Ljava/io/InputStream;)[B", nullptr, $PRIVATE | $STATIC, $method(static_cast<$bytes*(*)($InputStream*)>(&ProcessImpl$ProcessPipeInputStream::drainInputStream)), "java.io.IOException"},
-	{"processExited", "()V", nullptr, $SYNCHRONIZED},
+	{"<init>", "(I)V", nullptr, 0, $method(ProcessImpl$ProcessPipeInputStream, init$, void, int32_t)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(ProcessImpl$ProcessPipeInputStream, close, void), "java.io.IOException"},
+	{"drainInputStream", "(Ljava/io/InputStream;)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(ProcessImpl$ProcessPipeInputStream, drainInputStream, $bytes*, $InputStream*), "java.io.IOException"},
+	{"processExited", "()V", nullptr, $SYNCHRONIZED, $virtualMethod(ProcessImpl$ProcessPipeInputStream, processExited, void)},
 	{}
 };
 

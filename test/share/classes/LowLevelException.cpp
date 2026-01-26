@@ -7,7 +7,7 @@ using $Exception = ::java::lang::Exception;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _LowLevelException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(LowLevelException::*)()>(&LowLevelException::init$))},
+	{"<init>", "()V", nullptr, 0, $method(LowLevelException, init$, void)},
 	{}
 };
 

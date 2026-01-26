@@ -26,9 +26,9 @@ $FieldInfo _CollatorUtilities_FieldInfo_[] = {
 };
 
 $MethodInfo _CollatorUtilities_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CollatorUtilities::*)()>(&CollatorUtilities::init$))},
-	{"toLegacyMode", "(Ljdk/internal/icu/text/NormalizerBase$Mode;)I", nullptr, $PUBLIC | $STATIC, $method(static_cast<int32_t(*)($NormalizerBase$Mode*)>(&CollatorUtilities::toLegacyMode))},
-	{"toNormalizerMode", "(I)Ljdk/internal/icu/text/NormalizerBase$Mode;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$NormalizerBase$Mode*(*)(int32_t)>(&CollatorUtilities::toNormalizerMode))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CollatorUtilities, init$, void)},
+	{"toLegacyMode", "(Ljdk/internal/icu/text/NormalizerBase$Mode;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(CollatorUtilities, toLegacyMode, int32_t, $NormalizerBase$Mode*)},
+	{"toNormalizerMode", "(I)Ljdk/internal/icu/text/NormalizerBase$Mode;", nullptr, $PUBLIC | $STATIC, $staticMethod(CollatorUtilities, toNormalizerMode, $NormalizerBase$Mode*, int32_t)},
 	{}
 };
 

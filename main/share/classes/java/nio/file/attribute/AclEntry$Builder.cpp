@@ -51,15 +51,15 @@ $FieldInfo _AclEntry$Builder_FieldInfo_[] = {
 };
 
 $MethodInfo _AclEntry$Builder_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/file/attribute/AclEntryType;Ljava/nio/file/attribute/UserPrincipal;Ljava/util/Set;Ljava/util/Set;)V", "(Ljava/nio/file/attribute/AclEntryType;Ljava/nio/file/attribute/UserPrincipal;Ljava/util/Set<Ljava/nio/file/attribute/AclEntryPermission;>;Ljava/util/Set<Ljava/nio/file/attribute/AclEntryFlag;>;)V", $PRIVATE, $method(static_cast<void(AclEntry$Builder::*)($AclEntryType*,$UserPrincipal*,$Set*,$Set*)>(&AclEntry$Builder::init$))},
-	{"build", "()Ljava/nio/file/attribute/AclEntry;", nullptr, $PUBLIC, $method(static_cast<$AclEntry*(AclEntry$Builder::*)()>(&AclEntry$Builder::build))},
-	{"checkSet", "(Ljava/util/Set;Ljava/lang/Class;)V", "(Ljava/util/Set<*>;Ljava/lang/Class<*>;)V", $PRIVATE | $STATIC, $method(static_cast<void(*)($Set*,$Class*)>(&AclEntry$Builder::checkSet))},
-	{"setFlags", "(Ljava/util/Set;)Ljava/nio/file/attribute/AclEntry$Builder;", "(Ljava/util/Set<Ljava/nio/file/attribute/AclEntryFlag;>;)Ljava/nio/file/attribute/AclEntry$Builder;", $PUBLIC, $method(static_cast<AclEntry$Builder*(AclEntry$Builder::*)($Set*)>(&AclEntry$Builder::setFlags))},
-	{"setFlags", "([Ljava/nio/file/attribute/AclEntryFlag;)Ljava/nio/file/attribute/AclEntry$Builder;", nullptr, $PUBLIC | $TRANSIENT, $method(static_cast<AclEntry$Builder*(AclEntry$Builder::*)($AclEntryFlagArray*)>(&AclEntry$Builder::setFlags))},
-	{"setPermissions", "(Ljava/util/Set;)Ljava/nio/file/attribute/AclEntry$Builder;", "(Ljava/util/Set<Ljava/nio/file/attribute/AclEntryPermission;>;)Ljava/nio/file/attribute/AclEntry$Builder;", $PUBLIC, $method(static_cast<AclEntry$Builder*(AclEntry$Builder::*)($Set*)>(&AclEntry$Builder::setPermissions))},
-	{"setPermissions", "([Ljava/nio/file/attribute/AclEntryPermission;)Ljava/nio/file/attribute/AclEntry$Builder;", nullptr, $PUBLIC | $TRANSIENT, $method(static_cast<AclEntry$Builder*(AclEntry$Builder::*)($AclEntryPermissionArray*)>(&AclEntry$Builder::setPermissions))},
-	{"setPrincipal", "(Ljava/nio/file/attribute/UserPrincipal;)Ljava/nio/file/attribute/AclEntry$Builder;", nullptr, $PUBLIC, $method(static_cast<AclEntry$Builder*(AclEntry$Builder::*)($UserPrincipal*)>(&AclEntry$Builder::setPrincipal))},
-	{"setType", "(Ljava/nio/file/attribute/AclEntryType;)Ljava/nio/file/attribute/AclEntry$Builder;", nullptr, $PUBLIC, $method(static_cast<AclEntry$Builder*(AclEntry$Builder::*)($AclEntryType*)>(&AclEntry$Builder::setType))},
+	{"<init>", "(Ljava/nio/file/attribute/AclEntryType;Ljava/nio/file/attribute/UserPrincipal;Ljava/util/Set;Ljava/util/Set;)V", "(Ljava/nio/file/attribute/AclEntryType;Ljava/nio/file/attribute/UserPrincipal;Ljava/util/Set<Ljava/nio/file/attribute/AclEntryPermission;>;Ljava/util/Set<Ljava/nio/file/attribute/AclEntryFlag;>;)V", $PRIVATE, $method(AclEntry$Builder, init$, void, $AclEntryType*, $UserPrincipal*, $Set*, $Set*)},
+	{"build", "()Ljava/nio/file/attribute/AclEntry;", nullptr, $PUBLIC, $method(AclEntry$Builder, build, $AclEntry*)},
+	{"checkSet", "(Ljava/util/Set;Ljava/lang/Class;)V", "(Ljava/util/Set<*>;Ljava/lang/Class<*>;)V", $PRIVATE | $STATIC, $staticMethod(AclEntry$Builder, checkSet, void, $Set*, $Class*)},
+	{"setFlags", "(Ljava/util/Set;)Ljava/nio/file/attribute/AclEntry$Builder;", "(Ljava/util/Set<Ljava/nio/file/attribute/AclEntryFlag;>;)Ljava/nio/file/attribute/AclEntry$Builder;", $PUBLIC, $method(AclEntry$Builder, setFlags, AclEntry$Builder*, $Set*)},
+	{"setFlags", "([Ljava/nio/file/attribute/AclEntryFlag;)Ljava/nio/file/attribute/AclEntry$Builder;", nullptr, $PUBLIC | $TRANSIENT, $method(AclEntry$Builder, setFlags, AclEntry$Builder*, $AclEntryFlagArray*)},
+	{"setPermissions", "(Ljava/util/Set;)Ljava/nio/file/attribute/AclEntry$Builder;", "(Ljava/util/Set<Ljava/nio/file/attribute/AclEntryPermission;>;)Ljava/nio/file/attribute/AclEntry$Builder;", $PUBLIC, $method(AclEntry$Builder, setPermissions, AclEntry$Builder*, $Set*)},
+	{"setPermissions", "([Ljava/nio/file/attribute/AclEntryPermission;)Ljava/nio/file/attribute/AclEntry$Builder;", nullptr, $PUBLIC | $TRANSIENT, $method(AclEntry$Builder, setPermissions, AclEntry$Builder*, $AclEntryPermissionArray*)},
+	{"setPrincipal", "(Ljava/nio/file/attribute/UserPrincipal;)Ljava/nio/file/attribute/AclEntry$Builder;", nullptr, $PUBLIC, $method(AclEntry$Builder, setPrincipal, AclEntry$Builder*, $UserPrincipal*)},
+	{"setType", "(Ljava/nio/file/attribute/AclEntryType;)Ljava/nio/file/attribute/AclEntry$Builder;", nullptr, $PUBLIC, $method(AclEntry$Builder, setType, AclEntry$Builder*, $AclEntryType*)},
 	{}
 };
 

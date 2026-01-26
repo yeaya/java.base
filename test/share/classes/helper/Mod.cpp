@@ -26,10 +26,10 @@ $FieldInfo _Mod_FieldInfo_[] = {
 };
 
 $MethodInfo _Mod_MethodInfo_[] = {
-	{"$values", "()[Lhelper/Mod;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$ModArray*(*)()>(&Mod::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(Mod::*)($String*,int32_t)>(&Mod::init$))},
-	{"valueOf", "(Ljava/lang/String;)Lhelper/Mod;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Mod*(*)($String*)>(&Mod::valueOf))},
-	{"values", "()[Lhelper/Mod;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$ModArray*(*)()>(&Mod::values))},
+	{"$values", "()[Lhelper/Mod;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Mod, $values, $ModArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Mod, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Lhelper/Mod;", nullptr, $PUBLIC | $STATIC, $staticMethod(Mod, valueOf, Mod*, $String*)},
+	{"values", "()[Lhelper/Mod;", nullptr, $PUBLIC | $STATIC, $staticMethod(Mod, values, $ModArray*)},
 	{}
 };
 

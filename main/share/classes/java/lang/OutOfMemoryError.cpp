@@ -17,8 +17,8 @@ $FieldInfo _OutOfMemoryError_FieldInfo_[] = {
 };
 
 $MethodInfo _OutOfMemoryError_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(OutOfMemoryError::*)()>(&OutOfMemoryError::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(OutOfMemoryError::*)($String*)>(&OutOfMemoryError::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(OutOfMemoryError, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(OutOfMemoryError, init$, void, $String*)},
 	{}
 };
 

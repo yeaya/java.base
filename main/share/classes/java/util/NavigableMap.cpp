@@ -6,32 +6,34 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Map$Entry = ::java::util::Map$Entry;
+using $NavigableSet = ::java::util::NavigableSet;
 
 namespace java {
 	namespace util {
 
 $MethodInfo _NavigableMap_MethodInfo_[] = {
-	{"ceilingEntry", "(Ljava/lang/Object;)Ljava/util/Map$Entry;", "(TK;)Ljava/util/Map$Entry<TK;TV;>;", $PUBLIC | $ABSTRACT},
-	{"ceilingKey", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TK;)TK;", $PUBLIC | $ABSTRACT},
-	{"descendingKeySet", "()Ljava/util/NavigableSet;", "()Ljava/util/NavigableSet<TK;>;", $PUBLIC | $ABSTRACT},
-	{"descendingMap", "()Ljava/util/NavigableMap;", "()Ljava/util/NavigableMap<TK;TV;>;", $PUBLIC | $ABSTRACT},
-	{"firstEntry", "()Ljava/util/Map$Entry;", "()Ljava/util/Map$Entry<TK;TV;>;", $PUBLIC | $ABSTRACT},
-	{"floorEntry", "(Ljava/lang/Object;)Ljava/util/Map$Entry;", "(TK;)Ljava/util/Map$Entry<TK;TV;>;", $PUBLIC | $ABSTRACT},
-	{"floorKey", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TK;)TK;", $PUBLIC | $ABSTRACT},
+	{"ceilingEntry", "(Ljava/lang/Object;)Ljava/util/Map$Entry;", "(TK;)Ljava/util/Map$Entry<TK;TV;>;", $PUBLIC | $ABSTRACT, $virtualMethod(NavigableMap, ceilingEntry, $Map$Entry*, Object$*)},
+	{"ceilingKey", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TK;)TK;", $PUBLIC | $ABSTRACT, $virtualMethod(NavigableMap, ceilingKey, $Object*, Object$*)},
+	{"descendingKeySet", "()Ljava/util/NavigableSet;", "()Ljava/util/NavigableSet<TK;>;", $PUBLIC | $ABSTRACT, $virtualMethod(NavigableMap, descendingKeySet, $NavigableSet*)},
+	{"descendingMap", "()Ljava/util/NavigableMap;", "()Ljava/util/NavigableMap<TK;TV;>;", $PUBLIC | $ABSTRACT, $virtualMethod(NavigableMap, descendingMap, NavigableMap*)},
+	{"firstEntry", "()Ljava/util/Map$Entry;", "()Ljava/util/Map$Entry<TK;TV;>;", $PUBLIC | $ABSTRACT, $virtualMethod(NavigableMap, firstEntry, $Map$Entry*)},
+	{"floorEntry", "(Ljava/lang/Object;)Ljava/util/Map$Entry;", "(TK;)Ljava/util/Map$Entry<TK;TV;>;", $PUBLIC | $ABSTRACT, $virtualMethod(NavigableMap, floorEntry, $Map$Entry*, Object$*)},
+	{"floorKey", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TK;)TK;", $PUBLIC | $ABSTRACT, $virtualMethod(NavigableMap, floorKey, $Object*, Object$*)},
 	{"headMap", "(Ljava/lang/Object;)Ljava/util/SortedMap;", nullptr, $PUBLIC | $ABSTRACT},
-	{"headMap", "(Ljava/lang/Object;Z)Ljava/util/NavigableMap;", "(TK;Z)Ljava/util/NavigableMap<TK;TV;>;", $PUBLIC | $ABSTRACT},
-	{"higherEntry", "(Ljava/lang/Object;)Ljava/util/Map$Entry;", "(TK;)Ljava/util/Map$Entry<TK;TV;>;", $PUBLIC | $ABSTRACT},
-	{"higherKey", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TK;)TK;", $PUBLIC | $ABSTRACT},
-	{"lastEntry", "()Ljava/util/Map$Entry;", "()Ljava/util/Map$Entry<TK;TV;>;", $PUBLIC | $ABSTRACT},
-	{"lowerEntry", "(Ljava/lang/Object;)Ljava/util/Map$Entry;", "(TK;)Ljava/util/Map$Entry<TK;TV;>;", $PUBLIC | $ABSTRACT},
-	{"lowerKey", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TK;)TK;", $PUBLIC | $ABSTRACT},
-	{"navigableKeySet", "()Ljava/util/NavigableSet;", "()Ljava/util/NavigableSet<TK;>;", $PUBLIC | $ABSTRACT},
-	{"pollFirstEntry", "()Ljava/util/Map$Entry;", "()Ljava/util/Map$Entry<TK;TV;>;", $PUBLIC | $ABSTRACT},
-	{"pollLastEntry", "()Ljava/util/Map$Entry;", "()Ljava/util/Map$Entry<TK;TV;>;", $PUBLIC | $ABSTRACT},
+	{"headMap", "(Ljava/lang/Object;Z)Ljava/util/NavigableMap;", "(TK;Z)Ljava/util/NavigableMap<TK;TV;>;", $PUBLIC | $ABSTRACT, $virtualMethod(NavigableMap, headMap, NavigableMap*, Object$*, bool)},
+	{"higherEntry", "(Ljava/lang/Object;)Ljava/util/Map$Entry;", "(TK;)Ljava/util/Map$Entry<TK;TV;>;", $PUBLIC | $ABSTRACT, $virtualMethod(NavigableMap, higherEntry, $Map$Entry*, Object$*)},
+	{"higherKey", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TK;)TK;", $PUBLIC | $ABSTRACT, $virtualMethod(NavigableMap, higherKey, $Object*, Object$*)},
+	{"lastEntry", "()Ljava/util/Map$Entry;", "()Ljava/util/Map$Entry<TK;TV;>;", $PUBLIC | $ABSTRACT, $virtualMethod(NavigableMap, lastEntry, $Map$Entry*)},
+	{"lowerEntry", "(Ljava/lang/Object;)Ljava/util/Map$Entry;", "(TK;)Ljava/util/Map$Entry<TK;TV;>;", $PUBLIC | $ABSTRACT, $virtualMethod(NavigableMap, lowerEntry, $Map$Entry*, Object$*)},
+	{"lowerKey", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TK;)TK;", $PUBLIC | $ABSTRACT, $virtualMethod(NavigableMap, lowerKey, $Object*, Object$*)},
+	{"navigableKeySet", "()Ljava/util/NavigableSet;", "()Ljava/util/NavigableSet<TK;>;", $PUBLIC | $ABSTRACT, $virtualMethod(NavigableMap, navigableKeySet, $NavigableSet*)},
+	{"pollFirstEntry", "()Ljava/util/Map$Entry;", "()Ljava/util/Map$Entry<TK;TV;>;", $PUBLIC | $ABSTRACT, $virtualMethod(NavigableMap, pollFirstEntry, $Map$Entry*)},
+	{"pollLastEntry", "()Ljava/util/Map$Entry;", "()Ljava/util/Map$Entry<TK;TV;>;", $PUBLIC | $ABSTRACT, $virtualMethod(NavigableMap, pollLastEntry, $Map$Entry*)},
 	{"subMap", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/SortedMap;", nullptr, $PUBLIC | $ABSTRACT},
-	{"subMap", "(Ljava/lang/Object;ZLjava/lang/Object;Z)Ljava/util/NavigableMap;", "(TK;ZTK;Z)Ljava/util/NavigableMap<TK;TV;>;", $PUBLIC | $ABSTRACT},
+	{"subMap", "(Ljava/lang/Object;ZLjava/lang/Object;Z)Ljava/util/NavigableMap;", "(TK;ZTK;Z)Ljava/util/NavigableMap<TK;TV;>;", $PUBLIC | $ABSTRACT, $virtualMethod(NavigableMap, subMap, NavigableMap*, Object$*, bool, Object$*, bool)},
 	{"tailMap", "(Ljava/lang/Object;)Ljava/util/SortedMap;", nullptr, $PUBLIC | $ABSTRACT},
-	{"tailMap", "(Ljava/lang/Object;Z)Ljava/util/NavigableMap;", "(TK;Z)Ljava/util/NavigableMap<TK;TV;>;", $PUBLIC | $ABSTRACT},
+	{"tailMap", "(Ljava/lang/Object;Z)Ljava/util/NavigableMap;", "(TK;Z)Ljava/util/NavigableMap<TK;TV;>;", $PUBLIC | $ABSTRACT, $virtualMethod(NavigableMap, tailMap, NavigableMap*, Object$*, bool)},
 	{}
 };
 

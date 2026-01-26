@@ -57,20 +57,20 @@ $FieldInfo _X509CertificatePair_FieldInfo_[] = {
 };
 
 $MethodInfo _X509CertificatePair_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(X509CertificatePair::*)()>(&X509CertificatePair::init$))},
-	{"<init>", "(Ljava/security/cert/X509Certificate;Ljava/security/cert/X509Certificate;)V", nullptr, $PUBLIC, $method(static_cast<void(X509CertificatePair::*)($X509Certificate*,$X509Certificate*)>(&X509CertificatePair::init$)), "java.security.cert.CertificateException"},
-	{"<init>", "([B)V", nullptr, $PRIVATE, $method(static_cast<void(X509CertificatePair::*)($bytes*)>(&X509CertificatePair::init$)), "java.security.cert.CertificateException"},
-	{"checkPair", "()V", nullptr, $PRIVATE, $method(static_cast<void(X509CertificatePair::*)()>(&X509CertificatePair::checkPair)), "java.security.cert.CertificateException"},
-	{"clearCache", "()V", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $method(static_cast<void(*)()>(&X509CertificatePair::clearCache))},
-	{"emit", "(Lsun/security/util/DerOutputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(X509CertificatePair::*)($DerOutputStream*)>(&X509CertificatePair::emit)), "java.io.IOException,java.security.cert.CertificateEncodingException"},
-	{"generateCertificatePair", "([B)Lsun/security/provider/certpath/X509CertificatePair;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $method(static_cast<X509CertificatePair*(*)($bytes*)>(&X509CertificatePair::generateCertificatePair)), "java.security.cert.CertificateException"},
-	{"getEncoded", "()[B", nullptr, $PUBLIC, nullptr, "java.security.cert.CertificateEncodingException"},
-	{"getForward", "()Ljava/security/cert/X509Certificate;", nullptr, $PUBLIC},
-	{"getReverse", "()Ljava/security/cert/X509Certificate;", nullptr, $PUBLIC},
-	{"parse", "(Lsun/security/util/DerValue;)V", nullptr, $PRIVATE, $method(static_cast<void(X509CertificatePair::*)($DerValue*)>(&X509CertificatePair::parse)), "java.io.IOException,java.security.cert.CertificateException"},
-	{"setForward", "(Ljava/security/cert/X509Certificate;)V", nullptr, $PUBLIC, nullptr, "java.security.cert.CertificateException"},
-	{"setReverse", "(Ljava/security/cert/X509Certificate;)V", nullptr, $PUBLIC, nullptr, "java.security.cert.CertificateException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(X509CertificatePair, init$, void)},
+	{"<init>", "(Ljava/security/cert/X509Certificate;Ljava/security/cert/X509Certificate;)V", nullptr, $PUBLIC, $method(X509CertificatePair, init$, void, $X509Certificate*, $X509Certificate*), "java.security.cert.CertificateException"},
+	{"<init>", "([B)V", nullptr, $PRIVATE, $method(X509CertificatePair, init$, void, $bytes*), "java.security.cert.CertificateException"},
+	{"checkPair", "()V", nullptr, $PRIVATE, $method(X509CertificatePair, checkPair, void), "java.security.cert.CertificateException"},
+	{"clearCache", "()V", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(X509CertificatePair, clearCache, void)},
+	{"emit", "(Lsun/security/util/DerOutputStream;)V", nullptr, $PRIVATE, $method(X509CertificatePair, emit, void, $DerOutputStream*), "java.io.IOException,java.security.cert.CertificateEncodingException"},
+	{"generateCertificatePair", "([B)Lsun/security/provider/certpath/X509CertificatePair;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(X509CertificatePair, generateCertificatePair, X509CertificatePair*, $bytes*), "java.security.cert.CertificateException"},
+	{"getEncoded", "()[B", nullptr, $PUBLIC, $virtualMethod(X509CertificatePair, getEncoded, $bytes*), "java.security.cert.CertificateEncodingException"},
+	{"getForward", "()Ljava/security/cert/X509Certificate;", nullptr, $PUBLIC, $virtualMethod(X509CertificatePair, getForward, $X509Certificate*)},
+	{"getReverse", "()Ljava/security/cert/X509Certificate;", nullptr, $PUBLIC, $virtualMethod(X509CertificatePair, getReverse, $X509Certificate*)},
+	{"parse", "(Lsun/security/util/DerValue;)V", nullptr, $PRIVATE, $method(X509CertificatePair, parse, void, $DerValue*), "java.io.IOException,java.security.cert.CertificateException"},
+	{"setForward", "(Ljava/security/cert/X509Certificate;)V", nullptr, $PUBLIC, $virtualMethod(X509CertificatePair, setForward, void, $X509Certificate*), "java.security.cert.CertificateException"},
+	{"setReverse", "(Ljava/security/cert/X509Certificate;)V", nullptr, $PUBLIC, $virtualMethod(X509CertificatePair, setReverse, void, $X509Certificate*), "java.security.cert.CertificateException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(X509CertificatePair, toString, $String*)},
 	{}
 };
 

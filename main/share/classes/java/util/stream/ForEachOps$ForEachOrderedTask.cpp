@@ -58,8 +58,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ForEachOps$ForEachOrderedTask$$Lambda$lambda$doCompute$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ForEachOps$ForEachOrderedTask$$Lambda$lambda$doCompute$0::*)()>(&ForEachOps$ForEachOrderedTask$$Lambda$lambda$doCompute$0::init$))},
-	{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ForEachOps$ForEachOrderedTask$$Lambda$lambda$doCompute$0, init$, void)},
+	{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ForEachOps$ForEachOrderedTask$$Lambda$lambda$doCompute$0, apply, $Object*, int32_t)},
 	{}
 };
 $ClassInfo ForEachOps$ForEachOrderedTask$$Lambda$lambda$doCompute$0::classInfo$ = {
@@ -88,12 +88,12 @@ $FieldInfo _ForEachOps$ForEachOrderedTask_FieldInfo_[] = {
 };
 
 $MethodInfo _ForEachOps$ForEachOrderedTask_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;Ljava/util/stream/Sink;)V", "(Ljava/util/stream/PipelineHelper<TT;>;Ljava/util/Spliterator<TS;>;Ljava/util/stream/Sink<TT;>;)V", $PROTECTED, $method(static_cast<void(ForEachOps$ForEachOrderedTask::*)($PipelineHelper*,$Spliterator*,$Sink*)>(&ForEachOps$ForEachOrderedTask::init$))},
-	{"<init>", "(Ljava/util/stream/ForEachOps$ForEachOrderedTask;Ljava/util/Spliterator;Ljava/util/stream/ForEachOps$ForEachOrderedTask;)V", "(Ljava/util/stream/ForEachOps$ForEachOrderedTask<TS;TT;>;Ljava/util/Spliterator<TS;>;Ljava/util/stream/ForEachOps$ForEachOrderedTask<TS;TT;>;)V", 0, $method(static_cast<void(ForEachOps$ForEachOrderedTask::*)(ForEachOps$ForEachOrderedTask*,$Spliterator*,ForEachOps$ForEachOrderedTask*)>(&ForEachOps$ForEachOrderedTask::init$))},
-	{"compute", "()V", nullptr, $PUBLIC | $FINAL},
-	{"doCompute", "(Ljava/util/stream/ForEachOps$ForEachOrderedTask;)V", "<S:Ljava/lang/Object;T:Ljava/lang/Object;>(Ljava/util/stream/ForEachOps$ForEachOrderedTask<TS;TT;>;)V", $PRIVATE | $STATIC, $method(static_cast<void(*)(ForEachOps$ForEachOrderedTask*)>(&ForEachOps$ForEachOrderedTask::doCompute))},
-	{"lambda$doCompute$0", "(I)[Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$ObjectArray*(*)(int32_t)>(&ForEachOps$ForEachOrderedTask::lambda$doCompute$0))},
-	{"onCompletion", "(Ljava/util/concurrent/CountedCompleter;)V", "(Ljava/util/concurrent/CountedCompleter<*>;)V", $PUBLIC},
+	{"<init>", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;Ljava/util/stream/Sink;)V", "(Ljava/util/stream/PipelineHelper<TT;>;Ljava/util/Spliterator<TS;>;Ljava/util/stream/Sink<TT;>;)V", $PROTECTED, $method(ForEachOps$ForEachOrderedTask, init$, void, $PipelineHelper*, $Spliterator*, $Sink*)},
+	{"<init>", "(Ljava/util/stream/ForEachOps$ForEachOrderedTask;Ljava/util/Spliterator;Ljava/util/stream/ForEachOps$ForEachOrderedTask;)V", "(Ljava/util/stream/ForEachOps$ForEachOrderedTask<TS;TT;>;Ljava/util/Spliterator<TS;>;Ljava/util/stream/ForEachOps$ForEachOrderedTask<TS;TT;>;)V", 0, $method(ForEachOps$ForEachOrderedTask, init$, void, ForEachOps$ForEachOrderedTask*, $Spliterator*, ForEachOps$ForEachOrderedTask*)},
+	{"compute", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(ForEachOps$ForEachOrderedTask, compute, void)},
+	{"doCompute", "(Ljava/util/stream/ForEachOps$ForEachOrderedTask;)V", "<S:Ljava/lang/Object;T:Ljava/lang/Object;>(Ljava/util/stream/ForEachOps$ForEachOrderedTask<TS;TT;>;)V", $PRIVATE | $STATIC, $staticMethod(ForEachOps$ForEachOrderedTask, doCompute, void, ForEachOps$ForEachOrderedTask*)},
+	{"lambda$doCompute$0", "(I)[Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ForEachOps$ForEachOrderedTask, lambda$doCompute$0, $ObjectArray*, int32_t)},
+	{"onCompletion", "(Ljava/util/concurrent/CountedCompleter;)V", "(Ljava/util/concurrent/CountedCompleter<*>;)V", $PUBLIC, $virtualMethod(ForEachOps$ForEachOrderedTask, onCompletion, void, $CountedCompleter*)},
 	{}
 };
 

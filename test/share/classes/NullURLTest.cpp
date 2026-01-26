@@ -27,8 +27,8 @@ $FieldInfo _NullURLTest_FieldInfo_[] = {
 };
 
 $MethodInfo _NullURLTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(NullURLTest::*)()>(&NullURLTest::init$)), "java.lang.Throwable"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&NullURLTest::main)), "java.lang.Throwable"},
+	{"<init>", "()V", nullptr, 0, $method(NullURLTest, init$, void), "java.lang.Throwable"},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(NullURLTest, main, void, $StringArray*), "java.lang.Throwable"},
 	{}
 };
 

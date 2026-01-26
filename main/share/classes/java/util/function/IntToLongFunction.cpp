@@ -16,7 +16,7 @@ $CompoundAttribute _IntToLongFunction_Annotations_[] = {
 };
 
 $MethodInfo _IntToLongFunction_MethodInfo_[] = {
-	{"applyAsLong", "(I)J", nullptr, $PUBLIC | $ABSTRACT},
+	{"applyAsLong", "(I)J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(IntToLongFunction, applyAsLong, int64_t, int32_t)},
 	{}
 };
 

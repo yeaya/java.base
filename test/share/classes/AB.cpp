@@ -20,8 +20,8 @@ $CompoundAttribute _AB_MethodAnnotations_foo1[] = {
 };
 
 $MethodInfo _AB_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(AB::*)()>(&AB::init$))},
-	{"foo", "()V", nullptr, $PUBLIC, nullptr, nullptr, nullptr, _AB_MethodAnnotations_foo1},
+	{"<init>", "()V", nullptr, 0, $method(AB, init$, void)},
+	{"foo", "()V", nullptr, $PUBLIC, $virtualMethod(AB, foo, void), nullptr, nullptr, _AB_MethodAnnotations_foo1},
 	{}
 };
 

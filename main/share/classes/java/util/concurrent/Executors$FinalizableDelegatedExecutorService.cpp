@@ -16,8 +16,8 @@ namespace java {
 		namespace concurrent {
 
 $MethodInfo _Executors$FinalizableDelegatedExecutorService_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/ExecutorService;)V", nullptr, 0, $method(static_cast<void(Executors$FinalizableDelegatedExecutorService::*)($ExecutorService*)>(&Executors$FinalizableDelegatedExecutorService::init$))},
-	{"finalize", "()V", nullptr, $PROTECTED},
+	{"<init>", "(Ljava/util/concurrent/ExecutorService;)V", nullptr, 0, $method(Executors$FinalizableDelegatedExecutorService, init$, void, $ExecutorService*)},
+	{"finalize", "()V", nullptr, $PROTECTED, $virtualMethod(Executors$FinalizableDelegatedExecutorService, finalize, void)},
 	{}
 };
 

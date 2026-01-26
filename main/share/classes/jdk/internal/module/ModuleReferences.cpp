@@ -77,8 +77,8 @@ $FieldInfo ModuleReferences$$Lambda$lambda$newJarModule$0::fieldInfos[3] = {
 	{}
 };
 $MethodInfo ModuleReferences$$Lambda$lambda$newJarModule$0::methodInfos[3] = {
-	{"<init>", "(Ljava/nio/file/Path;Ljava/net/URI;)V", nullptr, $PUBLIC, $method(static_cast<void(ModuleReferences$$Lambda$lambda$newJarModule$0::*)($Path*,$URI*)>(&ModuleReferences$$Lambda$lambda$newJarModule$0::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/nio/file/Path;Ljava/net/URI;)V", nullptr, $PUBLIC, $method(ModuleReferences$$Lambda$lambda$newJarModule$0, init$, void, $Path*, $URI*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ModuleReferences$$Lambda$lambda$newJarModule$0, get, $Object*)},
 	{}
 };
 $ClassInfo ModuleReferences$$Lambda$lambda$newJarModule$0::classInfo$ = {
@@ -117,8 +117,8 @@ $FieldInfo ModuleReferences$$Lambda$lambda$newJarModule$1$1::fieldInfos[2] = {
 	{}
 };
 $MethodInfo ModuleReferences$$Lambda$lambda$newJarModule$1$1::methodInfos[3] = {
-	{"<init>", "(Ljava/util/function/Supplier;)V", nullptr, $PUBLIC, $method(static_cast<void(ModuleReferences$$Lambda$lambda$newJarModule$1$1::*)($Supplier*)>(&ModuleReferences$$Lambda$lambda$newJarModule$1$1::init$))},
-	{"generate", "(Ljava/lang/String;)[B", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/function/Supplier;)V", nullptr, $PUBLIC, $method(ModuleReferences$$Lambda$lambda$newJarModule$1$1, init$, void, $Supplier*)},
+	{"generate", "(Ljava/lang/String;)[B", nullptr, $PUBLIC, $virtualMethod(ModuleReferences$$Lambda$lambda$newJarModule$1$1, generate, $bytes*, $String*)},
 	{}
 };
 $ClassInfo ModuleReferences$$Lambda$lambda$newJarModule$1$1::classInfo$ = {
@@ -160,8 +160,8 @@ $FieldInfo ModuleReferences$$Lambda$lambda$newJModModule$2$2::fieldInfos[3] = {
 	{}
 };
 $MethodInfo ModuleReferences$$Lambda$lambda$newJModModule$2$2::methodInfos[3] = {
-	{"<init>", "(Ljava/nio/file/Path;Ljava/net/URI;)V", nullptr, $PUBLIC, $method(static_cast<void(ModuleReferences$$Lambda$lambda$newJModModule$2$2::*)($Path*,$URI*)>(&ModuleReferences$$Lambda$lambda$newJModModule$2$2::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/nio/file/Path;Ljava/net/URI;)V", nullptr, $PUBLIC, $method(ModuleReferences$$Lambda$lambda$newJModModule$2$2, init$, void, $Path*, $URI*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ModuleReferences$$Lambda$lambda$newJModModule$2$2, get, $Object*)},
 	{}
 };
 $ClassInfo ModuleReferences$$Lambda$lambda$newJModModule$2$2::classInfo$ = {
@@ -200,8 +200,8 @@ $FieldInfo ModuleReferences$$Lambda$lambda$newExplodedModule$4$3::fieldInfos[2] 
 	{}
 };
 $MethodInfo ModuleReferences$$Lambda$lambda$newExplodedModule$4$3::methodInfos[3] = {
-	{"<init>", "(Ljava/nio/file/Path;)V", nullptr, $PUBLIC, $method(static_cast<void(ModuleReferences$$Lambda$lambda$newExplodedModule$4$3::*)($Path*)>(&ModuleReferences$$Lambda$lambda$newExplodedModule$4$3::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/nio/file/Path;)V", nullptr, $PUBLIC, $method(ModuleReferences$$Lambda$lambda$newExplodedModule$4$3, init$, void, $Path*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ModuleReferences$$Lambda$lambda$newExplodedModule$4$3, get, $Object*)},
 	{}
 };
 $ClassInfo ModuleReferences$$Lambda$lambda$newExplodedModule$4$3::classInfo$ = {
@@ -219,15 +219,15 @@ $Class* ModuleReferences$$Lambda$lambda$newExplodedModule$4$3::load$($String* na
 $Class* ModuleReferences$$Lambda$lambda$newExplodedModule$4$3::class$ = nullptr;
 
 $MethodInfo _ModuleReferences_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(ModuleReferences::*)()>(&ModuleReferences::init$))},
-	{"lambda$newExplodedModule$4", "(Ljava/nio/file/Path;)Ljava/lang/module/ModuleReader;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$ModuleReader*(*)($Path*)>(&ModuleReferences::lambda$newExplodedModule$4))},
-	{"lambda$newJModModule$2", "(Ljava/nio/file/Path;Ljava/net/URI;)Ljava/lang/module/ModuleReader;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$ModuleReader*(*)($Path*,$URI*)>(&ModuleReferences::lambda$newJModModule$2))},
-	{"lambda$newJarModule$0", "(Ljava/nio/file/Path;Ljava/net/URI;)Ljava/lang/module/ModuleReader;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$ModuleReader*(*)($Path*,$URI*)>(&ModuleReferences::lambda$newJarModule$0))},
-	{"lambda$newJarModule$1", "(Ljava/util/function/Supplier;Ljava/lang/String;)[B", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$bytes*(*)($Supplier*,$String*)>(&ModuleReferences::lambda$newJarModule$1))},
-	{"newExplodedModule", "(Ljdk/internal/module/ModuleInfo$Attributes;Ljdk/internal/module/ModulePatcher;Ljava/nio/file/Path;)Ljava/lang/module/ModuleReference;", nullptr, $STATIC, $method(static_cast<$ModuleReference*(*)($ModuleInfo$Attributes*,$ModulePatcher*,$Path*)>(&ModuleReferences::newExplodedModule))},
-	{"newJModModule", "(Ljdk/internal/module/ModuleInfo$Attributes;Ljava/nio/file/Path;)Ljava/lang/module/ModuleReference;", nullptr, $STATIC, $method(static_cast<$ModuleReference*(*)($ModuleInfo$Attributes*,$Path*)>(&ModuleReferences::newJModModule))},
-	{"newJarModule", "(Ljdk/internal/module/ModuleInfo$Attributes;Ljdk/internal/module/ModulePatcher;Ljava/nio/file/Path;)Ljava/lang/module/ModuleReference;", nullptr, $STATIC, $method(static_cast<$ModuleReference*(*)($ModuleInfo$Attributes*,$ModulePatcher*,$Path*)>(&ModuleReferences::newJarModule))},
-	{"newModule", "(Ljdk/internal/module/ModuleInfo$Attributes;Ljava/net/URI;Ljava/util/function/Supplier;Ljdk/internal/module/ModulePatcher;Ljdk/internal/module/ModuleHashes$HashSupplier;)Ljava/lang/module/ModuleReference;", "(Ljdk/internal/module/ModuleInfo$Attributes;Ljava/net/URI;Ljava/util/function/Supplier<Ljava/lang/module/ModuleReader;>;Ljdk/internal/module/ModulePatcher;Ljdk/internal/module/ModuleHashes$HashSupplier;)Ljava/lang/module/ModuleReference;", $PRIVATE | $STATIC, $method(static_cast<$ModuleReference*(*)($ModuleInfo$Attributes*,$URI*,$Supplier*,$ModulePatcher*,$ModuleHashes$HashSupplier*)>(&ModuleReferences::newModule))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(ModuleReferences, init$, void)},
+	{"lambda$newExplodedModule$4", "(Ljava/nio/file/Path;)Ljava/lang/module/ModuleReader;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ModuleReferences, lambda$newExplodedModule$4, $ModuleReader*, $Path*)},
+	{"lambda$newJModModule$2", "(Ljava/nio/file/Path;Ljava/net/URI;)Ljava/lang/module/ModuleReader;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ModuleReferences, lambda$newJModModule$2, $ModuleReader*, $Path*, $URI*)},
+	{"lambda$newJarModule$0", "(Ljava/nio/file/Path;Ljava/net/URI;)Ljava/lang/module/ModuleReader;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ModuleReferences, lambda$newJarModule$0, $ModuleReader*, $Path*, $URI*)},
+	{"lambda$newJarModule$1", "(Ljava/util/function/Supplier;Ljava/lang/String;)[B", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ModuleReferences, lambda$newJarModule$1, $bytes*, $Supplier*, $String*)},
+	{"newExplodedModule", "(Ljdk/internal/module/ModuleInfo$Attributes;Ljdk/internal/module/ModulePatcher;Ljava/nio/file/Path;)Ljava/lang/module/ModuleReference;", nullptr, $STATIC, $staticMethod(ModuleReferences, newExplodedModule, $ModuleReference*, $ModuleInfo$Attributes*, $ModulePatcher*, $Path*)},
+	{"newJModModule", "(Ljdk/internal/module/ModuleInfo$Attributes;Ljava/nio/file/Path;)Ljava/lang/module/ModuleReference;", nullptr, $STATIC, $staticMethod(ModuleReferences, newJModModule, $ModuleReference*, $ModuleInfo$Attributes*, $Path*)},
+	{"newJarModule", "(Ljdk/internal/module/ModuleInfo$Attributes;Ljdk/internal/module/ModulePatcher;Ljava/nio/file/Path;)Ljava/lang/module/ModuleReference;", nullptr, $STATIC, $staticMethod(ModuleReferences, newJarModule, $ModuleReference*, $ModuleInfo$Attributes*, $ModulePatcher*, $Path*)},
+	{"newModule", "(Ljdk/internal/module/ModuleInfo$Attributes;Ljava/net/URI;Ljava/util/function/Supplier;Ljdk/internal/module/ModulePatcher;Ljdk/internal/module/ModuleHashes$HashSupplier;)Ljava/lang/module/ModuleReference;", "(Ljdk/internal/module/ModuleInfo$Attributes;Ljava/net/URI;Ljava/util/function/Supplier<Ljava/lang/module/ModuleReader;>;Ljdk/internal/module/ModulePatcher;Ljdk/internal/module/ModuleHashes$HashSupplier;)Ljava/lang/module/ModuleReference;", $PRIVATE | $STATIC, $staticMethod(ModuleReferences, newModule, $ModuleReference*, $ModuleInfo$Attributes*, $URI*, $Supplier*, $ModulePatcher*, $ModuleHashes$HashSupplier*)},
 	{}
 };
 

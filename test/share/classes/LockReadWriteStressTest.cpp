@@ -25,8 +25,8 @@ using $StandardOpenOption = ::java::nio::file::StandardOpenOption;
 using $Future = ::java::util::concurrent::Future;
 
 $MethodInfo _LockReadWriteStressTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(LockReadWriteStressTest::*)()>(&LockReadWriteStressTest::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&LockReadWriteStressTest::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(LockReadWriteStressTest, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(LockReadWriteStressTest, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

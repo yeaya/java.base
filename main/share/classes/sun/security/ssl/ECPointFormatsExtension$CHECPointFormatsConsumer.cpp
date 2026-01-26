@@ -40,8 +40,8 @@ namespace sun {
 		namespace ssl {
 
 $MethodInfo _ECPointFormatsExtension$CHECPointFormatsConsumer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(ECPointFormatsExtension$CHECPointFormatsConsumer::*)()>(&ECPointFormatsExtension$CHECPointFormatsConsumer::init$))},
-	{"consume", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(ECPointFormatsExtension$CHECPointFormatsConsumer, init$, void)},
+	{"consume", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(ECPointFormatsExtension$CHECPointFormatsConsumer, consume, void, $ConnectionContext*, $SSLHandshake$HandshakeMessage*, $ByteBuffer*), "java.io.IOException"},
 	{}
 };
 

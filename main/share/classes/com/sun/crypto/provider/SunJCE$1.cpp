@@ -21,8 +21,8 @@ $FieldInfo _SunJCE$1_FieldInfo_[] = {
 };
 
 $MethodInfo _SunJCE$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/crypto/provider/SunJCE;)V", nullptr, 0, $method(static_cast<void(SunJCE$1::*)($SunJCE*)>(&SunJCE$1::init$))},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/crypto/provider/SunJCE;)V", nullptr, 0, $method(SunJCE$1, init$, void, $SunJCE*)},
+	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(SunJCE$1, run, $Object*)},
 	{}
 };
 

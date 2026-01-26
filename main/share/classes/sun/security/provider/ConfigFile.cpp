@@ -23,9 +23,9 @@ $FieldInfo _ConfigFile_FieldInfo_[] = {
 };
 
 $MethodInfo _ConfigFile_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ConfigFile::*)()>(&ConfigFile::init$))},
-	{"getAppConfigurationEntry", "(Ljava/lang/String;)[Ljavax/security/auth/login/AppConfigurationEntry;", nullptr, $PUBLIC},
-	{"refresh", "()V", nullptr, $PUBLIC | $SYNCHRONIZED},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ConfigFile, init$, void)},
+	{"getAppConfigurationEntry", "(Ljava/lang/String;)[Ljavax/security/auth/login/AppConfigurationEntry;", nullptr, $PUBLIC, $virtualMethod(ConfigFile, getAppConfigurationEntry, $AppConfigurationEntryArray*, $String*)},
+	{"refresh", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ConfigFile, refresh, void)},
 	{}
 };
 

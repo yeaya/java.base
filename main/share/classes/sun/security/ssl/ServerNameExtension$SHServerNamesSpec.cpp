@@ -36,9 +36,9 @@ $FieldInfo _ServerNameExtension$SHServerNamesSpec_FieldInfo_[] = {
 };
 
 $MethodInfo _ServerNameExtension$SHServerNamesSpec_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(ServerNameExtension$SHServerNamesSpec::*)()>(&ServerNameExtension$SHServerNamesSpec::init$))},
-	{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE, $method(static_cast<void(ServerNameExtension$SHServerNamesSpec::*)($HandshakeContext*,$ByteBuffer*)>(&ServerNameExtension$SHServerNamesSpec::init$)), "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(ServerNameExtension$SHServerNamesSpec, init$, void)},
+	{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE, $method(ServerNameExtension$SHServerNamesSpec, init$, void, $HandshakeContext*, $ByteBuffer*), "java.io.IOException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ServerNameExtension$SHServerNamesSpec, toString, $String*)},
 	{}
 };
 

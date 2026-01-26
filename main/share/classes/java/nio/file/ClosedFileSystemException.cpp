@@ -18,7 +18,7 @@ $FieldInfo _ClosedFileSystemException_FieldInfo_[] = {
 };
 
 $MethodInfo _ClosedFileSystemException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ClosedFileSystemException::*)()>(&ClosedFileSystemException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ClosedFileSystemException, init$, void)},
 	{}
 };
 

@@ -13,9 +13,9 @@ namespace sun {
 		namespace ssl {
 
 $MethodInfo _Authenticator$SSLAuthenticator_MethodInfo_[] = {
-	{"<init>", "([B)V", nullptr, $PRIVATE, $method(static_cast<void(Authenticator$SSLAuthenticator::*)($bytes*)>(&Authenticator$SSLAuthenticator::init$))},
-	{"seqNumIsHuge", "()Z", nullptr, 0},
-	{"seqNumOverflow", "()Z", nullptr, 0},
+	{"<init>", "([B)V", nullptr, $PRIVATE, $method(Authenticator$SSLAuthenticator, init$, void, $bytes*)},
+	{"seqNumIsHuge", "()Z", nullptr, 0, $virtualMethod(Authenticator$SSLAuthenticator, seqNumIsHuge, bool)},
+	{"seqNumOverflow", "()Z", nullptr, 0, $virtualMethod(Authenticator$SSLAuthenticator, seqNumOverflow, bool)},
 	{}
 };
 

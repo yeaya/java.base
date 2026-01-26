@@ -43,13 +43,13 @@ $MethodInfo _RandomSupport$AbstractSplittableGenerator$RandomLongsSpliterator_Me
 	{"*estimateSize", "()J", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/util/random/RandomGenerator$SplittableGenerator;JJJJ)V", nullptr, 0, $method(static_cast<void(RandomSupport$AbstractSplittableGenerator$RandomLongsSpliterator::*)($RandomGenerator$SplittableGenerator*,int64_t,int64_t,int64_t,int64_t)>(&RandomSupport$AbstractSplittableGenerator$RandomLongsSpliterator::init$))},
-	{"forEachRemaining", "(Ljava/util/function/LongConsumer;)V", nullptr, $PUBLIC},
-	{"forEachRemaining", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "(Ljava/util/random/RandomGenerator$SplittableGenerator;JJJJ)V", nullptr, 0, $method(RandomSupport$AbstractSplittableGenerator$RandomLongsSpliterator, init$, void, $RandomGenerator$SplittableGenerator*, int64_t, int64_t, int64_t, int64_t)},
+	{"forEachRemaining", "(Ljava/util/function/LongConsumer;)V", nullptr, $PUBLIC, $virtualMethod(RandomSupport$AbstractSplittableGenerator$RandomLongsSpliterator, forEachRemaining, void, $LongConsumer*)},
+	{"forEachRemaining", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(RandomSupport$AbstractSplittableGenerator$RandomLongsSpliterator, forEachRemaining, void, Object$*)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"tryAdvance", "(Ljava/util/function/LongConsumer;)Z", nullptr, $PUBLIC},
-	{"tryAdvance", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"trySplit", "()Ljava/util/Spliterator$OfLong;", nullptr, $PUBLIC},
+	{"tryAdvance", "(Ljava/util/function/LongConsumer;)Z", nullptr, $PUBLIC, $virtualMethod(RandomSupport$AbstractSplittableGenerator$RandomLongsSpliterator, tryAdvance, bool, $LongConsumer*)},
+	{"tryAdvance", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(RandomSupport$AbstractSplittableGenerator$RandomLongsSpliterator, tryAdvance, bool, Object$*)},
+	{"trySplit", "()Ljava/util/Spliterator$OfLong;", nullptr, $PUBLIC, $virtualMethod(RandomSupport$AbstractSplittableGenerator$RandomLongsSpliterator, trySplit, $Spliterator$OfLong*)},
 	{}
 };
 

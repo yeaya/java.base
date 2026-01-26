@@ -3,6 +3,7 @@
 #include <MissingRepeatable.h>
 #include <jcpp.h>
 
+using $MissingRepeatableArray = $Array<MissingRepeatable>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -19,7 +20,7 @@ $CompoundAttribute _MissingRepeatableContainer_Annotations_[] = {
 };
 
 $MethodInfo _MissingRepeatableContainer_MethodInfo_[] = {
-	{"value", "()[LMissingRepeatable;", nullptr, $PUBLIC | $ABSTRACT},
+	{"value", "()[LMissingRepeatable;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MissingRepeatableContainer, value, $MissingRepeatableArray*)},
 	{}
 };
 

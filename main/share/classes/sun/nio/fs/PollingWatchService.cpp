@@ -100,10 +100,10 @@ $FieldInfo _PollingWatchService_FieldInfo_[] = {
 };
 
 $MethodInfo _PollingWatchService_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(PollingWatchService::*)()>(&PollingWatchService::init$))},
-	{"doPrivilegedRegister", "(Ljava/nio/file/Path;Ljava/util/Set;I)Lsun/nio/fs/PollingWatchService$PollingWatchKey;", "(Ljava/nio/file/Path;Ljava/util/Set<+Ljava/nio/file/WatchEvent$Kind<*>;>;I)Lsun/nio/fs/PollingWatchService$PollingWatchKey;", $PRIVATE, $method(static_cast<$PollingWatchService$PollingWatchKey*(PollingWatchService::*)($Path*,$Set*,int32_t)>(&PollingWatchService::doPrivilegedRegister)), "java.io.IOException"},
-	{"implClose", "()V", nullptr, 0, nullptr, "java.io.IOException"},
-	{"register", "(Ljava/nio/file/Path;[Ljava/nio/file/WatchEvent$Kind;[Ljava/nio/file/WatchEvent$Modifier;)Ljava/nio/file/WatchKey;", "(Ljava/nio/file/Path;[Ljava/nio/file/WatchEvent$Kind<*>;[Ljava/nio/file/WatchEvent$Modifier;)Ljava/nio/file/WatchKey;", $TRANSIENT, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, 0, $method(PollingWatchService, init$, void)},
+	{"doPrivilegedRegister", "(Ljava/nio/file/Path;Ljava/util/Set;I)Lsun/nio/fs/PollingWatchService$PollingWatchKey;", "(Ljava/nio/file/Path;Ljava/util/Set<+Ljava/nio/file/WatchEvent$Kind<*>;>;I)Lsun/nio/fs/PollingWatchService$PollingWatchKey;", $PRIVATE, $method(PollingWatchService, doPrivilegedRegister, $PollingWatchService$PollingWatchKey*, $Path*, $Set*, int32_t), "java.io.IOException"},
+	{"implClose", "()V", nullptr, 0, $virtualMethod(PollingWatchService, implClose, void), "java.io.IOException"},
+	{"register", "(Ljava/nio/file/Path;[Ljava/nio/file/WatchEvent$Kind;[Ljava/nio/file/WatchEvent$Modifier;)Ljava/nio/file/WatchKey;", "(Ljava/nio/file/Path;[Ljava/nio/file/WatchEvent$Kind<*>;[Ljava/nio/file/WatchEvent$Modifier;)Ljava/nio/file/WatchKey;", $TRANSIENT, $virtualMethod(PollingWatchService, register$, $WatchKey*, $Path*, $WatchEvent$KindArray*, $WatchEvent$ModifierArray*), "java.io.IOException"},
 	{}
 };
 

@@ -54,8 +54,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo DatagramSocketAdaptor$DatagramPackets$$Lambda$lambda$static$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DatagramSocketAdaptor$DatagramPackets$$Lambda$lambda$static$0::*)()>(&DatagramSocketAdaptor$DatagramPackets$$Lambda$lambda$static$0::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DatagramSocketAdaptor$DatagramPackets$$Lambda$lambda$static$0, init$, void)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DatagramSocketAdaptor$DatagramPackets$$Lambda$lambda$static$0, run, $Object*)},
 	{}
 };
 $ClassInfo DatagramSocketAdaptor$DatagramPackets$$Lambda$lambda$static$0::classInfo$ = {
@@ -79,10 +79,10 @@ $FieldInfo _DatagramSocketAdaptor$DatagramPackets_FieldInfo_[] = {
 };
 
 $MethodInfo _DatagramSocketAdaptor$DatagramPackets_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(DatagramSocketAdaptor$DatagramPackets::*)()>(&DatagramSocketAdaptor$DatagramPackets::init$))},
-	{"getBufLength", "(Ljava/net/DatagramPacket;)I", nullptr, $STATIC, $method(static_cast<int32_t(*)($DatagramPacket*)>(&DatagramSocketAdaptor$DatagramPackets::getBufLength))},
-	{"lambda$static$0", "()Ljava/lang/invoke/MethodHandles$Lookup;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$MethodHandles$Lookup*(*)()>(&DatagramSocketAdaptor$DatagramPackets::lambda$static$0)), "java.lang.Exception"},
-	{"setLength", "(Ljava/net/DatagramPacket;I)V", nullptr, $STATIC, $method(static_cast<void(*)($DatagramPacket*,int32_t)>(&DatagramSocketAdaptor$DatagramPackets::setLength))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(DatagramSocketAdaptor$DatagramPackets, init$, void)},
+	{"getBufLength", "(Ljava/net/DatagramPacket;)I", nullptr, $STATIC, $staticMethod(DatagramSocketAdaptor$DatagramPackets, getBufLength, int32_t, $DatagramPacket*)},
+	{"lambda$static$0", "()Ljava/lang/invoke/MethodHandles$Lookup;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DatagramSocketAdaptor$DatagramPackets, lambda$static$0, $MethodHandles$Lookup*), "java.lang.Exception"},
+	{"setLength", "(Ljava/net/DatagramPacket;I)V", nullptr, $STATIC, $staticMethod(DatagramSocketAdaptor$DatagramPackets, setLength, void, $DatagramPacket*, int32_t)},
 	{}
 };
 

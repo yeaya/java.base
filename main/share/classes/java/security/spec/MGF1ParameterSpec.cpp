@@ -30,9 +30,9 @@ $FieldInfo _MGF1ParameterSpec_FieldInfo_[] = {
 };
 
 $MethodInfo _MGF1ParameterSpec_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(MGF1ParameterSpec::*)($String*)>(&MGF1ParameterSpec::init$))},
-	{"getDigestAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(MGF1ParameterSpec, init$, void, $String*)},
+	{"getDigestAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MGF1ParameterSpec, getDigestAlgorithm, $String*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MGF1ParameterSpec, toString, $String*)},
 	{}
 };
 

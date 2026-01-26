@@ -324,9 +324,9 @@ $FieldInfo _ImplicitStringConcatMany_FieldInfo_[] = {
 };
 
 $MethodInfo _ImplicitStringConcatMany_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ImplicitStringConcatMany::*)()>(&ImplicitStringConcatMany::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&ImplicitStringConcatMany::main)), "java.lang.Exception"},
-	{"test", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($String*,$String*)>(&ImplicitStringConcatMany::test))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ImplicitStringConcatMany, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ImplicitStringConcatMany, main, void, $StringArray*), "java.lang.Exception"},
+	{"test", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ImplicitStringConcatMany, test, void, $String*, $String*)},
 	{}
 };
 

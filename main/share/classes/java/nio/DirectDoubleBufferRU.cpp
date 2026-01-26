@@ -34,18 +34,18 @@ $FieldInfo _DirectDoubleBufferRU_FieldInfo_[] = {
 };
 
 $MethodInfo _DirectDoubleBufferRU_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/ch/DirectBuffer;IIIIILjdk/internal/access/foreign/MemorySegmentProxy;)V", nullptr, 0, $method(static_cast<void(DirectDoubleBufferRU::*)($DirectBuffer*,int32_t,int32_t,int32_t,int32_t,int32_t,$MemorySegmentProxy*)>(&DirectDoubleBufferRU::init$))},
-	{"asReadOnlyBuffer", "()Ljava/nio/DoubleBuffer;", nullptr, $PUBLIC},
-	{"base", "()Ljava/lang/Object;", nullptr, 0},
-	{"compact", "()Ljava/nio/DoubleBuffer;", nullptr, $PUBLIC},
-	{"duplicate", "()Ljava/nio/DoubleBuffer;", nullptr, $PUBLIC},
-	{"isDirect", "()Z", nullptr, $PUBLIC},
-	{"isReadOnly", "()Z", nullptr, $PUBLIC},
-	{"order", "()Ljava/nio/ByteOrder;", nullptr, $PUBLIC},
-	{"put", "(D)Ljava/nio/DoubleBuffer;", nullptr, $PUBLIC},
-	{"put", "(ID)Ljava/nio/DoubleBuffer;", nullptr, $PUBLIC},
-	{"slice", "()Ljava/nio/DoubleBuffer;", nullptr, $PUBLIC},
-	{"slice", "(II)Ljava/nio/DoubleBuffer;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/nio/ch/DirectBuffer;IIIIILjdk/internal/access/foreign/MemorySegmentProxy;)V", nullptr, 0, $method(DirectDoubleBufferRU, init$, void, $DirectBuffer*, int32_t, int32_t, int32_t, int32_t, int32_t, $MemorySegmentProxy*)},
+	{"asReadOnlyBuffer", "()Ljava/nio/DoubleBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectDoubleBufferRU, asReadOnlyBuffer, $DoubleBuffer*)},
+	{"base", "()Ljava/lang/Object;", nullptr, 0, $virtualMethod(DirectDoubleBufferRU, base, $Object*)},
+	{"compact", "()Ljava/nio/DoubleBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectDoubleBufferRU, compact, $DoubleBuffer*)},
+	{"duplicate", "()Ljava/nio/DoubleBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectDoubleBufferRU, duplicate, $DoubleBuffer*)},
+	{"isDirect", "()Z", nullptr, $PUBLIC, $virtualMethod(DirectDoubleBufferRU, isDirect, bool)},
+	{"isReadOnly", "()Z", nullptr, $PUBLIC, $virtualMethod(DirectDoubleBufferRU, isReadOnly, bool)},
+	{"order", "()Ljava/nio/ByteOrder;", nullptr, $PUBLIC, $virtualMethod(DirectDoubleBufferRU, order, $ByteOrder*)},
+	{"put", "(D)Ljava/nio/DoubleBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectDoubleBufferRU, put, $DoubleBuffer*, double)},
+	{"put", "(ID)Ljava/nio/DoubleBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectDoubleBufferRU, put, $DoubleBuffer*, int32_t, double)},
+	{"slice", "()Ljava/nio/DoubleBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectDoubleBufferRU, slice, $DoubleBuffer*)},
+	{"slice", "(II)Ljava/nio/DoubleBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectDoubleBufferRU, slice, $DoubleBuffer*, int32_t, int32_t)},
 	{}
 };
 

@@ -43,17 +43,17 @@ $FieldInfo _CipherInputStream_FieldInfo_[] = {
 };
 
 $MethodInfo _CipherInputStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/InputStream;Ljavax/crypto/Cipher;)V", nullptr, $PUBLIC, $method(static_cast<void(CipherInputStream::*)($InputStream*,$Cipher*)>(&CipherInputStream::init$))},
-	{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PROTECTED, $method(static_cast<void(CipherInputStream::*)($InputStream*)>(&CipherInputStream::init$))},
-	{"available", "()I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"ensureCapacity", "(I)V", nullptr, $PRIVATE, $method(static_cast<void(CipherInputStream::*)(int32_t)>(&CipherInputStream::ensureCapacity))},
-	{"getMoreData", "()I", nullptr, $PRIVATE, $method(static_cast<int32_t(CipherInputStream::*)()>(&CipherInputStream::getMoreData)), "java.io.IOException"},
-	{"markSupported", "()Z", nullptr, $PUBLIC},
-	{"read", "()I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"read", "([B)I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"read", "([BII)I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"skip", "(J)J", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljava/io/InputStream;Ljavax/crypto/Cipher;)V", nullptr, $PUBLIC, $method(CipherInputStream, init$, void, $InputStream*, $Cipher*)},
+	{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PROTECTED, $method(CipherInputStream, init$, void, $InputStream*)},
+	{"available", "()I", nullptr, $PUBLIC, $virtualMethod(CipherInputStream, available, int32_t), "java.io.IOException"},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(CipherInputStream, close, void), "java.io.IOException"},
+	{"ensureCapacity", "(I)V", nullptr, $PRIVATE, $method(CipherInputStream, ensureCapacity, void, int32_t)},
+	{"getMoreData", "()I", nullptr, $PRIVATE, $method(CipherInputStream, getMoreData, int32_t), "java.io.IOException"},
+	{"markSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(CipherInputStream, markSupported, bool)},
+	{"read", "()I", nullptr, $PUBLIC, $virtualMethod(CipherInputStream, read, int32_t), "java.io.IOException"},
+	{"read", "([B)I", nullptr, $PUBLIC, $virtualMethod(CipherInputStream, read, int32_t, $bytes*), "java.io.IOException"},
+	{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(CipherInputStream, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
+	{"skip", "(J)J", nullptr, $PUBLIC, $virtualMethod(CipherInputStream, skip, int64_t, int64_t), "java.io.IOException"},
 	{}
 };
 

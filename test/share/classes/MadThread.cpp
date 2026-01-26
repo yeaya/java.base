@@ -15,8 +15,8 @@ $FieldInfo _MadThread_FieldInfo_[] = {
 };
 
 $MethodInfo _MadThread_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/ThreadGroup;Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(MadThread::*)($ThreadGroup*,$String*)>(&MadThread::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/ThreadGroup;Ljava/lang/String;)V", nullptr, 0, $method(MadThread, init$, void, $ThreadGroup*, $String*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(MadThread, run, void)},
 	{}
 };
 

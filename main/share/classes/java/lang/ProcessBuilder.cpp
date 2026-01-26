@@ -94,8 +94,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ProcessBuilder$$Lambda$destroyForcibly::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ProcessBuilder$$Lambda$destroyForcibly::*)()>(&ProcessBuilder$$Lambda$destroyForcibly::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ProcessBuilder$$Lambda$destroyForcibly, init$, void)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ProcessBuilder$$Lambda$destroyForcibly, accept, void, Object$*)},
 	{}
 };
 $ClassInfo ProcessBuilder$$Lambda$destroyForcibly::classInfo$ = {
@@ -127,8 +127,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ProcessBuilder$$Lambda$lambda$startPipeline$0$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ProcessBuilder$$Lambda$lambda$startPipeline$0$1::*)()>(&ProcessBuilder$$Lambda$lambda$startPipeline$0$1::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ProcessBuilder$$Lambda$lambda$startPipeline$0$1, init$, void)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ProcessBuilder$$Lambda$lambda$startPipeline$0$1, accept, void, Object$*)},
 	{}
 };
 $ClassInfo ProcessBuilder$$Lambda$lambda$startPipeline$0$1::classInfo$ = {
@@ -156,32 +156,32 @@ $FieldInfo _ProcessBuilder_FieldInfo_[] = {
 };
 
 $MethodInfo _ProcessBuilder_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/lang/String;>;)V", $PUBLIC, $method(static_cast<void(ProcessBuilder::*)($List*)>(&ProcessBuilder::init$))},
-	{"<init>", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $TRANSIENT, $method(static_cast<void(ProcessBuilder::*)($StringArray*)>(&ProcessBuilder::init$))},
-	{"command", "(Ljava/util/List;)Ljava/lang/ProcessBuilder;", "(Ljava/util/List<Ljava/lang/String;>;)Ljava/lang/ProcessBuilder;", $PUBLIC, $method(static_cast<ProcessBuilder*(ProcessBuilder::*)($List*)>(&ProcessBuilder::command))},
-	{"command", "([Ljava/lang/String;)Ljava/lang/ProcessBuilder;", nullptr, $PUBLIC | $TRANSIENT, $method(static_cast<ProcessBuilder*(ProcessBuilder::*)($StringArray*)>(&ProcessBuilder::command))},
-	{"command", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PUBLIC, $method(static_cast<$List*(ProcessBuilder::*)()>(&ProcessBuilder::command))},
-	{"directory", "()Ljava/io/File;", nullptr, $PUBLIC, $method(static_cast<$File*(ProcessBuilder::*)()>(&ProcessBuilder::directory))},
-	{"directory", "(Ljava/io/File;)Ljava/lang/ProcessBuilder;", nullptr, $PUBLIC, $method(static_cast<ProcessBuilder*(ProcessBuilder::*)($File*)>(&ProcessBuilder::directory))},
-	{"environment", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PUBLIC, $method(static_cast<$Map*(ProcessBuilder::*)()>(&ProcessBuilder::environment))},
-	{"environment", "([Ljava/lang/String;)Ljava/lang/ProcessBuilder;", nullptr, 0, $method(static_cast<ProcessBuilder*(ProcessBuilder::*)($StringArray*)>(&ProcessBuilder::environment))},
-	{"inheritIO", "()Ljava/lang/ProcessBuilder;", nullptr, $PUBLIC, $method(static_cast<ProcessBuilder*(ProcessBuilder::*)()>(&ProcessBuilder::inheritIO))},
-	{"lambda$startPipeline$0", "(Ljava/lang/Process;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($Process*)>(&ProcessBuilder::lambda$startPipeline$0))},
-	{"redirectError", "(Ljava/lang/ProcessBuilder$Redirect;)Ljava/lang/ProcessBuilder;", nullptr, $PUBLIC, $method(static_cast<ProcessBuilder*(ProcessBuilder::*)($ProcessBuilder$Redirect*)>(&ProcessBuilder::redirectError))},
-	{"redirectError", "(Ljava/io/File;)Ljava/lang/ProcessBuilder;", nullptr, $PUBLIC, $method(static_cast<ProcessBuilder*(ProcessBuilder::*)($File*)>(&ProcessBuilder::redirectError))},
-	{"redirectError", "()Ljava/lang/ProcessBuilder$Redirect;", nullptr, $PUBLIC, $method(static_cast<$ProcessBuilder$Redirect*(ProcessBuilder::*)()>(&ProcessBuilder::redirectError))},
-	{"redirectErrorStream", "()Z", nullptr, $PUBLIC, $method(static_cast<bool(ProcessBuilder::*)()>(&ProcessBuilder::redirectErrorStream))},
-	{"redirectErrorStream", "(Z)Ljava/lang/ProcessBuilder;", nullptr, $PUBLIC, $method(static_cast<ProcessBuilder*(ProcessBuilder::*)(bool)>(&ProcessBuilder::redirectErrorStream))},
-	{"redirectInput", "(Ljava/lang/ProcessBuilder$Redirect;)Ljava/lang/ProcessBuilder;", nullptr, $PUBLIC, $method(static_cast<ProcessBuilder*(ProcessBuilder::*)($ProcessBuilder$Redirect*)>(&ProcessBuilder::redirectInput))},
-	{"redirectInput", "(Ljava/io/File;)Ljava/lang/ProcessBuilder;", nullptr, $PUBLIC, $method(static_cast<ProcessBuilder*(ProcessBuilder::*)($File*)>(&ProcessBuilder::redirectInput))},
-	{"redirectInput", "()Ljava/lang/ProcessBuilder$Redirect;", nullptr, $PUBLIC, $method(static_cast<$ProcessBuilder$Redirect*(ProcessBuilder::*)()>(&ProcessBuilder::redirectInput))},
-	{"redirectOutput", "(Ljava/lang/ProcessBuilder$Redirect;)Ljava/lang/ProcessBuilder;", nullptr, $PUBLIC, $method(static_cast<ProcessBuilder*(ProcessBuilder::*)($ProcessBuilder$Redirect*)>(&ProcessBuilder::redirectOutput))},
-	{"redirectOutput", "(Ljava/io/File;)Ljava/lang/ProcessBuilder;", nullptr, $PUBLIC, $method(static_cast<ProcessBuilder*(ProcessBuilder::*)($File*)>(&ProcessBuilder::redirectOutput))},
-	{"redirectOutput", "()Ljava/lang/ProcessBuilder$Redirect;", nullptr, $PUBLIC, $method(static_cast<$ProcessBuilder$Redirect*(ProcessBuilder::*)()>(&ProcessBuilder::redirectOutput))},
-	{"redirects", "()[Ljava/lang/ProcessBuilder$Redirect;", nullptr, $PRIVATE, $method(static_cast<$ProcessBuilder$RedirectArray*(ProcessBuilder::*)()>(&ProcessBuilder::redirects))},
-	{"start", "()Ljava/lang/Process;", nullptr, $PUBLIC, $method(static_cast<$Process*(ProcessBuilder::*)()>(&ProcessBuilder::start)), "java.io.IOException"},
-	{"start", "([Ljava/lang/ProcessBuilder$Redirect;)Ljava/lang/Process;", nullptr, $PRIVATE, $method(static_cast<$Process*(ProcessBuilder::*)($ProcessBuilder$RedirectArray*)>(&ProcessBuilder::start)), "java.io.IOException"},
-	{"startPipeline", "(Ljava/util/List;)Ljava/util/List;", "(Ljava/util/List<Ljava/lang/ProcessBuilder;>;)Ljava/util/List<Ljava/lang/Process;>;", $PUBLIC | $STATIC, $method(static_cast<$List*(*)($List*)>(&ProcessBuilder::startPipeline)), "java.io.IOException"},
+	{"<init>", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/lang/String;>;)V", $PUBLIC, $method(ProcessBuilder, init$, void, $List*)},
+	{"<init>", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $TRANSIENT, $method(ProcessBuilder, init$, void, $StringArray*)},
+	{"command", "(Ljava/util/List;)Ljava/lang/ProcessBuilder;", "(Ljava/util/List<Ljava/lang/String;>;)Ljava/lang/ProcessBuilder;", $PUBLIC, $method(ProcessBuilder, command, ProcessBuilder*, $List*)},
+	{"command", "([Ljava/lang/String;)Ljava/lang/ProcessBuilder;", nullptr, $PUBLIC | $TRANSIENT, $method(ProcessBuilder, command, ProcessBuilder*, $StringArray*)},
+	{"command", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PUBLIC, $method(ProcessBuilder, command, $List*)},
+	{"directory", "()Ljava/io/File;", nullptr, $PUBLIC, $method(ProcessBuilder, directory, $File*)},
+	{"directory", "(Ljava/io/File;)Ljava/lang/ProcessBuilder;", nullptr, $PUBLIC, $method(ProcessBuilder, directory, ProcessBuilder*, $File*)},
+	{"environment", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PUBLIC, $method(ProcessBuilder, environment, $Map*)},
+	{"environment", "([Ljava/lang/String;)Ljava/lang/ProcessBuilder;", nullptr, 0, $method(ProcessBuilder, environment, ProcessBuilder*, $StringArray*)},
+	{"inheritIO", "()Ljava/lang/ProcessBuilder;", nullptr, $PUBLIC, $method(ProcessBuilder, inheritIO, ProcessBuilder*)},
+	{"lambda$startPipeline$0", "(Ljava/lang/Process;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ProcessBuilder, lambda$startPipeline$0, void, $Process*)},
+	{"redirectError", "(Ljava/lang/ProcessBuilder$Redirect;)Ljava/lang/ProcessBuilder;", nullptr, $PUBLIC, $method(ProcessBuilder, redirectError, ProcessBuilder*, $ProcessBuilder$Redirect*)},
+	{"redirectError", "(Ljava/io/File;)Ljava/lang/ProcessBuilder;", nullptr, $PUBLIC, $method(ProcessBuilder, redirectError, ProcessBuilder*, $File*)},
+	{"redirectError", "()Ljava/lang/ProcessBuilder$Redirect;", nullptr, $PUBLIC, $method(ProcessBuilder, redirectError, $ProcessBuilder$Redirect*)},
+	{"redirectErrorStream", "()Z", nullptr, $PUBLIC, $method(ProcessBuilder, redirectErrorStream, bool)},
+	{"redirectErrorStream", "(Z)Ljava/lang/ProcessBuilder;", nullptr, $PUBLIC, $method(ProcessBuilder, redirectErrorStream, ProcessBuilder*, bool)},
+	{"redirectInput", "(Ljava/lang/ProcessBuilder$Redirect;)Ljava/lang/ProcessBuilder;", nullptr, $PUBLIC, $method(ProcessBuilder, redirectInput, ProcessBuilder*, $ProcessBuilder$Redirect*)},
+	{"redirectInput", "(Ljava/io/File;)Ljava/lang/ProcessBuilder;", nullptr, $PUBLIC, $method(ProcessBuilder, redirectInput, ProcessBuilder*, $File*)},
+	{"redirectInput", "()Ljava/lang/ProcessBuilder$Redirect;", nullptr, $PUBLIC, $method(ProcessBuilder, redirectInput, $ProcessBuilder$Redirect*)},
+	{"redirectOutput", "(Ljava/lang/ProcessBuilder$Redirect;)Ljava/lang/ProcessBuilder;", nullptr, $PUBLIC, $method(ProcessBuilder, redirectOutput, ProcessBuilder*, $ProcessBuilder$Redirect*)},
+	{"redirectOutput", "(Ljava/io/File;)Ljava/lang/ProcessBuilder;", nullptr, $PUBLIC, $method(ProcessBuilder, redirectOutput, ProcessBuilder*, $File*)},
+	{"redirectOutput", "()Ljava/lang/ProcessBuilder$Redirect;", nullptr, $PUBLIC, $method(ProcessBuilder, redirectOutput, $ProcessBuilder$Redirect*)},
+	{"redirects", "()[Ljava/lang/ProcessBuilder$Redirect;", nullptr, $PRIVATE, $method(ProcessBuilder, redirects, $ProcessBuilder$RedirectArray*)},
+	{"start", "()Ljava/lang/Process;", nullptr, $PUBLIC, $method(ProcessBuilder, start, $Process*), "java.io.IOException"},
+	{"start", "([Ljava/lang/ProcessBuilder$Redirect;)Ljava/lang/Process;", nullptr, $PRIVATE, $method(ProcessBuilder, start, $Process*, $ProcessBuilder$RedirectArray*), "java.io.IOException"},
+	{"startPipeline", "(Ljava/util/List;)Ljava/util/List;", "(Ljava/util/List<Ljava/lang/ProcessBuilder;>;)Ljava/util/List<Ljava/lang/Process;>;", $PUBLIC | $STATIC, $staticMethod(ProcessBuilder, startPipeline, $List*, $List*), "java.io.IOException"},
 	{}
 };
 

@@ -25,9 +25,9 @@ $FieldInfo _ReentrantLock$NonfairSync_FieldInfo_[] = {
 };
 
 $MethodInfo _ReentrantLock$NonfairSync_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ReentrantLock$NonfairSync::*)()>(&ReentrantLock$NonfairSync::init$))},
-	{"initialTryLock", "()Z", nullptr, $FINAL},
-	{"tryAcquire", "(I)Z", nullptr, $PROTECTED | $FINAL},
+	{"<init>", "()V", nullptr, 0, $method(ReentrantLock$NonfairSync, init$, void)},
+	{"initialTryLock", "()Z", nullptr, $FINAL, $virtualMethod(ReentrantLock$NonfairSync, initialTryLock, bool)},
+	{"tryAcquire", "(I)Z", nullptr, $PROTECTED | $FINAL, $virtualMethod(ReentrantLock$NonfairSync, tryAcquire, bool, int32_t)},
 	{}
 };
 

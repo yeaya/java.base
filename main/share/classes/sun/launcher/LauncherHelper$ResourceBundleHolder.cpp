@@ -21,7 +21,7 @@ $FieldInfo _LauncherHelper$ResourceBundleHolder_FieldInfo_[] = {
 };
 
 $MethodInfo _LauncherHelper$ResourceBundleHolder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(LauncherHelper$ResourceBundleHolder::*)()>(&LauncherHelper$ResourceBundleHolder::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(LauncherHelper$ResourceBundleHolder, init$, void)},
 	{}
 };
 

@@ -31,10 +31,10 @@ $FieldInfo _ReachabilityFenceTest_FieldInfo_[] = {
 };
 
 $MethodInfo _ReachabilityFenceTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ReachabilityFenceTest::*)()>(&ReachabilityFenceTest::init$))},
-	{"fenced", "()Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)()>(&ReachabilityFenceTest::fenced))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<void(*)($StringArray*)>(&ReachabilityFenceTest::main))},
-	{"nonFenced", "()Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)()>(&ReachabilityFenceTest::nonFenced))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ReachabilityFenceTest, init$, void)},
+	{"fenced", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(ReachabilityFenceTest, fenced, bool)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(ReachabilityFenceTest, main, void, $StringArray*)},
+	{"nonFenced", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(ReachabilityFenceTest, nonFenced, bool)},
 	{}
 };
 

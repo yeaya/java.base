@@ -26,10 +26,10 @@ $MethodInfo _DSAParameterSpec_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;)V", nullptr, $PUBLIC, $method(static_cast<void(DSAParameterSpec::*)($BigInteger*,$BigInteger*,$BigInteger*)>(&DSAParameterSpec::init$))},
-	{"getG", "()Ljava/math/BigInteger;", nullptr, $PUBLIC},
-	{"getP", "()Ljava/math/BigInteger;", nullptr, $PUBLIC},
-	{"getQ", "()Ljava/math/BigInteger;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;)V", nullptr, $PUBLIC, $method(DSAParameterSpec, init$, void, $BigInteger*, $BigInteger*, $BigInteger*)},
+	{"getG", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(DSAParameterSpec, getG, $BigInteger*)},
+	{"getP", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(DSAParameterSpec, getP, $BigInteger*)},
+	{"getQ", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(DSAParameterSpec, getQ, $BigInteger*)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

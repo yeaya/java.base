@@ -27,10 +27,10 @@ $FieldInfo _PolicyParser$KeyStoreEntry_FieldInfo_[] = {
 };
 
 $MethodInfo _PolicyParser$KeyStoreEntry_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/util/Map;)V", "(Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;)V", 0, $method(static_cast<void(PolicyParser$KeyStoreEntry::*)($String*,$Map*)>(&PolicyParser$KeyStoreEntry::init$))},
-	{"getName", "()Ljava/lang/String;", nullptr, 0},
-	{"getProperties", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", 0},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Ljava/util/Map;)V", "(Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;)V", 0, $method(PolicyParser$KeyStoreEntry, init$, void, $String*, $Map*)},
+	{"getName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(PolicyParser$KeyStoreEntry, getName, $String*)},
+	{"getProperties", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", 0, $virtualMethod(PolicyParser$KeyStoreEntry, getProperties, $Map*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PolicyParser$KeyStoreEntry, toString, $String*)},
 	{}
 };
 

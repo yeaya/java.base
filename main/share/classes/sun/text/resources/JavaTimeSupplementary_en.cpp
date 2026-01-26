@@ -13,8 +13,8 @@ namespace sun {
 		namespace resources {
 
 $MethodInfo _JavaTimeSupplementary_en_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(JavaTimeSupplementary_en::*)()>(&JavaTimeSupplementary_en::init$))},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(JavaTimeSupplementary_en, init$, void)},
+	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(JavaTimeSupplementary_en, getContents, $ObjectArray2*)},
 	{}
 };
 

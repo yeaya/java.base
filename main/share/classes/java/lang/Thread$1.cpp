@@ -26,8 +26,8 @@ $FieldInfo _Thread$1_FieldInfo_[] = {
 };
 
 $MethodInfo _Thread$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Class;)V", nullptr, 0, $method(static_cast<void(Thread$1::*)($Class*)>(&Thread$1::init$))},
-	{"run", "()Ljava/lang/Boolean;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Class;)V", nullptr, 0, $method(Thread$1, init$, void, $Class*)},
+	{"run", "()Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(Thread$1, run, $Object*)},
 	{}
 };
 

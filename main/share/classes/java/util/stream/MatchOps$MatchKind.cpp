@@ -30,10 +30,10 @@ $FieldInfo _MatchOps$MatchKind_FieldInfo_[] = {
 };
 
 $MethodInfo _MatchOps$MatchKind_MethodInfo_[] = {
-	{"$values", "()[Ljava/util/stream/MatchOps$MatchKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$MatchOps$MatchKindArray*(*)()>(&MatchOps$MatchKind::$values))},
-	{"<init>", "(Ljava/lang/String;IZZ)V", "(ZZ)V", $PRIVATE, $method(static_cast<void(MatchOps$MatchKind::*)($String*,int32_t,bool,bool)>(&MatchOps$MatchKind::init$))},
-	{"valueOf", "(Ljava/lang/String;)Ljava/util/stream/MatchOps$MatchKind;", nullptr, $PUBLIC | $STATIC, $method(static_cast<MatchOps$MatchKind*(*)($String*)>(&MatchOps$MatchKind::valueOf))},
-	{"values", "()[Ljava/util/stream/MatchOps$MatchKind;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$MatchOps$MatchKindArray*(*)()>(&MatchOps$MatchKind::values))},
+	{"$values", "()[Ljava/util/stream/MatchOps$MatchKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MatchOps$MatchKind, $values, $MatchOps$MatchKindArray*)},
+	{"<init>", "(Ljava/lang/String;IZZ)V", "(ZZ)V", $PRIVATE, $method(MatchOps$MatchKind, init$, void, $String*, int32_t, bool, bool)},
+	{"valueOf", "(Ljava/lang/String;)Ljava/util/stream/MatchOps$MatchKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(MatchOps$MatchKind, valueOf, MatchOps$MatchKind*, $String*)},
+	{"values", "()[Ljava/util/stream/MatchOps$MatchKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(MatchOps$MatchKind, values, $MatchOps$MatchKindArray*)},
 	{}
 };
 

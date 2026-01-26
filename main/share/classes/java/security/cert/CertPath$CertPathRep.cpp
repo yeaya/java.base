@@ -33,8 +33,8 @@ $FieldInfo _CertPath$CertPathRep_FieldInfo_[] = {
 };
 
 $MethodInfo _CertPath$CertPathRep_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;[B)V", nullptr, $PROTECTED, $method(static_cast<void(CertPath$CertPathRep::*)($String*,$bytes*)>(&CertPath$CertPathRep::init$))},
-	{"readResolve", "()Ljava/lang/Object;", nullptr, $PROTECTED, nullptr, "java.io.ObjectStreamException"},
+	{"<init>", "(Ljava/lang/String;[B)V", nullptr, $PROTECTED, $method(CertPath$CertPathRep, init$, void, $String*, $bytes*)},
+	{"readResolve", "()Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(CertPath$CertPathRep, readResolve, $Object*), "java.io.ObjectStreamException"},
 	{}
 };
 

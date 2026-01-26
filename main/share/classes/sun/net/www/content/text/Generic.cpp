@@ -14,7 +14,7 @@ namespace sun {
 				namespace text {
 
 $MethodInfo _Generic_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Generic::*)()>(&Generic::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Generic, init$, void)},
 	{}
 };
 

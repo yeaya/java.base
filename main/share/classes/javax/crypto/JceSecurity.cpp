@@ -113,19 +113,19 @@ $FieldInfo _JceSecurity_FieldInfo_[] = {
 };
 
 $MethodInfo _JceSecurity_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(JceSecurity::*)()>(&JceSecurity::init$))},
-	{"canUseProvider", "(Ljava/security/Provider;)Z", nullptr, $STATIC, $method(static_cast<bool(*)($Provider*)>(&JceSecurity::canUseProvider))},
-	{"getCodeBase", "(Ljava/lang/Class;)Ljava/net/URL;", "(Ljava/lang/Class<*>;)Ljava/net/URL;", $STATIC, $method(static_cast<$URL*(*)($Class*)>(&JceSecurity::getCodeBase))},
-	{"getDefaultPolicy", "()Ljavax/crypto/CryptoPermissions;", nullptr, $STATIC, $method(static_cast<$CryptoPermissions*(*)()>(&JceSecurity::getDefaultPolicy))},
-	{"getExemptPolicy", "()Ljavax/crypto/CryptoPermissions;", nullptr, $STATIC, $method(static_cast<$CryptoPermissions*(*)()>(&JceSecurity::getExemptPolicy))},
-	{"getInstance", "(Ljava/lang/String;Ljava/lang/Class;Ljava/lang/String;Ljava/lang/String;)Lsun/security/jca/GetInstance$Instance;", "(Ljava/lang/String;Ljava/lang/Class<*>;Ljava/lang/String;Ljava/lang/String;)Lsun/security/jca/GetInstance$Instance;", $STATIC, $method(static_cast<$GetInstance$Instance*(*)($String*,$Class*,$String*,$String*)>(&JceSecurity::getInstance)), "java.security.NoSuchAlgorithmException,java.security.NoSuchProviderException"},
-	{"getInstance", "(Ljava/lang/String;Ljava/lang/Class;Ljava/lang/String;Ljava/security/Provider;)Lsun/security/jca/GetInstance$Instance;", "(Ljava/lang/String;Ljava/lang/Class<*>;Ljava/lang/String;Ljava/security/Provider;)Lsun/security/jca/GetInstance$Instance;", $STATIC, $method(static_cast<$GetInstance$Instance*(*)($String*,$Class*,$String*,$Provider*)>(&JceSecurity::getInstance)), "java.security.NoSuchAlgorithmException"},
-	{"getInstance", "(Ljava/lang/String;Ljava/lang/Class;Ljava/lang/String;)Lsun/security/jca/GetInstance$Instance;", "(Ljava/lang/String;Ljava/lang/Class<*>;Ljava/lang/String;)Lsun/security/jca/GetInstance$Instance;", $STATIC, $method(static_cast<$GetInstance$Instance*(*)($String*,$Class*,$String*)>(&JceSecurity::getInstance)), "java.security.NoSuchAlgorithmException"},
-	{"getVerificationResult", "(Ljava/security/Provider;)Ljava/lang/Exception;", nullptr, $STATIC, $method(static_cast<$Exception*(*)($Provider*)>(&JceSecurity::getVerificationResult))},
-	{"isRestricted", "()Z", nullptr, $STATIC, $method(static_cast<bool(*)()>(&JceSecurity::isRestricted))},
-	{"setupJurisdictionPolicies", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&JceSecurity::setupJurisdictionPolicies)), "java.lang.Exception"},
-	{"verifyExemptJar", "(Ljava/net/URL;)Ljavax/crypto/CryptoPermissions;", nullptr, $STATIC, $method(static_cast<$CryptoPermissions*(*)($URL*)>(&JceSecurity::verifyExemptJar)), "java.lang.Exception"},
-	{"verifyProvider", "(Ljava/net/URL;Ljava/security/Provider;)V", nullptr, $STATIC, $method(static_cast<void(*)($URL*,$Provider*)>(&JceSecurity::verifyProvider)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(JceSecurity, init$, void)},
+	{"canUseProvider", "(Ljava/security/Provider;)Z", nullptr, $STATIC, $staticMethod(JceSecurity, canUseProvider, bool, $Provider*)},
+	{"getCodeBase", "(Ljava/lang/Class;)Ljava/net/URL;", "(Ljava/lang/Class<*>;)Ljava/net/URL;", $STATIC, $staticMethod(JceSecurity, getCodeBase, $URL*, $Class*)},
+	{"getDefaultPolicy", "()Ljavax/crypto/CryptoPermissions;", nullptr, $STATIC, $staticMethod(JceSecurity, getDefaultPolicy, $CryptoPermissions*)},
+	{"getExemptPolicy", "()Ljavax/crypto/CryptoPermissions;", nullptr, $STATIC, $staticMethod(JceSecurity, getExemptPolicy, $CryptoPermissions*)},
+	{"getInstance", "(Ljava/lang/String;Ljava/lang/Class;Ljava/lang/String;Ljava/lang/String;)Lsun/security/jca/GetInstance$Instance;", "(Ljava/lang/String;Ljava/lang/Class<*>;Ljava/lang/String;Ljava/lang/String;)Lsun/security/jca/GetInstance$Instance;", $STATIC, $staticMethod(JceSecurity, getInstance, $GetInstance$Instance*, $String*, $Class*, $String*, $String*), "java.security.NoSuchAlgorithmException,java.security.NoSuchProviderException"},
+	{"getInstance", "(Ljava/lang/String;Ljava/lang/Class;Ljava/lang/String;Ljava/security/Provider;)Lsun/security/jca/GetInstance$Instance;", "(Ljava/lang/String;Ljava/lang/Class<*>;Ljava/lang/String;Ljava/security/Provider;)Lsun/security/jca/GetInstance$Instance;", $STATIC, $staticMethod(JceSecurity, getInstance, $GetInstance$Instance*, $String*, $Class*, $String*, $Provider*), "java.security.NoSuchAlgorithmException"},
+	{"getInstance", "(Ljava/lang/String;Ljava/lang/Class;Ljava/lang/String;)Lsun/security/jca/GetInstance$Instance;", "(Ljava/lang/String;Ljava/lang/Class<*>;Ljava/lang/String;)Lsun/security/jca/GetInstance$Instance;", $STATIC, $staticMethod(JceSecurity, getInstance, $GetInstance$Instance*, $String*, $Class*, $String*), "java.security.NoSuchAlgorithmException"},
+	{"getVerificationResult", "(Ljava/security/Provider;)Ljava/lang/Exception;", nullptr, $STATIC, $staticMethod(JceSecurity, getVerificationResult, $Exception*, $Provider*)},
+	{"isRestricted", "()Z", nullptr, $STATIC, $staticMethod(JceSecurity, isRestricted, bool)},
+	{"setupJurisdictionPolicies", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(JceSecurity, setupJurisdictionPolicies, void), "java.lang.Exception"},
+	{"verifyExemptJar", "(Ljava/net/URL;)Ljavax/crypto/CryptoPermissions;", nullptr, $STATIC, $staticMethod(JceSecurity, verifyExemptJar, $CryptoPermissions*, $URL*), "java.lang.Exception"},
+	{"verifyProvider", "(Ljava/net/URL;Ljava/security/Provider;)V", nullptr, $STATIC, $staticMethod(JceSecurity, verifyProvider, void, $URL*, $Provider*), "java.lang.Exception"},
 	{}
 };
 

@@ -15,8 +15,8 @@ namespace java {
 		namespace regex {
 
 $MethodInfo _Pattern$SliceUS_MethodInfo_[] = {
-	{"<init>", "([I)V", nullptr, 0, $method(static_cast<void(Pattern$SliceUS::*)($ints*)>(&Pattern$SliceUS::init$))},
-	{"toLower", "(I)I", nullptr, 0},
+	{"<init>", "([I)V", nullptr, 0, $method(Pattern$SliceUS, init$, void, $ints*)},
+	{"toLower", "(I)I", nullptr, 0, $virtualMethod(Pattern$SliceUS, toLower, int32_t, int32_t)},
 	{}
 };
 

@@ -14,6 +14,7 @@ using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $TemporalAdjuster = ::java::time::temporal::TemporalAdjuster;
 using $TemporalAmount = ::java::time::temporal::TemporalAmount;
+using $TemporalField = ::java::time::temporal::TemporalField;
 using $TemporalUnit = ::java::time::temporal::TemporalUnit;
 
 namespace java {
@@ -21,14 +22,14 @@ namespace java {
 		namespace temporal {
 
 $MethodInfo _Temporal_MethodInfo_[] = {
-	{"isSupported", "(Ljava/time/temporal/TemporalUnit;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"minus", "(Ljava/time/temporal/TemporalAmount;)Ljava/time/temporal/Temporal;", nullptr, $PUBLIC},
-	{"minus", "(JLjava/time/temporal/TemporalUnit;)Ljava/time/temporal/Temporal;", nullptr, $PUBLIC},
-	{"plus", "(Ljava/time/temporal/TemporalAmount;)Ljava/time/temporal/Temporal;", nullptr, $PUBLIC},
-	{"plus", "(JLjava/time/temporal/TemporalUnit;)Ljava/time/temporal/Temporal;", nullptr, $PUBLIC | $ABSTRACT},
-	{"until", "(Ljava/time/temporal/Temporal;Ljava/time/temporal/TemporalUnit;)J", nullptr, $PUBLIC | $ABSTRACT},
-	{"with", "(Ljava/time/temporal/TemporalAdjuster;)Ljava/time/temporal/Temporal;", nullptr, $PUBLIC},
-	{"with", "(Ljava/time/temporal/TemporalField;J)Ljava/time/temporal/Temporal;", nullptr, $PUBLIC | $ABSTRACT},
+	{"isSupported", "(Ljava/time/temporal/TemporalUnit;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Temporal, isSupported, bool, $TemporalUnit*)},
+	{"minus", "(Ljava/time/temporal/TemporalAmount;)Ljava/time/temporal/Temporal;", nullptr, $PUBLIC, $virtualMethod(Temporal, minus, Temporal*, $TemporalAmount*)},
+	{"minus", "(JLjava/time/temporal/TemporalUnit;)Ljava/time/temporal/Temporal;", nullptr, $PUBLIC, $virtualMethod(Temporal, minus, Temporal*, int64_t, $TemporalUnit*)},
+	{"plus", "(Ljava/time/temporal/TemporalAmount;)Ljava/time/temporal/Temporal;", nullptr, $PUBLIC, $virtualMethod(Temporal, plus, Temporal*, $TemporalAmount*)},
+	{"plus", "(JLjava/time/temporal/TemporalUnit;)Ljava/time/temporal/Temporal;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Temporal, plus, Temporal*, int64_t, $TemporalUnit*)},
+	{"until", "(Ljava/time/temporal/Temporal;Ljava/time/temporal/TemporalUnit;)J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Temporal, until, int64_t, Temporal*, $TemporalUnit*)},
+	{"with", "(Ljava/time/temporal/TemporalAdjuster;)Ljava/time/temporal/Temporal;", nullptr, $PUBLIC, $virtualMethod(Temporal, with, Temporal*, $TemporalAdjuster*)},
+	{"with", "(Ljava/time/temporal/TemporalField;J)Ljava/time/temporal/Temporal;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Temporal, with, Temporal*, $TemporalField*, int64_t)},
 	{}
 };
 

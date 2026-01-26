@@ -23,8 +23,8 @@ using $URISyntaxException = ::java::net::URISyntaxException;
 using $List = ::java::util::List;
 
 $MethodInfo _NullArguments_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(NullArguments::*)()>(&NullArguments::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&NullArguments::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(NullArguments, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(NullArguments, main, void, $StringArray*)},
 	{}
 };
 

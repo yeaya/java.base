@@ -24,9 +24,9 @@ $FieldInfo _DTLSInputRecord$HandshakeFragment_FieldInfo_[] = {
 };
 
 $MethodInfo _DTLSInputRecord$HandshakeFragment_MethodInfo_[] = {
-	{"<init>", "([BBBB[BIJBIIII)V", nullptr, 0, $method(static_cast<void(DTLSInputRecord$HandshakeFragment::*)($bytes*,int8_t,int8_t,int8_t,$bytes*,int32_t,int64_t,int8_t,int32_t,int32_t,int32_t,int32_t)>(&DTLSInputRecord$HandshakeFragment::init$))},
-	{"compareTo", "(Lsun/security/ssl/DTLSInputRecord$RecordFragment;)I", nullptr, $PUBLIC},
-	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "([BBBB[BIJBIIII)V", nullptr, 0, $method(DTLSInputRecord$HandshakeFragment, init$, void, $bytes*, int8_t, int8_t, int8_t, $bytes*, int32_t, int64_t, int8_t, int32_t, int32_t, int32_t, int32_t)},
+	{"compareTo", "(Lsun/security/ssl/DTLSInputRecord$RecordFragment;)I", nullptr, $PUBLIC, $virtualMethod(DTLSInputRecord$HandshakeFragment, compareTo, int32_t, $DTLSInputRecord$RecordFragment*)},
+	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DTLSInputRecord$HandshakeFragment, compareTo, int32_t, Object$*)},
 	{}
 };
 

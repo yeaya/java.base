@@ -21,9 +21,9 @@ $FieldInfo _GuardedObject_FieldInfo_[] = {
 };
 
 $MethodInfo _GuardedObject_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;Ljava/security/Guard;)V", nullptr, $PUBLIC, $method(static_cast<void(GuardedObject::*)(Object$*,$Guard*)>(&GuardedObject::init$))},
-	{"getObject", "()Ljava/lang/Object;", nullptr, $PUBLIC, nullptr, "java.lang.SecurityException"},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(GuardedObject::*)($ObjectOutputStream*)>(&GuardedObject::writeObject)), "java.io.IOException"},
+	{"<init>", "(Ljava/lang/Object;Ljava/security/Guard;)V", nullptr, $PUBLIC, $method(GuardedObject, init$, void, Object$*, $Guard*)},
+	{"getObject", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(GuardedObject, getObject, $Object*), "java.lang.SecurityException"},
+	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(GuardedObject, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
 	{}
 };
 

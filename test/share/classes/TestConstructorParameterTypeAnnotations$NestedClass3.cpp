@@ -52,7 +52,7 @@ $FieldInfo _TestConstructorParameterTypeAnnotations$NestedClass3_FieldInfo_[] = 
 };
 
 $MethodInfo _TestConstructorParameterTypeAnnotations$NestedClass3_MethodInfo_[] = {
-	{"<init>", "(LTestConstructorParameterTypeAnnotations;Ljava/lang/Object;I)V", "<P:Ljava/lang/Object;>(TP;I)V", $PUBLIC, $method(static_cast<void(TestConstructorParameterTypeAnnotations$NestedClass3::*)($TestConstructorParameterTypeAnnotations*,Object$*,int32_t)>(&TestConstructorParameterTypeAnnotations$NestedClass3::init$)), nullptr, nullptr, nullptr, _TestConstructorParameterTypeAnnotations$NestedClass3_MethodTypeAnnotations_init$0},
+	{"<init>", "(LTestConstructorParameterTypeAnnotations;Ljava/lang/Object;I)V", "<P:Ljava/lang/Object;>(TP;I)V", $PUBLIC, $method(TestConstructorParameterTypeAnnotations$NestedClass3, init$, void, $TestConstructorParameterTypeAnnotations*, Object$*, int32_t), nullptr, nullptr, nullptr, _TestConstructorParameterTypeAnnotations$NestedClass3_MethodTypeAnnotations_init$0},
 	{}
 };
 

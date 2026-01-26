@@ -34,13 +34,13 @@ $FieldInfo _AlgorithmDecomposer_FieldInfo_[] = {
 };
 
 $MethodInfo _AlgorithmDecomposer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(AlgorithmDecomposer::*)()>(&AlgorithmDecomposer::init$))},
-	{"decompose", "(Ljava/lang/String;)Ljava/util/Set;", "(Ljava/lang/String;)Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC},
-	{"decomposeImpl", "(Ljava/lang/String;)Ljava/util/Set;", "(Ljava/lang/String;)Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE | $STATIC, $method(static_cast<$Set*(*)($String*)>(&AlgorithmDecomposer::decomposeImpl))},
-	{"decomposeOneHash", "(Ljava/lang/String;)Ljava/util/Set;", "(Ljava/lang/String;)Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC | $STATIC, $method(static_cast<$Set*(*)($String*)>(&AlgorithmDecomposer::decomposeOneHash))},
-	{"getAliases", "(Ljava/lang/String;)Ljava/util/Collection;", "(Ljava/lang/String;)Ljava/util/Collection<Ljava/lang/String;>;", $PUBLIC | $STATIC, $method(static_cast<$Collection*(*)($String*)>(&AlgorithmDecomposer::getAliases))},
-	{"hasLoop", "(Ljava/util/Set;Ljava/lang/String;Ljava/lang/String;)V", "(Ljava/util/Set<Ljava/lang/String;>;Ljava/lang/String;Ljava/lang/String;)V", $PRIVATE | $STATIC, $method(static_cast<void(*)($Set*,$String*,$String*)>(&AlgorithmDecomposer::hasLoop))},
-	{"hashName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)($String*)>(&AlgorithmDecomposer::hashName))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(AlgorithmDecomposer, init$, void)},
+	{"decompose", "(Ljava/lang/String;)Ljava/util/Set;", "(Ljava/lang/String;)Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(AlgorithmDecomposer, decompose, $Set*, $String*)},
+	{"decomposeImpl", "(Ljava/lang/String;)Ljava/util/Set;", "(Ljava/lang/String;)Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE | $STATIC, $staticMethod(AlgorithmDecomposer, decomposeImpl, $Set*, $String*)},
+	{"decomposeOneHash", "(Ljava/lang/String;)Ljava/util/Set;", "(Ljava/lang/String;)Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC | $STATIC, $staticMethod(AlgorithmDecomposer, decomposeOneHash, $Set*, $String*)},
+	{"getAliases", "(Ljava/lang/String;)Ljava/util/Collection;", "(Ljava/lang/String;)Ljava/util/Collection<Ljava/lang/String;>;", $PUBLIC | $STATIC, $staticMethod(AlgorithmDecomposer, getAliases, $Collection*, $String*)},
+	{"hasLoop", "(Ljava/util/Set;Ljava/lang/String;Ljava/lang/String;)V", "(Ljava/util/Set<Ljava/lang/String;>;Ljava/lang/String;Ljava/lang/String;)V", $PRIVATE | $STATIC, $staticMethod(AlgorithmDecomposer, hasLoop, void, $Set*, $String*, $String*)},
+	{"hashName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(AlgorithmDecomposer, hashName, $String*, $String*)},
 	{}
 };
 

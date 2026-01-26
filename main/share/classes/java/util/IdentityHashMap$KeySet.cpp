@@ -38,17 +38,17 @@ $FieldInfo _IdentityHashMap$KeySet_FieldInfo_[] = {
 };
 
 $MethodInfo _IdentityHashMap$KeySet_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/IdentityHashMap;)V", nullptr, $PRIVATE, $method(static_cast<void(IdentityHashMap$KeySet::*)($IdentityHashMap*)>(&IdentityHashMap$KeySet::init$))},
-	{"clear", "()V", nullptr, $PUBLIC},
-	{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TK;>;", $PUBLIC},
-	{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"removeAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC},
-	{"size", "()I", nullptr, $PUBLIC},
-	{"spliterator", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TK;>;", $PUBLIC},
-	{"toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", "<T:Ljava/lang/Object;>([TT;)[TT;", $PUBLIC},
+	{"<init>", "(Ljava/util/IdentityHashMap;)V", nullptr, $PRIVATE, $method(IdentityHashMap$KeySet, init$, void, $IdentityHashMap*)},
+	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(IdentityHashMap$KeySet, clear, void)},
+	{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(IdentityHashMap$KeySet, contains, bool, Object$*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(IdentityHashMap$KeySet, hashCode, int32_t)},
+	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TK;>;", $PUBLIC, $virtualMethod(IdentityHashMap$KeySet, iterator, $Iterator*)},
+	{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(IdentityHashMap$KeySet, remove, bool, Object$*)},
+	{"removeAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC, $virtualMethod(IdentityHashMap$KeySet, removeAll, bool, $Collection*)},
+	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(IdentityHashMap$KeySet, size, int32_t)},
+	{"spliterator", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TK;>;", $PUBLIC, $virtualMethod(IdentityHashMap$KeySet, spliterator, $Spliterator*)},
+	{"toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(IdentityHashMap$KeySet, toArray, $ObjectArray*)},
+	{"toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", "<T:Ljava/lang/Object;>([TT;)[TT;", $PUBLIC, $virtualMethod(IdentityHashMap$KeySet, toArray, $ObjectArray*, $ObjectArray*)},
 	{}
 };
 

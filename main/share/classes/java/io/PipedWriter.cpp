@@ -25,13 +25,13 @@ $FieldInfo _PipedWriter_FieldInfo_[] = {
 };
 
 $MethodInfo _PipedWriter_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/PipedReader;)V", nullptr, $PUBLIC, $method(static_cast<void(PipedWriter::*)($PipedReader*)>(&PipedWriter::init$)), "java.io.IOException"},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PipedWriter::*)()>(&PipedWriter::init$))},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"connect", "(Ljava/io/PipedReader;)V", nullptr, $PUBLIC | $SYNCHRONIZED, nullptr, "java.io.IOException"},
-	{"flush", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, nullptr, "java.io.IOException"},
-	{"write", "(I)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"write", "([CII)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljava/io/PipedReader;)V", nullptr, $PUBLIC, $method(PipedWriter, init$, void, $PipedReader*), "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PipedWriter, init$, void)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(PipedWriter, close, void), "java.io.IOException"},
+	{"connect", "(Ljava/io/PipedReader;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(PipedWriter, connect, void, $PipedReader*), "java.io.IOException"},
+	{"flush", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(PipedWriter, flush, void), "java.io.IOException"},
+	{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(PipedWriter, write, void, int32_t), "java.io.IOException"},
+	{"write", "([CII)V", nullptr, $PUBLIC, $virtualMethod(PipedWriter, write, void, $chars*, int32_t, int32_t), "java.io.IOException"},
 	{}
 };
 

@@ -20,8 +20,8 @@ $CompoundAttribute _SuperCchild_MethodAnnotations_foo1[] = {
 };
 
 $MethodInfo _SuperCchild_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(SuperCchild::*)()>(&SuperCchild::init$))},
-	{"foo", "()V", nullptr, $PUBLIC, nullptr, nullptr, nullptr, _SuperCchild_MethodAnnotations_foo1},
+	{"<init>", "()V", nullptr, 0, $method(SuperCchild, init$, void)},
+	{"foo", "()V", nullptr, $PUBLIC, $virtualMethod(SuperCchild, foo, void), nullptr, nullptr, _SuperCchild_MethodAnnotations_foo1},
 	{}
 };
 

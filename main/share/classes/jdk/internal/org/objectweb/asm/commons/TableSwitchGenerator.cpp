@@ -5,6 +5,7 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Label = ::jdk::internal::org::objectweb::asm$::Label;
 
 namespace jdk {
 	namespace internal {
@@ -14,8 +15,8 @@ namespace jdk {
 					namespace commons {
 
 $MethodInfo _TableSwitchGenerator_MethodInfo_[] = {
-	{"generateCase", "(ILjdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"generateDefault", "()V", nullptr, $PUBLIC | $ABSTRACT},
+	{"generateCase", "(ILjdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TableSwitchGenerator, generateCase, void, int32_t, $Label*)},
+	{"generateDefault", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TableSwitchGenerator, generateDefault, void)},
 	{}
 };
 

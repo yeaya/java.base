@@ -23,11 +23,11 @@ $FieldInfo _ImageReader$LinkNode_FieldInfo_[] = {
 };
 
 $MethodInfo _ImageReader$LinkNode_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljdk/internal/jimage/ImageReader$Node;)V", nullptr, $PRIVATE, $method(static_cast<void(ImageReader$LinkNode::*)($String*,$ImageReader$Node*)>(&ImageReader$LinkNode::init$))},
-	{"create", "(Ljdk/internal/jimage/ImageReader$Directory;Ljava/lang/String;Ljdk/internal/jimage/ImageReader$Node;)Ljdk/internal/jimage/ImageReader$LinkNode;", nullptr, $STATIC, $method(static_cast<ImageReader$LinkNode*(*)($ImageReader$Directory*,$String*,$ImageReader$Node*)>(&ImageReader$LinkNode::create))},
-	{"isCompleted", "()Z", nullptr, $PUBLIC},
-	{"isLink", "()Z", nullptr, $PUBLIC},
-	{"resolveLink", "(Z)Ljdk/internal/jimage/ImageReader$Node;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Ljdk/internal/jimage/ImageReader$Node;)V", nullptr, $PRIVATE, $method(ImageReader$LinkNode, init$, void, $String*, $ImageReader$Node*)},
+	{"create", "(Ljdk/internal/jimage/ImageReader$Directory;Ljava/lang/String;Ljdk/internal/jimage/ImageReader$Node;)Ljdk/internal/jimage/ImageReader$LinkNode;", nullptr, $STATIC, $staticMethod(ImageReader$LinkNode, create, ImageReader$LinkNode*, $ImageReader$Directory*, $String*, $ImageReader$Node*)},
+	{"isCompleted", "()Z", nullptr, $PUBLIC, $virtualMethod(ImageReader$LinkNode, isCompleted, bool)},
+	{"isLink", "()Z", nullptr, $PUBLIC, $virtualMethod(ImageReader$LinkNode, isLink, bool)},
+	{"resolveLink", "(Z)Ljdk/internal/jimage/ImageReader$Node;", nullptr, $PUBLIC, $virtualMethod(ImageReader$LinkNode, resolveLink, $ImageReader$Node*, bool)},
 	{}
 };
 

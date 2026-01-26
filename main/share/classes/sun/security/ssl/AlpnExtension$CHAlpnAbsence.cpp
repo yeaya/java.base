@@ -19,8 +19,8 @@ namespace sun {
 		namespace ssl {
 
 $MethodInfo _AlpnExtension$CHAlpnAbsence_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(AlpnExtension$CHAlpnAbsence::*)()>(&AlpnExtension$CHAlpnAbsence::init$))},
-	{"absent", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(AlpnExtension$CHAlpnAbsence, init$, void)},
+	{"absent", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)V", nullptr, $PUBLIC, $virtualMethod(AlpnExtension$CHAlpnAbsence, absent, void, $ConnectionContext*, $SSLHandshake$HandshakeMessage*), "java.io.IOException"},
 	{}
 };
 

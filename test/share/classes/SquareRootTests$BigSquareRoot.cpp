@@ -40,12 +40,12 @@ $FieldInfo _SquareRootTests$BigSquareRoot_FieldInfo_[] = {
 };
 
 $MethodInfo _SquareRootTests$BigSquareRoot_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(SquareRootTests$BigSquareRoot::*)()>(&SquareRootTests$BigSquareRoot::init$))},
-	{"isPowerOfTen", "(Ljava/math/BigDecimal;)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)($BigDecimal*)>(&SquareRootTests$BigSquareRoot::isPowerOfTen))},
-	{"sqrt", "(Ljava/math/BigDecimal;Ljava/math/MathContext;)Ljava/math/BigDecimal;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$BigDecimal*(*)($BigDecimal*,$MathContext*)>(&SquareRootTests$BigSquareRoot::sqrt))},
-	{"square", "(Ljava/math/BigDecimal;)Ljava/math/BigDecimal;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$BigDecimal*(*)($BigDecimal*)>(&SquareRootTests$BigSquareRoot::square))},
-	{"squareRootResultAssertions", "(Ljava/math/BigDecimal;Ljava/math/BigDecimal;Ljava/math/MathContext;)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($BigDecimal*,$BigDecimal*,$MathContext*)>(&SquareRootTests$BigSquareRoot::squareRootResultAssertions))},
-	{"squareRootZeroResultAssertions", "(Ljava/math/BigDecimal;Ljava/math/BigDecimal;Ljava/math/MathContext;)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($BigDecimal*,$BigDecimal*,$MathContext*)>(&SquareRootTests$BigSquareRoot::squareRootZeroResultAssertions))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(SquareRootTests$BigSquareRoot, init$, void)},
+	{"isPowerOfTen", "(Ljava/math/BigDecimal;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(SquareRootTests$BigSquareRoot, isPowerOfTen, bool, $BigDecimal*)},
+	{"sqrt", "(Ljava/math/BigDecimal;Ljava/math/MathContext;)Ljava/math/BigDecimal;", nullptr, $PUBLIC | $STATIC, $staticMethod(SquareRootTests$BigSquareRoot, sqrt, $BigDecimal*, $BigDecimal*, $MathContext*)},
+	{"square", "(Ljava/math/BigDecimal;)Ljava/math/BigDecimal;", nullptr, $PUBLIC | $STATIC, $staticMethod(SquareRootTests$BigSquareRoot, square, $BigDecimal*, $BigDecimal*)},
+	{"squareRootResultAssertions", "(Ljava/math/BigDecimal;Ljava/math/BigDecimal;Ljava/math/MathContext;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(SquareRootTests$BigSquareRoot, squareRootResultAssertions, bool, $BigDecimal*, $BigDecimal*, $MathContext*)},
+	{"squareRootZeroResultAssertions", "(Ljava/math/BigDecimal;Ljava/math/BigDecimal;Ljava/math/MathContext;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(SquareRootTests$BigSquareRoot, squareRootZeroResultAssertions, bool, $BigDecimal*, $BigDecimal*, $MathContext*)},
 	{}
 };
 

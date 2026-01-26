@@ -28,9 +28,9 @@ $FieldInfo _ThreadLocalCoders$1_FieldInfo_[] = {
 };
 
 $MethodInfo _ThreadLocalCoders$1_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, 0, $method(static_cast<void(ThreadLocalCoders$1::*)(int32_t)>(&ThreadLocalCoders$1::init$))},
-	{"create", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, 0},
-	{"hasName", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, 0},
+	{"<init>", "(I)V", nullptr, 0, $method(ThreadLocalCoders$1, init$, void, int32_t)},
+	{"create", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, 0, $virtualMethod(ThreadLocalCoders$1, create, $Object*, Object$*)},
+	{"hasName", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, 0, $virtualMethod(ThreadLocalCoders$1, hasName, bool, Object$*, Object$*)},
 	{}
 };
 

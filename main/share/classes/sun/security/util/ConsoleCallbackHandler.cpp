@@ -54,10 +54,10 @@ namespace sun {
 		namespace util {
 
 $MethodInfo _ConsoleCallbackHandler_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ConsoleCallbackHandler::*)()>(&ConsoleCallbackHandler::init$))},
-	{"doConfirmation", "(Ljavax/security/auth/callback/ConfirmationCallback;)V", nullptr, $PRIVATE, $method(static_cast<void(ConsoleCallbackHandler::*)($ConfirmationCallback*)>(&ConsoleCallbackHandler::doConfirmation)), "java.io.IOException,javax.security.auth.callback.UnsupportedCallbackException"},
-	{"handle", "([Ljavax/security/auth/callback/Callback;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException,javax.security.auth.callback.UnsupportedCallbackException"},
-	{"readLine", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(ConsoleCallbackHandler::*)()>(&ConsoleCallbackHandler::readLine)), "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ConsoleCallbackHandler, init$, void)},
+	{"doConfirmation", "(Ljavax/security/auth/callback/ConfirmationCallback;)V", nullptr, $PRIVATE, $method(ConsoleCallbackHandler, doConfirmation, void, $ConfirmationCallback*), "java.io.IOException,javax.security.auth.callback.UnsupportedCallbackException"},
+	{"handle", "([Ljavax/security/auth/callback/Callback;)V", nullptr, $PUBLIC, $virtualMethod(ConsoleCallbackHandler, handle, void, $CallbackArray*), "java.io.IOException,javax.security.auth.callback.UnsupportedCallbackException"},
+	{"readLine", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(ConsoleCallbackHandler, readLine, $String*), "java.io.IOException"},
 	{}
 };
 

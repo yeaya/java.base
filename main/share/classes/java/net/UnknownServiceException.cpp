@@ -17,8 +17,8 @@ $FieldInfo _UnknownServiceException_FieldInfo_[] = {
 };
 
 $MethodInfo _UnknownServiceException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(UnknownServiceException::*)()>(&UnknownServiceException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(UnknownServiceException::*)($String*)>(&UnknownServiceException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(UnknownServiceException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(UnknownServiceException, init$, void, $String*)},
 	{}
 };
 

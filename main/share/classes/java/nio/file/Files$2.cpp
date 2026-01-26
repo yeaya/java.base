@@ -29,9 +29,9 @@ $FieldInfo _Files$2_FieldInfo_[] = {
 };
 
 $MethodInfo _Files$2_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Iterator;)V", nullptr, 0, $method(static_cast<void(Files$2::*)($Iterator*)>(&Files$2::init$))},
-	{"hasNext", "()Z", nullptr, $PUBLIC},
-	{"next", "()Ljava/nio/file/Path;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/Iterator;)V", nullptr, 0, $method(Files$2, init$, void, $Iterator*)},
+	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(Files$2, hasNext, bool)},
+	{"next", "()Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(Files$2, next, $Object*)},
 	{}
 };
 

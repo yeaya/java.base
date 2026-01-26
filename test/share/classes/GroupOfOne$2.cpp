@@ -11,8 +11,8 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 
 $MethodInfo _GroupOfOne$2_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(GroupOfOne$2::*)()>(&GroupOfOne$2::init$))},
-	{"newThread", "(Ljava/lang/Runnable;)Ljava/lang/Thread;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(GroupOfOne$2, init$, void)},
+	{"newThread", "(Ljava/lang/Runnable;)Ljava/lang/Thread;", nullptr, $PUBLIC, $virtualMethod(GroupOfOne$2, newThread, $Thread*, $Runnable*)},
 	{}
 };
 

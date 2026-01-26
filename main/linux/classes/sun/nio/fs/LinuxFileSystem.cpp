@@ -51,13 +51,13 @@ namespace sun {
 		namespace fs {
 
 $MethodInfo _LinuxFileSystem_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/fs/UnixFileSystemProvider;Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(LinuxFileSystem::*)($UnixFileSystemProvider*,$String*)>(&LinuxFileSystem::init$))},
-	{"copyNonPosixAttributes", "(II)V", nullptr, 0},
-	{"getFileStore", "(Lsun/nio/fs/UnixMountEntry;)Ljava/nio/file/FileStore;", nullptr, 0, nullptr, "java.io.IOException"},
-	{"getMountEntries", "(Ljava/lang/String;)Ljava/util/List;", "(Ljava/lang/String;)Ljava/util/List<Lsun/nio/fs/UnixMountEntry;>;", 0},
-	{"getMountEntries", "()Ljava/util/List;", "()Ljava/util/List<Lsun/nio/fs/UnixMountEntry;>;", 0},
-	{"newWatchService", "()Ljava/nio/file/WatchService;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"supportedFileAttributeViews", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC},
+	{"<init>", "(Lsun/nio/fs/UnixFileSystemProvider;Ljava/lang/String;)V", nullptr, 0, $method(LinuxFileSystem, init$, void, $UnixFileSystemProvider*, $String*)},
+	{"copyNonPosixAttributes", "(II)V", nullptr, 0, $virtualMethod(LinuxFileSystem, copyNonPosixAttributes, void, int32_t, int32_t)},
+	{"getFileStore", "(Lsun/nio/fs/UnixMountEntry;)Ljava/nio/file/FileStore;", nullptr, 0, $virtualMethod(LinuxFileSystem, getFileStore, $FileStore*, $UnixMountEntry*), "java.io.IOException"},
+	{"getMountEntries", "(Ljava/lang/String;)Ljava/util/List;", "(Ljava/lang/String;)Ljava/util/List<Lsun/nio/fs/UnixMountEntry;>;", 0, $virtualMethod(LinuxFileSystem, getMountEntries, $List*, $String*)},
+	{"getMountEntries", "()Ljava/util/List;", "()Ljava/util/List<Lsun/nio/fs/UnixMountEntry;>;", 0, $virtualMethod(LinuxFileSystem, getMountEntries, $Iterable*)},
+	{"newWatchService", "()Ljava/nio/file/WatchService;", nullptr, $PUBLIC, $virtualMethod(LinuxFileSystem, newWatchService, $WatchService*), "java.io.IOException"},
+	{"supportedFileAttributeViews", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(LinuxFileSystem, supportedFileAttributeViews, $Set*)},
 	{}
 };
 

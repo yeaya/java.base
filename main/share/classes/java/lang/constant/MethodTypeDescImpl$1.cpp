@@ -26,8 +26,8 @@ $FieldInfo _MethodTypeDescImpl$1_FieldInfo_[] = {
 };
 
 $MethodInfo _MethodTypeDescImpl$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/constant/MethodTypeDescImpl;Ljava/lang/invoke/MethodHandles$Lookup;)V", nullptr, 0, $method(static_cast<void(MethodTypeDescImpl$1::*)($MethodTypeDescImpl*,$MethodHandles$Lookup*)>(&MethodTypeDescImpl$1::init$))},
-	{"run", "()Ljava/lang/invoke/MethodType;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/constant/MethodTypeDescImpl;Ljava/lang/invoke/MethodHandles$Lookup;)V", nullptr, 0, $method(MethodTypeDescImpl$1, init$, void, $MethodTypeDescImpl*, $MethodHandles$Lookup*)},
+	{"run", "()Ljava/lang/invoke/MethodType;", nullptr, $PUBLIC, $virtualMethod(MethodTypeDescImpl$1, run, $Object*)},
 	{}
 };
 

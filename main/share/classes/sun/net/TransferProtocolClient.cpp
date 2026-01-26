@@ -31,12 +31,12 @@ $FieldInfo _TransferProtocolClient_FieldInfo_[] = {
 };
 
 $MethodInfo _TransferProtocolClient_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(static_cast<void(TransferProtocolClient::*)($String*,int32_t)>(&TransferProtocolClient::init$)), "java.io.IOException"},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TransferProtocolClient::*)()>(&TransferProtocolClient::init$))},
-	{"getResponseString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getResponseStrings", "()Ljava/util/Vector;", "()Ljava/util/Vector<Ljava/lang/String;>;", $PUBLIC},
-	{"readServerResponse", "()I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"sendServer", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(TransferProtocolClient, init$, void, $String*, int32_t), "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TransferProtocolClient, init$, void)},
+	{"getResponseString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TransferProtocolClient, getResponseString, $String*)},
+	{"getResponseStrings", "()Ljava/util/Vector;", "()Ljava/util/Vector<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(TransferProtocolClient, getResponseStrings, $Vector*)},
+	{"readServerResponse", "()I", nullptr, $PUBLIC, $virtualMethod(TransferProtocolClient, readServerResponse, int32_t), "java.io.IOException"},
+	{"sendServer", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(TransferProtocolClient, sendServer, void, $String*)},
 	{}
 };
 

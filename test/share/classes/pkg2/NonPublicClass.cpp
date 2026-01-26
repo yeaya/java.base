@@ -8,7 +8,7 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace pkg2 {
 
 $MethodInfo _NonPublicClass_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(NonPublicClass::*)()>(&NonPublicClass::init$))},
+	{"<init>", "()V", nullptr, 0, $method(NonPublicClass, init$, void)},
 	{}
 };
 

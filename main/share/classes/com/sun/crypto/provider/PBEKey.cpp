@@ -72,8 +72,8 @@ $FieldInfo PBEKey$$Lambda$lambda$new$0::fieldInfos[2] = {
 	{}
 };
 $MethodInfo PBEKey$$Lambda$lambda$new$0::methodInfos[3] = {
-	{"<init>", "([B)V", nullptr, $PUBLIC, $method(static_cast<void(PBEKey$$Lambda$lambda$new$0::*)($bytes*)>(&PBEKey$$Lambda$lambda$new$0::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "([B)V", nullptr, $PUBLIC, $method(PBEKey$$Lambda$lambda$new$0, init$, void, $bytes*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(PBEKey$$Lambda$lambda$new$0, run, void)},
 	{}
 };
 $ClassInfo PBEKey$$Lambda$lambda$new$0::classInfo$ = {
@@ -98,16 +98,16 @@ $FieldInfo _PBEKey_FieldInfo_[] = {
 };
 
 $MethodInfo _PBEKey_MethodInfo_[] = {
-	{"<init>", "(Ljavax/crypto/spec/PBEKeySpec;Ljava/lang/String;Z)V", nullptr, 0, $method(static_cast<void(PBEKey::*)($PBEKeySpec*,$String*,bool)>(&PBEKey::init$)), "java.security.spec.InvalidKeySpecException"},
-	{"destroy", "()V", nullptr, $PUBLIC},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getEncoded", "()[B", nullptr, $PUBLIC},
-	{"getFormat", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"lambda$new$0", "([B)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($bytes*)>(&PBEKey::lambda$new$0))},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(PBEKey::*)($ObjectInputStream*)>(&PBEKey::readObject)), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"writeReplace", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(static_cast<$Object*(PBEKey::*)()>(&PBEKey::writeReplace)), "java.io.ObjectStreamException"},
+	{"<init>", "(Ljavax/crypto/spec/PBEKeySpec;Ljava/lang/String;Z)V", nullptr, 0, $method(PBEKey, init$, void, $PBEKeySpec*, $String*, bool), "java.security.spec.InvalidKeySpecException"},
+	{"destroy", "()V", nullptr, $PUBLIC, $virtualMethod(PBEKey, destroy, void)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(PBEKey, equals, bool, Object$*)},
+	{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PBEKey, getAlgorithm, $String*)},
+	{"getEncoded", "()[B", nullptr, $PUBLIC, $virtualMethod(PBEKey, getEncoded, $bytes*)},
+	{"getFormat", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PBEKey, getFormat, $String*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(PBEKey, hashCode, int32_t)},
+	{"lambda$new$0", "([B)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(PBEKey, lambda$new$0, void, $bytes*)},
+	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(PBEKey, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+	{"writeReplace", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(PBEKey, writeReplace, $Object*), "java.io.ObjectStreamException"},
 	{}
 };
 

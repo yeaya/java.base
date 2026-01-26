@@ -41,10 +41,10 @@ $MethodInfo _Nodes$SizedCollectorTask$OfInt_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/util/Spliterator;Ljava/util/stream/PipelineHelper;[I)V", "(Ljava/util/Spliterator<TP_IN;>;Ljava/util/stream/PipelineHelper<Ljava/lang/Integer;>;[I)V", 0, $method(static_cast<void(Nodes$SizedCollectorTask$OfInt::*)($Spliterator*,$PipelineHelper*,$ints*)>(&Nodes$SizedCollectorTask$OfInt::init$))},
-	{"<init>", "(Ljava/util/stream/Nodes$SizedCollectorTask$OfInt;Ljava/util/Spliterator;JJ)V", "(Ljava/util/stream/Nodes$SizedCollectorTask$OfInt<TP_IN;>;Ljava/util/Spliterator<TP_IN;>;JJ)V", 0, $method(static_cast<void(Nodes$SizedCollectorTask$OfInt::*)(Nodes$SizedCollectorTask$OfInt*,$Spliterator*,int64_t,int64_t)>(&Nodes$SizedCollectorTask$OfInt::init$))},
-	{"accept", "(I)V", nullptr, $PUBLIC},
-	{"makeChild", "(Ljava/util/Spliterator;JJ)Ljava/util/stream/Nodes$SizedCollectorTask$OfInt;", "(Ljava/util/Spliterator<TP_IN;>;JJ)Ljava/util/stream/Nodes$SizedCollectorTask$OfInt<TP_IN;>;", 0},
+	{"<init>", "(Ljava/util/Spliterator;Ljava/util/stream/PipelineHelper;[I)V", "(Ljava/util/Spliterator<TP_IN;>;Ljava/util/stream/PipelineHelper<Ljava/lang/Integer;>;[I)V", 0, $method(Nodes$SizedCollectorTask$OfInt, init$, void, $Spliterator*, $PipelineHelper*, $ints*)},
+	{"<init>", "(Ljava/util/stream/Nodes$SizedCollectorTask$OfInt;Ljava/util/Spliterator;JJ)V", "(Ljava/util/stream/Nodes$SizedCollectorTask$OfInt<TP_IN;>;Ljava/util/Spliterator<TP_IN;>;JJ)V", 0, $method(Nodes$SizedCollectorTask$OfInt, init$, void, Nodes$SizedCollectorTask$OfInt*, $Spliterator*, int64_t, int64_t)},
+	{"accept", "(I)V", nullptr, $PUBLIC, $virtualMethod(Nodes$SizedCollectorTask$OfInt, accept, void, int32_t)},
+	{"makeChild", "(Ljava/util/Spliterator;JJ)Ljava/util/stream/Nodes$SizedCollectorTask$OfInt;", "(Ljava/util/Spliterator<TP_IN;>;JJ)Ljava/util/stream/Nodes$SizedCollectorTask$OfInt<TP_IN;>;", 0, $virtualMethod(Nodes$SizedCollectorTask$OfInt, makeChild, Nodes$SizedCollectorTask$OfInt*, $Spliterator*, int64_t, int64_t)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

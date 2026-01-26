@@ -7,7 +7,9 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $BigInteger = ::java::math::BigInteger;
 using $ImmutableIntegerModuloP = ::sun::security::util::math::ImmutableIntegerModuloP;
+using $SmallValue = ::sun::security::util::math::SmallValue;
 
 namespace sun {
 	namespace security {
@@ -15,13 +17,13 @@ namespace sun {
 			namespace math {
 
 $MethodInfo _IntegerFieldModuloP_MethodInfo_[] = {
-	{"get0", "()Lsun/security/util/math/ImmutableIntegerModuloP;", nullptr, $PUBLIC | $ABSTRACT},
-	{"get1", "()Lsun/security/util/math/ImmutableIntegerModuloP;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getElement", "(Ljava/math/BigInteger;)Lsun/security/util/math/ImmutableIntegerModuloP;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getElement", "([B)Lsun/security/util/math/ImmutableIntegerModuloP;", nullptr, $PUBLIC},
-	{"getElement", "([BIIB)Lsun/security/util/math/ImmutableIntegerModuloP;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getSize", "()Ljava/math/BigInteger;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getSmallValue", "(I)Lsun/security/util/math/SmallValue;", nullptr, $PUBLIC | $ABSTRACT},
+	{"get0", "()Lsun/security/util/math/ImmutableIntegerModuloP;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(IntegerFieldModuloP, get0, $ImmutableIntegerModuloP*)},
+	{"get1", "()Lsun/security/util/math/ImmutableIntegerModuloP;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(IntegerFieldModuloP, get1, $ImmutableIntegerModuloP*)},
+	{"getElement", "(Ljava/math/BigInteger;)Lsun/security/util/math/ImmutableIntegerModuloP;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(IntegerFieldModuloP, getElement, $ImmutableIntegerModuloP*, $BigInteger*)},
+	{"getElement", "([B)Lsun/security/util/math/ImmutableIntegerModuloP;", nullptr, $PUBLIC, $virtualMethod(IntegerFieldModuloP, getElement, $ImmutableIntegerModuloP*, $bytes*)},
+	{"getElement", "([BIIB)Lsun/security/util/math/ImmutableIntegerModuloP;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(IntegerFieldModuloP, getElement, $ImmutableIntegerModuloP*, $bytes*, int32_t, int32_t, int8_t)},
+	{"getSize", "()Ljava/math/BigInteger;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(IntegerFieldModuloP, getSize, $BigInteger*)},
+	{"getSmallValue", "(I)Lsun/security/util/math/SmallValue;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(IntegerFieldModuloP, getSmallValue, $SmallValue*, int32_t)},
 	{}
 };
 

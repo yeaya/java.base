@@ -173,8 +173,8 @@ $FieldInfo BuiltinClassLoader$$Lambda$lambda$findResourceOnClassPath$0::fieldInf
 	{}
 };
 $MethodInfo BuiltinClassLoader$$Lambda$lambda$findResourceOnClassPath$0::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/loader/BuiltinClassLoader;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(BuiltinClassLoader$$Lambda$lambda$findResourceOnClassPath$0::*)(BuiltinClassLoader*,$String*)>(&BuiltinClassLoader$$Lambda$lambda$findResourceOnClassPath$0::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/loader/BuiltinClassLoader;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(BuiltinClassLoader$$Lambda$lambda$findResourceOnClassPath$0, init$, void, BuiltinClassLoader*, $String*)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(BuiltinClassLoader$$Lambda$lambda$findResourceOnClassPath$0, run, $Object*)},
 	{}
 };
 $ClassInfo BuiltinClassLoader$$Lambda$lambda$findResourceOnClassPath$0::classInfo$ = {
@@ -216,8 +216,8 @@ $FieldInfo BuiltinClassLoader$$Lambda$lambda$findResourcesOnClassPath$1$1::field
 	{}
 };
 $MethodInfo BuiltinClassLoader$$Lambda$lambda$findResourcesOnClassPath$1$1::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/loader/BuiltinClassLoader;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(BuiltinClassLoader$$Lambda$lambda$findResourcesOnClassPath$1$1::*)(BuiltinClassLoader*,$String*)>(&BuiltinClassLoader$$Lambda$lambda$findResourcesOnClassPath$1$1::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/loader/BuiltinClassLoader;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(BuiltinClassLoader$$Lambda$lambda$findResourcesOnClassPath$1$1, init$, void, BuiltinClassLoader*, $String*)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(BuiltinClassLoader$$Lambda$lambda$findResourcesOnClassPath$1$1, run, $Object*)},
 	{}
 };
 $ClassInfo BuiltinClassLoader$$Lambda$lambda$findResourcesOnClassPath$1$1::classInfo$ = {
@@ -262,8 +262,8 @@ $FieldInfo BuiltinClassLoader$$Lambda$lambda$findClassInModuleOrNull$2$2::fieldI
 	{}
 };
 $MethodInfo BuiltinClassLoader$$Lambda$lambda$findClassInModuleOrNull$2$2::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/loader/BuiltinClassLoader;Ljava/lang/String;Ljdk/internal/loader/BuiltinClassLoader$LoadedModule;)V", nullptr, $PUBLIC, $method(static_cast<void(BuiltinClassLoader$$Lambda$lambda$findClassInModuleOrNull$2$2::*)(BuiltinClassLoader*,$String*,$BuiltinClassLoader$LoadedModule*)>(&BuiltinClassLoader$$Lambda$lambda$findClassInModuleOrNull$2$2::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/loader/BuiltinClassLoader;Ljava/lang/String;Ljdk/internal/loader/BuiltinClassLoader$LoadedModule;)V", nullptr, $PUBLIC, $method(BuiltinClassLoader$$Lambda$lambda$findClassInModuleOrNull$2$2, init$, void, BuiltinClassLoader*, $String*, $BuiltinClassLoader$LoadedModule*)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(BuiltinClassLoader$$Lambda$lambda$findClassInModuleOrNull$2$2, run, $Object*)},
 	{}
 };
 $ClassInfo BuiltinClassLoader$$Lambda$lambda$findClassInModuleOrNull$2$2::classInfo$ = {
@@ -297,45 +297,45 @@ $FieldInfo _BuiltinClassLoader_FieldInfo_[] = {
 };
 
 $MethodInfo _BuiltinClassLoader_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljdk/internal/loader/BuiltinClassLoader;Ljdk/internal/loader/URLClassPath;)V", nullptr, 0, $method(static_cast<void(BuiltinClassLoader::*)($String*,BuiltinClassLoader*,$URLClassPath*)>(&BuiltinClassLoader::init$))},
-	{"appendClassPath", "(Ljava/lang/String;)V", nullptr, 0},
-	{"checkURL", "(Ljava/net/URL;)Ljava/net/URL;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$URL*(*)($URL*)>(&BuiltinClassLoader::checkURL))},
-	{"defineClass", "(Ljava/lang/String;Ljdk/internal/loader/BuiltinClassLoader$LoadedModule;)Ljava/lang/Class;", "(Ljava/lang/String;Ljdk/internal/loader/BuiltinClassLoader$LoadedModule;)Ljava/lang/Class<*>;", $PRIVATE, $method(static_cast<$Class*(BuiltinClassLoader::*)($String*,$BuiltinClassLoader$LoadedModule*)>(&BuiltinClassLoader::defineClass))},
-	{"defineClass", "(Ljava/lang/String;Ljdk/internal/loader/Resource;)Ljava/lang/Class;", "(Ljava/lang/String;Ljdk/internal/loader/Resource;)Ljava/lang/Class<*>;", $PRIVATE, $method(static_cast<$Class*(BuiltinClassLoader::*)($String*,$Resource*)>(&BuiltinClassLoader::defineClass)), "java.io.IOException"},
-	{"defineOrCheckPackage", "(Ljava/lang/String;Ljava/util/jar/Manifest;Ljava/net/URL;)Ljava/lang/Package;", nullptr, $PROTECTED},
-	{"definePackage", "(Ljava/lang/String;Ljava/util/jar/Manifest;Ljava/net/URL;)Ljava/lang/Package;", nullptr, $PRIVATE, $method(static_cast<$Package*(BuiltinClassLoader::*)($String*,$Manifest*,$URL*)>(&BuiltinClassLoader::definePackage))},
-	{"findClass", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $PROTECTED, nullptr, "java.lang.ClassNotFoundException"},
-	{"findClass", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/Class<*>;", $PROTECTED},
-	{"findClassInModuleOrNull", "(Ljdk/internal/loader/BuiltinClassLoader$LoadedModule;Ljava/lang/String;)Ljava/lang/Class;", "(Ljdk/internal/loader/BuiltinClassLoader$LoadedModule;Ljava/lang/String;)Ljava/lang/Class<*>;", $PRIVATE, $method(static_cast<$Class*(BuiltinClassLoader::*)($BuiltinClassLoader$LoadedModule*,$String*)>(&BuiltinClassLoader::findClassInModuleOrNull))},
-	{"findClassOnClassPathOrNull", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $PRIVATE, $method(static_cast<$Class*(BuiltinClassLoader::*)($String*)>(&BuiltinClassLoader::findClassOnClassPathOrNull))},
-	{"findLoadedModule", "(Ljava/lang/String;)Ljdk/internal/loader/BuiltinClassLoader$LoadedModule;", nullptr, $PRIVATE, $method(static_cast<$BuiltinClassLoader$LoadedModule*(BuiltinClassLoader::*)($String*)>(&BuiltinClassLoader::findLoadedModule))},
-	{"findLoadedModule", "(Ljava/lang/String;Ljava/lang/String;)Ljdk/internal/loader/BuiltinClassLoader$LoadedModule;", nullptr, $PRIVATE, $method(static_cast<$BuiltinClassLoader$LoadedModule*(BuiltinClassLoader::*)($String*,$String*)>(&BuiltinClassLoader::findLoadedModule))},
-	{"findMiscResource", "(Ljava/lang/String;)Ljava/util/List;", "(Ljava/lang/String;)Ljava/util/List<Ljava/net/URL;>;", $PRIVATE, $method(static_cast<$List*(BuiltinClassLoader::*)($String*)>(&BuiltinClassLoader::findMiscResource)), "java.io.IOException"},
-	{"findModule", "(Ljava/lang/String;)Ljava/lang/module/ModuleReference;", nullptr, $PROTECTED},
-	{"findResource", "(Ljava/lang/String;Ljava/lang/String;)Ljava/net/URL;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"findResource", "(Ljava/lang/String;)Ljava/net/URL;", nullptr, $PUBLIC},
-	{"findResource", "(Ljava/lang/module/ModuleReference;Ljava/lang/String;)Ljava/net/URL;", nullptr, $PRIVATE, $method(static_cast<$URL*(BuiltinClassLoader::*)($ModuleReference*,$String*)>(&BuiltinClassLoader::findResource)), "java.io.IOException"},
-	{"findResourceAsStream", "(Ljava/lang/String;Ljava/lang/String;)Ljava/io/InputStream;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"findResourceOnClassPath", "(Ljava/lang/String;)Ljava/net/URL;", nullptr, $PRIVATE, $method(static_cast<$URL*(BuiltinClassLoader::*)($String*)>(&BuiltinClassLoader::findResourceOnClassPath))},
-	{"findResourceOrNull", "(Ljava/lang/module/ModuleReference;Ljava/lang/String;)Ljava/net/URL;", nullptr, $PRIVATE, $method(static_cast<$URL*(BuiltinClassLoader::*)($ModuleReference*,$String*)>(&BuiltinClassLoader::findResourceOrNull))},
-	{"findResources", "(Ljava/lang/String;)Ljava/util/Enumeration;", "(Ljava/lang/String;)Ljava/util/Enumeration<Ljava/net/URL;>;", $PUBLIC, nullptr, "java.io.IOException"},
-	{"findResourcesOnClassPath", "(Ljava/lang/String;)Ljava/util/Enumeration;", "(Ljava/lang/String;)Ljava/util/Enumeration<Ljava/net/URL;>;", $PRIVATE, $method(static_cast<$Enumeration*(BuiltinClassLoader::*)($String*)>(&BuiltinClassLoader::findResourcesOnClassPath))},
-	{"getAndVerifyPackage", "(Ljava/lang/String;Ljava/util/jar/Manifest;Ljava/net/URL;)Ljava/lang/Package;", nullptr, $PRIVATE, $method(static_cast<$Package*(BuiltinClassLoader::*)($String*,$Manifest*,$URL*)>(&BuiltinClassLoader::getAndVerifyPackage))},
-	{"getPermissions", "(Ljava/security/CodeSource;)Ljava/security/PermissionCollection;", nullptr, $PROTECTED},
-	{"hasClassPath", "()Z", nullptr, 0},
-	{"isOpen", "(Ljava/lang/module/ModuleReference;Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(static_cast<bool(BuiltinClassLoader::*)($ModuleReference*,$String*)>(&BuiltinClassLoader::isOpen))},
-	{"isSealed", "(Ljava/lang/String;Ljava/util/jar/Manifest;)Z", nullptr, $PRIVATE, $method(static_cast<bool(BuiltinClassLoader::*)($String*,$Manifest*)>(&BuiltinClassLoader::isSealed))},
-	{"lambda$findClassInModuleOrNull$2", "(Ljava/lang/String;Ljdk/internal/loader/BuiltinClassLoader$LoadedModule;)Ljava/lang/Class;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$Class*(BuiltinClassLoader::*)($String*,$BuiltinClassLoader$LoadedModule*)>(&BuiltinClassLoader::lambda$findClassInModuleOrNull$2))},
-	{"lambda$findResourceOnClassPath$0", "(Ljava/lang/String;)Ljava/net/URL;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$URL*(BuiltinClassLoader::*)($String*)>(&BuiltinClassLoader::lambda$findResourceOnClassPath$0))},
-	{"lambda$findResourcesOnClassPath$1", "(Ljava/lang/String;)Ljava/util/Enumeration;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$Enumeration*(BuiltinClassLoader::*)($String*)>(&BuiltinClassLoader::lambda$findResourcesOnClassPath$1))},
-	{"loadClass", "(Ljava/lang/String;Z)Ljava/lang/Class;", "(Ljava/lang/String;Z)Ljava/lang/Class<*>;", $PROTECTED, nullptr, "java.lang.ClassNotFoundException"},
-	{"loadClassOrNull", "(Ljava/lang/String;Z)Ljava/lang/Class;", "(Ljava/lang/String;Z)Ljava/lang/Class<*>;", $PROTECTED},
-	{"loadClassOrNull", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $PROTECTED | $FINAL, $method(static_cast<$Class*(BuiltinClassLoader::*)($String*)>(&BuiltinClassLoader::loadClassOrNull))},
-	{"loadModule", "(Ljava/lang/module/ModuleReference;)V", nullptr, $PUBLIC},
-	{"moduleReaderFor", "(Ljava/lang/module/ModuleReference;)Ljava/lang/module/ModuleReader;", nullptr, $PRIVATE, $method(static_cast<$ModuleReader*(BuiltinClassLoader::*)($ModuleReference*)>(&BuiltinClassLoader::moduleReaderFor))},
-	{"packageToModule", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;*>;", $STATIC, $method(static_cast<$Map*(*)()>(&BuiltinClassLoader::packageToModule))},
-	{"resetArchivedStates", "()V", nullptr, $PRIVATE, $method(static_cast<void(BuiltinClassLoader::*)()>(&BuiltinClassLoader::resetArchivedStates))},
-	{"setClassPath", "(Ljdk/internal/loader/URLClassPath;)V", nullptr, 0},
+	{"<init>", "(Ljava/lang/String;Ljdk/internal/loader/BuiltinClassLoader;Ljdk/internal/loader/URLClassPath;)V", nullptr, 0, $method(BuiltinClassLoader, init$, void, $String*, BuiltinClassLoader*, $URLClassPath*)},
+	{"appendClassPath", "(Ljava/lang/String;)V", nullptr, 0, $virtualMethod(BuiltinClassLoader, appendClassPath, void, $String*)},
+	{"checkURL", "(Ljava/net/URL;)Ljava/net/URL;", nullptr, $PRIVATE | $STATIC, $staticMethod(BuiltinClassLoader, checkURL, $URL*, $URL*)},
+	{"defineClass", "(Ljava/lang/String;Ljdk/internal/loader/BuiltinClassLoader$LoadedModule;)Ljava/lang/Class;", "(Ljava/lang/String;Ljdk/internal/loader/BuiltinClassLoader$LoadedModule;)Ljava/lang/Class<*>;", $PRIVATE, $method(BuiltinClassLoader, defineClass, $Class*, $String*, $BuiltinClassLoader$LoadedModule*)},
+	{"defineClass", "(Ljava/lang/String;Ljdk/internal/loader/Resource;)Ljava/lang/Class;", "(Ljava/lang/String;Ljdk/internal/loader/Resource;)Ljava/lang/Class<*>;", $PRIVATE, $method(BuiltinClassLoader, defineClass, $Class*, $String*, $Resource*), "java.io.IOException"},
+	{"defineOrCheckPackage", "(Ljava/lang/String;Ljava/util/jar/Manifest;Ljava/net/URL;)Ljava/lang/Package;", nullptr, $PROTECTED, $virtualMethod(BuiltinClassLoader, defineOrCheckPackage, $Package*, $String*, $Manifest*, $URL*)},
+	{"definePackage", "(Ljava/lang/String;Ljava/util/jar/Manifest;Ljava/net/URL;)Ljava/lang/Package;", nullptr, $PRIVATE, $method(BuiltinClassLoader, definePackage, $Package*, $String*, $Manifest*, $URL*)},
+	{"findClass", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $PROTECTED, $virtualMethod(BuiltinClassLoader, findClass, $Class*, $String*), "java.lang.ClassNotFoundException"},
+	{"findClass", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/Class<*>;", $PROTECTED, $virtualMethod(BuiltinClassLoader, findClass, $Class*, $String*, $String*)},
+	{"findClassInModuleOrNull", "(Ljdk/internal/loader/BuiltinClassLoader$LoadedModule;Ljava/lang/String;)Ljava/lang/Class;", "(Ljdk/internal/loader/BuiltinClassLoader$LoadedModule;Ljava/lang/String;)Ljava/lang/Class<*>;", $PRIVATE, $method(BuiltinClassLoader, findClassInModuleOrNull, $Class*, $BuiltinClassLoader$LoadedModule*, $String*)},
+	{"findClassOnClassPathOrNull", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $PRIVATE, $method(BuiltinClassLoader, findClassOnClassPathOrNull, $Class*, $String*)},
+	{"findLoadedModule", "(Ljava/lang/String;)Ljdk/internal/loader/BuiltinClassLoader$LoadedModule;", nullptr, $PRIVATE, $method(BuiltinClassLoader, findLoadedModule, $BuiltinClassLoader$LoadedModule*, $String*)},
+	{"findLoadedModule", "(Ljava/lang/String;Ljava/lang/String;)Ljdk/internal/loader/BuiltinClassLoader$LoadedModule;", nullptr, $PRIVATE, $method(BuiltinClassLoader, findLoadedModule, $BuiltinClassLoader$LoadedModule*, $String*, $String*)},
+	{"findMiscResource", "(Ljava/lang/String;)Ljava/util/List;", "(Ljava/lang/String;)Ljava/util/List<Ljava/net/URL;>;", $PRIVATE, $method(BuiltinClassLoader, findMiscResource, $List*, $String*), "java.io.IOException"},
+	{"findModule", "(Ljava/lang/String;)Ljava/lang/module/ModuleReference;", nullptr, $PROTECTED, $virtualMethod(BuiltinClassLoader, findModule, $ModuleReference*, $String*)},
+	{"findResource", "(Ljava/lang/String;Ljava/lang/String;)Ljava/net/URL;", nullptr, $PUBLIC, $virtualMethod(BuiltinClassLoader, findResource, $URL*, $String*, $String*), "java.io.IOException"},
+	{"findResource", "(Ljava/lang/String;)Ljava/net/URL;", nullptr, $PUBLIC, $virtualMethod(BuiltinClassLoader, findResource, $URL*, $String*)},
+	{"findResource", "(Ljava/lang/module/ModuleReference;Ljava/lang/String;)Ljava/net/URL;", nullptr, $PRIVATE, $method(BuiltinClassLoader, findResource, $URL*, $ModuleReference*, $String*), "java.io.IOException"},
+	{"findResourceAsStream", "(Ljava/lang/String;Ljava/lang/String;)Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(BuiltinClassLoader, findResourceAsStream, $InputStream*, $String*, $String*), "java.io.IOException"},
+	{"findResourceOnClassPath", "(Ljava/lang/String;)Ljava/net/URL;", nullptr, $PRIVATE, $method(BuiltinClassLoader, findResourceOnClassPath, $URL*, $String*)},
+	{"findResourceOrNull", "(Ljava/lang/module/ModuleReference;Ljava/lang/String;)Ljava/net/URL;", nullptr, $PRIVATE, $method(BuiltinClassLoader, findResourceOrNull, $URL*, $ModuleReference*, $String*)},
+	{"findResources", "(Ljava/lang/String;)Ljava/util/Enumeration;", "(Ljava/lang/String;)Ljava/util/Enumeration<Ljava/net/URL;>;", $PUBLIC, $virtualMethod(BuiltinClassLoader, findResources, $Enumeration*, $String*), "java.io.IOException"},
+	{"findResourcesOnClassPath", "(Ljava/lang/String;)Ljava/util/Enumeration;", "(Ljava/lang/String;)Ljava/util/Enumeration<Ljava/net/URL;>;", $PRIVATE, $method(BuiltinClassLoader, findResourcesOnClassPath, $Enumeration*, $String*)},
+	{"getAndVerifyPackage", "(Ljava/lang/String;Ljava/util/jar/Manifest;Ljava/net/URL;)Ljava/lang/Package;", nullptr, $PRIVATE, $method(BuiltinClassLoader, getAndVerifyPackage, $Package*, $String*, $Manifest*, $URL*)},
+	{"getPermissions", "(Ljava/security/CodeSource;)Ljava/security/PermissionCollection;", nullptr, $PROTECTED, $virtualMethod(BuiltinClassLoader, getPermissions, $PermissionCollection*, $CodeSource*)},
+	{"hasClassPath", "()Z", nullptr, 0, $virtualMethod(BuiltinClassLoader, hasClassPath, bool)},
+	{"isOpen", "(Ljava/lang/module/ModuleReference;Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(BuiltinClassLoader, isOpen, bool, $ModuleReference*, $String*)},
+	{"isSealed", "(Ljava/lang/String;Ljava/util/jar/Manifest;)Z", nullptr, $PRIVATE, $method(BuiltinClassLoader, isSealed, bool, $String*, $Manifest*)},
+	{"lambda$findClassInModuleOrNull$2", "(Ljava/lang/String;Ljdk/internal/loader/BuiltinClassLoader$LoadedModule;)Ljava/lang/Class;", nullptr, $PRIVATE | $SYNTHETIC, $method(BuiltinClassLoader, lambda$findClassInModuleOrNull$2, $Class*, $String*, $BuiltinClassLoader$LoadedModule*)},
+	{"lambda$findResourceOnClassPath$0", "(Ljava/lang/String;)Ljava/net/URL;", nullptr, $PRIVATE | $SYNTHETIC, $method(BuiltinClassLoader, lambda$findResourceOnClassPath$0, $URL*, $String*)},
+	{"lambda$findResourcesOnClassPath$1", "(Ljava/lang/String;)Ljava/util/Enumeration;", nullptr, $PRIVATE | $SYNTHETIC, $method(BuiltinClassLoader, lambda$findResourcesOnClassPath$1, $Enumeration*, $String*)},
+	{"loadClass", "(Ljava/lang/String;Z)Ljava/lang/Class;", "(Ljava/lang/String;Z)Ljava/lang/Class<*>;", $PROTECTED, $virtualMethod(BuiltinClassLoader, loadClass, $Class*, $String*, bool), "java.lang.ClassNotFoundException"},
+	{"loadClassOrNull", "(Ljava/lang/String;Z)Ljava/lang/Class;", "(Ljava/lang/String;Z)Ljava/lang/Class<*>;", $PROTECTED, $virtualMethod(BuiltinClassLoader, loadClassOrNull, $Class*, $String*, bool)},
+	{"loadClassOrNull", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $PROTECTED | $FINAL, $method(BuiltinClassLoader, loadClassOrNull, $Class*, $String*)},
+	{"loadModule", "(Ljava/lang/module/ModuleReference;)V", nullptr, $PUBLIC, $virtualMethod(BuiltinClassLoader, loadModule, void, $ModuleReference*)},
+	{"moduleReaderFor", "(Ljava/lang/module/ModuleReference;)Ljava/lang/module/ModuleReader;", nullptr, $PRIVATE, $method(BuiltinClassLoader, moduleReaderFor, $ModuleReader*, $ModuleReference*)},
+	{"packageToModule", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;*>;", $STATIC, $staticMethod(BuiltinClassLoader, packageToModule, $Map*)},
+	{"resetArchivedStates", "()V", nullptr, $PRIVATE, $method(BuiltinClassLoader, resetArchivedStates, void)},
+	{"setClassPath", "(Ljdk/internal/loader/URLClassPath;)V", nullptr, 0, $virtualMethod(BuiltinClassLoader, setClassPath, void, $URLClassPath*)},
 	{}
 };
 

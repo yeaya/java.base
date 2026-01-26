@@ -12,8 +12,8 @@ namespace sun {
 		namespace provider {
 
 $MethodInfo _NativePRNG$Blocking_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(NativePRNG$Blocking::*)()>(&NativePRNG$Blocking::init$))},
-	{"isAvailable", "()Z", nullptr, $STATIC, $method(static_cast<bool(*)()>(&NativePRNG$Blocking::isAvailable))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(NativePRNG$Blocking, init$, void)},
+	{"isAvailable", "()Z", nullptr, $STATIC, $staticMethod(NativePRNG$Blocking, isAvailable, bool)},
 	{}
 };
 

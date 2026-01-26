@@ -21,11 +21,11 @@ namespace jdk {
 			namespace impl {
 
 $MethodInfo _Norm2AllModes$DecomposeNormalizer2_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/icu/impl/NormalizerImpl;)V", nullptr, $PUBLIC, $method(static_cast<void(Norm2AllModes$DecomposeNormalizer2::*)($NormalizerImpl*)>(&Norm2AllModes$DecomposeNormalizer2::init$))},
-	{"hasBoundaryBefore", "(I)Z", nullptr, $PUBLIC},
-	{"normalize", "(Ljava/lang/CharSequence;Ljdk/internal/icu/impl/NormalizerImpl$ReorderingBuffer;)V", nullptr, $PROTECTED},
-	{"normalizeAndAppend", "(Ljava/lang/CharSequence;ZLjdk/internal/icu/impl/NormalizerImpl$ReorderingBuffer;)V", nullptr, $PROTECTED},
-	{"spanQuickCheckYes", "(Ljava/lang/CharSequence;)I", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/icu/impl/NormalizerImpl;)V", nullptr, $PUBLIC, $method(Norm2AllModes$DecomposeNormalizer2, init$, void, $NormalizerImpl*)},
+	{"hasBoundaryBefore", "(I)Z", nullptr, $PUBLIC, $virtualMethod(Norm2AllModes$DecomposeNormalizer2, hasBoundaryBefore, bool, int32_t)},
+	{"normalize", "(Ljava/lang/CharSequence;Ljdk/internal/icu/impl/NormalizerImpl$ReorderingBuffer;)V", nullptr, $PROTECTED, $virtualMethod(Norm2AllModes$DecomposeNormalizer2, normalize, void, $CharSequence*, $NormalizerImpl$ReorderingBuffer*)},
+	{"normalizeAndAppend", "(Ljava/lang/CharSequence;ZLjdk/internal/icu/impl/NormalizerImpl$ReorderingBuffer;)V", nullptr, $PROTECTED, $virtualMethod(Norm2AllModes$DecomposeNormalizer2, normalizeAndAppend, void, $CharSequence*, bool, $NormalizerImpl$ReorderingBuffer*)},
+	{"spanQuickCheckYes", "(Ljava/lang/CharSequence;)I", nullptr, $PUBLIC, $virtualMethod(Norm2AllModes$DecomposeNormalizer2, spanQuickCheckYes, int32_t, $CharSequence*)},
 	{}
 };
 

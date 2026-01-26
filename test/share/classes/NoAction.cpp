@@ -12,8 +12,8 @@ using $NullPointerException = ::java::lang::NullPointerException;
 using $SocketPermission = ::java::net::SocketPermission;
 
 $MethodInfo _NoAction_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(NoAction::*)()>(&NoAction::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&NoAction::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(NoAction, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(NoAction, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

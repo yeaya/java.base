@@ -77,14 +77,14 @@ $FieldInfo _OpsAfterClose_FieldInfo_[] = {
 };
 
 $MethodInfo _OpsAfterClose_MethodInfo_[] = {
-	{"$values", "()[LOpsAfterClose;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$OpsAfterCloseArray*(*)()>(&OpsAfterClose::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(OpsAfterClose::*)($String*,int32_t)>(&OpsAfterClose::init$))},
-	{"check", "(Ljava/io/Reader;)Z", nullptr, $ABSTRACT},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&OpsAfterClose::main)), "java.lang.Exception"},
-	{"testPushbackReader", "(Ljava/io/PushbackReader;)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($PushbackReader*)>(&OpsAfterClose::testPushbackReader)), "java.lang.Exception"},
-	{"testReader", "(Ljava/io/Reader;)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($Reader*)>(&OpsAfterClose::testReader)), "java.lang.Exception"},
-	{"valueOf", "(Ljava/lang/String;)LOpsAfterClose;", nullptr, $PUBLIC | $STATIC, $method(static_cast<OpsAfterClose*(*)($String*)>(&OpsAfterClose::valueOf))},
-	{"values", "()[LOpsAfterClose;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$OpsAfterCloseArray*(*)()>(&OpsAfterClose::values))},
+	{"$values", "()[LOpsAfterClose;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(OpsAfterClose, $values, $OpsAfterCloseArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(OpsAfterClose, init$, void, $String*, int32_t)},
+	{"check", "(Ljava/io/Reader;)Z", nullptr, $ABSTRACT, $virtualMethod(OpsAfterClose, check, bool, $Reader*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(OpsAfterClose, main, void, $StringArray*), "java.lang.Exception"},
+	{"testPushbackReader", "(Ljava/io/PushbackReader;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(OpsAfterClose, testPushbackReader, bool, $PushbackReader*), "java.lang.Exception"},
+	{"testReader", "(Ljava/io/Reader;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(OpsAfterClose, testReader, bool, $Reader*), "java.lang.Exception"},
+	{"valueOf", "(Ljava/lang/String;)LOpsAfterClose;", nullptr, $PUBLIC | $STATIC, $staticMethod(OpsAfterClose, valueOf, OpsAfterClose*, $String*)},
+	{"values", "()[LOpsAfterClose;", nullptr, $PUBLIC | $STATIC, $staticMethod(OpsAfterClose, values, $OpsAfterCloseArray*)},
 	{}
 };
 

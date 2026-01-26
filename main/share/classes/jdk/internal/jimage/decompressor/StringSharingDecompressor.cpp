@@ -70,15 +70,15 @@ $FieldInfo _StringSharingDecompressor_FieldInfo_[] = {
 };
 
 $MethodInfo _StringSharingDecompressor_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Properties;)V", nullptr, $PUBLIC, $method(static_cast<void(StringSharingDecompressor::*)($Properties*)>(&StringSharingDecompressor::init$))},
-	{"decompress", "(Ljdk/internal/jimage/decompressor/ResourceDecompressor$StringsProvider;[BIJ)[B", nullptr, $PUBLIC, nullptr, "java.lang.Exception"},
-	{"getEncoded", "(Ljava/lang/String;)[B", nullptr, $PUBLIC | $STATIC, $method(static_cast<$bytes*(*)($String*)>(&StringSharingDecompressor::getEncoded)), "java.io.IOException"},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getSizes", "()[I", nullptr, $PUBLIC | $STATIC, $method(static_cast<$ints*(*)()>(&StringSharingDecompressor::getSizes))},
-	{"normalize", "(Ljdk/internal/jimage/decompressor/ResourceDecompressor$StringsProvider;[BI)[B", nullptr, $PUBLIC | $STATIC, $method(static_cast<$bytes*(*)($ResourceDecompressor$StringsProvider*,$bytes*,int32_t)>(&StringSharingDecompressor::normalize)), "java.io.IOException"},
-	{"reconstruct", "(Ljdk/internal/jimage/decompressor/ResourceDecompressor$StringsProvider;Ljava/io/DataInputStream;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($ResourceDecompressor$StringsProvider*,$DataInputStream*)>(&StringSharingDecompressor::reconstruct)), "java.io.IOException"},
-	{"safeAdd", "(Ljava/nio/ByteBuffer;B)Ljava/nio/ByteBuffer;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$ByteBuffer*(*)($ByteBuffer*,int8_t)>(&StringSharingDecompressor::safeAdd))},
-	{"safeAdd", "(Ljava/nio/ByteBuffer;[B)Ljava/nio/ByteBuffer;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$ByteBuffer*(*)($ByteBuffer*,$bytes*)>(&StringSharingDecompressor::safeAdd))},
+	{"<init>", "(Ljava/util/Properties;)V", nullptr, $PUBLIC, $method(StringSharingDecompressor, init$, void, $Properties*)},
+	{"decompress", "(Ljdk/internal/jimage/decompressor/ResourceDecompressor$StringsProvider;[BIJ)[B", nullptr, $PUBLIC, $virtualMethod(StringSharingDecompressor, decompress, $bytes*, $ResourceDecompressor$StringsProvider*, $bytes*, int32_t, int64_t), "java.lang.Exception"},
+	{"getEncoded", "(Ljava/lang/String;)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(StringSharingDecompressor, getEncoded, $bytes*, $String*), "java.io.IOException"},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StringSharingDecompressor, getName, $String*)},
+	{"getSizes", "()[I", nullptr, $PUBLIC | $STATIC, $staticMethod(StringSharingDecompressor, getSizes, $ints*)},
+	{"normalize", "(Ljdk/internal/jimage/decompressor/ResourceDecompressor$StringsProvider;[BI)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(StringSharingDecompressor, normalize, $bytes*, $ResourceDecompressor$StringsProvider*, $bytes*, int32_t), "java.io.IOException"},
+	{"reconstruct", "(Ljdk/internal/jimage/decompressor/ResourceDecompressor$StringsProvider;Ljava/io/DataInputStream;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(StringSharingDecompressor, reconstruct, $String*, $ResourceDecompressor$StringsProvider*, $DataInputStream*), "java.io.IOException"},
+	{"safeAdd", "(Ljava/nio/ByteBuffer;B)Ljava/nio/ByteBuffer;", nullptr, $PRIVATE | $STATIC, $staticMethod(StringSharingDecompressor, safeAdd, $ByteBuffer*, $ByteBuffer*, int8_t)},
+	{"safeAdd", "(Ljava/nio/ByteBuffer;[B)Ljava/nio/ByteBuffer;", nullptr, $PRIVATE | $STATIC, $staticMethod(StringSharingDecompressor, safeAdd, $ByteBuffer*, $ByteBuffer*, $bytes*)},
 	{}
 };
 

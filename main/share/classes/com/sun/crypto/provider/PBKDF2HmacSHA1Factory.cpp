@@ -32,10 +32,10 @@ namespace com {
 			namespace provider {
 
 $MethodInfo _PBKDF2HmacSHA1Factory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PBKDF2HmacSHA1Factory::*)()>(&PBKDF2HmacSHA1Factory::init$))},
-	{"engineGenerateSecret", "(Ljava/security/spec/KeySpec;)Ljavax/crypto/SecretKey;", nullptr, $PROTECTED, nullptr, "java.security.spec.InvalidKeySpecException"},
-	{"engineGetKeySpec", "(Ljavax/crypto/SecretKey;Ljava/lang/Class;)Ljava/security/spec/KeySpec;", "(Ljavax/crypto/SecretKey;Ljava/lang/Class<*>;)Ljava/security/spec/KeySpec;", $PROTECTED, nullptr, "java.security.spec.InvalidKeySpecException"},
-	{"engineTranslateKey", "(Ljavax/crypto/SecretKey;)Ljavax/crypto/SecretKey;", nullptr, $PROTECTED, nullptr, "java.security.InvalidKeyException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PBKDF2HmacSHA1Factory, init$, void)},
+	{"engineGenerateSecret", "(Ljava/security/spec/KeySpec;)Ljavax/crypto/SecretKey;", nullptr, $PROTECTED, $virtualMethod(PBKDF2HmacSHA1Factory, engineGenerateSecret, $SecretKey*, $KeySpec*), "java.security.spec.InvalidKeySpecException"},
+	{"engineGetKeySpec", "(Ljavax/crypto/SecretKey;Ljava/lang/Class;)Ljava/security/spec/KeySpec;", "(Ljavax/crypto/SecretKey;Ljava/lang/Class<*>;)Ljava/security/spec/KeySpec;", $PROTECTED, $virtualMethod(PBKDF2HmacSHA1Factory, engineGetKeySpec, $KeySpec*, $SecretKey*, $Class*), "java.security.spec.InvalidKeySpecException"},
+	{"engineTranslateKey", "(Ljavax/crypto/SecretKey;)Ljavax/crypto/SecretKey;", nullptr, $PROTECTED, $virtualMethod(PBKDF2HmacSHA1Factory, engineTranslateKey, $SecretKey*, $SecretKey*), "java.security.InvalidKeyException"},
 	{}
 };
 

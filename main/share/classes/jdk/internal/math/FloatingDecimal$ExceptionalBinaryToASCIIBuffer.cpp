@@ -28,15 +28,15 @@ $FieldInfo _FloatingDecimal$ExceptionalBinaryToASCIIBuffer_FieldInfo_[] = {
 };
 
 $MethodInfo _FloatingDecimal$ExceptionalBinaryToASCIIBuffer_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(static_cast<void(FloatingDecimal$ExceptionalBinaryToASCIIBuffer::*)($String*,bool)>(&FloatingDecimal$ExceptionalBinaryToASCIIBuffer::init$))},
-	{"appendTo", "(Ljava/lang/Appendable;)V", nullptr, $PUBLIC},
-	{"decimalDigitsExact", "()Z", nullptr, $PUBLIC},
-	{"digitsRoundedUp", "()Z", nullptr, $PUBLIC},
-	{"getDecimalExponent", "()I", nullptr, $PUBLIC},
-	{"getDigits", "([C)I", nullptr, $PUBLIC},
-	{"isExceptional", "()Z", nullptr, $PUBLIC},
-	{"isNegative", "()Z", nullptr, $PUBLIC},
-	{"toJavaFormatString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(FloatingDecimal$ExceptionalBinaryToASCIIBuffer, init$, void, $String*, bool)},
+	{"appendTo", "(Ljava/lang/Appendable;)V", nullptr, $PUBLIC, $virtualMethod(FloatingDecimal$ExceptionalBinaryToASCIIBuffer, appendTo, void, $Appendable*)},
+	{"decimalDigitsExact", "()Z", nullptr, $PUBLIC, $virtualMethod(FloatingDecimal$ExceptionalBinaryToASCIIBuffer, decimalDigitsExact, bool)},
+	{"digitsRoundedUp", "()Z", nullptr, $PUBLIC, $virtualMethod(FloatingDecimal$ExceptionalBinaryToASCIIBuffer, digitsRoundedUp, bool)},
+	{"getDecimalExponent", "()I", nullptr, $PUBLIC, $virtualMethod(FloatingDecimal$ExceptionalBinaryToASCIIBuffer, getDecimalExponent, int32_t)},
+	{"getDigits", "([C)I", nullptr, $PUBLIC, $virtualMethod(FloatingDecimal$ExceptionalBinaryToASCIIBuffer, getDigits, int32_t, $chars*)},
+	{"isExceptional", "()Z", nullptr, $PUBLIC, $virtualMethod(FloatingDecimal$ExceptionalBinaryToASCIIBuffer, isExceptional, bool)},
+	{"isNegative", "()Z", nullptr, $PUBLIC, $virtualMethod(FloatingDecimal$ExceptionalBinaryToASCIIBuffer, isNegative, bool)},
+	{"toJavaFormatString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FloatingDecimal$ExceptionalBinaryToASCIIBuffer, toJavaFormatString, $String*)},
 	{}
 };
 

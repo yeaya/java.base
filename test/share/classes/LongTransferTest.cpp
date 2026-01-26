@@ -41,8 +41,8 @@ using $SocketChannel = ::java::nio::channels::SocketChannel;
 using $WritableByteChannel = ::java::nio::channels::WritableByteChannel;
 
 $MethodInfo _LongTransferTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(LongTransferTest::*)()>(&LongTransferTest::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&LongTransferTest::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(LongTransferTest, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(LongTransferTest, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

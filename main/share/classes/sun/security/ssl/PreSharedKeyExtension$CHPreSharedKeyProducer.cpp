@@ -57,9 +57,9 @@ namespace sun {
 		namespace ssl {
 
 $MethodInfo _PreSharedKeyExtension$CHPreSharedKeyProducer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(PreSharedKeyExtension$CHPreSharedKeyProducer::*)()>(&PreSharedKeyExtension$CHPreSharedKeyProducer::init$))},
-	{"createPskPrototype", "(ILjava/util/List;)Lsun/security/ssl/PreSharedKeyExtension$CHPreSharedKeySpec;", "(ILjava/util/List<Lsun/security/ssl/PreSharedKeyExtension$PskIdentity;>;)Lsun/security/ssl/PreSharedKeyExtension$CHPreSharedKeySpec;", $PRIVATE, $method(static_cast<$PreSharedKeyExtension$CHPreSharedKeySpec*(PreSharedKeyExtension$CHPreSharedKeyProducer::*)(int32_t,$List*)>(&PreSharedKeyExtension$CHPreSharedKeyProducer::createPskPrototype))},
-	{"produce", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)[B", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(PreSharedKeyExtension$CHPreSharedKeyProducer, init$, void)},
+	{"createPskPrototype", "(ILjava/util/List;)Lsun/security/ssl/PreSharedKeyExtension$CHPreSharedKeySpec;", "(ILjava/util/List<Lsun/security/ssl/PreSharedKeyExtension$PskIdentity;>;)Lsun/security/ssl/PreSharedKeyExtension$CHPreSharedKeySpec;", $PRIVATE, $method(PreSharedKeyExtension$CHPreSharedKeyProducer, createPskPrototype, $PreSharedKeyExtension$CHPreSharedKeySpec*, int32_t, $List*)},
+	{"produce", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)[B", nullptr, $PUBLIC, $virtualMethod(PreSharedKeyExtension$CHPreSharedKeyProducer, produce, $bytes*, $ConnectionContext*, $SSLHandshake$HandshakeMessage*), "java.io.IOException"},
 	{}
 };
 

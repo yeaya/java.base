@@ -29,12 +29,12 @@ $FieldInfo _Currency$SpecialCaseEntry_FieldInfo_[] = {
 };
 
 $MethodInfo _Currency$SpecialCaseEntry_MethodInfo_[] = {
-	{"<init>", "(JLjava/lang/String;Ljava/lang/String;IIII)V", nullptr, $PRIVATE, $method(static_cast<void(Currency$SpecialCaseEntry::*)(int64_t,$String*,$String*,int32_t,int32_t,int32_t,int32_t)>(&Currency$SpecialCaseEntry::init$))},
-	{"<init>", "(Ljava/lang/String;II)V", nullptr, $PRIVATE, $method(static_cast<void(Currency$SpecialCaseEntry::*)($String*,int32_t,int32_t)>(&Currency$SpecialCaseEntry::init$))},
-	{"currencyCodeIndex", "(Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)($String*)>(&Currency$SpecialCaseEntry::currencyCodeIndex))},
-	{"findEntry", "(Ljava/lang/String;)[I", nullptr, $PRIVATE | $STATIC, $method(static_cast<$ints*(*)($String*)>(&Currency$SpecialCaseEntry::findEntry))},
-	{"indexOf", "(Ljava/lang/String;II)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)($String*,int32_t,int32_t)>(&Currency$SpecialCaseEntry::indexOf))},
-	{"toIndex", "(I)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)(int32_t)>(&Currency$SpecialCaseEntry::toIndex))},
+	{"<init>", "(JLjava/lang/String;Ljava/lang/String;IIII)V", nullptr, $PRIVATE, $method(Currency$SpecialCaseEntry, init$, void, int64_t, $String*, $String*, int32_t, int32_t, int32_t, int32_t)},
+	{"<init>", "(Ljava/lang/String;II)V", nullptr, $PRIVATE, $method(Currency$SpecialCaseEntry, init$, void, $String*, int32_t, int32_t)},
+	{"currencyCodeIndex", "(Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(Currency$SpecialCaseEntry, currencyCodeIndex, int32_t, $String*)},
+	{"findEntry", "(Ljava/lang/String;)[I", nullptr, $PRIVATE | $STATIC, $staticMethod(Currency$SpecialCaseEntry, findEntry, $ints*, $String*)},
+	{"indexOf", "(Ljava/lang/String;II)I", nullptr, $PRIVATE | $STATIC, $staticMethod(Currency$SpecialCaseEntry, indexOf, int32_t, $String*, int32_t, int32_t)},
+	{"toIndex", "(I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(Currency$SpecialCaseEntry, toIndex, int32_t, int32_t)},
 	{}
 };
 

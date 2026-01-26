@@ -74,13 +74,13 @@ $FieldInfo _SunEntries_FieldInfo_[] = {
 };
 
 $MethodInfo _SunEntries_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/Provider;)V", nullptr, 0, $method(static_cast<void(SunEntries::*)($Provider*)>(&SunEntries::init$))},
-	{"add", "(Ljava/security/Provider;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(static_cast<void(SunEntries::*)($Provider*,$String*,$String*,$String*)>(&SunEntries::add))},
-	{"add", "(Ljava/security/Provider;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/HashMap;)V", "(Ljava/security/Provider;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/String;>;)V", $PRIVATE, $method(static_cast<void(SunEntries::*)($Provider*,$String*,$String*,$String*,$HashMap*)>(&SunEntries::add))},
-	{"addWithAlias", "(Ljava/security/Provider;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/HashMap;)V", "(Ljava/security/Provider;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/String;>;)V", $PRIVATE, $method(static_cast<void(SunEntries::*)($Provider*,$String*,$String*,$String*,$HashMap*)>(&SunEntries::addWithAlias))},
-	{"getDeviceFile", "(Ljava/net/URL;)Ljava/io/File;", nullptr, $STATIC, $method(static_cast<$File*(*)($URL*)>(&SunEntries::getDeviceFile)), "java.io.IOException"},
-	{"getSeedSource", "()Ljava/lang/String;", nullptr, $STATIC, $method(static_cast<$String*(*)()>(&SunEntries::getSeedSource))},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/security/Provider$Service;>;", 0, $method(static_cast<$Iterator*(SunEntries::*)()>(&SunEntries::iterator))},
+	{"<init>", "(Ljava/security/Provider;)V", nullptr, 0, $method(SunEntries, init$, void, $Provider*)},
+	{"add", "(Ljava/security/Provider;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(SunEntries, add, void, $Provider*, $String*, $String*, $String*)},
+	{"add", "(Ljava/security/Provider;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/HashMap;)V", "(Ljava/security/Provider;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/String;>;)V", $PRIVATE, $method(SunEntries, add, void, $Provider*, $String*, $String*, $String*, $HashMap*)},
+	{"addWithAlias", "(Ljava/security/Provider;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/HashMap;)V", "(Ljava/security/Provider;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/String;>;)V", $PRIVATE, $method(SunEntries, addWithAlias, void, $Provider*, $String*, $String*, $String*, $HashMap*)},
+	{"getDeviceFile", "(Ljava/net/URL;)Ljava/io/File;", nullptr, $STATIC, $staticMethod(SunEntries, getDeviceFile, $File*, $URL*), "java.io.IOException"},
+	{"getSeedSource", "()Ljava/lang/String;", nullptr, $STATIC, $staticMethod(SunEntries, getSeedSource, $String*)},
+	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/security/Provider$Service;>;", 0, $method(SunEntries, iterator, $Iterator*)},
 	{}
 };
 

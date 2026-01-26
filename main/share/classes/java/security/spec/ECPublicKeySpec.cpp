@@ -25,9 +25,9 @@ $FieldInfo _ECPublicKeySpec_FieldInfo_[] = {
 };
 
 $MethodInfo _ECPublicKeySpec_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/spec/ECPoint;Ljava/security/spec/ECParameterSpec;)V", nullptr, $PUBLIC, $method(static_cast<void(ECPublicKeySpec::*)($ECPoint*,$ECParameterSpec*)>(&ECPublicKeySpec::init$))},
-	{"getParams", "()Ljava/security/spec/ECParameterSpec;", nullptr, $PUBLIC},
-	{"getW", "()Ljava/security/spec/ECPoint;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/security/spec/ECPoint;Ljava/security/spec/ECParameterSpec;)V", nullptr, $PUBLIC, $method(ECPublicKeySpec, init$, void, $ECPoint*, $ECParameterSpec*)},
+	{"getParams", "()Ljava/security/spec/ECParameterSpec;", nullptr, $PUBLIC, $virtualMethod(ECPublicKeySpec, getParams, $ECParameterSpec*)},
+	{"getW", "()Ljava/security/spec/ECPoint;", nullptr, $PUBLIC, $virtualMethod(ECPublicKeySpec, getW, $ECPoint*)},
 	{}
 };
 

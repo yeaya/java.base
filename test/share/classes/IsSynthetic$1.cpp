@@ -9,7 +9,7 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _IsSynthetic$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(IsSynthetic$1::*)()>(&IsSynthetic$1::init$))},
+	{"<init>", "()V", nullptr, 0, $method(IsSynthetic$1, init$, void)},
 	{}
 };
 

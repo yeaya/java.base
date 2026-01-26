@@ -5,18 +5,21 @@
 #include <javax/net/ssl/TrustManager.h>
 #include <jcpp.h>
 
+using $TrustManagerArray = $Array<::javax::net::ssl::TrustManager>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $KeyStore = ::java::security::KeyStore;
+using $ManagerFactoryParameters = ::javax::net::ssl::ManagerFactoryParameters;
 
 namespace javax {
 	namespace net {
 		namespace ssl {
 
 $MethodInfo _TrustManagerFactorySpi_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TrustManagerFactorySpi::*)()>(&TrustManagerFactorySpi::init$))},
-	{"engineGetTrustManagers", "()[Ljavax/net/ssl/TrustManager;", nullptr, $PROTECTED | $ABSTRACT},
-	{"engineInit", "(Ljava/security/KeyStore;)V", nullptr, $PROTECTED | $ABSTRACT, nullptr, "java.security.KeyStoreException"},
-	{"engineInit", "(Ljavax/net/ssl/ManagerFactoryParameters;)V", nullptr, $PROTECTED | $ABSTRACT, nullptr, "java.security.InvalidAlgorithmParameterException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TrustManagerFactorySpi, init$, void)},
+	{"engineGetTrustManagers", "()[Ljavax/net/ssl/TrustManager;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(TrustManagerFactorySpi, engineGetTrustManagers, $TrustManagerArray*)},
+	{"engineInit", "(Ljava/security/KeyStore;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(TrustManagerFactorySpi, engineInit, void, $KeyStore*), "java.security.KeyStoreException"},
+	{"engineInit", "(Ljavax/net/ssl/ManagerFactoryParameters;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(TrustManagerFactorySpi, engineInit, void, $ManagerFactoryParameters*), "java.security.InvalidAlgorithmParameterException"},
 	{}
 };
 

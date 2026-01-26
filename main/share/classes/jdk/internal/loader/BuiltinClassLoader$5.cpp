@@ -29,9 +29,9 @@ $FieldInfo _BuiltinClassLoader$5_FieldInfo_[] = {
 };
 
 $MethodInfo _BuiltinClassLoader$5_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/loader/BuiltinClassLoader;Ljava/lang/module/ModuleReference;)V", nullptr, 0, $method(static_cast<void(BuiltinClassLoader$5::*)($BuiltinClassLoader*,$ModuleReference*)>(&BuiltinClassLoader$5::init$))},
-	{"apply", "(Ljava/lang/module/ModuleReference;)Ljava/lang/module/ModuleReader;", nullptr, $PUBLIC},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "(Ljdk/internal/loader/BuiltinClassLoader;Ljava/lang/module/ModuleReference;)V", nullptr, 0, $method(BuiltinClassLoader$5, init$, void, $BuiltinClassLoader*, $ModuleReference*)},
+	{"apply", "(Ljava/lang/module/ModuleReference;)Ljava/lang/module/ModuleReader;", nullptr, $PUBLIC, $virtualMethod(BuiltinClassLoader$5, apply, $ModuleReader*, $ModuleReference*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(BuiltinClassLoader$5, apply, $Object*, Object$*)},
 	{}
 };
 

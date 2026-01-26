@@ -13,10 +13,10 @@ namespace java {
 $MethodInfo _DosFileAttributeView_MethodInfo_[] = {
 	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
 	{"readAttributes", "()Ljava/nio/file/attribute/BasicFileAttributes;", nullptr, $PUBLIC | $ABSTRACT},
-	{"setArchive", "(Z)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"setHidden", "(Z)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"setReadOnly", "(Z)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"setSystem", "(Z)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
+	{"setArchive", "(Z)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DosFileAttributeView, setArchive, void, bool), "java.io.IOException"},
+	{"setHidden", "(Z)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DosFileAttributeView, setHidden, void, bool), "java.io.IOException"},
+	{"setReadOnly", "(Z)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DosFileAttributeView, setReadOnly, void, bool), "java.io.IOException"},
+	{"setSystem", "(Z)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DosFileAttributeView, setSystem, void, bool), "java.io.IOException"},
 	{}
 };
 

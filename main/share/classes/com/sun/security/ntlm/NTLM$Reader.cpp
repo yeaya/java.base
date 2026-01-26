@@ -31,12 +31,12 @@ $FieldInfo _NTLM$Reader_FieldInfo_[] = {
 };
 
 $MethodInfo _NTLM$Reader_MethodInfo_[] = {
-	{"<init>", "([B)V", nullptr, 0, $method(static_cast<void(NTLM$Reader::*)($bytes*)>(&NTLM$Reader::init$))},
-	{"readBytes", "(II)[B", nullptr, 0, nullptr, "com.sun.security.ntlm.NTLMException"},
-	{"readInt", "(I)I", nullptr, 0, nullptr, "com.sun.security.ntlm.NTLMException"},
-	{"readSecurityBuffer", "(I)[B", nullptr, 0, nullptr, "com.sun.security.ntlm.NTLMException"},
-	{"readSecurityBuffer", "(IZ)Ljava/lang/String;", nullptr, 0, nullptr, "com.sun.security.ntlm.NTLMException"},
-	{"readShort", "(I)I", nullptr, 0, nullptr, "com.sun.security.ntlm.NTLMException"},
+	{"<init>", "([B)V", nullptr, 0, $method(NTLM$Reader, init$, void, $bytes*)},
+	{"readBytes", "(II)[B", nullptr, 0, $virtualMethod(NTLM$Reader, readBytes, $bytes*, int32_t, int32_t), "com.sun.security.ntlm.NTLMException"},
+	{"readInt", "(I)I", nullptr, 0, $virtualMethod(NTLM$Reader, readInt, int32_t, int32_t), "com.sun.security.ntlm.NTLMException"},
+	{"readSecurityBuffer", "(I)[B", nullptr, 0, $virtualMethod(NTLM$Reader, readSecurityBuffer, $bytes*, int32_t), "com.sun.security.ntlm.NTLMException"},
+	{"readSecurityBuffer", "(IZ)Ljava/lang/String;", nullptr, 0, $virtualMethod(NTLM$Reader, readSecurityBuffer, $String*, int32_t, bool), "com.sun.security.ntlm.NTLMException"},
+	{"readShort", "(I)I", nullptr, 0, $virtualMethod(NTLM$Reader, readShort, int32_t, int32_t), "com.sun.security.ntlm.NTLMException"},
 	{}
 };
 

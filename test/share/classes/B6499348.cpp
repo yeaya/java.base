@@ -17,8 +17,8 @@ using $Socket = ::java::net::Socket;
 using $SocketAddress = ::java::net::SocketAddress;
 
 $MethodInfo _B6499348_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(B6499348::*)()>(&B6499348::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&B6499348::main)), "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(B6499348, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(B6499348, main, void, $StringArray*), "java.io.IOException"},
 	{}
 };
 

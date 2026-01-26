@@ -11,8 +11,8 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $ReentrantLock = ::java::util::concurrent::locks::ReentrantLock;
 
 $MethodInfo _FinalizerHistogramTest$MyObject_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(FinalizerHistogramTest$MyObject::*)()>(&FinalizerHistogramTest$MyObject::init$))},
-	{"finalize", "()V", nullptr, $PROTECTED},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(FinalizerHistogramTest$MyObject, init$, void)},
+	{"finalize", "()V", nullptr, $PROTECTED, $virtualMethod(FinalizerHistogramTest$MyObject, finalize, void)},
 	{}
 };
 

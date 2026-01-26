@@ -12,8 +12,8 @@ using $ParseException = ::java::text::ParseException;
 using $SimpleDateFormat = ::java::text::SimpleDateFormat;
 
 $MethodInfo _bug4097450_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(bug4097450::*)()>(&bug4097450::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&bug4097450::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(bug4097450, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug4097450, main, void, $StringArray*)},
 	{}
 };
 

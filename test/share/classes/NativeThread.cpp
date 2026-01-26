@@ -14,10 +14,10 @@ $FieldInfo _NativeThread_FieldInfo_[] = {
 };
 
 $MethodInfo _NativeThread_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(NativeThread::*)()>(&NativeThread::init$))},
-	{"getID", "()J", nullptr, $PUBLIC | $STATIC | $NATIVE, $method(static_cast<int64_t(*)()>(&NativeThread::getID))},
-	{"getSIGPIPE", "()I", nullptr, $PRIVATE | $STATIC | $NATIVE, $method(static_cast<int32_t(*)()>(&NativeThread::getSIGPIPE))},
-	{"signal", "(JI)I", nullptr, $PUBLIC | $STATIC | $NATIVE, $method(static_cast<int32_t(*)(int64_t,int32_t)>(&NativeThread::signal))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(NativeThread, init$, void)},
+	{"getID", "()J", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(NativeThread, getID, int64_t)},
+	{"getSIGPIPE", "()I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(NativeThread, getSIGPIPE, int32_t)},
+	{"signal", "(JI)I", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(NativeThread, signal, int32_t, int64_t, int32_t)},
 	{}
 };
 

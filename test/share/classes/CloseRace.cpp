@@ -61,8 +61,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo CloseRace$$Lambda$lambda$main$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CloseRace$$Lambda$lambda$main$0::*)()>(&CloseRace$$Lambda$lambda$main$0::init$))},
-	{"uncaughtException", "(Ljava/lang/Thread;Ljava/lang/Throwable;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CloseRace$$Lambda$lambda$main$0, init$, void)},
+	{"uncaughtException", "(Ljava/lang/Thread;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(CloseRace$$Lambda$lambda$main$0, uncaughtException, void, $Thread*, $Throwable*)},
 	{}
 };
 $ClassInfo CloseRace$$Lambda$lambda$main$0::classInfo$ = {
@@ -88,13 +88,13 @@ $FieldInfo _CloseRace_FieldInfo_[] = {
 };
 
 $MethodInfo _CloseRace_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CloseRace::*)()>(&CloseRace::init$))},
-	{"count", "([Z)I", nullptr, $STATIC, $method(static_cast<int32_t(*)($booleans*)>(&CloseRace::count))},
-	{"dumpAllStacks", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&CloseRace::dumpAllStacks))},
-	{"fdInUse", "(I)Z", nullptr, $STATIC, $method(static_cast<bool(*)(int32_t)>(&CloseRace::fdInUse))},
-	{"lambda$main$0", "(Ljava/lang/Thread;Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($Thread*,$Throwable*)>(&CloseRace::lambda$main$0))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&CloseRace::main)), "java.lang.Exception"},
-	{"procFDsInUse", "()[Z", nullptr, $STATIC, $method(static_cast<$booleans*(*)()>(&CloseRace::procFDsInUse))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CloseRace, init$, void)},
+	{"count", "([Z)I", nullptr, $STATIC, $staticMethod(CloseRace, count, int32_t, $booleans*)},
+	{"dumpAllStacks", "()V", nullptr, $STATIC, $staticMethod(CloseRace, dumpAllStacks, void)},
+	{"fdInUse", "(I)Z", nullptr, $STATIC, $staticMethod(CloseRace, fdInUse, bool, int32_t)},
+	{"lambda$main$0", "(Ljava/lang/Thread;Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CloseRace, lambda$main$0, void, $Thread*, $Throwable*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(CloseRace, main, void, $StringArray*), "java.lang.Exception"},
+	{"procFDsInUse", "()[Z", nullptr, $STATIC, $staticMethod(CloseRace, procFDsInUse, $booleans*)},
 	{}
 };
 

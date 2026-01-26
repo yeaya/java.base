@@ -21,9 +21,9 @@ $FieldInfo _AnnotationTypeMismatchException_FieldInfo_[] = {
 };
 
 $MethodInfo _AnnotationTypeMismatchException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/reflect/Method;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(AnnotationTypeMismatchException::*)($Method*,$String*)>(&AnnotationTypeMismatchException::init$))},
-	{"element", "()Ljava/lang/reflect/Method;", nullptr, $PUBLIC},
-	{"foundType", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/reflect/Method;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(AnnotationTypeMismatchException, init$, void, $Method*, $String*)},
+	{"element", "()Ljava/lang/reflect/Method;", nullptr, $PUBLIC, $virtualMethod(AnnotationTypeMismatchException, element, $Method*)},
+	{"foundType", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AnnotationTypeMismatchException, foundType, $String*)},
 	{}
 };
 

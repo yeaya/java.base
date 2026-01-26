@@ -32,11 +32,11 @@ $FieldInfo _KeyStore$SecretKeyEntry_FieldInfo_[] = {
 };
 
 $MethodInfo _KeyStore$SecretKeyEntry_MethodInfo_[] = {
-	{"<init>", "(Ljavax/crypto/SecretKey;)V", nullptr, $PUBLIC, $method(static_cast<void(KeyStore$SecretKeyEntry::*)($SecretKey*)>(&KeyStore$SecretKeyEntry::init$))},
-	{"<init>", "(Ljavax/crypto/SecretKey;Ljava/util/Set;)V", "(Ljavax/crypto/SecretKey;Ljava/util/Set<Ljava/security/KeyStore$Entry$Attribute;>;)V", $PUBLIC, $method(static_cast<void(KeyStore$SecretKeyEntry::*)($SecretKey*,$Set*)>(&KeyStore$SecretKeyEntry::init$))},
-	{"getAttributes", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/security/KeyStore$Entry$Attribute;>;", $PUBLIC},
-	{"getSecretKey", "()Ljavax/crypto/SecretKey;", nullptr, $PUBLIC, $method(static_cast<$SecretKey*(KeyStore$SecretKeyEntry::*)()>(&KeyStore$SecretKeyEntry::getSecretKey))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljavax/crypto/SecretKey;)V", nullptr, $PUBLIC, $method(KeyStore$SecretKeyEntry, init$, void, $SecretKey*)},
+	{"<init>", "(Ljavax/crypto/SecretKey;Ljava/util/Set;)V", "(Ljavax/crypto/SecretKey;Ljava/util/Set<Ljava/security/KeyStore$Entry$Attribute;>;)V", $PUBLIC, $method(KeyStore$SecretKeyEntry, init$, void, $SecretKey*, $Set*)},
+	{"getAttributes", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/security/KeyStore$Entry$Attribute;>;", $PUBLIC, $virtualMethod(KeyStore$SecretKeyEntry, getAttributes, $Set*)},
+	{"getSecretKey", "()Ljavax/crypto/SecretKey;", nullptr, $PUBLIC, $method(KeyStore$SecretKeyEntry, getSecretKey, $SecretKey*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KeyStore$SecretKeyEntry, toString, $String*)},
 	{}
 };
 

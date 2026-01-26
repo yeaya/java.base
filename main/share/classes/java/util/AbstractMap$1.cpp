@@ -25,12 +25,12 @@ $FieldInfo _AbstractMap$1_FieldInfo_[] = {
 };
 
 $MethodInfo _AbstractMap$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/AbstractMap;)V", nullptr, 0, $method(static_cast<void(AbstractMap$1::*)($AbstractMap*)>(&AbstractMap$1::init$))},
-	{"clear", "()V", nullptr, $PUBLIC},
-	{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"isEmpty", "()Z", nullptr, $PUBLIC},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TK;>;", $PUBLIC},
-	{"size", "()I", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/AbstractMap;)V", nullptr, 0, $method(AbstractMap$1, init$, void, $AbstractMap*)},
+	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(AbstractMap$1, clear, void)},
+	{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(AbstractMap$1, contains, bool, Object$*)},
+	{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(AbstractMap$1, isEmpty, bool)},
+	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TK;>;", $PUBLIC, $virtualMethod(AbstractMap$1, iterator, $Iterator*)},
+	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(AbstractMap$1, size, int32_t)},
 	{}
 };
 

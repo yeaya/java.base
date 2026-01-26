@@ -47,9 +47,9 @@ $FieldInfo _ReduceOps$3_FieldInfo_[] = {
 };
 
 $MethodInfo _ReduceOps$3_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/stream/StreamShape;Ljava/util/function/BinaryOperator;Ljava/util/function/BiConsumer;Ljava/util/function/Supplier;Ljava/util/stream/Collector;)V", nullptr, 0, $method(static_cast<void(ReduceOps$3::*)($StreamShape*,$BinaryOperator*,$BiConsumer*,$Supplier*,$Collector*)>(&ReduceOps$3::init$))},
-	{"getOpFlags", "()I", nullptr, $PUBLIC},
-	{"makeSink", "()Ljava/util/stream/ReduceOps$3ReducingSink;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/stream/StreamShape;Ljava/util/function/BinaryOperator;Ljava/util/function/BiConsumer;Ljava/util/function/Supplier;Ljava/util/stream/Collector;)V", nullptr, 0, $method(ReduceOps$3, init$, void, $StreamShape*, $BinaryOperator*, $BiConsumer*, $Supplier*, $Collector*)},
+	{"getOpFlags", "()I", nullptr, $PUBLIC, $virtualMethod(ReduceOps$3, getOpFlags, int32_t)},
+	{"makeSink", "()Ljava/util/stream/ReduceOps$3ReducingSink;", nullptr, $PUBLIC, $virtualMethod(ReduceOps$3, makeSink, $ReduceOps$AccumulatingSink*)},
 	{}
 };
 

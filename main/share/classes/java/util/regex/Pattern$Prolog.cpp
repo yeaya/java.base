@@ -28,9 +28,9 @@ $FieldInfo _Pattern$Prolog_FieldInfo_[] = {
 };
 
 $MethodInfo _Pattern$Prolog_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/regex/Pattern$Loop;)V", nullptr, 0, $method(static_cast<void(Pattern$Prolog::*)($Pattern$Loop*)>(&Pattern$Prolog::init$))},
-	{"match", "(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z", nullptr, 0},
-	{"study", "(Ljava/util/regex/Pattern$TreeInfo;)Z", nullptr, 0},
+	{"<init>", "(Ljava/util/regex/Pattern$Loop;)V", nullptr, 0, $method(Pattern$Prolog, init$, void, $Pattern$Loop*)},
+	{"match", "(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z", nullptr, 0, $virtualMethod(Pattern$Prolog, match, bool, $Matcher*, int32_t, $CharSequence*)},
+	{"study", "(Ljava/util/regex/Pattern$TreeInfo;)Z", nullptr, 0, $virtualMethod(Pattern$Prolog, study, bool, $Pattern$TreeInfo*)},
 	{}
 };
 

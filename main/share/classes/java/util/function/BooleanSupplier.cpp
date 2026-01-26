@@ -16,7 +16,7 @@ $CompoundAttribute _BooleanSupplier_Annotations_[] = {
 };
 
 $MethodInfo _BooleanSupplier_MethodInfo_[] = {
-	{"getAsBoolean", "()Z", nullptr, $PUBLIC | $ABSTRACT},
+	{"getAsBoolean", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(BooleanSupplier, getAsBoolean, bool)},
 	{}
 };
 

@@ -8,6 +8,7 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $LongConsumer = ::java::util::function::LongConsumer;
 
 namespace java {
 	namespace util {
@@ -19,7 +20,7 @@ $CompoundAttribute _LongStream$LongMapMultiConsumer_Annotations_[] = {
 };
 
 $MethodInfo _LongStream$LongMapMultiConsumer_MethodInfo_[] = {
-	{"accept", "(JLjava/util/function/LongConsumer;)V", nullptr, $PUBLIC | $ABSTRACT},
+	{"accept", "(JLjava/util/function/LongConsumer;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LongStream$LongMapMultiConsumer, accept, void, int64_t, $LongConsumer*)},
 	{}
 };
 

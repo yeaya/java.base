@@ -86,8 +86,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ModulePathValidator$$Lambda$lambda$scanAllModules$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ModulePathValidator$$Lambda$lambda$scanAllModules$0::*)()>(&ModulePathValidator$$Lambda$lambda$scanAllModules$0::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ModulePathValidator$$Lambda$lambda$scanAllModules$0, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ModulePathValidator$$Lambda$lambda$scanAllModules$0, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo ModulePathValidator$$Lambda$lambda$scanAllModules$0::classInfo$ = {
@@ -126,8 +126,8 @@ $FieldInfo ModulePathValidator$$Lambda$scan$1::fieldInfos[2] = {
 	{}
 };
 $MethodInfo ModulePathValidator$$Lambda$scan$1::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/module/ModulePathValidator;)V", nullptr, $PUBLIC, $method(static_cast<void(ModulePathValidator$$Lambda$scan$1::*)(ModulePathValidator*)>(&ModulePathValidator$$Lambda$scan$1::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/module/ModulePathValidator;)V", nullptr, $PUBLIC, $method(ModulePathValidator$$Lambda$scan$1, init$, void, ModulePathValidator*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ModulePathValidator$$Lambda$scan$1, accept, void, Object$*)},
 	{}
 };
 $ClassInfo ModulePathValidator$$Lambda$scan$1::classInfo$ = {
@@ -159,8 +159,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ModulePathValidator$$Lambda$descriptor$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ModulePathValidator$$Lambda$descriptor$2::*)()>(&ModulePathValidator$$Lambda$descriptor$2::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ModulePathValidator$$Lambda$descriptor$2, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ModulePathValidator$$Lambda$descriptor$2, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo ModulePathValidator$$Lambda$descriptor$2::classInfo$ = {
@@ -199,8 +199,8 @@ $FieldInfo ModulePathValidator$$Lambda$process$3::fieldInfos[2] = {
 	{}
 };
 $MethodInfo ModulePathValidator$$Lambda$process$3::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/module/ModulePathValidator;)V", nullptr, $PUBLIC, $method(static_cast<void(ModulePathValidator$$Lambda$process$3::*)(ModulePathValidator*)>(&ModulePathValidator$$Lambda$process$3::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/module/ModulePathValidator;)V", nullptr, $PUBLIC, $method(ModulePathValidator$$Lambda$process$3, init$, void, ModulePathValidator*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ModulePathValidator$$Lambda$process$3, accept, void, Object$*)},
 	{}
 };
 $ClassInfo ModulePathValidator$$Lambda$process$3::classInfo$ = {
@@ -232,8 +232,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ModulePathValidator$$Lambda$lambda$printModule$2$4::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ModulePathValidator$$Lambda$lambda$printModule$2$4::*)()>(&ModulePathValidator$$Lambda$lambda$printModule$2$4::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ModulePathValidator$$Lambda$lambda$printModule$2$4, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ModulePathValidator$$Lambda$lambda$printModule$2$4, test, bool, Object$*)},
 	{}
 };
 $ClassInfo ModulePathValidator$$Lambda$lambda$printModule$2$4::classInfo$ = {
@@ -272,8 +272,8 @@ $FieldInfo ModulePathValidator$$Lambda$lambda$printModule$3$5::fieldInfos[2] = {
 	{}
 };
 $MethodInfo ModulePathValidator$$Lambda$lambda$printModule$3$5::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/module/ModulePathValidator;)V", nullptr, $PUBLIC, $method(static_cast<void(ModulePathValidator$$Lambda$lambda$printModule$3$5::*)(ModulePathValidator*)>(&ModulePathValidator$$Lambda$lambda$printModule$3$5::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/module/ModulePathValidator;)V", nullptr, $PUBLIC, $method(ModulePathValidator$$Lambda$lambda$printModule$3$5, init$, void, ModulePathValidator*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ModulePathValidator$$Lambda$lambda$printModule$3$5, accept, void, Object$*)},
 	{}
 };
 $ClassInfo ModulePathValidator$$Lambda$lambda$printModule$3$5::classInfo$ = {
@@ -301,17 +301,17 @@ $FieldInfo _ModulePathValidator_FieldInfo_[] = {
 };
 
 $MethodInfo _ModulePathValidator_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/PrintStream;)V", nullptr, $PRIVATE, $method(static_cast<void(ModulePathValidator::*)($PrintStream*)>(&ModulePathValidator::init$))},
-	{"isJrt", "(Ljava/net/URI;)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($URI*)>(&ModulePathValidator::isJrt))},
-	{"lambda$printModule$2", "(Ljava/net/URI;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($URI*)>(&ModulePathValidator::lambda$printModule$2))},
-	{"lambda$printModule$3", "(Ljava/net/URI;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(ModulePathValidator::*)($URI*)>(&ModulePathValidator::lambda$printModule$3))},
-	{"lambda$scanAllModules$0", "(Ljava/lang/String;)Ljava/nio/file/Path;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Path*(*)($String*)>(&ModulePathValidator::lambda$scanAllModules$0))},
-	{"printModule", "(Ljava/lang/module/ModuleReference;)V", nullptr, $PRIVATE, $method(static_cast<void(ModulePathValidator::*)($ModuleReference*)>(&ModulePathValidator::printModule))},
-	{"process", "(Ljava/lang/module/ModuleReference;)V", nullptr, $PRIVATE, $method(static_cast<void(ModulePathValidator::*)($ModuleReference*)>(&ModulePathValidator::process))},
-	{"scan", "(Ljava/nio/file/Path;)V", nullptr, $PRIVATE, $method(static_cast<void(ModulePathValidator::*)($Path*)>(&ModulePathValidator::scan))},
-	{"scanAllModules", "(Ljava/io/PrintStream;)I", nullptr, $STATIC, $method(static_cast<int32_t(*)($PrintStream*)>(&ModulePathValidator::scanAllModules))},
-	{"scanDirectory", "(Ljava/nio/file/Path;)V", nullptr, $PRIVATE, $method(static_cast<void(ModulePathValidator::*)($Path*)>(&ModulePathValidator::scanDirectory))},
-	{"scanModule", "(Ljava/nio/file/Path;)Ljava/util/Optional;", "(Ljava/nio/file/Path;)Ljava/util/Optional<Ljava/lang/module/ModuleReference;>;", $PRIVATE, $method(static_cast<$Optional*(ModulePathValidator::*)($Path*)>(&ModulePathValidator::scanModule))},
+	{"<init>", "(Ljava/io/PrintStream;)V", nullptr, $PRIVATE, $method(ModulePathValidator, init$, void, $PrintStream*)},
+	{"isJrt", "(Ljava/net/URI;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(ModulePathValidator, isJrt, bool, $URI*)},
+	{"lambda$printModule$2", "(Ljava/net/URI;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ModulePathValidator, lambda$printModule$2, bool, $URI*)},
+	{"lambda$printModule$3", "(Ljava/net/URI;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(ModulePathValidator, lambda$printModule$3, void, $URI*)},
+	{"lambda$scanAllModules$0", "(Ljava/lang/String;)Ljava/nio/file/Path;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ModulePathValidator, lambda$scanAllModules$0, $Path*, $String*)},
+	{"printModule", "(Ljava/lang/module/ModuleReference;)V", nullptr, $PRIVATE, $method(ModulePathValidator, printModule, void, $ModuleReference*)},
+	{"process", "(Ljava/lang/module/ModuleReference;)V", nullptr, $PRIVATE, $method(ModulePathValidator, process, void, $ModuleReference*)},
+	{"scan", "(Ljava/nio/file/Path;)V", nullptr, $PRIVATE, $method(ModulePathValidator, scan, void, $Path*)},
+	{"scanAllModules", "(Ljava/io/PrintStream;)I", nullptr, $STATIC, $staticMethod(ModulePathValidator, scanAllModules, int32_t, $PrintStream*)},
+	{"scanDirectory", "(Ljava/nio/file/Path;)V", nullptr, $PRIVATE, $method(ModulePathValidator, scanDirectory, void, $Path*)},
+	{"scanModule", "(Ljava/nio/file/Path;)Ljava/util/Optional;", "(Ljava/nio/file/Path;)Ljava/util/Optional<Ljava/lang/module/ModuleReference;>;", $PRIVATE, $method(ModulePathValidator, scanModule, $Optional*, $Path*)},
 	{}
 };
 

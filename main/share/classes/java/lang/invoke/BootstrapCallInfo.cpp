@@ -20,10 +20,10 @@ namespace java {
 		namespace invoke {
 
 $MethodInfo _BootstrapCallInfo_MethodInfo_[] = {
-	{"bootstrapMethod", "()Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC | $ABSTRACT},
-	{"invocationName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"invocationType", "()Ljava/lang/Object;", "()TT;", $PUBLIC | $ABSTRACT},
-	{"makeBootstrapCallInfo", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/String;Ljava/lang/Object;Ljava/lang/invoke/ConstantGroup;)Ljava/lang/invoke/BootstrapCallInfo;", "<T:Ljava/lang/Object;>(Ljava/lang/invoke/MethodHandle;Ljava/lang/String;TT;Ljava/lang/invoke/ConstantGroup;)Ljava/lang/invoke/BootstrapCallInfo<TT;>;", $PUBLIC | $STATIC, $method(static_cast<BootstrapCallInfo*(*)($MethodHandle*,$String*,Object$*,$ConstantGroup*)>(&BootstrapCallInfo::makeBootstrapCallInfo))},
+	{"bootstrapMethod", "()Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(BootstrapCallInfo, bootstrapMethod, $MethodHandle*)},
+	{"invocationName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(BootstrapCallInfo, invocationName, $String*)},
+	{"invocationType", "()Ljava/lang/Object;", "()TT;", $PUBLIC | $ABSTRACT, $virtualMethod(BootstrapCallInfo, invocationType, $Object*)},
+	{"makeBootstrapCallInfo", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/String;Ljava/lang/Object;Ljava/lang/invoke/ConstantGroup;)Ljava/lang/invoke/BootstrapCallInfo;", "<T:Ljava/lang/Object;>(Ljava/lang/invoke/MethodHandle;Ljava/lang/String;TT;Ljava/lang/invoke/ConstantGroup;)Ljava/lang/invoke/BootstrapCallInfo<TT;>;", $PUBLIC | $STATIC, $staticMethod(BootstrapCallInfo, makeBootstrapCallInfo, BootstrapCallInfo*, $MethodHandle*, $String*, Object$*, $ConstantGroup*)},
 	{}
 };
 

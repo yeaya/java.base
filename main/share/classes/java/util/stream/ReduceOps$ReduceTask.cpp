@@ -34,11 +34,11 @@ $FieldInfo _ReduceOps$ReduceTask_FieldInfo_[] = {
 };
 
 $MethodInfo _ReduceOps$ReduceTask_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/stream/ReduceOps$ReduceOp;Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;)V", "(Ljava/util/stream/ReduceOps$ReduceOp<TP_OUT;TR;TS;>;Ljava/util/stream/PipelineHelper<TP_OUT;>;Ljava/util/Spliterator<TP_IN;>;)V", 0, $method(static_cast<void(ReduceOps$ReduceTask::*)($ReduceOps$ReduceOp*,$PipelineHelper*,$Spliterator*)>(&ReduceOps$ReduceTask::init$))},
-	{"<init>", "(Ljava/util/stream/ReduceOps$ReduceTask;Ljava/util/Spliterator;)V", "(Ljava/util/stream/ReduceOps$ReduceTask<TP_IN;TP_OUT;TR;TS;>;Ljava/util/Spliterator<TP_IN;>;)V", 0, $method(static_cast<void(ReduceOps$ReduceTask::*)(ReduceOps$ReduceTask*,$Spliterator*)>(&ReduceOps$ReduceTask::init$))},
-	{"doLeaf", "()Ljava/util/stream/ReduceOps$AccumulatingSink;", "()TS;", $PROTECTED},
-	{"makeChild", "(Ljava/util/Spliterator;)Ljava/util/stream/ReduceOps$ReduceTask;", "(Ljava/util/Spliterator<TP_IN;>;)Ljava/util/stream/ReduceOps$ReduceTask<TP_IN;TP_OUT;TR;TS;>;", $PROTECTED},
-	{"onCompletion", "(Ljava/util/concurrent/CountedCompleter;)V", "(Ljava/util/concurrent/CountedCompleter<*>;)V", $PUBLIC},
+	{"<init>", "(Ljava/util/stream/ReduceOps$ReduceOp;Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;)V", "(Ljava/util/stream/ReduceOps$ReduceOp<TP_OUT;TR;TS;>;Ljava/util/stream/PipelineHelper<TP_OUT;>;Ljava/util/Spliterator<TP_IN;>;)V", 0, $method(ReduceOps$ReduceTask, init$, void, $ReduceOps$ReduceOp*, $PipelineHelper*, $Spliterator*)},
+	{"<init>", "(Ljava/util/stream/ReduceOps$ReduceTask;Ljava/util/Spliterator;)V", "(Ljava/util/stream/ReduceOps$ReduceTask<TP_IN;TP_OUT;TR;TS;>;Ljava/util/Spliterator<TP_IN;>;)V", 0, $method(ReduceOps$ReduceTask, init$, void, ReduceOps$ReduceTask*, $Spliterator*)},
+	{"doLeaf", "()Ljava/util/stream/ReduceOps$AccumulatingSink;", "()TS;", $PROTECTED, $virtualMethod(ReduceOps$ReduceTask, doLeaf, $Object*)},
+	{"makeChild", "(Ljava/util/Spliterator;)Ljava/util/stream/ReduceOps$ReduceTask;", "(Ljava/util/Spliterator<TP_IN;>;)Ljava/util/stream/ReduceOps$ReduceTask<TP_IN;TP_OUT;TR;TS;>;", $PROTECTED, $virtualMethod(ReduceOps$ReduceTask, makeChild, ReduceOps$ReduceTask*, $Spliterator*)},
+	{"onCompletion", "(Ljava/util/concurrent/CountedCompleter;)V", "(Ljava/util/concurrent/CountedCompleter<*>;)V", $PUBLIC, $virtualMethod(ReduceOps$ReduceTask, onCompletion, void, $CountedCompleter*)},
 	{}
 };
 

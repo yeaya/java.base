@@ -27,9 +27,9 @@ $FieldInfo _ServiceLoader$2_FieldInfo_[] = {
 };
 
 $MethodInfo _ServiceLoader$2_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/ServiceLoader;Ljava/util/Iterator;Ljava/util/Iterator;)V", "()V", 0, $method(static_cast<void(ServiceLoader$2::*)($ServiceLoader*,$Iterator*,$Iterator*)>(&ServiceLoader$2::init$))},
-	{"hasNext", "()Z", nullptr, $PUBLIC},
-	{"next", "()Ljava/util/ServiceLoader$Provider;", "()Ljava/util/ServiceLoader$Provider<TS;>;", $PUBLIC},
+	{"<init>", "(Ljava/util/ServiceLoader;Ljava/util/Iterator;Ljava/util/Iterator;)V", "()V", 0, $method(ServiceLoader$2, init$, void, $ServiceLoader*, $Iterator*, $Iterator*)},
+	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(ServiceLoader$2, hasNext, bool)},
+	{"next", "()Ljava/util/ServiceLoader$Provider;", "()Ljava/util/ServiceLoader$Provider<TS;>;", $PUBLIC, $virtualMethod(ServiceLoader$2, next, $Object*)},
 	{}
 };
 

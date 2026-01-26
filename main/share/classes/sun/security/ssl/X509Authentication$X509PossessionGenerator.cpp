@@ -70,10 +70,10 @@ $FieldInfo _X509Authentication$X509PossessionGenerator_FieldInfo_[] = {
 };
 
 $MethodInfo _X509Authentication$X509PossessionGenerator_MethodInfo_[] = {
-	{"<init>", "([Ljava/lang/String;)V", nullptr, $PRIVATE, $method(static_cast<void(X509Authentication$X509PossessionGenerator::*)($StringArray*)>(&X509Authentication$X509PossessionGenerator::init$))},
-	{"createClientPossession", "(Lsun/security/ssl/ClientHandshakeContext;Ljava/lang/String;)Lsun/security/ssl/SSLPossession;", nullptr, $PRIVATE, $method(static_cast<$SSLPossession*(X509Authentication$X509PossessionGenerator::*)($ClientHandshakeContext*,$String*)>(&X509Authentication$X509PossessionGenerator::createClientPossession))},
-	{"createPossession", "(Lsun/security/ssl/HandshakeContext;)Lsun/security/ssl/SSLPossession;", nullptr, $PUBLIC},
-	{"createServerPossession", "(Lsun/security/ssl/ServerHandshakeContext;Ljava/lang/String;)Lsun/security/ssl/SSLPossession;", nullptr, $PRIVATE, $method(static_cast<$SSLPossession*(X509Authentication$X509PossessionGenerator::*)($ServerHandshakeContext*,$String*)>(&X509Authentication$X509PossessionGenerator::createServerPossession))},
+	{"<init>", "([Ljava/lang/String;)V", nullptr, $PRIVATE, $method(X509Authentication$X509PossessionGenerator, init$, void, $StringArray*)},
+	{"createClientPossession", "(Lsun/security/ssl/ClientHandshakeContext;Ljava/lang/String;)Lsun/security/ssl/SSLPossession;", nullptr, $PRIVATE, $method(X509Authentication$X509PossessionGenerator, createClientPossession, $SSLPossession*, $ClientHandshakeContext*, $String*)},
+	{"createPossession", "(Lsun/security/ssl/HandshakeContext;)Lsun/security/ssl/SSLPossession;", nullptr, $PUBLIC, $virtualMethod(X509Authentication$X509PossessionGenerator, createPossession, $SSLPossession*, $HandshakeContext*)},
+	{"createServerPossession", "(Lsun/security/ssl/ServerHandshakeContext;Ljava/lang/String;)Lsun/security/ssl/SSLPossession;", nullptr, $PRIVATE, $method(X509Authentication$X509PossessionGenerator, createServerPossession, $SSLPossession*, $ServerHandshakeContext*, $String*)},
 	{}
 };
 

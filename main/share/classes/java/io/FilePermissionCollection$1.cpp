@@ -23,9 +23,9 @@ $FieldInfo _FilePermissionCollection$1_FieldInfo_[] = {
 };
 
 $MethodInfo _FilePermissionCollection$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/FilePermissionCollection;)V", nullptr, 0, $method(static_cast<void(FilePermissionCollection$1::*)($FilePermissionCollection*)>(&FilePermissionCollection$1::init$))},
-	{"apply", "(Ljava/security/Permission;Ljava/security/Permission;)Ljava/security/Permission;", nullptr, $PUBLIC},
-	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "(Ljava/io/FilePermissionCollection;)V", nullptr, 0, $method(FilePermissionCollection$1, init$, void, $FilePermissionCollection*)},
+	{"apply", "(Ljava/security/Permission;Ljava/security/Permission;)Ljava/security/Permission;", nullptr, $PUBLIC, $virtualMethod(FilePermissionCollection$1, apply, $Permission*, $Permission*, $Permission*)},
+	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(FilePermissionCollection$1, apply, $Object*, Object$*, Object$*)},
 	{}
 };
 

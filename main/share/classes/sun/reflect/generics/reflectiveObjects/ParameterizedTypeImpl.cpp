@@ -37,15 +37,15 @@ $FieldInfo _ParameterizedTypeImpl_FieldInfo_[] = {
 };
 
 $MethodInfo _ParameterizedTypeImpl_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Class;[Ljava/lang/reflect/Type;Ljava/lang/reflect/Type;)V", "(Ljava/lang/Class<*>;[Ljava/lang/reflect/Type;Ljava/lang/reflect/Type;)V", $PRIVATE, $method(static_cast<void(ParameterizedTypeImpl::*)($Class*,$TypeArray*,$Type*)>(&ParameterizedTypeImpl::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getActualTypeArguments", "()[Ljava/lang/reflect/Type;", nullptr, $PUBLIC},
-	{"getOwnerType", "()Ljava/lang/reflect/Type;", nullptr, $PUBLIC},
-	{"getRawType", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"make", "(Ljava/lang/Class;[Ljava/lang/reflect/Type;Ljava/lang/reflect/Type;)Lsun/reflect/generics/reflectiveObjects/ParameterizedTypeImpl;", "(Ljava/lang/Class<*>;[Ljava/lang/reflect/Type;Ljava/lang/reflect/Type;)Lsun/reflect/generics/reflectiveObjects/ParameterizedTypeImpl;", $PUBLIC | $STATIC, $method(static_cast<ParameterizedTypeImpl*(*)($Class*,$TypeArray*,$Type*)>(&ParameterizedTypeImpl::make))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"validateConstructorArguments", "()V", nullptr, $PRIVATE, $method(static_cast<void(ParameterizedTypeImpl::*)()>(&ParameterizedTypeImpl::validateConstructorArguments))},
+	{"<init>", "(Ljava/lang/Class;[Ljava/lang/reflect/Type;Ljava/lang/reflect/Type;)V", "(Ljava/lang/Class<*>;[Ljava/lang/reflect/Type;Ljava/lang/reflect/Type;)V", $PRIVATE, $method(ParameterizedTypeImpl, init$, void, $Class*, $TypeArray*, $Type*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ParameterizedTypeImpl, equals, bool, Object$*)},
+	{"getActualTypeArguments", "()[Ljava/lang/reflect/Type;", nullptr, $PUBLIC, $virtualMethod(ParameterizedTypeImpl, getActualTypeArguments, $TypeArray*)},
+	{"getOwnerType", "()Ljava/lang/reflect/Type;", nullptr, $PUBLIC, $virtualMethod(ParameterizedTypeImpl, getOwnerType, $Type*)},
+	{"getRawType", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(ParameterizedTypeImpl, getRawType, $Type*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ParameterizedTypeImpl, hashCode, int32_t)},
+	{"make", "(Ljava/lang/Class;[Ljava/lang/reflect/Type;Ljava/lang/reflect/Type;)Lsun/reflect/generics/reflectiveObjects/ParameterizedTypeImpl;", "(Ljava/lang/Class<*>;[Ljava/lang/reflect/Type;Ljava/lang/reflect/Type;)Lsun/reflect/generics/reflectiveObjects/ParameterizedTypeImpl;", $PUBLIC | $STATIC, $staticMethod(ParameterizedTypeImpl, make, ParameterizedTypeImpl*, $Class*, $TypeArray*, $Type*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ParameterizedTypeImpl, toString, $String*)},
+	{"validateConstructorArguments", "()V", nullptr, $PRIVATE, $method(ParameterizedTypeImpl, validateConstructorArguments, void)},
 	{}
 };
 

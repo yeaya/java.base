@@ -21,7 +21,7 @@ $FieldInfo _NormalizerBase$ModeImpl_FieldInfo_[] = {
 };
 
 $MethodInfo _NormalizerBase$ModeImpl_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/icu/text/Normalizer2;)V", nullptr, $PRIVATE, $method(static_cast<void(NormalizerBase$ModeImpl::*)($Normalizer2*)>(&NormalizerBase$ModeImpl::init$))},
+	{"<init>", "(Ljdk/internal/icu/text/Normalizer2;)V", nullptr, $PRIVATE, $method(NormalizerBase$ModeImpl, init$, void, $Normalizer2*)},
 	{}
 };
 

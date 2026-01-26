@@ -29,11 +29,11 @@ $FieldInfo _Collections$ReverseComparator2_FieldInfo_[] = {
 $MethodInfo _Collections$ReverseComparator2_MethodInfo_[] = {
 	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(Ljava/util/Comparator;)V", "(Ljava/util/Comparator<TT;>;)V", 0, $method(static_cast<void(Collections$ReverseComparator2::*)($Comparator*)>(&Collections$ReverseComparator2::init$))},
-	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", "(TT;TT;)I", $PUBLIC},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"reversed", "()Ljava/util/Comparator;", "()Ljava/util/Comparator<TT;>;", $PUBLIC},
+	{"<init>", "(Ljava/util/Comparator;)V", "(Ljava/util/Comparator<TT;>;)V", 0, $method(Collections$ReverseComparator2, init$, void, $Comparator*)},
+	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", "(TT;TT;)I", $PUBLIC, $virtualMethod(Collections$ReverseComparator2, compare, int32_t, Object$*, Object$*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Collections$ReverseComparator2, equals, bool, Object$*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Collections$ReverseComparator2, hashCode, int32_t)},
+	{"reversed", "()Ljava/util/Comparator;", "()Ljava/util/Comparator<TT;>;", $PUBLIC, $virtualMethod(Collections$ReverseComparator2, reversed, $Comparator*)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

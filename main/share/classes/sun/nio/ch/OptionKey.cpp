@@ -17,9 +17,9 @@ $FieldInfo _OptionKey_FieldInfo_[] = {
 };
 
 $MethodInfo _OptionKey_MethodInfo_[] = {
-	{"<init>", "(II)V", nullptr, 0, $method(static_cast<void(OptionKey::*)(int32_t,int32_t)>(&OptionKey::init$))},
-	{"level", "()I", nullptr, 0},
-	{"name", "()I", nullptr, 0},
+	{"<init>", "(II)V", nullptr, 0, $method(OptionKey, init$, void, int32_t, int32_t)},
+	{"level", "()I", nullptr, 0, $virtualMethod(OptionKey, level, int32_t)},
+	{"name", "()I", nullptr, 0, $virtualMethod(OptionKey, name, int32_t)},
 	{}
 };
 

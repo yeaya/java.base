@@ -40,8 +40,8 @@ $FieldInfo _BootstrapMethodInvoker$PushAdapter_FieldInfo_[] = {
 };
 
 $MethodInfo _BootstrapMethodInvoker$PushAdapter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(BootstrapMethodInvoker$PushAdapter::*)()>(&BootstrapMethodInvoker$PushAdapter::init$))},
-	{"pushToBootstrapMethod", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $STATIC | $TRANSIENT, $method(static_cast<$Object*(*)($MethodHandle*,$MethodHandles$Lookup*,$String*,Object$*,$ObjectArray*)>(&BootstrapMethodInvoker$PushAdapter::pushToBootstrapMethod)), "java.lang.Throwable"},
+	{"<init>", "()V", nullptr, 0, $method(BootstrapMethodInvoker$PushAdapter, init$, void)},
+	{"pushToBootstrapMethod", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $STATIC | $TRANSIENT, $staticMethod(BootstrapMethodInvoker$PushAdapter, pushToBootstrapMethod, $Object*, $MethodHandle*, $MethodHandles$Lookup*, $String*, Object$*, $ObjectArray*), "java.lang.Throwable"},
 	{}
 };
 

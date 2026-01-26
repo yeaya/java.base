@@ -70,8 +70,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo DateFormatProviderImpl$$Lambda$getTimeZone::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DateFormatProviderImpl$$Lambda$getTimeZone::*)()>(&DateFormatProviderImpl$$Lambda$getTimeZone::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DateFormatProviderImpl$$Lambda$getTimeZone, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DateFormatProviderImpl$$Lambda$getTimeZone, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo DateFormatProviderImpl$$Lambda$getTimeZone::classInfo$ = {
@@ -110,8 +110,8 @@ $FieldInfo DateFormatProviderImpl$$Lambda$getTimeZone$1::fieldInfos[2] = {
 	{}
 };
 $MethodInfo DateFormatProviderImpl$$Lambda$getTimeZone$1::methodInfos[3] = {
-	{"<init>", "(Ljava/text/DateFormat;)V", nullptr, $PUBLIC, $method(static_cast<void(DateFormatProviderImpl$$Lambda$getTimeZone$1::*)($DateFormat*)>(&DateFormatProviderImpl$$Lambda$getTimeZone$1::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/text/DateFormat;)V", nullptr, $PUBLIC, $method(DateFormatProviderImpl$$Lambda$getTimeZone$1, init$, void, $DateFormat*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DateFormatProviderImpl$$Lambda$getTimeZone$1, get, $Object*)},
 	{}
 };
 $ClassInfo DateFormatProviderImpl$$Lambda$getTimeZone$1::classInfo$ = {
@@ -139,14 +139,14 @@ $MethodInfo _DateFormatProviderImpl_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lsun/util/locale/provider/LocaleProviderAdapter$Type;Ljava/util/Set;)V", "(Lsun/util/locale/provider/LocaleProviderAdapter$Type;Ljava/util/Set<Ljava/lang/String;>;)V", $PUBLIC, $method(static_cast<void(DateFormatProviderImpl::*)($LocaleProviderAdapter$Type*,$Set*)>(&DateFormatProviderImpl::init$))},
-	{"getAvailableLanguageTags", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC},
-	{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC},
-	{"getDateInstance", "(ILjava/util/Locale;)Ljava/text/DateFormat;", nullptr, $PUBLIC},
-	{"getDateTimeInstance", "(IILjava/util/Locale;)Ljava/text/DateFormat;", nullptr, $PUBLIC},
-	{"getInstance", "(IILjava/util/Locale;)Ljava/text/DateFormat;", nullptr, $PRIVATE, $method(static_cast<$DateFormat*(DateFormatProviderImpl::*)(int32_t,int32_t,$Locale*)>(&DateFormatProviderImpl::getInstance))},
-	{"getTimeInstance", "(ILjava/util/Locale;)Ljava/text/DateFormat;", nullptr, $PUBLIC},
-	{"isSupportedLocale", "(Ljava/util/Locale;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/util/locale/provider/LocaleProviderAdapter$Type;Ljava/util/Set;)V", "(Lsun/util/locale/provider/LocaleProviderAdapter$Type;Ljava/util/Set<Ljava/lang/String;>;)V", $PUBLIC, $method(DateFormatProviderImpl, init$, void, $LocaleProviderAdapter$Type*, $Set*)},
+	{"getAvailableLanguageTags", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(DateFormatProviderImpl, getAvailableLanguageTags, $Set*)},
+	{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(DateFormatProviderImpl, getAvailableLocales, $LocaleArray*)},
+	{"getDateInstance", "(ILjava/util/Locale;)Ljava/text/DateFormat;", nullptr, $PUBLIC, $virtualMethod(DateFormatProviderImpl, getDateInstance, $DateFormat*, int32_t, $Locale*)},
+	{"getDateTimeInstance", "(IILjava/util/Locale;)Ljava/text/DateFormat;", nullptr, $PUBLIC, $virtualMethod(DateFormatProviderImpl, getDateTimeInstance, $DateFormat*, int32_t, int32_t, $Locale*)},
+	{"getInstance", "(IILjava/util/Locale;)Ljava/text/DateFormat;", nullptr, $PRIVATE, $method(DateFormatProviderImpl, getInstance, $DateFormat*, int32_t, int32_t, $Locale*)},
+	{"getTimeInstance", "(ILjava/util/Locale;)Ljava/text/DateFormat;", nullptr, $PUBLIC, $virtualMethod(DateFormatProviderImpl, getTimeInstance, $DateFormat*, int32_t, $Locale*)},
+	{"isSupportedLocale", "(Ljava/util/Locale;)Z", nullptr, $PUBLIC, $virtualMethod(DateFormatProviderImpl, isSupportedLocale, bool, $Locale*)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

@@ -48,17 +48,17 @@ $FieldInfo _SecretKeyFactory_FieldInfo_[] = {
 };
 
 $MethodInfo _SecretKeyFactory_MethodInfo_[] = {
-	{"<init>", "(Ljavax/crypto/SecretKeyFactorySpi;Ljava/security/Provider;Ljava/lang/String;)V", nullptr, $PROTECTED, $method(static_cast<void(SecretKeyFactory::*)($SecretKeyFactorySpi*,$Provider*,$String*)>(&SecretKeyFactory::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(static_cast<void(SecretKeyFactory::*)($String*)>(&SecretKeyFactory::init$)), "java.security.NoSuchAlgorithmException"},
-	{"generateSecret", "(Ljava/security/spec/KeySpec;)Ljavax/crypto/SecretKey;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$SecretKey*(SecretKeyFactory::*)($KeySpec*)>(&SecretKeyFactory::generateSecret)), "java.security.spec.InvalidKeySpecException"},
-	{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$String*(SecretKeyFactory::*)()>(&SecretKeyFactory::getAlgorithm))},
-	{"getInstance", "(Ljava/lang/String;)Ljavax/crypto/SecretKeyFactory;", nullptr, $PUBLIC | $STATIC | $FINAL, $method(static_cast<SecretKeyFactory*(*)($String*)>(&SecretKeyFactory::getInstance)), "java.security.NoSuchAlgorithmException"},
-	{"getInstance", "(Ljava/lang/String;Ljava/lang/String;)Ljavax/crypto/SecretKeyFactory;", nullptr, $PUBLIC | $STATIC | $FINAL, $method(static_cast<SecretKeyFactory*(*)($String*,$String*)>(&SecretKeyFactory::getInstance)), "java.security.NoSuchAlgorithmException,java.security.NoSuchProviderException"},
-	{"getInstance", "(Ljava/lang/String;Ljava/security/Provider;)Ljavax/crypto/SecretKeyFactory;", nullptr, $PUBLIC | $STATIC | $FINAL, $method(static_cast<SecretKeyFactory*(*)($String*,$Provider*)>(&SecretKeyFactory::getInstance)), "java.security.NoSuchAlgorithmException"},
-	{"getKeySpec", "(Ljavax/crypto/SecretKey;Ljava/lang/Class;)Ljava/security/spec/KeySpec;", "(Ljavax/crypto/SecretKey;Ljava/lang/Class<*>;)Ljava/security/spec/KeySpec;", $PUBLIC | $FINAL, $method(static_cast<$KeySpec*(SecretKeyFactory::*)($SecretKey*,$Class*)>(&SecretKeyFactory::getKeySpec)), "java.security.spec.InvalidKeySpecException"},
-	{"getProvider", "()Ljava/security/Provider;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$Provider*(SecretKeyFactory::*)()>(&SecretKeyFactory::getProvider))},
-	{"nextSpi", "(Ljavax/crypto/SecretKeyFactorySpi;)Ljavax/crypto/SecretKeyFactorySpi;", nullptr, $PRIVATE, $method(static_cast<$SecretKeyFactorySpi*(SecretKeyFactory::*)($SecretKeyFactorySpi*)>(&SecretKeyFactory::nextSpi))},
-	{"translateKey", "(Ljavax/crypto/SecretKey;)Ljavax/crypto/SecretKey;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$SecretKey*(SecretKeyFactory::*)($SecretKey*)>(&SecretKeyFactory::translateKey)), "java.security.InvalidKeyException"},
+	{"<init>", "(Ljavax/crypto/SecretKeyFactorySpi;Ljava/security/Provider;Ljava/lang/String;)V", nullptr, $PROTECTED, $method(SecretKeyFactory, init$, void, $SecretKeyFactorySpi*, $Provider*, $String*)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(SecretKeyFactory, init$, void, $String*), "java.security.NoSuchAlgorithmException"},
+	{"generateSecret", "(Ljava/security/spec/KeySpec;)Ljavax/crypto/SecretKey;", nullptr, $PUBLIC | $FINAL, $method(SecretKeyFactory, generateSecret, $SecretKey*, $KeySpec*), "java.security.spec.InvalidKeySpecException"},
+	{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(SecretKeyFactory, getAlgorithm, $String*)},
+	{"getInstance", "(Ljava/lang/String;)Ljavax/crypto/SecretKeyFactory;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(SecretKeyFactory, getInstance, SecretKeyFactory*, $String*), "java.security.NoSuchAlgorithmException"},
+	{"getInstance", "(Ljava/lang/String;Ljava/lang/String;)Ljavax/crypto/SecretKeyFactory;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(SecretKeyFactory, getInstance, SecretKeyFactory*, $String*, $String*), "java.security.NoSuchAlgorithmException,java.security.NoSuchProviderException"},
+	{"getInstance", "(Ljava/lang/String;Ljava/security/Provider;)Ljavax/crypto/SecretKeyFactory;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(SecretKeyFactory, getInstance, SecretKeyFactory*, $String*, $Provider*), "java.security.NoSuchAlgorithmException"},
+	{"getKeySpec", "(Ljavax/crypto/SecretKey;Ljava/lang/Class;)Ljava/security/spec/KeySpec;", "(Ljavax/crypto/SecretKey;Ljava/lang/Class<*>;)Ljava/security/spec/KeySpec;", $PUBLIC | $FINAL, $method(SecretKeyFactory, getKeySpec, $KeySpec*, $SecretKey*, $Class*), "java.security.spec.InvalidKeySpecException"},
+	{"getProvider", "()Ljava/security/Provider;", nullptr, $PUBLIC | $FINAL, $method(SecretKeyFactory, getProvider, $Provider*)},
+	{"nextSpi", "(Ljavax/crypto/SecretKeyFactorySpi;)Ljavax/crypto/SecretKeyFactorySpi;", nullptr, $PRIVATE, $method(SecretKeyFactory, nextSpi, $SecretKeyFactorySpi*, $SecretKeyFactorySpi*)},
+	{"translateKey", "(Ljavax/crypto/SecretKey;)Ljavax/crypto/SecretKey;", nullptr, $PUBLIC | $FINAL, $method(SecretKeyFactory, translateKey, $SecretKey*, $SecretKey*), "java.security.InvalidKeyException"},
 	{}
 };
 

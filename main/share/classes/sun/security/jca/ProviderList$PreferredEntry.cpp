@@ -25,10 +25,10 @@ $FieldInfo _ProviderList$PreferredEntry_FieldInfo_[] = {
 };
 
 $MethodInfo _ProviderList$PreferredEntry_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(ProviderList$PreferredEntry::*)($String*,$String*)>(&ProviderList$PreferredEntry::init$))},
-	{"match", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, 0},
-	{"print", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(ProviderList$PreferredEntry::*)($String*,$String*,$String*)>(&ProviderList$PreferredEntry::print))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(ProviderList$PreferredEntry, init$, void, $String*, $String*)},
+	{"match", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, 0, $virtualMethod(ProviderList$PreferredEntry, match, bool, $String*, $String*)},
+	{"print", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(ProviderList$PreferredEntry, print, $String*, $String*, $String*, $String*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ProviderList$PreferredEntry, toString, $String*)},
 	{}
 };
 

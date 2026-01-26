@@ -13,8 +13,8 @@ namespace java {
 	namespace io {
 
 $MethodInfo _DefaultFileSystem_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(DefaultFileSystem::*)()>(&DefaultFileSystem::init$))},
-	{"getFileSystem", "()Ljava/io/FileSystem;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$FileSystem*(*)()>(&DefaultFileSystem::getFileSystem))},
+	{"<init>", "()V", nullptr, 0, $method(DefaultFileSystem, init$, void)},
+	{"getFileSystem", "()Ljava/io/FileSystem;", nullptr, $PUBLIC | $STATIC, $staticMethod(DefaultFileSystem, getFileSystem, $FileSystem*)},
 	{}
 };
 

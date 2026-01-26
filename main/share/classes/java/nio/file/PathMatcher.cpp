@@ -6,6 +6,7 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Path = ::java::nio::file::Path;
 
 namespace java {
 	namespace nio {
@@ -17,7 +18,7 @@ $CompoundAttribute _PathMatcher_Annotations_[] = {
 };
 
 $MethodInfo _PathMatcher_MethodInfo_[] = {
-	{"matches", "(Ljava/nio/file/Path;)Z", nullptr, $PUBLIC | $ABSTRACT},
+	{"matches", "(Ljava/nio/file/Path;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PathMatcher, matches, bool, $Path*)},
 	{}
 };
 

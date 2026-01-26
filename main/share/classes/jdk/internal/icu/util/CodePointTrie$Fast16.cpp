@@ -38,11 +38,11 @@ $FieldInfo _CodePointTrie$Fast16_FieldInfo_[] = {
 };
 
 $MethodInfo _CodePointTrie$Fast16_MethodInfo_[] = {
-	{"<init>", "([C[CIII)V", nullptr, 0, $method(static_cast<void(CodePointTrie$Fast16::*)($chars*,$chars*,int32_t,int32_t,int32_t)>(&CodePointTrie$Fast16::init$))},
-	{"bmpGet", "(I)I", nullptr, $PUBLIC | $FINAL},
-	{"fromBinary", "(Ljava/nio/ByteBuffer;)Ljdk/internal/icu/util/CodePointTrie$Fast16;", nullptr, $PUBLIC | $STATIC, $method(static_cast<CodePointTrie$Fast16*(*)($ByteBuffer*)>(&CodePointTrie$Fast16::fromBinary))},
-	{"get", "(I)I", nullptr, $PUBLIC | $FINAL},
-	{"suppGet", "(I)I", nullptr, $PUBLIC | $FINAL},
+	{"<init>", "([C[CIII)V", nullptr, 0, $method(CodePointTrie$Fast16, init$, void, $chars*, $chars*, int32_t, int32_t, int32_t)},
+	{"bmpGet", "(I)I", nullptr, $PUBLIC | $FINAL, $virtualMethod(CodePointTrie$Fast16, bmpGet, int32_t, int32_t)},
+	{"fromBinary", "(Ljava/nio/ByteBuffer;)Ljdk/internal/icu/util/CodePointTrie$Fast16;", nullptr, $PUBLIC | $STATIC, $staticMethod(CodePointTrie$Fast16, fromBinary, CodePointTrie$Fast16*, $ByteBuffer*)},
+	{"get", "(I)I", nullptr, $PUBLIC | $FINAL, $virtualMethod(CodePointTrie$Fast16, get, int32_t, int32_t)},
+	{"suppGet", "(I)I", nullptr, $PUBLIC | $FINAL, $virtualMethod(CodePointTrie$Fast16, suppGet, int32_t, int32_t)},
 	{}
 };
 

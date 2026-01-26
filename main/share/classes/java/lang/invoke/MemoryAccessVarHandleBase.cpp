@@ -25,8 +25,8 @@ $FieldInfo _MemoryAccessVarHandleBase_FieldInfo_[] = {
 };
 
 $MethodInfo _MemoryAccessVarHandleBase_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/invoke/VarForm;ZZJJZ)V", nullptr, 0, $method(static_cast<void(MemoryAccessVarHandleBase::*)($VarForm*,bool,bool,int64_t,int64_t,bool)>(&MemoryAccessVarHandleBase::init$))},
-	{"newIllegalStateExceptionForMisalignedAccess", "(J)Ljava/lang/IllegalStateException;", nullptr, $STATIC, $method(static_cast<$IllegalStateException*(*)(int64_t)>(&MemoryAccessVarHandleBase::newIllegalStateExceptionForMisalignedAccess))},
+	{"<init>", "(Ljava/lang/invoke/VarForm;ZZJJZ)V", nullptr, 0, $method(MemoryAccessVarHandleBase, init$, void, $VarForm*, bool, bool, int64_t, int64_t, bool)},
+	{"newIllegalStateExceptionForMisalignedAccess", "(J)Ljava/lang/IllegalStateException;", nullptr, $STATIC, $staticMethod(MemoryAccessVarHandleBase, newIllegalStateExceptionForMisalignedAccess, $IllegalStateException*, int64_t)},
 	{}
 };
 

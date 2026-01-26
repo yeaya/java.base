@@ -18,8 +18,8 @@ $FieldInfo _CancellationException_FieldInfo_[] = {
 };
 
 $MethodInfo _CancellationException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CancellationException::*)()>(&CancellationException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(CancellationException::*)($String*)>(&CancellationException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CancellationException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(CancellationException, init$, void, $String*)},
 	{}
 };
 

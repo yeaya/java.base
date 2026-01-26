@@ -54,9 +54,9 @@ $FieldInfo _Restart_FieldInfo_[] = {
 };
 
 $MethodInfo _Restart_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Restart::*)()>(&Restart::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Restart::main)), "java.lang.Exception"},
-	{"testRestart", "(Ljava/nio/channels/AsynchronousChannelGroup;I)V", nullptr, $STATIC, $method(static_cast<void(*)($AsynchronousChannelGroup*,int32_t)>(&Restart::testRestart)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Restart, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Restart, main, void, $StringArray*), "java.lang.Exception"},
+	{"testRestart", "(Ljava/nio/channels/AsynchronousChannelGroup;I)V", nullptr, $STATIC, $staticMethod(Restart, testRestart, void, $AsynchronousChannelGroup*, int32_t), "java.lang.Exception"},
 	{}
 };
 

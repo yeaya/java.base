@@ -22,9 +22,9 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $Constructor = ::java::lang::reflect::Constructor;
 
 $MethodInfo _IsSynthetic_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(IsSynthetic::*)()>(&IsSynthetic::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&IsSynthetic::main))},
-	{"test", "(Ljava/lang/Class;Z)I", "(Ljava/lang/Class<*>;Z)I", $STATIC, $method(static_cast<int32_t(*)($Class*,bool)>(&IsSynthetic::test))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(IsSynthetic, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(IsSynthetic, main, void, $StringArray*)},
+	{"test", "(Ljava/lang/Class;Z)I", "(Ljava/lang/Class<*>;Z)I", $STATIC, $staticMethod(IsSynthetic, test, int32_t, $Class*, bool)},
 	{}
 };
 

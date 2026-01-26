@@ -3,16 +3,18 @@
 #include <java/lang/reflect/AnnotatedType.h>
 #include <jcpp.h>
 
+using $AnnotatedTypeArray = $Array<::java::lang::reflect::AnnotatedType>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $AnnotatedType = ::java::lang::reflect::AnnotatedType;
 
 namespace java {
 	namespace lang {
 		namespace reflect {
 
 $MethodInfo _AnnotatedTypeVariable_MethodInfo_[] = {
-	{"getAnnotatedBounds", "()[Ljava/lang/reflect/AnnotatedType;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getAnnotatedOwnerType", "()Ljava/lang/reflect/AnnotatedType;", nullptr, $PUBLIC | $ABSTRACT},
+	{"getAnnotatedBounds", "()[Ljava/lang/reflect/AnnotatedType;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AnnotatedTypeVariable, getAnnotatedBounds, $AnnotatedTypeArray*)},
+	{"getAnnotatedOwnerType", "()Ljava/lang/reflect/AnnotatedType;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AnnotatedTypeVariable, getAnnotatedOwnerType, $AnnotatedType*)},
 	{}
 };
 

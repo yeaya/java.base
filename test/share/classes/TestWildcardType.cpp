@@ -60,8 +60,8 @@ $FieldInfo _TestWildcardType_FieldInfo_[] = {
 };
 
 $MethodInfo _TestWildcardType_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(TestWildcardType::*)()>(&TestWildcardType::init$))},
-	{"foo", "()Ljava/util/List;", "<T:Ljava/lang/Object;>()Ljava/util/List<-TT;>;", $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(TestWildcardType, init$, void)},
+	{"foo", "()Ljava/util/List;", "<T:Ljava/lang/Object;>()Ljava/util/List<-TT;>;", $PUBLIC, $virtualMethod(TestWildcardType, foo, $List*)},
 	{}
 };
 

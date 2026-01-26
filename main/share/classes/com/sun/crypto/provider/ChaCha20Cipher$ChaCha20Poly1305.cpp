@@ -14,7 +14,7 @@ namespace com {
 			namespace provider {
 
 $MethodInfo _ChaCha20Cipher$ChaCha20Poly1305_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ChaCha20Cipher$ChaCha20Poly1305::*)()>(&ChaCha20Cipher$ChaCha20Poly1305::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ChaCha20Cipher$ChaCha20Poly1305, init$, void)},
 	{}
 };
 

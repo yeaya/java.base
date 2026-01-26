@@ -8,9 +8,9 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _BasicUnit_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(BasicUnit::*)()>(&BasicUnit::init$))},
-	{"factory", "(Ljava/lang/Class;)LInt;", "<T::LInt;>(Ljava/lang/Class<TT;>;)TT;", $STATIC, $method(static_cast<$Int*(*)($Class*)>(&BasicUnit::factory)), "java.lang.Throwable"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&BasicUnit::main)), "java.lang.Throwable"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(BasicUnit, init$, void)},
+	{"factory", "(Ljava/lang/Class;)LInt;", "<T::LInt;>(Ljava/lang/Class<TT;>;)TT;", $STATIC, $staticMethod(BasicUnit, factory, $Int*, $Class*), "java.lang.Throwable"},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicUnit, main, void, $StringArray*), "java.lang.Throwable"},
 	{}
 };
 

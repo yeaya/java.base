@@ -42,8 +42,8 @@ $FieldInfo _BidiBase$TextAttributeConstants_FieldInfo_[] = {
 };
 
 $MethodInfo _BidiBase$TextAttributeConstants_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(BidiBase$TextAttributeConstants::*)()>(&BidiBase$TextAttributeConstants::init$))},
-	{"getTextAttribute", "(Ljava/lang/String;)Ljava/text/AttributedCharacterIterator$Attribute;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$AttributedCharacterIterator$Attribute*(*)($String*)>(&BidiBase$TextAttributeConstants::getTextAttribute))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(BidiBase$TextAttributeConstants, init$, void)},
+	{"getTextAttribute", "(Ljava/lang/String;)Ljava/text/AttributedCharacterIterator$Attribute;", nullptr, $PRIVATE | $STATIC, $staticMethod(BidiBase$TextAttributeConstants, getTextAttribute, $AttributedCharacterIterator$Attribute*, $String*)},
 	{}
 };
 

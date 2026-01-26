@@ -39,10 +39,10 @@ $FieldInfo _PrimitiveConversionTests_FieldInfo_[] = {
 };
 
 $MethodInfo _PrimitiveConversionTests_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PrimitiveConversionTests::*)()>(&PrimitiveConversionTests::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&PrimitiveConversionTests::main))},
-	{"testDoubleValue", "()I", nullptr, $PUBLIC | $STATIC, $method(static_cast<int32_t(*)()>(&PrimitiveConversionTests::testDoubleValue))},
-	{"testFloatValue", "()I", nullptr, $PUBLIC | $STATIC, $method(static_cast<int32_t(*)()>(&PrimitiveConversionTests::testFloatValue))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PrimitiveConversionTests, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(PrimitiveConversionTests, main, void, $StringArray*)},
+	{"testDoubleValue", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(PrimitiveConversionTests, testDoubleValue, int32_t)},
+	{"testFloatValue", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(PrimitiveConversionTests, testFloatValue, int32_t)},
 	{}
 };
 

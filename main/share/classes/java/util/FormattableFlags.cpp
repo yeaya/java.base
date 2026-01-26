@@ -21,7 +21,7 @@ $FieldInfo _FormattableFlags_FieldInfo_[] = {
 };
 
 $MethodInfo _FormattableFlags_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(FormattableFlags::*)()>(&FormattableFlags::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(FormattableFlags, init$, void)},
 	{}
 };
 

@@ -58,9 +58,9 @@ $FieldInfo _EPollPort$EventHandlerTask_FieldInfo_[] = {
 };
 
 $MethodInfo _EPollPort$EventHandlerTask_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/ch/EPollPort;)V", nullptr, $PRIVATE, $method(static_cast<void(EPollPort$EventHandlerTask::*)($EPollPort*)>(&EPollPort$EventHandlerTask::init$))},
-	{"poll", "()Lsun/nio/ch/EPollPort$Event;", nullptr, $PRIVATE, $method(static_cast<$EPollPort$Event*(EPollPort$EventHandlerTask::*)()>(&EPollPort$EventHandlerTask::poll)), "java.io.IOException"},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/nio/ch/EPollPort;)V", nullptr, $PRIVATE, $method(EPollPort$EventHandlerTask, init$, void, $EPollPort*)},
+	{"poll", "()Lsun/nio/ch/EPollPort$Event;", nullptr, $PRIVATE, $method(EPollPort$EventHandlerTask, poll, $EPollPort$Event*), "java.io.IOException"},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(EPollPort$EventHandlerTask, run, void)},
 	{}
 };
 

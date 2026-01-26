@@ -32,13 +32,13 @@ namespace sun {
 		namespace rsa {
 
 $MethodInfo _RSAUtil_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(RSAUtil::*)()>(&RSAUtil::init$))},
-	{"checkParamsAgainstType", "(Lsun/security/rsa/RSAUtil$KeyType;Ljava/security/spec/AlgorithmParameterSpec;)Ljava/security/spec/AlgorithmParameterSpec;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$AlgorithmParameterSpec*(*)($RSAUtil$KeyType*,$AlgorithmParameterSpec*)>(&RSAUtil::checkParamsAgainstType)), "java.security.ProviderException"},
-	{"createAlgorithmId", "(Lsun/security/rsa/RSAUtil$KeyType;Ljava/security/spec/AlgorithmParameterSpec;)Lsun/security/x509/AlgorithmId;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$AlgorithmId*(*)($RSAUtil$KeyType*,$AlgorithmParameterSpec*)>(&RSAUtil::createAlgorithmId)), "java.security.ProviderException"},
-	{"getParamSpec", "(Ljava/security/AlgorithmParameters;)Ljava/security/spec/AlgorithmParameterSpec;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$AlgorithmParameterSpec*(*)($AlgorithmParameters*)>(&RSAUtil::getParamSpec)), "java.security.ProviderException"},
-	{"getParams", "(Lsun/security/rsa/RSAUtil$KeyType;Ljava/security/spec/AlgorithmParameterSpec;)Ljava/security/AlgorithmParameters;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$AlgorithmParameters*(*)($RSAUtil$KeyType*,$AlgorithmParameterSpec*)>(&RSAUtil::getParams)), "java.security.ProviderException"},
-	{"getTypeAndParamSpec", "(Lsun/security/x509/AlgorithmId;)[Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$ObjectArray*(*)($AlgorithmId*)>(&RSAUtil::getTypeAndParamSpec)), "java.security.ProviderException"},
-	{"requireNonNull", "(Ljava/lang/Object;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)(Object$*,$String*)>(&RSAUtil::requireNonNull))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(RSAUtil, init$, void)},
+	{"checkParamsAgainstType", "(Lsun/security/rsa/RSAUtil$KeyType;Ljava/security/spec/AlgorithmParameterSpec;)Ljava/security/spec/AlgorithmParameterSpec;", nullptr, $PUBLIC | $STATIC, $staticMethod(RSAUtil, checkParamsAgainstType, $AlgorithmParameterSpec*, $RSAUtil$KeyType*, $AlgorithmParameterSpec*), "java.security.ProviderException"},
+	{"createAlgorithmId", "(Lsun/security/rsa/RSAUtil$KeyType;Ljava/security/spec/AlgorithmParameterSpec;)Lsun/security/x509/AlgorithmId;", nullptr, $PUBLIC | $STATIC, $staticMethod(RSAUtil, createAlgorithmId, $AlgorithmId*, $RSAUtil$KeyType*, $AlgorithmParameterSpec*), "java.security.ProviderException"},
+	{"getParamSpec", "(Ljava/security/AlgorithmParameters;)Ljava/security/spec/AlgorithmParameterSpec;", nullptr, $PUBLIC | $STATIC, $staticMethod(RSAUtil, getParamSpec, $AlgorithmParameterSpec*, $AlgorithmParameters*), "java.security.ProviderException"},
+	{"getParams", "(Lsun/security/rsa/RSAUtil$KeyType;Ljava/security/spec/AlgorithmParameterSpec;)Ljava/security/AlgorithmParameters;", nullptr, $PUBLIC | $STATIC, $staticMethod(RSAUtil, getParams, $AlgorithmParameters*, $RSAUtil$KeyType*, $AlgorithmParameterSpec*), "java.security.ProviderException"},
+	{"getTypeAndParamSpec", "(Lsun/security/x509/AlgorithmId;)[Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC, $staticMethod(RSAUtil, getTypeAndParamSpec, $ObjectArray*, $AlgorithmId*), "java.security.ProviderException"},
+	{"requireNonNull", "(Ljava/lang/Object;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(RSAUtil, requireNonNull, void, Object$*, $String*)},
 	{}
 };
 

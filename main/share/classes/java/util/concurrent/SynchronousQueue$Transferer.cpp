@@ -12,8 +12,8 @@ namespace java {
 		namespace concurrent {
 
 $MethodInfo _SynchronousQueue$Transferer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(SynchronousQueue$Transferer::*)()>(&SynchronousQueue$Transferer::init$))},
-	{"transfer", "(Ljava/lang/Object;ZJ)Ljava/lang/Object;", "(TE;ZJ)TE;", $ABSTRACT},
+	{"<init>", "()V", nullptr, 0, $method(SynchronousQueue$Transferer, init$, void)},
+	{"transfer", "(Ljava/lang/Object;ZJ)Ljava/lang/Object;", "(TE;ZJ)TE;", $ABSTRACT, $virtualMethod(SynchronousQueue$Transferer, transfer, $Object*, Object$*, bool, int64_t)},
 	{}
 };
 

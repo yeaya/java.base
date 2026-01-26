@@ -60,6 +60,10 @@
 #include <jdk/internal/reflect/ConstantUTF8.h>
 #include <jdk/internal/misc/Unsafe.h>
 #include <java/io/DataInputStream.h>
+#include <java/lang/invoke/LambdaMetafactory.h>
+#include <java/lang/invoke/MethodHandles.h>
+#include <java/lang/invoke/MethodType.h>
+#include <java/lang/invoke/MethodHandles$Lookup.h>
 
 #include <jcpp.h>
 #include <string.h>
@@ -72,6 +76,7 @@
 using namespace ::java::lang;
 using namespace ::java::lang::ref;
 using namespace ::java::lang::reflect;
+using namespace ::java::lang::invoke;
 using namespace ::java::io;
 using namespace ::java::util;
 using namespace ::jdk::internal::reflect;
@@ -84,9 +89,7 @@ namespace java {
 Object* allocate$ByteCodeClass(Class* clazz) {
 	ByteCodeClass* bcClass = (ByteCodeClass*)clazz;
 	bcClass->ensureClassInitialized();
-	//int32_t bufferSize = clazz->getSize();
 	Object$* buffer = ObjectManager::alloc(clazz, clazz->size);
-	//$var(BYTE_CODE_OBJECT, newObj, new(buffer) BYTE_CODE_OBJECT());
 	ByteCodeObject* newObj = new(buffer) ByteCodeObject();
 	bcClass->assembleVfTab(newObj);
 	return $fcast<Object0>(newObj);
@@ -96,7 +99,7 @@ void initInstance$ByteCodeClass(Constructor* c, Object0* inst, $Value* argv) {
 	ByteCodeClass* bcClass = (ByteCodeClass*)c->clazz;
 	$var(ByteCodeClassData, byteCodeClassData, bcClass->getByteCodeClassData(false));
 	ByteCodeMethod* bcMethod = $fcast<ByteCodeMethod>(byteCodeClassData->byteCodeMethods->get(c->slot));
-	$var(Interpreter, interpreter, $new<Interpreter>(bcClass));
+	$var(ByteCodeInterpreter, interpreter, $new(ByteCodeInterpreter, bcClass));
 	interpreter->interpret(bcMethod, inst, nullptr, c->parameterTypes, argv);
 }
 
@@ -109,31 +112,16 @@ $Value invokeSpecial$ByteCodeClass(Method* method, Object$* instance, $Value* ar
 		}
 		$throwNew(NullPointerException);
 	}
-	/*
-	$var(Constructor, c, $cast<Constructor>(exec));
-	if (c != nullptr) {
-		ByteCodeClass* bcClass = (ByteCodeClass*)c->clazz;
-		$var(ByteCodeMethod, bcMethod, bcClass->byteCodeMethods->get(c->slot));
-		$var(Interpreter, interpreter, $new<Interpreter>(bcClass));
-		return interpreter->interpret(bcMethod, inst, nullptr, c->parameterTypes, args);
-	} else {
-		// TODO
-		return nullptr;
+	ByteCodeClass* bcClass = (ByteCodeClass*)method->clazz;
+	if (method->isStatic()) {
+		bcClass->ensureClassInitialized();
 	}
-*/
-	// TODO
+	$var(ByteCodeClassData, byteCodeClassData, bcClass->getByteCodeClassData(false));
+	ByteCodeMethod* bcMethod = $fcast<ByteCodeMethod>(byteCodeClassData->byteCodeMethods->get(method->slot));
+	$var(ByteCodeInterpreter, interpreter, $new(ByteCodeInterpreter, bcClass));
+	return (interpreter->interpret(bcMethod, inst, method->returnType, method->parameterTypes, argv));
 	return $of();
 }
-
-//_Object* new$ByteCodeClass(Constructor* c, ObjectArray* args) {
-//	ByteCodeClass* bcClass = (ByteCodeClass*)c->clazz;
-//	$var(_Object, sObj, allocate$ByteCodeClass(bcClass));
-////	auto m = bcClass->methods.at(c->slot);
-//	$var(ByteCodeMethod, bcMethod, bcClass->byteCodeMethods->get(c->slot));
-//	$var(Interpreter, interpreter, $new<Interpreter>(bcClass));
-//	interpreter->interpret(bcMethod, sObj, c->clazz, c->parameterTypes, args);
-//	return sObj;
-//}
 
 $Value invoke$ByteCodeClass(Method* method, Object$* instance, $Value* argv) {
 	ByteCodeClass* bcClass = (ByteCodeClass*)method->clazz;
@@ -155,10 +143,9 @@ $Value invoke$ByteCodeClass(Method* method, Object$* instance, $Value* argv) {
 			}
 		}
 	}
-//	method_info& m = bcClass->methods.at(method_->slot);
 	$var(ByteCodeClassData, byteCodeClassData, bcClass->getByteCodeClassData(false));
 	ByteCodeMethod* bcMethod = $fcast<ByteCodeMethod>(byteCodeClassData->byteCodeMethods->get(method->slot));
-	$var(Interpreter, interpreter, $new<Interpreter>(bcClass));
+	$var(ByteCodeInterpreter, interpreter, $new(ByteCodeInterpreter, bcClass));
 	return (interpreter->interpret(bcMethod, inst, method->returnType, method->parameterTypes, argv));
 }
 
@@ -245,8 +232,9 @@ ByteCodeClass::ByteCodeClass()
 
 void ByteCodeClass::init$() {
 	Class::init$(nullptr, nullptr);
+	byteCodeClass = true;
 	memset(&this->classInfo0, 0, sizeof(classInfo0));
-	$set(this, classInfoStore, $new<ArrayList>());
+	$set(this, classInfoStore, $new(ArrayList));
 }
 
 const char* ByteCodeClassData::makeCharPtrForClassInfo(String* str) {
@@ -260,55 +248,55 @@ const char* ByteCodeClassData::makeCharPtrForClassInfo(String* str) {
 }
 
 FieldInfo* ByteCodeClassData::makeFieldInfosForClassInfo(int32_t count) {
-	$var($bytes, ba, $new<$bytes>(sizeof(FieldInfo) * (count + 1)));
+	$var($bytes, ba, $new($bytes, sizeof(FieldInfo) * (count + 1)));
 	this->classInfoStore->add(ba);
 	return (FieldInfo*)ba->begin();
 }
 
 MethodInfo* ByteCodeClassData::makeMethodInfosForClassInfo(int32_t count) {
-	$var($bytes, ba, $new<$bytes>(sizeof(MethodInfo) * (count + 1)));
+	$var($bytes, ba, $new($bytes, sizeof(MethodInfo) * (count + 1)));
 	this->classInfoStore->add(ba);
 	return (MethodInfo*)ba->begin();
 }
 
 InnerClassInfo* ByteCodeClassData::makeInnerClassInfosForClassInfo(int32_t count) {
-	$var($bytes, ba, $new<$bytes>(sizeof(InnerClassInfo) * (count + 1)));
+	$var($bytes, ba, $new($bytes, sizeof(InnerClassInfo) * (count + 1)));
 	this->classInfoStore->add(ba);
 	return (InnerClassInfo*)ba->begin();
 }
 
 EnclosingMethodInfo* ByteCodeClassData::makeEnclosingMethodInfoForClassInfo() {
-	$var($bytes, ba, $new<$bytes>(sizeof(EnclosingMethodInfo)));
+	$var($bytes, ba, $new($bytes, sizeof(EnclosingMethodInfo)));
 	this->classInfoStore->add(ba);
 	return (EnclosingMethodInfo*)ba->begin();
 }
 
 CompoundAttribute* ByteCodeClassData::makeCompoundAttributesForClassInfo(int32_t count) {
-	$var($bytes, ba, $new<$bytes>(sizeof(CompoundAttribute) * (count + 1)));
+	$var($bytes, ba, $new($bytes, sizeof(CompoundAttribute) * (count + 1)));
 	this->classInfoStore->add(ba);
 	return (CompoundAttribute*)ba->begin();
 }
 
 CompoundAttribute* ByteCodeClassData::makeCompoundAttributeForClassInfo() {
-	$var($bytes, ba, $new<$bytes>(sizeof(CompoundAttribute)));
+	$var($bytes, ba, $new($bytes, sizeof(CompoundAttribute)));
 	this->classInfoStore->add(ba);
 	return (CompoundAttribute*)ba->begin();
 }
 
 TypeAnnotation* ByteCodeClassData::makeAnnotationsForClassInfo(int32_t count) {
-	$var($bytes, ba, $new<$bytes>(sizeof(TypeAnnotation) * (count + 1)));
+	$var($bytes, ba, $new($bytes, sizeof(TypeAnnotation) * (count + 1)));
 	this->classInfoStore->add(ba);
 	return (TypeAnnotation*)ba->begin();
 }
 
 NamedAttribute* ByteCodeClassData::makeNamedAttributesForClassInfo(int32_t count) {
-	$var($bytes, ba, $new<$bytes>(sizeof(NamedAttribute) * (count + 1)));
+	$var($bytes, ba, $new($bytes, sizeof(NamedAttribute) * (count + 1)));
 	this->classInfoStore->add(ba);
 	return (NamedAttribute*)ba->begin();
 }
 
 Attribute* ByteCodeClassData::makeAttributesForClassInfo(int32_t count) {
-	$var($bytes, ba, $new<$bytes>(sizeof(Attribute) * (count + 1)));
+	$var($bytes, ba, $new($bytes, sizeof(Attribute) * (count + 1)));
 	this->classInfoStore->add(ba);
 	return (Attribute*)ba->begin();
 }
@@ -346,7 +334,7 @@ void ByteCodeClass::init(String* name, ClassLoader* loader) {
 			}
 		}
 		int32_t staticFieldBufferSize = staticFieldCount * 8;
-		$set(this, staticFieldBuffer, $new<$bytes>(staticFieldBufferSize));
+		$set(this, staticFieldBuffer, $new($bytes, staticFieldBufferSize));
 		int64_t staticFieldBase = (int64_t)staticFieldBuffer->begin();
 		int32_t staticFieldIndex = 0;
 	//	int32_t staticObjectFieldIndex = 0;
@@ -362,7 +350,7 @@ void ByteCodeClass::init(String* name, ClassLoader* loader) {
 	}
 	//byteCodeClassData->classInfo = nullptr;
 	//calcSizeOfAndFieldOffset();
-	initVfTab();
+	//initVfTab();
 }
 
 Class* ByteCodeClass::loadClass(String* name) {
@@ -380,13 +368,13 @@ ByteCodeClassData* ByteCodeClass::getByteCodeClassData(bool genClassInfo) {
 			$assign(bccd, $fcast<ByteCodeClassData>(byteCodeClassData->get()));		
 		}
 		if (bccd == nullptr) {
-			$assign(bccd, $new<ByteCodeClassData>());
-			$set(this, byteCodeClassData, $new<SoftReference>(bccd));
+			$assign(bccd, $new(ByteCodeClassData));
+			$set(this, byteCodeClassData, $new(SoftReference, bccd));
 			if (genClassInfo) {
 				bccd->classInfoStore = classInfoStore;
-				bccd->parse(bytes, &classInfo0);
+				bccd->parse(this, bytes, &classInfo0);
 			} else {
-				bccd->parse(bytes, nullptr);
+				bccd->parse(this, bytes, nullptr);
 			}
 		}
 	}
@@ -403,13 +391,13 @@ MethodCache* ByteCodeClass::findMethodCache(int32_t methodIndex) {
 		//	$assign(methodCacheMap, $fcast<HashMap>($loadVolatile(methodCaches)->get()));		
 	//	}
 		if (byteCodeClassData->methodCacheMap == nullptr) {
-			$set(byteCodeClassData, methodCacheMap, $new<HashMap>());
-		//	$set(this, methodCaches, $new<SoftReference>(methodCacheMap));
+			$set(byteCodeClassData, methodCacheMap, $new(HashMap));
+		//	$set(this, methodCaches, $new(SoftReference, methodCacheMap));
 		}
 		$assign(methodCacheMap, byteCodeClassData->methodCacheMap);
 
 	//	if (fieldAndMethodCache == nullptr) {
-	//		$set(this, fieldAndMethodCache, $new<HashMap>());
+	//		$set(this, fieldAndMethodCache, $new(HashMap));
 	//	}
 		$assign(methodCache, $fcast<MethodCache>(methodCacheMap->get(key)));
 		if (methodCache == nullptr) {
@@ -428,6 +416,8 @@ MethodCache* ByteCodeClass::findMethodCache(int32_t methodIndex) {
 				className = constantInterfaceMethodRef->clazz;
 				methodName = constantInterfaceMethodRef->name;
 				descriptor = constantInterfaceMethodRef->descriptor;
+			} else {
+				$throwNew(RuntimeException, $ref(String::valueOf({ "Invalid method index: "_s, $$str(methodIndex) })));
 			}
 			$var(String, name, getName());
 			if (name->equals($ref(className->replace('/', '.')))) {
@@ -435,7 +425,7 @@ MethodCache* ByteCodeClass::findMethodCache(int32_t methodIndex) {
 				for (int32_t i = 0; i < byteCodeClassData->byteCodeMethods->size(); i++) {
 					ByteCodeMethod* byteCodeMethod = $fcast<ByteCodeMethod>(byteCodeClassData->byteCodeMethods->get(i));
 					if (byteCodeMethod->name->equals(methodName) && byteCodeMethod->descriptor->equals(descriptor)) {
-						$assign(methodCache, $new<MethodCache>());
+						$assign(methodCache, $new(MethodCache));
 						$set(methodCache, method, byteCodeMethod);
 						methodCacheMap->put(key, methodCache);
 						break;
@@ -449,7 +439,7 @@ MethodCache* ByteCodeClass::findMethodCache(int32_t methodIndex) {
 					if (!constructor->override$) {
 						constructor->override$ = true;
 					}
-					$assign(methodCache, $new<MethodCache>());
+					$assign(methodCache, $new(MethodCache));
 					$set(methodCache, method, constructor);
 					methodCacheMap->put(key, methodCache);
 
@@ -460,7 +450,7 @@ MethodCache* ByteCodeClass::findMethodCache(int32_t methodIndex) {
 					if (!method0->override$) {
 						method0->override$ = true;
 					}
-					$assign(methodCache, $new<MethodCache>());
+					$assign(methodCache, $new(MethodCache));
 					$set(methodCache, method, method0);
 					methodCacheMap->put(key, methodCache);
 
@@ -473,7 +463,7 @@ MethodCache* ByteCodeClass::findMethodCache(int32_t methodIndex) {
 			if (methodCache != nullptr) {
 		//		$set(methodCache, realDescriptor, descriptor);
 				$var(ArrayList, list, this->parseMethodDescriptor(descriptor));
-				$set(methodCache, argsTypes, $new<$Array<Class>>(list->size() - 1));
+				$set(methodCache, argsTypes, $new($ClassArray, list->size() - 1));
 				for (int32_t i = 0; i < list->size() - 1; i++) {
 					$var(String, type, $fcast<String>(list->get(i)));
 					$var(Class, clazz, loadClass(type));
@@ -483,12 +473,23 @@ MethodCache* ByteCodeClass::findMethodCache(int32_t methodIndex) {
 				$set(methodCache, realReturnType, loadClass(returnType));
 				methodCache->init();
 			} else {
-				$throwNew(NoSuchMethodException, $ref(String::valueOf({ name, $cstr(":"), $$str(methodIndex) })));
+				$throwNew(NoSuchMethodException, $ref(String::valueOf({ name, ":"_s, $$str(methodIndex) })));
 			}
 		}
 	}
 
 	return methodCache;
+}
+
+ByteCodeMethod* ByteCodeClass::findByteCodeMethod($String* name, $String* descriptor) {
+	$var(ByteCodeClassData, byteCodeClassData, getByteCodeClassData(false));
+	for (int32_t i = 0; i < byteCodeClassData->byteCodeMethods->size(); i++) {
+		$var(ByteCodeMethod, byteCodeMethod, $fcast<ByteCodeMethod>(byteCodeClassData->byteCodeMethods->get(i)));
+		if (byteCodeMethod->name->equals(name) && byteCodeMethod->descriptor->equals(descriptor)) {
+			return byteCodeMethod;
+		}
+	}
+	return nullptr;
 }
 
 void ByteCodeClass::ensureClassInitialized() {
@@ -498,7 +499,7 @@ void ByteCodeClass::ensureClassInitialized() {
 		$var(ByteCodeClassData, byteCodeClassData, getByteCodeClassData(false));
 		if (byteCodeClassData->clinitIndex >= 0) {
 			$var(ByteCodeMethod, bcMethod, $fcast<ByteCodeMethod>(byteCodeClassData->byteCodeMethods->get(byteCodeClassData->clinitIndex)));
-			$var(Interpreter, interpreter, $new<Interpreter>(this));
+			$var(ByteCodeInterpreter, interpreter, $new(ByteCodeInterpreter, this));
 			interpreter->interpret(bcMethod, nullptr, nullptr, nullptr, nullptr);
 		}
 	}
@@ -531,11 +532,11 @@ void VfptrInfo::init() {
 }
 
 void ByteCodeClass::initVfTab() {
-	$var($Array<Class>, classes, this->getPrimaryBaseClasses());
-	$set(this, vfptrs, $new<$ObjectArray>(classes->length));
+	$var($ClassArray, classes, this->getPrimaryBaseClasses());
+	$set(this, vfptrs, $new($ObjectArray, classes->length));
 	for (int32_t i = 0; i < classes->length; i++) {
 		$var(Class, clazz, classes->get(i));
-		$var(VfptrInfo, vfptrInfo, $new<VfptrInfo>());
+		$var(VfptrInfo, vfptrInfo, $new(VfptrInfo));
 		vfptrs->set(i, vfptrInfo);
 		
 		$set(vfptrInfo, clazz, this);
@@ -552,6 +553,13 @@ void ByteCodeClass::initVfTab() {
 }
 
 void ByteCodeClass::assembleVfTab(Object* obj) {
+	if (vfptrs == nullptr) {
+		$synchronized(this) {
+			if (vfptrs == nullptr) {
+				initVfTab();
+			}
+		}
+	}
 	for (int32_t i = 0; i < vfptrs->length; i++) {
 		VfptrInfo* vfptrInfo = (VfptrInfo*)vfptrs->get(i);
 		Platform::assembleVfTab(obj, vfptrInfo->offset, vfptrInfo->vfTableData);
@@ -569,7 +577,7 @@ void ByteCodeClass::assembleVfTab(Object* obj) {
 
 String* makeArrayType(String* type, int32_t arrayDim) {
 	if (arrayDim > 0) {
-		$var(String, dimStr, $cstr("["));
+		$var(String, dimStr, "["_s);
 		$assign(dimStr, dimStr->repeat(arrayDim));
 		return dimStr->concat(type);
 	}
@@ -585,9 +593,9 @@ String* makePrimitiveType(char16_t c, const char* primitiveType, int32_t arrayDi
 	}
 }
 
-::java::util::ArrayList* ByteCodeClass::parseMethodDescriptor(String* descriptor) {
+ArrayList* ByteCodeClass::parseMethodDescriptor(String* descriptor) {
 	int32_t index = 0;
-	$var(::java::util::ArrayList, result, $new<::java::util::ArrayList>());
+	$var(ArrayList, result, $new(ArrayList));
 	if (descriptor->charAt(0) != '(') {
 	}
 	index++;
@@ -694,10 +702,10 @@ String* makePrimitiveType(char16_t c, const char* primitiveType, int32_t arrayDi
 }
 
 void ByteCodeClassData::parseFieldAttributes(DataInputStream* is, FieldInfo* fieldInfo) {
-	int16_t attributes_count = is->readShort();
-	for (int16_t attribute_index = 0; attribute_index < attributes_count; ++attribute_index) {
-		int16_t nameIndex = is->readShort();
-		int32_t attribute_length = is->readInt();
+	int16_t attributesCount = is->readShort();
+	for (int16_t attributeIndex = 0; attributeIndex < attributesCount; ++attributeIndex) {
+		uint16_t nameIndex = is->readShort();
+		int32_t attributeLength = is->readInt();
 		$var(String, s, nullptr);
 		if (nameIndex > 0) {
 			$assign(s, constantPool->getUTF8(nameIndex));
@@ -705,16 +713,14 @@ void ByteCodeClassData::parseFieldAttributes(DataInputStream* is, FieldInfo* fie
 
 		if ($nc(s)->equals("ConstantValue")) {
 			// TODO: sometimes this info must be silently ignored
-
-			if (attribute_length != 2) {
-				$throwNew(RuntimeException, $$concat("ConstantValue length must be 2, not ", $$str(attribute_length)));
+			if (attributeLength != 2) {
+				$throwNew(RuntimeException, $$concat("ConstantValue length must be 2, not ", $$str(attributeLength)));
 			}
+			uint16_t constantvalueIndex = is->readShort();
+			int8_t tag = constantPool->getTag(constantvalueIndex);
 
-			int16_t constantvalue_index = is->readShort();
-			int8_t tag = constantPool->getTag(constantvalue_index);
-
-		//	check_cp_range(attribute->constantvalue_index, table.size());
-			//auto const &variant = table[attribute->constantvalue_index];
+		//	check_cp_range(attribute->constantvalueIndex, table.size());
+			//auto const &variant = table[attribute->constantvalueIndex];
 			//if (variant->type == CONSTANT_Integer_info_type
 			//	|| variant->type == CONSTANT_Float_info_type
 			//	|| variant->type == CONSTANT_Long_info_type
@@ -726,7 +732,7 @@ void ByteCodeClassData::parseFieldAttributes(DataInputStream* is, FieldInfo* fie
 			//}
 			//info = attribute;
 		} else if (s->equals("StackMapTable")) {
-			for (size_t i = 0; i < attribute_length; ++i) {
+			for (int32_t i = 0; i < attributeLength; ++i) {
 				is->readByte();
 			}
 		} else if (s->equals("Signature")) {
@@ -751,7 +757,7 @@ void ByteCodeClassData::parseFieldAttributes(DataInputStream* is, FieldInfo* fie
 				}
 			}
 		} else {
-			for (size_t i = 0; i < attribute_length; ++i) {
+			for (int32_t i = 0; i < attributeLength; ++i) {
 				is->readByte();
 			}
 		}
@@ -759,49 +765,40 @@ void ByteCodeClassData::parseFieldAttributes(DataInputStream* is, FieldInfo* fie
 }
 
 void ByteCodeClassData::parseMethodAttributes(DataInputStream* is, MethodInfo* methodInfo, ByteCodeMethod* byteCodeMethod) {
-	uint16_t attributes_count = is->readShort();
-	for (size_t attribute_index = 0; attribute_index < attributes_count; ++attribute_index) {
-		int16_t nameIndex = is->readShort();
-		int32_t attribute_length = is->readInt();
-
+	uint16_t attributesCount = is->readShort();
+	for (int32_t attributeIndex = 0; attributeIndex < attributesCount; ++attributeIndex) {
+		uint16_t nameIndex = is->readShort();
+		int32_t attributeLength = is->readInt();
 		$var(String, s, constantPool->getUTF8(nameIndex));
-
 		if (s->equals("Code")) {
-			byteCodeMethod->max_stack = is->readShort();//eat_u2();
-			byteCodeMethod->max_locals = is->readShort();//eat_u2();
-			uint32_t code_length = is->readInt();
-		//	byteCodeMethod->code.resize(code_length);
-			$set(byteCodeMethod, code, is->readNBytes(code_length));
-		//	memcpy(reinterpret_cast<char *>(byteCodeMethod->code.data()), bytes->begin(), code_length);
-			//	in.read(reinterpret_cast<char *>(attribute->code.data()), code_length);
-
-			uint16_t exception_table_length = is->readShort();//eat_u2();
-			byteCodeMethod->exception_table.reserve(exception_table_length);
-			for (int i = 0; i < exception_table_length; ++i) {
+			byteCodeMethod->maxStack = is->readShort();
+			byteCodeMethod->maxLocals = is->readShort();
+			uint32_t codeLength = is->readInt();
+			$set(byteCodeMethod, code, is->readNBytes(codeLength));
+			uint16_t exceptionTableLength = is->readShort();
+			byteCodeMethod->exceptionTable.reserve(exceptionTableLength);
+			for (int i = 0; i < exceptionTableLength; ++i) {
 				ExceptionTableEntry entry{};
-				entry.start_pc = is->readShort();//eat_u2();
-				entry.end_pc = is->readShort();//eat_u2();
-				entry.handler_pc = is->readShort();//eat_u2();
-				entry.catch_type = is->readShort();//eat_u2();
-				byteCodeMethod->exception_table.push_back(entry);
+				entry.start_pc = is->readShort();
+				entry.end_pc = is->readShort();
+				entry.handler_pc = is->readShort();
+				entry.catch_type = is->readShort();
+				byteCodeMethod->exceptionTable.push_back(entry);
 			}
 			this->parseMethodCodeAttributes(is, methodInfo);
 		} else if (s->equals("StackMapTable")) {
-//			info = new StackMapTable_attribute();
-			// I think/hope this is only used for verification
-			for (size_t i = 0; i < attribute_length; ++i) {
-				//eat_u1();
+			for (int32_t i = 0; i < attributeLength; ++i) {
 				is->readByte();
 			}
 		//}
 		// TODO
 		//else if (s->equals("Exceptions")) {
 		//	Exceptions_attribute* attribute = new Exceptions_attribute;
-		//	u2 number_of_exceptions = is->readShort();//eat_u2();
+		//	u2 number_of_exceptions = is->readShort();
 		//	attribute->exception_index_table.reserve(number_of_exceptions);
-		//	for (size_t i = 0; i < number_of_exceptions; ++i) {
+		//	for (int32_t i = 0; i < number_of_exceptions; ++i) {
 		//		attribute->exception_index_table.push_back(
-		//			(CONSTANT_Class_info*)check_cp_range_and_type(is->readShort(),//eat_u2(),
+		//			(CONSTANT_Class_info*)check_cp_range_and_type(is->readShort(),
 		//				CONSTANT_Class_info_type));
 		//	}
 		//	info = attribute;
@@ -815,12 +812,12 @@ void ByteCodeClassData::parseMethodAttributes(DataInputStream* is, MethodInfo* m
 //			info = new Deprecated_attribute;
 		//} else if (s->equals("MethodParameters")) {
 		//	MethodParameters_attribute* attribute = new MethodParameters_attribute;
-		//	u1 parameters_count = is->readByte();// eat_u1();
+		//	u1 parameters_count = is->readByte();// 
 		//	attribute->parameters.reserve(parameters_count);
-		//	for (size_t i = 0; i < parameters_count; ++i) {
+		//	for (int32_t i = 0; i < parameters_count; ++i) {
 		//		MethodParameter parameter{};
-		//		parameter.name_index = is->readShort();//eat_u2(); // 0 or eat_cp_index()
-		//		parameter.access_flags = is->readShort();//eat_u2();
+		//		parameter.name_index = is->readShort(); //
+		//		parameter.access_flags = is->readShort();
 		//		attribute->parameters.push_back(parameter);
 		//	}
 		////	info = attribute;
@@ -838,7 +835,7 @@ void ByteCodeClassData::parseMethodAttributes(DataInputStream* is, MethodInfo* m
 				}
 			}
 		} else {
-			for (size_t i = 0; i < attribute_length; ++i) {
+			for (int32_t i = 0; i < attributeLength; ++i) {
 				is->readByte();
 			}
 			continue;
@@ -847,26 +844,26 @@ void ByteCodeClassData::parseMethodAttributes(DataInputStream* is, MethodInfo* m
 }
 
 void ByteCodeClassData::parseMethodCodeAttributes(DataInputStream* is, MethodInfo* methodInfo) {
-	uint16_t attributes_count = is->readShort();
-	for (size_t attribute_index = 0; attribute_index < attributes_count; ++attribute_index) {
-		int16_t nameIndex = is->readShort();
-		int32_t attribute_length = is->readInt();
+	uint16_t attributesCount = is->readShort();
+	for (int32_t attributeIndex = 0; attributeIndex < attributesCount; ++attributeIndex) {
+		uint16_t nameIndex = is->readShort();
+		int32_t attributeLength = is->readInt();
 		$var(String, s, constantPool->getUTF8(nameIndex));
 
 		if (s->equals("StackMapTable")) {
 		//	info = new StackMapTable_attribute();
 			// I think/hope this is only used for verification
-			for (size_t i = 0; i < attribute_length; ++i) {
+			for (int32_t i = 0; i < attributeLength; ++i) {
 				is->readByte();
 			}
 		//} else if (s->equals("LineNumberTable")) {
 		//	LineNumberTable_attribute* attribute = new LineNumberTable_attribute;
-		//	u2 line_number_table_length = is->readShort();//eat_u2();
+		//	u2 line_number_table_length = is->readShort();
 		//	attribute->line_number_table.reserve(line_number_table_length);
-		//	for (size_t i = 0; i < line_number_table_length; ++i) {
+		//	for (int32_t i = 0; i < line_number_table_length; ++i) {
 		//		LineNumberTableEntry entry{};
-		//		entry.start_pc = is->readShort();//eat_u2();
-		//		entry.line_number = is->readShort();//eat_u2();
+		//		entry.start_pc = is->readShort();
+		//		entry.line_number = is->readShort();
 		//		attribute->line_number_table.push_back(entry);
 		//	}
 		//	info = attribute;
@@ -875,7 +872,7 @@ void ByteCodeClassData::parseMethodCodeAttributes(DataInputStream* is, MethodInf
 			this->parseAttribute(is, &attr);
 			continue;
 		} else {
-			for (size_t i = 0; i < attribute_length; ++i) {
+			for (int32_t i = 0; i < attributeLength; ++i) {
 				is->readByte();
 			}
 			continue;
@@ -884,13 +881,11 @@ void ByteCodeClassData::parseMethodCodeAttributes(DataInputStream* is, MethodInf
 }
 
 void ByteCodeClassData::parseClassAttributes(DataInputStream* is, ClassInfo* classInfo) {
-	uint16_t attributes_count = is->readShort();
-	for (size_t attribute_index = 0; attribute_index < attributes_count; ++attribute_index) {
-		int16_t nameIndex = is->readShort();
-		int32_t attribute_length = is->readInt();
-
+	uint16_t attributesCount = is->readShort();
+	for (int32_t attributeIndex = 0; attributeIndex < attributesCount; ++attributeIndex) {
+		uint16_t nameIndex = is->readShort();
+		int32_t attributeLength = is->readInt();
 		$var(String, s, constantPool->getUTF8(nameIndex));
-
 		if (s->equals("Signature")) {
 			int16_t utf8Index = is->readShort();
 			if (classInfo != nullptr && utf8Index > 0) {
@@ -901,74 +896,69 @@ void ByteCodeClassData::parseClassAttributes(DataInputStream* is, ClassInfo* cla
 		// TODO
 		//else if (s->equals("SourceFile")) {
 		//	SourceFile_attribute* attribute = new SourceFile_attribute;
-		//	attribute->sourcefile_index = (CONSTANT_Utf8_info*)check_cp_range_and_type(is->readShort(),//eat_u2(),
+		//	attribute->sourcefile_index = (CONSTANT_Utf8_info*)check_cp_range_and_type(is->readShort(),
 		//		CONSTANT_Utf8_info_type);
 		//	info = attribute;
 		//}
 		// TODO
 		//else if (s->equals("SourceDebugExtension")) {
 		//	SourceDebugExtension_attribute* attribute = new SourceDebugExtension_attribute;
-		//	_assign(attribute->debug_extension, is->readString(attribute_length));// eat_utf8_string(attribute_length));
+		//	_assign(attribute->debug_extension, is->readString(attributeLength));
 		//	info = attribute;
 		//}
 		// TODO
 		//else if (s->equals("Deprecated")) {
 		//	info = new Deprecated_attribute;
 		//}
-		//else if (s->equals("BootstrapMethods")) {
-		//	BootstrapMethods_attribute* attribute = new BootstrapMethods_attribute;
-		//	u2 num_bootstrap_methods = is->readShort();//eat_u2();
-		//	attribute->bootstrap_methods.reserve(num_bootstrap_methods);
-		//	//if (highest_parsed_bootstrap_method_attr_index >= num_bootstrap_methods) {
-		//	//	throw ParseError("Constant pool had an invalid bootstrap method attribute index");
-		//	//}
-		//	for (size_t i = 0; i < num_bootstrap_methods; ++i) {
-		//		BootstrapMethod method;
-		//		method.bootstrap_method$ref = (CONSTANT_MethodHandle_info*)check_cp_range_and_type(
-		//			is->readShort(),//eat_u2(), 
-		//			CONSTANT_MethodHandle_info_type);
-		//		u2 num_bootstrap_arguments = is->readShort();//eat_u2();
-		//		method.bootstrap_arguments.reserve(num_bootstrap_arguments);
-		//		for (size_t j = 0; j < num_bootstrap_arguments; ++j) {
-		//			u2 index = is->readShort();//eat_u2();
-		//		//	check_cp_range(index, table.size());
-		//			// TODO check loadable
-		//			method.bootstrap_arguments.push_back(index);
-		//		}
-		//		attribute->bootstrap_methods.push_back(std::move(method));
-		//	}
-		//	info = attribute;
-		//}
+		} else if (s->equals("BootstrapMethods")) {
+			uint16_t numBootstrapMethods = is->readShort();
+			$set(this, bootstrapMethods, $new($Array<BootstrapMethod>, numBootstrapMethods));
+			for (int32_t i = 0; i < numBootstrapMethods; ++i) {
+				$var(BootstrapMethod, bootstrapMethod, $new(BootstrapMethod));
+				bootstrapMethods->set(i, bootstrapMethod);
+				int16_t bootstrap_method_ref = is->readShort();
+				ConstantMethodHandle* methodHandle = constantPool->getMethodHandle(bootstrap_method_ref);
+				$set(bootstrapMethod, methodHandle, methodHandle);
+				int16_t numBootstrapArguments = is->readShort();
+				$set(bootstrapMethod, bootstrapArguments, $new($Array<Object>, numBootstrapArguments));
+				for (int32_t j = 0; j < numBootstrapArguments; ++j) {
+					int16_t bootstrapArgument = is->readShort();
+					ConstantBase* arg = constantPool->getBase(bootstrapArgument);
+					if (arg != nullptr) {
+						// TODO process bootstrap argument
+					}
+					bootstrapMethod->bootstrapArguments->set(j, arg);
+				}
+			}
 		//else if (s->equals("ModuleMainClass")) {
 		//	ModuleMainClass_attribute* attribute = new ModuleMainClass_attribute;
-		//	attribute->main_class_index = is->readShort();//eat_u2();
+		//	attribute->mainClassIndex = is->readShort();
 		//	info = attribute;
 		} else if (s->equals("InnerClasses")) {
-			int16_t number_of_classes = is->readShort();
+			uint16_t number_of_classes = is->readShort();
 			InnerClassInfo* innerClass = nullptr;
 			if (classInfo != nullptr) {
 				classInfo->innerClasses = this->makeInnerClassInfosForClassInfo(number_of_classes);
 				innerClass = classInfo->innerClasses;
 			}
-			for (size_t i = 0; i < number_of_classes; ++i) {
-				uint16_t inner_class_info_index = is->readShort();
-				uint16_t outer_class_info_index = is->readShort();
-				uint16_t inner_name_index = is->readShort();
-				uint16_t inner_class_access_flags = is->readShort();
+			for (int32_t i = 0; i < number_of_classes; ++i) {
+				uint16_t innerClassInfoIndex = is->readShort();
+				uint16_t outerClassInfoIndex = is->readShort();
+				uint16_t innerNameIndex = is->readShort();
+				uint16_t innerClassAccessFlags = is->readShort();
 				if (innerClass != nullptr) {
 					$var(ConstantClass, innerConstClass, nullptr);
-					if (inner_class_info_index > 0) {
-						$assign(innerConstClass, constantPool->getClass(inner_class_info_index));
+					if (innerClassInfoIndex > 0) {
+						$assign(innerConstClass, constantPool->getClass(innerClassInfoIndex));
 					}
 					if (innerConstClass != nullptr) {
 						innerClass->innerClass = this->makeCharPtrForClassInfo($ref(innerConstClass->utf8->replace('/', '.')));
 					} else {
 						innerClass->innerClass = nullptr;
 					}
-
 					$var(ConstantClass, outerConstClass, nullptr);
-					if (outer_class_info_index > 0) {
-						$assign(outerConstClass, constantPool->getClass(outer_class_info_index));
+					if (outerClassInfoIndex > 0) {
+						$assign(outerConstClass, constantPool->getClass(outerClassInfoIndex));
 					}
 					if (outerConstClass != nullptr) {
 						innerClass->outerClass = this->makeCharPtrForClassInfo($ref(outerConstClass->utf8->replace('/', '.')));
@@ -977,8 +967,8 @@ void ByteCodeClassData::parseClassAttributes(DataInputStream* is, ClassInfo* cla
 					}
 
 					$var(String, innerName, nullptr);
-					if (inner_name_index > 0) {
-						$assign(innerName, constantPool->getUTF8(inner_name_index));
+					if (innerNameIndex > 0) {
+						$assign(innerName, constantPool->getUTF8(innerNameIndex));
 					}
 					if (innerName != nullptr) {
 						innerClass->innerName = this->makeCharPtrForClassInfo(innerName);
@@ -986,22 +976,21 @@ void ByteCodeClassData::parseClassAttributes(DataInputStream* is, ClassInfo* cla
 						innerClass->innerName = nullptr;
 					}
 
-					innerClass->innerClassAccessFlags = inner_class_access_flags;
-
+					innerClass->innerClassAccessFlags = innerClassAccessFlags;
 					innerClass++;
 				}
 			}
 		} else if (s->equals("EnclosingMethod")) {
-			int16_t class_index = is->readShort();
-			int16_t method_index = is->readShort();
+			uint16_t classIndex = is->readShort();
+			uint16_t methodIndex = is->readShort();
 			if (classInfo != nullptr) {
 				$var(ConstantClass, constClass, nullptr);
-				if (class_index > 0) {
-					$assign(constClass, constantPool->getClass(class_index));
+				if (classIndex > 0) {
+					$assign(constClass, constantPool->getClass(classIndex));
 				}
 				$var(ConstantNameAndType, constNameAndType, nullptr);
-				if (method_index > 0) {
-					$assign(constNameAndType, constantPool->getNameAndType(method_index));
+				if (methodIndex > 0) {
+					$assign(constNameAndType, constantPool->getNameAndType(methodIndex));
 				}
 				classInfo->enclosingMethod = this->makeEnclosingMethodInfoForClassInfo();
 				if (constClass != nullptr) {
@@ -1018,28 +1007,28 @@ void ByteCodeClassData::parseClassAttributes(DataInputStream* is, ClassInfo* cla
 				}
 			}
 		} else if (s->equals("RuntimeVisibleAnnotations")) {
-			int16_t num_annotations = is->readShort();
+			uint16_t numAnnotations = is->readShort();
 			CompoundAttribute* annotation = nullptr;
 			if (classInfo != nullptr) {
-				classInfo->annotations = this->makeCompoundAttributesForClassInfo(num_annotations);
+				classInfo->annotations = this->makeCompoundAttributesForClassInfo(numAnnotations);
 				annotation = classInfo->annotations;
 			}
-			for (int32_t i = 0; i < num_annotations; i++) {
+			for (int32_t i = 0; i < numAnnotations; i++) {
 				parseCompoundAttribute(is, annotation);
 				if (annotation != nullptr) {
 					annotation++;
 				}
 			}
 		} else if (s->equals("NestMembers")) {
-			for (size_t i = 0; i < attribute_length; ++i) {
+			for (int32_t i = 0; i < attributeLength; ++i) {
 				is->readByte();
 			}
 		} else if (s->equals("NestHost")) {
-			for (size_t i = 0; i < attribute_length; ++i) {
+			for (int32_t i = 0; i < attributeLength; ++i) {
 				is->readByte();
 			}
 		} else {
-			for (size_t i = 0; i < attribute_length; ++i) {
+			for (int32_t i = 0; i < attributeLength; ++i) {
 				is->readByte();
 			}
 			continue;
@@ -1112,9 +1101,9 @@ void ByteCodeClassData::parseAttribute(::java::io::DataInputStream* is, Attribut
 		if (attribute != nullptr && constIndex > 0) {
 			int32_t v = constantPool->getInt(constIndex);
 			if (v == 1) {
-				attribute->value = this->makeCharPtrForClassInfo($cstr("true"));
+				attribute->value = this->makeCharPtrForClassInfo("true"_s);
 			} else {
-				attribute->value = this->makeCharPtrForClassInfo($cstr("false"));
+				attribute->value = this->makeCharPtrForClassInfo("false"_s);
 			}
 		}
 		break;
@@ -1155,7 +1144,7 @@ void ByteCodeClassData::parseAttribute(::java::io::DataInputStream* is, Attribut
 			if (nameIndex > 0) {
 				$assign(name, constantPool->getUTF8(nameIndex));
 			}
-			$var(String, v, String::valueOf({ descriptor, $cstr(" "), name }));
+			$var(String, v, String::valueOf({ descriptor, " "_s, name }));
 			attribute->value = this->makeCharPtrForClassInfo($$str(v));
 		}
 		break;
@@ -1198,14 +1187,14 @@ void ByteCodeClassData::parseAttribute(::java::io::DataInputStream* is, Attribut
 ByteCodeClass* ByteCodeClass::create($bytes* b, int32_t off, int32_t len) {
 	ByteCodeClass* bcClass = $allocStatic<ByteCodeClass>();
 	bcClass->init$();
-	$var($bytes, bytes, $new<$bytes>(len));
+	$var($bytes, bytes, $new($bytes, len));
 	bytes->setArray(0, b, off, len);
 	$set(bcClass, bytes, bytes);
 	return bcClass;
 }
 
 void ByteCodeClassData::init$() {
-	$set(this, byteCodeMethods, $new<ArrayList>());
+	$set(this, byteCodeMethods, $new(ArrayList));
 }
 
 int32_t getCategory(String* type) {
@@ -1217,9 +1206,9 @@ int32_t getCategory(String* type) {
 	return 1;
 }
 
-void ByteCodeClassData::parse($bytes* b, ClassInfo* classInfo) {
-	$var(ByteArrayInputStream, bais, $new<ByteArrayInputStream>(b));
-	$var(DataInputStream, is, $new<DataInputStream>(bais));
+void ByteCodeClassData::parse(ByteCodeClass* clazz, $bytes* b, ClassInfo* classInfo) {
+	$var(ByteArrayInputStream, bais, $new(ByteArrayInputStream, b));
+	$var(DataInputStream, is, $new(DataInputStream, bais));
 	int32_t magic = is->readInt();
 	if (magic != 0xCAFEBABE) {
 		$throwNew(RuntimeException, $$concat("expected 0xCAFEBABE, not ", $$str(magic)));
@@ -1261,8 +1250,8 @@ void ByteCodeClassData::parse($bytes* b, ClassInfo* classInfo) {
 
 	int16_t interfaces_count = is->readShort();
 	if (interfaces_count > 0) {
-		$var($StringArray, interfaces, $new<$StringArray>(interfaces_count));
-		$var(StringBuilder, sb, $new<StringBuilder>());
+		$var($StringArray, interfaces, $new($StringArray, interfaces_count));
+		$var(StringBuilder, sb, $new(StringBuilder));
 		for (int16_t i = 0; i < interfaces_count; i++) {
 			int16_t interfaceClassIndex = is->readShort();
 			if (classInfo != nullptr) {
@@ -1353,15 +1342,11 @@ void ByteCodeClassData::parse($bytes* b, ClassInfo* classInfo) {
 			if (descriptorUtf8Index > 0) {
 				$assign(descriptor, this->constantPool->getUTF8(descriptorUtf8Index));
 			}
-			$var(ByteCodeMethod, bcMethod, $new<ByteCodeMethod>());
-		//	method_info method_info{};
-		//	method_info.clazz = bcClass;
+			$var(ByteCodeMethod, bcMethod, $new(ByteCodeMethod));
+			bcMethod->clazz = clazz;
 			bcMethod->accessFlags = accessFlags;
-
 			$set(bcMethod, name, methodName);
-
 			$set(bcMethod, descriptor, descriptor);
-
 			byteCodeMethods->add(bcMethod);
 
 			// finalize
@@ -1401,12 +1386,12 @@ void ByteCodeClassData::parse($bytes* b, ClassInfo* classInfo) {
 			parseMethodAttributes(is, methodInfo, bcMethod);
 
 			$var($StringArray, sa, Class::parseMethodDescriptor(descriptor));
-			bcMethod->parameter_count = sa->length - 1;
-			bcMethod->stack_slots_for_parameters = bcMethod->is_static() ? 0 : 1;
-			for (int32_t i = 0; i < bcMethod->parameter_count; i++) {
-				bcMethod->stack_slots_for_parameters += getCategory(sa->get(i));
+			bcMethod->parameterCount = sa->length - 1;
+			bcMethod->stackSlotsForParameters = bcMethod->is_static() ? 0 : 1;
+			for (int32_t i = 0; i < bcMethod->parameterCount; i++) {
+				bcMethod->stackSlotsForParameters += getCategory(sa->get(i));
 			}
-			bcMethod->return_category = getCategory(sa->get(bcMethod->parameter_count));
+			bcMethod->returnCategory = getCategory(sa->get(bcMethod->parameterCount));
 
 			if (methodInfo != nullptr) {
 				methodInfo->name = this->makeCharPtrForClassInfo(methodName);
@@ -1420,8 +1405,38 @@ void ByteCodeClassData::parse($bytes* b, ClassInfo* classInfo) {
 	parseClassAttributes(is, classInfo);
 }
 
+//Class* ByteCodeMethod::class$ = nullptr;
+//Class* ByteCodeMethod::load$(String* name, bool initialize) {
+//	$loadClass(Frame, name, initialize, (ClassInfo*)nullptr, ($InitClassFunction)nullptr);
+//	return class$;
+//}
+//
+//Class* VfptrInfo::class$ = nullptr;
+//Class* VfptrInfo::load$(String* name, bool initialize) {
+//	$loadClass(Frame, name, initialize, (ClassInfo*)nullptr, ($InitClassFunction)nullptr);
+//	return class$;
+//}
+
 VfptrInfo::VfptrInfo() {
 }
+
+//Class* BootstrapMethod::class$ = nullptr;
+//Class* BootstrapMethod::load$(String* name, bool initialize) {
+//	$loadClass(Frame, name, initialize, (ClassInfo*)nullptr, ($InitClassFunction)nullptr);
+//	return class$;
+//}
+//
+//Class* ByteCodeClassData::class$ = nullptr;
+//Class* ByteCodeClassData::load$(String* name, bool initialize) {
+//	$loadClass(Frame, name, initialize, (ClassInfo*)nullptr, ($InitClassFunction)nullptr);
+//	return class$;
+//}
+
+//Class* MethodCache::class$ = nullptr;
+//Class* MethodCache::load$(String* name, bool initialize) {
+//	$loadClass(Frame, name, initialize, (ClassInfo*)nullptr, ($InitClassFunction)nullptr);
+//	return class$;
+//}
 
 		} // interpreter
 	} // lang

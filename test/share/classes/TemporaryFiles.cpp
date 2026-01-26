@@ -44,14 +44,14 @@ using $Iterator = ::java::util::Iterator;
 using $Set = ::java::util::Set;
 
 $MethodInfo _TemporaryFiles_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TemporaryFiles::*)()>(&TemporaryFiles::init$))},
-	{"checkInDirectory", "(Ljava/nio/file/Path;Ljava/nio/file/Path;)V", nullptr, $STATIC, $method(static_cast<void(*)($Path*,$Path*)>(&TemporaryFiles::checkInDirectory))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&TemporaryFiles::main)), "java.io.IOException"},
-	{"testInvalidFileTemp", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $STATIC, $method(static_cast<void(*)($String*,$String*)>(&TemporaryFiles::testInvalidFileTemp)), "java.io.IOException"},
-	{"testTempDirectory", "(Ljava/lang/String;Ljava/nio/file/Path;)V", nullptr, $STATIC, $method(static_cast<void(*)($String*,$Path*)>(&TemporaryFiles::testTempDirectory)), "java.io.IOException"},
-	{"testTempDirectory", "(Ljava/lang/String;)V", nullptr, $STATIC, $method(static_cast<void(*)($String*)>(&TemporaryFiles::testTempDirectory)), "java.io.IOException"},
-	{"testTempFile", "(Ljava/lang/String;Ljava/lang/String;Ljava/nio/file/Path;)V", nullptr, $STATIC, $method(static_cast<void(*)($String*,$String*,$Path*)>(&TemporaryFiles::testTempFile)), "java.io.IOException"},
-	{"testTempFile", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $STATIC, $method(static_cast<void(*)($String*,$String*)>(&TemporaryFiles::testTempFile)), "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TemporaryFiles, init$, void)},
+	{"checkInDirectory", "(Ljava/nio/file/Path;Ljava/nio/file/Path;)V", nullptr, $STATIC, $staticMethod(TemporaryFiles, checkInDirectory, void, $Path*, $Path*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TemporaryFiles, main, void, $StringArray*), "java.io.IOException"},
+	{"testInvalidFileTemp", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(TemporaryFiles, testInvalidFileTemp, void, $String*, $String*), "java.io.IOException"},
+	{"testTempDirectory", "(Ljava/lang/String;Ljava/nio/file/Path;)V", nullptr, $STATIC, $staticMethod(TemporaryFiles, testTempDirectory, void, $String*, $Path*), "java.io.IOException"},
+	{"testTempDirectory", "(Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(TemporaryFiles, testTempDirectory, void, $String*), "java.io.IOException"},
+	{"testTempFile", "(Ljava/lang/String;Ljava/lang/String;Ljava/nio/file/Path;)V", nullptr, $STATIC, $staticMethod(TemporaryFiles, testTempFile, void, $String*, $String*, $Path*), "java.io.IOException"},
+	{"testTempFile", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(TemporaryFiles, testTempFile, void, $String*, $String*), "java.io.IOException"},
 	{}
 };
 

@@ -14,7 +14,7 @@ namespace com {
 			namespace provider {
 
 $MethodInfo _PBKDF2Core$HmacSHA256_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PBKDF2Core$HmacSHA256::*)()>(&PBKDF2Core$HmacSHA256::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PBKDF2Core$HmacSHA256, init$, void)},
 	{}
 };
 

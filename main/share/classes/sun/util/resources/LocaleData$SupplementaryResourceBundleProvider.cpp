@@ -14,7 +14,7 @@ namespace sun {
 		namespace resources {
 
 $MethodInfo _LocaleData$SupplementaryResourceBundleProvider_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(LocaleData$SupplementaryResourceBundleProvider::*)()>(&LocaleData$SupplementaryResourceBundleProvider::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(LocaleData$SupplementaryResourceBundleProvider, init$, void)},
 	{}
 };
 

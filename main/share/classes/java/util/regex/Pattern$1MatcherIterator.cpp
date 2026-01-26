@@ -31,9 +31,9 @@ $FieldInfo _Pattern$1MatcherIterator_FieldInfo_[] = {
 };
 
 $MethodInfo _Pattern$1MatcherIterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/regex/Pattern;Ljava/lang/CharSequence;)V", "()V", 0, $method(static_cast<void(Pattern$1MatcherIterator::*)($Pattern*,$CharSequence*)>(&Pattern$1MatcherIterator::init$))},
-	{"hasNext", "()Z", nullptr, $PUBLIC},
-	{"next", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/regex/Pattern;Ljava/lang/CharSequence;)V", "()V", 0, $method(Pattern$1MatcherIterator, init$, void, $Pattern*, $CharSequence*)},
+	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(Pattern$1MatcherIterator, hasNext, bool)},
+	{"next", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Pattern$1MatcherIterator, next, $Object*)},
 	{}
 };
 

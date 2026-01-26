@@ -60,12 +60,12 @@ $FieldInfo _TlsKeyMaterialGenerator_FieldInfo_[] = {
 };
 
 $MethodInfo _TlsKeyMaterialGenerator_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TlsKeyMaterialGenerator::*)()>(&TlsKeyMaterialGenerator::init$))},
-	{"engineGenerateKey", "()Ljavax/crypto/SecretKey;", nullptr, $PROTECTED},
-	{"engineGenerateKey0", "([B)Ljavax/crypto/SecretKey;", nullptr, $PRIVATE, $method(static_cast<$SecretKey*(TlsKeyMaterialGenerator::*)($bytes*)>(&TlsKeyMaterialGenerator::engineGenerateKey0)), "java.security.GeneralSecurityException"},
-	{"engineInit", "(Ljava/security/SecureRandom;)V", nullptr, $PROTECTED},
-	{"engineInit", "(Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, nullptr, "java.security.InvalidAlgorithmParameterException"},
-	{"engineInit", "(ILjava/security/SecureRandom;)V", nullptr, $PROTECTED},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TlsKeyMaterialGenerator, init$, void)},
+	{"engineGenerateKey", "()Ljavax/crypto/SecretKey;", nullptr, $PROTECTED, $virtualMethod(TlsKeyMaterialGenerator, engineGenerateKey, $SecretKey*)},
+	{"engineGenerateKey0", "([B)Ljavax/crypto/SecretKey;", nullptr, $PRIVATE, $method(TlsKeyMaterialGenerator, engineGenerateKey0, $SecretKey*, $bytes*), "java.security.GeneralSecurityException"},
+	{"engineInit", "(Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(TlsKeyMaterialGenerator, engineInit, void, $SecureRandom*)},
+	{"engineInit", "(Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(TlsKeyMaterialGenerator, engineInit, void, $AlgorithmParameterSpec*, $SecureRandom*), "java.security.InvalidAlgorithmParameterException"},
+	{"engineInit", "(ILjava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(TlsKeyMaterialGenerator, engineInit, void, int32_t, $SecureRandom*)},
 	{}
 };
 

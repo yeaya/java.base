@@ -24,8 +24,8 @@ using $Exception = ::java::lang::Exception;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _CheckError_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CheckError::*)()>(&CheckError::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&CheckError::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CheckError, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(CheckError, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

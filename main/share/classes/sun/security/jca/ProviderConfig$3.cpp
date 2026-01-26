@@ -33,8 +33,8 @@ $FieldInfo _ProviderConfig$3_FieldInfo_[] = {
 };
 
 $MethodInfo _ProviderConfig$3_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/jca/ProviderConfig;)V", nullptr, 0, $method(static_cast<void(ProviderConfig$3::*)($ProviderConfig*)>(&ProviderConfig$3::init$))},
-	{"run", "()Ljava/security/Provider;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/security/jca/ProviderConfig;)V", nullptr, 0, $method(ProviderConfig$3, init$, void, $ProviderConfig*)},
+	{"run", "()Ljava/security/Provider;", nullptr, $PUBLIC, $virtualMethod(ProviderConfig$3, run, $Object*)},
 	{}
 };
 

@@ -18,14 +18,14 @@ namespace java {
 	namespace util {
 
 $MethodInfo _Base64_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(Base64::*)()>(&Base64::init$))},
-	{"getDecoder", "()Ljava/util/Base64$Decoder;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Base64$Decoder*(*)()>(&Base64::getDecoder))},
-	{"getEncoder", "()Ljava/util/Base64$Encoder;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Base64$Encoder*(*)()>(&Base64::getEncoder))},
-	{"getMimeDecoder", "()Ljava/util/Base64$Decoder;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Base64$Decoder*(*)()>(&Base64::getMimeDecoder))},
-	{"getMimeEncoder", "()Ljava/util/Base64$Encoder;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Base64$Encoder*(*)()>(&Base64::getMimeEncoder))},
-	{"getMimeEncoder", "(I[B)Ljava/util/Base64$Encoder;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Base64$Encoder*(*)(int32_t,$bytes*)>(&Base64::getMimeEncoder))},
-	{"getUrlDecoder", "()Ljava/util/Base64$Decoder;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Base64$Decoder*(*)()>(&Base64::getUrlDecoder))},
-	{"getUrlEncoder", "()Ljava/util/Base64$Encoder;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Base64$Encoder*(*)()>(&Base64::getUrlEncoder))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(Base64, init$, void)},
+	{"getDecoder", "()Ljava/util/Base64$Decoder;", nullptr, $PUBLIC | $STATIC, $staticMethod(Base64, getDecoder, $Base64$Decoder*)},
+	{"getEncoder", "()Ljava/util/Base64$Encoder;", nullptr, $PUBLIC | $STATIC, $staticMethod(Base64, getEncoder, $Base64$Encoder*)},
+	{"getMimeDecoder", "()Ljava/util/Base64$Decoder;", nullptr, $PUBLIC | $STATIC, $staticMethod(Base64, getMimeDecoder, $Base64$Decoder*)},
+	{"getMimeEncoder", "()Ljava/util/Base64$Encoder;", nullptr, $PUBLIC | $STATIC, $staticMethod(Base64, getMimeEncoder, $Base64$Encoder*)},
+	{"getMimeEncoder", "(I[B)Ljava/util/Base64$Encoder;", nullptr, $PUBLIC | $STATIC, $staticMethod(Base64, getMimeEncoder, $Base64$Encoder*, int32_t, $bytes*)},
+	{"getUrlDecoder", "()Ljava/util/Base64$Decoder;", nullptr, $PUBLIC | $STATIC, $staticMethod(Base64, getUrlDecoder, $Base64$Decoder*)},
+	{"getUrlEncoder", "()Ljava/util/Base64$Encoder;", nullptr, $PUBLIC | $STATIC, $staticMethod(Base64, getUrlEncoder, $Base64$Encoder*)},
 	{}
 };
 

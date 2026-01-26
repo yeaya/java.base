@@ -58,12 +58,12 @@ $FieldInfo _HmacDrbg_FieldInfo_[] = {
 };
 
 $MethodInfo _HmacDrbg_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/SecureRandomParameters;)V", nullptr, $PUBLIC, $method(static_cast<void(HmacDrbg::*)($SecureRandomParameters*)>(&HmacDrbg::init$))},
-	{"generateAlgorithm", "([B[B)V", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"hashReseedInternal", "(Ljava/util/List;)V", "(Ljava/util/List<[B>;)V", $PROTECTED | $FINAL | $SYNCHRONIZED},
-	{"initEngine", "()V", nullptr, $PROTECTED},
-	{"status", "()V", nullptr, $PRIVATE, $method(static_cast<void(HmacDrbg::*)()>(&HmacDrbg::status))},
-	{"update", "(Ljava/util/List;)V", "(Ljava/util/List<[B>;)V", $PRIVATE, $method(static_cast<void(HmacDrbg::*)($List*)>(&HmacDrbg::update))},
+	{"<init>", "(Ljava/security/SecureRandomParameters;)V", nullptr, $PUBLIC, $method(HmacDrbg, init$, void, $SecureRandomParameters*)},
+	{"generateAlgorithm", "([B[B)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(HmacDrbg, generateAlgorithm, void, $bytes*, $bytes*)},
+	{"hashReseedInternal", "(Ljava/util/List;)V", "(Ljava/util/List<[B>;)V", $PROTECTED | $FINAL | $SYNCHRONIZED, $virtualMethod(HmacDrbg, hashReseedInternal, void, $List*)},
+	{"initEngine", "()V", nullptr, $PROTECTED, $virtualMethod(HmacDrbg, initEngine, void)},
+	{"status", "()V", nullptr, $PRIVATE, $method(HmacDrbg, status, void)},
+	{"update", "(Ljava/util/List;)V", "(Ljava/util/List<[B>;)V", $PRIVATE, $method(HmacDrbg, update, void, $List*)},
 	{}
 };
 

@@ -34,13 +34,13 @@ $FieldInfo _TreeMap$EntrySet_FieldInfo_[] = {
 };
 
 $MethodInfo _TreeMap$EntrySet_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/TreeMap;)V", nullptr, 0, $method(static_cast<void(TreeMap$EntrySet::*)($TreeMap*)>(&TreeMap$EntrySet::init$))},
-	{"clear", "()V", nullptr, $PUBLIC},
-	{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/util/Map$Entry<TK;TV;>;>;", $PUBLIC},
-	{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"size", "()I", nullptr, $PUBLIC},
-	{"spliterator", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<Ljava/util/Map$Entry<TK;TV;>;>;", $PUBLIC},
+	{"<init>", "(Ljava/util/TreeMap;)V", nullptr, 0, $method(TreeMap$EntrySet, init$, void, $TreeMap*)},
+	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(TreeMap$EntrySet, clear, void)},
+	{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(TreeMap$EntrySet, contains, bool, Object$*)},
+	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/util/Map$Entry<TK;TV;>;>;", $PUBLIC, $virtualMethod(TreeMap$EntrySet, iterator, $Iterator*)},
+	{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(TreeMap$EntrySet, remove, bool, Object$*)},
+	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(TreeMap$EntrySet, size, int32_t)},
+	{"spliterator", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<Ljava/util/Map$Entry<TK;TV;>;>;", $PUBLIC, $virtualMethod(TreeMap$EntrySet, spliterator, $Spliterator*)},
 	{}
 };
 

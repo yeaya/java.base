@@ -38,8 +38,8 @@ $FieldInfo _ForkJoinPool$DefaultForkJoinWorkerThreadFactory_FieldInfo_[] = {
 };
 
 $MethodInfo _ForkJoinPool$DefaultForkJoinWorkerThreadFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ForkJoinPool$DefaultForkJoinWorkerThreadFactory::*)()>(&ForkJoinPool$DefaultForkJoinWorkerThreadFactory::init$))},
-	{"newThread", "(Ljava/util/concurrent/ForkJoinPool;)Ljava/util/concurrent/ForkJoinWorkerThread;", nullptr, $PUBLIC | $FINAL},
+	{"<init>", "()V", nullptr, 0, $method(ForkJoinPool$DefaultForkJoinWorkerThreadFactory, init$, void)},
+	{"newThread", "(Ljava/util/concurrent/ForkJoinPool;)Ljava/util/concurrent/ForkJoinWorkerThread;", nullptr, $PUBLIC | $FINAL, $virtualMethod(ForkJoinPool$DefaultForkJoinWorkerThreadFactory, newThread, $ForkJoinWorkerThread*, $ForkJoinPool*)},
 	{}
 };
 

@@ -60,8 +60,8 @@ namespace sun {
 		namespace ssl {
 
 $MethodInfo _NewSessionTicket$T13NewSessionTicketProducer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(NewSessionTicket$T13NewSessionTicketProducer::*)()>(&NewSessionTicket$T13NewSessionTicketProducer::init$))},
-	{"produce", "(Lsun/security/ssl/ConnectionContext;)[B", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(NewSessionTicket$T13NewSessionTicketProducer, init$, void)},
+	{"produce", "(Lsun/security/ssl/ConnectionContext;)[B", nullptr, $PUBLIC, $virtualMethod(NewSessionTicket$T13NewSessionTicketProducer, produce, $bytes*, $ConnectionContext*), "java.io.IOException"},
 	{}
 };
 

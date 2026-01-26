@@ -17,8 +17,8 @@ $FieldInfo _SwapMicroBenchmark$1_FieldInfo_[] = {
 };
 
 $MethodInfo _SwapMicroBenchmark$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/CountDownLatch;)V", nullptr, 0, $method(static_cast<void(SwapMicroBenchmark$1::*)($CountDownLatch*)>(&SwapMicroBenchmark$1::init$))},
-	{"finalize", "()V", nullptr, $PROTECTED},
+	{"<init>", "(Ljava/util/concurrent/CountDownLatch;)V", nullptr, 0, $method(SwapMicroBenchmark$1, init$, void, $CountDownLatch*)},
+	{"finalize", "()V", nullptr, $PROTECTED, $virtualMethod(SwapMicroBenchmark$1, finalize, void)},
 	{}
 };
 

@@ -126,14 +126,14 @@ $FieldInfo _Main$Command_FieldInfo_[] = {
 };
 
 $MethodInfo _Main$Command_MethodInfo_[] = {
-	{"$values", "()[Lsun/security/tools/keytool/Main$Command;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Main$CommandArray*(*)()>(&Main$Command::$values))},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;[Lsun/security/tools/keytool/Main$Option;)V", "(Ljava/lang/String;[Lsun/security/tools/keytool/Main$Option;)V", $PRIVATE | $TRANSIENT, $method(static_cast<void(Main$Command::*)($String*,int32_t,$String*,$Main$OptionArray*)>(&Main$Command::init$))},
-	{"getAltName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(static_cast<$String*(Main$Command::*)()>(&Main$Command::getAltName))},
-	{"getCommand", "(Ljava/lang/String;)Lsun/security/tools/keytool/Main$Command;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Main$Command*(*)($String*)>(&Main$Command::getCommand))},
-	{"setAltName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(Main$Command::*)($String*)>(&Main$Command::setAltName))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"valueOf", "(Ljava/lang/String;)Lsun/security/tools/keytool/Main$Command;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Main$Command*(*)($String*)>(&Main$Command::valueOf))},
-	{"values", "()[Lsun/security/tools/keytool/Main$Command;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Main$CommandArray*(*)()>(&Main$Command::values))},
+	{"$values", "()[Lsun/security/tools/keytool/Main$Command;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Main$Command, $values, $Main$CommandArray*)},
+	{"<init>", "(Ljava/lang/String;ILjava/lang/String;[Lsun/security/tools/keytool/Main$Option;)V", "(Ljava/lang/String;[Lsun/security/tools/keytool/Main$Option;)V", $PRIVATE | $TRANSIENT, $method(Main$Command, init$, void, $String*, int32_t, $String*, $Main$OptionArray*)},
+	{"getAltName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(Main$Command, getAltName, $String*)},
+	{"getCommand", "(Ljava/lang/String;)Lsun/security/tools/keytool/Main$Command;", nullptr, $PUBLIC | $STATIC, $staticMethod(Main$Command, getCommand, Main$Command*, $String*)},
+	{"setAltName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Main$Command, setAltName, void, $String*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Main$Command, toString, $String*)},
+	{"valueOf", "(Ljava/lang/String;)Lsun/security/tools/keytool/Main$Command;", nullptr, $PUBLIC | $STATIC, $staticMethod(Main$Command, valueOf, Main$Command*, $String*)},
+	{"values", "()[Lsun/security/tools/keytool/Main$Command;", nullptr, $PUBLIC | $STATIC, $staticMethod(Main$Command, values, $Main$CommandArray*)},
 	{}
 };
 

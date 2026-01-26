@@ -27,9 +27,9 @@ $FieldInfo _DirectoryIteratorException_FieldInfo_[] = {
 };
 
 $MethodInfo _DirectoryIteratorException_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/IOException;)V", nullptr, $PUBLIC, $method(static_cast<void(DirectoryIteratorException::*)($IOException*)>(&DirectoryIteratorException::init$))},
-	{"getCause", "()Ljava/io/IOException;", nullptr, $PUBLIC},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(DirectoryIteratorException::*)($ObjectInputStream*)>(&DirectoryIteratorException::readObject)), "java.io.IOException,java.lang.ClassNotFoundException"},
+	{"<init>", "(Ljava/io/IOException;)V", nullptr, $PUBLIC, $method(DirectoryIteratorException, init$, void, $IOException*)},
+	{"getCause", "()Ljava/io/IOException;", nullptr, $PUBLIC, $virtualMethod(DirectoryIteratorException, getCause, $Throwable*)},
+	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(DirectoryIteratorException, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
 	{}
 };
 

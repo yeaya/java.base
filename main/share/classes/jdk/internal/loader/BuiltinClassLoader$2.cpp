@@ -48,8 +48,8 @@ $FieldInfo _BuiltinClassLoader$2_FieldInfo_[] = {
 };
 
 $MethodInfo _BuiltinClassLoader$2_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/loader/BuiltinClassLoader;Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(BuiltinClassLoader$2::*)($BuiltinClassLoader*,$String*)>(&BuiltinClassLoader$2::init$))},
-	{"run", "()Ljava/util/List;", "()Ljava/util/List<Ljava/net/URL;>;", $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljdk/internal/loader/BuiltinClassLoader;Ljava/lang/String;)V", nullptr, 0, $method(BuiltinClassLoader$2, init$, void, $BuiltinClassLoader*, $String*)},
+	{"run", "()Ljava/util/List;", "()Ljava/util/List<Ljava/net/URL;>;", $PUBLIC, $virtualMethod(BuiltinClassLoader$2, run, $Object*), "java.io.IOException"},
 	{}
 };
 

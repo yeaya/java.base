@@ -53,17 +53,17 @@ $FieldInfo _Streams$RangeIntSpliterator_FieldInfo_[] = {
 };
 
 $MethodInfo _Streams$RangeIntSpliterator_MethodInfo_[] = {
-	{"<init>", "(IIZ)V", nullptr, 0, $method(static_cast<void(Streams$RangeIntSpliterator::*)(int32_t,int32_t,bool)>(&Streams$RangeIntSpliterator::init$))},
-	{"<init>", "(III)V", nullptr, $PRIVATE, $method(static_cast<void(Streams$RangeIntSpliterator::*)(int32_t,int32_t,int32_t)>(&Streams$RangeIntSpliterator::init$))},
-	{"characteristics", "()I", nullptr, $PUBLIC},
-	{"estimateSize", "()J", nullptr, $PUBLIC},
-	{"forEachRemaining", "(Ljava/util/function/IntConsumer;)V", nullptr, $PUBLIC, nullptr, nullptr, nullptr, _Streams$RangeIntSpliterator_MethodAnnotations_forEachRemaining4},
-	{"forEachRemaining", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, nullptr, nullptr, nullptr, _Streams$RangeIntSpliterator_MethodAnnotations_forEachRemaining5},
-	{"getComparator", "()Ljava/util/Comparator;", "()Ljava/util/Comparator<-Ljava/lang/Integer;>;", $PUBLIC},
-	{"splitPoint", "(J)I", nullptr, $PRIVATE, $method(static_cast<int32_t(Streams$RangeIntSpliterator::*)(int64_t)>(&Streams$RangeIntSpliterator::splitPoint))},
-	{"tryAdvance", "(Ljava/util/function/IntConsumer;)Z", nullptr, $PUBLIC},
-	{"tryAdvance", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"trySplit", "()Ljava/util/Spliterator$OfInt;", nullptr, $PUBLIC},
+	{"<init>", "(IIZ)V", nullptr, 0, $method(Streams$RangeIntSpliterator, init$, void, int32_t, int32_t, bool)},
+	{"<init>", "(III)V", nullptr, $PRIVATE, $method(Streams$RangeIntSpliterator, init$, void, int32_t, int32_t, int32_t)},
+	{"characteristics", "()I", nullptr, $PUBLIC, $virtualMethod(Streams$RangeIntSpliterator, characteristics, int32_t)},
+	{"estimateSize", "()J", nullptr, $PUBLIC, $virtualMethod(Streams$RangeIntSpliterator, estimateSize, int64_t)},
+	{"forEachRemaining", "(Ljava/util/function/IntConsumer;)V", nullptr, $PUBLIC, $virtualMethod(Streams$RangeIntSpliterator, forEachRemaining, void, $IntConsumer*), nullptr, nullptr, _Streams$RangeIntSpliterator_MethodAnnotations_forEachRemaining4},
+	{"forEachRemaining", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Streams$RangeIntSpliterator, forEachRemaining, void, Object$*), nullptr, nullptr, _Streams$RangeIntSpliterator_MethodAnnotations_forEachRemaining5},
+	{"getComparator", "()Ljava/util/Comparator;", "()Ljava/util/Comparator<-Ljava/lang/Integer;>;", $PUBLIC, $virtualMethod(Streams$RangeIntSpliterator, getComparator, $Comparator*)},
+	{"splitPoint", "(J)I", nullptr, $PRIVATE, $method(Streams$RangeIntSpliterator, splitPoint, int32_t, int64_t)},
+	{"tryAdvance", "(Ljava/util/function/IntConsumer;)Z", nullptr, $PUBLIC, $virtualMethod(Streams$RangeIntSpliterator, tryAdvance, bool, $IntConsumer*)},
+	{"tryAdvance", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Streams$RangeIntSpliterator, tryAdvance, bool, Object$*)},
+	{"trySplit", "()Ljava/util/Spliterator$OfInt;", nullptr, $PUBLIC, $virtualMethod(Streams$RangeIntSpliterator, trySplit, $Spliterator$OfInt*)},
 	{}
 };
 

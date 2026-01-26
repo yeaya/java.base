@@ -18,7 +18,7 @@ $FieldInfo _AtomicMoveNotSupportedException_FieldInfo_[] = {
 };
 
 $MethodInfo _AtomicMoveNotSupportedException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(AtomicMoveNotSupportedException::*)($String*,$String*,$String*)>(&AtomicMoveNotSupportedException::init$))},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(AtomicMoveNotSupportedException, init$, void, $String*, $String*, $String*)},
 	{}
 };
 

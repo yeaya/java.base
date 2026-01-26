@@ -25,8 +25,8 @@ $FieldInfo _SortedSet$1_FieldInfo_[] = {
 };
 
 $MethodInfo _SortedSet$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/SortedSet;Ljava/util/Collection;I)V", nullptr, 0, $method(static_cast<void(SortedSet$1::*)($SortedSet*,$Collection*,int32_t)>(&SortedSet$1::init$))},
-	{"getComparator", "()Ljava/util/Comparator;", "()Ljava/util/Comparator<-TE;>;", $PUBLIC},
+	{"<init>", "(Ljava/util/SortedSet;Ljava/util/Collection;I)V", nullptr, 0, $method(SortedSet$1, init$, void, $SortedSet*, $Collection*, int32_t)},
+	{"getComparator", "()Ljava/util/Comparator;", "()Ljava/util/Comparator<-TE;>;", $PUBLIC, $virtualMethod(SortedSet$1, getComparator, $Comparator*)},
 	{}
 };
 

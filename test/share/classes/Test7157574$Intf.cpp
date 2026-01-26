@@ -8,11 +8,11 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _Test7157574$Intf_MethodInfo_[] = {
-	{"ig1", "()V", nullptr, $PUBLIC | $ABSTRACT},
-	{"ig2", "()V", nullptr, $PUBLIC | $ABSTRACT},
-	{"ig3", "()V", nullptr, $PUBLIC | $ABSTRACT},
-	{"ig4", "()V", nullptr, $PUBLIC | $ABSTRACT},
-	{"m1", "()V", nullptr, $PUBLIC | $ABSTRACT},
+	{"ig1", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Test7157574$Intf, ig1, void)},
+	{"ig2", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Test7157574$Intf, ig2, void)},
+	{"ig3", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Test7157574$Intf, ig3, void)},
+	{"ig4", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Test7157574$Intf, ig4, void)},
+	{"m1", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Test7157574$Intf, m1, void)},
 	{}
 };
 

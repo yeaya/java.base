@@ -46,8 +46,8 @@ $FieldInfo LongConsumer$$Lambda$lambda$andThen$0::fieldInfos[3] = {
 	{}
 };
 $MethodInfo LongConsumer$$Lambda$lambda$andThen$0::methodInfos[3] = {
-	{"<init>", "(Ljava/util/function/LongConsumer;Ljava/util/function/LongConsumer;)V", nullptr, $PUBLIC, $method(static_cast<void(LongConsumer$$Lambda$lambda$andThen$0::*)(LongConsumer*,LongConsumer*)>(&LongConsumer$$Lambda$lambda$andThen$0::init$))},
-	{"accept", "(J)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/function/LongConsumer;Ljava/util/function/LongConsumer;)V", nullptr, $PUBLIC, $method(LongConsumer$$Lambda$lambda$andThen$0, init$, void, LongConsumer*, LongConsumer*)},
+	{"accept", "(J)V", nullptr, $PUBLIC, $virtualMethod(LongConsumer$$Lambda$lambda$andThen$0, accept, void, int64_t)},
 	{}
 };
 $ClassInfo LongConsumer$$Lambda$lambda$andThen$0::classInfo$ = {
@@ -70,9 +70,9 @@ $CompoundAttribute _LongConsumer_Annotations_[] = {
 };
 
 $MethodInfo _LongConsumer_MethodInfo_[] = {
-	{"accept", "(J)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"andThen", "(Ljava/util/function/LongConsumer;)Ljava/util/function/LongConsumer;", nullptr, $PUBLIC},
-	{"lambda$andThen$0", "(Ljava/util/function/LongConsumer;J)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(LongConsumer::*)(LongConsumer*,int64_t)>(&LongConsumer::lambda$andThen$0))},
+	{"accept", "(J)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LongConsumer, accept, void, int64_t)},
+	{"andThen", "(Ljava/util/function/LongConsumer;)Ljava/util/function/LongConsumer;", nullptr, $PUBLIC, $virtualMethod(LongConsumer, andThen, LongConsumer*, LongConsumer*)},
+	{"lambda$andThen$0", "(Ljava/util/function/LongConsumer;J)V", nullptr, $PRIVATE | $SYNTHETIC, $method(LongConsumer, lambda$andThen$0, void, LongConsumer*, int64_t)},
 	{}
 };
 

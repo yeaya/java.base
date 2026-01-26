@@ -23,7 +23,7 @@ $FieldInfo _KOI8_R$Holder_FieldInfo_[] = {
 };
 
 $MethodInfo _KOI8_R$Holder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(KOI8_R$Holder::*)()>(&KOI8_R$Holder::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(KOI8_R$Holder, init$, void)},
 	{}
 };
 

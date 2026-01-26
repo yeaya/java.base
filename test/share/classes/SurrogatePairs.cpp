@@ -22,10 +22,10 @@ $FieldInfo _SurrogatePairs_FieldInfo_[] = {
 };
 
 $MethodInfo _SurrogatePairs_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SurrogatePairs::*)()>(&SurrogatePairs::init$))},
-	{"getHexBytes", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($String*)>(&SurrogatePairs::getHexBytes)), "java.lang.Exception"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&SurrogatePairs::main)), "java.lang.Exception"},
-	{"test", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($String*,$String*)>(&SurrogatePairs::test)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SurrogatePairs, init$, void)},
+	{"getHexBytes", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(SurrogatePairs, getHexBytes, $String*, $String*), "java.lang.Exception"},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SurrogatePairs, main, void, $StringArray*), "java.lang.Exception"},
+	{"test", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(SurrogatePairs, test, void, $String*, $String*), "java.lang.Exception"},
 	{}
 };
 

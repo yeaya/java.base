@@ -27,9 +27,9 @@ $FieldInfo _Transfers$UserSource_FieldInfo_[] = {
 };
 
 $MethodInfo _Transfers$UserSource_MethodInfo_[] = {
-	{"<init>", "(IJ)V", nullptr, 0, $method(static_cast<void(Transfers$UserSource::*)(int32_t,int64_t)>(&Transfers$UserSource::init$))},
-	{"channel", "()Ljava/nio/channels/ReadableByteChannel;", nullptr, 0},
-	{"verify", "()V", nullptr, 0},
+	{"<init>", "(IJ)V", nullptr, 0, $method(Transfers$UserSource, init$, void, int32_t, int64_t)},
+	{"channel", "()Ljava/nio/channels/ReadableByteChannel;", nullptr, 0, $virtualMethod(Transfers$UserSource, channel, $ReadableByteChannel*)},
+	{"verify", "()V", nullptr, 0, $virtualMethod(Transfers$UserSource, verify, void)},
 	{}
 };
 

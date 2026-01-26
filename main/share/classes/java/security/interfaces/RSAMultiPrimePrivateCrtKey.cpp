@@ -4,10 +4,12 @@
 #include <java/security/spec/RSAOtherPrimeInfo.h>
 #include <jcpp.h>
 
+using $RSAOtherPrimeInfoArray = $Array<::java::security::spec::RSAOtherPrimeInfo>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $BigInteger = ::java::math::BigInteger;
 
 namespace java {
 	namespace security {
@@ -24,13 +26,13 @@ $FieldInfo _RSAMultiPrimePrivateCrtKey_FieldInfo_[] = {
 };
 
 $MethodInfo _RSAMultiPrimePrivateCrtKey_MethodInfo_[] = {
-	{"getCrtCoefficient", "()Ljava/math/BigInteger;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getOtherPrimeInfo", "()[Ljava/security/spec/RSAOtherPrimeInfo;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getPrimeExponentP", "()Ljava/math/BigInteger;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getPrimeExponentQ", "()Ljava/math/BigInteger;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getPrimeP", "()Ljava/math/BigInteger;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getPrimeQ", "()Ljava/math/BigInteger;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getPublicExponent", "()Ljava/math/BigInteger;", nullptr, $PUBLIC | $ABSTRACT},
+	{"getCrtCoefficient", "()Ljava/math/BigInteger;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RSAMultiPrimePrivateCrtKey, getCrtCoefficient, $BigInteger*)},
+	{"getOtherPrimeInfo", "()[Ljava/security/spec/RSAOtherPrimeInfo;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RSAMultiPrimePrivateCrtKey, getOtherPrimeInfo, $RSAOtherPrimeInfoArray*)},
+	{"getPrimeExponentP", "()Ljava/math/BigInteger;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RSAMultiPrimePrivateCrtKey, getPrimeExponentP, $BigInteger*)},
+	{"getPrimeExponentQ", "()Ljava/math/BigInteger;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RSAMultiPrimePrivateCrtKey, getPrimeExponentQ, $BigInteger*)},
+	{"getPrimeP", "()Ljava/math/BigInteger;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RSAMultiPrimePrivateCrtKey, getPrimeP, $BigInteger*)},
+	{"getPrimeQ", "()Ljava/math/BigInteger;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RSAMultiPrimePrivateCrtKey, getPrimeQ, $BigInteger*)},
+	{"getPublicExponent", "()Ljava/math/BigInteger;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RSAMultiPrimePrivateCrtKey, getPublicExponent, $BigInteger*)},
 	{}
 };
 

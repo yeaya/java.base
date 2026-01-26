@@ -22,9 +22,9 @@ $FieldInfo _Files$AcceptAllFilter_FieldInfo_[] = {
 };
 
 $MethodInfo _Files$AcceptAllFilter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(Files$AcceptAllFilter::*)()>(&Files$AcceptAllFilter::init$))},
-	{"accept", "(Ljava/nio/file/Path;)Z", nullptr, $PUBLIC},
-	{"accept", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(Files$AcceptAllFilter, init$, void)},
+	{"accept", "(Ljava/nio/file/Path;)Z", nullptr, $PUBLIC, $virtualMethod(Files$AcceptAllFilter, accept, bool, $Path*)},
+	{"accept", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Files$AcceptAllFilter, accept, bool, Object$*), "java.io.IOException"},
 	{}
 };
 

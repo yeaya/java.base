@@ -40,8 +40,8 @@ namespace sun {
 		namespace ssl {
 
 $MethodInfo _HelloVerifyRequest$HelloVerifyRequestProducer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(HelloVerifyRequest$HelloVerifyRequestProducer::*)()>(&HelloVerifyRequest$HelloVerifyRequestProducer::init$))},
-	{"produce", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)[B", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(HelloVerifyRequest$HelloVerifyRequestProducer, init$, void)},
+	{"produce", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)[B", nullptr, $PUBLIC, $virtualMethod(HelloVerifyRequest$HelloVerifyRequestProducer, produce, $bytes*, $ConnectionContext*, $SSLHandshake$HandshakeMessage*), "java.io.IOException"},
 	{}
 };
 

@@ -45,12 +45,12 @@ $FieldInfo _Pread_FieldInfo_[] = {
 };
 
 $MethodInfo _Pread_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Pread::*)()>(&Pread::init$))},
-	{"genericTest", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&Pread::genericTest)), "java.lang.Exception"},
-	{"initTestFile", "(Ljava/io/File;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($File*)>(&Pread::initTestFile)), "java.lang.Exception"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Pread::main)), "java.lang.Exception"},
-	{"testNegativePosition", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&Pread::testNegativePosition)), "java.lang.Exception"},
-	{"testUnreadableChannel", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&Pread::testUnreadableChannel)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Pread, init$, void)},
+	{"genericTest", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(Pread, genericTest, void), "java.lang.Exception"},
+	{"initTestFile", "(Ljava/io/File;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Pread, initTestFile, void, $File*), "java.lang.Exception"},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Pread, main, void, $StringArray*), "java.lang.Exception"},
+	{"testNegativePosition", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(Pread, testNegativePosition, void), "java.lang.Exception"},
+	{"testUnreadableChannel", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(Pread, testUnreadableChannel, void), "java.lang.Exception"},
 	{}
 };
 

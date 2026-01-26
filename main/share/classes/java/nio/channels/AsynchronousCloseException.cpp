@@ -18,7 +18,7 @@ $FieldInfo _AsynchronousCloseException_FieldInfo_[] = {
 };
 
 $MethodInfo _AsynchronousCloseException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(AsynchronousCloseException::*)()>(&AsynchronousCloseException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(AsynchronousCloseException, init$, void)},
 	{}
 };
 

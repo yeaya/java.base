@@ -47,8 +47,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ResourcesMgr$$Lambda$getBundle::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ResourcesMgr$$Lambda$getBundle::*)()>(&ResourcesMgr$$Lambda$getBundle::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ResourcesMgr$$Lambda$getBundle, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ResourcesMgr$$Lambda$getBundle, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo ResourcesMgr$$Lambda$getBundle::classInfo$ = {
@@ -71,10 +71,10 @@ $FieldInfo _ResourcesMgr_FieldInfo_[] = {
 };
 
 $MethodInfo _ResourcesMgr_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ResourcesMgr::*)()>(&ResourcesMgr::init$))},
-	{"getAuthResourceString", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)($String*)>(&ResourcesMgr::getAuthResourceString))},
-	{"getBundle", "(Ljava/lang/String;)Ljava/util/ResourceBundle;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$ResourceBundle*(*)($String*)>(&ResourcesMgr::getBundle))},
-	{"getString", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)($String*)>(&ResourcesMgr::getString))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ResourcesMgr, init$, void)},
+	{"getAuthResourceString", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(ResourcesMgr, getAuthResourceString, $String*, $String*)},
+	{"getBundle", "(Ljava/lang/String;)Ljava/util/ResourceBundle;", nullptr, $PRIVATE | $STATIC, $staticMethod(ResourcesMgr, getBundle, $ResourceBundle*, $String*)},
+	{"getString", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(ResourcesMgr, getString, $String*, $String*)},
 	{}
 };
 

@@ -102,8 +102,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ProcessHandleImpl$$Lambda$lambda$static$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ProcessHandleImpl$$Lambda$lambda$static$1::*)()>(&ProcessHandleImpl$$Lambda$lambda$static$1::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ProcessHandleImpl$$Lambda$lambda$static$1, init$, void)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ProcessHandleImpl$$Lambda$lambda$static$1, run, $Object*)},
 	{}
 };
 $ClassInfo ProcessHandleImpl$$Lambda$lambda$static$1::classInfo$ = {
@@ -142,8 +142,8 @@ $FieldInfo ProcessHandleImpl$$Lambda$lambda$onExit$2$1::fieldInfos[2] = {
 	{}
 };
 $MethodInfo ProcessHandleImpl$$Lambda$lambda$onExit$2$1::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/ProcessHandleImpl;)V", nullptr, $PUBLIC, $method(static_cast<void(ProcessHandleImpl$$Lambda$lambda$onExit$2$1::*)(ProcessHandleImpl*)>(&ProcessHandleImpl$$Lambda$lambda$onExit$2$1::init$))},
-	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/ProcessHandleImpl;)V", nullptr, $PUBLIC, $method(ProcessHandleImpl$$Lambda$lambda$onExit$2$1, init$, void, ProcessHandleImpl*)},
+	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ProcessHandleImpl$$Lambda$lambda$onExit$2$1, apply, $Object*, Object$*, Object$*)},
 	{}
 };
 $ClassInfo ProcessHandleImpl$$Lambda$lambda$onExit$2$1::classInfo$ = {
@@ -182,8 +182,8 @@ $FieldInfo ProcessHandleImpl$$Lambda$lambda$children$3$2::fieldInfos[2] = {
 	{}
 };
 $MethodInfo ProcessHandleImpl$$Lambda$lambda$children$3$2::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/ProcessHandleImpl;)V", nullptr, $PUBLIC, $method(static_cast<void(ProcessHandleImpl$$Lambda$lambda$children$3$2::*)(ProcessHandleImpl*)>(&ProcessHandleImpl$$Lambda$lambda$children$3$2::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/ProcessHandleImpl;)V", nullptr, $PUBLIC, $method(ProcessHandleImpl$$Lambda$lambda$children$3$2, init$, void, ProcessHandleImpl*)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ProcessHandleImpl$$Lambda$lambda$children$3$2, test, bool, Object$*)},
 	{}
 };
 $ClassInfo ProcessHandleImpl$$Lambda$lambda$children$3$2::classInfo$ = {
@@ -225,8 +225,8 @@ $FieldInfo ProcessHandleImpl$$Lambda$lambda$children$4$3::fieldInfos[3] = {
 	{}
 };
 $MethodInfo ProcessHandleImpl$$Lambda$lambda$children$4$3::methodInfos[3] = {
-	{"<init>", "([J[J)V", nullptr, $PUBLIC, $method(static_cast<void(ProcessHandleImpl$$Lambda$lambda$children$4$3::*)($longs*,$longs*)>(&ProcessHandleImpl$$Lambda$lambda$children$4$3::init$))},
-	{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "([J[J)V", nullptr, $PUBLIC, $method(ProcessHandleImpl$$Lambda$lambda$children$4$3, init$, void, $longs*, $longs*)},
+	{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ProcessHandleImpl$$Lambda$lambda$children$4$3, apply, $Object*, int32_t)},
 	{}
 };
 $ClassInfo ProcessHandleImpl$$Lambda$lambda$children$4$3::classInfo$ = {
@@ -268,8 +268,8 @@ $FieldInfo ProcessHandleImpl$$Lambda$lambda$static$0$4::fieldInfos[3] = {
 	{}
 };
 $MethodInfo ProcessHandleImpl$$Lambda$lambda$static$0$4::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/ThreadGroup;J)V", nullptr, $PUBLIC, $method(static_cast<void(ProcessHandleImpl$$Lambda$lambda$static$0$4::*)($ThreadGroup*,int64_t)>(&ProcessHandleImpl$$Lambda$lambda$static$0$4::init$))},
-	{"newThread", "(Ljava/lang/Runnable;)Ljava/lang/Thread;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/ThreadGroup;J)V", nullptr, $PUBLIC, $method(ProcessHandleImpl$$Lambda$lambda$static$0$4, init$, void, $ThreadGroup*, int64_t)},
+	{"newThread", "(Ljava/lang/Runnable;)Ljava/lang/Thread;", nullptr, $PUBLIC, $virtualMethod(ProcessHandleImpl$$Lambda$lambda$static$0$4, newThread, $Thread*, $Runnable*)},
 	{}
 };
 $ClassInfo ProcessHandleImpl$$Lambda$lambda$static$0$4::classInfo$ = {
@@ -305,41 +305,41 @@ $FieldInfo _ProcessHandleImpl_FieldInfo_[] = {
 };
 
 $MethodInfo _ProcessHandleImpl_MethodInfo_[] = {
-	{"<init>", "(JJ)V", nullptr, $PRIVATE, $method(static_cast<void(ProcessHandleImpl::*)(int64_t,int64_t)>(&ProcessHandleImpl::init$))},
-	{"children", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljava/lang/ProcessHandle;>;", $PUBLIC},
-	{"children", "(J)Ljava/util/stream/Stream;", "(J)Ljava/util/stream/Stream<Ljava/lang/ProcessHandle;>;", $STATIC, $method(static_cast<$Stream*(*)(int64_t)>(&ProcessHandleImpl::children))},
-	{"compareTo", "(Ljava/lang/ProcessHandle;)I", nullptr, $PUBLIC},
-	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"completion", "(JZ)Ljava/util/concurrent/CompletableFuture;", "(JZ)Ljava/util/concurrent/CompletableFuture<Ljava/lang/Integer;>;", $STATIC, $method(static_cast<$CompletableFuture*(*)(int64_t,bool)>(&ProcessHandleImpl::completion))},
-	{"current", "()Ljava/lang/ProcessHandleImpl;", nullptr, $PUBLIC | $STATIC, $method(static_cast<ProcessHandleImpl*(*)()>(&ProcessHandleImpl::current))},
-	{"descendants", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljava/lang/ProcessHandle;>;", $PUBLIC},
-	{"destroy", "()Z", nullptr, $PUBLIC},
-	{"destroy0", "(JJZ)Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $method(static_cast<bool(*)(int64_t,int64_t,bool)>(&ProcessHandleImpl::destroy0))},
-	{"destroyForcibly", "()Z", nullptr, $PUBLIC},
-	{"destroyProcess", "(Z)Z", nullptr, 0, $method(static_cast<bool(ProcessHandleImpl::*)(bool)>(&ProcessHandleImpl::destroyProcess))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"get", "(J)Ljava/util/Optional;", "(J)Ljava/util/Optional<Ljava/lang/ProcessHandle;>;", $STATIC, $method(static_cast<$Optional*(*)(int64_t)>(&ProcessHandleImpl::get))},
-	{"getCurrentPid0", "()J", nullptr, $PRIVATE | $STATIC | $NATIVE, $method(static_cast<int64_t(*)()>(&ProcessHandleImpl::getCurrentPid0))},
-	{"getInternal", "(J)Ljava/lang/ProcessHandleImpl;", nullptr, $STATIC, $method(static_cast<ProcessHandleImpl*(*)(int64_t)>(&ProcessHandleImpl::getInternal))},
-	{"getProcessPids0", "(J[J[J[J)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $method(static_cast<int32_t(*)(int64_t,$longs*,$longs*,$longs*)>(&ProcessHandleImpl::getProcessPids0))},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"info", "()Ljava/lang/ProcessHandle$Info;", nullptr, $PUBLIC},
-	{"initNative", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $method(static_cast<void(*)()>(&ProcessHandleImpl::initNative))},
-	{"isAlive", "()Z", nullptr, $PUBLIC},
-	{"isAlive0", "(J)J", nullptr, $PRIVATE | $STATIC | $NATIVE, $method(static_cast<int64_t(*)(int64_t)>(&ProcessHandleImpl::isAlive0))},
-	{"lambda$children$3", "(Ljava/lang/ProcessHandle;)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<bool(ProcessHandleImpl::*)($ProcessHandle*)>(&ProcessHandleImpl::lambda$children$3))},
-	{"lambda$children$4", "([J[JI)Ljava/lang/ProcessHandle;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$ProcessHandle*(*)($longs*,$longs*,int32_t)>(&ProcessHandleImpl::lambda$children$4))},
-	{"lambda$onExit$2", "(Ljava/lang/Integer;Ljava/lang/Throwable;)Ljava/lang/ProcessHandle;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$ProcessHandle*(ProcessHandleImpl::*)($Integer*,$Throwable*)>(&ProcessHandleImpl::lambda$onExit$2))},
-	{"lambda$static$0", "(Ljava/lang/ThreadGroup;JLjava/lang/Runnable;)Ljava/lang/Thread;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Thread*(*)($ThreadGroup*,int64_t,$Runnable*)>(&ProcessHandleImpl::lambda$static$0))},
-	{"lambda$static$1", "()Ljava/util/concurrent/Executor;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Executor*(*)()>(&ProcessHandleImpl::lambda$static$1))},
-	{"onExit", "()Ljava/util/concurrent/CompletableFuture;", "()Ljava/util/concurrent/CompletableFuture<Ljava/lang/ProcessHandle;>;", $PUBLIC},
-	{"parent", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/lang/ProcessHandle;>;", $PUBLIC},
-	{"parent0", "(JJ)J", nullptr, $PRIVATE | $STATIC | $NATIVE, $method(static_cast<int64_t(*)(int64_t,int64_t)>(&ProcessHandleImpl::parent0))},
-	{"pid", "()J", nullptr, $PUBLIC},
-	{"supportsNormalTermination", "()Z", nullptr, $PUBLIC},
-	{"swap", "([JII)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($longs*,int32_t,int32_t)>(&ProcessHandleImpl::swap))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"waitForProcessExit0", "(JZ)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $method(static_cast<int32_t(*)(int64_t,bool)>(&ProcessHandleImpl::waitForProcessExit0))},
+	{"<init>", "(JJ)V", nullptr, $PRIVATE, $method(ProcessHandleImpl, init$, void, int64_t, int64_t)},
+	{"children", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljava/lang/ProcessHandle;>;", $PUBLIC, $virtualMethod(ProcessHandleImpl, children, $Stream*)},
+	{"children", "(J)Ljava/util/stream/Stream;", "(J)Ljava/util/stream/Stream<Ljava/lang/ProcessHandle;>;", $STATIC, $staticMethod(ProcessHandleImpl, children, $Stream*, int64_t)},
+	{"compareTo", "(Ljava/lang/ProcessHandle;)I", nullptr, $PUBLIC, $virtualMethod(ProcessHandleImpl, compareTo, int32_t, $ProcessHandle*)},
+	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ProcessHandleImpl, compareTo, int32_t, Object$*)},
+	{"completion", "(JZ)Ljava/util/concurrent/CompletableFuture;", "(JZ)Ljava/util/concurrent/CompletableFuture<Ljava/lang/Integer;>;", $STATIC, $staticMethod(ProcessHandleImpl, completion, $CompletableFuture*, int64_t, bool)},
+	{"current", "()Ljava/lang/ProcessHandleImpl;", nullptr, $PUBLIC | $STATIC, $staticMethod(ProcessHandleImpl, current, ProcessHandleImpl*)},
+	{"descendants", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljava/lang/ProcessHandle;>;", $PUBLIC, $virtualMethod(ProcessHandleImpl, descendants, $Stream*)},
+	{"destroy", "()Z", nullptr, $PUBLIC, $virtualMethod(ProcessHandleImpl, destroy, bool)},
+	{"destroy0", "(JJZ)Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(ProcessHandleImpl, destroy0, bool, int64_t, int64_t, bool)},
+	{"destroyForcibly", "()Z", nullptr, $PUBLIC, $virtualMethod(ProcessHandleImpl, destroyForcibly, bool)},
+	{"destroyProcess", "(Z)Z", nullptr, 0, $method(ProcessHandleImpl, destroyProcess, bool, bool)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ProcessHandleImpl, equals, bool, Object$*)},
+	{"get", "(J)Ljava/util/Optional;", "(J)Ljava/util/Optional<Ljava/lang/ProcessHandle;>;", $STATIC, $staticMethod(ProcessHandleImpl, get, $Optional*, int64_t)},
+	{"getCurrentPid0", "()J", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(ProcessHandleImpl, getCurrentPid0, int64_t)},
+	{"getInternal", "(J)Ljava/lang/ProcessHandleImpl;", nullptr, $STATIC, $staticMethod(ProcessHandleImpl, getInternal, ProcessHandleImpl*, int64_t)},
+	{"getProcessPids0", "(J[J[J[J)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(ProcessHandleImpl, getProcessPids0, int32_t, int64_t, $longs*, $longs*, $longs*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ProcessHandleImpl, hashCode, int32_t)},
+	{"info", "()Ljava/lang/ProcessHandle$Info;", nullptr, $PUBLIC, $virtualMethod(ProcessHandleImpl, info, $ProcessHandle$Info*)},
+	{"initNative", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(ProcessHandleImpl, initNative, void)},
+	{"isAlive", "()Z", nullptr, $PUBLIC, $virtualMethod(ProcessHandleImpl, isAlive, bool)},
+	{"isAlive0", "(J)J", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(ProcessHandleImpl, isAlive0, int64_t, int64_t)},
+	{"lambda$children$3", "(Ljava/lang/ProcessHandle;)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(ProcessHandleImpl, lambda$children$3, bool, $ProcessHandle*)},
+	{"lambda$children$4", "([J[JI)Ljava/lang/ProcessHandle;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ProcessHandleImpl, lambda$children$4, $ProcessHandle*, $longs*, $longs*, int32_t)},
+	{"lambda$onExit$2", "(Ljava/lang/Integer;Ljava/lang/Throwable;)Ljava/lang/ProcessHandle;", nullptr, $PRIVATE | $SYNTHETIC, $method(ProcessHandleImpl, lambda$onExit$2, $ProcessHandle*, $Integer*, $Throwable*)},
+	{"lambda$static$0", "(Ljava/lang/ThreadGroup;JLjava/lang/Runnable;)Ljava/lang/Thread;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ProcessHandleImpl, lambda$static$0, $Thread*, $ThreadGroup*, int64_t, $Runnable*)},
+	{"lambda$static$1", "()Ljava/util/concurrent/Executor;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ProcessHandleImpl, lambda$static$1, $Executor*)},
+	{"onExit", "()Ljava/util/concurrent/CompletableFuture;", "()Ljava/util/concurrent/CompletableFuture<Ljava/lang/ProcessHandle;>;", $PUBLIC, $virtualMethod(ProcessHandleImpl, onExit, $CompletableFuture*)},
+	{"parent", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/lang/ProcessHandle;>;", $PUBLIC, $virtualMethod(ProcessHandleImpl, parent, $Optional*)},
+	{"parent0", "(JJ)J", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(ProcessHandleImpl, parent0, int64_t, int64_t, int64_t)},
+	{"pid", "()J", nullptr, $PUBLIC, $virtualMethod(ProcessHandleImpl, pid, int64_t)},
+	{"supportsNormalTermination", "()Z", nullptr, $PUBLIC, $virtualMethod(ProcessHandleImpl, supportsNormalTermination, bool)},
+	{"swap", "([JII)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ProcessHandleImpl, swap, void, $longs*, int32_t, int32_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ProcessHandleImpl, toString, $String*)},
+	{"waitForProcessExit0", "(JZ)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(ProcessHandleImpl, waitForProcessExit0, int32_t, int64_t, bool)},
 	{}
 };
 

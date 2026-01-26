@@ -16,9 +16,9 @@ namespace java {
 	namespace lang {
 
 $MethodInfo _ProcessEnvironment$EntryComparator_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(ProcessEnvironment$EntryComparator::*)()>(&ProcessEnvironment$EntryComparator::init$))},
-	{"compare", "(Ljava/util/Map$Entry;Ljava/util/Map$Entry;)I", "(Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/String;>;Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/String;>;)I", $PUBLIC, $method(static_cast<int32_t(ProcessEnvironment$EntryComparator::*)($Map$Entry*,$Map$Entry*)>(&ProcessEnvironment$EntryComparator::compare))},
-	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(ProcessEnvironment$EntryComparator, init$, void)},
+	{"compare", "(Ljava/util/Map$Entry;Ljava/util/Map$Entry;)I", "(Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/String;>;Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/String;>;)I", $PUBLIC, $method(ProcessEnvironment$EntryComparator, compare, int32_t, $Map$Entry*, $Map$Entry*)},
+	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ProcessEnvironment$EntryComparator, compare, int32_t, Object$*, Object$*)},
 	{}
 };
 

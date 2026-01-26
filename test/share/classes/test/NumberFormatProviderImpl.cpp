@@ -35,13 +35,13 @@ $FieldInfo _NumberFormatProviderImpl_FieldInfo_[] = {
 };
 
 $MethodInfo _NumberFormatProviderImpl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(NumberFormatProviderImpl::*)()>(&NumberFormatProviderImpl::init$))},
-	{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC},
-	{"getCompactNumberInstance", "(Ljava/util/Locale;Ljava/text/NumberFormat$Style;)Ljava/text/NumberFormat;", nullptr, $PUBLIC},
-	{"getCurrencyInstance", "(Ljava/util/Locale;)Ljava/text/NumberFormat;", nullptr, $PUBLIC},
-	{"getIntegerInstance", "(Ljava/util/Locale;)Ljava/text/NumberFormat;", nullptr, $PUBLIC},
-	{"getNumberInstance", "(Ljava/util/Locale;)Ljava/text/NumberFormat;", nullptr, $PUBLIC},
-	{"getPercentInstance", "(Ljava/util/Locale;)Ljava/text/NumberFormat;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(NumberFormatProviderImpl, init$, void)},
+	{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(NumberFormatProviderImpl, getAvailableLocales, $LocaleArray*)},
+	{"getCompactNumberInstance", "(Ljava/util/Locale;Ljava/text/NumberFormat$Style;)Ljava/text/NumberFormat;", nullptr, $PUBLIC, $virtualMethod(NumberFormatProviderImpl, getCompactNumberInstance, $NumberFormat*, $Locale*, $NumberFormat$Style*)},
+	{"getCurrencyInstance", "(Ljava/util/Locale;)Ljava/text/NumberFormat;", nullptr, $PUBLIC, $virtualMethod(NumberFormatProviderImpl, getCurrencyInstance, $NumberFormat*, $Locale*)},
+	{"getIntegerInstance", "(Ljava/util/Locale;)Ljava/text/NumberFormat;", nullptr, $PUBLIC, $virtualMethod(NumberFormatProviderImpl, getIntegerInstance, $NumberFormat*, $Locale*)},
+	{"getNumberInstance", "(Ljava/util/Locale;)Ljava/text/NumberFormat;", nullptr, $PUBLIC, $virtualMethod(NumberFormatProviderImpl, getNumberInstance, $NumberFormat*, $Locale*)},
+	{"getPercentInstance", "(Ljava/util/Locale;)Ljava/text/NumberFormat;", nullptr, $PUBLIC, $virtualMethod(NumberFormatProviderImpl, getPercentInstance, $NumberFormat*, $Locale*)},
 	{}
 };
 

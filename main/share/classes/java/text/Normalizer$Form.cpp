@@ -29,10 +29,10 @@ $FieldInfo _Normalizer$Form_FieldInfo_[] = {
 };
 
 $MethodInfo _Normalizer$Form_MethodInfo_[] = {
-	{"$values", "()[Ljava/text/Normalizer$Form;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Normalizer$FormArray*(*)()>(&Normalizer$Form::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(Normalizer$Form::*)($String*,int32_t)>(&Normalizer$Form::init$))},
-	{"valueOf", "(Ljava/lang/String;)Ljava/text/Normalizer$Form;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Normalizer$Form*(*)($String*)>(&Normalizer$Form::valueOf))},
-	{"values", "()[Ljava/text/Normalizer$Form;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Normalizer$FormArray*(*)()>(&Normalizer$Form::values))},
+	{"$values", "()[Ljava/text/Normalizer$Form;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Normalizer$Form, $values, $Normalizer$FormArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Normalizer$Form, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Ljava/text/Normalizer$Form;", nullptr, $PUBLIC | $STATIC, $staticMethod(Normalizer$Form, valueOf, Normalizer$Form*, $String*)},
+	{"values", "()[Ljava/text/Normalizer$Form;", nullptr, $PUBLIC | $STATIC, $staticMethod(Normalizer$Form, values, $Normalizer$FormArray*)},
 	{}
 };
 

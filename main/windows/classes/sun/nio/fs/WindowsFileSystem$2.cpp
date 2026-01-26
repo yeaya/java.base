@@ -29,8 +29,8 @@ $FieldInfo _WindowsFileSystem$2_FieldInfo_[] = {
 };
 
 $MethodInfo _WindowsFileSystem$2_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/fs/WindowsFileSystem;Ljava/util/regex/Pattern;)V", "()V", 0, $method(static_cast<void(WindowsFileSystem$2::*)($WindowsFileSystem*,$Pattern*)>(&WindowsFileSystem$2::init$))},
-	{"matches", "(Ljava/nio/file/Path;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/nio/fs/WindowsFileSystem;Ljava/util/regex/Pattern;)V", "()V", 0, $method(WindowsFileSystem$2, init$, void, $WindowsFileSystem*, $Pattern*)},
+	{"matches", "(Ljava/nio/file/Path;)Z", nullptr, $PUBLIC, $virtualMethod(WindowsFileSystem$2, matches, bool, $Path*)},
 	{}
 };
 

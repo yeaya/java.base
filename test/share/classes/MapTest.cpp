@@ -67,17 +67,17 @@ $FieldInfo _MapTest_FieldInfo_[] = {
 };
 
 $MethodInfo _MapTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(MapTest::*)()>(&MapTest::init$))},
-	{"checkException", "(Ljava/nio/channels/FileChannel;Ljava/nio/channels/FileChannel$MapMode;JJ[Ljava/lang/Class;)V", "(Ljava/nio/channels/FileChannel;Ljava/nio/channels/FileChannel$MapMode;JJ[Ljava/lang/Class<*>;)V", $PRIVATE | $STATIC | $TRANSIENT, $method(static_cast<void(*)($FileChannel*,$FileChannel$MapMode*,int64_t,int64_t,$ClassArray*)>(&MapTest::checkException)), "java.io.IOException"},
-	{"initTestFile", "(Ljava/io/File;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($File*)>(&MapTest::initTestFile)), "java.lang.Exception"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&MapTest::main)), "java.lang.Exception"},
-	{"testExceptions", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&MapTest::testExceptions)), "java.lang.Exception"},
-	{"testExceptions", "(Ljava/nio/channels/FileChannel;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($FileChannel*)>(&MapTest::testExceptions)), "java.io.IOException"},
-	{"testForce", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&MapTest::testForce)), "java.lang.Exception"},
-	{"testHighOffset", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&MapTest::testHighOffset)), "java.lang.Exception"},
-	{"testRead", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&MapTest::testRead)), "java.lang.Exception"},
-	{"testWrite", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&MapTest::testWrite)), "java.lang.Exception"},
-	{"testZero", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&MapTest::testZero)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(MapTest, init$, void)},
+	{"checkException", "(Ljava/nio/channels/FileChannel;Ljava/nio/channels/FileChannel$MapMode;JJ[Ljava/lang/Class;)V", "(Ljava/nio/channels/FileChannel;Ljava/nio/channels/FileChannel$MapMode;JJ[Ljava/lang/Class<*>;)V", $PRIVATE | $STATIC | $TRANSIENT, $staticMethod(MapTest, checkException, void, $FileChannel*, $FileChannel$MapMode*, int64_t, int64_t, $ClassArray*), "java.io.IOException"},
+	{"initTestFile", "(Ljava/io/File;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(MapTest, initTestFile, void, $File*), "java.lang.Exception"},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(MapTest, main, void, $StringArray*), "java.lang.Exception"},
+	{"testExceptions", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(MapTest, testExceptions, void), "java.lang.Exception"},
+	{"testExceptions", "(Ljava/nio/channels/FileChannel;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(MapTest, testExceptions, void, $FileChannel*), "java.io.IOException"},
+	{"testForce", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(MapTest, testForce, void), "java.lang.Exception"},
+	{"testHighOffset", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(MapTest, testHighOffset, void), "java.lang.Exception"},
+	{"testRead", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(MapTest, testRead, void), "java.lang.Exception"},
+	{"testWrite", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(MapTest, testWrite, void), "java.lang.Exception"},
+	{"testZero", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(MapTest, testZero, void), "java.lang.Exception"},
 	{}
 };
 

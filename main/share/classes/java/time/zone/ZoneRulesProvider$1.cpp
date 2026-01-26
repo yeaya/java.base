@@ -29,8 +29,8 @@ $FieldInfo _ZoneRulesProvider$1_FieldInfo_[] = {
 };
 
 $MethodInfo _ZoneRulesProvider$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/List;)V", nullptr, 0, $method(static_cast<void(ZoneRulesProvider$1::*)($List*)>(&ZoneRulesProvider$1::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/List;)V", nullptr, 0, $method(ZoneRulesProvider$1, init$, void, $List*)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ZoneRulesProvider$1, run, $Object*)},
 	{}
 };
 

@@ -19,11 +19,11 @@ $FieldInfo _Foo4ExternalizableBlockData_FieldInfo_[] = {
 };
 
 $MethodInfo _Foo4ExternalizableBlockData_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Foo4ExternalizableBlockData::*)()>(&Foo4ExternalizableBlockData::init$))},
-	{"<init>", "(IILjava/lang/Object;)V", nullptr, $PUBLIC, $method(static_cast<void(Foo4ExternalizableBlockData::*)(int32_t,int32_t,Object$*)>(&Foo4ExternalizableBlockData::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"readExternal", "(Ljava/io/ObjectInput;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"writeExternal", "(Ljava/io/ObjectOutput;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Foo4ExternalizableBlockData, init$, void)},
+	{"<init>", "(IILjava/lang/Object;)V", nullptr, $PUBLIC, $method(Foo4ExternalizableBlockData, init$, void, int32_t, int32_t, Object$*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Foo4ExternalizableBlockData, equals, bool, Object$*)},
+	{"readExternal", "(Ljava/io/ObjectInput;)V", nullptr, $PUBLIC, $virtualMethod(Foo4ExternalizableBlockData, readExternal, void, $ObjectInput*), "java.io.IOException,java.lang.ClassNotFoundException"},
+	{"writeExternal", "(Ljava/io/ObjectOutput;)V", nullptr, $PUBLIC, $virtualMethod(Foo4ExternalizableBlockData, writeExternal, void, $ObjectOutput*), "java.io.IOException"},
 	{}
 };
 

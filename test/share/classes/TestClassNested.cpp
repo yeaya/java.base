@@ -32,8 +32,8 @@ $TypeAnnotation _TestClassNested_MethodTypeAnnotations_foo1[] = {
 };
 
 $MethodInfo _TestClassNested_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(TestClassNested::*)()>(&TestClassNested::init$))},
-	{"foo", "()[LOuter$Inner;", nullptr, $PUBLIC, nullptr, nullptr, nullptr, nullptr, _TestClassNested_MethodTypeAnnotations_foo1},
+	{"<init>", "()V", nullptr, 0, $method(TestClassNested, init$, void)},
+	{"foo", "()[LOuter$Inner;", nullptr, $PUBLIC, $virtualMethod(TestClassNested, foo, $Outer$InnerArray*), nullptr, nullptr, nullptr, _TestClassNested_MethodTypeAnnotations_foo1},
 	{}
 };
 

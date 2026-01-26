@@ -46,8 +46,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Strip$$Lambda$lambda$testWhitespace$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Strip$$Lambda$lambda$testWhitespace$0::*)()>(&Strip$$Lambda$lambda$testWhitespace$0::init$))},
-	{"test", "(I)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Strip$$Lambda$lambda$testWhitespace$0, init$, void)},
+	{"test", "(I)Z", nullptr, $PUBLIC, $virtualMethod(Strip$$Lambda$lambda$testWhitespace$0, test, bool, int32_t)},
 	{}
 };
 $ClassInfo Strip$$Lambda$lambda$testWhitespace$0::classInfo$ = {
@@ -86,8 +86,8 @@ $FieldInfo Strip$$Lambda$lambda$testWhitespace$1$1::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Strip$$Lambda$lambda$testWhitespace$1$1::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/StringBuilder;)V", nullptr, $PUBLIC, $method(static_cast<void(Strip$$Lambda$lambda$testWhitespace$1$1::*)($StringBuilder*)>(&Strip$$Lambda$lambda$testWhitespace$1$1::init$))},
-	{"accept", "(I)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/StringBuilder;)V", nullptr, $PUBLIC, $method(Strip$$Lambda$lambda$testWhitespace$1$1, init$, void, $StringBuilder*)},
+	{"accept", "(I)V", nullptr, $PUBLIC, $virtualMethod(Strip$$Lambda$lambda$testWhitespace$1$1, accept, void, int32_t)},
 	{}
 };
 $ClassInfo Strip$$Lambda$lambda$testWhitespace$1$1::classInfo$ = {
@@ -119,8 +119,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Strip$$Lambda$lambda$report$2$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Strip$$Lambda$lambda$report$2$2::*)()>(&Strip$$Lambda$lambda$report$2$2::init$))},
-	{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Strip$$Lambda$lambda$report$2$2, init$, void)},
+	{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Strip$$Lambda$lambda$report$2$2, apply, $Object*, int32_t)},
 	{}
 };
 $ClassInfo Strip$$Lambda$lambda$report$2$2::classInfo$ = {
@@ -138,15 +138,15 @@ $Class* Strip$$Lambda$lambda$report$2$2::load$($String* name, bool initialize) {
 $Class* Strip$$Lambda$lambda$report$2$2::class$ = nullptr;
 
 $MethodInfo _Strip_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Strip::*)()>(&Strip::init$))},
-	{"equal", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $STATIC, $method(static_cast<void(*)($String*,$String*)>(&Strip::equal))},
-	{"lambda$report$2", "(I)Ljava/lang/Integer;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Integer*(*)(int32_t)>(&Strip::lambda$report$2))},
-	{"lambda$testWhitespace$0", "(I)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)(int32_t)>(&Strip::lambda$testWhitespace$0))},
-	{"lambda$testWhitespace$1", "(Ljava/lang/StringBuilder;I)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($StringBuilder*,int32_t)>(&Strip::lambda$testWhitespace$1))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<void(*)($StringArray*)>(&Strip::main))},
-	{"report", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $STATIC, $method(static_cast<void(*)($String*,$String*,$String*,$String*,$String*)>(&Strip::report))},
-	{"testStrip", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&Strip::testStrip))},
-	{"testWhitespace", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&Strip::testWhitespace))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Strip, init$, void)},
+	{"equal", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(Strip, equal, void, $String*, $String*)},
+	{"lambda$report$2", "(I)Ljava/lang/Integer;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Strip, lambda$report$2, $Integer*, int32_t)},
+	{"lambda$testWhitespace$0", "(I)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Strip, lambda$testWhitespace$0, bool, int32_t)},
+	{"lambda$testWhitespace$1", "(Ljava/lang/StringBuilder;I)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Strip, lambda$testWhitespace$1, void, $StringBuilder*, int32_t)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(Strip, main, void, $StringArray*)},
+	{"report", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(Strip, report, void, $String*, $String*, $String*, $String*, $String*)},
+	{"testStrip", "()V", nullptr, $STATIC, $staticMethod(Strip, testStrip, void)},
+	{"testWhitespace", "()V", nullptr, $STATIC, $staticMethod(Strip, testWhitespace, void)},
 	{}
 };
 

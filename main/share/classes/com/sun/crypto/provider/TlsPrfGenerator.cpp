@@ -78,19 +78,19 @@ $FieldInfo _TlsPrfGenerator_FieldInfo_[] = {
 };
 
 $MethodInfo _TlsPrfGenerator_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TlsPrfGenerator::*)()>(&TlsPrfGenerator::init$))},
-	{"concat", "([B[B)[B", nullptr, $STATIC, $method(static_cast<$bytes*(*)($bytes*,$bytes*)>(&TlsPrfGenerator::concat))},
-	{"doTLS10PRF", "([B[B[BI)[B", nullptr, $STATIC, $method(static_cast<$bytes*(*)($bytes*,$bytes*,$bytes*,int32_t)>(&TlsPrfGenerator::doTLS10PRF)), "java.security.NoSuchAlgorithmException,java.security.DigestException"},
-	{"doTLS10PRF", "([B[B[BILjava/security/MessageDigest;Ljava/security/MessageDigest;)[B", nullptr, $STATIC, $method(static_cast<$bytes*(*)($bytes*,$bytes*,$bytes*,int32_t,$MessageDigest*,$MessageDigest*)>(&TlsPrfGenerator::doTLS10PRF)), "java.security.DigestException"},
-	{"doTLS12PRF", "([B[B[BILjava/lang/String;II)[B", nullptr, $STATIC, $method(static_cast<$bytes*(*)($bytes*,$bytes*,$bytes*,int32_t,$String*,int32_t,int32_t)>(&TlsPrfGenerator::doTLS12PRF)), "java.security.NoSuchAlgorithmException,java.security.DigestException"},
-	{"doTLS12PRF", "([B[B[BILjava/security/MessageDigest;II)[B", nullptr, $STATIC, $method(static_cast<$bytes*(*)($bytes*,$bytes*,$bytes*,int32_t,$MessageDigest*,int32_t,int32_t)>(&TlsPrfGenerator::doTLS12PRF)), "java.security.DigestException"},
-	{"engineGenerateKey0", "(Z)Ljavax/crypto/SecretKey;", nullptr, 0},
-	{"engineInit", "(Ljava/security/SecureRandom;)V", nullptr, $PROTECTED},
-	{"engineInit", "(Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, nullptr, "java.security.InvalidAlgorithmParameterException"},
-	{"engineInit", "(ILjava/security/SecureRandom;)V", nullptr, $PROTECTED},
-	{"expand", "(Ljava/security/MessageDigest;I[BII[B[B[B[B[B)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($MessageDigest*,int32_t,$bytes*,int32_t,int32_t,$bytes*,$bytes*,$bytes*,$bytes*,$bytes*)>(&TlsPrfGenerator::expand)), "java.security.DigestException"},
-	{"genConst", "()[[B", nullptr, $PRIVATE | $STATIC, $method(static_cast<$byteArray2*(*)()>(&TlsPrfGenerator::genConst))},
-	{"genPad", "(BI)[B", nullptr, $STATIC, $method(static_cast<$bytes*(*)(int8_t,int32_t)>(&TlsPrfGenerator::genPad))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TlsPrfGenerator, init$, void)},
+	{"concat", "([B[B)[B", nullptr, $STATIC, $staticMethod(TlsPrfGenerator, concat, $bytes*, $bytes*, $bytes*)},
+	{"doTLS10PRF", "([B[B[BI)[B", nullptr, $STATIC, $staticMethod(TlsPrfGenerator, doTLS10PRF, $bytes*, $bytes*, $bytes*, $bytes*, int32_t), "java.security.NoSuchAlgorithmException,java.security.DigestException"},
+	{"doTLS10PRF", "([B[B[BILjava/security/MessageDigest;Ljava/security/MessageDigest;)[B", nullptr, $STATIC, $staticMethod(TlsPrfGenerator, doTLS10PRF, $bytes*, $bytes*, $bytes*, $bytes*, int32_t, $MessageDigest*, $MessageDigest*), "java.security.DigestException"},
+	{"doTLS12PRF", "([B[B[BILjava/lang/String;II)[B", nullptr, $STATIC, $staticMethod(TlsPrfGenerator, doTLS12PRF, $bytes*, $bytes*, $bytes*, $bytes*, int32_t, $String*, int32_t, int32_t), "java.security.NoSuchAlgorithmException,java.security.DigestException"},
+	{"doTLS12PRF", "([B[B[BILjava/security/MessageDigest;II)[B", nullptr, $STATIC, $staticMethod(TlsPrfGenerator, doTLS12PRF, $bytes*, $bytes*, $bytes*, $bytes*, int32_t, $MessageDigest*, int32_t, int32_t), "java.security.DigestException"},
+	{"engineGenerateKey0", "(Z)Ljavax/crypto/SecretKey;", nullptr, 0, $virtualMethod(TlsPrfGenerator, engineGenerateKey0, $SecretKey*, bool)},
+	{"engineInit", "(Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(TlsPrfGenerator, engineInit, void, $SecureRandom*)},
+	{"engineInit", "(Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(TlsPrfGenerator, engineInit, void, $AlgorithmParameterSpec*, $SecureRandom*), "java.security.InvalidAlgorithmParameterException"},
+	{"engineInit", "(ILjava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(TlsPrfGenerator, engineInit, void, int32_t, $SecureRandom*)},
+	{"expand", "(Ljava/security/MessageDigest;I[BII[B[B[B[B[B)V", nullptr, $PRIVATE | $STATIC, $staticMethod(TlsPrfGenerator, expand, void, $MessageDigest*, int32_t, $bytes*, int32_t, int32_t, $bytes*, $bytes*, $bytes*, $bytes*, $bytes*), "java.security.DigestException"},
+	{"genConst", "()[[B", nullptr, $PRIVATE | $STATIC, $staticMethod(TlsPrfGenerator, genConst, $byteArray2*)},
+	{"genPad", "(BI)[B", nullptr, $STATIC, $staticMethod(TlsPrfGenerator, genPad, $bytes*, int8_t, int32_t)},
 	{}
 };
 

@@ -58,19 +58,19 @@ $FieldInfo _ReentrantLock$Sync_FieldInfo_[] = {
 };
 
 $MethodInfo _ReentrantLock$Sync_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ReentrantLock$Sync::*)()>(&ReentrantLock$Sync::init$))},
-	{"getHoldCount", "()I", nullptr, $FINAL, $method(static_cast<int32_t(ReentrantLock$Sync::*)()>(&ReentrantLock$Sync::getHoldCount))},
-	{"getOwner", "()Ljava/lang/Thread;", nullptr, $FINAL, $method(static_cast<$Thread*(ReentrantLock$Sync::*)()>(&ReentrantLock$Sync::getOwner))},
-	{"initialTryLock", "()Z", nullptr, $ABSTRACT},
-	{"isHeldExclusively", "()Z", nullptr, $PROTECTED | $FINAL},
-	{"isLocked", "()Z", nullptr, $FINAL, $method(static_cast<bool(ReentrantLock$Sync::*)()>(&ReentrantLock$Sync::isLocked))},
-	{"lock", "()V", nullptr, $FINAL, $method(static_cast<void(ReentrantLock$Sync::*)()>(&ReentrantLock$Sync::lock)), nullptr, nullptr, _ReentrantLock$Sync_MethodAnnotations_lock6},
-	{"lockInterruptibly", "()V", nullptr, $FINAL, $method(static_cast<void(ReentrantLock$Sync::*)()>(&ReentrantLock$Sync::lockInterruptibly)), "java.lang.InterruptedException", nullptr, _ReentrantLock$Sync_MethodAnnotations_lockInterruptibly7},
-	{"newCondition", "()Ljava/util/concurrent/locks/AbstractQueuedSynchronizer$ConditionObject;", nullptr, $FINAL, $method(static_cast<$AbstractQueuedSynchronizer$ConditionObject*(ReentrantLock$Sync::*)()>(&ReentrantLock$Sync::newCondition))},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(ReentrantLock$Sync::*)($ObjectInputStream*)>(&ReentrantLock$Sync::readObject)), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"tryLock", "()Z", nullptr, $FINAL, $method(static_cast<bool(ReentrantLock$Sync::*)()>(&ReentrantLock$Sync::tryLock)), nullptr, nullptr, _ReentrantLock$Sync_MethodAnnotations_tryLock10},
-	{"tryLockNanos", "(J)Z", nullptr, $FINAL, $method(static_cast<bool(ReentrantLock$Sync::*)(int64_t)>(&ReentrantLock$Sync::tryLockNanos)), "java.lang.InterruptedException", nullptr, _ReentrantLock$Sync_MethodAnnotations_tryLockNanos11},
-	{"tryRelease", "(I)Z", nullptr, $PROTECTED | $FINAL, nullptr, nullptr, nullptr, _ReentrantLock$Sync_MethodAnnotations_tryRelease12},
+	{"<init>", "()V", nullptr, 0, $method(ReentrantLock$Sync, init$, void)},
+	{"getHoldCount", "()I", nullptr, $FINAL, $method(ReentrantLock$Sync, getHoldCount, int32_t)},
+	{"getOwner", "()Ljava/lang/Thread;", nullptr, $FINAL, $method(ReentrantLock$Sync, getOwner, $Thread*)},
+	{"initialTryLock", "()Z", nullptr, $ABSTRACT, $virtualMethod(ReentrantLock$Sync, initialTryLock, bool)},
+	{"isHeldExclusively", "()Z", nullptr, $PROTECTED | $FINAL, $virtualMethod(ReentrantLock$Sync, isHeldExclusively, bool)},
+	{"isLocked", "()Z", nullptr, $FINAL, $method(ReentrantLock$Sync, isLocked, bool)},
+	{"lock", "()V", nullptr, $FINAL, $method(ReentrantLock$Sync, lock, void), nullptr, nullptr, _ReentrantLock$Sync_MethodAnnotations_lock6},
+	{"lockInterruptibly", "()V", nullptr, $FINAL, $method(ReentrantLock$Sync, lockInterruptibly, void), "java.lang.InterruptedException", nullptr, _ReentrantLock$Sync_MethodAnnotations_lockInterruptibly7},
+	{"newCondition", "()Ljava/util/concurrent/locks/AbstractQueuedSynchronizer$ConditionObject;", nullptr, $FINAL, $method(ReentrantLock$Sync, newCondition, $AbstractQueuedSynchronizer$ConditionObject*)},
+	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(ReentrantLock$Sync, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+	{"tryLock", "()Z", nullptr, $FINAL, $method(ReentrantLock$Sync, tryLock, bool), nullptr, nullptr, _ReentrantLock$Sync_MethodAnnotations_tryLock10},
+	{"tryLockNanos", "(J)Z", nullptr, $FINAL, $method(ReentrantLock$Sync, tryLockNanos, bool, int64_t), "java.lang.InterruptedException", nullptr, _ReentrantLock$Sync_MethodAnnotations_tryLockNanos11},
+	{"tryRelease", "(I)Z", nullptr, $PROTECTED | $FINAL, $virtualMethod(ReentrantLock$Sync, tryRelease, bool, int32_t), nullptr, nullptr, _ReentrantLock$Sync_MethodAnnotations_tryRelease12},
 	{}
 };
 

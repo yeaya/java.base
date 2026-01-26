@@ -13,7 +13,7 @@ namespace jdk {
 			namespace vector {
 
 $MethodInfo _VectorSupport$VectorSpecies_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(VectorSupport$VectorSpecies::*)()>(&VectorSupport$VectorSpecies::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(VectorSupport$VectorSpecies, init$, void)},
 	{}
 };
 

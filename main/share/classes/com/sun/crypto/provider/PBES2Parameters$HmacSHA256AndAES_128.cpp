@@ -14,7 +14,7 @@ namespace com {
 			namespace provider {
 
 $MethodInfo _PBES2Parameters$HmacSHA256AndAES_128_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PBES2Parameters$HmacSHA256AndAES_128::*)()>(&PBES2Parameters$HmacSHA256AndAES_128::init$)), "java.security.NoSuchAlgorithmException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PBES2Parameters$HmacSHA256AndAES_128, init$, void), "java.security.NoSuchAlgorithmException"},
 	{}
 };
 

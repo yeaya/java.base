@@ -28,8 +28,8 @@ namespace sun {
 		namespace util {
 
 $MethodInfo _UntrustedCertificates$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(UntrustedCertificates$1::*)()>(&UntrustedCertificates$1::init$))},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(UntrustedCertificates$1, init$, void)},
+	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(UntrustedCertificates$1, run, $Object*)},
 	{}
 };
 

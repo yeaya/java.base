@@ -21,9 +21,9 @@ $FieldInfo _XECPrivateKeySpec_FieldInfo_[] = {
 };
 
 $MethodInfo _XECPrivateKeySpec_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/spec/AlgorithmParameterSpec;[B)V", nullptr, $PUBLIC, $method(static_cast<void(XECPrivateKeySpec::*)($AlgorithmParameterSpec*,$bytes*)>(&XECPrivateKeySpec::init$))},
-	{"getParams", "()Ljava/security/spec/AlgorithmParameterSpec;", nullptr, $PUBLIC},
-	{"getScalar", "()[B", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/security/spec/AlgorithmParameterSpec;[B)V", nullptr, $PUBLIC, $method(XECPrivateKeySpec, init$, void, $AlgorithmParameterSpec*, $bytes*)},
+	{"getParams", "()Ljava/security/spec/AlgorithmParameterSpec;", nullptr, $PUBLIC, $virtualMethod(XECPrivateKeySpec, getParams, $AlgorithmParameterSpec*)},
+	{"getScalar", "()[B", nullptr, $PUBLIC, $virtualMethod(XECPrivateKeySpec, getScalar, $bytes*)},
 	{}
 };
 

@@ -61,8 +61,8 @@ $FieldInfo SortedOps$RefSortingSink$$Lambda$accept::fieldInfos[2] = {
 	{}
 };
 $MethodInfo SortedOps$RefSortingSink$$Lambda$accept::methodInfos[3] = {
-	{"<init>", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC, $method(static_cast<void(SortedOps$RefSortingSink$$Lambda$accept::*)($Consumer*)>(&SortedOps$RefSortingSink$$Lambda$accept::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC, $method(SortedOps$RefSortingSink$$Lambda$accept, init$, void, $Consumer*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(SortedOps$RefSortingSink$$Lambda$accept, accept, void, Object$*)},
 	{}
 };
 $ClassInfo SortedOps$RefSortingSink$$Lambda$accept::classInfo$ = {
@@ -85,10 +85,10 @@ $FieldInfo _SortedOps$RefSortingSink_FieldInfo_[] = {
 };
 
 $MethodInfo _SortedOps$RefSortingSink_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/stream/Sink;Ljava/util/Comparator;)V", "(Ljava/util/stream/Sink<-TT;>;Ljava/util/Comparator<-TT;>;)V", 0, $method(static_cast<void(SortedOps$RefSortingSink::*)($Sink*,$Comparator*)>(&SortedOps$RefSortingSink::init$))},
-	{"accept", "(Ljava/lang/Object;)V", "(TT;)V", $PUBLIC},
-	{"begin", "(J)V", nullptr, $PUBLIC},
-	{"end", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/stream/Sink;Ljava/util/Comparator;)V", "(Ljava/util/stream/Sink<-TT;>;Ljava/util/Comparator<-TT;>;)V", 0, $method(SortedOps$RefSortingSink, init$, void, $Sink*, $Comparator*)},
+	{"accept", "(Ljava/lang/Object;)V", "(TT;)V", $PUBLIC, $virtualMethod(SortedOps$RefSortingSink, accept, void, Object$*)},
+	{"begin", "(J)V", nullptr, $PUBLIC, $virtualMethod(SortedOps$RefSortingSink, begin, void, int64_t)},
+	{"end", "()V", nullptr, $PUBLIC, $virtualMethod(SortedOps$RefSortingSink, end, void)},
 	{}
 };
 

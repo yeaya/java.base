@@ -15,7 +15,7 @@ $FieldInfo _ForInnerClass$Inner_FieldInfo_[] = {
 };
 
 $MethodInfo _ForInnerClass$Inner_MethodInfo_[] = {
-	{"<init>", "(LForInnerClass;)V", nullptr, $PRIVATE, $method(static_cast<void(ForInnerClass$Inner::*)($ForInnerClass*)>(&ForInnerClass$Inner::init$))},
+	{"<init>", "(LForInnerClass;)V", nullptr, $PRIVATE, $method(ForInnerClass$Inner, init$, void, $ForInnerClass*)},
 	{}
 };
 

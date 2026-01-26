@@ -39,10 +39,10 @@ $FieldInfo _Authenticator$MacImpl_FieldInfo_[] = {
 };
 
 $MethodInfo _Authenticator$MacImpl_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/ssl/Authenticator;)V", nullptr, $PRIVATE, $method(static_cast<void(Authenticator$MacImpl::*)($Authenticator*)>(&Authenticator$MacImpl::init$))},
-	{"<init>", "(Lsun/security/ssl/Authenticator;Lsun/security/ssl/ProtocolVersion;Lsun/security/ssl/CipherSuite$MacAlg;Ljavax/crypto/SecretKey;)V", nullptr, $PRIVATE, $method(static_cast<void(Authenticator$MacImpl::*)($Authenticator*,$ProtocolVersion*,$CipherSuite$MacAlg*,$SecretKey*)>(&Authenticator$MacImpl::init$)), "java.security.NoSuchAlgorithmException,java.security.InvalidKeyException"},
-	{"compute", "(BLjava/nio/ByteBuffer;[BZ)[B", nullptr, $PUBLIC},
-	{"macAlg", "()Lsun/security/ssl/CipherSuite$MacAlg;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/security/ssl/Authenticator;)V", nullptr, $PRIVATE, $method(Authenticator$MacImpl, init$, void, $Authenticator*)},
+	{"<init>", "(Lsun/security/ssl/Authenticator;Lsun/security/ssl/ProtocolVersion;Lsun/security/ssl/CipherSuite$MacAlg;Ljavax/crypto/SecretKey;)V", nullptr, $PRIVATE, $method(Authenticator$MacImpl, init$, void, $Authenticator*, $ProtocolVersion*, $CipherSuite$MacAlg*, $SecretKey*), "java.security.NoSuchAlgorithmException,java.security.InvalidKeyException"},
+	{"compute", "(BLjava/nio/ByteBuffer;[BZ)[B", nullptr, $PUBLIC, $virtualMethod(Authenticator$MacImpl, compute, $bytes*, int8_t, $ByteBuffer*, $bytes*, bool)},
+	{"macAlg", "()Lsun/security/ssl/CipherSuite$MacAlg;", nullptr, $PUBLIC, $virtualMethod(Authenticator$MacImpl, macAlg, $CipherSuite$MacAlg*)},
 	{}
 };
 

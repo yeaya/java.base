@@ -39,16 +39,16 @@ $FieldInfo _FailingConstructors_FieldInfo_[] = {
 };
 
 $MethodInfo _FailingConstructors_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(FailingConstructors::*)()>(&FailingConstructors::init$))},
-	{"check", "(ZLjava/io/File;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)(bool,$File*)>(&FailingConstructors::check))},
-	{"fail", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&FailingConstructors::fail))},
-	{"fail", "(Ljava/lang/String;)V", nullptr, $STATIC, $method(static_cast<void(*)($String*)>(&FailingConstructors::fail))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&FailingConstructors::main)), "java.lang.Throwable"},
-	{"pass", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&FailingConstructors::pass))},
-	{"realMain", "([Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($StringArray*)>(&FailingConstructors::realMain)), "java.lang.Throwable"},
-	{"test", "(ZLjava/io/File;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)(bool,$File*)>(&FailingConstructors::test)), "java.lang.Throwable"},
-	{"unexpected", "(Ljava/lang/Throwable;)V", nullptr, $STATIC, $method(static_cast<void(*)($Throwable*)>(&FailingConstructors::unexpected))},
-	{"verifyContents", "(Ljava/io/File;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($File*)>(&FailingConstructors::verifyContents))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(FailingConstructors, init$, void)},
+	{"check", "(ZLjava/io/File;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(FailingConstructors, check, void, bool, $File*)},
+	{"fail", "()V", nullptr, $STATIC, $staticMethod(FailingConstructors, fail, void)},
+	{"fail", "(Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(FailingConstructors, fail, void, $String*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(FailingConstructors, main, void, $StringArray*), "java.lang.Throwable"},
+	{"pass", "()V", nullptr, $STATIC, $staticMethod(FailingConstructors, pass, void)},
+	{"realMain", "([Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(FailingConstructors, realMain, void, $StringArray*), "java.lang.Throwable"},
+	{"test", "(ZLjava/io/File;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(FailingConstructors, test, void, bool, $File*), "java.lang.Throwable"},
+	{"unexpected", "(Ljava/lang/Throwable;)V", nullptr, $STATIC, $staticMethod(FailingConstructors, unexpected, void, $Throwable*)},
+	{"verifyContents", "(Ljava/io/File;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(FailingConstructors, verifyContents, void, $File*)},
 	{}
 };
 

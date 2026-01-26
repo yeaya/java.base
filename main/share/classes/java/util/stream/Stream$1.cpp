@@ -30,8 +30,8 @@ $FieldInfo _Stream$1_FieldInfo_[] = {
 };
 
 $MethodInfo _Stream$1_MethodInfo_[] = {
-	{"<init>", "(JILjava/util/function/UnaryOperator;Ljava/lang/Object;)V", nullptr, 0, $method(static_cast<void(Stream$1::*)(int64_t,int32_t,$UnaryOperator*,Object$*)>(&Stream$1::init$))},
-	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-TT;>;)Z", $PUBLIC},
+	{"<init>", "(JILjava/util/function/UnaryOperator;Ljava/lang/Object;)V", nullptr, 0, $method(Stream$1, init$, void, int64_t, int32_t, $UnaryOperator*, Object$*)},
+	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-TT;>;)Z", $PUBLIC, $virtualMethod(Stream$1, tryAdvance, bool, $Consumer*)},
 	{}
 };
 

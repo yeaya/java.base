@@ -16,7 +16,7 @@ $FieldInfo _DummyFieldHolder_FieldInfo_[] = {
 };
 
 $MethodInfo _DummyFieldHolder_MethodInfo_[] = {
-	{"<init>", "(B[Ljava/lang/Long;)V", nullptr, $PUBLIC | $TRANSIENT, $method(static_cast<void(DummyFieldHolder::*)(int8_t,$LongArray*)>(&DummyFieldHolder::init$))},
+	{"<init>", "(B[Ljava/lang/Long;)V", nullptr, $PUBLIC | $TRANSIENT, $method(DummyFieldHolder, init$, void, int8_t, $LongArray*)},
 	{}
 };
 

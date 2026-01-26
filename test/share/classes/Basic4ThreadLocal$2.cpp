@@ -19,8 +19,8 @@ $FieldInfo _Basic4ThreadLocal$2_FieldInfo_[] = {
 };
 
 $MethodInfo _Basic4ThreadLocal$2_MethodInfo_[] = {
-	{"<init>", "([I)V", nullptr, 0, $method(static_cast<void(Basic4ThreadLocal$2::*)($ints*)>(&Basic4ThreadLocal$2::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "([I)V", nullptr, 0, $method(Basic4ThreadLocal$2, init$, void, $ints*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Basic4ThreadLocal$2, run, void)},
 	{}
 };
 

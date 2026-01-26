@@ -33,14 +33,14 @@ $FieldInfo _Spliterators$ArraySpliterator_FieldInfo_[] = {
 };
 
 $MethodInfo _Spliterators$ArraySpliterator_MethodInfo_[] = {
-	{"<init>", "([Ljava/lang/Object;I)V", nullptr, $PUBLIC, $method(static_cast<void(Spliterators$ArraySpliterator::*)($ObjectArray*,int32_t)>(&Spliterators$ArraySpliterator::init$))},
-	{"<init>", "([Ljava/lang/Object;III)V", nullptr, $PUBLIC, $method(static_cast<void(Spliterators$ArraySpliterator::*)($ObjectArray*,int32_t,int32_t,int32_t)>(&Spliterators$ArraySpliterator::init$))},
-	{"characteristics", "()I", nullptr, $PUBLIC},
-	{"estimateSize", "()J", nullptr, $PUBLIC},
-	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TT;>;)V", $PUBLIC},
-	{"getComparator", "()Ljava/util/Comparator;", "()Ljava/util/Comparator<-TT;>;", $PUBLIC},
-	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-TT;>;)Z", $PUBLIC},
-	{"trySplit", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TT;>;", $PUBLIC},
+	{"<init>", "([Ljava/lang/Object;I)V", nullptr, $PUBLIC, $method(Spliterators$ArraySpliterator, init$, void, $ObjectArray*, int32_t)},
+	{"<init>", "([Ljava/lang/Object;III)V", nullptr, $PUBLIC, $method(Spliterators$ArraySpliterator, init$, void, $ObjectArray*, int32_t, int32_t, int32_t)},
+	{"characteristics", "()I", nullptr, $PUBLIC, $virtualMethod(Spliterators$ArraySpliterator, characteristics, int32_t)},
+	{"estimateSize", "()J", nullptr, $PUBLIC, $virtualMethod(Spliterators$ArraySpliterator, estimateSize, int64_t)},
+	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TT;>;)V", $PUBLIC, $virtualMethod(Spliterators$ArraySpliterator, forEachRemaining, void, $Consumer*)},
+	{"getComparator", "()Ljava/util/Comparator;", "()Ljava/util/Comparator<-TT;>;", $PUBLIC, $virtualMethod(Spliterators$ArraySpliterator, getComparator, $Comparator*)},
+	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-TT;>;)Z", $PUBLIC, $virtualMethod(Spliterators$ArraySpliterator, tryAdvance, bool, $Consumer*)},
+	{"trySplit", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TT;>;", $PUBLIC, $virtualMethod(Spliterators$ArraySpliterator, trySplit, $Spliterator*)},
 	{}
 };
 

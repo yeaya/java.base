@@ -5,6 +5,7 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Map = ::java::util::Map;
 
 namespace jdk {
 	namespace internal {
@@ -14,7 +15,7 @@ namespace jdk {
 					namespace util {
 
 $MethodInfo _ASMifierSupport_MethodInfo_[] = {
-	{"asmify", "(Ljava/lang/StringBuilder;Ljava/lang/String;Ljava/util/Map;)V", "(Ljava/lang/StringBuilder;Ljava/lang/String;Ljava/util/Map<Ljdk/internal/org/objectweb/asm/Label;Ljava/lang/String;>;)V", $PUBLIC | $ABSTRACT},
+	{"asmify", "(Ljava/lang/StringBuilder;Ljava/lang/String;Ljava/util/Map;)V", "(Ljava/lang/StringBuilder;Ljava/lang/String;Ljava/util/Map<Ljdk/internal/org/objectweb/asm/Label;Ljava/lang/String;>;)V", $PUBLIC | $ABSTRACT, $virtualMethod(ASMifierSupport, asmify, void, $StringBuilder*, $String*, $Map*)},
 	{}
 };
 

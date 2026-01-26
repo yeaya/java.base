@@ -17,8 +17,8 @@ $FieldInfo _Spliterators$AbstractSpliterator$HoldingConsumer_FieldInfo_[] = {
 };
 
 $MethodInfo _Spliterators$AbstractSpliterator$HoldingConsumer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Spliterators$AbstractSpliterator$HoldingConsumer::*)()>(&Spliterators$AbstractSpliterator$HoldingConsumer::init$))},
-	{"accept", "(Ljava/lang/Object;)V", "(TT;)V", $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(Spliterators$AbstractSpliterator$HoldingConsumer, init$, void)},
+	{"accept", "(Ljava/lang/Object;)V", "(TT;)V", $PUBLIC, $virtualMethod(Spliterators$AbstractSpliterator$HoldingConsumer, accept, void, Object$*)},
 	{}
 };
 

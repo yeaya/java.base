@@ -61,8 +61,8 @@ $FieldInfo Selector$$Lambda$lambda$doSelect$0::fieldInfos[3] = {
 	{}
 };
 $MethodInfo Selector$$Lambda$lambda$doSelect$0::methodInfos[3] = {
-	{"<init>", "(Ljava/nio/channels/Selector;Ljava/util/function/Consumer;)V", nullptr, $PUBLIC, $method(static_cast<void(Selector$$Lambda$lambda$doSelect$0::*)(Selector*,$Consumer*)>(&Selector$$Lambda$lambda$doSelect$0::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/nio/channels/Selector;Ljava/util/function/Consumer;)V", nullptr, $PUBLIC, $method(Selector$$Lambda$lambda$doSelect$0, init$, void, Selector*, $Consumer*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Selector$$Lambda$lambda$doSelect$0, accept, void, Object$*)},
 	{}
 };
 $ClassInfo Selector$$Lambda$lambda$doSelect$0::classInfo$ = {
@@ -86,21 +86,21 @@ $FieldInfo _Selector_FieldInfo_[] = {
 
 $MethodInfo _Selector_MethodInfo_[] = {
 	{"close", "()V", nullptr, $PUBLIC | $ABSTRACT},
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(Selector::*)()>(&Selector::init$))},
-	{"doSelect", "(Ljava/util/function/Consumer;J)I", "(Ljava/util/function/Consumer<Ljava/nio/channels/SelectionKey;>;J)I", $PRIVATE, $method(static_cast<int32_t(Selector::*)($Consumer*,int64_t)>(&Selector::doSelect)), "java.io.IOException"},
-	{"isOpen", "()Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"keys", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/nio/channels/SelectionKey;>;", $PUBLIC | $ABSTRACT},
-	{"lambda$doSelect$0", "(Ljava/util/function/Consumer;Ljava/nio/channels/SelectionKey;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(Selector::*)($Consumer*,$SelectionKey*)>(&Selector::lambda$doSelect$0))},
-	{"open", "()Ljava/nio/channels/Selector;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Selector*(*)()>(&Selector::open)), "java.io.IOException"},
-	{"provider", "()Ljava/nio/channels/spi/SelectorProvider;", nullptr, $PUBLIC | $ABSTRACT},
-	{"select", "(J)I", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"select", "()I", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"select", "(Ljava/util/function/Consumer;J)I", "(Ljava/util/function/Consumer<Ljava/nio/channels/SelectionKey;>;J)I", $PUBLIC, nullptr, "java.io.IOException"},
-	{"select", "(Ljava/util/function/Consumer;)I", "(Ljava/util/function/Consumer<Ljava/nio/channels/SelectionKey;>;)I", $PUBLIC, nullptr, "java.io.IOException"},
-	{"selectNow", "()I", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"selectNow", "(Ljava/util/function/Consumer;)I", "(Ljava/util/function/Consumer<Ljava/nio/channels/SelectionKey;>;)I", $PUBLIC, nullptr, "java.io.IOException"},
-	{"selectedKeys", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/nio/channels/SelectionKey;>;", $PUBLIC | $ABSTRACT},
-	{"wakeup", "()Ljava/nio/channels/Selector;", nullptr, $PUBLIC | $ABSTRACT},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(Selector, init$, void)},
+	{"doSelect", "(Ljava/util/function/Consumer;J)I", "(Ljava/util/function/Consumer<Ljava/nio/channels/SelectionKey;>;J)I", $PRIVATE, $method(Selector, doSelect, int32_t, $Consumer*, int64_t), "java.io.IOException"},
+	{"isOpen", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Selector, isOpen, bool)},
+	{"keys", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/nio/channels/SelectionKey;>;", $PUBLIC | $ABSTRACT, $virtualMethod(Selector, keys, $Set*)},
+	{"lambda$doSelect$0", "(Ljava/util/function/Consumer;Ljava/nio/channels/SelectionKey;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Selector, lambda$doSelect$0, void, $Consumer*, $SelectionKey*)},
+	{"open", "()Ljava/nio/channels/Selector;", nullptr, $PUBLIC | $STATIC, $staticMethod(Selector, open, Selector*), "java.io.IOException"},
+	{"provider", "()Ljava/nio/channels/spi/SelectorProvider;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Selector, provider, $SelectorProvider*)},
+	{"select", "(J)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Selector, select, int32_t, int64_t), "java.io.IOException"},
+	{"select", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Selector, select, int32_t), "java.io.IOException"},
+	{"select", "(Ljava/util/function/Consumer;J)I", "(Ljava/util/function/Consumer<Ljava/nio/channels/SelectionKey;>;J)I", $PUBLIC, $virtualMethod(Selector, select, int32_t, $Consumer*, int64_t), "java.io.IOException"},
+	{"select", "(Ljava/util/function/Consumer;)I", "(Ljava/util/function/Consumer<Ljava/nio/channels/SelectionKey;>;)I", $PUBLIC, $virtualMethod(Selector, select, int32_t, $Consumer*), "java.io.IOException"},
+	{"selectNow", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Selector, selectNow, int32_t), "java.io.IOException"},
+	{"selectNow", "(Ljava/util/function/Consumer;)I", "(Ljava/util/function/Consumer<Ljava/nio/channels/SelectionKey;>;)I", $PUBLIC, $virtualMethod(Selector, selectNow, int32_t, $Consumer*), "java.io.IOException"},
+	{"selectedKeys", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/nio/channels/SelectionKey;>;", $PUBLIC | $ABSTRACT, $virtualMethod(Selector, selectedKeys, $Set*)},
+	{"wakeup", "()Ljava/nio/channels/Selector;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Selector, wakeup, Selector*)},
 	{}
 };
 

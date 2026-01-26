@@ -33,9 +33,9 @@ using $Selector = ::java::nio::channels::Selector;
 using $Set = ::java::util::Set;
 
 $MethodInfo _SelectWhenRefused_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SelectWhenRefused::*)()>(&SelectWhenRefused::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&SelectWhenRefused::main)), "java.io.IOException"},
-	{"sendDatagram", "(Ljava/nio/channels/DatagramChannel;Ljava/net/SocketAddress;)V", nullptr, $STATIC, $method(static_cast<void(*)($DatagramChannel*,$SocketAddress*)>(&SelectWhenRefused::sendDatagram)), "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SelectWhenRefused, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SelectWhenRefused, main, void, $StringArray*), "java.io.IOException"},
+	{"sendDatagram", "(Ljava/nio/channels/DatagramChannel;Ljava/net/SocketAddress;)V", nullptr, $STATIC, $staticMethod(SelectWhenRefused, sendDatagram, void, $DatagramChannel*, $SocketAddress*), "java.io.IOException"},
 	{}
 };
 

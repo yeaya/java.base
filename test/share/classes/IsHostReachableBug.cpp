@@ -16,8 +16,8 @@ using $Inet6Address = ::java::net::Inet6Address;
 using $InetAddress = ::java::net::InetAddress;
 
 $MethodInfo _IsHostReachableBug_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(IsHostReachableBug::*)()>(&IsHostReachableBug::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&IsHostReachableBug::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(IsHostReachableBug, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(IsHostReachableBug, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

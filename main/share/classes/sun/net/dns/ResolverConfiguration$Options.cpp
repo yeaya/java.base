@@ -12,9 +12,9 @@ namespace sun {
 		namespace dns {
 
 $MethodInfo _ResolverConfiguration$Options_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ResolverConfiguration$Options::*)()>(&ResolverConfiguration$Options::init$))},
-	{"attempts", "()I", nullptr, $PUBLIC},
-	{"retrans", "()I", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ResolverConfiguration$Options, init$, void)},
+	{"attempts", "()I", nullptr, $PUBLIC, $virtualMethod(ResolverConfiguration$Options, attempts, int32_t)},
+	{"retrans", "()I", nullptr, $PUBLIC, $virtualMethod(ResolverConfiguration$Options, retrans, int32_t)},
 	{}
 };
 

@@ -31,7 +31,7 @@ $FieldInfo _SignatureUtil$PSSParamsHolder_FieldInfo_[] = {
 };
 
 $MethodInfo _SignatureUtil$PSSParamsHolder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(SignatureUtil$PSSParamsHolder::*)()>(&SignatureUtil$PSSParamsHolder::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(SignatureUtil$PSSParamsHolder, init$, void)},
 	{}
 };
 

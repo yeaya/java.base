@@ -52,13 +52,13 @@ $FieldInfo _UnixUserPrincipals_FieldInfo_[] = {
 };
 
 $MethodInfo _UnixUserPrincipals_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(UnixUserPrincipals::*)()>(&UnixUserPrincipals::init$))},
-	{"createSpecial", "(Ljava/lang/String;)Lsun/nio/fs/UnixUserPrincipals$User;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$UnixUserPrincipals$User*(*)($String*)>(&UnixUserPrincipals::createSpecial))},
-	{"fromGid", "(I)Lsun/nio/fs/UnixUserPrincipals$Group;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$UnixUserPrincipals$Group*(*)(int32_t)>(&UnixUserPrincipals::fromGid))},
-	{"fromUid", "(I)Lsun/nio/fs/UnixUserPrincipals$User;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$UnixUserPrincipals$User*(*)(int32_t)>(&UnixUserPrincipals::fromUid))},
-	{"lookupGroup", "(Ljava/lang/String;)Ljava/nio/file/attribute/GroupPrincipal;", nullptr, $STATIC, $method(static_cast<$GroupPrincipal*(*)($String*)>(&UnixUserPrincipals::lookupGroup)), "java.io.IOException"},
-	{"lookupName", "(Ljava/lang/String;Z)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)($String*,bool)>(&UnixUserPrincipals::lookupName)), "java.io.IOException"},
-	{"lookupUser", "(Ljava/lang/String;)Ljava/nio/file/attribute/UserPrincipal;", nullptr, $STATIC, $method(static_cast<$UserPrincipal*(*)($String*)>(&UnixUserPrincipals::lookupUser)), "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(UnixUserPrincipals, init$, void)},
+	{"createSpecial", "(Ljava/lang/String;)Lsun/nio/fs/UnixUserPrincipals$User;", nullptr, $PRIVATE | $STATIC, $staticMethod(UnixUserPrincipals, createSpecial, $UnixUserPrincipals$User*, $String*)},
+	{"fromGid", "(I)Lsun/nio/fs/UnixUserPrincipals$Group;", nullptr, $PUBLIC | $STATIC, $staticMethod(UnixUserPrincipals, fromGid, $UnixUserPrincipals$Group*, int32_t)},
+	{"fromUid", "(I)Lsun/nio/fs/UnixUserPrincipals$User;", nullptr, $PUBLIC | $STATIC, $staticMethod(UnixUserPrincipals, fromUid, $UnixUserPrincipals$User*, int32_t)},
+	{"lookupGroup", "(Ljava/lang/String;)Ljava/nio/file/attribute/GroupPrincipal;", nullptr, $STATIC, $staticMethod(UnixUserPrincipals, lookupGroup, $GroupPrincipal*, $String*), "java.io.IOException"},
+	{"lookupName", "(Ljava/lang/String;Z)I", nullptr, $PRIVATE | $STATIC, $staticMethod(UnixUserPrincipals, lookupName, int32_t, $String*, bool), "java.io.IOException"},
+	{"lookupUser", "(Ljava/lang/String;)Ljava/nio/file/attribute/UserPrincipal;", nullptr, $STATIC, $staticMethod(UnixUserPrincipals, lookupUser, $UserPrincipal*, $String*), "java.io.IOException"},
 	{}
 };
 

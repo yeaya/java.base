@@ -22,10 +22,10 @@ $FieldInfo _WindowsPathParser$Result_FieldInfo_[] = {
 };
 
 $MethodInfo _WindowsPathParser$Result_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/fs/WindowsPathType;Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(WindowsPathParser$Result::*)($WindowsPathType*,$String*,$String*)>(&WindowsPathParser$Result::init$))},
-	{"path", "()Ljava/lang/String;", nullptr, 0},
-	{"root", "()Ljava/lang/String;", nullptr, 0},
-	{"type", "()Lsun/nio/fs/WindowsPathType;", nullptr, 0},
+	{"<init>", "(Lsun/nio/fs/WindowsPathType;Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(WindowsPathParser$Result, init$, void, $WindowsPathType*, $String*, $String*)},
+	{"path", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(WindowsPathParser$Result, path, $String*)},
+	{"root", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(WindowsPathParser$Result, root, $String*)},
+	{"type", "()Lsun/nio/fs/WindowsPathType;", nullptr, 0, $virtualMethod(WindowsPathParser$Result, type, $WindowsPathType*)},
 	{}
 };
 

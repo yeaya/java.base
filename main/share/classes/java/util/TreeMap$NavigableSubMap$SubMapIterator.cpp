@@ -34,12 +34,12 @@ $FieldInfo _TreeMap$NavigableSubMap$SubMapIterator_FieldInfo_[] = {
 };
 
 $MethodInfo _TreeMap$NavigableSubMap$SubMapIterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/TreeMap$NavigableSubMap;Ljava/util/TreeMap$Entry;Ljava/util/TreeMap$Entry;)V", "(Ljava/util/TreeMap$Entry<TK;TV;>;Ljava/util/TreeMap$Entry<TK;TV;>;)V", 0, $method(static_cast<void(TreeMap$NavigableSubMap$SubMapIterator::*)($TreeMap$NavigableSubMap*,$TreeMap$Entry*,$TreeMap$Entry*)>(&TreeMap$NavigableSubMap$SubMapIterator::init$))},
-	{"hasNext", "()Z", nullptr, $PUBLIC | $FINAL},
-	{"nextEntry", "()Ljava/util/TreeMap$Entry;", "()Ljava/util/TreeMap$Entry<TK;TV;>;", $FINAL, $method(static_cast<$TreeMap$Entry*(TreeMap$NavigableSubMap$SubMapIterator::*)()>(&TreeMap$NavigableSubMap$SubMapIterator::nextEntry))},
-	{"prevEntry", "()Ljava/util/TreeMap$Entry;", "()Ljava/util/TreeMap$Entry<TK;TV;>;", $FINAL, $method(static_cast<$TreeMap$Entry*(TreeMap$NavigableSubMap$SubMapIterator::*)()>(&TreeMap$NavigableSubMap$SubMapIterator::prevEntry))},
-	{"removeAscending", "()V", nullptr, $FINAL, $method(static_cast<void(TreeMap$NavigableSubMap$SubMapIterator::*)()>(&TreeMap$NavigableSubMap$SubMapIterator::removeAscending))},
-	{"removeDescending", "()V", nullptr, $FINAL, $method(static_cast<void(TreeMap$NavigableSubMap$SubMapIterator::*)()>(&TreeMap$NavigableSubMap$SubMapIterator::removeDescending))},
+	{"<init>", "(Ljava/util/TreeMap$NavigableSubMap;Ljava/util/TreeMap$Entry;Ljava/util/TreeMap$Entry;)V", "(Ljava/util/TreeMap$Entry<TK;TV;>;Ljava/util/TreeMap$Entry<TK;TV;>;)V", 0, $method(TreeMap$NavigableSubMap$SubMapIterator, init$, void, $TreeMap$NavigableSubMap*, $TreeMap$Entry*, $TreeMap$Entry*)},
+	{"hasNext", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(TreeMap$NavigableSubMap$SubMapIterator, hasNext, bool)},
+	{"nextEntry", "()Ljava/util/TreeMap$Entry;", "()Ljava/util/TreeMap$Entry<TK;TV;>;", $FINAL, $method(TreeMap$NavigableSubMap$SubMapIterator, nextEntry, $TreeMap$Entry*)},
+	{"prevEntry", "()Ljava/util/TreeMap$Entry;", "()Ljava/util/TreeMap$Entry<TK;TV;>;", $FINAL, $method(TreeMap$NavigableSubMap$SubMapIterator, prevEntry, $TreeMap$Entry*)},
+	{"removeAscending", "()V", nullptr, $FINAL, $method(TreeMap$NavigableSubMap$SubMapIterator, removeAscending, void)},
+	{"removeDescending", "()V", nullptr, $FINAL, $method(TreeMap$NavigableSubMap$SubMapIterator, removeDescending, void)},
 	{}
 };
 

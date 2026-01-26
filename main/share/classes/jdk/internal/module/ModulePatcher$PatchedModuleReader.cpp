@@ -73,18 +73,18 @@ $FieldInfo _ModulePatcher$PatchedModuleReader_FieldInfo_[] = {
 };
 
 $MethodInfo _ModulePatcher$PatchedModuleReader_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/List;Ljava/lang/module/ModuleReference;)V", "(Ljava/util/List<Ljava/nio/file/Path;>;Ljava/lang/module/ModuleReference;)V", 0, $method(static_cast<void(ModulePatcher$PatchedModuleReader::*)($List*,$ModuleReference*)>(&ModulePatcher$PatchedModuleReader::init$))},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"closeAll", "(Ljava/util/List;)V", "(Ljava/util/List<Ljdk/internal/module/ModulePatcher$ResourceFinder;>;)V", $PRIVATE | $STATIC, $method(static_cast<void(*)($List*)>(&ModulePatcher$PatchedModuleReader::closeAll))},
-	{"codeSourceURL", "(Ljava/lang/module/ModuleReference;)Ljava/net/URL;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$URL*(*)($ModuleReference*)>(&ModulePatcher$PatchedModuleReader::codeSourceURL))},
-	{"delegate", "()Ljava/lang/module/ModuleReader;", nullptr, $PRIVATE, $method(static_cast<$ModuleReader*(ModulePatcher$PatchedModuleReader::*)()>(&ModulePatcher$PatchedModuleReader::delegate)), "java.io.IOException"},
-	{"find", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/net/URI;>;", $PUBLIC, nullptr, "java.io.IOException"},
-	{"findResource", "(Ljava/lang/String;)Ljdk/internal/loader/Resource;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"findResourceInPatch", "(Ljava/lang/String;)Ljdk/internal/loader/Resource;", nullptr, $PRIVATE, $method(static_cast<$Resource*(ModulePatcher$PatchedModuleReader::*)($String*)>(&ModulePatcher$PatchedModuleReader::findResourceInPatch)), "java.io.IOException"},
-	{"list", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljava/lang/String;>;", $PUBLIC, nullptr, "java.io.IOException"},
-	{"open", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/io/InputStream;>;", $PUBLIC, nullptr, "java.io.IOException"},
-	{"read", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/nio/ByteBuffer;>;", $PUBLIC, nullptr, "java.io.IOException"},
-	{"release", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/List;Ljava/lang/module/ModuleReference;)V", "(Ljava/util/List<Ljava/nio/file/Path;>;Ljava/lang/module/ModuleReference;)V", 0, $method(ModulePatcher$PatchedModuleReader, init$, void, $List*, $ModuleReference*)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(ModulePatcher$PatchedModuleReader, close, void), "java.io.IOException"},
+	{"closeAll", "(Ljava/util/List;)V", "(Ljava/util/List<Ljdk/internal/module/ModulePatcher$ResourceFinder;>;)V", $PRIVATE | $STATIC, $staticMethod(ModulePatcher$PatchedModuleReader, closeAll, void, $List*)},
+	{"codeSourceURL", "(Ljava/lang/module/ModuleReference;)Ljava/net/URL;", nullptr, $PRIVATE | $STATIC, $staticMethod(ModulePatcher$PatchedModuleReader, codeSourceURL, $URL*, $ModuleReference*)},
+	{"delegate", "()Ljava/lang/module/ModuleReader;", nullptr, $PRIVATE, $method(ModulePatcher$PatchedModuleReader, delegate, $ModuleReader*), "java.io.IOException"},
+	{"find", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/net/URI;>;", $PUBLIC, $virtualMethod(ModulePatcher$PatchedModuleReader, find, $Optional*, $String*), "java.io.IOException"},
+	{"findResource", "(Ljava/lang/String;)Ljdk/internal/loader/Resource;", nullptr, $PUBLIC, $virtualMethod(ModulePatcher$PatchedModuleReader, findResource, $Resource*, $String*), "java.io.IOException"},
+	{"findResourceInPatch", "(Ljava/lang/String;)Ljdk/internal/loader/Resource;", nullptr, $PRIVATE, $method(ModulePatcher$PatchedModuleReader, findResourceInPatch, $Resource*, $String*), "java.io.IOException"},
+	{"list", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(ModulePatcher$PatchedModuleReader, list, $Stream*), "java.io.IOException"},
+	{"open", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/io/InputStream;>;", $PUBLIC, $virtualMethod(ModulePatcher$PatchedModuleReader, open, $Optional*, $String*), "java.io.IOException"},
+	{"read", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/nio/ByteBuffer;>;", $PUBLIC, $virtualMethod(ModulePatcher$PatchedModuleReader, read, $Optional*, $String*), "java.io.IOException"},
+	{"release", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(ModulePatcher$PatchedModuleReader, release, void, $ByteBuffer*)},
 	{}
 };
 

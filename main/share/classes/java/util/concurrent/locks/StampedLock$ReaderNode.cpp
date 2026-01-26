@@ -28,9 +28,9 @@ $FieldInfo _StampedLock$ReaderNode_FieldInfo_[] = {
 };
 
 $MethodInfo _StampedLock$ReaderNode_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(StampedLock$ReaderNode::*)()>(&StampedLock$ReaderNode::init$))},
-	{"casCowaiters", "(Ljava/util/concurrent/locks/StampedLock$ReaderNode;Ljava/util/concurrent/locks/StampedLock$ReaderNode;)Z", nullptr, $FINAL, $method(static_cast<bool(StampedLock$ReaderNode::*)(StampedLock$ReaderNode*,StampedLock$ReaderNode*)>(&StampedLock$ReaderNode::casCowaiters))},
-	{"setCowaitersRelaxed", "(Ljava/util/concurrent/locks/StampedLock$ReaderNode;)V", nullptr, $FINAL, $method(static_cast<void(StampedLock$ReaderNode::*)(StampedLock$ReaderNode*)>(&StampedLock$ReaderNode::setCowaitersRelaxed))},
+	{"<init>", "()V", nullptr, 0, $method(StampedLock$ReaderNode, init$, void)},
+	{"casCowaiters", "(Ljava/util/concurrent/locks/StampedLock$ReaderNode;Ljava/util/concurrent/locks/StampedLock$ReaderNode;)Z", nullptr, $FINAL, $method(StampedLock$ReaderNode, casCowaiters, bool, StampedLock$ReaderNode*, StampedLock$ReaderNode*)},
+	{"setCowaitersRelaxed", "(Ljava/util/concurrent/locks/StampedLock$ReaderNode;)V", nullptr, $FINAL, $method(StampedLock$ReaderNode, setCowaitersRelaxed, void, StampedLock$ReaderNode*)},
 	{}
 };
 

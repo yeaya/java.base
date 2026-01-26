@@ -17,8 +17,8 @@ $FieldInfo _MalformedParametersException_FieldInfo_[] = {
 };
 
 $MethodInfo _MalformedParametersException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(MalformedParametersException::*)()>(&MalformedParametersException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(MalformedParametersException::*)($String*)>(&MalformedParametersException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(MalformedParametersException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(MalformedParametersException, init$, void, $String*)},
 	{}
 };
 

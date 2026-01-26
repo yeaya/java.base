@@ -39,10 +39,10 @@ $FieldInfo _SSLKeyExchange$T13KeyAgreement_FieldInfo_[] = {
 };
 
 $MethodInfo _SSLKeyExchange$T13KeyAgreement_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/ssl/NamedGroup;)V", nullptr, $PRIVATE, $method(static_cast<void(SSLKeyExchange$T13KeyAgreement::*)($NamedGroup*)>(&SSLKeyExchange$T13KeyAgreement::init$))},
-	{"createKeyDerivation", "(Lsun/security/ssl/HandshakeContext;)Lsun/security/ssl/SSLKeyDerivation;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"createPossession", "(Lsun/security/ssl/HandshakeContext;)Lsun/security/ssl/SSLPossession;", nullptr, $PUBLIC},
-	{"valueOf", "(Lsun/security/ssl/NamedGroup;)Lsun/security/ssl/SSLKeyExchange$T13KeyAgreement;", nullptr, $STATIC, $method(static_cast<SSLKeyExchange$T13KeyAgreement*(*)($NamedGroup*)>(&SSLKeyExchange$T13KeyAgreement::valueOf))},
+	{"<init>", "(Lsun/security/ssl/NamedGroup;)V", nullptr, $PRIVATE, $method(SSLKeyExchange$T13KeyAgreement, init$, void, $NamedGroup*)},
+	{"createKeyDerivation", "(Lsun/security/ssl/HandshakeContext;)Lsun/security/ssl/SSLKeyDerivation;", nullptr, $PUBLIC, $virtualMethod(SSLKeyExchange$T13KeyAgreement, createKeyDerivation, $SSLKeyDerivation*, $HandshakeContext*), "java.io.IOException"},
+	{"createPossession", "(Lsun/security/ssl/HandshakeContext;)Lsun/security/ssl/SSLPossession;", nullptr, $PUBLIC, $virtualMethod(SSLKeyExchange$T13KeyAgreement, createPossession, $SSLPossession*, $HandshakeContext*)},
+	{"valueOf", "(Lsun/security/ssl/NamedGroup;)Lsun/security/ssl/SSLKeyExchange$T13KeyAgreement;", nullptr, $STATIC, $staticMethod(SSLKeyExchange$T13KeyAgreement, valueOf, SSLKeyExchange$T13KeyAgreement*, $NamedGroup*)},
 	{}
 };
 

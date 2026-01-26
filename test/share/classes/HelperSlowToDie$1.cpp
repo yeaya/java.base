@@ -10,8 +10,8 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _HelperSlowToDie$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(HelperSlowToDie$1::*)()>(&HelperSlowToDie$1::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(HelperSlowToDie$1, init$, void)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(HelperSlowToDie$1, run, void)},
 	{}
 };
 

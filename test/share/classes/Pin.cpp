@@ -25,8 +25,8 @@ $FieldInfo _Pin_FieldInfo_[] = {
 };
 
 $MethodInfo _Pin_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Pin::*)()>(&Pin::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Pin::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Pin, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Pin, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

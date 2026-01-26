@@ -22,14 +22,14 @@ $FieldInfo _ImplicitStringConcatAssignLHS_FieldInfo_[] = {
 };
 
 $MethodInfo _ImplicitStringConcatAssignLHS_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ImplicitStringConcatAssignLHS::*)()>(&ImplicitStringConcatAssignLHS::init$))},
-	{"check", "(ILjava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)(int32_t,$String*)>(&ImplicitStringConcatAssignLHS::check))},
-	{"getCharSequenceArray", "()[Ljava/lang/CharSequence;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$CharSequenceArray*(*)()>(&ImplicitStringConcatAssignLHS::getCharSequenceArray))},
-	{"getIndex", "()I", nullptr, $PUBLIC | $STATIC, $method(static_cast<int32_t(*)()>(&ImplicitStringConcatAssignLHS::getIndex))},
-	{"getMyClass", "()LImplicitStringConcatAssignLHS$MyClass;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$ImplicitStringConcatAssignLHS$MyClass*(*)()>(&ImplicitStringConcatAssignLHS::getMyClass))},
-	{"getObjArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$ObjectArray*(*)()>(&ImplicitStringConcatAssignLHS::getObjArray))},
-	{"getStringArray", "()[Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$StringArray*(*)()>(&ImplicitStringConcatAssignLHS::getStringArray))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&ImplicitStringConcatAssignLHS::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ImplicitStringConcatAssignLHS, init$, void)},
+	{"check", "(ILjava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ImplicitStringConcatAssignLHS, check, void, int32_t, $String*)},
+	{"getCharSequenceArray", "()[Ljava/lang/CharSequence;", nullptr, $PUBLIC | $STATIC, $staticMethod(ImplicitStringConcatAssignLHS, getCharSequenceArray, $CharSequenceArray*)},
+	{"getIndex", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(ImplicitStringConcatAssignLHS, getIndex, int32_t)},
+	{"getMyClass", "()LImplicitStringConcatAssignLHS$MyClass;", nullptr, $PUBLIC | $STATIC, $staticMethod(ImplicitStringConcatAssignLHS, getMyClass, $ImplicitStringConcatAssignLHS$MyClass*)},
+	{"getObjArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC, $staticMethod(ImplicitStringConcatAssignLHS, getObjArray, $ObjectArray*)},
+	{"getStringArray", "()[Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(ImplicitStringConcatAssignLHS, getStringArray, $StringArray*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ImplicitStringConcatAssignLHS, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

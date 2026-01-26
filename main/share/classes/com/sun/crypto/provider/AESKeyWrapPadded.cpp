@@ -40,18 +40,18 @@ $FieldInfo _AESKeyWrapPadded_FieldInfo_[] = {
 };
 
 $MethodInfo _AESKeyWrapPadded_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(AESKeyWrapPadded::*)()>(&AESKeyWrapPadded::init$))},
-	{"decrypt", "([BII[BI)I", nullptr, 0},
-	{"decryptFinal", "([BII[BI)I", nullptr, 0, nullptr, "javax.crypto.IllegalBlockSizeException"},
-	{"encrypt", "([BII[BI)I", nullptr, 0},
-	{"encryptFinal", "([BII[BI)I", nullptr, 0, nullptr, "javax.crypto.IllegalBlockSizeException"},
-	{"getFeedback", "()Ljava/lang/String;", nullptr, 0},
-	{"init", "(ZLjava/lang/String;[B[B)V", nullptr, 0, nullptr, "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
-	{"reset", "()V", nullptr, 0},
-	{"restore", "()V", nullptr, 0},
-	{"save", "()V", nullptr, 0},
-	{"setIvAndLen", "([B[BI)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($bytes*,$bytes*,int32_t)>(&AESKeyWrapPadded::setIvAndLen))},
-	{"validateIV", "([B[B)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)($bytes*,$bytes*)>(&AESKeyWrapPadded::validateIV)), "javax.crypto.IllegalBlockSizeException"},
+	{"<init>", "()V", nullptr, 0, $method(AESKeyWrapPadded, init$, void)},
+	{"decrypt", "([BII[BI)I", nullptr, 0, $virtualMethod(AESKeyWrapPadded, decrypt, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t)},
+	{"decryptFinal", "([BII[BI)I", nullptr, 0, $virtualMethod(AESKeyWrapPadded, decryptFinal, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t), "javax.crypto.IllegalBlockSizeException"},
+	{"encrypt", "([BII[BI)I", nullptr, 0, $virtualMethod(AESKeyWrapPadded, encrypt, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t)},
+	{"encryptFinal", "([BII[BI)I", nullptr, 0, $virtualMethod(AESKeyWrapPadded, encryptFinal, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t), "javax.crypto.IllegalBlockSizeException"},
+	{"getFeedback", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(AESKeyWrapPadded, getFeedback, $String*)},
+	{"init", "(ZLjava/lang/String;[B[B)V", nullptr, 0, $virtualMethod(AESKeyWrapPadded, init, void, bool, $String*, $bytes*, $bytes*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
+	{"reset", "()V", nullptr, 0, $virtualMethod(AESKeyWrapPadded, reset, void)},
+	{"restore", "()V", nullptr, 0, $virtualMethod(AESKeyWrapPadded, restore, void)},
+	{"save", "()V", nullptr, 0, $virtualMethod(AESKeyWrapPadded, save, void)},
+	{"setIvAndLen", "([B[BI)V", nullptr, $PRIVATE | $STATIC, $staticMethod(AESKeyWrapPadded, setIvAndLen, void, $bytes*, $bytes*, int32_t)},
+	{"validateIV", "([B[B)I", nullptr, $PRIVATE | $STATIC, $staticMethod(AESKeyWrapPadded, validateIV, int32_t, $bytes*, $bytes*), "javax.crypto.IllegalBlockSizeException"},
 	{}
 };
 

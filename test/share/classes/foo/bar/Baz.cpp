@@ -9,7 +9,7 @@ namespace foo {
 	namespace bar {
 
 $MethodInfo _Baz_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Baz::*)()>(&Baz::init$))},
+	{"<init>", "()V", nullptr, 0, $method(Baz, init$, void)},
 	{}
 };
 

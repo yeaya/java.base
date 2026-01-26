@@ -36,13 +36,13 @@ $FieldInfo _WeekDateTest_FieldInfo_[] = {
 };
 
 $MethodInfo _WeekDateTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(WeekDateTest::*)()>(&WeekDateTest::init$))},
-	{"formatTest", "([[Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($StringArray2*)>(&WeekDateTest::formatTest)), "java.lang.Exception"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&WeekDateTest::main)), "java.lang.Exception"},
-	{"newCalendar", "()Ljava/util/GregorianCalendar;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$GregorianCalendar*(*)()>(&WeekDateTest::newCalendar))},
-	{"noWeekDateSupport", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&WeekDateTest::noWeekDateSupport)), "java.lang.Exception"},
-	{"nonLenientTest", "([Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($StringArray*)>(&WeekDateTest::nonLenientTest))},
-	{"parseTest", "([[Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($StringArray2*)>(&WeekDateTest::parseTest)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(WeekDateTest, init$, void)},
+	{"formatTest", "([[Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(WeekDateTest, formatTest, void, $StringArray2*), "java.lang.Exception"},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(WeekDateTest, main, void, $StringArray*), "java.lang.Exception"},
+	{"newCalendar", "()Ljava/util/GregorianCalendar;", nullptr, $PRIVATE | $STATIC, $staticMethod(WeekDateTest, newCalendar, $GregorianCalendar*)},
+	{"noWeekDateSupport", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(WeekDateTest, noWeekDateSupport, void), "java.lang.Exception"},
+	{"nonLenientTest", "([Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(WeekDateTest, nonLenientTest, void, $StringArray*)},
+	{"parseTest", "([[Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(WeekDateTest, parseTest, void, $StringArray2*), "java.lang.Exception"},
 	{}
 };
 

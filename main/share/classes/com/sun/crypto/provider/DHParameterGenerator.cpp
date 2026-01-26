@@ -52,11 +52,11 @@ $FieldInfo _DHParameterGenerator_FieldInfo_[] = {
 };
 
 $MethodInfo _DHParameterGenerator_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DHParameterGenerator::*)()>(&DHParameterGenerator::init$))},
-	{"checkKeySize", "(I)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)(int32_t)>(&DHParameterGenerator::checkKeySize)), "java.security.InvalidParameterException"},
-	{"engineGenerateParameters", "()Ljava/security/AlgorithmParameters;", nullptr, $PROTECTED},
-	{"engineInit", "(ILjava/security/SecureRandom;)V", nullptr, $PROTECTED},
-	{"engineInit", "(Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, nullptr, "java.security.InvalidAlgorithmParameterException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DHParameterGenerator, init$, void)},
+	{"checkKeySize", "(I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(DHParameterGenerator, checkKeySize, void, int32_t), "java.security.InvalidParameterException"},
+	{"engineGenerateParameters", "()Ljava/security/AlgorithmParameters;", nullptr, $PROTECTED, $virtualMethod(DHParameterGenerator, engineGenerateParameters, $AlgorithmParameters*)},
+	{"engineInit", "(ILjava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(DHParameterGenerator, engineInit, void, int32_t, $SecureRandom*)},
+	{"engineInit", "(Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(DHParameterGenerator, engineInit, void, $AlgorithmParameterSpec*, $SecureRandom*), "java.security.InvalidAlgorithmParameterException"},
 	{}
 };
 

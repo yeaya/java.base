@@ -32,8 +32,8 @@ $FieldInfo _RSAKeyExchange$RSAKAGenerator$RSAKAKeyDerivation_FieldInfo_[] = {
 };
 
 $MethodInfo _RSAKeyExchange$RSAKAGenerator$RSAKAKeyDerivation_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljavax/crypto/SecretKey;)V", nullptr, 0, $method(static_cast<void(RSAKeyExchange$RSAKAGenerator$RSAKAKeyDerivation::*)($HandshakeContext*,$SecretKey*)>(&RSAKeyExchange$RSAKAGenerator$RSAKAKeyDerivation::init$))},
-	{"deriveKey", "(Ljava/lang/String;Ljava/security/spec/AlgorithmParameterSpec;)Ljavax/crypto/SecretKey;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljavax/crypto/SecretKey;)V", nullptr, 0, $method(RSAKeyExchange$RSAKAGenerator$RSAKAKeyDerivation, init$, void, $HandshakeContext*, $SecretKey*)},
+	{"deriveKey", "(Ljava/lang/String;Ljava/security/spec/AlgorithmParameterSpec;)Ljavax/crypto/SecretKey;", nullptr, $PUBLIC, $virtualMethod(RSAKeyExchange$RSAKAGenerator$RSAKAKeyDerivation, deriveKey, $SecretKey*, $String*, $AlgorithmParameterSpec*), "java.io.IOException"},
 	{}
 };
 

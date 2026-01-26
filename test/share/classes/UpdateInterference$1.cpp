@@ -28,8 +28,8 @@ $FieldInfo _UpdateInterference$1_FieldInfo_[] = {
 };
 
 $MethodInfo _UpdateInterference$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/file/Path;)V", nullptr, 0, $method(static_cast<void(UpdateInterference$1::*)($Path*)>(&UpdateInterference$1::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/nio/file/Path;)V", nullptr, 0, $method(UpdateInterference$1, init$, void, $Path*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(UpdateInterference$1, run, void)},
 	{}
 };
 

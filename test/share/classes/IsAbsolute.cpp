@@ -10,11 +10,11 @@ using $Exception = ::java::lang::Exception;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _IsAbsolute_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(IsAbsolute::*)()>(&IsAbsolute::init$))},
-	{"ck", "(Ljava/lang/String;Z)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($String*,bool)>(&IsAbsolute::ck)), "java.lang.Exception"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&IsAbsolute::main)), "java.lang.Exception"},
-	{"testUnix", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&IsAbsolute::testUnix)), "java.lang.Exception"},
-	{"testWin32", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&IsAbsolute::testWin32)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(IsAbsolute, init$, void)},
+	{"ck", "(Ljava/lang/String;Z)V", nullptr, $PRIVATE | $STATIC, $staticMethod(IsAbsolute, ck, void, $String*, bool), "java.lang.Exception"},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(IsAbsolute, main, void, $StringArray*), "java.lang.Exception"},
+	{"testUnix", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(IsAbsolute, testUnix, void), "java.lang.Exception"},
+	{"testWin32", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(IsAbsolute, testWin32, void), "java.lang.Exception"},
 	{}
 };
 

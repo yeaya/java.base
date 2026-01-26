@@ -38,8 +38,8 @@ namespace sun {
 		namespace ssl {
 
 $MethodInfo _RSAKeyExchange$RSAKAGenerator_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(RSAKeyExchange$RSAKAGenerator::*)()>(&RSAKeyExchange$RSAKAGenerator::init$))},
-	{"createKeyDerivation", "(Lsun/security/ssl/HandshakeContext;)Lsun/security/ssl/SSLKeyDerivation;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(RSAKeyExchange$RSAKAGenerator, init$, void)},
+	{"createKeyDerivation", "(Lsun/security/ssl/HandshakeContext;)Lsun/security/ssl/SSLKeyDerivation;", nullptr, $PUBLIC, $virtualMethod(RSAKeyExchange$RSAKAGenerator, createKeyDerivation, $SSLKeyDerivation*, $HandshakeContext*), "java.io.IOException"},
 	{}
 };
 

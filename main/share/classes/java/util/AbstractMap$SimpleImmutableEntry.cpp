@@ -26,14 +26,14 @@ $FieldInfo _AbstractMap$SimpleImmutableEntry_FieldInfo_[] = {
 $MethodInfo _AbstractMap$SimpleImmutableEntry_MethodInfo_[] = {
 	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(Ljava/lang/Object;Ljava/lang/Object;)V", "(TK;TV;)V", $PUBLIC, $method(static_cast<void(AbstractMap$SimpleImmutableEntry::*)(Object$*,Object$*)>(&AbstractMap$SimpleImmutableEntry::init$))},
-	{"<init>", "(Ljava/util/Map$Entry;)V", "(Ljava/util/Map$Entry<+TK;+TV;>;)V", $PUBLIC, $method(static_cast<void(AbstractMap$SimpleImmutableEntry::*)($Map$Entry*)>(&AbstractMap$SimpleImmutableEntry::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getKey", "()Ljava/lang/Object;", "()TK;", $PUBLIC},
-	{"getValue", "()Ljava/lang/Object;", "()TV;", $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"setValue", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TV;)TV;", $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Object;Ljava/lang/Object;)V", "(TK;TV;)V", $PUBLIC, $method(AbstractMap$SimpleImmutableEntry, init$, void, Object$*, Object$*)},
+	{"<init>", "(Ljava/util/Map$Entry;)V", "(Ljava/util/Map$Entry<+TK;+TV;>;)V", $PUBLIC, $method(AbstractMap$SimpleImmutableEntry, init$, void, $Map$Entry*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(AbstractMap$SimpleImmutableEntry, equals, bool, Object$*)},
+	{"getKey", "()Ljava/lang/Object;", "()TK;", $PUBLIC, $virtualMethod(AbstractMap$SimpleImmutableEntry, getKey, $Object*)},
+	{"getValue", "()Ljava/lang/Object;", "()TV;", $PUBLIC, $virtualMethod(AbstractMap$SimpleImmutableEntry, getValue, $Object*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(AbstractMap$SimpleImmutableEntry, hashCode, int32_t)},
+	{"setValue", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TV;)TV;", $PUBLIC, $virtualMethod(AbstractMap$SimpleImmutableEntry, setValue, $Object*, Object$*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractMap$SimpleImmutableEntry, toString, $String*)},
 	{}
 };
 

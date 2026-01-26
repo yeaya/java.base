@@ -11,10 +11,10 @@ using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _ITLConstructor$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ITLConstructor$1::*)()>(&ITLConstructor$1::init$))},
-	{"childValue", "(Ljava/lang/Integer;)Ljava/lang/Integer;", nullptr, $PROTECTED},
-	{"childValue", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PROTECTED | $VOLATILE | $SYNTHETIC},
-	{"initialValue", "()Ljava/lang/Integer;", nullptr, $PROTECTED},
+	{"<init>", "()V", nullptr, 0, $method(ITLConstructor$1, init$, void)},
+	{"childValue", "(Ljava/lang/Integer;)Ljava/lang/Integer;", nullptr, $PROTECTED, $virtualMethod(ITLConstructor$1, childValue, $Integer*, $Integer*)},
+	{"childValue", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PROTECTED | $VOLATILE | $SYNTHETIC, $virtualMethod(ITLConstructor$1, childValue, $Object*, Object$*)},
+	{"initialValue", "()Ljava/lang/Integer;", nullptr, $PROTECTED, $virtualMethod(ITLConstructor$1, initialValue, $Object*)},
 	{}
 };
 

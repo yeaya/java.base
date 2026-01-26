@@ -22,11 +22,11 @@ $FieldInfo _DrbgParameters$Instantiation_FieldInfo_[] = {
 };
 
 $MethodInfo _DrbgParameters$Instantiation_MethodInfo_[] = {
-	{"<init>", "(ILjava/security/DrbgParameters$Capability;[B)V", nullptr, $PRIVATE, $method(static_cast<void(DrbgParameters$Instantiation::*)(int32_t,$DrbgParameters$Capability*,$bytes*)>(&DrbgParameters$Instantiation::init$))},
-	{"getCapability", "()Ljava/security/DrbgParameters$Capability;", nullptr, $PUBLIC, $method(static_cast<$DrbgParameters$Capability*(DrbgParameters$Instantiation::*)()>(&DrbgParameters$Instantiation::getCapability))},
-	{"getPersonalizationString", "()[B", nullptr, $PUBLIC, $method(static_cast<$bytes*(DrbgParameters$Instantiation::*)()>(&DrbgParameters$Instantiation::getPersonalizationString))},
-	{"getStrength", "()I", nullptr, $PUBLIC, $method(static_cast<int32_t(DrbgParameters$Instantiation::*)()>(&DrbgParameters$Instantiation::getStrength))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(ILjava/security/DrbgParameters$Capability;[B)V", nullptr, $PRIVATE, $method(DrbgParameters$Instantiation, init$, void, int32_t, $DrbgParameters$Capability*, $bytes*)},
+	{"getCapability", "()Ljava/security/DrbgParameters$Capability;", nullptr, $PUBLIC, $method(DrbgParameters$Instantiation, getCapability, $DrbgParameters$Capability*)},
+	{"getPersonalizationString", "()[B", nullptr, $PUBLIC, $method(DrbgParameters$Instantiation, getPersonalizationString, $bytes*)},
+	{"getStrength", "()I", nullptr, $PUBLIC, $method(DrbgParameters$Instantiation, getStrength, int32_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DrbgParameters$Instantiation, toString, $String*)},
 	{}
 };
 

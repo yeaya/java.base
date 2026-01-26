@@ -38,11 +38,11 @@ $FieldInfo _Loader$LoadedModule_FieldInfo_[] = {
 };
 
 $MethodInfo _Loader$LoadedModule_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/module/ModuleReference;)V", nullptr, 0, $method(static_cast<void(Loader$LoadedModule::*)($ModuleReference*)>(&Loader$LoadedModule::init$))},
-	{"codeSource", "()Ljava/security/CodeSource;", nullptr, 0},
-	{"location", "()Ljava/net/URL;", nullptr, 0},
-	{"mref", "()Ljava/lang/module/ModuleReference;", nullptr, 0},
-	{"name", "()Ljava/lang/String;", nullptr, 0},
+	{"<init>", "(Ljava/lang/module/ModuleReference;)V", nullptr, 0, $method(Loader$LoadedModule, init$, void, $ModuleReference*)},
+	{"codeSource", "()Ljava/security/CodeSource;", nullptr, 0, $virtualMethod(Loader$LoadedModule, codeSource, $CodeSource*)},
+	{"location", "()Ljava/net/URL;", nullptr, 0, $virtualMethod(Loader$LoadedModule, location, $URL*)},
+	{"mref", "()Ljava/lang/module/ModuleReference;", nullptr, 0, $virtualMethod(Loader$LoadedModule, mref, $ModuleReference*)},
+	{"name", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(Loader$LoadedModule, name, $String*)},
 	{}
 };
 

@@ -72,19 +72,19 @@ $FieldInfo _CryptoPermissions_FieldInfo_[] = {
 };
 
 $MethodInfo _CryptoPermissions_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(CryptoPermissions::*)()>(&CryptoPermissions::init$))},
-	{"add", "(Ljava/security/Permission;)V", nullptr, $PUBLIC},
-	{"elements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/security/Permission;>;", $PUBLIC},
-	{"getMinimum", "(Ljavax/crypto/CryptoPermissions;)Ljavax/crypto/CryptoPermissions;", nullptr, 0, $method(static_cast<CryptoPermissions*(CryptoPermissions::*)(CryptoPermissions*)>(&CryptoPermissions::getMinimum))},
-	{"getMinimum", "(Ljava/security/PermissionCollection;Ljava/security/PermissionCollection;)[Ljavax/crypto/CryptoPermission;", nullptr, $PRIVATE, $method(static_cast<$CryptoPermissionArray*(CryptoPermissions::*)($PermissionCollection*,$PermissionCollection*)>(&CryptoPermissions::getMinimum))},
-	{"getMinimum", "(ILjava/security/PermissionCollection;)[Ljavax/crypto/CryptoPermission;", nullptr, $PRIVATE, $method(static_cast<$CryptoPermissionArray*(CryptoPermissions::*)(int32_t,$PermissionCollection*)>(&CryptoPermissions::getMinimum))},
-	{"getPermissionCollection", "(Ljava/lang/String;)Ljava/security/PermissionCollection;", nullptr, 0, $method(static_cast<$PermissionCollection*(CryptoPermissions::*)($String*)>(&CryptoPermissions::getPermissionCollection))},
-	{"getPermissionCollection", "(Ljavax/crypto/CryptoPermission;)Ljava/security/PermissionCollection;", nullptr, $PRIVATE, $method(static_cast<$PermissionCollection*(CryptoPermissions::*)($CryptoPermission*)>(&CryptoPermissions::getPermissionCollection))},
-	{"implies", "(Ljava/security/Permission;)Z", nullptr, $PUBLIC},
-	{"isEmpty", "()Z", nullptr, 0, $method(static_cast<bool(CryptoPermissions::*)()>(&CryptoPermissions::isEmpty))},
-	{"load", "(Ljava/io/InputStream;)V", nullptr, 0, $method(static_cast<void(CryptoPermissions::*)($InputStream*)>(&CryptoPermissions::load)), "java.io.IOException,javax.crypto.CryptoPolicyParser$ParsingException"},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(CryptoPermissions::*)($ObjectInputStream*)>(&CryptoPermissions::readObject)), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(CryptoPermissions::*)($ObjectOutputStream*)>(&CryptoPermissions::writeObject)), "java.io.IOException"},
+	{"<init>", "()V", nullptr, 0, $method(CryptoPermissions, init$, void)},
+	{"add", "(Ljava/security/Permission;)V", nullptr, $PUBLIC, $virtualMethod(CryptoPermissions, add, void, $Permission*)},
+	{"elements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/security/Permission;>;", $PUBLIC, $virtualMethod(CryptoPermissions, elements, $Enumeration*)},
+	{"getMinimum", "(Ljavax/crypto/CryptoPermissions;)Ljavax/crypto/CryptoPermissions;", nullptr, 0, $method(CryptoPermissions, getMinimum, CryptoPermissions*, CryptoPermissions*)},
+	{"getMinimum", "(Ljava/security/PermissionCollection;Ljava/security/PermissionCollection;)[Ljavax/crypto/CryptoPermission;", nullptr, $PRIVATE, $method(CryptoPermissions, getMinimum, $CryptoPermissionArray*, $PermissionCollection*, $PermissionCollection*)},
+	{"getMinimum", "(ILjava/security/PermissionCollection;)[Ljavax/crypto/CryptoPermission;", nullptr, $PRIVATE, $method(CryptoPermissions, getMinimum, $CryptoPermissionArray*, int32_t, $PermissionCollection*)},
+	{"getPermissionCollection", "(Ljava/lang/String;)Ljava/security/PermissionCollection;", nullptr, 0, $method(CryptoPermissions, getPermissionCollection, $PermissionCollection*, $String*)},
+	{"getPermissionCollection", "(Ljavax/crypto/CryptoPermission;)Ljava/security/PermissionCollection;", nullptr, $PRIVATE, $method(CryptoPermissions, getPermissionCollection, $PermissionCollection*, $CryptoPermission*)},
+	{"implies", "(Ljava/security/Permission;)Z", nullptr, $PUBLIC, $virtualMethod(CryptoPermissions, implies, bool, $Permission*)},
+	{"isEmpty", "()Z", nullptr, 0, $method(CryptoPermissions, isEmpty, bool)},
+	{"load", "(Ljava/io/InputStream;)V", nullptr, 0, $method(CryptoPermissions, load, void, $InputStream*), "java.io.IOException,javax.crypto.CryptoPolicyParser$ParsingException"},
+	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(CryptoPermissions, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(CryptoPermissions, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
 	{}
 };
 

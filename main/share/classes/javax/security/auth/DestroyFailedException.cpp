@@ -17,8 +17,8 @@ $FieldInfo _DestroyFailedException_FieldInfo_[] = {
 };
 
 $MethodInfo _DestroyFailedException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DestroyFailedException::*)()>(&DestroyFailedException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(DestroyFailedException::*)($String*)>(&DestroyFailedException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DestroyFailedException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(DestroyFailedException, init$, void, $String*)},
 	{}
 };
 

@@ -23,7 +23,7 @@ $FieldInfo _JIS_X_0201$Holder_FieldInfo_[] = {
 };
 
 $MethodInfo _JIS_X_0201$Holder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(JIS_X_0201$Holder::*)()>(&JIS_X_0201$Holder::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(JIS_X_0201$Holder, init$, void)},
 	{}
 };
 

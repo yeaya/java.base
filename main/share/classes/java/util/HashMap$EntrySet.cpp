@@ -38,14 +38,14 @@ $FieldInfo _HashMap$EntrySet_FieldInfo_[] = {
 };
 
 $MethodInfo _HashMap$EntrySet_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/HashMap;)V", nullptr, 0, $method(static_cast<void(HashMap$EntrySet::*)($HashMap*)>(&HashMap$EntrySet::init$))},
-	{"clear", "()V", nullptr, $PUBLIC | $FINAL},
-	{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
-	{"forEach", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-Ljava/util/Map$Entry<TK;TV;>;>;)V", $PUBLIC | $FINAL},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/util/Map$Entry<TK;TV;>;>;", $PUBLIC | $FINAL},
-	{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
-	{"size", "()I", nullptr, $PUBLIC | $FINAL},
-	{"spliterator", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<Ljava/util/Map$Entry<TK;TV;>;>;", $PUBLIC | $FINAL},
+	{"<init>", "(Ljava/util/HashMap;)V", nullptr, 0, $method(HashMap$EntrySet, init$, void, $HashMap*)},
+	{"clear", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(HashMap$EntrySet, clear, void)},
+	{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(HashMap$EntrySet, contains, bool, Object$*)},
+	{"forEach", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-Ljava/util/Map$Entry<TK;TV;>;>;)V", $PUBLIC | $FINAL, $virtualMethod(HashMap$EntrySet, forEach, void, $Consumer*)},
+	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/util/Map$Entry<TK;TV;>;>;", $PUBLIC | $FINAL, $virtualMethod(HashMap$EntrySet, iterator, $Iterator*)},
+	{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(HashMap$EntrySet, remove, bool, Object$*)},
+	{"size", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(HashMap$EntrySet, size, int32_t)},
+	{"spliterator", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<Ljava/util/Map$Entry<TK;TV;>;>;", $PUBLIC | $FINAL, $virtualMethod(HashMap$EntrySet, spliterator, $Spliterator*)},
 	{}
 };
 

@@ -18,7 +18,7 @@ $FieldInfo _HKSCSMapping_FieldInfo_[] = {
 };
 
 $MethodInfo _HKSCSMapping_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(HKSCSMapping::*)()>(&HKSCSMapping::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(HKSCSMapping, init$, void)},
 	{}
 };
 

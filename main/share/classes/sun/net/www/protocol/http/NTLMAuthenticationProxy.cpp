@@ -57,13 +57,13 @@ $FieldInfo _NTLMAuthenticationProxy_FieldInfo_[] = {
 };
 
 $MethodInfo _NTLMAuthenticationProxy_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/reflect/Constructor;Ljava/lang/reflect/Constructor;)V", "(Ljava/lang/reflect/Constructor<+Lsun/net/www/protocol/http/AuthenticationInfo;>;Ljava/lang/reflect/Constructor<+Lsun/net/www/protocol/http/AuthenticationInfo;>;)V", $PRIVATE, $method(static_cast<void(NTLMAuthenticationProxy::*)($Constructor*,$Constructor*)>(&NTLMAuthenticationProxy::init$))},
-	{"create", "(ZLjava/net/URL;Ljava/net/PasswordAuthentication;Ljava/lang/String;)Lsun/net/www/protocol/http/AuthenticationInfo;", nullptr, 0},
-	{"create", "(ZLjava/lang/String;ILjava/net/PasswordAuthentication;Ljava/lang/String;)Lsun/net/www/protocol/http/AuthenticationInfo;", nullptr, 0},
-	{"finest", "(Ljava/lang/Exception;)V", nullptr, $STATIC, $method(static_cast<void(*)($Exception*)>(&NTLMAuthenticationProxy::finest))},
-	{"isTrustedSite", "(Ljava/net/URL;)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)($URL*)>(&NTLMAuthenticationProxy::isTrustedSite))},
-	{"supportsTransparentAuth", "()Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)()>(&NTLMAuthenticationProxy::supportsTransparentAuth))},
-	{"tryLoadNTLMAuthentication", "()Lsun/net/www/protocol/http/NTLMAuthenticationProxy;", nullptr, $PRIVATE | $STATIC, $method(static_cast<NTLMAuthenticationProxy*(*)()>(&NTLMAuthenticationProxy::tryLoadNTLMAuthentication))},
+	{"<init>", "(Ljava/lang/reflect/Constructor;Ljava/lang/reflect/Constructor;)V", "(Ljava/lang/reflect/Constructor<+Lsun/net/www/protocol/http/AuthenticationInfo;>;Ljava/lang/reflect/Constructor<+Lsun/net/www/protocol/http/AuthenticationInfo;>;)V", $PRIVATE, $method(NTLMAuthenticationProxy, init$, void, $Constructor*, $Constructor*)},
+	{"create", "(ZLjava/net/URL;Ljava/net/PasswordAuthentication;Ljava/lang/String;)Lsun/net/www/protocol/http/AuthenticationInfo;", nullptr, 0, $virtualMethod(NTLMAuthenticationProxy, create, $AuthenticationInfo*, bool, $URL*, $PasswordAuthentication*, $String*)},
+	{"create", "(ZLjava/lang/String;ILjava/net/PasswordAuthentication;Ljava/lang/String;)Lsun/net/www/protocol/http/AuthenticationInfo;", nullptr, 0, $virtualMethod(NTLMAuthenticationProxy, create, $AuthenticationInfo*, bool, $String*, int32_t, $PasswordAuthentication*, $String*)},
+	{"finest", "(Ljava/lang/Exception;)V", nullptr, $STATIC, $staticMethod(NTLMAuthenticationProxy, finest, void, $Exception*)},
+	{"isTrustedSite", "(Ljava/net/URL;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(NTLMAuthenticationProxy, isTrustedSite, bool, $URL*)},
+	{"supportsTransparentAuth", "()Z", nullptr, $PRIVATE | $STATIC, $staticMethod(NTLMAuthenticationProxy, supportsTransparentAuth, bool)},
+	{"tryLoadNTLMAuthentication", "()Lsun/net/www/protocol/http/NTLMAuthenticationProxy;", nullptr, $PRIVATE | $STATIC, $staticMethod(NTLMAuthenticationProxy, tryLoadNTLMAuthentication, NTLMAuthenticationProxy*)},
 	{}
 };
 

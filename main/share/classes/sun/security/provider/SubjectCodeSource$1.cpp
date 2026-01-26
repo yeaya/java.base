@@ -22,8 +22,8 @@ $FieldInfo _SubjectCodeSource$1_FieldInfo_[] = {
 };
 
 $MethodInfo _SubjectCodeSource$1_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/provider/SubjectCodeSource;)V", nullptr, 0, $method(static_cast<void(SubjectCodeSource$1::*)($SubjectCodeSource*)>(&SubjectCodeSource$1::init$))},
-	{"run", "()Ljava/lang/ClassLoader;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/security/provider/SubjectCodeSource;)V", nullptr, 0, $method(SubjectCodeSource$1, init$, void, $SubjectCodeSource*)},
+	{"run", "()Ljava/lang/ClassLoader;", nullptr, $PUBLIC, $virtualMethod(SubjectCodeSource$1, run, $Object*)},
 	{}
 };
 

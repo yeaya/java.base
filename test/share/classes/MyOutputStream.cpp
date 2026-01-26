@@ -8,8 +8,8 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _MyOutputStream_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(MyOutputStream::*)()>(&MyOutputStream::init$))},
-	{"write", "(I)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(MyOutputStream, init$, void)},
+	{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(MyOutputStream, write, void, int32_t), "java.io.IOException"},
 	{}
 };
 

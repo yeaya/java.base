@@ -31,7 +31,7 @@ $FieldInfo _DecimalFormat$FastPathData_FieldInfo_[] = {
 };
 
 $MethodInfo _DecimalFormat$FastPathData_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(DecimalFormat$FastPathData::*)()>(&DecimalFormat$FastPathData::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(DecimalFormat$FastPathData, init$, void)},
 	{}
 };
 

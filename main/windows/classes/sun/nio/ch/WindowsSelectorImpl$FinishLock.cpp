@@ -28,12 +28,12 @@ $FieldInfo _WindowsSelectorImpl$FinishLock_FieldInfo_[] = {
 };
 
 $MethodInfo _WindowsSelectorImpl$FinishLock_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/ch/WindowsSelectorImpl;)V", nullptr, $PRIVATE, $method(static_cast<void(WindowsSelectorImpl$FinishLock::*)($WindowsSelectorImpl*)>(&WindowsSelectorImpl$FinishLock::init$))},
-	{"checkForException", "()V", nullptr, $PRIVATE, $method(static_cast<void(WindowsSelectorImpl$FinishLock::*)()>(&WindowsSelectorImpl$FinishLock::checkForException)), "java.io.IOException"},
-	{"reset", "()V", nullptr, $PRIVATE, $method(static_cast<void(WindowsSelectorImpl$FinishLock::*)()>(&WindowsSelectorImpl$FinishLock::reset))},
-	{"setException", "(Ljava/io/IOException;)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(static_cast<void(WindowsSelectorImpl$FinishLock::*)($IOException*)>(&WindowsSelectorImpl$FinishLock::setException))},
-	{"threadFinished", "()V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(static_cast<void(WindowsSelectorImpl$FinishLock::*)()>(&WindowsSelectorImpl$FinishLock::threadFinished))},
-	{"waitForHelperThreads", "()V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(static_cast<void(WindowsSelectorImpl$FinishLock::*)()>(&WindowsSelectorImpl$FinishLock::waitForHelperThreads))},
+	{"<init>", "(Lsun/nio/ch/WindowsSelectorImpl;)V", nullptr, $PRIVATE, $method(WindowsSelectorImpl$FinishLock, init$, void, $WindowsSelectorImpl*)},
+	{"checkForException", "()V", nullptr, $PRIVATE, $method(WindowsSelectorImpl$FinishLock, checkForException, void), "java.io.IOException"},
+	{"reset", "()V", nullptr, $PRIVATE, $method(WindowsSelectorImpl$FinishLock, reset, void)},
+	{"setException", "(Ljava/io/IOException;)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(WindowsSelectorImpl$FinishLock, setException, void, $IOException*)},
+	{"threadFinished", "()V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(WindowsSelectorImpl$FinishLock, threadFinished, void)},
+	{"waitForHelperThreads", "()V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(WindowsSelectorImpl$FinishLock, waitForHelperThreads, void)},
 	{}
 };
 

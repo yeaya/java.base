@@ -13,8 +13,8 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 
 $MethodInfo _LambdaClassLoaderSerialization_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(LambdaClassLoaderSerialization::*)()>(&LambdaClassLoaderSerialization::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&LambdaClassLoaderSerialization::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(LambdaClassLoaderSerialization, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(LambdaClassLoaderSerialization, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

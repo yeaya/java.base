@@ -70,11 +70,11 @@ $FieldInfo _JceSecurityManager_FieldInfo_[] = {
 };
 
 $MethodInfo _JceSecurityManager_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(JceSecurityManager::*)()>(&JceSecurityManager::init$))},
-	{"getAppPermissions", "(Ljava/net/URL;)Ljavax/crypto/CryptoPermissions;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$CryptoPermissions*(*)($URL*)>(&JceSecurityManager::getAppPermissions))},
-	{"getCryptoPermission", "(Ljava/lang/String;)Ljavax/crypto/CryptoPermission;", nullptr, 0, $method(static_cast<$CryptoPermission*(JceSecurityManager::*)($String*)>(&JceSecurityManager::getCryptoPermission))},
-	{"getDefaultPermission", "(Ljava/lang/String;)Ljavax/crypto/CryptoPermission;", nullptr, $PRIVATE, $method(static_cast<$CryptoPermission*(JceSecurityManager::*)($String*)>(&JceSecurityManager::getDefaultPermission))},
-	{"isCallerTrusted", "(Ljava/security/Provider;)Z", nullptr, 0, $method(static_cast<bool(JceSecurityManager::*)($Provider*)>(&JceSecurityManager::isCallerTrusted))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(JceSecurityManager, init$, void)},
+	{"getAppPermissions", "(Ljava/net/URL;)Ljavax/crypto/CryptoPermissions;", nullptr, $PRIVATE | $STATIC, $staticMethod(JceSecurityManager, getAppPermissions, $CryptoPermissions*, $URL*)},
+	{"getCryptoPermission", "(Ljava/lang/String;)Ljavax/crypto/CryptoPermission;", nullptr, 0, $method(JceSecurityManager, getCryptoPermission, $CryptoPermission*, $String*)},
+	{"getDefaultPermission", "(Ljava/lang/String;)Ljavax/crypto/CryptoPermission;", nullptr, $PRIVATE, $method(JceSecurityManager, getDefaultPermission, $CryptoPermission*, $String*)},
+	{"isCallerTrusted", "(Ljava/security/Provider;)Z", nullptr, 0, $method(JceSecurityManager, isCallerTrusted, bool, $Provider*)},
 	{}
 };
 

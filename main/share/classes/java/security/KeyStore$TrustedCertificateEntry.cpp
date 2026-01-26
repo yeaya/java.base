@@ -32,11 +32,11 @@ $FieldInfo _KeyStore$TrustedCertificateEntry_FieldInfo_[] = {
 };
 
 $MethodInfo _KeyStore$TrustedCertificateEntry_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/cert/Certificate;)V", nullptr, $PUBLIC, $method(static_cast<void(KeyStore$TrustedCertificateEntry::*)($Certificate*)>(&KeyStore$TrustedCertificateEntry::init$))},
-	{"<init>", "(Ljava/security/cert/Certificate;Ljava/util/Set;)V", "(Ljava/security/cert/Certificate;Ljava/util/Set<Ljava/security/KeyStore$Entry$Attribute;>;)V", $PUBLIC, $method(static_cast<void(KeyStore$TrustedCertificateEntry::*)($Certificate*,$Set*)>(&KeyStore$TrustedCertificateEntry::init$))},
-	{"getAttributes", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/security/KeyStore$Entry$Attribute;>;", $PUBLIC},
-	{"getTrustedCertificate", "()Ljava/security/cert/Certificate;", nullptr, $PUBLIC, $method(static_cast<$Certificate*(KeyStore$TrustedCertificateEntry::*)()>(&KeyStore$TrustedCertificateEntry::getTrustedCertificate))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/security/cert/Certificate;)V", nullptr, $PUBLIC, $method(KeyStore$TrustedCertificateEntry, init$, void, $Certificate*)},
+	{"<init>", "(Ljava/security/cert/Certificate;Ljava/util/Set;)V", "(Ljava/security/cert/Certificate;Ljava/util/Set<Ljava/security/KeyStore$Entry$Attribute;>;)V", $PUBLIC, $method(KeyStore$TrustedCertificateEntry, init$, void, $Certificate*, $Set*)},
+	{"getAttributes", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/security/KeyStore$Entry$Attribute;>;", $PUBLIC, $virtualMethod(KeyStore$TrustedCertificateEntry, getAttributes, $Set*)},
+	{"getTrustedCertificate", "()Ljava/security/cert/Certificate;", nullptr, $PUBLIC, $method(KeyStore$TrustedCertificateEntry, getTrustedCertificate, $Certificate*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KeyStore$TrustedCertificateEntry, toString, $String*)},
 	{}
 };
 

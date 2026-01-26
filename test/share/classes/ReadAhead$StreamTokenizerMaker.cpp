@@ -4,12 +4,13 @@
 #include <java/io/StreamTokenizer.h>
 #include <jcpp.h>
 
+using $StreamTokenizer = ::java::io::StreamTokenizer;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _ReadAhead$StreamTokenizerMaker_MethodInfo_[] = {
-	{"create", "(Ljava/lang/String;I)Ljava/io/StreamTokenizer;", nullptr, $PUBLIC | $ABSTRACT},
+	{"create", "(Ljava/lang/String;I)Ljava/io/StreamTokenizer;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ReadAhead$StreamTokenizerMaker, create, $StreamTokenizer*, $String*, int32_t)},
 	{}
 };
 

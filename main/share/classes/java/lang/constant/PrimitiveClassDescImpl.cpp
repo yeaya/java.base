@@ -37,10 +37,10 @@ $MethodInfo _PrimitiveClassDescImpl_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(PrimitiveClassDescImpl::*)($String*)>(&PrimitiveClassDescImpl::init$))},
-	{"descriptorString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"resolveConstantDesc", "(Ljava/lang/invoke/MethodHandles$Lookup;)Ljava/lang/Class;", "(Ljava/lang/invoke/MethodHandles$Lookup;)Ljava/lang/Class<*>;", $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(PrimitiveClassDescImpl, init$, void, $String*)},
+	{"descriptorString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PrimitiveClassDescImpl, descriptorString, $String*)},
+	{"resolveConstantDesc", "(Ljava/lang/invoke/MethodHandles$Lookup;)Ljava/lang/Class;", "(Ljava/lang/invoke/MethodHandles$Lookup;)Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(PrimitiveClassDescImpl, resolveConstantDesc, $Object*, $MethodHandles$Lookup*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PrimitiveClassDescImpl, toString, $String*)},
 	{}
 };
 

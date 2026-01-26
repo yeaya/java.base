@@ -21,15 +21,15 @@ $FieldInfo _UrlDeserializedState_FieldInfo_[] = {
 };
 
 $MethodInfo _UrlDeserializedState_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(static_cast<void(UrlDeserializedState::*)($String*,$String*,int32_t,$String*,$String*,$String*,int32_t)>(&UrlDeserializedState::init$))},
-	{"getAuthority", "()Ljava/lang/String;", nullptr, 0, $method(static_cast<$String*(UrlDeserializedState::*)()>(&UrlDeserializedState::getAuthority))},
-	{"getFile", "()Ljava/lang/String;", nullptr, 0, $method(static_cast<$String*(UrlDeserializedState::*)()>(&UrlDeserializedState::getFile))},
-	{"getHashCode", "()I", nullptr, 0, $method(static_cast<int32_t(UrlDeserializedState::*)()>(&UrlDeserializedState::getHashCode))},
-	{"getHost", "()Ljava/lang/String;", nullptr, 0, $method(static_cast<$String*(UrlDeserializedState::*)()>(&UrlDeserializedState::getHost))},
-	{"getPort", "()I", nullptr, 0, $method(static_cast<int32_t(UrlDeserializedState::*)()>(&UrlDeserializedState::getPort))},
-	{"getProtocol", "()Ljava/lang/String;", nullptr, 0, $method(static_cast<$String*(UrlDeserializedState::*)()>(&UrlDeserializedState::getProtocol))},
-	{"getRef", "()Ljava/lang/String;", nullptr, 0, $method(static_cast<$String*(UrlDeserializedState::*)()>(&UrlDeserializedState::getRef))},
-	{"reconstituteUrlString", "()Ljava/lang/String;", nullptr, 0, $method(static_cast<$String*(UrlDeserializedState::*)()>(&UrlDeserializedState::reconstituteUrlString))},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(UrlDeserializedState, init$, void, $String*, $String*, int32_t, $String*, $String*, $String*, int32_t)},
+	{"getAuthority", "()Ljava/lang/String;", nullptr, 0, $method(UrlDeserializedState, getAuthority, $String*)},
+	{"getFile", "()Ljava/lang/String;", nullptr, 0, $method(UrlDeserializedState, getFile, $String*)},
+	{"getHashCode", "()I", nullptr, 0, $method(UrlDeserializedState, getHashCode, int32_t)},
+	{"getHost", "()Ljava/lang/String;", nullptr, 0, $method(UrlDeserializedState, getHost, $String*)},
+	{"getPort", "()I", nullptr, 0, $method(UrlDeserializedState, getPort, int32_t)},
+	{"getProtocol", "()Ljava/lang/String;", nullptr, 0, $method(UrlDeserializedState, getProtocol, $String*)},
+	{"getRef", "()Ljava/lang/String;", nullptr, 0, $method(UrlDeserializedState, getRef, $String*)},
+	{"reconstituteUrlString", "()Ljava/lang/String;", nullptr, 0, $method(UrlDeserializedState, reconstituteUrlString, $String*)},
 	{}
 };
 

@@ -8,10 +8,10 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 
 $MethodInfo _StripIndent_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(StripIndent::*)()>(&StripIndent::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<void(*)($StringArray*)>(&StripIndent::main))},
-	{"test1", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&StripIndent::test1))},
-	{"verify", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $STATIC, $method(static_cast<void(*)($String*,$String*)>(&StripIndent::verify))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(StripIndent, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(StripIndent, main, void, $StringArray*)},
+	{"test1", "()V", nullptr, $STATIC, $staticMethod(StripIndent, test1, void)},
+	{"verify", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(StripIndent, verify, void, $String*, $String*)},
 	{}
 };
 

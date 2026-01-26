@@ -37,19 +37,19 @@ $FieldInfo _BuildStep_FieldInfo_[] = {
 };
 
 $MethodInfo _BuildStep_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/provider/certpath/Vertex;I)V", nullptr, $PUBLIC, $method(static_cast<void(BuildStep::*)($Vertex*,int32_t)>(&BuildStep::init$))},
-	{"fullToString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getCertificate", "()Ljava/security/cert/X509Certificate;", nullptr, $PUBLIC},
-	{"getIssuerName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getIssuerName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getResult", "()I", nullptr, $PUBLIC},
-	{"getSubjectName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getSubjectName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getThrowable", "()Ljava/lang/Throwable;", nullptr, $PUBLIC},
-	{"getVertex", "()Lsun/security/provider/certpath/Vertex;", nullptr, $PUBLIC},
-	{"resultToString", "(I)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"verboseToString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/security/provider/certpath/Vertex;I)V", nullptr, $PUBLIC, $method(BuildStep, init$, void, $Vertex*, int32_t)},
+	{"fullToString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BuildStep, fullToString, $String*)},
+	{"getCertificate", "()Ljava/security/cert/X509Certificate;", nullptr, $PUBLIC, $virtualMethod(BuildStep, getCertificate, $X509Certificate*)},
+	{"getIssuerName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BuildStep, getIssuerName, $String*)},
+	{"getIssuerName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BuildStep, getIssuerName, $String*, $String*)},
+	{"getResult", "()I", nullptr, $PUBLIC, $virtualMethod(BuildStep, getResult, int32_t)},
+	{"getSubjectName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BuildStep, getSubjectName, $String*)},
+	{"getSubjectName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BuildStep, getSubjectName, $String*, $String*)},
+	{"getThrowable", "()Ljava/lang/Throwable;", nullptr, $PUBLIC, $virtualMethod(BuildStep, getThrowable, $Throwable*)},
+	{"getVertex", "()Lsun/security/provider/certpath/Vertex;", nullptr, $PUBLIC, $virtualMethod(BuildStep, getVertex, $Vertex*)},
+	{"resultToString", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BuildStep, resultToString, $String*, int32_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BuildStep, toString, $String*)},
+	{"verboseToString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BuildStep, verboseToString, $String*)},
 	{}
 };
 

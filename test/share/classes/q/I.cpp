@@ -12,8 +12,8 @@ using $Path = ::java::nio::file::Path;
 namespace q {
 
 $MethodInfo _I_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(I::*)()>(&I::init$))},
-	{"filename", "(Ljava/nio/file/Path;)Ljava/lang/String;", nullptr, $PROTECTED},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(I, init$, void)},
+	{"filename", "(Ljava/nio/file/Path;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(I, filename, $String*, $Path*)},
 	{}
 };
 

@@ -91,8 +91,8 @@ $FieldInfo DateTimeFormatterBuilder$ReducedPrinterParser$$Lambda$lambda$setValue
 	{}
 };
 $MethodInfo DateTimeFormatterBuilder$ReducedPrinterParser$$Lambda$lambda$setValue$0::methodInfos[3] = {
-	{"<init>", "(Ljava/time/format/DateTimeFormatterBuilder$ReducedPrinterParser;Ljava/time/format/DateTimeParseContext;JII)V", nullptr, $PUBLIC, $method(static_cast<void(DateTimeFormatterBuilder$ReducedPrinterParser$$Lambda$lambda$setValue$0::*)(DateTimeFormatterBuilder$ReducedPrinterParser*,$DateTimeParseContext*,int64_t,int32_t,int32_t)>(&DateTimeFormatterBuilder$ReducedPrinterParser$$Lambda$lambda$setValue$0::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/time/format/DateTimeFormatterBuilder$ReducedPrinterParser;Ljava/time/format/DateTimeParseContext;JII)V", nullptr, $PUBLIC, $method(DateTimeFormatterBuilder$ReducedPrinterParser$$Lambda$lambda$setValue$0, init$, void, DateTimeFormatterBuilder$ReducedPrinterParser*, $DateTimeParseContext*, int64_t, int32_t, int32_t)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$ReducedPrinterParser$$Lambda$lambda$setValue$0, accept, void, Object$*)},
 	{}
 };
 $ClassInfo DateTimeFormatterBuilder$ReducedPrinterParser$$Lambda$lambda$setValue$0::classInfo$ = {
@@ -117,15 +117,15 @@ $FieldInfo _DateTimeFormatterBuilder$ReducedPrinterParser_FieldInfo_[] = {
 };
 
 $MethodInfo _DateTimeFormatterBuilder$ReducedPrinterParser_MethodInfo_[] = {
-	{"<init>", "(Ljava/time/temporal/TemporalField;IIILjava/time/chrono/ChronoLocalDate;)V", nullptr, 0, $method(static_cast<void(DateTimeFormatterBuilder$ReducedPrinterParser::*)($TemporalField*,int32_t,int32_t,int32_t,$ChronoLocalDate*)>(&DateTimeFormatterBuilder$ReducedPrinterParser::init$))},
-	{"<init>", "(Ljava/time/temporal/TemporalField;IIILjava/time/chrono/ChronoLocalDate;I)V", nullptr, $PRIVATE, $method(static_cast<void(DateTimeFormatterBuilder$ReducedPrinterParser::*)($TemporalField*,int32_t,int32_t,int32_t,$ChronoLocalDate*,int32_t)>(&DateTimeFormatterBuilder$ReducedPrinterParser::init$))},
-	{"getValue", "(Ljava/time/format/DateTimePrintContext;J)J", nullptr, 0},
-	{"isFixedWidth", "(Ljava/time/format/DateTimeParseContext;)Z", nullptr, 0},
-	{"lambda$setValue$0", "(Ljava/time/format/DateTimeParseContext;JIILjava/time/chrono/Chronology;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(DateTimeFormatterBuilder$ReducedPrinterParser::*)($DateTimeParseContext*,int64_t,int32_t,int32_t,$Chronology*)>(&DateTimeFormatterBuilder$ReducedPrinterParser::lambda$setValue$0))},
-	{"setValue", "(Ljava/time/format/DateTimeParseContext;JII)I", nullptr, 0},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"withFixedWidth", "()Ljava/time/format/DateTimeFormatterBuilder$ReducedPrinterParser;", nullptr, 0},
-	{"withSubsequentWidth", "(I)Ljava/time/format/DateTimeFormatterBuilder$ReducedPrinterParser;", nullptr, 0},
+	{"<init>", "(Ljava/time/temporal/TemporalField;IIILjava/time/chrono/ChronoLocalDate;)V", nullptr, 0, $method(DateTimeFormatterBuilder$ReducedPrinterParser, init$, void, $TemporalField*, int32_t, int32_t, int32_t, $ChronoLocalDate*)},
+	{"<init>", "(Ljava/time/temporal/TemporalField;IIILjava/time/chrono/ChronoLocalDate;I)V", nullptr, $PRIVATE, $method(DateTimeFormatterBuilder$ReducedPrinterParser, init$, void, $TemporalField*, int32_t, int32_t, int32_t, $ChronoLocalDate*, int32_t)},
+	{"getValue", "(Ljava/time/format/DateTimePrintContext;J)J", nullptr, 0, $virtualMethod(DateTimeFormatterBuilder$ReducedPrinterParser, getValue, int64_t, $DateTimePrintContext*, int64_t)},
+	{"isFixedWidth", "(Ljava/time/format/DateTimeParseContext;)Z", nullptr, 0, $virtualMethod(DateTimeFormatterBuilder$ReducedPrinterParser, isFixedWidth, bool, $DateTimeParseContext*)},
+	{"lambda$setValue$0", "(Ljava/time/format/DateTimeParseContext;JIILjava/time/chrono/Chronology;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(DateTimeFormatterBuilder$ReducedPrinterParser, lambda$setValue$0, void, $DateTimeParseContext*, int64_t, int32_t, int32_t, $Chronology*)},
+	{"setValue", "(Ljava/time/format/DateTimeParseContext;JII)I", nullptr, 0, $virtualMethod(DateTimeFormatterBuilder$ReducedPrinterParser, setValue, int32_t, $DateTimeParseContext*, int64_t, int32_t, int32_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$ReducedPrinterParser, toString, $String*)},
+	{"withFixedWidth", "()Ljava/time/format/DateTimeFormatterBuilder$ReducedPrinterParser;", nullptr, 0, $virtualMethod(DateTimeFormatterBuilder$ReducedPrinterParser, withFixedWidth, DateTimeFormatterBuilder$ReducedPrinterParser*)},
+	{"withSubsequentWidth", "(I)Ljava/time/format/DateTimeFormatterBuilder$ReducedPrinterParser;", nullptr, 0, $virtualMethod(DateTimeFormatterBuilder$ReducedPrinterParser, withSubsequentWidth, DateTimeFormatterBuilder$ReducedPrinterParser*, int32_t)},
 	{}
 };
 

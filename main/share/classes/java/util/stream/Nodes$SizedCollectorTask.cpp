@@ -50,11 +50,11 @@ $MethodInfo _Nodes$SizedCollectorTask_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/util/Spliterator;Ljava/util/stream/PipelineHelper;I)V", "(Ljava/util/Spliterator<TP_IN;>;Ljava/util/stream/PipelineHelper<TP_OUT;>;I)V", 0, $method(static_cast<void(Nodes$SizedCollectorTask::*)($Spliterator*,$PipelineHelper*,int32_t)>(&Nodes$SizedCollectorTask::init$))},
-	{"<init>", "(Ljava/util/stream/Nodes$SizedCollectorTask;Ljava/util/Spliterator;JJI)V", "(TK;Ljava/util/Spliterator<TP_IN;>;JJI)V", 0, $method(static_cast<void(Nodes$SizedCollectorTask::*)(Nodes$SizedCollectorTask*,$Spliterator*,int64_t,int64_t,int32_t)>(&Nodes$SizedCollectorTask::init$))},
-	{"begin", "(J)V", nullptr, $PUBLIC},
-	{"compute", "()V", nullptr, $PUBLIC},
-	{"makeChild", "(Ljava/util/Spliterator;JJ)Ljava/util/stream/Nodes$SizedCollectorTask;", "(Ljava/util/Spliterator<TP_IN;>;JJ)TK;", $ABSTRACT},
+	{"<init>", "(Ljava/util/Spliterator;Ljava/util/stream/PipelineHelper;I)V", "(Ljava/util/Spliterator<TP_IN;>;Ljava/util/stream/PipelineHelper<TP_OUT;>;I)V", 0, $method(Nodes$SizedCollectorTask, init$, void, $Spliterator*, $PipelineHelper*, int32_t)},
+	{"<init>", "(Ljava/util/stream/Nodes$SizedCollectorTask;Ljava/util/Spliterator;JJI)V", "(TK;Ljava/util/Spliterator<TP_IN;>;JJI)V", 0, $method(Nodes$SizedCollectorTask, init$, void, Nodes$SizedCollectorTask*, $Spliterator*, int64_t, int64_t, int32_t)},
+	{"begin", "(J)V", nullptr, $PUBLIC, $virtualMethod(Nodes$SizedCollectorTask, begin, void, int64_t)},
+	{"compute", "()V", nullptr, $PUBLIC, $virtualMethod(Nodes$SizedCollectorTask, compute, void)},
+	{"makeChild", "(Ljava/util/Spliterator;JJ)Ljava/util/stream/Nodes$SizedCollectorTask;", "(Ljava/util/Spliterator<TP_IN;>;JJ)TK;", $ABSTRACT, $virtualMethod(Nodes$SizedCollectorTask, makeChild, Nodes$SizedCollectorTask*, $Spliterator*, int64_t, int64_t)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

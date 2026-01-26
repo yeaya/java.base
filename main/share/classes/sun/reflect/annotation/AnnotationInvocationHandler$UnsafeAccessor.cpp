@@ -25,9 +25,9 @@ $FieldInfo _AnnotationInvocationHandler$UnsafeAccessor_FieldInfo_[] = {
 };
 
 $MethodInfo _AnnotationInvocationHandler$UnsafeAccessor_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(AnnotationInvocationHandler$UnsafeAccessor::*)()>(&AnnotationInvocationHandler$UnsafeAccessor::init$))},
-	{"setMemberValues", "(Lsun/reflect/annotation/AnnotationInvocationHandler;Ljava/util/Map;)V", "(Lsun/reflect/annotation/AnnotationInvocationHandler;Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;)V", $STATIC, $method(static_cast<void(*)($AnnotationInvocationHandler*,$Map*)>(&AnnotationInvocationHandler$UnsafeAccessor::setMemberValues))},
-	{"setType", "(Lsun/reflect/annotation/AnnotationInvocationHandler;Ljava/lang/Class;)V", "(Lsun/reflect/annotation/AnnotationInvocationHandler;Ljava/lang/Class<+Ljava/lang/annotation/Annotation;>;)V", $STATIC, $method(static_cast<void(*)($AnnotationInvocationHandler*,$Class*)>(&AnnotationInvocationHandler$UnsafeAccessor::setType))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(AnnotationInvocationHandler$UnsafeAccessor, init$, void)},
+	{"setMemberValues", "(Lsun/reflect/annotation/AnnotationInvocationHandler;Ljava/util/Map;)V", "(Lsun/reflect/annotation/AnnotationInvocationHandler;Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;)V", $STATIC, $staticMethod(AnnotationInvocationHandler$UnsafeAccessor, setMemberValues, void, $AnnotationInvocationHandler*, $Map*)},
+	{"setType", "(Lsun/reflect/annotation/AnnotationInvocationHandler;Ljava/lang/Class;)V", "(Lsun/reflect/annotation/AnnotationInvocationHandler;Ljava/lang/Class<+Ljava/lang/annotation/Annotation;>;)V", $STATIC, $staticMethod(AnnotationInvocationHandler$UnsafeAccessor, setType, void, $AnnotationInvocationHandler*, $Class*)},
 	{}
 };
 

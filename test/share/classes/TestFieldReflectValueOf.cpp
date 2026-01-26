@@ -58,14 +58,14 @@ $FieldInfo _TestFieldReflectValueOf_FieldInfo_[] = {
 };
 
 $MethodInfo _TestFieldReflectValueOf_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TestFieldReflectValueOf::*)()>(&TestFieldReflectValueOf::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&TestFieldReflectValueOf::main))},
-	{"testField", "(Ljava/lang/Class;Ljava/lang/Object;ZZ)V", "(Ljava/lang/Class<*>;Ljava/lang/Object;ZZ)V", $PRIVATE | $STATIC, $method(static_cast<void(*)($Class*,Object$*,bool,bool)>(&TestFieldReflectValueOf::testField))},
-	{"testFieldAccessors", "(ZZ)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)(bool,bool)>(&TestFieldReflectValueOf::testFieldAccessors))},
-	{"testUnsafeFieldAccessors", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&TestFieldReflectValueOf::testUnsafeFieldAccessors))},
-	{"testUnsafeQualifiedFieldAccessors", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&TestFieldReflectValueOf::testUnsafeQualifiedFieldAccessors))},
-	{"testUnsafeQualifiedStaticFieldAccessors", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&TestFieldReflectValueOf::testUnsafeQualifiedStaticFieldAccessors))},
-	{"testUnsafeStaticFieldAccessors", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&TestFieldReflectValueOf::testUnsafeStaticFieldAccessors))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TestFieldReflectValueOf, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TestFieldReflectValueOf, main, void, $StringArray*)},
+	{"testField", "(Ljava/lang/Class;Ljava/lang/Object;ZZ)V", "(Ljava/lang/Class<*>;Ljava/lang/Object;ZZ)V", $PRIVATE | $STATIC, $staticMethod(TestFieldReflectValueOf, testField, void, $Class*, Object$*, bool, bool)},
+	{"testFieldAccessors", "(ZZ)V", nullptr, $PRIVATE | $STATIC, $staticMethod(TestFieldReflectValueOf, testFieldAccessors, void, bool, bool)},
+	{"testUnsafeFieldAccessors", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(TestFieldReflectValueOf, testUnsafeFieldAccessors, void)},
+	{"testUnsafeQualifiedFieldAccessors", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(TestFieldReflectValueOf, testUnsafeQualifiedFieldAccessors, void)},
+	{"testUnsafeQualifiedStaticFieldAccessors", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(TestFieldReflectValueOf, testUnsafeQualifiedStaticFieldAccessors, void)},
+	{"testUnsafeStaticFieldAccessors", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(TestFieldReflectValueOf, testUnsafeStaticFieldAccessors, void)},
 	{}
 };
 

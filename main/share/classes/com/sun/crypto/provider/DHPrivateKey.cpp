@@ -65,19 +65,19 @@ $FieldInfo _DHPrivateKey_FieldInfo_[] = {
 };
 
 $MethodInfo _DHPrivateKey_MethodInfo_[] = {
-	{"<init>", "(Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;)V", nullptr, 0, $method(static_cast<void(DHPrivateKey::*)($BigInteger*,$BigInteger*,$BigInteger*)>(&DHPrivateKey::init$)), "java.security.InvalidKeyException"},
-	{"<init>", "(Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;I)V", nullptr, 0, $method(static_cast<void(DHPrivateKey::*)($BigInteger*,$BigInteger*,$BigInteger*,int32_t)>(&DHPrivateKey::init$))},
-	{"<init>", "([B)V", nullptr, 0, $method(static_cast<void(DHPrivateKey::*)($bytes*)>(&DHPrivateKey::init$)), "java.security.InvalidKeyException"},
-	{"encode", "()V", nullptr, $PRIVATE, $method(static_cast<void(DHPrivateKey::*)()>(&DHPrivateKey::encode))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getEncoded", "()[B", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"getFormat", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getParams", "()Ljavax/crypto/spec/DHParameterSpec;", nullptr, $PUBLIC},
-	{"getX", "()Ljava/math/BigInteger;", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"parseKeyBits", "()V", nullptr, $PRIVATE, $method(static_cast<void(DHPrivateKey::*)()>(&DHPrivateKey::parseKeyBits)), "java.security.InvalidKeyException"},
-	{"writeReplace", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(static_cast<$Object*(DHPrivateKey::*)()>(&DHPrivateKey::writeReplace)), "java.io.ObjectStreamException"},
+	{"<init>", "(Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;)V", nullptr, 0, $method(DHPrivateKey, init$, void, $BigInteger*, $BigInteger*, $BigInteger*), "java.security.InvalidKeyException"},
+	{"<init>", "(Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;I)V", nullptr, 0, $method(DHPrivateKey, init$, void, $BigInteger*, $BigInteger*, $BigInteger*, int32_t)},
+	{"<init>", "([B)V", nullptr, 0, $method(DHPrivateKey, init$, void, $bytes*), "java.security.InvalidKeyException"},
+	{"encode", "()V", nullptr, $PRIVATE, $method(DHPrivateKey, encode, void)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(DHPrivateKey, equals, bool, Object$*)},
+	{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DHPrivateKey, getAlgorithm, $String*)},
+	{"getEncoded", "()[B", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(DHPrivateKey, getEncoded, $bytes*)},
+	{"getFormat", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DHPrivateKey, getFormat, $String*)},
+	{"getParams", "()Ljavax/crypto/spec/DHParameterSpec;", nullptr, $PUBLIC, $virtualMethod(DHPrivateKey, getParams, $DHParameterSpec*)},
+	{"getX", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(DHPrivateKey, getX, $BigInteger*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(DHPrivateKey, hashCode, int32_t)},
+	{"parseKeyBits", "()V", nullptr, $PRIVATE, $method(DHPrivateKey, parseKeyBits, void), "java.security.InvalidKeyException"},
+	{"writeReplace", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(DHPrivateKey, writeReplace, $Object*), "java.io.ObjectStreamException"},
 	{}
 };
 

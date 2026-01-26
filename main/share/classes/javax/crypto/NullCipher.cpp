@@ -15,7 +15,7 @@ namespace javax {
 	namespace crypto {
 
 $MethodInfo _NullCipher_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(NullCipher::*)()>(&NullCipher::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(NullCipher, init$, void)},
 	{}
 };
 

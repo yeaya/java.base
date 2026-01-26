@@ -25,9 +25,9 @@ $FieldInfo _HashMap$HashMapSpliterator_FieldInfo_[] = {
 };
 
 $MethodInfo _HashMap$HashMapSpliterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/HashMap;IIII)V", "(Ljava/util/HashMap<TK;TV;>;IIII)V", 0, $method(static_cast<void(HashMap$HashMapSpliterator::*)($HashMap*,int32_t,int32_t,int32_t,int32_t)>(&HashMap$HashMapSpliterator::init$))},
-	{"estimateSize", "()J", nullptr, $PUBLIC | $FINAL, $method(static_cast<int64_t(HashMap$HashMapSpliterator::*)()>(&HashMap$HashMapSpliterator::estimateSize))},
-	{"getFence", "()I", nullptr, $FINAL, $method(static_cast<int32_t(HashMap$HashMapSpliterator::*)()>(&HashMap$HashMapSpliterator::getFence))},
+	{"<init>", "(Ljava/util/HashMap;IIII)V", "(Ljava/util/HashMap<TK;TV;>;IIII)V", 0, $method(HashMap$HashMapSpliterator, init$, void, $HashMap*, int32_t, int32_t, int32_t, int32_t)},
+	{"estimateSize", "()J", nullptr, $PUBLIC | $FINAL, $method(HashMap$HashMapSpliterator, estimateSize, int64_t)},
+	{"getFence", "()I", nullptr, $FINAL, $method(HashMap$HashMapSpliterator, getFence, int32_t)},
 	{}
 };
 

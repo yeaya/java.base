@@ -23,8 +23,8 @@ $FieldInfo _Class3$1_FieldInfo_[] = {
 };
 
 $MethodInfo _Class3$1_MethodInfo_[] = {
-	{"<init>", "(Lpackage1/package3/Class3;)V", nullptr, 0, $method(static_cast<void(Class3$1::*)($Class3*)>(&Class3$1::init$))},
-	{"testAssert", "(Z)V", nullptr, $PUBLIC},
+	{"<init>", "(Lpackage1/package3/Class3;)V", nullptr, 0, $method(Class3$1, init$, void, $Class3*)},
+	{"testAssert", "(Z)V", nullptr, $PUBLIC, $virtualMethod(Class3$1, testAssert, void, bool)},
 	{}
 };
 

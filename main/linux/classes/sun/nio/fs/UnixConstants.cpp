@@ -149,7 +149,7 @@ $FieldInfo _UnixConstants_FieldInfo_[] = {
 };
 
 $MethodInfo _UnixConstants_MethodInfo_[] = {
-    {"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(UnixConstants::*)()>(&UnixConstants::init$))},
+    {"<init>", "()V", nullptr, $PRIVATE, $method(UnixConstants, init$, void)},
     {}
 };
 

@@ -54,21 +54,21 @@ $FieldInfo _MemoryCache_FieldInfo_[] = {
 };
 
 $MethodInfo _MemoryCache_MethodInfo_[] = {
-	{"<init>", "(ZI)V", nullptr, $PUBLIC, $method(static_cast<void(MemoryCache::*)(bool,int32_t)>(&MemoryCache::init$))},
-	{"<init>", "(ZII)V", nullptr, $PUBLIC, $method(static_cast<void(MemoryCache::*)(bool,int32_t,int32_t)>(&MemoryCache::init$))},
-	{"accept", "(Lsun/security/util/Cache$CacheVisitor;)V", "(Lsun/security/util/Cache$CacheVisitor<TK;TV;>;)V", $PUBLIC | $SYNCHRONIZED},
-	{"clear", "()V", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"emptyQueue", "()V", nullptr, $PRIVATE, $method(static_cast<void(MemoryCache::*)()>(&MemoryCache::emptyQueue))},
-	{"expungeExpiredEntries", "()V", nullptr, $PRIVATE, $method(static_cast<void(MemoryCache::*)()>(&MemoryCache::expungeExpiredEntries))},
-	{"get", "(Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/lang/Object;)TV;", $PUBLIC | $SYNCHRONIZED},
-	{"getCachedEntries", "()Ljava/util/Map;", "()Ljava/util/Map<TK;TV;>;", $PRIVATE, $method(static_cast<$Map*(MemoryCache::*)()>(&MemoryCache::getCachedEntries))},
-	{"newEntry", "(Ljava/lang/Object;Ljava/lang/Object;JLjava/lang/ref/ReferenceQueue;)Lsun/security/util/MemoryCache$CacheEntry;", "(TK;TV;JLjava/lang/ref/ReferenceQueue<TV;>;)Lsun/security/util/MemoryCache$CacheEntry<TK;TV;>;", $PROTECTED},
-	{"pull", "(Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/lang/Object;)TV;", $PUBLIC | $SYNCHRONIZED},
-	{"put", "(Ljava/lang/Object;Ljava/lang/Object;)V", "(TK;TV;)V", $PUBLIC | $SYNCHRONIZED},
-	{"remove", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"setCapacity", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"setTimeout", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"size", "()I", nullptr, $PUBLIC | $SYNCHRONIZED},
+	{"<init>", "(ZI)V", nullptr, $PUBLIC, $method(MemoryCache, init$, void, bool, int32_t)},
+	{"<init>", "(ZII)V", nullptr, $PUBLIC, $method(MemoryCache, init$, void, bool, int32_t, int32_t)},
+	{"accept", "(Lsun/security/util/Cache$CacheVisitor;)V", "(Lsun/security/util/Cache$CacheVisitor<TK;TV;>;)V", $PUBLIC | $SYNCHRONIZED, $virtualMethod(MemoryCache, accept, void, $Cache$CacheVisitor*)},
+	{"clear", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MemoryCache, clear, void)},
+	{"emptyQueue", "()V", nullptr, $PRIVATE, $method(MemoryCache, emptyQueue, void)},
+	{"expungeExpiredEntries", "()V", nullptr, $PRIVATE, $method(MemoryCache, expungeExpiredEntries, void)},
+	{"get", "(Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/lang/Object;)TV;", $PUBLIC | $SYNCHRONIZED, $virtualMethod(MemoryCache, get, $Object*, Object$*)},
+	{"getCachedEntries", "()Ljava/util/Map;", "()Ljava/util/Map<TK;TV;>;", $PRIVATE, $method(MemoryCache, getCachedEntries, $Map*)},
+	{"newEntry", "(Ljava/lang/Object;Ljava/lang/Object;JLjava/lang/ref/ReferenceQueue;)Lsun/security/util/MemoryCache$CacheEntry;", "(TK;TV;JLjava/lang/ref/ReferenceQueue<TV;>;)Lsun/security/util/MemoryCache$CacheEntry<TK;TV;>;", $PROTECTED, $virtualMethod(MemoryCache, newEntry, $MemoryCache$CacheEntry*, Object$*, Object$*, int64_t, $ReferenceQueue*)},
+	{"pull", "(Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/lang/Object;)TV;", $PUBLIC | $SYNCHRONIZED, $virtualMethod(MemoryCache, pull, $Object*, Object$*)},
+	{"put", "(Ljava/lang/Object;Ljava/lang/Object;)V", "(TK;TV;)V", $PUBLIC | $SYNCHRONIZED, $virtualMethod(MemoryCache, put, void, Object$*, Object$*)},
+	{"remove", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MemoryCache, remove, void, Object$*)},
+	{"setCapacity", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MemoryCache, setCapacity, void, int32_t)},
+	{"setTimeout", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MemoryCache, setTimeout, void, int32_t)},
+	{"size", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MemoryCache, size, int32_t)},
 	{}
 };
 

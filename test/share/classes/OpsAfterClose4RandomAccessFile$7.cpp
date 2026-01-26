@@ -15,8 +15,8 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _OpsAfterClose4RandomAccessFile$7_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(static_cast<void(OpsAfterClose4RandomAccessFile$7::*)($String*,int32_t)>(&OpsAfterClose4RandomAccessFile$7::init$))},
-	{"check", "(Ljava/io/RandomAccessFile;)Z", nullptr, 0},
+	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(OpsAfterClose4RandomAccessFile$7, init$, void, $String*, int32_t)},
+	{"check", "(Ljava/io/RandomAccessFile;)Z", nullptr, 0, $virtualMethod(OpsAfterClose4RandomAccessFile$7, check, bool, $RandomAccessFile*)},
 	{}
 };
 

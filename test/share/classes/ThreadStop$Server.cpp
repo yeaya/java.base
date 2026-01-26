@@ -28,9 +28,9 @@ $FieldInfo _ThreadStop$Server_FieldInfo_[] = {
 };
 
 $MethodInfo _ThreadStop$Server_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ThreadStop$Server::*)()>(&ThreadStop$Server::init$)), "java.io.IOException"},
-	{"localPort", "()I", nullptr, $PUBLIC},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(ThreadStop$Server, init$, void), "java.io.IOException"},
+	{"localPort", "()I", nullptr, $PUBLIC, $virtualMethod(ThreadStop$Server, localPort, int32_t)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ThreadStop$Server, run, void)},
 	{}
 };
 

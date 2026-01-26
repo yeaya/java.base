@@ -42,8 +42,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo UnixDomainSocketsUtil$$Lambda$lambda$getTempDir$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(UnixDomainSocketsUtil$$Lambda$lambda$getTempDir$0::*)()>(&UnixDomainSocketsUtil$$Lambda$lambda$getTempDir$0::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(UnixDomainSocketsUtil$$Lambda$lambda$getTempDir$0, init$, void)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(UnixDomainSocketsUtil$$Lambda$lambda$getTempDir$0, run, $Object*)},
 	{}
 };
 $ClassInfo UnixDomainSocketsUtil$$Lambda$lambda$getTempDir$0::classInfo$ = {
@@ -61,10 +61,10 @@ $Class* UnixDomainSocketsUtil$$Lambda$lambda$getTempDir$0::load$($String* name, 
 $Class* UnixDomainSocketsUtil$$Lambda$lambda$getTempDir$0::class$ = nullptr;
 
 $MethodInfo _UnixDomainSocketsUtil_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(UnixDomainSocketsUtil::*)()>(&UnixDomainSocketsUtil::init$))},
-	{"getCharset", "()Ljava/nio/charset/Charset;", nullptr, $STATIC, $method(static_cast<$Charset*(*)()>(&UnixDomainSocketsUtil::getCharset))},
-	{"getTempDir", "()Ljava/lang/String;", nullptr, $STATIC, $method(static_cast<$String*(*)()>(&UnixDomainSocketsUtil::getTempDir))},
-	{"lambda$getTempDir$0", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$String*(*)()>(&UnixDomainSocketsUtil::lambda$getTempDir$0))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(UnixDomainSocketsUtil, init$, void)},
+	{"getCharset", "()Ljava/nio/charset/Charset;", nullptr, $STATIC, $staticMethod(UnixDomainSocketsUtil, getCharset, $Charset*)},
+	{"getTempDir", "()Ljava/lang/String;", nullptr, $STATIC, $staticMethod(UnixDomainSocketsUtil, getTempDir, $String*)},
+	{"lambda$getTempDir$0", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(UnixDomainSocketsUtil, lambda$getTempDir$0, $String*)},
 	{}
 };
 

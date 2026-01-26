@@ -32,9 +32,9 @@ $CompoundAttribute _B1B_MethodAnnotations_foo2[] = {
 };
 
 $MethodInfo _B1B_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(B1B::*)()>(&B1B::init$))},
-	{"baz", "()V", nullptr, $PUBLIC, nullptr, nullptr, nullptr, _B1B_MethodAnnotations_baz1},
-	{"foo", "()V", nullptr, $PUBLIC, nullptr, nullptr, nullptr, _B1B_MethodAnnotations_foo2},
+	{"<init>", "()V", nullptr, 0, $method(B1B, init$, void)},
+	{"baz", "()V", nullptr, $PUBLIC, $virtualMethod(B1B, baz, void), nullptr, nullptr, _B1B_MethodAnnotations_baz1},
+	{"foo", "()V", nullptr, $PUBLIC, $virtualMethod(B1B, foo, void), nullptr, nullptr, _B1B_MethodAnnotations_foo2},
 	{}
 };
 

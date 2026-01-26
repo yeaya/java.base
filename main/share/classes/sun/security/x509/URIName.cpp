@@ -45,22 +45,22 @@ $FieldInfo _URIName_FieldInfo_[] = {
 };
 
 $MethodInfo _URIName_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(static_cast<void(URIName::*)($DerValue*)>(&URIName::init$)), "java.io.IOException"},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(URIName::*)($String*)>(&URIName::init$)), "java.io.IOException"},
-	{"<init>", "(Ljava/net/URI;Ljava/lang/String;Lsun/security/x509/DNSName;)V", nullptr, 0, $method(static_cast<void(URIName::*)($URI*,$String*,$DNSName*)>(&URIName::init$))},
-	{"constrains", "(Lsun/security/x509/GeneralNameInterface;)I", nullptr, $PUBLIC, nullptr, "java.lang.UnsupportedOperationException"},
-	{"encode", "(Lsun/security/util/DerOutputStream;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getHost", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getHostObject", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getScheme", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getType", "()I", nullptr, $PUBLIC},
-	{"getURI", "()Ljava/net/URI;", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"nameConstraint", "(Lsun/security/util/DerValue;)Lsun/security/x509/URIName;", nullptr, $PUBLIC | $STATIC, $method(static_cast<URIName*(*)($DerValue*)>(&URIName::nameConstraint)), "java.io.IOException"},
-	{"subtreeDepth", "()I", nullptr, $PUBLIC, nullptr, "java.lang.UnsupportedOperationException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(URIName, init$, void, $DerValue*), "java.io.IOException"},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(URIName, init$, void, $String*), "java.io.IOException"},
+	{"<init>", "(Ljava/net/URI;Ljava/lang/String;Lsun/security/x509/DNSName;)V", nullptr, 0, $method(URIName, init$, void, $URI*, $String*, $DNSName*)},
+	{"constrains", "(Lsun/security/x509/GeneralNameInterface;)I", nullptr, $PUBLIC, $virtualMethod(URIName, constrains, int32_t, $GeneralNameInterface*), "java.lang.UnsupportedOperationException"},
+	{"encode", "(Lsun/security/util/DerOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(URIName, encode, void, $DerOutputStream*), "java.io.IOException"},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(URIName, equals, bool, Object$*)},
+	{"getHost", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(URIName, getHost, $String*)},
+	{"getHostObject", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(URIName, getHostObject, $Object*)},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(URIName, getName, $String*)},
+	{"getScheme", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(URIName, getScheme, $String*)},
+	{"getType", "()I", nullptr, $PUBLIC, $virtualMethod(URIName, getType, int32_t)},
+	{"getURI", "()Ljava/net/URI;", nullptr, $PUBLIC, $virtualMethod(URIName, getURI, $URI*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(URIName, hashCode, int32_t)},
+	{"nameConstraint", "(Lsun/security/util/DerValue;)Lsun/security/x509/URIName;", nullptr, $PUBLIC | $STATIC, $staticMethod(URIName, nameConstraint, URIName*, $DerValue*), "java.io.IOException"},
+	{"subtreeDepth", "()I", nullptr, $PUBLIC, $virtualMethod(URIName, subtreeDepth, int32_t), "java.lang.UnsupportedOperationException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(URIName, toString, $String*)},
 	{}
 };
 

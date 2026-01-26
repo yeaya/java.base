@@ -23,9 +23,9 @@ $FieldInfo _Port$1_FieldInfo_[] = {
 };
 
 $MethodInfo _Port$1_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/ch/Port;Ljava/nio/channels/Channel;)V", "()V", 0, $method(static_cast<void(Port$1::*)($Port*,$Channel*)>(&Port$1::init$))},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"onEvent", "(IZ)V", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/nio/ch/Port;Ljava/nio/channels/Channel;)V", "()V", 0, $method(Port$1, init$, void, $Port*, $Channel*)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(Port$1, close, void), "java.io.IOException"},
+	{"onEvent", "(IZ)V", nullptr, $PUBLIC, $virtualMethod(Port$1, onEvent, void, int32_t, bool)},
 	{}
 };
 

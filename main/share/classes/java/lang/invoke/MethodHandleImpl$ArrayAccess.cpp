@@ -47,14 +47,14 @@ $FieldInfo _MethodHandleImpl$ArrayAccess_FieldInfo_[] = {
 };
 
 $MethodInfo _MethodHandleImpl$ArrayAccess_MethodInfo_[] = {
-	{"$values", "()[Ljava/lang/invoke/MethodHandleImpl$ArrayAccess;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$MethodHandleImpl$ArrayAccessArray*(*)()>(&MethodHandleImpl$ArrayAccess::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(MethodHandleImpl$ArrayAccess::*)($String*,int32_t)>(&MethodHandleImpl$ArrayAccess::init$))},
-	{"cacheIndex", "(Ljava/lang/invoke/MethodHandleImpl$ArrayAccess;)I", nullptr, $STATIC, $method(static_cast<int32_t(*)(MethodHandleImpl$ArrayAccess*)>(&MethodHandleImpl$ArrayAccess::cacheIndex))},
-	{"intrinsic", "(Ljava/lang/invoke/MethodHandleImpl$ArrayAccess;)Ljava/lang/invoke/MethodHandleImpl$Intrinsic;", nullptr, $STATIC, $method(static_cast<$MethodHandleImpl$Intrinsic*(*)(MethodHandleImpl$ArrayAccess*)>(&MethodHandleImpl$ArrayAccess::intrinsic))},
-	{"objectAccessor", "(Ljava/lang/invoke/MethodHandleImpl$ArrayAccess;)Ljava/lang/invoke/MethodHandle;", nullptr, $STATIC, $method(static_cast<$MethodHandle*(*)(MethodHandleImpl$ArrayAccess*)>(&MethodHandleImpl$ArrayAccess::objectAccessor))},
-	{"opName", "(Ljava/lang/invoke/MethodHandleImpl$ArrayAccess;)Ljava/lang/String;", nullptr, $STATIC, $method(static_cast<$String*(*)(MethodHandleImpl$ArrayAccess*)>(&MethodHandleImpl$ArrayAccess::opName))},
-	{"valueOf", "(Ljava/lang/String;)Ljava/lang/invoke/MethodHandleImpl$ArrayAccess;", nullptr, $PUBLIC | $STATIC, $method(static_cast<MethodHandleImpl$ArrayAccess*(*)($String*)>(&MethodHandleImpl$ArrayAccess::valueOf))},
-	{"values", "()[Ljava/lang/invoke/MethodHandleImpl$ArrayAccess;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$MethodHandleImpl$ArrayAccessArray*(*)()>(&MethodHandleImpl$ArrayAccess::values))},
+	{"$values", "()[Ljava/lang/invoke/MethodHandleImpl$ArrayAccess;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MethodHandleImpl$ArrayAccess, $values, $MethodHandleImpl$ArrayAccessArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(MethodHandleImpl$ArrayAccess, init$, void, $String*, int32_t)},
+	{"cacheIndex", "(Ljava/lang/invoke/MethodHandleImpl$ArrayAccess;)I", nullptr, $STATIC, $staticMethod(MethodHandleImpl$ArrayAccess, cacheIndex, int32_t, MethodHandleImpl$ArrayAccess*)},
+	{"intrinsic", "(Ljava/lang/invoke/MethodHandleImpl$ArrayAccess;)Ljava/lang/invoke/MethodHandleImpl$Intrinsic;", nullptr, $STATIC, $staticMethod(MethodHandleImpl$ArrayAccess, intrinsic, $MethodHandleImpl$Intrinsic*, MethodHandleImpl$ArrayAccess*)},
+	{"objectAccessor", "(Ljava/lang/invoke/MethodHandleImpl$ArrayAccess;)Ljava/lang/invoke/MethodHandle;", nullptr, $STATIC, $staticMethod(MethodHandleImpl$ArrayAccess, objectAccessor, $MethodHandle*, MethodHandleImpl$ArrayAccess*)},
+	{"opName", "(Ljava/lang/invoke/MethodHandleImpl$ArrayAccess;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(MethodHandleImpl$ArrayAccess, opName, $String*, MethodHandleImpl$ArrayAccess*)},
+	{"valueOf", "(Ljava/lang/String;)Ljava/lang/invoke/MethodHandleImpl$ArrayAccess;", nullptr, $PUBLIC | $STATIC, $staticMethod(MethodHandleImpl$ArrayAccess, valueOf, MethodHandleImpl$ArrayAccess*, $String*)},
+	{"values", "()[Ljava/lang/invoke/MethodHandleImpl$ArrayAccess;", nullptr, $PUBLIC | $STATIC, $staticMethod(MethodHandleImpl$ArrayAccess, values, $MethodHandleImpl$ArrayAccessArray*)},
 	{}
 };
 

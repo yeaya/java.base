@@ -26,11 +26,11 @@ $FieldInfo _Unbounded$1_FieldInfo_[] = {
 };
 
 $MethodInfo _Unbounded$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/CyclicBarrier;)V", "()V", 0, $method(static_cast<void(Unbounded$1::*)($CyclicBarrier*)>(&Unbounded$1::init$))},
-	{"completed", "(Ljava/lang/Integer;Ljava/nio/channels/AsynchronousSocketChannel;)V", nullptr, $PUBLIC},
-	{"completed", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"failed", "(Ljava/lang/Throwable;Ljava/nio/channels/AsynchronousSocketChannel;)V", nullptr, $PUBLIC},
-	{"failed", "(Ljava/lang/Throwable;Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "(Ljava/util/concurrent/CyclicBarrier;)V", "()V", 0, $method(Unbounded$1, init$, void, $CyclicBarrier*)},
+	{"completed", "(Ljava/lang/Integer;Ljava/nio/channels/AsynchronousSocketChannel;)V", nullptr, $PUBLIC, $virtualMethod(Unbounded$1, completed, void, $Integer*, $AsynchronousSocketChannel*)},
+	{"completed", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Unbounded$1, completed, void, Object$*, Object$*)},
+	{"failed", "(Ljava/lang/Throwable;Ljava/nio/channels/AsynchronousSocketChannel;)V", nullptr, $PUBLIC, $virtualMethod(Unbounded$1, failed, void, $Throwable*, $AsynchronousSocketChannel*)},
+	{"failed", "(Ljava/lang/Throwable;Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Unbounded$1, failed, void, $Throwable*, Object$*)},
 	{}
 };
 

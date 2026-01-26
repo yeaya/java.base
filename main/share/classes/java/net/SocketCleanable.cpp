@@ -35,11 +35,11 @@ $FieldInfo _SocketCleanable_FieldInfo_[] = {
 };
 
 $MethodInfo _SocketCleanable_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/FileDescriptor;Ljava/lang/ref/Cleaner;IZ)V", nullptr, $PRIVATE, $method(static_cast<void(SocketCleanable::*)($FileDescriptor*,$Cleaner*,int32_t,bool)>(&SocketCleanable::init$))},
-	{"cleanupClose0", "(I)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $method(static_cast<void(*)(int32_t)>(&SocketCleanable::cleanupClose0)), "java.io.IOException"},
-	{"performCleanup", "()V", nullptr, $PROTECTED},
-	{"register", "(Ljava/io/FileDescriptor;Z)V", nullptr, $STATIC, $method(static_cast<void(*)($FileDescriptor*,bool)>(&SocketCleanable::register$))},
-	{"unregister", "(Ljava/io/FileDescriptor;)V", nullptr, $STATIC, $method(static_cast<void(*)($FileDescriptor*)>(&SocketCleanable::unregister))},
+	{"<init>", "(Ljava/io/FileDescriptor;Ljava/lang/ref/Cleaner;IZ)V", nullptr, $PRIVATE, $method(SocketCleanable, init$, void, $FileDescriptor*, $Cleaner*, int32_t, bool)},
+	{"cleanupClose0", "(I)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(SocketCleanable, cleanupClose0, void, int32_t), "java.io.IOException"},
+	{"performCleanup", "()V", nullptr, $PROTECTED, $virtualMethod(SocketCleanable, performCleanup, void)},
+	{"register", "(Ljava/io/FileDescriptor;Z)V", nullptr, $STATIC, $staticMethod(SocketCleanable, register$, void, $FileDescriptor*, bool)},
+	{"unregister", "(Ljava/io/FileDescriptor;)V", nullptr, $STATIC, $staticMethod(SocketCleanable, unregister, void, $FileDescriptor*)},
 	{}
 };
 

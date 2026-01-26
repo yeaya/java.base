@@ -24,10 +24,10 @@ $FieldInfo _FileChannelImpl$SyncUnmapper_FieldInfo_[] = {
 };
 
 $MethodInfo _FileChannelImpl$SyncUnmapper_MethodInfo_[] = {
-	{"<init>", "(JJJLjava/io/FileDescriptor;I)V", nullptr, $PUBLIC, $method(static_cast<void(FileChannelImpl$SyncUnmapper::*)(int64_t,int64_t,int64_t,$FileDescriptor*,int32_t)>(&FileChannelImpl$SyncUnmapper::init$))},
-	{"decrementStats", "()V", nullptr, $PROTECTED},
-	{"incrementStats", "()V", nullptr, $PROTECTED},
-	{"isSync", "()Z", nullptr, $PUBLIC},
+	{"<init>", "(JJJLjava/io/FileDescriptor;I)V", nullptr, $PUBLIC, $method(FileChannelImpl$SyncUnmapper, init$, void, int64_t, int64_t, int64_t, $FileDescriptor*, int32_t)},
+	{"decrementStats", "()V", nullptr, $PROTECTED, $virtualMethod(FileChannelImpl$SyncUnmapper, decrementStats, void)},
+	{"incrementStats", "()V", nullptr, $PROTECTED, $virtualMethod(FileChannelImpl$SyncUnmapper, incrementStats, void)},
+	{"isSync", "()Z", nullptr, $PUBLIC, $virtualMethod(FileChannelImpl$SyncUnmapper, isSync, bool)},
 	{}
 };
 

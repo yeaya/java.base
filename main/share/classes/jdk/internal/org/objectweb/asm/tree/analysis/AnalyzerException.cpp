@@ -26,9 +26,9 @@ $FieldInfo _AnalyzerException_FieldInfo_[] = {
 };
 
 $MethodInfo _AnalyzerException_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(AnalyzerException::*)($AbstractInsnNode*,$String*)>(&AnalyzerException::init$))},
-	{"<init>", "(Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(AnalyzerException::*)($AbstractInsnNode*,$String*,$Throwable*)>(&AnalyzerException::init$))},
-	{"<init>", "(Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;Ljava/lang/String;Ljava/lang/Object;Ljdk/internal/org/objectweb/asm/tree/analysis/Value;)V", nullptr, $PUBLIC, $method(static_cast<void(AnalyzerException::*)($AbstractInsnNode*,$String*,Object$*,$1Value*)>(&AnalyzerException::init$))},
+	{"<init>", "(Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(AnalyzerException, init$, void, $AbstractInsnNode*, $String*)},
+	{"<init>", "(Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(AnalyzerException, init$, void, $AbstractInsnNode*, $String*, $Throwable*)},
+	{"<init>", "(Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;Ljava/lang/String;Ljava/lang/Object;Ljdk/internal/org/objectweb/asm/tree/analysis/Value;)V", nullptr, $PUBLIC, $method(AnalyzerException, init$, void, $AbstractInsnNode*, $String*, Object$*, $1Value*)},
 	{}
 };
 

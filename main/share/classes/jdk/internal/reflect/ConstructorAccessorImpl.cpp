@@ -16,7 +16,7 @@ $MethodInfo _ConstructorAccessorImpl_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ConstructorAccessorImpl::*)()>(&ConstructorAccessorImpl::init$))},
+	{"<init>", "()V", nullptr, 0, $method(ConstructorAccessorImpl, init$, void)},
 	{"newInstance", "([Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}

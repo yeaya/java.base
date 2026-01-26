@@ -34,8 +34,8 @@ namespace jdk {
 			namespace lang {
 
 $MethodInfo _UCharacterDirection_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(UCharacterDirection::*)()>(&UCharacterDirection::init$))},
-	{"toString", "(I)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)(int32_t)>(&UCharacterDirection::toString))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(UCharacterDirection, init$, void)},
+	{"toString", "(I)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(UCharacterDirection, toString, $String*, int32_t)},
 	{}
 };
 

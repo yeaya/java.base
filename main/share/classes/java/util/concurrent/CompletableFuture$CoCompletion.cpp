@@ -23,9 +23,9 @@ $FieldInfo _CompletableFuture$CoCompletion_FieldInfo_[] = {
 };
 
 $MethodInfo _CompletableFuture$CoCompletion_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/CompletableFuture$BiCompletion;)V", "(Ljava/util/concurrent/CompletableFuture$BiCompletion<***>;)V", 0, $method(static_cast<void(CompletableFuture$CoCompletion::*)($CompletableFuture$BiCompletion*)>(&CompletableFuture$CoCompletion::init$))},
-	{"isLive", "()Z", nullptr, $FINAL},
-	{"tryFire", "(I)Ljava/util/concurrent/CompletableFuture;", "(I)Ljava/util/concurrent/CompletableFuture<*>;", $FINAL},
+	{"<init>", "(Ljava/util/concurrent/CompletableFuture$BiCompletion;)V", "(Ljava/util/concurrent/CompletableFuture$BiCompletion<***>;)V", 0, $method(CompletableFuture$CoCompletion, init$, void, $CompletableFuture$BiCompletion*)},
+	{"isLive", "()Z", nullptr, $FINAL, $virtualMethod(CompletableFuture$CoCompletion, isLive, bool)},
+	{"tryFire", "(I)Ljava/util/concurrent/CompletableFuture;", "(I)Ljava/util/concurrent/CompletableFuture<*>;", $FINAL, $virtualMethod(CompletableFuture$CoCompletion, tryFire, $CompletableFuture*, int32_t)},
 	{}
 };
 

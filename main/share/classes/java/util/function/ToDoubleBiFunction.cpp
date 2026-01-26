@@ -16,7 +16,7 @@ $CompoundAttribute _ToDoubleBiFunction_Annotations_[] = {
 };
 
 $MethodInfo _ToDoubleBiFunction_MethodInfo_[] = {
-	{"applyAsDouble", "(Ljava/lang/Object;Ljava/lang/Object;)D", "(TT;TU;)D", $PUBLIC | $ABSTRACT},
+	{"applyAsDouble", "(Ljava/lang/Object;Ljava/lang/Object;)D", "(TT;TU;)D", $PUBLIC | $ABSTRACT, $virtualMethod(ToDoubleBiFunction, applyAsDouble, double, Object$*, Object$*)},
 	{}
 };
 

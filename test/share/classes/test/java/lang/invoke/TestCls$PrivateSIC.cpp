@@ -13,7 +13,7 @@ namespace test {
 			namespace invoke {
 
 $MethodInfo _TestCls$PrivateSIC_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(TestCls$PrivateSIC::*)()>(&TestCls$PrivateSIC::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(TestCls$PrivateSIC, init$, void)},
 	{}
 };
 

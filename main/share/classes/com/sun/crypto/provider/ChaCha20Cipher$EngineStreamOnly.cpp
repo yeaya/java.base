@@ -28,10 +28,10 @@ $FieldInfo _ChaCha20Cipher$EngineStreamOnly_FieldInfo_[] = {
 };
 
 $MethodInfo _ChaCha20Cipher$EngineStreamOnly_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/crypto/provider/ChaCha20Cipher;)V", nullptr, $PRIVATE, $method(static_cast<void(ChaCha20Cipher$EngineStreamOnly::*)($ChaCha20Cipher*)>(&ChaCha20Cipher$EngineStreamOnly::init$))},
-	{"doFinal", "([BII[BI)I", nullptr, $PUBLIC, nullptr, "javax.crypto.ShortBufferException,java.security.KeyException"},
-	{"doUpdate", "([BII[BI)I", nullptr, $PUBLIC, nullptr, "javax.crypto.ShortBufferException,java.security.KeyException"},
-	{"getOutputSize", "(IZ)I", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/crypto/provider/ChaCha20Cipher;)V", nullptr, $PRIVATE, $method(ChaCha20Cipher$EngineStreamOnly, init$, void, $ChaCha20Cipher*)},
+	{"doFinal", "([BII[BI)I", nullptr, $PUBLIC, $virtualMethod(ChaCha20Cipher$EngineStreamOnly, doFinal, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t), "javax.crypto.ShortBufferException,java.security.KeyException"},
+	{"doUpdate", "([BII[BI)I", nullptr, $PUBLIC, $virtualMethod(ChaCha20Cipher$EngineStreamOnly, doUpdate, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t), "javax.crypto.ShortBufferException,java.security.KeyException"},
+	{"getOutputSize", "(IZ)I", nullptr, $PUBLIC, $virtualMethod(ChaCha20Cipher$EngineStreamOnly, getOutputSize, int32_t, int32_t, bool)},
 	{}
 };
 

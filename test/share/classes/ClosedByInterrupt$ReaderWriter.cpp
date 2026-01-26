@@ -34,8 +34,8 @@ $FieldInfo _ClosedByInterrupt$ReaderWriter_FieldInfo_[] = {
 };
 
 $MethodInfo _ClosedByInterrupt$ReaderWriter_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/channels/FileChannel;Z)V", nullptr, 0, $method(static_cast<void(ClosedByInterrupt$ReaderWriter::*)($FileChannel*,bool)>(&ClosedByInterrupt$ReaderWriter::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/nio/channels/FileChannel;Z)V", nullptr, 0, $method(ClosedByInterrupt$ReaderWriter, init$, void, $FileChannel*, bool)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ClosedByInterrupt$ReaderWriter, run, void)},
 	{}
 };
 

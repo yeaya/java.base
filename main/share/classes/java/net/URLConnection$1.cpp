@@ -22,8 +22,8 @@ $FieldInfo _URLConnection$1_FieldInfo_[] = {
 };
 
 $MethodInfo _URLConnection$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(URLConnection$1::*)()>(&URLConnection$1::init$))},
-	{"getContentTypeFor", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(URLConnection$1, init$, void)},
+	{"getContentTypeFor", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(URLConnection$1, getContentTypeFor, $String*, $String*)},
 	{}
 };
 

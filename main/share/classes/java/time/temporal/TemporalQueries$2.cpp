@@ -21,9 +21,9 @@ namespace java {
 		namespace temporal {
 
 $MethodInfo _TemporalQueries$2_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(TemporalQueries$2::*)()>(&TemporalQueries$2::init$))},
-	{"queryFrom", "(Ljava/time/temporal/TemporalAccessor;)Ljava/time/chrono/Chronology;", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(TemporalQueries$2, init$, void)},
+	{"queryFrom", "(Ljava/time/temporal/TemporalAccessor;)Ljava/time/chrono/Chronology;", nullptr, $PUBLIC, $virtualMethod(TemporalQueries$2, queryFrom, $Object*, $TemporalAccessor*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TemporalQueries$2, toString, $String*)},
 	{}
 };
 

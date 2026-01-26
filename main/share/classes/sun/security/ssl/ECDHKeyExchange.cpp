@@ -32,7 +32,7 @@ $FieldInfo _ECDHKeyExchange_FieldInfo_[] = {
 };
 
 $MethodInfo _ECDHKeyExchange_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ECDHKeyExchange::*)()>(&ECDHKeyExchange::init$))},
+	{"<init>", "()V", nullptr, 0, $method(ECDHKeyExchange, init$, void)},
 	{}
 };
 

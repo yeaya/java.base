@@ -33,10 +33,10 @@ using $MethodType = ::java::lang::invoke::MethodType;
 using $Objects = ::java::util::Objects;
 
 $MethodInfo _Test7157574_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Test7157574::*)()>(&Test7157574::init$))},
-	{"assertEquals", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)(Object$*,Object$*)>(&Test7157574::assertEquals))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<void(*)($StringArray*)>(&Test7157574::main)), "java.lang.Throwable"},
-	{"testConcrete", "(LTest7157574$Sub;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandle;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($Test7157574$Sub*,$MethodHandle*,$MethodHandle*,$MethodHandle*,$MethodHandle*,$MethodHandle*,$MethodHandle*)>(&Test7157574::testConcrete)), "java.lang.Throwable"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Test7157574, init$, void)},
+	{"assertEquals", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Test7157574, assertEquals, void, Object$*, Object$*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(Test7157574, main, void, $StringArray*), "java.lang.Throwable"},
+	{"testConcrete", "(LTest7157574$Sub;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandle;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Test7157574, testConcrete, void, $Test7157574$Sub*, $MethodHandle*, $MethodHandle*, $MethodHandle*, $MethodHandle*, $MethodHandle*, $MethodHandle*), "java.lang.Throwable"},
 	{}
 };
 

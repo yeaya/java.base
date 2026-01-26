@@ -25,10 +25,10 @@ $FieldInfo _FileChannelLinesSpliterator$1_FieldInfo_[] = {
 };
 
 $MethodInfo _FileChannelLinesSpliterator$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/file/FileChannelLinesSpliterator;)V", nullptr, 0, $method(static_cast<void(FileChannelLinesSpliterator$1::*)($FileChannelLinesSpliterator*)>(&FileChannelLinesSpliterator$1::init$))},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"isOpen", "()Z", nullptr, $PUBLIC},
-	{"read", "(Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljava/nio/file/FileChannelLinesSpliterator;)V", nullptr, 0, $method(FileChannelLinesSpliterator$1, init$, void, $FileChannelLinesSpliterator*)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(FileChannelLinesSpliterator$1, close, void), "java.io.IOException"},
+	{"isOpen", "()Z", nullptr, $PUBLIC, $virtualMethod(FileChannelLinesSpliterator$1, isOpen, bool)},
+	{"read", "(Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC, $virtualMethod(FileChannelLinesSpliterator$1, read, int32_t, $ByteBuffer*), "java.io.IOException"},
 	{}
 };
 

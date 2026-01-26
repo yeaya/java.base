@@ -27,10 +27,10 @@ $FieldInfo _MembershipKeyImpl$Type6_FieldInfo_[] = {
 };
 
 $MethodInfo _MembershipKeyImpl$Type6_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/channels/MulticastChannel;Ljava/net/InetAddress;Ljava/net/NetworkInterface;Ljava/net/InetAddress;[BI[B)V", nullptr, 0, $method(static_cast<void(MembershipKeyImpl$Type6::*)($MulticastChannel*,$InetAddress*,$NetworkInterface*,$InetAddress*,$bytes*,int32_t,$bytes*)>(&MembershipKeyImpl$Type6::init$))},
-	{"groupAddress", "()[B", nullptr, 0},
-	{"index", "()I", nullptr, 0},
-	{"source", "()[B", nullptr, 0},
+	{"<init>", "(Ljava/nio/channels/MulticastChannel;Ljava/net/InetAddress;Ljava/net/NetworkInterface;Ljava/net/InetAddress;[BI[B)V", nullptr, 0, $method(MembershipKeyImpl$Type6, init$, void, $MulticastChannel*, $InetAddress*, $NetworkInterface*, $InetAddress*, $bytes*, int32_t, $bytes*)},
+	{"groupAddress", "()[B", nullptr, 0, $virtualMethod(MembershipKeyImpl$Type6, groupAddress, $bytes*)},
+	{"index", "()I", nullptr, 0, $virtualMethod(MembershipKeyImpl$Type6, index, int32_t)},
+	{"source", "()[B", nullptr, 0, $virtualMethod(MembershipKeyImpl$Type6, source, $bytes*)},
 	{}
 };
 

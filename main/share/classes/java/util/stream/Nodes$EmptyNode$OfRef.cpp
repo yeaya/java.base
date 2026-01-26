@@ -19,10 +19,10 @@ namespace java {
 		namespace stream {
 
 $MethodInfo _Nodes$EmptyNode$OfRef_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(Nodes$EmptyNode$OfRef::*)()>(&Nodes$EmptyNode$OfRef::init$))},
-	{"copyInto", "([Ljava/lang/Object;I)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"forEach", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"spliterator", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TT;>;", $PUBLIC},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(Nodes$EmptyNode$OfRef, init$, void)},
+	{"copyInto", "([Ljava/lang/Object;I)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Nodes$EmptyNode$OfRef, copyInto, void, $ObjectArray*, int32_t)},
+	{"forEach", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Nodes$EmptyNode$OfRef, forEach, void, $Consumer*)},
+	{"spliterator", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TT;>;", $PUBLIC, $virtualMethod(Nodes$EmptyNode$OfRef, spliterator, $Spliterator*)},
 	{}
 };
 

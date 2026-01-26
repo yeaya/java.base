@@ -7,6 +7,8 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $DateFormatSymbols = ::java::text::DateFormatSymbols;
+using $Locale = ::java::util::Locale;
 using $LocaleServiceProvider = ::java::util::spi::LocaleServiceProvider;
 
 namespace java {
@@ -14,8 +16,8 @@ namespace java {
 		namespace spi {
 
 $MethodInfo _DateFormatSymbolsProvider_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(DateFormatSymbolsProvider::*)()>(&DateFormatSymbolsProvider::init$))},
-	{"getInstance", "(Ljava/util/Locale;)Ljava/text/DateFormatSymbols;", nullptr, $PUBLIC | $ABSTRACT},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(DateFormatSymbolsProvider, init$, void)},
+	{"getInstance", "(Ljava/util/Locale;)Ljava/text/DateFormatSymbols;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DateFormatSymbolsProvider, getInstance, $DateFormatSymbols*, $Locale*)},
 	{}
 };
 

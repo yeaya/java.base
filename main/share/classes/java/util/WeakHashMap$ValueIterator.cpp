@@ -21,8 +21,8 @@ $FieldInfo _WeakHashMap$ValueIterator_FieldInfo_[] = {
 };
 
 $MethodInfo _WeakHashMap$ValueIterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/WeakHashMap;)V", nullptr, $PRIVATE, $method(static_cast<void(WeakHashMap$ValueIterator::*)($WeakHashMap*)>(&WeakHashMap$ValueIterator::init$))},
-	{"next", "()Ljava/lang/Object;", "()TV;", $PUBLIC},
+	{"<init>", "(Ljava/util/WeakHashMap;)V", nullptr, $PRIVATE, $method(WeakHashMap$ValueIterator, init$, void, $WeakHashMap*)},
+	{"next", "()Ljava/lang/Object;", "()TV;", $PUBLIC, $virtualMethod(WeakHashMap$ValueIterator, next, $Object*)},
 	{}
 };
 

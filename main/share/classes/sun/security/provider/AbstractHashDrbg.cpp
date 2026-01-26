@@ -35,12 +35,12 @@ $FieldInfo _AbstractHashDrbg_FieldInfo_[] = {
 };
 
 $MethodInfo _AbstractHashDrbg_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(AbstractHashDrbg::*)()>(&AbstractHashDrbg::init$))},
-	{"alg2strength", "(Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)($String*)>(&AbstractHashDrbg::alg2strength))},
-	{"chooseAlgorithmAndStrength", "()V", nullptr, $PROTECTED},
-	{"hashReseedInternal", "(Ljava/util/List;)V", "(Ljava/util/List<[B>;)V", $PROTECTED | $ABSTRACT},
-	{"instantiateAlgorithm", "([B)V", nullptr, $PUBLIC},
-	{"reseedAlgorithm", "([B[B)V", nullptr, $PROTECTED},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(AbstractHashDrbg, init$, void)},
+	{"alg2strength", "(Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(AbstractHashDrbg, alg2strength, int32_t, $String*)},
+	{"chooseAlgorithmAndStrength", "()V", nullptr, $PROTECTED, $virtualMethod(AbstractHashDrbg, chooseAlgorithmAndStrength, void)},
+	{"hashReseedInternal", "(Ljava/util/List;)V", "(Ljava/util/List<[B>;)V", $PROTECTED | $ABSTRACT, $virtualMethod(AbstractHashDrbg, hashReseedInternal, void, $List*)},
+	{"instantiateAlgorithm", "([B)V", nullptr, $PUBLIC, $virtualMethod(AbstractHashDrbg, instantiateAlgorithm, void, $bytes*)},
+	{"reseedAlgorithm", "([B[B)V", nullptr, $PROTECTED, $virtualMethod(AbstractHashDrbg, reseedAlgorithm, void, $bytes*, $bytes*)},
 	{}
 };
 

@@ -96,8 +96,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo LoggerFinderLoader$$Lambda$lambda$findLoggerFinderProviders$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(LoggerFinderLoader$$Lambda$lambda$findLoggerFinderProviders$0::*)()>(&LoggerFinderLoader$$Lambda$lambda$findLoggerFinderProviders$0::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(LoggerFinderLoader$$Lambda$lambda$findLoggerFinderProviders$0, init$, void)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LoggerFinderLoader$$Lambda$lambda$findLoggerFinderProviders$0, run, $Object*)},
 	{}
 };
 $ClassInfo LoggerFinderLoader$$Lambda$lambda$findLoggerFinderProviders$0::classInfo$ = {
@@ -129,8 +129,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo LoggerFinderLoader$$Lambda$lambda$loadDefaultImplementation$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(LoggerFinderLoader$$Lambda$lambda$loadDefaultImplementation$1$1::*)()>(&LoggerFinderLoader$$Lambda$lambda$loadDefaultImplementation$1$1::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(LoggerFinderLoader$$Lambda$lambda$loadDefaultImplementation$1$1, init$, void)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LoggerFinderLoader$$Lambda$lambda$loadDefaultImplementation$1$1, run, $Object*)},
 	{}
 };
 $ClassInfo LoggerFinderLoader$$Lambda$lambda$loadDefaultImplementation$1$1::classInfo$ = {
@@ -157,16 +157,16 @@ $FieldInfo _LoggerFinderLoader_FieldInfo_[] = {
 };
 
 $MethodInfo _LoggerFinderLoader_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(LoggerFinderLoader::*)()>(&LoggerFinderLoader::init$))},
-	{"configurationErrorPolicy", "()Ljdk/internal/logger/LoggerFinderLoader$ErrorPolicy;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$LoggerFinderLoader$ErrorPolicy*(*)()>(&LoggerFinderLoader::configurationErrorPolicy))},
-	{"ensureSingletonProvider", "()Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)()>(&LoggerFinderLoader::ensureSingletonProvider))},
-	{"findLoggerFinderProviders", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/lang/System$LoggerFinder;>;", $PRIVATE | $STATIC, $method(static_cast<$Iterator*(*)()>(&LoggerFinderLoader::findLoggerFinderProviders))},
-	{"getLoggerFinder", "()Ljava/lang/System$LoggerFinder;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$System$LoggerFinder*(*)()>(&LoggerFinderLoader::getLoggerFinder))},
-	{"lambda$findLoggerFinderProviders$0", "()Ljava/util/Iterator;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Iterator*(*)()>(&LoggerFinderLoader::lambda$findLoggerFinderProviders$0))},
-	{"lambda$loadDefaultImplementation$1", "()Ljava/util/Iterator;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Iterator*(*)()>(&LoggerFinderLoader::lambda$loadDefaultImplementation$1))},
-	{"loadDefaultImplementation", "()Ljava/lang/System$LoggerFinder;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$System$LoggerFinder*(*)()>(&LoggerFinderLoader::loadDefaultImplementation))},
-	{"loadLoggerFinder", "()Ljava/lang/System$LoggerFinder;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$System$LoggerFinder*(*)()>(&LoggerFinderLoader::loadLoggerFinder))},
-	{"service", "()Ljava/lang/System$LoggerFinder;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$System$LoggerFinder*(*)()>(&LoggerFinderLoader::service))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(LoggerFinderLoader, init$, void)},
+	{"configurationErrorPolicy", "()Ljdk/internal/logger/LoggerFinderLoader$ErrorPolicy;", nullptr, $PRIVATE | $STATIC, $staticMethod(LoggerFinderLoader, configurationErrorPolicy, $LoggerFinderLoader$ErrorPolicy*)},
+	{"ensureSingletonProvider", "()Z", nullptr, $PRIVATE | $STATIC, $staticMethod(LoggerFinderLoader, ensureSingletonProvider, bool)},
+	{"findLoggerFinderProviders", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/lang/System$LoggerFinder;>;", $PRIVATE | $STATIC, $staticMethod(LoggerFinderLoader, findLoggerFinderProviders, $Iterator*)},
+	{"getLoggerFinder", "()Ljava/lang/System$LoggerFinder;", nullptr, $PUBLIC | $STATIC, $staticMethod(LoggerFinderLoader, getLoggerFinder, $System$LoggerFinder*)},
+	{"lambda$findLoggerFinderProviders$0", "()Ljava/util/Iterator;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LoggerFinderLoader, lambda$findLoggerFinderProviders$0, $Iterator*)},
+	{"lambda$loadDefaultImplementation$1", "()Ljava/util/Iterator;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LoggerFinderLoader, lambda$loadDefaultImplementation$1, $Iterator*)},
+	{"loadDefaultImplementation", "()Ljava/lang/System$LoggerFinder;", nullptr, $PRIVATE | $STATIC, $staticMethod(LoggerFinderLoader, loadDefaultImplementation, $System$LoggerFinder*)},
+	{"loadLoggerFinder", "()Ljava/lang/System$LoggerFinder;", nullptr, $PRIVATE | $STATIC, $staticMethod(LoggerFinderLoader, loadLoggerFinder, $System$LoggerFinder*)},
+	{"service", "()Ljava/lang/System$LoggerFinder;", nullptr, $PRIVATE | $STATIC, $staticMethod(LoggerFinderLoader, service, $System$LoggerFinder*)},
 	{}
 };
 

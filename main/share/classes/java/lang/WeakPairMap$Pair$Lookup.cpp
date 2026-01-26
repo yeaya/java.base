@@ -21,11 +21,11 @@ $FieldInfo _WeakPairMap$Pair$Lookup_FieldInfo_[] = {
 };
 
 $MethodInfo _WeakPairMap$Pair$Lookup_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;Ljava/lang/Object;)V", "(TK1;TK2;)V", 0, $method(static_cast<void(WeakPairMap$Pair$Lookup::*)(Object$*,Object$*)>(&WeakPairMap$Pair$Lookup::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"first", "()Ljava/lang/Object;", "()TK1;", $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"second", "()Ljava/lang/Object;", "()TK2;", $PUBLIC},
+	{"<init>", "(Ljava/lang/Object;Ljava/lang/Object;)V", "(TK1;TK2;)V", 0, $method(WeakPairMap$Pair$Lookup, init$, void, Object$*, Object$*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(WeakPairMap$Pair$Lookup, equals, bool, Object$*)},
+	{"first", "()Ljava/lang/Object;", "()TK1;", $PUBLIC, $virtualMethod(WeakPairMap$Pair$Lookup, first, $Object*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(WeakPairMap$Pair$Lookup, hashCode, int32_t)},
+	{"second", "()Ljava/lang/Object;", "()TK2;", $PUBLIC, $virtualMethod(WeakPairMap$Pair$Lookup, second, $Object*)},
 	{}
 };
 

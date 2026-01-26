@@ -47,7 +47,7 @@ $CompoundAttribute _C3_Annotations_[] = {
 };
 
 $MethodInfo _C3_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(C3::*)()>(&C3::init$))},
+	{"<init>", "()V", nullptr, 0, $method(C3, init$, void)},
 	{}
 };
 

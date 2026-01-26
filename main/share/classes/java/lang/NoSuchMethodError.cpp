@@ -17,8 +17,8 @@ $FieldInfo _NoSuchMethodError_FieldInfo_[] = {
 };
 
 $MethodInfo _NoSuchMethodError_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(NoSuchMethodError::*)()>(&NoSuchMethodError::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(NoSuchMethodError::*)($String*)>(&NoSuchMethodError::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(NoSuchMethodError, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NoSuchMethodError, init$, void, $String*)},
 	{}
 };
 

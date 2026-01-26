@@ -19,8 +19,8 @@ $FieldInfo _TypeAnnotation$LocationInfo$Location_FieldInfo_[] = {
 };
 
 $MethodInfo _TypeAnnotation$LocationInfo$Location_MethodInfo_[] = {
-	{"<init>", "(BS)V", nullptr, $PUBLIC, $method(static_cast<void(TypeAnnotation$LocationInfo$Location::*)(int8_t,int16_t)>(&TypeAnnotation$LocationInfo$Location::init$))},
-	{"isSameLocation", "(Lsun/reflect/annotation/TypeAnnotation$LocationInfo$Location;)Z", nullptr, 0, $method(static_cast<bool(TypeAnnotation$LocationInfo$Location::*)(TypeAnnotation$LocationInfo$Location*)>(&TypeAnnotation$LocationInfo$Location::isSameLocation))},
+	{"<init>", "(BS)V", nullptr, $PUBLIC, $method(TypeAnnotation$LocationInfo$Location, init$, void, int8_t, int16_t)},
+	{"isSameLocation", "(Lsun/reflect/annotation/TypeAnnotation$LocationInfo$Location;)Z", nullptr, 0, $method(TypeAnnotation$LocationInfo$Location, isSameLocation, bool, TypeAnnotation$LocationInfo$Location*)},
 	{}
 };
 

@@ -10,8 +10,8 @@ using $Base64 = ::java::util::Base64;
 using $Base64$Encoder = ::java::util::Base64$Encoder;
 
 $MethodInfo _Enormous_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Enormous::*)()>(&Enormous::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Enormous::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Enormous, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Enormous, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

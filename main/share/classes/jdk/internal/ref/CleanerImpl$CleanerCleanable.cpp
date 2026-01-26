@@ -16,8 +16,8 @@ namespace jdk {
 		namespace ref {
 
 $MethodInfo _CleanerImpl$CleanerCleanable_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/ref/Cleaner;)V", nullptr, 0, $method(static_cast<void(CleanerImpl$CleanerCleanable::*)($Cleaner*)>(&CleanerImpl$CleanerCleanable::init$))},
-	{"performCleanup", "()V", nullptr, $PROTECTED},
+	{"<init>", "(Ljava/lang/ref/Cleaner;)V", nullptr, 0, $method(CleanerImpl$CleanerCleanable, init$, void, $Cleaner*)},
+	{"performCleanup", "()V", nullptr, $PROTECTED, $virtualMethod(CleanerImpl$CleanerCleanable, performCleanup, void)},
 	{}
 };
 

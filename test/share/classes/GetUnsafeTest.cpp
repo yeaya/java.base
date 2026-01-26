@@ -34,9 +34,9 @@ $FieldInfo _GetUnsafeTest_FieldInfo_[] = {
 };
 
 $MethodInfo _GetUnsafeTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(GetUnsafeTest::*)()>(&GetUnsafeTest::init$))},
-	{"fail", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&GetUnsafeTest::fail))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&GetUnsafeTest::main)), "java.lang.Throwable"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(GetUnsafeTest, init$, void)},
+	{"fail", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(GetUnsafeTest, fail, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(GetUnsafeTest, main, void, $StringArray*), "java.lang.Throwable"},
 	{}
 };
 

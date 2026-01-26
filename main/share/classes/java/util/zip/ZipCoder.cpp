@@ -59,20 +59,20 @@ $FieldInfo _ZipCoder_FieldInfo_[] = {
 };
 
 $MethodInfo _ZipCoder_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PRIVATE, $method(static_cast<void(ZipCoder::*)($Charset*)>(&ZipCoder::init$))},
-	{"checkedHash", "([BII)I", nullptr, 0, nullptr, "java.lang.Exception"},
-	{"decoder", "()Ljava/nio/charset/CharsetDecoder;", nullptr, $PROTECTED},
-	{"encoder", "()Ljava/nio/charset/CharsetEncoder;", nullptr, $PRIVATE, $method(static_cast<$CharsetEncoder*(ZipCoder::*)()>(&ZipCoder::encoder))},
-	{"get", "(Ljava/nio/charset/Charset;)Ljava/util/zip/ZipCoder;", nullptr, $PUBLIC | $STATIC, $method(static_cast<ZipCoder*(*)($Charset*)>(&ZipCoder::get))},
-	{"getBytes", "(Ljava/lang/String;)[B", nullptr, 0},
-	{"hasTrailingSlash", "([BI)Z", nullptr, 0},
-	{"hash", "(Ljava/lang/String;)I", nullptr, $STATIC, $method(static_cast<int32_t(*)($String*)>(&ZipCoder::hash))},
-	{"isUTF8", "()Z", nullptr, 0},
-	{"slashBytes", "()[B", nullptr, $PRIVATE, $method(static_cast<$bytes*(ZipCoder::*)()>(&ZipCoder::slashBytes))},
-	{"toString", "([BII)Ljava/lang/String;", nullptr, 0},
-	{"toString", "([BI)Ljava/lang/String;", nullptr, 0},
-	{"toString", "([B)Ljava/lang/String;", nullptr, 0},
-	{"toStringUTF8", "([BI)Ljava/lang/String;", nullptr, $STATIC, $method(static_cast<$String*(*)($bytes*,int32_t)>(&ZipCoder::toStringUTF8))},
+	{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PRIVATE, $method(ZipCoder, init$, void, $Charset*)},
+	{"checkedHash", "([BII)I", nullptr, 0, $virtualMethod(ZipCoder, checkedHash, int32_t, $bytes*, int32_t, int32_t), "java.lang.Exception"},
+	{"decoder", "()Ljava/nio/charset/CharsetDecoder;", nullptr, $PROTECTED, $virtualMethod(ZipCoder, decoder, $CharsetDecoder*)},
+	{"encoder", "()Ljava/nio/charset/CharsetEncoder;", nullptr, $PRIVATE, $method(ZipCoder, encoder, $CharsetEncoder*)},
+	{"get", "(Ljava/nio/charset/Charset;)Ljava/util/zip/ZipCoder;", nullptr, $PUBLIC | $STATIC, $staticMethod(ZipCoder, get, ZipCoder*, $Charset*)},
+	{"getBytes", "(Ljava/lang/String;)[B", nullptr, 0, $virtualMethod(ZipCoder, getBytes, $bytes*, $String*)},
+	{"hasTrailingSlash", "([BI)Z", nullptr, 0, $virtualMethod(ZipCoder, hasTrailingSlash, bool, $bytes*, int32_t)},
+	{"hash", "(Ljava/lang/String;)I", nullptr, $STATIC, $staticMethod(ZipCoder, hash, int32_t, $String*)},
+	{"isUTF8", "()Z", nullptr, 0, $virtualMethod(ZipCoder, isUTF8, bool)},
+	{"slashBytes", "()[B", nullptr, $PRIVATE, $method(ZipCoder, slashBytes, $bytes*)},
+	{"toString", "([BII)Ljava/lang/String;", nullptr, 0, $virtualMethod(ZipCoder, toString, $String*, $bytes*, int32_t, int32_t)},
+	{"toString", "([BI)Ljava/lang/String;", nullptr, 0, $virtualMethod(ZipCoder, toString, $String*, $bytes*, int32_t)},
+	{"toString", "([B)Ljava/lang/String;", nullptr, 0, $virtualMethod(ZipCoder, toString, $String*, $bytes*)},
+	{"toStringUTF8", "([BI)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(ZipCoder, toStringUTF8, $String*, $bytes*, int32_t)},
 	{}
 };
 

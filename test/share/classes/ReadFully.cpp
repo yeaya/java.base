@@ -17,15 +17,15 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 
 $MethodInfo _ReadFully_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ReadFully::*)()>(&ReadFully::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $FINAL, $method(static_cast<void(*)($StringArray*)>(&ReadFully::main)), "java.lang.Exception"},
-	{"testBigOffsetLength1", "()V", nullptr, $PRIVATE | $STATIC | $FINAL, $method(static_cast<void(*)()>(&ReadFully::testBigOffsetLength1)), "java.lang.Exception"},
-	{"testBigOffsetLength2", "()V", nullptr, $PRIVATE | $STATIC | $FINAL, $method(static_cast<void(*)()>(&ReadFully::testBigOffsetLength2)), "java.lang.Exception"},
-	{"testBigOffsetLength3", "()V", nullptr, $PRIVATE | $STATIC | $FINAL, $method(static_cast<void(*)()>(&ReadFully::testBigOffsetLength3)), "java.lang.Exception"},
-	{"testBigOffsetLength4", "()V", nullptr, $PRIVATE | $STATIC | $FINAL, $method(static_cast<void(*)()>(&ReadFully::testBigOffsetLength4)), "java.lang.Exception"},
-	{"testNegativeLength", "()V", nullptr, $PRIVATE | $STATIC | $FINAL, $method(static_cast<void(*)()>(&ReadFully::testNegativeLength)), "java.lang.Exception"},
-	{"testNegativeOffset", "()V", nullptr, $PRIVATE | $STATIC | $FINAL, $method(static_cast<void(*)()>(&ReadFully::testNegativeOffset)), "java.lang.Exception"},
-	{"testNegativeOffsetZeroLength", "()V", nullptr, $PRIVATE | $STATIC | $FINAL, $method(static_cast<void(*)()>(&ReadFully::testNegativeOffsetZeroLength)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ReadFully, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(ReadFully, main, void, $StringArray*), "java.lang.Exception"},
+	{"testBigOffsetLength1", "()V", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(ReadFully, testBigOffsetLength1, void), "java.lang.Exception"},
+	{"testBigOffsetLength2", "()V", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(ReadFully, testBigOffsetLength2, void), "java.lang.Exception"},
+	{"testBigOffsetLength3", "()V", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(ReadFully, testBigOffsetLength3, void), "java.lang.Exception"},
+	{"testBigOffsetLength4", "()V", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(ReadFully, testBigOffsetLength4, void), "java.lang.Exception"},
+	{"testNegativeLength", "()V", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(ReadFully, testNegativeLength, void), "java.lang.Exception"},
+	{"testNegativeOffset", "()V", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(ReadFully, testNegativeOffset, void), "java.lang.Exception"},
+	{"testNegativeOffsetZeroLength", "()V", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(ReadFully, testNegativeOffsetZeroLength, void), "java.lang.Exception"},
 	{}
 };
 

@@ -12,10 +12,10 @@ namespace jdk {
 				namespace sax {
 
 $MethodInfo _DTDHandler_MethodInfo_[] = {
-	{"notationDecl", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "jdk.internal.org.xml.sax.SAXException"},
-	{"startDTD", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, nullptr, "jdk.internal.org.xml.sax.SAXException"},
-	{"startInternalSub", "()V", nullptr, $PUBLIC, nullptr, "jdk.internal.org.xml.sax.SAXException"},
-	{"unparsedEntityDecl", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "jdk.internal.org.xml.sax.SAXException"},
+	{"notationDecl", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DTDHandler, notationDecl, void, $String*, $String*, $String*), "jdk.internal.org.xml.sax.SAXException"},
+	{"startDTD", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DTDHandler, startDTD, void, $String*, $String*, $String*), "jdk.internal.org.xml.sax.SAXException"},
+	{"startInternalSub", "()V", nullptr, $PUBLIC, $virtualMethod(DTDHandler, startInternalSub, void), "jdk.internal.org.xml.sax.SAXException"},
+	{"unparsedEntityDecl", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DTDHandler, unparsedEntityDecl, void, $String*, $String*, $String*, $String*), "jdk.internal.org.xml.sax.SAXException"},
 	{}
 };
 

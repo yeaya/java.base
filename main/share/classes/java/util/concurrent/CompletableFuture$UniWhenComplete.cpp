@@ -25,8 +25,8 @@ $FieldInfo _CompletableFuture$UniWhenComplete_FieldInfo_[] = {
 };
 
 $MethodInfo _CompletableFuture$UniWhenComplete_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/Executor;Ljava/util/concurrent/CompletableFuture;Ljava/util/concurrent/CompletableFuture;Ljava/util/function/BiConsumer;)V", "(Ljava/util/concurrent/Executor;Ljava/util/concurrent/CompletableFuture<TT;>;Ljava/util/concurrent/CompletableFuture<TT;>;Ljava/util/function/BiConsumer<-TT;-Ljava/lang/Throwable;>;)V", 0, $method(static_cast<void(CompletableFuture$UniWhenComplete::*)($Executor*,$CompletableFuture*,$CompletableFuture*,$BiConsumer*)>(&CompletableFuture$UniWhenComplete::init$))},
-	{"tryFire", "(I)Ljava/util/concurrent/CompletableFuture;", "(I)Ljava/util/concurrent/CompletableFuture<TT;>;", $FINAL},
+	{"<init>", "(Ljava/util/concurrent/Executor;Ljava/util/concurrent/CompletableFuture;Ljava/util/concurrent/CompletableFuture;Ljava/util/function/BiConsumer;)V", "(Ljava/util/concurrent/Executor;Ljava/util/concurrent/CompletableFuture<TT;>;Ljava/util/concurrent/CompletableFuture<TT;>;Ljava/util/function/BiConsumer<-TT;-Ljava/lang/Throwable;>;)V", 0, $method(CompletableFuture$UniWhenComplete, init$, void, $Executor*, $CompletableFuture*, $CompletableFuture*, $BiConsumer*)},
+	{"tryFire", "(I)Ljava/util/concurrent/CompletableFuture;", "(I)Ljava/util/concurrent/CompletableFuture<TT;>;", $FINAL, $virtualMethod(CompletableFuture$UniWhenComplete, tryFire, $CompletableFuture*, int32_t)},
 	{}
 };
 

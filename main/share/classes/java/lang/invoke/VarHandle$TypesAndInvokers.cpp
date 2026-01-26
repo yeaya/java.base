@@ -40,7 +40,7 @@ $FieldInfo _VarHandle$TypesAndInvokers_FieldInfo_[] = {
 };
 
 $MethodInfo _VarHandle$TypesAndInvokers_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(VarHandle$TypesAndInvokers::*)()>(&VarHandle$TypesAndInvokers::init$))},
+	{"<init>", "()V", nullptr, 0, $method(VarHandle$TypesAndInvokers, init$, void)},
 	{}
 };
 

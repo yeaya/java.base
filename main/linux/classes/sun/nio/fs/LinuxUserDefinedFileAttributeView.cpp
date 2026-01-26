@@ -14,8 +14,8 @@ namespace sun {
 		namespace fs {
 
 $MethodInfo _LinuxUserDefinedFileAttributeView_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/fs/UnixPath;Z)V", nullptr, 0, $method(static_cast<void(LinuxUserDefinedFileAttributeView::*)($UnixPath*,bool)>(&LinuxUserDefinedFileAttributeView::init$))},
-	{"maxNameLength", "()I", nullptr, $PROTECTED},
+	{"<init>", "(Lsun/nio/fs/UnixPath;Z)V", nullptr, 0, $method(LinuxUserDefinedFileAttributeView, init$, void, $UnixPath*, bool)},
+	{"maxNameLength", "()I", nullptr, $PROTECTED, $virtualMethod(LinuxUserDefinedFileAttributeView, maxNameLength, int32_t)},
 	{}
 };
 

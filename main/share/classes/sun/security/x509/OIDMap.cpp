@@ -141,13 +141,13 @@ $FieldInfo _OIDMap_FieldInfo_[] = {
 };
 
 $MethodInfo _OIDMap_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(OIDMap::*)()>(&OIDMap::init$))},
-	{"addAttribute", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Class;)V", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Class<*>;)V", $PUBLIC | $STATIC, $method(static_cast<void(*)($String*,$String*,$Class*)>(&OIDMap::addAttribute)), "java.security.cert.CertificateException"},
-	{"addInternal", "(Ljava/lang/String;Lsun/security/util/ObjectIdentifier;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($String*,$ObjectIdentifier*,$String*)>(&OIDMap::addInternal))},
-	{"getClass", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $PUBLIC | $STATIC, $method(static_cast<$Class*(*)($String*)>(&OIDMap::getClass)), "java.security.cert.CertificateException"},
-	{"getClass", "(Lsun/security/util/ObjectIdentifier;)Ljava/lang/Class;", "(Lsun/security/util/ObjectIdentifier;)Ljava/lang/Class<*>;", $PUBLIC | $STATIC, $method(static_cast<$Class*(*)($ObjectIdentifier*)>(&OIDMap::getClass)), "java.security.cert.CertificateException"},
-	{"getName", "(Lsun/security/util/ObjectIdentifier;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)($ObjectIdentifier*)>(&OIDMap::getName))},
-	{"getOID", "(Ljava/lang/String;)Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$ObjectIdentifier*(*)($String*)>(&OIDMap::getOID))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(OIDMap, init$, void)},
+	{"addAttribute", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Class;)V", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Class<*>;)V", $PUBLIC | $STATIC, $staticMethod(OIDMap, addAttribute, void, $String*, $String*, $Class*), "java.security.cert.CertificateException"},
+	{"addInternal", "(Ljava/lang/String;Lsun/security/util/ObjectIdentifier;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(OIDMap, addInternal, void, $String*, $ObjectIdentifier*, $String*)},
+	{"getClass", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $PUBLIC | $STATIC, $staticMethod(OIDMap, getClass, $Class*, $String*), "java.security.cert.CertificateException"},
+	{"getClass", "(Lsun/security/util/ObjectIdentifier;)Ljava/lang/Class;", "(Lsun/security/util/ObjectIdentifier;)Ljava/lang/Class<*>;", $PUBLIC | $STATIC, $staticMethod(OIDMap, getClass, $Class*, $ObjectIdentifier*), "java.security.cert.CertificateException"},
+	{"getName", "(Lsun/security/util/ObjectIdentifier;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(OIDMap, getName, $String*, $ObjectIdentifier*)},
+	{"getOID", "(Ljava/lang/String;)Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC, $staticMethod(OIDMap, getOID, $ObjectIdentifier*, $String*)},
 	{}
 };
 

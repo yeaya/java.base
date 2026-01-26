@@ -13,8 +13,8 @@ using $Selector = ::java::nio::channels::Selector;
 using $SocketChannel = ::java::nio::channels::SocketChannel;
 
 $MethodInfo _LotsOfUpdates_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(LotsOfUpdates::*)()>(&LotsOfUpdates::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&LotsOfUpdates::main)), "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(LotsOfUpdates, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(LotsOfUpdates, main, void, $StringArray*), "java.io.IOException"},
 	{}
 };
 

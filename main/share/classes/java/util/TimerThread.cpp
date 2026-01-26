@@ -25,9 +25,9 @@ $FieldInfo _TimerThread_FieldInfo_[] = {
 };
 
 $MethodInfo _TimerThread_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/TaskQueue;)V", nullptr, 0, $method(static_cast<void(TimerThread::*)($TaskQueue*)>(&TimerThread::init$))},
-	{"mainLoop", "()V", nullptr, $PRIVATE, $method(static_cast<void(TimerThread::*)()>(&TimerThread::mainLoop))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/TaskQueue;)V", nullptr, 0, $method(TimerThread, init$, void, $TaskQueue*)},
+	{"mainLoop", "()V", nullptr, $PRIVATE, $method(TimerThread, mainLoop, void)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TimerThread, run, void)},
 	{}
 };
 

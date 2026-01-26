@@ -15,8 +15,8 @@ using $NetworkInterface = ::java::net::NetworkInterface;
 using $Enumeration = ::java::util::Enumeration;
 
 $MethodInfo _StringScope_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(StringScope::*)()>(&StringScope::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&StringScope::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(StringScope, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StringScope, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

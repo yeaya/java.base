@@ -33,9 +33,9 @@ $FieldInfo _ResourceDecompressorRepository_FieldInfo_[] = {
 };
 
 $MethodInfo _ResourceDecompressorRepository_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(ResourceDecompressorRepository::*)()>(&ResourceDecompressorRepository::init$))},
-	{"newResourceDecompressor", "(Ljava/util/Properties;Ljava/lang/String;)Ljdk/internal/jimage/decompressor/ResourceDecompressor;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$ResourceDecompressor*(*)($Properties*,$String*)>(&ResourceDecompressorRepository::newResourceDecompressor)), "java.io.IOException"},
-	{"registerReaderProvider", "(Ljdk/internal/jimage/decompressor/ResourceDecompressorFactory;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($ResourceDecompressorFactory*)>(&ResourceDecompressorRepository::registerReaderProvider))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(ResourceDecompressorRepository, init$, void)},
+	{"newResourceDecompressor", "(Ljava/util/Properties;Ljava/lang/String;)Ljdk/internal/jimage/decompressor/ResourceDecompressor;", nullptr, $PUBLIC | $STATIC, $staticMethod(ResourceDecompressorRepository, newResourceDecompressor, $ResourceDecompressor*, $Properties*, $String*), "java.io.IOException"},
+	{"registerReaderProvider", "(Ljdk/internal/jimage/decompressor/ResourceDecompressorFactory;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ResourceDecompressorRepository, registerReaderProvider, void, $ResourceDecompressorFactory*)},
 	{}
 };
 

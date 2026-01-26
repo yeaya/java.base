@@ -43,14 +43,14 @@ $FieldInfo _SslMacCore_FieldInfo_[] = {
 };
 
 $MethodInfo _SslMacCore_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;[B[B)V", nullptr, 0, $method(static_cast<void(SslMacCore::*)($String*,$bytes*,$bytes*)>(&SslMacCore::init$)), "java.security.NoSuchAlgorithmException"},
-	{"doFinal", "()[B", nullptr, 0, $method(static_cast<$bytes*(SslMacCore::*)()>(&SslMacCore::doFinal))},
-	{"getDigestLength", "()I", nullptr, 0, $method(static_cast<int32_t(SslMacCore::*)()>(&SslMacCore::getDigestLength))},
-	{"init", "(Ljava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, 0, $method(static_cast<void(SslMacCore::*)($Key*,$AlgorithmParameterSpec*)>(&SslMacCore::init)), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
-	{"reset", "()V", nullptr, 0, $method(static_cast<void(SslMacCore::*)()>(&SslMacCore::reset))},
-	{"update", "(B)V", nullptr, 0, $method(static_cast<void(SslMacCore::*)(int8_t)>(&SslMacCore::update))},
-	{"update", "([BII)V", nullptr, 0, $method(static_cast<void(SslMacCore::*)($bytes*,int32_t,int32_t)>(&SslMacCore::update))},
-	{"update", "(Ljava/nio/ByteBuffer;)V", nullptr, 0, $method(static_cast<void(SslMacCore::*)($ByteBuffer*)>(&SslMacCore::update))},
+	{"<init>", "(Ljava/lang/String;[B[B)V", nullptr, 0, $method(SslMacCore, init$, void, $String*, $bytes*, $bytes*), "java.security.NoSuchAlgorithmException"},
+	{"doFinal", "()[B", nullptr, 0, $method(SslMacCore, doFinal, $bytes*)},
+	{"getDigestLength", "()I", nullptr, 0, $method(SslMacCore, getDigestLength, int32_t)},
+	{"init", "(Ljava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, 0, $method(SslMacCore, init, void, $Key*, $AlgorithmParameterSpec*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
+	{"reset", "()V", nullptr, 0, $method(SslMacCore, reset, void)},
+	{"update", "(B)V", nullptr, 0, $method(SslMacCore, update, void, int8_t)},
+	{"update", "([BII)V", nullptr, 0, $method(SslMacCore, update, void, $bytes*, int32_t, int32_t)},
+	{"update", "(Ljava/nio/ByteBuffer;)V", nullptr, 0, $method(SslMacCore, update, void, $ByteBuffer*)},
 	{}
 };
 

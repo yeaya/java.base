@@ -26,11 +26,11 @@ $FieldInfo _PolicyParser$ParsingException_FieldInfo_[] = {
 };
 
 $MethodInfo _PolicyParser$ParsingException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(PolicyParser$ParsingException::*)($String*)>(&PolicyParser$ParsingException::init$))},
-	{"<init>", "(Ljava/lang/String;Lsun/security/util/LocalizedMessage;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(static_cast<void(PolicyParser$ParsingException::*)($String*,$LocalizedMessage*,$ObjectArray*)>(&PolicyParser$ParsingException::init$))},
-	{"<init>", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(PolicyParser$ParsingException::*)(int32_t,$String*)>(&PolicyParser$ParsingException::init$))},
-	{"<init>", "(ILjava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(PolicyParser$ParsingException::*)(int32_t,$String*,$String*)>(&PolicyParser$ParsingException::init$))},
-	{"getNonlocalizedMessage", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(PolicyParser$ParsingException, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;Lsun/security/util/LocalizedMessage;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(PolicyParser$ParsingException, init$, void, $String*, $LocalizedMessage*, $ObjectArray*)},
+	{"<init>", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $method(PolicyParser$ParsingException, init$, void, int32_t, $String*)},
+	{"<init>", "(ILjava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(PolicyParser$ParsingException, init$, void, int32_t, $String*, $String*)},
+	{"getNonlocalizedMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PolicyParser$ParsingException, getNonlocalizedMessage, $String*)},
 	{}
 };
 

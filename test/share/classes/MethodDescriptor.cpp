@@ -18,7 +18,7 @@ $CompoundAttribute _MethodDescriptor_Annotations_[] = {
 };
 
 $MethodInfo _MethodDescriptor_MethodInfo_[] = {
-	{"value", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
+	{"value", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MethodDescriptor, value, $String*)},
 	{}
 };
 

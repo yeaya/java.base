@@ -26,7 +26,7 @@ $FieldInfo _SignatureParser$ParseResult_FieldInfo_[] = {
 };
 
 $MethodInfo _SignatureParser$ParseResult_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(SignatureParser$ParseResult::*)()>(&SignatureParser$ParseResult::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(SignatureParser$ParseResult, init$, void)},
 	{}
 };
 

@@ -20,7 +20,7 @@ $TypeAnnotation _GetAnnotatedNestedSuperclass$Y_TypeAnnotations_[] = {
 };
 
 $MethodInfo _GetAnnotatedNestedSuperclass$Y_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(GetAnnotatedNestedSuperclass$Y::*)()>(&GetAnnotatedNestedSuperclass$Y::init$))},
+	{"<init>", "()V", nullptr, 0, $method(GetAnnotatedNestedSuperclass$Y, init$, void)},
 	{}
 };
 

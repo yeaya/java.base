@@ -54,8 +54,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ModulePatcher$JarResourceFinder$$Lambda$getName::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ModulePatcher$JarResourceFinder$$Lambda$getName::*)()>(&ModulePatcher$JarResourceFinder$$Lambda$getName::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ModulePatcher$JarResourceFinder$$Lambda$getName, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ModulePatcher$JarResourceFinder$$Lambda$getName, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo ModulePatcher$JarResourceFinder$$Lambda$getName::classInfo$ = {
@@ -79,10 +79,10 @@ $FieldInfo _ModulePatcher$JarResourceFinder_FieldInfo_[] = {
 };
 
 $MethodInfo _ModulePatcher$JarResourceFinder_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/file/Path;)V", nullptr, 0, $method(static_cast<void(ModulePatcher$JarResourceFinder::*)($Path*)>(&ModulePatcher$JarResourceFinder::init$)), "java.io.IOException"},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"find", "(Ljava/lang/String;)Ljdk/internal/loader/Resource;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"list", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljava/lang/String;>;", $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljava/nio/file/Path;)V", nullptr, 0, $method(ModulePatcher$JarResourceFinder, init$, void, $Path*), "java.io.IOException"},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(ModulePatcher$JarResourceFinder, close, void), "java.io.IOException"},
+	{"find", "(Ljava/lang/String;)Ljdk/internal/loader/Resource;", nullptr, $PUBLIC, $virtualMethod(ModulePatcher$JarResourceFinder, find, $Resource*, $String*), "java.io.IOException"},
+	{"list", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(ModulePatcher$JarResourceFinder, list, $Stream*), "java.io.IOException"},
 	{}
 };
 

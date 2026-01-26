@@ -48,9 +48,9 @@ $FieldInfo _KeyStore$Builder$2_FieldInfo_[] = {
 };
 
 $MethodInfo _KeyStore$Builder$2_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/Provider;Ljava/lang/String;Ljava/security/KeyStore$ProtectionParameter;Ljava/security/AccessControlContext;)V", nullptr, 0, $method(static_cast<void(KeyStore$Builder$2::*)($Provider*,$String*,$KeyStore$ProtectionParameter*,$AccessControlContext*)>(&KeyStore$Builder$2::init$))},
-	{"getKeyStore", "()Ljava/security/KeyStore;", nullptr, $PUBLIC | $SYNCHRONIZED, nullptr, "java.security.KeyStoreException"},
-	{"getProtectionParameter", "(Ljava/lang/String;)Ljava/security/KeyStore$ProtectionParameter;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/security/Provider;Ljava/lang/String;Ljava/security/KeyStore$ProtectionParameter;Ljava/security/AccessControlContext;)V", nullptr, 0, $method(KeyStore$Builder$2, init$, void, $Provider*, $String*, $KeyStore$ProtectionParameter*, $AccessControlContext*)},
+	{"getKeyStore", "()Ljava/security/KeyStore;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(KeyStore$Builder$2, getKeyStore, $KeyStore*), "java.security.KeyStoreException"},
+	{"getProtectionParameter", "(Ljava/lang/String;)Ljava/security/KeyStore$ProtectionParameter;", nullptr, $PUBLIC, $virtualMethod(KeyStore$Builder$2, getProtectionParameter, $KeyStore$ProtectionParameter*, $String*)},
 	{}
 };
 

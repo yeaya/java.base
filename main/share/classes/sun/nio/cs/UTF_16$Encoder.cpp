@@ -18,7 +18,7 @@ namespace sun {
 		namespace cs {
 
 $MethodInfo _UTF_16$Encoder_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PUBLIC, $method(static_cast<void(UTF_16$Encoder::*)($Charset*)>(&UTF_16$Encoder::init$))},
+	{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PUBLIC, $method(UTF_16$Encoder, init$, void, $Charset*)},
 	{}
 };
 

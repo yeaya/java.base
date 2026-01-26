@@ -56,11 +56,11 @@ $FieldInfo _ValueOf4Enum_FieldInfo_[] = {
 };
 
 $MethodInfo _ValueOf4Enum_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ValueOf4Enum::*)()>(&ValueOf4Enum::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&ValueOf4Enum::main)), "java.lang.Exception"},
-	{"test", "(Ljava/lang/Class;)V", "<T:Ljava/lang/Enum<TT;>;>(Ljava/lang/Class<TT;>;)V", $STATIC, $method(static_cast<void(*)($Class*)>(&ValueOf4Enum::test)), "java.lang.Exception"},
-	{"test", "(Ljava/lang/Class;Ljava/util/Set;)V", "<T:Ljava/lang/Enum<TT;>;>(Ljava/lang/Class<TT;>;Ljava/util/Set<TT;>;)V", $STATIC, $method(static_cast<void(*)($Class*,$Set*)>(&ValueOf4Enum::test)), "java.lang.Exception"},
-	{"testMissingException", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&ValueOf4Enum::testMissingException))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ValueOf4Enum, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ValueOf4Enum, main, void, $StringArray*), "java.lang.Exception"},
+	{"test", "(Ljava/lang/Class;)V", "<T:Ljava/lang/Enum<TT;>;>(Ljava/lang/Class<TT;>;)V", $STATIC, $staticMethod(ValueOf4Enum, test, void, $Class*), "java.lang.Exception"},
+	{"test", "(Ljava/lang/Class;Ljava/util/Set;)V", "<T:Ljava/lang/Enum<TT;>;>(Ljava/lang/Class<TT;>;Ljava/util/Set<TT;>;)V", $STATIC, $staticMethod(ValueOf4Enum, test, void, $Class*, $Set*), "java.lang.Exception"},
+	{"testMissingException", "()V", nullptr, $STATIC, $staticMethod(ValueOf4Enum, testMissingException, void)},
 	{}
 };
 

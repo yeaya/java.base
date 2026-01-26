@@ -34,9 +34,9 @@ $FieldInfo _ProtectionDomain$JavaSecurityAccessImpl$1_FieldInfo_[] = {
 };
 
 $MethodInfo _ProtectionDomain$JavaSecurityAccessImpl$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/ProtectionDomain$JavaSecurityAccessImpl;)V", nullptr, 0, $method(static_cast<void(ProtectionDomain$JavaSecurityAccessImpl$1::*)($ProtectionDomain$JavaSecurityAccessImpl*)>(&ProtectionDomain$JavaSecurityAccessImpl$1::init$))},
-	{"get", "(Ljava/security/ProtectionDomain;)Ljava/security/PermissionCollection;", nullptr, $PUBLIC},
-	{"put", "(Ljava/security/ProtectionDomain;Ljava/security/PermissionCollection;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/security/ProtectionDomain$JavaSecurityAccessImpl;)V", nullptr, 0, $method(ProtectionDomain$JavaSecurityAccessImpl$1, init$, void, $ProtectionDomain$JavaSecurityAccessImpl*)},
+	{"get", "(Ljava/security/ProtectionDomain;)Ljava/security/PermissionCollection;", nullptr, $PUBLIC, $virtualMethod(ProtectionDomain$JavaSecurityAccessImpl$1, get, $PermissionCollection*, $ProtectionDomain*)},
+	{"put", "(Ljava/security/ProtectionDomain;Ljava/security/PermissionCollection;)V", nullptr, $PUBLIC, $virtualMethod(ProtectionDomain$JavaSecurityAccessImpl$1, put, void, $ProtectionDomain*, $PermissionCollection*)},
 	{}
 };
 

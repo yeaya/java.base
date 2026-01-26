@@ -34,14 +34,14 @@ $FieldInfo _PortUnreachable_FieldInfo_[] = {
 };
 
 $MethodInfo _PortUnreachable_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(PortUnreachable::*)()>(&PortUnreachable::init$)), "java.lang.Exception"},
-	{"attempt", "(I)Ljava/lang/String;", nullptr, 0},
-	{"execute", "()V", nullptr, 0, nullptr, "java.lang.Exception"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&PortUnreachable::main)), "java.lang.Exception"},
-	{"recreateServerSocket", "(I)Ljava/net/DatagramSocket;", nullptr, 0, nullptr, "java.lang.Exception"},
-	{"serverSend", "()V", nullptr, $PUBLIC, nullptr, "java.lang.Exception"},
-	{"sleepAtLeast", "(J)J", nullptr, 0, nullptr, "java.lang.Exception"},
-	{"sleeptime", "(J)Ljava/lang/String;", nullptr, 0},
+	{"<init>", "()V", nullptr, 0, $method(PortUnreachable, init$, void), "java.lang.Exception"},
+	{"attempt", "(I)Ljava/lang/String;", nullptr, 0, $virtualMethod(PortUnreachable, attempt, $String*, int32_t)},
+	{"execute", "()V", nullptr, 0, $virtualMethod(PortUnreachable, execute, void), "java.lang.Exception"},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(PortUnreachable, main, void, $StringArray*), "java.lang.Exception"},
+	{"recreateServerSocket", "(I)Ljava/net/DatagramSocket;", nullptr, 0, $virtualMethod(PortUnreachable, recreateServerSocket, $DatagramSocket*, int32_t), "java.lang.Exception"},
+	{"serverSend", "()V", nullptr, $PUBLIC, $virtualMethod(PortUnreachable, serverSend, void), "java.lang.Exception"},
+	{"sleepAtLeast", "(J)J", nullptr, 0, $virtualMethod(PortUnreachable, sleepAtLeast, int64_t, int64_t), "java.lang.Exception"},
+	{"sleeptime", "(J)Ljava/lang/String;", nullptr, 0, $virtualMethod(PortUnreachable, sleeptime, $String*, int64_t)},
 	{}
 };
 

@@ -39,8 +39,8 @@ namespace sun {
 		namespace ssl {
 
 $MethodInfo _SessionTicketExtension$T12CHSessionTicketConsumer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(SessionTicketExtension$T12CHSessionTicketConsumer::*)()>(&SessionTicketExtension$T12CHSessionTicketConsumer::init$))},
-	{"consume", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, 0, $method(SessionTicketExtension$T12CHSessionTicketConsumer, init$, void)},
+	{"consume", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(SessionTicketExtension$T12CHSessionTicketConsumer, consume, void, $ConnectionContext*, $SSLHandshake$HandshakeMessage*, $ByteBuffer*), "java.io.IOException"},
 	{}
 };
 

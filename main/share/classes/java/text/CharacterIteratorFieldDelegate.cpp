@@ -32,10 +32,10 @@ $FieldInfo _CharacterIteratorFieldDelegate_FieldInfo_[] = {
 };
 
 $MethodInfo _CharacterIteratorFieldDelegate_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(CharacterIteratorFieldDelegate::*)()>(&CharacterIteratorFieldDelegate::init$))},
-	{"formatted", "(Ljava/text/Format$Field;Ljava/lang/Object;IILjava/lang/StringBuffer;)V", nullptr, $PUBLIC},
-	{"formatted", "(ILjava/text/Format$Field;Ljava/lang/Object;IILjava/lang/StringBuffer;)V", nullptr, $PUBLIC},
-	{"getIterator", "(Ljava/lang/String;)Ljava/text/AttributedCharacterIterator;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(CharacterIteratorFieldDelegate, init$, void)},
+	{"formatted", "(Ljava/text/Format$Field;Ljava/lang/Object;IILjava/lang/StringBuffer;)V", nullptr, $PUBLIC, $virtualMethod(CharacterIteratorFieldDelegate, formatted, void, $Format$Field*, Object$*, int32_t, int32_t, $StringBuffer*)},
+	{"formatted", "(ILjava/text/Format$Field;Ljava/lang/Object;IILjava/lang/StringBuffer;)V", nullptr, $PUBLIC, $virtualMethod(CharacterIteratorFieldDelegate, formatted, void, int32_t, $Format$Field*, Object$*, int32_t, int32_t, $StringBuffer*)},
+	{"getIterator", "(Ljava/lang/String;)Ljava/text/AttributedCharacterIterator;", nullptr, $PUBLIC, $virtualMethod(CharacterIteratorFieldDelegate, getIterator, $AttributedCharacterIterator*, $String*)},
 	{}
 };
 

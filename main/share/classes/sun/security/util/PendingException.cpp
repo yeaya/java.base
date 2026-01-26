@@ -17,8 +17,8 @@ $FieldInfo _PendingException_FieldInfo_[] = {
 };
 
 $MethodInfo _PendingException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PendingException::*)()>(&PendingException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(PendingException::*)($String*)>(&PendingException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PendingException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(PendingException, init$, void, $String*)},
 	{}
 };
 

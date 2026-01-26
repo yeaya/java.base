@@ -30,8 +30,8 @@ $FieldInfo _MimeTypesFileTypeDetector$1_FieldInfo_[] = {
 };
 
 $MethodInfo _MimeTypesFileTypeDetector$1_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/fs/MimeTypesFileTypeDetector;)V", nullptr, 0, $method(static_cast<void(MimeTypesFileTypeDetector$1::*)($MimeTypesFileTypeDetector*)>(&MimeTypesFileTypeDetector$1::init$))},
-	{"run", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PUBLIC},
+	{"<init>", "(Lsun/nio/fs/MimeTypesFileTypeDetector;)V", nullptr, 0, $method(MimeTypesFileTypeDetector$1, init$, void, $MimeTypesFileTypeDetector*)},
+	{"run", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(MimeTypesFileTypeDetector$1, run, $Object*)},
 	{}
 };
 

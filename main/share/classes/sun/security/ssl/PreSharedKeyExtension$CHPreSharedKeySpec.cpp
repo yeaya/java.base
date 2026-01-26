@@ -57,14 +57,14 @@ $FieldInfo _PreSharedKeyExtension$CHPreSharedKeySpec_FieldInfo_[] = {
 };
 
 $MethodInfo _PreSharedKeyExtension$CHPreSharedKeySpec_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/List;Ljava/util/List;)V", "(Ljava/util/List<Lsun/security/ssl/PreSharedKeyExtension$PskIdentity;>;Ljava/util/List<[B>;)V", 0, $method(static_cast<void(PreSharedKeyExtension$CHPreSharedKeySpec::*)($List*,$List*)>(&PreSharedKeyExtension$CHPreSharedKeySpec::init$))},
-	{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)V", nullptr, 0, $method(static_cast<void(PreSharedKeyExtension$CHPreSharedKeySpec::*)($HandshakeContext*,$ByteBuffer*)>(&PreSharedKeyExtension$CHPreSharedKeySpec::init$)), "java.io.IOException"},
-	{"bindersString", "()Ljava/lang/String;", nullptr, 0, $method(static_cast<$String*(PreSharedKeyExtension$CHPreSharedKeySpec::*)()>(&PreSharedKeyExtension$CHPreSharedKeySpec::bindersString))},
-	{"getBindersEncodedLength", "()I", nullptr, 0, $method(static_cast<int32_t(PreSharedKeyExtension$CHPreSharedKeySpec::*)()>(&PreSharedKeyExtension$CHPreSharedKeySpec::getBindersEncodedLength))},
-	{"getEncoded", "()[B", nullptr, 0, $method(static_cast<$bytes*(PreSharedKeyExtension$CHPreSharedKeySpec::*)()>(&PreSharedKeyExtension$CHPreSharedKeySpec::getEncoded)), "java.io.IOException"},
-	{"getIdsEncodedLength", "()I", nullptr, 0, $method(static_cast<int32_t(PreSharedKeyExtension$CHPreSharedKeySpec::*)()>(&PreSharedKeyExtension$CHPreSharedKeySpec::getIdsEncodedLength))},
-	{"identitiesString", "()Ljava/lang/String;", nullptr, 0, $method(static_cast<$String*(PreSharedKeyExtension$CHPreSharedKeySpec::*)()>(&PreSharedKeyExtension$CHPreSharedKeySpec::identitiesString))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/List;Ljava/util/List;)V", "(Ljava/util/List<Lsun/security/ssl/PreSharedKeyExtension$PskIdentity;>;Ljava/util/List<[B>;)V", 0, $method(PreSharedKeyExtension$CHPreSharedKeySpec, init$, void, $List*, $List*)},
+	{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)V", nullptr, 0, $method(PreSharedKeyExtension$CHPreSharedKeySpec, init$, void, $HandshakeContext*, $ByteBuffer*), "java.io.IOException"},
+	{"bindersString", "()Ljava/lang/String;", nullptr, 0, $method(PreSharedKeyExtension$CHPreSharedKeySpec, bindersString, $String*)},
+	{"getBindersEncodedLength", "()I", nullptr, 0, $method(PreSharedKeyExtension$CHPreSharedKeySpec, getBindersEncodedLength, int32_t)},
+	{"getEncoded", "()[B", nullptr, 0, $method(PreSharedKeyExtension$CHPreSharedKeySpec, getEncoded, $bytes*), "java.io.IOException"},
+	{"getIdsEncodedLength", "()I", nullptr, 0, $method(PreSharedKeyExtension$CHPreSharedKeySpec, getIdsEncodedLength, int32_t)},
+	{"identitiesString", "()Ljava/lang/String;", nullptr, 0, $method(PreSharedKeyExtension$CHPreSharedKeySpec, identitiesString, $String*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PreSharedKeyExtension$CHPreSharedKeySpec, toString, $String*)},
 	{}
 };
 

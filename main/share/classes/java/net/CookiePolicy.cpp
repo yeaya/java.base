@@ -18,6 +18,8 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $CookiePolicy$1 = ::java::net::CookiePolicy$1;
 using $CookiePolicy$2 = ::java::net::CookiePolicy$2;
 using $CookiePolicy$3 = ::java::net::CookiePolicy$3;
+using $HttpCookie = ::java::net::HttpCookie;
+using $URI = ::java::net::URI;
 
 namespace java {
 	namespace net {
@@ -30,7 +32,7 @@ $FieldInfo _CookiePolicy_FieldInfo_[] = {
 };
 
 $MethodInfo _CookiePolicy_MethodInfo_[] = {
-	{"shouldAccept", "(Ljava/net/URI;Ljava/net/HttpCookie;)Z", nullptr, $PUBLIC | $ABSTRACT},
+	{"shouldAccept", "(Ljava/net/URI;Ljava/net/HttpCookie;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CookiePolicy, shouldAccept, bool, $URI*, $HttpCookie*)},
 	{}
 };
 

@@ -27,11 +27,11 @@ $FieldInfo _Bug4944439_FieldInfo_[] = {
 };
 
 $MethodInfo _Bug4944439_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Bug4944439::*)()>(&Bug4944439::init$))},
-	{"check_Double", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($String*)>(&Bug4944439::check_Double)), "java.lang.Exception"},
-	{"check_Long", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($String*)>(&Bug4944439::check_Long)), "java.lang.Exception"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Bug4944439::main)), "java.lang.Exception"},
-	{"test", "(JJ)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)(int64_t,int64_t)>(&Bug4944439::test)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Bug4944439, init$, void)},
+	{"check_Double", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Bug4944439, check_Double, void, $String*), "java.lang.Exception"},
+	{"check_Long", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Bug4944439, check_Long, void, $String*), "java.lang.Exception"},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Bug4944439, main, void, $StringArray*), "java.lang.Exception"},
+	{"test", "(JJ)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Bug4944439, test, void, int64_t, int64_t), "java.lang.Exception"},
 	{}
 };
 

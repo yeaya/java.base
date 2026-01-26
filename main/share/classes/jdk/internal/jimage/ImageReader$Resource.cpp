@@ -26,15 +26,15 @@ $FieldInfo _ImageReader$Resource_FieldInfo_[] = {
 };
 
 $MethodInfo _ImageReader$Resource_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/jimage/ImageLocation;Ljava/nio/file/attribute/BasicFileAttributes;)V", nullptr, $PRIVATE, $method(static_cast<void(ImageReader$Resource::*)($ImageLocation*,$BasicFileAttributes*)>(&ImageReader$Resource::init$))},
-	{"compressedSize", "()J", nullptr, $PUBLIC},
-	{"contentOffset", "()J", nullptr, $PUBLIC},
-	{"create", "(Ljdk/internal/jimage/ImageReader$Directory;Ljdk/internal/jimage/ImageLocation;Ljava/nio/file/attribute/BasicFileAttributes;)Ljdk/internal/jimage/ImageReader$Resource;", nullptr, $STATIC, $method(static_cast<ImageReader$Resource*(*)($ImageReader$Directory*,$ImageLocation*,$BasicFileAttributes*)>(&ImageReader$Resource::create))},
-	{"extension", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getLocation", "()Ljdk/internal/jimage/ImageLocation;", nullptr, $PUBLIC},
-	{"isCompleted", "()Z", nullptr, $PUBLIC},
-	{"isResource", "()Z", nullptr, $PUBLIC},
-	{"size", "()J", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/jimage/ImageLocation;Ljava/nio/file/attribute/BasicFileAttributes;)V", nullptr, $PRIVATE, $method(ImageReader$Resource, init$, void, $ImageLocation*, $BasicFileAttributes*)},
+	{"compressedSize", "()J", nullptr, $PUBLIC, $virtualMethod(ImageReader$Resource, compressedSize, int64_t)},
+	{"contentOffset", "()J", nullptr, $PUBLIC, $virtualMethod(ImageReader$Resource, contentOffset, int64_t)},
+	{"create", "(Ljdk/internal/jimage/ImageReader$Directory;Ljdk/internal/jimage/ImageLocation;Ljava/nio/file/attribute/BasicFileAttributes;)Ljdk/internal/jimage/ImageReader$Resource;", nullptr, $STATIC, $staticMethod(ImageReader$Resource, create, ImageReader$Resource*, $ImageReader$Directory*, $ImageLocation*, $BasicFileAttributes*)},
+	{"extension", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ImageReader$Resource, extension, $String*)},
+	{"getLocation", "()Ljdk/internal/jimage/ImageLocation;", nullptr, $PUBLIC, $virtualMethod(ImageReader$Resource, getLocation, $ImageLocation*)},
+	{"isCompleted", "()Z", nullptr, $PUBLIC, $virtualMethod(ImageReader$Resource, isCompleted, bool)},
+	{"isResource", "()Z", nullptr, $PUBLIC, $virtualMethod(ImageReader$Resource, isResource, bool)},
+	{"size", "()J", nullptr, $PUBLIC, $virtualMethod(ImageReader$Resource, size, int64_t)},
 	{}
 };
 

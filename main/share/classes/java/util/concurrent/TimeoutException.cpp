@@ -17,8 +17,8 @@ $FieldInfo _TimeoutException_FieldInfo_[] = {
 };
 
 $MethodInfo _TimeoutException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TimeoutException::*)()>(&TimeoutException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(TimeoutException::*)($String*)>(&TimeoutException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TimeoutException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(TimeoutException, init$, void, $String*)},
 	{}
 };
 

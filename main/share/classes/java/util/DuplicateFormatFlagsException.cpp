@@ -19,9 +19,9 @@ $FieldInfo _DuplicateFormatFlagsException_FieldInfo_[] = {
 };
 
 $MethodInfo _DuplicateFormatFlagsException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(DuplicateFormatFlagsException::*)($String*)>(&DuplicateFormatFlagsException::init$))},
-	{"getFlags", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(DuplicateFormatFlagsException, init$, void, $String*)},
+	{"getFlags", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DuplicateFormatFlagsException, getFlags, $String*)},
+	{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DuplicateFormatFlagsException, getMessage, $String*)},
 	{}
 };
 

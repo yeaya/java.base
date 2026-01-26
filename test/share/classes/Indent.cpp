@@ -59,8 +59,8 @@ $FieldInfo Indent$$Lambda$lambda$test1$0::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Indent$$Lambda$lambda$test1$0::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(Indent$$Lambda$lambda$test1$0::*)($String*)>(&Indent$$Lambda$lambda$test1$0::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Indent$$Lambda$lambda$test1$0, init$, void, $String*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Indent$$Lambda$lambda$test1$0, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Indent$$Lambda$lambda$test1$0::classInfo$ = {
@@ -99,8 +99,8 @@ $FieldInfo Indent$$Lambda$lambda$test1$1$1::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Indent$$Lambda$lambda$test1$1$1::methodInfos[3] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(static_cast<void(Indent$$Lambda$lambda$test1$1$1::*)(int32_t)>(&Indent$$Lambda$lambda$test1$1$1::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(I)V", nullptr, $PUBLIC, $method(Indent$$Lambda$lambda$test1$1$1, init$, void, int32_t)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Indent$$Lambda$lambda$test1$1$1, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Indent$$Lambda$lambda$test1$1$1::classInfo$ = {
@@ -124,14 +124,14 @@ $FieldInfo _Indent_FieldInfo_[] = {
 };
 
 $MethodInfo _Indent_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Indent::*)()>(&Indent::init$))},
-	{"getBody", "([Ljava/lang/String;)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$StringArray*(*)($StringArray*)>(&Indent::getBody))},
-	{"indexOfNonWhitespace", "(Ljava/lang/String;)I", nullptr, $PUBLIC | $STATIC, $method(static_cast<int32_t(*)($String*)>(&Indent::indexOfNonWhitespace))},
-	{"lambda$test1$0", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$String*(*)($String*,$String*)>(&Indent::lambda$test1$0))},
-	{"lambda$test1$1", "(ILjava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$String*(*)(int32_t,$String*)>(&Indent::lambda$test1$1))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Indent::main))},
-	{"report", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $STATIC, $method(static_cast<void(*)($String*,$String*,$String*,$String*)>(&Indent::report))},
-	{"test1", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&Indent::test1))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Indent, init$, void)},
+	{"getBody", "([Ljava/lang/String;)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Indent, getBody, $StringArray*, $StringArray*)},
+	{"indexOfNonWhitespace", "(Ljava/lang/String;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Indent, indexOfNonWhitespace, int32_t, $String*)},
+	{"lambda$test1$0", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Indent, lambda$test1$0, $String*, $String*, $String*)},
+	{"lambda$test1$1", "(ILjava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Indent, lambda$test1$1, $String*, int32_t, $String*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Indent, main, void, $StringArray*)},
+	{"report", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(Indent, report, void, $String*, $String*, $String*, $String*)},
+	{"test1", "()V", nullptr, $STATIC, $staticMethod(Indent, test1, void)},
 	{}
 };
 

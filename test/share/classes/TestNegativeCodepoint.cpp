@@ -15,8 +15,8 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 
 $MethodInfo _TestNegativeCodepoint_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TestNegativeCodepoint::*)()>(&TestNegativeCodepoint::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&TestNegativeCodepoint::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TestNegativeCodepoint, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TestNegativeCodepoint, main, void, $StringArray*)},
 	{}
 };
 

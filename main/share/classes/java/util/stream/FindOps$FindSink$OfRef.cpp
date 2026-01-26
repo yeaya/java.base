@@ -53,8 +53,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo FindOps$FindSink$OfRef$$Lambda$isPresent::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(FindOps$FindSink$OfRef$$Lambda$isPresent::*)()>(&FindOps$FindSink$OfRef$$Lambda$isPresent::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(FindOps$FindSink$OfRef$$Lambda$isPresent, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(FindOps$FindSink$OfRef$$Lambda$isPresent, test, bool, Object$*)},
 	{}
 };
 $ClassInfo FindOps$FindSink$OfRef$$Lambda$isPresent::classInfo$ = {
@@ -86,8 +86,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo FindOps$FindSink$OfRef$$Lambda$OfRef$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(FindOps$FindSink$OfRef$$Lambda$OfRef$1::*)()>(&FindOps$FindSink$OfRef$$Lambda$OfRef$1::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(FindOps$FindSink$OfRef$$Lambda$OfRef$1, init$, void)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(FindOps$FindSink$OfRef$$Lambda$OfRef$1, get, $Object*)},
 	{}
 };
 $ClassInfo FindOps$FindSink$OfRef$$Lambda$OfRef$1::classInfo$ = {
@@ -111,8 +111,8 @@ $FieldInfo _FindOps$FindSink$OfRef_FieldInfo_[] = {
 };
 
 $MethodInfo _FindOps$FindSink$OfRef_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(FindOps$FindSink$OfRef::*)()>(&FindOps$FindSink$OfRef::init$))},
-	{"get", "()Ljava/util/Optional;", "()Ljava/util/Optional<TT;>;", $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(FindOps$FindSink$OfRef, init$, void)},
+	{"get", "()Ljava/util/Optional;", "()Ljava/util/Optional<TT;>;", $PUBLIC, $virtualMethod(FindOps$FindSink$OfRef, get, $Object*)},
 	{}
 };
 

@@ -45,19 +45,19 @@ $FieldInfo _CertificateSerialNumber_FieldInfo_[] = {
 };
 
 $MethodInfo _CertificateSerialNumber_MethodInfo_[] = {
-	{"<init>", "(Ljava/math/BigInteger;)V", nullptr, $PUBLIC, $method(static_cast<void(CertificateSerialNumber::*)($BigInteger*)>(&CertificateSerialNumber::init$))},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(static_cast<void(CertificateSerialNumber::*)(int32_t)>(&CertificateSerialNumber::init$))},
-	{"<init>", "(Lsun/security/util/DerInputStream;)V", nullptr, $PUBLIC, $method(static_cast<void(CertificateSerialNumber::*)($DerInputStream*)>(&CertificateSerialNumber::init$)), "java.io.IOException"},
-	{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(static_cast<void(CertificateSerialNumber::*)($InputStream*)>(&CertificateSerialNumber::init$)), "java.io.IOException"},
-	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(static_cast<void(CertificateSerialNumber::*)($DerValue*)>(&CertificateSerialNumber::init$)), "java.io.IOException"},
-	{"delete", "(Ljava/lang/String;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"encode", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"get", "(Ljava/lang/String;)Lsun/security/x509/SerialNumber;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"getElements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"newRandom64bit", "(Ljava/util/Random;)Lsun/security/x509/CertificateSerialNumber;", nullptr, $PUBLIC | $STATIC, $method(static_cast<CertificateSerialNumber*(*)($Random*)>(&CertificateSerialNumber::newRandom64bit))},
-	{"set", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/math/BigInteger;)V", nullptr, $PUBLIC, $method(CertificateSerialNumber, init$, void, $BigInteger*)},
+	{"<init>", "(I)V", nullptr, $PUBLIC, $method(CertificateSerialNumber, init$, void, int32_t)},
+	{"<init>", "(Lsun/security/util/DerInputStream;)V", nullptr, $PUBLIC, $method(CertificateSerialNumber, init$, void, $DerInputStream*), "java.io.IOException"},
+	{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(CertificateSerialNumber, init$, void, $InputStream*), "java.io.IOException"},
+	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(CertificateSerialNumber, init$, void, $DerValue*), "java.io.IOException"},
+	{"delete", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CertificateSerialNumber, delete$, void, $String*), "java.io.IOException"},
+	{"encode", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(CertificateSerialNumber, encode, void, $OutputStream*), "java.io.IOException"},
+	{"get", "(Ljava/lang/String;)Lsun/security/x509/SerialNumber;", nullptr, $PUBLIC, $virtualMethod(CertificateSerialNumber, get, $Object*, $String*), "java.io.IOException"},
+	{"getElements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(CertificateSerialNumber, getElements, $Enumeration*)},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CertificateSerialNumber, getName, $String*)},
+	{"newRandom64bit", "(Ljava/util/Random;)Lsun/security/x509/CertificateSerialNumber;", nullptr, $PUBLIC | $STATIC, $staticMethod(CertificateSerialNumber, newRandom64bit, CertificateSerialNumber*, $Random*)},
+	{"set", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(CertificateSerialNumber, set, void, $String*, Object$*), "java.io.IOException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CertificateSerialNumber, toString, $String*)},
 	{}
 };
 

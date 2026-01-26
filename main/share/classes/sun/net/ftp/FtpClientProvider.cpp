@@ -33,6 +33,7 @@ using $BasicPermission = ::java::security::BasicPermission;
 using $Permission = ::java::security::Permission;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $ServiceConfigurationError = ::java::util::ServiceConfigurationError;
+using $FtpClient = ::sun::net::ftp::FtpClient;
 using $FtpClientProvider$1 = ::sun::net::ftp::FtpClientProvider$1;
 
 namespace sun {
@@ -46,11 +47,11 @@ $FieldInfo _FtpClientProvider_FieldInfo_[] = {
 };
 
 $MethodInfo _FtpClientProvider_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(FtpClientProvider::*)()>(&FtpClientProvider::init$))},
-	{"createFtpClient", "()Lsun/net/ftp/FtpClient;", nullptr, $PUBLIC | $ABSTRACT},
-	{"loadProviderAsService", "()Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)()>(&FtpClientProvider::loadProviderAsService))},
-	{"loadProviderFromProperty", "()Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)()>(&FtpClientProvider::loadProviderFromProperty))},
-	{"provider", "()Lsun/net/ftp/FtpClientProvider;", nullptr, $PUBLIC | $STATIC, $method(static_cast<FtpClientProvider*(*)()>(&FtpClientProvider::provider))},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(FtpClientProvider, init$, void)},
+	{"createFtpClient", "()Lsun/net/ftp/FtpClient;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FtpClientProvider, createFtpClient, $FtpClient*)},
+	{"loadProviderAsService", "()Z", nullptr, $PRIVATE | $STATIC, $staticMethod(FtpClientProvider, loadProviderAsService, bool)},
+	{"loadProviderFromProperty", "()Z", nullptr, $PRIVATE | $STATIC, $staticMethod(FtpClientProvider, loadProviderFromProperty, bool)},
+	{"provider", "()Lsun/net/ftp/FtpClientProvider;", nullptr, $PUBLIC | $STATIC, $staticMethod(FtpClientProvider, provider, FtpClientProvider*)},
 	{}
 };
 

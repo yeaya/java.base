@@ -18,7 +18,7 @@ $FieldInfo _AttributeNameEnumeration_FieldInfo_[] = {
 };
 
 $MethodInfo _AttributeNameEnumeration_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(AttributeNameEnumeration::*)()>(&AttributeNameEnumeration::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(AttributeNameEnumeration, init$, void)},
 	{}
 };
 

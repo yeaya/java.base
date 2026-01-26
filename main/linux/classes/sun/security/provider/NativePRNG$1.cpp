@@ -37,8 +37,8 @@ $FieldInfo _NativePRNG$1_FieldInfo_[] = {
 };
 
 $MethodInfo _NativePRNG$1_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/provider/NativePRNG$Variant;)V", nullptr, 0, $method(static_cast<void(NativePRNG$1::*)($NativePRNG$Variant*)>(&NativePRNG$1::init$))},
-	{"run", "()Lsun/security/provider/NativePRNG$RandomIO;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/security/provider/NativePRNG$Variant;)V", nullptr, 0, $method(NativePRNG$1, init$, void, $NativePRNG$Variant*)},
+	{"run", "()Lsun/security/provider/NativePRNG$RandomIO;", nullptr, $PUBLIC, $virtualMethod(NativePRNG$1, run, $Object*)},
 	{}
 };
 

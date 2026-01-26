@@ -19,9 +19,9 @@ namespace java {
 		namespace spi {
 
 $MethodInfo _URLStreamHandlerProvider_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Void;)V", nullptr, $PRIVATE, $method(static_cast<void(URLStreamHandlerProvider::*)($Void*)>(&URLStreamHandlerProvider::init$))},
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(URLStreamHandlerProvider::*)()>(&URLStreamHandlerProvider::init$))},
-	{"checkPermission", "()Ljava/lang/Void;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$Void*(*)()>(&URLStreamHandlerProvider::checkPermission))},
+	{"<init>", "(Ljava/lang/Void;)V", nullptr, $PRIVATE, $method(URLStreamHandlerProvider, init$, void, $Void*)},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(URLStreamHandlerProvider, init$, void)},
+	{"checkPermission", "()Ljava/lang/Void;", nullptr, $PRIVATE | $STATIC, $staticMethod(URLStreamHandlerProvider, checkPermission, $Void*)},
 	{}
 };
 

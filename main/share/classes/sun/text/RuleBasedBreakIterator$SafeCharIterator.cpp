@@ -29,17 +29,17 @@ $FieldInfo _RuleBasedBreakIterator$SafeCharIterator_FieldInfo_[] = {
 };
 
 $MethodInfo _RuleBasedBreakIterator$SafeCharIterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/text/CharacterIterator;)V", nullptr, 0, $method(static_cast<void(RuleBasedBreakIterator$SafeCharIterator::*)($CharacterIterator*)>(&RuleBasedBreakIterator$SafeCharIterator::init$))},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"current", "()C", nullptr, $PUBLIC},
-	{"first", "()C", nullptr, $PUBLIC},
-	{"getBeginIndex", "()I", nullptr, $PUBLIC},
-	{"getEndIndex", "()I", nullptr, $PUBLIC},
-	{"getIndex", "()I", nullptr, $PUBLIC},
-	{"last", "()C", nullptr, $PUBLIC},
-	{"next", "()C", nullptr, $PUBLIC},
-	{"previous", "()C", nullptr, $PUBLIC},
-	{"setIndex", "(I)C", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/text/CharacterIterator;)V", nullptr, 0, $method(RuleBasedBreakIterator$SafeCharIterator, init$, void, $CharacterIterator*)},
+	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(RuleBasedBreakIterator$SafeCharIterator, clone, $Object*)},
+	{"current", "()C", nullptr, $PUBLIC, $virtualMethod(RuleBasedBreakIterator$SafeCharIterator, current, char16_t)},
+	{"first", "()C", nullptr, $PUBLIC, $virtualMethod(RuleBasedBreakIterator$SafeCharIterator, first, char16_t)},
+	{"getBeginIndex", "()I", nullptr, $PUBLIC, $virtualMethod(RuleBasedBreakIterator$SafeCharIterator, getBeginIndex, int32_t)},
+	{"getEndIndex", "()I", nullptr, $PUBLIC, $virtualMethod(RuleBasedBreakIterator$SafeCharIterator, getEndIndex, int32_t)},
+	{"getIndex", "()I", nullptr, $PUBLIC, $virtualMethod(RuleBasedBreakIterator$SafeCharIterator, getIndex, int32_t)},
+	{"last", "()C", nullptr, $PUBLIC, $virtualMethod(RuleBasedBreakIterator$SafeCharIterator, last, char16_t)},
+	{"next", "()C", nullptr, $PUBLIC, $virtualMethod(RuleBasedBreakIterator$SafeCharIterator, next, char16_t)},
+	{"previous", "()C", nullptr, $PUBLIC, $virtualMethod(RuleBasedBreakIterator$SafeCharIterator, previous, char16_t)},
+	{"setIndex", "(I)C", nullptr, $PUBLIC, $virtualMethod(RuleBasedBreakIterator$SafeCharIterator, setIndex, char16_t, int32_t)},
 	{}
 };
 

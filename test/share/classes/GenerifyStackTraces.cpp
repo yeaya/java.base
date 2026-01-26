@@ -38,13 +38,13 @@ $FieldInfo _GenerifyStackTraces_FieldInfo_[] = {
 };
 
 $MethodInfo _GenerifyStackTraces_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(GenerifyStackTraces::*)()>(&GenerifyStackTraces::init$))},
-	{"checkStack", "(Ljava/lang/Thread;[Ljava/lang/StackTraceElement;I)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($Thread*,$StackTraceElementArray*,int32_t)>(&GenerifyStackTraces::checkStack)), "java.lang.Exception"},
-	{"dumpStacks", "(I)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)(int32_t)>(&GenerifyStackTraces::dumpStacks)), "java.lang.Exception"},
-	{"finishDump", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&GenerifyStackTraces::finishDump))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&GenerifyStackTraces::main)), "java.lang.Exception"},
-	{"printStack", "(Ljava/lang/Thread;[Ljava/lang/StackTraceElement;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($Thread*,$StackTraceElementArray*)>(&GenerifyStackTraces::printStack))},
-	{"waitForDump", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&GenerifyStackTraces::waitForDump))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(GenerifyStackTraces, init$, void)},
+	{"checkStack", "(Ljava/lang/Thread;[Ljava/lang/StackTraceElement;I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(GenerifyStackTraces, checkStack, void, $Thread*, $StackTraceElementArray*, int32_t), "java.lang.Exception"},
+	{"dumpStacks", "(I)V", nullptr, $PUBLIC | $STATIC, $staticMethod(GenerifyStackTraces, dumpStacks, void, int32_t), "java.lang.Exception"},
+	{"finishDump", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(GenerifyStackTraces, finishDump, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(GenerifyStackTraces, main, void, $StringArray*), "java.lang.Exception"},
+	{"printStack", "(Ljava/lang/Thread;[Ljava/lang/StackTraceElement;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(GenerifyStackTraces, printStack, void, $Thread*, $StackTraceElementArray*)},
+	{"waitForDump", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(GenerifyStackTraces, waitForDump, void)},
 	{}
 };
 

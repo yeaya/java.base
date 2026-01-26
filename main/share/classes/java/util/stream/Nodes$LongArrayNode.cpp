@@ -30,16 +30,16 @@ $FieldInfo _Nodes$LongArrayNode_FieldInfo_[] = {
 };
 
 $MethodInfo _Nodes$LongArrayNode_MethodInfo_[] = {
-	{"<init>", "(J)V", nullptr, 0, $method(static_cast<void(Nodes$LongArrayNode::*)(int64_t)>(&Nodes$LongArrayNode::init$))},
-	{"<init>", "([J)V", nullptr, 0, $method(static_cast<void(Nodes$LongArrayNode::*)($longs*)>(&Nodes$LongArrayNode::init$))},
-	{"asPrimitiveArray", "()[J", nullptr, $PUBLIC},
-	{"copyInto", "([JI)V", nullptr, $PUBLIC},
-	{"copyInto", "(Ljava/lang/Object;I)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"count", "()J", nullptr, $PUBLIC},
-	{"forEach", "(Ljava/util/function/LongConsumer;)V", nullptr, $PUBLIC},
-	{"forEach", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"spliterator", "()Ljava/util/Spliterator$OfLong;", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(J)V", nullptr, 0, $method(Nodes$LongArrayNode, init$, void, int64_t)},
+	{"<init>", "([J)V", nullptr, 0, $method(Nodes$LongArrayNode, init$, void, $longs*)},
+	{"asPrimitiveArray", "()[J", nullptr, $PUBLIC, $virtualMethod(Nodes$LongArrayNode, asPrimitiveArray, $Object*)},
+	{"copyInto", "([JI)V", nullptr, $PUBLIC, $virtualMethod(Nodes$LongArrayNode, copyInto, void, $longs*, int32_t)},
+	{"copyInto", "(Ljava/lang/Object;I)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Nodes$LongArrayNode, copyInto, void, Object$*, int32_t)},
+	{"count", "()J", nullptr, $PUBLIC, $virtualMethod(Nodes$LongArrayNode, count, int64_t)},
+	{"forEach", "(Ljava/util/function/LongConsumer;)V", nullptr, $PUBLIC, $virtualMethod(Nodes$LongArrayNode, forEach, void, $LongConsumer*)},
+	{"forEach", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Nodes$LongArrayNode, forEach, void, Object$*)},
+	{"spliterator", "()Ljava/util/Spliterator$OfLong;", nullptr, $PUBLIC, $virtualMethod(Nodes$LongArrayNode, spliterator, $Spliterator*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Nodes$LongArrayNode, toString, $String*)},
 	{}
 };
 

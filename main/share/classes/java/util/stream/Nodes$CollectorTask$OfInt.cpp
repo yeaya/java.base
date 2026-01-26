@@ -51,8 +51,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Nodes$CollectorTask$OfInt$$Lambda$intBuilder::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Nodes$CollectorTask$OfInt$$Lambda$intBuilder::*)()>(&Nodes$CollectorTask$OfInt$$Lambda$intBuilder::init$))},
-	{"apply", "(J)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Nodes$CollectorTask$OfInt$$Lambda$intBuilder, init$, void)},
+	{"apply", "(J)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Nodes$CollectorTask$OfInt$$Lambda$intBuilder, apply, $Object*, int64_t)},
 	{}
 };
 $ClassInfo Nodes$CollectorTask$OfInt$$Lambda$intBuilder::classInfo$ = {
@@ -84,8 +84,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Nodes$CollectorTask$OfInt$$Lambda$OfInt$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Nodes$CollectorTask$OfInt$$Lambda$OfInt$1::*)()>(&Nodes$CollectorTask$OfInt$$Lambda$OfInt$1::init$))},
-	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Nodes$CollectorTask$OfInt$$Lambda$OfInt$1, init$, void)},
+	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Nodes$CollectorTask$OfInt$$Lambda$OfInt$1, apply, $Object*, Object$*, Object$*)},
 	{}
 };
 $ClassInfo Nodes$CollectorTask$OfInt$$Lambda$OfInt$1::classInfo$ = {
@@ -103,9 +103,9 @@ $Class* Nodes$CollectorTask$OfInt$$Lambda$OfInt$1::load$($String* name, bool ini
 $Class* Nodes$CollectorTask$OfInt$$Lambda$OfInt$1::class$ = nullptr;
 
 $MethodInfo _Nodes$CollectorTask$OfInt_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;)V", "(Ljava/util/stream/PipelineHelper<Ljava/lang/Integer;>;Ljava/util/Spliterator<TP_IN;>;)V", 0, $method(static_cast<void(Nodes$CollectorTask$OfInt::*)($PipelineHelper*,$Spliterator*)>(&Nodes$CollectorTask$OfInt::init$))},
-	{"doLeaf", "()Ljava/lang/Object;", nullptr, $PROTECTED | $VOLATILE | $SYNTHETIC},
-	{"makeChild", "(Ljava/util/Spliterator;)Ljava/util/stream/AbstractTask;", nullptr, $PROTECTED | $VOLATILE | $SYNTHETIC},
+	{"<init>", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;)V", "(Ljava/util/stream/PipelineHelper<Ljava/lang/Integer;>;Ljava/util/Spliterator<TP_IN;>;)V", 0, $method(Nodes$CollectorTask$OfInt, init$, void, $PipelineHelper*, $Spliterator*)},
+	{"doLeaf", "()Ljava/lang/Object;", nullptr, $PROTECTED | $VOLATILE | $SYNTHETIC, $virtualMethod(Nodes$CollectorTask$OfInt, doLeaf, $Object*)},
+	{"makeChild", "(Ljava/util/Spliterator;)Ljava/util/stream/AbstractTask;", nullptr, $PROTECTED | $VOLATILE | $SYNTHETIC, $virtualMethod(Nodes$CollectorTask$OfInt, makeChild, $Nodes$CollectorTask*, $Spliterator*)},
 	{}
 };
 

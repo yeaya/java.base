@@ -17,10 +17,10 @@ $FieldInfo _KeyStoreException_FieldInfo_[] = {
 };
 
 $MethodInfo _KeyStoreException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(KeyStoreException::*)()>(&KeyStoreException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(KeyStoreException::*)($String*)>(&KeyStoreException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(KeyStoreException::*)($String*,$Throwable*)>(&KeyStoreException::init$))},
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(KeyStoreException::*)($Throwable*)>(&KeyStoreException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(KeyStoreException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(KeyStoreException, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(KeyStoreException, init$, void, $String*, $Throwable*)},
+	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(KeyStoreException, init$, void, $Throwable*)},
 	{}
 };
 

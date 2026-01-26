@@ -56,17 +56,17 @@ $FieldInfo _PBES2Parameters_FieldInfo_[] = {
 };
 
 $MethodInfo _PBES2Parameters_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(PBES2Parameters::*)()>(&PBES2Parameters::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(PBES2Parameters::*)($String*)>(&PBES2Parameters::init$)), "java.security.NoSuchAlgorithmException"},
-	{"engineGetEncoded", "()[B", nullptr, $PROTECTED, nullptr, "java.io.IOException"},
-	{"engineGetEncoded", "(Ljava/lang/String;)[B", nullptr, $PROTECTED, nullptr, "java.io.IOException"},
-	{"engineGetParameterSpec", "(Ljava/lang/Class;)Ljava/security/spec/AlgorithmParameterSpec;", "<T::Ljava/security/spec/AlgorithmParameterSpec;>(Ljava/lang/Class<TT;>;)TT;", $PROTECTED, nullptr, "java.security.spec.InvalidParameterSpecException"},
-	{"engineInit", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PROTECTED, nullptr, "java.security.spec.InvalidParameterSpecException"},
-	{"engineInit", "([B)V", nullptr, $PROTECTED, nullptr, "java.io.IOException"},
-	{"engineInit", "([BLjava/lang/String;)V", nullptr, $PROTECTED, nullptr, "java.io.IOException"},
-	{"engineToString", "()Ljava/lang/String;", nullptr, $PROTECTED},
-	{"parseES", "(Lsun/security/util/DerValue;)Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(PBES2Parameters::*)($DerValue*)>(&PBES2Parameters::parseES)), "java.io.IOException"},
-	{"parseKDF", "(Lsun/security/util/DerValue;)Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(PBES2Parameters::*)($DerValue*)>(&PBES2Parameters::parseKDF)), "java.io.IOException"},
+	{"<init>", "()V", nullptr, 0, $method(PBES2Parameters, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(PBES2Parameters, init$, void, $String*), "java.security.NoSuchAlgorithmException"},
+	{"engineGetEncoded", "()[B", nullptr, $PROTECTED, $virtualMethod(PBES2Parameters, engineGetEncoded, $bytes*), "java.io.IOException"},
+	{"engineGetEncoded", "(Ljava/lang/String;)[B", nullptr, $PROTECTED, $virtualMethod(PBES2Parameters, engineGetEncoded, $bytes*, $String*), "java.io.IOException"},
+	{"engineGetParameterSpec", "(Ljava/lang/Class;)Ljava/security/spec/AlgorithmParameterSpec;", "<T::Ljava/security/spec/AlgorithmParameterSpec;>(Ljava/lang/Class<TT;>;)TT;", $PROTECTED, $virtualMethod(PBES2Parameters, engineGetParameterSpec, $AlgorithmParameterSpec*, $Class*), "java.security.spec.InvalidParameterSpecException"},
+	{"engineInit", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PROTECTED, $virtualMethod(PBES2Parameters, engineInit, void, $AlgorithmParameterSpec*), "java.security.spec.InvalidParameterSpecException"},
+	{"engineInit", "([B)V", nullptr, $PROTECTED, $virtualMethod(PBES2Parameters, engineInit, void, $bytes*), "java.io.IOException"},
+	{"engineInit", "([BLjava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(PBES2Parameters, engineInit, void, $bytes*, $String*), "java.io.IOException"},
+	{"engineToString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(PBES2Parameters, engineToString, $String*)},
+	{"parseES", "(Lsun/security/util/DerValue;)Ljava/lang/String;", nullptr, $PRIVATE, $method(PBES2Parameters, parseES, $String*, $DerValue*), "java.io.IOException"},
+	{"parseKDF", "(Lsun/security/util/DerValue;)Ljava/lang/String;", nullptr, $PRIVATE, $method(PBES2Parameters, parseKDF, $String*, $DerValue*), "java.io.IOException"},
 	{}
 };
 

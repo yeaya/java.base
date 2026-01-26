@@ -17,10 +17,10 @@ $FieldInfo _DigestException_FieldInfo_[] = {
 };
 
 $MethodInfo _DigestException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DigestException::*)()>(&DigestException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(DigestException::*)($String*)>(&DigestException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(DigestException::*)($String*,$Throwable*)>(&DigestException::init$))},
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(DigestException::*)($Throwable*)>(&DigestException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DigestException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(DigestException, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(DigestException, init$, void, $String*, $Throwable*)},
+	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(DigestException, init$, void, $Throwable*)},
 	{}
 };
 

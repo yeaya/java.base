@@ -23,8 +23,8 @@ $FieldInfo _Cleaner$1_FieldInfo_[] = {
 };
 
 $MethodInfo _Cleaner$1_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/ref/Cleaner;Ljava/lang/Throwable;)V", nullptr, 0, $method(static_cast<void(Cleaner$1::*)($Cleaner*,$Throwable*)>(&Cleaner$1::init$))},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/ref/Cleaner;Ljava/lang/Throwable;)V", nullptr, 0, $method(Cleaner$1, init$, void, $Cleaner*, $Throwable*)},
+	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(Cleaner$1, run, $Object*)},
 	{}
 };
 

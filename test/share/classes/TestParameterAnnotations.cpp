@@ -28,9 +28,9 @@ using $Constructor = ::java::lang::reflect::Constructor;
 using $Arrays = ::java::util::Arrays;
 
 $MethodInfo _TestParameterAnnotations_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TestParameterAnnotations::*)()>(&TestParameterAnnotations::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<void(*)($StringArray*)>(&TestParameterAnnotations::main))},
-	{"visitCtorParameterAnnotations", "(Ljava/lang/Class;)I", nullptr, $STATIC, $method(static_cast<int32_t(*)($Class*)>(&TestParameterAnnotations::visitCtorParameterAnnotations))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TestParameterAnnotations, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(TestParameterAnnotations, main, void, $StringArray*)},
+	{"visitCtorParameterAnnotations", "(Ljava/lang/Class;)I", nullptr, $STATIC, $staticMethod(TestParameterAnnotations, visitCtorParameterAnnotations, int32_t, $Class*)},
 	{}
 };
 

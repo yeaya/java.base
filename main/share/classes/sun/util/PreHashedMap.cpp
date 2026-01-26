@@ -32,14 +32,14 @@ $FieldInfo _PreHashedMap_FieldInfo_[] = {
 };
 
 $MethodInfo _PreHashedMap_MethodInfo_[] = {
-	{"<init>", "(IIII)V", nullptr, $PROTECTED, $method(static_cast<void(PreHashedMap::*)(int32_t,int32_t,int32_t,int32_t)>(&PreHashedMap::init$))},
-	{"entrySet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/util/Map$Entry<Ljava/lang/String;TV;>;>;", $PUBLIC},
-	{"get", "(Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/lang/Object;)TV;", $PUBLIC},
-	{"init", "([Ljava/lang/Object;)V", nullptr, $PROTECTED | $ABSTRACT},
-	{"keySet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC},
-	{"put", "(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/lang/String;TV;)TV;", $PUBLIC},
-	{"put", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"toV", "(Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/lang/Object;)TV;", $PRIVATE, $method(static_cast<$Object*(PreHashedMap::*)(Object$*)>(&PreHashedMap::toV))},
+	{"<init>", "(IIII)V", nullptr, $PROTECTED, $method(PreHashedMap, init$, void, int32_t, int32_t, int32_t, int32_t)},
+	{"entrySet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/util/Map$Entry<Ljava/lang/String;TV;>;>;", $PUBLIC, $virtualMethod(PreHashedMap, entrySet, $Set*)},
+	{"get", "(Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/lang/Object;)TV;", $PUBLIC, $virtualMethod(PreHashedMap, get, $Object*, Object$*)},
+	{"init", "([Ljava/lang/Object;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(PreHashedMap, init, void, $ObjectArray*)},
+	{"keySet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(PreHashedMap, keySet, $Set*)},
+	{"put", "(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/lang/String;TV;)TV;", $PUBLIC, $virtualMethod(PreHashedMap, put, $Object*, $String*, Object$*)},
+	{"put", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(PreHashedMap, put, $Object*, Object$*, Object$*)},
+	{"toV", "(Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/lang/Object;)TV;", $PRIVATE, $method(PreHashedMap, toV, $Object*, Object$*)},
 	{}
 };
 

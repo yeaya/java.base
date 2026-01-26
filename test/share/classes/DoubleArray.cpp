@@ -18,7 +18,7 @@ $CompoundAttribute _DoubleArray_Annotations_[] = {
 };
 
 $MethodInfo _DoubleArray_MethodInfo_[] = {
-	{"value", "()[D", nullptr, $PUBLIC | $ABSTRACT},
+	{"value", "()[D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DoubleArray, value, $doubles*)},
 	{}
 };
 

@@ -28,10 +28,10 @@ $FieldInfo _PreviewFeature$Feature_FieldInfo_[] = {
 };
 
 $MethodInfo _PreviewFeature$Feature_MethodInfo_[] = {
-	{"$values", "()[Ljdk/internal/javac/PreviewFeature$Feature;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$PreviewFeature$FeatureArray*(*)()>(&PreviewFeature$Feature::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(PreviewFeature$Feature::*)($String*,int32_t)>(&PreviewFeature$Feature::init$))},
-	{"valueOf", "(Ljava/lang/String;)Ljdk/internal/javac/PreviewFeature$Feature;", nullptr, $PUBLIC | $STATIC, $method(static_cast<PreviewFeature$Feature*(*)($String*)>(&PreviewFeature$Feature::valueOf))},
-	{"values", "()[Ljdk/internal/javac/PreviewFeature$Feature;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$PreviewFeature$FeatureArray*(*)()>(&PreviewFeature$Feature::values))},
+	{"$values", "()[Ljdk/internal/javac/PreviewFeature$Feature;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(PreviewFeature$Feature, $values, $PreviewFeature$FeatureArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(PreviewFeature$Feature, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Ljdk/internal/javac/PreviewFeature$Feature;", nullptr, $PUBLIC | $STATIC, $staticMethod(PreviewFeature$Feature, valueOf, PreviewFeature$Feature*, $String*)},
+	{"values", "()[Ljdk/internal/javac/PreviewFeature$Feature;", nullptr, $PUBLIC | $STATIC, $staticMethod(PreviewFeature$Feature, values, $PreviewFeature$FeatureArray*)},
 	{}
 };
 

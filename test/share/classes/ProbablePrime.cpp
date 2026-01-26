@@ -12,8 +12,8 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $BigInteger = ::java::math::BigInteger;
 
 $MethodInfo _ProbablePrime_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ProbablePrime::*)()>(&ProbablePrime::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&ProbablePrime::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ProbablePrime, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ProbablePrime, main, void, $StringArray*)},
 	{}
 };
 

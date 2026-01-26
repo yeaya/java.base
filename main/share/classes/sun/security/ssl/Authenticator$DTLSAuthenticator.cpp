@@ -13,10 +13,10 @@ namespace sun {
 		namespace ssl {
 
 $MethodInfo _Authenticator$DTLSAuthenticator_MethodInfo_[] = {
-	{"<init>", "([B)V", nullptr, $PRIVATE, $method(static_cast<void(Authenticator$DTLSAuthenticator::*)($bytes*)>(&Authenticator$DTLSAuthenticator::init$))},
-	{"seqNumIsHuge", "()Z", nullptr, 0},
-	{"seqNumOverflow", "()Z", nullptr, 0},
-	{"setEpochNumber", "(I)V", nullptr, 0},
+	{"<init>", "([B)V", nullptr, $PRIVATE, $method(Authenticator$DTLSAuthenticator, init$, void, $bytes*)},
+	{"seqNumIsHuge", "()Z", nullptr, 0, $virtualMethod(Authenticator$DTLSAuthenticator, seqNumIsHuge, bool)},
+	{"seqNumOverflow", "()Z", nullptr, 0, $virtualMethod(Authenticator$DTLSAuthenticator, seqNumOverflow, bool)},
+	{"setEpochNumber", "(I)V", nullptr, 0, $virtualMethod(Authenticator$DTLSAuthenticator, setEpochNumber, void, int32_t)},
 	{}
 };
 

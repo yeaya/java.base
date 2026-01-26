@@ -14,8 +14,8 @@ namespace java {
 		namespace concurrent {
 
 $MethodInfo _ConcurrentHashMap$ReservationNode_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ConcurrentHashMap$ReservationNode::*)()>(&ConcurrentHashMap$ReservationNode::init$))},
-	{"find", "(ILjava/lang/Object;)Ljava/util/concurrent/ConcurrentHashMap$Node;", "(ILjava/lang/Object;)Ljava/util/concurrent/ConcurrentHashMap$Node<TK;TV;>;", 0},
+	{"<init>", "()V", nullptr, 0, $method(ConcurrentHashMap$ReservationNode, init$, void)},
+	{"find", "(ILjava/lang/Object;)Ljava/util/concurrent/ConcurrentHashMap$Node;", "(ILjava/lang/Object;)Ljava/util/concurrent/ConcurrentHashMap$Node<TK;TV;>;", 0, $virtualMethod(ConcurrentHashMap$ReservationNode, find, $ConcurrentHashMap$Node*, int32_t, Object$*)},
 	{}
 };
 

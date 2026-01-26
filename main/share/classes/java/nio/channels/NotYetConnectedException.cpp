@@ -18,7 +18,7 @@ $FieldInfo _NotYetConnectedException_FieldInfo_[] = {
 };
 
 $MethodInfo _NotYetConnectedException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(NotYetConnectedException::*)()>(&NotYetConnectedException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(NotYetConnectedException, init$, void)},
 	{}
 };
 

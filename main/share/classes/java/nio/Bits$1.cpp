@@ -19,11 +19,11 @@ namespace java {
 	namespace nio {
 
 $MethodInfo _Bits$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Bits$1::*)()>(&Bits$1::init$))},
-	{"getCount", "()J", nullptr, $PUBLIC},
-	{"getMemoryUsed", "()J", nullptr, $PUBLIC},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getTotalCapacity", "()J", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(Bits$1, init$, void)},
+	{"getCount", "()J", nullptr, $PUBLIC, $virtualMethod(Bits$1, getCount, int64_t)},
+	{"getMemoryUsed", "()J", nullptr, $PUBLIC, $virtualMethod(Bits$1, getMemoryUsed, int64_t)},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Bits$1, getName, $String*)},
+	{"getTotalCapacity", "()J", nullptr, $PUBLIC, $virtualMethod(Bits$1, getTotalCapacity, int64_t)},
 	{}
 };
 

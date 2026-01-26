@@ -14,9 +14,9 @@ $MethodInfo _InheritedMethodTest$D_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(InheritedMethodTest$D::*)()>(&InheritedMethodTest$D::init$))},
-	{"iString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(InheritedMethodTest$D, init$, void)},
+	{"iString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(InheritedMethodTest$D, iString, $String*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(InheritedMethodTest$D, toString, $String*)},
 	{}
 };
 

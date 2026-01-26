@@ -16,8 +16,8 @@ namespace sun {
 		namespace logging {
 
 $MethodInfo _PlatformLogger$ConfigurableBridge_MethodInfo_[] = {
-	{"getLoggerConfiguration", "()Lsun/util/logging/PlatformLogger$ConfigurableBridge$LoggerConfiguration;", nullptr, $PUBLIC},
-	{"getLoggerConfiguration", "(Lsun/util/logging/PlatformLogger$Bridge;)Lsun/util/logging/PlatformLogger$ConfigurableBridge$LoggerConfiguration;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$PlatformLogger$ConfigurableBridge$LoggerConfiguration*(*)($PlatformLogger$Bridge*)>(&PlatformLogger$ConfigurableBridge::getLoggerConfiguration))},
+	{"getLoggerConfiguration", "()Lsun/util/logging/PlatformLogger$ConfigurableBridge$LoggerConfiguration;", nullptr, $PUBLIC, $virtualMethod(PlatformLogger$ConfigurableBridge, getLoggerConfiguration, $PlatformLogger$ConfigurableBridge$LoggerConfiguration*)},
+	{"getLoggerConfiguration", "(Lsun/util/logging/PlatformLogger$Bridge;)Lsun/util/logging/PlatformLogger$ConfigurableBridge$LoggerConfiguration;", nullptr, $PUBLIC | $STATIC, $staticMethod(PlatformLogger$ConfigurableBridge, getLoggerConfiguration, $PlatformLogger$ConfigurableBridge$LoggerConfiguration*, $PlatformLogger$Bridge*)},
 	{}
 };
 

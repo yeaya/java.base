@@ -45,10 +45,10 @@ $FieldInfo _TrustStoreManager$TrustStoreDescriptor_FieldInfo_[] = {
 };
 
 $MethodInfo _TrustStoreManager$TrustStoreDescriptor_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/io/File;J)V", nullptr, $PRIVATE, $method(static_cast<void(TrustStoreManager$TrustStoreDescriptor::*)($String*,$String*,$String*,$String*,$File*,int64_t)>(&TrustStoreManager$TrustStoreDescriptor::init$))},
-	{"createInstance", "()Lsun/security/ssl/TrustStoreManager$TrustStoreDescriptor;", nullptr, $STATIC, $method(static_cast<TrustStoreManager$TrustStoreDescriptor*(*)()>(&TrustStoreManager$TrustStoreDescriptor::createInstance))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/io/File;J)V", nullptr, $PRIVATE, $method(TrustStoreManager$TrustStoreDescriptor, init$, void, $String*, $String*, $String*, $String*, $File*, int64_t)},
+	{"createInstance", "()Lsun/security/ssl/TrustStoreManager$TrustStoreDescriptor;", nullptr, $STATIC, $staticMethod(TrustStoreManager$TrustStoreDescriptor, createInstance, TrustStoreManager$TrustStoreDescriptor*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(TrustStoreManager$TrustStoreDescriptor, equals, bool, Object$*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(TrustStoreManager$TrustStoreDescriptor, hashCode, int32_t)},
 	{}
 };
 

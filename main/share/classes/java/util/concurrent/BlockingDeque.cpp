@@ -13,6 +13,7 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Spliterator = ::java::util::Spliterator;
 using $BlockingQueue = ::java::util::concurrent::BlockingQueue;
+using $TimeUnit = ::java::util::concurrent::TimeUnit;
 using $Consumer = ::java::util::function::Consumer;
 using $IntFunction = ::java::util::function::IntFunction;
 using $Predicate = ::java::util::function::Predicate;
@@ -41,19 +42,19 @@ $MethodInfo _BlockingDeque_MethodInfo_[] = {
 	{"offer", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
 	{"offer", "(Ljava/lang/Object;JLjava/util/concurrent/TimeUnit;)Z", nullptr, $PUBLIC | $ABSTRACT},
 	{"offerFirst", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"offerFirst", "(Ljava/lang/Object;JLjava/util/concurrent/TimeUnit;)Z", "(TE;JLjava/util/concurrent/TimeUnit;)Z", $PUBLIC | $ABSTRACT, nullptr, "java.lang.InterruptedException"},
+	{"offerFirst", "(Ljava/lang/Object;JLjava/util/concurrent/TimeUnit;)Z", "(TE;JLjava/util/concurrent/TimeUnit;)Z", $PUBLIC | $ABSTRACT, $virtualMethod(BlockingDeque, offerFirst, bool, Object$*, int64_t, $TimeUnit*), "java.lang.InterruptedException"},
 	{"offerLast", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"offerLast", "(Ljava/lang/Object;JLjava/util/concurrent/TimeUnit;)Z", "(TE;JLjava/util/concurrent/TimeUnit;)Z", $PUBLIC | $ABSTRACT, nullptr, "java.lang.InterruptedException"},
+	{"offerLast", "(Ljava/lang/Object;JLjava/util/concurrent/TimeUnit;)Z", "(TE;JLjava/util/concurrent/TimeUnit;)Z", $PUBLIC | $ABSTRACT, $virtualMethod(BlockingDeque, offerLast, bool, Object$*, int64_t, $TimeUnit*), "java.lang.InterruptedException"},
 	{"*parallelStream", "()Ljava/util/stream/Stream;", nullptr, $PUBLIC | $ABSTRACT},
 	{"peek", "()Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
 	{"poll", "()Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
 	{"poll", "(JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
-	{"pollFirst", "(JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;", "(JLjava/util/concurrent/TimeUnit;)TE;", $PUBLIC | $ABSTRACT, nullptr, "java.lang.InterruptedException"},
-	{"pollLast", "(JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;", "(JLjava/util/concurrent/TimeUnit;)TE;", $PUBLIC | $ABSTRACT, nullptr, "java.lang.InterruptedException"},
+	{"pollFirst", "(JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;", "(JLjava/util/concurrent/TimeUnit;)TE;", $PUBLIC | $ABSTRACT, $virtualMethod(BlockingDeque, pollFirst, $Object*, int64_t, $TimeUnit*), "java.lang.InterruptedException"},
+	{"pollLast", "(JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;", "(JLjava/util/concurrent/TimeUnit;)TE;", $PUBLIC | $ABSTRACT, $virtualMethod(BlockingDeque, pollLast, $Object*, int64_t, $TimeUnit*), "java.lang.InterruptedException"},
 	{"push", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $ABSTRACT},
 	{"put", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"putFirst", "(Ljava/lang/Object;)V", "(TE;)V", $PUBLIC | $ABSTRACT, nullptr, "java.lang.InterruptedException"},
-	{"putLast", "(Ljava/lang/Object;)V", "(TE;)V", $PUBLIC | $ABSTRACT, nullptr, "java.lang.InterruptedException"},
+	{"putFirst", "(Ljava/lang/Object;)V", "(TE;)V", $PUBLIC | $ABSTRACT, $virtualMethod(BlockingDeque, putFirst, void, Object$*), "java.lang.InterruptedException"},
+	{"putLast", "(Ljava/lang/Object;)V", "(TE;)V", $PUBLIC | $ABSTRACT, $virtualMethod(BlockingDeque, putLast, void, Object$*), "java.lang.InterruptedException"},
 	{"remove", "()Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
 	{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
 	{"*removeAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC | $ABSTRACT},
@@ -65,8 +66,8 @@ $MethodInfo _BlockingDeque_MethodInfo_[] = {
 	{"*spliterator", "()Ljava/util/Spliterator;", nullptr, $PUBLIC | $ABSTRACT},
 	{"*stream", "()Ljava/util/stream/Stream;", nullptr, $PUBLIC | $ABSTRACT},
 	{"take", "()Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
-	{"takeFirst", "()Ljava/lang/Object;", "()TE;", $PUBLIC | $ABSTRACT, nullptr, "java.lang.InterruptedException"},
-	{"takeLast", "()Ljava/lang/Object;", "()TE;", $PUBLIC | $ABSTRACT, nullptr, "java.lang.InterruptedException"},
+	{"takeFirst", "()Ljava/lang/Object;", "()TE;", $PUBLIC | $ABSTRACT, $virtualMethod(BlockingDeque, takeFirst, $Object*), "java.lang.InterruptedException"},
+	{"takeLast", "()Ljava/lang/Object;", "()TE;", $PUBLIC | $ABSTRACT, $virtualMethod(BlockingDeque, takeLast, $Object*), "java.lang.InterruptedException"},
 	{"*toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
 	{"*toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
 	{"*toArray", "(Ljava/util/function/IntFunction;)[Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},

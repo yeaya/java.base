@@ -13,8 +13,8 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _Write$F_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $method(static_cast<void(Write$F::*)($OutputStream*)>(&Write$F::init$))},
-	{"write", "(I)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $method(Write$F, init$, void, $OutputStream*)},
+	{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(Write$F, write, void, int32_t)},
 	{}
 };
 

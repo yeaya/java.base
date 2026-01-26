@@ -25,11 +25,11 @@ $FieldInfo _Unicode_FieldInfo_[] = {
 };
 
 $MethodInfo _Unicode_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Unicode::*)()>(&Unicode::init$))},
-	{"decode", "(Ljava/lang/String;IZ)V", nullptr, $STATIC, $method(static_cast<void(*)($String*,int32_t,bool)>(&Unicode::decode)), "java.lang.Exception"},
-	{"encode", "(Ljava/lang/String;IZ)V", nullptr, $STATIC, $method(static_cast<void(*)($String*,int32_t,bool)>(&Unicode::encode)), "java.lang.Exception"},
-	{"fail", "(Ljava/lang/String;Ljava/lang/String;IIII)V", nullptr, $STATIC, $method(static_cast<void(*)($String*,$String*,int32_t,int32_t,int32_t,int32_t)>(&Unicode::fail)), "java.lang.Exception"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Unicode::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Unicode, init$, void)},
+	{"decode", "(Ljava/lang/String;IZ)V", nullptr, $STATIC, $staticMethod(Unicode, decode, void, $String*, int32_t, bool), "java.lang.Exception"},
+	{"encode", "(Ljava/lang/String;IZ)V", nullptr, $STATIC, $staticMethod(Unicode, encode, void, $String*, int32_t, bool), "java.lang.Exception"},
+	{"fail", "(Ljava/lang/String;Ljava/lang/String;IIII)V", nullptr, $STATIC, $staticMethod(Unicode, fail, void, $String*, $String*, int32_t, int32_t, int32_t, int32_t), "java.lang.Exception"},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Unicode, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

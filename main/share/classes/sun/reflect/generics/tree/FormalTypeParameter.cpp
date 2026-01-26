@@ -22,11 +22,11 @@ $FieldInfo _FormalTypeParameter_FieldInfo_[] = {
 };
 
 $MethodInfo _FormalTypeParameter_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;[Lsun/reflect/generics/tree/FieldTypeSignature;)V", nullptr, $PRIVATE, $method(static_cast<void(FormalTypeParameter::*)($String*,$FieldTypeSignatureArray*)>(&FormalTypeParameter::init$))},
-	{"accept", "(Lsun/reflect/generics/visitor/TypeTreeVisitor;)V", "(Lsun/reflect/generics/visitor/TypeTreeVisitor<*>;)V", $PUBLIC},
-	{"getBounds", "()[Lsun/reflect/generics/tree/FieldTypeSignature;", nullptr, $PUBLIC},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"make", "(Ljava/lang/String;[Lsun/reflect/generics/tree/FieldTypeSignature;)Lsun/reflect/generics/tree/FormalTypeParameter;", nullptr, $PUBLIC | $STATIC, $method(static_cast<FormalTypeParameter*(*)($String*,$FieldTypeSignatureArray*)>(&FormalTypeParameter::make))},
+	{"<init>", "(Ljava/lang/String;[Lsun/reflect/generics/tree/FieldTypeSignature;)V", nullptr, $PRIVATE, $method(FormalTypeParameter, init$, void, $String*, $FieldTypeSignatureArray*)},
+	{"accept", "(Lsun/reflect/generics/visitor/TypeTreeVisitor;)V", "(Lsun/reflect/generics/visitor/TypeTreeVisitor<*>;)V", $PUBLIC, $virtualMethod(FormalTypeParameter, accept, void, $TypeTreeVisitor*)},
+	{"getBounds", "()[Lsun/reflect/generics/tree/FieldTypeSignature;", nullptr, $PUBLIC, $virtualMethod(FormalTypeParameter, getBounds, $FieldTypeSignatureArray*)},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FormalTypeParameter, getName, $String*)},
+	{"make", "(Ljava/lang/String;[Lsun/reflect/generics/tree/FieldTypeSignature;)Lsun/reflect/generics/tree/FormalTypeParameter;", nullptr, $PUBLIC | $STATIC, $staticMethod(FormalTypeParameter, make, FormalTypeParameter*, $String*, $FieldTypeSignatureArray*)},
 	{}
 };
 

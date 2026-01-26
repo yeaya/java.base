@@ -23,8 +23,8 @@ $FieldInfo _ZipFile$InflaterCleanupAction_FieldInfo_[] = {
 };
 
 $MethodInfo _ZipFile$InflaterCleanupAction_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/zip/Inflater;Ljava/util/zip/ZipFile$CleanableResource;)V", nullptr, 0, $method(static_cast<void(ZipFile$InflaterCleanupAction::*)($Inflater*,$ZipFile$CleanableResource*)>(&ZipFile$InflaterCleanupAction::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/zip/Inflater;Ljava/util/zip/ZipFile$CleanableResource;)V", nullptr, 0, $method(ZipFile$InflaterCleanupAction, init$, void, $Inflater*, $ZipFile$CleanableResource*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ZipFile$InflaterCleanupAction, run, void)},
 	{}
 };
 

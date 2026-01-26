@@ -30,9 +30,9 @@ $FieldInfo _DomainName_FieldInfo_[] = {
 };
 
 $MethodInfo _DomainName_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(DomainName::*)()>(&DomainName::init$))},
-	{"getMatch", "(Ljava/lang/String;)Lsun/security/util/DomainName$Match;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$DomainName$Match*(*)($String*)>(&DomainName::getMatch))},
-	{"registeredDomain", "(Ljava/lang/String;)Lsun/security/util/RegisteredDomain;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$RegisteredDomain*(*)($String*)>(&DomainName::registeredDomain))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(DomainName, init$, void)},
+	{"getMatch", "(Ljava/lang/String;)Lsun/security/util/DomainName$Match;", nullptr, $PRIVATE | $STATIC, $staticMethod(DomainName, getMatch, $DomainName$Match*, $String*)},
+	{"registeredDomain", "(Ljava/lang/String;)Lsun/security/util/RegisteredDomain;", nullptr, $PUBLIC | $STATIC, $staticMethod(DomainName, registeredDomain, $RegisteredDomain*, $String*)},
 	{}
 };
 

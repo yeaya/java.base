@@ -68,11 +68,11 @@ $FieldInfo _UnixChannelFactory_FieldInfo_[] = {
 };
 
 $MethodInfo _UnixChannelFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(UnixChannelFactory::*)()>(&UnixChannelFactory::init$))},
-	{"newAsynchronousFileChannel", "(Lsun/nio/fs/UnixPath;Ljava/util/Set;ILsun/nio/ch/ThreadPool;)Ljava/nio/channels/AsynchronousFileChannel;", "(Lsun/nio/fs/UnixPath;Ljava/util/Set<+Ljava/nio/file/OpenOption;>;ILsun/nio/ch/ThreadPool;)Ljava/nio/channels/AsynchronousFileChannel;", $STATIC, $method(static_cast<$AsynchronousFileChannel*(*)($UnixPath*,$Set*,int32_t,$ThreadPool*)>(&UnixChannelFactory::newAsynchronousFileChannel)), "sun.nio.fs.UnixException"},
-	{"newFileChannel", "(ILsun/nio/fs/UnixPath;Ljava/lang/String;Ljava/util/Set;I)Ljava/nio/channels/FileChannel;", "(ILsun/nio/fs/UnixPath;Ljava/lang/String;Ljava/util/Set<+Ljava/nio/file/OpenOption;>;I)Ljava/nio/channels/FileChannel;", $STATIC, $method(static_cast<$FileChannel*(*)(int32_t,$UnixPath*,$String*,$Set*,int32_t)>(&UnixChannelFactory::newFileChannel)), "sun.nio.fs.UnixException"},
-	{"newFileChannel", "(Lsun/nio/fs/UnixPath;Ljava/util/Set;I)Ljava/nio/channels/FileChannel;", "(Lsun/nio/fs/UnixPath;Ljava/util/Set<+Ljava/nio/file/OpenOption;>;I)Ljava/nio/channels/FileChannel;", $STATIC, $method(static_cast<$FileChannel*(*)($UnixPath*,$Set*,int32_t)>(&UnixChannelFactory::newFileChannel)), "sun.nio.fs.UnixException"},
-	{"open", "(ILsun/nio/fs/UnixPath;Ljava/lang/String;Lsun/nio/fs/UnixChannelFactory$Flags;I)Ljava/io/FileDescriptor;", nullptr, $PROTECTED | $STATIC, $method(static_cast<$FileDescriptor*(*)(int32_t,$UnixPath*,$String*,$UnixChannelFactory$Flags*,int32_t)>(&UnixChannelFactory::open)), "sun.nio.fs.UnixException"},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(UnixChannelFactory, init$, void)},
+	{"newAsynchronousFileChannel", "(Lsun/nio/fs/UnixPath;Ljava/util/Set;ILsun/nio/ch/ThreadPool;)Ljava/nio/channels/AsynchronousFileChannel;", "(Lsun/nio/fs/UnixPath;Ljava/util/Set<+Ljava/nio/file/OpenOption;>;ILsun/nio/ch/ThreadPool;)Ljava/nio/channels/AsynchronousFileChannel;", $STATIC, $staticMethod(UnixChannelFactory, newAsynchronousFileChannel, $AsynchronousFileChannel*, $UnixPath*, $Set*, int32_t, $ThreadPool*), "sun.nio.fs.UnixException"},
+	{"newFileChannel", "(ILsun/nio/fs/UnixPath;Ljava/lang/String;Ljava/util/Set;I)Ljava/nio/channels/FileChannel;", "(ILsun/nio/fs/UnixPath;Ljava/lang/String;Ljava/util/Set<+Ljava/nio/file/OpenOption;>;I)Ljava/nio/channels/FileChannel;", $STATIC, $staticMethod(UnixChannelFactory, newFileChannel, $FileChannel*, int32_t, $UnixPath*, $String*, $Set*, int32_t), "sun.nio.fs.UnixException"},
+	{"newFileChannel", "(Lsun/nio/fs/UnixPath;Ljava/util/Set;I)Ljava/nio/channels/FileChannel;", "(Lsun/nio/fs/UnixPath;Ljava/util/Set<+Ljava/nio/file/OpenOption;>;I)Ljava/nio/channels/FileChannel;", $STATIC, $staticMethod(UnixChannelFactory, newFileChannel, $FileChannel*, $UnixPath*, $Set*, int32_t), "sun.nio.fs.UnixException"},
+	{"open", "(ILsun/nio/fs/UnixPath;Ljava/lang/String;Lsun/nio/fs/UnixChannelFactory$Flags;I)Ljava/io/FileDescriptor;", nullptr, $PROTECTED | $STATIC, $staticMethod(UnixChannelFactory, open, $FileDescriptor*, int32_t, $UnixPath*, $String*, $UnixChannelFactory$Flags*, int32_t), "sun.nio.fs.UnixException"},
 	{}
 };
 

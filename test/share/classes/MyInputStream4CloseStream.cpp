@@ -21,9 +21,9 @@ $FieldInfo _MyInputStream4CloseStream_FieldInfo_[] = {
 };
 
 $MethodInfo _MyInputStream4CloseStream_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(MyInputStream4CloseStream::*)()>(&MyInputStream4CloseStream::init$))},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"read", "()I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(MyInputStream4CloseStream, init$, void)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(MyInputStream4CloseStream, close, void), "java.io.IOException"},
+	{"read", "()I", nullptr, $PUBLIC, $virtualMethod(MyInputStream4CloseStream, read, int32_t), "java.io.IOException"},
 	{}
 };
 

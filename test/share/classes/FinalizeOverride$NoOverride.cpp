@@ -10,7 +10,7 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _FinalizeOverride$NoOverride_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, 0, $method(static_cast<void(FinalizeOverride$NoOverride::*)(int32_t)>(&FinalizeOverride$NoOverride::init$))},
+	{"<init>", "(I)V", nullptr, 0, $method(FinalizeOverride$NoOverride, init$, void, int32_t)},
 	{}
 };
 

@@ -34,13 +34,13 @@ namespace sun {
 			namespace provider {
 
 $MethodInfo _HostLocaleProviderAdapterImpl$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(HostLocaleProviderAdapterImpl$1::*)()>(&HostLocaleProviderAdapterImpl$1::init$))},
-	{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC},
-	{"getDateInstance", "(ILjava/util/Locale;)Ljava/text/DateFormat;", nullptr, $PUBLIC},
-	{"getDateTimeInstance", "(IILjava/util/Locale;)Ljava/text/DateFormat;", nullptr, $PUBLIC},
-	{"getDateTimePatterns", "(Ljava/util/Locale;)Ljava/util/concurrent/atomic/AtomicReferenceArray;", "(Ljava/util/Locale;)Ljava/util/concurrent/atomic/AtomicReferenceArray<Ljava/lang/String;>;", $PRIVATE, $method(static_cast<$AtomicReferenceArray*(HostLocaleProviderAdapterImpl$1::*)($Locale*)>(&HostLocaleProviderAdapterImpl$1::getDateTimePatterns))},
-	{"getTimeInstance", "(ILjava/util/Locale;)Ljava/text/DateFormat;", nullptr, $PUBLIC},
-	{"isSupportedLocale", "(Ljava/util/Locale;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(HostLocaleProviderAdapterImpl$1, init$, void)},
+	{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(HostLocaleProviderAdapterImpl$1, getAvailableLocales, $LocaleArray*)},
+	{"getDateInstance", "(ILjava/util/Locale;)Ljava/text/DateFormat;", nullptr, $PUBLIC, $virtualMethod(HostLocaleProviderAdapterImpl$1, getDateInstance, $DateFormat*, int32_t, $Locale*)},
+	{"getDateTimeInstance", "(IILjava/util/Locale;)Ljava/text/DateFormat;", nullptr, $PUBLIC, $virtualMethod(HostLocaleProviderAdapterImpl$1, getDateTimeInstance, $DateFormat*, int32_t, int32_t, $Locale*)},
+	{"getDateTimePatterns", "(Ljava/util/Locale;)Ljava/util/concurrent/atomic/AtomicReferenceArray;", "(Ljava/util/Locale;)Ljava/util/concurrent/atomic/AtomicReferenceArray<Ljava/lang/String;>;", $PRIVATE, $method(HostLocaleProviderAdapterImpl$1, getDateTimePatterns, $AtomicReferenceArray*, $Locale*)},
+	{"getTimeInstance", "(ILjava/util/Locale;)Ljava/text/DateFormat;", nullptr, $PUBLIC, $virtualMethod(HostLocaleProviderAdapterImpl$1, getTimeInstance, $DateFormat*, int32_t, $Locale*)},
+	{"isSupportedLocale", "(Ljava/util/Locale;)Z", nullptr, $PUBLIC, $virtualMethod(HostLocaleProviderAdapterImpl$1, isSupportedLocale, bool, $Locale*)},
 	{}
 };
 

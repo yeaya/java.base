@@ -20,8 +20,8 @@ $FieldInfo _PollingWatchService$PollingWatchKey$1_FieldInfo_[] = {
 };
 
 $MethodInfo _PollingWatchService$PollingWatchKey$1_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/fs/PollingWatchService$PollingWatchKey;)V", nullptr, 0, $method(static_cast<void(PollingWatchService$PollingWatchKey$1::*)($PollingWatchService$PollingWatchKey*)>(&PollingWatchService$PollingWatchKey$1::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/nio/fs/PollingWatchService$PollingWatchKey;)V", nullptr, 0, $method(PollingWatchService$PollingWatchKey$1, init$, void, $PollingWatchService$PollingWatchKey*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(PollingWatchService$PollingWatchKey$1, run, void)},
 	{}
 };
 

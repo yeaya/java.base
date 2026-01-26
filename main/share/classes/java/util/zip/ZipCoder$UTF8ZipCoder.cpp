@@ -19,12 +19,12 @@ namespace java {
 		namespace zip {
 
 $MethodInfo _ZipCoder$UTF8ZipCoder_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PRIVATE, $method(static_cast<void(ZipCoder$UTF8ZipCoder::*)($Charset*)>(&ZipCoder$UTF8ZipCoder::init$))},
-	{"checkedHash", "([BII)I", nullptr, 0, nullptr, "java.lang.Exception"},
-	{"getBytes", "(Ljava/lang/String;)[B", nullptr, 0},
-	{"hasTrailingSlash", "([BI)Z", nullptr, 0},
-	{"isUTF8", "()Z", nullptr, 0},
-	{"toString", "([BII)Ljava/lang/String;", nullptr, 0},
+	{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PRIVATE, $method(ZipCoder$UTF8ZipCoder, init$, void, $Charset*)},
+	{"checkedHash", "([BII)I", nullptr, 0, $virtualMethod(ZipCoder$UTF8ZipCoder, checkedHash, int32_t, $bytes*, int32_t, int32_t), "java.lang.Exception"},
+	{"getBytes", "(Ljava/lang/String;)[B", nullptr, 0, $virtualMethod(ZipCoder$UTF8ZipCoder, getBytes, $bytes*, $String*)},
+	{"hasTrailingSlash", "([BI)Z", nullptr, 0, $virtualMethod(ZipCoder$UTF8ZipCoder, hasTrailingSlash, bool, $bytes*, int32_t)},
+	{"isUTF8", "()Z", nullptr, 0, $virtualMethod(ZipCoder$UTF8ZipCoder, isUTF8, bool)},
+	{"toString", "([BII)Ljava/lang/String;", nullptr, 0, $virtualMethod(ZipCoder$UTF8ZipCoder, toString, $String*, $bytes*, int32_t, int32_t)},
 	{}
 };
 

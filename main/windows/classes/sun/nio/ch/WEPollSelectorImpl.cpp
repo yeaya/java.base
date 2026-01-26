@@ -90,18 +90,18 @@ $FieldInfo _WEPollSelectorImpl_FieldInfo_[] = {
 };
 
 $MethodInfo _WEPollSelectorImpl_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/channels/spi/SelectorProvider;)V", nullptr, 0, $method(static_cast<void(WEPollSelectorImpl::*)($SelectorProvider*)>(&WEPollSelectorImpl::init$)), "java.io.IOException"},
-	{"clearInterrupt", "()V", nullptr, $PRIVATE, $method(static_cast<void(WEPollSelectorImpl::*)()>(&WEPollSelectorImpl::clearInterrupt)), "java.io.IOException"},
-	{"doSelect", "(Ljava/util/function/Consumer;J)I", "(Ljava/util/function/Consumer<Ljava/nio/channels/SelectionKey;>;J)I", $PROTECTED, nullptr, "java.io.IOException"},
-	{"ensureOpen", "()V", nullptr, $PRIVATE, $method(static_cast<void(WEPollSelectorImpl::*)()>(&WEPollSelectorImpl::ensureOpen))},
-	{"implClose", "()V", nullptr, $PROTECTED, nullptr, "java.io.IOException"},
-	{"implDereg", "(Lsun/nio/ch/SelectionKeyImpl;)V", nullptr, $PROTECTED, nullptr, "java.io.IOException"},
-	{"processEvents", "(ILjava/util/function/Consumer;)I", "(ILjava/util/function/Consumer<Ljava/nio/channels/SelectionKey;>;)I", $PRIVATE, $method(static_cast<int32_t(WEPollSelectorImpl::*)(int32_t,$Consumer*)>(&WEPollSelectorImpl::processEvents)), "java.io.IOException"},
-	{"processUpdateQueue", "()V", nullptr, $PRIVATE, $method(static_cast<void(WEPollSelectorImpl::*)()>(&WEPollSelectorImpl::processUpdateQueue))},
-	{"setEventOps", "(Lsun/nio/ch/SelectionKeyImpl;)V", nullptr, $PUBLIC},
-	{"toEPollEvents", "(I)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)(int32_t)>(&WEPollSelectorImpl::toEPollEvents))},
-	{"toReadyOps", "(I)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)(int32_t)>(&WEPollSelectorImpl::toReadyOps))},
-	{"wakeup", "()Ljava/nio/channels/Selector;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/nio/channels/spi/SelectorProvider;)V", nullptr, 0, $method(WEPollSelectorImpl, init$, void, $SelectorProvider*), "java.io.IOException"},
+	{"clearInterrupt", "()V", nullptr, $PRIVATE, $method(WEPollSelectorImpl, clearInterrupt, void), "java.io.IOException"},
+	{"doSelect", "(Ljava/util/function/Consumer;J)I", "(Ljava/util/function/Consumer<Ljava/nio/channels/SelectionKey;>;J)I", $PROTECTED, $virtualMethod(WEPollSelectorImpl, doSelect, int32_t, $Consumer*, int64_t), "java.io.IOException"},
+	{"ensureOpen", "()V", nullptr, $PRIVATE, $method(WEPollSelectorImpl, ensureOpen, void)},
+	{"implClose", "()V", nullptr, $PROTECTED, $virtualMethod(WEPollSelectorImpl, implClose, void), "java.io.IOException"},
+	{"implDereg", "(Lsun/nio/ch/SelectionKeyImpl;)V", nullptr, $PROTECTED, $virtualMethod(WEPollSelectorImpl, implDereg, void, $SelectionKeyImpl*), "java.io.IOException"},
+	{"processEvents", "(ILjava/util/function/Consumer;)I", "(ILjava/util/function/Consumer<Ljava/nio/channels/SelectionKey;>;)I", $PRIVATE, $method(WEPollSelectorImpl, processEvents, int32_t, int32_t, $Consumer*), "java.io.IOException"},
+	{"processUpdateQueue", "()V", nullptr, $PRIVATE, $method(WEPollSelectorImpl, processUpdateQueue, void)},
+	{"setEventOps", "(Lsun/nio/ch/SelectionKeyImpl;)V", nullptr, $PUBLIC, $virtualMethod(WEPollSelectorImpl, setEventOps, void, $SelectionKeyImpl*)},
+	{"toEPollEvents", "(I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(WEPollSelectorImpl, toEPollEvents, int32_t, int32_t)},
+	{"toReadyOps", "(I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(WEPollSelectorImpl, toReadyOps, int32_t, int32_t)},
+	{"wakeup", "()Ljava/nio/channels/Selector;", nullptr, $PUBLIC, $virtualMethod(WEPollSelectorImpl, wakeup, $Selector*)},
 	{}
 };
 

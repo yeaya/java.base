@@ -23,8 +23,8 @@ namespace java {
 		namespace regex {
 
 $MethodInfo _Pattern$NotBehindS_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/regex/Pattern$Node;II)V", nullptr, 0, $method(static_cast<void(Pattern$NotBehindS::*)($Pattern$Node*,int32_t,int32_t)>(&Pattern$NotBehindS::init$))},
-	{"match", "(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z", nullptr, 0},
+	{"<init>", "(Ljava/util/regex/Pattern$Node;II)V", nullptr, 0, $method(Pattern$NotBehindS, init$, void, $Pattern$Node*, int32_t, int32_t)},
+	{"match", "(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z", nullptr, 0, $virtualMethod(Pattern$NotBehindS, match, bool, $Matcher*, int32_t, $CharSequence*)},
 	{}
 };
 

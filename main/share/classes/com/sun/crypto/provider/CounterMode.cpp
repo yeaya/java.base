@@ -36,17 +36,17 @@ $FieldInfo _CounterMode_FieldInfo_[] = {
 };
 
 $MethodInfo _CounterMode_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/crypto/provider/SymmetricCipher;)V", nullptr, 0, $method(static_cast<void(CounterMode::*)($SymmetricCipher*)>(&CounterMode::init$))},
-	{"crypt", "([BII[BI)I", nullptr, $PRIVATE, $method(static_cast<int32_t(CounterMode::*)($bytes*,int32_t,int32_t,$bytes*,int32_t)>(&CounterMode::crypt))},
-	{"decrypt", "([BII[BI)I", nullptr, 0},
-	{"encrypt", "([BII[BI)I", nullptr, 0},
-	{"getFeedback", "()Ljava/lang/String;", nullptr, 0},
-	{"implCrypt", "([BII[BI)I", nullptr, $PRIVATE, $method(static_cast<int32_t(CounterMode::*)($bytes*,int32_t,int32_t,$bytes*,int32_t)>(&CounterMode::implCrypt)), nullptr, nullptr, _CounterMode_MethodAnnotations_implCrypt5},
-	{"increment", "([B)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($bytes*)>(&CounterMode::increment))},
-	{"init", "(ZLjava/lang/String;[B[B)V", nullptr, 0, nullptr, "java.security.InvalidKeyException"},
-	{"reset", "()V", nullptr, 0},
-	{"restore", "()V", nullptr, 0},
-	{"save", "()V", nullptr, 0},
+	{"<init>", "(Lcom/sun/crypto/provider/SymmetricCipher;)V", nullptr, 0, $method(CounterMode, init$, void, $SymmetricCipher*)},
+	{"crypt", "([BII[BI)I", nullptr, $PRIVATE, $method(CounterMode, crypt, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t)},
+	{"decrypt", "([BII[BI)I", nullptr, 0, $virtualMethod(CounterMode, decrypt, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t)},
+	{"encrypt", "([BII[BI)I", nullptr, 0, $virtualMethod(CounterMode, encrypt, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t)},
+	{"getFeedback", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(CounterMode, getFeedback, $String*)},
+	{"implCrypt", "([BII[BI)I", nullptr, $PRIVATE, $method(CounterMode, implCrypt, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t), nullptr, nullptr, _CounterMode_MethodAnnotations_implCrypt5},
+	{"increment", "([B)V", nullptr, $PRIVATE | $STATIC, $staticMethod(CounterMode, increment, void, $bytes*)},
+	{"init", "(ZLjava/lang/String;[B[B)V", nullptr, 0, $virtualMethod(CounterMode, init, void, bool, $String*, $bytes*, $bytes*), "java.security.InvalidKeyException"},
+	{"reset", "()V", nullptr, 0, $virtualMethod(CounterMode, reset, void)},
+	{"restore", "()V", nullptr, 0, $virtualMethod(CounterMode, restore, void)},
+	{"save", "()V", nullptr, 0, $virtualMethod(CounterMode, save, void)},
 	{}
 };
 

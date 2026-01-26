@@ -17,7 +17,7 @@ $FieldInfo _ResolvedMethodName_FieldInfo_[] = {
 };
 
 $MethodInfo _ResolvedMethodName_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ResolvedMethodName::*)()>(&ResolvedMethodName::init$))},
+	{"<init>", "()V", nullptr, 0, $method(ResolvedMethodName, init$, void)},
 	{}
 };
 

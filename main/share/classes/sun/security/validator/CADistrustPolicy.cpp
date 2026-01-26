@@ -14,6 +14,7 @@
 #undef POLICIES
 #undef SYMANTEC_TLS
 
+using $X509CertificateArray = $Array<::java::security::cert::X509Certificate>;
 using $CADistrustPolicyArray = $Array<::sun::security::validator::CADistrustPolicy>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;
@@ -40,12 +41,12 @@ $FieldInfo _CADistrustPolicy_FieldInfo_[] = {
 };
 
 $MethodInfo _CADistrustPolicy_MethodInfo_[] = {
-	{"$values", "()[Lsun/security/validator/CADistrustPolicy;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$CADistrustPolicyArray*(*)()>(&CADistrustPolicy::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(CADistrustPolicy::*)($String*,int32_t)>(&CADistrustPolicy::init$))},
-	{"checkDistrust", "(Ljava/lang/String;[Ljava/security/cert/X509Certificate;)V", nullptr, $ABSTRACT, nullptr, "sun.security.validator.ValidatorException"},
-	{"parseProperty", "()Ljava/util/EnumSet;", "()Ljava/util/EnumSet<Lsun/security/validator/CADistrustPolicy;>;", $PRIVATE | $STATIC, $method(static_cast<$EnumSet*(*)()>(&CADistrustPolicy::parseProperty))},
-	{"valueOf", "(Ljava/lang/String;)Lsun/security/validator/CADistrustPolicy;", nullptr, $PUBLIC | $STATIC, $method(static_cast<CADistrustPolicy*(*)($String*)>(&CADistrustPolicy::valueOf))},
-	{"values", "()[Lsun/security/validator/CADistrustPolicy;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$CADistrustPolicyArray*(*)()>(&CADistrustPolicy::values))},
+	{"$values", "()[Lsun/security/validator/CADistrustPolicy;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CADistrustPolicy, $values, $CADistrustPolicyArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(CADistrustPolicy, init$, void, $String*, int32_t)},
+	{"checkDistrust", "(Ljava/lang/String;[Ljava/security/cert/X509Certificate;)V", nullptr, $ABSTRACT, $virtualMethod(CADistrustPolicy, checkDistrust, void, $String*, $X509CertificateArray*), "sun.security.validator.ValidatorException"},
+	{"parseProperty", "()Ljava/util/EnumSet;", "()Ljava/util/EnumSet<Lsun/security/validator/CADistrustPolicy;>;", $PRIVATE | $STATIC, $staticMethod(CADistrustPolicy, parseProperty, $EnumSet*)},
+	{"valueOf", "(Ljava/lang/String;)Lsun/security/validator/CADistrustPolicy;", nullptr, $PUBLIC | $STATIC, $staticMethod(CADistrustPolicy, valueOf, CADistrustPolicy*, $String*)},
+	{"values", "()[Lsun/security/validator/CADistrustPolicy;", nullptr, $PUBLIC | $STATIC, $staticMethod(CADistrustPolicy, values, $CADistrustPolicyArray*)},
 	{}
 };
 

@@ -19,9 +19,9 @@ $FieldInfo _LotsOfStreams$LOSEnumeration_FieldInfo_[] = {
 };
 
 $MethodInfo _LotsOfStreams$LOSEnumeration_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(LotsOfStreams$LOSEnumeration::*)()>(&LotsOfStreams$LOSEnumeration::init$))},
-	{"hasMoreElements", "()Z", nullptr, $PUBLIC},
-	{"nextElement", "()Ljava/io/InputStream;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(LotsOfStreams$LOSEnumeration, init$, void)},
+	{"hasMoreElements", "()Z", nullptr, $PUBLIC, $virtualMethod(LotsOfStreams$LOSEnumeration, hasMoreElements, bool)},
+	{"nextElement", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(LotsOfStreams$LOSEnumeration, nextElement, $Object*)},
 	{}
 };
 

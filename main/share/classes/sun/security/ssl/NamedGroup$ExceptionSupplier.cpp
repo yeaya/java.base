@@ -12,7 +12,7 @@ namespace sun {
 		namespace ssl {
 
 $MethodInfo _NamedGroup$ExceptionSupplier_MethodInfo_[] = {
-	{"apply", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "javax.net.ssl.SSLException"},
+	{"apply", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NamedGroup$ExceptionSupplier, apply, void, $String*), "javax.net.ssl.SSLException"},
 	{}
 };
 

@@ -19,14 +19,14 @@ $FieldInfo _IndexOf_FieldInfo_[] = {
 };
 
 $MethodInfo _IndexOf_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(IndexOf::*)()>(&IndexOf::init$))},
-	{"compareIndexOfLastIndexOf", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&IndexOf::compareIndexOfLastIndexOf))},
-	{"compareStringStringBuffer", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&IndexOf::compareStringStringBuffer))},
-	{"generateTestString", "(II)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)(int32_t,int32_t)>(&IndexOf::generateTestString))},
-	{"getRandomIndex", "(II)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)(int32_t,int32_t)>(&IndexOf::getRandomIndex))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&IndexOf::main)), "java.lang.Exception"},
-	{"report", "(Ljava/lang/String;I)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($String*,int32_t)>(&IndexOf::report))},
-	{"simpleTest", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&IndexOf::simpleTest))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(IndexOf, init$, void)},
+	{"compareIndexOfLastIndexOf", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(IndexOf, compareIndexOfLastIndexOf, void)},
+	{"compareStringStringBuffer", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(IndexOf, compareStringStringBuffer, void)},
+	{"generateTestString", "(II)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(IndexOf, generateTestString, $String*, int32_t, int32_t)},
+	{"getRandomIndex", "(II)I", nullptr, $PRIVATE | $STATIC, $staticMethod(IndexOf, getRandomIndex, int32_t, int32_t, int32_t)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(IndexOf, main, void, $StringArray*), "java.lang.Exception"},
+	{"report", "(Ljava/lang/String;I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(IndexOf, report, void, $String*, int32_t)},
+	{"simpleTest", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(IndexOf, simpleTest, void)},
 	{}
 };
 

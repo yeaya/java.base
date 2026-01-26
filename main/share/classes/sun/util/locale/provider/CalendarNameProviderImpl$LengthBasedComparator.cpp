@@ -21,9 +21,9 @@ $FieldInfo _CalendarNameProviderImpl$LengthBasedComparator_FieldInfo_[] = {
 };
 
 $MethodInfo _CalendarNameProviderImpl$LengthBasedComparator_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(CalendarNameProviderImpl$LengthBasedComparator::*)()>(&CalendarNameProviderImpl$LengthBasedComparator::init$))},
-	{"compare", "(Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PUBLIC},
-	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(CalendarNameProviderImpl$LengthBasedComparator, init$, void)},
+	{"compare", "(Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(CalendarNameProviderImpl$LengthBasedComparator, compare, int32_t, $String*, $String*)},
+	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(CalendarNameProviderImpl$LengthBasedComparator, compare, int32_t, Object$*, Object$*)},
 	{}
 };
 

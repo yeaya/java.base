@@ -17,8 +17,8 @@ $FieldInfo _IllegalAccessException_FieldInfo_[] = {
 };
 
 $MethodInfo _IllegalAccessException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(IllegalAccessException::*)()>(&IllegalAccessException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(IllegalAccessException::*)($String*)>(&IllegalAccessException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(IllegalAccessException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(IllegalAccessException, init$, void, $String*)},
 	{}
 };
 

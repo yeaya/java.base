@@ -22,9 +22,9 @@ $CompoundAttribute _StringCoding_MethodAnnotations_implEncodeISOArray2[] = {
 };
 
 $MethodInfo _StringCoding_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(StringCoding::*)()>(&StringCoding::init$))},
-	{"hasNegatives", "([BII)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)($bytes*,int32_t,int32_t)>(&StringCoding::hasNegatives)), nullptr, nullptr, _StringCoding_MethodAnnotations_hasNegatives1},
-	{"implEncodeISOArray", "([BI[BII)I", nullptr, $PUBLIC | $STATIC, $method(static_cast<int32_t(*)($bytes*,int32_t,$bytes*,int32_t,int32_t)>(&StringCoding::implEncodeISOArray)), nullptr, nullptr, _StringCoding_MethodAnnotations_implEncodeISOArray2},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(StringCoding, init$, void)},
+	{"hasNegatives", "([BII)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(StringCoding, hasNegatives, bool, $bytes*, int32_t, int32_t), nullptr, nullptr, _StringCoding_MethodAnnotations_hasNegatives1},
+	{"implEncodeISOArray", "([BI[BII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StringCoding, implEncodeISOArray, int32_t, $bytes*, int32_t, $bytes*, int32_t, int32_t), nullptr, nullptr, _StringCoding_MethodAnnotations_implEncodeISOArray2},
 	{}
 };
 

@@ -12,7 +12,7 @@ namespace sun {
 		namespace fs {
 
 $MethodInfo _WindowsSecurity$Privilege_MethodInfo_[] = {
-	{"drop", "()V", nullptr, $PUBLIC | $ABSTRACT},
+	{"drop", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(WindowsSecurity$Privilege, drop, void)},
 	{}
 };
 

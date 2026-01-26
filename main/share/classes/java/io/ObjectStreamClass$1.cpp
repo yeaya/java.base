@@ -20,8 +20,8 @@ $FieldInfo _ObjectStreamClass$1_FieldInfo_[] = {
 };
 
 $MethodInfo _ObjectStreamClass$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/ObjectStreamClass;)V", nullptr, 0, $method(static_cast<void(ObjectStreamClass$1::*)($ObjectStreamClass*)>(&ObjectStreamClass$1::init$))},
-	{"run", "()Ljava/lang/Long;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/io/ObjectStreamClass;)V", nullptr, 0, $method(ObjectStreamClass$1, init$, void, $ObjectStreamClass*)},
+	{"run", "()Ljava/lang/Long;", nullptr, $PUBLIC, $virtualMethod(ObjectStreamClass$1, run, $Object*)},
 	{}
 };
 

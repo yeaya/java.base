@@ -22,9 +22,9 @@ $FieldInfo _BigInteger$UnsafeHolder_FieldInfo_[] = {
 };
 
 $MethodInfo _BigInteger$UnsafeHolder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(BigInteger$UnsafeHolder::*)()>(&BigInteger$UnsafeHolder::init$))},
-	{"putMag", "(Ljava/math/BigInteger;[I)V", nullptr, $STATIC, $method(static_cast<void(*)($BigInteger*,$ints*)>(&BigInteger$UnsafeHolder::putMag))},
-	{"putSign", "(Ljava/math/BigInteger;I)V", nullptr, $STATIC, $method(static_cast<void(*)($BigInteger*,int32_t)>(&BigInteger$UnsafeHolder::putSign))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(BigInteger$UnsafeHolder, init$, void)},
+	{"putMag", "(Ljava/math/BigInteger;[I)V", nullptr, $STATIC, $staticMethod(BigInteger$UnsafeHolder, putMag, void, $BigInteger*, $ints*)},
+	{"putSign", "(Ljava/math/BigInteger;I)V", nullptr, $STATIC, $staticMethod(BigInteger$UnsafeHolder, putSign, void, $BigInteger*, int32_t)},
 	{}
 };
 

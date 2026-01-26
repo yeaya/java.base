@@ -33,8 +33,8 @@ $FieldInfo _Zombies_FieldInfo_[] = {
 };
 
 $MethodInfo _Zombies_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Zombies::*)()>(&Zombies::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Zombies::main)), "java.lang.Throwable"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Zombies, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Zombies, main, void, $StringArray*), "java.lang.Throwable"},
 	{}
 };
 

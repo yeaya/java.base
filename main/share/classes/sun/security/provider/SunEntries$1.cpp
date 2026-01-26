@@ -14,8 +14,8 @@ namespace sun {
 		namespace provider {
 
 $MethodInfo _SunEntries$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(SunEntries$1::*)()>(&SunEntries$1::init$))},
-	{"run", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(SunEntries$1, init$, void)},
+	{"run", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SunEntries$1, run, $Object*)},
 	{}
 };
 

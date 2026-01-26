@@ -26,8 +26,8 @@ $FieldInfo _FileLockTable$FileLockReference_FieldInfo_[] = {
 };
 
 $MethodInfo _FileLockTable$FileLockReference_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/channels/FileLock;Ljava/lang/ref/ReferenceQueue;Lsun/nio/ch/FileKey;)V", "(Ljava/nio/channels/FileLock;Ljava/lang/ref/ReferenceQueue<Ljava/nio/channels/FileLock;>;Lsun/nio/ch/FileKey;)V", 0, $method(static_cast<void(FileLockTable$FileLockReference::*)($FileLock*,$ReferenceQueue*,$FileKey*)>(&FileLockTable$FileLockReference::init$))},
-	{"fileKey", "()Lsun/nio/ch/FileKey;", nullptr, 0},
+	{"<init>", "(Ljava/nio/channels/FileLock;Ljava/lang/ref/ReferenceQueue;Lsun/nio/ch/FileKey;)V", "(Ljava/nio/channels/FileLock;Ljava/lang/ref/ReferenceQueue<Ljava/nio/channels/FileLock;>;Lsun/nio/ch/FileKey;)V", 0, $method(FileLockTable$FileLockReference, init$, void, $FileLock*, $ReferenceQueue*, $FileKey*)},
+	{"fileKey", "()Lsun/nio/ch/FileKey;", nullptr, 0, $virtualMethod(FileLockTable$FileLockReference, fileKey, $FileKey*)},
 	{}
 };
 

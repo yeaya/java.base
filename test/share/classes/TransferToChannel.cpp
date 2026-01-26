@@ -46,13 +46,13 @@ $FieldInfo _TransferToChannel_FieldInfo_[] = {
 };
 
 $MethodInfo _TransferToChannel_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TransferToChannel::*)()>(&TransferToChannel::init$))},
-	{"generateBigFile", "(Ljava/io/File;)V", nullptr, $STATIC, $method(static_cast<void(*)($File*)>(&TransferToChannel::generateBigFile)), "java.lang.Exception"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&TransferToChannel::main)), "java.lang.Exception"},
-	{"test1", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&TransferToChannel::test1)), "java.lang.Exception"},
-	{"test2", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&TransferToChannel::test2)), "java.lang.Exception"},
-	{"transferFileToTrustedChannel", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&TransferToChannel::transferFileToTrustedChannel)), "java.lang.Exception"},
-	{"transferFileToUserChannel", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&TransferToChannel::transferFileToUserChannel)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TransferToChannel, init$, void)},
+	{"generateBigFile", "(Ljava/io/File;)V", nullptr, $STATIC, $staticMethod(TransferToChannel, generateBigFile, void, $File*), "java.lang.Exception"},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TransferToChannel, main, void, $StringArray*), "java.lang.Exception"},
+	{"test1", "()V", nullptr, $STATIC, $staticMethod(TransferToChannel, test1, void), "java.lang.Exception"},
+	{"test2", "()V", nullptr, $STATIC, $staticMethod(TransferToChannel, test2, void), "java.lang.Exception"},
+	{"transferFileToTrustedChannel", "()V", nullptr, $STATIC, $staticMethod(TransferToChannel, transferFileToTrustedChannel, void), "java.lang.Exception"},
+	{"transferFileToUserChannel", "()V", nullptr, $STATIC, $staticMethod(TransferToChannel, transferFileToUserChannel, void), "java.lang.Exception"},
 	{}
 };
 

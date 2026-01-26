@@ -19,8 +19,8 @@ $FieldInfo _Identity$2_FieldInfo_[] = {
 };
 
 $MethodInfo _Identity$2_MethodInfo_[] = {
-	{"<init>", "(I)V", "()V", 0, $method(static_cast<void(Identity$2::*)(int32_t)>(&Identity$2::init$))},
-	{"newThread", "(Ljava/lang/Runnable;)Ljava/lang/Thread;", nullptr, $PUBLIC},
+	{"<init>", "(I)V", "()V", 0, $method(Identity$2, init$, void, int32_t)},
+	{"newThread", "(Ljava/lang/Runnable;)Ljava/lang/Thread;", nullptr, $PUBLIC, $virtualMethod(Identity$2, newThread, $Thread*, $Runnable*)},
 	{}
 };
 

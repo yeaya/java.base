@@ -16,8 +16,8 @@ namespace java {
 		namespace invoke {
 
 $MethodInfo _VarHandles$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(VarHandles$1::*)()>(&VarHandles$1::init$))},
-	{"computeValue", "(Ljava/lang/Class;)Ljava/util/concurrent/ConcurrentMap;", "(Ljava/lang/Class<*>;)Ljava/util/concurrent/ConcurrentMap<Ljava/lang/Integer;Ljava/lang/invoke/MethodHandle;>;", $PROTECTED},
+	{"<init>", "()V", nullptr, 0, $method(VarHandles$1, init$, void)},
+	{"computeValue", "(Ljava/lang/Class;)Ljava/util/concurrent/ConcurrentMap;", "(Ljava/lang/Class<*>;)Ljava/util/concurrent/ConcurrentMap<Ljava/lang/Integer;Ljava/lang/invoke/MethodHandle;>;", $PROTECTED, $virtualMethod(VarHandles$1, computeValue, $Object*, $Class*)},
 	{}
 };
 

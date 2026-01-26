@@ -23,8 +23,8 @@ $FieldInfo _CompletableFuture$TaskSubmitter_FieldInfo_[] = {
 };
 
 $MethodInfo _CompletableFuture$TaskSubmitter_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/Executor;Ljava/lang/Runnable;)V", nullptr, 0, $method(static_cast<void(CompletableFuture$TaskSubmitter::*)($Executor*,$Runnable*)>(&CompletableFuture$TaskSubmitter::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/concurrent/Executor;Ljava/lang/Runnable;)V", nullptr, 0, $method(CompletableFuture$TaskSubmitter, init$, void, $Executor*, $Runnable*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(CompletableFuture$TaskSubmitter, run, void)},
 	{}
 };
 

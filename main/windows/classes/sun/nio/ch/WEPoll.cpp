@@ -51,20 +51,20 @@ $FieldInfo _WEPoll_FieldInfo_[] = {
 };
 
 $MethodInfo _WEPoll_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(WEPoll::*)()>(&WEPoll::init$))},
-	{"allocatePollArray", "(I)J", nullptr, $STATIC, $method(static_cast<int64_t(*)(int32_t)>(&WEPoll::allocatePollArray))},
-	{"close", "(J)V", nullptr, $STATIC | $NATIVE, $method(static_cast<void(*)(int64_t)>(&WEPoll::close))},
-	{"create", "()J", nullptr, $STATIC | $NATIVE, $method(static_cast<int64_t(*)()>(&WEPoll::create)), "java.io.IOException"},
-	{"ctl", "(JIJI)I", nullptr, $STATIC | $NATIVE, $method(static_cast<int32_t(*)(int64_t,int32_t,int64_t,int32_t)>(&WEPoll::ctl))},
-	{"dataOffset", "()I", nullptr, $PRIVATE | $STATIC | $NATIVE, $method(static_cast<int32_t(*)()>(&WEPoll::dataOffset))},
-	{"eventSize", "()I", nullptr, $PRIVATE | $STATIC | $NATIVE, $method(static_cast<int32_t(*)()>(&WEPoll::eventSize))},
-	{"eventsOffset", "()I", nullptr, $PRIVATE | $STATIC | $NATIVE, $method(static_cast<int32_t(*)()>(&WEPoll::eventsOffset))},
-	{"freePollArray", "(J)V", nullptr, $STATIC, $method(static_cast<void(*)(int64_t)>(&WEPoll::freePollArray))},
-	{"getDescriptor", "(J)I", nullptr, $STATIC, $method(static_cast<int32_t(*)(int64_t)>(&WEPoll::getDescriptor))},
-	{"getEvent", "(JI)J", nullptr, $STATIC, $method(static_cast<int64_t(*)(int64_t,int32_t)>(&WEPoll::getEvent))},
-	{"getEvents", "(J)I", nullptr, $STATIC, $method(static_cast<int32_t(*)(int64_t)>(&WEPoll::getEvents))},
-	{"getSocket", "(J)J", nullptr, $STATIC, $method(static_cast<int64_t(*)(int64_t)>(&WEPoll::getSocket))},
-	{"wait", "(JJII)I", nullptr, $STATIC | $NATIVE, $method(static_cast<int32_t(*)(int64_t,int64_t,int32_t,int32_t)>(&WEPoll::wait)), "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(WEPoll, init$, void)},
+	{"allocatePollArray", "(I)J", nullptr, $STATIC, $staticMethod(WEPoll, allocatePollArray, int64_t, int32_t)},
+	{"close", "(J)V", nullptr, $STATIC | $NATIVE, $staticMethod(WEPoll, close, void, int64_t)},
+	{"create", "()J", nullptr, $STATIC | $NATIVE, $staticMethod(WEPoll, create, int64_t), "java.io.IOException"},
+	{"ctl", "(JIJI)I", nullptr, $STATIC | $NATIVE, $staticMethod(WEPoll, ctl, int32_t, int64_t, int32_t, int64_t, int32_t)},
+	{"dataOffset", "()I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(WEPoll, dataOffset, int32_t)},
+	{"eventSize", "()I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(WEPoll, eventSize, int32_t)},
+	{"eventsOffset", "()I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(WEPoll, eventsOffset, int32_t)},
+	{"freePollArray", "(J)V", nullptr, $STATIC, $staticMethod(WEPoll, freePollArray, void, int64_t)},
+	{"getDescriptor", "(J)I", nullptr, $STATIC, $staticMethod(WEPoll, getDescriptor, int32_t, int64_t)},
+	{"getEvent", "(JI)J", nullptr, $STATIC, $staticMethod(WEPoll, getEvent, int64_t, int64_t, int32_t)},
+	{"getEvents", "(J)I", nullptr, $STATIC, $staticMethod(WEPoll, getEvents, int32_t, int64_t)},
+	{"getSocket", "(J)J", nullptr, $STATIC, $staticMethod(WEPoll, getSocket, int64_t, int64_t)},
+	{"wait", "(JJII)I", nullptr, $STATIC | $NATIVE, $staticMethod(WEPoll, wait, int32_t, int64_t, int64_t, int32_t, int32_t), "java.io.IOException"},
 	{}
 };
 

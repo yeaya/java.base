@@ -22,7 +22,7 @@ $FieldInfo _ManifestEntryVerifier$SunProviderHolder_FieldInfo_[] = {
 };
 
 $MethodInfo _ManifestEntryVerifier$SunProviderHolder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(ManifestEntryVerifier$SunProviderHolder::*)()>(&ManifestEntryVerifier$SunProviderHolder::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(ManifestEntryVerifier$SunProviderHolder, init$, void)},
 	{}
 };
 

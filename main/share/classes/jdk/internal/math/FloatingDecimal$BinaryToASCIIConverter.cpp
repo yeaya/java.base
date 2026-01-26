@@ -4,6 +4,7 @@
 #include <jdk/internal/math/FloatingDecimal.h>
 #include <jcpp.h>
 
+using $Appendable = ::java::lang::Appendable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -13,14 +14,14 @@ namespace jdk {
 		namespace math {
 
 $MethodInfo _FloatingDecimal$BinaryToASCIIConverter_MethodInfo_[] = {
-	{"appendTo", "(Ljava/lang/Appendable;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"decimalDigitsExact", "()Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"digitsRoundedUp", "()Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"getDecimalExponent", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"getDigits", "([C)I", nullptr, $PUBLIC | $ABSTRACT},
-	{"isExceptional", "()Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"isNegative", "()Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"toJavaFormatString", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
+	{"appendTo", "(Ljava/lang/Appendable;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FloatingDecimal$BinaryToASCIIConverter, appendTo, void, $Appendable*)},
+	{"decimalDigitsExact", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FloatingDecimal$BinaryToASCIIConverter, decimalDigitsExact, bool)},
+	{"digitsRoundedUp", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FloatingDecimal$BinaryToASCIIConverter, digitsRoundedUp, bool)},
+	{"getDecimalExponent", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FloatingDecimal$BinaryToASCIIConverter, getDecimalExponent, int32_t)},
+	{"getDigits", "([C)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FloatingDecimal$BinaryToASCIIConverter, getDigits, int32_t, $chars*)},
+	{"isExceptional", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FloatingDecimal$BinaryToASCIIConverter, isExceptional, bool)},
+	{"isNegative", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FloatingDecimal$BinaryToASCIIConverter, isNegative, bool)},
+	{"toJavaFormatString", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FloatingDecimal$BinaryToASCIIConverter, toJavaFormatString, $String*)},
 	{}
 };
 

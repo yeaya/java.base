@@ -8,7 +8,7 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace c2 {
 
 $MethodInfo _C3_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(C3::*)()>(&C3::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(C3, init$, void)},
 	{}
 };
 

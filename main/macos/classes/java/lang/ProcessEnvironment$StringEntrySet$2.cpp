@@ -26,11 +26,11 @@ $FieldInfo _ProcessEnvironment$StringEntrySet$2_FieldInfo_[] = {
 };
 
 $MethodInfo _ProcessEnvironment$StringEntrySet$2_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;)V", "()V", 0, $method(static_cast<void(ProcessEnvironment$StringEntrySet$2::*)(Object$*)>(&ProcessEnvironment$StringEntrySet$2::init$))},
-	{"getKey", "()Ljava/lang/ProcessEnvironment$Variable;", nullptr, $PUBLIC},
-	{"getValue", "()Ljava/lang/ProcessEnvironment$Value;", nullptr, $PUBLIC},
-	{"setValue", "(Ljava/lang/ProcessEnvironment$Value;)Ljava/lang/ProcessEnvironment$Value;", nullptr, $PUBLIC},
-	{"setValue", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "(Ljava/lang/Object;)V", "()V", 0, $method(ProcessEnvironment$StringEntrySet$2, init$, void, Object$*)},
+	{"getKey", "()Ljava/lang/ProcessEnvironment$Variable;", nullptr, $PUBLIC, $virtualMethod(ProcessEnvironment$StringEntrySet$2, getKey, $Object*)},
+	{"getValue", "()Ljava/lang/ProcessEnvironment$Value;", nullptr, $PUBLIC, $virtualMethod(ProcessEnvironment$StringEntrySet$2, getValue, $Object*)},
+	{"setValue", "(Ljava/lang/ProcessEnvironment$Value;)Ljava/lang/ProcessEnvironment$Value;", nullptr, $PUBLIC, $virtualMethod(ProcessEnvironment$StringEntrySet$2, setValue, $ProcessEnvironment$Value*, $ProcessEnvironment$Value*)},
+	{"setValue", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ProcessEnvironment$StringEntrySet$2, setValue, $Object*, Object$*)},
 	{}
 };
 

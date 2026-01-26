@@ -46,8 +46,8 @@ $FieldInfo Predicate$$Lambda$lambda$and$0::fieldInfos[3] = {
 	{}
 };
 $MethodInfo Predicate$$Lambda$lambda$and$0::methodInfos[3] = {
-	{"<init>", "(Ljava/util/function/Predicate;Ljava/util/function/Predicate;)V", nullptr, $PUBLIC, $method(static_cast<void(Predicate$$Lambda$lambda$and$0::*)(Predicate*,Predicate*)>(&Predicate$$Lambda$lambda$and$0::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/function/Predicate;Ljava/util/function/Predicate;)V", nullptr, $PUBLIC, $method(Predicate$$Lambda$lambda$and$0, init$, void, Predicate*, Predicate*)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Predicate$$Lambda$lambda$and$0, test, bool, Object$*)},
 	{}
 };
 $ClassInfo Predicate$$Lambda$lambda$and$0::classInfo$ = {
@@ -86,8 +86,8 @@ $FieldInfo Predicate$$Lambda$lambda$negate$1$1::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Predicate$$Lambda$lambda$negate$1$1::methodInfos[3] = {
-	{"<init>", "(Ljava/util/function/Predicate;)V", nullptr, $PUBLIC, $method(static_cast<void(Predicate$$Lambda$lambda$negate$1$1::*)(Predicate*)>(&Predicate$$Lambda$lambda$negate$1$1::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/function/Predicate;)V", nullptr, $PUBLIC, $method(Predicate$$Lambda$lambda$negate$1$1, init$, void, Predicate*)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Predicate$$Lambda$lambda$negate$1$1, test, bool, Object$*)},
 	{}
 };
 $ClassInfo Predicate$$Lambda$lambda$negate$1$1::classInfo$ = {
@@ -129,8 +129,8 @@ $FieldInfo Predicate$$Lambda$lambda$or$2$2::fieldInfos[3] = {
 	{}
 };
 $MethodInfo Predicate$$Lambda$lambda$or$2$2::methodInfos[3] = {
-	{"<init>", "(Ljava/util/function/Predicate;Ljava/util/function/Predicate;)V", nullptr, $PUBLIC, $method(static_cast<void(Predicate$$Lambda$lambda$or$2$2::*)(Predicate*,Predicate*)>(&Predicate$$Lambda$lambda$or$2$2::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/function/Predicate;Ljava/util/function/Predicate;)V", nullptr, $PUBLIC, $method(Predicate$$Lambda$lambda$or$2$2, init$, void, Predicate*, Predicate*)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Predicate$$Lambda$lambda$or$2$2, test, bool, Object$*)},
 	{}
 };
 $ClassInfo Predicate$$Lambda$lambda$or$2$2::classInfo$ = {
@@ -162,8 +162,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Predicate$$Lambda$isNull$3::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Predicate$$Lambda$isNull$3::*)()>(&Predicate$$Lambda$isNull$3::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Predicate$$Lambda$isNull$3, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Predicate$$Lambda$isNull$3, test, bool, Object$*)},
 	{}
 };
 $ClassInfo Predicate$$Lambda$isNull$3::classInfo$ = {
@@ -202,8 +202,8 @@ $FieldInfo Predicate$$Lambda$lambda$isEqual$3$4::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Predicate$$Lambda$lambda$isEqual$3$4::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(static_cast<void(Predicate$$Lambda$lambda$isEqual$3$4::*)(Object$*)>(&Predicate$$Lambda$lambda$isEqual$3$4::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(Predicate$$Lambda$lambda$isEqual$3$4, init$, void, Object$*)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Predicate$$Lambda$lambda$isEqual$3$4, test, bool, Object$*)},
 	{}
 };
 $ClassInfo Predicate$$Lambda$lambda$isEqual$3$4::classInfo$ = {
@@ -226,16 +226,16 @@ $CompoundAttribute _Predicate_Annotations_[] = {
 };
 
 $MethodInfo _Predicate_MethodInfo_[] = {
-	{"and", "(Ljava/util/function/Predicate;)Ljava/util/function/Predicate;", "(Ljava/util/function/Predicate<-TT;>;)Ljava/util/function/Predicate<TT;>;", $PUBLIC},
-	{"isEqual", "(Ljava/lang/Object;)Ljava/util/function/Predicate;", "<T:Ljava/lang/Object;>(Ljava/lang/Object;)Ljava/util/function/Predicate<TT;>;", $PUBLIC | $STATIC, $method(static_cast<Predicate*(*)(Object$*)>(&Predicate::isEqual))},
-	{"lambda$and$0", "(Ljava/util/function/Predicate;Ljava/lang/Object;)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<bool(Predicate::*)(Predicate*,Object$*)>(&Predicate::lambda$and$0))},
-	{"lambda$isEqual$3", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)(Object$*,Object$*)>(&Predicate::lambda$isEqual$3))},
-	{"lambda$negate$1", "(Ljava/lang/Object;)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<bool(Predicate::*)(Object$*)>(&Predicate::lambda$negate$1))},
-	{"lambda$or$2", "(Ljava/util/function/Predicate;Ljava/lang/Object;)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<bool(Predicate::*)(Predicate*,Object$*)>(&Predicate::lambda$or$2))},
-	{"negate", "()Ljava/util/function/Predicate;", "()Ljava/util/function/Predicate<TT;>;", $PUBLIC},
-	{"not", "(Ljava/util/function/Predicate;)Ljava/util/function/Predicate;", "<T:Ljava/lang/Object;>(Ljava/util/function/Predicate<-TT;>;)Ljava/util/function/Predicate<TT;>;", $PUBLIC | $STATIC, $method(static_cast<Predicate*(*)(Predicate*)>(&Predicate::not$))},
-	{"or", "(Ljava/util/function/Predicate;)Ljava/util/function/Predicate;", "(Ljava/util/function/Predicate<-TT;>;)Ljava/util/function/Predicate<TT;>;", $PUBLIC},
-	{"test", "(Ljava/lang/Object;)Z", "(TT;)Z", $PUBLIC | $ABSTRACT},
+	{"and", "(Ljava/util/function/Predicate;)Ljava/util/function/Predicate;", "(Ljava/util/function/Predicate<-TT;>;)Ljava/util/function/Predicate<TT;>;", $PUBLIC, $virtualMethod(Predicate, and$, Predicate*, Predicate*)},
+	{"isEqual", "(Ljava/lang/Object;)Ljava/util/function/Predicate;", "<T:Ljava/lang/Object;>(Ljava/lang/Object;)Ljava/util/function/Predicate<TT;>;", $PUBLIC | $STATIC, $staticMethod(Predicate, isEqual, Predicate*, Object$*)},
+	{"lambda$and$0", "(Ljava/util/function/Predicate;Ljava/lang/Object;)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(Predicate, lambda$and$0, bool, Predicate*, Object$*)},
+	{"lambda$isEqual$3", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Predicate, lambda$isEqual$3, bool, Object$*, Object$*)},
+	{"lambda$negate$1", "(Ljava/lang/Object;)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(Predicate, lambda$negate$1, bool, Object$*)},
+	{"lambda$or$2", "(Ljava/util/function/Predicate;Ljava/lang/Object;)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(Predicate, lambda$or$2, bool, Predicate*, Object$*)},
+	{"negate", "()Ljava/util/function/Predicate;", "()Ljava/util/function/Predicate<TT;>;", $PUBLIC, $virtualMethod(Predicate, negate, Predicate*)},
+	{"not", "(Ljava/util/function/Predicate;)Ljava/util/function/Predicate;", "<T:Ljava/lang/Object;>(Ljava/util/function/Predicate<-TT;>;)Ljava/util/function/Predicate<TT;>;", $PUBLIC | $STATIC, $staticMethod(Predicate, not$, Predicate*, Predicate*)},
+	{"or", "(Ljava/util/function/Predicate;)Ljava/util/function/Predicate;", "(Ljava/util/function/Predicate<-TT;>;)Ljava/util/function/Predicate<TT;>;", $PUBLIC, $virtualMethod(Predicate, or$, Predicate*, Predicate*)},
+	{"test", "(Ljava/lang/Object;)Z", "(TT;)Z", $PUBLIC | $ABSTRACT, $virtualMethod(Predicate, test, bool, Object$*)},
 	{}
 };
 

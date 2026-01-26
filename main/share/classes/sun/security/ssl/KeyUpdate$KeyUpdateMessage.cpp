@@ -45,12 +45,12 @@ $FieldInfo _KeyUpdate$KeyUpdateMessage_FieldInfo_[] = {
 };
 
 $MethodInfo _KeyUpdate$KeyUpdateMessage_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/ssl/PostHandshakeContext;Lsun/security/ssl/KeyUpdate$KeyUpdateRequest;)V", nullptr, 0, $method(static_cast<void(KeyUpdate$KeyUpdateMessage::*)($PostHandshakeContext*,$KeyUpdate$KeyUpdateRequest*)>(&KeyUpdate$KeyUpdateMessage::init$))},
-	{"<init>", "(Lsun/security/ssl/PostHandshakeContext;Ljava/nio/ByteBuffer;)V", nullptr, 0, $method(static_cast<void(KeyUpdate$KeyUpdateMessage::*)($PostHandshakeContext*,$ByteBuffer*)>(&KeyUpdate$KeyUpdateMessage::init$)), "java.io.IOException"},
-	{"handshakeType", "()Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC},
-	{"messageLength", "()I", nullptr, $PUBLIC},
-	{"send", "(Lsun/security/ssl/HandshakeOutStream;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/security/ssl/PostHandshakeContext;Lsun/security/ssl/KeyUpdate$KeyUpdateRequest;)V", nullptr, 0, $method(KeyUpdate$KeyUpdateMessage, init$, void, $PostHandshakeContext*, $KeyUpdate$KeyUpdateRequest*)},
+	{"<init>", "(Lsun/security/ssl/PostHandshakeContext;Ljava/nio/ByteBuffer;)V", nullptr, 0, $method(KeyUpdate$KeyUpdateMessage, init$, void, $PostHandshakeContext*, $ByteBuffer*), "java.io.IOException"},
+	{"handshakeType", "()Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC, $virtualMethod(KeyUpdate$KeyUpdateMessage, handshakeType, $SSLHandshake*)},
+	{"messageLength", "()I", nullptr, $PUBLIC, $virtualMethod(KeyUpdate$KeyUpdateMessage, messageLength, int32_t)},
+	{"send", "(Lsun/security/ssl/HandshakeOutStream;)V", nullptr, $PUBLIC, $virtualMethod(KeyUpdate$KeyUpdateMessage, send, void, $HandshakeOutStream*), "java.io.IOException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KeyUpdate$KeyUpdateMessage, toString, $String*)},
 	{}
 };
 

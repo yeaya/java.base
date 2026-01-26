@@ -12,8 +12,8 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _StackStreamTest$F_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(StackStreamTest$F::*)()>(&StackStreamTest$F::init$))},
-	{"f", "()V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)()>(&StackStreamTest$F::f))},
+	{"<init>", "()V", nullptr, 0, $method(StackStreamTest$F, init$, void)},
+	{"f", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(StackStreamTest$F, f, void)},
 	{}
 };
 

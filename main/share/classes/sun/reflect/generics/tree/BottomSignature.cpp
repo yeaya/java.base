@@ -19,9 +19,9 @@ $FieldInfo _BottomSignature_FieldInfo_[] = {
 };
 
 $MethodInfo _BottomSignature_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(BottomSignature::*)()>(&BottomSignature::init$))},
-	{"accept", "(Lsun/reflect/generics/visitor/TypeTreeVisitor;)V", "(Lsun/reflect/generics/visitor/TypeTreeVisitor<*>;)V", $PUBLIC},
-	{"make", "()Lsun/reflect/generics/tree/BottomSignature;", nullptr, $PUBLIC | $STATIC, $method(static_cast<BottomSignature*(*)()>(&BottomSignature::make))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(BottomSignature, init$, void)},
+	{"accept", "(Lsun/reflect/generics/visitor/TypeTreeVisitor;)V", "(Lsun/reflect/generics/visitor/TypeTreeVisitor<*>;)V", $PUBLIC, $virtualMethod(BottomSignature, accept, void, $TypeTreeVisitor*)},
+	{"make", "()Lsun/reflect/generics/tree/BottomSignature;", nullptr, $PUBLIC | $STATIC, $staticMethod(BottomSignature, make, BottomSignature*)},
 	{}
 };
 

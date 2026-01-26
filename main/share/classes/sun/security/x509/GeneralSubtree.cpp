@@ -37,15 +37,15 @@ $FieldInfo _GeneralSubtree_FieldInfo_[] = {
 };
 
 $MethodInfo _GeneralSubtree_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/x509/GeneralName;II)V", nullptr, $PUBLIC, $method(static_cast<void(GeneralSubtree::*)($GeneralName*,int32_t,int32_t)>(&GeneralSubtree::init$))},
-	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(static_cast<void(GeneralSubtree::*)($DerValue*)>(&GeneralSubtree::init$)), "java.io.IOException"},
-	{"encode", "(Lsun/security/util/DerOutputStream;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getMaximum", "()I", nullptr, $PUBLIC},
-	{"getMinimum", "()I", nullptr, $PUBLIC},
-	{"getName", "()Lsun/security/x509/GeneralName;", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/security/x509/GeneralName;II)V", nullptr, $PUBLIC, $method(GeneralSubtree, init$, void, $GeneralName*, int32_t, int32_t)},
+	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(GeneralSubtree, init$, void, $DerValue*), "java.io.IOException"},
+	{"encode", "(Lsun/security/util/DerOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(GeneralSubtree, encode, void, $DerOutputStream*), "java.io.IOException"},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(GeneralSubtree, equals, bool, Object$*)},
+	{"getMaximum", "()I", nullptr, $PUBLIC, $virtualMethod(GeneralSubtree, getMaximum, int32_t)},
+	{"getMinimum", "()I", nullptr, $PUBLIC, $virtualMethod(GeneralSubtree, getMinimum, int32_t)},
+	{"getName", "()Lsun/security/x509/GeneralName;", nullptr, $PUBLIC, $virtualMethod(GeneralSubtree, getName, $GeneralName*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(GeneralSubtree, hashCode, int32_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(GeneralSubtree, toString, $String*)},
 	{}
 };
 

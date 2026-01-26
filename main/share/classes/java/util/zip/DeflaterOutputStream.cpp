@@ -34,18 +34,18 @@ $FieldInfo _DeflaterOutputStream_FieldInfo_[] = {
 };
 
 $MethodInfo _DeflaterOutputStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/OutputStream;Ljava/util/zip/Deflater;IZ)V", nullptr, $PUBLIC, $method(static_cast<void(DeflaterOutputStream::*)($OutputStream*,$Deflater*,int32_t,bool)>(&DeflaterOutputStream::init$))},
-	{"<init>", "(Ljava/io/OutputStream;Ljava/util/zip/Deflater;I)V", nullptr, $PUBLIC, $method(static_cast<void(DeflaterOutputStream::*)($OutputStream*,$Deflater*,int32_t)>(&DeflaterOutputStream::init$))},
-	{"<init>", "(Ljava/io/OutputStream;Ljava/util/zip/Deflater;Z)V", nullptr, $PUBLIC, $method(static_cast<void(DeflaterOutputStream::*)($OutputStream*,$Deflater*,bool)>(&DeflaterOutputStream::init$))},
-	{"<init>", "(Ljava/io/OutputStream;Ljava/util/zip/Deflater;)V", nullptr, $PUBLIC, $method(static_cast<void(DeflaterOutputStream::*)($OutputStream*,$Deflater*)>(&DeflaterOutputStream::init$))},
-	{"<init>", "(Ljava/io/OutputStream;Z)V", nullptr, $PUBLIC, $method(static_cast<void(DeflaterOutputStream::*)($OutputStream*,bool)>(&DeflaterOutputStream::init$))},
-	{"<init>", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $method(static_cast<void(DeflaterOutputStream::*)($OutputStream*)>(&DeflaterOutputStream::init$))},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"deflate", "()V", nullptr, $PROTECTED, nullptr, "java.io.IOException"},
-	{"finish", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"flush", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"write", "(I)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"write", "([BII)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljava/io/OutputStream;Ljava/util/zip/Deflater;IZ)V", nullptr, $PUBLIC, $method(DeflaterOutputStream, init$, void, $OutputStream*, $Deflater*, int32_t, bool)},
+	{"<init>", "(Ljava/io/OutputStream;Ljava/util/zip/Deflater;I)V", nullptr, $PUBLIC, $method(DeflaterOutputStream, init$, void, $OutputStream*, $Deflater*, int32_t)},
+	{"<init>", "(Ljava/io/OutputStream;Ljava/util/zip/Deflater;Z)V", nullptr, $PUBLIC, $method(DeflaterOutputStream, init$, void, $OutputStream*, $Deflater*, bool)},
+	{"<init>", "(Ljava/io/OutputStream;Ljava/util/zip/Deflater;)V", nullptr, $PUBLIC, $method(DeflaterOutputStream, init$, void, $OutputStream*, $Deflater*)},
+	{"<init>", "(Ljava/io/OutputStream;Z)V", nullptr, $PUBLIC, $method(DeflaterOutputStream, init$, void, $OutputStream*, bool)},
+	{"<init>", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $method(DeflaterOutputStream, init$, void, $OutputStream*)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(DeflaterOutputStream, close, void), "java.io.IOException"},
+	{"deflate", "()V", nullptr, $PROTECTED, $virtualMethod(DeflaterOutputStream, deflate, void), "java.io.IOException"},
+	{"finish", "()V", nullptr, $PUBLIC, $virtualMethod(DeflaterOutputStream, finish, void), "java.io.IOException"},
+	{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(DeflaterOutputStream, flush, void), "java.io.IOException"},
+	{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(DeflaterOutputStream, write, void, int32_t), "java.io.IOException"},
+	{"write", "([BII)V", nullptr, $PUBLIC, $virtualMethod(DeflaterOutputStream, write, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
 	{}
 };
 

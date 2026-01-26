@@ -36,12 +36,12 @@ $FieldInfo _AttributedCharacterIterator$Attribute_FieldInfo_[] = {
 };
 
 $MethodInfo _AttributedCharacterIterator$Attribute_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $method(static_cast<void(AttributedCharacterIterator$Attribute::*)($String*)>(&AttributedCharacterIterator$Attribute::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
-	{"getName", "()Ljava/lang/String;", nullptr, $PROTECTED},
-	{"hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"readResolve", "()Ljava/lang/Object;", nullptr, $PROTECTED, nullptr, "java.io.InvalidObjectException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $method(AttributedCharacterIterator$Attribute, init$, void, $String*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(AttributedCharacterIterator$Attribute, equals, bool, Object$*)},
+	{"getName", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(AttributedCharacterIterator$Attribute, getName, $String*)},
+	{"hashCode", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(AttributedCharacterIterator$Attribute, hashCode, int32_t)},
+	{"readResolve", "()Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(AttributedCharacterIterator$Attribute, readResolve, $Object*), "java.io.InvalidObjectException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AttributedCharacterIterator$Attribute, toString, $String*)},
 	{}
 };
 

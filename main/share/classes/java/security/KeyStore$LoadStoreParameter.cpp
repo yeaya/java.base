@@ -7,12 +7,13 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $KeyStore$ProtectionParameter = ::java::security::KeyStore$ProtectionParameter;
 
 namespace java {
 	namespace security {
 
 $MethodInfo _KeyStore$LoadStoreParameter_MethodInfo_[] = {
-	{"getProtectionParameter", "()Ljava/security/KeyStore$ProtectionParameter;", nullptr, $PUBLIC | $ABSTRACT},
+	{"getProtectionParameter", "()Ljava/security/KeyStore$ProtectionParameter;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(KeyStore$LoadStoreParameter, getProtectionParameter, $KeyStore$ProtectionParameter*)},
 	{}
 };
 

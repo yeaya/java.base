@@ -18,9 +18,9 @@ namespace java {
 		namespace stream {
 
 $MethodInfo _Sink$OfInt_MethodInfo_[] = {
-	{"accept", "(I)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"accept", "(Ljava/lang/Integer;)V", nullptr, $PUBLIC},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"accept", "(I)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Sink$OfInt, accept, void, int32_t)},
+	{"accept", "(Ljava/lang/Integer;)V", nullptr, $PUBLIC, $virtualMethod(Sink$OfInt, accept, void, $Integer*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Sink$OfInt, accept, void, Object$*)},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},

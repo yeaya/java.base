@@ -19,10 +19,10 @@ $FieldInfo _AsyncCloseChannel$ServerThread_FieldInfo_[] = {
 };
 
 $MethodInfo _AsyncCloseChannel$ServerThread_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(AsyncCloseChannel$ServerThread::*)()>(&AsyncCloseChannel$ServerThread::init$))},
-	{"interrupt", "()V", nullptr, $PUBLIC},
-	{"run", "()V", nullptr, $PUBLIC},
-	{"runEx", "()V", nullptr, $ABSTRACT, nullptr, "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(AsyncCloseChannel$ServerThread, init$, void)},
+	{"interrupt", "()V", nullptr, $PUBLIC, $virtualMethod(AsyncCloseChannel$ServerThread, interrupt, void)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(AsyncCloseChannel$ServerThread, run, void)},
+	{"runEx", "()V", nullptr, $ABSTRACT, $virtualMethod(AsyncCloseChannel$ServerThread, runEx, void), "java.lang.Exception"},
 	{}
 };
 

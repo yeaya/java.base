@@ -60,8 +60,8 @@ $FieldInfo _UnixSocketFile_FieldInfo_[] = {
 };
 
 $MethodInfo _UnixSocketFile_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(UnixSocketFile::*)()>(&UnixSocketFile::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&UnixSocketFile::main)), "java.lang.InterruptedException,java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(UnixSocketFile, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(UnixSocketFile, main, void, $StringArray*), "java.lang.InterruptedException,java.io.IOException"},
 	{}
 };
 

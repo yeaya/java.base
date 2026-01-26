@@ -54,8 +54,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo JmodFile$Entry$$Lambda$jmodDir::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(JmodFile$Entry$$Lambda$jmodDir::*)()>(&JmodFile$Entry$$Lambda$jmodDir::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(JmodFile$Entry$$Lambda$jmodDir, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JmodFile$Entry$$Lambda$jmodDir, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo JmodFile$Entry$$Lambda$jmodDir::classInfo$ = {
@@ -81,14 +81,14 @@ $FieldInfo _JmodFile$Entry_FieldInfo_[] = {
 };
 
 $MethodInfo _JmodFile$Entry_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/zip/ZipEntry;)V", nullptr, $PRIVATE, $method(static_cast<void(JmodFile$Entry::*)($ZipEntry*)>(&JmodFile$Entry::init$))},
-	{"isDirectory", "()Z", nullptr, $PUBLIC},
-	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"section", "()Ljdk/internal/jmod/JmodFile$Section;", nullptr, $PUBLIC},
-	{"section", "(Ljava/lang/String;)Ljdk/internal/jmod/JmodFile$Section;", nullptr, $STATIC, $method(static_cast<$JmodFile$Section*(*)($String*)>(&JmodFile$Entry::section))},
-	{"size", "()J", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"zipEntry", "()Ljava/util/zip/ZipEntry;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/zip/ZipEntry;)V", nullptr, $PRIVATE, $method(JmodFile$Entry, init$, void, $ZipEntry*)},
+	{"isDirectory", "()Z", nullptr, $PUBLIC, $virtualMethod(JmodFile$Entry, isDirectory, bool)},
+	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JmodFile$Entry, name, $String*)},
+	{"section", "()Ljdk/internal/jmod/JmodFile$Section;", nullptr, $PUBLIC, $virtualMethod(JmodFile$Entry, section, $JmodFile$Section*)},
+	{"section", "(Ljava/lang/String;)Ljdk/internal/jmod/JmodFile$Section;", nullptr, $STATIC, $staticMethod(JmodFile$Entry, section, $JmodFile$Section*, $String*)},
+	{"size", "()J", nullptr, $PUBLIC, $virtualMethod(JmodFile$Entry, size, int64_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JmodFile$Entry, toString, $String*)},
+	{"zipEntry", "()Ljava/util/zip/ZipEntry;", nullptr, $PUBLIC, $virtualMethod(JmodFile$Entry, zipEntry, $ZipEntry*)},
 	{}
 };
 

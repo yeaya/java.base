@@ -23,8 +23,8 @@ $FieldInfo _WeakPairMap$Pair$Weak$1_FieldInfo_[] = {
 };
 
 $MethodInfo _WeakPairMap$Pair$Weak$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/WeakPairMap$Pair$Weak;Ljava/lang/Object;Ljava/lang/ref/ReferenceQueue;)V", nullptr, 0, $method(static_cast<void(WeakPairMap$Pair$Weak$1::*)($WeakPairMap$Pair$Weak*,Object$*,$ReferenceQueue*)>(&WeakPairMap$Pair$Weak$1::init$))},
-	{"weakPair", "()Ljava/lang/WeakPairMap$Pair$Weak;", "()Ljava/lang/WeakPairMap$Pair$Weak<**>;", 0},
+	{"<init>", "(Ljava/lang/WeakPairMap$Pair$Weak;Ljava/lang/Object;Ljava/lang/ref/ReferenceQueue;)V", nullptr, 0, $method(WeakPairMap$Pair$Weak$1, init$, void, $WeakPairMap$Pair$Weak*, Object$*, $ReferenceQueue*)},
+	{"weakPair", "()Ljava/lang/WeakPairMap$Pair$Weak;", "()Ljava/lang/WeakPairMap$Pair$Weak<**>;", 0, $virtualMethod(WeakPairMap$Pair$Weak$1, weakPair, $WeakPairMap$Pair$Weak*)},
 	{}
 };
 

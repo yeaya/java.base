@@ -23,7 +23,7 @@ $FieldInfo _JceKeyStore$PrivateKeyEntry_FieldInfo_[] = {
 };
 
 $MethodInfo _JceKeyStore$PrivateKeyEntry_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(JceKeyStore$PrivateKeyEntry::*)()>(&JceKeyStore$PrivateKeyEntry::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(JceKeyStore$PrivateKeyEntry, init$, void)},
 	{}
 };
 

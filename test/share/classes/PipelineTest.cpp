@@ -97,8 +97,8 @@ $FieldInfo PipelineTest$$Lambda$lambda$t4_failStartPipeline$0::fieldInfos[2] = {
 	{}
 };
 $MethodInfo PipelineTest$$Lambda$lambda$t4_failStartPipeline$0::methodInfos[3] = {
-	{"<init>", "(Ljava/io/File;)V", nullptr, $PUBLIC, $method(static_cast<void(PipelineTest$$Lambda$lambda$t4_failStartPipeline$0::*)($File*)>(&PipelineTest$$Lambda$lambda$t4_failStartPipeline$0::init$))},
-	{"f", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/io/File;)V", nullptr, $PUBLIC, $method(PipelineTest$$Lambda$lambda$t4_failStartPipeline$0, init$, void, $File*)},
+	{"f", "()V", nullptr, $PUBLIC, $virtualMethod(PipelineTest$$Lambda$lambda$t4_failStartPipeline$0, f, void)},
 	{}
 };
 $ClassInfo PipelineTest$$Lambda$lambda$t4_failStartPipeline$0::classInfo$ = {
@@ -137,8 +137,8 @@ $FieldInfo PipelineTest$$Lambda$lambda$t4_failStartPipeline$1$1::fieldInfos[2] =
 	{}
 };
 $MethodInfo PipelineTest$$Lambda$lambda$t4_failStartPipeline$1$1::methodInfos[3] = {
-	{"<init>", "(Ljava/io/File;)V", nullptr, $PUBLIC, $method(static_cast<void(PipelineTest$$Lambda$lambda$t4_failStartPipeline$1$1::*)($File*)>(&PipelineTest$$Lambda$lambda$t4_failStartPipeline$1$1::init$))},
-	{"f", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/io/File;)V", nullptr, $PUBLIC, $method(PipelineTest$$Lambda$lambda$t4_failStartPipeline$1$1, init$, void, $File*)},
+	{"f", "()V", nullptr, $PUBLIC, $virtualMethod(PipelineTest$$Lambda$lambda$t4_failStartPipeline$1$1, f, void)},
 	{}
 };
 $ClassInfo PipelineTest$$Lambda$lambda$t4_failStartPipeline$1$1::classInfo$ = {
@@ -170,8 +170,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo PipelineTest$$Lambda$lambda$t4_failStartPipeline$2$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PipelineTest$$Lambda$lambda$t4_failStartPipeline$2$2::*)()>(&PipelineTest$$Lambda$lambda$t4_failStartPipeline$2$2::init$))},
-	{"f", "()V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PipelineTest$$Lambda$lambda$t4_failStartPipeline$2$2, init$, void)},
+	{"f", "()V", nullptr, $PUBLIC, $virtualMethod(PipelineTest$$Lambda$lambda$t4_failStartPipeline$2$2, f, void)},
 	{}
 };
 $ClassInfo PipelineTest$$Lambda$lambda$t4_failStartPipeline$2$2::classInfo$ = {
@@ -203,8 +203,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo PipelineTest$$Lambda$lambda$t4_failStartPipeline$3$3::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PipelineTest$$Lambda$lambda$t4_failStartPipeline$3$3::*)()>(&PipelineTest$$Lambda$lambda$t4_failStartPipeline$3$3::init$))},
-	{"f", "()V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PipelineTest$$Lambda$lambda$t4_failStartPipeline$3$3, init$, void)},
+	{"f", "()V", nullptr, $PUBLIC, $virtualMethod(PipelineTest$$Lambda$lambda$t4_failStartPipeline$3$3, f, void)},
 	{}
 };
 $ClassInfo PipelineTest$$Lambda$lambda$t4_failStartPipeline$3$3::classInfo$ = {
@@ -236,8 +236,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo PipelineTest$$Lambda$lambda$t4_failStartPipeline$4$4::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PipelineTest$$Lambda$lambda$t4_failStartPipeline$4$4::*)()>(&PipelineTest$$Lambda$lambda$t4_failStartPipeline$4$4::init$))},
-	{"f", "()V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PipelineTest$$Lambda$lambda$t4_failStartPipeline$4$4, init$, void)},
+	{"f", "()V", nullptr, $PUBLIC, $virtualMethod(PipelineTest$$Lambda$lambda$t4_failStartPipeline$4$4, f, void)},
 	{}
 };
 $ClassInfo PipelineTest$$Lambda$lambda$t4_failStartPipeline$4$4::classInfo$ = {
@@ -269,8 +269,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo PipelineTest$$Lambda$print$5::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PipelineTest$$Lambda$print$5::*)()>(&PipelineTest$$Lambda$print$5::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PipelineTest$$Lambda$print$5, init$, void)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(PipelineTest$$Lambda$print$5, accept, void, Object$*)},
 	{}
 };
 $ClassInfo PipelineTest$$Lambda$print$5::classInfo$ = {
@@ -302,8 +302,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo PipelineTest$$Lambda$lambda$t4_failStartPipeline$5$6::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PipelineTest$$Lambda$lambda$t4_failStartPipeline$5$6::*)()>(&PipelineTest$$Lambda$lambda$t4_failStartPipeline$5$6::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PipelineTest$$Lambda$lambda$t4_failStartPipeline$5$6, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(PipelineTest$$Lambda$lambda$t4_failStartPipeline$5$6, test, bool, Object$*)},
 	{}
 };
 $ClassInfo PipelineTest$$Lambda$lambda$t4_failStartPipeline$5$6::classInfo$ = {
@@ -335,8 +335,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo PipelineTest$$Lambda$lambda$t4_failStartPipeline$6$7::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PipelineTest$$Lambda$lambda$t4_failStartPipeline$6$7::*)()>(&PipelineTest$$Lambda$lambda$t4_failStartPipeline$6$7::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PipelineTest$$Lambda$lambda$t4_failStartPipeline$6$7, init$, void)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(PipelineTest$$Lambda$lambda$t4_failStartPipeline$6$7, accept, void, Object$*)},
 	{}
 };
 $ClassInfo PipelineTest$$Lambda$lambda$t4_failStartPipeline$6$7::classInfo$ = {
@@ -368,8 +368,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo PipelineTest$$Lambda$lambda$waitForAll$7$8::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PipelineTest$$Lambda$lambda$waitForAll$7$8::*)()>(&PipelineTest$$Lambda$lambda$waitForAll$7$8::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PipelineTest$$Lambda$lambda$waitForAll$7$8, init$, void)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(PipelineTest$$Lambda$lambda$waitForAll$7$8, accept, void, Object$*)},
 	{}
 };
 $ClassInfo PipelineTest$$Lambda$lambda$waitForAll$7$8::classInfo$ = {
@@ -398,39 +398,39 @@ $FieldInfo _PipelineTest_FieldInfo_[] = {
 };
 
 $MethodInfo _PipelineTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PipelineTest::*)()>(&PipelineTest::init$))},
-	{"THROWS", "(Ljava/lang/Class;[LPipelineTest$Fun;)V", "(Ljava/lang/Class<+Ljava/lang/Throwable;>;[LPipelineTest$Fun;)V", $STATIC | $TRANSIENT, $method(static_cast<void(*)($Class*,$PipelineTest$FunArray*)>(&PipelineTest::THROWS))},
-	{"asList", "([Ljava/lang/Object;)Ljava/util/List;", "<T:Ljava/lang/Object;>([TT;)Ljava/util/List<TT;>;", $STATIC | $TRANSIENT, $method(static_cast<$List*(*)($ObjectArray*)>(&PipelineTest::asList)), nullptr, nullptr, _PipelineTest_MethodAnnotations_asList2},
-	{"check", "(Z)V", nullptr, $STATIC, $method(static_cast<void(*)(bool)>(&PipelineTest::check))},
-	{"check", "(ZLjava/lang/String;)V", nullptr, $STATIC, $method(static_cast<void(*)(bool,$String*)>(&PipelineTest::check))},
-	{"equal", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $STATIC, $method(static_cast<void(*)(Object$*,Object$*)>(&PipelineTest::equal))},
-	{"fail", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&PipelineTest::fail))},
-	{"fail", "(Ljava/lang/String;)V", nullptr, $STATIC, $method(static_cast<void(*)($String*)>(&PipelineTest::fail))},
-	{"fileContents", "(Ljava/io/File;)Ljava/lang/String;", nullptr, $STATIC, $method(static_cast<$String*(*)($File*)>(&PipelineTest::fileContents))},
-	{"lambda$t4_failStartPipeline$0", "(Ljava/io/File;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($File*)>(&PipelineTest::lambda$t4_failStartPipeline$0)), "java.lang.Throwable"},
-	{"lambda$t4_failStartPipeline$1", "(Ljava/io/File;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($File*)>(&PipelineTest::lambda$t4_failStartPipeline$1)), "java.lang.Throwable"},
-	{"lambda$t4_failStartPipeline$2", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)()>(&PipelineTest::lambda$t4_failStartPipeline$2)), "java.lang.Throwable"},
-	{"lambda$t4_failStartPipeline$3", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)()>(&PipelineTest::lambda$t4_failStartPipeline$3)), "java.lang.Throwable"},
-	{"lambda$t4_failStartPipeline$4", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)()>(&PipelineTest::lambda$t4_failStartPipeline$4)), "java.lang.Throwable"},
-	{"lambda$t4_failStartPipeline$5", "(Ljava/lang/ProcessHandle;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($ProcessHandle*)>(&PipelineTest::lambda$t4_failStartPipeline$5))},
-	{"lambda$t4_failStartPipeline$6", "(Ljava/lang/ProcessHandle;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($ProcessHandle*)>(&PipelineTest::lambda$t4_failStartPipeline$6))},
-	{"lambda$waitForAll$7", "(Ljava/lang/Process;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($Process*)>(&PipelineTest::lambda$waitForAll$7))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&PipelineTest::main)), "java.lang.Throwable"},
-	{"pass", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&PipelineTest::pass))},
-	{"print", "(Ljava/lang/ProcessBuilder;)V", nullptr, $STATIC, $method(static_cast<void(*)($ProcessBuilder*)>(&PipelineTest::print))},
-	{"print", "(Ljava/lang/ProcessHandle;)V", nullptr, $STATIC, $method(static_cast<void(*)($ProcessHandle*)>(&PipelineTest::print))},
-	{"realMain", "([Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($StringArray*)>(&PipelineTest::realMain)), "java.lang.Throwable"},
-	{"setFileContents", "(Ljava/io/File;Ljava/lang/String;)V", nullptr, $STATIC, $method(static_cast<void(*)($File*,$String*)>(&PipelineTest::setFileContents))},
-	{"t1_simplePipeline", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&PipelineTest::t1_simplePipeline))},
-	{"t2_translatePipeline", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&PipelineTest::t2_translatePipeline))},
-	{"t3_redirectErrorStream", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&PipelineTest::t3_redirectErrorStream))},
-	{"t4_failStartPipeline", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&PipelineTest::t4_failStartPipeline))},
-	{"unexpected", "(Ljava/lang/Throwable;)V", nullptr, $STATIC, $method(static_cast<void(*)($Throwable*)>(&PipelineTest::unexpected))},
-	{"verify", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/List;)V", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/List<Ljava/lang/ProcessBuilder;>;)V", $STATIC, $method(static_cast<void(*)($String*,$String*,$List*)>(&PipelineTest::verify)), "java.io.IOException"},
-	{"verifyNullStream", "(Ljava/io/OutputStream;Ljava/lang/String;)V", nullptr, $STATIC, $method(static_cast<void(*)($OutputStream*,$String*)>(&PipelineTest::verifyNullStream))},
-	{"verifyNullStream", "(Ljava/io/InputStream;Ljava/lang/String;)V", nullptr, $STATIC, $method(static_cast<void(*)($InputStream*,$String*)>(&PipelineTest::verifyNullStream))},
-	{"verifyProcesses", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/lang/Process;>;)V", $STATIC, $method(static_cast<void(*)($List*)>(&PipelineTest::verifyProcesses))},
-	{"waitForAll", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/lang/Process;>;)V", $STATIC, $method(static_cast<void(*)($List*)>(&PipelineTest::waitForAll))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PipelineTest, init$, void)},
+	{"THROWS", "(Ljava/lang/Class;[LPipelineTest$Fun;)V", "(Ljava/lang/Class<+Ljava/lang/Throwable;>;[LPipelineTest$Fun;)V", $STATIC | $TRANSIENT, $staticMethod(PipelineTest, THROWS, void, $Class*, $PipelineTest$FunArray*)},
+	{"asList", "([Ljava/lang/Object;)Ljava/util/List;", "<T:Ljava/lang/Object;>([TT;)Ljava/util/List<TT;>;", $STATIC | $TRANSIENT, $staticMethod(PipelineTest, asList, $List*, $ObjectArray*), nullptr, nullptr, _PipelineTest_MethodAnnotations_asList2},
+	{"check", "(Z)V", nullptr, $STATIC, $staticMethod(PipelineTest, check, void, bool)},
+	{"check", "(ZLjava/lang/String;)V", nullptr, $STATIC, $staticMethod(PipelineTest, check, void, bool, $String*)},
+	{"equal", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $STATIC, $staticMethod(PipelineTest, equal, void, Object$*, Object$*)},
+	{"fail", "()V", nullptr, $STATIC, $staticMethod(PipelineTest, fail, void)},
+	{"fail", "(Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(PipelineTest, fail, void, $String*)},
+	{"fileContents", "(Ljava/io/File;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(PipelineTest, fileContents, $String*, $File*)},
+	{"lambda$t4_failStartPipeline$0", "(Ljava/io/File;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(PipelineTest, lambda$t4_failStartPipeline$0, void, $File*), "java.lang.Throwable"},
+	{"lambda$t4_failStartPipeline$1", "(Ljava/io/File;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(PipelineTest, lambda$t4_failStartPipeline$1, void, $File*), "java.lang.Throwable"},
+	{"lambda$t4_failStartPipeline$2", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(PipelineTest, lambda$t4_failStartPipeline$2, void), "java.lang.Throwable"},
+	{"lambda$t4_failStartPipeline$3", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(PipelineTest, lambda$t4_failStartPipeline$3, void), "java.lang.Throwable"},
+	{"lambda$t4_failStartPipeline$4", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(PipelineTest, lambda$t4_failStartPipeline$4, void), "java.lang.Throwable"},
+	{"lambda$t4_failStartPipeline$5", "(Ljava/lang/ProcessHandle;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(PipelineTest, lambda$t4_failStartPipeline$5, bool, $ProcessHandle*)},
+	{"lambda$t4_failStartPipeline$6", "(Ljava/lang/ProcessHandle;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(PipelineTest, lambda$t4_failStartPipeline$6, void, $ProcessHandle*)},
+	{"lambda$waitForAll$7", "(Ljava/lang/Process;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(PipelineTest, lambda$waitForAll$7, void, $Process*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(PipelineTest, main, void, $StringArray*), "java.lang.Throwable"},
+	{"pass", "()V", nullptr, $STATIC, $staticMethod(PipelineTest, pass, void)},
+	{"print", "(Ljava/lang/ProcessBuilder;)V", nullptr, $STATIC, $staticMethod(PipelineTest, print, void, $ProcessBuilder*)},
+	{"print", "(Ljava/lang/ProcessHandle;)V", nullptr, $STATIC, $staticMethod(PipelineTest, print, void, $ProcessHandle*)},
+	{"realMain", "([Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(PipelineTest, realMain, void, $StringArray*), "java.lang.Throwable"},
+	{"setFileContents", "(Ljava/io/File;Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(PipelineTest, setFileContents, void, $File*, $String*)},
+	{"t1_simplePipeline", "()V", nullptr, $STATIC, $staticMethod(PipelineTest, t1_simplePipeline, void)},
+	{"t2_translatePipeline", "()V", nullptr, $STATIC, $staticMethod(PipelineTest, t2_translatePipeline, void)},
+	{"t3_redirectErrorStream", "()V", nullptr, $STATIC, $staticMethod(PipelineTest, t3_redirectErrorStream, void)},
+	{"t4_failStartPipeline", "()V", nullptr, $STATIC, $staticMethod(PipelineTest, t4_failStartPipeline, void)},
+	{"unexpected", "(Ljava/lang/Throwable;)V", nullptr, $STATIC, $staticMethod(PipelineTest, unexpected, void, $Throwable*)},
+	{"verify", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/List;)V", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/List<Ljava/lang/ProcessBuilder;>;)V", $STATIC, $staticMethod(PipelineTest, verify, void, $String*, $String*, $List*), "java.io.IOException"},
+	{"verifyNullStream", "(Ljava/io/OutputStream;Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(PipelineTest, verifyNullStream, void, $OutputStream*, $String*)},
+	{"verifyNullStream", "(Ljava/io/InputStream;Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(PipelineTest, verifyNullStream, void, $InputStream*, $String*)},
+	{"verifyProcesses", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/lang/Process;>;)V", $STATIC, $staticMethod(PipelineTest, verifyProcesses, void, $List*)},
+	{"waitForAll", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/lang/Process;>;)V", $STATIC, $staticMethod(PipelineTest, waitForAll, void, $List*)},
 	{}
 };
 

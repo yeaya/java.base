@@ -48,15 +48,15 @@ $FieldInfo _CalendarDataUtility_FieldInfo_[] = {
 };
 
 $MethodInfo _CalendarDataUtility_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(CalendarDataUtility::*)()>(&CalendarDataUtility::init$))},
-	{"findRegionOverride", "(Ljava/util/Locale;)Ljava/util/Locale;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Locale*(*)($Locale*)>(&CalendarDataUtility::findRegionOverride))},
-	{"normalizeCalendarType", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $method(static_cast<$String*(*)($String*)>(&CalendarDataUtility::normalizeCalendarType))},
-	{"retrieveFieldValueName", "(Ljava/lang/String;IIILjava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)($String*,int32_t,int32_t,int32_t,$Locale*)>(&CalendarDataUtility::retrieveFieldValueName))},
-	{"retrieveFieldValueNames", "(Ljava/lang/String;IILjava/util/Locale;)Ljava/util/Map;", "(Ljava/lang/String;IILjava/util/Locale;)Ljava/util/Map<Ljava/lang/String;Ljava/lang/Integer;>;", $PUBLIC | $STATIC, $method(static_cast<$Map*(*)($String*,int32_t,int32_t,$Locale*)>(&CalendarDataUtility::retrieveFieldValueNames))},
-	{"retrieveFirstDayOfWeek", "(Ljava/util/Locale;)I", nullptr, $PUBLIC | $STATIC, $method(static_cast<int32_t(*)($Locale*)>(&CalendarDataUtility::retrieveFirstDayOfWeek))},
-	{"retrieveJavaTimeFieldValueName", "(Ljava/lang/String;IIILjava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)($String*,int32_t,int32_t,int32_t,$Locale*)>(&CalendarDataUtility::retrieveJavaTimeFieldValueName))},
-	{"retrieveJavaTimeFieldValueNames", "(Ljava/lang/String;IILjava/util/Locale;)Ljava/util/Map;", "(Ljava/lang/String;IILjava/util/Locale;)Ljava/util/Map<Ljava/lang/String;Ljava/lang/Integer;>;", $PUBLIC | $STATIC, $method(static_cast<$Map*(*)($String*,int32_t,int32_t,$Locale*)>(&CalendarDataUtility::retrieveJavaTimeFieldValueNames))},
-	{"retrieveMinimalDaysInFirstWeek", "(Ljava/util/Locale;)I", nullptr, $PUBLIC | $STATIC, $method(static_cast<int32_t(*)($Locale*)>(&CalendarDataUtility::retrieveMinimalDaysInFirstWeek))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(CalendarDataUtility, init$, void)},
+	{"findRegionOverride", "(Ljava/util/Locale;)Ljava/util/Locale;", nullptr, $PUBLIC | $STATIC, $staticMethod(CalendarDataUtility, findRegionOverride, $Locale*, $Locale*)},
+	{"normalizeCalendarType", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(CalendarDataUtility, normalizeCalendarType, $String*, $String*)},
+	{"retrieveFieldValueName", "(Ljava/lang/String;IIILjava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(CalendarDataUtility, retrieveFieldValueName, $String*, $String*, int32_t, int32_t, int32_t, $Locale*)},
+	{"retrieveFieldValueNames", "(Ljava/lang/String;IILjava/util/Locale;)Ljava/util/Map;", "(Ljava/lang/String;IILjava/util/Locale;)Ljava/util/Map<Ljava/lang/String;Ljava/lang/Integer;>;", $PUBLIC | $STATIC, $staticMethod(CalendarDataUtility, retrieveFieldValueNames, $Map*, $String*, int32_t, int32_t, $Locale*)},
+	{"retrieveFirstDayOfWeek", "(Ljava/util/Locale;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(CalendarDataUtility, retrieveFirstDayOfWeek, int32_t, $Locale*)},
+	{"retrieveJavaTimeFieldValueName", "(Ljava/lang/String;IIILjava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(CalendarDataUtility, retrieveJavaTimeFieldValueName, $String*, $String*, int32_t, int32_t, int32_t, $Locale*)},
+	{"retrieveJavaTimeFieldValueNames", "(Ljava/lang/String;IILjava/util/Locale;)Ljava/util/Map;", "(Ljava/lang/String;IILjava/util/Locale;)Ljava/util/Map<Ljava/lang/String;Ljava/lang/Integer;>;", $PUBLIC | $STATIC, $staticMethod(CalendarDataUtility, retrieveJavaTimeFieldValueNames, $Map*, $String*, int32_t, int32_t, $Locale*)},
+	{"retrieveMinimalDaysInFirstWeek", "(Ljava/util/Locale;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(CalendarDataUtility, retrieveMinimalDaysInFirstWeek, int32_t, $Locale*)},
 	{}
 };
 

@@ -27,10 +27,10 @@ $FieldInfo _StackWalker$Option_FieldInfo_[] = {
 };
 
 $MethodInfo _StackWalker$Option_MethodInfo_[] = {
-	{"$values", "()[Ljava/lang/StackWalker$Option;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$StackWalker$OptionArray*(*)()>(&StackWalker$Option::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(StackWalker$Option::*)($String*,int32_t)>(&StackWalker$Option::init$))},
-	{"valueOf", "(Ljava/lang/String;)Ljava/lang/StackWalker$Option;", nullptr, $PUBLIC | $STATIC, $method(static_cast<StackWalker$Option*(*)($String*)>(&StackWalker$Option::valueOf))},
-	{"values", "()[Ljava/lang/StackWalker$Option;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$StackWalker$OptionArray*(*)()>(&StackWalker$Option::values))},
+	{"$values", "()[Ljava/lang/StackWalker$Option;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StackWalker$Option, $values, $StackWalker$OptionArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(StackWalker$Option, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Ljava/lang/StackWalker$Option;", nullptr, $PUBLIC | $STATIC, $staticMethod(StackWalker$Option, valueOf, StackWalker$Option*, $String*)},
+	{"values", "()[Ljava/lang/StackWalker$Option;", nullptr, $PUBLIC | $STATIC, $staticMethod(StackWalker$Option, values, $StackWalker$OptionArray*)},
 	{}
 };
 

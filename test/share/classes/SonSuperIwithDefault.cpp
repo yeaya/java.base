@@ -30,8 +30,8 @@ $CompoundAttribute _SonSuperIwithDefault_MethodAnnotations_bazD1[] = {
 };
 
 $MethodInfo _SonSuperIwithDefault_MethodInfo_[] = {
-	{"baz", "()V", nullptr, $PUBLIC | $ABSTRACT, nullptr, nullptr, nullptr, _SonSuperIwithDefault_MethodAnnotations_baz0},
-	{"bazD", "()V", nullptr, $PUBLIC, nullptr, nullptr, nullptr, _SonSuperIwithDefault_MethodAnnotations_bazD1},
+	{"baz", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SonSuperIwithDefault, baz, void), nullptr, nullptr, _SonSuperIwithDefault_MethodAnnotations_baz0},
+	{"bazD", "()V", nullptr, $PUBLIC, $virtualMethod(SonSuperIwithDefault, bazD, void), nullptr, nullptr, _SonSuperIwithDefault_MethodAnnotations_bazD1},
 	{}
 };
 

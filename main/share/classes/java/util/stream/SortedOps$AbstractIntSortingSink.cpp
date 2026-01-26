@@ -22,8 +22,8 @@ $FieldInfo _SortedOps$AbstractIntSortingSink_FieldInfo_[] = {
 };
 
 $MethodInfo _SortedOps$AbstractIntSortingSink_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/stream/Sink;)V", "(Ljava/util/stream/Sink<-Ljava/lang/Integer;>;)V", 0, $method(static_cast<void(SortedOps$AbstractIntSortingSink::*)($Sink*)>(&SortedOps$AbstractIntSortingSink::init$))},
-	{"cancellationRequested", "()Z", nullptr, $PUBLIC | $FINAL},
+	{"<init>", "(Ljava/util/stream/Sink;)V", "(Ljava/util/stream/Sink<-Ljava/lang/Integer;>;)V", 0, $method(SortedOps$AbstractIntSortingSink, init$, void, $Sink*)},
+	{"cancellationRequested", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(SortedOps$AbstractIntSortingSink, cancellationRequested, bool)},
 	{}
 };
 

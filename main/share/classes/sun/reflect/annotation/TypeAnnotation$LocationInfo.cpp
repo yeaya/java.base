@@ -36,17 +36,17 @@ $FieldInfo _TypeAnnotation$LocationInfo_FieldInfo_[] = {
 };
 
 $MethodInfo _TypeAnnotation$LocationInfo_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(TypeAnnotation$LocationInfo::*)()>(&TypeAnnotation$LocationInfo::init$))},
-	{"<init>", "(I[Lsun/reflect/annotation/TypeAnnotation$LocationInfo$Location;)V", nullptr, $PRIVATE, $method(static_cast<void(TypeAnnotation$LocationInfo::*)(int32_t,$TypeAnnotation$LocationInfo$LocationArray*)>(&TypeAnnotation$LocationInfo::init$))},
-	{"filter", "([Lsun/reflect/annotation/TypeAnnotation;)[Lsun/reflect/annotation/TypeAnnotation;", nullptr, $PUBLIC, $method(static_cast<$TypeAnnotationArray*(TypeAnnotation$LocationInfo::*)($TypeAnnotationArray*)>(&TypeAnnotation$LocationInfo::filter))},
-	{"isSameLocationInfo", "(Lsun/reflect/annotation/TypeAnnotation$LocationInfo;)Z", nullptr, 0, $method(static_cast<bool(TypeAnnotation$LocationInfo::*)(TypeAnnotation$LocationInfo*)>(&TypeAnnotation$LocationInfo::isSameLocationInfo))},
-	{"parseLocationInfo", "(Ljava/nio/ByteBuffer;)Lsun/reflect/annotation/TypeAnnotation$LocationInfo;", nullptr, $PUBLIC | $STATIC, $method(static_cast<TypeAnnotation$LocationInfo*(*)($ByteBuffer*)>(&TypeAnnotation$LocationInfo::parseLocationInfo))},
-	{"popLocation", "(B)Lsun/reflect/annotation/TypeAnnotation$LocationInfo;", nullptr, $PUBLIC, $method(static_cast<TypeAnnotation$LocationInfo*(TypeAnnotation$LocationInfo::*)(int8_t)>(&TypeAnnotation$LocationInfo::popLocation))},
-	{"pushArray", "()Lsun/reflect/annotation/TypeAnnotation$LocationInfo;", nullptr, $PUBLIC, $method(static_cast<TypeAnnotation$LocationInfo*(TypeAnnotation$LocationInfo::*)()>(&TypeAnnotation$LocationInfo::pushArray))},
-	{"pushInner", "()Lsun/reflect/annotation/TypeAnnotation$LocationInfo;", nullptr, $PUBLIC, $method(static_cast<TypeAnnotation$LocationInfo*(TypeAnnotation$LocationInfo::*)()>(&TypeAnnotation$LocationInfo::pushInner))},
-	{"pushLocation", "(BS)Lsun/reflect/annotation/TypeAnnotation$LocationInfo;", nullptr, $PUBLIC, $method(static_cast<TypeAnnotation$LocationInfo*(TypeAnnotation$LocationInfo::*)(int8_t,int16_t)>(&TypeAnnotation$LocationInfo::pushLocation))},
-	{"pushTypeArg", "(S)Lsun/reflect/annotation/TypeAnnotation$LocationInfo;", nullptr, $PUBLIC, $method(static_cast<TypeAnnotation$LocationInfo*(TypeAnnotation$LocationInfo::*)(int16_t)>(&TypeAnnotation$LocationInfo::pushTypeArg))},
-	{"pushWildcard", "()Lsun/reflect/annotation/TypeAnnotation$LocationInfo;", nullptr, $PUBLIC, $method(static_cast<TypeAnnotation$LocationInfo*(TypeAnnotation$LocationInfo::*)()>(&TypeAnnotation$LocationInfo::pushWildcard))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(TypeAnnotation$LocationInfo, init$, void)},
+	{"<init>", "(I[Lsun/reflect/annotation/TypeAnnotation$LocationInfo$Location;)V", nullptr, $PRIVATE, $method(TypeAnnotation$LocationInfo, init$, void, int32_t, $TypeAnnotation$LocationInfo$LocationArray*)},
+	{"filter", "([Lsun/reflect/annotation/TypeAnnotation;)[Lsun/reflect/annotation/TypeAnnotation;", nullptr, $PUBLIC, $method(TypeAnnotation$LocationInfo, filter, $TypeAnnotationArray*, $TypeAnnotationArray*)},
+	{"isSameLocationInfo", "(Lsun/reflect/annotation/TypeAnnotation$LocationInfo;)Z", nullptr, 0, $method(TypeAnnotation$LocationInfo, isSameLocationInfo, bool, TypeAnnotation$LocationInfo*)},
+	{"parseLocationInfo", "(Ljava/nio/ByteBuffer;)Lsun/reflect/annotation/TypeAnnotation$LocationInfo;", nullptr, $PUBLIC | $STATIC, $staticMethod(TypeAnnotation$LocationInfo, parseLocationInfo, TypeAnnotation$LocationInfo*, $ByteBuffer*)},
+	{"popLocation", "(B)Lsun/reflect/annotation/TypeAnnotation$LocationInfo;", nullptr, $PUBLIC, $method(TypeAnnotation$LocationInfo, popLocation, TypeAnnotation$LocationInfo*, int8_t)},
+	{"pushArray", "()Lsun/reflect/annotation/TypeAnnotation$LocationInfo;", nullptr, $PUBLIC, $method(TypeAnnotation$LocationInfo, pushArray, TypeAnnotation$LocationInfo*)},
+	{"pushInner", "()Lsun/reflect/annotation/TypeAnnotation$LocationInfo;", nullptr, $PUBLIC, $method(TypeAnnotation$LocationInfo, pushInner, TypeAnnotation$LocationInfo*)},
+	{"pushLocation", "(BS)Lsun/reflect/annotation/TypeAnnotation$LocationInfo;", nullptr, $PUBLIC, $method(TypeAnnotation$LocationInfo, pushLocation, TypeAnnotation$LocationInfo*, int8_t, int16_t)},
+	{"pushTypeArg", "(S)Lsun/reflect/annotation/TypeAnnotation$LocationInfo;", nullptr, $PUBLIC, $method(TypeAnnotation$LocationInfo, pushTypeArg, TypeAnnotation$LocationInfo*, int16_t)},
+	{"pushWildcard", "()Lsun/reflect/annotation/TypeAnnotation$LocationInfo;", nullptr, $PUBLIC, $method(TypeAnnotation$LocationInfo, pushWildcard, TypeAnnotation$LocationInfo*)},
 	{}
 };
 

@@ -10,9 +10,9 @@ namespace sun {
 		namespace ch {
 
 $MethodInfo _NativeThread_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(NativeThread::*)()>(&NativeThread::init$))},
-	{"current", "()J", nullptr, $STATIC, $method(static_cast<int64_t(*)()>(&NativeThread::current))},
-	{"signal", "(J)V", nullptr, $STATIC, $method(static_cast<void(*)(int64_t)>(&NativeThread::signal))},
+	{"<init>", "()V", nullptr, 0, $method(NativeThread, init$, void)},
+	{"current", "()J", nullptr, $STATIC, $staticMethod(NativeThread, current, int64_t)},
+	{"signal", "(J)V", nullptr, $STATIC, $staticMethod(NativeThread, signal, void, int64_t)},
 	{}
 };
 

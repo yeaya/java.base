@@ -60,13 +60,13 @@ $FieldInfo _PKIX$BuilderParams_FieldInfo_[] = {
 };
 
 $MethodInfo _PKIX$BuilderParams_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/cert/PKIXBuilderParameters;)V", nullptr, 0, $method(static_cast<void(PKIX$BuilderParams::*)($PKIXBuilderParameters*)>(&PKIX$BuilderParams::init$)), "java.security.InvalidAlgorithmParameterException"},
-	{"certStores", "()Ljava/util/List;", "()Ljava/util/List<Ljava/security/cert/CertStore;>;", 0},
-	{"checkParams", "(Ljava/security/cert/PKIXBuilderParameters;)V", nullptr, $PRIVATE, $method(static_cast<void(PKIX$BuilderParams::*)($PKIXBuilderParameters*)>(&PKIX$BuilderParams::checkParams)), "java.security.InvalidAlgorithmParameterException"},
-	{"getTargetSubject", "(Ljava/util/List;Ljava/security/cert/X509CertSelector;)Ljavax/security/auth/x500/X500Principal;", "(Ljava/util/List<Ljava/security/cert/CertStore;>;Ljava/security/cert/X509CertSelector;)Ljavax/security/auth/x500/X500Principal;", $PRIVATE | $STATIC, $method(static_cast<$X500Principal*(*)($List*,$X509CertSelector*)>(&PKIX$BuilderParams::getTargetSubject)), "java.security.InvalidAlgorithmParameterException"},
-	{"maxPathLength", "()I", nullptr, 0},
-	{"params", "()Ljava/security/cert/PKIXBuilderParameters;", nullptr, 0},
-	{"targetSubject", "()Ljavax/security/auth/x500/X500Principal;", nullptr, 0},
+	{"<init>", "(Ljava/security/cert/PKIXBuilderParameters;)V", nullptr, 0, $method(PKIX$BuilderParams, init$, void, $PKIXBuilderParameters*), "java.security.InvalidAlgorithmParameterException"},
+	{"certStores", "()Ljava/util/List;", "()Ljava/util/List<Ljava/security/cert/CertStore;>;", 0, $virtualMethod(PKIX$BuilderParams, certStores, $List*)},
+	{"checkParams", "(Ljava/security/cert/PKIXBuilderParameters;)V", nullptr, $PRIVATE, $method(PKIX$BuilderParams, checkParams, void, $PKIXBuilderParameters*), "java.security.InvalidAlgorithmParameterException"},
+	{"getTargetSubject", "(Ljava/util/List;Ljava/security/cert/X509CertSelector;)Ljavax/security/auth/x500/X500Principal;", "(Ljava/util/List<Ljava/security/cert/CertStore;>;Ljava/security/cert/X509CertSelector;)Ljavax/security/auth/x500/X500Principal;", $PRIVATE | $STATIC, $staticMethod(PKIX$BuilderParams, getTargetSubject, $X500Principal*, $List*, $X509CertSelector*), "java.security.InvalidAlgorithmParameterException"},
+	{"maxPathLength", "()I", nullptr, 0, $virtualMethod(PKIX$BuilderParams, maxPathLength, int32_t)},
+	{"params", "()Ljava/security/cert/PKIXBuilderParameters;", nullptr, 0, $virtualMethod(PKIX$BuilderParams, params, $PKIXBuilderParameters*)},
+	{"targetSubject", "()Ljavax/security/auth/x500/X500Principal;", nullptr, 0, $virtualMethod(PKIX$BuilderParams, targetSubject, $X500Principal*)},
 	{}
 };
 

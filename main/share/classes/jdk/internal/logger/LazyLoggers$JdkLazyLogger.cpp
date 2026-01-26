@@ -21,8 +21,8 @@ namespace jdk {
 		namespace logger {
 
 $MethodInfo _LazyLoggers$JdkLazyLogger_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Module;)V", nullptr, 0, $method(static_cast<void(LazyLoggers$JdkLazyLogger::*)($String*,$Module*)>(&LazyLoggers$JdkLazyLogger::init$))},
-	{"<init>", "(Ljdk/internal/logger/LazyLoggers$LazyLoggerAccessor;Ljava/lang/Void;)V", nullptr, $PRIVATE, $method(static_cast<void(LazyLoggers$JdkLazyLogger::*)($LazyLoggers$LazyLoggerAccessor*,$Void*)>(&LazyLoggers$JdkLazyLogger::init$))},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Module;)V", nullptr, 0, $method(LazyLoggers$JdkLazyLogger, init$, void, $String*, $Module*)},
+	{"<init>", "(Ljdk/internal/logger/LazyLoggers$LazyLoggerAccessor;Ljava/lang/Void;)V", nullptr, $PRIVATE, $method(LazyLoggers$JdkLazyLogger, init$, void, $LazyLoggers$LazyLoggerAccessor*, $Void*)},
 	{}
 };
 

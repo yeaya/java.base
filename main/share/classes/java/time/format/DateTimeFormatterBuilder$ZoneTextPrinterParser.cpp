@@ -131,8 +131,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo DateTimeFormatterBuilder$ZoneTextPrinterParser$$Lambda$lambda$getTree$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DateTimeFormatterBuilder$ZoneTextPrinterParser$$Lambda$lambda$getTree$0::*)()>(&DateTimeFormatterBuilder$ZoneTextPrinterParser$$Lambda$lambda$getTree$0::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DateTimeFormatterBuilder$ZoneTextPrinterParser$$Lambda$lambda$getTree$0, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$ZoneTextPrinterParser$$Lambda$lambda$getTree$0, test, bool, Object$*)},
 	{}
 };
 $ClassInfo DateTimeFormatterBuilder$ZoneTextPrinterParser$$Lambda$lambda$getTree$0::classInfo$ = {
@@ -177,8 +177,8 @@ $FieldInfo DateTimeFormatterBuilder$ZoneTextPrinterParser$$Lambda$lambda$getTree
 	{}
 };
 $MethodInfo DateTimeFormatterBuilder$ZoneTextPrinterParser$$Lambda$lambda$getTree$1$1::methodInfos[3] = {
-	{"<init>", "(Ljava/time/format/DateTimeFormatterBuilder$ZoneTextPrinterParser;Ljava/util/Locale;Ljava/time/format/DateTimeFormatterBuilder$PrefixTree;)V", nullptr, $PUBLIC, $method(static_cast<void(DateTimeFormatterBuilder$ZoneTextPrinterParser$$Lambda$lambda$getTree$1$1::*)(DateTimeFormatterBuilder$ZoneTextPrinterParser*,$Locale*,$DateTimeFormatterBuilder$PrefixTree*)>(&DateTimeFormatterBuilder$ZoneTextPrinterParser$$Lambda$lambda$getTree$1$1::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/time/format/DateTimeFormatterBuilder$ZoneTextPrinterParser;Ljava/util/Locale;Ljava/time/format/DateTimeFormatterBuilder$PrefixTree;)V", nullptr, $PUBLIC, $method(DateTimeFormatterBuilder$ZoneTextPrinterParser$$Lambda$lambda$getTree$1$1, init$, void, DateTimeFormatterBuilder$ZoneTextPrinterParser*, $Locale*, $DateTimeFormatterBuilder$PrefixTree*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$ZoneTextPrinterParser$$Lambda$lambda$getTree$1$1, accept, void, Object$*)},
 	{}
 };
 $ClassInfo DateTimeFormatterBuilder$ZoneTextPrinterParser$$Lambda$lambda$getTree$1$1::classInfo$ = {
@@ -209,12 +209,12 @@ $FieldInfo _DateTimeFormatterBuilder$ZoneTextPrinterParser_FieldInfo_[] = {
 };
 
 $MethodInfo _DateTimeFormatterBuilder$ZoneTextPrinterParser_MethodInfo_[] = {
-	{"<init>", "(Ljava/time/format/TextStyle;Ljava/util/Set;Z)V", "(Ljava/time/format/TextStyle;Ljava/util/Set<Ljava/time/ZoneId;>;Z)V", 0, $method(static_cast<void(DateTimeFormatterBuilder$ZoneTextPrinterParser::*)($TextStyle*,$Set*,bool)>(&DateTimeFormatterBuilder$ZoneTextPrinterParser::init$))},
-	{"format", "(Ljava/time/format/DateTimePrintContext;Ljava/lang/StringBuilder;)Z", nullptr, $PUBLIC},
-	{"getDisplayName", "(Ljava/lang/String;ILjava/util/Locale;)Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(DateTimeFormatterBuilder$ZoneTextPrinterParser::*)($String*,int32_t,$Locale*)>(&DateTimeFormatterBuilder$ZoneTextPrinterParser::getDisplayName))},
-	{"getTree", "(Ljava/time/format/DateTimeParseContext;)Ljava/time/format/DateTimeFormatterBuilder$PrefixTree;", nullptr, $PROTECTED},
-	{"lambda$getTree$0", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($String*)>(&DateTimeFormatterBuilder$ZoneTextPrinterParser::lambda$getTree$0))},
-	{"lambda$getTree$1", "(Ljava/util/Locale;Ljava/time/format/DateTimeFormatterBuilder$PrefixTree;Ljava/lang/String;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(DateTimeFormatterBuilder$ZoneTextPrinterParser::*)($Locale*,$DateTimeFormatterBuilder$PrefixTree*,$String*)>(&DateTimeFormatterBuilder$ZoneTextPrinterParser::lambda$getTree$1))},
+	{"<init>", "(Ljava/time/format/TextStyle;Ljava/util/Set;Z)V", "(Ljava/time/format/TextStyle;Ljava/util/Set<Ljava/time/ZoneId;>;Z)V", 0, $method(DateTimeFormatterBuilder$ZoneTextPrinterParser, init$, void, $TextStyle*, $Set*, bool)},
+	{"format", "(Ljava/time/format/DateTimePrintContext;Ljava/lang/StringBuilder;)Z", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$ZoneTextPrinterParser, format, bool, $DateTimePrintContext*, $StringBuilder*)},
+	{"getDisplayName", "(Ljava/lang/String;ILjava/util/Locale;)Ljava/lang/String;", nullptr, $PRIVATE, $method(DateTimeFormatterBuilder$ZoneTextPrinterParser, getDisplayName, $String*, $String*, int32_t, $Locale*)},
+	{"getTree", "(Ljava/time/format/DateTimeParseContext;)Ljava/time/format/DateTimeFormatterBuilder$PrefixTree;", nullptr, $PROTECTED, $virtualMethod(DateTimeFormatterBuilder$ZoneTextPrinterParser, getTree, $DateTimeFormatterBuilder$PrefixTree*, $DateTimeParseContext*)},
+	{"lambda$getTree$0", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DateTimeFormatterBuilder$ZoneTextPrinterParser, lambda$getTree$0, bool, $String*)},
+	{"lambda$getTree$1", "(Ljava/util/Locale;Ljava/time/format/DateTimeFormatterBuilder$PrefixTree;Ljava/lang/String;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(DateTimeFormatterBuilder$ZoneTextPrinterParser, lambda$getTree$1, void, $Locale*, $DateTimeFormatterBuilder$PrefixTree*, $String*)},
 	{}
 };
 

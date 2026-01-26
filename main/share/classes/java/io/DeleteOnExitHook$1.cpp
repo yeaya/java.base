@@ -13,8 +13,8 @@ namespace java {
 	namespace io {
 
 $MethodInfo _DeleteOnExitHook$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(DeleteOnExitHook$1::*)()>(&DeleteOnExitHook$1::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(DeleteOnExitHook$1, init$, void)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(DeleteOnExitHook$1, run, void)},
 	{}
 };
 

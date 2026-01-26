@@ -20,13 +20,13 @@ $FieldInfo _EventFD_FieldInfo_[] = {
 };
 
 $MethodInfo _EventFD_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(EventFD::*)()>(&EventFD::init$)), "java.io.IOException"},
-	{"close", "()V", nullptr, 0, $method(static_cast<void(EventFD::*)()>(&EventFD::close)), "java.io.IOException"},
-	{"efd", "()I", nullptr, 0, $method(static_cast<int32_t(EventFD::*)()>(&EventFD::efd))},
-	{"eventfd0", "()I", nullptr, $PRIVATE | $STATIC | $NATIVE, $method(static_cast<int32_t(*)()>(&EventFD::eventfd0)), "java.io.IOException"},
-	{"reset", "()V", nullptr, 0, $method(static_cast<void(EventFD::*)()>(&EventFD::reset)), "java.io.IOException"},
-	{"set", "()V", nullptr, 0, $method(static_cast<void(EventFD::*)()>(&EventFD::set)), "java.io.IOException"},
-	{"set0", "(I)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $method(static_cast<int32_t(*)(int32_t)>(&EventFD::set0)), "java.io.IOException"},
+	{"<init>", "()V", nullptr, 0, $method(EventFD, init$, void), "java.io.IOException"},
+	{"close", "()V", nullptr, 0, $method(EventFD, close, void), "java.io.IOException"},
+	{"efd", "()I", nullptr, 0, $method(EventFD, efd, int32_t)},
+	{"eventfd0", "()I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(EventFD, eventfd0, int32_t), "java.io.IOException"},
+	{"reset", "()V", nullptr, 0, $method(EventFD, reset, void), "java.io.IOException"},
+	{"set", "()V", nullptr, 0, $method(EventFD, set, void), "java.io.IOException"},
+	{"set0", "(I)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(EventFD, set0, int32_t, int32_t), "java.io.IOException"},
 	{}
 };
 

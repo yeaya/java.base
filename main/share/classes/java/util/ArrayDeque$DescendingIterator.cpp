@@ -28,10 +28,10 @@ $FieldInfo _ArrayDeque$DescendingIterator_FieldInfo_[] = {
 };
 
 $MethodInfo _ArrayDeque$DescendingIterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/ArrayDeque;)V", nullptr, 0, $method(static_cast<void(ArrayDeque$DescendingIterator::*)($ArrayDeque*)>(&ArrayDeque$DescendingIterator::init$))},
-	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC | $FINAL},
-	{"next", "()Ljava/lang/Object;", "()TE;", $PUBLIC | $FINAL},
-	{"postDelete", "(Z)V", nullptr, 0},
+	{"<init>", "(Ljava/util/ArrayDeque;)V", nullptr, 0, $method(ArrayDeque$DescendingIterator, init$, void, $ArrayDeque*)},
+	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC | $FINAL, $virtualMethod(ArrayDeque$DescendingIterator, forEachRemaining, void, $Consumer*)},
+	{"next", "()Ljava/lang/Object;", "()TE;", $PUBLIC | $FINAL, $virtualMethod(ArrayDeque$DescendingIterator, next, $Object*)},
+	{"postDelete", "(Z)V", nullptr, 0, $virtualMethod(ArrayDeque$DescendingIterator, postDelete, void, bool)},
 	{}
 };
 

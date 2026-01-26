@@ -17,7 +17,7 @@ $FieldInfo _UnresolvedAddressException_FieldInfo_[] = {
 };
 
 $MethodInfo _UnresolvedAddressException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(UnresolvedAddressException::*)()>(&UnresolvedAddressException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(UnresolvedAddressException, init$, void)},
 	{}
 };
 

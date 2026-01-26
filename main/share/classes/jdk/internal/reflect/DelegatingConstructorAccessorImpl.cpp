@@ -18,9 +18,9 @@ $FieldInfo _DelegatingConstructorAccessorImpl_FieldInfo_[] = {
 };
 
 $MethodInfo _DelegatingConstructorAccessorImpl_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/reflect/ConstructorAccessorImpl;)V", nullptr, 0, $method(static_cast<void(DelegatingConstructorAccessorImpl::*)($ConstructorAccessorImpl*)>(&DelegatingConstructorAccessorImpl::init$))},
-	{"newInstance", "([Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, nullptr, "java.lang.InstantiationException,java.lang.IllegalArgumentException,java.lang.reflect.InvocationTargetException"},
-	{"setDelegate", "(Ljdk/internal/reflect/ConstructorAccessorImpl;)V", nullptr, 0},
+	{"<init>", "(Ljdk/internal/reflect/ConstructorAccessorImpl;)V", nullptr, 0, $method(DelegatingConstructorAccessorImpl, init$, void, $ConstructorAccessorImpl*)},
+	{"newInstance", "([Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DelegatingConstructorAccessorImpl, newInstance, $Object*, $ObjectArray*), "java.lang.InstantiationException,java.lang.IllegalArgumentException,java.lang.reflect.InvocationTargetException"},
+	{"setDelegate", "(Ljdk/internal/reflect/ConstructorAccessorImpl;)V", nullptr, 0, $virtualMethod(DelegatingConstructorAccessorImpl, setDelegate, void, $ConstructorAccessorImpl*)},
 	{}
 };
 

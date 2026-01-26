@@ -8,7 +8,7 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _GetAnnotatedNestedSuperclass$X_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(GetAnnotatedNestedSuperclass$X::*)()>(&GetAnnotatedNestedSuperclass$X::init$))},
+	{"<init>", "()V", nullptr, 0, $method(GetAnnotatedNestedSuperclass$X, init$, void)},
 	{}
 };
 

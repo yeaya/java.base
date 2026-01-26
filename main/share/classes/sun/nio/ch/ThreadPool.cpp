@@ -79,8 +79,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ThreadPool$$Lambda$lambda$defaultThreadFactory$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ThreadPool$$Lambda$lambda$defaultThreadFactory$0::*)()>(&ThreadPool$$Lambda$lambda$defaultThreadFactory$0::init$))},
-	{"newThread", "(Ljava/lang/Runnable;)Ljava/lang/Thread;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ThreadPool$$Lambda$lambda$defaultThreadFactory$0, init$, void)},
+	{"newThread", "(Ljava/lang/Runnable;)Ljava/lang/Thread;", nullptr, $PUBLIC, $virtualMethod(ThreadPool$$Lambda$lambda$defaultThreadFactory$0, newThread, $Thread*, $Runnable*)},
 	{}
 };
 $ClassInfo ThreadPool$$Lambda$lambda$defaultThreadFactory$0::classInfo$ = {
@@ -112,8 +112,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ThreadPool$$Lambda$lambda$defaultThreadFactory$2$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ThreadPool$$Lambda$lambda$defaultThreadFactory$2$1::*)()>(&ThreadPool$$Lambda$lambda$defaultThreadFactory$2$1::init$))},
-	{"newThread", "(Ljava/lang/Runnable;)Ljava/lang/Thread;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ThreadPool$$Lambda$lambda$defaultThreadFactory$2$1, init$, void)},
+	{"newThread", "(Ljava/lang/Runnable;)Ljava/lang/Thread;", nullptr, $PUBLIC, $virtualMethod(ThreadPool$$Lambda$lambda$defaultThreadFactory$2$1, newThread, $Thread*, $Runnable*)},
 	{}
 };
 $ClassInfo ThreadPool$$Lambda$lambda$defaultThreadFactory$2$1::classInfo$ = {
@@ -152,8 +152,8 @@ $FieldInfo ThreadPool$$Lambda$lambda$defaultThreadFactory$1$2::fieldInfos[2] = {
 	{}
 };
 $MethodInfo ThreadPool$$Lambda$lambda$defaultThreadFactory$1$2::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/Runnable;)V", nullptr, $PUBLIC, $method(static_cast<void(ThreadPool$$Lambda$lambda$defaultThreadFactory$1$2::*)($Runnable*)>(&ThreadPool$$Lambda$lambda$defaultThreadFactory$1$2::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Runnable;)V", nullptr, $PUBLIC, $method(ThreadPool$$Lambda$lambda$defaultThreadFactory$1$2, init$, void, $Runnable*)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ThreadPool$$Lambda$lambda$defaultThreadFactory$1$2, run, $Object*)},
 	{}
 };
 $ClassInfo ThreadPool$$Lambda$lambda$defaultThreadFactory$1$2::classInfo$ = {
@@ -180,20 +180,20 @@ $FieldInfo _ThreadPool_FieldInfo_[] = {
 };
 
 $MethodInfo _ThreadPool_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/ExecutorService;ZI)V", nullptr, $PRIVATE, $method(static_cast<void(ThreadPool::*)($ExecutorService*,bool,int32_t)>(&ThreadPool::init$))},
-	{"create", "(ILjava/util/concurrent/ThreadFactory;)Lsun/nio/ch/ThreadPool;", nullptr, $STATIC, $method(static_cast<ThreadPool*(*)(int32_t,$ThreadFactory*)>(&ThreadPool::create))},
-	{"createDefault", "()Lsun/nio/ch/ThreadPool;", nullptr, $STATIC, $method(static_cast<ThreadPool*(*)()>(&ThreadPool::createDefault))},
-	{"defaultThreadFactory", "()Ljava/util/concurrent/ThreadFactory;", nullptr, $STATIC, $method(static_cast<$ThreadFactory*(*)()>(&ThreadPool::defaultThreadFactory))},
-	{"executor", "()Ljava/util/concurrent/ExecutorService;", nullptr, 0},
-	{"getDefault", "()Lsun/nio/ch/ThreadPool;", nullptr, $STATIC, $method(static_cast<ThreadPool*(*)()>(&ThreadPool::getDefault))},
-	{"getDefaultThreadPoolInitialSize", "()I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)()>(&ThreadPool::getDefaultThreadPoolInitialSize))},
-	{"getDefaultThreadPoolThreadFactory", "()Ljava/util/concurrent/ThreadFactory;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$ThreadFactory*(*)()>(&ThreadPool::getDefaultThreadPoolThreadFactory))},
-	{"isFixedThreadPool", "()Z", nullptr, 0},
-	{"lambda$defaultThreadFactory$0", "(Ljava/lang/Runnable;)Ljava/lang/Thread;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Thread*(*)($Runnable*)>(&ThreadPool::lambda$defaultThreadFactory$0))},
-	{"lambda$defaultThreadFactory$1", "(Ljava/lang/Runnable;)Ljava/lang/Thread;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Thread*(*)($Runnable*)>(&ThreadPool::lambda$defaultThreadFactory$1))},
-	{"lambda$defaultThreadFactory$2", "(Ljava/lang/Runnable;)Ljava/lang/Thread;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Thread*(*)($Runnable*)>(&ThreadPool::lambda$defaultThreadFactory$2))},
-	{"poolSize", "()I", nullptr, 0},
-	{"wrap", "(Ljava/util/concurrent/ExecutorService;I)Lsun/nio/ch/ThreadPool;", nullptr, $PUBLIC | $STATIC, $method(static_cast<ThreadPool*(*)($ExecutorService*,int32_t)>(&ThreadPool::wrap))},
+	{"<init>", "(Ljava/util/concurrent/ExecutorService;ZI)V", nullptr, $PRIVATE, $method(ThreadPool, init$, void, $ExecutorService*, bool, int32_t)},
+	{"create", "(ILjava/util/concurrent/ThreadFactory;)Lsun/nio/ch/ThreadPool;", nullptr, $STATIC, $staticMethod(ThreadPool, create, ThreadPool*, int32_t, $ThreadFactory*)},
+	{"createDefault", "()Lsun/nio/ch/ThreadPool;", nullptr, $STATIC, $staticMethod(ThreadPool, createDefault, ThreadPool*)},
+	{"defaultThreadFactory", "()Ljava/util/concurrent/ThreadFactory;", nullptr, $STATIC, $staticMethod(ThreadPool, defaultThreadFactory, $ThreadFactory*)},
+	{"executor", "()Ljava/util/concurrent/ExecutorService;", nullptr, 0, $virtualMethod(ThreadPool, executor, $ExecutorService*)},
+	{"getDefault", "()Lsun/nio/ch/ThreadPool;", nullptr, $STATIC, $staticMethod(ThreadPool, getDefault, ThreadPool*)},
+	{"getDefaultThreadPoolInitialSize", "()I", nullptr, $PRIVATE | $STATIC, $staticMethod(ThreadPool, getDefaultThreadPoolInitialSize, int32_t)},
+	{"getDefaultThreadPoolThreadFactory", "()Ljava/util/concurrent/ThreadFactory;", nullptr, $PRIVATE | $STATIC, $staticMethod(ThreadPool, getDefaultThreadPoolThreadFactory, $ThreadFactory*)},
+	{"isFixedThreadPool", "()Z", nullptr, 0, $virtualMethod(ThreadPool, isFixedThreadPool, bool)},
+	{"lambda$defaultThreadFactory$0", "(Ljava/lang/Runnable;)Ljava/lang/Thread;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ThreadPool, lambda$defaultThreadFactory$0, $Thread*, $Runnable*)},
+	{"lambda$defaultThreadFactory$1", "(Ljava/lang/Runnable;)Ljava/lang/Thread;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ThreadPool, lambda$defaultThreadFactory$1, $Thread*, $Runnable*)},
+	{"lambda$defaultThreadFactory$2", "(Ljava/lang/Runnable;)Ljava/lang/Thread;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ThreadPool, lambda$defaultThreadFactory$2, $Thread*, $Runnable*)},
+	{"poolSize", "()I", nullptr, 0, $virtualMethod(ThreadPool, poolSize, int32_t)},
+	{"wrap", "(Ljava/util/concurrent/ExecutorService;I)Lsun/nio/ch/ThreadPool;", nullptr, $PUBLIC | $STATIC, $staticMethod(ThreadPool, wrap, ThreadPool*, $ExecutorService*, int32_t)},
 	{}
 };
 

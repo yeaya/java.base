@@ -9,12 +9,12 @@ using $Exception = ::java::lang::Exception;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _Regex_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Regex::*)()>(&Regex::init$))},
-	{"ck", "(ZZ)V", nullptr, $STATIC, $method(static_cast<void(*)(bool,bool)>(&Regex::ck)), "java.lang.Exception"},
-	{"ck", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $STATIC, $method(static_cast<void(*)($String*,$String*)>(&Regex::ck)), "java.lang.Exception"},
-	{"ck", "([Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $STATIC, $method(static_cast<void(*)($StringArray*,$StringArray*)>(&Regex::ck)), "java.lang.Exception"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Regex::main)), "java.lang.Exception"},
-	{"testLiteralReplacement", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&Regex::testLiteralReplacement)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Regex, init$, void)},
+	{"ck", "(ZZ)V", nullptr, $STATIC, $staticMethod(Regex, ck, void, bool, bool), "java.lang.Exception"},
+	{"ck", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(Regex, ck, void, $String*, $String*), "java.lang.Exception"},
+	{"ck", "([Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(Regex, ck, void, $StringArray*, $StringArray*), "java.lang.Exception"},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Regex, main, void, $StringArray*), "java.lang.Exception"},
+	{"testLiteralReplacement", "()V", nullptr, $STATIC, $staticMethod(Regex, testLiteralReplacement, void), "java.lang.Exception"},
 	{}
 };
 

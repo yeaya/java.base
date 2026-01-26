@@ -16,9 +16,9 @@ $FieldInfo _GenerifyStackTraces$DumpThread_FieldInfo_[] = {
 };
 
 $MethodInfo _GenerifyStackTraces$DumpThread_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(GenerifyStackTraces$DumpThread::*)()>(&GenerifyStackTraces$DumpThread::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
-	{"shutdown", "()V", nullptr, $PUBLIC, nullptr, "java.lang.InterruptedException"},
+	{"<init>", "()V", nullptr, 0, $method(GenerifyStackTraces$DumpThread, init$, void)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(GenerifyStackTraces$DumpThread, run, void)},
+	{"shutdown", "()V", nullptr, $PUBLIC, $virtualMethod(GenerifyStackTraces$DumpThread, shutdown, void), "java.lang.InterruptedException"},
 	{}
 };
 

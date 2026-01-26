@@ -38,10 +38,10 @@ $MethodInfo _Channels$ReadableByteChannelImpl_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/io/InputStream;)V", nullptr, 0, $method(static_cast<void(Channels$ReadableByteChannelImpl::*)($InputStream*)>(&Channels$ReadableByteChannelImpl::init$))},
-	{"implCloseChannel", "()V", nullptr, $PROTECTED, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljava/io/InputStream;)V", nullptr, 0, $method(Channels$ReadableByteChannelImpl, init$, void, $InputStream*)},
+	{"implCloseChannel", "()V", nullptr, $PROTECTED, $virtualMethod(Channels$ReadableByteChannelImpl, implCloseChannel, void), "java.io.IOException"},
 	{"*isOpen", "()Z", nullptr, $PUBLIC | $FINAL},
-	{"read", "(Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"read", "(Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC, $virtualMethod(Channels$ReadableByteChannelImpl, read, int32_t, $ByteBuffer*), "java.io.IOException"},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

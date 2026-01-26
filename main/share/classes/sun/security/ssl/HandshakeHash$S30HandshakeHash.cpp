@@ -59,17 +59,17 @@ $FieldInfo _HandshakeHash$S30HandshakeHash_FieldInfo_[] = {
 };
 
 $MethodInfo _HandshakeHash$S30HandshakeHash_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/ssl/CipherSuite;)V", nullptr, 0, $method(static_cast<void(HandshakeHash$S30HandshakeHash::*)($CipherSuite*)>(&HandshakeHash$S30HandshakeHash::init$))},
-	{"archived", "()[B", nullptr, $PUBLIC},
-	{"cloneMd5", "()Ljava/security/MessageDigest;", nullptr, $PRIVATE, $method(static_cast<$MessageDigest*(HandshakeHash$S30HandshakeHash::*)()>(&HandshakeHash$S30HandshakeHash::cloneMd5))},
-	{"cloneSha", "()Ljava/security/MessageDigest;", nullptr, $PRIVATE, $method(static_cast<$MessageDigest*(HandshakeHash$S30HandshakeHash::*)()>(&HandshakeHash$S30HandshakeHash::cloneSha))},
-	{"digest", "()[B", nullptr, $PUBLIC},
-	{"digest", "(ZLjavax/crypto/SecretKey;)[B", nullptr, 0, $method(static_cast<$bytes*(HandshakeHash$S30HandshakeHash::*)(bool,$SecretKey*)>(&HandshakeHash$S30HandshakeHash::digest))},
-	{"digest", "(Ljava/lang/String;Ljavax/crypto/SecretKey;)[B", nullptr, 0, $method(static_cast<$bytes*(HandshakeHash$S30HandshakeHash::*)($String*,$SecretKey*)>(&HandshakeHash$S30HandshakeHash::digest))},
-	{"digestKey", "(Ljava/security/MessageDigest;Ljavax/crypto/SecretKey;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($MessageDigest*,$SecretKey*)>(&HandshakeHash$S30HandshakeHash::digestKey))},
-	{"genPad", "(II)[B", nullptr, $PRIVATE | $STATIC, $method(static_cast<$bytes*(*)(int32_t,int32_t)>(&HandshakeHash$S30HandshakeHash::genPad))},
-	{"update", "([BII)V", nullptr, $PUBLIC},
-	{"updateDigest", "(Ljava/security/MessageDigest;[B[BLjavax/crypto/SecretKey;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($MessageDigest*,$bytes*,$bytes*,$SecretKey*)>(&HandshakeHash$S30HandshakeHash::updateDigest))},
+	{"<init>", "(Lsun/security/ssl/CipherSuite;)V", nullptr, 0, $method(HandshakeHash$S30HandshakeHash, init$, void, $CipherSuite*)},
+	{"archived", "()[B", nullptr, $PUBLIC, $virtualMethod(HandshakeHash$S30HandshakeHash, archived, $bytes*)},
+	{"cloneMd5", "()Ljava/security/MessageDigest;", nullptr, $PRIVATE, $method(HandshakeHash$S30HandshakeHash, cloneMd5, $MessageDigest*)},
+	{"cloneSha", "()Ljava/security/MessageDigest;", nullptr, $PRIVATE, $method(HandshakeHash$S30HandshakeHash, cloneSha, $MessageDigest*)},
+	{"digest", "()[B", nullptr, $PUBLIC, $virtualMethod(HandshakeHash$S30HandshakeHash, digest, $bytes*)},
+	{"digest", "(ZLjavax/crypto/SecretKey;)[B", nullptr, 0, $method(HandshakeHash$S30HandshakeHash, digest, $bytes*, bool, $SecretKey*)},
+	{"digest", "(Ljava/lang/String;Ljavax/crypto/SecretKey;)[B", nullptr, 0, $method(HandshakeHash$S30HandshakeHash, digest, $bytes*, $String*, $SecretKey*)},
+	{"digestKey", "(Ljava/security/MessageDigest;Ljavax/crypto/SecretKey;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(HandshakeHash$S30HandshakeHash, digestKey, void, $MessageDigest*, $SecretKey*)},
+	{"genPad", "(II)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(HandshakeHash$S30HandshakeHash, genPad, $bytes*, int32_t, int32_t)},
+	{"update", "([BII)V", nullptr, $PUBLIC, $virtualMethod(HandshakeHash$S30HandshakeHash, update, void, $bytes*, int32_t, int32_t)},
+	{"updateDigest", "(Ljava/security/MessageDigest;[B[BLjavax/crypto/SecretKey;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(HandshakeHash$S30HandshakeHash, updateDigest, void, $MessageDigest*, $bytes*, $bytes*, $SecretKey*)},
 	{}
 };
 

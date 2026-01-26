@@ -3,6 +3,7 @@
 #include <java/io/ObjectInputFilter.h>
 #include <jcpp.h>
 
+using $ObjectInputFilter = ::java::io::ObjectInputFilter;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
@@ -11,7 +12,7 @@ namespace jdk {
 		namespace access {
 
 $MethodInfo _JavaObjectInputFilterAccess_MethodInfo_[] = {
-	{"createFilter2", "(Ljava/lang/String;)Ljava/io/ObjectInputFilter;", nullptr, $PUBLIC | $ABSTRACT},
+	{"createFilter2", "(Ljava/lang/String;)Ljava/io/ObjectInputFilter;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JavaObjectInputFilterAccess, createFilter2, $ObjectInputFilter*, $String*)},
 	{}
 };
 

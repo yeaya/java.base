@@ -177,8 +177,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo MethodHandles$$Lambda$lambda$loop$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(MethodHandles$$Lambda$lambda$loop$0::*)()>(&MethodHandles$$Lambda$lambda$loop$0::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(MethodHandles$$Lambda$lambda$loop$0, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(MethodHandles$$Lambda$lambda$loop$0, test, bool, Object$*)},
 	{}
 };
 $ClassInfo MethodHandles$$Lambda$lambda$loop$0::classInfo$ = {
@@ -226,8 +226,8 @@ $FieldInfo MethodHandles$$Lambda$lambda$loop$1$1::fieldInfos[5] = {
 	{}
 };
 $MethodInfo MethodHandles$$Lambda$lambda$loop$1$1::methodInfos[3] = {
-	{"<init>", "(Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;)V", nullptr, $PUBLIC, $method(static_cast<void(MethodHandles$$Lambda$lambda$loop$1$1::*)($List*,$List*,$List*,$List*)>(&MethodHandles$$Lambda$lambda$loop$1$1::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;)V", nullptr, $PUBLIC, $method(MethodHandles$$Lambda$lambda$loop$1$1, init$, void, $List*, $List*, $List*, $List*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(MethodHandles$$Lambda$lambda$loop$1$1, accept, void, Object$*)},
 	{}
 };
 $ClassInfo MethodHandles$$Lambda$lambda$loop$1$1::classInfo$ = {
@@ -259,8 +259,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo MethodHandles$$Lambda$size$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(MethodHandles$$Lambda$size$2::*)()>(&MethodHandles$$Lambda$size$2::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(MethodHandles$$Lambda$size$2, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MethodHandles$$Lambda$size$2, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo MethodHandles$$Lambda$size$2::classInfo$ = {
@@ -292,8 +292,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo MethodHandles$$Lambda$lambda$loop$2$3::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(MethodHandles$$Lambda$lambda$loop$2$3::*)()>(&MethodHandles$$Lambda$lambda$loop$2$3::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(MethodHandles$$Lambda$lambda$loop$2$3, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(MethodHandles$$Lambda$lambda$loop$2$3, test, bool, Object$*)},
 	{}
 };
 $ClassInfo MethodHandles$$Lambda$lambda$loop$2$3::classInfo$ = {
@@ -325,8 +325,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo MethodHandles$$Lambda$nonNull$4::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(MethodHandles$$Lambda$nonNull$4::*)()>(&MethodHandles$$Lambda$nonNull$4::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(MethodHandles$$Lambda$nonNull$4, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(MethodHandles$$Lambda$nonNull$4, test, bool, Object$*)},
 	{}
 };
 $ClassInfo MethodHandles$$Lambda$nonNull$4::classInfo$ = {
@@ -358,8 +358,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo MethodHandles$$Lambda$type$5::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(MethodHandles$$Lambda$type$5::*)()>(&MethodHandles$$Lambda$type$5::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(MethodHandles$$Lambda$type$5, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MethodHandles$$Lambda$type$5, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo MethodHandles$$Lambda$type$5::classInfo$ = {
@@ -391,8 +391,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo MethodHandles$$Lambda$returnType$6::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(MethodHandles$$Lambda$returnType$6::*)()>(&MethodHandles$$Lambda$returnType$6::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(MethodHandles$$Lambda$returnType$6, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MethodHandles$$Lambda$returnType$6, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo MethodHandles$$Lambda$returnType$6::classInfo$ = {
@@ -424,8 +424,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo MethodHandles$$Lambda$parameterList$7::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(MethodHandles$$Lambda$parameterList$7::*)()>(&MethodHandles$$Lambda$parameterList$7::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(MethodHandles$$Lambda$parameterList$7, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MethodHandles$$Lambda$parameterList$7, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo MethodHandles$$Lambda$parameterList$7::classInfo$ = {
@@ -464,8 +464,8 @@ $FieldInfo MethodHandles$$Lambda$lambda$loop$3$8::fieldInfos[2] = {
 	{}
 };
 $MethodInfo MethodHandles$$Lambda$lambda$loop$3$8::methodInfos[3] = {
-	{"<init>", "(Ljava/util/List;)V", nullptr, $PUBLIC, $method(static_cast<void(MethodHandles$$Lambda$lambda$loop$3$8::*)($List*)>(&MethodHandles$$Lambda$lambda$loop$3$8::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/List;)V", nullptr, $PUBLIC, $method(MethodHandles$$Lambda$lambda$loop$3$8, init$, void, $List*)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(MethodHandles$$Lambda$lambda$loop$3$8, test, bool, Object$*)},
 	{}
 };
 $ClassInfo MethodHandles$$Lambda$lambda$loop$3$8::classInfo$ = {
@@ -497,8 +497,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo MethodHandles$$Lambda$stream$9::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(MethodHandles$$Lambda$stream$9::*)()>(&MethodHandles$$Lambda$stream$9::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(MethodHandles$$Lambda$stream$9, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MethodHandles$$Lambda$stream$9, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo MethodHandles$$Lambda$stream$9::classInfo$ = {
@@ -530,8 +530,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo MethodHandles$$Lambda$isNull$10::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(MethodHandles$$Lambda$isNull$10::*)()>(&MethodHandles$$Lambda$isNull$10::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(MethodHandles$$Lambda$isNull$10, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(MethodHandles$$Lambda$isNull$10, test, bool, Object$*)},
 	{}
 };
 $ClassInfo MethodHandles$$Lambda$isNull$10::classInfo$ = {
@@ -563,8 +563,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo MethodHandles$$Lambda$lambda$loopChecks0$5$11::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(MethodHandles$$Lambda$lambda$loopChecks0$5$11::*)()>(&MethodHandles$$Lambda$lambda$loopChecks0$5$11::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(MethodHandles$$Lambda$lambda$loopChecks0$5$11, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(MethodHandles$$Lambda$lambda$loopChecks0$5$11, test, bool, Object$*)},
 	{}
 };
 $ClassInfo MethodHandles$$Lambda$lambda$loopChecks0$5$11::classInfo$ = {
@@ -603,8 +603,8 @@ $FieldInfo MethodHandles$$Lambda$lambda$longestParameterList$6$12::fieldInfos[2]
 	{}
 };
 $MethodInfo MethodHandles$$Lambda$lambda$longestParameterList$6$12::methodInfos[3] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(static_cast<void(MethodHandles$$Lambda$lambda$longestParameterList$6$12::*)(int32_t)>(&MethodHandles$$Lambda$lambda$longestParameterList$6$12::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "(I)V", nullptr, $PUBLIC, $method(MethodHandles$$Lambda$lambda$longestParameterList$6$12, init$, void, int32_t)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(MethodHandles$$Lambda$lambda$longestParameterList$6$12, test, bool, Object$*)},
 	{}
 };
 $ClassInfo MethodHandles$$Lambda$lambda$longestParameterList$6$12::classInfo$ = {
@@ -636,8 +636,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo MethodHandles$$Lambda$lambda$longestParameterList$7$13::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(MethodHandles$$Lambda$lambda$longestParameterList$7$13::*)()>(&MethodHandles$$Lambda$lambda$longestParameterList$7$13::init$))},
-	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(MethodHandles$$Lambda$lambda$longestParameterList$7$13, init$, void)},
+	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MethodHandles$$Lambda$lambda$longestParameterList$7$13, apply, $Object*, Object$*, Object$*)},
 	{}
 };
 $ClassInfo MethodHandles$$Lambda$lambda$longestParameterList$7$13::classInfo$ = {
@@ -676,8 +676,8 @@ $FieldInfo MethodHandles$$Lambda$lambda$loopChecks1b$9$14::fieldInfos[2] = {
 	{}
 };
 $MethodInfo MethodHandles$$Lambda$lambda$loopChecks1b$9$14::methodInfos[3] = {
-	{"<init>", "(Ljava/util/List;)V", nullptr, $PUBLIC, $method(static_cast<void(MethodHandles$$Lambda$lambda$loopChecks1b$9$14::*)($List*)>(&MethodHandles$$Lambda$lambda$loopChecks1b$9$14::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/List;)V", nullptr, $PUBLIC, $method(MethodHandles$$Lambda$lambda$loopChecks1b$9$14, init$, void, $List*)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(MethodHandles$$Lambda$lambda$loopChecks1b$9$14, test, bool, Object$*)},
 	{}
 };
 $ClassInfo MethodHandles$$Lambda$lambda$loopChecks1b$9$14::classInfo$ = {
@@ -716,8 +716,8 @@ $FieldInfo MethodHandles$$Lambda$lambda$loopChecks1cd$10$15::fieldInfos[2] = {
 	{}
 };
 $MethodInfo MethodHandles$$Lambda$lambda$loopChecks1cd$10$15::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/Class;)V", nullptr, $PUBLIC, $method(static_cast<void(MethodHandles$$Lambda$lambda$loopChecks1cd$10$15::*)($Class*)>(&MethodHandles$$Lambda$lambda$loopChecks1cd$10$15::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Class;)V", nullptr, $PUBLIC, $method(MethodHandles$$Lambda$lambda$loopChecks1cd$10$15, init$, void, $Class*)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(MethodHandles$$Lambda$lambda$loopChecks1cd$10$15, test, bool, Object$*)},
 	{}
 };
 $ClassInfo MethodHandles$$Lambda$lambda$loopChecks1cd$10$15::classInfo$ = {
@@ -749,8 +749,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo MethodHandles$$Lambda$lambda$loopChecks1cd$11$16::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(MethodHandles$$Lambda$lambda$loopChecks1cd$11$16::*)()>(&MethodHandles$$Lambda$lambda$loopChecks1cd$11$16::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(MethodHandles$$Lambda$lambda$loopChecks1cd$11$16, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(MethodHandles$$Lambda$lambda$loopChecks1cd$11$16, test, bool, Object$*)},
 	{}
 };
 $ClassInfo MethodHandles$$Lambda$lambda$loopChecks1cd$11$16::classInfo$ = {
@@ -789,8 +789,8 @@ $FieldInfo MethodHandles$$Lambda$lambda$fillParameterTypes$13$17::fieldInfos[2] 
 	{}
 };
 $MethodInfo MethodHandles$$Lambda$lambda$fillParameterTypes$13$17::methodInfos[3] = {
-	{"<init>", "(Ljava/util/List;)V", nullptr, $PUBLIC, $method(static_cast<void(MethodHandles$$Lambda$lambda$fillParameterTypes$13$17::*)($List*)>(&MethodHandles$$Lambda$lambda$fillParameterTypes$13$17::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/List;)V", nullptr, $PUBLIC, $method(MethodHandles$$Lambda$lambda$fillParameterTypes$13$17, init$, void, $List*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MethodHandles$$Lambda$lambda$fillParameterTypes$13$17, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo MethodHandles$$Lambda$lambda$fillParameterTypes$13$17::classInfo$ = {
@@ -822,8 +822,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo MethodHandles$$Lambda$asFixedArity$18::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(MethodHandles$$Lambda$asFixedArity$18::*)()>(&MethodHandles$$Lambda$asFixedArity$18::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(MethodHandles$$Lambda$asFixedArity$18, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MethodHandles$$Lambda$asFixedArity$18, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo MethodHandles$$Lambda$asFixedArity$18::classInfo$ = {
@@ -861,108 +861,108 @@ $FieldInfo _MethodHandles_FieldInfo_[] = {
 };
 
 $MethodInfo _MethodHandles_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(MethodHandles::*)()>(&MethodHandles::init$))},
-	{"argumentsWithCombiner", "(ZLjava/lang/invoke/MethodHandle;ILjava/lang/invoke/MethodHandle;[I)Ljava/lang/invoke/MethodHandle;", nullptr, $PRIVATE | $STATIC | $TRANSIENT, $method(static_cast<$MethodHandle*(*)(bool,$MethodHandle*,int32_t,$MethodHandle*,$ints*)>(&MethodHandles::argumentsWithCombiner))},
-	{"argumentsWithCombinerChecks", "(IZLjava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;[I)Ljava/lang/Class;", "(IZLjava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;[I)Ljava/lang/Class<*>;", $PRIVATE | $STATIC | $TRANSIENT, $method(static_cast<$Class*(*)(int32_t,bool,$MethodType*,$MethodType*,$ints*)>(&MethodHandles::argumentsWithCombinerChecks))},
-	{"arrayConstructor", "(Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodHandle;", $PUBLIC | $STATIC, $method(static_cast<$MethodHandle*(*)($Class*)>(&MethodHandles::arrayConstructor)), "java.lang.IllegalArgumentException"},
-	{"arrayElementGetter", "(Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodHandle;", $PUBLIC | $STATIC, $method(static_cast<$MethodHandle*(*)($Class*)>(&MethodHandles::arrayElementGetter)), "java.lang.IllegalArgumentException"},
-	{"arrayElementSetter", "(Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodHandle;", $PUBLIC | $STATIC, $method(static_cast<$MethodHandle*(*)($Class*)>(&MethodHandles::arrayElementSetter)), "java.lang.IllegalArgumentException"},
-	{"arrayElementVarHandle", "(Ljava/lang/Class;)Ljava/lang/invoke/VarHandle;", "(Ljava/lang/Class<*>;)Ljava/lang/invoke/VarHandle;", $PUBLIC | $STATIC, $method(static_cast<$VarHandle*(*)($Class*)>(&MethodHandles::arrayElementVarHandle)), "java.lang.IllegalArgumentException"},
-	{"arrayLength", "(Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodHandle;", $PUBLIC | $STATIC, $method(static_cast<$MethodHandle*(*)($Class*)>(&MethodHandles::arrayLength)), "java.lang.IllegalArgumentException"},
-	{"basicInvoker", "(Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/MethodHandle;", nullptr, $STATIC, $method(static_cast<$MethodHandle*(*)($MethodType*)>(&MethodHandles::basicInvoker))},
-	{"buildCommonSuffix", "(Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;I)Ljava/util/List;", "(Ljava/util/List<Ljava/lang/invoke/MethodHandle;>;Ljava/util/List<Ljava/lang/invoke/MethodHandle;>;Ljava/util/List<Ljava/lang/invoke/MethodHandle;>;Ljava/util/List<Ljava/lang/invoke/MethodHandle;>;I)Ljava/util/List<Ljava/lang/Class<*>;>;", $PRIVATE | $STATIC, $method(static_cast<$List*(*)($List*,$List*,$List*,$List*,int32_t)>(&MethodHandles::buildCommonSuffix))},
-	{"byteArrayViewVarHandle", "(Ljava/lang/Class;Ljava/nio/ByteOrder;)Ljava/lang/invoke/VarHandle;", "(Ljava/lang/Class<*>;Ljava/nio/ByteOrder;)Ljava/lang/invoke/VarHandle;", $PUBLIC | $STATIC, $method(static_cast<$VarHandle*(*)($Class*,$ByteOrder*)>(&MethodHandles::byteArrayViewVarHandle)), "java.lang.IllegalArgumentException"},
-	{"byteBufferViewVarHandle", "(Ljava/lang/Class;Ljava/nio/ByteOrder;)Ljava/lang/invoke/VarHandle;", "(Ljava/lang/Class<*>;Ljava/nio/ByteOrder;)Ljava/lang/invoke/VarHandle;", $PUBLIC | $STATIC, $method(static_cast<$VarHandle*(*)($Class*,$ByteOrder*)>(&MethodHandles::byteBufferViewVarHandle)), "java.lang.IllegalArgumentException"},
-	{"catchException", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/Class;Ljava/lang/invoke/MethodHandle;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/Class<+Ljava/lang/Throwable;>;Ljava/lang/invoke/MethodHandle;)Ljava/lang/invoke/MethodHandle;", $PUBLIC | $STATIC, $method(static_cast<$MethodHandle*(*)($MethodHandle*,$Class*,$MethodHandle*)>(&MethodHandles::catchException))},
-	{"classData", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/Class<TT;>;)TT;", $PUBLIC | $STATIC, $method(static_cast<$Object*(*)($MethodHandles$Lookup*,$String*,$Class*)>(&MethodHandles::classData)), "java.lang.IllegalAccessException"},
-	{"classDataAt", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/Class;I)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/Class<TT;>;I)TT;", $PUBLIC | $STATIC, $method(static_cast<$Object*(*)($MethodHandles$Lookup*,$String*,$Class*,int32_t)>(&MethodHandles::classDataAt)), "java.lang.IllegalAccessException"},
-	{"collectArguments", "(Ljava/lang/invoke/MethodHandle;ILjava/lang/invoke/MethodHandle;)Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$MethodHandle*(*)($MethodHandle*,int32_t,$MethodHandle*)>(&MethodHandles::collectArguments))},
-	{"collectArgumentsChecks", "(Ljava/lang/invoke/MethodHandle;ILjava/lang/invoke/MethodHandle;)Ljava/lang/invoke/MethodType;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$MethodType*(*)($MethodHandle*,int32_t,$MethodHandle*)>(&MethodHandles::collectArgumentsChecks)), "java.lang.RuntimeException"},
-	{"collectReturnValue", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandle;)Ljava/lang/invoke/MethodHandle;", nullptr, $STATIC, $method(static_cast<$MethodHandle*(*)($MethodHandle*,$MethodHandle*)>(&MethodHandles::collectReturnValue))},
-	{"constant", "(Ljava/lang/Class;Ljava/lang/Object;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<*>;Ljava/lang/Object;)Ljava/lang/invoke/MethodHandle;", $PUBLIC | $STATIC, $method(static_cast<$MethodHandle*(*)($Class*,Object$*)>(&MethodHandles::constant))},
-	{"copyTypes", "([Ljava/lang/Object;)Ljava/util/List;", "([Ljava/lang/Object;)Ljava/util/List<Ljava/lang/Class<*>;>;", $PRIVATE | $STATIC, $method(static_cast<$List*(*)($ObjectArray*)>(&MethodHandles::copyTypes))},
-	{"countedLoop", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandle;)Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$MethodHandle*(*)($MethodHandle*,$MethodHandle*,$MethodHandle*)>(&MethodHandles::countedLoop))},
-	{"countedLoop", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandle;)Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$MethodHandle*(*)($MethodHandle*,$MethodHandle*,$MethodHandle*,$MethodHandle*)>(&MethodHandles::countedLoop))},
-	{"countedLoopChecks", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandle;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($MethodHandle*,$MethodHandle*,$MethodHandle*,$MethodHandle*)>(&MethodHandles::countedLoopChecks))},
-	{"doWhileLoop", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandle;)Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$MethodHandle*(*)($MethodHandle*,$MethodHandle*,$MethodHandle*)>(&MethodHandles::doWhileLoop))},
-	{"dropArgumentChecks", "(Ljava/lang/invoke/MethodType;ILjava/util/List;)I", "(Ljava/lang/invoke/MethodType;ILjava/util/List<Ljava/lang/Class<*>;>;)I", $PRIVATE | $STATIC, $method(static_cast<int32_t(*)($MethodType*,int32_t,$List*)>(&MethodHandles::dropArgumentChecks))},
-	{"dropArguments", "(Ljava/lang/invoke/MethodHandle;ILjava/util/List;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/invoke/MethodHandle;ILjava/util/List<Ljava/lang/Class<*>;>;)Ljava/lang/invoke/MethodHandle;", $PUBLIC | $STATIC, $method(static_cast<$MethodHandle*(*)($MethodHandle*,int32_t,$List*)>(&MethodHandles::dropArguments))},
-	{"dropArguments", "(Ljava/lang/invoke/MethodHandle;I[Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/invoke/MethodHandle;I[Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodHandle;", $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<$MethodHandle*(*)($MethodHandle*,int32_t,$ClassArray*)>(&MethodHandles::dropArguments))},
-	{"dropArguments0", "(Ljava/lang/invoke/MethodHandle;ILjava/util/List;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/invoke/MethodHandle;ILjava/util/List<Ljava/lang/Class<*>;>;)Ljava/lang/invoke/MethodHandle;", $PRIVATE | $STATIC, $method(static_cast<$MethodHandle*(*)($MethodHandle*,int32_t,$List*)>(&MethodHandles::dropArguments0))},
-	{"dropArgumentsToMatch", "(Ljava/lang/invoke/MethodHandle;ILjava/util/List;IZ)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/invoke/MethodHandle;ILjava/util/List<Ljava/lang/Class<*>;>;IZ)Ljava/lang/invoke/MethodHandle;", $PRIVATE | $STATIC, $method(static_cast<$MethodHandle*(*)($MethodHandle*,int32_t,$List*,int32_t,bool)>(&MethodHandles::dropArgumentsToMatch))},
-	{"dropArgumentsToMatch", "(Ljava/lang/invoke/MethodHandle;ILjava/util/List;I)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/invoke/MethodHandle;ILjava/util/List<Ljava/lang/Class<*>;>;I)Ljava/lang/invoke/MethodHandle;", $PUBLIC | $STATIC, $method(static_cast<$MethodHandle*(*)($MethodHandle*,int32_t,$List*,int32_t)>(&MethodHandles::dropArgumentsToMatch))},
-	{"dropReturn", "(Ljava/lang/invoke/MethodHandle;)Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$MethodHandle*(*)($MethodHandle*)>(&MethodHandles::dropReturn))},
-	{"empty", "(Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$MethodHandle*(*)($MethodType*)>(&MethodHandles::empty))},
-	{"exactInvoker", "(Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$MethodHandle*(*)($MethodType*)>(&MethodHandles::exactInvoker))},
-	{"explicitCastArguments", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$MethodHandle*(*)($MethodHandle*,$MethodType*)>(&MethodHandles::explicitCastArguments))},
-	{"explicitCastArgumentsChecks", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($MethodHandle*,$MethodType*)>(&MethodHandles::explicitCastArgumentsChecks))},
-	{"fillParameterTypes", "(Ljava/util/List;Ljava/util/List;)Ljava/util/List;", "(Ljava/util/List<Ljava/lang/invoke/MethodHandle;>;Ljava/util/List<Ljava/lang/Class<*>;>;)Ljava/util/List<Ljava/lang/invoke/MethodHandle;>;", $PRIVATE | $STATIC, $method(static_cast<$List*(*)($List*,$List*)>(&MethodHandles::fillParameterTypes))},
-	{"filterArgument", "(Ljava/lang/invoke/MethodHandle;ILjava/lang/invoke/MethodHandle;)Ljava/lang/invoke/MethodHandle;", nullptr, $STATIC, $method(static_cast<$MethodHandle*(*)($MethodHandle*,int32_t,$MethodHandle*)>(&MethodHandles::filterArgument))},
-	{"filterArgumentChecks", "(Ljava/lang/invoke/MethodHandle;ILjava/lang/invoke/MethodHandle;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($MethodHandle*,int32_t,$MethodHandle*)>(&MethodHandles::filterArgumentChecks)), "java.lang.RuntimeException"},
-	{"filterArguments", "(Ljava/lang/invoke/MethodHandle;I[Ljava/lang/invoke/MethodHandle;)Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<$MethodHandle*(*)($MethodHandle*,int32_t,$MethodHandleArray*)>(&MethodHandles::filterArguments))},
-	{"filterArgumentsCheckArity", "(Ljava/lang/invoke/MethodHandle;I[Ljava/lang/invoke/MethodHandle;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($MethodHandle*,int32_t,$MethodHandleArray*)>(&MethodHandles::filterArgumentsCheckArity))},
-	{"filterArgumentsWithCombiner", "(Ljava/lang/invoke/MethodHandle;ILjava/lang/invoke/MethodHandle;[I)Ljava/lang/invoke/MethodHandle;", nullptr, $STATIC | $TRANSIENT, $method(static_cast<$MethodHandle*(*)($MethodHandle*,int32_t,$MethodHandle*,$ints*)>(&MethodHandles::filterArgumentsWithCombiner))},
-	{"filterRepeatedArgument", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandle;[I)Ljava/lang/invoke/MethodHandle;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$MethodHandle*(*)($MethodHandle*,$MethodHandle*,$ints*)>(&MethodHandles::filterRepeatedArgument))},
-	{"filterReturnValue", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandle;)Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$MethodHandle*(*)($MethodHandle*,$MethodHandle*)>(&MethodHandles::filterReturnValue))},
-	{"filterReturnValueChecks", "(Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($MethodType*,$MethodType*)>(&MethodHandles::filterReturnValueChecks)), "java.lang.RuntimeException"},
-	{"findFirstDupOrDrop", "([II)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)($ints*,int32_t)>(&MethodHandles::findFirstDupOrDrop))},
-	{"fixArities", "(Ljava/util/List;)Ljava/util/List;", "(Ljava/util/List<Ljava/lang/invoke/MethodHandle;>;)Ljava/util/List<Ljava/lang/invoke/MethodHandle;>;", $PRIVATE | $STATIC, $method(static_cast<$List*(*)($List*)>(&MethodHandles::fixArities))},
-	{"foldArgumentChecks", "(ILjava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;)Ljava/lang/Class;", "(ILjava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;)Ljava/lang/Class<*>;", $PRIVATE | $STATIC, $method(static_cast<$Class*(*)(int32_t,$MethodType*,$MethodType*)>(&MethodHandles::foldArgumentChecks))},
-	{"foldArguments", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandle;)Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$MethodHandle*(*)($MethodHandle*,$MethodHandle*)>(&MethodHandles::foldArguments))},
-	{"foldArguments", "(Ljava/lang/invoke/MethodHandle;ILjava/lang/invoke/MethodHandle;)Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$MethodHandle*(*)($MethodHandle*,int32_t,$MethodHandle*)>(&MethodHandles::foldArguments))},
-	{"foldArgumentsWithCombiner", "(Ljava/lang/invoke/MethodHandle;ILjava/lang/invoke/MethodHandle;[I)Ljava/lang/invoke/MethodHandle;", nullptr, $STATIC | $TRANSIENT, $method(static_cast<$MethodHandle*(*)($MethodHandle*,int32_t,$MethodHandle*,$ints*)>(&MethodHandles::foldArgumentsWithCombiner))},
-	{"guardWithTest", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandle;)Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$MethodHandle*(*)($MethodHandle*,$MethodHandle*,$MethodHandle*)>(&MethodHandles::guardWithTest))},
-	{"identity", "(Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodHandle;", $PUBLIC | $STATIC, $method(static_cast<$MethodHandle*(*)($Class*)>(&MethodHandles::identity))},
-	{"identityOrVoid", "(Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodHandle;", $PRIVATE | $STATIC, $method(static_cast<$MethodHandle*(*)($Class*)>(&MethodHandles::identityOrVoid))},
-	{"insertArgumentPrimitive", "(Ljava/lang/invoke/BoundMethodHandle;ILjava/lang/Class;Ljava/lang/Object;)Ljava/lang/invoke/BoundMethodHandle;", "(Ljava/lang/invoke/BoundMethodHandle;ILjava/lang/Class<*>;Ljava/lang/Object;)Ljava/lang/invoke/BoundMethodHandle;", $PRIVATE | $STATIC, $method(static_cast<$BoundMethodHandle*(*)($BoundMethodHandle*,int32_t,$Class*,Object$*)>(&MethodHandles::insertArgumentPrimitive))},
-	{"insertArguments", "(Ljava/lang/invoke/MethodHandle;I[Ljava/lang/Object;)Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<$MethodHandle*(*)($MethodHandle*,int32_t,$ObjectArray*)>(&MethodHandles::insertArguments))},
-	{"insertArgumentsChecks", "(Ljava/lang/invoke/MethodHandle;II)[Ljava/lang/Class;", "(Ljava/lang/invoke/MethodHandle;II)[Ljava/lang/Class<*>;", $PRIVATE | $STATIC, $method(static_cast<$ClassArray*(*)($MethodHandle*,int32_t,int32_t)>(&MethodHandles::insertArgumentsChecks)), "java.lang.RuntimeException"},
-	{"invoker", "(Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$MethodHandle*(*)($MethodType*)>(&MethodHandles::invoker))},
-	{"iteratedLoop", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandle;)Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$MethodHandle*(*)($MethodHandle*,$MethodHandle*,$MethodHandle*)>(&MethodHandles::iteratedLoop))},
-	{"iteratedLoopChecks", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandle;)Ljava/lang/Class;", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandle;)Ljava/lang/Class<*>;", $PRIVATE | $STATIC, $method(static_cast<$Class*(*)($MethodHandle*,$MethodHandle*,$MethodHandle*)>(&MethodHandles::iteratedLoopChecks))},
-	{"lambda$fillParameterTypes$13", "(Ljava/util/List;Ljava/lang/invoke/MethodHandle;)Ljava/lang/invoke/MethodHandle;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$MethodHandle*(*)($List*,$MethodHandle*)>(&MethodHandles::lambda$fillParameterTypes$13))},
-	{"lambda$longestParameterList$6", "(ILjava/lang/invoke/MethodType;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)(int32_t,$MethodType*)>(&MethodHandles::lambda$longestParameterList$6))},
-	{"lambda$longestParameterList$7", "(Ljava/util/List;Ljava/util/List;)Ljava/util/List;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$List*(*)($List*,$List*)>(&MethodHandles::lambda$longestParameterList$7))},
-	{"lambda$loop$0", "([Ljava/lang/invoke/MethodHandle;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($MethodHandleArray*)>(&MethodHandles::lambda$loop$0))},
-	{"lambda$loop$1", "(Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;[Ljava/lang/invoke/MethodHandle;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($List*,$List*,$List*,$List*,$MethodHandleArray*)>(&MethodHandles::lambda$loop$1))},
-	{"lambda$loop$2", "(Ljava/lang/Class;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($Class*)>(&MethodHandles::lambda$loop$2))},
-	{"lambda$loop$3", "(Ljava/util/List;Ljava/util/List;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($List*,$List*)>(&MethodHandles::lambda$loop$3))},
-	{"lambda$loopChecks0$5", "([Ljava/lang/invoke/MethodHandle;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($MethodHandleArray*)>(&MethodHandles::lambda$loopChecks0$5))},
-	{"lambda$loopChecks1b$9", "(Ljava/util/List;Ljava/lang/invoke/MethodType;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($List*,$MethodType*)>(&MethodHandles::lambda$loopChecks1b$9))},
-	{"lambda$loopChecks1cd$10", "(Ljava/lang/Class;Ljava/lang/Class;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($Class*,$Class*)>(&MethodHandles::lambda$loopChecks1cd$10))},
-	{"lambda$loopChecks1cd$11", "(Ljava/lang/Class;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($Class*)>(&MethodHandles::lambda$loopChecks1cd$11))},
-	{"longestParameterList", "(Ljava/util/stream/Stream;I)Ljava/util/List;", "(Ljava/util/stream/Stream<Ljava/lang/invoke/MethodHandle;>;I)Ljava/util/List<Ljava/lang/Class<*>;>;", $PRIVATE | $STATIC, $method(static_cast<$List*(*)($Stream*,int32_t)>(&MethodHandles::longestParameterList))},
-	{"longestParameterList", "(Ljava/util/List;)Ljava/util/List;", "(Ljava/util/List<Ljava/util/List<Ljava/lang/Class<*>;>;>;)Ljava/util/List<Ljava/lang/Class<*>;>;", $PRIVATE | $STATIC, $method(static_cast<$List*(*)($List*)>(&MethodHandles::longestParameterList))},
-	{"lookup", "()Ljava/lang/invoke/MethodHandles$Lookup;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$MethodHandles$Lookup*(*)()>(&MethodHandles::lookup)), nullptr, nullptr, _MethodHandles_MethodAnnotations_lookup72},
-	{"loop", "([[Ljava/lang/invoke/MethodHandle;)Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<$MethodHandle*(*)($MethodHandleArray2*)>(&MethodHandles::loop))},
-	{"loopChecks0", "([[Ljava/lang/invoke/MethodHandle;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($MethodHandleArray2*)>(&MethodHandles::loopChecks0))},
-	{"loopChecks1a", "(ILjava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandle;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)(int32_t,$MethodHandle*,$MethodHandle*)>(&MethodHandles::loopChecks1a))},
-	{"loopChecks1b", "(Ljava/util/List;Ljava/util/List;)V", "(Ljava/util/List<Ljava/lang/invoke/MethodHandle;>;Ljava/util/List<Ljava/lang/Class<*>;>;)V", $PRIVATE | $STATIC, $method(static_cast<void(*)($List*,$List*)>(&MethodHandles::loopChecks1b))},
-	{"loopChecks1cd", "(Ljava/util/List;Ljava/util/List;Ljava/lang/Class;)V", "(Ljava/util/List<Ljava/lang/invoke/MethodHandle;>;Ljava/util/List<Ljava/lang/invoke/MethodHandle;>;Ljava/lang/Class<*>;)V", $PRIVATE | $STATIC, $method(static_cast<void(*)($List*,$List*,$Class*)>(&MethodHandles::loopChecks1cd))},
-	{"loopChecks2", "(Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;)V", "(Ljava/util/List<Ljava/lang/invoke/MethodHandle;>;Ljava/util/List<Ljava/lang/invoke/MethodHandle;>;Ljava/util/List<Ljava/lang/invoke/MethodHandle;>;Ljava/util/List<Ljava/lang/Class<*>;>;)V", $PRIVATE | $STATIC, $method(static_cast<void(*)($List*,$List*,$List*,$List*)>(&MethodHandles::loopChecks2))},
-	{"makeIdentity", "(Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodHandle;", $PRIVATE | $STATIC, $method(static_cast<$MethodHandle*(*)($Class*)>(&MethodHandles::makeIdentity))},
-	{"makeZero", "(Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodHandle;", $PRIVATE | $STATIC, $method(static_cast<$MethodHandle*(*)($Class*)>(&MethodHandles::makeZero))},
-	{"misMatchedTypes", "(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/RuntimeException;", "<T:Ljava/lang/Object;>(Ljava/lang/String;TT;TT;)Ljava/lang/RuntimeException;", $STATIC, $method(static_cast<$RuntimeException*(*)($String*,Object$*,Object$*)>(&MethodHandles::misMatchedTypes))},
-	{"permuteArgumentChecks", "([ILjava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;)Z", nullptr, $STATIC, $method(static_cast<bool(*)($ints*,$MethodType*,$MethodType*)>(&MethodHandles::permuteArgumentChecks))},
-	{"permuteArguments", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;[I)Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<$MethodHandle*(*)($MethodHandle*,$MethodType*,$ints*)>(&MethodHandles::permuteArguments))},
-	{"privateLookupIn", "(Ljava/lang/Class;Ljava/lang/invoke/MethodHandles$Lookup;)Ljava/lang/invoke/MethodHandles$Lookup;", "(Ljava/lang/Class<*>;Ljava/lang/invoke/MethodHandles$Lookup;)Ljava/lang/invoke/MethodHandles$Lookup;", $PUBLIC | $STATIC, $method(static_cast<$MethodHandles$Lookup*(*)($Class*,$MethodHandles$Lookup*)>(&MethodHandles::privateLookupIn)), "java.lang.IllegalAccessException"},
-	{"publicLookup", "()Ljava/lang/invoke/MethodHandles$Lookup;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$MethodHandles$Lookup*(*)()>(&MethodHandles::publicLookup))},
-	{"reflectAs", "(Ljava/lang/Class;Ljava/lang/invoke/MethodHandle;)Ljava/lang/reflect/Member;", "<T::Ljava/lang/reflect/Member;>(Ljava/lang/Class<TT;>;Ljava/lang/invoke/MethodHandle;)TT;", $PUBLIC | $STATIC, $method(static_cast<$Member*(*)($Class*,$MethodHandle*)>(&MethodHandles::reflectAs))},
-	{"reflected$lookup", "()Ljava/lang/invoke/MethodHandles$Lookup;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$MethodHandles$Lookup*(*)()>(&MethodHandles::reflected$lookup)), nullptr, nullptr, _MethodHandles_MethodAnnotations_reflected$lookup87},
-	{"setCachedMethodHandle", "([Ljava/lang/invoke/MethodHandle;ILjava/lang/invoke/MethodHandle;)Ljava/lang/invoke/MethodHandle;", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $method(static_cast<$MethodHandle*(*)($MethodHandleArray*,int32_t,$MethodHandle*)>(&MethodHandles::setCachedMethodHandle))},
-	{"spreadInvoker", "(Ljava/lang/invoke/MethodType;I)Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$MethodHandle*(*)($MethodType*,int32_t)>(&MethodHandles::spreadInvoker))},
-	{"swapArguments", "(Ljava/lang/invoke/MethodHandle;II)Ljava/lang/invoke/MethodHandle;", nullptr, $STATIC, $method(static_cast<$MethodHandle*(*)($MethodHandle*,int32_t,int32_t)>(&MethodHandles::swapArguments))},
-	{"tableSwitch", "(Ljava/lang/invoke/MethodHandle;[Ljava/lang/invoke/MethodHandle;)Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<$MethodHandle*(*)($MethodHandle*,$MethodHandleArray*)>(&MethodHandles::tableSwitch))},
-	{"tableSwitchChecks", "(Ljava/lang/invoke/MethodHandle;[Ljava/lang/invoke/MethodHandle;)Ljava/lang/invoke/MethodType;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$MethodType*(*)($MethodHandle*,$MethodHandleArray*)>(&MethodHandles::tableSwitchChecks))},
-	{"throwException", "(Ljava/lang/Class;Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<*>;Ljava/lang/Class<+Ljava/lang/Throwable;>;)Ljava/lang/invoke/MethodHandle;", $PUBLIC | $STATIC, $method(static_cast<$MethodHandle*(*)($Class*,$Class*)>(&MethodHandles::throwException))},
-	{"tryFinally", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandle;)Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$MethodHandle*(*)($MethodHandle*,$MethodHandle*)>(&MethodHandles::tryFinally))},
-	{"tryFinallyChecks", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandle;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($MethodHandle*,$MethodHandle*)>(&MethodHandles::tryFinallyChecks))},
-	{"varHandleExactInvoker", "(Ljava/lang/invoke/VarHandle$AccessMode;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$MethodHandle*(*)($VarHandle$AccessMode*,$MethodType*)>(&MethodHandles::varHandleExactInvoker))},
-	{"varHandleInvoker", "(Ljava/lang/invoke/VarHandle$AccessMode;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$MethodHandle*(*)($VarHandle$AccessMode*,$MethodType*)>(&MethodHandles::varHandleInvoker))},
-	{"whileLoop", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandle;)Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$MethodHandle*(*)($MethodHandle*,$MethodHandle*,$MethodHandle*)>(&MethodHandles::whileLoop))},
-	{"whileLoopChecks", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandle;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($MethodHandle*,$MethodHandle*,$MethodHandle*)>(&MethodHandles::whileLoopChecks))},
-	{"zero", "(Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodHandle;", $PUBLIC | $STATIC, $method(static_cast<$MethodHandle*(*)($Class*)>(&MethodHandles::zero))},
-	{"zero", "(Lsun/invoke/util/Wrapper;Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;", "(Lsun/invoke/util/Wrapper;Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodHandle;", $PRIVATE | $STATIC, $method(static_cast<$MethodHandle*(*)($Wrapper*,$Class*)>(&MethodHandles::zero))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(MethodHandles, init$, void)},
+	{"argumentsWithCombiner", "(ZLjava/lang/invoke/MethodHandle;ILjava/lang/invoke/MethodHandle;[I)Ljava/lang/invoke/MethodHandle;", nullptr, $PRIVATE | $STATIC | $TRANSIENT, $staticMethod(MethodHandles, argumentsWithCombiner, $MethodHandle*, bool, $MethodHandle*, int32_t, $MethodHandle*, $ints*)},
+	{"argumentsWithCombinerChecks", "(IZLjava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;[I)Ljava/lang/Class;", "(IZLjava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;[I)Ljava/lang/Class<*>;", $PRIVATE | $STATIC | $TRANSIENT, $staticMethod(MethodHandles, argumentsWithCombinerChecks, $Class*, int32_t, bool, $MethodType*, $MethodType*, $ints*)},
+	{"arrayConstructor", "(Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodHandle;", $PUBLIC | $STATIC, $staticMethod(MethodHandles, arrayConstructor, $MethodHandle*, $Class*), "java.lang.IllegalArgumentException"},
+	{"arrayElementGetter", "(Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodHandle;", $PUBLIC | $STATIC, $staticMethod(MethodHandles, arrayElementGetter, $MethodHandle*, $Class*), "java.lang.IllegalArgumentException"},
+	{"arrayElementSetter", "(Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodHandle;", $PUBLIC | $STATIC, $staticMethod(MethodHandles, arrayElementSetter, $MethodHandle*, $Class*), "java.lang.IllegalArgumentException"},
+	{"arrayElementVarHandle", "(Ljava/lang/Class;)Ljava/lang/invoke/VarHandle;", "(Ljava/lang/Class<*>;)Ljava/lang/invoke/VarHandle;", $PUBLIC | $STATIC, $staticMethod(MethodHandles, arrayElementVarHandle, $VarHandle*, $Class*), "java.lang.IllegalArgumentException"},
+	{"arrayLength", "(Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodHandle;", $PUBLIC | $STATIC, $staticMethod(MethodHandles, arrayLength, $MethodHandle*, $Class*), "java.lang.IllegalArgumentException"},
+	{"basicInvoker", "(Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/MethodHandle;", nullptr, $STATIC, $staticMethod(MethodHandles, basicInvoker, $MethodHandle*, $MethodType*)},
+	{"buildCommonSuffix", "(Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;I)Ljava/util/List;", "(Ljava/util/List<Ljava/lang/invoke/MethodHandle;>;Ljava/util/List<Ljava/lang/invoke/MethodHandle;>;Ljava/util/List<Ljava/lang/invoke/MethodHandle;>;Ljava/util/List<Ljava/lang/invoke/MethodHandle;>;I)Ljava/util/List<Ljava/lang/Class<*>;>;", $PRIVATE | $STATIC, $staticMethod(MethodHandles, buildCommonSuffix, $List*, $List*, $List*, $List*, $List*, int32_t)},
+	{"byteArrayViewVarHandle", "(Ljava/lang/Class;Ljava/nio/ByteOrder;)Ljava/lang/invoke/VarHandle;", "(Ljava/lang/Class<*>;Ljava/nio/ByteOrder;)Ljava/lang/invoke/VarHandle;", $PUBLIC | $STATIC, $staticMethod(MethodHandles, byteArrayViewVarHandle, $VarHandle*, $Class*, $ByteOrder*), "java.lang.IllegalArgumentException"},
+	{"byteBufferViewVarHandle", "(Ljava/lang/Class;Ljava/nio/ByteOrder;)Ljava/lang/invoke/VarHandle;", "(Ljava/lang/Class<*>;Ljava/nio/ByteOrder;)Ljava/lang/invoke/VarHandle;", $PUBLIC | $STATIC, $staticMethod(MethodHandles, byteBufferViewVarHandle, $VarHandle*, $Class*, $ByteOrder*), "java.lang.IllegalArgumentException"},
+	{"catchException", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/Class;Ljava/lang/invoke/MethodHandle;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/Class<+Ljava/lang/Throwable;>;Ljava/lang/invoke/MethodHandle;)Ljava/lang/invoke/MethodHandle;", $PUBLIC | $STATIC, $staticMethod(MethodHandles, catchException, $MethodHandle*, $MethodHandle*, $Class*, $MethodHandle*)},
+	{"classData", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/Class<TT;>;)TT;", $PUBLIC | $STATIC, $staticMethod(MethodHandles, classData, $Object*, $MethodHandles$Lookup*, $String*, $Class*), "java.lang.IllegalAccessException"},
+	{"classDataAt", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/Class;I)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/Class<TT;>;I)TT;", $PUBLIC | $STATIC, $staticMethod(MethodHandles, classDataAt, $Object*, $MethodHandles$Lookup*, $String*, $Class*, int32_t), "java.lang.IllegalAccessException"},
+	{"collectArguments", "(Ljava/lang/invoke/MethodHandle;ILjava/lang/invoke/MethodHandle;)Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC | $STATIC, $staticMethod(MethodHandles, collectArguments, $MethodHandle*, $MethodHandle*, int32_t, $MethodHandle*)},
+	{"collectArgumentsChecks", "(Ljava/lang/invoke/MethodHandle;ILjava/lang/invoke/MethodHandle;)Ljava/lang/invoke/MethodType;", nullptr, $PRIVATE | $STATIC, $staticMethod(MethodHandles, collectArgumentsChecks, $MethodType*, $MethodHandle*, int32_t, $MethodHandle*), "java.lang.RuntimeException"},
+	{"collectReturnValue", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandle;)Ljava/lang/invoke/MethodHandle;", nullptr, $STATIC, $staticMethod(MethodHandles, collectReturnValue, $MethodHandle*, $MethodHandle*, $MethodHandle*)},
+	{"constant", "(Ljava/lang/Class;Ljava/lang/Object;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<*>;Ljava/lang/Object;)Ljava/lang/invoke/MethodHandle;", $PUBLIC | $STATIC, $staticMethod(MethodHandles, constant, $MethodHandle*, $Class*, Object$*)},
+	{"copyTypes", "([Ljava/lang/Object;)Ljava/util/List;", "([Ljava/lang/Object;)Ljava/util/List<Ljava/lang/Class<*>;>;", $PRIVATE | $STATIC, $staticMethod(MethodHandles, copyTypes, $List*, $ObjectArray*)},
+	{"countedLoop", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandle;)Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC | $STATIC, $staticMethod(MethodHandles, countedLoop, $MethodHandle*, $MethodHandle*, $MethodHandle*, $MethodHandle*)},
+	{"countedLoop", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandle;)Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC | $STATIC, $staticMethod(MethodHandles, countedLoop, $MethodHandle*, $MethodHandle*, $MethodHandle*, $MethodHandle*, $MethodHandle*)},
+	{"countedLoopChecks", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandle;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(MethodHandles, countedLoopChecks, void, $MethodHandle*, $MethodHandle*, $MethodHandle*, $MethodHandle*)},
+	{"doWhileLoop", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandle;)Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC | $STATIC, $staticMethod(MethodHandles, doWhileLoop, $MethodHandle*, $MethodHandle*, $MethodHandle*, $MethodHandle*)},
+	{"dropArgumentChecks", "(Ljava/lang/invoke/MethodType;ILjava/util/List;)I", "(Ljava/lang/invoke/MethodType;ILjava/util/List<Ljava/lang/Class<*>;>;)I", $PRIVATE | $STATIC, $staticMethod(MethodHandles, dropArgumentChecks, int32_t, $MethodType*, int32_t, $List*)},
+	{"dropArguments", "(Ljava/lang/invoke/MethodHandle;ILjava/util/List;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/invoke/MethodHandle;ILjava/util/List<Ljava/lang/Class<*>;>;)Ljava/lang/invoke/MethodHandle;", $PUBLIC | $STATIC, $staticMethod(MethodHandles, dropArguments, $MethodHandle*, $MethodHandle*, int32_t, $List*)},
+	{"dropArguments", "(Ljava/lang/invoke/MethodHandle;I[Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/invoke/MethodHandle;I[Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodHandle;", $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(MethodHandles, dropArguments, $MethodHandle*, $MethodHandle*, int32_t, $ClassArray*)},
+	{"dropArguments0", "(Ljava/lang/invoke/MethodHandle;ILjava/util/List;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/invoke/MethodHandle;ILjava/util/List<Ljava/lang/Class<*>;>;)Ljava/lang/invoke/MethodHandle;", $PRIVATE | $STATIC, $staticMethod(MethodHandles, dropArguments0, $MethodHandle*, $MethodHandle*, int32_t, $List*)},
+	{"dropArgumentsToMatch", "(Ljava/lang/invoke/MethodHandle;ILjava/util/List;IZ)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/invoke/MethodHandle;ILjava/util/List<Ljava/lang/Class<*>;>;IZ)Ljava/lang/invoke/MethodHandle;", $PRIVATE | $STATIC, $staticMethod(MethodHandles, dropArgumentsToMatch, $MethodHandle*, $MethodHandle*, int32_t, $List*, int32_t, bool)},
+	{"dropArgumentsToMatch", "(Ljava/lang/invoke/MethodHandle;ILjava/util/List;I)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/invoke/MethodHandle;ILjava/util/List<Ljava/lang/Class<*>;>;I)Ljava/lang/invoke/MethodHandle;", $PUBLIC | $STATIC, $staticMethod(MethodHandles, dropArgumentsToMatch, $MethodHandle*, $MethodHandle*, int32_t, $List*, int32_t)},
+	{"dropReturn", "(Ljava/lang/invoke/MethodHandle;)Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC | $STATIC, $staticMethod(MethodHandles, dropReturn, $MethodHandle*, $MethodHandle*)},
+	{"empty", "(Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC | $STATIC, $staticMethod(MethodHandles, empty, $MethodHandle*, $MethodType*)},
+	{"exactInvoker", "(Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC | $STATIC, $staticMethod(MethodHandles, exactInvoker, $MethodHandle*, $MethodType*)},
+	{"explicitCastArguments", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC | $STATIC, $staticMethod(MethodHandles, explicitCastArguments, $MethodHandle*, $MethodHandle*, $MethodType*)},
+	{"explicitCastArgumentsChecks", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(MethodHandles, explicitCastArgumentsChecks, void, $MethodHandle*, $MethodType*)},
+	{"fillParameterTypes", "(Ljava/util/List;Ljava/util/List;)Ljava/util/List;", "(Ljava/util/List<Ljava/lang/invoke/MethodHandle;>;Ljava/util/List<Ljava/lang/Class<*>;>;)Ljava/util/List<Ljava/lang/invoke/MethodHandle;>;", $PRIVATE | $STATIC, $staticMethod(MethodHandles, fillParameterTypes, $List*, $List*, $List*)},
+	{"filterArgument", "(Ljava/lang/invoke/MethodHandle;ILjava/lang/invoke/MethodHandle;)Ljava/lang/invoke/MethodHandle;", nullptr, $STATIC, $staticMethod(MethodHandles, filterArgument, $MethodHandle*, $MethodHandle*, int32_t, $MethodHandle*)},
+	{"filterArgumentChecks", "(Ljava/lang/invoke/MethodHandle;ILjava/lang/invoke/MethodHandle;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(MethodHandles, filterArgumentChecks, void, $MethodHandle*, int32_t, $MethodHandle*), "java.lang.RuntimeException"},
+	{"filterArguments", "(Ljava/lang/invoke/MethodHandle;I[Ljava/lang/invoke/MethodHandle;)Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(MethodHandles, filterArguments, $MethodHandle*, $MethodHandle*, int32_t, $MethodHandleArray*)},
+	{"filterArgumentsCheckArity", "(Ljava/lang/invoke/MethodHandle;I[Ljava/lang/invoke/MethodHandle;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(MethodHandles, filterArgumentsCheckArity, void, $MethodHandle*, int32_t, $MethodHandleArray*)},
+	{"filterArgumentsWithCombiner", "(Ljava/lang/invoke/MethodHandle;ILjava/lang/invoke/MethodHandle;[I)Ljava/lang/invoke/MethodHandle;", nullptr, $STATIC | $TRANSIENT, $staticMethod(MethodHandles, filterArgumentsWithCombiner, $MethodHandle*, $MethodHandle*, int32_t, $MethodHandle*, $ints*)},
+	{"filterRepeatedArgument", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandle;[I)Ljava/lang/invoke/MethodHandle;", nullptr, $PRIVATE | $STATIC, $staticMethod(MethodHandles, filterRepeatedArgument, $MethodHandle*, $MethodHandle*, $MethodHandle*, $ints*)},
+	{"filterReturnValue", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandle;)Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC | $STATIC, $staticMethod(MethodHandles, filterReturnValue, $MethodHandle*, $MethodHandle*, $MethodHandle*)},
+	{"filterReturnValueChecks", "(Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(MethodHandles, filterReturnValueChecks, void, $MethodType*, $MethodType*), "java.lang.RuntimeException"},
+	{"findFirstDupOrDrop", "([II)I", nullptr, $PRIVATE | $STATIC, $staticMethod(MethodHandles, findFirstDupOrDrop, int32_t, $ints*, int32_t)},
+	{"fixArities", "(Ljava/util/List;)Ljava/util/List;", "(Ljava/util/List<Ljava/lang/invoke/MethodHandle;>;)Ljava/util/List<Ljava/lang/invoke/MethodHandle;>;", $PRIVATE | $STATIC, $staticMethod(MethodHandles, fixArities, $List*, $List*)},
+	{"foldArgumentChecks", "(ILjava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;)Ljava/lang/Class;", "(ILjava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;)Ljava/lang/Class<*>;", $PRIVATE | $STATIC, $staticMethod(MethodHandles, foldArgumentChecks, $Class*, int32_t, $MethodType*, $MethodType*)},
+	{"foldArguments", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandle;)Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC | $STATIC, $staticMethod(MethodHandles, foldArguments, $MethodHandle*, $MethodHandle*, $MethodHandle*)},
+	{"foldArguments", "(Ljava/lang/invoke/MethodHandle;ILjava/lang/invoke/MethodHandle;)Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC | $STATIC, $staticMethod(MethodHandles, foldArguments, $MethodHandle*, $MethodHandle*, int32_t, $MethodHandle*)},
+	{"foldArgumentsWithCombiner", "(Ljava/lang/invoke/MethodHandle;ILjava/lang/invoke/MethodHandle;[I)Ljava/lang/invoke/MethodHandle;", nullptr, $STATIC | $TRANSIENT, $staticMethod(MethodHandles, foldArgumentsWithCombiner, $MethodHandle*, $MethodHandle*, int32_t, $MethodHandle*, $ints*)},
+	{"guardWithTest", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandle;)Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC | $STATIC, $staticMethod(MethodHandles, guardWithTest, $MethodHandle*, $MethodHandle*, $MethodHandle*, $MethodHandle*)},
+	{"identity", "(Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodHandle;", $PUBLIC | $STATIC, $staticMethod(MethodHandles, identity, $MethodHandle*, $Class*)},
+	{"identityOrVoid", "(Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodHandle;", $PRIVATE | $STATIC, $staticMethod(MethodHandles, identityOrVoid, $MethodHandle*, $Class*)},
+	{"insertArgumentPrimitive", "(Ljava/lang/invoke/BoundMethodHandle;ILjava/lang/Class;Ljava/lang/Object;)Ljava/lang/invoke/BoundMethodHandle;", "(Ljava/lang/invoke/BoundMethodHandle;ILjava/lang/Class<*>;Ljava/lang/Object;)Ljava/lang/invoke/BoundMethodHandle;", $PRIVATE | $STATIC, $staticMethod(MethodHandles, insertArgumentPrimitive, $BoundMethodHandle*, $BoundMethodHandle*, int32_t, $Class*, Object$*)},
+	{"insertArguments", "(Ljava/lang/invoke/MethodHandle;I[Ljava/lang/Object;)Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(MethodHandles, insertArguments, $MethodHandle*, $MethodHandle*, int32_t, $ObjectArray*)},
+	{"insertArgumentsChecks", "(Ljava/lang/invoke/MethodHandle;II)[Ljava/lang/Class;", "(Ljava/lang/invoke/MethodHandle;II)[Ljava/lang/Class<*>;", $PRIVATE | $STATIC, $staticMethod(MethodHandles, insertArgumentsChecks, $ClassArray*, $MethodHandle*, int32_t, int32_t), "java.lang.RuntimeException"},
+	{"invoker", "(Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC | $STATIC, $staticMethod(MethodHandles, invoker, $MethodHandle*, $MethodType*)},
+	{"iteratedLoop", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandle;)Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC | $STATIC, $staticMethod(MethodHandles, iteratedLoop, $MethodHandle*, $MethodHandle*, $MethodHandle*, $MethodHandle*)},
+	{"iteratedLoopChecks", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandle;)Ljava/lang/Class;", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandle;)Ljava/lang/Class<*>;", $PRIVATE | $STATIC, $staticMethod(MethodHandles, iteratedLoopChecks, $Class*, $MethodHandle*, $MethodHandle*, $MethodHandle*)},
+	{"lambda$fillParameterTypes$13", "(Ljava/util/List;Ljava/lang/invoke/MethodHandle;)Ljava/lang/invoke/MethodHandle;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MethodHandles, lambda$fillParameterTypes$13, $MethodHandle*, $List*, $MethodHandle*)},
+	{"lambda$longestParameterList$6", "(ILjava/lang/invoke/MethodType;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MethodHandles, lambda$longestParameterList$6, bool, int32_t, $MethodType*)},
+	{"lambda$longestParameterList$7", "(Ljava/util/List;Ljava/util/List;)Ljava/util/List;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MethodHandles, lambda$longestParameterList$7, $List*, $List*, $List*)},
+	{"lambda$loop$0", "([Ljava/lang/invoke/MethodHandle;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MethodHandles, lambda$loop$0, bool, $MethodHandleArray*)},
+	{"lambda$loop$1", "(Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;[Ljava/lang/invoke/MethodHandle;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MethodHandles, lambda$loop$1, void, $List*, $List*, $List*, $List*, $MethodHandleArray*)},
+	{"lambda$loop$2", "(Ljava/lang/Class;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MethodHandles, lambda$loop$2, bool, $Class*)},
+	{"lambda$loop$3", "(Ljava/util/List;Ljava/util/List;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MethodHandles, lambda$loop$3, bool, $List*, $List*)},
+	{"lambda$loopChecks0$5", "([Ljava/lang/invoke/MethodHandle;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MethodHandles, lambda$loopChecks0$5, bool, $MethodHandleArray*)},
+	{"lambda$loopChecks1b$9", "(Ljava/util/List;Ljava/lang/invoke/MethodType;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MethodHandles, lambda$loopChecks1b$9, bool, $List*, $MethodType*)},
+	{"lambda$loopChecks1cd$10", "(Ljava/lang/Class;Ljava/lang/Class;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MethodHandles, lambda$loopChecks1cd$10, bool, $Class*, $Class*)},
+	{"lambda$loopChecks1cd$11", "(Ljava/lang/Class;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MethodHandles, lambda$loopChecks1cd$11, bool, $Class*)},
+	{"longestParameterList", "(Ljava/util/stream/Stream;I)Ljava/util/List;", "(Ljava/util/stream/Stream<Ljava/lang/invoke/MethodHandle;>;I)Ljava/util/List<Ljava/lang/Class<*>;>;", $PRIVATE | $STATIC, $staticMethod(MethodHandles, longestParameterList, $List*, $Stream*, int32_t)},
+	{"longestParameterList", "(Ljava/util/List;)Ljava/util/List;", "(Ljava/util/List<Ljava/util/List<Ljava/lang/Class<*>;>;>;)Ljava/util/List<Ljava/lang/Class<*>;>;", $PRIVATE | $STATIC, $staticMethod(MethodHandles, longestParameterList, $List*, $List*)},
+	{"lookup", "()Ljava/lang/invoke/MethodHandles$Lookup;", nullptr, $PUBLIC | $STATIC, $staticMethod(MethodHandles, lookup, $MethodHandles$Lookup*), nullptr, nullptr, _MethodHandles_MethodAnnotations_lookup72},
+	{"loop", "([[Ljava/lang/invoke/MethodHandle;)Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(MethodHandles, loop, $MethodHandle*, $MethodHandleArray2*)},
+	{"loopChecks0", "([[Ljava/lang/invoke/MethodHandle;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(MethodHandles, loopChecks0, void, $MethodHandleArray2*)},
+	{"loopChecks1a", "(ILjava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandle;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(MethodHandles, loopChecks1a, void, int32_t, $MethodHandle*, $MethodHandle*)},
+	{"loopChecks1b", "(Ljava/util/List;Ljava/util/List;)V", "(Ljava/util/List<Ljava/lang/invoke/MethodHandle;>;Ljava/util/List<Ljava/lang/Class<*>;>;)V", $PRIVATE | $STATIC, $staticMethod(MethodHandles, loopChecks1b, void, $List*, $List*)},
+	{"loopChecks1cd", "(Ljava/util/List;Ljava/util/List;Ljava/lang/Class;)V", "(Ljava/util/List<Ljava/lang/invoke/MethodHandle;>;Ljava/util/List<Ljava/lang/invoke/MethodHandle;>;Ljava/lang/Class<*>;)V", $PRIVATE | $STATIC, $staticMethod(MethodHandles, loopChecks1cd, void, $List*, $List*, $Class*)},
+	{"loopChecks2", "(Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;)V", "(Ljava/util/List<Ljava/lang/invoke/MethodHandle;>;Ljava/util/List<Ljava/lang/invoke/MethodHandle;>;Ljava/util/List<Ljava/lang/invoke/MethodHandle;>;Ljava/util/List<Ljava/lang/Class<*>;>;)V", $PRIVATE | $STATIC, $staticMethod(MethodHandles, loopChecks2, void, $List*, $List*, $List*, $List*)},
+	{"makeIdentity", "(Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodHandle;", $PRIVATE | $STATIC, $staticMethod(MethodHandles, makeIdentity, $MethodHandle*, $Class*)},
+	{"makeZero", "(Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodHandle;", $PRIVATE | $STATIC, $staticMethod(MethodHandles, makeZero, $MethodHandle*, $Class*)},
+	{"misMatchedTypes", "(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/RuntimeException;", "<T:Ljava/lang/Object;>(Ljava/lang/String;TT;TT;)Ljava/lang/RuntimeException;", $STATIC, $staticMethod(MethodHandles, misMatchedTypes, $RuntimeException*, $String*, Object$*, Object$*)},
+	{"permuteArgumentChecks", "([ILjava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;)Z", nullptr, $STATIC, $staticMethod(MethodHandles, permuteArgumentChecks, bool, $ints*, $MethodType*, $MethodType*)},
+	{"permuteArguments", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;[I)Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(MethodHandles, permuteArguments, $MethodHandle*, $MethodHandle*, $MethodType*, $ints*)},
+	{"privateLookupIn", "(Ljava/lang/Class;Ljava/lang/invoke/MethodHandles$Lookup;)Ljava/lang/invoke/MethodHandles$Lookup;", "(Ljava/lang/Class<*>;Ljava/lang/invoke/MethodHandles$Lookup;)Ljava/lang/invoke/MethodHandles$Lookup;", $PUBLIC | $STATIC, $staticMethod(MethodHandles, privateLookupIn, $MethodHandles$Lookup*, $Class*, $MethodHandles$Lookup*), "java.lang.IllegalAccessException"},
+	{"publicLookup", "()Ljava/lang/invoke/MethodHandles$Lookup;", nullptr, $PUBLIC | $STATIC, $staticMethod(MethodHandles, publicLookup, $MethodHandles$Lookup*)},
+	{"reflectAs", "(Ljava/lang/Class;Ljava/lang/invoke/MethodHandle;)Ljava/lang/reflect/Member;", "<T::Ljava/lang/reflect/Member;>(Ljava/lang/Class<TT;>;Ljava/lang/invoke/MethodHandle;)TT;", $PUBLIC | $STATIC, $staticMethod(MethodHandles, reflectAs, $Member*, $Class*, $MethodHandle*)},
+	{"reflected$lookup", "()Ljava/lang/invoke/MethodHandles$Lookup;", nullptr, $PRIVATE | $STATIC, $staticMethod(MethodHandles, reflected$lookup, $MethodHandles$Lookup*), nullptr, nullptr, _MethodHandles_MethodAnnotations_reflected$lookup87},
+	{"setCachedMethodHandle", "([Ljava/lang/invoke/MethodHandle;ILjava/lang/invoke/MethodHandle;)Ljava/lang/invoke/MethodHandle;", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(MethodHandles, setCachedMethodHandle, $MethodHandle*, $MethodHandleArray*, int32_t, $MethodHandle*)},
+	{"spreadInvoker", "(Ljava/lang/invoke/MethodType;I)Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC | $STATIC, $staticMethod(MethodHandles, spreadInvoker, $MethodHandle*, $MethodType*, int32_t)},
+	{"swapArguments", "(Ljava/lang/invoke/MethodHandle;II)Ljava/lang/invoke/MethodHandle;", nullptr, $STATIC, $staticMethod(MethodHandles, swapArguments, $MethodHandle*, $MethodHandle*, int32_t, int32_t)},
+	{"tableSwitch", "(Ljava/lang/invoke/MethodHandle;[Ljava/lang/invoke/MethodHandle;)Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(MethodHandles, tableSwitch, $MethodHandle*, $MethodHandle*, $MethodHandleArray*)},
+	{"tableSwitchChecks", "(Ljava/lang/invoke/MethodHandle;[Ljava/lang/invoke/MethodHandle;)Ljava/lang/invoke/MethodType;", nullptr, $PRIVATE | $STATIC, $staticMethod(MethodHandles, tableSwitchChecks, $MethodType*, $MethodHandle*, $MethodHandleArray*)},
+	{"throwException", "(Ljava/lang/Class;Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<*>;Ljava/lang/Class<+Ljava/lang/Throwable;>;)Ljava/lang/invoke/MethodHandle;", $PUBLIC | $STATIC, $staticMethod(MethodHandles, throwException, $MethodHandle*, $Class*, $Class*)},
+	{"tryFinally", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandle;)Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC | $STATIC, $staticMethod(MethodHandles, tryFinally, $MethodHandle*, $MethodHandle*, $MethodHandle*)},
+	{"tryFinallyChecks", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandle;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(MethodHandles, tryFinallyChecks, void, $MethodHandle*, $MethodHandle*)},
+	{"varHandleExactInvoker", "(Ljava/lang/invoke/VarHandle$AccessMode;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC | $STATIC, $staticMethod(MethodHandles, varHandleExactInvoker, $MethodHandle*, $VarHandle$AccessMode*, $MethodType*)},
+	{"varHandleInvoker", "(Ljava/lang/invoke/VarHandle$AccessMode;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC | $STATIC, $staticMethod(MethodHandles, varHandleInvoker, $MethodHandle*, $VarHandle$AccessMode*, $MethodType*)},
+	{"whileLoop", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandle;)Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC | $STATIC, $staticMethod(MethodHandles, whileLoop, $MethodHandle*, $MethodHandle*, $MethodHandle*, $MethodHandle*)},
+	{"whileLoopChecks", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandle;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(MethodHandles, whileLoopChecks, void, $MethodHandle*, $MethodHandle*, $MethodHandle*)},
+	{"zero", "(Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodHandle;", $PUBLIC | $STATIC, $staticMethod(MethodHandles, zero, $MethodHandle*, $Class*)},
+	{"zero", "(Lsun/invoke/util/Wrapper;Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;", "(Lsun/invoke/util/Wrapper;Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodHandle;", $PRIVATE | $STATIC, $staticMethod(MethodHandles, zero, $MethodHandle*, $Wrapper*, $Class*)},
 	{}
 };
 

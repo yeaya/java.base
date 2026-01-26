@@ -18,7 +18,7 @@ $FieldInfo _DirectoryNotEmptyException_FieldInfo_[] = {
 };
 
 $MethodInfo _DirectoryNotEmptyException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(DirectoryNotEmptyException::*)($String*)>(&DirectoryNotEmptyException::init$))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(DirectoryNotEmptyException, init$, void, $String*)},
 	{}
 };
 

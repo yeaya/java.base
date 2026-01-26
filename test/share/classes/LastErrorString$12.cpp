@@ -16,8 +16,8 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _LastErrorString$12_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(LastErrorString$12::*)($String*)>(&LastErrorString$12::init$))},
-	{"run", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(LastErrorString$12, init$, void, $String*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(LastErrorString$12, run, void), "java.io.IOException"},
 	{}
 };
 

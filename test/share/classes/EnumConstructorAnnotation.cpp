@@ -26,8 +26,8 @@ using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
 
 $MethodInfo _EnumConstructorAnnotation_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(EnumConstructorAnnotation::*)()>(&EnumConstructorAnnotation::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&EnumConstructorAnnotation::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(EnumConstructorAnnotation, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(EnumConstructorAnnotation, main, void, $StringArray*)},
 	{}
 };
 

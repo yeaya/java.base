@@ -29,11 +29,11 @@ $FieldInfo _Restart$3_FieldInfo_[] = {
 };
 
 $MethodInfo _Restart$3_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/CountDownLatch;)V", "()V", 0, $method(static_cast<void(Restart$3::*)($CountDownLatch*)>(&Restart$3::init$))},
-	{"completed", "(Ljava/nio/channels/AsynchronousSocketChannel;Ljava/lang/Void;)V", nullptr, $PUBLIC},
-	{"completed", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"failed", "(Ljava/lang/Throwable;Ljava/lang/Void;)V", nullptr, $PUBLIC},
-	{"failed", "(Ljava/lang/Throwable;Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "(Ljava/util/concurrent/CountDownLatch;)V", "()V", 0, $method(Restart$3, init$, void, $CountDownLatch*)},
+	{"completed", "(Ljava/nio/channels/AsynchronousSocketChannel;Ljava/lang/Void;)V", nullptr, $PUBLIC, $virtualMethod(Restart$3, completed, void, $AsynchronousSocketChannel*, $Void*)},
+	{"completed", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Restart$3, completed, void, Object$*, Object$*)},
+	{"failed", "(Ljava/lang/Throwable;Ljava/lang/Void;)V", nullptr, $PUBLIC, $virtualMethod(Restart$3, failed, void, $Throwable*, $Void*)},
+	{"failed", "(Ljava/lang/Throwable;Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Restart$3, failed, void, $Throwable*, Object$*)},
 	{}
 };
 

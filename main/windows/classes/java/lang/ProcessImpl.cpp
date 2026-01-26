@@ -138,8 +138,8 @@ $FieldInfo ProcessImpl$$Lambda$lambda$new$0::fieldInfos[2] = {
 	{}
 };
 $MethodInfo ProcessImpl$$Lambda$lambda$new$0::methodInfos[3] = {
-	{"<init>", "(J)V", nullptr, $PUBLIC, $method(static_cast<void(ProcessImpl$$Lambda$lambda$new$0::*)(int64_t)>(&ProcessImpl$$Lambda$lambda$new$0::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(J)V", nullptr, $PUBLIC, $method(ProcessImpl$$Lambda$lambda$new$0, init$, void, int64_t)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ProcessImpl$$Lambda$lambda$new$0, run, void)},
 	{}
 };
 $ClassInfo ProcessImpl$$Lambda$lambda$new$0::classInfo$ = {
@@ -178,8 +178,8 @@ $FieldInfo ProcessImpl$$Lambda$lambda$onExit$1$1::fieldInfos[2] = {
 	{}
 };
 $MethodInfo ProcessImpl$$Lambda$lambda$onExit$1$1::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/ProcessImpl;)V", nullptr, $PUBLIC, $method(static_cast<void(ProcessImpl$$Lambda$lambda$onExit$1$1::*)(ProcessImpl*)>(&ProcessImpl$$Lambda$lambda$onExit$1$1::init$))},
-	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/ProcessImpl;)V", nullptr, $PUBLIC, $method(ProcessImpl$$Lambda$lambda$onExit$1$1, init$, void, ProcessImpl*)},
+	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ProcessImpl$$Lambda$lambda$onExit$1$1, apply, $Object*, Object$*, Object$*)},
 	{}
 };
 $ClassInfo ProcessImpl$$Lambda$lambda$onExit$1$1::classInfo$ = {
@@ -216,44 +216,44 @@ $FieldInfo _ProcessImpl_FieldInfo_[] = {
 };
 
 $MethodInfo _ProcessImpl_MethodInfo_[] = {
-	{"<init>", "([Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[JZZ)V", nullptr, $PRIVATE, $method(static_cast<void(ProcessImpl::*)($StringArray*,$String*,$String*,$longs*,bool,bool)>(&ProcessImpl::init$)), "java.io.IOException"},
-	{"closeHandle", "(J)Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $method(static_cast<bool(*)(int64_t)>(&ProcessImpl::closeHandle))},
-	{"countLeadingBackslash", "(ILjava/lang/CharSequence;I)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)(int32_t,$CharSequence*,int32_t)>(&ProcessImpl::countLeadingBackslash))},
-	{"create", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[JZ)J", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED | $NATIVE, $method(static_cast<int64_t(*)($String*,$String*,$String*,$longs*,bool)>(&ProcessImpl::create)), "java.io.IOException"},
-	{"createCommandLine", "(ILjava/lang/String;[Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)(int32_t,$String*,$StringArray*)>(&ProcessImpl::createCommandLine))},
-	{"destroy", "()V", nullptr, $PUBLIC},
-	{"destroyForcibly", "()Ljava/lang/Process;", nullptr, $PUBLIC},
-	{"exitValue", "()I", nullptr, $PUBLIC},
-	{"getErrorStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC},
-	{"getExecutablePath", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($String*)>(&ProcessImpl::getExecutablePath)), "java.io.IOException"},
-	{"getExitCodeProcess", "(J)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $method(static_cast<int32_t(*)(int64_t)>(&ProcessImpl::getExitCodeProcess))},
-	{"getInputStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC},
-	{"getOutputStream", "()Ljava/io/OutputStream;", nullptr, $PUBLIC},
-	{"getProcessId0", "(J)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $method(static_cast<int32_t(*)(int64_t)>(&ProcessImpl::getProcessId0))},
-	{"getStillActive", "()I", nullptr, $PRIVATE | $STATIC | $NATIVE, $method(static_cast<int32_t(*)()>(&ProcessImpl::getStillActive))},
-	{"getTokensFromCommand", "(Ljava/lang/String;)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$StringArray*(*)($String*)>(&ProcessImpl::getTokensFromCommand))},
-	{"isAlive", "()Z", nullptr, $PUBLIC},
-	{"isExe", "(Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(static_cast<bool(ProcessImpl::*)($String*)>(&ProcessImpl::isExe))},
-	{"isProcessAlive", "(J)Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $method(static_cast<bool(*)(int64_t)>(&ProcessImpl::isProcessAlive))},
-	{"isShellFile", "(Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(static_cast<bool(ProcessImpl::*)($String*)>(&ProcessImpl::isShellFile))},
-	{"lambda$new$0", "(J)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)(int64_t)>(&ProcessImpl::lambda$new$0))},
-	{"lambda$onExit$1", "(Ljava/lang/Integer;Ljava/lang/Throwable;)Ljava/lang/Process;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$Process*(ProcessImpl::*)($Integer*,$Throwable*)>(&ProcessImpl::lambda$onExit$1))},
-	{"needsEscaping", "(ILjava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)(int32_t,$String*)>(&ProcessImpl::needsEscaping))},
-	{"newFileOutputStream", "(Ljava/io/File;Z)Ljava/io/FileOutputStream;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$FileOutputStream*(*)($File*,bool)>(&ProcessImpl::newFileOutputStream)), "java.io.IOException"},
-	{"onExit", "()Ljava/util/concurrent/CompletableFuture;", "()Ljava/util/concurrent/CompletableFuture<Ljava/lang/Process;>;", $PUBLIC},
-	{"openForAtomicAppend", "(Ljava/lang/String;)J", nullptr, $PRIVATE | $STATIC | $NATIVE, $method(static_cast<int64_t(*)($String*)>(&ProcessImpl::openForAtomicAppend)), "java.io.IOException"},
-	{"pid", "()J", nullptr, $PUBLIC},
-	{"quoteString", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(ProcessImpl::*)($String*)>(&ProcessImpl::quoteString))},
-	{"start", "([Ljava/lang/String;Ljava/util/Map;Ljava/lang/String;[Ljava/lang/ProcessBuilder$Redirect;Z)Ljava/lang/Process;", "([Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;Ljava/lang/String;[Ljava/lang/ProcessBuilder$Redirect;Z)Ljava/lang/Process;", $STATIC, $method(static_cast<$Process*(*)($StringArray*,$Map*,$String*,$ProcessBuilder$RedirectArray*,bool)>(&ProcessImpl::start)), "java.io.IOException"},
-	{"supportsNormalTermination", "()Z", nullptr, $PUBLIC},
-	{"terminateProcess", "(J)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $method(static_cast<void(*)(int64_t)>(&ProcessImpl::terminateProcess))},
-	{"toHandle", "()Ljava/lang/ProcessHandle;", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"unQuote", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($String*)>(&ProcessImpl::unQuote))},
-	{"waitFor", "()I", nullptr, $PUBLIC, nullptr, "java.lang.InterruptedException"},
-	{"waitFor", "(JLjava/util/concurrent/TimeUnit;)Z", nullptr, $PUBLIC, nullptr, "java.lang.InterruptedException"},
-	{"waitForInterruptibly", "(J)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $method(static_cast<void(*)(int64_t)>(&ProcessImpl::waitForInterruptibly))},
-	{"waitForTimeoutInterruptibly", "(JJ)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $method(static_cast<void(*)(int64_t,int64_t)>(&ProcessImpl::waitForTimeoutInterruptibly))},
+	{"<init>", "([Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[JZZ)V", nullptr, $PRIVATE, $method(ProcessImpl, init$, void, $StringArray*, $String*, $String*, $longs*, bool, bool), "java.io.IOException"},
+	{"closeHandle", "(J)Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(ProcessImpl, closeHandle, bool, int64_t)},
+	{"countLeadingBackslash", "(ILjava/lang/CharSequence;I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(ProcessImpl, countLeadingBackslash, int32_t, int32_t, $CharSequence*, int32_t)},
+	{"create", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[JZ)J", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED | $NATIVE, $staticMethod(ProcessImpl, create, int64_t, $String*, $String*, $String*, $longs*, bool), "java.io.IOException"},
+	{"createCommandLine", "(ILjava/lang/String;[Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(ProcessImpl, createCommandLine, $String*, int32_t, $String*, $StringArray*)},
+	{"destroy", "()V", nullptr, $PUBLIC, $virtualMethod(ProcessImpl, destroy, void)},
+	{"destroyForcibly", "()Ljava/lang/Process;", nullptr, $PUBLIC, $virtualMethod(ProcessImpl, destroyForcibly, $Process*)},
+	{"exitValue", "()I", nullptr, $PUBLIC, $virtualMethod(ProcessImpl, exitValue, int32_t)},
+	{"getErrorStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(ProcessImpl, getErrorStream, $InputStream*)},
+	{"getExecutablePath", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(ProcessImpl, getExecutablePath, $String*, $String*), "java.io.IOException"},
+	{"getExitCodeProcess", "(J)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(ProcessImpl, getExitCodeProcess, int32_t, int64_t)},
+	{"getInputStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(ProcessImpl, getInputStream, $InputStream*)},
+	{"getOutputStream", "()Ljava/io/OutputStream;", nullptr, $PUBLIC, $virtualMethod(ProcessImpl, getOutputStream, $OutputStream*)},
+	{"getProcessId0", "(J)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(ProcessImpl, getProcessId0, int32_t, int64_t)},
+	{"getStillActive", "()I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(ProcessImpl, getStillActive, int32_t)},
+	{"getTokensFromCommand", "(Ljava/lang/String;)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(ProcessImpl, getTokensFromCommand, $StringArray*, $String*)},
+	{"isAlive", "()Z", nullptr, $PUBLIC, $virtualMethod(ProcessImpl, isAlive, bool)},
+	{"isExe", "(Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(ProcessImpl, isExe, bool, $String*)},
+	{"isProcessAlive", "(J)Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(ProcessImpl, isProcessAlive, bool, int64_t)},
+	{"isShellFile", "(Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(ProcessImpl, isShellFile, bool, $String*)},
+	{"lambda$new$0", "(J)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ProcessImpl, lambda$new$0, void, int64_t)},
+	{"lambda$onExit$1", "(Ljava/lang/Integer;Ljava/lang/Throwable;)Ljava/lang/Process;", nullptr, $PRIVATE | $SYNTHETIC, $method(ProcessImpl, lambda$onExit$1, $Process*, $Integer*, $Throwable*)},
+	{"needsEscaping", "(ILjava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(ProcessImpl, needsEscaping, bool, int32_t, $String*)},
+	{"newFileOutputStream", "(Ljava/io/File;Z)Ljava/io/FileOutputStream;", nullptr, $PRIVATE | $STATIC, $staticMethod(ProcessImpl, newFileOutputStream, $FileOutputStream*, $File*, bool), "java.io.IOException"},
+	{"onExit", "()Ljava/util/concurrent/CompletableFuture;", "()Ljava/util/concurrent/CompletableFuture<Ljava/lang/Process;>;", $PUBLIC, $virtualMethod(ProcessImpl, onExit, $CompletableFuture*)},
+	{"openForAtomicAppend", "(Ljava/lang/String;)J", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(ProcessImpl, openForAtomicAppend, int64_t, $String*), "java.io.IOException"},
+	{"pid", "()J", nullptr, $PUBLIC, $virtualMethod(ProcessImpl, pid, int64_t)},
+	{"quoteString", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(ProcessImpl, quoteString, $String*, $String*)},
+	{"start", "([Ljava/lang/String;Ljava/util/Map;Ljava/lang/String;[Ljava/lang/ProcessBuilder$Redirect;Z)Ljava/lang/Process;", "([Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;Ljava/lang/String;[Ljava/lang/ProcessBuilder$Redirect;Z)Ljava/lang/Process;", $STATIC, $staticMethod(ProcessImpl, start, $Process*, $StringArray*, $Map*, $String*, $ProcessBuilder$RedirectArray*, bool), "java.io.IOException"},
+	{"supportsNormalTermination", "()Z", nullptr, $PUBLIC, $virtualMethod(ProcessImpl, supportsNormalTermination, bool)},
+	{"terminateProcess", "(J)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(ProcessImpl, terminateProcess, void, int64_t)},
+	{"toHandle", "()Ljava/lang/ProcessHandle;", nullptr, $PUBLIC, $virtualMethod(ProcessImpl, toHandle, $ProcessHandle*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ProcessImpl, toString, $String*)},
+	{"unQuote", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(ProcessImpl, unQuote, $String*, $String*)},
+	{"waitFor", "()I", nullptr, $PUBLIC, $virtualMethod(ProcessImpl, waitFor, int32_t), "java.lang.InterruptedException"},
+	{"waitFor", "(JLjava/util/concurrent/TimeUnit;)Z", nullptr, $PUBLIC, $virtualMethod(ProcessImpl, waitFor, bool, int64_t, $TimeUnit*), "java.lang.InterruptedException"},
+	{"waitForInterruptibly", "(J)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(ProcessImpl, waitForInterruptibly, void, int64_t)},
+	{"waitForTimeoutInterruptibly", "(JJ)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(ProcessImpl, waitForTimeoutInterruptibly, void, int64_t, int64_t)},
 	{}
 };
 

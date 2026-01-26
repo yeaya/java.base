@@ -22,12 +22,12 @@ $FieldInfo _Semaphore$Sync_FieldInfo_[] = {
 };
 
 $MethodInfo _Semaphore$Sync_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, 0, $method(static_cast<void(Semaphore$Sync::*)(int32_t)>(&Semaphore$Sync::init$))},
-	{"drainPermits", "()I", nullptr, $FINAL, $method(static_cast<int32_t(Semaphore$Sync::*)()>(&Semaphore$Sync::drainPermits))},
-	{"getPermits", "()I", nullptr, $FINAL, $method(static_cast<int32_t(Semaphore$Sync::*)()>(&Semaphore$Sync::getPermits))},
-	{"nonfairTryAcquireShared", "(I)I", nullptr, $FINAL, $method(static_cast<int32_t(Semaphore$Sync::*)(int32_t)>(&Semaphore$Sync::nonfairTryAcquireShared))},
-	{"reducePermits", "(I)V", nullptr, $FINAL, $method(static_cast<void(Semaphore$Sync::*)(int32_t)>(&Semaphore$Sync::reducePermits))},
-	{"tryReleaseShared", "(I)Z", nullptr, $PROTECTED | $FINAL},
+	{"<init>", "(I)V", nullptr, 0, $method(Semaphore$Sync, init$, void, int32_t)},
+	{"drainPermits", "()I", nullptr, $FINAL, $method(Semaphore$Sync, drainPermits, int32_t)},
+	{"getPermits", "()I", nullptr, $FINAL, $method(Semaphore$Sync, getPermits, int32_t)},
+	{"nonfairTryAcquireShared", "(I)I", nullptr, $FINAL, $method(Semaphore$Sync, nonfairTryAcquireShared, int32_t, int32_t)},
+	{"reducePermits", "(I)V", nullptr, $FINAL, $method(Semaphore$Sync, reducePermits, void, int32_t)},
+	{"tryReleaseShared", "(I)Z", nullptr, $PROTECTED | $FINAL, $virtualMethod(Semaphore$Sync, tryReleaseShared, bool, int32_t)},
 	{}
 };
 

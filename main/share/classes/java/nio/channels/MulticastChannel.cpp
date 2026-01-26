@@ -7,6 +7,9 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $InetAddress = ::java::net::InetAddress;
+using $NetworkInterface = ::java::net::NetworkInterface;
+using $MembershipKey = ::java::nio::channels::MembershipKey;
 
 namespace java {
 	namespace nio {
@@ -14,8 +17,8 @@ namespace java {
 
 $MethodInfo _MulticastChannel_MethodInfo_[] = {
 	{"close", "()V", nullptr, $PUBLIC | $ABSTRACT},
-	{"join", "(Ljava/net/InetAddress;Ljava/net/NetworkInterface;)Ljava/nio/channels/MembershipKey;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"join", "(Ljava/net/InetAddress;Ljava/net/NetworkInterface;Ljava/net/InetAddress;)Ljava/nio/channels/MembershipKey;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
+	{"join", "(Ljava/net/InetAddress;Ljava/net/NetworkInterface;)Ljava/nio/channels/MembershipKey;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MulticastChannel, join, $MembershipKey*, $InetAddress*, $NetworkInterface*), "java.io.IOException"},
+	{"join", "(Ljava/net/InetAddress;Ljava/net/NetworkInterface;Ljava/net/InetAddress;)Ljava/nio/channels/MembershipKey;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MulticastChannel, join, $MembershipKey*, $InetAddress*, $NetworkInterface*, $InetAddress*), "java.io.IOException"},
 	{}
 };
 

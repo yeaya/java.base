@@ -38,13 +38,13 @@ $MethodInfo _RandomSupport$RandomLongsSpliterator_MethodInfo_[] = {
 	{"*estimateSize", "()J", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/util/random/RandomGenerator;JJJJ)V", nullptr, $PUBLIC, $method(static_cast<void(RandomSupport$RandomLongsSpliterator::*)($RandomGenerator*,int64_t,int64_t,int64_t,int64_t)>(&RandomSupport$RandomLongsSpliterator::init$))},
-	{"forEachRemaining", "(Ljava/util/function/LongConsumer;)V", nullptr, $PUBLIC},
-	{"forEachRemaining", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "(Ljava/util/random/RandomGenerator;JJJJ)V", nullptr, $PUBLIC, $method(RandomSupport$RandomLongsSpliterator, init$, void, $RandomGenerator*, int64_t, int64_t, int64_t, int64_t)},
+	{"forEachRemaining", "(Ljava/util/function/LongConsumer;)V", nullptr, $PUBLIC, $virtualMethod(RandomSupport$RandomLongsSpliterator, forEachRemaining, void, $LongConsumer*)},
+	{"forEachRemaining", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(RandomSupport$RandomLongsSpliterator, forEachRemaining, void, Object$*)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"tryAdvance", "(Ljava/util/function/LongConsumer;)Z", nullptr, $PUBLIC},
-	{"tryAdvance", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"trySplit", "()Ljava/util/Spliterator$OfLong;", nullptr, $PUBLIC},
+	{"tryAdvance", "(Ljava/util/function/LongConsumer;)Z", nullptr, $PUBLIC, $virtualMethod(RandomSupport$RandomLongsSpliterator, tryAdvance, bool, $LongConsumer*)},
+	{"tryAdvance", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(RandomSupport$RandomLongsSpliterator, tryAdvance, bool, Object$*)},
+	{"trySplit", "()Ljava/util/Spliterator$OfLong;", nullptr, $PUBLIC, $virtualMethod(RandomSupport$RandomLongsSpliterator, trySplit, $Spliterator$OfLong*)},
 	{}
 };
 

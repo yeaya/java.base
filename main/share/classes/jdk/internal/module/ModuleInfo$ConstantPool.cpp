@@ -52,15 +52,15 @@ $FieldInfo _ModuleInfo$ConstantPool_FieldInfo_[] = {
 };
 
 $MethodInfo _ModuleInfo$ConstantPool_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/DataInput;)V", nullptr, 0, $method(static_cast<void(ModuleInfo$ConstantPool::*)($DataInput*)>(&ModuleInfo$ConstantPool::init$)), "java.io.IOException"},
-	{"checkIndex", "(I)V", nullptr, 0},
-	{"checkUnqualifiedName", "(Ljava/lang/String;ILjava/lang/String;)V", nullptr, 0},
-	{"decodeModuleName", "(ILjava/lang/String;)Ljava/lang/String;", nullptr, 0},
-	{"decodeModuleName", "(IILjava/lang/String;)Ljava/lang/String;", nullptr, 0},
-	{"getClassName", "(I)Ljava/lang/String;", nullptr, 0},
-	{"getModuleName", "(I)Ljava/lang/String;", nullptr, 0},
-	{"getPackageName", "(I)Ljava/lang/String;", nullptr, 0},
-	{"getUtf8", "(I)Ljava/lang/String;", nullptr, 0},
+	{"<init>", "(Ljava/io/DataInput;)V", nullptr, 0, $method(ModuleInfo$ConstantPool, init$, void, $DataInput*), "java.io.IOException"},
+	{"checkIndex", "(I)V", nullptr, 0, $virtualMethod(ModuleInfo$ConstantPool, checkIndex, void, int32_t)},
+	{"checkUnqualifiedName", "(Ljava/lang/String;ILjava/lang/String;)V", nullptr, 0, $virtualMethod(ModuleInfo$ConstantPool, checkUnqualifiedName, void, $String*, int32_t, $String*)},
+	{"decodeModuleName", "(ILjava/lang/String;)Ljava/lang/String;", nullptr, 0, $virtualMethod(ModuleInfo$ConstantPool, decodeModuleName, $String*, int32_t, $String*)},
+	{"decodeModuleName", "(IILjava/lang/String;)Ljava/lang/String;", nullptr, 0, $virtualMethod(ModuleInfo$ConstantPool, decodeModuleName, $String*, int32_t, int32_t, $String*)},
+	{"getClassName", "(I)Ljava/lang/String;", nullptr, 0, $virtualMethod(ModuleInfo$ConstantPool, getClassName, $String*, int32_t)},
+	{"getModuleName", "(I)Ljava/lang/String;", nullptr, 0, $virtualMethod(ModuleInfo$ConstantPool, getModuleName, $String*, int32_t)},
+	{"getPackageName", "(I)Ljava/lang/String;", nullptr, 0, $virtualMethod(ModuleInfo$ConstantPool, getPackageName, $String*, int32_t)},
+	{"getUtf8", "(I)Ljava/lang/String;", nullptr, 0, $virtualMethod(ModuleInfo$ConstantPool, getUtf8, $String*, int32_t)},
 	{}
 };
 

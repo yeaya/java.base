@@ -74,10 +74,10 @@ namespace sun {
 		namespace ssl {
 
 $MethodInfo _ClientHello$T13ClientHelloConsumer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(ClientHello$T13ClientHelloConsumer::*)()>(&ClientHello$T13ClientHelloConsumer::init$))},
-	{"consume", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"goHelloRetryRequest", "(Lsun/security/ssl/ServerHandshakeContext;Lsun/security/ssl/ClientHello$ClientHelloMessage;)V", nullptr, $PRIVATE, $method(static_cast<void(ClientHello$T13ClientHelloConsumer::*)($ServerHandshakeContext*,$ClientHello$ClientHelloMessage*)>(&ClientHello$T13ClientHelloConsumer::goHelloRetryRequest)), "java.io.IOException"},
-	{"goServerHello", "(Lsun/security/ssl/ServerHandshakeContext;Lsun/security/ssl/ClientHello$ClientHelloMessage;)V", nullptr, $PRIVATE, $method(static_cast<void(ClientHello$T13ClientHelloConsumer::*)($ServerHandshakeContext*,$ClientHello$ClientHelloMessage*)>(&ClientHello$T13ClientHelloConsumer::goServerHello)), "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(ClientHello$T13ClientHelloConsumer, init$, void)},
+	{"consume", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)V", nullptr, $PUBLIC, $virtualMethod(ClientHello$T13ClientHelloConsumer, consume, void, $ConnectionContext*, $SSLHandshake$HandshakeMessage*), "java.io.IOException"},
+	{"goHelloRetryRequest", "(Lsun/security/ssl/ServerHandshakeContext;Lsun/security/ssl/ClientHello$ClientHelloMessage;)V", nullptr, $PRIVATE, $method(ClientHello$T13ClientHelloConsumer, goHelloRetryRequest, void, $ServerHandshakeContext*, $ClientHello$ClientHelloMessage*), "java.io.IOException"},
+	{"goServerHello", "(Lsun/security/ssl/ServerHandshakeContext;Lsun/security/ssl/ClientHello$ClientHelloMessage;)V", nullptr, $PRIVATE, $method(ClientHello$T13ClientHelloConsumer, goServerHello, void, $ServerHandshakeContext*, $ClientHello$ClientHelloMessage*), "java.io.IOException"},
 	{}
 };
 

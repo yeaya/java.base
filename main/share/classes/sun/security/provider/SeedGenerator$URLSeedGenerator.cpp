@@ -35,9 +35,9 @@ $FieldInfo _SeedGenerator$URLSeedGenerator_FieldInfo_[] = {
 };
 
 $MethodInfo _SeedGenerator$URLSeedGenerator_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(SeedGenerator$URLSeedGenerator::*)($String*)>(&SeedGenerator$URLSeedGenerator::init$)), "java.io.IOException"},
-	{"getSeedBytes", "([B)V", nullptr, 0},
-	{"init", "()V", nullptr, $PRIVATE, $method(static_cast<void(SeedGenerator$URLSeedGenerator::*)()>(&SeedGenerator$URLSeedGenerator::init)), "java.io.IOException"},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(SeedGenerator$URLSeedGenerator, init$, void, $String*), "java.io.IOException"},
+	{"getSeedBytes", "([B)V", nullptr, 0, $virtualMethod(SeedGenerator$URLSeedGenerator, getSeedBytes, void, $bytes*)},
+	{"init", "()V", nullptr, $PRIVATE, $method(SeedGenerator$URLSeedGenerator, init, void), "java.io.IOException"},
 	{}
 };
 

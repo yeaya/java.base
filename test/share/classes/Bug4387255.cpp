@@ -18,8 +18,8 @@ $FieldInfo _Bug4387255_FieldInfo_[] = {
 };
 
 $MethodInfo _Bug4387255_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Bug4387255::*)()>(&Bug4387255::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Bug4387255::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Bug4387255, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Bug4387255, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

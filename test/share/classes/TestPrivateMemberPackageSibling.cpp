@@ -6,8 +6,8 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _TestPrivateMemberPackageSibling_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(TestPrivateMemberPackageSibling::*)()>(&TestPrivateMemberPackageSibling::init$))},
-	{"checkInitted", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&TestPrivateMemberPackageSibling::checkInitted))},
+	{"<init>", "()V", nullptr, 0, $method(TestPrivateMemberPackageSibling, init$, void)},
+	{"checkInitted", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(TestPrivateMemberPackageSibling, checkInitted, void)},
 	{}
 };
 

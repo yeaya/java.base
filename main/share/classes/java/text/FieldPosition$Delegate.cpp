@@ -23,9 +23,9 @@ $FieldInfo _FieldPosition$Delegate_FieldInfo_[] = {
 };
 
 $MethodInfo _FieldPosition$Delegate_MethodInfo_[] = {
-	{"<init>", "(Ljava/text/FieldPosition;)V", nullptr, $PRIVATE, $method(static_cast<void(FieldPosition$Delegate::*)($FieldPosition*)>(&FieldPosition$Delegate::init$))},
-	{"formatted", "(Ljava/text/Format$Field;Ljava/lang/Object;IILjava/lang/StringBuffer;)V", nullptr, $PUBLIC},
-	{"formatted", "(ILjava/text/Format$Field;Ljava/lang/Object;IILjava/lang/StringBuffer;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/text/FieldPosition;)V", nullptr, $PRIVATE, $method(FieldPosition$Delegate, init$, void, $FieldPosition*)},
+	{"formatted", "(Ljava/text/Format$Field;Ljava/lang/Object;IILjava/lang/StringBuffer;)V", nullptr, $PUBLIC, $virtualMethod(FieldPosition$Delegate, formatted, void, $Format$Field*, Object$*, int32_t, int32_t, $StringBuffer*)},
+	{"formatted", "(ILjava/text/Format$Field;Ljava/lang/Object;IILjava/lang/StringBuffer;)V", nullptr, $PUBLIC, $virtualMethod(FieldPosition$Delegate, formatted, void, int32_t, $Format$Field*, Object$*, int32_t, int32_t, $StringBuffer*)},
 	{}
 };
 

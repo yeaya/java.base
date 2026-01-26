@@ -29,10 +29,10 @@ $FieldInfo _AclEntryType_FieldInfo_[] = {
 };
 
 $MethodInfo _AclEntryType_MethodInfo_[] = {
-	{"$values", "()[Ljava/nio/file/attribute/AclEntryType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$AclEntryTypeArray*(*)()>(&AclEntryType::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(AclEntryType::*)($String*,int32_t)>(&AclEntryType::init$))},
-	{"valueOf", "(Ljava/lang/String;)Ljava/nio/file/attribute/AclEntryType;", nullptr, $PUBLIC | $STATIC, $method(static_cast<AclEntryType*(*)($String*)>(&AclEntryType::valueOf))},
-	{"values", "()[Ljava/nio/file/attribute/AclEntryType;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$AclEntryTypeArray*(*)()>(&AclEntryType::values))},
+	{"$values", "()[Ljava/nio/file/attribute/AclEntryType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AclEntryType, $values, $AclEntryTypeArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(AclEntryType, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Ljava/nio/file/attribute/AclEntryType;", nullptr, $PUBLIC | $STATIC, $staticMethod(AclEntryType, valueOf, AclEntryType*, $String*)},
+	{"values", "()[Ljava/nio/file/attribute/AclEntryType;", nullptr, $PUBLIC | $STATIC, $staticMethod(AclEntryType, values, $AclEntryTypeArray*)},
 	{}
 };
 

@@ -34,8 +34,8 @@ $FieldInfo _Alert$AlertMessage_FieldInfo_[] = {
 };
 
 $MethodInfo _Alert$AlertMessage_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/ssl/TransportContext;Ljava/nio/ByteBuffer;)V", nullptr, 0, $method(static_cast<void(Alert$AlertMessage::*)($TransportContext*,$ByteBuffer*)>(&Alert$AlertMessage::init$)), "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/security/ssl/TransportContext;Ljava/nio/ByteBuffer;)V", nullptr, 0, $method(Alert$AlertMessage, init$, void, $TransportContext*, $ByteBuffer*), "java.io.IOException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Alert$AlertMessage, toString, $String*)},
 	{}
 };
 

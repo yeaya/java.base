@@ -47,9 +47,9 @@ using $ThreadFactory = ::java::util::concurrent::ThreadFactory;
 using $TimeUnit = ::java::util::concurrent::TimeUnit;
 
 $MethodInfo _GroupOfOne_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(GroupOfOne::*)()>(&GroupOfOne::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&GroupOfOne::main)), "java.lang.Exception"},
-	{"test", "(Ljava/net/SocketAddress;ZZ)V", nullptr, $STATIC, $method(static_cast<void(*)($SocketAddress*,bool,bool)>(&GroupOfOne::test)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(GroupOfOne, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(GroupOfOne, main, void, $StringArray*), "java.lang.Exception"},
+	{"test", "(Ljava/net/SocketAddress;ZZ)V", nullptr, $STATIC, $staticMethod(GroupOfOne, test, void, $SocketAddress*, bool, bool), "java.lang.Exception"},
 	{}
 };
 

@@ -36,16 +36,16 @@ $FieldInfo _AbstractConstantGroup$AsList_FieldInfo_[] = {
 };
 
 $MethodInfo _AbstractConstantGroup$AsList_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/invoke/ConstantGroup;IIZLjava/lang/Object;)V", nullptr, $PRIVATE, $method(static_cast<void(AbstractConstantGroup$AsList::*)($ConstantGroup*,int32_t,int32_t,bool,Object$*)>(&AbstractConstantGroup$AsList::init$))},
-	{"<init>", "(Ljava/lang/invoke/ConstantGroup;II)V", nullptr, 0, $method(static_cast<void(AbstractConstantGroup$AsList::*)($ConstantGroup*,int32_t,int32_t)>(&AbstractConstantGroup$AsList::init$))},
-	{"<init>", "(Ljava/lang/invoke/ConstantGroup;IILjava/lang/Object;)V", nullptr, 0, $method(static_cast<void(AbstractConstantGroup$AsList::*)($ConstantGroup*,int32_t,int32_t,Object$*)>(&AbstractConstantGroup$AsList::init$))},
-	{"get", "(I)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/lang/Object;>;", $PUBLIC},
-	{"mapIndex", "(I)I", nullptr, $PRIVATE, $method(static_cast<int32_t(AbstractConstantGroup$AsList::*)(int32_t)>(&AbstractConstantGroup$AsList::mapIndex))},
-	{"size", "()I", nullptr, $PUBLIC | $FINAL},
-	{"subList", "(II)Ljava/util/List;", "(II)Ljava/util/List<Ljava/lang/Object;>;", $PUBLIC},
-	{"toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", "<T:Ljava/lang/Object;>([TT;)[TT;", $PUBLIC},
+	{"<init>", "(Ljava/lang/invoke/ConstantGroup;IIZLjava/lang/Object;)V", nullptr, $PRIVATE, $method(AbstractConstantGroup$AsList, init$, void, $ConstantGroup*, int32_t, int32_t, bool, Object$*)},
+	{"<init>", "(Ljava/lang/invoke/ConstantGroup;II)V", nullptr, 0, $method(AbstractConstantGroup$AsList, init$, void, $ConstantGroup*, int32_t, int32_t)},
+	{"<init>", "(Ljava/lang/invoke/ConstantGroup;IILjava/lang/Object;)V", nullptr, 0, $method(AbstractConstantGroup$AsList, init$, void, $ConstantGroup*, int32_t, int32_t, Object$*)},
+	{"get", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AbstractConstantGroup$AsList, get, $Object*, int32_t)},
+	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/lang/Object;>;", $PUBLIC, $virtualMethod(AbstractConstantGroup$AsList, iterator, $Iterator*)},
+	{"mapIndex", "(I)I", nullptr, $PRIVATE, $method(AbstractConstantGroup$AsList, mapIndex, int32_t, int32_t)},
+	{"size", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractConstantGroup$AsList, size, int32_t)},
+	{"subList", "(II)Ljava/util/List;", "(II)Ljava/util/List<Ljava/lang/Object;>;", $PUBLIC, $virtualMethod(AbstractConstantGroup$AsList, subList, $List*, int32_t, int32_t)},
+	{"toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AbstractConstantGroup$AsList, toArray, $ObjectArray*)},
+	{"toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", "<T:Ljava/lang/Object;>([TT;)[TT;", $PUBLIC, $virtualMethod(AbstractConstantGroup$AsList, toArray, $ObjectArray*, $ObjectArray*)},
 	{}
 };
 

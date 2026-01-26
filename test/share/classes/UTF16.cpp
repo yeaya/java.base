@@ -22,9 +22,9 @@ $FieldInfo _UTF16_FieldInfo_[] = {
 };
 
 $MethodInfo _UTF16_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(UTF16::*)()>(&UTF16::init$))},
-	{"go", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($String*)>(&UTF16::go)), "java.lang.Exception"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&UTF16::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(UTF16, init$, void)},
+	{"go", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(UTF16, go, void, $String*), "java.lang.Exception"},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(UTF16, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

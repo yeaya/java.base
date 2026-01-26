@@ -18,7 +18,7 @@ $FieldInfo _NotYetBoundException_FieldInfo_[] = {
 };
 
 $MethodInfo _NotYetBoundException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(NotYetBoundException::*)()>(&NotYetBoundException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(NotYetBoundException, init$, void)},
 	{}
 };
 

@@ -12,8 +12,8 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
 
 $MethodInfo _NullConstruct_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(NullConstruct::*)()>(&NullConstruct::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&NullConstruct::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(NullConstruct, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(NullConstruct, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

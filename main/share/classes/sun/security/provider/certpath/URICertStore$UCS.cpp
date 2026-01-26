@@ -21,7 +21,7 @@ namespace sun {
 			namespace certpath {
 
 $MethodInfo _URICertStore$UCS_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/cert/CertStoreSpi;Ljava/security/Provider;Ljava/lang/String;Ljava/security/cert/CertStoreParameters;)V", nullptr, $PROTECTED, $method(static_cast<void(URICertStore$UCS::*)($CertStoreSpi*,$Provider*,$String*,$CertStoreParameters*)>(&URICertStore$UCS::init$))},
+	{"<init>", "(Ljava/security/cert/CertStoreSpi;Ljava/security/Provider;Ljava/lang/String;Ljava/security/cert/CertStoreParameters;)V", nullptr, $PROTECTED, $method(URICertStore$UCS, init$, void, $CertStoreSpi*, $Provider*, $String*, $CertStoreParameters*)},
 	{}
 };
 

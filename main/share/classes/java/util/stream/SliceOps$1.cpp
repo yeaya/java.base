@@ -60,12 +60,12 @@ $FieldInfo _SliceOps$1_FieldInfo_[] = {
 };
 
 $MethodInfo _SliceOps$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/stream/AbstractPipeline;Ljava/util/stream/StreamShape;IJJJ)V", nullptr, 0, $method(static_cast<void(SliceOps$1::*)($AbstractPipeline*,$StreamShape*,int32_t,int64_t,int64_t,int64_t)>(&SliceOps$1::init$))},
-	{"exactOutputSize", "(J)J", nullptr, 0},
-	{"opEvaluateParallel", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;Ljava/util/function/IntFunction;)Ljava/util/stream/Node;", "<P_IN:Ljava/lang/Object;>(Ljava/util/stream/PipelineHelper<TT;>;Ljava/util/Spliterator<TP_IN;>;Ljava/util/function/IntFunction<[TT;>;)Ljava/util/stream/Node<TT;>;", 0},
-	{"opEvaluateParallelLazy", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;)Ljava/util/Spliterator;", "<P_IN:Ljava/lang/Object;>(Ljava/util/stream/PipelineHelper<TT;>;Ljava/util/Spliterator<TP_IN;>;)Ljava/util/Spliterator<TT;>;", 0},
-	{"opWrapSink", "(ILjava/util/stream/Sink;)Ljava/util/stream/Sink;", "(ILjava/util/stream/Sink<TT;>;)Ljava/util/stream/Sink<TT;>;", 0},
-	{"unorderedSkipLimitSpliterator", "(Ljava/util/Spliterator;JJJ)Ljava/util/Spliterator;", "(Ljava/util/Spliterator<TT;>;JJJ)Ljava/util/Spliterator<TT;>;", 0},
+	{"<init>", "(Ljava/util/stream/AbstractPipeline;Ljava/util/stream/StreamShape;IJJJ)V", nullptr, 0, $method(SliceOps$1, init$, void, $AbstractPipeline*, $StreamShape*, int32_t, int64_t, int64_t, int64_t)},
+	{"exactOutputSize", "(J)J", nullptr, 0, $virtualMethod(SliceOps$1, exactOutputSize, int64_t, int64_t)},
+	{"opEvaluateParallel", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;Ljava/util/function/IntFunction;)Ljava/util/stream/Node;", "<P_IN:Ljava/lang/Object;>(Ljava/util/stream/PipelineHelper<TT;>;Ljava/util/Spliterator<TP_IN;>;Ljava/util/function/IntFunction<[TT;>;)Ljava/util/stream/Node<TT;>;", 0, $virtualMethod(SliceOps$1, opEvaluateParallel, $Node*, $PipelineHelper*, $Spliterator*, $IntFunction*)},
+	{"opEvaluateParallelLazy", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;)Ljava/util/Spliterator;", "<P_IN:Ljava/lang/Object;>(Ljava/util/stream/PipelineHelper<TT;>;Ljava/util/Spliterator<TP_IN;>;)Ljava/util/Spliterator<TT;>;", 0, $virtualMethod(SliceOps$1, opEvaluateParallelLazy, $Spliterator*, $PipelineHelper*, $Spliterator*)},
+	{"opWrapSink", "(ILjava/util/stream/Sink;)Ljava/util/stream/Sink;", "(ILjava/util/stream/Sink<TT;>;)Ljava/util/stream/Sink<TT;>;", 0, $virtualMethod(SliceOps$1, opWrapSink, $Sink*, int32_t, $Sink*)},
+	{"unorderedSkipLimitSpliterator", "(Ljava/util/Spliterator;JJJ)Ljava/util/Spliterator;", "(Ljava/util/Spliterator<TT;>;JJJ)Ljava/util/Spliterator<TT;>;", 0, $virtualMethod(SliceOps$1, unorderedSkipLimitSpliterator, $Spliterator*, $Spliterator*, int64_t, int64_t, int64_t)},
 	{}
 };
 

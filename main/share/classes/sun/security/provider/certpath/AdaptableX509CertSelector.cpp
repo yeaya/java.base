@@ -51,14 +51,14 @@ $FieldInfo _AdaptableX509CertSelector_FieldInfo_[] = {
 };
 
 $MethodInfo _AdaptableX509CertSelector_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(AdaptableX509CertSelector::*)()>(&AdaptableX509CertSelector::init$))},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"match", "(Ljava/security/cert/Certificate;)Z", nullptr, $PUBLIC},
-	{"matchSubjectKeyID", "(Ljava/security/cert/X509Certificate;)Z", nullptr, $PRIVATE, $method(static_cast<bool(AdaptableX509CertSelector::*)($X509Certificate*)>(&AdaptableX509CertSelector::matchSubjectKeyID))},
-	{"setSerialNumber", "(Ljava/math/BigInteger;)V", nullptr, $PUBLIC},
-	{"setSkiAndSerialNumber", "(Lsun/security/x509/AuthorityKeyIdentifierExtension;)V", nullptr, 0, nullptr, "java.io.IOException"},
-	{"setSubjectKeyIdentifier", "([B)V", nullptr, $PUBLIC},
-	{"setValidityPeriod", "(Ljava/util/Date;Ljava/util/Date;)V", nullptr, 0},
+	{"<init>", "()V", nullptr, 0, $method(AdaptableX509CertSelector, init$, void)},
+	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AdaptableX509CertSelector, clone, $Object*)},
+	{"match", "(Ljava/security/cert/Certificate;)Z", nullptr, $PUBLIC, $virtualMethod(AdaptableX509CertSelector, match, bool, $Certificate*)},
+	{"matchSubjectKeyID", "(Ljava/security/cert/X509Certificate;)Z", nullptr, $PRIVATE, $method(AdaptableX509CertSelector, matchSubjectKeyID, bool, $X509Certificate*)},
+	{"setSerialNumber", "(Ljava/math/BigInteger;)V", nullptr, $PUBLIC, $virtualMethod(AdaptableX509CertSelector, setSerialNumber, void, $BigInteger*)},
+	{"setSkiAndSerialNumber", "(Lsun/security/x509/AuthorityKeyIdentifierExtension;)V", nullptr, 0, $virtualMethod(AdaptableX509CertSelector, setSkiAndSerialNumber, void, $AuthorityKeyIdentifierExtension*), "java.io.IOException"},
+	{"setSubjectKeyIdentifier", "([B)V", nullptr, $PUBLIC, $virtualMethod(AdaptableX509CertSelector, setSubjectKeyIdentifier, void, $bytes*)},
+	{"setValidityPeriod", "(Ljava/util/Date;Ljava/util/Date;)V", nullptr, 0, $virtualMethod(AdaptableX509CertSelector, setValidityPeriod, void, $Date*, $Date*)},
 	{}
 };
 

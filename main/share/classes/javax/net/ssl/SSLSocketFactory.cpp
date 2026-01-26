@@ -49,13 +49,13 @@ $FieldInfo _SSLSocketFactory_FieldInfo_[] = {
 };
 
 $MethodInfo _SSLSocketFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SSLSocketFactory::*)()>(&SSLSocketFactory::init$))},
-	{"createSocket", "(Ljava/net/Socket;Ljava/lang/String;IZ)Ljava/net/Socket;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"createSocket", "(Ljava/net/Socket;Ljava/io/InputStream;Z)Ljava/net/Socket;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"getDefault", "()Ljavax/net/SocketFactory;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$SocketFactory*(*)()>(&SSLSocketFactory::getDefault))},
-	{"getDefaultCipherSuites", "()[Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getSecurityProperty", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $method(static_cast<$String*(*)($String*)>(&SSLSocketFactory::getSecurityProperty))},
-	{"getSupportedCipherSuites", "()[Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SSLSocketFactory, init$, void)},
+	{"createSocket", "(Ljava/net/Socket;Ljava/lang/String;IZ)Ljava/net/Socket;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SSLSocketFactory, createSocket, $Socket*, $Socket*, $String*, int32_t, bool), "java.io.IOException"},
+	{"createSocket", "(Ljava/net/Socket;Ljava/io/InputStream;Z)Ljava/net/Socket;", nullptr, $PUBLIC, $virtualMethod(SSLSocketFactory, createSocket, $Socket*, $Socket*, $InputStream*, bool), "java.io.IOException"},
+	{"getDefault", "()Ljavax/net/SocketFactory;", nullptr, $PUBLIC | $STATIC, $staticMethod(SSLSocketFactory, getDefault, $SocketFactory*)},
+	{"getDefaultCipherSuites", "()[Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SSLSocketFactory, getDefaultCipherSuites, $StringArray*)},
+	{"getSecurityProperty", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(SSLSocketFactory, getSecurityProperty, $String*, $String*)},
+	{"getSupportedCipherSuites", "()[Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SSLSocketFactory, getSupportedCipherSuites, $StringArray*)},
 	{}
 };
 

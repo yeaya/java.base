@@ -48,13 +48,13 @@ $FieldInfo _NativePRNG_FieldInfo_[] = {
 };
 
 $MethodInfo _NativePRNG_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(NativePRNG::*)()>(&NativePRNG::init$))},
-	{"engineGenerateSeed", "(I)[B", nullptr, $PROTECTED},
-	{"engineNextBytes", "([B)V", nullptr, $PROTECTED},
-	{"engineSetSeed", "([B)V", nullptr, $PROTECTED},
-	{"getEgdUrl", "()Ljava/net/URL;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$URL*(*)()>(&NativePRNG::getEgdUrl))},
-	{"initIO", "(Lsun/security/provider/NativePRNG$Variant;)Lsun/security/provider/NativePRNG$RandomIO;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$NativePRNG$RandomIO*(*)($NativePRNG$Variant*)>(&NativePRNG::initIO))},
-	{"isAvailable", "()Z", nullptr, $STATIC, $method(static_cast<bool(*)()>(&NativePRNG::isAvailable))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(NativePRNG, init$, void)},
+	{"engineGenerateSeed", "(I)[B", nullptr, $PROTECTED, $virtualMethod(NativePRNG, engineGenerateSeed, $bytes*, int32_t)},
+	{"engineNextBytes", "([B)V", nullptr, $PROTECTED, $virtualMethod(NativePRNG, engineNextBytes, void, $bytes*)},
+	{"engineSetSeed", "([B)V", nullptr, $PROTECTED, $virtualMethod(NativePRNG, engineSetSeed, void, $bytes*)},
+	{"getEgdUrl", "()Ljava/net/URL;", nullptr, $PRIVATE | $STATIC, $staticMethod(NativePRNG, getEgdUrl, $URL*)},
+	{"initIO", "(Lsun/security/provider/NativePRNG$Variant;)Lsun/security/provider/NativePRNG$RandomIO;", nullptr, $PRIVATE | $STATIC, $staticMethod(NativePRNG, initIO, $NativePRNG$RandomIO*, $NativePRNG$Variant*)},
+	{"isAvailable", "()Z", nullptr, $STATIC, $staticMethod(NativePRNG, isAvailable, bool)},
 	{}
 };
 

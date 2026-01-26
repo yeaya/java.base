@@ -42,15 +42,15 @@ $FieldInfo _CheckAnnotationAdapter_FieldInfo_[] = {
 };
 
 $MethodInfo _CheckAnnotationAdapter_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/org/objectweb/asm/AnnotationVisitor;)V", nullptr, $PUBLIC, $method(static_cast<void(CheckAnnotationAdapter::*)($AnnotationVisitor*)>(&CheckAnnotationAdapter::init$))},
-	{"<init>", "(Ljdk/internal/org/objectweb/asm/AnnotationVisitor;Z)V", nullptr, 0, $method(static_cast<void(CheckAnnotationAdapter::*)($AnnotationVisitor*,bool)>(&CheckAnnotationAdapter::init$))},
-	{"checkName", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(static_cast<void(CheckAnnotationAdapter::*)($String*)>(&CheckAnnotationAdapter::checkName))},
-	{"checkVisitEndNotCalled", "()V", nullptr, $PRIVATE, $method(static_cast<void(CheckAnnotationAdapter::*)()>(&CheckAnnotationAdapter::checkVisitEndNotCalled))},
-	{"visit", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC},
-	{"visitAnnotation", "(Ljava/lang/String;Ljava/lang/String;)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC},
-	{"visitArray", "(Ljava/lang/String;)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC},
-	{"visitEnd", "()V", nullptr, $PUBLIC},
-	{"visitEnum", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/org/objectweb/asm/AnnotationVisitor;)V", nullptr, $PUBLIC, $method(CheckAnnotationAdapter, init$, void, $AnnotationVisitor*)},
+	{"<init>", "(Ljdk/internal/org/objectweb/asm/AnnotationVisitor;Z)V", nullptr, 0, $method(CheckAnnotationAdapter, init$, void, $AnnotationVisitor*, bool)},
+	{"checkName", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(CheckAnnotationAdapter, checkName, void, $String*)},
+	{"checkVisitEndNotCalled", "()V", nullptr, $PRIVATE, $method(CheckAnnotationAdapter, checkVisitEndNotCalled, void)},
+	{"visit", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(CheckAnnotationAdapter, visit, void, $String*, Object$*)},
+	{"visitAnnotation", "(Ljava/lang/String;Ljava/lang/String;)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(CheckAnnotationAdapter, visitAnnotation, $AnnotationVisitor*, $String*, $String*)},
+	{"visitArray", "(Ljava/lang/String;)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(CheckAnnotationAdapter, visitArray, $AnnotationVisitor*, $String*)},
+	{"visitEnd", "()V", nullptr, $PUBLIC, $virtualMethod(CheckAnnotationAdapter, visitEnd, void)},
+	{"visitEnum", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CheckAnnotationAdapter, visitEnum, void, $String*, $String*, $String*)},
 	{}
 };
 

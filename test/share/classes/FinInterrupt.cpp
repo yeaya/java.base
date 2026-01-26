@@ -9,8 +9,8 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _FinInterrupt_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(FinInterrupt::*)()>(&FinInterrupt::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&FinInterrupt::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(FinInterrupt, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(FinInterrupt, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

@@ -28,8 +28,8 @@ $FieldInfo _TlsMasterSecret_FieldInfo_[] = {
 };
 
 $MethodInfo _TlsMasterSecret_MethodInfo_[] = {
-	{"getMajorVersion", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"getMinorVersion", "()I", nullptr, $PUBLIC | $ABSTRACT},
+	{"getMajorVersion", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TlsMasterSecret, getMajorVersion, int32_t)},
+	{"getMinorVersion", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TlsMasterSecret, getMinorVersion, int32_t)},
 	{}
 };
 

@@ -30,7 +30,7 @@ $Attribute _SingleMemberByteArrayDef_DefaultValue_value0 = {
 };
 
 $MethodInfo _SingleMemberByteArrayDef_MethodInfo_[] = {
-	{"value", "()[B", nullptr, $PUBLIC | $ABSTRACT, nullptr, nullptr, &_SingleMemberByteArrayDef_DefaultValue_value0},
+	{"value", "()[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SingleMemberByteArrayDef, value, $bytes*), nullptr, &_SingleMemberByteArrayDef_DefaultValue_value0},
 	{}
 };
 

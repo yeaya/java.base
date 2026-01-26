@@ -39,10 +39,10 @@ $FieldInfo _NativeConstructorAccessorImpl_FieldInfo_[] = {
 };
 
 $MethodInfo _NativeConstructorAccessorImpl_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/reflect/Constructor;)V", "(Ljava/lang/reflect/Constructor<*>;)V", 0, $method(static_cast<void(NativeConstructorAccessorImpl::*)($Constructor*)>(&NativeConstructorAccessorImpl::init$))},
-	{"newInstance", "([Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, nullptr, "java.lang.InstantiationException,java.lang.IllegalArgumentException,java.lang.reflect.InvocationTargetException"},
-	{"newInstance0", "(Ljava/lang/reflect/Constructor;[Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/lang/reflect/Constructor<*>;[Ljava/lang/Object;)Ljava/lang/Object;", $PRIVATE | $STATIC | $NATIVE, $method(static_cast<$Object*(*)($Constructor*,$ObjectArray*)>(&NativeConstructorAccessorImpl::newInstance0)), "java.lang.InstantiationException,java.lang.IllegalArgumentException,java.lang.reflect.InvocationTargetException"},
-	{"setParent", "(Ljdk/internal/reflect/DelegatingConstructorAccessorImpl;)V", nullptr, 0},
+	{"<init>", "(Ljava/lang/reflect/Constructor;)V", "(Ljava/lang/reflect/Constructor<*>;)V", 0, $method(NativeConstructorAccessorImpl, init$, void, $Constructor*)},
+	{"newInstance", "([Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(NativeConstructorAccessorImpl, newInstance, $Object*, $ObjectArray*), "java.lang.InstantiationException,java.lang.IllegalArgumentException,java.lang.reflect.InvocationTargetException"},
+	{"newInstance0", "(Ljava/lang/reflect/Constructor;[Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/lang/reflect/Constructor<*>;[Ljava/lang/Object;)Ljava/lang/Object;", $PRIVATE | $STATIC | $NATIVE, $staticMethod(NativeConstructorAccessorImpl, newInstance0, $Object*, $Constructor*, $ObjectArray*), "java.lang.InstantiationException,java.lang.IllegalArgumentException,java.lang.reflect.InvocationTargetException"},
+	{"setParent", "(Ljdk/internal/reflect/DelegatingConstructorAccessorImpl;)V", nullptr, 0, $virtualMethod(NativeConstructorAccessorImpl, setParent, void, $DelegatingConstructorAccessorImpl*)},
 	{}
 };
 

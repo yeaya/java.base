@@ -26,9 +26,9 @@ $MethodInfo _Indify$InnerOuter_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Indify$InnerOuter::*)()>(&Indify$InnerOuter::init$))},
-	{"linkOuter", "(Lindify/Indify$Outer;)V", nullptr, $PUBLIC},
-	{"outer", "()Lindify/Indify$Outer;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Indify$InnerOuter, init$, void)},
+	{"linkOuter", "(Lindify/Indify$Outer;)V", nullptr, $PUBLIC, $virtualMethod(Indify$InnerOuter, linkOuter, void, $Indify$Outer*)},
+	{"outer", "()Lindify/Indify$Outer;", nullptr, $PUBLIC, $virtualMethod(Indify$InnerOuter, outer, $Indify$Outer*)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

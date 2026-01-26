@@ -72,8 +72,8 @@ $FieldInfo ModuleInfoExtender$1$$Lambda$lambda$visitModule$0::fieldInfos[2] = {
 	{}
 };
 $MethodInfo ModuleInfoExtender$1$$Lambda$lambda$visitModule$0::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/org/objectweb/asm/ModuleVisitor;)V", nullptr, $PUBLIC, $method(static_cast<void(ModuleInfoExtender$1$$Lambda$lambda$visitModule$0::*)($ModuleVisitor*)>(&ModuleInfoExtender$1$$Lambda$lambda$visitModule$0::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/org/objectweb/asm/ModuleVisitor;)V", nullptr, $PUBLIC, $method(ModuleInfoExtender$1$$Lambda$lambda$visitModule$0, init$, void, $ModuleVisitor*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ModuleInfoExtender$1$$Lambda$lambda$visitModule$0, accept, void, Object$*)},
 	{}
 };
 $ClassInfo ModuleInfoExtender$1$$Lambda$lambda$visitModule$0::classInfo$ = {
@@ -96,10 +96,10 @@ $FieldInfo _ModuleInfoExtender$1_FieldInfo_[] = {
 };
 
 $MethodInfo _ModuleInfoExtender$1_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/module/ModuleInfoExtender;ILjdk/internal/org/objectweb/asm/ClassVisitor;)V", nullptr, 0, $method(static_cast<void(ModuleInfoExtender$1::*)($ModuleInfoExtender*,int32_t,$ClassVisitor*)>(&ModuleInfoExtender$1::init$))},
-	{"lambda$visitModule$0", "(Ljdk/internal/org/objectweb/asm/ModuleVisitor;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($ModuleVisitor*,$String*)>(&ModuleInfoExtender$1::lambda$visitModule$0))},
-	{"visitAttribute", "(Ljdk/internal/org/objectweb/asm/Attribute;)V", nullptr, $PUBLIC},
-	{"visitModule", "(Ljava/lang/String;ILjava/lang/String;)Ljdk/internal/org/objectweb/asm/ModuleVisitor;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/module/ModuleInfoExtender;ILjdk/internal/org/objectweb/asm/ClassVisitor;)V", nullptr, 0, $method(ModuleInfoExtender$1, init$, void, $ModuleInfoExtender*, int32_t, $ClassVisitor*)},
+	{"lambda$visitModule$0", "(Ljdk/internal/org/objectweb/asm/ModuleVisitor;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ModuleInfoExtender$1, lambda$visitModule$0, void, $ModuleVisitor*, $String*)},
+	{"visitAttribute", "(Ljdk/internal/org/objectweb/asm/Attribute;)V", nullptr, $PUBLIC, $virtualMethod(ModuleInfoExtender$1, visitAttribute, void, $Attribute*)},
+	{"visitModule", "(Ljava/lang/String;ILjava/lang/String;)Ljdk/internal/org/objectweb/asm/ModuleVisitor;", nullptr, $PUBLIC, $virtualMethod(ModuleInfoExtender$1, visitModule, $ModuleVisitor*, $String*, int32_t, $String*)},
 	{}
 };
 

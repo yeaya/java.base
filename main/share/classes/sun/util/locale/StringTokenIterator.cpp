@@ -24,17 +24,17 @@ $FieldInfo _StringTokenIterator_FieldInfo_[] = {
 };
 
 $MethodInfo _StringTokenIterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(StringTokenIterator::*)($String*,$String*)>(&StringTokenIterator::init$))},
-	{"current", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"currentEnd", "()I", nullptr, $PUBLIC},
-	{"currentStart", "()I", nullptr, $PUBLIC},
-	{"first", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"hasNext", "()Z", nullptr, $PUBLIC},
-	{"isDone", "()Z", nullptr, $PUBLIC},
-	{"next", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"nextDelimiter", "(I)I", nullptr, $PRIVATE, $method(static_cast<int32_t(StringTokenIterator::*)(int32_t)>(&StringTokenIterator::nextDelimiter))},
-	{"setStart", "(I)Lsun/util/locale/StringTokenIterator;", nullptr, $PUBLIC},
-	{"setText", "(Ljava/lang/String;)Lsun/util/locale/StringTokenIterator;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(StringTokenIterator, init$, void, $String*, $String*)},
+	{"current", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StringTokenIterator, current, $String*)},
+	{"currentEnd", "()I", nullptr, $PUBLIC, $virtualMethod(StringTokenIterator, currentEnd, int32_t)},
+	{"currentStart", "()I", nullptr, $PUBLIC, $virtualMethod(StringTokenIterator, currentStart, int32_t)},
+	{"first", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StringTokenIterator, first, $String*)},
+	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(StringTokenIterator, hasNext, bool)},
+	{"isDone", "()Z", nullptr, $PUBLIC, $virtualMethod(StringTokenIterator, isDone, bool)},
+	{"next", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StringTokenIterator, next, $String*)},
+	{"nextDelimiter", "(I)I", nullptr, $PRIVATE, $method(StringTokenIterator, nextDelimiter, int32_t, int32_t)},
+	{"setStart", "(I)Lsun/util/locale/StringTokenIterator;", nullptr, $PUBLIC, $virtualMethod(StringTokenIterator, setStart, StringTokenIterator*, int32_t)},
+	{"setText", "(Ljava/lang/String;)Lsun/util/locale/StringTokenIterator;", nullptr, $PUBLIC, $virtualMethod(StringTokenIterator, setText, StringTokenIterator*, $String*)},
 	{}
 };
 

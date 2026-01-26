@@ -18,8 +18,8 @@ $FieldInfo _CertPathTrustManagerParameters_FieldInfo_[] = {
 };
 
 $MethodInfo _CertPathTrustManagerParameters_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/cert/CertPathParameters;)V", nullptr, $PUBLIC, $method(static_cast<void(CertPathTrustManagerParameters::*)($CertPathParameters*)>(&CertPathTrustManagerParameters::init$))},
-	{"getParameters", "()Ljava/security/cert/CertPathParameters;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/security/cert/CertPathParameters;)V", nullptr, $PUBLIC, $method(CertPathTrustManagerParameters, init$, void, $CertPathParameters*)},
+	{"getParameters", "()Ljava/security/cert/CertPathParameters;", nullptr, $PUBLIC, $virtualMethod(CertPathTrustManagerParameters, getParameters, $CertPathParameters*)},
 	{}
 };
 

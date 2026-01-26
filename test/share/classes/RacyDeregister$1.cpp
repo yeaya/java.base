@@ -30,8 +30,8 @@ $FieldInfo _RacyDeregister$1_FieldInfo_[] = {
 };
 
 $MethodInfo _RacyDeregister$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/channels/Selector;[Ljava/nio/channels/SelectionKey;)V", nullptr, 0, $method(static_cast<void(RacyDeregister$1::*)($Selector*,$SelectionKeyArray*)>(&RacyDeregister$1::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/nio/channels/Selector;[Ljava/nio/channels/SelectionKey;)V", nullptr, 0, $method(RacyDeregister$1, init$, void, $Selector*, $SelectionKeyArray*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(RacyDeregister$1, run, void)},
 	{}
 };
 

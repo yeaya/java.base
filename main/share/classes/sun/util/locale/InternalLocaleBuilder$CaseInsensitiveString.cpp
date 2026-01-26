@@ -21,10 +21,10 @@ $FieldInfo _InternalLocaleBuilder$CaseInsensitiveString_FieldInfo_[] = {
 };
 
 $MethodInfo _InternalLocaleBuilder$CaseInsensitiveString_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(InternalLocaleBuilder$CaseInsensitiveString::*)($String*)>(&InternalLocaleBuilder$CaseInsensitiveString::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"value", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(static_cast<$String*(InternalLocaleBuilder$CaseInsensitiveString::*)()>(&InternalLocaleBuilder$CaseInsensitiveString::value))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(InternalLocaleBuilder$CaseInsensitiveString, init$, void, $String*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(InternalLocaleBuilder$CaseInsensitiveString, equals, bool, Object$*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(InternalLocaleBuilder$CaseInsensitiveString, hashCode, int32_t)},
+	{"value", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(InternalLocaleBuilder$CaseInsensitiveString, value, $String*)},
 	{}
 };
 

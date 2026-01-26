@@ -18,9 +18,9 @@ $FieldInfo _AnnotationFormatError_FieldInfo_[] = {
 };
 
 $MethodInfo _AnnotationFormatError_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(AnnotationFormatError::*)($String*)>(&AnnotationFormatError::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(AnnotationFormatError::*)($String*,$Throwable*)>(&AnnotationFormatError::init$))},
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(AnnotationFormatError::*)($Throwable*)>(&AnnotationFormatError::init$))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(AnnotationFormatError, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(AnnotationFormatError, init$, void, $String*, $Throwable*)},
+	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(AnnotationFormatError, init$, void, $Throwable*)},
 	{}
 };
 

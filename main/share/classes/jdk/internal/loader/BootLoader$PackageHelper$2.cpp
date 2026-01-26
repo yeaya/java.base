@@ -32,8 +32,8 @@ $FieldInfo _BootLoader$PackageHelper$2_FieldInfo_[] = {
 };
 
 $MethodInfo _BootLoader$PackageHelper$2_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(BootLoader$PackageHelper$2::*)($String*)>(&BootLoader$PackageHelper$2::init$))},
-	{"run", "()Ljava/util/jar/Manifest;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(BootLoader$PackageHelper$2, init$, void, $String*)},
+	{"run", "()Ljava/util/jar/Manifest;", nullptr, $PUBLIC, $virtualMethod(BootLoader$PackageHelper$2, run, $Object*)},
 	{}
 };
 

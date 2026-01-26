@@ -37,10 +37,10 @@ $FieldInfo _LookupTest$Server_FieldInfo_[] = {
 };
 
 $MethodInfo _LookupTest$Server_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(LookupTest$Server::*)()>(&LookupTest$Server::init$)), "java.io.IOException"},
-	{"readOneRequest", "(Ljava/io/InputStream;)V", nullptr, 0, nullptr, "java.io.IOException"},
-	{"run", "()V", nullptr, $PUBLIC},
-	{"terminate", "()V", nullptr, 0},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(LookupTest$Server, init$, void), "java.io.IOException"},
+	{"readOneRequest", "(Ljava/io/InputStream;)V", nullptr, 0, $virtualMethod(LookupTest$Server, readOneRequest, void, $InputStream*), "java.io.IOException"},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(LookupTest$Server, run, void)},
+	{"terminate", "()V", nullptr, 0, $virtualMethod(LookupTest$Server, terminate, void)},
 	{}
 };
 

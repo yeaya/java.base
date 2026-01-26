@@ -36,9 +36,9 @@ $FieldInfo _SecureClassLoader$1_FieldInfo_[] = {
 };
 
 $MethodInfo _SecureClassLoader$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/SecureClassLoader;Ljava/security/CodeSource;)V", nullptr, 0, $method(static_cast<void(SecureClassLoader$1::*)($SecureClassLoader*,$CodeSource*)>(&SecureClassLoader$1::init$))},
-	{"apply", "(Ljava/security/SecureClassLoader$CodeSourceKey;)Ljava/security/ProtectionDomain;", nullptr, $PUBLIC},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "(Ljava/security/SecureClassLoader;Ljava/security/CodeSource;)V", nullptr, 0, $method(SecureClassLoader$1, init$, void, $SecureClassLoader*, $CodeSource*)},
+	{"apply", "(Ljava/security/SecureClassLoader$CodeSourceKey;)Ljava/security/ProtectionDomain;", nullptr, $PUBLIC, $virtualMethod(SecureClassLoader$1, apply, $ProtectionDomain*, $SecureClassLoader$CodeSourceKey*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(SecureClassLoader$1, apply, $Object*, Object$*)},
 	{}
 };
 

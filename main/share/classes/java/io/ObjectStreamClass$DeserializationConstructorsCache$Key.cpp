@@ -11,12 +11,12 @@ namespace java {
 	namespace io {
 
 $MethodInfo _ObjectStreamClass$DeserializationConstructorsCache$Key_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ObjectStreamClass$DeserializationConstructorsCache$Key::*)()>(&ObjectStreamClass$DeserializationConstructorsCache$Key::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
-	{"fieldName", "(I)Ljava/lang/String;", nullptr, $ABSTRACT},
-	{"fieldType", "(I)Ljava/lang/Class;", "(I)Ljava/lang/Class<*>;", $ABSTRACT},
-	{"hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"length", "()I", nullptr, $ABSTRACT},
+	{"<init>", "()V", nullptr, 0, $method(ObjectStreamClass$DeserializationConstructorsCache$Key, init$, void)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(ObjectStreamClass$DeserializationConstructorsCache$Key, equals, bool, Object$*)},
+	{"fieldName", "(I)Ljava/lang/String;", nullptr, $ABSTRACT, $virtualMethod(ObjectStreamClass$DeserializationConstructorsCache$Key, fieldName, $String*, int32_t)},
+	{"fieldType", "(I)Ljava/lang/Class;", "(I)Ljava/lang/Class<*>;", $ABSTRACT, $virtualMethod(ObjectStreamClass$DeserializationConstructorsCache$Key, fieldType, $Class*, int32_t)},
+	{"hashCode", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(ObjectStreamClass$DeserializationConstructorsCache$Key, hashCode, int32_t)},
+	{"length", "()I", nullptr, $ABSTRACT, $virtualMethod(ObjectStreamClass$DeserializationConstructorsCache$Key, length, int32_t)},
 	{}
 };
 

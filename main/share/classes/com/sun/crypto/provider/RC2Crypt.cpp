@@ -25,14 +25,14 @@ $FieldInfo _RC2Crypt_FieldInfo_[] = {
 };
 
 $MethodInfo _RC2Crypt_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(RC2Crypt::*)()>(&RC2Crypt::init$))},
-	{"checkKey", "(Ljava/lang/String;I)V", nullptr, $STATIC, $method(static_cast<void(*)($String*,int32_t)>(&RC2Crypt::checkKey)), "java.security.InvalidKeyException"},
-	{"decryptBlock", "([BI[BI)V", nullptr, 0},
-	{"encryptBlock", "([BI[BI)V", nullptr, 0},
-	{"getBlockSize", "()I", nullptr, 0},
-	{"getEffectiveKeyBits", "()I", nullptr, 0, $method(static_cast<int32_t(RC2Crypt::*)()>(&RC2Crypt::getEffectiveKeyBits))},
-	{"init", "(ZLjava/lang/String;[B)V", nullptr, 0, nullptr, "java.security.InvalidKeyException"},
-	{"initEffectiveKeyBits", "(I)V", nullptr, 0, $method(static_cast<void(RC2Crypt::*)(int32_t)>(&RC2Crypt::initEffectiveKeyBits))},
+	{"<init>", "()V", nullptr, 0, $method(RC2Crypt, init$, void)},
+	{"checkKey", "(Ljava/lang/String;I)V", nullptr, $STATIC, $staticMethod(RC2Crypt, checkKey, void, $String*, int32_t), "java.security.InvalidKeyException"},
+	{"decryptBlock", "([BI[BI)V", nullptr, 0, $virtualMethod(RC2Crypt, decryptBlock, void, $bytes*, int32_t, $bytes*, int32_t)},
+	{"encryptBlock", "([BI[BI)V", nullptr, 0, $virtualMethod(RC2Crypt, encryptBlock, void, $bytes*, int32_t, $bytes*, int32_t)},
+	{"getBlockSize", "()I", nullptr, 0, $virtualMethod(RC2Crypt, getBlockSize, int32_t)},
+	{"getEffectiveKeyBits", "()I", nullptr, 0, $method(RC2Crypt, getEffectiveKeyBits, int32_t)},
+	{"init", "(ZLjava/lang/String;[B)V", nullptr, 0, $virtualMethod(RC2Crypt, init, void, bool, $String*, $bytes*), "java.security.InvalidKeyException"},
+	{"initEffectiveKeyBits", "(I)V", nullptr, 0, $method(RC2Crypt, initEffectiveKeyBits, void, int32_t)},
 	{}
 };
 

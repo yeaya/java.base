@@ -21,9 +21,9 @@ $FieldInfo _AccessibleObject$Cache_FieldInfo_[] = {
 };
 
 $MethodInfo _AccessibleObject$Cache_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Class;Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)V", 0, $method(static_cast<void(AccessibleObject$Cache::*)($Class*,$Class*)>(&AccessibleObject$Cache::init$))},
-	{"isCacheFor", "(Ljava/lang/Class;Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)Z", 0},
-	{"protectedMemberCallerCache", "(Ljava/lang/Class;Ljava/lang/Class;)Ljava/lang/Object;", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)Ljava/lang/Object;", $STATIC, $method(static_cast<$Object*(*)($Class*,$Class*)>(&AccessibleObject$Cache::protectedMemberCallerCache))},
+	{"<init>", "(Ljava/lang/Class;Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)V", 0, $method(AccessibleObject$Cache, init$, void, $Class*, $Class*)},
+	{"isCacheFor", "(Ljava/lang/Class;Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)Z", 0, $virtualMethod(AccessibleObject$Cache, isCacheFor, bool, $Class*, $Class*)},
+	{"protectedMemberCallerCache", "(Ljava/lang/Class;Ljava/lang/Class;)Ljava/lang/Object;", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)Ljava/lang/Object;", $STATIC, $staticMethod(AccessibleObject$Cache, protectedMemberCallerCache, $Object*, $Class*, $Class*)},
 	{}
 };
 

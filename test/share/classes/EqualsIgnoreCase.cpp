@@ -27,10 +27,10 @@ $FieldInfo _EqualsIgnoreCase_FieldInfo_[] = {
 };
 
 $MethodInfo _EqualsIgnoreCase_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(EqualsIgnoreCase::*)()>(&EqualsIgnoreCase::init$))},
-	{"compareFuncs", "(Ljava/lang/String;Ljava/lang/String;ZZ)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($String*,$String*,bool,bool)>(&EqualsIgnoreCase::compareFuncs))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&EqualsIgnoreCase::main))},
-	{"toUpperToLowerOriginals", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($String*,$String*)>(&EqualsIgnoreCase::toUpperToLowerOriginals))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(EqualsIgnoreCase, init$, void)},
+	{"compareFuncs", "(Ljava/lang/String;Ljava/lang/String;ZZ)V", nullptr, $PRIVATE | $STATIC, $staticMethod(EqualsIgnoreCase, compareFuncs, void, $String*, $String*, bool, bool)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(EqualsIgnoreCase, main, void, $StringArray*)},
+	{"toUpperToLowerOriginals", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(EqualsIgnoreCase, toUpperToLowerOriginals, bool, $String*, $String*)},
 	{}
 };
 

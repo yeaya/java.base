@@ -42,10 +42,10 @@ $FieldInfo _URLEncoder_FieldInfo_[] = {
 };
 
 $MethodInfo _URLEncoder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(URLEncoder::*)()>(&URLEncoder::init$))},
-	{"encode", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $DEPRECATED, $method(static_cast<$String*(*)($String*)>(&URLEncoder::encode)), nullptr, nullptr, _URLEncoder_MethodAnnotations_encode1},
-	{"encode", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)($String*,$String*)>(&URLEncoder::encode)), "java.io.UnsupportedEncodingException"},
-	{"encode", "(Ljava/lang/String;Ljava/nio/charset/Charset;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)($String*,$Charset*)>(&URLEncoder::encode))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(URLEncoder, init$, void)},
+	{"encode", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $DEPRECATED, $staticMethod(URLEncoder, encode, $String*, $String*), nullptr, nullptr, _URLEncoder_MethodAnnotations_encode1},
+	{"encode", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(URLEncoder, encode, $String*, $String*, $String*), "java.io.UnsupportedEncodingException"},
+	{"encode", "(Ljava/lang/String;Ljava/nio/charset/Charset;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(URLEncoder, encode, $String*, $String*, $Charset*)},
 	{}
 };
 

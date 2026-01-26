@@ -90,12 +90,12 @@ $FieldInfo _Lock_FieldInfo_[] = {
 };
 
 $MethodInfo _Lock_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Lock::*)()>(&Lock::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Lock::main)), "java.lang.Exception"},
-	{"runLockWorker", "(I)V", nullptr, $STATIC, $method(static_cast<void(*)(int32_t)>(&Lock::runLockWorker)), "java.lang.Exception"},
-	{"startLockWorker", "()LLock$LockWorkerMirror;", nullptr, $STATIC, $method(static_cast<$Lock$LockWorkerMirror*(*)()>(&Lock::startLockWorker)), "java.lang.Exception"},
-	{"testAsyncClose", "(Ljava/io/File;LLock$LockWorkerMirror;)V", nullptr, $STATIC, $method(static_cast<void(*)($File*,$Lock$LockWorkerMirror*)>(&Lock::testAsyncClose)), "java.lang.Exception"},
-	{"testLockProtocol", "(Ljava/io/File;LLock$LockWorkerMirror;)V", nullptr, $STATIC, $method(static_cast<void(*)($File*,$Lock$LockWorkerMirror*)>(&Lock::testLockProtocol)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Lock, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Lock, main, void, $StringArray*), "java.lang.Exception"},
+	{"runLockWorker", "(I)V", nullptr, $STATIC, $staticMethod(Lock, runLockWorker, void, int32_t), "java.lang.Exception"},
+	{"startLockWorker", "()LLock$LockWorkerMirror;", nullptr, $STATIC, $staticMethod(Lock, startLockWorker, $Lock$LockWorkerMirror*), "java.lang.Exception"},
+	{"testAsyncClose", "(Ljava/io/File;LLock$LockWorkerMirror;)V", nullptr, $STATIC, $staticMethod(Lock, testAsyncClose, void, $File*, $Lock$LockWorkerMirror*), "java.lang.Exception"},
+	{"testLockProtocol", "(Ljava/io/File;LLock$LockWorkerMirror;)V", nullptr, $STATIC, $staticMethod(Lock, testLockProtocol, void, $File*, $Lock$LockWorkerMirror*), "java.lang.Exception"},
 	{}
 };
 

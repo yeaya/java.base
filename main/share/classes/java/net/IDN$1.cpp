@@ -15,8 +15,8 @@ namespace java {
 	namespace net {
 
 $MethodInfo _IDN$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(IDN$1::*)()>(&IDN$1::init$))},
-	{"run", "()Ljava/io/InputStream;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(IDN$1, init$, void)},
+	{"run", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(IDN$1, run, $Object*)},
 	{}
 };
 

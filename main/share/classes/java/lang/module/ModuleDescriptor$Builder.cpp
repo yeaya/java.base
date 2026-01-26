@@ -91,8 +91,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ModuleDescriptor$Builder$$Lambda$requireModuleName::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ModuleDescriptor$Builder$$Lambda$requireModuleName::*)()>(&ModuleDescriptor$Builder$$Lambda$requireModuleName::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ModuleDescriptor$Builder$$Lambda$requireModuleName, init$, void)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ModuleDescriptor$Builder$$Lambda$requireModuleName, accept, void, Object$*)},
 	{}
 };
 $ClassInfo ModuleDescriptor$Builder$$Lambda$requireModuleName::classInfo$ = {
@@ -131,8 +131,8 @@ $FieldInfo ModuleDescriptor$Builder$$Lambda$lambda$provides$0$1::fieldInfos[2] =
 	{}
 };
 $MethodInfo ModuleDescriptor$Builder$$Lambda$lambda$provides$0$1::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/module/ModuleDescriptor$Builder;)V", nullptr, $PUBLIC, $method(static_cast<void(ModuleDescriptor$Builder$$Lambda$lambda$provides$0$1::*)(ModuleDescriptor$Builder*)>(&ModuleDescriptor$Builder$$Lambda$lambda$provides$0$1::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/module/ModuleDescriptor$Builder;)V", nullptr, $PUBLIC, $method(ModuleDescriptor$Builder$$Lambda$lambda$provides$0$1, init$, void, ModuleDescriptor$Builder*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ModuleDescriptor$Builder$$Lambda$lambda$provides$0$1, accept, void, Object$*)},
 	{}
 };
 $ClassInfo ModuleDescriptor$Builder$$Lambda$lambda$provides$0$1::classInfo$ = {
@@ -164,8 +164,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ModuleDescriptor$Builder$$Lambda$requireServiceProviderName$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ModuleDescriptor$Builder$$Lambda$requireServiceProviderName$2::*)()>(&ModuleDescriptor$Builder$$Lambda$requireServiceProviderName$2::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ModuleDescriptor$Builder$$Lambda$requireServiceProviderName$2, init$, void)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ModuleDescriptor$Builder$$Lambda$requireServiceProviderName$2, accept, void, Object$*)},
 	{}
 };
 $ClassInfo ModuleDescriptor$Builder$$Lambda$requireServiceProviderName$2::classInfo$ = {
@@ -197,8 +197,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ModuleDescriptor$Builder$$Lambda$requirePackageName$3::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ModuleDescriptor$Builder$$Lambda$requirePackageName$3::*)()>(&ModuleDescriptor$Builder$$Lambda$requirePackageName$3::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ModuleDescriptor$Builder$$Lambda$requirePackageName$3, init$, void)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ModuleDescriptor$Builder$$Lambda$requirePackageName$3, accept, void, Object$*)},
 	{}
 };
 $ClassInfo ModuleDescriptor$Builder$$Lambda$requirePackageName$3::classInfo$ = {
@@ -235,32 +235,32 @@ $FieldInfo _ModuleDescriptor$Builder_FieldInfo_[] = {
 };
 
 $MethodInfo _ModuleDescriptor$Builder_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;ZLjava/util/Set;)V", "(Ljava/lang/String;ZLjava/util/Set<Ljava/lang/module/ModuleDescriptor$Modifier;>;)V", 0, $method(static_cast<void(ModuleDescriptor$Builder::*)($String*,bool,$Set*)>(&ModuleDescriptor$Builder::init$))},
-	{"build", "()Ljava/lang/module/ModuleDescriptor;", nullptr, $PUBLIC, $method(static_cast<$ModuleDescriptor*(ModuleDescriptor$Builder::*)()>(&ModuleDescriptor$Builder::build))},
-	{"exports", "(Ljava/lang/module/ModuleDescriptor$Exports;)Ljava/lang/module/ModuleDescriptor$Builder;", nullptr, $PUBLIC, $method(static_cast<ModuleDescriptor$Builder*(ModuleDescriptor$Builder::*)($ModuleDescriptor$Exports*)>(&ModuleDescriptor$Builder::exports))},
-	{"exports", "(Ljava/util/Set;Ljava/lang/String;Ljava/util/Set;)Ljava/lang/module/ModuleDescriptor$Builder;", "(Ljava/util/Set<Ljava/lang/module/ModuleDescriptor$Exports$Modifier;>;Ljava/lang/String;Ljava/util/Set<Ljava/lang/String;>;)Ljava/lang/module/ModuleDescriptor$Builder;", $PUBLIC, $method(static_cast<ModuleDescriptor$Builder*(ModuleDescriptor$Builder::*)($Set*,$String*,$Set*)>(&ModuleDescriptor$Builder::exports))},
-	{"exports", "(Ljava/util/Set;Ljava/lang/String;)Ljava/lang/module/ModuleDescriptor$Builder;", "(Ljava/util/Set<Ljava/lang/module/ModuleDescriptor$Exports$Modifier;>;Ljava/lang/String;)Ljava/lang/module/ModuleDescriptor$Builder;", $PUBLIC, $method(static_cast<ModuleDescriptor$Builder*(ModuleDescriptor$Builder::*)($Set*,$String*)>(&ModuleDescriptor$Builder::exports))},
-	{"exports", "(Ljava/lang/String;Ljava/util/Set;)Ljava/lang/module/ModuleDescriptor$Builder;", "(Ljava/lang/String;Ljava/util/Set<Ljava/lang/String;>;)Ljava/lang/module/ModuleDescriptor$Builder;", $PUBLIC, $method(static_cast<ModuleDescriptor$Builder*(ModuleDescriptor$Builder::*)($String*,$Set*)>(&ModuleDescriptor$Builder::exports))},
-	{"exports", "(Ljava/lang/String;)Ljava/lang/module/ModuleDescriptor$Builder;", nullptr, $PUBLIC, $method(static_cast<ModuleDescriptor$Builder*(ModuleDescriptor$Builder::*)($String*)>(&ModuleDescriptor$Builder::exports))},
-	{"lambda$provides$0", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(ModuleDescriptor$Builder::*)($String*)>(&ModuleDescriptor$Builder::lambda$provides$0))},
-	{"mainClass", "(Ljava/lang/String;)Ljava/lang/module/ModuleDescriptor$Builder;", nullptr, $PUBLIC, $method(static_cast<ModuleDescriptor$Builder*(ModuleDescriptor$Builder::*)($String*)>(&ModuleDescriptor$Builder::mainClass))},
-	{"opens", "(Ljava/lang/module/ModuleDescriptor$Opens;)Ljava/lang/module/ModuleDescriptor$Builder;", nullptr, $PUBLIC, $method(static_cast<ModuleDescriptor$Builder*(ModuleDescriptor$Builder::*)($ModuleDescriptor$Opens*)>(&ModuleDescriptor$Builder::opens))},
-	{"opens", "(Ljava/util/Set;Ljava/lang/String;Ljava/util/Set;)Ljava/lang/module/ModuleDescriptor$Builder;", "(Ljava/util/Set<Ljava/lang/module/ModuleDescriptor$Opens$Modifier;>;Ljava/lang/String;Ljava/util/Set<Ljava/lang/String;>;)Ljava/lang/module/ModuleDescriptor$Builder;", $PUBLIC, $method(static_cast<ModuleDescriptor$Builder*(ModuleDescriptor$Builder::*)($Set*,$String*,$Set*)>(&ModuleDescriptor$Builder::opens))},
-	{"opens", "(Ljava/util/Set;Ljava/lang/String;)Ljava/lang/module/ModuleDescriptor$Builder;", "(Ljava/util/Set<Ljava/lang/module/ModuleDescriptor$Opens$Modifier;>;Ljava/lang/String;)Ljava/lang/module/ModuleDescriptor$Builder;", $PUBLIC, $method(static_cast<ModuleDescriptor$Builder*(ModuleDescriptor$Builder::*)($Set*,$String*)>(&ModuleDescriptor$Builder::opens))},
-	{"opens", "(Ljava/lang/String;Ljava/util/Set;)Ljava/lang/module/ModuleDescriptor$Builder;", "(Ljava/lang/String;Ljava/util/Set<Ljava/lang/String;>;)Ljava/lang/module/ModuleDescriptor$Builder;", $PUBLIC, $method(static_cast<ModuleDescriptor$Builder*(ModuleDescriptor$Builder::*)($String*,$Set*)>(&ModuleDescriptor$Builder::opens))},
-	{"opens", "(Ljava/lang/String;)Ljava/lang/module/ModuleDescriptor$Builder;", nullptr, $PUBLIC, $method(static_cast<ModuleDescriptor$Builder*(ModuleDescriptor$Builder::*)($String*)>(&ModuleDescriptor$Builder::opens))},
-	{"packages", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", 0, $method(static_cast<$Set*(ModuleDescriptor$Builder::*)()>(&ModuleDescriptor$Builder::packages))},
-	{"packages", "(Ljava/util/Set;)Ljava/lang/module/ModuleDescriptor$Builder;", "(Ljava/util/Set<Ljava/lang/String;>;)Ljava/lang/module/ModuleDescriptor$Builder;", $PUBLIC, $method(static_cast<ModuleDescriptor$Builder*(ModuleDescriptor$Builder::*)($Set*)>(&ModuleDescriptor$Builder::packages))},
-	{"provides", "(Ljava/lang/module/ModuleDescriptor$Provides;)Ljava/lang/module/ModuleDescriptor$Builder;", nullptr, $PUBLIC, $method(static_cast<ModuleDescriptor$Builder*(ModuleDescriptor$Builder::*)($ModuleDescriptor$Provides*)>(&ModuleDescriptor$Builder::provides))},
-	{"provides", "(Ljava/lang/String;Ljava/util/List;)Ljava/lang/module/ModuleDescriptor$Builder;", "(Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;)Ljava/lang/module/ModuleDescriptor$Builder;", $PUBLIC, $method(static_cast<ModuleDescriptor$Builder*(ModuleDescriptor$Builder::*)($String*,$List*)>(&ModuleDescriptor$Builder::provides))},
-	{"requires", "(Ljava/lang/module/ModuleDescriptor$Requires;)Ljava/lang/module/ModuleDescriptor$Builder;", nullptr, $PUBLIC, $method(static_cast<ModuleDescriptor$Builder*(ModuleDescriptor$Builder::*)($ModuleDescriptor$Requires*)>(&ModuleDescriptor$Builder::requires))},
-	{"requires", "(Ljava/util/Set;Ljava/lang/String;Ljava/lang/module/ModuleDescriptor$Version;)Ljava/lang/module/ModuleDescriptor$Builder;", "(Ljava/util/Set<Ljava/lang/module/ModuleDescriptor$Requires$Modifier;>;Ljava/lang/String;Ljava/lang/module/ModuleDescriptor$Version;)Ljava/lang/module/ModuleDescriptor$Builder;", $PUBLIC, $method(static_cast<ModuleDescriptor$Builder*(ModuleDescriptor$Builder::*)($Set*,$String*,$ModuleDescriptor$Version*)>(&ModuleDescriptor$Builder::requires))},
-	{"requires", "(Ljava/util/Set;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/module/ModuleDescriptor$Builder;", "(Ljava/util/Set<Ljava/lang/module/ModuleDescriptor$Requires$Modifier;>;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/module/ModuleDescriptor$Builder;", 0, $method(static_cast<ModuleDescriptor$Builder*(ModuleDescriptor$Builder::*)($Set*,$String*,$String*)>(&ModuleDescriptor$Builder::requires))},
-	{"requires", "(Ljava/util/Set;Ljava/lang/String;)Ljava/lang/module/ModuleDescriptor$Builder;", "(Ljava/util/Set<Ljava/lang/module/ModuleDescriptor$Requires$Modifier;>;Ljava/lang/String;)Ljava/lang/module/ModuleDescriptor$Builder;", $PUBLIC, $method(static_cast<ModuleDescriptor$Builder*(ModuleDescriptor$Builder::*)($Set*,$String*)>(&ModuleDescriptor$Builder::requires))},
-	{"requires", "(Ljava/lang/String;)Ljava/lang/module/ModuleDescriptor$Builder;", nullptr, $PUBLIC, $method(static_cast<ModuleDescriptor$Builder*(ModuleDescriptor$Builder::*)($String*)>(&ModuleDescriptor$Builder::requires))},
-	{"uses", "(Ljava/lang/String;)Ljava/lang/module/ModuleDescriptor$Builder;", nullptr, $PUBLIC, $method(static_cast<ModuleDescriptor$Builder*(ModuleDescriptor$Builder::*)($String*)>(&ModuleDescriptor$Builder::uses))},
-	{"version", "(Ljava/lang/module/ModuleDescriptor$Version;)Ljava/lang/module/ModuleDescriptor$Builder;", nullptr, $PUBLIC, $method(static_cast<ModuleDescriptor$Builder*(ModuleDescriptor$Builder::*)($ModuleDescriptor$Version*)>(&ModuleDescriptor$Builder::version))},
-	{"version", "(Ljava/lang/String;)Ljava/lang/module/ModuleDescriptor$Builder;", nullptr, $PUBLIC, $method(static_cast<ModuleDescriptor$Builder*(ModuleDescriptor$Builder::*)($String*)>(&ModuleDescriptor$Builder::version))},
+	{"<init>", "(Ljava/lang/String;ZLjava/util/Set;)V", "(Ljava/lang/String;ZLjava/util/Set<Ljava/lang/module/ModuleDescriptor$Modifier;>;)V", 0, $method(ModuleDescriptor$Builder, init$, void, $String*, bool, $Set*)},
+	{"build", "()Ljava/lang/module/ModuleDescriptor;", nullptr, $PUBLIC, $method(ModuleDescriptor$Builder, build, $ModuleDescriptor*)},
+	{"exports", "(Ljava/lang/module/ModuleDescriptor$Exports;)Ljava/lang/module/ModuleDescriptor$Builder;", nullptr, $PUBLIC, $method(ModuleDescriptor$Builder, exports, ModuleDescriptor$Builder*, $ModuleDescriptor$Exports*)},
+	{"exports", "(Ljava/util/Set;Ljava/lang/String;Ljava/util/Set;)Ljava/lang/module/ModuleDescriptor$Builder;", "(Ljava/util/Set<Ljava/lang/module/ModuleDescriptor$Exports$Modifier;>;Ljava/lang/String;Ljava/util/Set<Ljava/lang/String;>;)Ljava/lang/module/ModuleDescriptor$Builder;", $PUBLIC, $method(ModuleDescriptor$Builder, exports, ModuleDescriptor$Builder*, $Set*, $String*, $Set*)},
+	{"exports", "(Ljava/util/Set;Ljava/lang/String;)Ljava/lang/module/ModuleDescriptor$Builder;", "(Ljava/util/Set<Ljava/lang/module/ModuleDescriptor$Exports$Modifier;>;Ljava/lang/String;)Ljava/lang/module/ModuleDescriptor$Builder;", $PUBLIC, $method(ModuleDescriptor$Builder, exports, ModuleDescriptor$Builder*, $Set*, $String*)},
+	{"exports", "(Ljava/lang/String;Ljava/util/Set;)Ljava/lang/module/ModuleDescriptor$Builder;", "(Ljava/lang/String;Ljava/util/Set<Ljava/lang/String;>;)Ljava/lang/module/ModuleDescriptor$Builder;", $PUBLIC, $method(ModuleDescriptor$Builder, exports, ModuleDescriptor$Builder*, $String*, $Set*)},
+	{"exports", "(Ljava/lang/String;)Ljava/lang/module/ModuleDescriptor$Builder;", nullptr, $PUBLIC, $method(ModuleDescriptor$Builder, exports, ModuleDescriptor$Builder*, $String*)},
+	{"lambda$provides$0", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(ModuleDescriptor$Builder, lambda$provides$0, void, $String*)},
+	{"mainClass", "(Ljava/lang/String;)Ljava/lang/module/ModuleDescriptor$Builder;", nullptr, $PUBLIC, $method(ModuleDescriptor$Builder, mainClass, ModuleDescriptor$Builder*, $String*)},
+	{"opens", "(Ljava/lang/module/ModuleDescriptor$Opens;)Ljava/lang/module/ModuleDescriptor$Builder;", nullptr, $PUBLIC, $method(ModuleDescriptor$Builder, opens, ModuleDescriptor$Builder*, $ModuleDescriptor$Opens*)},
+	{"opens", "(Ljava/util/Set;Ljava/lang/String;Ljava/util/Set;)Ljava/lang/module/ModuleDescriptor$Builder;", "(Ljava/util/Set<Ljava/lang/module/ModuleDescriptor$Opens$Modifier;>;Ljava/lang/String;Ljava/util/Set<Ljava/lang/String;>;)Ljava/lang/module/ModuleDescriptor$Builder;", $PUBLIC, $method(ModuleDescriptor$Builder, opens, ModuleDescriptor$Builder*, $Set*, $String*, $Set*)},
+	{"opens", "(Ljava/util/Set;Ljava/lang/String;)Ljava/lang/module/ModuleDescriptor$Builder;", "(Ljava/util/Set<Ljava/lang/module/ModuleDescriptor$Opens$Modifier;>;Ljava/lang/String;)Ljava/lang/module/ModuleDescriptor$Builder;", $PUBLIC, $method(ModuleDescriptor$Builder, opens, ModuleDescriptor$Builder*, $Set*, $String*)},
+	{"opens", "(Ljava/lang/String;Ljava/util/Set;)Ljava/lang/module/ModuleDescriptor$Builder;", "(Ljava/lang/String;Ljava/util/Set<Ljava/lang/String;>;)Ljava/lang/module/ModuleDescriptor$Builder;", $PUBLIC, $method(ModuleDescriptor$Builder, opens, ModuleDescriptor$Builder*, $String*, $Set*)},
+	{"opens", "(Ljava/lang/String;)Ljava/lang/module/ModuleDescriptor$Builder;", nullptr, $PUBLIC, $method(ModuleDescriptor$Builder, opens, ModuleDescriptor$Builder*, $String*)},
+	{"packages", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", 0, $method(ModuleDescriptor$Builder, packages, $Set*)},
+	{"packages", "(Ljava/util/Set;)Ljava/lang/module/ModuleDescriptor$Builder;", "(Ljava/util/Set<Ljava/lang/String;>;)Ljava/lang/module/ModuleDescriptor$Builder;", $PUBLIC, $method(ModuleDescriptor$Builder, packages, ModuleDescriptor$Builder*, $Set*)},
+	{"provides", "(Ljava/lang/module/ModuleDescriptor$Provides;)Ljava/lang/module/ModuleDescriptor$Builder;", nullptr, $PUBLIC, $method(ModuleDescriptor$Builder, provides, ModuleDescriptor$Builder*, $ModuleDescriptor$Provides*)},
+	{"provides", "(Ljava/lang/String;Ljava/util/List;)Ljava/lang/module/ModuleDescriptor$Builder;", "(Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;)Ljava/lang/module/ModuleDescriptor$Builder;", $PUBLIC, $method(ModuleDescriptor$Builder, provides, ModuleDescriptor$Builder*, $String*, $List*)},
+	{"requires", "(Ljava/lang/module/ModuleDescriptor$Requires;)Ljava/lang/module/ModuleDescriptor$Builder;", nullptr, $PUBLIC, $method(ModuleDescriptor$Builder, requires, ModuleDescriptor$Builder*, $ModuleDescriptor$Requires*)},
+	{"requires", "(Ljava/util/Set;Ljava/lang/String;Ljava/lang/module/ModuleDescriptor$Version;)Ljava/lang/module/ModuleDescriptor$Builder;", "(Ljava/util/Set<Ljava/lang/module/ModuleDescriptor$Requires$Modifier;>;Ljava/lang/String;Ljava/lang/module/ModuleDescriptor$Version;)Ljava/lang/module/ModuleDescriptor$Builder;", $PUBLIC, $method(ModuleDescriptor$Builder, requires, ModuleDescriptor$Builder*, $Set*, $String*, $ModuleDescriptor$Version*)},
+	{"requires", "(Ljava/util/Set;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/module/ModuleDescriptor$Builder;", "(Ljava/util/Set<Ljava/lang/module/ModuleDescriptor$Requires$Modifier;>;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/module/ModuleDescriptor$Builder;", 0, $method(ModuleDescriptor$Builder, requires, ModuleDescriptor$Builder*, $Set*, $String*, $String*)},
+	{"requires", "(Ljava/util/Set;Ljava/lang/String;)Ljava/lang/module/ModuleDescriptor$Builder;", "(Ljava/util/Set<Ljava/lang/module/ModuleDescriptor$Requires$Modifier;>;Ljava/lang/String;)Ljava/lang/module/ModuleDescriptor$Builder;", $PUBLIC, $method(ModuleDescriptor$Builder, requires, ModuleDescriptor$Builder*, $Set*, $String*)},
+	{"requires", "(Ljava/lang/String;)Ljava/lang/module/ModuleDescriptor$Builder;", nullptr, $PUBLIC, $method(ModuleDescriptor$Builder, requires, ModuleDescriptor$Builder*, $String*)},
+	{"uses", "(Ljava/lang/String;)Ljava/lang/module/ModuleDescriptor$Builder;", nullptr, $PUBLIC, $method(ModuleDescriptor$Builder, uses, ModuleDescriptor$Builder*, $String*)},
+	{"version", "(Ljava/lang/module/ModuleDescriptor$Version;)Ljava/lang/module/ModuleDescriptor$Builder;", nullptr, $PUBLIC, $method(ModuleDescriptor$Builder, version, ModuleDescriptor$Builder*, $ModuleDescriptor$Version*)},
+	{"version", "(Ljava/lang/String;)Ljava/lang/module/ModuleDescriptor$Builder;", nullptr, $PUBLIC, $method(ModuleDescriptor$Builder, version, ModuleDescriptor$Builder*, $String*)},
 	{}
 };
 

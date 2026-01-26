@@ -40,8 +40,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo StringCharBufferSliceTest$$Lambda$lambda$main$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(StringCharBufferSliceTest$$Lambda$lambda$main$0::*)()>(&StringCharBufferSliceTest$$Lambda$lambda$main$0::init$))},
-	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(StringCharBufferSliceTest$$Lambda$lambda$main$0, init$, void)},
+	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(StringCharBufferSliceTest$$Lambda$lambda$main$0, accept, void, Object$*, Object$*)},
 	{}
 };
 $ClassInfo StringCharBufferSliceTest$$Lambda$lambda$main$0::classInfo$ = {
@@ -73,8 +73,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo StringCharBufferSliceTest$$Lambda$lambda$main$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(StringCharBufferSliceTest$$Lambda$lambda$main$1$1::*)()>(&StringCharBufferSliceTest$$Lambda$lambda$main$1$1::init$))},
-	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(StringCharBufferSliceTest$$Lambda$lambda$main$1$1, init$, void)},
+	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(StringCharBufferSliceTest$$Lambda$lambda$main$1$1, accept, void, Object$*, Object$*)},
 	{}
 };
 $ClassInfo StringCharBufferSliceTest$$Lambda$lambda$main$1$1::classInfo$ = {
@@ -106,8 +106,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo StringCharBufferSliceTest$$Lambda$lambda$main$2$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(StringCharBufferSliceTest$$Lambda$lambda$main$2$2::*)()>(&StringCharBufferSliceTest$$Lambda$lambda$main$2$2::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(StringCharBufferSliceTest$$Lambda$lambda$main$2$2, init$, void)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(StringCharBufferSliceTest$$Lambda$lambda$main$2$2, accept, void, Object$*)},
 	{}
 };
 $ClassInfo StringCharBufferSliceTest$$Lambda$lambda$main$2$2::classInfo$ = {
@@ -139,8 +139,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo StringCharBufferSliceTest$$Lambda$lambda$main$3$3::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(StringCharBufferSliceTest$$Lambda$lambda$main$3$3::*)()>(&StringCharBufferSliceTest$$Lambda$lambda$main$3$3::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(StringCharBufferSliceTest$$Lambda$lambda$main$3$3, init$, void)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(StringCharBufferSliceTest$$Lambda$lambda$main$3$3, accept, void, Object$*)},
 	{}
 };
 $ClassInfo StringCharBufferSliceTest$$Lambda$lambda$main$3$3::classInfo$ = {
@@ -172,8 +172,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo StringCharBufferSliceTest$$Lambda$lambda$main$4$4::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(StringCharBufferSliceTest$$Lambda$lambda$main$4$4::*)()>(&StringCharBufferSliceTest$$Lambda$lambda$main$4$4::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(StringCharBufferSliceTest$$Lambda$lambda$main$4$4, init$, void)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(StringCharBufferSliceTest$$Lambda$lambda$main$4$4, accept, void, Object$*)},
 	{}
 };
 $ClassInfo StringCharBufferSliceTest$$Lambda$lambda$main$4$4::classInfo$ = {
@@ -205,8 +205,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo StringCharBufferSliceTest$$Lambda$lambda$main$5$5::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(StringCharBufferSliceTest$$Lambda$lambda$main$5$5::*)()>(&StringCharBufferSliceTest$$Lambda$lambda$main$5$5::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(StringCharBufferSliceTest$$Lambda$lambda$main$5$5, init$, void)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(StringCharBufferSliceTest$$Lambda$lambda$main$5$5, accept, void, Object$*)},
 	{}
 };
 $ClassInfo StringCharBufferSliceTest$$Lambda$lambda$main$5$5::classInfo$ = {
@@ -224,15 +224,15 @@ $Class* StringCharBufferSliceTest$$Lambda$lambda$main$5$5::load$($String* name, 
 $Class* StringCharBufferSliceTest$$Lambda$lambda$main$5$5::class$ = nullptr;
 
 $MethodInfo _StringCharBufferSliceTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(StringCharBufferSliceTest::*)()>(&StringCharBufferSliceTest::init$))},
-	{"lambda$main$0", "(Ljava/nio/CharBuffer;Ljava/nio/CharBuffer;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($CharBuffer*,$CharBuffer*)>(&StringCharBufferSliceTest::lambda$main$0))},
-	{"lambda$main$1", "(Ljava/nio/CharBuffer;Ljava/nio/CharBuffer;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($CharBuffer*,$CharBuffer*)>(&StringCharBufferSliceTest::lambda$main$1))},
-	{"lambda$main$2", "(Ljava/nio/CharBuffer;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($CharBuffer*)>(&StringCharBufferSliceTest::lambda$main$2))},
-	{"lambda$main$3", "(Ljava/nio/CharBuffer;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($CharBuffer*)>(&StringCharBufferSliceTest::lambda$main$3))},
-	{"lambda$main$4", "(Ljava/nio/CharBuffer;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($CharBuffer*)>(&StringCharBufferSliceTest::lambda$main$4))},
-	{"lambda$main$5", "(Ljava/nio/CharBuffer;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($CharBuffer*)>(&StringCharBufferSliceTest::lambda$main$5))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&StringCharBufferSliceTest::main)), "java.lang.Exception"},
-	{"test", "(Ljava/nio/CharBuffer;Ljava/nio/CharBuffer;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($CharBuffer*,$CharBuffer*)>(&StringCharBufferSliceTest::test)), "java.lang.RuntimeException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(StringCharBufferSliceTest, init$, void)},
+	{"lambda$main$0", "(Ljava/nio/CharBuffer;Ljava/nio/CharBuffer;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StringCharBufferSliceTest, lambda$main$0, void, $CharBuffer*, $CharBuffer*)},
+	{"lambda$main$1", "(Ljava/nio/CharBuffer;Ljava/nio/CharBuffer;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StringCharBufferSliceTest, lambda$main$1, void, $CharBuffer*, $CharBuffer*)},
+	{"lambda$main$2", "(Ljava/nio/CharBuffer;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StringCharBufferSliceTest, lambda$main$2, void, $CharBuffer*)},
+	{"lambda$main$3", "(Ljava/nio/CharBuffer;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StringCharBufferSliceTest, lambda$main$3, void, $CharBuffer*)},
+	{"lambda$main$4", "(Ljava/nio/CharBuffer;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StringCharBufferSliceTest, lambda$main$4, void, $CharBuffer*)},
+	{"lambda$main$5", "(Ljava/nio/CharBuffer;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StringCharBufferSliceTest, lambda$main$5, void, $CharBuffer*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StringCharBufferSliceTest, main, void, $StringArray*), "java.lang.Exception"},
+	{"test", "(Ljava/nio/CharBuffer;Ljava/nio/CharBuffer;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StringCharBufferSliceTest, test, void, $CharBuffer*, $CharBuffer*), "java.lang.RuntimeException"},
 	{}
 };
 

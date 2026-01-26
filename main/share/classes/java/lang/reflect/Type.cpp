@@ -10,7 +10,7 @@ namespace java {
 		namespace reflect {
 
 $MethodInfo _Type_MethodInfo_[] = {
-	{"getTypeName", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"getTypeName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Type, getTypeName, $String*)},
 	{}
 };
 

@@ -21,7 +21,7 @@ $FieldInfo _ProcessImpl$LazyPattern_FieldInfo_[] = {
 };
 
 $MethodInfo _ProcessImpl$LazyPattern_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(ProcessImpl$LazyPattern::*)()>(&ProcessImpl$LazyPattern::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(ProcessImpl$LazyPattern, init$, void)},
 	{}
 };
 

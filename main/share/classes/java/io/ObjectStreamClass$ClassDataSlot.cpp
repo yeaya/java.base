@@ -19,7 +19,7 @@ $FieldInfo _ObjectStreamClass$ClassDataSlot_FieldInfo_[] = {
 };
 
 $MethodInfo _ObjectStreamClass$ClassDataSlot_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/ObjectStreamClass;Z)V", nullptr, 0, $method(static_cast<void(ObjectStreamClass$ClassDataSlot::*)($ObjectStreamClass*,bool)>(&ObjectStreamClass$ClassDataSlot::init$))},
+	{"<init>", "(Ljava/io/ObjectStreamClass;Z)V", nullptr, 0, $method(ObjectStreamClass$ClassDataSlot, init$, void, $ObjectStreamClass*, bool)},
 	{}
 };
 

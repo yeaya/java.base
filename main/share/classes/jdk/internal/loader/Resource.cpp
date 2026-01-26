@@ -27,6 +27,7 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $Integer = ::java::lang::Integer;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $URL = ::java::net::URL;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $Arrays = ::java::util::Arrays;
 using $Manifest = ::java::util::jar::Manifest;
@@ -42,18 +43,18 @@ $FieldInfo _Resource_FieldInfo_[] = {
 };
 
 $MethodInfo _Resource_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Resource::*)()>(&Resource::init$))},
-	{"cachedInputStream", "()Ljava/io/InputStream;", nullptr, $PRIVATE | $SYNCHRONIZED, $method(static_cast<$InputStream*(Resource::*)()>(&Resource::cachedInputStream)), "java.io.IOException"},
-	{"getByteBuffer", "()Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"getBytes", "()[B", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"getCertificates", "()[Ljava/security/cert/Certificate;", nullptr, $PUBLIC},
-	{"getCodeSigners", "()[Ljava/security/CodeSigner;", nullptr, $PUBLIC},
-	{"getCodeSourceURL", "()Ljava/net/URL;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getContentLength", "()I", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"getInputStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"getManifest", "()Ljava/util/jar/Manifest;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getURL", "()Ljava/net/URL;", nullptr, $PUBLIC | $ABSTRACT},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Resource, init$, void)},
+	{"cachedInputStream", "()Ljava/io/InputStream;", nullptr, $PRIVATE | $SYNCHRONIZED, $method(Resource, cachedInputStream, $InputStream*), "java.io.IOException"},
+	{"getByteBuffer", "()Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $virtualMethod(Resource, getByteBuffer, $ByteBuffer*), "java.io.IOException"},
+	{"getBytes", "()[B", nullptr, $PUBLIC, $virtualMethod(Resource, getBytes, $bytes*), "java.io.IOException"},
+	{"getCertificates", "()[Ljava/security/cert/Certificate;", nullptr, $PUBLIC, $virtualMethod(Resource, getCertificates, $CertificateArray*)},
+	{"getCodeSigners", "()[Ljava/security/CodeSigner;", nullptr, $PUBLIC, $virtualMethod(Resource, getCodeSigners, $CodeSignerArray*)},
+	{"getCodeSourceURL", "()Ljava/net/URL;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Resource, getCodeSourceURL, $URL*)},
+	{"getContentLength", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Resource, getContentLength, int32_t), "java.io.IOException"},
+	{"getInputStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Resource, getInputStream, $InputStream*), "java.io.IOException"},
+	{"getManifest", "()Ljava/util/jar/Manifest;", nullptr, $PUBLIC, $virtualMethod(Resource, getManifest, $Manifest*), "java.io.IOException"},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Resource, getName, $String*)},
+	{"getURL", "()Ljava/net/URL;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Resource, getURL, $URL*)},
 	{}
 };
 

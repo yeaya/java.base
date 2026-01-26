@@ -30,10 +30,10 @@ $FieldInfo _Locale$Category_FieldInfo_[] = {
 };
 
 $MethodInfo _Locale$Category_MethodInfo_[] = {
-	{"$values", "()[Ljava/util/Locale$Category;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Locale$CategoryArray*(*)()>(&Locale$Category::$values))},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", $PRIVATE, $method(static_cast<void(Locale$Category::*)($String*,int32_t,$String*,$String*,$String*,$String*,$String*)>(&Locale$Category::init$))},
-	{"valueOf", "(Ljava/lang/String;)Ljava/util/Locale$Category;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Locale$Category*(*)($String*)>(&Locale$Category::valueOf))},
-	{"values", "()[Ljava/util/Locale$Category;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Locale$CategoryArray*(*)()>(&Locale$Category::values))},
+	{"$values", "()[Ljava/util/Locale$Category;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Locale$Category, $values, $Locale$CategoryArray*)},
+	{"<init>", "(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", $PRIVATE, $method(Locale$Category, init$, void, $String*, int32_t, $String*, $String*, $String*, $String*, $String*)},
+	{"valueOf", "(Ljava/lang/String;)Ljava/util/Locale$Category;", nullptr, $PUBLIC | $STATIC, $staticMethod(Locale$Category, valueOf, Locale$Category*, $String*)},
+	{"values", "()[Ljava/util/Locale$Category;", nullptr, $PUBLIC | $STATIC, $staticMethod(Locale$Category, values, $Locale$CategoryArray*)},
 	{}
 };
 

@@ -28,9 +28,9 @@ $FieldInfo _ProcessTest_FieldInfo_[] = {
 };
 
 $MethodInfo _ProcessTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ProcessTest::*)()>(&ProcessTest::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
-	{"runTest", "()V", nullptr, $PUBLIC, nullptr, "java.lang.Exception"},
+	{"<init>", "()V", nullptr, 0, $method(ProcessTest, init$, void)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ProcessTest, run, void)},
+	{"runTest", "()V", nullptr, $PUBLIC, $virtualMethod(ProcessTest, runTest, void), "java.lang.Exception"},
 	{}
 };
 

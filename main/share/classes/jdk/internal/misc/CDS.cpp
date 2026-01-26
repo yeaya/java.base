@@ -105,8 +105,8 @@ $FieldInfo CDS$$Lambda$lambda$drainOutput$0::fieldInfos[4] = {
 	{}
 };
 $MethodInfo CDS$$Lambda$lambda$drainOutput$0::methodInfos[3] = {
-	{"<init>", "(Ljava/io/InputStream;Ljava/lang/String;Ljava/util/List;)V", nullptr, $PUBLIC, $method(static_cast<void(CDS$$Lambda$lambda$drainOutput$0::*)($InputStream*,$String*,$List*)>(&CDS$$Lambda$lambda$drainOutput$0::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/io/InputStream;Ljava/lang/String;Ljava/util/List;)V", nullptr, $PUBLIC, $method(CDS$$Lambda$lambda$drainOutput$0, init$, void, $InputStream*, $String*, $List*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(CDS$$Lambda$lambda$drainOutput$0, run, void)},
 	{}
 };
 $ClassInfo CDS$$Lambda$lambda$drainOutput$0::classInfo$ = {
@@ -136,30 +136,30 @@ $FieldInfo _CDS_FieldInfo_[] = {
 };
 
 $MethodInfo _CDS_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CDS::*)()>(&CDS::init$))},
-	{"containsExcludedFlags", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($String*)>(&CDS::containsExcludedFlags))},
-	{"defineArchivedModules", "(Ljava/lang/ClassLoader;Ljava/lang/ClassLoader;)V", nullptr, $PUBLIC | $STATIC | $NATIVE, $method(static_cast<void(*)($ClassLoader*,$ClassLoader*)>(&CDS::defineArchivedModules))},
-	{"drainOutput", "(Ljava/io/InputStream;JLjava/lang/String;Ljava/util/List;)Ljava/lang/String;", "(Ljava/io/InputStream;JLjava/lang/String;Ljava/util/List<Ljava/lang/String;>;)Ljava/lang/String;", $PRIVATE | $STATIC, $method(static_cast<$String*(*)($InputStream*,int64_t,$String*,$List*)>(&CDS::drainOutput))},
-	{"dumpClassList", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $method(static_cast<void(*)($String*)>(&CDS::dumpClassList))},
-	{"dumpDynamicArchive", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $method(static_cast<void(*)($String*)>(&CDS::dumpDynamicArchive))},
-	{"dumpSharedArchive", "(ZLjava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)(bool,$String*)>(&CDS::dumpSharedArchive)), "java.lang.Exception"},
-	{"generateLambdaFormHolderClasses", "([Ljava/lang/String;)[Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$ObjectArray*(*)($StringArray*)>(&CDS::generateLambdaFormHolderClasses))},
-	{"getRandomSeedForDumping", "()J", nullptr, $PUBLIC | $STATIC | $NATIVE, $method(static_cast<int64_t(*)()>(&CDS::getRandomSeedForDumping))},
-	{"initializeFromArchive", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $PUBLIC | $STATIC | $NATIVE, $method(static_cast<void(*)($Class*)>(&CDS::initializeFromArchive))},
-	{"isBasicTypeChar", "(C)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)(char16_t)>(&CDS::isBasicTypeChar))},
-	{"isDumpingArchive", "()Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)()>(&CDS::isDumpingArchive))},
-	{"isDumpingArchive0", "()Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $method(static_cast<bool(*)()>(&CDS::isDumpingArchive0))},
-	{"isDumpingClassList", "()Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)()>(&CDS::isDumpingClassList))},
-	{"isDumpingClassList0", "()Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $method(static_cast<bool(*)()>(&CDS::isDumpingClassList0))},
-	{"isSharingEnabled", "()Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)()>(&CDS::isSharingEnabled))},
-	{"isSharingEnabled0", "()Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $method(static_cast<bool(*)()>(&CDS::isSharingEnabled0))},
-	{"isValidHolderName", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($String*)>(&CDS::isValidHolderName))},
-	{"isValidMethodType", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($String*)>(&CDS::isValidMethodType))},
-	{"lambda$drainOutput$0", "(Ljava/io/InputStream;Ljava/lang/String;Ljava/util/List;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($InputStream*,$String*,$List*)>(&CDS::lambda$drainOutput$0))},
-	{"logLambdaFormInvoker", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $method(static_cast<void(*)($String*)>(&CDS::logLambdaFormInvoker))},
-	{"traceLambdaFormInvoker", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($String*,$String*,$String*,$String*)>(&CDS::traceLambdaFormInvoker))},
-	{"traceSpeciesType", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($String*,$String*)>(&CDS::traceSpeciesType))},
-	{"validateInputLines", "([Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($StringArray*)>(&CDS::validateInputLines))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CDS, init$, void)},
+	{"containsExcludedFlags", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(CDS, containsExcludedFlags, bool, $String*)},
+	{"defineArchivedModules", "(Ljava/lang/ClassLoader;Ljava/lang/ClassLoader;)V", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(CDS, defineArchivedModules, void, $ClassLoader*, $ClassLoader*)},
+	{"drainOutput", "(Ljava/io/InputStream;JLjava/lang/String;Ljava/util/List;)Ljava/lang/String;", "(Ljava/io/InputStream;JLjava/lang/String;Ljava/util/List<Ljava/lang/String;>;)Ljava/lang/String;", $PRIVATE | $STATIC, $staticMethod(CDS, drainOutput, $String*, $InputStream*, int64_t, $String*, $List*)},
+	{"dumpClassList", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(CDS, dumpClassList, void, $String*)},
+	{"dumpDynamicArchive", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(CDS, dumpDynamicArchive, void, $String*)},
+	{"dumpSharedArchive", "(ZLjava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(CDS, dumpSharedArchive, void, bool, $String*), "java.lang.Exception"},
+	{"generateLambdaFormHolderClasses", "([Ljava/lang/String;)[Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC, $staticMethod(CDS, generateLambdaFormHolderClasses, $ObjectArray*, $StringArray*)},
+	{"getRandomSeedForDumping", "()J", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(CDS, getRandomSeedForDumping, int64_t)},
+	{"initializeFromArchive", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $PUBLIC | $STATIC | $NATIVE, $staticMethod(CDS, initializeFromArchive, void, $Class*)},
+	{"isBasicTypeChar", "(C)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(CDS, isBasicTypeChar, bool, char16_t)},
+	{"isDumpingArchive", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(CDS, isDumpingArchive, bool)},
+	{"isDumpingArchive0", "()Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(CDS, isDumpingArchive0, bool)},
+	{"isDumpingClassList", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(CDS, isDumpingClassList, bool)},
+	{"isDumpingClassList0", "()Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(CDS, isDumpingClassList0, bool)},
+	{"isSharingEnabled", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(CDS, isSharingEnabled, bool)},
+	{"isSharingEnabled0", "()Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(CDS, isSharingEnabled0, bool)},
+	{"isValidHolderName", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(CDS, isValidHolderName, bool, $String*)},
+	{"isValidMethodType", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(CDS, isValidMethodType, bool, $String*)},
+	{"lambda$drainOutput$0", "(Ljava/io/InputStream;Ljava/lang/String;Ljava/util/List;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CDS, lambda$drainOutput$0, void, $InputStream*, $String*, $List*)},
+	{"logLambdaFormInvoker", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(CDS, logLambdaFormInvoker, void, $String*)},
+	{"traceLambdaFormInvoker", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(CDS, traceLambdaFormInvoker, void, $String*, $String*, $String*, $String*)},
+	{"traceSpeciesType", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(CDS, traceSpeciesType, void, $String*, $String*)},
+	{"validateInputLines", "([Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(CDS, validateInputLines, void, $StringArray*)},
 	{}
 };
 

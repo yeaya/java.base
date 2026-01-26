@@ -49,20 +49,20 @@ $FieldInfo _KeyPairGenerator_FieldInfo_[] = {
 };
 
 $MethodInfo _KeyPairGenerator_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $method(static_cast<void(KeyPairGenerator::*)($String*)>(&KeyPairGenerator::init$))},
-	{"disableFailover", "()V", nullptr, 0},
-	{"genKeyPair", "()Ljava/security/KeyPair;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$KeyPair*(KeyPairGenerator::*)()>(&KeyPairGenerator::genKeyPair))},
-	{"generateKeyPair", "()Ljava/security/KeyPair;", nullptr, $PUBLIC},
-	{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getInstance", "(Lsun/security/jca/GetInstance$Instance;Ljava/lang/String;)Ljava/security/KeyPairGenerator;", nullptr, $PRIVATE | $STATIC, $method(static_cast<KeyPairGenerator*(*)($GetInstance$Instance*,$String*)>(&KeyPairGenerator::getInstance))},
-	{"getInstance", "(Ljava/lang/String;)Ljava/security/KeyPairGenerator;", nullptr, $PUBLIC | $STATIC, $method(static_cast<KeyPairGenerator*(*)($String*)>(&KeyPairGenerator::getInstance)), "java.security.NoSuchAlgorithmException"},
-	{"getInstance", "(Ljava/lang/String;Ljava/lang/String;)Ljava/security/KeyPairGenerator;", nullptr, $PUBLIC | $STATIC, $method(static_cast<KeyPairGenerator*(*)($String*,$String*)>(&KeyPairGenerator::getInstance)), "java.security.NoSuchAlgorithmException,java.security.NoSuchProviderException"},
-	{"getInstance", "(Ljava/lang/String;Ljava/security/Provider;)Ljava/security/KeyPairGenerator;", nullptr, $PUBLIC | $STATIC, $method(static_cast<KeyPairGenerator*(*)($String*,$Provider*)>(&KeyPairGenerator::getInstance)), "java.security.NoSuchAlgorithmException"},
-	{"getProvider", "()Ljava/security/Provider;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$Provider*(KeyPairGenerator::*)()>(&KeyPairGenerator::getProvider))},
-	{"initialize", "(I)V", nullptr, $PUBLIC},
-	{"initialize", "(ILjava/security/SecureRandom;)V", nullptr, $PUBLIC},
-	{"initialize", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PUBLIC, nullptr, "java.security.InvalidAlgorithmParameterException"},
-	{"initialize", "(Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, $PUBLIC, nullptr, "java.security.InvalidAlgorithmParameterException"},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $method(KeyPairGenerator, init$, void, $String*)},
+	{"disableFailover", "()V", nullptr, 0, $virtualMethod(KeyPairGenerator, disableFailover, void)},
+	{"genKeyPair", "()Ljava/security/KeyPair;", nullptr, $PUBLIC | $FINAL, $method(KeyPairGenerator, genKeyPair, $KeyPair*)},
+	{"generateKeyPair", "()Ljava/security/KeyPair;", nullptr, $PUBLIC, $virtualMethod(KeyPairGenerator, generateKeyPair, $KeyPair*)},
+	{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KeyPairGenerator, getAlgorithm, $String*)},
+	{"getInstance", "(Lsun/security/jca/GetInstance$Instance;Ljava/lang/String;)Ljava/security/KeyPairGenerator;", nullptr, $PRIVATE | $STATIC, $staticMethod(KeyPairGenerator, getInstance, KeyPairGenerator*, $GetInstance$Instance*, $String*)},
+	{"getInstance", "(Ljava/lang/String;)Ljava/security/KeyPairGenerator;", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyPairGenerator, getInstance, KeyPairGenerator*, $String*), "java.security.NoSuchAlgorithmException"},
+	{"getInstance", "(Ljava/lang/String;Ljava/lang/String;)Ljava/security/KeyPairGenerator;", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyPairGenerator, getInstance, KeyPairGenerator*, $String*, $String*), "java.security.NoSuchAlgorithmException,java.security.NoSuchProviderException"},
+	{"getInstance", "(Ljava/lang/String;Ljava/security/Provider;)Ljava/security/KeyPairGenerator;", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyPairGenerator, getInstance, KeyPairGenerator*, $String*, $Provider*), "java.security.NoSuchAlgorithmException"},
+	{"getProvider", "()Ljava/security/Provider;", nullptr, $PUBLIC | $FINAL, $method(KeyPairGenerator, getProvider, $Provider*)},
+	{"initialize", "(I)V", nullptr, $PUBLIC, $virtualMethod(KeyPairGenerator, initialize, void, int32_t)},
+	{"initialize", "(ILjava/security/SecureRandom;)V", nullptr, $PUBLIC, $virtualMethod(KeyPairGenerator, initialize, void, int32_t, $SecureRandom*)},
+	{"initialize", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PUBLIC, $virtualMethod(KeyPairGenerator, initialize, void, $AlgorithmParameterSpec*), "java.security.InvalidAlgorithmParameterException"},
+	{"initialize", "(Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, $PUBLIC, $virtualMethod(KeyPairGenerator, initialize, void, $AlgorithmParameterSpec*, $SecureRandom*), "java.security.InvalidAlgorithmParameterException"},
 	{}
 };
 

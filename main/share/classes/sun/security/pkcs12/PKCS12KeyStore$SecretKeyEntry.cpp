@@ -20,7 +20,7 @@ $FieldInfo _PKCS12KeyStore$SecretKeyEntry_FieldInfo_[] = {
 };
 
 $MethodInfo _PKCS12KeyStore$SecretKeyEntry_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(PKCS12KeyStore$SecretKeyEntry::*)()>(&PKCS12KeyStore$SecretKeyEntry::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(PKCS12KeyStore$SecretKeyEntry, init$, void)},
 	{}
 };
 

@@ -21,10 +21,10 @@ $FieldInfo _Scanner$PatternLRUCache_FieldInfo_[] = {
 };
 
 $MethodInfo _Scanner$PatternLRUCache_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, 0, $method(static_cast<void(Scanner$PatternLRUCache::*)(int32_t)>(&Scanner$PatternLRUCache::init$))},
-	{"forName", "(Ljava/lang/String;)Ljava/util/regex/Pattern;", nullptr, 0},
-	{"hasName", "(Ljava/util/regex/Pattern;Ljava/lang/String;)Z", nullptr, 0},
-	{"moveToFront", "([Ljava/lang/Object;I)V", nullptr, 0},
+	{"<init>", "(I)V", nullptr, 0, $method(Scanner$PatternLRUCache, init$, void, int32_t)},
+	{"forName", "(Ljava/lang/String;)Ljava/util/regex/Pattern;", nullptr, 0, $virtualMethod(Scanner$PatternLRUCache, forName, $Pattern*, $String*)},
+	{"hasName", "(Ljava/util/regex/Pattern;Ljava/lang/String;)Z", nullptr, 0, $virtualMethod(Scanner$PatternLRUCache, hasName, bool, $Pattern*, $String*)},
+	{"moveToFront", "([Ljava/lang/Object;I)V", nullptr, 0, $virtualMethod(Scanner$PatternLRUCache, moveToFront, void, $ObjectArray*, int32_t)},
 	{}
 };
 

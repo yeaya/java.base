@@ -14,7 +14,7 @@ $FieldInfo _HostOfMemberNotInstanceHost$MemberNotInstanceHost_FieldInfo_[] = {
 };
 
 $MethodInfo _HostOfMemberNotInstanceHost$MemberNotInstanceHost_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(HostOfMemberNotInstanceHost$MemberNotInstanceHost::*)()>(&HostOfMemberNotInstanceHost$MemberNotInstanceHost::init$))},
+	{"<init>", "()V", nullptr, 0, $method(HostOfMemberNotInstanceHost$MemberNotInstanceHost, init$, void)},
 	{}
 };
 

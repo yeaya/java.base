@@ -16,8 +16,8 @@ $FieldInfo _InterruptedException_FieldInfo_[] = {
 };
 
 $MethodInfo _InterruptedException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(InterruptedException::*)()>(&InterruptedException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(InterruptedException::*)($String*)>(&InterruptedException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(InterruptedException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InterruptedException, init$, void, $String*)},
 	{}
 };
 

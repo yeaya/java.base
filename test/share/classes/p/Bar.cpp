@@ -8,7 +8,7 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace p {
 
 $MethodInfo _Bar_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Bar::*)()>(&Bar::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Bar, init$, void)},
 	{}
 };
 

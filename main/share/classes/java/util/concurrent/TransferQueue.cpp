@@ -5,17 +5,18 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $TimeUnit = ::java::util::concurrent::TimeUnit;
 
 namespace java {
 	namespace util {
 		namespace concurrent {
 
 $MethodInfo _TransferQueue_MethodInfo_[] = {
-	{"getWaitingConsumerCount", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"hasWaitingConsumer", "()Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"transfer", "(Ljava/lang/Object;)V", "(TE;)V", $PUBLIC | $ABSTRACT, nullptr, "java.lang.InterruptedException"},
-	{"tryTransfer", "(Ljava/lang/Object;)Z", "(TE;)Z", $PUBLIC | $ABSTRACT},
-	{"tryTransfer", "(Ljava/lang/Object;JLjava/util/concurrent/TimeUnit;)Z", "(TE;JLjava/util/concurrent/TimeUnit;)Z", $PUBLIC | $ABSTRACT, nullptr, "java.lang.InterruptedException"},
+	{"getWaitingConsumerCount", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TransferQueue, getWaitingConsumerCount, int32_t)},
+	{"hasWaitingConsumer", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TransferQueue, hasWaitingConsumer, bool)},
+	{"transfer", "(Ljava/lang/Object;)V", "(TE;)V", $PUBLIC | $ABSTRACT, $virtualMethod(TransferQueue, transfer, void, Object$*), "java.lang.InterruptedException"},
+	{"tryTransfer", "(Ljava/lang/Object;)Z", "(TE;)Z", $PUBLIC | $ABSTRACT, $virtualMethod(TransferQueue, tryTransfer, bool, Object$*)},
+	{"tryTransfer", "(Ljava/lang/Object;JLjava/util/concurrent/TimeUnit;)Z", "(TE;JLjava/util/concurrent/TimeUnit;)Z", $PUBLIC | $ABSTRACT, $virtualMethod(TransferQueue, tryTransfer, bool, Object$*, int64_t, $TimeUnit*), "java.lang.InterruptedException"},
 	{}
 };
 

@@ -26,8 +26,8 @@ $FieldInfo _UnicodeSet$VersionFilter_FieldInfo_[] = {
 };
 
 $MethodInfo _UnicodeSet$VersionFilter_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/icu/util/VersionInfo;)V", nullptr, 0, $method(static_cast<void(UnicodeSet$VersionFilter::*)($VersionInfo*)>(&UnicodeSet$VersionFilter::init$))},
-	{"contains", "(I)Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/icu/util/VersionInfo;)V", nullptr, 0, $method(UnicodeSet$VersionFilter, init$, void, $VersionInfo*)},
+	{"contains", "(I)Z", nullptr, $PUBLIC, $virtualMethod(UnicodeSet$VersionFilter, contains, bool, int32_t)},
 	{}
 };
 

@@ -29,10 +29,10 @@ $FieldInfo _ZoneId$1_FieldInfo_[] = {
 };
 
 $MethodInfo _ZoneId$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/time/ZoneId;)V", nullptr, 0, $method(static_cast<void(ZoneId$1::*)($ZoneId*)>(&ZoneId$1::init$))},
-	{"getLong", "(Ljava/time/temporal/TemporalField;)J", nullptr, $PUBLIC},
-	{"isSupported", "(Ljava/time/temporal/TemporalField;)Z", nullptr, $PUBLIC},
-	{"query", "(Ljava/time/temporal/TemporalQuery;)Ljava/lang/Object;", "<R:Ljava/lang/Object;>(Ljava/time/temporal/TemporalQuery<TR;>;)TR;", $PUBLIC},
+	{"<init>", "(Ljava/time/ZoneId;)V", nullptr, 0, $method(ZoneId$1, init$, void, $ZoneId*)},
+	{"getLong", "(Ljava/time/temporal/TemporalField;)J", nullptr, $PUBLIC, $virtualMethod(ZoneId$1, getLong, int64_t, $TemporalField*)},
+	{"isSupported", "(Ljava/time/temporal/TemporalField;)Z", nullptr, $PUBLIC, $virtualMethod(ZoneId$1, isSupported, bool, $TemporalField*)},
+	{"query", "(Ljava/time/temporal/TemporalQuery;)Ljava/lang/Object;", "<R:Ljava/lang/Object;>(Ljava/time/temporal/TemporalQuery<TR;>;)TR;", $PUBLIC, $virtualMethod(ZoneId$1, query, $Object*, $TemporalQuery*)},
 	{}
 };
 

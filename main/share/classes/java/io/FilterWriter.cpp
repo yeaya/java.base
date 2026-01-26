@@ -17,12 +17,12 @@ $FieldInfo _FilterWriter_FieldInfo_[] = {
 };
 
 $MethodInfo _FilterWriter_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/Writer;)V", nullptr, $PROTECTED, $method(static_cast<void(FilterWriter::*)($Writer*)>(&FilterWriter::init$))},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"flush", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"write", "(I)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"write", "([CII)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"write", "(Ljava/lang/String;II)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljava/io/Writer;)V", nullptr, $PROTECTED, $method(FilterWriter, init$, void, $Writer*)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(FilterWriter, close, void), "java.io.IOException"},
+	{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(FilterWriter, flush, void), "java.io.IOException"},
+	{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(FilterWriter, write, void, int32_t), "java.io.IOException"},
+	{"write", "([CII)V", nullptr, $PUBLIC, $virtualMethod(FilterWriter, write, void, $chars*, int32_t, int32_t), "java.io.IOException"},
+	{"write", "(Ljava/lang/String;II)V", nullptr, $PUBLIC, $virtualMethod(FilterWriter, write, void, $String*, int32_t, int32_t), "java.io.IOException"},
 	{}
 };
 

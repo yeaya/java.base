@@ -63,11 +63,11 @@ namespace sun {
 		namespace ssl {
 
 $MethodInfo _SSLTransport_MethodInfo_[] = {
-	{"decode", "(Lsun/security/ssl/TransportContext;[Ljava/nio/ByteBuffer;II[Ljava/nio/ByteBuffer;II)Lsun/security/ssl/Plaintext;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Plaintext*(*)($TransportContext*,$ByteBufferArray*,int32_t,int32_t,$ByteBufferArray*,int32_t,int32_t)>(&SSLTransport::decode)), "java.io.IOException"},
-	{"getPeerHost", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getPeerPort", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"shutdown", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"useDelegatedTask", "()Z", nullptr, $PUBLIC | $ABSTRACT},
+	{"decode", "(Lsun/security/ssl/TransportContext;[Ljava/nio/ByteBuffer;II[Ljava/nio/ByteBuffer;II)Lsun/security/ssl/Plaintext;", nullptr, $PUBLIC | $STATIC, $staticMethod(SSLTransport, decode, $Plaintext*, $TransportContext*, $ByteBufferArray*, int32_t, int32_t, $ByteBufferArray*, int32_t, int32_t), "java.io.IOException"},
+	{"getPeerHost", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SSLTransport, getPeerHost, $String*)},
+	{"getPeerPort", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SSLTransport, getPeerPort, int32_t)},
+	{"shutdown", "()V", nullptr, $PUBLIC, $virtualMethod(SSLTransport, shutdown, void), "java.io.IOException"},
+	{"useDelegatedTask", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SSLTransport, useDelegatedTask, bool)},
 	{}
 };
 

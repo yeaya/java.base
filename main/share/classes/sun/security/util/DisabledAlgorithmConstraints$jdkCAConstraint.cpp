@@ -29,8 +29,8 @@ namespace sun {
 		namespace util {
 
 $MethodInfo _DisabledAlgorithmConstraints$jdkCAConstraint_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(DisabledAlgorithmConstraints$jdkCAConstraint::*)($String*)>(&DisabledAlgorithmConstraints$jdkCAConstraint::init$))},
-	{"permits", "(Lsun/security/util/ConstraintsParameters;)V", nullptr, $PUBLIC, nullptr, "java.security.cert.CertPathValidatorException"},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(DisabledAlgorithmConstraints$jdkCAConstraint, init$, void, $String*)},
+	{"permits", "(Lsun/security/util/ConstraintsParameters;)V", nullptr, $PUBLIC, $virtualMethod(DisabledAlgorithmConstraints$jdkCAConstraint, permits, void, $ConstraintsParameters*), "java.security.cert.CertPathValidatorException"},
 	{}
 };
 

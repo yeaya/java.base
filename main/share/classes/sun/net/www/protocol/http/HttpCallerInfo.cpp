@@ -38,9 +38,9 @@ $FieldInfo _HttpCallerInfo_FieldInfo_[] = {
 };
 
 $MethodInfo _HttpCallerInfo_MethodInfo_[] = {
-	{"<init>", "(Lsun/net/www/protocol/http/HttpCallerInfo;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(HttpCallerInfo::*)(HttpCallerInfo*,$String*)>(&HttpCallerInfo::init$))},
-	{"<init>", "(Ljava/net/URL;Ljava/net/Authenticator;)V", nullptr, $PUBLIC, $method(static_cast<void(HttpCallerInfo::*)($URL*,$Authenticator*)>(&HttpCallerInfo::init$))},
-	{"<init>", "(Ljava/net/URL;Ljava/lang/String;ILjava/net/Authenticator;)V", nullptr, $PUBLIC, $method(static_cast<void(HttpCallerInfo::*)($URL*,$String*,int32_t,$Authenticator*)>(&HttpCallerInfo::init$))},
+	{"<init>", "(Lsun/net/www/protocol/http/HttpCallerInfo;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(HttpCallerInfo, init$, void, HttpCallerInfo*, $String*)},
+	{"<init>", "(Ljava/net/URL;Ljava/net/Authenticator;)V", nullptr, $PUBLIC, $method(HttpCallerInfo, init$, void, $URL*, $Authenticator*)},
+	{"<init>", "(Ljava/net/URL;Ljava/lang/String;ILjava/net/Authenticator;)V", nullptr, $PUBLIC, $method(HttpCallerInfo, init$, void, $URL*, $String*, int32_t, $Authenticator*)},
 	{}
 };
 

@@ -49,18 +49,18 @@ $FieldInfo _OtherName_FieldInfo_[] = {
 };
 
 $MethodInfo _OtherName_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/util/ObjectIdentifier;[B)V", nullptr, $PUBLIC, $method(static_cast<void(OtherName::*)($ObjectIdentifier*,$bytes*)>(&OtherName::init$)), "java.io.IOException"},
-	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(static_cast<void(OtherName::*)($DerValue*)>(&OtherName::init$)), "java.io.IOException"},
-	{"constrains", "(Lsun/security/x509/GeneralNameInterface;)I", nullptr, $PUBLIC},
-	{"encode", "(Lsun/security/util/DerOutputStream;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getGNI", "(Lsun/security/util/ObjectIdentifier;[B)Lsun/security/x509/GeneralNameInterface;", nullptr, $PRIVATE, $method(static_cast<$GeneralNameInterface*(OtherName::*)($ObjectIdentifier*,$bytes*)>(&OtherName::getGNI)), "java.io.IOException"},
-	{"getNameValue", "()[B", nullptr, $PUBLIC},
-	{"getOID", "()Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC},
-	{"getType", "()I", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"subtreeDepth", "()I", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/security/util/ObjectIdentifier;[B)V", nullptr, $PUBLIC, $method(OtherName, init$, void, $ObjectIdentifier*, $bytes*), "java.io.IOException"},
+	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(OtherName, init$, void, $DerValue*), "java.io.IOException"},
+	{"constrains", "(Lsun/security/x509/GeneralNameInterface;)I", nullptr, $PUBLIC, $virtualMethod(OtherName, constrains, int32_t, $GeneralNameInterface*)},
+	{"encode", "(Lsun/security/util/DerOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(OtherName, encode, void, $DerOutputStream*), "java.io.IOException"},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(OtherName, equals, bool, Object$*)},
+	{"getGNI", "(Lsun/security/util/ObjectIdentifier;[B)Lsun/security/x509/GeneralNameInterface;", nullptr, $PRIVATE, $method(OtherName, getGNI, $GeneralNameInterface*, $ObjectIdentifier*, $bytes*), "java.io.IOException"},
+	{"getNameValue", "()[B", nullptr, $PUBLIC, $virtualMethod(OtherName, getNameValue, $bytes*)},
+	{"getOID", "()Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC, $virtualMethod(OtherName, getOID, $ObjectIdentifier*)},
+	{"getType", "()I", nullptr, $PUBLIC, $virtualMethod(OtherName, getType, int32_t)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(OtherName, hashCode, int32_t)},
+	{"subtreeDepth", "()I", nullptr, $PUBLIC, $virtualMethod(OtherName, subtreeDepth, int32_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(OtherName, toString, $String*)},
 	{}
 };
 

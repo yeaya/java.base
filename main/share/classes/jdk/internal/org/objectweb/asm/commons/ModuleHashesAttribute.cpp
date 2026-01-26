@@ -37,10 +37,10 @@ $FieldInfo _ModuleHashesAttribute_FieldInfo_[] = {
 };
 
 $MethodInfo _ModuleHashesAttribute_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/util/List;Ljava/util/List;)V", "(Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;Ljava/util/List<[B>;)V", $PUBLIC, $method(static_cast<void(ModuleHashesAttribute::*)($String*,$List*,$List*)>(&ModuleHashesAttribute::init$))},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ModuleHashesAttribute::*)()>(&ModuleHashesAttribute::init$))},
-	{"read", "(Ljdk/internal/org/objectweb/asm/ClassReader;II[CI[Ljdk/internal/org/objectweb/asm/Label;)Ljdk/internal/org/objectweb/asm/Attribute;", nullptr, $PROTECTED},
-	{"write", "(Ljdk/internal/org/objectweb/asm/ClassWriter;[BIII)Ljdk/internal/org/objectweb/asm/ByteVector;", nullptr, $PROTECTED},
+	{"<init>", "(Ljava/lang/String;Ljava/util/List;Ljava/util/List;)V", "(Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;Ljava/util/List<[B>;)V", $PUBLIC, $method(ModuleHashesAttribute, init$, void, $String*, $List*, $List*)},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ModuleHashesAttribute, init$, void)},
+	{"read", "(Ljdk/internal/org/objectweb/asm/ClassReader;II[CI[Ljdk/internal/org/objectweb/asm/Label;)Ljdk/internal/org/objectweb/asm/Attribute;", nullptr, $PROTECTED, $virtualMethod(ModuleHashesAttribute, read, $Attribute*, $ClassReader*, int32_t, int32_t, $chars*, int32_t, $LabelArray*)},
+	{"write", "(Ljdk/internal/org/objectweb/asm/ClassWriter;[BIII)Ljdk/internal/org/objectweb/asm/ByteVector;", nullptr, $PROTECTED, $virtualMethod(ModuleHashesAttribute, write, $ByteVector*, $ClassWriter*, $bytes*, int32_t, int32_t, int32_t)},
 	{}
 };
 

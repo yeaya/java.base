@@ -68,8 +68,8 @@ $FieldInfo FinalizerHistogram$$Lambda$lambda$getFinalizerHistogram$0::fieldInfos
 	{}
 };
 $MethodInfo FinalizerHistogram$$Lambda$lambda$getFinalizerHistogram$0::methodInfos[3] = {
-	{"<init>", "(Ljava/util/Map;)V", nullptr, $PUBLIC, $method(static_cast<void(FinalizerHistogram$$Lambda$lambda$getFinalizerHistogram$0::*)($Map*)>(&FinalizerHistogram$$Lambda$lambda$getFinalizerHistogram$0::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/Map;)V", nullptr, $PUBLIC, $method(FinalizerHistogram$$Lambda$lambda$getFinalizerHistogram$0, init$, void, $Map*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(FinalizerHistogram$$Lambda$lambda$getFinalizerHistogram$0, accept, void, Object$*)},
 	{}
 };
 $ClassInfo FinalizerHistogram$$Lambda$lambda$getFinalizerHistogram$0::classInfo$ = {
@@ -101,8 +101,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo FinalizerHistogram$$Lambda$getInstanceCount$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(FinalizerHistogram$$Lambda$getInstanceCount$1::*)()>(&FinalizerHistogram$$Lambda$getInstanceCount$1::init$))},
-	{"applyAsInt", "(Ljava/lang/Object;)I", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(FinalizerHistogram$$Lambda$getInstanceCount$1, init$, void)},
+	{"applyAsInt", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(FinalizerHistogram$$Lambda$getInstanceCount$1, applyAsInt, int32_t, Object$*)},
 	{}
 };
 $ClassInfo FinalizerHistogram$$Lambda$getInstanceCount$1::classInfo$ = {
@@ -134,8 +134,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo FinalizerHistogram$$Lambda$Entry$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(FinalizerHistogram$$Lambda$Entry$2::*)()>(&FinalizerHistogram$$Lambda$Entry$2::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(FinalizerHistogram$$Lambda$Entry$2, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(FinalizerHistogram$$Lambda$Entry$2, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo FinalizerHistogram$$Lambda$Entry$2::classInfo$ = {
@@ -153,9 +153,9 @@ $Class* FinalizerHistogram$$Lambda$Entry$2::load$($String* name, bool initialize
 $Class* FinalizerHistogram$$Lambda$Entry$2::class$ = nullptr;
 
 $MethodInfo _FinalizerHistogram_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(FinalizerHistogram::*)()>(&FinalizerHistogram::init$))},
-	{"getFinalizerHistogram", "()[Ljava/lang/ref/FinalizerHistogram$Entry;", nullptr, $STATIC, $method(static_cast<$FinalizerHistogram$EntryArray*(*)()>(&FinalizerHistogram::getFinalizerHistogram))},
-	{"lambda$getFinalizerHistogram$0", "(Ljava/util/Map;Ljava/lang/ref/Reference;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($Map*,$Reference*)>(&FinalizerHistogram::lambda$getFinalizerHistogram$0))},
+	{"<init>", "()V", nullptr, 0, $method(FinalizerHistogram, init$, void)},
+	{"getFinalizerHistogram", "()[Ljava/lang/ref/FinalizerHistogram$Entry;", nullptr, $STATIC, $staticMethod(FinalizerHistogram, getFinalizerHistogram, $FinalizerHistogram$EntryArray*)},
+	{"lambda$getFinalizerHistogram$0", "(Ljava/util/Map;Ljava/lang/ref/Reference;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(FinalizerHistogram, lambda$getFinalizerHistogram$0, void, $Map*, $Reference*)},
 	{}
 };
 

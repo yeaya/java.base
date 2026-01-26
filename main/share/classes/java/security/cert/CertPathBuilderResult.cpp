@@ -7,6 +7,7 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Cloneable = ::java::lang::Cloneable;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $CertPath = ::java::security::cert::CertPath;
 
 namespace java {
 	namespace security {
@@ -14,7 +15,7 @@ namespace java {
 
 $MethodInfo _CertPathBuilderResult_MethodInfo_[] = {
 	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getCertPath", "()Ljava/security/cert/CertPath;", nullptr, $PUBLIC | $ABSTRACT},
+	{"getCertPath", "()Ljava/security/cert/CertPath;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CertPathBuilderResult, getCertPath, $CertPath*)},
 	{}
 };
 

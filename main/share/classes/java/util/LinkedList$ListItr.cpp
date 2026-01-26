@@ -35,18 +35,18 @@ $FieldInfo _LinkedList$ListItr_FieldInfo_[] = {
 };
 
 $MethodInfo _LinkedList$ListItr_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/LinkedList;I)V", nullptr, 0, $method(static_cast<void(LinkedList$ListItr::*)($LinkedList*,int32_t)>(&LinkedList$ListItr::init$))},
-	{"add", "(Ljava/lang/Object;)V", "(TE;)V", $PUBLIC},
-	{"checkForComodification", "()V", nullptr, $FINAL, $method(static_cast<void(LinkedList$ListItr::*)()>(&LinkedList$ListItr::checkForComodification))},
-	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC},
-	{"hasNext", "()Z", nullptr, $PUBLIC},
-	{"hasPrevious", "()Z", nullptr, $PUBLIC},
-	{"next", "()Ljava/lang/Object;", "()TE;", $PUBLIC},
-	{"nextIndex", "()I", nullptr, $PUBLIC},
-	{"previous", "()Ljava/lang/Object;", "()TE;", $PUBLIC},
-	{"previousIndex", "()I", nullptr, $PUBLIC},
-	{"remove", "()V", nullptr, $PUBLIC},
-	{"set", "(Ljava/lang/Object;)V", "(TE;)V", $PUBLIC},
+	{"<init>", "(Ljava/util/LinkedList;I)V", nullptr, 0, $method(LinkedList$ListItr, init$, void, $LinkedList*, int32_t)},
+	{"add", "(Ljava/lang/Object;)V", "(TE;)V", $PUBLIC, $virtualMethod(LinkedList$ListItr, add, void, Object$*)},
+	{"checkForComodification", "()V", nullptr, $FINAL, $method(LinkedList$ListItr, checkForComodification, void)},
+	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC, $virtualMethod(LinkedList$ListItr, forEachRemaining, void, $Consumer*)},
+	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(LinkedList$ListItr, hasNext, bool)},
+	{"hasPrevious", "()Z", nullptr, $PUBLIC, $virtualMethod(LinkedList$ListItr, hasPrevious, bool)},
+	{"next", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(LinkedList$ListItr, next, $Object*)},
+	{"nextIndex", "()I", nullptr, $PUBLIC, $virtualMethod(LinkedList$ListItr, nextIndex, int32_t)},
+	{"previous", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(LinkedList$ListItr, previous, $Object*)},
+	{"previousIndex", "()I", nullptr, $PUBLIC, $virtualMethod(LinkedList$ListItr, previousIndex, int32_t)},
+	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(LinkedList$ListItr, remove, void)},
+	{"set", "(Ljava/lang/Object;)V", "(TE;)V", $PUBLIC, $virtualMethod(LinkedList$ListItr, set, void, Object$*)},
 	{}
 };
 

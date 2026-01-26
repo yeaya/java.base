@@ -49,8 +49,8 @@ $Attribute _Deprecated_DefaultValue_since1 = {
 };
 
 $MethodInfo _Deprecated_MethodInfo_[] = {
-	{"forRemoval", "()Z", nullptr, $PUBLIC | $ABSTRACT, nullptr, nullptr, &_Deprecated_DefaultValue_forRemoval0},
-	{"since", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, nullptr, nullptr, &_Deprecated_DefaultValue_since1},
+	{"forRemoval", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Deprecated, forRemoval, bool), nullptr, &_Deprecated_DefaultValue_forRemoval0},
+	{"since", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Deprecated, since, $String*), nullptr, &_Deprecated_DefaultValue_since1},
 	{}
 };
 

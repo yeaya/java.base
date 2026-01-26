@@ -23,8 +23,8 @@ namespace sun {
 		namespace ch {
 
 $MethodInfo _SocketOptionRegistry_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(SocketOptionRegistry::*)()>(&SocketOptionRegistry::init$))},
-	{"findOption", "(Ljava/net/SocketOption;Ljava/net/ProtocolFamily;)Lsun/nio/ch/OptionKey;", "(Ljava/net/SocketOption<*>;Ljava/net/ProtocolFamily;)Lsun/nio/ch/OptionKey;", $PUBLIC | $STATIC, $method(static_cast<$OptionKey*(*)($SocketOption*,$ProtocolFamily*)>(&SocketOptionRegistry::findOption))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(SocketOptionRegistry, init$, void)},
+	{"findOption", "(Ljava/net/SocketOption;Ljava/net/ProtocolFamily;)Lsun/nio/ch/OptionKey;", "(Ljava/net/SocketOption<*>;Ljava/net/ProtocolFamily;)Lsun/nio/ch/OptionKey;", $PUBLIC | $STATIC, $staticMethod(SocketOptionRegistry, findOption, $OptionKey*, $SocketOption*, $ProtocolFamily*)},
 	{}
 };
 

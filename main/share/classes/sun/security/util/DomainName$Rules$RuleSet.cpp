@@ -63,16 +63,16 @@ $FieldInfo _DomainName$Rules$RuleSet_FieldInfo_[] = {
 };
 
 $MethodInfo _DomainName$Rules$RuleSet_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, 0, $method(static_cast<void(DomainName$Rules$RuleSet::*)(int32_t)>(&DomainName$Rules$RuleSet::init$))},
-	{"addRule", "(ILjava/lang/String;)V", nullptr, 0},
-	{"labels", "(Ljava/lang/String;I)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)($String*,int32_t)>(&DomainName$Rules$RuleSet::labels))},
-	{"match", "(Ljava/lang/String;)Lsun/security/util/DomainName$Match;", nullptr, 0},
-	{"matchException", "(Ljava/lang/String;Lsun/security/util/DomainName$Rule;)Lsun/security/util/DomainName$Match;", nullptr, $PRIVATE, $method(static_cast<$DomainName$Match*(DomainName$Rules$RuleSet::*)($String*,$DomainName$Rule*)>(&DomainName$Rules$RuleSet::matchException))},
-	{"matchNormal", "(Ljava/lang/String;Lsun/security/util/DomainName$Rule;)Lsun/security/util/DomainName$Match;", nullptr, $PRIVATE, $method(static_cast<$DomainName$Match*(DomainName$Rules$RuleSet::*)($String*,$DomainName$Rule*)>(&DomainName$Rules$RuleSet::matchNormal))},
-	{"matchOther", "(Ljava/lang/String;Lsun/security/util/DomainName$Rule;)Lsun/security/util/DomainName$Match;", nullptr, $PRIVATE, $method(static_cast<$DomainName$Match*(DomainName$Rules$RuleSet::*)($String*,$DomainName$Rule*)>(&DomainName$Rules$RuleSet::matchOther))},
-	{"matchWildcard", "(Ljava/lang/String;Lsun/security/util/DomainName$Rule;)Lsun/security/util/DomainName$Match;", nullptr, $PRIVATE, $method(static_cast<$DomainName$Match*(DomainName$Rules$RuleSet::*)($String*,$DomainName$Rule*)>(&DomainName$Rules$RuleSet::matchWildcard))},
-	{"numLabels", "(Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)($String*)>(&DomainName$Rules$RuleSet::numLabels))},
-	{"split", "(Ljava/lang/String;)Ljava/util/LinkedList;", "(Ljava/lang/String;)Ljava/util/LinkedList<Ljava/lang/String;>;", $PRIVATE | $STATIC, $method(static_cast<$LinkedList*(*)($String*)>(&DomainName$Rules$RuleSet::split))},
+	{"<init>", "(I)V", nullptr, 0, $method(DomainName$Rules$RuleSet, init$, void, int32_t)},
+	{"addRule", "(ILjava/lang/String;)V", nullptr, 0, $virtualMethod(DomainName$Rules$RuleSet, addRule, void, int32_t, $String*)},
+	{"labels", "(Ljava/lang/String;I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(DomainName$Rules$RuleSet, labels, int32_t, $String*, int32_t)},
+	{"match", "(Ljava/lang/String;)Lsun/security/util/DomainName$Match;", nullptr, 0, $virtualMethod(DomainName$Rules$RuleSet, match, $DomainName$Match*, $String*)},
+	{"matchException", "(Ljava/lang/String;Lsun/security/util/DomainName$Rule;)Lsun/security/util/DomainName$Match;", nullptr, $PRIVATE, $method(DomainName$Rules$RuleSet, matchException, $DomainName$Match*, $String*, $DomainName$Rule*)},
+	{"matchNormal", "(Ljava/lang/String;Lsun/security/util/DomainName$Rule;)Lsun/security/util/DomainName$Match;", nullptr, $PRIVATE, $method(DomainName$Rules$RuleSet, matchNormal, $DomainName$Match*, $String*, $DomainName$Rule*)},
+	{"matchOther", "(Ljava/lang/String;Lsun/security/util/DomainName$Rule;)Lsun/security/util/DomainName$Match;", nullptr, $PRIVATE, $method(DomainName$Rules$RuleSet, matchOther, $DomainName$Match*, $String*, $DomainName$Rule*)},
+	{"matchWildcard", "(Ljava/lang/String;Lsun/security/util/DomainName$Rule;)Lsun/security/util/DomainName$Match;", nullptr, $PRIVATE, $method(DomainName$Rules$RuleSet, matchWildcard, $DomainName$Match*, $String*, $DomainName$Rule*)},
+	{"numLabels", "(Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(DomainName$Rules$RuleSet, numLabels, int32_t, $String*)},
+	{"split", "(Ljava/lang/String;)Ljava/util/LinkedList;", "(Ljava/lang/String;)Ljava/util/LinkedList<Ljava/lang/String;>;", $PRIVATE | $STATIC, $staticMethod(DomainName$Rules$RuleSet, split, $LinkedList*, $String*)},
 	{}
 };
 

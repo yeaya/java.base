@@ -27,9 +27,9 @@ $FieldInfo _EphemeralKeyManager$EphemeralKeyPair_FieldInfo_[] = {
 };
 
 $MethodInfo _EphemeralKeyManager$EphemeralKeyPair_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/KeyPair;)V", nullptr, $PRIVATE, $method(static_cast<void(EphemeralKeyManager$EphemeralKeyPair::*)($KeyPair*)>(&EphemeralKeyManager$EphemeralKeyPair::init$))},
-	{"getKeyPair", "()Ljava/security/KeyPair;", nullptr, $PRIVATE, $method(static_cast<$KeyPair*(EphemeralKeyManager$EphemeralKeyPair::*)()>(&EphemeralKeyManager$EphemeralKeyPair::getKeyPair))},
-	{"isValid", "()Z", nullptr, $PRIVATE, $method(static_cast<bool(EphemeralKeyManager$EphemeralKeyPair::*)()>(&EphemeralKeyManager$EphemeralKeyPair::isValid))},
+	{"<init>", "(Ljava/security/KeyPair;)V", nullptr, $PRIVATE, $method(EphemeralKeyManager$EphemeralKeyPair, init$, void, $KeyPair*)},
+	{"getKeyPair", "()Ljava/security/KeyPair;", nullptr, $PRIVATE, $method(EphemeralKeyManager$EphemeralKeyPair, getKeyPair, $KeyPair*)},
+	{"isValid", "()Z", nullptr, $PRIVATE, $method(EphemeralKeyManager$EphemeralKeyPair, isValid, bool)},
 	{}
 };
 

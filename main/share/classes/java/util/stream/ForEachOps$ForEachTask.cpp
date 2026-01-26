@@ -36,9 +36,9 @@ $FieldInfo _ForEachOps$ForEachTask_FieldInfo_[] = {
 };
 
 $MethodInfo _ForEachOps$ForEachTask_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;Ljava/util/stream/Sink;)V", "(Ljava/util/stream/PipelineHelper<TT;>;Ljava/util/Spliterator<TS;>;Ljava/util/stream/Sink<TS;>;)V", 0, $method(static_cast<void(ForEachOps$ForEachTask::*)($PipelineHelper*,$Spliterator*,$Sink*)>(&ForEachOps$ForEachTask::init$))},
-	{"<init>", "(Ljava/util/stream/ForEachOps$ForEachTask;Ljava/util/Spliterator;)V", "(Ljava/util/stream/ForEachOps$ForEachTask<TS;TT;>;Ljava/util/Spliterator<TS;>;)V", 0, $method(static_cast<void(ForEachOps$ForEachTask::*)(ForEachOps$ForEachTask*,$Spliterator*)>(&ForEachOps$ForEachTask::init$))},
-	{"compute", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;Ljava/util/stream/Sink;)V", "(Ljava/util/stream/PipelineHelper<TT;>;Ljava/util/Spliterator<TS;>;Ljava/util/stream/Sink<TS;>;)V", 0, $method(ForEachOps$ForEachTask, init$, void, $PipelineHelper*, $Spliterator*, $Sink*)},
+	{"<init>", "(Ljava/util/stream/ForEachOps$ForEachTask;Ljava/util/Spliterator;)V", "(Ljava/util/stream/ForEachOps$ForEachTask<TS;TT;>;Ljava/util/Spliterator<TS;>;)V", 0, $method(ForEachOps$ForEachTask, init$, void, ForEachOps$ForEachTask*, $Spliterator*)},
+	{"compute", "()V", nullptr, $PUBLIC, $virtualMethod(ForEachOps$ForEachTask, compute, void)},
 	{}
 };
 

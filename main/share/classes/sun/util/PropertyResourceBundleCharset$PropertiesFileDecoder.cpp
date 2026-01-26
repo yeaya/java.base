@@ -44,8 +44,8 @@ $FieldInfo _PropertyResourceBundleCharset$PropertiesFileDecoder_FieldInfo_[] = {
 };
 
 $MethodInfo _PropertyResourceBundleCharset$PropertiesFileDecoder_MethodInfo_[] = {
-	{"<init>", "(Lsun/util/PropertyResourceBundleCharset;Ljava/nio/charset/Charset;FF)V", nullptr, $PROTECTED, $method(static_cast<void(PropertyResourceBundleCharset$PropertiesFileDecoder::*)($PropertyResourceBundleCharset*,$Charset*,float,float)>(&PropertyResourceBundleCharset$PropertiesFileDecoder::init$))},
-	{"decodeLoop", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED},
+	{"<init>", "(Lsun/util/PropertyResourceBundleCharset;Ljava/nio/charset/Charset;FF)V", nullptr, $PROTECTED, $method(PropertyResourceBundleCharset$PropertiesFileDecoder, init$, void, $PropertyResourceBundleCharset*, $Charset*, float, float)},
+	{"decodeLoop", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED, $virtualMethod(PropertyResourceBundleCharset$PropertiesFileDecoder, decodeLoop, $CoderResult*, $ByteBuffer*, $CharBuffer*)},
 	{}
 };
 

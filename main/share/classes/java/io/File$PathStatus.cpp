@@ -25,10 +25,10 @@ $FieldInfo _File$PathStatus_FieldInfo_[] = {
 };
 
 $MethodInfo _File$PathStatus_MethodInfo_[] = {
-	{"$values", "()[Ljava/io/File$PathStatus;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$File$PathStatusArray*(*)()>(&File$PathStatus::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(File$PathStatus::*)($String*,int32_t)>(&File$PathStatus::init$))},
-	{"valueOf", "(Ljava/lang/String;)Ljava/io/File$PathStatus;", nullptr, $PUBLIC | $STATIC, $method(static_cast<File$PathStatus*(*)($String*)>(&File$PathStatus::valueOf))},
-	{"values", "()[Ljava/io/File$PathStatus;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$File$PathStatusArray*(*)()>(&File$PathStatus::values))},
+	{"$values", "()[Ljava/io/File$PathStatus;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(File$PathStatus, $values, $File$PathStatusArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(File$PathStatus, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Ljava/io/File$PathStatus;", nullptr, $PUBLIC | $STATIC, $staticMethod(File$PathStatus, valueOf, File$PathStatus*, $String*)},
+	{"values", "()[Ljava/io/File$PathStatus;", nullptr, $PUBLIC | $STATIC, $staticMethod(File$PathStatus, values, $File$PathStatusArray*)},
 	{}
 };
 

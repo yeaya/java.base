@@ -18,8 +18,8 @@ $FieldInfo _ReflectPermission_FieldInfo_[] = {
 };
 
 $MethodInfo _ReflectPermission_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(ReflectPermission::*)($String*)>(&ReflectPermission::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(ReflectPermission::*)($String*,$String*)>(&ReflectPermission::init$))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ReflectPermission, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ReflectPermission, init$, void, $String*, $String*)},
 	{}
 };
 

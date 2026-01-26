@@ -28,19 +28,19 @@ $FieldInfo _JrtFileAttributes_FieldInfo_[] = {
 };
 
 $MethodInfo _JrtFileAttributes_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/jimage/ImageReader$Node;)V", nullptr, 0, $method(static_cast<void(JrtFileAttributes::*)($ImageReader$Node*)>(&JrtFileAttributes::init$))},
-	{"compressedSize", "()J", nullptr, $PUBLIC, $method(static_cast<int64_t(JrtFileAttributes::*)()>(&JrtFileAttributes::compressedSize))},
-	{"creationTime", "()Ljava/nio/file/attribute/FileTime;", nullptr, $PUBLIC},
-	{"extension", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(static_cast<$String*(JrtFileAttributes::*)()>(&JrtFileAttributes::extension))},
-	{"fileKey", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"isDirectory", "()Z", nullptr, $PUBLIC},
-	{"isOther", "()Z", nullptr, $PUBLIC},
-	{"isRegularFile", "()Z", nullptr, $PUBLIC},
-	{"isSymbolicLink", "()Z", nullptr, $PUBLIC},
-	{"lastAccessTime", "()Ljava/nio/file/attribute/FileTime;", nullptr, $PUBLIC},
-	{"lastModifiedTime", "()Ljava/nio/file/attribute/FileTime;", nullptr, $PUBLIC},
-	{"size", "()J", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL},
+	{"<init>", "(Ljdk/internal/jimage/ImageReader$Node;)V", nullptr, 0, $method(JrtFileAttributes, init$, void, $ImageReader$Node*)},
+	{"compressedSize", "()J", nullptr, $PUBLIC, $method(JrtFileAttributes, compressedSize, int64_t)},
+	{"creationTime", "()Ljava/nio/file/attribute/FileTime;", nullptr, $PUBLIC, $virtualMethod(JrtFileAttributes, creationTime, $FileTime*)},
+	{"extension", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(JrtFileAttributes, extension, $String*)},
+	{"fileKey", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JrtFileAttributes, fileKey, $Object*)},
+	{"isDirectory", "()Z", nullptr, $PUBLIC, $virtualMethod(JrtFileAttributes, isDirectory, bool)},
+	{"isOther", "()Z", nullptr, $PUBLIC, $virtualMethod(JrtFileAttributes, isOther, bool)},
+	{"isRegularFile", "()Z", nullptr, $PUBLIC, $virtualMethod(JrtFileAttributes, isRegularFile, bool)},
+	{"isSymbolicLink", "()Z", nullptr, $PUBLIC, $virtualMethod(JrtFileAttributes, isSymbolicLink, bool)},
+	{"lastAccessTime", "()Ljava/nio/file/attribute/FileTime;", nullptr, $PUBLIC, $virtualMethod(JrtFileAttributes, lastAccessTime, $FileTime*)},
+	{"lastModifiedTime", "()Ljava/nio/file/attribute/FileTime;", nullptr, $PUBLIC, $virtualMethod(JrtFileAttributes, lastModifiedTime, $FileTime*)},
+	{"size", "()J", nullptr, $PUBLIC, $virtualMethod(JrtFileAttributes, size, int64_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(JrtFileAttributes, toString, $String*)},
 	{}
 };
 

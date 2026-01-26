@@ -22,9 +22,9 @@ using $ByteBuffer = ::java::nio::ByteBuffer;
 using $FileChannel = ::java::nio::channels::FileChannel;
 
 $MethodInfo _SetLastModified_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SetLastModified::*)()>(&SetLastModified::init$))},
-	{"ck", "(Ljava/io/File;JJ)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($File*,int64_t,int64_t)>(&SetLastModified::ck)), "java.lang.Exception"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&SetLastModified::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SetLastModified, init$, void)},
+	{"ck", "(Ljava/io/File;JJ)V", nullptr, $PRIVATE | $STATIC, $staticMethod(SetLastModified, ck, void, $File*, int64_t, int64_t), "java.lang.Exception"},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SetLastModified, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

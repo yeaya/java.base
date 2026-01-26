@@ -31,19 +31,19 @@ $FieldInfo _Package_FieldInfo_[] = {
 };
 
 $MethodInfo _Package_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Void;Ljava/lang/Void;Ljava/lang/Void;)V", nullptr, $PRIVATE, $method(static_cast<void(Package::*)($Void*,$Void*,$Void*)>(&Package::init$))},
-	{"<init>", "(Ljava/lang/Void;Ljava/lang/Void;)V", nullptr, 0, $method(static_cast<void(Package::*)($Void*,$Void*)>(&Package::init$))},
-	{"<init>", "(Ljava/lang/Void;)V", nullptr, $PROTECTED, $method(static_cast<void(Package::*)($Void*)>(&Package::init$))},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Package::*)()>(&Package::init$))},
-	{"checkAccess", "(Ljava/lang/reflect/AccessibleObject;Ljava/lang/Object;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($AccessibleObject*,Object$*)>(&Package::checkAccess)), "java.lang.IllegalAccessException,java.lang.reflect.InvocationTargetException,java.lang.InstantiationException"},
-	{"packageInstance", "()I", nullptr, 0},
-	{"packageStatic", "()I", nullptr, $STATIC, $method(static_cast<int32_t(*)()>(&Package::packageStatic))},
-	{"privateInstance", "()I", nullptr, $PRIVATE, $method(static_cast<int32_t(Package::*)()>(&Package::privateInstance))},
-	{"privateStatic", "()I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)()>(&Package::privateStatic))},
-	{"protectedInstance", "()I", nullptr, $PROTECTED},
-	{"protectedStatic", "()I", nullptr, $PROTECTED | $STATIC, $method(static_cast<int32_t(*)()>(&Package::protectedStatic))},
-	{"publicInstance", "()I", nullptr, $PUBLIC},
-	{"publicStatic", "()I", nullptr, $PUBLIC | $STATIC, $method(static_cast<int32_t(*)()>(&Package::publicStatic))},
+	{"<init>", "(Ljava/lang/Void;Ljava/lang/Void;Ljava/lang/Void;)V", nullptr, $PRIVATE, $method(Package, init$, void, $Void*, $Void*, $Void*)},
+	{"<init>", "(Ljava/lang/Void;Ljava/lang/Void;)V", nullptr, 0, $method(Package, init$, void, $Void*, $Void*)},
+	{"<init>", "(Ljava/lang/Void;)V", nullptr, $PROTECTED, $method(Package, init$, void, $Void*)},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Package, init$, void)},
+	{"checkAccess", "(Ljava/lang/reflect/AccessibleObject;Ljava/lang/Object;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Package, checkAccess, void, $AccessibleObject*, Object$*), "java.lang.IllegalAccessException,java.lang.reflect.InvocationTargetException,java.lang.InstantiationException"},
+	{"packageInstance", "()I", nullptr, 0, $virtualMethod(Package, packageInstance, int32_t)},
+	{"packageStatic", "()I", nullptr, $STATIC, $staticMethod(Package, packageStatic, int32_t)},
+	{"privateInstance", "()I", nullptr, $PRIVATE, $method(Package, privateInstance, int32_t)},
+	{"privateStatic", "()I", nullptr, $PRIVATE | $STATIC, $staticMethod(Package, privateStatic, int32_t)},
+	{"protectedInstance", "()I", nullptr, $PROTECTED, $virtualMethod(Package, protectedInstance, int32_t)},
+	{"protectedStatic", "()I", nullptr, $PROTECTED | $STATIC, $staticMethod(Package, protectedStatic, int32_t)},
+	{"publicInstance", "()I", nullptr, $PUBLIC, $virtualMethod(Package, publicInstance, int32_t)},
+	{"publicStatic", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(Package, publicStatic, int32_t)},
 	{}
 };
 

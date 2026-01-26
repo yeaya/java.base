@@ -26,7 +26,7 @@ $FieldInfo _NativeLibraries$LibraryPaths_FieldInfo_[] = {
 };
 
 $MethodInfo _NativeLibraries$LibraryPaths_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(NativeLibraries$LibraryPaths::*)()>(&NativeLibraries$LibraryPaths::init$))},
+	{"<init>", "()V", nullptr, 0, $method(NativeLibraries$LibraryPaths, init$, void)},
 	{}
 };
 

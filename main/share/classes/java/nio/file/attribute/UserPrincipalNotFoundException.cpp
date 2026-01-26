@@ -20,8 +20,8 @@ $FieldInfo _UserPrincipalNotFoundException_FieldInfo_[] = {
 };
 
 $MethodInfo _UserPrincipalNotFoundException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(UserPrincipalNotFoundException::*)($String*)>(&UserPrincipalNotFoundException::init$))},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(UserPrincipalNotFoundException, init$, void, $String*)},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UserPrincipalNotFoundException, getName, $String*)},
 	{}
 };
 

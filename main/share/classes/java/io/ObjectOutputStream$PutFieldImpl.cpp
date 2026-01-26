@@ -49,19 +49,19 @@ $FieldInfo _ObjectOutputStream$PutFieldImpl_FieldInfo_[] = {
 };
 
 $MethodInfo _ObjectOutputStream$PutFieldImpl_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/ObjectOutputStream;Ljava/io/ObjectStreamClass;)V", nullptr, 0, $method(static_cast<void(ObjectOutputStream$PutFieldImpl::*)($ObjectOutputStream*,$ObjectStreamClass*)>(&ObjectOutputStream$PutFieldImpl::init$))},
-	{"getFieldOffset", "(Ljava/lang/String;Ljava/lang/Class;)I", "(Ljava/lang/String;Ljava/lang/Class<*>;)I", $PRIVATE, $method(static_cast<int32_t(ObjectOutputStream$PutFieldImpl::*)($String*,$Class*)>(&ObjectOutputStream$PutFieldImpl::getFieldOffset))},
-	{"put", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC},
-	{"put", "(Ljava/lang/String;B)V", nullptr, $PUBLIC},
-	{"put", "(Ljava/lang/String;C)V", nullptr, $PUBLIC},
-	{"put", "(Ljava/lang/String;S)V", nullptr, $PUBLIC},
-	{"put", "(Ljava/lang/String;I)V", nullptr, $PUBLIC},
-	{"put", "(Ljava/lang/String;F)V", nullptr, $PUBLIC},
-	{"put", "(Ljava/lang/String;J)V", nullptr, $PUBLIC},
-	{"put", "(Ljava/lang/String;D)V", nullptr, $PUBLIC},
-	{"put", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC},
-	{"write", "(Ljava/io/ObjectOutput;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"writeFields", "()V", nullptr, 0, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljava/io/ObjectOutputStream;Ljava/io/ObjectStreamClass;)V", nullptr, 0, $method(ObjectOutputStream$PutFieldImpl, init$, void, $ObjectOutputStream*, $ObjectStreamClass*)},
+	{"getFieldOffset", "(Ljava/lang/String;Ljava/lang/Class;)I", "(Ljava/lang/String;Ljava/lang/Class<*>;)I", $PRIVATE, $method(ObjectOutputStream$PutFieldImpl, getFieldOffset, int32_t, $String*, $Class*)},
+	{"put", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $virtualMethod(ObjectOutputStream$PutFieldImpl, put, void, $String*, bool)},
+	{"put", "(Ljava/lang/String;B)V", nullptr, $PUBLIC, $virtualMethod(ObjectOutputStream$PutFieldImpl, put, void, $String*, int8_t)},
+	{"put", "(Ljava/lang/String;C)V", nullptr, $PUBLIC, $virtualMethod(ObjectOutputStream$PutFieldImpl, put, void, $String*, char16_t)},
+	{"put", "(Ljava/lang/String;S)V", nullptr, $PUBLIC, $virtualMethod(ObjectOutputStream$PutFieldImpl, put, void, $String*, int16_t)},
+	{"put", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $virtualMethod(ObjectOutputStream$PutFieldImpl, put, void, $String*, int32_t)},
+	{"put", "(Ljava/lang/String;F)V", nullptr, $PUBLIC, $virtualMethod(ObjectOutputStream$PutFieldImpl, put, void, $String*, float)},
+	{"put", "(Ljava/lang/String;J)V", nullptr, $PUBLIC, $virtualMethod(ObjectOutputStream$PutFieldImpl, put, void, $String*, int64_t)},
+	{"put", "(Ljava/lang/String;D)V", nullptr, $PUBLIC, $virtualMethod(ObjectOutputStream$PutFieldImpl, put, void, $String*, double)},
+	{"put", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ObjectOutputStream$PutFieldImpl, put, void, $String*, Object$*)},
+	{"write", "(Ljava/io/ObjectOutput;)V", nullptr, $PUBLIC, $virtualMethod(ObjectOutputStream$PutFieldImpl, write, void, $ObjectOutput*), "java.io.IOException"},
+	{"writeFields", "()V", nullptr, 0, $virtualMethod(ObjectOutputStream$PutFieldImpl, writeFields, void), "java.io.IOException"},
 	{}
 };
 

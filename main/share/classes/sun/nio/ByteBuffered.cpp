@@ -5,12 +5,13 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $ByteBuffer = ::java::nio::ByteBuffer;
 
 namespace sun {
 	namespace nio {
 
 $MethodInfo _ByteBuffered_MethodInfo_[] = {
-	{"getByteBuffer", "()Ljava/nio/ByteBuffer;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
+	{"getByteBuffer", "()Ljava/nio/ByteBuffer;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ByteBuffered, getByteBuffer, $ByteBuffer*), "java.io.IOException"},
 	{}
 };
 

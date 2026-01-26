@@ -30,8 +30,8 @@ $CompoundAttribute _DaughterSuperIwithDefault_MethodAnnotations_quuxD1[] = {
 };
 
 $MethodInfo _DaughterSuperIwithDefault_MethodInfo_[] = {
-	{"quux", "()V", nullptr, $PUBLIC | $ABSTRACT, nullptr, nullptr, nullptr, _DaughterSuperIwithDefault_MethodAnnotations_quux0},
-	{"quuxD", "()V", nullptr, $PUBLIC, nullptr, nullptr, nullptr, _DaughterSuperIwithDefault_MethodAnnotations_quuxD1},
+	{"quux", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DaughterSuperIwithDefault, quux, void), nullptr, nullptr, _DaughterSuperIwithDefault_MethodAnnotations_quux0},
+	{"quuxD", "()V", nullptr, $PUBLIC, $virtualMethod(DaughterSuperIwithDefault, quuxD, void), nullptr, nullptr, _DaughterSuperIwithDefault_MethodAnnotations_quuxD1},
 	{}
 };
 

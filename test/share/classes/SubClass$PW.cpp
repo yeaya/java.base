@@ -14,8 +14,8 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _SubClass$PW_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/Writer;)V", nullptr, 0, $method(static_cast<void(SubClass$PW::*)($Writer*)>(&SubClass$PW::init$))},
-	{"println", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/io/Writer;)V", nullptr, 0, $method(SubClass$PW, init$, void, $Writer*)},
+	{"println", "()V", nullptr, $PUBLIC, $virtualMethod(SubClass$PW, println, void)},
 	{}
 };
 

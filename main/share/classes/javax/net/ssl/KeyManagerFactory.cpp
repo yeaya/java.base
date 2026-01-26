@@ -41,16 +41,16 @@ $FieldInfo _KeyManagerFactory_FieldInfo_[] = {
 };
 
 $MethodInfo _KeyManagerFactory_MethodInfo_[] = {
-	{"<init>", "(Ljavax/net/ssl/KeyManagerFactorySpi;Ljava/security/Provider;Ljava/lang/String;)V", nullptr, $PROTECTED, $method(static_cast<void(KeyManagerFactory::*)($KeyManagerFactorySpi*,$Provider*,$String*)>(&KeyManagerFactory::init$))},
-	{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$String*(KeyManagerFactory::*)()>(&KeyManagerFactory::getAlgorithm))},
-	{"getDefaultAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $method(static_cast<$String*(*)()>(&KeyManagerFactory::getDefaultAlgorithm))},
-	{"getInstance", "(Ljava/lang/String;)Ljavax/net/ssl/KeyManagerFactory;", nullptr, $PUBLIC | $STATIC | $FINAL, $method(static_cast<KeyManagerFactory*(*)($String*)>(&KeyManagerFactory::getInstance)), "java.security.NoSuchAlgorithmException"},
-	{"getInstance", "(Ljava/lang/String;Ljava/lang/String;)Ljavax/net/ssl/KeyManagerFactory;", nullptr, $PUBLIC | $STATIC | $FINAL, $method(static_cast<KeyManagerFactory*(*)($String*,$String*)>(&KeyManagerFactory::getInstance)), "java.security.NoSuchAlgorithmException,java.security.NoSuchProviderException"},
-	{"getInstance", "(Ljava/lang/String;Ljava/security/Provider;)Ljavax/net/ssl/KeyManagerFactory;", nullptr, $PUBLIC | $STATIC | $FINAL, $method(static_cast<KeyManagerFactory*(*)($String*,$Provider*)>(&KeyManagerFactory::getInstance)), "java.security.NoSuchAlgorithmException"},
-	{"getKeyManagers", "()[Ljavax/net/ssl/KeyManager;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$KeyManagerArray*(KeyManagerFactory::*)()>(&KeyManagerFactory::getKeyManagers))},
-	{"getProvider", "()Ljava/security/Provider;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$Provider*(KeyManagerFactory::*)()>(&KeyManagerFactory::getProvider))},
-	{"init", "(Ljava/security/KeyStore;[C)V", nullptr, $PUBLIC | $FINAL, $method(static_cast<void(KeyManagerFactory::*)($KeyStore*,$chars*)>(&KeyManagerFactory::init)), "java.security.KeyStoreException,java.security.NoSuchAlgorithmException,java.security.UnrecoverableKeyException"},
-	{"init", "(Ljavax/net/ssl/ManagerFactoryParameters;)V", nullptr, $PUBLIC | $FINAL, $method(static_cast<void(KeyManagerFactory::*)($ManagerFactoryParameters*)>(&KeyManagerFactory::init)), "java.security.InvalidAlgorithmParameterException"},
+	{"<init>", "(Ljavax/net/ssl/KeyManagerFactorySpi;Ljava/security/Provider;Ljava/lang/String;)V", nullptr, $PROTECTED, $method(KeyManagerFactory, init$, void, $KeyManagerFactorySpi*, $Provider*, $String*)},
+	{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(KeyManagerFactory, getAlgorithm, $String*)},
+	{"getDefaultAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(KeyManagerFactory, getDefaultAlgorithm, $String*)},
+	{"getInstance", "(Ljava/lang/String;)Ljavax/net/ssl/KeyManagerFactory;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(KeyManagerFactory, getInstance, KeyManagerFactory*, $String*), "java.security.NoSuchAlgorithmException"},
+	{"getInstance", "(Ljava/lang/String;Ljava/lang/String;)Ljavax/net/ssl/KeyManagerFactory;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(KeyManagerFactory, getInstance, KeyManagerFactory*, $String*, $String*), "java.security.NoSuchAlgorithmException,java.security.NoSuchProviderException"},
+	{"getInstance", "(Ljava/lang/String;Ljava/security/Provider;)Ljavax/net/ssl/KeyManagerFactory;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(KeyManagerFactory, getInstance, KeyManagerFactory*, $String*, $Provider*), "java.security.NoSuchAlgorithmException"},
+	{"getKeyManagers", "()[Ljavax/net/ssl/KeyManager;", nullptr, $PUBLIC | $FINAL, $method(KeyManagerFactory, getKeyManagers, $KeyManagerArray*)},
+	{"getProvider", "()Ljava/security/Provider;", nullptr, $PUBLIC | $FINAL, $method(KeyManagerFactory, getProvider, $Provider*)},
+	{"init", "(Ljava/security/KeyStore;[C)V", nullptr, $PUBLIC | $FINAL, $method(KeyManagerFactory, init, void, $KeyStore*, $chars*), "java.security.KeyStoreException,java.security.NoSuchAlgorithmException,java.security.UnrecoverableKeyException"},
+	{"init", "(Ljavax/net/ssl/ManagerFactoryParameters;)V", nullptr, $PUBLIC | $FINAL, $method(KeyManagerFactory, init, void, $ManagerFactoryParameters*), "java.security.InvalidAlgorithmParameterException"},
 	{}
 };
 

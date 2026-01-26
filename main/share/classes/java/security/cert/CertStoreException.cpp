@@ -18,10 +18,10 @@ $FieldInfo _CertStoreException_FieldInfo_[] = {
 };
 
 $MethodInfo _CertStoreException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CertStoreException::*)()>(&CertStoreException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(CertStoreException::*)($String*)>(&CertStoreException::init$))},
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(CertStoreException::*)($Throwable*)>(&CertStoreException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(CertStoreException::*)($String*,$Throwable*)>(&CertStoreException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CertStoreException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(CertStoreException, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(CertStoreException, init$, void, $Throwable*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(CertStoreException, init$, void, $String*, $Throwable*)},
 	{}
 };
 

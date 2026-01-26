@@ -11,9 +11,9 @@ namespace com {
 			namespace provider {
 
 $MethodInfo _Padding_MethodInfo_[] = {
-	{"padLength", "(I)I", nullptr, $PUBLIC | $ABSTRACT},
-	{"padWithLen", "([BII)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "javax.crypto.ShortBufferException"},
-	{"unpad", "([BII)I", nullptr, $PUBLIC | $ABSTRACT},
+	{"padLength", "(I)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Padding, padLength, int32_t, int32_t)},
+	{"padWithLen", "([BII)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Padding, padWithLen, void, $bytes*, int32_t, int32_t), "javax.crypto.ShortBufferException"},
+	{"unpad", "([BII)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Padding, unpad, int32_t, $bytes*, int32_t, int32_t)},
 	{}
 };
 

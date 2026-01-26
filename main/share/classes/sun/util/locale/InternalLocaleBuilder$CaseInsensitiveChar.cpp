@@ -21,11 +21,11 @@ $FieldInfo _InternalLocaleBuilder$CaseInsensitiveChar_FieldInfo_[] = {
 };
 
 $MethodInfo _InternalLocaleBuilder$CaseInsensitiveChar_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(static_cast<void(InternalLocaleBuilder$CaseInsensitiveChar::*)($String*)>(&InternalLocaleBuilder$CaseInsensitiveChar::init$))},
-	{"<init>", "(C)V", nullptr, 0, $method(static_cast<void(InternalLocaleBuilder$CaseInsensitiveChar::*)(char16_t)>(&InternalLocaleBuilder$CaseInsensitiveChar::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"value", "()C", nullptr, $PUBLIC, $method(static_cast<char16_t(InternalLocaleBuilder$CaseInsensitiveChar::*)()>(&InternalLocaleBuilder$CaseInsensitiveChar::value))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(InternalLocaleBuilder$CaseInsensitiveChar, init$, void, $String*)},
+	{"<init>", "(C)V", nullptr, 0, $method(InternalLocaleBuilder$CaseInsensitiveChar, init$, void, char16_t)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(InternalLocaleBuilder$CaseInsensitiveChar, equals, bool, Object$*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(InternalLocaleBuilder$CaseInsensitiveChar, hashCode, int32_t)},
+	{"value", "()C", nullptr, $PUBLIC, $method(InternalLocaleBuilder$CaseInsensitiveChar, value, char16_t)},
 	{}
 };
 

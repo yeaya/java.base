@@ -47,9 +47,9 @@ $FieldInfo _WindowsUserPrincipals_FieldInfo_[] = {
 };
 
 $MethodInfo _WindowsUserPrincipals_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(WindowsUserPrincipals::*)()>(&WindowsUserPrincipals::init$))},
-	{"fromSid", "(J)Ljava/nio/file/attribute/UserPrincipal;", nullptr, $STATIC, $method(static_cast<$UserPrincipal*(*)(int64_t)>(&WindowsUserPrincipals::fromSid)), "java.io.IOException"},
-	{"lookup", "(Ljava/lang/String;)Ljava/nio/file/attribute/UserPrincipal;", nullptr, $STATIC, $method(static_cast<$UserPrincipal*(*)($String*)>(&WindowsUserPrincipals::lookup)), "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(WindowsUserPrincipals, init$, void)},
+	{"fromSid", "(J)Ljava/nio/file/attribute/UserPrincipal;", nullptr, $STATIC, $staticMethod(WindowsUserPrincipals, fromSid, $UserPrincipal*, int64_t), "java.io.IOException"},
+	{"lookup", "(Ljava/lang/String;)Ljava/nio/file/attribute/UserPrincipal;", nullptr, $STATIC, $staticMethod(WindowsUserPrincipals, lookup, $UserPrincipal*, $String*), "java.io.IOException"},
 	{}
 };
 

@@ -16,8 +16,8 @@ namespace sun {
 		namespace misc {
 
 $MethodInfo _MethodUtil$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(MethodUtil$1::*)()>(&MethodUtil$1::init$))},
-	{"run", "()Ljava/lang/reflect/Method;", nullptr, $PUBLIC, nullptr, "java.lang.Exception"},
+	{"<init>", "()V", nullptr, 0, $method(MethodUtil$1, init$, void)},
+	{"run", "()Ljava/lang/reflect/Method;", nullptr, $PUBLIC, $virtualMethod(MethodUtil$1, run, $Object*), "java.lang.Exception"},
 	{}
 };
 

@@ -46,8 +46,8 @@ $FieldInfo DoubleConsumer$$Lambda$lambda$andThen$0::fieldInfos[3] = {
 	{}
 };
 $MethodInfo DoubleConsumer$$Lambda$lambda$andThen$0::methodInfos[3] = {
-	{"<init>", "(Ljava/util/function/DoubleConsumer;Ljava/util/function/DoubleConsumer;)V", nullptr, $PUBLIC, $method(static_cast<void(DoubleConsumer$$Lambda$lambda$andThen$0::*)(DoubleConsumer*,DoubleConsumer*)>(&DoubleConsumer$$Lambda$lambda$andThen$0::init$))},
-	{"accept", "(D)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/function/DoubleConsumer;Ljava/util/function/DoubleConsumer;)V", nullptr, $PUBLIC, $method(DoubleConsumer$$Lambda$lambda$andThen$0, init$, void, DoubleConsumer*, DoubleConsumer*)},
+	{"accept", "(D)V", nullptr, $PUBLIC, $virtualMethod(DoubleConsumer$$Lambda$lambda$andThen$0, accept, void, double)},
 	{}
 };
 $ClassInfo DoubleConsumer$$Lambda$lambda$andThen$0::classInfo$ = {
@@ -70,9 +70,9 @@ $CompoundAttribute _DoubleConsumer_Annotations_[] = {
 };
 
 $MethodInfo _DoubleConsumer_MethodInfo_[] = {
-	{"accept", "(D)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"andThen", "(Ljava/util/function/DoubleConsumer;)Ljava/util/function/DoubleConsumer;", nullptr, $PUBLIC},
-	{"lambda$andThen$0", "(Ljava/util/function/DoubleConsumer;D)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(DoubleConsumer::*)(DoubleConsumer*,double)>(&DoubleConsumer::lambda$andThen$0))},
+	{"accept", "(D)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DoubleConsumer, accept, void, double)},
+	{"andThen", "(Ljava/util/function/DoubleConsumer;)Ljava/util/function/DoubleConsumer;", nullptr, $PUBLIC, $virtualMethod(DoubleConsumer, andThen, DoubleConsumer*, DoubleConsumer*)},
+	{"lambda$andThen$0", "(Ljava/util/function/DoubleConsumer;D)V", nullptr, $PRIVATE | $SYNTHETIC, $method(DoubleConsumer, lambda$andThen$0, void, DoubleConsumer*, double)},
 	{}
 };
 

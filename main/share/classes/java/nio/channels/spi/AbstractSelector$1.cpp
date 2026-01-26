@@ -22,8 +22,8 @@ $FieldInfo _AbstractSelector$1_FieldInfo_[] = {
 };
 
 $MethodInfo _AbstractSelector$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/channels/spi/AbstractSelector;)V", nullptr, 0, $method(static_cast<void(AbstractSelector$1::*)($AbstractSelector*)>(&AbstractSelector$1::init$))},
-	{"interrupt", "(Ljava/lang/Thread;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/nio/channels/spi/AbstractSelector;)V", nullptr, 0, $method(AbstractSelector$1, init$, void, $AbstractSelector*)},
+	{"interrupt", "(Ljava/lang/Thread;)V", nullptr, $PUBLIC, $virtualMethod(AbstractSelector$1, interrupt, void, $Thread*)},
 	{}
 };
 

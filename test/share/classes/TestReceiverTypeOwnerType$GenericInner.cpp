@@ -8,8 +8,8 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _TestReceiverTypeOwnerType$GenericInner_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TestReceiverTypeOwnerType$GenericInner::*)()>(&TestReceiverTypeOwnerType$GenericInner::init$))},
-	{"method", "()V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TestReceiverTypeOwnerType$GenericInner, init$, void)},
+	{"method", "()V", nullptr, $PUBLIC, $virtualMethod(TestReceiverTypeOwnerType$GenericInner, method, void)},
 	{}
 };
 

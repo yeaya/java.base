@@ -25,7 +25,7 @@ $FieldInfo _Trie2$UTrie2Header_FieldInfo_[] = {
 };
 
 $MethodInfo _Trie2$UTrie2Header_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Trie2$UTrie2Header::*)()>(&Trie2$UTrie2Header::init$))},
+	{"<init>", "()V", nullptr, 0, $method(Trie2$UTrie2Header, init$, void)},
 	{}
 };
 

@@ -29,12 +29,12 @@ $FieldInfo _BaseLocale$Key_FieldInfo_[] = {
 };
 
 $MethodInfo _BaseLocale$Key_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, $PRIVATE, $method(static_cast<void(BaseLocale$Key::*)($String*,$String*,$String*,$String*,bool)>(&BaseLocale$Key::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getBaseLocale", "()Lsun/util/locale/BaseLocale;", nullptr, $PRIVATE, $method(static_cast<$BaseLocale*(BaseLocale$Key::*)()>(&BaseLocale$Key::getBaseLocale))},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"hashCode", "(Lsun/util/locale/BaseLocale;)I", nullptr, $PRIVATE, $method(static_cast<int32_t(BaseLocale$Key::*)($BaseLocale*)>(&BaseLocale$Key::hashCode))},
-	{"normalize", "(Lsun/util/locale/BaseLocale$Key;)Lsun/util/locale/BaseLocale$Key;", nullptr, $PUBLIC | $STATIC, $method(static_cast<BaseLocale$Key*(*)(BaseLocale$Key*)>(&BaseLocale$Key::normalize))},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, $PRIVATE, $method(BaseLocale$Key, init$, void, $String*, $String*, $String*, $String*, bool)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(BaseLocale$Key, equals, bool, Object$*)},
+	{"getBaseLocale", "()Lsun/util/locale/BaseLocale;", nullptr, $PRIVATE, $method(BaseLocale$Key, getBaseLocale, $BaseLocale*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(BaseLocale$Key, hashCode, int32_t)},
+	{"hashCode", "(Lsun/util/locale/BaseLocale;)I", nullptr, $PRIVATE, $method(BaseLocale$Key, hashCode, int32_t, $BaseLocale*)},
+	{"normalize", "(Lsun/util/locale/BaseLocale$Key;)Lsun/util/locale/BaseLocale$Key;", nullptr, $PUBLIC | $STATIC, $staticMethod(BaseLocale$Key, normalize, BaseLocale$Key*, BaseLocale$Key*)},
 	{}
 };
 

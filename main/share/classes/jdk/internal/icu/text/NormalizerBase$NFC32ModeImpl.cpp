@@ -30,7 +30,7 @@ $FieldInfo _NormalizerBase$NFC32ModeImpl_FieldInfo_[] = {
 };
 
 $MethodInfo _NormalizerBase$NFC32ModeImpl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(NormalizerBase$NFC32ModeImpl::*)()>(&NormalizerBase$NFC32ModeImpl::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(NormalizerBase$NFC32ModeImpl, init$, void)},
 	{}
 };
 

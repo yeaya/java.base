@@ -26,7 +26,7 @@ $FieldInfo _EncryptedExtensions_FieldInfo_[] = {
 };
 
 $MethodInfo _EncryptedExtensions_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(EncryptedExtensions::*)()>(&EncryptedExtensions::init$))},
+	{"<init>", "()V", nullptr, 0, $method(EncryptedExtensions, init$, void)},
 	{}
 };
 

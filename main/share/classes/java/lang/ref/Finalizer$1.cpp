@@ -25,8 +25,8 @@ $FieldInfo _Finalizer$1_FieldInfo_[] = {
 };
 
 $MethodInfo _Finalizer$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Runnable;)V", nullptr, 0, $method(static_cast<void(Finalizer$1::*)($Runnable*)>(&Finalizer$1::init$))},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Runnable;)V", nullptr, 0, $method(Finalizer$1, init$, void, $Runnable*)},
+	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(Finalizer$1, run, $Object*)},
 	{}
 };
 

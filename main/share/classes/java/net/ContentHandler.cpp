@@ -11,9 +11,9 @@ namespace java {
 	namespace net {
 
 $MethodInfo _ContentHandler_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ContentHandler::*)()>(&ContentHandler::init$))},
-	{"getContent", "(Ljava/net/URLConnection;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"getContent", "(Ljava/net/URLConnection;[Ljava/lang/Class;)Ljava/lang/Object;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ContentHandler, init$, void)},
+	{"getContent", "(Ljava/net/URLConnection;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ContentHandler, getContent, $Object*, $URLConnection*), "java.io.IOException"},
+	{"getContent", "(Ljava/net/URLConnection;[Ljava/lang/Class;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ContentHandler, getContent, $Object*, $URLConnection*, $ClassArray*), "java.io.IOException"},
 	{}
 };
 

@@ -50,9 +50,9 @@ $MethodInfo _Nodes$ConcNode$OfDouble_MethodInfo_[] = {
 	{"*getChildCount", "()I", nullptr, $PUBLIC},
 	{"*getShape", "()Ljava/util/stream/StreamShape;", nullptr, $PUBLIC | $ABSTRACT},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/util/stream/Node$OfDouble;Ljava/util/stream/Node$OfDouble;)V", nullptr, 0, $method(static_cast<void(Nodes$ConcNode$OfDouble::*)($Node$OfDouble*,$Node$OfDouble*)>(&Nodes$ConcNode$OfDouble::init$))},
+	{"<init>", "(Ljava/util/stream/Node$OfDouble;Ljava/util/stream/Node$OfDouble;)V", nullptr, 0, $method(Nodes$ConcNode$OfDouble, init$, void, $Node$OfDouble*, $Node$OfDouble*)},
 	{"*newArray", "(I)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
-	{"spliterator", "()Ljava/util/Spliterator$OfDouble;", nullptr, $PUBLIC},
+	{"spliterator", "()Ljava/util/Spliterator$OfDouble;", nullptr, $PUBLIC, $virtualMethod(Nodes$ConcNode$OfDouble, spliterator, $Spliterator*)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{"*truncate", "(JJLjava/util/function/IntFunction;)Ljava/util/stream/Node;", nullptr, $PUBLIC | $ABSTRACT},
 	{}

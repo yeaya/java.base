@@ -21,8 +21,8 @@ $FieldInfo _LongAdder$SerializationProxy_FieldInfo_[] = {
 };
 
 $MethodInfo _LongAdder$SerializationProxy_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/atomic/LongAdder;)V", nullptr, 0, $method(static_cast<void(LongAdder$SerializationProxy::*)($LongAdder*)>(&LongAdder$SerializationProxy::init$))},
-	{"readResolve", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(static_cast<$Object*(LongAdder$SerializationProxy::*)()>(&LongAdder$SerializationProxy::readResolve))},
+	{"<init>", "(Ljava/util/concurrent/atomic/LongAdder;)V", nullptr, 0, $method(LongAdder$SerializationProxy, init$, void, $LongAdder*)},
+	{"readResolve", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(LongAdder$SerializationProxy, readResolve, $Object*)},
 	{}
 };
 

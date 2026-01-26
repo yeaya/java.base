@@ -26,14 +26,14 @@ $FieldInfo _Inet4AddressImpl_FieldInfo_[] = {
 };
 
 $MethodInfo _Inet4AddressImpl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Inet4AddressImpl::*)()>(&Inet4AddressImpl::init$))},
-	{"anyLocalAddress", "()Ljava/net/InetAddress;", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"getHostByAddr", "([B)Ljava/lang/String;", nullptr, $PUBLIC | $NATIVE, nullptr, "java.net.UnknownHostException"},
-	{"getLocalHostName", "()Ljava/lang/String;", nullptr, $PUBLIC | $NATIVE, nullptr, "java.net.UnknownHostException"},
-	{"isReachable", "(Ljava/net/InetAddress;ILjava/net/NetworkInterface;I)Z", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"isReachable0", "([BI[BI)Z", nullptr, $PRIVATE | $NATIVE, $method(static_cast<bool(Inet4AddressImpl::*)($bytes*,int32_t,$bytes*,int32_t)>(&Inet4AddressImpl::isReachable0)), "java.io.IOException"},
-	{"lookupAllHostAddr", "(Ljava/lang/String;)[Ljava/net/InetAddress;", nullptr, $PUBLIC | $NATIVE, nullptr, "java.net.UnknownHostException"},
-	{"loopbackAddress", "()Ljava/net/InetAddress;", nullptr, $PUBLIC | $SYNCHRONIZED},
+	{"<init>", "()V", nullptr, 0, $method(Inet4AddressImpl, init$, void)},
+	{"anyLocalAddress", "()Ljava/net/InetAddress;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Inet4AddressImpl, anyLocalAddress, $InetAddress*)},
+	{"getHostByAddr", "([B)Ljava/lang/String;", nullptr, $PUBLIC | $NATIVE, $virtualMethod(Inet4AddressImpl, getHostByAddr, $String*, $bytes*), "java.net.UnknownHostException"},
+	{"getLocalHostName", "()Ljava/lang/String;", nullptr, $PUBLIC | $NATIVE, $virtualMethod(Inet4AddressImpl, getLocalHostName, $String*), "java.net.UnknownHostException"},
+	{"isReachable", "(Ljava/net/InetAddress;ILjava/net/NetworkInterface;I)Z", nullptr, $PUBLIC, $virtualMethod(Inet4AddressImpl, isReachable, bool, $InetAddress*, int32_t, $NetworkInterface*, int32_t), "java.io.IOException"},
+	{"isReachable0", "([BI[BI)Z", nullptr, $PRIVATE | $NATIVE, $method(Inet4AddressImpl, isReachable0, bool, $bytes*, int32_t, $bytes*, int32_t), "java.io.IOException"},
+	{"lookupAllHostAddr", "(Ljava/lang/String;)[Ljava/net/InetAddress;", nullptr, $PUBLIC | $NATIVE, $virtualMethod(Inet4AddressImpl, lookupAllHostAddr, $InetAddressArray*, $String*), "java.net.UnknownHostException"},
+	{"loopbackAddress", "()Ljava/net/InetAddress;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Inet4AddressImpl, loopbackAddress, $InetAddress*)},
 	{}
 };
 

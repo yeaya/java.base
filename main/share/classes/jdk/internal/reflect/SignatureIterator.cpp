@@ -19,11 +19,11 @@ $FieldInfo _SignatureIterator_FieldInfo_[] = {
 };
 
 $MethodInfo _SignatureIterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(SignatureIterator::*)($String*)>(&SignatureIterator::init$))},
-	{"atEnd", "()Z", nullptr, $PUBLIC},
-	{"next", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"reset", "()V", nullptr, $PUBLIC},
-	{"returnType", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SignatureIterator, init$, void, $String*)},
+	{"atEnd", "()Z", nullptr, $PUBLIC, $virtualMethod(SignatureIterator, atEnd, bool)},
+	{"next", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SignatureIterator, next, $String*)},
+	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(SignatureIterator, reset, void)},
+	{"returnType", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SignatureIterator, returnType, $String*)},
 	{}
 };
 

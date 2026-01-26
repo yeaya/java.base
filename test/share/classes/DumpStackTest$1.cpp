@@ -14,9 +14,9 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _DumpStackTest$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(DumpStackTest$1::*)()>(&DumpStackTest$1::init$))},
-	{"c", "()V", nullptr, 0},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(DumpStackTest$1, init$, void)},
+	{"c", "()V", nullptr, 0, $virtualMethod(DumpStackTest$1, c, void)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(DumpStackTest$1, run, void)},
 	{}
 };
 

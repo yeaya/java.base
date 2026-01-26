@@ -13,9 +13,9 @@ namespace java {
 	namespace net {
 
 $MethodInfo _CookieManager$CookieComparator_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(CookieManager$CookieComparator::*)()>(&CookieManager$CookieComparator::init$))},
-	{"compare", "(Ljava/net/HttpCookie;Ljava/net/HttpCookie;)I", nullptr, $PUBLIC},
-	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "()V", nullptr, 0, $method(CookieManager$CookieComparator, init$, void)},
+	{"compare", "(Ljava/net/HttpCookie;Ljava/net/HttpCookie;)I", nullptr, $PUBLIC, $virtualMethod(CookieManager$CookieComparator, compare, int32_t, $HttpCookie*, $HttpCookie*)},
+	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(CookieManager$CookieComparator, compare, int32_t, Object$*, Object$*)},
 	{}
 };
 

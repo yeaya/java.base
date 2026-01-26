@@ -28,8 +28,8 @@ $FieldInfo _Locale$Cache_FieldInfo_[] = {
 };
 
 $MethodInfo _Locale$Cache_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(Locale$Cache::*)()>(&Locale$Cache::init$))},
-	{"createObject", "(Ljava/lang/Object;)Ljava/util/Locale;", nullptr, $PROTECTED},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(Locale$Cache, init$, void)},
+	{"createObject", "(Ljava/lang/Object;)Ljava/util/Locale;", nullptr, $PROTECTED, $virtualMethod(Locale$Cache, createObject, $Object*, Object$*)},
 	{}
 };
 

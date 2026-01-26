@@ -43,9 +43,9 @@ $FieldInfo _Scanner$FindSpliterator_FieldInfo_[] = {
 };
 
 $MethodInfo _Scanner$FindSpliterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Scanner;Ljava/util/regex/Pattern;)V", nullptr, 0, $method(static_cast<void(Scanner$FindSpliterator::*)($Scanner*,$Pattern*)>(&Scanner$FindSpliterator::init$))},
-	{"nextInBuffer", "()Z", nullptr, $PRIVATE, $method(static_cast<bool(Scanner$FindSpliterator::*)()>(&Scanner$FindSpliterator::nextInBuffer))},
-	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-Ljava/util/regex/MatchResult;>;)Z", $PUBLIC},
+	{"<init>", "(Ljava/util/Scanner;Ljava/util/regex/Pattern;)V", nullptr, 0, $method(Scanner$FindSpliterator, init$, void, $Scanner*, $Pattern*)},
+	{"nextInBuffer", "()Z", nullptr, $PRIVATE, $method(Scanner$FindSpliterator, nextInBuffer, bool)},
+	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-Ljava/util/regex/MatchResult;>;)Z", $PUBLIC, $virtualMethod(Scanner$FindSpliterator, tryAdvance, bool, $Consumer*)},
 	{}
 };
 

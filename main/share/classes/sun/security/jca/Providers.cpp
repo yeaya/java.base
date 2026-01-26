@@ -39,20 +39,20 @@ $FieldInfo _Providers_FieldInfo_[] = {
 };
 
 $MethodInfo _Providers_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(Providers::*)()>(&Providers::init$))},
-	{"beginThreadProviderList", "(Lsun/security/jca/ProviderList;)Lsun/security/jca/ProviderList;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $method(static_cast<$ProviderList*(*)($ProviderList*)>(&Providers::beginThreadProviderList))},
-	{"changeThreadProviderList", "(Lsun/security/jca/ProviderList;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($ProviderList*)>(&Providers::changeThreadProviderList))},
-	{"clearCachedValues", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&Providers::clearCachedValues))},
-	{"endThreadProviderList", "(Lsun/security/jca/ProviderList;)V", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $method(static_cast<void(*)($ProviderList*)>(&Providers::endThreadProviderList))},
-	{"getFullProviderList", "()Lsun/security/jca/ProviderList;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$ProviderList*(*)()>(&Providers::getFullProviderList))},
-	{"getProviderList", "()Lsun/security/jca/ProviderList;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$ProviderList*(*)()>(&Providers::getProviderList))},
-	{"getSunProvider", "()Ljava/security/Provider;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Provider*(*)()>(&Providers::getSunProvider))},
-	{"getSystemProviderList", "()Lsun/security/jca/ProviderList;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$ProviderList*(*)()>(&Providers::getSystemProviderList))},
-	{"getThreadProviderList", "()Lsun/security/jca/ProviderList;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$ProviderList*(*)()>(&Providers::getThreadProviderList))},
-	{"setProviderList", "(Lsun/security/jca/ProviderList;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($ProviderList*)>(&Providers::setProviderList))},
-	{"setSystemProviderList", "(Lsun/security/jca/ProviderList;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($ProviderList*)>(&Providers::setSystemProviderList))},
-	{"startJarVerification", "()Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Object*(*)()>(&Providers::startJarVerification))},
-	{"stopJarVerification", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)(Object$*)>(&Providers::stopJarVerification))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(Providers, init$, void)},
+	{"beginThreadProviderList", "(Lsun/security/jca/ProviderList;)Lsun/security/jca/ProviderList;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(Providers, beginThreadProviderList, $ProviderList*, $ProviderList*)},
+	{"changeThreadProviderList", "(Lsun/security/jca/ProviderList;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Providers, changeThreadProviderList, void, $ProviderList*)},
+	{"clearCachedValues", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(Providers, clearCachedValues, void)},
+	{"endThreadProviderList", "(Lsun/security/jca/ProviderList;)V", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(Providers, endThreadProviderList, void, $ProviderList*)},
+	{"getFullProviderList", "()Lsun/security/jca/ProviderList;", nullptr, $PUBLIC | $STATIC, $staticMethod(Providers, getFullProviderList, $ProviderList*)},
+	{"getProviderList", "()Lsun/security/jca/ProviderList;", nullptr, $PUBLIC | $STATIC, $staticMethod(Providers, getProviderList, $ProviderList*)},
+	{"getSunProvider", "()Ljava/security/Provider;", nullptr, $PUBLIC | $STATIC, $staticMethod(Providers, getSunProvider, $Provider*)},
+	{"getSystemProviderList", "()Lsun/security/jca/ProviderList;", nullptr, $PRIVATE | $STATIC, $staticMethod(Providers, getSystemProviderList, $ProviderList*)},
+	{"getThreadProviderList", "()Lsun/security/jca/ProviderList;", nullptr, $PUBLIC | $STATIC, $staticMethod(Providers, getThreadProviderList, $ProviderList*)},
+	{"setProviderList", "(Lsun/security/jca/ProviderList;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Providers, setProviderList, void, $ProviderList*)},
+	{"setSystemProviderList", "(Lsun/security/jca/ProviderList;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Providers, setSystemProviderList, void, $ProviderList*)},
+	{"startJarVerification", "()Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC, $staticMethod(Providers, startJarVerification, $Object*)},
+	{"stopJarVerification", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Providers, stopJarVerification, void, Object$*)},
 	{}
 };
 

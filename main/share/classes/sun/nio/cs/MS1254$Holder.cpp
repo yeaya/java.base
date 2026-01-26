@@ -23,7 +23,7 @@ $FieldInfo _MS1254$Holder_FieldInfo_[] = {
 };
 
 $MethodInfo _MS1254$Holder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(MS1254$Holder::*)()>(&MS1254$Holder::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(MS1254$Holder, init$, void)},
 	{}
 };
 

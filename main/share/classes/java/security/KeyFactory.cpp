@@ -54,18 +54,18 @@ $FieldInfo _KeyFactory_FieldInfo_[] = {
 };
 
 $MethodInfo _KeyFactory_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/KeyFactorySpi;Ljava/security/Provider;Ljava/lang/String;)V", nullptr, $PROTECTED, $method(static_cast<void(KeyFactory::*)($KeyFactorySpi*,$Provider*,$String*)>(&KeyFactory::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(static_cast<void(KeyFactory::*)($String*)>(&KeyFactory::init$)), "java.security.NoSuchAlgorithmException"},
-	{"generatePrivate", "(Ljava/security/spec/KeySpec;)Ljava/security/PrivateKey;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$PrivateKey*(KeyFactory::*)($KeySpec*)>(&KeyFactory::generatePrivate)), "java.security.spec.InvalidKeySpecException"},
-	{"generatePublic", "(Ljava/security/spec/KeySpec;)Ljava/security/PublicKey;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$PublicKey*(KeyFactory::*)($KeySpec*)>(&KeyFactory::generatePublic)), "java.security.spec.InvalidKeySpecException"},
-	{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$String*(KeyFactory::*)()>(&KeyFactory::getAlgorithm))},
-	{"getInstance", "(Ljava/lang/String;)Ljava/security/KeyFactory;", nullptr, $PUBLIC | $STATIC, $method(static_cast<KeyFactory*(*)($String*)>(&KeyFactory::getInstance)), "java.security.NoSuchAlgorithmException"},
-	{"getInstance", "(Ljava/lang/String;Ljava/lang/String;)Ljava/security/KeyFactory;", nullptr, $PUBLIC | $STATIC, $method(static_cast<KeyFactory*(*)($String*,$String*)>(&KeyFactory::getInstance)), "java.security.NoSuchAlgorithmException,java.security.NoSuchProviderException"},
-	{"getInstance", "(Ljava/lang/String;Ljava/security/Provider;)Ljava/security/KeyFactory;", nullptr, $PUBLIC | $STATIC, $method(static_cast<KeyFactory*(*)($String*,$Provider*)>(&KeyFactory::getInstance)), "java.security.NoSuchAlgorithmException"},
-	{"getKeySpec", "(Ljava/security/Key;Ljava/lang/Class;)Ljava/security/spec/KeySpec;", "<T::Ljava/security/spec/KeySpec;>(Ljava/security/Key;Ljava/lang/Class<TT;>;)TT;", $PUBLIC | $FINAL, $method(static_cast<$KeySpec*(KeyFactory::*)($Key*,$Class*)>(&KeyFactory::getKeySpec)), "java.security.spec.InvalidKeySpecException"},
-	{"getProvider", "()Ljava/security/Provider;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$Provider*(KeyFactory::*)()>(&KeyFactory::getProvider))},
-	{"nextSpi", "(Ljava/security/KeyFactorySpi;)Ljava/security/KeyFactorySpi;", nullptr, $PRIVATE, $method(static_cast<$KeyFactorySpi*(KeyFactory::*)($KeyFactorySpi*)>(&KeyFactory::nextSpi))},
-	{"translateKey", "(Ljava/security/Key;)Ljava/security/Key;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$Key*(KeyFactory::*)($Key*)>(&KeyFactory::translateKey)), "java.security.InvalidKeyException"},
+	{"<init>", "(Ljava/security/KeyFactorySpi;Ljava/security/Provider;Ljava/lang/String;)V", nullptr, $PROTECTED, $method(KeyFactory, init$, void, $KeyFactorySpi*, $Provider*, $String*)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(KeyFactory, init$, void, $String*), "java.security.NoSuchAlgorithmException"},
+	{"generatePrivate", "(Ljava/security/spec/KeySpec;)Ljava/security/PrivateKey;", nullptr, $PUBLIC | $FINAL, $method(KeyFactory, generatePrivate, $PrivateKey*, $KeySpec*), "java.security.spec.InvalidKeySpecException"},
+	{"generatePublic", "(Ljava/security/spec/KeySpec;)Ljava/security/PublicKey;", nullptr, $PUBLIC | $FINAL, $method(KeyFactory, generatePublic, $PublicKey*, $KeySpec*), "java.security.spec.InvalidKeySpecException"},
+	{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(KeyFactory, getAlgorithm, $String*)},
+	{"getInstance", "(Ljava/lang/String;)Ljava/security/KeyFactory;", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyFactory, getInstance, KeyFactory*, $String*), "java.security.NoSuchAlgorithmException"},
+	{"getInstance", "(Ljava/lang/String;Ljava/lang/String;)Ljava/security/KeyFactory;", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyFactory, getInstance, KeyFactory*, $String*, $String*), "java.security.NoSuchAlgorithmException,java.security.NoSuchProviderException"},
+	{"getInstance", "(Ljava/lang/String;Ljava/security/Provider;)Ljava/security/KeyFactory;", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyFactory, getInstance, KeyFactory*, $String*, $Provider*), "java.security.NoSuchAlgorithmException"},
+	{"getKeySpec", "(Ljava/security/Key;Ljava/lang/Class;)Ljava/security/spec/KeySpec;", "<T::Ljava/security/spec/KeySpec;>(Ljava/security/Key;Ljava/lang/Class<TT;>;)TT;", $PUBLIC | $FINAL, $method(KeyFactory, getKeySpec, $KeySpec*, $Key*, $Class*), "java.security.spec.InvalidKeySpecException"},
+	{"getProvider", "()Ljava/security/Provider;", nullptr, $PUBLIC | $FINAL, $method(KeyFactory, getProvider, $Provider*)},
+	{"nextSpi", "(Ljava/security/KeyFactorySpi;)Ljava/security/KeyFactorySpi;", nullptr, $PRIVATE, $method(KeyFactory, nextSpi, $KeyFactorySpi*, $KeyFactorySpi*)},
+	{"translateKey", "(Ljava/security/Key;)Ljava/security/Key;", nullptr, $PUBLIC | $FINAL, $method(KeyFactory, translateKey, $Key*, $Key*), "java.security.InvalidKeyException"},
 	{}
 };
 

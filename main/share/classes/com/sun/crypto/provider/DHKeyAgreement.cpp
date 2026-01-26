@@ -76,13 +76,13 @@ $FieldInfo _DHKeyAgreement_FieldInfo_[] = {
 };
 
 $MethodInfo _DHKeyAgreement_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DHKeyAgreement::*)()>(&DHKeyAgreement::init$))},
-	{"engineDoPhase", "(Ljava/security/Key;Z)Ljava/security/Key;", nullptr, $PROTECTED, nullptr, "java.security.InvalidKeyException,java.lang.IllegalStateException"},
-	{"engineGenerateSecret", "()[B", nullptr, $PROTECTED, nullptr, "java.lang.IllegalStateException"},
-	{"engineGenerateSecret", "([BI)I", nullptr, $PROTECTED, nullptr, "java.lang.IllegalStateException,javax.crypto.ShortBufferException"},
-	{"engineGenerateSecret", "(Ljava/lang/String;)Ljavax/crypto/SecretKey;", nullptr, $PROTECTED, nullptr, "java.lang.IllegalStateException,java.security.NoSuchAlgorithmException,java.security.InvalidKeyException"},
-	{"engineInit", "(Ljava/security/Key;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, nullptr, "java.security.InvalidKeyException"},
-	{"engineInit", "(Ljava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, nullptr, "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DHKeyAgreement, init$, void)},
+	{"engineDoPhase", "(Ljava/security/Key;Z)Ljava/security/Key;", nullptr, $PROTECTED, $virtualMethod(DHKeyAgreement, engineDoPhase, $Key*, $Key*, bool), "java.security.InvalidKeyException,java.lang.IllegalStateException"},
+	{"engineGenerateSecret", "()[B", nullptr, $PROTECTED, $virtualMethod(DHKeyAgreement, engineGenerateSecret, $bytes*), "java.lang.IllegalStateException"},
+	{"engineGenerateSecret", "([BI)I", nullptr, $PROTECTED, $virtualMethod(DHKeyAgreement, engineGenerateSecret, int32_t, $bytes*, int32_t), "java.lang.IllegalStateException,javax.crypto.ShortBufferException"},
+	{"engineGenerateSecret", "(Ljava/lang/String;)Ljavax/crypto/SecretKey;", nullptr, $PROTECTED, $virtualMethod(DHKeyAgreement, engineGenerateSecret, $SecretKey*, $String*), "java.lang.IllegalStateException,java.security.NoSuchAlgorithmException,java.security.InvalidKeyException"},
+	{"engineInit", "(Ljava/security/Key;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(DHKeyAgreement, engineInit, void, $Key*, $SecureRandom*), "java.security.InvalidKeyException"},
+	{"engineInit", "(Ljava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(DHKeyAgreement, engineInit, void, $Key*, $AlgorithmParameterSpec*, $SecureRandom*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
 	{}
 };
 

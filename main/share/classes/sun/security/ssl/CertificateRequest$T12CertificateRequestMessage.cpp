@@ -72,14 +72,14 @@ $FieldInfo _CertificateRequest$T12CertificateRequestMessage_FieldInfo_[] = {
 };
 
 $MethodInfo _CertificateRequest$T12CertificateRequestMessage_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/ssl/HandshakeContext;[Ljava/security/cert/X509Certificate;Lsun/security/ssl/CipherSuite$KeyExchange;Ljava/util/List;)V", "(Lsun/security/ssl/HandshakeContext;[Ljava/security/cert/X509Certificate;Lsun/security/ssl/CipherSuite$KeyExchange;Ljava/util/List<Lsun/security/ssl/SignatureScheme;>;)V", 0, $method(static_cast<void(CertificateRequest$T12CertificateRequestMessage::*)($HandshakeContext*,$X509CertificateArray*,$CipherSuite$KeyExchange*,$List*)>(&CertificateRequest$T12CertificateRequestMessage::init$)), "java.io.IOException"},
-	{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)V", nullptr, 0, $method(static_cast<void(CertificateRequest$T12CertificateRequestMessage::*)($HandshakeContext*,$ByteBuffer*)>(&CertificateRequest$T12CertificateRequestMessage::init$)), "java.io.IOException"},
-	{"getAuthorities", "()[Ljavax/security/auth/x500/X500Principal;", nullptr, 0, $method(static_cast<$X500PrincipalArray*(CertificateRequest$T12CertificateRequestMessage::*)()>(&CertificateRequest$T12CertificateRequestMessage::getAuthorities))},
-	{"getKeyTypes", "()[Ljava/lang/String;", nullptr, 0, $method(static_cast<$StringArray*(CertificateRequest$T12CertificateRequestMessage::*)()>(&CertificateRequest$T12CertificateRequestMessage::getKeyTypes))},
-	{"handshakeType", "()Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC},
-	{"messageLength", "()I", nullptr, $PUBLIC},
-	{"send", "(Lsun/security/ssl/HandshakeOutStream;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/security/ssl/HandshakeContext;[Ljava/security/cert/X509Certificate;Lsun/security/ssl/CipherSuite$KeyExchange;Ljava/util/List;)V", "(Lsun/security/ssl/HandshakeContext;[Ljava/security/cert/X509Certificate;Lsun/security/ssl/CipherSuite$KeyExchange;Ljava/util/List<Lsun/security/ssl/SignatureScheme;>;)V", 0, $method(CertificateRequest$T12CertificateRequestMessage, init$, void, $HandshakeContext*, $X509CertificateArray*, $CipherSuite$KeyExchange*, $List*), "java.io.IOException"},
+	{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)V", nullptr, 0, $method(CertificateRequest$T12CertificateRequestMessage, init$, void, $HandshakeContext*, $ByteBuffer*), "java.io.IOException"},
+	{"getAuthorities", "()[Ljavax/security/auth/x500/X500Principal;", nullptr, 0, $method(CertificateRequest$T12CertificateRequestMessage, getAuthorities, $X500PrincipalArray*)},
+	{"getKeyTypes", "()[Ljava/lang/String;", nullptr, 0, $method(CertificateRequest$T12CertificateRequestMessage, getKeyTypes, $StringArray*)},
+	{"handshakeType", "()Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC, $virtualMethod(CertificateRequest$T12CertificateRequestMessage, handshakeType, $SSLHandshake*)},
+	{"messageLength", "()I", nullptr, $PUBLIC, $virtualMethod(CertificateRequest$T12CertificateRequestMessage, messageLength, int32_t)},
+	{"send", "(Lsun/security/ssl/HandshakeOutStream;)V", nullptr, $PUBLIC, $virtualMethod(CertificateRequest$T12CertificateRequestMessage, send, void, $HandshakeOutStream*), "java.io.IOException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CertificateRequest$T12CertificateRequestMessage, toString, $String*)},
 	{}
 };
 

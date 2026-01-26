@@ -7,6 +7,7 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
+using $Observable = ::java::util::Observable;
 
 namespace java {
 	namespace util {
@@ -22,7 +23,7 @@ $CompoundAttribute _Observer_Annotations_[] = {
 };
 
 $MethodInfo _Observer_MethodInfo_[] = {
-	{"update", "(Ljava/util/Observable;Ljava/lang/Object;)V", nullptr, $PUBLIC | $ABSTRACT},
+	{"update", "(Ljava/util/Observable;Ljava/lang/Object;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Observer, update, void, $Observable*, Object$*)},
 	{}
 };
 

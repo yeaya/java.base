@@ -29,8 +29,8 @@ $FieldInfo _GetResource$2_FieldInfo_[] = {
 };
 
 $MethodInfo _GetResource$2_MethodInfo_[] = {
-	{"<init>", "(LGetResource;)V", nullptr, 0, $method(static_cast<void(GetResource$2::*)($GetResource*)>(&GetResource$2::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(LGetResource;)V", nullptr, 0, $method(GetResource$2, init$, void, $GetResource*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(GetResource$2, run, void)},
 	{}
 };
 

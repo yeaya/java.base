@@ -92,19 +92,19 @@ $FieldInfo _HttpConnectSocketImpl_FieldInfo_[] = {
 };
 
 $MethodInfo _HttpConnectSocketImpl_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/Proxy;Ljava/net/SocketImpl;Ljava/net/Socket;)V", nullptr, 0, $method(static_cast<void(HttpConnectSocketImpl::*)($Proxy*,$SocketImpl*,$Socket*)>(&HttpConnectSocketImpl::init$))},
-	{"accept", "(Ljava/net/SocketImpl;)V", nullptr, $PROTECTED},
-	{"connect", "(Ljava/lang/String;I)V", nullptr, $PROTECTED, nullptr, "java.io.IOException"},
-	{"connect", "(Ljava/net/InetAddress;I)V", nullptr, $PROTECTED, nullptr, "java.io.IOException"},
-	{"connect", "(Ljava/net/SocketAddress;I)V", nullptr, $PROTECTED, nullptr, "java.io.IOException"},
-	{"doTunnel", "(Ljava/lang/String;I)Ljava/net/Socket;", nullptr, $PRIVATE, $method(static_cast<$Socket*(HttpConnectSocketImpl::*)($String*,int32_t)>(&HttpConnectSocketImpl::doTunnel)), "java.io.IOException"},
-	{"doTunneling", "(Ljava/net/HttpURLConnection;)V", nullptr, $PRIVATE, $method(static_cast<void(HttpConnectSocketImpl::*)($HttpURLConnection*)>(&HttpConnectSocketImpl::doTunneling)), "java.io.IOException"},
-	{"getInetAddress", "()Ljava/net/InetAddress;", nullptr, $PROTECTED},
-	{"getPort", "()I", nullptr, $PROTECTED},
-	{"listen", "(I)V", nullptr, $PROTECTED},
-	{"privilegedDoTunnel", "(Ljava/lang/String;I)Ljava/net/Socket;", nullptr, $PRIVATE, $method(static_cast<$Socket*(HttpConnectSocketImpl::*)($String*,int32_t)>(&HttpConnectSocketImpl::privilegedDoTunnel)), "java.io.IOException"},
-	{"reset", "()V", nullptr, 0},
-	{"setOption", "(ILjava/lang/Object;)V", nullptr, $PUBLIC, nullptr, "java.net.SocketException"},
+	{"<init>", "(Ljava/net/Proxy;Ljava/net/SocketImpl;Ljava/net/Socket;)V", nullptr, 0, $method(HttpConnectSocketImpl, init$, void, $Proxy*, $SocketImpl*, $Socket*)},
+	{"accept", "(Ljava/net/SocketImpl;)V", nullptr, $PROTECTED, $virtualMethod(HttpConnectSocketImpl, accept, void, $SocketImpl*)},
+	{"connect", "(Ljava/lang/String;I)V", nullptr, $PROTECTED, $virtualMethod(HttpConnectSocketImpl, connect, void, $String*, int32_t), "java.io.IOException"},
+	{"connect", "(Ljava/net/InetAddress;I)V", nullptr, $PROTECTED, $virtualMethod(HttpConnectSocketImpl, connect, void, $InetAddress*, int32_t), "java.io.IOException"},
+	{"connect", "(Ljava/net/SocketAddress;I)V", nullptr, $PROTECTED, $virtualMethod(HttpConnectSocketImpl, connect, void, $SocketAddress*, int32_t), "java.io.IOException"},
+	{"doTunnel", "(Ljava/lang/String;I)Ljava/net/Socket;", nullptr, $PRIVATE, $method(HttpConnectSocketImpl, doTunnel, $Socket*, $String*, int32_t), "java.io.IOException"},
+	{"doTunneling", "(Ljava/net/HttpURLConnection;)V", nullptr, $PRIVATE, $method(HttpConnectSocketImpl, doTunneling, void, $HttpURLConnection*), "java.io.IOException"},
+	{"getInetAddress", "()Ljava/net/InetAddress;", nullptr, $PROTECTED, $virtualMethod(HttpConnectSocketImpl, getInetAddress, $InetAddress*)},
+	{"getPort", "()I", nullptr, $PROTECTED, $virtualMethod(HttpConnectSocketImpl, getPort, int32_t)},
+	{"listen", "(I)V", nullptr, $PROTECTED, $virtualMethod(HttpConnectSocketImpl, listen, void, int32_t)},
+	{"privilegedDoTunnel", "(Ljava/lang/String;I)Ljava/net/Socket;", nullptr, $PRIVATE, $method(HttpConnectSocketImpl, privilegedDoTunnel, $Socket*, $String*, int32_t), "java.io.IOException"},
+	{"reset", "()V", nullptr, 0, $virtualMethod(HttpConnectSocketImpl, reset, void)},
+	{"setOption", "(ILjava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(HttpConnectSocketImpl, setOption, void, int32_t, Object$*), "java.net.SocketException"},
 	{}
 };
 

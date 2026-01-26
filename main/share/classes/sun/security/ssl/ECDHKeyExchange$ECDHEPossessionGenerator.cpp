@@ -33,8 +33,8 @@ namespace sun {
 		namespace ssl {
 
 $MethodInfo _ECDHKeyExchange$ECDHEPossessionGenerator_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(ECDHKeyExchange$ECDHEPossessionGenerator::*)()>(&ECDHKeyExchange$ECDHEPossessionGenerator::init$))},
-	{"createPossession", "(Lsun/security/ssl/HandshakeContext;)Lsun/security/ssl/SSLPossession;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(ECDHKeyExchange$ECDHEPossessionGenerator, init$, void)},
+	{"createPossession", "(Lsun/security/ssl/HandshakeContext;)Lsun/security/ssl/SSLPossession;", nullptr, $PUBLIC, $virtualMethod(ECDHKeyExchange$ECDHEPossessionGenerator, createPossession, $SSLPossession*, $HandshakeContext*)},
 	{}
 };
 

@@ -52,13 +52,13 @@ $FieldInfo _WindowsDirectoryStream$WindowsDirectoryIterator_FieldInfo_[] = {
 };
 
 $MethodInfo _WindowsDirectoryStream$WindowsDirectoryIterator_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/fs/WindowsDirectoryStream;Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(WindowsDirectoryStream$WindowsDirectoryIterator::*)($WindowsDirectoryStream*,$String*)>(&WindowsDirectoryStream$WindowsDirectoryIterator::init$))},
-	{"acceptEntry", "(Ljava/lang/String;Ljava/nio/file/attribute/BasicFileAttributes;)Ljava/nio/file/Path;", nullptr, $PRIVATE, $method(static_cast<$Path*(WindowsDirectoryStream$WindowsDirectoryIterator::*)($String*,$BasicFileAttributes*)>(&WindowsDirectoryStream$WindowsDirectoryIterator::acceptEntry))},
-	{"hasNext", "()Z", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"isSelfOrParent", "(Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(static_cast<bool(WindowsDirectoryStream$WindowsDirectoryIterator::*)($String*)>(&WindowsDirectoryStream$WindowsDirectoryIterator::isSelfOrParent))},
-	{"next", "()Ljava/nio/file/Path;", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"readNextEntry", "()Ljava/nio/file/Path;", nullptr, $PRIVATE, $method(static_cast<$Path*(WindowsDirectoryStream$WindowsDirectoryIterator::*)()>(&WindowsDirectoryStream$WindowsDirectoryIterator::readNextEntry))},
-	{"remove", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/nio/fs/WindowsDirectoryStream;Ljava/lang/String;)V", nullptr, 0, $method(WindowsDirectoryStream$WindowsDirectoryIterator, init$, void, $WindowsDirectoryStream*, $String*)},
+	{"acceptEntry", "(Ljava/lang/String;Ljava/nio/file/attribute/BasicFileAttributes;)Ljava/nio/file/Path;", nullptr, $PRIVATE, $method(WindowsDirectoryStream$WindowsDirectoryIterator, acceptEntry, $Path*, $String*, $BasicFileAttributes*)},
+	{"hasNext", "()Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(WindowsDirectoryStream$WindowsDirectoryIterator, hasNext, bool)},
+	{"isSelfOrParent", "(Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(WindowsDirectoryStream$WindowsDirectoryIterator, isSelfOrParent, bool, $String*)},
+	{"next", "()Ljava/nio/file/Path;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(WindowsDirectoryStream$WindowsDirectoryIterator, next, $Object*)},
+	{"readNextEntry", "()Ljava/nio/file/Path;", nullptr, $PRIVATE, $method(WindowsDirectoryStream$WindowsDirectoryIterator, readNextEntry, $Path*)},
+	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(WindowsDirectoryStream$WindowsDirectoryIterator, remove, void)},
 	{}
 };
 

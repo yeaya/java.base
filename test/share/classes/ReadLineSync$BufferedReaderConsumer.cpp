@@ -19,8 +19,8 @@ $FieldInfo _ReadLineSync$BufferedReaderConsumer_FieldInfo_[] = {
 };
 
 $MethodInfo _ReadLineSync$BufferedReaderConsumer_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/BufferedReader;)V", nullptr, $PUBLIC, $method(static_cast<void(ReadLineSync$BufferedReaderConsumer::*)($BufferedReader*)>(&ReadLineSync$BufferedReaderConsumer::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/io/BufferedReader;)V", nullptr, $PUBLIC, $method(ReadLineSync$BufferedReaderConsumer, init$, void, $BufferedReader*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ReadLineSync$BufferedReaderConsumer, run, void)},
 	{}
 };
 

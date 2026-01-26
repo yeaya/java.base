@@ -37,11 +37,11 @@ $MethodInfo _RandomSupport$AbstractArbitrarilyJumpableGenerator$RandomJumpsSplit
 	{"*estimateSize", "()J", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/util/random/RandomGenerator$ArbitrarilyJumpableGenerator;JJD)V", nullptr, 0, $method(static_cast<void(RandomSupport$AbstractArbitrarilyJumpableGenerator$RandomJumpsSpliterator::*)($RandomGenerator$ArbitrarilyJumpableGenerator*,int64_t,int64_t,double)>(&RandomSupport$AbstractArbitrarilyJumpableGenerator$RandomJumpsSpliterator::init$))},
-	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-Ljava/util/random/RandomGenerator;>;)V", $PUBLIC},
+	{"<init>", "(Ljava/util/random/RandomGenerator$ArbitrarilyJumpableGenerator;JJD)V", nullptr, 0, $method(RandomSupport$AbstractArbitrarilyJumpableGenerator$RandomJumpsSpliterator, init$, void, $RandomGenerator$ArbitrarilyJumpableGenerator*, int64_t, int64_t, double)},
+	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-Ljava/util/random/RandomGenerator;>;)V", $PUBLIC, $virtualMethod(RandomSupport$AbstractArbitrarilyJumpableGenerator$RandomJumpsSpliterator, forEachRemaining, void, $Consumer*)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-Ljava/util/random/RandomGenerator;>;)Z", $PUBLIC},
-	{"trySplit", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<Ljava/util/random/RandomGenerator;>;", $PUBLIC},
+	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-Ljava/util/random/RandomGenerator;>;)Z", $PUBLIC, $virtualMethod(RandomSupport$AbstractArbitrarilyJumpableGenerator$RandomJumpsSpliterator, tryAdvance, bool, $Consumer*)},
+	{"trySplit", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<Ljava/util/random/RandomGenerator;>;", $PUBLIC, $virtualMethod(RandomSupport$AbstractArbitrarilyJumpableGenerator$RandomJumpsSpliterator, trySplit, $Spliterator*)},
 	{}
 };
 

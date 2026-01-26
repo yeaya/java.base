@@ -17,7 +17,7 @@ $FieldInfo _OutputInt_FieldInfo_[] = {
 };
 
 $MethodInfo _OutputInt_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(OutputInt::*)()>(&OutputInt::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(OutputInt, init$, void)},
 	{}
 };
 

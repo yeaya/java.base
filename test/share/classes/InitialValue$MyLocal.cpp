@@ -18,8 +18,8 @@ $FieldInfo _InitialValue$MyLocal_FieldInfo_[] = {
 };
 
 $MethodInfo _InitialValue$MyLocal_MethodInfo_[] = {
-	{"<init>", "(LInitialValue;)V", nullptr, $PUBLIC, $method(static_cast<void(InitialValue$MyLocal::*)($InitialValue*)>(&InitialValue$MyLocal::init$))},
-	{"initialValue", "()Ljava/lang/String;", nullptr, $PROTECTED},
+	{"<init>", "(LInitialValue;)V", nullptr, $PUBLIC, $method(InitialValue$MyLocal, init$, void, $InitialValue*)},
+	{"initialValue", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(InitialValue$MyLocal, initialValue, $Object*)},
 	{}
 };
 

@@ -22,9 +22,9 @@ namespace java {
 		namespace temporal {
 
 $MethodInfo _TemporalQueries$4_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(TemporalQueries$4::*)()>(&TemporalQueries$4::init$))},
-	{"queryFrom", "(Ljava/time/temporal/TemporalAccessor;)Ljava/time/ZoneOffset;", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(TemporalQueries$4, init$, void)},
+	{"queryFrom", "(Ljava/time/temporal/TemporalAccessor;)Ljava/time/ZoneOffset;", nullptr, $PUBLIC, $virtualMethod(TemporalQueries$4, queryFrom, $Object*, $TemporalAccessor*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TemporalQueries$4, toString, $String*)},
 	{}
 };
 

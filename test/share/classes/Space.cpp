@@ -22,8 +22,8 @@ using $Runtime = ::java::lang::Runtime;
 using $RuntimeException = ::java::lang::RuntimeException;
 
 $MethodInfo _Space_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Space::*)()>(&Space::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Space::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Space, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Space, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

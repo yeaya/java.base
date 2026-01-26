@@ -19,8 +19,8 @@ namespace javax {
 	namespace crypto {
 
 $MethodInfo _extObjectInputStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/InputStream;)V", nullptr, 0, $method(static_cast<void(extObjectInputStream::*)($InputStream*)>(&extObjectInputStream::init$)), "java.io.IOException,java.io.StreamCorruptedException"},
-	{"resolveClass", "(Ljava/io/ObjectStreamClass;)Ljava/lang/Class;", "(Ljava/io/ObjectStreamClass;)Ljava/lang/Class<*>;", $PROTECTED, nullptr, "java.io.IOException,java.lang.ClassNotFoundException"},
+	{"<init>", "(Ljava/io/InputStream;)V", nullptr, 0, $method(extObjectInputStream, init$, void, $InputStream*), "java.io.IOException,java.io.StreamCorruptedException"},
+	{"resolveClass", "(Ljava/io/ObjectStreamClass;)Ljava/lang/Class;", "(Ljava/io/ObjectStreamClass;)Ljava/lang/Class<*>;", $PROTECTED, $virtualMethod(extObjectInputStream, resolveClass, $Class*, $ObjectStreamClass*), "java.io.IOException,java.lang.ClassNotFoundException"},
 	{}
 };
 

@@ -15,8 +15,8 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 
 $MethodInfo _AnnotationTypeRuntimeAssumptionTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(AnnotationTypeRuntimeAssumptionTest::*)()>(&AnnotationTypeRuntimeAssumptionTest::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&AnnotationTypeRuntimeAssumptionTest::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(AnnotationTypeRuntimeAssumptionTest, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(AnnotationTypeRuntimeAssumptionTest, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

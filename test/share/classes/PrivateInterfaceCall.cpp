@@ -64,8 +64,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo PrivateInterfaceCall$$Lambda$lambda$runPositiveTests$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PrivateInterfaceCall$$Lambda$lambda$runPositiveTests$0::*)()>(&PrivateInterfaceCall$$Lambda$lambda$runPositiveTests$0::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PrivateInterfaceCall$$Lambda$lambda$runPositiveTests$0, init$, void)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(PrivateInterfaceCall$$Lambda$lambda$runPositiveTests$0, run, void)},
 	{}
 };
 $ClassInfo PrivateInterfaceCall$$Lambda$lambda$runPositiveTests$0::classInfo$ = {
@@ -97,8 +97,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo PrivateInterfaceCall$$Lambda$lambda$runPositiveTests$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PrivateInterfaceCall$$Lambda$lambda$runPositiveTests$1$1::*)()>(&PrivateInterfaceCall$$Lambda$lambda$runPositiveTests$1$1::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PrivateInterfaceCall$$Lambda$lambda$runPositiveTests$1$1, init$, void)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(PrivateInterfaceCall$$Lambda$lambda$runPositiveTests$1$1, run, void)},
 	{}
 };
 $ClassInfo PrivateInterfaceCall$$Lambda$lambda$runPositiveTests$1$1::classInfo$ = {
@@ -130,8 +130,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo PrivateInterfaceCall$$Lambda$lambda$runPositiveTests$2$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PrivateInterfaceCall$$Lambda$lambda$runPositiveTests$2$2::*)()>(&PrivateInterfaceCall$$Lambda$lambda$runPositiveTests$2$2::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PrivateInterfaceCall$$Lambda$lambda$runPositiveTests$2$2, init$, void)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(PrivateInterfaceCall$$Lambda$lambda$runPositiveTests$2$2, run, void)},
 	{}
 };
 $ClassInfo PrivateInterfaceCall$$Lambda$lambda$runPositiveTests$2$2::classInfo$ = {
@@ -163,8 +163,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo PrivateInterfaceCall$$Lambda$lambda$runPositiveTests$3$3::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PrivateInterfaceCall$$Lambda$lambda$runPositiveTests$3$3::*)()>(&PrivateInterfaceCall$$Lambda$lambda$runPositiveTests$3$3::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PrivateInterfaceCall$$Lambda$lambda$runPositiveTests$3$3, init$, void)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(PrivateInterfaceCall$$Lambda$lambda$runPositiveTests$3$3, run, void)},
 	{}
 };
 $ClassInfo PrivateInterfaceCall$$Lambda$lambda$runPositiveTests$3$3::classInfo$ = {
@@ -196,8 +196,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo PrivateInterfaceCall$$Lambda$lambda$runPositiveTests$4$4::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PrivateInterfaceCall$$Lambda$lambda$runPositiveTests$4$4::*)()>(&PrivateInterfaceCall$$Lambda$lambda$runPositiveTests$4$4::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PrivateInterfaceCall$$Lambda$lambda$runPositiveTests$4$4, init$, void)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(PrivateInterfaceCall$$Lambda$lambda$runPositiveTests$4$4, run, void)},
 	{}
 };
 $ClassInfo PrivateInterfaceCall$$Lambda$lambda$runPositiveTests$4$4::classInfo$ = {
@@ -229,8 +229,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo PrivateInterfaceCall$$Lambda$lambda$runPositiveTests$5$5::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PrivateInterfaceCall$$Lambda$lambda$runPositiveTests$5$5::*)()>(&PrivateInterfaceCall$$Lambda$lambda$runPositiveTests$5$5::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PrivateInterfaceCall$$Lambda$lambda$runPositiveTests$5$5, init$, void)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(PrivateInterfaceCall$$Lambda$lambda$runPositiveTests$5$5, run, void)},
 	{}
 };
 $ClassInfo PrivateInterfaceCall$$Lambda$lambda$runPositiveTests$5$5::classInfo$ = {
@@ -262,8 +262,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo PrivateInterfaceCall$$Lambda$lambda$runPositiveTests$6$6::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PrivateInterfaceCall$$Lambda$lambda$runPositiveTests$6$6::*)()>(&PrivateInterfaceCall$$Lambda$lambda$runPositiveTests$6$6::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PrivateInterfaceCall$$Lambda$lambda$runPositiveTests$6$6, init$, void)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(PrivateInterfaceCall$$Lambda$lambda$runPositiveTests$6$6, run, void)},
 	{}
 };
 $ClassInfo PrivateInterfaceCall$$Lambda$lambda$runPositiveTests$6$6::classInfo$ = {
@@ -295,8 +295,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo PrivateInterfaceCall$$Lambda$lambda$runPositiveTests$7$7::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PrivateInterfaceCall$$Lambda$lambda$runPositiveTests$7$7::*)()>(&PrivateInterfaceCall$$Lambda$lambda$runPositiveTests$7$7::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PrivateInterfaceCall$$Lambda$lambda$runPositiveTests$7$7, init$, void)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(PrivateInterfaceCall$$Lambda$lambda$runPositiveTests$7$7, run, void)},
 	{}
 };
 $ClassInfo PrivateInterfaceCall$$Lambda$lambda$runPositiveTests$7$7::classInfo$ = {
@@ -328,8 +328,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo PrivateInterfaceCall$$Lambda$lambda$runPositiveTests$8$8::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PrivateInterfaceCall$$Lambda$lambda$runPositiveTests$8$8::*)()>(&PrivateInterfaceCall$$Lambda$lambda$runPositiveTests$8$8::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PrivateInterfaceCall$$Lambda$lambda$runPositiveTests$8$8, init$, void)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(PrivateInterfaceCall$$Lambda$lambda$runPositiveTests$8$8, run, void)},
 	{}
 };
 $ClassInfo PrivateInterfaceCall$$Lambda$lambda$runPositiveTests$8$8::classInfo$ = {
@@ -361,8 +361,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo PrivateInterfaceCall$$Lambda$lambda$runPositiveTests$9$9::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PrivateInterfaceCall$$Lambda$lambda$runPositiveTests$9$9::*)()>(&PrivateInterfaceCall$$Lambda$lambda$runPositiveTests$9$9::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PrivateInterfaceCall$$Lambda$lambda$runPositiveTests$9$9, init$, void)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(PrivateInterfaceCall$$Lambda$lambda$runPositiveTests$9$9, run, void)},
 	{}
 };
 $ClassInfo PrivateInterfaceCall$$Lambda$lambda$runPositiveTests$9$9::classInfo$ = {
@@ -394,8 +394,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo PrivateInterfaceCall$$Lambda$lambda$runPositiveTests$10$10::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PrivateInterfaceCall$$Lambda$lambda$runPositiveTests$10$10::*)()>(&PrivateInterfaceCall$$Lambda$lambda$runPositiveTests$10$10::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PrivateInterfaceCall$$Lambda$lambda$runPositiveTests$10$10, init$, void)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(PrivateInterfaceCall$$Lambda$lambda$runPositiveTests$10$10, run, void)},
 	{}
 };
 $ClassInfo PrivateInterfaceCall$$Lambda$lambda$runPositiveTests$10$10::classInfo$ = {
@@ -427,8 +427,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo PrivateInterfaceCall$$Lambda$lambda$runPositiveTests$11$11::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PrivateInterfaceCall$$Lambda$lambda$runPositiveTests$11$11::*)()>(&PrivateInterfaceCall$$Lambda$lambda$runPositiveTests$11$11::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PrivateInterfaceCall$$Lambda$lambda$runPositiveTests$11$11, init$, void)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(PrivateInterfaceCall$$Lambda$lambda$runPositiveTests$11$11, run, void)},
 	{}
 };
 $ClassInfo PrivateInterfaceCall$$Lambda$lambda$runPositiveTests$11$11::classInfo$ = {
@@ -460,8 +460,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo PrivateInterfaceCall$$Lambda$lambda$runPositiveTests$12$12::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PrivateInterfaceCall$$Lambda$lambda$runPositiveTests$12$12::*)()>(&PrivateInterfaceCall$$Lambda$lambda$runPositiveTests$12$12::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PrivateInterfaceCall$$Lambda$lambda$runPositiveTests$12$12, init$, void)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(PrivateInterfaceCall$$Lambda$lambda$runPositiveTests$12$12, run, void)},
 	{}
 };
 $ClassInfo PrivateInterfaceCall$$Lambda$lambda$runPositiveTests$12$12::classInfo$ = {
@@ -493,8 +493,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo PrivateInterfaceCall$$Lambda$lambda$runPositiveTests$13$13::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PrivateInterfaceCall$$Lambda$lambda$runPositiveTests$13$13::*)()>(&PrivateInterfaceCall$$Lambda$lambda$runPositiveTests$13$13::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PrivateInterfaceCall$$Lambda$lambda$runPositiveTests$13$13, init$, void)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(PrivateInterfaceCall$$Lambda$lambda$runPositiveTests$13$13, run, void)},
 	{}
 };
 $ClassInfo PrivateInterfaceCall$$Lambda$lambda$runPositiveTests$13$13::classInfo$ = {
@@ -526,8 +526,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo PrivateInterfaceCall$$Lambda$lambda$runPositiveTests$14$14::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PrivateInterfaceCall$$Lambda$lambda$runPositiveTests$14$14::*)()>(&PrivateInterfaceCall$$Lambda$lambda$runPositiveTests$14$14::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PrivateInterfaceCall$$Lambda$lambda$runPositiveTests$14$14, init$, void)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(PrivateInterfaceCall$$Lambda$lambda$runPositiveTests$14$14, run, void)},
 	{}
 };
 $ClassInfo PrivateInterfaceCall$$Lambda$lambda$runPositiveTests$14$14::classInfo$ = {
@@ -559,8 +559,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo PrivateInterfaceCall$$Lambda$lambda$runPositiveTests$15$15::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PrivateInterfaceCall$$Lambda$lambda$runPositiveTests$15$15::*)()>(&PrivateInterfaceCall$$Lambda$lambda$runPositiveTests$15$15::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PrivateInterfaceCall$$Lambda$lambda$runPositiveTests$15$15, init$, void)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(PrivateInterfaceCall$$Lambda$lambda$runPositiveTests$15$15, run, void)},
 	{}
 };
 $ClassInfo PrivateInterfaceCall$$Lambda$lambda$runPositiveTests$15$15::classInfo$ = {
@@ -592,8 +592,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo PrivateInterfaceCall$$Lambda$lambda$runNegativeTests$16$16::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PrivateInterfaceCall$$Lambda$lambda$runNegativeTests$16$16::*)()>(&PrivateInterfaceCall$$Lambda$lambda$runNegativeTests$16$16::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PrivateInterfaceCall$$Lambda$lambda$runNegativeTests$16$16, init$, void)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(PrivateInterfaceCall$$Lambda$lambda$runNegativeTests$16$16, run, void)},
 	{}
 };
 $ClassInfo PrivateInterfaceCall$$Lambda$lambda$runNegativeTests$16$16::classInfo$ = {
@@ -625,8 +625,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo PrivateInterfaceCall$$Lambda$lambda$runNegativeTests$17$17::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PrivateInterfaceCall$$Lambda$lambda$runNegativeTests$17$17::*)()>(&PrivateInterfaceCall$$Lambda$lambda$runNegativeTests$17$17::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PrivateInterfaceCall$$Lambda$lambda$runNegativeTests$17$17, init$, void)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(PrivateInterfaceCall$$Lambda$lambda$runNegativeTests$17$17, run, void)},
 	{}
 };
 $ClassInfo PrivateInterfaceCall$$Lambda$lambda$runNegativeTests$17$17::classInfo$ = {
@@ -658,8 +658,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo PrivateInterfaceCall$$Lambda$lambda$runNegativeTests$18$18::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PrivateInterfaceCall$$Lambda$lambda$runNegativeTests$18$18::*)()>(&PrivateInterfaceCall$$Lambda$lambda$runNegativeTests$18$18::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PrivateInterfaceCall$$Lambda$lambda$runNegativeTests$18$18, init$, void)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(PrivateInterfaceCall$$Lambda$lambda$runNegativeTests$18$18, run, void)},
 	{}
 };
 $ClassInfo PrivateInterfaceCall$$Lambda$lambda$runNegativeTests$18$18::classInfo$ = {
@@ -691,8 +691,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo PrivateInterfaceCall$$Lambda$lambda$runNegativeTests$19$19::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PrivateInterfaceCall$$Lambda$lambda$runNegativeTests$19$19::*)()>(&PrivateInterfaceCall$$Lambda$lambda$runNegativeTests$19$19::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PrivateInterfaceCall$$Lambda$lambda$runNegativeTests$19$19, init$, void)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(PrivateInterfaceCall$$Lambda$lambda$runNegativeTests$19$19, run, void)},
 	{}
 };
 $ClassInfo PrivateInterfaceCall$$Lambda$lambda$runNegativeTests$19$19::classInfo$ = {
@@ -724,8 +724,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo PrivateInterfaceCall$$Lambda$lambda$runNegativeTests$20$20::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PrivateInterfaceCall$$Lambda$lambda$runNegativeTests$20$20::*)()>(&PrivateInterfaceCall$$Lambda$lambda$runNegativeTests$20$20::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PrivateInterfaceCall$$Lambda$lambda$runNegativeTests$20$20, init$, void)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(PrivateInterfaceCall$$Lambda$lambda$runNegativeTests$20$20, run, void)},
 	{}
 };
 $ClassInfo PrivateInterfaceCall$$Lambda$lambda$runNegativeTests$20$20::classInfo$ = {
@@ -757,8 +757,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo PrivateInterfaceCall$$Lambda$lambda$runNegativeTests$21$21::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PrivateInterfaceCall$$Lambda$lambda$runNegativeTests$21$21::*)()>(&PrivateInterfaceCall$$Lambda$lambda$runNegativeTests$21$21::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PrivateInterfaceCall$$Lambda$lambda$runNegativeTests$21$21, init$, void)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(PrivateInterfaceCall$$Lambda$lambda$runNegativeTests$21$21, run, void)},
 	{}
 };
 $ClassInfo PrivateInterfaceCall$$Lambda$lambda$runNegativeTests$21$21::classInfo$ = {
@@ -790,8 +790,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo PrivateInterfaceCall$$Lambda$lambda$runNegativeTests$22$22::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PrivateInterfaceCall$$Lambda$lambda$runNegativeTests$22$22::*)()>(&PrivateInterfaceCall$$Lambda$lambda$runNegativeTests$22$22::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PrivateInterfaceCall$$Lambda$lambda$runNegativeTests$22$22, init$, void)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(PrivateInterfaceCall$$Lambda$lambda$runNegativeTests$22$22, run, void)},
 	{}
 };
 $ClassInfo PrivateInterfaceCall$$Lambda$lambda$runNegativeTests$22$22::classInfo$ = {
@@ -823,8 +823,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo PrivateInterfaceCall$$Lambda$lambda$runNegativeTests$23$23::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PrivateInterfaceCall$$Lambda$lambda$runNegativeTests$23$23::*)()>(&PrivateInterfaceCall$$Lambda$lambda$runNegativeTests$23$23::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PrivateInterfaceCall$$Lambda$lambda$runNegativeTests$23$23, init$, void)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(PrivateInterfaceCall$$Lambda$lambda$runNegativeTests$23$23, run, void)},
 	{}
 };
 $ClassInfo PrivateInterfaceCall$$Lambda$lambda$runNegativeTests$23$23::classInfo$ = {
@@ -856,8 +856,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo PrivateInterfaceCall$$Lambda$lambda$runNegativeTests$24$24::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PrivateInterfaceCall$$Lambda$lambda$runNegativeTests$24$24::*)()>(&PrivateInterfaceCall$$Lambda$lambda$runNegativeTests$24$24::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PrivateInterfaceCall$$Lambda$lambda$runNegativeTests$24$24, init$, void)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(PrivateInterfaceCall$$Lambda$lambda$runNegativeTests$24$24, run, void)},
 	{}
 };
 $ClassInfo PrivateInterfaceCall$$Lambda$lambda$runNegativeTests$24$24::classInfo$ = {
@@ -889,8 +889,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo PrivateInterfaceCall$$Lambda$lambda$runNegativeTests$25$25::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PrivateInterfaceCall$$Lambda$lambda$runNegativeTests$25$25::*)()>(&PrivateInterfaceCall$$Lambda$lambda$runNegativeTests$25$25::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PrivateInterfaceCall$$Lambda$lambda$runNegativeTests$25$25, init$, void)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(PrivateInterfaceCall$$Lambda$lambda$runNegativeTests$25$25, run, void)},
 	{}
 };
 $ClassInfo PrivateInterfaceCall$$Lambda$lambda$runNegativeTests$25$25::classInfo$ = {
@@ -922,8 +922,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo PrivateInterfaceCall$$Lambda$lambda$runNegativeTests$26$26::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PrivateInterfaceCall$$Lambda$lambda$runNegativeTests$26$26::*)()>(&PrivateInterfaceCall$$Lambda$lambda$runNegativeTests$26$26::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PrivateInterfaceCall$$Lambda$lambda$runNegativeTests$26$26, init$, void)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(PrivateInterfaceCall$$Lambda$lambda$runNegativeTests$26$26, run, void)},
 	{}
 };
 $ClassInfo PrivateInterfaceCall$$Lambda$lambda$runNegativeTests$26$26::classInfo$ = {
@@ -955,8 +955,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo PrivateInterfaceCall$$Lambda$lambda$runNegativeTests$27$27::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PrivateInterfaceCall$$Lambda$lambda$runNegativeTests$27$27::*)()>(&PrivateInterfaceCall$$Lambda$lambda$runNegativeTests$27$27::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PrivateInterfaceCall$$Lambda$lambda$runNegativeTests$27$27, init$, void)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(PrivateInterfaceCall$$Lambda$lambda$runNegativeTests$27$27, run, void)},
 	{}
 };
 $ClassInfo PrivateInterfaceCall$$Lambda$lambda$runNegativeTests$27$27::classInfo$ = {
@@ -983,47 +983,47 @@ $FieldInfo _PrivateInterfaceCall_FieldInfo_[] = {
 };
 
 $MethodInfo _PrivateInterfaceCall_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PrivateInterfaceCall::*)()>(&PrivateInterfaceCall::init$))},
-	{"invokeDirect", "(LPrivateInterfaceCall$I2;)V", nullptr, $STATIC, $method(static_cast<void(*)($PrivateInterfaceCall$I2*)>(&PrivateInterfaceCall::invokeDirect))},
-	{"invokeInterfaceMH", "(LPrivateInterfaceCall$I2;)V", nullptr, $STATIC, $method(static_cast<void(*)($PrivateInterfaceCall$I2*)>(&PrivateInterfaceCall::invokeInterfaceMH)), "java.lang.Throwable"},
-	{"lambda$runNegativeTests$16", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)()>(&PrivateInterfaceCall::lambda$runNegativeTests$16)), "java.lang.Throwable"},
-	{"lambda$runNegativeTests$17", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)()>(&PrivateInterfaceCall::lambda$runNegativeTests$17)), "java.lang.Throwable"},
-	{"lambda$runNegativeTests$18", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)()>(&PrivateInterfaceCall::lambda$runNegativeTests$18)), "java.lang.Throwable"},
-	{"lambda$runNegativeTests$19", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)()>(&PrivateInterfaceCall::lambda$runNegativeTests$19)), "java.lang.Throwable"},
-	{"lambda$runNegativeTests$20", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)()>(&PrivateInterfaceCall::lambda$runNegativeTests$20)), "java.lang.Throwable"},
-	{"lambda$runNegativeTests$21", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)()>(&PrivateInterfaceCall::lambda$runNegativeTests$21)), "java.lang.Throwable"},
-	{"lambda$runNegativeTests$22", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)()>(&PrivateInterfaceCall::lambda$runNegativeTests$22)), "java.lang.Throwable"},
-	{"lambda$runNegativeTests$23", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)()>(&PrivateInterfaceCall::lambda$runNegativeTests$23)), "java.lang.Throwable"},
-	{"lambda$runNegativeTests$24", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)()>(&PrivateInterfaceCall::lambda$runNegativeTests$24)), "java.lang.Throwable"},
-	{"lambda$runNegativeTests$25", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)()>(&PrivateInterfaceCall::lambda$runNegativeTests$25)), "java.lang.Throwable"},
-	{"lambda$runNegativeTests$26", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)()>(&PrivateInterfaceCall::lambda$runNegativeTests$26)), "java.lang.Throwable"},
-	{"lambda$runNegativeTests$27", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)()>(&PrivateInterfaceCall::lambda$runNegativeTests$27)), "java.lang.Throwable"},
-	{"lambda$runPositiveTests$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)()>(&PrivateInterfaceCall::lambda$runPositiveTests$0)), "java.lang.Throwable"},
-	{"lambda$runPositiveTests$1", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)()>(&PrivateInterfaceCall::lambda$runPositiveTests$1)), "java.lang.Throwable"},
-	{"lambda$runPositiveTests$10", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)()>(&PrivateInterfaceCall::lambda$runPositiveTests$10)), "java.lang.Throwable"},
-	{"lambda$runPositiveTests$11", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)()>(&PrivateInterfaceCall::lambda$runPositiveTests$11)), "java.lang.Throwable"},
-	{"lambda$runPositiveTests$12", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)()>(&PrivateInterfaceCall::lambda$runPositiveTests$12)), "java.lang.Throwable"},
-	{"lambda$runPositiveTests$13", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)()>(&PrivateInterfaceCall::lambda$runPositiveTests$13)), "java.lang.Throwable"},
-	{"lambda$runPositiveTests$14", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)()>(&PrivateInterfaceCall::lambda$runPositiveTests$14)), "java.lang.Throwable"},
-	{"lambda$runPositiveTests$15", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)()>(&PrivateInterfaceCall::lambda$runPositiveTests$15)), "java.lang.Throwable"},
-	{"lambda$runPositiveTests$2", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)()>(&PrivateInterfaceCall::lambda$runPositiveTests$2)), "java.lang.Throwable"},
-	{"lambda$runPositiveTests$3", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)()>(&PrivateInterfaceCall::lambda$runPositiveTests$3)), "java.lang.Throwable"},
-	{"lambda$runPositiveTests$4", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)()>(&PrivateInterfaceCall::lambda$runPositiveTests$4)), "java.lang.Throwable"},
-	{"lambda$runPositiveTests$5", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)()>(&PrivateInterfaceCall::lambda$runPositiveTests$5)), "java.lang.Throwable"},
-	{"lambda$runPositiveTests$6", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)()>(&PrivateInterfaceCall::lambda$runPositiveTests$6)), "java.lang.Throwable"},
-	{"lambda$runPositiveTests$7", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)()>(&PrivateInterfaceCall::lambda$runPositiveTests$7)), "java.lang.Throwable"},
-	{"lambda$runPositiveTests$8", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)()>(&PrivateInterfaceCall::lambda$runPositiveTests$8)), "java.lang.Throwable"},
-	{"lambda$runPositiveTests$9", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)()>(&PrivateInterfaceCall::lambda$runPositiveTests$9)), "java.lang.Throwable"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&PrivateInterfaceCall::main)), "java.lang.Throwable"},
-	{"runNegativeTests", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&PrivateInterfaceCall::runNegativeTests))},
-	{"runPositiveTests", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&PrivateInterfaceCall::runPositiveTests))},
-	{"shouldNotThrow", "(LPrivateInterfaceCall$Test;)V", nullptr, $STATIC, $method(static_cast<void(*)($PrivateInterfaceCall$Test*)>(&PrivateInterfaceCall::shouldNotThrow))},
-	{"shouldThrow", "(Ljava/lang/Class;Ljava/lang/String;LPrivateInterfaceCall$Test;)V", "(Ljava/lang/Class<*>;Ljava/lang/String;LPrivateInterfaceCall$Test;)V", $STATIC, $method(static_cast<void(*)($Class*,$String*,$PrivateInterfaceCall$Test*)>(&PrivateInterfaceCall::shouldThrow))},
-	{"shouldThrowICCE", "(LPrivateInterfaceCall$Test;)V", nullptr, $STATIC, $method(static_cast<void(*)($PrivateInterfaceCall$Test*)>(&PrivateInterfaceCall::shouldThrowICCE))},
-	{"unsafeCastI2", "(Ljava/lang/Object;)LPrivateInterfaceCall$I2;", nullptr, $STATIC, $method(static_cast<$PrivateInterfaceCall$I2*(*)(Object$*)>(&PrivateInterfaceCall::unsafeCastI2))},
-	{"unsafeCastI3", "(Ljava/lang/Object;)LPrivateInterfaceCall$I3;", nullptr, $STATIC, $method(static_cast<$PrivateInterfaceCall$I3*(*)(Object$*)>(&PrivateInterfaceCall::unsafeCastI3))},
-	{"unsafeCastI4", "(Ljava/lang/Object;)LPrivateInterfaceCall$I4;", nullptr, $STATIC, $method(static_cast<$PrivateInterfaceCall$I4*(*)(Object$*)>(&PrivateInterfaceCall::unsafeCastI4))},
-	{"warmup", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&PrivateInterfaceCall::warmup))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PrivateInterfaceCall, init$, void)},
+	{"invokeDirect", "(LPrivateInterfaceCall$I2;)V", nullptr, $STATIC, $staticMethod(PrivateInterfaceCall, invokeDirect, void, $PrivateInterfaceCall$I2*)},
+	{"invokeInterfaceMH", "(LPrivateInterfaceCall$I2;)V", nullptr, $STATIC, $staticMethod(PrivateInterfaceCall, invokeInterfaceMH, void, $PrivateInterfaceCall$I2*), "java.lang.Throwable"},
+	{"lambda$runNegativeTests$16", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(PrivateInterfaceCall, lambda$runNegativeTests$16, void), "java.lang.Throwable"},
+	{"lambda$runNegativeTests$17", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(PrivateInterfaceCall, lambda$runNegativeTests$17, void), "java.lang.Throwable"},
+	{"lambda$runNegativeTests$18", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(PrivateInterfaceCall, lambda$runNegativeTests$18, void), "java.lang.Throwable"},
+	{"lambda$runNegativeTests$19", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(PrivateInterfaceCall, lambda$runNegativeTests$19, void), "java.lang.Throwable"},
+	{"lambda$runNegativeTests$20", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(PrivateInterfaceCall, lambda$runNegativeTests$20, void), "java.lang.Throwable"},
+	{"lambda$runNegativeTests$21", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(PrivateInterfaceCall, lambda$runNegativeTests$21, void), "java.lang.Throwable"},
+	{"lambda$runNegativeTests$22", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(PrivateInterfaceCall, lambda$runNegativeTests$22, void), "java.lang.Throwable"},
+	{"lambda$runNegativeTests$23", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(PrivateInterfaceCall, lambda$runNegativeTests$23, void), "java.lang.Throwable"},
+	{"lambda$runNegativeTests$24", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(PrivateInterfaceCall, lambda$runNegativeTests$24, void), "java.lang.Throwable"},
+	{"lambda$runNegativeTests$25", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(PrivateInterfaceCall, lambda$runNegativeTests$25, void), "java.lang.Throwable"},
+	{"lambda$runNegativeTests$26", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(PrivateInterfaceCall, lambda$runNegativeTests$26, void), "java.lang.Throwable"},
+	{"lambda$runNegativeTests$27", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(PrivateInterfaceCall, lambda$runNegativeTests$27, void), "java.lang.Throwable"},
+	{"lambda$runPositiveTests$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(PrivateInterfaceCall, lambda$runPositiveTests$0, void), "java.lang.Throwable"},
+	{"lambda$runPositiveTests$1", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(PrivateInterfaceCall, lambda$runPositiveTests$1, void), "java.lang.Throwable"},
+	{"lambda$runPositiveTests$10", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(PrivateInterfaceCall, lambda$runPositiveTests$10, void), "java.lang.Throwable"},
+	{"lambda$runPositiveTests$11", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(PrivateInterfaceCall, lambda$runPositiveTests$11, void), "java.lang.Throwable"},
+	{"lambda$runPositiveTests$12", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(PrivateInterfaceCall, lambda$runPositiveTests$12, void), "java.lang.Throwable"},
+	{"lambda$runPositiveTests$13", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(PrivateInterfaceCall, lambda$runPositiveTests$13, void), "java.lang.Throwable"},
+	{"lambda$runPositiveTests$14", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(PrivateInterfaceCall, lambda$runPositiveTests$14, void), "java.lang.Throwable"},
+	{"lambda$runPositiveTests$15", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(PrivateInterfaceCall, lambda$runPositiveTests$15, void), "java.lang.Throwable"},
+	{"lambda$runPositiveTests$2", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(PrivateInterfaceCall, lambda$runPositiveTests$2, void), "java.lang.Throwable"},
+	{"lambda$runPositiveTests$3", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(PrivateInterfaceCall, lambda$runPositiveTests$3, void), "java.lang.Throwable"},
+	{"lambda$runPositiveTests$4", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(PrivateInterfaceCall, lambda$runPositiveTests$4, void), "java.lang.Throwable"},
+	{"lambda$runPositiveTests$5", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(PrivateInterfaceCall, lambda$runPositiveTests$5, void), "java.lang.Throwable"},
+	{"lambda$runPositiveTests$6", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(PrivateInterfaceCall, lambda$runPositiveTests$6, void), "java.lang.Throwable"},
+	{"lambda$runPositiveTests$7", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(PrivateInterfaceCall, lambda$runPositiveTests$7, void), "java.lang.Throwable"},
+	{"lambda$runPositiveTests$8", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(PrivateInterfaceCall, lambda$runPositiveTests$8, void), "java.lang.Throwable"},
+	{"lambda$runPositiveTests$9", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(PrivateInterfaceCall, lambda$runPositiveTests$9, void), "java.lang.Throwable"},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(PrivateInterfaceCall, main, void, $StringArray*), "java.lang.Throwable"},
+	{"runNegativeTests", "()V", nullptr, $STATIC, $staticMethod(PrivateInterfaceCall, runNegativeTests, void)},
+	{"runPositiveTests", "()V", nullptr, $STATIC, $staticMethod(PrivateInterfaceCall, runPositiveTests, void)},
+	{"shouldNotThrow", "(LPrivateInterfaceCall$Test;)V", nullptr, $STATIC, $staticMethod(PrivateInterfaceCall, shouldNotThrow, void, $PrivateInterfaceCall$Test*)},
+	{"shouldThrow", "(Ljava/lang/Class;Ljava/lang/String;LPrivateInterfaceCall$Test;)V", "(Ljava/lang/Class<*>;Ljava/lang/String;LPrivateInterfaceCall$Test;)V", $STATIC, $staticMethod(PrivateInterfaceCall, shouldThrow, void, $Class*, $String*, $PrivateInterfaceCall$Test*)},
+	{"shouldThrowICCE", "(LPrivateInterfaceCall$Test;)V", nullptr, $STATIC, $staticMethod(PrivateInterfaceCall, shouldThrowICCE, void, $PrivateInterfaceCall$Test*)},
+	{"unsafeCastI2", "(Ljava/lang/Object;)LPrivateInterfaceCall$I2;", nullptr, $STATIC, $staticMethod(PrivateInterfaceCall, unsafeCastI2, $PrivateInterfaceCall$I2*, Object$*)},
+	{"unsafeCastI3", "(Ljava/lang/Object;)LPrivateInterfaceCall$I3;", nullptr, $STATIC, $staticMethod(PrivateInterfaceCall, unsafeCastI3, $PrivateInterfaceCall$I3*, Object$*)},
+	{"unsafeCastI4", "(Ljava/lang/Object;)LPrivateInterfaceCall$I4;", nullptr, $STATIC, $staticMethod(PrivateInterfaceCall, unsafeCastI4, $PrivateInterfaceCall$I4*, Object$*)},
+	{"warmup", "()V", nullptr, $STATIC, $staticMethod(PrivateInterfaceCall, warmup, void)},
 	{}
 };
 

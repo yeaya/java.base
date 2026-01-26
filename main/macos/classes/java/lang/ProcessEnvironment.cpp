@@ -36,18 +36,18 @@ $FieldInfo _ProcessEnvironment_FieldInfo_[] = {
 };
 
 $MethodInfo _ProcessEnvironment_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(ProcessEnvironment::*)()>(&ProcessEnvironment::init$))},
-	{"arrayCompare", "([B[B)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)($bytes*,$bytes*)>(&ProcessEnvironment::arrayCompare))},
-	{"arrayEquals", "([B[B)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($bytes*,$bytes*)>(&ProcessEnvironment::arrayEquals))},
-	{"arrayHash", "([B)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)($bytes*)>(&ProcessEnvironment::arrayHash))},
-	{"emptyEnvironment", "(I)Ljava/util/Map;", "(I)Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $STATIC, $method(static_cast<$Map*(*)(int32_t)>(&ProcessEnvironment::emptyEnvironment))},
-	{"environ", "()[[B", nullptr, $PRIVATE | $STATIC | $NATIVE, $method(static_cast<$byteArray2*(*)()>(&ProcessEnvironment::environ))},
-	{"environment", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $STATIC, $method(static_cast<$Map*(*)()>(&ProcessEnvironment::environment))},
-	{"getenv", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $method(static_cast<$String*(*)($String*)>(&ProcessEnvironment::getenv))},
-	{"getenv", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $STATIC, $method(static_cast<$Map*(*)()>(&ProcessEnvironment::getenv))},
-	{"toEnvironmentBlock", "(Ljava/util/Map;[I)[B", "(Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;[I)[B", $STATIC, $method(static_cast<$bytes*(*)($Map*,$ints*)>(&ProcessEnvironment::toEnvironmentBlock))},
-	{"validateValue", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($String*)>(&ProcessEnvironment::validateValue))},
-	{"validateVariable", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($String*)>(&ProcessEnvironment::validateVariable))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(ProcessEnvironment, init$, void)},
+	{"arrayCompare", "([B[B)I", nullptr, $PRIVATE | $STATIC, $staticMethod(ProcessEnvironment, arrayCompare, int32_t, $bytes*, $bytes*)},
+	{"arrayEquals", "([B[B)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(ProcessEnvironment, arrayEquals, bool, $bytes*, $bytes*)},
+	{"arrayHash", "([B)I", nullptr, $PRIVATE | $STATIC, $staticMethod(ProcessEnvironment, arrayHash, int32_t, $bytes*)},
+	{"emptyEnvironment", "(I)Ljava/util/Map;", "(I)Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $STATIC, $staticMethod(ProcessEnvironment, emptyEnvironment, $Map*, int32_t)},
+	{"environ", "()[[B", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(ProcessEnvironment, environ, $byteArray2*)},
+	{"environment", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $STATIC, $staticMethod(ProcessEnvironment, environment, $Map*)},
+	{"getenv", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(ProcessEnvironment, getenv, $String*, $String*)},
+	{"getenv", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $STATIC, $staticMethod(ProcessEnvironment, getenv, $Map*)},
+	{"toEnvironmentBlock", "(Ljava/util/Map;[I)[B", "(Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;[I)[B", $STATIC, $staticMethod(ProcessEnvironment, toEnvironmentBlock, $bytes*, $Map*, $ints*)},
+	{"validateValue", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ProcessEnvironment, validateValue, void, $String*)},
+	{"validateVariable", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ProcessEnvironment, validateVariable, void, $String*)},
 	{}
 };
 

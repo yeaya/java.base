@@ -49,12 +49,12 @@ $FieldInfo _FrameNode_FieldInfo_[] = {
 };
 
 $MethodInfo _FrameNode_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(FrameNode::*)()>(&FrameNode::init$))},
-	{"<init>", "(II[Ljava/lang/Object;I[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(static_cast<void(FrameNode::*)(int32_t,int32_t,$ObjectArray*,int32_t,$ObjectArray*)>(&FrameNode::init$))},
-	{"accept", "(Ljdk/internal/org/objectweb/asm/MethodVisitor;)V", nullptr, $PUBLIC},
-	{"asArray", "(Ljava/util/List;)[Ljava/lang/Object;", "(Ljava/util/List<Ljava/lang/Object;>;)[Ljava/lang/Object;", $PRIVATE | $STATIC, $method(static_cast<$ObjectArray*(*)($List*)>(&FrameNode::asArray))},
-	{"clone", "(Ljava/util/Map;)Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;", "(Ljava/util/Map<Ljdk/internal/org/objectweb/asm/tree/LabelNode;Ljdk/internal/org/objectweb/asm/tree/LabelNode;>;)Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;", $PUBLIC},
-	{"getType", "()I", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(FrameNode, init$, void)},
+	{"<init>", "(II[Ljava/lang/Object;I[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(FrameNode, init$, void, int32_t, int32_t, $ObjectArray*, int32_t, $ObjectArray*)},
+	{"accept", "(Ljdk/internal/org/objectweb/asm/MethodVisitor;)V", nullptr, $PUBLIC, $virtualMethod(FrameNode, accept, void, $MethodVisitor*)},
+	{"asArray", "(Ljava/util/List;)[Ljava/lang/Object;", "(Ljava/util/List<Ljava/lang/Object;>;)[Ljava/lang/Object;", $PRIVATE | $STATIC, $staticMethod(FrameNode, asArray, $ObjectArray*, $List*)},
+	{"clone", "(Ljava/util/Map;)Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;", "(Ljava/util/Map<Ljdk/internal/org/objectweb/asm/tree/LabelNode;Ljdk/internal/org/objectweb/asm/tree/LabelNode;>;)Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;", $PUBLIC, $virtualMethod(FrameNode, clone, $AbstractInsnNode*, $Map*)},
+	{"getType", "()I", nullptr, $PUBLIC, $virtualMethod(FrameNode, getType, int32_t)},
 	{}
 };
 

@@ -58,15 +58,15 @@ $FieldInfo _OCSPResponse$SingleResponse_FieldInfo_[] = {
 };
 
 $MethodInfo _OCSPResponse$SingleResponse_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PRIVATE, $method(static_cast<void(OCSPResponse$SingleResponse::*)($DerValue*)>(&OCSPResponse$SingleResponse::init$)), "java.io.IOException"},
-	{"getCertId", "()Lsun/security/provider/certpath/CertId;", nullptr, $PUBLIC, $method(static_cast<$CertId*(OCSPResponse$SingleResponse::*)()>(&OCSPResponse$SingleResponse::getCertId))},
-	{"getCertStatus", "()Lsun/security/provider/certpath/OCSP$RevocationStatus$CertStatus;", nullptr, $PUBLIC},
-	{"getNextUpdate", "()Ljava/util/Date;", nullptr, $PUBLIC, $method(static_cast<$Date*(OCSPResponse$SingleResponse::*)()>(&OCSPResponse$SingleResponse::getNextUpdate))},
-	{"getRevocationReason", "()Ljava/security/cert/CRLReason;", nullptr, $PUBLIC},
-	{"getRevocationTime", "()Ljava/util/Date;", nullptr, $PUBLIC},
-	{"getSingleExtensions", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/security/cert/Extension;>;", $PUBLIC},
-	{"getThisUpdate", "()Ljava/util/Date;", nullptr, $PUBLIC, $method(static_cast<$Date*(OCSPResponse$SingleResponse::*)()>(&OCSPResponse$SingleResponse::getThisUpdate))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PRIVATE, $method(OCSPResponse$SingleResponse, init$, void, $DerValue*), "java.io.IOException"},
+	{"getCertId", "()Lsun/security/provider/certpath/CertId;", nullptr, $PUBLIC, $method(OCSPResponse$SingleResponse, getCertId, $CertId*)},
+	{"getCertStatus", "()Lsun/security/provider/certpath/OCSP$RevocationStatus$CertStatus;", nullptr, $PUBLIC, $virtualMethod(OCSPResponse$SingleResponse, getCertStatus, $OCSP$RevocationStatus$CertStatus*)},
+	{"getNextUpdate", "()Ljava/util/Date;", nullptr, $PUBLIC, $method(OCSPResponse$SingleResponse, getNextUpdate, $Date*)},
+	{"getRevocationReason", "()Ljava/security/cert/CRLReason;", nullptr, $PUBLIC, $virtualMethod(OCSPResponse$SingleResponse, getRevocationReason, $CRLReason*)},
+	{"getRevocationTime", "()Ljava/util/Date;", nullptr, $PUBLIC, $virtualMethod(OCSPResponse$SingleResponse, getRevocationTime, $Date*)},
+	{"getSingleExtensions", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/security/cert/Extension;>;", $PUBLIC, $virtualMethod(OCSPResponse$SingleResponse, getSingleExtensions, $Map*)},
+	{"getThisUpdate", "()Ljava/util/Date;", nullptr, $PUBLIC, $method(OCSPResponse$SingleResponse, getThisUpdate, $Date*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(OCSPResponse$SingleResponse, toString, $String*)},
 	{}
 };
 

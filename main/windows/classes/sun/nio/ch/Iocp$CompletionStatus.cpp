@@ -21,11 +21,11 @@ $FieldInfo _Iocp$CompletionStatus_FieldInfo_[] = {
 };
 
 $MethodInfo _Iocp$CompletionStatus_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(Iocp$CompletionStatus::*)()>(&Iocp$CompletionStatus::init$))},
-	{"bytesTransferred", "()I", nullptr, 0},
-	{"completionKey", "()I", nullptr, 0},
-	{"error", "()I", nullptr, 0},
-	{"overlapped", "()J", nullptr, 0},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(Iocp$CompletionStatus, init$, void)},
+	{"bytesTransferred", "()I", nullptr, 0, $virtualMethod(Iocp$CompletionStatus, bytesTransferred, int32_t)},
+	{"completionKey", "()I", nullptr, 0, $virtualMethod(Iocp$CompletionStatus, completionKey, int32_t)},
+	{"error", "()I", nullptr, 0, $virtualMethod(Iocp$CompletionStatus, error, int32_t)},
+	{"overlapped", "()J", nullptr, 0, $virtualMethod(Iocp$CompletionStatus, overlapped, int64_t)},
 	{}
 };
 

@@ -20,7 +20,7 @@ $CompoundAttribute _SingleMemberClass_Annotations_[] = {
 };
 
 $MethodInfo _SingleMemberClass_MethodInfo_[] = {
-	{"value", "()Ljava/lang/Class;", nullptr, $PUBLIC | $ABSTRACT},
+	{"value", "()Ljava/lang/Class;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SingleMemberClass, value, $Class*)},
 	{}
 };
 

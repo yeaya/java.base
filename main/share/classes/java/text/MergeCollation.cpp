@@ -42,18 +42,18 @@ $FieldInfo _MergeCollation_FieldInfo_[] = {
 };
 
 $MethodInfo _MergeCollation_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(MergeCollation::*)($String*)>(&MergeCollation::init$)), "java.text.ParseException"},
-	{"addPattern", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(MergeCollation::*)($String*)>(&MergeCollation::addPattern)), "java.text.ParseException"},
-	{"emitPattern", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(static_cast<$String*(MergeCollation::*)()>(&MergeCollation::emitPattern))},
-	{"emitPattern", "(Z)Ljava/lang/String;", nullptr, $PUBLIC, $method(static_cast<$String*(MergeCollation::*)(bool)>(&MergeCollation::emitPattern))},
-	{"findLastEntry", "(Ljava/text/PatternEntry;Ljava/lang/StringBuffer;)I", nullptr, $PRIVATE | $FINAL, $method(static_cast<int32_t(MergeCollation::*)($PatternEntry*,$StringBuffer*)>(&MergeCollation::findLastEntry)), "java.text.ParseException"},
-	{"findLastWithNoExtension", "(I)Ljava/text/PatternEntry;", nullptr, $PRIVATE | $FINAL, $method(static_cast<$PatternEntry*(MergeCollation::*)(int32_t)>(&MergeCollation::findLastWithNoExtension))},
-	{"fixEntry", "(Ljava/text/PatternEntry;)V", nullptr, $PRIVATE | $FINAL, $method(static_cast<void(MergeCollation::*)($PatternEntry*)>(&MergeCollation::fixEntry)), "java.text.ParseException"},
-	{"getCount", "()I", nullptr, $PUBLIC, $method(static_cast<int32_t(MergeCollation::*)()>(&MergeCollation::getCount))},
-	{"getItemAt", "(I)Ljava/text/PatternEntry;", nullptr, $PUBLIC, $method(static_cast<$PatternEntry*(MergeCollation::*)(int32_t)>(&MergeCollation::getItemAt))},
-	{"getPattern", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(static_cast<$String*(MergeCollation::*)()>(&MergeCollation::getPattern))},
-	{"getPattern", "(Z)Ljava/lang/String;", nullptr, $PUBLIC, $method(static_cast<$String*(MergeCollation::*)(bool)>(&MergeCollation::getPattern))},
-	{"setPattern", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(MergeCollation::*)($String*)>(&MergeCollation::setPattern)), "java.text.ParseException"},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(MergeCollation, init$, void, $String*), "java.text.ParseException"},
+	{"addPattern", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(MergeCollation, addPattern, void, $String*), "java.text.ParseException"},
+	{"emitPattern", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(MergeCollation, emitPattern, $String*)},
+	{"emitPattern", "(Z)Ljava/lang/String;", nullptr, $PUBLIC, $method(MergeCollation, emitPattern, $String*, bool)},
+	{"findLastEntry", "(Ljava/text/PatternEntry;Ljava/lang/StringBuffer;)I", nullptr, $PRIVATE | $FINAL, $method(MergeCollation, findLastEntry, int32_t, $PatternEntry*, $StringBuffer*), "java.text.ParseException"},
+	{"findLastWithNoExtension", "(I)Ljava/text/PatternEntry;", nullptr, $PRIVATE | $FINAL, $method(MergeCollation, findLastWithNoExtension, $PatternEntry*, int32_t)},
+	{"fixEntry", "(Ljava/text/PatternEntry;)V", nullptr, $PRIVATE | $FINAL, $method(MergeCollation, fixEntry, void, $PatternEntry*), "java.text.ParseException"},
+	{"getCount", "()I", nullptr, $PUBLIC, $method(MergeCollation, getCount, int32_t)},
+	{"getItemAt", "(I)Ljava/text/PatternEntry;", nullptr, $PUBLIC, $method(MergeCollation, getItemAt, $PatternEntry*, int32_t)},
+	{"getPattern", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(MergeCollation, getPattern, $String*)},
+	{"getPattern", "(Z)Ljava/lang/String;", nullptr, $PUBLIC, $method(MergeCollation, getPattern, $String*, bool)},
+	{"setPattern", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(MergeCollation, setPattern, void, $String*), "java.text.ParseException"},
 	{}
 };
 

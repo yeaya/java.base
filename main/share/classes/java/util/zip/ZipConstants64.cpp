@@ -80,7 +80,7 @@ $FieldInfo _ZipConstants64_FieldInfo_[] = {
 };
 
 $MethodInfo _ZipConstants64_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(ZipConstants64::*)()>(&ZipConstants64::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(ZipConstants64, init$, void)},
 	{}
 };
 

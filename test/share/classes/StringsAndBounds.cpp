@@ -21,11 +21,11 @@ using $Type = ::java::lang::reflect::Type;
 using $WildcardType = ::java::lang::reflect::WildcardType;
 
 $MethodInfo _StringsAndBounds_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(StringsAndBounds::*)()>(&StringsAndBounds::init$))},
-	{"f", "(LA$B;)V", "(LA<Ljava/lang/String;>.B<Ljava/lang/Integer;>;)V", $PUBLIC},
-	{"g", "(Ljava/lang/Object;)V", "<T:Ljava/lang/Object;>(TT;)V", $PUBLIC},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&StringsAndBounds::main)), "java.lang.Exception"},
-	{"scanner", "(Ljava/lang/Class;)V", nullptr, $STATIC, $method(static_cast<void(*)($Class*)>(&StringsAndBounds::scanner))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(StringsAndBounds, init$, void)},
+	{"f", "(LA$B;)V", "(LA<Ljava/lang/String;>.B<Ljava/lang/Integer;>;)V", $PUBLIC, $virtualMethod(StringsAndBounds, f, void, $A$B*)},
+	{"g", "(Ljava/lang/Object;)V", "<T:Ljava/lang/Object;>(TT;)V", $PUBLIC, $virtualMethod(StringsAndBounds, g, void, Object$*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StringsAndBounds, main, void, $StringArray*), "java.lang.Exception"},
+	{"scanner", "(Ljava/lang/Class;)V", nullptr, $STATIC, $staticMethod(StringsAndBounds, scanner, void, $Class*)},
 	{}
 };
 

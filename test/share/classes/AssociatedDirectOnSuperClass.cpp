@@ -24,7 +24,7 @@ $CompoundAttribute _AssociatedDirectOnSuperClass_Annotations_[] = {
 };
 
 $MethodInfo _AssociatedDirectOnSuperClass_MethodInfo_[] = {
-	{"value", "()I", nullptr, $PUBLIC | $ABSTRACT},
+	{"value", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AssociatedDirectOnSuperClass, value, int32_t)},
 	{}
 };
 

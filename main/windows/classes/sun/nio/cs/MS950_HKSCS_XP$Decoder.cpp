@@ -31,8 +31,8 @@ $FieldInfo _MS950_HKSCS_XP$Decoder_FieldInfo_[] = {
 };
 
 $MethodInfo _MS950_HKSCS_XP$Decoder_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PRIVATE, $method(static_cast<void(MS950_HKSCS_XP$Decoder::*)($Charset*)>(&MS950_HKSCS_XP$Decoder::init$))},
-	{"decodeDoubleEx", "(II)C", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PRIVATE, $method(MS950_HKSCS_XP$Decoder, init$, void, $Charset*)},
+	{"decodeDoubleEx", "(II)C", nullptr, $PUBLIC, $virtualMethod(MS950_HKSCS_XP$Decoder, decodeDoubleEx, char16_t, int32_t, int32_t)},
 	{}
 };
 

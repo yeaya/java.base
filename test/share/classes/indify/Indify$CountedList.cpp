@@ -32,11 +32,11 @@ $MethodInfo _Indify$CountedList_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "(Ljava/lang/Class;I)V", "(Ljava/lang/Class<+TT;>;I)V", 0, $method(static_cast<void(Indify$CountedList::*)($Class*,int32_t)>(&Indify$CountedList::init$))},
-	{"<init>", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<+TT;>;)V", 0, $method(static_cast<void(Indify$CountedList::*)($Class*)>(&Indify$CountedList::init$))},
-	{"readFrom", "(Ljava/io/DataInputStream;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljava/lang/Class;I)V", "(Ljava/lang/Class<+TT;>;I)V", 0, $method(Indify$CountedList, init$, void, $Class*, int32_t)},
+	{"<init>", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<+TT;>;)V", 0, $method(Indify$CountedList, init$, void, $Class*)},
+	{"readFrom", "(Ljava/io/DataInputStream;)V", nullptr, $PUBLIC, $virtualMethod(Indify$CountedList, readFrom, void, $DataInputStream*), "java.io.IOException"},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"writeTo", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"writeTo", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(Indify$CountedList, writeTo, void, $DataOutputStream*), "java.io.IOException"},
 	{}
 };
 

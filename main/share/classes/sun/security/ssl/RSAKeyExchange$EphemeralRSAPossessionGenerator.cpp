@@ -31,8 +31,8 @@ namespace sun {
 		namespace ssl {
 
 $MethodInfo _RSAKeyExchange$EphemeralRSAPossessionGenerator_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(RSAKeyExchange$EphemeralRSAPossessionGenerator::*)()>(&RSAKeyExchange$EphemeralRSAPossessionGenerator::init$))},
-	{"createPossession", "(Lsun/security/ssl/HandshakeContext;)Lsun/security/ssl/SSLPossession;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(RSAKeyExchange$EphemeralRSAPossessionGenerator, init$, void)},
+	{"createPossession", "(Lsun/security/ssl/HandshakeContext;)Lsun/security/ssl/SSLPossession;", nullptr, $PUBLIC, $virtualMethod(RSAKeyExchange$EphemeralRSAPossessionGenerator, createPossession, $SSLPossession*, $HandshakeContext*)},
 	{}
 };
 

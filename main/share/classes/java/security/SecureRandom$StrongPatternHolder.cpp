@@ -19,7 +19,7 @@ $FieldInfo _SecureRandom$StrongPatternHolder_FieldInfo_[] = {
 };
 
 $MethodInfo _SecureRandom$StrongPatternHolder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(SecureRandom$StrongPatternHolder::*)()>(&SecureRandom$StrongPatternHolder::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(SecureRandom$StrongPatternHolder, init$, void)},
 	{}
 };
 

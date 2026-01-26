@@ -36,10 +36,10 @@ $FieldInfo _ConcurrentHashMap$Traverser_FieldInfo_[] = {
 };
 
 $MethodInfo _ConcurrentHashMap$Traverser_MethodInfo_[] = {
-	{"<init>", "([Ljava/util/concurrent/ConcurrentHashMap$Node;III)V", "([Ljava/util/concurrent/ConcurrentHashMap$Node<TK;TV;>;III)V", 0, $method(static_cast<void(ConcurrentHashMap$Traverser::*)($ConcurrentHashMap$NodeArray*,int32_t,int32_t,int32_t)>(&ConcurrentHashMap$Traverser::init$))},
-	{"advance", "()Ljava/util/concurrent/ConcurrentHashMap$Node;", "()Ljava/util/concurrent/ConcurrentHashMap$Node<TK;TV;>;", $FINAL, $method(static_cast<$ConcurrentHashMap$Node*(ConcurrentHashMap$Traverser::*)()>(&ConcurrentHashMap$Traverser::advance))},
-	{"pushState", "([Ljava/util/concurrent/ConcurrentHashMap$Node;II)V", "([Ljava/util/concurrent/ConcurrentHashMap$Node<TK;TV;>;II)V", $PRIVATE, $method(static_cast<void(ConcurrentHashMap$Traverser::*)($ConcurrentHashMap$NodeArray*,int32_t,int32_t)>(&ConcurrentHashMap$Traverser::pushState))},
-	{"recoverState", "(I)V", nullptr, $PRIVATE, $method(static_cast<void(ConcurrentHashMap$Traverser::*)(int32_t)>(&ConcurrentHashMap$Traverser::recoverState))},
+	{"<init>", "([Ljava/util/concurrent/ConcurrentHashMap$Node;III)V", "([Ljava/util/concurrent/ConcurrentHashMap$Node<TK;TV;>;III)V", 0, $method(ConcurrentHashMap$Traverser, init$, void, $ConcurrentHashMap$NodeArray*, int32_t, int32_t, int32_t)},
+	{"advance", "()Ljava/util/concurrent/ConcurrentHashMap$Node;", "()Ljava/util/concurrent/ConcurrentHashMap$Node<TK;TV;>;", $FINAL, $method(ConcurrentHashMap$Traverser, advance, $ConcurrentHashMap$Node*)},
+	{"pushState", "([Ljava/util/concurrent/ConcurrentHashMap$Node;II)V", "([Ljava/util/concurrent/ConcurrentHashMap$Node<TK;TV;>;II)V", $PRIVATE, $method(ConcurrentHashMap$Traverser, pushState, void, $ConcurrentHashMap$NodeArray*, int32_t, int32_t)},
+	{"recoverState", "(I)V", nullptr, $PRIVATE, $method(ConcurrentHashMap$Traverser, recoverState, void, int32_t)},
 	{}
 };
 

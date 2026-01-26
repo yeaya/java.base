@@ -22,8 +22,8 @@ namespace java {
 		namespace charset {
 
 $MethodInfo _Charset$ExtendedProviderHolder$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Charset$ExtendedProviderHolder$1::*)()>(&Charset$ExtendedProviderHolder$1::init$))},
-	{"run", "()[Ljava/nio/charset/spi/CharsetProvider;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(Charset$ExtendedProviderHolder$1, init$, void)},
+	{"run", "()[Ljava/nio/charset/spi/CharsetProvider;", nullptr, $PUBLIC, $virtualMethod(Charset$ExtendedProviderHolder$1, run, $Object*)},
 	{}
 };
 

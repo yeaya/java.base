@@ -32,9 +32,9 @@ $FieldInfo _Transfers$FileTarget_FieldInfo_[] = {
 };
 
 $MethodInfo _Transfers$FileTarget_MethodInfo_[] = {
-	{"<init>", "(IJ)V", nullptr, 0, $method(static_cast<void(Transfers$FileTarget::*)(int32_t,int64_t)>(&Transfers$FileTarget::init$)), "java.io.IOException"},
-	{"channel", "()Ljava/nio/channels/WritableByteChannel;", nullptr, 0},
-	{"verify", "()V", nullptr, 0, nullptr, "java.io.IOException"},
+	{"<init>", "(IJ)V", nullptr, 0, $method(Transfers$FileTarget, init$, void, int32_t, int64_t), "java.io.IOException"},
+	{"channel", "()Ljava/nio/channels/WritableByteChannel;", nullptr, 0, $virtualMethod(Transfers$FileTarget, channel, $WritableByteChannel*)},
+	{"verify", "()V", nullptr, 0, $virtualMethod(Transfers$FileTarget, verify, void), "java.io.IOException"},
 	{}
 };
 

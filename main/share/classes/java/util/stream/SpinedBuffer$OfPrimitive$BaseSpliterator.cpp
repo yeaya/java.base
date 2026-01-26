@@ -35,15 +35,15 @@ $FieldInfo _SpinedBuffer$OfPrimitive$BaseSpliterator_FieldInfo_[] = {
 };
 
 $MethodInfo _SpinedBuffer$OfPrimitive$BaseSpliterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/stream/SpinedBuffer$OfPrimitive;IIII)V", nullptr, 0, $method(static_cast<void(SpinedBuffer$OfPrimitive$BaseSpliterator::*)($SpinedBuffer$OfPrimitive*,int32_t,int32_t,int32_t,int32_t)>(&SpinedBuffer$OfPrimitive$BaseSpliterator::init$))},
-	{"arrayForOne", "(Ljava/lang/Object;ILjava/lang/Object;)V", "(TT_ARR;ITT_CONS;)V", $ABSTRACT},
-	{"arraySpliterator", "(Ljava/lang/Object;II)Ljava/util/Spliterator$OfPrimitive;", "(TT_ARR;II)TT_SPLITR;", $ABSTRACT},
-	{"characteristics", "()I", nullptr, $PUBLIC},
-	{"estimateSize", "()J", nullptr, $PUBLIC},
-	{"forEachRemaining", "(Ljava/lang/Object;)V", "(TT_CONS;)V", $PUBLIC},
-	{"newSpliterator", "(IIII)Ljava/util/Spliterator$OfPrimitive;", "(IIII)TT_SPLITR;", $ABSTRACT},
-	{"tryAdvance", "(Ljava/lang/Object;)Z", "(TT_CONS;)Z", $PUBLIC},
-	{"trySplit", "()Ljava/util/Spliterator$OfPrimitive;", "()TT_SPLITR;", $PUBLIC},
+	{"<init>", "(Ljava/util/stream/SpinedBuffer$OfPrimitive;IIII)V", nullptr, 0, $method(SpinedBuffer$OfPrimitive$BaseSpliterator, init$, void, $SpinedBuffer$OfPrimitive*, int32_t, int32_t, int32_t, int32_t)},
+	{"arrayForOne", "(Ljava/lang/Object;ILjava/lang/Object;)V", "(TT_ARR;ITT_CONS;)V", $ABSTRACT, $virtualMethod(SpinedBuffer$OfPrimitive$BaseSpliterator, arrayForOne, void, Object$*, int32_t, Object$*)},
+	{"arraySpliterator", "(Ljava/lang/Object;II)Ljava/util/Spliterator$OfPrimitive;", "(TT_ARR;II)TT_SPLITR;", $ABSTRACT, $virtualMethod(SpinedBuffer$OfPrimitive$BaseSpliterator, arraySpliterator, $Spliterator$OfPrimitive*, Object$*, int32_t, int32_t)},
+	{"characteristics", "()I", nullptr, $PUBLIC, $virtualMethod(SpinedBuffer$OfPrimitive$BaseSpliterator, characteristics, int32_t)},
+	{"estimateSize", "()J", nullptr, $PUBLIC, $virtualMethod(SpinedBuffer$OfPrimitive$BaseSpliterator, estimateSize, int64_t)},
+	{"forEachRemaining", "(Ljava/lang/Object;)V", "(TT_CONS;)V", $PUBLIC, $virtualMethod(SpinedBuffer$OfPrimitive$BaseSpliterator, forEachRemaining, void, Object$*)},
+	{"newSpliterator", "(IIII)Ljava/util/Spliterator$OfPrimitive;", "(IIII)TT_SPLITR;", $ABSTRACT, $virtualMethod(SpinedBuffer$OfPrimitive$BaseSpliterator, newSpliterator, $Spliterator$OfPrimitive*, int32_t, int32_t, int32_t, int32_t)},
+	{"tryAdvance", "(Ljava/lang/Object;)Z", "(TT_CONS;)Z", $PUBLIC, $virtualMethod(SpinedBuffer$OfPrimitive$BaseSpliterator, tryAdvance, bool, Object$*)},
+	{"trySplit", "()Ljava/util/Spliterator$OfPrimitive;", "()TT_SPLITR;", $PUBLIC, $virtualMethod(SpinedBuffer$OfPrimitive$BaseSpliterator, trySplit, $Spliterator*)},
 	{}
 };
 

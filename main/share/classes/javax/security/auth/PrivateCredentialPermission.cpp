@@ -50,19 +50,19 @@ $FieldInfo _PrivateCredentialPermission_FieldInfo_[] = {
 };
 
 $MethodInfo _PrivateCredentialPermission_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/util/Set;)V", "(Ljava/lang/String;Ljava/util/Set<Ljava/security/Principal;>;)V", 0, $method(static_cast<void(PrivateCredentialPermission::*)($String*,$Set*)>(&PrivateCredentialPermission::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(PrivateCredentialPermission::*)($String*,$String*)>(&PrivateCredentialPermission::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getActions", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getCredentialClass", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(static_cast<$String*(PrivateCredentialPermission::*)()>(&PrivateCredentialPermission::getCredentialClass))},
-	{"getPrincipals", "()[[Ljava/lang/String;", nullptr, $PUBLIC, $method(static_cast<$StringArray2*(PrivateCredentialPermission::*)()>(&PrivateCredentialPermission::getPrincipals))},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"implies", "(Ljava/security/Permission;)Z", nullptr, $PUBLIC},
-	{"impliesCredentialClass", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(static_cast<bool(PrivateCredentialPermission::*)($String*,$String*)>(&PrivateCredentialPermission::impliesCredentialClass))},
-	{"impliesPrincipalSet", "([Ljavax/security/auth/PrivateCredentialPermission$CredOwner;[Ljavax/security/auth/PrivateCredentialPermission$CredOwner;)Z", nullptr, $PRIVATE, $method(static_cast<bool(PrivateCredentialPermission::*)($PrivateCredentialPermission$CredOwnerArray*,$PrivateCredentialPermission$CredOwnerArray*)>(&PrivateCredentialPermission::impliesPrincipalSet))},
-	{"init", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(static_cast<void(PrivateCredentialPermission::*)($String*)>(&PrivateCredentialPermission::init))},
-	{"newPermissionCollection", "()Ljava/security/PermissionCollection;", nullptr, $PUBLIC},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(PrivateCredentialPermission::*)($ObjectInputStream*)>(&PrivateCredentialPermission::readObject)), "java.io.IOException,java.lang.ClassNotFoundException"},
+	{"<init>", "(Ljava/lang/String;Ljava/util/Set;)V", "(Ljava/lang/String;Ljava/util/Set<Ljava/security/Principal;>;)V", 0, $method(PrivateCredentialPermission, init$, void, $String*, $Set*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(PrivateCredentialPermission, init$, void, $String*, $String*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(PrivateCredentialPermission, equals, bool, Object$*)},
+	{"getActions", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PrivateCredentialPermission, getActions, $String*)},
+	{"getCredentialClass", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(PrivateCredentialPermission, getCredentialClass, $String*)},
+	{"getPrincipals", "()[[Ljava/lang/String;", nullptr, $PUBLIC, $method(PrivateCredentialPermission, getPrincipals, $StringArray2*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(PrivateCredentialPermission, hashCode, int32_t)},
+	{"implies", "(Ljava/security/Permission;)Z", nullptr, $PUBLIC, $virtualMethod(PrivateCredentialPermission, implies, bool, $Permission*)},
+	{"impliesCredentialClass", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(PrivateCredentialPermission, impliesCredentialClass, bool, $String*, $String*)},
+	{"impliesPrincipalSet", "([Ljavax/security/auth/PrivateCredentialPermission$CredOwner;[Ljavax/security/auth/PrivateCredentialPermission$CredOwner;)Z", nullptr, $PRIVATE, $method(PrivateCredentialPermission, impliesPrincipalSet, bool, $PrivateCredentialPermission$CredOwnerArray*, $PrivateCredentialPermission$CredOwnerArray*)},
+	{"init", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(PrivateCredentialPermission, init, void, $String*)},
+	{"newPermissionCollection", "()Ljava/security/PermissionCollection;", nullptr, $PUBLIC, $virtualMethod(PrivateCredentialPermission, newPermissionCollection, $PermissionCollection*)},
+	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(PrivateCredentialPermission, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
 	{}
 };
 

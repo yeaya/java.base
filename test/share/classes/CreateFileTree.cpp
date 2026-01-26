@@ -39,10 +39,10 @@ $FieldInfo _CreateFileTree_FieldInfo_[] = {
 };
 
 $MethodInfo _CreateFileTree_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CreateFileTree::*)()>(&CreateFileTree::init$))},
-	{"create", "()Ljava/nio/file/Path;", nullptr, $STATIC, $method(static_cast<$Path*(*)()>(&CreateFileTree::create)), "java.io.IOException"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&CreateFileTree::main)), "java.io.IOException"},
-	{"supportsLinks", "(Ljava/nio/file/Path;)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($Path*)>(&CreateFileTree::supportsLinks))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CreateFileTree, init$, void)},
+	{"create", "()Ljava/nio/file/Path;", nullptr, $STATIC, $staticMethod(CreateFileTree, create, $Path*), "java.io.IOException"},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(CreateFileTree, main, void, $StringArray*), "java.io.IOException"},
+	{"supportsLinks", "(Ljava/nio/file/Path;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(CreateFileTree, supportsLinks, bool, $Path*)},
 	{}
 };
 

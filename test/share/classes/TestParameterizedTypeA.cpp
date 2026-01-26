@@ -113,9 +113,9 @@ $FieldInfo _TestParameterizedTypeA_FieldInfo_[] = {
 };
 
 $MethodInfo _TestParameterizedTypeA_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(TestParameterizedTypeA::*)()>(&TestParameterizedTypeA::init$))},
-	{"foo", "()LParameterizedOuter$ParameterizedInner;", "()LParameterizedOuter<Ljava/lang/String;>.ParameterizedInner<Ljava/lang/Integer;>;", $PUBLIC},
-	{"foo2", "()LParameterizedOuter$ParameterizedInner;", "()LParameterizedOuter<Ljava/lang/String;>.ParameterizedInner<Ljava/lang/Integer;>;", $PUBLIC, nullptr, nullptr, nullptr, nullptr, _TestParameterizedTypeA_MethodTypeAnnotations_foo22},
+	{"<init>", "()V", nullptr, 0, $method(TestParameterizedTypeA, init$, void)},
+	{"foo", "()LParameterizedOuter$ParameterizedInner;", "()LParameterizedOuter<Ljava/lang/String;>.ParameterizedInner<Ljava/lang/Integer;>;", $PUBLIC, $virtualMethod(TestParameterizedTypeA, foo, $ParameterizedOuter$ParameterizedInner*)},
+	{"foo2", "()LParameterizedOuter$ParameterizedInner;", "()LParameterizedOuter<Ljava/lang/String;>.ParameterizedInner<Ljava/lang/Integer;>;", $PUBLIC, $virtualMethod(TestParameterizedTypeA, foo2, $ParameterizedOuter$ParameterizedInner*), nullptr, nullptr, nullptr, _TestParameterizedTypeA_MethodTypeAnnotations_foo22},
 	{}
 };
 

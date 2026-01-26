@@ -27,9 +27,9 @@ $FieldInfo _DSAPublicKeyImpl_FieldInfo_[] = {
 };
 
 $MethodInfo _DSAPublicKeyImpl_MethodInfo_[] = {
-	{"<init>", "(Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;)V", nullptr, $PUBLIC, $method(static_cast<void(DSAPublicKeyImpl::*)($BigInteger*,$BigInteger*,$BigInteger*,$BigInteger*)>(&DSAPublicKeyImpl::init$)), "java.security.InvalidKeyException"},
-	{"<init>", "([B)V", nullptr, $PUBLIC, $method(static_cast<void(DSAPublicKeyImpl::*)($bytes*)>(&DSAPublicKeyImpl::init$)), "java.security.InvalidKeyException"},
-	{"writeReplace", "()Ljava/lang/Object;", nullptr, $PROTECTED, $method(static_cast<$Object*(DSAPublicKeyImpl::*)()>(&DSAPublicKeyImpl::writeReplace)), "java.io.ObjectStreamException"},
+	{"<init>", "(Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;)V", nullptr, $PUBLIC, $method(DSAPublicKeyImpl, init$, void, $BigInteger*, $BigInteger*, $BigInteger*, $BigInteger*), "java.security.InvalidKeyException"},
+	{"<init>", "([B)V", nullptr, $PUBLIC, $method(DSAPublicKeyImpl, init$, void, $bytes*), "java.security.InvalidKeyException"},
+	{"writeReplace", "()Ljava/lang/Object;", nullptr, $PROTECTED, $method(DSAPublicKeyImpl, writeReplace, $Object*), "java.io.ObjectStreamException"},
 	{}
 };
 

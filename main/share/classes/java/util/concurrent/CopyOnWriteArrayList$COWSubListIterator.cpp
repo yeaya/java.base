@@ -32,17 +32,17 @@ $FieldInfo _CopyOnWriteArrayList$COWSubListIterator_FieldInfo_[] = {
 };
 
 $MethodInfo _CopyOnWriteArrayList$COWSubListIterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/List;III)V", "(Ljava/util/List<TE;>;III)V", 0, $method(static_cast<void(CopyOnWriteArrayList$COWSubListIterator::*)($List*,int32_t,int32_t,int32_t)>(&CopyOnWriteArrayList$COWSubListIterator::init$))},
-	{"add", "(Ljava/lang/Object;)V", "(TE;)V", $PUBLIC},
-	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC},
-	{"hasNext", "()Z", nullptr, $PUBLIC},
-	{"hasPrevious", "()Z", nullptr, $PUBLIC},
-	{"next", "()Ljava/lang/Object;", "()TE;", $PUBLIC},
-	{"nextIndex", "()I", nullptr, $PUBLIC},
-	{"previous", "()Ljava/lang/Object;", "()TE;", $PUBLIC},
-	{"previousIndex", "()I", nullptr, $PUBLIC},
-	{"remove", "()V", nullptr, $PUBLIC},
-	{"set", "(Ljava/lang/Object;)V", "(TE;)V", $PUBLIC},
+	{"<init>", "(Ljava/util/List;III)V", "(Ljava/util/List<TE;>;III)V", 0, $method(CopyOnWriteArrayList$COWSubListIterator, init$, void, $List*, int32_t, int32_t, int32_t)},
+	{"add", "(Ljava/lang/Object;)V", "(TE;)V", $PUBLIC, $virtualMethod(CopyOnWriteArrayList$COWSubListIterator, add, void, Object$*)},
+	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC, $virtualMethod(CopyOnWriteArrayList$COWSubListIterator, forEachRemaining, void, $Consumer*)},
+	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(CopyOnWriteArrayList$COWSubListIterator, hasNext, bool)},
+	{"hasPrevious", "()Z", nullptr, $PUBLIC, $virtualMethod(CopyOnWriteArrayList$COWSubListIterator, hasPrevious, bool)},
+	{"next", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(CopyOnWriteArrayList$COWSubListIterator, next, $Object*)},
+	{"nextIndex", "()I", nullptr, $PUBLIC, $virtualMethod(CopyOnWriteArrayList$COWSubListIterator, nextIndex, int32_t)},
+	{"previous", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(CopyOnWriteArrayList$COWSubListIterator, previous, $Object*)},
+	{"previousIndex", "()I", nullptr, $PUBLIC, $virtualMethod(CopyOnWriteArrayList$COWSubListIterator, previousIndex, int32_t)},
+	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(CopyOnWriteArrayList$COWSubListIterator, remove, void)},
+	{"set", "(Ljava/lang/Object;)V", "(TE;)V", $PUBLIC, $virtualMethod(CopyOnWriteArrayList$COWSubListIterator, set, void, Object$*)},
 	{}
 };
 

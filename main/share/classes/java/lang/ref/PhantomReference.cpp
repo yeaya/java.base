@@ -21,9 +21,9 @@ $CompoundAttribute _PhantomReference_MethodAnnotations_refersTo02[] = {
 };
 
 $MethodInfo _PhantomReference_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;Ljava/lang/ref/ReferenceQueue;)V", "(TT;Ljava/lang/ref/ReferenceQueue<-TT;>;)V", $PUBLIC, $method(static_cast<void(PhantomReference::*)(Object$*,$ReferenceQueue*)>(&PhantomReference::init$))},
-	{"get", "()Ljava/lang/Object;", "()TT;", $PUBLIC},
-	{"refersTo0", "(Ljava/lang/Object;)Z", nullptr, $FINAL | $NATIVE, nullptr, nullptr, nullptr, _PhantomReference_MethodAnnotations_refersTo02},
+	{"<init>", "(Ljava/lang/Object;Ljava/lang/ref/ReferenceQueue;)V", "(TT;Ljava/lang/ref/ReferenceQueue<-TT;>;)V", $PUBLIC, $method(PhantomReference, init$, void, Object$*, $ReferenceQueue*)},
+	{"get", "()Ljava/lang/Object;", "()TT;", $PUBLIC, $virtualMethod(PhantomReference, get, $Object*)},
+	{"refersTo0", "(Ljava/lang/Object;)Z", nullptr, $FINAL | $NATIVE, $virtualMethod(PhantomReference, refersTo0, bool, Object$*), nullptr, nullptr, _PhantomReference_MethodAnnotations_refersTo02},
 	{}
 };
 

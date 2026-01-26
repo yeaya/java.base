@@ -35,9 +35,9 @@ $FieldInfo _A4pkg_FieldInfo_[] = {
 };
 
 $MethodInfo _A4pkg_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(A4pkg::*)()>(&A4pkg::init$))},
-	{"inaccessibleFields", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC | $STATIC, $method(static_cast<$Set*(*)()>(&A4pkg::inaccessibleFields))},
-	{"lookup", "()Ljava/lang/invoke/MethodHandles$Lookup;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$MethodHandles$Lookup*(*)()>(&A4pkg::lookup))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(A4pkg, init$, void)},
+	{"inaccessibleFields", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC | $STATIC, $staticMethod(A4pkg, inaccessibleFields, $Set*)},
+	{"lookup", "()Ljava/lang/invoke/MethodHandles$Lookup;", nullptr, $PUBLIC | $STATIC, $staticMethod(A4pkg, lookup, $MethodHandles$Lookup*)},
 	{}
 };
 

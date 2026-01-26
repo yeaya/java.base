@@ -36,10 +36,10 @@ $FieldInfo _MaxPathLength_FieldInfo_[] = {
 };
 
 $MethodInfo _MaxPathLength_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(MaxPathLength::*)()>(&MaxPathLength::init$))},
-	{"getNextName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($String*)>(&MaxPathLength::getNextName))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&MaxPathLength::main)), "java.lang.Exception"},
-	{"testLongPath", "(ILjava/lang/String;Z)V", nullptr, $STATIC, $method(static_cast<void(*)(int32_t,$String*,bool)>(&MaxPathLength::testLongPath)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(MaxPathLength, init$, void)},
+	{"getNextName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(MaxPathLength, getNextName, $String*, $String*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(MaxPathLength, main, void, $StringArray*), "java.lang.Exception"},
+	{"testLongPath", "(ILjava/lang/String;Z)V", nullptr, $STATIC, $staticMethod(MaxPathLength, testLongPath, void, int32_t, $String*, bool), "java.lang.Exception"},
 	{}
 };
 

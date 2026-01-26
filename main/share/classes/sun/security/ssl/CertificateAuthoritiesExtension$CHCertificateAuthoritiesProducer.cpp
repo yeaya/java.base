@@ -44,8 +44,8 @@ namespace sun {
 		namespace ssl {
 
 $MethodInfo _CertificateAuthoritiesExtension$CHCertificateAuthoritiesProducer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(CertificateAuthoritiesExtension$CHCertificateAuthoritiesProducer::*)()>(&CertificateAuthoritiesExtension$CHCertificateAuthoritiesProducer::init$))},
-	{"produce", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)[B", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(CertificateAuthoritiesExtension$CHCertificateAuthoritiesProducer, init$, void)},
+	{"produce", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)[B", nullptr, $PUBLIC, $virtualMethod(CertificateAuthoritiesExtension$CHCertificateAuthoritiesProducer, produce, $bytes*, $ConnectionContext*, $SSLHandshake$HandshakeMessage*), "java.io.IOException"},
 	{}
 };
 

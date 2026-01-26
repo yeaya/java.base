@@ -22,8 +22,8 @@ namespace java {
 			namespace atomic {
 
 $MethodInfo _Striped64$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Striped64$1::*)()>(&Striped64$1::init$))},
-	{"run", "()Ljava/lang/invoke/MethodHandles$Lookup;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(Striped64$1, init$, void)},
+	{"run", "()Ljava/lang/invoke/MethodHandles$Lookup;", nullptr, $PUBLIC, $virtualMethod(Striped64$1, run, $Object*)},
 	{}
 };
 

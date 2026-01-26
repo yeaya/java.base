@@ -33,13 +33,13 @@ $FieldInfo _Collectors$CollectorImpl_FieldInfo_[] = {
 };
 
 $MethodInfo _Collectors$CollectorImpl_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/function/Supplier;Ljava/util/function/BiConsumer;Ljava/util/function/BinaryOperator;Ljava/util/function/Function;Ljava/util/Set;)V", "(Ljava/util/function/Supplier<TA;>;Ljava/util/function/BiConsumer<TA;TT;>;Ljava/util/function/BinaryOperator<TA;>;Ljava/util/function/Function<TA;TR;>;Ljava/util/Set<Ljava/util/stream/Collector$Characteristics;>;)V", 0, $method(static_cast<void(Collectors$CollectorImpl::*)($Supplier*,$BiConsumer*,$BinaryOperator*,$Function*,$Set*)>(&Collectors$CollectorImpl::init$))},
-	{"<init>", "(Ljava/util/function/Supplier;Ljava/util/function/BiConsumer;Ljava/util/function/BinaryOperator;Ljava/util/Set;)V", "(Ljava/util/function/Supplier<TA;>;Ljava/util/function/BiConsumer<TA;TT;>;Ljava/util/function/BinaryOperator<TA;>;Ljava/util/Set<Ljava/util/stream/Collector$Characteristics;>;)V", 0, $method(static_cast<void(Collectors$CollectorImpl::*)($Supplier*,$BiConsumer*,$BinaryOperator*,$Set*)>(&Collectors$CollectorImpl::init$))},
-	{"accumulator", "()Ljava/util/function/BiConsumer;", "()Ljava/util/function/BiConsumer<TA;TT;>;", $PUBLIC},
-	{"characteristics", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/util/stream/Collector$Characteristics;>;", $PUBLIC},
-	{"combiner", "()Ljava/util/function/BinaryOperator;", "()Ljava/util/function/BinaryOperator<TA;>;", $PUBLIC},
-	{"finisher", "()Ljava/util/function/Function;", "()Ljava/util/function/Function<TA;TR;>;", $PUBLIC},
-	{"supplier", "()Ljava/util/function/Supplier;", "()Ljava/util/function/Supplier<TA;>;", $PUBLIC},
+	{"<init>", "(Ljava/util/function/Supplier;Ljava/util/function/BiConsumer;Ljava/util/function/BinaryOperator;Ljava/util/function/Function;Ljava/util/Set;)V", "(Ljava/util/function/Supplier<TA;>;Ljava/util/function/BiConsumer<TA;TT;>;Ljava/util/function/BinaryOperator<TA;>;Ljava/util/function/Function<TA;TR;>;Ljava/util/Set<Ljava/util/stream/Collector$Characteristics;>;)V", 0, $method(Collectors$CollectorImpl, init$, void, $Supplier*, $BiConsumer*, $BinaryOperator*, $Function*, $Set*)},
+	{"<init>", "(Ljava/util/function/Supplier;Ljava/util/function/BiConsumer;Ljava/util/function/BinaryOperator;Ljava/util/Set;)V", "(Ljava/util/function/Supplier<TA;>;Ljava/util/function/BiConsumer<TA;TT;>;Ljava/util/function/BinaryOperator<TA;>;Ljava/util/Set<Ljava/util/stream/Collector$Characteristics;>;)V", 0, $method(Collectors$CollectorImpl, init$, void, $Supplier*, $BiConsumer*, $BinaryOperator*, $Set*)},
+	{"accumulator", "()Ljava/util/function/BiConsumer;", "()Ljava/util/function/BiConsumer<TA;TT;>;", $PUBLIC, $virtualMethod(Collectors$CollectorImpl, accumulator, $BiConsumer*)},
+	{"characteristics", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/util/stream/Collector$Characteristics;>;", $PUBLIC, $virtualMethod(Collectors$CollectorImpl, characteristics, $Set*)},
+	{"combiner", "()Ljava/util/function/BinaryOperator;", "()Ljava/util/function/BinaryOperator<TA;>;", $PUBLIC, $virtualMethod(Collectors$CollectorImpl, combiner, $BinaryOperator*)},
+	{"finisher", "()Ljava/util/function/Function;", "()Ljava/util/function/Function<TA;TR;>;", $PUBLIC, $virtualMethod(Collectors$CollectorImpl, finisher, $Function*)},
+	{"supplier", "()Ljava/util/function/Supplier;", "()Ljava/util/function/Supplier<TA;>;", $PUBLIC, $virtualMethod(Collectors$CollectorImpl, supplier, $Supplier*)},
 	{}
 };
 

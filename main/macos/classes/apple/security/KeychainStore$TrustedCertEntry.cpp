@@ -21,7 +21,7 @@ $FieldInfo _KeychainStore$TrustedCertEntry_FieldInfo_[] = {
 };
 
 $MethodInfo _KeychainStore$TrustedCertEntry_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(KeychainStore$TrustedCertEntry::*)()>(&KeychainStore$TrustedCertEntry::init$))},
+	{"<init>", "()V", nullptr, 0, $method(KeychainStore$TrustedCertEntry, init$, void)},
 	{}
 };
 

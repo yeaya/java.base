@@ -36,12 +36,12 @@ $FieldInfo _LauncherHelper$SizePrefix_FieldInfo_[] = {
 };
 
 $MethodInfo _LauncherHelper$SizePrefix_MethodInfo_[] = {
-	{"$values", "()[Lsun/launcher/LauncherHelper$SizePrefix;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$LauncherHelper$SizePrefixArray*(*)()>(&LauncherHelper$SizePrefix::$values))},
-	{"<init>", "(Ljava/lang/String;IJLjava/lang/String;)V", "(JLjava/lang/String;)V", $PRIVATE, $method(static_cast<void(LauncherHelper$SizePrefix::*)($String*,int32_t,int64_t,$String*)>(&LauncherHelper$SizePrefix::init$))},
-	{"scale", "(JLsun/launcher/LauncherHelper$SizePrefix;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)(int64_t,LauncherHelper$SizePrefix*)>(&LauncherHelper$SizePrefix::scale))},
-	{"scaleValue", "(J)Ljava/lang/String;", nullptr, $STATIC, $method(static_cast<$String*(*)(int64_t)>(&LauncherHelper$SizePrefix::scaleValue))},
-	{"valueOf", "(Ljava/lang/String;)Lsun/launcher/LauncherHelper$SizePrefix;", nullptr, $PUBLIC | $STATIC, $method(static_cast<LauncherHelper$SizePrefix*(*)($String*)>(&LauncherHelper$SizePrefix::valueOf))},
-	{"values", "()[Lsun/launcher/LauncherHelper$SizePrefix;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$LauncherHelper$SizePrefixArray*(*)()>(&LauncherHelper$SizePrefix::values))},
+	{"$values", "()[Lsun/launcher/LauncherHelper$SizePrefix;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LauncherHelper$SizePrefix, $values, $LauncherHelper$SizePrefixArray*)},
+	{"<init>", "(Ljava/lang/String;IJLjava/lang/String;)V", "(JLjava/lang/String;)V", $PRIVATE, $method(LauncherHelper$SizePrefix, init$, void, $String*, int32_t, int64_t, $String*)},
+	{"scale", "(JLsun/launcher/LauncherHelper$SizePrefix;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(LauncherHelper$SizePrefix, scale, $String*, int64_t, LauncherHelper$SizePrefix*)},
+	{"scaleValue", "(J)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(LauncherHelper$SizePrefix, scaleValue, $String*, int64_t)},
+	{"valueOf", "(Ljava/lang/String;)Lsun/launcher/LauncherHelper$SizePrefix;", nullptr, $PUBLIC | $STATIC, $staticMethod(LauncherHelper$SizePrefix, valueOf, LauncherHelper$SizePrefix*, $String*)},
+	{"values", "()[Lsun/launcher/LauncherHelper$SizePrefix;", nullptr, $PUBLIC | $STATIC, $staticMethod(LauncherHelper$SizePrefix, values, $LauncherHelper$SizePrefixArray*)},
 	{}
 };
 

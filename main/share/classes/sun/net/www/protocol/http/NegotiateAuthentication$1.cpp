@@ -19,8 +19,8 @@ namespace sun {
 				namespace http {
 
 $MethodInfo _NegotiateAuthentication$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(NegotiateAuthentication$1::*)()>(&NegotiateAuthentication$1::init$))},
-	{"initialValue", "()Ljava/util/HashMap;", "()Ljava/util/HashMap<Ljava/lang/String;Lsun/net/www/protocol/http/Negotiator;>;", $PROTECTED},
+	{"<init>", "()V", nullptr, 0, $method(NegotiateAuthentication$1, init$, void)},
+	{"initialValue", "()Ljava/util/HashMap;", "()Ljava/util/HashMap<Ljava/lang/String;Lsun/net/www/protocol/http/Negotiator;>;", $PROTECTED, $virtualMethod(NegotiateAuthentication$1, initialValue, $Object*)},
 	{}
 };
 

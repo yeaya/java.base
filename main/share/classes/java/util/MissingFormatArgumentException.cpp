@@ -19,9 +19,9 @@ $FieldInfo _MissingFormatArgumentException_FieldInfo_[] = {
 };
 
 $MethodInfo _MissingFormatArgumentException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(MissingFormatArgumentException::*)($String*)>(&MissingFormatArgumentException::init$))},
-	{"getFormatSpecifier", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(MissingFormatArgumentException, init$, void, $String*)},
+	{"getFormatSpecifier", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MissingFormatArgumentException, getFormatSpecifier, $String*)},
+	{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MissingFormatArgumentException, getMessage, $String*)},
 	{}
 };
 

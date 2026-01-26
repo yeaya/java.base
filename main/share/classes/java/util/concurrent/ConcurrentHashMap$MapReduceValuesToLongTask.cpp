@@ -36,9 +36,9 @@ $FieldInfo _ConcurrentHashMap$MapReduceValuesToLongTask_FieldInfo_[] = {
 };
 
 $MethodInfo _ConcurrentHashMap$MapReduceValuesToLongTask_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/ConcurrentHashMap$BulkTask;III[Ljava/util/concurrent/ConcurrentHashMap$Node;Ljava/util/concurrent/ConcurrentHashMap$MapReduceValuesToLongTask;Ljava/util/function/ToLongFunction;JLjava/util/function/LongBinaryOperator;)V", "(Ljava/util/concurrent/ConcurrentHashMap$BulkTask<TK;TV;*>;III[Ljava/util/concurrent/ConcurrentHashMap$Node<TK;TV;>;Ljava/util/concurrent/ConcurrentHashMap$MapReduceValuesToLongTask<TK;TV;>;Ljava/util/function/ToLongFunction<-TV;>;JLjava/util/function/LongBinaryOperator;)V", 0, $method(static_cast<void(ConcurrentHashMap$MapReduceValuesToLongTask::*)($ConcurrentHashMap$BulkTask*,int32_t,int32_t,int32_t,$ConcurrentHashMap$NodeArray*,ConcurrentHashMap$MapReduceValuesToLongTask*,$ToLongFunction*,int64_t,$LongBinaryOperator*)>(&ConcurrentHashMap$MapReduceValuesToLongTask::init$))},
-	{"compute", "()V", nullptr, $PUBLIC | $FINAL},
-	{"getRawResult", "()Ljava/lang/Long;", nullptr, $PUBLIC | $FINAL},
+	{"<init>", "(Ljava/util/concurrent/ConcurrentHashMap$BulkTask;III[Ljava/util/concurrent/ConcurrentHashMap$Node;Ljava/util/concurrent/ConcurrentHashMap$MapReduceValuesToLongTask;Ljava/util/function/ToLongFunction;JLjava/util/function/LongBinaryOperator;)V", "(Ljava/util/concurrent/ConcurrentHashMap$BulkTask<TK;TV;*>;III[Ljava/util/concurrent/ConcurrentHashMap$Node<TK;TV;>;Ljava/util/concurrent/ConcurrentHashMap$MapReduceValuesToLongTask<TK;TV;>;Ljava/util/function/ToLongFunction<-TV;>;JLjava/util/function/LongBinaryOperator;)V", 0, $method(ConcurrentHashMap$MapReduceValuesToLongTask, init$, void, $ConcurrentHashMap$BulkTask*, int32_t, int32_t, int32_t, $ConcurrentHashMap$NodeArray*, ConcurrentHashMap$MapReduceValuesToLongTask*, $ToLongFunction*, int64_t, $LongBinaryOperator*)},
+	{"compute", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(ConcurrentHashMap$MapReduceValuesToLongTask, compute, void)},
+	{"getRawResult", "()Ljava/lang/Long;", nullptr, $PUBLIC | $FINAL, $virtualMethod(ConcurrentHashMap$MapReduceValuesToLongTask, getRawResult, $Object*)},
 	{}
 };
 

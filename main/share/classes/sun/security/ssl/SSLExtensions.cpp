@@ -77,17 +77,17 @@ $FieldInfo _SSLExtensions_FieldInfo_[] = {
 };
 
 $MethodInfo _SSLExtensions_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/ssl/SSLHandshake$HandshakeMessage;)V", nullptr, 0, $method(static_cast<void(SSLExtensions::*)($SSLHandshake$HandshakeMessage*)>(&SSLExtensions::init$))},
-	{"<init>", "(Lsun/security/ssl/SSLHandshake$HandshakeMessage;Ljava/nio/ByteBuffer;[Lsun/security/ssl/SSLExtension;)V", nullptr, 0, $method(static_cast<void(SSLExtensions::*)($SSLHandshake$HandshakeMessage*,$ByteBuffer*,$SSLExtensionArray*)>(&SSLExtensions::init$)), "java.io.IOException"},
-	{"consumeOnLoad", "(Lsun/security/ssl/HandshakeContext;[Lsun/security/ssl/SSLExtension;)V", nullptr, 0, $method(static_cast<void(SSLExtensions::*)($HandshakeContext*,$SSLExtensionArray*)>(&SSLExtensions::consumeOnLoad)), "java.io.IOException"},
-	{"consumeOnTrade", "(Lsun/security/ssl/HandshakeContext;[Lsun/security/ssl/SSLExtension;)V", nullptr, 0, $method(static_cast<void(SSLExtensions::*)($HandshakeContext*,$SSLExtensionArray*)>(&SSLExtensions::consumeOnTrade)), "java.io.IOException"},
-	{"get", "(Lsun/security/ssl/SSLExtension;)[B", nullptr, 0, $method(static_cast<$bytes*(SSLExtensions::*)($SSLExtension*)>(&SSLExtensions::get))},
-	{"length", "()I", nullptr, 0, $method(static_cast<int32_t(SSLExtensions::*)()>(&SSLExtensions::length))},
-	{"produce", "(Lsun/security/ssl/HandshakeContext;[Lsun/security/ssl/SSLExtension;)V", nullptr, 0, $method(static_cast<void(SSLExtensions::*)($HandshakeContext*,$SSLExtensionArray*)>(&SSLExtensions::produce)), "java.io.IOException"},
-	{"reproduce", "(Lsun/security/ssl/HandshakeContext;[Lsun/security/ssl/SSLExtension;)V", nullptr, 0, $method(static_cast<void(SSLExtensions::*)($HandshakeContext*,$SSLExtensionArray*)>(&SSLExtensions::reproduce)), "java.io.IOException"},
-	{"send", "(Lsun/security/ssl/HandshakeOutStream;)V", nullptr, 0, $method(static_cast<void(SSLExtensions::*)($HandshakeOutStream*)>(&SSLExtensions::send)), "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"toString", "(I[B)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)(int32_t,$bytes*)>(&SSLExtensions::toString))},
+	{"<init>", "(Lsun/security/ssl/SSLHandshake$HandshakeMessage;)V", nullptr, 0, $method(SSLExtensions, init$, void, $SSLHandshake$HandshakeMessage*)},
+	{"<init>", "(Lsun/security/ssl/SSLHandshake$HandshakeMessage;Ljava/nio/ByteBuffer;[Lsun/security/ssl/SSLExtension;)V", nullptr, 0, $method(SSLExtensions, init$, void, $SSLHandshake$HandshakeMessage*, $ByteBuffer*, $SSLExtensionArray*), "java.io.IOException"},
+	{"consumeOnLoad", "(Lsun/security/ssl/HandshakeContext;[Lsun/security/ssl/SSLExtension;)V", nullptr, 0, $method(SSLExtensions, consumeOnLoad, void, $HandshakeContext*, $SSLExtensionArray*), "java.io.IOException"},
+	{"consumeOnTrade", "(Lsun/security/ssl/HandshakeContext;[Lsun/security/ssl/SSLExtension;)V", nullptr, 0, $method(SSLExtensions, consumeOnTrade, void, $HandshakeContext*, $SSLExtensionArray*), "java.io.IOException"},
+	{"get", "(Lsun/security/ssl/SSLExtension;)[B", nullptr, 0, $method(SSLExtensions, get, $bytes*, $SSLExtension*)},
+	{"length", "()I", nullptr, 0, $method(SSLExtensions, length, int32_t)},
+	{"produce", "(Lsun/security/ssl/HandshakeContext;[Lsun/security/ssl/SSLExtension;)V", nullptr, 0, $method(SSLExtensions, produce, void, $HandshakeContext*, $SSLExtensionArray*), "java.io.IOException"},
+	{"reproduce", "(Lsun/security/ssl/HandshakeContext;[Lsun/security/ssl/SSLExtension;)V", nullptr, 0, $method(SSLExtensions, reproduce, void, $HandshakeContext*, $SSLExtensionArray*), "java.io.IOException"},
+	{"send", "(Lsun/security/ssl/HandshakeOutStream;)V", nullptr, 0, $method(SSLExtensions, send, void, $HandshakeOutStream*), "java.io.IOException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SSLExtensions, toString, $String*)},
+	{"toString", "(I[B)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(SSLExtensions, toString, $String*, int32_t, $bytes*)},
 	{}
 };
 

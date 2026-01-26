@@ -26,7 +26,7 @@ $FieldInfo _Johab$DecodeHolder_FieldInfo_[] = {
 };
 
 $MethodInfo _Johab$DecodeHolder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Johab$DecodeHolder::*)()>(&Johab$DecodeHolder::init$))},
+	{"<init>", "()V", nullptr, 0, $method(Johab$DecodeHolder, init$, void)},
 	{}
 };
 

@@ -37,14 +37,14 @@ $FieldInfo _LongPipeline$StatelessOp_FieldInfo_[] = {
 };
 
 $MethodInfo _LongPipeline$StatelessOp_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/stream/AbstractPipeline;Ljava/util/stream/StreamShape;I)V", "(Ljava/util/stream/AbstractPipeline<*TE_IN;*>;Ljava/util/stream/StreamShape;I)V", 0, $method(static_cast<void(LongPipeline$StatelessOp::*)($AbstractPipeline*,$StreamShape*,int32_t)>(&LongPipeline$StatelessOp::init$))},
-	{"iterator", "()Ljava/util/Iterator;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"lazySpliterator", "(Ljava/util/function/Supplier;)Ljava/util/Spliterator;", nullptr, $VOLATILE | $SYNTHETIC},
-	{"opIsStateful", "()Z", nullptr, $FINAL},
-	{"parallel", "()Ljava/util/stream/LongStream;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"sequential", "()Ljava/util/stream/LongStream;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"spliterator", "()Ljava/util/Spliterator;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"unordered", "()Ljava/util/stream/BaseStream;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "(Ljava/util/stream/AbstractPipeline;Ljava/util/stream/StreamShape;I)V", "(Ljava/util/stream/AbstractPipeline<*TE_IN;*>;Ljava/util/stream/StreamShape;I)V", 0, $method(LongPipeline$StatelessOp, init$, void, $AbstractPipeline*, $StreamShape*, int32_t)},
+	{"iterator", "()Ljava/util/Iterator;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(LongPipeline$StatelessOp, iterator, $Iterator*)},
+	{"lazySpliterator", "(Ljava/util/function/Supplier;)Ljava/util/Spliterator;", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(LongPipeline$StatelessOp, lazySpliterator, $Spliterator*, $Supplier*)},
+	{"opIsStateful", "()Z", nullptr, $FINAL, $virtualMethod(LongPipeline$StatelessOp, opIsStateful, bool)},
+	{"parallel", "()Ljava/util/stream/LongStream;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(LongPipeline$StatelessOp, parallel, $BaseStream*)},
+	{"sequential", "()Ljava/util/stream/LongStream;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(LongPipeline$StatelessOp, sequential, $BaseStream*)},
+	{"spliterator", "()Ljava/util/Spliterator;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(LongPipeline$StatelessOp, spliterator, $Spliterator*)},
+	{"unordered", "()Ljava/util/stream/BaseStream;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(LongPipeline$StatelessOp, unordered, $BaseStream*)},
 	{}
 };
 

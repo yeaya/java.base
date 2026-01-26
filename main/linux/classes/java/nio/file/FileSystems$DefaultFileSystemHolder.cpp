@@ -44,9 +44,9 @@ $FieldInfo _FileSystems$DefaultFileSystemHolder_FieldInfo_[] = {
 };
 
 $MethodInfo _FileSystems$DefaultFileSystemHolder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(FileSystems$DefaultFileSystemHolder::*)()>(&FileSystems$DefaultFileSystemHolder::init$))},
-	{"defaultFileSystem", "()Ljava/nio/file/FileSystem;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$FileSystem*(*)()>(&FileSystems$DefaultFileSystemHolder::defaultFileSystem))},
-	{"getDefaultProvider", "()Ljava/nio/file/spi/FileSystemProvider;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$FileSystemProvider*(*)()>(&FileSystems$DefaultFileSystemHolder::getDefaultProvider))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(FileSystems$DefaultFileSystemHolder, init$, void)},
+	{"defaultFileSystem", "()Ljava/nio/file/FileSystem;", nullptr, $PRIVATE | $STATIC, $staticMethod(FileSystems$DefaultFileSystemHolder, defaultFileSystem, $FileSystem*)},
+	{"getDefaultProvider", "()Ljava/nio/file/spi/FileSystemProvider;", nullptr, $PRIVATE | $STATIC, $staticMethod(FileSystems$DefaultFileSystemHolder, getDefaultProvider, $FileSystemProvider*)},
 	{}
 };
 

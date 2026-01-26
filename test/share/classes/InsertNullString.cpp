@@ -10,8 +10,8 @@ using $NullPointerException = ::java::lang::NullPointerException;
 using $StringBuffer = ::java::lang::StringBuffer;
 
 $MethodInfo _InsertNullString_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(InsertNullString::*)()>(&InsertNullString::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&InsertNullString::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(InsertNullString, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(InsertNullString, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

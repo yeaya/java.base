@@ -16,8 +16,8 @@ using $ReferenceQueue = ::java::lang::ref::ReferenceQueue;
 using $WeakReference = ::java::lang::ref::WeakReference;
 
 $MethodInfo _NullQueue$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(NullQueue$1::*)()>(&NullQueue$1::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(NullQueue$1, init$, void)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(NullQueue$1, run, void)},
 	{}
 };
 

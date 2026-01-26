@@ -15,8 +15,8 @@ $FieldInfo _TestReceiverTypeOwnerType$Nested_FieldInfo_[] = {
 };
 
 $MethodInfo _TestReceiverTypeOwnerType$Nested_MethodInfo_[] = {
-	{"<init>", "(LTestReceiverTypeOwnerType;)V", nullptr, $PUBLIC, $method(static_cast<void(TestReceiverTypeOwnerType$Nested::*)($TestReceiverTypeOwnerType*)>(&TestReceiverTypeOwnerType$Nested::init$))},
-	{"method", "()V", nullptr, $PUBLIC},
+	{"<init>", "(LTestReceiverTypeOwnerType;)V", nullptr, $PUBLIC, $method(TestReceiverTypeOwnerType$Nested, init$, void, $TestReceiverTypeOwnerType*)},
+	{"method", "()V", nullptr, $PUBLIC, $virtualMethod(TestReceiverTypeOwnerType$Nested, method, void)},
 	{}
 };
 

@@ -51,8 +51,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Node$$Lambda$lambda$truncate$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Node$$Lambda$lambda$truncate$0::*)()>(&Node$$Lambda$lambda$truncate$0::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Node$$Lambda$lambda$truncate$0, init$, void)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Node$$Lambda$lambda$truncate$0, accept, void, Object$*)},
 	{}
 };
 $ClassInfo Node$$Lambda$lambda$truncate$0::classInfo$ = {
@@ -70,16 +70,16 @@ $Class* Node$$Lambda$lambda$truncate$0::load$($String* name, bool initialize) {
 $Class* Node$$Lambda$lambda$truncate$0::class$ = nullptr;
 
 $MethodInfo _Node_MethodInfo_[] = {
-	{"asArray", "(Ljava/util/function/IntFunction;)[Ljava/lang/Object;", "(Ljava/util/function/IntFunction<[TT;>;)[TT;", $PUBLIC | $ABSTRACT},
-	{"copyInto", "([Ljava/lang/Object;I)V", "([TT;I)V", $PUBLIC | $ABSTRACT},
-	{"count", "()J", nullptr, $PUBLIC | $ABSTRACT},
-	{"forEach", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TT;>;)V", $PUBLIC | $ABSTRACT},
-	{"getChild", "(I)Ljava/util/stream/Node;", "(I)Ljava/util/stream/Node<TT;>;", $PUBLIC},
-	{"getChildCount", "()I", nullptr, $PUBLIC},
-	{"getShape", "()Ljava/util/stream/StreamShape;", nullptr, $PUBLIC},
-	{"lambda$truncate$0", "(Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)(Object$*)>(&Node::lambda$truncate$0))},
-	{"spliterator", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TT;>;", $PUBLIC | $ABSTRACT},
-	{"truncate", "(JJLjava/util/function/IntFunction;)Ljava/util/stream/Node;", "(JJLjava/util/function/IntFunction<[TT;>;)Ljava/util/stream/Node<TT;>;", $PUBLIC},
+	{"asArray", "(Ljava/util/function/IntFunction;)[Ljava/lang/Object;", "(Ljava/util/function/IntFunction<[TT;>;)[TT;", $PUBLIC | $ABSTRACT, $virtualMethod(Node, asArray, $ObjectArray*, $IntFunction*)},
+	{"copyInto", "([Ljava/lang/Object;I)V", "([TT;I)V", $PUBLIC | $ABSTRACT, $virtualMethod(Node, copyInto, void, $ObjectArray*, int32_t)},
+	{"count", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Node, count, int64_t)},
+	{"forEach", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TT;>;)V", $PUBLIC | $ABSTRACT, $virtualMethod(Node, forEach, void, $Consumer*)},
+	{"getChild", "(I)Ljava/util/stream/Node;", "(I)Ljava/util/stream/Node<TT;>;", $PUBLIC, $virtualMethod(Node, getChild, Node*, int32_t)},
+	{"getChildCount", "()I", nullptr, $PUBLIC, $virtualMethod(Node, getChildCount, int32_t)},
+	{"getShape", "()Ljava/util/stream/StreamShape;", nullptr, $PUBLIC, $virtualMethod(Node, getShape, $StreamShape*)},
+	{"lambda$truncate$0", "(Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Node, lambda$truncate$0, void, Object$*)},
+	{"spliterator", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TT;>;", $PUBLIC | $ABSTRACT, $virtualMethod(Node, spliterator, $Spliterator*)},
+	{"truncate", "(JJLjava/util/function/IntFunction;)Ljava/util/stream/Node;", "(JJLjava/util/function/IntFunction<[TT;>;)Ljava/util/stream/Node<TT;>;", $PUBLIC, $virtualMethod(Node, truncate, Node*, int64_t, int64_t, $IntFunction*)},
 	{}
 };
 

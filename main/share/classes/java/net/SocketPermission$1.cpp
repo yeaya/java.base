@@ -21,8 +21,8 @@ $FieldInfo _SocketPermission$1_FieldInfo_[] = {
 };
 
 $MethodInfo _SocketPermission$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(SocketPermission$1::*)($String*)>(&SocketPermission$1::init$))},
-	{"run", "()Ljava/lang/Integer;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(SocketPermission$1, init$, void, $String*)},
+	{"run", "()Ljava/lang/Integer;", nullptr, $PUBLIC, $virtualMethod(SocketPermission$1, run, $Object*)},
 	{}
 };
 

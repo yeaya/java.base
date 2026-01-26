@@ -40,10 +40,10 @@ $FieldInfo _HKDF_FieldInfo_[] = {
 };
 
 $MethodInfo _HKDF_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(HKDF::*)($String*)>(&HKDF::init$)), "java.security.NoSuchAlgorithmException"},
-	{"expand", "(Ljavax/crypto/SecretKey;[BILjava/lang/String;)Ljavax/crypto/SecretKey;", nullptr, 0, $method(static_cast<$SecretKey*(HKDF::*)($SecretKey*,$bytes*,int32_t,$String*)>(&HKDF::expand)), "java.security.InvalidKeyException"},
-	{"extract", "(Ljavax/crypto/SecretKey;Ljavax/crypto/SecretKey;Ljava/lang/String;)Ljavax/crypto/SecretKey;", nullptr, 0, $method(static_cast<$SecretKey*(HKDF::*)($SecretKey*,$SecretKey*,$String*)>(&HKDF::extract)), "java.security.InvalidKeyException"},
-	{"extract", "([BLjavax/crypto/SecretKey;Ljava/lang/String;)Ljavax/crypto/SecretKey;", nullptr, 0, $method(static_cast<$SecretKey*(HKDF::*)($bytes*,$SecretKey*,$String*)>(&HKDF::extract)), "java.security.InvalidKeyException"},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(HKDF, init$, void, $String*), "java.security.NoSuchAlgorithmException"},
+	{"expand", "(Ljavax/crypto/SecretKey;[BILjava/lang/String;)Ljavax/crypto/SecretKey;", nullptr, 0, $method(HKDF, expand, $SecretKey*, $SecretKey*, $bytes*, int32_t, $String*), "java.security.InvalidKeyException"},
+	{"extract", "(Ljavax/crypto/SecretKey;Ljavax/crypto/SecretKey;Ljava/lang/String;)Ljavax/crypto/SecretKey;", nullptr, 0, $method(HKDF, extract, $SecretKey*, $SecretKey*, $SecretKey*, $String*), "java.security.InvalidKeyException"},
+	{"extract", "([BLjavax/crypto/SecretKey;Ljava/lang/String;)Ljavax/crypto/SecretKey;", nullptr, 0, $method(HKDF, extract, $SecretKey*, $bytes*, $SecretKey*, $String*), "java.security.InvalidKeyException"},
 	{}
 };
 

@@ -20,8 +20,8 @@ $FieldInfo _Destroy$Task_FieldInfo_[] = {
 };
 
 $MethodInfo _Destroy$Task_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/Semaphore;Ljava/util/concurrent/CountDownLatch;)V", nullptr, $PUBLIC, $method(static_cast<void(Destroy$Task::*)($Semaphore*,$CountDownLatch*)>(&Destroy$Task::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/concurrent/Semaphore;Ljava/util/concurrent/CountDownLatch;)V", nullptr, $PUBLIC, $method(Destroy$Task, init$, void, $Semaphore*, $CountDownLatch*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Destroy$Task, run, void)},
 	{}
 };
 

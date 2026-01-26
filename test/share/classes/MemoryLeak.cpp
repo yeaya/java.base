@@ -8,8 +8,8 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $ThreadLocal = ::java::lang::ThreadLocal;
 
 $MethodInfo _MemoryLeak_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(MemoryLeak::*)()>(&MemoryLeak::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&MemoryLeak::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(MemoryLeak, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(MemoryLeak, main, void, $StringArray*)},
 	{}
 };
 

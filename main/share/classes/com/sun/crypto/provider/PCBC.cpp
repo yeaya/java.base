@@ -28,14 +28,14 @@ $FieldInfo _PCBC_FieldInfo_[] = {
 };
 
 $MethodInfo _PCBC_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/crypto/provider/SymmetricCipher;)V", nullptr, 0, $method(static_cast<void(PCBC::*)($SymmetricCipher*)>(&PCBC::init$))},
-	{"decrypt", "([BII[BI)I", nullptr, 0},
-	{"encrypt", "([BII[BI)I", nullptr, 0},
-	{"getFeedback", "()Ljava/lang/String;", nullptr, 0},
-	{"init", "(ZLjava/lang/String;[B[B)V", nullptr, 0, nullptr, "java.security.InvalidKeyException"},
-	{"reset", "()V", nullptr, 0},
-	{"restore", "()V", nullptr, 0},
-	{"save", "()V", nullptr, 0},
+	{"<init>", "(Lcom/sun/crypto/provider/SymmetricCipher;)V", nullptr, 0, $method(PCBC, init$, void, $SymmetricCipher*)},
+	{"decrypt", "([BII[BI)I", nullptr, 0, $virtualMethod(PCBC, decrypt, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t)},
+	{"encrypt", "([BII[BI)I", nullptr, 0, $virtualMethod(PCBC, encrypt, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t)},
+	{"getFeedback", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(PCBC, getFeedback, $String*)},
+	{"init", "(ZLjava/lang/String;[B[B)V", nullptr, 0, $virtualMethod(PCBC, init, void, bool, $String*, $bytes*, $bytes*), "java.security.InvalidKeyException"},
+	{"reset", "()V", nullptr, 0, $virtualMethod(PCBC, reset, void)},
+	{"restore", "()V", nullptr, 0, $virtualMethod(PCBC, restore, void)},
+	{"save", "()V", nullptr, 0, $virtualMethod(PCBC, save, void)},
 	{}
 };
 

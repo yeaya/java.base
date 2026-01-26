@@ -12,10 +12,10 @@ namespace jdk {
 				namespace sax {
 
 $MethodInfo _Locator_MethodInfo_[] = {
-	{"getColumnNumber", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"getLineNumber", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"getPublicId", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getSystemId", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
+	{"getColumnNumber", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Locator, getColumnNumber, int32_t)},
+	{"getLineNumber", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Locator, getLineNumber, int32_t)},
+	{"getPublicId", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Locator, getPublicId, $String*)},
+	{"getSystemId", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Locator, getSystemId, $String*)},
 	{}
 };
 

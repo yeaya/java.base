@@ -82,8 +82,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo EventHelper$$Lambda$toString::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(EventHelper$$Lambda$toString::*)()>(&EventHelper$$Lambda$toString::init$))},
-	{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(EventHelper$$Lambda$toString, init$, void)},
+	{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(EventHelper$$Lambda$toString, apply, $Object*, int32_t)},
 	{}
 };
 $ClassInfo EventHelper$$Lambda$toString::classInfo$ = {
@@ -112,13 +112,13 @@ $FieldInfo _EventHelper_FieldInfo_[] = {
 };
 
 $MethodInfo _EventHelper_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(EventHelper::*)()>(&EventHelper::init$))},
-	{"getDurationString", "(Ljava/time/Instant;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($Instant*)>(&EventHelper::getDurationString))},
-	{"isLoggingSecurity", "()Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)()>(&EventHelper::isLoggingSecurity))},
-	{"logSecurityPropertyEvent", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($String*,$String*)>(&EventHelper::logSecurityPropertyEvent))},
-	{"logTLSHandshakeEvent", "(Ljava/time/Instant;Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;J)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($Instant*,$String*,int32_t,$String*,$String*,int64_t)>(&EventHelper::logTLSHandshakeEvent))},
-	{"logX509CertificateEvent", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;IJJJ)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($String*,$String*,$String*,$String*,$String*,int32_t,int64_t,int64_t,int64_t)>(&EventHelper::logX509CertificateEvent))},
-	{"logX509ValidationEvent", "(I[I)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)(int32_t,$ints*)>(&EventHelper::logX509ValidationEvent))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(EventHelper, init$, void)},
+	{"getDurationString", "(Ljava/time/Instant;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(EventHelper, getDurationString, $String*, $Instant*)},
+	{"isLoggingSecurity", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(EventHelper, isLoggingSecurity, bool)},
+	{"logSecurityPropertyEvent", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(EventHelper, logSecurityPropertyEvent, void, $String*, $String*)},
+	{"logTLSHandshakeEvent", "(Ljava/time/Instant;Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;J)V", nullptr, $PUBLIC | $STATIC, $staticMethod(EventHelper, logTLSHandshakeEvent, void, $Instant*, $String*, int32_t, $String*, $String*, int64_t)},
+	{"logX509CertificateEvent", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;IJJJ)V", nullptr, $PUBLIC | $STATIC, $staticMethod(EventHelper, logX509CertificateEvent, void, $String*, $String*, $String*, $String*, $String*, int32_t, int64_t, int64_t, int64_t)},
+	{"logX509ValidationEvent", "(I[I)V", nullptr, $PUBLIC | $STATIC, $staticMethod(EventHelper, logX509ValidationEvent, void, int32_t, $ints*)},
 	{}
 };
 

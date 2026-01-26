@@ -64,11 +64,11 @@ $FieldInfo _CertificateAuthoritiesExtension$CertificateAuthoritiesSpec_FieldInfo
 };
 
 $MethodInfo _CertificateAuthoritiesExtension$CertificateAuthoritiesSpec_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/List;)V", "(Ljava/util/List<[B>;)V", $PRIVATE, $method(static_cast<void(CertificateAuthoritiesExtension$CertificateAuthoritiesSpec::*)($List*)>(&CertificateAuthoritiesExtension$CertificateAuthoritiesSpec::init$))},
-	{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE, $method(static_cast<void(CertificateAuthoritiesExtension$CertificateAuthoritiesSpec::*)($HandshakeContext*,$ByteBuffer*)>(&CertificateAuthoritiesExtension$CertificateAuthoritiesSpec::init$)), "java.io.IOException"},
-	{"getAuthorities", "()[Ljavax/security/auth/x500/X500Principal;", nullptr, 0, $method(static_cast<$X500PrincipalArray*(CertificateAuthoritiesExtension$CertificateAuthoritiesSpec::*)()>(&CertificateAuthoritiesExtension$CertificateAuthoritiesSpec::getAuthorities))},
-	{"getEncodedAuthorities", "([Ljava/security/cert/X509Certificate;)Ljava/util/List;", "([Ljava/security/cert/X509Certificate;)Ljava/util/List<[B>;", $PRIVATE | $STATIC, $method(static_cast<$List*(*)($X509CertificateArray*)>(&CertificateAuthoritiesExtension$CertificateAuthoritiesSpec::getEncodedAuthorities))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/List;)V", "(Ljava/util/List<[B>;)V", $PRIVATE, $method(CertificateAuthoritiesExtension$CertificateAuthoritiesSpec, init$, void, $List*)},
+	{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE, $method(CertificateAuthoritiesExtension$CertificateAuthoritiesSpec, init$, void, $HandshakeContext*, $ByteBuffer*), "java.io.IOException"},
+	{"getAuthorities", "()[Ljavax/security/auth/x500/X500Principal;", nullptr, 0, $method(CertificateAuthoritiesExtension$CertificateAuthoritiesSpec, getAuthorities, $X500PrincipalArray*)},
+	{"getEncodedAuthorities", "([Ljava/security/cert/X509Certificate;)Ljava/util/List;", "([Ljava/security/cert/X509Certificate;)Ljava/util/List<[B>;", $PRIVATE | $STATIC, $staticMethod(CertificateAuthoritiesExtension$CertificateAuthoritiesSpec, getEncodedAuthorities, $List*, $X509CertificateArray*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CertificateAuthoritiesExtension$CertificateAuthoritiesSpec, toString, $String*)},
 	{}
 };
 

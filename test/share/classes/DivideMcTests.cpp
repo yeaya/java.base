@@ -25,11 +25,11 @@ $FieldInfo _DivideMcTests_FieldInfo_[] = {
 };
 
 $MethodInfo _DivideMcTests_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DivideMcTests::*)()>(&DivideMcTests::init$))},
-	{"initResults1", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&DivideMcTests::initResults1))},
-	{"initResults2", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&DivideMcTests::initResults2))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&DivideMcTests::main))},
-	{"mcDivideTests", "()I", nullptr, $PUBLIC | $STATIC, $method(static_cast<int32_t(*)()>(&DivideMcTests::mcDivideTests))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DivideMcTests, init$, void)},
+	{"initResults1", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(DivideMcTests, initResults1, void)},
+	{"initResults2", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(DivideMcTests, initResults2, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(DivideMcTests, main, void, $StringArray*)},
+	{"mcDivideTests", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(DivideMcTests, mcDivideTests, int32_t)},
 	{}
 };
 

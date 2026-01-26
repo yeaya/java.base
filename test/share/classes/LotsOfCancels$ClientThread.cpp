@@ -33,10 +33,10 @@ $FieldInfo _LotsOfCancels$ClientThread_FieldInfo_[] = {
 };
 
 $MethodInfo _LotsOfCancels$ClientThread_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/SocketAddress;)V", nullptr, 0, $method(static_cast<void(LotsOfCancels$ClientThread::*)($SocketAddress*)>(&LotsOfCancels$ClientThread::init$)), "java.lang.Exception"},
-	{"connectClients", "(I)V", nullptr, 0, nullptr, "java.lang.Exception"},
-	{"handleClients", "()V", nullptr, $PRIVATE, $method(static_cast<void(LotsOfCancels$ClientThread::*)()>(&LotsOfCancels$ClientThread::handleClients)), "java.lang.Exception"},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/net/SocketAddress;)V", nullptr, 0, $method(LotsOfCancels$ClientThread, init$, void, $SocketAddress*), "java.lang.Exception"},
+	{"connectClients", "(I)V", nullptr, 0, $virtualMethod(LotsOfCancels$ClientThread, connectClients, void, int32_t), "java.lang.Exception"},
+	{"handleClients", "()V", nullptr, $PRIVATE, $method(LotsOfCancels$ClientThread, handleClients, void), "java.lang.Exception"},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(LotsOfCancels$ClientThread, run, void)},
 	{}
 };
 

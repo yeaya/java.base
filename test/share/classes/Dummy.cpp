@@ -6,7 +6,7 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _Dummy_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Dummy::*)()>(&Dummy::init$))},
+	{"<init>", "()V", nullptr, 0, $method(Dummy, init$, void)},
 	{}
 };
 

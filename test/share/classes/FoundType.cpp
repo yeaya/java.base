@@ -20,8 +20,8 @@ $FieldInfo _FoundType_FieldInfo_[] = {
 };
 
 $MethodInfo _FoundType_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(FoundType::*)()>(&FoundType::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&FoundType::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(FoundType, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(FoundType, main, void, $StringArray*)},
 	{}
 };
 

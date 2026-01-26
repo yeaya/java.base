@@ -28,7 +28,7 @@ $FieldInfo _SSLKeyExchange$SSLKeyExECDHANON_FieldInfo_[] = {
 };
 
 $MethodInfo _SSLKeyExchange$SSLKeyExECDHANON_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(SSLKeyExchange$SSLKeyExECDHANON::*)()>(&SSLKeyExchange$SSLKeyExECDHANON::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(SSLKeyExchange$SSLKeyExECDHANON, init$, void)},
 	{}
 };
 

@@ -30,13 +30,13 @@ namespace sun {
 				namespace file {
 
 $MethodInfo _Handler_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Handler::*)()>(&Handler::init$))},
-	{"createFileURLConnection", "(Ljava/net/URL;Ljava/io/File;)Ljava/net/URLConnection;", nullptr, $PROTECTED},
-	{"getHost", "(Ljava/net/URL;)Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(Handler::*)($URL*)>(&Handler::getHost))},
-	{"hostsEqual", "(Ljava/net/URL;Ljava/net/URL;)Z", nullptr, $PROTECTED},
-	{"openConnection", "(Ljava/net/URL;)Ljava/net/URLConnection;", nullptr, $PUBLIC | $SYNCHRONIZED, nullptr, "java.io.IOException"},
-	{"openConnection", "(Ljava/net/URL;Ljava/net/Proxy;)Ljava/net/URLConnection;", nullptr, $PUBLIC | $SYNCHRONIZED, nullptr, "java.io.IOException"},
-	{"parseURL", "(Ljava/net/URL;Ljava/lang/String;II)V", nullptr, $PROTECTED},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Handler, init$, void)},
+	{"createFileURLConnection", "(Ljava/net/URL;Ljava/io/File;)Ljava/net/URLConnection;", nullptr, $PROTECTED, $virtualMethod(Handler, createFileURLConnection, $URLConnection*, $URL*, $File*)},
+	{"getHost", "(Ljava/net/URL;)Ljava/lang/String;", nullptr, $PRIVATE, $method(Handler, getHost, $String*, $URL*)},
+	{"hostsEqual", "(Ljava/net/URL;Ljava/net/URL;)Z", nullptr, $PROTECTED, $virtualMethod(Handler, hostsEqual, bool, $URL*, $URL*)},
+	{"openConnection", "(Ljava/net/URL;)Ljava/net/URLConnection;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Handler, openConnection, $URLConnection*, $URL*), "java.io.IOException"},
+	{"openConnection", "(Ljava/net/URL;Ljava/net/Proxy;)Ljava/net/URLConnection;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Handler, openConnection, $URLConnection*, $URL*, $Proxy*), "java.io.IOException"},
+	{"parseURL", "(Ljava/net/URL;Ljava/lang/String;II)V", nullptr, $PROTECTED, $virtualMethod(Handler, parseURL, void, $URL*, $String*, int32_t, int32_t)},
 	{}
 };
 

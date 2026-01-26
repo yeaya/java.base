@@ -38,8 +38,8 @@ $FieldInfo _CloseTimeoutChannel$AcceptorThread_FieldInfo_[] = {
 };
 
 $MethodInfo _CloseTimeoutChannel$AcceptorThread_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/channels/ServerSocketChannel;)V", nullptr, 0, $method(static_cast<void(CloseTimeoutChannel$AcceptorThread::*)($ServerSocketChannel*)>(&CloseTimeoutChannel$AcceptorThread::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/nio/channels/ServerSocketChannel;)V", nullptr, 0, $method(CloseTimeoutChannel$AcceptorThread, init$, void, $ServerSocketChannel*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(CloseTimeoutChannel$AcceptorThread, run, void)},
 	{}
 };
 

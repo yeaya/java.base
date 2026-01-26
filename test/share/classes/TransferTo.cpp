@@ -67,8 +67,8 @@ $FieldInfo TransferTo$$Lambda$lambda$ifOutIsNullThenNpeIsThrown$0::fieldInfos[2]
 	{}
 };
 $MethodInfo TransferTo$$Lambda$lambda$ifOutIsNullThenNpeIsThrown$0::methodInfos[3] = {
-	{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(static_cast<void(TransferTo$$Lambda$lambda$ifOutIsNullThenNpeIsThrown$0::*)($InputStream*)>(&TransferTo$$Lambda$lambda$ifOutIsNullThenNpeIsThrown$0::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(TransferTo$$Lambda$lambda$ifOutIsNullThenNpeIsThrown$0, init$, void, $InputStream*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TransferTo$$Lambda$lambda$ifOutIsNullThenNpeIsThrown$0, run, void)},
 	{}
 };
 $ClassInfo TransferTo$$Lambda$lambda$ifOutIsNullThenNpeIsThrown$0::classInfo$ = {
@@ -86,24 +86,24 @@ $Class* TransferTo$$Lambda$lambda$ifOutIsNullThenNpeIsThrown$0::load$($String* n
 $Class* TransferTo$$Lambda$lambda$ifOutIsNullThenNpeIsThrown$0::class$ = nullptr;
 
 $MethodInfo _TransferTo_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TransferTo::*)()>(&TransferTo::init$))},
-	{"assertThrows", "(LTransferTo$Thrower;Ljava/lang/Class;Ljava/lang/String;)V", "<T:Ljava/lang/Throwable;>(LTransferTo$Thrower;Ljava/lang/Class<TT;>;Ljava/lang/String;)V", $PUBLIC | $STATIC, $method(static_cast<void(*)($TransferTo$Thrower*,$Class*,$String*)>(&TransferTo::assertThrows))},
-	{"assertThrowsNPE", "(LTransferTo$Thrower;Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($TransferTo$Thrower*,$String*)>(&TransferTo::assertThrowsNPE))},
-	{"checkTransferredContents", "([B)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($bytes*)>(&TransferTo::checkTransferredContents)), "java.io.IOException"},
-	{"contents", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&TransferTo::contents)), "java.io.IOException"},
-	{"createRandomBytes", "(II)[B", nullptr, $PRIVATE | $STATIC, $method(static_cast<$bytes*(*)(int32_t,int32_t)>(&TransferTo::createRandomBytes))},
-	{"ifExceptionInInputNeitherStreamIsClosed", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&TransferTo::ifExceptionInInputNeitherStreamIsClosed)), "java.io.IOException"},
-	{"ifExceptionInOutputNeitherStreamIsClosed", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&TransferTo::ifExceptionInOutputNeitherStreamIsClosed)), "java.io.IOException"},
-	{"ifOutIsNullThenNpeIsThrown", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&TransferTo::ifOutIsNullThenNpeIsThrown)), "java.io.IOException"},
-	{"input", "([B)Ljava/io/InputStream;", nullptr, $PRIVATE | $STATIC | $TRANSIENT, $method(static_cast<$InputStream*(*)($bytes*)>(&TransferTo::input))},
-	{"input", "(I[B)Ljava/io/InputStream;", nullptr, $PRIVATE | $STATIC | $TRANSIENT, $method(static_cast<$InputStream*(*)(int32_t,$bytes*)>(&TransferTo::input))},
-	{"lambda$ifOutIsNullThenNpeIsThrown$0", "(Ljava/io/InputStream;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($InputStream*)>(&TransferTo::lambda$ifOutIsNullThenNpeIsThrown$0)), "java.lang.Throwable"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&TransferTo::main)), "java.io.IOException"},
-	{"onReturnInputIsAtEnd", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&TransferTo::onReturnInputIsAtEnd)), "java.io.IOException"},
-	{"onReturnNeitherStreamIsClosed", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&TransferTo::onReturnNeitherStreamIsClosed)), "java.io.IOException"},
-	{"output", "()Ljava/io/OutputStream;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$OutputStream*(*)()>(&TransferTo::output))},
-	{"output", "(I)Ljava/io/OutputStream;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$OutputStream*(*)(int32_t)>(&TransferTo::output))},
-	{"transferToThenCheckIfAnyClosed", "(Ljava/io/InputStream;Ljava/io/OutputStream;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($InputStream*,$OutputStream*)>(&TransferTo::transferToThenCheckIfAnyClosed)), "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TransferTo, init$, void)},
+	{"assertThrows", "(LTransferTo$Thrower;Ljava/lang/Class;Ljava/lang/String;)V", "<T:Ljava/lang/Throwable;>(LTransferTo$Thrower;Ljava/lang/Class<TT;>;Ljava/lang/String;)V", $PUBLIC | $STATIC, $staticMethod(TransferTo, assertThrows, void, $TransferTo$Thrower*, $Class*, $String*)},
+	{"assertThrowsNPE", "(LTransferTo$Thrower;Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TransferTo, assertThrowsNPE, void, $TransferTo$Thrower*, $String*)},
+	{"checkTransferredContents", "([B)V", nullptr, $PRIVATE | $STATIC, $staticMethod(TransferTo, checkTransferredContents, void, $bytes*), "java.io.IOException"},
+	{"contents", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(TransferTo, contents, void), "java.io.IOException"},
+	{"createRandomBytes", "(II)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(TransferTo, createRandomBytes, $bytes*, int32_t, int32_t)},
+	{"ifExceptionInInputNeitherStreamIsClosed", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(TransferTo, ifExceptionInInputNeitherStreamIsClosed, void), "java.io.IOException"},
+	{"ifExceptionInOutputNeitherStreamIsClosed", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(TransferTo, ifExceptionInOutputNeitherStreamIsClosed, void), "java.io.IOException"},
+	{"ifOutIsNullThenNpeIsThrown", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(TransferTo, ifOutIsNullThenNpeIsThrown, void), "java.io.IOException"},
+	{"input", "([B)Ljava/io/InputStream;", nullptr, $PRIVATE | $STATIC | $TRANSIENT, $staticMethod(TransferTo, input, $InputStream*, $bytes*)},
+	{"input", "(I[B)Ljava/io/InputStream;", nullptr, $PRIVATE | $STATIC | $TRANSIENT, $staticMethod(TransferTo, input, $InputStream*, int32_t, $bytes*)},
+	{"lambda$ifOutIsNullThenNpeIsThrown$0", "(Ljava/io/InputStream;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TransferTo, lambda$ifOutIsNullThenNpeIsThrown$0, void, $InputStream*), "java.lang.Throwable"},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TransferTo, main, void, $StringArray*), "java.io.IOException"},
+	{"onReturnInputIsAtEnd", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(TransferTo, onReturnInputIsAtEnd, void), "java.io.IOException"},
+	{"onReturnNeitherStreamIsClosed", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(TransferTo, onReturnNeitherStreamIsClosed, void), "java.io.IOException"},
+	{"output", "()Ljava/io/OutputStream;", nullptr, $PRIVATE | $STATIC, $staticMethod(TransferTo, output, $OutputStream*)},
+	{"output", "(I)Ljava/io/OutputStream;", nullptr, $PRIVATE | $STATIC, $staticMethod(TransferTo, output, $OutputStream*, int32_t)},
+	{"transferToThenCheckIfAnyClosed", "(Ljava/io/InputStream;Ljava/io/OutputStream;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(TransferTo, transferToThenCheckIfAnyClosed, void, $InputStream*, $OutputStream*), "java.io.IOException"},
 	{}
 };
 

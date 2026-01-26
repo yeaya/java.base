@@ -20,13 +20,13 @@ $FieldInfo _RC2ParameterSpec_FieldInfo_[] = {
 };
 
 $MethodInfo _RC2ParameterSpec_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(static_cast<void(RC2ParameterSpec::*)(int32_t)>(&RC2ParameterSpec::init$))},
-	{"<init>", "(I[B)V", nullptr, $PUBLIC, $method(static_cast<void(RC2ParameterSpec::*)(int32_t,$bytes*)>(&RC2ParameterSpec::init$))},
-	{"<init>", "(I[BI)V", nullptr, $PUBLIC, $method(static_cast<void(RC2ParameterSpec::*)(int32_t,$bytes*,int32_t)>(&RC2ParameterSpec::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getEffectiveKeyBits", "()I", nullptr, $PUBLIC},
-	{"getIV", "()[B", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
+	{"<init>", "(I)V", nullptr, $PUBLIC, $method(RC2ParameterSpec, init$, void, int32_t)},
+	{"<init>", "(I[B)V", nullptr, $PUBLIC, $method(RC2ParameterSpec, init$, void, int32_t, $bytes*)},
+	{"<init>", "(I[BI)V", nullptr, $PUBLIC, $method(RC2ParameterSpec, init$, void, int32_t, $bytes*, int32_t)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(RC2ParameterSpec, equals, bool, Object$*)},
+	{"getEffectiveKeyBits", "()I", nullptr, $PUBLIC, $virtualMethod(RC2ParameterSpec, getEffectiveKeyBits, int32_t)},
+	{"getIV", "()[B", nullptr, $PUBLIC, $virtualMethod(RC2ParameterSpec, getIV, $bytes*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(RC2ParameterSpec, hashCode, int32_t)},
 	{}
 };
 

@@ -22,12 +22,12 @@ $FieldInfo _CountDownLatch_FieldInfo_[] = {
 };
 
 $MethodInfo _CountDownLatch_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(static_cast<void(CountDownLatch::*)(int32_t)>(&CountDownLatch::init$))},
-	{"await", "()V", nullptr, $PUBLIC, nullptr, "java.lang.InterruptedException"},
-	{"await", "(JLjava/util/concurrent/TimeUnit;)Z", nullptr, $PUBLIC, nullptr, "java.lang.InterruptedException"},
-	{"countDown", "()V", nullptr, $PUBLIC},
-	{"getCount", "()J", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(I)V", nullptr, $PUBLIC, $method(CountDownLatch, init$, void, int32_t)},
+	{"await", "()V", nullptr, $PUBLIC, $virtualMethod(CountDownLatch, await, void), "java.lang.InterruptedException"},
+	{"await", "(JLjava/util/concurrent/TimeUnit;)Z", nullptr, $PUBLIC, $virtualMethod(CountDownLatch, await, bool, int64_t, $TimeUnit*), "java.lang.InterruptedException"},
+	{"countDown", "()V", nullptr, $PUBLIC, $virtualMethod(CountDownLatch, countDown, void)},
+	{"getCount", "()J", nullptr, $PUBLIC, $virtualMethod(CountDownLatch, getCount, int64_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CountDownLatch, toString, $String*)},
 	{}
 };
 

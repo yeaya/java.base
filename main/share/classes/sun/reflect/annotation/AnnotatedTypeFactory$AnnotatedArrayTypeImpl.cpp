@@ -43,14 +43,14 @@ $MethodInfo _AnnotatedTypeFactory$AnnotatedArrayTypeImpl_MethodInfo_[] = {
 	{"*getDeclaredAnnotations", "()[Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC | $FINAL},
 	{"*getDeclaredAnnotationsByType", "(Ljava/lang/Class;)[Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC | $FINAL},
 	{"*getType", "()Ljava/lang/reflect/Type;", nullptr, $PUBLIC | $FINAL},
-	{"<init>", "(Ljava/lang/reflect/Type;Lsun/reflect/annotation/TypeAnnotation$LocationInfo;[Lsun/reflect/annotation/TypeAnnotation;[Lsun/reflect/annotation/TypeAnnotation;Ljava/lang/reflect/AnnotatedElement;)V", nullptr, 0, $method(static_cast<void(AnnotatedTypeFactory$AnnotatedArrayTypeImpl::*)($Type*,$TypeAnnotation$LocationInfo*,$TypeAnnotationArray*,$TypeAnnotationArray*,$AnnotatedElement*)>(&AnnotatedTypeFactory$AnnotatedArrayTypeImpl::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getAnnotatedGenericComponentType", "()Ljava/lang/reflect/AnnotatedType;", nullptr, $PUBLIC},
-	{"getAnnotatedOwnerType", "()Ljava/lang/reflect/AnnotatedType;", nullptr, $PUBLIC},
-	{"getComponentType", "()Ljava/lang/reflect/Type;", nullptr, $PRIVATE, $method(static_cast<$Type*(AnnotatedTypeFactory$AnnotatedArrayTypeImpl::*)()>(&AnnotatedTypeFactory$AnnotatedArrayTypeImpl::getComponentType))},
-	{"hashCode", "()I", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/reflect/Type;Lsun/reflect/annotation/TypeAnnotation$LocationInfo;[Lsun/reflect/annotation/TypeAnnotation;[Lsun/reflect/annotation/TypeAnnotation;Ljava/lang/reflect/AnnotatedElement;)V", nullptr, 0, $method(AnnotatedTypeFactory$AnnotatedArrayTypeImpl, init$, void, $Type*, $TypeAnnotation$LocationInfo*, $TypeAnnotationArray*, $TypeAnnotationArray*, $AnnotatedElement*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(AnnotatedTypeFactory$AnnotatedArrayTypeImpl, equals, bool, Object$*)},
+	{"getAnnotatedGenericComponentType", "()Ljava/lang/reflect/AnnotatedType;", nullptr, $PUBLIC, $virtualMethod(AnnotatedTypeFactory$AnnotatedArrayTypeImpl, getAnnotatedGenericComponentType, $AnnotatedType*)},
+	{"getAnnotatedOwnerType", "()Ljava/lang/reflect/AnnotatedType;", nullptr, $PUBLIC, $virtualMethod(AnnotatedTypeFactory$AnnotatedArrayTypeImpl, getAnnotatedOwnerType, $AnnotatedType*)},
+	{"getComponentType", "()Ljava/lang/reflect/Type;", nullptr, $PRIVATE, $method(AnnotatedTypeFactory$AnnotatedArrayTypeImpl, getComponentType, $Type*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(AnnotatedTypeFactory$AnnotatedArrayTypeImpl, hashCode, int32_t)},
 	{"*isAnnotationPresent", "(Ljava/lang/Class;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AnnotatedTypeFactory$AnnotatedArrayTypeImpl, toString, $String*)},
 	{}
 };
 

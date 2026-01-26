@@ -13,7 +13,7 @@ namespace jdk {
 			namespace vector {
 
 $MethodInfo _VectorSupport$VecExtractOp_MethodInfo_[] = {
-	{"apply", "(Ljava/lang/Object;I)J", "(TV;I)J", $PUBLIC | $ABSTRACT},
+	{"apply", "(Ljava/lang/Object;I)J", "(TV;I)J", $PUBLIC | $ABSTRACT, $virtualMethod(VectorSupport$VecExtractOp, apply, int64_t, Object$*, int32_t)},
 	{}
 };
 

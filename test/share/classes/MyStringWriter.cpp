@@ -8,7 +8,7 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _MyStringWriter_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, 0, $method(static_cast<void(MyStringWriter::*)(int32_t)>(&MyStringWriter::init$))},
+	{"<init>", "(I)V", nullptr, 0, $method(MyStringWriter, init$, void, int32_t)},
 	{}
 };
 

@@ -26,8 +26,8 @@ $FieldInfo _LotsOfWrites_FieldInfo_[] = {
 };
 
 $MethodInfo _LotsOfWrites_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(LotsOfWrites::*)()>(&LotsOfWrites::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&LotsOfWrites::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(LotsOfWrites, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(LotsOfWrites, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

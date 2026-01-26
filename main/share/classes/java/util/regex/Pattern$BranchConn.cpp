@@ -20,9 +20,9 @@ namespace java {
 		namespace regex {
 
 $MethodInfo _Pattern$BranchConn_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Pattern$BranchConn::*)()>(&Pattern$BranchConn::init$))},
-	{"match", "(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z", nullptr, 0},
-	{"study", "(Ljava/util/regex/Pattern$TreeInfo;)Z", nullptr, 0},
+	{"<init>", "()V", nullptr, 0, $method(Pattern$BranchConn, init$, void)},
+	{"match", "(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z", nullptr, 0, $virtualMethod(Pattern$BranchConn, match, bool, $Matcher*, int32_t, $CharSequence*)},
+	{"study", "(Ljava/util/regex/Pattern$TreeInfo;)Z", nullptr, 0, $virtualMethod(Pattern$BranchConn, study, bool, $Pattern$TreeInfo*)},
 	{}
 };
 

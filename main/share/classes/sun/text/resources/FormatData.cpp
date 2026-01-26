@@ -13,8 +13,8 @@ namespace sun {
 		namespace resources {
 
 $MethodInfo _FormatData_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(FormatData::*)()>(&FormatData::init$))},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(FormatData, init$, void)},
+	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(FormatData, getContents, $ObjectArray2*)},
 	{}
 };
 

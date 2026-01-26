@@ -15,8 +15,8 @@ namespace sun {
 		namespace pkcs12 {
 
 $MethodInfo _PKCS12KeyStore$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(PKCS12KeyStore$1::*)()>(&PKCS12KeyStore$1::init$))},
-	{"run", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(PKCS12KeyStore$1, init$, void)},
+	{"run", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PKCS12KeyStore$1, run, $Object*)},
 	{}
 };
 

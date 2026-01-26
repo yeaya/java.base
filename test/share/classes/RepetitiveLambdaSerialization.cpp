@@ -45,8 +45,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo RepetitiveLambdaSerialization$$Lambda$lambda$main$4db77a28$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(RepetitiveLambdaSerialization$$Lambda$lambda$main$4db77a28$1::*)()>(&RepetitiveLambdaSerialization$$Lambda$lambda$main$4db77a28$1::init$))},
-	{"convert", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(RepetitiveLambdaSerialization$$Lambda$lambda$main$4db77a28$1, init$, void)},
+	{"convert", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RepetitiveLambdaSerialization$$Lambda$lambda$main$4db77a28$1, convert, $String*, $String*)},
 	{}
 };
 $ClassInfo RepetitiveLambdaSerialization$$Lambda$lambda$main$4db77a28$1::classInfo$ = {
@@ -69,10 +69,10 @@ $FieldInfo _RepetitiveLambdaSerialization_FieldInfo_[] = {
 };
 
 $MethodInfo _RepetitiveLambdaSerialization_MethodInfo_[] = {
-	{"$deserializeLambda$", "(Ljava/lang/invoke/SerializedLambda;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Object*(*)($SerializedLambda*)>(&RepetitiveLambdaSerialization::$deserializeLambda$))},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(RepetitiveLambdaSerialization::*)()>(&RepetitiveLambdaSerialization::init$))},
-	{"lambda$main$4db77a28$1", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$String*(*)($String*)>(&RepetitiveLambdaSerialization::lambda$main$4db77a28$1))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&RepetitiveLambdaSerialization::main)), "java.lang.Exception"},
+	{"$deserializeLambda$", "(Ljava/lang/invoke/SerializedLambda;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(RepetitiveLambdaSerialization, $deserializeLambda$, $Object*, $SerializedLambda*)},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(RepetitiveLambdaSerialization, init$, void)},
+	{"lambda$main$4db77a28$1", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(RepetitiveLambdaSerialization, lambda$main$4db77a28$1, $String*, $String*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(RepetitiveLambdaSerialization, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

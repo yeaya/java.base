@@ -15,9 +15,9 @@ namespace java {
 		namespace invoke {
 
 $MethodInfo _VarHandle$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(VarHandle$1::*)()>(&VarHandle$1::init$))},
-	{"apply", "(Ljava/lang/String;)Ljava/lang/ArrayIndexOutOfBoundsException;", nullptr, $PUBLIC},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "()V", nullptr, 0, $method(VarHandle$1, init$, void)},
+	{"apply", "(Ljava/lang/String;)Ljava/lang/ArrayIndexOutOfBoundsException;", nullptr, $PUBLIC, $virtualMethod(VarHandle$1, apply, $ArrayIndexOutOfBoundsException*, $String*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(VarHandle$1, apply, $Object*, Object$*)},
 	{}
 };
 

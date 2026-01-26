@@ -15,8 +15,8 @@ using $InetAddress = ::java::net::InetAddress;
 using $MulticastSocket = ::java::net::MulticastSocket;
 
 $MethodInfo _MulticastTTL_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(MulticastTTL::*)()>(&MulticastTTL::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&MulticastTTL::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(MulticastTTL, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(MulticastTTL, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

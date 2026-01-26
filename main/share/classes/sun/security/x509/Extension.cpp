@@ -34,21 +34,21 @@ $FieldInfo _Extension_FieldInfo_[] = {
 };
 
 $MethodInfo _Extension_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Extension::*)()>(&Extension::init$))},
-	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(static_cast<void(Extension::*)($DerValue*)>(&Extension::init$)), "java.io.IOException"},
-	{"<init>", "(Lsun/security/util/ObjectIdentifier;Z[B)V", nullptr, $PUBLIC, $method(static_cast<void(Extension::*)($ObjectIdentifier*,bool,$bytes*)>(&Extension::init$)), "java.io.IOException"},
-	{"<init>", "(Lsun/security/x509/Extension;)V", nullptr, $PUBLIC, $method(static_cast<void(Extension::*)(Extension*)>(&Extension::init$))},
-	{"encode", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"encode", "(Lsun/security/util/DerOutputStream;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getExtensionId", "()Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC},
-	{"getExtensionValue", "()[B", nullptr, $PUBLIC},
-	{"getId", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getValue", "()[B", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"isCritical", "()Z", nullptr, $PUBLIC},
-	{"newExtension", "(Lsun/security/util/ObjectIdentifier;Z[B)Lsun/security/x509/Extension;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Extension*(*)($ObjectIdentifier*,bool,$bytes*)>(&Extension::newExtension)), "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Extension, init$, void)},
+	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(Extension, init$, void, $DerValue*), "java.io.IOException"},
+	{"<init>", "(Lsun/security/util/ObjectIdentifier;Z[B)V", nullptr, $PUBLIC, $method(Extension, init$, void, $ObjectIdentifier*, bool, $bytes*), "java.io.IOException"},
+	{"<init>", "(Lsun/security/x509/Extension;)V", nullptr, $PUBLIC, $method(Extension, init$, void, Extension*)},
+	{"encode", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(Extension, encode, void, $OutputStream*), "java.io.IOException"},
+	{"encode", "(Lsun/security/util/DerOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(Extension, encode, void, $DerOutputStream*), "java.io.IOException"},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Extension, equals, bool, Object$*)},
+	{"getExtensionId", "()Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC, $virtualMethod(Extension, getExtensionId, $ObjectIdentifier*)},
+	{"getExtensionValue", "()[B", nullptr, $PUBLIC, $virtualMethod(Extension, getExtensionValue, $bytes*)},
+	{"getId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Extension, getId, $String*)},
+	{"getValue", "()[B", nullptr, $PUBLIC, $virtualMethod(Extension, getValue, $bytes*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Extension, hashCode, int32_t)},
+	{"isCritical", "()Z", nullptr, $PUBLIC, $virtualMethod(Extension, isCritical, bool)},
+	{"newExtension", "(Lsun/security/util/ObjectIdentifier;Z[B)Lsun/security/x509/Extension;", nullptr, $PUBLIC | $STATIC, $staticMethod(Extension, newExtension, Extension*, $ObjectIdentifier*, bool, $bytes*), "java.io.IOException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Extension, toString, $String*)},
 	{}
 };
 

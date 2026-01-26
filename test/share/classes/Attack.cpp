@@ -25,11 +25,11 @@ $FieldInfo _Attack_FieldInfo_[] = {
 };
 
 $MethodInfo _Attack_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Attack::*)()>(&Attack::init$))},
-	{"Attack", "()V", nullptr, $PUBLIC},
-	{"failedDueToSecurityException", "()Z", nullptr, $PUBLIC},
-	{"run", "()V", nullptr, $PUBLIC},
-	{"waitUntilDone", "()V", nullptr, $PUBLIC, nullptr, "java.lang.InterruptedException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Attack, init$, void)},
+	{"Attack", "()V", nullptr, $PUBLIC, $virtualMethod(Attack, Attack$, void)},
+	{"failedDueToSecurityException", "()Z", nullptr, $PUBLIC, $virtualMethod(Attack, failedDueToSecurityException, bool)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Attack, run, void)},
+	{"waitUntilDone", "()V", nullptr, $PUBLIC, $virtualMethod(Attack, waitUntilDone, void), "java.lang.InterruptedException"},
 	{}
 };
 

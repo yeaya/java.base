@@ -86,22 +86,22 @@ $FieldInfo _NativeLibraries_FieldInfo_[] = {
 };
 
 $MethodInfo _NativeLibraries_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/ClassLoader;)V", nullptr, $PRIVATE, $method(static_cast<void(NativeLibraries::*)($ClassLoader*)>(&NativeLibraries::init$))},
-	{"<init>", "(Ljava/lang/Class;Z)V", "(Ljava/lang/Class<*>;Z)V", $PRIVATE, $method(static_cast<void(NativeLibraries::*)($Class*,bool)>(&NativeLibraries::init$))},
-	{"find", "(Ljava/lang/String;)J", nullptr, $PUBLIC, $method(static_cast<int64_t(NativeLibraries::*)($String*)>(&NativeLibraries::find))},
-	{"findBuiltinLib", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $NATIVE, $method(static_cast<$String*(*)($String*)>(&NativeLibraries::findBuiltinLib))},
-	{"findEntry0", "(Ljdk/internal/loader/NativeLibraries$NativeLibraryImpl;Ljava/lang/String;)J", nullptr, $PRIVATE | $STATIC | $NATIVE, $method(static_cast<int64_t(*)($NativeLibraries$NativeLibraryImpl*,$String*)>(&NativeLibraries::findEntry0))},
-	{"findFromPaths", "([Ljava/lang/String;Ljava/lang/Class;Ljava/lang/String;)Ljdk/internal/loader/NativeLibrary;", "([Ljava/lang/String;Ljava/lang/Class<*>;Ljava/lang/String;)Ljdk/internal/loader/NativeLibrary;", $PRIVATE, $method(static_cast<$NativeLibrary*(NativeLibraries::*)($StringArray*,$Class*,$String*)>(&NativeLibraries::findFromPaths))},
-	{"getFromClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PRIVATE | $STATIC, $method(static_cast<$Class*(*)()>(&NativeLibraries::getFromClass))},
-	{"jniNativeLibraries", "(Ljava/lang/ClassLoader;)Ljdk/internal/loader/NativeLibraries;", nullptr, $PUBLIC | $STATIC, $method(static_cast<NativeLibraries*(*)($ClassLoader*)>(&NativeLibraries::jniNativeLibraries))},
-	{"load", "(Ljdk/internal/loader/NativeLibraries$NativeLibraryImpl;Ljava/lang/String;ZZ)Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $method(static_cast<bool(*)($NativeLibraries$NativeLibraryImpl*,$String*,bool,bool)>(&NativeLibraries::load))},
-	{"loadLibrary", "(Ljava/lang/Class;Ljava/io/File;)Ljdk/internal/loader/NativeLibrary;", "(Ljava/lang/Class<*>;Ljava/io/File;)Ljdk/internal/loader/NativeLibrary;", $PUBLIC, $method(static_cast<$NativeLibrary*(NativeLibraries::*)($Class*,$File*)>(&NativeLibraries::loadLibrary))},
-	{"loadLibrary", "(Ljava/lang/Class;Ljava/lang/String;Z)Ljdk/internal/loader/NativeLibrary;", "(Ljava/lang/Class<*>;Ljava/lang/String;Z)Ljdk/internal/loader/NativeLibrary;", $PRIVATE, $method(static_cast<$NativeLibrary*(NativeLibraries::*)($Class*,$String*,bool)>(&NativeLibraries::loadLibrary))},
-	{"loadLibrary", "(Ljava/lang/String;)Ljdk/internal/loader/NativeLibrary;", nullptr, $PUBLIC, $method(static_cast<$NativeLibrary*(NativeLibraries::*)($String*)>(&NativeLibraries::loadLibrary))},
-	{"loadLibrary", "(Ljava/lang/Class;Ljava/lang/String;)Ljdk/internal/loader/NativeLibrary;", "(Ljava/lang/Class<*>;Ljava/lang/String;)Ljdk/internal/loader/NativeLibrary;", $PUBLIC, $method(static_cast<$NativeLibrary*(NativeLibraries::*)($Class*,$String*)>(&NativeLibraries::loadLibrary))},
-	{"rawNativeLibraries", "(Ljava/lang/Class;Z)Ljdk/internal/loader/NativeLibraries;", "(Ljava/lang/Class<*>;Z)Ljdk/internal/loader/NativeLibraries;", $PUBLIC | $STATIC, $method(static_cast<NativeLibraries*(*)($Class*,bool)>(&NativeLibraries::rawNativeLibraries))},
-	{"unload", "(Ljdk/internal/loader/NativeLibrary;)V", nullptr, $PUBLIC, $method(static_cast<void(NativeLibraries::*)($NativeLibrary*)>(&NativeLibraries::unload))},
-	{"unload", "(Ljava/lang/String;ZZJ)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $method(static_cast<void(*)($String*,bool,bool,int64_t)>(&NativeLibraries::unload))},
+	{"<init>", "(Ljava/lang/ClassLoader;)V", nullptr, $PRIVATE, $method(NativeLibraries, init$, void, $ClassLoader*)},
+	{"<init>", "(Ljava/lang/Class;Z)V", "(Ljava/lang/Class<*>;Z)V", $PRIVATE, $method(NativeLibraries, init$, void, $Class*, bool)},
+	{"find", "(Ljava/lang/String;)J", nullptr, $PUBLIC, $method(NativeLibraries, find, int64_t, $String*)},
+	{"findBuiltinLib", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(NativeLibraries, findBuiltinLib, $String*, $String*)},
+	{"findEntry0", "(Ljdk/internal/loader/NativeLibraries$NativeLibraryImpl;Ljava/lang/String;)J", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(NativeLibraries, findEntry0, int64_t, $NativeLibraries$NativeLibraryImpl*, $String*)},
+	{"findFromPaths", "([Ljava/lang/String;Ljava/lang/Class;Ljava/lang/String;)Ljdk/internal/loader/NativeLibrary;", "([Ljava/lang/String;Ljava/lang/Class<*>;Ljava/lang/String;)Ljdk/internal/loader/NativeLibrary;", $PRIVATE, $method(NativeLibraries, findFromPaths, $NativeLibrary*, $StringArray*, $Class*, $String*)},
+	{"getFromClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PRIVATE | $STATIC, $staticMethod(NativeLibraries, getFromClass, $Class*)},
+	{"jniNativeLibraries", "(Ljava/lang/ClassLoader;)Ljdk/internal/loader/NativeLibraries;", nullptr, $PUBLIC | $STATIC, $staticMethod(NativeLibraries, jniNativeLibraries, NativeLibraries*, $ClassLoader*)},
+	{"load", "(Ljdk/internal/loader/NativeLibraries$NativeLibraryImpl;Ljava/lang/String;ZZ)Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(NativeLibraries, load, bool, $NativeLibraries$NativeLibraryImpl*, $String*, bool, bool)},
+	{"loadLibrary", "(Ljava/lang/Class;Ljava/io/File;)Ljdk/internal/loader/NativeLibrary;", "(Ljava/lang/Class<*>;Ljava/io/File;)Ljdk/internal/loader/NativeLibrary;", $PUBLIC, $method(NativeLibraries, loadLibrary, $NativeLibrary*, $Class*, $File*)},
+	{"loadLibrary", "(Ljava/lang/Class;Ljava/lang/String;Z)Ljdk/internal/loader/NativeLibrary;", "(Ljava/lang/Class<*>;Ljava/lang/String;Z)Ljdk/internal/loader/NativeLibrary;", $PRIVATE, $method(NativeLibraries, loadLibrary, $NativeLibrary*, $Class*, $String*, bool)},
+	{"loadLibrary", "(Ljava/lang/String;)Ljdk/internal/loader/NativeLibrary;", nullptr, $PUBLIC, $method(NativeLibraries, loadLibrary, $NativeLibrary*, $String*)},
+	{"loadLibrary", "(Ljava/lang/Class;Ljava/lang/String;)Ljdk/internal/loader/NativeLibrary;", "(Ljava/lang/Class<*>;Ljava/lang/String;)Ljdk/internal/loader/NativeLibrary;", $PUBLIC, $method(NativeLibraries, loadLibrary, $NativeLibrary*, $Class*, $String*)},
+	{"rawNativeLibraries", "(Ljava/lang/Class;Z)Ljdk/internal/loader/NativeLibraries;", "(Ljava/lang/Class<*>;Z)Ljdk/internal/loader/NativeLibraries;", $PUBLIC | $STATIC, $staticMethod(NativeLibraries, rawNativeLibraries, NativeLibraries*, $Class*, bool)},
+	{"unload", "(Ljdk/internal/loader/NativeLibrary;)V", nullptr, $PUBLIC, $method(NativeLibraries, unload, void, $NativeLibrary*)},
+	{"unload", "(Ljava/lang/String;ZZJ)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(NativeLibraries, unload, void, $String*, bool, bool, int64_t)},
 	{}
 };
 

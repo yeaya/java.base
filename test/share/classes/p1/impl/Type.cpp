@@ -9,7 +9,7 @@ namespace p1 {
 	namespace impl {
 
 $MethodInfo _Type_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Type::*)()>(&Type::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Type, init$, void)},
 	{}
 };
 

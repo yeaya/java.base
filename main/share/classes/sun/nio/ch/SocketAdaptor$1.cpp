@@ -29,11 +29,11 @@ $FieldInfo _SocketAdaptor$1_FieldInfo_[] = {
 };
 
 $MethodInfo _SocketAdaptor$1_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/ch/SocketAdaptor;)V", nullptr, 0, $method(static_cast<void(SocketAdaptor$1::*)($SocketAdaptor*)>(&SocketAdaptor$1::init$))},
-	{"available", "()I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"read", "()I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"read", "([BII)I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Lsun/nio/ch/SocketAdaptor;)V", nullptr, 0, $method(SocketAdaptor$1, init$, void, $SocketAdaptor*)},
+	{"available", "()I", nullptr, $PUBLIC, $virtualMethod(SocketAdaptor$1, available, int32_t), "java.io.IOException"},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(SocketAdaptor$1, close, void), "java.io.IOException"},
+	{"read", "()I", nullptr, $PUBLIC, $virtualMethod(SocketAdaptor$1, read, int32_t), "java.io.IOException"},
+	{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(SocketAdaptor$1, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
 	{}
 };
 

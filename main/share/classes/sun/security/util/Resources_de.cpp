@@ -19,8 +19,8 @@ $FieldInfo _Resources_de_FieldInfo_[] = {
 };
 
 $MethodInfo _Resources_de_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Resources_de::*)()>(&Resources_de::init$))},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Resources_de, init$, void)},
+	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Resources_de, getContents, $ObjectArray2*)},
 	{}
 };
 

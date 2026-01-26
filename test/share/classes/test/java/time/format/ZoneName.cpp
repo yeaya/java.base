@@ -31,9 +31,9 @@ $FieldInfo _ZoneName_FieldInfo_[] = {
 };
 
 $MethodInfo _ZoneName_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ZoneName::*)()>(&ZoneName::init$))},
-	{"toZid", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)($String*,$Locale*)>(&ZoneName::toZid))},
-	{"toZid", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)($String*)>(&ZoneName::toZid))},
+	{"<init>", "()V", nullptr, 0, $method(ZoneName, init$, void)},
+	{"toZid", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(ZoneName, toZid, $String*, $String*, $Locale*)},
+	{"toZid", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(ZoneName, toZid, $String*, $String*)},
 	{}
 };
 

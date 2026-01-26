@@ -3,6 +3,7 @@
 #include <java/io/OutputStream.h>
 #include <jcpp.h>
 
+using $OutputStream = ::java::io::OutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
@@ -11,10 +12,10 @@ namespace java {
 		namespace cert {
 
 $MethodInfo _Extension_MethodInfo_[] = {
-	{"encode", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"getId", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getValue", "()[B", nullptr, $PUBLIC | $ABSTRACT},
-	{"isCritical", "()Z", nullptr, $PUBLIC | $ABSTRACT},
+	{"encode", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Extension, encode, void, $OutputStream*), "java.io.IOException"},
+	{"getId", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Extension, getId, $String*)},
+	{"getValue", "()[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Extension, getValue, $bytes*)},
+	{"isCritical", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Extension, isCritical, bool)},
 	{}
 };
 

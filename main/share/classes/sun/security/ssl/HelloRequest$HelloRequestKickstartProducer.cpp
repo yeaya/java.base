@@ -32,8 +32,8 @@ namespace sun {
 		namespace ssl {
 
 $MethodInfo _HelloRequest$HelloRequestKickstartProducer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(HelloRequest$HelloRequestKickstartProducer::*)()>(&HelloRequest$HelloRequestKickstartProducer::init$))},
-	{"produce", "(Lsun/security/ssl/ConnectionContext;)[B", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(HelloRequest$HelloRequestKickstartProducer, init$, void)},
+	{"produce", "(Lsun/security/ssl/ConnectionContext;)[B", nullptr, $PUBLIC, $virtualMethod(HelloRequest$HelloRequestKickstartProducer, produce, $bytes*, $ConnectionContext*), "java.io.IOException"},
 	{}
 };
 

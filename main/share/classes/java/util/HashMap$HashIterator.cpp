@@ -31,10 +31,10 @@ $FieldInfo _HashMap$HashIterator_FieldInfo_[] = {
 };
 
 $MethodInfo _HashMap$HashIterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/HashMap;)V", nullptr, 0, $method(static_cast<void(HashMap$HashIterator::*)($HashMap*)>(&HashMap$HashIterator::init$))},
-	{"hasNext", "()Z", nullptr, $PUBLIC | $FINAL, $method(static_cast<bool(HashMap$HashIterator::*)()>(&HashMap$HashIterator::hasNext))},
-	{"nextNode", "()Ljava/util/HashMap$Node;", "()Ljava/util/HashMap$Node<TK;TV;>;", $FINAL, $method(static_cast<$HashMap$Node*(HashMap$HashIterator::*)()>(&HashMap$HashIterator::nextNode))},
-	{"remove", "()V", nullptr, $PUBLIC | $FINAL, $method(static_cast<void(HashMap$HashIterator::*)()>(&HashMap$HashIterator::remove))},
+	{"<init>", "(Ljava/util/HashMap;)V", nullptr, 0, $method(HashMap$HashIterator, init$, void, $HashMap*)},
+	{"hasNext", "()Z", nullptr, $PUBLIC | $FINAL, $method(HashMap$HashIterator, hasNext, bool)},
+	{"nextNode", "()Ljava/util/HashMap$Node;", "()Ljava/util/HashMap$Node<TK;TV;>;", $FINAL, $method(HashMap$HashIterator, nextNode, $HashMap$Node*)},
+	{"remove", "()V", nullptr, $PUBLIC | $FINAL, $method(HashMap$HashIterator, remove, void)},
 	{}
 };
 

@@ -21,7 +21,7 @@
 #include <java/lang/ShortArray.h>
 
 #include <java/lang/ArrayIndexOutOfBoundsException.h>
-#include <java/lang/NegativeArraySizeException.h>
+#include <java/lang/Machine.h>
 #include <jcpp.h>
 #include <string.h>
 
@@ -31,7 +31,7 @@ namespace java {
 Class* ShortArray::class$ = nullptr;
 
 MethodInfo _ShortArray_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(static_cast<void(ShortArray::*)(int32_t)>(&ShortArray::init$))},
+	{"<init>", "(I)V", nullptr, $PUBLIC, $method(ShortArray, init$, void, int32_t)},
 	{}
 };
 
@@ -120,19 +120,16 @@ ShortArray* ShortArray::subArray(int32_t index, int32_t length) const {
 }
 
 void ShortArray::check(int32_t index) const {
-	if ((uint32_t)index >= (uint32_t)length) { \
-		$nullcheck(this); \
-		$throwNew(ArrayIndexOutOfBoundsException, index); \
+	if ((uint32_t)index >= (uint32_t)length) {
+		$throwNew(ArrayIndexOutOfBoundsException, index);
 	}
 }
 
 void ShortArray::check(int32_t index, int32_t length) const {
 	if (index < 0) {
-		$nullcheck(this);
 		$throwNew(ArrayIndexOutOfBoundsException, index);
 	}
 	if (index + length > this->length) {
-		$nullcheck(this);
 		$throwNew(ArrayIndexOutOfBoundsException, index + length);
 	}
 }
@@ -171,7 +168,7 @@ bool ShortArray::equals(ShortArray* x, ShortArray* y) {
 
 Class* ShortArray::load$(String* name, bool initialize) {
 	int64_t arrayBaseSize = sizeof(ShortArray) - sizeof(ShortArray::data);
-	Class::loadClass(&class$, arrayBaseSize, $getMark(ShortArray), &_ShortArray_ClassInfo_);
+	Machine::loadClass(&class$, arrayBaseSize, $getMark(ShortArray), &_ShortArray_ClassInfo_);
 	return class$;
 }
 

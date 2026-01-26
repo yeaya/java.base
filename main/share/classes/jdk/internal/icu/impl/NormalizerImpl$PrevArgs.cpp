@@ -23,7 +23,7 @@ $FieldInfo _NormalizerImpl$PrevArgs_FieldInfo_[] = {
 };
 
 $MethodInfo _NormalizerImpl$PrevArgs_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(NormalizerImpl$PrevArgs::*)()>(&NormalizerImpl$PrevArgs::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(NormalizerImpl$PrevArgs, init$, void)},
 	{}
 };
 

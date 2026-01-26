@@ -22,15 +22,15 @@ $FieldInfo _LinkOption_FieldInfo_[] = {
 };
 
 $MethodInfo _LinkOption_MethodInfo_[] = {
-	{"$values", "()[Ljava/nio/file/LinkOption;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$LinkOptionArray*(*)()>(&LinkOption::$values))},
+	{"$values", "()[Ljava/nio/file/LinkOption;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LinkOption, $values, $LinkOptionArray*)},
 	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
 	{"*finalize", "()V", nullptr, $PROTECTED | $FINAL},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(LinkOption::*)($String*,int32_t)>(&LinkOption::init$))},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(LinkOption, init$, void, $String*, int32_t)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"valueOf", "(Ljava/lang/String;)Ljava/nio/file/LinkOption;", nullptr, $PUBLIC | $STATIC, $method(static_cast<LinkOption*(*)($String*)>(&LinkOption::valueOf))},
-	{"values", "()[Ljava/nio/file/LinkOption;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$LinkOptionArray*(*)()>(&LinkOption::values))},
+	{"valueOf", "(Ljava/lang/String;)Ljava/nio/file/LinkOption;", nullptr, $PUBLIC | $STATIC, $staticMethod(LinkOption, valueOf, LinkOption*, $String*)},
+	{"values", "()[Ljava/nio/file/LinkOption;", nullptr, $PUBLIC | $STATIC, $staticMethod(LinkOption, values, $LinkOptionArray*)},
 	{}
 };
 

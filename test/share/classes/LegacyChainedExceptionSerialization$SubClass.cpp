@@ -10,8 +10,8 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _LegacyChainedExceptionSerialization$SubClass_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(LegacyChainedExceptionSerialization$SubClass::*)($Throwable*)>(&LegacyChainedExceptionSerialization$SubClass::init$))},
-	{"getCause", "()Ljava/lang/Throwable;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(LegacyChainedExceptionSerialization$SubClass, init$, void, $Throwable*)},
+	{"getCause", "()Ljava/lang/Throwable;", nullptr, $PUBLIC, $virtualMethod(LegacyChainedExceptionSerialization$SubClass, getCause, $Throwable*)},
 	{}
 };
 

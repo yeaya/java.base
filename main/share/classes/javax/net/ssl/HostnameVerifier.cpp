@@ -5,13 +5,14 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $SSLSession = ::javax::net::ssl::SSLSession;
 
 namespace javax {
 	namespace net {
 		namespace ssl {
 
 $MethodInfo _HostnameVerifier_MethodInfo_[] = {
-	{"verify", "(Ljava/lang/String;Ljavax/net/ssl/SSLSession;)Z", nullptr, $PUBLIC | $ABSTRACT},
+	{"verify", "(Ljava/lang/String;Ljavax/net/ssl/SSLSession;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HostnameVerifier, verify, bool, $String*, $SSLSession*)},
 	{}
 };
 

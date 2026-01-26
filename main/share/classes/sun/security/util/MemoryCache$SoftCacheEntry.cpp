@@ -28,12 +28,12 @@ $MethodInfo _MemoryCache$SoftCacheEntry_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/lang/Object;Ljava/lang/Object;JLjava/lang/ref/ReferenceQueue;)V", "(TK;TV;JLjava/lang/ref/ReferenceQueue<TV;>;)V", 0, $method(static_cast<void(MemoryCache$SoftCacheEntry::*)(Object$*,Object$*,int64_t,$ReferenceQueue*)>(&MemoryCache$SoftCacheEntry::init$))},
-	{"getExpirationTime", "()J", nullptr, $PUBLIC},
-	{"getKey", "()Ljava/lang/Object;", "()TK;", $PUBLIC},
-	{"getValue", "()Ljava/lang/Object;", "()TV;", $PUBLIC},
-	{"invalidate", "()V", nullptr, $PUBLIC},
-	{"isValid", "(J)Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Object;Ljava/lang/Object;JLjava/lang/ref/ReferenceQueue;)V", "(TK;TV;JLjava/lang/ref/ReferenceQueue<TV;>;)V", 0, $method(MemoryCache$SoftCacheEntry, init$, void, Object$*, Object$*, int64_t, $ReferenceQueue*)},
+	{"getExpirationTime", "()J", nullptr, $PUBLIC, $virtualMethod(MemoryCache$SoftCacheEntry, getExpirationTime, int64_t)},
+	{"getKey", "()Ljava/lang/Object;", "()TK;", $PUBLIC, $virtualMethod(MemoryCache$SoftCacheEntry, getKey, $Object*)},
+	{"getValue", "()Ljava/lang/Object;", "()TV;", $PUBLIC, $virtualMethod(MemoryCache$SoftCacheEntry, getValue, $Object*)},
+	{"invalidate", "()V", nullptr, $PUBLIC, $virtualMethod(MemoryCache$SoftCacheEntry, invalidate, void)},
+	{"isValid", "(J)Z", nullptr, $PUBLIC, $virtualMethod(MemoryCache$SoftCacheEntry, isValid, bool, int64_t)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

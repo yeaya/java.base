@@ -46,13 +46,13 @@ $FieldInfo _ClassRepository_FieldInfo_[] = {
 };
 
 $MethodInfo _ClassRepository_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Lsun/reflect/generics/factory/GenericsFactory;)V", nullptr, $PRIVATE, $method(static_cast<void(ClassRepository::*)($String*,$GenericsFactory*)>(&ClassRepository::init$))},
-	{"computeSuperInterfaces", "()[Ljava/lang/reflect/Type;", nullptr, $PRIVATE, $method(static_cast<$TypeArray*(ClassRepository::*)()>(&ClassRepository::computeSuperInterfaces))},
-	{"computeSuperclass", "()Ljava/lang/reflect/Type;", nullptr, $PRIVATE, $method(static_cast<$Type*(ClassRepository::*)()>(&ClassRepository::computeSuperclass))},
-	{"getSuperInterfaces", "()[Ljava/lang/reflect/Type;", nullptr, $PUBLIC},
-	{"getSuperclass", "()Ljava/lang/reflect/Type;", nullptr, $PUBLIC},
-	{"make", "(Ljava/lang/String;Lsun/reflect/generics/factory/GenericsFactory;)Lsun/reflect/generics/repository/ClassRepository;", nullptr, $PUBLIC | $STATIC, $method(static_cast<ClassRepository*(*)($String*,$GenericsFactory*)>(&ClassRepository::make))},
-	{"parse", "(Ljava/lang/String;)Lsun/reflect/generics/tree/ClassSignature;", nullptr, $PROTECTED},
+	{"<init>", "(Ljava/lang/String;Lsun/reflect/generics/factory/GenericsFactory;)V", nullptr, $PRIVATE, $method(ClassRepository, init$, void, $String*, $GenericsFactory*)},
+	{"computeSuperInterfaces", "()[Ljava/lang/reflect/Type;", nullptr, $PRIVATE, $method(ClassRepository, computeSuperInterfaces, $TypeArray*)},
+	{"computeSuperclass", "()Ljava/lang/reflect/Type;", nullptr, $PRIVATE, $method(ClassRepository, computeSuperclass, $Type*)},
+	{"getSuperInterfaces", "()[Ljava/lang/reflect/Type;", nullptr, $PUBLIC, $virtualMethod(ClassRepository, getSuperInterfaces, $TypeArray*)},
+	{"getSuperclass", "()Ljava/lang/reflect/Type;", nullptr, $PUBLIC, $virtualMethod(ClassRepository, getSuperclass, $Type*)},
+	{"make", "(Ljava/lang/String;Lsun/reflect/generics/factory/GenericsFactory;)Lsun/reflect/generics/repository/ClassRepository;", nullptr, $PUBLIC | $STATIC, $staticMethod(ClassRepository, make, ClassRepository*, $String*, $GenericsFactory*)},
+	{"parse", "(Ljava/lang/String;)Lsun/reflect/generics/tree/ClassSignature;", nullptr, $PROTECTED, $virtualMethod(ClassRepository, parse, $Tree*, $String*)},
 	{}
 };
 

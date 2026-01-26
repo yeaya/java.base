@@ -53,8 +53,8 @@ $FieldInfo _PKIXMasterCertPathValidator_FieldInfo_[] = {
 };
 
 $MethodInfo _PKIXMasterCertPathValidator_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(PKIXMasterCertPathValidator::*)()>(&PKIXMasterCertPathValidator::init$))},
-	{"validate", "(Ljava/security/cert/CertPath;Ljava/util/List;Ljava/util/List;)V", "(Ljava/security/cert/CertPath;Ljava/util/List<Ljava/security/cert/X509Certificate;>;Ljava/util/List<Ljava/security/cert/PKIXCertPathChecker;>;)V", $STATIC, $method(static_cast<void(*)($CertPath*,$List*,$List*)>(&PKIXMasterCertPathValidator::validate)), "java.security.cert.CertPathValidatorException"},
+	{"<init>", "()V", nullptr, 0, $method(PKIXMasterCertPathValidator, init$, void)},
+	{"validate", "(Ljava/security/cert/CertPath;Ljava/util/List;Ljava/util/List;)V", "(Ljava/security/cert/CertPath;Ljava/util/List<Ljava/security/cert/X509Certificate;>;Ljava/util/List<Ljava/security/cert/PKIXCertPathChecker;>;)V", $STATIC, $staticMethod(PKIXMasterCertPathValidator, validate, void, $CertPath*, $List*, $List*), "java.security.cert.CertPathValidatorException"},
 	{}
 };
 

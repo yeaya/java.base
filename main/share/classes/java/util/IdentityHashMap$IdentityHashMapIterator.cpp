@@ -29,10 +29,10 @@ $FieldInfo _IdentityHashMap$IdentityHashMapIterator_FieldInfo_[] = {
 };
 
 $MethodInfo _IdentityHashMap$IdentityHashMapIterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/IdentityHashMap;)V", nullptr, $PRIVATE, $method(static_cast<void(IdentityHashMap$IdentityHashMapIterator::*)($IdentityHashMap*)>(&IdentityHashMap$IdentityHashMapIterator::init$))},
-	{"hasNext", "()Z", nullptr, $PUBLIC},
-	{"nextIndex", "()I", nullptr, $PROTECTED},
-	{"remove", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/IdentityHashMap;)V", nullptr, $PRIVATE, $method(IdentityHashMap$IdentityHashMapIterator, init$, void, $IdentityHashMap*)},
+	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(IdentityHashMap$IdentityHashMapIterator, hasNext, bool)},
+	{"nextIndex", "()I", nullptr, $PROTECTED, $virtualMethod(IdentityHashMap$IdentityHashMapIterator, nextIndex, int32_t)},
+	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(IdentityHashMap$IdentityHashMapIterator, remove, void)},
 	{}
 };
 

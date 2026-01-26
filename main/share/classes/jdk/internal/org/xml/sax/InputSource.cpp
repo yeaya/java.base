@@ -26,20 +26,20 @@ $FieldInfo _InputSource_FieldInfo_[] = {
 };
 
 $MethodInfo _InputSource_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(InputSource::*)()>(&InputSource::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(InputSource::*)($String*)>(&InputSource::init$))},
-	{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(static_cast<void(InputSource::*)($InputStream*)>(&InputSource::init$))},
-	{"<init>", "(Ljava/io/Reader;)V", nullptr, $PUBLIC, $method(static_cast<void(InputSource::*)($Reader*)>(&InputSource::init$))},
-	{"getByteStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC},
-	{"getCharacterStream", "()Ljava/io/Reader;", nullptr, $PUBLIC},
-	{"getEncoding", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getPublicId", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getSystemId", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"setByteStream", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC},
-	{"setCharacterStream", "(Ljava/io/Reader;)V", nullptr, $PUBLIC},
-	{"setEncoding", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"setPublicId", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"setSystemId", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(InputSource, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InputSource, init$, void, $String*)},
+	{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(InputSource, init$, void, $InputStream*)},
+	{"<init>", "(Ljava/io/Reader;)V", nullptr, $PUBLIC, $method(InputSource, init$, void, $Reader*)},
+	{"getByteStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(InputSource, getByteStream, $InputStream*)},
+	{"getCharacterStream", "()Ljava/io/Reader;", nullptr, $PUBLIC, $virtualMethod(InputSource, getCharacterStream, $Reader*)},
+	{"getEncoding", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(InputSource, getEncoding, $String*)},
+	{"getPublicId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(InputSource, getPublicId, $String*)},
+	{"getSystemId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(InputSource, getSystemId, $String*)},
+	{"setByteStream", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $virtualMethod(InputSource, setByteStream, void, $InputStream*)},
+	{"setCharacterStream", "(Ljava/io/Reader;)V", nullptr, $PUBLIC, $virtualMethod(InputSource, setCharacterStream, void, $Reader*)},
+	{"setEncoding", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(InputSource, setEncoding, void, $String*)},
+	{"setPublicId", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(InputSource, setPublicId, void, $String*)},
+	{"setSystemId", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(InputSource, setSystemId, void, $String*)},
 	{}
 };
 

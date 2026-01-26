@@ -24,19 +24,19 @@ $FieldInfo _TaskQueue_FieldInfo_[] = {
 };
 
 $MethodInfo _TaskQueue_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(TaskQueue::*)()>(&TaskQueue::init$))},
-	{"add", "(Ljava/util/TimerTask;)V", nullptr, 0},
-	{"clear", "()V", nullptr, 0},
-	{"fixDown", "(I)V", nullptr, $PRIVATE, $method(static_cast<void(TaskQueue::*)(int32_t)>(&TaskQueue::fixDown))},
-	{"fixUp", "(I)V", nullptr, $PRIVATE, $method(static_cast<void(TaskQueue::*)(int32_t)>(&TaskQueue::fixUp))},
-	{"get", "(I)Ljava/util/TimerTask;", nullptr, 0},
-	{"getMin", "()Ljava/util/TimerTask;", nullptr, 0},
-	{"heapify", "()V", nullptr, 0},
-	{"isEmpty", "()Z", nullptr, 0},
-	{"quickRemove", "(I)V", nullptr, 0},
-	{"removeMin", "()V", nullptr, 0},
-	{"rescheduleMin", "(J)V", nullptr, 0},
-	{"size", "()I", nullptr, 0},
+	{"<init>", "()V", nullptr, 0, $method(TaskQueue, init$, void)},
+	{"add", "(Ljava/util/TimerTask;)V", nullptr, 0, $virtualMethod(TaskQueue, add, void, $TimerTask*)},
+	{"clear", "()V", nullptr, 0, $virtualMethod(TaskQueue, clear, void)},
+	{"fixDown", "(I)V", nullptr, $PRIVATE, $method(TaskQueue, fixDown, void, int32_t)},
+	{"fixUp", "(I)V", nullptr, $PRIVATE, $method(TaskQueue, fixUp, void, int32_t)},
+	{"get", "(I)Ljava/util/TimerTask;", nullptr, 0, $virtualMethod(TaskQueue, get, $TimerTask*, int32_t)},
+	{"getMin", "()Ljava/util/TimerTask;", nullptr, 0, $virtualMethod(TaskQueue, getMin, $TimerTask*)},
+	{"heapify", "()V", nullptr, 0, $virtualMethod(TaskQueue, heapify, void)},
+	{"isEmpty", "()Z", nullptr, 0, $virtualMethod(TaskQueue, isEmpty, bool)},
+	{"quickRemove", "(I)V", nullptr, 0, $virtualMethod(TaskQueue, quickRemove, void, int32_t)},
+	{"removeMin", "()V", nullptr, 0, $virtualMethod(TaskQueue, removeMin, void)},
+	{"rescheduleMin", "(J)V", nullptr, 0, $virtualMethod(TaskQueue, rescheduleMin, void, int64_t)},
+	{"size", "()I", nullptr, 0, $virtualMethod(TaskQueue, size, int32_t)},
 	{}
 };
 

@@ -23,8 +23,8 @@ $FieldInfo _LocaleResources$ResourceReference_FieldInfo_[] = {
 };
 
 $MethodInfo _LocaleResources$ResourceReference_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/ref/ReferenceQueue;)V", "(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/ref/ReferenceQueue<Ljava/lang/Object;>;)V", 0, $method(static_cast<void(LocaleResources$ResourceReference::*)($String*,Object$*,$ReferenceQueue*)>(&LocaleResources$ResourceReference::init$))},
-	{"getCacheKey", "()Ljava/lang/String;", nullptr, 0},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/ref/ReferenceQueue;)V", "(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/ref/ReferenceQueue<Ljava/lang/Object;>;)V", 0, $method(LocaleResources$ResourceReference, init$, void, $String*, Object$*, $ReferenceQueue*)},
+	{"getCacheKey", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(LocaleResources$ResourceReference, getCacheKey, $String*)},
 	{}
 };
 

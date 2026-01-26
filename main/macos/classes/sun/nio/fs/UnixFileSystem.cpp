@@ -49,6 +49,7 @@ using $RuntimePermission = ::java::lang::RuntimePermission;
 using $SecurityException = ::java::lang::SecurityException;
 using $SecurityManager = ::java::lang::SecurityManager;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
+using $FileStore = ::java::nio::file::FileStore;
 using $FileSystem = ::java::nio::file::FileSystem;
 using $Path = ::java::nio::file::Path;
 using $PathMatcher = ::java::nio::file::PathMatcher;
@@ -69,6 +70,7 @@ using $UnixFileSystem$2 = ::sun::nio::fs::UnixFileSystem$2;
 using $UnixFileSystem$3 = ::sun::nio::fs::UnixFileSystem$3;
 using $UnixFileSystem$LookupService = ::sun::nio::fs::UnixFileSystem$LookupService;
 using $UnixFileSystemProvider = ::sun::nio::fs::UnixFileSystemProvider;
+using $UnixMountEntry = ::sun::nio::fs::UnixMountEntry;
 using $UnixNativeDispatcher = ::sun::nio::fs::UnixNativeDispatcher;
 using $UnixPath = ::sun::nio::fs::UnixPath;
 using $Util = ::sun::nio::fs::Util;
@@ -89,27 +91,27 @@ $FieldInfo _UnixFileSystem_FieldInfo_[] = {
 };
 
 $MethodInfo _UnixFileSystem_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/fs/UnixFileSystemProvider;Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(UnixFileSystem::*)($UnixFileSystemProvider*,$String*)>(&UnixFileSystem::init$))},
-	{"close", "()V", nullptr, $PUBLIC | $FINAL, nullptr, "java.io.IOException"},
-	{"compilePathMatchPattern", "(Ljava/lang/String;)Ljava/util/regex/Pattern;", nullptr, 0},
-	{"copyNonPosixAttributes", "(II)V", nullptr, 0},
-	{"defaultDirectory", "()[B", nullptr, 0},
-	{"getFileStore", "(Lsun/nio/fs/UnixMountEntry;)Ljava/nio/file/FileStore;", nullptr, $ABSTRACT, nullptr, "java.io.IOException"},
-	{"getFileStores", "()Ljava/lang/Iterable;", "()Ljava/lang/Iterable<Ljava/nio/file/FileStore;>;", $PUBLIC | $FINAL},
-	{"getMountEntries", "()Ljava/lang/Iterable;", "()Ljava/lang/Iterable<Lsun/nio/fs/UnixMountEntry;>;", $ABSTRACT},
-	{"getPath", "(Ljava/lang/String;[Ljava/lang/String;)Ljava/nio/file/Path;", nullptr, $PUBLIC | $FINAL | $TRANSIENT},
-	{"getPathMatcher", "(Ljava/lang/String;)Ljava/nio/file/PathMatcher;", nullptr, $PUBLIC},
-	{"getRootDirectories", "()Ljava/lang/Iterable;", "()Ljava/lang/Iterable<Ljava/nio/file/Path;>;", $PUBLIC | $FINAL},
-	{"getSeparator", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL},
-	{"getUserPrincipalLookupService", "()Ljava/nio/file/attribute/UserPrincipalLookupService;", nullptr, $PUBLIC | $FINAL},
-	{"isOpen", "()Z", nullptr, $PUBLIC | $FINAL},
-	{"isReadOnly", "()Z", nullptr, $PUBLIC | $FINAL},
-	{"needToResolveAgainstDefaultDirectory", "()Z", nullptr, 0},
-	{"normalizeJavaPath", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, 0},
-	{"normalizeNativePath", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, 0},
-	{"provider", "()Ljava/nio/file/spi/FileSystemProvider;", nullptr, $PUBLIC | $FINAL},
-	{"rootDirectory", "()Lsun/nio/fs/UnixPath;", nullptr, 0},
-	{"standardFileAttributeViews", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $STATIC, $method(static_cast<$List*(*)()>(&UnixFileSystem::standardFileAttributeViews))},
+	{"<init>", "(Lsun/nio/fs/UnixFileSystemProvider;Ljava/lang/String;)V", nullptr, 0, $method(UnixFileSystem, init$, void, $UnixFileSystemProvider*, $String*)},
+	{"close", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(UnixFileSystem, close, void), "java.io.IOException"},
+	{"compilePathMatchPattern", "(Ljava/lang/String;)Ljava/util/regex/Pattern;", nullptr, 0, $virtualMethod(UnixFileSystem, compilePathMatchPattern, $Pattern*, $String*)},
+	{"copyNonPosixAttributes", "(II)V", nullptr, 0, $virtualMethod(UnixFileSystem, copyNonPosixAttributes, void, int32_t, int32_t)},
+	{"defaultDirectory", "()[B", nullptr, 0, $virtualMethod(UnixFileSystem, defaultDirectory, $bytes*)},
+	{"getFileStore", "(Lsun/nio/fs/UnixMountEntry;)Ljava/nio/file/FileStore;", nullptr, $ABSTRACT, $virtualMethod(UnixFileSystem, getFileStore, $FileStore*, $UnixMountEntry*), "java.io.IOException"},
+	{"getFileStores", "()Ljava/lang/Iterable;", "()Ljava/lang/Iterable<Ljava/nio/file/FileStore;>;", $PUBLIC | $FINAL, $virtualMethod(UnixFileSystem, getFileStores, $Iterable*)},
+	{"getMountEntries", "()Ljava/lang/Iterable;", "()Ljava/lang/Iterable<Lsun/nio/fs/UnixMountEntry;>;", $ABSTRACT, $virtualMethod(UnixFileSystem, getMountEntries, $Iterable*)},
+	{"getPath", "(Ljava/lang/String;[Ljava/lang/String;)Ljava/nio/file/Path;", nullptr, $PUBLIC | $FINAL | $TRANSIENT, $virtualMethod(UnixFileSystem, getPath, $Path*, $String*, $StringArray*)},
+	{"getPathMatcher", "(Ljava/lang/String;)Ljava/nio/file/PathMatcher;", nullptr, $PUBLIC, $virtualMethod(UnixFileSystem, getPathMatcher, $PathMatcher*, $String*)},
+	{"getRootDirectories", "()Ljava/lang/Iterable;", "()Ljava/lang/Iterable<Ljava/nio/file/Path;>;", $PUBLIC | $FINAL, $virtualMethod(UnixFileSystem, getRootDirectories, $Iterable*)},
+	{"getSeparator", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(UnixFileSystem, getSeparator, $String*)},
+	{"getUserPrincipalLookupService", "()Ljava/nio/file/attribute/UserPrincipalLookupService;", nullptr, $PUBLIC | $FINAL, $virtualMethod(UnixFileSystem, getUserPrincipalLookupService, $UserPrincipalLookupService*)},
+	{"isOpen", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(UnixFileSystem, isOpen, bool)},
+	{"isReadOnly", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(UnixFileSystem, isReadOnly, bool)},
+	{"needToResolveAgainstDefaultDirectory", "()Z", nullptr, 0, $virtualMethod(UnixFileSystem, needToResolveAgainstDefaultDirectory, bool)},
+	{"normalizeJavaPath", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, 0, $virtualMethod(UnixFileSystem, normalizeJavaPath, $String*, $String*)},
+	{"normalizeNativePath", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, 0, $virtualMethod(UnixFileSystem, normalizeNativePath, $String*, $String*)},
+	{"provider", "()Ljava/nio/file/spi/FileSystemProvider;", nullptr, $PUBLIC | $FINAL, $virtualMethod(UnixFileSystem, provider, $FileSystemProvider*)},
+	{"rootDirectory", "()Lsun/nio/fs/UnixPath;", nullptr, 0, $virtualMethod(UnixFileSystem, rootDirectory, $UnixPath*)},
+	{"standardFileAttributeViews", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $STATIC, $staticMethod(UnixFileSystem, standardFileAttributeViews, $List*)},
 	{}
 };
 

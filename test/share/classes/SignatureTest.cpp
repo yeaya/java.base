@@ -16,10 +16,10 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Method = ::java::lang::reflect::Method;
 
 $MethodInfo _SignatureTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SignatureTest::*)()>(&SignatureTest::init$))},
-	{"f", "(LSignatureTest$Inner1$Inner11;)V", "(LSignatureTest<Ljava/lang/String;>.Inner1.Inner11;)V", $PUBLIC},
-	{"g", "(LSignatureTest$Inner1;)V", "(LSignatureTest<Ljava/lang/String;>.Inner1;)V", $PUBLIC},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&SignatureTest::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SignatureTest, init$, void)},
+	{"f", "(LSignatureTest$Inner1$Inner11;)V", "(LSignatureTest<Ljava/lang/String;>.Inner1.Inner11;)V", $PUBLIC, $virtualMethod(SignatureTest, f, void, $SignatureTest$Inner1$Inner11*)},
+	{"g", "(LSignatureTest$Inner1;)V", "(LSignatureTest<Ljava/lang/String;>.Inner1;)V", $PUBLIC, $virtualMethod(SignatureTest, g, void, $SignatureTest$Inner1*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SignatureTest, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

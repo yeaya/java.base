@@ -76,20 +76,20 @@ $FieldInfo _LocalVariablesSorter_FieldInfo_[] = {
 };
 
 $MethodInfo _LocalVariablesSorter_MethodInfo_[] = {
-	{"<init>", "(ILjava/lang/String;Ljdk/internal/org/objectweb/asm/MethodVisitor;)V", nullptr, $PUBLIC, $method(static_cast<void(LocalVariablesSorter::*)(int32_t,$String*,$MethodVisitor*)>(&LocalVariablesSorter::init$))},
-	{"<init>", "(IILjava/lang/String;Ljdk/internal/org/objectweb/asm/MethodVisitor;)V", nullptr, $PROTECTED, $method(static_cast<void(LocalVariablesSorter::*)(int32_t,int32_t,$String*,$MethodVisitor*)>(&LocalVariablesSorter::init$))},
-	{"newLocal", "(Ljdk/internal/org/objectweb/asm/Type;)I", nullptr, $PUBLIC},
-	{"newLocalMapping", "(Ljdk/internal/org/objectweb/asm/Type;)I", nullptr, $PROTECTED},
-	{"remap", "(ILjdk/internal/org/objectweb/asm/Type;)I", nullptr, $PRIVATE, $method(static_cast<int32_t(LocalVariablesSorter::*)(int32_t,$Type*)>(&LocalVariablesSorter::remap))},
-	{"setFrameLocal", "(ILjava/lang/Object;)V", nullptr, $PRIVATE, $method(static_cast<void(LocalVariablesSorter::*)(int32_t,Object$*)>(&LocalVariablesSorter::setFrameLocal))},
-	{"setLocalType", "(ILjdk/internal/org/objectweb/asm/Type;)V", nullptr, $PROTECTED},
-	{"updateNewLocals", "([Ljava/lang/Object;)V", nullptr, $PROTECTED},
-	{"visitFrame", "(II[Ljava/lang/Object;I[Ljava/lang/Object;)V", nullptr, $PUBLIC},
-	{"visitIincInsn", "(II)V", nullptr, $PUBLIC},
-	{"visitLocalVariable", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljdk/internal/org/objectweb/asm/Label;Ljdk/internal/org/objectweb/asm/Label;I)V", nullptr, $PUBLIC},
-	{"visitLocalVariableAnnotation", "(ILjdk/internal/org/objectweb/asm/TypePath;[Ljdk/internal/org/objectweb/asm/Label;[Ljdk/internal/org/objectweb/asm/Label;[ILjava/lang/String;Z)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC},
-	{"visitMaxs", "(II)V", nullptr, $PUBLIC},
-	{"visitVarInsn", "(II)V", nullptr, $PUBLIC},
+	{"<init>", "(ILjava/lang/String;Ljdk/internal/org/objectweb/asm/MethodVisitor;)V", nullptr, $PUBLIC, $method(LocalVariablesSorter, init$, void, int32_t, $String*, $MethodVisitor*)},
+	{"<init>", "(IILjava/lang/String;Ljdk/internal/org/objectweb/asm/MethodVisitor;)V", nullptr, $PROTECTED, $method(LocalVariablesSorter, init$, void, int32_t, int32_t, $String*, $MethodVisitor*)},
+	{"newLocal", "(Ljdk/internal/org/objectweb/asm/Type;)I", nullptr, $PUBLIC, $virtualMethod(LocalVariablesSorter, newLocal, int32_t, $Type*)},
+	{"newLocalMapping", "(Ljdk/internal/org/objectweb/asm/Type;)I", nullptr, $PROTECTED, $virtualMethod(LocalVariablesSorter, newLocalMapping, int32_t, $Type*)},
+	{"remap", "(ILjdk/internal/org/objectweb/asm/Type;)I", nullptr, $PRIVATE, $method(LocalVariablesSorter, remap, int32_t, int32_t, $Type*)},
+	{"setFrameLocal", "(ILjava/lang/Object;)V", nullptr, $PRIVATE, $method(LocalVariablesSorter, setFrameLocal, void, int32_t, Object$*)},
+	{"setLocalType", "(ILjdk/internal/org/objectweb/asm/Type;)V", nullptr, $PROTECTED, $virtualMethod(LocalVariablesSorter, setLocalType, void, int32_t, $Type*)},
+	{"updateNewLocals", "([Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(LocalVariablesSorter, updateNewLocals, void, $ObjectArray*)},
+	{"visitFrame", "(II[Ljava/lang/Object;I[Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(LocalVariablesSorter, visitFrame, void, int32_t, int32_t, $ObjectArray*, int32_t, $ObjectArray*)},
+	{"visitIincInsn", "(II)V", nullptr, $PUBLIC, $virtualMethod(LocalVariablesSorter, visitIincInsn, void, int32_t, int32_t)},
+	{"visitLocalVariable", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljdk/internal/org/objectweb/asm/Label;Ljdk/internal/org/objectweb/asm/Label;I)V", nullptr, $PUBLIC, $virtualMethod(LocalVariablesSorter, visitLocalVariable, void, $String*, $String*, $String*, $Label*, $Label*, int32_t)},
+	{"visitLocalVariableAnnotation", "(ILjdk/internal/org/objectweb/asm/TypePath;[Ljdk/internal/org/objectweb/asm/Label;[Ljdk/internal/org/objectweb/asm/Label;[ILjava/lang/String;Z)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(LocalVariablesSorter, visitLocalVariableAnnotation, $AnnotationVisitor*, int32_t, $TypePath*, $LabelArray*, $LabelArray*, $ints*, $String*, bool)},
+	{"visitMaxs", "(II)V", nullptr, $PUBLIC, $virtualMethod(LocalVariablesSorter, visitMaxs, void, int32_t, int32_t)},
+	{"visitVarInsn", "(II)V", nullptr, $PUBLIC, $virtualMethod(LocalVariablesSorter, visitVarInsn, void, int32_t, int32_t)},
 	{}
 };
 

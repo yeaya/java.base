@@ -43,8 +43,8 @@ $FieldInfo _HmacPKCS12PBECore_FieldInfo_[] = {
 };
 
 $MethodInfo _HmacPKCS12PBECore_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(static_cast<void(HmacPKCS12PBECore::*)($String*,int32_t)>(&HmacPKCS12PBECore::init$)), "java.security.NoSuchAlgorithmException"},
-	{"engineInit", "(Ljava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PROTECTED, nullptr, "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
+	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(HmacPKCS12PBECore, init$, void, $String*, int32_t), "java.security.NoSuchAlgorithmException"},
+	{"engineInit", "(Ljava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PROTECTED, $virtualMethod(HmacPKCS12PBECore, engineInit, void, $Key*, $AlgorithmParameterSpec*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
 	{}
 };
 

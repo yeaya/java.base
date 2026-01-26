@@ -41,8 +41,8 @@ $FieldInfo _ResourceBundle$4_FieldInfo_[] = {
 };
 
 $MethodInfo _ResourceBundle$4_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/ServiceLoader;Ljava/util/ResourceBundle$CacheKey;Ljava/lang/String;Ljava/util/Locale;)V", nullptr, 0, $method(static_cast<void(ResourceBundle$4::*)($ServiceLoader*,$ResourceBundle$CacheKey*,$String*,$Locale*)>(&ResourceBundle$4::init$))},
-	{"run", "()Ljava/util/ResourceBundle;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/ServiceLoader;Ljava/util/ResourceBundle$CacheKey;Ljava/lang/String;Ljava/util/Locale;)V", nullptr, 0, $method(ResourceBundle$4, init$, void, $ServiceLoader*, $ResourceBundle$CacheKey*, $String*, $Locale*)},
+	{"run", "()Ljava/util/ResourceBundle;", nullptr, $PUBLIC, $virtualMethod(ResourceBundle$4, run, $Object*)},
 	{}
 };
 

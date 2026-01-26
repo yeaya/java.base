@@ -19,9 +19,9 @@ $FieldInfo _GetLongAction_FieldInfo_[] = {
 };
 
 $MethodInfo _GetLongAction_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(GetLongAction::*)($String*)>(&GetLongAction::init$))},
-	{"<init>", "(Ljava/lang/String;J)V", nullptr, $PUBLIC, $method(static_cast<void(GetLongAction::*)($String*,int64_t)>(&GetLongAction::init$))},
-	{"run", "()Ljava/lang/Long;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(GetLongAction, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;J)V", nullptr, $PUBLIC, $method(GetLongAction, init$, void, $String*, int64_t)},
+	{"run", "()Ljava/lang/Long;", nullptr, $PUBLIC, $virtualMethod(GetLongAction, run, $Object*)},
 	{}
 };
 

@@ -33,10 +33,10 @@ $FieldInfo _ParallelListResourceBundle$KeySet_FieldInfo_[] = {
 };
 
 $MethodInfo _ParallelListResourceBundle$KeySet_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Set;Ljava/util/ResourceBundle;)V", "(Ljava/util/Set<Ljava/lang/String;>;Ljava/util/ResourceBundle;)V", $PRIVATE, $method(static_cast<void(ParallelListResourceBundle$KeySet::*)($Set*,$ResourceBundle*)>(&ParallelListResourceBundle$KeySet::init$))},
-	{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/lang/String;>;", $PUBLIC},
-	{"size", "()I", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/Set;Ljava/util/ResourceBundle;)V", "(Ljava/util/Set<Ljava/lang/String;>;Ljava/util/ResourceBundle;)V", $PRIVATE, $method(ParallelListResourceBundle$KeySet, init$, void, $Set*, $ResourceBundle*)},
+	{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ParallelListResourceBundle$KeySet, contains, bool, Object$*)},
+	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(ParallelListResourceBundle$KeySet, iterator, $Iterator*)},
+	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(ParallelListResourceBundle$KeySet, size, int32_t)},
 	{}
 };
 

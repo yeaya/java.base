@@ -25,10 +25,10 @@ $FieldInfo _SSLAlgorithmConstraints$SupportedSignatureAlgorithmConstraints_Field
 };
 
 $MethodInfo _SSLAlgorithmConstraints$SupportedSignatureAlgorithmConstraints_MethodInfo_[] = {
-	{"<init>", "([Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(SSLAlgorithmConstraints$SupportedSignatureAlgorithmConstraints::*)($StringArray*)>(&SSLAlgorithmConstraints$SupportedSignatureAlgorithmConstraints::init$))},
-	{"permits", "(Ljava/util/Set;Ljava/lang/String;Ljava/security/AlgorithmParameters;)Z", "(Ljava/util/Set<Ljava/security/CryptoPrimitive;>;Ljava/lang/String;Ljava/security/AlgorithmParameters;)Z", $PUBLIC},
-	{"permits", "(Ljava/util/Set;Ljava/security/Key;)Z", "(Ljava/util/Set<Ljava/security/CryptoPrimitive;>;Ljava/security/Key;)Z", $PUBLIC | $FINAL},
-	{"permits", "(Ljava/util/Set;Ljava/lang/String;Ljava/security/Key;Ljava/security/AlgorithmParameters;)Z", "(Ljava/util/Set<Ljava/security/CryptoPrimitive;>;Ljava/lang/String;Ljava/security/Key;Ljava/security/AlgorithmParameters;)Z", $PUBLIC | $FINAL},
+	{"<init>", "([Ljava/lang/String;)V", nullptr, 0, $method(SSLAlgorithmConstraints$SupportedSignatureAlgorithmConstraints, init$, void, $StringArray*)},
+	{"permits", "(Ljava/util/Set;Ljava/lang/String;Ljava/security/AlgorithmParameters;)Z", "(Ljava/util/Set<Ljava/security/CryptoPrimitive;>;Ljava/lang/String;Ljava/security/AlgorithmParameters;)Z", $PUBLIC, $virtualMethod(SSLAlgorithmConstraints$SupportedSignatureAlgorithmConstraints, permits, bool, $Set*, $String*, $AlgorithmParameters*)},
+	{"permits", "(Ljava/util/Set;Ljava/security/Key;)Z", "(Ljava/util/Set<Ljava/security/CryptoPrimitive;>;Ljava/security/Key;)Z", $PUBLIC | $FINAL, $virtualMethod(SSLAlgorithmConstraints$SupportedSignatureAlgorithmConstraints, permits, bool, $Set*, $Key*)},
+	{"permits", "(Ljava/util/Set;Ljava/lang/String;Ljava/security/Key;Ljava/security/AlgorithmParameters;)Z", "(Ljava/util/Set<Ljava/security/CryptoPrimitive;>;Ljava/lang/String;Ljava/security/Key;Ljava/security/AlgorithmParameters;)Z", $PUBLIC | $FINAL, $virtualMethod(SSLAlgorithmConstraints$SupportedSignatureAlgorithmConstraints, permits, bool, $Set*, $String*, $Key*, $AlgorithmParameters*)},
 	{}
 };
 

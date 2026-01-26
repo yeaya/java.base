@@ -19,8 +19,8 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $SecurityManager = ::java::lang::SecurityManager;
 
 $MethodInfo _WithSecurityManager4concat_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(WithSecurityManager4concat::*)()>(&WithSecurityManager4concat::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&WithSecurityManager4concat::main)), "java.lang.Throwable"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(WithSecurityManager4concat, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(WithSecurityManager4concat, main, void, $StringArray*), "java.lang.Throwable"},
 	{}
 };
 

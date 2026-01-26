@@ -7,6 +7,7 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $SNIServerName = ::javax::net::ssl::SNIServerName;
 
 namespace javax {
 	namespace net {
@@ -18,9 +19,9 @@ $FieldInfo _SNIMatcher_FieldInfo_[] = {
 };
 
 $MethodInfo _SNIMatcher_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PROTECTED, $method(static_cast<void(SNIMatcher::*)(int32_t)>(&SNIMatcher::init$))},
-	{"getType", "()I", nullptr, $PUBLIC | $FINAL, $method(static_cast<int32_t(SNIMatcher::*)()>(&SNIMatcher::getType))},
-	{"matches", "(Ljavax/net/ssl/SNIServerName;)Z", nullptr, $PUBLIC | $ABSTRACT},
+	{"<init>", "(I)V", nullptr, $PROTECTED, $method(SNIMatcher, init$, void, int32_t)},
+	{"getType", "()I", nullptr, $PUBLIC | $FINAL, $method(SNIMatcher, getType, int32_t)},
+	{"matches", "(Ljavax/net/ssl/SNIServerName;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SNIMatcher, matches, bool, $SNIServerName*)},
 	{}
 };
 

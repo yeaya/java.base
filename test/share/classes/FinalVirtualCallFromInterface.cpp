@@ -9,8 +9,8 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _FinalVirtualCallFromInterface_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(FinalVirtualCallFromInterface::*)()>(&FinalVirtualCallFromInterface::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&FinalVirtualCallFromInterface::main)), "java.lang.Throwable"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(FinalVirtualCallFromInterface, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(FinalVirtualCallFromInterface, main, void, $StringArray*), "java.lang.Throwable"},
 	{}
 };
 

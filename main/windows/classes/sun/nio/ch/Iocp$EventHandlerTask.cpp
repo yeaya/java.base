@@ -42,8 +42,8 @@ $FieldInfo _Iocp$EventHandlerTask_FieldInfo_[] = {
 };
 
 $MethodInfo _Iocp$EventHandlerTask_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/ch/Iocp;)V", nullptr, $PRIVATE, $method(static_cast<void(Iocp$EventHandlerTask::*)($Iocp*)>(&Iocp$EventHandlerTask::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/nio/ch/Iocp;)V", nullptr, $PRIVATE, $method(Iocp$EventHandlerTask, init$, void, $Iocp*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Iocp$EventHandlerTask, run, void)},
 	{}
 };
 

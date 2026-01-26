@@ -21,16 +21,16 @@ $FieldInfo _Capacity_FieldInfo_[] = {
 };
 
 $MethodInfo _Capacity_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Capacity::*)()>(&Capacity::init$))},
-	{"check", "(Z)V", nullptr, 0},
-	{"equal", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, 0},
-	{"fail", "()V", nullptr, 0},
-	{"fail", "(Ljava/lang/String;)V", nullptr, 0},
-	{"instanceMain", "([Ljava/lang/String;)V", nullptr, $PUBLIC, nullptr, "java.lang.Throwable"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Capacity::main)), "java.lang.Throwable"},
-	{"pass", "()V", nullptr, 0},
-	{"test", "([Ljava/lang/String;)V", nullptr, 0, nullptr, "java.lang.Throwable"},
-	{"unexpected", "(Ljava/lang/Throwable;)V", nullptr, 0},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Capacity, init$, void)},
+	{"check", "(Z)V", nullptr, 0, $virtualMethod(Capacity, check, void, bool)},
+	{"equal", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, 0, $virtualMethod(Capacity, equal, void, Object$*, Object$*)},
+	{"fail", "()V", nullptr, 0, $virtualMethod(Capacity, fail, void)},
+	{"fail", "(Ljava/lang/String;)V", nullptr, 0, $virtualMethod(Capacity, fail, void, $String*)},
+	{"instanceMain", "([Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Capacity, instanceMain, void, $StringArray*), "java.lang.Throwable"},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Capacity, main, void, $StringArray*), "java.lang.Throwable"},
+	{"pass", "()V", nullptr, 0, $virtualMethod(Capacity, pass, void)},
+	{"test", "([Ljava/lang/String;)V", nullptr, 0, $virtualMethod(Capacity, test, void, $StringArray*), "java.lang.Throwable"},
+	{"unexpected", "(Ljava/lang/Throwable;)V", nullptr, 0, $virtualMethod(Capacity, unexpected, void, $Throwable*)},
 	{}
 };
 

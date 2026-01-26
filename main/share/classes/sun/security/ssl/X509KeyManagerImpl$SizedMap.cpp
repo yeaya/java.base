@@ -23,8 +23,8 @@ $FieldInfo _X509KeyManagerImpl$SizedMap_FieldInfo_[] = {
 };
 
 $MethodInfo _X509KeyManagerImpl$SizedMap_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(X509KeyManagerImpl$SizedMap::*)()>(&X509KeyManagerImpl$SizedMap::init$))},
-	{"removeEldestEntry", "(Ljava/util/Map$Entry;)Z", "(Ljava/util/Map$Entry<TK;TV;>;)Z", $PROTECTED},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(X509KeyManagerImpl$SizedMap, init$, void)},
+	{"removeEldestEntry", "(Ljava/util/Map$Entry;)Z", "(Ljava/util/Map$Entry<TK;TV;>;)Z", $PROTECTED, $virtualMethod(X509KeyManagerImpl$SizedMap, removeEldestEntry, bool, $Map$Entry*)},
 	{}
 };
 

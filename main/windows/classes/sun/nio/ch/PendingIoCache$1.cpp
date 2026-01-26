@@ -29,8 +29,8 @@ $FieldInfo _PendingIoCache$1_FieldInfo_[] = {
 };
 
 $MethodInfo _PendingIoCache$1_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/ch/PendingIoCache;Lsun/nio/ch/Iocp$ResultHandler;)V", "()V", 0, $method(static_cast<void(PendingIoCache$1::*)($PendingIoCache*,$Iocp$ResultHandler*)>(&PendingIoCache$1::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/nio/ch/PendingIoCache;Lsun/nio/ch/Iocp$ResultHandler;)V", "()V", 0, $method(PendingIoCache$1, init$, void, $PendingIoCache*, $Iocp$ResultHandler*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(PendingIoCache$1, run, void)},
 	{}
 };
 

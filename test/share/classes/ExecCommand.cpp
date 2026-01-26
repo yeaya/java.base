@@ -56,10 +56,10 @@ $FieldInfo _ExecCommand_FieldInfo_[] = {
 };
 
 $MethodInfo _ExecCommand_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ExecCommand::*)()>(&ExecCommand::init$))},
-	{"checkOut", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($String*)>(&ExecCommand::checkOut)), "java.io.FileNotFoundException"},
-	{"deleteOut", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($String*)>(&ExecCommand::deleteOut))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&ExecCommand::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ExecCommand, init$, void)},
+	{"checkOut", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ExecCommand, checkOut, void, $String*), "java.io.FileNotFoundException"},
+	{"deleteOut", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ExecCommand, deleteOut, void, $String*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ExecCommand, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

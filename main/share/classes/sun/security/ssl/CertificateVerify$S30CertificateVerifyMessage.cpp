@@ -88,13 +88,13 @@ $FieldInfo _CertificateVerify$S30CertificateVerifyMessage_FieldInfo_[] = {
 };
 
 $MethodInfo _CertificateVerify$S30CertificateVerifyMessage_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/ssl/HandshakeContext;Lsun/security/ssl/X509Authentication$X509Possession;)V", nullptr, 0, $method(static_cast<void(CertificateVerify$S30CertificateVerifyMessage::*)($HandshakeContext*,$X509Authentication$X509Possession*)>(&CertificateVerify$S30CertificateVerifyMessage::init$)), "java.io.IOException"},
-	{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)V", nullptr, 0, $method(static_cast<void(CertificateVerify$S30CertificateVerifyMessage::*)($HandshakeContext*,$ByteBuffer*)>(&CertificateVerify$S30CertificateVerifyMessage::init$)), "java.io.IOException"},
-	{"getSignature", "(Ljava/lang/String;Ljava/security/Key;)Ljava/security/Signature;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$Signature*(*)($String*,$Key*)>(&CertificateVerify$S30CertificateVerifyMessage::getSignature)), "java.security.GeneralSecurityException"},
-	{"handshakeType", "()Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC},
-	{"messageLength", "()I", nullptr, $PUBLIC},
-	{"send", "(Lsun/security/ssl/HandshakeOutStream;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/security/ssl/HandshakeContext;Lsun/security/ssl/X509Authentication$X509Possession;)V", nullptr, 0, $method(CertificateVerify$S30CertificateVerifyMessage, init$, void, $HandshakeContext*, $X509Authentication$X509Possession*), "java.io.IOException"},
+	{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)V", nullptr, 0, $method(CertificateVerify$S30CertificateVerifyMessage, init$, void, $HandshakeContext*, $ByteBuffer*), "java.io.IOException"},
+	{"getSignature", "(Ljava/lang/String;Ljava/security/Key;)Ljava/security/Signature;", nullptr, $PRIVATE | $STATIC, $staticMethod(CertificateVerify$S30CertificateVerifyMessage, getSignature, $Signature*, $String*, $Key*), "java.security.GeneralSecurityException"},
+	{"handshakeType", "()Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC, $virtualMethod(CertificateVerify$S30CertificateVerifyMessage, handshakeType, $SSLHandshake*)},
+	{"messageLength", "()I", nullptr, $PUBLIC, $virtualMethod(CertificateVerify$S30CertificateVerifyMessage, messageLength, int32_t)},
+	{"send", "(Lsun/security/ssl/HandshakeOutStream;)V", nullptr, $PUBLIC, $virtualMethod(CertificateVerify$S30CertificateVerifyMessage, send, void, $HandshakeOutStream*), "java.io.IOException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CertificateVerify$S30CertificateVerifyMessage, toString, $String*)},
 	{}
 };
 

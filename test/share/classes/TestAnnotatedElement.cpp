@@ -18,10 +18,10 @@ using $Method = ::java::lang::reflect::Method;
 using $TypeVariable = ::java::lang::reflect::TypeVariable;
 
 $MethodInfo _TestAnnotatedElement_MethodInfo_[] = {
-	{"<init>", "()V", "<C:Ljava/lang/Object;>()V", $PRIVATE, $method(static_cast<void(TestAnnotatedElement::*)()>(&TestAnnotatedElement::init$))},
-	{"m", "(Ljava/lang/Object;)Ljava/lang/Object;", "<B:Ljava/lang/Object;>(TB;)TB;", $PRIVATE | $STATIC, $method(static_cast<$Object*(*)(Object$*)>(&TestAnnotatedElement::m))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<void(*)($StringArray*)>(&TestAnnotatedElement::main)), "java.lang.ReflectiveOperationException"},
-	{"testTypeVariable", "([Ljava/lang/reflect/TypeVariable;)I", "([Ljava/lang/reflect/TypeVariable<*>;)I", $PRIVATE | $STATIC, $method(static_cast<int32_t(*)($TypeVariableArray*)>(&TestAnnotatedElement::testTypeVariable))},
+	{"<init>", "()V", "<C:Ljava/lang/Object;>()V", $PRIVATE, $method(TestAnnotatedElement, init$, void)},
+	{"m", "(Ljava/lang/Object;)Ljava/lang/Object;", "<B:Ljava/lang/Object;>(TB;)TB;", $PRIVATE | $STATIC, $staticMethod(TestAnnotatedElement, m, $Object*, Object$*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(TestAnnotatedElement, main, void, $StringArray*), "java.lang.ReflectiveOperationException"},
+	{"testTypeVariable", "([Ljava/lang/reflect/TypeVariable;)I", "([Ljava/lang/reflect/TypeVariable<*>;)I", $PRIVATE | $STATIC, $staticMethod(TestAnnotatedElement, testTypeVariable, int32_t, $TypeVariableArray*)},
 	{}
 };
 

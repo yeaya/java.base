@@ -30,9 +30,9 @@ $FieldInfo _SSLContextImpl$TLS11Context_FieldInfo_[] = {
 };
 
 $MethodInfo _SSLContextImpl$TLS11Context_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SSLContextImpl$TLS11Context::*)()>(&SSLContextImpl$TLS11Context::init$))},
-	{"getClientDefaultCipherSuites", "()Ljava/util/List;", "()Ljava/util/List<Lsun/security/ssl/CipherSuite;>;", 0},
-	{"getClientDefaultProtocolVersions", "()Ljava/util/List;", "()Ljava/util/List<Lsun/security/ssl/ProtocolVersion;>;", 0},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SSLContextImpl$TLS11Context, init$, void)},
+	{"getClientDefaultCipherSuites", "()Ljava/util/List;", "()Ljava/util/List<Lsun/security/ssl/CipherSuite;>;", 0, $virtualMethod(SSLContextImpl$TLS11Context, getClientDefaultCipherSuites, $List*)},
+	{"getClientDefaultProtocolVersions", "()Ljava/util/List;", "()Ljava/util/List<Lsun/security/ssl/ProtocolVersion;>;", 0, $virtualMethod(SSLContextImpl$TLS11Context, getClientDefaultProtocolVersions, $List*)},
 	{}
 };
 

@@ -32,11 +32,11 @@ $FieldInfo _RandomSupport$AbstractSplittableWithBrineGenerator_FieldInfo_[] = {
 };
 
 $MethodInfo _RandomSupport$AbstractSplittableWithBrineGenerator_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(RandomSupport$AbstractSplittableWithBrineGenerator::*)()>(&RandomSupport$AbstractSplittableWithBrineGenerator::init$))},
-	{"makeSplitsSpliterator", "(JJLjava/util/random/RandomGenerator$SplittableGenerator;)Ljava/util/Spliterator;", "(JJLjava/util/random/RandomGenerator$SplittableGenerator;)Ljava/util/Spliterator<Ljava/util/random/RandomGenerator$SplittableGenerator;>;", 0},
-	{"split", "(J)Ljava/util/random/RandomGenerator$SplittableGenerator;", nullptr, $PUBLIC},
-	{"split", "(Ljava/util/random/RandomGenerator$SplittableGenerator;)Ljava/util/random/RandomGenerator$SplittableGenerator;", nullptr, $PUBLIC},
-	{"split", "(Ljava/util/random/RandomGenerator$SplittableGenerator;J)Ljava/util/random/RandomGenerator$SplittableGenerator;", nullptr, $PUBLIC | $ABSTRACT},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(RandomSupport$AbstractSplittableWithBrineGenerator, init$, void)},
+	{"makeSplitsSpliterator", "(JJLjava/util/random/RandomGenerator$SplittableGenerator;)Ljava/util/Spliterator;", "(JJLjava/util/random/RandomGenerator$SplittableGenerator;)Ljava/util/Spliterator<Ljava/util/random/RandomGenerator$SplittableGenerator;>;", 0, $virtualMethod(RandomSupport$AbstractSplittableWithBrineGenerator, makeSplitsSpliterator, $Spliterator*, int64_t, int64_t, $RandomGenerator$SplittableGenerator*)},
+	{"split", "(J)Ljava/util/random/RandomGenerator$SplittableGenerator;", nullptr, $PUBLIC, $virtualMethod(RandomSupport$AbstractSplittableWithBrineGenerator, split, $RandomGenerator$SplittableGenerator*, int64_t)},
+	{"split", "(Ljava/util/random/RandomGenerator$SplittableGenerator;)Ljava/util/random/RandomGenerator$SplittableGenerator;", nullptr, $PUBLIC, $virtualMethod(RandomSupport$AbstractSplittableWithBrineGenerator, split, $RandomGenerator$SplittableGenerator*, $RandomGenerator$SplittableGenerator*)},
+	{"split", "(Ljava/util/random/RandomGenerator$SplittableGenerator;J)Ljava/util/random/RandomGenerator$SplittableGenerator;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RandomSupport$AbstractSplittableWithBrineGenerator, split, $RandomGenerator$SplittableGenerator*, $RandomGenerator$SplittableGenerator*, int64_t)},
 	{}
 };
 

@@ -15,8 +15,8 @@ namespace java {
 		namespace cert {
 
 $MethodInfo _CertPathValidator$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(CertPathValidator$1::*)()>(&CertPathValidator$1::init$))},
-	{"run", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(CertPathValidator$1, init$, void)},
+	{"run", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CertPathValidator$1, run, $Object*)},
 	{}
 };
 

@@ -27,7 +27,7 @@ $FieldInfo _TestReceiverTypeParameterizedConstructor$Inner_FieldInfo_[] = {
 };
 
 $MethodInfo _TestReceiverTypeParameterizedConstructor$Inner_MethodInfo_[] = {
-	{"<init>", "(LTestReceiverTypeParameterizedConstructor;)V", nullptr, 0, $method(static_cast<void(TestReceiverTypeParameterizedConstructor$Inner::*)($TestReceiverTypeParameterizedConstructor*)>(&TestReceiverTypeParameterizedConstructor$Inner::init$)), nullptr, nullptr, nullptr, _TestReceiverTypeParameterizedConstructor$Inner_MethodTypeAnnotations_init$0},
+	{"<init>", "(LTestReceiverTypeParameterizedConstructor;)V", nullptr, 0, $method(TestReceiverTypeParameterizedConstructor$Inner, init$, void, $TestReceiverTypeParameterizedConstructor*), nullptr, nullptr, nullptr, _TestReceiverTypeParameterizedConstructor$Inner_MethodTypeAnnotations_init$0},
 	{}
 };
 

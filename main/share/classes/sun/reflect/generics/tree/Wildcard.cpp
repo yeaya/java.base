@@ -25,11 +25,11 @@ $FieldInfo _Wildcard_FieldInfo_[] = {
 };
 
 $MethodInfo _Wildcard_MethodInfo_[] = {
-	{"<init>", "([Lsun/reflect/generics/tree/FieldTypeSignature;[Lsun/reflect/generics/tree/FieldTypeSignature;)V", nullptr, $PRIVATE, $method(static_cast<void(Wildcard::*)($FieldTypeSignatureArray*,$FieldTypeSignatureArray*)>(&Wildcard::init$))},
-	{"accept", "(Lsun/reflect/generics/visitor/TypeTreeVisitor;)V", "(Lsun/reflect/generics/visitor/TypeTreeVisitor<*>;)V", $PUBLIC},
-	{"getLowerBounds", "()[Lsun/reflect/generics/tree/FieldTypeSignature;", nullptr, $PUBLIC},
-	{"getUpperBounds", "()[Lsun/reflect/generics/tree/FieldTypeSignature;", nullptr, $PUBLIC},
-	{"make", "([Lsun/reflect/generics/tree/FieldTypeSignature;[Lsun/reflect/generics/tree/FieldTypeSignature;)Lsun/reflect/generics/tree/Wildcard;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Wildcard*(*)($FieldTypeSignatureArray*,$FieldTypeSignatureArray*)>(&Wildcard::make))},
+	{"<init>", "([Lsun/reflect/generics/tree/FieldTypeSignature;[Lsun/reflect/generics/tree/FieldTypeSignature;)V", nullptr, $PRIVATE, $method(Wildcard, init$, void, $FieldTypeSignatureArray*, $FieldTypeSignatureArray*)},
+	{"accept", "(Lsun/reflect/generics/visitor/TypeTreeVisitor;)V", "(Lsun/reflect/generics/visitor/TypeTreeVisitor<*>;)V", $PUBLIC, $virtualMethod(Wildcard, accept, void, $TypeTreeVisitor*)},
+	{"getLowerBounds", "()[Lsun/reflect/generics/tree/FieldTypeSignature;", nullptr, $PUBLIC, $virtualMethod(Wildcard, getLowerBounds, $FieldTypeSignatureArray*)},
+	{"getUpperBounds", "()[Lsun/reflect/generics/tree/FieldTypeSignature;", nullptr, $PUBLIC, $virtualMethod(Wildcard, getUpperBounds, $FieldTypeSignatureArray*)},
+	{"make", "([Lsun/reflect/generics/tree/FieldTypeSignature;[Lsun/reflect/generics/tree/FieldTypeSignature;)Lsun/reflect/generics/tree/Wildcard;", nullptr, $PUBLIC | $STATIC, $staticMethod(Wildcard, make, Wildcard*, $FieldTypeSignatureArray*, $FieldTypeSignatureArray*)},
 	{}
 };
 

@@ -25,9 +25,9 @@ $FieldInfo _TrustStoreManager_FieldInfo_[] = {
 };
 
 $MethodInfo _TrustStoreManager_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(TrustStoreManager::*)()>(&TrustStoreManager::init$))},
-	{"getTrustedCerts", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/security/cert/X509Certificate;>;", $PUBLIC | $STATIC, $method(static_cast<$Set*(*)()>(&TrustStoreManager::getTrustedCerts)), "java.lang.Exception"},
-	{"getTrustedKeyStore", "()Ljava/security/KeyStore;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$KeyStore*(*)()>(&TrustStoreManager::getTrustedKeyStore)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(TrustStoreManager, init$, void)},
+	{"getTrustedCerts", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/security/cert/X509Certificate;>;", $PUBLIC | $STATIC, $staticMethod(TrustStoreManager, getTrustedCerts, $Set*), "java.lang.Exception"},
+	{"getTrustedKeyStore", "()Ljava/security/KeyStore;", nullptr, $PUBLIC | $STATIC, $staticMethod(TrustStoreManager, getTrustedKeyStore, $KeyStore*), "java.lang.Exception"},
 	{}
 };
 

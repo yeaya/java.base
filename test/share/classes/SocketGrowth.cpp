@@ -15,8 +15,8 @@ using $ServerSocket = ::java::net::ServerSocket;
 using $Socket = ::java::net::Socket;
 
 $MethodInfo _SocketGrowth_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SocketGrowth::*)()>(&SocketGrowth::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&SocketGrowth::main)), "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SocketGrowth, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SocketGrowth, main, void, $StringArray*), "java.io.IOException"},
 	{}
 };
 

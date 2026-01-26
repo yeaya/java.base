@@ -19,9 +19,9 @@ $FieldInfo _IllegalFormatFlagsException_FieldInfo_[] = {
 };
 
 $MethodInfo _IllegalFormatFlagsException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(IllegalFormatFlagsException::*)($String*)>(&IllegalFormatFlagsException::init$))},
-	{"getFlags", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(IllegalFormatFlagsException, init$, void, $String*)},
+	{"getFlags", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IllegalFormatFlagsException, getFlags, $String*)},
+	{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IllegalFormatFlagsException, getMessage, $String*)},
 	{}
 };
 

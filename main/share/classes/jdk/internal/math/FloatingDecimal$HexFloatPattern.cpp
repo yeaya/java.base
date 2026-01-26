@@ -22,7 +22,7 @@ $FieldInfo _FloatingDecimal$HexFloatPattern_FieldInfo_[] = {
 };
 
 $MethodInfo _FloatingDecimal$HexFloatPattern_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(FloatingDecimal$HexFloatPattern::*)()>(&FloatingDecimal$HexFloatPattern::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(FloatingDecimal$HexFloatPattern, init$, void)},
 	{}
 };
 

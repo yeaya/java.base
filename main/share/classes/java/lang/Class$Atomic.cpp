@@ -28,10 +28,10 @@ $FieldInfo _Class$Atomic_FieldInfo_[] = {
 };
 
 $MethodInfo _Class$Atomic_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(Class$Atomic::*)()>(&Class$Atomic::init$))},
-	{"casAnnotationData", "(Ljava/lang/Class;Ljava/lang/Class$AnnotationData;Ljava/lang/Class$AnnotationData;)Z", "(Ljava/lang/Class<*>;Ljava/lang/Class$AnnotationData;Ljava/lang/Class$AnnotationData;)Z", $STATIC, $method(static_cast<bool(*)($Class*,$Class$AnnotationData*,$Class$AnnotationData*)>(&Class$Atomic::casAnnotationData))},
-	{"casAnnotationType", "(Ljava/lang/Class;Lsun/reflect/annotation/AnnotationType;Lsun/reflect/annotation/AnnotationType;)Z", "(Ljava/lang/Class<*>;Lsun/reflect/annotation/AnnotationType;Lsun/reflect/annotation/AnnotationType;)Z", $STATIC, $method(static_cast<bool(*)($Class*,$AnnotationType*,$AnnotationType*)>(&Class$Atomic::casAnnotationType))},
-	{"casReflectionData", "(Ljava/lang/Class;Ljava/lang/ref/SoftReference;Ljava/lang/ref/SoftReference;)Z", "<T:Ljava/lang/Object;>(Ljava/lang/Class<*>;Ljava/lang/ref/SoftReference<Ljava/lang/Class$ReflectionData<TT;>;>;Ljava/lang/ref/SoftReference<Ljava/lang/Class$ReflectionData<TT;>;>;)Z", $STATIC, $method(static_cast<bool(*)($Class*,$SoftReference*,$SoftReference*)>(&Class$Atomic::casReflectionData))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(Class$Atomic, init$, void)},
+	{"casAnnotationData", "(Ljava/lang/Class;Ljava/lang/Class$AnnotationData;Ljava/lang/Class$AnnotationData;)Z", "(Ljava/lang/Class<*>;Ljava/lang/Class$AnnotationData;Ljava/lang/Class$AnnotationData;)Z", $STATIC, $staticMethod(Class$Atomic, casAnnotationData, bool, $Class*, $Class$AnnotationData*, $Class$AnnotationData*)},
+	{"casAnnotationType", "(Ljava/lang/Class;Lsun/reflect/annotation/AnnotationType;Lsun/reflect/annotation/AnnotationType;)Z", "(Ljava/lang/Class<*>;Lsun/reflect/annotation/AnnotationType;Lsun/reflect/annotation/AnnotationType;)Z", $STATIC, $staticMethod(Class$Atomic, casAnnotationType, bool, $Class*, $AnnotationType*, $AnnotationType*)},
+	{"casReflectionData", "(Ljava/lang/Class;Ljava/lang/ref/SoftReference;Ljava/lang/ref/SoftReference;)Z", "<T:Ljava/lang/Object;>(Ljava/lang/Class<*>;Ljava/lang/ref/SoftReference<Ljava/lang/Class$ReflectionData<TT;>;>;Ljava/lang/ref/SoftReference<Ljava/lang/Class$ReflectionData<TT;>;>;)Z", $STATIC, $staticMethod(Class$Atomic, casReflectionData, bool, $Class*, $SoftReference*, $SoftReference*)},
 	{}
 };
 

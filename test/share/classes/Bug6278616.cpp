@@ -25,8 +25,8 @@ $FieldInfo _Bug6278616_FieldInfo_[] = {
 };
 
 $MethodInfo _Bug6278616_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Bug6278616::*)()>(&Bug6278616::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Bug6278616::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Bug6278616, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Bug6278616, main, void, $StringArray*)},
 	{}
 };
 

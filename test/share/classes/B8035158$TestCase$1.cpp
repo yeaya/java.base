@@ -18,7 +18,7 @@ $FieldInfo _B8035158$TestCase$1_FieldInfo_[] = {
 };
 
 $MethodInfo _B8035158$TestCase$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(B8035158$TestCase$1::*)($String*,$String*)>(&B8035158$TestCase$1::init$))},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(B8035158$TestCase$1, init$, void, $String*, $String*)},
 	{}
 };
 

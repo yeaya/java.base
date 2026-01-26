@@ -21,8 +21,8 @@ $FieldInfo _AsynchronousChannelGroupImpl$4$1_FieldInfo_[] = {
 };
 
 $MethodInfo _AsynchronousChannelGroupImpl$4$1_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/ch/AsynchronousChannelGroupImpl$4;)V", nullptr, 0, $method(static_cast<void(AsynchronousChannelGroupImpl$4$1::*)($AsynchronousChannelGroupImpl$4*)>(&AsynchronousChannelGroupImpl$4$1::init$))},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/nio/ch/AsynchronousChannelGroupImpl$4;)V", nullptr, 0, $method(AsynchronousChannelGroupImpl$4$1, init$, void, $AsynchronousChannelGroupImpl$4*)},
+	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(AsynchronousChannelGroupImpl$4$1, run, $Object*)},
 	{}
 };
 

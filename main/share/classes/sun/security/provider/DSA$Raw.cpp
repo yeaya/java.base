@@ -17,7 +17,7 @@ namespace sun {
 		namespace provider {
 
 $MethodInfo _DSA$Raw_MethodInfo_[] = {
-	{"<init>", "(Z)V", nullptr, $PRIVATE, $method(static_cast<void(DSA$Raw::*)(bool)>(&DSA$Raw::init$)), "java.security.NoSuchAlgorithmException"},
+	{"<init>", "(Z)V", nullptr, $PRIVATE, $method(DSA$Raw, init$, void, bool), "java.security.NoSuchAlgorithmException"},
 	{}
 };
 

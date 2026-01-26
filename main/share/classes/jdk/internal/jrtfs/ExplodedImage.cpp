@@ -91,8 +91,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ExplodedImage$$Lambda$lambda$initNodes$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ExplodedImage$$Lambda$lambda$initNodes$0::*)()>(&ExplodedImage$$Lambda$lambda$initNodes$0::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ExplodedImage$$Lambda$lambda$initNodes$0, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ExplodedImage$$Lambda$lambda$initNodes$0, test, bool, Object$*)},
 	{}
 };
 $ClassInfo ExplodedImage$$Lambda$lambda$initNodes$0::classInfo$ = {
@@ -140,8 +140,8 @@ $FieldInfo ExplodedImage$$Lambda$lambda$initNodes$1$1::fieldInfos[5] = {
 	{}
 };
 $MethodInfo ExplodedImage$$Lambda$lambda$initNodes$1$1::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/jrtfs/ExplodedImage;Ljava/nio/file/Path;Ljava/util/Map;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(ExplodedImage$$Lambda$lambda$initNodes$1$1::*)(ExplodedImage*,$Path*,$Map*,$String*)>(&ExplodedImage$$Lambda$lambda$initNodes$1$1::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/jrtfs/ExplodedImage;Ljava/nio/file/Path;Ljava/util/Map;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ExplodedImage$$Lambda$lambda$initNodes$1$1, init$, void, ExplodedImage*, $Path*, $Map*, $String*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ExplodedImage$$Lambda$lambda$initNodes$1$1, accept, void, Object$*)},
 	{}
 };
 $ClassInfo ExplodedImage$$Lambda$lambda$initNodes$1$1::classInfo$ = {
@@ -170,18 +170,18 @@ $FieldInfo _ExplodedImage_FieldInfo_[] = {
 };
 
 $MethodInfo _ExplodedImage_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/file/Path;)V", nullptr, 0, $method(static_cast<void(ExplodedImage::*)($Path*)>(&ExplodedImage::init$)), "java.io.IOException"},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"findModulesNode", "(Ljava/lang/String;)Ljdk/internal/jimage/ImageReader$Node;", nullptr, 0},
-	{"findNode", "(Ljava/lang/String;)Ljdk/internal/jimage/ImageReader$Node;", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"frontSlashToNativeSlash", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(ExplodedImage::*)($String*)>(&ExplodedImage::frontSlashToNativeSlash))},
-	{"getResource", "(Ljdk/internal/jimage/ImageReader$Node;)[B", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"initNodes", "()V", nullptr, $PRIVATE, $method(static_cast<void(ExplodedImage::*)()>(&ExplodedImage::initNodes)), "java.io.IOException"},
-	{"lambda$initNodes$0", "(Ljava/nio/file/Path;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($Path*)>(&ExplodedImage::lambda$initNodes$0))},
-	{"lambda$initNodes$1", "(Ljava/nio/file/Path;Ljava/util/Map;Ljava/lang/String;Ljava/nio/file/Path;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(ExplodedImage::*)($Path*,$Map*,$String*,$Path*)>(&ExplodedImage::lambda$initNodes$1))},
-	{"nativeSlashToFrontSlash", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(ExplodedImage::*)($String*)>(&ExplodedImage::nativeSlashToFrontSlash))},
-	{"slashesToDots", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(ExplodedImage::*)($String*)>(&ExplodedImage::slashesToDots))},
-	{"underlyingPath", "(Ljava/lang/String;)Ljava/nio/file/Path;", nullptr, 0},
+	{"<init>", "(Ljava/nio/file/Path;)V", nullptr, 0, $method(ExplodedImage, init$, void, $Path*), "java.io.IOException"},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(ExplodedImage, close, void), "java.io.IOException"},
+	{"findModulesNode", "(Ljava/lang/String;)Ljdk/internal/jimage/ImageReader$Node;", nullptr, 0, $virtualMethod(ExplodedImage, findModulesNode, $ImageReader$Node*, $String*)},
+	{"findNode", "(Ljava/lang/String;)Ljdk/internal/jimage/ImageReader$Node;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ExplodedImage, findNode, $ImageReader$Node*, $String*)},
+	{"frontSlashToNativeSlash", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(ExplodedImage, frontSlashToNativeSlash, $String*, $String*)},
+	{"getResource", "(Ljdk/internal/jimage/ImageReader$Node;)[B", nullptr, $PUBLIC, $virtualMethod(ExplodedImage, getResource, $bytes*, $ImageReader$Node*), "java.io.IOException"},
+	{"initNodes", "()V", nullptr, $PRIVATE, $method(ExplodedImage, initNodes, void), "java.io.IOException"},
+	{"lambda$initNodes$0", "(Ljava/nio/file/Path;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ExplodedImage, lambda$initNodes$0, bool, $Path*)},
+	{"lambda$initNodes$1", "(Ljava/nio/file/Path;Ljava/util/Map;Ljava/lang/String;Ljava/nio/file/Path;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(ExplodedImage, lambda$initNodes$1, void, $Path*, $Map*, $String*, $Path*)},
+	{"nativeSlashToFrontSlash", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(ExplodedImage, nativeSlashToFrontSlash, $String*, $String*)},
+	{"slashesToDots", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(ExplodedImage, slashesToDots, $String*, $String*)},
+	{"underlyingPath", "(Ljava/lang/String;)Ljava/nio/file/Path;", nullptr, 0, $virtualMethod(ExplodedImage, underlyingPath, $Path*, $String*)},
 	{}
 };
 

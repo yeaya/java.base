@@ -45,8 +45,8 @@ $FieldInfo _TransportContext$NotifyHandshake_FieldInfo_[] = {
 };
 
 $MethodInfo _TransportContext$NotifyHandshake_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Map;Ljavax/net/ssl/HandshakeCompletedEvent;)V", "(Ljava/util/Map<Ljavax/net/ssl/HandshakeCompletedListener;Ljava/security/AccessControlContext;>;Ljavax/net/ssl/HandshakeCompletedEvent;)V", 0, $method(static_cast<void(TransportContext$NotifyHandshake::*)($Map*,$HandshakeCompletedEvent*)>(&TransportContext$NotifyHandshake::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/Map;Ljavax/net/ssl/HandshakeCompletedEvent;)V", "(Ljava/util/Map<Ljavax/net/ssl/HandshakeCompletedListener;Ljava/security/AccessControlContext;>;Ljavax/net/ssl/HandshakeCompletedEvent;)V", 0, $method(TransportContext$NotifyHandshake, init$, void, $Map*, $HandshakeCompletedEvent*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TransportContext$NotifyHandshake, run, void)},
 	{}
 };
 

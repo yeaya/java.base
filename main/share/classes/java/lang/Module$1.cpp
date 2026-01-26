@@ -36,11 +36,11 @@ $FieldInfo _Module$1_FieldInfo_[] = {
 };
 
 $MethodInfo _Module$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Module;ILjdk/internal/org/objectweb/asm/ClassVisitor;Ljdk/internal/org/objectweb/asm/ClassWriter;)V", nullptr, 0, $method(static_cast<void(Module$1::*)($Module*,int32_t,$ClassVisitor*,$ClassWriter*)>(&Module$1::init$))},
-	{"visit", "(IILjava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"visitAnnotation", "(Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC},
-	{"visitAttribute", "(Ljdk/internal/org/objectweb/asm/Attribute;)V", nullptr, $PUBLIC},
-	{"visitModule", "(Ljava/lang/String;ILjava/lang/String;)Ljdk/internal/org/objectweb/asm/ModuleVisitor;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Module;ILjdk/internal/org/objectweb/asm/ClassVisitor;Ljdk/internal/org/objectweb/asm/ClassWriter;)V", nullptr, 0, $method(Module$1, init$, void, $Module*, int32_t, $ClassVisitor*, $ClassWriter*)},
+	{"visit", "(IILjava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Module$1, visit, void, int32_t, int32_t, $String*, $String*, $String*, $StringArray*)},
+	{"visitAnnotation", "(Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(Module$1, visitAnnotation, $AnnotationVisitor*, $String*, bool)},
+	{"visitAttribute", "(Ljdk/internal/org/objectweb/asm/Attribute;)V", nullptr, $PUBLIC, $virtualMethod(Module$1, visitAttribute, void, $Attribute*)},
+	{"visitModule", "(Ljava/lang/String;ILjava/lang/String;)Ljdk/internal/org/objectweb/asm/ModuleVisitor;", nullptr, $PUBLIC, $virtualMethod(Module$1, visitModule, $ModuleVisitor*, $String*, int32_t, $String*)},
 	{}
 };
 

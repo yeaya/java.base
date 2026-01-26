@@ -31,8 +31,8 @@ $FieldInfo _SSLSocketFactory$DefaultFactoryHolder_FieldInfo_[] = {
 };
 
 $MethodInfo _SSLSocketFactory$DefaultFactoryHolder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(SSLSocketFactory$DefaultFactoryHolder::*)()>(&SSLSocketFactory$DefaultFactoryHolder::init$))},
-	{"log", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($String*)>(&SSLSocketFactory$DefaultFactoryHolder::log))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(SSLSocketFactory$DefaultFactoryHolder, init$, void)},
+	{"log", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(SSLSocketFactory$DefaultFactoryHolder, log, void, $String*)},
 	{}
 };
 

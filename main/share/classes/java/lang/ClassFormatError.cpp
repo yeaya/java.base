@@ -17,8 +17,8 @@ $FieldInfo _ClassFormatError_FieldInfo_[] = {
 };
 
 $MethodInfo _ClassFormatError_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ClassFormatError::*)()>(&ClassFormatError::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(ClassFormatError::*)($String*)>(&ClassFormatError::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ClassFormatError, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ClassFormatError, init$, void, $String*)},
 	{}
 };
 

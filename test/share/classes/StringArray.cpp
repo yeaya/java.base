@@ -18,7 +18,7 @@ $CompoundAttribute _StringArray_Annotations_[] = {
 };
 
 $MethodInfo _StringArray_MethodInfo_[] = {
-	{"value", "()[Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
+	{"value", "()[Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(StringArray, value, $StringArray*)},
 	{}
 };
 

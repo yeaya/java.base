@@ -8,7 +8,7 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _GetAnnotatedInterfaces$2_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(GetAnnotatedInterfaces$2::*)()>(&GetAnnotatedInterfaces$2::init$))},
+	{"<init>", "()V", nullptr, 0, $method(GetAnnotatedInterfaces$2, init$, void)},
 	{}
 };
 

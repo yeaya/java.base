@@ -12,8 +12,8 @@ using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _OverflowInRead_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(OverflowInRead::*)()>(&OverflowInRead::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&OverflowInRead::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(OverflowInRead, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(OverflowInRead, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

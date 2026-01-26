@@ -31,9 +31,9 @@ $FieldInfo _Collectors$Partition$1_FieldInfo_[] = {
 };
 
 $MethodInfo _Collectors$Partition$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/stream/Collectors$Partition;)V", nullptr, 0, $method(static_cast<void(Collectors$Partition$1::*)($Collectors$Partition*)>(&Collectors$Partition$1::init$))},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/util/Map$Entry<Ljava/lang/Boolean;TT;>;>;", $PUBLIC},
-	{"size", "()I", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/stream/Collectors$Partition;)V", nullptr, 0, $method(Collectors$Partition$1, init$, void, $Collectors$Partition*)},
+	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/util/Map$Entry<Ljava/lang/Boolean;TT;>;>;", $PUBLIC, $virtualMethod(Collectors$Partition$1, iterator, $Iterator*)},
+	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(Collectors$Partition$1, size, int32_t)},
 	{}
 };
 

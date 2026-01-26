@@ -15,7 +15,7 @@ $FieldInfo _SocketAddress_FieldInfo_[] = {
 };
 
 $MethodInfo _SocketAddress_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SocketAddress::*)()>(&SocketAddress::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SocketAddress, init$, void)},
 	{}
 };
 

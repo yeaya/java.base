@@ -21,8 +21,8 @@ $FieldInfo _WindowsLinkSupport$1_FieldInfo_[] = {
 };
 
 $MethodInfo _WindowsLinkSupport$1_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/fs/WindowsPath;)V", "()V", 0, $method(static_cast<void(WindowsLinkSupport$1::*)($WindowsPath*)>(&WindowsLinkSupport$1::init$))},
-	{"run", "()Lsun/nio/fs/WindowsPath;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/nio/fs/WindowsPath;)V", "()V", 0, $method(WindowsLinkSupport$1, init$, void, $WindowsPath*)},
+	{"run", "()Lsun/nio/fs/WindowsPath;", nullptr, $PUBLIC, $virtualMethod(WindowsLinkSupport$1, run, $Object*)},
 	{}
 };
 

@@ -64,22 +64,22 @@ $FieldInfo _UTF16_FieldInfo_[] = {
 };
 
 $MethodInfo _UTF16_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(UTF16::*)()>(&UTF16::init$))},
-	{"_charAt", "(Ljava/lang/String;IC)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)($String*,int32_t,char16_t)>(&UTF16::_charAt))},
-	{"_charAt", "(Ljava/lang/CharSequence;IC)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)($CharSequence*,int32_t,char16_t)>(&UTF16::_charAt))},
-	{"append", "(Ljava/lang/StringBuffer;I)Ljava/lang/StringBuffer;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$StringBuffer*(*)($StringBuffer*,int32_t)>(&UTF16::append))},
-	{"charAt", "(Ljava/lang/String;I)I", nullptr, $PUBLIC | $STATIC, $method(static_cast<int32_t(*)($String*,int32_t)>(&UTF16::charAt))},
-	{"charAt", "(Ljava/lang/CharSequence;I)I", nullptr, $PUBLIC | $STATIC, $method(static_cast<int32_t(*)($CharSequence*,int32_t)>(&UTF16::charAt))},
-	{"charAt", "([CIII)I", nullptr, $PUBLIC | $STATIC, $method(static_cast<int32_t(*)($chars*,int32_t,int32_t,int32_t)>(&UTF16::charAt))},
-	{"getCharCount", "(I)I", nullptr, $PUBLIC | $STATIC, $method(static_cast<int32_t(*)(int32_t)>(&UTF16::getCharCount))},
-	{"getLeadSurrogate", "(I)C", nullptr, $PUBLIC | $STATIC, $method(static_cast<char16_t(*)(int32_t)>(&UTF16::getLeadSurrogate))},
-	{"getTrailSurrogate", "(I)C", nullptr, $PUBLIC | $STATIC, $method(static_cast<char16_t(*)(int32_t)>(&UTF16::getTrailSurrogate))},
-	{"isLeadSurrogate", "(C)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)(char16_t)>(&UTF16::isLeadSurrogate))},
-	{"isSurrogate", "(C)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)(char16_t)>(&UTF16::isSurrogate))},
-	{"isTrailSurrogate", "(C)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)(char16_t)>(&UTF16::isTrailSurrogate))},
-	{"moveCodePointOffset", "([CIIII)I", nullptr, $PUBLIC | $STATIC, $method(static_cast<int32_t(*)($chars*,int32_t,int32_t,int32_t,int32_t)>(&UTF16::moveCodePointOffset))},
-	{"toString", "(I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)(int32_t)>(&UTF16::toString))},
-	{"valueOf", "(I)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)(int32_t)>(&UTF16::valueOf))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(UTF16, init$, void)},
+	{"_charAt", "(Ljava/lang/String;IC)I", nullptr, $PRIVATE | $STATIC, $staticMethod(UTF16, _charAt, int32_t, $String*, int32_t, char16_t)},
+	{"_charAt", "(Ljava/lang/CharSequence;IC)I", nullptr, $PRIVATE | $STATIC, $staticMethod(UTF16, _charAt, int32_t, $CharSequence*, int32_t, char16_t)},
+	{"append", "(Ljava/lang/StringBuffer;I)Ljava/lang/StringBuffer;", nullptr, $PUBLIC | $STATIC, $staticMethod(UTF16, append, $StringBuffer*, $StringBuffer*, int32_t)},
+	{"charAt", "(Ljava/lang/String;I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(UTF16, charAt, int32_t, $String*, int32_t)},
+	{"charAt", "(Ljava/lang/CharSequence;I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(UTF16, charAt, int32_t, $CharSequence*, int32_t)},
+	{"charAt", "([CIII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(UTF16, charAt, int32_t, $chars*, int32_t, int32_t, int32_t)},
+	{"getCharCount", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(UTF16, getCharCount, int32_t, int32_t)},
+	{"getLeadSurrogate", "(I)C", nullptr, $PUBLIC | $STATIC, $staticMethod(UTF16, getLeadSurrogate, char16_t, int32_t)},
+	{"getTrailSurrogate", "(I)C", nullptr, $PUBLIC | $STATIC, $staticMethod(UTF16, getTrailSurrogate, char16_t, int32_t)},
+	{"isLeadSurrogate", "(C)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(UTF16, isLeadSurrogate, bool, char16_t)},
+	{"isSurrogate", "(C)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(UTF16, isSurrogate, bool, char16_t)},
+	{"isTrailSurrogate", "(C)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(UTF16, isTrailSurrogate, bool, char16_t)},
+	{"moveCodePointOffset", "([CIIII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(UTF16, moveCodePointOffset, int32_t, $chars*, int32_t, int32_t, int32_t, int32_t)},
+	{"toString", "(I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(UTF16, toString, $String*, int32_t)},
+	{"valueOf", "(I)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(UTF16, valueOf, $String*, int32_t)},
 	{}
 };
 

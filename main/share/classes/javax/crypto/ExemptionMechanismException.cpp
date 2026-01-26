@@ -17,8 +17,8 @@ $FieldInfo _ExemptionMechanismException_FieldInfo_[] = {
 };
 
 $MethodInfo _ExemptionMechanismException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ExemptionMechanismException::*)()>(&ExemptionMechanismException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(ExemptionMechanismException::*)($String*)>(&ExemptionMechanismException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ExemptionMechanismException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ExemptionMechanismException, init$, void, $String*)},
 	{}
 };
 

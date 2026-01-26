@@ -17,10 +17,10 @@ $FieldInfo _BootstrapMethodError_FieldInfo_[] = {
 };
 
 $MethodInfo _BootstrapMethodError_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(BootstrapMethodError::*)()>(&BootstrapMethodError::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(BootstrapMethodError::*)($String*)>(&BootstrapMethodError::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(BootstrapMethodError::*)($String*,$Throwable*)>(&BootstrapMethodError::init$))},
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(BootstrapMethodError::*)($Throwable*)>(&BootstrapMethodError::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(BootstrapMethodError, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(BootstrapMethodError, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(BootstrapMethodError, init$, void, $String*, $Throwable*)},
+	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(BootstrapMethodError, init$, void, $Throwable*)},
 	{}
 };
 

@@ -16,11 +16,11 @@ $FieldInfo _C0B_FieldInfo_[] = {
 };
 
 $MethodInfo _C0B_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(C0B::*)()>(&C0B::init$))},
-	{"<init>", "(Ljava/lang/Object;)V", "(TT;)V", $PUBLIC, $method(static_cast<void(C0B::*)(Object$*)>(&C0B::init$))},
-	{"mc1", "()LC0B;", nullptr, $PUBLIC | $ABSTRACT},
-	{"mc1t", "(Ljava/lang/Object;LC0B;LC0B;)LC0B;", "(TT;LC0B<TT;>;LC0B;)LC0B<TT;>;", $PUBLIC | $ABSTRACT},
-	{"mt", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TT;)TT;", $PUBLIC | $ABSTRACT},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(C0B, init$, void)},
+	{"<init>", "(Ljava/lang/Object;)V", "(TT;)V", $PUBLIC, $method(C0B, init$, void, Object$*)},
+	{"mc1", "()LC0B;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(C0B, mc1, C0B*)},
+	{"mc1t", "(Ljava/lang/Object;LC0B;LC0B;)LC0B;", "(TT;LC0B<TT;>;LC0B;)LC0B<TT;>;", $PUBLIC | $ABSTRACT, $virtualMethod(C0B, mc1t, C0B*, Object$*, C0B*, C0B*)},
+	{"mt", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TT;)TT;", $PUBLIC | $ABSTRACT, $virtualMethod(C0B, mt, $Object*, Object$*)},
 	{}
 };
 

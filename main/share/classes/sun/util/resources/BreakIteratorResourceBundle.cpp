@@ -68,8 +68,8 @@ $FieldInfo BreakIteratorResourceBundle$$Lambda$lambda$getResourceAsStream$0::fie
 	{}
 };
 $MethodInfo BreakIteratorResourceBundle$$Lambda$lambda$getResourceAsStream$0::methodInfos[3] = {
-	{"<init>", "(Lsun/util/resources/BreakIteratorResourceBundle;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(BreakIteratorResourceBundle$$Lambda$lambda$getResourceAsStream$0::*)(BreakIteratorResourceBundle*,$String*)>(&BreakIteratorResourceBundle$$Lambda$lambda$getResourceAsStream$0::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/util/resources/BreakIteratorResourceBundle;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(BreakIteratorResourceBundle$$Lambda$lambda$getResourceAsStream$0, init$, void, BreakIteratorResourceBundle*, $String*)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(BreakIteratorResourceBundle$$Lambda$lambda$getResourceAsStream$0, run, $Object*)},
 	{}
 };
 $ClassInfo BreakIteratorResourceBundle$$Lambda$lambda$getResourceAsStream$0::classInfo$ = {
@@ -93,13 +93,13 @@ $FieldInfo _BreakIteratorResourceBundle_FieldInfo_[] = {
 };
 
 $MethodInfo _BreakIteratorResourceBundle_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(BreakIteratorResourceBundle::*)()>(&BreakIteratorResourceBundle::init$))},
-	{"getBreakIteratorInfo", "()Ljava/util/ResourceBundle;", nullptr, $PROTECTED | $ABSTRACT},
-	{"getKeys", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC},
-	{"getResourceAsStream", "(Ljava/lang/String;)Ljava/io/InputStream;", nullptr, $PRIVATE, $method(static_cast<$InputStream*(BreakIteratorResourceBundle::*)($String*)>(&BreakIteratorResourceBundle::getResourceAsStream)), "java.lang.Exception"},
-	{"handleGetObject", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PROTECTED},
-	{"handleKeySet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PROTECTED},
-	{"lambda$getResourceAsStream$0", "(Ljava/lang/String;)Ljava/io/InputStream;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$InputStream*(BreakIteratorResourceBundle::*)($String*)>(&BreakIteratorResourceBundle::lambda$getResourceAsStream$0)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(BreakIteratorResourceBundle, init$, void)},
+	{"getBreakIteratorInfo", "()Ljava/util/ResourceBundle;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(BreakIteratorResourceBundle, getBreakIteratorInfo, $ResourceBundle*)},
+	{"getKeys", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(BreakIteratorResourceBundle, getKeys, $Enumeration*)},
+	{"getResourceAsStream", "(Ljava/lang/String;)Ljava/io/InputStream;", nullptr, $PRIVATE, $method(BreakIteratorResourceBundle, getResourceAsStream, $InputStream*, $String*), "java.lang.Exception"},
+	{"handleGetObject", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(BreakIteratorResourceBundle, handleGetObject, $Object*, $String*)},
+	{"handleKeySet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PROTECTED, $virtualMethod(BreakIteratorResourceBundle, handleKeySet, $Set*)},
+	{"lambda$getResourceAsStream$0", "(Ljava/lang/String;)Ljava/io/InputStream;", nullptr, $PRIVATE | $SYNTHETIC, $method(BreakIteratorResourceBundle, lambda$getResourceAsStream$0, $InputStream*, $String*), "java.lang.Exception"},
 	{}
 };
 

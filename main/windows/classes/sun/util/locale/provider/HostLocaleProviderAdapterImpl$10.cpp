@@ -32,14 +32,14 @@ namespace sun {
 			namespace provider {
 
 $MethodInfo _HostLocaleProviderAdapterImpl$10_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(HostLocaleProviderAdapterImpl$10::*)()>(&HostLocaleProviderAdapterImpl$10::init$))},
-	{"appendN", "(CILjava/lang/StringBuilder;)V", nullptr, $PRIVATE, $method(static_cast<void(HostLocaleProviderAdapterImpl$10::*)(char16_t,int32_t,$StringBuilder*)>(&HostLocaleProviderAdapterImpl$10::appendN))},
-	{"convert", "(Ljava/lang/String;CILjava/lang/StringBuilder;)V", nullptr, $PRIVATE, $method(static_cast<void(HostLocaleProviderAdapterImpl$10::*)($String*,char16_t,int32_t,$StringBuilder*)>(&HostLocaleProviderAdapterImpl$10::convert))},
-	{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC},
-	{"getDateTimePatterns", "(Ljava/util/Locale;)Ljava/util/concurrent/atomic/AtomicReferenceArray;", "(Ljava/util/Locale;)Ljava/util/concurrent/atomic/AtomicReferenceArray<Ljava/lang/String;>;", $PRIVATE, $method(static_cast<$AtomicReferenceArray*(HostLocaleProviderAdapterImpl$10::*)($Locale*)>(&HostLocaleProviderAdapterImpl$10::getDateTimePatterns))},
-	{"getJavaTimeDateTimePattern", "(IILjava/lang/String;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"isSupportedLocale", "(Ljava/util/Locale;)Z", nullptr, $PUBLIC},
-	{"toJavaTimeDateTimePattern", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(HostLocaleProviderAdapterImpl$10::*)($String*,$String*)>(&HostLocaleProviderAdapterImpl$10::toJavaTimeDateTimePattern))},
+	{"<init>", "()V", nullptr, 0, $method(HostLocaleProviderAdapterImpl$10, init$, void)},
+	{"appendN", "(CILjava/lang/StringBuilder;)V", nullptr, $PRIVATE, $method(HostLocaleProviderAdapterImpl$10, appendN, void, char16_t, int32_t, $StringBuilder*)},
+	{"convert", "(Ljava/lang/String;CILjava/lang/StringBuilder;)V", nullptr, $PRIVATE, $method(HostLocaleProviderAdapterImpl$10, convert, void, $String*, char16_t, int32_t, $StringBuilder*)},
+	{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(HostLocaleProviderAdapterImpl$10, getAvailableLocales, $LocaleArray*)},
+	{"getDateTimePatterns", "(Ljava/util/Locale;)Ljava/util/concurrent/atomic/AtomicReferenceArray;", "(Ljava/util/Locale;)Ljava/util/concurrent/atomic/AtomicReferenceArray<Ljava/lang/String;>;", $PRIVATE, $method(HostLocaleProviderAdapterImpl$10, getDateTimePatterns, $AtomicReferenceArray*, $Locale*)},
+	{"getJavaTimeDateTimePattern", "(IILjava/lang/String;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HostLocaleProviderAdapterImpl$10, getJavaTimeDateTimePattern, $String*, int32_t, int32_t, $String*, $Locale*)},
+	{"isSupportedLocale", "(Ljava/util/Locale;)Z", nullptr, $PUBLIC, $virtualMethod(HostLocaleProviderAdapterImpl$10, isSupportedLocale, bool, $Locale*)},
+	{"toJavaTimeDateTimePattern", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(HostLocaleProviderAdapterImpl$10, toJavaTimeDateTimePattern, $String*, $String*, $String*)},
 	{}
 };
 

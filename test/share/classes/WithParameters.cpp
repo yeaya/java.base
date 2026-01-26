@@ -45,9 +45,9 @@ $FieldInfo _WithParameters_FieldInfo_[] = {
 };
 
 $MethodInfo _WithParameters_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(WithParameters::*)()>(&WithParameters::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&WithParameters::main)), "java.lang.Exception"},
-	{"test", "(I)V", nullptr, 0},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(WithParameters, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(WithParameters, main, void, $StringArray*), "java.lang.Exception"},
+	{"test", "(I)V", nullptr, 0, $virtualMethod(WithParameters, test, void, int32_t)},
 	{}
 };
 

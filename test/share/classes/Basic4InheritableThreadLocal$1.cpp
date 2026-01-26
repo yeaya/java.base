@@ -11,9 +11,9 @@ using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _Basic4InheritableThreadLocal$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Basic4InheritableThreadLocal$1::*)()>(&Basic4InheritableThreadLocal$1::init$))},
-	{"childValue", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PROTECTED},
-	{"initialValue", "()Ljava/lang/Object;", nullptr, $PROTECTED},
+	{"<init>", "()V", nullptr, 0, $method(Basic4InheritableThreadLocal$1, init$, void)},
+	{"childValue", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(Basic4InheritableThreadLocal$1, childValue, $Object*, Object$*)},
+	{"initialValue", "()Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(Basic4InheritableThreadLocal$1, initialValue, $Object*)},
 	{}
 };
 

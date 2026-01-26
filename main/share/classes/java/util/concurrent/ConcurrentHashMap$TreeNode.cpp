@@ -25,9 +25,9 @@ $FieldInfo _ConcurrentHashMap$TreeNode_FieldInfo_[] = {
 };
 
 $MethodInfo _ConcurrentHashMap$TreeNode_MethodInfo_[] = {
-	{"<init>", "(ILjava/lang/Object;Ljava/lang/Object;Ljava/util/concurrent/ConcurrentHashMap$Node;Ljava/util/concurrent/ConcurrentHashMap$TreeNode;)V", "(ITK;TV;Ljava/util/concurrent/ConcurrentHashMap$Node<TK;TV;>;Ljava/util/concurrent/ConcurrentHashMap$TreeNode<TK;TV;>;)V", 0, $method(static_cast<void(ConcurrentHashMap$TreeNode::*)(int32_t,Object$*,Object$*,$ConcurrentHashMap$Node*,ConcurrentHashMap$TreeNode*)>(&ConcurrentHashMap$TreeNode::init$))},
-	{"find", "(ILjava/lang/Object;)Ljava/util/concurrent/ConcurrentHashMap$Node;", "(ILjava/lang/Object;)Ljava/util/concurrent/ConcurrentHashMap$Node<TK;TV;>;", 0},
-	{"findTreeNode", "(ILjava/lang/Object;Ljava/lang/Class;)Ljava/util/concurrent/ConcurrentHashMap$TreeNode;", "(ILjava/lang/Object;Ljava/lang/Class<*>;)Ljava/util/concurrent/ConcurrentHashMap$TreeNode<TK;TV;>;", $FINAL, $method(static_cast<ConcurrentHashMap$TreeNode*(ConcurrentHashMap$TreeNode::*)(int32_t,Object$*,$Class*)>(&ConcurrentHashMap$TreeNode::findTreeNode))},
+	{"<init>", "(ILjava/lang/Object;Ljava/lang/Object;Ljava/util/concurrent/ConcurrentHashMap$Node;Ljava/util/concurrent/ConcurrentHashMap$TreeNode;)V", "(ITK;TV;Ljava/util/concurrent/ConcurrentHashMap$Node<TK;TV;>;Ljava/util/concurrent/ConcurrentHashMap$TreeNode<TK;TV;>;)V", 0, $method(ConcurrentHashMap$TreeNode, init$, void, int32_t, Object$*, Object$*, $ConcurrentHashMap$Node*, ConcurrentHashMap$TreeNode*)},
+	{"find", "(ILjava/lang/Object;)Ljava/util/concurrent/ConcurrentHashMap$Node;", "(ILjava/lang/Object;)Ljava/util/concurrent/ConcurrentHashMap$Node<TK;TV;>;", 0, $virtualMethod(ConcurrentHashMap$TreeNode, find, $ConcurrentHashMap$Node*, int32_t, Object$*)},
+	{"findTreeNode", "(ILjava/lang/Object;Ljava/lang/Class;)Ljava/util/concurrent/ConcurrentHashMap$TreeNode;", "(ILjava/lang/Object;Ljava/lang/Class<*>;)Ljava/util/concurrent/ConcurrentHashMap$TreeNode<TK;TV;>;", $FINAL, $method(ConcurrentHashMap$TreeNode, findTreeNode, ConcurrentHashMap$TreeNode*, int32_t, Object$*, $Class*)},
 	{}
 };
 

@@ -25,14 +25,14 @@ $FieldInfo _IdentityHashMap$EntryIterator$Entry_FieldInfo_[] = {
 };
 
 $MethodInfo _IdentityHashMap$EntryIterator$Entry_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/IdentityHashMap$EntryIterator;I)V", nullptr, $PRIVATE, $method(static_cast<void(IdentityHashMap$EntryIterator$Entry::*)($IdentityHashMap$EntryIterator*,int32_t)>(&IdentityHashMap$EntryIterator$Entry::init$))},
-	{"checkIndexForEntryUse", "()V", nullptr, $PRIVATE, $method(static_cast<void(IdentityHashMap$EntryIterator$Entry::*)()>(&IdentityHashMap$EntryIterator$Entry::checkIndexForEntryUse))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getKey", "()Ljava/lang/Object;", "()TK;", $PUBLIC},
-	{"getValue", "()Ljava/lang/Object;", "()TV;", $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"setValue", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TV;)TV;", $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/IdentityHashMap$EntryIterator;I)V", nullptr, $PRIVATE, $method(IdentityHashMap$EntryIterator$Entry, init$, void, $IdentityHashMap$EntryIterator*, int32_t)},
+	{"checkIndexForEntryUse", "()V", nullptr, $PRIVATE, $method(IdentityHashMap$EntryIterator$Entry, checkIndexForEntryUse, void)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(IdentityHashMap$EntryIterator$Entry, equals, bool, Object$*)},
+	{"getKey", "()Ljava/lang/Object;", "()TK;", $PUBLIC, $virtualMethod(IdentityHashMap$EntryIterator$Entry, getKey, $Object*)},
+	{"getValue", "()Ljava/lang/Object;", "()TV;", $PUBLIC, $virtualMethod(IdentityHashMap$EntryIterator$Entry, getValue, $Object*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(IdentityHashMap$EntryIterator$Entry, hashCode, int32_t)},
+	{"setValue", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TV;)TV;", $PUBLIC, $virtualMethod(IdentityHashMap$EntryIterator$Entry, setValue, $Object*, Object$*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IdentityHashMap$EntryIterator$Entry, toString, $String*)},
 	{}
 };
 

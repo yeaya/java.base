@@ -15,9 +15,9 @@ namespace pkg {
 	namespace subpkg {
 
 $MethodInfo _C4pkg_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(C4pkg::*)()>(&C4pkg::init$))},
-	{"inaccessibleFields", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC | $STATIC, $method(static_cast<$Set*(*)()>(&C4pkg::inaccessibleFields))},
-	{"lookup", "()Ljava/lang/invoke/MethodHandles$Lookup;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$MethodHandles$Lookup*(*)()>(&C4pkg::lookup))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(C4pkg, init$, void)},
+	{"inaccessibleFields", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC | $STATIC, $staticMethod(C4pkg, inaccessibleFields, $Set*)},
+	{"lookup", "()Ljava/lang/invoke/MethodHandles$Lookup;", nullptr, $PUBLIC | $STATIC, $staticMethod(C4pkg, lookup, $MethodHandles$Lookup*)},
 	{}
 };
 

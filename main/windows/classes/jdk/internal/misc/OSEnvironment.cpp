@@ -12,8 +12,8 @@ namespace jdk {
 		namespace misc {
 
 $MethodInfo _OSEnvironment_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(OSEnvironment::*)()>(&OSEnvironment::init$))},
-	{"initialize", "()V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)()>(&OSEnvironment::initialize))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(OSEnvironment, init$, void)},
+	{"initialize", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(OSEnvironment, initialize, void)},
 	{}
 };
 

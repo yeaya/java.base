@@ -22,7 +22,7 @@ $FieldInfo _Duration$Lazy_FieldInfo_[] = {
 };
 
 $MethodInfo _Duration$Lazy_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(Duration$Lazy::*)()>(&Duration$Lazy::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(Duration$Lazy, init$, void)},
 	{}
 };
 

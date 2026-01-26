@@ -18,8 +18,8 @@ $FieldInfo _TimeToLive_FieldInfo_[] = {
 };
 
 $MethodInfo _TimeToLive_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TimeToLive::*)()>(&TimeToLive::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&TimeToLive::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TimeToLive, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TimeToLive, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

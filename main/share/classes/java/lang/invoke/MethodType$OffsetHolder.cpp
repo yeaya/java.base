@@ -26,7 +26,7 @@ $FieldInfo _MethodType$OffsetHolder_FieldInfo_[] = {
 };
 
 $MethodInfo _MethodType$OffsetHolder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(MethodType$OffsetHolder::*)()>(&MethodType$OffsetHolder::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(MethodType$OffsetHolder, init$, void)},
 	{}
 };
 

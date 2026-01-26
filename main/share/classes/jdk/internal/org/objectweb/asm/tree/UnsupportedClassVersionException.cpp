@@ -20,7 +20,7 @@ $FieldInfo _UnsupportedClassVersionException_FieldInfo_[] = {
 };
 
 $MethodInfo _UnsupportedClassVersionException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(UnsupportedClassVersionException::*)()>(&UnsupportedClassVersionException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(UnsupportedClassVersionException, init$, void)},
 	{}
 };
 

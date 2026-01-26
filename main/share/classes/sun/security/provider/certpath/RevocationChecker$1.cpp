@@ -19,8 +19,8 @@ namespace sun {
 			namespace certpath {
 
 $MethodInfo _RevocationChecker$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(RevocationChecker$1::*)()>(&RevocationChecker$1::init$))},
-	{"run", "()Lsun/security/provider/certpath/RevocationChecker$RevocationProperties;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(RevocationChecker$1, init$, void)},
+	{"run", "()Lsun/security/provider/certpath/RevocationChecker$RevocationProperties;", nullptr, $PUBLIC, $virtualMethod(RevocationChecker$1, run, $Object*)},
 	{}
 };
 

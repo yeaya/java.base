@@ -25,7 +25,7 @@ $Attribute _SingleMemberClassWithDef_DefaultValue_value0 = {
 };
 
 $MethodInfo _SingleMemberClassWithDef_MethodInfo_[] = {
-	{"value", "()Ljava/lang/Class;", nullptr, $PUBLIC | $ABSTRACT, nullptr, nullptr, &_SingleMemberClassWithDef_DefaultValue_value0},
+	{"value", "()Ljava/lang/Class;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SingleMemberClassWithDef, value, $Class*), nullptr, &_SingleMemberClassWithDef_DefaultValue_value0},
 	{}
 };
 

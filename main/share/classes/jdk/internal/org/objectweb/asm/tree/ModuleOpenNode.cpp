@@ -25,8 +25,8 @@ $FieldInfo _ModuleOpenNode_FieldInfo_[] = {
 };
 
 $MethodInfo _ModuleOpenNode_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;ILjava/util/List;)V", "(Ljava/lang/String;ILjava/util/List<Ljava/lang/String;>;)V", $PUBLIC, $method(static_cast<void(ModuleOpenNode::*)($String*,int32_t,$List*)>(&ModuleOpenNode::init$))},
-	{"accept", "(Ljdk/internal/org/objectweb/asm/ModuleVisitor;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;ILjava/util/List;)V", "(Ljava/lang/String;ILjava/util/List<Ljava/lang/String;>;)V", $PUBLIC, $method(ModuleOpenNode, init$, void, $String*, int32_t, $List*)},
+	{"accept", "(Ljdk/internal/org/objectweb/asm/ModuleVisitor;)V", nullptr, $PUBLIC, $virtualMethod(ModuleOpenNode, accept, void, $ModuleVisitor*)},
 	{}
 };
 

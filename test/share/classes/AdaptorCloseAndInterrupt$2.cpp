@@ -19,8 +19,8 @@ $FieldInfo _AdaptorCloseAndInterrupt$2_FieldInfo_[] = {
 };
 
 $MethodInfo _AdaptorCloseAndInterrupt$2_MethodInfo_[] = {
-	{"<init>", "(LAdaptorCloseAndInterrupt;Ljava/lang/Thread;)V", "()V", 0, $method(static_cast<void(AdaptorCloseAndInterrupt$2::*)($AdaptorCloseAndInterrupt*,$Thread*)>(&AdaptorCloseAndInterrupt$2::init$))},
-	{"call", "()Ljava/lang/Void;", nullptr, $PUBLIC, nullptr, "java.lang.Exception"},
+	{"<init>", "(LAdaptorCloseAndInterrupt;Ljava/lang/Thread;)V", "()V", 0, $method(AdaptorCloseAndInterrupt$2, init$, void, $AdaptorCloseAndInterrupt*, $Thread*)},
+	{"call", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(AdaptorCloseAndInterrupt$2, call, $Object*), "java.lang.Exception"},
 	{}
 };
 

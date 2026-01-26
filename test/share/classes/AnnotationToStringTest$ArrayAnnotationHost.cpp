@@ -285,7 +285,7 @@ $FieldInfo _AnnotationToStringTest$ArrayAnnotationHost_FieldInfo_[] = {
 };
 
 $MethodInfo _AnnotationToStringTest$ArrayAnnotationHost_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(AnnotationToStringTest$ArrayAnnotationHost::*)()>(&AnnotationToStringTest$ArrayAnnotationHost::init$))},
+	{"<init>", "()V", nullptr, 0, $method(AnnotationToStringTest$ArrayAnnotationHost, init$, void)},
 	{}
 };
 

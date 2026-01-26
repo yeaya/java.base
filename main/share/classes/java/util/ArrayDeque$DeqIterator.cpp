@@ -31,12 +31,12 @@ $FieldInfo _ArrayDeque$DeqIterator_FieldInfo_[] = {
 };
 
 $MethodInfo _ArrayDeque$DeqIterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/ArrayDeque;)V", nullptr, 0, $method(static_cast<void(ArrayDeque$DeqIterator::*)($ArrayDeque*)>(&ArrayDeque$DeqIterator::init$))},
-	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC},
-	{"hasNext", "()Z", nullptr, $PUBLIC | $FINAL},
-	{"next", "()Ljava/lang/Object;", "()TE;", $PUBLIC},
-	{"postDelete", "(Z)V", nullptr, 0},
-	{"remove", "()V", nullptr, $PUBLIC | $FINAL},
+	{"<init>", "(Ljava/util/ArrayDeque;)V", nullptr, 0, $method(ArrayDeque$DeqIterator, init$, void, $ArrayDeque*)},
+	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC, $virtualMethod(ArrayDeque$DeqIterator, forEachRemaining, void, $Consumer*)},
+	{"hasNext", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(ArrayDeque$DeqIterator, hasNext, bool)},
+	{"next", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(ArrayDeque$DeqIterator, next, $Object*)},
+	{"postDelete", "(Z)V", nullptr, 0, $virtualMethod(ArrayDeque$DeqIterator, postDelete, void, bool)},
+	{"remove", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(ArrayDeque$DeqIterator, remove, void)},
 	{}
 };
 

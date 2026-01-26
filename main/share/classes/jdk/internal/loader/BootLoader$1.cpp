@@ -23,8 +23,8 @@ $FieldInfo _BootLoader$1_FieldInfo_[] = {
 };
 
 $MethodInfo _BootLoader$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(BootLoader$1::*)($String*)>(&BootLoader$1::init$))},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(BootLoader$1, init$, void, $String*)},
+	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(BootLoader$1, run, $Object*)},
 	{}
 };
 

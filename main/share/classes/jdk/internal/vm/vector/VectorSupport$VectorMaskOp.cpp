@@ -13,7 +13,7 @@ namespace jdk {
 			namespace vector {
 
 $MethodInfo _VectorSupport$VectorMaskOp_MethodInfo_[] = {
-	{"apply", "(Ljava/lang/Object;)I", "(TM;)I", $PUBLIC | $ABSTRACT},
+	{"apply", "(Ljava/lang/Object;)I", "(TM;)I", $PUBLIC | $ABSTRACT, $virtualMethod(VectorSupport$VectorMaskOp, apply, int32_t, Object$*)},
 	{}
 };
 

@@ -24,9 +24,9 @@ $FieldInfo _OversynchronizedTest_FieldInfo_[] = {
 };
 
 $MethodInfo _OversynchronizedTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(OversynchronizedTest::*)()>(&OversynchronizedTest::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&OversynchronizedTest::main)), "java.lang.Exception"},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(OversynchronizedTest, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(OversynchronizedTest, main, void, $StringArray*), "java.lang.Exception"},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(OversynchronizedTest, run, void)},
 	{}
 };
 

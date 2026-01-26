@@ -8,15 +8,17 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $System$Logger = ::java::lang::System$Logger;
+using $PlatformLogger$Bridge = ::sun::util::logging::PlatformLogger$Bridge;
 
 namespace jdk {
 	namespace internal {
 		namespace logger {
 
 $MethodInfo _LazyLoggers$LoggerAccessor_MethodInfo_[] = {
-	{"getLoggerName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"platform", "()Lsun/util/logging/PlatformLogger$Bridge;", nullptr, $PUBLIC | $ABSTRACT},
-	{"wrapped", "()Ljava/lang/System$Logger;", nullptr, $PUBLIC | $ABSTRACT},
+	{"getLoggerName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LazyLoggers$LoggerAccessor, getLoggerName, $String*)},
+	{"platform", "()Lsun/util/logging/PlatformLogger$Bridge;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LazyLoggers$LoggerAccessor, platform, $PlatformLogger$Bridge*)},
+	{"wrapped", "()Ljava/lang/System$Logger;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LazyLoggers$LoggerAccessor, wrapped, $System$Logger*)},
 	{}
 };
 

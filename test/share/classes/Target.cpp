@@ -9,7 +9,7 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $UnsatisfiedLinkError = ::java::lang::UnsatisfiedLinkError;
 
 $MethodInfo _Target_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Target::*)()>(&Target::init$))},
+	{"<init>", "()V", nullptr, 0, $method(Target, init$, void)},
 	{}
 };
 

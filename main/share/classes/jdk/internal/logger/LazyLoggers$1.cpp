@@ -18,9 +18,9 @@ namespace jdk {
 		namespace logger {
 
 $MethodInfo _LazyLoggers$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(LazyLoggers$1::*)()>(&LazyLoggers$1::init$))},
-	{"apply", "(Ljava/lang/String;Ljava/lang/Module;)Ljava/lang/System$Logger;", nullptr, $PUBLIC},
-	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "()V", nullptr, 0, $method(LazyLoggers$1, init$, void)},
+	{"apply", "(Ljava/lang/String;Ljava/lang/Module;)Ljava/lang/System$Logger;", nullptr, $PUBLIC, $virtualMethod(LazyLoggers$1, apply, $System$Logger*, $String*, $Module*)},
+	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(LazyLoggers$1, apply, $Object*, Object$*, Object$*)},
 	{}
 };
 

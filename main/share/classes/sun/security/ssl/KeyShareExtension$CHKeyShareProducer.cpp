@@ -63,9 +63,9 @@ namespace sun {
 		namespace ssl {
 
 $MethodInfo _KeyShareExtension$CHKeyShareProducer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(KeyShareExtension$CHKeyShareProducer::*)()>(&KeyShareExtension$CHKeyShareProducer::init$))},
-	{"getShare", "(Lsun/security/ssl/ClientHandshakeContext;Lsun/security/ssl/NamedGroup;)[B", nullptr, $PRIVATE | $STATIC, $method(static_cast<$bytes*(*)($ClientHandshakeContext*,$NamedGroup*)>(&KeyShareExtension$CHKeyShareProducer::getShare))},
-	{"produce", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)[B", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(KeyShareExtension$CHKeyShareProducer, init$, void)},
+	{"getShare", "(Lsun/security/ssl/ClientHandshakeContext;Lsun/security/ssl/NamedGroup;)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(KeyShareExtension$CHKeyShareProducer, getShare, $bytes*, $ClientHandshakeContext*, $NamedGroup*)},
+	{"produce", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)[B", nullptr, $PUBLIC, $virtualMethod(KeyShareExtension$CHKeyShareProducer, produce, $bytes*, $ConnectionContext*, $SSLHandshake$HandshakeMessage*), "java.io.IOException"},
 	{}
 };
 

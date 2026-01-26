@@ -25,12 +25,12 @@ $FieldInfo _SimpleRemapper_FieldInfo_[] = {
 };
 
 $MethodInfo _SimpleRemapper_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Map;)V", "(Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;)V", $PUBLIC, $method(static_cast<void(SimpleRemapper::*)($Map*)>(&SimpleRemapper::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(SimpleRemapper::*)($String*,$String*)>(&SimpleRemapper::init$))},
-	{"map", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"mapFieldName", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"mapInvokeDynamicMethodName", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"mapMethodName", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/Map;)V", "(Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;)V", $PUBLIC, $method(SimpleRemapper, init$, void, $Map*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SimpleRemapper, init$, void, $String*, $String*)},
+	{"map", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SimpleRemapper, map, $String*, $String*)},
+	{"mapFieldName", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SimpleRemapper, mapFieldName, $String*, $String*, $String*, $String*)},
+	{"mapInvokeDynamicMethodName", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SimpleRemapper, mapInvokeDynamicMethodName, $String*, $String*, $String*)},
+	{"mapMethodName", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SimpleRemapper, mapMethodName, $String*, $String*, $String*, $String*)},
 	{}
 };
 

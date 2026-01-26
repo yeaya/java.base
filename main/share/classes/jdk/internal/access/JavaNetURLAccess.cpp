@@ -6,13 +6,15 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $URL = ::java::net::URL;
+using $URLStreamHandler = ::java::net::URLStreamHandler;
 
 namespace jdk {
 	namespace internal {
 		namespace access {
 
 $MethodInfo _JavaNetURLAccess_MethodInfo_[] = {
-	{"getHandler", "(Ljava/net/URL;)Ljava/net/URLStreamHandler;", nullptr, $PUBLIC | $ABSTRACT},
+	{"getHandler", "(Ljava/net/URL;)Ljava/net/URLStreamHandler;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JavaNetURLAccess, getHandler, $URLStreamHandler*, $URL*)},
 	{}
 };
 

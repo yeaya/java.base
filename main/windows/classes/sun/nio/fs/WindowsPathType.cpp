@@ -30,10 +30,10 @@ $FieldInfo _WindowsPathType_FieldInfo_[] = {
 };
 
 $MethodInfo _WindowsPathType_MethodInfo_[] = {
-	{"$values", "()[Lsun/nio/fs/WindowsPathType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$WindowsPathTypeArray*(*)()>(&WindowsPathType::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(WindowsPathType::*)($String*,int32_t)>(&WindowsPathType::init$))},
-	{"valueOf", "(Ljava/lang/String;)Lsun/nio/fs/WindowsPathType;", nullptr, $PUBLIC | $STATIC, $method(static_cast<WindowsPathType*(*)($String*)>(&WindowsPathType::valueOf))},
-	{"values", "()[Lsun/nio/fs/WindowsPathType;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$WindowsPathTypeArray*(*)()>(&WindowsPathType::values))},
+	{"$values", "()[Lsun/nio/fs/WindowsPathType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(WindowsPathType, $values, $WindowsPathTypeArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(WindowsPathType, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Lsun/nio/fs/WindowsPathType;", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsPathType, valueOf, WindowsPathType*, $String*)},
+	{"values", "()[Lsun/nio/fs/WindowsPathType;", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsPathType, values, $WindowsPathTypeArray*)},
 	{}
 };
 

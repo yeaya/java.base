@@ -28,10 +28,10 @@ $FieldInfo _NativePRNG$Variant_FieldInfo_[] = {
 };
 
 $MethodInfo _NativePRNG$Variant_MethodInfo_[] = {
-	{"$values", "()[Lsun/security/provider/NativePRNG$Variant;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$NativePRNG$VariantArray*(*)()>(&NativePRNG$Variant::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(NativePRNG$Variant::*)($String*,int32_t)>(&NativePRNG$Variant::init$))},
-	{"valueOf", "(Ljava/lang/String;)Lsun/security/provider/NativePRNG$Variant;", nullptr, $PUBLIC | $STATIC, $method(static_cast<NativePRNG$Variant*(*)($String*)>(&NativePRNG$Variant::valueOf))},
-	{"values", "()[Lsun/security/provider/NativePRNG$Variant;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$NativePRNG$VariantArray*(*)()>(&NativePRNG$Variant::values))},
+	{"$values", "()[Lsun/security/provider/NativePRNG$Variant;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(NativePRNG$Variant, $values, $NativePRNG$VariantArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(NativePRNG$Variant, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Lsun/security/provider/NativePRNG$Variant;", nullptr, $PUBLIC | $STATIC, $staticMethod(NativePRNG$Variant, valueOf, NativePRNG$Variant*, $String*)},
+	{"values", "()[Lsun/security/provider/NativePRNG$Variant;", nullptr, $PUBLIC | $STATIC, $staticMethod(NativePRNG$Variant, values, $NativePRNG$VariantArray*)},
 	{}
 };
 

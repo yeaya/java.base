@@ -58,8 +58,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo AnnotatedElement$$Lambda$annotationType::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(AnnotatedElement$$Lambda$annotationType::*)()>(&AnnotatedElement$$Lambda$annotationType::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(AnnotatedElement$$Lambda$annotationType, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AnnotatedElement$$Lambda$annotationType, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo AnnotatedElement$$Lambda$annotationType::classInfo$ = {
@@ -91,8 +91,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo AnnotatedElement$$Lambda$lambda$getDeclaredAnnotationsByType$0$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(AnnotatedElement$$Lambda$lambda$getDeclaredAnnotationsByType$0$1::*)()>(&AnnotatedElement$$Lambda$lambda$getDeclaredAnnotationsByType$0$1::init$))},
-	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(AnnotatedElement$$Lambda$lambda$getDeclaredAnnotationsByType$0$1, init$, void)},
+	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AnnotatedElement$$Lambda$lambda$getDeclaredAnnotationsByType$0$1, apply, $Object*, Object$*, Object$*)},
 	{}
 };
 $ClassInfo AnnotatedElement$$Lambda$lambda$getDeclaredAnnotationsByType$0$1::classInfo$ = {
@@ -124,8 +124,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo AnnotatedElement$$Lambda$LinkedHashMap$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(AnnotatedElement$$Lambda$LinkedHashMap$2::*)()>(&AnnotatedElement$$Lambda$LinkedHashMap$2::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(AnnotatedElement$$Lambda$LinkedHashMap$2, init$, void)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AnnotatedElement$$Lambda$LinkedHashMap$2, get, $Object*)},
 	{}
 };
 $ClassInfo AnnotatedElement$$Lambda$LinkedHashMap$2::classInfo$ = {
@@ -143,14 +143,14 @@ $Class* AnnotatedElement$$Lambda$LinkedHashMap$2::load$($String* name, bool init
 $Class* AnnotatedElement$$Lambda$LinkedHashMap$2::class$ = nullptr;
 
 $MethodInfo _AnnotatedElement_MethodInfo_[] = {
-	{"getAnnotation", "(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;", "<T::Ljava/lang/annotation/Annotation;>(Ljava/lang/Class<TT;>;)TT;", $PUBLIC | $ABSTRACT},
-	{"getAnnotations", "()[Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getAnnotationsByType", "(Ljava/lang/Class;)[Ljava/lang/annotation/Annotation;", "<T::Ljava/lang/annotation/Annotation;>(Ljava/lang/Class<TT;>;)[TT;", $PUBLIC},
-	{"getDeclaredAnnotation", "(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;", "<T::Ljava/lang/annotation/Annotation;>(Ljava/lang/Class<TT;>;)TT;", $PUBLIC},
-	{"getDeclaredAnnotations", "()[Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getDeclaredAnnotationsByType", "(Ljava/lang/Class;)[Ljava/lang/annotation/Annotation;", "<T::Ljava/lang/annotation/Annotation;>(Ljava/lang/Class<TT;>;)[TT;", $PUBLIC},
-	{"isAnnotationPresent", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<+Ljava/lang/annotation/Annotation;>;)Z", $PUBLIC},
-	{"lambda$getDeclaredAnnotationsByType$0", "(Ljava/lang/annotation/Annotation;Ljava/lang/annotation/Annotation;)Ljava/lang/annotation/Annotation;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Annotation*(*)($Annotation*,$Annotation*)>(&AnnotatedElement::lambda$getDeclaredAnnotationsByType$0))},
+	{"getAnnotation", "(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;", "<T::Ljava/lang/annotation/Annotation;>(Ljava/lang/Class<TT;>;)TT;", $PUBLIC | $ABSTRACT, $virtualMethod(AnnotatedElement, getAnnotation, $Annotation*, $Class*)},
+	{"getAnnotations", "()[Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AnnotatedElement, getAnnotations, $AnnotationArray*)},
+	{"getAnnotationsByType", "(Ljava/lang/Class;)[Ljava/lang/annotation/Annotation;", "<T::Ljava/lang/annotation/Annotation;>(Ljava/lang/Class<TT;>;)[TT;", $PUBLIC, $virtualMethod(AnnotatedElement, getAnnotationsByType, $AnnotationArray*, $Class*)},
+	{"getDeclaredAnnotation", "(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;", "<T::Ljava/lang/annotation/Annotation;>(Ljava/lang/Class<TT;>;)TT;", $PUBLIC, $virtualMethod(AnnotatedElement, getDeclaredAnnotation, $Annotation*, $Class*)},
+	{"getDeclaredAnnotations", "()[Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AnnotatedElement, getDeclaredAnnotations, $AnnotationArray*)},
+	{"getDeclaredAnnotationsByType", "(Ljava/lang/Class;)[Ljava/lang/annotation/Annotation;", "<T::Ljava/lang/annotation/Annotation;>(Ljava/lang/Class<TT;>;)[TT;", $PUBLIC, $virtualMethod(AnnotatedElement, getDeclaredAnnotationsByType, $AnnotationArray*, $Class*)},
+	{"isAnnotationPresent", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<+Ljava/lang/annotation/Annotation;>;)Z", $PUBLIC, $virtualMethod(AnnotatedElement, isAnnotationPresent, bool, $Class*)},
+	{"lambda$getDeclaredAnnotationsByType$0", "(Ljava/lang/annotation/Annotation;Ljava/lang/annotation/Annotation;)Ljava/lang/annotation/Annotation;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AnnotatedElement, lambda$getDeclaredAnnotationsByType$0, $Annotation*, $Annotation*, $Annotation*)},
 	{}
 };
 

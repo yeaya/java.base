@@ -21,8 +21,8 @@ $FieldInfo _SSLSocketFactory$1_FieldInfo_[] = {
 };
 
 $MethodInfo _SSLSocketFactory$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(SSLSocketFactory$1::*)($String*)>(&SSLSocketFactory$1::init$))},
-	{"run", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(SSLSocketFactory$1, init$, void, $String*)},
+	{"run", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SSLSocketFactory$1, run, $Object*)},
 	{}
 };
 

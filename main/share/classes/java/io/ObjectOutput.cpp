@@ -15,13 +15,13 @@ $MethodInfo _ObjectOutput_MethodInfo_[] = {
 	{"close", "()V", nullptr, $PUBLIC | $ABSTRACT},
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"flush", "()V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
+	{"flush", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ObjectOutput, flush, void), "java.io.IOException"},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{"write", "(I)V", nullptr, $PUBLIC | $ABSTRACT},
 	{"write", "([B)V", nullptr, $PUBLIC | $ABSTRACT},
 	{"write", "([BII)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"writeObject", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
+	{"writeObject", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ObjectOutput, writeObject, void, Object$*), "java.io.IOException"},
 	{}
 };
 

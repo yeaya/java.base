@@ -6,13 +6,15 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
+using $SSLKeyDerivation = ::sun::security::ssl::SSLKeyDerivation;
 
 namespace sun {
 	namespace security {
 		namespace ssl {
 
 $MethodInfo _SSLKeyAgreementGenerator_MethodInfo_[] = {
-	{"createKeyDerivation", "(Lsun/security/ssl/HandshakeContext;)Lsun/security/ssl/SSLKeyDerivation;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
+	{"createKeyDerivation", "(Lsun/security/ssl/HandshakeContext;)Lsun/security/ssl/SSLKeyDerivation;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SSLKeyAgreementGenerator, createKeyDerivation, $SSLKeyDerivation*, $HandshakeContext*), "java.io.IOException"},
 	{}
 };
 

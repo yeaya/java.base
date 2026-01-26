@@ -23,9 +23,9 @@ $FieldInfo _Executors$RunnableAdapter_FieldInfo_[] = {
 };
 
 $MethodInfo _Executors$RunnableAdapter_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Runnable;Ljava/lang/Object;)V", "(Ljava/lang/Runnable;TT;)V", 0, $method(static_cast<void(Executors$RunnableAdapter::*)($Runnable*,Object$*)>(&Executors$RunnableAdapter::init$))},
-	{"call", "()Ljava/lang/Object;", "()TT;", $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Runnable;Ljava/lang/Object;)V", "(Ljava/lang/Runnable;TT;)V", 0, $method(Executors$RunnableAdapter, init$, void, $Runnable*, Object$*)},
+	{"call", "()Ljava/lang/Object;", "()TT;", $PUBLIC, $virtualMethod(Executors$RunnableAdapter, call, $Object*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Executors$RunnableAdapter, toString, $String*)},
 	{}
 };
 

@@ -29,12 +29,12 @@ $MethodInfo _CompletableFuture$AsyncRun_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/util/concurrent/CompletableFuture;Ljava/lang/Runnable;)V", "(Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;Ljava/lang/Runnable;)V", 0, $method(static_cast<void(CompletableFuture$AsyncRun::*)($CompletableFuture*,$Runnable*)>(&CompletableFuture$AsyncRun::init$))},
-	{"exec", "()Z", nullptr, $PUBLIC | $FINAL},
-	{"getRawResult", "()Ljava/lang/Void;", nullptr, $PUBLIC | $FINAL},
-	{"run", "()V", nullptr, $PUBLIC},
-	{"setRawResult", "(Ljava/lang/Void;)V", nullptr, $PUBLIC | $FINAL, $method(static_cast<void(CompletableFuture$AsyncRun::*)($Void*)>(&CompletableFuture$AsyncRun::setRawResult))},
-	{"setRawResult", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "(Ljava/util/concurrent/CompletableFuture;Ljava/lang/Runnable;)V", "(Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;Ljava/lang/Runnable;)V", 0, $method(CompletableFuture$AsyncRun, init$, void, $CompletableFuture*, $Runnable*)},
+	{"exec", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(CompletableFuture$AsyncRun, exec, bool)},
+	{"getRawResult", "()Ljava/lang/Void;", nullptr, $PUBLIC | $FINAL, $virtualMethod(CompletableFuture$AsyncRun, getRawResult, $Object*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(CompletableFuture$AsyncRun, run, void)},
+	{"setRawResult", "(Ljava/lang/Void;)V", nullptr, $PUBLIC | $FINAL, $method(CompletableFuture$AsyncRun, setRawResult, void, $Void*)},
+	{"setRawResult", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(CompletableFuture$AsyncRun, setRawResult, void, Object$*)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

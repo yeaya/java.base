@@ -25,8 +25,8 @@ $CompoundAttribute _Point_Annotations_[] = {
 };
 
 $MethodInfo _Point_MethodInfo_[] = {
-	{"x", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"y", "()I", nullptr, $PUBLIC | $ABSTRACT},
+	{"x", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Point, x, int32_t)},
+	{"y", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Point, y, int32_t)},
 	{}
 };
 

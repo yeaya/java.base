@@ -41,11 +41,11 @@ $FieldInfo _FormatMicroBenchmark$BenchType_FieldInfo_[] = {
 };
 
 $MethodInfo _FormatMicroBenchmark$BenchType_MethodInfo_[] = {
-	{"$values", "()[LFormatMicroBenchmark$BenchType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$FormatMicroBenchmark$BenchTypeArray*(*)()>(&FormatMicroBenchmark$BenchType::$values))},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "(Ljava/lang/String;)V", $PRIVATE, $method(static_cast<void(FormatMicroBenchmark$BenchType::*)($String*,int32_t,$String*)>(&FormatMicroBenchmark$BenchType::init$))},
-	{"runBenchAndPrintStatistics", "(ILjava/text/NumberFormat;Z)Ljava/lang/String;", nullptr, 0, $method(static_cast<$String*(FormatMicroBenchmark$BenchType::*)(int32_t,$NumberFormat*,bool)>(&FormatMicroBenchmark$BenchType::runBenchAndPrintStatistics))},
-	{"valueOf", "(Ljava/lang/String;)LFormatMicroBenchmark$BenchType;", nullptr, $PUBLIC | $STATIC, $method(static_cast<FormatMicroBenchmark$BenchType*(*)($String*)>(&FormatMicroBenchmark$BenchType::valueOf))},
-	{"values", "()[LFormatMicroBenchmark$BenchType;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$FormatMicroBenchmark$BenchTypeArray*(*)()>(&FormatMicroBenchmark$BenchType::values))},
+	{"$values", "()[LFormatMicroBenchmark$BenchType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(FormatMicroBenchmark$BenchType, $values, $FormatMicroBenchmark$BenchTypeArray*)},
+	{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "(Ljava/lang/String;)V", $PRIVATE, $method(FormatMicroBenchmark$BenchType, init$, void, $String*, int32_t, $String*)},
+	{"runBenchAndPrintStatistics", "(ILjava/text/NumberFormat;Z)Ljava/lang/String;", nullptr, 0, $method(FormatMicroBenchmark$BenchType, runBenchAndPrintStatistics, $String*, int32_t, $NumberFormat*, bool)},
+	{"valueOf", "(Ljava/lang/String;)LFormatMicroBenchmark$BenchType;", nullptr, $PUBLIC | $STATIC, $staticMethod(FormatMicroBenchmark$BenchType, valueOf, FormatMicroBenchmark$BenchType*, $String*)},
+	{"values", "()[LFormatMicroBenchmark$BenchType;", nullptr, $PUBLIC | $STATIC, $staticMethod(FormatMicroBenchmark$BenchType, values, $FormatMicroBenchmark$BenchTypeArray*)},
 	{}
 };
 

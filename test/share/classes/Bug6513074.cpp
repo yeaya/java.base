@@ -27,11 +27,11 @@ $FieldInfo _Bug6513074_FieldInfo_[] = {
 };
 
 $MethodInfo _Bug6513074_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Bug6513074::*)()>(&Bug6513074::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Bug6513074::main))},
-	{"test6513074", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&Bug6513074::test6513074))},
-	{"testBreakIterator", "(Ljava/text/BreakIterator;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($BreakIterator*,$String*,$String*,$String*,$String*)>(&Bug6513074::testBreakIterator))},
-	{"toString", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($String*)>(&Bug6513074::toString))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Bug6513074, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Bug6513074, main, void, $StringArray*)},
+	{"test6513074", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(Bug6513074, test6513074, void)},
+	{"testBreakIterator", "(Ljava/text/BreakIterator;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Bug6513074, testBreakIterator, void, $BreakIterator*, $String*, $String*, $String*, $String*)},
+	{"toString", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Bug6513074, toString, $String*, $String*)},
 	{}
 };
 

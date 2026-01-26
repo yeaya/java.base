@@ -19,9 +19,9 @@ $FieldInfo _UnknownFormatFlagsException_FieldInfo_[] = {
 };
 
 $MethodInfo _UnknownFormatFlagsException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(UnknownFormatFlagsException::*)($String*)>(&UnknownFormatFlagsException::init$))},
-	{"getFlags", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(UnknownFormatFlagsException, init$, void, $String*)},
+	{"getFlags", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UnknownFormatFlagsException, getFlags, $String*)},
+	{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UnknownFormatFlagsException, getMessage, $String*)},
 	{}
 };
 

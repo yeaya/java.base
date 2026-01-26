@@ -52,8 +52,8 @@ $FieldInfo _KeyRep_FieldInfo_[] = {
 };
 
 $MethodInfo _KeyRep_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/KeyRep$Type;Ljava/lang/String;Ljava/lang/String;[B)V", nullptr, $PUBLIC, $method(static_cast<void(KeyRep::*)($KeyRep$Type*,$String*,$String*,$bytes*)>(&KeyRep::init$))},
-	{"readResolve", "()Ljava/lang/Object;", nullptr, $PROTECTED, nullptr, "java.io.ObjectStreamException"},
+	{"<init>", "(Ljava/security/KeyRep$Type;Ljava/lang/String;Ljava/lang/String;[B)V", nullptr, $PUBLIC, $method(KeyRep, init$, void, $KeyRep$Type*, $String*, $String*, $bytes*)},
+	{"readResolve", "()Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(KeyRep, readResolve, $Object*), "java.io.ObjectStreamException"},
 	{}
 };
 

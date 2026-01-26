@@ -15,9 +15,9 @@ namespace sun {
 		namespace misc {
 
 $MethodInfo _ConstructorUtil_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(ConstructorUtil::*)()>(&ConstructorUtil::init$))},
-	{"getConstructor", "(Ljava/lang/Class;[Ljava/lang/Class;)Ljava/lang/reflect/Constructor;", "(Ljava/lang/Class<*>;[Ljava/lang/Class<*>;)Ljava/lang/reflect/Constructor<*>;", $PUBLIC | $STATIC, $method(static_cast<$Constructor*(*)($Class*,$ClassArray*)>(&ConstructorUtil::getConstructor)), "java.lang.NoSuchMethodException"},
-	{"getConstructors", "(Ljava/lang/Class;)[Ljava/lang/reflect/Constructor;", "(Ljava/lang/Class<*>;)[Ljava/lang/reflect/Constructor<*>;", $PUBLIC | $STATIC, $method(static_cast<$ConstructorArray*(*)($Class*)>(&ConstructorUtil::getConstructors))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(ConstructorUtil, init$, void)},
+	{"getConstructor", "(Ljava/lang/Class;[Ljava/lang/Class;)Ljava/lang/reflect/Constructor;", "(Ljava/lang/Class<*>;[Ljava/lang/Class<*>;)Ljava/lang/reflect/Constructor<*>;", $PUBLIC | $STATIC, $staticMethod(ConstructorUtil, getConstructor, $Constructor*, $Class*, $ClassArray*), "java.lang.NoSuchMethodException"},
+	{"getConstructors", "(Ljava/lang/Class;)[Ljava/lang/reflect/Constructor;", "(Ljava/lang/Class<*>;)[Ljava/lang/reflect/Constructor<*>;", $PUBLIC | $STATIC, $staticMethod(ConstructorUtil, getConstructors, $ConstructorArray*, $Class*)},
 	{}
 };
 

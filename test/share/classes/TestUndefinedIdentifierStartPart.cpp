@@ -16,8 +16,8 @@ $FieldInfo _TestUndefinedIdentifierStartPart_FieldInfo_[] = {
 };
 
 $MethodInfo _TestUndefinedIdentifierStartPart_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TestUndefinedIdentifierStartPart::*)()>(&TestUndefinedIdentifierStartPart::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&TestUndefinedIdentifierStartPart::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TestUndefinedIdentifierStartPart, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TestUndefinedIdentifierStartPart, main, void, $StringArray*)},
 	{}
 };
 

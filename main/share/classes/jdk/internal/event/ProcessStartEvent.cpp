@@ -20,7 +20,7 @@ $FieldInfo _ProcessStartEvent_FieldInfo_[] = {
 };
 
 $MethodInfo _ProcessStartEvent_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ProcessStartEvent::*)()>(&ProcessStartEvent::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ProcessStartEvent, init$, void)},
 	{}
 };
 

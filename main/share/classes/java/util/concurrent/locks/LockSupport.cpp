@@ -26,18 +26,18 @@ $FieldInfo _LockSupport_FieldInfo_[] = {
 };
 
 $MethodInfo _LockSupport_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(LockSupport::*)()>(&LockSupport::init$))},
-	{"getBlocker", "(Ljava/lang/Thread;)Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Object*(*)($Thread*)>(&LockSupport::getBlocker))},
-	{"getThreadId", "(Ljava/lang/Thread;)J", nullptr, $STATIC | $FINAL, $method(static_cast<int64_t(*)($Thread*)>(&LockSupport::getThreadId))},
-	{"park", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)(Object$*)>(&LockSupport::park))},
-	{"park", "()V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)()>(&LockSupport::park))},
-	{"parkNanos", "(Ljava/lang/Object;J)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)(Object$*,int64_t)>(&LockSupport::parkNanos))},
-	{"parkNanos", "(J)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)(int64_t)>(&LockSupport::parkNanos))},
-	{"parkUntil", "(Ljava/lang/Object;J)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)(Object$*,int64_t)>(&LockSupport::parkUntil))},
-	{"parkUntil", "(J)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)(int64_t)>(&LockSupport::parkUntil))},
-	{"setBlocker", "(Ljava/lang/Thread;Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($Thread*,Object$*)>(&LockSupport::setBlocker))},
-	{"setCurrentBlocker", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)(Object$*)>(&LockSupport::setCurrentBlocker))},
-	{"unpark", "(Ljava/lang/Thread;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($Thread*)>(&LockSupport::unpark))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(LockSupport, init$, void)},
+	{"getBlocker", "(Ljava/lang/Thread;)Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC, $staticMethod(LockSupport, getBlocker, $Object*, $Thread*)},
+	{"getThreadId", "(Ljava/lang/Thread;)J", nullptr, $STATIC | $FINAL, $staticMethod(LockSupport, getThreadId, int64_t, $Thread*)},
+	{"park", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(LockSupport, park, void, Object$*)},
+	{"park", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(LockSupport, park, void)},
+	{"parkNanos", "(Ljava/lang/Object;J)V", nullptr, $PUBLIC | $STATIC, $staticMethod(LockSupport, parkNanos, void, Object$*, int64_t)},
+	{"parkNanos", "(J)V", nullptr, $PUBLIC | $STATIC, $staticMethod(LockSupport, parkNanos, void, int64_t)},
+	{"parkUntil", "(Ljava/lang/Object;J)V", nullptr, $PUBLIC | $STATIC, $staticMethod(LockSupport, parkUntil, void, Object$*, int64_t)},
+	{"parkUntil", "(J)V", nullptr, $PUBLIC | $STATIC, $staticMethod(LockSupport, parkUntil, void, int64_t)},
+	{"setBlocker", "(Ljava/lang/Thread;Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(LockSupport, setBlocker, void, $Thread*, Object$*)},
+	{"setCurrentBlocker", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(LockSupport, setCurrentBlocker, void, Object$*)},
+	{"unpark", "(Ljava/lang/Thread;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(LockSupport, unpark, void, $Thread*)},
 	{}
 };
 

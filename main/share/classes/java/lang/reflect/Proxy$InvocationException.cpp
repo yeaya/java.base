@@ -42,9 +42,9 @@ $FieldInfo _Proxy$InvocationException_FieldInfo_[] = {
 };
 
 $MethodInfo _Proxy$InvocationException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, 0, $method(static_cast<void(Proxy$InvocationException::*)($Throwable*)>(&Proxy$InvocationException::init$))},
-	{"wrap", "(Ljava/lang/Throwable;)Ljava/lang/Object;", nullptr, $STATIC, $method(static_cast<$Object*(*)($Throwable*)>(&Proxy$InvocationException::wrap)), "java.lang.reflect.Proxy$InvocationException"},
-	{"wrapMH", "()Ljava/lang/invoke/MethodHandle;", nullptr, $STATIC, $method(static_cast<$MethodHandle*(*)()>(&Proxy$InvocationException::wrapMH))},
+	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, 0, $method(Proxy$InvocationException, init$, void, $Throwable*)},
+	{"wrap", "(Ljava/lang/Throwable;)Ljava/lang/Object;", nullptr, $STATIC, $staticMethod(Proxy$InvocationException, wrap, $Object*, $Throwable*), "java.lang.reflect.Proxy$InvocationException"},
+	{"wrapMH", "()Ljava/lang/invoke/MethodHandle;", nullptr, $STATIC, $staticMethod(Proxy$InvocationException, wrapMH, $MethodHandle*)},
 	{}
 };
 

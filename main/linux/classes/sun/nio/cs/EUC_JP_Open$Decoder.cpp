@@ -32,8 +32,8 @@ $FieldInfo _EUC_JP_Open$Decoder_FieldInfo_[] = {
 };
 
 $MethodInfo _EUC_JP_Open$Decoder_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PRIVATE, $method(static_cast<void(EUC_JP_Open$Decoder::*)($Charset*)>(&EUC_JP_Open$Decoder::init$))},
-	{"decodeDouble", "(II)C", nullptr, $PROTECTED},
+	{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PRIVATE, $method(EUC_JP_Open$Decoder, init$, void, $Charset*)},
+	{"decodeDouble", "(II)C", nullptr, $PROTECTED, $virtualMethod(EUC_JP_Open$Decoder, decodeDouble, char16_t, int32_t, int32_t)},
 	{}
 };
 

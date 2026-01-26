@@ -31,8 +31,8 @@ $FieldInfo _DirectByteBuffer$Deallocator_FieldInfo_[] = {
 };
 
 $MethodInfo _DirectByteBuffer$Deallocator_MethodInfo_[] = {
-	{"<init>", "(JJI)V", nullptr, $PRIVATE, $method(static_cast<void(DirectByteBuffer$Deallocator::*)(int64_t,int64_t,int32_t)>(&DirectByteBuffer$Deallocator::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(JJI)V", nullptr, $PRIVATE, $method(DirectByteBuffer$Deallocator, init$, void, int64_t, int64_t, int32_t)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(DirectByteBuffer$Deallocator, run, void)},
 	{}
 };
 

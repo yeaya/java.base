@@ -19,7 +19,7 @@ $FieldInfo _HandlersPkgPrefix$Result_FieldInfo_[] = {
 };
 
 $MethodInfo _HandlersPkgPrefix$Result_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/net/URL;Ljava/lang/Exception;)V", nullptr, 0, $method(static_cast<void(HandlersPkgPrefix$Result::*)($String*,$URL*,$Exception*)>(&HandlersPkgPrefix$Result::init$))},
+	{"<init>", "(Ljava/lang/String;Ljava/net/URL;Ljava/lang/Exception;)V", nullptr, 0, $method(HandlersPkgPrefix$Result, init$, void, $String*, $URL*, $Exception*)},
 	{}
 };
 

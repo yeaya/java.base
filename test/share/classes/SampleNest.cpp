@@ -27,9 +27,9 @@ $FieldInfo _SampleNest_FieldInfo_[] = {
 };
 
 $MethodInfo _SampleNest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SampleNest::*)()>(&SampleNest::init$))},
-	{"gather", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $STATIC, $method(static_cast<void(*)($Class*)>(&SampleNest::gather))},
-	{"nestedTypes", "()[Ljava/lang/Class;", "()[Ljava/lang/Class<*>;", $PUBLIC | $STATIC, $method(static_cast<$ClassArray*(*)()>(&SampleNest::nestedTypes))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SampleNest, init$, void)},
+	{"gather", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $STATIC, $staticMethod(SampleNest, gather, void, $Class*)},
+	{"nestedTypes", "()[Ljava/lang/Class;", "()[Ljava/lang/Class<*>;", $PUBLIC | $STATIC, $staticMethod(SampleNest, nestedTypes, $ClassArray*)},
 	{}
 };
 

@@ -56,18 +56,18 @@ $FieldInfo _Authenticator_FieldInfo_[] = {
 };
 
 $MethodInfo _Authenticator_MethodInfo_[] = {
-	{"<init>", "([B)V", nullptr, $PRIVATE, $method(static_cast<void(Authenticator::*)($bytes*)>(&Authenticator::init$))},
-	{"acquireAuthenticationBytes", "(BI[B)[B", nullptr, 0},
-	{"increaseSequenceNumber", "()V", nullptr, $FINAL, $method(static_cast<void(Authenticator::*)()>(&Authenticator::increaseSequenceNumber))},
-	{"nullDtlsMac", "()Lsun/security/ssl/Authenticator;", nullptr, $STATIC, $method(static_cast<Authenticator*(*)()>(&Authenticator::nullDtlsMac))},
-	{"nullTlsMac", "()Lsun/security/ssl/Authenticator;", nullptr, $STATIC, $method(static_cast<Authenticator*(*)()>(&Authenticator::nullTlsMac))},
-	{"seqNumIsHuge", "()Z", nullptr, $ABSTRACT},
-	{"seqNumOverflow", "()Z", nullptr, $ABSTRACT},
-	{"sequenceNumber", "()[B", nullptr, $FINAL, $method(static_cast<$bytes*(Authenticator::*)()>(&Authenticator::sequenceNumber))},
-	{"setEpochNumber", "(I)V", nullptr, 0},
-	{"toLong", "([B)J", nullptr, $STATIC | $FINAL, $method(static_cast<int64_t(*)($bytes*)>(&Authenticator::toLong))},
-	{"valueOf", "(Lsun/security/ssl/ProtocolVersion;)Lsun/security/ssl/Authenticator;", nullptr, $STATIC, $method(static_cast<Authenticator*(*)($ProtocolVersion*)>(&Authenticator::valueOf))},
-	{"valueOf", "(Lsun/security/ssl/ProtocolVersion;Lsun/security/ssl/CipherSuite$MacAlg;Ljavax/crypto/SecretKey;)Lsun/security/ssl/Authenticator;", "<T:Lsun/security/ssl/Authenticator;:Lsun/security/ssl/Authenticator$MAC;>(Lsun/security/ssl/ProtocolVersion;Lsun/security/ssl/CipherSuite$MacAlg;Ljavax/crypto/SecretKey;)TT;", $STATIC, $method(static_cast<Authenticator*(*)($ProtocolVersion*,$CipherSuite$MacAlg*,$SecretKey*)>(&Authenticator::valueOf)), "java.security.NoSuchAlgorithmException,java.security.InvalidKeyException"},
+	{"<init>", "([B)V", nullptr, $PRIVATE, $method(Authenticator, init$, void, $bytes*)},
+	{"acquireAuthenticationBytes", "(BI[B)[B", nullptr, 0, $virtualMethod(Authenticator, acquireAuthenticationBytes, $bytes*, int8_t, int32_t, $bytes*)},
+	{"increaseSequenceNumber", "()V", nullptr, $FINAL, $method(Authenticator, increaseSequenceNumber, void)},
+	{"nullDtlsMac", "()Lsun/security/ssl/Authenticator;", nullptr, $STATIC, $staticMethod(Authenticator, nullDtlsMac, Authenticator*)},
+	{"nullTlsMac", "()Lsun/security/ssl/Authenticator;", nullptr, $STATIC, $staticMethod(Authenticator, nullTlsMac, Authenticator*)},
+	{"seqNumIsHuge", "()Z", nullptr, $ABSTRACT, $virtualMethod(Authenticator, seqNumIsHuge, bool)},
+	{"seqNumOverflow", "()Z", nullptr, $ABSTRACT, $virtualMethod(Authenticator, seqNumOverflow, bool)},
+	{"sequenceNumber", "()[B", nullptr, $FINAL, $method(Authenticator, sequenceNumber, $bytes*)},
+	{"setEpochNumber", "(I)V", nullptr, 0, $virtualMethod(Authenticator, setEpochNumber, void, int32_t)},
+	{"toLong", "([B)J", nullptr, $STATIC | $FINAL, $staticMethod(Authenticator, toLong, int64_t, $bytes*)},
+	{"valueOf", "(Lsun/security/ssl/ProtocolVersion;)Lsun/security/ssl/Authenticator;", nullptr, $STATIC, $staticMethod(Authenticator, valueOf, Authenticator*, $ProtocolVersion*)},
+	{"valueOf", "(Lsun/security/ssl/ProtocolVersion;Lsun/security/ssl/CipherSuite$MacAlg;Ljavax/crypto/SecretKey;)Lsun/security/ssl/Authenticator;", "<T:Lsun/security/ssl/Authenticator;:Lsun/security/ssl/Authenticator$MAC;>(Lsun/security/ssl/ProtocolVersion;Lsun/security/ssl/CipherSuite$MacAlg;Ljavax/crypto/SecretKey;)TT;", $STATIC, $staticMethod(Authenticator, valueOf, Authenticator*, $ProtocolVersion*, $CipherSuite$MacAlg*, $SecretKey*), "java.security.NoSuchAlgorithmException,java.security.InvalidKeyException"},
 	{}
 };
 

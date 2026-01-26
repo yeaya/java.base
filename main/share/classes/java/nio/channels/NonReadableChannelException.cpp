@@ -18,7 +18,7 @@ $FieldInfo _NonReadableChannelException_FieldInfo_[] = {
 };
 
 $MethodInfo _NonReadableChannelException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(NonReadableChannelException::*)()>(&NonReadableChannelException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(NonReadableChannelException, init$, void)},
 	{}
 };
 

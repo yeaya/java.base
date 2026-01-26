@@ -20,13 +20,13 @@ $FieldInfo _Exceptions4getDeclaredMethod_FieldInfo_[] = {
 };
 
 $MethodInfo _Exceptions4getDeclaredMethod_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Exceptions4getDeclaredMethod::*)()>(&Exceptions4getDeclaredMethod::init$))},
-	{"m0", "()V", nullptr, 0},
-	{"m1", "()V", nullptr, $PUBLIC},
-	{"m2", "()V", nullptr, $PRIVATE, $method(static_cast<void(Exceptions4getDeclaredMethod::*)()>(&Exceptions4getDeclaredMethod::m2))},
-	{"m4", "()V", nullptr, $PROTECTED},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Exceptions4getDeclaredMethod::main))},
-	{"test", "(Ljava/lang/String;Ljava/lang/Class;)V", nullptr, $PRIVATE, $method(static_cast<void(Exceptions4getDeclaredMethod::*)($String*,$Class*)>(&Exceptions4getDeclaredMethod::test))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Exceptions4getDeclaredMethod, init$, void)},
+	{"m0", "()V", nullptr, 0, $virtualMethod(Exceptions4getDeclaredMethod, m0, void)},
+	{"m1", "()V", nullptr, $PUBLIC, $virtualMethod(Exceptions4getDeclaredMethod, m1, void)},
+	{"m2", "()V", nullptr, $PRIVATE, $method(Exceptions4getDeclaredMethod, m2, void)},
+	{"m4", "()V", nullptr, $PROTECTED, $virtualMethod(Exceptions4getDeclaredMethod, m4, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Exceptions4getDeclaredMethod, main, void, $StringArray*)},
+	{"test", "(Ljava/lang/String;Ljava/lang/Class;)V", nullptr, $PRIVATE, $method(Exceptions4getDeclaredMethod, test, void, $String*, $Class*)},
 	{}
 };
 

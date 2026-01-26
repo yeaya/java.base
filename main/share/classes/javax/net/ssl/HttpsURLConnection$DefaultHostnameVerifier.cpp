@@ -14,8 +14,8 @@ namespace javax {
 		namespace ssl {
 
 $MethodInfo _HttpsURLConnection$DefaultHostnameVerifier_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(HttpsURLConnection$DefaultHostnameVerifier::*)()>(&HttpsURLConnection$DefaultHostnameVerifier::init$))},
-	{"verify", "(Ljava/lang/String;Ljavax/net/ssl/SSLSession;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(HttpsURLConnection$DefaultHostnameVerifier, init$, void)},
+	{"verify", "(Ljava/lang/String;Ljavax/net/ssl/SSLSession;)Z", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnection$DefaultHostnameVerifier, verify, bool, $String*, $SSLSession*)},
 	{}
 };
 

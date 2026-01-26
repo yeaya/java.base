@@ -8,6 +8,7 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $WritableByteChannel = ::java::nio::channels::WritableByteChannel;
 
 $FieldInfo _Transfers$Target_FieldInfo_[] = {
 	{"size", "I", nullptr, $PROTECTED | $FINAL, $field(Transfers$Target, size)},
@@ -17,10 +18,10 @@ $FieldInfo _Transfers$Target_FieldInfo_[] = {
 };
 
 $MethodInfo _Transfers$Target_MethodInfo_[] = {
-	{"<init>", "(IJLjava/lang/String;)V", nullptr, 0, $method(static_cast<void(Transfers$Target::*)(int32_t,int64_t,$String*)>(&Transfers$Target::init$))},
-	{"channel", "()Ljava/nio/channels/WritableByteChannel;", nullptr, $ABSTRACT},
-	{"name", "()Ljava/lang/String;", nullptr, 0},
-	{"verify", "()V", nullptr, $ABSTRACT, nullptr, "java.io.IOException"},
+	{"<init>", "(IJLjava/lang/String;)V", nullptr, 0, $method(Transfers$Target, init$, void, int32_t, int64_t, $String*)},
+	{"channel", "()Ljava/nio/channels/WritableByteChannel;", nullptr, $ABSTRACT, $virtualMethod(Transfers$Target, channel, $WritableByteChannel*)},
+	{"name", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(Transfers$Target, name, $String*)},
+	{"verify", "()V", nullptr, $ABSTRACT, $virtualMethod(Transfers$Target, verify, void), "java.io.IOException"},
 	{}
 };
 

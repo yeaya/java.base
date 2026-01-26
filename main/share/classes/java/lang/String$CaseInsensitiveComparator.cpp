@@ -28,10 +28,10 @@ $MethodInfo _String$CaseInsensitiveComparator_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(String$CaseInsensitiveComparator::*)()>(&String$CaseInsensitiveComparator::init$))},
-	{"compare", "(Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PUBLIC},
-	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"readResolve", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(static_cast<$Object*(String$CaseInsensitiveComparator::*)()>(&String$CaseInsensitiveComparator::readResolve))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(String$CaseInsensitiveComparator, init$, void)},
+	{"compare", "(Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(String$CaseInsensitiveComparator, compare, int32_t, $String*, $String*)},
+	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(String$CaseInsensitiveComparator, compare, int32_t, Object$*, Object$*)},
+	{"readResolve", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(String$CaseInsensitiveComparator, readResolve, $Object*)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

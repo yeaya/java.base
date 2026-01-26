@@ -31,10 +31,10 @@ $FieldInfo _LinkedHashMap$LinkedHashIterator_FieldInfo_[] = {
 };
 
 $MethodInfo _LinkedHashMap$LinkedHashIterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/LinkedHashMap;)V", nullptr, 0, $method(static_cast<void(LinkedHashMap$LinkedHashIterator::*)($LinkedHashMap*)>(&LinkedHashMap$LinkedHashIterator::init$))},
-	{"hasNext", "()Z", nullptr, $PUBLIC | $FINAL, $method(static_cast<bool(LinkedHashMap$LinkedHashIterator::*)()>(&LinkedHashMap$LinkedHashIterator::hasNext))},
-	{"nextNode", "()Ljava/util/LinkedHashMap$Entry;", "()Ljava/util/LinkedHashMap$Entry<TK;TV;>;", $FINAL, $method(static_cast<$LinkedHashMap$Entry*(LinkedHashMap$LinkedHashIterator::*)()>(&LinkedHashMap$LinkedHashIterator::nextNode))},
-	{"remove", "()V", nullptr, $PUBLIC | $FINAL, $method(static_cast<void(LinkedHashMap$LinkedHashIterator::*)()>(&LinkedHashMap$LinkedHashIterator::remove))},
+	{"<init>", "(Ljava/util/LinkedHashMap;)V", nullptr, 0, $method(LinkedHashMap$LinkedHashIterator, init$, void, $LinkedHashMap*)},
+	{"hasNext", "()Z", nullptr, $PUBLIC | $FINAL, $method(LinkedHashMap$LinkedHashIterator, hasNext, bool)},
+	{"nextNode", "()Ljava/util/LinkedHashMap$Entry;", "()Ljava/util/LinkedHashMap$Entry<TK;TV;>;", $FINAL, $method(LinkedHashMap$LinkedHashIterator, nextNode, $LinkedHashMap$Entry*)},
+	{"remove", "()V", nullptr, $PUBLIC | $FINAL, $method(LinkedHashMap$LinkedHashIterator, remove, void)},
 	{}
 };
 

@@ -23,10 +23,10 @@ $FieldInfo _Basic2$Writer_FieldInfo_[] = {
 };
 
 $MethodInfo _Basic2$Writer_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/OutputStream;)V", nullptr, 0, $method(static_cast<void(Basic2$Writer::*)($OutputStream*)>(&Basic2$Writer::init$))},
-	{"hash", "()I", nullptr, 0},
-	{"run", "()V", nullptr, $PUBLIC},
-	{"total", "()I", nullptr, 0},
+	{"<init>", "(Ljava/io/OutputStream;)V", nullptr, 0, $method(Basic2$Writer, init$, void, $OutputStream*)},
+	{"hash", "()I", nullptr, 0, $virtualMethod(Basic2$Writer, hash, int32_t)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Basic2$Writer, run, void)},
+	{"total", "()I", nullptr, 0, $virtualMethod(Basic2$Writer, total, int32_t)},
 	{}
 };
 

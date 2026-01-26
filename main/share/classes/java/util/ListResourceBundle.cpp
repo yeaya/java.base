@@ -31,12 +31,12 @@ $FieldInfo _ListResourceBundle_FieldInfo_[] = {
 };
 
 $MethodInfo _ListResourceBundle_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ListResourceBundle::*)()>(&ListResourceBundle::init$))},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $ABSTRACT},
-	{"getKeys", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC},
-	{"handleGetObject", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC | $FINAL},
-	{"handleKeySet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PROTECTED},
-	{"loadLookup", "()V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(static_cast<void(ListResourceBundle::*)()>(&ListResourceBundle::loadLookup))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ListResourceBundle, init$, void)},
+	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(ListResourceBundle, getContents, $ObjectArray2*)},
+	{"getKeys", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(ListResourceBundle, getKeys, $Enumeration*)},
+	{"handleGetObject", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC | $FINAL, $virtualMethod(ListResourceBundle, handleGetObject, $Object*, $String*)},
+	{"handleKeySet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PROTECTED, $virtualMethod(ListResourceBundle, handleKeySet, $Set*)},
+	{"loadLookup", "()V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(ListResourceBundle, loadLookup, void)},
 	{}
 };
 

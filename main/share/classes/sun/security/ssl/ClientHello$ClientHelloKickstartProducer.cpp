@@ -87,8 +87,8 @@ namespace sun {
 		namespace ssl {
 
 $MethodInfo _ClientHello$ClientHelloKickstartProducer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(ClientHello$ClientHelloKickstartProducer::*)()>(&ClientHello$ClientHelloKickstartProducer::init$))},
-	{"produce", "(Lsun/security/ssl/ConnectionContext;)[B", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(ClientHello$ClientHelloKickstartProducer, init$, void)},
+	{"produce", "(Lsun/security/ssl/ConnectionContext;)[B", nullptr, $PUBLIC, $virtualMethod(ClientHello$ClientHelloKickstartProducer, produce, $bytes*, $ConnectionContext*), "java.io.IOException"},
 	{}
 };
 

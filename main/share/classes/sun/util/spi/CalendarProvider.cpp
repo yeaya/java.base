@@ -8,6 +8,9 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Calendar = ::java::util::Calendar;
+using $Locale = ::java::util::Locale;
+using $TimeZone = ::java::util::TimeZone;
 using $LocaleServiceProvider = ::java::util::spi::LocaleServiceProvider;
 
 namespace sun {
@@ -15,8 +18,8 @@ namespace sun {
 		namespace spi {
 
 $MethodInfo _CalendarProvider_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(CalendarProvider::*)()>(&CalendarProvider::init$))},
-	{"getInstance", "(Ljava/util/TimeZone;Ljava/util/Locale;)Ljava/util/Calendar;", nullptr, $PUBLIC | $ABSTRACT},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(CalendarProvider, init$, void)},
+	{"getInstance", "(Ljava/util/TimeZone;Ljava/util/Locale;)Ljava/util/Calendar;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CalendarProvider, getInstance, $Calendar*, $TimeZone*, $Locale*)},
 	{}
 };
 

@@ -86,17 +86,17 @@ $FieldInfo _Trie2_FieldInfo_[] = {
 };
 
 $MethodInfo _Trie2_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Trie2::*)()>(&Trie2::init$))},
-	{"createFromSerialized", "(Ljava/nio/ByteBuffer;)Ljdk/internal/icu/impl/Trie2;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Trie2*(*)($ByteBuffer*)>(&Trie2::createFromSerialized)), "java.io.IOException"},
-	{"get", "(I)I", nullptr, $PUBLIC | $ABSTRACT},
-	{"getFromU16SingleLead", "(C)I", nullptr, $PUBLIC | $ABSTRACT},
-	{"hashByte", "(II)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)(int32_t,int32_t)>(&Trie2::hashByte))},
-	{"hashInt", "(II)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)(int32_t,int32_t)>(&Trie2::hashInt))},
-	{"hashUChar32", "(II)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)(int32_t,int32_t)>(&Trie2::hashUChar32))},
-	{"initHash", "()I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)()>(&Trie2::initHash))},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljdk/internal/icu/impl/Trie2$Range;>;", $PUBLIC},
-	{"iterator", "(Ljdk/internal/icu/impl/Trie2$ValueMapper;)Ljava/util/Iterator;", "(Ljdk/internal/icu/impl/Trie2$ValueMapper;)Ljava/util/Iterator<Ljdk/internal/icu/impl/Trie2$Range;>;", $PUBLIC},
-	{"rangeEnd", "(III)I", nullptr, 0},
+	{"<init>", "()V", nullptr, 0, $method(Trie2, init$, void)},
+	{"createFromSerialized", "(Ljava/nio/ByteBuffer;)Ljdk/internal/icu/impl/Trie2;", nullptr, $PUBLIC | $STATIC, $staticMethod(Trie2, createFromSerialized, Trie2*, $ByteBuffer*), "java.io.IOException"},
+	{"get", "(I)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Trie2, get, int32_t, int32_t)},
+	{"getFromU16SingleLead", "(C)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Trie2, getFromU16SingleLead, int32_t, char16_t)},
+	{"hashByte", "(II)I", nullptr, $PRIVATE | $STATIC, $staticMethod(Trie2, hashByte, int32_t, int32_t, int32_t)},
+	{"hashInt", "(II)I", nullptr, $PRIVATE | $STATIC, $staticMethod(Trie2, hashInt, int32_t, int32_t, int32_t)},
+	{"hashUChar32", "(II)I", nullptr, $PRIVATE | $STATIC, $staticMethod(Trie2, hashUChar32, int32_t, int32_t, int32_t)},
+	{"initHash", "()I", nullptr, $PRIVATE | $STATIC, $staticMethod(Trie2, initHash, int32_t)},
+	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljdk/internal/icu/impl/Trie2$Range;>;", $PUBLIC, $virtualMethod(Trie2, iterator, $Iterator*)},
+	{"iterator", "(Ljdk/internal/icu/impl/Trie2$ValueMapper;)Ljava/util/Iterator;", "(Ljdk/internal/icu/impl/Trie2$ValueMapper;)Ljava/util/Iterator<Ljdk/internal/icu/impl/Trie2$Range;>;", $PUBLIC, $virtualMethod(Trie2, iterator, $Iterator*, $Trie2$ValueMapper*)},
+	{"rangeEnd", "(III)I", nullptr, 0, $virtualMethod(Trie2, rangeEnd, int32_t, int32_t, int32_t, int32_t)},
 	{}
 };
 

@@ -18,7 +18,7 @@ $FieldInfo _FtpLoginException_FieldInfo_[] = {
 };
 
 $MethodInfo _FtpLoginException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(FtpLoginException::*)($String*)>(&FtpLoginException::init$))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(FtpLoginException, init$, void, $String*)},
 	{}
 };
 

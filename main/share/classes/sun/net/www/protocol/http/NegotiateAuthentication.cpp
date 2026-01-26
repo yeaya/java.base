@@ -73,16 +73,16 @@ $FieldInfo _NegotiateAuthentication_FieldInfo_[] = {
 };
 
 $MethodInfo _NegotiateAuthentication_MethodInfo_[] = {
-	{"<init>", "(Lsun/net/www/protocol/http/HttpCallerInfo;)V", nullptr, $PUBLIC, $method(static_cast<void(NegotiateAuthentication::*)($HttpCallerInfo*)>(&NegotiateAuthentication::init$))},
-	{"firstToken", "()[B", nullptr, $PRIVATE, $method(static_cast<$bytes*(NegotiateAuthentication::*)()>(&NegotiateAuthentication::firstToken)), "java.io.IOException"},
-	{"getCache", "()Ljava/util/HashMap;", "()Ljava/util/HashMap<Ljava/lang/String;Lsun/net/www/protocol/http/Negotiator;>;", $PRIVATE | $STATIC, $method(static_cast<$HashMap*(*)()>(&NegotiateAuthentication::getCache))},
-	{"getHeaderValue", "(Ljava/net/URL;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"isAuthorizationStale", "(Ljava/lang/String;)Z", nullptr, $PUBLIC},
-	{"isSupported", "(Lsun/net/www/protocol/http/HttpCallerInfo;)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)($HttpCallerInfo*)>(&NegotiateAuthentication::isSupported))},
-	{"nextToken", "([B)[B", nullptr, $PRIVATE, $method(static_cast<$bytes*(NegotiateAuthentication::*)($bytes*)>(&NegotiateAuthentication::nextToken)), "java.io.IOException"},
-	{"setHeaders", "(Lsun/net/www/protocol/http/HttpURLConnection;Lsun/net/www/HeaderParser;Ljava/lang/String;)Z", nullptr, $PUBLIC},
-	{"supportsPreemptiveAuthorization", "()Z", nullptr, $PUBLIC},
-	{"useAuthCache", "()Z", nullptr, $PROTECTED},
+	{"<init>", "(Lsun/net/www/protocol/http/HttpCallerInfo;)V", nullptr, $PUBLIC, $method(NegotiateAuthentication, init$, void, $HttpCallerInfo*)},
+	{"firstToken", "()[B", nullptr, $PRIVATE, $method(NegotiateAuthentication, firstToken, $bytes*), "java.io.IOException"},
+	{"getCache", "()Ljava/util/HashMap;", "()Ljava/util/HashMap<Ljava/lang/String;Lsun/net/www/protocol/http/Negotiator;>;", $PRIVATE | $STATIC, $staticMethod(NegotiateAuthentication, getCache, $HashMap*)},
+	{"getHeaderValue", "(Ljava/net/URL;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NegotiateAuthentication, getHeaderValue, $String*, $URL*, $String*)},
+	{"isAuthorizationStale", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(NegotiateAuthentication, isAuthorizationStale, bool, $String*)},
+	{"isSupported", "(Lsun/net/www/protocol/http/HttpCallerInfo;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(NegotiateAuthentication, isSupported, bool, $HttpCallerInfo*)},
+	{"nextToken", "([B)[B", nullptr, $PRIVATE, $method(NegotiateAuthentication, nextToken, $bytes*, $bytes*), "java.io.IOException"},
+	{"setHeaders", "(Lsun/net/www/protocol/http/HttpURLConnection;Lsun/net/www/HeaderParser;Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(NegotiateAuthentication, setHeaders, bool, $HttpURLConnection*, $HeaderParser*, $String*)},
+	{"supportsPreemptiveAuthorization", "()Z", nullptr, $PUBLIC, $virtualMethod(NegotiateAuthentication, supportsPreemptiveAuthorization, bool)},
+	{"useAuthCache", "()Z", nullptr, $PROTECTED, $virtualMethod(NegotiateAuthentication, useAuthCache, bool)},
 	{}
 };
 

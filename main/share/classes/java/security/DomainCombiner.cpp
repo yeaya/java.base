@@ -3,6 +3,7 @@
 #include <java/security/ProtectionDomain.h>
 #include <jcpp.h>
 
+using $ProtectionDomainArray = $Array<::java::security::ProtectionDomain>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -23,7 +24,7 @@ $CompoundAttribute _DomainCombiner_Annotations_[] = {
 };
 
 $MethodInfo _DomainCombiner_MethodInfo_[] = {
-	{"combine", "([Ljava/security/ProtectionDomain;[Ljava/security/ProtectionDomain;)[Ljava/security/ProtectionDomain;", nullptr, $PUBLIC | $ABSTRACT},
+	{"combine", "([Ljava/security/ProtectionDomain;[Ljava/security/ProtectionDomain;)[Ljava/security/ProtectionDomain;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DomainCombiner, combine, $ProtectionDomainArray*, $ProtectionDomainArray*, $ProtectionDomainArray*)},
 	{}
 };
 

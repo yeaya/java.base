@@ -33,13 +33,13 @@ $FieldInfo _AbstractInterruptibleChannel_FieldInfo_[] = {
 };
 
 $MethodInfo _AbstractInterruptibleChannel_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(AbstractInterruptibleChannel::*)()>(&AbstractInterruptibleChannel::init$))},
-	{"begin", "()V", nullptr, $PROTECTED | $FINAL, $method(static_cast<void(AbstractInterruptibleChannel::*)()>(&AbstractInterruptibleChannel::begin))},
-	{"blockedOn", "(Lsun/nio/ch/Interruptible;)V", nullptr, $STATIC, $method(static_cast<void(*)($Interruptible*)>(&AbstractInterruptibleChannel::blockedOn))},
-	{"close", "()V", nullptr, $PUBLIC | $FINAL, nullptr, "java.io.IOException"},
-	{"end", "(Z)V", nullptr, $PROTECTED | $FINAL, $method(static_cast<void(AbstractInterruptibleChannel::*)(bool)>(&AbstractInterruptibleChannel::end)), "java.nio.channels.AsynchronousCloseException"},
-	{"implCloseChannel", "()V", nullptr, $PROTECTED | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"isOpen", "()Z", nullptr, $PUBLIC | $FINAL},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(AbstractInterruptibleChannel, init$, void)},
+	{"begin", "()V", nullptr, $PROTECTED | $FINAL, $method(AbstractInterruptibleChannel, begin, void)},
+	{"blockedOn", "(Lsun/nio/ch/Interruptible;)V", nullptr, $STATIC, $staticMethod(AbstractInterruptibleChannel, blockedOn, void, $Interruptible*)},
+	{"close", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractInterruptibleChannel, close, void), "java.io.IOException"},
+	{"end", "(Z)V", nullptr, $PROTECTED | $FINAL, $method(AbstractInterruptibleChannel, end, void, bool), "java.nio.channels.AsynchronousCloseException"},
+	{"implCloseChannel", "()V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(AbstractInterruptibleChannel, implCloseChannel, void), "java.io.IOException"},
+	{"isOpen", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractInterruptibleChannel, isOpen, bool)},
 	{}
 };
 

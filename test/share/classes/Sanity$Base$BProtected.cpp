@@ -15,7 +15,7 @@ $FieldInfo _Sanity$Base$BProtected_FieldInfo_[] = {
 };
 
 $MethodInfo _Sanity$Base$BProtected_MethodInfo_[] = {
-	{"<init>", "(LSanity$Base;)V", nullptr, $PROTECTED, $method(static_cast<void(Sanity$Base$BProtected::*)($Sanity$Base*)>(&Sanity$Base$BProtected::init$))},
+	{"<init>", "(LSanity$Base;)V", nullptr, $PROTECTED, $method(Sanity$Base$BProtected, init$, void, $Sanity$Base*)},
 	{}
 };
 

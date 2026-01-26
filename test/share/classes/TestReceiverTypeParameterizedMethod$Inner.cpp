@@ -33,8 +33,8 @@ $FieldInfo _TestReceiverTypeParameterizedMethod$Inner_FieldInfo_[] = {
 };
 
 $MethodInfo _TestReceiverTypeParameterizedMethod$Inner_MethodInfo_[] = {
-	{"<init>", "(LTestReceiverTypeParameterizedMethod;)V", nullptr, 0, $method(static_cast<void(TestReceiverTypeParameterizedMethod$Inner::*)($TestReceiverTypeParameterizedMethod*)>(&TestReceiverTypeParameterizedMethod$Inner::init$))},
-	{"m", "()V", nullptr, 0, nullptr, nullptr, nullptr, nullptr, _TestReceiverTypeParameterizedMethod$Inner_MethodTypeAnnotations_m1},
+	{"<init>", "(LTestReceiverTypeParameterizedMethod;)V", nullptr, 0, $method(TestReceiverTypeParameterizedMethod$Inner, init$, void, $TestReceiverTypeParameterizedMethod*)},
+	{"m", "()V", nullptr, 0, $virtualMethod(TestReceiverTypeParameterizedMethod$Inner, m, void), nullptr, nullptr, nullptr, _TestReceiverTypeParameterizedMethod$Inner_MethodTypeAnnotations_m1},
 	{}
 };
 

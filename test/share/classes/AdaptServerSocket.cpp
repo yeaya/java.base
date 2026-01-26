@@ -35,10 +35,10 @@ $FieldInfo _AdaptServerSocket_FieldInfo_[] = {
 };
 
 $MethodInfo _AdaptServerSocket_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(AdaptServerSocket::*)()>(&AdaptServerSocket::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&AdaptServerSocket::main)), "java.lang.Exception"},
-	{"startClient", "(II)V", nullptr, $STATIC, $method(static_cast<void(*)(int32_t,int32_t)>(&AdaptServerSocket::startClient)), "java.lang.Exception"},
-	{"test", "(IIZ)V", nullptr, $STATIC, $method(static_cast<void(*)(int32_t,int32_t,bool)>(&AdaptServerSocket::test)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(AdaptServerSocket, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(AdaptServerSocket, main, void, $StringArray*), "java.lang.Exception"},
+	{"startClient", "(II)V", nullptr, $STATIC, $staticMethod(AdaptServerSocket, startClient, void, int32_t, int32_t), "java.lang.Exception"},
+	{"test", "(IIZ)V", nullptr, $STATIC, $staticMethod(AdaptServerSocket, test, void, int32_t, int32_t, bool), "java.lang.Exception"},
 	{}
 };
 

@@ -16,8 +16,8 @@ $FieldInfo _TestUndefinedNumeric_FieldInfo_[] = {
 };
 
 $MethodInfo _TestUndefinedNumeric_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TestUndefinedNumeric::*)()>(&TestUndefinedNumeric::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&TestUndefinedNumeric::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TestUndefinedNumeric, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TestUndefinedNumeric, main, void, $StringArray*)},
 	{}
 };
 

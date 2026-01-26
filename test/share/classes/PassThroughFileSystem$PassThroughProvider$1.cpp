@@ -24,9 +24,9 @@ $FieldInfo _PassThroughFileSystem$PassThroughProvider$1_FieldInfo_[] = {
 };
 
 $MethodInfo _PassThroughFileSystem$PassThroughProvider$1_MethodInfo_[] = {
-	{"<init>", "(LPassThroughFileSystem$PassThroughProvider;Ljava/nio/file/DirectoryStream;)V", "()V", 0, $method(static_cast<void(PassThroughFileSystem$PassThroughProvider$1::*)($PassThroughFileSystem$PassThroughProvider*,$DirectoryStream*)>(&PassThroughFileSystem$PassThroughProvider$1::init$))},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/nio/file/Path;>;", $PUBLIC},
+	{"<init>", "(LPassThroughFileSystem$PassThroughProvider;Ljava/nio/file/DirectoryStream;)V", "()V", 0, $method(PassThroughFileSystem$PassThroughProvider$1, init$, void, $PassThroughFileSystem$PassThroughProvider*, $DirectoryStream*)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(PassThroughFileSystem$PassThroughProvider$1, close, void), "java.io.IOException"},
+	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/nio/file/Path;>;", $PUBLIC, $virtualMethod(PassThroughFileSystem$PassThroughProvider$1, iterator, $Iterator*)},
 	{}
 };
 

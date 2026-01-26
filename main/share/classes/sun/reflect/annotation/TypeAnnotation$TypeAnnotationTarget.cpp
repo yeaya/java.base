@@ -46,10 +46,10 @@ $FieldInfo _TypeAnnotation$TypeAnnotationTarget_FieldInfo_[] = {
 };
 
 $MethodInfo _TypeAnnotation$TypeAnnotationTarget_MethodInfo_[] = {
-	{"$values", "()[Lsun/reflect/annotation/TypeAnnotation$TypeAnnotationTarget;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$TypeAnnotation$TypeAnnotationTargetArray*(*)()>(&TypeAnnotation$TypeAnnotationTarget::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(TypeAnnotation$TypeAnnotationTarget::*)($String*,int32_t)>(&TypeAnnotation$TypeAnnotationTarget::init$))},
-	{"valueOf", "(Ljava/lang/String;)Lsun/reflect/annotation/TypeAnnotation$TypeAnnotationTarget;", nullptr, $PUBLIC | $STATIC, $method(static_cast<TypeAnnotation$TypeAnnotationTarget*(*)($String*)>(&TypeAnnotation$TypeAnnotationTarget::valueOf))},
-	{"values", "()[Lsun/reflect/annotation/TypeAnnotation$TypeAnnotationTarget;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$TypeAnnotation$TypeAnnotationTargetArray*(*)()>(&TypeAnnotation$TypeAnnotationTarget::values))},
+	{"$values", "()[Lsun/reflect/annotation/TypeAnnotation$TypeAnnotationTarget;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TypeAnnotation$TypeAnnotationTarget, $values, $TypeAnnotation$TypeAnnotationTargetArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(TypeAnnotation$TypeAnnotationTarget, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Lsun/reflect/annotation/TypeAnnotation$TypeAnnotationTarget;", nullptr, $PUBLIC | $STATIC, $staticMethod(TypeAnnotation$TypeAnnotationTarget, valueOf, TypeAnnotation$TypeAnnotationTarget*, $String*)},
+	{"values", "()[Lsun/reflect/annotation/TypeAnnotation$TypeAnnotationTarget;", nullptr, $PUBLIC | $STATIC, $staticMethod(TypeAnnotation$TypeAnnotationTarget, values, $TypeAnnotation$TypeAnnotationTargetArray*)},
 	{}
 };
 

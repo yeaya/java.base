@@ -17,11 +17,11 @@ $FieldInfo _GetAbsolutePath_FieldInfo_[] = {
 };
 
 $MethodInfo _GetAbsolutePath_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(GetAbsolutePath::*)()>(&GetAbsolutePath::init$))},
-	{"ck", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($String*,$String*)>(&GetAbsolutePath::ck)), "java.lang.Exception"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&GetAbsolutePath::main)), "java.lang.Exception"},
-	{"testUnix", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&GetAbsolutePath::testUnix)), "java.lang.Exception"},
-	{"testWin32", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&GetAbsolutePath::testWin32)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(GetAbsolutePath, init$, void)},
+	{"ck", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(GetAbsolutePath, ck, void, $String*, $String*), "java.lang.Exception"},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(GetAbsolutePath, main, void, $StringArray*), "java.lang.Exception"},
+	{"testUnix", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(GetAbsolutePath, testUnix, void), "java.lang.Exception"},
+	{"testWin32", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(GetAbsolutePath, testWin32, void), "java.lang.Exception"},
 	{}
 };
 

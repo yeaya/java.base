@@ -16,9 +16,9 @@ using $ByteBuffer = ::java::nio::ByteBuffer;
 using $FileChannel = ::java::nio::channels::FileChannel;
 
 $MethodInfo _TruncateRAF_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TruncateRAF::*)()>(&TruncateRAF::init$))},
-	{"checkState", "(Ljava/io/RandomAccessFile;Ljava/nio/channels/FileChannel;JJ)V", nullptr, $STATIC, $method(static_cast<void(*)($RandomAccessFile*,$FileChannel*,int64_t,int64_t)>(&TruncateRAF::checkState)), "java.io.IOException"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&TruncateRAF::main)), "java.lang.Throwable"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TruncateRAF, init$, void)},
+	{"checkState", "(Ljava/io/RandomAccessFile;Ljava/nio/channels/FileChannel;JJ)V", nullptr, $STATIC, $staticMethod(TruncateRAF, checkState, void, $RandomAccessFile*, $FileChannel*, int64_t, int64_t), "java.io.IOException"},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TruncateRAF, main, void, $StringArray*), "java.lang.Throwable"},
 	{}
 };
 

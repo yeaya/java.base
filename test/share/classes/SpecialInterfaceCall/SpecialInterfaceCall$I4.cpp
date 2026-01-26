@@ -12,8 +12,8 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace SpecialInterfaceCall {
 
 $MethodInfo _SpecialInterfaceCall$I4_MethodInfo_[] = {
-	{"invokeDirect", "(LSpecialInterfaceCall/SpecialInterfaceCall$I4;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)(SpecialInterfaceCall$I4*)>(&SpecialInterfaceCall$I4::invokeDirect))},
-	{"invokeDirectFinal", "(LSpecialInterfaceCall/SpecialInterfaceCall$I4;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)(SpecialInterfaceCall$I4*)>(&SpecialInterfaceCall$I4::invokeDirectFinal))},
+	{"invokeDirect", "(LSpecialInterfaceCall/SpecialInterfaceCall$I4;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SpecialInterfaceCall$I4, invokeDirect, void, SpecialInterfaceCall$I4*)},
+	{"invokeDirectFinal", "(LSpecialInterfaceCall/SpecialInterfaceCall$I4;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SpecialInterfaceCall$I4, invokeDirectFinal, void, SpecialInterfaceCall$I4*)},
 	{}
 };
 

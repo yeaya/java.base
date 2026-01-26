@@ -26,8 +26,8 @@ $FieldInfo _LoginContext$SecureCallbackHandler$1_FieldInfo_[] = {
 };
 
 $MethodInfo _LoginContext$SecureCallbackHandler$1_MethodInfo_[] = {
-	{"<init>", "(Ljavax/security/auth/login/LoginContext$SecureCallbackHandler;[Ljavax/security/auth/callback/Callback;)V", "()V", 0, $method(static_cast<void(LoginContext$SecureCallbackHandler$1::*)($LoginContext$SecureCallbackHandler*,$CallbackArray*)>(&LoginContext$SecureCallbackHandler$1::init$))},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, nullptr, "java.io.IOException,javax.security.auth.callback.UnsupportedCallbackException"},
+	{"<init>", "(Ljavax/security/auth/login/LoginContext$SecureCallbackHandler;[Ljavax/security/auth/callback/Callback;)V", "()V", 0, $method(LoginContext$SecureCallbackHandler$1, init$, void, $LoginContext$SecureCallbackHandler*, $CallbackArray*)},
+	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(LoginContext$SecureCallbackHandler$1, run, $Object*), "java.io.IOException,javax.security.auth.callback.UnsupportedCallbackException"},
 	{}
 };
 

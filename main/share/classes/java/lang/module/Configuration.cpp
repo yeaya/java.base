@@ -104,8 +104,8 @@ $FieldInfo Configuration$$Lambda$lambda$findModule$0::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Configuration$$Lambda$lambda$findModule$0::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(Configuration$$Lambda$lambda$findModule$0::*)($String*)>(&Configuration$$Lambda$lambda$findModule$0::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Configuration$$Lambda$lambda$findModule$0, init$, void, $String*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Configuration$$Lambda$lambda$findModule$0, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Configuration$$Lambda$lambda$findModule$0::classInfo$ = {
@@ -137,8 +137,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Configuration$$Lambda$nonNull$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Configuration$$Lambda$nonNull$1::*)()>(&Configuration$$Lambda$nonNull$1::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Configuration$$Lambda$nonNull$1, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Configuration$$Lambda$nonNull$1, test, bool, Object$*)},
 	{}
 };
 $ClassInfo Configuration$$Lambda$nonNull$1::classInfo$ = {
@@ -170,8 +170,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Configuration$$Lambda$reference$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Configuration$$Lambda$reference$2::*)()>(&Configuration$$Lambda$reference$2::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Configuration$$Lambda$reference$2, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Configuration$$Lambda$reference$2, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Configuration$$Lambda$reference$2::classInfo$ = {
@@ -203,8 +203,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Configuration$$Lambda$descriptor$3::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Configuration$$Lambda$descriptor$3::*)()>(&Configuration$$Lambda$descriptor$3::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Configuration$$Lambda$descriptor$3, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Configuration$$Lambda$descriptor$3, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Configuration$$Lambda$descriptor$3::classInfo$ = {
@@ -236,8 +236,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Configuration$$Lambda$name$4::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Configuration$$Lambda$name$4::*)()>(&Configuration$$Lambda$name$4::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Configuration$$Lambda$name$4, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Configuration$$Lambda$name$4, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Configuration$$Lambda$name$4::classInfo$ = {
@@ -272,24 +272,24 @@ $FieldInfo _Configuration_FieldInfo_[] = {
 };
 
 $MethodInfo _Configuration_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(Configuration::*)()>(&Configuration::init$))},
-	{"<init>", "(Ljava/util/List;Ljava/lang/module/Resolver;)V", "(Ljava/util/List<Ljava/lang/module/Configuration;>;Ljava/lang/module/Resolver;)V", $PRIVATE, $method(static_cast<void(Configuration::*)($List*,$Resolver*)>(&Configuration::init$))},
-	{"<init>", "(Ljava/lang/module/ModuleFinder;Ljava/util/Map;)V", "(Ljava/lang/module/ModuleFinder;Ljava/util/Map<Ljava/lang/String;Ljava/util/Set<Ljava/lang/String;>;>;)V", 0, $method(static_cast<void(Configuration::*)($ModuleFinder*,$Map*)>(&Configuration::init$))},
-	{"configurations", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljava/lang/module/Configuration;>;", 0, $method(static_cast<$Stream*(Configuration::*)()>(&Configuration::configurations))},
-	{"descriptors", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/module/ModuleDescriptor;>;", 0, $method(static_cast<$Set*(Configuration::*)()>(&Configuration::descriptors))},
-	{"empty", "()Ljava/lang/module/Configuration;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Configuration*(*)()>(&Configuration::empty))},
-	{"findModule", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/lang/module/ResolvedModule;>;", $PUBLIC, $method(static_cast<$Optional*(Configuration::*)($String*)>(&Configuration::findModule))},
-	{"lambda$findModule$0", "(Ljava/lang/String;Ljava/lang/module/Configuration;)Ljava/lang/module/ResolvedModule;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$ResolvedModule*(*)($String*,Configuration*)>(&Configuration::lambda$findModule$0))},
-	{"modules", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/module/ResolvedModule;>;", $PUBLIC, $method(static_cast<$Set*(Configuration::*)()>(&Configuration::modules))},
-	{"parents", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/module/Configuration;>;", $PUBLIC, $method(static_cast<$List*(Configuration::*)()>(&Configuration::parents))},
-	{"reads", "(Ljava/lang/module/ResolvedModule;)Ljava/util/Set;", "(Ljava/lang/module/ResolvedModule;)Ljava/util/Set<Ljava/lang/module/ResolvedModule;>;", 0, $method(static_cast<$Set*(Configuration::*)($ResolvedModule*)>(&Configuration::reads))},
-	{"resolve", "(Ljava/lang/module/ModuleFinder;Ljava/lang/module/ModuleFinder;Ljava/util/Collection;)Ljava/lang/module/Configuration;", "(Ljava/lang/module/ModuleFinder;Ljava/lang/module/ModuleFinder;Ljava/util/Collection<Ljava/lang/String;>;)Ljava/lang/module/Configuration;", $PUBLIC, $method(static_cast<Configuration*(Configuration::*)($ModuleFinder*,$ModuleFinder*,$Collection*)>(&Configuration::resolve))},
-	{"resolve", "(Ljava/lang/module/ModuleFinder;Ljava/util/List;Ljava/lang/module/ModuleFinder;Ljava/util/Collection;)Ljava/lang/module/Configuration;", "(Ljava/lang/module/ModuleFinder;Ljava/util/List<Ljava/lang/module/Configuration;>;Ljava/lang/module/ModuleFinder;Ljava/util/Collection<Ljava/lang/String;>;)Ljava/lang/module/Configuration;", $PUBLIC | $STATIC, $method(static_cast<Configuration*(*)($ModuleFinder*,$List*,$ModuleFinder*,$Collection*)>(&Configuration::resolve))},
-	{"resolveAndBind", "(Ljava/lang/module/ModuleFinder;Ljava/lang/module/ModuleFinder;Ljava/util/Collection;)Ljava/lang/module/Configuration;", "(Ljava/lang/module/ModuleFinder;Ljava/lang/module/ModuleFinder;Ljava/util/Collection<Ljava/lang/String;>;)Ljava/lang/module/Configuration;", $PUBLIC, $method(static_cast<Configuration*(Configuration::*)($ModuleFinder*,$ModuleFinder*,$Collection*)>(&Configuration::resolveAndBind))},
-	{"resolveAndBind", "(Ljava/lang/module/ModuleFinder;Ljava/util/Collection;Ljava/io/PrintStream;)Ljava/lang/module/Configuration;", "(Ljava/lang/module/ModuleFinder;Ljava/util/Collection<Ljava/lang/String;>;Ljava/io/PrintStream;)Ljava/lang/module/Configuration;", $STATIC, $method(static_cast<Configuration*(*)($ModuleFinder*,$Collection*,$PrintStream*)>(&Configuration::resolveAndBind))},
-	{"resolveAndBind", "(Ljava/lang/module/ModuleFinder;Ljava/util/List;Ljava/lang/module/ModuleFinder;Ljava/util/Collection;)Ljava/lang/module/Configuration;", "(Ljava/lang/module/ModuleFinder;Ljava/util/List<Ljava/lang/module/Configuration;>;Ljava/lang/module/ModuleFinder;Ljava/util/Collection<Ljava/lang/String;>;)Ljava/lang/module/Configuration;", $PUBLIC | $STATIC, $method(static_cast<Configuration*(*)($ModuleFinder*,$List*,$ModuleFinder*,$Collection*)>(&Configuration::resolveAndBind))},
-	{"targetPlatform", "()Ljava/lang/String;", nullptr, 0, $method(static_cast<$String*(Configuration::*)()>(&Configuration::targetPlatform))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(Configuration, init$, void)},
+	{"<init>", "(Ljava/util/List;Ljava/lang/module/Resolver;)V", "(Ljava/util/List<Ljava/lang/module/Configuration;>;Ljava/lang/module/Resolver;)V", $PRIVATE, $method(Configuration, init$, void, $List*, $Resolver*)},
+	{"<init>", "(Ljava/lang/module/ModuleFinder;Ljava/util/Map;)V", "(Ljava/lang/module/ModuleFinder;Ljava/util/Map<Ljava/lang/String;Ljava/util/Set<Ljava/lang/String;>;>;)V", 0, $method(Configuration, init$, void, $ModuleFinder*, $Map*)},
+	{"configurations", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljava/lang/module/Configuration;>;", 0, $method(Configuration, configurations, $Stream*)},
+	{"descriptors", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/module/ModuleDescriptor;>;", 0, $method(Configuration, descriptors, $Set*)},
+	{"empty", "()Ljava/lang/module/Configuration;", nullptr, $PUBLIC | $STATIC, $staticMethod(Configuration, empty, Configuration*)},
+	{"findModule", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/lang/module/ResolvedModule;>;", $PUBLIC, $method(Configuration, findModule, $Optional*, $String*)},
+	{"lambda$findModule$0", "(Ljava/lang/String;Ljava/lang/module/Configuration;)Ljava/lang/module/ResolvedModule;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Configuration, lambda$findModule$0, $ResolvedModule*, $String*, Configuration*)},
+	{"modules", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/module/ResolvedModule;>;", $PUBLIC, $method(Configuration, modules, $Set*)},
+	{"parents", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/module/Configuration;>;", $PUBLIC, $method(Configuration, parents, $List*)},
+	{"reads", "(Ljava/lang/module/ResolvedModule;)Ljava/util/Set;", "(Ljava/lang/module/ResolvedModule;)Ljava/util/Set<Ljava/lang/module/ResolvedModule;>;", 0, $method(Configuration, reads, $Set*, $ResolvedModule*)},
+	{"resolve", "(Ljava/lang/module/ModuleFinder;Ljava/lang/module/ModuleFinder;Ljava/util/Collection;)Ljava/lang/module/Configuration;", "(Ljava/lang/module/ModuleFinder;Ljava/lang/module/ModuleFinder;Ljava/util/Collection<Ljava/lang/String;>;)Ljava/lang/module/Configuration;", $PUBLIC, $method(Configuration, resolve, Configuration*, $ModuleFinder*, $ModuleFinder*, $Collection*)},
+	{"resolve", "(Ljava/lang/module/ModuleFinder;Ljava/util/List;Ljava/lang/module/ModuleFinder;Ljava/util/Collection;)Ljava/lang/module/Configuration;", "(Ljava/lang/module/ModuleFinder;Ljava/util/List<Ljava/lang/module/Configuration;>;Ljava/lang/module/ModuleFinder;Ljava/util/Collection<Ljava/lang/String;>;)Ljava/lang/module/Configuration;", $PUBLIC | $STATIC, $staticMethod(Configuration, resolve, Configuration*, $ModuleFinder*, $List*, $ModuleFinder*, $Collection*)},
+	{"resolveAndBind", "(Ljava/lang/module/ModuleFinder;Ljava/lang/module/ModuleFinder;Ljava/util/Collection;)Ljava/lang/module/Configuration;", "(Ljava/lang/module/ModuleFinder;Ljava/lang/module/ModuleFinder;Ljava/util/Collection<Ljava/lang/String;>;)Ljava/lang/module/Configuration;", $PUBLIC, $method(Configuration, resolveAndBind, Configuration*, $ModuleFinder*, $ModuleFinder*, $Collection*)},
+	{"resolveAndBind", "(Ljava/lang/module/ModuleFinder;Ljava/util/Collection;Ljava/io/PrintStream;)Ljava/lang/module/Configuration;", "(Ljava/lang/module/ModuleFinder;Ljava/util/Collection<Ljava/lang/String;>;Ljava/io/PrintStream;)Ljava/lang/module/Configuration;", $STATIC, $staticMethod(Configuration, resolveAndBind, Configuration*, $ModuleFinder*, $Collection*, $PrintStream*)},
+	{"resolveAndBind", "(Ljava/lang/module/ModuleFinder;Ljava/util/List;Ljava/lang/module/ModuleFinder;Ljava/util/Collection;)Ljava/lang/module/Configuration;", "(Ljava/lang/module/ModuleFinder;Ljava/util/List<Ljava/lang/module/Configuration;>;Ljava/lang/module/ModuleFinder;Ljava/util/Collection<Ljava/lang/String;>;)Ljava/lang/module/Configuration;", $PUBLIC | $STATIC, $staticMethod(Configuration, resolveAndBind, Configuration*, $ModuleFinder*, $List*, $ModuleFinder*, $Collection*)},
+	{"targetPlatform", "()Ljava/lang/String;", nullptr, 0, $method(Configuration, targetPlatform, $String*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Configuration, toString, $String*)},
 	{}
 };
 

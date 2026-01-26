@@ -13,8 +13,8 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $URL = ::java::net::URL;
 
 $MethodInfo _B6827999_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(B6827999::*)()>(&B6827999::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&B6827999::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(B6827999, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(B6827999, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

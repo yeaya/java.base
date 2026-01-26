@@ -21,8 +21,8 @@ namespace java {
 		namespace regex {
 
 $MethodInfo _Pattern$SliceU_MethodInfo_[] = {
-	{"<init>", "([I)V", nullptr, 0, $method(static_cast<void(Pattern$SliceU::*)($ints*)>(&Pattern$SliceU::init$))},
-	{"match", "(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z", nullptr, 0},
+	{"<init>", "([I)V", nullptr, 0, $method(Pattern$SliceU, init$, void, $ints*)},
+	{"match", "(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z", nullptr, 0, $virtualMethod(Pattern$SliceU, match, bool, $Matcher*, int32_t, $CharSequence*)},
 	{}
 };
 

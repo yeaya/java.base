@@ -16,8 +16,8 @@ using $Float = ::java::lang::Float;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _Constants_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Constants::*)()>(&Constants::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Constants::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Constants, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Constants, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

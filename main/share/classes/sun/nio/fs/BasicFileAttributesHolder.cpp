@@ -5,14 +5,15 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $BasicFileAttributes = ::java::nio::file::attribute::BasicFileAttributes;
 
 namespace sun {
 	namespace nio {
 		namespace fs {
 
 $MethodInfo _BasicFileAttributesHolder_MethodInfo_[] = {
-	{"get", "()Ljava/nio/file/attribute/BasicFileAttributes;", nullptr, $PUBLIC | $ABSTRACT},
-	{"invalidate", "()V", nullptr, $PUBLIC | $ABSTRACT},
+	{"get", "()Ljava/nio/file/attribute/BasicFileAttributes;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(BasicFileAttributesHolder, get, $BasicFileAttributes*)},
+	{"invalidate", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(BasicFileAttributesHolder, invalidate, void)},
 	{}
 };
 

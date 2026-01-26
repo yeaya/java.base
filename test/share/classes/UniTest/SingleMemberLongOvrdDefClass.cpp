@@ -20,7 +20,7 @@ $CompoundAttribute _SingleMemberLongOvrdDefClass_Annotations_[] = {
 };
 
 $MethodInfo _SingleMemberLongOvrdDefClass_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(SingleMemberLongOvrdDefClass::*)()>(&SingleMemberLongOvrdDefClass::init$))},
+	{"<init>", "()V", nullptr, 0, $method(SingleMemberLongOvrdDefClass, init$, void)},
 	{}
 };
 

@@ -38,14 +38,14 @@ $FieldInfo _CipherOutputStream_FieldInfo_[] = {
 };
 
 $MethodInfo _CipherOutputStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/OutputStream;Ljavax/crypto/Cipher;)V", nullptr, $PUBLIC, $method(static_cast<void(CipherOutputStream::*)($OutputStream*,$Cipher*)>(&CipherOutputStream::init$))},
-	{"<init>", "(Ljava/io/OutputStream;)V", nullptr, $PROTECTED, $method(static_cast<void(CipherOutputStream::*)($OutputStream*)>(&CipherOutputStream::init$))},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"ensureCapacity", "(I)V", nullptr, $PRIVATE, $method(static_cast<void(CipherOutputStream::*)(int32_t)>(&CipherOutputStream::ensureCapacity))},
-	{"flush", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"write", "(I)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"write", "([B)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"write", "([BII)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljava/io/OutputStream;Ljavax/crypto/Cipher;)V", nullptr, $PUBLIC, $method(CipherOutputStream, init$, void, $OutputStream*, $Cipher*)},
+	{"<init>", "(Ljava/io/OutputStream;)V", nullptr, $PROTECTED, $method(CipherOutputStream, init$, void, $OutputStream*)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(CipherOutputStream, close, void), "java.io.IOException"},
+	{"ensureCapacity", "(I)V", nullptr, $PRIVATE, $method(CipherOutputStream, ensureCapacity, void, int32_t)},
+	{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(CipherOutputStream, flush, void), "java.io.IOException"},
+	{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(CipherOutputStream, write, void, int32_t), "java.io.IOException"},
+	{"write", "([B)V", nullptr, $PUBLIC, $virtualMethod(CipherOutputStream, write, void, $bytes*), "java.io.IOException"},
+	{"write", "([BII)V", nullptr, $PUBLIC, $virtualMethod(CipherOutputStream, write, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
 	{}
 };
 

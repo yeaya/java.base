@@ -38,11 +38,11 @@ $FieldInfo _Nodes$CollectorTask_FieldInfo_[] = {
 };
 
 $MethodInfo _Nodes$CollectorTask_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;Ljava/util/function/LongFunction;Ljava/util/function/BinaryOperator;)V", "(Ljava/util/stream/PipelineHelper<TP_OUT;>;Ljava/util/Spliterator<TP_IN;>;Ljava/util/function/LongFunction<TT_BUILDER;>;Ljava/util/function/BinaryOperator<TT_NODE;>;)V", 0, $method(static_cast<void(Nodes$CollectorTask::*)($PipelineHelper*,$Spliterator*,$LongFunction*,$BinaryOperator*)>(&Nodes$CollectorTask::init$))},
-	{"<init>", "(Ljava/util/stream/Nodes$CollectorTask;Ljava/util/Spliterator;)V", "(Ljava/util/stream/Nodes$CollectorTask<TP_IN;TP_OUT;TT_NODE;TT_BUILDER;>;Ljava/util/Spliterator<TP_IN;>;)V", 0, $method(static_cast<void(Nodes$CollectorTask::*)(Nodes$CollectorTask*,$Spliterator*)>(&Nodes$CollectorTask::init$))},
-	{"doLeaf", "()Ljava/util/stream/Node;", "()TT_NODE;", $PROTECTED},
-	{"makeChild", "(Ljava/util/Spliterator;)Ljava/util/stream/Nodes$CollectorTask;", "(Ljava/util/Spliterator<TP_IN;>;)Ljava/util/stream/Nodes$CollectorTask<TP_IN;TP_OUT;TT_NODE;TT_BUILDER;>;", $PROTECTED},
-	{"onCompletion", "(Ljava/util/concurrent/CountedCompleter;)V", "(Ljava/util/concurrent/CountedCompleter<*>;)V", $PUBLIC},
+	{"<init>", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;Ljava/util/function/LongFunction;Ljava/util/function/BinaryOperator;)V", "(Ljava/util/stream/PipelineHelper<TP_OUT;>;Ljava/util/Spliterator<TP_IN;>;Ljava/util/function/LongFunction<TT_BUILDER;>;Ljava/util/function/BinaryOperator<TT_NODE;>;)V", 0, $method(Nodes$CollectorTask, init$, void, $PipelineHelper*, $Spliterator*, $LongFunction*, $BinaryOperator*)},
+	{"<init>", "(Ljava/util/stream/Nodes$CollectorTask;Ljava/util/Spliterator;)V", "(Ljava/util/stream/Nodes$CollectorTask<TP_IN;TP_OUT;TT_NODE;TT_BUILDER;>;Ljava/util/Spliterator<TP_IN;>;)V", 0, $method(Nodes$CollectorTask, init$, void, Nodes$CollectorTask*, $Spliterator*)},
+	{"doLeaf", "()Ljava/util/stream/Node;", "()TT_NODE;", $PROTECTED, $virtualMethod(Nodes$CollectorTask, doLeaf, $Object*)},
+	{"makeChild", "(Ljava/util/Spliterator;)Ljava/util/stream/Nodes$CollectorTask;", "(Ljava/util/Spliterator<TP_IN;>;)Ljava/util/stream/Nodes$CollectorTask<TP_IN;TP_OUT;TT_NODE;TT_BUILDER;>;", $PROTECTED, $virtualMethod(Nodes$CollectorTask, makeChild, Nodes$CollectorTask*, $Spliterator*)},
+	{"onCompletion", "(Ljava/util/concurrent/CountedCompleter;)V", "(Ljava/util/concurrent/CountedCompleter<*>;)V", $PUBLIC, $virtualMethod(Nodes$CollectorTask, onCompletion, void, $CountedCompleter*)},
 	{}
 };
 

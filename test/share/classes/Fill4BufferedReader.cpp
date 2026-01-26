@@ -15,9 +15,9 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _Fill4BufferedReader_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Fill4BufferedReader::*)()>(&Fill4BufferedReader::init$))},
-	{"go", "(I)V", nullptr, $STATIC, $method(static_cast<void(*)(int32_t)>(&Fill4BufferedReader::go)), "java.lang.Exception"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Fill4BufferedReader::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Fill4BufferedReader, init$, void)},
+	{"go", "(I)V", nullptr, $STATIC, $staticMethod(Fill4BufferedReader, go, void, int32_t), "java.lang.Exception"},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Fill4BufferedReader, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

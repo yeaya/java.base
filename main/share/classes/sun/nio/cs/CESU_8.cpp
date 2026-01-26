@@ -29,11 +29,11 @@ namespace sun {
 		namespace cs {
 
 $MethodInfo _CESU_8_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CESU_8::*)()>(&CESU_8::init$))},
-	{"historicalName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"newDecoder", "()Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC},
-	{"newEncoder", "()Ljava/nio/charset/CharsetEncoder;", nullptr, $PUBLIC},
-	{"updatePositions", "(Ljava/nio/Buffer;ILjava/nio/Buffer;I)V", nullptr, $PRIVATE | $STATIC | $FINAL, $method(static_cast<void(*)($Buffer*,int32_t,$Buffer*,int32_t)>(&CESU_8::updatePositions))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CESU_8, init$, void)},
+	{"historicalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CESU_8, historicalName, $String*)},
+	{"newDecoder", "()Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC, $virtualMethod(CESU_8, newDecoder, $CharsetDecoder*)},
+	{"newEncoder", "()Ljava/nio/charset/CharsetEncoder;", nullptr, $PUBLIC, $virtualMethod(CESU_8, newEncoder, $CharsetEncoder*)},
+	{"updatePositions", "(Ljava/nio/Buffer;ILjava/nio/Buffer;I)V", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(CESU_8, updatePositions, void, $Buffer*, int32_t, $Buffer*, int32_t)},
 	{}
 };
 

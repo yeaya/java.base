@@ -26,7 +26,7 @@ $CompoundAttribute _SingleMemberLongArrOneClass_Annotations_[] = {
 };
 
 $MethodInfo _SingleMemberLongArrOneClass_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(SingleMemberLongArrOneClass::*)()>(&SingleMemberLongArrOneClass::init$))},
+	{"<init>", "()V", nullptr, 0, $method(SingleMemberLongArrOneClass, init$, void)},
 	{}
 };
 

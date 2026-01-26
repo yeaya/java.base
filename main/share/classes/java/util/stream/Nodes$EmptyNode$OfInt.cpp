@@ -49,10 +49,10 @@ $MethodInfo _Nodes$EmptyNode$OfInt_MethodInfo_[] = {
 	{"*getChildCount", "()I", nullptr, $PUBLIC | $ABSTRACT},
 	{"*getShape", "()Ljava/util/stream/StreamShape;", nullptr, $PUBLIC | $ABSTRACT},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Nodes$EmptyNode$OfInt::*)()>(&Nodes$EmptyNode$OfInt::init$))},
-	{"asPrimitiveArray", "()[I", nullptr, $PUBLIC, $method(static_cast<$ints*(Nodes$EmptyNode$OfInt::*)()>(&Nodes$EmptyNode$OfInt::asPrimitiveArray))},
+	{"<init>", "()V", nullptr, 0, $method(Nodes$EmptyNode$OfInt, init$, void)},
+	{"asPrimitiveArray", "()[I", nullptr, $PUBLIC, $method(Nodes$EmptyNode$OfInt, asPrimitiveArray, $ints*)},
 	{"*newArray", "(I)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
-	{"spliterator", "()Ljava/util/Spliterator$OfInt;", nullptr, $PUBLIC},
+	{"spliterator", "()Ljava/util/Spliterator$OfInt;", nullptr, $PUBLIC, $virtualMethod(Nodes$EmptyNode$OfInt, spliterator, $Spliterator*)},
 	{"*truncate", "(JJLjava/util/function/IntFunction;)Ljava/util/stream/Node;", nullptr, $PUBLIC | $ABSTRACT},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}

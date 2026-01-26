@@ -13,8 +13,8 @@ $FieldInfo _IsEmpty_FieldInfo_[] = {
 };
 
 $MethodInfo _IsEmpty_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(IsEmpty::*)()>(&IsEmpty::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&IsEmpty::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(IsEmpty, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(IsEmpty, main, void, $StringArray*)},
 	{}
 };
 

@@ -9,11 +9,11 @@ using $Exception = ::java::lang::Exception;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _HashCodeEquals_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(HashCodeEquals::*)()>(&HashCodeEquals::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&HashCodeEquals::main)), "java.lang.Exception"},
-	{"test", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $STATIC, $method(static_cast<void(*)($String*,$String*)>(&HashCodeEquals::test)), "java.lang.Exception"},
-	{"testUnix", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&HashCodeEquals::testUnix)), "java.lang.Exception"},
-	{"testWin32", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&HashCodeEquals::testWin32)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(HashCodeEquals, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HashCodeEquals, main, void, $StringArray*), "java.lang.Exception"},
+	{"test", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(HashCodeEquals, test, void, $String*, $String*), "java.lang.Exception"},
+	{"testUnix", "()V", nullptr, $STATIC, $staticMethod(HashCodeEquals, testUnix, void), "java.lang.Exception"},
+	{"testWin32", "()V", nullptr, $STATIC, $staticMethod(HashCodeEquals, testWin32, void), "java.lang.Exception"},
 	{}
 };
 

@@ -34,18 +34,18 @@ $FieldInfo _LongAccumulator_FieldInfo_[] = {
 };
 
 $MethodInfo _LongAccumulator_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/function/LongBinaryOperator;J)V", nullptr, $PUBLIC, $method(static_cast<void(LongAccumulator::*)($LongBinaryOperator*,int64_t)>(&LongAccumulator::init$))},
-	{"accumulate", "(J)V", nullptr, $PUBLIC},
-	{"doubleValue", "()D", nullptr, $PUBLIC},
-	{"floatValue", "()F", nullptr, $PUBLIC},
-	{"get", "()J", nullptr, $PUBLIC},
-	{"getThenReset", "()J", nullptr, $PUBLIC},
-	{"intValue", "()I", nullptr, $PUBLIC},
-	{"longValue", "()J", nullptr, $PUBLIC},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(LongAccumulator::*)($ObjectInputStream*)>(&LongAccumulator::readObject)), "java.io.InvalidObjectException"},
-	{"reset", "()V", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"writeReplace", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(static_cast<$Object*(LongAccumulator::*)()>(&LongAccumulator::writeReplace))},
+	{"<init>", "(Ljava/util/function/LongBinaryOperator;J)V", nullptr, $PUBLIC, $method(LongAccumulator, init$, void, $LongBinaryOperator*, int64_t)},
+	{"accumulate", "(J)V", nullptr, $PUBLIC, $virtualMethod(LongAccumulator, accumulate, void, int64_t)},
+	{"doubleValue", "()D", nullptr, $PUBLIC, $virtualMethod(LongAccumulator, doubleValue, double)},
+	{"floatValue", "()F", nullptr, $PUBLIC, $virtualMethod(LongAccumulator, floatValue, float)},
+	{"get", "()J", nullptr, $PUBLIC, $virtualMethod(LongAccumulator, get, int64_t)},
+	{"getThenReset", "()J", nullptr, $PUBLIC, $virtualMethod(LongAccumulator, getThenReset, int64_t)},
+	{"intValue", "()I", nullptr, $PUBLIC, $virtualMethod(LongAccumulator, intValue, int32_t)},
+	{"longValue", "()J", nullptr, $PUBLIC, $virtualMethod(LongAccumulator, longValue, int64_t)},
+	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(LongAccumulator, readObject, void, $ObjectInputStream*), "java.io.InvalidObjectException"},
+	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(LongAccumulator, reset, void)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LongAccumulator, toString, $String*)},
+	{"writeReplace", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(LongAccumulator, writeReplace, $Object*)},
 	{}
 };
 

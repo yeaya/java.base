@@ -19,12 +19,12 @@ $FieldInfo _FileKey_FieldInfo_[] = {
 };
 
 $MethodInfo _FileKey_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(FileKey::*)()>(&FileKey::init$))},
-	{"create", "(Ljava/io/FileDescriptor;)Lsun/nio/ch/FileKey;", nullptr, $PUBLIC | $STATIC, $method(static_cast<FileKey*(*)($FileDescriptor*)>(&FileKey::create)), "java.io.IOException"},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"init", "(Ljava/io/FileDescriptor;)V", nullptr, $PRIVATE | $NATIVE, $method(static_cast<void(FileKey::*)($FileDescriptor*)>(&FileKey::init)), "java.io.IOException"},
-	{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $method(static_cast<void(*)()>(&FileKey::initIDs))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(FileKey, init$, void)},
+	{"create", "(Ljava/io/FileDescriptor;)Lsun/nio/ch/FileKey;", nullptr, $PUBLIC | $STATIC, $staticMethod(FileKey, create, FileKey*, $FileDescriptor*), "java.io.IOException"},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(FileKey, equals, bool, Object$*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(FileKey, hashCode, int32_t)},
+	{"init", "(Ljava/io/FileDescriptor;)V", nullptr, $PRIVATE | $NATIVE, $method(FileKey, init, void, $FileDescriptor*), "java.io.IOException"},
+	{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(FileKey, initIDs, void)},
 	{}
 };
 

@@ -20,10 +20,10 @@ using $SelectionKey = ::java::nio::channels::SelectionKey;
 using $Selector = ::java::nio::channels::Selector;
 
 $MethodInfo _WakeupNow_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(WakeupNow::*)()>(&WakeupNow::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&WakeupNow::main)), "java.lang.Exception"},
-	{"test1", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&WakeupNow::test1)), "java.lang.Exception"},
-	{"test2", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&WakeupNow::test2)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(WakeupNow, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(WakeupNow, main, void, $StringArray*), "java.lang.Exception"},
+	{"test1", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(WakeupNow, test1, void), "java.lang.Exception"},
+	{"test2", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(WakeupNow, test2, void), "java.lang.Exception"},
 	{}
 };
 

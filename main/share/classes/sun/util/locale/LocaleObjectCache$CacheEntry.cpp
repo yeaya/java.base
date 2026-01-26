@@ -22,8 +22,8 @@ $FieldInfo _LocaleObjectCache$CacheEntry_FieldInfo_[] = {
 };
 
 $MethodInfo _LocaleObjectCache$CacheEntry_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/ref/ReferenceQueue;)V", "(TK;TV;Ljava/lang/ref/ReferenceQueue<TV;>;)V", 0, $method(static_cast<void(LocaleObjectCache$CacheEntry::*)(Object$*,Object$*,$ReferenceQueue*)>(&LocaleObjectCache$CacheEntry::init$))},
-	{"getKey", "()Ljava/lang/Object;", "()TK;", 0},
+	{"<init>", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/ref/ReferenceQueue;)V", "(TK;TV;Ljava/lang/ref/ReferenceQueue<TV;>;)V", 0, $method(LocaleObjectCache$CacheEntry, init$, void, Object$*, Object$*, $ReferenceQueue*)},
+	{"getKey", "()Ljava/lang/Object;", "()TK;", 0, $virtualMethod(LocaleObjectCache$CacheEntry, getKey, $Object*)},
 	{}
 };
 

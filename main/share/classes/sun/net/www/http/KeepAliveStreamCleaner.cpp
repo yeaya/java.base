@@ -60,14 +60,14 @@ $MethodInfo _KeepAliveStreamCleaner_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(KeepAliveStreamCleaner::*)()>(&KeepAliveStreamCleaner::init$))},
-	{"lock", "()V", nullptr, $FINAL, $method(static_cast<void(KeepAliveStreamCleaner::*)()>(&KeepAliveStreamCleaner::lock))},
-	{"offer", "(Lsun/net/www/http/KeepAliveCleanerEntry;)Z", nullptr, $PUBLIC},
-	{"offer", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"run", "()V", nullptr, $PUBLIC},
-	{"signalAll", "()V", nullptr, $FINAL, $method(static_cast<void(KeepAliveStreamCleaner::*)()>(&KeepAliveStreamCleaner::signalAll))},
+	{"<init>", "()V", nullptr, 0, $method(KeepAliveStreamCleaner, init$, void)},
+	{"lock", "()V", nullptr, $FINAL, $method(KeepAliveStreamCleaner, lock, void)},
+	{"offer", "(Lsun/net/www/http/KeepAliveCleanerEntry;)Z", nullptr, $PUBLIC, $virtualMethod(KeepAliveStreamCleaner, offer, bool, $KeepAliveCleanerEntry*)},
+	{"offer", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(KeepAliveStreamCleaner, offer, bool, Object$*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(KeepAliveStreamCleaner, run, void)},
+	{"signalAll", "()V", nullptr, $FINAL, $method(KeepAliveStreamCleaner, signalAll, void)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"unlock", "()V", nullptr, $FINAL, $method(static_cast<void(KeepAliveStreamCleaner::*)()>(&KeepAliveStreamCleaner::unlock))},
+	{"unlock", "()V", nullptr, $FINAL, $method(KeepAliveStreamCleaner, unlock, void)},
 	{}
 };
 

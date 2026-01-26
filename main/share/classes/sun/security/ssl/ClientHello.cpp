@@ -45,7 +45,7 @@ $FieldInfo _ClientHello_FieldInfo_[] = {
 };
 
 $MethodInfo _ClientHello_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ClientHello::*)()>(&ClientHello::init$))},
+	{"<init>", "()V", nullptr, 0, $method(ClientHello, init$, void)},
 	{}
 };
 

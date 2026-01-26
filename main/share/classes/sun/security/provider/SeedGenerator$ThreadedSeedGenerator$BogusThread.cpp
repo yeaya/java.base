@@ -13,8 +13,8 @@ namespace sun {
 		namespace provider {
 
 $MethodInfo _SeedGenerator$ThreadedSeedGenerator$BogusThread_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(SeedGenerator$ThreadedSeedGenerator$BogusThread::*)()>(&SeedGenerator$ThreadedSeedGenerator$BogusThread::init$))},
-	{"run", "()V", nullptr, $PUBLIC | $FINAL},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(SeedGenerator$ThreadedSeedGenerator$BogusThread, init$, void)},
+	{"run", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(SeedGenerator$ThreadedSeedGenerator$BogusThread, run, void)},
 	{}
 };
 

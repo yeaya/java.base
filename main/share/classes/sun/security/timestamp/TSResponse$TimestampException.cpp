@@ -20,7 +20,7 @@ $FieldInfo _TSResponse$TimestampException_FieldInfo_[] = {
 };
 
 $MethodInfo _TSResponse$TimestampException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(TSResponse$TimestampException::*)($String*)>(&TSResponse$TimestampException::init$))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(TSResponse$TimestampException, init$, void, $String*)},
 	{}
 };
 

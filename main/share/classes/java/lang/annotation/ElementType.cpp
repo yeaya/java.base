@@ -44,10 +44,10 @@ $FieldInfo _ElementType_FieldInfo_[] = {
 };
 
 $MethodInfo _ElementType_MethodInfo_[] = {
-	{"$values", "()[Ljava/lang/annotation/ElementType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$ElementTypeArray*(*)()>(&ElementType::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(ElementType::*)($String*,int32_t)>(&ElementType::init$))},
-	{"valueOf", "(Ljava/lang/String;)Ljava/lang/annotation/ElementType;", nullptr, $PUBLIC | $STATIC, $method(static_cast<ElementType*(*)($String*)>(&ElementType::valueOf))},
-	{"values", "()[Ljava/lang/annotation/ElementType;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$ElementTypeArray*(*)()>(&ElementType::values))},
+	{"$values", "()[Ljava/lang/annotation/ElementType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ElementType, $values, $ElementTypeArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(ElementType, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Ljava/lang/annotation/ElementType;", nullptr, $PUBLIC | $STATIC, $staticMethod(ElementType, valueOf, ElementType*, $String*)},
+	{"values", "()[Ljava/lang/annotation/ElementType;", nullptr, $PUBLIC | $STATIC, $staticMethod(ElementType, values, $ElementTypeArray*)},
 	{}
 };
 

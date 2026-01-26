@@ -32,8 +32,8 @@ $FieldInfo _SunCertPathBuilderResult_FieldInfo_[] = {
 };
 
 $MethodInfo _SunCertPathBuilderResult_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/cert/CertPath;Ljava/security/cert/TrustAnchor;Ljava/security/cert/PolicyNode;Ljava/security/PublicKey;Lsun/security/provider/certpath/AdjacencyList;)V", nullptr, 0, $method(static_cast<void(SunCertPathBuilderResult::*)($CertPath*,$TrustAnchor*,$PolicyNode*,$PublicKey*,$AdjacencyList*)>(&SunCertPathBuilderResult::init$))},
-	{"getAdjacencyList", "()Lsun/security/provider/certpath/AdjacencyList;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/security/cert/CertPath;Ljava/security/cert/TrustAnchor;Ljava/security/cert/PolicyNode;Ljava/security/PublicKey;Lsun/security/provider/certpath/AdjacencyList;)V", nullptr, 0, $method(SunCertPathBuilderResult, init$, void, $CertPath*, $TrustAnchor*, $PolicyNode*, $PublicKey*, $AdjacencyList*)},
+	{"getAdjacencyList", "()Lsun/security/provider/certpath/AdjacencyList;", nullptr, $PUBLIC, $virtualMethod(SunCertPathBuilderResult, getAdjacencyList, $AdjacencyList*)},
 	{}
 };
 

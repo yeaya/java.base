@@ -26,7 +26,7 @@ $Attribute _InheritedNonRepeated_DefaultValue_value0 = {
 };
 
 $MethodInfo _InheritedNonRepeated_MethodInfo_[] = {
-	{"value", "()I", nullptr, $PUBLIC | $ABSTRACT, nullptr, nullptr, &_InheritedNonRepeated_DefaultValue_value0},
+	{"value", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(InheritedNonRepeated, value, int32_t), nullptr, &_InheritedNonRepeated_DefaultValue_value0},
 	{}
 };
 

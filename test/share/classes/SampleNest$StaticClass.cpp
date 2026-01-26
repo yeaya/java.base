@@ -8,7 +8,7 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _SampleNest$StaticClass_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(SampleNest$StaticClass::*)()>(&SampleNest$StaticClass::init$))},
+	{"<init>", "()V", nullptr, 0, $method(SampleNest$StaticClass, init$, void)},
 	{}
 };
 

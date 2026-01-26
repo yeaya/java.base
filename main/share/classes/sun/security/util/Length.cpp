@@ -10,7 +10,7 @@ namespace sun {
 		namespace util {
 
 $MethodInfo _Length_MethodInfo_[] = {
-	{"length", "()I", nullptr, $PUBLIC | $ABSTRACT},
+	{"length", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Length, length, int32_t)},
 	{}
 };
 

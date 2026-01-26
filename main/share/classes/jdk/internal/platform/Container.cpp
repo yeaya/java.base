@@ -12,8 +12,8 @@ namespace jdk {
 		namespace platform {
 
 $MethodInfo _Container_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(Container::*)()>(&Container::init$))},
-	{"metrics", "()Ljdk/internal/platform/Metrics;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Metrics*(*)()>(&Container::metrics))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(Container, init$, void)},
+	{"metrics", "()Ljdk/internal/platform/Metrics;", nullptr, $PUBLIC | $STATIC, $staticMethod(Container, metrics, $Metrics*)},
 	{}
 };
 

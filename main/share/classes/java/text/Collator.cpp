@@ -33,6 +33,7 @@ using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InternalError = ::java::lang::InternalError;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $SoftReference = ::java::lang::ref::SoftReference;
+using $CollationKey = ::java::text::CollationKey;
 using $CollatorProvider = ::java::text::spi::CollatorProvider;
 using $Comparator = ::java::util::Comparator;
 using $Locale = ::java::util::Locale;
@@ -64,20 +65,20 @@ $FieldInfo _Collator_FieldInfo_[] = {
 $MethodInfo _Collator_MethodInfo_[] = {
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"hashCode", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(Collator::*)()>(&Collator::init$))},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"compare", "(Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PUBLIC | $ABSTRACT},
-	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC},
-	{"equals", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PUBLIC},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $method(static_cast<$LocaleArray*(*)()>(&Collator::getAvailableLocales))},
-	{"getCollationKey", "(Ljava/lang/String;)Ljava/text/CollationKey;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getDecomposition", "()I", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"getInstance", "()Ljava/text/Collator;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $method(static_cast<Collator*(*)()>(&Collator::getInstance))},
-	{"getInstance", "(Ljava/util/Locale;)Ljava/text/Collator;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Collator*(*)($Locale*)>(&Collator::getInstance))},
-	{"getStrength", "()I", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"setDecomposition", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"setStrength", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(Collator, init$, void)},
+	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Collator, clone, $Object*)},
+	{"compare", "(Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Collator, compare, int32_t, $String*, $String*)},
+	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(Collator, compare, int32_t, Object$*, Object$*)},
+	{"equals", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(Collator, equals, bool, $String*, $String*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Collator, equals, bool, Object$*)},
+	{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(Collator, getAvailableLocales, $LocaleArray*)},
+	{"getCollationKey", "(Ljava/lang/String;)Ljava/text/CollationKey;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Collator, getCollationKey, $CollationKey*, $String*)},
+	{"getDecomposition", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Collator, getDecomposition, int32_t)},
+	{"getInstance", "()Ljava/text/Collator;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(Collator, getInstance, Collator*)},
+	{"getInstance", "(Ljava/util/Locale;)Ljava/text/Collator;", nullptr, $PUBLIC | $STATIC, $staticMethod(Collator, getInstance, Collator*, $Locale*)},
+	{"getStrength", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Collator, getStrength, int32_t)},
+	{"setDecomposition", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Collator, setDecomposition, void, int32_t)},
+	{"setStrength", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Collator, setStrength, void, int32_t)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

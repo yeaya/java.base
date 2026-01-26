@@ -34,9 +34,9 @@ $FieldInfo _EmptyBuffer_FieldInfo_[] = {
 };
 
 $MethodInfo _EmptyBuffer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(EmptyBuffer::*)()>(&EmptyBuffer::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&EmptyBuffer::main)), "java.lang.Exception"},
-	{"test", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&EmptyBuffer::test)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(EmptyBuffer, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(EmptyBuffer, main, void, $StringArray*), "java.lang.Exception"},
+	{"test", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(EmptyBuffer, test, void), "java.lang.Exception"},
 	{}
 };
 

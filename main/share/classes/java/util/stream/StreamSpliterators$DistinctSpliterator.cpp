@@ -62,8 +62,8 @@ $FieldInfo StreamSpliterators$DistinctSpliterator$$Lambda$lambda$forEachRemainin
 	{}
 };
 $MethodInfo StreamSpliterators$DistinctSpliterator$$Lambda$lambda$forEachRemaining$0::methodInfos[3] = {
-	{"<init>", "(Ljava/util/stream/StreamSpliterators$DistinctSpliterator;Ljava/util/function/Consumer;)V", nullptr, $PUBLIC, $method(static_cast<void(StreamSpliterators$DistinctSpliterator$$Lambda$lambda$forEachRemaining$0::*)(StreamSpliterators$DistinctSpliterator*,$Consumer*)>(&StreamSpliterators$DistinctSpliterator$$Lambda$lambda$forEachRemaining$0::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/stream/StreamSpliterators$DistinctSpliterator;Ljava/util/function/Consumer;)V", nullptr, $PUBLIC, $method(StreamSpliterators$DistinctSpliterator$$Lambda$lambda$forEachRemaining$0, init$, void, StreamSpliterators$DistinctSpliterator*, $Consumer*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(StreamSpliterators$DistinctSpliterator$$Lambda$lambda$forEachRemaining$0, accept, void, Object$*)},
 	{}
 };
 $ClassInfo StreamSpliterators$DistinctSpliterator$$Lambda$lambda$forEachRemaining$0::classInfo$ = {
@@ -93,18 +93,18 @@ $MethodInfo _StreamSpliterators$DistinctSpliterator_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/util/Spliterator;)V", "(Ljava/util/Spliterator<TT;>;)V", 0, $method(static_cast<void(StreamSpliterators$DistinctSpliterator::*)($Spliterator*)>(&StreamSpliterators$DistinctSpliterator::init$))},
-	{"<init>", "(Ljava/util/Spliterator;Ljava/util/concurrent/ConcurrentHashMap;)V", "(Ljava/util/Spliterator<TT;>;Ljava/util/concurrent/ConcurrentHashMap<TT;Ljava/lang/Boolean;>;)V", $PRIVATE, $method(static_cast<void(StreamSpliterators$DistinctSpliterator::*)($Spliterator*,$ConcurrentHashMap*)>(&StreamSpliterators$DistinctSpliterator::init$))},
-	{"accept", "(Ljava/lang/Object;)V", "(TT;)V", $PUBLIC},
-	{"characteristics", "()I", nullptr, $PUBLIC},
-	{"estimateSize", "()J", nullptr, $PUBLIC},
-	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TT;>;)V", $PUBLIC},
-	{"getComparator", "()Ljava/util/Comparator;", "()Ljava/util/Comparator<-TT;>;", $PUBLIC},
-	{"lambda$forEachRemaining$0", "(Ljava/util/function/Consumer;Ljava/lang/Object;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(StreamSpliterators$DistinctSpliterator::*)($Consumer*,Object$*)>(&StreamSpliterators$DistinctSpliterator::lambda$forEachRemaining$0))},
-	{"mapNull", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TT;)TT;", $PRIVATE, $method(static_cast<$Object*(StreamSpliterators$DistinctSpliterator::*)(Object$*)>(&StreamSpliterators$DistinctSpliterator::mapNull))},
+	{"<init>", "(Ljava/util/Spliterator;)V", "(Ljava/util/Spliterator<TT;>;)V", 0, $method(StreamSpliterators$DistinctSpliterator, init$, void, $Spliterator*)},
+	{"<init>", "(Ljava/util/Spliterator;Ljava/util/concurrent/ConcurrentHashMap;)V", "(Ljava/util/Spliterator<TT;>;Ljava/util/concurrent/ConcurrentHashMap<TT;Ljava/lang/Boolean;>;)V", $PRIVATE, $method(StreamSpliterators$DistinctSpliterator, init$, void, $Spliterator*, $ConcurrentHashMap*)},
+	{"accept", "(Ljava/lang/Object;)V", "(TT;)V", $PUBLIC, $virtualMethod(StreamSpliterators$DistinctSpliterator, accept, void, Object$*)},
+	{"characteristics", "()I", nullptr, $PUBLIC, $virtualMethod(StreamSpliterators$DistinctSpliterator, characteristics, int32_t)},
+	{"estimateSize", "()J", nullptr, $PUBLIC, $virtualMethod(StreamSpliterators$DistinctSpliterator, estimateSize, int64_t)},
+	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TT;>;)V", $PUBLIC, $virtualMethod(StreamSpliterators$DistinctSpliterator, forEachRemaining, void, $Consumer*)},
+	{"getComparator", "()Ljava/util/Comparator;", "()Ljava/util/Comparator<-TT;>;", $PUBLIC, $virtualMethod(StreamSpliterators$DistinctSpliterator, getComparator, $Comparator*)},
+	{"lambda$forEachRemaining$0", "(Ljava/util/function/Consumer;Ljava/lang/Object;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(StreamSpliterators$DistinctSpliterator, lambda$forEachRemaining$0, void, $Consumer*, Object$*)},
+	{"mapNull", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TT;)TT;", $PRIVATE, $method(StreamSpliterators$DistinctSpliterator, mapNull, $Object*, Object$*)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-TT;>;)Z", $PUBLIC},
-	{"trySplit", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TT;>;", $PUBLIC},
+	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-TT;>;)Z", $PUBLIC, $virtualMethod(StreamSpliterators$DistinctSpliterator, tryAdvance, bool, $Consumer*)},
+	{"trySplit", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TT;>;", $PUBLIC, $virtualMethod(StreamSpliterators$DistinctSpliterator, trySplit, $Spliterator*)},
 	{}
 };
 

@@ -11,8 +11,8 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $ThreadLocal = ::java::lang::ThreadLocal;
 
 $MethodInfo _TLRemoveTest$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(TLRemoveTest$1::*)()>(&TLRemoveTest$1::init$))},
-	{"initialValue", "()Ljava/lang/Integer;", nullptr, $PROTECTED | $SYNCHRONIZED},
+	{"<init>", "()V", nullptr, 0, $method(TLRemoveTest$1, init$, void)},
+	{"initialValue", "()Ljava/lang/Integer;", nullptr, $PROTECTED | $SYNCHRONIZED, $virtualMethod(TLRemoveTest$1, initialValue, $Object*)},
 	{}
 };
 

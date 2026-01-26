@@ -40,11 +40,11 @@ $FieldInfo _NonPublicProxyClass$NewInstancePolicy_FieldInfo_[] = {
 };
 
 $MethodInfo _NonPublicProxyClass$NewInstancePolicy_MethodInfo_[] = {
-	{"<init>", "(Z)V", nullptr, 0, $method(static_cast<void(NonPublicProxyClass$NewInstancePolicy::*)(bool)>(&NonPublicProxyClass$NewInstancePolicy::init$))},
-	{"getPermissions", "(Ljava/security/ProtectionDomain;)Ljava/security/PermissionCollection;", nullptr, $PUBLIC},
-	{"getPermissions", "(Ljava/security/CodeSource;)Ljava/security/PermissionCollection;", nullptr, $PUBLIC},
-	{"implies", "(Ljava/security/ProtectionDomain;Ljava/security/Permission;)Z", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Z)V", nullptr, 0, $method(NonPublicProxyClass$NewInstancePolicy, init$, void, bool)},
+	{"getPermissions", "(Ljava/security/ProtectionDomain;)Ljava/security/PermissionCollection;", nullptr, $PUBLIC, $virtualMethod(NonPublicProxyClass$NewInstancePolicy, getPermissions, $PermissionCollection*, $ProtectionDomain*)},
+	{"getPermissions", "(Ljava/security/CodeSource;)Ljava/security/PermissionCollection;", nullptr, $PUBLIC, $virtualMethod(NonPublicProxyClass$NewInstancePolicy, getPermissions, $PermissionCollection*, $CodeSource*)},
+	{"implies", "(Ljava/security/ProtectionDomain;Ljava/security/Permission;)Z", nullptr, $PUBLIC, $virtualMethod(NonPublicProxyClass$NewInstancePolicy, implies, bool, $ProtectionDomain*, $Permission*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NonPublicProxyClass$NewInstancePolicy, toString, $String*)},
 	{}
 };
 

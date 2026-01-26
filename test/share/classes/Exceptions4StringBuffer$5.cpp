@@ -11,8 +11,8 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $StringBuffer = ::java::lang::StringBuffer;
 
 $MethodInfo _Exceptions4StringBuffer$5_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Exceptions4StringBuffer$5::*)()>(&Exceptions4StringBuffer$5::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(Exceptions4StringBuffer$5, init$, void)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Exceptions4StringBuffer$5, run, void)},
 	{}
 };
 

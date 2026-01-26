@@ -39,9 +39,9 @@ $FieldInfo _AttributedString$AttributeMap_FieldInfo_[] = {
 };
 
 $MethodInfo _AttributedString$AttributeMap_MethodInfo_[] = {
-	{"<init>", "(Ljava/text/AttributedString;III)V", nullptr, 0, $method(static_cast<void(AttributedString$AttributeMap::*)($AttributedString*,int32_t,int32_t,int32_t)>(&AttributedString$AttributeMap::init$))},
-	{"entrySet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/util/Map$Entry<Ljava/text/AttributedCharacterIterator$Attribute;Ljava/lang/Object;>;>;", $PUBLIC},
-	{"get", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/text/AttributedString;III)V", nullptr, 0, $method(AttributedString$AttributeMap, init$, void, $AttributedString*, int32_t, int32_t, int32_t)},
+	{"entrySet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/util/Map$Entry<Ljava/text/AttributedCharacterIterator$Attribute;Ljava/lang/Object;>;>;", $PUBLIC, $virtualMethod(AttributedString$AttributeMap, entrySet, $Set*)},
+	{"get", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AttributedString$AttributeMap, get, $Object*, Object$*)},
 	{}
 };
 

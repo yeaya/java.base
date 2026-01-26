@@ -23,8 +23,8 @@ $FieldInfo _Collectors$1OptionalBox_FieldInfo_[] = {
 };
 
 $MethodInfo _Collectors$1OptionalBox_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/function/BinaryOperator;)V", "()V", 0, $method(static_cast<void(Collectors$1OptionalBox::*)($BinaryOperator*)>(&Collectors$1OptionalBox::init$))},
-	{"accept", "(Ljava/lang/Object;)V", "(TT;)V", $PUBLIC},
+	{"<init>", "(Ljava/util/function/BinaryOperator;)V", "()V", 0, $method(Collectors$1OptionalBox, init$, void, $BinaryOperator*)},
+	{"accept", "(Ljava/lang/Object;)V", "(TT;)V", $PUBLIC, $virtualMethod(Collectors$1OptionalBox, accept, void, Object$*)},
 	{}
 };
 

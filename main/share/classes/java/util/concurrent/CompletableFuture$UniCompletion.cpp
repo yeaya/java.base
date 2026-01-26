@@ -28,9 +28,9 @@ $FieldInfo _CompletableFuture$UniCompletion_FieldInfo_[] = {
 };
 
 $MethodInfo _CompletableFuture$UniCompletion_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/Executor;Ljava/util/concurrent/CompletableFuture;Ljava/util/concurrent/CompletableFuture;)V", "(Ljava/util/concurrent/Executor;Ljava/util/concurrent/CompletableFuture<TV;>;Ljava/util/concurrent/CompletableFuture<TT;>;)V", 0, $method(static_cast<void(CompletableFuture$UniCompletion::*)($Executor*,$CompletableFuture*,$CompletableFuture*)>(&CompletableFuture$UniCompletion::init$))},
-	{"claim", "()Z", nullptr, $FINAL, $method(static_cast<bool(CompletableFuture$UniCompletion::*)()>(&CompletableFuture$UniCompletion::claim))},
-	{"isLive", "()Z", nullptr, $FINAL},
+	{"<init>", "(Ljava/util/concurrent/Executor;Ljava/util/concurrent/CompletableFuture;Ljava/util/concurrent/CompletableFuture;)V", "(Ljava/util/concurrent/Executor;Ljava/util/concurrent/CompletableFuture<TV;>;Ljava/util/concurrent/CompletableFuture<TT;>;)V", 0, $method(CompletableFuture$UniCompletion, init$, void, $Executor*, $CompletableFuture*, $CompletableFuture*)},
+	{"claim", "()Z", nullptr, $FINAL, $method(CompletableFuture$UniCompletion, claim, bool)},
+	{"isLive", "()Z", nullptr, $FINAL, $virtualMethod(CompletableFuture$UniCompletion, isLive, bool)},
 	{}
 };
 

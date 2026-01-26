@@ -10,9 +10,9 @@ namespace java {
 	namespace lang {
 
 $MethodInfo _Throwable$PrintStreamOrWriter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(Throwable$PrintStreamOrWriter::*)()>(&Throwable$PrintStreamOrWriter::init$))},
-	{"lock", "()Ljava/lang/Object;", nullptr, $ABSTRACT},
-	{"println", "(Ljava/lang/Object;)V", nullptr, $ABSTRACT},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(Throwable$PrintStreamOrWriter, init$, void)},
+	{"lock", "()Ljava/lang/Object;", nullptr, $ABSTRACT, $virtualMethod(Throwable$PrintStreamOrWriter, lock, $Object*)},
+	{"println", "(Ljava/lang/Object;)V", nullptr, $ABSTRACT, $virtualMethod(Throwable$PrintStreamOrWriter, println, void, Object$*)},
 	{}
 };
 

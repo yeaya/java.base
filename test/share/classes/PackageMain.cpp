@@ -15,8 +15,8 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Package = ::java::lang::Package;
 
 $MethodInfo _PackageMain_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PackageMain::*)()>(&PackageMain::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&PackageMain::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PackageMain, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(PackageMain, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

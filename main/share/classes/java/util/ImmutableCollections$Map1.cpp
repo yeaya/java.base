@@ -50,16 +50,16 @@ $FieldInfo _ImmutableCollections$Map1_FieldInfo_[] = {
 };
 
 $MethodInfo _ImmutableCollections$Map1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;Ljava/lang/Object;)V", "(TK;TV;)V", 0, $method(static_cast<void(ImmutableCollections$Map1::*)(Object$*,Object$*)>(&ImmutableCollections$Map1::init$))},
-	{"containsKey", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"containsValue", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"entrySet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/util/Map$Entry<TK;TV;>;>;", $PUBLIC},
-	{"get", "(Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/lang/Object;)TV;", $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"isEmpty", "()Z", nullptr, $PUBLIC},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(ImmutableCollections$Map1::*)($ObjectInputStream*)>(&ImmutableCollections$Map1::readObject)), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"size", "()I", nullptr, $PUBLIC},
-	{"writeReplace", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(static_cast<$Object*(ImmutableCollections$Map1::*)()>(&ImmutableCollections$Map1::writeReplace))},
+	{"<init>", "(Ljava/lang/Object;Ljava/lang/Object;)V", "(TK;TV;)V", 0, $method(ImmutableCollections$Map1, init$, void, Object$*, Object$*)},
+	{"containsKey", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ImmutableCollections$Map1, containsKey, bool, Object$*)},
+	{"containsValue", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ImmutableCollections$Map1, containsValue, bool, Object$*)},
+	{"entrySet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/util/Map$Entry<TK;TV;>;>;", $PUBLIC, $virtualMethod(ImmutableCollections$Map1, entrySet, $Set*)},
+	{"get", "(Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/lang/Object;)TV;", $PUBLIC, $virtualMethod(ImmutableCollections$Map1, get, $Object*, Object$*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ImmutableCollections$Map1, hashCode, int32_t)},
+	{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(ImmutableCollections$Map1, isEmpty, bool)},
+	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(ImmutableCollections$Map1, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(ImmutableCollections$Map1, size, int32_t)},
+	{"writeReplace", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(ImmutableCollections$Map1, writeReplace, $Object*)},
 	{}
 };
 

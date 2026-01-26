@@ -3,6 +3,7 @@
 #include <IndirectlyPresent.h>
 #include <jcpp.h>
 
+using $IndirectlyPresentArray = $Array<IndirectlyPresent>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -19,7 +20,7 @@ $CompoundAttribute _IndirectlyPresentContainer_Annotations_[] = {
 };
 
 $MethodInfo _IndirectlyPresentContainer_MethodInfo_[] = {
-	{"value", "()[LIndirectlyPresent;", nullptr, $PUBLIC | $ABSTRACT},
+	{"value", "()[LIndirectlyPresent;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(IndirectlyPresentContainer, value, $IndirectlyPresentArray*)},
 	{}
 };
 

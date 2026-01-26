@@ -22,10 +22,10 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $BigInteger = ::java::math::BigInteger;
 
 $MethodInfo _CompareToTests_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CompareToTests::*)()>(&CompareToTests::init$))},
-	{"compareToTest", "(Ljava/math/BigInteger;Ljava/math/BigInteger;I)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)($BigInteger*,$BigInteger*,int32_t)>(&CompareToTests::compareToTest))},
-	{"compareToTests", "()I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)()>(&CompareToTests::compareToTests))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&CompareToTests::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CompareToTests, init$, void)},
+	{"compareToTest", "(Ljava/math/BigInteger;Ljava/math/BigInteger;I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(CompareToTests, compareToTest, int32_t, $BigInteger*, $BigInteger*, int32_t)},
+	{"compareToTests", "()I", nullptr, $PRIVATE | $STATIC, $staticMethod(CompareToTests, compareToTests, int32_t)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(CompareToTests, main, void, $StringArray*)},
 	{}
 };
 

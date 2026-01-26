@@ -9,6 +9,7 @@ using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $PublicKey = ::java::security::PublicKey;
+using $ECPoint = ::java::security::spec::ECPoint;
 
 namespace java {
 	namespace security {
@@ -28,7 +29,7 @@ $MethodInfo _ECPublicKey_MethodInfo_[] = {
 	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"getW", "()Ljava/security/spec/ECPoint;", nullptr, $PUBLIC | $ABSTRACT},
+	{"getW", "()Ljava/security/spec/ECPoint;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ECPublicKey, getW, $ECPoint*)},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}

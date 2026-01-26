@@ -26,17 +26,17 @@ $FieldInfo _IsoEra_FieldInfo_[] = {
 };
 
 $MethodInfo _IsoEra_MethodInfo_[] = {
-	{"$values", "()[Ljava/time/chrono/IsoEra;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$IsoEraArray*(*)()>(&IsoEra::$values))},
+	{"$values", "()[Ljava/time/chrono/IsoEra;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(IsoEra, $values, $IsoEraArray*)},
 	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
 	{"*finalize", "()V", nullptr, $PROTECTED | $FINAL},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(IsoEra::*)($String*,int32_t)>(&IsoEra::init$))},
-	{"getValue", "()I", nullptr, $PUBLIC},
-	{"of", "(I)Ljava/time/chrono/IsoEra;", nullptr, $PUBLIC | $STATIC, $method(static_cast<IsoEra*(*)(int32_t)>(&IsoEra::of))},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(IsoEra, init$, void, $String*, int32_t)},
+	{"getValue", "()I", nullptr, $PUBLIC, $virtualMethod(IsoEra, getValue, int32_t)},
+	{"of", "(I)Ljava/time/chrono/IsoEra;", nullptr, $PUBLIC | $STATIC, $staticMethod(IsoEra, of, IsoEra*, int32_t)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"valueOf", "(Ljava/lang/String;)Ljava/time/chrono/IsoEra;", nullptr, $PUBLIC | $STATIC, $method(static_cast<IsoEra*(*)($String*)>(&IsoEra::valueOf))},
-	{"values", "()[Ljava/time/chrono/IsoEra;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$IsoEraArray*(*)()>(&IsoEra::values))},
+	{"valueOf", "(Ljava/lang/String;)Ljava/time/chrono/IsoEra;", nullptr, $PUBLIC | $STATIC, $staticMethod(IsoEra, valueOf, IsoEra*, $String*)},
+	{"values", "()[Ljava/time/chrono/IsoEra;", nullptr, $PUBLIC | $STATIC, $staticMethod(IsoEra, values, $IsoEraArray*)},
 	{}
 };
 

@@ -15,8 +15,8 @@ namespace javax {
 		namespace cert {
 
 $MethodInfo _X509Certificate$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(X509Certificate$1::*)()>(&X509Certificate$1::init$))},
-	{"run", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(X509Certificate$1, init$, void)},
+	{"run", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(X509Certificate$1, run, $Object*)},
 	{}
 };
 

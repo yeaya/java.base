@@ -15,7 +15,7 @@ $FieldInfo _Sanity$Derived$DInner_FieldInfo_[] = {
 };
 
 $MethodInfo _Sanity$Derived$DInner_MethodInfo_[] = {
-	{"<init>", "(LSanity$Derived;)V", nullptr, $PUBLIC, $method(static_cast<void(Sanity$Derived$DInner::*)($Sanity$Derived*)>(&Sanity$Derived$DInner::init$))},
+	{"<init>", "(LSanity$Derived;)V", nullptr, $PUBLIC, $method(Sanity$Derived$DInner, init$, void, $Sanity$Derived*)},
 	{}
 };
 

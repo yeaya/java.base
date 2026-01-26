@@ -56,8 +56,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo FindOps$FindSink$OfLong$$Lambda$isPresent::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(FindOps$FindSink$OfLong$$Lambda$isPresent::*)()>(&FindOps$FindSink$OfLong$$Lambda$isPresent::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(FindOps$FindSink$OfLong$$Lambda$isPresent, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(FindOps$FindSink$OfLong$$Lambda$isPresent, test, bool, Object$*)},
 	{}
 };
 $ClassInfo FindOps$FindSink$OfLong$$Lambda$isPresent::classInfo$ = {
@@ -89,8 +89,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo FindOps$FindSink$OfLong$$Lambda$OfLong$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(FindOps$FindSink$OfLong$$Lambda$OfLong$1::*)()>(&FindOps$FindSink$OfLong$$Lambda$OfLong$1::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(FindOps$FindSink$OfLong$$Lambda$OfLong$1, init$, void)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(FindOps$FindSink$OfLong$$Lambda$OfLong$1, get, $Object*)},
 	{}
 };
 $ClassInfo FindOps$FindSink$OfLong$$Lambda$OfLong$1::classInfo$ = {
@@ -125,10 +125,10 @@ $MethodInfo _FindOps$FindSink$OfLong_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(FindOps$FindSink$OfLong::*)()>(&FindOps$FindSink$OfLong::init$))},
-	{"accept", "(J)V", nullptr, $PUBLIC},
-	{"accept", "(Ljava/lang/Long;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"get", "()Ljava/util/OptionalLong;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(FindOps$FindSink$OfLong, init$, void)},
+	{"accept", "(J)V", nullptr, $PUBLIC, $virtualMethod(FindOps$FindSink$OfLong, accept, void, int64_t)},
+	{"accept", "(Ljava/lang/Long;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(FindOps$FindSink$OfLong, accept, void, $Long*)},
+	{"get", "()Ljava/util/OptionalLong;", nullptr, $PUBLIC, $virtualMethod(FindOps$FindSink$OfLong, get, $Object*)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

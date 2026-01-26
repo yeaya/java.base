@@ -7,7 +7,7 @@ using $Exception = ::java::lang::Exception;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _MidLevelException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, 0, $method(static_cast<void(MidLevelException::*)($Throwable*)>(&MidLevelException::init$))},
+	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, 0, $method(MidLevelException, init$, void, $Throwable*)},
 	{}
 };
 

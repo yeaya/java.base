@@ -26,10 +26,10 @@ $FieldInfo _ResolverStyle_FieldInfo_[] = {
 };
 
 $MethodInfo _ResolverStyle_MethodInfo_[] = {
-	{"$values", "()[Ljava/time/format/ResolverStyle;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$ResolverStyleArray*(*)()>(&ResolverStyle::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(ResolverStyle::*)($String*,int32_t)>(&ResolverStyle::init$))},
-	{"valueOf", "(Ljava/lang/String;)Ljava/time/format/ResolverStyle;", nullptr, $PUBLIC | $STATIC, $method(static_cast<ResolverStyle*(*)($String*)>(&ResolverStyle::valueOf))},
-	{"values", "()[Ljava/time/format/ResolverStyle;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$ResolverStyleArray*(*)()>(&ResolverStyle::values))},
+	{"$values", "()[Ljava/time/format/ResolverStyle;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ResolverStyle, $values, $ResolverStyleArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(ResolverStyle, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Ljava/time/format/ResolverStyle;", nullptr, $PUBLIC | $STATIC, $staticMethod(ResolverStyle, valueOf, ResolverStyle*, $String*)},
+	{"values", "()[Ljava/time/format/ResolverStyle;", nullptr, $PUBLIC | $STATIC, $staticMethod(ResolverStyle, values, $ResolverStyleArray*)},
 	{}
 };
 

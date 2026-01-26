@@ -14,9 +14,9 @@ namespace java {
 
 $MethodInfo _Principal_MethodInfo_[] = {
 	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Principal, getName, $String*)},
 	{"hashCode", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"implies", "(Ljavax/security/auth/Subject;)Z", nullptr, $PUBLIC},
+	{"implies", "(Ljavax/security/auth/Subject;)Z", nullptr, $PUBLIC, $virtualMethod(Principal, implies, bool, $Subject*)},
 	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
 	{}
 };

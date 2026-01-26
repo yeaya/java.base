@@ -4,6 +4,7 @@
 #include <NonInheritableContainee.h>
 #include <jcpp.h>
 
+using $NonInheritableContainee$NonInheritedAnnotationRepeatedArray = $Array<NonInheritableContainee$NonInheritedAnnotationRepeated>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -22,7 +23,7 @@ $CompoundAttribute _NonInheritableContainee$InheritedAnnotationContainer_Annotat
 };
 
 $MethodInfo _NonInheritableContainee$InheritedAnnotationContainer_MethodInfo_[] = {
-	{"value", "()[LNonInheritableContainee$NonInheritedAnnotationRepeated;", nullptr, $PUBLIC | $ABSTRACT},
+	{"value", "()[LNonInheritableContainee$NonInheritedAnnotationRepeated;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NonInheritableContainee$InheritedAnnotationContainer, value, $NonInheritableContainee$NonInheritedAnnotationRepeatedArray*)},
 	{}
 };
 

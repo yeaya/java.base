@@ -11,8 +11,8 @@ namespace java {
 			namespace attribute {
 
 $MethodInfo _FileAttribute_MethodInfo_[] = {
-	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"value", "()Ljava/lang/Object;", "()TT;", $PUBLIC | $ABSTRACT},
+	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FileAttribute, name, $String*)},
+	{"value", "()Ljava/lang/Object;", "()TT;", $PUBLIC | $ABSTRACT, $virtualMethod(FileAttribute, value, $Object*)},
 	{}
 };
 

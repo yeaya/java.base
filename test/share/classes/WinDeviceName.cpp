@@ -18,8 +18,8 @@ $FieldInfo _WinDeviceName_FieldInfo_[] = {
 };
 
 $MethodInfo _WinDeviceName_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(WinDeviceName::*)()>(&WinDeviceName::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&WinDeviceName::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(WinDeviceName, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(WinDeviceName, main, void, $StringArray*)},
 	{}
 };
 

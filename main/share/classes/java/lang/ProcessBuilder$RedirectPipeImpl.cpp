@@ -25,10 +25,10 @@ $FieldInfo _ProcessBuilder$RedirectPipeImpl_FieldInfo_[] = {
 };
 
 $MethodInfo _ProcessBuilder$RedirectPipeImpl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ProcessBuilder$RedirectPipeImpl::*)()>(&ProcessBuilder$RedirectPipeImpl::init$))},
-	{"getFd", "()Ljava/io/FileDescriptor;", nullptr, 0},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"type", "()Ljava/lang/ProcessBuilder$Redirect$Type;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(ProcessBuilder$RedirectPipeImpl, init$, void)},
+	{"getFd", "()Ljava/io/FileDescriptor;", nullptr, 0, $virtualMethod(ProcessBuilder$RedirectPipeImpl, getFd, $FileDescriptor*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ProcessBuilder$RedirectPipeImpl, toString, $String*)},
+	{"type", "()Ljava/lang/ProcessBuilder$Redirect$Type;", nullptr, $PUBLIC, $virtualMethod(ProcessBuilder$RedirectPipeImpl, type, $ProcessBuilder$Redirect$Type*)},
 	{}
 };
 

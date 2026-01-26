@@ -24,8 +24,8 @@ $FieldInfo _MultiThreadStackWalk$WalkThread_FieldInfo_[] = {
 };
 
 $MethodInfo _MultiThreadStackWalk$WalkThread_MethodInfo_[] = {
-	{"<init>", "(LMultiThreadStackWalk$Test;)V", nullptr, $PUBLIC, $method(static_cast<void(MultiThreadStackWalk$WalkThread::*)($MultiThreadStackWalk$Test*)>(&MultiThreadStackWalk$WalkThread::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(LMultiThreadStackWalk$Test;)V", nullptr, $PUBLIC, $method(MultiThreadStackWalk$WalkThread, init$, void, $MultiThreadStackWalk$Test*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(MultiThreadStackWalk$WalkThread, run, void)},
 	{}
 };
 

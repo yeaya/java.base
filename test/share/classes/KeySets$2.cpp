@@ -20,8 +20,8 @@ $FieldInfo _KeySets$2_FieldInfo_[] = {
 };
 
 $MethodInfo _KeySets$2_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Class;Ljava/nio/channels/Selector;)V", nullptr, 0, $method(static_cast<void(KeySets$2::*)($Class*,$Selector*)>(&KeySets$2::init$)), "java.lang.Exception"},
-	{"go", "()V", nullptr, 0, nullptr, "java.lang.Exception"},
+	{"<init>", "(Ljava/lang/Class;Ljava/nio/channels/Selector;)V", nullptr, 0, $method(KeySets$2, init$, void, $Class*, $Selector*), "java.lang.Exception"},
+	{"go", "()V", nullptr, 0, $virtualMethod(KeySets$2, go, void), "java.lang.Exception"},
 	{}
 };
 

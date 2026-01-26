@@ -78,16 +78,16 @@ $FieldInfo _EPollSelectorImpl_FieldInfo_[] = {
 };
 
 $MethodInfo _EPollSelectorImpl_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/channels/spi/SelectorProvider;)V", nullptr, 0, $method(static_cast<void(EPollSelectorImpl::*)($SelectorProvider*)>(&EPollSelectorImpl::init$)), "java.io.IOException"},
-	{"clearInterrupt", "()V", nullptr, $PRIVATE, $method(static_cast<void(EPollSelectorImpl::*)()>(&EPollSelectorImpl::clearInterrupt)), "java.io.IOException"},
-	{"doSelect", "(Ljava/util/function/Consumer;J)I", "(Ljava/util/function/Consumer<Ljava/nio/channels/SelectionKey;>;J)I", $PROTECTED, nullptr, "java.io.IOException"},
-	{"ensureOpen", "()V", nullptr, $PRIVATE, $method(static_cast<void(EPollSelectorImpl::*)()>(&EPollSelectorImpl::ensureOpen))},
-	{"implClose", "()V", nullptr, $PROTECTED, nullptr, "java.io.IOException"},
-	{"implDereg", "(Lsun/nio/ch/SelectionKeyImpl;)V", nullptr, $PROTECTED, nullptr, "java.io.IOException"},
-	{"processEvents", "(ILjava/util/function/Consumer;)I", "(ILjava/util/function/Consumer<Ljava/nio/channels/SelectionKey;>;)I", $PRIVATE, $method(static_cast<int32_t(EPollSelectorImpl::*)(int32_t,$Consumer*)>(&EPollSelectorImpl::processEvents)), "java.io.IOException"},
-	{"processUpdateQueue", "()V", nullptr, $PRIVATE, $method(static_cast<void(EPollSelectorImpl::*)()>(&EPollSelectorImpl::processUpdateQueue))},
-	{"setEventOps", "(Lsun/nio/ch/SelectionKeyImpl;)V", nullptr, $PUBLIC},
-	{"wakeup", "()Ljava/nio/channels/Selector;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/nio/channels/spi/SelectorProvider;)V", nullptr, 0, $method(EPollSelectorImpl, init$, void, $SelectorProvider*), "java.io.IOException"},
+	{"clearInterrupt", "()V", nullptr, $PRIVATE, $method(EPollSelectorImpl, clearInterrupt, void), "java.io.IOException"},
+	{"doSelect", "(Ljava/util/function/Consumer;J)I", "(Ljava/util/function/Consumer<Ljava/nio/channels/SelectionKey;>;J)I", $PROTECTED, $virtualMethod(EPollSelectorImpl, doSelect, int32_t, $Consumer*, int64_t), "java.io.IOException"},
+	{"ensureOpen", "()V", nullptr, $PRIVATE, $method(EPollSelectorImpl, ensureOpen, void)},
+	{"implClose", "()V", nullptr, $PROTECTED, $virtualMethod(EPollSelectorImpl, implClose, void), "java.io.IOException"},
+	{"implDereg", "(Lsun/nio/ch/SelectionKeyImpl;)V", nullptr, $PROTECTED, $virtualMethod(EPollSelectorImpl, implDereg, void, $SelectionKeyImpl*), "java.io.IOException"},
+	{"processEvents", "(ILjava/util/function/Consumer;)I", "(ILjava/util/function/Consumer<Ljava/nio/channels/SelectionKey;>;)I", $PRIVATE, $method(EPollSelectorImpl, processEvents, int32_t, int32_t, $Consumer*), "java.io.IOException"},
+	{"processUpdateQueue", "()V", nullptr, $PRIVATE, $method(EPollSelectorImpl, processUpdateQueue, void)},
+	{"setEventOps", "(Lsun/nio/ch/SelectionKeyImpl;)V", nullptr, $PUBLIC, $virtualMethod(EPollSelectorImpl, setEventOps, void, $SelectionKeyImpl*)},
+	{"wakeup", "()Ljava/nio/channels/Selector;", nullptr, $PUBLIC, $virtualMethod(EPollSelectorImpl, wakeup, $Selector*)},
 	{}
 };
 

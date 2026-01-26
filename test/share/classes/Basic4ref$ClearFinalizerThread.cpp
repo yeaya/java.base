@@ -9,8 +9,8 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _Basic4ref$ClearFinalizerThread_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Basic4ref$ClearFinalizerThread::*)()>(&Basic4ref$ClearFinalizerThread::init$))},
-	{"finalize", "()V", nullptr, $PROTECTED},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Basic4ref$ClearFinalizerThread, init$, void)},
+	{"finalize", "()V", nullptr, $PROTECTED, $virtualMethod(Basic4ref$ClearFinalizerThread, finalize, void)},
 	{}
 };
 

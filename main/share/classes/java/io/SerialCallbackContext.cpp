@@ -21,12 +21,12 @@ $FieldInfo _SerialCallbackContext_FieldInfo_[] = {
 };
 
 $MethodInfo _SerialCallbackContext_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;Ljava/io/ObjectStreamClass;)V", nullptr, $PUBLIC, $method(static_cast<void(SerialCallbackContext::*)(Object$*,$ObjectStreamClass*)>(&SerialCallbackContext::init$))},
-	{"check", "()V", nullptr, $PUBLIC, $method(static_cast<void(SerialCallbackContext::*)()>(&SerialCallbackContext::check)), "java.io.NotActiveException"},
-	{"checkAndSetUsed", "()V", nullptr, $PUBLIC, $method(static_cast<void(SerialCallbackContext::*)()>(&SerialCallbackContext::checkAndSetUsed)), "java.io.NotActiveException"},
-	{"getDesc", "()Ljava/io/ObjectStreamClass;", nullptr, $PUBLIC, $method(static_cast<$ObjectStreamClass*(SerialCallbackContext::*)()>(&SerialCallbackContext::getDesc))},
-	{"getObj", "()Ljava/lang/Object;", nullptr, $PUBLIC, $method(static_cast<$Object*(SerialCallbackContext::*)()>(&SerialCallbackContext::getObj)), "java.io.NotActiveException"},
-	{"setUsed", "()V", nullptr, $PUBLIC, $method(static_cast<void(SerialCallbackContext::*)()>(&SerialCallbackContext::setUsed))},
+	{"<init>", "(Ljava/lang/Object;Ljava/io/ObjectStreamClass;)V", nullptr, $PUBLIC, $method(SerialCallbackContext, init$, void, Object$*, $ObjectStreamClass*)},
+	{"check", "()V", nullptr, $PUBLIC, $method(SerialCallbackContext, check, void), "java.io.NotActiveException"},
+	{"checkAndSetUsed", "()V", nullptr, $PUBLIC, $method(SerialCallbackContext, checkAndSetUsed, void), "java.io.NotActiveException"},
+	{"getDesc", "()Ljava/io/ObjectStreamClass;", nullptr, $PUBLIC, $method(SerialCallbackContext, getDesc, $ObjectStreamClass*)},
+	{"getObj", "()Ljava/lang/Object;", nullptr, $PUBLIC, $method(SerialCallbackContext, getObj, $Object*), "java.io.NotActiveException"},
+	{"setUsed", "()V", nullptr, $PUBLIC, $method(SerialCallbackContext, setUsed, void)},
 	{}
 };
 

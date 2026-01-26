@@ -22,9 +22,9 @@ $FieldInfo _ECPrivateKeySpec_FieldInfo_[] = {
 };
 
 $MethodInfo _ECPrivateKeySpec_MethodInfo_[] = {
-	{"<init>", "(Ljava/math/BigInteger;Ljava/security/spec/ECParameterSpec;)V", nullptr, $PUBLIC, $method(static_cast<void(ECPrivateKeySpec::*)($BigInteger*,$ECParameterSpec*)>(&ECPrivateKeySpec::init$))},
-	{"getParams", "()Ljava/security/spec/ECParameterSpec;", nullptr, $PUBLIC},
-	{"getS", "()Ljava/math/BigInteger;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/math/BigInteger;Ljava/security/spec/ECParameterSpec;)V", nullptr, $PUBLIC, $method(ECPrivateKeySpec, init$, void, $BigInteger*, $ECParameterSpec*)},
+	{"getParams", "()Ljava/security/spec/ECParameterSpec;", nullptr, $PUBLIC, $virtualMethod(ECPrivateKeySpec, getParams, $ECParameterSpec*)},
+	{"getS", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(ECPrivateKeySpec, getS, $BigInteger*)},
 	{}
 };
 

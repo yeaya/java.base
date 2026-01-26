@@ -37,8 +37,8 @@ $FieldInfo _VarHandleByteArrayBase_FieldInfo_[] = {
 };
 
 $MethodInfo _VarHandleByteArrayBase_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(VarHandleByteArrayBase::*)()>(&VarHandleByteArrayBase::init$))},
-	{"newIllegalStateExceptionForMisalignedAccess", "(I)Ljava/lang/IllegalStateException;", nullptr, $STATIC, $method(static_cast<$IllegalStateException*(*)(int32_t)>(&VarHandleByteArrayBase::newIllegalStateExceptionForMisalignedAccess))},
+	{"<init>", "()V", nullptr, 0, $method(VarHandleByteArrayBase, init$, void)},
+	{"newIllegalStateExceptionForMisalignedAccess", "(I)Ljava/lang/IllegalStateException;", nullptr, $STATIC, $staticMethod(VarHandleByteArrayBase, newIllegalStateExceptionForMisalignedAccess, $IllegalStateException*, int32_t)},
 	{}
 };
 

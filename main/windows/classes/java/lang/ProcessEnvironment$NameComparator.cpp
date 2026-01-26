@@ -14,9 +14,9 @@ namespace java {
 	namespace lang {
 
 $MethodInfo _ProcessEnvironment$NameComparator_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(ProcessEnvironment$NameComparator::*)()>(&ProcessEnvironment$NameComparator::init$))},
-	{"compare", "(Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PUBLIC, $method(static_cast<int32_t(ProcessEnvironment$NameComparator::*)($String*,$String*)>(&ProcessEnvironment$NameComparator::compare))},
-	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(ProcessEnvironment$NameComparator, init$, void)},
+	{"compare", "(Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PUBLIC, $method(ProcessEnvironment$NameComparator, compare, int32_t, $String*, $String*)},
+	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ProcessEnvironment$NameComparator, compare, int32_t, Object$*, Object$*)},
 	{}
 };
 

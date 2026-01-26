@@ -21,8 +21,8 @@ $FieldInfo _Console$1_FieldInfo_[] = {
 };
 
 $MethodInfo _Console$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/Console;)V", nullptr, 0, $method(static_cast<void(Console$1::*)($Console*)>(&Console$1::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/io/Console;)V", nullptr, 0, $method(Console$1, init$, void, $Console*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Console$1, run, void)},
 	{}
 };
 

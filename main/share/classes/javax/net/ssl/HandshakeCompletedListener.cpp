@@ -5,13 +5,14 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $HandshakeCompletedEvent = ::javax::net::ssl::HandshakeCompletedEvent;
 
 namespace javax {
 	namespace net {
 		namespace ssl {
 
 $MethodInfo _HandshakeCompletedListener_MethodInfo_[] = {
-	{"handshakeCompleted", "(Ljavax/net/ssl/HandshakeCompletedEvent;)V", nullptr, $PUBLIC | $ABSTRACT},
+	{"handshakeCompleted", "(Ljavax/net/ssl/HandshakeCompletedEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HandshakeCompletedListener, handshakeCompleted, void, $HandshakeCompletedEvent*)},
 	{}
 };
 

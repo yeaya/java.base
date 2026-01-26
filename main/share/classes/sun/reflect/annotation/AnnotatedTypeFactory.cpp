@@ -57,10 +57,10 @@ $FieldInfo _AnnotatedTypeFactory_FieldInfo_[] = {
 };
 
 $MethodInfo _AnnotatedTypeFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(AnnotatedTypeFactory::*)()>(&AnnotatedTypeFactory::init$))},
-	{"buildAnnotatedType", "(Ljava/lang/reflect/Type;Lsun/reflect/annotation/TypeAnnotation$LocationInfo;[Lsun/reflect/annotation/TypeAnnotation;[Lsun/reflect/annotation/TypeAnnotation;Ljava/lang/reflect/AnnotatedElement;)Ljava/lang/reflect/AnnotatedType;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$AnnotatedType*(*)($Type*,$TypeAnnotation$LocationInfo*,$TypeAnnotationArray*,$TypeAnnotationArray*,$AnnotatedElement*)>(&AnnotatedTypeFactory::buildAnnotatedType))},
-	{"isArray", "(Ljava/lang/reflect/Type;)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($Type*)>(&AnnotatedTypeFactory::isArray))},
-	{"nestingForType", "(Ljava/lang/reflect/Type;Lsun/reflect/annotation/TypeAnnotation$LocationInfo;)Lsun/reflect/annotation/TypeAnnotation$LocationInfo;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$TypeAnnotation$LocationInfo*(*)($Type*,$TypeAnnotation$LocationInfo*)>(&AnnotatedTypeFactory::nestingForType))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(AnnotatedTypeFactory, init$, void)},
+	{"buildAnnotatedType", "(Ljava/lang/reflect/Type;Lsun/reflect/annotation/TypeAnnotation$LocationInfo;[Lsun/reflect/annotation/TypeAnnotation;[Lsun/reflect/annotation/TypeAnnotation;Ljava/lang/reflect/AnnotatedElement;)Ljava/lang/reflect/AnnotatedType;", nullptr, $PUBLIC | $STATIC, $staticMethod(AnnotatedTypeFactory, buildAnnotatedType, $AnnotatedType*, $Type*, $TypeAnnotation$LocationInfo*, $TypeAnnotationArray*, $TypeAnnotationArray*, $AnnotatedElement*)},
+	{"isArray", "(Ljava/lang/reflect/Type;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(AnnotatedTypeFactory, isArray, bool, $Type*)},
+	{"nestingForType", "(Ljava/lang/reflect/Type;Lsun/reflect/annotation/TypeAnnotation$LocationInfo;)Lsun/reflect/annotation/TypeAnnotation$LocationInfo;", nullptr, $PUBLIC | $STATIC, $staticMethod(AnnotatedTypeFactory, nestingForType, $TypeAnnotation$LocationInfo*, $Type*, $TypeAnnotation$LocationInfo*)},
 	{}
 };
 

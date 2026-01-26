@@ -20,8 +20,8 @@ using $Paths = ::java::nio::file::Paths;
 using $Iterator = ::java::util::Iterator;
 
 $MethodInfo _DriveLetter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DriveLetter::*)()>(&DriveLetter::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&DriveLetter::main)), "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DriveLetter, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(DriveLetter, main, void, $StringArray*), "java.io.IOException"},
 	{}
 };
 

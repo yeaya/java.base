@@ -20,9 +20,9 @@ namespace java {
 		namespace random {
 
 $MethodInfo _RandomGenerator$StreamableGenerator_MethodInfo_[] = {
-	{"of", "(Ljava/lang/String;)Ljava/util/random/RandomGenerator$StreamableGenerator;", nullptr, $PUBLIC | $STATIC, $method(static_cast<RandomGenerator$StreamableGenerator*(*)($String*)>(&RandomGenerator$StreamableGenerator::of))},
-	{"rngs", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljava/util/random/RandomGenerator;>;", $PUBLIC | $ABSTRACT},
-	{"rngs", "(J)Ljava/util/stream/Stream;", "(J)Ljava/util/stream/Stream<Ljava/util/random/RandomGenerator;>;", $PUBLIC},
+	{"of", "(Ljava/lang/String;)Ljava/util/random/RandomGenerator$StreamableGenerator;", nullptr, $PUBLIC | $STATIC, $staticMethod(RandomGenerator$StreamableGenerator, of, RandomGenerator$StreamableGenerator*, $String*)},
+	{"rngs", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljava/util/random/RandomGenerator;>;", $PUBLIC | $ABSTRACT, $virtualMethod(RandomGenerator$StreamableGenerator, rngs, $Stream*)},
+	{"rngs", "(J)Ljava/util/stream/Stream;", "(J)Ljava/util/stream/Stream<Ljava/util/random/RandomGenerator;>;", $PUBLIC, $virtualMethod(RandomGenerator$StreamableGenerator, rngs, $Stream*, int64_t)},
 	{}
 };
 

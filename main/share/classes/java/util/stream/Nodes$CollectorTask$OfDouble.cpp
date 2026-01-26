@@ -51,8 +51,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Nodes$CollectorTask$OfDouble$$Lambda$doubleBuilder::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Nodes$CollectorTask$OfDouble$$Lambda$doubleBuilder::*)()>(&Nodes$CollectorTask$OfDouble$$Lambda$doubleBuilder::init$))},
-	{"apply", "(J)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Nodes$CollectorTask$OfDouble$$Lambda$doubleBuilder, init$, void)},
+	{"apply", "(J)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Nodes$CollectorTask$OfDouble$$Lambda$doubleBuilder, apply, $Object*, int64_t)},
 	{}
 };
 $ClassInfo Nodes$CollectorTask$OfDouble$$Lambda$doubleBuilder::classInfo$ = {
@@ -84,8 +84,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Nodes$CollectorTask$OfDouble$$Lambda$OfDouble$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Nodes$CollectorTask$OfDouble$$Lambda$OfDouble$1::*)()>(&Nodes$CollectorTask$OfDouble$$Lambda$OfDouble$1::init$))},
-	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Nodes$CollectorTask$OfDouble$$Lambda$OfDouble$1, init$, void)},
+	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Nodes$CollectorTask$OfDouble$$Lambda$OfDouble$1, apply, $Object*, Object$*, Object$*)},
 	{}
 };
 $ClassInfo Nodes$CollectorTask$OfDouble$$Lambda$OfDouble$1::classInfo$ = {
@@ -103,9 +103,9 @@ $Class* Nodes$CollectorTask$OfDouble$$Lambda$OfDouble$1::load$($String* name, bo
 $Class* Nodes$CollectorTask$OfDouble$$Lambda$OfDouble$1::class$ = nullptr;
 
 $MethodInfo _Nodes$CollectorTask$OfDouble_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;)V", "(Ljava/util/stream/PipelineHelper<Ljava/lang/Double;>;Ljava/util/Spliterator<TP_IN;>;)V", 0, $method(static_cast<void(Nodes$CollectorTask$OfDouble::*)($PipelineHelper*,$Spliterator*)>(&Nodes$CollectorTask$OfDouble::init$))},
-	{"doLeaf", "()Ljava/lang/Object;", nullptr, $PROTECTED | $VOLATILE | $SYNTHETIC},
-	{"makeChild", "(Ljava/util/Spliterator;)Ljava/util/stream/AbstractTask;", nullptr, $PROTECTED | $VOLATILE | $SYNTHETIC},
+	{"<init>", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;)V", "(Ljava/util/stream/PipelineHelper<Ljava/lang/Double;>;Ljava/util/Spliterator<TP_IN;>;)V", 0, $method(Nodes$CollectorTask$OfDouble, init$, void, $PipelineHelper*, $Spliterator*)},
+	{"doLeaf", "()Ljava/lang/Object;", nullptr, $PROTECTED | $VOLATILE | $SYNTHETIC, $virtualMethod(Nodes$CollectorTask$OfDouble, doLeaf, $Object*)},
+	{"makeChild", "(Ljava/util/Spliterator;)Ljava/util/stream/AbstractTask;", nullptr, $PROTECTED | $VOLATILE | $SYNTHETIC, $virtualMethod(Nodes$CollectorTask$OfDouble, makeChild, $Nodes$CollectorTask*, $Spliterator*)},
 	{}
 };
 

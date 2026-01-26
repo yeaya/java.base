@@ -27,15 +27,15 @@ $FieldInfo _ModuleRemapper_FieldInfo_[] = {
 };
 
 $MethodInfo _ModuleRemapper_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/org/objectweb/asm/ModuleVisitor;Ljdk/internal/org/objectweb/asm/commons/Remapper;)V", nullptr, $PUBLIC, $method(static_cast<void(ModuleRemapper::*)($ModuleVisitor*,$Remapper*)>(&ModuleRemapper::init$))},
-	{"<init>", "(ILjdk/internal/org/objectweb/asm/ModuleVisitor;Ljdk/internal/org/objectweb/asm/commons/Remapper;)V", nullptr, $PROTECTED, $method(static_cast<void(ModuleRemapper::*)(int32_t,$ModuleVisitor*,$Remapper*)>(&ModuleRemapper::init$))},
-	{"visitExport", "(Ljava/lang/String;I[Ljava/lang/String;)V", nullptr, $PUBLIC | $TRANSIENT},
-	{"visitMainClass", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"visitOpen", "(Ljava/lang/String;I[Ljava/lang/String;)V", nullptr, $PUBLIC | $TRANSIENT},
-	{"visitPackage", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"visitProvide", "(Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $PUBLIC | $TRANSIENT},
-	{"visitRequire", "(Ljava/lang/String;ILjava/lang/String;)V", nullptr, $PUBLIC},
-	{"visitUse", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/org/objectweb/asm/ModuleVisitor;Ljdk/internal/org/objectweb/asm/commons/Remapper;)V", nullptr, $PUBLIC, $method(ModuleRemapper, init$, void, $ModuleVisitor*, $Remapper*)},
+	{"<init>", "(ILjdk/internal/org/objectweb/asm/ModuleVisitor;Ljdk/internal/org/objectweb/asm/commons/Remapper;)V", nullptr, $PROTECTED, $method(ModuleRemapper, init$, void, int32_t, $ModuleVisitor*, $Remapper*)},
+	{"visitExport", "(Ljava/lang/String;I[Ljava/lang/String;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(ModuleRemapper, visitExport, void, $String*, int32_t, $StringArray*)},
+	{"visitMainClass", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ModuleRemapper, visitMainClass, void, $String*)},
+	{"visitOpen", "(Ljava/lang/String;I[Ljava/lang/String;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(ModuleRemapper, visitOpen, void, $String*, int32_t, $StringArray*)},
+	{"visitPackage", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ModuleRemapper, visitPackage, void, $String*)},
+	{"visitProvide", "(Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(ModuleRemapper, visitProvide, void, $String*, $StringArray*)},
+	{"visitRequire", "(Ljava/lang/String;ILjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ModuleRemapper, visitRequire, void, $String*, int32_t, $String*)},
+	{"visitUse", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ModuleRemapper, visitUse, void, $String*)},
 	{}
 };
 

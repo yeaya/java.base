@@ -18,7 +18,7 @@ $FieldInfo _SSLHandshakeException_FieldInfo_[] = {
 };
 
 $MethodInfo _SSLHandshakeException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(SSLHandshakeException::*)($String*)>(&SSLHandshakeException::init$))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SSLHandshakeException, init$, void, $String*)},
 	{}
 };
 

@@ -47,9 +47,9 @@ $FieldInfo _StackTraceElement$HashedModules_FieldInfo_[] = {
 };
 
 $MethodInfo _StackTraceElement$HashedModules_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(StackTraceElement$HashedModules::*)()>(&StackTraceElement$HashedModules::init$))},
-	{"contains", "(Ljava/lang/Module;)Z", nullptr, $STATIC, $method(static_cast<bool(*)($Module*)>(&StackTraceElement$HashedModules::contains))},
-	{"hashedModules", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $STATIC, $method(static_cast<$Set*(*)()>(&StackTraceElement$HashedModules::hashedModules))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(StackTraceElement$HashedModules, init$, void)},
+	{"contains", "(Ljava/lang/Module;)Z", nullptr, $STATIC, $staticMethod(StackTraceElement$HashedModules, contains, bool, $Module*)},
+	{"hashedModules", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $STATIC, $staticMethod(StackTraceElement$HashedModules, hashedModules, $Set*)},
 	{}
 };
 

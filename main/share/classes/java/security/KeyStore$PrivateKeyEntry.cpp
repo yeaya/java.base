@@ -42,13 +42,13 @@ $FieldInfo _KeyStore$PrivateKeyEntry_FieldInfo_[] = {
 };
 
 $MethodInfo _KeyStore$PrivateKeyEntry_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/PrivateKey;[Ljava/security/cert/Certificate;)V", nullptr, $PUBLIC, $method(static_cast<void(KeyStore$PrivateKeyEntry::*)($PrivateKey*,$CertificateArray*)>(&KeyStore$PrivateKeyEntry::init$))},
-	{"<init>", "(Ljava/security/PrivateKey;[Ljava/security/cert/Certificate;Ljava/util/Set;)V", "(Ljava/security/PrivateKey;[Ljava/security/cert/Certificate;Ljava/util/Set<Ljava/security/KeyStore$Entry$Attribute;>;)V", $PUBLIC, $method(static_cast<void(KeyStore$PrivateKeyEntry::*)($PrivateKey*,$CertificateArray*,$Set*)>(&KeyStore$PrivateKeyEntry::init$))},
-	{"getAttributes", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/security/KeyStore$Entry$Attribute;>;", $PUBLIC},
-	{"getCertificate", "()Ljava/security/cert/Certificate;", nullptr, $PUBLIC, $method(static_cast<$Certificate*(KeyStore$PrivateKeyEntry::*)()>(&KeyStore$PrivateKeyEntry::getCertificate))},
-	{"getCertificateChain", "()[Ljava/security/cert/Certificate;", nullptr, $PUBLIC, $method(static_cast<$CertificateArray*(KeyStore$PrivateKeyEntry::*)()>(&KeyStore$PrivateKeyEntry::getCertificateChain))},
-	{"getPrivateKey", "()Ljava/security/PrivateKey;", nullptr, $PUBLIC, $method(static_cast<$PrivateKey*(KeyStore$PrivateKeyEntry::*)()>(&KeyStore$PrivateKeyEntry::getPrivateKey))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/security/PrivateKey;[Ljava/security/cert/Certificate;)V", nullptr, $PUBLIC, $method(KeyStore$PrivateKeyEntry, init$, void, $PrivateKey*, $CertificateArray*)},
+	{"<init>", "(Ljava/security/PrivateKey;[Ljava/security/cert/Certificate;Ljava/util/Set;)V", "(Ljava/security/PrivateKey;[Ljava/security/cert/Certificate;Ljava/util/Set<Ljava/security/KeyStore$Entry$Attribute;>;)V", $PUBLIC, $method(KeyStore$PrivateKeyEntry, init$, void, $PrivateKey*, $CertificateArray*, $Set*)},
+	{"getAttributes", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/security/KeyStore$Entry$Attribute;>;", $PUBLIC, $virtualMethod(KeyStore$PrivateKeyEntry, getAttributes, $Set*)},
+	{"getCertificate", "()Ljava/security/cert/Certificate;", nullptr, $PUBLIC, $method(KeyStore$PrivateKeyEntry, getCertificate, $Certificate*)},
+	{"getCertificateChain", "()[Ljava/security/cert/Certificate;", nullptr, $PUBLIC, $method(KeyStore$PrivateKeyEntry, getCertificateChain, $CertificateArray*)},
+	{"getPrivateKey", "()Ljava/security/PrivateKey;", nullptr, $PUBLIC, $method(KeyStore$PrivateKeyEntry, getPrivateKey, $PrivateKey*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KeyStore$PrivateKeyEntry, toString, $String*)},
 	{}
 };
 

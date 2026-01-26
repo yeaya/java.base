@@ -39,8 +39,8 @@ namespace sun {
 		namespace ssl {
 
 $MethodInfo _HelloRequest$HelloRequestConsumer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(HelloRequest$HelloRequestConsumer::*)()>(&HelloRequest$HelloRequestConsumer::init$))},
-	{"consume", "(Lsun/security/ssl/ConnectionContext;Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(HelloRequest$HelloRequestConsumer, init$, void)},
+	{"consume", "(Lsun/security/ssl/ConnectionContext;Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(HelloRequest$HelloRequestConsumer, consume, void, $ConnectionContext*, $ByteBuffer*), "java.io.IOException"},
 	{}
 };
 

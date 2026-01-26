@@ -63,16 +63,16 @@ $FieldInfo _BasicAuthentication_FieldInfo_[] = {
 };
 
 $MethodInfo _BasicAuthentication_MethodInfo_[] = {
-	{"<init>", "(ZLjava/lang/String;ILjava/lang/String;Ljava/net/PasswordAuthentication;ZLjava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(BasicAuthentication::*)(bool,$String*,int32_t,$String*,$PasswordAuthentication*,bool,$String*)>(&BasicAuthentication::init$))},
-	{"<init>", "(ZLjava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(BasicAuthentication::*)(bool,$String*,int32_t,$String*,$String*,$String*)>(&BasicAuthentication::init$))},
-	{"<init>", "(ZLjava/net/URL;Ljava/lang/String;Ljava/net/PasswordAuthentication;ZLjava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(BasicAuthentication::*)(bool,$URL*,$String*,$PasswordAuthentication*,bool,$String*)>(&BasicAuthentication::init$))},
-	{"<init>", "(ZLjava/net/URL;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(BasicAuthentication::*)(bool,$URL*,$String*,$String*,$String*)>(&BasicAuthentication::init$))},
-	{"authValueFrom", "(Ljava/net/PasswordAuthentication;Z)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($PasswordAuthentication*,bool)>(&BasicAuthentication::authValueFrom))},
-	{"getHeaderValue", "(Ljava/net/URL;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getRootPath", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $method(static_cast<$String*(*)($String*,$String*)>(&BasicAuthentication::getRootPath))},
-	{"isAuthorizationStale", "(Ljava/lang/String;)Z", nullptr, $PUBLIC},
-	{"setHeaders", "(Lsun/net/www/protocol/http/HttpURLConnection;Lsun/net/www/HeaderParser;Ljava/lang/String;)Z", nullptr, $PUBLIC},
-	{"supportsPreemptiveAuthorization", "()Z", nullptr, $PUBLIC},
+	{"<init>", "(ZLjava/lang/String;ILjava/lang/String;Ljava/net/PasswordAuthentication;ZLjava/lang/String;)V", nullptr, $PUBLIC, $method(BasicAuthentication, init$, void, bool, $String*, int32_t, $String*, $PasswordAuthentication*, bool, $String*)},
+	{"<init>", "(ZLjava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(BasicAuthentication, init$, void, bool, $String*, int32_t, $String*, $String*, $String*)},
+	{"<init>", "(ZLjava/net/URL;Ljava/lang/String;Ljava/net/PasswordAuthentication;ZLjava/lang/String;)V", nullptr, $PUBLIC, $method(BasicAuthentication, init$, void, bool, $URL*, $String*, $PasswordAuthentication*, bool, $String*)},
+	{"<init>", "(ZLjava/net/URL;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(BasicAuthentication, init$, void, bool, $URL*, $String*, $String*, $String*)},
+	{"authValueFrom", "(Ljava/net/PasswordAuthentication;Z)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(BasicAuthentication, authValueFrom, $String*, $PasswordAuthentication*, bool)},
+	{"getHeaderValue", "(Ljava/net/URL;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BasicAuthentication, getHeaderValue, $String*, $URL*, $String*)},
+	{"getRootPath", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(BasicAuthentication, getRootPath, $String*, $String*, $String*)},
+	{"isAuthorizationStale", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(BasicAuthentication, isAuthorizationStale, bool, $String*)},
+	{"setHeaders", "(Lsun/net/www/protocol/http/HttpURLConnection;Lsun/net/www/HeaderParser;Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(BasicAuthentication, setHeaders, bool, $HttpURLConnection*, $HeaderParser*, $String*)},
+	{"supportsPreemptiveAuthorization", "()Z", nullptr, $PUBLIC, $virtualMethod(BasicAuthentication, supportsPreemptiveAuthorization, bool)},
 	{}
 };
 

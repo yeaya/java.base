@@ -23,9 +23,9 @@ using $Target = ::java::lang::annotation::Target;
 using $RoundingMode = ::java::math::RoundingMode;
 
 $MethodInfo _IsAnnotationType_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(IsAnnotationType::*)()>(&IsAnnotationType::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&IsAnnotationType::main))},
-	{"test", "(Ljava/lang/Class;Z)I", nullptr, $STATIC, $method(static_cast<int32_t(*)($Class*,bool)>(&IsAnnotationType::test))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(IsAnnotationType, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(IsAnnotationType, main, void, $StringArray*)},
+	{"test", "(Ljava/lang/Class;Z)I", nullptr, $STATIC, $staticMethod(IsAnnotationType, test, int32_t, $Class*, bool)},
 	{}
 };
 

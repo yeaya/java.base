@@ -18,12 +18,12 @@ $FieldInfo _Unicode4File_FieldInfo_[] = {
 };
 
 $MethodInfo _Unicode4File_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Unicode4File::*)()>(&Unicode4File::init$))},
-	{"creat", "(Ljava/io/File;)Z", nullptr, $STATIC, $method(static_cast<bool(*)($File*)>(&Unicode4File::creat)), "java.lang.Exception"},
-	{"fail", "(Ljava/lang/String;)V", nullptr, $STATIC, $method(static_cast<void(*)($String*)>(&Unicode4File::fail))},
-	{"find", "(Ljava/io/File;)Z", nullptr, $STATIC, $method(static_cast<bool(*)($File*)>(&Unicode4File::find)), "java.lang.Exception"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Unicode4File::main)), "java.lang.Exception"},
-	{"sanityCheck", "(Ljava/io/File;)V", nullptr, $STATIC, $method(static_cast<void(*)($File*)>(&Unicode4File::sanityCheck)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Unicode4File, init$, void)},
+	{"creat", "(Ljava/io/File;)Z", nullptr, $STATIC, $staticMethod(Unicode4File, creat, bool, $File*), "java.lang.Exception"},
+	{"fail", "(Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(Unicode4File, fail, void, $String*)},
+	{"find", "(Ljava/io/File;)Z", nullptr, $STATIC, $staticMethod(Unicode4File, find, bool, $File*), "java.lang.Exception"},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Unicode4File, main, void, $StringArray*), "java.lang.Exception"},
+	{"sanityCheck", "(Ljava/io/File;)V", nullptr, $STATIC, $staticMethod(Unicode4File, sanityCheck, void, $File*), "java.lang.Exception"},
 	{}
 };
 

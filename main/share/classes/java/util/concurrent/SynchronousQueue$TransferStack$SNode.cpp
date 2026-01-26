@@ -43,14 +43,14 @@ $FieldInfo _SynchronousQueue$TransferStack$SNode_FieldInfo_[] = {
 };
 
 $MethodInfo _SynchronousQueue$TransferStack$SNode_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;)V", nullptr, 0, $method(static_cast<void(SynchronousQueue$TransferStack$SNode::*)(Object$*)>(&SynchronousQueue$TransferStack$SNode::init$))},
-	{"block", "()Z", nullptr, $PUBLIC | $FINAL},
-	{"casNext", "(Ljava/util/concurrent/SynchronousQueue$TransferStack$SNode;Ljava/util/concurrent/SynchronousQueue$TransferStack$SNode;)Z", nullptr, 0, $method(static_cast<bool(SynchronousQueue$TransferStack$SNode::*)(SynchronousQueue$TransferStack$SNode*,SynchronousQueue$TransferStack$SNode*)>(&SynchronousQueue$TransferStack$SNode::casNext))},
-	{"forgetWaiter", "()V", nullptr, 0, $method(static_cast<void(SynchronousQueue$TransferStack$SNode::*)()>(&SynchronousQueue$TransferStack$SNode::forgetWaiter))},
-	{"isCancelled", "()Z", nullptr, 0, $method(static_cast<bool(SynchronousQueue$TransferStack$SNode::*)()>(&SynchronousQueue$TransferStack$SNode::isCancelled))},
-	{"isReleasable", "()Z", nullptr, $PUBLIC | $FINAL},
-	{"tryCancel", "()Z", nullptr, 0, $method(static_cast<bool(SynchronousQueue$TransferStack$SNode::*)()>(&SynchronousQueue$TransferStack$SNode::tryCancel))},
-	{"tryMatch", "(Ljava/util/concurrent/SynchronousQueue$TransferStack$SNode;)Z", nullptr, 0, $method(static_cast<bool(SynchronousQueue$TransferStack$SNode::*)(SynchronousQueue$TransferStack$SNode*)>(&SynchronousQueue$TransferStack$SNode::tryMatch))},
+	{"<init>", "(Ljava/lang/Object;)V", nullptr, 0, $method(SynchronousQueue$TransferStack$SNode, init$, void, Object$*)},
+	{"block", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(SynchronousQueue$TransferStack$SNode, block, bool)},
+	{"casNext", "(Ljava/util/concurrent/SynchronousQueue$TransferStack$SNode;Ljava/util/concurrent/SynchronousQueue$TransferStack$SNode;)Z", nullptr, 0, $method(SynchronousQueue$TransferStack$SNode, casNext, bool, SynchronousQueue$TransferStack$SNode*, SynchronousQueue$TransferStack$SNode*)},
+	{"forgetWaiter", "()V", nullptr, 0, $method(SynchronousQueue$TransferStack$SNode, forgetWaiter, void)},
+	{"isCancelled", "()Z", nullptr, 0, $method(SynchronousQueue$TransferStack$SNode, isCancelled, bool)},
+	{"isReleasable", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(SynchronousQueue$TransferStack$SNode, isReleasable, bool)},
+	{"tryCancel", "()Z", nullptr, 0, $method(SynchronousQueue$TransferStack$SNode, tryCancel, bool)},
+	{"tryMatch", "(Ljava/util/concurrent/SynchronousQueue$TransferStack$SNode;)Z", nullptr, 0, $method(SynchronousQueue$TransferStack$SNode, tryMatch, bool, SynchronousQueue$TransferStack$SNode*)},
 	{}
 };
 

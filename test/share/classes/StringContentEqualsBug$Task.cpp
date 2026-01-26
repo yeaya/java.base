@@ -18,9 +18,9 @@ $FieldInfo _StringContentEqualsBug$Task_FieldInfo_[] = {
 };
 
 $MethodInfo _StringContentEqualsBug$Task_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/StringBuffer;)V", nullptr, 0, $method(static_cast<void(StringContentEqualsBug$Task::*)($StringBuffer*)>(&StringContentEqualsBug$Task::init$))},
-	{"doWith", "(Ljava/lang/StringBuffer;)V", nullptr, $PROTECTED | $ABSTRACT},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/StringBuffer;)V", nullptr, 0, $method(StringContentEqualsBug$Task, init$, void, $StringBuffer*)},
+	{"doWith", "(Ljava/lang/StringBuffer;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(StringContentEqualsBug$Task, doWith, void, $StringBuffer*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(StringContentEqualsBug$Task, run, void)},
 	{}
 };
 

@@ -53,12 +53,12 @@ $FieldInfo _AVAKeyword_FieldInfo_[] = {
 };
 
 $MethodInfo _AVAKeyword_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Lsun/security/util/ObjectIdentifier;ZZ)V", nullptr, $PRIVATE, $method(static_cast<void(AVAKeyword::*)($String*,$ObjectIdentifier*,bool,bool)>(&AVAKeyword::init$))},
-	{"getKeyword", "(Lsun/security/util/ObjectIdentifier;I)Ljava/lang/String;", nullptr, $STATIC, $method(static_cast<$String*(*)($ObjectIdentifier*,int32_t)>(&AVAKeyword::getKeyword))},
-	{"getKeyword", "(Lsun/security/util/ObjectIdentifier;ILjava/util/Map;)Ljava/lang/String;", "(Lsun/security/util/ObjectIdentifier;ILjava/util/Map<Ljava/lang/String;Ljava/lang/String;>;)Ljava/lang/String;", $STATIC, $method(static_cast<$String*(*)($ObjectIdentifier*,int32_t,$Map*)>(&AVAKeyword::getKeyword))},
-	{"getOID", "(Ljava/lang/String;ILjava/util/Map;)Lsun/security/util/ObjectIdentifier;", "(Ljava/lang/String;ILjava/util/Map<Ljava/lang/String;Ljava/lang/String;>;)Lsun/security/util/ObjectIdentifier;", $STATIC, $method(static_cast<$ObjectIdentifier*(*)($String*,int32_t,$Map*)>(&AVAKeyword::getOID)), "java.io.IOException"},
-	{"hasKeyword", "(Lsun/security/util/ObjectIdentifier;I)Z", nullptr, $STATIC, $method(static_cast<bool(*)($ObjectIdentifier*,int32_t)>(&AVAKeyword::hasKeyword))},
-	{"isCompliant", "(I)Z", nullptr, $PRIVATE, $method(static_cast<bool(AVAKeyword::*)(int32_t)>(&AVAKeyword::isCompliant))},
+	{"<init>", "(Ljava/lang/String;Lsun/security/util/ObjectIdentifier;ZZ)V", nullptr, $PRIVATE, $method(AVAKeyword, init$, void, $String*, $ObjectIdentifier*, bool, bool)},
+	{"getKeyword", "(Lsun/security/util/ObjectIdentifier;I)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(AVAKeyword, getKeyword, $String*, $ObjectIdentifier*, int32_t)},
+	{"getKeyword", "(Lsun/security/util/ObjectIdentifier;ILjava/util/Map;)Ljava/lang/String;", "(Lsun/security/util/ObjectIdentifier;ILjava/util/Map<Ljava/lang/String;Ljava/lang/String;>;)Ljava/lang/String;", $STATIC, $staticMethod(AVAKeyword, getKeyword, $String*, $ObjectIdentifier*, int32_t, $Map*)},
+	{"getOID", "(Ljava/lang/String;ILjava/util/Map;)Lsun/security/util/ObjectIdentifier;", "(Ljava/lang/String;ILjava/util/Map<Ljava/lang/String;Ljava/lang/String;>;)Lsun/security/util/ObjectIdentifier;", $STATIC, $staticMethod(AVAKeyword, getOID, $ObjectIdentifier*, $String*, int32_t, $Map*), "java.io.IOException"},
+	{"hasKeyword", "(Lsun/security/util/ObjectIdentifier;I)Z", nullptr, $STATIC, $staticMethod(AVAKeyword, hasKeyword, bool, $ObjectIdentifier*, int32_t)},
+	{"isCompliant", "(I)Z", nullptr, $PRIVATE, $method(AVAKeyword, isCompliant, bool, int32_t)},
 	{}
 };
 

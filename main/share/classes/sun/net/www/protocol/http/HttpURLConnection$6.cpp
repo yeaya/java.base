@@ -22,8 +22,8 @@ $FieldInfo _HttpURLConnection$6_FieldInfo_[] = {
 };
 
 $MethodInfo _HttpURLConnection$6_MethodInfo_[] = {
-	{"<init>", "(Lsun/net/www/protocol/http/HttpURLConnection;)V", nullptr, 0, $method(static_cast<void(HttpURLConnection$6::*)($HttpURLConnection*)>(&HttpURLConnection$6::init$))},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Lsun/net/www/protocol/http/HttpURLConnection;)V", nullptr, 0, $method(HttpURLConnection$6, init$, void, $HttpURLConnection*)},
+	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(HttpURLConnection$6, run, $Object*), "java.io.IOException"},
 	{}
 };
 

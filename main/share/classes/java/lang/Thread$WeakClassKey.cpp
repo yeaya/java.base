@@ -21,9 +21,9 @@ $FieldInfo _Thread$WeakClassKey_FieldInfo_[] = {
 };
 
 $MethodInfo _Thread$WeakClassKey_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Class;Ljava/lang/ref/ReferenceQueue;)V", "(Ljava/lang/Class<*>;Ljava/lang/ref/ReferenceQueue<Ljava/lang/Class<*>;>;)V", 0, $method(static_cast<void(Thread$WeakClassKey::*)($Class*,$ReferenceQueue*)>(&Thread$WeakClassKey::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Class;Ljava/lang/ref/ReferenceQueue;)V", "(Ljava/lang/Class<*>;Ljava/lang/ref/ReferenceQueue<Ljava/lang/Class<*>;>;)V", 0, $method(Thread$WeakClassKey, init$, void, $Class*, $ReferenceQueue*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Thread$WeakClassKey, equals, bool, Object$*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Thread$WeakClassKey, hashCode, int32_t)},
 	{}
 };
 

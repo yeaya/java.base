@@ -27,11 +27,11 @@ $FieldInfo _CloseAndAvailableRC_FieldInfo_[] = {
 };
 
 $MethodInfo _CloseAndAvailableRC_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CloseAndAvailableRC::*)()>(&CloseAndAvailableRC::init$))},
-	{"cleanup", "()V", nullptr, $PRIVATE, $method(static_cast<void(CloseAndAvailableRC::*)()>(&CloseAndAvailableRC::cleanup)), "java.lang.Exception"},
-	{"go", "()V", nullptr, $PRIVATE, $method(static_cast<void(CloseAndAvailableRC::*)()>(&CloseAndAvailableRC::go)), "java.lang.Exception"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&CloseAndAvailableRC::main)), "java.lang.Exception"},
-	{"resetPipes", "()V", nullptr, $PRIVATE, $method(static_cast<void(CloseAndAvailableRC::*)()>(&CloseAndAvailableRC::resetPipes)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CloseAndAvailableRC, init$, void)},
+	{"cleanup", "()V", nullptr, $PRIVATE, $method(CloseAndAvailableRC, cleanup, void), "java.lang.Exception"},
+	{"go", "()V", nullptr, $PRIVATE, $method(CloseAndAvailableRC, go, void), "java.lang.Exception"},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(CloseAndAvailableRC, main, void, $StringArray*), "java.lang.Exception"},
+	{"resetPipes", "()V", nullptr, $PRIVATE, $method(CloseAndAvailableRC, resetPipes, void), "java.lang.Exception"},
 	{}
 };
 

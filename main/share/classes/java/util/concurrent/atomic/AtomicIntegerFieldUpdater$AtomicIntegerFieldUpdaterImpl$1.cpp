@@ -24,8 +24,8 @@ $FieldInfo _AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl$1_FieldInfo_
 };
 
 $MethodInfo _AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/atomic/AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl;Ljava/lang/Class;Ljava/lang/String;)V", "()V", 0, $method(static_cast<void(AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl$1::*)($AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl*,$Class*,$String*)>(&AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl$1::init$))},
-	{"run", "()Ljava/lang/reflect/Field;", nullptr, $PUBLIC, nullptr, "java.lang.NoSuchFieldException"},
+	{"<init>", "(Ljava/util/concurrent/atomic/AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl;Ljava/lang/Class;Ljava/lang/String;)V", "()V", 0, $method(AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl$1, init$, void, $AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl*, $Class*, $String*)},
+	{"run", "()Ljava/lang/reflect/Field;", nullptr, $PUBLIC, $virtualMethod(AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl$1, run, $Object*), "java.lang.NoSuchFieldException"},
 	{}
 };
 

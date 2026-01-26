@@ -11,8 +11,8 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _Basic4ref$4_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Basic4ref$4::*)()>(&Basic4ref$4::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(Basic4ref$4, init$, void)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Basic4ref$4, run, void)},
 	{}
 };
 

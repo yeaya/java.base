@@ -8,7 +8,7 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _ParameterAnnotations$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ParameterAnnotations$1::*)()>(&ParameterAnnotations$1::init$))},
+	{"<init>", "()V", nullptr, 0, $method(ParameterAnnotations$1, init$, void)},
 	{}
 };
 

@@ -6,7 +6,7 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _InvalidNestHost_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(InvalidNestHost::*)()>(&InvalidNestHost::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(InvalidNestHost, init$, void)},
 	{}
 };
 

@@ -28,8 +28,8 @@ $FieldInfo _LoginContext$3_FieldInfo_[] = {
 };
 
 $MethodInfo _LoginContext$3_MethodInfo_[] = {
-	{"<init>", "(Ljavax/security/auth/login/LoginContext;Ljava/lang/ClassLoader;)V", "()V", 0, $method(static_cast<void(LoginContext$3::*)($LoginContext*,$ClassLoader*)>(&LoginContext$3::init$))},
-	{"run", "()Ljavax/security/auth/callback/CallbackHandler;", nullptr, $PUBLIC, nullptr, "java.lang.Exception"},
+	{"<init>", "(Ljavax/security/auth/login/LoginContext;Ljava/lang/ClassLoader;)V", "()V", 0, $method(LoginContext$3, init$, void, $LoginContext*, $ClassLoader*)},
+	{"run", "()Ljavax/security/auth/callback/CallbackHandler;", nullptr, $PUBLIC, $virtualMethod(LoginContext$3, run, $Object*), "java.lang.Exception"},
 	{}
 };
 

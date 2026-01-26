@@ -35,12 +35,12 @@ $MethodInfo _Nodes$IntFixedNodeBuilder_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(J)V", nullptr, 0, $method(static_cast<void(Nodes$IntFixedNodeBuilder::*)(int64_t)>(&Nodes$IntFixedNodeBuilder::init$))},
-	{"accept", "(I)V", nullptr, $PUBLIC},
-	{"begin", "(J)V", nullptr, $PUBLIC},
-	{"build", "()Ljava/util/stream/Node$OfInt;", nullptr, $PUBLIC},
-	{"end", "()V", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(J)V", nullptr, 0, $method(Nodes$IntFixedNodeBuilder, init$, void, int64_t)},
+	{"accept", "(I)V", nullptr, $PUBLIC, $virtualMethod(Nodes$IntFixedNodeBuilder, accept, void, int32_t)},
+	{"begin", "(J)V", nullptr, $PUBLIC, $virtualMethod(Nodes$IntFixedNodeBuilder, begin, void, int64_t)},
+	{"build", "()Ljava/util/stream/Node$OfInt;", nullptr, $PUBLIC, $virtualMethod(Nodes$IntFixedNodeBuilder, build, $Node$OfInt*)},
+	{"end", "()V", nullptr, $PUBLIC, $virtualMethod(Nodes$IntFixedNodeBuilder, end, void)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Nodes$IntFixedNodeBuilder, toString, $String*)},
 	{}
 };
 

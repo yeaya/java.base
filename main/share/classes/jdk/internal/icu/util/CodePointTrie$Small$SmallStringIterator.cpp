@@ -37,9 +37,9 @@ $FieldInfo _CodePointTrie$Small$SmallStringIterator_FieldInfo_[] = {
 };
 
 $MethodInfo _CodePointTrie$Small$SmallStringIterator_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/icu/util/CodePointTrie$Small;Ljava/lang/CharSequence;I)V", nullptr, $PRIVATE, $method(static_cast<void(CodePointTrie$Small$SmallStringIterator::*)($CodePointTrie$Small*,$CharSequence*,int32_t)>(&CodePointTrie$Small$SmallStringIterator::init$))},
-	{"next", "()Z", nullptr, $PUBLIC},
-	{"previous", "()Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/icu/util/CodePointTrie$Small;Ljava/lang/CharSequence;I)V", nullptr, $PRIVATE, $method(CodePointTrie$Small$SmallStringIterator, init$, void, $CodePointTrie$Small*, $CharSequence*, int32_t)},
+	{"next", "()Z", nullptr, $PUBLIC, $virtualMethod(CodePointTrie$Small$SmallStringIterator, next, bool)},
+	{"previous", "()Z", nullptr, $PUBLIC, $virtualMethod(CodePointTrie$Small$SmallStringIterator, previous, bool)},
 	{}
 };
 

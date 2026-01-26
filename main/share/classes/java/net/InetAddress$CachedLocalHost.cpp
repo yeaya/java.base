@@ -20,7 +20,7 @@ $FieldInfo _InetAddress$CachedLocalHost_FieldInfo_[] = {
 };
 
 $MethodInfo _InetAddress$CachedLocalHost_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/net/InetAddress;)V", nullptr, 0, $method(static_cast<void(InetAddress$CachedLocalHost::*)($String*,$InetAddress*)>(&InetAddress$CachedLocalHost::init$))},
+	{"<init>", "(Ljava/lang/String;Ljava/net/InetAddress;)V", nullptr, 0, $method(InetAddress$CachedLocalHost, init$, void, $String*, $InetAddress*)},
 	{}
 };
 

@@ -13,8 +13,8 @@ using $NullPointerException = ::java::lang::NullPointerException;
 using $Runtime = ::java::lang::Runtime;
 
 $MethodInfo _BadEnvp_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(BadEnvp::*)()>(&BadEnvp::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&BadEnvp::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(BadEnvp, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(BadEnvp, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

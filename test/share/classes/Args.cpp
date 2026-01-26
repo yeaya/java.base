@@ -32,10 +32,10 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $FileChannel = ::java::nio::channels::FileChannel;
 
 $MethodInfo _Args_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Args::*)()>(&Args::init$))},
-	{"fail", "(Ljava/lang/String;)V", nullptr, $STATIC, $method(static_cast<void(*)($String*)>(&Args::fail))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Args::main)), "java.lang.Exception"},
-	{"tryCatch", "(Ljava/lang/Class;LArgs$Thunk;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($Class*,$Args$Thunk*)>(&Args::tryCatch))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Args, init$, void)},
+	{"fail", "(Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(Args, fail, void, $String*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Args, main, void, $StringArray*), "java.lang.Exception"},
+	{"tryCatch", "(Ljava/lang/Class;LArgs$Thunk;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Args, tryCatch, void, $Class*, $Args$Thunk*)},
 	{}
 };
 

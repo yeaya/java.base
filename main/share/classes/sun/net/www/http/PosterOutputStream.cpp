@@ -19,11 +19,11 @@ $FieldInfo _PosterOutputStream_FieldInfo_[] = {
 };
 
 $MethodInfo _PosterOutputStream_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PosterOutputStream::*)()>(&PosterOutputStream::init$))},
-	{"close", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, nullptr, "java.io.IOException"},
-	{"reset", "()V", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"write", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"write", "([BII)V", nullptr, $PUBLIC | $SYNCHRONIZED},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PosterOutputStream, init$, void)},
+	{"close", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(PosterOutputStream, close, void), "java.io.IOException"},
+	{"reset", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(PosterOutputStream, reset, void)},
+	{"write", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(PosterOutputStream, write, void, int32_t)},
+	{"write", "([BII)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(PosterOutputStream, write, void, $bytes*, int32_t, int32_t)},
 	{}
 };
 

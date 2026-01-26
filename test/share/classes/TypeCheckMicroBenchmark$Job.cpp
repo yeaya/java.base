@@ -14,9 +14,9 @@ $FieldInfo _TypeCheckMicroBenchmark$Job_FieldInfo_[] = {
 };
 
 $MethodInfo _TypeCheckMicroBenchmark$Job_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(TypeCheckMicroBenchmark$Job::*)($String*)>(&TypeCheckMicroBenchmark$Job::init$))},
-	{"name", "()Ljava/lang/String;", nullptr, 0},
-	{"work", "()V", nullptr, $ABSTRACT, nullptr, "java.lang.Throwable"},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(TypeCheckMicroBenchmark$Job, init$, void, $String*)},
+	{"name", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(TypeCheckMicroBenchmark$Job, name, $String*)},
+	{"work", "()V", nullptr, $ABSTRACT, $virtualMethod(TypeCheckMicroBenchmark$Job, work, void), "java.lang.Throwable"},
 	{}
 };
 

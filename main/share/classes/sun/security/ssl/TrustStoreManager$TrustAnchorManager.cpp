@@ -51,11 +51,11 @@ $FieldInfo _TrustStoreManager$TrustAnchorManager_FieldInfo_[] = {
 };
 
 $MethodInfo _TrustStoreManager$TrustAnchorManager_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(TrustStoreManager$TrustAnchorManager::*)()>(&TrustStoreManager$TrustAnchorManager::init$))},
-	{"getKeyStore", "(Lsun/security/ssl/TrustStoreManager$TrustStoreDescriptor;)Ljava/security/KeyStore;", nullptr, 0, $method(static_cast<$KeyStore*(TrustStoreManager$TrustAnchorManager::*)($TrustStoreManager$TrustStoreDescriptor*)>(&TrustStoreManager$TrustAnchorManager::getKeyStore)), "java.lang.Exception"},
-	{"getTrustedCerts", "(Lsun/security/ssl/TrustStoreManager$TrustStoreDescriptor;)Ljava/util/Set;", "(Lsun/security/ssl/TrustStoreManager$TrustStoreDescriptor;)Ljava/util/Set<Ljava/security/cert/X509Certificate;>;", 0, $method(static_cast<$Set*(TrustStoreManager$TrustAnchorManager::*)($TrustStoreManager$TrustStoreDescriptor*)>(&TrustStoreManager$TrustAnchorManager::getTrustedCerts)), "java.lang.Exception"},
-	{"loadKeyStore", "(Lsun/security/ssl/TrustStoreManager$TrustStoreDescriptor;)Ljava/security/KeyStore;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$KeyStore*(*)($TrustStoreManager$TrustStoreDescriptor*)>(&TrustStoreManager$TrustAnchorManager::loadKeyStore)), "java.lang.Exception"},
-	{"loadTrustedCerts", "(Ljava/security/KeyStore;)Ljava/util/Set;", "(Ljava/security/KeyStore;)Ljava/util/Set<Ljava/security/cert/X509Certificate;>;", $PRIVATE | $STATIC, $method(static_cast<$Set*(*)($KeyStore*)>(&TrustStoreManager$TrustAnchorManager::loadTrustedCerts))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(TrustStoreManager$TrustAnchorManager, init$, void)},
+	{"getKeyStore", "(Lsun/security/ssl/TrustStoreManager$TrustStoreDescriptor;)Ljava/security/KeyStore;", nullptr, 0, $method(TrustStoreManager$TrustAnchorManager, getKeyStore, $KeyStore*, $TrustStoreManager$TrustStoreDescriptor*), "java.lang.Exception"},
+	{"getTrustedCerts", "(Lsun/security/ssl/TrustStoreManager$TrustStoreDescriptor;)Ljava/util/Set;", "(Lsun/security/ssl/TrustStoreManager$TrustStoreDescriptor;)Ljava/util/Set<Ljava/security/cert/X509Certificate;>;", 0, $method(TrustStoreManager$TrustAnchorManager, getTrustedCerts, $Set*, $TrustStoreManager$TrustStoreDescriptor*), "java.lang.Exception"},
+	{"loadKeyStore", "(Lsun/security/ssl/TrustStoreManager$TrustStoreDescriptor;)Ljava/security/KeyStore;", nullptr, $PRIVATE | $STATIC, $staticMethod(TrustStoreManager$TrustAnchorManager, loadKeyStore, $KeyStore*, $TrustStoreManager$TrustStoreDescriptor*), "java.lang.Exception"},
+	{"loadTrustedCerts", "(Ljava/security/KeyStore;)Ljava/util/Set;", "(Ljava/security/KeyStore;)Ljava/util/Set<Ljava/security/cert/X509Certificate;>;", $PRIVATE | $STATIC, $staticMethod(TrustStoreManager$TrustAnchorManager, loadTrustedCerts, $Set*, $KeyStore*)},
 	{}
 };
 

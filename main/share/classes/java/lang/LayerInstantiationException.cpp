@@ -16,10 +16,10 @@ $FieldInfo _LayerInstantiationException_FieldInfo_[] = {
 };
 
 $MethodInfo _LayerInstantiationException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(LayerInstantiationException::*)()>(&LayerInstantiationException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(LayerInstantiationException::*)($String*)>(&LayerInstantiationException::init$))},
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(LayerInstantiationException::*)($Throwable*)>(&LayerInstantiationException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(LayerInstantiationException::*)($String*,$Throwable*)>(&LayerInstantiationException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(LayerInstantiationException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(LayerInstantiationException, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(LayerInstantiationException, init$, void, $Throwable*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(LayerInstantiationException, init$, void, $String*, $Throwable*)},
 	{}
 };
 

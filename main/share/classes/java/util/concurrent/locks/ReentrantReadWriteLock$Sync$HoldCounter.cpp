@@ -22,7 +22,7 @@ $FieldInfo _ReentrantReadWriteLock$Sync$HoldCounter_FieldInfo_[] = {
 };
 
 $MethodInfo _ReentrantReadWriteLock$Sync$HoldCounter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ReentrantReadWriteLock$Sync$HoldCounter::*)()>(&ReentrantReadWriteLock$Sync$HoldCounter::init$))},
+	{"<init>", "()V", nullptr, 0, $method(ReentrantReadWriteLock$Sync$HoldCounter, init$, void)},
 	{}
 };
 

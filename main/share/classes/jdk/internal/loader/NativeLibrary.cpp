@@ -12,9 +12,9 @@ namespace jdk {
 		namespace loader {
 
 $MethodInfo _NativeLibrary_MethodInfo_[] = {
-	{"find", "(Ljava/lang/String;)J", nullptr, $PUBLIC | $ABSTRACT},
-	{"lookup", "(Ljava/lang/String;)J", nullptr, $PUBLIC, nullptr, "java.lang.NoSuchMethodException"},
-	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
+	{"find", "(Ljava/lang/String;)J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NativeLibrary, find, int64_t, $String*)},
+	{"lookup", "(Ljava/lang/String;)J", nullptr, $PUBLIC, $virtualMethod(NativeLibrary, lookup, int64_t, $String*), "java.lang.NoSuchMethodException"},
+	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NativeLibrary, name, $String*)},
 	{}
 };
 

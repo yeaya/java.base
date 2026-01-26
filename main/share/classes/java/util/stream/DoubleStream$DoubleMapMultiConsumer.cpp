@@ -8,6 +8,7 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $DoubleConsumer = ::java::util::function::DoubleConsumer;
 
 namespace java {
 	namespace util {
@@ -19,7 +20,7 @@ $CompoundAttribute _DoubleStream$DoubleMapMultiConsumer_Annotations_[] = {
 };
 
 $MethodInfo _DoubleStream$DoubleMapMultiConsumer_MethodInfo_[] = {
-	{"accept", "(DLjava/util/function/DoubleConsumer;)V", nullptr, $PUBLIC | $ABSTRACT},
+	{"accept", "(DLjava/util/function/DoubleConsumer;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DoubleStream$DoubleMapMultiConsumer, accept, void, double, $DoubleConsumer*)},
 	{}
 };
 

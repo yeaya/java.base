@@ -48,12 +48,12 @@ $FieldInfo _InheritIOEHandle_FieldInfo_[] = {
 };
 
 $MethodInfo _InheritIOEHandle_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(InheritIOEHandle::*)()>(&InheritIOEHandle::init$))},
-	{"getCommandArray", "(Ljava/lang/String;)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$StringArray*(*)($String*)>(&InheritIOEHandle::getCommandArray))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&InheritIOEHandle::main)), "java.lang.Exception"},
-	{"performA", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&InheritIOEHandle::performA))},
-	{"performB", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&InheritIOEHandle::performB))},
-	{"performC", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&InheritIOEHandle::performC))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(InheritIOEHandle, init$, void)},
+	{"getCommandArray", "(Ljava/lang/String;)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(InheritIOEHandle, getCommandArray, $StringArray*, $String*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(InheritIOEHandle, main, void, $StringArray*), "java.lang.Exception"},
+	{"performA", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(InheritIOEHandle, performA, void)},
+	{"performB", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(InheritIOEHandle, performB, void)},
+	{"performC", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(InheritIOEHandle, performC, void)},
 	{}
 };
 

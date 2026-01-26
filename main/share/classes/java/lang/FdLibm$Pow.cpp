@@ -34,8 +34,8 @@ namespace java {
 	namespace lang {
 
 $MethodInfo _FdLibm$Pow_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(FdLibm$Pow::*)()>(&FdLibm$Pow::init$))},
-	{"compute", "(DD)D", nullptr, $PUBLIC | $STATIC, $method(static_cast<double(*)(double,double)>(&FdLibm$Pow::compute))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(FdLibm$Pow, init$, void)},
+	{"compute", "(DD)D", nullptr, $PUBLIC | $STATIC, $staticMethod(FdLibm$Pow, compute, double, double, double)},
 	{}
 };
 

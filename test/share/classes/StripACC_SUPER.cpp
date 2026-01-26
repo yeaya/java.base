@@ -9,8 +9,8 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Modifier = ::java::lang::reflect::Modifier;
 
 $MethodInfo _StripACC_SUPER_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(StripACC_SUPER::*)()>(&StripACC_SUPER::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&StripACC_SUPER::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(StripACC_SUPER, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StripACC_SUPER, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

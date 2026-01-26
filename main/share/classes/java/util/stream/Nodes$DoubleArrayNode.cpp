@@ -30,16 +30,16 @@ $FieldInfo _Nodes$DoubleArrayNode_FieldInfo_[] = {
 };
 
 $MethodInfo _Nodes$DoubleArrayNode_MethodInfo_[] = {
-	{"<init>", "(J)V", nullptr, 0, $method(static_cast<void(Nodes$DoubleArrayNode::*)(int64_t)>(&Nodes$DoubleArrayNode::init$))},
-	{"<init>", "([D)V", nullptr, 0, $method(static_cast<void(Nodes$DoubleArrayNode::*)($doubles*)>(&Nodes$DoubleArrayNode::init$))},
-	{"asPrimitiveArray", "()[D", nullptr, $PUBLIC},
-	{"copyInto", "([DI)V", nullptr, $PUBLIC},
-	{"copyInto", "(Ljava/lang/Object;I)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"count", "()J", nullptr, $PUBLIC},
-	{"forEach", "(Ljava/util/function/DoubleConsumer;)V", nullptr, $PUBLIC},
-	{"forEach", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"spliterator", "()Ljava/util/Spliterator$OfDouble;", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(J)V", nullptr, 0, $method(Nodes$DoubleArrayNode, init$, void, int64_t)},
+	{"<init>", "([D)V", nullptr, 0, $method(Nodes$DoubleArrayNode, init$, void, $doubles*)},
+	{"asPrimitiveArray", "()[D", nullptr, $PUBLIC, $virtualMethod(Nodes$DoubleArrayNode, asPrimitiveArray, $Object*)},
+	{"copyInto", "([DI)V", nullptr, $PUBLIC, $virtualMethod(Nodes$DoubleArrayNode, copyInto, void, $doubles*, int32_t)},
+	{"copyInto", "(Ljava/lang/Object;I)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Nodes$DoubleArrayNode, copyInto, void, Object$*, int32_t)},
+	{"count", "()J", nullptr, $PUBLIC, $virtualMethod(Nodes$DoubleArrayNode, count, int64_t)},
+	{"forEach", "(Ljava/util/function/DoubleConsumer;)V", nullptr, $PUBLIC, $virtualMethod(Nodes$DoubleArrayNode, forEach, void, $DoubleConsumer*)},
+	{"forEach", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Nodes$DoubleArrayNode, forEach, void, Object$*)},
+	{"spliterator", "()Ljava/util/Spliterator$OfDouble;", nullptr, $PUBLIC, $virtualMethod(Nodes$DoubleArrayNode, spliterator, $Spliterator*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Nodes$DoubleArrayNode, toString, $String*)},
 	{}
 };
 

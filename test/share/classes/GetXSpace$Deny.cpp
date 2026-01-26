@@ -16,9 +16,9 @@ using $BasicPermission = ::java::security::BasicPermission;
 using $Permission = ::java::security::Permission;
 
 $MethodInfo _GetXSpace$Deny_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(GetXSpace$Deny::*)()>(&GetXSpace$Deny::init$))},
-	{"checkPermission", "(Ljava/security/Permission;)V", nullptr, $PUBLIC},
-	{"checkPermission", "(Ljava/security/Permission;Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(GetXSpace$Deny, init$, void)},
+	{"checkPermission", "(Ljava/security/Permission;)V", nullptr, $PUBLIC, $virtualMethod(GetXSpace$Deny, checkPermission, void, $Permission*)},
+	{"checkPermission", "(Ljava/security/Permission;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(GetXSpace$Deny, checkPermission, void, $Permission*, Object$*)},
 	{}
 };
 

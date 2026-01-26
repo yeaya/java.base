@@ -37,8 +37,8 @@ $FieldInfo _NativeLibraries$Unloader_FieldInfo_[] = {
 };
 
 $MethodInfo _NativeLibraries$Unloader_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;JZZ)V", nullptr, 0, $method(static_cast<void(NativeLibraries$Unloader::*)($String*,int64_t,bool,bool)>(&NativeLibraries$Unloader::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;JZZ)V", nullptr, 0, $method(NativeLibraries$Unloader, init$, void, $String*, int64_t, bool, bool)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(NativeLibraries$Unloader, run, void)},
 	{}
 };
 

@@ -33,15 +33,15 @@ $MethodInfo _ForkJoinTask$AdaptedRunnableAction_MethodInfo_[] = {
 	{"*get", "()Ljava/lang/Object;", nullptr, $PUBLIC | $FINAL},
 	{"*get", "(JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;", nullptr, $PUBLIC | $FINAL},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/lang/Runnable;)V", nullptr, 0, $method(static_cast<void(ForkJoinTask$AdaptedRunnableAction::*)($Runnable*)>(&ForkJoinTask$AdaptedRunnableAction::init$))},
-	{"exec", "()Z", nullptr, $PUBLIC | $FINAL},
-	{"getRawResult", "()Ljava/lang/Void;", nullptr, $PUBLIC | $FINAL},
+	{"<init>", "(Ljava/lang/Runnable;)V", nullptr, 0, $method(ForkJoinTask$AdaptedRunnableAction, init$, void, $Runnable*)},
+	{"exec", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(ForkJoinTask$AdaptedRunnableAction, exec, bool)},
+	{"getRawResult", "()Ljava/lang/Void;", nullptr, $PUBLIC | $FINAL, $virtualMethod(ForkJoinTask$AdaptedRunnableAction, getRawResult, $Object*)},
 	{"*isCancelled", "()Z", nullptr, $PUBLIC | $FINAL},
 	{"*isDone", "()Z", nullptr, $PUBLIC | $FINAL},
-	{"run", "()V", nullptr, $PUBLIC | $FINAL},
-	{"setRawResult", "(Ljava/lang/Void;)V", nullptr, $PUBLIC | $FINAL, $method(static_cast<void(ForkJoinTask$AdaptedRunnableAction::*)($Void*)>(&ForkJoinTask$AdaptedRunnableAction::setRawResult))},
-	{"setRawResult", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"run", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(ForkJoinTask$AdaptedRunnableAction, run, void)},
+	{"setRawResult", "(Ljava/lang/Void;)V", nullptr, $PUBLIC | $FINAL, $method(ForkJoinTask$AdaptedRunnableAction, setRawResult, void, $Void*)},
+	{"setRawResult", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ForkJoinTask$AdaptedRunnableAction, setRawResult, void, Object$*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ForkJoinTask$AdaptedRunnableAction, toString, $String*)},
 	{}
 };
 

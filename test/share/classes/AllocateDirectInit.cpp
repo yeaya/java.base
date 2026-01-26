@@ -11,9 +11,9 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 
 $MethodInfo _AllocateDirectInit_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(AllocateDirectInit::*)()>(&AllocateDirectInit::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&AllocateDirectInit::main))},
-	{"printByteBuffer", "(Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($ByteBuffer*)>(&AllocateDirectInit::printByteBuffer))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(AllocateDirectInit, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(AllocateDirectInit, main, void, $StringArray*)},
+	{"printByteBuffer", "(Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(AllocateDirectInit, printByteBuffer, void, $ByteBuffer*)},
 	{}
 };
 

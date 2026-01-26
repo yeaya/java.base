@@ -6,13 +6,15 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $ByteBuffer = ::java::nio::ByteBuffer;
+using $ConnectionContext = ::sun::security::ssl::ConnectionContext;
 
 namespace sun {
 	namespace security {
 		namespace ssl {
 
 $MethodInfo _SSLConsumer_MethodInfo_[] = {
-	{"consume", "(Lsun/security/ssl/ConnectionContext;Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
+	{"consume", "(Lsun/security/ssl/ConnectionContext;Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SSLConsumer, consume, void, $ConnectionContext*, $ByteBuffer*), "java.io.IOException"},
 	{}
 };
 

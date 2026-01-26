@@ -14,8 +14,8 @@ namespace sun {
 		namespace action {
 
 $MethodInfo _GetPropertyAction$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(GetPropertyAction$1::*)()>(&GetPropertyAction$1::init$))},
-	{"run", "()Ljava/util/Properties;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(GetPropertyAction$1, init$, void)},
+	{"run", "()Ljava/util/Properties;", nullptr, $PUBLIC, $virtualMethod(GetPropertyAction$1, run, $Object*)},
 	{}
 };
 

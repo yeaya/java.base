@@ -23,8 +23,8 @@ $FieldInfo _EnumMap$KeyIterator_FieldInfo_[] = {
 };
 
 $MethodInfo _EnumMap$KeyIterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/EnumMap;)V", nullptr, $PRIVATE, $method(static_cast<void(EnumMap$KeyIterator::*)($EnumMap*)>(&EnumMap$KeyIterator::init$))},
-	{"next", "()Ljava/lang/Enum;", "()TK;", $PUBLIC},
+	{"<init>", "(Ljava/util/EnumMap;)V", nullptr, $PRIVATE, $method(EnumMap$KeyIterator, init$, void, $EnumMap*)},
+	{"next", "()Ljava/lang/Enum;", "()TK;", $PUBLIC, $virtualMethod(EnumMap$KeyIterator, next, $Object*)},
 	{}
 };
 

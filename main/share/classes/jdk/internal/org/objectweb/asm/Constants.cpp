@@ -231,10 +231,10 @@ $FieldInfo _Constants_FieldInfo_[] = {
 };
 
 $MethodInfo _Constants_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(Constants::*)()>(&Constants::init$))},
-	{"checkAsmExperimental", "(Ljava/lang/Object;)V", nullptr, $STATIC, $method(static_cast<void(*)(Object$*)>(&Constants::checkAsmExperimental))},
-	{"checkIsPreview", "(Ljava/io/InputStream;)V", nullptr, $STATIC, $method(static_cast<void(*)($InputStream*)>(&Constants::checkIsPreview))},
-	{"isWhitelisted", "(Ljava/lang/String;)Z", nullptr, $STATIC, $method(static_cast<bool(*)($String*)>(&Constants::isWhitelisted))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(Constants, init$, void)},
+	{"checkAsmExperimental", "(Ljava/lang/Object;)V", nullptr, $STATIC, $staticMethod(Constants, checkAsmExperimental, void, Object$*)},
+	{"checkIsPreview", "(Ljava/io/InputStream;)V", nullptr, $STATIC, $staticMethod(Constants, checkIsPreview, void, $InputStream*)},
+	{"isWhitelisted", "(Ljava/lang/String;)Z", nullptr, $STATIC, $staticMethod(Constants, isWhitelisted, bool, $String*)},
 	{}
 };
 

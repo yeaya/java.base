@@ -20,12 +20,12 @@ namespace java {
 		namespace spi {
 
 $MethodInfo _NumberFormatProvider_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(NumberFormatProvider::*)()>(&NumberFormatProvider::init$))},
-	{"getCompactNumberInstance", "(Ljava/util/Locale;Ljava/text/NumberFormat$Style;)Ljava/text/NumberFormat;", nullptr, $PUBLIC},
-	{"getCurrencyInstance", "(Ljava/util/Locale;)Ljava/text/NumberFormat;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getIntegerInstance", "(Ljava/util/Locale;)Ljava/text/NumberFormat;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getNumberInstance", "(Ljava/util/Locale;)Ljava/text/NumberFormat;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getPercentInstance", "(Ljava/util/Locale;)Ljava/text/NumberFormat;", nullptr, $PUBLIC | $ABSTRACT},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(NumberFormatProvider, init$, void)},
+	{"getCompactNumberInstance", "(Ljava/util/Locale;Ljava/text/NumberFormat$Style;)Ljava/text/NumberFormat;", nullptr, $PUBLIC, $virtualMethod(NumberFormatProvider, getCompactNumberInstance, $NumberFormat*, $Locale*, $NumberFormat$Style*)},
+	{"getCurrencyInstance", "(Ljava/util/Locale;)Ljava/text/NumberFormat;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NumberFormatProvider, getCurrencyInstance, $NumberFormat*, $Locale*)},
+	{"getIntegerInstance", "(Ljava/util/Locale;)Ljava/text/NumberFormat;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NumberFormatProvider, getIntegerInstance, $NumberFormat*, $Locale*)},
+	{"getNumberInstance", "(Ljava/util/Locale;)Ljava/text/NumberFormat;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NumberFormatProvider, getNumberInstance, $NumberFormat*, $Locale*)},
+	{"getPercentInstance", "(Ljava/util/Locale;)Ljava/text/NumberFormat;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NumberFormatProvider, getPercentInstance, $NumberFormat*, $Locale*)},
 	{}
 };
 

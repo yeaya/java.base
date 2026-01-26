@@ -18,18 +18,18 @@ namespace sun {
 		namespace ch {
 
 $MethodInfo _DatagramDispatcher_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(DatagramDispatcher::*)()>(&DatagramDispatcher::init$))},
-	{"close", "(Ljava/io/FileDescriptor;)V", nullptr, 0, nullptr, "java.io.IOException"},
-	{"dup", "(Ljava/io/FileDescriptor;Ljava/io/FileDescriptor;)V", nullptr, 0, nullptr, "java.io.IOException"},
-	{"preClose", "(Ljava/io/FileDescriptor;)V", nullptr, 0, nullptr, "java.io.IOException"},
-	{"read", "(Ljava/io/FileDescriptor;JI)I", nullptr, 0, nullptr, "java.io.IOException"},
-	{"read0", "(Ljava/io/FileDescriptor;JI)I", nullptr, $STATIC | $NATIVE, $method(static_cast<int32_t(*)($FileDescriptor*,int64_t,int32_t)>(&DatagramDispatcher::read0)), "java.io.IOException"},
-	{"readv", "(Ljava/io/FileDescriptor;JI)J", nullptr, 0, nullptr, "java.io.IOException"},
-	{"readv0", "(Ljava/io/FileDescriptor;JI)J", nullptr, $STATIC | $NATIVE, $method(static_cast<int64_t(*)($FileDescriptor*,int64_t,int32_t)>(&DatagramDispatcher::readv0)), "java.io.IOException"},
-	{"write", "(Ljava/io/FileDescriptor;JI)I", nullptr, 0, nullptr, "java.io.IOException"},
-	{"write0", "(Ljava/io/FileDescriptor;JI)I", nullptr, $STATIC | $NATIVE, $method(static_cast<int32_t(*)($FileDescriptor*,int64_t,int32_t)>(&DatagramDispatcher::write0)), "java.io.IOException"},
-	{"writev", "(Ljava/io/FileDescriptor;JI)J", nullptr, 0, nullptr, "java.io.IOException"},
-	{"writev0", "(Ljava/io/FileDescriptor;JI)J", nullptr, $STATIC | $NATIVE, $method(static_cast<int64_t(*)($FileDescriptor*,int64_t,int32_t)>(&DatagramDispatcher::writev0)), "java.io.IOException"},
+	{"<init>", "()V", nullptr, 0, $method(DatagramDispatcher, init$, void)},
+	{"close", "(Ljava/io/FileDescriptor;)V", nullptr, 0, $virtualMethod(DatagramDispatcher, close, void, $FileDescriptor*), "java.io.IOException"},
+	{"dup", "(Ljava/io/FileDescriptor;Ljava/io/FileDescriptor;)V", nullptr, 0, $virtualMethod(DatagramDispatcher, dup, void, $FileDescriptor*, $FileDescriptor*), "java.io.IOException"},
+	{"preClose", "(Ljava/io/FileDescriptor;)V", nullptr, 0, $virtualMethod(DatagramDispatcher, preClose, void, $FileDescriptor*), "java.io.IOException"},
+	{"read", "(Ljava/io/FileDescriptor;JI)I", nullptr, 0, $virtualMethod(DatagramDispatcher, read, int32_t, $FileDescriptor*, int64_t, int32_t), "java.io.IOException"},
+	{"read0", "(Ljava/io/FileDescriptor;JI)I", nullptr, $STATIC | $NATIVE, $staticMethod(DatagramDispatcher, read0, int32_t, $FileDescriptor*, int64_t, int32_t), "java.io.IOException"},
+	{"readv", "(Ljava/io/FileDescriptor;JI)J", nullptr, 0, $virtualMethod(DatagramDispatcher, readv, int64_t, $FileDescriptor*, int64_t, int32_t), "java.io.IOException"},
+	{"readv0", "(Ljava/io/FileDescriptor;JI)J", nullptr, $STATIC | $NATIVE, $staticMethod(DatagramDispatcher, readv0, int64_t, $FileDescriptor*, int64_t, int32_t), "java.io.IOException"},
+	{"write", "(Ljava/io/FileDescriptor;JI)I", nullptr, 0, $virtualMethod(DatagramDispatcher, write, int32_t, $FileDescriptor*, int64_t, int32_t), "java.io.IOException"},
+	{"write0", "(Ljava/io/FileDescriptor;JI)I", nullptr, $STATIC | $NATIVE, $staticMethod(DatagramDispatcher, write0, int32_t, $FileDescriptor*, int64_t, int32_t), "java.io.IOException"},
+	{"writev", "(Ljava/io/FileDescriptor;JI)J", nullptr, 0, $virtualMethod(DatagramDispatcher, writev, int64_t, $FileDescriptor*, int64_t, int32_t), "java.io.IOException"},
+	{"writev0", "(Ljava/io/FileDescriptor;JI)J", nullptr, $STATIC | $NATIVE, $staticMethod(DatagramDispatcher, writev0, int64_t, $FileDescriptor*, int64_t, int32_t), "java.io.IOException"},
 	{}
 };
 

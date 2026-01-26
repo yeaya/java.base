@@ -7,8 +7,8 @@ using $Exception = ::java::lang::Exception;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _IndexOfEmptyInEmpty_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(IndexOfEmptyInEmpty::*)()>(&IndexOfEmptyInEmpty::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&IndexOfEmptyInEmpty::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(IndexOfEmptyInEmpty, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(IndexOfEmptyInEmpty, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

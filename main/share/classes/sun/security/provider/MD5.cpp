@@ -57,17 +57,17 @@ $FieldInfo _MD5_FieldInfo_[] = {
 };
 
 $MethodInfo _MD5_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(MD5::*)()>(&MD5::init$))},
-	{"FF", "(IIIIIII)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)(int32_t,int32_t,int32_t,int32_t,int32_t,int32_t,int32_t)>(&MD5::FF))},
-	{"GG", "(IIIIIII)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)(int32_t,int32_t,int32_t,int32_t,int32_t,int32_t,int32_t)>(&MD5::GG))},
-	{"HH", "(IIIIIII)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)(int32_t,int32_t,int32_t,int32_t,int32_t,int32_t,int32_t)>(&MD5::HH))},
-	{"II", "(IIIIIII)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)(int32_t,int32_t,int32_t,int32_t,int32_t,int32_t,int32_t)>(&MD5::II))},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, nullptr, "java.lang.CloneNotSupportedException"},
-	{"implCompress", "([BI)V", nullptr, 0},
-	{"implCompress0", "([BI)V", nullptr, 0, $method(static_cast<void(MD5::*)($bytes*,int32_t)>(&MD5::implCompress0)), nullptr, nullptr, _MD5_MethodAnnotations_implCompress07},
-	{"implCompressCheck", "([BI)V", nullptr, $PRIVATE, $method(static_cast<void(MD5::*)($bytes*,int32_t)>(&MD5::implCompressCheck))},
-	{"implDigest", "([BI)V", nullptr, 0},
-	{"implReset", "()V", nullptr, 0},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(MD5, init$, void)},
+	{"FF", "(IIIIIII)I", nullptr, $PRIVATE | $STATIC, $staticMethod(MD5, FF, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+	{"GG", "(IIIIIII)I", nullptr, $PRIVATE | $STATIC, $staticMethod(MD5, GG, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+	{"HH", "(IIIIIII)I", nullptr, $PRIVATE | $STATIC, $staticMethod(MD5, HH, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+	{"II", "(IIIIIII)I", nullptr, $PRIVATE | $STATIC, $staticMethod(MD5, II, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MD5, clone, $Object*), "java.lang.CloneNotSupportedException"},
+	{"implCompress", "([BI)V", nullptr, 0, $virtualMethod(MD5, implCompress, void, $bytes*, int32_t)},
+	{"implCompress0", "([BI)V", nullptr, 0, $method(MD5, implCompress0, void, $bytes*, int32_t), nullptr, nullptr, _MD5_MethodAnnotations_implCompress07},
+	{"implCompressCheck", "([BI)V", nullptr, $PRIVATE, $method(MD5, implCompressCheck, void, $bytes*, int32_t)},
+	{"implDigest", "([BI)V", nullptr, 0, $virtualMethod(MD5, implDigest, void, $bytes*, int32_t)},
+	{"implReset", "()V", nullptr, 0, $virtualMethod(MD5, implReset, void)},
 	{}
 };
 

@@ -67,12 +67,12 @@ $FieldInfo _SSLCipher$T13GcmWriteCipherGenerator$GcmWriteCipher_FieldInfo_[] = {
 };
 
 $MethodInfo _SSLCipher$T13GcmWriteCipherGenerator$GcmWriteCipher_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/ssl/Authenticator;Lsun/security/ssl/ProtocolVersion;Lsun/security/ssl/SSLCipher;Ljava/lang/String;Ljava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, 0, $method(static_cast<void(SSLCipher$T13GcmWriteCipherGenerator$GcmWriteCipher::*)($Authenticator*,$ProtocolVersion*,$SSLCipher*,$String*,$Key*,$AlgorithmParameterSpec*,$SecureRandom*)>(&SSLCipher$T13GcmWriteCipherGenerator$GcmWriteCipher::init$)), "java.security.GeneralSecurityException"},
-	{"calculateFragmentSize", "(II)I", nullptr, 0},
-	{"calculatePacketSize", "(II)I", nullptr, 0},
-	{"dispose", "()V", nullptr, 0},
-	{"encrypt", "(BLjava/nio/ByteBuffer;)I", nullptr, $PUBLIC},
-	{"getExplicitNonceSize", "()I", nullptr, 0},
+	{"<init>", "(Lsun/security/ssl/Authenticator;Lsun/security/ssl/ProtocolVersion;Lsun/security/ssl/SSLCipher;Ljava/lang/String;Ljava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, 0, $method(SSLCipher$T13GcmWriteCipherGenerator$GcmWriteCipher, init$, void, $Authenticator*, $ProtocolVersion*, $SSLCipher*, $String*, $Key*, $AlgorithmParameterSpec*, $SecureRandom*), "java.security.GeneralSecurityException"},
+	{"calculateFragmentSize", "(II)I", nullptr, 0, $virtualMethod(SSLCipher$T13GcmWriteCipherGenerator$GcmWriteCipher, calculateFragmentSize, int32_t, int32_t, int32_t)},
+	{"calculatePacketSize", "(II)I", nullptr, 0, $virtualMethod(SSLCipher$T13GcmWriteCipherGenerator$GcmWriteCipher, calculatePacketSize, int32_t, int32_t, int32_t)},
+	{"dispose", "()V", nullptr, 0, $virtualMethod(SSLCipher$T13GcmWriteCipherGenerator$GcmWriteCipher, dispose, void)},
+	{"encrypt", "(BLjava/nio/ByteBuffer;)I", nullptr, $PUBLIC, $virtualMethod(SSLCipher$T13GcmWriteCipherGenerator$GcmWriteCipher, encrypt, int32_t, int8_t, $ByteBuffer*)},
+	{"getExplicitNonceSize", "()I", nullptr, 0, $virtualMethod(SSLCipher$T13GcmWriteCipherGenerator$GcmWriteCipher, getExplicitNonceSize, int32_t)},
 	{}
 };
 

@@ -21,11 +21,11 @@ namespace jdk {
 		namespace module {
 
 $MethodInfo _ModuleLoaderMap_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ModuleLoaderMap::*)()>(&ModuleLoaderMap::init$))},
-	{"bootModules", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC | $STATIC, $method(static_cast<$Set*(*)()>(&ModuleLoaderMap::bootModules))},
-	{"isBuiltinMapper", "(Ljava/util/function/Function;)Z", "(Ljava/util/function/Function<Ljava/lang/String;Ljava/lang/ClassLoader;>;)Z", $PUBLIC | $STATIC, $method(static_cast<bool(*)($Function*)>(&ModuleLoaderMap::isBuiltinMapper))},
-	{"mappingFunction", "(Ljava/lang/module/Configuration;)Ljava/util/function/Function;", "(Ljava/lang/module/Configuration;)Ljava/util/function/Function<Ljava/lang/String;Ljava/lang/ClassLoader;>;", $STATIC, $method(static_cast<$Function*(*)($Configuration*)>(&ModuleLoaderMap::mappingFunction))},
-	{"platformModules", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC | $STATIC, $method(static_cast<$Set*(*)()>(&ModuleLoaderMap::platformModules))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ModuleLoaderMap, init$, void)},
+	{"bootModules", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC | $STATIC, $staticMethod(ModuleLoaderMap, bootModules, $Set*)},
+	{"isBuiltinMapper", "(Ljava/util/function/Function;)Z", "(Ljava/util/function/Function<Ljava/lang/String;Ljava/lang/ClassLoader;>;)Z", $PUBLIC | $STATIC, $staticMethod(ModuleLoaderMap, isBuiltinMapper, bool, $Function*)},
+	{"mappingFunction", "(Ljava/lang/module/Configuration;)Ljava/util/function/Function;", "(Ljava/lang/module/Configuration;)Ljava/util/function/Function<Ljava/lang/String;Ljava/lang/ClassLoader;>;", $STATIC, $staticMethod(ModuleLoaderMap, mappingFunction, $Function*, $Configuration*)},
+	{"platformModules", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC | $STATIC, $staticMethod(ModuleLoaderMap, platformModules, $Set*)},
 	{}
 };
 

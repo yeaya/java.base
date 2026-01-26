@@ -19,9 +19,9 @@ namespace java {
 	namespace net {
 
 $MethodInfo _FactoryURLClassLoader_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;[Ljava/net/URL;Ljava/lang/ClassLoader;Ljava/security/AccessControlContext;)V", nullptr, 0, $method(static_cast<void(FactoryURLClassLoader::*)($String*,$URLArray*,$ClassLoader*,$AccessControlContext*)>(&FactoryURLClassLoader::init$))},
-	{"<init>", "([Ljava/net/URL;Ljava/security/AccessControlContext;)V", nullptr, 0, $method(static_cast<void(FactoryURLClassLoader::*)($URLArray*,$AccessControlContext*)>(&FactoryURLClassLoader::init$))},
-	{"loadClass", "(Ljava/lang/String;Z)Ljava/lang/Class;", "(Ljava/lang/String;Z)Ljava/lang/Class<*>;", $PUBLIC | $FINAL, nullptr, "java.lang.ClassNotFoundException"},
+	{"<init>", "(Ljava/lang/String;[Ljava/net/URL;Ljava/lang/ClassLoader;Ljava/security/AccessControlContext;)V", nullptr, 0, $method(FactoryURLClassLoader, init$, void, $String*, $URLArray*, $ClassLoader*, $AccessControlContext*)},
+	{"<init>", "([Ljava/net/URL;Ljava/security/AccessControlContext;)V", nullptr, 0, $method(FactoryURLClassLoader, init$, void, $URLArray*, $AccessControlContext*)},
+	{"loadClass", "(Ljava/lang/String;Z)Ljava/lang/Class;", "(Ljava/lang/String;Z)Ljava/lang/Class<*>;", $PUBLIC | $FINAL, $virtualMethod(FactoryURLClassLoader, loadClass, $Class*, $String*, bool), "java.lang.ClassNotFoundException"},
 	{}
 };
 

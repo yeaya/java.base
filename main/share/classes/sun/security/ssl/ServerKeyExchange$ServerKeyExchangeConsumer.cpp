@@ -51,8 +51,8 @@ namespace sun {
 		namespace ssl {
 
 $MethodInfo _ServerKeyExchange$ServerKeyExchangeConsumer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(ServerKeyExchange$ServerKeyExchangeConsumer::*)()>(&ServerKeyExchange$ServerKeyExchangeConsumer::init$))},
-	{"consume", "(Lsun/security/ssl/ConnectionContext;Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(ServerKeyExchange$ServerKeyExchangeConsumer, init$, void)},
+	{"consume", "(Lsun/security/ssl/ConnectionContext;Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(ServerKeyExchange$ServerKeyExchangeConsumer, consume, void, $ConnectionContext*, $ByteBuffer*), "java.io.IOException"},
 	{}
 };
 

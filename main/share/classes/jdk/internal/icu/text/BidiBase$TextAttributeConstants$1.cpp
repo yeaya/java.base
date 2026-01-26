@@ -16,7 +16,7 @@ namespace jdk {
 			namespace text {
 
 $MethodInfo _BidiBase$TextAttributeConstants$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(BidiBase$TextAttributeConstants$1::*)($String*)>(&BidiBase$TextAttributeConstants$1::init$))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(BidiBase$TextAttributeConstants$1, init$, void, $String*)},
 	{}
 };
 

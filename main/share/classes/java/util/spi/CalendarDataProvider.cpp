@@ -6,6 +6,7 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Locale = ::java::util::Locale;
 using $LocaleServiceProvider = ::java::util::spi::LocaleServiceProvider;
 
 namespace java {
@@ -13,9 +14,9 @@ namespace java {
 		namespace spi {
 
 $MethodInfo _CalendarDataProvider_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(CalendarDataProvider::*)()>(&CalendarDataProvider::init$))},
-	{"getFirstDayOfWeek", "(Ljava/util/Locale;)I", nullptr, $PUBLIC | $ABSTRACT},
-	{"getMinimalDaysInFirstWeek", "(Ljava/util/Locale;)I", nullptr, $PUBLIC | $ABSTRACT},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(CalendarDataProvider, init$, void)},
+	{"getFirstDayOfWeek", "(Ljava/util/Locale;)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CalendarDataProvider, getFirstDayOfWeek, int32_t, $Locale*)},
+	{"getMinimalDaysInFirstWeek", "(Ljava/util/Locale;)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CalendarDataProvider, getMinimalDaysInFirstWeek, int32_t, $Locale*)},
 	{}
 };
 

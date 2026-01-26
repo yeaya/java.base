@@ -36,8 +36,8 @@ namespace java {
 		namespace charset {
 
 $MethodInfo _Charset$3_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Charset$3::*)()>(&Charset$3::init$))},
-	{"run", "()Ljava/util/SortedMap;", "()Ljava/util/SortedMap<Ljava/lang/String;Ljava/nio/charset/Charset;>;", $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(Charset$3, init$, void)},
+	{"run", "()Ljava/util/SortedMap;", "()Ljava/util/SortedMap<Ljava/lang/String;Ljava/nio/charset/Charset;>;", $PUBLIC, $virtualMethod(Charset$3, run, $Object*)},
 	{}
 };
 

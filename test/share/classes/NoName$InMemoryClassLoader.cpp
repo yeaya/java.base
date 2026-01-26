@@ -10,8 +10,8 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _NoName$InMemoryClassLoader_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(NoName$InMemoryClassLoader::*)()>(&NoName$InMemoryClassLoader::init$))},
-	{"defineClass", "(Ljava/lang/String;[B)Ljava/lang/Class;", "(Ljava/lang/String;[B)Ljava/lang/Class<*>;", $PUBLIC},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(NoName$InMemoryClassLoader, init$, void)},
+	{"defineClass", "(Ljava/lang/String;[B)Ljava/lang/Class;", "(Ljava/lang/String;[B)Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(NoName$InMemoryClassLoader, defineClass, $Class*, $String*, $bytes*)},
 	{}
 };
 

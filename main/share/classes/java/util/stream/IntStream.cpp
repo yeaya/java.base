@@ -61,22 +61,34 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $Arrays = ::java::util::Arrays;
+using $IntSummaryStatistics = ::java::util::IntSummaryStatistics;
 using $Objects = ::java::util::Objects;
+using $OptionalDouble = ::java::util::OptionalDouble;
+using $OptionalInt = ::java::util::OptionalInt;
 using $Spliterator = ::java::util::Spliterator;
 using $Spliterator$OfInt = ::java::util::Spliterator$OfInt;
 using $Spliterators = ::java::util::Spliterators;
 using $Spliterators$AbstractIntSpliterator = ::java::util::Spliterators$AbstractIntSpliterator;
+using $BiConsumer = ::java::util::function::BiConsumer;
+using $IntBinaryOperator = ::java::util::function::IntBinaryOperator;
 using $IntConsumer = ::java::util::function::IntConsumer;
 using $IntFunction = ::java::util::function::IntFunction;
 using $IntPredicate = ::java::util::function::IntPredicate;
 using $IntSupplier = ::java::util::function::IntSupplier;
+using $IntToDoubleFunction = ::java::util::function::IntToDoubleFunction;
+using $IntToLongFunction = ::java::util::function::IntToLongFunction;
 using $IntUnaryOperator = ::java::util::function::IntUnaryOperator;
+using $ObjIntConsumer = ::java::util::function::ObjIntConsumer;
+using $Supplier = ::java::util::function::Supplier;
 using $BaseStream = ::java::util::stream::BaseStream;
+using $DoubleStream = ::java::util::stream::DoubleStream;
 using $IntStream$1 = ::java::util::stream::IntStream$1;
 using $IntStream$2 = ::java::util::stream::IntStream$2;
 using $IntStream$Builder = ::java::util::stream::IntStream$Builder;
 using $IntStream$IntMapMultiConsumer = ::java::util::stream::IntStream$IntMapMultiConsumer;
+using $LongStream = ::java::util::stream::LongStream;
 using $SpinedBuffer$OfInt = ::java::util::stream::SpinedBuffer$OfInt;
+using $Stream = ::java::util::stream::Stream;
 using $StreamSpliterators$InfiniteSupplyingSpliterator$OfInt = ::java::util::stream::StreamSpliterators$InfiniteSupplyingSpliterator$OfInt;
 using $StreamSupport = ::java::util::stream::StreamSupport;
 using $Streams = ::java::util::stream::Streams;
@@ -113,8 +125,8 @@ $FieldInfo IntStream$$Lambda$lambda$mapMulti$0::fieldInfos[2] = {
 	{}
 };
 $MethodInfo IntStream$$Lambda$lambda$mapMulti$0::methodInfos[3] = {
-	{"<init>", "(Ljava/util/stream/IntStream$IntMapMultiConsumer;)V", nullptr, $PUBLIC, $method(static_cast<void(IntStream$$Lambda$lambda$mapMulti$0::*)($IntStream$IntMapMultiConsumer*)>(&IntStream$$Lambda$lambda$mapMulti$0::init$))},
-	{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/stream/IntStream$IntMapMultiConsumer;)V", nullptr, $PUBLIC, $method(IntStream$$Lambda$lambda$mapMulti$0, init$, void, $IntStream$IntMapMultiConsumer*)},
+	{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(IntStream$$Lambda$lambda$mapMulti$0, apply, $Object*, int32_t)},
 	{}
 };
 $ClassInfo IntStream$$Lambda$lambda$mapMulti$0::classInfo$ = {
@@ -153,8 +165,8 @@ $FieldInfo IntStream$$Lambda$close$1::fieldInfos[2] = {
 	{}
 };
 $MethodInfo IntStream$$Lambda$close$1::methodInfos[3] = {
-	{"<init>", "(Ljava/util/stream/BaseStream;)V", nullptr, $PUBLIC, $method(static_cast<void(IntStream$$Lambda$close$1::*)($BaseStream*)>(&IntStream$$Lambda$close$1::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/stream/BaseStream;)V", nullptr, $PUBLIC, $method(IntStream$$Lambda$close$1, init$, void, $BaseStream*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(IntStream$$Lambda$close$1, run, void)},
 	{}
 };
 $ClassInfo IntStream$$Lambda$close$1::classInfo$ = {
@@ -172,55 +184,55 @@ $Class* IntStream$$Lambda$close$1::load$($String* name, bool initialize) {
 $Class* IntStream$$Lambda$close$1::class$ = nullptr;
 
 $MethodInfo _IntStream_MethodInfo_[] = {
-	{"allMatch", "(Ljava/util/function/IntPredicate;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"anyMatch", "(Ljava/util/function/IntPredicate;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"asDoubleStream", "()Ljava/util/stream/DoubleStream;", nullptr, $PUBLIC | $ABSTRACT},
-	{"asLongStream", "()Ljava/util/stream/LongStream;", nullptr, $PUBLIC | $ABSTRACT},
-	{"average", "()Ljava/util/OptionalDouble;", nullptr, $PUBLIC | $ABSTRACT},
-	{"boxed", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljava/lang/Integer;>;", $PUBLIC | $ABSTRACT},
-	{"builder", "()Ljava/util/stream/IntStream$Builder;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$IntStream$Builder*(*)()>(&IntStream::builder))},
-	{"collect", "(Ljava/util/function/Supplier;Ljava/util/function/ObjIntConsumer;Ljava/util/function/BiConsumer;)Ljava/lang/Object;", "<R:Ljava/lang/Object;>(Ljava/util/function/Supplier<TR;>;Ljava/util/function/ObjIntConsumer<TR;>;Ljava/util/function/BiConsumer<TR;TR;>;)TR;", $PUBLIC | $ABSTRACT},
-	{"concat", "(Ljava/util/stream/IntStream;Ljava/util/stream/IntStream;)Ljava/util/stream/IntStream;", nullptr, $PUBLIC | $STATIC, $method(static_cast<IntStream*(*)(IntStream*,IntStream*)>(&IntStream::concat))},
-	{"count", "()J", nullptr, $PUBLIC | $ABSTRACT},
-	{"distinct", "()Ljava/util/stream/IntStream;", nullptr, $PUBLIC | $ABSTRACT},
-	{"dropWhile", "(Ljava/util/function/IntPredicate;)Ljava/util/stream/IntStream;", nullptr, $PUBLIC},
-	{"empty", "()Ljava/util/stream/IntStream;", nullptr, $PUBLIC | $STATIC, $method(static_cast<IntStream*(*)()>(&IntStream::empty))},
-	{"filter", "(Ljava/util/function/IntPredicate;)Ljava/util/stream/IntStream;", nullptr, $PUBLIC | $ABSTRACT},
-	{"findAny", "()Ljava/util/OptionalInt;", nullptr, $PUBLIC | $ABSTRACT},
-	{"findFirst", "()Ljava/util/OptionalInt;", nullptr, $PUBLIC | $ABSTRACT},
-	{"flatMap", "(Ljava/util/function/IntFunction;)Ljava/util/stream/IntStream;", "(Ljava/util/function/IntFunction<+Ljava/util/stream/IntStream;>;)Ljava/util/stream/IntStream;", $PUBLIC | $ABSTRACT},
-	{"forEach", "(Ljava/util/function/IntConsumer;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"forEachOrdered", "(Ljava/util/function/IntConsumer;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"generate", "(Ljava/util/function/IntSupplier;)Ljava/util/stream/IntStream;", nullptr, $PUBLIC | $STATIC, $method(static_cast<IntStream*(*)($IntSupplier*)>(&IntStream::generate))},
-	{"iterate", "(ILjava/util/function/IntUnaryOperator;)Ljava/util/stream/IntStream;", nullptr, $PUBLIC | $STATIC, $method(static_cast<IntStream*(*)(int32_t,$IntUnaryOperator*)>(&IntStream::iterate))},
-	{"iterate", "(ILjava/util/function/IntPredicate;Ljava/util/function/IntUnaryOperator;)Ljava/util/stream/IntStream;", nullptr, $PUBLIC | $STATIC, $method(static_cast<IntStream*(*)(int32_t,$IntPredicate*,$IntUnaryOperator*)>(&IntStream::iterate))},
+	{"allMatch", "(Ljava/util/function/IntPredicate;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(IntStream, allMatch, bool, $IntPredicate*)},
+	{"anyMatch", "(Ljava/util/function/IntPredicate;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(IntStream, anyMatch, bool, $IntPredicate*)},
+	{"asDoubleStream", "()Ljava/util/stream/DoubleStream;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(IntStream, asDoubleStream, $DoubleStream*)},
+	{"asLongStream", "()Ljava/util/stream/LongStream;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(IntStream, asLongStream, $LongStream*)},
+	{"average", "()Ljava/util/OptionalDouble;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(IntStream, average, $OptionalDouble*)},
+	{"boxed", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljava/lang/Integer;>;", $PUBLIC | $ABSTRACT, $virtualMethod(IntStream, boxed, $Stream*)},
+	{"builder", "()Ljava/util/stream/IntStream$Builder;", nullptr, $PUBLIC | $STATIC, $staticMethod(IntStream, builder, $IntStream$Builder*)},
+	{"collect", "(Ljava/util/function/Supplier;Ljava/util/function/ObjIntConsumer;Ljava/util/function/BiConsumer;)Ljava/lang/Object;", "<R:Ljava/lang/Object;>(Ljava/util/function/Supplier<TR;>;Ljava/util/function/ObjIntConsumer<TR;>;Ljava/util/function/BiConsumer<TR;TR;>;)TR;", $PUBLIC | $ABSTRACT, $virtualMethod(IntStream, collect, $Object*, $Supplier*, $ObjIntConsumer*, $BiConsumer*)},
+	{"concat", "(Ljava/util/stream/IntStream;Ljava/util/stream/IntStream;)Ljava/util/stream/IntStream;", nullptr, $PUBLIC | $STATIC, $staticMethod(IntStream, concat, IntStream*, IntStream*, IntStream*)},
+	{"count", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(IntStream, count, int64_t)},
+	{"distinct", "()Ljava/util/stream/IntStream;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(IntStream, distinct, IntStream*)},
+	{"dropWhile", "(Ljava/util/function/IntPredicate;)Ljava/util/stream/IntStream;", nullptr, $PUBLIC, $virtualMethod(IntStream, dropWhile, IntStream*, $IntPredicate*)},
+	{"empty", "()Ljava/util/stream/IntStream;", nullptr, $PUBLIC | $STATIC, $staticMethod(IntStream, empty, IntStream*)},
+	{"filter", "(Ljava/util/function/IntPredicate;)Ljava/util/stream/IntStream;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(IntStream, filter, IntStream*, $IntPredicate*)},
+	{"findAny", "()Ljava/util/OptionalInt;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(IntStream, findAny, $OptionalInt*)},
+	{"findFirst", "()Ljava/util/OptionalInt;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(IntStream, findFirst, $OptionalInt*)},
+	{"flatMap", "(Ljava/util/function/IntFunction;)Ljava/util/stream/IntStream;", "(Ljava/util/function/IntFunction<+Ljava/util/stream/IntStream;>;)Ljava/util/stream/IntStream;", $PUBLIC | $ABSTRACT, $virtualMethod(IntStream, flatMap, IntStream*, $IntFunction*)},
+	{"forEach", "(Ljava/util/function/IntConsumer;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(IntStream, forEach, void, $IntConsumer*)},
+	{"forEachOrdered", "(Ljava/util/function/IntConsumer;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(IntStream, forEachOrdered, void, $IntConsumer*)},
+	{"generate", "(Ljava/util/function/IntSupplier;)Ljava/util/stream/IntStream;", nullptr, $PUBLIC | $STATIC, $staticMethod(IntStream, generate, IntStream*, $IntSupplier*)},
+	{"iterate", "(ILjava/util/function/IntUnaryOperator;)Ljava/util/stream/IntStream;", nullptr, $PUBLIC | $STATIC, $staticMethod(IntStream, iterate, IntStream*, int32_t, $IntUnaryOperator*)},
+	{"iterate", "(ILjava/util/function/IntPredicate;Ljava/util/function/IntUnaryOperator;)Ljava/util/stream/IntStream;", nullptr, $PUBLIC | $STATIC, $staticMethod(IntStream, iterate, IntStream*, int32_t, $IntPredicate*, $IntUnaryOperator*)},
 	{"iterator", "()Ljava/util/Iterator;", nullptr, $PUBLIC | $ABSTRACT},
-	{"lambda$mapMulti$0", "(Ljava/util/stream/IntStream$IntMapMultiConsumer;I)Ljava/util/stream/IntStream;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<IntStream*(*)($IntStream$IntMapMultiConsumer*,int32_t)>(&IntStream::lambda$mapMulti$0))},
-	{"limit", "(J)Ljava/util/stream/IntStream;", nullptr, $PUBLIC | $ABSTRACT},
-	{"map", "(Ljava/util/function/IntUnaryOperator;)Ljava/util/stream/IntStream;", nullptr, $PUBLIC | $ABSTRACT},
-	{"mapMulti", "(Ljava/util/stream/IntStream$IntMapMultiConsumer;)Ljava/util/stream/IntStream;", nullptr, $PUBLIC},
-	{"mapToDouble", "(Ljava/util/function/IntToDoubleFunction;)Ljava/util/stream/DoubleStream;", nullptr, $PUBLIC | $ABSTRACT},
-	{"mapToLong", "(Ljava/util/function/IntToLongFunction;)Ljava/util/stream/LongStream;", nullptr, $PUBLIC | $ABSTRACT},
-	{"mapToObj", "(Ljava/util/function/IntFunction;)Ljava/util/stream/Stream;", "<U:Ljava/lang/Object;>(Ljava/util/function/IntFunction<+TU;>;)Ljava/util/stream/Stream<TU;>;", $PUBLIC | $ABSTRACT},
-	{"max", "()Ljava/util/OptionalInt;", nullptr, $PUBLIC | $ABSTRACT},
-	{"min", "()Ljava/util/OptionalInt;", nullptr, $PUBLIC | $ABSTRACT},
-	{"noneMatch", "(Ljava/util/function/IntPredicate;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"of", "(I)Ljava/util/stream/IntStream;", nullptr, $PUBLIC | $STATIC, $method(static_cast<IntStream*(*)(int32_t)>(&IntStream::of))},
-	{"of", "([I)Ljava/util/stream/IntStream;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<IntStream*(*)($ints*)>(&IntStream::of))},
+	{"lambda$mapMulti$0", "(Ljava/util/stream/IntStream$IntMapMultiConsumer;I)Ljava/util/stream/IntStream;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(IntStream, lambda$mapMulti$0, IntStream*, $IntStream$IntMapMultiConsumer*, int32_t)},
+	{"limit", "(J)Ljava/util/stream/IntStream;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(IntStream, limit, IntStream*, int64_t)},
+	{"map", "(Ljava/util/function/IntUnaryOperator;)Ljava/util/stream/IntStream;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(IntStream, map, IntStream*, $IntUnaryOperator*)},
+	{"mapMulti", "(Ljava/util/stream/IntStream$IntMapMultiConsumer;)Ljava/util/stream/IntStream;", nullptr, $PUBLIC, $virtualMethod(IntStream, mapMulti, IntStream*, $IntStream$IntMapMultiConsumer*)},
+	{"mapToDouble", "(Ljava/util/function/IntToDoubleFunction;)Ljava/util/stream/DoubleStream;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(IntStream, mapToDouble, $DoubleStream*, $IntToDoubleFunction*)},
+	{"mapToLong", "(Ljava/util/function/IntToLongFunction;)Ljava/util/stream/LongStream;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(IntStream, mapToLong, $LongStream*, $IntToLongFunction*)},
+	{"mapToObj", "(Ljava/util/function/IntFunction;)Ljava/util/stream/Stream;", "<U:Ljava/lang/Object;>(Ljava/util/function/IntFunction<+TU;>;)Ljava/util/stream/Stream<TU;>;", $PUBLIC | $ABSTRACT, $virtualMethod(IntStream, mapToObj, $Stream*, $IntFunction*)},
+	{"max", "()Ljava/util/OptionalInt;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(IntStream, max, $OptionalInt*)},
+	{"min", "()Ljava/util/OptionalInt;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(IntStream, min, $OptionalInt*)},
+	{"noneMatch", "(Ljava/util/function/IntPredicate;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(IntStream, noneMatch, bool, $IntPredicate*)},
+	{"of", "(I)Ljava/util/stream/IntStream;", nullptr, $PUBLIC | $STATIC, $staticMethod(IntStream, of, IntStream*, int32_t)},
+	{"of", "([I)Ljava/util/stream/IntStream;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(IntStream, of, IntStream*, $ints*)},
 	{"parallel", "()Ljava/util/stream/IntStream;", nullptr, $PUBLIC | $ABSTRACT},
-	{"peek", "(Ljava/util/function/IntConsumer;)Ljava/util/stream/IntStream;", nullptr, $PUBLIC | $ABSTRACT},
-	{"range", "(II)Ljava/util/stream/IntStream;", nullptr, $PUBLIC | $STATIC, $method(static_cast<IntStream*(*)(int32_t,int32_t)>(&IntStream::range))},
-	{"rangeClosed", "(II)Ljava/util/stream/IntStream;", nullptr, $PUBLIC | $STATIC, $method(static_cast<IntStream*(*)(int32_t,int32_t)>(&IntStream::rangeClosed))},
-	{"reduce", "(ILjava/util/function/IntBinaryOperator;)I", nullptr, $PUBLIC | $ABSTRACT},
-	{"reduce", "(Ljava/util/function/IntBinaryOperator;)Ljava/util/OptionalInt;", nullptr, $PUBLIC | $ABSTRACT},
+	{"peek", "(Ljava/util/function/IntConsumer;)Ljava/util/stream/IntStream;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(IntStream, peek, IntStream*, $IntConsumer*)},
+	{"range", "(II)Ljava/util/stream/IntStream;", nullptr, $PUBLIC | $STATIC, $staticMethod(IntStream, range, IntStream*, int32_t, int32_t)},
+	{"rangeClosed", "(II)Ljava/util/stream/IntStream;", nullptr, $PUBLIC | $STATIC, $staticMethod(IntStream, rangeClosed, IntStream*, int32_t, int32_t)},
+	{"reduce", "(ILjava/util/function/IntBinaryOperator;)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(IntStream, reduce, int32_t, int32_t, $IntBinaryOperator*)},
+	{"reduce", "(Ljava/util/function/IntBinaryOperator;)Ljava/util/OptionalInt;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(IntStream, reduce, $OptionalInt*, $IntBinaryOperator*)},
 	{"sequential", "()Ljava/util/stream/IntStream;", nullptr, $PUBLIC | $ABSTRACT},
-	{"skip", "(J)Ljava/util/stream/IntStream;", nullptr, $PUBLIC | $ABSTRACT},
-	{"sorted", "()Ljava/util/stream/IntStream;", nullptr, $PUBLIC | $ABSTRACT},
+	{"skip", "(J)Ljava/util/stream/IntStream;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(IntStream, skip, IntStream*, int64_t)},
+	{"sorted", "()Ljava/util/stream/IntStream;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(IntStream, sorted, IntStream*)},
 	{"spliterator", "()Ljava/util/Spliterator;", nullptr, $PUBLIC | $ABSTRACT},
-	{"sum", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"summaryStatistics", "()Ljava/util/IntSummaryStatistics;", nullptr, $PUBLIC | $ABSTRACT},
-	{"takeWhile", "(Ljava/util/function/IntPredicate;)Ljava/util/stream/IntStream;", nullptr, $PUBLIC},
-	{"toArray", "()[I", nullptr, $PUBLIC | $ABSTRACT},
+	{"sum", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(IntStream, sum, int32_t)},
+	{"summaryStatistics", "()Ljava/util/IntSummaryStatistics;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(IntStream, summaryStatistics, $IntSummaryStatistics*)},
+	{"takeWhile", "(Ljava/util/function/IntPredicate;)Ljava/util/stream/IntStream;", nullptr, $PUBLIC, $virtualMethod(IntStream, takeWhile, IntStream*, $IntPredicate*)},
+	{"toArray", "()[I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(IntStream, toArray, $ints*)},
 	{}
 };
 

@@ -68,8 +68,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ModuleReferences$JModModuleReader$$Lambda$lambda$implList$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ModuleReferences$JModModuleReader$$Lambda$lambda$implList$0::*)()>(&ModuleReferences$JModModuleReader$$Lambda$lambda$implList$0::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ModuleReferences$JModModuleReader$$Lambda$lambda$implList$0, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ModuleReferences$JModModuleReader$$Lambda$lambda$implList$0, test, bool, Object$*)},
 	{}
 };
 $ClassInfo ModuleReferences$JModModuleReader$$Lambda$lambda$implList$0::classInfo$ = {
@@ -101,8 +101,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ModuleReferences$JModModuleReader$$Lambda$name$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ModuleReferences$JModModuleReader$$Lambda$name$1::*)()>(&ModuleReferences$JModModuleReader$$Lambda$name$1::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ModuleReferences$JModModuleReader$$Lambda$name$1, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ModuleReferences$JModModuleReader$$Lambda$name$1, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo ModuleReferences$JModModuleReader$$Lambda$name$1::classInfo$ = {
@@ -126,14 +126,14 @@ $FieldInfo _ModuleReferences$JModModuleReader_FieldInfo_[] = {
 };
 
 $MethodInfo _ModuleReferences$JModModuleReader_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/file/Path;Ljava/net/URI;)V", nullptr, 0, $method(static_cast<void(ModuleReferences$JModModuleReader::*)($Path*,$URI*)>(&ModuleReferences$JModModuleReader::init$))},
-	{"getEntry", "(Ljava/lang/String;)Ljdk/internal/jmod/JmodFile$Entry;", nullptr, $PRIVATE, $method(static_cast<$JmodFile$Entry*(ModuleReferences$JModModuleReader::*)($String*)>(&ModuleReferences$JModModuleReader::getEntry))},
-	{"implClose", "()V", nullptr, 0, nullptr, "java.io.IOException"},
-	{"implFind", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/net/URI;>;", 0},
-	{"implList", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljava/lang/String;>;", 0, nullptr, "java.io.IOException"},
-	{"implOpen", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/io/InputStream;>;", 0, nullptr, "java.io.IOException"},
-	{"lambda$implList$0", "(Ljdk/internal/jmod/JmodFile$Entry;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($JmodFile$Entry*)>(&ModuleReferences$JModModuleReader::lambda$implList$0))},
-	{"newJmodFile", "(Ljava/nio/file/Path;)Ljdk/internal/jmod/JmodFile;", nullptr, $STATIC, $method(static_cast<$JmodFile*(*)($Path*)>(&ModuleReferences$JModModuleReader::newJmodFile))},
+	{"<init>", "(Ljava/nio/file/Path;Ljava/net/URI;)V", nullptr, 0, $method(ModuleReferences$JModModuleReader, init$, void, $Path*, $URI*)},
+	{"getEntry", "(Ljava/lang/String;)Ljdk/internal/jmod/JmodFile$Entry;", nullptr, $PRIVATE, $method(ModuleReferences$JModModuleReader, getEntry, $JmodFile$Entry*, $String*)},
+	{"implClose", "()V", nullptr, 0, $virtualMethod(ModuleReferences$JModModuleReader, implClose, void), "java.io.IOException"},
+	{"implFind", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/net/URI;>;", 0, $virtualMethod(ModuleReferences$JModModuleReader, implFind, $Optional*, $String*)},
+	{"implList", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljava/lang/String;>;", 0, $virtualMethod(ModuleReferences$JModModuleReader, implList, $Stream*), "java.io.IOException"},
+	{"implOpen", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/io/InputStream;>;", 0, $virtualMethod(ModuleReferences$JModModuleReader, implOpen, $Optional*, $String*), "java.io.IOException"},
+	{"lambda$implList$0", "(Ljdk/internal/jmod/JmodFile$Entry;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ModuleReferences$JModModuleReader, lambda$implList$0, bool, $JmodFile$Entry*)},
+	{"newJmodFile", "(Ljava/nio/file/Path;)Ljdk/internal/jmod/JmodFile;", nullptr, $STATIC, $staticMethod(ModuleReferences$JModModuleReader, newJmodFile, $JmodFile*, $Path*)},
 	{}
 };
 

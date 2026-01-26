@@ -38,12 +38,12 @@ $FieldInfo _DateTimePrintContext$1_FieldInfo_[] = {
 };
 
 $MethodInfo _DateTimePrintContext$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/time/chrono/ChronoLocalDate;Ljava/time/temporal/TemporalAccessor;Ljava/time/chrono/Chronology;Ljava/time/ZoneId;)V", "()V", 0, $method(static_cast<void(DateTimePrintContext$1::*)($ChronoLocalDate*,$TemporalAccessor*,$Chronology*,$ZoneId*)>(&DateTimePrintContext$1::init$))},
-	{"getLong", "(Ljava/time/temporal/TemporalField;)J", nullptr, $PUBLIC},
-	{"isSupported", "(Ljava/time/temporal/TemporalField;)Z", nullptr, $PUBLIC},
-	{"query", "(Ljava/time/temporal/TemporalQuery;)Ljava/lang/Object;", "<R:Ljava/lang/Object;>(Ljava/time/temporal/TemporalQuery<TR;>;)TR;", $PUBLIC},
-	{"range", "(Ljava/time/temporal/TemporalField;)Ljava/time/temporal/ValueRange;", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/time/chrono/ChronoLocalDate;Ljava/time/temporal/TemporalAccessor;Ljava/time/chrono/Chronology;Ljava/time/ZoneId;)V", "()V", 0, $method(DateTimePrintContext$1, init$, void, $ChronoLocalDate*, $TemporalAccessor*, $Chronology*, $ZoneId*)},
+	{"getLong", "(Ljava/time/temporal/TemporalField;)J", nullptr, $PUBLIC, $virtualMethod(DateTimePrintContext$1, getLong, int64_t, $TemporalField*)},
+	{"isSupported", "(Ljava/time/temporal/TemporalField;)Z", nullptr, $PUBLIC, $virtualMethod(DateTimePrintContext$1, isSupported, bool, $TemporalField*)},
+	{"query", "(Ljava/time/temporal/TemporalQuery;)Ljava/lang/Object;", "<R:Ljava/lang/Object;>(Ljava/time/temporal/TemporalQuery<TR;>;)TR;", $PUBLIC, $virtualMethod(DateTimePrintContext$1, query, $Object*, $TemporalQuery*)},
+	{"range", "(Ljava/time/temporal/TemporalField;)Ljava/time/temporal/ValueRange;", nullptr, $PUBLIC, $virtualMethod(DateTimePrintContext$1, range, $ValueRange*, $TemporalField*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DateTimePrintContext$1, toString, $String*)},
 	{}
 };
 

@@ -43,16 +43,16 @@ $FieldInfo _ConcurrentHashMap$ValuesView_FieldInfo_[] = {
 };
 
 $MethodInfo _ConcurrentHashMap$ValuesView_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/ConcurrentHashMap;)V", "(Ljava/util/concurrent/ConcurrentHashMap<TK;TV;>;)V", 0, $method(static_cast<void(ConcurrentHashMap$ValuesView::*)($ConcurrentHashMap*)>(&ConcurrentHashMap$ValuesView::init$))},
-	{"add", "(Ljava/lang/Object;)Z", "(TV;)Z", $PUBLIC | $FINAL},
-	{"addAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<+TV;>;)Z", $PUBLIC | $FINAL},
-	{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
-	{"forEach", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TV;>;)V", $PUBLIC},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TV;>;", $PUBLIC | $FINAL},
-	{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
-	{"removeAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC},
-	{"removeIf", "(Ljava/util/function/Predicate;)Z", "(Ljava/util/function/Predicate<-TV;>;)Z", $PUBLIC},
-	{"spliterator", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TV;>;", $PUBLIC},
+	{"<init>", "(Ljava/util/concurrent/ConcurrentHashMap;)V", "(Ljava/util/concurrent/ConcurrentHashMap<TK;TV;>;)V", 0, $method(ConcurrentHashMap$ValuesView, init$, void, $ConcurrentHashMap*)},
+	{"add", "(Ljava/lang/Object;)Z", "(TV;)Z", $PUBLIC | $FINAL, $virtualMethod(ConcurrentHashMap$ValuesView, add, bool, Object$*)},
+	{"addAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<+TV;>;)Z", $PUBLIC | $FINAL, $virtualMethod(ConcurrentHashMap$ValuesView, addAll, bool, $Collection*)},
+	{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(ConcurrentHashMap$ValuesView, contains, bool, Object$*)},
+	{"forEach", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TV;>;)V", $PUBLIC, $virtualMethod(ConcurrentHashMap$ValuesView, forEach, void, $Consumer*)},
+	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TV;>;", $PUBLIC | $FINAL, $virtualMethod(ConcurrentHashMap$ValuesView, iterator, $Iterator*)},
+	{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(ConcurrentHashMap$ValuesView, remove, bool, Object$*)},
+	{"removeAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC, $virtualMethod(ConcurrentHashMap$ValuesView, removeAll, bool, $Collection*)},
+	{"removeIf", "(Ljava/util/function/Predicate;)Z", "(Ljava/util/function/Predicate<-TV;>;)Z", $PUBLIC, $virtualMethod(ConcurrentHashMap$ValuesView, removeIf, bool, $Predicate*)},
+	{"spliterator", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TV;>;", $PUBLIC, $virtualMethod(ConcurrentHashMap$ValuesView, spliterator, $Spliterator*)},
 	{}
 };
 

@@ -25,9 +25,9 @@ $FieldInfo _MethodHandleImpl$CountingWrapper$1_FieldInfo_[] = {
 };
 
 $MethodInfo _MethodHandleImpl$CountingWrapper$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/invoke/MethodHandleImpl$CountingWrapper;)V", nullptr, 0, $method(static_cast<void(MethodHandleImpl$CountingWrapper$1::*)($MethodHandleImpl$CountingWrapper*)>(&MethodHandleImpl$CountingWrapper$1::init$))},
-	{"apply", "(Ljava/lang/invoke/LambdaForm;)Ljava/lang/invoke/LambdaForm;", nullptr, $PUBLIC},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "(Ljava/lang/invoke/MethodHandleImpl$CountingWrapper;)V", nullptr, 0, $method(MethodHandleImpl$CountingWrapper$1, init$, void, $MethodHandleImpl$CountingWrapper*)},
+	{"apply", "(Ljava/lang/invoke/LambdaForm;)Ljava/lang/invoke/LambdaForm;", nullptr, $PUBLIC, $virtualMethod(MethodHandleImpl$CountingWrapper$1, apply, $LambdaForm*, $LambdaForm*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(MethodHandleImpl$CountingWrapper$1, apply, $Object*, Object$*)},
 	{}
 };
 

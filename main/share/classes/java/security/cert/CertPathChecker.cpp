@@ -5,15 +5,16 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Certificate = ::java::security::cert::Certificate;
 
 namespace java {
 	namespace security {
 		namespace cert {
 
 $MethodInfo _CertPathChecker_MethodInfo_[] = {
-	{"check", "(Ljava/security/cert/Certificate;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.security.cert.CertPathValidatorException"},
-	{"init", "(Z)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.security.cert.CertPathValidatorException"},
-	{"isForwardCheckingSupported", "()Z", nullptr, $PUBLIC | $ABSTRACT},
+	{"check", "(Ljava/security/cert/Certificate;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CertPathChecker, check, void, $Certificate*), "java.security.cert.CertPathValidatorException"},
+	{"init", "(Z)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CertPathChecker, init, void, bool), "java.security.cert.CertPathValidatorException"},
+	{"isForwardCheckingSupported", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CertPathChecker, isForwardCheckingSupported, bool)},
 	{}
 };
 

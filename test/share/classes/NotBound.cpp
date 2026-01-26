@@ -24,10 +24,10 @@ using $ByteBuffer = ::java::nio::ByteBuffer;
 using $DatagramChannel = ::java::nio::channels::DatagramChannel;
 
 $MethodInfo _NotBound_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(NotBound::*)()>(&NotBound::init$))},
-	{"checkBound", "(Ljava/nio/channels/DatagramChannel;)V", nullptr, $STATIC, $method(static_cast<void(*)($DatagramChannel*)>(&NotBound::checkBound)), "java.io.IOException"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&NotBound::main)), "java.io.IOException"},
-	{"wakeupWhenBound", "(Ljava/nio/channels/DatagramChannel;)V", nullptr, $STATIC, $method(static_cast<void(*)($DatagramChannel*)>(&NotBound::wakeupWhenBound))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(NotBound, init$, void)},
+	{"checkBound", "(Ljava/nio/channels/DatagramChannel;)V", nullptr, $STATIC, $staticMethod(NotBound, checkBound, void, $DatagramChannel*), "java.io.IOException"},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(NotBound, main, void, $StringArray*), "java.io.IOException"},
+	{"wakeupWhenBound", "(Ljava/nio/channels/DatagramChannel;)V", nullptr, $STATIC, $staticMethod(NotBound, wakeupWhenBound, void, $DatagramChannel*)},
 	{}
 };
 

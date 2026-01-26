@@ -25,8 +25,8 @@ $FieldInfo _AbstractPoller$1_FieldInfo_[] = {
 };
 
 $MethodInfo _AbstractPoller$1_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/fs/AbstractPoller;Ljava/lang/Runnable;)V", nullptr, 0, $method(static_cast<void(AbstractPoller$1::*)($AbstractPoller*,$Runnable*)>(&AbstractPoller$1::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/nio/fs/AbstractPoller;Ljava/lang/Runnable;)V", nullptr, 0, $method(AbstractPoller$1, init$, void, $AbstractPoller*, $Runnable*)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AbstractPoller$1, run, $Object*)},
 	{}
 };
 

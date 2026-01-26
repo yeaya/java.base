@@ -7,7 +7,7 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _Tricky_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(Tricky::*)()>(&Tricky::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(Tricky, init$, void)},
 	{}
 };
 

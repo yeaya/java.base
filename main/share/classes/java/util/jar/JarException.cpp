@@ -18,8 +18,8 @@ $FieldInfo _JarException_FieldInfo_[] = {
 };
 
 $MethodInfo _JarException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(JarException::*)()>(&JarException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(JarException::*)($String*)>(&JarException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(JarException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(JarException, init$, void, $String*)},
 	{}
 };
 

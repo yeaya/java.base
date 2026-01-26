@@ -31,13 +31,13 @@ namespace sun {
 			namespace provider {
 
 $MethodInfo _HostLocaleProviderAdapterImpl$2_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(HostLocaleProviderAdapterImpl$2::*)()>(&HostLocaleProviderAdapterImpl$2::init$))},
-	{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC},
-	{"getDateInstance", "(ILjava/util/Locale;)Ljava/text/DateFormat;", nullptr, $PUBLIC},
-	{"getDateTimeInstance", "(IILjava/util/Locale;)Ljava/text/DateFormat;", nullptr, $PUBLIC},
-	{"getDateTimePattern", "(IILjava/util/Locale;)Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(HostLocaleProviderAdapterImpl$2::*)(int32_t,int32_t,$Locale*)>(&HostLocaleProviderAdapterImpl$2::getDateTimePattern))},
-	{"getTimeInstance", "(ILjava/util/Locale;)Ljava/text/DateFormat;", nullptr, $PUBLIC},
-	{"isSupportedLocale", "(Ljava/util/Locale;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(HostLocaleProviderAdapterImpl$2, init$, void)},
+	{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(HostLocaleProviderAdapterImpl$2, getAvailableLocales, $LocaleArray*)},
+	{"getDateInstance", "(ILjava/util/Locale;)Ljava/text/DateFormat;", nullptr, $PUBLIC, $virtualMethod(HostLocaleProviderAdapterImpl$2, getDateInstance, $DateFormat*, int32_t, $Locale*)},
+	{"getDateTimeInstance", "(IILjava/util/Locale;)Ljava/text/DateFormat;", nullptr, $PUBLIC, $virtualMethod(HostLocaleProviderAdapterImpl$2, getDateTimeInstance, $DateFormat*, int32_t, int32_t, $Locale*)},
+	{"getDateTimePattern", "(IILjava/util/Locale;)Ljava/lang/String;", nullptr, $PRIVATE, $method(HostLocaleProviderAdapterImpl$2, getDateTimePattern, $String*, int32_t, int32_t, $Locale*)},
+	{"getTimeInstance", "(ILjava/util/Locale;)Ljava/text/DateFormat;", nullptr, $PUBLIC, $virtualMethod(HostLocaleProviderAdapterImpl$2, getTimeInstance, $DateFormat*, int32_t, $Locale*)},
+	{"isSupportedLocale", "(Ljava/util/Locale;)Z", nullptr, $PUBLIC, $virtualMethod(HostLocaleProviderAdapterImpl$2, isSupportedLocale, bool, $Locale*)},
 	{}
 };
 

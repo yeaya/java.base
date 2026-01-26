@@ -14,10 +14,10 @@ using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _Latin1Digit_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Latin1Digit::*)()>(&Latin1Digit::init$))},
-	{"canonicalDigit", "(II)I", nullptr, $STATIC, $method(static_cast<int32_t(*)(int32_t,int32_t)>(&Latin1Digit::canonicalDigit))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Latin1Digit::main)), "java.lang.Exception"},
-	{"test", "(II)V", nullptr, $STATIC, $method(static_cast<void(*)(int32_t,int32_t)>(&Latin1Digit::test)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Latin1Digit, init$, void)},
+	{"canonicalDigit", "(II)I", nullptr, $STATIC, $staticMethod(Latin1Digit, canonicalDigit, int32_t, int32_t, int32_t)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Latin1Digit, main, void, $StringArray*), "java.lang.Exception"},
+	{"test", "(II)V", nullptr, $STATIC, $staticMethod(Latin1Digit, test, void, int32_t, int32_t), "java.lang.Exception"},
 	{}
 };
 

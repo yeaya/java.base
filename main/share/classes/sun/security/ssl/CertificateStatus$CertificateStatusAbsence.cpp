@@ -23,8 +23,8 @@ namespace sun {
 		namespace ssl {
 
 $MethodInfo _CertificateStatus$CertificateStatusAbsence_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(CertificateStatus$CertificateStatusAbsence::*)()>(&CertificateStatus$CertificateStatusAbsence::init$))},
-	{"absent", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(CertificateStatus$CertificateStatusAbsence, init$, void)},
+	{"absent", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)V", nullptr, $PUBLIC, $virtualMethod(CertificateStatus$CertificateStatusAbsence, absent, void, $ConnectionContext*, $SSLHandshake$HandshakeMessage*), "java.io.IOException"},
 	{}
 };
 

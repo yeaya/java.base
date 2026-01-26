@@ -13,8 +13,8 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $IDN = ::java::net::IDN;
 
 $MethodInfo _UseSTD3ASCIIRules_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(UseSTD3ASCIIRules::*)()>(&UseSTD3ASCIIRules::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&UseSTD3ASCIIRules::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(UseSTD3ASCIIRules, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(UseSTD3ASCIIRules, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

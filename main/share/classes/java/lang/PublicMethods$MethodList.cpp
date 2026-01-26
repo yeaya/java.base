@@ -25,12 +25,12 @@ $FieldInfo _PublicMethods$MethodList_FieldInfo_[] = {
 };
 
 $MethodInfo _PublicMethods$MethodList_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/reflect/Method;)V", nullptr, $PRIVATE, $method(static_cast<void(PublicMethods$MethodList::*)($Method*)>(&PublicMethods$MethodList::init$))},
-	{"filter", "([Ljava/lang/reflect/Method;Ljava/lang/String;[Ljava/lang/Class;Z)Ljava/lang/PublicMethods$MethodList;", "([Ljava/lang/reflect/Method;Ljava/lang/String;[Ljava/lang/Class<*>;Z)Ljava/lang/PublicMethods$MethodList;", $STATIC, $method(static_cast<PublicMethods$MethodList*(*)($MethodArray*,$String*,$ClassArray*,bool)>(&PublicMethods$MethodList::filter))},
-	{"getMostSpecific", "()Ljava/lang/reflect/Method;", nullptr, 0, $method(static_cast<$Method*(PublicMethods$MethodList::*)()>(&PublicMethods$MethodList::getMostSpecific))},
-	{"length", "()I", nullptr, $PRIVATE, $method(static_cast<int32_t(PublicMethods$MethodList::*)()>(&PublicMethods$MethodList::length))},
-	{"merge", "(Ljava/lang/PublicMethods$MethodList;Ljava/lang/PublicMethods$MethodList;)Ljava/lang/PublicMethods$MethodList;", nullptr, $STATIC, $method(static_cast<PublicMethods$MethodList*(*)(PublicMethods$MethodList*,PublicMethods$MethodList*)>(&PublicMethods$MethodList::merge))},
-	{"merge", "(Ljava/lang/PublicMethods$MethodList;Ljava/lang/reflect/Method;)Ljava/lang/PublicMethods$MethodList;", nullptr, $PRIVATE | $STATIC, $method(static_cast<PublicMethods$MethodList*(*)(PublicMethods$MethodList*,$Method*)>(&PublicMethods$MethodList::merge))},
+	{"<init>", "(Ljava/lang/reflect/Method;)V", nullptr, $PRIVATE, $method(PublicMethods$MethodList, init$, void, $Method*)},
+	{"filter", "([Ljava/lang/reflect/Method;Ljava/lang/String;[Ljava/lang/Class;Z)Ljava/lang/PublicMethods$MethodList;", "([Ljava/lang/reflect/Method;Ljava/lang/String;[Ljava/lang/Class<*>;Z)Ljava/lang/PublicMethods$MethodList;", $STATIC, $staticMethod(PublicMethods$MethodList, filter, PublicMethods$MethodList*, $MethodArray*, $String*, $ClassArray*, bool)},
+	{"getMostSpecific", "()Ljava/lang/reflect/Method;", nullptr, 0, $method(PublicMethods$MethodList, getMostSpecific, $Method*)},
+	{"length", "()I", nullptr, $PRIVATE, $method(PublicMethods$MethodList, length, int32_t)},
+	{"merge", "(Ljava/lang/PublicMethods$MethodList;Ljava/lang/PublicMethods$MethodList;)Ljava/lang/PublicMethods$MethodList;", nullptr, $STATIC, $staticMethod(PublicMethods$MethodList, merge, PublicMethods$MethodList*, PublicMethods$MethodList*, PublicMethods$MethodList*)},
+	{"merge", "(Ljava/lang/PublicMethods$MethodList;Ljava/lang/reflect/Method;)Ljava/lang/PublicMethods$MethodList;", nullptr, $PRIVATE | $STATIC, $staticMethod(PublicMethods$MethodList, merge, PublicMethods$MethodList*, PublicMethods$MethodList*, $Method*)},
 	{}
 };
 

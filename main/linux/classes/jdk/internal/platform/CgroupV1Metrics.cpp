@@ -2,6 +2,7 @@
 
 #include <jcpp.h>
 
+using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
@@ -10,19 +11,19 @@ namespace jdk {
 		namespace platform {
 
 $MethodInfo _CgroupV1Metrics_MethodInfo_[] = {
-	{"getCpuSetMemoryPressure", "()D", nullptr, $PUBLIC | $ABSTRACT},
-	{"getKernelMemoryFailCount", "()J", nullptr, $PUBLIC | $ABSTRACT},
-	{"getKernelMemoryLimit", "()J", nullptr, $PUBLIC | $ABSTRACT},
-	{"getKernelMemoryMaxUsage", "()J", nullptr, $PUBLIC | $ABSTRACT},
-	{"getKernelMemoryUsage", "()J", nullptr, $PUBLIC | $ABSTRACT},
-	{"getMemoryAndSwapFailCount", "()J", nullptr, $PUBLIC | $ABSTRACT},
-	{"getMemoryAndSwapMaxUsage", "()J", nullptr, $PUBLIC | $ABSTRACT},
-	{"getMemoryMaxUsage", "()J", nullptr, $PUBLIC | $ABSTRACT},
-	{"getTcpMemoryFailCount", "()J", nullptr, $PUBLIC | $ABSTRACT},
-	{"getTcpMemoryLimit", "()J", nullptr, $PUBLIC | $ABSTRACT},
-	{"getTcpMemoryMaxUsage", "()J", nullptr, $PUBLIC | $ABSTRACT},
-	{"isCpuSetMemoryPressureEnabled", "()Ljava/lang/Boolean;", nullptr, $PUBLIC | $ABSTRACT},
-	{"isMemoryOOMKillEnabled", "()Ljava/lang/Boolean;", nullptr, $PUBLIC | $ABSTRACT},
+	{"getCpuSetMemoryPressure", "()D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CgroupV1Metrics, getCpuSetMemoryPressure, double)},
+	{"getKernelMemoryFailCount", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CgroupV1Metrics, getKernelMemoryFailCount, int64_t)},
+	{"getKernelMemoryLimit", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CgroupV1Metrics, getKernelMemoryLimit, int64_t)},
+	{"getKernelMemoryMaxUsage", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CgroupV1Metrics, getKernelMemoryMaxUsage, int64_t)},
+	{"getKernelMemoryUsage", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CgroupV1Metrics, getKernelMemoryUsage, int64_t)},
+	{"getMemoryAndSwapFailCount", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CgroupV1Metrics, getMemoryAndSwapFailCount, int64_t)},
+	{"getMemoryAndSwapMaxUsage", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CgroupV1Metrics, getMemoryAndSwapMaxUsage, int64_t)},
+	{"getMemoryMaxUsage", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CgroupV1Metrics, getMemoryMaxUsage, int64_t)},
+	{"getTcpMemoryFailCount", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CgroupV1Metrics, getTcpMemoryFailCount, int64_t)},
+	{"getTcpMemoryLimit", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CgroupV1Metrics, getTcpMemoryLimit, int64_t)},
+	{"getTcpMemoryMaxUsage", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CgroupV1Metrics, getTcpMemoryMaxUsage, int64_t)},
+	{"isCpuSetMemoryPressureEnabled", "()Ljava/lang/Boolean;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CgroupV1Metrics, isCpuSetMemoryPressureEnabled, $Boolean*)},
+	{"isMemoryOOMKillEnabled", "()Ljava/lang/Boolean;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CgroupV1Metrics, isMemoryOOMKillEnabled, $Boolean*)},
 	{}
 };
 

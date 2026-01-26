@@ -16,10 +16,10 @@ $FieldInfo _SecurityException_FieldInfo_[] = {
 };
 
 $MethodInfo _SecurityException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SecurityException::*)()>(&SecurityException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(SecurityException::*)($String*)>(&SecurityException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(SecurityException::*)($String*,$Throwable*)>(&SecurityException::init$))},
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(SecurityException::*)($Throwable*)>(&SecurityException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SecurityException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SecurityException, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SecurityException, init$, void, $String*, $Throwable*)},
+	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SecurityException, init$, void, $Throwable*)},
 	{}
 };
 

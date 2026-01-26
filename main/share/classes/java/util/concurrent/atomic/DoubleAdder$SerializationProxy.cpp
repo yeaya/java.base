@@ -22,8 +22,8 @@ $FieldInfo _DoubleAdder$SerializationProxy_FieldInfo_[] = {
 };
 
 $MethodInfo _DoubleAdder$SerializationProxy_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/atomic/DoubleAdder;)V", nullptr, 0, $method(static_cast<void(DoubleAdder$SerializationProxy::*)($DoubleAdder*)>(&DoubleAdder$SerializationProxy::init$))},
-	{"readResolve", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(static_cast<$Object*(DoubleAdder$SerializationProxy::*)()>(&DoubleAdder$SerializationProxy::readResolve))},
+	{"<init>", "(Ljava/util/concurrent/atomic/DoubleAdder;)V", nullptr, 0, $method(DoubleAdder$SerializationProxy, init$, void, $DoubleAdder*)},
+	{"readResolve", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(DoubleAdder$SerializationProxy, readResolve, $Object*)},
 	{}
 };
 

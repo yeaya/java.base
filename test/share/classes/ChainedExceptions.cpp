@@ -27,14 +27,14 @@ $FieldInfo _ChainedExceptions_FieldInfo_[] = {
 };
 
 $MethodInfo _ChainedExceptions_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ChainedExceptions::*)()>(&ChainedExceptions::init$))},
-	{"a", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&ChainedExceptions::a)), "HighLevelException"},
-	{"b", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&ChainedExceptions::b)), "MidLevelException"},
-	{"c", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&ChainedExceptions::c)), "MidLevelException"},
-	{"check", "(Ljava/lang/Throwable;Ljava/lang/StackTraceElement;Ljava/lang/String;I)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($Throwable*,$StackTraceElement*,$String*,int32_t)>(&ChainedExceptions::check))},
-	{"d", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&ChainedExceptions::d)), "LowLevelException"},
-	{"e", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&ChainedExceptions::e)), "LowLevelException"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&ChainedExceptions::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ChainedExceptions, init$, void)},
+	{"a", "()V", nullptr, $STATIC, $staticMethod(ChainedExceptions, a, void), "HighLevelException"},
+	{"b", "()V", nullptr, $STATIC, $staticMethod(ChainedExceptions, b, void), "MidLevelException"},
+	{"c", "()V", nullptr, $STATIC, $staticMethod(ChainedExceptions, c, void), "MidLevelException"},
+	{"check", "(Ljava/lang/Throwable;Ljava/lang/StackTraceElement;Ljava/lang/String;I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ChainedExceptions, check, void, $Throwable*, $StackTraceElement*, $String*, int32_t)},
+	{"d", "()V", nullptr, $STATIC, $staticMethod(ChainedExceptions, d, void), "LowLevelException"},
+	{"e", "()V", nullptr, $STATIC, $staticMethod(ChainedExceptions, e, void), "LowLevelException"},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ChainedExceptions, main, void, $StringArray*)},
 	{}
 };
 

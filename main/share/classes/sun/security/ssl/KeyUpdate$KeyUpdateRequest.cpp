@@ -28,12 +28,12 @@ $FieldInfo _KeyUpdate$KeyUpdateRequest_FieldInfo_[] = {
 };
 
 $MethodInfo _KeyUpdate$KeyUpdateRequest_MethodInfo_[] = {
-	{"$values", "()[Lsun/security/ssl/KeyUpdate$KeyUpdateRequest;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$KeyUpdate$KeyUpdateRequestArray*(*)()>(&KeyUpdate$KeyUpdateRequest::$values))},
-	{"<init>", "(Ljava/lang/String;IBLjava/lang/String;)V", "(BLjava/lang/String;)V", $PRIVATE, $method(static_cast<void(KeyUpdate$KeyUpdateRequest::*)($String*,int32_t,int8_t,$String*)>(&KeyUpdate$KeyUpdateRequest::init$))},
-	{"nameOf", "(B)Ljava/lang/String;", nullptr, $STATIC, $method(static_cast<$String*(*)(int8_t)>(&KeyUpdate$KeyUpdateRequest::nameOf))},
-	{"valueOf", "(Ljava/lang/String;)Lsun/security/ssl/KeyUpdate$KeyUpdateRequest;", nullptr, $PUBLIC | $STATIC, $method(static_cast<KeyUpdate$KeyUpdateRequest*(*)($String*)>(&KeyUpdate$KeyUpdateRequest::valueOf))},
-	{"valueOf", "(B)Lsun/security/ssl/KeyUpdate$KeyUpdateRequest;", nullptr, $STATIC, $method(static_cast<KeyUpdate$KeyUpdateRequest*(*)(int8_t)>(&KeyUpdate$KeyUpdateRequest::valueOf))},
-	{"values", "()[Lsun/security/ssl/KeyUpdate$KeyUpdateRequest;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$KeyUpdate$KeyUpdateRequestArray*(*)()>(&KeyUpdate$KeyUpdateRequest::values))},
+	{"$values", "()[Lsun/security/ssl/KeyUpdate$KeyUpdateRequest;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(KeyUpdate$KeyUpdateRequest, $values, $KeyUpdate$KeyUpdateRequestArray*)},
+	{"<init>", "(Ljava/lang/String;IBLjava/lang/String;)V", "(BLjava/lang/String;)V", $PRIVATE, $method(KeyUpdate$KeyUpdateRequest, init$, void, $String*, int32_t, int8_t, $String*)},
+	{"nameOf", "(B)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(KeyUpdate$KeyUpdateRequest, nameOf, $String*, int8_t)},
+	{"valueOf", "(Ljava/lang/String;)Lsun/security/ssl/KeyUpdate$KeyUpdateRequest;", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyUpdate$KeyUpdateRequest, valueOf, KeyUpdate$KeyUpdateRequest*, $String*)},
+	{"valueOf", "(B)Lsun/security/ssl/KeyUpdate$KeyUpdateRequest;", nullptr, $STATIC, $staticMethod(KeyUpdate$KeyUpdateRequest, valueOf, KeyUpdate$KeyUpdateRequest*, int8_t)},
+	{"values", "()[Lsun/security/ssl/KeyUpdate$KeyUpdateRequest;", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyUpdate$KeyUpdateRequest, values, $KeyUpdate$KeyUpdateRequestArray*)},
 	{}
 };
 

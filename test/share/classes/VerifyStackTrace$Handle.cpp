@@ -37,9 +37,9 @@ $FieldInfo _VerifyStackTrace$Handle_FieldInfo_[] = {
 };
 
 $MethodInfo _VerifyStackTrace$Handle_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Runnable;)V", nullptr, $PUBLIC, $method(static_cast<void(VerifyStackTrace$Handle::*)($Runnable*)>(&VerifyStackTrace$Handle::init$))},
-	{"execute", "(Ljava/lang/Runnable;)V", nullptr, $PUBLIC},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Runnable;)V", nullptr, $PUBLIC, $method(VerifyStackTrace$Handle, init$, void, $Runnable*)},
+	{"execute", "(Ljava/lang/Runnable;)V", nullptr, $PUBLIC, $virtualMethod(VerifyStackTrace$Handle, execute, void, $Runnable*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(VerifyStackTrace$Handle, run, void)},
 	{}
 };
 

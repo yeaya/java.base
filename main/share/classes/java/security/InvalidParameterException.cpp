@@ -16,8 +16,8 @@ $FieldInfo _InvalidParameterException_FieldInfo_[] = {
 };
 
 $MethodInfo _InvalidParameterException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(InvalidParameterException::*)()>(&InvalidParameterException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(InvalidParameterException::*)($String*)>(&InvalidParameterException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(InvalidParameterException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InvalidParameterException, init$, void, $String*)},
 	{}
 };
 

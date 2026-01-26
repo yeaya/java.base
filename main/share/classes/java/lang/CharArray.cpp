@@ -21,7 +21,7 @@
 #include <java/lang/CharArray.h>
 
 #include <java/lang/ArrayIndexOutOfBoundsException.h>
-#include <java/lang/NegativeArraySizeException.h>
+#include <java/lang/Machine.h>
 #include <jcpp.h>
 #include <string.h>
 
@@ -31,7 +31,7 @@ namespace java {
 Class* CharArray::class$ = nullptr;
 
 MethodInfo _CharArray_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(static_cast<void(CharArray::*)(int32_t)>(&CharArray::init$))},
+	{"<init>", "(I)V", nullptr, $PUBLIC, $method(CharArray, init$, void, int32_t)},
 	{}
 };
 
@@ -120,19 +120,16 @@ CharArray* CharArray::subArray(int32_t index, int32_t length) const {
 }
 
 void CharArray::check(int32_t index) const {
-	if ((uint32_t)index >= (uint32_t)length) { \
-		$nullcheck(this); \
-		$throwNew(ArrayIndexOutOfBoundsException, index); \
+	if ((uint32_t)index >= (uint32_t)length) {
+		$throwNew(ArrayIndexOutOfBoundsException, index);
 	}
 }
 
 void CharArray::check(int32_t index, int32_t length) const {
 	if (index < 0) {
-		$nullcheck(this);
 		$throwNew(ArrayIndexOutOfBoundsException, index);
 	}
 	if (index + length > this->length) {
-		$nullcheck(this);
 		$throwNew(ArrayIndexOutOfBoundsException, index + length);
 	}
 }
@@ -171,7 +168,7 @@ bool CharArray::equals(CharArray* x, CharArray* y) {
 
 Class* CharArray::load$(String* name, bool initialize) {
 	int64_t arrayBaseSize = sizeof(CharArray) - sizeof(CharArray::data);
-	Class::loadClass(&class$, arrayBaseSize, $getMark(CharArray), &_CharArray_ClassInfo_);
+	Machine::loadClass(&class$, arrayBaseSize, $getMark(CharArray), &_CharArray_ClassInfo_);
 	return class$;
 }
 

@@ -14,8 +14,8 @@ namespace java {
 		namespace concurrent {
 
 $MethodInfo _SubmissionPublisher$ThreadPerTaskExecutor_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(SubmissionPublisher$ThreadPerTaskExecutor::*)()>(&SubmissionPublisher$ThreadPerTaskExecutor::init$))},
-	{"execute", "(Ljava/lang/Runnable;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(SubmissionPublisher$ThreadPerTaskExecutor, init$, void)},
+	{"execute", "(Ljava/lang/Runnable;)V", nullptr, $PUBLIC, $virtualMethod(SubmissionPublisher$ThreadPerTaskExecutor, execute, void, $Runnable*)},
 	{}
 };
 

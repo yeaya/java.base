@@ -22,7 +22,7 @@ $FieldInfo _VarHandleByteArrayAsChars$ByteArrayViewVarHandle_FieldInfo_[] = {
 };
 
 $MethodInfo _VarHandleByteArrayAsChars$ByteArrayViewVarHandle_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/invoke/VarForm;ZZ)V", nullptr, 0, $method(static_cast<void(VarHandleByteArrayAsChars$ByteArrayViewVarHandle::*)($VarForm*,bool,bool)>(&VarHandleByteArrayAsChars$ByteArrayViewVarHandle::init$))},
+	{"<init>", "(Ljava/lang/invoke/VarForm;ZZ)V", nullptr, 0, $method(VarHandleByteArrayAsChars$ByteArrayViewVarHandle, init$, void, $VarForm*, bool, bool)},
 	{}
 };
 

@@ -46,14 +46,14 @@ $FieldInfo _EUC_TW$Decoder_FieldInfo_[] = {
 };
 
 $MethodInfo _EUC_TW$Decoder_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PUBLIC, $method(static_cast<void(EUC_TW$Decoder::*)($Charset*)>(&EUC_TW$Decoder::init$))},
-	{"decode", "(III[C[C)[C", nullptr, $STATIC, $method(static_cast<$chars*(*)(int32_t,int32_t,int32_t,$chars*,$chars*)>(&EUC_TW$Decoder::decode))},
-	{"decodeArrayLoop", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(static_cast<$CoderResult*(EUC_TW$Decoder::*)($ByteBuffer*,$CharBuffer*)>(&EUC_TW$Decoder::decodeArrayLoop))},
-	{"decodeBufferLoop", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(static_cast<$CoderResult*(EUC_TW$Decoder::*)($ByteBuffer*,$CharBuffer*)>(&EUC_TW$Decoder::decodeBufferLoop))},
-	{"decodeLoop", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED},
-	{"decodeSingleOrReplace", "(IIIC)C", nullptr, $PUBLIC | $STATIC, $method(static_cast<char16_t(*)(int32_t,int32_t,int32_t,char16_t)>(&EUC_TW$Decoder::decodeSingleOrReplace))},
-	{"isLegalDB", "(I)Z", nullptr, $STATIC, $method(static_cast<bool(*)(int32_t)>(&EUC_TW$Decoder::isLegalDB))},
-	{"toUnicode", "(III)[C", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PUBLIC, $method(EUC_TW$Decoder, init$, void, $Charset*)},
+	{"decode", "(III[C[C)[C", nullptr, $STATIC, $staticMethod(EUC_TW$Decoder, decode, $chars*, int32_t, int32_t, int32_t, $chars*, $chars*)},
+	{"decodeArrayLoop", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(EUC_TW$Decoder, decodeArrayLoop, $CoderResult*, $ByteBuffer*, $CharBuffer*)},
+	{"decodeBufferLoop", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(EUC_TW$Decoder, decodeBufferLoop, $CoderResult*, $ByteBuffer*, $CharBuffer*)},
+	{"decodeLoop", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED, $virtualMethod(EUC_TW$Decoder, decodeLoop, $CoderResult*, $ByteBuffer*, $CharBuffer*)},
+	{"decodeSingleOrReplace", "(IIIC)C", nullptr, $PUBLIC | $STATIC, $staticMethod(EUC_TW$Decoder, decodeSingleOrReplace, char16_t, int32_t, int32_t, int32_t, char16_t)},
+	{"isLegalDB", "(I)Z", nullptr, $STATIC, $staticMethod(EUC_TW$Decoder, isLegalDB, bool, int32_t)},
+	{"toUnicode", "(III)[C", nullptr, $PUBLIC, $virtualMethod(EUC_TW$Decoder, toUnicode, $chars*, int32_t, int32_t, int32_t)},
 	{}
 };
 

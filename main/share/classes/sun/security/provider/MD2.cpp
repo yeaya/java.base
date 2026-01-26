@@ -31,11 +31,11 @@ $FieldInfo _MD2_FieldInfo_[] = {
 };
 
 $MethodInfo _MD2_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(MD2::*)()>(&MD2::init$))},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, nullptr, "java.lang.CloneNotSupportedException"},
-	{"implCompress", "([BI)V", nullptr, 0},
-	{"implDigest", "([BI)V", nullptr, 0},
-	{"implReset", "()V", nullptr, 0},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(MD2, init$, void)},
+	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MD2, clone, $Object*), "java.lang.CloneNotSupportedException"},
+	{"implCompress", "([BI)V", nullptr, 0, $virtualMethod(MD2, implCompress, void, $bytes*, int32_t)},
+	{"implDigest", "([BI)V", nullptr, 0, $virtualMethod(MD2, implDigest, void, $bytes*, int32_t)},
+	{"implReset", "()V", nullptr, 0, $virtualMethod(MD2, implReset, void)},
 	{}
 };
 

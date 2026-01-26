@@ -18,10 +18,10 @@ $FieldInfo _CertificateException_FieldInfo_[] = {
 };
 
 $MethodInfo _CertificateException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CertificateException::*)()>(&CertificateException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(CertificateException::*)($String*)>(&CertificateException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(CertificateException::*)($String*,$Throwable*)>(&CertificateException::init$))},
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(CertificateException::*)($Throwable*)>(&CertificateException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CertificateException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(CertificateException, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(CertificateException, init$, void, $String*, $Throwable*)},
+	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(CertificateException, init$, void, $Throwable*)},
 	{}
 };
 

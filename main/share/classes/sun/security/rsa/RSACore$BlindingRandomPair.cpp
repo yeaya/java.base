@@ -21,7 +21,7 @@ $FieldInfo _RSACore$BlindingRandomPair_FieldInfo_[] = {
 };
 
 $MethodInfo _RSACore$BlindingRandomPair_MethodInfo_[] = {
-	{"<init>", "(Ljava/math/BigInteger;Ljava/math/BigInteger;)V", nullptr, 0, $method(static_cast<void(RSACore$BlindingRandomPair::*)($BigInteger*,$BigInteger*)>(&RSACore$BlindingRandomPair::init$))},
+	{"<init>", "(Ljava/math/BigInteger;Ljava/math/BigInteger;)V", nullptr, 0, $method(RSACore$BlindingRandomPair, init$, void, $BigInteger*, $BigInteger*)},
 	{}
 };
 

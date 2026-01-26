@@ -19,8 +19,8 @@ namespace sun {
 		namespace ssl {
 
 $MethodInfo _PreSharedKeyExtension$SHPreSharedKeyStringizer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(PreSharedKeyExtension$SHPreSharedKeyStringizer::*)()>(&PreSharedKeyExtension$SHPreSharedKeyStringizer::init$))},
-	{"toString", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(PreSharedKeyExtension$SHPreSharedKeyStringizer, init$, void)},
+	{"toString", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PreSharedKeyExtension$SHPreSharedKeyStringizer, toString, $String*, $HandshakeContext*, $ByteBuffer*)},
 	{}
 };
 

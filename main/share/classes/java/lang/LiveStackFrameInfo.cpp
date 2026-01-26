@@ -52,15 +52,15 @@ $MethodInfo _LiveStackFrameInfo_MethodInfo_[] = {
 	{"*getMethodName", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{"*getMethodType", "()Ljava/lang/invoke/MethodType;", nullptr, $PUBLIC},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/lang/StackWalker;)V", nullptr, 0, $method(static_cast<void(LiveStackFrameInfo::*)($StackWalker*)>(&LiveStackFrameInfo::init$))},
-	{"asPrimitive", "(I)Ljava/lang/LiveStackFrame$PrimitiveSlot;", nullptr, $STATIC, $method(static_cast<$LiveStackFrame$PrimitiveSlot*(*)(int32_t)>(&LiveStackFrameInfo::asPrimitive))},
-	{"asPrimitive", "(J)Ljava/lang/LiveStackFrame$PrimitiveSlot;", nullptr, $STATIC, $method(static_cast<$LiveStackFrame$PrimitiveSlot*(*)(int64_t)>(&LiveStackFrameInfo::asPrimitive))},
-	{"getLocals", "()[Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"getMonitors", "()[Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"getStack", "()[Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/StackWalker;)V", nullptr, 0, $method(LiveStackFrameInfo, init$, void, $StackWalker*)},
+	{"asPrimitive", "(I)Ljava/lang/LiveStackFrame$PrimitiveSlot;", nullptr, $STATIC, $staticMethod(LiveStackFrameInfo, asPrimitive, $LiveStackFrame$PrimitiveSlot*, int32_t)},
+	{"asPrimitive", "(J)Ljava/lang/LiveStackFrame$PrimitiveSlot;", nullptr, $STATIC, $staticMethod(LiveStackFrameInfo, asPrimitive, $LiveStackFrame$PrimitiveSlot*, int64_t)},
+	{"getLocals", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LiveStackFrameInfo, getLocals, $ObjectArray*)},
+	{"getMonitors", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LiveStackFrameInfo, getMonitors, $ObjectArray*)},
+	{"getStack", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LiveStackFrameInfo, getStack, $ObjectArray*)},
 	{"*isNativeMethod", "()Z", nullptr, $PUBLIC},
 	{"*toStackTraceElement", "()Ljava/lang/StackTraceElement;", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LiveStackFrameInfo, toString, $String*)},
 	{}
 };
 

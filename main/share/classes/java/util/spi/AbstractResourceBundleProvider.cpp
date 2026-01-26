@@ -89,8 +89,8 @@ $FieldInfo AbstractResourceBundleProvider$$Lambda$lambda$loadResourceBundle$0::f
 	{}
 };
 $MethodInfo AbstractResourceBundleProvider$$Lambda$lambda$loadResourceBundle$0::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/Module;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(AbstractResourceBundleProvider$$Lambda$lambda$loadResourceBundle$0::*)($Module*,$String*)>(&AbstractResourceBundleProvider$$Lambda$lambda$loadResourceBundle$0::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Module;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(AbstractResourceBundleProvider$$Lambda$lambda$loadResourceBundle$0, init$, void, $Module*, $String*)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AbstractResourceBundleProvider$$Lambda$lambda$loadResourceBundle$0, run, $Object*)},
 	{}
 };
 $ClassInfo AbstractResourceBundleProvider$$Lambda$lambda$loadResourceBundle$0::classInfo$ = {
@@ -132,8 +132,8 @@ $FieldInfo AbstractResourceBundleProvider$$Lambda$lambda$loadPropertyResourceBun
 	{}
 };
 $MethodInfo AbstractResourceBundleProvider$$Lambda$lambda$loadPropertyResourceBundle$1$1::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/Module;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(AbstractResourceBundleProvider$$Lambda$lambda$loadPropertyResourceBundle$1$1::*)($Module*,$String*)>(&AbstractResourceBundleProvider$$Lambda$lambda$loadPropertyResourceBundle$1$1::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Module;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(AbstractResourceBundleProvider$$Lambda$lambda$loadPropertyResourceBundle$1$1, init$, void, $Module*, $String*)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AbstractResourceBundleProvider$$Lambda$lambda$loadPropertyResourceBundle$1$1, run, $Object*)},
 	{}
 };
 $ClassInfo AbstractResourceBundleProvider$$Lambda$lambda$loadPropertyResourceBundle$1$1::classInfo$ = {
@@ -159,16 +159,16 @@ $FieldInfo _AbstractResourceBundleProvider_FieldInfo_[] = {
 };
 
 $MethodInfo _AbstractResourceBundleProvider_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(AbstractResourceBundleProvider::*)()>(&AbstractResourceBundleProvider::init$))},
-	{"<init>", "([Ljava/lang/String;)V", nullptr, $PROTECTED | $TRANSIENT, $method(static_cast<void(AbstractResourceBundleProvider::*)($StringArray*)>(&AbstractResourceBundleProvider::init$))},
-	{"getBundle", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/util/ResourceBundle;", nullptr, $PUBLIC},
-	{"getBundle0", "(Ljava/lang/Module;Ljava/lang/String;)Ljava/util/ResourceBundle;", nullptr, $PRIVATE, $method(static_cast<$ResourceBundle*(AbstractResourceBundleProvider::*)($Module*,$String*)>(&AbstractResourceBundleProvider::getBundle0))},
-	{"lambda$loadPropertyResourceBundle$1", "(Ljava/lang/Module;Ljava/lang/String;)Ljava/io/InputStream;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$InputStream*(*)($Module*,$String*)>(&AbstractResourceBundleProvider::lambda$loadPropertyResourceBundle$1))},
-	{"lambda$loadResourceBundle$0", "(Ljava/lang/Module;Ljava/lang/String;)Ljava/lang/Class;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Class*(*)($Module*,$String*)>(&AbstractResourceBundleProvider::lambda$loadResourceBundle$0))},
-	{"loadPropertyResourceBundle", "(Ljava/lang/Module;Ljava/lang/String;)Ljava/util/ResourceBundle;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$ResourceBundle*(*)($Module*,$String*)>(&AbstractResourceBundleProvider::loadPropertyResourceBundle)), "java.io.IOException"},
-	{"loadResourceBundle", "(Ljava/lang/Module;Ljava/lang/String;)Ljava/util/ResourceBundle;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$ResourceBundle*(*)($Module*,$String*)>(&AbstractResourceBundleProvider::loadResourceBundle))},
-	{"toBundleName", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PROTECTED},
-	{"toResourceName", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($String*,$String*)>(&AbstractResourceBundleProvider::toResourceName))},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(AbstractResourceBundleProvider, init$, void)},
+	{"<init>", "([Ljava/lang/String;)V", nullptr, $PROTECTED | $TRANSIENT, $method(AbstractResourceBundleProvider, init$, void, $StringArray*)},
+	{"getBundle", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/util/ResourceBundle;", nullptr, $PUBLIC, $virtualMethod(AbstractResourceBundleProvider, getBundle, $ResourceBundle*, $String*, $Locale*)},
+	{"getBundle0", "(Ljava/lang/Module;Ljava/lang/String;)Ljava/util/ResourceBundle;", nullptr, $PRIVATE, $method(AbstractResourceBundleProvider, getBundle0, $ResourceBundle*, $Module*, $String*)},
+	{"lambda$loadPropertyResourceBundle$1", "(Ljava/lang/Module;Ljava/lang/String;)Ljava/io/InputStream;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AbstractResourceBundleProvider, lambda$loadPropertyResourceBundle$1, $InputStream*, $Module*, $String*)},
+	{"lambda$loadResourceBundle$0", "(Ljava/lang/Module;Ljava/lang/String;)Ljava/lang/Class;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AbstractResourceBundleProvider, lambda$loadResourceBundle$0, $Class*, $Module*, $String*)},
+	{"loadPropertyResourceBundle", "(Ljava/lang/Module;Ljava/lang/String;)Ljava/util/ResourceBundle;", nullptr, $PRIVATE | $STATIC, $staticMethod(AbstractResourceBundleProvider, loadPropertyResourceBundle, $ResourceBundle*, $Module*, $String*), "java.io.IOException"},
+	{"loadResourceBundle", "(Ljava/lang/Module;Ljava/lang/String;)Ljava/util/ResourceBundle;", nullptr, $PRIVATE | $STATIC, $staticMethod(AbstractResourceBundleProvider, loadResourceBundle, $ResourceBundle*, $Module*, $String*)},
+	{"toBundleName", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(AbstractResourceBundleProvider, toBundleName, $String*, $String*, $Locale*)},
+	{"toResourceName", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(AbstractResourceBundleProvider, toResourceName, $String*, $String*, $String*)},
 	{}
 };
 

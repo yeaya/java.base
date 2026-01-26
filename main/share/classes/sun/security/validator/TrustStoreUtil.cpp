@@ -29,8 +29,8 @@ namespace sun {
 		namespace validator {
 
 $MethodInfo _TrustStoreUtil_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(TrustStoreUtil::*)()>(&TrustStoreUtil::init$))},
-	{"getTrustedCerts", "(Ljava/security/KeyStore;)Ljava/util/Set;", "(Ljava/security/KeyStore;)Ljava/util/Set<Ljava/security/cert/X509Certificate;>;", $PUBLIC | $STATIC, $method(static_cast<$Set*(*)($KeyStore*)>(&TrustStoreUtil::getTrustedCerts))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(TrustStoreUtil, init$, void)},
+	{"getTrustedCerts", "(Ljava/security/KeyStore;)Ljava/util/Set;", "(Ljava/security/KeyStore;)Ljava/util/Set<Ljava/security/cert/X509Certificate;>;", $PUBLIC | $STATIC, $staticMethod(TrustStoreUtil, getTrustedCerts, $Set*, $KeyStore*)},
 	{}
 };
 

@@ -37,19 +37,19 @@ namespace jdk {
 			namespace text {
 
 $MethodInfo _BidiLine_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(BidiLine::*)()>(&BidiLine::init$))},
-	{"getLevelAt", "(Ljdk/internal/icu/text/BidiBase;I)B", nullptr, $STATIC, $method(static_cast<int8_t(*)($BidiBase*,int32_t)>(&BidiLine::getLevelAt))},
-	{"getLevels", "(Ljdk/internal/icu/text/BidiBase;)[B", nullptr, $STATIC, $method(static_cast<$bytes*(*)($BidiBase*)>(&BidiLine::getLevels))},
-	{"getRunFromLogicalIndex", "(Ljdk/internal/icu/text/BidiBase;I)I", nullptr, $STATIC, $method(static_cast<int32_t(*)($BidiBase*,int32_t)>(&BidiLine::getRunFromLogicalIndex))},
-	{"getRuns", "(Ljdk/internal/icu/text/BidiBase;)V", nullptr, $STATIC, $method(static_cast<void(*)($BidiBase*)>(&BidiLine::getRuns))},
-	{"getSingleRun", "(Ljdk/internal/icu/text/BidiBase;B)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($BidiBase*,int8_t)>(&BidiLine::getSingleRun))},
-	{"getVisualMap", "(Ljdk/internal/icu/text/BidiBase;)[I", nullptr, $STATIC, $method(static_cast<$ints*(*)($BidiBase*)>(&BidiLine::getVisualMap))},
-	{"getVisualRun", "(Ljdk/internal/icu/text/BidiBase;I)Ljdk/internal/icu/text/BidiRun;", nullptr, $STATIC, $method(static_cast<$BidiRun*(*)($BidiBase*,int32_t)>(&BidiLine::getVisualRun))},
-	{"prepareReorder", "([B[B[B)[I", nullptr, $STATIC, $method(static_cast<$ints*(*)($bytes*,$bytes*,$bytes*)>(&BidiLine::prepareReorder))},
-	{"reorderLine", "(Ljdk/internal/icu/text/BidiBase;BB)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($BidiBase*,int8_t,int8_t)>(&BidiLine::reorderLine))},
-	{"reorderVisual", "([B)[I", nullptr, $STATIC, $method(static_cast<$ints*(*)($bytes*)>(&BidiLine::reorderVisual))},
-	{"setLine", "(Ljdk/internal/icu/text/BidiBase;Ljava/text/Bidi;Ljdk/internal/icu/text/BidiBase;II)Ljava/text/Bidi;", nullptr, $STATIC, $method(static_cast<$Bidi*(*)($BidiBase*,$Bidi*,$BidiBase*,int32_t,int32_t)>(&BidiLine::setLine))},
-	{"setTrailingWSStart", "(Ljdk/internal/icu/text/BidiBase;)V", nullptr, $STATIC, $method(static_cast<void(*)($BidiBase*)>(&BidiLine::setTrailingWSStart))},
+	{"<init>", "()V", nullptr, 0, $method(BidiLine, init$, void)},
+	{"getLevelAt", "(Ljdk/internal/icu/text/BidiBase;I)B", nullptr, $STATIC, $staticMethod(BidiLine, getLevelAt, int8_t, $BidiBase*, int32_t)},
+	{"getLevels", "(Ljdk/internal/icu/text/BidiBase;)[B", nullptr, $STATIC, $staticMethod(BidiLine, getLevels, $bytes*, $BidiBase*)},
+	{"getRunFromLogicalIndex", "(Ljdk/internal/icu/text/BidiBase;I)I", nullptr, $STATIC, $staticMethod(BidiLine, getRunFromLogicalIndex, int32_t, $BidiBase*, int32_t)},
+	{"getRuns", "(Ljdk/internal/icu/text/BidiBase;)V", nullptr, $STATIC, $staticMethod(BidiLine, getRuns, void, $BidiBase*)},
+	{"getSingleRun", "(Ljdk/internal/icu/text/BidiBase;B)V", nullptr, $PRIVATE | $STATIC, $staticMethod(BidiLine, getSingleRun, void, $BidiBase*, int8_t)},
+	{"getVisualMap", "(Ljdk/internal/icu/text/BidiBase;)[I", nullptr, $STATIC, $staticMethod(BidiLine, getVisualMap, $ints*, $BidiBase*)},
+	{"getVisualRun", "(Ljdk/internal/icu/text/BidiBase;I)Ljdk/internal/icu/text/BidiRun;", nullptr, $STATIC, $staticMethod(BidiLine, getVisualRun, $BidiRun*, $BidiBase*, int32_t)},
+	{"prepareReorder", "([B[B[B)[I", nullptr, $STATIC, $staticMethod(BidiLine, prepareReorder, $ints*, $bytes*, $bytes*, $bytes*)},
+	{"reorderLine", "(Ljdk/internal/icu/text/BidiBase;BB)V", nullptr, $PRIVATE | $STATIC, $staticMethod(BidiLine, reorderLine, void, $BidiBase*, int8_t, int8_t)},
+	{"reorderVisual", "([B)[I", nullptr, $STATIC, $staticMethod(BidiLine, reorderVisual, $ints*, $bytes*)},
+	{"setLine", "(Ljdk/internal/icu/text/BidiBase;Ljava/text/Bidi;Ljdk/internal/icu/text/BidiBase;II)Ljava/text/Bidi;", nullptr, $STATIC, $staticMethod(BidiLine, setLine, $Bidi*, $BidiBase*, $Bidi*, $BidiBase*, int32_t, int32_t)},
+	{"setTrailingWSStart", "(Ljdk/internal/icu/text/BidiBase;)V", nullptr, $STATIC, $staticMethod(BidiLine, setTrailingWSStart, void, $BidiBase*)},
 	{}
 };
 

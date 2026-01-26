@@ -42,12 +42,12 @@ $FieldInfo _BreakDictionary_FieldInfo_[] = {
 };
 
 $MethodInfo _BreakDictionary_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;[B)V", nullptr, 0, $method(static_cast<void(BreakDictionary::*)($String*,$bytes*)>(&BreakDictionary::init$))},
-	{"cellIsPopulated", "(II)Z", nullptr, $PRIVATE, $method(static_cast<bool(BreakDictionary::*)(int32_t,int32_t)>(&BreakDictionary::cellIsPopulated))},
-	{"getNextState", "(II)S", nullptr, $PUBLIC | $FINAL, $method(static_cast<int16_t(BreakDictionary::*)(int32_t,int32_t)>(&BreakDictionary::getNextState))},
-	{"getNextStateFromCharacter", "(II)S", nullptr, $PUBLIC | $FINAL, $method(static_cast<int16_t(BreakDictionary::*)(int32_t,int32_t)>(&BreakDictionary::getNextStateFromCharacter))},
-	{"internalAt", "(II)S", nullptr, $PRIVATE, $method(static_cast<int16_t(BreakDictionary::*)(int32_t,int32_t)>(&BreakDictionary::internalAt))},
-	{"setupDictionary", "(Ljava/lang/String;[B)V", nullptr, $PRIVATE, $method(static_cast<void(BreakDictionary::*)($String*,$bytes*)>(&BreakDictionary::setupDictionary))},
+	{"<init>", "(Ljava/lang/String;[B)V", nullptr, 0, $method(BreakDictionary, init$, void, $String*, $bytes*)},
+	{"cellIsPopulated", "(II)Z", nullptr, $PRIVATE, $method(BreakDictionary, cellIsPopulated, bool, int32_t, int32_t)},
+	{"getNextState", "(II)S", nullptr, $PUBLIC | $FINAL, $method(BreakDictionary, getNextState, int16_t, int32_t, int32_t)},
+	{"getNextStateFromCharacter", "(II)S", nullptr, $PUBLIC | $FINAL, $method(BreakDictionary, getNextStateFromCharacter, int16_t, int32_t, int32_t)},
+	{"internalAt", "(II)S", nullptr, $PRIVATE, $method(BreakDictionary, internalAt, int16_t, int32_t, int32_t)},
+	{"setupDictionary", "(Ljava/lang/String;[B)V", nullptr, $PRIVATE, $method(BreakDictionary, setupDictionary, void, $String*, $bytes*)},
 	{}
 };
 

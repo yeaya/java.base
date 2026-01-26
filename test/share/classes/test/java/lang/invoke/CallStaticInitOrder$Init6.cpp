@@ -20,7 +20,7 @@ $FieldInfo _CallStaticInitOrder$Init6_FieldInfo_[] = {
 };
 
 $MethodInfo _CallStaticInitOrder$Init6_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(CallStaticInitOrder$Init6::*)()>(&CallStaticInitOrder$Init6::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(CallStaticInitOrder$Init6, init$, void)},
 	{}
 };
 

@@ -43,9 +43,9 @@ $FieldInfo _UnixFileAttributeViews$Basic_FieldInfo_[] = {
 };
 
 $MethodInfo _UnixFileAttributeViews$Basic_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/fs/UnixPath;Z)V", nullptr, 0, $method(static_cast<void(UnixFileAttributeViews$Basic::*)($UnixPath*,bool)>(&UnixFileAttributeViews$Basic::init$))},
-	{"readAttributes", "()Ljava/nio/file/attribute/BasicFileAttributes;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"setTimes", "(Ljava/nio/file/attribute/FileTime;Ljava/nio/file/attribute/FileTime;Ljava/nio/file/attribute/FileTime;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Lsun/nio/fs/UnixPath;Z)V", nullptr, 0, $method(UnixFileAttributeViews$Basic, init$, void, $UnixPath*, bool)},
+	{"readAttributes", "()Ljava/nio/file/attribute/BasicFileAttributes;", nullptr, $PUBLIC, $virtualMethod(UnixFileAttributeViews$Basic, readAttributes, $BasicFileAttributes*), "java.io.IOException"},
+	{"setTimes", "(Ljava/nio/file/attribute/FileTime;Ljava/nio/file/attribute/FileTime;Ljava/nio/file/attribute/FileTime;)V", nullptr, $PUBLIC, $virtualMethod(UnixFileAttributeViews$Basic, setTimes, void, $FileTime*, $FileTime*, $FileTime*), "java.io.IOException"},
 	{}
 };
 

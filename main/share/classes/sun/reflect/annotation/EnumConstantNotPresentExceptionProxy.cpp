@@ -23,9 +23,9 @@ $FieldInfo _EnumConstantNotPresentExceptionProxy_FieldInfo_[] = {
 };
 
 $MethodInfo _EnumConstantNotPresentExceptionProxy_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Class;Ljava/lang/String;)V", "(Ljava/lang/Class<+Ljava/lang/Enum<*>;>;Ljava/lang/String;)V", $PUBLIC, $method(static_cast<void(EnumConstantNotPresentExceptionProxy::*)($Class*,$String*)>(&EnumConstantNotPresentExceptionProxy::init$))},
-	{"generateException", "()Ljava/lang/RuntimeException;", nullptr, $PROTECTED},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Class;Ljava/lang/String;)V", "(Ljava/lang/Class<+Ljava/lang/Enum<*>;>;Ljava/lang/String;)V", $PUBLIC, $method(EnumConstantNotPresentExceptionProxy, init$, void, $Class*, $String*)},
+	{"generateException", "()Ljava/lang/RuntimeException;", nullptr, $PROTECTED, $virtualMethod(EnumConstantNotPresentExceptionProxy, generateException, $RuntimeException*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(EnumConstantNotPresentExceptionProxy, toString, $String*)},
 	{}
 };
 

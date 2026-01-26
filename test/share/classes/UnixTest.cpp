@@ -21,8 +21,8 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $ProcessBuilder = ::java::lang::ProcessBuilder;
 
 $MethodInfo _UnixTest_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/File;)V", nullptr, $PUBLIC, $method(static_cast<void(UnixTest::*)($File*)>(&UnixTest::init$)), "java.io.IOException"},
-	{"createScript", "(Ljava/io/File;)V", nullptr, 0, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljava/io/File;)V", nullptr, $PUBLIC, $method(UnixTest, init$, void, $File*), "java.io.IOException"},
+	{"createScript", "(Ljava/io/File;)V", nullptr, 0, $virtualMethod(UnixTest, createScript, void, $File*), "java.io.IOException"},
 	{}
 };
 

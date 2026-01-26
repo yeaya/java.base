@@ -27,15 +27,15 @@ $FieldInfo _Reader$1_FieldInfo_[] = {
 };
 
 $MethodInfo _Reader$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Reader$1::*)()>(&Reader$1::init$))},
-	{"close", "()V", nullptr, $PUBLIC},
-	{"ensureOpen", "()V", nullptr, $PRIVATE, $method(static_cast<void(Reader$1::*)()>(&Reader$1::ensureOpen)), "java.io.IOException"},
-	{"read", "()I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"read", "([CII)I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"read", "(Ljava/nio/CharBuffer;)I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"ready", "()Z", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"skip", "(J)J", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"transferTo", "(Ljava/io/Writer;)J", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, 0, $method(Reader$1, init$, void)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(Reader$1, close, void)},
+	{"ensureOpen", "()V", nullptr, $PRIVATE, $method(Reader$1, ensureOpen, void), "java.io.IOException"},
+	{"read", "()I", nullptr, $PUBLIC, $virtualMethod(Reader$1, read, int32_t), "java.io.IOException"},
+	{"read", "([CII)I", nullptr, $PUBLIC, $virtualMethod(Reader$1, read, int32_t, $chars*, int32_t, int32_t), "java.io.IOException"},
+	{"read", "(Ljava/nio/CharBuffer;)I", nullptr, $PUBLIC, $virtualMethod(Reader$1, read, int32_t, $CharBuffer*), "java.io.IOException"},
+	{"ready", "()Z", nullptr, $PUBLIC, $virtualMethod(Reader$1, ready, bool), "java.io.IOException"},
+	{"skip", "(J)J", nullptr, $PUBLIC, $virtualMethod(Reader$1, skip, int64_t, int64_t), "java.io.IOException"},
+	{"transferTo", "(Ljava/io/Writer;)J", nullptr, $PUBLIC, $virtualMethod(Reader$1, transferTo, int64_t, $Writer*), "java.io.IOException"},
 	{}
 };
 

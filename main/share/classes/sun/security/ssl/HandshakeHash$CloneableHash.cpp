@@ -24,10 +24,10 @@ $FieldInfo _HandshakeHash$CloneableHash_FieldInfo_[] = {
 };
 
 $MethodInfo _HandshakeHash$CloneableHash_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/MessageDigest;)V", nullptr, 0, $method(static_cast<void(HandshakeHash$CloneableHash::*)($MessageDigest*)>(&HandshakeHash$CloneableHash::init$))},
-	{"archived", "()[B", nullptr, $PUBLIC},
-	{"digest", "()[B", nullptr, $PUBLIC},
-	{"update", "([BII)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/security/MessageDigest;)V", nullptr, 0, $method(HandshakeHash$CloneableHash, init$, void, $MessageDigest*)},
+	{"archived", "()[B", nullptr, $PUBLIC, $virtualMethod(HandshakeHash$CloneableHash, archived, $bytes*)},
+	{"digest", "()[B", nullptr, $PUBLIC, $virtualMethod(HandshakeHash$CloneableHash, digest, $bytes*)},
+	{"update", "([BII)V", nullptr, $PUBLIC, $virtualMethod(HandshakeHash$CloneableHash, update, void, $bytes*, int32_t, int32_t)},
 	{}
 };
 

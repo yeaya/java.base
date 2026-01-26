@@ -89,8 +89,8 @@ $FieldInfo LocaleMatcher$$Lambda$lambda$removeDuplicates$0::fieldInfos[2] = {
 	{}
 };
 $MethodInfo LocaleMatcher$$Lambda$lambda$removeDuplicates$0::methodInfos[3] = {
-	{"<init>", "(Ljava/util/Set;)V", nullptr, $PUBLIC, $method(static_cast<void(LocaleMatcher$$Lambda$lambda$removeDuplicates$0::*)($Set*)>(&LocaleMatcher$$Lambda$lambda$removeDuplicates$0::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/Set;)V", nullptr, $PUBLIC, $method(LocaleMatcher$$Lambda$lambda$removeDuplicates$0, init$, void, $Set*)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(LocaleMatcher$$Lambda$lambda$removeDuplicates$0, test, bool, Object$*)},
 	{}
 };
 $ClassInfo LocaleMatcher$$Lambda$lambda$removeDuplicates$0::classInfo$ = {
@@ -129,8 +129,8 @@ $FieldInfo LocaleMatcher$$Lambda$lambda$caseInsensitiveMatch$1$1::fieldInfos[2] 
 	{}
 };
 $MethodInfo LocaleMatcher$$Lambda$lambda$caseInsensitiveMatch$1$1::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(LocaleMatcher$$Lambda$lambda$caseInsensitiveMatch$1$1::*)($String*)>(&LocaleMatcher$$Lambda$lambda$caseInsensitiveMatch$1$1::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(LocaleMatcher$$Lambda$lambda$caseInsensitiveMatch$1$1, init$, void, $String*)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(LocaleMatcher$$Lambda$lambda$caseInsensitiveMatch$1$1, test, bool, Object$*)},
 	{}
 };
 $ClassInfo LocaleMatcher$$Lambda$lambda$caseInsensitiveMatch$1$1::classInfo$ = {
@@ -148,31 +148,31 @@ $Class* LocaleMatcher$$Lambda$lambda$caseInsensitiveMatch$1$1::load$($String* na
 $Class* LocaleMatcher$$Lambda$lambda$caseInsensitiveMatch$1$1::class$ = nullptr;
 
 $MethodInfo _LocaleMatcher_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(LocaleMatcher::*)()>(&LocaleMatcher::init$))},
-	{"caseInsensitiveMatch", "(Ljava/util/List;Ljava/lang/String;)Z", "(Ljava/util/List<Ljava/lang/String;>;Ljava/lang/String;)Z", $PRIVATE | $STATIC, $method(static_cast<bool(*)($List*,$String*)>(&LocaleMatcher::caseInsensitiveMatch))},
-	{"filter", "(Ljava/util/List;Ljava/util/Collection;Ljava/util/Locale$FilteringMode;)Ljava/util/List;", "(Ljava/util/List<Ljava/util/Locale$LanguageRange;>;Ljava/util/Collection<Ljava/util/Locale;>;Ljava/util/Locale$FilteringMode;)Ljava/util/List<Ljava/util/Locale;>;", $PUBLIC | $STATIC, $method(static_cast<$List*(*)($List*,$Collection*,$Locale$FilteringMode*)>(&LocaleMatcher::filter))},
-	{"filterBasic", "(Ljava/util/List;Ljava/util/Collection;)Ljava/util/List;", "(Ljava/util/List<Ljava/util/Locale$LanguageRange;>;Ljava/util/Collection<Ljava/lang/String;>;)Ljava/util/List<Ljava/lang/String;>;", $PRIVATE | $STATIC, $method(static_cast<$List*(*)($List*,$Collection*)>(&LocaleMatcher::filterBasic))},
-	{"filterExtended", "(Ljava/util/List;Ljava/util/Collection;)Ljava/util/List;", "(Ljava/util/List<Ljava/util/Locale$LanguageRange;>;Ljava/util/Collection<Ljava/lang/String;>;)Ljava/util/List<Ljava/lang/String;>;", $PRIVATE | $STATIC, $method(static_cast<$List*(*)($List*,$Collection*)>(&LocaleMatcher::filterExtended))},
-	{"filterTags", "(Ljava/util/List;Ljava/util/Collection;Ljava/util/Locale$FilteringMode;)Ljava/util/List;", "(Ljava/util/List<Ljava/util/Locale$LanguageRange;>;Ljava/util/Collection<Ljava/lang/String;>;Ljava/util/Locale$FilteringMode;)Ljava/util/List<Ljava/lang/String;>;", $PUBLIC | $STATIC, $method(static_cast<$List*(*)($List*,$Collection*,$Locale$FilteringMode*)>(&LocaleMatcher::filterTags))},
-	{"getEquivalentForRegionAndVariant", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($String*)>(&LocaleMatcher::getEquivalentForRegionAndVariant))},
-	{"getEquivalentsForLanguage", "(Ljava/lang/String;)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$StringArray*(*)($String*)>(&LocaleMatcher::getEquivalentsForLanguage))},
-	{"getExtentionKeyIndex", "(Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)($String*)>(&LocaleMatcher::getExtentionKeyIndex))},
-	{"lambda$caseInsensitiveMatch$1", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($String*,$String*)>(&LocaleMatcher::lambda$caseInsensitiveMatch$1))},
-	{"lambda$removeDuplicates$0", "(Ljava/util/Set;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($Set*,$String*)>(&LocaleMatcher::lambda$removeDuplicates$0))},
-	{"lookup", "(Ljava/util/List;Ljava/util/Collection;)Ljava/util/Locale;", "(Ljava/util/List<Ljava/util/Locale$LanguageRange;>;Ljava/util/Collection<Ljava/util/Locale;>;)Ljava/util/Locale;", $PUBLIC | $STATIC, $method(static_cast<$Locale*(*)($List*,$Collection*)>(&LocaleMatcher::lookup))},
-	{"lookupTag", "(Ljava/util/List;Ljava/util/Collection;)Ljava/lang/String;", "(Ljava/util/List<Ljava/util/Locale$LanguageRange;>;Ljava/util/Collection<Ljava/lang/String;>;)Ljava/lang/String;", $PUBLIC | $STATIC, $method(static_cast<$String*(*)($List*,$Collection*)>(&LocaleMatcher::lookupTag))},
-	{"mapEquivalents", "(Ljava/util/List;Ljava/util/Map;)Ljava/util/List;", "(Ljava/util/List<Ljava/util/Locale$LanguageRange;>;Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;)Ljava/util/List<Ljava/util/Locale$LanguageRange;>;", $PUBLIC | $STATIC, $method(static_cast<$List*(*)($List*,$Map*)>(&LocaleMatcher::mapEquivalents))},
-	{"matchFilterExtendedSubtags", "([Ljava/lang/String;[Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)($StringArray*,$StringArray*)>(&LocaleMatcher::matchFilterExtendedSubtags))},
-	{"parse", "(Ljava/lang/String;)Ljava/util/List;", "(Ljava/lang/String;)Ljava/util/List<Ljava/util/Locale$LanguageRange;>;", $PUBLIC | $STATIC, $method(static_cast<$List*(*)($String*)>(&LocaleMatcher::parse))},
-	{"removeDuplicates", "(Ljava/util/Collection;)Ljava/util/Collection;", "(Ljava/util/Collection<Ljava/lang/String;>;)Ljava/util/Collection<Ljava/lang/String;>;", $PRIVATE | $STATIC, $method(static_cast<$Collection*(*)($Collection*)>(&LocaleMatcher::removeDuplicates))},
-	{"removeTagsMatchingBasicZeroRange", "(Ljava/util/List;Ljava/util/Collection;)Ljava/util/Collection;", "(Ljava/util/List<Ljava/util/Locale$LanguageRange;>;Ljava/util/Collection<Ljava/lang/String;>;)Ljava/util/Collection<Ljava/lang/String;>;", $PRIVATE | $STATIC, $method(static_cast<$Collection*(*)($List*,$Collection*)>(&LocaleMatcher::removeTagsMatchingBasicZeroRange))},
-	{"removeTagsMatchingExtendedZeroRange", "(Ljava/util/List;Ljava/util/Collection;)Ljava/util/Collection;", "(Ljava/util/List<Ljava/util/Locale$LanguageRange;>;Ljava/util/Collection<Ljava/lang/String;>;)Ljava/util/Collection<Ljava/lang/String;>;", $PRIVATE | $STATIC, $method(static_cast<$Collection*(*)($List*,$Collection*)>(&LocaleMatcher::removeTagsMatchingExtendedZeroRange))},
-	{"replaceFirstSubStringMatch", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($String*,$String*,$String*)>(&LocaleMatcher::replaceFirstSubStringMatch))},
-	{"shouldIgnoreFilterBasicMatch", "(Ljava/util/List;Ljava/lang/String;)Z", "(Ljava/util/List<Ljava/util/Locale$LanguageRange;>;Ljava/lang/String;)Z", $PRIVATE | $STATIC, $method(static_cast<bool(*)($List*,$String*)>(&LocaleMatcher::shouldIgnoreFilterBasicMatch))},
-	{"shouldIgnoreFilterExtendedMatch", "(Ljava/util/List;Ljava/lang/String;)Z", "(Ljava/util/List<Ljava/util/Locale$LanguageRange;>;Ljava/lang/String;)Z", $PRIVATE | $STATIC, $method(static_cast<bool(*)($List*,$String*)>(&LocaleMatcher::shouldIgnoreFilterExtendedMatch))},
-	{"shouldIgnoreLookupMatch", "(Ljava/util/List;Ljava/lang/String;)Z", "(Ljava/util/List<Ljava/util/Locale$LanguageRange;>;Ljava/lang/String;)Z", $PRIVATE | $STATIC, $method(static_cast<bool(*)($List*,$String*)>(&LocaleMatcher::shouldIgnoreLookupMatch))},
-	{"splitRanges", "(Ljava/util/List;)I", "(Ljava/util/List<Ljava/util/Locale$LanguageRange;>;)I", $PRIVATE | $STATIC, $method(static_cast<int32_t(*)($List*)>(&LocaleMatcher::splitRanges))},
-	{"truncateRange", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($String*)>(&LocaleMatcher::truncateRange))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(LocaleMatcher, init$, void)},
+	{"caseInsensitiveMatch", "(Ljava/util/List;Ljava/lang/String;)Z", "(Ljava/util/List<Ljava/lang/String;>;Ljava/lang/String;)Z", $PRIVATE | $STATIC, $staticMethod(LocaleMatcher, caseInsensitiveMatch, bool, $List*, $String*)},
+	{"filter", "(Ljava/util/List;Ljava/util/Collection;Ljava/util/Locale$FilteringMode;)Ljava/util/List;", "(Ljava/util/List<Ljava/util/Locale$LanguageRange;>;Ljava/util/Collection<Ljava/util/Locale;>;Ljava/util/Locale$FilteringMode;)Ljava/util/List<Ljava/util/Locale;>;", $PUBLIC | $STATIC, $staticMethod(LocaleMatcher, filter, $List*, $List*, $Collection*, $Locale$FilteringMode*)},
+	{"filterBasic", "(Ljava/util/List;Ljava/util/Collection;)Ljava/util/List;", "(Ljava/util/List<Ljava/util/Locale$LanguageRange;>;Ljava/util/Collection<Ljava/lang/String;>;)Ljava/util/List<Ljava/lang/String;>;", $PRIVATE | $STATIC, $staticMethod(LocaleMatcher, filterBasic, $List*, $List*, $Collection*)},
+	{"filterExtended", "(Ljava/util/List;Ljava/util/Collection;)Ljava/util/List;", "(Ljava/util/List<Ljava/util/Locale$LanguageRange;>;Ljava/util/Collection<Ljava/lang/String;>;)Ljava/util/List<Ljava/lang/String;>;", $PRIVATE | $STATIC, $staticMethod(LocaleMatcher, filterExtended, $List*, $List*, $Collection*)},
+	{"filterTags", "(Ljava/util/List;Ljava/util/Collection;Ljava/util/Locale$FilteringMode;)Ljava/util/List;", "(Ljava/util/List<Ljava/util/Locale$LanguageRange;>;Ljava/util/Collection<Ljava/lang/String;>;Ljava/util/Locale$FilteringMode;)Ljava/util/List<Ljava/lang/String;>;", $PUBLIC | $STATIC, $staticMethod(LocaleMatcher, filterTags, $List*, $List*, $Collection*, $Locale$FilteringMode*)},
+	{"getEquivalentForRegionAndVariant", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(LocaleMatcher, getEquivalentForRegionAndVariant, $String*, $String*)},
+	{"getEquivalentsForLanguage", "(Ljava/lang/String;)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(LocaleMatcher, getEquivalentsForLanguage, $StringArray*, $String*)},
+	{"getExtentionKeyIndex", "(Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(LocaleMatcher, getExtentionKeyIndex, int32_t, $String*)},
+	{"lambda$caseInsensitiveMatch$1", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LocaleMatcher, lambda$caseInsensitiveMatch$1, bool, $String*, $String*)},
+	{"lambda$removeDuplicates$0", "(Ljava/util/Set;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LocaleMatcher, lambda$removeDuplicates$0, bool, $Set*, $String*)},
+	{"lookup", "(Ljava/util/List;Ljava/util/Collection;)Ljava/util/Locale;", "(Ljava/util/List<Ljava/util/Locale$LanguageRange;>;Ljava/util/Collection<Ljava/util/Locale;>;)Ljava/util/Locale;", $PUBLIC | $STATIC, $staticMethod(LocaleMatcher, lookup, $Locale*, $List*, $Collection*)},
+	{"lookupTag", "(Ljava/util/List;Ljava/util/Collection;)Ljava/lang/String;", "(Ljava/util/List<Ljava/util/Locale$LanguageRange;>;Ljava/util/Collection<Ljava/lang/String;>;)Ljava/lang/String;", $PUBLIC | $STATIC, $staticMethod(LocaleMatcher, lookupTag, $String*, $List*, $Collection*)},
+	{"mapEquivalents", "(Ljava/util/List;Ljava/util/Map;)Ljava/util/List;", "(Ljava/util/List<Ljava/util/Locale$LanguageRange;>;Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;)Ljava/util/List<Ljava/util/Locale$LanguageRange;>;", $PUBLIC | $STATIC, $staticMethod(LocaleMatcher, mapEquivalents, $List*, $List*, $Map*)},
+	{"matchFilterExtendedSubtags", "([Ljava/lang/String;[Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(LocaleMatcher, matchFilterExtendedSubtags, int32_t, $StringArray*, $StringArray*)},
+	{"parse", "(Ljava/lang/String;)Ljava/util/List;", "(Ljava/lang/String;)Ljava/util/List<Ljava/util/Locale$LanguageRange;>;", $PUBLIC | $STATIC, $staticMethod(LocaleMatcher, parse, $List*, $String*)},
+	{"removeDuplicates", "(Ljava/util/Collection;)Ljava/util/Collection;", "(Ljava/util/Collection<Ljava/lang/String;>;)Ljava/util/Collection<Ljava/lang/String;>;", $PRIVATE | $STATIC, $staticMethod(LocaleMatcher, removeDuplicates, $Collection*, $Collection*)},
+	{"removeTagsMatchingBasicZeroRange", "(Ljava/util/List;Ljava/util/Collection;)Ljava/util/Collection;", "(Ljava/util/List<Ljava/util/Locale$LanguageRange;>;Ljava/util/Collection<Ljava/lang/String;>;)Ljava/util/Collection<Ljava/lang/String;>;", $PRIVATE | $STATIC, $staticMethod(LocaleMatcher, removeTagsMatchingBasicZeroRange, $Collection*, $List*, $Collection*)},
+	{"removeTagsMatchingExtendedZeroRange", "(Ljava/util/List;Ljava/util/Collection;)Ljava/util/Collection;", "(Ljava/util/List<Ljava/util/Locale$LanguageRange;>;Ljava/util/Collection<Ljava/lang/String;>;)Ljava/util/Collection<Ljava/lang/String;>;", $PRIVATE | $STATIC, $staticMethod(LocaleMatcher, removeTagsMatchingExtendedZeroRange, $Collection*, $List*, $Collection*)},
+	{"replaceFirstSubStringMatch", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(LocaleMatcher, replaceFirstSubStringMatch, $String*, $String*, $String*, $String*)},
+	{"shouldIgnoreFilterBasicMatch", "(Ljava/util/List;Ljava/lang/String;)Z", "(Ljava/util/List<Ljava/util/Locale$LanguageRange;>;Ljava/lang/String;)Z", $PRIVATE | $STATIC, $staticMethod(LocaleMatcher, shouldIgnoreFilterBasicMatch, bool, $List*, $String*)},
+	{"shouldIgnoreFilterExtendedMatch", "(Ljava/util/List;Ljava/lang/String;)Z", "(Ljava/util/List<Ljava/util/Locale$LanguageRange;>;Ljava/lang/String;)Z", $PRIVATE | $STATIC, $staticMethod(LocaleMatcher, shouldIgnoreFilterExtendedMatch, bool, $List*, $String*)},
+	{"shouldIgnoreLookupMatch", "(Ljava/util/List;Ljava/lang/String;)Z", "(Ljava/util/List<Ljava/util/Locale$LanguageRange;>;Ljava/lang/String;)Z", $PRIVATE | $STATIC, $staticMethod(LocaleMatcher, shouldIgnoreLookupMatch, bool, $List*, $String*)},
+	{"splitRanges", "(Ljava/util/List;)I", "(Ljava/util/List<Ljava/util/Locale$LanguageRange;>;)I", $PRIVATE | $STATIC, $staticMethod(LocaleMatcher, splitRanges, int32_t, $List*)},
+	{"truncateRange", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(LocaleMatcher, truncateRange, $String*, $String*)},
 	{}
 };
 

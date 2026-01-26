@@ -40,17 +40,17 @@ $FieldInfo _ProcessImpl$DeferredCloseProcessPipeInputStream_FieldInfo_[] = {
 };
 
 $MethodInfo _ProcessImpl$DeferredCloseProcessPipeInputStream_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, 0, $method(static_cast<void(ProcessImpl$DeferredCloseProcessPipeInputStream::*)(int32_t)>(&ProcessImpl$DeferredCloseProcessPipeInputStream::init$))},
-	{"available", "()I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"drainInputStream", "(Ljava/io/InputStream;)Ljava/io/InputStream;", nullptr, $PRIVATE, $method(static_cast<$InputStream*(ProcessImpl$DeferredCloseProcessPipeInputStream::*)($InputStream*)>(&ProcessImpl$DeferredCloseProcessPipeInputStream::drainInputStream)), "java.io.IOException"},
-	{"lower", "()V", nullptr, $PRIVATE, $method(static_cast<void(ProcessImpl$DeferredCloseProcessPipeInputStream::*)()>(&ProcessImpl$DeferredCloseProcessPipeInputStream::lower)), "java.io.IOException"},
-	{"processExited", "()V", nullptr, $SYNCHRONIZED},
-	{"raise", "()V", nullptr, $PRIVATE, $method(static_cast<void(ProcessImpl$DeferredCloseProcessPipeInputStream::*)()>(&ProcessImpl$DeferredCloseProcessPipeInputStream::raise))},
-	{"read", "()I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"read", "([B)I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"read", "([BII)I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"skip", "(J)J", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(I)V", nullptr, 0, $method(ProcessImpl$DeferredCloseProcessPipeInputStream, init$, void, int32_t)},
+	{"available", "()I", nullptr, $PUBLIC, $virtualMethod(ProcessImpl$DeferredCloseProcessPipeInputStream, available, int32_t), "java.io.IOException"},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(ProcessImpl$DeferredCloseProcessPipeInputStream, close, void), "java.io.IOException"},
+	{"drainInputStream", "(Ljava/io/InputStream;)Ljava/io/InputStream;", nullptr, $PRIVATE, $method(ProcessImpl$DeferredCloseProcessPipeInputStream, drainInputStream, $InputStream*, $InputStream*), "java.io.IOException"},
+	{"lower", "()V", nullptr, $PRIVATE, $method(ProcessImpl$DeferredCloseProcessPipeInputStream, lower, void), "java.io.IOException"},
+	{"processExited", "()V", nullptr, $SYNCHRONIZED, $virtualMethod(ProcessImpl$DeferredCloseProcessPipeInputStream, processExited, void)},
+	{"raise", "()V", nullptr, $PRIVATE, $method(ProcessImpl$DeferredCloseProcessPipeInputStream, raise, void)},
+	{"read", "()I", nullptr, $PUBLIC, $virtualMethod(ProcessImpl$DeferredCloseProcessPipeInputStream, read, int32_t), "java.io.IOException"},
+	{"read", "([B)I", nullptr, $PUBLIC, $virtualMethod(ProcessImpl$DeferredCloseProcessPipeInputStream, read, int32_t, $bytes*), "java.io.IOException"},
+	{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(ProcessImpl$DeferredCloseProcessPipeInputStream, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
+	{"skip", "(J)J", nullptr, $PUBLIC, $virtualMethod(ProcessImpl$DeferredCloseProcessPipeInputStream, skip, int64_t, int64_t), "java.io.IOException"},
 	{}
 };
 

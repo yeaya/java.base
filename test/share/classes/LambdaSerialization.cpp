@@ -53,8 +53,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo LambdaSerialization$$Lambda$lambda$main$344202ae$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(LambdaSerialization$$Lambda$lambda$main$344202ae$1::*)()>(&LambdaSerialization$$Lambda$lambda$main$344202ae$1::init$))},
-	{"convert", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(LambdaSerialization$$Lambda$lambda$main$344202ae$1, init$, void)},
+	{"convert", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LambdaSerialization$$Lambda$lambda$main$344202ae$1, convert, $String*, $String*)},
 	{}
 };
 $ClassInfo LambdaSerialization$$Lambda$lambda$main$344202ae$1::classInfo$ = {
@@ -86,8 +86,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo LambdaSerialization$$Lambda$lambda$main$344202ae$2$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(LambdaSerialization$$Lambda$lambda$main$344202ae$2$1::*)()>(&LambdaSerialization$$Lambda$lambda$main$344202ae$2$1::init$))},
-	{"convert", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(LambdaSerialization$$Lambda$lambda$main$344202ae$2$1, init$, void)},
+	{"convert", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LambdaSerialization$$Lambda$lambda$main$344202ae$2$1, convert, $String*, $String*)},
 	{}
 };
 $ClassInfo LambdaSerialization$$Lambda$lambda$main$344202ae$2$1::classInfo$ = {
@@ -119,8 +119,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo LambdaSerialization$$Lambda$lambda$main$344202ae$3$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(LambdaSerialization$$Lambda$lambda$main$344202ae$3$2::*)()>(&LambdaSerialization$$Lambda$lambda$main$344202ae$3$2::init$))},
-	{"convert", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(LambdaSerialization$$Lambda$lambda$main$344202ae$3$2, init$, void)},
+	{"convert", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LambdaSerialization$$Lambda$lambda$main$344202ae$3$2, convert, $String*, $String*)},
 	{}
 };
 $ClassInfo LambdaSerialization$$Lambda$lambda$main$344202ae$3$2::classInfo$ = {
@@ -143,15 +143,15 @@ $FieldInfo _LambdaSerialization_FieldInfo_[] = {
 };
 
 $MethodInfo _LambdaSerialization_MethodInfo_[] = {
-	{"$deserializeLambda$", "(Ljava/lang/invoke/SerializedLambda;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Object*(*)($SerializedLambda*)>(&LambdaSerialization::$deserializeLambda$))},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(LambdaSerialization::*)()>(&LambdaSerialization::init$))},
-	{"assertTrue", "(Z)V", nullptr, $STATIC, $method(static_cast<void(*)(bool)>(&LambdaSerialization::assertTrue))},
-	{"lambda$main$344202ae$1", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$String*(*)($String*)>(&LambdaSerialization::lambda$main$344202ae$1))},
-	{"lambda$main$344202ae$2", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$String*(*)($String*)>(&LambdaSerialization::lambda$main$344202ae$2))},
-	{"lambda$main$344202ae$3", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$String*(*)($String*)>(&LambdaSerialization::lambda$main$344202ae$3))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&LambdaSerialization::main)), "java.lang.Exception"},
-	{"readAssert", "(Ljava/io/ObjectInputStream;Ljava/lang/String;)V", nullptr, $STATIC, $method(static_cast<void(*)($ObjectInputStream*,$String*)>(&LambdaSerialization::readAssert)), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"write", "(Ljava/io/ObjectOutput;LLSI;)V", nullptr, $STATIC, $method(static_cast<void(*)($ObjectOutput*,$LSI*)>(&LambdaSerialization::write)), "java.io.IOException"},
+	{"$deserializeLambda$", "(Ljava/lang/invoke/SerializedLambda;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LambdaSerialization, $deserializeLambda$, $Object*, $SerializedLambda*)},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(LambdaSerialization, init$, void)},
+	{"assertTrue", "(Z)V", nullptr, $STATIC, $staticMethod(LambdaSerialization, assertTrue, void, bool)},
+	{"lambda$main$344202ae$1", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LambdaSerialization, lambda$main$344202ae$1, $String*, $String*)},
+	{"lambda$main$344202ae$2", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LambdaSerialization, lambda$main$344202ae$2, $String*, $String*)},
+	{"lambda$main$344202ae$3", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LambdaSerialization, lambda$main$344202ae$3, $String*, $String*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(LambdaSerialization, main, void, $StringArray*), "java.lang.Exception"},
+	{"readAssert", "(Ljava/io/ObjectInputStream;Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(LambdaSerialization, readAssert, void, $ObjectInputStream*, $String*), "java.io.IOException,java.lang.ClassNotFoundException"},
+	{"write", "(Ljava/io/ObjectOutput;LLSI;)V", nullptr, $STATIC, $staticMethod(LambdaSerialization, write, void, $ObjectOutput*, $LSI*), "java.io.IOException"},
 	{}
 };
 

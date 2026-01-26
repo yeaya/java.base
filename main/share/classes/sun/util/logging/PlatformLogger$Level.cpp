@@ -68,13 +68,13 @@ $FieldInfo _PlatformLogger$Level_FieldInfo_[] = {
 };
 
 $MethodInfo _PlatformLogger$Level_MethodInfo_[] = {
-	{"$values", "()[Lsun/util/logging/PlatformLogger$Level;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$PlatformLogger$LevelArray*(*)()>(&PlatformLogger$Level::$values))},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/System$Logger$Level;)V", "(Ljava/lang/System$Logger$Level;)V", $PRIVATE, $method(static_cast<void(PlatformLogger$Level::*)($String*,int32_t,$System$Logger$Level*)>(&PlatformLogger$Level::init$))},
-	{"intValue", "()I", nullptr, $PUBLIC, $method(static_cast<int32_t(PlatformLogger$Level::*)()>(&PlatformLogger$Level::intValue))},
-	{"systemLevel", "()Ljava/lang/System$Logger$Level;", nullptr, $PUBLIC, $method(static_cast<$System$Logger$Level*(PlatformLogger$Level::*)()>(&PlatformLogger$Level::systemLevel))},
-	{"valueOf", "(Ljava/lang/String;)Lsun/util/logging/PlatformLogger$Level;", nullptr, $PUBLIC | $STATIC, $method(static_cast<PlatformLogger$Level*(*)($String*)>(&PlatformLogger$Level::valueOf))},
-	{"valueOf", "(I)Lsun/util/logging/PlatformLogger$Level;", nullptr, $PUBLIC | $STATIC, $method(static_cast<PlatformLogger$Level*(*)(int32_t)>(&PlatformLogger$Level::valueOf))},
-	{"values", "()[Lsun/util/logging/PlatformLogger$Level;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$PlatformLogger$LevelArray*(*)()>(&PlatformLogger$Level::values))},
+	{"$values", "()[Lsun/util/logging/PlatformLogger$Level;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(PlatformLogger$Level, $values, $PlatformLogger$LevelArray*)},
+	{"<init>", "(Ljava/lang/String;ILjava/lang/System$Logger$Level;)V", "(Ljava/lang/System$Logger$Level;)V", $PRIVATE, $method(PlatformLogger$Level, init$, void, $String*, int32_t, $System$Logger$Level*)},
+	{"intValue", "()I", nullptr, $PUBLIC, $method(PlatformLogger$Level, intValue, int32_t)},
+	{"systemLevel", "()Ljava/lang/System$Logger$Level;", nullptr, $PUBLIC, $method(PlatformLogger$Level, systemLevel, $System$Logger$Level*)},
+	{"valueOf", "(Ljava/lang/String;)Lsun/util/logging/PlatformLogger$Level;", nullptr, $PUBLIC | $STATIC, $staticMethod(PlatformLogger$Level, valueOf, PlatformLogger$Level*, $String*)},
+	{"valueOf", "(I)Lsun/util/logging/PlatformLogger$Level;", nullptr, $PUBLIC | $STATIC, $staticMethod(PlatformLogger$Level, valueOf, PlatformLogger$Level*, int32_t)},
+	{"values", "()[Lsun/util/logging/PlatformLogger$Level;", nullptr, $PUBLIC | $STATIC, $staticMethod(PlatformLogger$Level, values, $PlatformLogger$LevelArray*)},
 	{}
 };
 

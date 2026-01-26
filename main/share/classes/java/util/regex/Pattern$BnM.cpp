@@ -36,10 +36,10 @@ $FieldInfo _Pattern$BnM_FieldInfo_[] = {
 };
 
 $MethodInfo _Pattern$BnM_MethodInfo_[] = {
-	{"<init>", "([I[I[ILjava/util/regex/Pattern$Node;)V", nullptr, 0, $method(static_cast<void(Pattern$BnM::*)($ints*,$ints*,$ints*,$Pattern$Node*)>(&Pattern$BnM::init$))},
-	{"match", "(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z", nullptr, 0},
-	{"optimize", "(Ljava/util/regex/Pattern$Node;)Ljava/util/regex/Pattern$Node;", nullptr, $STATIC, $method(static_cast<$Pattern$Node*(*)($Pattern$Node*)>(&Pattern$BnM::optimize))},
-	{"study", "(Ljava/util/regex/Pattern$TreeInfo;)Z", nullptr, 0},
+	{"<init>", "([I[I[ILjava/util/regex/Pattern$Node;)V", nullptr, 0, $method(Pattern$BnM, init$, void, $ints*, $ints*, $ints*, $Pattern$Node*)},
+	{"match", "(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z", nullptr, 0, $virtualMethod(Pattern$BnM, match, bool, $Matcher*, int32_t, $CharSequence*)},
+	{"optimize", "(Ljava/util/regex/Pattern$Node;)Ljava/util/regex/Pattern$Node;", nullptr, $STATIC, $staticMethod(Pattern$BnM, optimize, $Pattern$Node*, $Pattern$Node*)},
+	{"study", "(Ljava/util/regex/Pattern$TreeInfo;)Z", nullptr, 0, $virtualMethod(Pattern$BnM, study, bool, $Pattern$TreeInfo*)},
 	{}
 };
 

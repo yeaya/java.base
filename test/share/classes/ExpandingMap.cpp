@@ -26,9 +26,9 @@ using $FileChannel$MapMode = ::java::nio::channels::FileChannel$MapMode;
 using $ArrayList = ::java::util::ArrayList;
 
 $MethodInfo _ExpandingMap_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ExpandingMap::*)()>(&ExpandingMap::init$))},
-	{"fillBuffer", "(Ljava/nio/ByteBuffer;I)V", nullptr, $STATIC, $method(static_cast<void(*)($ByteBuffer*,int32_t)>(&ExpandingMap::fillBuffer))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&ExpandingMap::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ExpandingMap, init$, void)},
+	{"fillBuffer", "(Ljava/nio/ByteBuffer;I)V", nullptr, $STATIC, $staticMethod(ExpandingMap, fillBuffer, void, $ByteBuffer*, int32_t)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ExpandingMap, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

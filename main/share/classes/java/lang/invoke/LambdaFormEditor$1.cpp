@@ -22,9 +22,9 @@ $FieldInfo _LambdaFormEditor$1_FieldInfo_[] = {
 };
 
 $MethodInfo _LambdaFormEditor$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/invoke/LambdaFormEditor;)V", nullptr, 0, $method(static_cast<void(LambdaFormEditor$1::*)($LambdaFormEditor*)>(&LambdaFormEditor$1::init$))},
-	{"compare", "(Ljava/lang/invoke/LambdaForm$Name;Ljava/lang/invoke/LambdaForm$Name;)I", nullptr, $PUBLIC},
-	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "(Ljava/lang/invoke/LambdaFormEditor;)V", nullptr, 0, $method(LambdaFormEditor$1, init$, void, $LambdaFormEditor*)},
+	{"compare", "(Ljava/lang/invoke/LambdaForm$Name;Ljava/lang/invoke/LambdaForm$Name;)I", nullptr, $PUBLIC, $virtualMethod(LambdaFormEditor$1, compare, int32_t, $LambdaForm$Name*, $LambdaForm$Name*)},
+	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(LambdaFormEditor$1, compare, int32_t, Object$*, Object$*)},
 	{}
 };
 

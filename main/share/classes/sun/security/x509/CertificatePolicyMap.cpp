@@ -27,12 +27,12 @@ $FieldInfo _CertificatePolicyMap_FieldInfo_[] = {
 };
 
 $MethodInfo _CertificatePolicyMap_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/x509/CertificatePolicyId;Lsun/security/x509/CertificatePolicyId;)V", nullptr, $PUBLIC, $method(static_cast<void(CertificatePolicyMap::*)($CertificatePolicyId*,$CertificatePolicyId*)>(&CertificatePolicyMap::init$))},
-	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(static_cast<void(CertificatePolicyMap::*)($DerValue*)>(&CertificatePolicyMap::init$)), "java.io.IOException"},
-	{"encode", "(Lsun/security/util/DerOutputStream;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"getIssuerIdentifier", "()Lsun/security/x509/CertificatePolicyId;", nullptr, $PUBLIC},
-	{"getSubjectIdentifier", "()Lsun/security/x509/CertificatePolicyId;", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/security/x509/CertificatePolicyId;Lsun/security/x509/CertificatePolicyId;)V", nullptr, $PUBLIC, $method(CertificatePolicyMap, init$, void, $CertificatePolicyId*, $CertificatePolicyId*)},
+	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(CertificatePolicyMap, init$, void, $DerValue*), "java.io.IOException"},
+	{"encode", "(Lsun/security/util/DerOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(CertificatePolicyMap, encode, void, $DerOutputStream*), "java.io.IOException"},
+	{"getIssuerIdentifier", "()Lsun/security/x509/CertificatePolicyId;", nullptr, $PUBLIC, $virtualMethod(CertificatePolicyMap, getIssuerIdentifier, $CertificatePolicyId*)},
+	{"getSubjectIdentifier", "()Lsun/security/x509/CertificatePolicyId;", nullptr, $PUBLIC, $virtualMethod(CertificatePolicyMap, getSubjectIdentifier, $CertificatePolicyId*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CertificatePolicyMap, toString, $String*)},
 	{}
 };
 

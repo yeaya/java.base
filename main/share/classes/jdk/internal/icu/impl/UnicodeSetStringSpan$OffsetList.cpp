@@ -27,16 +27,16 @@ $FieldInfo _UnicodeSetStringSpan$OffsetList_FieldInfo_[] = {
 };
 
 $MethodInfo _UnicodeSetStringSpan$OffsetList_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(UnicodeSetStringSpan$OffsetList::*)()>(&UnicodeSetStringSpan$OffsetList::init$))},
-	{"addOffset", "(I)V", nullptr, $PUBLIC, $method(static_cast<void(UnicodeSetStringSpan$OffsetList::*)(int32_t)>(&UnicodeSetStringSpan$OffsetList::addOffset))},
-	{"addOffsetAndCount", "(II)V", nullptr, $PUBLIC, $method(static_cast<void(UnicodeSetStringSpan$OffsetList::*)(int32_t,int32_t)>(&UnicodeSetStringSpan$OffsetList::addOffsetAndCount))},
-	{"clear", "()V", nullptr, $PUBLIC, $method(static_cast<void(UnicodeSetStringSpan$OffsetList::*)()>(&UnicodeSetStringSpan$OffsetList::clear))},
-	{"containsOffset", "(I)Z", nullptr, $PUBLIC, $method(static_cast<bool(UnicodeSetStringSpan$OffsetList::*)(int32_t)>(&UnicodeSetStringSpan$OffsetList::containsOffset))},
-	{"hasCountAtOffset", "(II)Z", nullptr, $PUBLIC, $method(static_cast<bool(UnicodeSetStringSpan$OffsetList::*)(int32_t,int32_t)>(&UnicodeSetStringSpan$OffsetList::hasCountAtOffset))},
-	{"isEmpty", "()Z", nullptr, $PUBLIC, $method(static_cast<bool(UnicodeSetStringSpan$OffsetList::*)()>(&UnicodeSetStringSpan$OffsetList::isEmpty))},
-	{"popMinimum", "(Ljdk/internal/icu/util/OutputInt;)I", nullptr, $PUBLIC, $method(static_cast<int32_t(UnicodeSetStringSpan$OffsetList::*)($OutputInt*)>(&UnicodeSetStringSpan$OffsetList::popMinimum))},
-	{"setMaxLength", "(I)V", nullptr, $PUBLIC, $method(static_cast<void(UnicodeSetStringSpan$OffsetList::*)(int32_t)>(&UnicodeSetStringSpan$OffsetList::setMaxLength))},
-	{"shift", "(I)V", nullptr, $PUBLIC, $method(static_cast<void(UnicodeSetStringSpan$OffsetList::*)(int32_t)>(&UnicodeSetStringSpan$OffsetList::shift))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(UnicodeSetStringSpan$OffsetList, init$, void)},
+	{"addOffset", "(I)V", nullptr, $PUBLIC, $method(UnicodeSetStringSpan$OffsetList, addOffset, void, int32_t)},
+	{"addOffsetAndCount", "(II)V", nullptr, $PUBLIC, $method(UnicodeSetStringSpan$OffsetList, addOffsetAndCount, void, int32_t, int32_t)},
+	{"clear", "()V", nullptr, $PUBLIC, $method(UnicodeSetStringSpan$OffsetList, clear, void)},
+	{"containsOffset", "(I)Z", nullptr, $PUBLIC, $method(UnicodeSetStringSpan$OffsetList, containsOffset, bool, int32_t)},
+	{"hasCountAtOffset", "(II)Z", nullptr, $PUBLIC, $method(UnicodeSetStringSpan$OffsetList, hasCountAtOffset, bool, int32_t, int32_t)},
+	{"isEmpty", "()Z", nullptr, $PUBLIC, $method(UnicodeSetStringSpan$OffsetList, isEmpty, bool)},
+	{"popMinimum", "(Ljdk/internal/icu/util/OutputInt;)I", nullptr, $PUBLIC, $method(UnicodeSetStringSpan$OffsetList, popMinimum, int32_t, $OutputInt*)},
+	{"setMaxLength", "(I)V", nullptr, $PUBLIC, $method(UnicodeSetStringSpan$OffsetList, setMaxLength, void, int32_t)},
+	{"shift", "(I)V", nullptr, $PUBLIC, $method(UnicodeSetStringSpan$OffsetList, shift, void, int32_t)},
 	{}
 };
 

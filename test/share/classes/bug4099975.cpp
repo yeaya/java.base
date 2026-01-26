@@ -11,8 +11,8 @@ using $DateFormatSymbols = ::java::text::DateFormatSymbols;
 using $SimpleDateFormat = ::java::text::SimpleDateFormat;
 
 $MethodInfo _bug4099975_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(bug4099975::*)()>(&bug4099975::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&bug4099975::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(bug4099975, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug4099975, main, void, $StringArray*)},
 	{}
 };
 

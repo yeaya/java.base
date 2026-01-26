@@ -9,7 +9,7 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace testPkg {
 
 $MethodInfo _Host_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Host::*)()>(&Host::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Host, init$, void)},
 	{}
 };
 

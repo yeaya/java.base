@@ -54,11 +54,11 @@ $MethodInfo _FileTreeIterator_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/nio/file/Path;I[Ljava/nio/file/FileVisitOption;)V", nullptr, $TRANSIENT, $method(static_cast<void(FileTreeIterator::*)($Path*,int32_t,$FileVisitOptionArray*)>(&FileTreeIterator::init$)), "java.io.IOException"},
-	{"close", "()V", nullptr, $PUBLIC},
-	{"fetchNextIfNeeded", "()V", nullptr, $PRIVATE, $method(static_cast<void(FileTreeIterator::*)()>(&FileTreeIterator::fetchNextIfNeeded))},
-	{"hasNext", "()Z", nullptr, $PUBLIC},
-	{"next", "()Ljava/nio/file/FileTreeWalker$Event;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/nio/file/Path;I[Ljava/nio/file/FileVisitOption;)V", nullptr, $TRANSIENT, $method(FileTreeIterator, init$, void, $Path*, int32_t, $FileVisitOptionArray*), "java.io.IOException"},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(FileTreeIterator, close, void)},
+	{"fetchNextIfNeeded", "()V", nullptr, $PRIVATE, $method(FileTreeIterator, fetchNextIfNeeded, void)},
+	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(FileTreeIterator, hasNext, bool)},
+	{"next", "()Ljava/nio/file/FileTreeWalker$Event;", nullptr, $PUBLIC, $virtualMethod(FileTreeIterator, next, $Object*)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

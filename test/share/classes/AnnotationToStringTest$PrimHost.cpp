@@ -48,7 +48,7 @@ $CompoundAttribute _AnnotationToStringTest$PrimHost_Annotations_[] = {
 };
 
 $MethodInfo _AnnotationToStringTest$PrimHost_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(AnnotationToStringTest$PrimHost::*)()>(&AnnotationToStringTest$PrimHost::init$))},
+	{"<init>", "()V", nullptr, 0, $method(AnnotationToStringTest$PrimHost, init$, void)},
 	{}
 };
 

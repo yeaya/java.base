@@ -24,10 +24,10 @@ namespace javax {
 		namespace ssl {
 
 $MethodInfo _SSLServerSocketFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(SSLServerSocketFactory::*)()>(&SSLServerSocketFactory::init$))},
-	{"getDefault", "()Ljavax/net/ServerSocketFactory;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$ServerSocketFactory*(*)()>(&SSLServerSocketFactory::getDefault))},
-	{"getDefaultCipherSuites", "()[Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getSupportedCipherSuites", "()[Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(SSLServerSocketFactory, init$, void)},
+	{"getDefault", "()Ljavax/net/ServerSocketFactory;", nullptr, $PUBLIC | $STATIC, $staticMethod(SSLServerSocketFactory, getDefault, $ServerSocketFactory*)},
+	{"getDefaultCipherSuites", "()[Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SSLServerSocketFactory, getDefaultCipherSuites, $StringArray*)},
+	{"getSupportedCipherSuites", "()[Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SSLServerSocketFactory, getSupportedCipherSuites, $StringArray*)},
 	{}
 };
 

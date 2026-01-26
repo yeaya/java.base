@@ -25,9 +25,9 @@ $FieldInfo _SupplementaryCharacterData_FieldInfo_[] = {
 };
 
 $MethodInfo _SupplementaryCharacterData_MethodInfo_[] = {
-	{"<init>", "([I)V", nullptr, $PUBLIC, $method(static_cast<void(SupplementaryCharacterData::*)($ints*)>(&SupplementaryCharacterData::init$))},
-	{"getArray", "()[I", nullptr, $PUBLIC, $method(static_cast<$ints*(SupplementaryCharacterData::*)()>(&SupplementaryCharacterData::getArray))},
-	{"getValue", "(I)I", nullptr, $PUBLIC, $method(static_cast<int32_t(SupplementaryCharacterData::*)(int32_t)>(&SupplementaryCharacterData::getValue))},
+	{"<init>", "([I)V", nullptr, $PUBLIC, $method(SupplementaryCharacterData, init$, void, $ints*)},
+	{"getArray", "()[I", nullptr, $PUBLIC, $method(SupplementaryCharacterData, getArray, $ints*)},
+	{"getValue", "(I)I", nullptr, $PUBLIC, $method(SupplementaryCharacterData, getValue, int32_t, int32_t)},
 	{}
 };
 

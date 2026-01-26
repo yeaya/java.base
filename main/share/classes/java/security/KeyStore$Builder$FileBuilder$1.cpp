@@ -47,9 +47,9 @@ $FieldInfo _KeyStore$Builder$FileBuilder$1_FieldInfo_[] = {
 };
 
 $MethodInfo _KeyStore$Builder$FileBuilder$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/KeyStore$Builder$FileBuilder;)V", nullptr, 0, $method(static_cast<void(KeyStore$Builder$FileBuilder$1::*)($KeyStore$Builder$FileBuilder*)>(&KeyStore$Builder$FileBuilder$1::init$))},
-	{"run", "()Ljava/security/KeyStore;", nullptr, $PUBLIC, nullptr, "java.lang.Exception"},
-	{"run0", "()Ljava/security/KeyStore;", nullptr, $PUBLIC, nullptr, "java.lang.Exception"},
+	{"<init>", "(Ljava/security/KeyStore$Builder$FileBuilder;)V", nullptr, 0, $method(KeyStore$Builder$FileBuilder$1, init$, void, $KeyStore$Builder$FileBuilder*)},
+	{"run", "()Ljava/security/KeyStore;", nullptr, $PUBLIC, $virtualMethod(KeyStore$Builder$FileBuilder$1, run, $Object*), "java.lang.Exception"},
+	{"run0", "()Ljava/security/KeyStore;", nullptr, $PUBLIC, $virtualMethod(KeyStore$Builder$FileBuilder$1, run0, $KeyStore*), "java.lang.Exception"},
 	{}
 };
 

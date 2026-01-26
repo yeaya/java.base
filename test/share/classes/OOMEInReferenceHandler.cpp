@@ -20,9 +20,9 @@ using $ReferenceQueue = ::java::lang::ref::ReferenceQueue;
 using $WeakReference = ::java::lang::ref::WeakReference;
 
 $MethodInfo _OOMEInReferenceHandler_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(OOMEInReferenceHandler::*)()>(&OOMEInReferenceHandler::init$))},
-	{"fillHeap", "()[Ljava/lang/Object;", nullptr, $STATIC, $method(static_cast<$ObjectArray*(*)()>(&OOMEInReferenceHandler::fillHeap))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&OOMEInReferenceHandler::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(OOMEInReferenceHandler, init$, void)},
+	{"fillHeap", "()[Ljava/lang/Object;", nullptr, $STATIC, $staticMethod(OOMEInReferenceHandler, fillHeap, $ObjectArray*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(OOMEInReferenceHandler, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

@@ -17,9 +17,9 @@ namespace java {
 	namespace io {
 
 $MethodInfo _Console$2_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Console$2::*)()>(&Console$2::init$))},
-	{"charset", "()Ljava/nio/charset/Charset;", nullptr, $PUBLIC},
-	{"console", "()Ljava/io/Console;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(Console$2, init$, void)},
+	{"charset", "()Ljava/nio/charset/Charset;", nullptr, $PUBLIC, $virtualMethod(Console$2, charset, $Charset*)},
+	{"console", "()Ljava/io/Console;", nullptr, $PUBLIC, $virtualMethod(Console$2, console, $Console*)},
 	{}
 };
 

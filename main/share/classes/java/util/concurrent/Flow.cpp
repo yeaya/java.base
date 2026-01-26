@@ -19,8 +19,8 @@ $FieldInfo _Flow_FieldInfo_[] = {
 };
 
 $MethodInfo _Flow_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(Flow::*)()>(&Flow::init$))},
-	{"defaultBufferSize", "()I", nullptr, $PUBLIC | $STATIC, $method(static_cast<int32_t(*)()>(&Flow::defaultBufferSize))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(Flow, init$, void)},
+	{"defaultBufferSize", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(Flow, defaultBufferSize, int32_t)},
 	{}
 };
 

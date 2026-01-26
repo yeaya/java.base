@@ -38,20 +38,20 @@ $FieldInfo _Debug_FieldInfo_[] = {
 };
 
 $MethodInfo _Debug_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Debug::*)()>(&Debug::init$))},
-	{"Help", "()V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)()>(&Debug::Help))},
-	{"getInstance", "(Ljava/lang/String;)Lsun/security/util/Debug;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Debug*(*)($String*)>(&Debug::getInstance))},
-	{"getInstance", "(Ljava/lang/String;Ljava/lang/String;)Lsun/security/util/Debug;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Debug*(*)($String*,$String*)>(&Debug::getInstance))},
-	{"getPrintStream", "()Ljava/io/PrintStream;", nullptr, $PUBLIC},
-	{"isOn", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)($String*)>(&Debug::isOn))},
-	{"isVerbose", "()Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)()>(&Debug::isVerbose))},
-	{"marshal", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($String*)>(&Debug::marshal))},
-	{"println", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"println", "(Ljava/lang/Object;Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"println", "()V", nullptr, $PUBLIC},
-	{"println", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($String*,$String*)>(&Debug::println))},
-	{"toHexString", "(Ljava/math/BigInteger;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)($BigInteger*)>(&Debug::toHexString))},
-	{"toString", "([B)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)($bytes*)>(&Debug::toString))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Debug, init$, void)},
+	{"Help", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(Debug, Help, void)},
+	{"getInstance", "(Ljava/lang/String;)Lsun/security/util/Debug;", nullptr, $PUBLIC | $STATIC, $staticMethod(Debug, getInstance, Debug*, $String*)},
+	{"getInstance", "(Ljava/lang/String;Ljava/lang/String;)Lsun/security/util/Debug;", nullptr, $PUBLIC | $STATIC, $staticMethod(Debug, getInstance, Debug*, $String*, $String*)},
+	{"getPrintStream", "()Ljava/io/PrintStream;", nullptr, $PUBLIC, $virtualMethod(Debug, getPrintStream, $PrintStream*)},
+	{"isOn", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Debug, isOn, bool, $String*)},
+	{"isVerbose", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Debug, isVerbose, bool)},
+	{"marshal", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Debug, marshal, $String*, $String*)},
+	{"println", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Debug, println, void, $String*)},
+	{"println", "(Ljava/lang/Object;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Debug, println, void, Object$*, $String*)},
+	{"println", "()V", nullptr, $PUBLIC, $virtualMethod(Debug, println, void)},
+	{"println", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Debug, println, void, $String*, $String*)},
+	{"toHexString", "(Ljava/math/BigInteger;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Debug, toHexString, $String*, $BigInteger*)},
+	{"toString", "([B)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Debug, toString, $String*, $bytes*)},
 	{}
 };
 

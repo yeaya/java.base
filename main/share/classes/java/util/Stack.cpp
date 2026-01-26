@@ -19,12 +19,12 @@ $FieldInfo _Stack_FieldInfo_[] = {
 };
 
 $MethodInfo _Stack_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Stack::*)()>(&Stack::init$))},
-	{"empty", "()Z", nullptr, $PUBLIC},
-	{"peek", "()Ljava/lang/Object;", "()TE;", $PUBLIC | $SYNCHRONIZED},
-	{"pop", "()Ljava/lang/Object;", "()TE;", $PUBLIC | $SYNCHRONIZED},
-	{"push", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TE;)TE;", $PUBLIC},
-	{"search", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $SYNCHRONIZED},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Stack, init$, void)},
+	{"empty", "()Z", nullptr, $PUBLIC, $virtualMethod(Stack, empty, bool)},
+	{"peek", "()Ljava/lang/Object;", "()TE;", $PUBLIC | $SYNCHRONIZED, $virtualMethod(Stack, peek, $Object*)},
+	{"pop", "()Ljava/lang/Object;", "()TE;", $PUBLIC | $SYNCHRONIZED, $virtualMethod(Stack, pop, $Object*)},
+	{"push", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TE;)TE;", $PUBLIC, $virtualMethod(Stack, push, $Object*, Object$*)},
+	{"search", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Stack, search, int32_t, Object$*)},
 	{}
 };
 

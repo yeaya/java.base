@@ -18,9 +18,9 @@ $FieldInfo _AbstractOwnableSynchronizer_FieldInfo_[] = {
 };
 
 $MethodInfo _AbstractOwnableSynchronizer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(AbstractOwnableSynchronizer::*)()>(&AbstractOwnableSynchronizer::init$))},
-	{"getExclusiveOwnerThread", "()Ljava/lang/Thread;", nullptr, $PROTECTED | $FINAL, $method(static_cast<$Thread*(AbstractOwnableSynchronizer::*)()>(&AbstractOwnableSynchronizer::getExclusiveOwnerThread))},
-	{"setExclusiveOwnerThread", "(Ljava/lang/Thread;)V", nullptr, $PROTECTED | $FINAL, $method(static_cast<void(AbstractOwnableSynchronizer::*)($Thread*)>(&AbstractOwnableSynchronizer::setExclusiveOwnerThread))},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(AbstractOwnableSynchronizer, init$, void)},
+	{"getExclusiveOwnerThread", "()Ljava/lang/Thread;", nullptr, $PROTECTED | $FINAL, $method(AbstractOwnableSynchronizer, getExclusiveOwnerThread, $Thread*)},
+	{"setExclusiveOwnerThread", "(Ljava/lang/Thread;)V", nullptr, $PROTECTED | $FINAL, $method(AbstractOwnableSynchronizer, setExclusiveOwnerThread, void, $Thread*)},
 	{}
 };
 

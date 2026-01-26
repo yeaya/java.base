@@ -20,7 +20,7 @@ namespace com {
 			namespace provider {
 
 $MethodInfo _KeyWrapCipher$AES128_KWP_NoPadding_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(KeyWrapCipher$AES128_KWP_NoPadding::*)()>(&KeyWrapCipher$AES128_KWP_NoPadding::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(KeyWrapCipher$AES128_KWP_NoPadding, init$, void)},
 	{}
 };
 

@@ -20,10 +20,10 @@ namespace java {
 	namespace security {
 
 $MethodInfo _DrbgParameters_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(DrbgParameters::*)()>(&DrbgParameters::init$))},
-	{"instantiation", "(ILjava/security/DrbgParameters$Capability;[B)Ljava/security/DrbgParameters$Instantiation;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$DrbgParameters$Instantiation*(*)(int32_t,$DrbgParameters$Capability*,$bytes*)>(&DrbgParameters::instantiation))},
-	{"nextBytes", "(IZ[B)Ljava/security/DrbgParameters$NextBytes;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$DrbgParameters$NextBytes*(*)(int32_t,bool,$bytes*)>(&DrbgParameters::nextBytes))},
-	{"reseed", "(Z[B)Ljava/security/DrbgParameters$Reseed;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$DrbgParameters$Reseed*(*)(bool,$bytes*)>(&DrbgParameters::reseed))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(DrbgParameters, init$, void)},
+	{"instantiation", "(ILjava/security/DrbgParameters$Capability;[B)Ljava/security/DrbgParameters$Instantiation;", nullptr, $PUBLIC | $STATIC, $staticMethod(DrbgParameters, instantiation, $DrbgParameters$Instantiation*, int32_t, $DrbgParameters$Capability*, $bytes*)},
+	{"nextBytes", "(IZ[B)Ljava/security/DrbgParameters$NextBytes;", nullptr, $PUBLIC | $STATIC, $staticMethod(DrbgParameters, nextBytes, $DrbgParameters$NextBytes*, int32_t, bool, $bytes*)},
+	{"reseed", "(Z[B)Ljava/security/DrbgParameters$Reseed;", nullptr, $PUBLIC | $STATIC, $staticMethod(DrbgParameters, reseed, $DrbgParameters$Reseed*, bool, $bytes*)},
 	{}
 };
 

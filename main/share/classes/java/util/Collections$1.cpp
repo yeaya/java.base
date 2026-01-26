@@ -27,11 +27,11 @@ $FieldInfo _Collections$1_FieldInfo_[] = {
 };
 
 $MethodInfo _Collections$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;)V", "()V", 0, $method(static_cast<void(Collections$1::*)(Object$*)>(&Collections$1::init$))},
-	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC},
-	{"hasNext", "()Z", nullptr, $PUBLIC},
-	{"next", "()Ljava/lang/Object;", "()TE;", $PUBLIC},
-	{"remove", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Object;)V", "()V", 0, $method(Collections$1, init$, void, Object$*)},
+	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC, $virtualMethod(Collections$1, forEachRemaining, void, $Consumer*)},
+	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(Collections$1, hasNext, bool)},
+	{"next", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(Collections$1, next, $Object*)},
+	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(Collections$1, remove, void)},
 	{}
 };
 

@@ -13,8 +13,8 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $ByteOrder = ::java::nio::ByteOrder;
 
 $MethodInfo _NativeOrder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(NativeOrder::*)()>(&NativeOrder::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&NativeOrder::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(NativeOrder, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(NativeOrder, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

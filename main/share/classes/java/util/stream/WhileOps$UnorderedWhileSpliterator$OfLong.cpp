@@ -48,14 +48,14 @@ $MethodInfo _WhileOps$UnorderedWhileSpliterator$OfLong_MethodInfo_[] = {
 	{"*getExactSizeIfKnown", "()J", nullptr, $PUBLIC},
 	{"*hasCharacteristics", "(I)Z", nullptr, $PUBLIC | $ABSTRACT},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/util/Spliterator$OfLong;ZLjava/util/function/LongPredicate;)V", nullptr, 0, $method(static_cast<void(WhileOps$UnorderedWhileSpliterator$OfLong::*)($Spliterator$OfLong*,bool,$LongPredicate*)>(&WhileOps$UnorderedWhileSpliterator$OfLong::init$))},
-	{"<init>", "(Ljava/util/Spliterator$OfLong;Ljava/util/stream/WhileOps$UnorderedWhileSpliterator$OfLong;)V", nullptr, 0, $method(static_cast<void(WhileOps$UnorderedWhileSpliterator$OfLong::*)($Spliterator$OfLong*,WhileOps$UnorderedWhileSpliterator$OfLong*)>(&WhileOps$UnorderedWhileSpliterator$OfLong::init$))},
-	{"accept", "(J)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/Spliterator$OfLong;ZLjava/util/function/LongPredicate;)V", nullptr, 0, $method(WhileOps$UnorderedWhileSpliterator$OfLong, init$, void, $Spliterator$OfLong*, bool, $LongPredicate*)},
+	{"<init>", "(Ljava/util/Spliterator$OfLong;Ljava/util/stream/WhileOps$UnorderedWhileSpliterator$OfLong;)V", nullptr, 0, $method(WhileOps$UnorderedWhileSpliterator$OfLong, init$, void, $Spliterator$OfLong*, WhileOps$UnorderedWhileSpliterator$OfLong*)},
+	{"accept", "(J)V", nullptr, $PUBLIC, $virtualMethod(WhileOps$UnorderedWhileSpliterator$OfLong, accept, void, int64_t)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{"*tryAdvance", "(Ljava/util/function/Consumer;)Z", nullptr, $PUBLIC | $ABSTRACT},
 	{"*tryAdvance", "(Ljava/util/function/LongConsumer;)Z", nullptr, $PUBLIC | $ABSTRACT},
 	{"*tryAdvance", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $SYNTHETIC},
-	{"trySplit", "()Ljava/util/Spliterator$OfLong;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"trySplit", "()Ljava/util/Spliterator$OfLong;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(WhileOps$UnorderedWhileSpliterator$OfLong, trySplit, $Spliterator*)},
 	{}
 };
 

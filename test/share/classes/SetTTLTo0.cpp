@@ -9,8 +9,8 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $MulticastSocket = ::java::net::MulticastSocket;
 
 $MethodInfo _SetTTLTo0_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SetTTLTo0::*)()>(&SetTTLTo0::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&SetTTLTo0::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SetTTLTo0, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SetTTLTo0, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

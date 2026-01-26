@@ -24,10 +24,10 @@ $FieldInfo _Basic4Appendable$9_FieldInfo_[] = {
 };
 
 $MethodInfo _Basic4Appendable$9_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Basic4Appendable$9::*)()>(&Basic4Appendable$9::init$))},
-	{"init", "(Ljava/lang/Appendable;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"reset", "(Ljava/lang/Appendable;)Ljava/lang/Appendable;", nullptr, $PUBLIC},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(Basic4Appendable$9, init$, void)},
+	{"init", "(Ljava/lang/Appendable;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Basic4Appendable$9, init, void, $Appendable*, $String*, $String*)},
+	{"reset", "(Ljava/lang/Appendable;)Ljava/lang/Appendable;", nullptr, $PUBLIC, $virtualMethod(Basic4Appendable$9, reset, $Appendable*, $Appendable*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Basic4Appendable$9, run, void)},
 	{}
 };
 

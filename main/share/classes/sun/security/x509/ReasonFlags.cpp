@@ -53,21 +53,21 @@ $FieldInfo _ReasonFlags_FieldInfo_[] = {
 };
 
 $MethodInfo _ReasonFlags_MethodInfo_[] = {
-	{"<init>", "([B)V", nullptr, $PUBLIC, $method(static_cast<void(ReasonFlags::*)($bytes*)>(&ReasonFlags::init$))},
-	{"<init>", "([Z)V", nullptr, $PUBLIC, $method(static_cast<void(ReasonFlags::*)($booleans*)>(&ReasonFlags::init$))},
-	{"<init>", "(Lsun/security/util/BitArray;)V", nullptr, $PUBLIC, $method(static_cast<void(ReasonFlags::*)($BitArray*)>(&ReasonFlags::init$))},
-	{"<init>", "(Lsun/security/util/DerInputStream;)V", nullptr, $PUBLIC, $method(static_cast<void(ReasonFlags::*)($DerInputStream*)>(&ReasonFlags::init$)), "java.io.IOException"},
-	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(static_cast<void(ReasonFlags::*)($DerValue*)>(&ReasonFlags::init$)), "java.io.IOException"},
-	{"delete", "(Ljava/lang/String;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"encode", "(Lsun/security/util/DerOutputStream;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"get", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"getElements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC},
-	{"getFlags", "()[Z", nullptr, $PUBLIC},
-	{"isSet", "(I)Z", nullptr, $PRIVATE, $method(static_cast<bool(ReasonFlags::*)(int32_t)>(&ReasonFlags::isSet))},
-	{"name2Index", "(Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)($String*)>(&ReasonFlags::name2Index)), "java.io.IOException"},
-	{"set", "(IZ)V", nullptr, $PRIVATE, $method(static_cast<void(ReasonFlags::*)(int32_t,bool)>(&ReasonFlags::set))},
-	{"set", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "([B)V", nullptr, $PUBLIC, $method(ReasonFlags, init$, void, $bytes*)},
+	{"<init>", "([Z)V", nullptr, $PUBLIC, $method(ReasonFlags, init$, void, $booleans*)},
+	{"<init>", "(Lsun/security/util/BitArray;)V", nullptr, $PUBLIC, $method(ReasonFlags, init$, void, $BitArray*)},
+	{"<init>", "(Lsun/security/util/DerInputStream;)V", nullptr, $PUBLIC, $method(ReasonFlags, init$, void, $DerInputStream*), "java.io.IOException"},
+	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(ReasonFlags, init$, void, $DerValue*), "java.io.IOException"},
+	{"delete", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ReasonFlags, delete$, void, $String*), "java.io.IOException"},
+	{"encode", "(Lsun/security/util/DerOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(ReasonFlags, encode, void, $DerOutputStream*), "java.io.IOException"},
+	{"get", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ReasonFlags, get, $Object*, $String*), "java.io.IOException"},
+	{"getElements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(ReasonFlags, getElements, $Enumeration*)},
+	{"getFlags", "()[Z", nullptr, $PUBLIC, $virtualMethod(ReasonFlags, getFlags, $booleans*)},
+	{"isSet", "(I)Z", nullptr, $PRIVATE, $method(ReasonFlags, isSet, bool, int32_t)},
+	{"name2Index", "(Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(ReasonFlags, name2Index, int32_t, $String*), "java.io.IOException"},
+	{"set", "(IZ)V", nullptr, $PRIVATE, $method(ReasonFlags, set, void, int32_t, bool)},
+	{"set", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ReasonFlags, set, void, $String*, Object$*), "java.io.IOException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ReasonFlags, toString, $String*)},
 	{}
 };
 

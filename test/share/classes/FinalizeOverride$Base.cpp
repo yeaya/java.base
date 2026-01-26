@@ -18,9 +18,9 @@ $FieldInfo _FinalizeOverride$Base_FieldInfo_[] = {
 };
 
 $MethodInfo _FinalizeOverride$Base_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, 0, $method(static_cast<void(FinalizeOverride$Base::*)(int32_t)>(&FinalizeOverride$Base::init$))},
-	{"called", "()I", nullptr, 0},
-	{"finalize", "()V", nullptr, $PROTECTED},
+	{"<init>", "(I)V", nullptr, 0, $method(FinalizeOverride$Base, init$, void, int32_t)},
+	{"called", "()I", nullptr, 0, $virtualMethod(FinalizeOverride$Base, called, int32_t)},
+	{"finalize", "()V", nullptr, $PROTECTED, $virtualMethod(FinalizeOverride$Base, finalize, void)},
 	{}
 };
 

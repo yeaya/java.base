@@ -25,7 +25,7 @@ $FieldInfo _Duration$DurationUnits_FieldInfo_[] = {
 };
 
 $MethodInfo _Duration$DurationUnits_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(Duration$DurationUnits::*)()>(&Duration$DurationUnits::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(Duration$DurationUnits, init$, void)},
 	{}
 };
 

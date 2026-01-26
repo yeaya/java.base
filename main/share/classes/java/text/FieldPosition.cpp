@@ -25,21 +25,21 @@ $FieldInfo _FieldPosition_FieldInfo_[] = {
 };
 
 $MethodInfo _FieldPosition_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(static_cast<void(FieldPosition::*)(int32_t)>(&FieldPosition::init$))},
-	{"<init>", "(Ljava/text/Format$Field;)V", nullptr, $PUBLIC, $method(static_cast<void(FieldPosition::*)($Format$Field*)>(&FieldPosition::init$))},
-	{"<init>", "(Ljava/text/Format$Field;I)V", nullptr, $PUBLIC, $method(static_cast<void(FieldPosition::*)($Format$Field*,int32_t)>(&FieldPosition::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getBeginIndex", "()I", nullptr, $PUBLIC},
-	{"getEndIndex", "()I", nullptr, $PUBLIC},
-	{"getField", "()I", nullptr, $PUBLIC},
-	{"getFieldAttribute", "()Ljava/text/Format$Field;", nullptr, $PUBLIC},
-	{"getFieldDelegate", "()Ljava/text/Format$FieldDelegate;", nullptr, 0},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"matchesField", "(Ljava/text/Format$Field;)Z", nullptr, $PRIVATE, $method(static_cast<bool(FieldPosition::*)($Format$Field*)>(&FieldPosition::matchesField))},
-	{"matchesField", "(Ljava/text/Format$Field;I)Z", nullptr, $PRIVATE, $method(static_cast<bool(FieldPosition::*)($Format$Field*,int32_t)>(&FieldPosition::matchesField))},
-	{"setBeginIndex", "(I)V", nullptr, $PUBLIC},
-	{"setEndIndex", "(I)V", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(I)V", nullptr, $PUBLIC, $method(FieldPosition, init$, void, int32_t)},
+	{"<init>", "(Ljava/text/Format$Field;)V", nullptr, $PUBLIC, $method(FieldPosition, init$, void, $Format$Field*)},
+	{"<init>", "(Ljava/text/Format$Field;I)V", nullptr, $PUBLIC, $method(FieldPosition, init$, void, $Format$Field*, int32_t)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(FieldPosition, equals, bool, Object$*)},
+	{"getBeginIndex", "()I", nullptr, $PUBLIC, $virtualMethod(FieldPosition, getBeginIndex, int32_t)},
+	{"getEndIndex", "()I", nullptr, $PUBLIC, $virtualMethod(FieldPosition, getEndIndex, int32_t)},
+	{"getField", "()I", nullptr, $PUBLIC, $virtualMethod(FieldPosition, getField, int32_t)},
+	{"getFieldAttribute", "()Ljava/text/Format$Field;", nullptr, $PUBLIC, $virtualMethod(FieldPosition, getFieldAttribute, $Format$Field*)},
+	{"getFieldDelegate", "()Ljava/text/Format$FieldDelegate;", nullptr, 0, $virtualMethod(FieldPosition, getFieldDelegate, $Format$FieldDelegate*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(FieldPosition, hashCode, int32_t)},
+	{"matchesField", "(Ljava/text/Format$Field;)Z", nullptr, $PRIVATE, $method(FieldPosition, matchesField, bool, $Format$Field*)},
+	{"matchesField", "(Ljava/text/Format$Field;I)Z", nullptr, $PRIVATE, $method(FieldPosition, matchesField, bool, $Format$Field*, int32_t)},
+	{"setBeginIndex", "(I)V", nullptr, $PUBLIC, $virtualMethod(FieldPosition, setBeginIndex, void, int32_t)},
+	{"setEndIndex", "(I)V", nullptr, $PUBLIC, $virtualMethod(FieldPosition, setEndIndex, void, int32_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FieldPosition, toString, $String*)},
 	{}
 };
 

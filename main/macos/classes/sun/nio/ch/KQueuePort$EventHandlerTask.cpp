@@ -62,9 +62,9 @@ $FieldInfo _KQueuePort$EventHandlerTask_FieldInfo_[] = {
 };
 
 $MethodInfo _KQueuePort$EventHandlerTask_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/ch/KQueuePort;)V", nullptr, $PRIVATE, $method(static_cast<void(KQueuePort$EventHandlerTask::*)($KQueuePort*)>(&KQueuePort$EventHandlerTask::init$))},
-	{"poll", "()Lsun/nio/ch/KQueuePort$Event;", nullptr, $PRIVATE, $method(static_cast<$KQueuePort$Event*(KQueuePort$EventHandlerTask::*)()>(&KQueuePort$EventHandlerTask::poll)), "java.io.IOException"},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/nio/ch/KQueuePort;)V", nullptr, $PRIVATE, $method(KQueuePort$EventHandlerTask, init$, void, $KQueuePort*)},
+	{"poll", "()Lsun/nio/ch/KQueuePort$Event;", nullptr, $PRIVATE, $method(KQueuePort$EventHandlerTask, poll, $KQueuePort$Event*), "java.io.IOException"},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(KQueuePort$EventHandlerTask, run, void)},
 	{}
 };
 

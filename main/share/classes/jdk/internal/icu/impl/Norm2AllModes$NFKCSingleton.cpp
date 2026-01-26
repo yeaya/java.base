@@ -23,7 +23,7 @@ $FieldInfo _Norm2AllModes$NFKCSingleton_FieldInfo_[] = {
 };
 
 $MethodInfo _Norm2AllModes$NFKCSingleton_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(Norm2AllModes$NFKCSingleton::*)()>(&Norm2AllModes$NFKCSingleton::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(Norm2AllModes$NFKCSingleton, init$, void)},
 	{}
 };
 

@@ -24,8 +24,8 @@ $FieldInfo _NativePRNG$RandomIO$1_FieldInfo_[] = {
 };
 
 $MethodInfo _NativePRNG$RandomIO$1_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/provider/NativePRNG$RandomIO;)V", nullptr, 0, $method(static_cast<void(NativePRNG$RandomIO$1::*)($NativePRNG$RandomIO*)>(&NativePRNG$RandomIO$1::init$))},
-	{"run", "()Ljava/io/OutputStream;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/security/provider/NativePRNG$RandomIO;)V", nullptr, 0, $method(NativePRNG$RandomIO$1, init$, void, $NativePRNG$RandomIO*)},
+	{"run", "()Ljava/io/OutputStream;", nullptr, $PUBLIC, $virtualMethod(NativePRNG$RandomIO$1, run, $Object*)},
 	{}
 };
 

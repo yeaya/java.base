@@ -21,8 +21,8 @@ $FieldInfo _SHA2$SHA224_FieldInfo_[] = {
 };
 
 $MethodInfo _SHA2$SHA224_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SHA2$SHA224::*)()>(&SHA2$SHA224::init$))},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, nullptr, "java.lang.CloneNotSupportedException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SHA2$SHA224, init$, void)},
+	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(SHA2$SHA224, clone, $Object*), "java.lang.CloneNotSupportedException"},
 	{}
 };
 

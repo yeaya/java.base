@@ -34,15 +34,15 @@ $FieldInfo _AtomicStampedReference_FieldInfo_[] = {
 };
 
 $MethodInfo _AtomicStampedReference_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;I)V", "(TV;I)V", $PUBLIC, $method(static_cast<void(AtomicStampedReference::*)(Object$*,int32_t)>(&AtomicStampedReference::init$))},
-	{"attemptStamp", "(Ljava/lang/Object;I)Z", "(TV;I)Z", $PUBLIC},
-	{"casPair", "(Ljava/util/concurrent/atomic/AtomicStampedReference$Pair;Ljava/util/concurrent/atomic/AtomicStampedReference$Pair;)Z", "(Ljava/util/concurrent/atomic/AtomicStampedReference$Pair<TV;>;Ljava/util/concurrent/atomic/AtomicStampedReference$Pair<TV;>;)Z", $PRIVATE, $method(static_cast<bool(AtomicStampedReference::*)($AtomicStampedReference$Pair*,$AtomicStampedReference$Pair*)>(&AtomicStampedReference::casPair))},
-	{"compareAndSet", "(Ljava/lang/Object;Ljava/lang/Object;II)Z", "(TV;TV;II)Z", $PUBLIC},
-	{"get", "([I)Ljava/lang/Object;", "([I)TV;", $PUBLIC},
-	{"getReference", "()Ljava/lang/Object;", "()TV;", $PUBLIC},
-	{"getStamp", "()I", nullptr, $PUBLIC},
-	{"set", "(Ljava/lang/Object;I)V", "(TV;I)V", $PUBLIC},
-	{"weakCompareAndSet", "(Ljava/lang/Object;Ljava/lang/Object;II)Z", "(TV;TV;II)Z", $PUBLIC},
+	{"<init>", "(Ljava/lang/Object;I)V", "(TV;I)V", $PUBLIC, $method(AtomicStampedReference, init$, void, Object$*, int32_t)},
+	{"attemptStamp", "(Ljava/lang/Object;I)Z", "(TV;I)Z", $PUBLIC, $virtualMethod(AtomicStampedReference, attemptStamp, bool, Object$*, int32_t)},
+	{"casPair", "(Ljava/util/concurrent/atomic/AtomicStampedReference$Pair;Ljava/util/concurrent/atomic/AtomicStampedReference$Pair;)Z", "(Ljava/util/concurrent/atomic/AtomicStampedReference$Pair<TV;>;Ljava/util/concurrent/atomic/AtomicStampedReference$Pair<TV;>;)Z", $PRIVATE, $method(AtomicStampedReference, casPair, bool, $AtomicStampedReference$Pair*, $AtomicStampedReference$Pair*)},
+	{"compareAndSet", "(Ljava/lang/Object;Ljava/lang/Object;II)Z", "(TV;TV;II)Z", $PUBLIC, $virtualMethod(AtomicStampedReference, compareAndSet, bool, Object$*, Object$*, int32_t, int32_t)},
+	{"get", "([I)Ljava/lang/Object;", "([I)TV;", $PUBLIC, $virtualMethod(AtomicStampedReference, get, $Object*, $ints*)},
+	{"getReference", "()Ljava/lang/Object;", "()TV;", $PUBLIC, $virtualMethod(AtomicStampedReference, getReference, $Object*)},
+	{"getStamp", "()I", nullptr, $PUBLIC, $virtualMethod(AtomicStampedReference, getStamp, int32_t)},
+	{"set", "(Ljava/lang/Object;I)V", "(TV;I)V", $PUBLIC, $virtualMethod(AtomicStampedReference, set, void, Object$*, int32_t)},
+	{"weakCompareAndSet", "(Ljava/lang/Object;Ljava/lang/Object;II)Z", "(TV;TV;II)Z", $PUBLIC, $virtualMethod(AtomicStampedReference, weakCompareAndSet, bool, Object$*, Object$*, int32_t, int32_t)},
 	{}
 };
 

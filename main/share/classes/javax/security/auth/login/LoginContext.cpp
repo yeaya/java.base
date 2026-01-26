@@ -131,8 +131,8 @@ $FieldInfo LoginContext$$Lambda$lambda$invoke$0::fieldInfos[2] = {
 	{}
 };
 $MethodInfo LoginContext$$Lambda$lambda$invoke$0::methodInfos[3] = {
-	{"<init>", "(Ljavax/security/auth/login/LoginContext;)V", nullptr, $PUBLIC, $method(static_cast<void(LoginContext$$Lambda$lambda$invoke$0::*)(LoginContext*)>(&LoginContext$$Lambda$lambda$invoke$0::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljavax/security/auth/login/LoginContext;)V", nullptr, $PUBLIC, $method(LoginContext$$Lambda$lambda$invoke$0, init$, void, LoginContext*)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LoginContext$$Lambda$lambda$invoke$0, run, $Object*)},
 	{}
 };
 $ClassInfo LoginContext$$Lambda$lambda$invoke$0::classInfo$ = {
@@ -174,21 +174,21 @@ $FieldInfo _LoginContext_FieldInfo_[] = {
 };
 
 $MethodInfo _LoginContext_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(LoginContext::*)($String*)>(&LoginContext::init$)), "javax.security.auth.login.LoginException"},
-	{"<init>", "(Ljava/lang/String;Ljavax/security/auth/Subject;)V", nullptr, $PUBLIC, $method(static_cast<void(LoginContext::*)($String*,$Subject*)>(&LoginContext::init$)), "javax.security.auth.login.LoginException"},
-	{"<init>", "(Ljava/lang/String;Ljavax/security/auth/callback/CallbackHandler;)V", nullptr, $PUBLIC, $method(static_cast<void(LoginContext::*)($String*,$CallbackHandler*)>(&LoginContext::init$)), "javax.security.auth.login.LoginException"},
-	{"<init>", "(Ljava/lang/String;Ljavax/security/auth/Subject;Ljavax/security/auth/callback/CallbackHandler;)V", nullptr, $PUBLIC, $method(static_cast<void(LoginContext::*)($String*,$Subject*,$CallbackHandler*)>(&LoginContext::init$)), "javax.security.auth.login.LoginException"},
-	{"<init>", "(Ljava/lang/String;Ljavax/security/auth/Subject;Ljavax/security/auth/callback/CallbackHandler;Ljavax/security/auth/login/Configuration;)V", nullptr, $PUBLIC, $method(static_cast<void(LoginContext::*)($String*,$Subject*,$CallbackHandler*,$Configuration*)>(&LoginContext::init$)), "javax.security.auth.login.LoginException"},
-	{"clearState", "()V", nullptr, $PRIVATE, $method(static_cast<void(LoginContext::*)()>(&LoginContext::clearState))},
-	{"getSubject", "()Ljavax/security/auth/Subject;", nullptr, $PUBLIC},
-	{"init", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(static_cast<void(LoginContext::*)($String*)>(&LoginContext::init)), "javax.security.auth.login.LoginException"},
-	{"invoke", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(static_cast<void(LoginContext::*)($String*)>(&LoginContext::invoke)), "javax.security.auth.login.LoginException"},
-	{"invokePriv", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(static_cast<void(LoginContext::*)($String*)>(&LoginContext::invokePriv)), "javax.security.auth.login.LoginException"},
-	{"lambda$invoke$0", "()Ljava/util/ServiceLoader;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$ServiceLoader*(LoginContext::*)()>(&LoginContext::lambda$invoke$0))},
-	{"loadDefaultCallbackHandler", "()V", nullptr, $PRIVATE, $method(static_cast<void(LoginContext::*)()>(&LoginContext::loadDefaultCallbackHandler)), "javax.security.auth.login.LoginException"},
-	{"login", "()V", nullptr, $PUBLIC, nullptr, "javax.security.auth.login.LoginException"},
-	{"logout", "()V", nullptr, $PUBLIC, nullptr, "javax.security.auth.login.LoginException"},
-	{"throwException", "(Ljavax/security/auth/login/LoginException;Ljavax/security/auth/login/LoginException;)V", nullptr, $PRIVATE, $method(static_cast<void(LoginContext::*)($LoginException*,$LoginException*)>(&LoginContext::throwException)), "javax.security.auth.login.LoginException"},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(LoginContext, init$, void, $String*), "javax.security.auth.login.LoginException"},
+	{"<init>", "(Ljava/lang/String;Ljavax/security/auth/Subject;)V", nullptr, $PUBLIC, $method(LoginContext, init$, void, $String*, $Subject*), "javax.security.auth.login.LoginException"},
+	{"<init>", "(Ljava/lang/String;Ljavax/security/auth/callback/CallbackHandler;)V", nullptr, $PUBLIC, $method(LoginContext, init$, void, $String*, $CallbackHandler*), "javax.security.auth.login.LoginException"},
+	{"<init>", "(Ljava/lang/String;Ljavax/security/auth/Subject;Ljavax/security/auth/callback/CallbackHandler;)V", nullptr, $PUBLIC, $method(LoginContext, init$, void, $String*, $Subject*, $CallbackHandler*), "javax.security.auth.login.LoginException"},
+	{"<init>", "(Ljava/lang/String;Ljavax/security/auth/Subject;Ljavax/security/auth/callback/CallbackHandler;Ljavax/security/auth/login/Configuration;)V", nullptr, $PUBLIC, $method(LoginContext, init$, void, $String*, $Subject*, $CallbackHandler*, $Configuration*), "javax.security.auth.login.LoginException"},
+	{"clearState", "()V", nullptr, $PRIVATE, $method(LoginContext, clearState, void)},
+	{"getSubject", "()Ljavax/security/auth/Subject;", nullptr, $PUBLIC, $virtualMethod(LoginContext, getSubject, $Subject*)},
+	{"init", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(LoginContext, init, void, $String*), "javax.security.auth.login.LoginException"},
+	{"invoke", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(LoginContext, invoke, void, $String*), "javax.security.auth.login.LoginException"},
+	{"invokePriv", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(LoginContext, invokePriv, void, $String*), "javax.security.auth.login.LoginException"},
+	{"lambda$invoke$0", "()Ljava/util/ServiceLoader;", nullptr, $PRIVATE | $SYNTHETIC, $method(LoginContext, lambda$invoke$0, $ServiceLoader*)},
+	{"loadDefaultCallbackHandler", "()V", nullptr, $PRIVATE, $method(LoginContext, loadDefaultCallbackHandler, void), "javax.security.auth.login.LoginException"},
+	{"login", "()V", nullptr, $PUBLIC, $virtualMethod(LoginContext, login, void), "javax.security.auth.login.LoginException"},
+	{"logout", "()V", nullptr, $PUBLIC, $virtualMethod(LoginContext, logout, void), "javax.security.auth.login.LoginException"},
+	{"throwException", "(Ljavax/security/auth/login/LoginException;Ljavax/security/auth/login/LoginException;)V", nullptr, $PRIVATE, $method(LoginContext, throwException, void, $LoginException*, $LoginException*), "javax.security.auth.login.LoginException"},
 	{}
 };
 

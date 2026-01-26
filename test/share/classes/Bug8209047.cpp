@@ -58,8 +58,8 @@ $FieldInfo Bug8209047$$Lambda$lambda$main$1::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Bug8209047$$Lambda$lambda$main$1::methodInfos[3] = {
-	{"<init>", "(Ljava/util/Set;)V", nullptr, $PUBLIC, $method(static_cast<void(Bug8209047$$Lambda$lambda$main$1::*)($Set*)>(&Bug8209047$$Lambda$lambda$main$1::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/Set;)V", nullptr, $PUBLIC, $method(Bug8209047$$Lambda$lambda$main$1, init$, void, $Set*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Bug8209047$$Lambda$lambda$main$1, accept, void, Object$*)},
 	{}
 };
 $ClassInfo Bug8209047$$Lambda$lambda$main$1::classInfo$ = {
@@ -98,8 +98,8 @@ $FieldInfo Bug8209047$$Lambda$lambda$main$0$1::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Bug8209047$$Lambda$lambda$main$0$1::methodInfos[3] = {
-	{"<init>", "(Ljava/util/Locale;)V", nullptr, $PUBLIC, $method(static_cast<void(Bug8209047$$Lambda$lambda$main$0$1::*)($Locale*)>(&Bug8209047$$Lambda$lambda$main$0$1::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/Locale;)V", nullptr, $PUBLIC, $method(Bug8209047$$Lambda$lambda$main$0$1, init$, void, $Locale*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Bug8209047$$Lambda$lambda$main$0$1, accept, void, Object$*)},
 	{}
 };
 $ClassInfo Bug8209047$$Lambda$lambda$main$0$1::classInfo$ = {
@@ -117,10 +117,10 @@ $Class* Bug8209047$$Lambda$lambda$main$0$1::load$($String* name, bool initialize
 $Class* Bug8209047$$Lambda$lambda$main$0$1::class$ = nullptr;
 
 $MethodInfo _Bug8209047_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Bug8209047::*)()>(&Bug8209047::init$))},
-	{"lambda$main$0", "(Ljava/util/Locale;Ljava/lang/Integer;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($Locale*,$Integer*)>(&Bug8209047::lambda$main$0))},
-	{"lambda$main$1", "(Ljava/util/Set;Ljava/util/Locale;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($Set*,$Locale*)>(&Bug8209047::lambda$main$1))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Bug8209047::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Bug8209047, init$, void)},
+	{"lambda$main$0", "(Ljava/util/Locale;Ljava/lang/Integer;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Bug8209047, lambda$main$0, void, $Locale*, $Integer*)},
+	{"lambda$main$1", "(Ljava/util/Set;Ljava/util/Locale;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Bug8209047, lambda$main$1, void, $Set*, $Locale*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Bug8209047, main, void, $StringArray*)},
 	{}
 };
 

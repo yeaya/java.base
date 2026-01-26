@@ -26,12 +26,12 @@ $FieldInfo _GaloisCounterMode$GCTRGHASH_FieldInfo_[] = {
 };
 
 $MethodInfo _GaloisCounterMode$GCTRGHASH_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/crypto/provider/GCTR;Lcom/sun/crypto/provider/GHASH;)V", nullptr, 0, $method(static_cast<void(GaloisCounterMode$GCTRGHASH::*)($GCTR*,$GHASH*)>(&GaloisCounterMode$GCTRGHASH::init$))},
-	{"doFinal", "([BII[BI)I", nullptr, $PUBLIC},
-	{"doFinal", "(Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC},
-	{"update", "([BII[BI)I", nullptr, $PUBLIC},
-	{"update", "([BIILjava/nio/ByteBuffer;)I", nullptr, $PUBLIC},
-	{"update", "(Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/crypto/provider/GCTR;Lcom/sun/crypto/provider/GHASH;)V", nullptr, 0, $method(GaloisCounterMode$GCTRGHASH, init$, void, $GCTR*, $GHASH*)},
+	{"doFinal", "([BII[BI)I", nullptr, $PUBLIC, $virtualMethod(GaloisCounterMode$GCTRGHASH, doFinal, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t)},
+	{"doFinal", "(Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC, $virtualMethod(GaloisCounterMode$GCTRGHASH, doFinal, int32_t, $ByteBuffer*, $ByteBuffer*)},
+	{"update", "([BII[BI)I", nullptr, $PUBLIC, $virtualMethod(GaloisCounterMode$GCTRGHASH, update, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t)},
+	{"update", "([BIILjava/nio/ByteBuffer;)I", nullptr, $PUBLIC, $virtualMethod(GaloisCounterMode$GCTRGHASH, update, int32_t, $bytes*, int32_t, int32_t, $ByteBuffer*)},
+	{"update", "(Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC, $virtualMethod(GaloisCounterMode$GCTRGHASH, update, int32_t, $ByteBuffer*, $ByteBuffer*)},
 	{}
 };
 

@@ -20,7 +20,7 @@ $MethodInfo _MessageDigest$Delegate$CloneableDelegate_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/security/MessageDigestSpi;Ljava/lang/String;Ljava/security/Provider;)V", nullptr, $PRIVATE, $method(static_cast<void(MessageDigest$Delegate$CloneableDelegate::*)($MessageDigestSpi*,$String*,$Provider*)>(&MessageDigest$Delegate$CloneableDelegate::init$))},
+	{"<init>", "(Ljava/security/MessageDigestSpi;Ljava/lang/String;Ljava/security/Provider;)V", nullptr, $PRIVATE, $method(MessageDigest$Delegate$CloneableDelegate, init$, void, $MessageDigestSpi*, $String*, $Provider*)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

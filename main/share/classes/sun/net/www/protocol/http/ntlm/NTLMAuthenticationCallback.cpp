@@ -6,6 +6,7 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $URL = ::java::net::URL;
 
 namespace sun {
 	namespace net {
@@ -20,10 +21,10 @@ $FieldInfo _NTLMAuthenticationCallback_FieldInfo_[] = {
 };
 
 $MethodInfo _NTLMAuthenticationCallback_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(NTLMAuthenticationCallback::*)()>(&NTLMAuthenticationCallback::init$))},
-	{"getNTLMAuthenticationCallback", "()Lsun/net/www/protocol/http/ntlm/NTLMAuthenticationCallback;", nullptr, $PUBLIC | $STATIC, $method(static_cast<NTLMAuthenticationCallback*(*)()>(&NTLMAuthenticationCallback::getNTLMAuthenticationCallback))},
-	{"isTrustedSite", "(Ljava/net/URL;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"setNTLMAuthenticationCallback", "(Lsun/net/www/protocol/http/ntlm/NTLMAuthenticationCallback;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)(NTLMAuthenticationCallback*)>(&NTLMAuthenticationCallback::setNTLMAuthenticationCallback))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(NTLMAuthenticationCallback, init$, void)},
+	{"getNTLMAuthenticationCallback", "()Lsun/net/www/protocol/http/ntlm/NTLMAuthenticationCallback;", nullptr, $PUBLIC | $STATIC, $staticMethod(NTLMAuthenticationCallback, getNTLMAuthenticationCallback, NTLMAuthenticationCallback*)},
+	{"isTrustedSite", "(Ljava/net/URL;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NTLMAuthenticationCallback, isTrustedSite, bool, $URL*)},
+	{"setNTLMAuthenticationCallback", "(Lsun/net/www/protocol/http/ntlm/NTLMAuthenticationCallback;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(NTLMAuthenticationCallback, setNTLMAuthenticationCallback, void, NTLMAuthenticationCallback*)},
 	{}
 };
 

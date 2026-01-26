@@ -10,8 +10,8 @@ using $Exception = ::java::lang::Exception;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _WinSpecialFiles_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(WinSpecialFiles::*)()>(&WinSpecialFiles::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&WinSpecialFiles::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(WinSpecialFiles, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(WinSpecialFiles, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

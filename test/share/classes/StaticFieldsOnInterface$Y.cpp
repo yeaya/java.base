@@ -10,7 +10,7 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _StaticFieldsOnInterface$Y_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(StaticFieldsOnInterface$Y::*)()>(&StaticFieldsOnInterface$Y::init$))},
+	{"<init>", "()V", nullptr, 0, $method(StaticFieldsOnInterface$Y, init$, void)},
 	{}
 };
 

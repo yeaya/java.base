@@ -20,9 +20,9 @@ namespace java {
 		namespace regex {
 
 $MethodInfo _Pattern$LineEnding_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Pattern$LineEnding::*)()>(&Pattern$LineEnding::init$))},
-	{"match", "(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z", nullptr, 0},
-	{"study", "(Ljava/util/regex/Pattern$TreeInfo;)Z", nullptr, 0},
+	{"<init>", "()V", nullptr, 0, $method(Pattern$LineEnding, init$, void)},
+	{"match", "(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z", nullptr, 0, $virtualMethod(Pattern$LineEnding, match, bool, $Matcher*, int32_t, $CharSequence*)},
+	{"study", "(Ljava/util/regex/Pattern$TreeInfo;)Z", nullptr, 0, $virtualMethod(Pattern$LineEnding, study, bool, $Pattern$TreeInfo*)},
 	{}
 };
 

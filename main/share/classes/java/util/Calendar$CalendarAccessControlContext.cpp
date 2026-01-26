@@ -34,7 +34,7 @@ $FieldInfo _Calendar$CalendarAccessControlContext_FieldInfo_[] = {
 };
 
 $MethodInfo _Calendar$CalendarAccessControlContext_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(Calendar$CalendarAccessControlContext::*)()>(&Calendar$CalendarAccessControlContext::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(Calendar$CalendarAccessControlContext, init$, void)},
 	{}
 };
 

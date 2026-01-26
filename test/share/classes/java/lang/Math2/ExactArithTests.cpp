@@ -29,18 +29,18 @@ $FieldInfo _ExactArithTests_FieldInfo_[] = {
 };
 
 $MethodInfo _ExactArithTests_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ExactArithTests::*)()>(&ExactArithTests::init$))},
-	{"checkResult", "(Ljava/lang/String;JJJLjava/math/BigInteger;)V", nullptr, $STATIC, $method(static_cast<void(*)($String*,int64_t,int64_t,int64_t,$BigInteger*)>(&ExactArithTests::checkResult))},
-	{"fail", "(Ljava/lang/String;)V", nullptr, $STATIC, $method(static_cast<void(*)($String*)>(&ExactArithTests::fail))},
-	{"inLongRange", "(Ljava/math/BigInteger;)Z", nullptr, $STATIC, $method(static_cast<bool(*)($BigInteger*)>(&ExactArithTests::inLongRange))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&ExactArithTests::main))},
-	{"testIntegerExact", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&ExactArithTests::testIntegerExact))},
-	{"testIntegerExact", "(II)V", nullptr, $STATIC, $method(static_cast<void(*)(int32_t,int32_t)>(&ExactArithTests::testIntegerExact))},
-	{"testLongExact", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&ExactArithTests::testLongExact))},
-	{"testLongExact", "(JJ)V", nullptr, $STATIC, $method(static_cast<void(*)(int64_t,int64_t)>(&ExactArithTests::testLongExact))},
-	{"testLongExactTwice", "(JJ)V", nullptr, $STATIC, $method(static_cast<void(*)(int64_t,int64_t)>(&ExactArithTests::testLongExactTwice))},
-	{"testLongIntExact", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&ExactArithTests::testLongIntExact))},
-	{"testLongIntExact", "(JI)V", nullptr, $STATIC, $method(static_cast<void(*)(int64_t,int32_t)>(&ExactArithTests::testLongIntExact))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ExactArithTests, init$, void)},
+	{"checkResult", "(Ljava/lang/String;JJJLjava/math/BigInteger;)V", nullptr, $STATIC, $staticMethod(ExactArithTests, checkResult, void, $String*, int64_t, int64_t, int64_t, $BigInteger*)},
+	{"fail", "(Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(ExactArithTests, fail, void, $String*)},
+	{"inLongRange", "(Ljava/math/BigInteger;)Z", nullptr, $STATIC, $staticMethod(ExactArithTests, inLongRange, bool, $BigInteger*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ExactArithTests, main, void, $StringArray*)},
+	{"testIntegerExact", "()V", nullptr, $STATIC, $staticMethod(ExactArithTests, testIntegerExact, void)},
+	{"testIntegerExact", "(II)V", nullptr, $STATIC, $staticMethod(ExactArithTests, testIntegerExact, void, int32_t, int32_t)},
+	{"testLongExact", "()V", nullptr, $STATIC, $staticMethod(ExactArithTests, testLongExact, void)},
+	{"testLongExact", "(JJ)V", nullptr, $STATIC, $staticMethod(ExactArithTests, testLongExact, void, int64_t, int64_t)},
+	{"testLongExactTwice", "(JJ)V", nullptr, $STATIC, $staticMethod(ExactArithTests, testLongExactTwice, void, int64_t, int64_t)},
+	{"testLongIntExact", "()V", nullptr, $STATIC, $staticMethod(ExactArithTests, testLongIntExact, void)},
+	{"testLongIntExact", "(JI)V", nullptr, $STATIC, $staticMethod(ExactArithTests, testLongIntExact, void, int64_t, int32_t)},
 	{}
 };
 

@@ -38,11 +38,11 @@ $FieldInfo _RSAUtil$KeyType_FieldInfo_[] = {
 };
 
 $MethodInfo _RSAUtil$KeyType_MethodInfo_[] = {
-	{"$values", "()[Lsun/security/rsa/RSAUtil$KeyType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$RSAUtil$KeyTypeArray*(*)()>(&RSAUtil$KeyType::$values))},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;Lsun/security/util/ObjectIdentifier;Ljava/lang/Class;)V", "(Ljava/lang/String;Lsun/security/util/ObjectIdentifier;Ljava/lang/Class<+Ljava/security/spec/AlgorithmParameterSpec;>;)V", $PRIVATE, $method(static_cast<void(RSAUtil$KeyType::*)($String*,int32_t,$String*,$ObjectIdentifier*,$Class*)>(&RSAUtil$KeyType::init$))},
-	{"lookup", "(Ljava/lang/String;)Lsun/security/rsa/RSAUtil$KeyType;", nullptr, $PUBLIC | $STATIC, $method(static_cast<RSAUtil$KeyType*(*)($String*)>(&RSAUtil$KeyType::lookup)), "java.security.ProviderException"},
-	{"valueOf", "(Ljava/lang/String;)Lsun/security/rsa/RSAUtil$KeyType;", nullptr, $PUBLIC | $STATIC, $method(static_cast<RSAUtil$KeyType*(*)($String*)>(&RSAUtil$KeyType::valueOf))},
-	{"values", "()[Lsun/security/rsa/RSAUtil$KeyType;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$RSAUtil$KeyTypeArray*(*)()>(&RSAUtil$KeyType::values))},
+	{"$values", "()[Lsun/security/rsa/RSAUtil$KeyType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(RSAUtil$KeyType, $values, $RSAUtil$KeyTypeArray*)},
+	{"<init>", "(Ljava/lang/String;ILjava/lang/String;Lsun/security/util/ObjectIdentifier;Ljava/lang/Class;)V", "(Ljava/lang/String;Lsun/security/util/ObjectIdentifier;Ljava/lang/Class<+Ljava/security/spec/AlgorithmParameterSpec;>;)V", $PRIVATE, $method(RSAUtil$KeyType, init$, void, $String*, int32_t, $String*, $ObjectIdentifier*, $Class*)},
+	{"lookup", "(Ljava/lang/String;)Lsun/security/rsa/RSAUtil$KeyType;", nullptr, $PUBLIC | $STATIC, $staticMethod(RSAUtil$KeyType, lookup, RSAUtil$KeyType*, $String*), "java.security.ProviderException"},
+	{"valueOf", "(Ljava/lang/String;)Lsun/security/rsa/RSAUtil$KeyType;", nullptr, $PUBLIC | $STATIC, $staticMethod(RSAUtil$KeyType, valueOf, RSAUtil$KeyType*, $String*)},
+	{"values", "()[Lsun/security/rsa/RSAUtil$KeyType;", nullptr, $PUBLIC | $STATIC, $staticMethod(RSAUtil$KeyType, values, $RSAUtil$KeyTypeArray*)},
 	{}
 };
 

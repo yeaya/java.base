@@ -13,10 +13,10 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 
 $MethodInfo _Basic$3_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Basic$3::*)()>(&Basic$3::init$))},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"isOpen", "()Z", nullptr, $PUBLIC},
-	{"write", "(Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, 0, $method(Basic$3, init$, void)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(Basic$3, close, void), "java.io.IOException"},
+	{"isOpen", "()Z", nullptr, $PUBLIC, $virtualMethod(Basic$3, isOpen, bool)},
+	{"write", "(Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC, $virtualMethod(Basic$3, write, int32_t, $ByteBuffer*), "java.io.IOException"},
 	{}
 };
 

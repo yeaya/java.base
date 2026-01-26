@@ -7,13 +7,14 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $RuntimeImageLocation = ::jdk::internal::jimage::RuntimeImageLocation;
 
 namespace jdk {
 	namespace internal {
 		namespace jimage {
 
 $MethodInfo _RuntimeImageReader$LocationVisitor_MethodInfo_[] = {
-	{"visit", "(Ljdk/internal/jimage/RuntimeImageLocation;)V", nullptr, $PUBLIC | $ABSTRACT},
+	{"visit", "(Ljdk/internal/jimage/RuntimeImageLocation;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RuntimeImageReader$LocationVisitor, visit, void, $RuntimeImageLocation*)},
 	{}
 };
 

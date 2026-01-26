@@ -21,7 +21,7 @@ $MethodInfo _RunnableScheduledFuture_MethodInfo_[] = {
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
 	{"*isCancelled", "()Z", nullptr, $PUBLIC | $ABSTRACT},
 	{"*isDone", "()Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"isPeriodic", "()Z", nullptr, $PUBLIC | $ABSTRACT},
+	{"isPeriodic", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RunnableScheduledFuture, isPeriodic, bool)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

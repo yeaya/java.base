@@ -74,19 +74,19 @@ $FieldInfo _RSAPadding_FieldInfo_[] = {
 };
 
 $MethodInfo _RSAPadding_MethodInfo_[] = {
-	{"<init>", "(IILjava/security/SecureRandom;Ljavax/crypto/spec/OAEPParameterSpec;)V", nullptr, $PRIVATE, $method(static_cast<void(RSAPadding::*)(int32_t,int32_t,$SecureRandom*,$OAEPParameterSpec*)>(&RSAPadding::init$)), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
-	{"getInitialHash", "(Ljava/security/MessageDigest;[B)[B", nullptr, $PRIVATE | $STATIC, $method(static_cast<$bytes*(*)($MessageDigest*,$bytes*)>(&RSAPadding::getInitialHash))},
-	{"getInstance", "(II)Lsun/security/rsa/RSAPadding;", nullptr, $PUBLIC | $STATIC, $method(static_cast<RSAPadding*(*)(int32_t,int32_t)>(&RSAPadding::getInstance)), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
-	{"getInstance", "(IILjava/security/SecureRandom;)Lsun/security/rsa/RSAPadding;", nullptr, $PUBLIC | $STATIC, $method(static_cast<RSAPadding*(*)(int32_t,int32_t,$SecureRandom*)>(&RSAPadding::getInstance)), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
-	{"getInstance", "(IILjava/security/SecureRandom;Ljavax/crypto/spec/OAEPParameterSpec;)Lsun/security/rsa/RSAPadding;", nullptr, $PUBLIC | $STATIC, $method(static_cast<RSAPadding*(*)(int32_t,int32_t,$SecureRandom*,$OAEPParameterSpec*)>(&RSAPadding::getInstance)), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
-	{"getMaxDataSize", "()I", nullptr, $PUBLIC, $method(static_cast<int32_t(RSAPadding::*)()>(&RSAPadding::getMaxDataSize))},
-	{"pad", "([B)[B", nullptr, $PUBLIC, $method(static_cast<$bytes*(RSAPadding::*)($bytes*)>(&RSAPadding::pad)), "javax.crypto.BadPaddingException"},
-	{"pad", "([BII)[B", nullptr, $PUBLIC, $method(static_cast<$bytes*(RSAPadding::*)($bytes*,int32_t,int32_t)>(&RSAPadding::pad)), "javax.crypto.BadPaddingException"},
-	{"padOAEP", "([BII)[B", nullptr, $PRIVATE, $method(static_cast<$bytes*(RSAPadding::*)($bytes*,int32_t,int32_t)>(&RSAPadding::padOAEP)), "javax.crypto.BadPaddingException"},
-	{"padV15", "([BII)[B", nullptr, $PRIVATE, $method(static_cast<$bytes*(RSAPadding::*)($bytes*,int32_t,int32_t)>(&RSAPadding::padV15)), "javax.crypto.BadPaddingException"},
-	{"unpad", "([B)[B", nullptr, $PUBLIC, $method(static_cast<$bytes*(RSAPadding::*)($bytes*)>(&RSAPadding::unpad)), "javax.crypto.BadPaddingException"},
-	{"unpadOAEP", "([B)[B", nullptr, $PRIVATE, $method(static_cast<$bytes*(RSAPadding::*)($bytes*)>(&RSAPadding::unpadOAEP)), "javax.crypto.BadPaddingException"},
-	{"unpadV15", "([B)[B", nullptr, $PRIVATE, $method(static_cast<$bytes*(RSAPadding::*)($bytes*)>(&RSAPadding::unpadV15)), "javax.crypto.BadPaddingException"},
+	{"<init>", "(IILjava/security/SecureRandom;Ljavax/crypto/spec/OAEPParameterSpec;)V", nullptr, $PRIVATE, $method(RSAPadding, init$, void, int32_t, int32_t, $SecureRandom*, $OAEPParameterSpec*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
+	{"getInitialHash", "(Ljava/security/MessageDigest;[B)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(RSAPadding, getInitialHash, $bytes*, $MessageDigest*, $bytes*)},
+	{"getInstance", "(II)Lsun/security/rsa/RSAPadding;", nullptr, $PUBLIC | $STATIC, $staticMethod(RSAPadding, getInstance, RSAPadding*, int32_t, int32_t), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
+	{"getInstance", "(IILjava/security/SecureRandom;)Lsun/security/rsa/RSAPadding;", nullptr, $PUBLIC | $STATIC, $staticMethod(RSAPadding, getInstance, RSAPadding*, int32_t, int32_t, $SecureRandom*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
+	{"getInstance", "(IILjava/security/SecureRandom;Ljavax/crypto/spec/OAEPParameterSpec;)Lsun/security/rsa/RSAPadding;", nullptr, $PUBLIC | $STATIC, $staticMethod(RSAPadding, getInstance, RSAPadding*, int32_t, int32_t, $SecureRandom*, $OAEPParameterSpec*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
+	{"getMaxDataSize", "()I", nullptr, $PUBLIC, $method(RSAPadding, getMaxDataSize, int32_t)},
+	{"pad", "([B)[B", nullptr, $PUBLIC, $method(RSAPadding, pad, $bytes*, $bytes*), "javax.crypto.BadPaddingException"},
+	{"pad", "([BII)[B", nullptr, $PUBLIC, $method(RSAPadding, pad, $bytes*, $bytes*, int32_t, int32_t), "javax.crypto.BadPaddingException"},
+	{"padOAEP", "([BII)[B", nullptr, $PRIVATE, $method(RSAPadding, padOAEP, $bytes*, $bytes*, int32_t, int32_t), "javax.crypto.BadPaddingException"},
+	{"padV15", "([BII)[B", nullptr, $PRIVATE, $method(RSAPadding, padV15, $bytes*, $bytes*, int32_t, int32_t), "javax.crypto.BadPaddingException"},
+	{"unpad", "([B)[B", nullptr, $PUBLIC, $method(RSAPadding, unpad, $bytes*, $bytes*), "javax.crypto.BadPaddingException"},
+	{"unpadOAEP", "([B)[B", nullptr, $PRIVATE, $method(RSAPadding, unpadOAEP, $bytes*, $bytes*), "javax.crypto.BadPaddingException"},
+	{"unpadV15", "([B)[B", nullptr, $PRIVATE, $method(RSAPadding, unpadV15, $bytes*, $bytes*), "javax.crypto.BadPaddingException"},
 	{}
 };
 

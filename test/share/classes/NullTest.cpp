@@ -13,8 +13,8 @@ using $Channel = ::java::nio::channels::Channel;
 using $SelectorProvider = ::java::nio::channels::spi::SelectorProvider;
 
 $MethodInfo _NullTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(NullTest::*)()>(&NullTest::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&NullTest::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(NullTest, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(NullTest, main, void, $StringArray*)},
 	{}
 };
 

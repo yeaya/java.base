@@ -13,7 +13,7 @@ namespace sun {
 		namespace dns {
 
 $MethodInfo _OptionsImpl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(OptionsImpl::*)()>(&OptionsImpl::init$))},
+	{"<init>", "()V", nullptr, 0, $method(OptionsImpl, init$, void)},
 	{}
 };
 

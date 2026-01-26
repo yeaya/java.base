@@ -12,8 +12,8 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _OpsAfterClose4InputStream$8_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(static_cast<void(OpsAfterClose4InputStream$8::*)($String*,int32_t)>(&OpsAfterClose4InputStream$8::init$))},
-	{"check", "(Ljava/io/InputStream;)Z", nullptr, 0},
+	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(OpsAfterClose4InputStream$8, init$, void, $String*, int32_t)},
+	{"check", "(Ljava/io/InputStream;)Z", nullptr, 0, $virtualMethod(OpsAfterClose4InputStream$8, check, bool, $InputStream*)},
 	{}
 };
 

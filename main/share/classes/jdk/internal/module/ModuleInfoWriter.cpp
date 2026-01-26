@@ -110,8 +110,8 @@ $FieldInfo ModuleInfoWriter$$Lambda$get::fieldInfos[2] = {
 	{}
 };
 $MethodInfo ModuleInfoWriter$$Lambda$get::methodInfos[3] = {
-	{"<init>", "(Ljava/util/Map;)V", nullptr, $PUBLIC, $method(static_cast<void(ModuleInfoWriter$$Lambda$get::*)($Map*)>(&ModuleInfoWriter$$Lambda$get::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/Map;)V", nullptr, $PUBLIC, $method(ModuleInfoWriter$$Lambda$get, init$, void, $Map*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ModuleInfoWriter$$Lambda$get, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo ModuleInfoWriter$$Lambda$get::classInfo$ = {
@@ -143,8 +143,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ModuleInfoWriter$$Lambda$lambda$toModuleInfo$0$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ModuleInfoWriter$$Lambda$lambda$toModuleInfo$0$1::*)()>(&ModuleInfoWriter$$Lambda$lambda$toModuleInfo$0$1::init$))},
-	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ModuleInfoWriter$$Lambda$lambda$toModuleInfo$0$1, init$, void)},
+	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ModuleInfoWriter$$Lambda$lambda$toModuleInfo$0$1, apply, $Object*, Object$*, Object$*)},
 	{}
 };
 $ClassInfo ModuleInfoWriter$$Lambda$lambda$toModuleInfo$0$1::classInfo$ = {
@@ -176,8 +176,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ModuleInfoWriter$$Lambda$lambda$toModuleInfo$4$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ModuleInfoWriter$$Lambda$lambda$toModuleInfo$4$2::*)()>(&ModuleInfoWriter$$Lambda$lambda$toModuleInfo$4$2::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ModuleInfoWriter$$Lambda$lambda$toModuleInfo$4$2, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ModuleInfoWriter$$Lambda$lambda$toModuleInfo$4$2, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo ModuleInfoWriter$$Lambda$lambda$toModuleInfo$4$2::classInfo$ = {
@@ -216,8 +216,8 @@ $FieldInfo ModuleInfoWriter$$Lambda$visitUse$3::fieldInfos[2] = {
 	{}
 };
 $MethodInfo ModuleInfoWriter$$Lambda$visitUse$3::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/org/objectweb/asm/ModuleVisitor;)V", nullptr, $PUBLIC, $method(static_cast<void(ModuleInfoWriter$$Lambda$visitUse$3::*)($ModuleVisitor*)>(&ModuleInfoWriter$$Lambda$visitUse$3::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/org/objectweb/asm/ModuleVisitor;)V", nullptr, $PUBLIC, $method(ModuleInfoWriter$$Lambda$visitUse$3, init$, void, $ModuleVisitor*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ModuleInfoWriter$$Lambda$visitUse$3, accept, void, Object$*)},
 	{}
 };
 $ClassInfo ModuleInfoWriter$$Lambda$visitUse$3::classInfo$ = {
@@ -249,8 +249,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ModuleInfoWriter$$Lambda$lambda$toModuleInfo$6$4::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ModuleInfoWriter$$Lambda$lambda$toModuleInfo$6$4::*)()>(&ModuleInfoWriter$$Lambda$lambda$toModuleInfo$6$4::init$))},
-	{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ModuleInfoWriter$$Lambda$lambda$toModuleInfo$6$4, init$, void)},
+	{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ModuleInfoWriter$$Lambda$lambda$toModuleInfo$6$4, apply, $Object*, int32_t)},
 	{}
 };
 $ClassInfo ModuleInfoWriter$$Lambda$lambda$toModuleInfo$6$4::classInfo$ = {
@@ -282,8 +282,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ModuleInfoWriter$$Lambda$source$5::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ModuleInfoWriter$$Lambda$source$5::*)()>(&ModuleInfoWriter$$Lambda$source$5::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ModuleInfoWriter$$Lambda$source$5, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ModuleInfoWriter$$Lambda$source$5, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo ModuleInfoWriter$$Lambda$source$5::classInfo$ = {
@@ -315,8 +315,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ModuleInfoWriter$$Lambda$source$6::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ModuleInfoWriter$$Lambda$source$6::*)()>(&ModuleInfoWriter$$Lambda$source$6::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ModuleInfoWriter$$Lambda$source$6, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ModuleInfoWriter$$Lambda$source$6, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo ModuleInfoWriter$$Lambda$source$6::classInfo$ = {
@@ -355,8 +355,8 @@ $FieldInfo ModuleInfoWriter$$Lambda$visitPackage$7::fieldInfos[2] = {
 	{}
 };
 $MethodInfo ModuleInfoWriter$$Lambda$visitPackage$7::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/org/objectweb/asm/ModuleVisitor;)V", nullptr, $PUBLIC, $method(static_cast<void(ModuleInfoWriter$$Lambda$visitPackage$7::*)($ModuleVisitor*)>(&ModuleInfoWriter$$Lambda$visitPackage$7::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/org/objectweb/asm/ModuleVisitor;)V", nullptr, $PUBLIC, $method(ModuleInfoWriter$$Lambda$visitPackage$7, init$, void, $ModuleVisitor*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ModuleInfoWriter$$Lambda$visitPackage$7, accept, void, Object$*)},
 	{}
 };
 $ClassInfo ModuleInfoWriter$$Lambda$visitPackage$7::classInfo$ = {
@@ -395,8 +395,8 @@ $FieldInfo ModuleInfoWriter$$Lambda$visitMainClass$8::fieldInfos[2] = {
 	{}
 };
 $MethodInfo ModuleInfoWriter$$Lambda$visitMainClass$8::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/org/objectweb/asm/ModuleVisitor;)V", nullptr, $PUBLIC, $method(static_cast<void(ModuleInfoWriter$$Lambda$visitMainClass$8::*)($ModuleVisitor*)>(&ModuleInfoWriter$$Lambda$visitMainClass$8::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/org/objectweb/asm/ModuleVisitor;)V", nullptr, $PUBLIC, $method(ModuleInfoWriter$$Lambda$visitMainClass$8, init$, void, $ModuleVisitor*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ModuleInfoWriter$$Lambda$visitMainClass$8, accept, void, Object$*)},
 	{}
 };
 $ClassInfo ModuleInfoWriter$$Lambda$visitMainClass$8::classInfo$ = {
@@ -423,17 +423,17 @@ $FieldInfo _ModuleInfoWriter_FieldInfo_[] = {
 };
 
 $MethodInfo _ModuleInfoWriter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(ModuleInfoWriter::*)()>(&ModuleInfoWriter::init$))},
-	{"lambda$toModuleInfo$0", "(Ljava/lang/Integer;Ljava/lang/Integer;)Ljava/lang/Integer;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Integer*(*)($Integer*,$Integer*)>(&ModuleInfoWriter::lambda$toModuleInfo$0))},
-	{"lambda$toModuleInfo$4", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$String*(*)($String*)>(&ModuleInfoWriter::lambda$toModuleInfo$4))},
-	{"lambda$toModuleInfo$6", "(I)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$StringArray*(*)(int32_t)>(&ModuleInfoWriter::lambda$toModuleInfo$6))},
-	{"toByteBuffer", "(Ljava/lang/module/ModuleDescriptor;)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$ByteBuffer*(*)($ModuleDescriptor*)>(&ModuleInfoWriter::toByteBuffer))},
-	{"toBytes", "(Ljava/lang/module/ModuleDescriptor;)[B", nullptr, $PUBLIC | $STATIC, $method(static_cast<$bytes*(*)($ModuleDescriptor*)>(&ModuleInfoWriter::toBytes))},
-	{"toModuleInfo", "(Ljava/lang/module/ModuleDescriptor;Ljdk/internal/module/ModuleResolution;Ljdk/internal/module/ModuleTarget;)[B", nullptr, $PRIVATE | $STATIC, $method(static_cast<$bytes*(*)($ModuleDescriptor*,$ModuleResolution*,$ModuleTarget*)>(&ModuleInfoWriter::toModuleInfo))},
-	{"write", "(Ljava/lang/module/ModuleDescriptor;Ljdk/internal/module/ModuleResolution;Ljdk/internal/module/ModuleTarget;Ljava/io/OutputStream;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($ModuleDescriptor*,$ModuleResolution*,$ModuleTarget*,$OutputStream*)>(&ModuleInfoWriter::write)), "java.io.IOException"},
-	{"write", "(Ljava/lang/module/ModuleDescriptor;Ljdk/internal/module/ModuleResolution;Ljava/io/OutputStream;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($ModuleDescriptor*,$ModuleResolution*,$OutputStream*)>(&ModuleInfoWriter::write)), "java.io.IOException"},
-	{"write", "(Ljava/lang/module/ModuleDescriptor;Ljdk/internal/module/ModuleTarget;Ljava/io/OutputStream;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($ModuleDescriptor*,$ModuleTarget*,$OutputStream*)>(&ModuleInfoWriter::write)), "java.io.IOException"},
-	{"write", "(Ljava/lang/module/ModuleDescriptor;Ljava/io/OutputStream;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($ModuleDescriptor*,$OutputStream*)>(&ModuleInfoWriter::write)), "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(ModuleInfoWriter, init$, void)},
+	{"lambda$toModuleInfo$0", "(Ljava/lang/Integer;Ljava/lang/Integer;)Ljava/lang/Integer;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ModuleInfoWriter, lambda$toModuleInfo$0, $Integer*, $Integer*, $Integer*)},
+	{"lambda$toModuleInfo$4", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ModuleInfoWriter, lambda$toModuleInfo$4, $String*, $String*)},
+	{"lambda$toModuleInfo$6", "(I)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ModuleInfoWriter, lambda$toModuleInfo$6, $StringArray*, int32_t)},
+	{"toByteBuffer", "(Ljava/lang/module/ModuleDescriptor;)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC | $STATIC, $staticMethod(ModuleInfoWriter, toByteBuffer, $ByteBuffer*, $ModuleDescriptor*)},
+	{"toBytes", "(Ljava/lang/module/ModuleDescriptor;)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(ModuleInfoWriter, toBytes, $bytes*, $ModuleDescriptor*)},
+	{"toModuleInfo", "(Ljava/lang/module/ModuleDescriptor;Ljdk/internal/module/ModuleResolution;Ljdk/internal/module/ModuleTarget;)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(ModuleInfoWriter, toModuleInfo, $bytes*, $ModuleDescriptor*, $ModuleResolution*, $ModuleTarget*)},
+	{"write", "(Ljava/lang/module/ModuleDescriptor;Ljdk/internal/module/ModuleResolution;Ljdk/internal/module/ModuleTarget;Ljava/io/OutputStream;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ModuleInfoWriter, write, void, $ModuleDescriptor*, $ModuleResolution*, $ModuleTarget*, $OutputStream*), "java.io.IOException"},
+	{"write", "(Ljava/lang/module/ModuleDescriptor;Ljdk/internal/module/ModuleResolution;Ljava/io/OutputStream;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ModuleInfoWriter, write, void, $ModuleDescriptor*, $ModuleResolution*, $OutputStream*), "java.io.IOException"},
+	{"write", "(Ljava/lang/module/ModuleDescriptor;Ljdk/internal/module/ModuleTarget;Ljava/io/OutputStream;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ModuleInfoWriter, write, void, $ModuleDescriptor*, $ModuleTarget*, $OutputStream*), "java.io.IOException"},
+	{"write", "(Ljava/lang/module/ModuleDescriptor;Ljava/io/OutputStream;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ModuleInfoWriter, write, void, $ModuleDescriptor*, $OutputStream*), "java.io.IOException"},
 	{}
 };
 

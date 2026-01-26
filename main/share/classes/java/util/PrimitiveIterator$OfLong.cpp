@@ -52,8 +52,8 @@ $FieldInfo PrimitiveIterator$OfLong$$Lambda$accept::fieldInfos[2] = {
 	{}
 };
 $MethodInfo PrimitiveIterator$OfLong$$Lambda$accept::methodInfos[3] = {
-	{"<init>", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC, $method(static_cast<void(PrimitiveIterator$OfLong$$Lambda$accept::*)($Consumer*)>(&PrimitiveIterator$OfLong$$Lambda$accept::init$))},
-	{"accept", "(J)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC, $method(PrimitiveIterator$OfLong$$Lambda$accept, init$, void, $Consumer*)},
+	{"accept", "(J)V", nullptr, $PUBLIC, $virtualMethod(PrimitiveIterator$OfLong$$Lambda$accept, accept, void, int64_t)},
 	{}
 };
 $ClassInfo PrimitiveIterator$OfLong$$Lambda$accept::classInfo$ = {
@@ -71,11 +71,11 @@ $Class* PrimitiveIterator$OfLong$$Lambda$accept::load$($String* name, bool initi
 $Class* PrimitiveIterator$OfLong$$Lambda$accept::class$ = nullptr;
 
 $MethodInfo _PrimitiveIterator$OfLong_MethodInfo_[] = {
-	{"forEachRemaining", "(Ljava/util/function/LongConsumer;)V", nullptr, $PUBLIC},
-	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-Ljava/lang/Long;>;)V", $PUBLIC},
-	{"forEachRemaining", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"next", "()Ljava/lang/Long;", nullptr, $PUBLIC},
-	{"nextLong", "()J", nullptr, $PUBLIC | $ABSTRACT},
+	{"forEachRemaining", "(Ljava/util/function/LongConsumer;)V", nullptr, $PUBLIC, $virtualMethod(PrimitiveIterator$OfLong, forEachRemaining, void, $LongConsumer*)},
+	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-Ljava/lang/Long;>;)V", $PUBLIC, $virtualMethod(PrimitiveIterator$OfLong, forEachRemaining, void, $Consumer*)},
+	{"forEachRemaining", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(PrimitiveIterator$OfLong, forEachRemaining, void, Object$*)},
+	{"next", "()Ljava/lang/Long;", nullptr, $PUBLIC, $virtualMethod(PrimitiveIterator$OfLong, next, $Object*)},
+	{"nextLong", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PrimitiveIterator$OfLong, nextLong, int64_t)},
 	{}
 };
 

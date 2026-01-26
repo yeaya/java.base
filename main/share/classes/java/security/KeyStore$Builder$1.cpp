@@ -28,9 +28,9 @@ $FieldInfo _KeyStore$Builder$1_FieldInfo_[] = {
 };
 
 $MethodInfo _KeyStore$Builder$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/KeyStore;Ljava/security/KeyStore$ProtectionParameter;)V", nullptr, 0, $method(static_cast<void(KeyStore$Builder$1::*)($KeyStore*,$KeyStore$ProtectionParameter*)>(&KeyStore$Builder$1::init$))},
-	{"getKeyStore", "()Ljava/security/KeyStore;", nullptr, $PUBLIC},
-	{"getProtectionParameter", "(Ljava/lang/String;)Ljava/security/KeyStore$ProtectionParameter;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/security/KeyStore;Ljava/security/KeyStore$ProtectionParameter;)V", nullptr, 0, $method(KeyStore$Builder$1, init$, void, $KeyStore*, $KeyStore$ProtectionParameter*)},
+	{"getKeyStore", "()Ljava/security/KeyStore;", nullptr, $PUBLIC, $virtualMethod(KeyStore$Builder$1, getKeyStore, $KeyStore*)},
+	{"getProtectionParameter", "(Ljava/lang/String;)Ljava/security/KeyStore$ProtectionParameter;", nullptr, $PUBLIC, $virtualMethod(KeyStore$Builder$1, getProtectionParameter, $KeyStore$ProtectionParameter*, $String*)},
 	{}
 };
 

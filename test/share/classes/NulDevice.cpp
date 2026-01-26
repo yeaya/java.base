@@ -34,8 +34,8 @@ using $StandardOpenOption = ::java::nio::file::StandardOpenOption;
 using $Future = ::java::util::concurrent::Future;
 
 $MethodInfo _NulDevice_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(NulDevice::*)()>(&NulDevice::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&NulDevice::main)), "java.util.concurrent.ExecutionException,java.lang.InterruptedException,java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(NulDevice, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(NulDevice, main, void, $StringArray*), "java.util.concurrent.ExecutionException,java.lang.InterruptedException,java.io.IOException"},
 	{}
 };
 

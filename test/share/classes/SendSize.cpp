@@ -26,8 +26,8 @@ $FieldInfo _SendSize_FieldInfo_[] = {
 };
 
 $MethodInfo _SendSize_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SendSize::*)()>(&SendSize::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&SendSize::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SendSize, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SendSize, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

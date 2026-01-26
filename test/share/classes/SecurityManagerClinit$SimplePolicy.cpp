@@ -26,8 +26,8 @@ $FieldInfo _SecurityManagerClinit$SimplePolicy_FieldInfo_[] = {
 };
 
 $MethodInfo _SecurityManagerClinit$SimplePolicy_MethodInfo_[] = {
-	{"<init>", "([Ljava/security/Permission;)V", nullptr, $PUBLIC | $TRANSIENT, $method(static_cast<void(SecurityManagerClinit$SimplePolicy::*)($PermissionArray*)>(&SecurityManagerClinit$SimplePolicy::init$))},
-	{"implies", "(Ljava/security/ProtectionDomain;Ljava/security/Permission;)Z", nullptr, $PUBLIC},
+	{"<init>", "([Ljava/security/Permission;)V", nullptr, $PUBLIC | $TRANSIENT, $method(SecurityManagerClinit$SimplePolicy, init$, void, $PermissionArray*)},
+	{"implies", "(Ljava/security/ProtectionDomain;Ljava/security/Permission;)Z", nullptr, $PUBLIC, $virtualMethod(SecurityManagerClinit$SimplePolicy, implies, bool, $ProtectionDomain*, $Permission*)},
 	{}
 };
 

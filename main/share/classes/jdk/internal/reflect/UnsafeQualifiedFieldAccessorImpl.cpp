@@ -20,7 +20,7 @@ $FieldInfo _UnsafeQualifiedFieldAccessorImpl_FieldInfo_[] = {
 };
 
 $MethodInfo _UnsafeQualifiedFieldAccessorImpl_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/reflect/Field;Z)V", nullptr, 0, $method(static_cast<void(UnsafeQualifiedFieldAccessorImpl::*)($Field*,bool)>(&UnsafeQualifiedFieldAccessorImpl::init$))},
+	{"<init>", "(Ljava/lang/reflect/Field;Z)V", nullptr, 0, $method(UnsafeQualifiedFieldAccessorImpl, init$, void, $Field*, bool)},
 	{}
 };
 

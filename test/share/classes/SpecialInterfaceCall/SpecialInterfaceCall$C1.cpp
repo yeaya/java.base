@@ -10,7 +10,7 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace SpecialInterfaceCall {
 
 $MethodInfo _SpecialInterfaceCall$C1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(SpecialInterfaceCall$C1::*)()>(&SpecialInterfaceCall$C1::init$))},
+	{"<init>", "()V", nullptr, 0, $method(SpecialInterfaceCall$C1, init$, void)},
 	{}
 };
 

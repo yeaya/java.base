@@ -12,8 +12,8 @@ using $InetAddress = ::java::net::InetAddress;
 using $MulticastSocket = ::java::net::MulticastSocket;
 
 $MethodInfo _TestDefaults_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TestDefaults::*)()>(&TestDefaults::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&TestDefaults::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TestDefaults, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TestDefaults, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

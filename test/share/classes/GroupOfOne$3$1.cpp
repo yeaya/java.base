@@ -24,11 +24,11 @@ $FieldInfo _GroupOfOne$3$1_FieldInfo_[] = {
 };
 
 $MethodInfo _GroupOfOne$3$1_MethodInfo_[] = {
-	{"<init>", "(LGroupOfOne$3;)V", nullptr, 0, $method(static_cast<void(GroupOfOne$3$1::*)($GroupOfOne$3*)>(&GroupOfOne$3$1::init$))},
-	{"completed", "(Ljava/lang/Integer;Ljava/lang/Void;)V", nullptr, $PUBLIC},
-	{"completed", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"failed", "(Ljava/lang/Throwable;Ljava/lang/Void;)V", nullptr, $PUBLIC},
-	{"failed", "(Ljava/lang/Throwable;Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "(LGroupOfOne$3;)V", nullptr, 0, $method(GroupOfOne$3$1, init$, void, $GroupOfOne$3*)},
+	{"completed", "(Ljava/lang/Integer;Ljava/lang/Void;)V", nullptr, $PUBLIC, $virtualMethod(GroupOfOne$3$1, completed, void, $Integer*, $Void*)},
+	{"completed", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(GroupOfOne$3$1, completed, void, Object$*, Object$*)},
+	{"failed", "(Ljava/lang/Throwable;Ljava/lang/Void;)V", nullptr, $PUBLIC, $virtualMethod(GroupOfOne$3$1, failed, void, $Throwable*, $Void*)},
+	{"failed", "(Ljava/lang/Throwable;Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(GroupOfOne$3$1, failed, void, $Throwable*, Object$*)},
 	{}
 };
 

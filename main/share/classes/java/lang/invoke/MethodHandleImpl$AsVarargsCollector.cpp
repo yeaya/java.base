@@ -60,16 +60,16 @@ $FieldInfo _MethodHandleImpl$AsVarargsCollector_FieldInfo_[] = {
 };
 
 $MethodInfo _MethodHandleImpl$AsVarargsCollector_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/Class;)V", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/Class<*>;)V", 0, $method(static_cast<void(MethodHandleImpl$AsVarargsCollector::*)($MethodHandle*,$Class*)>(&MethodHandleImpl$AsVarargsCollector::init$))},
-	{"<init>", "(Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/Class;)V", "(Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/Class<*>;)V", 0, $method(static_cast<void(MethodHandleImpl$AsVarargsCollector::*)($MethodType*,$MethodHandle*,$Class*)>(&MethodHandleImpl$AsVarargsCollector::init$))},
-	{"asFixedArity", "()Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC},
-	{"asTypeUncached", "(Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC},
-	{"getTarget", "()Ljava/lang/invoke/MethodHandle;", nullptr, $PROTECTED},
-	{"invokeWithArguments", "([Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $TRANSIENT, nullptr, "java.lang.Throwable"},
-	{"isVarargsCollector", "()Z", nullptr, $PUBLIC},
-	{"setVarargs", "(Ljava/lang/invoke/MemberName;)Ljava/lang/invoke/MethodHandle;", nullptr, 0},
-	{"viewAsTypeChecks", "(Ljava/lang/invoke/MethodType;Z)Z", nullptr, 0},
-	{"withVarargs", "(Z)Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/Class;)V", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/Class<*>;)V", 0, $method(MethodHandleImpl$AsVarargsCollector, init$, void, $MethodHandle*, $Class*)},
+	{"<init>", "(Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/Class;)V", "(Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/Class<*>;)V", 0, $method(MethodHandleImpl$AsVarargsCollector, init$, void, $MethodType*, $MethodHandle*, $Class*)},
+	{"asFixedArity", "()Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC, $virtualMethod(MethodHandleImpl$AsVarargsCollector, asFixedArity, $MethodHandle*)},
+	{"asTypeUncached", "(Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC, $virtualMethod(MethodHandleImpl$AsVarargsCollector, asTypeUncached, $MethodHandle*, $MethodType*)},
+	{"getTarget", "()Ljava/lang/invoke/MethodHandle;", nullptr, $PROTECTED, $virtualMethod(MethodHandleImpl$AsVarargsCollector, getTarget, $MethodHandle*)},
+	{"invokeWithArguments", "([Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(MethodHandleImpl$AsVarargsCollector, invokeWithArguments, $Object*, $ObjectArray*), "java.lang.Throwable"},
+	{"isVarargsCollector", "()Z", nullptr, $PUBLIC, $virtualMethod(MethodHandleImpl$AsVarargsCollector, isVarargsCollector, bool)},
+	{"setVarargs", "(Ljava/lang/invoke/MemberName;)Ljava/lang/invoke/MethodHandle;", nullptr, 0, $virtualMethod(MethodHandleImpl$AsVarargsCollector, setVarargs, $MethodHandle*, $MemberName*)},
+	{"viewAsTypeChecks", "(Ljava/lang/invoke/MethodType;Z)Z", nullptr, 0, $virtualMethod(MethodHandleImpl$AsVarargsCollector, viewAsTypeChecks, bool, $MethodType*, bool)},
+	{"withVarargs", "(Z)Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC, $virtualMethod(MethodHandleImpl$AsVarargsCollector, withVarargs, $MethodHandle*, bool)},
 	{}
 };
 

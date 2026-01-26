@@ -12,7 +12,7 @@ namespace sun {
 		namespace util {
 
 $MethodInfo _Event$Reporter_MethodInfo_[] = {
-	{"handle", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $TRANSIENT | $ABSTRACT},
+	{"handle", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $TRANSIENT | $ABSTRACT, $virtualMethod(Event$Reporter, handle, void, $String*, $ObjectArray*)},
 	{}
 };
 

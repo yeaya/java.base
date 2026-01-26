@@ -24,7 +24,7 @@ $FieldInfo _KeychainStore$KeyEntry_FieldInfo_[] = {
 };
 
 $MethodInfo _KeychainStore$KeyEntry_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(KeychainStore$KeyEntry::*)()>(&KeychainStore$KeyEntry::init$))},
+	{"<init>", "()V", nullptr, 0, $method(KeychainStore$KeyEntry, init$, void)},
 	{}
 };
 

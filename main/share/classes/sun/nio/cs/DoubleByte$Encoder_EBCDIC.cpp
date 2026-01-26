@@ -46,14 +46,14 @@ $FieldInfo _DoubleByte$Encoder_EBCDIC_FieldInfo_[] = {
 };
 
 $MethodInfo _DoubleByte$Encoder_EBCDIC_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/charset/Charset;[C[CZ)V", nullptr, $PUBLIC, $method(static_cast<void(DoubleByte$Encoder_EBCDIC::*)($Charset*,$chars*,$chars*,bool)>(&DoubleByte$Encoder_EBCDIC::init$))},
-	{"encode", "([CII[B)I", nullptr, $PUBLIC},
-	{"encodeArrayLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED},
-	{"encodeBufferLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED},
-	{"encodeFromLatin1", "([BII[B)I", nullptr, $PUBLIC},
-	{"encodeFromUTF16", "([BII[B)I", nullptr, $PUBLIC},
-	{"implFlush", "(Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED},
-	{"implReset", "()V", nullptr, $PROTECTED},
+	{"<init>", "(Ljava/nio/charset/Charset;[C[CZ)V", nullptr, $PUBLIC, $method(DoubleByte$Encoder_EBCDIC, init$, void, $Charset*, $chars*, $chars*, bool)},
+	{"encode", "([CII[B)I", nullptr, $PUBLIC, $virtualMethod(DoubleByte$Encoder_EBCDIC, encode, int32_t, $chars*, int32_t, int32_t, $bytes*)},
+	{"encodeArrayLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED, $virtualMethod(DoubleByte$Encoder_EBCDIC, encodeArrayLoop, $CoderResult*, $CharBuffer*, $ByteBuffer*)},
+	{"encodeBufferLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED, $virtualMethod(DoubleByte$Encoder_EBCDIC, encodeBufferLoop, $CoderResult*, $CharBuffer*, $ByteBuffer*)},
+	{"encodeFromLatin1", "([BII[B)I", nullptr, $PUBLIC, $virtualMethod(DoubleByte$Encoder_EBCDIC, encodeFromLatin1, int32_t, $bytes*, int32_t, int32_t, $bytes*)},
+	{"encodeFromUTF16", "([BII[B)I", nullptr, $PUBLIC, $virtualMethod(DoubleByte$Encoder_EBCDIC, encodeFromUTF16, int32_t, $bytes*, int32_t, int32_t, $bytes*)},
+	{"implFlush", "(Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED, $virtualMethod(DoubleByte$Encoder_EBCDIC, implFlush, $CoderResult*, $ByteBuffer*)},
+	{"implReset", "()V", nullptr, $PROTECTED, $virtualMethod(DoubleByte$Encoder_EBCDIC, implReset, void)},
 	{}
 };
 

@@ -20,8 +20,8 @@ $FieldInfo _IdentityHashMap$KeyIterator_FieldInfo_[] = {
 };
 
 $MethodInfo _IdentityHashMap$KeyIterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/IdentityHashMap;)V", nullptr, $PRIVATE, $method(static_cast<void(IdentityHashMap$KeyIterator::*)($IdentityHashMap*)>(&IdentityHashMap$KeyIterator::init$))},
-	{"next", "()Ljava/lang/Object;", "()TK;", $PUBLIC},
+	{"<init>", "(Ljava/util/IdentityHashMap;)V", nullptr, $PRIVATE, $method(IdentityHashMap$KeyIterator, init$, void, $IdentityHashMap*)},
+	{"next", "()Ljava/lang/Object;", "()TK;", $PUBLIC, $virtualMethod(IdentityHashMap$KeyIterator, next, $Object*)},
 	{}
 };
 

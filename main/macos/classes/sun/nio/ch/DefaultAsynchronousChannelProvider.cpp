@@ -14,8 +14,8 @@ namespace sun {
 		namespace ch {
 
 $MethodInfo _DefaultAsynchronousChannelProvider_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(DefaultAsynchronousChannelProvider::*)()>(&DefaultAsynchronousChannelProvider::init$))},
-	{"create", "()Ljava/nio/channels/spi/AsynchronousChannelProvider;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$AsynchronousChannelProvider*(*)()>(&DefaultAsynchronousChannelProvider::create))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(DefaultAsynchronousChannelProvider, init$, void)},
+	{"create", "()Ljava/nio/channels/spi/AsynchronousChannelProvider;", nullptr, $PUBLIC | $STATIC, $staticMethod(DefaultAsynchronousChannelProvider, create, $AsynchronousChannelProvider*)},
 	{}
 };
 

@@ -26,9 +26,9 @@ $FieldInfo _ScatteringRead_FieldInfo_[] = {
 };
 
 $MethodInfo _ScatteringRead_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ScatteringRead::*)()>(&ScatteringRead::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&ScatteringRead::main)), "java.lang.Exception"},
-	{"scScatter", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&ScatteringRead::scScatter)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ScatteringRead, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ScatteringRead, main, void, $StringArray*), "java.lang.Exception"},
+	{"scScatter", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(ScatteringRead, scScatter, void), "java.lang.Exception"},
 	{}
 };
 

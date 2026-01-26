@@ -44,11 +44,11 @@ $FieldInfo _UnicodeEncoder_FieldInfo_[] = {
 };
 
 $MethodInfo _UnicodeEncoder_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/charset/Charset;IZ)V", nullptr, $PROTECTED, $method(static_cast<void(UnicodeEncoder::*)($Charset*,int32_t,bool)>(&UnicodeEncoder::init$))},
-	{"canEncode", "(C)Z", nullptr, $PUBLIC},
-	{"encodeLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED},
-	{"implReset", "()V", nullptr, $PROTECTED},
-	{"put", "(CLjava/nio/ByteBuffer;)V", nullptr, $PRIVATE, $method(static_cast<void(UnicodeEncoder::*)(char16_t,$ByteBuffer*)>(&UnicodeEncoder::put))},
+	{"<init>", "(Ljava/nio/charset/Charset;IZ)V", nullptr, $PROTECTED, $method(UnicodeEncoder, init$, void, $Charset*, int32_t, bool)},
+	{"canEncode", "(C)Z", nullptr, $PUBLIC, $virtualMethod(UnicodeEncoder, canEncode, bool, char16_t)},
+	{"encodeLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED, $virtualMethod(UnicodeEncoder, encodeLoop, $CoderResult*, $CharBuffer*, $ByteBuffer*)},
+	{"implReset", "()V", nullptr, $PROTECTED, $virtualMethod(UnicodeEncoder, implReset, void)},
+	{"put", "(CLjava/nio/ByteBuffer;)V", nullptr, $PRIVATE, $method(UnicodeEncoder, put, void, char16_t, $ByteBuffer*)},
 	{}
 };
 

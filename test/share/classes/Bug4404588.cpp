@@ -21,9 +21,9 @@ $FieldInfo _Bug4404588_FieldInfo_[] = {
 };
 
 $MethodInfo _Bug4404588_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Bug4404588::*)()>(&Bug4404588::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Bug4404588::main))},
-	{"run", "()V", nullptr, 0},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Bug4404588, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Bug4404588, main, void, $StringArray*)},
+	{"run", "()V", nullptr, 0, $virtualMethod(Bug4404588, run, void)},
 	{}
 };
 

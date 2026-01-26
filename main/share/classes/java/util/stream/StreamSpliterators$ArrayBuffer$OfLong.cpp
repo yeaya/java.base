@@ -26,10 +26,10 @@ $MethodInfo _StreamSpliterators$ArrayBuffer$OfLong_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(I)V", nullptr, 0, $method(static_cast<void(StreamSpliterators$ArrayBuffer$OfLong::*)(int32_t)>(&StreamSpliterators$ArrayBuffer$OfLong::init$))},
-	{"accept", "(J)V", nullptr, $PUBLIC},
-	{"forEach", "(Ljava/util/function/LongConsumer;J)V", nullptr, $PUBLIC, $method(static_cast<void(StreamSpliterators$ArrayBuffer$OfLong::*)($LongConsumer*,int64_t)>(&StreamSpliterators$ArrayBuffer$OfLong::forEach))},
-	{"forEach", "(Ljava/lang/Object;J)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "(I)V", nullptr, 0, $method(StreamSpliterators$ArrayBuffer$OfLong, init$, void, int32_t)},
+	{"accept", "(J)V", nullptr, $PUBLIC, $virtualMethod(StreamSpliterators$ArrayBuffer$OfLong, accept, void, int64_t)},
+	{"forEach", "(Ljava/util/function/LongConsumer;J)V", nullptr, $PUBLIC, $method(StreamSpliterators$ArrayBuffer$OfLong, forEach, void, $LongConsumer*, int64_t)},
+	{"forEach", "(Ljava/lang/Object;J)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(StreamSpliterators$ArrayBuffer$OfLong, forEach, void, Object$*, int64_t)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

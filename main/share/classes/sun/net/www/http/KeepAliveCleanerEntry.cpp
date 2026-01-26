@@ -22,11 +22,11 @@ $FieldInfo _KeepAliveCleanerEntry_FieldInfo_[] = {
 };
 
 $MethodInfo _KeepAliveCleanerEntry_MethodInfo_[] = {
-	{"<init>", "(Lsun/net/www/http/KeepAliveStream;Lsun/net/www/http/HttpClient;)V", nullptr, $PUBLIC, $method(static_cast<void(KeepAliveCleanerEntry::*)($KeepAliveStream*,$HttpClient*)>(&KeepAliveCleanerEntry::init$))},
-	{"getHttpClient", "()Lsun/net/www/http/HttpClient;", nullptr, $PROTECTED},
-	{"getKeepAliveStream", "()Lsun/net/www/http/KeepAliveStream;", nullptr, $PROTECTED},
-	{"getQueuedForCleanup", "()Z", nullptr, $PROTECTED},
-	{"setQueuedForCleanup", "()V", nullptr, $PROTECTED},
+	{"<init>", "(Lsun/net/www/http/KeepAliveStream;Lsun/net/www/http/HttpClient;)V", nullptr, $PUBLIC, $method(KeepAliveCleanerEntry, init$, void, $KeepAliveStream*, $HttpClient*)},
+	{"getHttpClient", "()Lsun/net/www/http/HttpClient;", nullptr, $PROTECTED, $virtualMethod(KeepAliveCleanerEntry, getHttpClient, $HttpClient*)},
+	{"getKeepAliveStream", "()Lsun/net/www/http/KeepAliveStream;", nullptr, $PROTECTED, $virtualMethod(KeepAliveCleanerEntry, getKeepAliveStream, $KeepAliveStream*)},
+	{"getQueuedForCleanup", "()Z", nullptr, $PROTECTED, $virtualMethod(KeepAliveCleanerEntry, getQueuedForCleanup, bool)},
+	{"setQueuedForCleanup", "()V", nullptr, $PROTECTED, $virtualMethod(KeepAliveCleanerEntry, setQueuedForCleanup, void)},
 	{}
 };
 

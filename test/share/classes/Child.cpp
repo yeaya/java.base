@@ -9,8 +9,8 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $URL = ::java::net::URL;
 
 $MethodInfo _Child_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Child::*)()>(&Child::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Child::main)), "java.net.MalformedURLException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Child, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Child, main, void, $StringArray*), "java.net.MalformedURLException"},
 	{}
 };
 

@@ -33,11 +33,11 @@ $FieldInfo _Cleaner_FieldInfo_[] = {
 };
 
 $MethodInfo _Cleaner_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;Ljava/lang/Runnable;)V", nullptr, $PRIVATE, $method(static_cast<void(Cleaner::*)(Object$*,$Runnable*)>(&Cleaner::init$))},
-	{"add", "(Ljdk/internal/ref/Cleaner;)Ljdk/internal/ref/Cleaner;", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $method(static_cast<Cleaner*(*)(Cleaner*)>(&Cleaner::add))},
-	{"clean", "()V", nullptr, $PUBLIC},
-	{"create", "(Ljava/lang/Object;Ljava/lang/Runnable;)Ljdk/internal/ref/Cleaner;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Cleaner*(*)(Object$*,$Runnable*)>(&Cleaner::create))},
-	{"remove", "(Ljdk/internal/ref/Cleaner;)Z", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $method(static_cast<bool(*)(Cleaner*)>(&Cleaner::remove))},
+	{"<init>", "(Ljava/lang/Object;Ljava/lang/Runnable;)V", nullptr, $PRIVATE, $method(Cleaner, init$, void, Object$*, $Runnable*)},
+	{"add", "(Ljdk/internal/ref/Cleaner;)Ljdk/internal/ref/Cleaner;", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(Cleaner, add, Cleaner*, Cleaner*)},
+	{"clean", "()V", nullptr, $PUBLIC, $virtualMethod(Cleaner, clean, void)},
+	{"create", "(Ljava/lang/Object;Ljava/lang/Runnable;)Ljdk/internal/ref/Cleaner;", nullptr, $PUBLIC | $STATIC, $staticMethod(Cleaner, create, Cleaner*, Object$*, $Runnable*)},
+	{"remove", "(Ljdk/internal/ref/Cleaner;)Z", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(Cleaner, remove, bool, Cleaner*)},
 	{}
 };
 

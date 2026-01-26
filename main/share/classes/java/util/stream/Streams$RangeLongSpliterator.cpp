@@ -46,17 +46,17 @@ $FieldInfo _Streams$RangeLongSpliterator_FieldInfo_[] = {
 };
 
 $MethodInfo _Streams$RangeLongSpliterator_MethodInfo_[] = {
-	{"<init>", "(JJZ)V", nullptr, 0, $method(static_cast<void(Streams$RangeLongSpliterator::*)(int64_t,int64_t,bool)>(&Streams$RangeLongSpliterator::init$))},
-	{"<init>", "(JJI)V", nullptr, $PRIVATE, $method(static_cast<void(Streams$RangeLongSpliterator::*)(int64_t,int64_t,int32_t)>(&Streams$RangeLongSpliterator::init$))},
-	{"characteristics", "()I", nullptr, $PUBLIC},
-	{"estimateSize", "()J", nullptr, $PUBLIC},
-	{"forEachRemaining", "(Ljava/util/function/LongConsumer;)V", nullptr, $PUBLIC},
-	{"forEachRemaining", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"getComparator", "()Ljava/util/Comparator;", "()Ljava/util/Comparator<-Ljava/lang/Long;>;", $PUBLIC},
-	{"splitPoint", "(J)J", nullptr, $PRIVATE, $method(static_cast<int64_t(Streams$RangeLongSpliterator::*)(int64_t)>(&Streams$RangeLongSpliterator::splitPoint))},
-	{"tryAdvance", "(Ljava/util/function/LongConsumer;)Z", nullptr, $PUBLIC},
-	{"tryAdvance", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"trySplit", "()Ljava/util/Spliterator$OfLong;", nullptr, $PUBLIC},
+	{"<init>", "(JJZ)V", nullptr, 0, $method(Streams$RangeLongSpliterator, init$, void, int64_t, int64_t, bool)},
+	{"<init>", "(JJI)V", nullptr, $PRIVATE, $method(Streams$RangeLongSpliterator, init$, void, int64_t, int64_t, int32_t)},
+	{"characteristics", "()I", nullptr, $PUBLIC, $virtualMethod(Streams$RangeLongSpliterator, characteristics, int32_t)},
+	{"estimateSize", "()J", nullptr, $PUBLIC, $virtualMethod(Streams$RangeLongSpliterator, estimateSize, int64_t)},
+	{"forEachRemaining", "(Ljava/util/function/LongConsumer;)V", nullptr, $PUBLIC, $virtualMethod(Streams$RangeLongSpliterator, forEachRemaining, void, $LongConsumer*)},
+	{"forEachRemaining", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Streams$RangeLongSpliterator, forEachRemaining, void, Object$*)},
+	{"getComparator", "()Ljava/util/Comparator;", "()Ljava/util/Comparator<-Ljava/lang/Long;>;", $PUBLIC, $virtualMethod(Streams$RangeLongSpliterator, getComparator, $Comparator*)},
+	{"splitPoint", "(J)J", nullptr, $PRIVATE, $method(Streams$RangeLongSpliterator, splitPoint, int64_t, int64_t)},
+	{"tryAdvance", "(Ljava/util/function/LongConsumer;)Z", nullptr, $PUBLIC, $virtualMethod(Streams$RangeLongSpliterator, tryAdvance, bool, $LongConsumer*)},
+	{"tryAdvance", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Streams$RangeLongSpliterator, tryAdvance, bool, Object$*)},
+	{"trySplit", "()Ljava/util/Spliterator$OfLong;", nullptr, $PUBLIC, $virtualMethod(Streams$RangeLongSpliterator, trySplit, $Spliterator$OfLong*)},
 	{}
 };
 

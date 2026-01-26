@@ -28,10 +28,10 @@ $FieldInfo _Collector$Characteristics_FieldInfo_[] = {
 };
 
 $MethodInfo _Collector$Characteristics_MethodInfo_[] = {
-	{"$values", "()[Ljava/util/stream/Collector$Characteristics;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Collector$CharacteristicsArray*(*)()>(&Collector$Characteristics::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(Collector$Characteristics::*)($String*,int32_t)>(&Collector$Characteristics::init$))},
-	{"valueOf", "(Ljava/lang/String;)Ljava/util/stream/Collector$Characteristics;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Collector$Characteristics*(*)($String*)>(&Collector$Characteristics::valueOf))},
-	{"values", "()[Ljava/util/stream/Collector$Characteristics;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Collector$CharacteristicsArray*(*)()>(&Collector$Characteristics::values))},
+	{"$values", "()[Ljava/util/stream/Collector$Characteristics;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Collector$Characteristics, $values, $Collector$CharacteristicsArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Collector$Characteristics, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Ljava/util/stream/Collector$Characteristics;", nullptr, $PUBLIC | $STATIC, $staticMethod(Collector$Characteristics, valueOf, Collector$Characteristics*, $String*)},
+	{"values", "()[Ljava/util/stream/Collector$Characteristics;", nullptr, $PUBLIC | $STATIC, $staticMethod(Collector$Characteristics, values, $Collector$CharacteristicsArray*)},
 	{}
 };
 

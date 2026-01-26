@@ -41,7 +41,7 @@ $FieldInfo _RandomSupport$DoubleZigguratTables_FieldInfo_[] = {
 };
 
 $MethodInfo _RandomSupport$DoubleZigguratTables_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(RandomSupport$DoubleZigguratTables::*)()>(&RandomSupport$DoubleZigguratTables::init$))},
+	{"<init>", "()V", nullptr, 0, $method(RandomSupport$DoubleZigguratTables, init$, void)},
 	{}
 };
 

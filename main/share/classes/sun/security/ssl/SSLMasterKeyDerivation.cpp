@@ -40,17 +40,17 @@ $FieldInfo _SSLMasterKeyDerivation_FieldInfo_[] = {
 };
 
 $MethodInfo _SSLMasterKeyDerivation_MethodInfo_[] = {
-	{"$values", "()[Lsun/security/ssl/SSLMasterKeyDerivation;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$SSLMasterKeyDerivationArray*(*)()>(&SSLMasterKeyDerivation::$values))},
+	{"$values", "()[Lsun/security/ssl/SSLMasterKeyDerivation;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SSLMasterKeyDerivation, $values, $SSLMasterKeyDerivationArray*)},
 	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
 	{"*finalize", "()V", nullptr, $PROTECTED | $FINAL},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "(Ljava/lang/String;)V", $PRIVATE, $method(static_cast<void(SSLMasterKeyDerivation::*)($String*,int32_t,$String*)>(&SSLMasterKeyDerivation::init$))},
-	{"createKeyDerivation", "(Lsun/security/ssl/HandshakeContext;Ljavax/crypto/SecretKey;)Lsun/security/ssl/SSLKeyDerivation;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "(Ljava/lang/String;)V", $PRIVATE, $method(SSLMasterKeyDerivation, init$, void, $String*, int32_t, $String*)},
+	{"createKeyDerivation", "(Lsun/security/ssl/HandshakeContext;Ljavax/crypto/SecretKey;)Lsun/security/ssl/SSLKeyDerivation;", nullptr, $PUBLIC, $virtualMethod(SSLMasterKeyDerivation, createKeyDerivation, $SSLKeyDerivation*, $HandshakeContext*, $SecretKey*), "java.io.IOException"},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"valueOf", "(Ljava/lang/String;)Lsun/security/ssl/SSLMasterKeyDerivation;", nullptr, $PUBLIC | $STATIC, $method(static_cast<SSLMasterKeyDerivation*(*)($String*)>(&SSLMasterKeyDerivation::valueOf))},
-	{"valueOf", "(Lsun/security/ssl/ProtocolVersion;)Lsun/security/ssl/SSLMasterKeyDerivation;", nullptr, $STATIC, $method(static_cast<SSLMasterKeyDerivation*(*)($ProtocolVersion*)>(&SSLMasterKeyDerivation::valueOf))},
-	{"values", "()[Lsun/security/ssl/SSLMasterKeyDerivation;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$SSLMasterKeyDerivationArray*(*)()>(&SSLMasterKeyDerivation::values))},
+	{"valueOf", "(Ljava/lang/String;)Lsun/security/ssl/SSLMasterKeyDerivation;", nullptr, $PUBLIC | $STATIC, $staticMethod(SSLMasterKeyDerivation, valueOf, SSLMasterKeyDerivation*, $String*)},
+	{"valueOf", "(Lsun/security/ssl/ProtocolVersion;)Lsun/security/ssl/SSLMasterKeyDerivation;", nullptr, $STATIC, $staticMethod(SSLMasterKeyDerivation, valueOf, SSLMasterKeyDerivation*, $ProtocolVersion*)},
+	{"values", "()[Lsun/security/ssl/SSLMasterKeyDerivation;", nullptr, $PUBLIC | $STATIC, $staticMethod(SSLMasterKeyDerivation, values, $SSLMasterKeyDerivationArray*)},
 	{}
 };
 

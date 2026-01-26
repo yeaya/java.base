@@ -21,13 +21,13 @@ $FieldInfo _AllPermission_FieldInfo_[] = {
 };
 
 $MethodInfo _AllPermission_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(AllPermission::*)()>(&AllPermission::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(AllPermission::*)($String*,$String*)>(&AllPermission::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getActions", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"implies", "(Ljava/security/Permission;)Z", nullptr, $PUBLIC},
-	{"newPermissionCollection", "()Ljava/security/PermissionCollection;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(AllPermission, init$, void)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(AllPermission, init$, void, $String*, $String*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(AllPermission, equals, bool, Object$*)},
+	{"getActions", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AllPermission, getActions, $String*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(AllPermission, hashCode, int32_t)},
+	{"implies", "(Ljava/security/Permission;)Z", nullptr, $PUBLIC, $virtualMethod(AllPermission, implies, bool, $Permission*)},
+	{"newPermissionCollection", "()Ljava/security/PermissionCollection;", nullptr, $PUBLIC, $virtualMethod(AllPermission, newPermissionCollection, $PermissionCollection*)},
 	{}
 };
 

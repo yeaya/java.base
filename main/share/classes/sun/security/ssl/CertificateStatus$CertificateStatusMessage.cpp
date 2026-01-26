@@ -80,13 +80,13 @@ $FieldInfo _CertificateStatus$CertificateStatusMessage_FieldInfo_[] = {
 };
 
 $MethodInfo _CertificateStatus$CertificateStatusMessage_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/ssl/HandshakeContext;)V", nullptr, 0, $method(static_cast<void(CertificateStatus$CertificateStatusMessage::*)($HandshakeContext*)>(&CertificateStatus$CertificateStatusMessage::init$))},
-	{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)V", nullptr, 0, $method(static_cast<void(CertificateStatus$CertificateStatusMessage::*)($HandshakeContext*,$ByteBuffer*)>(&CertificateStatus$CertificateStatusMessage::init$)), "java.io.IOException"},
-	{"handshakeType", "()Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC},
-	{"messageLength", "(Lsun/security/ssl/CertStatusExtension$CertStatusRequestType;I)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)($CertStatusExtension$CertStatusRequestType*,int32_t)>(&CertificateStatus$CertificateStatusMessage::messageLength))},
-	{"messageLength", "()I", nullptr, $PUBLIC},
-	{"send", "(Lsun/security/ssl/HandshakeOutStream;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/security/ssl/HandshakeContext;)V", nullptr, 0, $method(CertificateStatus$CertificateStatusMessage, init$, void, $HandshakeContext*)},
+	{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)V", nullptr, 0, $method(CertificateStatus$CertificateStatusMessage, init$, void, $HandshakeContext*, $ByteBuffer*), "java.io.IOException"},
+	{"handshakeType", "()Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC, $virtualMethod(CertificateStatus$CertificateStatusMessage, handshakeType, $SSLHandshake*)},
+	{"messageLength", "(Lsun/security/ssl/CertStatusExtension$CertStatusRequestType;I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(CertificateStatus$CertificateStatusMessage, messageLength, int32_t, $CertStatusExtension$CertStatusRequestType*, int32_t)},
+	{"messageLength", "()I", nullptr, $PUBLIC, $virtualMethod(CertificateStatus$CertificateStatusMessage, messageLength, int32_t)},
+	{"send", "(Lsun/security/ssl/HandshakeOutStream;)V", nullptr, $PUBLIC, $virtualMethod(CertificateStatus$CertificateStatusMessage, send, void, $HandshakeOutStream*), "java.io.IOException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CertificateStatus$CertificateStatusMessage, toString, $String*)},
 	{}
 };
 

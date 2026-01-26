@@ -20,8 +20,8 @@ $FieldInfo _ReadAhead$LimitedInputStream_FieldInfo_[] = {
 };
 
 $MethodInfo _ReadAhead$LimitedInputStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(static_cast<void(ReadAhead$LimitedInputStream::*)($String*,int32_t)>(&ReadAhead$LimitedInputStream::init$))},
-	{"read", "()I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(ReadAhead$LimitedInputStream, init$, void, $String*, int32_t)},
+	{"read", "()I", nullptr, $PUBLIC, $virtualMethod(ReadAhead$LimitedInputStream, read, int32_t), "java.io.IOException"},
 	{}
 };
 

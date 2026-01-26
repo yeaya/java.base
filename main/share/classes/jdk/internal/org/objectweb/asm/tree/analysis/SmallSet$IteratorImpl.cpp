@@ -27,10 +27,10 @@ $FieldInfo _SmallSet$IteratorImpl_FieldInfo_[] = {
 };
 
 $MethodInfo _SmallSet$IteratorImpl_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;Ljava/lang/Object;)V", "(TT;TT;)V", 0, $method(static_cast<void(SmallSet$IteratorImpl::*)(Object$*,Object$*)>(&SmallSet$IteratorImpl::init$))},
-	{"hasNext", "()Z", nullptr, $PUBLIC},
-	{"next", "()Ljava/lang/Object;", "()TT;", $PUBLIC},
-	{"remove", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Object;Ljava/lang/Object;)V", "(TT;TT;)V", 0, $method(SmallSet$IteratorImpl, init$, void, Object$*, Object$*)},
+	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(SmallSet$IteratorImpl, hasNext, bool)},
+	{"next", "()Ljava/lang/Object;", "()TT;", $PUBLIC, $virtualMethod(SmallSet$IteratorImpl, next, $Object*)},
+	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(SmallSet$IteratorImpl, remove, void)},
 	{}
 };
 

@@ -21,11 +21,11 @@ $FieldInfo _WindowsNativeDispatcher$VolumeInformation_FieldInfo_[] = {
 };
 
 $MethodInfo _WindowsNativeDispatcher$VolumeInformation_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(WindowsNativeDispatcher$VolumeInformation::*)()>(&WindowsNativeDispatcher$VolumeInformation::init$))},
-	{"fileSystemName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"flags", "()I", nullptr, $PUBLIC},
-	{"volumeName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"volumeSerialNumber", "()I", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(WindowsNativeDispatcher$VolumeInformation, init$, void)},
+	{"fileSystemName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(WindowsNativeDispatcher$VolumeInformation, fileSystemName, $String*)},
+	{"flags", "()I", nullptr, $PUBLIC, $virtualMethod(WindowsNativeDispatcher$VolumeInformation, flags, int32_t)},
+	{"volumeName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(WindowsNativeDispatcher$VolumeInformation, volumeName, $String*)},
+	{"volumeSerialNumber", "()I", nullptr, $PUBLIC, $virtualMethod(WindowsNativeDispatcher$VolumeInformation, volumeSerialNumber, int32_t)},
 	{}
 };
 

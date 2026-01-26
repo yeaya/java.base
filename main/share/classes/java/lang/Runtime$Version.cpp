@@ -72,8 +72,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Runtime$Version$$Lambda$toString::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Runtime$Version$$Lambda$toString::*)()>(&Runtime$Version$$Lambda$toString::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Runtime$Version$$Lambda$toString, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Runtime$Version$$Lambda$toString, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Runtime$Version$$Lambda$toString::classInfo$ = {
@@ -112,8 +112,8 @@ $FieldInfo Runtime$Version$$Lambda$lambda$toString$0$1::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Runtime$Version$$Lambda$lambda$toString$0$1::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/StringBuilder;)V", nullptr, $PUBLIC, $method(static_cast<void(Runtime$Version$$Lambda$lambda$toString$0$1::*)($StringBuilder*)>(&Runtime$Version$$Lambda$lambda$toString$0$1::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/StringBuilder;)V", nullptr, $PUBLIC, $method(Runtime$Version$$Lambda$lambda$toString$0$1, init$, void, $StringBuilder*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Runtime$Version$$Lambda$lambda$toString$0$1, accept, void, Object$*)},
 	{}
 };
 $ClassInfo Runtime$Version$$Lambda$lambda$toString$0$1::classInfo$ = {
@@ -174,33 +174,33 @@ $FieldInfo _Runtime$Version_FieldInfo_[] = {
 };
 
 $MethodInfo _Runtime$Version_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/List;Ljava/util/Optional;Ljava/util/Optional;Ljava/util/Optional;)V", "(Ljava/util/List<Ljava/lang/Integer;>;Ljava/util/Optional<Ljava/lang/String;>;Ljava/util/Optional<Ljava/lang/Integer;>;Ljava/util/Optional<Ljava/lang/String;>;)V", $PRIVATE, $method(static_cast<void(Runtime$Version::*)($List*,$Optional*,$Optional*,$Optional*)>(&Runtime$Version::init$))},
-	{"build", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/lang/Integer;>;", $PUBLIC, $method(static_cast<$Optional*(Runtime$Version::*)()>(&Runtime$Version::build))},
-	{"compare", "(Ljava/lang/Runtime$Version;Z)I", nullptr, $PRIVATE, $method(static_cast<int32_t(Runtime$Version::*)(Runtime$Version*,bool)>(&Runtime$Version::compare))},
-	{"compareBuild", "(Ljava/lang/Runtime$Version;)I", nullptr, $PRIVATE, $method(static_cast<int32_t(Runtime$Version::*)(Runtime$Version*)>(&Runtime$Version::compareBuild))},
-	{"compareOptional", "(Ljava/lang/Runtime$Version;)I", nullptr, $PRIVATE, $method(static_cast<int32_t(Runtime$Version::*)(Runtime$Version*)>(&Runtime$Version::compareOptional))},
-	{"comparePre", "(Ljava/lang/Runtime$Version;)I", nullptr, $PRIVATE, $method(static_cast<int32_t(Runtime$Version::*)(Runtime$Version*)>(&Runtime$Version::comparePre))},
-	{"compareTo", "(Ljava/lang/Runtime$Version;)I", nullptr, $PUBLIC, $method(static_cast<int32_t(Runtime$Version::*)(Runtime$Version*)>(&Runtime$Version::compareTo))},
-	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"compareToIgnoreOptional", "(Ljava/lang/Runtime$Version;)I", nullptr, $PUBLIC, $method(static_cast<int32_t(Runtime$Version::*)(Runtime$Version*)>(&Runtime$Version::compareToIgnoreOptional))},
-	{"compareVersion", "(Ljava/lang/Runtime$Version;)I", nullptr, $PRIVATE, $method(static_cast<int32_t(Runtime$Version::*)(Runtime$Version*)>(&Runtime$Version::compareVersion))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"equalsIgnoreOptional", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $method(static_cast<bool(Runtime$Version::*)(Object$*)>(&Runtime$Version::equalsIgnoreOptional))},
-	{"feature", "()I", nullptr, $PUBLIC, $method(static_cast<int32_t(Runtime$Version::*)()>(&Runtime$Version::feature))},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"interim", "()I", nullptr, $PUBLIC, $method(static_cast<int32_t(Runtime$Version::*)()>(&Runtime$Version::interim))},
-	{"isSimpleNumber", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($String*)>(&Runtime$Version::isSimpleNumber))},
-	{"lambda$toString$0", "(Ljava/lang/StringBuilder;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($StringBuilder*,$String*)>(&Runtime$Version::lambda$toString$0))},
-	{"major", "()I", nullptr, $PUBLIC | $DEPRECATED, $method(static_cast<int32_t(Runtime$Version::*)()>(&Runtime$Version::major)), nullptr, nullptr, _Runtime$Version_MethodAnnotations_major17},
-	{"minor", "()I", nullptr, $PUBLIC | $DEPRECATED, $method(static_cast<int32_t(Runtime$Version::*)()>(&Runtime$Version::minor)), nullptr, nullptr, _Runtime$Version_MethodAnnotations_minor18},
-	{"optional", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/lang/String;>;", $PUBLIC, $method(static_cast<$Optional*(Runtime$Version::*)()>(&Runtime$Version::optional))},
-	{"parse", "(Ljava/lang/String;)Ljava/lang/Runtime$Version;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Runtime$Version*(*)($String*)>(&Runtime$Version::parse))},
-	{"patch", "()I", nullptr, $PUBLIC, $method(static_cast<int32_t(Runtime$Version::*)()>(&Runtime$Version::patch))},
-	{"pre", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/lang/String;>;", $PUBLIC, $method(static_cast<$Optional*(Runtime$Version::*)()>(&Runtime$Version::pre))},
-	{"security", "()I", nullptr, $PUBLIC | $DEPRECATED, $method(static_cast<int32_t(Runtime$Version::*)()>(&Runtime$Version::security)), nullptr, nullptr, _Runtime$Version_MethodAnnotations_security23},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"update", "()I", nullptr, $PUBLIC, $method(static_cast<int32_t(Runtime$Version::*)()>(&Runtime$Version::update))},
-	{"version", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/Integer;>;", $PUBLIC, $method(static_cast<$List*(Runtime$Version::*)()>(&Runtime$Version::version))},
+	{"<init>", "(Ljava/util/List;Ljava/util/Optional;Ljava/util/Optional;Ljava/util/Optional;)V", "(Ljava/util/List<Ljava/lang/Integer;>;Ljava/util/Optional<Ljava/lang/String;>;Ljava/util/Optional<Ljava/lang/Integer;>;Ljava/util/Optional<Ljava/lang/String;>;)V", $PRIVATE, $method(Runtime$Version, init$, void, $List*, $Optional*, $Optional*, $Optional*)},
+	{"build", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/lang/Integer;>;", $PUBLIC, $method(Runtime$Version, build, $Optional*)},
+	{"compare", "(Ljava/lang/Runtime$Version;Z)I", nullptr, $PRIVATE, $method(Runtime$Version, compare, int32_t, Runtime$Version*, bool)},
+	{"compareBuild", "(Ljava/lang/Runtime$Version;)I", nullptr, $PRIVATE, $method(Runtime$Version, compareBuild, int32_t, Runtime$Version*)},
+	{"compareOptional", "(Ljava/lang/Runtime$Version;)I", nullptr, $PRIVATE, $method(Runtime$Version, compareOptional, int32_t, Runtime$Version*)},
+	{"comparePre", "(Ljava/lang/Runtime$Version;)I", nullptr, $PRIVATE, $method(Runtime$Version, comparePre, int32_t, Runtime$Version*)},
+	{"compareTo", "(Ljava/lang/Runtime$Version;)I", nullptr, $PUBLIC, $method(Runtime$Version, compareTo, int32_t, Runtime$Version*)},
+	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Runtime$Version, compareTo, int32_t, Object$*)},
+	{"compareToIgnoreOptional", "(Ljava/lang/Runtime$Version;)I", nullptr, $PUBLIC, $method(Runtime$Version, compareToIgnoreOptional, int32_t, Runtime$Version*)},
+	{"compareVersion", "(Ljava/lang/Runtime$Version;)I", nullptr, $PRIVATE, $method(Runtime$Version, compareVersion, int32_t, Runtime$Version*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Runtime$Version, equals, bool, Object$*)},
+	{"equalsIgnoreOptional", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $method(Runtime$Version, equalsIgnoreOptional, bool, Object$*)},
+	{"feature", "()I", nullptr, $PUBLIC, $method(Runtime$Version, feature, int32_t)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Runtime$Version, hashCode, int32_t)},
+	{"interim", "()I", nullptr, $PUBLIC, $method(Runtime$Version, interim, int32_t)},
+	{"isSimpleNumber", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Runtime$Version, isSimpleNumber, bool, $String*)},
+	{"lambda$toString$0", "(Ljava/lang/StringBuilder;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Runtime$Version, lambda$toString$0, void, $StringBuilder*, $String*)},
+	{"major", "()I", nullptr, $PUBLIC | $DEPRECATED, $method(Runtime$Version, major, int32_t), nullptr, nullptr, _Runtime$Version_MethodAnnotations_major17},
+	{"minor", "()I", nullptr, $PUBLIC | $DEPRECATED, $method(Runtime$Version, minor, int32_t), nullptr, nullptr, _Runtime$Version_MethodAnnotations_minor18},
+	{"optional", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/lang/String;>;", $PUBLIC, $method(Runtime$Version, optional, $Optional*)},
+	{"parse", "(Ljava/lang/String;)Ljava/lang/Runtime$Version;", nullptr, $PUBLIC | $STATIC, $staticMethod(Runtime$Version, parse, Runtime$Version*, $String*)},
+	{"patch", "()I", nullptr, $PUBLIC, $method(Runtime$Version, patch, int32_t)},
+	{"pre", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/lang/String;>;", $PUBLIC, $method(Runtime$Version, pre, $Optional*)},
+	{"security", "()I", nullptr, $PUBLIC | $DEPRECATED, $method(Runtime$Version, security, int32_t), nullptr, nullptr, _Runtime$Version_MethodAnnotations_security23},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Runtime$Version, toString, $String*)},
+	{"update", "()I", nullptr, $PUBLIC, $method(Runtime$Version, update, int32_t)},
+	{"version", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/Integer;>;", $PUBLIC, $method(Runtime$Version, version, $List*)},
 	{}
 };
 

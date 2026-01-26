@@ -62,14 +62,14 @@ $FieldInfo _NewSessionTicket$T13NewSessionTicketMessage_FieldInfo_[] = {
 };
 
 $MethodInfo _NewSessionTicket$T13NewSessionTicketMessage_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/ssl/HandshakeContext;ILjava/security/SecureRandom;[B[B)V", nullptr, 0, $method(static_cast<void(NewSessionTicket$T13NewSessionTicketMessage::*)($HandshakeContext*,int32_t,$SecureRandom*,$bytes*,$bytes*)>(&NewSessionTicket$T13NewSessionTicketMessage::init$))},
-	{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)V", nullptr, 0, $method(static_cast<void(NewSessionTicket$T13NewSessionTicketMessage::*)($HandshakeContext*,$ByteBuffer*)>(&NewSessionTicket$T13NewSessionTicketMessage::init$)), "java.io.IOException"},
-	{"getTicketAgeAdd", "()I", nullptr, 0},
-	{"getTicketNonce", "()[B", nullptr, 0},
-	{"handshakeType", "()Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC},
-	{"messageLength", "()I", nullptr, $PUBLIC},
-	{"send", "(Lsun/security/ssl/HandshakeOutStream;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/security/ssl/HandshakeContext;ILjava/security/SecureRandom;[B[B)V", nullptr, 0, $method(NewSessionTicket$T13NewSessionTicketMessage, init$, void, $HandshakeContext*, int32_t, $SecureRandom*, $bytes*, $bytes*)},
+	{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)V", nullptr, 0, $method(NewSessionTicket$T13NewSessionTicketMessage, init$, void, $HandshakeContext*, $ByteBuffer*), "java.io.IOException"},
+	{"getTicketAgeAdd", "()I", nullptr, 0, $virtualMethod(NewSessionTicket$T13NewSessionTicketMessage, getTicketAgeAdd, int32_t)},
+	{"getTicketNonce", "()[B", nullptr, 0, $virtualMethod(NewSessionTicket$T13NewSessionTicketMessage, getTicketNonce, $bytes*)},
+	{"handshakeType", "()Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC, $virtualMethod(NewSessionTicket$T13NewSessionTicketMessage, handshakeType, $SSLHandshake*)},
+	{"messageLength", "()I", nullptr, $PUBLIC, $virtualMethod(NewSessionTicket$T13NewSessionTicketMessage, messageLength, int32_t)},
+	{"send", "(Lsun/security/ssl/HandshakeOutStream;)V", nullptr, $PUBLIC, $virtualMethod(NewSessionTicket$T13NewSessionTicketMessage, send, void, $HandshakeOutStream*), "java.io.IOException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NewSessionTicket$T13NewSessionTicketMessage, toString, $String*)},
 	{}
 };
 

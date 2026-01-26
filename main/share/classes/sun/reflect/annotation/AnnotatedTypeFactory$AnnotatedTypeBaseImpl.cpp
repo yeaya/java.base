@@ -92,8 +92,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo AnnotatedTypeFactory$AnnotatedTypeBaseImpl$$Lambda$toString::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(AnnotatedTypeFactory$AnnotatedTypeBaseImpl$$Lambda$toString::*)()>(&AnnotatedTypeFactory$AnnotatedTypeBaseImpl$$Lambda$toString::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(AnnotatedTypeFactory$AnnotatedTypeBaseImpl$$Lambda$toString, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AnnotatedTypeFactory$AnnotatedTypeBaseImpl$$Lambda$toString, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo AnnotatedTypeFactory$AnnotatedTypeBaseImpl$$Lambda$toString::classInfo$ = {
@@ -120,24 +120,24 @@ $FieldInfo _AnnotatedTypeFactory$AnnotatedTypeBaseImpl_FieldInfo_[] = {
 };
 
 $MethodInfo _AnnotatedTypeFactory$AnnotatedTypeBaseImpl_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/reflect/Type;Lsun/reflect/annotation/TypeAnnotation$LocationInfo;[Lsun/reflect/annotation/TypeAnnotation;[Lsun/reflect/annotation/TypeAnnotation;Ljava/lang/reflect/AnnotatedElement;)V", nullptr, 0, $method(static_cast<void(AnnotatedTypeFactory$AnnotatedTypeBaseImpl::*)($Type*,$TypeAnnotation$LocationInfo*,$TypeAnnotationArray*,$TypeAnnotationArray*,$AnnotatedElement*)>(&AnnotatedTypeFactory$AnnotatedTypeBaseImpl::init$))},
-	{"annotationsToString", "([Ljava/lang/annotation/Annotation;Z)Ljava/lang/String;", nullptr, $PROTECTED},
-	{"baseHashCode", "()I", nullptr, 0},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"equalsTypeAndAnnotations", "(Ljava/lang/reflect/AnnotatedType;)Z", nullptr, $PROTECTED},
-	{"getAnnotatedOwnerType", "()Ljava/lang/reflect/AnnotatedType;", nullptr, $PUBLIC},
-	{"getAnnotation", "(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;", "<T::Ljava/lang/annotation/Annotation;>(Ljava/lang/Class<TT;>;)TT;", $PUBLIC | $FINAL},
-	{"getAnnotations", "()[Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC | $FINAL},
-	{"getAnnotationsByType", "(Ljava/lang/Class;)[Ljava/lang/annotation/Annotation;", "<T::Ljava/lang/annotation/Annotation;>(Ljava/lang/Class<TT;>;)[TT;", $PUBLIC | $FINAL},
-	{"getDecl", "()Ljava/lang/reflect/AnnotatedElement;", nullptr, $FINAL, $method(static_cast<$AnnotatedElement*(AnnotatedTypeFactory$AnnotatedTypeBaseImpl::*)()>(&AnnotatedTypeFactory$AnnotatedTypeBaseImpl::getDecl))},
-	{"getDeclaredAnnotation", "(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;", "<T::Ljava/lang/annotation/Annotation;>(Ljava/lang/Class<TT;>;)TT;", $PUBLIC | $FINAL},
-	{"getDeclaredAnnotations", "()[Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC | $FINAL},
-	{"getDeclaredAnnotationsByType", "(Ljava/lang/Class;)[Ljava/lang/annotation/Annotation;", "<T::Ljava/lang/annotation/Annotation;>(Ljava/lang/Class<TT;>;)[TT;", $PUBLIC | $FINAL},
-	{"getLocation", "()Lsun/reflect/annotation/TypeAnnotation$LocationInfo;", nullptr, $FINAL, $method(static_cast<$TypeAnnotation$LocationInfo*(AnnotatedTypeFactory$AnnotatedTypeBaseImpl::*)()>(&AnnotatedTypeFactory$AnnotatedTypeBaseImpl::getLocation))},
-	{"getType", "()Ljava/lang/reflect/Type;", nullptr, $PUBLIC | $FINAL},
-	{"getTypeAnnotations", "()[Lsun/reflect/annotation/TypeAnnotation;", nullptr, $FINAL, $method(static_cast<$TypeAnnotationArray*(AnnotatedTypeFactory$AnnotatedTypeBaseImpl::*)()>(&AnnotatedTypeFactory$AnnotatedTypeBaseImpl::getTypeAnnotations))},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/reflect/Type;Lsun/reflect/annotation/TypeAnnotation$LocationInfo;[Lsun/reflect/annotation/TypeAnnotation;[Lsun/reflect/annotation/TypeAnnotation;Ljava/lang/reflect/AnnotatedElement;)V", nullptr, 0, $method(AnnotatedTypeFactory$AnnotatedTypeBaseImpl, init$, void, $Type*, $TypeAnnotation$LocationInfo*, $TypeAnnotationArray*, $TypeAnnotationArray*, $AnnotatedElement*)},
+	{"annotationsToString", "([Ljava/lang/annotation/Annotation;Z)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(AnnotatedTypeFactory$AnnotatedTypeBaseImpl, annotationsToString, $String*, $AnnotationArray*, bool)},
+	{"baseHashCode", "()I", nullptr, 0, $virtualMethod(AnnotatedTypeFactory$AnnotatedTypeBaseImpl, baseHashCode, int32_t)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(AnnotatedTypeFactory$AnnotatedTypeBaseImpl, equals, bool, Object$*)},
+	{"equalsTypeAndAnnotations", "(Ljava/lang/reflect/AnnotatedType;)Z", nullptr, $PROTECTED, $virtualMethod(AnnotatedTypeFactory$AnnotatedTypeBaseImpl, equalsTypeAndAnnotations, bool, $AnnotatedType*)},
+	{"getAnnotatedOwnerType", "()Ljava/lang/reflect/AnnotatedType;", nullptr, $PUBLIC, $virtualMethod(AnnotatedTypeFactory$AnnotatedTypeBaseImpl, getAnnotatedOwnerType, $AnnotatedType*)},
+	{"getAnnotation", "(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;", "<T::Ljava/lang/annotation/Annotation;>(Ljava/lang/Class<TT;>;)TT;", $PUBLIC | $FINAL, $virtualMethod(AnnotatedTypeFactory$AnnotatedTypeBaseImpl, getAnnotation, $Annotation*, $Class*)},
+	{"getAnnotations", "()[Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC | $FINAL, $virtualMethod(AnnotatedTypeFactory$AnnotatedTypeBaseImpl, getAnnotations, $AnnotationArray*)},
+	{"getAnnotationsByType", "(Ljava/lang/Class;)[Ljava/lang/annotation/Annotation;", "<T::Ljava/lang/annotation/Annotation;>(Ljava/lang/Class<TT;>;)[TT;", $PUBLIC | $FINAL, $virtualMethod(AnnotatedTypeFactory$AnnotatedTypeBaseImpl, getAnnotationsByType, $AnnotationArray*, $Class*)},
+	{"getDecl", "()Ljava/lang/reflect/AnnotatedElement;", nullptr, $FINAL, $method(AnnotatedTypeFactory$AnnotatedTypeBaseImpl, getDecl, $AnnotatedElement*)},
+	{"getDeclaredAnnotation", "(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;", "<T::Ljava/lang/annotation/Annotation;>(Ljava/lang/Class<TT;>;)TT;", $PUBLIC | $FINAL, $virtualMethod(AnnotatedTypeFactory$AnnotatedTypeBaseImpl, getDeclaredAnnotation, $Annotation*, $Class*)},
+	{"getDeclaredAnnotations", "()[Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC | $FINAL, $virtualMethod(AnnotatedTypeFactory$AnnotatedTypeBaseImpl, getDeclaredAnnotations, $AnnotationArray*)},
+	{"getDeclaredAnnotationsByType", "(Ljava/lang/Class;)[Ljava/lang/annotation/Annotation;", "<T::Ljava/lang/annotation/Annotation;>(Ljava/lang/Class<TT;>;)[TT;", $PUBLIC | $FINAL, $virtualMethod(AnnotatedTypeFactory$AnnotatedTypeBaseImpl, getDeclaredAnnotationsByType, $AnnotationArray*, $Class*)},
+	{"getLocation", "()Lsun/reflect/annotation/TypeAnnotation$LocationInfo;", nullptr, $FINAL, $method(AnnotatedTypeFactory$AnnotatedTypeBaseImpl, getLocation, $TypeAnnotation$LocationInfo*)},
+	{"getType", "()Ljava/lang/reflect/Type;", nullptr, $PUBLIC | $FINAL, $virtualMethod(AnnotatedTypeFactory$AnnotatedTypeBaseImpl, getType, $Type*)},
+	{"getTypeAnnotations", "()[Lsun/reflect/annotation/TypeAnnotation;", nullptr, $FINAL, $method(AnnotatedTypeFactory$AnnotatedTypeBaseImpl, getTypeAnnotations, $TypeAnnotationArray*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(AnnotatedTypeFactory$AnnotatedTypeBaseImpl, hashCode, int32_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AnnotatedTypeFactory$AnnotatedTypeBaseImpl, toString, $String*)},
 	{}
 };
 

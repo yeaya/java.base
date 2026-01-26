@@ -17,10 +17,10 @@ $FieldInfo _RejectedExecutionException_FieldInfo_[] = {
 };
 
 $MethodInfo _RejectedExecutionException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(RejectedExecutionException::*)()>(&RejectedExecutionException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(RejectedExecutionException::*)($String*)>(&RejectedExecutionException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(RejectedExecutionException::*)($String*,$Throwable*)>(&RejectedExecutionException::init$))},
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(RejectedExecutionException::*)($Throwable*)>(&RejectedExecutionException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(RejectedExecutionException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(RejectedExecutionException, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(RejectedExecutionException, init$, void, $String*, $Throwable*)},
+	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(RejectedExecutionException, init$, void, $Throwable*)},
 	{}
 };
 

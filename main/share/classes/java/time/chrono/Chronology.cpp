@@ -69,12 +69,16 @@ using $Era = ::java::time::chrono::Era;
 using $IsoChronology = ::java::time::chrono::IsoChronology;
 using $DateTimeFormatter = ::java::time::format::DateTimeFormatter;
 using $DateTimeFormatterBuilder = ::java::time::format::DateTimeFormatterBuilder;
+using $ResolverStyle = ::java::time::format::ResolverStyle;
 using $TextStyle = ::java::time::format::TextStyle;
 using $ChronoField = ::java::time::temporal::ChronoField;
 using $Temporal = ::java::time::temporal::Temporal;
 using $TemporalAccessor = ::java::time::temporal::TemporalAccessor;
 using $TemporalQueries = ::java::time::temporal::TemporalQueries;
+using $ValueRange = ::java::time::temporal::ValueRange;
+using $List = ::java::util::List;
 using $Locale = ::java::util::Locale;
+using $Map = ::java::util::Map;
 using $Objects = ::java::util::Objects;
 using $Set = ::java::util::Set;
 
@@ -83,39 +87,39 @@ namespace java {
 		namespace chrono {
 
 $MethodInfo _Chronology_MethodInfo_[] = {
-	{"compareTo", "(Ljava/time/chrono/Chronology;)I", nullptr, $PUBLIC | $ABSTRACT},
-	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"date", "(Ljava/time/chrono/Era;III)Ljava/time/chrono/ChronoLocalDate;", nullptr, $PUBLIC},
-	{"date", "(III)Ljava/time/chrono/ChronoLocalDate;", nullptr, $PUBLIC | $ABSTRACT},
-	{"date", "(Ljava/time/temporal/TemporalAccessor;)Ljava/time/chrono/ChronoLocalDate;", nullptr, $PUBLIC | $ABSTRACT},
-	{"dateEpochDay", "(J)Ljava/time/chrono/ChronoLocalDate;", nullptr, $PUBLIC | $ABSTRACT},
-	{"dateNow", "()Ljava/time/chrono/ChronoLocalDate;", nullptr, $PUBLIC},
-	{"dateNow", "(Ljava/time/ZoneId;)Ljava/time/chrono/ChronoLocalDate;", nullptr, $PUBLIC},
-	{"dateNow", "(Ljava/time/Clock;)Ljava/time/chrono/ChronoLocalDate;", nullptr, $PUBLIC},
-	{"dateYearDay", "(Ljava/time/chrono/Era;II)Ljava/time/chrono/ChronoLocalDate;", nullptr, $PUBLIC},
-	{"dateYearDay", "(II)Ljava/time/chrono/ChronoLocalDate;", nullptr, $PUBLIC | $ABSTRACT},
-	{"epochSecond", "(IIIIIILjava/time/ZoneOffset;)J", nullptr, $PUBLIC},
-	{"epochSecond", "(Ljava/time/chrono/Era;IIIIIILjava/time/ZoneOffset;)J", nullptr, $PUBLIC},
+	{"compareTo", "(Ljava/time/chrono/Chronology;)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Chronology, compareTo, int32_t, Chronology*)},
+	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Chronology, compareTo, int32_t, Object$*)},
+	{"date", "(Ljava/time/chrono/Era;III)Ljava/time/chrono/ChronoLocalDate;", nullptr, $PUBLIC, $virtualMethod(Chronology, date, $ChronoLocalDate*, $Era*, int32_t, int32_t, int32_t)},
+	{"date", "(III)Ljava/time/chrono/ChronoLocalDate;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Chronology, date, $ChronoLocalDate*, int32_t, int32_t, int32_t)},
+	{"date", "(Ljava/time/temporal/TemporalAccessor;)Ljava/time/chrono/ChronoLocalDate;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Chronology, date, $ChronoLocalDate*, $TemporalAccessor*)},
+	{"dateEpochDay", "(J)Ljava/time/chrono/ChronoLocalDate;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Chronology, dateEpochDay, $ChronoLocalDate*, int64_t)},
+	{"dateNow", "()Ljava/time/chrono/ChronoLocalDate;", nullptr, $PUBLIC, $virtualMethod(Chronology, dateNow, $ChronoLocalDate*)},
+	{"dateNow", "(Ljava/time/ZoneId;)Ljava/time/chrono/ChronoLocalDate;", nullptr, $PUBLIC, $virtualMethod(Chronology, dateNow, $ChronoLocalDate*, $ZoneId*)},
+	{"dateNow", "(Ljava/time/Clock;)Ljava/time/chrono/ChronoLocalDate;", nullptr, $PUBLIC, $virtualMethod(Chronology, dateNow, $ChronoLocalDate*, $Clock*)},
+	{"dateYearDay", "(Ljava/time/chrono/Era;II)Ljava/time/chrono/ChronoLocalDate;", nullptr, $PUBLIC, $virtualMethod(Chronology, dateYearDay, $ChronoLocalDate*, $Era*, int32_t, int32_t)},
+	{"dateYearDay", "(II)Ljava/time/chrono/ChronoLocalDate;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Chronology, dateYearDay, $ChronoLocalDate*, int32_t, int32_t)},
+	{"epochSecond", "(IIIIIILjava/time/ZoneOffset;)J", nullptr, $PUBLIC, $virtualMethod(Chronology, epochSecond, int64_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $ZoneOffset*)},
+	{"epochSecond", "(Ljava/time/chrono/Era;IIIIIILjava/time/ZoneOffset;)J", nullptr, $PUBLIC, $virtualMethod(Chronology, epochSecond, int64_t, $Era*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $ZoneOffset*)},
 	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"eraOf", "(I)Ljava/time/chrono/Era;", nullptr, $PUBLIC | $ABSTRACT},
-	{"eras", "()Ljava/util/List;", "()Ljava/util/List<Ljava/time/chrono/Era;>;", $PUBLIC | $ABSTRACT},
-	{"from", "(Ljava/time/temporal/TemporalAccessor;)Ljava/time/chrono/Chronology;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Chronology*(*)($TemporalAccessor*)>(&Chronology::from))},
-	{"getAvailableChronologies", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/time/chrono/Chronology;>;", $PUBLIC | $STATIC, $method(static_cast<$Set*(*)()>(&Chronology::getAvailableChronologies))},
-	{"getCalendarType", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getDisplayName", "(Ljava/time/format/TextStyle;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getId", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
+	{"eraOf", "(I)Ljava/time/chrono/Era;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Chronology, eraOf, $Era*, int32_t)},
+	{"eras", "()Ljava/util/List;", "()Ljava/util/List<Ljava/time/chrono/Era;>;", $PUBLIC | $ABSTRACT, $virtualMethod(Chronology, eras, $List*)},
+	{"from", "(Ljava/time/temporal/TemporalAccessor;)Ljava/time/chrono/Chronology;", nullptr, $PUBLIC | $STATIC, $staticMethod(Chronology, from, Chronology*, $TemporalAccessor*)},
+	{"getAvailableChronologies", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/time/chrono/Chronology;>;", $PUBLIC | $STATIC, $staticMethod(Chronology, getAvailableChronologies, $Set*)},
+	{"getCalendarType", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Chronology, getCalendarType, $String*)},
+	{"getDisplayName", "(Ljava/time/format/TextStyle;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Chronology, getDisplayName, $String*, $TextStyle*, $Locale*)},
+	{"getId", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Chronology, getId, $String*)},
 	{"hashCode", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"isLeapYear", "(J)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"localDateTime", "(Ljava/time/temporal/TemporalAccessor;)Ljava/time/chrono/ChronoLocalDateTime;", "(Ljava/time/temporal/TemporalAccessor;)Ljava/time/chrono/ChronoLocalDateTime<+Ljava/time/chrono/ChronoLocalDate;>;", $PUBLIC},
-	{"of", "(Ljava/lang/String;)Ljava/time/chrono/Chronology;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Chronology*(*)($String*)>(&Chronology::of))},
-	{"ofLocale", "(Ljava/util/Locale;)Ljava/time/chrono/Chronology;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Chronology*(*)($Locale*)>(&Chronology::ofLocale))},
-	{"period", "(III)Ljava/time/chrono/ChronoPeriod;", nullptr, $PUBLIC},
-	{"prolepticYear", "(Ljava/time/chrono/Era;I)I", nullptr, $PUBLIC | $ABSTRACT},
-	{"range", "(Ljava/time/temporal/ChronoField;)Ljava/time/temporal/ValueRange;", nullptr, $PUBLIC | $ABSTRACT},
-	{"resolveDate", "(Ljava/util/Map;Ljava/time/format/ResolverStyle;)Ljava/time/chrono/ChronoLocalDate;", "(Ljava/util/Map<Ljava/time/temporal/TemporalField;Ljava/lang/Long;>;Ljava/time/format/ResolverStyle;)Ljava/time/chrono/ChronoLocalDate;", $PUBLIC | $ABSTRACT},
+	{"isLeapYear", "(J)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Chronology, isLeapYear, bool, int64_t)},
+	{"localDateTime", "(Ljava/time/temporal/TemporalAccessor;)Ljava/time/chrono/ChronoLocalDateTime;", "(Ljava/time/temporal/TemporalAccessor;)Ljava/time/chrono/ChronoLocalDateTime<+Ljava/time/chrono/ChronoLocalDate;>;", $PUBLIC, $virtualMethod(Chronology, localDateTime, $ChronoLocalDateTime*, $TemporalAccessor*)},
+	{"of", "(Ljava/lang/String;)Ljava/time/chrono/Chronology;", nullptr, $PUBLIC | $STATIC, $staticMethod(Chronology, of, Chronology*, $String*)},
+	{"ofLocale", "(Ljava/util/Locale;)Ljava/time/chrono/Chronology;", nullptr, $PUBLIC | $STATIC, $staticMethod(Chronology, ofLocale, Chronology*, $Locale*)},
+	{"period", "(III)Ljava/time/chrono/ChronoPeriod;", nullptr, $PUBLIC, $virtualMethod(Chronology, period, $ChronoPeriod*, int32_t, int32_t, int32_t)},
+	{"prolepticYear", "(Ljava/time/chrono/Era;I)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Chronology, prolepticYear, int32_t, $Era*, int32_t)},
+	{"range", "(Ljava/time/temporal/ChronoField;)Ljava/time/temporal/ValueRange;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Chronology, range, $ValueRange*, $ChronoField*)},
+	{"resolveDate", "(Ljava/util/Map;Ljava/time/format/ResolverStyle;)Ljava/time/chrono/ChronoLocalDate;", "(Ljava/util/Map<Ljava/time/temporal/TemporalField;Ljava/lang/Long;>;Ljava/time/format/ResolverStyle;)Ljava/time/chrono/ChronoLocalDate;", $PUBLIC | $ABSTRACT, $virtualMethod(Chronology, resolveDate, $ChronoLocalDate*, $Map*, $ResolverStyle*)},
 	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"zonedDateTime", "(Ljava/time/temporal/TemporalAccessor;)Ljava/time/chrono/ChronoZonedDateTime;", "(Ljava/time/temporal/TemporalAccessor;)Ljava/time/chrono/ChronoZonedDateTime<+Ljava/time/chrono/ChronoLocalDate;>;", $PUBLIC},
-	{"zonedDateTime", "(Ljava/time/Instant;Ljava/time/ZoneId;)Ljava/time/chrono/ChronoZonedDateTime;", "(Ljava/time/Instant;Ljava/time/ZoneId;)Ljava/time/chrono/ChronoZonedDateTime<+Ljava/time/chrono/ChronoLocalDate;>;", $PUBLIC},
+	{"zonedDateTime", "(Ljava/time/temporal/TemporalAccessor;)Ljava/time/chrono/ChronoZonedDateTime;", "(Ljava/time/temporal/TemporalAccessor;)Ljava/time/chrono/ChronoZonedDateTime<+Ljava/time/chrono/ChronoLocalDate;>;", $PUBLIC, $virtualMethod(Chronology, zonedDateTime, $ChronoZonedDateTime*, $TemporalAccessor*)},
+	{"zonedDateTime", "(Ljava/time/Instant;Ljava/time/ZoneId;)Ljava/time/chrono/ChronoZonedDateTime;", "(Ljava/time/Instant;Ljava/time/ZoneId;)Ljava/time/chrono/ChronoZonedDateTime<+Ljava/time/chrono/ChronoLocalDate;>;", $PUBLIC, $virtualMethod(Chronology, zonedDateTime, $ChronoZonedDateTime*, $Instant*, $ZoneId*)},
 	{}
 };
 

@@ -23,7 +23,7 @@ $FieldInfo _SunJCE$SecureRandomHolder_FieldInfo_[] = {
 };
 
 $MethodInfo _SunJCE$SecureRandomHolder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(SunJCE$SecureRandomHolder::*)()>(&SunJCE$SecureRandomHolder::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(SunJCE$SecureRandomHolder, init$, void)},
 	{}
 };
 

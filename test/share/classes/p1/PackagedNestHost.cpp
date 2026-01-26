@@ -9,7 +9,7 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace p1 {
 
 $MethodInfo _PackagedNestHost_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PackagedNestHost::*)()>(&PackagedNestHost::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PackagedNestHost, init$, void)},
 	{}
 };
 

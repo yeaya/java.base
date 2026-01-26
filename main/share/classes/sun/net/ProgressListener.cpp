@@ -5,14 +5,15 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $ProgressEvent = ::sun::net::ProgressEvent;
 
 namespace sun {
 	namespace net {
 
 $MethodInfo _ProgressListener_MethodInfo_[] = {
-	{"progressFinish", "(Lsun/net/ProgressEvent;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"progressStart", "(Lsun/net/ProgressEvent;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"progressUpdate", "(Lsun/net/ProgressEvent;)V", nullptr, $PUBLIC | $ABSTRACT},
+	{"progressFinish", "(Lsun/net/ProgressEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ProgressListener, progressFinish, void, $ProgressEvent*)},
+	{"progressStart", "(Lsun/net/ProgressEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ProgressListener, progressStart, void, $ProgressEvent*)},
+	{"progressUpdate", "(Lsun/net/ProgressEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ProgressListener, progressUpdate, void, $ProgressEvent*)},
 	{}
 };
 

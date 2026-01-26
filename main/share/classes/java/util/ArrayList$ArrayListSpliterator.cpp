@@ -32,13 +32,13 @@ $FieldInfo _ArrayList$ArrayListSpliterator_FieldInfo_[] = {
 };
 
 $MethodInfo _ArrayList$ArrayListSpliterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/ArrayList;III)V", nullptr, 0, $method(static_cast<void(ArrayList$ArrayListSpliterator::*)($ArrayList*,int32_t,int32_t,int32_t)>(&ArrayList$ArrayListSpliterator::init$))},
-	{"characteristics", "()I", nullptr, $PUBLIC},
-	{"estimateSize", "()J", nullptr, $PUBLIC},
-	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC},
-	{"getFence", "()I", nullptr, $PRIVATE, $method(static_cast<int32_t(ArrayList$ArrayListSpliterator::*)()>(&ArrayList$ArrayListSpliterator::getFence))},
-	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-TE;>;)Z", $PUBLIC},
-	{"trySplit", "()Ljava/util/ArrayList$ArrayListSpliterator;", "()Ljava/util/ArrayList<TE;>.ArrayListSpliterator;", $PUBLIC},
+	{"<init>", "(Ljava/util/ArrayList;III)V", nullptr, 0, $method(ArrayList$ArrayListSpliterator, init$, void, $ArrayList*, int32_t, int32_t, int32_t)},
+	{"characteristics", "()I", nullptr, $PUBLIC, $virtualMethod(ArrayList$ArrayListSpliterator, characteristics, int32_t)},
+	{"estimateSize", "()J", nullptr, $PUBLIC, $virtualMethod(ArrayList$ArrayListSpliterator, estimateSize, int64_t)},
+	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC, $virtualMethod(ArrayList$ArrayListSpliterator, forEachRemaining, void, $Consumer*)},
+	{"getFence", "()I", nullptr, $PRIVATE, $method(ArrayList$ArrayListSpliterator, getFence, int32_t)},
+	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-TE;>;)Z", $PUBLIC, $virtualMethod(ArrayList$ArrayListSpliterator, tryAdvance, bool, $Consumer*)},
+	{"trySplit", "()Ljava/util/ArrayList$ArrayListSpliterator;", "()Ljava/util/ArrayList<TE;>.ArrayListSpliterator;", $PUBLIC, $virtualMethod(ArrayList$ArrayListSpliterator, trySplit, ArrayList$ArrayListSpliterator*)},
 	{}
 };
 

@@ -8,7 +8,7 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _Basic4ref$Sub_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Basic4ref$Sub::*)()>(&Basic4ref$Sub::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Basic4ref$Sub, init$, void)},
 	{}
 };
 

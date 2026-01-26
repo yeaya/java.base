@@ -21,6 +21,7 @@
 #include <java/lang/ObjectArray.h>
 
 #include <java/lang/ArrayIndexOutOfBoundsException.h>
+#include <java/lang/Machine.h>
 #include <jcpp.h>
 
 namespace java {
@@ -30,7 +31,7 @@ Class* ObjectArray::class$ = nullptr;
 ObjectArray* ObjectArray::EMPTY = nullptr;
 
 MethodInfo _ObjectArray_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(static_cast<void(ObjectArray::*)(int32_t)>(&ObjectArray::init$))},
+	{"<init>", "(I)V", nullptr, $PUBLIC, $method(ObjectArray, init$, void, int32_t)},
 	{}
 };
 
@@ -44,9 +45,6 @@ ClassInfo _ObjectArray_ClassInfo_ = {
 };
 
 #define $check(index) \
-	if (this == nullptr) { \
-		$throwNew(NullPointerException); \
-	} \
 	if ((uint32_t)index >= (uint32_t)length) { \
 		$throwNew(ArrayIndexOutOfBoundsException, index); \
 	}
@@ -181,7 +179,7 @@ ObjectArray* ObjectArray::create(Class* componentType, int32_t length) {
 
 Class* ObjectArray::load$(String* name, bool initialize) {
 	int64_t objectArrayBaseSize = sizeof(ObjectArray) - sizeof(ObjectArray::data);
-	Class::loadClass(&class$, objectArrayBaseSize, $getMark(ObjectArray), &_ObjectArray_ClassInfo_);
+	Machine::loadClass(&class$, objectArrayBaseSize, $getMark(ObjectArray), &_ObjectArray_ClassInfo_);
 	return class$;
 }
 

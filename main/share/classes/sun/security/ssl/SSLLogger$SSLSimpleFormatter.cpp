@@ -119,8 +119,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo SSLLogger$SSLSimpleFormatter$$Lambda$lambda$formatCaller$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SSLLogger$SSLSimpleFormatter$$Lambda$lambda$formatCaller$2::*)()>(&SSLLogger$SSLSimpleFormatter$$Lambda$lambda$formatCaller$2::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SSLLogger$SSLSimpleFormatter$$Lambda$lambda$formatCaller$2, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SSLLogger$SSLSimpleFormatter$$Lambda$lambda$formatCaller$2, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo SSLLogger$SSLSimpleFormatter$$Lambda$lambda$formatCaller$2::classInfo$ = {
@@ -152,8 +152,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo SSLLogger$SSLSimpleFormatter$$Lambda$lambda$formatCaller$0$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SSLLogger$SSLSimpleFormatter$$Lambda$lambda$formatCaller$0$1::*)()>(&SSLLogger$SSLSimpleFormatter$$Lambda$lambda$formatCaller$0$1::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SSLLogger$SSLSimpleFormatter$$Lambda$lambda$formatCaller$0$1, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(SSLLogger$SSLSimpleFormatter$$Lambda$lambda$formatCaller$0$1, test, bool, Object$*)},
 	{}
 };
 $ClassInfo SSLLogger$SSLSimpleFormatter$$Lambda$lambda$formatCaller$0$1::classInfo$ = {
@@ -185,8 +185,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo SSLLogger$SSLSimpleFormatter$$Lambda$lambda$formatCaller$1$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SSLLogger$SSLSimpleFormatter$$Lambda$lambda$formatCaller$1$2::*)()>(&SSLLogger$SSLSimpleFormatter$$Lambda$lambda$formatCaller$1$2::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SSLLogger$SSLSimpleFormatter$$Lambda$lambda$formatCaller$1$2, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SSLLogger$SSLSimpleFormatter$$Lambda$lambda$formatCaller$1$2, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo SSLLogger$SSLSimpleFormatter$$Lambda$lambda$formatCaller$1$2::classInfo$ = {
@@ -217,19 +217,19 @@ $FieldInfo _SSLLogger$SSLSimpleFormatter_FieldInfo_[] = {
 };
 
 $MethodInfo _SSLLogger$SSLSimpleFormatter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(SSLLogger$SSLSimpleFormatter::*)()>(&SSLLogger$SSLSimpleFormatter::init$))},
-	{"format", "(Lsun/security/ssl/SSLLogger$SSLConsoleLogger;Ljava/lang/System$Logger$Level;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $TRANSIENT, $method(static_cast<$String*(*)($SSLLogger$SSLConsoleLogger*,$System$Logger$Level*,$String*,$ObjectArray*)>(&SSLLogger$SSLSimpleFormatter::format))},
-	{"formatByteArrayInputStream", "(Ljava/io/ByteArrayInputStream;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($ByteArrayInputStream*)>(&SSLLogger$SSLSimpleFormatter::formatByteArrayInputStream))},
-	{"formatByteBuffer", "(Ljava/nio/ByteBuffer;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($ByteBuffer*)>(&SSLLogger$SSLSimpleFormatter::formatByteBuffer))},
-	{"formatCaller", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)()>(&SSLLogger$SSLSimpleFormatter::formatCaller))},
-	{"formatCertificate", "(Ljava/security/cert/Certificate;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($Certificate*)>(&SSLLogger$SSLSimpleFormatter::formatCertificate))},
-	{"formatMapEntry", "(Ljava/util/Map$Entry;)Ljava/lang/String;", "(Ljava/util/Map$Entry<Ljava/lang/String;*>;)Ljava/lang/String;", $PRIVATE | $STATIC, $method(static_cast<$String*(*)($Map$Entry*)>(&SSLLogger$SSLSimpleFormatter::formatMapEntry))},
-	{"formatObject", "(Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)(Object$*)>(&SSLLogger$SSLSimpleFormatter::formatObject))},
-	{"formatParameters", "([Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $TRANSIENT, $method(static_cast<$String*(*)($ObjectArray*)>(&SSLLogger$SSLSimpleFormatter::formatParameters))},
-	{"formatThrowable", "(Ljava/lang/Throwable;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($Throwable*)>(&SSLLogger$SSLSimpleFormatter::formatThrowable))},
-	{"lambda$formatCaller$0", "(Ljava/lang/StackWalker$StackFrame;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($StackWalker$StackFrame*)>(&SSLLogger$SSLSimpleFormatter::lambda$formatCaller$0))},
-	{"lambda$formatCaller$1", "(Ljava/lang/StackWalker$StackFrame;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$String*(*)($StackWalker$StackFrame*)>(&SSLLogger$SSLSimpleFormatter::lambda$formatCaller$1))},
-	{"lambda$formatCaller$2", "(Ljava/util/stream/Stream;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$String*(*)($Stream*)>(&SSLLogger$SSLSimpleFormatter::lambda$formatCaller$2))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(SSLLogger$SSLSimpleFormatter, init$, void)},
+	{"format", "(Lsun/security/ssl/SSLLogger$SSLConsoleLogger;Ljava/lang/System$Logger$Level;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $TRANSIENT, $staticMethod(SSLLogger$SSLSimpleFormatter, format, $String*, $SSLLogger$SSLConsoleLogger*, $System$Logger$Level*, $String*, $ObjectArray*)},
+	{"formatByteArrayInputStream", "(Ljava/io/ByteArrayInputStream;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(SSLLogger$SSLSimpleFormatter, formatByteArrayInputStream, $String*, $ByteArrayInputStream*)},
+	{"formatByteBuffer", "(Ljava/nio/ByteBuffer;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(SSLLogger$SSLSimpleFormatter, formatByteBuffer, $String*, $ByteBuffer*)},
+	{"formatCaller", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(SSLLogger$SSLSimpleFormatter, formatCaller, $String*)},
+	{"formatCertificate", "(Ljava/security/cert/Certificate;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(SSLLogger$SSLSimpleFormatter, formatCertificate, $String*, $Certificate*)},
+	{"formatMapEntry", "(Ljava/util/Map$Entry;)Ljava/lang/String;", "(Ljava/util/Map$Entry<Ljava/lang/String;*>;)Ljava/lang/String;", $PRIVATE | $STATIC, $staticMethod(SSLLogger$SSLSimpleFormatter, formatMapEntry, $String*, $Map$Entry*)},
+	{"formatObject", "(Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(SSLLogger$SSLSimpleFormatter, formatObject, $String*, Object$*)},
+	{"formatParameters", "([Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $TRANSIENT, $staticMethod(SSLLogger$SSLSimpleFormatter, formatParameters, $String*, $ObjectArray*)},
+	{"formatThrowable", "(Ljava/lang/Throwable;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(SSLLogger$SSLSimpleFormatter, formatThrowable, $String*, $Throwable*)},
+	{"lambda$formatCaller$0", "(Ljava/lang/StackWalker$StackFrame;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SSLLogger$SSLSimpleFormatter, lambda$formatCaller$0, bool, $StackWalker$StackFrame*)},
+	{"lambda$formatCaller$1", "(Ljava/lang/StackWalker$StackFrame;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SSLLogger$SSLSimpleFormatter, lambda$formatCaller$1, $String*, $StackWalker$StackFrame*)},
+	{"lambda$formatCaller$2", "(Ljava/util/stream/Stream;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SSLLogger$SSLSimpleFormatter, lambda$formatCaller$2, $String*, $Stream*)},
 	{}
 };
 

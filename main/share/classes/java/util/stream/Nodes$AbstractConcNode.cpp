@@ -24,10 +24,10 @@ $FieldInfo _Nodes$AbstractConcNode_FieldInfo_[] = {
 };
 
 $MethodInfo _Nodes$AbstractConcNode_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/stream/Node;Ljava/util/stream/Node;)V", "(TT_NODE;TT_NODE;)V", 0, $method(static_cast<void(Nodes$AbstractConcNode::*)($Node*,$Node*)>(&Nodes$AbstractConcNode::init$))},
-	{"count", "()J", nullptr, $PUBLIC},
-	{"getChild", "(I)Ljava/util/stream/Node;", "(I)TT_NODE;", $PUBLIC},
-	{"getChildCount", "()I", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/stream/Node;Ljava/util/stream/Node;)V", "(TT_NODE;TT_NODE;)V", 0, $method(Nodes$AbstractConcNode, init$, void, $Node*, $Node*)},
+	{"count", "()J", nullptr, $PUBLIC, $virtualMethod(Nodes$AbstractConcNode, count, int64_t)},
+	{"getChild", "(I)Ljava/util/stream/Node;", "(I)TT_NODE;", $PUBLIC, $virtualMethod(Nodes$AbstractConcNode, getChild, $Node*, int32_t)},
+	{"getChildCount", "()I", nullptr, $PUBLIC, $virtualMethod(Nodes$AbstractConcNode, getChildCount, int32_t)},
 	{}
 };
 

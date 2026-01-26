@@ -23,8 +23,8 @@ $Attribute _ExpectedGenericString_DefaultValue_bridgeValue0 = {
 };
 
 $MethodInfo _ExpectedGenericString_MethodInfo_[] = {
-	{"bridgeValue", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, nullptr, nullptr, &_ExpectedGenericString_DefaultValue_bridgeValue0},
-	{"value", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
+	{"bridgeValue", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ExpectedGenericString, bridgeValue, $String*), nullptr, &_ExpectedGenericString_DefaultValue_bridgeValue0},
+	{"value", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ExpectedGenericString, value, $String*)},
 	{}
 };
 

@@ -37,8 +37,8 @@ $FieldInfo _DoublePipeline$4_FieldInfo_[] = {
 };
 
 $MethodInfo _DoublePipeline$4_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/stream/DoublePipeline;Ljava/util/stream/AbstractPipeline;Ljava/util/stream/StreamShape;ILjava/util/function/DoubleToLongFunction;)V", nullptr, 0, $method(static_cast<void(DoublePipeline$4::*)($DoublePipeline*,$AbstractPipeline*,$StreamShape*,int32_t,$DoubleToLongFunction*)>(&DoublePipeline$4::init$))},
-	{"opWrapSink", "(ILjava/util/stream/Sink;)Ljava/util/stream/Sink;", "(ILjava/util/stream/Sink<Ljava/lang/Long;>;)Ljava/util/stream/Sink<Ljava/lang/Double;>;", 0},
+	{"<init>", "(Ljava/util/stream/DoublePipeline;Ljava/util/stream/AbstractPipeline;Ljava/util/stream/StreamShape;ILjava/util/function/DoubleToLongFunction;)V", nullptr, 0, $method(DoublePipeline$4, init$, void, $DoublePipeline*, $AbstractPipeline*, $StreamShape*, int32_t, $DoubleToLongFunction*)},
+	{"opWrapSink", "(ILjava/util/stream/Sink;)Ljava/util/stream/Sink;", "(ILjava/util/stream/Sink<Ljava/lang/Long;>;)Ljava/util/stream/Sink<Ljava/lang/Double;>;", 0, $virtualMethod(DoublePipeline$4, opWrapSink, $Sink*, int32_t, $Sink*)},
 	{}
 };
 

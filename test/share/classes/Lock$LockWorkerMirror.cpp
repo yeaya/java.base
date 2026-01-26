@@ -22,14 +22,14 @@ $FieldInfo _Lock$LockWorkerMirror_FieldInfo_[] = {
 };
 
 $MethodInfo _Lock$LockWorkerMirror_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/channels/SocketChannel;)V", nullptr, 0, $method(static_cast<void(Lock$LockWorkerMirror::*)($SocketChannel*)>(&Lock$LockWorkerMirror::init$))},
-	{"close", "()V", nullptr, 0, nullptr, "java.io.IOException"},
-	{"lock", "()LLock$LockWorkerMirror;", nullptr, 0, nullptr, "java.io.IOException"},
-	{"lock", "(JJZ)LLock$LockWorkerMirror;", nullptr, 0, nullptr, "java.io.IOException"},
-	{"open", "(Ljava/lang/String;)LLock$LockWorkerMirror;", nullptr, 0, nullptr, "java.io.IOException"},
-	{"sendCommand", "(Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $PRIVATE | $TRANSIENT, $method(static_cast<void(Lock$LockWorkerMirror::*)($String*,$StringArray*)>(&Lock$LockWorkerMirror::sendCommand)), "java.io.IOException"},
-	{"shutdown", "()V", nullptr, 0, nullptr, "java.io.IOException"},
-	{"unlock", "()LLock$LockWorkerMirror;", nullptr, 0, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljava/nio/channels/SocketChannel;)V", nullptr, 0, $method(Lock$LockWorkerMirror, init$, void, $SocketChannel*)},
+	{"close", "()V", nullptr, 0, $virtualMethod(Lock$LockWorkerMirror, close, void), "java.io.IOException"},
+	{"lock", "()LLock$LockWorkerMirror;", nullptr, 0, $virtualMethod(Lock$LockWorkerMirror, lock, Lock$LockWorkerMirror*), "java.io.IOException"},
+	{"lock", "(JJZ)LLock$LockWorkerMirror;", nullptr, 0, $virtualMethod(Lock$LockWorkerMirror, lock, Lock$LockWorkerMirror*, int64_t, int64_t, bool), "java.io.IOException"},
+	{"open", "(Ljava/lang/String;)LLock$LockWorkerMirror;", nullptr, 0, $virtualMethod(Lock$LockWorkerMirror, open, Lock$LockWorkerMirror*, $String*), "java.io.IOException"},
+	{"sendCommand", "(Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $PRIVATE | $TRANSIENT, $method(Lock$LockWorkerMirror, sendCommand, void, $String*, $StringArray*), "java.io.IOException"},
+	{"shutdown", "()V", nullptr, 0, $virtualMethod(Lock$LockWorkerMirror, shutdown, void), "java.io.IOException"},
+	{"unlock", "()LLock$LockWorkerMirror;", nullptr, 0, $virtualMethod(Lock$LockWorkerMirror, unlock, Lock$LockWorkerMirror*), "java.io.IOException"},
 	{}
 };
 

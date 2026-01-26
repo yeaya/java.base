@@ -36,14 +36,14 @@ $FieldInfo _SSLServerSocketFactoryImpl_FieldInfo_[] = {
 };
 
 $MethodInfo _SSLServerSocketFactoryImpl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SSLServerSocketFactoryImpl::*)()>(&SSLServerSocketFactoryImpl::init$)), "java.lang.Exception"},
-	{"<init>", "(Lsun/security/ssl/SSLContextImpl;)V", nullptr, 0, $method(static_cast<void(SSLServerSocketFactoryImpl::*)($SSLContextImpl*)>(&SSLServerSocketFactoryImpl::init$))},
-	{"createServerSocket", "()Ljava/net/ServerSocket;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"createServerSocket", "(I)Ljava/net/ServerSocket;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"createServerSocket", "(II)Ljava/net/ServerSocket;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"createServerSocket", "(IILjava/net/InetAddress;)Ljava/net/ServerSocket;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"getDefaultCipherSuites", "()[Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getSupportedCipherSuites", "()[Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SSLServerSocketFactoryImpl, init$, void), "java.lang.Exception"},
+	{"<init>", "(Lsun/security/ssl/SSLContextImpl;)V", nullptr, 0, $method(SSLServerSocketFactoryImpl, init$, void, $SSLContextImpl*)},
+	{"createServerSocket", "()Ljava/net/ServerSocket;", nullptr, $PUBLIC, $virtualMethod(SSLServerSocketFactoryImpl, createServerSocket, $ServerSocket*), "java.io.IOException"},
+	{"createServerSocket", "(I)Ljava/net/ServerSocket;", nullptr, $PUBLIC, $virtualMethod(SSLServerSocketFactoryImpl, createServerSocket, $ServerSocket*, int32_t), "java.io.IOException"},
+	{"createServerSocket", "(II)Ljava/net/ServerSocket;", nullptr, $PUBLIC, $virtualMethod(SSLServerSocketFactoryImpl, createServerSocket, $ServerSocket*, int32_t, int32_t), "java.io.IOException"},
+	{"createServerSocket", "(IILjava/net/InetAddress;)Ljava/net/ServerSocket;", nullptr, $PUBLIC, $virtualMethod(SSLServerSocketFactoryImpl, createServerSocket, $ServerSocket*, int32_t, int32_t, $InetAddress*), "java.io.IOException"},
+	{"getDefaultCipherSuites", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SSLServerSocketFactoryImpl, getDefaultCipherSuites, $StringArray*)},
+	{"getSupportedCipherSuites", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SSLServerSocketFactoryImpl, getSupportedCipherSuites, $StringArray*)},
 	{}
 };
 

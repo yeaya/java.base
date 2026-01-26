@@ -34,11 +34,11 @@ $FieldInfo _ReduceOps$ReduceOp_FieldInfo_[] = {
 };
 
 $MethodInfo _ReduceOps$ReduceOp_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/stream/StreamShape;)V", nullptr, 0, $method(static_cast<void(ReduceOps$ReduceOp::*)($StreamShape*)>(&ReduceOps$ReduceOp::init$))},
-	{"evaluateParallel", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;)Ljava/lang/Object;", "<P_IN:Ljava/lang/Object;>(Ljava/util/stream/PipelineHelper<TT;>;Ljava/util/Spliterator<TP_IN;>;)TR;", $PUBLIC},
-	{"evaluateSequential", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;)Ljava/lang/Object;", "<P_IN:Ljava/lang/Object;>(Ljava/util/stream/PipelineHelper<TT;>;Ljava/util/Spliterator<TP_IN;>;)TR;", $PUBLIC},
-	{"inputShape", "()Ljava/util/stream/StreamShape;", nullptr, $PUBLIC},
-	{"makeSink", "()Ljava/util/stream/ReduceOps$AccumulatingSink;", "()TS;", $PUBLIC | $ABSTRACT},
+	{"<init>", "(Ljava/util/stream/StreamShape;)V", nullptr, 0, $method(ReduceOps$ReduceOp, init$, void, $StreamShape*)},
+	{"evaluateParallel", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;)Ljava/lang/Object;", "<P_IN:Ljava/lang/Object;>(Ljava/util/stream/PipelineHelper<TT;>;Ljava/util/Spliterator<TP_IN;>;)TR;", $PUBLIC, $virtualMethod(ReduceOps$ReduceOp, evaluateParallel, $Object*, $PipelineHelper*, $Spliterator*)},
+	{"evaluateSequential", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;)Ljava/lang/Object;", "<P_IN:Ljava/lang/Object;>(Ljava/util/stream/PipelineHelper<TT;>;Ljava/util/Spliterator<TP_IN;>;)TR;", $PUBLIC, $virtualMethod(ReduceOps$ReduceOp, evaluateSequential, $Object*, $PipelineHelper*, $Spliterator*)},
+	{"inputShape", "()Ljava/util/stream/StreamShape;", nullptr, $PUBLIC, $virtualMethod(ReduceOps$ReduceOp, inputShape, $StreamShape*)},
+	{"makeSink", "()Ljava/util/stream/ReduceOps$AccumulatingSink;", "()TS;", $PUBLIC | $ABSTRACT, $virtualMethod(ReduceOps$ReduceOp, makeSink, $ReduceOps$AccumulatingSink*)},
 	{}
 };
 

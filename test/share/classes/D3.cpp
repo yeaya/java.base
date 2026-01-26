@@ -6,7 +6,7 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _D3_MethodInfo_[] = {
-	{"m", "()V", nullptr, $PUBLIC | $ABSTRACT},
+	{"m", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(D3, m, void)},
 	{}
 };
 

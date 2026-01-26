@@ -19,8 +19,8 @@ $FieldInfo _CredentialNotFoundException_FieldInfo_[] = {
 };
 
 $MethodInfo _CredentialNotFoundException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CredentialNotFoundException::*)()>(&CredentialNotFoundException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(CredentialNotFoundException::*)($String*)>(&CredentialNotFoundException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CredentialNotFoundException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(CredentialNotFoundException, init$, void, $String*)},
 	{}
 };
 

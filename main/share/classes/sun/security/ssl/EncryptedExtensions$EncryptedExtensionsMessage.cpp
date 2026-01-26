@@ -49,12 +49,12 @@ $FieldInfo _EncryptedExtensions$EncryptedExtensionsMessage_FieldInfo_[] = {
 };
 
 $MethodInfo _EncryptedExtensions$EncryptedExtensionsMessage_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/ssl/HandshakeContext;)V", nullptr, 0, $method(static_cast<void(EncryptedExtensions$EncryptedExtensionsMessage::*)($HandshakeContext*)>(&EncryptedExtensions$EncryptedExtensionsMessage::init$)), "java.io.IOException"},
-	{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)V", nullptr, 0, $method(static_cast<void(EncryptedExtensions$EncryptedExtensionsMessage::*)($HandshakeContext*,$ByteBuffer*)>(&EncryptedExtensions$EncryptedExtensionsMessage::init$)), "java.io.IOException"},
-	{"handshakeType", "()Lsun/security/ssl/SSLHandshake;", nullptr, 0},
-	{"messageLength", "()I", nullptr, 0},
-	{"send", "(Lsun/security/ssl/HandshakeOutStream;)V", nullptr, 0, nullptr, "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/security/ssl/HandshakeContext;)V", nullptr, 0, $method(EncryptedExtensions$EncryptedExtensionsMessage, init$, void, $HandshakeContext*), "java.io.IOException"},
+	{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)V", nullptr, 0, $method(EncryptedExtensions$EncryptedExtensionsMessage, init$, void, $HandshakeContext*, $ByteBuffer*), "java.io.IOException"},
+	{"handshakeType", "()Lsun/security/ssl/SSLHandshake;", nullptr, 0, $virtualMethod(EncryptedExtensions$EncryptedExtensionsMessage, handshakeType, $SSLHandshake*)},
+	{"messageLength", "()I", nullptr, 0, $virtualMethod(EncryptedExtensions$EncryptedExtensionsMessage, messageLength, int32_t)},
+	{"send", "(Lsun/security/ssl/HandshakeOutStream;)V", nullptr, 0, $virtualMethod(EncryptedExtensions$EncryptedExtensionsMessage, send, void, $HandshakeOutStream*), "java.io.IOException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(EncryptedExtensions$EncryptedExtensionsMessage, toString, $String*)},
 	{}
 };
 

@@ -70,8 +70,8 @@ $FieldInfo CustomZoneNameTest$$Lambda$lambda$testFormatting$0::fieldInfos[2] = {
 	{}
 };
 $MethodInfo CustomZoneNameTest$$Lambda$lambda$testFormatting$0::methodInfos[3] = {
-	{"<init>", "(Ljava/time/ZonedDateTime;)V", nullptr, $PUBLIC, $method(static_cast<void(CustomZoneNameTest$$Lambda$lambda$testFormatting$0::*)($ZonedDateTime*)>(&CustomZoneNameTest$$Lambda$lambda$testFormatting$0::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/time/ZonedDateTime;)V", nullptr, $PUBLIC, $method(CustomZoneNameTest$$Lambda$lambda$testFormatting$0, init$, void, $ZonedDateTime*)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(CustomZoneNameTest$$Lambda$lambda$testFormatting$0, test, bool, Object$*)},
 	{}
 };
 $ClassInfo CustomZoneNameTest$$Lambda$lambda$testFormatting$0::classInfo$ = {
@@ -103,8 +103,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo CustomZoneNameTest$$Lambda$lambda$testFormatting$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CustomZoneNameTest$$Lambda$lambda$testFormatting$1$1::*)()>(&CustomZoneNameTest$$Lambda$lambda$testFormatting$1$1::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CustomZoneNameTest$$Lambda$lambda$testFormatting$1$1, init$, void)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(CustomZoneNameTest$$Lambda$lambda$testFormatting$1$1, accept, void, Object$*)},
 	{}
 };
 $ClassInfo CustomZoneNameTest$$Lambda$lambda$testFormatting$1$1::classInfo$ = {
@@ -136,8 +136,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo CustomZoneNameTest$$Lambda$lambda$testParsing$2$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CustomZoneNameTest$$Lambda$lambda$testParsing$2$2::*)()>(&CustomZoneNameTest$$Lambda$lambda$testParsing$2$2::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CustomZoneNameTest$$Lambda$lambda$testParsing$2$2, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(CustomZoneNameTest$$Lambda$lambda$testParsing$2$2, test, bool, Object$*)},
 	{}
 };
 $ClassInfo CustomZoneNameTest$$Lambda$lambda$testParsing$2$2::classInfo$ = {
@@ -169,8 +169,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo CustomZoneNameTest$$Lambda$lambda$testParsing$3$3::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CustomZoneNameTest$$Lambda$lambda$testParsing$3$3::*)()>(&CustomZoneNameTest$$Lambda$lambda$testParsing$3$3::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CustomZoneNameTest$$Lambda$lambda$testParsing$3$3, init$, void)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(CustomZoneNameTest$$Lambda$lambda$testParsing$3$3, accept, void, Object$*)},
 	{}
 };
 $ClassInfo CustomZoneNameTest$$Lambda$lambda$testParsing$3$3::classInfo$ = {
@@ -202,8 +202,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo CustomZoneNameTest$$Lambda$from$4::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CustomZoneNameTest$$Lambda$from$4::*)()>(&CustomZoneNameTest$$Lambda$from$4::init$))},
-	{"queryFrom", "(Ljava/time/temporal/TemporalAccessor;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CustomZoneNameTest$$Lambda$from$4, init$, void)},
+	{"queryFrom", "(Ljava/time/temporal/TemporalAccessor;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(CustomZoneNameTest$$Lambda$from$4, queryFrom, $Object*, $TemporalAccessor*)},
 	{}
 };
 $ClassInfo CustomZoneNameTest$$Lambda$from$4::classInfo$ = {
@@ -235,8 +235,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo CustomZoneNameTest$$Lambda$from$5::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CustomZoneNameTest$$Lambda$from$5::*)()>(&CustomZoneNameTest$$Lambda$from$5::init$))},
-	{"queryFrom", "(Ljava/time/temporal/TemporalAccessor;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CustomZoneNameTest$$Lambda$from$5, init$, void)},
+	{"queryFrom", "(Ljava/time/temporal/TemporalAccessor;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(CustomZoneNameTest$$Lambda$from$5, queryFrom, $Object*, $TemporalAccessor*)},
 	{}
 };
 $ClassInfo CustomZoneNameTest$$Lambda$from$5::classInfo$ = {
@@ -262,14 +262,14 @@ $FieldInfo _CustomZoneNameTest_FieldInfo_[] = {
 };
 
 $MethodInfo _CustomZoneNameTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CustomZoneNameTest::*)()>(&CustomZoneNameTest::init$))},
-	{"lambda$testFormatting$0", "(Ljava/time/ZonedDateTime;Ljava/util/Map$Entry;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($ZonedDateTime*,$Map$Entry*)>(&CustomZoneNameTest::lambda$testFormatting$0))},
-	{"lambda$testFormatting$1", "(Ljava/util/Map$Entry;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($Map$Entry*)>(&CustomZoneNameTest::lambda$testFormatting$1))},
-	{"lambda$testParsing$2", "(Ljava/util/Map$Entry;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($Map$Entry*)>(&CustomZoneNameTest::lambda$testParsing$2))},
-	{"lambda$testParsing$3", "(Ljava/util/Map$Entry;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($Map$Entry*)>(&CustomZoneNameTest::lambda$testParsing$3))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<void(*)($StringArray*)>(&CustomZoneNameTest::main))},
-	{"testFormatting", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&CustomZoneNameTest::testFormatting))},
-	{"testParsing", "()V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)()>(&CustomZoneNameTest::testParsing))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CustomZoneNameTest, init$, void)},
+	{"lambda$testFormatting$0", "(Ljava/time/ZonedDateTime;Ljava/util/Map$Entry;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CustomZoneNameTest, lambda$testFormatting$0, bool, $ZonedDateTime*, $Map$Entry*)},
+	{"lambda$testFormatting$1", "(Ljava/util/Map$Entry;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CustomZoneNameTest, lambda$testFormatting$1, void, $Map$Entry*)},
+	{"lambda$testParsing$2", "(Ljava/util/Map$Entry;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CustomZoneNameTest, lambda$testParsing$2, bool, $Map$Entry*)},
+	{"lambda$testParsing$3", "(Ljava/util/Map$Entry;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CustomZoneNameTest, lambda$testParsing$3, void, $Map$Entry*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(CustomZoneNameTest, main, void, $StringArray*)},
+	{"testFormatting", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(CustomZoneNameTest, testFormatting, void)},
+	{"testParsing", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(CustomZoneNameTest, testParsing, void)},
 	{}
 };
 

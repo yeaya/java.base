@@ -29,8 +29,8 @@ $MethodInfo _SessionTicketExtension$T12SHSessionTicketProducer_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(SessionTicketExtension$T12SHSessionTicketProducer::*)()>(&SessionTicketExtension$T12SHSessionTicketProducer::init$))},
-	{"produce", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)[B", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(SessionTicketExtension$T12SHSessionTicketProducer, init$, void)},
+	{"produce", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)[B", nullptr, $PUBLIC, $virtualMethod(SessionTicketExtension$T12SHSessionTicketProducer, produce, $bytes*, $ConnectionContext*, $SSLHandshake$HandshakeMessage*)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

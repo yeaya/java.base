@@ -27,16 +27,16 @@ $FieldInfo _StringReader_FieldInfo_[] = {
 };
 
 $MethodInfo _StringReader_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(StringReader::*)($String*)>(&StringReader::init$))},
-	{"close", "()V", nullptr, $PUBLIC},
-	{"ensureOpen", "()V", nullptr, $PRIVATE, $method(static_cast<void(StringReader::*)()>(&StringReader::ensureOpen)), "java.io.IOException"},
-	{"mark", "(I)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"markSupported", "()Z", nullptr, $PUBLIC},
-	{"read", "()I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"read", "([CII)I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"ready", "()Z", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"reset", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"skip", "(J)J", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(StringReader, init$, void, $String*)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(StringReader, close, void)},
+	{"ensureOpen", "()V", nullptr, $PRIVATE, $method(StringReader, ensureOpen, void), "java.io.IOException"},
+	{"mark", "(I)V", nullptr, $PUBLIC, $virtualMethod(StringReader, mark, void, int32_t), "java.io.IOException"},
+	{"markSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(StringReader, markSupported, bool)},
+	{"read", "()I", nullptr, $PUBLIC, $virtualMethod(StringReader, read, int32_t), "java.io.IOException"},
+	{"read", "([CII)I", nullptr, $PUBLIC, $virtualMethod(StringReader, read, int32_t, $chars*, int32_t, int32_t), "java.io.IOException"},
+	{"ready", "()Z", nullptr, $PUBLIC, $virtualMethod(StringReader, ready, bool), "java.io.IOException"},
+	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(StringReader, reset, void), "java.io.IOException"},
+	{"skip", "(J)J", nullptr, $PUBLIC, $virtualMethod(StringReader, skip, int64_t, int64_t), "java.io.IOException"},
 	{}
 };
 

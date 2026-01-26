@@ -39,18 +39,18 @@ $FieldInfo _EPoll_FieldInfo_[] = {
 };
 
 $MethodInfo _EPoll_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(EPoll::*)()>(&EPoll::init$))},
-	{"allocatePollArray", "(I)J", nullptr, $STATIC, $method(static_cast<int64_t(*)(int32_t)>(&EPoll::allocatePollArray))},
-	{"create", "()I", nullptr, $STATIC | $NATIVE, $method(static_cast<int32_t(*)()>(&EPoll::create)), "java.io.IOException"},
-	{"ctl", "(IIII)I", nullptr, $STATIC | $NATIVE, $method(static_cast<int32_t(*)(int32_t,int32_t,int32_t,int32_t)>(&EPoll::ctl))},
-	{"dataOffset", "()I", nullptr, $PRIVATE | $STATIC | $NATIVE, $method(static_cast<int32_t(*)()>(&EPoll::dataOffset))},
-	{"eventSize", "()I", nullptr, $PRIVATE | $STATIC | $NATIVE, $method(static_cast<int32_t(*)()>(&EPoll::eventSize))},
-	{"eventsOffset", "()I", nullptr, $PRIVATE | $STATIC | $NATIVE, $method(static_cast<int32_t(*)()>(&EPoll::eventsOffset))},
-	{"freePollArray", "(J)V", nullptr, $STATIC, $method(static_cast<void(*)(int64_t)>(&EPoll::freePollArray))},
-	{"getDescriptor", "(J)I", nullptr, $STATIC, $method(static_cast<int32_t(*)(int64_t)>(&EPoll::getDescriptor))},
-	{"getEvent", "(JI)J", nullptr, $STATIC, $method(static_cast<int64_t(*)(int64_t,int32_t)>(&EPoll::getEvent))},
-	{"getEvents", "(J)I", nullptr, $STATIC, $method(static_cast<int32_t(*)(int64_t)>(&EPoll::getEvents))},
-	{"wait", "(IJII)I", nullptr, $STATIC | $NATIVE, $method(static_cast<int32_t(*)(int32_t,int64_t,int32_t,int32_t)>(&EPoll::wait)), "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(EPoll, init$, void)},
+	{"allocatePollArray", "(I)J", nullptr, $STATIC, $staticMethod(EPoll, allocatePollArray, int64_t, int32_t)},
+	{"create", "()I", nullptr, $STATIC | $NATIVE, $staticMethod(EPoll, create, int32_t), "java.io.IOException"},
+	{"ctl", "(IIII)I", nullptr, $STATIC | $NATIVE, $staticMethod(EPoll, ctl, int32_t, int32_t, int32_t, int32_t, int32_t)},
+	{"dataOffset", "()I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(EPoll, dataOffset, int32_t)},
+	{"eventSize", "()I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(EPoll, eventSize, int32_t)},
+	{"eventsOffset", "()I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(EPoll, eventsOffset, int32_t)},
+	{"freePollArray", "(J)V", nullptr, $STATIC, $staticMethod(EPoll, freePollArray, void, int64_t)},
+	{"getDescriptor", "(J)I", nullptr, $STATIC, $staticMethod(EPoll, getDescriptor, int32_t, int64_t)},
+	{"getEvent", "(JI)J", nullptr, $STATIC, $staticMethod(EPoll, getEvent, int64_t, int64_t, int32_t)},
+	{"getEvents", "(J)I", nullptr, $STATIC, $staticMethod(EPoll, getEvents, int32_t, int64_t)},
+	{"wait", "(IJII)I", nullptr, $STATIC | $NATIVE, $staticMethod(EPoll, wait, int32_t, int32_t, int64_t, int32_t, int32_t), "java.io.IOException"},
 	{}
 };
 

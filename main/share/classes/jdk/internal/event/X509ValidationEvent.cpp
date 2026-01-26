@@ -20,7 +20,7 @@ $FieldInfo _X509ValidationEvent_FieldInfo_[] = {
 };
 
 $MethodInfo _X509ValidationEvent_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(X509ValidationEvent::*)()>(&X509ValidationEvent::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(X509ValidationEvent, init$, void)},
 	{}
 };
 

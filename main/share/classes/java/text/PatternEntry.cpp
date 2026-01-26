@@ -34,18 +34,18 @@ $FieldInfo _PatternEntry_FieldInfo_[] = {
 };
 
 $MethodInfo _PatternEntry_MethodInfo_[] = {
-	{"<init>", "(ILjava/lang/StringBuffer;Ljava/lang/StringBuffer;)V", nullptr, 0, $method(static_cast<void(PatternEntry::*)(int32_t,$StringBuffer*,$StringBuffer*)>(&PatternEntry::init$))},
-	{"addToBuffer", "(Ljava/lang/StringBuffer;ZZLjava/text/PatternEntry;)V", nullptr, 0},
-	{"appendQuoted", "(Ljava/lang/String;Ljava/lang/StringBuffer;)V", nullptr, $STATIC, $method(static_cast<void(*)($String*,$StringBuffer*)>(&PatternEntry::appendQuoted))},
-	{"appendQuotedChars", "(Ljava/lang/StringBuffer;)V", nullptr, $PUBLIC},
-	{"appendQuotedExtension", "(Ljava/lang/StringBuffer;)V", nullptr, $PUBLIC},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getChars", "()Ljava/lang/String;", nullptr, $FINAL, $method(static_cast<$String*(PatternEntry::*)()>(&PatternEntry::getChars))},
-	{"getExtension", "()Ljava/lang/String;", nullptr, $FINAL, $method(static_cast<$String*(PatternEntry::*)()>(&PatternEntry::getExtension))},
-	{"getStrength", "()I", nullptr, $FINAL, $method(static_cast<int32_t(PatternEntry::*)()>(&PatternEntry::getStrength))},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"isSpecialChar", "(C)Z", nullptr, $STATIC, $method(static_cast<bool(*)(char16_t)>(&PatternEntry::isSpecialChar))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(ILjava/lang/StringBuffer;Ljava/lang/StringBuffer;)V", nullptr, 0, $method(PatternEntry, init$, void, int32_t, $StringBuffer*, $StringBuffer*)},
+	{"addToBuffer", "(Ljava/lang/StringBuffer;ZZLjava/text/PatternEntry;)V", nullptr, 0, $virtualMethod(PatternEntry, addToBuffer, void, $StringBuffer*, bool, bool, PatternEntry*)},
+	{"appendQuoted", "(Ljava/lang/String;Ljava/lang/StringBuffer;)V", nullptr, $STATIC, $staticMethod(PatternEntry, appendQuoted, void, $String*, $StringBuffer*)},
+	{"appendQuotedChars", "(Ljava/lang/StringBuffer;)V", nullptr, $PUBLIC, $virtualMethod(PatternEntry, appendQuotedChars, void, $StringBuffer*)},
+	{"appendQuotedExtension", "(Ljava/lang/StringBuffer;)V", nullptr, $PUBLIC, $virtualMethod(PatternEntry, appendQuotedExtension, void, $StringBuffer*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(PatternEntry, equals, bool, Object$*)},
+	{"getChars", "()Ljava/lang/String;", nullptr, $FINAL, $method(PatternEntry, getChars, $String*)},
+	{"getExtension", "()Ljava/lang/String;", nullptr, $FINAL, $method(PatternEntry, getExtension, $String*)},
+	{"getStrength", "()I", nullptr, $FINAL, $method(PatternEntry, getStrength, int32_t)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(PatternEntry, hashCode, int32_t)},
+	{"isSpecialChar", "(C)Z", nullptr, $STATIC, $staticMethod(PatternEntry, isSpecialChar, bool, char16_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PatternEntry, toString, $String*)},
 	{}
 };
 

@@ -12,11 +12,11 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $SecurityManager = ::java::lang::SecurityManager;
 
 $MethodInfo _ExecCommand$SecurityMan_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ExecCommand$SecurityMan::*)()>(&ExecCommand$SecurityMan::init$))},
-	{"checkDelete", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"checkExec", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"checkRead", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"unquote", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)($String*)>(&ExecCommand$SecurityMan::unquote))},
+	{"<init>", "()V", nullptr, 0, $method(ExecCommand$SecurityMan, init$, void)},
+	{"checkDelete", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ExecCommand$SecurityMan, checkDelete, void, $String*)},
+	{"checkExec", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ExecCommand$SecurityMan, checkExec, void, $String*)},
+	{"checkRead", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ExecCommand$SecurityMan, checkRead, void, $String*)},
+	{"unquote", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(ExecCommand$SecurityMan, unquote, $String*, $String*)},
 	{}
 };
 

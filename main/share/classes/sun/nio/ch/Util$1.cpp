@@ -21,10 +21,10 @@ namespace sun {
 		namespace ch {
 
 $MethodInfo _Util$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Util$1::*)()>(&Util$1::init$))},
-	{"initialValue", "()Lsun/nio/ch/Util$BufferCache;", nullptr, $PROTECTED},
-	{"threadTerminated", "(Lsun/nio/ch/Util$BufferCache;)V", nullptr, $PROTECTED},
-	{"threadTerminated", "(Ljava/lang/Object;)V", nullptr, $PROTECTED | $VOLATILE | $SYNTHETIC},
+	{"<init>", "()V", nullptr, 0, $method(Util$1, init$, void)},
+	{"initialValue", "()Lsun/nio/ch/Util$BufferCache;", nullptr, $PROTECTED, $virtualMethod(Util$1, initialValue, $Object*)},
+	{"threadTerminated", "(Lsun/nio/ch/Util$BufferCache;)V", nullptr, $PROTECTED, $virtualMethod(Util$1, threadTerminated, void, $Util$BufferCache*)},
+	{"threadTerminated", "(Ljava/lang/Object;)V", nullptr, $PROTECTED | $VOLATILE | $SYNTHETIC, $virtualMethod(Util$1, threadTerminated, void, Object$*)},
 	{}
 };
 

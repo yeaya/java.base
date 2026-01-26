@@ -79,7 +79,7 @@ namespace java {
 };
 
 ::java::lang::MethodInfo _RuntimeModuleReference_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/module/ModuleDescriptor;Ljava/net/URI;Ljava/lang/module/ModuleReader;)V", nullptr, 1, $method(&RuntimeModuleReference::init$)},
+	{"<init>", "(Ljava/lang/module/ModuleDescriptor;Ljava/net/URI;Ljava/lang/module/ModuleReader;)V", nullptr, 1, $method(RuntimeModuleReference, init$, void, ModuleDescriptor*, URI*, ModuleReader*)},
 	{"open", "()Ljava/lang/module/ModuleReader;", nullptr, 1},
 	{"isPatched", "()Z", nullptr, 1},
 	{"moduleTarget", "()Ljdk/internal/module/ModuleTarget;", nullptr, 1},

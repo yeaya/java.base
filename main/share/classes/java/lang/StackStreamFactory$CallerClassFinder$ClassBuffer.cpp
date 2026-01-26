@@ -28,10 +28,10 @@ $FieldInfo _StackStreamFactory$CallerClassFinder$ClassBuffer_FieldInfo_[] = {
 };
 
 $MethodInfo _StackStreamFactory$CallerClassFinder$ClassBuffer_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, 0, $method(static_cast<void(StackStreamFactory$CallerClassFinder$ClassBuffer::*)(int32_t)>(&StackStreamFactory$CallerClassFinder$ClassBuffer::init$))},
-	{"at", "(I)Ljava/lang/Class;", "(I)Ljava/lang/Class<*>;", $FINAL},
-	{"frames", "()[Ljava/lang/Class;", "()[Ljava/lang/Class<*>;", 0},
-	{"resize", "(II)V", nullptr, 0},
+	{"<init>", "(I)V", nullptr, 0, $method(StackStreamFactory$CallerClassFinder$ClassBuffer, init$, void, int32_t)},
+	{"at", "(I)Ljava/lang/Class;", "(I)Ljava/lang/Class<*>;", $FINAL, $virtualMethod(StackStreamFactory$CallerClassFinder$ClassBuffer, at, $Class*, int32_t)},
+	{"frames", "()[Ljava/lang/Class;", "()[Ljava/lang/Class<*>;", 0, $virtualMethod(StackStreamFactory$CallerClassFinder$ClassBuffer, frames, $ObjectArray*)},
+	{"resize", "(II)V", nullptr, 0, $virtualMethod(StackStreamFactory$CallerClassFinder$ClassBuffer, resize, void, int32_t, int32_t)},
 	{}
 };
 

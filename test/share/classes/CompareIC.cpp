@@ -7,9 +7,9 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 
 $MethodInfo _CompareIC_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CompareIC::*)()>(&CompareIC::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&CompareIC::main)), "java.lang.Exception"},
-	{"testTriplet", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(static_cast<void(CompareIC::*)($String*,$String*,$String*)>(&CompareIC::testTriplet)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CompareIC, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(CompareIC, main, void, $StringArray*), "java.lang.Exception"},
+	{"testTriplet", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(CompareIC, testTriplet, void, $String*, $String*, $String*), "java.lang.Exception"},
 	{}
 };
 

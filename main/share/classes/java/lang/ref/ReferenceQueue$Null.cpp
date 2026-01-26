@@ -15,8 +15,8 @@ namespace java {
 		namespace ref {
 
 $MethodInfo _ReferenceQueue$Null_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(ReferenceQueue$Null::*)()>(&ReferenceQueue$Null::init$))},
-	{"enqueue", "(Ljava/lang/ref/Reference;)Z", "(Ljava/lang/ref/Reference<*>;)Z", 0},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(ReferenceQueue$Null, init$, void)},
+	{"enqueue", "(Ljava/lang/ref/Reference;)Z", "(Ljava/lang/ref/Reference<*>;)Z", 0, $virtualMethod(ReferenceQueue$Null, enqueue, bool, $Reference*)},
 	{}
 };
 

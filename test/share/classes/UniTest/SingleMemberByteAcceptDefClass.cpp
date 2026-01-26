@@ -14,7 +14,7 @@ $CompoundAttribute _SingleMemberByteAcceptDefClass_Annotations_[] = {
 };
 
 $MethodInfo _SingleMemberByteAcceptDefClass_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(SingleMemberByteAcceptDefClass::*)()>(&SingleMemberByteAcceptDefClass::init$))},
+	{"<init>", "()V", nullptr, 0, $method(SingleMemberByteAcceptDefClass, init$, void)},
 	{}
 };
 

@@ -31,13 +31,13 @@ $FieldInfo _Finalize_FieldInfo_[] = {
 };
 
 $MethodInfo _Finalize_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Finalize::*)()>(&Finalize::init$))},
-	{"doFileChannel", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&Finalize::doFileChannel)), "java.lang.Exception"},
-	{"doFileInputStream", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&Finalize::doFileInputStream)), "java.lang.Exception"},
-	{"doFileOutputStream", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&Finalize::doFileOutputStream)), "java.lang.Exception"},
-	{"doRandomAccessFile", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&Finalize::doRandomAccessFile)), "java.lang.Exception"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Finalize::main)), "java.lang.Exception"},
-	{"writeToInFile", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&Finalize::writeToInFile)), "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Finalize, init$, void)},
+	{"doFileChannel", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(Finalize, doFileChannel, void), "java.lang.Exception"},
+	{"doFileInputStream", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(Finalize, doFileInputStream, void), "java.lang.Exception"},
+	{"doFileOutputStream", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(Finalize, doFileOutputStream, void), "java.lang.Exception"},
+	{"doRandomAccessFile", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(Finalize, doRandomAccessFile, void), "java.lang.Exception"},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Finalize, main, void, $StringArray*), "java.lang.Exception"},
+	{"writeToInFile", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(Finalize, writeToInFile, void), "java.io.IOException"},
 	{}
 };
 

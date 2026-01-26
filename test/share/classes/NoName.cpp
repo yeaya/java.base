@@ -26,9 +26,9 @@ $FieldInfo _NoName_FieldInfo_[] = {
 };
 
 $MethodInfo _NoName_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(NoName::*)()>(&NoName::init$)), "java.lang.ClassNotFoundException"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<void(*)($StringArray*)>(&NoName::main)), "java.lang.NoSuchMethodException,java.io.IOException,java.lang.ClassNotFoundException"},
-	{"run", "()V", nullptr, $PUBLIC, nullptr, "java.lang.NoSuchMethodException"},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(NoName, init$, void), "java.lang.ClassNotFoundException"},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(NoName, main, void, $StringArray*), "java.lang.NoSuchMethodException,java.io.IOException,java.lang.ClassNotFoundException"},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(NoName, run, void), "java.lang.NoSuchMethodException"},
 	{}
 };
 

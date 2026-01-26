@@ -12,10 +12,10 @@ namespace sun {
 		namespace ch {
 
 $MethodInfo _NativeThread_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(NativeThread::*)()>(&NativeThread::init$))},
-	{"current", "()J", nullptr, $PUBLIC | $STATIC | $NATIVE, $method(static_cast<int64_t(*)()>(&NativeThread::current))},
-	{"init", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $method(static_cast<void(*)()>(&NativeThread::init))},
-	{"signal", "(J)V", nullptr, $PUBLIC | $STATIC | $NATIVE, $method(static_cast<void(*)(int64_t)>(&NativeThread::signal))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(NativeThread, init$, void)},
+	{"current", "()J", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(NativeThread, current, int64_t)},
+	{"init", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(NativeThread, init, void)},
+	{"signal", "(J)V", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(NativeThread, signal, void, int64_t)},
 	{}
 };
 

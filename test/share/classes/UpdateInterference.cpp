@@ -46,8 +46,8 @@ $FieldInfo _UpdateInterference_FieldInfo_[] = {
 };
 
 $MethodInfo _UpdateInterference_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(UpdateInterference::*)()>(&UpdateInterference::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&UpdateInterference::main)), "java.io.IOException,java.lang.InterruptedException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(UpdateInterference, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(UpdateInterference, main, void, $StringArray*), "java.io.IOException,java.lang.InterruptedException"},
 	{}
 };
 

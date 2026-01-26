@@ -8,8 +8,8 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _Test$Inner1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Test$Inner1::*)()>(&Test$Inner1::init$))},
-	{"bar", "([Ljava/lang/Object;)V", "([TU;)V", 0},
+	{"<init>", "()V", nullptr, 0, $method(Test$Inner1, init$, void)},
+	{"bar", "([Ljava/lang/Object;)V", "([TU;)V", 0, $virtualMethod(Test$Inner1, bar, void, $ObjectArray*)},
 	{}
 };
 

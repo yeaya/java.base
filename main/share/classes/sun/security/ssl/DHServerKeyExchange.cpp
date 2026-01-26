@@ -26,7 +26,7 @@ $FieldInfo _DHServerKeyExchange_FieldInfo_[] = {
 };
 
 $MethodInfo _DHServerKeyExchange_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(DHServerKeyExchange::*)()>(&DHServerKeyExchange::init$))},
+	{"<init>", "()V", nullptr, 0, $method(DHServerKeyExchange, init$, void)},
 	{}
 };
 

@@ -16,8 +16,8 @@ namespace sun {
 			namespace cldr {
 
 $MethodInfo _TimeZoneNames_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TimeZoneNames::*)()>(&TimeZoneNames::init$))},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TimeZoneNames, init$, void)},
+	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(TimeZoneNames, getContents, $ObjectArray2*)},
 	{}
 };
 

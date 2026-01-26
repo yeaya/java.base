@@ -26,7 +26,7 @@ $FieldInfo _X509CertificateEvent_FieldInfo_[] = {
 };
 
 $MethodInfo _X509CertificateEvent_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(X509CertificateEvent::*)()>(&X509CertificateEvent::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(X509CertificateEvent, init$, void)},
 	{}
 };
 

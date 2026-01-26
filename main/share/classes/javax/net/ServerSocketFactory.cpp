@@ -9,6 +9,7 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $InetAddress = ::java::net::InetAddress;
 using $ServerSocket = ::java::net::ServerSocket;
 using $SocketException = ::java::net::SocketException;
 using $DefaultServerSocketFactory = ::javax::net::DefaultServerSocketFactory;
@@ -22,12 +23,12 @@ $FieldInfo _ServerSocketFactory_FieldInfo_[] = {
 };
 
 $MethodInfo _ServerSocketFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(ServerSocketFactory::*)()>(&ServerSocketFactory::init$))},
-	{"createServerSocket", "()Ljava/net/ServerSocket;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"createServerSocket", "(I)Ljava/net/ServerSocket;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"createServerSocket", "(II)Ljava/net/ServerSocket;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"createServerSocket", "(IILjava/net/InetAddress;)Ljava/net/ServerSocket;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"getDefault", "()Ljavax/net/ServerSocketFactory;", nullptr, $PUBLIC | $STATIC, $method(static_cast<ServerSocketFactory*(*)()>(&ServerSocketFactory::getDefault))},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(ServerSocketFactory, init$, void)},
+	{"createServerSocket", "()Ljava/net/ServerSocket;", nullptr, $PUBLIC, $virtualMethod(ServerSocketFactory, createServerSocket, $ServerSocket*), "java.io.IOException"},
+	{"createServerSocket", "(I)Ljava/net/ServerSocket;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ServerSocketFactory, createServerSocket, $ServerSocket*, int32_t), "java.io.IOException"},
+	{"createServerSocket", "(II)Ljava/net/ServerSocket;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ServerSocketFactory, createServerSocket, $ServerSocket*, int32_t, int32_t), "java.io.IOException"},
+	{"createServerSocket", "(IILjava/net/InetAddress;)Ljava/net/ServerSocket;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ServerSocketFactory, createServerSocket, $ServerSocket*, int32_t, int32_t, $InetAddress*), "java.io.IOException"},
+	{"getDefault", "()Ljavax/net/ServerSocketFactory;", nullptr, $PUBLIC | $STATIC, $staticMethod(ServerSocketFactory, getDefault, ServerSocketFactory*)},
 	{}
 };
 

@@ -11,8 +11,8 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _TemporarySelector$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(TemporarySelector$1::*)()>(&TemporarySelector$1::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(TemporarySelector$1, init$, void)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TemporarySelector$1, run, void)},
 	{}
 };
 

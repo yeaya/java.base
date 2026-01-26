@@ -5,18 +5,21 @@
 #include <javax/net/ssl/ManagerFactoryParameters.h>
 #include <jcpp.h>
 
+using $KeyManagerArray = $Array<::javax::net::ssl::KeyManager>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $KeyStore = ::java::security::KeyStore;
+using $ManagerFactoryParameters = ::javax::net::ssl::ManagerFactoryParameters;
 
 namespace javax {
 	namespace net {
 		namespace ssl {
 
 $MethodInfo _KeyManagerFactorySpi_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(KeyManagerFactorySpi::*)()>(&KeyManagerFactorySpi::init$))},
-	{"engineGetKeyManagers", "()[Ljavax/net/ssl/KeyManager;", nullptr, $PROTECTED | $ABSTRACT},
-	{"engineInit", "(Ljava/security/KeyStore;[C)V", nullptr, $PROTECTED | $ABSTRACT, nullptr, "java.security.KeyStoreException,java.security.NoSuchAlgorithmException,java.security.UnrecoverableKeyException"},
-	{"engineInit", "(Ljavax/net/ssl/ManagerFactoryParameters;)V", nullptr, $PROTECTED | $ABSTRACT, nullptr, "java.security.InvalidAlgorithmParameterException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(KeyManagerFactorySpi, init$, void)},
+	{"engineGetKeyManagers", "()[Ljavax/net/ssl/KeyManager;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(KeyManagerFactorySpi, engineGetKeyManagers, $KeyManagerArray*)},
+	{"engineInit", "(Ljava/security/KeyStore;[C)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(KeyManagerFactorySpi, engineInit, void, $KeyStore*, $chars*), "java.security.KeyStoreException,java.security.NoSuchAlgorithmException,java.security.UnrecoverableKeyException"},
+	{"engineInit", "(Ljavax/net/ssl/ManagerFactoryParameters;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(KeyManagerFactorySpi, engineInit, void, $ManagerFactoryParameters*), "java.security.InvalidAlgorithmParameterException"},
 	{}
 };
 

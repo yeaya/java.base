@@ -51,10 +51,10 @@ $FieldInfo _SymantecTLSPolicy_FieldInfo_[] = {
 };
 
 $MethodInfo _SymantecTLSPolicy_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(SymantecTLSPolicy::*)()>(&SymantecTLSPolicy::init$))},
-	{"checkDistrust", "([Ljava/security/cert/X509Certificate;)V", nullptr, $STATIC, $method(static_cast<void(*)($X509CertificateArray*)>(&SymantecTLSPolicy::checkDistrust)), "sun.security.validator.ValidatorException"},
-	{"checkNotBefore", "(Ljava/time/LocalDate;Ljava/time/LocalDate;Ljava/security/cert/X509Certificate;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($LocalDate*,$LocalDate*,$X509Certificate*)>(&SymantecTLSPolicy::checkNotBefore)), "sun.security.validator.ValidatorException"},
-	{"fingerprint", "(Ljava/security/cert/X509Certificate;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($X509Certificate*)>(&SymantecTLSPolicy::fingerprint))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(SymantecTLSPolicy, init$, void)},
+	{"checkDistrust", "([Ljava/security/cert/X509Certificate;)V", nullptr, $STATIC, $staticMethod(SymantecTLSPolicy, checkDistrust, void, $X509CertificateArray*), "sun.security.validator.ValidatorException"},
+	{"checkNotBefore", "(Ljava/time/LocalDate;Ljava/time/LocalDate;Ljava/security/cert/X509Certificate;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(SymantecTLSPolicy, checkNotBefore, void, $LocalDate*, $LocalDate*, $X509Certificate*), "sun.security.validator.ValidatorException"},
+	{"fingerprint", "(Ljava/security/cert/X509Certificate;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(SymantecTLSPolicy, fingerprint, $String*, $X509Certificate*)},
 	{}
 };
 

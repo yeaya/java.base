@@ -14,8 +14,8 @@ namespace java {
 	namespace security {
 
 $MethodInfo _Policy$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Policy$1::*)()>(&Policy$1::init$))},
-	{"run", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(Policy$1, init$, void)},
+	{"run", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Policy$1, run, $Object*)},
 	{}
 };
 

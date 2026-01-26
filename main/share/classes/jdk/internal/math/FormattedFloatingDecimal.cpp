@@ -41,17 +41,17 @@ $FieldInfo _FormattedFloatingDecimal_FieldInfo_[] = {
 };
 
 $MethodInfo _FormattedFloatingDecimal_MethodInfo_[] = {
-	{"<init>", "(ILjdk/internal/math/FormattedFloatingDecimal$Form;Ljdk/internal/math/FloatingDecimal$BinaryToASCIIConverter;)V", nullptr, $PRIVATE, $method(static_cast<void(FormattedFloatingDecimal::*)(int32_t,$FormattedFloatingDecimal$Form*,$FloatingDecimal$BinaryToASCIIConverter*)>(&FormattedFloatingDecimal::init$))},
-	{"applyPrecision", "(I[CII)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)(int32_t,$chars*,int32_t,int32_t)>(&FormattedFloatingDecimal::applyPrecision))},
-	{"create", "(ZI)[C", nullptr, $PRIVATE | $STATIC, $method(static_cast<$chars*(*)(bool,int32_t)>(&FormattedFloatingDecimal::create))},
-	{"fillCompatible", "(I[CIIZ)V", nullptr, $PRIVATE, $method(static_cast<void(FormattedFloatingDecimal::*)(int32_t,$chars*,int32_t,int32_t,bool)>(&FormattedFloatingDecimal::fillCompatible))},
-	{"fillDecimal", "(I[CIIZ)V", nullptr, $PRIVATE, $method(static_cast<void(FormattedFloatingDecimal::*)(int32_t,$chars*,int32_t,int32_t,bool)>(&FormattedFloatingDecimal::fillDecimal))},
-	{"fillScientific", "(I[CIIZ)V", nullptr, $PRIVATE, $method(static_cast<void(FormattedFloatingDecimal::*)(int32_t,$chars*,int32_t,int32_t,bool)>(&FormattedFloatingDecimal::fillScientific))},
-	{"getBuffer", "()[C", nullptr, $PRIVATE | $STATIC, $method(static_cast<$chars*(*)()>(&FormattedFloatingDecimal::getBuffer))},
-	{"getExponent", "()[C", nullptr, $PUBLIC},
-	{"getExponentRounded", "()I", nullptr, $PUBLIC},
-	{"getMantissa", "()[C", nullptr, $PUBLIC},
-	{"valueOf", "(DILjdk/internal/math/FormattedFloatingDecimal$Form;)Ljdk/internal/math/FormattedFloatingDecimal;", nullptr, $PUBLIC | $STATIC, $method(static_cast<FormattedFloatingDecimal*(*)(double,int32_t,$FormattedFloatingDecimal$Form*)>(&FormattedFloatingDecimal::valueOf))},
+	{"<init>", "(ILjdk/internal/math/FormattedFloatingDecimal$Form;Ljdk/internal/math/FloatingDecimal$BinaryToASCIIConverter;)V", nullptr, $PRIVATE, $method(FormattedFloatingDecimal, init$, void, int32_t, $FormattedFloatingDecimal$Form*, $FloatingDecimal$BinaryToASCIIConverter*)},
+	{"applyPrecision", "(I[CII)I", nullptr, $PRIVATE | $STATIC, $staticMethod(FormattedFloatingDecimal, applyPrecision, int32_t, int32_t, $chars*, int32_t, int32_t)},
+	{"create", "(ZI)[C", nullptr, $PRIVATE | $STATIC, $staticMethod(FormattedFloatingDecimal, create, $chars*, bool, int32_t)},
+	{"fillCompatible", "(I[CIIZ)V", nullptr, $PRIVATE, $method(FormattedFloatingDecimal, fillCompatible, void, int32_t, $chars*, int32_t, int32_t, bool)},
+	{"fillDecimal", "(I[CIIZ)V", nullptr, $PRIVATE, $method(FormattedFloatingDecimal, fillDecimal, void, int32_t, $chars*, int32_t, int32_t, bool)},
+	{"fillScientific", "(I[CIIZ)V", nullptr, $PRIVATE, $method(FormattedFloatingDecimal, fillScientific, void, int32_t, $chars*, int32_t, int32_t, bool)},
+	{"getBuffer", "()[C", nullptr, $PRIVATE | $STATIC, $staticMethod(FormattedFloatingDecimal, getBuffer, $chars*)},
+	{"getExponent", "()[C", nullptr, $PUBLIC, $virtualMethod(FormattedFloatingDecimal, getExponent, $chars*)},
+	{"getExponentRounded", "()I", nullptr, $PUBLIC, $virtualMethod(FormattedFloatingDecimal, getExponentRounded, int32_t)},
+	{"getMantissa", "()[C", nullptr, $PUBLIC, $virtualMethod(FormattedFloatingDecimal, getMantissa, $chars*)},
+	{"valueOf", "(DILjdk/internal/math/FormattedFloatingDecimal$Form;)Ljdk/internal/math/FormattedFloatingDecimal;", nullptr, $PUBLIC | $STATIC, $staticMethod(FormattedFloatingDecimal, valueOf, FormattedFloatingDecimal*, double, int32_t, $FormattedFloatingDecimal$Form*)},
 	{}
 };
 

@@ -70,17 +70,17 @@ $FieldInfo _AbstractTrustManagerWrapper_FieldInfo_[] = {
 };
 
 $MethodInfo _AbstractTrustManagerWrapper_MethodInfo_[] = {
-	{"<init>", "(Ljavax/net/ssl/X509TrustManager;)V", nullptr, 0, $method(static_cast<void(AbstractTrustManagerWrapper::*)($X509TrustManager*)>(&AbstractTrustManagerWrapper::init$))},
-	{"checkAdditionalTrust", "([Ljava/security/cert/X509Certificate;Ljava/lang/String;Ljava/net/Socket;Z)V", nullptr, $PRIVATE, $method(static_cast<void(AbstractTrustManagerWrapper::*)($X509CertificateArray*,$String*,$Socket*,bool)>(&AbstractTrustManagerWrapper::checkAdditionalTrust)), "java.security.cert.CertificateException"},
-	{"checkAdditionalTrust", "([Ljava/security/cert/X509Certificate;Ljava/lang/String;Ljavax/net/ssl/SSLEngine;Z)V", nullptr, $PRIVATE, $method(static_cast<void(AbstractTrustManagerWrapper::*)($X509CertificateArray*,$String*,$SSLEngine*,bool)>(&AbstractTrustManagerWrapper::checkAdditionalTrust)), "java.security.cert.CertificateException"},
-	{"checkAlgorithmConstraints", "([Ljava/security/cert/X509Certificate;Ljava/security/AlgorithmConstraints;Z)V", nullptr, $PRIVATE, $method(static_cast<void(AbstractTrustManagerWrapper::*)($X509CertificateArray*,$AlgorithmConstraints*,bool)>(&AbstractTrustManagerWrapper::checkAlgorithmConstraints)), "java.security.cert.CertificateException"},
-	{"checkClientTrusted", "([Ljava/security/cert/X509Certificate;Ljava/lang/String;)V", nullptr, $PUBLIC, nullptr, "java.security.cert.CertificateException"},
-	{"checkClientTrusted", "([Ljava/security/cert/X509Certificate;Ljava/lang/String;Ljava/net/Socket;)V", nullptr, $PUBLIC, nullptr, "java.security.cert.CertificateException"},
-	{"checkClientTrusted", "([Ljava/security/cert/X509Certificate;Ljava/lang/String;Ljavax/net/ssl/SSLEngine;)V", nullptr, $PUBLIC, nullptr, "java.security.cert.CertificateException"},
-	{"checkServerTrusted", "([Ljava/security/cert/X509Certificate;Ljava/lang/String;)V", nullptr, $PUBLIC, nullptr, "java.security.cert.CertificateException"},
-	{"checkServerTrusted", "([Ljava/security/cert/X509Certificate;Ljava/lang/String;Ljava/net/Socket;)V", nullptr, $PUBLIC, nullptr, "java.security.cert.CertificateException"},
-	{"checkServerTrusted", "([Ljava/security/cert/X509Certificate;Ljava/lang/String;Ljavax/net/ssl/SSLEngine;)V", nullptr, $PUBLIC, nullptr, "java.security.cert.CertificateException"},
-	{"getAcceptedIssuers", "()[Ljava/security/cert/X509Certificate;", nullptr, $PUBLIC},
+	{"<init>", "(Ljavax/net/ssl/X509TrustManager;)V", nullptr, 0, $method(AbstractTrustManagerWrapper, init$, void, $X509TrustManager*)},
+	{"checkAdditionalTrust", "([Ljava/security/cert/X509Certificate;Ljava/lang/String;Ljava/net/Socket;Z)V", nullptr, $PRIVATE, $method(AbstractTrustManagerWrapper, checkAdditionalTrust, void, $X509CertificateArray*, $String*, $Socket*, bool), "java.security.cert.CertificateException"},
+	{"checkAdditionalTrust", "([Ljava/security/cert/X509Certificate;Ljava/lang/String;Ljavax/net/ssl/SSLEngine;Z)V", nullptr, $PRIVATE, $method(AbstractTrustManagerWrapper, checkAdditionalTrust, void, $X509CertificateArray*, $String*, $SSLEngine*, bool), "java.security.cert.CertificateException"},
+	{"checkAlgorithmConstraints", "([Ljava/security/cert/X509Certificate;Ljava/security/AlgorithmConstraints;Z)V", nullptr, $PRIVATE, $method(AbstractTrustManagerWrapper, checkAlgorithmConstraints, void, $X509CertificateArray*, $AlgorithmConstraints*, bool), "java.security.cert.CertificateException"},
+	{"checkClientTrusted", "([Ljava/security/cert/X509Certificate;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(AbstractTrustManagerWrapper, checkClientTrusted, void, $X509CertificateArray*, $String*), "java.security.cert.CertificateException"},
+	{"checkClientTrusted", "([Ljava/security/cert/X509Certificate;Ljava/lang/String;Ljava/net/Socket;)V", nullptr, $PUBLIC, $virtualMethod(AbstractTrustManagerWrapper, checkClientTrusted, void, $X509CertificateArray*, $String*, $Socket*), "java.security.cert.CertificateException"},
+	{"checkClientTrusted", "([Ljava/security/cert/X509Certificate;Ljava/lang/String;Ljavax/net/ssl/SSLEngine;)V", nullptr, $PUBLIC, $virtualMethod(AbstractTrustManagerWrapper, checkClientTrusted, void, $X509CertificateArray*, $String*, $SSLEngine*), "java.security.cert.CertificateException"},
+	{"checkServerTrusted", "([Ljava/security/cert/X509Certificate;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(AbstractTrustManagerWrapper, checkServerTrusted, void, $X509CertificateArray*, $String*), "java.security.cert.CertificateException"},
+	{"checkServerTrusted", "([Ljava/security/cert/X509Certificate;Ljava/lang/String;Ljava/net/Socket;)V", nullptr, $PUBLIC, $virtualMethod(AbstractTrustManagerWrapper, checkServerTrusted, void, $X509CertificateArray*, $String*, $Socket*), "java.security.cert.CertificateException"},
+	{"checkServerTrusted", "([Ljava/security/cert/X509Certificate;Ljava/lang/String;Ljavax/net/ssl/SSLEngine;)V", nullptr, $PUBLIC, $virtualMethod(AbstractTrustManagerWrapper, checkServerTrusted, void, $X509CertificateArray*, $String*, $SSLEngine*), "java.security.cert.CertificateException"},
+	{"getAcceptedIssuers", "()[Ljava/security/cert/X509Certificate;", nullptr, $PUBLIC, $virtualMethod(AbstractTrustManagerWrapper, getAcceptedIssuers, $X509CertificateArray*)},
 	{}
 };
 

@@ -42,9 +42,9 @@ $FieldInfo _OpRead_FieldInfo_[] = {
 };
 
 $MethodInfo _OpRead_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(OpRead::*)()>(&OpRead::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&OpRead::main)), "java.lang.Exception"},
-	{"test", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&OpRead::test)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(OpRead, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(OpRead, main, void, $StringArray*), "java.lang.Exception"},
+	{"test", "()V", nullptr, $STATIC, $staticMethod(OpRead, test, void), "java.lang.Exception"},
 	{}
 };
 

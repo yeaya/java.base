@@ -70,15 +70,15 @@ $FieldInfo _ConstraintsChecker_FieldInfo_[] = {
 };
 
 $MethodInfo _ConstraintsChecker_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, 0, $method(static_cast<void(ConstraintsChecker::*)(int32_t)>(&ConstraintsChecker::init$))},
-	{"check", "(Ljava/security/cert/Certificate;Ljava/util/Collection;)V", "(Ljava/security/cert/Certificate;Ljava/util/Collection<Ljava/lang/String;>;)V", $PUBLIC, nullptr, "java.security.cert.CertPathValidatorException"},
-	{"checkBasicConstraints", "(Ljava/security/cert/X509Certificate;)V", nullptr, $PRIVATE, $method(static_cast<void(ConstraintsChecker::*)($X509Certificate*)>(&ConstraintsChecker::checkBasicConstraints)), "java.security.cert.CertPathValidatorException"},
-	{"getSupportedExtensions", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC},
-	{"init", "(Z)V", nullptr, $PUBLIC, nullptr, "java.security.cert.CertPathValidatorException"},
-	{"isForwardCheckingSupported", "()Z", nullptr, $PUBLIC},
-	{"mergeBasicConstraints", "(Ljava/security/cert/X509Certificate;I)I", nullptr, $STATIC, $method(static_cast<int32_t(*)($X509Certificate*,int32_t)>(&ConstraintsChecker::mergeBasicConstraints))},
-	{"mergeNameConstraints", "(Ljava/security/cert/X509Certificate;Lsun/security/x509/NameConstraintsExtension;)Lsun/security/x509/NameConstraintsExtension;", nullptr, $STATIC, $method(static_cast<$NameConstraintsExtension*(*)($X509Certificate*,$NameConstraintsExtension*)>(&ConstraintsChecker::mergeNameConstraints)), "java.security.cert.CertPathValidatorException"},
-	{"verifyNameConstraints", "(Ljava/security/cert/X509Certificate;)V", nullptr, $PRIVATE, $method(static_cast<void(ConstraintsChecker::*)($X509Certificate*)>(&ConstraintsChecker::verifyNameConstraints)), "java.security.cert.CertPathValidatorException"},
+	{"<init>", "(I)V", nullptr, 0, $method(ConstraintsChecker, init$, void, int32_t)},
+	{"check", "(Ljava/security/cert/Certificate;Ljava/util/Collection;)V", "(Ljava/security/cert/Certificate;Ljava/util/Collection<Ljava/lang/String;>;)V", $PUBLIC, $virtualMethod(ConstraintsChecker, check, void, $Certificate*, $Collection*), "java.security.cert.CertPathValidatorException"},
+	{"checkBasicConstraints", "(Ljava/security/cert/X509Certificate;)V", nullptr, $PRIVATE, $method(ConstraintsChecker, checkBasicConstraints, void, $X509Certificate*), "java.security.cert.CertPathValidatorException"},
+	{"getSupportedExtensions", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(ConstraintsChecker, getSupportedExtensions, $Set*)},
+	{"init", "(Z)V", nullptr, $PUBLIC, $virtualMethod(ConstraintsChecker, init, void, bool), "java.security.cert.CertPathValidatorException"},
+	{"isForwardCheckingSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(ConstraintsChecker, isForwardCheckingSupported, bool)},
+	{"mergeBasicConstraints", "(Ljava/security/cert/X509Certificate;I)I", nullptr, $STATIC, $staticMethod(ConstraintsChecker, mergeBasicConstraints, int32_t, $X509Certificate*, int32_t)},
+	{"mergeNameConstraints", "(Ljava/security/cert/X509Certificate;Lsun/security/x509/NameConstraintsExtension;)Lsun/security/x509/NameConstraintsExtension;", nullptr, $STATIC, $staticMethod(ConstraintsChecker, mergeNameConstraints, $NameConstraintsExtension*, $X509Certificate*, $NameConstraintsExtension*), "java.security.cert.CertPathValidatorException"},
+	{"verifyNameConstraints", "(Ljava/security/cert/X509Certificate;)V", nullptr, $PRIVATE, $method(ConstraintsChecker, verifyNameConstraints, void, $X509Certificate*), "java.security.cert.CertPathValidatorException"},
 	{}
 };
 

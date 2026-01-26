@@ -13,7 +13,7 @@ using $ServerSocket = ::java::net::ServerSocket;
 using $SocketImpl = ::java::net::SocketImpl;
 
 $MethodInfo _NullConstructor$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/SocketImpl;)V", nullptr, 0, $method(static_cast<void(NullConstructor$1::*)($SocketImpl*)>(&NullConstructor$1::init$))},
+	{"<init>", "(Ljava/net/SocketImpl;)V", nullptr, 0, $method(NullConstructor$1, init$, void, $SocketImpl*)},
 	{}
 };
 

@@ -19,7 +19,7 @@ $TypeAnnotation _ParameterizedBoundIndex$ConstructorParameterizedInterfaceBound_
 };
 
 $MethodInfo _ParameterizedBoundIndex$ConstructorParameterizedInterfaceBound_MethodInfo_[] = {
-	{"<init>", "()V", "<T::Ljava/util/List<*>;>()V", 0, $method(static_cast<void(ParameterizedBoundIndex$ConstructorParameterizedInterfaceBound::*)()>(&ParameterizedBoundIndex$ConstructorParameterizedInterfaceBound::init$)), nullptr, nullptr, nullptr, _ParameterizedBoundIndex$ConstructorParameterizedInterfaceBound_MethodTypeAnnotations_init$0},
+	{"<init>", "()V", "<T::Ljava/util/List<*>;>()V", 0, $method(ParameterizedBoundIndex$ConstructorParameterizedInterfaceBound, init$, void), nullptr, nullptr, nullptr, _ParameterizedBoundIndex$ConstructorParameterizedInterfaceBound_MethodTypeAnnotations_init$0},
 	{}
 };
 

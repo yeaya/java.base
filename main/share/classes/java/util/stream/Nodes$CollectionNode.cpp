@@ -31,13 +31,13 @@ $FieldInfo _Nodes$CollectionNode_FieldInfo_[] = {
 };
 
 $MethodInfo _Nodes$CollectionNode_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Collection;)V", "(Ljava/util/Collection<TT;>;)V", 0, $method(static_cast<void(Nodes$CollectionNode::*)($Collection*)>(&Nodes$CollectionNode::init$))},
-	{"asArray", "(Ljava/util/function/IntFunction;)[Ljava/lang/Object;", "(Ljava/util/function/IntFunction<[TT;>;)[TT;", $PUBLIC},
-	{"copyInto", "([Ljava/lang/Object;I)V", "([TT;I)V", $PUBLIC},
-	{"count", "()J", nullptr, $PUBLIC},
-	{"forEach", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TT;>;)V", $PUBLIC},
-	{"spliterator", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TT;>;", $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/Collection;)V", "(Ljava/util/Collection<TT;>;)V", 0, $method(Nodes$CollectionNode, init$, void, $Collection*)},
+	{"asArray", "(Ljava/util/function/IntFunction;)[Ljava/lang/Object;", "(Ljava/util/function/IntFunction<[TT;>;)[TT;", $PUBLIC, $virtualMethod(Nodes$CollectionNode, asArray, $ObjectArray*, $IntFunction*)},
+	{"copyInto", "([Ljava/lang/Object;I)V", "([TT;I)V", $PUBLIC, $virtualMethod(Nodes$CollectionNode, copyInto, void, $ObjectArray*, int32_t)},
+	{"count", "()J", nullptr, $PUBLIC, $virtualMethod(Nodes$CollectionNode, count, int64_t)},
+	{"forEach", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TT;>;)V", $PUBLIC, $virtualMethod(Nodes$CollectionNode, forEach, void, $Consumer*)},
+	{"spliterator", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TT;>;", $PUBLIC, $virtualMethod(Nodes$CollectionNode, spliterator, $Spliterator*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Nodes$CollectionNode, toString, $String*)},
 	{}
 };
 

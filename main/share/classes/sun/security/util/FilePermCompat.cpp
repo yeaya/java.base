@@ -28,9 +28,9 @@ $FieldInfo _FilePermCompat_FieldInfo_[] = {
 };
 
 $MethodInfo _FilePermCompat_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(FilePermCompat::*)()>(&FilePermCompat::init$))},
-	{"newPermPlusAltPath", "(Ljava/security/Permission;)Ljava/security/Permission;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Permission*(*)($Permission*)>(&FilePermCompat::newPermPlusAltPath))},
-	{"newPermUsingAltPath", "(Ljava/security/Permission;)Ljava/security/Permission;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Permission*(*)($Permission*)>(&FilePermCompat::newPermUsingAltPath))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(FilePermCompat, init$, void)},
+	{"newPermPlusAltPath", "(Ljava/security/Permission;)Ljava/security/Permission;", nullptr, $PUBLIC | $STATIC, $staticMethod(FilePermCompat, newPermPlusAltPath, $Permission*, $Permission*)},
+	{"newPermUsingAltPath", "(Ljava/security/Permission;)Ljava/security/Permission;", nullptr, $PUBLIC | $STATIC, $staticMethod(FilePermCompat, newPermUsingAltPath, $Permission*, $Permission*)},
 	{}
 };
 

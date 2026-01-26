@@ -14,8 +14,8 @@ namespace java {
 		namespace concurrent {
 
 $MethodInfo _CompletableFuture$Delayer$DaemonThreadFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(CompletableFuture$Delayer$DaemonThreadFactory::*)()>(&CompletableFuture$Delayer$DaemonThreadFactory::init$))},
-	{"newThread", "(Ljava/lang/Runnable;)Ljava/lang/Thread;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(CompletableFuture$Delayer$DaemonThreadFactory, init$, void)},
+	{"newThread", "(Ljava/lang/Runnable;)Ljava/lang/Thread;", nullptr, $PUBLIC, $virtualMethod(CompletableFuture$Delayer$DaemonThreadFactory, newThread, $Thread*, $Runnable*)},
 	{}
 };
 

@@ -16,8 +16,8 @@ $FieldInfo _CloneNotSupportedException_FieldInfo_[] = {
 };
 
 $MethodInfo _CloneNotSupportedException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CloneNotSupportedException::*)()>(&CloneNotSupportedException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(CloneNotSupportedException::*)($String*)>(&CloneNotSupportedException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CloneNotSupportedException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(CloneNotSupportedException, init$, void, $String*)},
 	{}
 };
 

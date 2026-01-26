@@ -30,11 +30,11 @@ $FieldInfo _PriorityBlockingQueue$Itr_FieldInfo_[] = {
 };
 
 $MethodInfo _PriorityBlockingQueue$Itr_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/PriorityBlockingQueue;[Ljava/lang/Object;)V", nullptr, 0, $method(static_cast<void(PriorityBlockingQueue$Itr::*)($PriorityBlockingQueue*,$ObjectArray*)>(&PriorityBlockingQueue$Itr::init$))},
-	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC},
-	{"hasNext", "()Z", nullptr, $PUBLIC},
-	{"next", "()Ljava/lang/Object;", "()TE;", $PUBLIC},
-	{"remove", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/concurrent/PriorityBlockingQueue;[Ljava/lang/Object;)V", nullptr, 0, $method(PriorityBlockingQueue$Itr, init$, void, $PriorityBlockingQueue*, $ObjectArray*)},
+	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC, $virtualMethod(PriorityBlockingQueue$Itr, forEachRemaining, void, $Consumer*)},
+	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(PriorityBlockingQueue$Itr, hasNext, bool)},
+	{"next", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(PriorityBlockingQueue$Itr, next, $Object*)},
+	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(PriorityBlockingQueue$Itr, remove, void)},
 	{}
 };
 

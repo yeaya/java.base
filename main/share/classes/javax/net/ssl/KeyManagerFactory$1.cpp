@@ -15,8 +15,8 @@ namespace javax {
 		namespace ssl {
 
 $MethodInfo _KeyManagerFactory$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(KeyManagerFactory$1::*)()>(&KeyManagerFactory$1::init$))},
-	{"run", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(KeyManagerFactory$1, init$, void)},
+	{"run", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KeyManagerFactory$1, run, $Object*)},
 	{}
 };
 

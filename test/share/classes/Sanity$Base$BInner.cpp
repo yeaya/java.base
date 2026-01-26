@@ -15,7 +15,7 @@ $FieldInfo _Sanity$Base$BInner_FieldInfo_[] = {
 };
 
 $MethodInfo _Sanity$Base$BInner_MethodInfo_[] = {
-	{"<init>", "(LSanity$Base;)V", nullptr, $PUBLIC, $method(static_cast<void(Sanity$Base$BInner::*)($Sanity$Base*)>(&Sanity$Base$BInner::init$))},
+	{"<init>", "(LSanity$Base;)V", nullptr, $PUBLIC, $method(Sanity$Base$BInner, init$, void, $Sanity$Base*)},
 	{}
 };
 

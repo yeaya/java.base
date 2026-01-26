@@ -14,11 +14,11 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $StringBuffer = ::java::lang::StringBuffer;
 
 $MethodInfo _EnsureCapacity_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(EnsureCapacity::*)()>(&EnsureCapacity::init$))},
-	{"checkCapacity", "(II)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)(int32_t,int32_t)>(&EnsureCapacity::checkCapacity))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&EnsureCapacity::main))},
-	{"testStringBuffer", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&EnsureCapacity::testStringBuffer))},
-	{"testStringBuilder", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&EnsureCapacity::testStringBuilder))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(EnsureCapacity, init$, void)},
+	{"checkCapacity", "(II)V", nullptr, $PRIVATE | $STATIC, $staticMethod(EnsureCapacity, checkCapacity, void, int32_t, int32_t)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(EnsureCapacity, main, void, $StringArray*)},
+	{"testStringBuffer", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(EnsureCapacity, testStringBuffer, void)},
+	{"testStringBuilder", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(EnsureCapacity, testStringBuilder, void)},
 	{}
 };
 

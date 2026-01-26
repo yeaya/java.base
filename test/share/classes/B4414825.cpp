@@ -11,8 +11,8 @@ using $SocketPermission = ::java::net::SocketPermission;
 using $Permission = ::java::security::Permission;
 
 $MethodInfo _B4414825_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(B4414825::*)()>(&B4414825::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&B4414825::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(B4414825, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(B4414825, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

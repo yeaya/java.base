@@ -63,8 +63,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo AbstractSelectableChannel$$Lambda$lambda$forEach$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(AbstractSelectableChannel$$Lambda$lambda$forEach$0::*)()>(&AbstractSelectableChannel$$Lambda$lambda$forEach$0::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(AbstractSelectableChannel$$Lambda$lambda$forEach$0, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(AbstractSelectableChannel$$Lambda$lambda$forEach$0, test, bool, Object$*)},
 	{}
 };
 $ClassInfo AbstractSelectableChannel$$Lambda$lambda$forEach$0::classInfo$ = {
@@ -103,8 +103,8 @@ $FieldInfo AbstractSelectableChannel$$Lambda$accept$1::fieldInfos[2] = {
 	{}
 };
 $MethodInfo AbstractSelectableChannel$$Lambda$accept$1::methodInfos[3] = {
-	{"<init>", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC, $method(static_cast<void(AbstractSelectableChannel$$Lambda$accept$1::*)($Consumer*)>(&AbstractSelectableChannel$$Lambda$accept$1::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC, $method(AbstractSelectableChannel$$Lambda$accept$1, init$, void, $Consumer*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(AbstractSelectableChannel$$Lambda$accept$1, accept, void, Object$*)},
 	{}
 };
 $ClassInfo AbstractSelectableChannel$$Lambda$accept$1::classInfo$ = {
@@ -133,23 +133,23 @@ $FieldInfo _AbstractSelectableChannel_FieldInfo_[] = {
 };
 
 $MethodInfo _AbstractSelectableChannel_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/channels/spi/SelectorProvider;)V", nullptr, $PROTECTED, $method(static_cast<void(AbstractSelectableChannel::*)($SelectorProvider*)>(&AbstractSelectableChannel::init$))},
-	{"addKey", "(Ljava/nio/channels/SelectionKey;)V", nullptr, $PRIVATE, $method(static_cast<void(AbstractSelectableChannel::*)($SelectionKey*)>(&AbstractSelectableChannel::addKey))},
-	{"blockingLock", "()Ljava/lang/Object;", nullptr, $PUBLIC | $FINAL},
-	{"configureBlocking", "(Z)Ljava/nio/channels/SelectableChannel;", nullptr, $PUBLIC | $FINAL, nullptr, "java.io.IOException"},
-	{"findKey", "(Ljava/nio/channels/Selector;)Ljava/nio/channels/SelectionKey;", nullptr, $PRIVATE, $method(static_cast<$SelectionKey*(AbstractSelectableChannel::*)($Selector*)>(&AbstractSelectableChannel::findKey))},
-	{"forEach", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<Ljava/nio/channels/SelectionKey;>;)V", $PRIVATE, $method(static_cast<void(AbstractSelectableChannel::*)($Consumer*)>(&AbstractSelectableChannel::forEach))},
-	{"haveValidKeys", "()Z", nullptr, $PRIVATE, $method(static_cast<bool(AbstractSelectableChannel::*)()>(&AbstractSelectableChannel::haveValidKeys))},
-	{"implCloseChannel", "()V", nullptr, $PROTECTED | $FINAL, nullptr, "java.io.IOException"},
-	{"implCloseSelectableChannel", "()V", nullptr, $PROTECTED | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"implConfigureBlocking", "(Z)V", nullptr, $PROTECTED | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"isBlocking", "()Z", nullptr, $PUBLIC | $FINAL},
-	{"isRegistered", "()Z", nullptr, $PUBLIC | $FINAL},
-	{"keyFor", "(Ljava/nio/channels/Selector;)Ljava/nio/channels/SelectionKey;", nullptr, $PUBLIC | $FINAL},
-	{"lambda$forEach$0", "(Ljava/nio/channels/SelectionKey;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($SelectionKey*)>(&AbstractSelectableChannel::lambda$forEach$0))},
-	{"provider", "()Ljava/nio/channels/spi/SelectorProvider;", nullptr, $PUBLIC | $FINAL},
-	{"register", "(Ljava/nio/channels/Selector;ILjava/lang/Object;)Ljava/nio/channels/SelectionKey;", nullptr, $PUBLIC | $FINAL, nullptr, "java.nio.channels.ClosedChannelException"},
-	{"removeKey", "(Ljava/nio/channels/SelectionKey;)V", nullptr, 0},
+	{"<init>", "(Ljava/nio/channels/spi/SelectorProvider;)V", nullptr, $PROTECTED, $method(AbstractSelectableChannel, init$, void, $SelectorProvider*)},
+	{"addKey", "(Ljava/nio/channels/SelectionKey;)V", nullptr, $PRIVATE, $method(AbstractSelectableChannel, addKey, void, $SelectionKey*)},
+	{"blockingLock", "()Ljava/lang/Object;", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractSelectableChannel, blockingLock, $Object*)},
+	{"configureBlocking", "(Z)Ljava/nio/channels/SelectableChannel;", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractSelectableChannel, configureBlocking, $SelectableChannel*, bool), "java.io.IOException"},
+	{"findKey", "(Ljava/nio/channels/Selector;)Ljava/nio/channels/SelectionKey;", nullptr, $PRIVATE, $method(AbstractSelectableChannel, findKey, $SelectionKey*, $Selector*)},
+	{"forEach", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<Ljava/nio/channels/SelectionKey;>;)V", $PRIVATE, $method(AbstractSelectableChannel, forEach, void, $Consumer*)},
+	{"haveValidKeys", "()Z", nullptr, $PRIVATE, $method(AbstractSelectableChannel, haveValidKeys, bool)},
+	{"implCloseChannel", "()V", nullptr, $PROTECTED | $FINAL, $virtualMethod(AbstractSelectableChannel, implCloseChannel, void), "java.io.IOException"},
+	{"implCloseSelectableChannel", "()V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(AbstractSelectableChannel, implCloseSelectableChannel, void), "java.io.IOException"},
+	{"implConfigureBlocking", "(Z)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(AbstractSelectableChannel, implConfigureBlocking, void, bool), "java.io.IOException"},
+	{"isBlocking", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractSelectableChannel, isBlocking, bool)},
+	{"isRegistered", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractSelectableChannel, isRegistered, bool)},
+	{"keyFor", "(Ljava/nio/channels/Selector;)Ljava/nio/channels/SelectionKey;", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractSelectableChannel, keyFor, $SelectionKey*, $Selector*)},
+	{"lambda$forEach$0", "(Ljava/nio/channels/SelectionKey;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AbstractSelectableChannel, lambda$forEach$0, bool, $SelectionKey*)},
+	{"provider", "()Ljava/nio/channels/spi/SelectorProvider;", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractSelectableChannel, provider, $SelectorProvider*)},
+	{"register", "(Ljava/nio/channels/Selector;ILjava/lang/Object;)Ljava/nio/channels/SelectionKey;", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractSelectableChannel, register$, $SelectionKey*, $Selector*, int32_t, Object$*), "java.nio.channels.ClosedChannelException"},
+	{"removeKey", "(Ljava/nio/channels/SelectionKey;)V", nullptr, 0, $virtualMethod(AbstractSelectableChannel, removeKey, void, $SelectionKey*)},
 	{}
 };
 

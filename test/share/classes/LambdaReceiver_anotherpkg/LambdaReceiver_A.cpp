@@ -8,8 +8,8 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace LambdaReceiver_anotherpkg {
 
 $MethodInfo _LambdaReceiver_A_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(LambdaReceiver_A::*)()>(&LambdaReceiver_A::init$))},
-	{"f", "()I", nullptr, $PROTECTED | $FINAL, $method(static_cast<int32_t(LambdaReceiver_A::*)()>(&LambdaReceiver_A::f))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(LambdaReceiver_A, init$, void)},
+	{"f", "()I", nullptr, $PROTECTED | $FINAL, $method(LambdaReceiver_A, f, int32_t)},
 	{}
 };
 

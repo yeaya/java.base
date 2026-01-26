@@ -20,8 +20,8 @@ $FieldInfo _CompletableFuture$DelayedCompleter_FieldInfo_[] = {
 };
 
 $MethodInfo _CompletableFuture$DelayedCompleter_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/CompletableFuture;Ljava/lang/Object;)V", "(Ljava/util/concurrent/CompletableFuture<TU;>;TU;)V", 0, $method(static_cast<void(CompletableFuture$DelayedCompleter::*)($CompletableFuture*,Object$*)>(&CompletableFuture$DelayedCompleter::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/concurrent/CompletableFuture;Ljava/lang/Object;)V", "(Ljava/util/concurrent/CompletableFuture<TU;>;TU;)V", 0, $method(CompletableFuture$DelayedCompleter, init$, void, $CompletableFuture*, Object$*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(CompletableFuture$DelayedCompleter, run, void)},
 	{}
 };
 

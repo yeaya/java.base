@@ -20,8 +20,8 @@ $FieldInfo _J_FieldInfo_[] = {
 };
 
 $MethodInfo _J_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/function/Function;)V", "(Ljava/util/function/Function<Ljava/nio/file/Path;Ljava/lang/String;>;)V", $PUBLIC, $method(static_cast<void(J::*)($Function*)>(&J::init$))},
-	{"check", "(Ljava/nio/file/Path;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/function/Function;)V", "(Ljava/util/function/Function<Ljava/nio/file/Path;Ljava/lang/String;>;)V", $PUBLIC, $method(J, init$, void, $Function*)},
+	{"check", "(Ljava/nio/file/Path;)V", nullptr, $PUBLIC, $virtualMethod(J, check, void, $Path*)},
 	{}
 };
 

@@ -28,7 +28,7 @@ $FieldInfo _DoubleConsts_FieldInfo_[] = {
 };
 
 $MethodInfo _DoubleConsts_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(DoubleConsts::*)()>(&DoubleConsts::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(DoubleConsts, init$, void)},
 	{}
 };
 

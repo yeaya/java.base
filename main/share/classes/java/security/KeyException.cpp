@@ -17,10 +17,10 @@ $FieldInfo _KeyException_FieldInfo_[] = {
 };
 
 $MethodInfo _KeyException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(KeyException::*)()>(&KeyException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(KeyException::*)($String*)>(&KeyException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(KeyException::*)($String*,$Throwable*)>(&KeyException::init$))},
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(KeyException::*)($Throwable*)>(&KeyException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(KeyException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(KeyException, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(KeyException, init$, void, $String*, $Throwable*)},
+	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(KeyException, init$, void, $Throwable*)},
 	{}
 };
 

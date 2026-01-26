@@ -27,11 +27,11 @@ $FieldInfo _PropertyResourceBundleCharset_FieldInfo_[] = {
 };
 
 $MethodInfo _PropertyResourceBundleCharset_MethodInfo_[] = {
-	{"<init>", "(Z)V", nullptr, $PUBLIC, $method(static_cast<void(PropertyResourceBundleCharset::*)(bool)>(&PropertyResourceBundleCharset::init$))},
-	{"<init>", "(Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(PropertyResourceBundleCharset::*)($String*,$StringArray*)>(&PropertyResourceBundleCharset::init$))},
-	{"contains", "(Ljava/nio/charset/Charset;)Z", nullptr, $PUBLIC},
-	{"newDecoder", "()Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC},
-	{"newEncoder", "()Ljava/nio/charset/CharsetEncoder;", nullptr, $PUBLIC},
+	{"<init>", "(Z)V", nullptr, $PUBLIC, $method(PropertyResourceBundleCharset, init$, void, bool)},
+	{"<init>", "(Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $PUBLIC, $method(PropertyResourceBundleCharset, init$, void, $String*, $StringArray*)},
+	{"contains", "(Ljava/nio/charset/Charset;)Z", nullptr, $PUBLIC, $virtualMethod(PropertyResourceBundleCharset, contains, bool, $Charset*)},
+	{"newDecoder", "()Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC, $virtualMethod(PropertyResourceBundleCharset, newDecoder, $CharsetDecoder*)},
+	{"newEncoder", "()Ljava/nio/charset/CharsetEncoder;", nullptr, $PUBLIC, $virtualMethod(PropertyResourceBundleCharset, newEncoder, $CharsetEncoder*)},
 	{}
 };
 

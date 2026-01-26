@@ -26,10 +26,10 @@ $FieldInfo _Nodes$SizedCollectorTask$OfRef_FieldInfo_[] = {
 };
 
 $MethodInfo _Nodes$SizedCollectorTask$OfRef_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Spliterator;Ljava/util/stream/PipelineHelper;[Ljava/lang/Object;)V", "(Ljava/util/Spliterator<TP_IN;>;Ljava/util/stream/PipelineHelper<TP_OUT;>;[TP_OUT;)V", 0, $method(static_cast<void(Nodes$SizedCollectorTask$OfRef::*)($Spliterator*,$PipelineHelper*,$ObjectArray*)>(&Nodes$SizedCollectorTask$OfRef::init$))},
-	{"<init>", "(Ljava/util/stream/Nodes$SizedCollectorTask$OfRef;Ljava/util/Spliterator;JJ)V", "(Ljava/util/stream/Nodes$SizedCollectorTask$OfRef<TP_IN;TP_OUT;>;Ljava/util/Spliterator<TP_IN;>;JJ)V", 0, $method(static_cast<void(Nodes$SizedCollectorTask$OfRef::*)(Nodes$SizedCollectorTask$OfRef*,$Spliterator*,int64_t,int64_t)>(&Nodes$SizedCollectorTask$OfRef::init$))},
-	{"accept", "(Ljava/lang/Object;)V", "(TP_OUT;)V", $PUBLIC},
-	{"makeChild", "(Ljava/util/Spliterator;JJ)Ljava/util/stream/Nodes$SizedCollectorTask$OfRef;", "(Ljava/util/Spliterator<TP_IN;>;JJ)Ljava/util/stream/Nodes$SizedCollectorTask$OfRef<TP_IN;TP_OUT;>;", 0},
+	{"<init>", "(Ljava/util/Spliterator;Ljava/util/stream/PipelineHelper;[Ljava/lang/Object;)V", "(Ljava/util/Spliterator<TP_IN;>;Ljava/util/stream/PipelineHelper<TP_OUT;>;[TP_OUT;)V", 0, $method(Nodes$SizedCollectorTask$OfRef, init$, void, $Spliterator*, $PipelineHelper*, $ObjectArray*)},
+	{"<init>", "(Ljava/util/stream/Nodes$SizedCollectorTask$OfRef;Ljava/util/Spliterator;JJ)V", "(Ljava/util/stream/Nodes$SizedCollectorTask$OfRef<TP_IN;TP_OUT;>;Ljava/util/Spliterator<TP_IN;>;JJ)V", 0, $method(Nodes$SizedCollectorTask$OfRef, init$, void, Nodes$SizedCollectorTask$OfRef*, $Spliterator*, int64_t, int64_t)},
+	{"accept", "(Ljava/lang/Object;)V", "(TP_OUT;)V", $PUBLIC, $virtualMethod(Nodes$SizedCollectorTask$OfRef, accept, void, Object$*)},
+	{"makeChild", "(Ljava/util/Spliterator;JJ)Ljava/util/stream/Nodes$SizedCollectorTask$OfRef;", "(Ljava/util/Spliterator<TP_IN;>;JJ)Ljava/util/stream/Nodes$SizedCollectorTask$OfRef<TP_IN;TP_OUT;>;", 0, $virtualMethod(Nodes$SizedCollectorTask$OfRef, makeChild, Nodes$SizedCollectorTask$OfRef*, $Spliterator*, int64_t, int64_t)},
 	{}
 };
 

@@ -32,10 +32,10 @@ $FieldInfo _Matcher$1MatchResultIterator_FieldInfo_[] = {
 };
 
 $MethodInfo _Matcher$1MatchResultIterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/regex/Matcher;)V", nullptr, 0, $method(static_cast<void(Matcher$1MatchResultIterator::*)($Matcher*)>(&Matcher$1MatchResultIterator::init$))},
-	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-Ljava/util/regex/MatchResult;>;)V", $PUBLIC},
-	{"hasNext", "()Z", nullptr, $PUBLIC},
-	{"next", "()Ljava/util/regex/MatchResult;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/regex/Matcher;)V", nullptr, 0, $method(Matcher$1MatchResultIterator, init$, void, $Matcher*)},
+	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-Ljava/util/regex/MatchResult;>;)V", $PUBLIC, $virtualMethod(Matcher$1MatchResultIterator, forEachRemaining, void, $Consumer*)},
+	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(Matcher$1MatchResultIterator, hasNext, bool)},
+	{"next", "()Ljava/util/regex/MatchResult;", nullptr, $PUBLIC, $virtualMethod(Matcher$1MatchResultIterator, next, $Object*)},
 	{}
 };
 

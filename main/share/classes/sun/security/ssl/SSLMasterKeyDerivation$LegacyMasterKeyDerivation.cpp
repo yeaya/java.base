@@ -55,8 +55,8 @@ $FieldInfo _SSLMasterKeyDerivation$LegacyMasterKeyDerivation_FieldInfo_[] = {
 };
 
 $MethodInfo _SSLMasterKeyDerivation$LegacyMasterKeyDerivation_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljavax/crypto/SecretKey;)V", nullptr, 0, $method(static_cast<void(SSLMasterKeyDerivation$LegacyMasterKeyDerivation::*)($HandshakeContext*,$SecretKey*)>(&SSLMasterKeyDerivation$LegacyMasterKeyDerivation::init$))},
-	{"deriveKey", "(Ljava/lang/String;Ljava/security/spec/AlgorithmParameterSpec;)Ljavax/crypto/SecretKey;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljavax/crypto/SecretKey;)V", nullptr, 0, $method(SSLMasterKeyDerivation$LegacyMasterKeyDerivation, init$, void, $HandshakeContext*, $SecretKey*)},
+	{"deriveKey", "(Ljava/lang/String;Ljava/security/spec/AlgorithmParameterSpec;)Ljavax/crypto/SecretKey;", nullptr, $PUBLIC, $virtualMethod(SSLMasterKeyDerivation$LegacyMasterKeyDerivation, deriveKey, $SecretKey*, $String*, $AlgorithmParameterSpec*), "java.io.IOException"},
 	{}
 };
 

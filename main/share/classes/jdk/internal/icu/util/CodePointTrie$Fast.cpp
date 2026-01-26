@@ -36,13 +36,13 @@ $CompoundAttribute _CodePointTrie$Fast_MethodAnnotations_cpIndex2[] = {
 };
 
 $MethodInfo _CodePointTrie$Fast_MethodInfo_[] = {
-	{"<init>", "([CLjdk/internal/icu/util/CodePointTrie$Data;III)V", nullptr, $PRIVATE, $method(static_cast<void(CodePointTrie$Fast::*)($chars*,$CodePointTrie$Data*,int32_t,int32_t,int32_t)>(&CodePointTrie$Fast::init$))},
-	{"bmpGet", "(I)I", nullptr, $PUBLIC | $ABSTRACT},
-	{"cpIndex", "(I)I", nullptr, $PROTECTED | $FINAL | $DEPRECATED, nullptr, nullptr, nullptr, _CodePointTrie$Fast_MethodAnnotations_cpIndex2},
-	{"fromBinary", "(Ljdk/internal/icu/util/CodePointTrie$ValueWidth;Ljava/nio/ByteBuffer;)Ljdk/internal/icu/util/CodePointTrie$Fast;", nullptr, $PUBLIC | $STATIC, $method(static_cast<CodePointTrie$Fast*(*)($CodePointTrie$ValueWidth*,$ByteBuffer*)>(&CodePointTrie$Fast::fromBinary))},
-	{"getType", "()Ljdk/internal/icu/util/CodePointTrie$Type;", nullptr, $PUBLIC | $FINAL},
-	{"stringIterator", "(Ljava/lang/CharSequence;I)Ljdk/internal/icu/util/CodePointMap$StringIterator;", nullptr, $PUBLIC | $FINAL},
-	{"suppGet", "(I)I", nullptr, $PUBLIC | $ABSTRACT},
+	{"<init>", "([CLjdk/internal/icu/util/CodePointTrie$Data;III)V", nullptr, $PRIVATE, $method(CodePointTrie$Fast, init$, void, $chars*, $CodePointTrie$Data*, int32_t, int32_t, int32_t)},
+	{"bmpGet", "(I)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CodePointTrie$Fast, bmpGet, int32_t, int32_t)},
+	{"cpIndex", "(I)I", nullptr, $PROTECTED | $FINAL | $DEPRECATED, $virtualMethod(CodePointTrie$Fast, cpIndex, int32_t, int32_t), nullptr, nullptr, _CodePointTrie$Fast_MethodAnnotations_cpIndex2},
+	{"fromBinary", "(Ljdk/internal/icu/util/CodePointTrie$ValueWidth;Ljava/nio/ByteBuffer;)Ljdk/internal/icu/util/CodePointTrie$Fast;", nullptr, $PUBLIC | $STATIC, $staticMethod(CodePointTrie$Fast, fromBinary, CodePointTrie$Fast*, $CodePointTrie$ValueWidth*, $ByteBuffer*)},
+	{"getType", "()Ljdk/internal/icu/util/CodePointTrie$Type;", nullptr, $PUBLIC | $FINAL, $virtualMethod(CodePointTrie$Fast, getType, $CodePointTrie$Type*)},
+	{"stringIterator", "(Ljava/lang/CharSequence;I)Ljdk/internal/icu/util/CodePointMap$StringIterator;", nullptr, $PUBLIC | $FINAL, $virtualMethod(CodePointTrie$Fast, stringIterator, $CodePointMap$StringIterator*, $CharSequence*, int32_t)},
+	{"suppGet", "(I)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CodePointTrie$Fast, suppGet, int32_t, int32_t)},
 	{}
 };
 

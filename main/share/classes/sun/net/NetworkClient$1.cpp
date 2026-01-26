@@ -20,8 +20,8 @@ $FieldInfo _NetworkClient$1_FieldInfo_[] = {
 };
 
 $MethodInfo _NetworkClient$1_MethodInfo_[] = {
-	{"<init>", "([I[Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(NetworkClient$1::*)($ints*,$StringArray*)>(&NetworkClient$1::init$))},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC},
+	{"<init>", "([I[Ljava/lang/String;)V", nullptr, 0, $method(NetworkClient$1, init$, void, $ints*, $StringArray*)},
+	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(NetworkClient$1, run, $Object*)},
 	{}
 };
 

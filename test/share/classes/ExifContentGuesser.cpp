@@ -20,8 +20,8 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $URLConnection = ::java::net::URLConnection;
 
 $MethodInfo _ExifContentGuesser_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ExifContentGuesser::*)()>(&ExifContentGuesser::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&ExifContentGuesser::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ExifContentGuesser, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ExifContentGuesser, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

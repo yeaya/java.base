@@ -31,10 +31,10 @@ $FieldInfo _LegacyAlgorithmConstraints_FieldInfo_[] = {
 };
 
 $MethodInfo _LegacyAlgorithmConstraints_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Lsun/security/util/AlgorithmDecomposer;)V", nullptr, $PUBLIC, $method(static_cast<void(LegacyAlgorithmConstraints::*)($String*,$AlgorithmDecomposer*)>(&LegacyAlgorithmConstraints::init$))},
-	{"permits", "(Ljava/util/Set;Ljava/lang/String;Ljava/security/AlgorithmParameters;)Z", "(Ljava/util/Set<Ljava/security/CryptoPrimitive;>;Ljava/lang/String;Ljava/security/AlgorithmParameters;)Z", $PUBLIC | $FINAL},
-	{"permits", "(Ljava/util/Set;Ljava/security/Key;)Z", "(Ljava/util/Set<Ljava/security/CryptoPrimitive;>;Ljava/security/Key;)Z", $PUBLIC | $FINAL},
-	{"permits", "(Ljava/util/Set;Ljava/lang/String;Ljava/security/Key;Ljava/security/AlgorithmParameters;)Z", "(Ljava/util/Set<Ljava/security/CryptoPrimitive;>;Ljava/lang/String;Ljava/security/Key;Ljava/security/AlgorithmParameters;)Z", $PUBLIC | $FINAL},
+	{"<init>", "(Ljava/lang/String;Lsun/security/util/AlgorithmDecomposer;)V", nullptr, $PUBLIC, $method(LegacyAlgorithmConstraints, init$, void, $String*, $AlgorithmDecomposer*)},
+	{"permits", "(Ljava/util/Set;Ljava/lang/String;Ljava/security/AlgorithmParameters;)Z", "(Ljava/util/Set<Ljava/security/CryptoPrimitive;>;Ljava/lang/String;Ljava/security/AlgorithmParameters;)Z", $PUBLIC | $FINAL, $virtualMethod(LegacyAlgorithmConstraints, permits, bool, $Set*, $String*, $AlgorithmParameters*)},
+	{"permits", "(Ljava/util/Set;Ljava/security/Key;)Z", "(Ljava/util/Set<Ljava/security/CryptoPrimitive;>;Ljava/security/Key;)Z", $PUBLIC | $FINAL, $virtualMethod(LegacyAlgorithmConstraints, permits, bool, $Set*, $Key*)},
+	{"permits", "(Ljava/util/Set;Ljava/lang/String;Ljava/security/Key;Ljava/security/AlgorithmParameters;)Z", "(Ljava/util/Set<Ljava/security/CryptoPrimitive;>;Ljava/lang/String;Ljava/security/Key;Ljava/security/AlgorithmParameters;)Z", $PUBLIC | $FINAL, $virtualMethod(LegacyAlgorithmConstraints, permits, bool, $Set*, $String*, $Key*, $AlgorithmParameters*)},
 	{}
 };
 

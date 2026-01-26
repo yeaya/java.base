@@ -6,17 +6,19 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Watchable = ::java::nio::file::Watchable;
+using $List = ::java::util::List;
 
 namespace java {
 	namespace nio {
 		namespace file {
 
 $MethodInfo _WatchKey_MethodInfo_[] = {
-	{"cancel", "()V", nullptr, $PUBLIC | $ABSTRACT},
-	{"isValid", "()Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"pollEvents", "()Ljava/util/List;", "()Ljava/util/List<Ljava/nio/file/WatchEvent<*>;>;", $PUBLIC | $ABSTRACT},
-	{"reset", "()Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"watchable", "()Ljava/nio/file/Watchable;", nullptr, $PUBLIC | $ABSTRACT},
+	{"cancel", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(WatchKey, cancel, void)},
+	{"isValid", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(WatchKey, isValid, bool)},
+	{"pollEvents", "()Ljava/util/List;", "()Ljava/util/List<Ljava/nio/file/WatchEvent<*>;>;", $PUBLIC | $ABSTRACT, $virtualMethod(WatchKey, pollEvents, $List*)},
+	{"reset", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(WatchKey, reset, bool)},
+	{"watchable", "()Ljava/nio/file/Watchable;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(WatchKey, watchable, $Watchable*)},
 	{}
 };
 

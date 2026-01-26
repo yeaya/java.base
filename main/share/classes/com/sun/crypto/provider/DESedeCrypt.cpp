@@ -29,11 +29,11 @@ $FieldInfo _DESedeCrypt_FieldInfo_[] = {
 };
 
 $MethodInfo _DESedeCrypt_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(DESedeCrypt::*)()>(&DESedeCrypt::init$))},
-	{"decryptBlock", "([BI[BI)V", nullptr, 0},
-	{"encryptBlock", "([BI[BI)V", nullptr, 0},
-	{"init", "(ZLjava/lang/String;[B)V", nullptr, 0, nullptr, "java.security.InvalidKeyException"},
-	{"keyEquals", "([BI[BII)Z", nullptr, $PRIVATE, $method(static_cast<bool(DESedeCrypt::*)($bytes*,int32_t,$bytes*,int32_t,int32_t)>(&DESedeCrypt::keyEquals))},
+	{"<init>", "()V", nullptr, 0, $method(DESedeCrypt, init$, void)},
+	{"decryptBlock", "([BI[BI)V", nullptr, 0, $virtualMethod(DESedeCrypt, decryptBlock, void, $bytes*, int32_t, $bytes*, int32_t)},
+	{"encryptBlock", "([BI[BI)V", nullptr, 0, $virtualMethod(DESedeCrypt, encryptBlock, void, $bytes*, int32_t, $bytes*, int32_t)},
+	{"init", "(ZLjava/lang/String;[B)V", nullptr, 0, $virtualMethod(DESedeCrypt, init, void, bool, $String*, $bytes*), "java.security.InvalidKeyException"},
+	{"keyEquals", "([BI[BII)Z", nullptr, $PRIVATE, $method(DESedeCrypt, keyEquals, bool, $bytes*, int32_t, $bytes*, int32_t, int32_t)},
 	{}
 };
 

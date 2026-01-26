@@ -6,6 +6,7 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $TemporalAccessor = ::java::time::temporal::TemporalAccessor;
 
 namespace java {
 	namespace time {
@@ -17,7 +18,7 @@ $CompoundAttribute _TemporalQuery_Annotations_[] = {
 };
 
 $MethodInfo _TemporalQuery_MethodInfo_[] = {
-	{"queryFrom", "(Ljava/time/temporal/TemporalAccessor;)Ljava/lang/Object;", "(Ljava/time/temporal/TemporalAccessor;)TR;", $PUBLIC | $ABSTRACT},
+	{"queryFrom", "(Ljava/time/temporal/TemporalAccessor;)Ljava/lang/Object;", "(Ljava/time/temporal/TemporalAccessor;)TR;", $PUBLIC | $ABSTRACT, $virtualMethod(TemporalQuery, queryFrom, $Object*, $TemporalAccessor*)},
 	{}
 };
 

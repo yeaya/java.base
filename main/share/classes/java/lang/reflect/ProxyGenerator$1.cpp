@@ -33,8 +33,8 @@ $FieldInfo _ProxyGenerator$1_FieldInfo_[] = {
 };
 
 $MethodInfo _ProxyGenerator$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;[B)V", "()V", 0, $method(static_cast<void(ProxyGenerator$1::*)($String*,$bytes*)>(&ProxyGenerator$1::init$))},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;[B)V", "()V", 0, $method(ProxyGenerator$1, init$, void, $String*, $bytes*)},
+	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(ProxyGenerator$1, run, $Object*)},
 	{}
 };
 

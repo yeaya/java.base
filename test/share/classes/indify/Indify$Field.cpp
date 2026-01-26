@@ -12,7 +12,7 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace indify {
 
 $MethodInfo _Indify$Field_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Indify$Field::*)()>(&Indify$Field::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Indify$Field, init$, void)},
 	{}
 };
 

@@ -7,7 +7,7 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _HostOfMemberNoHost_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(HostOfMemberNoHost::*)()>(&HostOfMemberNoHost::init$))},
+	{"<init>", "()V", nullptr, 0, $method(HostOfMemberNoHost, init$, void)},
 	{}
 };
 

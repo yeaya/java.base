@@ -40,16 +40,16 @@ $FieldInfo _PolicyFile$SelfPermission_FieldInfo_[] = {
 };
 
 $MethodInfo _PolicyFile$SelfPermission_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/security/cert/Certificate;)V", nullptr, $PUBLIC, $method(static_cast<void(PolicyFile$SelfPermission::*)($String*,$String*,$String*,$CertificateArray*)>(&PolicyFile$SelfPermission::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getActions", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getCerts", "()[Ljava/security/cert/Certificate;", nullptr, $PUBLIC},
-	{"getSelfActions", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getSelfName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getSelfType", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"implies", "(Ljava/security/Permission;)Z", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/security/cert/Certificate;)V", nullptr, $PUBLIC, $method(PolicyFile$SelfPermission, init$, void, $String*, $String*, $String*, $CertificateArray*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(PolicyFile$SelfPermission, equals, bool, Object$*)},
+	{"getActions", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PolicyFile$SelfPermission, getActions, $String*)},
+	{"getCerts", "()[Ljava/security/cert/Certificate;", nullptr, $PUBLIC, $virtualMethod(PolicyFile$SelfPermission, getCerts, $CertificateArray*)},
+	{"getSelfActions", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PolicyFile$SelfPermission, getSelfActions, $String*)},
+	{"getSelfName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PolicyFile$SelfPermission, getSelfName, $String*)},
+	{"getSelfType", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PolicyFile$SelfPermission, getSelfType, $String*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(PolicyFile$SelfPermission, hashCode, int32_t)},
+	{"implies", "(Ljava/security/Permission;)Z", nullptr, $PUBLIC, $virtualMethod(PolicyFile$SelfPermission, implies, bool, $Permission*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PolicyFile$SelfPermission, toString, $String*)},
 	{}
 };
 

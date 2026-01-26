@@ -45,14 +45,14 @@ $FieldInfo _JarInputStream_FieldInfo_[] = {
 };
 
 $MethodInfo _JarInputStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(static_cast<void(JarInputStream::*)($InputStream*)>(&JarInputStream::init$)), "java.io.IOException"},
-	{"<init>", "(Ljava/io/InputStream;Z)V", nullptr, $PUBLIC, $method(static_cast<void(JarInputStream::*)($InputStream*,bool)>(&JarInputStream::init$)), "java.io.IOException"},
-	{"checkManifest", "(Ljava/util/jar/JarEntry;)Ljava/util/jar/JarEntry;", nullptr, $PRIVATE, $method(static_cast<$JarEntry*(JarInputStream::*)($JarEntry*)>(&JarInputStream::checkManifest)), "java.io.IOException"},
-	{"createZipEntry", "(Ljava/lang/String;)Ljava/util/zip/ZipEntry;", nullptr, $PROTECTED},
-	{"getManifest", "()Ljava/util/jar/Manifest;", nullptr, $PUBLIC},
-	{"getNextEntry", "()Ljava/util/zip/ZipEntry;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"getNextJarEntry", "()Ljava/util/jar/JarEntry;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"read", "([BII)I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(JarInputStream, init$, void, $InputStream*), "java.io.IOException"},
+	{"<init>", "(Ljava/io/InputStream;Z)V", nullptr, $PUBLIC, $method(JarInputStream, init$, void, $InputStream*, bool), "java.io.IOException"},
+	{"checkManifest", "(Ljava/util/jar/JarEntry;)Ljava/util/jar/JarEntry;", nullptr, $PRIVATE, $method(JarInputStream, checkManifest, $JarEntry*, $JarEntry*), "java.io.IOException"},
+	{"createZipEntry", "(Ljava/lang/String;)Ljava/util/zip/ZipEntry;", nullptr, $PROTECTED, $virtualMethod(JarInputStream, createZipEntry, $ZipEntry*, $String*)},
+	{"getManifest", "()Ljava/util/jar/Manifest;", nullptr, $PUBLIC, $virtualMethod(JarInputStream, getManifest, $Manifest*)},
+	{"getNextEntry", "()Ljava/util/zip/ZipEntry;", nullptr, $PUBLIC, $virtualMethod(JarInputStream, getNextEntry, $ZipEntry*), "java.io.IOException"},
+	{"getNextJarEntry", "()Ljava/util/jar/JarEntry;", nullptr, $PUBLIC, $virtualMethod(JarInputStream, getNextJarEntry, $JarEntry*), "java.io.IOException"},
+	{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(JarInputStream, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
 	{}
 };
 

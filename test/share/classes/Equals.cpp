@@ -25,11 +25,11 @@ $FieldInfo _Equals_FieldInfo_[] = {
 };
 
 $MethodInfo _Equals_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Equals::*)()>(&Equals::init$))},
-	{"anchors", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&Equals::anchors)), "java.lang.Exception"},
-	{"compareJarURLS", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)I", nullptr, $STATIC, $method(static_cast<int32_t(*)($String*,$String*,$String*,$String*,bool)>(&Equals::compareJarURLS)), "java.lang.Exception"},
-	{"jarURLs", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&Equals::jarURLs)), "java.lang.Exception"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Equals::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Equals, init$, void)},
+	{"anchors", "()V", nullptr, $STATIC, $staticMethod(Equals, anchors, void), "java.lang.Exception"},
+	{"compareJarURLS", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)I", nullptr, $STATIC, $staticMethod(Equals, compareJarURLS, int32_t, $String*, $String*, $String*, $String*, bool), "java.lang.Exception"},
+	{"jarURLs", "()V", nullptr, $STATIC, $staticMethod(Equals, jarURLs, void), "java.lang.Exception"},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Equals, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

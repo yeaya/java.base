@@ -5,12 +5,13 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Formatter = ::java::util::Formatter;
 
 namespace java {
 	namespace util {
 
 $MethodInfo _Formattable_MethodInfo_[] = {
-	{"formatTo", "(Ljava/util/Formatter;III)V", nullptr, $PUBLIC | $ABSTRACT},
+	{"formatTo", "(Ljava/util/Formatter;III)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Formattable, formatTo, void, $Formatter*, int32_t, int32_t, int32_t)},
 	{}
 };
 

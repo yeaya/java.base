@@ -42,12 +42,12 @@ $FieldInfo _InetAddressCachePolicy_FieldInfo_[] = {
 };
 
 $MethodInfo _InetAddressCachePolicy_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(InetAddressCachePolicy::*)()>(&InetAddressCachePolicy::init$))},
-	{"checkValue", "(II)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)(int32_t,int32_t)>(&InetAddressCachePolicy::checkValue))},
-	{"get", "()I", nullptr, $PUBLIC | $STATIC, $method(static_cast<int32_t(*)()>(&InetAddressCachePolicy::get))},
-	{"getNegative", "()I", nullptr, $PUBLIC | $STATIC, $method(static_cast<int32_t(*)()>(&InetAddressCachePolicy::getNegative))},
-	{"setIfNotSet", "(I)V", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $method(static_cast<void(*)(int32_t)>(&InetAddressCachePolicy::setIfNotSet))},
-	{"setNegativeIfNotSet", "(I)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)(int32_t)>(&InetAddressCachePolicy::setNegativeIfNotSet))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(InetAddressCachePolicy, init$, void)},
+	{"checkValue", "(II)V", nullptr, $PRIVATE | $STATIC, $staticMethod(InetAddressCachePolicy, checkValue, void, int32_t, int32_t)},
+	{"get", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(InetAddressCachePolicy, get, int32_t)},
+	{"getNegative", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(InetAddressCachePolicy, getNegative, int32_t)},
+	{"setIfNotSet", "(I)V", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(InetAddressCachePolicy, setIfNotSet, void, int32_t)},
+	{"setNegativeIfNotSet", "(I)V", nullptr, $PUBLIC | $STATIC, $staticMethod(InetAddressCachePolicy, setNegativeIfNotSet, void, int32_t)},
 	{}
 };
 

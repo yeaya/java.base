@@ -34,8 +34,8 @@ $FieldInfo _EphemeralKeyManager_FieldInfo_[] = {
 };
 
 $MethodInfo _EphemeralKeyManager_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(EphemeralKeyManager::*)()>(&EphemeralKeyManager::init$))},
-	{"getRSAKeyPair", "(ZLjava/security/SecureRandom;)Ljava/security/KeyPair;", nullptr, 0, $method(static_cast<$KeyPair*(EphemeralKeyManager::*)(bool,$SecureRandom*)>(&EphemeralKeyManager::getRSAKeyPair))},
+	{"<init>", "()V", nullptr, 0, $method(EphemeralKeyManager, init$, void)},
+	{"getRSAKeyPair", "(ZLjava/security/SecureRandom;)Ljava/security/KeyPair;", nullptr, 0, $method(EphemeralKeyManager, getRSAKeyPair, $KeyPair*, bool, $SecureRandom*)},
 	{}
 };
 

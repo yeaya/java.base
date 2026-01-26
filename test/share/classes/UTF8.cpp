@@ -34,8 +34,8 @@ $FieldInfo _UTF8_FieldInfo_[] = {
 };
 
 $MethodInfo _UTF8_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(UTF8::*)()>(&UTF8::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&UTF8::main)), "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(UTF8, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(UTF8, main, void, $StringArray*), "java.io.IOException"},
 	{}
 };
 

@@ -39,8 +39,8 @@ $MethodInfo _GrandchildSuperIwithDefault_MethodInfo_[] = {
 	{"*foo", "()V", nullptr, $PUBLIC | $ABSTRACT},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"wombat", "()V", nullptr, $PUBLIC | $ABSTRACT, nullptr, nullptr, nullptr, _GrandchildSuperIwithDefault_MethodAnnotations_wombat0},
-	{"wombatD", "()V", nullptr, $PUBLIC, nullptr, nullptr, nullptr, _GrandchildSuperIwithDefault_MethodAnnotations_wombatD1},
+	{"wombat", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GrandchildSuperIwithDefault, wombat, void), nullptr, nullptr, _GrandchildSuperIwithDefault_MethodAnnotations_wombat0},
+	{"wombatD", "()V", nullptr, $PUBLIC, $virtualMethod(GrandchildSuperIwithDefault, wombatD, void), nullptr, nullptr, _GrandchildSuperIwithDefault_MethodAnnotations_wombatD1},
 	{}
 };
 

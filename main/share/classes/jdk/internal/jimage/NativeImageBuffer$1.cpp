@@ -13,8 +13,8 @@ namespace jdk {
 		namespace jimage {
 
 $MethodInfo _NativeImageBuffer$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(NativeImageBuffer$1::*)()>(&NativeImageBuffer$1::init$))},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(NativeImageBuffer$1, init$, void)},
+	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(NativeImageBuffer$1, run, $Object*)},
 	{}
 };
 

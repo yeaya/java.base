@@ -37,11 +37,11 @@ $FieldInfo _GroupOfOne$3_FieldInfo_[] = {
 };
 
 $MethodInfo _GroupOfOne$3_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/channels/AsynchronousSocketChannel;Ljava/util/concurrent/CountDownLatch;ZZLjava/nio/channels/AsynchronousChannelGroup;)V", "()V", 0, $method(static_cast<void(GroupOfOne$3::*)($AsynchronousSocketChannel*,$CountDownLatch*,bool,bool,$AsynchronousChannelGroup*)>(&GroupOfOne$3::init$))},
-	{"completed", "(Ljava/lang/Void;Ljava/lang/Void;)V", nullptr, $PUBLIC},
-	{"completed", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"failed", "(Ljava/lang/Throwable;Ljava/lang/Void;)V", nullptr, $PUBLIC},
-	{"failed", "(Ljava/lang/Throwable;Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "(Ljava/nio/channels/AsynchronousSocketChannel;Ljava/util/concurrent/CountDownLatch;ZZLjava/nio/channels/AsynchronousChannelGroup;)V", "()V", 0, $method(GroupOfOne$3, init$, void, $AsynchronousSocketChannel*, $CountDownLatch*, bool, bool, $AsynchronousChannelGroup*)},
+	{"completed", "(Ljava/lang/Void;Ljava/lang/Void;)V", nullptr, $PUBLIC, $virtualMethod(GroupOfOne$3, completed, void, $Void*, $Void*)},
+	{"completed", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(GroupOfOne$3, completed, void, Object$*, Object$*)},
+	{"failed", "(Ljava/lang/Throwable;Ljava/lang/Void;)V", nullptr, $PUBLIC, $virtualMethod(GroupOfOne$3, failed, void, $Throwable*, $Void*)},
+	{"failed", "(Ljava/lang/Throwable;Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(GroupOfOne$3, failed, void, $Throwable*, Object$*)},
 	{}
 };
 

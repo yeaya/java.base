@@ -19,8 +19,8 @@ namespace sun {
 			namespace keytool {
 
 $MethodInfo _ShowInfo_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ShowInfo::*)()>(&ShowInfo::init$))},
-	{"tls", "(Z)V", nullptr, $STATIC, $method(static_cast<void(*)(bool)>(&ShowInfo::tls)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, 0, $method(ShowInfo, init$, void)},
+	{"tls", "(Z)V", nullptr, $STATIC, $staticMethod(ShowInfo, tls, void, bool), "java.lang.Exception"},
 	{}
 };
 

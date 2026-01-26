@@ -15,7 +15,7 @@ $CompoundAttribute _PrivilegedExceptionAction_Annotations_[] = {
 };
 
 $MethodInfo _PrivilegedExceptionAction_MethodInfo_[] = {
-	{"run", "()Ljava/lang/Object;", "()TT;", $PUBLIC | $ABSTRACT, nullptr, "java.lang.Exception"},
+	{"run", "()Ljava/lang/Object;", "()TT;", $PUBLIC | $ABSTRACT, $virtualMethod(PrivilegedExceptionAction, run, $Object*), "java.lang.Exception"},
 	{}
 };
 

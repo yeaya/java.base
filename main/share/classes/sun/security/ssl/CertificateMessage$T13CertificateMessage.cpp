@@ -65,13 +65,13 @@ $FieldInfo _CertificateMessage$T13CertificateMessage_FieldInfo_[] = {
 };
 
 $MethodInfo _CertificateMessage$T13CertificateMessage_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/ssl/HandshakeContext;[B[Ljava/security/cert/X509Certificate;)V", nullptr, 0, $method(static_cast<void(CertificateMessage$T13CertificateMessage::*)($HandshakeContext*,$bytes*,$X509CertificateArray*)>(&CertificateMessage$T13CertificateMessage::init$)), "javax.net.ssl.SSLException,java.security.cert.CertificateException"},
-	{"<init>", "(Lsun/security/ssl/HandshakeContext;[BLjava/util/List;)V", "(Lsun/security/ssl/HandshakeContext;[BLjava/util/List<Lsun/security/ssl/CertificateMessage$CertificateEntry;>;)V", 0, $method(static_cast<void(CertificateMessage$T13CertificateMessage::*)($HandshakeContext*,$bytes*,$List*)>(&CertificateMessage$T13CertificateMessage::init$))},
-	{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)V", nullptr, 0, $method(static_cast<void(CertificateMessage$T13CertificateMessage::*)($HandshakeContext*,$ByteBuffer*)>(&CertificateMessage$T13CertificateMessage::init$)), "java.io.IOException"},
-	{"handshakeType", "()Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC},
-	{"messageLength", "()I", nullptr, $PUBLIC},
-	{"send", "(Lsun/security/ssl/HandshakeOutStream;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/security/ssl/HandshakeContext;[B[Ljava/security/cert/X509Certificate;)V", nullptr, 0, $method(CertificateMessage$T13CertificateMessage, init$, void, $HandshakeContext*, $bytes*, $X509CertificateArray*), "javax.net.ssl.SSLException,java.security.cert.CertificateException"},
+	{"<init>", "(Lsun/security/ssl/HandshakeContext;[BLjava/util/List;)V", "(Lsun/security/ssl/HandshakeContext;[BLjava/util/List<Lsun/security/ssl/CertificateMessage$CertificateEntry;>;)V", 0, $method(CertificateMessage$T13CertificateMessage, init$, void, $HandshakeContext*, $bytes*, $List*)},
+	{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)V", nullptr, 0, $method(CertificateMessage$T13CertificateMessage, init$, void, $HandshakeContext*, $ByteBuffer*), "java.io.IOException"},
+	{"handshakeType", "()Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC, $virtualMethod(CertificateMessage$T13CertificateMessage, handshakeType, $SSLHandshake*)},
+	{"messageLength", "()I", nullptr, $PUBLIC, $virtualMethod(CertificateMessage$T13CertificateMessage, messageLength, int32_t)},
+	{"send", "(Lsun/security/ssl/HandshakeOutStream;)V", nullptr, $PUBLIC, $virtualMethod(CertificateMessage$T13CertificateMessage, send, void, $HandshakeOutStream*), "java.io.IOException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CertificateMessage$T13CertificateMessage, toString, $String*)},
 	{}
 };
 

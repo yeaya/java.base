@@ -14,7 +14,7 @@ $TypeAnnotation _ParameterizedBoundIndex$ConstructorParameterizedClassBound_Meth
 };
 
 $MethodInfo _ParameterizedBoundIndex$ConstructorParameterizedClassBound_MethodInfo_[] = {
-	{"<init>", "()V", "<T:Ljava/util/ArrayList<*>;>()V", 0, $method(static_cast<void(ParameterizedBoundIndex$ConstructorParameterizedClassBound::*)()>(&ParameterizedBoundIndex$ConstructorParameterizedClassBound::init$)), nullptr, nullptr, nullptr, _ParameterizedBoundIndex$ConstructorParameterizedClassBound_MethodTypeAnnotations_init$0},
+	{"<init>", "()V", "<T:Ljava/util/ArrayList<*>;>()V", 0, $method(ParameterizedBoundIndex$ConstructorParameterizedClassBound, init$, void), nullptr, nullptr, nullptr, _ParameterizedBoundIndex$ConstructorParameterizedClassBound_MethodTypeAnnotations_init$0},
 	{}
 };
 

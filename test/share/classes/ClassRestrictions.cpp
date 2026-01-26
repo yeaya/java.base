@@ -46,8 +46,8 @@ $FieldInfo _ClassRestrictions_FieldInfo_[] = {
 };
 
 $MethodInfo _ClassRestrictions_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ClassRestrictions::*)()>(&ClassRestrictions::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&ClassRestrictions::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ClassRestrictions, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ClassRestrictions, main, void, $StringArray*)},
 	{}
 };
 

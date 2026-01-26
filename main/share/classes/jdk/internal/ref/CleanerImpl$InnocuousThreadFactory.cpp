@@ -29,9 +29,9 @@ $FieldInfo _CleanerImpl$InnocuousThreadFactory_FieldInfo_[] = {
 };
 
 $MethodInfo _CleanerImpl$InnocuousThreadFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(CleanerImpl$InnocuousThreadFactory::*)()>(&CleanerImpl$InnocuousThreadFactory::init$))},
-	{"factory", "()Ljava/util/concurrent/ThreadFactory;", nullptr, $STATIC, $method(static_cast<$ThreadFactory*(*)()>(&CleanerImpl$InnocuousThreadFactory::factory))},
-	{"newThread", "(Ljava/lang/Runnable;)Ljava/lang/Thread;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(CleanerImpl$InnocuousThreadFactory, init$, void)},
+	{"factory", "()Ljava/util/concurrent/ThreadFactory;", nullptr, $STATIC, $staticMethod(CleanerImpl$InnocuousThreadFactory, factory, $ThreadFactory*)},
+	{"newThread", "(Ljava/lang/Runnable;)Ljava/lang/Thread;", nullptr, $PUBLIC, $virtualMethod(CleanerImpl$InnocuousThreadFactory, newThread, $Thread*, $Runnable*)},
 	{}
 };
 

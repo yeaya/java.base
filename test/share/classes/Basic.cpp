@@ -46,19 +46,19 @@ $FieldInfo _Basic_FieldInfo_[] = {
 };
 
 $MethodInfo _Basic_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Basic::*)()>(&Basic::init$))},
-	{"cmp", "(JLjava/util/concurrent/TimeUnit;JLjava/util/concurrent/TimeUnit;I)V", nullptr, $STATIC, $method(static_cast<void(*)(int64_t,$TimeUnit*,int64_t,$TimeUnit*,int32_t)>(&Basic::cmp))},
-	{"cmp", "(Ljava/time/Instant;JLjava/util/concurrent/TimeUnit;I)V", nullptr, $STATIC, $method(static_cast<void(*)($Instant*,int64_t,$TimeUnit*,int32_t)>(&Basic::cmp))},
-	{"eq", "(JLjava/util/concurrent/TimeUnit;JLjava/util/concurrent/TimeUnit;)V", nullptr, $STATIC, $method(static_cast<void(*)(int64_t,$TimeUnit*,int64_t,$TimeUnit*)>(&Basic::eq))},
-	{"eq", "(Ljava/time/Instant;JLjava/util/concurrent/TimeUnit;)V", nullptr, $STATIC, $method(static_cast<void(*)($Instant*,int64_t,$TimeUnit*)>(&Basic::eq))},
-	{"eqTime", "(JLjava/util/concurrent/TimeUnit;Ljava/time/Instant;)V", nullptr, $STATIC, $method(static_cast<void(*)(int64_t,$TimeUnit*,$Instant*)>(&Basic::eqTime))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Basic::main))},
-	{"neq", "(JLjava/util/concurrent/TimeUnit;JLjava/util/concurrent/TimeUnit;)V", nullptr, $STATIC, $method(static_cast<void(*)(int64_t,$TimeUnit*,int64_t,$TimeUnit*)>(&Basic::neq))},
-	{"neq", "(Ljava/time/Instant;JLjava/util/concurrent/TimeUnit;)V", nullptr, $STATIC, $method(static_cast<void(*)($Instant*,int64_t,$TimeUnit*)>(&Basic::neq))},
-	{"overflow", "(JJ)V", nullptr, $STATIC, $method(static_cast<void(*)(int64_t,int64_t)>(&Basic::overflow))},
-	{"to", "(JLjava/util/concurrent/TimeUnit;)V", nullptr, $STATIC, $method(static_cast<void(*)(int64_t,$TimeUnit*)>(&Basic::to))},
-	{"ts", "(JLjava/util/concurrent/TimeUnit;Ljava/lang/String;)V", nullptr, $STATIC, $method(static_cast<void(*)(int64_t,$TimeUnit*,$String*)>(&Basic::ts))},
-	{"ts", "(Ljava/time/Instant;Ljava/lang/String;)V", nullptr, $STATIC, $method(static_cast<void(*)($Instant*,$String*)>(&Basic::ts))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Basic, init$, void)},
+	{"cmp", "(JLjava/util/concurrent/TimeUnit;JLjava/util/concurrent/TimeUnit;I)V", nullptr, $STATIC, $staticMethod(Basic, cmp, void, int64_t, $TimeUnit*, int64_t, $TimeUnit*, int32_t)},
+	{"cmp", "(Ljava/time/Instant;JLjava/util/concurrent/TimeUnit;I)V", nullptr, $STATIC, $staticMethod(Basic, cmp, void, $Instant*, int64_t, $TimeUnit*, int32_t)},
+	{"eq", "(JLjava/util/concurrent/TimeUnit;JLjava/util/concurrent/TimeUnit;)V", nullptr, $STATIC, $staticMethod(Basic, eq, void, int64_t, $TimeUnit*, int64_t, $TimeUnit*)},
+	{"eq", "(Ljava/time/Instant;JLjava/util/concurrent/TimeUnit;)V", nullptr, $STATIC, $staticMethod(Basic, eq, void, $Instant*, int64_t, $TimeUnit*)},
+	{"eqTime", "(JLjava/util/concurrent/TimeUnit;Ljava/time/Instant;)V", nullptr, $STATIC, $staticMethod(Basic, eqTime, void, int64_t, $TimeUnit*, $Instant*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Basic, main, void, $StringArray*)},
+	{"neq", "(JLjava/util/concurrent/TimeUnit;JLjava/util/concurrent/TimeUnit;)V", nullptr, $STATIC, $staticMethod(Basic, neq, void, int64_t, $TimeUnit*, int64_t, $TimeUnit*)},
+	{"neq", "(Ljava/time/Instant;JLjava/util/concurrent/TimeUnit;)V", nullptr, $STATIC, $staticMethod(Basic, neq, void, $Instant*, int64_t, $TimeUnit*)},
+	{"overflow", "(JJ)V", nullptr, $STATIC, $staticMethod(Basic, overflow, void, int64_t, int64_t)},
+	{"to", "(JLjava/util/concurrent/TimeUnit;)V", nullptr, $STATIC, $staticMethod(Basic, to, void, int64_t, $TimeUnit*)},
+	{"ts", "(JLjava/util/concurrent/TimeUnit;Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(Basic, ts, void, int64_t, $TimeUnit*, $String*)},
+	{"ts", "(Ljava/time/Instant;Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(Basic, ts, void, $Instant*, $String*)},
 	{}
 };
 

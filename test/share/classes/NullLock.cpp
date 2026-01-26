@@ -20,10 +20,10 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
 
 $MethodInfo _NullLock_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(NullLock::*)()>(&NullLock::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&NullLock::main)), "java.lang.Exception"},
-	{"testBufferedReader", "()Z", nullptr, $STATIC, $method(static_cast<bool(*)()>(&NullLock::testBufferedReader))},
-	{"testBufferedWriter", "()Z", nullptr, $STATIC, $method(static_cast<bool(*)()>(&NullLock::testBufferedWriter))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(NullLock, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(NullLock, main, void, $StringArray*), "java.lang.Exception"},
+	{"testBufferedReader", "()Z", nullptr, $STATIC, $staticMethod(NullLock, testBufferedReader, bool)},
+	{"testBufferedWriter", "()Z", nullptr, $STATIC, $staticMethod(NullLock, testBufferedWriter, bool)},
 	{}
 };
 

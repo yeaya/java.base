@@ -12,6 +12,7 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ChronoLocalDate = ::java::time::chrono::ChronoLocalDate;
+using $Chronology = ::java::time::chrono::Chronology;
 using $TemporalAmount = ::java::time::temporal::TemporalAmount;
 using $TemporalUnit = ::java::time::temporal::TemporalUnit;
 using $Iterator = ::java::util::Iterator;
@@ -24,19 +25,19 @@ namespace java {
 
 $MethodInfo _ChronoPeriod_MethodInfo_[] = {
 	{"addTo", "(Ljava/time/temporal/Temporal;)Ljava/time/temporal/Temporal;", nullptr, $PUBLIC | $ABSTRACT},
-	{"between", "(Ljava/time/chrono/ChronoLocalDate;Ljava/time/chrono/ChronoLocalDate;)Ljava/time/chrono/ChronoPeriod;", nullptr, $PUBLIC | $STATIC, $method(static_cast<ChronoPeriod*(*)($ChronoLocalDate*,$ChronoLocalDate*)>(&ChronoPeriod::between))},
+	{"between", "(Ljava/time/chrono/ChronoLocalDate;Ljava/time/chrono/ChronoLocalDate;)Ljava/time/chrono/ChronoPeriod;", nullptr, $PUBLIC | $STATIC, $staticMethod(ChronoPeriod, between, ChronoPeriod*, $ChronoLocalDate*, $ChronoLocalDate*)},
 	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
 	{"get", "(Ljava/time/temporal/TemporalUnit;)J", nullptr, $PUBLIC | $ABSTRACT},
-	{"getChronology", "()Ljava/time/chrono/Chronology;", nullptr, $PUBLIC | $ABSTRACT},
+	{"getChronology", "()Ljava/time/chrono/Chronology;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ChronoPeriod, getChronology, $Chronology*)},
 	{"getUnits", "()Ljava/util/List;", nullptr, $PUBLIC | $ABSTRACT},
 	{"hashCode", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"isNegative", "()Z", nullptr, $PUBLIC},
-	{"isZero", "()Z", nullptr, $PUBLIC},
-	{"minus", "(Ljava/time/temporal/TemporalAmount;)Ljava/time/chrono/ChronoPeriod;", nullptr, $PUBLIC | $ABSTRACT},
-	{"multipliedBy", "(I)Ljava/time/chrono/ChronoPeriod;", nullptr, $PUBLIC | $ABSTRACT},
-	{"negated", "()Ljava/time/chrono/ChronoPeriod;", nullptr, $PUBLIC},
-	{"normalized", "()Ljava/time/chrono/ChronoPeriod;", nullptr, $PUBLIC | $ABSTRACT},
-	{"plus", "(Ljava/time/temporal/TemporalAmount;)Ljava/time/chrono/ChronoPeriod;", nullptr, $PUBLIC | $ABSTRACT},
+	{"isNegative", "()Z", nullptr, $PUBLIC, $virtualMethod(ChronoPeriod, isNegative, bool)},
+	{"isZero", "()Z", nullptr, $PUBLIC, $virtualMethod(ChronoPeriod, isZero, bool)},
+	{"minus", "(Ljava/time/temporal/TemporalAmount;)Ljava/time/chrono/ChronoPeriod;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ChronoPeriod, minus, ChronoPeriod*, $TemporalAmount*)},
+	{"multipliedBy", "(I)Ljava/time/chrono/ChronoPeriod;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ChronoPeriod, multipliedBy, ChronoPeriod*, int32_t)},
+	{"negated", "()Ljava/time/chrono/ChronoPeriod;", nullptr, $PUBLIC, $virtualMethod(ChronoPeriod, negated, ChronoPeriod*)},
+	{"normalized", "()Ljava/time/chrono/ChronoPeriod;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ChronoPeriod, normalized, ChronoPeriod*)},
+	{"plus", "(Ljava/time/temporal/TemporalAmount;)Ljava/time/chrono/ChronoPeriod;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ChronoPeriod, plus, ChronoPeriod*, $TemporalAmount*)},
 	{"subtractFrom", "(Ljava/time/temporal/Temporal;)Ljava/time/temporal/Temporal;", nullptr, $PUBLIC | $ABSTRACT},
 	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
 	{}

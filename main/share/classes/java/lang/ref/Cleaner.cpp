@@ -35,10 +35,10 @@ $FieldInfo _Cleaner_FieldInfo_[] = {
 };
 
 $MethodInfo _Cleaner_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(Cleaner::*)()>(&Cleaner::init$))},
-	{"create", "()Ljava/lang/ref/Cleaner;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Cleaner*(*)()>(&Cleaner::create))},
-	{"create", "(Ljava/util/concurrent/ThreadFactory;)Ljava/lang/ref/Cleaner;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Cleaner*(*)($ThreadFactory*)>(&Cleaner::create))},
-	{"register", "(Ljava/lang/Object;Ljava/lang/Runnable;)Ljava/lang/ref/Cleaner$Cleanable;", nullptr, $PUBLIC, $method(static_cast<$Cleaner$Cleanable*(Cleaner::*)(Object$*,$Runnable*)>(&Cleaner::register$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(Cleaner, init$, void)},
+	{"create", "()Ljava/lang/ref/Cleaner;", nullptr, $PUBLIC | $STATIC, $staticMethod(Cleaner, create, Cleaner*)},
+	{"create", "(Ljava/util/concurrent/ThreadFactory;)Ljava/lang/ref/Cleaner;", nullptr, $PUBLIC | $STATIC, $staticMethod(Cleaner, create, Cleaner*, $ThreadFactory*)},
+	{"register", "(Ljava/lang/Object;Ljava/lang/Runnable;)Ljava/lang/ref/Cleaner$Cleanable;", nullptr, $PUBLIC, $method(Cleaner, register$, $Cleaner$Cleanable*, Object$*, $Runnable*)},
 	{}
 };
 

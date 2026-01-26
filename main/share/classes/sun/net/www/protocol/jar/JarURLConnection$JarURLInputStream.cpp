@@ -28,8 +28,8 @@ $FieldInfo _JarURLConnection$JarURLInputStream_FieldInfo_[] = {
 };
 
 $MethodInfo _JarURLConnection$JarURLInputStream_MethodInfo_[] = {
-	{"<init>", "(Lsun/net/www/protocol/jar/JarURLConnection;Ljava/io/InputStream;)V", nullptr, 0, $method(static_cast<void(JarURLConnection$JarURLInputStream::*)($JarURLConnection*,$InputStream*)>(&JarURLConnection$JarURLInputStream::init$))},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Lsun/net/www/protocol/jar/JarURLConnection;Ljava/io/InputStream;)V", nullptr, 0, $method(JarURLConnection$JarURLInputStream, init$, void, $JarURLConnection*, $InputStream*)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(JarURLConnection$JarURLInputStream, close, void), "java.io.IOException"},
 	{}
 };
 

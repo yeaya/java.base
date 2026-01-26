@@ -70,17 +70,17 @@ $FieldInfo _AbstractPoller_FieldInfo_[] = {
 };
 
 $MethodInfo _AbstractPoller_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(AbstractPoller::*)()>(&AbstractPoller::init$))},
-	{"cancel", "(Ljava/nio/file/WatchKey;)V", nullptr, $FINAL, $method(static_cast<void(AbstractPoller::*)($WatchKey*)>(&AbstractPoller::cancel))},
-	{"close", "()V", nullptr, $FINAL, $method(static_cast<void(AbstractPoller::*)()>(&AbstractPoller::close)), "java.io.IOException"},
-	{"implCancelKey", "(Ljava/nio/file/WatchKey;)V", nullptr, $ABSTRACT},
-	{"implCloseAll", "()V", nullptr, $ABSTRACT},
-	{"implRegister", "(Ljava/nio/file/Path;Ljava/util/Set;[Ljava/nio/file/WatchEvent$Modifier;)Ljava/lang/Object;", "(Ljava/nio/file/Path;Ljava/util/Set<+Ljava/nio/file/WatchEvent$Kind<*>;>;[Ljava/nio/file/WatchEvent$Modifier;)Ljava/lang/Object;", $TRANSIENT | $ABSTRACT},
-	{"invoke", "(Lsun/nio/fs/AbstractPoller$RequestType;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $TRANSIENT, $method(static_cast<$Object*(AbstractPoller::*)($AbstractPoller$RequestType*,$ObjectArray*)>(&AbstractPoller::invoke)), "java.io.IOException"},
-	{"processRequests", "()Z", nullptr, 0},
-	{"register", "(Ljava/nio/file/Path;[Ljava/nio/file/WatchEvent$Kind;[Ljava/nio/file/WatchEvent$Modifier;)Ljava/nio/file/WatchKey;", "(Ljava/nio/file/Path;[Ljava/nio/file/WatchEvent$Kind<*>;[Ljava/nio/file/WatchEvent$Modifier;)Ljava/nio/file/WatchKey;", $FINAL | $TRANSIENT, $method(static_cast<$WatchKey*(AbstractPoller::*)($Path*,$WatchEvent$KindArray*,$WatchEvent$ModifierArray*)>(&AbstractPoller::register$)), "java.io.IOException"},
-	{"start", "()V", nullptr, $PUBLIC},
-	{"wakeup", "()V", nullptr, $ABSTRACT, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(AbstractPoller, init$, void)},
+	{"cancel", "(Ljava/nio/file/WatchKey;)V", nullptr, $FINAL, $method(AbstractPoller, cancel, void, $WatchKey*)},
+	{"close", "()V", nullptr, $FINAL, $method(AbstractPoller, close, void), "java.io.IOException"},
+	{"implCancelKey", "(Ljava/nio/file/WatchKey;)V", nullptr, $ABSTRACT, $virtualMethod(AbstractPoller, implCancelKey, void, $WatchKey*)},
+	{"implCloseAll", "()V", nullptr, $ABSTRACT, $virtualMethod(AbstractPoller, implCloseAll, void)},
+	{"implRegister", "(Ljava/nio/file/Path;Ljava/util/Set;[Ljava/nio/file/WatchEvent$Modifier;)Ljava/lang/Object;", "(Ljava/nio/file/Path;Ljava/util/Set<+Ljava/nio/file/WatchEvent$Kind<*>;>;[Ljava/nio/file/WatchEvent$Modifier;)Ljava/lang/Object;", $TRANSIENT | $ABSTRACT, $virtualMethod(AbstractPoller, implRegister, $Object*, $Path*, $Set*, $WatchEvent$ModifierArray*)},
+	{"invoke", "(Lsun/nio/fs/AbstractPoller$RequestType;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $TRANSIENT, $method(AbstractPoller, invoke, $Object*, $AbstractPoller$RequestType*, $ObjectArray*), "java.io.IOException"},
+	{"processRequests", "()Z", nullptr, 0, $virtualMethod(AbstractPoller, processRequests, bool)},
+	{"register", "(Ljava/nio/file/Path;[Ljava/nio/file/WatchEvent$Kind;[Ljava/nio/file/WatchEvent$Modifier;)Ljava/nio/file/WatchKey;", "(Ljava/nio/file/Path;[Ljava/nio/file/WatchEvent$Kind<*>;[Ljava/nio/file/WatchEvent$Modifier;)Ljava/nio/file/WatchKey;", $FINAL | $TRANSIENT, $method(AbstractPoller, register$, $WatchKey*, $Path*, $WatchEvent$KindArray*, $WatchEvent$ModifierArray*), "java.io.IOException"},
+	{"start", "()V", nullptr, $PUBLIC, $virtualMethod(AbstractPoller, start, void)},
+	{"wakeup", "()V", nullptr, $ABSTRACT, $virtualMethod(AbstractPoller, wakeup, void), "java.io.IOException"},
 	{}
 };
 

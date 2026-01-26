@@ -42,13 +42,13 @@ $FieldInfo _TimeZoneNameProviderImpl_FieldInfo_[] = {
 };
 
 $MethodInfo _TimeZoneNameProviderImpl_MethodInfo_[] = {
-	{"<init>", "(Lsun/util/locale/provider/LocaleProviderAdapter$Type;Ljava/util/Set;)V", "(Lsun/util/locale/provider/LocaleProviderAdapter$Type;Ljava/util/Set<Ljava/lang/String;>;)V", $PROTECTED, $method(static_cast<void(TimeZoneNameProviderImpl::*)($LocaleProviderAdapter$Type*,$Set*)>(&TimeZoneNameProviderImpl::init$))},
-	{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC},
-	{"getDisplayName", "(Ljava/lang/String;ZILjava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getDisplayNameArray", "(Ljava/lang/String;Ljava/util/Locale;)[Ljava/lang/String;", nullptr, $PROTECTED},
-	{"getGenericDisplayName", "(Ljava/lang/String;ILjava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getZoneStrings", "(Ljava/util/Locale;)[[Ljava/lang/String;", nullptr, $PROTECTED},
-	{"isSupportedLocale", "(Ljava/util/Locale;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/util/locale/provider/LocaleProviderAdapter$Type;Ljava/util/Set;)V", "(Lsun/util/locale/provider/LocaleProviderAdapter$Type;Ljava/util/Set<Ljava/lang/String;>;)V", $PROTECTED, $method(TimeZoneNameProviderImpl, init$, void, $LocaleProviderAdapter$Type*, $Set*)},
+	{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(TimeZoneNameProviderImpl, getAvailableLocales, $LocaleArray*)},
+	{"getDisplayName", "(Ljava/lang/String;ZILjava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TimeZoneNameProviderImpl, getDisplayName, $String*, $String*, bool, int32_t, $Locale*)},
+	{"getDisplayNameArray", "(Ljava/lang/String;Ljava/util/Locale;)[Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(TimeZoneNameProviderImpl, getDisplayNameArray, $StringArray*, $String*, $Locale*)},
+	{"getGenericDisplayName", "(Ljava/lang/String;ILjava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TimeZoneNameProviderImpl, getGenericDisplayName, $String*, $String*, int32_t, $Locale*)},
+	{"getZoneStrings", "(Ljava/util/Locale;)[[Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(TimeZoneNameProviderImpl, getZoneStrings, $StringArray2*, $Locale*)},
+	{"isSupportedLocale", "(Ljava/util/Locale;)Z", nullptr, $PUBLIC, $virtualMethod(TimeZoneNameProviderImpl, isSupportedLocale, bool, $Locale*)},
 	{}
 };
 

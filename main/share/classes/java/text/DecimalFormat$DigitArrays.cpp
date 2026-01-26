@@ -19,7 +19,7 @@ $FieldInfo _DecimalFormat$DigitArrays_FieldInfo_[] = {
 };
 
 $MethodInfo _DecimalFormat$DigitArrays_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(DecimalFormat$DigitArrays::*)()>(&DecimalFormat$DigitArrays::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(DecimalFormat$DigitArrays, init$, void)},
 	{}
 };
 

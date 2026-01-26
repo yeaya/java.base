@@ -27,14 +27,14 @@ $FieldInfo _Class$EnclosingMethodInfo_FieldInfo_[] = {
 };
 
 $MethodInfo _Class$EnclosingMethodInfo_MethodInfo_[] = {
-	{"<init>", "([Ljava/lang/Object;)V", nullptr, 0, $method(static_cast<void(Class$EnclosingMethodInfo::*)($ObjectArray*)>(&Class$EnclosingMethodInfo::init$))},
-	{"getDescriptor", "()Ljava/lang/String;", nullptr, 0, $method(static_cast<$String*(Class$EnclosingMethodInfo::*)()>(&Class$EnclosingMethodInfo::getDescriptor))},
-	{"getEnclosingClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", 0, $method(static_cast<$Class*(Class$EnclosingMethodInfo::*)()>(&Class$EnclosingMethodInfo::getEnclosingClass))},
-	{"getName", "()Ljava/lang/String;", nullptr, 0, $method(static_cast<$String*(Class$EnclosingMethodInfo::*)()>(&Class$EnclosingMethodInfo::getName))},
-	{"isConstructor", "()Z", nullptr, 0, $method(static_cast<bool(Class$EnclosingMethodInfo::*)()>(&Class$EnclosingMethodInfo::isConstructor))},
-	{"isMethod", "()Z", nullptr, 0, $method(static_cast<bool(Class$EnclosingMethodInfo::*)()>(&Class$EnclosingMethodInfo::isMethod))},
-	{"isPartial", "()Z", nullptr, 0, $method(static_cast<bool(Class$EnclosingMethodInfo::*)()>(&Class$EnclosingMethodInfo::isPartial))},
-	{"validate", "([Ljava/lang/Object;)V", nullptr, $STATIC, $method(static_cast<void(*)($ObjectArray*)>(&Class$EnclosingMethodInfo::validate))},
+	{"<init>", "([Ljava/lang/Object;)V", nullptr, 0, $method(Class$EnclosingMethodInfo, init$, void, $ObjectArray*)},
+	{"getDescriptor", "()Ljava/lang/String;", nullptr, 0, $method(Class$EnclosingMethodInfo, getDescriptor, $String*)},
+	{"getEnclosingClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", 0, $method(Class$EnclosingMethodInfo, getEnclosingClass, $Class*)},
+	{"getName", "()Ljava/lang/String;", nullptr, 0, $method(Class$EnclosingMethodInfo, getName, $String*)},
+	{"isConstructor", "()Z", nullptr, 0, $method(Class$EnclosingMethodInfo, isConstructor, bool)},
+	{"isMethod", "()Z", nullptr, 0, $method(Class$EnclosingMethodInfo, isMethod, bool)},
+	{"isPartial", "()Z", nullptr, 0, $method(Class$EnclosingMethodInfo, isPartial, bool)},
+	{"validate", "([Ljava/lang/Object;)V", nullptr, $STATIC, $staticMethod(Class$EnclosingMethodInfo, validate, void, $ObjectArray*)},
 	{}
 };
 

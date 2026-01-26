@@ -19,7 +19,7 @@ $FieldInfo _ProtectionDomain$DebugHolder_FieldInfo_[] = {
 };
 
 $MethodInfo _ProtectionDomain$DebugHolder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(ProtectionDomain$DebugHolder::*)()>(&ProtectionDomain$DebugHolder::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(ProtectionDomain$DebugHolder, init$, void)},
 	{}
 };
 

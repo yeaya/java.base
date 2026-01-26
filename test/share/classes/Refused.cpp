@@ -32,11 +32,11 @@ $FieldInfo _Refused_FieldInfo_[] = {
 };
 
 $MethodInfo _Refused_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Refused::*)()>(&Refused::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Refused::main)), "java.lang.Exception"},
-	{"setup", "()V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)()>(&Refused::setup)), "java.lang.Exception"},
-	{"test1", "()V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)()>(&Refused::test1)), "java.lang.Exception"},
-	{"test2", "()V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)()>(&Refused::test2)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Refused, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Refused, main, void, $StringArray*), "java.lang.Exception"},
+	{"setup", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(Refused, setup, void), "java.lang.Exception"},
+	{"test1", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(Refused, test1, void), "java.lang.Exception"},
+	{"test2", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(Refused, test2, void), "java.lang.Exception"},
 	{}
 };
 

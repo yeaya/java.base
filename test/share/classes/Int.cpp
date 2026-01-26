@@ -6,7 +6,7 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _Int_MethodInfo_[] = {
-	{"main", "()V", nullptr, $PUBLIC | $ABSTRACT},
+	{"main", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Int, main, void)},
 	{}
 };
 

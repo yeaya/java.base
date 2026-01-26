@@ -15,8 +15,8 @@ using $ThreadLocal = ::java::lang::ThreadLocal;
 using $AtomicInteger = ::java::util::concurrent::atomic::AtomicInteger;
 
 $MethodInfo _ThreadId$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ThreadId$1::*)()>(&ThreadId$1::init$))},
-	{"initialValue", "()Ljava/lang/Integer;", nullptr, $PROTECTED},
+	{"<init>", "()V", nullptr, 0, $method(ThreadId$1, init$, void)},
+	{"initialValue", "()Ljava/lang/Integer;", nullptr, $PROTECTED, $virtualMethod(ThreadId$1, initialValue, $Object*)},
 	{}
 };
 

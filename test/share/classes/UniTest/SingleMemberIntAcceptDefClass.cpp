@@ -14,7 +14,7 @@ $CompoundAttribute _SingleMemberIntAcceptDefClass_Annotations_[] = {
 };
 
 $MethodInfo _SingleMemberIntAcceptDefClass_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(SingleMemberIntAcceptDefClass::*)()>(&SingleMemberIntAcceptDefClass::init$))},
+	{"<init>", "()V", nullptr, 0, $method(SingleMemberIntAcceptDefClass, init$, void)},
 	{}
 };
 

@@ -13,7 +13,7 @@ namespace jdk {
 			namespace util {
 
 $MethodInfo _CodePointMap$ValueFilter_MethodInfo_[] = {
-	{"apply", "(I)I", nullptr, $PUBLIC | $ABSTRACT},
+	{"apply", "(I)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CodePointMap$ValueFilter, apply, int32_t, int32_t)},
 	{}
 };
 

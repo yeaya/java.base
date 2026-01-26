@@ -19,7 +19,7 @@ $FieldInfo _LambdaForm$Holder_FieldInfo_[] = {
 };
 
 $MethodInfo _LambdaForm$Holder_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/invoke/LambdaForm;)V", nullptr, 0, $method(static_cast<void(LambdaForm$Holder::*)($LambdaForm*)>(&LambdaForm$Holder::init$))},
+	{"<init>", "(Ljava/lang/invoke/LambdaForm;)V", nullptr, 0, $method(LambdaForm$Holder, init$, void, $LambdaForm*)},
 	{}
 };
 

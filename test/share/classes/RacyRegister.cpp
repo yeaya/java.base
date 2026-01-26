@@ -29,8 +29,8 @@ using $Executors = ::java::util::concurrent::Executors;
 using $Future = ::java::util::concurrent::Future;
 
 $MethodInfo _RacyRegister_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(RacyRegister::*)()>(&RacyRegister::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&RacyRegister::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(RacyRegister, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(RacyRegister, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

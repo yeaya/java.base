@@ -73,16 +73,16 @@ $FieldInfo _FileTreeWalker_FieldInfo_[] = {
 };
 
 $MethodInfo _FileTreeWalker_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Collection;I)V", "(Ljava/util/Collection<Ljava/nio/file/FileVisitOption;>;I)V", 0, $method(static_cast<void(FileTreeWalker::*)($Collection*,int32_t)>(&FileTreeWalker::init$))},
-	{"close", "()V", nullptr, $PUBLIC},
-	{"getAttributes", "(Ljava/nio/file/Path;Z)Ljava/nio/file/attribute/BasicFileAttributes;", nullptr, $PRIVATE, $method(static_cast<$BasicFileAttributes*(FileTreeWalker::*)($Path*,bool)>(&FileTreeWalker::getAttributes)), "java.io.IOException"},
-	{"isOpen", "()Z", nullptr, 0},
-	{"next", "()Ljava/nio/file/FileTreeWalker$Event;", nullptr, 0},
-	{"pop", "()V", nullptr, 0},
-	{"skipRemainingSiblings", "()V", nullptr, 0},
-	{"visit", "(Ljava/nio/file/Path;ZZ)Ljava/nio/file/FileTreeWalker$Event;", nullptr, $PRIVATE, $method(static_cast<$FileTreeWalker$Event*(FileTreeWalker::*)($Path*,bool,bool)>(&FileTreeWalker::visit))},
-	{"walk", "(Ljava/nio/file/Path;)Ljava/nio/file/FileTreeWalker$Event;", nullptr, 0},
-	{"wouldLoop", "(Ljava/nio/file/Path;Ljava/lang/Object;)Z", nullptr, $PRIVATE, $method(static_cast<bool(FileTreeWalker::*)($Path*,Object$*)>(&FileTreeWalker::wouldLoop))},
+	{"<init>", "(Ljava/util/Collection;I)V", "(Ljava/util/Collection<Ljava/nio/file/FileVisitOption;>;I)V", 0, $method(FileTreeWalker, init$, void, $Collection*, int32_t)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(FileTreeWalker, close, void)},
+	{"getAttributes", "(Ljava/nio/file/Path;Z)Ljava/nio/file/attribute/BasicFileAttributes;", nullptr, $PRIVATE, $method(FileTreeWalker, getAttributes, $BasicFileAttributes*, $Path*, bool), "java.io.IOException"},
+	{"isOpen", "()Z", nullptr, 0, $virtualMethod(FileTreeWalker, isOpen, bool)},
+	{"next", "()Ljava/nio/file/FileTreeWalker$Event;", nullptr, 0, $virtualMethod(FileTreeWalker, next, $FileTreeWalker$Event*)},
+	{"pop", "()V", nullptr, 0, $virtualMethod(FileTreeWalker, pop, void)},
+	{"skipRemainingSiblings", "()V", nullptr, 0, $virtualMethod(FileTreeWalker, skipRemainingSiblings, void)},
+	{"visit", "(Ljava/nio/file/Path;ZZ)Ljava/nio/file/FileTreeWalker$Event;", nullptr, $PRIVATE, $method(FileTreeWalker, visit, $FileTreeWalker$Event*, $Path*, bool, bool)},
+	{"walk", "(Ljava/nio/file/Path;)Ljava/nio/file/FileTreeWalker$Event;", nullptr, 0, $virtualMethod(FileTreeWalker, walk, $FileTreeWalker$Event*, $Path*)},
+	{"wouldLoop", "(Ljava/nio/file/Path;Ljava/lang/Object;)Z", nullptr, $PRIVATE, $method(FileTreeWalker, wouldLoop, bool, $Path*, Object$*)},
 	{}
 };
 

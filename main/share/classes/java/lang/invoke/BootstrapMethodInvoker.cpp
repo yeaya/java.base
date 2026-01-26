@@ -69,17 +69,17 @@ $FieldInfo _BootstrapMethodInvoker_FieldInfo_[] = {
 };
 
 $MethodInfo _BootstrapMethodInvoker_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(BootstrapMethodInvoker::*)()>(&BootstrapMethodInvoker::init$))},
-	{"invoke", "(Ljava/lang/Class;Ljava/lang/invoke/MethodHandle;Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Class;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/lang/Class<TT;>;Ljava/lang/invoke/MethodHandle;Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Class<*>;)TT;", $STATIC, $method(static_cast<$Object*(*)($Class*,$MethodHandle*,$String*,Object$*,Object$*,$Class*)>(&BootstrapMethodInvoker::invoke))},
-	{"invokeWithManyArguments", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$Object*(*)($MethodHandle*,$MethodHandles$Lookup*,$String*,Object$*,$ObjectArray*)>(&BootstrapMethodInvoker::invokeWithManyArguments)), "java.lang.Throwable"},
-	{"isLambdaMetafactoryAltMetafactoryBSM", "(Ljava/lang/invoke/MethodType;)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($MethodType*)>(&BootstrapMethodInvoker::isLambdaMetafactoryAltMetafactoryBSM))},
-	{"isLambdaMetafactoryCondyBSM", "(Ljava/lang/invoke/MethodType;)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($MethodType*)>(&BootstrapMethodInvoker::isLambdaMetafactoryCondyBSM))},
-	{"isLambdaMetafactoryIndyBSM", "(Ljava/lang/invoke/MethodType;)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($MethodType*)>(&BootstrapMethodInvoker::isLambdaMetafactoryIndyBSM))},
-	{"isStringConcatFactoryBSM", "(Ljava/lang/invoke/MethodType;)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($MethodType*)>(&BootstrapMethodInvoker::isStringConcatFactoryBSM))},
-	{"maybeReBox", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$Object*(*)(Object$*)>(&BootstrapMethodInvoker::maybeReBox))},
-	{"maybeReBoxElements", "([Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($ObjectArray*)>(&BootstrapMethodInvoker::maybeReBoxElements))},
-	{"pushMePullYou", "(Ljava/lang/invoke/MethodHandle;Z)Ljava/lang/invoke/MethodHandle;", nullptr, $STATIC, $method(static_cast<$MethodHandle*(*)($MethodHandle*,bool)>(&BootstrapMethodInvoker::pushMePullYou))},
-	{"widenAndCast", "(Ljava/lang/Object;Ljava/lang/Class;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/lang/Object;Ljava/lang/Class<TT;>;)TT;", $STATIC, $method(static_cast<$Object*(*)(Object$*,$Class*)>(&BootstrapMethodInvoker::widenAndCast)), "java.lang.Throwable"},
+	{"<init>", "()V", nullptr, 0, $method(BootstrapMethodInvoker, init$, void)},
+	{"invoke", "(Ljava/lang/Class;Ljava/lang/invoke/MethodHandle;Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Class;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/lang/Class<TT;>;Ljava/lang/invoke/MethodHandle;Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Class<*>;)TT;", $STATIC, $staticMethod(BootstrapMethodInvoker, invoke, $Object*, $Class*, $MethodHandle*, $String*, Object$*, Object$*, $Class*)},
+	{"invokeWithManyArguments", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC, $staticMethod(BootstrapMethodInvoker, invokeWithManyArguments, $Object*, $MethodHandle*, $MethodHandles$Lookup*, $String*, Object$*, $ObjectArray*), "java.lang.Throwable"},
+	{"isLambdaMetafactoryAltMetafactoryBSM", "(Ljava/lang/invoke/MethodType;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(BootstrapMethodInvoker, isLambdaMetafactoryAltMetafactoryBSM, bool, $MethodType*)},
+	{"isLambdaMetafactoryCondyBSM", "(Ljava/lang/invoke/MethodType;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(BootstrapMethodInvoker, isLambdaMetafactoryCondyBSM, bool, $MethodType*)},
+	{"isLambdaMetafactoryIndyBSM", "(Ljava/lang/invoke/MethodType;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(BootstrapMethodInvoker, isLambdaMetafactoryIndyBSM, bool, $MethodType*)},
+	{"isStringConcatFactoryBSM", "(Ljava/lang/invoke/MethodType;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(BootstrapMethodInvoker, isStringConcatFactoryBSM, bool, $MethodType*)},
+	{"maybeReBox", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC, $staticMethod(BootstrapMethodInvoker, maybeReBox, $Object*, Object$*)},
+	{"maybeReBoxElements", "([Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(BootstrapMethodInvoker, maybeReBoxElements, void, $ObjectArray*)},
+	{"pushMePullYou", "(Ljava/lang/invoke/MethodHandle;Z)Ljava/lang/invoke/MethodHandle;", nullptr, $STATIC, $staticMethod(BootstrapMethodInvoker, pushMePullYou, $MethodHandle*, $MethodHandle*, bool)},
+	{"widenAndCast", "(Ljava/lang/Object;Ljava/lang/Class;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/lang/Object;Ljava/lang/Class<TT;>;)TT;", $STATIC, $staticMethod(BootstrapMethodInvoker, widenAndCast, $Object*, Object$*, $Class*), "java.lang.Throwable"},
 	{}
 };
 

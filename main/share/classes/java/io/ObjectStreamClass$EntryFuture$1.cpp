@@ -19,8 +19,8 @@ $FieldInfo _ObjectStreamClass$EntryFuture$1_FieldInfo_[] = {
 };
 
 $MethodInfo _ObjectStreamClass$EntryFuture$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/ObjectStreamClass$EntryFuture;)V", nullptr, 0, $method(static_cast<void(ObjectStreamClass$EntryFuture$1::*)($ObjectStreamClass$EntryFuture*)>(&ObjectStreamClass$EntryFuture$1::init$))},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/io/ObjectStreamClass$EntryFuture;)V", nullptr, 0, $method(ObjectStreamClass$EntryFuture$1, init$, void, $ObjectStreamClass$EntryFuture*)},
+	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(ObjectStreamClass$EntryFuture$1, run, $Object*)},
 	{}
 };
 

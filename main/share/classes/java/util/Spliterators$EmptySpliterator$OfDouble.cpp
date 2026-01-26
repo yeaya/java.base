@@ -35,13 +35,13 @@ $MethodInfo _Spliterators$EmptySpliterator$OfDouble_MethodInfo_[] = {
 	{"*getExactSizeIfKnown", "()J", nullptr, $PUBLIC | $ABSTRACT},
 	{"*hasCharacteristics", "(I)Z", nullptr, $PUBLIC | $ABSTRACT},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Spliterators$EmptySpliterator$OfDouble::*)()>(&Spliterators$EmptySpliterator$OfDouble::init$))},
-	{"forEachRemaining", "(Ljava/util/function/DoubleConsumer;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $method(static_cast<void(Spliterators$EmptySpliterator$OfDouble::*)($DoubleConsumer*)>(&Spliterators$EmptySpliterator$OfDouble::forEachRemaining))},
+	{"<init>", "()V", nullptr, 0, $method(Spliterators$EmptySpliterator$OfDouble, init$, void)},
+	{"forEachRemaining", "(Ljava/util/function/DoubleConsumer;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $method(Spliterators$EmptySpliterator$OfDouble, forEachRemaining, void, $DoubleConsumer*)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{"*tryAdvance", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*tryAdvance", "(Ljava/util/function/Consumer;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"tryAdvance", "(Ljava/util/function/DoubleConsumer;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $method(static_cast<bool(Spliterators$EmptySpliterator$OfDouble::*)($DoubleConsumer*)>(&Spliterators$EmptySpliterator$OfDouble::tryAdvance))},
-	{"trySplit", "()Ljava/util/Spliterator$OfDouble;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"tryAdvance", "(Ljava/util/function/DoubleConsumer;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $method(Spliterators$EmptySpliterator$OfDouble, tryAdvance, bool, $DoubleConsumer*)},
+	{"trySplit", "()Ljava/util/Spliterator$OfDouble;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Spliterators$EmptySpliterator$OfDouble, trySplit, $Spliterator*)},
 	{}
 };
 

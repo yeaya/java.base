@@ -19,9 +19,9 @@ $FieldInfo _StressNativeSignal_FieldInfo_[] = {
 };
 
 $MethodInfo _StressNativeSignal_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(StressNativeSignal::*)()>(&StressNativeSignal::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&StressNativeSignal::main)), "java.lang.Throwable"},
-	{"shutdown", "()V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(StressNativeSignal, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StressNativeSignal, main, void, $StringArray*), "java.lang.Throwable"},
+	{"shutdown", "()V", nullptr, $PUBLIC, $virtualMethod(StressNativeSignal, shutdown, void)},
 	{}
 };
 

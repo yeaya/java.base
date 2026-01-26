@@ -7,6 +7,7 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $EdECKey = ::java::security::interfaces::EdECKey;
+using $EdECPoint = ::java::security::spec::EdECPoint;
 
 namespace java {
 	namespace security {
@@ -16,7 +17,7 @@ $MethodInfo _EdECPublicKey_MethodInfo_[] = {
 	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"getPoint", "()Ljava/security/spec/EdECPoint;", nullptr, $PUBLIC | $ABSTRACT},
+	{"getPoint", "()Ljava/security/spec/EdECPoint;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(EdECPublicKey, getPoint, $EdECPoint*)},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}

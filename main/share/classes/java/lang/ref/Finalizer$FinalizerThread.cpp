@@ -34,8 +34,8 @@ $FieldInfo _Finalizer$FinalizerThread_FieldInfo_[] = {
 };
 
 $MethodInfo _Finalizer$FinalizerThread_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/ThreadGroup;)V", nullptr, 0, $method(static_cast<void(Finalizer$FinalizerThread::*)($ThreadGroup*)>(&Finalizer$FinalizerThread::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/ThreadGroup;)V", nullptr, 0, $method(Finalizer$FinalizerThread, init$, void, $ThreadGroup*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Finalizer$FinalizerThread, run, void)},
 	{}
 };
 

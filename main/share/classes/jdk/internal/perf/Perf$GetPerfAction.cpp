@@ -13,8 +13,8 @@ namespace jdk {
 		namespace perf {
 
 $MethodInfo _Perf$GetPerfAction_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Perf$GetPerfAction::*)()>(&Perf$GetPerfAction::init$))},
-	{"run", "()Ljdk/internal/perf/Perf;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Perf$GetPerfAction, init$, void)},
+	{"run", "()Ljdk/internal/perf/Perf;", nullptr, $PUBLIC, $virtualMethod(Perf$GetPerfAction, run, $Object*)},
 	{}
 };
 

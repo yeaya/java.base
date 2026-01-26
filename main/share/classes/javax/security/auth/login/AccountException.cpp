@@ -19,8 +19,8 @@ $FieldInfo _AccountException_FieldInfo_[] = {
 };
 
 $MethodInfo _AccountException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(AccountException::*)()>(&AccountException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(AccountException::*)($String*)>(&AccountException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(AccountException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(AccountException, init$, void, $String*)},
 	{}
 };
 

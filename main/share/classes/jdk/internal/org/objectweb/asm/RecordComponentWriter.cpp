@@ -46,14 +46,14 @@ $FieldInfo _RecordComponentWriter_FieldInfo_[] = {
 };
 
 $MethodInfo _RecordComponentWriter_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/org/objectweb/asm/SymbolTable;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(RecordComponentWriter::*)($SymbolTable*,$String*,$String*,$String*)>(&RecordComponentWriter::init$))},
-	{"collectAttributePrototypes", "(Ljdk/internal/org/objectweb/asm/Attribute$Set;)V", nullptr, $FINAL, $method(static_cast<void(RecordComponentWriter::*)($Attribute$Set*)>(&RecordComponentWriter::collectAttributePrototypes))},
-	{"computeRecordComponentInfoSize", "()I", nullptr, 0, $method(static_cast<int32_t(RecordComponentWriter::*)()>(&RecordComponentWriter::computeRecordComponentInfoSize))},
-	{"putRecordComponentInfo", "(Ljdk/internal/org/objectweb/asm/ByteVector;)V", nullptr, 0, $method(static_cast<void(RecordComponentWriter::*)($ByteVector*)>(&RecordComponentWriter::putRecordComponentInfo))},
-	{"visitAnnotation", "(Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC},
-	{"visitAttribute", "(Ljdk/internal/org/objectweb/asm/Attribute;)V", nullptr, $PUBLIC},
-	{"visitEnd", "()V", nullptr, $PUBLIC},
-	{"visitTypeAnnotation", "(ILjdk/internal/org/objectweb/asm/TypePath;Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/org/objectweb/asm/SymbolTable;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(RecordComponentWriter, init$, void, $SymbolTable*, $String*, $String*, $String*)},
+	{"collectAttributePrototypes", "(Ljdk/internal/org/objectweb/asm/Attribute$Set;)V", nullptr, $FINAL, $method(RecordComponentWriter, collectAttributePrototypes, void, $Attribute$Set*)},
+	{"computeRecordComponentInfoSize", "()I", nullptr, 0, $method(RecordComponentWriter, computeRecordComponentInfoSize, int32_t)},
+	{"putRecordComponentInfo", "(Ljdk/internal/org/objectweb/asm/ByteVector;)V", nullptr, 0, $method(RecordComponentWriter, putRecordComponentInfo, void, $ByteVector*)},
+	{"visitAnnotation", "(Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(RecordComponentWriter, visitAnnotation, $AnnotationVisitor*, $String*, bool)},
+	{"visitAttribute", "(Ljdk/internal/org/objectweb/asm/Attribute;)V", nullptr, $PUBLIC, $virtualMethod(RecordComponentWriter, visitAttribute, void, $Attribute*)},
+	{"visitEnd", "()V", nullptr, $PUBLIC, $virtualMethod(RecordComponentWriter, visitEnd, void)},
+	{"visitTypeAnnotation", "(ILjdk/internal/org/objectweb/asm/TypePath;Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(RecordComponentWriter, visitTypeAnnotation, $AnnotationVisitor*, int32_t, $TypePath*, $String*, bool)},
 	{}
 };
 

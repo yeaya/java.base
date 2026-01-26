@@ -29,10 +29,10 @@ namespace sun {
 
 $MethodInfo _TimeZoneNamesBundle_MethodInfo_[] = {
 	{"getContents", "()[[L[Ljava/lang/Object;;", nullptr, $PROTECTED | $ABSTRACT},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TimeZoneNamesBundle::*)()>(&TimeZoneNamesBundle::init$))},
-	{"createMap", "(I)Ljava/util/Map;", "<K:Ljava/lang/Object;V:Ljava/lang/Object;>(I)Ljava/util/Map<TK;TV;>;", $PROTECTED},
-	{"createSet", "()Ljava/util/Set;", "<E:Ljava/lang/Object;>()Ljava/util/Set<TE;>;", $PROTECTED},
-	{"handleGetObject", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TimeZoneNamesBundle, init$, void)},
+	{"createMap", "(I)Ljava/util/Map;", "<K:Ljava/lang/Object;V:Ljava/lang/Object;>(I)Ljava/util/Map<TK;TV;>;", $PROTECTED, $virtualMethod(TimeZoneNamesBundle, createMap, $Map*, int32_t)},
+	{"createSet", "()Ljava/util/Set;", "<E:Ljava/lang/Object;>()Ljava/util/Set<TE;>;", $PROTECTED, $virtualMethod(TimeZoneNamesBundle, createSet, $Set*)},
+	{"handleGetObject", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TimeZoneNamesBundle, handleGetObject, $Object*, $String*)},
 	{}
 };
 

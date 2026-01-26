@@ -32,17 +32,17 @@ $FieldInfo _Norm2AllModes$Normalizer2WithImpl_FieldInfo_[] = {
 };
 
 $MethodInfo _Norm2AllModes$Normalizer2WithImpl_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/icu/impl/NormalizerImpl;)V", nullptr, $PUBLIC, $method(static_cast<void(Norm2AllModes$Normalizer2WithImpl::*)($NormalizerImpl*)>(&Norm2AllModes$Normalizer2WithImpl::init$))},
-	{"append", "(Ljava/lang/StringBuilder;Ljava/lang/CharSequence;)Ljava/lang/StringBuilder;", nullptr, $PUBLIC},
-	{"getCombiningClass", "(I)I", nullptr, $PUBLIC},
-	{"getDecomposition", "(I)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"isNormalized", "(Ljava/lang/CharSequence;)Z", nullptr, $PUBLIC},
-	{"normalize", "(Ljava/lang/CharSequence;Ljava/lang/StringBuilder;)Ljava/lang/StringBuilder;", nullptr, $PUBLIC},
-	{"normalize", "(Ljava/lang/CharSequence;Ljava/lang/Appendable;)Ljava/lang/Appendable;", nullptr, $PUBLIC},
-	{"normalize", "(Ljava/lang/CharSequence;Ljdk/internal/icu/impl/NormalizerImpl$ReorderingBuffer;)V", nullptr, $PROTECTED | $ABSTRACT},
-	{"normalizeAndAppend", "(Ljava/lang/CharSequence;ZLjdk/internal/icu/impl/NormalizerImpl$ReorderingBuffer;)V", nullptr, $PROTECTED | $ABSTRACT},
-	{"normalizeSecondAndAppend", "(Ljava/lang/StringBuilder;Ljava/lang/CharSequence;)Ljava/lang/StringBuilder;", nullptr, $PUBLIC},
-	{"normalizeSecondAndAppend", "(Ljava/lang/StringBuilder;Ljava/lang/CharSequence;Z)Ljava/lang/StringBuilder;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/icu/impl/NormalizerImpl;)V", nullptr, $PUBLIC, $method(Norm2AllModes$Normalizer2WithImpl, init$, void, $NormalizerImpl*)},
+	{"append", "(Ljava/lang/StringBuilder;Ljava/lang/CharSequence;)Ljava/lang/StringBuilder;", nullptr, $PUBLIC, $virtualMethod(Norm2AllModes$Normalizer2WithImpl, append, $StringBuilder*, $StringBuilder*, $CharSequence*)},
+	{"getCombiningClass", "(I)I", nullptr, $PUBLIC, $virtualMethod(Norm2AllModes$Normalizer2WithImpl, getCombiningClass, int32_t, int32_t)},
+	{"getDecomposition", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Norm2AllModes$Normalizer2WithImpl, getDecomposition, $String*, int32_t)},
+	{"isNormalized", "(Ljava/lang/CharSequence;)Z", nullptr, $PUBLIC, $virtualMethod(Norm2AllModes$Normalizer2WithImpl, isNormalized, bool, $CharSequence*)},
+	{"normalize", "(Ljava/lang/CharSequence;Ljava/lang/StringBuilder;)Ljava/lang/StringBuilder;", nullptr, $PUBLIC, $virtualMethod(Norm2AllModes$Normalizer2WithImpl, normalize, $StringBuilder*, $CharSequence*, $StringBuilder*)},
+	{"normalize", "(Ljava/lang/CharSequence;Ljava/lang/Appendable;)Ljava/lang/Appendable;", nullptr, $PUBLIC, $virtualMethod(Norm2AllModes$Normalizer2WithImpl, normalize, $Appendable*, $CharSequence*, $Appendable*)},
+	{"normalize", "(Ljava/lang/CharSequence;Ljdk/internal/icu/impl/NormalizerImpl$ReorderingBuffer;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(Norm2AllModes$Normalizer2WithImpl, normalize, void, $CharSequence*, $NormalizerImpl$ReorderingBuffer*)},
+	{"normalizeAndAppend", "(Ljava/lang/CharSequence;ZLjdk/internal/icu/impl/NormalizerImpl$ReorderingBuffer;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(Norm2AllModes$Normalizer2WithImpl, normalizeAndAppend, void, $CharSequence*, bool, $NormalizerImpl$ReorderingBuffer*)},
+	{"normalizeSecondAndAppend", "(Ljava/lang/StringBuilder;Ljava/lang/CharSequence;)Ljava/lang/StringBuilder;", nullptr, $PUBLIC, $virtualMethod(Norm2AllModes$Normalizer2WithImpl, normalizeSecondAndAppend, $StringBuilder*, $StringBuilder*, $CharSequence*)},
+	{"normalizeSecondAndAppend", "(Ljava/lang/StringBuilder;Ljava/lang/CharSequence;Z)Ljava/lang/StringBuilder;", nullptr, $PUBLIC, $virtualMethod(Norm2AllModes$Normalizer2WithImpl, normalizeSecondAndAppend, $StringBuilder*, $StringBuilder*, $CharSequence*, bool)},
 	{}
 };
 

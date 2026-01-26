@@ -32,13 +32,13 @@ $FieldInfo _ArrayBlockingQueue$Itrs_FieldInfo_[] = {
 };
 
 $MethodInfo _ArrayBlockingQueue$Itrs_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/ArrayBlockingQueue;Ljava/util/concurrent/ArrayBlockingQueue$Itr;)V", "(Ljava/util/concurrent/ArrayBlockingQueue<TE;>.Itr;)V", 0, $method(static_cast<void(ArrayBlockingQueue$Itrs::*)($ArrayBlockingQueue*,$ArrayBlockingQueue$Itr*)>(&ArrayBlockingQueue$Itrs::init$))},
-	{"doSomeSweeping", "(Z)V", nullptr, 0},
-	{"elementDequeued", "()V", nullptr, 0},
-	{"queueIsEmpty", "()V", nullptr, 0},
-	{"register", "(Ljava/util/concurrent/ArrayBlockingQueue$Itr;)V", "(Ljava/util/concurrent/ArrayBlockingQueue<TE;>.Itr;)V", 0},
-	{"removedAt", "(I)V", nullptr, 0},
-	{"takeIndexWrapped", "()V", nullptr, 0},
+	{"<init>", "(Ljava/util/concurrent/ArrayBlockingQueue;Ljava/util/concurrent/ArrayBlockingQueue$Itr;)V", "(Ljava/util/concurrent/ArrayBlockingQueue<TE;>.Itr;)V", 0, $method(ArrayBlockingQueue$Itrs, init$, void, $ArrayBlockingQueue*, $ArrayBlockingQueue$Itr*)},
+	{"doSomeSweeping", "(Z)V", nullptr, 0, $virtualMethod(ArrayBlockingQueue$Itrs, doSomeSweeping, void, bool)},
+	{"elementDequeued", "()V", nullptr, 0, $virtualMethod(ArrayBlockingQueue$Itrs, elementDequeued, void)},
+	{"queueIsEmpty", "()V", nullptr, 0, $virtualMethod(ArrayBlockingQueue$Itrs, queueIsEmpty, void)},
+	{"register", "(Ljava/util/concurrent/ArrayBlockingQueue$Itr;)V", "(Ljava/util/concurrent/ArrayBlockingQueue<TE;>.Itr;)V", 0, $virtualMethod(ArrayBlockingQueue$Itrs, register$, void, $ArrayBlockingQueue$Itr*)},
+	{"removedAt", "(I)V", nullptr, 0, $virtualMethod(ArrayBlockingQueue$Itrs, removedAt, void, int32_t)},
+	{"takeIndexWrapped", "()V", nullptr, 0, $virtualMethod(ArrayBlockingQueue$Itrs, takeIndexWrapped, void)},
 	{}
 };
 

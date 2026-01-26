@@ -64,8 +64,8 @@ namespace sun {
 		namespace ssl {
 
 $MethodInfo _RSAClientKeyExchange$RSAClientKeyExchangeConsumer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(RSAClientKeyExchange$RSAClientKeyExchangeConsumer::*)()>(&RSAClientKeyExchange$RSAClientKeyExchangeConsumer::init$))},
-	{"consume", "(Lsun/security/ssl/ConnectionContext;Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(RSAClientKeyExchange$RSAClientKeyExchangeConsumer, init$, void)},
+	{"consume", "(Lsun/security/ssl/ConnectionContext;Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(RSAClientKeyExchange$RSAClientKeyExchangeConsumer, consume, void, $ConnectionContext*, $ByteBuffer*), "java.io.IOException"},
 	{}
 };
 

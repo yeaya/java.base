@@ -16,8 +16,8 @@ namespace javax {
 			namespace login {
 
 $MethodInfo _Configuration$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Configuration$1::*)()>(&Configuration$1::init$))},
-	{"run", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(Configuration$1, init$, void)},
+	{"run", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Configuration$1, run, $Object*)},
 	{}
 };
 

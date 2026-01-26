@@ -27,10 +27,10 @@ $FieldInfo _JrtPath$1_FieldInfo_[] = {
 };
 
 $MethodInfo _JrtPath$1_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/jrtfs/JrtPath;)V", nullptr, 0, $method(static_cast<void(JrtPath$1::*)($JrtPath*)>(&JrtPath$1::init$))},
-	{"hasNext", "()Z", nullptr, $PUBLIC},
-	{"next", "()Ljava/nio/file/Path;", nullptr, $PUBLIC},
-	{"remove", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/jrtfs/JrtPath;)V", nullptr, 0, $method(JrtPath$1, init$, void, $JrtPath*)},
+	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(JrtPath$1, hasNext, bool)},
+	{"next", "()Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(JrtPath$1, next, $Object*)},
+	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(JrtPath$1, remove, void)},
 	{}
 };
 

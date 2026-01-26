@@ -22,8 +22,8 @@ $FieldInfo _TreeMap$KeyIterator_FieldInfo_[] = {
 };
 
 $MethodInfo _TreeMap$KeyIterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/TreeMap;Ljava/util/TreeMap$Entry;)V", "(Ljava/util/TreeMap$Entry<TK;TV;>;)V", 0, $method(static_cast<void(TreeMap$KeyIterator::*)($TreeMap*,$TreeMap$Entry*)>(&TreeMap$KeyIterator::init$))},
-	{"next", "()Ljava/lang/Object;", "()TK;", $PUBLIC},
+	{"<init>", "(Ljava/util/TreeMap;Ljava/util/TreeMap$Entry;)V", "(Ljava/util/TreeMap$Entry<TK;TV;>;)V", 0, $method(TreeMap$KeyIterator, init$, void, $TreeMap*, $TreeMap$Entry*)},
+	{"next", "()Ljava/lang/Object;", "()TK;", $PUBLIC, $virtualMethod(TreeMap$KeyIterator, next, $Object*)},
 	{}
 };
 

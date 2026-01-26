@@ -21,6 +21,7 @@
 #undef TLS10
 
 using $ByteBufferArray = $Array<::java::nio::ByteBuffer>;
+using $PlaintextArray = $Array<::sun::security::ssl::Plaintext>;
 using $InputStream = ::java::io::InputStream;
 using $OutputStream = ::java::io::OutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -59,25 +60,25 @@ $MethodInfo _InputRecord_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lsun/security/ssl/HandshakeHash;Lsun/security/ssl/SSLCipher$SSLReadCipher;)V", nullptr, 0, $method(static_cast<void(InputRecord::*)($HandshakeHash*,$SSLCipher$SSLReadCipher*)>(&InputRecord::init$))},
-	{"acquirePlaintext", "()Lsun/security/ssl/Plaintext;", nullptr, 0, nullptr, "java.io.IOException,javax.crypto.BadPaddingException"},
-	{"bytesInCompletePacket", "([Ljava/nio/ByteBuffer;II)I", nullptr, 0, nullptr, "java.io.IOException"},
-	{"bytesInCompletePacket", "()I", nullptr, 0, nullptr, "java.io.IOException"},
-	{"changeFragmentSize", "(I)V", nullptr, 0},
-	{"changeReadCiphers", "(Lsun/security/ssl/SSLCipher$SSLReadCipher;)V", nullptr, 0},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"convertToClientHello", "(Ljava/nio/ByteBuffer;)Ljava/nio/ByteBuffer;", nullptr, $STATIC, $method(static_cast<$ByteBuffer*(*)($ByteBuffer*)>(&InputRecord::convertToClientHello))},
-	{"decode", "([Ljava/nio/ByteBuffer;II)[Lsun/security/ssl/Plaintext;", nullptr, $ABSTRACT, nullptr, "java.io.IOException,javax.crypto.BadPaddingException"},
-	{"estimateFragmentSize", "(I)I", nullptr, 0},
-	{"expectingFinishFlight", "()V", nullptr, 0},
-	{"extract", "([Ljava/nio/ByteBuffer;III)Ljava/nio/ByteBuffer;", nullptr, $STATIC, $method(static_cast<$ByteBuffer*(*)($ByteBufferArray*,int32_t,int32_t,int32_t)>(&InputRecord::extract))},
-	{"finishHandshake", "()V", nullptr, 0},
-	{"isClosed", "()Z", nullptr, 0},
-	{"isEmpty", "()Z", nullptr, 0},
-	{"seqNumIsHuge", "()Z", nullptr, 0},
-	{"setDeliverStream", "(Ljava/io/OutputStream;)V", nullptr, 0},
-	{"setHelloVersion", "(Lsun/security/ssl/ProtocolVersion;)V", nullptr, 0},
-	{"setReceiverStream", "(Ljava/io/InputStream;)V", nullptr, 0},
+	{"<init>", "(Lsun/security/ssl/HandshakeHash;Lsun/security/ssl/SSLCipher$SSLReadCipher;)V", nullptr, 0, $method(InputRecord, init$, void, $HandshakeHash*, $SSLCipher$SSLReadCipher*)},
+	{"acquirePlaintext", "()Lsun/security/ssl/Plaintext;", nullptr, 0, $virtualMethod(InputRecord, acquirePlaintext, $Plaintext*), "java.io.IOException,javax.crypto.BadPaddingException"},
+	{"bytesInCompletePacket", "([Ljava/nio/ByteBuffer;II)I", nullptr, 0, $virtualMethod(InputRecord, bytesInCompletePacket, int32_t, $ByteBufferArray*, int32_t, int32_t), "java.io.IOException"},
+	{"bytesInCompletePacket", "()I", nullptr, 0, $virtualMethod(InputRecord, bytesInCompletePacket, int32_t), "java.io.IOException"},
+	{"changeFragmentSize", "(I)V", nullptr, 0, $virtualMethod(InputRecord, changeFragmentSize, void, int32_t)},
+	{"changeReadCiphers", "(Lsun/security/ssl/SSLCipher$SSLReadCipher;)V", nullptr, 0, $virtualMethod(InputRecord, changeReadCiphers, void, $SSLCipher$SSLReadCipher*)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(InputRecord, close, void), "java.io.IOException"},
+	{"convertToClientHello", "(Ljava/nio/ByteBuffer;)Ljava/nio/ByteBuffer;", nullptr, $STATIC, $staticMethod(InputRecord, convertToClientHello, $ByteBuffer*, $ByteBuffer*)},
+	{"decode", "([Ljava/nio/ByteBuffer;II)[Lsun/security/ssl/Plaintext;", nullptr, $ABSTRACT, $virtualMethod(InputRecord, decode, $PlaintextArray*, $ByteBufferArray*, int32_t, int32_t), "java.io.IOException,javax.crypto.BadPaddingException"},
+	{"estimateFragmentSize", "(I)I", nullptr, 0, $virtualMethod(InputRecord, estimateFragmentSize, int32_t, int32_t)},
+	{"expectingFinishFlight", "()V", nullptr, 0, $virtualMethod(InputRecord, expectingFinishFlight, void)},
+	{"extract", "([Ljava/nio/ByteBuffer;III)Ljava/nio/ByteBuffer;", nullptr, $STATIC, $staticMethod(InputRecord, extract, $ByteBuffer*, $ByteBufferArray*, int32_t, int32_t, int32_t)},
+	{"finishHandshake", "()V", nullptr, 0, $virtualMethod(InputRecord, finishHandshake, void)},
+	{"isClosed", "()Z", nullptr, 0, $virtualMethod(InputRecord, isClosed, bool)},
+	{"isEmpty", "()Z", nullptr, 0, $virtualMethod(InputRecord, isEmpty, bool)},
+	{"seqNumIsHuge", "()Z", nullptr, 0, $virtualMethod(InputRecord, seqNumIsHuge, bool)},
+	{"setDeliverStream", "(Ljava/io/OutputStream;)V", nullptr, 0, $virtualMethod(InputRecord, setDeliverStream, void, $OutputStream*)},
+	{"setHelloVersion", "(Lsun/security/ssl/ProtocolVersion;)V", nullptr, 0, $virtualMethod(InputRecord, setHelloVersion, void, $ProtocolVersion*)},
+	{"setReceiverStream", "(Ljava/io/InputStream;)V", nullptr, 0, $virtualMethod(InputRecord, setReceiverStream, void, $InputStream*)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

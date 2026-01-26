@@ -43,16 +43,16 @@ $FieldInfo _PolicyParser$GrantEntry_FieldInfo_[] = {
 };
 
 $MethodInfo _PolicyParser$GrantEntry_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PolicyParser$GrantEntry::*)()>(&PolicyParser$GrantEntry::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(PolicyParser$GrantEntry::*)($String*,$String*)>(&PolicyParser$GrantEntry::init$))},
-	{"add", "(Lsun/security/provider/PolicyParser$PermissionEntry;)V", nullptr, $PUBLIC},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"contains", "(Lsun/security/provider/PolicyParser$PrincipalEntry;)Z", nullptr, $PUBLIC},
-	{"contains", "(Lsun/security/provider/PolicyParser$PermissionEntry;)Z", nullptr, $PUBLIC},
-	{"permissionElements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Lsun/security/provider/PolicyParser$PermissionEntry;>;", $PUBLIC},
-	{"remove", "(Lsun/security/provider/PolicyParser$PrincipalEntry;)Z", nullptr, $PUBLIC},
-	{"remove", "(Lsun/security/provider/PolicyParser$PermissionEntry;)Z", nullptr, $PUBLIC},
-	{"write", "(Ljava/io/PrintWriter;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PolicyParser$GrantEntry, init$, void)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(PolicyParser$GrantEntry, init$, void, $String*, $String*)},
+	{"add", "(Lsun/security/provider/PolicyParser$PermissionEntry;)V", nullptr, $PUBLIC, $virtualMethod(PolicyParser$GrantEntry, add, void, $PolicyParser$PermissionEntry*)},
+	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PolicyParser$GrantEntry, clone, $Object*)},
+	{"contains", "(Lsun/security/provider/PolicyParser$PrincipalEntry;)Z", nullptr, $PUBLIC, $virtualMethod(PolicyParser$GrantEntry, contains, bool, $PolicyParser$PrincipalEntry*)},
+	{"contains", "(Lsun/security/provider/PolicyParser$PermissionEntry;)Z", nullptr, $PUBLIC, $virtualMethod(PolicyParser$GrantEntry, contains, bool, $PolicyParser$PermissionEntry*)},
+	{"permissionElements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Lsun/security/provider/PolicyParser$PermissionEntry;>;", $PUBLIC, $virtualMethod(PolicyParser$GrantEntry, permissionElements, $Enumeration*)},
+	{"remove", "(Lsun/security/provider/PolicyParser$PrincipalEntry;)Z", nullptr, $PUBLIC, $virtualMethod(PolicyParser$GrantEntry, remove, bool, $PolicyParser$PrincipalEntry*)},
+	{"remove", "(Lsun/security/provider/PolicyParser$PermissionEntry;)Z", nullptr, $PUBLIC, $virtualMethod(PolicyParser$GrantEntry, remove, bool, $PolicyParser$PermissionEntry*)},
+	{"write", "(Ljava/io/PrintWriter;)V", nullptr, $PUBLIC, $virtualMethod(PolicyParser$GrantEntry, write, void, $PrintWriter*)},
 	{}
 };
 

@@ -21,9 +21,9 @@ $FieldInfo _PrecisionTests_FieldInfo_[] = {
 };
 
 $MethodInfo _PrecisionTests_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PrecisionTests::*)()>(&PrecisionTests::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&PrecisionTests::main))},
-	{"testPrecision", "(Ljava/math/BigDecimal;I)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)($BigDecimal*,int32_t)>(&PrecisionTests::testPrecision))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PrecisionTests, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(PrecisionTests, main, void, $StringArray*)},
+	{"testPrecision", "(Ljava/math/BigDecimal;I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(PrecisionTests, testPrecision, int32_t, $BigDecimal*, int32_t)},
 	{}
 };
 

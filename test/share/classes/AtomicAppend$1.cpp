@@ -26,8 +26,8 @@ $FieldInfo _AtomicAppend$1_FieldInfo_[] = {
 };
 
 $MethodInfo _AtomicAppend$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/File;)V", "()V", 0, $method(static_cast<void(AtomicAppend$1::*)($File*)>(&AtomicAppend$1::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/io/File;)V", "()V", 0, $method(AtomicAppend$1, init$, void, $File*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(AtomicAppend$1, run, void)},
 	{}
 };
 

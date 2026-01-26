@@ -20,8 +20,8 @@ $FieldInfo _VectorSupport$VectorPayload_FieldInfo_[] = {
 };
 
 $MethodInfo _VectorSupport$VectorPayload_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(static_cast<void(VectorSupport$VectorPayload::*)(Object$*)>(&VectorSupport$VectorPayload::init$))},
-	{"getPayload", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $method(static_cast<$Object*(VectorSupport$VectorPayload::*)()>(&VectorSupport$VectorPayload::getPayload))},
+	{"<init>", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(VectorSupport$VectorPayload, init$, void, Object$*)},
+	{"getPayload", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $method(VectorSupport$VectorPayload, getPayload, $Object*)},
 	{}
 };
 

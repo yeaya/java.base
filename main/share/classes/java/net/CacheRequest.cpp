@@ -3,6 +3,7 @@
 #include <java/io/OutputStream.h>
 #include <jcpp.h>
 
+using $OutputStream = ::java::io::OutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
@@ -10,9 +11,9 @@ namespace java {
 	namespace net {
 
 $MethodInfo _CacheRequest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CacheRequest::*)()>(&CacheRequest::init$))},
-	{"abort", "()V", nullptr, $PUBLIC | $ABSTRACT},
-	{"getBody", "()Ljava/io/OutputStream;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CacheRequest, init$, void)},
+	{"abort", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CacheRequest, abort, void)},
+	{"getBody", "()Ljava/io/OutputStream;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CacheRequest, getBody, $OutputStream*), "java.io.IOException"},
 	{}
 };
 

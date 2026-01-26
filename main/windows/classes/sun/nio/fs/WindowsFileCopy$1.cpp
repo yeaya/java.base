@@ -31,9 +31,9 @@ $FieldInfo _WindowsFileCopy$1_FieldInfo_[] = {
 };
 
 $MethodInfo _WindowsFileCopy$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;ILsun/nio/fs/WindowsPath;Lsun/nio/fs/WindowsPath;)V", nullptr, 0, $method(static_cast<void(WindowsFileCopy$1::*)($String*,$String*,int32_t,$WindowsPath*,$WindowsPath*)>(&WindowsFileCopy$1::init$))},
-	{"cancelValue", "()I", nullptr, $PUBLIC},
-	{"implRun", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;ILsun/nio/fs/WindowsPath;Lsun/nio/fs/WindowsPath;)V", nullptr, 0, $method(WindowsFileCopy$1, init$, void, $String*, $String*, int32_t, $WindowsPath*, $WindowsPath*)},
+	{"cancelValue", "()I", nullptr, $PUBLIC, $virtualMethod(WindowsFileCopy$1, cancelValue, int32_t)},
+	{"implRun", "()V", nullptr, $PUBLIC, $virtualMethod(WindowsFileCopy$1, implRun, void), "java.io.IOException"},
 	{}
 };
 

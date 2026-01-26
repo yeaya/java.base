@@ -36,9 +36,9 @@ $FieldInfo _X509Authentication$X509Possession_FieldInfo_[] = {
 };
 
 $MethodInfo _X509Authentication$X509Possession_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/PrivateKey;[Ljava/security/cert/X509Certificate;)V", nullptr, 0, $method(static_cast<void(X509Authentication$X509Possession::*)($PrivateKey*,$X509CertificateArray*)>(&X509Authentication$X509Possession::init$))},
-	{"getECParameterSpec", "()Ljava/security/spec/ECParameterSpec;", nullptr, 0, $method(static_cast<$ECParameterSpec*(X509Authentication$X509Possession::*)()>(&X509Authentication$X509Possession::getECParameterSpec))},
-	{"getXECParameterSpec", "()Ljava/security/spec/NamedParameterSpec;", nullptr, 0, $method(static_cast<$NamedParameterSpec*(X509Authentication$X509Possession::*)()>(&X509Authentication$X509Possession::getXECParameterSpec))},
+	{"<init>", "(Ljava/security/PrivateKey;[Ljava/security/cert/X509Certificate;)V", nullptr, 0, $method(X509Authentication$X509Possession, init$, void, $PrivateKey*, $X509CertificateArray*)},
+	{"getECParameterSpec", "()Ljava/security/spec/ECParameterSpec;", nullptr, 0, $method(X509Authentication$X509Possession, getECParameterSpec, $ECParameterSpec*)},
+	{"getXECParameterSpec", "()Ljava/security/spec/NamedParameterSpec;", nullptr, 0, $method(X509Authentication$X509Possession, getXECParameterSpec, $NamedParameterSpec*)},
 	{}
 };
 

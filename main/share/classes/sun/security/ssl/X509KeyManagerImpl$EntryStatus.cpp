@@ -27,10 +27,10 @@ $FieldInfo _X509KeyManagerImpl$EntryStatus_FieldInfo_[] = {
 };
 
 $MethodInfo _X509KeyManagerImpl$EntryStatus_MethodInfo_[] = {
-	{"<init>", "(IILjava/lang/String;[Ljava/security/cert/Certificate;Lsun/security/ssl/X509KeyManagerImpl$CheckResult;)V", nullptr, 0, $method(static_cast<void(X509KeyManagerImpl$EntryStatus::*)(int32_t,int32_t,$String*,$CertificateArray*,$X509KeyManagerImpl$CheckResult*)>(&X509KeyManagerImpl$EntryStatus::init$))},
-	{"compareTo", "(Lsun/security/ssl/X509KeyManagerImpl$EntryStatus;)I", nullptr, $PUBLIC},
-	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(IILjava/lang/String;[Ljava/security/cert/Certificate;Lsun/security/ssl/X509KeyManagerImpl$CheckResult;)V", nullptr, 0, $method(X509KeyManagerImpl$EntryStatus, init$, void, int32_t, int32_t, $String*, $CertificateArray*, $X509KeyManagerImpl$CheckResult*)},
+	{"compareTo", "(Lsun/security/ssl/X509KeyManagerImpl$EntryStatus;)I", nullptr, $PUBLIC, $virtualMethod(X509KeyManagerImpl$EntryStatus, compareTo, int32_t, X509KeyManagerImpl$EntryStatus*)},
+	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(X509KeyManagerImpl$EntryStatus, compareTo, int32_t, Object$*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(X509KeyManagerImpl$EntryStatus, toString, $String*)},
 	{}
 };
 

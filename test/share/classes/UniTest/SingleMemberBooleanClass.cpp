@@ -20,7 +20,7 @@ $CompoundAttribute _SingleMemberBooleanClass_Annotations_[] = {
 };
 
 $MethodInfo _SingleMemberBooleanClass_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(SingleMemberBooleanClass::*)()>(&SingleMemberBooleanClass::init$))},
+	{"<init>", "()V", nullptr, 0, $method(SingleMemberBooleanClass, init$, void)},
 	{}
 };
 

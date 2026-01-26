@@ -45,15 +45,15 @@ $FieldInfo _Adler32_FieldInfo_[] = {
 };
 
 $MethodInfo _Adler32_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Adler32::*)()>(&Adler32::init$))},
-	{"getValue", "()J", nullptr, $PUBLIC},
-	{"reset", "()V", nullptr, $PUBLIC},
-	{"update", "(I)V", nullptr, $PUBLIC},
-	{"update", "([BII)V", nullptr, $PUBLIC},
-	{"update", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC},
-	{"update", "(II)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $method(static_cast<int32_t(*)(int32_t,int32_t)>(&Adler32::update))},
-	{"updateByteBuffer", "(IJII)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $method(static_cast<int32_t(*)(int32_t,int64_t,int32_t,int32_t)>(&Adler32::updateByteBuffer)), nullptr, nullptr, _Adler32_MethodAnnotations_updateByteBuffer7},
-	{"updateBytes", "(I[BII)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $method(static_cast<int32_t(*)(int32_t,$bytes*,int32_t,int32_t)>(&Adler32::updateBytes)), nullptr, nullptr, _Adler32_MethodAnnotations_updateBytes8},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Adler32, init$, void)},
+	{"getValue", "()J", nullptr, $PUBLIC, $virtualMethod(Adler32, getValue, int64_t)},
+	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(Adler32, reset, void)},
+	{"update", "(I)V", nullptr, $PUBLIC, $virtualMethod(Adler32, update, void, int32_t)},
+	{"update", "([BII)V", nullptr, $PUBLIC, $virtualMethod(Adler32, update, void, $bytes*, int32_t, int32_t)},
+	{"update", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(Adler32, update, void, $ByteBuffer*)},
+	{"update", "(II)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Adler32, update, int32_t, int32_t, int32_t)},
+	{"updateByteBuffer", "(IJII)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Adler32, updateByteBuffer, int32_t, int32_t, int64_t, int32_t, int32_t), nullptr, nullptr, _Adler32_MethodAnnotations_updateByteBuffer7},
+	{"updateBytes", "(I[BII)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Adler32, updateBytes, int32_t, int32_t, $bytes*, int32_t, int32_t), nullptr, nullptr, _Adler32_MethodAnnotations_updateBytes8},
 	{}
 };
 

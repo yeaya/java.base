@@ -11,8 +11,8 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $URL = ::java::net::URL;
 
 $MethodInfo _TestRFC2732_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TestRFC2732::*)()>(&TestRFC2732::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&TestRFC2732::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TestRFC2732, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TestRFC2732, main, void, $StringArray*)},
 	{}
 };
 

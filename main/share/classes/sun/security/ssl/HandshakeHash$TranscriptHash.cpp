@@ -12,9 +12,9 @@ namespace sun {
 		namespace ssl {
 
 $MethodInfo _HandshakeHash$TranscriptHash_MethodInfo_[] = {
-	{"archived", "()[B", nullptr, $PUBLIC | $ABSTRACT},
-	{"digest", "()[B", nullptr, $PUBLIC | $ABSTRACT},
-	{"update", "([BII)V", nullptr, $PUBLIC | $ABSTRACT},
+	{"archived", "()[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HandshakeHash$TranscriptHash, archived, $bytes*)},
+	{"digest", "()[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HandshakeHash$TranscriptHash, digest, $bytes*)},
+	{"update", "([BII)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HandshakeHash$TranscriptHash, update, void, $bytes*, int32_t, int32_t)},
 	{}
 };
 

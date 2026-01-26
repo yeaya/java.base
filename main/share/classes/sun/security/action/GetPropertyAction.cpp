@@ -27,12 +27,12 @@ $FieldInfo _GetPropertyAction_FieldInfo_[] = {
 };
 
 $MethodInfo _GetPropertyAction_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(GetPropertyAction::*)($String*)>(&GetPropertyAction::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(GetPropertyAction::*)($String*,$String*)>(&GetPropertyAction::init$))},
-	{"privilegedGetProperties", "()Ljava/util/Properties;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Properties*(*)()>(&GetPropertyAction::privilegedGetProperties))},
-	{"privilegedGetProperty", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)($String*)>(&GetPropertyAction::privilegedGetProperty))},
-	{"privilegedGetProperty", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)($String*,$String*)>(&GetPropertyAction::privilegedGetProperty))},
-	{"run", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(GetPropertyAction, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(GetPropertyAction, init$, void, $String*, $String*)},
+	{"privilegedGetProperties", "()Ljava/util/Properties;", nullptr, $PUBLIC | $STATIC, $staticMethod(GetPropertyAction, privilegedGetProperties, $Properties*)},
+	{"privilegedGetProperty", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(GetPropertyAction, privilegedGetProperty, $String*, $String*)},
+	{"privilegedGetProperty", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(GetPropertyAction, privilegedGetProperty, $String*, $String*, $String*)},
+	{"run", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(GetPropertyAction, run, $Object*)},
 	{}
 };
 

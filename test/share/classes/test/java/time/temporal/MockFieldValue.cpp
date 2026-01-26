@@ -28,10 +28,10 @@ $FieldInfo _MockFieldValue_FieldInfo_[] = {
 };
 
 $MethodInfo _MockFieldValue_MethodInfo_[] = {
-	{"<init>", "(Ljava/time/temporal/TemporalField;J)V", nullptr, $PUBLIC, $method(static_cast<void(MockFieldValue::*)($TemporalField*,int64_t)>(&MockFieldValue::init$))},
-	{"getLong", "(Ljava/time/temporal/TemporalField;)J", nullptr, $PUBLIC},
-	{"isSupported", "(Ljava/time/temporal/TemporalField;)Z", nullptr, $PUBLIC},
-	{"range", "(Ljava/time/temporal/TemporalField;)Ljava/time/temporal/ValueRange;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/time/temporal/TemporalField;J)V", nullptr, $PUBLIC, $method(MockFieldValue, init$, void, $TemporalField*, int64_t)},
+	{"getLong", "(Ljava/time/temporal/TemporalField;)J", nullptr, $PUBLIC, $virtualMethod(MockFieldValue, getLong, int64_t, $TemporalField*)},
+	{"isSupported", "(Ljava/time/temporal/TemporalField;)Z", nullptr, $PUBLIC, $virtualMethod(MockFieldValue, isSupported, bool, $TemporalField*)},
+	{"range", "(Ljava/time/temporal/TemporalField;)Ljava/time/temporal/ValueRange;", nullptr, $PUBLIC, $virtualMethod(MockFieldValue, range, $ValueRange*, $TemporalField*)},
 	{}
 };
 

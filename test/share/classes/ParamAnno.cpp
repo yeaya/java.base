@@ -30,7 +30,7 @@ $CompoundAttribute _ParamAnno_Annotations_[] = {
 };
 
 $MethodInfo _ParamAnno_MethodInfo_[] = {
-	{"value", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
+	{"value", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ParamAnno, value, $String*)},
 	{}
 };
 

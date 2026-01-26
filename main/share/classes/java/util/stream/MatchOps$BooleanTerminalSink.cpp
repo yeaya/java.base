@@ -21,9 +21,9 @@ $FieldInfo _MatchOps$BooleanTerminalSink_FieldInfo_[] = {
 };
 
 $MethodInfo _MatchOps$BooleanTerminalSink_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/stream/MatchOps$MatchKind;)V", nullptr, 0, $method(static_cast<void(MatchOps$BooleanTerminalSink::*)($MatchOps$MatchKind*)>(&MatchOps$BooleanTerminalSink::init$))},
-	{"cancellationRequested", "()Z", nullptr, $PUBLIC},
-	{"getAndClearState", "()Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/stream/MatchOps$MatchKind;)V", nullptr, 0, $method(MatchOps$BooleanTerminalSink, init$, void, $MatchOps$MatchKind*)},
+	{"cancellationRequested", "()Z", nullptr, $PUBLIC, $virtualMethod(MatchOps$BooleanTerminalSink, cancellationRequested, bool)},
+	{"getAndClearState", "()Z", nullptr, $PUBLIC, $virtualMethod(MatchOps$BooleanTerminalSink, getAndClearState, bool)},
 	{}
 };
 

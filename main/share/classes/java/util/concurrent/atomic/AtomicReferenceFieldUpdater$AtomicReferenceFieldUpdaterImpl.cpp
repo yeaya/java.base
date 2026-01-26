@@ -53,19 +53,19 @@ $FieldInfo _AtomicReferenceFieldUpdater$AtomicReferenceFieldUpdaterImpl_FieldInf
 };
 
 $MethodInfo _AtomicReferenceFieldUpdater$AtomicReferenceFieldUpdaterImpl_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/String;Ljava/lang/Class;)V", "(Ljava/lang/Class<TT;>;Ljava/lang/Class<TV;>;Ljava/lang/String;Ljava/lang/Class<*>;)V", 0, $method(static_cast<void(AtomicReferenceFieldUpdater$AtomicReferenceFieldUpdaterImpl::*)($Class*,$Class*,$String*,$Class*)>(&AtomicReferenceFieldUpdater$AtomicReferenceFieldUpdaterImpl::init$))},
-	{"accessCheck", "(Ljava/lang/Object;)V", "(TT;)V", $PRIVATE | $FINAL, $method(static_cast<void(AtomicReferenceFieldUpdater$AtomicReferenceFieldUpdaterImpl::*)(Object$*)>(&AtomicReferenceFieldUpdater$AtomicReferenceFieldUpdaterImpl::accessCheck))},
-	{"compareAndSet", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Z", "(TT;TV;TV;)Z", $PUBLIC | $FINAL},
-	{"get", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TT;)TV;", $PUBLIC | $FINAL},
-	{"getAndSet", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", "(TT;TV;)TV;", $PUBLIC | $FINAL},
-	{"isAncestor", "(Ljava/lang/ClassLoader;Ljava/lang/ClassLoader;)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($ClassLoader*,$ClassLoader*)>(&AtomicReferenceFieldUpdater$AtomicReferenceFieldUpdaterImpl::isAncestor))},
-	{"isSamePackage", "(Ljava/lang/Class;Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)Z", $PRIVATE | $STATIC, $method(static_cast<bool(*)($Class*,$Class*)>(&AtomicReferenceFieldUpdater$AtomicReferenceFieldUpdaterImpl::isSamePackage))},
-	{"lazySet", "(Ljava/lang/Object;Ljava/lang/Object;)V", "(TT;TV;)V", $PUBLIC | $FINAL},
-	{"set", "(Ljava/lang/Object;Ljava/lang/Object;)V", "(TT;TV;)V", $PUBLIC | $FINAL},
-	{"throwAccessCheckException", "(Ljava/lang/Object;)V", "(TT;)V", $PRIVATE | $FINAL, $method(static_cast<void(AtomicReferenceFieldUpdater$AtomicReferenceFieldUpdaterImpl::*)(Object$*)>(&AtomicReferenceFieldUpdater$AtomicReferenceFieldUpdaterImpl::throwAccessCheckException))},
-	{"throwCCE", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&AtomicReferenceFieldUpdater$AtomicReferenceFieldUpdaterImpl::throwCCE))},
-	{"valueCheck", "(Ljava/lang/Object;)V", "(TV;)V", $PRIVATE | $FINAL, $method(static_cast<void(AtomicReferenceFieldUpdater$AtomicReferenceFieldUpdaterImpl::*)(Object$*)>(&AtomicReferenceFieldUpdater$AtomicReferenceFieldUpdaterImpl::valueCheck))},
-	{"weakCompareAndSet", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Z", "(TT;TV;TV;)Z", $PUBLIC | $FINAL},
+	{"<init>", "(Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/String;Ljava/lang/Class;)V", "(Ljava/lang/Class<TT;>;Ljava/lang/Class<TV;>;Ljava/lang/String;Ljava/lang/Class<*>;)V", 0, $method(AtomicReferenceFieldUpdater$AtomicReferenceFieldUpdaterImpl, init$, void, $Class*, $Class*, $String*, $Class*)},
+	{"accessCheck", "(Ljava/lang/Object;)V", "(TT;)V", $PRIVATE | $FINAL, $method(AtomicReferenceFieldUpdater$AtomicReferenceFieldUpdaterImpl, accessCheck, void, Object$*)},
+	{"compareAndSet", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Z", "(TT;TV;TV;)Z", $PUBLIC | $FINAL, $virtualMethod(AtomicReferenceFieldUpdater$AtomicReferenceFieldUpdaterImpl, compareAndSet, bool, Object$*, Object$*, Object$*)},
+	{"get", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TT;)TV;", $PUBLIC | $FINAL, $virtualMethod(AtomicReferenceFieldUpdater$AtomicReferenceFieldUpdaterImpl, get, $Object*, Object$*)},
+	{"getAndSet", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", "(TT;TV;)TV;", $PUBLIC | $FINAL, $virtualMethod(AtomicReferenceFieldUpdater$AtomicReferenceFieldUpdaterImpl, getAndSet, $Object*, Object$*, Object$*)},
+	{"isAncestor", "(Ljava/lang/ClassLoader;Ljava/lang/ClassLoader;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(AtomicReferenceFieldUpdater$AtomicReferenceFieldUpdaterImpl, isAncestor, bool, $ClassLoader*, $ClassLoader*)},
+	{"isSamePackage", "(Ljava/lang/Class;Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)Z", $PRIVATE | $STATIC, $staticMethod(AtomicReferenceFieldUpdater$AtomicReferenceFieldUpdaterImpl, isSamePackage, bool, $Class*, $Class*)},
+	{"lazySet", "(Ljava/lang/Object;Ljava/lang/Object;)V", "(TT;TV;)V", $PUBLIC | $FINAL, $virtualMethod(AtomicReferenceFieldUpdater$AtomicReferenceFieldUpdaterImpl, lazySet, void, Object$*, Object$*)},
+	{"set", "(Ljava/lang/Object;Ljava/lang/Object;)V", "(TT;TV;)V", $PUBLIC | $FINAL, $virtualMethod(AtomicReferenceFieldUpdater$AtomicReferenceFieldUpdaterImpl, set, void, Object$*, Object$*)},
+	{"throwAccessCheckException", "(Ljava/lang/Object;)V", "(TT;)V", $PRIVATE | $FINAL, $method(AtomicReferenceFieldUpdater$AtomicReferenceFieldUpdaterImpl, throwAccessCheckException, void, Object$*)},
+	{"throwCCE", "()V", nullptr, $STATIC, $staticMethod(AtomicReferenceFieldUpdater$AtomicReferenceFieldUpdaterImpl, throwCCE, void)},
+	{"valueCheck", "(Ljava/lang/Object;)V", "(TV;)V", $PRIVATE | $FINAL, $method(AtomicReferenceFieldUpdater$AtomicReferenceFieldUpdaterImpl, valueCheck, void, Object$*)},
+	{"weakCompareAndSet", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Z", "(TT;TV;TV;)Z", $PUBLIC | $FINAL, $virtualMethod(AtomicReferenceFieldUpdater$AtomicReferenceFieldUpdaterImpl, weakCompareAndSet, bool, Object$*, Object$*, Object$*)},
 	{}
 };
 

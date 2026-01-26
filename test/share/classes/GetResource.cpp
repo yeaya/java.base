@@ -24,9 +24,9 @@ $FieldInfo _GetResource_FieldInfo_[] = {
 };
 
 $MethodInfo _GetResource_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(GetResource::*)()>(&GetResource::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&GetResource::main)), "java.lang.Exception"},
-	{"run", "()V", nullptr, $PUBLIC, nullptr, "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(GetResource, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(GetResource, main, void, $StringArray*), "java.lang.Exception"},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(GetResource, run, void), "java.lang.Exception"},
 	{}
 };
 

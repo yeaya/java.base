@@ -46,11 +46,11 @@ $FieldInfo _CleanerImpl_FieldInfo_[] = {
 };
 
 $MethodInfo _CleanerImpl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CleanerImpl::*)()>(&CleanerImpl::init$))},
-	{"getCleanerImpl", "(Ljava/lang/ref/Cleaner;)Ljdk/internal/ref/CleanerImpl;", nullptr, $STATIC, $method(static_cast<CleanerImpl*(*)($Cleaner*)>(&CleanerImpl::getCleanerImpl))},
-	{"run", "()V", nullptr, $PUBLIC},
-	{"setCleanerImplAccess", "(Ljava/util/function/Function;)V", "(Ljava/util/function/Function<Ljava/lang/ref/Cleaner;Ljdk/internal/ref/CleanerImpl;>;)V", $PUBLIC | $STATIC, $method(static_cast<void(*)($Function*)>(&CleanerImpl::setCleanerImplAccess))},
-	{"start", "(Ljava/lang/ref/Cleaner;Ljava/util/concurrent/ThreadFactory;)V", nullptr, $PUBLIC, $method(static_cast<void(CleanerImpl::*)($Cleaner*,$ThreadFactory*)>(&CleanerImpl::start))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CleanerImpl, init$, void)},
+	{"getCleanerImpl", "(Ljava/lang/ref/Cleaner;)Ljdk/internal/ref/CleanerImpl;", nullptr, $STATIC, $staticMethod(CleanerImpl, getCleanerImpl, CleanerImpl*, $Cleaner*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(CleanerImpl, run, void)},
+	{"setCleanerImplAccess", "(Ljava/util/function/Function;)V", "(Ljava/util/function/Function<Ljava/lang/ref/Cleaner;Ljdk/internal/ref/CleanerImpl;>;)V", $PUBLIC | $STATIC, $staticMethod(CleanerImpl, setCleanerImplAccess, void, $Function*)},
+	{"start", "(Ljava/lang/ref/Cleaner;Ljava/util/concurrent/ThreadFactory;)V", nullptr, $PUBLIC, $method(CleanerImpl, start, void, $Cleaner*, $ThreadFactory*)},
 	{}
 };
 

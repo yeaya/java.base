@@ -47,16 +47,16 @@ $FieldInfo _Spliterators$DoubleIteratorSpliterator_FieldInfo_[] = {
 };
 
 $MethodInfo _Spliterators$DoubleIteratorSpliterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/PrimitiveIterator$OfDouble;JI)V", nullptr, $PUBLIC, $method(static_cast<void(Spliterators$DoubleIteratorSpliterator::*)($PrimitiveIterator$OfDouble*,int64_t,int32_t)>(&Spliterators$DoubleIteratorSpliterator::init$))},
-	{"<init>", "(Ljava/util/PrimitiveIterator$OfDouble;I)V", nullptr, $PUBLIC, $method(static_cast<void(Spliterators$DoubleIteratorSpliterator::*)($PrimitiveIterator$OfDouble*,int32_t)>(&Spliterators$DoubleIteratorSpliterator::init$))},
-	{"characteristics", "()I", nullptr, $PUBLIC},
-	{"estimateSize", "()J", nullptr, $PUBLIC},
-	{"forEachRemaining", "(Ljava/util/function/DoubleConsumer;)V", nullptr, $PUBLIC},
-	{"forEachRemaining", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"getComparator", "()Ljava/util/Comparator;", "()Ljava/util/Comparator<-Ljava/lang/Double;>;", $PUBLIC},
-	{"tryAdvance", "(Ljava/util/function/DoubleConsumer;)Z", nullptr, $PUBLIC},
-	{"tryAdvance", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"trySplit", "()Ljava/util/Spliterator$OfDouble;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/PrimitiveIterator$OfDouble;JI)V", nullptr, $PUBLIC, $method(Spliterators$DoubleIteratorSpliterator, init$, void, $PrimitiveIterator$OfDouble*, int64_t, int32_t)},
+	{"<init>", "(Ljava/util/PrimitiveIterator$OfDouble;I)V", nullptr, $PUBLIC, $method(Spliterators$DoubleIteratorSpliterator, init$, void, $PrimitiveIterator$OfDouble*, int32_t)},
+	{"characteristics", "()I", nullptr, $PUBLIC, $virtualMethod(Spliterators$DoubleIteratorSpliterator, characteristics, int32_t)},
+	{"estimateSize", "()J", nullptr, $PUBLIC, $virtualMethod(Spliterators$DoubleIteratorSpliterator, estimateSize, int64_t)},
+	{"forEachRemaining", "(Ljava/util/function/DoubleConsumer;)V", nullptr, $PUBLIC, $virtualMethod(Spliterators$DoubleIteratorSpliterator, forEachRemaining, void, $DoubleConsumer*)},
+	{"forEachRemaining", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Spliterators$DoubleIteratorSpliterator, forEachRemaining, void, Object$*)},
+	{"getComparator", "()Ljava/util/Comparator;", "()Ljava/util/Comparator<-Ljava/lang/Double;>;", $PUBLIC, $virtualMethod(Spliterators$DoubleIteratorSpliterator, getComparator, $Comparator*)},
+	{"tryAdvance", "(Ljava/util/function/DoubleConsumer;)Z", nullptr, $PUBLIC, $virtualMethod(Spliterators$DoubleIteratorSpliterator, tryAdvance, bool, $DoubleConsumer*)},
+	{"tryAdvance", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Spliterators$DoubleIteratorSpliterator, tryAdvance, bool, Object$*)},
+	{"trySplit", "()Ljava/util/Spliterator$OfDouble;", nullptr, $PUBLIC, $virtualMethod(Spliterators$DoubleIteratorSpliterator, trySplit, $Spliterator$OfDouble*)},
 	{}
 };
 

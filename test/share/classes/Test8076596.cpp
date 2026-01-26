@@ -38,8 +38,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Test8076596$$Lambda$lambda$new$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Test8076596$$Lambda$lambda$new$0::*)()>(&Test8076596$$Lambda$lambda$new$0::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Test8076596$$Lambda$lambda$new$0, init$, void)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Test8076596$$Lambda$lambda$new$0, run, $Object*)},
 	{}
 };
 $ClassInfo Test8076596$$Lambda$lambda$new$0::classInfo$ = {
@@ -57,9 +57,9 @@ $Class* Test8076596$$Lambda$lambda$new$0::load$($String* name, bool initialize) 
 $Class* Test8076596$$Lambda$lambda$new$0::class$ = nullptr;
 
 $MethodInfo _Test8076596_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Test8076596::*)()>(&Test8076596::init$))},
-	{"lambda$new$0", "()Ljava/lang/Void;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Void*(*)()>(&Test8076596::lambda$new$0))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Test8076596::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Test8076596, init$, void)},
+	{"lambda$new$0", "()Ljava/lang/Void;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Test8076596, lambda$new$0, $Void*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Test8076596, main, void, $StringArray*)},
 	{}
 };
 

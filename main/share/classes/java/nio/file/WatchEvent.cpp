@@ -6,15 +6,16 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $WatchEvent$Kind = ::java::nio::file::WatchEvent$Kind;
 
 namespace java {
 	namespace nio {
 		namespace file {
 
 $MethodInfo _WatchEvent_MethodInfo_[] = {
-	{"context", "()Ljava/lang/Object;", "()TT;", $PUBLIC | $ABSTRACT},
-	{"count", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"kind", "()Ljava/nio/file/WatchEvent$Kind;", "()Ljava/nio/file/WatchEvent$Kind<TT;>;", $PUBLIC | $ABSTRACT},
+	{"context", "()Ljava/lang/Object;", "()TT;", $PUBLIC | $ABSTRACT, $virtualMethod(WatchEvent, context, $Object*)},
+	{"count", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(WatchEvent, count, int32_t)},
+	{"kind", "()Ljava/nio/file/WatchEvent$Kind;", "()Ljava/nio/file/WatchEvent$Kind<TT;>;", $PUBLIC | $ABSTRACT, $virtualMethod(WatchEvent, kind, $WatchEvent$Kind*)},
 	{}
 };
 

@@ -49,13 +49,13 @@ $FieldInfo _VarHandle$AccessType_FieldInfo_[] = {
 };
 
 $MethodInfo _VarHandle$AccessType_MethodInfo_[] = {
-	{"$values", "()[Ljava/lang/invoke/VarHandle$AccessType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$VarHandle$AccessTypeArray*(*)()>(&VarHandle$AccessType::$values))},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $PRIVATE, $method(static_cast<void(VarHandle$AccessType::*)($String*,int32_t,$Class*)>(&VarHandle$AccessType::init$))},
-	{"accessModeType", "(Ljava/lang/Class;Ljava/lang/Class;[Ljava/lang/Class;)Ljava/lang/invoke/MethodType;", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;[Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodType;", $TRANSIENT, $method(static_cast<$MethodType*(VarHandle$AccessType::*)($Class*,$Class*,$ClassArray*)>(&VarHandle$AccessType::accessModeType))},
-	{"allocateParameters", "(ILjava/lang/Class;[Ljava/lang/Class;)[Ljava/lang/Class;", "(ILjava/lang/Class<*>;[Ljava/lang/Class<*>;)[Ljava/lang/Class<*>;", $PRIVATE | $STATIC | $TRANSIENT, $method(static_cast<$ClassArray*(*)(int32_t,$Class*,$ClassArray*)>(&VarHandle$AccessType::allocateParameters))},
-	{"fillParameters", "([Ljava/lang/Class;Ljava/lang/Class;[Ljava/lang/Class;)I", "([Ljava/lang/Class<*>;Ljava/lang/Class<*>;[Ljava/lang/Class<*>;)I", $PRIVATE | $STATIC | $TRANSIENT, $method(static_cast<int32_t(*)($ClassArray*,$Class*,$ClassArray*)>(&VarHandle$AccessType::fillParameters))},
-	{"valueOf", "(Ljava/lang/String;)Ljava/lang/invoke/VarHandle$AccessType;", nullptr, $PUBLIC | $STATIC, $method(static_cast<VarHandle$AccessType*(*)($String*)>(&VarHandle$AccessType::valueOf))},
-	{"values", "()[Ljava/lang/invoke/VarHandle$AccessType;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$VarHandle$AccessTypeArray*(*)()>(&VarHandle$AccessType::values))},
+	{"$values", "()[Ljava/lang/invoke/VarHandle$AccessType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(VarHandle$AccessType, $values, $VarHandle$AccessTypeArray*)},
+	{"<init>", "(Ljava/lang/String;ILjava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $PRIVATE, $method(VarHandle$AccessType, init$, void, $String*, int32_t, $Class*)},
+	{"accessModeType", "(Ljava/lang/Class;Ljava/lang/Class;[Ljava/lang/Class;)Ljava/lang/invoke/MethodType;", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;[Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodType;", $TRANSIENT, $method(VarHandle$AccessType, accessModeType, $MethodType*, $Class*, $Class*, $ClassArray*)},
+	{"allocateParameters", "(ILjava/lang/Class;[Ljava/lang/Class;)[Ljava/lang/Class;", "(ILjava/lang/Class<*>;[Ljava/lang/Class<*>;)[Ljava/lang/Class<*>;", $PRIVATE | $STATIC | $TRANSIENT, $staticMethod(VarHandle$AccessType, allocateParameters, $ClassArray*, int32_t, $Class*, $ClassArray*)},
+	{"fillParameters", "([Ljava/lang/Class;Ljava/lang/Class;[Ljava/lang/Class;)I", "([Ljava/lang/Class<*>;Ljava/lang/Class<*>;[Ljava/lang/Class<*>;)I", $PRIVATE | $STATIC | $TRANSIENT, $staticMethod(VarHandle$AccessType, fillParameters, int32_t, $ClassArray*, $Class*, $ClassArray*)},
+	{"valueOf", "(Ljava/lang/String;)Ljava/lang/invoke/VarHandle$AccessType;", nullptr, $PUBLIC | $STATIC, $staticMethod(VarHandle$AccessType, valueOf, VarHandle$AccessType*, $String*)},
+	{"values", "()[Ljava/lang/invoke/VarHandle$AccessType;", nullptr, $PUBLIC | $STATIC, $staticMethod(VarHandle$AccessType, values, $VarHandle$AccessTypeArray*)},
 	{}
 };
 

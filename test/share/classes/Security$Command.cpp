@@ -8,7 +8,7 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _Security$Command_MethodInfo_[] = {
-	{"run", "()V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.lang.Exception"},
+	{"run", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Security$Command, run, void), "java.lang.Exception"},
 	{}
 };
 

@@ -14,8 +14,8 @@ namespace sun {
 			namespace cldr {
 
 $MethodInfo _FormatData_en_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(FormatData_en::*)()>(&FormatData_en::init$))},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(FormatData_en, init$, void)},
+	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(FormatData_en, getContents, $ObjectArray2*)},
 	{}
 };
 

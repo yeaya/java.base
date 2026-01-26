@@ -18,9 +18,9 @@ $FieldInfo _DelegatingMethodAccessorImpl_FieldInfo_[] = {
 };
 
 $MethodInfo _DelegatingMethodAccessorImpl_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/reflect/MethodAccessorImpl;)V", nullptr, 0, $method(static_cast<void(DelegatingMethodAccessorImpl::*)($MethodAccessorImpl*)>(&DelegatingMethodAccessorImpl::init$))},
-	{"invoke", "(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, nullptr, "java.lang.IllegalArgumentException,java.lang.reflect.InvocationTargetException"},
-	{"setDelegate", "(Ljdk/internal/reflect/MethodAccessorImpl;)V", nullptr, 0},
+	{"<init>", "(Ljdk/internal/reflect/MethodAccessorImpl;)V", nullptr, 0, $method(DelegatingMethodAccessorImpl, init$, void, $MethodAccessorImpl*)},
+	{"invoke", "(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DelegatingMethodAccessorImpl, invoke, $Object*, Object$*, $ObjectArray*), "java.lang.IllegalArgumentException,java.lang.reflect.InvocationTargetException"},
+	{"setDelegate", "(Ljdk/internal/reflect/MethodAccessorImpl;)V", nullptr, 0, $virtualMethod(DelegatingMethodAccessorImpl, setDelegate, void, $MethodAccessorImpl*)},
 	{"*invokeSpecial", "(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, 1},
 	{"*invokev", "(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, 1},
 	{}

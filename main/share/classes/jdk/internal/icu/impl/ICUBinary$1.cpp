@@ -22,8 +22,8 @@ $FieldInfo _ICUBinary$1_FieldInfo_[] = {
 };
 
 $MethodInfo _ICUBinary$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Class;Ljava/lang/String;)V", "()V", 0, $method(static_cast<void(ICUBinary$1::*)($Class*,$String*)>(&ICUBinary$1::init$))},
-	{"run", "()Ljava/io/InputStream;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Class;Ljava/lang/String;)V", "()V", 0, $method(ICUBinary$1, init$, void, $Class*, $String*)},
+	{"run", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(ICUBinary$1, run, $Object*)},
 	{}
 };
 

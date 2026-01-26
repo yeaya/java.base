@@ -48,9 +48,9 @@ $FieldInfo _DateTimeTextProvider$LocaleStore_FieldInfo_[] = {
 };
 
 $MethodInfo _DateTimeTextProvider$LocaleStore_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Map;)V", "(Ljava/util/Map<Ljava/time/format/TextStyle;Ljava/util/Map<Ljava/lang/Long;Ljava/lang/String;>;>;)V", 0, $method(static_cast<void(DateTimeTextProvider$LocaleStore::*)($Map*)>(&DateTimeTextProvider$LocaleStore::init$))},
-	{"getText", "(JLjava/time/format/TextStyle;)Ljava/lang/String;", nullptr, 0, $method(static_cast<$String*(DateTimeTextProvider$LocaleStore::*)(int64_t,$TextStyle*)>(&DateTimeTextProvider$LocaleStore::getText))},
-	{"getTextIterator", "(Ljava/time/format/TextStyle;)Ljava/util/Iterator;", "(Ljava/time/format/TextStyle;)Ljava/util/Iterator<Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/Long;>;>;", 0, $method(static_cast<$Iterator*(DateTimeTextProvider$LocaleStore::*)($TextStyle*)>(&DateTimeTextProvider$LocaleStore::getTextIterator))},
+	{"<init>", "(Ljava/util/Map;)V", "(Ljava/util/Map<Ljava/time/format/TextStyle;Ljava/util/Map<Ljava/lang/Long;Ljava/lang/String;>;>;)V", 0, $method(DateTimeTextProvider$LocaleStore, init$, void, $Map*)},
+	{"getText", "(JLjava/time/format/TextStyle;)Ljava/lang/String;", nullptr, 0, $method(DateTimeTextProvider$LocaleStore, getText, $String*, int64_t, $TextStyle*)},
+	{"getTextIterator", "(Ljava/time/format/TextStyle;)Ljava/util/Iterator;", "(Ljava/time/format/TextStyle;)Ljava/util/Iterator<Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/Long;>;>;", 0, $method(DateTimeTextProvider$LocaleStore, getTextIterator, $Iterator*, $TextStyle*)},
 	{}
 };
 

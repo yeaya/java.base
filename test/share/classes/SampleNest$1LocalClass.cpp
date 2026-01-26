@@ -16,7 +16,7 @@ $FieldInfo _SampleNest$1LocalClass_FieldInfo_[] = {
 };
 
 $MethodInfo _SampleNest$1LocalClass_MethodInfo_[] = {
-	{"<init>", "(LSampleNest;)V", nullptr, 0, $method(static_cast<void(SampleNest$1LocalClass::*)($SampleNest*)>(&SampleNest$1LocalClass::init$))},
+	{"<init>", "(LSampleNest;)V", nullptr, 0, $method(SampleNest$1LocalClass, init$, void, $SampleNest*)},
 	{}
 };
 

@@ -9,8 +9,8 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $ThreadGroup = ::java::lang::ThreadGroup;
 
 $MethodInfo _MainThreadTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(MainThreadTest::*)()>(&MainThreadTest::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&MainThreadTest::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(MainThreadTest, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(MainThreadTest, main, void, $StringArray*)},
 	{}
 };
 

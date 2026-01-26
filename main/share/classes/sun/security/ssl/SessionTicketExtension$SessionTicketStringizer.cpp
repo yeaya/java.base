@@ -20,8 +20,8 @@ namespace sun {
 		namespace ssl {
 
 $MethodInfo _SessionTicketExtension$SessionTicketStringizer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(SessionTicketExtension$SessionTicketStringizer::*)()>(&SessionTicketExtension$SessionTicketStringizer::init$))},
-	{"toString", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(SessionTicketExtension$SessionTicketStringizer, init$, void)},
+	{"toString", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SessionTicketExtension$SessionTicketStringizer, toString, $String*, $HandshakeContext*, $ByteBuffer*)},
 	{}
 };
 

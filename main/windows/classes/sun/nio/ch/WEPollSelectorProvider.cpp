@@ -20,8 +20,8 @@ namespace sun {
 		namespace ch {
 
 $MethodInfo _WEPollSelectorProvider_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(WEPollSelectorProvider::*)()>(&WEPollSelectorProvider::init$))},
-	{"openSelector", "()Ljava/nio/channels/spi/AbstractSelector;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(WEPollSelectorProvider, init$, void)},
+	{"openSelector", "()Ljava/nio/channels/spi/AbstractSelector;", nullptr, $PUBLIC, $virtualMethod(WEPollSelectorProvider, openSelector, $AbstractSelector*), "java.io.IOException"},
 	{}
 };
 

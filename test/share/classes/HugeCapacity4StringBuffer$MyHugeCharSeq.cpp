@@ -15,11 +15,11 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
 
 $MethodInfo _HugeCapacity4StringBuffer$MyHugeCharSeq_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(HugeCapacity4StringBuffer$MyHugeCharSeq::*)()>(&HugeCapacity4StringBuffer$MyHugeCharSeq::init$))},
-	{"charAt", "(I)C", nullptr, $PUBLIC},
-	{"length", "()I", nullptr, $PUBLIC},
-	{"subSequence", "(II)Ljava/lang/CharSequence;", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(HugeCapacity4StringBuffer$MyHugeCharSeq, init$, void)},
+	{"charAt", "(I)C", nullptr, $PUBLIC, $virtualMethod(HugeCapacity4StringBuffer$MyHugeCharSeq, charAt, char16_t, int32_t)},
+	{"length", "()I", nullptr, $PUBLIC, $virtualMethod(HugeCapacity4StringBuffer$MyHugeCharSeq, length, int32_t)},
+	{"subSequence", "(II)Ljava/lang/CharSequence;", nullptr, $PUBLIC, $virtualMethod(HugeCapacity4StringBuffer$MyHugeCharSeq, subSequence, $CharSequence*, int32_t, int32_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HugeCapacity4StringBuffer$MyHugeCharSeq, toString, $String*)},
 	{}
 };
 

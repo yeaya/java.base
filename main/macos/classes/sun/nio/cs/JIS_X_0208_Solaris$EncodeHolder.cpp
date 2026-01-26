@@ -23,7 +23,7 @@ $FieldInfo _JIS_X_0208_Solaris$EncodeHolder_FieldInfo_[] = {
 };
 
 $MethodInfo _JIS_X_0208_Solaris$EncodeHolder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(JIS_X_0208_Solaris$EncodeHolder::*)()>(&JIS_X_0208_Solaris$EncodeHolder::init$))},
+	{"<init>", "()V", nullptr, 0, $method(JIS_X_0208_Solaris$EncodeHolder, init$, void)},
 	{}
 };
 

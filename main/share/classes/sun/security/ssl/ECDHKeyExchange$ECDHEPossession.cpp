@@ -79,15 +79,15 @@ $FieldInfo _ECDHKeyExchange$ECDHEPossession_FieldInfo_[] = {
 };
 
 $MethodInfo _ECDHKeyExchange$ECDHEPossession_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/ssl/NamedGroup;Ljava/security/SecureRandom;)V", nullptr, 0, $method(static_cast<void(ECDHKeyExchange$ECDHEPossession::*)($NamedGroup*,$SecureRandom*)>(&ECDHKeyExchange$ECDHEPossession::init$))},
-	{"<init>", "(Lsun/security/ssl/ECDHKeyExchange$ECDHECredentials;Ljava/security/SecureRandom;)V", nullptr, 0, $method(static_cast<void(ECDHKeyExchange$ECDHEPossession::*)($ECDHKeyExchange$ECDHECredentials*,$SecureRandom*)>(&ECDHKeyExchange$ECDHEPossession::init$))},
-	{"checkConstraints", "(Ljava/security/AlgorithmConstraints;[B)V", nullptr, 0, $method(static_cast<void(ECDHKeyExchange$ECDHEPossession::*)($AlgorithmConstraints*,$bytes*)>(&ECDHKeyExchange$ECDHEPossession::checkConstraints)), "javax.net.ssl.SSLHandshakeException"},
-	{"encode", "()[B", nullptr, $PUBLIC},
-	{"getAgreedSecret", "(Ljava/security/PublicKey;)Ljavax/crypto/SecretKey;", nullptr, 0, $method(static_cast<$SecretKey*(ECDHKeyExchange$ECDHEPossession::*)($PublicKey*)>(&ECDHKeyExchange$ECDHEPossession::getAgreedSecret)), "javax.net.ssl.SSLHandshakeException"},
-	{"getAgreedSecret", "([B)Ljavax/crypto/SecretKey;", nullptr, 0, $method(static_cast<$SecretKey*(ECDHKeyExchange$ECDHEPossession::*)($bytes*)>(&ECDHKeyExchange$ECDHEPossession::getAgreedSecret)), "javax.net.ssl.SSLHandshakeException"},
-	{"getNamedGroup", "()Lsun/security/ssl/NamedGroup;", nullptr, $PUBLIC},
-	{"getPrivateKey", "()Ljava/security/PrivateKey;", nullptr, $PUBLIC},
-	{"getPublicKey", "()Ljava/security/PublicKey;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/security/ssl/NamedGroup;Ljava/security/SecureRandom;)V", nullptr, 0, $method(ECDHKeyExchange$ECDHEPossession, init$, void, $NamedGroup*, $SecureRandom*)},
+	{"<init>", "(Lsun/security/ssl/ECDHKeyExchange$ECDHECredentials;Ljava/security/SecureRandom;)V", nullptr, 0, $method(ECDHKeyExchange$ECDHEPossession, init$, void, $ECDHKeyExchange$ECDHECredentials*, $SecureRandom*)},
+	{"checkConstraints", "(Ljava/security/AlgorithmConstraints;[B)V", nullptr, 0, $method(ECDHKeyExchange$ECDHEPossession, checkConstraints, void, $AlgorithmConstraints*, $bytes*), "javax.net.ssl.SSLHandshakeException"},
+	{"encode", "()[B", nullptr, $PUBLIC, $virtualMethod(ECDHKeyExchange$ECDHEPossession, encode, $bytes*)},
+	{"getAgreedSecret", "(Ljava/security/PublicKey;)Ljavax/crypto/SecretKey;", nullptr, 0, $method(ECDHKeyExchange$ECDHEPossession, getAgreedSecret, $SecretKey*, $PublicKey*), "javax.net.ssl.SSLHandshakeException"},
+	{"getAgreedSecret", "([B)Ljavax/crypto/SecretKey;", nullptr, 0, $method(ECDHKeyExchange$ECDHEPossession, getAgreedSecret, $SecretKey*, $bytes*), "javax.net.ssl.SSLHandshakeException"},
+	{"getNamedGroup", "()Lsun/security/ssl/NamedGroup;", nullptr, $PUBLIC, $virtualMethod(ECDHKeyExchange$ECDHEPossession, getNamedGroup, $NamedGroup*)},
+	{"getPrivateKey", "()Ljava/security/PrivateKey;", nullptr, $PUBLIC, $virtualMethod(ECDHKeyExchange$ECDHEPossession, getPrivateKey, $PrivateKey*)},
+	{"getPublicKey", "()Ljava/security/PublicKey;", nullptr, $PUBLIC, $virtualMethod(ECDHKeyExchange$ECDHEPossession, getPublicKey, $PublicKey*)},
 	{}
 };
 

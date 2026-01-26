@@ -21,8 +21,8 @@ using $SecurityPermission = ::java::security::SecurityPermission;
 using $Enumeration = ::java::util::Enumeration;
 
 $MethodInfo _FilePermissionCollection_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(FilePermissionCollection::*)()>(&FilePermissionCollection::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&FilePermissionCollection::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(FilePermissionCollection, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(FilePermissionCollection, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

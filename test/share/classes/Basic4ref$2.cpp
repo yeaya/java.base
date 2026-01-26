@@ -15,8 +15,8 @@ using $PhantomReference = ::java::lang::ref::PhantomReference;
 using $Vector = ::java::util::Vector;
 
 $MethodInfo _Basic4ref$2_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Basic4ref$2::*)()>(&Basic4ref$2::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(Basic4ref$2, init$, void)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Basic4ref$2, run, void)},
 	{}
 };
 

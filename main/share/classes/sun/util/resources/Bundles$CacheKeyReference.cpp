@@ -7,13 +7,14 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Bundles$CacheKey = ::sun::util::resources::Bundles$CacheKey;
 
 namespace sun {
 	namespace util {
 		namespace resources {
 
 $MethodInfo _Bundles$CacheKeyReference_MethodInfo_[] = {
-	{"getCacheKey", "()Lsun/util/resources/Bundles$CacheKey;", nullptr, $PUBLIC | $ABSTRACT},
+	{"getCacheKey", "()Lsun/util/resources/Bundles$CacheKey;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Bundles$CacheKeyReference, getCacheKey, $Bundles$CacheKey*)},
 	{}
 };
 

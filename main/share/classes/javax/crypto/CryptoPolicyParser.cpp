@@ -60,17 +60,17 @@ $FieldInfo _CryptoPolicyParser_FieldInfo_[] = {
 };
 
 $MethodInfo _CryptoPolicyParser_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(CryptoPolicyParser::*)()>(&CryptoPolicyParser::init$))},
-	{"getInstance", "(Ljava/lang/String;[Ljava/lang/Integer;)Ljava/security/spec/AlgorithmParameterSpec;", nullptr, $PRIVATE | $STATIC | $FINAL, $method(static_cast<$AlgorithmParameterSpec*(*)($String*,$IntegerArray*)>(&CryptoPolicyParser::getInstance)), "javax.crypto.CryptoPolicyParser$ParsingException"},
-	{"getPermissions", "()[Ljavax/crypto/CryptoPermission;", nullptr, 0, $method(static_cast<$CryptoPermissionArray*(CryptoPolicyParser::*)()>(&CryptoPolicyParser::getPermissions))},
-	{"isConsistent", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/Hashtable;)Z", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/Hashtable<Ljava/lang/String;Ljava/util/Vector<Ljava/lang/String;>;>;)Z", $PRIVATE, $method(static_cast<bool(CryptoPolicyParser::*)($String*,$String*,$Hashtable*)>(&CryptoPolicyParser::isConsistent))},
-	{"match", "()I", nullptr, $PRIVATE, $method(static_cast<int32_t(CryptoPolicyParser::*)()>(&CryptoPolicyParser::match)), "javax.crypto.CryptoPolicyParser$ParsingException,java.io.IOException"},
-	{"match", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(CryptoPolicyParser::*)($String*)>(&CryptoPolicyParser::match)), "javax.crypto.CryptoPolicyParser$ParsingException,java.io.IOException"},
-	{"parseGrantEntry", "(Ljava/util/Hashtable;)Ljavax/crypto/CryptoPolicyParser$GrantEntry;", "(Ljava/util/Hashtable<Ljava/lang/String;Ljava/util/Vector<Ljava/lang/String;>;>;)Ljavax/crypto/CryptoPolicyParser$GrantEntry;", $PRIVATE, $method(static_cast<$CryptoPolicyParser$GrantEntry*(CryptoPolicyParser::*)($Hashtable*)>(&CryptoPolicyParser::parseGrantEntry)), "javax.crypto.CryptoPolicyParser$ParsingException,java.io.IOException"},
-	{"parsePermissionEntry", "(Ljava/util/Hashtable;)Ljavax/crypto/CryptoPolicyParser$CryptoPermissionEntry;", "(Ljava/util/Hashtable<Ljava/lang/String;Ljava/util/Vector<Ljava/lang/String;>;>;)Ljavax/crypto/CryptoPolicyParser$CryptoPermissionEntry;", $PRIVATE, $method(static_cast<$CryptoPolicyParser$CryptoPermissionEntry*(CryptoPolicyParser::*)($Hashtable*)>(&CryptoPolicyParser::parsePermissionEntry)), "javax.crypto.CryptoPolicyParser$ParsingException,java.io.IOException"},
-	{"peek", "(Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(static_cast<bool(CryptoPolicyParser::*)($String*)>(&CryptoPolicyParser::peek))},
-	{"peekAndMatch", "(Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(static_cast<bool(CryptoPolicyParser::*)($String*)>(&CryptoPolicyParser::peekAndMatch)), "javax.crypto.CryptoPolicyParser$ParsingException,java.io.IOException"},
-	{"read", "(Ljava/io/Reader;)V", nullptr, 0, $method(static_cast<void(CryptoPolicyParser::*)($Reader*)>(&CryptoPolicyParser::read)), "javax.crypto.CryptoPolicyParser$ParsingException,java.io.IOException"},
+	{"<init>", "()V", nullptr, 0, $method(CryptoPolicyParser, init$, void)},
+	{"getInstance", "(Ljava/lang/String;[Ljava/lang/Integer;)Ljava/security/spec/AlgorithmParameterSpec;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(CryptoPolicyParser, getInstance, $AlgorithmParameterSpec*, $String*, $IntegerArray*), "javax.crypto.CryptoPolicyParser$ParsingException"},
+	{"getPermissions", "()[Ljavax/crypto/CryptoPermission;", nullptr, 0, $method(CryptoPolicyParser, getPermissions, $CryptoPermissionArray*)},
+	{"isConsistent", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/Hashtable;)Z", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/Hashtable<Ljava/lang/String;Ljava/util/Vector<Ljava/lang/String;>;>;)Z", $PRIVATE, $method(CryptoPolicyParser, isConsistent, bool, $String*, $String*, $Hashtable*)},
+	{"match", "()I", nullptr, $PRIVATE, $method(CryptoPolicyParser, match, int32_t), "javax.crypto.CryptoPolicyParser$ParsingException,java.io.IOException"},
+	{"match", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(CryptoPolicyParser, match, $String*, $String*), "javax.crypto.CryptoPolicyParser$ParsingException,java.io.IOException"},
+	{"parseGrantEntry", "(Ljava/util/Hashtable;)Ljavax/crypto/CryptoPolicyParser$GrantEntry;", "(Ljava/util/Hashtable<Ljava/lang/String;Ljava/util/Vector<Ljava/lang/String;>;>;)Ljavax/crypto/CryptoPolicyParser$GrantEntry;", $PRIVATE, $method(CryptoPolicyParser, parseGrantEntry, $CryptoPolicyParser$GrantEntry*, $Hashtable*), "javax.crypto.CryptoPolicyParser$ParsingException,java.io.IOException"},
+	{"parsePermissionEntry", "(Ljava/util/Hashtable;)Ljavax/crypto/CryptoPolicyParser$CryptoPermissionEntry;", "(Ljava/util/Hashtable<Ljava/lang/String;Ljava/util/Vector<Ljava/lang/String;>;>;)Ljavax/crypto/CryptoPolicyParser$CryptoPermissionEntry;", $PRIVATE, $method(CryptoPolicyParser, parsePermissionEntry, $CryptoPolicyParser$CryptoPermissionEntry*, $Hashtable*), "javax.crypto.CryptoPolicyParser$ParsingException,java.io.IOException"},
+	{"peek", "(Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(CryptoPolicyParser, peek, bool, $String*)},
+	{"peekAndMatch", "(Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(CryptoPolicyParser, peekAndMatch, bool, $String*), "javax.crypto.CryptoPolicyParser$ParsingException,java.io.IOException"},
+	{"read", "(Ljava/io/Reader;)V", nullptr, 0, $method(CryptoPolicyParser, read, void, $Reader*), "javax.crypto.CryptoPolicyParser$ParsingException,java.io.IOException"},
 	{}
 };
 

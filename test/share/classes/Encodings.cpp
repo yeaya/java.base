@@ -23,11 +23,11 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $Charset = ::java::nio::charset::Charset;
 
 $MethodInfo _Encodings_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Encodings::*)()>(&Encodings::init$))},
-	{"equals", "([B[B)Z", nullptr, $STATIC, $method(static_cast<bool(*)($bytes*,$bytes*)>(&Encodings::equals))},
-	{"go", "(Ljava/lang/String;Ljava/lang/String;[BZ)V", nullptr, $STATIC, $method(static_cast<void(*)($String*,$String*,$bytes*,bool)>(&Encodings::go)), "java.lang.Exception"},
-	{"go", "(Ljava/lang/String;Ljava/lang/String;[B)V", nullptr, $STATIC, $method(static_cast<void(*)($String*,$String*,$bytes*)>(&Encodings::go)), "java.lang.Exception"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Encodings::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Encodings, init$, void)},
+	{"equals", "([B[B)Z", nullptr, $STATIC, $staticMethod(Encodings, equals, bool, $bytes*, $bytes*)},
+	{"go", "(Ljava/lang/String;Ljava/lang/String;[BZ)V", nullptr, $STATIC, $staticMethod(Encodings, go, void, $String*, $String*, $bytes*, bool), "java.lang.Exception"},
+	{"go", "(Ljava/lang/String;Ljava/lang/String;[B)V", nullptr, $STATIC, $staticMethod(Encodings, go, void, $String*, $String*, $bytes*), "java.lang.Exception"},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Encodings, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

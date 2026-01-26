@@ -42,17 +42,17 @@ $FieldInfo _UnixException_FieldInfo_[] = {
 };
 
 $MethodInfo _UnixException_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, 0, $method(static_cast<void(UnixException::*)(int32_t)>(&UnixException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(UnixException::*)($String*)>(&UnixException::init$))},
-	{"asIOException", "(Lsun/nio/fs/UnixPath;)Ljava/io/IOException;", nullptr, 0},
-	{"errno", "()I", nullptr, 0},
-	{"errorString", "()Ljava/lang/String;", nullptr, 0},
-	{"fillInStackTrace", "()Ljava/lang/Throwable;", nullptr, $PUBLIC},
-	{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"rethrowAsIOException", "(Lsun/nio/fs/UnixPath;Lsun/nio/fs/UnixPath;)V", nullptr, 0, nullptr, "java.io.IOException"},
-	{"rethrowAsIOException", "(Lsun/nio/fs/UnixPath;)V", nullptr, 0, nullptr, "java.io.IOException"},
-	{"setError", "(I)V", nullptr, 0},
-	{"translateToIOException", "(Ljava/lang/String;Ljava/lang/String;)Ljava/io/IOException;", nullptr, $PRIVATE, $method(static_cast<$IOException*(UnixException::*)($String*,$String*)>(&UnixException::translateToIOException))},
+	{"<init>", "(I)V", nullptr, 0, $method(UnixException, init$, void, int32_t)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(UnixException, init$, void, $String*)},
+	{"asIOException", "(Lsun/nio/fs/UnixPath;)Ljava/io/IOException;", nullptr, 0, $virtualMethod(UnixException, asIOException, $IOException*, $UnixPath*)},
+	{"errno", "()I", nullptr, 0, $virtualMethod(UnixException, errno$, int32_t)},
+	{"errorString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(UnixException, errorString, $String*)},
+	{"fillInStackTrace", "()Ljava/lang/Throwable;", nullptr, $PUBLIC, $virtualMethod(UnixException, fillInStackTrace, $Throwable*)},
+	{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UnixException, getMessage, $String*)},
+	{"rethrowAsIOException", "(Lsun/nio/fs/UnixPath;Lsun/nio/fs/UnixPath;)V", nullptr, 0, $virtualMethod(UnixException, rethrowAsIOException, void, $UnixPath*, $UnixPath*), "java.io.IOException"},
+	{"rethrowAsIOException", "(Lsun/nio/fs/UnixPath;)V", nullptr, 0, $virtualMethod(UnixException, rethrowAsIOException, void, $UnixPath*), "java.io.IOException"},
+	{"setError", "(I)V", nullptr, 0, $virtualMethod(UnixException, setError, void, int32_t)},
+	{"translateToIOException", "(Ljava/lang/String;Ljava/lang/String;)Ljava/io/IOException;", nullptr, $PRIVATE, $method(UnixException, translateToIOException, $IOException*, $String*, $String*)},
 	{}
 };
 

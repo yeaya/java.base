@@ -30,8 +30,8 @@ $FieldInfo _URL$DefaultFactory_FieldInfo_[] = {
 };
 
 $MethodInfo _URL$DefaultFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(URL$DefaultFactory::*)()>(&URL$DefaultFactory::init$))},
-	{"createURLStreamHandler", "(Ljava/lang/String;)Ljava/net/URLStreamHandler;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(URL$DefaultFactory, init$, void)},
+	{"createURLStreamHandler", "(Ljava/lang/String;)Ljava/net/URLStreamHandler;", nullptr, $PUBLIC, $virtualMethod(URL$DefaultFactory, createURLStreamHandler, $URLStreamHandler*, $String*)},
 	{}
 };
 

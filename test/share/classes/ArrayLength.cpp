@@ -11,8 +11,8 @@ using $NoSuchFieldException = ::java::lang::NoSuchFieldException;
 using $RuntimeException = ::java::lang::RuntimeException;
 
 $MethodInfo _ArrayLength_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ArrayLength::*)()>(&ArrayLength::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&ArrayLength::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ArrayLength, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ArrayLength, main, void, $StringArray*)},
 	{}
 };
 

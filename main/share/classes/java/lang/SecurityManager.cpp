@@ -127,8 +127,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo SecurityManager$$Lambda$getDescriptor::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SecurityManager$$Lambda$getDescriptor::*)()>(&SecurityManager$$Lambda$getDescriptor::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SecurityManager$$Lambda$getDescriptor, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SecurityManager$$Lambda$getDescriptor, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo SecurityManager$$Lambda$getDescriptor::classInfo$ = {
@@ -170,8 +170,8 @@ $FieldInfo SecurityManager$$Lambda$lambda$addNonExportedPackages$0$1::fieldInfos
 	{}
 };
 $MethodInfo SecurityManager$$Lambda$lambda$addNonExportedPackages$0$1::methodInfos[3] = {
-	{"<init>", "(Ljava/util/Set;Ljava/util/Set;)V", nullptr, $PUBLIC, $method(static_cast<void(SecurityManager$$Lambda$lambda$addNonExportedPackages$0$1::*)($Set*,$Set*)>(&SecurityManager$$Lambda$lambda$addNonExportedPackages$0$1::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/Set;Ljava/util/Set;)V", nullptr, $PUBLIC, $method(SecurityManager$$Lambda$lambda$addNonExportedPackages$0$1, init$, void, $Set*, $Set*)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(SecurityManager$$Lambda$lambda$addNonExportedPackages$0$1, test, bool, Object$*)},
 	{}
 };
 $ClassInfo SecurityManager$$Lambda$lambda$addNonExportedPackages$0$1::classInfo$ = {
@@ -203,8 +203,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo SecurityManager$$Lambda$nonExportedPkgs$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SecurityManager$$Lambda$nonExportedPkgs$2::*)()>(&SecurityManager$$Lambda$nonExportedPkgs$2::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SecurityManager$$Lambda$nonExportedPkgs$2, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SecurityManager$$Lambda$nonExportedPkgs$2, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo SecurityManager$$Lambda$nonExportedPkgs$2::classInfo$ = {
@@ -236,8 +236,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo SecurityManager$$Lambda$stream$3::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SecurityManager$$Lambda$stream$3::*)()>(&SecurityManager$$Lambda$stream$3::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SecurityManager$$Lambda$stream$3, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SecurityManager$$Lambda$stream$3, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo SecurityManager$$Lambda$stream$3::classInfo$ = {
@@ -269,8 +269,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo SecurityManager$$Lambda$lambda$addNonExportedPackages$1$4::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SecurityManager$$Lambda$lambda$addNonExportedPackages$1$4::*)()>(&SecurityManager$$Lambda$lambda$addNonExportedPackages$1$4::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SecurityManager$$Lambda$lambda$addNonExportedPackages$1$4, init$, void)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(SecurityManager$$Lambda$lambda$addNonExportedPackages$1$4, accept, void, Object$*)},
 	{}
 };
 $ClassInfo SecurityManager$$Lambda$lambda$addNonExportedPackages$1$4::classInfo$ = {
@@ -302,8 +302,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo SecurityManager$$Lambda$lambda$nonExportedPkgs$2$5::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SecurityManager$$Lambda$lambda$nonExportedPkgs$2$5::*)()>(&SecurityManager$$Lambda$lambda$nonExportedPkgs$2$5::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SecurityManager$$Lambda$lambda$nonExportedPkgs$2$5, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(SecurityManager$$Lambda$lambda$nonExportedPkgs$2$5, test, bool, Object$*)},
 	{}
 };
 $ClassInfo SecurityManager$$Lambda$lambda$nonExportedPkgs$2$5::classInfo$ = {
@@ -335,8 +335,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo SecurityManager$$Lambda$source$6::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SecurityManager$$Lambda$source$6::*)()>(&SecurityManager$$Lambda$source$6::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SecurityManager$$Lambda$source$6, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SecurityManager$$Lambda$source$6, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo SecurityManager$$Lambda$source$6::classInfo$ = {
@@ -375,8 +375,8 @@ $FieldInfo SecurityManager$$Lambda$remove$7::fieldInfos[2] = {
 	{}
 };
 $MethodInfo SecurityManager$$Lambda$remove$7::methodInfos[3] = {
-	{"<init>", "(Ljava/util/Set;)V", nullptr, $PUBLIC, $method(static_cast<void(SecurityManager$$Lambda$remove$7::*)($Set*)>(&SecurityManager$$Lambda$remove$7::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/Set;)V", nullptr, $PUBLIC, $method(SecurityManager$$Lambda$remove$7, init$, void, $Set*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(SecurityManager$$Lambda$remove$7, accept, void, Object$*)},
 	{}
 };
 $ClassInfo SecurityManager$$Lambda$remove$7::classInfo$ = {
@@ -408,8 +408,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo SecurityManager$$Lambda$lambda$nonExportedPkgs$3$8::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SecurityManager$$Lambda$lambda$nonExportedPkgs$3$8::*)()>(&SecurityManager$$Lambda$lambda$nonExportedPkgs$3$8::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SecurityManager$$Lambda$lambda$nonExportedPkgs$3$8, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(SecurityManager$$Lambda$lambda$nonExportedPkgs$3$8, test, bool, Object$*)},
 	{}
 };
 $ClassInfo SecurityManager$$Lambda$lambda$nonExportedPkgs$3$8::classInfo$ = {
@@ -441,8 +441,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo SecurityManager$$Lambda$source$9::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SecurityManager$$Lambda$source$9::*)()>(&SecurityManager$$Lambda$source$9::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SecurityManager$$Lambda$source$9, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SecurityManager$$Lambda$source$9, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo SecurityManager$$Lambda$source$9::classInfo$ = {
@@ -495,46 +495,46 @@ $FieldInfo _SecurityManager_FieldInfo_[] = {
 };
 
 $MethodInfo _SecurityManager_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SecurityManager::*)()>(&SecurityManager::init$))},
-	{"addNonExportedPackages", "(Ljava/lang/ModuleLayer;)V", nullptr, $STATIC, $method(static_cast<void(*)($ModuleLayer*)>(&SecurityManager::addNonExportedPackages))},
-	{"checkAccept", "(Ljava/lang/String;I)V", nullptr, $PUBLIC},
-	{"checkAccess", "(Ljava/lang/Thread;)V", nullptr, $PUBLIC},
-	{"checkAccess", "(Ljava/lang/ThreadGroup;)V", nullptr, $PUBLIC},
-	{"checkConnect", "(Ljava/lang/String;I)V", nullptr, $PUBLIC},
-	{"checkConnect", "(Ljava/lang/String;ILjava/lang/Object;)V", nullptr, $PUBLIC},
-	{"checkCreateClassLoader", "()V", nullptr, $PUBLIC},
-	{"checkDelete", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"checkExec", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"checkExit", "(I)V", nullptr, $PUBLIC},
-	{"checkLink", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"checkListen", "(I)V", nullptr, $PUBLIC},
-	{"checkMulticast", "(Ljava/net/InetAddress;)V", nullptr, $PUBLIC},
-	{"checkMulticast", "(Ljava/net/InetAddress;B)V", nullptr, $PUBLIC | $DEPRECATED, nullptr, nullptr, nullptr, _SecurityManager_MethodAnnotations_checkMulticast14},
-	{"checkPackageAccess", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"checkPackageDefinition", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"checkPermission", "(Ljava/security/Permission;)V", nullptr, $PUBLIC},
-	{"checkPermission", "(Ljava/security/Permission;Ljava/lang/Object;)V", nullptr, $PUBLIC},
-	{"checkPrintJobAccess", "()V", nullptr, $PUBLIC},
-	{"checkPropertiesAccess", "()V", nullptr, $PUBLIC},
-	{"checkPropertyAccess", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"checkRead", "(Ljava/io/FileDescriptor;)V", nullptr, $PUBLIC},
-	{"checkRead", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"checkRead", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC},
-	{"checkSecurityAccess", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"checkSetFactory", "()V", nullptr, $PUBLIC},
-	{"checkWrite", "(Ljava/io/FileDescriptor;)V", nullptr, $PUBLIC},
-	{"checkWrite", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"getClassContext", "()[Ljava/lang/Class;", "()[Ljava/lang/Class<*>;", $PROTECTED | $NATIVE},
-	{"getPackages", "(Ljava/lang/String;)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$StringArray*(*)($String*)>(&SecurityManager::getPackages))},
-	{"getRootGroup", "()Ljava/lang/ThreadGroup;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$ThreadGroup*(*)()>(&SecurityManager::getRootGroup))},
-	{"getSecurityContext", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"getThreadGroup", "()Ljava/lang/ThreadGroup;", nullptr, $PUBLIC},
-	{"invalidatePackageAccessCache", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&SecurityManager::invalidatePackageAccessCache))},
-	{"lambda$addNonExportedPackages$0", "(Ljava/util/Set;Ljava/util/Set;Ljava/lang/module/ModuleDescriptor;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($Set*,$Set*,$ModuleDescriptor*)>(&SecurityManager::lambda$addNonExportedPackages$0))},
-	{"lambda$addNonExportedPackages$1", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($String*)>(&SecurityManager::lambda$addNonExportedPackages$1))},
-	{"lambda$nonExportedPkgs$2", "(Ljava/lang/module/ModuleDescriptor$Exports;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($ModuleDescriptor$Exports*)>(&SecurityManager::lambda$nonExportedPkgs$2))},
-	{"lambda$nonExportedPkgs$3", "(Ljava/lang/module/ModuleDescriptor$Opens;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($ModuleDescriptor$Opens*)>(&SecurityManager::lambda$nonExportedPkgs$3))},
-	{"nonExportedPkgs", "(Ljava/lang/module/ModuleDescriptor;)Ljava/util/Set;", "(Ljava/lang/module/ModuleDescriptor;)Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE | $STATIC, $method(static_cast<$Set*(*)($ModuleDescriptor*)>(&SecurityManager::nonExportedPkgs))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SecurityManager, init$, void)},
+	{"addNonExportedPackages", "(Ljava/lang/ModuleLayer;)V", nullptr, $STATIC, $staticMethod(SecurityManager, addNonExportedPackages, void, $ModuleLayer*)},
+	{"checkAccept", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $virtualMethod(SecurityManager, checkAccept, void, $String*, int32_t)},
+	{"checkAccess", "(Ljava/lang/Thread;)V", nullptr, $PUBLIC, $virtualMethod(SecurityManager, checkAccess, void, $Thread*)},
+	{"checkAccess", "(Ljava/lang/ThreadGroup;)V", nullptr, $PUBLIC, $virtualMethod(SecurityManager, checkAccess, void, $ThreadGroup*)},
+	{"checkConnect", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $virtualMethod(SecurityManager, checkConnect, void, $String*, int32_t)},
+	{"checkConnect", "(Ljava/lang/String;ILjava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(SecurityManager, checkConnect, void, $String*, int32_t, Object$*)},
+	{"checkCreateClassLoader", "()V", nullptr, $PUBLIC, $virtualMethod(SecurityManager, checkCreateClassLoader, void)},
+	{"checkDelete", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SecurityManager, checkDelete, void, $String*)},
+	{"checkExec", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SecurityManager, checkExec, void, $String*)},
+	{"checkExit", "(I)V", nullptr, $PUBLIC, $virtualMethod(SecurityManager, checkExit, void, int32_t)},
+	{"checkLink", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SecurityManager, checkLink, void, $String*)},
+	{"checkListen", "(I)V", nullptr, $PUBLIC, $virtualMethod(SecurityManager, checkListen, void, int32_t)},
+	{"checkMulticast", "(Ljava/net/InetAddress;)V", nullptr, $PUBLIC, $virtualMethod(SecurityManager, checkMulticast, void, $InetAddress*)},
+	{"checkMulticast", "(Ljava/net/InetAddress;B)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(SecurityManager, checkMulticast, void, $InetAddress*, int8_t), nullptr, nullptr, _SecurityManager_MethodAnnotations_checkMulticast14},
+	{"checkPackageAccess", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SecurityManager, checkPackageAccess, void, $String*)},
+	{"checkPackageDefinition", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SecurityManager, checkPackageDefinition, void, $String*)},
+	{"checkPermission", "(Ljava/security/Permission;)V", nullptr, $PUBLIC, $virtualMethod(SecurityManager, checkPermission, void, $Permission*)},
+	{"checkPermission", "(Ljava/security/Permission;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(SecurityManager, checkPermission, void, $Permission*, Object$*)},
+	{"checkPrintJobAccess", "()V", nullptr, $PUBLIC, $virtualMethod(SecurityManager, checkPrintJobAccess, void)},
+	{"checkPropertiesAccess", "()V", nullptr, $PUBLIC, $virtualMethod(SecurityManager, checkPropertiesAccess, void)},
+	{"checkPropertyAccess", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SecurityManager, checkPropertyAccess, void, $String*)},
+	{"checkRead", "(Ljava/io/FileDescriptor;)V", nullptr, $PUBLIC, $virtualMethod(SecurityManager, checkRead, void, $FileDescriptor*)},
+	{"checkRead", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SecurityManager, checkRead, void, $String*)},
+	{"checkRead", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(SecurityManager, checkRead, void, $String*, Object$*)},
+	{"checkSecurityAccess", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SecurityManager, checkSecurityAccess, void, $String*)},
+	{"checkSetFactory", "()V", nullptr, $PUBLIC, $virtualMethod(SecurityManager, checkSetFactory, void)},
+	{"checkWrite", "(Ljava/io/FileDescriptor;)V", nullptr, $PUBLIC, $virtualMethod(SecurityManager, checkWrite, void, $FileDescriptor*)},
+	{"checkWrite", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SecurityManager, checkWrite, void, $String*)},
+	{"getClassContext", "()[Ljava/lang/Class;", "()[Ljava/lang/Class<*>;", $PROTECTED | $NATIVE, $virtualMethod(SecurityManager, getClassContext, $ClassArray*)},
+	{"getPackages", "(Ljava/lang/String;)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(SecurityManager, getPackages, $StringArray*, $String*)},
+	{"getRootGroup", "()Ljava/lang/ThreadGroup;", nullptr, $PRIVATE | $STATIC, $staticMethod(SecurityManager, getRootGroup, $ThreadGroup*)},
+	{"getSecurityContext", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SecurityManager, getSecurityContext, $Object*)},
+	{"getThreadGroup", "()Ljava/lang/ThreadGroup;", nullptr, $PUBLIC, $virtualMethod(SecurityManager, getThreadGroup, $ThreadGroup*)},
+	{"invalidatePackageAccessCache", "()V", nullptr, $STATIC, $staticMethod(SecurityManager, invalidatePackageAccessCache, void)},
+	{"lambda$addNonExportedPackages$0", "(Ljava/util/Set;Ljava/util/Set;Ljava/lang/module/ModuleDescriptor;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SecurityManager, lambda$addNonExportedPackages$0, bool, $Set*, $Set*, $ModuleDescriptor*)},
+	{"lambda$addNonExportedPackages$1", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SecurityManager, lambda$addNonExportedPackages$1, void, $String*)},
+	{"lambda$nonExportedPkgs$2", "(Ljava/lang/module/ModuleDescriptor$Exports;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SecurityManager, lambda$nonExportedPkgs$2, bool, $ModuleDescriptor$Exports*)},
+	{"lambda$nonExportedPkgs$3", "(Ljava/lang/module/ModuleDescriptor$Opens;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SecurityManager, lambda$nonExportedPkgs$3, bool, $ModuleDescriptor$Opens*)},
+	{"nonExportedPkgs", "(Ljava/lang/module/ModuleDescriptor;)Ljava/util/Set;", "(Ljava/lang/module/ModuleDescriptor;)Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE | $STATIC, $staticMethod(SecurityManager, nonExportedPkgs, $Set*, $ModuleDescriptor*)},
 	{}
 };
 

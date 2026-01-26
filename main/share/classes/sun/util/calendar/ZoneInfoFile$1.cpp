@@ -33,8 +33,8 @@ namespace sun {
 		namespace calendar {
 
 $MethodInfo _ZoneInfoFile$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ZoneInfoFile$1::*)()>(&ZoneInfoFile$1::init$))},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(ZoneInfoFile$1, init$, void)},
+	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(ZoneInfoFile$1, run, $Object*)},
 	{}
 };
 

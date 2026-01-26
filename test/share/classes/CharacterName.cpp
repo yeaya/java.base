@@ -15,8 +15,8 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $Locale = ::java::util::Locale;
 
 $MethodInfo _CharacterName_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CharacterName::*)()>(&CharacterName::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&CharacterName::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CharacterName, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(CharacterName, main, void, $StringArray*)},
 	{}
 };
 

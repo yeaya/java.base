@@ -26,12 +26,12 @@ $FieldInfo _ForkJoinTask$RunnableExecuteAction_FieldInfo_[] = {
 };
 
 $MethodInfo _ForkJoinTask$RunnableExecuteAction_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Runnable;)V", nullptr, 0, $method(static_cast<void(ForkJoinTask$RunnableExecuteAction::*)($Runnable*)>(&ForkJoinTask$RunnableExecuteAction::init$))},
-	{"exec", "()Z", nullptr, $PUBLIC | $FINAL},
-	{"getRawResult", "()Ljava/lang/Void;", nullptr, $PUBLIC | $FINAL},
-	{"setRawResult", "(Ljava/lang/Void;)V", nullptr, $PUBLIC | $FINAL, $method(static_cast<void(ForkJoinTask$RunnableExecuteAction::*)($Void*)>(&ForkJoinTask$RunnableExecuteAction::setRawResult))},
-	{"setRawResult", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"trySetException", "(Ljava/lang/Throwable;)I", nullptr, 0},
+	{"<init>", "(Ljava/lang/Runnable;)V", nullptr, 0, $method(ForkJoinTask$RunnableExecuteAction, init$, void, $Runnable*)},
+	{"exec", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(ForkJoinTask$RunnableExecuteAction, exec, bool)},
+	{"getRawResult", "()Ljava/lang/Void;", nullptr, $PUBLIC | $FINAL, $virtualMethod(ForkJoinTask$RunnableExecuteAction, getRawResult, $Object*)},
+	{"setRawResult", "(Ljava/lang/Void;)V", nullptr, $PUBLIC | $FINAL, $method(ForkJoinTask$RunnableExecuteAction, setRawResult, void, $Void*)},
+	{"setRawResult", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ForkJoinTask$RunnableExecuteAction, setRawResult, void, Object$*)},
+	{"trySetException", "(Ljava/lang/Throwable;)I", nullptr, 0, $virtualMethod(ForkJoinTask$RunnableExecuteAction, trySetException, int32_t, $Throwable*)},
 	{}
 };
 

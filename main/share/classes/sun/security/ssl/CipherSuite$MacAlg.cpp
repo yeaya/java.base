@@ -36,11 +36,11 @@ $FieldInfo _CipherSuite$MacAlg_FieldInfo_[] = {
 };
 
 $MethodInfo _CipherSuite$MacAlg_MethodInfo_[] = {
-	{"$values", "()[Lsun/security/ssl/CipherSuite$MacAlg;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$CipherSuite$MacAlgArray*(*)()>(&CipherSuite$MacAlg::$values))},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;III)V", "(Ljava/lang/String;III)V", $PRIVATE, $method(static_cast<void(CipherSuite$MacAlg::*)($String*,int32_t,$String*,int32_t,int32_t,int32_t)>(&CipherSuite$MacAlg::init$))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"valueOf", "(Ljava/lang/String;)Lsun/security/ssl/CipherSuite$MacAlg;", nullptr, $PUBLIC | $STATIC, $method(static_cast<CipherSuite$MacAlg*(*)($String*)>(&CipherSuite$MacAlg::valueOf))},
-	{"values", "()[Lsun/security/ssl/CipherSuite$MacAlg;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$CipherSuite$MacAlgArray*(*)()>(&CipherSuite$MacAlg::values))},
+	{"$values", "()[Lsun/security/ssl/CipherSuite$MacAlg;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CipherSuite$MacAlg, $values, $CipherSuite$MacAlgArray*)},
+	{"<init>", "(Ljava/lang/String;ILjava/lang/String;III)V", "(Ljava/lang/String;III)V", $PRIVATE, $method(CipherSuite$MacAlg, init$, void, $String*, int32_t, $String*, int32_t, int32_t, int32_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CipherSuite$MacAlg, toString, $String*)},
+	{"valueOf", "(Ljava/lang/String;)Lsun/security/ssl/CipherSuite$MacAlg;", nullptr, $PUBLIC | $STATIC, $staticMethod(CipherSuite$MacAlg, valueOf, CipherSuite$MacAlg*, $String*)},
+	{"values", "()[Lsun/security/ssl/CipherSuite$MacAlg;", nullptr, $PUBLIC | $STATIC, $staticMethod(CipherSuite$MacAlg, values, $CipherSuite$MacAlgArray*)},
 	{}
 };
 

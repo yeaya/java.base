@@ -124,7 +124,7 @@ $CompoundAttribute _twoElementArrayTypesClass_Annotations_[] = {
 };
 
 $MethodInfo _twoElementArrayTypesClass_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(twoElementArrayTypesClass::*)()>(&twoElementArrayTypesClass::init$))},
+	{"<init>", "()V", nullptr, 0, $method(twoElementArrayTypesClass, init$, void)},
 	{}
 };
 

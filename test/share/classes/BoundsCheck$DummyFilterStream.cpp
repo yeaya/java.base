@@ -12,8 +12,8 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _BoundsCheck$DummyFilterStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $method(static_cast<void(BoundsCheck$DummyFilterStream::*)($OutputStream*)>(&BoundsCheck$DummyFilterStream::init$))},
-	{"write", "(I)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $method(BoundsCheck$DummyFilterStream, init$, void, $OutputStream*)},
+	{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(BoundsCheck$DummyFilterStream, write, void, int32_t), "java.io.IOException"},
 	{}
 };
 

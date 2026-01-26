@@ -18,7 +18,7 @@ $FieldInfo _SSLBasicKeyDerivation$SecretSizeSpec_FieldInfo_[] = {
 };
 
 $MethodInfo _SSLBasicKeyDerivation$SecretSizeSpec_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, 0, $method(static_cast<void(SSLBasicKeyDerivation$SecretSizeSpec::*)(int32_t)>(&SSLBasicKeyDerivation$SecretSizeSpec::init$))},
+	{"<init>", "(I)V", nullptr, 0, $method(SSLBasicKeyDerivation$SecretSizeSpec, init$, void, int32_t)},
 	{}
 };
 

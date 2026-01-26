@@ -79,12 +79,12 @@ $FieldInfo _ServerHello$ServerHelloMessage_FieldInfo_[] = {
 };
 
 $MethodInfo _ServerHello$ServerHelloMessage_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/ssl/HandshakeContext;Lsun/security/ssl/ProtocolVersion;Lsun/security/ssl/SessionId;Lsun/security/ssl/CipherSuite;Lsun/security/ssl/RandomCookie;Lsun/security/ssl/ClientHello$ClientHelloMessage;)V", nullptr, 0, $method(static_cast<void(ServerHello$ServerHelloMessage::*)($HandshakeContext*,$ProtocolVersion*,$SessionId*,$CipherSuite*,$RandomCookie*,$ClientHello$ClientHelloMessage*)>(&ServerHello$ServerHelloMessage::init$))},
-	{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)V", nullptr, 0, $method(static_cast<void(ServerHello$ServerHelloMessage::*)($HandshakeContext*,$ByteBuffer*)>(&ServerHello$ServerHelloMessage::init$)), "java.io.IOException"},
-	{"handshakeType", "()Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC},
-	{"messageLength", "()I", nullptr, $PUBLIC},
-	{"send", "(Lsun/security/ssl/HandshakeOutStream;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/security/ssl/HandshakeContext;Lsun/security/ssl/ProtocolVersion;Lsun/security/ssl/SessionId;Lsun/security/ssl/CipherSuite;Lsun/security/ssl/RandomCookie;Lsun/security/ssl/ClientHello$ClientHelloMessage;)V", nullptr, 0, $method(ServerHello$ServerHelloMessage, init$, void, $HandshakeContext*, $ProtocolVersion*, $SessionId*, $CipherSuite*, $RandomCookie*, $ClientHello$ClientHelloMessage*)},
+	{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)V", nullptr, 0, $method(ServerHello$ServerHelloMessage, init$, void, $HandshakeContext*, $ByteBuffer*), "java.io.IOException"},
+	{"handshakeType", "()Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC, $virtualMethod(ServerHello$ServerHelloMessage, handshakeType, $SSLHandshake*)},
+	{"messageLength", "()I", nullptr, $PUBLIC, $virtualMethod(ServerHello$ServerHelloMessage, messageLength, int32_t)},
+	{"send", "(Lsun/security/ssl/HandshakeOutStream;)V", nullptr, $PUBLIC, $virtualMethod(ServerHello$ServerHelloMessage, send, void, $HandshakeOutStream*), "java.io.IOException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ServerHello$ServerHelloMessage, toString, $String*)},
 	{}
 };
 

@@ -7,6 +7,7 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $VectorSupport$Vector = ::jdk::internal::vm::vector::VectorSupport$Vector;
 
 namespace jdk {
 	namespace internal {
@@ -14,7 +15,7 @@ namespace jdk {
 			namespace vector {
 
 $MethodInfo _VectorSupport$StoreVectorOperation_MethodInfo_[] = {
-	{"store", "(Ljava/lang/Object;ILjdk/internal/vm/vector/VectorSupport$Vector;)V", "(TC;ITV;)V", $PUBLIC | $ABSTRACT},
+	{"store", "(Ljava/lang/Object;ILjdk/internal/vm/vector/VectorSupport$Vector;)V", "(TC;ITV;)V", $PUBLIC | $ABSTRACT, $virtualMethod(VectorSupport$StoreVectorOperation, store, void, Object$*, int32_t, $VectorSupport$Vector*)},
 	{}
 };
 

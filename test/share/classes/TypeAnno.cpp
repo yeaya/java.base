@@ -30,7 +30,7 @@ $CompoundAttribute _TypeAnno_Annotations_[] = {
 };
 
 $MethodInfo _TypeAnno_MethodInfo_[] = {
-	{"value", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
+	{"value", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TypeAnno, value, $String*)},
 	{}
 };
 

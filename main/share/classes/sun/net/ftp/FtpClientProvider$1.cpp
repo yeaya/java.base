@@ -16,8 +16,8 @@ namespace sun {
 		namespace ftp {
 
 $MethodInfo _FtpClientProvider$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(FtpClientProvider$1::*)()>(&FtpClientProvider$1::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(FtpClientProvider$1, init$, void)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(FtpClientProvider$1, run, $Object*)},
 	{}
 };
 

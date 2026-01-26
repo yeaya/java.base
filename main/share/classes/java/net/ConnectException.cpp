@@ -17,8 +17,8 @@ $FieldInfo _ConnectException_FieldInfo_[] = {
 };
 
 $MethodInfo _ConnectException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(ConnectException::*)($String*)>(&ConnectException::init$))},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ConnectException::*)()>(&ConnectException::init$))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ConnectException, init$, void, $String*)},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ConnectException, init$, void)},
 	{}
 };
 

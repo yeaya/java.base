@@ -17,10 +17,10 @@ $FieldInfo _CompletionException_FieldInfo_[] = {
 };
 
 $MethodInfo _CompletionException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(CompletionException::*)()>(&CompletionException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $method(static_cast<void(CompletionException::*)($String*)>(&CompletionException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(CompletionException::*)($String*,$Throwable*)>(&CompletionException::init$))},
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(CompletionException::*)($Throwable*)>(&CompletionException::init$))},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(CompletionException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $method(CompletionException, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(CompletionException, init$, void, $String*, $Throwable*)},
+	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(CompletionException, init$, void, $Throwable*)},
 	{}
 };
 

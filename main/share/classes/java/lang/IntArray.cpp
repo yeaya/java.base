@@ -21,7 +21,7 @@
 #include <java/lang/IntArray.h>
 
 #include <java/lang/ArrayIndexOutOfBoundsException.h>
-#include <java/lang/NegativeArraySizeException.h>
+#include <java/lang/Machine.h>
 #include <jcpp.h>
 #include <string.h>
 
@@ -31,7 +31,7 @@ namespace java {
 Class* IntArray::class$ = nullptr;
 
 MethodInfo _IntArray_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(static_cast<void(IntArray::*)(int32_t)>(&IntArray::init$))},
+	{"<init>", "(I)V", nullptr, $PUBLIC, $method(IntArray, init$, void, int32_t)},
 	{}
 };
 
@@ -120,19 +120,16 @@ IntArray* IntArray::subArray(int32_t index, int32_t length) const {
 }
 
 void IntArray::check(int32_t index) const {
-	if ((uint32_t)index >= (uint32_t)length) { \
-		$nullcheck(this); \
-		$throwNew(ArrayIndexOutOfBoundsException, index); \
+	if ((uint32_t)index >= (uint32_t)length) {
+		$throwNew(ArrayIndexOutOfBoundsException, index);
 	}
 }
 
 void IntArray::check(int32_t index, int32_t length) const {
 	if (index < 0) {
-		$nullcheck(this);
 		$throwNew(ArrayIndexOutOfBoundsException, index);
 	}
 	if (index + length > this->length) {
-		$nullcheck(this);
 		$throwNew(ArrayIndexOutOfBoundsException, index + length);
 	}
 }
@@ -171,7 +168,7 @@ bool IntArray::equals(IntArray* x, IntArray* y) {
 
 Class* IntArray::load$(String* name, bool initialize) {
 	int64_t arrayBaseSize = sizeof(IntArray) - sizeof(IntArray::data);
-	Class::loadClass(&class$, arrayBaseSize, $getMark(IntArray), &_IntArray_ClassInfo_);
+	Machine::loadClass(&class$, arrayBaseSize, $getMark(IntArray), &_IntArray_ClassInfo_);
 	return class$;
 }
 

@@ -30,14 +30,14 @@ $FieldInfo _ZoneInfoFile$ZoneOffsetTransitionRule_FieldInfo_[] = {
 };
 
 $MethodInfo _ZoneInfoFile$ZoneOffsetTransitionRule_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/DataInput;)V", nullptr, 0, $method(static_cast<void(ZoneInfoFile$ZoneOffsetTransitionRule::*)($DataInput*)>(&ZoneInfoFile$ZoneOffsetTransitionRule::init$)), "java.io.IOException"},
-	{"adjust", "(JII)J", nullptr, $STATIC | $FINAL, $method(static_cast<int64_t(*)(int64_t,int32_t,int32_t)>(&ZoneInfoFile$ZoneOffsetTransitionRule::adjust))},
-	{"getTransitionEpochSecond", "(I)J", nullptr, 0},
-	{"isLeapYear", "(I)Z", nullptr, $STATIC | $FINAL, $method(static_cast<bool(*)(int32_t)>(&ZoneInfoFile$ZoneOffsetTransitionRule::isLeapYear))},
-	{"lengthOfMonth", "(II)I", nullptr, $STATIC | $FINAL, $method(static_cast<int32_t(*)(int32_t,int32_t)>(&ZoneInfoFile$ZoneOffsetTransitionRule::lengthOfMonth))},
-	{"nextOrSame", "(JI)J", nullptr, $STATIC | $FINAL, $method(static_cast<int64_t(*)(int64_t,int32_t)>(&ZoneInfoFile$ZoneOffsetTransitionRule::nextOrSame))},
-	{"previousOrSame", "(JI)J", nullptr, $STATIC | $FINAL, $method(static_cast<int64_t(*)(int64_t,int32_t)>(&ZoneInfoFile$ZoneOffsetTransitionRule::previousOrSame))},
-	{"toEpochDay", "(III)J", nullptr, $STATIC | $FINAL, $method(static_cast<int64_t(*)(int32_t,int32_t,int32_t)>(&ZoneInfoFile$ZoneOffsetTransitionRule::toEpochDay))},
+	{"<init>", "(Ljava/io/DataInput;)V", nullptr, 0, $method(ZoneInfoFile$ZoneOffsetTransitionRule, init$, void, $DataInput*), "java.io.IOException"},
+	{"adjust", "(JII)J", nullptr, $STATIC | $FINAL, $staticMethod(ZoneInfoFile$ZoneOffsetTransitionRule, adjust, int64_t, int64_t, int32_t, int32_t)},
+	{"getTransitionEpochSecond", "(I)J", nullptr, 0, $virtualMethod(ZoneInfoFile$ZoneOffsetTransitionRule, getTransitionEpochSecond, int64_t, int32_t)},
+	{"isLeapYear", "(I)Z", nullptr, $STATIC | $FINAL, $staticMethod(ZoneInfoFile$ZoneOffsetTransitionRule, isLeapYear, bool, int32_t)},
+	{"lengthOfMonth", "(II)I", nullptr, $STATIC | $FINAL, $staticMethod(ZoneInfoFile$ZoneOffsetTransitionRule, lengthOfMonth, int32_t, int32_t, int32_t)},
+	{"nextOrSame", "(JI)J", nullptr, $STATIC | $FINAL, $staticMethod(ZoneInfoFile$ZoneOffsetTransitionRule, nextOrSame, int64_t, int64_t, int32_t)},
+	{"previousOrSame", "(JI)J", nullptr, $STATIC | $FINAL, $staticMethod(ZoneInfoFile$ZoneOffsetTransitionRule, previousOrSame, int64_t, int64_t, int32_t)},
+	{"toEpochDay", "(III)J", nullptr, $STATIC | $FINAL, $staticMethod(ZoneInfoFile$ZoneOffsetTransitionRule, toEpochDay, int64_t, int32_t, int32_t, int32_t)},
 	{}
 };
 

@@ -31,9 +31,9 @@ $FieldInfo _ValueConversions$WrapperCache_FieldInfo_[] = {
 };
 
 $MethodInfo _ValueConversions$WrapperCache_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(ValueConversions$WrapperCache::*)()>(&ValueConversions$WrapperCache::init$))},
-	{"get", "(Lsun/invoke/util/Wrapper;)Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC},
-	{"put", "(Lsun/invoke/util/Wrapper;Ljava/lang/invoke/MethodHandle;)Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC | $SYNCHRONIZED},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(ValueConversions$WrapperCache, init$, void)},
+	{"get", "(Lsun/invoke/util/Wrapper;)Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC, $virtualMethod(ValueConversions$WrapperCache, get, $MethodHandle*, $Wrapper*)},
+	{"put", "(Lsun/invoke/util/Wrapper;Ljava/lang/invoke/MethodHandle;)Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ValueConversions$WrapperCache, put, $MethodHandle*, $Wrapper*, $MethodHandle*)},
 	{}
 };
 

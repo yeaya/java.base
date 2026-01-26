@@ -27,8 +27,8 @@ $FieldInfo _ZipDecompressorFactory_FieldInfo_[] = {
 };
 
 $MethodInfo _ZipDecompressorFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ZipDecompressorFactory::*)()>(&ZipDecompressorFactory::init$))},
-	{"newDecompressor", "(Ljava/util/Properties;)Ljdk/internal/jimage/decompressor/ResourceDecompressor;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ZipDecompressorFactory, init$, void)},
+	{"newDecompressor", "(Ljava/util/Properties;)Ljdk/internal/jimage/decompressor/ResourceDecompressor;", nullptr, $PUBLIC, $virtualMethod(ZipDecompressorFactory, newDecompressor, $ResourceDecompressor*, $Properties*), "java.io.IOException"},
 	{}
 };
 

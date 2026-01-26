@@ -59,8 +59,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo TreeMap$EntrySpliterator$$Lambda$lambda$getComparator$d5a01062$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TreeMap$EntrySpliterator$$Lambda$lambda$getComparator$d5a01062$1::*)()>(&TreeMap$EntrySpliterator$$Lambda$lambda$getComparator$d5a01062$1::init$))},
-	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TreeMap$EntrySpliterator$$Lambda$lambda$getComparator$d5a01062$1, init$, void)},
+	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(TreeMap$EntrySpliterator$$Lambda$lambda$getComparator$d5a01062$1, compare, int32_t, Object$*, Object$*)},
 	{}
 };
 $ClassInfo TreeMap$EntrySpliterator$$Lambda$lambda$getComparator$d5a01062$1::classInfo$ = {
@@ -78,20 +78,20 @@ $Class* TreeMap$EntrySpliterator$$Lambda$lambda$getComparator$d5a01062$1::load$(
 $Class* TreeMap$EntrySpliterator$$Lambda$lambda$getComparator$d5a01062$1::class$ = nullptr;
 
 $MethodInfo _TreeMap$EntrySpliterator_MethodInfo_[] = {
-	{"$deserializeLambda$", "(Ljava/lang/invoke/SerializedLambda;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Object*(*)($SerializedLambda*)>(&TreeMap$EntrySpliterator::$deserializeLambda$))},
+	{"$deserializeLambda$", "(Ljava/lang/invoke/SerializedLambda;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TreeMap$EntrySpliterator, $deserializeLambda$, $Object*, $SerializedLambda*)},
 	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*estimateSize", "()J", nullptr, $PUBLIC | $FINAL},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/util/TreeMap;Ljava/util/TreeMap$Entry;Ljava/util/TreeMap$Entry;III)V", "(Ljava/util/TreeMap<TK;TV;>;Ljava/util/TreeMap$Entry<TK;TV;>;Ljava/util/TreeMap$Entry<TK;TV;>;III)V", 0, $method(static_cast<void(TreeMap$EntrySpliterator::*)($TreeMap*,$TreeMap$Entry*,$TreeMap$Entry*,int32_t,int32_t,int32_t)>(&TreeMap$EntrySpliterator::init$))},
-	{"characteristics", "()I", nullptr, $PUBLIC},
-	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-Ljava/util/Map$Entry<TK;TV;>;>;)V", $PUBLIC},
-	{"getComparator", "()Ljava/util/Comparator;", "()Ljava/util/Comparator<Ljava/util/Map$Entry<TK;TV;>;>;", $PUBLIC},
-	{"lambda$getComparator$d5a01062$1", "(Ljava/util/Map$Entry;Ljava/util/Map$Entry;)I", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<int32_t(*)($Map$Entry*,$Map$Entry*)>(&TreeMap$EntrySpliterator::lambda$getComparator$d5a01062$1))},
+	{"<init>", "(Ljava/util/TreeMap;Ljava/util/TreeMap$Entry;Ljava/util/TreeMap$Entry;III)V", "(Ljava/util/TreeMap<TK;TV;>;Ljava/util/TreeMap$Entry<TK;TV;>;Ljava/util/TreeMap$Entry<TK;TV;>;III)V", 0, $method(TreeMap$EntrySpliterator, init$, void, $TreeMap*, $TreeMap$Entry*, $TreeMap$Entry*, int32_t, int32_t, int32_t)},
+	{"characteristics", "()I", nullptr, $PUBLIC, $virtualMethod(TreeMap$EntrySpliterator, characteristics, int32_t)},
+	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-Ljava/util/Map$Entry<TK;TV;>;>;)V", $PUBLIC, $virtualMethod(TreeMap$EntrySpliterator, forEachRemaining, void, $Consumer*)},
+	{"getComparator", "()Ljava/util/Comparator;", "()Ljava/util/Comparator<Ljava/util/Map$Entry<TK;TV;>;>;", $PUBLIC, $virtualMethod(TreeMap$EntrySpliterator, getComparator, $Comparator*)},
+	{"lambda$getComparator$d5a01062$1", "(Ljava/util/Map$Entry;Ljava/util/Map$Entry;)I", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TreeMap$EntrySpliterator, lambda$getComparator$d5a01062$1, int32_t, $Map$Entry*, $Map$Entry*)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-Ljava/util/Map$Entry<TK;TV;>;>;)Z", $PUBLIC},
-	{"trySplit", "()Ljava/util/TreeMap$EntrySpliterator;", "()Ljava/util/TreeMap$EntrySpliterator<TK;TV;>;", $PUBLIC},
+	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-Ljava/util/Map$Entry<TK;TV;>;>;)Z", $PUBLIC, $virtualMethod(TreeMap$EntrySpliterator, tryAdvance, bool, $Consumer*)},
+	{"trySplit", "()Ljava/util/TreeMap$EntrySpliterator;", "()Ljava/util/TreeMap$EntrySpliterator<TK;TV;>;", $PUBLIC, $virtualMethod(TreeMap$EntrySpliterator, trySplit, $Spliterator*)},
 	{}
 };
 

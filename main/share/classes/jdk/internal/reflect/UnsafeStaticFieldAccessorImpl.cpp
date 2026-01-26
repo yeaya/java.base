@@ -26,7 +26,7 @@ $FieldInfo _UnsafeStaticFieldAccessorImpl_FieldInfo_[] = {
 };
 
 $MethodInfo _UnsafeStaticFieldAccessorImpl_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/reflect/Field;)V", nullptr, 0, $method(static_cast<void(UnsafeStaticFieldAccessorImpl::*)($Field*)>(&UnsafeStaticFieldAccessorImpl::init$))},
+	{"<init>", "(Ljava/lang/reflect/Field;)V", nullptr, 0, $method(UnsafeStaticFieldAccessorImpl, init$, void, $Field*)},
 	{}
 };
 

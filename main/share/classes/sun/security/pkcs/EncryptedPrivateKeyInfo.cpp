@@ -30,13 +30,13 @@ $FieldInfo _EncryptedPrivateKeyInfo_FieldInfo_[] = {
 };
 
 $MethodInfo _EncryptedPrivateKeyInfo_MethodInfo_[] = {
-	{"<init>", "([B)V", nullptr, $PUBLIC, $method(static_cast<void(EncryptedPrivateKeyInfo::*)($bytes*)>(&EncryptedPrivateKeyInfo::init$)), "java.io.IOException"},
-	{"<init>", "(Lsun/security/x509/AlgorithmId;[B)V", nullptr, $PUBLIC, $method(static_cast<void(EncryptedPrivateKeyInfo::*)($AlgorithmId*,$bytes*)>(&EncryptedPrivateKeyInfo::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getAlgorithm", "()Lsun/security/x509/AlgorithmId;", nullptr, $PUBLIC},
-	{"getEncoded", "()[B", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"getEncryptedData", "()[B", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
+	{"<init>", "([B)V", nullptr, $PUBLIC, $method(EncryptedPrivateKeyInfo, init$, void, $bytes*), "java.io.IOException"},
+	{"<init>", "(Lsun/security/x509/AlgorithmId;[B)V", nullptr, $PUBLIC, $method(EncryptedPrivateKeyInfo, init$, void, $AlgorithmId*, $bytes*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(EncryptedPrivateKeyInfo, equals, bool, Object$*)},
+	{"getAlgorithm", "()Lsun/security/x509/AlgorithmId;", nullptr, $PUBLIC, $virtualMethod(EncryptedPrivateKeyInfo, getAlgorithm, $AlgorithmId*)},
+	{"getEncoded", "()[B", nullptr, $PUBLIC, $virtualMethod(EncryptedPrivateKeyInfo, getEncoded, $bytes*), "java.io.IOException"},
+	{"getEncryptedData", "()[B", nullptr, $PUBLIC, $virtualMethod(EncryptedPrivateKeyInfo, getEncryptedData, $bytes*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(EncryptedPrivateKeyInfo, hashCode, int32_t)},
 	{}
 };
 

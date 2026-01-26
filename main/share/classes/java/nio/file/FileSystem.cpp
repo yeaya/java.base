@@ -1,5 +1,6 @@
 #include <java/nio/file/FileSystem.h>
 
+#include <java/lang/Iterable.h>
 #include <java/nio/file/Path.h>
 #include <java/nio/file/PathMatcher.h>
 #include <java/nio/file/WatchService.h>
@@ -9,7 +10,14 @@
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
+using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Path = ::java::nio::file::Path;
+using $PathMatcher = ::java::nio::file::PathMatcher;
+using $WatchService = ::java::nio::file::WatchService;
+using $UserPrincipalLookupService = ::java::nio::file::attribute::UserPrincipalLookupService;
+using $FileSystemProvider = ::java::nio::file::spi::FileSystemProvider;
+using $Set = ::java::util::Set;
 
 namespace java {
 	namespace nio {
@@ -17,18 +25,18 @@ namespace java {
 
 $MethodInfo _FileSystem_MethodInfo_[] = {
 	{"close", "()V", nullptr, $PUBLIC | $ABSTRACT},
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(FileSystem::*)()>(&FileSystem::init$))},
-	{"getFileStores", "()Ljava/lang/Iterable;", "()Ljava/lang/Iterable<Ljava/nio/file/FileStore;>;", $PUBLIC | $ABSTRACT},
-	{"getPath", "(Ljava/lang/String;[Ljava/lang/String;)Ljava/nio/file/Path;", nullptr, $PUBLIC | $TRANSIENT | $ABSTRACT},
-	{"getPathMatcher", "(Ljava/lang/String;)Ljava/nio/file/PathMatcher;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getRootDirectories", "()Ljava/lang/Iterable;", "()Ljava/lang/Iterable<Ljava/nio/file/Path;>;", $PUBLIC | $ABSTRACT},
-	{"getSeparator", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getUserPrincipalLookupService", "()Ljava/nio/file/attribute/UserPrincipalLookupService;", nullptr, $PUBLIC | $ABSTRACT},
-	{"isOpen", "()Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"isReadOnly", "()Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"newWatchService", "()Ljava/nio/file/WatchService;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"provider", "()Ljava/nio/file/spi/FileSystemProvider;", nullptr, $PUBLIC | $ABSTRACT},
-	{"supportedFileAttributeViews", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC | $ABSTRACT},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(FileSystem, init$, void)},
+	{"getFileStores", "()Ljava/lang/Iterable;", "()Ljava/lang/Iterable<Ljava/nio/file/FileStore;>;", $PUBLIC | $ABSTRACT, $virtualMethod(FileSystem, getFileStores, $Iterable*)},
+	{"getPath", "(Ljava/lang/String;[Ljava/lang/String;)Ljava/nio/file/Path;", nullptr, $PUBLIC | $TRANSIENT | $ABSTRACT, $virtualMethod(FileSystem, getPath, $Path*, $String*, $StringArray*)},
+	{"getPathMatcher", "(Ljava/lang/String;)Ljava/nio/file/PathMatcher;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FileSystem, getPathMatcher, $PathMatcher*, $String*)},
+	{"getRootDirectories", "()Ljava/lang/Iterable;", "()Ljava/lang/Iterable<Ljava/nio/file/Path;>;", $PUBLIC | $ABSTRACT, $virtualMethod(FileSystem, getRootDirectories, $Iterable*)},
+	{"getSeparator", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FileSystem, getSeparator, $String*)},
+	{"getUserPrincipalLookupService", "()Ljava/nio/file/attribute/UserPrincipalLookupService;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FileSystem, getUserPrincipalLookupService, $UserPrincipalLookupService*)},
+	{"isOpen", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FileSystem, isOpen, bool)},
+	{"isReadOnly", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FileSystem, isReadOnly, bool)},
+	{"newWatchService", "()Ljava/nio/file/WatchService;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FileSystem, newWatchService, $WatchService*), "java.io.IOException"},
+	{"provider", "()Ljava/nio/file/spi/FileSystemProvider;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FileSystem, provider, $FileSystemProvider*)},
+	{"supportedFileAttributeViews", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC | $ABSTRACT, $virtualMethod(FileSystem, supportedFileAttributeViews, $Set*)},
 	{}
 };
 

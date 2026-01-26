@@ -28,7 +28,7 @@ $FieldInfo _FloatConsts_FieldInfo_[] = {
 };
 
 $MethodInfo _FloatConsts_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(FloatConsts::*)()>(&FloatConsts::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(FloatConsts, init$, void)},
 	{}
 };
 

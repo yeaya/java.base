@@ -23,7 +23,7 @@ $FieldInfo _NormalizerBase$Unicode32_FieldInfo_[] = {
 };
 
 $MethodInfo _NormalizerBase$Unicode32_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(NormalizerBase$Unicode32::*)()>(&NormalizerBase$Unicode32::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(NormalizerBase$Unicode32, init$, void)},
 	{}
 };
 

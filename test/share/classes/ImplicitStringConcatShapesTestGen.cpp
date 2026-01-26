@@ -45,13 +45,13 @@ using $Map = ::java::util::Map;
 using $Random = ::java::util::Random;
 
 $MethodInfo _ImplicitStringConcatShapesTestGen_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ImplicitStringConcatShapesTestGen::*)()>(&ImplicitStringConcatShapesTestGen::init$))},
-	{"escapeToUnicode", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)($String*)>(&ImplicitStringConcatShapesTestGen::escapeToUnicode))},
-	{"initValue", "(Ljava/lang/String;I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($String*,int32_t)>(&ImplicitStringConcatShapesTestGen::initValue))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<void(*)($StringArray*)>(&ImplicitStringConcatShapesTestGen::main)), "java.io.IOException"},
-	{"stringValue", "(Ljava/lang/String;I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($String*,int32_t)>(&ImplicitStringConcatShapesTestGen::stringValue))},
-	{"typeSig", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($String*)>(&ImplicitStringConcatShapesTestGen::typeSig))},
-	{"typeValue", "(Ljava/lang/String;I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($String*,int32_t)>(&ImplicitStringConcatShapesTestGen::typeValue))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ImplicitStringConcatShapesTestGen, init$, void)},
+	{"escapeToUnicode", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(ImplicitStringConcatShapesTestGen, escapeToUnicode, $String*, $String*)},
+	{"initValue", "(Ljava/lang/String;I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(ImplicitStringConcatShapesTestGen, initValue, $String*, $String*, int32_t)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(ImplicitStringConcatShapesTestGen, main, void, $StringArray*), "java.io.IOException"},
+	{"stringValue", "(Ljava/lang/String;I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(ImplicitStringConcatShapesTestGen, stringValue, $String*, $String*, int32_t)},
+	{"typeSig", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(ImplicitStringConcatShapesTestGen, typeSig, $String*, $String*)},
+	{"typeValue", "(Ljava/lang/String;I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(ImplicitStringConcatShapesTestGen, typeValue, $String*, $String*, int32_t)},
 	{}
 };
 

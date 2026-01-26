@@ -11,7 +11,7 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _WithSecurityManager4concat$4_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(WithSecurityManager4concat$4::*)()>(&WithSecurityManager4concat$4::init$))},
+	{"<init>", "()V", nullptr, 0, $method(WithSecurityManager4concat$4, init$, void)},
 	{}
 };
 

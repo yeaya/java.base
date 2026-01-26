@@ -18,10 +18,10 @@ $FieldInfo _StandardSocketOptions$StdSocketOption_FieldInfo_[] = {
 };
 
 $MethodInfo _StandardSocketOptions$StdSocketOption_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Class;)V", "(Ljava/lang/String;Ljava/lang/Class<TT;>;)V", 0, $method(static_cast<void(StandardSocketOptions$StdSocketOption::*)($String*,$Class*)>(&StandardSocketOptions$StdSocketOption::init$))},
-	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"type", "()Ljava/lang/Class;", "()Ljava/lang/Class<TT;>;", $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Class;)V", "(Ljava/lang/String;Ljava/lang/Class<TT;>;)V", 0, $method(StandardSocketOptions$StdSocketOption, init$, void, $String*, $Class*)},
+	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StandardSocketOptions$StdSocketOption, name, $String*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StandardSocketOptions$StdSocketOption, toString, $String*)},
+	{"type", "()Ljava/lang/Class;", "()Ljava/lang/Class<TT;>;", $PUBLIC, $virtualMethod(StandardSocketOptions$StdSocketOption, type, $Class*)},
 	{}
 };
 

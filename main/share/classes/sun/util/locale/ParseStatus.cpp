@@ -18,12 +18,12 @@ $FieldInfo _ParseStatus_FieldInfo_[] = {
 };
 
 $MethodInfo _ParseStatus_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ParseStatus::*)()>(&ParseStatus::init$))},
-	{"getErrorIndex", "()I", nullptr, $PUBLIC},
-	{"getErrorMessage", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getParseLength", "()I", nullptr, $PUBLIC},
-	{"isError", "()Z", nullptr, $PUBLIC},
-	{"reset", "()V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ParseStatus, init$, void)},
+	{"getErrorIndex", "()I", nullptr, $PUBLIC, $virtualMethod(ParseStatus, getErrorIndex, int32_t)},
+	{"getErrorMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ParseStatus, getErrorMessage, $String*)},
+	{"getParseLength", "()I", nullptr, $PUBLIC, $virtualMethod(ParseStatus, getParseLength, int32_t)},
+	{"isError", "()Z", nullptr, $PUBLIC, $virtualMethod(ParseStatus, isError, bool)},
+	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(ParseStatus, reset, void)},
 	{}
 };
 

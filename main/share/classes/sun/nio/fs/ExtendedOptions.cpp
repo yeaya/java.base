@@ -44,7 +44,7 @@ $FieldInfo _ExtendedOptions_FieldInfo_[] = {
 };
 
 $MethodInfo _ExtendedOptions_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ExtendedOptions::*)()>(&ExtendedOptions::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ExtendedOptions, init$, void)},
 	{}
 };
 

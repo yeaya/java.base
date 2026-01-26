@@ -11,8 +11,8 @@ using $InetAddress = ::java::net::InetAddress;
 using $UnknownHostException = ::java::net::UnknownHostException;
 
 $MethodInfo _BadDottedIPAddress_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(BadDottedIPAddress::*)()>(&BadDottedIPAddress::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&BadDottedIPAddress::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(BadDottedIPAddress, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(BadDottedIPAddress, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

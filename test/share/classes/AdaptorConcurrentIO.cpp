@@ -59,8 +59,8 @@ $FieldInfo AdaptorConcurrentIO$$Lambda$lambda$testConcurrentSendReceive$0::field
 	{}
 };
 $MethodInfo AdaptorConcurrentIO$$Lambda$lambda$testConcurrentSendReceive$0::methodInfos[3] = {
-	{"<init>", "(Ljava/net/DatagramSocket;)V", nullptr, $PUBLIC, $method(static_cast<void(AdaptorConcurrentIO$$Lambda$lambda$testConcurrentSendReceive$0::*)($DatagramSocket*)>(&AdaptorConcurrentIO$$Lambda$lambda$testConcurrentSendReceive$0::init$))},
-	{"call", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/net/DatagramSocket;)V", nullptr, $PUBLIC, $method(AdaptorConcurrentIO$$Lambda$lambda$testConcurrentSendReceive$0, init$, void, $DatagramSocket*)},
+	{"call", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AdaptorConcurrentIO$$Lambda$lambda$testConcurrentSendReceive$0, call, $Object*)},
 	{}
 };
 $ClassInfo AdaptorConcurrentIO$$Lambda$lambda$testConcurrentSendReceive$0::classInfo$ = {
@@ -78,10 +78,10 @@ $Class* AdaptorConcurrentIO$$Lambda$lambda$testConcurrentSendReceive$0::load$($S
 $Class* AdaptorConcurrentIO$$Lambda$lambda$testConcurrentSendReceive$0::class$ = nullptr;
 
 $MethodInfo _AdaptorConcurrentIO_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(AdaptorConcurrentIO::*)()>(&AdaptorConcurrentIO::init$))},
-	{"lambda$testConcurrentSendReceive$0", "(Ljava/net/DatagramSocket;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$String*(*)($DatagramSocket*)>(&AdaptorConcurrentIO::lambda$testConcurrentSendReceive$0)), "java.lang.Exception"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&AdaptorConcurrentIO::main)), "java.lang.Exception"},
-	{"testConcurrentSendReceive", "(I)V", nullptr, $STATIC, $method(static_cast<void(*)(int32_t)>(&AdaptorConcurrentIO::testConcurrentSendReceive)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(AdaptorConcurrentIO, init$, void)},
+	{"lambda$testConcurrentSendReceive$0", "(Ljava/net/DatagramSocket;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AdaptorConcurrentIO, lambda$testConcurrentSendReceive$0, $String*, $DatagramSocket*), "java.lang.Exception"},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(AdaptorConcurrentIO, main, void, $StringArray*), "java.lang.Exception"},
+	{"testConcurrentSendReceive", "(I)V", nullptr, $STATIC, $staticMethod(AdaptorConcurrentIO, testConcurrentSendReceive, void, int32_t), "java.lang.Exception"},
 	{}
 };
 

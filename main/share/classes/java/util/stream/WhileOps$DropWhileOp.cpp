@@ -1,5 +1,6 @@
 #include <java/util/stream/WhileOps$DropWhileOp.h>
 
+#include <java/util/stream/Sink.h>
 #include <java/util/stream/WhileOps$DropWhileSink.h>
 #include <java/util/stream/WhileOps.h>
 #include <jcpp.h>
@@ -7,13 +8,15 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Sink = ::java::util::stream::Sink;
+using $WhileOps$DropWhileSink = ::java::util::stream::WhileOps$DropWhileSink;
 
 namespace java {
 	namespace util {
 		namespace stream {
 
 $MethodInfo _WhileOps$DropWhileOp_MethodInfo_[] = {
-	{"opWrapSink", "(Ljava/util/stream/Sink;Z)Ljava/util/stream/WhileOps$DropWhileSink;", "(Ljava/util/stream/Sink<TT;>;Z)Ljava/util/stream/WhileOps$DropWhileSink<TT;>;", $PUBLIC | $ABSTRACT},
+	{"opWrapSink", "(Ljava/util/stream/Sink;Z)Ljava/util/stream/WhileOps$DropWhileSink;", "(Ljava/util/stream/Sink<TT;>;Z)Ljava/util/stream/WhileOps$DropWhileSink<TT;>;", $PUBLIC | $ABSTRACT, $virtualMethod(WhileOps$DropWhileOp, opWrapSink, $WhileOps$DropWhileSink*, $Sink*, bool)},
 	{}
 };
 

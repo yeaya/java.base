@@ -27,8 +27,8 @@ $FieldInfo _UnixAsynchronousServerSocketChannelImpl$1_FieldInfo_[] = {
 };
 
 $MethodInfo _UnixAsynchronousServerSocketChannelImpl$1_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/ch/UnixAsynchronousServerSocketChannelImpl;Ljava/net/InetSocketAddress;)V", nullptr, 0, $method(static_cast<void(UnixAsynchronousServerSocketChannelImpl$1::*)($UnixAsynchronousServerSocketChannelImpl*,$InetSocketAddress*)>(&UnixAsynchronousServerSocketChannelImpl$1::init$))},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/nio/ch/UnixAsynchronousServerSocketChannelImpl;Ljava/net/InetSocketAddress;)V", nullptr, 0, $method(UnixAsynchronousServerSocketChannelImpl$1, init$, void, $UnixAsynchronousServerSocketChannelImpl*, $InetSocketAddress*)},
+	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(UnixAsynchronousServerSocketChannelImpl$1, run, $Object*)},
 	{}
 };
 

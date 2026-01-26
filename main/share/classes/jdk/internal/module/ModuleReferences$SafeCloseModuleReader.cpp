@@ -33,15 +33,15 @@ $FieldInfo _ModuleReferences$SafeCloseModuleReader_FieldInfo_[] = {
 };
 
 $MethodInfo _ModuleReferences$SafeCloseModuleReader_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ModuleReferences$SafeCloseModuleReader::*)()>(&ModuleReferences$SafeCloseModuleReader::init$))},
-	{"close", "()V", nullptr, $PUBLIC | $FINAL, nullptr, "java.io.IOException"},
-	{"find", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/net/URI;>;", $PUBLIC | $FINAL, nullptr, "java.io.IOException"},
-	{"implClose", "()V", nullptr, $ABSTRACT, nullptr, "java.io.IOException"},
-	{"implFind", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/net/URI;>;", $ABSTRACT, nullptr, "java.io.IOException"},
-	{"implList", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljava/lang/String;>;", $ABSTRACT, nullptr, "java.io.IOException"},
-	{"implOpen", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/io/InputStream;>;", $ABSTRACT, nullptr, "java.io.IOException"},
-	{"list", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljava/lang/String;>;", $PUBLIC | $FINAL, nullptr, "java.io.IOException"},
-	{"open", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/io/InputStream;>;", $PUBLIC | $FINAL, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, 0, $method(ModuleReferences$SafeCloseModuleReader, init$, void)},
+	{"close", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(ModuleReferences$SafeCloseModuleReader, close, void), "java.io.IOException"},
+	{"find", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/net/URI;>;", $PUBLIC | $FINAL, $virtualMethod(ModuleReferences$SafeCloseModuleReader, find, $Optional*, $String*), "java.io.IOException"},
+	{"implClose", "()V", nullptr, $ABSTRACT, $virtualMethod(ModuleReferences$SafeCloseModuleReader, implClose, void), "java.io.IOException"},
+	{"implFind", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/net/URI;>;", $ABSTRACT, $virtualMethod(ModuleReferences$SafeCloseModuleReader, implFind, $Optional*, $String*), "java.io.IOException"},
+	{"implList", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljava/lang/String;>;", $ABSTRACT, $virtualMethod(ModuleReferences$SafeCloseModuleReader, implList, $Stream*), "java.io.IOException"},
+	{"implOpen", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/io/InputStream;>;", $ABSTRACT, $virtualMethod(ModuleReferences$SafeCloseModuleReader, implOpen, $Optional*, $String*), "java.io.IOException"},
+	{"list", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljava/lang/String;>;", $PUBLIC | $FINAL, $virtualMethod(ModuleReferences$SafeCloseModuleReader, list, $Stream*), "java.io.IOException"},
+	{"open", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/io/InputStream;>;", $PUBLIC | $FINAL, $virtualMethod(ModuleReferences$SafeCloseModuleReader, open, $Optional*, $String*), "java.io.IOException"},
 	{}
 };
 

@@ -8,7 +8,7 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _StackTraceSerialization$TestThrowable_MethodInfo_[] = {
-	{"<init>", "(ZZ)V", nullptr, $PUBLIC, $method(static_cast<void(StackTraceSerialization$TestThrowable::*)(bool,bool)>(&StackTraceSerialization$TestThrowable::init$))},
+	{"<init>", "(ZZ)V", nullptr, $PUBLIC, $method(StackTraceSerialization$TestThrowable, init$, void, bool, bool)},
 	{}
 };
 

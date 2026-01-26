@@ -26,7 +26,7 @@ $FieldInfo _AccessController$AccHolder_FieldInfo_[] = {
 };
 
 $MethodInfo _AccessController$AccHolder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(AccessController$AccHolder::*)()>(&AccessController$AccHolder::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(AccessController$AccHolder, init$, void)},
 	{}
 };
 

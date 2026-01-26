@@ -32,7 +32,7 @@ $CompoundAttribute _TestReceiverTypeParameterizedConstructor$TypeAnnotation_Anno
 };
 
 $MethodInfo _TestReceiverTypeParameterizedConstructor$TypeAnnotation_MethodInfo_[] = {
-	{"value", "()I", nullptr, $PUBLIC | $ABSTRACT},
+	{"value", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TestReceiverTypeParameterizedConstructor$TypeAnnotation, value, int32_t)},
 	{}
 };
 

@@ -24,11 +24,11 @@ namespace java {
 		namespace stream {
 
 $MethodInfo _FindOps_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(FindOps::*)()>(&FindOps::init$))},
-	{"makeDouble", "(Z)Ljava/util/stream/TerminalOp;", "(Z)Ljava/util/stream/TerminalOp<Ljava/lang/Double;Ljava/util/OptionalDouble;>;", $PUBLIC | $STATIC, $method(static_cast<$TerminalOp*(*)(bool)>(&FindOps::makeDouble))},
-	{"makeInt", "(Z)Ljava/util/stream/TerminalOp;", "(Z)Ljava/util/stream/TerminalOp<Ljava/lang/Integer;Ljava/util/OptionalInt;>;", $PUBLIC | $STATIC, $method(static_cast<$TerminalOp*(*)(bool)>(&FindOps::makeInt))},
-	{"makeLong", "(Z)Ljava/util/stream/TerminalOp;", "(Z)Ljava/util/stream/TerminalOp<Ljava/lang/Long;Ljava/util/OptionalLong;>;", $PUBLIC | $STATIC, $method(static_cast<$TerminalOp*(*)(bool)>(&FindOps::makeLong))},
-	{"makeRef", "(Z)Ljava/util/stream/TerminalOp;", "<T:Ljava/lang/Object;>(Z)Ljava/util/stream/TerminalOp<TT;Ljava/util/Optional<TT;>;>;", $PUBLIC | $STATIC, $method(static_cast<$TerminalOp*(*)(bool)>(&FindOps::makeRef))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(FindOps, init$, void)},
+	{"makeDouble", "(Z)Ljava/util/stream/TerminalOp;", "(Z)Ljava/util/stream/TerminalOp<Ljava/lang/Double;Ljava/util/OptionalDouble;>;", $PUBLIC | $STATIC, $staticMethod(FindOps, makeDouble, $TerminalOp*, bool)},
+	{"makeInt", "(Z)Ljava/util/stream/TerminalOp;", "(Z)Ljava/util/stream/TerminalOp<Ljava/lang/Integer;Ljava/util/OptionalInt;>;", $PUBLIC | $STATIC, $staticMethod(FindOps, makeInt, $TerminalOp*, bool)},
+	{"makeLong", "(Z)Ljava/util/stream/TerminalOp;", "(Z)Ljava/util/stream/TerminalOp<Ljava/lang/Long;Ljava/util/OptionalLong;>;", $PUBLIC | $STATIC, $staticMethod(FindOps, makeLong, $TerminalOp*, bool)},
+	{"makeRef", "(Z)Ljava/util/stream/TerminalOp;", "<T:Ljava/lang/Object;>(Z)Ljava/util/stream/TerminalOp<TT;Ljava/util/Optional<TT;>;>;", $PUBLIC | $STATIC, $staticMethod(FindOps, makeRef, $TerminalOp*, bool)},
 	{}
 };
 

@@ -17,8 +17,8 @@ $FieldInfo _MalformedURLException_FieldInfo_[] = {
 };
 
 $MethodInfo _MalformedURLException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(MalformedURLException::*)()>(&MalformedURLException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(MalformedURLException::*)($String*)>(&MalformedURLException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(MalformedURLException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(MalformedURLException, init$, void, $String*)},
 	{}
 };
 

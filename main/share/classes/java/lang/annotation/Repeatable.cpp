@@ -35,7 +35,7 @@ $CompoundAttribute _Repeatable_Annotations_[] = {
 };
 
 $MethodInfo _Repeatable_MethodInfo_[] = {
-	{"value", "()Ljava/lang/Class;", "()Ljava/lang/Class<+Ljava/lang/annotation/Annotation;>;", $PUBLIC | $ABSTRACT},
+	{"value", "()Ljava/lang/Class;", "()Ljava/lang/Class<+Ljava/lang/annotation/Annotation;>;", $PUBLIC | $ABSTRACT, $virtualMethod(Repeatable, value, $Class*)},
 	{}
 };
 

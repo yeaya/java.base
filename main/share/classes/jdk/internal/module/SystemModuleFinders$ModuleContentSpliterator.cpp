@@ -54,12 +54,12 @@ $FieldInfo _SystemModuleFinders$ModuleContentSpliterator_FieldInfo_[] = {
 };
 
 $MethodInfo _SystemModuleFinders$ModuleContentSpliterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(SystemModuleFinders$ModuleContentSpliterator::*)($String*)>(&SystemModuleFinders$ModuleContentSpliterator::init$)), "java.io.IOException"},
-	{"characteristics", "()I", nullptr, $PUBLIC},
-	{"estimateSize", "()J", nullptr, $PUBLIC},
-	{"next", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(SystemModuleFinders$ModuleContentSpliterator::*)()>(&SystemModuleFinders$ModuleContentSpliterator::next)), "java.io.IOException"},
-	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-Ljava/lang/String;>;)Z", $PUBLIC},
-	{"trySplit", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<Ljava/lang/String;>;", $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(SystemModuleFinders$ModuleContentSpliterator, init$, void, $String*), "java.io.IOException"},
+	{"characteristics", "()I", nullptr, $PUBLIC, $virtualMethod(SystemModuleFinders$ModuleContentSpliterator, characteristics, int32_t)},
+	{"estimateSize", "()J", nullptr, $PUBLIC, $virtualMethod(SystemModuleFinders$ModuleContentSpliterator, estimateSize, int64_t)},
+	{"next", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(SystemModuleFinders$ModuleContentSpliterator, next, $String*), "java.io.IOException"},
+	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-Ljava/lang/String;>;)Z", $PUBLIC, $virtualMethod(SystemModuleFinders$ModuleContentSpliterator, tryAdvance, bool, $Consumer*)},
+	{"trySplit", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(SystemModuleFinders$ModuleContentSpliterator, trySplit, $Spliterator*)},
 	{}
 };
 

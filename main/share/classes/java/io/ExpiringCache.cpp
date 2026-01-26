@@ -38,13 +38,13 @@ $FieldInfo _ExpiringCache_FieldInfo_[] = {
 };
 
 $MethodInfo _ExpiringCache_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ExpiringCache::*)()>(&ExpiringCache::init$))},
-	{"<init>", "(J)V", nullptr, 0, $method(static_cast<void(ExpiringCache::*)(int64_t)>(&ExpiringCache::init$))},
-	{"cleanup", "()V", nullptr, $PRIVATE, $method(static_cast<void(ExpiringCache::*)()>(&ExpiringCache::cleanup))},
-	{"clear", "()V", nullptr, $SYNCHRONIZED},
-	{"entryFor", "(Ljava/lang/String;)Ljava/io/ExpiringCache$Entry;", nullptr, $PRIVATE, $method(static_cast<$ExpiringCache$Entry*(ExpiringCache::*)($String*)>(&ExpiringCache::entryFor))},
-	{"get", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $SYNCHRONIZED},
-	{"put", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $SYNCHRONIZED},
+	{"<init>", "()V", nullptr, 0, $method(ExpiringCache, init$, void)},
+	{"<init>", "(J)V", nullptr, 0, $method(ExpiringCache, init$, void, int64_t)},
+	{"cleanup", "()V", nullptr, $PRIVATE, $method(ExpiringCache, cleanup, void)},
+	{"clear", "()V", nullptr, $SYNCHRONIZED, $virtualMethod(ExpiringCache, clear, void)},
+	{"entryFor", "(Ljava/lang/String;)Ljava/io/ExpiringCache$Entry;", nullptr, $PRIVATE, $method(ExpiringCache, entryFor, $ExpiringCache$Entry*, $String*)},
+	{"get", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $SYNCHRONIZED, $virtualMethod(ExpiringCache, get, $String*, $String*)},
+	{"put", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $SYNCHRONIZED, $virtualMethod(ExpiringCache, put, void, $String*, $String*)},
 	{}
 };
 

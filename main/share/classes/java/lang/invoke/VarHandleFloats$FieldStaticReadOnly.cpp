@@ -68,16 +68,16 @@ $FieldInfo _VarHandleFloats$FieldStaticReadOnly_FieldInfo_[] = {
 };
 
 $MethodInfo _VarHandleFloats$FieldStaticReadOnly_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;J)V", nullptr, 0, $method(static_cast<void(VarHandleFloats$FieldStaticReadOnly::*)(Object$*,int64_t)>(&VarHandleFloats$FieldStaticReadOnly::init$))},
-	{"<init>", "(Ljava/lang/Object;JLjava/lang/invoke/VarForm;Z)V", nullptr, $PROTECTED, $method(static_cast<void(VarHandleFloats$FieldStaticReadOnly::*)(Object$*,int64_t,$VarForm*,bool)>(&VarHandleFloats$FieldStaticReadOnly::init$))},
-	{"accessModeTypeUncached", "(Ljava/lang/invoke/VarHandle$AccessType;)Ljava/lang/invoke/MethodType;", nullptr, $FINAL},
-	{"describeConstable", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/lang/invoke/VarHandle$VarHandleDesc;>;", $PUBLIC},
-	{"get", "(Ljava/lang/invoke/VarHandle;)F", nullptr, $STATIC, $method(static_cast<float(*)($VarHandle*)>(&VarHandleFloats$FieldStaticReadOnly::get)), nullptr, nullptr, _VarHandleFloats$FieldStaticReadOnly_MethodAnnotations_get4},
-	{"getAcquire", "(Ljava/lang/invoke/VarHandle;)F", nullptr, $STATIC, $method(static_cast<float(*)($VarHandle*)>(&VarHandleFloats$FieldStaticReadOnly::getAcquire)), nullptr, nullptr, _VarHandleFloats$FieldStaticReadOnly_MethodAnnotations_getAcquire5},
-	{"getOpaque", "(Ljava/lang/invoke/VarHandle;)F", nullptr, $STATIC, $method(static_cast<float(*)($VarHandle*)>(&VarHandleFloats$FieldStaticReadOnly::getOpaque)), nullptr, nullptr, _VarHandleFloats$FieldStaticReadOnly_MethodAnnotations_getOpaque6},
-	{"getVolatile", "(Ljava/lang/invoke/VarHandle;)F", nullptr, $STATIC, $method(static_cast<float(*)($VarHandle*)>(&VarHandleFloats$FieldStaticReadOnly::getVolatile)), nullptr, nullptr, _VarHandleFloats$FieldStaticReadOnly_MethodAnnotations_getVolatile7},
-	{"withInvokeBehavior", "()Ljava/lang/invoke/VarHandleFloats$FieldStaticReadOnly;", nullptr, $PUBLIC},
-	{"withInvokeExactBehavior", "()Ljava/lang/invoke/VarHandleFloats$FieldStaticReadOnly;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Object;J)V", nullptr, 0, $method(VarHandleFloats$FieldStaticReadOnly, init$, void, Object$*, int64_t)},
+	{"<init>", "(Ljava/lang/Object;JLjava/lang/invoke/VarForm;Z)V", nullptr, $PROTECTED, $method(VarHandleFloats$FieldStaticReadOnly, init$, void, Object$*, int64_t, $VarForm*, bool)},
+	{"accessModeTypeUncached", "(Ljava/lang/invoke/VarHandle$AccessType;)Ljava/lang/invoke/MethodType;", nullptr, $FINAL, $virtualMethod(VarHandleFloats$FieldStaticReadOnly, accessModeTypeUncached, $MethodType*, $VarHandle$AccessType*)},
+	{"describeConstable", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/lang/invoke/VarHandle$VarHandleDesc;>;", $PUBLIC, $virtualMethod(VarHandleFloats$FieldStaticReadOnly, describeConstable, $Optional*)},
+	{"get", "(Ljava/lang/invoke/VarHandle;)F", nullptr, $STATIC, $staticMethod(VarHandleFloats$FieldStaticReadOnly, get, float, $VarHandle*), nullptr, nullptr, _VarHandleFloats$FieldStaticReadOnly_MethodAnnotations_get4},
+	{"getAcquire", "(Ljava/lang/invoke/VarHandle;)F", nullptr, $STATIC, $staticMethod(VarHandleFloats$FieldStaticReadOnly, getAcquire, float, $VarHandle*), nullptr, nullptr, _VarHandleFloats$FieldStaticReadOnly_MethodAnnotations_getAcquire5},
+	{"getOpaque", "(Ljava/lang/invoke/VarHandle;)F", nullptr, $STATIC, $staticMethod(VarHandleFloats$FieldStaticReadOnly, getOpaque, float, $VarHandle*), nullptr, nullptr, _VarHandleFloats$FieldStaticReadOnly_MethodAnnotations_getOpaque6},
+	{"getVolatile", "(Ljava/lang/invoke/VarHandle;)F", nullptr, $STATIC, $staticMethod(VarHandleFloats$FieldStaticReadOnly, getVolatile, float, $VarHandle*), nullptr, nullptr, _VarHandleFloats$FieldStaticReadOnly_MethodAnnotations_getVolatile7},
+	{"withInvokeBehavior", "()Ljava/lang/invoke/VarHandleFloats$FieldStaticReadOnly;", nullptr, $PUBLIC, $virtualMethod(VarHandleFloats$FieldStaticReadOnly, withInvokeBehavior, VarHandleFloats$FieldStaticReadOnly*)},
+	{"withInvokeExactBehavior", "()Ljava/lang/invoke/VarHandleFloats$FieldStaticReadOnly;", nullptr, $PUBLIC, $virtualMethod(VarHandleFloats$FieldStaticReadOnly, withInvokeExactBehavior, VarHandleFloats$FieldStaticReadOnly*)},
 	{}
 };
 

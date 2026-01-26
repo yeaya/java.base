@@ -29,10 +29,10 @@ $FieldInfo _BigDecimal$StringBuilderHelper_FieldInfo_[] = {
 };
 
 $MethodInfo _BigDecimal$StringBuilderHelper_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(BigDecimal$StringBuilderHelper::*)()>(&BigDecimal$StringBuilderHelper::init$))},
-	{"getCompactCharArray", "()[C", nullptr, 0},
-	{"getStringBuilder", "()Ljava/lang/StringBuilder;", nullptr, 0},
-	{"putIntCompact", "(J)I", nullptr, 0},
+	{"<init>", "()V", nullptr, 0, $method(BigDecimal$StringBuilderHelper, init$, void)},
+	{"getCompactCharArray", "()[C", nullptr, 0, $virtualMethod(BigDecimal$StringBuilderHelper, getCompactCharArray, $chars*)},
+	{"getStringBuilder", "()Ljava/lang/StringBuilder;", nullptr, 0, $virtualMethod(BigDecimal$StringBuilderHelper, getStringBuilder, $StringBuilder*)},
+	{"putIntCompact", "(J)I", nullptr, 0, $virtualMethod(BigDecimal$StringBuilderHelper, putIntCompact, int32_t, int64_t)},
 	{}
 };
 

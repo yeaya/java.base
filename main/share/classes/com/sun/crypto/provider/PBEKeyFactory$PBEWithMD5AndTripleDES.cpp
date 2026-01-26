@@ -14,7 +14,7 @@ namespace com {
 			namespace provider {
 
 $MethodInfo _PBEKeyFactory$PBEWithMD5AndTripleDES_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PBEKeyFactory$PBEWithMD5AndTripleDES::*)()>(&PBEKeyFactory$PBEWithMD5AndTripleDES::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PBEKeyFactory$PBEWithMD5AndTripleDES, init$, void)},
 	{}
 };
 

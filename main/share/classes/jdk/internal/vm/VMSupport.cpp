@@ -26,13 +26,13 @@ $FieldInfo _VMSupport_FieldInfo_[] = {
 };
 
 $MethodInfo _VMSupport_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(VMSupport::*)()>(&VMSupport::init$))},
-	{"getAgentProperties", "()Ljava/util/Properties;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $method(static_cast<$Properties*(*)()>(&VMSupport::getAgentProperties))},
-	{"getVMTemporaryDirectory", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $NATIVE, $method(static_cast<$String*(*)()>(&VMSupport::getVMTemporaryDirectory))},
-	{"initAgentProperties", "(Ljava/util/Properties;)Ljava/util/Properties;", nullptr, $PRIVATE | $STATIC | $NATIVE, $method(static_cast<$Properties*(*)($Properties*)>(&VMSupport::initAgentProperties))},
-	{"serializeAgentPropertiesToByteArray", "()[B", nullptr, $PUBLIC | $STATIC, $method(static_cast<$bytes*(*)()>(&VMSupport::serializeAgentPropertiesToByteArray)), "java.io.IOException"},
-	{"serializePropertiesToByteArray", "(Ljava/util/Properties;)[B", nullptr, $PRIVATE | $STATIC, $method(static_cast<$bytes*(*)($Properties*)>(&VMSupport::serializePropertiesToByteArray)), "java.io.IOException"},
-	{"serializePropertiesToByteArray", "()[B", nullptr, $PUBLIC | $STATIC, $method(static_cast<$bytes*(*)()>(&VMSupport::serializePropertiesToByteArray)), "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(VMSupport, init$, void)},
+	{"getAgentProperties", "()Ljava/util/Properties;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(VMSupport, getAgentProperties, $Properties*)},
+	{"getVMTemporaryDirectory", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(VMSupport, getVMTemporaryDirectory, $String*)},
+	{"initAgentProperties", "(Ljava/util/Properties;)Ljava/util/Properties;", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(VMSupport, initAgentProperties, $Properties*, $Properties*)},
+	{"serializeAgentPropertiesToByteArray", "()[B", nullptr, $PUBLIC | $STATIC, $staticMethod(VMSupport, serializeAgentPropertiesToByteArray, $bytes*), "java.io.IOException"},
+	{"serializePropertiesToByteArray", "(Ljava/util/Properties;)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(VMSupport, serializePropertiesToByteArray, $bytes*, $Properties*), "java.io.IOException"},
+	{"serializePropertiesToByteArray", "()[B", nullptr, $PUBLIC | $STATIC, $staticMethod(VMSupport, serializePropertiesToByteArray, $bytes*), "java.io.IOException"},
 	{}
 };
 

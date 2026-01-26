@@ -12,8 +12,8 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $DecimalFormat = ::java::text::DecimalFormat;
 
 $MethodInfo _Bug4990596_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Bug4990596::*)()>(&Bug4990596::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Bug4990596::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Bug4990596, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Bug4990596, main, void, $StringArray*)},
 	{}
 };
 

@@ -34,9 +34,9 @@ $FieldInfo _NoGetClassLoaderAccess_FieldInfo_[] = {
 };
 
 $MethodInfo _NoGetClassLoaderAccess_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(NoGetClassLoaderAccess::*)()>(&NoGetClassLoaderAccess::init$))},
-	{"findClass", "(Ljava/lang/Module;Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/Module;Ljava/lang/String;)Ljava/lang/Class<*>;", $STATIC, $method(static_cast<$Class*(*)($Module*,$String*)>(&NoGetClassLoaderAccess::findClass))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&NoGetClassLoaderAccess::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(NoGetClassLoaderAccess, init$, void)},
+	{"findClass", "(Ljava/lang/Module;Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/Module;Ljava/lang/String;)Ljava/lang/Class<*>;", $STATIC, $staticMethod(NoGetClassLoaderAccess, findClass, $Class*, $Module*, $String*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(NoGetClassLoaderAccess, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

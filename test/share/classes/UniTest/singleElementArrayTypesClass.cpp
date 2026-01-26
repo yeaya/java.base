@@ -102,7 +102,7 @@ $CompoundAttribute _singleElementArrayTypesClass_Annotations_[] = {
 };
 
 $MethodInfo _singleElementArrayTypesClass_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(singleElementArrayTypesClass::*)()>(&singleElementArrayTypesClass::init$))},
+	{"<init>", "()V", nullptr, 0, $method(singleElementArrayTypesClass, init$, void)},
 	{}
 };
 

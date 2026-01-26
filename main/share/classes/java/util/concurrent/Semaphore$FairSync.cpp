@@ -21,8 +21,8 @@ $FieldInfo _Semaphore$FairSync_FieldInfo_[] = {
 };
 
 $MethodInfo _Semaphore$FairSync_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, 0, $method(static_cast<void(Semaphore$FairSync::*)(int32_t)>(&Semaphore$FairSync::init$))},
-	{"tryAcquireShared", "(I)I", nullptr, $PROTECTED},
+	{"<init>", "(I)V", nullptr, 0, $method(Semaphore$FairSync, init$, void, int32_t)},
+	{"tryAcquireShared", "(I)I", nullptr, $PROTECTED, $virtualMethod(Semaphore$FairSync, tryAcquireShared, int32_t, int32_t)},
 	{}
 };
 

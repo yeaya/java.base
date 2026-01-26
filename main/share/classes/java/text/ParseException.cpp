@@ -17,8 +17,8 @@ $FieldInfo _ParseException_FieldInfo_[] = {
 };
 
 $MethodInfo _ParseException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(static_cast<void(ParseException::*)($String*,int32_t)>(&ParseException::init$))},
-	{"getErrorOffset", "()I", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(ParseException, init$, void, $String*, int32_t)},
+	{"getErrorOffset", "()I", nullptr, $PUBLIC, $virtualMethod(ParseException, getErrorOffset, int32_t)},
 	{}
 };
 

@@ -23,10 +23,10 @@ namespace java {
 	namespace security {
 
 $MethodInfo _Signature$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Signature$1::*)()>(&Signature$1::init$))},
-	{"initSign", "(Ljava/security/Signature;Ljava/security/PrivateKey;Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, $PUBLIC, nullptr, "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
-	{"initVerify", "(Ljava/security/Signature;Ljava/security/PublicKey;Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PUBLIC, nullptr, "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
-	{"initVerify", "(Ljava/security/Signature;Ljava/security/cert/Certificate;Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PUBLIC, nullptr, "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
+	{"<init>", "()V", nullptr, 0, $method(Signature$1, init$, void)},
+	{"initSign", "(Ljava/security/Signature;Ljava/security/PrivateKey;Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, $PUBLIC, $virtualMethod(Signature$1, initSign, void, $Signature*, $PrivateKey*, $AlgorithmParameterSpec*, $SecureRandom*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
+	{"initVerify", "(Ljava/security/Signature;Ljava/security/PublicKey;Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PUBLIC, $virtualMethod(Signature$1, initVerify, void, $Signature*, $PublicKey*, $AlgorithmParameterSpec*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
+	{"initVerify", "(Ljava/security/Signature;Ljava/security/cert/Certificate;Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PUBLIC, $virtualMethod(Signature$1, initVerify, void, $Signature*, $Certificate*, $AlgorithmParameterSpec*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
 	{}
 };
 

@@ -12,7 +12,7 @@ namespace sun {
 		namespace ch {
 
 $MethodInfo _Port$PollableChannel_MethodInfo_[] = {
-	{"onEvent", "(IZ)V", nullptr, $PUBLIC | $ABSTRACT},
+	{"onEvent", "(IZ)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Port$PollableChannel, onEvent, void, int32_t, bool)},
 	{}
 };
 

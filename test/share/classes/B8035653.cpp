@@ -11,8 +11,8 @@ using $DatagramSocket = ::java::net::DatagramSocket;
 using $SocketException = ::java::net::SocketException;
 
 $MethodInfo _B8035653_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(B8035653::*)()>(&B8035653::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&B8035653::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(B8035653, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(B8035653, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

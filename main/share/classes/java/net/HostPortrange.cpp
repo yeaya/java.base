@@ -51,18 +51,18 @@ $FieldInfo _HostPortrange_FieldInfo_[] = {
 };
 
 $MethodInfo _HostPortrange_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(HostPortrange::*)($String*,$String*)>(&HostPortrange::init$))},
-	{"defaultPort", "()[I", nullptr, 0},
-	{"equals", "(Ljava/net/HostPortrange;)Z", nullptr, 0},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"hostname", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"ipv4Literal", "()Z", nullptr, $PUBLIC},
-	{"ipv6Literal", "()Z", nullptr, $PUBLIC},
-	{"literal", "()Z", nullptr, $PUBLIC},
-	{"parsePort", "(Ljava/lang/String;)[I", nullptr, 0},
-	{"portrange", "()[I", nullptr, $PUBLIC},
-	{"toLowerCase", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $method(static_cast<$String*(*)($String*)>(&HostPortrange::toLowerCase))},
-	{"wildcard", "()Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(HostPortrange, init$, void, $String*, $String*)},
+	{"defaultPort", "()[I", nullptr, 0, $virtualMethod(HostPortrange, defaultPort, $ints*)},
+	{"equals", "(Ljava/net/HostPortrange;)Z", nullptr, 0, $virtualMethod(HostPortrange, equals, bool, HostPortrange*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(HostPortrange, hashCode, int32_t)},
+	{"hostname", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HostPortrange, hostname, $String*)},
+	{"ipv4Literal", "()Z", nullptr, $PUBLIC, $virtualMethod(HostPortrange, ipv4Literal, bool)},
+	{"ipv6Literal", "()Z", nullptr, $PUBLIC, $virtualMethod(HostPortrange, ipv6Literal, bool)},
+	{"literal", "()Z", nullptr, $PUBLIC, $virtualMethod(HostPortrange, literal, bool)},
+	{"parsePort", "(Ljava/lang/String;)[I", nullptr, 0, $virtualMethod(HostPortrange, parsePort, $ints*, $String*)},
+	{"portrange", "()[I", nullptr, $PUBLIC, $virtualMethod(HostPortrange, portrange, $ints*)},
+	{"toLowerCase", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(HostPortrange, toLowerCase, $String*, $String*)},
+	{"wildcard", "()Z", nullptr, $PUBLIC, $virtualMethod(HostPortrange, wildcard, bool)},
 	{}
 };
 

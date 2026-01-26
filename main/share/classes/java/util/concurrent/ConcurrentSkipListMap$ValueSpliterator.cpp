@@ -35,12 +35,12 @@ $MethodInfo _ConcurrentSkipListMap$ValueSpliterator_MethodInfo_[] = {
 	{"*estimateSize", "()J", nullptr, $PUBLIC | $FINAL},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/util/Comparator;Ljava/util/concurrent/ConcurrentSkipListMap$Index;Ljava/util/concurrent/ConcurrentSkipListMap$Node;Ljava/lang/Object;J)V", "(Ljava/util/Comparator<-TK;>;Ljava/util/concurrent/ConcurrentSkipListMap$Index<TK;TV;>;Ljava/util/concurrent/ConcurrentSkipListMap$Node<TK;TV;>;TK;J)V", 0, $method(static_cast<void(ConcurrentSkipListMap$ValueSpliterator::*)($Comparator*,$ConcurrentSkipListMap$Index*,$ConcurrentSkipListMap$Node*,Object$*,int64_t)>(&ConcurrentSkipListMap$ValueSpliterator::init$))},
-	{"characteristics", "()I", nullptr, $PUBLIC},
-	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TV;>;)V", $PUBLIC},
+	{"<init>", "(Ljava/util/Comparator;Ljava/util/concurrent/ConcurrentSkipListMap$Index;Ljava/util/concurrent/ConcurrentSkipListMap$Node;Ljava/lang/Object;J)V", "(Ljava/util/Comparator<-TK;>;Ljava/util/concurrent/ConcurrentSkipListMap$Index<TK;TV;>;Ljava/util/concurrent/ConcurrentSkipListMap$Node<TK;TV;>;TK;J)V", 0, $method(ConcurrentSkipListMap$ValueSpliterator, init$, void, $Comparator*, $ConcurrentSkipListMap$Index*, $ConcurrentSkipListMap$Node*, Object$*, int64_t)},
+	{"characteristics", "()I", nullptr, $PUBLIC, $virtualMethod(ConcurrentSkipListMap$ValueSpliterator, characteristics, int32_t)},
+	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TV;>;)V", $PUBLIC, $virtualMethod(ConcurrentSkipListMap$ValueSpliterator, forEachRemaining, void, $Consumer*)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-TV;>;)Z", $PUBLIC},
-	{"trySplit", "()Ljava/util/concurrent/ConcurrentSkipListMap$ValueSpliterator;", "()Ljava/util/concurrent/ConcurrentSkipListMap$ValueSpliterator<TK;TV;>;", $PUBLIC},
+	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-TV;>;)Z", $PUBLIC, $virtualMethod(ConcurrentSkipListMap$ValueSpliterator, tryAdvance, bool, $Consumer*)},
+	{"trySplit", "()Ljava/util/concurrent/ConcurrentSkipListMap$ValueSpliterator;", "()Ljava/util/concurrent/ConcurrentSkipListMap$ValueSpliterator<TK;TV;>;", $PUBLIC, $virtualMethod(ConcurrentSkipListMap$ValueSpliterator, trySplit, $Spliterator*)},
 	{}
 };
 

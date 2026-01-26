@@ -79,15 +79,15 @@ $FieldInfo _OpsAfterClose4InputStream_FieldInfo_[] = {
 };
 
 $MethodInfo _OpsAfterClose4InputStream_MethodInfo_[] = {
-	{"$values", "()[LOpsAfterClose4InputStream;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$OpsAfterClose4InputStreamArray*(*)()>(&OpsAfterClose4InputStream::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(OpsAfterClose4InputStream::*)($String*,int32_t)>(&OpsAfterClose4InputStream::init$))},
-	{"check", "(Ljava/io/InputStream;)Z", nullptr, $ABSTRACT},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&OpsAfterClose4InputStream::main)), "java.lang.Exception"},
-	{"testFileInputStream", "(Ljava/io/FileInputStream;)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($FileInputStream*)>(&OpsAfterClose4InputStream::testFileInputStream)), "java.lang.Exception"},
-	{"testInputStream", "(Ljava/io/InputStream;)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($InputStream*)>(&OpsAfterClose4InputStream::testInputStream)), "java.lang.Exception"},
-	{"testPushbackInputStream", "(Ljava/io/PushbackInputStream;)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($PushbackInputStream*)>(&OpsAfterClose4InputStream::testPushbackInputStream)), "java.lang.Exception"},
-	{"valueOf", "(Ljava/lang/String;)LOpsAfterClose4InputStream;", nullptr, $PUBLIC | $STATIC, $method(static_cast<OpsAfterClose4InputStream*(*)($String*)>(&OpsAfterClose4InputStream::valueOf))},
-	{"values", "()[LOpsAfterClose4InputStream;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$OpsAfterClose4InputStreamArray*(*)()>(&OpsAfterClose4InputStream::values))},
+	{"$values", "()[LOpsAfterClose4InputStream;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(OpsAfterClose4InputStream, $values, $OpsAfterClose4InputStreamArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(OpsAfterClose4InputStream, init$, void, $String*, int32_t)},
+	{"check", "(Ljava/io/InputStream;)Z", nullptr, $ABSTRACT, $virtualMethod(OpsAfterClose4InputStream, check, bool, $InputStream*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(OpsAfterClose4InputStream, main, void, $StringArray*), "java.lang.Exception"},
+	{"testFileInputStream", "(Ljava/io/FileInputStream;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(OpsAfterClose4InputStream, testFileInputStream, bool, $FileInputStream*), "java.lang.Exception"},
+	{"testInputStream", "(Ljava/io/InputStream;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(OpsAfterClose4InputStream, testInputStream, bool, $InputStream*), "java.lang.Exception"},
+	{"testPushbackInputStream", "(Ljava/io/PushbackInputStream;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(OpsAfterClose4InputStream, testPushbackInputStream, bool, $PushbackInputStream*), "java.lang.Exception"},
+	{"valueOf", "(Ljava/lang/String;)LOpsAfterClose4InputStream;", nullptr, $PUBLIC | $STATIC, $staticMethod(OpsAfterClose4InputStream, valueOf, OpsAfterClose4InputStream*, $String*)},
+	{"values", "()[LOpsAfterClose4InputStream;", nullptr, $PUBLIC | $STATIC, $staticMethod(OpsAfterClose4InputStream, values, $OpsAfterClose4InputStreamArray*)},
 	{}
 };
 

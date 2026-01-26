@@ -50,10 +50,10 @@ $FieldInfo _ForwardBuilder$PKIXCertComparator_FieldInfo_[] = {
 };
 
 $MethodInfo _ForwardBuilder$PKIXCertComparator_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Set;Lsun/security/x509/X509CertImpl;)V", "(Ljava/util/Set<Ljavax/security/auth/x500/X500Principal;>;Lsun/security/x509/X509CertImpl;)V", 0, $method(static_cast<void(ForwardBuilder$PKIXCertComparator::*)($Set*,$X509CertImpl*)>(&ForwardBuilder$PKIXCertComparator::init$)), "java.io.IOException"},
-	{"compare", "(Ljava/security/cert/X509Certificate;Ljava/security/cert/X509Certificate;)I", nullptr, $PUBLIC},
-	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"getSelector", "(Lsun/security/x509/X509CertImpl;)Ljava/security/cert/X509CertSelector;", nullptr, $PRIVATE, $method(static_cast<$X509CertSelector*(ForwardBuilder$PKIXCertComparator::*)($X509CertImpl*)>(&ForwardBuilder$PKIXCertComparator::getSelector)), "java.io.IOException"},
+	{"<init>", "(Ljava/util/Set;Lsun/security/x509/X509CertImpl;)V", "(Ljava/util/Set<Ljavax/security/auth/x500/X500Principal;>;Lsun/security/x509/X509CertImpl;)V", 0, $method(ForwardBuilder$PKIXCertComparator, init$, void, $Set*, $X509CertImpl*), "java.io.IOException"},
+	{"compare", "(Ljava/security/cert/X509Certificate;Ljava/security/cert/X509Certificate;)I", nullptr, $PUBLIC, $virtualMethod(ForwardBuilder$PKIXCertComparator, compare, int32_t, $X509Certificate*, $X509Certificate*)},
+	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ForwardBuilder$PKIXCertComparator, compare, int32_t, Object$*, Object$*)},
+	{"getSelector", "(Lsun/security/x509/X509CertImpl;)Ljava/security/cert/X509CertSelector;", nullptr, $PRIVATE, $method(ForwardBuilder$PKIXCertComparator, getSelector, $X509CertSelector*, $X509CertImpl*), "java.io.IOException"},
 	{}
 };
 

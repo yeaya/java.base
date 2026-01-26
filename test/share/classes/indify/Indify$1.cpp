@@ -23,8 +23,8 @@ $FieldInfo _Indify$1_FieldInfo_[] = {
 };
 
 $MethodInfo _Indify$1_MethodInfo_[] = {
-	{"<init>", "(Lindify/Indify;)V", nullptr, 0, $method(static_cast<void(Indify$1::*)($Indify*)>(&Indify$1::init$))},
-	{"accept", "(Ljava/io/File;Ljava/lang/String;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Lindify/Indify;)V", nullptr, 0, $method(Indify$1, init$, void, $Indify*)},
+	{"accept", "(Ljava/io/File;Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(Indify$1, accept, bool, $File*, $String*)},
 	{}
 };
 

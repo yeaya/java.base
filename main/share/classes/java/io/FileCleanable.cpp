@@ -33,11 +33,11 @@ $FieldInfo _FileCleanable_FieldInfo_[] = {
 };
 
 $MethodInfo _FileCleanable_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/FileDescriptor;Ljava/lang/ref/Cleaner;IJ)V", nullptr, $PRIVATE, $method(static_cast<void(FileCleanable::*)($FileDescriptor*,$Cleaner*,int32_t,int64_t)>(&FileCleanable::init$))},
-	{"cleanupClose0", "(IJ)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $method(static_cast<void(*)(int32_t,int64_t)>(&FileCleanable::cleanupClose0)), "java.io.IOException"},
-	{"performCleanup", "()V", nullptr, $PROTECTED},
-	{"register", "(Ljava/io/FileDescriptor;)V", nullptr, $STATIC, $method(static_cast<void(*)($FileDescriptor*)>(&FileCleanable::register$))},
-	{"unregister", "(Ljava/io/FileDescriptor;)V", nullptr, $STATIC, $method(static_cast<void(*)($FileDescriptor*)>(&FileCleanable::unregister))},
+	{"<init>", "(Ljava/io/FileDescriptor;Ljava/lang/ref/Cleaner;IJ)V", nullptr, $PRIVATE, $method(FileCleanable, init$, void, $FileDescriptor*, $Cleaner*, int32_t, int64_t)},
+	{"cleanupClose0", "(IJ)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(FileCleanable, cleanupClose0, void, int32_t, int64_t), "java.io.IOException"},
+	{"performCleanup", "()V", nullptr, $PROTECTED, $virtualMethod(FileCleanable, performCleanup, void)},
+	{"register", "(Ljava/io/FileDescriptor;)V", nullptr, $STATIC, $staticMethod(FileCleanable, register$, void, $FileDescriptor*)},
+	{"unregister", "(Ljava/io/FileDescriptor;)V", nullptr, $STATIC, $staticMethod(FileCleanable, unregister, void, $FileDescriptor*)},
 	{}
 };
 

@@ -16,7 +16,10 @@
 using $ByteBufferArray = $Array<::java::nio::ByteBuffer>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $DatagramSocket = ::java::net::DatagramSocket;
 using $ProtocolFamily = ::java::net::ProtocolFamily;
+using $SocketAddress = ::java::net::SocketAddress;
+using $ByteBuffer = ::java::nio::ByteBuffer;
 using $SelectionKey = ::java::nio::channels::SelectionKey;
 using $AbstractSelectableChannel = ::java::nio::channels::spi::AbstractSelectableChannel;
 using $SelectorProvider = ::java::nio::channels::spi::SelectorProvider;
@@ -34,26 +37,26 @@ $MethodInfo _DatagramChannel_MethodInfo_[] = {
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"getLocalAddress", "()Ljava/net/SocketAddress;", nullptr, $PUBLIC | $ABSTRACT},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/nio/channels/spi/SelectorProvider;)V", nullptr, $PROTECTED, $method(static_cast<void(DatagramChannel::*)($SelectorProvider*)>(&DatagramChannel::init$))},
-	{"connect", "(Ljava/net/SocketAddress;)Ljava/nio/channels/DatagramChannel;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"disconnect", "()Ljava/nio/channels/DatagramChannel;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"getRemoteAddress", "()Ljava/net/SocketAddress;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"isConnected", "()Z", nullptr, $PUBLIC | $ABSTRACT},
+	{"<init>", "(Ljava/nio/channels/spi/SelectorProvider;)V", nullptr, $PROTECTED, $method(DatagramChannel, init$, void, $SelectorProvider*)},
+	{"connect", "(Ljava/net/SocketAddress;)Ljava/nio/channels/DatagramChannel;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DatagramChannel, connect, DatagramChannel*, $SocketAddress*), "java.io.IOException"},
+	{"disconnect", "()Ljava/nio/channels/DatagramChannel;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DatagramChannel, disconnect, DatagramChannel*), "java.io.IOException"},
+	{"getRemoteAddress", "()Ljava/net/SocketAddress;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DatagramChannel, getRemoteAddress, $SocketAddress*), "java.io.IOException"},
+	{"isConnected", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DatagramChannel, isConnected, bool)},
 	{"*isOpen", "()Z", nullptr, $PUBLIC | $FINAL},
-	{"open", "()Ljava/nio/channels/DatagramChannel;", nullptr, $PUBLIC | $STATIC, $method(static_cast<DatagramChannel*(*)()>(&DatagramChannel::open)), "java.io.IOException"},
-	{"open", "(Ljava/net/ProtocolFamily;)Ljava/nio/channels/DatagramChannel;", nullptr, $PUBLIC | $STATIC, $method(static_cast<DatagramChannel*(*)($ProtocolFamily*)>(&DatagramChannel::open)), "java.io.IOException"},
+	{"open", "()Ljava/nio/channels/DatagramChannel;", nullptr, $PUBLIC | $STATIC, $staticMethod(DatagramChannel, open, DatagramChannel*), "java.io.IOException"},
+	{"open", "(Ljava/net/ProtocolFamily;)Ljava/nio/channels/DatagramChannel;", nullptr, $PUBLIC | $STATIC, $staticMethod(DatagramChannel, open, DatagramChannel*, $ProtocolFamily*), "java.io.IOException"},
 	{"read", "(Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC | $ABSTRACT},
 	{"read", "([Ljava/nio/ByteBuffer;II)J", nullptr, $PUBLIC | $ABSTRACT},
-	{"read", "([Ljava/nio/ByteBuffer;)J", nullptr, $PUBLIC | $FINAL, nullptr, "java.io.IOException"},
-	{"receive", "(Ljava/nio/ByteBuffer;)Ljava/net/SocketAddress;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"send", "(Ljava/nio/ByteBuffer;Ljava/net/SocketAddress;)I", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
+	{"read", "([Ljava/nio/ByteBuffer;)J", nullptr, $PUBLIC | $FINAL, $virtualMethod(DatagramChannel, read, int64_t, $ByteBufferArray*), "java.io.IOException"},
+	{"receive", "(Ljava/nio/ByteBuffer;)Ljava/net/SocketAddress;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DatagramChannel, receive, $SocketAddress*, $ByteBuffer*), "java.io.IOException"},
+	{"send", "(Ljava/nio/ByteBuffer;Ljava/net/SocketAddress;)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DatagramChannel, send, int32_t, $ByteBuffer*, $SocketAddress*), "java.io.IOException"},
 	{"setOption", "(Ljava/net/SocketOption;Ljava/lang/Object;)Ljava/nio/channels/NetworkChannel;", nullptr, $PUBLIC | $ABSTRACT},
-	{"socket", "()Ljava/net/DatagramSocket;", nullptr, $PUBLIC | $ABSTRACT},
+	{"socket", "()Ljava/net/DatagramSocket;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DatagramChannel, socket, $DatagramSocket*)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"validOps", "()I", nullptr, $PUBLIC | $FINAL},
+	{"validOps", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(DatagramChannel, validOps, int32_t)},
 	{"write", "(Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC | $ABSTRACT},
 	{"write", "([Ljava/nio/ByteBuffer;II)J", nullptr, $PUBLIC | $ABSTRACT},
-	{"write", "([Ljava/nio/ByteBuffer;)J", nullptr, $PUBLIC | $FINAL, nullptr, "java.io.IOException"},
+	{"write", "([Ljava/nio/ByteBuffer;)J", nullptr, $PUBLIC | $FINAL, $virtualMethod(DatagramChannel, write, int64_t, $ByteBufferArray*), "java.io.IOException"},
 	{}
 };
 

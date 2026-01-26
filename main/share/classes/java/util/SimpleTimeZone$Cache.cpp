@@ -19,7 +19,7 @@ $FieldInfo _SimpleTimeZone$Cache_FieldInfo_[] = {
 };
 
 $MethodInfo _SimpleTimeZone$Cache_MethodInfo_[] = {
-	{"<init>", "(JJJ)V", nullptr, 0, $method(static_cast<void(SimpleTimeZone$Cache::*)(int64_t,int64_t,int64_t)>(&SimpleTimeZone$Cache::init$))},
+	{"<init>", "(JJJ)V", nullptr, 0, $method(SimpleTimeZone$Cache, init$, void, int64_t, int64_t, int64_t)},
 	{}
 };
 

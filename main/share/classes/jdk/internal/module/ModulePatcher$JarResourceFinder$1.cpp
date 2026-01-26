@@ -43,13 +43,13 @@ $FieldInfo _ModulePatcher$JarResourceFinder$1_FieldInfo_[] = {
 };
 
 $MethodInfo _ModulePatcher$JarResourceFinder$1_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/module/ModulePatcher$JarResourceFinder;Ljava/lang/String;Ljava/util/jar/JarEntry;)V", nullptr, 0, $method(static_cast<void(ModulePatcher$JarResourceFinder$1::*)($ModulePatcher$JarResourceFinder*,$String*,$JarEntry*)>(&ModulePatcher$JarResourceFinder$1::init$))},
-	{"getByteBuffer", "()Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"getCodeSourceURL", "()Ljava/net/URL;", nullptr, $PUBLIC},
-	{"getContentLength", "()I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"getInputStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getURL", "()Ljava/net/URL;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/module/ModulePatcher$JarResourceFinder;Ljava/lang/String;Ljava/util/jar/JarEntry;)V", nullptr, 0, $method(ModulePatcher$JarResourceFinder$1, init$, void, $ModulePatcher$JarResourceFinder*, $String*, $JarEntry*)},
+	{"getByteBuffer", "()Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $virtualMethod(ModulePatcher$JarResourceFinder$1, getByteBuffer, $ByteBuffer*), "java.io.IOException"},
+	{"getCodeSourceURL", "()Ljava/net/URL;", nullptr, $PUBLIC, $virtualMethod(ModulePatcher$JarResourceFinder$1, getCodeSourceURL, $URL*)},
+	{"getContentLength", "()I", nullptr, $PUBLIC, $virtualMethod(ModulePatcher$JarResourceFinder$1, getContentLength, int32_t), "java.io.IOException"},
+	{"getInputStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(ModulePatcher$JarResourceFinder$1, getInputStream, $InputStream*), "java.io.IOException"},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ModulePatcher$JarResourceFinder$1, getName, $String*)},
+	{"getURL", "()Ljava/net/URL;", nullptr, $PUBLIC, $virtualMethod(ModulePatcher$JarResourceFinder$1, getURL, $URL*)},
 	{}
 };
 

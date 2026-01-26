@@ -25,8 +25,8 @@ $FieldInfo _TLRemoveTest_FieldInfo_[] = {
 };
 
 $MethodInfo _TLRemoveTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TLRemoveTest::*)()>(&TLRemoveTest::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&TLRemoveTest::main)), "java.lang.Throwable"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TLRemoveTest, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TLRemoveTest, main, void, $StringArray*), "java.lang.Throwable"},
 	{}
 };
 

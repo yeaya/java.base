@@ -15,7 +15,7 @@ $CompoundAttribute _Runnable_Annotations_[] = {
 };
 
 $MethodInfo _Runnable_MethodInfo_[] = {
-	{"run", "()V", nullptr, $PUBLIC | $ABSTRACT},
+	{"run", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Runnable, run, void)},
 	{}
 };
 

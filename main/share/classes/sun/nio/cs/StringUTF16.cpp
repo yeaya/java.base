@@ -21,8 +21,8 @@ $FieldInfo _StringUTF16_FieldInfo_[] = {
 };
 
 $MethodInfo _StringUTF16_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(StringUTF16::*)()>(&StringUTF16::init$))},
-	{"getChar", "([BI)C", nullptr, $PUBLIC | $STATIC, $method(static_cast<char16_t(*)($bytes*,int32_t)>(&StringUTF16::getChar))},
+	{"<init>", "()V", nullptr, 0, $method(StringUTF16, init$, void)},
+	{"getChar", "([BI)C", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, getChar, char16_t, $bytes*, int32_t)},
 	{}
 };
 

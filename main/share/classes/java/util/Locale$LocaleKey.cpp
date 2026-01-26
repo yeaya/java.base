@@ -23,9 +23,9 @@ $FieldInfo _Locale$LocaleKey_FieldInfo_[] = {
 };
 
 $MethodInfo _Locale$LocaleKey_MethodInfo_[] = {
-	{"<init>", "(Lsun/util/locale/BaseLocale;Lsun/util/locale/LocaleExtensions;)V", nullptr, $PRIVATE, $method(static_cast<void(Locale$LocaleKey::*)($BaseLocale*,$LocaleExtensions*)>(&Locale$LocaleKey::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/util/locale/BaseLocale;Lsun/util/locale/LocaleExtensions;)V", nullptr, $PRIVATE, $method(Locale$LocaleKey, init$, void, $BaseLocale*, $LocaleExtensions*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Locale$LocaleKey, equals, bool, Object$*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Locale$LocaleKey, hashCode, int32_t)},
 	{}
 };
 

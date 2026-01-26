@@ -62,15 +62,15 @@ $FieldInfo _BoundMethodHandle$SpeciesData_FieldInfo_[] = {
 };
 
 $MethodInfo _BoundMethodHandle$SpeciesData_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/invoke/BoundMethodHandle$Specializer;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(BoundMethodHandle$SpeciesData::*)($BoundMethodHandle$Specializer*,$String*)>(&BoundMethodHandle$SpeciesData::init$))},
-	{"deriveClassName", "()Ljava/lang/String;", nullptr, $PROTECTED},
-	{"deriveFieldTypes", "(Ljava/lang/String;)Ljava/util/List;", "(Ljava/lang/String;)Ljava/util/List<Ljava/lang/Class<*>;>;", $PROTECTED, $method(static_cast<$List*(BoundMethodHandle$SpeciesData::*)($String*)>(&BoundMethodHandle$SpeciesData::deriveFieldTypes))},
-	{"deriveFieldTypes", "(Ljava/lang/Object;)Ljava/util/List;", nullptr, $PROTECTED | $VOLATILE | $SYNTHETIC},
-	{"deriveTransformHelper", "(Ljava/lang/invoke/MemberName;I)Ljava/lang/invoke/MethodHandle;", nullptr, $PROTECTED},
-	{"deriveTransformHelperArguments", "(Ljava/lang/invoke/MemberName;ILjava/util/List;Ljava/util/List;)Ljava/util/List;", "<X:Ljava/lang/Object;>(Ljava/lang/invoke/MemberName;ILjava/util/List<TX;>;Ljava/util/List<TX;>;)Ljava/util/List<TX;>;", $PROTECTED},
-	{"deriveTypeString", "()Ljava/lang/String;", nullptr, $PROTECTED},
-	{"extendWith", "(B)Ljava/lang/invoke/BoundMethodHandle$SpeciesData;", nullptr, 0, $method(static_cast<BoundMethodHandle$SpeciesData*(BoundMethodHandle$SpeciesData::*)(int8_t)>(&BoundMethodHandle$SpeciesData::extendWith))},
-	{"verifyTHAargs", "(Ljava/lang/invoke/MemberName;ILjava/util/List;Ljava/util/List;)Z", "(Ljava/lang/invoke/MemberName;ILjava/util/List<*>;Ljava/util/List<*>;)Z", $PRIVATE, $method(static_cast<bool(BoundMethodHandle$SpeciesData::*)($MemberName*,int32_t,$List*,$List*)>(&BoundMethodHandle$SpeciesData::verifyTHAargs))},
+	{"<init>", "(Ljava/lang/invoke/BoundMethodHandle$Specializer;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(BoundMethodHandle$SpeciesData, init$, void, $BoundMethodHandle$Specializer*, $String*)},
+	{"deriveClassName", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(BoundMethodHandle$SpeciesData, deriveClassName, $String*)},
+	{"deriveFieldTypes", "(Ljava/lang/String;)Ljava/util/List;", "(Ljava/lang/String;)Ljava/util/List<Ljava/lang/Class<*>;>;", $PROTECTED, $method(BoundMethodHandle$SpeciesData, deriveFieldTypes, $List*, $String*)},
+	{"deriveFieldTypes", "(Ljava/lang/Object;)Ljava/util/List;", nullptr, $PROTECTED | $VOLATILE | $SYNTHETIC, $virtualMethod(BoundMethodHandle$SpeciesData, deriveFieldTypes, $List*, Object$*)},
+	{"deriveTransformHelper", "(Ljava/lang/invoke/MemberName;I)Ljava/lang/invoke/MethodHandle;", nullptr, $PROTECTED, $virtualMethod(BoundMethodHandle$SpeciesData, deriveTransformHelper, $MethodHandle*, $MemberName*, int32_t)},
+	{"deriveTransformHelperArguments", "(Ljava/lang/invoke/MemberName;ILjava/util/List;Ljava/util/List;)Ljava/util/List;", "<X:Ljava/lang/Object;>(Ljava/lang/invoke/MemberName;ILjava/util/List<TX;>;Ljava/util/List<TX;>;)Ljava/util/List<TX;>;", $PROTECTED, $virtualMethod(BoundMethodHandle$SpeciesData, deriveTransformHelperArguments, $List*, $MemberName*, int32_t, $List*, $List*)},
+	{"deriveTypeString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(BoundMethodHandle$SpeciesData, deriveTypeString, $String*)},
+	{"extendWith", "(B)Ljava/lang/invoke/BoundMethodHandle$SpeciesData;", nullptr, 0, $method(BoundMethodHandle$SpeciesData, extendWith, BoundMethodHandle$SpeciesData*, int8_t)},
+	{"verifyTHAargs", "(Ljava/lang/invoke/MemberName;ILjava/util/List;Ljava/util/List;)Z", "(Ljava/lang/invoke/MemberName;ILjava/util/List<*>;Ljava/util/List<*>;)Z", $PRIVATE, $method(BoundMethodHandle$SpeciesData, verifyTHAargs, bool, $MemberName*, int32_t, $List*, $List*)},
 	{}
 };
 

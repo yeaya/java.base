@@ -25,12 +25,12 @@ namespace sun {
 		namespace ssl {
 
 $MethodInfo _SSLCipher$NullWriteCipherGenerator$NullWriteCipher_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/ssl/Authenticator;Lsun/security/ssl/ProtocolVersion;)V", nullptr, 0, $method(static_cast<void(SSLCipher$NullWriteCipherGenerator$NullWriteCipher::*)($Authenticator*,$ProtocolVersion*)>(&SSLCipher$NullWriteCipherGenerator$NullWriteCipher::init$))},
-	{"calculateFragmentSize", "(II)I", nullptr, 0},
-	{"calculatePacketSize", "(II)I", nullptr, 0},
-	{"encrypt", "(BLjava/nio/ByteBuffer;)I", nullptr, $PUBLIC},
-	{"getExplicitNonceSize", "()I", nullptr, 0},
-	{"isNullCipher", "()Z", nullptr, 0},
+	{"<init>", "(Lsun/security/ssl/Authenticator;Lsun/security/ssl/ProtocolVersion;)V", nullptr, 0, $method(SSLCipher$NullWriteCipherGenerator$NullWriteCipher, init$, void, $Authenticator*, $ProtocolVersion*)},
+	{"calculateFragmentSize", "(II)I", nullptr, 0, $virtualMethod(SSLCipher$NullWriteCipherGenerator$NullWriteCipher, calculateFragmentSize, int32_t, int32_t, int32_t)},
+	{"calculatePacketSize", "(II)I", nullptr, 0, $virtualMethod(SSLCipher$NullWriteCipherGenerator$NullWriteCipher, calculatePacketSize, int32_t, int32_t, int32_t)},
+	{"encrypt", "(BLjava/nio/ByteBuffer;)I", nullptr, $PUBLIC, $virtualMethod(SSLCipher$NullWriteCipherGenerator$NullWriteCipher, encrypt, int32_t, int8_t, $ByteBuffer*)},
+	{"getExplicitNonceSize", "()I", nullptr, 0, $virtualMethod(SSLCipher$NullWriteCipherGenerator$NullWriteCipher, getExplicitNonceSize, int32_t)},
+	{"isNullCipher", "()Z", nullptr, 0, $virtualMethod(SSLCipher$NullWriteCipherGenerator$NullWriteCipher, isNullCipher, bool)},
 	{}
 };
 

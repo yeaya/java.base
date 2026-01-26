@@ -32,10 +32,10 @@ $FieldInfo _Mode_FieldInfo_[] = {
 };
 
 $MethodInfo _Mode_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Mode::*)()>(&Mode::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Mode::main)), "java.lang.Exception"},
-	{"testReadable", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&Mode::testReadable)), "java.io.IOException"},
-	{"testWritable", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&Mode::testWritable)), "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Mode, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Mode, main, void, $StringArray*), "java.lang.Exception"},
+	{"testReadable", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(Mode, testReadable, void), "java.io.IOException"},
+	{"testWritable", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(Mode, testWritable, void), "java.io.IOException"},
 	{}
 };
 

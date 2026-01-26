@@ -27,11 +27,11 @@ $FieldInfo _ObjectOutputStream$DebugTraceInfoStack_FieldInfo_[] = {
 };
 
 $MethodInfo _ObjectOutputStream$DebugTraceInfoStack_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ObjectOutputStream$DebugTraceInfoStack::*)()>(&ObjectOutputStream$DebugTraceInfoStack::init$))},
-	{"clear", "()V", nullptr, 0},
-	{"pop", "()V", nullptr, 0},
-	{"push", "(Ljava/lang/String;)V", nullptr, 0},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(ObjectOutputStream$DebugTraceInfoStack, init$, void)},
+	{"clear", "()V", nullptr, 0, $virtualMethod(ObjectOutputStream$DebugTraceInfoStack, clear, void)},
+	{"pop", "()V", nullptr, 0, $virtualMethod(ObjectOutputStream$DebugTraceInfoStack, pop, void)},
+	{"push", "(Ljava/lang/String;)V", nullptr, 0, $virtualMethod(ObjectOutputStream$DebugTraceInfoStack, push, void, $String*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ObjectOutputStream$DebugTraceInfoStack, toString, $String*)},
 	{}
 };
 

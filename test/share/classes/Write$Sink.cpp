@@ -11,8 +11,8 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 
 $MethodInfo _Write$Sink_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Write$Sink::*)()>(&Write$Sink::init$))},
-	{"write", "(I)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(Write$Sink, init$, void)},
+	{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(Write$Sink, write, void, int32_t)},
 	{}
 };
 

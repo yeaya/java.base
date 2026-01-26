@@ -31,12 +31,12 @@ $FieldInfo _DefinesWriteObject_FieldInfo_[] = {
 };
 
 $MethodInfo _DefinesWriteObject_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DefinesWriteObject::*)()>(&DefinesWriteObject::init$))},
-	{"<init>", "(ILjava/lang/Object;)V", nullptr, $PUBLIC, $method(static_cast<void(DefinesWriteObject::*)(int32_t,Object$*)>(&DefinesWriteObject::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&DefinesWriteObject::main)), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"readExternal", "(Ljava/io/ObjectInput;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"writeExternal", "(Ljava/io/ObjectOutput;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(DefinesWriteObject::*)($ObjectOutputStream*)>(&DefinesWriteObject::writeObject)), "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DefinesWriteObject, init$, void)},
+	{"<init>", "(ILjava/lang/Object;)V", nullptr, $PUBLIC, $method(DefinesWriteObject, init$, void, int32_t, Object$*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(DefinesWriteObject, main, void, $StringArray*), "java.io.IOException,java.lang.ClassNotFoundException"},
+	{"readExternal", "(Ljava/io/ObjectInput;)V", nullptr, $PUBLIC, $virtualMethod(DefinesWriteObject, readExternal, void, $ObjectInput*), "java.io.IOException,java.lang.ClassNotFoundException"},
+	{"writeExternal", "(Ljava/io/ObjectOutput;)V", nullptr, $PUBLIC, $virtualMethod(DefinesWriteObject, writeExternal, void, $ObjectOutput*), "java.io.IOException"},
+	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(DefinesWriteObject, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
 	{}
 };
 

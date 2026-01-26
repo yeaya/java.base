@@ -23,7 +23,7 @@ $FieldInfo _BidiBase$Opening_FieldInfo_[] = {
 };
 
 $MethodInfo _BidiBase$Opening_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(BidiBase$Opening::*)()>(&BidiBase$Opening::init$))},
+	{"<init>", "()V", nullptr, 0, $method(BidiBase$Opening, init$, void)},
 	{}
 };
 

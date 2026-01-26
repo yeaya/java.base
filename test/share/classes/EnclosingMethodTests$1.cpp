@@ -9,7 +9,7 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _EnclosingMethodTests$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(EnclosingMethodTests$1::*)()>(&EnclosingMethodTests$1::init$))},
+	{"<init>", "()V", nullptr, 0, $method(EnclosingMethodTests$1, init$, void)},
 	{}
 };
 

@@ -22,11 +22,11 @@ $FieldInfo _JrtUtils_FieldInfo_[] = {
 };
 
 $MethodInfo _JrtUtils_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(JrtUtils::*)()>(&JrtUtils::init$))},
-	{"isGlobMeta", "(C)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)(char16_t)>(&JrtUtils::isGlobMeta))},
-	{"isRegexMeta", "(C)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)(char16_t)>(&JrtUtils::isRegexMeta))},
-	{"next", "(Ljava/lang/String;I)C", nullptr, $PRIVATE | $STATIC, $method(static_cast<char16_t(*)($String*,int32_t)>(&JrtUtils::next))},
-	{"toRegexPattern", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)($String*)>(&JrtUtils::toRegexPattern))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(JrtUtils, init$, void)},
+	{"isGlobMeta", "(C)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(JrtUtils, isGlobMeta, bool, char16_t)},
+	{"isRegexMeta", "(C)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(JrtUtils, isRegexMeta, bool, char16_t)},
+	{"next", "(Ljava/lang/String;I)C", nullptr, $PRIVATE | $STATIC, $staticMethod(JrtUtils, next, char16_t, $String*, int32_t)},
+	{"toRegexPattern", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(JrtUtils, toRegexPattern, $String*, $String*)},
 	{}
 };
 

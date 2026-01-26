@@ -24,11 +24,11 @@ $FieldInfo _Nodes$ToArrayTask_FieldInfo_[] = {
 };
 
 $MethodInfo _Nodes$ToArrayTask_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/stream/Node;I)V", "(TT_NODE;I)V", 0, $method(static_cast<void(Nodes$ToArrayTask::*)($Node*,int32_t)>(&Nodes$ToArrayTask::init$))},
-	{"<init>", "(Ljava/util/stream/Nodes$ToArrayTask;Ljava/util/stream/Node;I)V", "(TK;TT_NODE;I)V", 0, $method(static_cast<void(Nodes$ToArrayTask::*)(Nodes$ToArrayTask*,$Node*,int32_t)>(&Nodes$ToArrayTask::init$))},
-	{"compute", "()V", nullptr, $PUBLIC},
-	{"copyNodeToArray", "()V", nullptr, $ABSTRACT},
-	{"makeChild", "(II)Ljava/util/stream/Nodes$ToArrayTask;", "(II)TK;", $ABSTRACT},
+	{"<init>", "(Ljava/util/stream/Node;I)V", "(TT_NODE;I)V", 0, $method(Nodes$ToArrayTask, init$, void, $Node*, int32_t)},
+	{"<init>", "(Ljava/util/stream/Nodes$ToArrayTask;Ljava/util/stream/Node;I)V", "(TK;TT_NODE;I)V", 0, $method(Nodes$ToArrayTask, init$, void, Nodes$ToArrayTask*, $Node*, int32_t)},
+	{"compute", "()V", nullptr, $PUBLIC, $virtualMethod(Nodes$ToArrayTask, compute, void)},
+	{"copyNodeToArray", "()V", nullptr, $ABSTRACT, $virtualMethod(Nodes$ToArrayTask, copyNodeToArray, void)},
+	{"makeChild", "(II)Ljava/util/stream/Nodes$ToArrayTask;", "(II)TK;", $ABSTRACT, $virtualMethod(Nodes$ToArrayTask, makeChild, Nodes$ToArrayTask*, int32_t, int32_t)},
 	{}
 };
 

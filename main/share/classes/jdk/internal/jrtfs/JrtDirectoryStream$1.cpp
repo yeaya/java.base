@@ -26,9 +26,9 @@ $FieldInfo _JrtDirectoryStream$1_FieldInfo_[] = {
 };
 
 $MethodInfo _JrtDirectoryStream$1_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/jrtfs/JrtDirectoryStream;)V", nullptr, 0, $method(static_cast<void(JrtDirectoryStream$1::*)($JrtDirectoryStream*)>(&JrtDirectoryStream$1::init$))},
-	{"hasNext", "()Z", nullptr, $PUBLIC},
-	{"next", "()Ljava/nio/file/Path;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/jrtfs/JrtDirectoryStream;)V", nullptr, 0, $method(JrtDirectoryStream$1, init$, void, $JrtDirectoryStream*)},
+	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(JrtDirectoryStream$1, hasNext, bool)},
+	{"next", "()Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(JrtDirectoryStream$1, next, $Object*)},
 	{}
 };
 

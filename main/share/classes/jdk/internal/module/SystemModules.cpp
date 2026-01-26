@@ -7,21 +7,26 @@
 #include <jdk/internal/module/ModuleTarget.h>
 #include <jcpp.h>
 
+using $ModuleDescriptorArray = $Array<::java::lang::module::ModuleDescriptor>;
+using $ModuleHashesArray = $Array<::jdk::internal::module::ModuleHashes>;
+using $ModuleResolutionArray = $Array<::jdk::internal::module::ModuleResolution>;
+using $ModuleTargetArray = $Array<::jdk::internal::module::ModuleTarget>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Map = ::java::util::Map;
 
 namespace jdk {
 	namespace internal {
 		namespace module {
 
 $MethodInfo _SystemModules_MethodInfo_[] = {
-	{"hasIncubatorModules", "()Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"hasSplitPackages", "()Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"moduleDescriptors", "()[Ljava/lang/module/ModuleDescriptor;", nullptr, $PUBLIC | $ABSTRACT},
-	{"moduleHashes", "()[Ljdk/internal/module/ModuleHashes;", nullptr, $PUBLIC | $ABSTRACT},
-	{"moduleReads", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/util/Set<Ljava/lang/String;>;>;", $PUBLIC | $ABSTRACT},
-	{"moduleResolutions", "()[Ljdk/internal/module/ModuleResolution;", nullptr, $PUBLIC | $ABSTRACT},
-	{"moduleTargets", "()[Ljdk/internal/module/ModuleTarget;", nullptr, $PUBLIC | $ABSTRACT},
+	{"hasIncubatorModules", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SystemModules, hasIncubatorModules, bool)},
+	{"hasSplitPackages", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SystemModules, hasSplitPackages, bool)},
+	{"moduleDescriptors", "()[Ljava/lang/module/ModuleDescriptor;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SystemModules, moduleDescriptors, $ModuleDescriptorArray*)},
+	{"moduleHashes", "()[Ljdk/internal/module/ModuleHashes;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SystemModules, moduleHashes, $ModuleHashesArray*)},
+	{"moduleReads", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/util/Set<Ljava/lang/String;>;>;", $PUBLIC | $ABSTRACT, $virtualMethod(SystemModules, moduleReads, $Map*)},
+	{"moduleResolutions", "()[Ljdk/internal/module/ModuleResolution;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SystemModules, moduleResolutions, $ModuleResolutionArray*)},
+	{"moduleTargets", "()[Ljdk/internal/module/ModuleTarget;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SystemModules, moduleTargets, $ModuleTargetArray*)},
 	{}
 };
 

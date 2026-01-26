@@ -30,7 +30,7 @@ $FieldInfo _NormalizerBase$NFD32ModeImpl_FieldInfo_[] = {
 };
 
 $MethodInfo _NormalizerBase$NFD32ModeImpl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(NormalizerBase$NFD32ModeImpl::*)()>(&NormalizerBase$NFD32ModeImpl::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(NormalizerBase$NFD32ModeImpl, init$, void)},
 	{}
 };
 

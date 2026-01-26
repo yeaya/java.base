@@ -15,8 +15,8 @@ namespace java {
 	namespace net {
 
 $MethodInfo _CookiePolicy$3_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(CookiePolicy$3::*)()>(&CookiePolicy$3::init$))},
-	{"shouldAccept", "(Ljava/net/URI;Ljava/net/HttpCookie;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(CookiePolicy$3, init$, void)},
+	{"shouldAccept", "(Ljava/net/URI;Ljava/net/HttpCookie;)Z", nullptr, $PUBLIC, $virtualMethod(CookiePolicy$3, shouldAccept, bool, $URI*, $HttpCookie*)},
 	{}
 };
 

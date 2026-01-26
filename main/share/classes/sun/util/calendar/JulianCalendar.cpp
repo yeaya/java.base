@@ -48,19 +48,19 @@ $FieldInfo _JulianCalendar_FieldInfo_[] = {
 };
 
 $MethodInfo _JulianCalendar_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(JulianCalendar::*)()>(&JulianCalendar::init$))},
-	{"getCalendarDate", "()Lsun/util/calendar/JulianCalendar$Date;", nullptr, $PUBLIC},
-	{"getCalendarDate", "(J)Lsun/util/calendar/JulianCalendar$Date;", nullptr, $PUBLIC},
-	{"getCalendarDate", "(JLsun/util/calendar/CalendarDate;)Lsun/util/calendar/JulianCalendar$Date;", nullptr, $PUBLIC},
-	{"getCalendarDate", "(JLjava/util/TimeZone;)Lsun/util/calendar/JulianCalendar$Date;", nullptr, $PUBLIC},
-	{"getCalendarDateFromFixedDate", "(Lsun/util/calendar/CalendarDate;J)V", nullptr, $PUBLIC},
-	{"getDayOfWeek", "(Lsun/util/calendar/CalendarDate;)I", nullptr, $PUBLIC},
-	{"getFixedDate", "(IIILsun/util/calendar/BaseCalendar$Date;)J", nullptr, $PUBLIC},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getYearFromFixedDate", "(J)I", nullptr, $PUBLIC},
-	{"isLeapYear", "(I)Z", nullptr, 0},
-	{"newCalendarDate", "()Lsun/util/calendar/JulianCalendar$Date;", nullptr, $PUBLIC},
-	{"newCalendarDate", "(Ljava/util/TimeZone;)Lsun/util/calendar/JulianCalendar$Date;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(JulianCalendar, init$, void)},
+	{"getCalendarDate", "()Lsun/util/calendar/JulianCalendar$Date;", nullptr, $PUBLIC, $virtualMethod(JulianCalendar, getCalendarDate, $CalendarDate*)},
+	{"getCalendarDate", "(J)Lsun/util/calendar/JulianCalendar$Date;", nullptr, $PUBLIC, $virtualMethod(JulianCalendar, getCalendarDate, $CalendarDate*, int64_t)},
+	{"getCalendarDate", "(JLsun/util/calendar/CalendarDate;)Lsun/util/calendar/JulianCalendar$Date;", nullptr, $PUBLIC, $virtualMethod(JulianCalendar, getCalendarDate, $CalendarDate*, int64_t, $CalendarDate*)},
+	{"getCalendarDate", "(JLjava/util/TimeZone;)Lsun/util/calendar/JulianCalendar$Date;", nullptr, $PUBLIC, $virtualMethod(JulianCalendar, getCalendarDate, $CalendarDate*, int64_t, $TimeZone*)},
+	{"getCalendarDateFromFixedDate", "(Lsun/util/calendar/CalendarDate;J)V", nullptr, $PUBLIC, $virtualMethod(JulianCalendar, getCalendarDateFromFixedDate, void, $CalendarDate*, int64_t)},
+	{"getDayOfWeek", "(Lsun/util/calendar/CalendarDate;)I", nullptr, $PUBLIC, $virtualMethod(JulianCalendar, getDayOfWeek, int32_t, $CalendarDate*)},
+	{"getFixedDate", "(IIILsun/util/calendar/BaseCalendar$Date;)J", nullptr, $PUBLIC, $virtualMethod(JulianCalendar, getFixedDate, int64_t, int32_t, int32_t, int32_t, $BaseCalendar$Date*)},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JulianCalendar, getName, $String*)},
+	{"getYearFromFixedDate", "(J)I", nullptr, $PUBLIC, $virtualMethod(JulianCalendar, getYearFromFixedDate, int32_t, int64_t)},
+	{"isLeapYear", "(I)Z", nullptr, 0, $virtualMethod(JulianCalendar, isLeapYear, bool, int32_t)},
+	{"newCalendarDate", "()Lsun/util/calendar/JulianCalendar$Date;", nullptr, $PUBLIC, $virtualMethod(JulianCalendar, newCalendarDate, $CalendarDate*)},
+	{"newCalendarDate", "(Ljava/util/TimeZone;)Lsun/util/calendar/JulianCalendar$Date;", nullptr, $PUBLIC, $virtualMethod(JulianCalendar, newCalendarDate, $CalendarDate*, $TimeZone*)},
 	{}
 };
 

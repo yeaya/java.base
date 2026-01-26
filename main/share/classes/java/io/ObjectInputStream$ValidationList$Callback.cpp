@@ -24,7 +24,7 @@ $FieldInfo _ObjectInputStream$ValidationList$Callback_FieldInfo_[] = {
 };
 
 $MethodInfo _ObjectInputStream$ValidationList$Callback_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/ObjectInputValidation;ILjava/io/ObjectInputStream$ValidationList$Callback;Ljava/security/AccessControlContext;)V", nullptr, 0, $method(static_cast<void(ObjectInputStream$ValidationList$Callback::*)($ObjectInputValidation*,int32_t,ObjectInputStream$ValidationList$Callback*,$AccessControlContext*)>(&ObjectInputStream$ValidationList$Callback::init$))},
+	{"<init>", "(Ljava/io/ObjectInputValidation;ILjava/io/ObjectInputStream$ValidationList$Callback;Ljava/security/AccessControlContext;)V", nullptr, 0, $method(ObjectInputStream$ValidationList$Callback, init$, void, $ObjectInputValidation*, int32_t, ObjectInputStream$ValidationList$Callback*, $AccessControlContext*)},
 	{}
 };
 

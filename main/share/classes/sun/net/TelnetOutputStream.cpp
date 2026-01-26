@@ -21,10 +21,10 @@ $FieldInfo _TelnetOutputStream_FieldInfo_[] = {
 };
 
 $MethodInfo _TelnetOutputStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/OutputStream;Z)V", nullptr, $PUBLIC, $method(static_cast<void(TelnetOutputStream::*)($OutputStream*,bool)>(&TelnetOutputStream::init$))},
-	{"setStickyCRLF", "(Z)V", nullptr, $PUBLIC},
-	{"write", "(I)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"write", "([BII)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljava/io/OutputStream;Z)V", nullptr, $PUBLIC, $method(TelnetOutputStream, init$, void, $OutputStream*, bool)},
+	{"setStickyCRLF", "(Z)V", nullptr, $PUBLIC, $virtualMethod(TelnetOutputStream, setStickyCRLF, void, bool)},
+	{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(TelnetOutputStream, write, void, int32_t), "java.io.IOException"},
+	{"write", "([BII)V", nullptr, $PUBLIC, $virtualMethod(TelnetOutputStream, write, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
 	{}
 };
 

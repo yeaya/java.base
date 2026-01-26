@@ -35,9 +35,9 @@ $FieldInfo _CertStatusExtension$CertStatusResponse_FieldInfo_[] = {
 };
 
 $MethodInfo _CertStatusExtension$CertStatusResponse_MethodInfo_[] = {
-	{"<init>", "(B[B)V", nullptr, $PROTECTED, $method(static_cast<void(CertStatusExtension$CertStatusResponse::*)(int8_t,$bytes*)>(&CertStatusExtension$CertStatusResponse::init$))},
-	{"toByteArray", "()[B", nullptr, 0, nullptr, "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(B[B)V", nullptr, $PROTECTED, $method(CertStatusExtension$CertStatusResponse, init$, void, int8_t, $bytes*)},
+	{"toByteArray", "()[B", nullptr, 0, $virtualMethod(CertStatusExtension$CertStatusResponse, toByteArray, $bytes*), "java.io.IOException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CertStatusExtension$CertStatusResponse, toString, $String*)},
 	{}
 };
 

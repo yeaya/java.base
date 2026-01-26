@@ -31,10 +31,10 @@ $FieldInfo _ImmutableCollections$MapN$MapNIterator_FieldInfo_[] = {
 };
 
 $MethodInfo _ImmutableCollections$MapN$MapNIterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/ImmutableCollections$MapN;)V", nullptr, 0, $method(static_cast<void(ImmutableCollections$MapN$MapNIterator::*)($ImmutableCollections$MapN*)>(&ImmutableCollections$MapN$MapNIterator::init$))},
-	{"hasNext", "()Z", nullptr, $PUBLIC},
-	{"next", "()Ljava/util/Map$Entry;", "()Ljava/util/Map$Entry<TK;TV;>;", $PUBLIC},
-	{"nextIndex", "()I", nullptr, $PRIVATE, $method(static_cast<int32_t(ImmutableCollections$MapN$MapNIterator::*)()>(&ImmutableCollections$MapN$MapNIterator::nextIndex))},
+	{"<init>", "(Ljava/util/ImmutableCollections$MapN;)V", nullptr, 0, $method(ImmutableCollections$MapN$MapNIterator, init$, void, $ImmutableCollections$MapN*)},
+	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(ImmutableCollections$MapN$MapNIterator, hasNext, bool)},
+	{"next", "()Ljava/util/Map$Entry;", "()Ljava/util/Map$Entry<TK;TV;>;", $PUBLIC, $virtualMethod(ImmutableCollections$MapN$MapNIterator, next, $Object*)},
+	{"nextIndex", "()I", nullptr, $PRIVATE, $method(ImmutableCollections$MapN$MapNIterator, nextIndex, int32_t)},
 	{}
 };
 

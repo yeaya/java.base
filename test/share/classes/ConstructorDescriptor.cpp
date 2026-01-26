@@ -18,7 +18,7 @@ $CompoundAttribute _ConstructorDescriptor_Annotations_[] = {
 };
 
 $MethodInfo _ConstructorDescriptor_MethodInfo_[] = {
-	{"value", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
+	{"value", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ConstructorDescriptor, value, $String*)},
 	{}
 };
 

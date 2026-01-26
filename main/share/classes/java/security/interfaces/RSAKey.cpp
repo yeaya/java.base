@@ -6,6 +6,7 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $BigInteger = ::java::math::BigInteger;
 using $AlgorithmParameterSpec = ::java::security::spec::AlgorithmParameterSpec;
 
 namespace java {
@@ -13,8 +14,8 @@ namespace java {
 		namespace interfaces {
 
 $MethodInfo _RSAKey_MethodInfo_[] = {
-	{"getModulus", "()Ljava/math/BigInteger;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getParams", "()Ljava/security/spec/AlgorithmParameterSpec;", nullptr, $PUBLIC},
+	{"getModulus", "()Ljava/math/BigInteger;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RSAKey, getModulus, $BigInteger*)},
+	{"getParams", "()Ljava/security/spec/AlgorithmParameterSpec;", nullptr, $PUBLIC, $virtualMethod(RSAKey, getParams, $AlgorithmParameterSpec*)},
 	{}
 };
 

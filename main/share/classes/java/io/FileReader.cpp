@@ -21,11 +21,11 @@ namespace java {
 	namespace io {
 
 $MethodInfo _FileReader_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(FileReader::*)($String*)>(&FileReader::init$)), "java.io.FileNotFoundException"},
-	{"<init>", "(Ljava/io/File;)V", nullptr, $PUBLIC, $method(static_cast<void(FileReader::*)($File*)>(&FileReader::init$)), "java.io.FileNotFoundException"},
-	{"<init>", "(Ljava/io/FileDescriptor;)V", nullptr, $PUBLIC, $method(static_cast<void(FileReader::*)($FileDescriptor*)>(&FileReader::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/nio/charset/Charset;)V", nullptr, $PUBLIC, $method(static_cast<void(FileReader::*)($String*,$Charset*)>(&FileReader::init$)), "java.io.IOException"},
-	{"<init>", "(Ljava/io/File;Ljava/nio/charset/Charset;)V", nullptr, $PUBLIC, $method(static_cast<void(FileReader::*)($File*,$Charset*)>(&FileReader::init$)), "java.io.IOException"},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(FileReader, init$, void, $String*), "java.io.FileNotFoundException"},
+	{"<init>", "(Ljava/io/File;)V", nullptr, $PUBLIC, $method(FileReader, init$, void, $File*), "java.io.FileNotFoundException"},
+	{"<init>", "(Ljava/io/FileDescriptor;)V", nullptr, $PUBLIC, $method(FileReader, init$, void, $FileDescriptor*)},
+	{"<init>", "(Ljava/lang/String;Ljava/nio/charset/Charset;)V", nullptr, $PUBLIC, $method(FileReader, init$, void, $String*, $Charset*), "java.io.IOException"},
+	{"<init>", "(Ljava/io/File;Ljava/nio/charset/Charset;)V", nullptr, $PUBLIC, $method(FileReader, init$, void, $File*, $Charset*), "java.io.IOException"},
 	{}
 };
 

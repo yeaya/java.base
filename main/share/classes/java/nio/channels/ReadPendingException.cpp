@@ -18,7 +18,7 @@ $FieldInfo _ReadPendingException_FieldInfo_[] = {
 };
 
 $MethodInfo _ReadPendingException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ReadPendingException::*)()>(&ReadPendingException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ReadPendingException, init$, void)},
 	{}
 };
 

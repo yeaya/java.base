@@ -30,11 +30,11 @@ $FieldInfo _SignStyle_FieldInfo_[] = {
 };
 
 $MethodInfo _SignStyle_MethodInfo_[] = {
-	{"$values", "()[Ljava/time/format/SignStyle;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$SignStyleArray*(*)()>(&SignStyle::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(SignStyle::*)($String*,int32_t)>(&SignStyle::init$))},
-	{"parse", "(ZZZ)Z", nullptr, 0, $method(static_cast<bool(SignStyle::*)(bool,bool,bool)>(&SignStyle::parse))},
-	{"valueOf", "(Ljava/lang/String;)Ljava/time/format/SignStyle;", nullptr, $PUBLIC | $STATIC, $method(static_cast<SignStyle*(*)($String*)>(&SignStyle::valueOf))},
-	{"values", "()[Ljava/time/format/SignStyle;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$SignStyleArray*(*)()>(&SignStyle::values))},
+	{"$values", "()[Ljava/time/format/SignStyle;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SignStyle, $values, $SignStyleArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(SignStyle, init$, void, $String*, int32_t)},
+	{"parse", "(ZZZ)Z", nullptr, 0, $method(SignStyle, parse, bool, bool, bool, bool)},
+	{"valueOf", "(Ljava/lang/String;)Ljava/time/format/SignStyle;", nullptr, $PUBLIC | $STATIC, $staticMethod(SignStyle, valueOf, SignStyle*, $String*)},
+	{"values", "()[Ljava/time/format/SignStyle;", nullptr, $PUBLIC | $STATIC, $staticMethod(SignStyle, values, $SignStyleArray*)},
 	{}
 };
 

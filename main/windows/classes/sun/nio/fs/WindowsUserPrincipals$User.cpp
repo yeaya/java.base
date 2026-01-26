@@ -20,12 +20,12 @@ $FieldInfo _WindowsUserPrincipals$User_FieldInfo_[] = {
 };
 
 $MethodInfo _WindowsUserPrincipals$User_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", nullptr, 0, $method(static_cast<void(WindowsUserPrincipals$User::*)($String*,int32_t,$String*)>(&WindowsUserPrincipals$User::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"sidString", "()Ljava/lang/String;", nullptr, 0},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", nullptr, 0, $method(WindowsUserPrincipals$User, init$, void, $String*, int32_t, $String*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(WindowsUserPrincipals$User, equals, bool, Object$*)},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(WindowsUserPrincipals$User, getName, $String*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(WindowsUserPrincipals$User, hashCode, int32_t)},
+	{"sidString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(WindowsUserPrincipals$User, sidString, $String*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(WindowsUserPrincipals$User, toString, $String*)},
 	{}
 };
 

@@ -8,16 +8,19 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $CRLSelector = ::java::security::cert::CRLSelector;
+using $CertSelector = ::java::security::cert::CertSelector;
 using $CertStoreParameters = ::java::security::cert::CertStoreParameters;
+using $Collection = ::java::util::Collection;
 
 namespace java {
 	namespace security {
 		namespace cert {
 
 $MethodInfo _CertStoreSpi_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/cert/CertStoreParameters;)V", nullptr, $PUBLIC, $method(static_cast<void(CertStoreSpi::*)($CertStoreParameters*)>(&CertStoreSpi::init$)), "java.security.InvalidAlgorithmParameterException"},
-	{"engineGetCRLs", "(Ljava/security/cert/CRLSelector;)Ljava/util/Collection;", "(Ljava/security/cert/CRLSelector;)Ljava/util/Collection<+Ljava/security/cert/CRL;>;", $PUBLIC | $ABSTRACT, nullptr, "java.security.cert.CertStoreException"},
-	{"engineGetCertificates", "(Ljava/security/cert/CertSelector;)Ljava/util/Collection;", "(Ljava/security/cert/CertSelector;)Ljava/util/Collection<+Ljava/security/cert/Certificate;>;", $PUBLIC | $ABSTRACT, nullptr, "java.security.cert.CertStoreException"},
+	{"<init>", "(Ljava/security/cert/CertStoreParameters;)V", nullptr, $PUBLIC, $method(CertStoreSpi, init$, void, $CertStoreParameters*), "java.security.InvalidAlgorithmParameterException"},
+	{"engineGetCRLs", "(Ljava/security/cert/CRLSelector;)Ljava/util/Collection;", "(Ljava/security/cert/CRLSelector;)Ljava/util/Collection<+Ljava/security/cert/CRL;>;", $PUBLIC | $ABSTRACT, $virtualMethod(CertStoreSpi, engineGetCRLs, $Collection*, $CRLSelector*), "java.security.cert.CertStoreException"},
+	{"engineGetCertificates", "(Ljava/security/cert/CertSelector;)Ljava/util/Collection;", "(Ljava/security/cert/CertSelector;)Ljava/util/Collection<+Ljava/security/cert/Certificate;>;", $PUBLIC | $ABSTRACT, $virtualMethod(CertStoreSpi, engineGetCertificates, $Collection*, $CertSelector*), "java.security.cert.CertStoreException"},
 	{}
 };
 

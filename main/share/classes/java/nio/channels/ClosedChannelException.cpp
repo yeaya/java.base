@@ -18,7 +18,7 @@ $FieldInfo _ClosedChannelException_FieldInfo_[] = {
 };
 
 $MethodInfo _ClosedChannelException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ClosedChannelException::*)()>(&ClosedChannelException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ClosedChannelException, init$, void)},
 	{}
 };
 

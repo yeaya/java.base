@@ -40,12 +40,12 @@ $FieldInfo _JarOutputStream_FieldInfo_[] = {
 };
 
 $MethodInfo _JarOutputStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/OutputStream;Ljava/util/jar/Manifest;)V", nullptr, $PUBLIC, $method(static_cast<void(JarOutputStream::*)($OutputStream*,$Manifest*)>(&JarOutputStream::init$)), "java.io.IOException"},
-	{"<init>", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $method(static_cast<void(JarOutputStream::*)($OutputStream*)>(&JarOutputStream::init$)), "java.io.IOException"},
-	{"get16", "([BI)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)($bytes*,int32_t)>(&JarOutputStream::get16))},
-	{"hasMagic", "([B)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($bytes*)>(&JarOutputStream::hasMagic))},
-	{"putNextEntry", "(Ljava/util/zip/ZipEntry;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"set16", "([BII)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($bytes*,int32_t,int32_t)>(&JarOutputStream::set16))},
+	{"<init>", "(Ljava/io/OutputStream;Ljava/util/jar/Manifest;)V", nullptr, $PUBLIC, $method(JarOutputStream, init$, void, $OutputStream*, $Manifest*), "java.io.IOException"},
+	{"<init>", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $method(JarOutputStream, init$, void, $OutputStream*), "java.io.IOException"},
+	{"get16", "([BI)I", nullptr, $PRIVATE | $STATIC, $staticMethod(JarOutputStream, get16, int32_t, $bytes*, int32_t)},
+	{"hasMagic", "([B)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(JarOutputStream, hasMagic, bool, $bytes*)},
+	{"putNextEntry", "(Ljava/util/zip/ZipEntry;)V", nullptr, $PUBLIC, $virtualMethod(JarOutputStream, putNextEntry, void, $ZipEntry*), "java.io.IOException"},
+	{"set16", "([BII)V", nullptr, $PRIVATE | $STATIC, $staticMethod(JarOutputStream, set16, void, $bytes*, int32_t, int32_t)},
 	{}
 };
 

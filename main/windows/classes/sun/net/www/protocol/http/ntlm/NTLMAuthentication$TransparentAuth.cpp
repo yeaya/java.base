@@ -31,10 +31,10 @@ $FieldInfo _NTLMAuthentication$TransparentAuth_FieldInfo_[] = {
 };
 
 $MethodInfo _NTLMAuthentication$TransparentAuth_MethodInfo_[] = {
-	{"$values", "()[Lsun/net/www/protocol/http/ntlm/NTLMAuthentication$TransparentAuth;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$NTLMAuthentication$TransparentAuthArray*(*)()>(&NTLMAuthentication$TransparentAuth::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(NTLMAuthentication$TransparentAuth::*)($String*,int32_t)>(&NTLMAuthentication$TransparentAuth::init$))},
-	{"valueOf", "(Ljava/lang/String;)Lsun/net/www/protocol/http/ntlm/NTLMAuthentication$TransparentAuth;", nullptr, $PUBLIC | $STATIC, $method(static_cast<NTLMAuthentication$TransparentAuth*(*)($String*)>(&NTLMAuthentication$TransparentAuth::valueOf))},
-	{"values", "()[Lsun/net/www/protocol/http/ntlm/NTLMAuthentication$TransparentAuth;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$NTLMAuthentication$TransparentAuthArray*(*)()>(&NTLMAuthentication$TransparentAuth::values))},
+	{"$values", "()[Lsun/net/www/protocol/http/ntlm/NTLMAuthentication$TransparentAuth;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(NTLMAuthentication$TransparentAuth, $values, $NTLMAuthentication$TransparentAuthArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(NTLMAuthentication$TransparentAuth, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Lsun/net/www/protocol/http/ntlm/NTLMAuthentication$TransparentAuth;", nullptr, $PUBLIC | $STATIC, $staticMethod(NTLMAuthentication$TransparentAuth, valueOf, NTLMAuthentication$TransparentAuth*, $String*)},
+	{"values", "()[Lsun/net/www/protocol/http/ntlm/NTLMAuthentication$TransparentAuth;", nullptr, $PUBLIC | $STATIC, $staticMethod(NTLMAuthentication$TransparentAuth, values, $NTLMAuthentication$TransparentAuthArray*)},
 	{}
 };
 

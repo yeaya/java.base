@@ -67,8 +67,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo GetLocalAddress$$Lambda$close::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(GetLocalAddress$$Lambda$close::*)()>(&GetLocalAddress$$Lambda$close::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(GetLocalAddress$$Lambda$close, init$, void)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(GetLocalAddress$$Lambda$close, accept, void, Object$*)},
 	{}
 };
 $ClassInfo GetLocalAddress$$Lambda$close::classInfo$ = {
@@ -92,18 +92,18 @@ $FieldInfo _GetLocalAddress_FieldInfo_[] = {
 };
 
 $MethodInfo _GetLocalAddress_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(GetLocalAddress::*)()>(&GetLocalAddress::init$))},
-	{"addToMap", "(Ljava/net/DatagramSocket;)V", nullptr, $STATIC, $method(static_cast<void(*)($DatagramSocket*)>(&GetLocalAddress::addToMap)), "java.io.IOException"},
-	{"bindAndAddToMap", "(Ljava/net/DatagramSocket;Ljava/net/InetSocketAddress;)V", nullptr, $STATIC, $method(static_cast<void(*)($DatagramSocket*,$InetSocketAddress*)>(&GetLocalAddress::bindAndAddToMap)), "java.io.IOException"},
-	{"checkAddresses", "(Ljava/net/DatagramSocket;Ljava/net/InetAddress;Ljava/net/InetAddress;)V", nullptr, $STATIC, $method(static_cast<void(*)($DatagramSocket*,$InetAddress*,$InetAddress*)>(&GetLocalAddress::checkAddresses))},
-	{"cleanup", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&GetLocalAddress::cleanup))},
-	{"close", "(Ljava/net/DatagramSocket;)V", nullptr, $STATIC, $method(static_cast<void(*)($DatagramSocket*)>(&GetLocalAddress::close))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&GetLocalAddress::main)), "java.lang.Exception"},
-	{"testAfterClose", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&GetLocalAddress::testAfterClose)), "java.io.IOException"},
-	{"testAllSockets", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&GetLocalAddress::testAllSockets)), "java.io.IOException"},
-	{"testNullAddress", "(Ljava/net/DatagramSocket;Ljava/lang/Object;Ljava/lang/String;)V", nullptr, $STATIC, $method(static_cast<void(*)($DatagramSocket*,Object$*,$String*)>(&GetLocalAddress::testNullAddress))},
-	{"testSocket", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&GetLocalAddress::testSocket)), "java.io.IOException"},
-	{"testWildcardAddress", "(Ljava/net/DatagramSocket;Ljava/net/InetAddress;Ljava/lang/String;)V", nullptr, $STATIC, $method(static_cast<void(*)($DatagramSocket*,$InetAddress*,$String*)>(&GetLocalAddress::testWildcardAddress))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(GetLocalAddress, init$, void)},
+	{"addToMap", "(Ljava/net/DatagramSocket;)V", nullptr, $STATIC, $staticMethod(GetLocalAddress, addToMap, void, $DatagramSocket*), "java.io.IOException"},
+	{"bindAndAddToMap", "(Ljava/net/DatagramSocket;Ljava/net/InetSocketAddress;)V", nullptr, $STATIC, $staticMethod(GetLocalAddress, bindAndAddToMap, void, $DatagramSocket*, $InetSocketAddress*), "java.io.IOException"},
+	{"checkAddresses", "(Ljava/net/DatagramSocket;Ljava/net/InetAddress;Ljava/net/InetAddress;)V", nullptr, $STATIC, $staticMethod(GetLocalAddress, checkAddresses, void, $DatagramSocket*, $InetAddress*, $InetAddress*)},
+	{"cleanup", "()V", nullptr, $STATIC, $staticMethod(GetLocalAddress, cleanup, void)},
+	{"close", "(Ljava/net/DatagramSocket;)V", nullptr, $STATIC, $staticMethod(GetLocalAddress, close, void, $DatagramSocket*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(GetLocalAddress, main, void, $StringArray*), "java.lang.Exception"},
+	{"testAfterClose", "()V", nullptr, $STATIC, $staticMethod(GetLocalAddress, testAfterClose, void), "java.io.IOException"},
+	{"testAllSockets", "()V", nullptr, $STATIC, $staticMethod(GetLocalAddress, testAllSockets, void), "java.io.IOException"},
+	{"testNullAddress", "(Ljava/net/DatagramSocket;Ljava/lang/Object;Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(GetLocalAddress, testNullAddress, void, $DatagramSocket*, Object$*, $String*)},
+	{"testSocket", "()V", nullptr, $STATIC, $staticMethod(GetLocalAddress, testSocket, void), "java.io.IOException"},
+	{"testWildcardAddress", "(Ljava/net/DatagramSocket;Ljava/net/InetAddress;Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(GetLocalAddress, testWildcardAddress, void, $DatagramSocket*, $InetAddress*, $String*)},
 	{}
 };
 

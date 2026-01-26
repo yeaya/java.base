@@ -44,8 +44,8 @@ $FieldInfo _Finished_FieldInfo_[] = {
 };
 
 $MethodInfo _Finished_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Finished::*)()>(&Finished::init$))},
-	{"recordEvent", "(Lsun/security/ssl/SSLSessionImpl;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($SSLSessionImpl*)>(&Finished::recordEvent))},
+	{"<init>", "()V", nullptr, 0, $method(Finished, init$, void)},
+	{"recordEvent", "(Lsun/security/ssl/SSLSessionImpl;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Finished, recordEvent, void, $SSLSessionImpl*)},
 	{}
 };
 

@@ -15,7 +15,7 @@ $FieldInfo _ForInnerClass$Protected_FieldInfo_[] = {
 };
 
 $MethodInfo _ForInnerClass$Protected_MethodInfo_[] = {
-	{"<init>", "(LForInnerClass;)V", nullptr, $PROTECTED, $method(static_cast<void(ForInnerClass$Protected::*)($ForInnerClass*)>(&ForInnerClass$Protected::init$))},
+	{"<init>", "(LForInnerClass;)V", nullptr, $PROTECTED, $method(ForInnerClass$Protected, init$, void, $ForInnerClass*)},
 	{}
 };
 

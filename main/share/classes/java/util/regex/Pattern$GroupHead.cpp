@@ -26,8 +26,8 @@ $FieldInfo _Pattern$GroupHead_FieldInfo_[] = {
 };
 
 $MethodInfo _Pattern$GroupHead_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, 0, $method(static_cast<void(Pattern$GroupHead::*)(int32_t)>(&Pattern$GroupHead::init$))},
-	{"match", "(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z", nullptr, 0},
+	{"<init>", "(I)V", nullptr, 0, $method(Pattern$GroupHead, init$, void, int32_t)},
+	{"match", "(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z", nullptr, 0, $virtualMethod(Pattern$GroupHead, match, bool, $Matcher*, int32_t, $CharSequence*)},
 	{}
 };
 

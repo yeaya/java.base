@@ -61,15 +61,15 @@ $FieldInfo _HashDrbg_FieldInfo_[] = {
 };
 
 $MethodInfo _HashDrbg_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/SecureRandomParameters;)V", nullptr, $PUBLIC, $method(static_cast<void(HashDrbg::*)($SecureRandomParameters*)>(&HashDrbg::init$))},
-	{"addBytes", "([BI[[B)V", nullptr, $PRIVATE | $STATIC | $TRANSIENT, $method(static_cast<void(*)($bytes*,int32_t,$byteArray2*)>(&HashDrbg::addBytes))},
-	{"generateAlgorithm", "([B[B)V", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED},
-	{"hashDf", "(ILjava/util/List;)[B", "(ILjava/util/List<[B>;)[B", $PRIVATE, $method(static_cast<$bytes*(HashDrbg::*)(int32_t,$List*)>(&HashDrbg::hashDf))},
-	{"hashDf", "(Ljava/security/MessageDigest;IILjava/util/List;)[B", "(Ljava/security/MessageDigest;IILjava/util/List<[B>;)[B", $PUBLIC | $STATIC, $method(static_cast<$bytes*(*)($MessageDigest*,int32_t,int32_t,$List*)>(&HashDrbg::hashDf))},
-	{"hashGen", "([B[B)V", nullptr, $PRIVATE, $method(static_cast<void(HashDrbg::*)($bytes*,$bytes*)>(&HashDrbg::hashGen))},
-	{"hashReseedInternal", "(Ljava/util/List;)V", "(Ljava/util/List<[B>;)V", $PROTECTED | $FINAL | $SYNCHRONIZED},
-	{"initEngine", "()V", nullptr, $PROTECTED},
-	{"status", "()V", nullptr, $PRIVATE, $method(static_cast<void(HashDrbg::*)()>(&HashDrbg::status))},
+	{"<init>", "(Ljava/security/SecureRandomParameters;)V", nullptr, $PUBLIC, $method(HashDrbg, init$, void, $SecureRandomParameters*)},
+	{"addBytes", "([BI[[B)V", nullptr, $PRIVATE | $STATIC | $TRANSIENT, $staticMethod(HashDrbg, addBytes, void, $bytes*, int32_t, $byteArray2*)},
+	{"generateAlgorithm", "([B[B)V", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $virtualMethod(HashDrbg, generateAlgorithm, void, $bytes*, $bytes*)},
+	{"hashDf", "(ILjava/util/List;)[B", "(ILjava/util/List<[B>;)[B", $PRIVATE, $method(HashDrbg, hashDf, $bytes*, int32_t, $List*)},
+	{"hashDf", "(Ljava/security/MessageDigest;IILjava/util/List;)[B", "(Ljava/security/MessageDigest;IILjava/util/List<[B>;)[B", $PUBLIC | $STATIC, $staticMethod(HashDrbg, hashDf, $bytes*, $MessageDigest*, int32_t, int32_t, $List*)},
+	{"hashGen", "([B[B)V", nullptr, $PRIVATE, $method(HashDrbg, hashGen, void, $bytes*, $bytes*)},
+	{"hashReseedInternal", "(Ljava/util/List;)V", "(Ljava/util/List<[B>;)V", $PROTECTED | $FINAL | $SYNCHRONIZED, $virtualMethod(HashDrbg, hashReseedInternal, void, $List*)},
+	{"initEngine", "()V", nullptr, $PROTECTED, $virtualMethod(HashDrbg, initEngine, void)},
+	{"status", "()V", nullptr, $PRIVATE, $method(HashDrbg, status, void)},
 	{}
 };
 

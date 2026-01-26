@@ -42,8 +42,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Tripwire$$Lambda$lambda$static$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Tripwire$$Lambda$lambda$static$0::*)()>(&Tripwire$$Lambda$lambda$static$0::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Tripwire$$Lambda$lambda$static$0, init$, void)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Tripwire$$Lambda$lambda$static$0, run, $Object*)},
 	{}
 };
 $ClassInfo Tripwire$$Lambda$lambda$static$0::classInfo$ = {
@@ -67,9 +67,9 @@ $FieldInfo _Tripwire_FieldInfo_[] = {
 };
 
 $MethodInfo _Tripwire_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(Tripwire::*)()>(&Tripwire::init$))},
-	{"lambda$static$0", "()Ljava/lang/Boolean;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Boolean*(*)()>(&Tripwire::lambda$static$0))},
-	{"trip", "(Ljava/lang/Class;Ljava/lang/String;)V", "(Ljava/lang/Class<*>;Ljava/lang/String;)V", $STATIC, $method(static_cast<void(*)($Class*,$String*)>(&Tripwire::trip))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(Tripwire, init$, void)},
+	{"lambda$static$0", "()Ljava/lang/Boolean;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Tripwire, lambda$static$0, $Boolean*)},
+	{"trip", "(Ljava/lang/Class;Ljava/lang/String;)V", "(Ljava/lang/Class<*>;Ljava/lang/String;)V", $STATIC, $staticMethod(Tripwire, trip, void, $Class*, $String*)},
 	{}
 };
 

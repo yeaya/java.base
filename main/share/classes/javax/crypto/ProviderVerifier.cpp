@@ -47,12 +47,12 @@ $FieldInfo _ProviderVerifier_FieldInfo_[] = {
 };
 
 $MethodInfo _ProviderVerifier_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/URL;Z)V", nullptr, 0, $method(static_cast<void(ProviderVerifier::*)($URL*,bool)>(&ProviderVerifier::init$))},
-	{"<init>", "(Ljava/net/URL;Ljava/security/Provider;Z)V", nullptr, 0, $method(static_cast<void(ProviderVerifier::*)($URL*,$Provider*,bool)>(&ProviderVerifier::init$))},
-	{"getPermissions", "()Ljavax/crypto/CryptoPermissions;", nullptr, 0, $method(static_cast<$CryptoPermissions*(ProviderVerifier::*)()>(&ProviderVerifier::getPermissions))},
-	{"isTrustedCryptoProvider", "(Ljava/security/Provider;)Z", nullptr, $STATIC, $method(static_cast<bool(*)($Provider*)>(&ProviderVerifier::isTrustedCryptoProvider))},
-	{"verify", "()V", nullptr, 0, $method(static_cast<void(ProviderVerifier::*)()>(&ProviderVerifier::verify)), "java.io.IOException"},
-	{"verifyPolicySigned", "([Ljava/security/cert/Certificate;)V", nullptr, $STATIC, $method(static_cast<void(*)($CertificateArray*)>(&ProviderVerifier::verifyPolicySigned)), "java.lang.Exception"},
+	{"<init>", "(Ljava/net/URL;Z)V", nullptr, 0, $method(ProviderVerifier, init$, void, $URL*, bool)},
+	{"<init>", "(Ljava/net/URL;Ljava/security/Provider;Z)V", nullptr, 0, $method(ProviderVerifier, init$, void, $URL*, $Provider*, bool)},
+	{"getPermissions", "()Ljavax/crypto/CryptoPermissions;", nullptr, 0, $method(ProviderVerifier, getPermissions, $CryptoPermissions*)},
+	{"isTrustedCryptoProvider", "(Ljava/security/Provider;)Z", nullptr, $STATIC, $staticMethod(ProviderVerifier, isTrustedCryptoProvider, bool, $Provider*)},
+	{"verify", "()V", nullptr, 0, $method(ProviderVerifier, verify, void), "java.io.IOException"},
+	{"verifyPolicySigned", "([Ljava/security/cert/Certificate;)V", nullptr, $STATIC, $staticMethod(ProviderVerifier, verifyPolicySigned, void, $CertificateArray*), "java.lang.Exception"},
 	{}
 };
 

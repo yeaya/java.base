@@ -5,13 +5,14 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $ECParameterSpec = ::java::security::spec::ECParameterSpec;
 
 namespace java {
 	namespace security {
 		namespace interfaces {
 
 $MethodInfo _ECKey_MethodInfo_[] = {
-	{"getParams", "()Ljava/security/spec/ECParameterSpec;", nullptr, $PUBLIC | $ABSTRACT},
+	{"getParams", "()Ljava/security/spec/ECParameterSpec;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ECKey, getParams, $ECParameterSpec*)},
 	{}
 };
 

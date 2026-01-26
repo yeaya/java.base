@@ -18,7 +18,7 @@ $CompoundAttribute _Fleeting_Annotations_[] = {
 };
 
 $MethodInfo _Fleeting_MethodInfo_[] = {
-	{"value", "()I", nullptr, $PUBLIC | $ABSTRACT},
+	{"value", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Fleeting, value, int32_t)},
 	{}
 };
 

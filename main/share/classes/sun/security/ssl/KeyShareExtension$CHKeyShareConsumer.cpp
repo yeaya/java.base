@@ -87,8 +87,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo KeyShareExtension$CHKeyShareConsumer$$Lambda$lambda$consume$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(KeyShareExtension$CHKeyShareConsumer$$Lambda$lambda$consume$0::*)()>(&KeyShareExtension$CHKeyShareConsumer$$Lambda$lambda$consume$0::init$))},
-	{"apply", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(KeyShareExtension$CHKeyShareConsumer$$Lambda$lambda$consume$0, init$, void)},
+	{"apply", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(KeyShareExtension$CHKeyShareConsumer$$Lambda$lambda$consume$0, apply, void, $String*)},
 	{}
 };
 $ClassInfo KeyShareExtension$CHKeyShareConsumer$$Lambda$lambda$consume$0::classInfo$ = {
@@ -106,9 +106,9 @@ $Class* KeyShareExtension$CHKeyShareConsumer$$Lambda$lambda$consume$0::load$($St
 $Class* KeyShareExtension$CHKeyShareConsumer$$Lambda$lambda$consume$0::class$ = nullptr;
 
 $MethodInfo _KeyShareExtension$CHKeyShareConsumer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(KeyShareExtension$CHKeyShareConsumer::*)()>(&KeyShareExtension$CHKeyShareConsumer::init$))},
-	{"consume", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"lambda$consume$0", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($String*)>(&KeyShareExtension$CHKeyShareConsumer::lambda$consume$0)), "javax.net.ssl.SSLException"},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(KeyShareExtension$CHKeyShareConsumer, init$, void)},
+	{"consume", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(KeyShareExtension$CHKeyShareConsumer, consume, void, $ConnectionContext*, $SSLHandshake$HandshakeMessage*, $ByteBuffer*), "java.io.IOException"},
+	{"lambda$consume$0", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(KeyShareExtension$CHKeyShareConsumer, lambda$consume$0, void, $String*), "javax.net.ssl.SSLException"},
 	{}
 };
 

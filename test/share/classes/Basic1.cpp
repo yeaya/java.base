@@ -40,8 +40,8 @@ using $List = ::java::util::List;
 using $Observer = ::java::util::Observer;
 
 $MethodInfo _Basic1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Basic1::*)()>(&Basic1::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Basic1::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Basic1, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Basic1, main, void, $StringArray*)},
 	{}
 };
 

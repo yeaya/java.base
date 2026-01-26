@@ -33,11 +33,11 @@ $FieldInfo _LinkedBlockingQueue$Itr_FieldInfo_[] = {
 };
 
 $MethodInfo _LinkedBlockingQueue$Itr_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/LinkedBlockingQueue;)V", nullptr, 0, $method(static_cast<void(LinkedBlockingQueue$Itr::*)($LinkedBlockingQueue*)>(&LinkedBlockingQueue$Itr::init$))},
-	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC},
-	{"hasNext", "()Z", nullptr, $PUBLIC},
-	{"next", "()Ljava/lang/Object;", "()TE;", $PUBLIC},
-	{"remove", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/concurrent/LinkedBlockingQueue;)V", nullptr, 0, $method(LinkedBlockingQueue$Itr, init$, void, $LinkedBlockingQueue*)},
+	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC, $virtualMethod(LinkedBlockingQueue$Itr, forEachRemaining, void, $Consumer*)},
+	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(LinkedBlockingQueue$Itr, hasNext, bool)},
+	{"next", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(LinkedBlockingQueue$Itr, next, $Object*)},
+	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(LinkedBlockingQueue$Itr, remove, void)},
 	{}
 };
 

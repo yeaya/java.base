@@ -42,9 +42,9 @@ $FieldInfo _SetTimesNanos_FieldInfo_[] = {
 };
 
 $MethodInfo _SetTimesNanos_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SetTimesNanos::*)()>(&SetTimesNanos::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&SetTimesNanos::main)), "java.lang.Exception"},
-	{"testNanos", "(Ljava/nio/file/Path;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($Path*)>(&SetTimesNanos::testNanos)), "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SetTimesNanos, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SetTimesNanos, main, void, $StringArray*), "java.lang.Exception"},
+	{"testNanos", "(Ljava/nio/file/Path;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(SetTimesNanos, testNanos, void, $Path*), "java.io.IOException"},
 	{}
 };
 

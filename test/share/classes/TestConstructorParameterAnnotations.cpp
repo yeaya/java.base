@@ -46,10 +46,10 @@ using $Arrays = ::java::util::Arrays;
 using $Objects = ::java::util::Objects;
 
 $MethodInfo _TestConstructorParameterAnnotations_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TestConstructorParameterAnnotations::*)()>(&TestConstructorParameterAnnotations::init$))},
-	{"checkGetParameterAnnotations", "(Ljava/lang/Class;Ljava/lang/reflect/Constructor;)I", "(Ljava/lang/Class<*>;Ljava/lang/reflect/Constructor<*>;)I", $PRIVATE | $STATIC, $method(static_cast<int32_t(*)($Class*,$Constructor*)>(&TestConstructorParameterAnnotations::checkGetParameterAnnotations))},
-	{"checkGetParametersGetAnnotation", "(Ljava/lang/Class;Ljava/lang/reflect/Constructor;)I", "(Ljava/lang/Class<*>;Ljava/lang/reflect/Constructor<*>;)I", $PRIVATE | $STATIC, $method(static_cast<int32_t(*)($Class*,$Constructor*)>(&TestConstructorParameterAnnotations::checkGetParametersGetAnnotation))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<void(*)($StringArray*)>(&TestConstructorParameterAnnotations::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TestConstructorParameterAnnotations, init$, void)},
+	{"checkGetParameterAnnotations", "(Ljava/lang/Class;Ljava/lang/reflect/Constructor;)I", "(Ljava/lang/Class<*>;Ljava/lang/reflect/Constructor<*>;)I", $PRIVATE | $STATIC, $staticMethod(TestConstructorParameterAnnotations, checkGetParameterAnnotations, int32_t, $Class*, $Constructor*)},
+	{"checkGetParametersGetAnnotation", "(Ljava/lang/Class;Ljava/lang/reflect/Constructor;)I", "(Ljava/lang/Class<*>;Ljava/lang/reflect/Constructor<*>;)I", $PRIVATE | $STATIC, $staticMethod(TestConstructorParameterAnnotations, checkGetParametersGetAnnotation, int32_t, $Class*, $Constructor*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(TestConstructorParameterAnnotations, main, void, $StringArray*)},
 	{}
 };
 

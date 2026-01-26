@@ -14,8 +14,8 @@ using $URL = ::java::net::URL;
 using $UnknownServiceException = ::java::net::UnknownServiceException;
 
 $MethodInfo _getResponseCode4HttpURLConnection_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(getResponseCode4HttpURLConnection::*)()>(&getResponseCode4HttpURLConnection::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&getResponseCode4HttpURLConnection::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(getResponseCode4HttpURLConnection, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(getResponseCode4HttpURLConnection, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

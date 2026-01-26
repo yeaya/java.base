@@ -41,11 +41,11 @@ $FieldInfo _PolicySpiFile_FieldInfo_[] = {
 };
 
 $MethodInfo _PolicySpiFile_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/Policy$Parameters;)V", nullptr, $PUBLIC, $method(static_cast<void(PolicySpiFile::*)($Policy$Parameters*)>(&PolicySpiFile::init$))},
-	{"engineGetPermissions", "(Ljava/security/CodeSource;)Ljava/security/PermissionCollection;", nullptr, $PROTECTED},
-	{"engineGetPermissions", "(Ljava/security/ProtectionDomain;)Ljava/security/PermissionCollection;", nullptr, $PROTECTED},
-	{"engineImplies", "(Ljava/security/ProtectionDomain;Ljava/security/Permission;)Z", nullptr, $PROTECTED},
-	{"engineRefresh", "()V", nullptr, $PROTECTED},
+	{"<init>", "(Ljava/security/Policy$Parameters;)V", nullptr, $PUBLIC, $method(PolicySpiFile, init$, void, $Policy$Parameters*)},
+	{"engineGetPermissions", "(Ljava/security/CodeSource;)Ljava/security/PermissionCollection;", nullptr, $PROTECTED, $virtualMethod(PolicySpiFile, engineGetPermissions, $PermissionCollection*, $CodeSource*)},
+	{"engineGetPermissions", "(Ljava/security/ProtectionDomain;)Ljava/security/PermissionCollection;", nullptr, $PROTECTED, $virtualMethod(PolicySpiFile, engineGetPermissions, $PermissionCollection*, $ProtectionDomain*)},
+	{"engineImplies", "(Ljava/security/ProtectionDomain;Ljava/security/Permission;)Z", nullptr, $PROTECTED, $virtualMethod(PolicySpiFile, engineImplies, bool, $ProtectionDomain*, $Permission*)},
+	{"engineRefresh", "()V", nullptr, $PROTECTED, $virtualMethod(PolicySpiFile, engineRefresh, void)},
 	{}
 };
 

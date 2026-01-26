@@ -21,7 +21,7 @@ $FieldInfo _ModuleLoaderMap$Modules_FieldInfo_[] = {
 };
 
 $MethodInfo _ModuleLoaderMap$Modules_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(ModuleLoaderMap$Modules::*)()>(&ModuleLoaderMap$Modules::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(ModuleLoaderMap$Modules, init$, void)},
 	{}
 };
 

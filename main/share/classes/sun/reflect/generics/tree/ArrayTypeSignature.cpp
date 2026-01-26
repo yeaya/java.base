@@ -21,10 +21,10 @@ $FieldInfo _ArrayTypeSignature_FieldInfo_[] = {
 };
 
 $MethodInfo _ArrayTypeSignature_MethodInfo_[] = {
-	{"<init>", "(Lsun/reflect/generics/tree/TypeSignature;)V", nullptr, $PRIVATE, $method(static_cast<void(ArrayTypeSignature::*)($TypeSignature*)>(&ArrayTypeSignature::init$))},
-	{"accept", "(Lsun/reflect/generics/visitor/TypeTreeVisitor;)V", "(Lsun/reflect/generics/visitor/TypeTreeVisitor<*>;)V", $PUBLIC},
-	{"getComponentType", "()Lsun/reflect/generics/tree/TypeSignature;", nullptr, $PUBLIC},
-	{"make", "(Lsun/reflect/generics/tree/TypeSignature;)Lsun/reflect/generics/tree/ArrayTypeSignature;", nullptr, $PUBLIC | $STATIC, $method(static_cast<ArrayTypeSignature*(*)($TypeSignature*)>(&ArrayTypeSignature::make))},
+	{"<init>", "(Lsun/reflect/generics/tree/TypeSignature;)V", nullptr, $PRIVATE, $method(ArrayTypeSignature, init$, void, $TypeSignature*)},
+	{"accept", "(Lsun/reflect/generics/visitor/TypeTreeVisitor;)V", "(Lsun/reflect/generics/visitor/TypeTreeVisitor<*>;)V", $PUBLIC, $virtualMethod(ArrayTypeSignature, accept, void, $TypeTreeVisitor*)},
+	{"getComponentType", "()Lsun/reflect/generics/tree/TypeSignature;", nullptr, $PUBLIC, $virtualMethod(ArrayTypeSignature, getComponentType, $TypeSignature*)},
+	{"make", "(Lsun/reflect/generics/tree/TypeSignature;)Lsun/reflect/generics/tree/ArrayTypeSignature;", nullptr, $PUBLIC | $STATIC, $staticMethod(ArrayTypeSignature, make, ArrayTypeSignature*, $TypeSignature*)},
 	{}
 };
 

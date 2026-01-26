@@ -28,11 +28,11 @@ $MethodInfo _TestHelpers$TestClass_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TestHelpers$TestClass::*)()>(&TestHelpers$TestClass::init$))},
-	{"m", "(I)I", nullptr, $PUBLIC},
-	{"pm", "(I)I", nullptr, $PRIVATE, $method(static_cast<int32_t(TestHelpers$TestClass::*)(int32_t)>(&TestHelpers$TestClass::pm))},
-	{"psm", "(I)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)(int32_t)>(&TestHelpers$TestClass::psm))},
-	{"sm", "(I)I", nullptr, $PUBLIC | $STATIC, $method(static_cast<int32_t(*)(int32_t)>(&TestHelpers$TestClass::sm))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TestHelpers$TestClass, init$, void)},
+	{"m", "(I)I", nullptr, $PUBLIC, $virtualMethod(TestHelpers$TestClass, m, int32_t, int32_t)},
+	{"pm", "(I)I", nullptr, $PRIVATE, $method(TestHelpers$TestClass, pm, int32_t, int32_t)},
+	{"psm", "(I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(TestHelpers$TestClass, psm, int32_t, int32_t)},
+	{"sm", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(TestHelpers$TestClass, sm, int32_t, int32_t)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

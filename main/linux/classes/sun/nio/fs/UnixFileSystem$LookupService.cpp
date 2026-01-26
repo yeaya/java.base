@@ -22,7 +22,7 @@ $FieldInfo _UnixFileSystem$LookupService_FieldInfo_[] = {
 };
 
 $MethodInfo _UnixFileSystem$LookupService_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(UnixFileSystem$LookupService::*)()>(&UnixFileSystem$LookupService::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(UnixFileSystem$LookupService, init$, void)},
 	{}
 };
 

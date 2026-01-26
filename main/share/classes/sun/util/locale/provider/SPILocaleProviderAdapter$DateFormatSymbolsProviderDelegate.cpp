@@ -39,11 +39,11 @@ $MethodInfo _SPILocaleProviderAdapter$DateFormatSymbolsProviderDelegate_MethodIn
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(SPILocaleProviderAdapter$DateFormatSymbolsProviderDelegate::*)()>(&SPILocaleProviderAdapter$DateFormatSymbolsProviderDelegate::init$))},
-	{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC},
-	{"getDelegateMap", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/util/Locale;Ljava/text/spi/DateFormatSymbolsProvider;>;", $PUBLIC},
-	{"getInstance", "(Ljava/util/Locale;)Ljava/text/DateFormatSymbols;", nullptr, $PUBLIC},
-	{"isSupportedLocale", "(Ljava/util/Locale;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(SPILocaleProviderAdapter$DateFormatSymbolsProviderDelegate, init$, void)},
+	{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$DateFormatSymbolsProviderDelegate, getAvailableLocales, $LocaleArray*)},
+	{"getDelegateMap", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/util/Locale;Ljava/text/spi/DateFormatSymbolsProvider;>;", $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$DateFormatSymbolsProviderDelegate, getDelegateMap, $Map*)},
+	{"getInstance", "(Ljava/util/Locale;)Ljava/text/DateFormatSymbols;", nullptr, $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$DateFormatSymbolsProviderDelegate, getInstance, $DateFormatSymbols*, $Locale*)},
+	{"isSupportedLocale", "(Ljava/util/Locale;)Z", nullptr, $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$DateFormatSymbolsProviderDelegate, isSupportedLocale, bool, $Locale*)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

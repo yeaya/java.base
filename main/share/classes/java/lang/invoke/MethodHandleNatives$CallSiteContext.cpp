@@ -22,9 +22,9 @@ namespace java {
 		namespace invoke {
 
 $MethodInfo _MethodHandleNatives$CallSiteContext_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(MethodHandleNatives$CallSiteContext::*)()>(&MethodHandleNatives$CallSiteContext::init$))},
-	{"make", "(Ljava/lang/invoke/CallSite;)Ljava/lang/invoke/MethodHandleNatives$CallSiteContext;", nullptr, $STATIC, $method(static_cast<MethodHandleNatives$CallSiteContext*(*)($CallSite*)>(&MethodHandleNatives$CallSiteContext::make))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(MethodHandleNatives$CallSiteContext, init$, void)},
+	{"make", "(Ljava/lang/invoke/CallSite;)Ljava/lang/invoke/MethodHandleNatives$CallSiteContext;", nullptr, $STATIC, $staticMethod(MethodHandleNatives$CallSiteContext, make, MethodHandleNatives$CallSiteContext*, $CallSite*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(MethodHandleNatives$CallSiteContext, run, void)},
 	{}
 };
 

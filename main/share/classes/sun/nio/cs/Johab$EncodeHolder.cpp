@@ -23,7 +23,7 @@ $FieldInfo _Johab$EncodeHolder_FieldInfo_[] = {
 };
 
 $MethodInfo _Johab$EncodeHolder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Johab$EncodeHolder::*)()>(&Johab$EncodeHolder::init$))},
+	{"<init>", "()V", nullptr, 0, $method(Johab$EncodeHolder, init$, void)},
 	{}
 };
 

@@ -24,8 +24,8 @@ $FieldInfo _UnixFileSystemProvider$1_FieldInfo_[] = {
 };
 
 $MethodInfo _UnixFileSystemProvider$1_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/fs/UnixFileSystemProvider;)V", nullptr, 0, $method(static_cast<void(UnixFileSystemProvider$1::*)($UnixFileSystemProvider*)>(&UnixFileSystemProvider$1::init$))},
-	{"implProbeContentType", "(Ljava/nio/file/Path;)Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/nio/fs/UnixFileSystemProvider;)V", nullptr, 0, $method(UnixFileSystemProvider$1, init$, void, $UnixFileSystemProvider*)},
+	{"implProbeContentType", "(Ljava/nio/file/Path;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UnixFileSystemProvider$1, implProbeContentType, $String*, $Path*)},
 	{}
 };
 

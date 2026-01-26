@@ -19,7 +19,7 @@ $FieldInfo _Invokers$Holder_FieldInfo_[] = {
 };
 
 $MethodInfo _Invokers$Holder_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/invoke/Invokers;)V", nullptr, 0, $method(static_cast<void(Invokers$Holder::*)($Invokers*)>(&Invokers$Holder::init$))},
+	{"<init>", "(Ljava/lang/invoke/Invokers;)V", nullptr, 0, $method(Invokers$Holder, init$, void, $Invokers*)},
 	{}
 };
 

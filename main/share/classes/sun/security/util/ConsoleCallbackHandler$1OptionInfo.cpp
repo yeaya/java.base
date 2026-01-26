@@ -22,7 +22,7 @@ $FieldInfo _ConsoleCallbackHandler$1OptionInfo_FieldInfo_[] = {
 };
 
 $MethodInfo _ConsoleCallbackHandler$1OptionInfo_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/util/ConsoleCallbackHandler;Ljava/lang/String;I)V", nullptr, 0, $method(static_cast<void(ConsoleCallbackHandler$1OptionInfo::*)($ConsoleCallbackHandler*,$String*,int32_t)>(&ConsoleCallbackHandler$1OptionInfo::init$))},
+	{"<init>", "(Lsun/security/util/ConsoleCallbackHandler;Ljava/lang/String;I)V", nullptr, 0, $method(ConsoleCallbackHandler$1OptionInfo, init$, void, $ConsoleCallbackHandler*, $String*, int32_t)},
 	{}
 };
 

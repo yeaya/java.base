@@ -12,8 +12,8 @@ using $InetAddress = ::java::net::InetAddress;
 using $UnknownHostException = ::java::net::UnknownHostException;
 
 $MethodInfo _IPv6Numeric_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(IPv6Numeric::*)()>(&IPv6Numeric::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&IPv6Numeric::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(IPv6Numeric, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(IPv6Numeric, main, void, $StringArray*)},
 	{}
 };
 

@@ -22,10 +22,10 @@ $FieldInfo _FileVisitOption_FieldInfo_[] = {
 };
 
 $MethodInfo _FileVisitOption_MethodInfo_[] = {
-	{"$values", "()[Ljava/nio/file/FileVisitOption;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$FileVisitOptionArray*(*)()>(&FileVisitOption::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(FileVisitOption::*)($String*,int32_t)>(&FileVisitOption::init$))},
-	{"valueOf", "(Ljava/lang/String;)Ljava/nio/file/FileVisitOption;", nullptr, $PUBLIC | $STATIC, $method(static_cast<FileVisitOption*(*)($String*)>(&FileVisitOption::valueOf))},
-	{"values", "()[Ljava/nio/file/FileVisitOption;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$FileVisitOptionArray*(*)()>(&FileVisitOption::values))},
+	{"$values", "()[Ljava/nio/file/FileVisitOption;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(FileVisitOption, $values, $FileVisitOptionArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(FileVisitOption, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Ljava/nio/file/FileVisitOption;", nullptr, $PUBLIC | $STATIC, $staticMethod(FileVisitOption, valueOf, FileVisitOption*, $String*)},
+	{"values", "()[Ljava/nio/file/FileVisitOption;", nullptr, $PUBLIC | $STATIC, $staticMethod(FileVisitOption, values, $FileVisitOptionArray*)},
 	{}
 };
 

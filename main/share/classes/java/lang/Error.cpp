@@ -15,11 +15,11 @@ $FieldInfo _Error_FieldInfo_[] = {
 };
 
 $MethodInfo _Error_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Error::*)()>(&Error::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(Error::*)($String*)>(&Error::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(Error::*)($String*,$Throwable*)>(&Error::init$))},
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(Error::*)($Throwable*)>(&Error::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;ZZ)V", nullptr, $PROTECTED, $method(static_cast<void(Error::*)($String*,$Throwable*,bool,bool)>(&Error::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Error, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Error, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(Error, init$, void, $String*, $Throwable*)},
+	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(Error, init$, void, $Throwable*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;ZZ)V", nullptr, $PROTECTED, $method(Error, init$, void, $String*, $Throwable*, bool, bool)},
 	{}
 };
 

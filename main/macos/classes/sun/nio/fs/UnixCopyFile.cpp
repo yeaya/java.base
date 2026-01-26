@@ -96,8 +96,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo UnixCopyFile$$Lambda$lambda$ensureEmptyDir$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(UnixCopyFile$$Lambda$lambda$ensureEmptyDir$0::*)()>(&UnixCopyFile$$Lambda$lambda$ensureEmptyDir$0::init$))},
-	{"accept", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(UnixCopyFile$$Lambda$lambda$ensureEmptyDir$0, init$, void)},
+	{"accept", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(UnixCopyFile$$Lambda$lambda$ensureEmptyDir$0, accept, bool, Object$*)},
 	{}
 };
 $ClassInfo UnixCopyFile$$Lambda$lambda$ensureEmptyDir$0::classInfo$ = {
@@ -115,16 +115,16 @@ $Class* UnixCopyFile$$Lambda$lambda$ensureEmptyDir$0::load$($String* name, bool 
 $Class* UnixCopyFile$$Lambda$lambda$ensureEmptyDir$0::class$ = nullptr;
 
 $MethodInfo _UnixCopyFile_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(UnixCopyFile::*)()>(&UnixCopyFile::init$))},
-	{"copy", "(Lsun/nio/fs/UnixPath;Lsun/nio/fs/UnixPath;[Ljava/nio/file/CopyOption;)V", nullptr, $STATIC | $TRANSIENT, $method(static_cast<void(*)($UnixPath*,$UnixPath*,$CopyOptionArray*)>(&UnixCopyFile::copy)), "java.io.IOException"},
-	{"copyDirectory", "(Lsun/nio/fs/UnixPath;Lsun/nio/fs/UnixFileAttributes;Lsun/nio/fs/UnixPath;Lsun/nio/fs/UnixCopyFile$Flags;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($UnixPath*,$UnixFileAttributes*,$UnixPath*,$UnixCopyFile$Flags*)>(&UnixCopyFile::copyDirectory)), "java.io.IOException"},
-	{"copyFile", "(Lsun/nio/fs/UnixPath;Lsun/nio/fs/UnixFileAttributes;Lsun/nio/fs/UnixPath;Lsun/nio/fs/UnixCopyFile$Flags;J)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($UnixPath*,$UnixFileAttributes*,$UnixPath*,$UnixCopyFile$Flags*,int64_t)>(&UnixCopyFile::copyFile)), "java.io.IOException"},
-	{"copyLink", "(Lsun/nio/fs/UnixPath;Lsun/nio/fs/UnixFileAttributes;Lsun/nio/fs/UnixPath;Lsun/nio/fs/UnixCopyFile$Flags;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($UnixPath*,$UnixFileAttributes*,$UnixPath*,$UnixCopyFile$Flags*)>(&UnixCopyFile::copyLink)), "java.io.IOException"},
-	{"copySpecial", "(Lsun/nio/fs/UnixPath;Lsun/nio/fs/UnixFileAttributes;Lsun/nio/fs/UnixPath;Lsun/nio/fs/UnixCopyFile$Flags;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($UnixPath*,$UnixFileAttributes*,$UnixPath*,$UnixCopyFile$Flags*)>(&UnixCopyFile::copySpecial)), "java.io.IOException"},
-	{"ensureEmptyDir", "(Lsun/nio/fs/UnixPath;)V", nullptr, $STATIC, $method(static_cast<void(*)($UnixPath*)>(&UnixCopyFile::ensureEmptyDir)), "java.io.IOException"},
-	{"lambda$ensureEmptyDir$0", "(Ljava/nio/file/Path;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($Path*)>(&UnixCopyFile::lambda$ensureEmptyDir$0)), "java.io.IOException"},
-	{"move", "(Lsun/nio/fs/UnixPath;Lsun/nio/fs/UnixPath;[Ljava/nio/file/CopyOption;)V", nullptr, $STATIC | $TRANSIENT, $method(static_cast<void(*)($UnixPath*,$UnixPath*,$CopyOptionArray*)>(&UnixCopyFile::move)), "java.io.IOException"},
-	{"transfer", "(IIJ)V", nullptr, $STATIC | $NATIVE, $method(static_cast<void(*)(int32_t,int32_t,int64_t)>(&UnixCopyFile::transfer)), "sun.nio.fs.UnixException"},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(UnixCopyFile, init$, void)},
+	{"copy", "(Lsun/nio/fs/UnixPath;Lsun/nio/fs/UnixPath;[Ljava/nio/file/CopyOption;)V", nullptr, $STATIC | $TRANSIENT, $staticMethod(UnixCopyFile, copy, void, $UnixPath*, $UnixPath*, $CopyOptionArray*), "java.io.IOException"},
+	{"copyDirectory", "(Lsun/nio/fs/UnixPath;Lsun/nio/fs/UnixFileAttributes;Lsun/nio/fs/UnixPath;Lsun/nio/fs/UnixCopyFile$Flags;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(UnixCopyFile, copyDirectory, void, $UnixPath*, $UnixFileAttributes*, $UnixPath*, $UnixCopyFile$Flags*), "java.io.IOException"},
+	{"copyFile", "(Lsun/nio/fs/UnixPath;Lsun/nio/fs/UnixFileAttributes;Lsun/nio/fs/UnixPath;Lsun/nio/fs/UnixCopyFile$Flags;J)V", nullptr, $PRIVATE | $STATIC, $staticMethod(UnixCopyFile, copyFile, void, $UnixPath*, $UnixFileAttributes*, $UnixPath*, $UnixCopyFile$Flags*, int64_t), "java.io.IOException"},
+	{"copyLink", "(Lsun/nio/fs/UnixPath;Lsun/nio/fs/UnixFileAttributes;Lsun/nio/fs/UnixPath;Lsun/nio/fs/UnixCopyFile$Flags;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(UnixCopyFile, copyLink, void, $UnixPath*, $UnixFileAttributes*, $UnixPath*, $UnixCopyFile$Flags*), "java.io.IOException"},
+	{"copySpecial", "(Lsun/nio/fs/UnixPath;Lsun/nio/fs/UnixFileAttributes;Lsun/nio/fs/UnixPath;Lsun/nio/fs/UnixCopyFile$Flags;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(UnixCopyFile, copySpecial, void, $UnixPath*, $UnixFileAttributes*, $UnixPath*, $UnixCopyFile$Flags*), "java.io.IOException"},
+	{"ensureEmptyDir", "(Lsun/nio/fs/UnixPath;)V", nullptr, $STATIC, $staticMethod(UnixCopyFile, ensureEmptyDir, void, $UnixPath*), "java.io.IOException"},
+	{"lambda$ensureEmptyDir$0", "(Ljava/nio/file/Path;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(UnixCopyFile, lambda$ensureEmptyDir$0, bool, $Path*), "java.io.IOException"},
+	{"move", "(Lsun/nio/fs/UnixPath;Lsun/nio/fs/UnixPath;[Ljava/nio/file/CopyOption;)V", nullptr, $STATIC | $TRANSIENT, $staticMethod(UnixCopyFile, move, void, $UnixPath*, $UnixPath*, $CopyOptionArray*), "java.io.IOException"},
+	{"transfer", "(IIJ)V", nullptr, $STATIC | $NATIVE, $staticMethod(UnixCopyFile, transfer, void, int32_t, int32_t, int64_t), "sun.nio.fs.UnixException"},
 	{}
 };
 

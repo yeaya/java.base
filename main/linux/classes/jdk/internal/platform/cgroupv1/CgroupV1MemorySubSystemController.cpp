@@ -20,11 +20,11 @@ $FieldInfo _CgroupV1MemorySubSystemController_FieldInfo_[] = {
 };
 
 $MethodInfo _CgroupV1MemorySubSystemController_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(CgroupV1MemorySubSystemController::*)($String*,$String*)>(&CgroupV1MemorySubSystemController::init$))},
-	{"isHierarchical", "()Z", nullptr, 0},
-	{"isSwapEnabled", "()Z", nullptr, 0},
-	{"setHierarchical", "(Z)V", nullptr, 0},
-	{"setSwapEnabled", "(Z)V", nullptr, 0},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(CgroupV1MemorySubSystemController, init$, void, $String*, $String*)},
+	{"isHierarchical", "()Z", nullptr, 0, $virtualMethod(CgroupV1MemorySubSystemController, isHierarchical, bool)},
+	{"isSwapEnabled", "()Z", nullptr, 0, $virtualMethod(CgroupV1MemorySubSystemController, isSwapEnabled, bool)},
+	{"setHierarchical", "(Z)V", nullptr, 0, $virtualMethod(CgroupV1MemorySubSystemController, setHierarchical, void, bool)},
+	{"setSwapEnabled", "(Z)V", nullptr, 0, $virtualMethod(CgroupV1MemorySubSystemController, setSwapEnabled, void, bool)},
 	{}
 };
 

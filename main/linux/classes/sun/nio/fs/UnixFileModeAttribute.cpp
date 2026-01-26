@@ -48,9 +48,9 @@ $FieldInfo _UnixFileModeAttribute_FieldInfo_[] = {
 };
 
 $MethodInfo _UnixFileModeAttribute_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(UnixFileModeAttribute::*)()>(&UnixFileModeAttribute::init$))},
-	{"toUnixMode", "(Ljava/util/Set;)I", "(Ljava/util/Set<Ljava/nio/file/attribute/PosixFilePermission;>;)I", $STATIC, $method(static_cast<int32_t(*)($Set*)>(&UnixFileModeAttribute::toUnixMode))},
-	{"toUnixMode", "(I[Ljava/nio/file/attribute/FileAttribute;)I", "(I[Ljava/nio/file/attribute/FileAttribute<*>;)I", $STATIC | $TRANSIENT, $method(static_cast<int32_t(*)(int32_t,$FileAttributeArray*)>(&UnixFileModeAttribute::toUnixMode))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(UnixFileModeAttribute, init$, void)},
+	{"toUnixMode", "(Ljava/util/Set;)I", "(Ljava/util/Set<Ljava/nio/file/attribute/PosixFilePermission;>;)I", $STATIC, $staticMethod(UnixFileModeAttribute, toUnixMode, int32_t, $Set*)},
+	{"toUnixMode", "(I[Ljava/nio/file/attribute/FileAttribute;)I", "(I[Ljava/nio/file/attribute/FileAttribute<*>;)I", $STATIC | $TRANSIENT, $staticMethod(UnixFileModeAttribute, toUnixMode, int32_t, int32_t, $FileAttributeArray*)},
 	{}
 };
 

@@ -20,7 +20,7 @@ $CompoundAttribute _SingleMemberLongArray_Annotations_[] = {
 };
 
 $MethodInfo _SingleMemberLongArray_MethodInfo_[] = {
-	{"value", "()[J", nullptr, $PUBLIC | $ABSTRACT},
+	{"value", "()[J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SingleMemberLongArray, value, $longs*)},
 	{}
 };
 

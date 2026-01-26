@@ -44,8 +44,8 @@ $FieldInfo Stop$$Lambda$lambda$main$0::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Stop$$Lambda$lambda$main$0::methodInfos[3] = {
-	{"<init>", "(Ljava/util/concurrent/CountDownLatch;)V", nullptr, $PUBLIC, $method(static_cast<void(Stop$$Lambda$lambda$main$0::*)($CountDownLatch*)>(&Stop$$Lambda$lambda$main$0::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/concurrent/CountDownLatch;)V", nullptr, $PUBLIC, $method(Stop$$Lambda$lambda$main$0, init$, void, $CountDownLatch*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Stop$$Lambda$lambda$main$0, run, void)},
 	{}
 };
 $ClassInfo Stop$$Lambda$lambda$main$0::classInfo$ = {
@@ -87,8 +87,8 @@ $FieldInfo Stop$$Lambda$lambda$main$1$1::fieldInfos[3] = {
 	{}
 };
 $MethodInfo Stop$$Lambda$lambda$main$1$1::methodInfos[3] = {
-	{"<init>", "(Ljava/util/concurrent/CountDownLatch;Ljava/lang/ThreadGroup;)V", nullptr, $PUBLIC, $method(static_cast<void(Stop$$Lambda$lambda$main$1$1::*)($CountDownLatch*,$ThreadGroup*)>(&Stop$$Lambda$lambda$main$1$1::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/concurrent/CountDownLatch;Ljava/lang/ThreadGroup;)V", nullptr, $PUBLIC, $method(Stop$$Lambda$lambda$main$1$1, init$, void, $CountDownLatch*, $ThreadGroup*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Stop$$Lambda$lambda$main$1$1, run, void)},
 	{}
 };
 $ClassInfo Stop$$Lambda$lambda$main$1$1::classInfo$ = {
@@ -106,10 +106,10 @@ $Class* Stop$$Lambda$lambda$main$1$1::load$($String* name, bool initialize) {
 $Class* Stop$$Lambda$lambda$main$1$1::class$ = nullptr;
 
 $MethodInfo _Stop_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Stop::*)()>(&Stop::init$))},
-	{"lambda$main$0", "(Ljava/util/concurrent/CountDownLatch;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($CountDownLatch*)>(&Stop::lambda$main$0))},
-	{"lambda$main$1", "(Ljava/util/concurrent/CountDownLatch;Ljava/lang/ThreadGroup;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($CountDownLatch*,$ThreadGroup*)>(&Stop::lambda$main$1))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Stop::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Stop, init$, void)},
+	{"lambda$main$0", "(Ljava/util/concurrent/CountDownLatch;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Stop, lambda$main$0, void, $CountDownLatch*)},
+	{"lambda$main$1", "(Ljava/util/concurrent/CountDownLatch;Ljava/lang/ThreadGroup;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Stop, lambda$main$1, void, $CountDownLatch*, $ThreadGroup*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Stop, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

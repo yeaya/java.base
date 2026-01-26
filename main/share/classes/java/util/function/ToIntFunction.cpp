@@ -16,7 +16,7 @@ $CompoundAttribute _ToIntFunction_Annotations_[] = {
 };
 
 $MethodInfo _ToIntFunction_MethodInfo_[] = {
-	{"applyAsInt", "(Ljava/lang/Object;)I", "(TT;)I", $PUBLIC | $ABSTRACT},
+	{"applyAsInt", "(Ljava/lang/Object;)I", "(TT;)I", $PUBLIC | $ABSTRACT, $virtualMethod(ToIntFunction, applyAsInt, int32_t, Object$*)},
 	{}
 };
 

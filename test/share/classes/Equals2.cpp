@@ -13,10 +13,10 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $Method = ::java::lang::reflect::Method;
 
 $MethodInfo _Equals2_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Equals2::*)()>(&Equals2::init$))},
-	{"m", "()LEquals2;", nullptr, $PUBLIC},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Equals2::main))},
-	{"returnType", "()V", nullptr, $PRIVATE, $method(static_cast<void(Equals2::*)()>(&Equals2::returnType))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Equals2, init$, void)},
+	{"m", "()LEquals2;", nullptr, $PUBLIC, $virtualMethod(Equals2, m, Equals2*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Equals2, main, void, $StringArray*)},
+	{"returnType", "()V", nullptr, $PRIVATE, $method(Equals2, returnType, void)},
 	{}
 };
 

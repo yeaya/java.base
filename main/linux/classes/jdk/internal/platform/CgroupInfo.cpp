@@ -22,17 +22,17 @@ $FieldInfo _CgroupInfo_FieldInfo_[] = {
 };
 
 $MethodInfo _CgroupInfo_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;IZ)V", nullptr, $PRIVATE, $method(static_cast<void(CgroupInfo::*)($String*,int32_t,bool)>(&CgroupInfo::init$))},
-	{"fromCgroupsLine", "(Ljava/lang/String;)Ljdk/internal/platform/CgroupInfo;", nullptr, $STATIC, $method(static_cast<CgroupInfo*(*)($String*)>(&CgroupInfo::fromCgroupsLine))},
-	{"getCgroupPath", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getHierarchyId", "()I", nullptr, $PUBLIC},
-	{"getMountPoint", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getMountRoot", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"isEnabled", "()Z", nullptr, $PUBLIC},
-	{"setCgroupPath", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"setMountPoint", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"setMountRoot", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;IZ)V", nullptr, $PRIVATE, $method(CgroupInfo, init$, void, $String*, int32_t, bool)},
+	{"fromCgroupsLine", "(Ljava/lang/String;)Ljdk/internal/platform/CgroupInfo;", nullptr, $STATIC, $staticMethod(CgroupInfo, fromCgroupsLine, CgroupInfo*, $String*)},
+	{"getCgroupPath", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CgroupInfo, getCgroupPath, $String*)},
+	{"getHierarchyId", "()I", nullptr, $PUBLIC, $virtualMethod(CgroupInfo, getHierarchyId, int32_t)},
+	{"getMountPoint", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CgroupInfo, getMountPoint, $String*)},
+	{"getMountRoot", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CgroupInfo, getMountRoot, $String*)},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CgroupInfo, getName, $String*)},
+	{"isEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(CgroupInfo, isEnabled, bool)},
+	{"setCgroupPath", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CgroupInfo, setCgroupPath, void, $String*)},
+	{"setMountPoint", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CgroupInfo, setMountPoint, void, $String*)},
+	{"setMountRoot", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CgroupInfo, setMountRoot, void, $String*)},
 	{}
 };
 

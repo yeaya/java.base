@@ -8,7 +8,7 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _LambdaClassFinal$I_MethodInfo_[] = {
-	{"m", "()V", nullptr, $PUBLIC | $ABSTRACT},
+	{"m", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LambdaClassFinal$I, m, void)},
 	{}
 };
 

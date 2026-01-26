@@ -23,9 +23,9 @@ $FieldInfo _UCharacterProperty$IntProperty_FieldInfo_[] = {
 };
 
 $MethodInfo _UCharacterProperty$IntProperty_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/icu/impl/UCharacterProperty;III)V", nullptr, 0, $method(static_cast<void(UCharacterProperty$IntProperty::*)($UCharacterProperty*,int32_t,int32_t,int32_t)>(&UCharacterProperty$IntProperty::init$))},
-	{"<init>", "(Ljdk/internal/icu/impl/UCharacterProperty;I)V", nullptr, 0, $method(static_cast<void(UCharacterProperty$IntProperty::*)($UCharacterProperty*,int32_t)>(&UCharacterProperty$IntProperty::init$))},
-	{"getValue", "(I)I", nullptr, 0},
+	{"<init>", "(Ljdk/internal/icu/impl/UCharacterProperty;III)V", nullptr, 0, $method(UCharacterProperty$IntProperty, init$, void, $UCharacterProperty*, int32_t, int32_t, int32_t)},
+	{"<init>", "(Ljdk/internal/icu/impl/UCharacterProperty;I)V", nullptr, 0, $method(UCharacterProperty$IntProperty, init$, void, $UCharacterProperty*, int32_t)},
+	{"getValue", "(I)I", nullptr, 0, $virtualMethod(UCharacterProperty$IntProperty, getValue, int32_t, int32_t)},
 	{}
 };
 

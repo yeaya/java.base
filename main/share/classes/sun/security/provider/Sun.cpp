@@ -38,8 +38,8 @@ $FieldInfo _Sun_FieldInfo_[] = {
 };
 
 $MethodInfo _Sun_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Sun::*)()>(&Sun::init$))},
-	{"putEntries", "(Ljava/util/Iterator;)V", "(Ljava/util/Iterator<Ljava/security/Provider$Service;>;)V", 0, $method(static_cast<void(Sun::*)($Iterator*)>(&Sun::putEntries))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Sun, init$, void)},
+	{"putEntries", "(Ljava/util/Iterator;)V", "(Ljava/util/Iterator<Ljava/security/Provider$Service;>;)V", 0, $method(Sun, putEntries, void, $Iterator*)},
 	{}
 };
 

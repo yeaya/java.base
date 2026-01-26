@@ -16,8 +16,10 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $SecurityManager = ::java::lang::SecurityManager;
+using $URI = ::java::net::URI;
 using $BasicPermission = ::java::security::BasicPermission;
 using $Permission = ::java::security::Permission;
+using $Map = ::java::util::Map;
 using $SecurityConstants = ::sun::security::util::SecurityConstants;
 
 namespace java {
@@ -29,11 +31,11 @@ $FieldInfo _CookieHandler_FieldInfo_[] = {
 };
 
 $MethodInfo _CookieHandler_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CookieHandler::*)()>(&CookieHandler::init$))},
-	{"get", "(Ljava/net/URI;Ljava/util/Map;)Ljava/util/Map;", "(Ljava/net/URI;Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;)Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;", $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"getDefault", "()Ljava/net/CookieHandler;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $method(static_cast<CookieHandler*(*)()>(&CookieHandler::getDefault))},
-	{"put", "(Ljava/net/URI;Ljava/util/Map;)V", "(Ljava/net/URI;Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;)V", $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"setDefault", "(Ljava/net/CookieHandler;)V", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $method(static_cast<void(*)(CookieHandler*)>(&CookieHandler::setDefault))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CookieHandler, init$, void)},
+	{"get", "(Ljava/net/URI;Ljava/util/Map;)Ljava/util/Map;", "(Ljava/net/URI;Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;)Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;", $PUBLIC | $ABSTRACT, $virtualMethod(CookieHandler, get, $Map*, $URI*, $Map*), "java.io.IOException"},
+	{"getDefault", "()Ljava/net/CookieHandler;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(CookieHandler, getDefault, CookieHandler*)},
+	{"put", "(Ljava/net/URI;Ljava/util/Map;)V", "(Ljava/net/URI;Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;)V", $PUBLIC | $ABSTRACT, $virtualMethod(CookieHandler, put, void, $URI*, $Map*), "java.io.IOException"},
+	{"setDefault", "(Ljava/net/CookieHandler;)V", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(CookieHandler, setDefault, void, CookieHandler*)},
 	{}
 };
 

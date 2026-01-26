@@ -19,10 +19,10 @@ $FieldInfo _ReadLine$BoundedReader_FieldInfo_[] = {
 };
 
 $MethodInfo _ReadLine$BoundedReader_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(ReadLine$BoundedReader::*)($String*)>(&ReadLine$BoundedReader::init$))},
-	{"close", "()V", nullptr, $PUBLIC},
-	{"read", "()I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"read", "([CII)I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ReadLine$BoundedReader, init$, void, $String*)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(ReadLine$BoundedReader, close, void)},
+	{"read", "()I", nullptr, $PUBLIC, $virtualMethod(ReadLine$BoundedReader, read, int32_t), "java.io.IOException"},
+	{"read", "([CII)I", nullptr, $PUBLIC, $virtualMethod(ReadLine$BoundedReader, read, int32_t, $chars*, int32_t, int32_t), "java.io.IOException"},
 	{}
 };
 

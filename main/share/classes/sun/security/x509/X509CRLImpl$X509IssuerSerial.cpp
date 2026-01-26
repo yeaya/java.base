@@ -26,14 +26,14 @@ $FieldInfo _X509CRLImpl$X509IssuerSerial_FieldInfo_[] = {
 };
 
 $MethodInfo _X509CRLImpl$X509IssuerSerial_MethodInfo_[] = {
-	{"<init>", "(Ljavax/security/auth/x500/X500Principal;Ljava/math/BigInteger;)V", nullptr, 0, $method(static_cast<void(X509CRLImpl$X509IssuerSerial::*)($X500Principal*,$BigInteger*)>(&X509CRLImpl$X509IssuerSerial::init$))},
-	{"<init>", "(Ljava/security/cert/X509Certificate;)V", nullptr, 0, $method(static_cast<void(X509CRLImpl$X509IssuerSerial::*)($X509Certificate*)>(&X509CRLImpl$X509IssuerSerial::init$))},
-	{"compareTo", "(Lsun/security/x509/X509CRLImpl$X509IssuerSerial;)I", nullptr, $PUBLIC, $method(static_cast<int32_t(X509CRLImpl$X509IssuerSerial::*)(X509CRLImpl$X509IssuerSerial*)>(&X509CRLImpl$X509IssuerSerial::compareTo))},
-	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getIssuer", "()Ljavax/security/auth/x500/X500Principal;", nullptr, 0, $method(static_cast<$X500Principal*(X509CRLImpl$X509IssuerSerial::*)()>(&X509CRLImpl$X509IssuerSerial::getIssuer))},
-	{"getSerial", "()Ljava/math/BigInteger;", nullptr, 0, $method(static_cast<$BigInteger*(X509CRLImpl$X509IssuerSerial::*)()>(&X509CRLImpl$X509IssuerSerial::getSerial))},
-	{"hashCode", "()I", nullptr, $PUBLIC},
+	{"<init>", "(Ljavax/security/auth/x500/X500Principal;Ljava/math/BigInteger;)V", nullptr, 0, $method(X509CRLImpl$X509IssuerSerial, init$, void, $X500Principal*, $BigInteger*)},
+	{"<init>", "(Ljava/security/cert/X509Certificate;)V", nullptr, 0, $method(X509CRLImpl$X509IssuerSerial, init$, void, $X509Certificate*)},
+	{"compareTo", "(Lsun/security/x509/X509CRLImpl$X509IssuerSerial;)I", nullptr, $PUBLIC, $method(X509CRLImpl$X509IssuerSerial, compareTo, int32_t, X509CRLImpl$X509IssuerSerial*)},
+	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(X509CRLImpl$X509IssuerSerial, compareTo, int32_t, Object$*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(X509CRLImpl$X509IssuerSerial, equals, bool, Object$*)},
+	{"getIssuer", "()Ljavax/security/auth/x500/X500Principal;", nullptr, 0, $method(X509CRLImpl$X509IssuerSerial, getIssuer, $X500Principal*)},
+	{"getSerial", "()Ljava/math/BigInteger;", nullptr, 0, $method(X509CRLImpl$X509IssuerSerial, getSerial, $BigInteger*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(X509CRLImpl$X509IssuerSerial, hashCode, int32_t)},
 	{}
 };
 

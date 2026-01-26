@@ -10,8 +10,8 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace SpecialInterfaceCall {
 
 $MethodInfo _SpecialInterfaceCall$I1_MethodInfo_[] = {
-	{"priv_m", "()V", nullptr, $PRIVATE, $method(static_cast<void(SpecialInterfaceCall$I1::*)()>(&SpecialInterfaceCall$I1::priv_m))},
-	{"pub_m", "()V", nullptr, $PUBLIC},
+	{"priv_m", "()V", nullptr, $PRIVATE, $method(SpecialInterfaceCall$I1, priv_m, void)},
+	{"pub_m", "()V", nullptr, $PUBLIC, $virtualMethod(SpecialInterfaceCall$I1, pub_m, void)},
 	{}
 };
 

@@ -43,9 +43,9 @@ $FieldInfo _LocalVariableAnnotationNode_FieldInfo_[] = {
 };
 
 $MethodInfo _LocalVariableAnnotationNode_MethodInfo_[] = {
-	{"<init>", "(ILjdk/internal/org/objectweb/asm/TypePath;[Ljdk/internal/org/objectweb/asm/tree/LabelNode;[Ljdk/internal/org/objectweb/asm/tree/LabelNode;[ILjava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(LocalVariableAnnotationNode::*)(int32_t,$TypePath*,$LabelNodeArray*,$LabelNodeArray*,$ints*,$String*)>(&LocalVariableAnnotationNode::init$))},
-	{"<init>", "(IILjdk/internal/org/objectweb/asm/TypePath;[Ljdk/internal/org/objectweb/asm/tree/LabelNode;[Ljdk/internal/org/objectweb/asm/tree/LabelNode;[ILjava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(LocalVariableAnnotationNode::*)(int32_t,int32_t,$TypePath*,$LabelNodeArray*,$LabelNodeArray*,$ints*,$String*)>(&LocalVariableAnnotationNode::init$))},
-	{"accept", "(Ljdk/internal/org/objectweb/asm/MethodVisitor;Z)V", nullptr, $PUBLIC},
+	{"<init>", "(ILjdk/internal/org/objectweb/asm/TypePath;[Ljdk/internal/org/objectweb/asm/tree/LabelNode;[Ljdk/internal/org/objectweb/asm/tree/LabelNode;[ILjava/lang/String;)V", nullptr, $PUBLIC, $method(LocalVariableAnnotationNode, init$, void, int32_t, $TypePath*, $LabelNodeArray*, $LabelNodeArray*, $ints*, $String*)},
+	{"<init>", "(IILjdk/internal/org/objectweb/asm/TypePath;[Ljdk/internal/org/objectweb/asm/tree/LabelNode;[Ljdk/internal/org/objectweb/asm/tree/LabelNode;[ILjava/lang/String;)V", nullptr, $PUBLIC, $method(LocalVariableAnnotationNode, init$, void, int32_t, int32_t, $TypePath*, $LabelNodeArray*, $LabelNodeArray*, $ints*, $String*)},
+	{"accept", "(Ljdk/internal/org/objectweb/asm/MethodVisitor;Z)V", nullptr, $PUBLIC, $virtualMethod(LocalVariableAnnotationNode, accept, void, $MethodVisitor*, bool)},
 	{}
 };
 

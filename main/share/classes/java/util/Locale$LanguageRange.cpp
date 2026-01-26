@@ -35,17 +35,17 @@ $FieldInfo _Locale$LanguageRange_FieldInfo_[] = {
 };
 
 $MethodInfo _Locale$LanguageRange_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(Locale$LanguageRange::*)($String*)>(&Locale$LanguageRange::init$))},
-	{"<init>", "(Ljava/lang/String;D)V", nullptr, $PUBLIC, $method(static_cast<void(Locale$LanguageRange::*)($String*,double)>(&Locale$LanguageRange::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getRange", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(static_cast<$String*(Locale$LanguageRange::*)()>(&Locale$LanguageRange::getRange))},
-	{"getWeight", "()D", nullptr, $PUBLIC, $method(static_cast<double(Locale$LanguageRange::*)()>(&Locale$LanguageRange::getWeight))},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"isSubtagIllFormed", "(Ljava/lang/String;Z)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($String*,bool)>(&Locale$LanguageRange::isSubtagIllFormed))},
-	{"mapEquivalents", "(Ljava/util/List;Ljava/util/Map;)Ljava/util/List;", "(Ljava/util/List<Ljava/util/Locale$LanguageRange;>;Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;)Ljava/util/List<Ljava/util/Locale$LanguageRange;>;", $PUBLIC | $STATIC, $method(static_cast<$List*(*)($List*,$Map*)>(&Locale$LanguageRange::mapEquivalents))},
-	{"parse", "(Ljava/lang/String;)Ljava/util/List;", "(Ljava/lang/String;)Ljava/util/List<Ljava/util/Locale$LanguageRange;>;", $PUBLIC | $STATIC, $method(static_cast<$List*(*)($String*)>(&Locale$LanguageRange::parse))},
-	{"parse", "(Ljava/lang/String;Ljava/util/Map;)Ljava/util/List;", "(Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;)Ljava/util/List<Ljava/util/Locale$LanguageRange;>;", $PUBLIC | $STATIC, $method(static_cast<$List*(*)($String*,$Map*)>(&Locale$LanguageRange::parse))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Locale$LanguageRange, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;D)V", nullptr, $PUBLIC, $method(Locale$LanguageRange, init$, void, $String*, double)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Locale$LanguageRange, equals, bool, Object$*)},
+	{"getRange", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(Locale$LanguageRange, getRange, $String*)},
+	{"getWeight", "()D", nullptr, $PUBLIC, $method(Locale$LanguageRange, getWeight, double)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Locale$LanguageRange, hashCode, int32_t)},
+	{"isSubtagIllFormed", "(Ljava/lang/String;Z)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Locale$LanguageRange, isSubtagIllFormed, bool, $String*, bool)},
+	{"mapEquivalents", "(Ljava/util/List;Ljava/util/Map;)Ljava/util/List;", "(Ljava/util/List<Ljava/util/Locale$LanguageRange;>;Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;)Ljava/util/List<Ljava/util/Locale$LanguageRange;>;", $PUBLIC | $STATIC, $staticMethod(Locale$LanguageRange, mapEquivalents, $List*, $List*, $Map*)},
+	{"parse", "(Ljava/lang/String;)Ljava/util/List;", "(Ljava/lang/String;)Ljava/util/List<Ljava/util/Locale$LanguageRange;>;", $PUBLIC | $STATIC, $staticMethod(Locale$LanguageRange, parse, $List*, $String*)},
+	{"parse", "(Ljava/lang/String;Ljava/util/Map;)Ljava/util/List;", "(Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;)Ljava/util/List<Ljava/util/Locale$LanguageRange;>;", $PUBLIC | $STATIC, $staticMethod(Locale$LanguageRange, parse, $List*, $String*, $Map*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Locale$LanguageRange, toString, $String*)},
 	{}
 };
 

@@ -16,10 +16,10 @@ $FieldInfo _IllegalArgumentException_FieldInfo_[] = {
 };
 
 $MethodInfo _IllegalArgumentException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(IllegalArgumentException::*)()>(&IllegalArgumentException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(IllegalArgumentException::*)($String*)>(&IllegalArgumentException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(IllegalArgumentException::*)($String*,$Throwable*)>(&IllegalArgumentException::init$))},
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(IllegalArgumentException::*)($Throwable*)>(&IllegalArgumentException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(IllegalArgumentException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(IllegalArgumentException, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(IllegalArgumentException, init$, void, $String*, $Throwable*)},
+	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(IllegalArgumentException, init$, void, $Throwable*)},
 	{}
 };
 

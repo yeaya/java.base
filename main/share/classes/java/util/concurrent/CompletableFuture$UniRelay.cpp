@@ -17,8 +17,8 @@ namespace java {
 		namespace concurrent {
 
 $MethodInfo _CompletableFuture$UniRelay_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/CompletableFuture;Ljava/util/concurrent/CompletableFuture;)V", "(Ljava/util/concurrent/CompletableFuture<TU;>;Ljava/util/concurrent/CompletableFuture<TT;>;)V", 0, $method(static_cast<void(CompletableFuture$UniRelay::*)($CompletableFuture*,$CompletableFuture*)>(&CompletableFuture$UniRelay::init$))},
-	{"tryFire", "(I)Ljava/util/concurrent/CompletableFuture;", "(I)Ljava/util/concurrent/CompletableFuture<TU;>;", $FINAL},
+	{"<init>", "(Ljava/util/concurrent/CompletableFuture;Ljava/util/concurrent/CompletableFuture;)V", "(Ljava/util/concurrent/CompletableFuture<TU;>;Ljava/util/concurrent/CompletableFuture<TT;>;)V", 0, $method(CompletableFuture$UniRelay, init$, void, $CompletableFuture*, $CompletableFuture*)},
+	{"tryFire", "(I)Ljava/util/concurrent/CompletableFuture;", "(I)Ljava/util/concurrent/CompletableFuture<TU;>;", $FINAL, $virtualMethod(CompletableFuture$UniRelay, tryFire, $CompletableFuture*, int32_t)},
 	{}
 };
 

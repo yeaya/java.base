@@ -20,8 +20,8 @@ $FieldInfo _Fields_FieldInfo_[] = {
 };
 
 $MethodInfo _Fields_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Fields::*)()>(&Fields::init$))},
-	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Fields, init$, void)},
+	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Fields, name, $String*)},
 	{}
 };
 

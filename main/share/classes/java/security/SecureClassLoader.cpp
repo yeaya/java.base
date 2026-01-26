@@ -40,14 +40,14 @@ $FieldInfo _SecureClassLoader_FieldInfo_[] = {
 };
 
 $MethodInfo _SecureClassLoader_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/ClassLoader;)V", nullptr, $PROTECTED, $method(static_cast<void(SecureClassLoader::*)($ClassLoader*)>(&SecureClassLoader::init$))},
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(SecureClassLoader::*)()>(&SecureClassLoader::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/ClassLoader;)V", nullptr, $PROTECTED, $method(static_cast<void(SecureClassLoader::*)($String*,$ClassLoader*)>(&SecureClassLoader::init$))},
-	{"defineClass", "(Ljava/lang/String;[BIILjava/security/CodeSource;)Ljava/lang/Class;", "(Ljava/lang/String;[BIILjava/security/CodeSource;)Ljava/lang/Class<*>;", $PROTECTED | $FINAL, $method(static_cast<$Class*(SecureClassLoader::*)($String*,$bytes*,int32_t,int32_t,$CodeSource*)>(&SecureClassLoader::defineClass))},
-	{"defineClass", "(Ljava/lang/String;Ljava/nio/ByteBuffer;Ljava/security/CodeSource;)Ljava/lang/Class;", "(Ljava/lang/String;Ljava/nio/ByteBuffer;Ljava/security/CodeSource;)Ljava/lang/Class<*>;", $PROTECTED | $FINAL, $method(static_cast<$Class*(SecureClassLoader::*)($String*,$ByteBuffer*,$CodeSource*)>(&SecureClassLoader::defineClass))},
-	{"getPermissions", "(Ljava/security/CodeSource;)Ljava/security/PermissionCollection;", nullptr, $PROTECTED},
-	{"getProtectionDomain", "(Ljava/security/CodeSource;)Ljava/security/ProtectionDomain;", nullptr, $PRIVATE, $method(static_cast<$ProtectionDomain*(SecureClassLoader::*)($CodeSource*)>(&SecureClassLoader::getProtectionDomain))},
-	{"resetArchivedStates", "()V", nullptr, $PRIVATE, $method(static_cast<void(SecureClassLoader::*)()>(&SecureClassLoader::resetArchivedStates))},
+	{"<init>", "(Ljava/lang/ClassLoader;)V", nullptr, $PROTECTED, $method(SecureClassLoader, init$, void, $ClassLoader*)},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(SecureClassLoader, init$, void)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/ClassLoader;)V", nullptr, $PROTECTED, $method(SecureClassLoader, init$, void, $String*, $ClassLoader*)},
+	{"defineClass", "(Ljava/lang/String;[BIILjava/security/CodeSource;)Ljava/lang/Class;", "(Ljava/lang/String;[BIILjava/security/CodeSource;)Ljava/lang/Class<*>;", $PROTECTED | $FINAL, $method(SecureClassLoader, defineClass, $Class*, $String*, $bytes*, int32_t, int32_t, $CodeSource*)},
+	{"defineClass", "(Ljava/lang/String;Ljava/nio/ByteBuffer;Ljava/security/CodeSource;)Ljava/lang/Class;", "(Ljava/lang/String;Ljava/nio/ByteBuffer;Ljava/security/CodeSource;)Ljava/lang/Class<*>;", $PROTECTED | $FINAL, $method(SecureClassLoader, defineClass, $Class*, $String*, $ByteBuffer*, $CodeSource*)},
+	{"getPermissions", "(Ljava/security/CodeSource;)Ljava/security/PermissionCollection;", nullptr, $PROTECTED, $virtualMethod(SecureClassLoader, getPermissions, $PermissionCollection*, $CodeSource*)},
+	{"getProtectionDomain", "(Ljava/security/CodeSource;)Ljava/security/ProtectionDomain;", nullptr, $PRIVATE, $method(SecureClassLoader, getProtectionDomain, $ProtectionDomain*, $CodeSource*)},
+	{"resetArchivedStates", "()V", nullptr, $PRIVATE, $method(SecureClassLoader, resetArchivedStates, void)},
 	{}
 };
 

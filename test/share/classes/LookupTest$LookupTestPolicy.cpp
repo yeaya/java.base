@@ -39,10 +39,10 @@ $FieldInfo _LookupTest$LookupTestPolicy_FieldInfo_[] = {
 };
 
 $MethodInfo _LookupTest$LookupTestPolicy_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(LookupTest$LookupTestPolicy::*)()>(&LookupTest$LookupTestPolicy::init$)), "java.lang.Exception"},
-	{"getPermissions", "(Ljava/security/ProtectionDomain;)Ljava/security/PermissionCollection;", nullptr, $PUBLIC},
-	{"getPermissions", "(Ljava/security/CodeSource;)Ljava/security/PermissionCollection;", nullptr, $PUBLIC},
-	{"implies", "(Ljava/security/ProtectionDomain;Ljava/security/Permission;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(LookupTest$LookupTestPolicy, init$, void), "java.lang.Exception"},
+	{"getPermissions", "(Ljava/security/ProtectionDomain;)Ljava/security/PermissionCollection;", nullptr, $PUBLIC, $virtualMethod(LookupTest$LookupTestPolicy, getPermissions, $PermissionCollection*, $ProtectionDomain*)},
+	{"getPermissions", "(Ljava/security/CodeSource;)Ljava/security/PermissionCollection;", nullptr, $PUBLIC, $virtualMethod(LookupTest$LookupTestPolicy, getPermissions, $PermissionCollection*, $CodeSource*)},
+	{"implies", "(Ljava/security/ProtectionDomain;Ljava/security/Permission;)Z", nullptr, $PUBLIC, $virtualMethod(LookupTest$LookupTestPolicy, implies, bool, $ProtectionDomain*, $Permission*)},
 	{}
 };
 

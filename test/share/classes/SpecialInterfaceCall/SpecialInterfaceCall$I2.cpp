@@ -13,12 +13,12 @@ using $MethodHandle = ::java::lang::invoke::MethodHandle;
 namespace SpecialInterfaceCall {
 
 $MethodInfo _SpecialInterfaceCall$I2_MethodInfo_[] = {
-	{"invokeDirect", "(LSpecialInterfaceCall/SpecialInterfaceCall$I2;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)(SpecialInterfaceCall$I2*)>(&SpecialInterfaceCall$I2::invokeDirect))},
-	{"invokeSpecialMH", "(LSpecialInterfaceCall/SpecialInterfaceCall$I2;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)(SpecialInterfaceCall$I2*)>(&SpecialInterfaceCall$I2::invokeSpecialMH)), "java.lang.Throwable"},
-	{"invokeSpecialObjectFinalMH", "(LSpecialInterfaceCall/SpecialInterfaceCall$I2;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)(SpecialInterfaceCall$I2*)>(&SpecialInterfaceCall$I2::invokeSpecialObjectFinalMH)), "java.lang.Throwable"},
-	{"invokeSpecialObjectMH", "(LSpecialInterfaceCall/SpecialInterfaceCall$I2;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)(SpecialInterfaceCall$I2*)>(&SpecialInterfaceCall$I2::invokeSpecialObjectMH)), "java.lang.Throwable"},
-	{"priv_m", "()V", nullptr, $PRIVATE, $method(static_cast<void(SpecialInterfaceCall$I2::*)()>(&SpecialInterfaceCall$I2::priv_m))},
-	{"pub_m", "()V", nullptr, $PUBLIC},
+	{"invokeDirect", "(LSpecialInterfaceCall/SpecialInterfaceCall$I2;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SpecialInterfaceCall$I2, invokeDirect, void, SpecialInterfaceCall$I2*)},
+	{"invokeSpecialMH", "(LSpecialInterfaceCall/SpecialInterfaceCall$I2;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SpecialInterfaceCall$I2, invokeSpecialMH, void, SpecialInterfaceCall$I2*), "java.lang.Throwable"},
+	{"invokeSpecialObjectFinalMH", "(LSpecialInterfaceCall/SpecialInterfaceCall$I2;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SpecialInterfaceCall$I2, invokeSpecialObjectFinalMH, void, SpecialInterfaceCall$I2*), "java.lang.Throwable"},
+	{"invokeSpecialObjectMH", "(LSpecialInterfaceCall/SpecialInterfaceCall$I2;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SpecialInterfaceCall$I2, invokeSpecialObjectMH, void, SpecialInterfaceCall$I2*), "java.lang.Throwable"},
+	{"priv_m", "()V", nullptr, $PRIVATE, $method(SpecialInterfaceCall$I2, priv_m, void)},
+	{"pub_m", "()V", nullptr, $PUBLIC, $virtualMethod(SpecialInterfaceCall$I2, pub_m, void)},
 	{}
 };
 

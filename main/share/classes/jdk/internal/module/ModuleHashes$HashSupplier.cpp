@@ -12,7 +12,7 @@ namespace jdk {
 		namespace module {
 
 $MethodInfo _ModuleHashes$HashSupplier_MethodInfo_[] = {
-	{"generate", "(Ljava/lang/String;)[B", nullptr, $PUBLIC | $ABSTRACT},
+	{"generate", "(Ljava/lang/String;)[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ModuleHashes$HashSupplier, generate, $bytes*, $String*)},
 	{}
 };
 

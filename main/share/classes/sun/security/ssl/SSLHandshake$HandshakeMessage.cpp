@@ -17,6 +17,7 @@ using $SSLException = ::javax::net::ssl::SSLException;
 using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
 using $HandshakeOutStream = ::sun::security::ssl::HandshakeOutStream;
 using $Record = ::sun::security::ssl::Record;
+using $SSLHandshake = ::sun::security::ssl::SSLHandshake;
 
 namespace sun {
 	namespace security {
@@ -28,11 +29,11 @@ $FieldInfo _SSLHandshake$HandshakeMessage_FieldInfo_[] = {
 };
 
 $MethodInfo _SSLHandshake$HandshakeMessage_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/ssl/HandshakeContext;)V", nullptr, 0, $method(static_cast<void(SSLHandshake$HandshakeMessage::*)($HandshakeContext*)>(&SSLHandshake$HandshakeMessage::init$))},
-	{"handshakeType", "()Lsun/security/ssl/SSLHandshake;", nullptr, $ABSTRACT},
-	{"messageLength", "()I", nullptr, $ABSTRACT},
-	{"send", "(Lsun/security/ssl/HandshakeOutStream;)V", nullptr, $ABSTRACT, nullptr, "java.io.IOException"},
-	{"write", "(Lsun/security/ssl/HandshakeOutStream;)V", nullptr, 0, nullptr, "java.io.IOException"},
+	{"<init>", "(Lsun/security/ssl/HandshakeContext;)V", nullptr, 0, $method(SSLHandshake$HandshakeMessage, init$, void, $HandshakeContext*)},
+	{"handshakeType", "()Lsun/security/ssl/SSLHandshake;", nullptr, $ABSTRACT, $virtualMethod(SSLHandshake$HandshakeMessage, handshakeType, $SSLHandshake*)},
+	{"messageLength", "()I", nullptr, $ABSTRACT, $virtualMethod(SSLHandshake$HandshakeMessage, messageLength, int32_t)},
+	{"send", "(Lsun/security/ssl/HandshakeOutStream;)V", nullptr, $ABSTRACT, $virtualMethod(SSLHandshake$HandshakeMessage, send, void, $HandshakeOutStream*), "java.io.IOException"},
+	{"write", "(Lsun/security/ssl/HandshakeOutStream;)V", nullptr, 0, $virtualMethod(SSLHandshake$HandshakeMessage, write, void, $HandshakeOutStream*), "java.io.IOException"},
 	{}
 };
 

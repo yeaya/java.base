@@ -32,9 +32,9 @@ using $BigDecimal = ::java::math::BigDecimal;
 using $BigInteger = ::java::math::BigInteger;
 
 $MethodInfo _SerializationTests_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SerializationTests::*)()>(&SerializationTests::init$))},
-	{"checkSerialForm", "(Ljava/math/BigDecimal;)V", nullptr, $STATIC, $method(static_cast<void(*)($BigDecimal*)>(&SerializationTests::checkSerialForm)), "java.lang.Exception"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&SerializationTests::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SerializationTests, init$, void)},
+	{"checkSerialForm", "(Ljava/math/BigDecimal;)V", nullptr, $STATIC, $staticMethod(SerializationTests, checkSerialForm, void, $BigDecimal*), "java.lang.Exception"},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SerializationTests, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

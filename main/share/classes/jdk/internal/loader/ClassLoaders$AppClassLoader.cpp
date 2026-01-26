@@ -38,12 +38,12 @@ namespace jdk {
 		namespace loader {
 
 $MethodInfo _ClassLoaders$AppClassLoader_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/loader/BuiltinClassLoader;Ljdk/internal/loader/URLClassPath;)V", nullptr, 0, $method(static_cast<void(ClassLoaders$AppClassLoader::*)($BuiltinClassLoader*,$URLClassPath*)>(&ClassLoaders$AppClassLoader::init$))},
-	{"appendToClassPathForInstrumentation", "(Ljava/lang/String;)V", nullptr, 0},
-	{"defineOrCheckPackage", "(Ljava/lang/String;Ljava/util/jar/Manifest;Ljava/net/URL;)Ljava/lang/Package;", nullptr, $PROTECTED},
-	{"getPermissions", "(Ljava/security/CodeSource;)Ljava/security/PermissionCollection;", nullptr, $PROTECTED},
-	{"loadClass", "(Ljava/lang/String;Z)Ljava/lang/Class;", "(Ljava/lang/String;Z)Ljava/lang/Class<*>;", $PROTECTED, nullptr, "java.lang.ClassNotFoundException"},
-	{"resetArchivedStates", "()V", nullptr, $PRIVATE, $method(static_cast<void(ClassLoaders$AppClassLoader::*)()>(&ClassLoaders$AppClassLoader::resetArchivedStates))},
+	{"<init>", "(Ljdk/internal/loader/BuiltinClassLoader;Ljdk/internal/loader/URLClassPath;)V", nullptr, 0, $method(ClassLoaders$AppClassLoader, init$, void, $BuiltinClassLoader*, $URLClassPath*)},
+	{"appendToClassPathForInstrumentation", "(Ljava/lang/String;)V", nullptr, 0, $virtualMethod(ClassLoaders$AppClassLoader, appendToClassPathForInstrumentation, void, $String*)},
+	{"defineOrCheckPackage", "(Ljava/lang/String;Ljava/util/jar/Manifest;Ljava/net/URL;)Ljava/lang/Package;", nullptr, $PROTECTED, $virtualMethod(ClassLoaders$AppClassLoader, defineOrCheckPackage, $Package*, $String*, $Manifest*, $URL*)},
+	{"getPermissions", "(Ljava/security/CodeSource;)Ljava/security/PermissionCollection;", nullptr, $PROTECTED, $virtualMethod(ClassLoaders$AppClassLoader, getPermissions, $PermissionCollection*, $CodeSource*)},
+	{"loadClass", "(Ljava/lang/String;Z)Ljava/lang/Class;", "(Ljava/lang/String;Z)Ljava/lang/Class<*>;", $PROTECTED, $virtualMethod(ClassLoaders$AppClassLoader, loadClass, $Class*, $String*, bool), "java.lang.ClassNotFoundException"},
+	{"resetArchivedStates", "()V", nullptr, $PRIVATE, $method(ClassLoaders$AppClassLoader, resetArchivedStates, void)},
 	{}
 };
 

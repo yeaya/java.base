@@ -16,7 +16,7 @@ $MethodInfo _MethodAccessorImpl_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(MethodAccessorImpl::*)()>(&MethodAccessorImpl::init$))},
+	{"<init>", "()V", nullptr, 0, $method(MethodAccessorImpl, init$, void)},
 	{"invoke", "(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}

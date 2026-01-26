@@ -16,8 +16,8 @@ $FieldInfo _TestUndefinedMirrored_FieldInfo_[] = {
 };
 
 $MethodInfo _TestUndefinedMirrored_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TestUndefinedMirrored::*)()>(&TestUndefinedMirrored::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&TestUndefinedMirrored::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TestUndefinedMirrored, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TestUndefinedMirrored, main, void, $StringArray*)},
 	{}
 };
 

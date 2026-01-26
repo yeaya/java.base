@@ -24,8 +24,8 @@ $FieldInfo _SystemModuleFinders$2_FieldInfo_[] = {
 };
 
 $MethodInfo _SystemModuleFinders$2_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/net/URI;)V", nullptr, 0, $method(static_cast<void(SystemModuleFinders$2::*)($String*,$URI*)>(&SystemModuleFinders$2::init$))},
-	{"get", "()Ljava/lang/module/ModuleReader;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Ljava/net/URI;)V", nullptr, 0, $method(SystemModuleFinders$2, init$, void, $String*, $URI*)},
+	{"get", "()Ljava/lang/module/ModuleReader;", nullptr, $PUBLIC, $virtualMethod(SystemModuleFinders$2, get, $Object*)},
 	{}
 };
 

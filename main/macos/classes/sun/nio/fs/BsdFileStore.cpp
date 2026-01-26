@@ -45,12 +45,12 @@ namespace sun {
 		namespace fs {
 
 $MethodInfo _BsdFileStore_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/fs/UnixPath;)V", nullptr, 0, $method(static_cast<void(BsdFileStore::*)($UnixPath*)>(&BsdFileStore::init$)), "java.io.IOException"},
-	{"<init>", "(Lsun/nio/fs/UnixFileSystem;Lsun/nio/fs/UnixMountEntry;)V", nullptr, 0, $method(static_cast<void(BsdFileStore::*)($UnixFileSystem*,$UnixMountEntry*)>(&BsdFileStore::init$)), "java.io.IOException"},
-	{"findMountEntry", "()Lsun/nio/fs/UnixMountEntry;", nullptr, 0, nullptr, "java.io.IOException"},
-	{"isOsVersionGte", "(II)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)(int32_t,int32_t)>(&BsdFileStore::isOsVersionGte))},
-	{"supportsFileAttributeView", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<+Ljava/nio/file/attribute/FileAttributeView;>;)Z", $PUBLIC},
-	{"supportsFileAttributeView", "(Ljava/lang/String;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/nio/fs/UnixPath;)V", nullptr, 0, $method(BsdFileStore, init$, void, $UnixPath*), "java.io.IOException"},
+	{"<init>", "(Lsun/nio/fs/UnixFileSystem;Lsun/nio/fs/UnixMountEntry;)V", nullptr, 0, $method(BsdFileStore, init$, void, $UnixFileSystem*, $UnixMountEntry*), "java.io.IOException"},
+	{"findMountEntry", "()Lsun/nio/fs/UnixMountEntry;", nullptr, 0, $virtualMethod(BsdFileStore, findMountEntry, $UnixMountEntry*), "java.io.IOException"},
+	{"isOsVersionGte", "(II)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(BsdFileStore, isOsVersionGte, bool, int32_t, int32_t)},
+	{"supportsFileAttributeView", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<+Ljava/nio/file/attribute/FileAttributeView;>;)Z", $PUBLIC, $virtualMethod(BsdFileStore, supportsFileAttributeView, bool, $Class*)},
+	{"supportsFileAttributeView", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(BsdFileStore, supportsFileAttributeView, bool, $String*)},
 	{}
 };
 

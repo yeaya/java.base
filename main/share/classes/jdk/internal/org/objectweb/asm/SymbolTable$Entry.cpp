@@ -23,11 +23,11 @@ $FieldInfo _SymbolTable$Entry_FieldInfo_[] = {
 };
 
 $MethodInfo _SymbolTable$Entry_MethodInfo_[] = {
-	{"<init>", "(IILjava/lang/String;Ljava/lang/String;Ljava/lang/String;JI)V", nullptr, 0, $method(static_cast<void(SymbolTable$Entry::*)(int32_t,int32_t,$String*,$String*,$String*,int64_t,int32_t)>(&SymbolTable$Entry::init$))},
-	{"<init>", "(IILjava/lang/String;I)V", nullptr, 0, $method(static_cast<void(SymbolTable$Entry::*)(int32_t,int32_t,$String*,int32_t)>(&SymbolTable$Entry::init$))},
-	{"<init>", "(IILjava/lang/String;JI)V", nullptr, 0, $method(static_cast<void(SymbolTable$Entry::*)(int32_t,int32_t,$String*,int64_t,int32_t)>(&SymbolTable$Entry::init$))},
-	{"<init>", "(IILjava/lang/String;Ljava/lang/String;I)V", nullptr, 0, $method(static_cast<void(SymbolTable$Entry::*)(int32_t,int32_t,$String*,$String*,int32_t)>(&SymbolTable$Entry::init$))},
-	{"<init>", "(IIJI)V", nullptr, 0, $method(static_cast<void(SymbolTable$Entry::*)(int32_t,int32_t,int64_t,int32_t)>(&SymbolTable$Entry::init$))},
+	{"<init>", "(IILjava/lang/String;Ljava/lang/String;Ljava/lang/String;JI)V", nullptr, 0, $method(SymbolTable$Entry, init$, void, int32_t, int32_t, $String*, $String*, $String*, int64_t, int32_t)},
+	{"<init>", "(IILjava/lang/String;I)V", nullptr, 0, $method(SymbolTable$Entry, init$, void, int32_t, int32_t, $String*, int32_t)},
+	{"<init>", "(IILjava/lang/String;JI)V", nullptr, 0, $method(SymbolTable$Entry, init$, void, int32_t, int32_t, $String*, int64_t, int32_t)},
+	{"<init>", "(IILjava/lang/String;Ljava/lang/String;I)V", nullptr, 0, $method(SymbolTable$Entry, init$, void, int32_t, int32_t, $String*, $String*, int32_t)},
+	{"<init>", "(IIJI)V", nullptr, 0, $method(SymbolTable$Entry, init$, void, int32_t, int32_t, int64_t, int32_t)},
 	{}
 };
 

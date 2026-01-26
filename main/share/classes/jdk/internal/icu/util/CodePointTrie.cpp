@@ -173,19 +173,19 @@ $FieldInfo _CodePointTrie_FieldInfo_[] = {
 };
 
 $MethodInfo _CodePointTrie_MethodInfo_[] = {
-	{"<init>", "([CLjdk/internal/icu/util/CodePointTrie$Data;III)V", nullptr, $PRIVATE, $method(static_cast<void(CodePointTrie::*)($chars*,$CodePointTrie$Data*,int32_t,int32_t,int32_t)>(&CodePointTrie::init$))},
-	{"asciiGet", "(I)I", nullptr, $PUBLIC | $FINAL, $method(static_cast<int32_t(CodePointTrie::*)(int32_t)>(&CodePointTrie::asciiGet))},
-	{"cpIndex", "(I)I", nullptr, $PROTECTED | $ABSTRACT | $DEPRECATED, nullptr, nullptr, nullptr, _CodePointTrie_MethodAnnotations_cpIndex2},
-	{"fastIndex", "(I)I", nullptr, $PROTECTED | $FINAL | $DEPRECATED, $method(static_cast<int32_t(CodePointTrie::*)(int32_t)>(&CodePointTrie::fastIndex)), nullptr, nullptr, _CodePointTrie_MethodAnnotations_fastIndex3},
-	{"fromBinary", "(Ljdk/internal/icu/util/CodePointTrie$Type;Ljdk/internal/icu/util/CodePointTrie$ValueWidth;Ljava/nio/ByteBuffer;)Ljdk/internal/icu/util/CodePointTrie;", nullptr, $PUBLIC | $STATIC, $method(static_cast<CodePointTrie*(*)($CodePointTrie$Type*,$CodePointTrie$ValueWidth*,$ByteBuffer*)>(&CodePointTrie::fromBinary))},
-	{"get", "(I)I", nullptr, $PUBLIC},
-	{"getRange", "(ILjdk/internal/icu/util/CodePointMap$ValueFilter;Ljdk/internal/icu/util/CodePointMap$Range;)Z", nullptr, $PUBLIC | $FINAL},
-	{"getType", "()Ljdk/internal/icu/util/CodePointTrie$Type;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getValueWidth", "()Ljdk/internal/icu/util/CodePointTrie$ValueWidth;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$CodePointTrie$ValueWidth*(CodePointTrie::*)()>(&CodePointTrie::getValueWidth))},
-	{"internalSmallIndex", "(Ljdk/internal/icu/util/CodePointTrie$Type;I)I", nullptr, $PRIVATE | $FINAL, $method(static_cast<int32_t(CodePointTrie::*)($CodePointTrie$Type*,int32_t)>(&CodePointTrie::internalSmallIndex))},
-	{"maybeFilterValue", "(IIILjdk/internal/icu/util/CodePointMap$ValueFilter;)I", nullptr, $PRIVATE | $STATIC | $FINAL, $method(static_cast<int32_t(*)(int32_t,int32_t,int32_t,$CodePointMap$ValueFilter*)>(&CodePointTrie::maybeFilterValue))},
-	{"smallIndex", "(Ljdk/internal/icu/util/CodePointTrie$Type;I)I", nullptr, $PROTECTED | $FINAL | $DEPRECATED, $method(static_cast<int32_t(CodePointTrie::*)($CodePointTrie$Type*,int32_t)>(&CodePointTrie::smallIndex)), nullptr, nullptr, _CodePointTrie_MethodAnnotations_smallIndex11},
-	{"toBinary", "(Ljava/io/OutputStream;)I", nullptr, $PUBLIC | $FINAL, $method(static_cast<int32_t(CodePointTrie::*)($OutputStream*)>(&CodePointTrie::toBinary))},
+	{"<init>", "([CLjdk/internal/icu/util/CodePointTrie$Data;III)V", nullptr, $PRIVATE, $method(CodePointTrie, init$, void, $chars*, $CodePointTrie$Data*, int32_t, int32_t, int32_t)},
+	{"asciiGet", "(I)I", nullptr, $PUBLIC | $FINAL, $method(CodePointTrie, asciiGet, int32_t, int32_t)},
+	{"cpIndex", "(I)I", nullptr, $PROTECTED | $ABSTRACT | $DEPRECATED, $virtualMethod(CodePointTrie, cpIndex, int32_t, int32_t), nullptr, nullptr, _CodePointTrie_MethodAnnotations_cpIndex2},
+	{"fastIndex", "(I)I", nullptr, $PROTECTED | $FINAL | $DEPRECATED, $method(CodePointTrie, fastIndex, int32_t, int32_t), nullptr, nullptr, _CodePointTrie_MethodAnnotations_fastIndex3},
+	{"fromBinary", "(Ljdk/internal/icu/util/CodePointTrie$Type;Ljdk/internal/icu/util/CodePointTrie$ValueWidth;Ljava/nio/ByteBuffer;)Ljdk/internal/icu/util/CodePointTrie;", nullptr, $PUBLIC | $STATIC, $staticMethod(CodePointTrie, fromBinary, CodePointTrie*, $CodePointTrie$Type*, $CodePointTrie$ValueWidth*, $ByteBuffer*)},
+	{"get", "(I)I", nullptr, $PUBLIC, $virtualMethod(CodePointTrie, get, int32_t, int32_t)},
+	{"getRange", "(ILjdk/internal/icu/util/CodePointMap$ValueFilter;Ljdk/internal/icu/util/CodePointMap$Range;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(CodePointTrie, getRange, bool, int32_t, $CodePointMap$ValueFilter*, $CodePointMap$Range*)},
+	{"getType", "()Ljdk/internal/icu/util/CodePointTrie$Type;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CodePointTrie, getType, $CodePointTrie$Type*)},
+	{"getValueWidth", "()Ljdk/internal/icu/util/CodePointTrie$ValueWidth;", nullptr, $PUBLIC | $FINAL, $method(CodePointTrie, getValueWidth, $CodePointTrie$ValueWidth*)},
+	{"internalSmallIndex", "(Ljdk/internal/icu/util/CodePointTrie$Type;I)I", nullptr, $PRIVATE | $FINAL, $method(CodePointTrie, internalSmallIndex, int32_t, $CodePointTrie$Type*, int32_t)},
+	{"maybeFilterValue", "(IIILjdk/internal/icu/util/CodePointMap$ValueFilter;)I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(CodePointTrie, maybeFilterValue, int32_t, int32_t, int32_t, int32_t, $CodePointMap$ValueFilter*)},
+	{"smallIndex", "(Ljdk/internal/icu/util/CodePointTrie$Type;I)I", nullptr, $PROTECTED | $FINAL | $DEPRECATED, $method(CodePointTrie, smallIndex, int32_t, $CodePointTrie$Type*, int32_t), nullptr, nullptr, _CodePointTrie_MethodAnnotations_smallIndex11},
+	{"toBinary", "(Ljava/io/OutputStream;)I", nullptr, $PUBLIC | $FINAL, $method(CodePointTrie, toBinary, int32_t, $OutputStream*)},
 	{}
 };
 

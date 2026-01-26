@@ -36,7 +36,7 @@ $FieldInfo _SignatureUtil$EdDSADigestAlgHolder_FieldInfo_[] = {
 };
 
 $MethodInfo _SignatureUtil$EdDSADigestAlgHolder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SignatureUtil$EdDSADigestAlgHolder::*)()>(&SignatureUtil$EdDSADigestAlgHolder::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SignatureUtil$EdDSADigestAlgHolder, init$, void)},
 	{}
 };
 

@@ -42,8 +42,8 @@ $FieldInfo _DefaultProxySelector$3_FieldInfo_[] = {
 };
 
 $MethodInfo _DefaultProxySelector$3_MethodInfo_[] = {
-	{"<init>", "(Lsun/net/spi/DefaultProxySelector;Ljava/lang/String;Ljava/lang/String;Lsun/net/spi/DefaultProxySelector$NonProxyInfo;)V", "()V", 0, $method(static_cast<void(DefaultProxySelector$3::*)($DefaultProxySelector*,$String*,$String*,$DefaultProxySelector$NonProxyInfo*)>(&DefaultProxySelector$3::init$))},
-	{"run", "()[Ljava/net/Proxy;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/net/spi/DefaultProxySelector;Ljava/lang/String;Ljava/lang/String;Lsun/net/spi/DefaultProxySelector$NonProxyInfo;)V", "()V", 0, $method(DefaultProxySelector$3, init$, void, $DefaultProxySelector*, $String*, $String*, $DefaultProxySelector$NonProxyInfo*)},
+	{"run", "()[Ljava/net/Proxy;", nullptr, $PUBLIC, $virtualMethod(DefaultProxySelector$3, run, $Object*)},
 	{}
 };
 

@@ -28,16 +28,16 @@ $FieldInfo _CipherFeedback_FieldInfo_[] = {
 };
 
 $MethodInfo _CipherFeedback_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/crypto/provider/SymmetricCipher;I)V", nullptr, 0, $method(static_cast<void(CipherFeedback::*)($SymmetricCipher*,int32_t)>(&CipherFeedback::init$))},
-	{"decrypt", "([BII[BI)I", nullptr, 0},
-	{"decryptFinal", "([BII[BI)I", nullptr, 0},
-	{"encrypt", "([BII[BI)I", nullptr, 0},
-	{"encryptFinal", "([BII[BI)I", nullptr, 0},
-	{"getFeedback", "()Ljava/lang/String;", nullptr, 0},
-	{"init", "(ZLjava/lang/String;[B[B)V", nullptr, 0, nullptr, "java.security.InvalidKeyException"},
-	{"reset", "()V", nullptr, 0},
-	{"restore", "()V", nullptr, 0},
-	{"save", "()V", nullptr, 0},
+	{"<init>", "(Lcom/sun/crypto/provider/SymmetricCipher;I)V", nullptr, 0, $method(CipherFeedback, init$, void, $SymmetricCipher*, int32_t)},
+	{"decrypt", "([BII[BI)I", nullptr, 0, $virtualMethod(CipherFeedback, decrypt, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t)},
+	{"decryptFinal", "([BII[BI)I", nullptr, 0, $virtualMethod(CipherFeedback, decryptFinal, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t)},
+	{"encrypt", "([BII[BI)I", nullptr, 0, $virtualMethod(CipherFeedback, encrypt, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t)},
+	{"encryptFinal", "([BII[BI)I", nullptr, 0, $virtualMethod(CipherFeedback, encryptFinal, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t)},
+	{"getFeedback", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(CipherFeedback, getFeedback, $String*)},
+	{"init", "(ZLjava/lang/String;[B[B)V", nullptr, 0, $virtualMethod(CipherFeedback, init, void, bool, $String*, $bytes*, $bytes*), "java.security.InvalidKeyException"},
+	{"reset", "()V", nullptr, 0, $virtualMethod(CipherFeedback, reset, void)},
+	{"restore", "()V", nullptr, 0, $virtualMethod(CipherFeedback, restore, void)},
+	{"save", "()V", nullptr, 0, $virtualMethod(CipherFeedback, save, void)},
 	{}
 };
 

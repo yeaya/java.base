@@ -196,8 +196,8 @@ $FieldInfo System$$Lambda$getProtectionDomain::fieldInfos[2] = {
 	{}
 };
 $MethodInfo System$$Lambda$getProtectionDomain::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/Class;)V", nullptr, $PUBLIC, $method(static_cast<void(System$$Lambda$getProtectionDomain::*)($Class*)>(&System$$Lambda$getProtectionDomain::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Class;)V", nullptr, $PUBLIC, $method(System$$Lambda$getProtectionDomain, init$, void, $Class*)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(System$$Lambda$getProtectionDomain, run, $Object*)},
 	{}
 };
 $ClassInfo System$$Lambda$getProtectionDomain::classInfo$ = {
@@ -242,8 +242,8 @@ $FieldInfo System$$Lambda$lambda$getLogger$0$1::fieldInfos[4] = {
 	{}
 };
 $MethodInfo System$$Lambda$lambda$getLogger$0$1::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;Ljava/util/ResourceBundle;Ljava/lang/Class;)V", nullptr, $PUBLIC, $method(static_cast<void(System$$Lambda$lambda$getLogger$0$1::*)($String*,$ResourceBundle*,$Class*)>(&System$$Lambda$lambda$getLogger$0$1::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Ljava/util/ResourceBundle;Ljava/lang/Class;)V", nullptr, $PUBLIC, $method(System$$Lambda$lambda$getLogger$0$1, init$, void, $String*, $ResourceBundle*, $Class*)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(System$$Lambda$lambda$getLogger$0$1, run, $Object*)},
 	{}
 };
 $ClassInfo System$$Lambda$lambda$getLogger$0$1::classInfo$ = {
@@ -350,53 +350,53 @@ $FieldInfo _System_FieldInfo_[] = {
 };
 
 $MethodInfo _System_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(System::*)()>(&System::init$))},
-	{"allowSecurityManager", "()Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)()>(&System::allowSecurityManager))},
-	{"arraycopy", "(Ljava/lang/Object;ILjava/lang/Object;II)V", nullptr, $PUBLIC | $STATIC | $NATIVE, $method(static_cast<void(*)(Object$*,int32_t,Object$*,int32_t,int32_t)>(&System::arraycopy)), nullptr, nullptr, _System_MethodAnnotations_arraycopy2},
-	{"checkIO", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&System::checkIO))},
-	{"checkKey", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($String*)>(&System::checkKey))},
-	{"clearProperty", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)($String*)>(&System::clearProperty))},
-	{"codeSource", "(Ljava/lang/Class;)Ljava/net/URL;", "(Ljava/lang/Class<*>;)Ljava/net/URL;", $PRIVATE | $STATIC, $method(static_cast<$URL*(*)($Class*)>(&System::codeSource))},
-	{"console", "()Ljava/io/Console;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Console*(*)()>(&System::console))},
-	{"createProperties", "(Ljava/util/Map;)Ljava/util/Properties;", "(Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;)Ljava/util/Properties;", $PRIVATE | $STATIC, $method(static_cast<$Properties*(*)($Map*)>(&System::createProperties))},
-	{"currentTimeMillis", "()J", nullptr, $PUBLIC | $STATIC | $NATIVE, $method(static_cast<int64_t(*)()>(&System::currentTimeMillis)), nullptr, nullptr, _System_MethodAnnotations_currentTimeMillis9},
-	{"exit", "(I)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)(int32_t)>(&System::exit))},
-	{"gc", "()V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)()>(&System::gc))},
-	{"getLogger", "(Ljava/lang/String;)Ljava/lang/System$Logger;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$System$Logger*(*)($String*)>(&System::getLogger)), nullptr, nullptr, _System_MethodAnnotations_getLogger12},
-	{"getLogger", "(Ljava/lang/String;Ljava/util/ResourceBundle;)Ljava/lang/System$Logger;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$System$Logger*(*)($String*,$ResourceBundle*)>(&System::getLogger)), nullptr, nullptr, _System_MethodAnnotations_getLogger13},
-	{"getProperties", "()Ljava/util/Properties;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Properties*(*)()>(&System::getProperties))},
-	{"getProperty", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)($String*)>(&System::getProperty))},
-	{"getProperty", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)($String*,$String*)>(&System::getProperty))},
-	{"getSecurityManager", "()Ljava/lang/SecurityManager;", nullptr, $PUBLIC | $STATIC | $DEPRECATED, $method(static_cast<$SecurityManager*(*)()>(&System::getSecurityManager)), nullptr, nullptr, _System_MethodAnnotations_getSecurityManager17},
-	{"getenv", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)($String*)>(&System::getenv))},
-	{"getenv", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PUBLIC | $STATIC, $method(static_cast<$Map*(*)()>(&System::getenv))},
-	{"identityHashCode", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $STATIC | $NATIVE, $method(static_cast<int32_t(*)(Object$*)>(&System::identityHashCode)), nullptr, nullptr, _System_MethodAnnotations_identityHashCode20},
-	{"implSetSecurityManager", "(Ljava/lang/SecurityManager;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($SecurityManager*)>(&System::implSetSecurityManager))},
-	{"inheritedChannel", "()Ljava/nio/channels/Channel;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Channel*(*)()>(&System::inheritedChannel)), "java.io.IOException"},
-	{"initPhase1", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&System::initPhase1))},
-	{"initPhase2", "(ZZ)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)(bool,bool)>(&System::initPhase2))},
-	{"initPhase3", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&System::initPhase3))},
-	{"lambda$getLogger$0", "(Ljava/lang/String;Ljava/util/ResourceBundle;Ljava/lang/Class;)Ljava/lang/System$Logger;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$System$Logger*(*)($String*,$ResourceBundle*,$Class*)>(&System::lambda$getLogger$0))},
-	{"lineSeparator", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)()>(&System::lineSeparator))},
-	{"load", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($String*)>(&System::load)), nullptr, nullptr, _System_MethodAnnotations_load28},
-	{"loadLibrary", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($String*)>(&System::loadLibrary)), nullptr, nullptr, _System_MethodAnnotations_loadLibrary29},
-	{"logInitException", "(ZZLjava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)(bool,bool,$String*,$Throwable*)>(&System::logInitException))},
-	{"mapLibraryName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $NATIVE, $method(static_cast<$String*(*)($String*)>(&System::mapLibraryName))},
-	{"nanoTime", "()J", nullptr, $PUBLIC | $STATIC | $NATIVE, $method(static_cast<int64_t(*)()>(&System::nanoTime)), nullptr, nullptr, _System_MethodAnnotations_nanoTime32},
-	{"newPrintStream", "(Ljava/io/FileOutputStream;Ljava/lang/String;)Ljava/io/PrintStream;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$PrintStream*(*)($FileOutputStream*,$String*)>(&System::newPrintStream))},
-	{"registerNatives", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $method(static_cast<void(*)()>(&System::registerNatives))},
-	{"runFinalization", "()V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)()>(&System::runFinalization))},
-	{"setErr", "(Ljava/io/PrintStream;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($PrintStream*)>(&System::setErr))},
-	{"setErr0", "(Ljava/io/PrintStream;)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $method(static_cast<void(*)($PrintStream*)>(&System::setErr0))},
-	{"setIn", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($InputStream*)>(&System::setIn))},
-	{"setIn0", "(Ljava/io/InputStream;)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $method(static_cast<void(*)($InputStream*)>(&System::setIn0))},
-	{"setJavaLangAccess", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&System::setJavaLangAccess))},
-	{"setOut", "(Ljava/io/PrintStream;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($PrintStream*)>(&System::setOut))},
-	{"setOut0", "(Ljava/io/PrintStream;)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $method(static_cast<void(*)($PrintStream*)>(&System::setOut0))},
-	{"setProperties", "(Ljava/util/Properties;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($Properties*)>(&System::setProperties))},
-	{"setProperty", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)($String*,$String*)>(&System::setProperty))},
-	{"setSecurityManager", "(Ljava/lang/SecurityManager;)V", nullptr, $PUBLIC | $STATIC | $DEPRECATED, $method(static_cast<void(*)($SecurityManager*)>(&System::setSecurityManager)), nullptr, nullptr, _System_MethodAnnotations_setSecurityManager45},
-	{"setSecurityManager0", "(Ljava/lang/SecurityManager;)V", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $method(static_cast<void(*)($SecurityManager*)>(&System::setSecurityManager0))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(System, init$, void)},
+	{"allowSecurityManager", "()Z", nullptr, $PRIVATE | $STATIC, $staticMethod(System, allowSecurityManager, bool)},
+	{"arraycopy", "(Ljava/lang/Object;ILjava/lang/Object;II)V", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(System, arraycopy, void, Object$*, int32_t, Object$*, int32_t, int32_t), nullptr, nullptr, _System_MethodAnnotations_arraycopy2},
+	{"checkIO", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(System, checkIO, void)},
+	{"checkKey", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(System, checkKey, void, $String*)},
+	{"clearProperty", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(System, clearProperty, $String*, $String*)},
+	{"codeSource", "(Ljava/lang/Class;)Ljava/net/URL;", "(Ljava/lang/Class<*>;)Ljava/net/URL;", $PRIVATE | $STATIC, $staticMethod(System, codeSource, $URL*, $Class*)},
+	{"console", "()Ljava/io/Console;", nullptr, $PUBLIC | $STATIC, $staticMethod(System, console, $Console*)},
+	{"createProperties", "(Ljava/util/Map;)Ljava/util/Properties;", "(Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;)Ljava/util/Properties;", $PRIVATE | $STATIC, $staticMethod(System, createProperties, $Properties*, $Map*)},
+	{"currentTimeMillis", "()J", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(System, currentTimeMillis, int64_t), nullptr, nullptr, _System_MethodAnnotations_currentTimeMillis9},
+	{"exit", "(I)V", nullptr, $PUBLIC | $STATIC, $staticMethod(System, exit, void, int32_t)},
+	{"gc", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(System, gc, void)},
+	{"getLogger", "(Ljava/lang/String;)Ljava/lang/System$Logger;", nullptr, $PUBLIC | $STATIC, $staticMethod(System, getLogger, $System$Logger*, $String*), nullptr, nullptr, _System_MethodAnnotations_getLogger12},
+	{"getLogger", "(Ljava/lang/String;Ljava/util/ResourceBundle;)Ljava/lang/System$Logger;", nullptr, $PUBLIC | $STATIC, $staticMethod(System, getLogger, $System$Logger*, $String*, $ResourceBundle*), nullptr, nullptr, _System_MethodAnnotations_getLogger13},
+	{"getProperties", "()Ljava/util/Properties;", nullptr, $PUBLIC | $STATIC, $staticMethod(System, getProperties, $Properties*)},
+	{"getProperty", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(System, getProperty, $String*, $String*)},
+	{"getProperty", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(System, getProperty, $String*, $String*, $String*)},
+	{"getSecurityManager", "()Ljava/lang/SecurityManager;", nullptr, $PUBLIC | $STATIC | $DEPRECATED, $staticMethod(System, getSecurityManager, $SecurityManager*), nullptr, nullptr, _System_MethodAnnotations_getSecurityManager17},
+	{"getenv", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(System, getenv, $String*, $String*)},
+	{"getenv", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PUBLIC | $STATIC, $staticMethod(System, getenv, $Map*)},
+	{"identityHashCode", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(System, identityHashCode, int32_t, Object$*), nullptr, nullptr, _System_MethodAnnotations_identityHashCode20},
+	{"implSetSecurityManager", "(Ljava/lang/SecurityManager;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(System, implSetSecurityManager, void, $SecurityManager*)},
+	{"inheritedChannel", "()Ljava/nio/channels/Channel;", nullptr, $PUBLIC | $STATIC, $staticMethod(System, inheritedChannel, $Channel*), "java.io.IOException"},
+	{"initPhase1", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(System, initPhase1, void)},
+	{"initPhase2", "(ZZ)I", nullptr, $PRIVATE | $STATIC, $staticMethod(System, initPhase2, int32_t, bool, bool)},
+	{"initPhase3", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(System, initPhase3, void)},
+	{"lambda$getLogger$0", "(Ljava/lang/String;Ljava/util/ResourceBundle;Ljava/lang/Class;)Ljava/lang/System$Logger;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(System, lambda$getLogger$0, $System$Logger*, $String*, $ResourceBundle*, $Class*)},
+	{"lineSeparator", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(System, lineSeparator, $String*)},
+	{"load", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(System, load, void, $String*), nullptr, nullptr, _System_MethodAnnotations_load28},
+	{"loadLibrary", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(System, loadLibrary, void, $String*), nullptr, nullptr, _System_MethodAnnotations_loadLibrary29},
+	{"logInitException", "(ZZLjava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(System, logInitException, void, bool, bool, $String*, $Throwable*)},
+	{"mapLibraryName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(System, mapLibraryName, $String*, $String*)},
+	{"nanoTime", "()J", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(System, nanoTime, int64_t), nullptr, nullptr, _System_MethodAnnotations_nanoTime32},
+	{"newPrintStream", "(Ljava/io/FileOutputStream;Ljava/lang/String;)Ljava/io/PrintStream;", nullptr, $PRIVATE | $STATIC, $staticMethod(System, newPrintStream, $PrintStream*, $FileOutputStream*, $String*)},
+	{"registerNatives", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(System, registerNatives, void)},
+	{"runFinalization", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(System, runFinalization, void)},
+	{"setErr", "(Ljava/io/PrintStream;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(System, setErr, void, $PrintStream*)},
+	{"setErr0", "(Ljava/io/PrintStream;)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(System, setErr0, void, $PrintStream*)},
+	{"setIn", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(System, setIn, void, $InputStream*)},
+	{"setIn0", "(Ljava/io/InputStream;)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(System, setIn0, void, $InputStream*)},
+	{"setJavaLangAccess", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(System, setJavaLangAccess, void)},
+	{"setOut", "(Ljava/io/PrintStream;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(System, setOut, void, $PrintStream*)},
+	{"setOut0", "(Ljava/io/PrintStream;)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(System, setOut0, void, $PrintStream*)},
+	{"setProperties", "(Ljava/util/Properties;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(System, setProperties, void, $Properties*)},
+	{"setProperty", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(System, setProperty, $String*, $String*, $String*)},
+	{"setSecurityManager", "(Ljava/lang/SecurityManager;)V", nullptr, $PUBLIC | $STATIC | $DEPRECATED, $staticMethod(System, setSecurityManager, void, $SecurityManager*), nullptr, nullptr, _System_MethodAnnotations_setSecurityManager45},
+	{"setSecurityManager0", "(Ljava/lang/SecurityManager;)V", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(System, setSecurityManager0, void, $SecurityManager*)},
 	{}
 };
 
@@ -583,11 +583,11 @@ $SecurityManager* System::getSecurityManager() {
 }
 
 int64_t System::currentTimeMillis() {
-	return ::Platform::getTimeMillis();
+	return Platform::getTimeMillis();
 }
 
 int64_t System::nanoTime() {
-	return ::Platform::getTimeNanos();
+	return Platform::getTimeNanos();
 }
 
 void System::arraycopy(Object$* src, int32_t srcPos, Object$* dest, int32_t destPos, int32_t length) {

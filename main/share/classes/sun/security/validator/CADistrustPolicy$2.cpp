@@ -15,8 +15,8 @@ namespace sun {
 		namespace validator {
 
 $MethodInfo _CADistrustPolicy$2_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(CADistrustPolicy$2::*)()>(&CADistrustPolicy$2::init$))},
-	{"run", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(CADistrustPolicy$2, init$, void)},
+	{"run", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CADistrustPolicy$2, run, $Object*)},
 	{}
 };
 

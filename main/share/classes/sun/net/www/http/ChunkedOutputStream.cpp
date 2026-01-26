@@ -58,19 +58,19 @@ $FieldInfo _ChunkedOutputStream_FieldInfo_[] = {
 };
 
 $MethodInfo _ChunkedOutputStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/PrintStream;)V", nullptr, $PUBLIC, $method(static_cast<void(ChunkedOutputStream::*)($PrintStream*)>(&ChunkedOutputStream::init$))},
-	{"<init>", "(Ljava/io/PrintStream;I)V", nullptr, $PUBLIC, $method(static_cast<void(ChunkedOutputStream::*)($PrintStream*,int32_t)>(&ChunkedOutputStream::init$))},
-	{"checkError", "()Z", nullptr, $PUBLIC},
-	{"close", "()V", nullptr, $PUBLIC},
-	{"ensureOpen", "()V", nullptr, $PRIVATE, $method(static_cast<void(ChunkedOutputStream::*)()>(&ChunkedOutputStream::ensureOpen)), "java.io.IOException"},
-	{"flush", "(Z)V", nullptr, $PRIVATE, $method(static_cast<void(ChunkedOutputStream::*)(bool)>(&ChunkedOutputStream::flush))},
-	{"flush", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"getHeader", "(I)[B", nullptr, $PRIVATE | $STATIC, $method(static_cast<$bytes*(*)(int32_t)>(&ChunkedOutputStream::getHeader))},
-	{"getHeaderSize", "(I)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)(int32_t)>(&ChunkedOutputStream::getHeaderSize))},
-	{"reset", "()V", nullptr, $PUBLIC},
-	{"size", "()I", nullptr, $PUBLIC},
-	{"write", "([BII)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"write", "(I)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljava/io/PrintStream;)V", nullptr, $PUBLIC, $method(ChunkedOutputStream, init$, void, $PrintStream*)},
+	{"<init>", "(Ljava/io/PrintStream;I)V", nullptr, $PUBLIC, $method(ChunkedOutputStream, init$, void, $PrintStream*, int32_t)},
+	{"checkError", "()Z", nullptr, $PUBLIC, $virtualMethod(ChunkedOutputStream, checkError, bool)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(ChunkedOutputStream, close, void)},
+	{"ensureOpen", "()V", nullptr, $PRIVATE, $method(ChunkedOutputStream, ensureOpen, void), "java.io.IOException"},
+	{"flush", "(Z)V", nullptr, $PRIVATE, $method(ChunkedOutputStream, flush, void, bool)},
+	{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(ChunkedOutputStream, flush, void), "java.io.IOException"},
+	{"getHeader", "(I)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(ChunkedOutputStream, getHeader, $bytes*, int32_t)},
+	{"getHeaderSize", "(I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(ChunkedOutputStream, getHeaderSize, int32_t, int32_t)},
+	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(ChunkedOutputStream, reset, void)},
+	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(ChunkedOutputStream, size, int32_t)},
+	{"write", "([BII)V", nullptr, $PUBLIC, $virtualMethod(ChunkedOutputStream, write, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
+	{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(ChunkedOutputStream, write, void, int32_t), "java.io.IOException"},
 	{}
 };
 

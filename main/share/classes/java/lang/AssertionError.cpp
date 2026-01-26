@@ -17,16 +17,16 @@ $FieldInfo _AssertionError_FieldInfo_[] = {
 };
 
 $MethodInfo _AssertionError_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(AssertionError::*)()>(&AssertionError::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(static_cast<void(AssertionError::*)($String*)>(&AssertionError::init$))},
-	{"<init>", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(static_cast<void(AssertionError::*)(Object$*)>(&AssertionError::init$))},
-	{"<init>", "(Z)V", nullptr, $PUBLIC, $method(static_cast<void(AssertionError::*)(bool)>(&AssertionError::init$))},
-	{"<init>", "(C)V", nullptr, $PUBLIC, $method(static_cast<void(AssertionError::*)(char16_t)>(&AssertionError::init$))},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(static_cast<void(AssertionError::*)(int32_t)>(&AssertionError::init$))},
-	{"<init>", "(J)V", nullptr, $PUBLIC, $method(static_cast<void(AssertionError::*)(int64_t)>(&AssertionError::init$))},
-	{"<init>", "(F)V", nullptr, $PUBLIC, $method(static_cast<void(AssertionError::*)(float)>(&AssertionError::init$))},
-	{"<init>", "(D)V", nullptr, $PUBLIC, $method(static_cast<void(AssertionError::*)(double)>(&AssertionError::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(AssertionError::*)($String*,$Throwable*)>(&AssertionError::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(AssertionError, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(AssertionError, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(AssertionError, init$, void, Object$*)},
+	{"<init>", "(Z)V", nullptr, $PUBLIC, $method(AssertionError, init$, void, bool)},
+	{"<init>", "(C)V", nullptr, $PUBLIC, $method(AssertionError, init$, void, char16_t)},
+	{"<init>", "(I)V", nullptr, $PUBLIC, $method(AssertionError, init$, void, int32_t)},
+	{"<init>", "(J)V", nullptr, $PUBLIC, $method(AssertionError, init$, void, int64_t)},
+	{"<init>", "(F)V", nullptr, $PUBLIC, $method(AssertionError, init$, void, float)},
+	{"<init>", "(D)V", nullptr, $PUBLIC, $method(AssertionError, init$, void, double)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(AssertionError, init$, void, $String*, $Throwable*)},
 	{}
 };
 

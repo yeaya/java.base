@@ -27,12 +27,12 @@ $FieldInfo _SendDatagramToBadAddress_FieldInfo_[] = {
 };
 
 $MethodInfo _SendDatagramToBadAddress_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SendDatagramToBadAddress::*)()>(&SendDatagramToBadAddress::init$))},
-	{"OSsupportsFeature", "()Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)()>(&SendDatagramToBadAddress::OSsupportsFeature))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&SendDatagramToBadAddress::main)), "java.lang.Exception"},
-	{"print", "(Ljava/lang/String;)V", nullptr, $STATIC, $method(static_cast<void(*)($String*)>(&SendDatagramToBadAddress::print))},
-	{"run", "()V", nullptr, $PUBLIC, nullptr, "java.lang.Exception"},
-	{"test", "(Ljava/net/DatagramSocket;)V", nullptr, $PRIVATE, $method(static_cast<void(SendDatagramToBadAddress::*)($DatagramSocket*)>(&SendDatagramToBadAddress::test)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SendDatagramToBadAddress, init$, void)},
+	{"OSsupportsFeature", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(SendDatagramToBadAddress, OSsupportsFeature, bool)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SendDatagramToBadAddress, main, void, $StringArray*), "java.lang.Exception"},
+	{"print", "(Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(SendDatagramToBadAddress, print, void, $String*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(SendDatagramToBadAddress, run, void), "java.lang.Exception"},
+	{"test", "(Ljava/net/DatagramSocket;)V", nullptr, $PRIVATE, $method(SendDatagramToBadAddress, test, void, $DatagramSocket*), "java.lang.Exception"},
 	{}
 };
 

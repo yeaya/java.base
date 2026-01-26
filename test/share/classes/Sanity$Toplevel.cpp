@@ -8,7 +8,7 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _Sanity$Toplevel_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Sanity$Toplevel::*)()>(&Sanity$Toplevel::init$))},
+	{"<init>", "()V", nullptr, 0, $method(Sanity$Toplevel, init$, void)},
 	{}
 };
 

@@ -41,10 +41,10 @@ $FieldInfo _FinalizeOverride_FieldInfo_[] = {
 };
 
 $MethodInfo _FinalizeOverride_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(FinalizeOverride::*)()>(&FinalizeOverride::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&FinalizeOverride::main)), "java.io.IOException"},
-	{"patchPrivateFinalize", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&FinalizeOverride::patchPrivateFinalize)), "java.io.IOException"},
-	{"test", "(Ljava/lang/Object;I)V", nullptr, $STATIC, $method(static_cast<void(*)(Object$*,int32_t)>(&FinalizeOverride::test))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(FinalizeOverride, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(FinalizeOverride, main, void, $StringArray*), "java.io.IOException"},
+	{"patchPrivateFinalize", "()V", nullptr, $STATIC, $staticMethod(FinalizeOverride, patchPrivateFinalize, void), "java.io.IOException"},
+	{"test", "(Ljava/lang/Object;I)V", nullptr, $STATIC, $staticMethod(FinalizeOverride, test, void, Object$*, int32_t)},
 	{}
 };
 

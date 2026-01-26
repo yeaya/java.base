@@ -15,7 +15,7 @@ $FieldInfo _Sanity$Base$BPackage_FieldInfo_[] = {
 };
 
 $MethodInfo _Sanity$Base$BPackage_MethodInfo_[] = {
-	{"<init>", "(LSanity$Base;)V", nullptr, 0, $method(static_cast<void(Sanity$Base$BPackage::*)($Sanity$Base*)>(&Sanity$Base$BPackage::init$))},
+	{"<init>", "(LSanity$Base;)V", nullptr, 0, $method(Sanity$Base$BPackage, init$, void, $Sanity$Base*)},
 	{}
 };
 

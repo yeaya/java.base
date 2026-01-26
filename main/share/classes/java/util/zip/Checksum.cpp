@@ -19,12 +19,12 @@ namespace java {
 		namespace zip {
 
 $MethodInfo _Checksum_MethodInfo_[] = {
-	{"getValue", "()J", nullptr, $PUBLIC | $ABSTRACT},
-	{"reset", "()V", nullptr, $PUBLIC | $ABSTRACT},
-	{"update", "(I)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"update", "([B)V", nullptr, $PUBLIC},
-	{"update", "([BII)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"update", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC},
+	{"getValue", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Checksum, getValue, int64_t)},
+	{"reset", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Checksum, reset, void)},
+	{"update", "(I)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Checksum, update, void, int32_t)},
+	{"update", "([B)V", nullptr, $PUBLIC, $virtualMethod(Checksum, update, void, $bytes*)},
+	{"update", "([BII)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Checksum, update, void, $bytes*, int32_t, int32_t)},
+	{"update", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(Checksum, update, void, $ByteBuffer*)},
 	{}
 };
 

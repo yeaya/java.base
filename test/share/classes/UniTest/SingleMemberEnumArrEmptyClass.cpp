@@ -25,7 +25,7 @@ $CompoundAttribute _SingleMemberEnumArrEmptyClass_Annotations_[] = {
 };
 
 $MethodInfo _SingleMemberEnumArrEmptyClass_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(SingleMemberEnumArrEmptyClass::*)()>(&SingleMemberEnumArrEmptyClass::init$))},
+	{"<init>", "()V", nullptr, 0, $method(SingleMemberEnumArrEmptyClass, init$, void)},
 	{}
 };
 

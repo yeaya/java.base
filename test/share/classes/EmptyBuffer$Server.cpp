@@ -36,11 +36,11 @@ $FieldInfo _EmptyBuffer$Server_FieldInfo_[] = {
 };
 
 $MethodInfo _EmptyBuffer$Server_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/SocketAddress;)V", nullptr, 0, $method(static_cast<void(EmptyBuffer$Server::*)($SocketAddress*)>(&EmptyBuffer$Server::init$)), "java.io.IOException"},
-	{"port", "()I", nullptr, 0},
-	{"run", "()V", nullptr, $PUBLIC},
-	{"showBuffer", "(Ljava/lang/String;Ljava/nio/ByteBuffer;)V", nullptr, 0},
-	{"throwException", "()V", nullptr, 0, nullptr, "java.lang.Exception"},
+	{"<init>", "(Ljava/net/SocketAddress;)V", nullptr, 0, $method(EmptyBuffer$Server, init$, void, $SocketAddress*), "java.io.IOException"},
+	{"port", "()I", nullptr, 0, $virtualMethod(EmptyBuffer$Server, port, int32_t)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(EmptyBuffer$Server, run, void)},
+	{"showBuffer", "(Ljava/lang/String;Ljava/nio/ByteBuffer;)V", nullptr, 0, $virtualMethod(EmptyBuffer$Server, showBuffer, void, $String*, $ByteBuffer*)},
+	{"throwException", "()V", nullptr, 0, $virtualMethod(EmptyBuffer$Server, throwException, void), "java.lang.Exception"},
 	{}
 };
 

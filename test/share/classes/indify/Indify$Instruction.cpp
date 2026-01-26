@@ -32,19 +32,19 @@ $FieldInfo _Indify$Instruction_FieldInfo_[] = {
 };
 
 $MethodInfo _Indify$Instruction_MethodInfo_[] = {
-	{"<init>", "([BI)V", nullptr, 0, $method(static_cast<void(Indify$Instruction::*)($bytes*,int32_t)>(&Indify$Instruction::init$))},
-	{"alignedIntOffset", "(I)I", nullptr, $PUBLIC},
-	{"clone", "()Lindify/Indify$Instruction;", nullptr, $PUBLIC},
-	{"computeLength", "()V", nullptr, $PRIVATE, $method(static_cast<void(Indify$Instruction::*)()>(&Indify$Instruction::computeLength))},
-	{"forceNext", "(I)V", nullptr, 0},
-	{"init", "(I)Lindify/Indify$Instruction;", nullptr, $PRIVATE, $method(static_cast<Indify$Instruction*(Indify$Instruction::*)(int32_t)>(&Indify$Instruction::init))},
-	{"next", "()Lindify/Indify$Instruction;", nullptr, 0},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"u1At", "(I)I", nullptr, $PUBLIC},
-	{"u1AtPut", "(II)V", nullptr, $PUBLIC},
-	{"u2At", "(I)I", nullptr, $PUBLIC},
-	{"u2AtPut", "(II)V", nullptr, $PUBLIC},
-	{"u4At", "(I)I", nullptr, $PUBLIC},
+	{"<init>", "([BI)V", nullptr, 0, $method(Indify$Instruction, init$, void, $bytes*, int32_t)},
+	{"alignedIntOffset", "(I)I", nullptr, $PUBLIC, $virtualMethod(Indify$Instruction, alignedIntOffset, int32_t, int32_t)},
+	{"clone", "()Lindify/Indify$Instruction;", nullptr, $PUBLIC, $virtualMethod(Indify$Instruction, clone, Indify$Instruction*)},
+	{"computeLength", "()V", nullptr, $PRIVATE, $method(Indify$Instruction, computeLength, void)},
+	{"forceNext", "(I)V", nullptr, 0, $virtualMethod(Indify$Instruction, forceNext, void, int32_t)},
+	{"init", "(I)Lindify/Indify$Instruction;", nullptr, $PRIVATE, $method(Indify$Instruction, init, Indify$Instruction*, int32_t)},
+	{"next", "()Lindify/Indify$Instruction;", nullptr, 0, $virtualMethod(Indify$Instruction, next, Indify$Instruction*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Indify$Instruction, toString, $String*)},
+	{"u1At", "(I)I", nullptr, $PUBLIC, $virtualMethod(Indify$Instruction, u1At, int32_t, int32_t)},
+	{"u1AtPut", "(II)V", nullptr, $PUBLIC, $virtualMethod(Indify$Instruction, u1AtPut, void, int32_t, int32_t)},
+	{"u2At", "(I)I", nullptr, $PUBLIC, $virtualMethod(Indify$Instruction, u2At, int32_t, int32_t)},
+	{"u2AtPut", "(II)V", nullptr, $PUBLIC, $virtualMethod(Indify$Instruction, u2AtPut, void, int32_t, int32_t)},
+	{"u4At", "(I)I", nullptr, $PUBLIC, $virtualMethod(Indify$Instruction, u4At, int32_t, int32_t)},
 	{}
 };
 

@@ -25,14 +25,14 @@ $FieldInfo _Hashtable$Entry_FieldInfo_[] = {
 };
 
 $MethodInfo _Hashtable$Entry_MethodInfo_[] = {
-	{"<init>", "(ILjava/lang/Object;Ljava/lang/Object;Ljava/util/Hashtable$Entry;)V", "(ITK;TV;Ljava/util/Hashtable$Entry<TK;TV;>;)V", $PROTECTED, $method(static_cast<void(Hashtable$Entry::*)(int32_t,Object$*,Object$*,Hashtable$Entry*)>(&Hashtable$Entry::init$))},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PROTECTED},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getKey", "()Ljava/lang/Object;", "()TK;", $PUBLIC},
-	{"getValue", "()Ljava/lang/Object;", "()TV;", $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"setValue", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TV;)TV;", $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(ILjava/lang/Object;Ljava/lang/Object;Ljava/util/Hashtable$Entry;)V", "(ITK;TV;Ljava/util/Hashtable$Entry<TK;TV;>;)V", $PROTECTED, $method(Hashtable$Entry, init$, void, int32_t, Object$*, Object$*, Hashtable$Entry*)},
+	{"clone", "()Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(Hashtable$Entry, clone, $Object*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Hashtable$Entry, equals, bool, Object$*)},
+	{"getKey", "()Ljava/lang/Object;", "()TK;", $PUBLIC, $virtualMethod(Hashtable$Entry, getKey, $Object*)},
+	{"getValue", "()Ljava/lang/Object;", "()TV;", $PUBLIC, $virtualMethod(Hashtable$Entry, getValue, $Object*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Hashtable$Entry, hashCode, int32_t)},
+	{"setValue", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TV;)TV;", $PUBLIC, $virtualMethod(Hashtable$Entry, setValue, $Object*, Object$*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Hashtable$Entry, toString, $String*)},
 	{}
 };
 

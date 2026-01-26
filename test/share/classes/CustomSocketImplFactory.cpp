@@ -23,9 +23,9 @@ using $SocketImplFactory = ::java::net::SocketImplFactory;
 using $SocketTimeoutException = ::java::net::SocketTimeoutException;
 
 $MethodInfo _CustomSocketImplFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CustomSocketImplFactory::*)()>(&CustomSocketImplFactory::init$))},
-	{"createSocketImpl", "()Ljava/net/SocketImpl;", nullptr, $PUBLIC},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&CustomSocketImplFactory::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CustomSocketImplFactory, init$, void)},
+	{"createSocketImpl", "()Ljava/net/SocketImpl;", nullptr, $PUBLIC, $virtualMethod(CustomSocketImplFactory, createSocketImpl, $SocketImpl*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(CustomSocketImplFactory, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

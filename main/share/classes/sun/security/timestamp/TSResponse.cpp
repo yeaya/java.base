@@ -73,17 +73,17 @@ $FieldInfo _TSResponse_FieldInfo_[] = {
 };
 
 $MethodInfo _TSResponse_MethodInfo_[] = {
-	{"<init>", "([B)V", nullptr, 0, $method(static_cast<void(TSResponse::*)($bytes*)>(&TSResponse::init$)), "java.io.IOException"},
-	{"getEncodedToken", "()[B", nullptr, $PUBLIC},
-	{"getFailureCodeAsText", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getFailureInfo", "()[Z", nullptr, $PUBLIC},
-	{"getStatusCode", "()I", nullptr, $PUBLIC},
-	{"getStatusCodeAsText", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getStatusMessages", "()[Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getTimestampToken", "()Lsun/security/timestamp/TimestampToken;", nullptr, $PUBLIC},
-	{"getToken", "()Lsun/security/pkcs/PKCS7;", nullptr, $PUBLIC},
-	{"isSet", "(I)Z", nullptr, $PRIVATE, $method(static_cast<bool(TSResponse::*)(int32_t)>(&TSResponse::isSet))},
-	{"parse", "([B)V", nullptr, $PRIVATE, $method(static_cast<void(TSResponse::*)($bytes*)>(&TSResponse::parse)), "java.io.IOException"},
+	{"<init>", "([B)V", nullptr, 0, $method(TSResponse, init$, void, $bytes*), "java.io.IOException"},
+	{"getEncodedToken", "()[B", nullptr, $PUBLIC, $virtualMethod(TSResponse, getEncodedToken, $bytes*)},
+	{"getFailureCodeAsText", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TSResponse, getFailureCodeAsText, $String*)},
+	{"getFailureInfo", "()[Z", nullptr, $PUBLIC, $virtualMethod(TSResponse, getFailureInfo, $booleans*)},
+	{"getStatusCode", "()I", nullptr, $PUBLIC, $virtualMethod(TSResponse, getStatusCode, int32_t)},
+	{"getStatusCodeAsText", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TSResponse, getStatusCodeAsText, $String*)},
+	{"getStatusMessages", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TSResponse, getStatusMessages, $StringArray*)},
+	{"getTimestampToken", "()Lsun/security/timestamp/TimestampToken;", nullptr, $PUBLIC, $virtualMethod(TSResponse, getTimestampToken, $TimestampToken*)},
+	{"getToken", "()Lsun/security/pkcs/PKCS7;", nullptr, $PUBLIC, $virtualMethod(TSResponse, getToken, $PKCS7*)},
+	{"isSet", "(I)Z", nullptr, $PRIVATE, $method(TSResponse, isSet, bool, int32_t)},
+	{"parse", "([B)V", nullptr, $PRIVATE, $method(TSResponse, parse, void, $bytes*), "java.io.IOException"},
 	{}
 };
 

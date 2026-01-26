@@ -46,11 +46,11 @@ $FieldInfo _VarHandle$VarHandleDesc$Kind_FieldInfo_[] = {
 };
 
 $MethodInfo _VarHandle$VarHandleDesc$Kind_MethodInfo_[] = {
-	{"$values", "()[Ljava/lang/invoke/VarHandle$VarHandleDesc$Kind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$VarHandle$VarHandleDesc$KindArray*(*)()>(&VarHandle$VarHandleDesc$Kind::$values))},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/constant/DirectMethodHandleDesc;)V", "(Ljava/lang/constant/DirectMethodHandleDesc;)V", $PRIVATE, $method(static_cast<void(VarHandle$VarHandleDesc$Kind::*)($String*,int32_t,$DirectMethodHandleDesc*)>(&VarHandle$VarHandleDesc$Kind::init$))},
-	{"toBSMArgs", "(Ljava/lang/constant/ClassDesc;Ljava/lang/constant/ClassDesc;)[Ljava/lang/constant/ConstantDesc;", nullptr, 0, $method(static_cast<$ConstantDescArray*(VarHandle$VarHandleDesc$Kind::*)($ClassDesc*,$ClassDesc*)>(&VarHandle$VarHandleDesc$Kind::toBSMArgs))},
-	{"valueOf", "(Ljava/lang/String;)Ljava/lang/invoke/VarHandle$VarHandleDesc$Kind;", nullptr, $PUBLIC | $STATIC, $method(static_cast<VarHandle$VarHandleDesc$Kind*(*)($String*)>(&VarHandle$VarHandleDesc$Kind::valueOf))},
-	{"values", "()[Ljava/lang/invoke/VarHandle$VarHandleDesc$Kind;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$VarHandle$VarHandleDesc$KindArray*(*)()>(&VarHandle$VarHandleDesc$Kind::values))},
+	{"$values", "()[Ljava/lang/invoke/VarHandle$VarHandleDesc$Kind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(VarHandle$VarHandleDesc$Kind, $values, $VarHandle$VarHandleDesc$KindArray*)},
+	{"<init>", "(Ljava/lang/String;ILjava/lang/constant/DirectMethodHandleDesc;)V", "(Ljava/lang/constant/DirectMethodHandleDesc;)V", $PRIVATE, $method(VarHandle$VarHandleDesc$Kind, init$, void, $String*, int32_t, $DirectMethodHandleDesc*)},
+	{"toBSMArgs", "(Ljava/lang/constant/ClassDesc;Ljava/lang/constant/ClassDesc;)[Ljava/lang/constant/ConstantDesc;", nullptr, 0, $method(VarHandle$VarHandleDesc$Kind, toBSMArgs, $ConstantDescArray*, $ClassDesc*, $ClassDesc*)},
+	{"valueOf", "(Ljava/lang/String;)Ljava/lang/invoke/VarHandle$VarHandleDesc$Kind;", nullptr, $PUBLIC | $STATIC, $staticMethod(VarHandle$VarHandleDesc$Kind, valueOf, VarHandle$VarHandleDesc$Kind*, $String*)},
+	{"values", "()[Ljava/lang/invoke/VarHandle$VarHandleDesc$Kind;", nullptr, $PUBLIC | $STATIC, $staticMethod(VarHandle$VarHandleDesc$Kind, values, $VarHandle$VarHandleDesc$KindArray*)},
 	{}
 };
 

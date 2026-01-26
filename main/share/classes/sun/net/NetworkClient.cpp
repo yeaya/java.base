@@ -76,19 +76,19 @@ $FieldInfo _NetworkClient_FieldInfo_[] = {
 };
 
 $MethodInfo _NetworkClient_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(static_cast<void(NetworkClient::*)($String*,int32_t)>(&NetworkClient::init$)), "java.io.IOException"},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(NetworkClient::*)()>(&NetworkClient::init$))},
-	{"closeServer", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"createSocket", "()Ljava/net/Socket;", nullptr, $PROTECTED, nullptr, "java.io.IOException"},
-	{"doConnect", "(Ljava/lang/String;I)Ljava/net/Socket;", nullptr, $PROTECTED, nullptr, "java.io.IOException,java.net.UnknownHostException"},
-	{"getConnectTimeout", "()I", nullptr, $PUBLIC},
-	{"getLocalAddress", "()Ljava/net/InetAddress;", nullptr, $PROTECTED, nullptr, "java.io.IOException"},
-	{"getReadTimeout", "()I", nullptr, $PUBLIC},
-	{"isASCIISuperset", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($String*)>(&NetworkClient::isASCIISuperset)), "java.lang.Exception"},
-	{"openServer", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, nullptr, "java.io.IOException,java.net.UnknownHostException"},
-	{"serverIsOpen", "()Z", nullptr, $PUBLIC},
-	{"setConnectTimeout", "(I)V", nullptr, $PUBLIC},
-	{"setReadTimeout", "(I)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(NetworkClient, init$, void, $String*, int32_t), "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(NetworkClient, init$, void)},
+	{"closeServer", "()V", nullptr, $PUBLIC, $virtualMethod(NetworkClient, closeServer, void), "java.io.IOException"},
+	{"createSocket", "()Ljava/net/Socket;", nullptr, $PROTECTED, $virtualMethod(NetworkClient, createSocket, $Socket*), "java.io.IOException"},
+	{"doConnect", "(Ljava/lang/String;I)Ljava/net/Socket;", nullptr, $PROTECTED, $virtualMethod(NetworkClient, doConnect, $Socket*, $String*, int32_t), "java.io.IOException,java.net.UnknownHostException"},
+	{"getConnectTimeout", "()I", nullptr, $PUBLIC, $virtualMethod(NetworkClient, getConnectTimeout, int32_t)},
+	{"getLocalAddress", "()Ljava/net/InetAddress;", nullptr, $PROTECTED, $virtualMethod(NetworkClient, getLocalAddress, $InetAddress*), "java.io.IOException"},
+	{"getReadTimeout", "()I", nullptr, $PUBLIC, $virtualMethod(NetworkClient, getReadTimeout, int32_t)},
+	{"isASCIISuperset", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(NetworkClient, isASCIISuperset, bool, $String*), "java.lang.Exception"},
+	{"openServer", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $virtualMethod(NetworkClient, openServer, void, $String*, int32_t), "java.io.IOException,java.net.UnknownHostException"},
+	{"serverIsOpen", "()Z", nullptr, $PUBLIC, $virtualMethod(NetworkClient, serverIsOpen, bool)},
+	{"setConnectTimeout", "(I)V", nullptr, $PUBLIC, $virtualMethod(NetworkClient, setConnectTimeout, void, int32_t)},
+	{"setReadTimeout", "(I)V", nullptr, $PUBLIC, $virtualMethod(NetworkClient, setReadTimeout, void, int32_t)},
 	{}
 };
 

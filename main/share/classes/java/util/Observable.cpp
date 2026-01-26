@@ -33,16 +33,16 @@ $FieldInfo _Observable_FieldInfo_[] = {
 };
 
 $MethodInfo _Observable_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Observable::*)()>(&Observable::init$))},
-	{"addObserver", "(Ljava/util/Observer;)V", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"clearChanged", "()V", nullptr, $PROTECTED | $SYNCHRONIZED},
-	{"countObservers", "()I", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"deleteObserver", "(Ljava/util/Observer;)V", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"deleteObservers", "()V", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"hasChanged", "()Z", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"notifyObservers", "()V", nullptr, $PUBLIC},
-	{"notifyObservers", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
-	{"setChanged", "()V", nullptr, $PROTECTED | $SYNCHRONIZED},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Observable, init$, void)},
+	{"addObserver", "(Ljava/util/Observer;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Observable, addObserver, void, $Observer*)},
+	{"clearChanged", "()V", nullptr, $PROTECTED | $SYNCHRONIZED, $virtualMethod(Observable, clearChanged, void)},
+	{"countObservers", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Observable, countObservers, int32_t)},
+	{"deleteObserver", "(Ljava/util/Observer;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Observable, deleteObserver, void, $Observer*)},
+	{"deleteObservers", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Observable, deleteObservers, void)},
+	{"hasChanged", "()Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Observable, hasChanged, bool)},
+	{"notifyObservers", "()V", nullptr, $PUBLIC, $virtualMethod(Observable, notifyObservers, void)},
+	{"notifyObservers", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Observable, notifyObservers, void, Object$*)},
+	{"setChanged", "()V", nullptr, $PROTECTED | $SYNCHRONIZED, $virtualMethod(Observable, setChanged, void)},
 	{}
 };
 

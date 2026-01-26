@@ -40,9 +40,9 @@ $FieldInfo _StarInheritance_FieldInfo_[] = {
 };
 
 $MethodInfo _StarInheritance_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(StarInheritance::*)()>(&StarInheritance::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&StarInheritance::main))},
-	{"test", "([Ljava/lang/reflect/Method;Ljava/util/ArrayList;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($MethodArray*,$ArrayList*)>(&StarInheritance::test))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(StarInheritance, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StarInheritance, main, void, $StringArray*)},
+	{"test", "([Ljava/lang/reflect/Method;Ljava/util/ArrayList;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(StarInheritance, test, void, $MethodArray*, $ArrayList*)},
 	{}
 };
 

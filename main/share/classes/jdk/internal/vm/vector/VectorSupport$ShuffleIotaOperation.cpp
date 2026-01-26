@@ -8,6 +8,8 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $VectorSupport$VectorShuffle = ::jdk::internal::vm::vector::VectorSupport$VectorShuffle;
+using $VectorSupport$VectorSpecies = ::jdk::internal::vm::vector::VectorSupport$VectorSpecies;
 
 namespace jdk {
 	namespace internal {
@@ -15,7 +17,7 @@ namespace jdk {
 			namespace vector {
 
 $MethodInfo _VectorSupport$ShuffleIotaOperation_MethodInfo_[] = {
-	{"apply", "(IIILjdk/internal/vm/vector/VectorSupport$VectorSpecies;)Ljdk/internal/vm/vector/VectorSupport$VectorShuffle;", "(IIITS;)Ljdk/internal/vm/vector/VectorSupport$VectorShuffle<TE;>;", $PUBLIC | $ABSTRACT},
+	{"apply", "(IIILjdk/internal/vm/vector/VectorSupport$VectorSpecies;)Ljdk/internal/vm/vector/VectorSupport$VectorShuffle;", "(IIITS;)Ljdk/internal/vm/vector/VectorSupport$VectorShuffle<TE;>;", $PUBLIC | $ABSTRACT, $virtualMethod(VectorSupport$ShuffleIotaOperation, apply, $VectorSupport$VectorShuffle*, int32_t, int32_t, int32_t, $VectorSupport$VectorSpecies*)},
 	{}
 };
 

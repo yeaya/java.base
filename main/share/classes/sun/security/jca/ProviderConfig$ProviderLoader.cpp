@@ -55,9 +55,9 @@ $FieldInfo _ProviderConfig$ProviderLoader_FieldInfo_[] = {
 };
 
 $MethodInfo _ProviderConfig$ProviderLoader_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(ProviderConfig$ProviderLoader::*)()>(&ProviderConfig$ProviderLoader::init$))},
-	{"legacyLoad", "(Ljava/lang/String;)Ljava/security/Provider;", nullptr, $PRIVATE, $method(static_cast<$Provider*(ProviderConfig$ProviderLoader::*)($String*)>(&ProviderConfig$ProviderLoader::legacyLoad))},
-	{"load", "(Ljava/lang/String;)Ljava/security/Provider;", nullptr, $PUBLIC, $method(static_cast<$Provider*(ProviderConfig$ProviderLoader::*)($String*)>(&ProviderConfig$ProviderLoader::load))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(ProviderConfig$ProviderLoader, init$, void)},
+	{"legacyLoad", "(Ljava/lang/String;)Ljava/security/Provider;", nullptr, $PRIVATE, $method(ProviderConfig$ProviderLoader, legacyLoad, $Provider*, $String*)},
+	{"load", "(Ljava/lang/String;)Ljava/security/Provider;", nullptr, $PUBLIC, $method(ProviderConfig$ProviderLoader, load, $Provider*, $String*)},
 	{}
 };
 

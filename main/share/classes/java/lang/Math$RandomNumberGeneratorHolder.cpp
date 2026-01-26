@@ -19,7 +19,7 @@ $FieldInfo _Math$RandomNumberGeneratorHolder_FieldInfo_[] = {
 };
 
 $MethodInfo _Math$RandomNumberGeneratorHolder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(Math$RandomNumberGeneratorHolder::*)()>(&Math$RandomNumberGeneratorHolder::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(Math$RandomNumberGeneratorHolder, init$, void)},
 	{}
 };
 

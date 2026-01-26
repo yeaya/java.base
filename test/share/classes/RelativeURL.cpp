@@ -8,8 +8,8 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $URL = ::java::net::URL;
 
 $MethodInfo _RelativeURL_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(RelativeURL::*)()>(&RelativeURL::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&RelativeURL::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(RelativeURL, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(RelativeURL, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

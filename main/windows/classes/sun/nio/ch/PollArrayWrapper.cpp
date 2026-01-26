@@ -32,16 +32,16 @@ $FieldInfo _PollArrayWrapper_FieldInfo_[] = {
 };
 
 $MethodInfo _PollArrayWrapper_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, 0, $method(static_cast<void(PollArrayWrapper::*)(int32_t)>(&PollArrayWrapper::init$))},
-	{"addWakeupSocket", "(II)V", nullptr, 0},
-	{"free", "()V", nullptr, 0},
-	{"getDescriptor", "(I)I", nullptr, 0},
-	{"getEventOps", "(I)I", nullptr, 0},
-	{"grow", "(I)V", nullptr, 0},
-	{"putDescriptor", "(II)V", nullptr, 0},
-	{"putEntry", "(ILsun/nio/ch/SelectionKeyImpl;)V", nullptr, 0},
-	{"putEventOps", "(II)V", nullptr, 0},
-	{"replaceEntry", "(Lsun/nio/ch/PollArrayWrapper;ILsun/nio/ch/PollArrayWrapper;I)V", nullptr, 0},
+	{"<init>", "(I)V", nullptr, 0, $method(PollArrayWrapper, init$, void, int32_t)},
+	{"addWakeupSocket", "(II)V", nullptr, 0, $virtualMethod(PollArrayWrapper, addWakeupSocket, void, int32_t, int32_t)},
+	{"free", "()V", nullptr, 0, $virtualMethod(PollArrayWrapper, free, void)},
+	{"getDescriptor", "(I)I", nullptr, 0, $virtualMethod(PollArrayWrapper, getDescriptor, int32_t, int32_t)},
+	{"getEventOps", "(I)I", nullptr, 0, $virtualMethod(PollArrayWrapper, getEventOps, int32_t, int32_t)},
+	{"grow", "(I)V", nullptr, 0, $virtualMethod(PollArrayWrapper, grow, void, int32_t)},
+	{"putDescriptor", "(II)V", nullptr, 0, $virtualMethod(PollArrayWrapper, putDescriptor, void, int32_t, int32_t)},
+	{"putEntry", "(ILsun/nio/ch/SelectionKeyImpl;)V", nullptr, 0, $virtualMethod(PollArrayWrapper, putEntry, void, int32_t, $SelectionKeyImpl*)},
+	{"putEventOps", "(II)V", nullptr, 0, $virtualMethod(PollArrayWrapper, putEventOps, void, int32_t, int32_t)},
+	{"replaceEntry", "(Lsun/nio/ch/PollArrayWrapper;ILsun/nio/ch/PollArrayWrapper;I)V", nullptr, 0, $virtualMethod(PollArrayWrapper, replaceEntry, void, PollArrayWrapper*, int32_t, PollArrayWrapper*, int32_t)},
 	{}
 };
 

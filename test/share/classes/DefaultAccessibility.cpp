@@ -22,8 +22,8 @@ $FieldInfo _DefaultAccessibility_FieldInfo_[] = {
 };
 
 $MethodInfo _DefaultAccessibility_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(DefaultAccessibility::*)()>(&DefaultAccessibility::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<void(*)($StringArray*)>(&DefaultAccessibility::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(DefaultAccessibility, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(DefaultAccessibility, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

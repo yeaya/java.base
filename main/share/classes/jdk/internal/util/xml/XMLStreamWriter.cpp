@@ -28,20 +28,20 @@ $FieldInfo _XMLStreamWriter_FieldInfo_[] = {
 };
 
 $MethodInfo _XMLStreamWriter_MethodInfo_[] = {
-	{"close", "()V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "jdk.internal.util.xml.XMLStreamException"},
-	{"flush", "()V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "jdk.internal.util.xml.XMLStreamException"},
-	{"writeAttribute", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "jdk.internal.util.xml.XMLStreamException"},
-	{"writeCData", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "jdk.internal.util.xml.XMLStreamException"},
-	{"writeCharacters", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "jdk.internal.util.xml.XMLStreamException"},
-	{"writeCharacters", "([CII)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "jdk.internal.util.xml.XMLStreamException"},
-	{"writeDTD", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "jdk.internal.util.xml.XMLStreamException"},
-	{"writeEmptyElement", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "jdk.internal.util.xml.XMLStreamException"},
-	{"writeEndDocument", "()V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "jdk.internal.util.xml.XMLStreamException"},
-	{"writeEndElement", "()V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "jdk.internal.util.xml.XMLStreamException"},
-	{"writeStartDocument", "()V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "jdk.internal.util.xml.XMLStreamException"},
-	{"writeStartDocument", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "jdk.internal.util.xml.XMLStreamException"},
-	{"writeStartDocument", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "jdk.internal.util.xml.XMLStreamException"},
-	{"writeStartElement", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "jdk.internal.util.xml.XMLStreamException"},
+	{"close", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XMLStreamWriter, close, void), "jdk.internal.util.xml.XMLStreamException"},
+	{"flush", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XMLStreamWriter, flush, void), "jdk.internal.util.xml.XMLStreamException"},
+	{"writeAttribute", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XMLStreamWriter, writeAttribute, void, $String*, $String*), "jdk.internal.util.xml.XMLStreamException"},
+	{"writeCData", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XMLStreamWriter, writeCData, void, $String*), "jdk.internal.util.xml.XMLStreamException"},
+	{"writeCharacters", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XMLStreamWriter, writeCharacters, void, $String*), "jdk.internal.util.xml.XMLStreamException"},
+	{"writeCharacters", "([CII)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XMLStreamWriter, writeCharacters, void, $chars*, int32_t, int32_t), "jdk.internal.util.xml.XMLStreamException"},
+	{"writeDTD", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XMLStreamWriter, writeDTD, void, $String*), "jdk.internal.util.xml.XMLStreamException"},
+	{"writeEmptyElement", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XMLStreamWriter, writeEmptyElement, void, $String*), "jdk.internal.util.xml.XMLStreamException"},
+	{"writeEndDocument", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XMLStreamWriter, writeEndDocument, void), "jdk.internal.util.xml.XMLStreamException"},
+	{"writeEndElement", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XMLStreamWriter, writeEndElement, void), "jdk.internal.util.xml.XMLStreamException"},
+	{"writeStartDocument", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XMLStreamWriter, writeStartDocument, void), "jdk.internal.util.xml.XMLStreamException"},
+	{"writeStartDocument", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XMLStreamWriter, writeStartDocument, void, $String*), "jdk.internal.util.xml.XMLStreamException"},
+	{"writeStartDocument", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XMLStreamWriter, writeStartDocument, void, $String*, $String*), "jdk.internal.util.xml.XMLStreamException"},
+	{"writeStartElement", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XMLStreamWriter, writeStartElement, void, $String*), "jdk.internal.util.xml.XMLStreamException"},
 	{}
 };
 

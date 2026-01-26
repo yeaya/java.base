@@ -51,18 +51,18 @@ $FieldInfo _IndirectVarHandle_FieldInfo_[] = {
 };
 
 $MethodInfo _IndirectVarHandle_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Class;[Ljava/lang/Class;Ljava/util/function/BiFunction;)V", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Class<*>;[Ljava/lang/Class<*>;Ljava/util/function/BiFunction<Ljava/lang/invoke/VarHandle$AccessMode;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandle;>;)V", 0, $method(static_cast<void(IndirectVarHandle::*)($VarHandle*,$Class*,$ClassArray*,$BiFunction*)>(&IndirectVarHandle::init$))},
-	{"<init>", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Class;[Ljava/lang/Class;Ljava/util/function/BiFunction;Ljava/lang/invoke/VarForm;Z)V", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Class<*>;[Ljava/lang/Class<*>;Ljava/util/function/BiFunction<Ljava/lang/invoke/VarHandle$AccessMode;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandle;>;Ljava/lang/invoke/VarForm;Z)V", $PRIVATE, $method(static_cast<void(IndirectVarHandle::*)($VarHandle*,$Class*,$ClassArray*,$BiFunction*,$VarForm*,bool)>(&IndirectVarHandle::init$))},
-	{"accessModeTypeUncached", "(Ljava/lang/invoke/VarHandle$AccessType;)Ljava/lang/invoke/MethodType;", nullptr, 0},
-	{"asDirect", "()Ljava/lang/invoke/VarHandle;", nullptr, 0},
-	{"coordinateTypes", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/Class<*>;>;", $PUBLIC},
-	{"getMethodHandle", "(I)Ljava/lang/invoke/MethodHandle;", nullptr, 0, nullptr, nullptr, nullptr, _IndirectVarHandle_MethodAnnotations_getMethodHandle5},
-	{"isDirect", "()Z", nullptr, 0},
-	{"target", "()Ljava/lang/invoke/VarHandle;", nullptr, 0},
-	{"toMethodHandle", "(Ljava/lang/invoke/VarHandle$AccessMode;)Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC},
-	{"varType", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC},
-	{"withInvokeBehavior", "()Ljava/lang/invoke/VarHandle;", nullptr, $PUBLIC},
-	{"withInvokeExactBehavior", "()Ljava/lang/invoke/VarHandle;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Class;[Ljava/lang/Class;Ljava/util/function/BiFunction;)V", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Class<*>;[Ljava/lang/Class<*>;Ljava/util/function/BiFunction<Ljava/lang/invoke/VarHandle$AccessMode;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandle;>;)V", 0, $method(IndirectVarHandle, init$, void, $VarHandle*, $Class*, $ClassArray*, $BiFunction*)},
+	{"<init>", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Class;[Ljava/lang/Class;Ljava/util/function/BiFunction;Ljava/lang/invoke/VarForm;Z)V", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Class<*>;[Ljava/lang/Class<*>;Ljava/util/function/BiFunction<Ljava/lang/invoke/VarHandle$AccessMode;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandle;>;Ljava/lang/invoke/VarForm;Z)V", $PRIVATE, $method(IndirectVarHandle, init$, void, $VarHandle*, $Class*, $ClassArray*, $BiFunction*, $VarForm*, bool)},
+	{"accessModeTypeUncached", "(Ljava/lang/invoke/VarHandle$AccessType;)Ljava/lang/invoke/MethodType;", nullptr, 0, $virtualMethod(IndirectVarHandle, accessModeTypeUncached, $MethodType*, $VarHandle$AccessType*)},
+	{"asDirect", "()Ljava/lang/invoke/VarHandle;", nullptr, 0, $virtualMethod(IndirectVarHandle, asDirect, $VarHandle*)},
+	{"coordinateTypes", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/Class<*>;>;", $PUBLIC, $virtualMethod(IndirectVarHandle, coordinateTypes, $List*)},
+	{"getMethodHandle", "(I)Ljava/lang/invoke/MethodHandle;", nullptr, 0, $virtualMethod(IndirectVarHandle, getMethodHandle, $MethodHandle*, int32_t), nullptr, nullptr, _IndirectVarHandle_MethodAnnotations_getMethodHandle5},
+	{"isDirect", "()Z", nullptr, 0, $virtualMethod(IndirectVarHandle, isDirect, bool)},
+	{"target", "()Ljava/lang/invoke/VarHandle;", nullptr, 0, $virtualMethod(IndirectVarHandle, target, $VarHandle*)},
+	{"toMethodHandle", "(Ljava/lang/invoke/VarHandle$AccessMode;)Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC, $virtualMethod(IndirectVarHandle, toMethodHandle, $MethodHandle*, $VarHandle$AccessMode*)},
+	{"varType", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(IndirectVarHandle, varType, $Class*)},
+	{"withInvokeBehavior", "()Ljava/lang/invoke/VarHandle;", nullptr, $PUBLIC, $virtualMethod(IndirectVarHandle, withInvokeBehavior, $VarHandle*)},
+	{"withInvokeExactBehavior", "()Ljava/lang/invoke/VarHandle;", nullptr, $PUBLIC, $virtualMethod(IndirectVarHandle, withInvokeExactBehavior, $VarHandle*)},
 	{}
 };
 

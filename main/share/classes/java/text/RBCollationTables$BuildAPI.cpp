@@ -24,8 +24,8 @@ $FieldInfo _RBCollationTables$BuildAPI_FieldInfo_[] = {
 };
 
 $MethodInfo _RBCollationTables$BuildAPI_MethodInfo_[] = {
-	{"<init>", "(Ljava/text/RBCollationTables;)V", nullptr, $PRIVATE, $method(static_cast<void(RBCollationTables$BuildAPI::*)($RBCollationTables*)>(&RBCollationTables$BuildAPI::init$))},
-	{"fillInTables", "(ZZLsun/text/UCompactIntArray;Ljava/util/Vector;Ljava/util/Vector;Lsun/text/IntHashtable;SS)V", "(ZZLsun/text/UCompactIntArray;Ljava/util/Vector<Ljava/util/Vector<Ljava/text/EntryPair;>;>;Ljava/util/Vector<[I>;Lsun/text/IntHashtable;SS)V", 0, $method(static_cast<void(RBCollationTables$BuildAPI::*)(bool,bool,$UCompactIntArray*,$Vector*,$Vector*,$IntHashtable*,int16_t,int16_t)>(&RBCollationTables$BuildAPI::fillInTables))},
+	{"<init>", "(Ljava/text/RBCollationTables;)V", nullptr, $PRIVATE, $method(RBCollationTables$BuildAPI, init$, void, $RBCollationTables*)},
+	{"fillInTables", "(ZZLsun/text/UCompactIntArray;Ljava/util/Vector;Ljava/util/Vector;Lsun/text/IntHashtable;SS)V", "(ZZLsun/text/UCompactIntArray;Ljava/util/Vector<Ljava/util/Vector<Ljava/text/EntryPair;>;>;Ljava/util/Vector<[I>;Lsun/text/IntHashtable;SS)V", 0, $method(RBCollationTables$BuildAPI, fillInTables, void, bool, bool, $UCompactIntArray*, $Vector*, $Vector*, $IntHashtable*, int16_t, int16_t)},
 	{}
 };
 

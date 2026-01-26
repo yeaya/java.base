@@ -8,7 +8,7 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _TestGenericReturnTypeToString$FirstInnerClass_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TestGenericReturnTypeToString$FirstInnerClass::*)()>(&TestGenericReturnTypeToString$FirstInnerClass::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TestGenericReturnTypeToString$FirstInnerClass, init$, void)},
 	{}
 };
 

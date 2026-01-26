@@ -21,9 +21,9 @@ $FieldInfo _UnsupportedCallbackException_FieldInfo_[] = {
 };
 
 $MethodInfo _UnsupportedCallbackException_MethodInfo_[] = {
-	{"<init>", "(Ljavax/security/auth/callback/Callback;)V", nullptr, $PUBLIC, $method(static_cast<void(UnsupportedCallbackException::*)($Callback*)>(&UnsupportedCallbackException::init$))},
-	{"<init>", "(Ljavax/security/auth/callback/Callback;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(UnsupportedCallbackException::*)($Callback*,$String*)>(&UnsupportedCallbackException::init$))},
-	{"getCallback", "()Ljavax/security/auth/callback/Callback;", nullptr, $PUBLIC},
+	{"<init>", "(Ljavax/security/auth/callback/Callback;)V", nullptr, $PUBLIC, $method(UnsupportedCallbackException, init$, void, $Callback*)},
+	{"<init>", "(Ljavax/security/auth/callback/Callback;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(UnsupportedCallbackException, init$, void, $Callback*, $String*)},
+	{"getCallback", "()Ljavax/security/auth/callback/Callback;", nullptr, $PUBLIC, $virtualMethod(UnsupportedCallbackException, getCallback, $Callback*)},
 	{}
 };
 

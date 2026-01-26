@@ -46,17 +46,17 @@ $FieldInfo _LinuxWatchService_FieldInfo_[] = {
 };
 
 $MethodInfo _LinuxWatchService_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/fs/UnixFileSystem;)V", nullptr, 0, $method(static_cast<void(LinuxWatchService::*)($UnixFileSystem*)>(&LinuxWatchService::init$)), "java.io.IOException"},
-	{"configureBlocking", "(IZ)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $method(static_cast<void(*)(int32_t,bool)>(&LinuxWatchService::configureBlocking)), "sun.nio.fs.UnixException"},
-	{"eventOffsets", "()[I", nullptr, $PRIVATE | $STATIC | $NATIVE, $method(static_cast<$ints*(*)()>(&LinuxWatchService::eventOffsets))},
-	{"eventSize", "()I", nullptr, $PRIVATE | $STATIC | $NATIVE, $method(static_cast<int32_t(*)()>(&LinuxWatchService::eventSize))},
-	{"implClose", "()V", nullptr, 0, nullptr, "java.io.IOException"},
-	{"inotifyAddWatch", "(IJI)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $method(static_cast<int32_t(*)(int32_t,int64_t,int32_t)>(&LinuxWatchService::inotifyAddWatch)), "sun.nio.fs.UnixException"},
-	{"inotifyInit", "()I", nullptr, $PRIVATE | $STATIC | $NATIVE, $method(static_cast<int32_t(*)()>(&LinuxWatchService::inotifyInit)), "sun.nio.fs.UnixException"},
-	{"inotifyRmWatch", "(II)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $method(static_cast<void(*)(int32_t,int32_t)>(&LinuxWatchService::inotifyRmWatch)), "sun.nio.fs.UnixException"},
-	{"poll", "(II)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $method(static_cast<int32_t(*)(int32_t,int32_t)>(&LinuxWatchService::poll)), "sun.nio.fs.UnixException"},
-	{"register", "(Ljava/nio/file/Path;[Ljava/nio/file/WatchEvent$Kind;[Ljava/nio/file/WatchEvent$Modifier;)Ljava/nio/file/WatchKey;", "(Ljava/nio/file/Path;[Ljava/nio/file/WatchEvent$Kind<*>;[Ljava/nio/file/WatchEvent$Modifier;)Ljava/nio/file/WatchKey;", $TRANSIENT, nullptr, "java.io.IOException"},
-	{"socketpair", "([I)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $method(static_cast<void(*)($ints*)>(&LinuxWatchService::socketpair)), "sun.nio.fs.UnixException"},
+	{"<init>", "(Lsun/nio/fs/UnixFileSystem;)V", nullptr, 0, $method(LinuxWatchService, init$, void, $UnixFileSystem*), "java.io.IOException"},
+	{"configureBlocking", "(IZ)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(LinuxWatchService, configureBlocking, void, int32_t, bool), "sun.nio.fs.UnixException"},
+	{"eventOffsets", "()[I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(LinuxWatchService, eventOffsets, $ints*)},
+	{"eventSize", "()I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(LinuxWatchService, eventSize, int32_t)},
+	{"implClose", "()V", nullptr, 0, $virtualMethod(LinuxWatchService, implClose, void), "java.io.IOException"},
+	{"inotifyAddWatch", "(IJI)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(LinuxWatchService, inotifyAddWatch, int32_t, int32_t, int64_t, int32_t), "sun.nio.fs.UnixException"},
+	{"inotifyInit", "()I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(LinuxWatchService, inotifyInit, int32_t), "sun.nio.fs.UnixException"},
+	{"inotifyRmWatch", "(II)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(LinuxWatchService, inotifyRmWatch, void, int32_t, int32_t), "sun.nio.fs.UnixException"},
+	{"poll", "(II)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(LinuxWatchService, poll, int32_t, int32_t, int32_t), "sun.nio.fs.UnixException"},
+	{"register", "(Ljava/nio/file/Path;[Ljava/nio/file/WatchEvent$Kind;[Ljava/nio/file/WatchEvent$Modifier;)Ljava/nio/file/WatchKey;", "(Ljava/nio/file/Path;[Ljava/nio/file/WatchEvent$Kind<*>;[Ljava/nio/file/WatchEvent$Modifier;)Ljava/nio/file/WatchKey;", $TRANSIENT, $virtualMethod(LinuxWatchService, register$, $WatchKey*, $Path*, $WatchEvent$KindArray*, $WatchEvent$ModifierArray*), "java.io.IOException"},
+	{"socketpair", "([I)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(LinuxWatchService, socketpair, void, $ints*), "sun.nio.fs.UnixException"},
 	{}
 };
 

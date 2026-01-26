@@ -52,15 +52,15 @@ $FieldInfo _GaloisCounterMode$GCMDecrypt_FieldInfo_[] = {
 };
 
 $MethodInfo _GaloisCounterMode$GCMDecrypt_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/crypto/provider/GaloisCounterMode;Lcom/sun/crypto/provider/SymmetricCipher;)V", nullptr, 0, $method(static_cast<void(GaloisCounterMode$GCMDecrypt::*)($GaloisCounterMode*,$SymmetricCipher*)>(&GaloisCounterMode$GCMDecrypt::init$))},
-	{"decryptBlocks", "(Lcom/sun/crypto/provider/GCM;[BII[BI)I", nullptr, 0},
-	{"doFinal", "([BII[BI)I", nullptr, $PUBLIC, nullptr, "javax.crypto.IllegalBlockSizeException,javax.crypto.AEADBadTagException,javax.crypto.ShortBufferException"},
-	{"doFinal", "(Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC, nullptr, "javax.crypto.IllegalBlockSizeException,javax.crypto.AEADBadTagException,javax.crypto.ShortBufferException"},
-	{"doUpdate", "([BII)[B", nullptr, 0},
-	{"doUpdate", "([BII[BI)I", nullptr, $PUBLIC, nullptr, "javax.crypto.ShortBufferException"},
-	{"doUpdate", "(Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC, nullptr, "javax.crypto.ShortBufferException"},
-	{"findTag", "([BII)V", nullptr, 0},
-	{"getOutputSize", "(IZ)I", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/crypto/provider/GaloisCounterMode;Lcom/sun/crypto/provider/SymmetricCipher;)V", nullptr, 0, $method(GaloisCounterMode$GCMDecrypt, init$, void, $GaloisCounterMode*, $SymmetricCipher*)},
+	{"decryptBlocks", "(Lcom/sun/crypto/provider/GCM;[BII[BI)I", nullptr, 0, $virtualMethod(GaloisCounterMode$GCMDecrypt, decryptBlocks, int32_t, $GCM*, $bytes*, int32_t, int32_t, $bytes*, int32_t)},
+	{"doFinal", "([BII[BI)I", nullptr, $PUBLIC, $virtualMethod(GaloisCounterMode$GCMDecrypt, doFinal, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t), "javax.crypto.IllegalBlockSizeException,javax.crypto.AEADBadTagException,javax.crypto.ShortBufferException"},
+	{"doFinal", "(Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC, $virtualMethod(GaloisCounterMode$GCMDecrypt, doFinal, int32_t, $ByteBuffer*, $ByteBuffer*), "javax.crypto.IllegalBlockSizeException,javax.crypto.AEADBadTagException,javax.crypto.ShortBufferException"},
+	{"doUpdate", "([BII)[B", nullptr, 0, $virtualMethod(GaloisCounterMode$GCMDecrypt, doUpdate, $bytes*, $bytes*, int32_t, int32_t)},
+	{"doUpdate", "([BII[BI)I", nullptr, $PUBLIC, $virtualMethod(GaloisCounterMode$GCMDecrypt, doUpdate, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t), "javax.crypto.ShortBufferException"},
+	{"doUpdate", "(Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC, $virtualMethod(GaloisCounterMode$GCMDecrypt, doUpdate, int32_t, $ByteBuffer*, $ByteBuffer*), "javax.crypto.ShortBufferException"},
+	{"findTag", "([BII)V", nullptr, 0, $virtualMethod(GaloisCounterMode$GCMDecrypt, findTag, void, $bytes*, int32_t, int32_t)},
+	{"getOutputSize", "(IZ)I", nullptr, $PUBLIC, $virtualMethod(GaloisCounterMode$GCMDecrypt, getOutputSize, int32_t, int32_t, bool)},
 	{}
 };
 

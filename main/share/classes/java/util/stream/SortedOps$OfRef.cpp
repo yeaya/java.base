@@ -60,10 +60,10 @@ $FieldInfo _SortedOps$OfRef_FieldInfo_[] = {
 };
 
 $MethodInfo _SortedOps$OfRef_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/stream/AbstractPipeline;)V", "(Ljava/util/stream/AbstractPipeline<*TT;*>;)V", 0, $method(static_cast<void(SortedOps$OfRef::*)($AbstractPipeline*)>(&SortedOps$OfRef::init$))},
-	{"<init>", "(Ljava/util/stream/AbstractPipeline;Ljava/util/Comparator;)V", "(Ljava/util/stream/AbstractPipeline<*TT;*>;Ljava/util/Comparator<-TT;>;)V", 0, $method(static_cast<void(SortedOps$OfRef::*)($AbstractPipeline*,$Comparator*)>(&SortedOps$OfRef::init$))},
-	{"opEvaluateParallel", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;Ljava/util/function/IntFunction;)Ljava/util/stream/Node;", "<P_IN:Ljava/lang/Object;>(Ljava/util/stream/PipelineHelper<TT;>;Ljava/util/Spliterator<TP_IN;>;Ljava/util/function/IntFunction<[TT;>;)Ljava/util/stream/Node<TT;>;", $PUBLIC},
-	{"opWrapSink", "(ILjava/util/stream/Sink;)Ljava/util/stream/Sink;", "(ILjava/util/stream/Sink<TT;>;)Ljava/util/stream/Sink<TT;>;", $PUBLIC},
+	{"<init>", "(Ljava/util/stream/AbstractPipeline;)V", "(Ljava/util/stream/AbstractPipeline<*TT;*>;)V", 0, $method(SortedOps$OfRef, init$, void, $AbstractPipeline*)},
+	{"<init>", "(Ljava/util/stream/AbstractPipeline;Ljava/util/Comparator;)V", "(Ljava/util/stream/AbstractPipeline<*TT;*>;Ljava/util/Comparator<-TT;>;)V", 0, $method(SortedOps$OfRef, init$, void, $AbstractPipeline*, $Comparator*)},
+	{"opEvaluateParallel", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;Ljava/util/function/IntFunction;)Ljava/util/stream/Node;", "<P_IN:Ljava/lang/Object;>(Ljava/util/stream/PipelineHelper<TT;>;Ljava/util/Spliterator<TP_IN;>;Ljava/util/function/IntFunction<[TT;>;)Ljava/util/stream/Node<TT;>;", $PUBLIC, $virtualMethod(SortedOps$OfRef, opEvaluateParallel, $Node*, $PipelineHelper*, $Spliterator*, $IntFunction*)},
+	{"opWrapSink", "(ILjava/util/stream/Sink;)Ljava/util/stream/Sink;", "(ILjava/util/stream/Sink<TT;>;)Ljava/util/stream/Sink<TT;>;", $PUBLIC, $virtualMethod(SortedOps$OfRef, opWrapSink, $Sink*, int32_t, $Sink*)},
 	{}
 };
 

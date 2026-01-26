@@ -19,9 +19,9 @@ $FieldInfo _StreamSpliterators$ArrayBuffer$OfPrimitive_FieldInfo_[] = {
 };
 
 $MethodInfo _StreamSpliterators$ArrayBuffer$OfPrimitive_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(StreamSpliterators$ArrayBuffer$OfPrimitive::*)()>(&StreamSpliterators$ArrayBuffer$OfPrimitive::init$))},
-	{"forEach", "(Ljava/lang/Object;J)V", "(TT_CONS;J)V", $ABSTRACT},
-	{"reset", "()V", nullptr, 0},
+	{"<init>", "()V", nullptr, 0, $method(StreamSpliterators$ArrayBuffer$OfPrimitive, init$, void)},
+	{"forEach", "(Ljava/lang/Object;J)V", "(TT_CONS;J)V", $ABSTRACT, $virtualMethod(StreamSpliterators$ArrayBuffer$OfPrimitive, forEach, void, Object$*, int64_t)},
+	{"reset", "()V", nullptr, 0, $virtualMethod(StreamSpliterators$ArrayBuffer$OfPrimitive, reset, void)},
 	{}
 };
 

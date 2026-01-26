@@ -15,8 +15,8 @@ $FieldInfo _GetAnnotatedReceiverType$Inner4_FieldInfo_[] = {
 };
 
 $MethodInfo _GetAnnotatedReceiverType$Inner4_MethodInfo_[] = {
-	{"<init>", "(LGetAnnotatedReceiverType;)V", nullptr, $PUBLIC, $method(static_cast<void(GetAnnotatedReceiverType$Inner4::*)($GetAnnotatedReceiverType*)>(&GetAnnotatedReceiverType$Inner4::init$))},
-	{"innerMethod4", "()V", nullptr, $PUBLIC},
+	{"<init>", "(LGetAnnotatedReceiverType;)V", nullptr, $PUBLIC, $method(GetAnnotatedReceiverType$Inner4, init$, void, $GetAnnotatedReceiverType*)},
+	{"innerMethod4", "()V", nullptr, $PUBLIC, $virtualMethod(GetAnnotatedReceiverType$Inner4, innerMethod4, void)},
 	{}
 };
 

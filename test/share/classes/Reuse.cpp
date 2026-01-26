@@ -11,8 +11,8 @@ using $BindException = ::java::net::BindException;
 using $MulticastSocket = ::java::net::MulticastSocket;
 
 $MethodInfo _Reuse_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Reuse::*)()>(&Reuse::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Reuse::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Reuse, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Reuse, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

@@ -19,9 +19,9 @@ $FieldInfo _GetAnnotatedReceiverType$Nested$NestedInner_FieldInfo_[] = {
 };
 
 $MethodInfo _GetAnnotatedReceiverType$Nested$NestedInner_MethodInfo_[] = {
-	{"<init>", "(LGetAnnotatedReceiverType$Nested;)V", nullptr, $PUBLIC, $method(static_cast<void(GetAnnotatedReceiverType$Nested$NestedInner::*)($GetAnnotatedReceiverType$Nested*)>(&GetAnnotatedReceiverType$Nested$NestedInner::init$))},
-	{"getAnonymousClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC},
-	{"getLocalClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC},
+	{"<init>", "(LGetAnnotatedReceiverType$Nested;)V", nullptr, $PUBLIC, $method(GetAnnotatedReceiverType$Nested$NestedInner, init$, void, $GetAnnotatedReceiverType$Nested*)},
+	{"getAnonymousClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(GetAnnotatedReceiverType$Nested$NestedInner, getAnonymousClass, $Class*)},
+	{"getLocalClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(GetAnnotatedReceiverType$Nested$NestedInner, getLocalClass, $Class*)},
 	{}
 };
 

@@ -33,12 +33,12 @@ $FieldInfo _RemappingAnnotationAdapter_FieldInfo_[] = {
 };
 
 $MethodInfo _RemappingAnnotationAdapter_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/org/objectweb/asm/AnnotationVisitor;Ljdk/internal/org/objectweb/asm/commons/Remapper;)V", nullptr, $PUBLIC, $method(static_cast<void(RemappingAnnotationAdapter::*)($AnnotationVisitor*,$Remapper*)>(&RemappingAnnotationAdapter::init$))},
-	{"<init>", "(ILjdk/internal/org/objectweb/asm/AnnotationVisitor;Ljdk/internal/org/objectweb/asm/commons/Remapper;)V", nullptr, $PROTECTED, $method(static_cast<void(RemappingAnnotationAdapter::*)(int32_t,$AnnotationVisitor*,$Remapper*)>(&RemappingAnnotationAdapter::init$))},
-	{"visit", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC},
-	{"visitAnnotation", "(Ljava/lang/String;Ljava/lang/String;)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC},
-	{"visitArray", "(Ljava/lang/String;)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC},
-	{"visitEnum", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/org/objectweb/asm/AnnotationVisitor;Ljdk/internal/org/objectweb/asm/commons/Remapper;)V", nullptr, $PUBLIC, $method(RemappingAnnotationAdapter, init$, void, $AnnotationVisitor*, $Remapper*)},
+	{"<init>", "(ILjdk/internal/org/objectweb/asm/AnnotationVisitor;Ljdk/internal/org/objectweb/asm/commons/Remapper;)V", nullptr, $PROTECTED, $method(RemappingAnnotationAdapter, init$, void, int32_t, $AnnotationVisitor*, $Remapper*)},
+	{"visit", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(RemappingAnnotationAdapter, visit, void, $String*, Object$*)},
+	{"visitAnnotation", "(Ljava/lang/String;Ljava/lang/String;)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(RemappingAnnotationAdapter, visitAnnotation, $AnnotationVisitor*, $String*, $String*)},
+	{"visitArray", "(Ljava/lang/String;)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(RemappingAnnotationAdapter, visitArray, $AnnotationVisitor*, $String*)},
+	{"visitEnum", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(RemappingAnnotationAdapter, visitEnum, void, $String*, $String*, $String*)},
 	{}
 };
 

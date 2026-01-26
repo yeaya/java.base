@@ -73,18 +73,18 @@ $FieldInfo _AdaptorCloseAndInterrupt_FieldInfo_[] = {
 };
 
 $MethodInfo _AdaptorCloseAndInterrupt_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(AdaptorCloseAndInterrupt::*)()>(&AdaptorCloseAndInterrupt::init$))},
-	{"<init>", "(Ljava/nio/channels/ServerSocketChannel;)V", nullptr, $PUBLIC, $method(static_cast<void(AdaptorCloseAndInterrupt::*)($ServerSocketChannel*)>(&AdaptorCloseAndInterrupt::init$))},
-	{"<init>", "(Ljava/nio/channels/DatagramChannel;)V", nullptr, $PUBLIC, $method(static_cast<void(AdaptorCloseAndInterrupt::*)($DatagramChannel*)>(&AdaptorCloseAndInterrupt::init$))},
-	{"dcReceiveAsyncClose", "(I)V", nullptr, 0, nullptr, "java.io.IOException"},
-	{"dcReceiveAsyncInterrupt", "(I)V", nullptr, 0, nullptr, "java.io.IOException"},
-	{"doAsyncClose", "(Ljava/nio/channels/spi/AbstractSelectableChannel;)V", nullptr, 0},
-	{"doAsyncInterrupt", "()V", nullptr, 0},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&AdaptorCloseAndInterrupt::main)), "java.lang.Exception"},
-	{"scReadAsyncClose", "()V", nullptr, 0, nullptr, "java.io.IOException"},
-	{"scReadAsyncInterrupt", "()V", nullptr, 0, nullptr, "java.io.IOException"},
-	{"ssAcceptAsyncClose", "()V", nullptr, 0, nullptr, "java.io.IOException"},
-	{"ssAcceptAsyncInterrupt", "()V", nullptr, 0, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(AdaptorCloseAndInterrupt, init$, void)},
+	{"<init>", "(Ljava/nio/channels/ServerSocketChannel;)V", nullptr, $PUBLIC, $method(AdaptorCloseAndInterrupt, init$, void, $ServerSocketChannel*)},
+	{"<init>", "(Ljava/nio/channels/DatagramChannel;)V", nullptr, $PUBLIC, $method(AdaptorCloseAndInterrupt, init$, void, $DatagramChannel*)},
+	{"dcReceiveAsyncClose", "(I)V", nullptr, 0, $virtualMethod(AdaptorCloseAndInterrupt, dcReceiveAsyncClose, void, int32_t), "java.io.IOException"},
+	{"dcReceiveAsyncInterrupt", "(I)V", nullptr, 0, $virtualMethod(AdaptorCloseAndInterrupt, dcReceiveAsyncInterrupt, void, int32_t), "java.io.IOException"},
+	{"doAsyncClose", "(Ljava/nio/channels/spi/AbstractSelectableChannel;)V", nullptr, 0, $virtualMethod(AdaptorCloseAndInterrupt, doAsyncClose, void, $AbstractSelectableChannel*)},
+	{"doAsyncInterrupt", "()V", nullptr, 0, $virtualMethod(AdaptorCloseAndInterrupt, doAsyncInterrupt, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(AdaptorCloseAndInterrupt, main, void, $StringArray*), "java.lang.Exception"},
+	{"scReadAsyncClose", "()V", nullptr, 0, $virtualMethod(AdaptorCloseAndInterrupt, scReadAsyncClose, void), "java.io.IOException"},
+	{"scReadAsyncInterrupt", "()V", nullptr, 0, $virtualMethod(AdaptorCloseAndInterrupt, scReadAsyncInterrupt, void), "java.io.IOException"},
+	{"ssAcceptAsyncClose", "()V", nullptr, 0, $virtualMethod(AdaptorCloseAndInterrupt, ssAcceptAsyncClose, void), "java.io.IOException"},
+	{"ssAcceptAsyncInterrupt", "()V", nullptr, 0, $virtualMethod(AdaptorCloseAndInterrupt, ssAcceptAsyncInterrupt, void), "java.io.IOException"},
 	{}
 };
 

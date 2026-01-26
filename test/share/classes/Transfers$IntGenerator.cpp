@@ -18,9 +18,9 @@ $FieldInfo _Transfers$IntGenerator_FieldInfo_[] = {
 };
 
 $MethodInfo _Transfers$IntGenerator_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, 0, $method(static_cast<void(Transfers$IntGenerator::*)(int32_t)>(&Transfers$IntGenerator::init$))},
-	{"hasNext", "()Z", nullptr, 0},
-	{"next", "()I", nullptr, 0},
+	{"<init>", "(I)V", nullptr, 0, $method(Transfers$IntGenerator, init$, void, int32_t)},
+	{"hasNext", "()Z", nullptr, 0, $virtualMethod(Transfers$IntGenerator, hasNext, bool)},
+	{"next", "()I", nullptr, 0, $virtualMethod(Transfers$IntGenerator, next, int32_t)},
 	{}
 };
 

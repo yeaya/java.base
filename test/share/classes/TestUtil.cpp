@@ -26,13 +26,13 @@ using $Files = ::java::nio::file::Files;
 using $Path = ::java::nio::file::Path;
 
 $MethodInfo _TestUtil_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(TestUtil::*)()>(&TestUtil::init$))},
-	{"createDirectoryWithLongPath", "(Ljava/nio/file/Path;)Ljava/nio/file/Path;", nullptr, $STATIC, $method(static_cast<$Path*(*)($Path*)>(&TestUtil::createDirectoryWithLongPath)), "java.io.IOException"},
-	{"createTemporaryDirectory", "(Ljava/lang/String;)Ljava/nio/file/Path;", nullptr, $STATIC, $method(static_cast<$Path*(*)($String*)>(&TestUtil::createTemporaryDirectory)), "java.io.IOException"},
-	{"createTemporaryDirectory", "()Ljava/nio/file/Path;", nullptr, $STATIC, $method(static_cast<$Path*(*)()>(&TestUtil::createTemporaryDirectory)), "java.io.IOException"},
-	{"deleteUnchecked", "(Ljava/nio/file/Path;)V", nullptr, $STATIC, $method(static_cast<void(*)($Path*)>(&TestUtil::deleteUnchecked))},
-	{"removeAll", "(Ljava/nio/file/Path;)V", nullptr, $STATIC, $method(static_cast<void(*)($Path*)>(&TestUtil::removeAll)), "java.io.IOException"},
-	{"supportsLinks", "(Ljava/nio/file/Path;)Z", nullptr, $STATIC, $method(static_cast<bool(*)($Path*)>(&TestUtil::supportsLinks))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(TestUtil, init$, void)},
+	{"createDirectoryWithLongPath", "(Ljava/nio/file/Path;)Ljava/nio/file/Path;", nullptr, $STATIC, $staticMethod(TestUtil, createDirectoryWithLongPath, $Path*, $Path*), "java.io.IOException"},
+	{"createTemporaryDirectory", "(Ljava/lang/String;)Ljava/nio/file/Path;", nullptr, $STATIC, $staticMethod(TestUtil, createTemporaryDirectory, $Path*, $String*), "java.io.IOException"},
+	{"createTemporaryDirectory", "()Ljava/nio/file/Path;", nullptr, $STATIC, $staticMethod(TestUtil, createTemporaryDirectory, $Path*), "java.io.IOException"},
+	{"deleteUnchecked", "(Ljava/nio/file/Path;)V", nullptr, $STATIC, $staticMethod(TestUtil, deleteUnchecked, void, $Path*)},
+	{"removeAll", "(Ljava/nio/file/Path;)V", nullptr, $STATIC, $staticMethod(TestUtil, removeAll, void, $Path*), "java.io.IOException"},
+	{"supportsLinks", "(Ljava/nio/file/Path;)Z", nullptr, $STATIC, $staticMethod(TestUtil, supportsLinks, bool, $Path*)},
 	{}
 };
 

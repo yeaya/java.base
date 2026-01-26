@@ -8,8 +8,8 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $URL = ::java::net::URL;
 
 $MethodInfo _HashCode_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(HashCode::*)()>(&HashCode::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&HashCode::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(HashCode, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HashCode, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

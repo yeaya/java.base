@@ -19,8 +19,13 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $SecurityManager = ::java::lang::SecurityManager;
+using $CacheRequest = ::java::net::CacheRequest;
+using $CacheResponse = ::java::net::CacheResponse;
+using $URI = ::java::net::URI;
+using $URLConnection = ::java::net::URLConnection;
 using $BasicPermission = ::java::security::BasicPermission;
 using $Permission = ::java::security::Permission;
+using $Map = ::java::util::Map;
 using $SecurityConstants = ::sun::security::util::SecurityConstants;
 
 namespace java {
@@ -32,11 +37,11 @@ $FieldInfo _ResponseCache_FieldInfo_[] = {
 };
 
 $MethodInfo _ResponseCache_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ResponseCache::*)()>(&ResponseCache::init$))},
-	{"get", "(Ljava/net/URI;Ljava/lang/String;Ljava/util/Map;)Ljava/net/CacheResponse;", "(Ljava/net/URI;Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;)Ljava/net/CacheResponse;", $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"getDefault", "()Ljava/net/ResponseCache;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $method(static_cast<ResponseCache*(*)()>(&ResponseCache::getDefault))},
-	{"put", "(Ljava/net/URI;Ljava/net/URLConnection;)Ljava/net/CacheRequest;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"setDefault", "(Ljava/net/ResponseCache;)V", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $method(static_cast<void(*)(ResponseCache*)>(&ResponseCache::setDefault))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ResponseCache, init$, void)},
+	{"get", "(Ljava/net/URI;Ljava/lang/String;Ljava/util/Map;)Ljava/net/CacheResponse;", "(Ljava/net/URI;Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;)Ljava/net/CacheResponse;", $PUBLIC | $ABSTRACT, $virtualMethod(ResponseCache, get, $CacheResponse*, $URI*, $String*, $Map*), "java.io.IOException"},
+	{"getDefault", "()Ljava/net/ResponseCache;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(ResponseCache, getDefault, ResponseCache*)},
+	{"put", "(Ljava/net/URI;Ljava/net/URLConnection;)Ljava/net/CacheRequest;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ResponseCache, put, $CacheRequest*, $URI*, $URLConnection*), "java.io.IOException"},
+	{"setDefault", "(Ljava/net/ResponseCache;)V", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(ResponseCache, setDefault, void, ResponseCache*)},
 	{}
 };
 

@@ -108,8 +108,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo WindowsFileCopy$$Lambda$lambda$ensureEmptyDir$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(WindowsFileCopy$$Lambda$lambda$ensureEmptyDir$0::*)()>(&WindowsFileCopy$$Lambda$lambda$ensureEmptyDir$0::init$))},
-	{"accept", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsFileCopy$$Lambda$lambda$ensureEmptyDir$0, init$, void)},
+	{"accept", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(WindowsFileCopy$$Lambda$lambda$ensureEmptyDir$0, accept, bool, Object$*)},
 	{}
 };
 $ClassInfo WindowsFileCopy$$Lambda$lambda$ensureEmptyDir$0::classInfo$ = {
@@ -132,13 +132,13 @@ $FieldInfo _WindowsFileCopy_FieldInfo_[] = {
 };
 
 $MethodInfo _WindowsFileCopy_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(WindowsFileCopy::*)()>(&WindowsFileCopy::init$))},
-	{"asWin32Path", "(Lsun/nio/fs/WindowsPath;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($WindowsPath*)>(&WindowsFileCopy::asWin32Path)), "java.io.IOException"},
-	{"copy", "(Lsun/nio/fs/WindowsPath;Lsun/nio/fs/WindowsPath;[Ljava/nio/file/CopyOption;)V", nullptr, $STATIC | $TRANSIENT, $method(static_cast<void(*)($WindowsPath*,$WindowsPath*,$CopyOptionArray*)>(&WindowsFileCopy::copy)), "java.io.IOException"},
-	{"copySecurityAttributes", "(Lsun/nio/fs/WindowsPath;Lsun/nio/fs/WindowsPath;Z)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($WindowsPath*,$WindowsPath*,bool)>(&WindowsFileCopy::copySecurityAttributes)), "java.io.IOException"},
-	{"ensureEmptyDir", "(Lsun/nio/fs/WindowsPath;)V", nullptr, $STATIC, $method(static_cast<void(*)($WindowsPath*)>(&WindowsFileCopy::ensureEmptyDir)), "java.io.IOException"},
-	{"lambda$ensureEmptyDir$0", "(Ljava/nio/file/Path;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($Path*)>(&WindowsFileCopy::lambda$ensureEmptyDir$0)), "java.io.IOException"},
-	{"move", "(Lsun/nio/fs/WindowsPath;Lsun/nio/fs/WindowsPath;[Ljava/nio/file/CopyOption;)V", nullptr, $STATIC | $TRANSIENT, $method(static_cast<void(*)($WindowsPath*,$WindowsPath*,$CopyOptionArray*)>(&WindowsFileCopy::move)), "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(WindowsFileCopy, init$, void)},
+	{"asWin32Path", "(Lsun/nio/fs/WindowsPath;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(WindowsFileCopy, asWin32Path, $String*, $WindowsPath*), "java.io.IOException"},
+	{"copy", "(Lsun/nio/fs/WindowsPath;Lsun/nio/fs/WindowsPath;[Ljava/nio/file/CopyOption;)V", nullptr, $STATIC | $TRANSIENT, $staticMethod(WindowsFileCopy, copy, void, $WindowsPath*, $WindowsPath*, $CopyOptionArray*), "java.io.IOException"},
+	{"copySecurityAttributes", "(Lsun/nio/fs/WindowsPath;Lsun/nio/fs/WindowsPath;Z)V", nullptr, $PRIVATE | $STATIC, $staticMethod(WindowsFileCopy, copySecurityAttributes, void, $WindowsPath*, $WindowsPath*, bool), "java.io.IOException"},
+	{"ensureEmptyDir", "(Lsun/nio/fs/WindowsPath;)V", nullptr, $STATIC, $staticMethod(WindowsFileCopy, ensureEmptyDir, void, $WindowsPath*), "java.io.IOException"},
+	{"lambda$ensureEmptyDir$0", "(Ljava/nio/file/Path;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(WindowsFileCopy, lambda$ensureEmptyDir$0, bool, $Path*), "java.io.IOException"},
+	{"move", "(Lsun/nio/fs/WindowsPath;Lsun/nio/fs/WindowsPath;[Ljava/nio/file/CopyOption;)V", nullptr, $STATIC | $TRANSIENT, $staticMethod(WindowsFileCopy, move, void, $WindowsPath*, $WindowsPath*, $CopyOptionArray*), "java.io.IOException"},
 	{}
 };
 

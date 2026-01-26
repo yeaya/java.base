@@ -31,7 +31,7 @@ $FieldInfo _StandardWatchEventKinds_FieldInfo_[] = {
 };
 
 $MethodInfo _StandardWatchEventKinds_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(StandardWatchEventKinds::*)()>(&StandardWatchEventKinds::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(StandardWatchEventKinds, init$, void)},
 	{}
 };
 

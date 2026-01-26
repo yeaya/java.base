@@ -9,8 +9,8 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $Short = ::java::lang::Short;
 
 $MethodInfo _ByteSwap_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ByteSwap::*)()>(&ByteSwap::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&ByteSwap::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ByteSwap, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ByteSwap, main, void, $StringArray*)},
 	{}
 };
 

@@ -25,11 +25,11 @@ $FieldInfo _HttpCaptureOutputStream_FieldInfo_[] = {
 };
 
 $MethodInfo _HttpCaptureOutputStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/OutputStream;Lsun/net/www/http/HttpCapture;)V", nullptr, $PUBLIC, $method(static_cast<void(HttpCaptureOutputStream::*)($OutputStream*,$HttpCapture*)>(&HttpCaptureOutputStream::init$))},
-	{"flush", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"write", "(I)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"write", "([B)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"write", "([BII)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljava/io/OutputStream;Lsun/net/www/http/HttpCapture;)V", nullptr, $PUBLIC, $method(HttpCaptureOutputStream, init$, void, $OutputStream*, $HttpCapture*)},
+	{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(HttpCaptureOutputStream, flush, void), "java.io.IOException"},
+	{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(HttpCaptureOutputStream, write, void, int32_t), "java.io.IOException"},
+	{"write", "([B)V", nullptr, $PUBLIC, $virtualMethod(HttpCaptureOutputStream, write, void, $bytes*), "java.io.IOException"},
+	{"write", "([BII)V", nullptr, $PUBLIC, $virtualMethod(HttpCaptureOutputStream, write, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
 	{}
 };
 

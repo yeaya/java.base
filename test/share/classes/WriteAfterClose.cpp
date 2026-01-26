@@ -13,8 +13,8 @@ using $Exception = ::java::lang::Exception;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _WriteAfterClose_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(WriteAfterClose::*)()>(&WriteAfterClose::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&WriteAfterClose::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(WriteAfterClose, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(WriteAfterClose, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

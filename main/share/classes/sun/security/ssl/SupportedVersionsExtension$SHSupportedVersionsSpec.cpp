@@ -42,9 +42,9 @@ $FieldInfo _SupportedVersionsExtension$SHSupportedVersionsSpec_FieldInfo_[] = {
 };
 
 $MethodInfo _SupportedVersionsExtension$SHSupportedVersionsSpec_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/ssl/ProtocolVersion;)V", nullptr, $PRIVATE, $method(static_cast<void(SupportedVersionsExtension$SHSupportedVersionsSpec::*)($ProtocolVersion*)>(&SupportedVersionsExtension$SHSupportedVersionsSpec::init$))},
-	{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE, $method(static_cast<void(SupportedVersionsExtension$SHSupportedVersionsSpec::*)($HandshakeContext*,$ByteBuffer*)>(&SupportedVersionsExtension$SHSupportedVersionsSpec::init$)), "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/security/ssl/ProtocolVersion;)V", nullptr, $PRIVATE, $method(SupportedVersionsExtension$SHSupportedVersionsSpec, init$, void, $ProtocolVersion*)},
+	{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE, $method(SupportedVersionsExtension$SHSupportedVersionsSpec, init$, void, $HandshakeContext*, $ByteBuffer*), "java.io.IOException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SupportedVersionsExtension$SHSupportedVersionsSpec, toString, $String*)},
 	{}
 };
 

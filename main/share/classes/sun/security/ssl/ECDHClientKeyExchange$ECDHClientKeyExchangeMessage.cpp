@@ -41,12 +41,12 @@ $FieldInfo _ECDHClientKeyExchange$ECDHClientKeyExchangeMessage_FieldInfo_[] = {
 };
 
 $MethodInfo _ECDHClientKeyExchange$ECDHClientKeyExchangeMessage_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/ssl/HandshakeContext;[B)V", nullptr, 0, $method(static_cast<void(ECDHClientKeyExchange$ECDHClientKeyExchangeMessage::*)($HandshakeContext*,$bytes*)>(&ECDHClientKeyExchange$ECDHClientKeyExchangeMessage::init$))},
-	{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)V", nullptr, 0, $method(static_cast<void(ECDHClientKeyExchange$ECDHClientKeyExchangeMessage::*)($HandshakeContext*,$ByteBuffer*)>(&ECDHClientKeyExchange$ECDHClientKeyExchangeMessage::init$)), "java.io.IOException"},
-	{"handshakeType", "()Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC},
-	{"messageLength", "()I", nullptr, $PUBLIC},
-	{"send", "(Lsun/security/ssl/HandshakeOutStream;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/security/ssl/HandshakeContext;[B)V", nullptr, 0, $method(ECDHClientKeyExchange$ECDHClientKeyExchangeMessage, init$, void, $HandshakeContext*, $bytes*)},
+	{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)V", nullptr, 0, $method(ECDHClientKeyExchange$ECDHClientKeyExchangeMessage, init$, void, $HandshakeContext*, $ByteBuffer*), "java.io.IOException"},
+	{"handshakeType", "()Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC, $virtualMethod(ECDHClientKeyExchange$ECDHClientKeyExchangeMessage, handshakeType, $SSLHandshake*)},
+	{"messageLength", "()I", nullptr, $PUBLIC, $virtualMethod(ECDHClientKeyExchange$ECDHClientKeyExchangeMessage, messageLength, int32_t)},
+	{"send", "(Lsun/security/ssl/HandshakeOutStream;)V", nullptr, $PUBLIC, $virtualMethod(ECDHClientKeyExchange$ECDHClientKeyExchangeMessage, send, void, $HandshakeOutStream*), "java.io.IOException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ECDHClientKeyExchange$ECDHClientKeyExchangeMessage, toString, $String*)},
 	{}
 };
 

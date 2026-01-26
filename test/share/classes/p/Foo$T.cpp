@@ -22,10 +22,10 @@ $FieldInfo _Foo$T_FieldInfo_[] = {
 };
 
 $MethodInfo _Foo$T_MethodInfo_[] = {
-	{"$values", "()[Lp/Foo$T;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Foo$TArray*(*)()>(&Foo$T::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(Foo$T::*)($String*,int32_t)>(&Foo$T::init$))},
-	{"valueOf", "(Ljava/lang/String;)Lp/Foo$T;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Foo$T*(*)($String*)>(&Foo$T::valueOf))},
-	{"values", "()[Lp/Foo$T;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Foo$TArray*(*)()>(&Foo$T::values))},
+	{"$values", "()[Lp/Foo$T;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Foo$T, $values, $Foo$TArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Foo$T, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Lp/Foo$T;", nullptr, $PUBLIC | $STATIC, $staticMethod(Foo$T, valueOf, Foo$T*, $String*)},
+	{"values", "()[Lp/Foo$T;", nullptr, $PUBLIC | $STATIC, $staticMethod(Foo$T, values, $Foo$TArray*)},
 	{}
 };
 

@@ -25,7 +25,7 @@ $FieldInfo _NormalizerBase$NFCModeImpl_FieldInfo_[] = {
 };
 
 $MethodInfo _NormalizerBase$NFCModeImpl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(NormalizerBase$NFCModeImpl::*)()>(&NormalizerBase$NFCModeImpl::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(NormalizerBase$NFCModeImpl, init$, void)},
 	{}
 };
 

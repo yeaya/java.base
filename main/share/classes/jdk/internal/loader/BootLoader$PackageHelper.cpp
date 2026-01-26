@@ -86,8 +86,8 @@ $FieldInfo BootLoader$PackageHelper$$Lambda$lambda$findModule$0::fieldInfos[2] =
 	{}
 };
 $MethodInfo BootLoader$PackageHelper$$Lambda$lambda$findModule$0::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(BootLoader$PackageHelper$$Lambda$lambda$findModule$0::*)($String*)>(&BootLoader$PackageHelper$$Lambda$lambda$findModule$0::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(BootLoader$PackageHelper$$Lambda$lambda$findModule$0, init$, void, $String*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(BootLoader$PackageHelper$$Lambda$lambda$findModule$0, get, $Object*)},
 	{}
 };
 $ClassInfo BootLoader$PackageHelper$$Lambda$lambda$findModule$0::classInfo$ = {
@@ -110,12 +110,12 @@ $FieldInfo _BootLoader$PackageHelper_FieldInfo_[] = {
 };
 
 $MethodInfo _BootLoader$PackageHelper_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(BootLoader$PackageHelper::*)()>(&BootLoader$PackageHelper::init$))},
-	{"definePackage", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/Package;", nullptr, $STATIC, $method(static_cast<$Package*(*)($String*,$String*)>(&BootLoader$PackageHelper::definePackage))},
-	{"findModule", "(Ljava/lang/String;)Ljava/lang/Module;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$Module*(*)($String*)>(&BootLoader$PackageHelper::findModule))},
-	{"getManifest", "(Ljava/lang/String;)Ljava/util/jar/Manifest;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$Manifest*(*)($String*)>(&BootLoader$PackageHelper::getManifest))},
-	{"lambda$findModule$0", "(Ljava/lang/String;)Ljava/lang/InternalError;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$InternalError*(*)($String*)>(&BootLoader$PackageHelper::lambda$findModule$0))},
-	{"toFileURL", "(Ljava/lang/String;)Ljava/net/URL;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$URL*(*)($String*)>(&BootLoader$PackageHelper::toFileURL))},
+	{"<init>", "()V", nullptr, 0, $method(BootLoader$PackageHelper, init$, void)},
+	{"definePackage", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/Package;", nullptr, $STATIC, $staticMethod(BootLoader$PackageHelper, definePackage, $Package*, $String*, $String*)},
+	{"findModule", "(Ljava/lang/String;)Ljava/lang/Module;", nullptr, $PRIVATE | $STATIC, $staticMethod(BootLoader$PackageHelper, findModule, $Module*, $String*)},
+	{"getManifest", "(Ljava/lang/String;)Ljava/util/jar/Manifest;", nullptr, $PRIVATE | $STATIC, $staticMethod(BootLoader$PackageHelper, getManifest, $Manifest*, $String*)},
+	{"lambda$findModule$0", "(Ljava/lang/String;)Ljava/lang/InternalError;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(BootLoader$PackageHelper, lambda$findModule$0, $InternalError*, $String*)},
+	{"toFileURL", "(Ljava/lang/String;)Ljava/net/URL;", nullptr, $PRIVATE | $STATIC, $staticMethod(BootLoader$PackageHelper, toFileURL, $URL*, $String*)},
 	{}
 };
 

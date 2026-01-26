@@ -33,8 +33,8 @@ $CompoundAttribute _TestType4_MethodAnnotations_value1[] = {
 };
 
 $MethodInfo _TestType4_MethodInfo_[] = {
-	{"anotherValue", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, nullptr, nullptr, &_TestType4_DefaultValue_anotherValue0, _TestType4_MethodAnnotations_anotherValue0},
-	{"value", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, nullptr, nullptr, nullptr, _TestType4_MethodAnnotations_value1},
+	{"anotherValue", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TestType4, anotherValue, $String*), nullptr, &_TestType4_DefaultValue_anotherValue0, _TestType4_MethodAnnotations_anotherValue0},
+	{"value", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TestType4, value, $String*), nullptr, nullptr, _TestType4_MethodAnnotations_value1},
 	{}
 };
 

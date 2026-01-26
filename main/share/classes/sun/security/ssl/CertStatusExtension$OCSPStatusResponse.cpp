@@ -34,8 +34,8 @@ $FieldInfo _CertStatusExtension$OCSPStatusResponse_FieldInfo_[] = {
 };
 
 $MethodInfo _CertStatusExtension$OCSPStatusResponse_MethodInfo_[] = {
-	{"<init>", "(B[B)V", nullptr, $PRIVATE, $method(static_cast<void(CertStatusExtension$OCSPStatusResponse::*)(int8_t,$bytes*)>(&CertStatusExtension$OCSPStatusResponse::init$)), "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(B[B)V", nullptr, $PRIVATE, $method(CertStatusExtension$OCSPStatusResponse, init$, void, int8_t, $bytes*), "java.io.IOException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CertStatusExtension$OCSPStatusResponse, toString, $String*)},
 	{}
 };
 

@@ -16,8 +16,8 @@ namespace sun {
 		namespace util {
 
 $MethodInfo _IOUtils_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(IOUtils::*)()>(&IOUtils::init$))},
-	{"readExactlyNBytes", "(Ljava/io/InputStream;I)[B", nullptr, $PUBLIC | $STATIC, $method(static_cast<$bytes*(*)($InputStream*,int32_t)>(&IOUtils::readExactlyNBytes)), "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(IOUtils, init$, void)},
+	{"readExactlyNBytes", "(Ljava/io/InputStream;I)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(IOUtils, readExactlyNBytes, $bytes*, $InputStream*, int32_t), "java.io.IOException"},
 	{}
 };
 

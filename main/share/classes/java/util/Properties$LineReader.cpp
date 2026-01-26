@@ -29,9 +29,9 @@ $FieldInfo _Properties$LineReader_FieldInfo_[] = {
 };
 
 $MethodInfo _Properties$LineReader_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/InputStream;)V", nullptr, 0, $method(static_cast<void(Properties$LineReader::*)($InputStream*)>(&Properties$LineReader::init$))},
-	{"<init>", "(Ljava/io/Reader;)V", nullptr, 0, $method(static_cast<void(Properties$LineReader::*)($Reader*)>(&Properties$LineReader::init$))},
-	{"readLine", "()I", nullptr, 0, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljava/io/InputStream;)V", nullptr, 0, $method(Properties$LineReader, init$, void, $InputStream*)},
+	{"<init>", "(Ljava/io/Reader;)V", nullptr, 0, $method(Properties$LineReader, init$, void, $Reader*)},
+	{"readLine", "()I", nullptr, 0, $virtualMethod(Properties$LineReader, readLine, int32_t), "java.io.IOException"},
 	{}
 };
 

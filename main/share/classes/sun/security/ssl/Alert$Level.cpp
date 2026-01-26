@@ -28,12 +28,12 @@ $FieldInfo _Alert$Level_FieldInfo_[] = {
 };
 
 $MethodInfo _Alert$Level_MethodInfo_[] = {
-	{"$values", "()[Lsun/security/ssl/Alert$Level;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Alert$LevelArray*(*)()>(&Alert$Level::$values))},
-	{"<init>", "(Ljava/lang/String;IBLjava/lang/String;)V", "(BLjava/lang/String;)V", $PRIVATE, $method(static_cast<void(Alert$Level::*)($String*,int32_t,int8_t,$String*)>(&Alert$Level::init$))},
-	{"nameOf", "(B)Ljava/lang/String;", nullptr, $STATIC, $method(static_cast<$String*(*)(int8_t)>(&Alert$Level::nameOf))},
-	{"valueOf", "(Ljava/lang/String;)Lsun/security/ssl/Alert$Level;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Alert$Level*(*)($String*)>(&Alert$Level::valueOf))},
-	{"valueOf", "(B)Lsun/security/ssl/Alert$Level;", nullptr, $STATIC, $method(static_cast<Alert$Level*(*)(int8_t)>(&Alert$Level::valueOf))},
-	{"values", "()[Lsun/security/ssl/Alert$Level;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Alert$LevelArray*(*)()>(&Alert$Level::values))},
+	{"$values", "()[Lsun/security/ssl/Alert$Level;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Alert$Level, $values, $Alert$LevelArray*)},
+	{"<init>", "(Ljava/lang/String;IBLjava/lang/String;)V", "(BLjava/lang/String;)V", $PRIVATE, $method(Alert$Level, init$, void, $String*, int32_t, int8_t, $String*)},
+	{"nameOf", "(B)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(Alert$Level, nameOf, $String*, int8_t)},
+	{"valueOf", "(Ljava/lang/String;)Lsun/security/ssl/Alert$Level;", nullptr, $PUBLIC | $STATIC, $staticMethod(Alert$Level, valueOf, Alert$Level*, $String*)},
+	{"valueOf", "(B)Lsun/security/ssl/Alert$Level;", nullptr, $STATIC, $staticMethod(Alert$Level, valueOf, Alert$Level*, int8_t)},
+	{"values", "()[Lsun/security/ssl/Alert$Level;", nullptr, $PUBLIC | $STATIC, $staticMethod(Alert$Level, values, $Alert$LevelArray*)},
 	{}
 };
 

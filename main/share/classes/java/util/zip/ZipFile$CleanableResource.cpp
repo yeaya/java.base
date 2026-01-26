@@ -60,11 +60,11 @@ $FieldInfo _ZipFile$CleanableResource_FieldInfo_[] = {
 };
 
 $MethodInfo _ZipFile$CleanableResource_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/zip/ZipFile;Ljava/util/zip/ZipCoder;Ljava/io/File;I)V", nullptr, 0, $method(static_cast<void(ZipFile$CleanableResource::*)($ZipFile*,$ZipCoder*,$File*,int32_t)>(&ZipFile$CleanableResource::init$)), "java.io.IOException"},
-	{"clean", "()V", nullptr, 0},
-	{"getInflater", "()Ljava/util/zip/Inflater;", nullptr, 0},
-	{"releaseInflater", "(Ljava/util/zip/Inflater;)V", nullptr, 0},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/zip/ZipFile;Ljava/util/zip/ZipCoder;Ljava/io/File;I)V", nullptr, 0, $method(ZipFile$CleanableResource, init$, void, $ZipFile*, $ZipCoder*, $File*, int32_t), "java.io.IOException"},
+	{"clean", "()V", nullptr, 0, $virtualMethod(ZipFile$CleanableResource, clean, void)},
+	{"getInflater", "()Ljava/util/zip/Inflater;", nullptr, 0, $virtualMethod(ZipFile$CleanableResource, getInflater, $Inflater*)},
+	{"releaseInflater", "(Ljava/util/zip/Inflater;)V", nullptr, 0, $virtualMethod(ZipFile$CleanableResource, releaseInflater, void, $Inflater*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ZipFile$CleanableResource, run, void)},
 	{}
 };
 

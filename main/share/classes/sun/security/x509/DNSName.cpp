@@ -37,17 +37,17 @@ $FieldInfo _DNSName_FieldInfo_[] = {
 };
 
 $MethodInfo _DNSName_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(static_cast<void(DNSName::*)($DerValue*)>(&DNSName::init$)), "java.io.IOException"},
-	{"<init>", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(static_cast<void(DNSName::*)($String*,bool)>(&DNSName::init$)), "java.io.IOException"},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(DNSName::*)($String*)>(&DNSName::init$)), "java.io.IOException"},
-	{"constrains", "(Lsun/security/x509/GeneralNameInterface;)I", nullptr, $PUBLIC, nullptr, "java.lang.UnsupportedOperationException"},
-	{"encode", "(Lsun/security/util/DerOutputStream;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getType", "()I", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"subtreeDepth", "()I", nullptr, $PUBLIC, nullptr, "java.lang.UnsupportedOperationException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(DNSName, init$, void, $DerValue*), "java.io.IOException"},
+	{"<init>", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(DNSName, init$, void, $String*, bool), "java.io.IOException"},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(DNSName, init$, void, $String*), "java.io.IOException"},
+	{"constrains", "(Lsun/security/x509/GeneralNameInterface;)I", nullptr, $PUBLIC, $virtualMethod(DNSName, constrains, int32_t, $GeneralNameInterface*), "java.lang.UnsupportedOperationException"},
+	{"encode", "(Lsun/security/util/DerOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(DNSName, encode, void, $DerOutputStream*), "java.io.IOException"},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(DNSName, equals, bool, Object$*)},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DNSName, getName, $String*)},
+	{"getType", "()I", nullptr, $PUBLIC, $virtualMethod(DNSName, getType, int32_t)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(DNSName, hashCode, int32_t)},
+	{"subtreeDepth", "()I", nullptr, $PUBLIC, $virtualMethod(DNSName, subtreeDepth, int32_t), "java.lang.UnsupportedOperationException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DNSName, toString, $String*)},
 	{}
 };
 

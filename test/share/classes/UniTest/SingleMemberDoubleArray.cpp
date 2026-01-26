@@ -20,7 +20,7 @@ $CompoundAttribute _SingleMemberDoubleArray_Annotations_[] = {
 };
 
 $MethodInfo _SingleMemberDoubleArray_MethodInfo_[] = {
-	{"value", "()[D", nullptr, $PUBLIC | $ABSTRACT},
+	{"value", "()[D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SingleMemberDoubleArray, value, $doubles*)},
 	{}
 };
 

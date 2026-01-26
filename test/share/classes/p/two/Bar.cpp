@@ -9,8 +9,8 @@ namespace p {
 	namespace two {
 
 $MethodInfo _Bar_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Bar::*)()>(&Bar::init$))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Bar, init$, void)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Bar, toString, $String*)},
 	{}
 };
 

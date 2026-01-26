@@ -43,16 +43,16 @@ $FieldInfo _CertificateAlgorithmId_FieldInfo_[] = {
 };
 
 $MethodInfo _CertificateAlgorithmId_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/x509/AlgorithmId;)V", nullptr, $PUBLIC, $method(static_cast<void(CertificateAlgorithmId::*)($AlgorithmId*)>(&CertificateAlgorithmId::init$))},
-	{"<init>", "(Lsun/security/util/DerInputStream;)V", nullptr, $PUBLIC, $method(static_cast<void(CertificateAlgorithmId::*)($DerInputStream*)>(&CertificateAlgorithmId::init$)), "java.io.IOException"},
-	{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(static_cast<void(CertificateAlgorithmId::*)($InputStream*)>(&CertificateAlgorithmId::init$)), "java.io.IOException"},
-	{"delete", "(Ljava/lang/String;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"encode", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"get", "(Ljava/lang/String;)Lsun/security/x509/AlgorithmId;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"getElements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"set", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/security/x509/AlgorithmId;)V", nullptr, $PUBLIC, $method(CertificateAlgorithmId, init$, void, $AlgorithmId*)},
+	{"<init>", "(Lsun/security/util/DerInputStream;)V", nullptr, $PUBLIC, $method(CertificateAlgorithmId, init$, void, $DerInputStream*), "java.io.IOException"},
+	{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(CertificateAlgorithmId, init$, void, $InputStream*), "java.io.IOException"},
+	{"delete", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CertificateAlgorithmId, delete$, void, $String*), "java.io.IOException"},
+	{"encode", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(CertificateAlgorithmId, encode, void, $OutputStream*), "java.io.IOException"},
+	{"get", "(Ljava/lang/String;)Lsun/security/x509/AlgorithmId;", nullptr, $PUBLIC, $virtualMethod(CertificateAlgorithmId, get, $Object*, $String*), "java.io.IOException"},
+	{"getElements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(CertificateAlgorithmId, getElements, $Enumeration*)},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CertificateAlgorithmId, getName, $String*)},
+	{"set", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(CertificateAlgorithmId, set, void, $String*, Object$*), "java.io.IOException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CertificateAlgorithmId, toString, $String*)},
 	{}
 };
 

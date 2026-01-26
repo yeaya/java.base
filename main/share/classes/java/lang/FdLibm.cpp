@@ -24,11 +24,11 @@ $FieldInfo _FdLibm_FieldInfo_[] = {
 };
 
 $MethodInfo _FdLibm_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(FdLibm::*)()>(&FdLibm::init$))},
-	{"__HI", "(D)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)(double)>(&FdLibm::__HI))},
-	{"__HI", "(DI)D", nullptr, $PRIVATE | $STATIC, $method(static_cast<double(*)(double,int32_t)>(&FdLibm::__HI))},
-	{"__LO", "(D)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)(double)>(&FdLibm::__LO))},
-	{"__LO", "(DI)D", nullptr, $PRIVATE | $STATIC, $method(static_cast<double(*)(double,int32_t)>(&FdLibm::__LO))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(FdLibm, init$, void)},
+	{"__HI", "(D)I", nullptr, $PRIVATE | $STATIC, $staticMethod(FdLibm, __HI, int32_t, double)},
+	{"__HI", "(DI)D", nullptr, $PRIVATE | $STATIC, $staticMethod(FdLibm, __HI, double, double, int32_t)},
+	{"__LO", "(D)I", nullptr, $PRIVATE | $STATIC, $staticMethod(FdLibm, __LO, int32_t, double)},
+	{"__LO", "(DI)D", nullptr, $PRIVATE | $STATIC, $staticMethod(FdLibm, __LO, double, double, int32_t)},
 	{}
 };
 

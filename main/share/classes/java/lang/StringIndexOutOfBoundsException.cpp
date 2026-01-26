@@ -17,9 +17,9 @@ $FieldInfo _StringIndexOutOfBoundsException_FieldInfo_[] = {
 };
 
 $MethodInfo _StringIndexOutOfBoundsException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(StringIndexOutOfBoundsException::*)()>(&StringIndexOutOfBoundsException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(StringIndexOutOfBoundsException::*)($String*)>(&StringIndexOutOfBoundsException::init$))},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(static_cast<void(StringIndexOutOfBoundsException::*)(int32_t)>(&StringIndexOutOfBoundsException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(StringIndexOutOfBoundsException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(StringIndexOutOfBoundsException, init$, void, $String*)},
+	{"<init>", "(I)V", nullptr, $PUBLIC, $method(StringIndexOutOfBoundsException, init$, void, int32_t)},
 	{}
 };
 

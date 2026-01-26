@@ -25,10 +25,10 @@ $FieldInfo _UncheckedIOException_FieldInfo_[] = {
 };
 
 $MethodInfo _UncheckedIOException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/io/IOException;)V", nullptr, $PUBLIC, $method(static_cast<void(UncheckedIOException::*)($String*,$IOException*)>(&UncheckedIOException::init$))},
-	{"<init>", "(Ljava/io/IOException;)V", nullptr, $PUBLIC, $method(static_cast<void(UncheckedIOException::*)($IOException*)>(&UncheckedIOException::init$))},
-	{"getCause", "()Ljava/io/IOException;", nullptr, $PUBLIC},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(UncheckedIOException::*)($ObjectInputStream*)>(&UncheckedIOException::readObject)), "java.io.IOException,java.lang.ClassNotFoundException"},
+	{"<init>", "(Ljava/lang/String;Ljava/io/IOException;)V", nullptr, $PUBLIC, $method(UncheckedIOException, init$, void, $String*, $IOException*)},
+	{"<init>", "(Ljava/io/IOException;)V", nullptr, $PUBLIC, $method(UncheckedIOException, init$, void, $IOException*)},
+	{"getCause", "()Ljava/io/IOException;", nullptr, $PUBLIC, $virtualMethod(UncheckedIOException, getCause, $Throwable*)},
+	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(UncheckedIOException, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
 	{}
 };
 

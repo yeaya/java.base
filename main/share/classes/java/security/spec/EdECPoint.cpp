@@ -21,9 +21,9 @@ $FieldInfo _EdECPoint_FieldInfo_[] = {
 };
 
 $MethodInfo _EdECPoint_MethodInfo_[] = {
-	{"<init>", "(ZLjava/math/BigInteger;)V", nullptr, $PUBLIC, $method(static_cast<void(EdECPoint::*)(bool,$BigInteger*)>(&EdECPoint::init$))},
-	{"getY", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $method(static_cast<$BigInteger*(EdECPoint::*)()>(&EdECPoint::getY))},
-	{"isXOdd", "()Z", nullptr, $PUBLIC, $method(static_cast<bool(EdECPoint::*)()>(&EdECPoint::isXOdd))},
+	{"<init>", "(ZLjava/math/BigInteger;)V", nullptr, $PUBLIC, $method(EdECPoint, init$, void, bool, $BigInteger*)},
+	{"getY", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $method(EdECPoint, getY, $BigInteger*)},
+	{"isXOdd", "()Z", nullptr, $PUBLIC, $method(EdECPoint, isXOdd, bool)},
 	{}
 };
 

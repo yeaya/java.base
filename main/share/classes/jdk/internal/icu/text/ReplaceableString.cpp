@@ -19,11 +19,11 @@ $FieldInfo _ReplaceableString_FieldInfo_[] = {
 };
 
 $MethodInfo _ReplaceableString_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(ReplaceableString::*)($String*)>(&ReplaceableString::init$))},
-	{"<init>", "(Ljava/lang/StringBuffer;)V", nullptr, $PUBLIC, $method(static_cast<void(ReplaceableString::*)($StringBuffer*)>(&ReplaceableString::init$))},
-	{"charAt", "(I)C", nullptr, $PUBLIC},
-	{"getChars", "(II[CI)V", nullptr, $PUBLIC},
-	{"length", "()I", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ReplaceableString, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/StringBuffer;)V", nullptr, $PUBLIC, $method(ReplaceableString, init$, void, $StringBuffer*)},
+	{"charAt", "(I)C", nullptr, $PUBLIC, $virtualMethod(ReplaceableString, charAt, char16_t, int32_t)},
+	{"getChars", "(II[CI)V", nullptr, $PUBLIC, $virtualMethod(ReplaceableString, getChars, void, int32_t, int32_t, $chars*, int32_t)},
+	{"length", "()I", nullptr, $PUBLIC, $virtualMethod(ReplaceableString, length, int32_t)},
 	{}
 };
 

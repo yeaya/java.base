@@ -19,8 +19,8 @@ $FieldInfo _CredentialException_FieldInfo_[] = {
 };
 
 $MethodInfo _CredentialException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CredentialException::*)()>(&CredentialException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(CredentialException::*)($String*)>(&CredentialException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CredentialException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(CredentialException, init$, void, $String*)},
 	{}
 };
 

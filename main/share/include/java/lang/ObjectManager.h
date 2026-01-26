@@ -172,21 +172,16 @@ public:
 
 class ObjectStackCache {
 public:
-	inline static ObjectStack*& currentObjectStack() {
+	inline static ObjectStack* currentObjectStack() {
 		thread_local ObjectStack* objectStack = nullptr;
+		if (objectStack == nullptr) {
+			objectStack = ::java::lang::ObjectStack::currentObjectStack();
+		}
 		return objectStack;
 	}
 };
 
-#define $setObjectStackCache() ::java::lang::ObjectStackCache::currentObjectStack() = ::java::lang::ObjectStack::currentObjectStack()
-
-#ifdef JCPP_USE_LIB_CURRENT_OBJECT_STACK_CACHE
-	#define $getCurrentObjectStatck() ::java::lang::ObjectStackCache::currentObjectStack()
-	#define $onLibThreadStart(event) $setObjectStackCache()
-#else
-	#define $getCurrentObjectStatck() ::java::lang::ObjectStack::currentObjectStack()
-	#define $onLibThreadStart(event)
-#endif
+#define $getCurrentObjectStatck() ::java::lang::ObjectStackCache::currentObjectStack()
 
 class PatchedMemberClassInfo {
 public:

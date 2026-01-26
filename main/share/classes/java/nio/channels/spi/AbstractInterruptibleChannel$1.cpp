@@ -23,8 +23,8 @@ $FieldInfo _AbstractInterruptibleChannel$1_FieldInfo_[] = {
 };
 
 $MethodInfo _AbstractInterruptibleChannel$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/channels/spi/AbstractInterruptibleChannel;)V", nullptr, 0, $method(static_cast<void(AbstractInterruptibleChannel$1::*)($AbstractInterruptibleChannel*)>(&AbstractInterruptibleChannel$1::init$))},
-	{"interrupt", "(Ljava/lang/Thread;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/nio/channels/spi/AbstractInterruptibleChannel;)V", nullptr, 0, $method(AbstractInterruptibleChannel$1, init$, void, $AbstractInterruptibleChannel*)},
+	{"interrupt", "(Ljava/lang/Thread;)V", nullptr, $PUBLIC, $virtualMethod(AbstractInterruptibleChannel$1, interrupt, void, $Thread*)},
 	{}
 };
 

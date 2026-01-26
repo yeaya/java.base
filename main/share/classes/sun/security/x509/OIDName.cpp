@@ -33,17 +33,17 @@ $FieldInfo _OIDName_FieldInfo_[] = {
 };
 
 $MethodInfo _OIDName_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(static_cast<void(OIDName::*)($DerValue*)>(&OIDName::init$)), "java.io.IOException"},
-	{"<init>", "(Lsun/security/util/ObjectIdentifier;)V", nullptr, $PUBLIC, $method(static_cast<void(OIDName::*)($ObjectIdentifier*)>(&OIDName::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(OIDName::*)($String*)>(&OIDName::init$)), "java.io.IOException"},
-	{"constrains", "(Lsun/security/x509/GeneralNameInterface;)I", nullptr, $PUBLIC, nullptr, "java.lang.UnsupportedOperationException"},
-	{"encode", "(Lsun/security/util/DerOutputStream;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getOID", "()Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC},
-	{"getType", "()I", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"subtreeDepth", "()I", nullptr, $PUBLIC, nullptr, "java.lang.UnsupportedOperationException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(OIDName, init$, void, $DerValue*), "java.io.IOException"},
+	{"<init>", "(Lsun/security/util/ObjectIdentifier;)V", nullptr, $PUBLIC, $method(OIDName, init$, void, $ObjectIdentifier*)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(OIDName, init$, void, $String*), "java.io.IOException"},
+	{"constrains", "(Lsun/security/x509/GeneralNameInterface;)I", nullptr, $PUBLIC, $virtualMethod(OIDName, constrains, int32_t, $GeneralNameInterface*), "java.lang.UnsupportedOperationException"},
+	{"encode", "(Lsun/security/util/DerOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(OIDName, encode, void, $DerOutputStream*), "java.io.IOException"},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(OIDName, equals, bool, Object$*)},
+	{"getOID", "()Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC, $virtualMethod(OIDName, getOID, $ObjectIdentifier*)},
+	{"getType", "()I", nullptr, $PUBLIC, $virtualMethod(OIDName, getType, int32_t)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(OIDName, hashCode, int32_t)},
+	{"subtreeDepth", "()I", nullptr, $PUBLIC, $virtualMethod(OIDName, subtreeDepth, int32_t), "java.lang.UnsupportedOperationException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(OIDName, toString, $String*)},
 	{}
 };
 

@@ -63,8 +63,8 @@ $FieldInfo InterruptibleDatagramSocket$$Lambda$lambda$test0$0::fieldInfos[3] = {
 	{}
 };
 $MethodInfo InterruptibleDatagramSocket$$Lambda$lambda$test0$0::methodInfos[3] = {
-	{"<init>", "(Ljava/util/concurrent/CountDownLatch;Ljava/lang/Thread;)V", nullptr, $PUBLIC, $method(static_cast<void(InterruptibleDatagramSocket$$Lambda$lambda$test0$0::*)($CountDownLatch*,$Thread*)>(&InterruptibleDatagramSocket$$Lambda$lambda$test0$0::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/concurrent/CountDownLatch;Ljava/lang/Thread;)V", nullptr, $PUBLIC, $method(InterruptibleDatagramSocket$$Lambda$lambda$test0$0, init$, void, $CountDownLatch*, $Thread*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(InterruptibleDatagramSocket$$Lambda$lambda$test0$0, run, void)},
 	{}
 };
 $ClassInfo InterruptibleDatagramSocket$$Lambda$lambda$test0$0::classInfo$ = {
@@ -82,11 +82,11 @@ $Class* InterruptibleDatagramSocket$$Lambda$lambda$test0$0::load$($String* name,
 $Class* InterruptibleDatagramSocket$$Lambda$lambda$test0$0::class$ = nullptr;
 
 $MethodInfo _InterruptibleDatagramSocket_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(InterruptibleDatagramSocket::*)()>(&InterruptibleDatagramSocket::init$))},
-	{"lambda$test0$0", "(Ljava/util/concurrent/CountDownLatch;Ljava/lang/Thread;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($CountDownLatch*,$Thread*)>(&InterruptibleDatagramSocket::lambda$test0$0))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&InterruptibleDatagramSocket::main)), "java.lang.Exception"},
-	{"test", "(Ljava/net/DatagramSocket;Z)V", nullptr, $STATIC, $method(static_cast<void(*)($DatagramSocket*,bool)>(&InterruptibleDatagramSocket::test)), "java.lang.Exception"},
-	{"test0", "(Ljava/net/DatagramSocket;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($DatagramSocket*)>(&InterruptibleDatagramSocket::test0)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(InterruptibleDatagramSocket, init$, void)},
+	{"lambda$test0$0", "(Ljava/util/concurrent/CountDownLatch;Ljava/lang/Thread;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(InterruptibleDatagramSocket, lambda$test0$0, void, $CountDownLatch*, $Thread*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(InterruptibleDatagramSocket, main, void, $StringArray*), "java.lang.Exception"},
+	{"test", "(Ljava/net/DatagramSocket;Z)V", nullptr, $STATIC, $staticMethod(InterruptibleDatagramSocket, test, void, $DatagramSocket*, bool), "java.lang.Exception"},
+	{"test0", "(Ljava/net/DatagramSocket;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(InterruptibleDatagramSocket, test0, void, $DatagramSocket*), "java.lang.Exception"},
 	{}
 };
 

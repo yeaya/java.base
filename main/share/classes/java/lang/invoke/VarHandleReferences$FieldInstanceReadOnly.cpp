@@ -69,16 +69,16 @@ $FieldInfo _VarHandleReferences$FieldInstanceReadOnly_FieldInfo_[] = {
 };
 
 $MethodInfo _VarHandleReferences$FieldInstanceReadOnly_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Class;JLjava/lang/Class;)V", "(Ljava/lang/Class<*>;JLjava/lang/Class<*>;)V", 0, $method(static_cast<void(VarHandleReferences$FieldInstanceReadOnly::*)($Class*,int64_t,$Class*)>(&VarHandleReferences$FieldInstanceReadOnly::init$))},
-	{"<init>", "(Ljava/lang/Class;JLjava/lang/Class;Ljava/lang/invoke/VarForm;Z)V", "(Ljava/lang/Class<*>;JLjava/lang/Class<*>;Ljava/lang/invoke/VarForm;Z)V", $PROTECTED, $method(static_cast<void(VarHandleReferences$FieldInstanceReadOnly::*)($Class*,int64_t,$Class*,$VarForm*,bool)>(&VarHandleReferences$FieldInstanceReadOnly::init$))},
-	{"accessModeTypeUncached", "(Ljava/lang/invoke/VarHandle$AccessType;)Ljava/lang/invoke/MethodType;", nullptr, $FINAL},
-	{"describeConstable", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/lang/invoke/VarHandle$VarHandleDesc;>;", $PUBLIC},
-	{"get", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $STATIC, $method(static_cast<$Object*(*)($VarHandle*,Object$*)>(&VarHandleReferences$FieldInstanceReadOnly::get)), nullptr, nullptr, _VarHandleReferences$FieldInstanceReadOnly_MethodAnnotations_get4},
-	{"getAcquire", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $STATIC, $method(static_cast<$Object*(*)($VarHandle*,Object$*)>(&VarHandleReferences$FieldInstanceReadOnly::getAcquire)), nullptr, nullptr, _VarHandleReferences$FieldInstanceReadOnly_MethodAnnotations_getAcquire5},
-	{"getOpaque", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $STATIC, $method(static_cast<$Object*(*)($VarHandle*,Object$*)>(&VarHandleReferences$FieldInstanceReadOnly::getOpaque)), nullptr, nullptr, _VarHandleReferences$FieldInstanceReadOnly_MethodAnnotations_getOpaque6},
-	{"getVolatile", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $STATIC, $method(static_cast<$Object*(*)($VarHandle*,Object$*)>(&VarHandleReferences$FieldInstanceReadOnly::getVolatile)), nullptr, nullptr, _VarHandleReferences$FieldInstanceReadOnly_MethodAnnotations_getVolatile7},
-	{"withInvokeBehavior", "()Ljava/lang/invoke/VarHandleReferences$FieldInstanceReadOnly;", nullptr, $PUBLIC},
-	{"withInvokeExactBehavior", "()Ljava/lang/invoke/VarHandleReferences$FieldInstanceReadOnly;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Class;JLjava/lang/Class;)V", "(Ljava/lang/Class<*>;JLjava/lang/Class<*>;)V", 0, $method(VarHandleReferences$FieldInstanceReadOnly, init$, void, $Class*, int64_t, $Class*)},
+	{"<init>", "(Ljava/lang/Class;JLjava/lang/Class;Ljava/lang/invoke/VarForm;Z)V", "(Ljava/lang/Class<*>;JLjava/lang/Class<*>;Ljava/lang/invoke/VarForm;Z)V", $PROTECTED, $method(VarHandleReferences$FieldInstanceReadOnly, init$, void, $Class*, int64_t, $Class*, $VarForm*, bool)},
+	{"accessModeTypeUncached", "(Ljava/lang/invoke/VarHandle$AccessType;)Ljava/lang/invoke/MethodType;", nullptr, $FINAL, $virtualMethod(VarHandleReferences$FieldInstanceReadOnly, accessModeTypeUncached, $MethodType*, $VarHandle$AccessType*)},
+	{"describeConstable", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/lang/invoke/VarHandle$VarHandleDesc;>;", $PUBLIC, $virtualMethod(VarHandleReferences$FieldInstanceReadOnly, describeConstable, $Optional*)},
+	{"get", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $STATIC, $staticMethod(VarHandleReferences$FieldInstanceReadOnly, get, $Object*, $VarHandle*, Object$*), nullptr, nullptr, _VarHandleReferences$FieldInstanceReadOnly_MethodAnnotations_get4},
+	{"getAcquire", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $STATIC, $staticMethod(VarHandleReferences$FieldInstanceReadOnly, getAcquire, $Object*, $VarHandle*, Object$*), nullptr, nullptr, _VarHandleReferences$FieldInstanceReadOnly_MethodAnnotations_getAcquire5},
+	{"getOpaque", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $STATIC, $staticMethod(VarHandleReferences$FieldInstanceReadOnly, getOpaque, $Object*, $VarHandle*, Object$*), nullptr, nullptr, _VarHandleReferences$FieldInstanceReadOnly_MethodAnnotations_getOpaque6},
+	{"getVolatile", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $STATIC, $staticMethod(VarHandleReferences$FieldInstanceReadOnly, getVolatile, $Object*, $VarHandle*, Object$*), nullptr, nullptr, _VarHandleReferences$FieldInstanceReadOnly_MethodAnnotations_getVolatile7},
+	{"withInvokeBehavior", "()Ljava/lang/invoke/VarHandleReferences$FieldInstanceReadOnly;", nullptr, $PUBLIC, $virtualMethod(VarHandleReferences$FieldInstanceReadOnly, withInvokeBehavior, VarHandleReferences$FieldInstanceReadOnly*)},
+	{"withInvokeExactBehavior", "()Ljava/lang/invoke/VarHandleReferences$FieldInstanceReadOnly;", nullptr, $PUBLIC, $virtualMethod(VarHandleReferences$FieldInstanceReadOnly, withInvokeExactBehavior, VarHandleReferences$FieldInstanceReadOnly*)},
 	{}
 };
 

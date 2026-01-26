@@ -31,10 +31,10 @@ $FieldInfo _DirectMethodHandle$Constructor_FieldInfo_[] = {
 };
 
 $MethodInfo _DirectMethodHandle$Constructor_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/invoke/MethodType;Ljava/lang/invoke/LambdaForm;Ljava/lang/invoke/MemberName;ZLjava/lang/invoke/MemberName;Ljava/lang/Class;)V", "(Ljava/lang/invoke/MethodType;Ljava/lang/invoke/LambdaForm;Ljava/lang/invoke/MemberName;ZLjava/lang/invoke/MemberName;Ljava/lang/Class<*>;)V", $PRIVATE, $method(static_cast<void(DirectMethodHandle$Constructor::*)($MethodType*,$LambdaForm*,$MemberName*,bool,$MemberName*,$Class*)>(&DirectMethodHandle$Constructor::init$))},
-	{"copyWith", "(Ljava/lang/invoke/MethodType;Ljava/lang/invoke/LambdaForm;)Ljava/lang/invoke/MethodHandle;", nullptr, 0},
-	{"internalProperties", "()Ljava/lang/Object;", nullptr, $VOLATILE | $SYNTHETIC},
-	{"viewAsType", "(Ljava/lang/invoke/MethodType;Z)Ljava/lang/invoke/MethodHandle;", nullptr, 0},
+	{"<init>", "(Ljava/lang/invoke/MethodType;Ljava/lang/invoke/LambdaForm;Ljava/lang/invoke/MemberName;ZLjava/lang/invoke/MemberName;Ljava/lang/Class;)V", "(Ljava/lang/invoke/MethodType;Ljava/lang/invoke/LambdaForm;Ljava/lang/invoke/MemberName;ZLjava/lang/invoke/MemberName;Ljava/lang/Class<*>;)V", $PRIVATE, $method(DirectMethodHandle$Constructor, init$, void, $MethodType*, $LambdaForm*, $MemberName*, bool, $MemberName*, $Class*)},
+	{"copyWith", "(Ljava/lang/invoke/MethodType;Ljava/lang/invoke/LambdaForm;)Ljava/lang/invoke/MethodHandle;", nullptr, 0, $virtualMethod(DirectMethodHandle$Constructor, copyWith, $MethodHandle*, $MethodType*, $LambdaForm*)},
+	{"internalProperties", "()Ljava/lang/Object;", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(DirectMethodHandle$Constructor, internalProperties, $Object*)},
+	{"viewAsType", "(Ljava/lang/invoke/MethodType;Z)Ljava/lang/invoke/MethodHandle;", nullptr, 0, $virtualMethod(DirectMethodHandle$Constructor, viewAsType, $MethodHandle*, $MethodType*, bool)},
 	{}
 };
 

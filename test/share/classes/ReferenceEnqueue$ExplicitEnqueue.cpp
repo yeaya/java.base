@@ -35,8 +35,8 @@ $FieldInfo _ReferenceEnqueue$ExplicitEnqueue_FieldInfo_[] = {
 };
 
 $MethodInfo _ReferenceEnqueue$ExplicitEnqueue_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ReferenceEnqueue$ExplicitEnqueue::*)()>(&ReferenceEnqueue$ExplicitEnqueue::init$))},
-	{"run", "()V", nullptr, 0, nullptr, "java.lang.InterruptedException"},
+	{"<init>", "()V", nullptr, 0, $method(ReferenceEnqueue$ExplicitEnqueue, init$, void)},
+	{"run", "()V", nullptr, 0, $virtualMethod(ReferenceEnqueue$ExplicitEnqueue, run, void), "java.lang.InterruptedException"},
 	{}
 };
 

@@ -26,8 +26,8 @@ $FieldInfo _LongPipeline$3$1_FieldInfo_[] = {
 };
 
 $MethodInfo _LongPipeline$3$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/stream/LongPipeline$3;Ljava/util/stream/Sink;)V", nullptr, 0, $method(static_cast<void(LongPipeline$3$1::*)($LongPipeline$3*,$Sink*)>(&LongPipeline$3$1::init$))},
-	{"accept", "(J)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/stream/LongPipeline$3;Ljava/util/stream/Sink;)V", nullptr, 0, $method(LongPipeline$3$1, init$, void, $LongPipeline$3*, $Sink*)},
+	{"accept", "(J)V", nullptr, $PUBLIC, $virtualMethod(LongPipeline$3$1, accept, void, int64_t)},
 	{}
 };
 

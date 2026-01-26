@@ -25,8 +25,8 @@ $FieldInfo _Perf$CleanerAction_FieldInfo_[] = {
 };
 
 $MethodInfo _Perf$CleanerAction_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/perf/Perf;Ljava/nio/ByteBuffer;)V", nullptr, 0, $method(static_cast<void(Perf$CleanerAction::*)($Perf*,$ByteBuffer*)>(&Perf$CleanerAction::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/perf/Perf;Ljava/nio/ByteBuffer;)V", nullptr, 0, $method(Perf$CleanerAction, init$, void, $Perf*, $ByteBuffer*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Perf$CleanerAction, run, void)},
 	{}
 };
 

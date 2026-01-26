@@ -16,12 +16,12 @@ using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _ReadWritePrimitives_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ReadWritePrimitives::*)()>(&ReadWritePrimitives::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&ReadWritePrimitives::main)), "java.io.IOException"},
-	{"testChar", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&ReadWritePrimitives::testChar)), "java.io.IOException"},
-	{"testInt", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&ReadWritePrimitives::testInt)), "java.io.IOException"},
-	{"testLong", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&ReadWritePrimitives::testLong)), "java.io.IOException"},
-	{"testShort", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&ReadWritePrimitives::testShort)), "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ReadWritePrimitives, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ReadWritePrimitives, main, void, $StringArray*), "java.io.IOException"},
+	{"testChar", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(ReadWritePrimitives, testChar, void), "java.io.IOException"},
+	{"testInt", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(ReadWritePrimitives, testInt, void), "java.io.IOException"},
+	{"testLong", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(ReadWritePrimitives, testLong, void), "java.io.IOException"},
+	{"testShort", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(ReadWritePrimitives, testShort, void), "java.io.IOException"},
 	{}
 };
 

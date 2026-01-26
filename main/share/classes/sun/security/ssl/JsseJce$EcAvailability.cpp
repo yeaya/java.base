@@ -29,7 +29,7 @@ $FieldInfo _JsseJce$EcAvailability_FieldInfo_[] = {
 };
 
 $MethodInfo _JsseJce$EcAvailability_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(JsseJce$EcAvailability::*)()>(&JsseJce$EcAvailability::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(JsseJce$EcAvailability, init$, void)},
 	{}
 };
 

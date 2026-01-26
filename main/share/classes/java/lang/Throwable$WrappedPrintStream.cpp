@@ -19,9 +19,9 @@ $FieldInfo _Throwable$WrappedPrintStream_FieldInfo_[] = {
 };
 
 $MethodInfo _Throwable$WrappedPrintStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/PrintStream;)V", nullptr, 0, $method(static_cast<void(Throwable$WrappedPrintStream::*)($PrintStream*)>(&Throwable$WrappedPrintStream::init$))},
-	{"lock", "()Ljava/lang/Object;", nullptr, 0},
-	{"println", "(Ljava/lang/Object;)V", nullptr, 0},
+	{"<init>", "(Ljava/io/PrintStream;)V", nullptr, 0, $method(Throwable$WrappedPrintStream, init$, void, $PrintStream*)},
+	{"lock", "()Ljava/lang/Object;", nullptr, 0, $virtualMethod(Throwable$WrappedPrintStream, lock, $Object*)},
+	{"println", "(Ljava/lang/Object;)V", nullptr, 0, $virtualMethod(Throwable$WrappedPrintStream, println, void, Object$*)},
 	{}
 };
 

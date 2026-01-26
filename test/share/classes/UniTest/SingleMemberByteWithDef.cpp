@@ -25,7 +25,7 @@ $Attribute _SingleMemberByteWithDef_DefaultValue_value0 = {
 };
 
 $MethodInfo _SingleMemberByteWithDef_MethodInfo_[] = {
-	{"value", "()B", nullptr, $PUBLIC | $ABSTRACT, nullptr, nullptr, &_SingleMemberByteWithDef_DefaultValue_value0},
+	{"value", "()B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SingleMemberByteWithDef, value, int8_t), nullptr, &_SingleMemberByteWithDef_DefaultValue_value0},
 	{}
 };
 

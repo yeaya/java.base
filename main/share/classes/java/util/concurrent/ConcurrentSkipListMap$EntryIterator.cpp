@@ -27,8 +27,8 @@ $FieldInfo _ConcurrentSkipListMap$EntryIterator_FieldInfo_[] = {
 };
 
 $MethodInfo _ConcurrentSkipListMap$EntryIterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/ConcurrentSkipListMap;)V", nullptr, 0, $method(static_cast<void(ConcurrentSkipListMap$EntryIterator::*)($ConcurrentSkipListMap*)>(&ConcurrentSkipListMap$EntryIterator::init$))},
-	{"next", "()Ljava/util/Map$Entry;", "()Ljava/util/Map$Entry<TK;TV;>;", $PUBLIC},
+	{"<init>", "(Ljava/util/concurrent/ConcurrentSkipListMap;)V", nullptr, 0, $method(ConcurrentSkipListMap$EntryIterator, init$, void, $ConcurrentSkipListMap*)},
+	{"next", "()Ljava/util/Map$Entry;", "()Ljava/util/Map$Entry<TK;TV;>;", $PUBLIC, $virtualMethod(ConcurrentSkipListMap$EntryIterator, next, $Object*)},
 	{}
 };
 

@@ -31,7 +31,7 @@ $CompoundAttribute _Named_Annotations_[] = {
 };
 
 $MethodInfo _Named_MethodInfo_[] = {
-	{"value", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
+	{"value", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Named, value, $String*)},
 	{}
 };
 

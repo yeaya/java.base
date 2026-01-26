@@ -18,8 +18,8 @@ $FieldInfo _ZoneRulesException_FieldInfo_[] = {
 };
 
 $MethodInfo _ZoneRulesException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(ZoneRulesException::*)($String*)>(&ZoneRulesException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(ZoneRulesException::*)($String*,$Throwable*)>(&ZoneRulesException::init$))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ZoneRulesException, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(ZoneRulesException, init$, void, $String*, $Throwable*)},
 	{}
 };
 

@@ -20,10 +20,10 @@ $FieldInfo _Transfers$UserTarget$1_FieldInfo_[] = {
 };
 
 $MethodInfo _Transfers$UserTarget$1_MethodInfo_[] = {
-	{"<init>", "(LTransfers$UserTarget;)V", nullptr, 0, $method(static_cast<void(Transfers$UserTarget$1::*)($Transfers$UserTarget*)>(&Transfers$UserTarget$1::init$))},
-	{"close", "()V", nullptr, $PUBLIC},
-	{"isOpen", "()Z", nullptr, $PUBLIC},
-	{"write", "(Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC},
+	{"<init>", "(LTransfers$UserTarget;)V", nullptr, 0, $method(Transfers$UserTarget$1, init$, void, $Transfers$UserTarget*)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(Transfers$UserTarget$1, close, void)},
+	{"isOpen", "()Z", nullptr, $PUBLIC, $virtualMethod(Transfers$UserTarget$1, isOpen, bool)},
+	{"write", "(Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC, $virtualMethod(Transfers$UserTarget$1, write, int32_t, $ByteBuffer*)},
 	{}
 };
 

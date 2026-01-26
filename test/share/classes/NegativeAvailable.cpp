@@ -28,9 +28,9 @@ using $Files = ::java::nio::file::Files;
 using $Path = ::java::nio::file::Path;
 
 $MethodInfo _NegativeAvailable_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(NegativeAvailable::*)()>(&NegativeAvailable::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&NegativeAvailable::main)), "java.io.IOException"},
-	{"skipBytes", "(Ljava/io/FileInputStream;IJ)J", nullptr, $PRIVATE | $STATIC, $method(static_cast<int64_t(*)($FileInputStream*,int32_t,int64_t)>(&NegativeAvailable::skipBytes)), "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(NegativeAvailable, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(NegativeAvailable, main, void, $StringArray*), "java.io.IOException"},
+	{"skipBytes", "(Ljava/io/FileInputStream;IJ)J", nullptr, $PRIVATE | $STATIC, $staticMethod(NegativeAvailable, skipBytes, int64_t, $FileInputStream*, int32_t, int64_t), "java.io.IOException"},
 	{}
 };
 

@@ -7,7 +7,7 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _HostWithDuplicateMembers_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(HostWithDuplicateMembers::*)()>(&HostWithDuplicateMembers::init$))},
+	{"<init>", "()V", nullptr, 0, $method(HostWithDuplicateMembers, init$, void)},
 	{}
 };
 

@@ -23,9 +23,9 @@ namespace java {
 		namespace spi {
 
 $MethodInfo _CurrencyNameProvider_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(CurrencyNameProvider::*)()>(&CurrencyNameProvider::init$))},
-	{"getDisplayName", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getSymbol", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(CurrencyNameProvider, init$, void)},
+	{"getDisplayName", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CurrencyNameProvider, getDisplayName, $String*, $String*, $Locale*)},
+	{"getSymbol", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CurrencyNameProvider, getSymbol, $String*, $String*, $Locale*)},
 	{}
 };
 

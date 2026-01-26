@@ -23,8 +23,8 @@ $FieldInfo _SubjectCodeSource$2_FieldInfo_[] = {
 };
 
 $MethodInfo _SubjectCodeSource$2_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/provider/SubjectCodeSource;Ljavax/security/auth/Subject;)V", "()V", 0, $method(static_cast<void(SubjectCodeSource$2::*)($SubjectCodeSource*,$Subject*)>(&SubjectCodeSource$2::init$))},
-	{"run", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/security/provider/SubjectCodeSource;Ljavax/security/auth/Subject;)V", "()V", 0, $method(SubjectCodeSource$2, init$, void, $SubjectCodeSource*, $Subject*)},
+	{"run", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SubjectCodeSource$2, run, $Object*)},
 	{}
 };
 

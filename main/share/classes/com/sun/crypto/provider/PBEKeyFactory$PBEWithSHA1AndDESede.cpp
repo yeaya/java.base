@@ -14,7 +14,7 @@ namespace com {
 			namespace provider {
 
 $MethodInfo _PBEKeyFactory$PBEWithSHA1AndDESede_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PBEKeyFactory$PBEWithSHA1AndDESede::*)()>(&PBEKeyFactory$PBEWithSHA1AndDESede::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PBEKeyFactory$PBEWithSHA1AndDESede, init$, void)},
 	{}
 };
 

@@ -19,8 +19,8 @@ namespace sun {
 		namespace util {
 
 $MethodInfo _DomainName$Rules$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(DomainName$Rules$1::*)()>(&DomainName$Rules$1::init$))},
-	{"run", "()Ljava/io/InputStream;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(DomainName$Rules$1, init$, void)},
+	{"run", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(DomainName$Rules$1, run, $Object*)},
 	{}
 };
 

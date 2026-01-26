@@ -10,8 +10,8 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _PrivateInterfaceCall$I4_MethodInfo_[] = {
-	{"invokeDirect", "(LPrivateInterfaceCall$I4;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)(PrivateInterfaceCall$I4*)>(&PrivateInterfaceCall$I4::invokeDirect))},
-	{"invokeDirectFinal", "(LPrivateInterfaceCall$I4;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)(PrivateInterfaceCall$I4*)>(&PrivateInterfaceCall$I4::invokeDirectFinal))},
+	{"invokeDirect", "(LPrivateInterfaceCall$I4;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(PrivateInterfaceCall$I4, invokeDirect, void, PrivateInterfaceCall$I4*)},
+	{"invokeDirectFinal", "(LPrivateInterfaceCall$I4;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(PrivateInterfaceCall$I4, invokeDirectFinal, void, PrivateInterfaceCall$I4*)},
 	{}
 };
 

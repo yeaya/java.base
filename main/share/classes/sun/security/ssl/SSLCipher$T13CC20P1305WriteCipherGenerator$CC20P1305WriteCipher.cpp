@@ -65,12 +65,12 @@ $FieldInfo _SSLCipher$T13CC20P1305WriteCipherGenerator$CC20P1305WriteCipher_Fiel
 };
 
 $MethodInfo _SSLCipher$T13CC20P1305WriteCipherGenerator$CC20P1305WriteCipher_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/ssl/Authenticator;Lsun/security/ssl/ProtocolVersion;Lsun/security/ssl/SSLCipher;Ljava/lang/String;Ljava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, 0, $method(static_cast<void(SSLCipher$T13CC20P1305WriteCipherGenerator$CC20P1305WriteCipher::*)($Authenticator*,$ProtocolVersion*,$SSLCipher*,$String*,$Key*,$AlgorithmParameterSpec*,$SecureRandom*)>(&SSLCipher$T13CC20P1305WriteCipherGenerator$CC20P1305WriteCipher::init$)), "java.security.GeneralSecurityException"},
-	{"calculateFragmentSize", "(II)I", nullptr, 0},
-	{"calculatePacketSize", "(II)I", nullptr, 0},
-	{"dispose", "()V", nullptr, 0},
-	{"encrypt", "(BLjava/nio/ByteBuffer;)I", nullptr, $PUBLIC},
-	{"getExplicitNonceSize", "()I", nullptr, 0},
+	{"<init>", "(Lsun/security/ssl/Authenticator;Lsun/security/ssl/ProtocolVersion;Lsun/security/ssl/SSLCipher;Ljava/lang/String;Ljava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, 0, $method(SSLCipher$T13CC20P1305WriteCipherGenerator$CC20P1305WriteCipher, init$, void, $Authenticator*, $ProtocolVersion*, $SSLCipher*, $String*, $Key*, $AlgorithmParameterSpec*, $SecureRandom*), "java.security.GeneralSecurityException"},
+	{"calculateFragmentSize", "(II)I", nullptr, 0, $virtualMethod(SSLCipher$T13CC20P1305WriteCipherGenerator$CC20P1305WriteCipher, calculateFragmentSize, int32_t, int32_t, int32_t)},
+	{"calculatePacketSize", "(II)I", nullptr, 0, $virtualMethod(SSLCipher$T13CC20P1305WriteCipherGenerator$CC20P1305WriteCipher, calculatePacketSize, int32_t, int32_t, int32_t)},
+	{"dispose", "()V", nullptr, 0, $virtualMethod(SSLCipher$T13CC20P1305WriteCipherGenerator$CC20P1305WriteCipher, dispose, void)},
+	{"encrypt", "(BLjava/nio/ByteBuffer;)I", nullptr, $PUBLIC, $virtualMethod(SSLCipher$T13CC20P1305WriteCipherGenerator$CC20P1305WriteCipher, encrypt, int32_t, int8_t, $ByteBuffer*)},
+	{"getExplicitNonceSize", "()I", nullptr, 0, $virtualMethod(SSLCipher$T13CC20P1305WriteCipherGenerator$CC20P1305WriteCipher, getExplicitNonceSize, int32_t)},
 	{}
 };
 

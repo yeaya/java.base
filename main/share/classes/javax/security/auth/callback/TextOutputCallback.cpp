@@ -33,9 +33,9 @@ $MethodInfo _TextOutputCallback_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(TextOutputCallback::*)(int32_t,$String*)>(&TextOutputCallback::init$))},
-	{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getMessageType", "()I", nullptr, $PUBLIC},
+	{"<init>", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $method(TextOutputCallback, init$, void, int32_t, $String*)},
+	{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TextOutputCallback, getMessage, $String*)},
+	{"getMessageType", "()I", nullptr, $PUBLIC, $virtualMethod(TextOutputCallback, getMessageType, int32_t)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

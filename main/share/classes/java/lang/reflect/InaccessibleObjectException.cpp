@@ -17,8 +17,8 @@ $FieldInfo _InaccessibleObjectException_FieldInfo_[] = {
 };
 
 $MethodInfo _InaccessibleObjectException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(InaccessibleObjectException::*)()>(&InaccessibleObjectException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(InaccessibleObjectException::*)($String*)>(&InaccessibleObjectException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(InaccessibleObjectException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InaccessibleObjectException, init$, void, $String*)},
 	{}
 };
 

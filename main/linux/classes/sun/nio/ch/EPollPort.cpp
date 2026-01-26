@@ -62,13 +62,13 @@ $FieldInfo _EPollPort_FieldInfo_[] = {
 };
 
 $MethodInfo _EPollPort_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/channels/spi/AsynchronousChannelProvider;Lsun/nio/ch/ThreadPool;)V", nullptr, 0, $method(static_cast<void(EPollPort::*)($AsynchronousChannelProvider*,$ThreadPool*)>(&EPollPort::init$)), "java.io.IOException"},
-	{"executeOnHandlerTask", "(Ljava/lang/Runnable;)V", nullptr, 0},
-	{"implClose", "()V", nullptr, $PRIVATE, $method(static_cast<void(EPollPort::*)()>(&EPollPort::implClose))},
-	{"shutdownHandlerTasks", "()V", nullptr, 0},
-	{"start", "()Lsun/nio/ch/EPollPort;", nullptr, 0, $method(static_cast<EPollPort*(EPollPort::*)()>(&EPollPort::start))},
-	{"startPoll", "(II)V", nullptr, 0},
-	{"wakeup", "()V", nullptr, $PRIVATE, $method(static_cast<void(EPollPort::*)()>(&EPollPort::wakeup))},
+	{"<init>", "(Ljava/nio/channels/spi/AsynchronousChannelProvider;Lsun/nio/ch/ThreadPool;)V", nullptr, 0, $method(EPollPort, init$, void, $AsynchronousChannelProvider*, $ThreadPool*), "java.io.IOException"},
+	{"executeOnHandlerTask", "(Ljava/lang/Runnable;)V", nullptr, 0, $virtualMethod(EPollPort, executeOnHandlerTask, void, $Runnable*)},
+	{"implClose", "()V", nullptr, $PRIVATE, $method(EPollPort, implClose, void)},
+	{"shutdownHandlerTasks", "()V", nullptr, 0, $virtualMethod(EPollPort, shutdownHandlerTasks, void)},
+	{"start", "()Lsun/nio/ch/EPollPort;", nullptr, 0, $method(EPollPort, start, EPollPort*)},
+	{"startPoll", "(II)V", nullptr, 0, $virtualMethod(EPollPort, startPoll, void, int32_t, int32_t)},
+	{"wakeup", "()V", nullptr, $PRIVATE, $method(EPollPort, wakeup, void)},
 	{}
 };
 

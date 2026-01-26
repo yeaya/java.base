@@ -43,9 +43,9 @@ $MethodInfo _WhileOps$4Op$1OpSink_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/util/stream/WhileOps$4Op;Ljava/util/stream/Sink;Z)V", "()V", 0, $method(static_cast<void(WhileOps$4Op$1OpSink::*)($WhileOps$4Op*,$Sink*,bool)>(&WhileOps$4Op$1OpSink::init$))},
-	{"accept", "(D)V", nullptr, $PUBLIC},
-	{"getDropCount", "()J", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/stream/WhileOps$4Op;Ljava/util/stream/Sink;Z)V", "()V", 0, $method(WhileOps$4Op$1OpSink, init$, void, $WhileOps$4Op*, $Sink*, bool)},
+	{"accept", "(D)V", nullptr, $PUBLIC, $virtualMethod(WhileOps$4Op$1OpSink, accept, void, double)},
+	{"getDropCount", "()J", nullptr, $PUBLIC, $virtualMethod(WhileOps$4Op$1OpSink, getDropCount, int64_t)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

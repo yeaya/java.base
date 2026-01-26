@@ -23,10 +23,10 @@ $FieldInfo _EdDSAParameterSpec_FieldInfo_[] = {
 };
 
 $MethodInfo _EdDSAParameterSpec_MethodInfo_[] = {
-	{"<init>", "(Z)V", nullptr, $PUBLIC, $method(static_cast<void(EdDSAParameterSpec::*)(bool)>(&EdDSAParameterSpec::init$))},
-	{"<init>", "(Z[B)V", nullptr, $PUBLIC, $method(static_cast<void(EdDSAParameterSpec::*)(bool,$bytes*)>(&EdDSAParameterSpec::init$))},
-	{"getContext", "()Ljava/util/Optional;", "()Ljava/util/Optional<[B>;", $PUBLIC},
-	{"isPrehash", "()Z", nullptr, $PUBLIC},
+	{"<init>", "(Z)V", nullptr, $PUBLIC, $method(EdDSAParameterSpec, init$, void, bool)},
+	{"<init>", "(Z[B)V", nullptr, $PUBLIC, $method(EdDSAParameterSpec, init$, void, bool, $bytes*)},
+	{"getContext", "()Ljava/util/Optional;", "()Ljava/util/Optional<[B>;", $PUBLIC, $virtualMethod(EdDSAParameterSpec, getContext, $Optional*)},
+	{"isPrehash", "()Z", nullptr, $PUBLIC, $virtualMethod(EdDSAParameterSpec, isPrehash, bool)},
 	{}
 };
 

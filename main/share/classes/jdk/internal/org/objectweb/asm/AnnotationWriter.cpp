@@ -53,20 +53,20 @@ $FieldInfo _AnnotationWriter_FieldInfo_[] = {
 };
 
 $MethodInfo _AnnotationWriter_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/org/objectweb/asm/SymbolTable;ZLjdk/internal/org/objectweb/asm/ByteVector;Ljdk/internal/org/objectweb/asm/AnnotationWriter;)V", nullptr, 0, $method(static_cast<void(AnnotationWriter::*)($SymbolTable*,bool,$ByteVector*,AnnotationWriter*)>(&AnnotationWriter::init$))},
-	{"computeAnnotationsSize", "(Ljava/lang/String;)I", nullptr, 0, $method(static_cast<int32_t(AnnotationWriter::*)($String*)>(&AnnotationWriter::computeAnnotationsSize))},
-	{"computeAnnotationsSize", "(Ljdk/internal/org/objectweb/asm/AnnotationWriter;Ljdk/internal/org/objectweb/asm/AnnotationWriter;Ljdk/internal/org/objectweb/asm/AnnotationWriter;Ljdk/internal/org/objectweb/asm/AnnotationWriter;)I", nullptr, $STATIC, $method(static_cast<int32_t(*)(AnnotationWriter*,AnnotationWriter*,AnnotationWriter*,AnnotationWriter*)>(&AnnotationWriter::computeAnnotationsSize))},
-	{"computeParameterAnnotationsSize", "(Ljava/lang/String;[Ljdk/internal/org/objectweb/asm/AnnotationWriter;I)I", nullptr, $STATIC, $method(static_cast<int32_t(*)($String*,$AnnotationWriterArray*,int32_t)>(&AnnotationWriter::computeParameterAnnotationsSize))},
-	{"create", "(Ljdk/internal/org/objectweb/asm/SymbolTable;Ljava/lang/String;Ljdk/internal/org/objectweb/asm/AnnotationWriter;)Ljdk/internal/org/objectweb/asm/AnnotationWriter;", nullptr, $STATIC, $method(static_cast<AnnotationWriter*(*)($SymbolTable*,$String*,AnnotationWriter*)>(&AnnotationWriter::create))},
-	{"create", "(Ljdk/internal/org/objectweb/asm/SymbolTable;ILjdk/internal/org/objectweb/asm/TypePath;Ljava/lang/String;Ljdk/internal/org/objectweb/asm/AnnotationWriter;)Ljdk/internal/org/objectweb/asm/AnnotationWriter;", nullptr, $STATIC, $method(static_cast<AnnotationWriter*(*)($SymbolTable*,int32_t,$TypePath*,$String*,AnnotationWriter*)>(&AnnotationWriter::create))},
-	{"putAnnotations", "(ILjdk/internal/org/objectweb/asm/ByteVector;)V", nullptr, 0, $method(static_cast<void(AnnotationWriter::*)(int32_t,$ByteVector*)>(&AnnotationWriter::putAnnotations))},
-	{"putAnnotations", "(Ljdk/internal/org/objectweb/asm/SymbolTable;Ljdk/internal/org/objectweb/asm/AnnotationWriter;Ljdk/internal/org/objectweb/asm/AnnotationWriter;Ljdk/internal/org/objectweb/asm/AnnotationWriter;Ljdk/internal/org/objectweb/asm/AnnotationWriter;Ljdk/internal/org/objectweb/asm/ByteVector;)V", nullptr, $STATIC, $method(static_cast<void(*)($SymbolTable*,AnnotationWriter*,AnnotationWriter*,AnnotationWriter*,AnnotationWriter*,$ByteVector*)>(&AnnotationWriter::putAnnotations))},
-	{"putParameterAnnotations", "(I[Ljdk/internal/org/objectweb/asm/AnnotationWriter;ILjdk/internal/org/objectweb/asm/ByteVector;)V", nullptr, $STATIC, $method(static_cast<void(*)(int32_t,$AnnotationWriterArray*,int32_t,$ByteVector*)>(&AnnotationWriter::putParameterAnnotations))},
-	{"visit", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC},
-	{"visitAnnotation", "(Ljava/lang/String;Ljava/lang/String;)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC},
-	{"visitArray", "(Ljava/lang/String;)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC},
-	{"visitEnd", "()V", nullptr, $PUBLIC},
-	{"visitEnum", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/org/objectweb/asm/SymbolTable;ZLjdk/internal/org/objectweb/asm/ByteVector;Ljdk/internal/org/objectweb/asm/AnnotationWriter;)V", nullptr, 0, $method(AnnotationWriter, init$, void, $SymbolTable*, bool, $ByteVector*, AnnotationWriter*)},
+	{"computeAnnotationsSize", "(Ljava/lang/String;)I", nullptr, 0, $method(AnnotationWriter, computeAnnotationsSize, int32_t, $String*)},
+	{"computeAnnotationsSize", "(Ljdk/internal/org/objectweb/asm/AnnotationWriter;Ljdk/internal/org/objectweb/asm/AnnotationWriter;Ljdk/internal/org/objectweb/asm/AnnotationWriter;Ljdk/internal/org/objectweb/asm/AnnotationWriter;)I", nullptr, $STATIC, $staticMethod(AnnotationWriter, computeAnnotationsSize, int32_t, AnnotationWriter*, AnnotationWriter*, AnnotationWriter*, AnnotationWriter*)},
+	{"computeParameterAnnotationsSize", "(Ljava/lang/String;[Ljdk/internal/org/objectweb/asm/AnnotationWriter;I)I", nullptr, $STATIC, $staticMethod(AnnotationWriter, computeParameterAnnotationsSize, int32_t, $String*, $AnnotationWriterArray*, int32_t)},
+	{"create", "(Ljdk/internal/org/objectweb/asm/SymbolTable;Ljava/lang/String;Ljdk/internal/org/objectweb/asm/AnnotationWriter;)Ljdk/internal/org/objectweb/asm/AnnotationWriter;", nullptr, $STATIC, $staticMethod(AnnotationWriter, create, AnnotationWriter*, $SymbolTable*, $String*, AnnotationWriter*)},
+	{"create", "(Ljdk/internal/org/objectweb/asm/SymbolTable;ILjdk/internal/org/objectweb/asm/TypePath;Ljava/lang/String;Ljdk/internal/org/objectweb/asm/AnnotationWriter;)Ljdk/internal/org/objectweb/asm/AnnotationWriter;", nullptr, $STATIC, $staticMethod(AnnotationWriter, create, AnnotationWriter*, $SymbolTable*, int32_t, $TypePath*, $String*, AnnotationWriter*)},
+	{"putAnnotations", "(ILjdk/internal/org/objectweb/asm/ByteVector;)V", nullptr, 0, $method(AnnotationWriter, putAnnotations, void, int32_t, $ByteVector*)},
+	{"putAnnotations", "(Ljdk/internal/org/objectweb/asm/SymbolTable;Ljdk/internal/org/objectweb/asm/AnnotationWriter;Ljdk/internal/org/objectweb/asm/AnnotationWriter;Ljdk/internal/org/objectweb/asm/AnnotationWriter;Ljdk/internal/org/objectweb/asm/AnnotationWriter;Ljdk/internal/org/objectweb/asm/ByteVector;)V", nullptr, $STATIC, $staticMethod(AnnotationWriter, putAnnotations, void, $SymbolTable*, AnnotationWriter*, AnnotationWriter*, AnnotationWriter*, AnnotationWriter*, $ByteVector*)},
+	{"putParameterAnnotations", "(I[Ljdk/internal/org/objectweb/asm/AnnotationWriter;ILjdk/internal/org/objectweb/asm/ByteVector;)V", nullptr, $STATIC, $staticMethod(AnnotationWriter, putParameterAnnotations, void, int32_t, $AnnotationWriterArray*, int32_t, $ByteVector*)},
+	{"visit", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(AnnotationWriter, visit, void, $String*, Object$*)},
+	{"visitAnnotation", "(Ljava/lang/String;Ljava/lang/String;)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(AnnotationWriter, visitAnnotation, $AnnotationVisitor*, $String*, $String*)},
+	{"visitArray", "(Ljava/lang/String;)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(AnnotationWriter, visitArray, $AnnotationVisitor*, $String*)},
+	{"visitEnd", "()V", nullptr, $PUBLIC, $virtualMethod(AnnotationWriter, visitEnd, void)},
+	{"visitEnum", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(AnnotationWriter, visitEnum, void, $String*, $String*, $String*)},
 	{}
 };
 

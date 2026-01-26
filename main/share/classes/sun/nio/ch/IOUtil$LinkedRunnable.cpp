@@ -37,14 +37,14 @@ $FieldInfo _IOUtil$LinkedRunnable_FieldInfo_[] = {
 $MethodInfo _IOUtil$LinkedRunnable_MethodInfo_[] = {
 	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(Ljava/lang/Runnable;Ljava/lang/Runnable;)V", nullptr, 0, $method(static_cast<void(IOUtil$LinkedRunnable::*)($Runnable*,$Runnable*)>(&IOUtil$LinkedRunnable::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
-	{"hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"next", "()Ljava/lang/Runnable;", nullptr, $PUBLIC, $method(static_cast<$Runnable*(IOUtil$LinkedRunnable::*)()>(&IOUtil$LinkedRunnable::next))},
-	{"node", "()Ljava/lang/Runnable;", nullptr, $PUBLIC, $method(static_cast<$Runnable*(IOUtil$LinkedRunnable::*)()>(&IOUtil$LinkedRunnable::node))},
-	{"of", "(Ljava/lang/Runnable;Ljava/lang/Runnable;)Lsun/nio/ch/IOUtil$LinkedRunnable;", nullptr, $STATIC, $method(static_cast<IOUtil$LinkedRunnable*(*)($Runnable*,$Runnable*)>(&IOUtil$LinkedRunnable::of))},
-	{"run", "()V", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL},
+	{"<init>", "(Ljava/lang/Runnable;Ljava/lang/Runnable;)V", nullptr, 0, $method(IOUtil$LinkedRunnable, init$, void, $Runnable*, $Runnable*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(IOUtil$LinkedRunnable, equals, bool, Object$*)},
+	{"hashCode", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(IOUtil$LinkedRunnable, hashCode, int32_t)},
+	{"next", "()Ljava/lang/Runnable;", nullptr, $PUBLIC, $method(IOUtil$LinkedRunnable, next, $Runnable*)},
+	{"node", "()Ljava/lang/Runnable;", nullptr, $PUBLIC, $method(IOUtil$LinkedRunnable, node, $Runnable*)},
+	{"of", "(Ljava/lang/Runnable;Ljava/lang/Runnable;)Lsun/nio/ch/IOUtil$LinkedRunnable;", nullptr, $STATIC, $staticMethod(IOUtil$LinkedRunnable, of, IOUtil$LinkedRunnable*, $Runnable*, $Runnable*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(IOUtil$LinkedRunnable, run, void)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(IOUtil$LinkedRunnable, toString, $String*)},
 	{}
 };
 

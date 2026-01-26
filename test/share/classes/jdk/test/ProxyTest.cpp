@@ -60,8 +60,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ProxyTest$$Lambda$lambda$static$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ProxyTest$$Lambda$lambda$static$0::*)()>(&ProxyTest$$Lambda$lambda$static$0::init$))},
-	{"invoke", "(Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ProxyTest$$Lambda$lambda$static$0, init$, void)},
+	{"invoke", "(Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ProxyTest$$Lambda$lambda$static$0, invoke, $Object*, Object$*, $Method*, $ObjectArray*)},
 	{}
 };
 $ClassInfo ProxyTest$$Lambda$lambda$static$0::classInfo$ = {
@@ -84,13 +84,13 @@ $FieldInfo _ProxyTest_FieldInfo_[] = {
 };
 
 $MethodInfo _ProxyTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ProxyTest::*)()>(&ProxyTest::init$))},
-	{"assertDynamicModule", "(Ljava/lang/Module;Ljava/lang/ClassLoader;Ljava/lang/Class;)V", "(Ljava/lang/Module;Ljava/lang/ClassLoader;Ljava/lang/Class<*>;)V", $PUBLIC | $STATIC, $method(static_cast<void(*)($Module*,$ClassLoader*,$Class*)>(&ProxyTest::assertDynamicModule))},
-	{"assertEquals", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)(Object$*,Object$*)>(&ProxyTest::assertEquals))},
-	{"lambda$static$0", "(Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Object*(*)(Object$*,$Method*,$ObjectArray*)>(&ProxyTest::lambda$static$0)), "java.lang.Throwable"},
-	{"test", "(Ljdk/test/ProxyTest$Data;)V", nullptr, $PUBLIC},
-	{"testDynamicModule", "(Ljdk/test/ProxyTest$Data;)V", nullptr, $PRIVATE, $method(static_cast<void(ProxyTest::*)($ProxyTest$Data*)>(&ProxyTest::testDynamicModule))},
-	{"testProxyClass", "(Ljava/lang/Module;Ljava/lang/ClassLoader;[Ljava/lang/Class;)V", "(Ljava/lang/Module;Ljava/lang/ClassLoader;[Ljava/lang/Class<*>;)V", $PRIVATE | $STATIC | $TRANSIENT, $method(static_cast<void(*)($Module*,$ClassLoader*,$ClassArray*)>(&ProxyTest::testProxyClass))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ProxyTest, init$, void)},
+	{"assertDynamicModule", "(Ljava/lang/Module;Ljava/lang/ClassLoader;Ljava/lang/Class;)V", "(Ljava/lang/Module;Ljava/lang/ClassLoader;Ljava/lang/Class<*>;)V", $PUBLIC | $STATIC, $staticMethod(ProxyTest, assertDynamicModule, void, $Module*, $ClassLoader*, $Class*)},
+	{"assertEquals", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ProxyTest, assertEquals, void, Object$*, Object$*)},
+	{"lambda$static$0", "(Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ProxyTest, lambda$static$0, $Object*, Object$*, $Method*, $ObjectArray*), "java.lang.Throwable"},
+	{"test", "(Ljdk/test/ProxyTest$Data;)V", nullptr, $PUBLIC, $virtualMethod(ProxyTest, test, void, $ProxyTest$Data*)},
+	{"testDynamicModule", "(Ljdk/test/ProxyTest$Data;)V", nullptr, $PRIVATE, $method(ProxyTest, testDynamicModule, void, $ProxyTest$Data*)},
+	{"testProxyClass", "(Ljava/lang/Module;Ljava/lang/ClassLoader;[Ljava/lang/Class;)V", "(Ljava/lang/Module;Ljava/lang/ClassLoader;[Ljava/lang/Class<*>;)V", $PRIVATE | $STATIC | $TRANSIENT, $staticMethod(ProxyTest, testProxyClass, void, $Module*, $ClassLoader*, $ClassArray*)},
 	{}
 };
 

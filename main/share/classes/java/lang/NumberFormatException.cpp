@@ -18,10 +18,10 @@ $FieldInfo _NumberFormatException_FieldInfo_[] = {
 };
 
 $MethodInfo _NumberFormatException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(NumberFormatException::*)()>(&NumberFormatException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(NumberFormatException::*)($String*)>(&NumberFormatException::init$))},
-	{"forCharSequence", "(Ljava/lang/CharSequence;III)Ljava/lang/NumberFormatException;", nullptr, $STATIC, $method(static_cast<NumberFormatException*(*)($CharSequence*,int32_t,int32_t,int32_t)>(&NumberFormatException::forCharSequence))},
-	{"forInputString", "(Ljava/lang/String;I)Ljava/lang/NumberFormatException;", nullptr, $STATIC, $method(static_cast<NumberFormatException*(*)($String*,int32_t)>(&NumberFormatException::forInputString))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(NumberFormatException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NumberFormatException, init$, void, $String*)},
+	{"forCharSequence", "(Ljava/lang/CharSequence;III)Ljava/lang/NumberFormatException;", nullptr, $STATIC, $staticMethod(NumberFormatException, forCharSequence, NumberFormatException*, $CharSequence*, int32_t, int32_t, int32_t)},
+	{"forInputString", "(Ljava/lang/String;I)Ljava/lang/NumberFormatException;", nullptr, $STATIC, $staticMethod(NumberFormatException, forInputString, NumberFormatException*, $String*, int32_t)},
 	{}
 };
 

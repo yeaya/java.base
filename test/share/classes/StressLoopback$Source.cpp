@@ -33,9 +33,9 @@ $FieldInfo _StressLoopback$Source_FieldInfo_[] = {
 };
 
 $MethodInfo _StressLoopback$Source_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/channels/AsynchronousByteChannel;)V", nullptr, 0, $method(static_cast<void(StressLoopback$Source::*)($AsynchronousByteChannel*)>(&StressLoopback$Source::init$))},
-	{"finish", "()J", nullptr, 0},
-	{"start", "()V", nullptr, 0},
+	{"<init>", "(Ljava/nio/channels/AsynchronousByteChannel;)V", nullptr, 0, $method(StressLoopback$Source, init$, void, $AsynchronousByteChannel*)},
+	{"finish", "()J", nullptr, 0, $virtualMethod(StressLoopback$Source, finish, int64_t)},
+	{"start", "()V", nullptr, 0, $virtualMethod(StressLoopback$Source, start, void)},
 	{}
 };
 

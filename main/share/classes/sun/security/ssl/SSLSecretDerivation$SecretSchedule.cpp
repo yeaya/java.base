@@ -33,10 +33,10 @@ $FieldInfo _SSLSecretDerivation$SecretSchedule_FieldInfo_[] = {
 };
 
 $MethodInfo _SSLSecretDerivation$SecretSchedule_MethodInfo_[] = {
-	{"$values", "()[Lsun/security/ssl/SSLSecretDerivation$SecretSchedule;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$SSLSecretDerivation$SecretScheduleArray*(*)()>(&SSLSecretDerivation$SecretSchedule::$values))},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "(Ljava/lang/String;)V", $PRIVATE, $method(static_cast<void(SSLSecretDerivation$SecretSchedule::*)($String*,int32_t,$String*)>(&SSLSecretDerivation$SecretSchedule::init$))},
-	{"valueOf", "(Ljava/lang/String;)Lsun/security/ssl/SSLSecretDerivation$SecretSchedule;", nullptr, $PUBLIC | $STATIC, $method(static_cast<SSLSecretDerivation$SecretSchedule*(*)($String*)>(&SSLSecretDerivation$SecretSchedule::valueOf))},
-	{"values", "()[Lsun/security/ssl/SSLSecretDerivation$SecretSchedule;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$SSLSecretDerivation$SecretScheduleArray*(*)()>(&SSLSecretDerivation$SecretSchedule::values))},
+	{"$values", "()[Lsun/security/ssl/SSLSecretDerivation$SecretSchedule;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SSLSecretDerivation$SecretSchedule, $values, $SSLSecretDerivation$SecretScheduleArray*)},
+	{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "(Ljava/lang/String;)V", $PRIVATE, $method(SSLSecretDerivation$SecretSchedule, init$, void, $String*, int32_t, $String*)},
+	{"valueOf", "(Ljava/lang/String;)Lsun/security/ssl/SSLSecretDerivation$SecretSchedule;", nullptr, $PUBLIC | $STATIC, $staticMethod(SSLSecretDerivation$SecretSchedule, valueOf, SSLSecretDerivation$SecretSchedule*, $String*)},
+	{"values", "()[Lsun/security/ssl/SSLSecretDerivation$SecretSchedule;", nullptr, $PUBLIC | $STATIC, $staticMethod(SSLSecretDerivation$SecretSchedule, values, $SSLSecretDerivation$SecretScheduleArray*)},
 	{}
 };
 

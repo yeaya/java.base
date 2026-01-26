@@ -42,15 +42,15 @@ $FieldInfo _ExecutorCompletionService_FieldInfo_[] = {
 };
 
 $MethodInfo _ExecutorCompletionService_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/Executor;)V", nullptr, $PUBLIC, $method(static_cast<void(ExecutorCompletionService::*)($Executor*)>(&ExecutorCompletionService::init$))},
-	{"<init>", "(Ljava/util/concurrent/Executor;Ljava/util/concurrent/BlockingQueue;)V", "(Ljava/util/concurrent/Executor;Ljava/util/concurrent/BlockingQueue<Ljava/util/concurrent/Future<TV;>;>;)V", $PUBLIC, $method(static_cast<void(ExecutorCompletionService::*)($Executor*,$BlockingQueue*)>(&ExecutorCompletionService::init$))},
-	{"newTaskFor", "(Ljava/util/concurrent/Callable;)Ljava/util/concurrent/RunnableFuture;", "(Ljava/util/concurrent/Callable<TV;>;)Ljava/util/concurrent/RunnableFuture<TV;>;", $PRIVATE, $method(static_cast<$RunnableFuture*(ExecutorCompletionService::*)($Callable*)>(&ExecutorCompletionService::newTaskFor))},
-	{"newTaskFor", "(Ljava/lang/Runnable;Ljava/lang/Object;)Ljava/util/concurrent/RunnableFuture;", "(Ljava/lang/Runnable;TV;)Ljava/util/concurrent/RunnableFuture<TV;>;", $PRIVATE, $method(static_cast<$RunnableFuture*(ExecutorCompletionService::*)($Runnable*,Object$*)>(&ExecutorCompletionService::newTaskFor))},
-	{"poll", "()Ljava/util/concurrent/Future;", "()Ljava/util/concurrent/Future<TV;>;", $PUBLIC},
-	{"poll", "(JLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/Future;", "(JLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/Future<TV;>;", $PUBLIC, nullptr, "java.lang.InterruptedException"},
-	{"submit", "(Ljava/util/concurrent/Callable;)Ljava/util/concurrent/Future;", "(Ljava/util/concurrent/Callable<TV;>;)Ljava/util/concurrent/Future<TV;>;", $PUBLIC},
-	{"submit", "(Ljava/lang/Runnable;Ljava/lang/Object;)Ljava/util/concurrent/Future;", "(Ljava/lang/Runnable;TV;)Ljava/util/concurrent/Future<TV;>;", $PUBLIC},
-	{"take", "()Ljava/util/concurrent/Future;", "()Ljava/util/concurrent/Future<TV;>;", $PUBLIC, nullptr, "java.lang.InterruptedException"},
+	{"<init>", "(Ljava/util/concurrent/Executor;)V", nullptr, $PUBLIC, $method(ExecutorCompletionService, init$, void, $Executor*)},
+	{"<init>", "(Ljava/util/concurrent/Executor;Ljava/util/concurrent/BlockingQueue;)V", "(Ljava/util/concurrent/Executor;Ljava/util/concurrent/BlockingQueue<Ljava/util/concurrent/Future<TV;>;>;)V", $PUBLIC, $method(ExecutorCompletionService, init$, void, $Executor*, $BlockingQueue*)},
+	{"newTaskFor", "(Ljava/util/concurrent/Callable;)Ljava/util/concurrent/RunnableFuture;", "(Ljava/util/concurrent/Callable<TV;>;)Ljava/util/concurrent/RunnableFuture<TV;>;", $PRIVATE, $method(ExecutorCompletionService, newTaskFor, $RunnableFuture*, $Callable*)},
+	{"newTaskFor", "(Ljava/lang/Runnable;Ljava/lang/Object;)Ljava/util/concurrent/RunnableFuture;", "(Ljava/lang/Runnable;TV;)Ljava/util/concurrent/RunnableFuture<TV;>;", $PRIVATE, $method(ExecutorCompletionService, newTaskFor, $RunnableFuture*, $Runnable*, Object$*)},
+	{"poll", "()Ljava/util/concurrent/Future;", "()Ljava/util/concurrent/Future<TV;>;", $PUBLIC, $virtualMethod(ExecutorCompletionService, poll, $Future*)},
+	{"poll", "(JLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/Future;", "(JLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/Future<TV;>;", $PUBLIC, $virtualMethod(ExecutorCompletionService, poll, $Future*, int64_t, $TimeUnit*), "java.lang.InterruptedException"},
+	{"submit", "(Ljava/util/concurrent/Callable;)Ljava/util/concurrent/Future;", "(Ljava/util/concurrent/Callable<TV;>;)Ljava/util/concurrent/Future<TV;>;", $PUBLIC, $virtualMethod(ExecutorCompletionService, submit, $Future*, $Callable*)},
+	{"submit", "(Ljava/lang/Runnable;Ljava/lang/Object;)Ljava/util/concurrent/Future;", "(Ljava/lang/Runnable;TV;)Ljava/util/concurrent/Future<TV;>;", $PUBLIC, $virtualMethod(ExecutorCompletionService, submit, $Future*, $Runnable*, Object$*)},
+	{"take", "()Ljava/util/concurrent/Future;", "()Ljava/util/concurrent/Future<TV;>;", $PUBLIC, $virtualMethod(ExecutorCompletionService, take, $Future*), "java.lang.InterruptedException"},
 	{}
 };
 

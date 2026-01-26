@@ -22,6 +22,8 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $MethodHandles = ::java::lang::invoke::MethodHandles;
 using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
 using $VarHandle = ::java::lang::invoke::VarHandle;
+using $SelectableChannel = ::java::nio::channels::SelectableChannel;
+using $Selector = ::java::nio::channels::Selector;
 
 namespace java {
 	namespace nio {
@@ -38,22 +40,22 @@ $FieldInfo _SelectionKey_FieldInfo_[] = {
 };
 
 $MethodInfo _SelectionKey_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(SelectionKey::*)()>(&SelectionKey::init$))},
-	{"attach", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$Object*(SelectionKey::*)(Object$*)>(&SelectionKey::attach))},
-	{"attachment", "()Ljava/lang/Object;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$Object*(SelectionKey::*)()>(&SelectionKey::attachment))},
-	{"cancel", "()V", nullptr, $PUBLIC | $ABSTRACT},
-	{"channel", "()Ljava/nio/channels/SelectableChannel;", nullptr, $PUBLIC | $ABSTRACT},
-	{"interestOps", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"interestOps", "(I)Ljava/nio/channels/SelectionKey;", nullptr, $PUBLIC | $ABSTRACT},
-	{"interestOpsAnd", "(I)I", nullptr, $PUBLIC},
-	{"interestOpsOr", "(I)I", nullptr, $PUBLIC},
-	{"isAcceptable", "()Z", nullptr, $PUBLIC | $FINAL, $method(static_cast<bool(SelectionKey::*)()>(&SelectionKey::isAcceptable))},
-	{"isConnectable", "()Z", nullptr, $PUBLIC | $FINAL, $method(static_cast<bool(SelectionKey::*)()>(&SelectionKey::isConnectable))},
-	{"isReadable", "()Z", nullptr, $PUBLIC | $FINAL, $method(static_cast<bool(SelectionKey::*)()>(&SelectionKey::isReadable))},
-	{"isValid", "()Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"isWritable", "()Z", nullptr, $PUBLIC | $FINAL, $method(static_cast<bool(SelectionKey::*)()>(&SelectionKey::isWritable))},
-	{"readyOps", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"selector", "()Ljava/nio/channels/Selector;", nullptr, $PUBLIC | $ABSTRACT},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(SelectionKey, init$, void)},
+	{"attach", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $FINAL, $method(SelectionKey, attach, $Object*, Object$*)},
+	{"attachment", "()Ljava/lang/Object;", nullptr, $PUBLIC | $FINAL, $method(SelectionKey, attachment, $Object*)},
+	{"cancel", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SelectionKey, cancel, void)},
+	{"channel", "()Ljava/nio/channels/SelectableChannel;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SelectionKey, channel, $SelectableChannel*)},
+	{"interestOps", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SelectionKey, interestOps, int32_t)},
+	{"interestOps", "(I)Ljava/nio/channels/SelectionKey;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SelectionKey, interestOps, SelectionKey*, int32_t)},
+	{"interestOpsAnd", "(I)I", nullptr, $PUBLIC, $virtualMethod(SelectionKey, interestOpsAnd, int32_t, int32_t)},
+	{"interestOpsOr", "(I)I", nullptr, $PUBLIC, $virtualMethod(SelectionKey, interestOpsOr, int32_t, int32_t)},
+	{"isAcceptable", "()Z", nullptr, $PUBLIC | $FINAL, $method(SelectionKey, isAcceptable, bool)},
+	{"isConnectable", "()Z", nullptr, $PUBLIC | $FINAL, $method(SelectionKey, isConnectable, bool)},
+	{"isReadable", "()Z", nullptr, $PUBLIC | $FINAL, $method(SelectionKey, isReadable, bool)},
+	{"isValid", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SelectionKey, isValid, bool)},
+	{"isWritable", "()Z", nullptr, $PUBLIC | $FINAL, $method(SelectionKey, isWritable, bool)},
+	{"readyOps", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SelectionKey, readyOps, int32_t)},
+	{"selector", "()Ljava/nio/channels/Selector;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SelectionKey, selector, $Selector*)},
 	{}
 };
 

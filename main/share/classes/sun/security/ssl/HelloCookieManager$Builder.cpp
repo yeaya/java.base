@@ -35,8 +35,8 @@ $FieldInfo _HelloCookieManager$Builder_FieldInfo_[] = {
 };
 
 $MethodInfo _HelloCookieManager$Builder_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/SecureRandom;)V", nullptr, 0, $method(static_cast<void(HelloCookieManager$Builder::*)($SecureRandom*)>(&HelloCookieManager$Builder::init$))},
-	{"valueOf", "(Lsun/security/ssl/ProtocolVersion;)Lsun/security/ssl/HelloCookieManager;", nullptr, 0},
+	{"<init>", "(Ljava/security/SecureRandom;)V", nullptr, 0, $method(HelloCookieManager$Builder, init$, void, $SecureRandom*)},
+	{"valueOf", "(Lsun/security/ssl/ProtocolVersion;)Lsun/security/ssl/HelloCookieManager;", nullptr, 0, $virtualMethod(HelloCookieManager$Builder, valueOf, $HelloCookieManager*, $ProtocolVersion*)},
 	{}
 };
 

@@ -31,8 +31,8 @@ namespace sun {
 		namespace ssl {
 
 $MethodInfo _ChangeCipherSpec$T13ChangeCipherSpecConsumer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(ChangeCipherSpec$T13ChangeCipherSpecConsumer::*)()>(&ChangeCipherSpec$T13ChangeCipherSpecConsumer::init$))},
-	{"consume", "(Lsun/security/ssl/ConnectionContext;Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(ChangeCipherSpec$T13ChangeCipherSpecConsumer, init$, void)},
+	{"consume", "(Lsun/security/ssl/ConnectionContext;Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(ChangeCipherSpec$T13ChangeCipherSpecConsumer, consume, void, $ConnectionContext*, $ByteBuffer*), "java.io.IOException"},
 	{}
 };
 

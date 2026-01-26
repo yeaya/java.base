@@ -11,8 +11,8 @@ namespace jcpp {
 	namespace test {
 
 $MethodInfo _TestASBase_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(TestASBase::*)()>(&TestASBase::init$))},
-	{"get", "()Ljava/lang/CharSequence;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(TestASBase, init$, void)},
+	{"get", "()Ljava/lang/CharSequence;", nullptr, $PUBLIC, $virtualMethod(TestASBase, get, $CharSequence*)},
 	{}
 };
 

@@ -22,8 +22,8 @@ $FieldInfo _Restart$2_FieldInfo_[] = {
 };
 
 $MethodInfo _Restart$2_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/ThreadGroup;Ljava/lang/Thread$UncaughtExceptionHandler;)V", "()V", 0, $method(static_cast<void(Restart$2::*)($ThreadGroup*,$Thread$UncaughtExceptionHandler*)>(&Restart$2::init$))},
-	{"newThread", "(Ljava/lang/Runnable;)Ljava/lang/Thread;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/ThreadGroup;Ljava/lang/Thread$UncaughtExceptionHandler;)V", "()V", 0, $method(Restart$2, init$, void, $ThreadGroup*, $Thread$UncaughtExceptionHandler*)},
+	{"newThread", "(Ljava/lang/Runnable;)Ljava/lang/Thread;", nullptr, $PUBLIC, $virtualMethod(Restart$2, newThread, $Thread*, $Runnable*)},
 	{}
 };
 

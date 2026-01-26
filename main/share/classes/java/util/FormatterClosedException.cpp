@@ -17,7 +17,7 @@ $FieldInfo _FormatterClosedException_FieldInfo_[] = {
 };
 
 $MethodInfo _FormatterClosedException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(FormatterClosedException::*)()>(&FormatterClosedException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(FormatterClosedException, init$, void)},
 	{}
 };
 

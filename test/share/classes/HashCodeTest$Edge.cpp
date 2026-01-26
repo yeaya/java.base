@@ -4,12 +4,13 @@
 #include <HashCodeTest.h>
 #include <jcpp.h>
 
+using $HashCodeTest$Node = ::HashCodeTest$Node;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _HashCodeTest$Edge_MethodInfo_[] = {
-	{"setEndNode", "(LHashCodeTest$Node;)V", "(TN;)V", $PUBLIC | $ABSTRACT},
+	{"setEndNode", "(LHashCodeTest$Node;)V", "(TN;)V", $PUBLIC | $ABSTRACT, $virtualMethod(HashCodeTest$Edge, setEndNode, void, $HashCodeTest$Node*)},
 	{}
 };
 

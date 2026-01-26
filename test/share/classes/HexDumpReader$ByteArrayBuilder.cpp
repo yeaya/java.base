@@ -32,9 +32,9 @@ $FieldInfo _HexDumpReader$ByteArrayBuilder_FieldInfo_[] = {
 };
 
 $MethodInfo _HexDumpReader$ByteArrayBuilder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(HexDumpReader$ByteArrayBuilder::*)()>(&HexDumpReader$ByteArrayBuilder::init$))},
-	{"put", "(B)V", nullptr, 0},
-	{"toArray", "()[B", nullptr, 0},
+	{"<init>", "()V", nullptr, 0, $method(HexDumpReader$ByteArrayBuilder, init$, void)},
+	{"put", "(B)V", nullptr, 0, $virtualMethod(HexDumpReader$ByteArrayBuilder, put, void, int8_t)},
+	{"toArray", "()[B", nullptr, 0, $virtualMethod(HexDumpReader$ByteArrayBuilder, toArray, $bytes*)},
 	{}
 };
 

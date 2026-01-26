@@ -29,18 +29,18 @@ namespace sun {
 		namespace fs {
 
 $MethodInfo _AbstractFileSystemProvider_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(AbstractFileSystemProvider::*)()>(&AbstractFileSystemProvider::init$))},
-	{"delete", "(Ljava/nio/file/Path;)V", nullptr, $PUBLIC | $FINAL, nullptr, "java.io.IOException"},
-	{"deleteIfExists", "(Ljava/nio/file/Path;)Z", nullptr, $PUBLIC | $FINAL, nullptr, "java.io.IOException"},
-	{"exists", "(Ljava/nio/file/Path;)Z", nullptr, $PUBLIC},
-	{"getFileAttributeView", "(Ljava/nio/file/Path;Ljava/lang/String;[Ljava/nio/file/LinkOption;)Lsun/nio/fs/DynamicFileAttributeView;", nullptr, $TRANSIENT | $ABSTRACT},
-	{"getSunPathForSocketFile", "(Ljava/nio/file/Path;)[B", nullptr, $PUBLIC | $ABSTRACT},
-	{"implDelete", "(Ljava/nio/file/Path;Z)Z", nullptr, $ABSTRACT, nullptr, "java.io.IOException"},
-	{"isDirectory", "(Ljava/nio/file/Path;)Z", nullptr, $PUBLIC},
-	{"isRegularFile", "(Ljava/nio/file/Path;)Z", nullptr, $PUBLIC},
-	{"readAttributes", "(Ljava/nio/file/Path;Ljava/lang/String;[Ljava/nio/file/LinkOption;)Ljava/util/Map;", "(Ljava/nio/file/Path;Ljava/lang/String;[Ljava/nio/file/LinkOption;)Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;", $PUBLIC | $FINAL | $TRANSIENT, nullptr, "java.io.IOException"},
-	{"setAttribute", "(Ljava/nio/file/Path;Ljava/lang/String;Ljava/lang/Object;[Ljava/nio/file/LinkOption;)V", nullptr, $PUBLIC | $FINAL | $TRANSIENT, nullptr, "java.io.IOException"},
-	{"split", "(Ljava/lang/String;)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$StringArray*(*)($String*)>(&AbstractFileSystemProvider::split))},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(AbstractFileSystemProvider, init$, void)},
+	{"delete", "(Ljava/nio/file/Path;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractFileSystemProvider, delete$, void, $Path*), "java.io.IOException"},
+	{"deleteIfExists", "(Ljava/nio/file/Path;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractFileSystemProvider, deleteIfExists, bool, $Path*), "java.io.IOException"},
+	{"exists", "(Ljava/nio/file/Path;)Z", nullptr, $PUBLIC, $virtualMethod(AbstractFileSystemProvider, exists, bool, $Path*)},
+	{"getFileAttributeView", "(Ljava/nio/file/Path;Ljava/lang/String;[Ljava/nio/file/LinkOption;)Lsun/nio/fs/DynamicFileAttributeView;", nullptr, $TRANSIENT | $ABSTRACT, $virtualMethod(AbstractFileSystemProvider, getFileAttributeView, $DynamicFileAttributeView*, $Path*, $String*, $LinkOptionArray*)},
+	{"getSunPathForSocketFile", "(Ljava/nio/file/Path;)[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AbstractFileSystemProvider, getSunPathForSocketFile, $bytes*, $Path*)},
+	{"implDelete", "(Ljava/nio/file/Path;Z)Z", nullptr, $ABSTRACT, $virtualMethod(AbstractFileSystemProvider, implDelete, bool, $Path*, bool), "java.io.IOException"},
+	{"isDirectory", "(Ljava/nio/file/Path;)Z", nullptr, $PUBLIC, $virtualMethod(AbstractFileSystemProvider, isDirectory, bool, $Path*)},
+	{"isRegularFile", "(Ljava/nio/file/Path;)Z", nullptr, $PUBLIC, $virtualMethod(AbstractFileSystemProvider, isRegularFile, bool, $Path*)},
+	{"readAttributes", "(Ljava/nio/file/Path;Ljava/lang/String;[Ljava/nio/file/LinkOption;)Ljava/util/Map;", "(Ljava/nio/file/Path;Ljava/lang/String;[Ljava/nio/file/LinkOption;)Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;", $PUBLIC | $FINAL | $TRANSIENT, $virtualMethod(AbstractFileSystemProvider, readAttributes, $Map*, $Path*, $String*, $LinkOptionArray*), "java.io.IOException"},
+	{"setAttribute", "(Ljava/nio/file/Path;Ljava/lang/String;Ljava/lang/Object;[Ljava/nio/file/LinkOption;)V", nullptr, $PUBLIC | $FINAL | $TRANSIENT, $virtualMethod(AbstractFileSystemProvider, setAttribute, void, $Path*, $String*, Object$*, $LinkOptionArray*), "java.io.IOException"},
+	{"split", "(Ljava/lang/String;)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(AbstractFileSystemProvider, split, $StringArray*, $String*)},
 	{}
 };
 

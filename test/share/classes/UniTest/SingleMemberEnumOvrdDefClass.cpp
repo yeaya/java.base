@@ -20,7 +20,7 @@ $CompoundAttribute _SingleMemberEnumOvrdDefClass_Annotations_[] = {
 };
 
 $MethodInfo _SingleMemberEnumOvrdDefClass_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(SingleMemberEnumOvrdDefClass::*)()>(&SingleMemberEnumOvrdDefClass::init$))},
+	{"<init>", "()V", nullptr, 0, $method(SingleMemberEnumOvrdDefClass, init$, void)},
 	{}
 };
 

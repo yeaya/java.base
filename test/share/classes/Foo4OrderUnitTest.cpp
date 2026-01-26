@@ -24,7 +24,7 @@ $CompoundAttribute _Foo4OrderUnitTest_Annotations_[] = {
 };
 
 $MethodInfo _Foo4OrderUnitTest_MethodInfo_[] = {
-	{"isDirect", "()Z", nullptr, $PUBLIC | $ABSTRACT},
+	{"isDirect", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Foo4OrderUnitTest, isDirect, bool)},
 	{}
 };
 

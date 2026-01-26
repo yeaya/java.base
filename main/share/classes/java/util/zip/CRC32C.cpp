@@ -74,14 +74,14 @@ $FieldInfo _CRC32C_FieldInfo_[] = {
 };
 
 $MethodInfo _CRC32C_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CRC32C::*)()>(&CRC32C::init$))},
-	{"getValue", "()J", nullptr, $PUBLIC},
-	{"reset", "()V", nullptr, $PUBLIC},
-	{"update", "(I)V", nullptr, $PUBLIC},
-	{"update", "([BII)V", nullptr, $PUBLIC},
-	{"update", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC},
-	{"updateBytes", "(I[BII)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)(int32_t,$bytes*,int32_t,int32_t)>(&CRC32C::updateBytes)), nullptr, nullptr, _CRC32C_MethodAnnotations_updateBytes6},
-	{"updateDirectByteBuffer", "(IJII)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)(int32_t,int64_t,int32_t,int32_t)>(&CRC32C::updateDirectByteBuffer)), nullptr, nullptr, _CRC32C_MethodAnnotations_updateDirectByteBuffer7},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CRC32C, init$, void)},
+	{"getValue", "()J", nullptr, $PUBLIC, $virtualMethod(CRC32C, getValue, int64_t)},
+	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(CRC32C, reset, void)},
+	{"update", "(I)V", nullptr, $PUBLIC, $virtualMethod(CRC32C, update, void, int32_t)},
+	{"update", "([BII)V", nullptr, $PUBLIC, $virtualMethod(CRC32C, update, void, $bytes*, int32_t, int32_t)},
+	{"update", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(CRC32C, update, void, $ByteBuffer*)},
+	{"updateBytes", "(I[BII)I", nullptr, $PRIVATE | $STATIC, $staticMethod(CRC32C, updateBytes, int32_t, int32_t, $bytes*, int32_t, int32_t), nullptr, nullptr, _CRC32C_MethodAnnotations_updateBytes6},
+	{"updateDirectByteBuffer", "(IJII)I", nullptr, $PRIVATE | $STATIC, $staticMethod(CRC32C, updateDirectByteBuffer, int32_t, int32_t, int64_t, int32_t, int32_t), nullptr, nullptr, _CRC32C_MethodAnnotations_updateDirectByteBuffer7},
 	{}
 };
 

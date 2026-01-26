@@ -17,8 +17,8 @@ using $Reference = ::java::lang::ref::Reference;
 using $WeakReference = ::java::lang::ref::WeakReference;
 
 $MethodInfo _Basic4ref$3_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Basic4ref$3::*)()>(&Basic4ref$3::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(Basic4ref$3, init$, void)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Basic4ref$3, run, void)},
 	{}
 };
 

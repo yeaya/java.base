@@ -43,8 +43,8 @@ $FieldInfo _SPILocaleProviderAdapter$1_FieldInfo_[] = {
 };
 
 $MethodInfo _SPILocaleProviderAdapter$1_MethodInfo_[] = {
-	{"<init>", "(Lsun/util/locale/provider/SPILocaleProviderAdapter;Ljava/lang/Class;)V", nullptr, 0, $method(static_cast<void(SPILocaleProviderAdapter$1::*)($SPILocaleProviderAdapter*,$Class*)>(&SPILocaleProviderAdapter$1::init$))},
-	{"run", "()Ljava/util/spi/LocaleServiceProvider;", "()TP;", $PUBLIC},
+	{"<init>", "(Lsun/util/locale/provider/SPILocaleProviderAdapter;Ljava/lang/Class;)V", nullptr, 0, $method(SPILocaleProviderAdapter$1, init$, void, $SPILocaleProviderAdapter*, $Class*)},
+	{"run", "()Ljava/util/spi/LocaleServiceProvider;", "()TP;", $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$1, run, $Object*)},
 	{}
 };
 

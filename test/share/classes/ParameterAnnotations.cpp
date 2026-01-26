@@ -51,18 +51,18 @@ $FieldInfo _ParameterAnnotations_FieldInfo_[] = {
 };
 
 $MethodInfo _ParameterAnnotations_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ParameterAnnotations::*)()>(&ParameterAnnotations::init$))},
-	{"check", "(Z)V", nullptr, 0},
-	{"equal", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, 0},
-	{"fail", "()V", nullptr, 0},
-	{"fail", "(Ljava/lang/String;)V", nullptr, 0},
-	{"instanceMain", "([Ljava/lang/String;)V", nullptr, $PUBLIC, nullptr, "java.lang.Throwable"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&ParameterAnnotations::main)), "java.lang.Throwable"},
-	{"nop", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, nullptr, nullptr, nullptr, nullptr, nullptr, _ParameterAnnotations_MethodParamAnnotations_nop7},
-	{"pass", "()V", nullptr, 0},
-	{"test", "([Ljava/lang/String;)V", nullptr, 0, nullptr, "java.lang.Throwable"},
-	{"test1", "()V", nullptr, 0, nullptr, "java.lang.Throwable"},
-	{"unexpected", "(Ljava/lang/Throwable;)V", nullptr, 0},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ParameterAnnotations, init$, void)},
+	{"check", "(Z)V", nullptr, 0, $virtualMethod(ParameterAnnotations, check, void, bool)},
+	{"equal", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, 0, $virtualMethod(ParameterAnnotations, equal, void, Object$*, Object$*)},
+	{"fail", "()V", nullptr, 0, $virtualMethod(ParameterAnnotations, fail, void)},
+	{"fail", "(Ljava/lang/String;)V", nullptr, 0, $virtualMethod(ParameterAnnotations, fail, void, $String*)},
+	{"instanceMain", "([Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ParameterAnnotations, instanceMain, void, $StringArray*), "java.lang.Throwable"},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ParameterAnnotations, main, void, $StringArray*), "java.lang.Throwable"},
+	{"nop", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ParameterAnnotations, nop, void, Object$*, Object$*), nullptr, nullptr, nullptr, nullptr, _ParameterAnnotations_MethodParamAnnotations_nop7},
+	{"pass", "()V", nullptr, 0, $virtualMethod(ParameterAnnotations, pass, void)},
+	{"test", "([Ljava/lang/String;)V", nullptr, 0, $virtualMethod(ParameterAnnotations, test, void, $StringArray*), "java.lang.Throwable"},
+	{"test1", "()V", nullptr, 0, $virtualMethod(ParameterAnnotations, test1, void), "java.lang.Throwable"},
+	{"unexpected", "(Ljava/lang/Throwable;)V", nullptr, 0, $virtualMethod(ParameterAnnotations, unexpected, void, $Throwable*)},
 	{}
 };
 

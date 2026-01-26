@@ -20,7 +20,7 @@ $FieldInfo _KeychainStore$CertKeychainItemPair_FieldInfo_[] = {
 };
 
 $MethodInfo _KeychainStore$CertKeychainItemPair_MethodInfo_[] = {
-	{"<init>", "(JLjava/security/cert/Certificate;)V", nullptr, 0, $method(static_cast<void(KeychainStore$CertKeychainItemPair::*)(int64_t,$Certificate*)>(&KeychainStore$CertKeychainItemPair::init$))},
+	{"<init>", "(JLjava/security/cert/Certificate;)V", nullptr, 0, $method(KeychainStore$CertKeychainItemPair, init$, void, int64_t, $Certificate*)},
 	{}
 };
 

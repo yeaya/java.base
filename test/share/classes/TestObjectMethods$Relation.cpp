@@ -28,10 +28,10 @@ $FieldInfo _TestObjectMethods$Relation_FieldInfo_[] = {
 };
 
 $MethodInfo _TestObjectMethods$Relation_MethodInfo_[] = {
-	{"$values", "()[LTestObjectMethods$Relation;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$TestObjectMethods$RelationArray*(*)()>(&TestObjectMethods$Relation::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(TestObjectMethods$Relation::*)($String*,int32_t)>(&TestObjectMethods$Relation::init$))},
-	{"valueOf", "(Ljava/lang/String;)LTestObjectMethods$Relation;", nullptr, $PUBLIC | $STATIC, $method(static_cast<TestObjectMethods$Relation*(*)($String*)>(&TestObjectMethods$Relation::valueOf))},
-	{"values", "()[LTestObjectMethods$Relation;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$TestObjectMethods$RelationArray*(*)()>(&TestObjectMethods$Relation::values))},
+	{"$values", "()[LTestObjectMethods$Relation;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestObjectMethods$Relation, $values, $TestObjectMethods$RelationArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(TestObjectMethods$Relation, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)LTestObjectMethods$Relation;", nullptr, $PUBLIC | $STATIC, $staticMethod(TestObjectMethods$Relation, valueOf, TestObjectMethods$Relation*, $String*)},
+	{"values", "()[LTestObjectMethods$Relation;", nullptr, $PUBLIC | $STATIC, $staticMethod(TestObjectMethods$Relation, values, $TestObjectMethods$RelationArray*)},
 	{}
 };
 

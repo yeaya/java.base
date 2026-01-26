@@ -5,13 +5,14 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $URL = ::java::net::URL;
 
 namespace sun {
 	namespace net {
 
 $MethodInfo _ProgressMeteringPolicy_MethodInfo_[] = {
-	{"getProgressUpdateThreshold", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"shouldMeterInput", "(Ljava/net/URL;Ljava/lang/String;)Z", nullptr, $PUBLIC | $ABSTRACT},
+	{"getProgressUpdateThreshold", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ProgressMeteringPolicy, getProgressUpdateThreshold, int32_t)},
+	{"shouldMeterInput", "(Ljava/net/URL;Ljava/lang/String;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ProgressMeteringPolicy, shouldMeterInput, bool, $URL*, $String*)},
 	{}
 };
 

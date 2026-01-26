@@ -20,8 +20,8 @@ namespace jdk {
 				namespace asm$ {
 
 $MethodInfo _CurrentFrame_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/org/objectweb/asm/Label;)V", nullptr, 0, $method(static_cast<void(CurrentFrame::*)($Label*)>(&CurrentFrame::init$))},
-	{"execute", "(IILjdk/internal/org/objectweb/asm/Symbol;Ljdk/internal/org/objectweb/asm/SymbolTable;)V", nullptr, 0},
+	{"<init>", "(Ljdk/internal/org/objectweb/asm/Label;)V", nullptr, 0, $method(CurrentFrame, init$, void, $Label*)},
+	{"execute", "(IILjdk/internal/org/objectweb/asm/Symbol;Ljdk/internal/org/objectweb/asm/SymbolTable;)V", nullptr, 0, $virtualMethod(CurrentFrame, execute, void, int32_t, int32_t, $Symbol*, $SymbolTable*)},
 	{}
 };
 

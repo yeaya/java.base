@@ -5,13 +5,14 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $NamedParameterSpec = ::java::security::spec::NamedParameterSpec;
 
 namespace java {
 	namespace security {
 		namespace interfaces {
 
 $MethodInfo _EdECKey_MethodInfo_[] = {
-	{"getParams", "()Ljava/security/spec/NamedParameterSpec;", nullptr, $PUBLIC | $ABSTRACT},
+	{"getParams", "()Ljava/security/spec/NamedParameterSpec;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(EdECKey, getParams, $NamedParameterSpec*)},
 	{}
 };
 

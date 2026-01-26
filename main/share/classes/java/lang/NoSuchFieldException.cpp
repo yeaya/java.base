@@ -17,8 +17,8 @@ $FieldInfo _NoSuchFieldException_FieldInfo_[] = {
 };
 
 $MethodInfo _NoSuchFieldException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(NoSuchFieldException::*)()>(&NoSuchFieldException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(NoSuchFieldException::*)($String*)>(&NoSuchFieldException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(NoSuchFieldException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NoSuchFieldException, init$, void, $String*)},
 	{}
 };
 

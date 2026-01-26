@@ -15,8 +15,8 @@ using $InetAddress = ::java::net::InetAddress;
 using $Socket = ::java::net::Socket;
 
 $MethodInfo _NullHost_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(NullHost::*)()>(&NullHost::init$)), "java.io.IOException"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&NullHost::main)), "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(NullHost, init$, void), "java.io.IOException"},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(NullHost, main, void, $StringArray*), "java.io.IOException"},
 	{}
 };
 

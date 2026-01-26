@@ -26,12 +26,12 @@ $FieldInfo _ClassSignature_FieldInfo_[] = {
 };
 
 $MethodInfo _ClassSignature_MethodInfo_[] = {
-	{"<init>", "([Lsun/reflect/generics/tree/FormalTypeParameter;Lsun/reflect/generics/tree/ClassTypeSignature;[Lsun/reflect/generics/tree/ClassTypeSignature;)V", nullptr, $PRIVATE, $method(static_cast<void(ClassSignature::*)($FormalTypeParameterArray*,$ClassTypeSignature*,$ClassTypeSignatureArray*)>(&ClassSignature::init$))},
-	{"accept", "(Lsun/reflect/generics/visitor/Visitor;)V", "(Lsun/reflect/generics/visitor/Visitor<*>;)V", $PUBLIC},
-	{"getFormalTypeParameters", "()[Lsun/reflect/generics/tree/FormalTypeParameter;", nullptr, $PUBLIC},
-	{"getSuperInterfaces", "()[Lsun/reflect/generics/tree/ClassTypeSignature;", nullptr, $PUBLIC},
-	{"getSuperclass", "()Lsun/reflect/generics/tree/ClassTypeSignature;", nullptr, $PUBLIC},
-	{"make", "([Lsun/reflect/generics/tree/FormalTypeParameter;Lsun/reflect/generics/tree/ClassTypeSignature;[Lsun/reflect/generics/tree/ClassTypeSignature;)Lsun/reflect/generics/tree/ClassSignature;", nullptr, $PUBLIC | $STATIC, $method(static_cast<ClassSignature*(*)($FormalTypeParameterArray*,$ClassTypeSignature*,$ClassTypeSignatureArray*)>(&ClassSignature::make))},
+	{"<init>", "([Lsun/reflect/generics/tree/FormalTypeParameter;Lsun/reflect/generics/tree/ClassTypeSignature;[Lsun/reflect/generics/tree/ClassTypeSignature;)V", nullptr, $PRIVATE, $method(ClassSignature, init$, void, $FormalTypeParameterArray*, $ClassTypeSignature*, $ClassTypeSignatureArray*)},
+	{"accept", "(Lsun/reflect/generics/visitor/Visitor;)V", "(Lsun/reflect/generics/visitor/Visitor<*>;)V", $PUBLIC, $virtualMethod(ClassSignature, accept, void, $Visitor*)},
+	{"getFormalTypeParameters", "()[Lsun/reflect/generics/tree/FormalTypeParameter;", nullptr, $PUBLIC, $virtualMethod(ClassSignature, getFormalTypeParameters, $FormalTypeParameterArray*)},
+	{"getSuperInterfaces", "()[Lsun/reflect/generics/tree/ClassTypeSignature;", nullptr, $PUBLIC, $virtualMethod(ClassSignature, getSuperInterfaces, $ClassTypeSignatureArray*)},
+	{"getSuperclass", "()Lsun/reflect/generics/tree/ClassTypeSignature;", nullptr, $PUBLIC, $virtualMethod(ClassSignature, getSuperclass, $ClassTypeSignature*)},
+	{"make", "([Lsun/reflect/generics/tree/FormalTypeParameter;Lsun/reflect/generics/tree/ClassTypeSignature;[Lsun/reflect/generics/tree/ClassTypeSignature;)Lsun/reflect/generics/tree/ClassSignature;", nullptr, $PUBLIC | $STATIC, $staticMethod(ClassSignature, make, ClassSignature*, $FormalTypeParameterArray*, $ClassTypeSignature*, $ClassTypeSignatureArray*)},
 	{}
 };
 

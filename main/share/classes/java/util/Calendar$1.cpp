@@ -24,8 +24,8 @@ $FieldInfo _Calendar$1_FieldInfo_[] = {
 };
 
 $MethodInfo _Calendar$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Calendar;Ljava/io/ObjectInputStream;)V", nullptr, 0, $method(static_cast<void(Calendar$1::*)($Calendar*,$ObjectInputStream*)>(&Calendar$1::init$))},
-	{"run", "()Lsun/util/calendar/ZoneInfo;", nullptr, $PUBLIC, nullptr, "java.lang.Exception"},
+	{"<init>", "(Ljava/util/Calendar;Ljava/io/ObjectInputStream;)V", nullptr, 0, $method(Calendar$1, init$, void, $Calendar*, $ObjectInputStream*)},
+	{"run", "()Lsun/util/calendar/ZoneInfo;", nullptr, $PUBLIC, $virtualMethod(Calendar$1, run, $Object*), "java.lang.Exception"},
 	{}
 };
 

@@ -69,18 +69,18 @@ $FieldInfo _DistributionPoint_FieldInfo_[] = {
 };
 
 $MethodInfo _DistributionPoint_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/x509/GeneralNames;[ZLsun/security/x509/GeneralNames;)V", nullptr, $PUBLIC, $method(static_cast<void(DistributionPoint::*)($GeneralNames*,$booleans*,$GeneralNames*)>(&DistributionPoint::init$))},
-	{"<init>", "(Lsun/security/x509/RDN;[ZLsun/security/x509/GeneralNames;)V", nullptr, $PUBLIC, $method(static_cast<void(DistributionPoint::*)($RDN*,$booleans*,$GeneralNames*)>(&DistributionPoint::init$))},
-	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(static_cast<void(DistributionPoint::*)($DerValue*)>(&DistributionPoint::init$)), "java.io.IOException"},
-	{"encode", "(Lsun/security/util/DerOutputStream;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getCRLIssuer", "()Lsun/security/x509/GeneralNames;", nullptr, $PUBLIC},
-	{"getFullName", "()Lsun/security/x509/GeneralNames;", nullptr, $PUBLIC},
-	{"getReasonFlags", "()[Z", nullptr, $PUBLIC},
-	{"getRelativeName", "()Lsun/security/x509/RDN;", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"reasonToString", "(I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)(int32_t)>(&DistributionPoint::reasonToString))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/security/x509/GeneralNames;[ZLsun/security/x509/GeneralNames;)V", nullptr, $PUBLIC, $method(DistributionPoint, init$, void, $GeneralNames*, $booleans*, $GeneralNames*)},
+	{"<init>", "(Lsun/security/x509/RDN;[ZLsun/security/x509/GeneralNames;)V", nullptr, $PUBLIC, $method(DistributionPoint, init$, void, $RDN*, $booleans*, $GeneralNames*)},
+	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(DistributionPoint, init$, void, $DerValue*), "java.io.IOException"},
+	{"encode", "(Lsun/security/util/DerOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(DistributionPoint, encode, void, $DerOutputStream*), "java.io.IOException"},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(DistributionPoint, equals, bool, Object$*)},
+	{"getCRLIssuer", "()Lsun/security/x509/GeneralNames;", nullptr, $PUBLIC, $virtualMethod(DistributionPoint, getCRLIssuer, $GeneralNames*)},
+	{"getFullName", "()Lsun/security/x509/GeneralNames;", nullptr, $PUBLIC, $virtualMethod(DistributionPoint, getFullName, $GeneralNames*)},
+	{"getReasonFlags", "()[Z", nullptr, $PUBLIC, $virtualMethod(DistributionPoint, getReasonFlags, $booleans*)},
+	{"getRelativeName", "()Lsun/security/x509/RDN;", nullptr, $PUBLIC, $virtualMethod(DistributionPoint, getRelativeName, $RDN*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(DistributionPoint, hashCode, int32_t)},
+	{"reasonToString", "(I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(DistributionPoint, reasonToString, $String*, int32_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DistributionPoint, toString, $String*)},
 	{}
 };
 

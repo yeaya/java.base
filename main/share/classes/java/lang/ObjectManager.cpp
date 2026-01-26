@@ -5838,7 +5838,7 @@ CoreObject* ObjectManagerInternal::getCurrentJavaThread() {
 
 void setCurrentObjectStack(ObjectStack* currentObjectStack) {
 	ObjectStack::currentObjectStack() = currentObjectStack;
-	ObjectStackCache::currentObjectStack() = currentObjectStack;
+	//ObjectStackCache::currentObjectStack() = currentObjectStack;
 }
 
 extern "C" int jni_AttachCurrentThread(void* vm, void** penv, void* _args);
@@ -5876,7 +5876,7 @@ void* ObjectManagerInternal::registerMainThread(Thread* thread, CoreObject* java
 	localController->stackSize = stackSize;
 	//	onThreadStart(thread); // main thread
 	globalController->registerLocalController(localController);
-	Machine::notifyThreadStart();
+	//Machine::notifyThreadStart();
 	return localController;
 }
 
@@ -5908,7 +5908,7 @@ void* ObjectManagerInternal::onThreadStart(Thread* thread, CoreObject* javaThrea
 		localController->javaThread = javaThread;
 		localController->stackBase = stackBase;
 		localController->stackSize = stackSize;
-		Machine::notifyThreadStart();
+		//Machine::notifyThreadStart();
 	}
 	return localController;
 }
@@ -5930,7 +5930,7 @@ void ObjectManagerInternal::attachCurrentThread(CoreObject* javaThread) {
 	localController->javaThread = javaThread;
 	// localController->stackBase = stackBase;
 	// localController->stackSize = stackSize;
-	Machine::notifyThreadStart();
+	//Machine::notifyThreadStart();
 }
 
 String* ObjectManager::plusAssignField(Object0* owner, int32_t fieldOffset, String* value) {

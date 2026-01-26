@@ -61,13 +61,13 @@ $MethodInfo _WindowsAsynchronousFileChannelImpl$ReadTask_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lsun/nio/ch/WindowsAsynchronousFileChannelImpl;Ljava/nio/ByteBuffer;IIJLsun/nio/ch/PendingFuture;)V", "(Ljava/nio/ByteBuffer;IIJLsun/nio/ch/PendingFuture<Ljava/lang/Integer;TA;>;)V", 0, $method(static_cast<void(WindowsAsynchronousFileChannelImpl$ReadTask::*)($WindowsAsynchronousFileChannelImpl*,$ByteBuffer*,int32_t,int32_t,int64_t,$PendingFuture*)>(&WindowsAsynchronousFileChannelImpl$ReadTask::init$))},
-	{"completed", "(IZ)V", nullptr, $PUBLIC},
-	{"failed", "(ILjava/io/IOException;)V", nullptr, $PUBLIC},
-	{"releaseBufferIfSubstituted", "()V", nullptr, 0},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/nio/ch/WindowsAsynchronousFileChannelImpl;Ljava/nio/ByteBuffer;IIJLsun/nio/ch/PendingFuture;)V", "(Ljava/nio/ByteBuffer;IIJLsun/nio/ch/PendingFuture<Ljava/lang/Integer;TA;>;)V", 0, $method(WindowsAsynchronousFileChannelImpl$ReadTask, init$, void, $WindowsAsynchronousFileChannelImpl*, $ByteBuffer*, int32_t, int32_t, int64_t, $PendingFuture*)},
+	{"completed", "(IZ)V", nullptr, $PUBLIC, $virtualMethod(WindowsAsynchronousFileChannelImpl$ReadTask, completed, void, int32_t, bool)},
+	{"failed", "(ILjava/io/IOException;)V", nullptr, $PUBLIC, $virtualMethod(WindowsAsynchronousFileChannelImpl$ReadTask, failed, void, int32_t, $IOException*)},
+	{"releaseBufferIfSubstituted", "()V", nullptr, 0, $virtualMethod(WindowsAsynchronousFileChannelImpl$ReadTask, releaseBufferIfSubstituted, void)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(WindowsAsynchronousFileChannelImpl$ReadTask, run, void)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"updatePosition", "(I)V", nullptr, 0},
+	{"updatePosition", "(I)V", nullptr, 0, $virtualMethod(WindowsAsynchronousFileChannelImpl$ReadTask, updatePosition, void, int32_t)},
 	{}
 };
 

@@ -10,6 +10,7 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Cache$CacheVisitor = ::sun::security::util::Cache$CacheVisitor;
 using $MemoryCache = ::sun::security::util::MemoryCache;
 using $NullCache = ::sun::security::util::NullCache;
 
@@ -18,21 +19,21 @@ namespace sun {
 		namespace util {
 
 $MethodInfo _Cache_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(Cache::*)()>(&Cache::init$))},
-	{"accept", "(Lsun/security/util/Cache$CacheVisitor;)V", "(Lsun/security/util/Cache$CacheVisitor<TK;TV;>;)V", $PUBLIC | $ABSTRACT},
-	{"clear", "()V", nullptr, $PUBLIC | $ABSTRACT},
-	{"get", "(Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/lang/Object;)TV;", $PUBLIC | $ABSTRACT},
-	{"newHardMemoryCache", "(I)Lsun/security/util/Cache;", "<K:Ljava/lang/Object;V:Ljava/lang/Object;>(I)Lsun/security/util/Cache<TK;TV;>;", $PUBLIC | $STATIC, $method(static_cast<Cache*(*)(int32_t)>(&Cache::newHardMemoryCache))},
-	{"newHardMemoryCache", "(II)Lsun/security/util/Cache;", "<K:Ljava/lang/Object;V:Ljava/lang/Object;>(II)Lsun/security/util/Cache<TK;TV;>;", $PUBLIC | $STATIC, $method(static_cast<Cache*(*)(int32_t,int32_t)>(&Cache::newHardMemoryCache))},
-	{"newNullCache", "()Lsun/security/util/Cache;", "<K:Ljava/lang/Object;V:Ljava/lang/Object;>()Lsun/security/util/Cache<TK;TV;>;", $PUBLIC | $STATIC, $method(static_cast<Cache*(*)()>(&Cache::newNullCache))},
-	{"newSoftMemoryCache", "(I)Lsun/security/util/Cache;", "<K:Ljava/lang/Object;V:Ljava/lang/Object;>(I)Lsun/security/util/Cache<TK;TV;>;", $PUBLIC | $STATIC, $method(static_cast<Cache*(*)(int32_t)>(&Cache::newSoftMemoryCache))},
-	{"newSoftMemoryCache", "(II)Lsun/security/util/Cache;", "<K:Ljava/lang/Object;V:Ljava/lang/Object;>(II)Lsun/security/util/Cache<TK;TV;>;", $PUBLIC | $STATIC, $method(static_cast<Cache*(*)(int32_t,int32_t)>(&Cache::newSoftMemoryCache))},
-	{"pull", "(Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/lang/Object;)TV;", $PUBLIC | $ABSTRACT},
-	{"put", "(Ljava/lang/Object;Ljava/lang/Object;)V", "(TK;TV;)V", $PUBLIC | $ABSTRACT},
-	{"remove", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"setCapacity", "(I)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"setTimeout", "(I)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"size", "()I", nullptr, $PUBLIC | $ABSTRACT},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(Cache, init$, void)},
+	{"accept", "(Lsun/security/util/Cache$CacheVisitor;)V", "(Lsun/security/util/Cache$CacheVisitor<TK;TV;>;)V", $PUBLIC | $ABSTRACT, $virtualMethod(Cache, accept, void, $Cache$CacheVisitor*)},
+	{"clear", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Cache, clear, void)},
+	{"get", "(Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/lang/Object;)TV;", $PUBLIC | $ABSTRACT, $virtualMethod(Cache, get, $Object*, Object$*)},
+	{"newHardMemoryCache", "(I)Lsun/security/util/Cache;", "<K:Ljava/lang/Object;V:Ljava/lang/Object;>(I)Lsun/security/util/Cache<TK;TV;>;", $PUBLIC | $STATIC, $staticMethod(Cache, newHardMemoryCache, Cache*, int32_t)},
+	{"newHardMemoryCache", "(II)Lsun/security/util/Cache;", "<K:Ljava/lang/Object;V:Ljava/lang/Object;>(II)Lsun/security/util/Cache<TK;TV;>;", $PUBLIC | $STATIC, $staticMethod(Cache, newHardMemoryCache, Cache*, int32_t, int32_t)},
+	{"newNullCache", "()Lsun/security/util/Cache;", "<K:Ljava/lang/Object;V:Ljava/lang/Object;>()Lsun/security/util/Cache<TK;TV;>;", $PUBLIC | $STATIC, $staticMethod(Cache, newNullCache, Cache*)},
+	{"newSoftMemoryCache", "(I)Lsun/security/util/Cache;", "<K:Ljava/lang/Object;V:Ljava/lang/Object;>(I)Lsun/security/util/Cache<TK;TV;>;", $PUBLIC | $STATIC, $staticMethod(Cache, newSoftMemoryCache, Cache*, int32_t)},
+	{"newSoftMemoryCache", "(II)Lsun/security/util/Cache;", "<K:Ljava/lang/Object;V:Ljava/lang/Object;>(II)Lsun/security/util/Cache<TK;TV;>;", $PUBLIC | $STATIC, $staticMethod(Cache, newSoftMemoryCache, Cache*, int32_t, int32_t)},
+	{"pull", "(Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/lang/Object;)TV;", $PUBLIC | $ABSTRACT, $virtualMethod(Cache, pull, $Object*, Object$*)},
+	{"put", "(Ljava/lang/Object;Ljava/lang/Object;)V", "(TK;TV;)V", $PUBLIC | $ABSTRACT, $virtualMethod(Cache, put, void, Object$*, Object$*)},
+	{"remove", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Cache, remove, void, Object$*)},
+	{"setCapacity", "(I)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Cache, setCapacity, void, int32_t)},
+	{"setTimeout", "(I)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Cache, setTimeout, void, int32_t)},
+	{"size", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Cache, size, int32_t)},
 	{}
 };
 

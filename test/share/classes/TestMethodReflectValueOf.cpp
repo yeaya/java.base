@@ -31,15 +31,15 @@ using $InvocationTargetException = ::java::lang::reflect::InvocationTargetExcept
 using $Method = ::java::lang::reflect::Method;
 
 $MethodInfo _TestMethodReflectValueOf_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TestMethodReflectValueOf::*)()>(&TestMethodReflectValueOf::init$))},
-	{"booleanMethod", "(Z)Z", nullptr, $PUBLIC},
-	{"byteMethod", "(B)B", nullptr, $PUBLIC},
-	{"charMethod", "(C)C", nullptr, $PUBLIC},
-	{"intMethod", "(I)I", nullptr, $PUBLIC},
-	{"longMethod", "(J)J", nullptr, $PUBLIC},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&TestMethodReflectValueOf::main))},
-	{"shortMethod", "(S)S", nullptr, $PUBLIC},
-	{"testMethod", "(Ljava/lang/Class;Ljava/lang/Object;Z)V", "(Ljava/lang/Class<*>;Ljava/lang/Object;Z)V", $PUBLIC | $STATIC, $method(static_cast<void(*)($Class*,Object$*,bool)>(&TestMethodReflectValueOf::testMethod))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TestMethodReflectValueOf, init$, void)},
+	{"booleanMethod", "(Z)Z", nullptr, $PUBLIC, $virtualMethod(TestMethodReflectValueOf, booleanMethod, bool, bool)},
+	{"byteMethod", "(B)B", nullptr, $PUBLIC, $virtualMethod(TestMethodReflectValueOf, byteMethod, int8_t, int8_t)},
+	{"charMethod", "(C)C", nullptr, $PUBLIC, $virtualMethod(TestMethodReflectValueOf, charMethod, char16_t, char16_t)},
+	{"intMethod", "(I)I", nullptr, $PUBLIC, $virtualMethod(TestMethodReflectValueOf, intMethod, int32_t, int32_t)},
+	{"longMethod", "(J)J", nullptr, $PUBLIC, $virtualMethod(TestMethodReflectValueOf, longMethod, int64_t, int64_t)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TestMethodReflectValueOf, main, void, $StringArray*)},
+	{"shortMethod", "(S)S", nullptr, $PUBLIC, $virtualMethod(TestMethodReflectValueOf, shortMethod, int16_t, int16_t)},
+	{"testMethod", "(Ljava/lang/Class;Ljava/lang/Object;Z)V", "(Ljava/lang/Class<*>;Ljava/lang/Object;Z)V", $PUBLIC | $STATIC, $staticMethod(TestMethodReflectValueOf, testMethod, void, $Class*, Object$*, bool)},
 	{}
 };
 

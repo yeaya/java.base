@@ -52,11 +52,11 @@ $FieldInfo _Subject$ClassSet_FieldInfo_[] = {
 };
 
 $MethodInfo _Subject$ClassSet_MethodInfo_[] = {
-	{"<init>", "(Ljavax/security/auth/Subject;ILjava/lang/Class;)V", "(ILjava/lang/Class<TT;>;)V", 0, $method(static_cast<void(Subject$ClassSet::*)($Subject*,int32_t,$Class*)>(&Subject$ClassSet::init$))},
-	{"add", "(Ljava/lang/Object;)Z", "(TT;)Z", $PUBLIC},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TT;>;", $PUBLIC},
-	{"populateSet", "()V", nullptr, $PRIVATE, $method(static_cast<void(Subject$ClassSet::*)()>(&Subject$ClassSet::populateSet))},
-	{"size", "()I", nullptr, $PUBLIC},
+	{"<init>", "(Ljavax/security/auth/Subject;ILjava/lang/Class;)V", "(ILjava/lang/Class<TT;>;)V", 0, $method(Subject$ClassSet, init$, void, $Subject*, int32_t, $Class*)},
+	{"add", "(Ljava/lang/Object;)Z", "(TT;)Z", $PUBLIC, $virtualMethod(Subject$ClassSet, add, bool, Object$*)},
+	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TT;>;", $PUBLIC, $virtualMethod(Subject$ClassSet, iterator, $Iterator*)},
+	{"populateSet", "()V", nullptr, $PRIVATE, $method(Subject$ClassSet, populateSet, void)},
+	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(Subject$ClassSet, size, int32_t)},
 	{}
 };
 

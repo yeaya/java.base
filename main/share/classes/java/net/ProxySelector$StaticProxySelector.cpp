@@ -37,9 +37,9 @@ $FieldInfo _ProxySelector$StaticProxySelector_FieldInfo_[] = {
 };
 
 $MethodInfo _ProxySelector$StaticProxySelector_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/InetSocketAddress;)V", nullptr, 0, $method(static_cast<void(ProxySelector$StaticProxySelector::*)($InetSocketAddress*)>(&ProxySelector$StaticProxySelector::init$))},
-	{"connectFailed", "(Ljava/net/URI;Ljava/net/SocketAddress;Ljava/io/IOException;)V", nullptr, $PUBLIC},
-	{"select", "(Ljava/net/URI;)Ljava/util/List;", "(Ljava/net/URI;)Ljava/util/List<Ljava/net/Proxy;>;", $PUBLIC | $SYNCHRONIZED},
+	{"<init>", "(Ljava/net/InetSocketAddress;)V", nullptr, 0, $method(ProxySelector$StaticProxySelector, init$, void, $InetSocketAddress*)},
+	{"connectFailed", "(Ljava/net/URI;Ljava/net/SocketAddress;Ljava/io/IOException;)V", nullptr, $PUBLIC, $virtualMethod(ProxySelector$StaticProxySelector, connectFailed, void, $URI*, $SocketAddress*, $IOException*)},
+	{"select", "(Ljava/net/URI;)Ljava/util/List;", "(Ljava/net/URI;)Ljava/util/List<Ljava/net/Proxy;>;", $PUBLIC | $SYNCHRONIZED, $virtualMethod(ProxySelector$StaticProxySelector, select, $List*, $URI*)},
 	{}
 };
 

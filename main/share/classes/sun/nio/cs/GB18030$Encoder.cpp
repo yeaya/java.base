@@ -40,13 +40,13 @@ $FieldInfo _GB18030$Encoder_FieldInfo_[] = {
 };
 
 $MethodInfo _GB18030$Encoder_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PRIVATE, $method(static_cast<void(GB18030$Encoder::*)($Charset*)>(&GB18030$Encoder::init$))},
-	{"canEncode", "(C)Z", nullptr, $PUBLIC},
-	{"encodeArrayLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(static_cast<$CoderResult*(GB18030$Encoder::*)($CharBuffer*,$ByteBuffer*)>(&GB18030$Encoder::encodeArrayLoop))},
-	{"encodeBufferLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(static_cast<$CoderResult*(GB18030$Encoder::*)($CharBuffer*,$ByteBuffer*)>(&GB18030$Encoder::encodeBufferLoop))},
-	{"encodeLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED},
-	{"getGB18030", "([S[Ljava/lang/String;C)I", nullptr, $PRIVATE, $method(static_cast<int32_t(GB18030$Encoder::*)($shorts*,$StringArray*,char16_t)>(&GB18030$Encoder::getGB18030))},
-	{"implReset", "()V", nullptr, $PROTECTED},
+	{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PRIVATE, $method(GB18030$Encoder, init$, void, $Charset*)},
+	{"canEncode", "(C)Z", nullptr, $PUBLIC, $virtualMethod(GB18030$Encoder, canEncode, bool, char16_t)},
+	{"encodeArrayLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(GB18030$Encoder, encodeArrayLoop, $CoderResult*, $CharBuffer*, $ByteBuffer*)},
+	{"encodeBufferLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(GB18030$Encoder, encodeBufferLoop, $CoderResult*, $CharBuffer*, $ByteBuffer*)},
+	{"encodeLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED, $virtualMethod(GB18030$Encoder, encodeLoop, $CoderResult*, $CharBuffer*, $ByteBuffer*)},
+	{"getGB18030", "([S[Ljava/lang/String;C)I", nullptr, $PRIVATE, $method(GB18030$Encoder, getGB18030, int32_t, $shorts*, $StringArray*, char16_t)},
+	{"implReset", "()V", nullptr, $PROTECTED, $virtualMethod(GB18030$Encoder, implReset, void)},
 	{}
 };
 

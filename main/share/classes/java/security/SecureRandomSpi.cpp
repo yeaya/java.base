@@ -19,15 +19,15 @@ $FieldInfo _SecureRandomSpi_FieldInfo_[] = {
 };
 
 $MethodInfo _SecureRandomSpi_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SecureRandomSpi::*)()>(&SecureRandomSpi::init$))},
-	{"<init>", "(Ljava/security/SecureRandomParameters;)V", nullptr, $PROTECTED, $method(static_cast<void(SecureRandomSpi::*)($SecureRandomParameters*)>(&SecureRandomSpi::init$))},
-	{"engineGenerateSeed", "(I)[B", nullptr, $PROTECTED | $ABSTRACT},
-	{"engineGetParameters", "()Ljava/security/SecureRandomParameters;", nullptr, $PROTECTED},
-	{"engineNextBytes", "([B)V", nullptr, $PROTECTED | $ABSTRACT},
-	{"engineNextBytes", "([BLjava/security/SecureRandomParameters;)V", nullptr, $PROTECTED},
-	{"engineReseed", "(Ljava/security/SecureRandomParameters;)V", nullptr, $PROTECTED},
-	{"engineSetSeed", "([B)V", nullptr, $PROTECTED | $ABSTRACT},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SecureRandomSpi, init$, void)},
+	{"<init>", "(Ljava/security/SecureRandomParameters;)V", nullptr, $PROTECTED, $method(SecureRandomSpi, init$, void, $SecureRandomParameters*)},
+	{"engineGenerateSeed", "(I)[B", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(SecureRandomSpi, engineGenerateSeed, $bytes*, int32_t)},
+	{"engineGetParameters", "()Ljava/security/SecureRandomParameters;", nullptr, $PROTECTED, $virtualMethod(SecureRandomSpi, engineGetParameters, $SecureRandomParameters*)},
+	{"engineNextBytes", "([B)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(SecureRandomSpi, engineNextBytes, void, $bytes*)},
+	{"engineNextBytes", "([BLjava/security/SecureRandomParameters;)V", nullptr, $PROTECTED, $virtualMethod(SecureRandomSpi, engineNextBytes, void, $bytes*, $SecureRandomParameters*)},
+	{"engineReseed", "(Ljava/security/SecureRandomParameters;)V", nullptr, $PROTECTED, $virtualMethod(SecureRandomSpi, engineReseed, void, $SecureRandomParameters*)},
+	{"engineSetSeed", "([B)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(SecureRandomSpi, engineSetSeed, void, $bytes*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SecureRandomSpi, toString, $String*)},
 	{}
 };
 

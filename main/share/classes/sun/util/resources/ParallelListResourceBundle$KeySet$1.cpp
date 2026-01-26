@@ -38,10 +38,10 @@ $FieldInfo _ParallelListResourceBundle$KeySet$1_FieldInfo_[] = {
 };
 
 $MethodInfo _ParallelListResourceBundle$KeySet$1_MethodInfo_[] = {
-	{"<init>", "(Lsun/util/resources/ParallelListResourceBundle$KeySet;)V", nullptr, 0, $method(static_cast<void(ParallelListResourceBundle$KeySet$1::*)($ParallelListResourceBundle$KeySet*)>(&ParallelListResourceBundle$KeySet$1::init$))},
-	{"hasNext", "()Z", nullptr, $PUBLIC},
-	{"next", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"remove", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/util/resources/ParallelListResourceBundle$KeySet;)V", nullptr, 0, $method(ParallelListResourceBundle$KeySet$1, init$, void, $ParallelListResourceBundle$KeySet*)},
+	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(ParallelListResourceBundle$KeySet$1, hasNext, bool)},
+	{"next", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ParallelListResourceBundle$KeySet$1, next, $Object*)},
+	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(ParallelListResourceBundle$KeySet$1, remove, void)},
 	{}
 };
 

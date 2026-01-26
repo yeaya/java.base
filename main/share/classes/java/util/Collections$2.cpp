@@ -32,12 +32,12 @@ $FieldInfo _Collections$2_FieldInfo_[] = {
 };
 
 $MethodInfo _Collections$2_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;)V", "()V", 0, $method(static_cast<void(Collections$2::*)(Object$*)>(&Collections$2::init$))},
-	{"characteristics", "()I", nullptr, $PUBLIC},
-	{"estimateSize", "()J", nullptr, $PUBLIC},
-	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TT;>;)V", $PUBLIC},
-	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-TT;>;)Z", $PUBLIC},
-	{"trySplit", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TT;>;", $PUBLIC},
+	{"<init>", "(Ljava/lang/Object;)V", "()V", 0, $method(Collections$2, init$, void, Object$*)},
+	{"characteristics", "()I", nullptr, $PUBLIC, $virtualMethod(Collections$2, characteristics, int32_t)},
+	{"estimateSize", "()J", nullptr, $PUBLIC, $virtualMethod(Collections$2, estimateSize, int64_t)},
+	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TT;>;)V", $PUBLIC, $virtualMethod(Collections$2, forEachRemaining, void, $Consumer*)},
+	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-TT;>;)Z", $PUBLIC, $virtualMethod(Collections$2, tryAdvance, bool, $Consumer*)},
+	{"trySplit", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TT;>;", $PUBLIC, $virtualMethod(Collections$2, trySplit, $Spliterator*)},
 	{}
 };
 

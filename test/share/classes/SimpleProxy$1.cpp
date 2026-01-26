@@ -14,8 +14,8 @@ using $Method = ::java::lang::reflect::Method;
 using $Arrays = ::java::util::Arrays;
 
 $MethodInfo _SimpleProxy$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(SimpleProxy$1::*)()>(&SimpleProxy$1::init$))},
-	{"invoke", "(Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, nullptr, "java.lang.Throwable"},
+	{"<init>", "()V", nullptr, 0, $method(SimpleProxy$1, init$, void)},
+	{"invoke", "(Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SimpleProxy$1, invoke, $Object*, Object$*, $Method*, $ObjectArray*), "java.lang.Throwable"},
 	{}
 };
 

@@ -24,12 +24,12 @@ $FieldInfo _CgroupSubsystemFactory$CgroupTypeResult_FieldInfo_[] = {
 };
 
 $MethodInfo _CgroupSubsystemFactory$CgroupTypeResult_MethodInfo_[] = {
-	{"<init>", "(ZZZZLjava/util/Map;)V", "(ZZZZLjava/util/Map<Ljava/lang/String;Ljdk/internal/platform/CgroupInfo;>;)V", $PRIVATE, $method(static_cast<void(CgroupSubsystemFactory$CgroupTypeResult::*)(bool,bool,bool,bool,$Map*)>(&CgroupSubsystemFactory$CgroupTypeResult::init$))},
-	{"getInfos", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljdk/internal/platform/CgroupInfo;>;", $PUBLIC, $method(static_cast<$Map*(CgroupSubsystemFactory$CgroupTypeResult::*)()>(&CgroupSubsystemFactory$CgroupTypeResult::getInfos))},
-	{"isAnyCgroupV1Controllers", "()Z", nullptr, $PUBLIC, $method(static_cast<bool(CgroupSubsystemFactory$CgroupTypeResult::*)()>(&CgroupSubsystemFactory$CgroupTypeResult::isAnyCgroupV1Controllers))},
-	{"isAnyCgroupV2Controllers", "()Z", nullptr, $PUBLIC, $method(static_cast<bool(CgroupSubsystemFactory$CgroupTypeResult::*)()>(&CgroupSubsystemFactory$CgroupTypeResult::isAnyCgroupV2Controllers))},
-	{"isAnyControllersEnabled", "()Z", nullptr, $PUBLIC, $method(static_cast<bool(CgroupSubsystemFactory$CgroupTypeResult::*)()>(&CgroupSubsystemFactory$CgroupTypeResult::isAnyControllersEnabled))},
-	{"isCgroupV2", "()Z", nullptr, $PUBLIC, $method(static_cast<bool(CgroupSubsystemFactory$CgroupTypeResult::*)()>(&CgroupSubsystemFactory$CgroupTypeResult::isCgroupV2))},
+	{"<init>", "(ZZZZLjava/util/Map;)V", "(ZZZZLjava/util/Map<Ljava/lang/String;Ljdk/internal/platform/CgroupInfo;>;)V", $PRIVATE, $method(CgroupSubsystemFactory$CgroupTypeResult, init$, void, bool, bool, bool, bool, $Map*)},
+	{"getInfos", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljdk/internal/platform/CgroupInfo;>;", $PUBLIC, $method(CgroupSubsystemFactory$CgroupTypeResult, getInfos, $Map*)},
+	{"isAnyCgroupV1Controllers", "()Z", nullptr, $PUBLIC, $method(CgroupSubsystemFactory$CgroupTypeResult, isAnyCgroupV1Controllers, bool)},
+	{"isAnyCgroupV2Controllers", "()Z", nullptr, $PUBLIC, $method(CgroupSubsystemFactory$CgroupTypeResult, isAnyCgroupV2Controllers, bool)},
+	{"isAnyControllersEnabled", "()Z", nullptr, $PUBLIC, $method(CgroupSubsystemFactory$CgroupTypeResult, isAnyControllersEnabled, bool)},
+	{"isCgroupV2", "()Z", nullptr, $PUBLIC, $method(CgroupSubsystemFactory$CgroupTypeResult, isCgroupV2, bool)},
 	{}
 };
 

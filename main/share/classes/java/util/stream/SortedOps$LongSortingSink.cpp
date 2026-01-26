@@ -33,10 +33,10 @@ $FieldInfo _SortedOps$LongSortingSink_FieldInfo_[] = {
 };
 
 $MethodInfo _SortedOps$LongSortingSink_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/stream/Sink;)V", "(Ljava/util/stream/Sink<-Ljava/lang/Long;>;)V", 0, $method(static_cast<void(SortedOps$LongSortingSink::*)($Sink*)>(&SortedOps$LongSortingSink::init$))},
-	{"accept", "(J)V", nullptr, $PUBLIC},
-	{"begin", "(J)V", nullptr, $PUBLIC},
-	{"end", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/stream/Sink;)V", "(Ljava/util/stream/Sink<-Ljava/lang/Long;>;)V", 0, $method(SortedOps$LongSortingSink, init$, void, $Sink*)},
+	{"accept", "(J)V", nullptr, $PUBLIC, $virtualMethod(SortedOps$LongSortingSink, accept, void, int64_t)},
+	{"begin", "(J)V", nullptr, $PUBLIC, $virtualMethod(SortedOps$LongSortingSink, begin, void, int64_t)},
+	{"end", "()V", nullptr, $PUBLIC, $virtualMethod(SortedOps$LongSortingSink, end, void)},
 	{}
 };
 

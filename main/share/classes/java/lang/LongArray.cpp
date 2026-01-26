@@ -21,7 +21,7 @@
 #include <java/lang/LongArray.h>
 
 #include <java/lang/ArrayIndexOutOfBoundsException.h>
-#include <java/lang/NegativeArraySizeException.h>
+#include <java/lang/Machine.h>
 #include <jcpp.h>
 #include <string.h>
 
@@ -31,7 +31,7 @@ namespace java {
 Class* LongArray::class$ = nullptr;
 
 MethodInfo _LongArray_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(static_cast<void(LongArray::*)(int32_t)>(&LongArray::init$))},
+	{"<init>", "(I)V", nullptr, $PUBLIC, $method(LongArray, init$, void, int32_t)},
 	{}
 };
 
@@ -120,19 +120,16 @@ LongArray* LongArray::subArray(int32_t index, int32_t length) const {
 }
 
 void LongArray::check(int32_t index) const {
-	if ((uint32_t)index >= (uint32_t)length) { \
-		$nullcheck(this); \
-		$throwNew(ArrayIndexOutOfBoundsException, index); \
+	if ((uint32_t)index >= (uint32_t)length) {
+		$throwNew(ArrayIndexOutOfBoundsException, index);
 	}
 }
 
 void LongArray::check(int32_t index, int32_t length) const {
 	if (index < 0) {
-		$nullcheck(this);
 		$throwNew(ArrayIndexOutOfBoundsException, index);
 	}
 	if (index + length > this->length) {
-		$nullcheck(this);
 		$throwNew(ArrayIndexOutOfBoundsException, index + length);
 	}
 }
@@ -171,7 +168,7 @@ bool LongArray::equals(LongArray* x, LongArray* y) {
 
 Class* LongArray::load$(String* name, bool initialize) {
 	int64_t arrayBaseSize = sizeof(LongArray) - sizeof(LongArray::data);
-	Class::loadClass(&class$, arrayBaseSize, $getMark(LongArray), &_LongArray_ClassInfo_);
+	Machine::loadClass(&class$, arrayBaseSize, $getMark(LongArray), &_LongArray_ClassInfo_);
 	return class$;
 }
 

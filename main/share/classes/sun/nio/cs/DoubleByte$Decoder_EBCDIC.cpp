@@ -41,13 +41,13 @@ $FieldInfo _DoubleByte$Decoder_EBCDIC_FieldInfo_[] = {
 };
 
 $MethodInfo _DoubleByte$Decoder_EBCDIC_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/charset/Charset;[[C[CIIZ)V", nullptr, $PUBLIC, $method(static_cast<void(DoubleByte$Decoder_EBCDIC::*)($Charset*,$charArray2*,$chars*,int32_t,int32_t,bool)>(&DoubleByte$Decoder_EBCDIC::init$))},
-	{"<init>", "(Ljava/nio/charset/Charset;[[C[CII)V", nullptr, $PUBLIC, $method(static_cast<void(DoubleByte$Decoder_EBCDIC::*)($Charset*,$charArray2*,$chars*,int32_t,int32_t)>(&DoubleByte$Decoder_EBCDIC::init$))},
-	{"decode", "([BII[C)I", nullptr, $PUBLIC},
-	{"decodeArrayLoop", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED},
-	{"decodeBufferLoop", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED},
-	{"implReset", "()V", nullptr, $PUBLIC},
-	{"isDoubleByte", "(II)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)(int32_t,int32_t)>(&DoubleByte$Decoder_EBCDIC::isDoubleByte))},
+	{"<init>", "(Ljava/nio/charset/Charset;[[C[CIIZ)V", nullptr, $PUBLIC, $method(DoubleByte$Decoder_EBCDIC, init$, void, $Charset*, $charArray2*, $chars*, int32_t, int32_t, bool)},
+	{"<init>", "(Ljava/nio/charset/Charset;[[C[CII)V", nullptr, $PUBLIC, $method(DoubleByte$Decoder_EBCDIC, init$, void, $Charset*, $charArray2*, $chars*, int32_t, int32_t)},
+	{"decode", "([BII[C)I", nullptr, $PUBLIC, $virtualMethod(DoubleByte$Decoder_EBCDIC, decode, int32_t, $bytes*, int32_t, int32_t, $chars*)},
+	{"decodeArrayLoop", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED, $virtualMethod(DoubleByte$Decoder_EBCDIC, decodeArrayLoop, $CoderResult*, $ByteBuffer*, $CharBuffer*)},
+	{"decodeBufferLoop", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED, $virtualMethod(DoubleByte$Decoder_EBCDIC, decodeBufferLoop, $CoderResult*, $ByteBuffer*, $CharBuffer*)},
+	{"implReset", "()V", nullptr, $PUBLIC, $virtualMethod(DoubleByte$Decoder_EBCDIC, implReset, void)},
+	{"isDoubleByte", "(II)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(DoubleByte$Decoder_EBCDIC, isDoubleByte, bool, int32_t, int32_t)},
 	{}
 };
 

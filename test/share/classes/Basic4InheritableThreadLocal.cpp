@@ -22,8 +22,8 @@ $FieldInfo _Basic4InheritableThreadLocal_FieldInfo_[] = {
 };
 
 $MethodInfo _Basic4InheritableThreadLocal_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Basic4InheritableThreadLocal::*)()>(&Basic4InheritableThreadLocal::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Basic4InheritableThreadLocal::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Basic4InheritableThreadLocal, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Basic4InheritableThreadLocal, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

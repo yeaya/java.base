@@ -30,9 +30,9 @@ $FieldInfo _OIDMap$OIDInfo_FieldInfo_[] = {
 };
 
 $MethodInfo _OIDMap$OIDInfo_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Lsun/security/util/ObjectIdentifier;Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(OIDMap$OIDInfo::*)($String*,$ObjectIdentifier*,$String*)>(&OIDMap$OIDInfo::init$))},
-	{"<init>", "(Ljava/lang/String;Lsun/security/util/ObjectIdentifier;Ljava/lang/Class;)V", "(Ljava/lang/String;Lsun/security/util/ObjectIdentifier;Ljava/lang/Class<*>;)V", 0, $method(static_cast<void(OIDMap$OIDInfo::*)($String*,$ObjectIdentifier*,$Class*)>(&OIDMap$OIDInfo::init$))},
-	{"getClazz", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", 0, nullptr, "java.security.cert.CertificateException"},
+	{"<init>", "(Ljava/lang/String;Lsun/security/util/ObjectIdentifier;Ljava/lang/String;)V", nullptr, 0, $method(OIDMap$OIDInfo, init$, void, $String*, $ObjectIdentifier*, $String*)},
+	{"<init>", "(Ljava/lang/String;Lsun/security/util/ObjectIdentifier;Ljava/lang/Class;)V", "(Ljava/lang/String;Lsun/security/util/ObjectIdentifier;Ljava/lang/Class<*>;)V", 0, $method(OIDMap$OIDInfo, init$, void, $String*, $ObjectIdentifier*, $Class*)},
+	{"getClazz", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", 0, $virtualMethod(OIDMap$OIDInfo, getClazz, $Class*), "java.security.cert.CertificateException"},
 	{}
 };
 

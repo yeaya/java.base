@@ -37,8 +37,8 @@ $CompoundAttribute _InvocationHandler_MethodAnnotations_invokeDefault1[] = {
 };
 
 $MethodInfo _InvocationHandler_MethodInfo_[] = {
-	{"invoke", "(Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.lang.Throwable"},
-	{"invokeDefault", "(Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<$Object*(*)(Object$*,$Method*,$ObjectArray*)>(&InvocationHandler::invokeDefault)), "java.lang.Throwable", nullptr, _InvocationHandler_MethodAnnotations_invokeDefault1},
+	{"invoke", "(Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(InvocationHandler, invoke, $Object*, Object$*, $Method*, $ObjectArray*), "java.lang.Throwable"},
+	{"invokeDefault", "(Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(InvocationHandler, invokeDefault, $Object*, Object$*, $Method*, $ObjectArray*), "java.lang.Throwable", nullptr, _InvocationHandler_MethodAnnotations_invokeDefault1},
 	{}
 };
 

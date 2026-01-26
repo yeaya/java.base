@@ -16,7 +16,7 @@ $CompoundAttribute _ObjLongConsumer_Annotations_[] = {
 };
 
 $MethodInfo _ObjLongConsumer_MethodInfo_[] = {
-	{"accept", "(Ljava/lang/Object;J)V", "(TT;J)V", $PUBLIC | $ABSTRACT},
+	{"accept", "(Ljava/lang/Object;J)V", "(TT;J)V", $PUBLIC | $ABSTRACT, $virtualMethod(ObjLongConsumer, accept, void, Object$*, int64_t)},
 	{}
 };
 

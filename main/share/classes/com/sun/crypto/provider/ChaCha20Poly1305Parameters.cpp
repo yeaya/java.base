@@ -37,14 +37,14 @@ $FieldInfo _ChaCha20Poly1305Parameters_FieldInfo_[] = {
 };
 
 $MethodInfo _ChaCha20Poly1305Parameters_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ChaCha20Poly1305Parameters::*)()>(&ChaCha20Poly1305Parameters::init$))},
-	{"engineGetEncoded", "()[B", nullptr, $PROTECTED, nullptr, "java.io.IOException"},
-	{"engineGetEncoded", "(Ljava/lang/String;)[B", nullptr, $PROTECTED, nullptr, "java.io.IOException"},
-	{"engineGetParameterSpec", "(Ljava/lang/Class;)Ljava/security/spec/AlgorithmParameterSpec;", "<T::Ljava/security/spec/AlgorithmParameterSpec;>(Ljava/lang/Class<TT;>;)TT;", $PROTECTED, nullptr, "java.security.spec.InvalidParameterSpecException"},
-	{"engineInit", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PROTECTED, nullptr, "java.security.spec.InvalidParameterSpecException"},
-	{"engineInit", "([B)V", nullptr, $PROTECTED, nullptr, "java.io.IOException"},
-	{"engineInit", "([BLjava/lang/String;)V", nullptr, $PROTECTED, nullptr, "java.io.IOException"},
-	{"engineToString", "()Ljava/lang/String;", nullptr, $PROTECTED},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ChaCha20Poly1305Parameters, init$, void)},
+	{"engineGetEncoded", "()[B", nullptr, $PROTECTED, $virtualMethod(ChaCha20Poly1305Parameters, engineGetEncoded, $bytes*), "java.io.IOException"},
+	{"engineGetEncoded", "(Ljava/lang/String;)[B", nullptr, $PROTECTED, $virtualMethod(ChaCha20Poly1305Parameters, engineGetEncoded, $bytes*, $String*), "java.io.IOException"},
+	{"engineGetParameterSpec", "(Ljava/lang/Class;)Ljava/security/spec/AlgorithmParameterSpec;", "<T::Ljava/security/spec/AlgorithmParameterSpec;>(Ljava/lang/Class<TT;>;)TT;", $PROTECTED, $virtualMethod(ChaCha20Poly1305Parameters, engineGetParameterSpec, $AlgorithmParameterSpec*, $Class*), "java.security.spec.InvalidParameterSpecException"},
+	{"engineInit", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PROTECTED, $virtualMethod(ChaCha20Poly1305Parameters, engineInit, void, $AlgorithmParameterSpec*), "java.security.spec.InvalidParameterSpecException"},
+	{"engineInit", "([B)V", nullptr, $PROTECTED, $virtualMethod(ChaCha20Poly1305Parameters, engineInit, void, $bytes*), "java.io.IOException"},
+	{"engineInit", "([BLjava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(ChaCha20Poly1305Parameters, engineInit, void, $bytes*, $String*), "java.io.IOException"},
+	{"engineToString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(ChaCha20Poly1305Parameters, engineToString, $String*)},
 	{}
 };
 

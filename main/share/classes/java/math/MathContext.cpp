@@ -44,15 +44,15 @@ $FieldInfo _MathContext_FieldInfo_[] = {
 };
 
 $MethodInfo _MathContext_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(static_cast<void(MathContext::*)(int32_t)>(&MathContext::init$))},
-	{"<init>", "(ILjava/math/RoundingMode;)V", nullptr, $PUBLIC, $method(static_cast<void(MathContext::*)(int32_t,$RoundingMode*)>(&MathContext::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(MathContext::*)($String*)>(&MathContext::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getPrecision", "()I", nullptr, $PUBLIC, $method(static_cast<int32_t(MathContext::*)()>(&MathContext::getPrecision))},
-	{"getRoundingMode", "()Ljava/math/RoundingMode;", nullptr, $PUBLIC, $method(static_cast<$RoundingMode*(MathContext::*)()>(&MathContext::getRoundingMode))},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(MathContext::*)($ObjectInputStream*)>(&MathContext::readObject)), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(I)V", nullptr, $PUBLIC, $method(MathContext, init$, void, int32_t)},
+	{"<init>", "(ILjava/math/RoundingMode;)V", nullptr, $PUBLIC, $method(MathContext, init$, void, int32_t, $RoundingMode*)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(MathContext, init$, void, $String*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(MathContext, equals, bool, Object$*)},
+	{"getPrecision", "()I", nullptr, $PUBLIC, $method(MathContext, getPrecision, int32_t)},
+	{"getRoundingMode", "()Ljava/math/RoundingMode;", nullptr, $PUBLIC, $method(MathContext, getRoundingMode, $RoundingMode*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(MathContext, hashCode, int32_t)},
+	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(MathContext, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MathContext, toString, $String*)},
 	{}
 };
 

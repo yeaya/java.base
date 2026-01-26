@@ -24,8 +24,8 @@ $FieldInfo _VerificationProvider$1_FieldInfo_[] = {
 };
 
 $MethodInfo _VerificationProvider$1_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/provider/VerificationProvider;Ljava/util/Iterator;Ljava/util/Iterator;)V", "()V", 0, $method(static_cast<void(VerificationProvider$1::*)($VerificationProvider*,$Iterator*,$Iterator*)>(&VerificationProvider$1::init$))},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/security/provider/VerificationProvider;Ljava/util/Iterator;Ljava/util/Iterator;)V", "()V", 0, $method(VerificationProvider$1, init$, void, $VerificationProvider*, $Iterator*, $Iterator*)},
+	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(VerificationProvider$1, run, $Object*)},
 	{}
 };
 

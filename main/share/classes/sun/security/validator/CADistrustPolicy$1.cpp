@@ -22,8 +22,8 @@ namespace sun {
 		namespace validator {
 
 $MethodInfo _CADistrustPolicy$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(static_cast<void(CADistrustPolicy$1::*)($String*,int32_t)>(&CADistrustPolicy$1::init$))},
-	{"checkDistrust", "(Ljava/lang/String;[Ljava/security/cert/X509Certificate;)V", nullptr, 0, nullptr, "sun.security.validator.ValidatorException"},
+	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(CADistrustPolicy$1, init$, void, $String*, int32_t)},
+	{"checkDistrust", "(Ljava/lang/String;[Ljava/security/cert/X509Certificate;)V", nullptr, 0, $virtualMethod(CADistrustPolicy$1, checkDistrust, void, $String*, $X509CertificateArray*), "sun.security.validator.ValidatorException"},
 	{}
 };
 

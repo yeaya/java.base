@@ -22,8 +22,8 @@ $FieldInfo _ThreadLocal$SuppliedThreadLocal_FieldInfo_[] = {
 };
 
 $MethodInfo _ThreadLocal$SuppliedThreadLocal_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/function/Supplier;)V", "(Ljava/util/function/Supplier<+TT;>;)V", 0, $method(static_cast<void(ThreadLocal$SuppliedThreadLocal::*)($Supplier*)>(&ThreadLocal$SuppliedThreadLocal::init$))},
-	{"initialValue", "()Ljava/lang/Object;", "()TT;", $PROTECTED},
+	{"<init>", "(Ljava/util/function/Supplier;)V", "(Ljava/util/function/Supplier<+TT;>;)V", 0, $method(ThreadLocal$SuppliedThreadLocal, init$, void, $Supplier*)},
+	{"initialValue", "()Ljava/lang/Object;", "()TT;", $PROTECTED, $virtualMethod(ThreadLocal$SuppliedThreadLocal, initialValue, $Object*)},
 	{}
 };
 

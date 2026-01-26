@@ -28,19 +28,19 @@ $FieldInfo _ByteArrayInputStream_FieldInfo_[] = {
 };
 
 $MethodInfo _ByteArrayInputStream_MethodInfo_[] = {
-	{"<init>", "([B)V", nullptr, $PUBLIC, $method(static_cast<void(ByteArrayInputStream::*)($bytes*)>(&ByteArrayInputStream::init$))},
-	{"<init>", "([BII)V", nullptr, $PUBLIC, $method(static_cast<void(ByteArrayInputStream::*)($bytes*,int32_t,int32_t)>(&ByteArrayInputStream::init$))},
-	{"available", "()I", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"mark", "(I)V", nullptr, $PUBLIC},
-	{"markSupported", "()Z", nullptr, $PUBLIC},
-	{"read", "()I", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"read", "([BII)I", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"readAllBytes", "()[B", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"readNBytes", "([BII)I", nullptr, $PUBLIC},
-	{"reset", "()V", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"skip", "(J)J", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"transferTo", "(Ljava/io/OutputStream;)J", nullptr, $PUBLIC | $SYNCHRONIZED, nullptr, "java.io.IOException"},
+	{"<init>", "([B)V", nullptr, $PUBLIC, $method(ByteArrayInputStream, init$, void, $bytes*)},
+	{"<init>", "([BII)V", nullptr, $PUBLIC, $method(ByteArrayInputStream, init$, void, $bytes*, int32_t, int32_t)},
+	{"available", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ByteArrayInputStream, available, int32_t)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(ByteArrayInputStream, close, void), "java.io.IOException"},
+	{"mark", "(I)V", nullptr, $PUBLIC, $virtualMethod(ByteArrayInputStream, mark, void, int32_t)},
+	{"markSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(ByteArrayInputStream, markSupported, bool)},
+	{"read", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ByteArrayInputStream, read, int32_t)},
+	{"read", "([BII)I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ByteArrayInputStream, read, int32_t, $bytes*, int32_t, int32_t)},
+	{"readAllBytes", "()[B", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ByteArrayInputStream, readAllBytes, $bytes*)},
+	{"readNBytes", "([BII)I", nullptr, $PUBLIC, $virtualMethod(ByteArrayInputStream, readNBytes, int32_t, $bytes*, int32_t, int32_t)},
+	{"reset", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ByteArrayInputStream, reset, void)},
+	{"skip", "(J)J", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ByteArrayInputStream, skip, int64_t, int64_t)},
+	{"transferTo", "(Ljava/io/OutputStream;)J", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ByteArrayInputStream, transferTo, int64_t, $OutputStream*), "java.io.IOException"},
 	{}
 };
 

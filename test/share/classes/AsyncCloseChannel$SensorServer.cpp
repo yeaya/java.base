@@ -20,8 +20,8 @@ using $ServerSocket = ::java::net::ServerSocket;
 using $Socket = ::java::net::Socket;
 
 $MethodInfo _AsyncCloseChannel$SensorServer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(AsyncCloseChannel$SensorServer::*)()>(&AsyncCloseChannel$SensorServer::init$))},
-	{"runEx", "()V", nullptr, $PUBLIC, nullptr, "java.lang.Exception"},
+	{"<init>", "()V", nullptr, 0, $method(AsyncCloseChannel$SensorServer, init$, void)},
+	{"runEx", "()V", nullptr, $PUBLIC, $virtualMethod(AsyncCloseChannel$SensorServer, runEx, void), "java.lang.Exception"},
 	{}
 };
 

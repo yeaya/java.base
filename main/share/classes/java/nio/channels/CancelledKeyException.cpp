@@ -18,7 +18,7 @@ $FieldInfo _CancelledKeyException_FieldInfo_[] = {
 };
 
 $MethodInfo _CancelledKeyException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CancelledKeyException::*)()>(&CancelledKeyException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CancelledKeyException, init$, void)},
 	{}
 };
 

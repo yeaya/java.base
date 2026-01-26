@@ -17,8 +17,8 @@ $FieldInfo _UnrecoverableEntryException_FieldInfo_[] = {
 };
 
 $MethodInfo _UnrecoverableEntryException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(UnrecoverableEntryException::*)()>(&UnrecoverableEntryException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(UnrecoverableEntryException::*)($String*)>(&UnrecoverableEntryException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(UnrecoverableEntryException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(UnrecoverableEntryException, init$, void, $String*)},
 	{}
 };
 

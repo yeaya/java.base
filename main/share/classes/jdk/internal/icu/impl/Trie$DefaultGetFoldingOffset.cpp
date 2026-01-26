@@ -13,8 +13,8 @@ namespace jdk {
 			namespace impl {
 
 $MethodInfo _Trie$DefaultGetFoldingOffset_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(Trie$DefaultGetFoldingOffset::*)()>(&Trie$DefaultGetFoldingOffset::init$))},
-	{"getFoldingOffset", "(I)I", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(Trie$DefaultGetFoldingOffset, init$, void)},
+	{"getFoldingOffset", "(I)I", nullptr, $PUBLIC, $virtualMethod(Trie$DefaultGetFoldingOffset, getFoldingOffset, int32_t, int32_t)},
 	{}
 };
 

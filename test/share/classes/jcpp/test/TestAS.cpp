@@ -20,12 +20,12 @@ $MethodInfo _TestAS_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TestAS::*)()>(&TestAS::init$))},
-	{"get", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"get2", "()Ljava/lang/CharSequence;", nullptr, $PUBLIC},
-	{"get3", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"get4", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<void(*)($StringArray*)>(&TestAS::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TestAS, init$, void)},
+	{"get", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TestAS, get, $CharSequence*)},
+	{"get2", "()Ljava/lang/CharSequence;", nullptr, $PUBLIC, $virtualMethod(TestAS, get2, $CharSequence*)},
+	{"get3", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TestAS, get3, $String*)},
+	{"get4", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TestAS, get4, $String*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(TestAS, main, void, $StringArray*)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

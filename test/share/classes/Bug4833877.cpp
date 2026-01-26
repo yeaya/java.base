@@ -32,12 +32,12 @@ $FieldInfo _Bug4833877_FieldInfo_[] = {
 };
 
 $MethodInfo _Bug4833877_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Bug4833877::*)()>(&Bug4833877::init$))},
-	{"checkFormat", "(Ljava/lang/Number;Ljava/lang/String;)V", nullptr, $STATIC, $method(static_cast<void(*)($Number*,$String*)>(&Bug4833877::checkFormat))},
-	{"checkParse", "(Ljava/lang/String;Ljava/lang/Double;)V", nullptr, $STATIC, $method(static_cast<void(*)($String*,$Double*)>(&Bug4833877::checkParse))},
-	{"checkParse", "(Ljava/lang/String;Ljava/lang/Long;)V", nullptr, $STATIC, $method(static_cast<void(*)($String*,$Long*)>(&Bug4833877::checkParse))},
-	{"checkParse", "(Ljava/lang/String;Ljava/math/BigDecimal;)V", nullptr, $STATIC, $method(static_cast<void(*)($String*,$BigDecimal*)>(&Bug4833877::checkParse))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Bug4833877::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Bug4833877, init$, void)},
+	{"checkFormat", "(Ljava/lang/Number;Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(Bug4833877, checkFormat, void, $Number*, $String*)},
+	{"checkParse", "(Ljava/lang/String;Ljava/lang/Double;)V", nullptr, $STATIC, $staticMethod(Bug4833877, checkParse, void, $String*, $Double*)},
+	{"checkParse", "(Ljava/lang/String;Ljava/lang/Long;)V", nullptr, $STATIC, $staticMethod(Bug4833877, checkParse, void, $String*, $Long*)},
+	{"checkParse", "(Ljava/lang/String;Ljava/math/BigDecimal;)V", nullptr, $STATIC, $staticMethod(Bug4833877, checkParse, void, $String*, $BigDecimal*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Bug4833877, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

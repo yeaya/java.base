@@ -67,17 +67,17 @@ $FieldInfo _Bundles_FieldInfo_[] = {
 };
 
 $MethodInfo _Bundles_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(Bundles::*)()>(&Bundles::init$))},
-	{"cleanupCache", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&Bundles::cleanupCache))},
-	{"findBundleInCache", "(Lsun/util/resources/Bundles$CacheKey;)Ljava/util/ResourceBundle;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$ResourceBundle*(*)($Bundles$CacheKey*)>(&Bundles::findBundleInCache))},
-	{"findBundleOf", "(Lsun/util/resources/Bundles$CacheKey;Lsun/util/resources/Bundles$Strategy;Ljava/lang/String;Ljava/util/List;I)Ljava/util/ResourceBundle;", "(Lsun/util/resources/Bundles$CacheKey;Lsun/util/resources/Bundles$Strategy;Ljava/lang/String;Ljava/util/List<Ljava/util/Locale;>;I)Ljava/util/ResourceBundle;", $PRIVATE | $STATIC, $method(static_cast<$ResourceBundle*(*)($Bundles$CacheKey*,$Bundles$Strategy*,$String*,$List*,int32_t)>(&Bundles::findBundleOf))},
-	{"isValidBundle", "(Ljava/util/ResourceBundle;)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($ResourceBundle*)>(&Bundles::isValidBundle))},
-	{"loadBundleFromProviders", "(Ljava/lang/String;Ljava/util/Locale;Ljava/util/ServiceLoader;Lsun/util/resources/Bundles$CacheKey;)Ljava/util/ResourceBundle;", "(Ljava/lang/String;Ljava/util/Locale;Ljava/util/ServiceLoader<Ljava/util/spi/ResourceBundleProvider;>;Lsun/util/resources/Bundles$CacheKey;)Ljava/util/ResourceBundle;", $PRIVATE | $STATIC, $method(static_cast<$ResourceBundle*(*)($String*,$Locale*,$ServiceLoader*,$Bundles$CacheKey*)>(&Bundles::loadBundleFromProviders))},
-	{"loadBundleOf", "(Ljava/lang/String;Ljava/util/Locale;Lsun/util/resources/Bundles$Strategy;)Ljava/util/ResourceBundle;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$ResourceBundle*(*)($String*,$Locale*,$Bundles$Strategy*)>(&Bundles::loadBundleOf))},
-	{"of", "(Ljava/lang/String;Ljava/util/Locale;Lsun/util/resources/Bundles$Strategy;)Ljava/util/ResourceBundle;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$ResourceBundle*(*)($String*,$Locale*,$Bundles$Strategy*)>(&Bundles::of))},
-	{"putBundleInCache", "(Lsun/util/resources/Bundles$CacheKey;Ljava/util/ResourceBundle;)Ljava/util/ResourceBundle;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$ResourceBundle*(*)($Bundles$CacheKey*,$ResourceBundle*)>(&Bundles::putBundleInCache))},
-	{"throwMissingResourceException", "(Ljava/lang/String;Ljava/util/Locale;Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($String*,$Locale*,$Throwable*)>(&Bundles::throwMissingResourceException))},
-	{"toOtherBundleName", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)($String*,$String*,$Locale*)>(&Bundles::toOtherBundleName))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(Bundles, init$, void)},
+	{"cleanupCache", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(Bundles, cleanupCache, void)},
+	{"findBundleInCache", "(Lsun/util/resources/Bundles$CacheKey;)Ljava/util/ResourceBundle;", nullptr, $PRIVATE | $STATIC, $staticMethod(Bundles, findBundleInCache, $ResourceBundle*, $Bundles$CacheKey*)},
+	{"findBundleOf", "(Lsun/util/resources/Bundles$CacheKey;Lsun/util/resources/Bundles$Strategy;Ljava/lang/String;Ljava/util/List;I)Ljava/util/ResourceBundle;", "(Lsun/util/resources/Bundles$CacheKey;Lsun/util/resources/Bundles$Strategy;Ljava/lang/String;Ljava/util/List<Ljava/util/Locale;>;I)Ljava/util/ResourceBundle;", $PRIVATE | $STATIC, $staticMethod(Bundles, findBundleOf, $ResourceBundle*, $Bundles$CacheKey*, $Bundles$Strategy*, $String*, $List*, int32_t)},
+	{"isValidBundle", "(Ljava/util/ResourceBundle;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Bundles, isValidBundle, bool, $ResourceBundle*)},
+	{"loadBundleFromProviders", "(Ljava/lang/String;Ljava/util/Locale;Ljava/util/ServiceLoader;Lsun/util/resources/Bundles$CacheKey;)Ljava/util/ResourceBundle;", "(Ljava/lang/String;Ljava/util/Locale;Ljava/util/ServiceLoader<Ljava/util/spi/ResourceBundleProvider;>;Lsun/util/resources/Bundles$CacheKey;)Ljava/util/ResourceBundle;", $PRIVATE | $STATIC, $staticMethod(Bundles, loadBundleFromProviders, $ResourceBundle*, $String*, $Locale*, $ServiceLoader*, $Bundles$CacheKey*)},
+	{"loadBundleOf", "(Ljava/lang/String;Ljava/util/Locale;Lsun/util/resources/Bundles$Strategy;)Ljava/util/ResourceBundle;", nullptr, $PRIVATE | $STATIC, $staticMethod(Bundles, loadBundleOf, $ResourceBundle*, $String*, $Locale*, $Bundles$Strategy*)},
+	{"of", "(Ljava/lang/String;Ljava/util/Locale;Lsun/util/resources/Bundles$Strategy;)Ljava/util/ResourceBundle;", nullptr, $PUBLIC | $STATIC, $staticMethod(Bundles, of, $ResourceBundle*, $String*, $Locale*, $Bundles$Strategy*)},
+	{"putBundleInCache", "(Lsun/util/resources/Bundles$CacheKey;Ljava/util/ResourceBundle;)Ljava/util/ResourceBundle;", nullptr, $PRIVATE | $STATIC, $staticMethod(Bundles, putBundleInCache, $ResourceBundle*, $Bundles$CacheKey*, $ResourceBundle*)},
+	{"throwMissingResourceException", "(Ljava/lang/String;Ljava/util/Locale;Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Bundles, throwMissingResourceException, void, $String*, $Locale*, $Throwable*)},
+	{"toOtherBundleName", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Bundles, toOtherBundleName, $String*, $String*, $String*, $Locale*)},
 	{}
 };
 

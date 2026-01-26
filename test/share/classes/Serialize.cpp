@@ -41,10 +41,10 @@ $FieldInfo _Serialize_FieldInfo_[] = {
 };
 
 $MethodInfo _Serialize_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Serialize::*)()>(&Serialize::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Serialize::main)), "java.lang.Exception"},
-	{"test", "(Ljava/net/Inet6Address;)Z", nullptr, $STATIC, $method(static_cast<bool(*)($Inet6Address*)>(&Serialize::test)), "java.lang.Exception"},
-	{"test1", "(Ljava/net/Inet6Address;[B)Z", nullptr, $STATIC, $method(static_cast<bool(*)($Inet6Address*,$bytes*)>(&Serialize::test1)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Serialize, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Serialize, main, void, $StringArray*), "java.lang.Exception"},
+	{"test", "(Ljava/net/Inet6Address;)Z", nullptr, $STATIC, $staticMethod(Serialize, test, bool, $Inet6Address*), "java.lang.Exception"},
+	{"test1", "(Ljava/net/Inet6Address;[B)Z", nullptr, $STATIC, $staticMethod(Serialize, test1, bool, $Inet6Address*, $bytes*), "java.lang.Exception"},
 	{}
 };
 

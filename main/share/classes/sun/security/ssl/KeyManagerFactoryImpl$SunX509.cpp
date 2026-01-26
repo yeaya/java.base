@@ -23,9 +23,9 @@ namespace sun {
 		namespace ssl {
 
 $MethodInfo _KeyManagerFactoryImpl$SunX509_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(KeyManagerFactoryImpl$SunX509::*)()>(&KeyManagerFactoryImpl$SunX509::init$))},
-	{"engineInit", "(Ljava/security/KeyStore;[C)V", nullptr, $PROTECTED, nullptr, "java.security.KeyStoreException,java.security.NoSuchAlgorithmException,java.security.UnrecoverableKeyException"},
-	{"engineInit", "(Ljavax/net/ssl/ManagerFactoryParameters;)V", nullptr, $PROTECTED, nullptr, "java.security.InvalidAlgorithmParameterException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(KeyManagerFactoryImpl$SunX509, init$, void)},
+	{"engineInit", "(Ljava/security/KeyStore;[C)V", nullptr, $PROTECTED, $virtualMethod(KeyManagerFactoryImpl$SunX509, engineInit, void, $KeyStore*, $chars*), "java.security.KeyStoreException,java.security.NoSuchAlgorithmException,java.security.UnrecoverableKeyException"},
+	{"engineInit", "(Ljavax/net/ssl/ManagerFactoryParameters;)V", nullptr, $PROTECTED, $virtualMethod(KeyManagerFactoryImpl$SunX509, engineInit, void, $ManagerFactoryParameters*), "java.security.InvalidAlgorithmParameterException"},
 	{}
 };
 

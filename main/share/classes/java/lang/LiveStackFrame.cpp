@@ -32,11 +32,11 @@ namespace java {
 	namespace lang {
 
 $MethodInfo _LiveStackFrame_MethodInfo_[] = {
-	{"getLocals", "()[Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getMonitors", "()[Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getStack", "()[Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getStackWalker", "()Ljava/lang/StackWalker;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$StackWalker*(*)()>(&LiveStackFrame::getStackWalker))},
-	{"getStackWalker", "(Ljava/util/Set;)Ljava/lang/StackWalker;", "(Ljava/util/Set<Ljava/lang/StackWalker$Option;>;)Ljava/lang/StackWalker;", $PUBLIC | $STATIC, $method(static_cast<$StackWalker*(*)($Set*)>(&LiveStackFrame::getStackWalker))},
+	{"getLocals", "()[Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LiveStackFrame, getLocals, $ObjectArray*)},
+	{"getMonitors", "()[Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LiveStackFrame, getMonitors, $ObjectArray*)},
+	{"getStack", "()[Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LiveStackFrame, getStack, $ObjectArray*)},
+	{"getStackWalker", "()Ljava/lang/StackWalker;", nullptr, $PUBLIC | $STATIC, $staticMethod(LiveStackFrame, getStackWalker, $StackWalker*)},
+	{"getStackWalker", "(Ljava/util/Set;)Ljava/lang/StackWalker;", "(Ljava/util/Set<Ljava/lang/StackWalker$Option;>;)Ljava/lang/StackWalker;", $PUBLIC | $STATIC, $staticMethod(LiveStackFrame, getStackWalker, $StackWalker*, $Set*)},
 	{}
 };
 

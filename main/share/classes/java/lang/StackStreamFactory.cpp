@@ -66,14 +66,14 @@ $FieldInfo _StackStreamFactory_FieldInfo_[] = {
 };
 
 $MethodInfo _StackStreamFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(StackStreamFactory::*)()>(&StackStreamFactory::init$))},
-	{"checkStackWalkModes", "()Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $method(static_cast<bool(*)()>(&StackStreamFactory::checkStackWalkModes))},
-	{"filterStackWalkImpl", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PRIVATE | $STATIC, $method(static_cast<bool(*)($Class*)>(&StackStreamFactory::filterStackWalkImpl))},
-	{"init", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/Class<*>;>;", $PRIVATE | $STATIC, $method(static_cast<$Set*(*)()>(&StackStreamFactory::init))},
-	{"isMethodHandleFrame", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PRIVATE | $STATIC, $method(static_cast<bool(*)($Class*)>(&StackStreamFactory::isMethodHandleFrame))},
-	{"isReflectionFrame", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PRIVATE | $STATIC, $method(static_cast<bool(*)($Class*)>(&StackStreamFactory::isReflectionFrame))},
-	{"makeCallerFinder", "(Ljava/lang/StackWalker;)Ljava/lang/StackStreamFactory$CallerClassFinder;", nullptr, $STATIC, $method(static_cast<$StackStreamFactory$CallerClassFinder*(*)($StackWalker*)>(&StackStreamFactory::makeCallerFinder))},
-	{"makeStackTraverser", "(Ljava/lang/StackWalker;Ljava/util/function/Function;)Ljava/lang/StackStreamFactory$StackFrameTraverser;", "<T:Ljava/lang/Object;>(Ljava/lang/StackWalker;Ljava/util/function/Function<-Ljava/util/stream/Stream<Ljava/lang/StackWalker$StackFrame;>;+TT;>;)Ljava/lang/StackStreamFactory$StackFrameTraverser<TT;>;", $STATIC, $method(static_cast<$StackStreamFactory$StackFrameTraverser*(*)($StackWalker*,$Function*)>(&StackStreamFactory::makeStackTraverser))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(StackStreamFactory, init$, void)},
+	{"checkStackWalkModes", "()Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(StackStreamFactory, checkStackWalkModes, bool)},
+	{"filterStackWalkImpl", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PRIVATE | $STATIC, $staticMethod(StackStreamFactory, filterStackWalkImpl, bool, $Class*)},
+	{"init", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/Class<*>;>;", $PRIVATE | $STATIC, $staticMethod(StackStreamFactory, init, $Set*)},
+	{"isMethodHandleFrame", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PRIVATE | $STATIC, $staticMethod(StackStreamFactory, isMethodHandleFrame, bool, $Class*)},
+	{"isReflectionFrame", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PRIVATE | $STATIC, $staticMethod(StackStreamFactory, isReflectionFrame, bool, $Class*)},
+	{"makeCallerFinder", "(Ljava/lang/StackWalker;)Ljava/lang/StackStreamFactory$CallerClassFinder;", nullptr, $STATIC, $staticMethod(StackStreamFactory, makeCallerFinder, $StackStreamFactory$CallerClassFinder*, $StackWalker*)},
+	{"makeStackTraverser", "(Ljava/lang/StackWalker;Ljava/util/function/Function;)Ljava/lang/StackStreamFactory$StackFrameTraverser;", "<T:Ljava/lang/Object;>(Ljava/lang/StackWalker;Ljava/util/function/Function<-Ljava/util/stream/Stream<Ljava/lang/StackWalker$StackFrame;>;+TT;>;)Ljava/lang/StackStreamFactory$StackFrameTraverser<TT;>;", $STATIC, $staticMethod(StackStreamFactory, makeStackTraverser, $StackStreamFactory$StackFrameTraverser*, $StackWalker*, $Function*)},
 	{}
 };
 

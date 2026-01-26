@@ -14,8 +14,8 @@ using $ChoiceFormat = ::java::text::ChoiceFormat;
 using $ParsePosition = ::java::text::ParsePosition;
 
 $MethodInfo _Bug8001209_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Bug8001209::*)()>(&Bug8001209::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Bug8001209::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Bug8001209, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Bug8001209, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

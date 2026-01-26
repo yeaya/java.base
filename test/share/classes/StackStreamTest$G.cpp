@@ -69,8 +69,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo StackStreamTest$G$$Lambda$lambda$g$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(StackStreamTest$G$$Lambda$lambda$g$0::*)()>(&StackStreamTest$G$$Lambda$lambda$g$0::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(StackStreamTest$G$$Lambda$lambda$g$0, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(StackStreamTest$G$$Lambda$lambda$g$0, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo StackStreamTest$G$$Lambda$lambda$g$0::classInfo$ = {
@@ -102,8 +102,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo StackStreamTest$G$$Lambda$lambda$g$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(StackStreamTest$G$$Lambda$lambda$g$1$1::*)()>(&StackStreamTest$G$$Lambda$lambda$g$1$1::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(StackStreamTest$G$$Lambda$lambda$g$1$1, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(StackStreamTest$G$$Lambda$lambda$g$1$1, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo StackStreamTest$G$$Lambda$lambda$g$1$1::classInfo$ = {
@@ -135,8 +135,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo StackStreamTest$G$$Lambda$lambda$g$3$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(StackStreamTest$G$$Lambda$lambda$g$3$2::*)()>(&StackStreamTest$G$$Lambda$lambda$g$3$2::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(StackStreamTest$G$$Lambda$lambda$g$3$2, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(StackStreamTest$G$$Lambda$lambda$g$3$2, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo StackStreamTest$G$$Lambda$lambda$g$3$2::classInfo$ = {
@@ -168,8 +168,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo StackStreamTest$G$$Lambda$lambda$g$4$3::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(StackStreamTest$G$$Lambda$lambda$g$4$3::*)()>(&StackStreamTest$G$$Lambda$lambda$g$4$3::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(StackStreamTest$G$$Lambda$lambda$g$4$3, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(StackStreamTest$G$$Lambda$lambda$g$4$3, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo StackStreamTest$G$$Lambda$lambda$g$4$3::classInfo$ = {
@@ -201,8 +201,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo StackStreamTest$G$$Lambda$lambda$firstFrame$5$4::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(StackStreamTest$G$$Lambda$lambda$firstFrame$5$4::*)()>(&StackStreamTest$G$$Lambda$lambda$firstFrame$5$4::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(StackStreamTest$G$$Lambda$lambda$firstFrame$5$4, init$, void)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(StackStreamTest$G$$Lambda$lambda$firstFrame$5$4, accept, void, Object$*)},
 	{}
 };
 $ClassInfo StackStreamTest$G$$Lambda$lambda$firstFrame$5$4::classInfo$ = {
@@ -234,8 +234,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo StackStreamTest$G$$Lambda$lambda$firstFrame$7$5::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(StackStreamTest$G$$Lambda$lambda$firstFrame$7$5::*)()>(&StackStreamTest$G$$Lambda$lambda$firstFrame$7$5::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(StackStreamTest$G$$Lambda$lambda$firstFrame$7$5, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(StackStreamTest$G$$Lambda$lambda$firstFrame$7$5, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo StackStreamTest$G$$Lambda$lambda$firstFrame$7$5::classInfo$ = {
@@ -267,8 +267,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo StackStreamTest$G$$Lambda$lambda$firstFrame$6$6::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(StackStreamTest$G$$Lambda$lambda$firstFrame$6$6::*)()>(&StackStreamTest$G$$Lambda$lambda$firstFrame$6$6::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(StackStreamTest$G$$Lambda$lambda$firstFrame$6$6, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(StackStreamTest$G$$Lambda$lambda$firstFrame$6$6, test, bool, Object$*)},
 	{}
 };
 $ClassInfo StackStreamTest$G$$Lambda$lambda$firstFrame$6$6::classInfo$ = {
@@ -300,8 +300,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo StackStreamTest$G$$Lambda$isTestClass$7::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(StackStreamTest$G$$Lambda$isTestClass$7::*)()>(&StackStreamTest$G$$Lambda$isTestClass$7::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(StackStreamTest$G$$Lambda$isTestClass$7, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(StackStreamTest$G$$Lambda$isTestClass$7, test, bool, Object$*)},
 	{}
 };
 $ClassInfo StackStreamTest$G$$Lambda$isTestClass$7::classInfo$ = {
@@ -333,8 +333,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo StackStreamTest$G$$Lambda$toStackTraceElement$8::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(StackStreamTest$G$$Lambda$toStackTraceElement$8::*)()>(&StackStreamTest$G$$Lambda$toStackTraceElement$8::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(StackStreamTest$G$$Lambda$toStackTraceElement$8, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(StackStreamTest$G$$Lambda$toStackTraceElement$8, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo StackStreamTest$G$$Lambda$toStackTraceElement$8::classInfo$ = {
@@ -366,8 +366,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo StackStreamTest$G$$Lambda$lambda$g$2$9::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(StackStreamTest$G$$Lambda$lambda$g$2$9::*)()>(&StackStreamTest$G$$Lambda$lambda$g$2$9::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(StackStreamTest$G$$Lambda$lambda$g$2$9, init$, void)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(StackStreamTest$G$$Lambda$lambda$g$2$9, accept, void, Object$*)},
 	{}
 };
 $ClassInfo StackStreamTest$G$$Lambda$lambda$g$2$9::classInfo$ = {
@@ -399,8 +399,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo StackStreamTest$G$$Lambda$getMethodName$10::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(StackStreamTest$G$$Lambda$getMethodName$10::*)()>(&StackStreamTest$G$$Lambda$getMethodName$10::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(StackStreamTest$G$$Lambda$getMethodName$10, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(StackStreamTest$G$$Lambda$getMethodName$10, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo StackStreamTest$G$$Lambda$getMethodName$10::classInfo$ = {
@@ -432,8 +432,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo StackStreamTest$G$$Lambda$getClassName$11::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(StackStreamTest$G$$Lambda$getClassName$11::*)()>(&StackStreamTest$G$$Lambda$getClassName$11::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(StackStreamTest$G$$Lambda$getClassName$11, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(StackStreamTest$G$$Lambda$getClassName$11, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo StackStreamTest$G$$Lambda$getClassName$11::classInfo$ = {
@@ -459,19 +459,19 @@ $FieldInfo _StackStreamTest$G_FieldInfo_[] = {
 };
 
 $MethodInfo _StackStreamTest$G_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(StackStreamTest$G::*)()>(&StackStreamTest$G::init$))},
-	{"checkStackTraceElements", "(Ljava/util/List;Ljava/util/List;Ljava/util/List;)V", "(Ljava/util/List<Ljava/lang/String;>;Ljava/util/List<Ljava/lang/String;>;Ljava/util/List<Ljava/lang/StackTraceElement;>;)V", $STATIC, $method(static_cast<void(*)($List*,$List*,$List*)>(&StackStreamTest$G::checkStackTraceElements))},
-	{"dumpSTEInfo", "(Ljava/util/List;Ljava/util/List;Ljava/util/List;)V", "(Ljava/util/List<Ljava/lang/String;>;Ljava/util/List<Ljava/lang/String;>;Ljava/util/List<Ljava/lang/StackTraceElement;>;)V", $STATIC, $method(static_cast<void(*)($List*,$List*,$List*)>(&StackStreamTest$G::dumpSTEInfo))},
-	{"firstFrame", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&StackStreamTest$G::firstFrame))},
-	{"g", "()V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)()>(&StackStreamTest$G::g))},
-	{"lambda$firstFrame$5", "(Ljava/lang/StackWalker$StackFrame;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($StackWalker$StackFrame*)>(&StackStreamTest$G::lambda$firstFrame$5))},
-	{"lambda$firstFrame$6", "(Ljava/lang/StackWalker$StackFrame;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($StackWalker$StackFrame*)>(&StackStreamTest$G::lambda$firstFrame$6))},
-	{"lambda$firstFrame$7", "(Ljava/util/stream/Stream;)Ljava/util/Optional;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Optional*(*)($Stream*)>(&StackStreamTest$G::lambda$firstFrame$7))},
-	{"lambda$g$0", "(Ljava/util/stream/Stream;)Ljava/util/List;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$List*(*)($Stream*)>(&StackStreamTest$G::lambda$g$0))},
-	{"lambda$g$1", "(Ljava/util/stream/Stream;)Ljava/util/List;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$List*(*)($Stream*)>(&StackStreamTest$G::lambda$g$1))},
-	{"lambda$g$2", "(Ljava/lang/StackTraceElement;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($StackTraceElement*)>(&StackStreamTest$G::lambda$g$2))},
-	{"lambda$g$3", "(Ljava/util/stream/Stream;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Object*(*)($Stream*)>(&StackStreamTest$G::lambda$g$3))},
-	{"lambda$g$4", "(Ljava/util/stream/Stream;)Ljava/util/List;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$List*(*)($Stream*)>(&StackStreamTest$G::lambda$g$4))},
+	{"<init>", "()V", nullptr, 0, $method(StackStreamTest$G, init$, void)},
+	{"checkStackTraceElements", "(Ljava/util/List;Ljava/util/List;Ljava/util/List;)V", "(Ljava/util/List<Ljava/lang/String;>;Ljava/util/List<Ljava/lang/String;>;Ljava/util/List<Ljava/lang/StackTraceElement;>;)V", $STATIC, $staticMethod(StackStreamTest$G, checkStackTraceElements, void, $List*, $List*, $List*)},
+	{"dumpSTEInfo", "(Ljava/util/List;Ljava/util/List;Ljava/util/List;)V", "(Ljava/util/List<Ljava/lang/String;>;Ljava/util/List<Ljava/lang/String;>;Ljava/util/List<Ljava/lang/StackTraceElement;>;)V", $STATIC, $staticMethod(StackStreamTest$G, dumpSTEInfo, void, $List*, $List*, $List*)},
+	{"firstFrame", "()V", nullptr, $STATIC, $staticMethod(StackStreamTest$G, firstFrame, void)},
+	{"g", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(StackStreamTest$G, g, void)},
+	{"lambda$firstFrame$5", "(Ljava/lang/StackWalker$StackFrame;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StackStreamTest$G, lambda$firstFrame$5, void, $StackWalker$StackFrame*)},
+	{"lambda$firstFrame$6", "(Ljava/lang/StackWalker$StackFrame;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StackStreamTest$G, lambda$firstFrame$6, bool, $StackWalker$StackFrame*)},
+	{"lambda$firstFrame$7", "(Ljava/util/stream/Stream;)Ljava/util/Optional;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StackStreamTest$G, lambda$firstFrame$7, $Optional*, $Stream*)},
+	{"lambda$g$0", "(Ljava/util/stream/Stream;)Ljava/util/List;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StackStreamTest$G, lambda$g$0, $List*, $Stream*)},
+	{"lambda$g$1", "(Ljava/util/stream/Stream;)Ljava/util/List;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StackStreamTest$G, lambda$g$1, $List*, $Stream*)},
+	{"lambda$g$2", "(Ljava/lang/StackTraceElement;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StackStreamTest$G, lambda$g$2, void, $StackTraceElement*)},
+	{"lambda$g$3", "(Ljava/util/stream/Stream;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StackStreamTest$G, lambda$g$3, $Object*, $Stream*)},
+	{"lambda$g$4", "(Ljava/util/stream/Stream;)Ljava/util/List;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StackStreamTest$G, lambda$g$4, $List*, $Stream*)},
 	{}
 };
 

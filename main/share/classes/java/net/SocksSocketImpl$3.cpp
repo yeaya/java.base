@@ -21,8 +21,8 @@ $FieldInfo _SocksSocketImpl$3_FieldInfo_[] = {
 };
 
 $MethodInfo _SocksSocketImpl$3_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/SocksSocketImpl;)V", nullptr, 0, $method(static_cast<void(SocksSocketImpl$3::*)($SocksSocketImpl*)>(&SocksSocketImpl$3::init$))},
-	{"run", "()Ljava/net/ProxySelector;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/net/SocksSocketImpl;)V", nullptr, 0, $method(SocksSocketImpl$3, init$, void, $SocksSocketImpl*)},
+	{"run", "()Ljava/net/ProxySelector;", nullptr, $PUBLIC, $virtualMethod(SocksSocketImpl$3, run, $Object*)},
 	{}
 };
 

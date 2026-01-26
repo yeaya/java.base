@@ -20,7 +20,7 @@ $FieldInfo _Class$AnnotationData_FieldInfo_[] = {
 };
 
 $MethodInfo _Class$AnnotationData_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Map;Ljava/util/Map;I)V", "(Ljava/util/Map<Ljava/lang/Class<+Ljava/lang/annotation/Annotation;>;Ljava/lang/annotation/Annotation;>;Ljava/util/Map<Ljava/lang/Class<+Ljava/lang/annotation/Annotation;>;Ljava/lang/annotation/Annotation;>;I)V", 0, $method(static_cast<void(Class$AnnotationData::*)($Map*,$Map*,int32_t)>(&Class$AnnotationData::init$))},
+	{"<init>", "(Ljava/util/Map;Ljava/util/Map;I)V", "(Ljava/util/Map<Ljava/lang/Class<+Ljava/lang/annotation/Annotation;>;Ljava/lang/annotation/Annotation;>;Ljava/util/Map<Ljava/lang/Class<+Ljava/lang/annotation/Annotation;>;Ljava/lang/annotation/Annotation;>;I)V", 0, $method(Class$AnnotationData, init$, void, $Map*, $Map*, int32_t)},
 	{}
 };
 

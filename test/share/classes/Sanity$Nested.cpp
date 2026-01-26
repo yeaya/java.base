@@ -15,7 +15,7 @@ $FieldInfo _Sanity$Nested_FieldInfo_[] = {
 };
 
 $MethodInfo _Sanity$Nested_MethodInfo_[] = {
-	{"<init>", "(LSanity;)V", nullptr, 0, $method(static_cast<void(Sanity$Nested::*)($Sanity*)>(&Sanity$Nested::init$))},
+	{"<init>", "(LSanity;)V", nullptr, 0, $method(Sanity$Nested, init$, void, $Sanity*)},
 	{}
 };
 

@@ -34,12 +34,12 @@ $MethodInfo _Spliterators$2Adapter_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/util/Spliterator$OfInt;)V", "()V", 0, $method(static_cast<void(Spliterators$2Adapter::*)($Spliterator$OfInt*)>(&Spliterators$2Adapter::init$))},
-	{"accept", "(I)V", nullptr, $PUBLIC},
-	{"forEachRemaining", "(Ljava/util/function/IntConsumer;)V", nullptr, $PUBLIC},
-	{"forEachRemaining", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"hasNext", "()Z", nullptr, $PUBLIC},
-	{"nextInt", "()I", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/Spliterator$OfInt;)V", "()V", 0, $method(Spliterators$2Adapter, init$, void, $Spliterator$OfInt*)},
+	{"accept", "(I)V", nullptr, $PUBLIC, $virtualMethod(Spliterators$2Adapter, accept, void, int32_t)},
+	{"forEachRemaining", "(Ljava/util/function/IntConsumer;)V", nullptr, $PUBLIC, $virtualMethod(Spliterators$2Adapter, forEachRemaining, void, $IntConsumer*)},
+	{"forEachRemaining", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Spliterators$2Adapter, forEachRemaining, void, Object$*)},
+	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(Spliterators$2Adapter, hasNext, bool)},
+	{"nextInt", "()I", nullptr, $PUBLIC, $virtualMethod(Spliterators$2Adapter, nextInt, int32_t)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

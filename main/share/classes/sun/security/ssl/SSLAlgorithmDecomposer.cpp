@@ -52,14 +52,14 @@ $FieldInfo _SSLAlgorithmDecomposer_FieldInfo_[] = {
 };
 
 $MethodInfo _SSLAlgorithmDecomposer_MethodInfo_[] = {
-	{"<init>", "(Z)V", nullptr, 0, $method(static_cast<void(SSLAlgorithmDecomposer::*)(bool)>(&SSLAlgorithmDecomposer::init$))},
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(SSLAlgorithmDecomposer::*)()>(&SSLAlgorithmDecomposer::init$))},
-	{"decompose", "(Lsun/security/ssl/CipherSuite$KeyExchange;Lsun/security/ssl/SSLCipher;Lsun/security/ssl/CipherSuite$MacAlg;Lsun/security/ssl/CipherSuite$HashAlg;)Ljava/util/Set;", "(Lsun/security/ssl/CipherSuite$KeyExchange;Lsun/security/ssl/SSLCipher;Lsun/security/ssl/CipherSuite$MacAlg;Lsun/security/ssl/CipherSuite$HashAlg;)Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE, $method(static_cast<$Set*(SSLAlgorithmDecomposer::*)($CipherSuite$KeyExchange*,$SSLCipher*,$CipherSuite$MacAlg*,$CipherSuite$HashAlg*)>(&SSLAlgorithmDecomposer::decompose))},
-	{"decompose", "(Ljava/lang/String;)Ljava/util/Set;", "(Ljava/lang/String;)Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC},
-	{"decomposes", "(Lsun/security/ssl/CipherSuite$KeyExchange;)Ljava/util/Set;", "(Lsun/security/ssl/CipherSuite$KeyExchange;)Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE, $method(static_cast<$Set*(SSLAlgorithmDecomposer::*)($CipherSuite$KeyExchange*)>(&SSLAlgorithmDecomposer::decomposes))},
-	{"decomposes", "(Lsun/security/ssl/SSLCipher;)Ljava/util/Set;", "(Lsun/security/ssl/SSLCipher;)Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE, $method(static_cast<$Set*(SSLAlgorithmDecomposer::*)($SSLCipher*)>(&SSLAlgorithmDecomposer::decomposes))},
-	{"decomposes", "(Lsun/security/ssl/CipherSuite$MacAlg;Lsun/security/ssl/SSLCipher;)Ljava/util/Set;", "(Lsun/security/ssl/CipherSuite$MacAlg;Lsun/security/ssl/SSLCipher;)Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE, $method(static_cast<$Set*(SSLAlgorithmDecomposer::*)($CipherSuite$MacAlg*,$SSLCipher*)>(&SSLAlgorithmDecomposer::decomposes))},
-	{"decomposes", "(Lsun/security/ssl/CipherSuite$HashAlg;)Ljava/util/Set;", "(Lsun/security/ssl/CipherSuite$HashAlg;)Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE, $method(static_cast<$Set*(SSLAlgorithmDecomposer::*)($CipherSuite$HashAlg*)>(&SSLAlgorithmDecomposer::decomposes))},
+	{"<init>", "(Z)V", nullptr, 0, $method(SSLAlgorithmDecomposer, init$, void, bool)},
+	{"<init>", "()V", nullptr, 0, $method(SSLAlgorithmDecomposer, init$, void)},
+	{"decompose", "(Lsun/security/ssl/CipherSuite$KeyExchange;Lsun/security/ssl/SSLCipher;Lsun/security/ssl/CipherSuite$MacAlg;Lsun/security/ssl/CipherSuite$HashAlg;)Ljava/util/Set;", "(Lsun/security/ssl/CipherSuite$KeyExchange;Lsun/security/ssl/SSLCipher;Lsun/security/ssl/CipherSuite$MacAlg;Lsun/security/ssl/CipherSuite$HashAlg;)Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE, $method(SSLAlgorithmDecomposer, decompose, $Set*, $CipherSuite$KeyExchange*, $SSLCipher*, $CipherSuite$MacAlg*, $CipherSuite$HashAlg*)},
+	{"decompose", "(Ljava/lang/String;)Ljava/util/Set;", "(Ljava/lang/String;)Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(SSLAlgorithmDecomposer, decompose, $Set*, $String*)},
+	{"decomposes", "(Lsun/security/ssl/CipherSuite$KeyExchange;)Ljava/util/Set;", "(Lsun/security/ssl/CipherSuite$KeyExchange;)Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE, $method(SSLAlgorithmDecomposer, decomposes, $Set*, $CipherSuite$KeyExchange*)},
+	{"decomposes", "(Lsun/security/ssl/SSLCipher;)Ljava/util/Set;", "(Lsun/security/ssl/SSLCipher;)Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE, $method(SSLAlgorithmDecomposer, decomposes, $Set*, $SSLCipher*)},
+	{"decomposes", "(Lsun/security/ssl/CipherSuite$MacAlg;Lsun/security/ssl/SSLCipher;)Ljava/util/Set;", "(Lsun/security/ssl/CipherSuite$MacAlg;Lsun/security/ssl/SSLCipher;)Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE, $method(SSLAlgorithmDecomposer, decomposes, $Set*, $CipherSuite$MacAlg*, $SSLCipher*)},
+	{"decomposes", "(Lsun/security/ssl/CipherSuite$HashAlg;)Ljava/util/Set;", "(Lsun/security/ssl/CipherSuite$HashAlg;)Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE, $method(SSLAlgorithmDecomposer, decomposes, $Set*, $CipherSuite$HashAlg*)},
 	{}
 };
 

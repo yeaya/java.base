@@ -28,8 +28,8 @@ $FieldInfo _KeySets$9_FieldInfo_[] = {
 };
 
 $MethodInfo _KeySets$9_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Class;LKeySets$Adder;Ljava/util/Set;)V", nullptr, 0, $method(static_cast<void(KeySets$9::*)($Class*,$KeySets$Adder*,$Set*)>(&KeySets$9::init$)), "java.lang.Exception"},
-	{"go", "()V", nullptr, 0, nullptr, "java.lang.Exception"},
+	{"<init>", "(Ljava/lang/Class;LKeySets$Adder;Ljava/util/Set;)V", nullptr, 0, $method(KeySets$9, init$, void, $Class*, $KeySets$Adder*, $Set*), "java.lang.Exception"},
+	{"go", "()V", nullptr, 0, $virtualMethod(KeySets$9, go, void), "java.lang.Exception"},
 	{}
 };
 

@@ -16,7 +16,7 @@ $CompoundAttribute _Thread$UncaughtExceptionHandler_Annotations_[] = {
 };
 
 $MethodInfo _Thread$UncaughtExceptionHandler_MethodInfo_[] = {
-	{"uncaughtException", "(Ljava/lang/Thread;Ljava/lang/Throwable;)V", nullptr, $PUBLIC | $ABSTRACT},
+	{"uncaughtException", "(Ljava/lang/Thread;Ljava/lang/Throwable;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Thread$UncaughtExceptionHandler, uncaughtException, void, $Thread*, $Throwable*)},
 	{}
 };
 

@@ -22,8 +22,8 @@ $CompoundAttribute _PKCS12KeyStore$RetryWithZero_Annotations_[] = {
 };
 
 $MethodInfo _PKCS12KeyStore$RetryWithZero_MethodInfo_[] = {
-	{"run", "(Lsun/security/pkcs12/PKCS12KeyStore$RetryWithZero;[C)Ljava/lang/Object;", "<S:Ljava/lang/Object;>(Lsun/security/pkcs12/PKCS12KeyStore$RetryWithZero<TS;>;[C)TS;", $PUBLIC | $STATIC, $method(static_cast<$Object*(*)(PKCS12KeyStore$RetryWithZero*,$chars*)>(&PKCS12KeyStore$RetryWithZero::run)), "java.lang.Exception"},
-	{"tryOnce", "([C)Ljava/lang/Object;", "([C)TT;", $PUBLIC | $ABSTRACT, nullptr, "java.lang.Exception"},
+	{"run", "(Lsun/security/pkcs12/PKCS12KeyStore$RetryWithZero;[C)Ljava/lang/Object;", "<S:Ljava/lang/Object;>(Lsun/security/pkcs12/PKCS12KeyStore$RetryWithZero<TS;>;[C)TS;", $PUBLIC | $STATIC, $staticMethod(PKCS12KeyStore$RetryWithZero, run, $Object*, PKCS12KeyStore$RetryWithZero*, $chars*), "java.lang.Exception"},
+	{"tryOnce", "([C)Ljava/lang/Object;", "([C)TT;", $PUBLIC | $ABSTRACT, $virtualMethod(PKCS12KeyStore$RetryWithZero, tryOnce, $Object*, $chars*), "java.lang.Exception"},
 	{}
 };
 

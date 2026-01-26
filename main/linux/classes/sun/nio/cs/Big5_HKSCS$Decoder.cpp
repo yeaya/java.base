@@ -32,7 +32,7 @@ $FieldInfo _Big5_HKSCS$Decoder_FieldInfo_[] = {
 };
 
 $MethodInfo _Big5_HKSCS$Decoder_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PRIVATE, $method(static_cast<void(Big5_HKSCS$Decoder::*)($Charset*)>(&Big5_HKSCS$Decoder::init$))},
+	{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PRIVATE, $method(Big5_HKSCS$Decoder, init$, void, $Charset*)},
 	{}
 };
 

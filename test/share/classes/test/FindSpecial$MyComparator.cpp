@@ -14,9 +14,9 @@ using $Comparator = ::java::util::Comparator;
 namespace test {
 
 $MethodInfo _FindSpecial$MyComparator_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(FindSpecial$MyComparator::*)()>(&FindSpecial$MyComparator::init$))},
-	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC},
-	{"reversed", "()Ljava/util/Comparator;", "()Ljava/util/Comparator<Ljava/lang/Object;>;", $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(FindSpecial$MyComparator, init$, void)},
+	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(FindSpecial$MyComparator, compare, int32_t, Object$*, Object$*)},
+	{"reversed", "()Ljava/util/Comparator;", "()Ljava/util/Comparator<Ljava/lang/Object;>;", $PUBLIC, $virtualMethod(FindSpecial$MyComparator, reversed, $Comparator*)},
 	{}
 };
 

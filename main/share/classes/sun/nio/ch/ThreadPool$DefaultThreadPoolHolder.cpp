@@ -19,7 +19,7 @@ $FieldInfo _ThreadPool$DefaultThreadPoolHolder_FieldInfo_[] = {
 };
 
 $MethodInfo _ThreadPool$DefaultThreadPoolHolder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(ThreadPool$DefaultThreadPoolHolder::*)()>(&ThreadPool$DefaultThreadPoolHolder::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(ThreadPool$DefaultThreadPoolHolder, init$, void)},
 	{}
 };
 

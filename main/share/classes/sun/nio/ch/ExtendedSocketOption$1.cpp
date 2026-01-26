@@ -13,10 +13,10 @@ namespace sun {
 		namespace ch {
 
 $MethodInfo _ExtendedSocketOption$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ExtendedSocketOption$1::*)()>(&ExtendedSocketOption$1::init$))},
-	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"type", "()Ljava/lang/Class;", "()Ljava/lang/Class<Ljava/lang/Boolean;>;", $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(ExtendedSocketOption$1, init$, void)},
+	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ExtendedSocketOption$1, name, $String*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ExtendedSocketOption$1, toString, $String*)},
+	{"type", "()Ljava/lang/Class;", "()Ljava/lang/Class<Ljava/lang/Boolean;>;", $PUBLIC, $virtualMethod(ExtendedSocketOption$1, type, $Class*)},
 	{}
 };
 

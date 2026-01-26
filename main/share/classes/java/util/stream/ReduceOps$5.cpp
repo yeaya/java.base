@@ -32,11 +32,11 @@ namespace java {
 		namespace stream {
 
 $MethodInfo _ReduceOps$5_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/stream/StreamShape;)V", nullptr, 0, $method(static_cast<void(ReduceOps$5::*)($StreamShape*)>(&ReduceOps$5::init$))},
-	{"evaluateParallel", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;)Ljava/lang/Long;", "<P_IN:Ljava/lang/Object;>(Ljava/util/stream/PipelineHelper<TT;>;Ljava/util/Spliterator<TP_IN;>;)Ljava/lang/Long;", $PUBLIC},
-	{"evaluateSequential", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;)Ljava/lang/Long;", "<P_IN:Ljava/lang/Object;>(Ljava/util/stream/PipelineHelper<TT;>;Ljava/util/Spliterator<TP_IN;>;)Ljava/lang/Long;", $PUBLIC},
-	{"getOpFlags", "()I", nullptr, $PUBLIC},
-	{"makeSink", "()Ljava/util/stream/ReduceOps$CountingSink;", "()Ljava/util/stream/ReduceOps$CountingSink<TT;>;", $PUBLIC},
+	{"<init>", "(Ljava/util/stream/StreamShape;)V", nullptr, 0, $method(ReduceOps$5, init$, void, $StreamShape*)},
+	{"evaluateParallel", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;)Ljava/lang/Long;", "<P_IN:Ljava/lang/Object;>(Ljava/util/stream/PipelineHelper<TT;>;Ljava/util/Spliterator<TP_IN;>;)Ljava/lang/Long;", $PUBLIC, $virtualMethod(ReduceOps$5, evaluateParallel, $Object*, $PipelineHelper*, $Spliterator*)},
+	{"evaluateSequential", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;)Ljava/lang/Long;", "<P_IN:Ljava/lang/Object;>(Ljava/util/stream/PipelineHelper<TT;>;Ljava/util/Spliterator<TP_IN;>;)Ljava/lang/Long;", $PUBLIC, $virtualMethod(ReduceOps$5, evaluateSequential, $Object*, $PipelineHelper*, $Spliterator*)},
+	{"getOpFlags", "()I", nullptr, $PUBLIC, $virtualMethod(ReduceOps$5, getOpFlags, int32_t)},
+	{"makeSink", "()Ljava/util/stream/ReduceOps$CountingSink;", "()Ljava/util/stream/ReduceOps$CountingSink<TT;>;", $PUBLIC, $virtualMethod(ReduceOps$5, makeSink, $ReduceOps$AccumulatingSink*)},
 	{}
 };
 

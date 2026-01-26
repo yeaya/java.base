@@ -39,11 +39,11 @@ $MethodInfo _SPILocaleProviderAdapter$DecimalFormatSymbolsProviderDelegate_Metho
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(SPILocaleProviderAdapter$DecimalFormatSymbolsProviderDelegate::*)()>(&SPILocaleProviderAdapter$DecimalFormatSymbolsProviderDelegate::init$))},
-	{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC},
-	{"getDelegateMap", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/util/Locale;Ljava/text/spi/DecimalFormatSymbolsProvider;>;", $PUBLIC},
-	{"getInstance", "(Ljava/util/Locale;)Ljava/text/DecimalFormatSymbols;", nullptr, $PUBLIC},
-	{"isSupportedLocale", "(Ljava/util/Locale;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(SPILocaleProviderAdapter$DecimalFormatSymbolsProviderDelegate, init$, void)},
+	{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$DecimalFormatSymbolsProviderDelegate, getAvailableLocales, $LocaleArray*)},
+	{"getDelegateMap", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/util/Locale;Ljava/text/spi/DecimalFormatSymbolsProvider;>;", $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$DecimalFormatSymbolsProviderDelegate, getDelegateMap, $Map*)},
+	{"getInstance", "(Ljava/util/Locale;)Ljava/text/DecimalFormatSymbols;", nullptr, $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$DecimalFormatSymbolsProviderDelegate, getInstance, $DecimalFormatSymbols*, $Locale*)},
+	{"isSupportedLocale", "(Ljava/util/Locale;)Z", nullptr, $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$DecimalFormatSymbolsProviderDelegate, isSupportedLocale, bool, $Locale*)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

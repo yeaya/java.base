@@ -26,7 +26,7 @@ $FieldInfo _A_FieldInfo_[] = {
 };
 
 $MethodInfo _A_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(A::*)()>(&A::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(A, init$, void)},
 	{}
 };
 

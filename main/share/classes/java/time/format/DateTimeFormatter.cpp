@@ -163,8 +163,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo DateTimeFormatter$$Lambda$lambda$static$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DateTimeFormatter$$Lambda$lambda$static$0::*)()>(&DateTimeFormatter$$Lambda$lambda$static$0::init$))},
-	{"queryFrom", "(Ljava/time/temporal/TemporalAccessor;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DateTimeFormatter$$Lambda$lambda$static$0, init$, void)},
+	{"queryFrom", "(Ljava/time/temporal/TemporalAccessor;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatter$$Lambda$lambda$static$0, queryFrom, $Object*, $TemporalAccessor*)},
 	{}
 };
 $ClassInfo DateTimeFormatter$$Lambda$lambda$static$0::classInfo$ = {
@@ -196,8 +196,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo DateTimeFormatter$$Lambda$lambda$static$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DateTimeFormatter$$Lambda$lambda$static$1$1::*)()>(&DateTimeFormatter$$Lambda$lambda$static$1$1::init$))},
-	{"queryFrom", "(Ljava/time/temporal/TemporalAccessor;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DateTimeFormatter$$Lambda$lambda$static$1$1, init$, void)},
+	{"queryFrom", "(Ljava/time/temporal/TemporalAccessor;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatter$$Lambda$lambda$static$1$1, queryFrom, $Object*, $TemporalAccessor*)},
 	{}
 };
 $ClassInfo DateTimeFormatter$$Lambda$lambda$static$1$1::classInfo$ = {
@@ -229,8 +229,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo DateTimeFormatter$$Lambda$of$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DateTimeFormatter$$Lambda$of$2::*)()>(&DateTimeFormatter$$Lambda$of$2::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DateTimeFormatter$$Lambda$of$2, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatter$$Lambda$of$2, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo DateTimeFormatter$$Lambda$of$2::classInfo$ = {
@@ -276,45 +276,45 @@ $FieldInfo _DateTimeFormatter_FieldInfo_[] = {
 };
 
 $MethodInfo _DateTimeFormatter_MethodInfo_[] = {
-	{"<init>", "(Ljava/time/format/DateTimeFormatterBuilder$CompositePrinterParser;Ljava/util/Locale;Ljava/time/format/DecimalStyle;Ljava/time/format/ResolverStyle;Ljava/util/Set;Ljava/time/chrono/Chronology;Ljava/time/ZoneId;)V", "(Ljava/time/format/DateTimeFormatterBuilder$CompositePrinterParser;Ljava/util/Locale;Ljava/time/format/DecimalStyle;Ljava/time/format/ResolverStyle;Ljava/util/Set<Ljava/time/temporal/TemporalField;>;Ljava/time/chrono/Chronology;Ljava/time/ZoneId;)V", 0, $method(static_cast<void(DateTimeFormatter::*)($DateTimeFormatterBuilder$CompositePrinterParser*,$Locale*,$DecimalStyle*,$ResolverStyle*,$Set*,$Chronology*,$ZoneId*)>(&DateTimeFormatter::init$))},
-	{"createError", "(Ljava/lang/CharSequence;Ljava/lang/RuntimeException;)Ljava/time/format/DateTimeParseException;", nullptr, $PRIVATE, $method(static_cast<$DateTimeParseException*(DateTimeFormatter::*)($CharSequence*,$RuntimeException*)>(&DateTimeFormatter::createError))},
-	{"format", "(Ljava/time/temporal/TemporalAccessor;)Ljava/lang/String;", nullptr, $PUBLIC, $method(static_cast<$String*(DateTimeFormatter::*)($TemporalAccessor*)>(&DateTimeFormatter::format))},
-	{"formatTo", "(Ljava/time/temporal/TemporalAccessor;Ljava/lang/Appendable;)V", nullptr, $PUBLIC, $method(static_cast<void(DateTimeFormatter::*)($TemporalAccessor*,$Appendable*)>(&DateTimeFormatter::formatTo))},
-	{"getChronology", "()Ljava/time/chrono/Chronology;", nullptr, $PUBLIC, $method(static_cast<$Chronology*(DateTimeFormatter::*)()>(&DateTimeFormatter::getChronology))},
-	{"getDecimalStyle", "()Ljava/time/format/DecimalStyle;", nullptr, $PUBLIC, $method(static_cast<$DecimalStyle*(DateTimeFormatter::*)()>(&DateTimeFormatter::getDecimalStyle))},
-	{"getLocale", "()Ljava/util/Locale;", nullptr, $PUBLIC, $method(static_cast<$Locale*(DateTimeFormatter::*)()>(&DateTimeFormatter::getLocale))},
-	{"getResolverFields", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/time/temporal/TemporalField;>;", $PUBLIC, $method(static_cast<$Set*(DateTimeFormatter::*)()>(&DateTimeFormatter::getResolverFields))},
-	{"getResolverStyle", "()Ljava/time/format/ResolverStyle;", nullptr, $PUBLIC, $method(static_cast<$ResolverStyle*(DateTimeFormatter::*)()>(&DateTimeFormatter::getResolverStyle))},
-	{"getZone", "()Ljava/time/ZoneId;", nullptr, $PUBLIC, $method(static_cast<$ZoneId*(DateTimeFormatter::*)()>(&DateTimeFormatter::getZone))},
-	{"lambda$static$0", "(Ljava/time/temporal/TemporalAccessor;)Ljava/time/Period;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Period*(*)($TemporalAccessor*)>(&DateTimeFormatter::lambda$static$0))},
-	{"lambda$static$1", "(Ljava/time/temporal/TemporalAccessor;)Ljava/lang/Boolean;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Boolean*(*)($TemporalAccessor*)>(&DateTimeFormatter::lambda$static$1))},
-	{"localizedBy", "(Ljava/util/Locale;)Ljava/time/format/DateTimeFormatter;", nullptr, $PUBLIC, $method(static_cast<DateTimeFormatter*(DateTimeFormatter::*)($Locale*)>(&DateTimeFormatter::localizedBy))},
-	{"ofLocalizedDate", "(Ljava/time/format/FormatStyle;)Ljava/time/format/DateTimeFormatter;", nullptr, $PUBLIC | $STATIC, $method(static_cast<DateTimeFormatter*(*)($FormatStyle*)>(&DateTimeFormatter::ofLocalizedDate))},
-	{"ofLocalizedDateTime", "(Ljava/time/format/FormatStyle;)Ljava/time/format/DateTimeFormatter;", nullptr, $PUBLIC | $STATIC, $method(static_cast<DateTimeFormatter*(*)($FormatStyle*)>(&DateTimeFormatter::ofLocalizedDateTime))},
-	{"ofLocalizedDateTime", "(Ljava/time/format/FormatStyle;Ljava/time/format/FormatStyle;)Ljava/time/format/DateTimeFormatter;", nullptr, $PUBLIC | $STATIC, $method(static_cast<DateTimeFormatter*(*)($FormatStyle*,$FormatStyle*)>(&DateTimeFormatter::ofLocalizedDateTime))},
-	{"ofLocalizedTime", "(Ljava/time/format/FormatStyle;)Ljava/time/format/DateTimeFormatter;", nullptr, $PUBLIC | $STATIC, $method(static_cast<DateTimeFormatter*(*)($FormatStyle*)>(&DateTimeFormatter::ofLocalizedTime))},
-	{"ofPattern", "(Ljava/lang/String;)Ljava/time/format/DateTimeFormatter;", nullptr, $PUBLIC | $STATIC, $method(static_cast<DateTimeFormatter*(*)($String*)>(&DateTimeFormatter::ofPattern))},
-	{"ofPattern", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/time/format/DateTimeFormatter;", nullptr, $PUBLIC | $STATIC, $method(static_cast<DateTimeFormatter*(*)($String*,$Locale*)>(&DateTimeFormatter::ofPattern))},
-	{"parse", "(Ljava/lang/CharSequence;)Ljava/time/temporal/TemporalAccessor;", nullptr, $PUBLIC, $method(static_cast<$TemporalAccessor*(DateTimeFormatter::*)($CharSequence*)>(&DateTimeFormatter::parse))},
-	{"parse", "(Ljava/lang/CharSequence;Ljava/text/ParsePosition;)Ljava/time/temporal/TemporalAccessor;", nullptr, $PUBLIC, $method(static_cast<$TemporalAccessor*(DateTimeFormatter::*)($CharSequence*,$ParsePosition*)>(&DateTimeFormatter::parse))},
-	{"parse", "(Ljava/lang/CharSequence;Ljava/time/temporal/TemporalQuery;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/lang/CharSequence;Ljava/time/temporal/TemporalQuery<TT;>;)TT;", $PUBLIC, $method(static_cast<$Object*(DateTimeFormatter::*)($CharSequence*,$TemporalQuery*)>(&DateTimeFormatter::parse))},
-	{"parseBest", "(Ljava/lang/CharSequence;[Ljava/time/temporal/TemporalQuery;)Ljava/time/temporal/TemporalAccessor;", "(Ljava/lang/CharSequence;[Ljava/time/temporal/TemporalQuery<*>;)Ljava/time/temporal/TemporalAccessor;", $PUBLIC | $TRANSIENT, $method(static_cast<$TemporalAccessor*(DateTimeFormatter::*)($CharSequence*,$TemporalQueryArray*)>(&DateTimeFormatter::parseBest))},
-	{"parseResolved0", "(Ljava/lang/CharSequence;Ljava/text/ParsePosition;)Ljava/time/temporal/TemporalAccessor;", nullptr, $PRIVATE, $method(static_cast<$TemporalAccessor*(DateTimeFormatter::*)($CharSequence*,$ParsePosition*)>(&DateTimeFormatter::parseResolved0))},
-	{"parseUnresolved", "(Ljava/lang/CharSequence;Ljava/text/ParsePosition;)Ljava/time/temporal/TemporalAccessor;", nullptr, $PUBLIC, $method(static_cast<$TemporalAccessor*(DateTimeFormatter::*)($CharSequence*,$ParsePosition*)>(&DateTimeFormatter::parseUnresolved))},
-	{"parseUnresolved0", "(Ljava/lang/CharSequence;Ljava/text/ParsePosition;)Ljava/time/format/DateTimeParseContext;", nullptr, $PRIVATE, $method(static_cast<$DateTimeParseContext*(DateTimeFormatter::*)($CharSequence*,$ParsePosition*)>(&DateTimeFormatter::parseUnresolved0))},
-	{"parsedExcessDays", "()Ljava/time/temporal/TemporalQuery;", "()Ljava/time/temporal/TemporalQuery<Ljava/time/Period;>;", $PUBLIC | $STATIC | $FINAL, $method(static_cast<$TemporalQuery*(*)()>(&DateTimeFormatter::parsedExcessDays))},
-	{"parsedLeapSecond", "()Ljava/time/temporal/TemporalQuery;", "()Ljava/time/temporal/TemporalQuery<Ljava/lang/Boolean;>;", $PUBLIC | $STATIC | $FINAL, $method(static_cast<$TemporalQuery*(*)()>(&DateTimeFormatter::parsedLeapSecond))},
-	{"toFormat", "()Ljava/text/Format;", nullptr, $PUBLIC, $method(static_cast<$Format*(DateTimeFormatter::*)()>(&DateTimeFormatter::toFormat))},
-	{"toFormat", "(Ljava/time/temporal/TemporalQuery;)Ljava/text/Format;", "(Ljava/time/temporal/TemporalQuery<*>;)Ljava/text/Format;", $PUBLIC, $method(static_cast<$Format*(DateTimeFormatter::*)($TemporalQuery*)>(&DateTimeFormatter::toFormat))},
-	{"toPrinterParser", "(Z)Ljava/time/format/DateTimeFormatterBuilder$CompositePrinterParser;", nullptr, 0, $method(static_cast<$DateTimeFormatterBuilder$CompositePrinterParser*(DateTimeFormatter::*)(bool)>(&DateTimeFormatter::toPrinterParser))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"withChronology", "(Ljava/time/chrono/Chronology;)Ljava/time/format/DateTimeFormatter;", nullptr, $PUBLIC, $method(static_cast<DateTimeFormatter*(DateTimeFormatter::*)($Chronology*)>(&DateTimeFormatter::withChronology))},
-	{"withDecimalStyle", "(Ljava/time/format/DecimalStyle;)Ljava/time/format/DateTimeFormatter;", nullptr, $PUBLIC, $method(static_cast<DateTimeFormatter*(DateTimeFormatter::*)($DecimalStyle*)>(&DateTimeFormatter::withDecimalStyle))},
-	{"withLocale", "(Ljava/util/Locale;)Ljava/time/format/DateTimeFormatter;", nullptr, $PUBLIC, $method(static_cast<DateTimeFormatter*(DateTimeFormatter::*)($Locale*)>(&DateTimeFormatter::withLocale))},
-	{"withResolverFields", "([Ljava/time/temporal/TemporalField;)Ljava/time/format/DateTimeFormatter;", nullptr, $PUBLIC | $TRANSIENT, $method(static_cast<DateTimeFormatter*(DateTimeFormatter::*)($TemporalFieldArray*)>(&DateTimeFormatter::withResolverFields))},
-	{"withResolverFields", "(Ljava/util/Set;)Ljava/time/format/DateTimeFormatter;", "(Ljava/util/Set<Ljava/time/temporal/TemporalField;>;)Ljava/time/format/DateTimeFormatter;", $PUBLIC, $method(static_cast<DateTimeFormatter*(DateTimeFormatter::*)($Set*)>(&DateTimeFormatter::withResolverFields))},
-	{"withResolverStyle", "(Ljava/time/format/ResolverStyle;)Ljava/time/format/DateTimeFormatter;", nullptr, $PUBLIC, $method(static_cast<DateTimeFormatter*(DateTimeFormatter::*)($ResolverStyle*)>(&DateTimeFormatter::withResolverStyle))},
-	{"withZone", "(Ljava/time/ZoneId;)Ljava/time/format/DateTimeFormatter;", nullptr, $PUBLIC, $method(static_cast<DateTimeFormatter*(DateTimeFormatter::*)($ZoneId*)>(&DateTimeFormatter::withZone))},
+	{"<init>", "(Ljava/time/format/DateTimeFormatterBuilder$CompositePrinterParser;Ljava/util/Locale;Ljava/time/format/DecimalStyle;Ljava/time/format/ResolverStyle;Ljava/util/Set;Ljava/time/chrono/Chronology;Ljava/time/ZoneId;)V", "(Ljava/time/format/DateTimeFormatterBuilder$CompositePrinterParser;Ljava/util/Locale;Ljava/time/format/DecimalStyle;Ljava/time/format/ResolverStyle;Ljava/util/Set<Ljava/time/temporal/TemporalField;>;Ljava/time/chrono/Chronology;Ljava/time/ZoneId;)V", 0, $method(DateTimeFormatter, init$, void, $DateTimeFormatterBuilder$CompositePrinterParser*, $Locale*, $DecimalStyle*, $ResolverStyle*, $Set*, $Chronology*, $ZoneId*)},
+	{"createError", "(Ljava/lang/CharSequence;Ljava/lang/RuntimeException;)Ljava/time/format/DateTimeParseException;", nullptr, $PRIVATE, $method(DateTimeFormatter, createError, $DateTimeParseException*, $CharSequence*, $RuntimeException*)},
+	{"format", "(Ljava/time/temporal/TemporalAccessor;)Ljava/lang/String;", nullptr, $PUBLIC, $method(DateTimeFormatter, format, $String*, $TemporalAccessor*)},
+	{"formatTo", "(Ljava/time/temporal/TemporalAccessor;Ljava/lang/Appendable;)V", nullptr, $PUBLIC, $method(DateTimeFormatter, formatTo, void, $TemporalAccessor*, $Appendable*)},
+	{"getChronology", "()Ljava/time/chrono/Chronology;", nullptr, $PUBLIC, $method(DateTimeFormatter, getChronology, $Chronology*)},
+	{"getDecimalStyle", "()Ljava/time/format/DecimalStyle;", nullptr, $PUBLIC, $method(DateTimeFormatter, getDecimalStyle, $DecimalStyle*)},
+	{"getLocale", "()Ljava/util/Locale;", nullptr, $PUBLIC, $method(DateTimeFormatter, getLocale, $Locale*)},
+	{"getResolverFields", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/time/temporal/TemporalField;>;", $PUBLIC, $method(DateTimeFormatter, getResolverFields, $Set*)},
+	{"getResolverStyle", "()Ljava/time/format/ResolverStyle;", nullptr, $PUBLIC, $method(DateTimeFormatter, getResolverStyle, $ResolverStyle*)},
+	{"getZone", "()Ljava/time/ZoneId;", nullptr, $PUBLIC, $method(DateTimeFormatter, getZone, $ZoneId*)},
+	{"lambda$static$0", "(Ljava/time/temporal/TemporalAccessor;)Ljava/time/Period;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DateTimeFormatter, lambda$static$0, $Period*, $TemporalAccessor*)},
+	{"lambda$static$1", "(Ljava/time/temporal/TemporalAccessor;)Ljava/lang/Boolean;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DateTimeFormatter, lambda$static$1, $Boolean*, $TemporalAccessor*)},
+	{"localizedBy", "(Ljava/util/Locale;)Ljava/time/format/DateTimeFormatter;", nullptr, $PUBLIC, $method(DateTimeFormatter, localizedBy, DateTimeFormatter*, $Locale*)},
+	{"ofLocalizedDate", "(Ljava/time/format/FormatStyle;)Ljava/time/format/DateTimeFormatter;", nullptr, $PUBLIC | $STATIC, $staticMethod(DateTimeFormatter, ofLocalizedDate, DateTimeFormatter*, $FormatStyle*)},
+	{"ofLocalizedDateTime", "(Ljava/time/format/FormatStyle;)Ljava/time/format/DateTimeFormatter;", nullptr, $PUBLIC | $STATIC, $staticMethod(DateTimeFormatter, ofLocalizedDateTime, DateTimeFormatter*, $FormatStyle*)},
+	{"ofLocalizedDateTime", "(Ljava/time/format/FormatStyle;Ljava/time/format/FormatStyle;)Ljava/time/format/DateTimeFormatter;", nullptr, $PUBLIC | $STATIC, $staticMethod(DateTimeFormatter, ofLocalizedDateTime, DateTimeFormatter*, $FormatStyle*, $FormatStyle*)},
+	{"ofLocalizedTime", "(Ljava/time/format/FormatStyle;)Ljava/time/format/DateTimeFormatter;", nullptr, $PUBLIC | $STATIC, $staticMethod(DateTimeFormatter, ofLocalizedTime, DateTimeFormatter*, $FormatStyle*)},
+	{"ofPattern", "(Ljava/lang/String;)Ljava/time/format/DateTimeFormatter;", nullptr, $PUBLIC | $STATIC, $staticMethod(DateTimeFormatter, ofPattern, DateTimeFormatter*, $String*)},
+	{"ofPattern", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/time/format/DateTimeFormatter;", nullptr, $PUBLIC | $STATIC, $staticMethod(DateTimeFormatter, ofPattern, DateTimeFormatter*, $String*, $Locale*)},
+	{"parse", "(Ljava/lang/CharSequence;)Ljava/time/temporal/TemporalAccessor;", nullptr, $PUBLIC, $method(DateTimeFormatter, parse, $TemporalAccessor*, $CharSequence*)},
+	{"parse", "(Ljava/lang/CharSequence;Ljava/text/ParsePosition;)Ljava/time/temporal/TemporalAccessor;", nullptr, $PUBLIC, $method(DateTimeFormatter, parse, $TemporalAccessor*, $CharSequence*, $ParsePosition*)},
+	{"parse", "(Ljava/lang/CharSequence;Ljava/time/temporal/TemporalQuery;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/lang/CharSequence;Ljava/time/temporal/TemporalQuery<TT;>;)TT;", $PUBLIC, $method(DateTimeFormatter, parse, $Object*, $CharSequence*, $TemporalQuery*)},
+	{"parseBest", "(Ljava/lang/CharSequence;[Ljava/time/temporal/TemporalQuery;)Ljava/time/temporal/TemporalAccessor;", "(Ljava/lang/CharSequence;[Ljava/time/temporal/TemporalQuery<*>;)Ljava/time/temporal/TemporalAccessor;", $PUBLIC | $TRANSIENT, $method(DateTimeFormatter, parseBest, $TemporalAccessor*, $CharSequence*, $TemporalQueryArray*)},
+	{"parseResolved0", "(Ljava/lang/CharSequence;Ljava/text/ParsePosition;)Ljava/time/temporal/TemporalAccessor;", nullptr, $PRIVATE, $method(DateTimeFormatter, parseResolved0, $TemporalAccessor*, $CharSequence*, $ParsePosition*)},
+	{"parseUnresolved", "(Ljava/lang/CharSequence;Ljava/text/ParsePosition;)Ljava/time/temporal/TemporalAccessor;", nullptr, $PUBLIC, $method(DateTimeFormatter, parseUnresolved, $TemporalAccessor*, $CharSequence*, $ParsePosition*)},
+	{"parseUnresolved0", "(Ljava/lang/CharSequence;Ljava/text/ParsePosition;)Ljava/time/format/DateTimeParseContext;", nullptr, $PRIVATE, $method(DateTimeFormatter, parseUnresolved0, $DateTimeParseContext*, $CharSequence*, $ParsePosition*)},
+	{"parsedExcessDays", "()Ljava/time/temporal/TemporalQuery;", "()Ljava/time/temporal/TemporalQuery<Ljava/time/Period;>;", $PUBLIC | $STATIC | $FINAL, $staticMethod(DateTimeFormatter, parsedExcessDays, $TemporalQuery*)},
+	{"parsedLeapSecond", "()Ljava/time/temporal/TemporalQuery;", "()Ljava/time/temporal/TemporalQuery<Ljava/lang/Boolean;>;", $PUBLIC | $STATIC | $FINAL, $staticMethod(DateTimeFormatter, parsedLeapSecond, $TemporalQuery*)},
+	{"toFormat", "()Ljava/text/Format;", nullptr, $PUBLIC, $method(DateTimeFormatter, toFormat, $Format*)},
+	{"toFormat", "(Ljava/time/temporal/TemporalQuery;)Ljava/text/Format;", "(Ljava/time/temporal/TemporalQuery<*>;)Ljava/text/Format;", $PUBLIC, $method(DateTimeFormatter, toFormat, $Format*, $TemporalQuery*)},
+	{"toPrinterParser", "(Z)Ljava/time/format/DateTimeFormatterBuilder$CompositePrinterParser;", nullptr, 0, $method(DateTimeFormatter, toPrinterParser, $DateTimeFormatterBuilder$CompositePrinterParser*, bool)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatter, toString, $String*)},
+	{"withChronology", "(Ljava/time/chrono/Chronology;)Ljava/time/format/DateTimeFormatter;", nullptr, $PUBLIC, $method(DateTimeFormatter, withChronology, DateTimeFormatter*, $Chronology*)},
+	{"withDecimalStyle", "(Ljava/time/format/DecimalStyle;)Ljava/time/format/DateTimeFormatter;", nullptr, $PUBLIC, $method(DateTimeFormatter, withDecimalStyle, DateTimeFormatter*, $DecimalStyle*)},
+	{"withLocale", "(Ljava/util/Locale;)Ljava/time/format/DateTimeFormatter;", nullptr, $PUBLIC, $method(DateTimeFormatter, withLocale, DateTimeFormatter*, $Locale*)},
+	{"withResolverFields", "([Ljava/time/temporal/TemporalField;)Ljava/time/format/DateTimeFormatter;", nullptr, $PUBLIC | $TRANSIENT, $method(DateTimeFormatter, withResolverFields, DateTimeFormatter*, $TemporalFieldArray*)},
+	{"withResolverFields", "(Ljava/util/Set;)Ljava/time/format/DateTimeFormatter;", "(Ljava/util/Set<Ljava/time/temporal/TemporalField;>;)Ljava/time/format/DateTimeFormatter;", $PUBLIC, $method(DateTimeFormatter, withResolverFields, DateTimeFormatter*, $Set*)},
+	{"withResolverStyle", "(Ljava/time/format/ResolverStyle;)Ljava/time/format/DateTimeFormatter;", nullptr, $PUBLIC, $method(DateTimeFormatter, withResolverStyle, DateTimeFormatter*, $ResolverStyle*)},
+	{"withZone", "(Ljava/time/ZoneId;)Ljava/time/format/DateTimeFormatter;", nullptr, $PUBLIC, $method(DateTimeFormatter, withZone, DateTimeFormatter*, $ZoneId*)},
 	{}
 };
 

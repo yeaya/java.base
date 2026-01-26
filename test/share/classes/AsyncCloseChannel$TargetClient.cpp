@@ -35,8 +35,8 @@ $FieldInfo _AsyncCloseChannel$TargetClient_FieldInfo_[] = {
 };
 
 $MethodInfo _AsyncCloseChannel$TargetClient_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(AsyncCloseChannel$TargetClient::*)()>(&AsyncCloseChannel$TargetClient::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(AsyncCloseChannel$TargetClient, init$, void)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(AsyncCloseChannel$TargetClient, run, void)},
 	{}
 };
 

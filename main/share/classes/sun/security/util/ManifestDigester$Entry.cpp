@@ -53,8 +53,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ManifestDigester$Entry$$Lambda$isProperlySectionDelimited::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ManifestDigester$Entry$$Lambda$isProperlySectionDelimited::*)()>(&ManifestDigester$Entry$$Lambda$isProperlySectionDelimited::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ManifestDigester$Entry$$Lambda$isProperlySectionDelimited, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ManifestDigester$Entry$$Lambda$isProperlySectionDelimited, test, bool, Object$*)},
 	{}
 };
 $ClassInfo ManifestDigester$Entry$$Lambda$isProperlySectionDelimited::classInfo$ = {
@@ -78,12 +78,12 @@ $FieldInfo _ManifestDigester$Entry_FieldInfo_[] = {
 };
 
 $MethodInfo _ManifestDigester$Entry_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ManifestDigester$Entry::*)()>(&ManifestDigester$Entry::init$))},
-	{"addSection", "(Lsun/security/util/ManifestDigester$Section;)Lsun/security/util/ManifestDigester$Entry;", nullptr, $PRIVATE, $method(static_cast<ManifestDigester$Entry*(ManifestDigester$Entry::*)($ManifestDigester$Section*)>(&ManifestDigester$Entry::addSection))},
-	{"digest", "(Ljava/security/MessageDigest;)[B", nullptr, $PUBLIC},
-	{"digestWorkaround", "(Ljava/security/MessageDigest;)[B", nullptr, $PUBLIC},
-	{"isProperlyDelimited", "()Z", nullptr, $PUBLIC},
-	{"reproduceRaw", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ManifestDigester$Entry, init$, void)},
+	{"addSection", "(Lsun/security/util/ManifestDigester$Section;)Lsun/security/util/ManifestDigester$Entry;", nullptr, $PRIVATE, $method(ManifestDigester$Entry, addSection, ManifestDigester$Entry*, $ManifestDigester$Section*)},
+	{"digest", "(Ljava/security/MessageDigest;)[B", nullptr, $PUBLIC, $virtualMethod(ManifestDigester$Entry, digest, $bytes*, $MessageDigest*)},
+	{"digestWorkaround", "(Ljava/security/MessageDigest;)[B", nullptr, $PUBLIC, $virtualMethod(ManifestDigester$Entry, digestWorkaround, $bytes*, $MessageDigest*)},
+	{"isProperlyDelimited", "()Z", nullptr, $PUBLIC, $virtualMethod(ManifestDigester$Entry, isProperlyDelimited, bool)},
+	{"reproduceRaw", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(ManifestDigester$Entry, reproduceRaw, void, $OutputStream*), "java.io.IOException"},
 	{}
 };
 

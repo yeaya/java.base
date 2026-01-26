@@ -59,20 +59,20 @@ $FieldInfo _RBCollationTables_FieldInfo_[] = {
 };
 
 $MethodInfo _RBCollationTables_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(static_cast<void(RBCollationTables::*)($String*,int32_t)>(&RBCollationTables::init$)), "java.text.ParseException"},
-	{"getContractValues", "(I)Ljava/util/Vector;", "(I)Ljava/util/Vector<Ljava/text/EntryPair;>;", 0, $method(static_cast<$Vector*(RBCollationTables::*)(int32_t)>(&RBCollationTables::getContractValues))},
-	{"getContractValuesImpl", "(I)Ljava/util/Vector;", "(I)Ljava/util/Vector<Ljava/text/EntryPair;>;", $PRIVATE, $method(static_cast<$Vector*(RBCollationTables::*)(int32_t)>(&RBCollationTables::getContractValuesImpl))},
-	{"getEntry", "(Ljava/util/Vector;Ljava/lang/String;Z)I", "(Ljava/util/Vector<Ljava/text/EntryPair;>;Ljava/lang/String;Z)I", $STATIC | $FINAL, $method(static_cast<int32_t(*)($Vector*,$String*,bool)>(&RBCollationTables::getEntry))},
-	{"getExpandValueList", "(I)[I", nullptr, $FINAL, $method(static_cast<$ints*(RBCollationTables::*)(int32_t)>(&RBCollationTables::getExpandValueList))},
-	{"getMaxExpansion", "(I)I", nullptr, 0, $method(static_cast<int32_t(RBCollationTables::*)(int32_t)>(&RBCollationTables::getMaxExpansion))},
-	{"getMaxSecOrder", "()S", nullptr, 0, $method(static_cast<int16_t(RBCollationTables::*)()>(&RBCollationTables::getMaxSecOrder))},
-	{"getMaxTerOrder", "()S", nullptr, 0, $method(static_cast<int16_t(RBCollationTables::*)()>(&RBCollationTables::getMaxTerOrder))},
-	{"getRules", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(static_cast<$String*(RBCollationTables::*)()>(&RBCollationTables::getRules))},
-	{"getUnicodeOrder", "(I)I", nullptr, 0, $method(static_cast<int32_t(RBCollationTables::*)(int32_t)>(&RBCollationTables::getUnicodeOrder))},
-	{"isFrenchSec", "()Z", nullptr, $PUBLIC, $method(static_cast<bool(RBCollationTables::*)()>(&RBCollationTables::isFrenchSec))},
-	{"isSEAsianSwapping", "()Z", nullptr, $PUBLIC, $method(static_cast<bool(RBCollationTables::*)()>(&RBCollationTables::isSEAsianSwapping))},
-	{"reverse", "(Ljava/lang/StringBuffer;II)V", nullptr, $STATIC, $method(static_cast<void(*)($StringBuffer*,int32_t,int32_t)>(&RBCollationTables::reverse))},
-	{"usedInContractSeq", "(I)Z", nullptr, 0, $method(static_cast<bool(RBCollationTables::*)(int32_t)>(&RBCollationTables::usedInContractSeq))},
+	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(RBCollationTables, init$, void, $String*, int32_t), "java.text.ParseException"},
+	{"getContractValues", "(I)Ljava/util/Vector;", "(I)Ljava/util/Vector<Ljava/text/EntryPair;>;", 0, $method(RBCollationTables, getContractValues, $Vector*, int32_t)},
+	{"getContractValuesImpl", "(I)Ljava/util/Vector;", "(I)Ljava/util/Vector<Ljava/text/EntryPair;>;", $PRIVATE, $method(RBCollationTables, getContractValuesImpl, $Vector*, int32_t)},
+	{"getEntry", "(Ljava/util/Vector;Ljava/lang/String;Z)I", "(Ljava/util/Vector<Ljava/text/EntryPair;>;Ljava/lang/String;Z)I", $STATIC | $FINAL, $staticMethod(RBCollationTables, getEntry, int32_t, $Vector*, $String*, bool)},
+	{"getExpandValueList", "(I)[I", nullptr, $FINAL, $method(RBCollationTables, getExpandValueList, $ints*, int32_t)},
+	{"getMaxExpansion", "(I)I", nullptr, 0, $method(RBCollationTables, getMaxExpansion, int32_t, int32_t)},
+	{"getMaxSecOrder", "()S", nullptr, 0, $method(RBCollationTables, getMaxSecOrder, int16_t)},
+	{"getMaxTerOrder", "()S", nullptr, 0, $method(RBCollationTables, getMaxTerOrder, int16_t)},
+	{"getRules", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(RBCollationTables, getRules, $String*)},
+	{"getUnicodeOrder", "(I)I", nullptr, 0, $method(RBCollationTables, getUnicodeOrder, int32_t, int32_t)},
+	{"isFrenchSec", "()Z", nullptr, $PUBLIC, $method(RBCollationTables, isFrenchSec, bool)},
+	{"isSEAsianSwapping", "()Z", nullptr, $PUBLIC, $method(RBCollationTables, isSEAsianSwapping, bool)},
+	{"reverse", "(Ljava/lang/StringBuffer;II)V", nullptr, $STATIC, $staticMethod(RBCollationTables, reverse, void, $StringBuffer*, int32_t, int32_t)},
+	{"usedInContractSeq", "(I)Z", nullptr, 0, $method(RBCollationTables, usedInContractSeq, bool, int32_t)},
 	{}
 };
 

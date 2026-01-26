@@ -37,10 +37,10 @@ $FieldInfo _CountedLoopIterationCountsTest_FieldInfo_[] = {
 };
 
 $MethodInfo _CountedLoopIterationCountsTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CountedLoopIterationCountsTest::*)()>(&CountedLoopIterationCountsTest::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&CountedLoopIterationCountsTest::main)), "java.lang.Throwable"},
-	{"run", "(III)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)(int32_t,int32_t,int32_t)>(&CountedLoopIterationCountsTest::run)), "java.lang.Throwable"},
-	{"step", "(II)I", nullptr, $STATIC, $method(static_cast<int32_t(*)(int32_t,int32_t)>(&CountedLoopIterationCountsTest::step))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CountedLoopIterationCountsTest, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(CountedLoopIterationCountsTest, main, void, $StringArray*), "java.lang.Throwable"},
+	{"run", "(III)V", nullptr, $PRIVATE | $STATIC, $staticMethod(CountedLoopIterationCountsTest, run, void, int32_t, int32_t, int32_t), "java.lang.Throwable"},
+	{"step", "(II)I", nullptr, $STATIC, $staticMethod(CountedLoopIterationCountsTest, step, int32_t, int32_t, int32_t)},
 	{}
 };
 

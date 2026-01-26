@@ -97,8 +97,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ObjectInputFilter$Config$$Lambda$lambda$static$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ObjectInputFilter$Config$$Lambda$lambda$static$0::*)()>(&ObjectInputFilter$Config$$Lambda$lambda$static$0::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ObjectInputFilter$Config$$Lambda$lambda$static$0, init$, void)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ObjectInputFilter$Config$$Lambda$lambda$static$0, run, $Object*)},
 	{}
 };
 $ClassInfo ObjectInputFilter$Config$$Lambda$lambda$static$0::classInfo$ = {
@@ -130,8 +130,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ObjectInputFilter$Config$$Lambda$lambda$static$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ObjectInputFilter$Config$$Lambda$lambda$static$1$1::*)()>(&ObjectInputFilter$Config$$Lambda$lambda$static$1$1::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ObjectInputFilter$Config$$Lambda$lambda$static$1$1, init$, void)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ObjectInputFilter$Config$$Lambda$lambda$static$1$1, run, $Object*)},
 	{}
 };
 $ClassInfo ObjectInputFilter$Config$$Lambda$lambda$static$1$1::classInfo$ = {
@@ -163,8 +163,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ObjectInputFilter$Config$$Lambda$createFilter2$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ObjectInputFilter$Config$$Lambda$createFilter2$2::*)()>(&ObjectInputFilter$Config$$Lambda$createFilter2$2::init$))},
-	{"createFilter2", "(Ljava/lang/String;)Ljava/io/ObjectInputFilter;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ObjectInputFilter$Config$$Lambda$createFilter2$2, init$, void)},
+	{"createFilter2", "(Ljava/lang/String;)Ljava/io/ObjectInputFilter;", nullptr, $PUBLIC, $virtualMethod(ObjectInputFilter$Config$$Lambda$createFilter2$2, createFilter2, $ObjectInputFilter*, $String*)},
 	{}
 };
 $ClassInfo ObjectInputFilter$Config$$Lambda$createFilter2$2::classInfo$ = {
@@ -193,17 +193,17 @@ $FieldInfo _ObjectInputFilter$Config_FieldInfo_[] = {
 };
 
 $MethodInfo _ObjectInputFilter$Config_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(ObjectInputFilter$Config::*)()>(&ObjectInputFilter$Config::init$))},
-	{"createFilter", "(Ljava/lang/String;)Ljava/io/ObjectInputFilter;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$ObjectInputFilter*(*)($String*)>(&ObjectInputFilter$Config::createFilter))},
-	{"createFilter2", "(Ljava/lang/String;)Ljava/io/ObjectInputFilter;", nullptr, $STATIC, $method(static_cast<$ObjectInputFilter*(*)($String*)>(&ObjectInputFilter$Config::createFilter2))},
-	{"getSerialFilter", "()Ljava/io/ObjectInputFilter;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$ObjectInputFilter*(*)()>(&ObjectInputFilter$Config::getSerialFilter))},
-	{"getSerialFilterFactory", "()Ljava/util/function/BinaryOperator;", "()Ljava/util/function/BinaryOperator<Ljava/io/ObjectInputFilter;>;", $PUBLIC | $STATIC, $method(static_cast<$BinaryOperator*(*)()>(&ObjectInputFilter$Config::getSerialFilterFactory))},
-	{"getSerialFilterFactorySingleton", "()Ljava/util/function/BinaryOperator;", "()Ljava/util/function/BinaryOperator<Ljava/io/ObjectInputFilter;>;", $STATIC, $method(static_cast<$BinaryOperator*(*)()>(&ObjectInputFilter$Config::getSerialFilterFactorySingleton))},
-	{"lambda$static$0", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$String*(*)()>(&ObjectInputFilter$Config::lambda$static$0))},
-	{"lambda$static$1", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$String*(*)()>(&ObjectInputFilter$Config::lambda$static$1))},
-	{"setSerialFilter", "(Ljava/io/ObjectInputFilter;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($ObjectInputFilter*)>(&ObjectInputFilter$Config::setSerialFilter))},
-	{"setSerialFilterFactory", "(Ljava/util/function/BinaryOperator;)V", "(Ljava/util/function/BinaryOperator<Ljava/io/ObjectInputFilter;>;)V", $PUBLIC | $STATIC, $method(static_cast<void(*)($BinaryOperator*)>(&ObjectInputFilter$Config::setSerialFilterFactory))},
-	{"traceFilter", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $TRANSIENT, $method(static_cast<void(*)($String*,$ObjectArray*)>(&ObjectInputFilter$Config::traceFilter))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(ObjectInputFilter$Config, init$, void)},
+	{"createFilter", "(Ljava/lang/String;)Ljava/io/ObjectInputFilter;", nullptr, $PUBLIC | $STATIC, $staticMethod(ObjectInputFilter$Config, createFilter, $ObjectInputFilter*, $String*)},
+	{"createFilter2", "(Ljava/lang/String;)Ljava/io/ObjectInputFilter;", nullptr, $STATIC, $staticMethod(ObjectInputFilter$Config, createFilter2, $ObjectInputFilter*, $String*)},
+	{"getSerialFilter", "()Ljava/io/ObjectInputFilter;", nullptr, $PUBLIC | $STATIC, $staticMethod(ObjectInputFilter$Config, getSerialFilter, $ObjectInputFilter*)},
+	{"getSerialFilterFactory", "()Ljava/util/function/BinaryOperator;", "()Ljava/util/function/BinaryOperator<Ljava/io/ObjectInputFilter;>;", $PUBLIC | $STATIC, $staticMethod(ObjectInputFilter$Config, getSerialFilterFactory, $BinaryOperator*)},
+	{"getSerialFilterFactorySingleton", "()Ljava/util/function/BinaryOperator;", "()Ljava/util/function/BinaryOperator<Ljava/io/ObjectInputFilter;>;", $STATIC, $staticMethod(ObjectInputFilter$Config, getSerialFilterFactorySingleton, $BinaryOperator*)},
+	{"lambda$static$0", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ObjectInputFilter$Config, lambda$static$0, $String*)},
+	{"lambda$static$1", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ObjectInputFilter$Config, lambda$static$1, $String*)},
+	{"setSerialFilter", "(Ljava/io/ObjectInputFilter;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ObjectInputFilter$Config, setSerialFilter, void, $ObjectInputFilter*)},
+	{"setSerialFilterFactory", "(Ljava/util/function/BinaryOperator;)V", "(Ljava/util/function/BinaryOperator<Ljava/io/ObjectInputFilter;>;)V", $PUBLIC | $STATIC, $staticMethod(ObjectInputFilter$Config, setSerialFilterFactory, void, $BinaryOperator*)},
+	{"traceFilter", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $TRANSIENT, $staticMethod(ObjectInputFilter$Config, traceFilter, void, $String*, $ObjectArray*)},
 	{}
 };
 

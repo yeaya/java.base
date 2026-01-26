@@ -18,7 +18,7 @@ $CompoundAttribute _ByteArray_Annotations_[] = {
 };
 
 $MethodInfo _ByteArray_MethodInfo_[] = {
-	{"value", "()[B", nullptr, $PUBLIC | $ABSTRACT},
+	{"value", "()[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ByteArray, value, $bytes*)},
 	{}
 };
 

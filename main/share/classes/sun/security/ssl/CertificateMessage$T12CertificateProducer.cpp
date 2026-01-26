@@ -53,10 +53,10 @@ namespace sun {
 		namespace ssl {
 
 $MethodInfo _CertificateMessage$T12CertificateProducer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(CertificateMessage$T12CertificateProducer::*)()>(&CertificateMessage$T12CertificateProducer::init$))},
-	{"onProduceCertificate", "(Lsun/security/ssl/ServerHandshakeContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)[B", nullptr, $PRIVATE, $method(static_cast<$bytes*(CertificateMessage$T12CertificateProducer::*)($ServerHandshakeContext*,$SSLHandshake$HandshakeMessage*)>(&CertificateMessage$T12CertificateProducer::onProduceCertificate)), "java.io.IOException"},
-	{"onProduceCertificate", "(Lsun/security/ssl/ClientHandshakeContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)[B", nullptr, $PRIVATE, $method(static_cast<$bytes*(CertificateMessage$T12CertificateProducer::*)($ClientHandshakeContext*,$SSLHandshake$HandshakeMessage*)>(&CertificateMessage$T12CertificateProducer::onProduceCertificate)), "java.io.IOException"},
-	{"produce", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)[B", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(CertificateMessage$T12CertificateProducer, init$, void)},
+	{"onProduceCertificate", "(Lsun/security/ssl/ServerHandshakeContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)[B", nullptr, $PRIVATE, $method(CertificateMessage$T12CertificateProducer, onProduceCertificate, $bytes*, $ServerHandshakeContext*, $SSLHandshake$HandshakeMessage*), "java.io.IOException"},
+	{"onProduceCertificate", "(Lsun/security/ssl/ClientHandshakeContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)[B", nullptr, $PRIVATE, $method(CertificateMessage$T12CertificateProducer, onProduceCertificate, $bytes*, $ClientHandshakeContext*, $SSLHandshake$HandshakeMessage*), "java.io.IOException"},
+	{"produce", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)[B", nullptr, $PUBLIC, $virtualMethod(CertificateMessage$T12CertificateProducer, produce, $bytes*, $ConnectionContext*, $SSLHandshake$HandshakeMessage*), "java.io.IOException"},
 	{}
 };
 

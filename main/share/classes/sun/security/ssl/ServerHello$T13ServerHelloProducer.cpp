@@ -124,9 +124,9 @@ namespace sun {
 		namespace ssl {
 
 $MethodInfo _ServerHello$T13ServerHelloProducer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(ServerHello$T13ServerHelloProducer::*)()>(&ServerHello$T13ServerHelloProducer::init$))},
-	{"chooseCipherSuite", "(Lsun/security/ssl/ServerHandshakeContext;Lsun/security/ssl/ClientHello$ClientHelloMessage;)Lsun/security/ssl/CipherSuite;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$CipherSuite*(*)($ServerHandshakeContext*,$ClientHello$ClientHelloMessage*)>(&ServerHello$T13ServerHelloProducer::chooseCipherSuite)), "java.io.IOException"},
-	{"produce", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)[B", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(ServerHello$T13ServerHelloProducer, init$, void)},
+	{"chooseCipherSuite", "(Lsun/security/ssl/ServerHandshakeContext;Lsun/security/ssl/ClientHello$ClientHelloMessage;)Lsun/security/ssl/CipherSuite;", nullptr, $PRIVATE | $STATIC, $staticMethod(ServerHello$T13ServerHelloProducer, chooseCipherSuite, $CipherSuite*, $ServerHandshakeContext*, $ClientHello$ClientHelloMessage*), "java.io.IOException"},
+	{"produce", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)[B", nullptr, $PUBLIC, $virtualMethod(ServerHello$T13ServerHelloProducer, produce, $bytes*, $ConnectionContext*, $SSLHandshake$HandshakeMessage*), "java.io.IOException"},
 	{}
 };
 

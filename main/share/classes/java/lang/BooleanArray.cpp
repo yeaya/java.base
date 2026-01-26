@@ -21,7 +21,7 @@
 #include <java/lang/BooleanArray.h>
 
 #include <java/lang/ArrayIndexOutOfBoundsException.h>
-#include <java/lang/NegativeArraySizeException.h>
+#include <java/lang/Machine.h>
 #include <jcpp.h>
 #include <string.h>
 
@@ -31,7 +31,7 @@ namespace java {
 Class* BooleanArray::class$ = nullptr;
 
 MethodInfo _BooleanArray_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(static_cast<void(BooleanArray::*)(int32_t)>(&BooleanArray::init$))},
+	{"<init>", "(I)V", nullptr, $PUBLIC, $method(BooleanArray, init$, void, int32_t)},
 	{}
 };
 
@@ -120,19 +120,16 @@ BooleanArray* BooleanArray::subArray(int32_t index, int32_t length) const {
 }
 
 void BooleanArray::check(int32_t index) const {
-	if ((uint32_t)index >= (uint32_t)length) { \
-		$nullcheck(this); \
-		$throwNew(ArrayIndexOutOfBoundsException, index); \
+	if ((uint32_t)index >= (uint32_t)length) {
+		$throwNew(ArrayIndexOutOfBoundsException, index);
 	}
 }
 
 void BooleanArray::check(int32_t index, int32_t length) const {
 	if (index < 0) {
-		$nullcheck(this);
 		$throwNew(ArrayIndexOutOfBoundsException, index);
 	}
 	if (index + length > this->length) {
-		$nullcheck(this);
 		$throwNew(ArrayIndexOutOfBoundsException, index + length);
 	}
 }
@@ -171,7 +168,7 @@ bool BooleanArray::equals(BooleanArray* x, BooleanArray* y) {
 
 Class* BooleanArray::load$(String* name, bool initialize) {
 	int64_t arrayBaseSize = sizeof(BooleanArray) - sizeof(BooleanArray::data);
-	Class::loadClass(&class$, arrayBaseSize, $getMark(BooleanArray), &_BooleanArray_ClassInfo_);
+	Machine::loadClass(&class$, arrayBaseSize, $getMark(BooleanArray), &_BooleanArray_ClassInfo_);
 	return class$;
 }
 

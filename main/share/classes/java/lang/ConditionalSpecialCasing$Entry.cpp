@@ -21,12 +21,12 @@ $FieldInfo _ConditionalSpecialCasing$Entry_FieldInfo_[] = {
 };
 
 $MethodInfo _ConditionalSpecialCasing$Entry_MethodInfo_[] = {
-	{"<init>", "(I[C[CLjava/lang/String;I)V", nullptr, 0, $method(static_cast<void(ConditionalSpecialCasing$Entry::*)(int32_t,$chars*,$chars*,$String*,int32_t)>(&ConditionalSpecialCasing$Entry::init$))},
-	{"getCodePoint", "()I", nullptr, 0},
-	{"getCondition", "()I", nullptr, 0},
-	{"getLanguage", "()Ljava/lang/String;", nullptr, 0},
-	{"getLowerCase", "()[C", nullptr, 0},
-	{"getUpperCase", "()[C", nullptr, 0},
+	{"<init>", "(I[C[CLjava/lang/String;I)V", nullptr, 0, $method(ConditionalSpecialCasing$Entry, init$, void, int32_t, $chars*, $chars*, $String*, int32_t)},
+	{"getCodePoint", "()I", nullptr, 0, $virtualMethod(ConditionalSpecialCasing$Entry, getCodePoint, int32_t)},
+	{"getCondition", "()I", nullptr, 0, $virtualMethod(ConditionalSpecialCasing$Entry, getCondition, int32_t)},
+	{"getLanguage", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(ConditionalSpecialCasing$Entry, getLanguage, $String*)},
+	{"getLowerCase", "()[C", nullptr, 0, $virtualMethod(ConditionalSpecialCasing$Entry, getLowerCase, $chars*)},
+	{"getUpperCase", "()[C", nullptr, 0, $virtualMethod(ConditionalSpecialCasing$Entry, getUpperCase, $chars*)},
 	{}
 };
 

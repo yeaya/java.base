@@ -21,12 +21,12 @@ $FieldInfo _Trim_FieldInfo_[] = {
 };
 
 $MethodInfo _Trim_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Trim::*)()>(&Trim::init$))},
-	{"bash", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&Trim::bash)), "java.lang.Exception"},
-	{"capacityCheck", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&Trim::capacityCheck))},
-	{"generateTestBuffer", "(II)Ljava/lang/StringBuffer;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$StringBuffer*(*)(int32_t,int32_t)>(&Trim::generateTestBuffer))},
-	{"getRandomIndex", "(II)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)(int32_t,int32_t)>(&Trim::getRandomIndex))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Trim::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Trim, init$, void)},
+	{"bash", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(Trim, bash, void), "java.lang.Exception"},
+	{"capacityCheck", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(Trim, capacityCheck, void)},
+	{"generateTestBuffer", "(II)Ljava/lang/StringBuffer;", nullptr, $PRIVATE | $STATIC, $staticMethod(Trim, generateTestBuffer, $StringBuffer*, int32_t, int32_t)},
+	{"getRandomIndex", "(II)I", nullptr, $PRIVATE | $STATIC, $staticMethod(Trim, getRandomIndex, int32_t, int32_t, int32_t)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Trim, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

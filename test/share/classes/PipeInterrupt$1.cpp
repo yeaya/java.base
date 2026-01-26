@@ -28,9 +28,9 @@ $FieldInfo _PipeInterrupt$1_FieldInfo_[] = {
 };
 
 $MethodInfo _PipeInterrupt$1_MethodInfo_[] = {
-	{"<init>", "(LPipeInterrupt;Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(PipeInterrupt$1::*)($PipeInterrupt*,$String*)>(&PipeInterrupt$1::init$))},
-	{"close", "()V", nullptr, $PRIVATE, $method(static_cast<void(PipeInterrupt$1::*)()>(&PipeInterrupt$1::close)), "java.io.IOException"},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(LPipeInterrupt;Ljava/lang/String;)V", nullptr, 0, $method(PipeInterrupt$1, init$, void, $PipeInterrupt*, $String*)},
+	{"close", "()V", nullptr, $PRIVATE, $method(PipeInterrupt$1, close, void), "java.io.IOException"},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(PipeInterrupt$1, run, void)},
 	{}
 };
 

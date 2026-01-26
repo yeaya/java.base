@@ -94,15 +94,15 @@ $FieldInfo _SliceOps_FieldInfo_[] = {
 };
 
 $MethodInfo _SliceOps_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(SliceOps::*)()>(&SliceOps::init$))},
-	{"calcSize", "(JJJ)J", nullptr, $PRIVATE | $STATIC, $method(static_cast<int64_t(*)(int64_t,int64_t,int64_t)>(&SliceOps::calcSize))},
-	{"calcSliceFence", "(JJ)J", nullptr, $PRIVATE | $STATIC, $method(static_cast<int64_t(*)(int64_t,int64_t)>(&SliceOps::calcSliceFence))},
-	{"flags", "(J)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)(int64_t)>(&SliceOps::flags))},
-	{"makeDouble", "(Ljava/util/stream/AbstractPipeline;JJ)Ljava/util/stream/DoubleStream;", "(Ljava/util/stream/AbstractPipeline<*Ljava/lang/Double;*>;JJ)Ljava/util/stream/DoubleStream;", $PUBLIC | $STATIC, $method(static_cast<$DoubleStream*(*)($AbstractPipeline*,int64_t,int64_t)>(&SliceOps::makeDouble))},
-	{"makeInt", "(Ljava/util/stream/AbstractPipeline;JJ)Ljava/util/stream/IntStream;", "(Ljava/util/stream/AbstractPipeline<*Ljava/lang/Integer;*>;JJ)Ljava/util/stream/IntStream;", $PUBLIC | $STATIC, $method(static_cast<$IntStream*(*)($AbstractPipeline*,int64_t,int64_t)>(&SliceOps::makeInt))},
-	{"makeLong", "(Ljava/util/stream/AbstractPipeline;JJ)Ljava/util/stream/LongStream;", "(Ljava/util/stream/AbstractPipeline<*Ljava/lang/Long;*>;JJ)Ljava/util/stream/LongStream;", $PUBLIC | $STATIC, $method(static_cast<$LongStream*(*)($AbstractPipeline*,int64_t,int64_t)>(&SliceOps::makeLong))},
-	{"makeRef", "(Ljava/util/stream/AbstractPipeline;JJ)Ljava/util/stream/Stream;", "<T:Ljava/lang/Object;>(Ljava/util/stream/AbstractPipeline<*TT;*>;JJ)Ljava/util/stream/Stream<TT;>;", $PUBLIC | $STATIC, $method(static_cast<$Stream*(*)($AbstractPipeline*,int64_t,int64_t)>(&SliceOps::makeRef))},
-	{"sliceSpliterator", "(Ljava/util/stream/StreamShape;Ljava/util/Spliterator;JJ)Ljava/util/Spliterator;", "<P_IN:Ljava/lang/Object;>(Ljava/util/stream/StreamShape;Ljava/util/Spliterator<TP_IN;>;JJ)Ljava/util/Spliterator<TP_IN;>;", $PRIVATE | $STATIC, $method(static_cast<$Spliterator*(*)($StreamShape*,$Spliterator*,int64_t,int64_t)>(&SliceOps::sliceSpliterator))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(SliceOps, init$, void)},
+	{"calcSize", "(JJJ)J", nullptr, $PRIVATE | $STATIC, $staticMethod(SliceOps, calcSize, int64_t, int64_t, int64_t, int64_t)},
+	{"calcSliceFence", "(JJ)J", nullptr, $PRIVATE | $STATIC, $staticMethod(SliceOps, calcSliceFence, int64_t, int64_t, int64_t)},
+	{"flags", "(J)I", nullptr, $PRIVATE | $STATIC, $staticMethod(SliceOps, flags, int32_t, int64_t)},
+	{"makeDouble", "(Ljava/util/stream/AbstractPipeline;JJ)Ljava/util/stream/DoubleStream;", "(Ljava/util/stream/AbstractPipeline<*Ljava/lang/Double;*>;JJ)Ljava/util/stream/DoubleStream;", $PUBLIC | $STATIC, $staticMethod(SliceOps, makeDouble, $DoubleStream*, $AbstractPipeline*, int64_t, int64_t)},
+	{"makeInt", "(Ljava/util/stream/AbstractPipeline;JJ)Ljava/util/stream/IntStream;", "(Ljava/util/stream/AbstractPipeline<*Ljava/lang/Integer;*>;JJ)Ljava/util/stream/IntStream;", $PUBLIC | $STATIC, $staticMethod(SliceOps, makeInt, $IntStream*, $AbstractPipeline*, int64_t, int64_t)},
+	{"makeLong", "(Ljava/util/stream/AbstractPipeline;JJ)Ljava/util/stream/LongStream;", "(Ljava/util/stream/AbstractPipeline<*Ljava/lang/Long;*>;JJ)Ljava/util/stream/LongStream;", $PUBLIC | $STATIC, $staticMethod(SliceOps, makeLong, $LongStream*, $AbstractPipeline*, int64_t, int64_t)},
+	{"makeRef", "(Ljava/util/stream/AbstractPipeline;JJ)Ljava/util/stream/Stream;", "<T:Ljava/lang/Object;>(Ljava/util/stream/AbstractPipeline<*TT;*>;JJ)Ljava/util/stream/Stream<TT;>;", $PUBLIC | $STATIC, $staticMethod(SliceOps, makeRef, $Stream*, $AbstractPipeline*, int64_t, int64_t)},
+	{"sliceSpliterator", "(Ljava/util/stream/StreamShape;Ljava/util/Spliterator;JJ)Ljava/util/Spliterator;", "<P_IN:Ljava/lang/Object;>(Ljava/util/stream/StreamShape;Ljava/util/Spliterator<TP_IN;>;JJ)Ljava/util/Spliterator<TP_IN;>;", $PRIVATE | $STATIC, $staticMethod(SliceOps, sliceSpliterator, $Spliterator*, $StreamShape*, $Spliterator*, int64_t, int64_t)},
 	{}
 };
 

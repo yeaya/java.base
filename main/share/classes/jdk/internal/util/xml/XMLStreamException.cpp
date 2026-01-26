@@ -19,11 +19,11 @@ $FieldInfo _XMLStreamException_FieldInfo_[] = {
 };
 
 $MethodInfo _XMLStreamException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(XMLStreamException::*)()>(&XMLStreamException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(XMLStreamException::*)($String*)>(&XMLStreamException::init$))},
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(XMLStreamException::*)($Throwable*)>(&XMLStreamException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(XMLStreamException::*)($String*,$Throwable*)>(&XMLStreamException::init$))},
-	{"getNestedException", "()Ljava/lang/Throwable;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(XMLStreamException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(XMLStreamException, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(XMLStreamException, init$, void, $Throwable*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(XMLStreamException, init$, void, $String*, $Throwable*)},
+	{"getNestedException", "()Ljava/lang/Throwable;", nullptr, $PUBLIC, $virtualMethod(XMLStreamException, getNestedException, $Throwable*)},
 	{}
 };
 

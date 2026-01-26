@@ -19,8 +19,8 @@ $TypeAnnotation _ParameterizedBoundIndex$MethodVariableBound_MethodTypeAnnotatio
 };
 
 $MethodInfo _ParameterizedBoundIndex$MethodVariableBound_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ParameterizedBoundIndex$MethodVariableBound::*)()>(&ParameterizedBoundIndex$MethodVariableBound::init$))},
-	{"m", "()V", "<T:Ljava/lang/Object;S:TT;>()V", 0, nullptr, nullptr, nullptr, nullptr, _ParameterizedBoundIndex$MethodVariableBound_MethodTypeAnnotations_m1},
+	{"<init>", "()V", nullptr, 0, $method(ParameterizedBoundIndex$MethodVariableBound, init$, void)},
+	{"m", "()V", "<T:Ljava/lang/Object;S:TT;>()V", 0, $virtualMethod(ParameterizedBoundIndex$MethodVariableBound, m, void), nullptr, nullptr, nullptr, _ParameterizedBoundIndex$MethodVariableBound_MethodTypeAnnotations_m1},
 	{}
 };
 

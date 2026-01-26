@@ -36,17 +36,17 @@ $FieldInfo _ModuleDescriptor$Requires_FieldInfo_[] = {
 };
 
 $MethodInfo _ModuleDescriptor$Requires_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Set;Ljava/lang/String;Ljava/lang/module/ModuleDescriptor$Version;Ljava/lang/String;)V", "(Ljava/util/Set<Ljava/lang/module/ModuleDescriptor$Requires$Modifier;>;Ljava/lang/String;Ljava/lang/module/ModuleDescriptor$Version;Ljava/lang/String;)V", $PRIVATE, $method(static_cast<void(ModuleDescriptor$Requires::*)($Set*,$String*,$ModuleDescriptor$Version*,$String*)>(&ModuleDescriptor$Requires::init$))},
-	{"<init>", "(Ljava/util/Set;Ljava/lang/String;Ljava/lang/module/ModuleDescriptor$Version;Z)V", "(Ljava/util/Set<Ljava/lang/module/ModuleDescriptor$Requires$Modifier;>;Ljava/lang/String;Ljava/lang/module/ModuleDescriptor$Version;Z)V", $PRIVATE, $method(static_cast<void(ModuleDescriptor$Requires::*)($Set*,$String*,$ModuleDescriptor$Version*,bool)>(&ModuleDescriptor$Requires::init$))},
-	{"compareTo", "(Ljava/lang/module/ModuleDescriptor$Requires;)I", nullptr, $PUBLIC, $method(static_cast<int32_t(ModuleDescriptor$Requires::*)(ModuleDescriptor$Requires*)>(&ModuleDescriptor$Requires::compareTo))},
-	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"compiledVersion", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/lang/module/ModuleDescriptor$Version;>;", $PUBLIC, $method(static_cast<$Optional*(ModuleDescriptor$Requires::*)()>(&ModuleDescriptor$Requires::compiledVersion))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"modifiers", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/module/ModuleDescriptor$Requires$Modifier;>;", $PUBLIC, $method(static_cast<$Set*(ModuleDescriptor$Requires::*)()>(&ModuleDescriptor$Requires::modifiers))},
-	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(static_cast<$String*(ModuleDescriptor$Requires::*)()>(&ModuleDescriptor$Requires::name))},
-	{"rawCompiledVersion", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/lang/String;>;", $PUBLIC, $method(static_cast<$Optional*(ModuleDescriptor$Requires::*)()>(&ModuleDescriptor$Requires::rawCompiledVersion))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/Set;Ljava/lang/String;Ljava/lang/module/ModuleDescriptor$Version;Ljava/lang/String;)V", "(Ljava/util/Set<Ljava/lang/module/ModuleDescriptor$Requires$Modifier;>;Ljava/lang/String;Ljava/lang/module/ModuleDescriptor$Version;Ljava/lang/String;)V", $PRIVATE, $method(ModuleDescriptor$Requires, init$, void, $Set*, $String*, $ModuleDescriptor$Version*, $String*)},
+	{"<init>", "(Ljava/util/Set;Ljava/lang/String;Ljava/lang/module/ModuleDescriptor$Version;Z)V", "(Ljava/util/Set<Ljava/lang/module/ModuleDescriptor$Requires$Modifier;>;Ljava/lang/String;Ljava/lang/module/ModuleDescriptor$Version;Z)V", $PRIVATE, $method(ModuleDescriptor$Requires, init$, void, $Set*, $String*, $ModuleDescriptor$Version*, bool)},
+	{"compareTo", "(Ljava/lang/module/ModuleDescriptor$Requires;)I", nullptr, $PUBLIC, $method(ModuleDescriptor$Requires, compareTo, int32_t, ModuleDescriptor$Requires*)},
+	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ModuleDescriptor$Requires, compareTo, int32_t, Object$*)},
+	{"compiledVersion", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/lang/module/ModuleDescriptor$Version;>;", $PUBLIC, $method(ModuleDescriptor$Requires, compiledVersion, $Optional*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ModuleDescriptor$Requires, equals, bool, Object$*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ModuleDescriptor$Requires, hashCode, int32_t)},
+	{"modifiers", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/module/ModuleDescriptor$Requires$Modifier;>;", $PUBLIC, $method(ModuleDescriptor$Requires, modifiers, $Set*)},
+	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(ModuleDescriptor$Requires, name, $String*)},
+	{"rawCompiledVersion", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/lang/String;>;", $PUBLIC, $method(ModuleDescriptor$Requires, rawCompiledVersion, $Optional*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ModuleDescriptor$Requires, toString, $String*)},
 	{}
 };
 

@@ -8,6 +8,8 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $VectorSupport$Vector = ::jdk::internal::vm::vector::VectorSupport$Vector;
+using $VectorSupport$VectorSpecies = ::jdk::internal::vm::vector::VectorSupport$VectorSpecies;
 
 namespace jdk {
 	namespace internal {
@@ -15,7 +17,7 @@ namespace jdk {
 			namespace vector {
 
 $MethodInfo _VectorSupport$IndexOperation_MethodInfo_[] = {
-	{"index", "(Ljdk/internal/vm/vector/VectorSupport$Vector;ILjdk/internal/vm/vector/VectorSupport$VectorSpecies;)Ljdk/internal/vm/vector/VectorSupport$Vector;", "(TV;ITS;)TV;", $PUBLIC | $ABSTRACT},
+	{"index", "(Ljdk/internal/vm/vector/VectorSupport$Vector;ILjdk/internal/vm/vector/VectorSupport$VectorSpecies;)Ljdk/internal/vm/vector/VectorSupport$Vector;", "(TV;ITS;)TV;", $PUBLIC | $ABSTRACT, $virtualMethod(VectorSupport$IndexOperation, index, $VectorSupport$Vector*, $VectorSupport$Vector*, int32_t, $VectorSupport$VectorSpecies*)},
 	{}
 };
 

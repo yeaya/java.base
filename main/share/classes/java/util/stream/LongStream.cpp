@@ -61,22 +61,34 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $Arrays = ::java::util::Arrays;
+using $LongSummaryStatistics = ::java::util::LongSummaryStatistics;
 using $Objects = ::java::util::Objects;
+using $OptionalDouble = ::java::util::OptionalDouble;
+using $OptionalLong = ::java::util::OptionalLong;
 using $Spliterator = ::java::util::Spliterator;
 using $Spliterator$OfLong = ::java::util::Spliterator$OfLong;
 using $Spliterators = ::java::util::Spliterators;
 using $Spliterators$AbstractLongSpliterator = ::java::util::Spliterators$AbstractLongSpliterator;
+using $BiConsumer = ::java::util::function::BiConsumer;
+using $LongBinaryOperator = ::java::util::function::LongBinaryOperator;
 using $LongConsumer = ::java::util::function::LongConsumer;
 using $LongFunction = ::java::util::function::LongFunction;
 using $LongPredicate = ::java::util::function::LongPredicate;
 using $LongSupplier = ::java::util::function::LongSupplier;
+using $LongToDoubleFunction = ::java::util::function::LongToDoubleFunction;
+using $LongToIntFunction = ::java::util::function::LongToIntFunction;
 using $LongUnaryOperator = ::java::util::function::LongUnaryOperator;
+using $ObjLongConsumer = ::java::util::function::ObjLongConsumer;
+using $Supplier = ::java::util::function::Supplier;
 using $BaseStream = ::java::util::stream::BaseStream;
+using $DoubleStream = ::java::util::stream::DoubleStream;
+using $IntStream = ::java::util::stream::IntStream;
 using $LongStream$1 = ::java::util::stream::LongStream$1;
 using $LongStream$2 = ::java::util::stream::LongStream$2;
 using $LongStream$Builder = ::java::util::stream::LongStream$Builder;
 using $LongStream$LongMapMultiConsumer = ::java::util::stream::LongStream$LongMapMultiConsumer;
 using $SpinedBuffer$OfLong = ::java::util::stream::SpinedBuffer$OfLong;
+using $Stream = ::java::util::stream::Stream;
 using $StreamSpliterators$InfiniteSupplyingSpliterator$OfLong = ::java::util::stream::StreamSpliterators$InfiniteSupplyingSpliterator$OfLong;
 using $StreamSupport = ::java::util::stream::StreamSupport;
 using $Streams = ::java::util::stream::Streams;
@@ -113,8 +125,8 @@ $FieldInfo LongStream$$Lambda$lambda$mapMulti$0::fieldInfos[2] = {
 	{}
 };
 $MethodInfo LongStream$$Lambda$lambda$mapMulti$0::methodInfos[3] = {
-	{"<init>", "(Ljava/util/stream/LongStream$LongMapMultiConsumer;)V", nullptr, $PUBLIC, $method(static_cast<void(LongStream$$Lambda$lambda$mapMulti$0::*)($LongStream$LongMapMultiConsumer*)>(&LongStream$$Lambda$lambda$mapMulti$0::init$))},
-	{"apply", "(J)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/stream/LongStream$LongMapMultiConsumer;)V", nullptr, $PUBLIC, $method(LongStream$$Lambda$lambda$mapMulti$0, init$, void, $LongStream$LongMapMultiConsumer*)},
+	{"apply", "(J)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LongStream$$Lambda$lambda$mapMulti$0, apply, $Object*, int64_t)},
 	{}
 };
 $ClassInfo LongStream$$Lambda$lambda$mapMulti$0::classInfo$ = {
@@ -153,8 +165,8 @@ $FieldInfo LongStream$$Lambda$close$1::fieldInfos[2] = {
 	{}
 };
 $MethodInfo LongStream$$Lambda$close$1::methodInfos[3] = {
-	{"<init>", "(Ljava/util/stream/BaseStream;)V", nullptr, $PUBLIC, $method(static_cast<void(LongStream$$Lambda$close$1::*)($BaseStream*)>(&LongStream$$Lambda$close$1::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/stream/BaseStream;)V", nullptr, $PUBLIC, $method(LongStream$$Lambda$close$1, init$, void, $BaseStream*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(LongStream$$Lambda$close$1, run, void)},
 	{}
 };
 $ClassInfo LongStream$$Lambda$close$1::classInfo$ = {
@@ -172,54 +184,54 @@ $Class* LongStream$$Lambda$close$1::load$($String* name, bool initialize) {
 $Class* LongStream$$Lambda$close$1::class$ = nullptr;
 
 $MethodInfo _LongStream_MethodInfo_[] = {
-	{"allMatch", "(Ljava/util/function/LongPredicate;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"anyMatch", "(Ljava/util/function/LongPredicate;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"asDoubleStream", "()Ljava/util/stream/DoubleStream;", nullptr, $PUBLIC | $ABSTRACT},
-	{"average", "()Ljava/util/OptionalDouble;", nullptr, $PUBLIC | $ABSTRACT},
-	{"boxed", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljava/lang/Long;>;", $PUBLIC | $ABSTRACT},
-	{"builder", "()Ljava/util/stream/LongStream$Builder;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$LongStream$Builder*(*)()>(&LongStream::builder))},
-	{"collect", "(Ljava/util/function/Supplier;Ljava/util/function/ObjLongConsumer;Ljava/util/function/BiConsumer;)Ljava/lang/Object;", "<R:Ljava/lang/Object;>(Ljava/util/function/Supplier<TR;>;Ljava/util/function/ObjLongConsumer<TR;>;Ljava/util/function/BiConsumer<TR;TR;>;)TR;", $PUBLIC | $ABSTRACT},
-	{"concat", "(Ljava/util/stream/LongStream;Ljava/util/stream/LongStream;)Ljava/util/stream/LongStream;", nullptr, $PUBLIC | $STATIC, $method(static_cast<LongStream*(*)(LongStream*,LongStream*)>(&LongStream::concat))},
-	{"count", "()J", nullptr, $PUBLIC | $ABSTRACT},
-	{"distinct", "()Ljava/util/stream/LongStream;", nullptr, $PUBLIC | $ABSTRACT},
-	{"dropWhile", "(Ljava/util/function/LongPredicate;)Ljava/util/stream/LongStream;", nullptr, $PUBLIC},
-	{"empty", "()Ljava/util/stream/LongStream;", nullptr, $PUBLIC | $STATIC, $method(static_cast<LongStream*(*)()>(&LongStream::empty))},
-	{"filter", "(Ljava/util/function/LongPredicate;)Ljava/util/stream/LongStream;", nullptr, $PUBLIC | $ABSTRACT},
-	{"findAny", "()Ljava/util/OptionalLong;", nullptr, $PUBLIC | $ABSTRACT},
-	{"findFirst", "()Ljava/util/OptionalLong;", nullptr, $PUBLIC | $ABSTRACT},
-	{"flatMap", "(Ljava/util/function/LongFunction;)Ljava/util/stream/LongStream;", "(Ljava/util/function/LongFunction<+Ljava/util/stream/LongStream;>;)Ljava/util/stream/LongStream;", $PUBLIC | $ABSTRACT},
-	{"forEach", "(Ljava/util/function/LongConsumer;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"forEachOrdered", "(Ljava/util/function/LongConsumer;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"generate", "(Ljava/util/function/LongSupplier;)Ljava/util/stream/LongStream;", nullptr, $PUBLIC | $STATIC, $method(static_cast<LongStream*(*)($LongSupplier*)>(&LongStream::generate))},
-	{"iterate", "(JLjava/util/function/LongUnaryOperator;)Ljava/util/stream/LongStream;", nullptr, $PUBLIC | $STATIC, $method(static_cast<LongStream*(*)(int64_t,$LongUnaryOperator*)>(&LongStream::iterate))},
-	{"iterate", "(JLjava/util/function/LongPredicate;Ljava/util/function/LongUnaryOperator;)Ljava/util/stream/LongStream;", nullptr, $PUBLIC | $STATIC, $method(static_cast<LongStream*(*)(int64_t,$LongPredicate*,$LongUnaryOperator*)>(&LongStream::iterate))},
+	{"allMatch", "(Ljava/util/function/LongPredicate;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LongStream, allMatch, bool, $LongPredicate*)},
+	{"anyMatch", "(Ljava/util/function/LongPredicate;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LongStream, anyMatch, bool, $LongPredicate*)},
+	{"asDoubleStream", "()Ljava/util/stream/DoubleStream;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LongStream, asDoubleStream, $DoubleStream*)},
+	{"average", "()Ljava/util/OptionalDouble;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LongStream, average, $OptionalDouble*)},
+	{"boxed", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljava/lang/Long;>;", $PUBLIC | $ABSTRACT, $virtualMethod(LongStream, boxed, $Stream*)},
+	{"builder", "()Ljava/util/stream/LongStream$Builder;", nullptr, $PUBLIC | $STATIC, $staticMethod(LongStream, builder, $LongStream$Builder*)},
+	{"collect", "(Ljava/util/function/Supplier;Ljava/util/function/ObjLongConsumer;Ljava/util/function/BiConsumer;)Ljava/lang/Object;", "<R:Ljava/lang/Object;>(Ljava/util/function/Supplier<TR;>;Ljava/util/function/ObjLongConsumer<TR;>;Ljava/util/function/BiConsumer<TR;TR;>;)TR;", $PUBLIC | $ABSTRACT, $virtualMethod(LongStream, collect, $Object*, $Supplier*, $ObjLongConsumer*, $BiConsumer*)},
+	{"concat", "(Ljava/util/stream/LongStream;Ljava/util/stream/LongStream;)Ljava/util/stream/LongStream;", nullptr, $PUBLIC | $STATIC, $staticMethod(LongStream, concat, LongStream*, LongStream*, LongStream*)},
+	{"count", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LongStream, count, int64_t)},
+	{"distinct", "()Ljava/util/stream/LongStream;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LongStream, distinct, LongStream*)},
+	{"dropWhile", "(Ljava/util/function/LongPredicate;)Ljava/util/stream/LongStream;", nullptr, $PUBLIC, $virtualMethod(LongStream, dropWhile, LongStream*, $LongPredicate*)},
+	{"empty", "()Ljava/util/stream/LongStream;", nullptr, $PUBLIC | $STATIC, $staticMethod(LongStream, empty, LongStream*)},
+	{"filter", "(Ljava/util/function/LongPredicate;)Ljava/util/stream/LongStream;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LongStream, filter, LongStream*, $LongPredicate*)},
+	{"findAny", "()Ljava/util/OptionalLong;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LongStream, findAny, $OptionalLong*)},
+	{"findFirst", "()Ljava/util/OptionalLong;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LongStream, findFirst, $OptionalLong*)},
+	{"flatMap", "(Ljava/util/function/LongFunction;)Ljava/util/stream/LongStream;", "(Ljava/util/function/LongFunction<+Ljava/util/stream/LongStream;>;)Ljava/util/stream/LongStream;", $PUBLIC | $ABSTRACT, $virtualMethod(LongStream, flatMap, LongStream*, $LongFunction*)},
+	{"forEach", "(Ljava/util/function/LongConsumer;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LongStream, forEach, void, $LongConsumer*)},
+	{"forEachOrdered", "(Ljava/util/function/LongConsumer;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LongStream, forEachOrdered, void, $LongConsumer*)},
+	{"generate", "(Ljava/util/function/LongSupplier;)Ljava/util/stream/LongStream;", nullptr, $PUBLIC | $STATIC, $staticMethod(LongStream, generate, LongStream*, $LongSupplier*)},
+	{"iterate", "(JLjava/util/function/LongUnaryOperator;)Ljava/util/stream/LongStream;", nullptr, $PUBLIC | $STATIC, $staticMethod(LongStream, iterate, LongStream*, int64_t, $LongUnaryOperator*)},
+	{"iterate", "(JLjava/util/function/LongPredicate;Ljava/util/function/LongUnaryOperator;)Ljava/util/stream/LongStream;", nullptr, $PUBLIC | $STATIC, $staticMethod(LongStream, iterate, LongStream*, int64_t, $LongPredicate*, $LongUnaryOperator*)},
 	{"iterator", "()Ljava/util/Iterator;", nullptr, $PUBLIC | $ABSTRACT},
-	{"lambda$mapMulti$0", "(Ljava/util/stream/LongStream$LongMapMultiConsumer;J)Ljava/util/stream/LongStream;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<LongStream*(*)($LongStream$LongMapMultiConsumer*,int64_t)>(&LongStream::lambda$mapMulti$0))},
-	{"limit", "(J)Ljava/util/stream/LongStream;", nullptr, $PUBLIC | $ABSTRACT},
-	{"map", "(Ljava/util/function/LongUnaryOperator;)Ljava/util/stream/LongStream;", nullptr, $PUBLIC | $ABSTRACT},
-	{"mapMulti", "(Ljava/util/stream/LongStream$LongMapMultiConsumer;)Ljava/util/stream/LongStream;", nullptr, $PUBLIC},
-	{"mapToDouble", "(Ljava/util/function/LongToDoubleFunction;)Ljava/util/stream/DoubleStream;", nullptr, $PUBLIC | $ABSTRACT},
-	{"mapToInt", "(Ljava/util/function/LongToIntFunction;)Ljava/util/stream/IntStream;", nullptr, $PUBLIC | $ABSTRACT},
-	{"mapToObj", "(Ljava/util/function/LongFunction;)Ljava/util/stream/Stream;", "<U:Ljava/lang/Object;>(Ljava/util/function/LongFunction<+TU;>;)Ljava/util/stream/Stream<TU;>;", $PUBLIC | $ABSTRACT},
-	{"max", "()Ljava/util/OptionalLong;", nullptr, $PUBLIC | $ABSTRACT},
-	{"min", "()Ljava/util/OptionalLong;", nullptr, $PUBLIC | $ABSTRACT},
-	{"noneMatch", "(Ljava/util/function/LongPredicate;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"of", "(J)Ljava/util/stream/LongStream;", nullptr, $PUBLIC | $STATIC, $method(static_cast<LongStream*(*)(int64_t)>(&LongStream::of))},
-	{"of", "([J)Ljava/util/stream/LongStream;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<LongStream*(*)($longs*)>(&LongStream::of))},
+	{"lambda$mapMulti$0", "(Ljava/util/stream/LongStream$LongMapMultiConsumer;J)Ljava/util/stream/LongStream;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LongStream, lambda$mapMulti$0, LongStream*, $LongStream$LongMapMultiConsumer*, int64_t)},
+	{"limit", "(J)Ljava/util/stream/LongStream;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LongStream, limit, LongStream*, int64_t)},
+	{"map", "(Ljava/util/function/LongUnaryOperator;)Ljava/util/stream/LongStream;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LongStream, map, LongStream*, $LongUnaryOperator*)},
+	{"mapMulti", "(Ljava/util/stream/LongStream$LongMapMultiConsumer;)Ljava/util/stream/LongStream;", nullptr, $PUBLIC, $virtualMethod(LongStream, mapMulti, LongStream*, $LongStream$LongMapMultiConsumer*)},
+	{"mapToDouble", "(Ljava/util/function/LongToDoubleFunction;)Ljava/util/stream/DoubleStream;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LongStream, mapToDouble, $DoubleStream*, $LongToDoubleFunction*)},
+	{"mapToInt", "(Ljava/util/function/LongToIntFunction;)Ljava/util/stream/IntStream;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LongStream, mapToInt, $IntStream*, $LongToIntFunction*)},
+	{"mapToObj", "(Ljava/util/function/LongFunction;)Ljava/util/stream/Stream;", "<U:Ljava/lang/Object;>(Ljava/util/function/LongFunction<+TU;>;)Ljava/util/stream/Stream<TU;>;", $PUBLIC | $ABSTRACT, $virtualMethod(LongStream, mapToObj, $Stream*, $LongFunction*)},
+	{"max", "()Ljava/util/OptionalLong;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LongStream, max, $OptionalLong*)},
+	{"min", "()Ljava/util/OptionalLong;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LongStream, min, $OptionalLong*)},
+	{"noneMatch", "(Ljava/util/function/LongPredicate;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LongStream, noneMatch, bool, $LongPredicate*)},
+	{"of", "(J)Ljava/util/stream/LongStream;", nullptr, $PUBLIC | $STATIC, $staticMethod(LongStream, of, LongStream*, int64_t)},
+	{"of", "([J)Ljava/util/stream/LongStream;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(LongStream, of, LongStream*, $longs*)},
 	{"parallel", "()Ljava/util/stream/LongStream;", nullptr, $PUBLIC | $ABSTRACT},
-	{"peek", "(Ljava/util/function/LongConsumer;)Ljava/util/stream/LongStream;", nullptr, $PUBLIC | $ABSTRACT},
-	{"range", "(JJ)Ljava/util/stream/LongStream;", nullptr, $PUBLIC | $STATIC, $method(static_cast<LongStream*(*)(int64_t,int64_t)>(&LongStream::range))},
-	{"rangeClosed", "(JJ)Ljava/util/stream/LongStream;", nullptr, $PUBLIC | $STATIC, $method(static_cast<LongStream*(*)(int64_t,int64_t)>(&LongStream::rangeClosed))},
-	{"reduce", "(JLjava/util/function/LongBinaryOperator;)J", nullptr, $PUBLIC | $ABSTRACT},
-	{"reduce", "(Ljava/util/function/LongBinaryOperator;)Ljava/util/OptionalLong;", nullptr, $PUBLIC | $ABSTRACT},
+	{"peek", "(Ljava/util/function/LongConsumer;)Ljava/util/stream/LongStream;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LongStream, peek, LongStream*, $LongConsumer*)},
+	{"range", "(JJ)Ljava/util/stream/LongStream;", nullptr, $PUBLIC | $STATIC, $staticMethod(LongStream, range, LongStream*, int64_t, int64_t)},
+	{"rangeClosed", "(JJ)Ljava/util/stream/LongStream;", nullptr, $PUBLIC | $STATIC, $staticMethod(LongStream, rangeClosed, LongStream*, int64_t, int64_t)},
+	{"reduce", "(JLjava/util/function/LongBinaryOperator;)J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LongStream, reduce, int64_t, int64_t, $LongBinaryOperator*)},
+	{"reduce", "(Ljava/util/function/LongBinaryOperator;)Ljava/util/OptionalLong;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LongStream, reduce, $OptionalLong*, $LongBinaryOperator*)},
 	{"sequential", "()Ljava/util/stream/LongStream;", nullptr, $PUBLIC | $ABSTRACT},
-	{"skip", "(J)Ljava/util/stream/LongStream;", nullptr, $PUBLIC | $ABSTRACT},
-	{"sorted", "()Ljava/util/stream/LongStream;", nullptr, $PUBLIC | $ABSTRACT},
+	{"skip", "(J)Ljava/util/stream/LongStream;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LongStream, skip, LongStream*, int64_t)},
+	{"sorted", "()Ljava/util/stream/LongStream;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LongStream, sorted, LongStream*)},
 	{"spliterator", "()Ljava/util/Spliterator;", nullptr, $PUBLIC | $ABSTRACT},
-	{"sum", "()J", nullptr, $PUBLIC | $ABSTRACT},
-	{"summaryStatistics", "()Ljava/util/LongSummaryStatistics;", nullptr, $PUBLIC | $ABSTRACT},
-	{"takeWhile", "(Ljava/util/function/LongPredicate;)Ljava/util/stream/LongStream;", nullptr, $PUBLIC},
-	{"toArray", "()[J", nullptr, $PUBLIC | $ABSTRACT},
+	{"sum", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LongStream, sum, int64_t)},
+	{"summaryStatistics", "()Ljava/util/LongSummaryStatistics;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LongStream, summaryStatistics, $LongSummaryStatistics*)},
+	{"takeWhile", "(Ljava/util/function/LongPredicate;)Ljava/util/stream/LongStream;", nullptr, $PUBLIC, $virtualMethod(LongStream, takeWhile, LongStream*, $LongPredicate*)},
+	{"toArray", "()[J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LongStream, toArray, $longs*)},
 	{}
 };
 

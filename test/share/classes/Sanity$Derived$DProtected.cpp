@@ -15,7 +15,7 @@ $FieldInfo _Sanity$Derived$DProtected_FieldInfo_[] = {
 };
 
 $MethodInfo _Sanity$Derived$DProtected_MethodInfo_[] = {
-	{"<init>", "(LSanity$Derived;)V", nullptr, $PROTECTED, $method(static_cast<void(Sanity$Derived$DProtected::*)($Sanity$Derived*)>(&Sanity$Derived$DProtected::init$))},
+	{"<init>", "(LSanity$Derived;)V", nullptr, $PROTECTED, $method(Sanity$Derived$DProtected, init$, void, $Sanity$Derived*)},
 	{}
 };
 

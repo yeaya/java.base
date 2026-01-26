@@ -24,8 +24,8 @@ $FieldInfo _AtomicReferenceFieldUpdater$AtomicReferenceFieldUpdaterImpl$1_FieldI
 };
 
 $MethodInfo _AtomicReferenceFieldUpdater$AtomicReferenceFieldUpdaterImpl$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater$AtomicReferenceFieldUpdaterImpl;Ljava/lang/Class;Ljava/lang/String;)V", "()V", 0, $method(static_cast<void(AtomicReferenceFieldUpdater$AtomicReferenceFieldUpdaterImpl$1::*)($AtomicReferenceFieldUpdater$AtomicReferenceFieldUpdaterImpl*,$Class*,$String*)>(&AtomicReferenceFieldUpdater$AtomicReferenceFieldUpdaterImpl$1::init$))},
-	{"run", "()Ljava/lang/reflect/Field;", nullptr, $PUBLIC, nullptr, "java.lang.NoSuchFieldException"},
+	{"<init>", "(Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater$AtomicReferenceFieldUpdaterImpl;Ljava/lang/Class;Ljava/lang/String;)V", "()V", 0, $method(AtomicReferenceFieldUpdater$AtomicReferenceFieldUpdaterImpl$1, init$, void, $AtomicReferenceFieldUpdater$AtomicReferenceFieldUpdaterImpl*, $Class*, $String*)},
+	{"run", "()Ljava/lang/reflect/Field;", nullptr, $PUBLIC, $virtualMethod(AtomicReferenceFieldUpdater$AtomicReferenceFieldUpdaterImpl$1, run, $Object*), "java.lang.NoSuchFieldException"},
 	{}
 };
 

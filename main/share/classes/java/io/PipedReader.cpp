@@ -38,19 +38,19 @@ $FieldInfo _PipedReader_FieldInfo_[] = {
 };
 
 $MethodInfo _PipedReader_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/PipedWriter;)V", nullptr, $PUBLIC, $method(static_cast<void(PipedReader::*)($PipedWriter*)>(&PipedReader::init$)), "java.io.IOException"},
-	{"<init>", "(Ljava/io/PipedWriter;I)V", nullptr, $PUBLIC, $method(static_cast<void(PipedReader::*)($PipedWriter*,int32_t)>(&PipedReader::init$)), "java.io.IOException"},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PipedReader::*)()>(&PipedReader::init$))},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(static_cast<void(PipedReader::*)(int32_t)>(&PipedReader::init$))},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"connect", "(Ljava/io/PipedWriter;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"initPipe", "(I)V", nullptr, $PRIVATE, $method(static_cast<void(PipedReader::*)(int32_t)>(&PipedReader::initPipe))},
-	{"read", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, nullptr, "java.io.IOException"},
-	{"read", "([CII)I", nullptr, $PUBLIC | $SYNCHRONIZED, nullptr, "java.io.IOException"},
-	{"ready", "()Z", nullptr, $PUBLIC | $SYNCHRONIZED, nullptr, "java.io.IOException"},
-	{"receive", "(I)V", nullptr, $SYNCHRONIZED, nullptr, "java.io.IOException"},
-	{"receive", "([CII)V", nullptr, $SYNCHRONIZED, nullptr, "java.io.IOException"},
-	{"receivedLast", "()V", nullptr, $SYNCHRONIZED},
+	{"<init>", "(Ljava/io/PipedWriter;)V", nullptr, $PUBLIC, $method(PipedReader, init$, void, $PipedWriter*), "java.io.IOException"},
+	{"<init>", "(Ljava/io/PipedWriter;I)V", nullptr, $PUBLIC, $method(PipedReader, init$, void, $PipedWriter*, int32_t), "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PipedReader, init$, void)},
+	{"<init>", "(I)V", nullptr, $PUBLIC, $method(PipedReader, init$, void, int32_t)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(PipedReader, close, void), "java.io.IOException"},
+	{"connect", "(Ljava/io/PipedWriter;)V", nullptr, $PUBLIC, $virtualMethod(PipedReader, connect, void, $PipedWriter*), "java.io.IOException"},
+	{"initPipe", "(I)V", nullptr, $PRIVATE, $method(PipedReader, initPipe, void, int32_t)},
+	{"read", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(PipedReader, read, int32_t), "java.io.IOException"},
+	{"read", "([CII)I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(PipedReader, read, int32_t, $chars*, int32_t, int32_t), "java.io.IOException"},
+	{"ready", "()Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(PipedReader, ready, bool), "java.io.IOException"},
+	{"receive", "(I)V", nullptr, $SYNCHRONIZED, $virtualMethod(PipedReader, receive, void, int32_t), "java.io.IOException"},
+	{"receive", "([CII)V", nullptr, $SYNCHRONIZED, $virtualMethod(PipedReader, receive, void, $chars*, int32_t, int32_t), "java.io.IOException"},
+	{"receivedLast", "()V", nullptr, $SYNCHRONIZED, $virtualMethod(PipedReader, receivedLast, void)},
 	{}
 };
 

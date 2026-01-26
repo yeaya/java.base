@@ -18,8 +18,8 @@ namespace jdk {
 		namespace jrtfs {
 
 $MethodInfo _JrtFileSystemProvider$JrtFsLoader_MethodInfo_[] = {
-	{"<init>", "([Ljava/net/URL;)V", nullptr, 0, $method(static_cast<void(JrtFileSystemProvider$JrtFsLoader::*)($URLArray*)>(&JrtFileSystemProvider$JrtFsLoader::init$))},
-	{"loadClass", "(Ljava/lang/String;Z)Ljava/lang/Class;", "(Ljava/lang/String;Z)Ljava/lang/Class<*>;", $PROTECTED, nullptr, "java.lang.ClassNotFoundException"},
+	{"<init>", "([Ljava/net/URL;)V", nullptr, 0, $method(JrtFileSystemProvider$JrtFsLoader, init$, void, $URLArray*)},
+	{"loadClass", "(Ljava/lang/String;Z)Ljava/lang/Class;", "(Ljava/lang/String;Z)Ljava/lang/Class<*>;", $PROTECTED, $virtualMethod(JrtFileSystemProvider$JrtFsLoader, loadClass, $Class*, $String*, bool), "java.lang.ClassNotFoundException"},
 	{}
 };
 

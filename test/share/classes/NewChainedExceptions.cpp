@@ -13,8 +13,8 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
 
 $MethodInfo _NewChainedExceptions_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(NewChainedExceptions::*)()>(&NewChainedExceptions::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&NewChainedExceptions::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(NewChainedExceptions, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(NewChainedExceptions, main, void, $StringArray*)},
 	{}
 };
 

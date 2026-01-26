@@ -26,8 +26,8 @@ $FieldInfo _Charset$ExtendedProviderHolder_FieldInfo_[] = {
 };
 
 $MethodInfo _Charset$ExtendedProviderHolder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(Charset$ExtendedProviderHolder::*)()>(&Charset$ExtendedProviderHolder::init$))},
-	{"extendedProviders", "()[Ljava/nio/charset/spi/CharsetProvider;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$CharsetProviderArray*(*)()>(&Charset$ExtendedProviderHolder::extendedProviders))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(Charset$ExtendedProviderHolder, init$, void)},
+	{"extendedProviders", "()[Ljava/nio/charset/spi/CharsetProvider;", nullptr, $PRIVATE | $STATIC, $staticMethod(Charset$ExtendedProviderHolder, extendedProviders, $CharsetProviderArray*)},
 	{}
 };
 

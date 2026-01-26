@@ -15,8 +15,8 @@ namespace sun {
 		namespace ssl {
 
 $MethodInfo _SSLCipher$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(SSLCipher$1::*)()>(&SSLCipher$1::init$))},
-	{"run", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(SSLCipher$1, init$, void)},
+	{"run", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SSLCipher$1, run, $Object*)},
 	{}
 };
 

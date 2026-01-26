@@ -23,7 +23,7 @@ $FieldInfo _JceKeyStore$SecretKeyEntry_FieldInfo_[] = {
 };
 
 $MethodInfo _JceKeyStore$SecretKeyEntry_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(JceKeyStore$SecretKeyEntry::*)()>(&JceKeyStore$SecretKeyEntry::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(JceKeyStore$SecretKeyEntry, init$, void)},
 	{}
 };
 

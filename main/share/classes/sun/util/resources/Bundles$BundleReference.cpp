@@ -30,8 +30,8 @@ $MethodInfo _Bundles$BundleReference_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/util/ResourceBundle;Ljava/lang/ref/ReferenceQueue;Lsun/util/resources/Bundles$CacheKey;)V", "(Ljava/util/ResourceBundle;Ljava/lang/ref/ReferenceQueue<Ljava/lang/Object;>;Lsun/util/resources/Bundles$CacheKey;)V", 0, $method(static_cast<void(Bundles$BundleReference::*)($ResourceBundle*,$ReferenceQueue*,$Bundles$CacheKey*)>(&Bundles$BundleReference::init$))},
-	{"getCacheKey", "()Lsun/util/resources/Bundles$CacheKey;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/ResourceBundle;Ljava/lang/ref/ReferenceQueue;Lsun/util/resources/Bundles$CacheKey;)V", "(Ljava/util/ResourceBundle;Ljava/lang/ref/ReferenceQueue<Ljava/lang/Object;>;Lsun/util/resources/Bundles$CacheKey;)V", 0, $method(Bundles$BundleReference, init$, void, $ResourceBundle*, $ReferenceQueue*, $Bundles$CacheKey*)},
+	{"getCacheKey", "()Lsun/util/resources/Bundles$CacheKey;", nullptr, $PUBLIC, $virtualMethod(Bundles$BundleReference, getCacheKey, $Bundles$CacheKey*)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

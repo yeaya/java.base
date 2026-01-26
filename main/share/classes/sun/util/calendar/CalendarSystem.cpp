@@ -15,15 +15,19 @@
 #undef GREGORIAN_INSTANCE
 #undef PACKAGE_NAME
 
+using $EraArray = $Array<::sun::util::calendar::Era>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InternalError = ::java::lang::InternalError;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $TimeZone = ::java::util::TimeZone;
 using $ConcurrentHashMap = ::java::util::concurrent::ConcurrentHashMap;
 using $ConcurrentMap = ::java::util::concurrent::ConcurrentMap;
 using $AbstractCalendar = ::sun::util::calendar::AbstractCalendar;
 using $BaseCalendar = ::sun::util::calendar::BaseCalendar;
+using $CalendarDate = ::sun::util::calendar::CalendarDate;
+using $Era = ::sun::util::calendar::Era;
 using $Gregorian = ::sun::util::calendar::Gregorian;
 using $LocalGregorianCalendar = ::sun::util::calendar::LocalGregorianCalendar;
 
@@ -42,29 +46,29 @@ $FieldInfo _CalendarSystem_FieldInfo_[] = {
 };
 
 $MethodInfo _CalendarSystem_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CalendarSystem::*)()>(&CalendarSystem::init$))},
-	{"forName", "(Ljava/lang/String;)Lsun/util/calendar/CalendarSystem;", nullptr, $PUBLIC | $STATIC, $method(static_cast<CalendarSystem*(*)($String*)>(&CalendarSystem::forName))},
-	{"getCalendarDate", "()Lsun/util/calendar/CalendarDate;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getCalendarDate", "(J)Lsun/util/calendar/CalendarDate;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getCalendarDate", "(JLsun/util/calendar/CalendarDate;)Lsun/util/calendar/CalendarDate;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getCalendarDate", "(JLjava/util/TimeZone;)Lsun/util/calendar/CalendarDate;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getEra", "(Ljava/lang/String;)Lsun/util/calendar/Era;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getEras", "()[Lsun/util/calendar/Era;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getGregorianCalendar", "()Lsun/util/calendar/Gregorian;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Gregorian*(*)()>(&CalendarSystem::getGregorianCalendar))},
-	{"getMonthLength", "(Lsun/util/calendar/CalendarDate;)I", nullptr, $PUBLIC | $ABSTRACT},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getNthDayOfWeek", "(IILsun/util/calendar/CalendarDate;)Lsun/util/calendar/CalendarDate;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getTime", "(Lsun/util/calendar/CalendarDate;)J", nullptr, $PUBLIC | $ABSTRACT},
-	{"getWeekLength", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"getYearLength", "(Lsun/util/calendar/CalendarDate;)I", nullptr, $PUBLIC | $ABSTRACT},
-	{"getYearLengthInMonths", "(Lsun/util/calendar/CalendarDate;)I", nullptr, $PUBLIC | $ABSTRACT},
-	{"initNames", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&CalendarSystem::initNames))},
-	{"newCalendarDate", "()Lsun/util/calendar/CalendarDate;", nullptr, $PUBLIC | $ABSTRACT},
-	{"newCalendarDate", "(Ljava/util/TimeZone;)Lsun/util/calendar/CalendarDate;", nullptr, $PUBLIC | $ABSTRACT},
-	{"normalize", "(Lsun/util/calendar/CalendarDate;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"setEra", "(Lsun/util/calendar/CalendarDate;Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"setTimeOfDay", "(Lsun/util/calendar/CalendarDate;I)Lsun/util/calendar/CalendarDate;", nullptr, $PUBLIC | $ABSTRACT},
-	{"validate", "(Lsun/util/calendar/CalendarDate;)Z", nullptr, $PUBLIC | $ABSTRACT},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CalendarSystem, init$, void)},
+	{"forName", "(Ljava/lang/String;)Lsun/util/calendar/CalendarSystem;", nullptr, $PUBLIC | $STATIC, $staticMethod(CalendarSystem, forName, CalendarSystem*, $String*)},
+	{"getCalendarDate", "()Lsun/util/calendar/CalendarDate;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CalendarSystem, getCalendarDate, $CalendarDate*)},
+	{"getCalendarDate", "(J)Lsun/util/calendar/CalendarDate;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CalendarSystem, getCalendarDate, $CalendarDate*, int64_t)},
+	{"getCalendarDate", "(JLsun/util/calendar/CalendarDate;)Lsun/util/calendar/CalendarDate;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CalendarSystem, getCalendarDate, $CalendarDate*, int64_t, $CalendarDate*)},
+	{"getCalendarDate", "(JLjava/util/TimeZone;)Lsun/util/calendar/CalendarDate;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CalendarSystem, getCalendarDate, $CalendarDate*, int64_t, $TimeZone*)},
+	{"getEra", "(Ljava/lang/String;)Lsun/util/calendar/Era;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CalendarSystem, getEra, $Era*, $String*)},
+	{"getEras", "()[Lsun/util/calendar/Era;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CalendarSystem, getEras, $EraArray*)},
+	{"getGregorianCalendar", "()Lsun/util/calendar/Gregorian;", nullptr, $PUBLIC | $STATIC, $staticMethod(CalendarSystem, getGregorianCalendar, $Gregorian*)},
+	{"getMonthLength", "(Lsun/util/calendar/CalendarDate;)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CalendarSystem, getMonthLength, int32_t, $CalendarDate*)},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CalendarSystem, getName, $String*)},
+	{"getNthDayOfWeek", "(IILsun/util/calendar/CalendarDate;)Lsun/util/calendar/CalendarDate;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CalendarSystem, getNthDayOfWeek, $CalendarDate*, int32_t, int32_t, $CalendarDate*)},
+	{"getTime", "(Lsun/util/calendar/CalendarDate;)J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CalendarSystem, getTime, int64_t, $CalendarDate*)},
+	{"getWeekLength", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CalendarSystem, getWeekLength, int32_t)},
+	{"getYearLength", "(Lsun/util/calendar/CalendarDate;)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CalendarSystem, getYearLength, int32_t, $CalendarDate*)},
+	{"getYearLengthInMonths", "(Lsun/util/calendar/CalendarDate;)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CalendarSystem, getYearLengthInMonths, int32_t, $CalendarDate*)},
+	{"initNames", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(CalendarSystem, initNames, void)},
+	{"newCalendarDate", "()Lsun/util/calendar/CalendarDate;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CalendarSystem, newCalendarDate, $CalendarDate*)},
+	{"newCalendarDate", "(Ljava/util/TimeZone;)Lsun/util/calendar/CalendarDate;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CalendarSystem, newCalendarDate, $CalendarDate*, $TimeZone*)},
+	{"normalize", "(Lsun/util/calendar/CalendarDate;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CalendarSystem, normalize, bool, $CalendarDate*)},
+	{"setEra", "(Lsun/util/calendar/CalendarDate;Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CalendarSystem, setEra, void, $CalendarDate*, $String*)},
+	{"setTimeOfDay", "(Lsun/util/calendar/CalendarDate;I)Lsun/util/calendar/CalendarDate;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CalendarSystem, setTimeOfDay, $CalendarDate*, $CalendarDate*, int32_t)},
+	{"validate", "(Lsun/util/calendar/CalendarDate;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CalendarSystem, validate, bool, $CalendarDate*)},
 	{}
 };
 

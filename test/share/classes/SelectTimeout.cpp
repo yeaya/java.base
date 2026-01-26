@@ -63,8 +63,8 @@ $FieldInfo SelectTimeout$$Lambda$lambda$test$0::fieldInfos[5] = {
 	{}
 };
 $MethodInfo SelectTimeout$$Lambda$lambda$test$0::methodInfos[3] = {
-	{"<init>", "(Ljava/nio/channels/Selector;JLjava/util/concurrent/atomic/AtomicBoolean;Ljava/util/concurrent/atomic/AtomicReference;)V", nullptr, $PUBLIC, $method(static_cast<void(SelectTimeout$$Lambda$lambda$test$0::*)($Selector*,int64_t,$AtomicBoolean*,$AtomicReference*)>(&SelectTimeout$$Lambda$lambda$test$0::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/nio/channels/Selector;JLjava/util/concurrent/atomic/AtomicBoolean;Ljava/util/concurrent/atomic/AtomicReference;)V", nullptr, $PUBLIC, $method(SelectTimeout$$Lambda$lambda$test$0, init$, void, $Selector*, int64_t, $AtomicBoolean*, $AtomicReference*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(SelectTimeout$$Lambda$lambda$test$0, run, void)},
 	{}
 };
 $ClassInfo SelectTimeout$$Lambda$lambda$test$0::classInfo$ = {
@@ -89,10 +89,10 @@ $FieldInfo _SelectTimeout_FieldInfo_[] = {
 };
 
 $MethodInfo _SelectTimeout_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SelectTimeout::*)()>(&SelectTimeout::init$))},
-	{"lambda$test$0", "(Ljava/nio/channels/Selector;JLjava/util/concurrent/atomic/AtomicBoolean;Ljava/util/concurrent/atomic/AtomicReference;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($Selector*,int64_t,$AtomicBoolean*,$AtomicReference*)>(&SelectTimeout::lambda$test$0))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&SelectTimeout::main)), "java.io.IOException,java.lang.InterruptedException"},
-	{"test", "(J)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)(int64_t)>(&SelectTimeout::test)), "java.lang.InterruptedException,java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SelectTimeout, init$, void)},
+	{"lambda$test$0", "(Ljava/nio/channels/Selector;JLjava/util/concurrent/atomic/AtomicBoolean;Ljava/util/concurrent/atomic/AtomicReference;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SelectTimeout, lambda$test$0, void, $Selector*, int64_t, $AtomicBoolean*, $AtomicReference*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SelectTimeout, main, void, $StringArray*), "java.io.IOException,java.lang.InterruptedException"},
+	{"test", "(J)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(SelectTimeout, test, bool, int64_t), "java.lang.InterruptedException,java.io.IOException"},
 	{}
 };
 

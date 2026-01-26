@@ -34,18 +34,18 @@ $FieldInfo _DirectFloatBufferRS_FieldInfo_[] = {
 };
 
 $MethodInfo _DirectFloatBufferRS_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/ch/DirectBuffer;IIIIILjdk/internal/access/foreign/MemorySegmentProxy;)V", nullptr, 0, $method(static_cast<void(DirectFloatBufferRS::*)($DirectBuffer*,int32_t,int32_t,int32_t,int32_t,int32_t,$MemorySegmentProxy*)>(&DirectFloatBufferRS::init$))},
-	{"asReadOnlyBuffer", "()Ljava/nio/FloatBuffer;", nullptr, $PUBLIC},
-	{"base", "()Ljava/lang/Object;", nullptr, 0},
-	{"compact", "()Ljava/nio/FloatBuffer;", nullptr, $PUBLIC},
-	{"duplicate", "()Ljava/nio/FloatBuffer;", nullptr, $PUBLIC},
-	{"isDirect", "()Z", nullptr, $PUBLIC},
-	{"isReadOnly", "()Z", nullptr, $PUBLIC},
-	{"order", "()Ljava/nio/ByteOrder;", nullptr, $PUBLIC},
-	{"put", "(F)Ljava/nio/FloatBuffer;", nullptr, $PUBLIC},
-	{"put", "(IF)Ljava/nio/FloatBuffer;", nullptr, $PUBLIC},
-	{"slice", "()Ljava/nio/FloatBuffer;", nullptr, $PUBLIC},
-	{"slice", "(II)Ljava/nio/FloatBuffer;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/nio/ch/DirectBuffer;IIIIILjdk/internal/access/foreign/MemorySegmentProxy;)V", nullptr, 0, $method(DirectFloatBufferRS, init$, void, $DirectBuffer*, int32_t, int32_t, int32_t, int32_t, int32_t, $MemorySegmentProxy*)},
+	{"asReadOnlyBuffer", "()Ljava/nio/FloatBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectFloatBufferRS, asReadOnlyBuffer, $FloatBuffer*)},
+	{"base", "()Ljava/lang/Object;", nullptr, 0, $virtualMethod(DirectFloatBufferRS, base, $Object*)},
+	{"compact", "()Ljava/nio/FloatBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectFloatBufferRS, compact, $FloatBuffer*)},
+	{"duplicate", "()Ljava/nio/FloatBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectFloatBufferRS, duplicate, $FloatBuffer*)},
+	{"isDirect", "()Z", nullptr, $PUBLIC, $virtualMethod(DirectFloatBufferRS, isDirect, bool)},
+	{"isReadOnly", "()Z", nullptr, $PUBLIC, $virtualMethod(DirectFloatBufferRS, isReadOnly, bool)},
+	{"order", "()Ljava/nio/ByteOrder;", nullptr, $PUBLIC, $virtualMethod(DirectFloatBufferRS, order, $ByteOrder*)},
+	{"put", "(F)Ljava/nio/FloatBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectFloatBufferRS, put, $FloatBuffer*, float)},
+	{"put", "(IF)Ljava/nio/FloatBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectFloatBufferRS, put, $FloatBuffer*, int32_t, float)},
+	{"slice", "()Ljava/nio/FloatBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectFloatBufferRS, slice, $FloatBuffer*)},
+	{"slice", "(II)Ljava/nio/FloatBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectFloatBufferRS, slice, $FloatBuffer*, int32_t, int32_t)},
 	{}
 };
 

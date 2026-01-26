@@ -27,11 +27,11 @@ $FieldInfo _CustomColors_FieldInfo_[] = {
 };
 
 $MethodInfo _CustomColors_MethodInfo_[] = {
-	{"$values", "()[LCustomColors;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$CustomColorsArray*(*)()>(&CustomColors::$values))},
-	{"<init>", "(Ljava/lang/String;II)V", "(I)V", $PRIVATE, $method(static_cast<void(CustomColors::*)($String*,int32_t,int32_t)>(&CustomColors::init$)), nullptr, nullptr, nullptr, nullptr, _CustomColors_MethodParamAnnotations_init$1},
-	{"<init>", "(Ljava/lang/String;ID)V", "(D)V", $PRIVATE, $method(static_cast<void(CustomColors::*)($String*,int32_t,double)>(&CustomColors::init$))},
-	{"valueOf", "(Ljava/lang/String;)LCustomColors;", nullptr, $PUBLIC | $STATIC, $method(static_cast<CustomColors*(*)($String*)>(&CustomColors::valueOf))},
-	{"values", "()[LCustomColors;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$CustomColorsArray*(*)()>(&CustomColors::values))},
+	{"$values", "()[LCustomColors;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CustomColors, $values, $CustomColorsArray*)},
+	{"<init>", "(Ljava/lang/String;II)V", "(I)V", $PRIVATE, $method(CustomColors, init$, void, $String*, int32_t, int32_t), nullptr, nullptr, nullptr, nullptr, _CustomColors_MethodParamAnnotations_init$1},
+	{"<init>", "(Ljava/lang/String;ID)V", "(D)V", $PRIVATE, $method(CustomColors, init$, void, $String*, int32_t, double)},
+	{"valueOf", "(Ljava/lang/String;)LCustomColors;", nullptr, $PUBLIC | $STATIC, $staticMethod(CustomColors, valueOf, CustomColors*, $String*)},
+	{"values", "()[LCustomColors;", nullptr, $PUBLIC | $STATIC, $staticMethod(CustomColors, values, $CustomColorsArray*)},
 	{}
 };
 

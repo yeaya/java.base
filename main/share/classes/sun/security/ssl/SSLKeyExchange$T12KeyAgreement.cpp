@@ -85,20 +85,20 @@ $FieldInfo _SSLKeyExchange$T12KeyAgreement_FieldInfo_[] = {
 };
 
 $MethodInfo _SSLKeyExchange$T12KeyAgreement_MethodInfo_[] = {
-	{"$values", "()[Lsun/security/ssl/SSLKeyExchange$T12KeyAgreement;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$SSLKeyExchange$T12KeyAgreementArray*(*)()>(&SSLKeyExchange$T12KeyAgreement::$values))},
+	{"$values", "()[Lsun/security/ssl/SSLKeyExchange$T12KeyAgreement;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SSLKeyExchange$T12KeyAgreement, $values, $SSLKeyExchange$T12KeyAgreementArray*)},
 	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
 	{"*finalize", "()V", nullptr, $PROTECTED | $FINAL},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;Lsun/security/ssl/SSLPossessionGenerator;Lsun/security/ssl/SSLKeyAgreementGenerator;)V", "(Ljava/lang/String;Lsun/security/ssl/SSLPossessionGenerator;Lsun/security/ssl/SSLKeyAgreementGenerator;)V", $PRIVATE, $method(static_cast<void(SSLKeyExchange$T12KeyAgreement::*)($String*,int32_t,$String*,$SSLPossessionGenerator*,$SSLKeyAgreementGenerator*)>(&SSLKeyExchange$T12KeyAgreement::init$))},
-	{"createKeyDerivation", "(Lsun/security/ssl/HandshakeContext;)Lsun/security/ssl/SSLKeyDerivation;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"createPossession", "(Lsun/security/ssl/HandshakeContext;)Lsun/security/ssl/SSLPossession;", nullptr, $PUBLIC},
-	{"getHandshakeConsumers", "(Lsun/security/ssl/HandshakeContext;)[Ljava/util/Map$Entry;", "(Lsun/security/ssl/HandshakeContext;)[Ljava/util/Map$Entry<Ljava/lang/Byte;Lsun/security/ssl/SSLConsumer;>;", $PUBLIC},
-	{"getHandshakeProducers", "(Lsun/security/ssl/HandshakeContext;)[Ljava/util/Map$Entry;", "(Lsun/security/ssl/HandshakeContext;)[Ljava/util/Map$Entry<Ljava/lang/Byte;Lsun/security/ssl/HandshakeProducer;>;", $PUBLIC},
-	{"getRelatedHandshakers", "(Lsun/security/ssl/HandshakeContext;)[Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;ILjava/lang/String;Lsun/security/ssl/SSLPossessionGenerator;Lsun/security/ssl/SSLKeyAgreementGenerator;)V", "(Ljava/lang/String;Lsun/security/ssl/SSLPossessionGenerator;Lsun/security/ssl/SSLKeyAgreementGenerator;)V", $PRIVATE, $method(SSLKeyExchange$T12KeyAgreement, init$, void, $String*, int32_t, $String*, $SSLPossessionGenerator*, $SSLKeyAgreementGenerator*)},
+	{"createKeyDerivation", "(Lsun/security/ssl/HandshakeContext;)Lsun/security/ssl/SSLKeyDerivation;", nullptr, $PUBLIC, $virtualMethod(SSLKeyExchange$T12KeyAgreement, createKeyDerivation, $SSLKeyDerivation*, $HandshakeContext*), "java.io.IOException"},
+	{"createPossession", "(Lsun/security/ssl/HandshakeContext;)Lsun/security/ssl/SSLPossession;", nullptr, $PUBLIC, $virtualMethod(SSLKeyExchange$T12KeyAgreement, createPossession, $SSLPossession*, $HandshakeContext*)},
+	{"getHandshakeConsumers", "(Lsun/security/ssl/HandshakeContext;)[Ljava/util/Map$Entry;", "(Lsun/security/ssl/HandshakeContext;)[Ljava/util/Map$Entry<Ljava/lang/Byte;Lsun/security/ssl/SSLConsumer;>;", $PUBLIC, $virtualMethod(SSLKeyExchange$T12KeyAgreement, getHandshakeConsumers, $Map$EntryArray*, $HandshakeContext*)},
+	{"getHandshakeProducers", "(Lsun/security/ssl/HandshakeContext;)[Ljava/util/Map$Entry;", "(Lsun/security/ssl/HandshakeContext;)[Ljava/util/Map$Entry<Ljava/lang/Byte;Lsun/security/ssl/HandshakeProducer;>;", $PUBLIC, $virtualMethod(SSLKeyExchange$T12KeyAgreement, getHandshakeProducers, $Map$EntryArray*, $HandshakeContext*)},
+	{"getRelatedHandshakers", "(Lsun/security/ssl/HandshakeContext;)[Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC, $virtualMethod(SSLKeyExchange$T12KeyAgreement, getRelatedHandshakers, $SSLHandshakeArray*, $HandshakeContext*)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"valueOf", "(Ljava/lang/String;)Lsun/security/ssl/SSLKeyExchange$T12KeyAgreement;", nullptr, $PUBLIC | $STATIC, $method(static_cast<SSLKeyExchange$T12KeyAgreement*(*)($String*)>(&SSLKeyExchange$T12KeyAgreement::valueOf))},
-	{"values", "()[Lsun/security/ssl/SSLKeyExchange$T12KeyAgreement;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$SSLKeyExchange$T12KeyAgreementArray*(*)()>(&SSLKeyExchange$T12KeyAgreement::values))},
+	{"valueOf", "(Ljava/lang/String;)Lsun/security/ssl/SSLKeyExchange$T12KeyAgreement;", nullptr, $PUBLIC | $STATIC, $staticMethod(SSLKeyExchange$T12KeyAgreement, valueOf, SSLKeyExchange$T12KeyAgreement*, $String*)},
+	{"values", "()[Lsun/security/ssl/SSLKeyExchange$T12KeyAgreement;", nullptr, $PUBLIC | $STATIC, $staticMethod(SSLKeyExchange$T12KeyAgreement, values, $SSLKeyExchange$T12KeyAgreementArray*)},
 	{}
 };
 

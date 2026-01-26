@@ -38,12 +38,12 @@ $FieldInfo _IntegralValueTests_FieldInfo_[] = {
 };
 
 $MethodInfo _IntegralValueTests_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(IntegralValueTests::*)()>(&IntegralValueTests::init$))},
-	{"integralValuesTest", "(Ljava/util/Map;Z)I", "(Ljava/util/Map<Ljava/math/BigDecimal;Ljava/lang/Number;>;Z)I", $PRIVATE | $STATIC, $method(static_cast<int32_t(*)($Map*,bool)>(&IntegralValueTests::integralValuesTest))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<void(*)($StringArray*)>(&IntegralValueTests::main))},
-	{"reportError", "(Ljava/math/BigDecimal;Ljava/lang/Number;JZ)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)($BigDecimal*,$Number*,int64_t,bool)>(&IntegralValueTests::reportError))},
-	{"simpleIntValue", "(Ljava/math/BigDecimal;)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)($BigDecimal*)>(&IntegralValueTests::simpleIntValue))},
-	{"simpleLongValue", "(Ljava/math/BigDecimal;)J", nullptr, $PRIVATE | $STATIC, $method(static_cast<int64_t(*)($BigDecimal*)>(&IntegralValueTests::simpleLongValue))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(IntegralValueTests, init$, void)},
+	{"integralValuesTest", "(Ljava/util/Map;Z)I", "(Ljava/util/Map<Ljava/math/BigDecimal;Ljava/lang/Number;>;Z)I", $PRIVATE | $STATIC, $staticMethod(IntegralValueTests, integralValuesTest, int32_t, $Map*, bool)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(IntegralValueTests, main, void, $StringArray*)},
+	{"reportError", "(Ljava/math/BigDecimal;Ljava/lang/Number;JZ)I", nullptr, $PRIVATE | $STATIC, $staticMethod(IntegralValueTests, reportError, int32_t, $BigDecimal*, $Number*, int64_t, bool)},
+	{"simpleIntValue", "(Ljava/math/BigDecimal;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(IntegralValueTests, simpleIntValue, int32_t, $BigDecimal*)},
+	{"simpleLongValue", "(Ljava/math/BigDecimal;)J", nullptr, $PRIVATE | $STATIC, $staticMethod(IntegralValueTests, simpleLongValue, int64_t, $BigDecimal*)},
 	{}
 };
 

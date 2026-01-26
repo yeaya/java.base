@@ -19,9 +19,9 @@ $FieldInfo _UnknownFormatConversionException_FieldInfo_[] = {
 };
 
 $MethodInfo _UnknownFormatConversionException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(UnknownFormatConversionException::*)($String*)>(&UnknownFormatConversionException::init$))},
-	{"getConversion", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(UnknownFormatConversionException, init$, void, $String*)},
+	{"getConversion", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UnknownFormatConversionException, getConversion, $String*)},
+	{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UnknownFormatConversionException, getMessage, $String*)},
 	{}
 };
 

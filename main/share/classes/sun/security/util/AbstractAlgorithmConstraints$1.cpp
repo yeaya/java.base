@@ -21,8 +21,8 @@ $FieldInfo _AbstractAlgorithmConstraints$1_FieldInfo_[] = {
 };
 
 $MethodInfo _AbstractAlgorithmConstraints$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", "()V", 0, $method(static_cast<void(AbstractAlgorithmConstraints$1::*)($String*)>(&AbstractAlgorithmConstraints$1::init$))},
-	{"run", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", "()V", 0, $method(AbstractAlgorithmConstraints$1, init$, void, $String*)},
+	{"run", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractAlgorithmConstraints$1, run, $Object*)},
 	{}
 };
 

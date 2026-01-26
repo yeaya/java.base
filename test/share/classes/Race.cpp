@@ -34,8 +34,8 @@ $FieldInfo _Race_FieldInfo_[] = {
 };
 
 $MethodInfo _Race_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Race::*)()>(&Race::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Race::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Race, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Race, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

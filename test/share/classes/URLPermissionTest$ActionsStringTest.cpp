@@ -19,8 +19,8 @@ $FieldInfo _URLPermissionTest$ActionsStringTest_FieldInfo_[] = {
 };
 
 $MethodInfo _URLPermissionTest$ActionsStringTest_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(URLPermissionTest$ActionsStringTest::*)($String*,$String*)>(&URLPermissionTest$ActionsStringTest::init$))},
-	{"execute", "()Z", nullptr, 0},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(URLPermissionTest$ActionsStringTest, init$, void, $String*, $String*)},
+	{"execute", "()Z", nullptr, 0, $virtualMethod(URLPermissionTest$ActionsStringTest, execute, bool)},
 	{}
 };
 

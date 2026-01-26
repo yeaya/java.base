@@ -13,7 +13,7 @@ namespace jdk {
 			namespace vector {
 
 $MethodInfo _VectorSupport$VecInsertOp_MethodInfo_[] = {
-	{"apply", "(Ljava/lang/Object;IJ)Ljava/lang/Object;", "(TV;IJ)TV;", $PUBLIC | $ABSTRACT},
+	{"apply", "(Ljava/lang/Object;IJ)Ljava/lang/Object;", "(TV;IJ)TV;", $PUBLIC | $ABSTRACT, $virtualMethod(VectorSupport$VecInsertOp, apply, $Object*, Object$*, int32_t, int64_t)},
 	{}
 };
 

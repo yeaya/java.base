@@ -21,8 +21,8 @@ $FieldInfo _LastErrorString$ClosedFISTest_FieldInfo_[] = {
 };
 
 $MethodInfo _LastErrorString$ClosedFISTest_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(LastErrorString$ClosedFISTest::*)($String*)>(&LastErrorString$ClosedFISTest::init$))},
-	{"go", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(LastErrorString$ClosedFISTest, init$, void, $String*)},
+	{"go", "()V", nullptr, $PUBLIC, $virtualMethod(LastErrorString$ClosedFISTest, go, void), "java.io.IOException"},
 	{}
 };
 

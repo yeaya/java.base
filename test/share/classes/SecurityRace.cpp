@@ -36,10 +36,10 @@ $FieldInfo _SecurityRace_FieldInfo_[] = {
 };
 
 $MethodInfo _SecurityRace_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SecurityRace::*)()>(&SecurityRace::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&SecurityRace::main)), "java.lang.Exception"},
-	{"run", "()V", nullptr, $PUBLIC},
-	{"timeit", "(III)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)(int32_t,int32_t,int32_t)>(&SecurityRace::timeit))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SecurityRace, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SecurityRace, main, void, $StringArray*), "java.lang.Exception"},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(SecurityRace, run, void)},
+	{"timeit", "(III)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SecurityRace, timeit, void, int32_t, int32_t, int32_t)},
 	{}
 };
 

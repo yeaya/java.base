@@ -25,8 +25,8 @@ $FieldInfo _InfoFromMemberName$1_FieldInfo_[] = {
 };
 
 $MethodInfo _InfoFromMemberName$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/invoke/InfoFromMemberName;)V", nullptr, 0, $method(static_cast<void(InfoFromMemberName$1::*)($InfoFromMemberName*)>(&InfoFromMemberName$1::init$))},
-	{"run", "()Ljava/lang/reflect/Member;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/invoke/InfoFromMemberName;)V", nullptr, 0, $method(InfoFromMemberName$1, init$, void, $InfoFromMemberName*)},
+	{"run", "()Ljava/lang/reflect/Member;", nullptr, $PUBLIC, $virtualMethod(InfoFromMemberName$1, run, $Object*)},
 	{}
 };
 

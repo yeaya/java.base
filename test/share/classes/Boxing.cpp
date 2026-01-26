@@ -36,10 +36,10 @@ $FieldInfo _Boxing_FieldInfo_[] = {
 };
 
 $MethodInfo _Boxing_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Boxing::*)()>(&Boxing::init$))},
-	{"identityToString", "(Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)(Object$*)>(&Boxing::identityToString))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Boxing::main))},
-	{"run", "()V", nullptr, $PRIVATE, $method(static_cast<void(Boxing::*)()>(&Boxing::run))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Boxing, init$, void)},
+	{"identityToString", "(Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Boxing, identityToString, $String*, Object$*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Boxing, main, void, $StringArray*)},
+	{"run", "()V", nullptr, $PRIVATE, $method(Boxing, run, void)},
 	{}
 };
 

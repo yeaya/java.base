@@ -34,18 +34,18 @@ $FieldInfo _DirectShortBufferRU_FieldInfo_[] = {
 };
 
 $MethodInfo _DirectShortBufferRU_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/ch/DirectBuffer;IIIIILjdk/internal/access/foreign/MemorySegmentProxy;)V", nullptr, 0, $method(static_cast<void(DirectShortBufferRU::*)($DirectBuffer*,int32_t,int32_t,int32_t,int32_t,int32_t,$MemorySegmentProxy*)>(&DirectShortBufferRU::init$))},
-	{"asReadOnlyBuffer", "()Ljava/nio/ShortBuffer;", nullptr, $PUBLIC},
-	{"base", "()Ljava/lang/Object;", nullptr, 0},
-	{"compact", "()Ljava/nio/ShortBuffer;", nullptr, $PUBLIC},
-	{"duplicate", "()Ljava/nio/ShortBuffer;", nullptr, $PUBLIC},
-	{"isDirect", "()Z", nullptr, $PUBLIC},
-	{"isReadOnly", "()Z", nullptr, $PUBLIC},
-	{"order", "()Ljava/nio/ByteOrder;", nullptr, $PUBLIC},
-	{"put", "(S)Ljava/nio/ShortBuffer;", nullptr, $PUBLIC},
-	{"put", "(IS)Ljava/nio/ShortBuffer;", nullptr, $PUBLIC},
-	{"slice", "()Ljava/nio/ShortBuffer;", nullptr, $PUBLIC},
-	{"slice", "(II)Ljava/nio/ShortBuffer;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/nio/ch/DirectBuffer;IIIIILjdk/internal/access/foreign/MemorySegmentProxy;)V", nullptr, 0, $method(DirectShortBufferRU, init$, void, $DirectBuffer*, int32_t, int32_t, int32_t, int32_t, int32_t, $MemorySegmentProxy*)},
+	{"asReadOnlyBuffer", "()Ljava/nio/ShortBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectShortBufferRU, asReadOnlyBuffer, $ShortBuffer*)},
+	{"base", "()Ljava/lang/Object;", nullptr, 0, $virtualMethod(DirectShortBufferRU, base, $Object*)},
+	{"compact", "()Ljava/nio/ShortBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectShortBufferRU, compact, $ShortBuffer*)},
+	{"duplicate", "()Ljava/nio/ShortBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectShortBufferRU, duplicate, $ShortBuffer*)},
+	{"isDirect", "()Z", nullptr, $PUBLIC, $virtualMethod(DirectShortBufferRU, isDirect, bool)},
+	{"isReadOnly", "()Z", nullptr, $PUBLIC, $virtualMethod(DirectShortBufferRU, isReadOnly, bool)},
+	{"order", "()Ljava/nio/ByteOrder;", nullptr, $PUBLIC, $virtualMethod(DirectShortBufferRU, order, $ByteOrder*)},
+	{"put", "(S)Ljava/nio/ShortBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectShortBufferRU, put, $ShortBuffer*, int16_t)},
+	{"put", "(IS)Ljava/nio/ShortBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectShortBufferRU, put, $ShortBuffer*, int32_t, int16_t)},
+	{"slice", "()Ljava/nio/ShortBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectShortBufferRU, slice, $ShortBuffer*)},
+	{"slice", "(II)Ljava/nio/ShortBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectShortBufferRU, slice, $ShortBuffer*, int32_t, int32_t)},
 	{}
 };
 

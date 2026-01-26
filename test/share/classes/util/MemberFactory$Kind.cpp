@@ -32,15 +32,15 @@ $FieldInfo _MemberFactory$Kind_FieldInfo_[] = {
 };
 
 $MethodInfo _MemberFactory$Kind_MethodInfo_[] = {
-	{"$values", "()[Lutil/MemberFactory$Kind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$MemberFactory$KindArray*(*)()>(&MemberFactory$Kind::$values))},
+	{"$values", "()[Lutil/MemberFactory$Kind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MemberFactory$Kind, $values, $MemberFactory$KindArray*)},
 	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
 	{"*finalize", "()V", nullptr, $PROTECTED | $FINAL},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(MemberFactory$Kind::*)($String*,int32_t)>(&MemberFactory$Kind::init$))},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(MemberFactory$Kind, init$, void, $String*, int32_t)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"valueOf", "(Ljava/lang/String;)Lutil/MemberFactory$Kind;", nullptr, $PUBLIC | $STATIC, $method(static_cast<MemberFactory$Kind*(*)($String*)>(&MemberFactory$Kind::valueOf))},
-	{"values", "()[Lutil/MemberFactory$Kind;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$MemberFactory$KindArray*(*)()>(&MemberFactory$Kind::values))},
+	{"valueOf", "(Ljava/lang/String;)Lutil/MemberFactory$Kind;", nullptr, $PUBLIC | $STATIC, $staticMethod(MemberFactory$Kind, valueOf, MemberFactory$Kind*, $String*)},
+	{"values", "()[Lutil/MemberFactory$Kind;", nullptr, $PUBLIC | $STATIC, $staticMethod(MemberFactory$Kind, values, $MemberFactory$KindArray*)},
 	{}
 };
 

@@ -19,7 +19,7 @@ $FieldInfo _DirectMethodHandle$Holder_FieldInfo_[] = {
 };
 
 $MethodInfo _DirectMethodHandle$Holder_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/invoke/DirectMethodHandle;)V", nullptr, 0, $method(static_cast<void(DirectMethodHandle$Holder::*)($DirectMethodHandle*)>(&DirectMethodHandle$Holder::init$))},
+	{"<init>", "(Ljava/lang/invoke/DirectMethodHandle;)V", nullptr, 0, $method(DirectMethodHandle$Holder, init$, void, $DirectMethodHandle*)},
 	{}
 };
 

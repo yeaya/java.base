@@ -12,8 +12,8 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $URLEncoder = ::java::net::URLEncoder;
 
 $MethodInfo _URLEncoderEncodeArgs_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(URLEncoderEncodeArgs::*)()>(&URLEncoderEncodeArgs::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&URLEncoderEncodeArgs::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(URLEncoderEncodeArgs, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(URLEncoderEncodeArgs, main, void, $StringArray*)},
 	{}
 };
 

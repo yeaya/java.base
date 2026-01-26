@@ -30,10 +30,10 @@ $FieldInfo _DomainLoadStoreParameter_FieldInfo_[] = {
 };
 
 $MethodInfo _DomainLoadStoreParameter_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/URI;Ljava/util/Map;)V", "(Ljava/net/URI;Ljava/util/Map<Ljava/lang/String;Ljava/security/KeyStore$ProtectionParameter;>;)V", $PUBLIC, $method(static_cast<void(DomainLoadStoreParameter::*)($URI*,$Map*)>(&DomainLoadStoreParameter::init$))},
-	{"getConfiguration", "()Ljava/net/URI;", nullptr, $PUBLIC, $method(static_cast<$URI*(DomainLoadStoreParameter::*)()>(&DomainLoadStoreParameter::getConfiguration))},
-	{"getProtectionParameter", "()Ljava/security/KeyStore$ProtectionParameter;", nullptr, $PUBLIC},
-	{"getProtectionParams", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/security/KeyStore$ProtectionParameter;>;", $PUBLIC, $method(static_cast<$Map*(DomainLoadStoreParameter::*)()>(&DomainLoadStoreParameter::getProtectionParams))},
+	{"<init>", "(Ljava/net/URI;Ljava/util/Map;)V", "(Ljava/net/URI;Ljava/util/Map<Ljava/lang/String;Ljava/security/KeyStore$ProtectionParameter;>;)V", $PUBLIC, $method(DomainLoadStoreParameter, init$, void, $URI*, $Map*)},
+	{"getConfiguration", "()Ljava/net/URI;", nullptr, $PUBLIC, $method(DomainLoadStoreParameter, getConfiguration, $URI*)},
+	{"getProtectionParameter", "()Ljava/security/KeyStore$ProtectionParameter;", nullptr, $PUBLIC, $virtualMethod(DomainLoadStoreParameter, getProtectionParameter, $KeyStore$ProtectionParameter*)},
+	{"getProtectionParams", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/security/KeyStore$ProtectionParameter;>;", $PUBLIC, $method(DomainLoadStoreParameter, getProtectionParams, $Map*)},
 	{}
 };
 

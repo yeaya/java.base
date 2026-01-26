@@ -105,9 +105,9 @@ $FieldInfo _ImplicitStringConcatBoundaries_FieldInfo_[] = {
 };
 
 $MethodInfo _ImplicitStringConcatBoundaries_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ImplicitStringConcatBoundaries::*)()>(&ImplicitStringConcatBoundaries::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&ImplicitStringConcatBoundaries::main)), "java.lang.Exception"},
-	{"test", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($String*,$String*)>(&ImplicitStringConcatBoundaries::test))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ImplicitStringConcatBoundaries, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ImplicitStringConcatBoundaries, main, void, $StringArray*), "java.lang.Exception"},
+	{"test", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ImplicitStringConcatBoundaries, test, void, $String*, $String*)},
 	{}
 };
 

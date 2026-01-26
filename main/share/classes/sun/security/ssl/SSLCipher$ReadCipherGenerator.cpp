@@ -12,13 +12,20 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Key = ::java::security::Key;
+using $SecureRandom = ::java::security::SecureRandom;
+using $AlgorithmParameterSpec = ::java::security::spec::AlgorithmParameterSpec;
+using $Authenticator = ::sun::security::ssl::Authenticator;
+using $ProtocolVersion = ::sun::security::ssl::ProtocolVersion;
+using $SSLCipher = ::sun::security::ssl::SSLCipher;
+using $SSLCipher$SSLReadCipher = ::sun::security::ssl::SSLCipher$SSLReadCipher;
 
 namespace sun {
 	namespace security {
 		namespace ssl {
 
 $MethodInfo _SSLCipher$ReadCipherGenerator_MethodInfo_[] = {
-	{"createCipher", "(Lsun/security/ssl/SSLCipher;Lsun/security/ssl/Authenticator;Lsun/security/ssl/ProtocolVersion;Ljava/lang/String;Ljava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)Lsun/security/ssl/SSLCipher$SSLReadCipher;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.security.GeneralSecurityException"},
+	{"createCipher", "(Lsun/security/ssl/SSLCipher;Lsun/security/ssl/Authenticator;Lsun/security/ssl/ProtocolVersion;Ljava/lang/String;Ljava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)Lsun/security/ssl/SSLCipher$SSLReadCipher;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SSLCipher$ReadCipherGenerator, createCipher, $SSLCipher$SSLReadCipher*, $SSLCipher*, $Authenticator*, $ProtocolVersion*, $String*, $Key*, $AlgorithmParameterSpec*, $SecureRandom*), "java.security.GeneralSecurityException"},
 	{}
 };
 

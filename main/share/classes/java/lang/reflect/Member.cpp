@@ -20,10 +20,10 @@ $FieldInfo _Member_FieldInfo_[] = {
 };
 
 $MethodInfo _Member_MethodInfo_[] = {
-	{"getDeclaringClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC | $ABSTRACT},
-	{"getModifiers", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"isSynthetic", "()Z", nullptr, $PUBLIC | $ABSTRACT},
+	{"getDeclaringClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC | $ABSTRACT, $virtualMethod(Member, getDeclaringClass, $Class*)},
+	{"getModifiers", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Member, getModifiers, int32_t)},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Member, getName, $String*)},
+	{"isSynthetic", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Member, isSynthetic, bool)},
 	{}
 };
 

@@ -29,14 +29,14 @@ $FieldInfo _Clock$SystemInstantSource_FieldInfo_[] = {
 $MethodInfo _Clock$SystemInstantSource_MethodInfo_[] = {
 	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Clock$SystemInstantSource::*)()>(&Clock$SystemInstantSource::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"instant", "()Ljava/time/Instant;", nullptr, $PUBLIC},
-	{"millis", "()J", nullptr, $PUBLIC},
-	{"readResolve", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(static_cast<$Object*(Clock$SystemInstantSource::*)()>(&Clock$SystemInstantSource::readResolve)), "java.io.ObjectStreamException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"withZone", "(Ljava/time/ZoneId;)Ljava/time/Clock;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(Clock$SystemInstantSource, init$, void)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Clock$SystemInstantSource, equals, bool, Object$*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Clock$SystemInstantSource, hashCode, int32_t)},
+	{"instant", "()Ljava/time/Instant;", nullptr, $PUBLIC, $virtualMethod(Clock$SystemInstantSource, instant, $Instant*)},
+	{"millis", "()J", nullptr, $PUBLIC, $virtualMethod(Clock$SystemInstantSource, millis, int64_t)},
+	{"readResolve", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(Clock$SystemInstantSource, readResolve, $Object*), "java.io.ObjectStreamException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Clock$SystemInstantSource, toString, $String*)},
+	{"withZone", "(Ljava/time/ZoneId;)Ljava/time/Clock;", nullptr, $PUBLIC, $virtualMethod(Clock$SystemInstantSource, withZone, $Clock*, $ZoneId*)},
 	{}
 };
 

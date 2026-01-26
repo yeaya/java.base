@@ -25,11 +25,11 @@ $FieldInfo _MappedByteBuffer$1_FieldInfo_[] = {
 };
 
 $MethodInfo _MappedByteBuffer$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/MappedByteBuffer;)V", nullptr, 0, $method(static_cast<void(MappedByteBuffer$1::*)($MappedByteBuffer*)>(&MappedByteBuffer$1::init$))},
-	{"address", "()J", nullptr, $PUBLIC},
-	{"fileDescriptor", "()Ljava/io/FileDescriptor;", nullptr, $PUBLIC},
-	{"isSync", "()Z", nullptr, $PUBLIC},
-	{"unmap", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/nio/MappedByteBuffer;)V", nullptr, 0, $method(MappedByteBuffer$1, init$, void, $MappedByteBuffer*)},
+	{"address", "()J", nullptr, $PUBLIC, $virtualMethod(MappedByteBuffer$1, address, int64_t)},
+	{"fileDescriptor", "()Ljava/io/FileDescriptor;", nullptr, $PUBLIC, $virtualMethod(MappedByteBuffer$1, fileDescriptor, $FileDescriptor*)},
+	{"isSync", "()Z", nullptr, $PUBLIC, $virtualMethod(MappedByteBuffer$1, isSync, bool)},
+	{"unmap", "()V", nullptr, $PUBLIC, $virtualMethod(MappedByteBuffer$1, unmap, void)},
 	{}
 };
 

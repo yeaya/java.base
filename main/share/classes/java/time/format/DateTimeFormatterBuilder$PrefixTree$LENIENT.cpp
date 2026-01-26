@@ -19,11 +19,11 @@ namespace java {
 		namespace format {
 
 $MethodInfo _DateTimeFormatterBuilder$PrefixTree$LENIENT_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/time/format/DateTimeFormatterBuilder$PrefixTree;)V", nullptr, $PRIVATE, $method(static_cast<void(DateTimeFormatterBuilder$PrefixTree$LENIENT::*)($String*,$String*,$DateTimeFormatterBuilder$PrefixTree*)>(&DateTimeFormatterBuilder$PrefixTree$LENIENT::init$))},
-	{"isLenientChar", "(C)Z", nullptr, $PRIVATE, $method(static_cast<bool(DateTimeFormatterBuilder$PrefixTree$LENIENT::*)(char16_t)>(&DateTimeFormatterBuilder$PrefixTree$LENIENT::isLenientChar))},
-	{"match", "(Ljava/lang/CharSequence;Ljava/text/ParsePosition;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"newNode", "(Ljava/lang/String;Ljava/lang/String;Ljava/time/format/DateTimeFormatterBuilder$PrefixTree;)Ljava/time/format/DateTimeFormatterBuilder$PrefixTree$CI;", nullptr, $PROTECTED},
-	{"toKey", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PROTECTED},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/time/format/DateTimeFormatterBuilder$PrefixTree;)V", nullptr, $PRIVATE, $method(DateTimeFormatterBuilder$PrefixTree$LENIENT, init$, void, $String*, $String*, $DateTimeFormatterBuilder$PrefixTree*)},
+	{"isLenientChar", "(C)Z", nullptr, $PRIVATE, $method(DateTimeFormatterBuilder$PrefixTree$LENIENT, isLenientChar, bool, char16_t)},
+	{"match", "(Ljava/lang/CharSequence;Ljava/text/ParsePosition;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$PrefixTree$LENIENT, match, $String*, $CharSequence*, $ParsePosition*)},
+	{"newNode", "(Ljava/lang/String;Ljava/lang/String;Ljava/time/format/DateTimeFormatterBuilder$PrefixTree;)Ljava/time/format/DateTimeFormatterBuilder$PrefixTree$CI;", nullptr, $PROTECTED, $virtualMethod(DateTimeFormatterBuilder$PrefixTree$LENIENT, newNode, $DateTimeFormatterBuilder$PrefixTree$CI*, $String*, $String*, $DateTimeFormatterBuilder$PrefixTree*)},
+	{"toKey", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(DateTimeFormatterBuilder$PrefixTree$LENIENT, toKey, $String*, $String*)},
 	{}
 };
 

@@ -80,7 +80,7 @@ $CompoundAttribute _emptyArrayTypesClass_Annotations_[] = {
 };
 
 $MethodInfo _emptyArrayTypesClass_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(emptyArrayTypesClass::*)()>(&emptyArrayTypesClass::init$))},
+	{"<init>", "()V", nullptr, 0, $method(emptyArrayTypesClass, init$, void)},
 	{}
 };
 

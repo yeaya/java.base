@@ -17,9 +17,9 @@ namespace sun {
 		namespace fs {
 
 $MethodInfo _WindowsFileAttributeViews_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(WindowsFileAttributeViews::*)()>(&WindowsFileAttributeViews::init$))},
-	{"createBasicView", "(Lsun/nio/fs/WindowsPath;Z)Lsun/nio/fs/WindowsFileAttributeViews$Basic;", nullptr, $STATIC, $method(static_cast<$WindowsFileAttributeViews$Basic*(*)($WindowsPath*,bool)>(&WindowsFileAttributeViews::createBasicView))},
-	{"createDosView", "(Lsun/nio/fs/WindowsPath;Z)Lsun/nio/fs/WindowsFileAttributeViews$Dos;", nullptr, $STATIC, $method(static_cast<$WindowsFileAttributeViews$Dos*(*)($WindowsPath*,bool)>(&WindowsFileAttributeViews::createDosView))},
+	{"<init>", "()V", nullptr, 0, $method(WindowsFileAttributeViews, init$, void)},
+	{"createBasicView", "(Lsun/nio/fs/WindowsPath;Z)Lsun/nio/fs/WindowsFileAttributeViews$Basic;", nullptr, $STATIC, $staticMethod(WindowsFileAttributeViews, createBasicView, $WindowsFileAttributeViews$Basic*, $WindowsPath*, bool)},
+	{"createDosView", "(Lsun/nio/fs/WindowsPath;Z)Lsun/nio/fs/WindowsFileAttributeViews$Dos;", nullptr, $STATIC, $staticMethod(WindowsFileAttributeViews, createDosView, $WindowsFileAttributeViews$Dos*, $WindowsPath*, bool)},
 	{}
 };
 

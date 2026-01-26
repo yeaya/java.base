@@ -23,8 +23,8 @@ $FieldInfo _Proxy$ProxyBuilder$1_FieldInfo_[] = {
 };
 
 $MethodInfo _Proxy$ProxyBuilder$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/reflect/Proxy$ProxyBuilder;Ljava/lang/reflect/Constructor;)V", "()V", 0, $method(static_cast<void(Proxy$ProxyBuilder$1::*)($Proxy$ProxyBuilder*,$Constructor*)>(&Proxy$ProxyBuilder$1::init$))},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/reflect/Proxy$ProxyBuilder;Ljava/lang/reflect/Constructor;)V", "()V", 0, $method(Proxy$ProxyBuilder$1, init$, void, $Proxy$ProxyBuilder*, $Constructor*)},
+	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(Proxy$ProxyBuilder$1, run, $Object*)},
 	{}
 };
 

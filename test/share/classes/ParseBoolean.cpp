@@ -8,10 +8,10 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 
 $MethodInfo _ParseBoolean_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ParseBoolean::*)()>(&ParseBoolean::init$))},
-	{"checkFalse", "(Z)V", nullptr, $STATIC, $method(static_cast<void(*)(bool)>(&ParseBoolean::checkFalse))},
-	{"checkTrue", "(Z)V", nullptr, $STATIC, $method(static_cast<void(*)(bool)>(&ParseBoolean::checkTrue))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&ParseBoolean::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ParseBoolean, init$, void)},
+	{"checkFalse", "(Z)V", nullptr, $STATIC, $staticMethod(ParseBoolean, checkFalse, void, bool)},
+	{"checkTrue", "(Z)V", nullptr, $STATIC, $staticMethod(ParseBoolean, checkTrue, void, bool)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ParseBoolean, main, void, $StringArray*)},
 	{}
 };
 

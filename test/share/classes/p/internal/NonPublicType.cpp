@@ -15,7 +15,7 @@ $FieldInfo _NonPublicType_FieldInfo_[] = {
 };
 
 $MethodInfo _NonPublicType_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(NonPublicType::*)()>(&NonPublicType::init$))},
+	{"<init>", "()V", nullptr, 0, $method(NonPublicType, init$, void)},
 	{}
 };
 

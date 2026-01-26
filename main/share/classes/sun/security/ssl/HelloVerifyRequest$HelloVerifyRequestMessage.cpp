@@ -59,12 +59,12 @@ $FieldInfo _HelloVerifyRequest$HelloVerifyRequestMessage_FieldInfo_[] = {
 };
 
 $MethodInfo _HelloVerifyRequest$HelloVerifyRequestMessage_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/ssl/HandshakeContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)V", nullptr, 0, $method(static_cast<void(HelloVerifyRequest$HelloVerifyRequestMessage::*)($HandshakeContext*,$SSLHandshake$HandshakeMessage*)>(&HelloVerifyRequest$HelloVerifyRequestMessage::init$)), "java.io.IOException"},
-	{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)V", nullptr, 0, $method(static_cast<void(HelloVerifyRequest$HelloVerifyRequestMessage::*)($HandshakeContext*,$ByteBuffer*)>(&HelloVerifyRequest$HelloVerifyRequestMessage::init$)), "java.io.IOException"},
-	{"handshakeType", "()Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC},
-	{"messageLength", "()I", nullptr, $PUBLIC},
-	{"send", "(Lsun/security/ssl/HandshakeOutStream;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/security/ssl/HandshakeContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)V", nullptr, 0, $method(HelloVerifyRequest$HelloVerifyRequestMessage, init$, void, $HandshakeContext*, $SSLHandshake$HandshakeMessage*), "java.io.IOException"},
+	{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)V", nullptr, 0, $method(HelloVerifyRequest$HelloVerifyRequestMessage, init$, void, $HandshakeContext*, $ByteBuffer*), "java.io.IOException"},
+	{"handshakeType", "()Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC, $virtualMethod(HelloVerifyRequest$HelloVerifyRequestMessage, handshakeType, $SSLHandshake*)},
+	{"messageLength", "()I", nullptr, $PUBLIC, $virtualMethod(HelloVerifyRequest$HelloVerifyRequestMessage, messageLength, int32_t)},
+	{"send", "(Lsun/security/ssl/HandshakeOutStream;)V", nullptr, $PUBLIC, $virtualMethod(HelloVerifyRequest$HelloVerifyRequestMessage, send, void, $HandshakeOutStream*), "java.io.IOException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HelloVerifyRequest$HelloVerifyRequestMessage, toString, $String*)},
 	{}
 };
 

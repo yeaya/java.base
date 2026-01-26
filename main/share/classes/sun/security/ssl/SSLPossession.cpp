@@ -10,7 +10,7 @@ namespace sun {
 		namespace ssl {
 
 $MethodInfo _SSLPossession_MethodInfo_[] = {
-	{"encode", "()[B", nullptr, $PUBLIC},
+	{"encode", "()[B", nullptr, $PUBLIC, $virtualMethod(SSLPossession, encode, $bytes*)},
 	{}
 };
 

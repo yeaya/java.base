@@ -25,12 +25,12 @@ $FieldInfo _WalkWithSecurity$CountingVisitor_FieldInfo_[] = {
 };
 
 $MethodInfo _WalkWithSecurity$CountingVisitor_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(WalkWithSecurity$CountingVisitor::*)()>(&WalkWithSecurity$CountingVisitor::init$))},
-	{"count", "()I", nullptr, 0},
-	{"preVisitDirectory", "(Ljava/nio/file/Path;Ljava/nio/file/attribute/BasicFileAttributes;)Ljava/nio/file/FileVisitResult;", nullptr, $PUBLIC},
-	{"preVisitDirectory", "(Ljava/lang/Object;Ljava/nio/file/attribute/BasicFileAttributes;)Ljava/nio/file/FileVisitResult;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, nullptr, "java.io.IOException"},
-	{"visitFile", "(Ljava/nio/file/Path;Ljava/nio/file/attribute/BasicFileAttributes;)Ljava/nio/file/FileVisitResult;", nullptr, $PUBLIC},
-	{"visitFile", "(Ljava/lang/Object;Ljava/nio/file/attribute/BasicFileAttributes;)Ljava/nio/file/FileVisitResult;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, 0, $method(WalkWithSecurity$CountingVisitor, init$, void)},
+	{"count", "()I", nullptr, 0, $virtualMethod(WalkWithSecurity$CountingVisitor, count, int32_t)},
+	{"preVisitDirectory", "(Ljava/nio/file/Path;Ljava/nio/file/attribute/BasicFileAttributes;)Ljava/nio/file/FileVisitResult;", nullptr, $PUBLIC, $virtualMethod(WalkWithSecurity$CountingVisitor, preVisitDirectory, $FileVisitResult*, $Path*, $BasicFileAttributes*)},
+	{"preVisitDirectory", "(Ljava/lang/Object;Ljava/nio/file/attribute/BasicFileAttributes;)Ljava/nio/file/FileVisitResult;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(WalkWithSecurity$CountingVisitor, preVisitDirectory, $FileVisitResult*, Object$*, $BasicFileAttributes*), "java.io.IOException"},
+	{"visitFile", "(Ljava/nio/file/Path;Ljava/nio/file/attribute/BasicFileAttributes;)Ljava/nio/file/FileVisitResult;", nullptr, $PUBLIC, $virtualMethod(WalkWithSecurity$CountingVisitor, visitFile, $FileVisitResult*, $Path*, $BasicFileAttributes*)},
+	{"visitFile", "(Ljava/lang/Object;Ljava/nio/file/attribute/BasicFileAttributes;)Ljava/nio/file/FileVisitResult;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(WalkWithSecurity$CountingVisitor, visitFile, $FileVisitResult*, Object$*, $BasicFileAttributes*), "java.io.IOException"},
 	{}
 };
 

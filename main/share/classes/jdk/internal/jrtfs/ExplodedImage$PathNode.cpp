@@ -49,15 +49,15 @@ $FieldInfo _ExplodedImage$PathNode_FieldInfo_[] = {
 };
 
 $MethodInfo _ExplodedImage$PathNode_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/jrtfs/ExplodedImage;Ljava/lang/String;Ljava/nio/file/Path;Ljava/nio/file/attribute/BasicFileAttributes;)V", nullptr, 0, $method(static_cast<void(ExplodedImage$PathNode::*)($ExplodedImage*,$String*,$Path*,$BasicFileAttributes*)>(&ExplodedImage$PathNode::init$))},
-	{"<init>", "(Ljdk/internal/jrtfs/ExplodedImage;Ljava/lang/String;Ljdk/internal/jimage/ImageReader$Node;)V", nullptr, 0, $method(static_cast<void(ExplodedImage$PathNode::*)($ExplodedImage*,$String*,$ImageReader$Node*)>(&ExplodedImage$PathNode::init$))},
-	{"<init>", "(Ljdk/internal/jrtfs/ExplodedImage;Ljava/lang/String;Ljava/util/List;)V", "(Ljava/lang/String;Ljava/util/List<Ljdk/internal/jimage/ImageReader$Node;>;)V", 0, $method(static_cast<void(ExplodedImage$PathNode::*)($ExplodedImage*,$String*,$List*)>(&ExplodedImage$PathNode::init$))},
-	{"getChildren", "()Ljava/util/List;", "()Ljava/util/List<Ljdk/internal/jimage/ImageReader$Node;>;", $PUBLIC},
-	{"getContent", "()[B", nullptr, 0, $method(static_cast<$bytes*(ExplodedImage$PathNode::*)()>(&ExplodedImage$PathNode::getContent)), "java.io.IOException"},
-	{"isDirectory", "()Z", nullptr, $PUBLIC},
-	{"isLink", "()Z", nullptr, $PUBLIC},
-	{"resolveLink", "(Z)Ljdk/internal/jrtfs/ExplodedImage$PathNode;", nullptr, $PUBLIC},
-	{"size", "()J", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/jrtfs/ExplodedImage;Ljava/lang/String;Ljava/nio/file/Path;Ljava/nio/file/attribute/BasicFileAttributes;)V", nullptr, 0, $method(ExplodedImage$PathNode, init$, void, $ExplodedImage*, $String*, $Path*, $BasicFileAttributes*)},
+	{"<init>", "(Ljdk/internal/jrtfs/ExplodedImage;Ljava/lang/String;Ljdk/internal/jimage/ImageReader$Node;)V", nullptr, 0, $method(ExplodedImage$PathNode, init$, void, $ExplodedImage*, $String*, $ImageReader$Node*)},
+	{"<init>", "(Ljdk/internal/jrtfs/ExplodedImage;Ljava/lang/String;Ljava/util/List;)V", "(Ljava/lang/String;Ljava/util/List<Ljdk/internal/jimage/ImageReader$Node;>;)V", 0, $method(ExplodedImage$PathNode, init$, void, $ExplodedImage*, $String*, $List*)},
+	{"getChildren", "()Ljava/util/List;", "()Ljava/util/List<Ljdk/internal/jimage/ImageReader$Node;>;", $PUBLIC, $virtualMethod(ExplodedImage$PathNode, getChildren, $List*)},
+	{"getContent", "()[B", nullptr, 0, $method(ExplodedImage$PathNode, getContent, $bytes*), "java.io.IOException"},
+	{"isDirectory", "()Z", nullptr, $PUBLIC, $virtualMethod(ExplodedImage$PathNode, isDirectory, bool)},
+	{"isLink", "()Z", nullptr, $PUBLIC, $virtualMethod(ExplodedImage$PathNode, isLink, bool)},
+	{"resolveLink", "(Z)Ljdk/internal/jrtfs/ExplodedImage$PathNode;", nullptr, $PUBLIC, $virtualMethod(ExplodedImage$PathNode, resolveLink, ExplodedImage$PathNode*, bool)},
+	{"size", "()J", nullptr, $PUBLIC, $virtualMethod(ExplodedImage$PathNode, size, int64_t)},
 	{}
 };
 

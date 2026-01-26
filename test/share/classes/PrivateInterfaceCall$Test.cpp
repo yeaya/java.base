@@ -8,7 +8,7 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _PrivateInterfaceCall$Test_MethodInfo_[] = {
-	{"run", "()V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.lang.Throwable"},
+	{"run", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PrivateInterfaceCall$Test, run, void), "java.lang.Throwable"},
 	{}
 };
 

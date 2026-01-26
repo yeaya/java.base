@@ -38,14 +38,14 @@ $FieldInfo _ArchivedClassLoaders_FieldInfo_[] = {
 };
 
 $MethodInfo _ArchivedClassLoaders_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(ArchivedClassLoaders::*)()>(&ArchivedClassLoaders::init$))},
-	{"appLoader", "()Ljava/lang/ClassLoader;", nullptr, 0},
-	{"archive", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&ArchivedClassLoaders::archive))},
-	{"bootLoader", "()Ljava/lang/ClassLoader;", nullptr, 0},
-	{"get", "()Ljdk/internal/loader/ArchivedClassLoaders;", nullptr, $STATIC, $method(static_cast<ArchivedClassLoaders*(*)()>(&ArchivedClassLoaders::get))},
-	{"packageToModule", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;*>;", 0},
-	{"platformLoader", "()Ljava/lang/ClassLoader;", nullptr, 0},
-	{"servicesCatalog", "(Ljava/lang/ClassLoader;)Ljdk/internal/module/ServicesCatalog;", nullptr, 0},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(ArchivedClassLoaders, init$, void)},
+	{"appLoader", "()Ljava/lang/ClassLoader;", nullptr, 0, $virtualMethod(ArchivedClassLoaders, appLoader, $ClassLoader*)},
+	{"archive", "()V", nullptr, $STATIC, $staticMethod(ArchivedClassLoaders, archive, void)},
+	{"bootLoader", "()Ljava/lang/ClassLoader;", nullptr, 0, $virtualMethod(ArchivedClassLoaders, bootLoader, $ClassLoader*)},
+	{"get", "()Ljdk/internal/loader/ArchivedClassLoaders;", nullptr, $STATIC, $staticMethod(ArchivedClassLoaders, get, ArchivedClassLoaders*)},
+	{"packageToModule", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;*>;", 0, $virtualMethod(ArchivedClassLoaders, packageToModule, $Map*)},
+	{"platformLoader", "()Ljava/lang/ClassLoader;", nullptr, 0, $virtualMethod(ArchivedClassLoaders, platformLoader, $ClassLoader*)},
+	{"servicesCatalog", "(Ljava/lang/ClassLoader;)Ljdk/internal/module/ServicesCatalog;", nullptr, 0, $virtualMethod(ArchivedClassLoaders, servicesCatalog, $ServicesCatalog*, $ClassLoader*)},
 	{}
 };
 

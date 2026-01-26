@@ -9,8 +9,8 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _KeySets$Catch_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Class;)V", nullptr, 0, $method(static_cast<void(KeySets$Catch::*)($Class*)>(&KeySets$Catch::init$)), "java.lang.Exception"},
-	{"go", "()V", nullptr, $ABSTRACT, nullptr, "java.lang.Exception"},
+	{"<init>", "(Ljava/lang/Class;)V", nullptr, 0, $method(KeySets$Catch, init$, void, $Class*), "java.lang.Exception"},
+	{"go", "()V", nullptr, $ABSTRACT, $virtualMethod(KeySets$Catch, go, void), "java.lang.Exception"},
 	{}
 };
 

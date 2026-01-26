@@ -3,6 +3,7 @@
 #include <java/io/File.h>
 #include <jcpp.h>
 
+using $File = ::java::io::File;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -16,7 +17,7 @@ $CompoundAttribute _FileFilter_Annotations_[] = {
 };
 
 $MethodInfo _FileFilter_MethodInfo_[] = {
-	{"accept", "(Ljava/io/File;)Z", nullptr, $PUBLIC | $ABSTRACT},
+	{"accept", "(Ljava/io/File;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FileFilter, accept, bool, $File*)},
 	{}
 };
 

@@ -13,8 +13,8 @@ using $InetAddress = ::java::net::InetAddress;
 using $NetworkInterface = ::java::net::NetworkInterface;
 
 $MethodInfo _IsReachable_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(IsReachable::*)()>(&IsReachable::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&IsReachable::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(IsReachable, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(IsReachable, main, void, $StringArray*)},
 	{}
 };
 

@@ -8,7 +8,7 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _CharType$CharMethod_MethodInfo_[] = {
-	{"setChar", "(C)V", nullptr, $PUBLIC | $ABSTRACT},
+	{"setChar", "(C)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CharType$CharMethod, setChar, void, char16_t)},
 	{}
 };
 

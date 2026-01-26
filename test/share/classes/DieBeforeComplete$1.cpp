@@ -19,8 +19,8 @@ $FieldInfo _DieBeforeComplete$1_FieldInfo_[] = {
 };
 
 $MethodInfo _DieBeforeComplete$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/channels/AsynchronousServerSocketChannel;)V", "()V", 0, $method(static_cast<void(DieBeforeComplete$1::*)($AsynchronousServerSocketChannel*)>(&DieBeforeComplete$1::init$))},
-	{"run", "()Ljava/util/concurrent/Future;", "()Ljava/util/concurrent/Future<Ljava/nio/channels/AsynchronousSocketChannel;>;", $PUBLIC},
+	{"<init>", "(Ljava/nio/channels/AsynchronousServerSocketChannel;)V", "()V", 0, $method(DieBeforeComplete$1, init$, void, $AsynchronousServerSocketChannel*)},
+	{"run", "()Ljava/util/concurrent/Future;", "()Ljava/util/concurrent/Future<Ljava/nio/channels/AsynchronousSocketChannel;>;", $PUBLIC, $virtualMethod(DieBeforeComplete$1, run, $Future*)},
 	{}
 };
 

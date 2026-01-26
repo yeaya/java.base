@@ -23,8 +23,8 @@ $FieldInfo _Subject$ClassSet$1_FieldInfo_[] = {
 };
 
 $MethodInfo _Subject$ClassSet$1_MethodInfo_[] = {
-	{"<init>", "(Ljavax/security/auth/Subject$ClassSet;Ljava/util/Iterator;)V", nullptr, 0, $method(static_cast<void(Subject$ClassSet$1::*)($Subject$ClassSet*,$Iterator*)>(&Subject$ClassSet$1::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljavax/security/auth/Subject$ClassSet;Ljava/util/Iterator;)V", nullptr, 0, $method(Subject$ClassSet$1, init$, void, $Subject$ClassSet*, $Iterator*)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Subject$ClassSet$1, run, $Object*)},
 	{}
 };
 

@@ -28,8 +28,8 @@ $FieldInfo _ConcurrentSkipListMap$CSLMSpliterator_FieldInfo_[] = {
 };
 
 $MethodInfo _ConcurrentSkipListMap$CSLMSpliterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Comparator;Ljava/util/concurrent/ConcurrentSkipListMap$Index;Ljava/util/concurrent/ConcurrentSkipListMap$Node;Ljava/lang/Object;J)V", "(Ljava/util/Comparator<-TK;>;Ljava/util/concurrent/ConcurrentSkipListMap$Index<TK;TV;>;Ljava/util/concurrent/ConcurrentSkipListMap$Node<TK;TV;>;TK;J)V", 0, $method(static_cast<void(ConcurrentSkipListMap$CSLMSpliterator::*)($Comparator*,$ConcurrentSkipListMap$Index*,$ConcurrentSkipListMap$Node*,Object$*,int64_t)>(&ConcurrentSkipListMap$CSLMSpliterator::init$))},
-	{"estimateSize", "()J", nullptr, $PUBLIC | $FINAL, $method(static_cast<int64_t(ConcurrentSkipListMap$CSLMSpliterator::*)()>(&ConcurrentSkipListMap$CSLMSpliterator::estimateSize))},
+	{"<init>", "(Ljava/util/Comparator;Ljava/util/concurrent/ConcurrentSkipListMap$Index;Ljava/util/concurrent/ConcurrentSkipListMap$Node;Ljava/lang/Object;J)V", "(Ljava/util/Comparator<-TK;>;Ljava/util/concurrent/ConcurrentSkipListMap$Index<TK;TV;>;Ljava/util/concurrent/ConcurrentSkipListMap$Node<TK;TV;>;TK;J)V", 0, $method(ConcurrentSkipListMap$CSLMSpliterator, init$, void, $Comparator*, $ConcurrentSkipListMap$Index*, $ConcurrentSkipListMap$Node*, Object$*, int64_t)},
+	{"estimateSize", "()J", nullptr, $PUBLIC | $FINAL, $method(ConcurrentSkipListMap$CSLMSpliterator, estimateSize, int64_t)},
 	{}
 };
 

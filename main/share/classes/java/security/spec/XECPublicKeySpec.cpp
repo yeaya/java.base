@@ -23,9 +23,9 @@ $FieldInfo _XECPublicKeySpec_FieldInfo_[] = {
 };
 
 $MethodInfo _XECPublicKeySpec_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/spec/AlgorithmParameterSpec;Ljava/math/BigInteger;)V", nullptr, $PUBLIC, $method(static_cast<void(XECPublicKeySpec::*)($AlgorithmParameterSpec*,$BigInteger*)>(&XECPublicKeySpec::init$))},
-	{"getParams", "()Ljava/security/spec/AlgorithmParameterSpec;", nullptr, $PUBLIC},
-	{"getU", "()Ljava/math/BigInteger;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/security/spec/AlgorithmParameterSpec;Ljava/math/BigInteger;)V", nullptr, $PUBLIC, $method(XECPublicKeySpec, init$, void, $AlgorithmParameterSpec*, $BigInteger*)},
+	{"getParams", "()Ljava/security/spec/AlgorithmParameterSpec;", nullptr, $PUBLIC, $virtualMethod(XECPublicKeySpec, getParams, $AlgorithmParameterSpec*)},
+	{"getU", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(XECPublicKeySpec, getU, $BigInteger*)},
 	{}
 };
 

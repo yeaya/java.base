@@ -10,12 +10,12 @@ namespace jdk {
 		namespace reflect {
 
 $MethodInfo _ByteVector_MethodInfo_[] = {
-	{"add", "(B)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"get", "(I)B", nullptr, $PUBLIC | $ABSTRACT},
-	{"getData", "()[B", nullptr, $PUBLIC | $ABSTRACT},
-	{"getLength", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"put", "(IB)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"trim", "()V", nullptr, $PUBLIC | $ABSTRACT},
+	{"add", "(B)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ByteVector, add, void, int8_t)},
+	{"get", "(I)B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ByteVector, get, int8_t, int32_t)},
+	{"getData", "()[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ByteVector, getData, $bytes*)},
+	{"getLength", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ByteVector, getLength, int32_t)},
+	{"put", "(IB)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ByteVector, put, void, int32_t, int8_t)},
+	{"trim", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ByteVector, trim, void)},
 	{}
 };
 

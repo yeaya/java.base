@@ -16,8 +16,8 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $StringBuffer = ::java::lang::StringBuffer;
 
 $MethodInfo _One$2_MethodInfo_[] = {
-	{"<init>", "([BLjava/lang/String;)V", nullptr, 0, $method(static_cast<void(One$2::*)($bytes*,$String*)>(&One$2::init$)), "java.lang.Exception"},
-	{"read", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "([BLjava/lang/String;)V", nullptr, 0, $method(One$2, init$, void, $bytes*, $String*), "java.lang.Exception"},
+	{"read", "()V", nullptr, $PUBLIC, $virtualMethod(One$2, read, void), "java.io.IOException"},
 	{}
 };
 

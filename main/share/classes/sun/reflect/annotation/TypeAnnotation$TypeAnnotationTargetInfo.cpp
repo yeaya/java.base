@@ -25,13 +25,13 @@ $FieldInfo _TypeAnnotation$TypeAnnotationTargetInfo_FieldInfo_[] = {
 };
 
 $MethodInfo _TypeAnnotation$TypeAnnotationTargetInfo_MethodInfo_[] = {
-	{"<init>", "(Lsun/reflect/annotation/TypeAnnotation$TypeAnnotationTarget;)V", nullptr, $PUBLIC, $method(static_cast<void(TypeAnnotation$TypeAnnotationTargetInfo::*)($TypeAnnotation$TypeAnnotationTarget*)>(&TypeAnnotation$TypeAnnotationTargetInfo::init$))},
-	{"<init>", "(Lsun/reflect/annotation/TypeAnnotation$TypeAnnotationTarget;I)V", nullptr, $PUBLIC, $method(static_cast<void(TypeAnnotation$TypeAnnotationTargetInfo::*)($TypeAnnotation$TypeAnnotationTarget*,int32_t)>(&TypeAnnotation$TypeAnnotationTargetInfo::init$))},
-	{"<init>", "(Lsun/reflect/annotation/TypeAnnotation$TypeAnnotationTarget;II)V", nullptr, $PUBLIC, $method(static_cast<void(TypeAnnotation$TypeAnnotationTargetInfo::*)($TypeAnnotation$TypeAnnotationTarget*,int32_t,int32_t)>(&TypeAnnotation$TypeAnnotationTargetInfo::init$))},
-	{"getCount", "()I", nullptr, $PUBLIC, $method(static_cast<int32_t(TypeAnnotation$TypeAnnotationTargetInfo::*)()>(&TypeAnnotation$TypeAnnotationTargetInfo::getCount))},
-	{"getSecondaryIndex", "()I", nullptr, $PUBLIC, $method(static_cast<int32_t(TypeAnnotation$TypeAnnotationTargetInfo::*)()>(&TypeAnnotation$TypeAnnotationTargetInfo::getSecondaryIndex))},
-	{"getTarget", "()Lsun/reflect/annotation/TypeAnnotation$TypeAnnotationTarget;", nullptr, $PUBLIC, $method(static_cast<$TypeAnnotation$TypeAnnotationTarget*(TypeAnnotation$TypeAnnotationTargetInfo::*)()>(&TypeAnnotation$TypeAnnotationTargetInfo::getTarget))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/reflect/annotation/TypeAnnotation$TypeAnnotationTarget;)V", nullptr, $PUBLIC, $method(TypeAnnotation$TypeAnnotationTargetInfo, init$, void, $TypeAnnotation$TypeAnnotationTarget*)},
+	{"<init>", "(Lsun/reflect/annotation/TypeAnnotation$TypeAnnotationTarget;I)V", nullptr, $PUBLIC, $method(TypeAnnotation$TypeAnnotationTargetInfo, init$, void, $TypeAnnotation$TypeAnnotationTarget*, int32_t)},
+	{"<init>", "(Lsun/reflect/annotation/TypeAnnotation$TypeAnnotationTarget;II)V", nullptr, $PUBLIC, $method(TypeAnnotation$TypeAnnotationTargetInfo, init$, void, $TypeAnnotation$TypeAnnotationTarget*, int32_t, int32_t)},
+	{"getCount", "()I", nullptr, $PUBLIC, $method(TypeAnnotation$TypeAnnotationTargetInfo, getCount, int32_t)},
+	{"getSecondaryIndex", "()I", nullptr, $PUBLIC, $method(TypeAnnotation$TypeAnnotationTargetInfo, getSecondaryIndex, int32_t)},
+	{"getTarget", "()Lsun/reflect/annotation/TypeAnnotation$TypeAnnotationTarget;", nullptr, $PUBLIC, $method(TypeAnnotation$TypeAnnotationTargetInfo, getTarget, $TypeAnnotation$TypeAnnotationTarget*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TypeAnnotation$TypeAnnotationTargetInfo, toString, $String*)},
 	{}
 };
 

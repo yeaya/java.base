@@ -38,11 +38,11 @@ $FieldInfo _Charset$1_FieldInfo_[] = {
 };
 
 $MethodInfo _Charset$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Charset$1::*)()>(&Charset$1::init$))},
-	{"getNext", "()Z", nullptr, $PRIVATE, $method(static_cast<bool(Charset$1::*)()>(&Charset$1::getNext))},
-	{"hasNext", "()Z", nullptr, $PUBLIC},
-	{"next", "()Ljava/nio/charset/spi/CharsetProvider;", nullptr, $PUBLIC},
-	{"remove", "()V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(Charset$1, init$, void)},
+	{"getNext", "()Z", nullptr, $PRIVATE, $method(Charset$1, getNext, bool)},
+	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(Charset$1, hasNext, bool)},
+	{"next", "()Ljava/nio/charset/spi/CharsetProvider;", nullptr, $PUBLIC, $virtualMethod(Charset$1, next, $Object*)},
+	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(Charset$1, remove, void)},
 	{}
 };
 

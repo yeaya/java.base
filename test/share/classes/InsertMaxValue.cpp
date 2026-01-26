@@ -18,8 +18,8 @@ using $StringBuffer = ::java::lang::StringBuffer;
 using $StringIndexOutOfBoundsException = ::java::lang::StringIndexOutOfBoundsException;
 
 $MethodInfo _InsertMaxValue_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(InsertMaxValue::*)()>(&InsertMaxValue::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&InsertMaxValue::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(InsertMaxValue, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(InsertMaxValue, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

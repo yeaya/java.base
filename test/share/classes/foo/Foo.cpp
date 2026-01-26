@@ -11,8 +11,8 @@ using $Package = ::java::lang::Package;
 namespace foo {
 
 $MethodInfo _Foo_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Foo::*)()>(&Foo::init$))},
-	{"getPackages", "()[Ljava/lang/Package;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$PackageArray*(*)()>(&Foo::getPackages))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Foo, init$, void)},
+	{"getPackages", "()[Ljava/lang/Package;", nullptr, $PUBLIC | $STATIC, $staticMethod(Foo, getPackages, $PackageArray*)},
 	{}
 };
 

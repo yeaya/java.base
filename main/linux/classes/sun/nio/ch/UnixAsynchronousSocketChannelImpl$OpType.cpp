@@ -28,10 +28,10 @@ $FieldInfo _UnixAsynchronousSocketChannelImpl$OpType_FieldInfo_[] = {
 };
 
 $MethodInfo _UnixAsynchronousSocketChannelImpl$OpType_MethodInfo_[] = {
-	{"$values", "()[Lsun/nio/ch/UnixAsynchronousSocketChannelImpl$OpType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$UnixAsynchronousSocketChannelImpl$OpTypeArray*(*)()>(&UnixAsynchronousSocketChannelImpl$OpType::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(UnixAsynchronousSocketChannelImpl$OpType::*)($String*,int32_t)>(&UnixAsynchronousSocketChannelImpl$OpType::init$))},
-	{"valueOf", "(Ljava/lang/String;)Lsun/nio/ch/UnixAsynchronousSocketChannelImpl$OpType;", nullptr, $PUBLIC | $STATIC, $method(static_cast<UnixAsynchronousSocketChannelImpl$OpType*(*)($String*)>(&UnixAsynchronousSocketChannelImpl$OpType::valueOf))},
-	{"values", "()[Lsun/nio/ch/UnixAsynchronousSocketChannelImpl$OpType;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$UnixAsynchronousSocketChannelImpl$OpTypeArray*(*)()>(&UnixAsynchronousSocketChannelImpl$OpType::values))},
+	{"$values", "()[Lsun/nio/ch/UnixAsynchronousSocketChannelImpl$OpType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(UnixAsynchronousSocketChannelImpl$OpType, $values, $UnixAsynchronousSocketChannelImpl$OpTypeArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(UnixAsynchronousSocketChannelImpl$OpType, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Lsun/nio/ch/UnixAsynchronousSocketChannelImpl$OpType;", nullptr, $PUBLIC | $STATIC, $staticMethod(UnixAsynchronousSocketChannelImpl$OpType, valueOf, UnixAsynchronousSocketChannelImpl$OpType*, $String*)},
+	{"values", "()[Lsun/nio/ch/UnixAsynchronousSocketChannelImpl$OpType;", nullptr, $PUBLIC | $STATIC, $staticMethod(UnixAsynchronousSocketChannelImpl$OpType, values, $UnixAsynchronousSocketChannelImpl$OpTypeArray*)},
 	{}
 };
 

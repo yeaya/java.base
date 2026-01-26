@@ -27,9 +27,9 @@ $FieldInfo _ImmutableCollections$Set12$1_FieldInfo_[] = {
 };
 
 $MethodInfo _ImmutableCollections$Set12$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/ImmutableCollections$Set12;)V", nullptr, 0, $method(static_cast<void(ImmutableCollections$Set12$1::*)($ImmutableCollections$Set12*)>(&ImmutableCollections$Set12$1::init$))},
-	{"hasNext", "()Z", nullptr, $PUBLIC},
-	{"next", "()Ljava/lang/Object;", "()TE;", $PUBLIC},
+	{"<init>", "(Ljava/util/ImmutableCollections$Set12;)V", nullptr, 0, $method(ImmutableCollections$Set12$1, init$, void, $ImmutableCollections$Set12*)},
+	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(ImmutableCollections$Set12$1, hasNext, bool)},
+	{"next", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(ImmutableCollections$Set12$1, next, $Object*)},
 	{}
 };
 

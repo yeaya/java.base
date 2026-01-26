@@ -44,7 +44,7 @@ $FieldInfo _CertificateVerify_FieldInfo_[] = {
 };
 
 $MethodInfo _CertificateVerify_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(CertificateVerify::*)()>(&CertificateVerify::init$))},
+	{"<init>", "()V", nullptr, 0, $method(CertificateVerify, init$, void)},
 	{}
 };
 

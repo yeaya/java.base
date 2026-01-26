@@ -16,8 +16,8 @@ namespace sun {
 			namespace http {
 
 $MethodInfo _HttpCapture$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(HttpCapture$1::*)()>(&HttpCapture$1::init$))},
-	{"run", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(HttpCapture$1, init$, void)},
+	{"run", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HttpCapture$1, run, $Object*)},
 	{}
 };
 

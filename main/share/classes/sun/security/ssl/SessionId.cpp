@@ -29,14 +29,14 @@ $FieldInfo _SessionId_FieldInfo_[] = {
 };
 
 $MethodInfo _SessionId_MethodInfo_[] = {
-	{"<init>", "(ZLjava/security/SecureRandom;)V", nullptr, 0, $method(static_cast<void(SessionId::*)(bool,$SecureRandom*)>(&SessionId::init$))},
-	{"<init>", "([B)V", nullptr, 0, $method(static_cast<void(SessionId::*)($bytes*)>(&SessionId::init$))},
-	{"checkLength", "(I)V", nullptr, 0, $method(static_cast<void(SessionId::*)(int32_t)>(&SessionId::checkLength)), "javax.net.ssl.SSLProtocolException"},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getId", "()[B", nullptr, 0, $method(static_cast<$bytes*(SessionId::*)()>(&SessionId::getId))},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"length", "()I", nullptr, 0, $method(static_cast<int32_t(SessionId::*)()>(&SessionId::length))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(ZLjava/security/SecureRandom;)V", nullptr, 0, $method(SessionId, init$, void, bool, $SecureRandom*)},
+	{"<init>", "([B)V", nullptr, 0, $method(SessionId, init$, void, $bytes*)},
+	{"checkLength", "(I)V", nullptr, 0, $method(SessionId, checkLength, void, int32_t), "javax.net.ssl.SSLProtocolException"},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(SessionId, equals, bool, Object$*)},
+	{"getId", "()[B", nullptr, 0, $method(SessionId, getId, $bytes*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(SessionId, hashCode, int32_t)},
+	{"length", "()I", nullptr, 0, $method(SessionId, length, int32_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SessionId, toString, $String*)},
 	{}
 };
 

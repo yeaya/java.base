@@ -16,8 +16,8 @@ namespace com {
 			namespace provider {
 
 $MethodInfo _TlsPrfGenerator$V10_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TlsPrfGenerator$V10::*)()>(&TlsPrfGenerator$V10::init$))},
-	{"engineGenerateKey", "()Ljavax/crypto/SecretKey;", nullptr, $PROTECTED},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TlsPrfGenerator$V10, init$, void)},
+	{"engineGenerateKey", "()Ljavax/crypto/SecretKey;", nullptr, $PROTECTED, $virtualMethod(TlsPrfGenerator$V10, engineGenerateKey, $SecretKey*)},
 	{}
 };
 

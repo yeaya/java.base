@@ -17,8 +17,8 @@ $FieldInfo _AEADBadTagException_FieldInfo_[] = {
 };
 
 $MethodInfo _AEADBadTagException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(AEADBadTagException::*)()>(&AEADBadTagException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(AEADBadTagException::*)($String*)>(&AEADBadTagException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(AEADBadTagException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(AEADBadTagException, init$, void, $String*)},
 	{}
 };
 

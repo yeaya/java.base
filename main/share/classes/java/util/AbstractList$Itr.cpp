@@ -31,11 +31,11 @@ $FieldInfo _AbstractList$Itr_FieldInfo_[] = {
 };
 
 $MethodInfo _AbstractList$Itr_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/AbstractList;)V", nullptr, $PRIVATE, $method(static_cast<void(AbstractList$Itr::*)($AbstractList*)>(&AbstractList$Itr::init$))},
-	{"checkForComodification", "()V", nullptr, $FINAL, $method(static_cast<void(AbstractList$Itr::*)()>(&AbstractList$Itr::checkForComodification))},
-	{"hasNext", "()Z", nullptr, $PUBLIC},
-	{"next", "()Ljava/lang/Object;", "()TE;", $PUBLIC},
-	{"remove", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/AbstractList;)V", nullptr, $PRIVATE, $method(AbstractList$Itr, init$, void, $AbstractList*)},
+	{"checkForComodification", "()V", nullptr, $FINAL, $method(AbstractList$Itr, checkForComodification, void)},
+	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(AbstractList$Itr, hasNext, bool)},
+	{"next", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(AbstractList$Itr, next, $Object*)},
+	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(AbstractList$Itr, remove, void)},
 	{}
 };
 

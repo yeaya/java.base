@@ -28,10 +28,10 @@ $FieldInfo _StreamShape_FieldInfo_[] = {
 };
 
 $MethodInfo _StreamShape_MethodInfo_[] = {
-	{"$values", "()[Ljava/util/stream/StreamShape;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$StreamShapeArray*(*)()>(&StreamShape::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(StreamShape::*)($String*,int32_t)>(&StreamShape::init$))},
-	{"valueOf", "(Ljava/lang/String;)Ljava/util/stream/StreamShape;", nullptr, $PUBLIC | $STATIC, $method(static_cast<StreamShape*(*)($String*)>(&StreamShape::valueOf))},
-	{"values", "()[Ljava/util/stream/StreamShape;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$StreamShapeArray*(*)()>(&StreamShape::values))},
+	{"$values", "()[Ljava/util/stream/StreamShape;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StreamShape, $values, $StreamShapeArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(StreamShape, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Ljava/util/stream/StreamShape;", nullptr, $PUBLIC | $STATIC, $staticMethod(StreamShape, valueOf, StreamShape*, $String*)},
+	{"values", "()[Ljava/util/stream/StreamShape;", nullptr, $PUBLIC | $STATIC, $staticMethod(StreamShape, values, $StreamShapeArray*)},
 	{}
 };
 

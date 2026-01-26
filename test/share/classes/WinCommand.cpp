@@ -22,13 +22,13 @@ $FieldInfo _WinCommand_FieldInfo_[] = {
 };
 
 $MethodInfo _WinCommand_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(WinCommand::*)()>(&WinCommand::init$))},
-	{"checkCD", "([Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $TRANSIENT, $method(static_cast<void(*)($StringArray*)>(&WinCommand::checkCD))},
-	{"checkDir", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($String*)>(&WinCommand::checkDir))},
-	{"fail", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($String*)>(&WinCommand::fail))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&WinCommand::main)), "java.lang.Exception"},
-	{"outputOf", "([Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $TRANSIENT, $method(static_cast<$String*(*)($StringArray*)>(&WinCommand::outputOf))},
-	{"writeFile", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($String*,$String*)>(&WinCommand::writeFile))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(WinCommand, init$, void)},
+	{"checkCD", "([Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $TRANSIENT, $staticMethod(WinCommand, checkCD, void, $StringArray*)},
+	{"checkDir", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(WinCommand, checkDir, void, $String*)},
+	{"fail", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(WinCommand, fail, void, $String*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(WinCommand, main, void, $StringArray*), "java.lang.Exception"},
+	{"outputOf", "([Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $TRANSIENT, $staticMethod(WinCommand, outputOf, $String*, $StringArray*)},
+	{"writeFile", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(WinCommand, writeFile, void, $String*, $String*)},
 	{}
 };
 

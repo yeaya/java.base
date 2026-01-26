@@ -19,8 +19,8 @@ $FieldInfo _AccountExpiredException_FieldInfo_[] = {
 };
 
 $MethodInfo _AccountExpiredException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(AccountExpiredException::*)()>(&AccountExpiredException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(AccountExpiredException::*)($String*)>(&AccountExpiredException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(AccountExpiredException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(AccountExpiredException, init$, void, $String*)},
 	{}
 };
 

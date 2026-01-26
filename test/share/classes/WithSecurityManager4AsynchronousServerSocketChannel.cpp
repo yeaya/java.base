@@ -33,8 +33,8 @@ using $ExecutionException = ::java::util::concurrent::ExecutionException;
 using $Future = ::java::util::concurrent::Future;
 
 $MethodInfo _WithSecurityManager4AsynchronousServerSocketChannel_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(WithSecurityManager4AsynchronousServerSocketChannel::*)()>(&WithSecurityManager4AsynchronousServerSocketChannel::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&WithSecurityManager4AsynchronousServerSocketChannel::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(WithSecurityManager4AsynchronousServerSocketChannel, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(WithSecurityManager4AsynchronousServerSocketChannel, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

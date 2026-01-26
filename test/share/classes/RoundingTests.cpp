@@ -16,9 +16,9 @@ using $BigDecimal = ::java::math::BigDecimal;
 using $MathContext = ::java::math::MathContext;
 
 $MethodInfo _RoundingTests_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(RoundingTests::*)()>(&RoundingTests::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&RoundingTests::main))},
-	{"roundingTests", "()I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)()>(&RoundingTests::roundingTests))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(RoundingTests, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(RoundingTests, main, void, $StringArray*)},
+	{"roundingTests", "()I", nullptr, $PRIVATE | $STATIC, $staticMethod(RoundingTests, roundingTests, int32_t)},
 	{}
 };
 

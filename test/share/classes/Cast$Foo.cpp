@@ -8,7 +8,7 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _Cast$Foo_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Cast$Foo::*)()>(&Cast$Foo::init$))},
+	{"<init>", "()V", nullptr, 0, $method(Cast$Foo, init$, void)},
 	{}
 };
 

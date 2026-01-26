@@ -93,15 +93,15 @@ $FieldInfo _Basic4Appendable_FieldInfo_[] = {
 };
 
 $MethodInfo _Basic4Appendable_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Basic4Appendable::*)()>(&Basic4Appendable::init$))},
-	{"ck", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $STATIC, $method(static_cast<void(*)($String*,$String*,$String*)>(&Basic4Appendable::ck))},
-	{"fail", "(Ljava/lang/Throwable;)V", nullptr, $STATIC, $method(static_cast<void(*)($Throwable*)>(&Basic4Appendable::fail))},
-	{"fail", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $STATIC, $method(static_cast<void(*)($String*,$Throwable*)>(&Basic4Appendable::fail))},
-	{"fail", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $STATIC, $method(static_cast<void(*)($String*,$String*,$String*)>(&Basic4Appendable::fail))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Basic4Appendable::main)), "java.lang.Exception"},
-	{"newFile", "()Ljava/io/File;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$File*(*)()>(&Basic4Appendable::newFile))},
-	{"pass", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&Basic4Appendable::pass))},
-	{"test", "(Ljava/lang/Appendable;Ljava/lang/CharSequence;LBasicRunnable;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($Appendable*,$CharSequence*,$BasicRunnable*)>(&Basic4Appendable::test))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Basic4Appendable, init$, void)},
+	{"ck", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(Basic4Appendable, ck, void, $String*, $String*, $String*)},
+	{"fail", "(Ljava/lang/Throwable;)V", nullptr, $STATIC, $staticMethod(Basic4Appendable, fail, void, $Throwable*)},
+	{"fail", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $STATIC, $staticMethod(Basic4Appendable, fail, void, $String*, $Throwable*)},
+	{"fail", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(Basic4Appendable, fail, void, $String*, $String*, $String*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Basic4Appendable, main, void, $StringArray*), "java.lang.Exception"},
+	{"newFile", "()Ljava/io/File;", nullptr, $PRIVATE | $STATIC, $staticMethod(Basic4Appendable, newFile, $File*)},
+	{"pass", "()V", nullptr, $STATIC, $staticMethod(Basic4Appendable, pass, void)},
+	{"test", "(Ljava/lang/Appendable;Ljava/lang/CharSequence;LBasicRunnable;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Basic4Appendable, test, void, $Appendable*, $CharSequence*, $BasicRunnable*)},
 	{}
 };
 

@@ -17,10 +17,10 @@ $FieldInfo _FindException_FieldInfo_[] = {
 };
 
 $MethodInfo _FindException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(FindException::*)()>(&FindException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(FindException::*)($String*)>(&FindException::init$))},
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(FindException::*)($Throwable*)>(&FindException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(FindException::*)($String*,$Throwable*)>(&FindException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(FindException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(FindException, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(FindException, init$, void, $Throwable*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(FindException, init$, void, $String*, $Throwable*)},
 	{}
 };
 

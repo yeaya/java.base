@@ -27,13 +27,13 @@ $FieldInfo _CertPathHelper_FieldInfo_[] = {
 };
 
 $MethodInfo _CertPathHelper_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(CertPathHelper::*)()>(&CertPathHelper::init$))},
-	{"implIsJdkCA", "(Ljava/security/cert/TrustAnchor;)Z", nullptr, $PROTECTED | $ABSTRACT},
-	{"implSetDateAndTime", "(Ljava/security/cert/X509CRLSelector;Ljava/util/Date;J)V", nullptr, $PROTECTED | $ABSTRACT},
-	{"implSetPathToNames", "(Ljava/security/cert/X509CertSelector;Ljava/util/Set;)V", "(Ljava/security/cert/X509CertSelector;Ljava/util/Set<Lsun/security/x509/GeneralNameInterface;>;)V", $PROTECTED | $ABSTRACT},
-	{"isJdkCA", "(Ljava/security/cert/TrustAnchor;)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)($TrustAnchor*)>(&CertPathHelper::isJdkCA))},
-	{"setDateAndTime", "(Ljava/security/cert/X509CRLSelector;Ljava/util/Date;J)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($X509CRLSelector*,$Date*,int64_t)>(&CertPathHelper::setDateAndTime))},
-	{"setPathToNames", "(Ljava/security/cert/X509CertSelector;Ljava/util/Set;)V", "(Ljava/security/cert/X509CertSelector;Ljava/util/Set<Lsun/security/x509/GeneralNameInterface;>;)V", $STATIC, $method(static_cast<void(*)($X509CertSelector*,$Set*)>(&CertPathHelper::setPathToNames))},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(CertPathHelper, init$, void)},
+	{"implIsJdkCA", "(Ljava/security/cert/TrustAnchor;)Z", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(CertPathHelper, implIsJdkCA, bool, $TrustAnchor*)},
+	{"implSetDateAndTime", "(Ljava/security/cert/X509CRLSelector;Ljava/util/Date;J)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(CertPathHelper, implSetDateAndTime, void, $X509CRLSelector*, $Date*, int64_t)},
+	{"implSetPathToNames", "(Ljava/security/cert/X509CertSelector;Ljava/util/Set;)V", "(Ljava/security/cert/X509CertSelector;Ljava/util/Set<Lsun/security/x509/GeneralNameInterface;>;)V", $PROTECTED | $ABSTRACT, $virtualMethod(CertPathHelper, implSetPathToNames, void, $X509CertSelector*, $Set*)},
+	{"isJdkCA", "(Ljava/security/cert/TrustAnchor;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(CertPathHelper, isJdkCA, bool, $TrustAnchor*)},
+	{"setDateAndTime", "(Ljava/security/cert/X509CRLSelector;Ljava/util/Date;J)V", nullptr, $PUBLIC | $STATIC, $staticMethod(CertPathHelper, setDateAndTime, void, $X509CRLSelector*, $Date*, int64_t)},
+	{"setPathToNames", "(Ljava/security/cert/X509CertSelector;Ljava/util/Set;)V", "(Ljava/security/cert/X509CertSelector;Ljava/util/Set<Lsun/security/x509/GeneralNameInterface;>;)V", $STATIC, $staticMethod(CertPathHelper, setPathToNames, void, $X509CertSelector*, $Set*)},
 	{}
 };
 

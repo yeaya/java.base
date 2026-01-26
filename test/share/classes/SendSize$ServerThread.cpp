@@ -21,8 +21,8 @@ $FieldInfo _SendSize$ServerThread_FieldInfo_[] = {
 };
 
 $MethodInfo _SendSize$ServerThread_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/DatagramSocket;)V", nullptr, 0, $method(static_cast<void(SendSize$ServerThread::*)($DatagramSocket*)>(&SendSize$ServerThread::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/net/DatagramSocket;)V", nullptr, 0, $method(SendSize$ServerThread, init$, void, $DatagramSocket*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(SendSize$ServerThread, run, void)},
 	{}
 };
 

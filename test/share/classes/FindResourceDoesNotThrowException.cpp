@@ -15,8 +15,8 @@ using $URLClassLoader = ::java::net::URLClassLoader;
 using $Enumeration = ::java::util::Enumeration;
 
 $MethodInfo _FindResourceDoesNotThrowException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(FindResourceDoesNotThrowException::*)()>(&FindResourceDoesNotThrowException::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&FindResourceDoesNotThrowException::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(FindResourceDoesNotThrowException, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(FindResourceDoesNotThrowException, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

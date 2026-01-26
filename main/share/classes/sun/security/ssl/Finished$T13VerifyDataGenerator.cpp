@@ -49,8 +49,8 @@ $FieldInfo _Finished$T13VerifyDataGenerator_FieldInfo_[] = {
 };
 
 $MethodInfo _Finished$T13VerifyDataGenerator_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(Finished$T13VerifyDataGenerator::*)()>(&Finished$T13VerifyDataGenerator::init$))},
-	{"createVerifyData", "(Lsun/security/ssl/HandshakeContext;Z)[B", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(Finished$T13VerifyDataGenerator, init$, void)},
+	{"createVerifyData", "(Lsun/security/ssl/HandshakeContext;Z)[B", nullptr, $PUBLIC, $virtualMethod(Finished$T13VerifyDataGenerator, createVerifyData, $bytes*, $HandshakeContext*, bool), "java.io.IOException"},
 	{}
 };
 

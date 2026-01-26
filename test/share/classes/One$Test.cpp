@@ -25,9 +25,9 @@ $FieldInfo _One$Test_FieldInfo_[] = {
 };
 
 $MethodInfo _One$Test_MethodInfo_[] = {
-	{"<init>", "([BLjava/lang/String;)V", nullptr, 0, $method(static_cast<void(One$Test::*)($bytes*,$String*)>(&One$Test::init$)), "java.lang.Exception"},
-	{"go", "()V", nullptr, 0, nullptr, "java.lang.Exception"},
-	{"read", "()V", nullptr, $ABSTRACT, nullptr, "java.io.IOException"},
+	{"<init>", "([BLjava/lang/String;)V", nullptr, 0, $method(One$Test, init$, void, $bytes*, $String*), "java.lang.Exception"},
+	{"go", "()V", nullptr, 0, $virtualMethod(One$Test, go, void), "java.lang.Exception"},
+	{"read", "()V", nullptr, $ABSTRACT, $virtualMethod(One$Test, read, void), "java.io.IOException"},
 	{}
 };
 

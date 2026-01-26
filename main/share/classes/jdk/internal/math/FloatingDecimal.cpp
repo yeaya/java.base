@@ -134,21 +134,21 @@ $FieldInfo _FloatingDecimal_FieldInfo_[] = {
 };
 
 $MethodInfo _FloatingDecimal_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(FloatingDecimal::*)()>(&FloatingDecimal::init$))},
-	{"appendTo", "(DLjava/lang/Appendable;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)(double,$Appendable*)>(&FloatingDecimal::appendTo))},
-	{"appendTo", "(FLjava/lang/Appendable;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)(float,$Appendable*)>(&FloatingDecimal::appendTo))},
-	{"getBinaryToASCIIBuffer", "()Ljdk/internal/math/FloatingDecimal$BinaryToASCIIBuffer;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$FloatingDecimal$BinaryToASCIIBuffer*(*)()>(&FloatingDecimal::getBinaryToASCIIBuffer))},
-	{"getBinaryToASCIIConverter", "(D)Ljdk/internal/math/FloatingDecimal$BinaryToASCIIConverter;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$FloatingDecimal$BinaryToASCIIConverter*(*)(double)>(&FloatingDecimal::getBinaryToASCIIConverter))},
-	{"getBinaryToASCIIConverter", "(DZ)Ljdk/internal/math/FloatingDecimal$BinaryToASCIIConverter;", nullptr, $STATIC, $method(static_cast<$FloatingDecimal$BinaryToASCIIConverter*(*)(double,bool)>(&FloatingDecimal::getBinaryToASCIIConverter))},
-	{"getBinaryToASCIIConverter", "(F)Ljdk/internal/math/FloatingDecimal$BinaryToASCIIConverter;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$FloatingDecimal$BinaryToASCIIConverter*(*)(float)>(&FloatingDecimal::getBinaryToASCIIConverter))},
-	{"getHexDigit", "(Ljava/lang/String;I)I", nullptr, $STATIC, $method(static_cast<int32_t(*)($String*,int32_t)>(&FloatingDecimal::getHexDigit))},
-	{"parseDouble", "(Ljava/lang/String;)D", nullptr, $PUBLIC | $STATIC, $method(static_cast<double(*)($String*)>(&FloatingDecimal::parseDouble)), "java.lang.NumberFormatException"},
-	{"parseFloat", "(Ljava/lang/String;)F", nullptr, $PUBLIC | $STATIC, $method(static_cast<float(*)($String*)>(&FloatingDecimal::parseFloat)), "java.lang.NumberFormatException"},
-	{"parseHexString", "(Ljava/lang/String;)Ljdk/internal/math/FloatingDecimal$ASCIIToBinaryConverter;", nullptr, $STATIC, $method(static_cast<$FloatingDecimal$ASCIIToBinaryConverter*(*)($String*)>(&FloatingDecimal::parseHexString))},
-	{"readJavaFormatString", "(Ljava/lang/String;)Ljdk/internal/math/FloatingDecimal$ASCIIToBinaryConverter;", nullptr, $STATIC, $method(static_cast<$FloatingDecimal$ASCIIToBinaryConverter*(*)($String*)>(&FloatingDecimal::readJavaFormatString)), "java.lang.NumberFormatException"},
-	{"stripLeadingZeros", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $method(static_cast<$String*(*)($String*)>(&FloatingDecimal::stripLeadingZeros))},
-	{"toJavaFormatString", "(D)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)(double)>(&FloatingDecimal::toJavaFormatString))},
-	{"toJavaFormatString", "(F)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)(float)>(&FloatingDecimal::toJavaFormatString))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(FloatingDecimal, init$, void)},
+	{"appendTo", "(DLjava/lang/Appendable;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(FloatingDecimal, appendTo, void, double, $Appendable*)},
+	{"appendTo", "(FLjava/lang/Appendable;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(FloatingDecimal, appendTo, void, float, $Appendable*)},
+	{"getBinaryToASCIIBuffer", "()Ljdk/internal/math/FloatingDecimal$BinaryToASCIIBuffer;", nullptr, $PRIVATE | $STATIC, $staticMethod(FloatingDecimal, getBinaryToASCIIBuffer, $FloatingDecimal$BinaryToASCIIBuffer*)},
+	{"getBinaryToASCIIConverter", "(D)Ljdk/internal/math/FloatingDecimal$BinaryToASCIIConverter;", nullptr, $PUBLIC | $STATIC, $staticMethod(FloatingDecimal, getBinaryToASCIIConverter, $FloatingDecimal$BinaryToASCIIConverter*, double)},
+	{"getBinaryToASCIIConverter", "(DZ)Ljdk/internal/math/FloatingDecimal$BinaryToASCIIConverter;", nullptr, $STATIC, $staticMethod(FloatingDecimal, getBinaryToASCIIConverter, $FloatingDecimal$BinaryToASCIIConverter*, double, bool)},
+	{"getBinaryToASCIIConverter", "(F)Ljdk/internal/math/FloatingDecimal$BinaryToASCIIConverter;", nullptr, $PRIVATE | $STATIC, $staticMethod(FloatingDecimal, getBinaryToASCIIConverter, $FloatingDecimal$BinaryToASCIIConverter*, float)},
+	{"getHexDigit", "(Ljava/lang/String;I)I", nullptr, $STATIC, $staticMethod(FloatingDecimal, getHexDigit, int32_t, $String*, int32_t)},
+	{"parseDouble", "(Ljava/lang/String;)D", nullptr, $PUBLIC | $STATIC, $staticMethod(FloatingDecimal, parseDouble, double, $String*), "java.lang.NumberFormatException"},
+	{"parseFloat", "(Ljava/lang/String;)F", nullptr, $PUBLIC | $STATIC, $staticMethod(FloatingDecimal, parseFloat, float, $String*), "java.lang.NumberFormatException"},
+	{"parseHexString", "(Ljava/lang/String;)Ljdk/internal/math/FloatingDecimal$ASCIIToBinaryConverter;", nullptr, $STATIC, $staticMethod(FloatingDecimal, parseHexString, $FloatingDecimal$ASCIIToBinaryConverter*, $String*)},
+	{"readJavaFormatString", "(Ljava/lang/String;)Ljdk/internal/math/FloatingDecimal$ASCIIToBinaryConverter;", nullptr, $STATIC, $staticMethod(FloatingDecimal, readJavaFormatString, $FloatingDecimal$ASCIIToBinaryConverter*, $String*), "java.lang.NumberFormatException"},
+	{"stripLeadingZeros", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(FloatingDecimal, stripLeadingZeros, $String*, $String*)},
+	{"toJavaFormatString", "(D)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(FloatingDecimal, toJavaFormatString, $String*, double)},
+	{"toJavaFormatString", "(F)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(FloatingDecimal, toJavaFormatString, $String*, float)},
 	{}
 };
 

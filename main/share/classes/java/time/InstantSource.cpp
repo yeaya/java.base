@@ -28,13 +28,13 @@ namespace java {
 	namespace time {
 
 $MethodInfo _InstantSource_MethodInfo_[] = {
-	{"fixed", "(Ljava/time/Instant;)Ljava/time/InstantSource;", nullptr, $PUBLIC | $STATIC, $method(static_cast<InstantSource*(*)($Instant*)>(&InstantSource::fixed))},
-	{"instant", "()Ljava/time/Instant;", nullptr, $PUBLIC | $ABSTRACT},
-	{"millis", "()J", nullptr, $PUBLIC},
-	{"offset", "(Ljava/time/InstantSource;Ljava/time/Duration;)Ljava/time/InstantSource;", nullptr, $PUBLIC | $STATIC, $method(static_cast<InstantSource*(*)(InstantSource*,$Duration*)>(&InstantSource::offset))},
-	{"system", "()Ljava/time/InstantSource;", nullptr, $PUBLIC | $STATIC, $method(static_cast<InstantSource*(*)()>(&InstantSource::system))},
-	{"tick", "(Ljava/time/InstantSource;Ljava/time/Duration;)Ljava/time/InstantSource;", nullptr, $PUBLIC | $STATIC, $method(static_cast<InstantSource*(*)(InstantSource*,$Duration*)>(&InstantSource::tick))},
-	{"withZone", "(Ljava/time/ZoneId;)Ljava/time/Clock;", nullptr, $PUBLIC},
+	{"fixed", "(Ljava/time/Instant;)Ljava/time/InstantSource;", nullptr, $PUBLIC | $STATIC, $staticMethod(InstantSource, fixed, InstantSource*, $Instant*)},
+	{"instant", "()Ljava/time/Instant;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(InstantSource, instant, $Instant*)},
+	{"millis", "()J", nullptr, $PUBLIC, $virtualMethod(InstantSource, millis, int64_t)},
+	{"offset", "(Ljava/time/InstantSource;Ljava/time/Duration;)Ljava/time/InstantSource;", nullptr, $PUBLIC | $STATIC, $staticMethod(InstantSource, offset, InstantSource*, InstantSource*, $Duration*)},
+	{"system", "()Ljava/time/InstantSource;", nullptr, $PUBLIC | $STATIC, $staticMethod(InstantSource, system, InstantSource*)},
+	{"tick", "(Ljava/time/InstantSource;Ljava/time/Duration;)Ljava/time/InstantSource;", nullptr, $PUBLIC | $STATIC, $staticMethod(InstantSource, tick, InstantSource*, InstantSource*, $Duration*)},
+	{"withZone", "(Ljava/time/ZoneId;)Ljava/time/Clock;", nullptr, $PUBLIC, $virtualMethod(InstantSource, withZone, $Clock*, $ZoneId*)},
 	{}
 };
 

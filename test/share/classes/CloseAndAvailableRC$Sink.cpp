@@ -20,8 +20,8 @@ $FieldInfo _CloseAndAvailableRC$Sink_FieldInfo_[] = {
 };
 
 $MethodInfo _CloseAndAvailableRC$Sink_MethodInfo_[] = {
-	{"<init>", "(LCloseAndAvailableRC;)V", nullptr, $PRIVATE, $method(static_cast<void(CloseAndAvailableRC$Sink::*)($CloseAndAvailableRC*)>(&CloseAndAvailableRC$Sink::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(LCloseAndAvailableRC;)V", nullptr, $PRIVATE, $method(CloseAndAvailableRC$Sink, init$, void, $CloseAndAvailableRC*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(CloseAndAvailableRC$Sink, run, void)},
 	{}
 };
 

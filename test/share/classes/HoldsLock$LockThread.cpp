@@ -9,8 +9,8 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _HoldsLock$LockThread_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(HoldsLock$LockThread::*)()>(&HoldsLock$LockThread::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(HoldsLock$LockThread, init$, void)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(HoldsLock$LockThread, run, void)},
 	{}
 };
 

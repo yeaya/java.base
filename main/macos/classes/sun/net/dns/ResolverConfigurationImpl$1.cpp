@@ -21,8 +21,8 @@ $FieldInfo _ResolverConfigurationImpl$1_FieldInfo_[] = {
 };
 
 $MethodInfo _ResolverConfigurationImpl$1_MethodInfo_[] = {
-	{"<init>", "(Lsun/net/dns/ResolverConfigurationImpl;)V", nullptr, 0, $method(static_cast<void(ResolverConfigurationImpl$1::*)($ResolverConfigurationImpl*)>(&ResolverConfigurationImpl$1::init$))},
-	{"run", "()Ljava/util/LinkedList;", "()Ljava/util/LinkedList<Ljava/lang/String;>;", $PUBLIC},
+	{"<init>", "(Lsun/net/dns/ResolverConfigurationImpl;)V", nullptr, 0, $method(ResolverConfigurationImpl$1, init$, void, $ResolverConfigurationImpl*)},
+	{"run", "()Ljava/util/LinkedList;", "()Ljava/util/LinkedList<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(ResolverConfigurationImpl$1, run, $Object*)},
 	{}
 };
 

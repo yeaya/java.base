@@ -42,8 +42,8 @@ $FieldInfo _VerificationProvider_FieldInfo_[] = {
 };
 
 $MethodInfo _VerificationProvider_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(VerificationProvider::*)()>(&VerificationProvider::init$))},
-	{"putEntries", "(Ljava/util/Iterator;)V", "(Ljava/util/Iterator<Ljava/security/Provider$Service;>;)V", 0, $method(static_cast<void(VerificationProvider::*)($Iterator*)>(&VerificationProvider::putEntries))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(VerificationProvider, init$, void)},
+	{"putEntries", "(Ljava/util/Iterator;)V", "(Ljava/util/Iterator<Ljava/security/Provider$Service;>;)V", 0, $method(VerificationProvider, putEntries, void, $Iterator*)},
 	{}
 };
 

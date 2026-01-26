@@ -47,8 +47,8 @@ $FieldInfo _PipeImpl$Initializer$LoopbackConnector_FieldInfo_[] = {
 };
 
 $MethodInfo _PipeImpl$Initializer$LoopbackConnector_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/ch/PipeImpl$Initializer;)V", nullptr, $PRIVATE, $method(static_cast<void(PipeImpl$Initializer$LoopbackConnector::*)($PipeImpl$Initializer*)>(&PipeImpl$Initializer$LoopbackConnector::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/nio/ch/PipeImpl$Initializer;)V", nullptr, $PRIVATE, $method(PipeImpl$Initializer$LoopbackConnector, init$, void, $PipeImpl$Initializer*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(PipeImpl$Initializer$LoopbackConnector, run, void)},
 	{}
 };
 

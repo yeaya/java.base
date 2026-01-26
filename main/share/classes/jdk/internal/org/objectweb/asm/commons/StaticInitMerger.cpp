@@ -34,11 +34,11 @@ $FieldInfo _StaticInitMerger_FieldInfo_[] = {
 };
 
 $MethodInfo _StaticInitMerger_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljdk/internal/org/objectweb/asm/ClassVisitor;)V", nullptr, $PUBLIC, $method(static_cast<void(StaticInitMerger::*)($String*,$ClassVisitor*)>(&StaticInitMerger::init$))},
-	{"<init>", "(ILjava/lang/String;Ljdk/internal/org/objectweb/asm/ClassVisitor;)V", nullptr, $PROTECTED, $method(static_cast<void(StaticInitMerger::*)(int32_t,$String*,$ClassVisitor*)>(&StaticInitMerger::init$))},
-	{"visit", "(IILjava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"visitEnd", "()V", nullptr, $PUBLIC},
-	{"visitMethod", "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)Ljdk/internal/org/objectweb/asm/MethodVisitor;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Ljdk/internal/org/objectweb/asm/ClassVisitor;)V", nullptr, $PUBLIC, $method(StaticInitMerger, init$, void, $String*, $ClassVisitor*)},
+	{"<init>", "(ILjava/lang/String;Ljdk/internal/org/objectweb/asm/ClassVisitor;)V", nullptr, $PROTECTED, $method(StaticInitMerger, init$, void, int32_t, $String*, $ClassVisitor*)},
+	{"visit", "(IILjava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(StaticInitMerger, visit, void, int32_t, int32_t, $String*, $String*, $String*, $StringArray*)},
+	{"visitEnd", "()V", nullptr, $PUBLIC, $virtualMethod(StaticInitMerger, visitEnd, void)},
+	{"visitMethod", "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)Ljdk/internal/org/objectweb/asm/MethodVisitor;", nullptr, $PUBLIC, $virtualMethod(StaticInitMerger, visitMethod, $MethodVisitor*, int32_t, $String*, $String*, $String*, $StringArray*)},
 	{}
 };
 

@@ -9,8 +9,8 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $BreakIterator = ::java::text::BreakIterator;
 
 $MethodInfo _Bug4912404_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Bug4912404::*)()>(&Bug4912404::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Bug4912404::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Bug4912404, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Bug4912404, main, void, $StringArray*)},
 	{}
 };
 

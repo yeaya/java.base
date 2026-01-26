@@ -75,8 +75,8 @@ $FieldInfo ModuleReferences$ExplodedModuleReader$$Lambda$lambda$list$0::fieldInf
 	{}
 };
 $MethodInfo ModuleReferences$ExplodedModuleReader$$Lambda$lambda$list$0::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/module/ModuleReferences$ExplodedModuleReader;)V", nullptr, $PUBLIC, $method(static_cast<void(ModuleReferences$ExplodedModuleReader$$Lambda$lambda$list$0::*)(ModuleReferences$ExplodedModuleReader*)>(&ModuleReferences$ExplodedModuleReader$$Lambda$lambda$list$0::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/module/ModuleReferences$ExplodedModuleReader;)V", nullptr, $PUBLIC, $method(ModuleReferences$ExplodedModuleReader$$Lambda$lambda$list$0, init$, void, ModuleReferences$ExplodedModuleReader*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ModuleReferences$ExplodedModuleReader$$Lambda$lambda$list$0, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo ModuleReferences$ExplodedModuleReader$$Lambda$lambda$list$0::classInfo$ = {
@@ -108,8 +108,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ModuleReferences$ExplodedModuleReader$$Lambda$lambda$list$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ModuleReferences$ExplodedModuleReader$$Lambda$lambda$list$1$1::*)()>(&ModuleReferences$ExplodedModuleReader$$Lambda$lambda$list$1$1::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ModuleReferences$ExplodedModuleReader$$Lambda$lambda$list$1$1, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ModuleReferences$ExplodedModuleReader$$Lambda$lambda$list$1$1, test, bool, Object$*)},
 	{}
 };
 $ClassInfo ModuleReferences$ExplodedModuleReader$$Lambda$lambda$list$1$1::classInfo$ = {
@@ -133,15 +133,15 @@ $FieldInfo _ModuleReferences$ExplodedModuleReader_FieldInfo_[] = {
 };
 
 $MethodInfo _ModuleReferences$ExplodedModuleReader_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/file/Path;)V", nullptr, 0, $method(static_cast<void(ModuleReferences$ExplodedModuleReader::*)($Path*)>(&ModuleReferences$ExplodedModuleReader::init$))},
-	{"close", "()V", nullptr, $PUBLIC},
-	{"ensureOpen", "()V", nullptr, $PRIVATE, $method(static_cast<void(ModuleReferences$ExplodedModuleReader::*)()>(&ModuleReferences$ExplodedModuleReader::ensureOpen)), "java.io.IOException"},
-	{"find", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/net/URI;>;", $PUBLIC, nullptr, "java.io.IOException"},
-	{"lambda$list$0", "(Ljava/nio/file/Path;)Ljava/lang/String;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$String*(ModuleReferences$ExplodedModuleReader::*)($Path*)>(&ModuleReferences$ExplodedModuleReader::lambda$list$0))},
-	{"lambda$list$1", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($String*)>(&ModuleReferences$ExplodedModuleReader::lambda$list$1))},
-	{"list", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljava/lang/String;>;", $PUBLIC, nullptr, "java.io.IOException"},
-	{"open", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/io/InputStream;>;", $PUBLIC, nullptr, "java.io.IOException"},
-	{"read", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/nio/ByteBuffer;>;", $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljava/nio/file/Path;)V", nullptr, 0, $method(ModuleReferences$ExplodedModuleReader, init$, void, $Path*)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(ModuleReferences$ExplodedModuleReader, close, void)},
+	{"ensureOpen", "()V", nullptr, $PRIVATE, $method(ModuleReferences$ExplodedModuleReader, ensureOpen, void), "java.io.IOException"},
+	{"find", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/net/URI;>;", $PUBLIC, $virtualMethod(ModuleReferences$ExplodedModuleReader, find, $Optional*, $String*), "java.io.IOException"},
+	{"lambda$list$0", "(Ljava/nio/file/Path;)Ljava/lang/String;", nullptr, $PRIVATE | $SYNTHETIC, $method(ModuleReferences$ExplodedModuleReader, lambda$list$0, $String*, $Path*)},
+	{"lambda$list$1", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ModuleReferences$ExplodedModuleReader, lambda$list$1, bool, $String*)},
+	{"list", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(ModuleReferences$ExplodedModuleReader, list, $Stream*), "java.io.IOException"},
+	{"open", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/io/InputStream;>;", $PUBLIC, $virtualMethod(ModuleReferences$ExplodedModuleReader, open, $Optional*, $String*), "java.io.IOException"},
+	{"read", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/nio/ByteBuffer;>;", $PUBLIC, $virtualMethod(ModuleReferences$ExplodedModuleReader, read, $Optional*, $String*), "java.io.IOException"},
 	{}
 };
 

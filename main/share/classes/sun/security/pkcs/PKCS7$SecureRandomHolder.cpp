@@ -24,7 +24,7 @@ $FieldInfo _PKCS7$SecureRandomHolder_FieldInfo_[] = {
 };
 
 $MethodInfo _PKCS7$SecureRandomHolder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(PKCS7$SecureRandomHolder::*)()>(&PKCS7$SecureRandomHolder::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(PKCS7$SecureRandomHolder, init$, void)},
 	{}
 };
 

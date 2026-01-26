@@ -51,11 +51,11 @@ $MethodInfo _AbstractUserDefinedFileAttributeView_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(AbstractUserDefinedFileAttributeView::*)()>(&AbstractUserDefinedFileAttributeView::init$))},
-	{"checkAccess", "(Ljava/lang/String;ZZ)V", nullptr, $PROTECTED},
-	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL},
-	{"readAttributes", "([Ljava/lang/String;)Ljava/util/Map;", "([Ljava/lang/String;)Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;", $PUBLIC | $FINAL, nullptr, "java.io.IOException"},
-	{"setAttribute", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC | $FINAL, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(AbstractUserDefinedFileAttributeView, init$, void)},
+	{"checkAccess", "(Ljava/lang/String;ZZ)V", nullptr, $PROTECTED, $virtualMethod(AbstractUserDefinedFileAttributeView, checkAccess, void, $String*, bool, bool)},
+	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractUserDefinedFileAttributeView, name, $String*)},
+	{"readAttributes", "([Ljava/lang/String;)Ljava/util/Map;", "([Ljava/lang/String;)Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;", $PUBLIC | $FINAL, $virtualMethod(AbstractUserDefinedFileAttributeView, readAttributes, $Map*, $StringArray*), "java.io.IOException"},
+	{"setAttribute", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractUserDefinedFileAttributeView, setAttribute, void, $String*, Object$*), "java.io.IOException"},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

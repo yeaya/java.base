@@ -37,10 +37,10 @@ namespace sun {
 			namespace provider {
 
 $MethodInfo _HostLocaleProviderAdapter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(HostLocaleProviderAdapter::*)()>(&HostLocaleProviderAdapter::init$))},
-	{"findInstalledProvider", "(Ljava/lang/Class;)Ljava/util/spi/LocaleServiceProvider;", "<P:Ljava/util/spi/LocaleServiceProvider;>(Ljava/lang/Class<TP;>;)TP;", $PROTECTED},
-	{"getAdapterType", "()Lsun/util/locale/provider/LocaleProviderAdapter$Type;", nullptr, $PUBLIC},
-	{"makeIntegerFormatter", "(Ljava/text/DecimalFormat;)Ljava/text/DecimalFormat;", nullptr, $STATIC, $method(static_cast<$DecimalFormat*(*)($DecimalFormat*)>(&HostLocaleProviderAdapter::makeIntegerFormatter))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(HostLocaleProviderAdapter, init$, void)},
+	{"findInstalledProvider", "(Ljava/lang/Class;)Ljava/util/spi/LocaleServiceProvider;", "<P:Ljava/util/spi/LocaleServiceProvider;>(Ljava/lang/Class<TP;>;)TP;", $PROTECTED, $virtualMethod(HostLocaleProviderAdapter, findInstalledProvider, $LocaleServiceProvider*, $Class*)},
+	{"getAdapterType", "()Lsun/util/locale/provider/LocaleProviderAdapter$Type;", nullptr, $PUBLIC, $virtualMethod(HostLocaleProviderAdapter, getAdapterType, $LocaleProviderAdapter$Type*)},
+	{"makeIntegerFormatter", "(Ljava/text/DecimalFormat;)Ljava/text/DecimalFormat;", nullptr, $STATIC, $staticMethod(HostLocaleProviderAdapter, makeIntegerFormatter, $DecimalFormat*, $DecimalFormat*)},
 	{}
 };
 

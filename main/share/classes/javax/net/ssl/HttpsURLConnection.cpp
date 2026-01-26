@@ -49,21 +49,21 @@ $FieldInfo _HttpsURLConnection_FieldInfo_[] = {
 };
 
 $MethodInfo _HttpsURLConnection_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/URL;)V", nullptr, $PROTECTED, $method(static_cast<void(HttpsURLConnection::*)($URL*)>(&HttpsURLConnection::init$))},
-	{"getCipherSuite", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getDefaultHostnameVerifier", "()Ljavax/net/ssl/HostnameVerifier;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$HostnameVerifier*(*)()>(&HttpsURLConnection::getDefaultHostnameVerifier))},
-	{"getDefaultSSLSocketFactory", "()Ljavax/net/ssl/SSLSocketFactory;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$SSLSocketFactory*(*)()>(&HttpsURLConnection::getDefaultSSLSocketFactory))},
-	{"getHostnameVerifier", "()Ljavax/net/ssl/HostnameVerifier;", nullptr, $PUBLIC},
-	{"getLocalCertificates", "()[Ljava/security/cert/Certificate;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getLocalPrincipal", "()Ljava/security/Principal;", nullptr, $PUBLIC},
-	{"getPeerPrincipal", "()Ljava/security/Principal;", nullptr, $PUBLIC, nullptr, "javax.net.ssl.SSLPeerUnverifiedException"},
-	{"getSSLSession", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljavax/net/ssl/SSLSession;>;", $PUBLIC},
-	{"getSSLSocketFactory", "()Ljavax/net/ssl/SSLSocketFactory;", nullptr, $PUBLIC},
-	{"getServerCertificates", "()[Ljava/security/cert/Certificate;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "javax.net.ssl.SSLPeerUnverifiedException"},
-	{"setDefaultHostnameVerifier", "(Ljavax/net/ssl/HostnameVerifier;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($HostnameVerifier*)>(&HttpsURLConnection::setDefaultHostnameVerifier))},
-	{"setDefaultSSLSocketFactory", "(Ljavax/net/ssl/SSLSocketFactory;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($SSLSocketFactory*)>(&HttpsURLConnection::setDefaultSSLSocketFactory))},
-	{"setHostnameVerifier", "(Ljavax/net/ssl/HostnameVerifier;)V", nullptr, $PUBLIC},
-	{"setSSLSocketFactory", "(Ljavax/net/ssl/SSLSocketFactory;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/net/URL;)V", nullptr, $PROTECTED, $method(HttpsURLConnection, init$, void, $URL*)},
+	{"getCipherSuite", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HttpsURLConnection, getCipherSuite, $String*)},
+	{"getDefaultHostnameVerifier", "()Ljavax/net/ssl/HostnameVerifier;", nullptr, $PUBLIC | $STATIC, $staticMethod(HttpsURLConnection, getDefaultHostnameVerifier, $HostnameVerifier*)},
+	{"getDefaultSSLSocketFactory", "()Ljavax/net/ssl/SSLSocketFactory;", nullptr, $PUBLIC | $STATIC, $staticMethod(HttpsURLConnection, getDefaultSSLSocketFactory, $SSLSocketFactory*)},
+	{"getHostnameVerifier", "()Ljavax/net/ssl/HostnameVerifier;", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnection, getHostnameVerifier, $HostnameVerifier*)},
+	{"getLocalCertificates", "()[Ljava/security/cert/Certificate;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HttpsURLConnection, getLocalCertificates, $CertificateArray*)},
+	{"getLocalPrincipal", "()Ljava/security/Principal;", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnection, getLocalPrincipal, $Principal*)},
+	{"getPeerPrincipal", "()Ljava/security/Principal;", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnection, getPeerPrincipal, $Principal*), "javax.net.ssl.SSLPeerUnverifiedException"},
+	{"getSSLSession", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljavax/net/ssl/SSLSession;>;", $PUBLIC, $virtualMethod(HttpsURLConnection, getSSLSession, $Optional*)},
+	{"getSSLSocketFactory", "()Ljavax/net/ssl/SSLSocketFactory;", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnection, getSSLSocketFactory, $SSLSocketFactory*)},
+	{"getServerCertificates", "()[Ljava/security/cert/Certificate;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HttpsURLConnection, getServerCertificates, $CertificateArray*), "javax.net.ssl.SSLPeerUnverifiedException"},
+	{"setDefaultHostnameVerifier", "(Ljavax/net/ssl/HostnameVerifier;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HttpsURLConnection, setDefaultHostnameVerifier, void, $HostnameVerifier*)},
+	{"setDefaultSSLSocketFactory", "(Ljavax/net/ssl/SSLSocketFactory;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HttpsURLConnection, setDefaultSSLSocketFactory, void, $SSLSocketFactory*)},
+	{"setHostnameVerifier", "(Ljavax/net/ssl/HostnameVerifier;)V", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnection, setHostnameVerifier, void, $HostnameVerifier*)},
+	{"setSSLSocketFactory", "(Ljavax/net/ssl/SSLSocketFactory;)V", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnection, setSSLSocketFactory, void, $SSLSocketFactory*)},
 	{}
 };
 

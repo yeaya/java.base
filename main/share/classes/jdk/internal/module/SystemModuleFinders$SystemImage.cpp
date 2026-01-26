@@ -24,8 +24,8 @@ $FieldInfo _SystemModuleFinders$SystemImage_FieldInfo_[] = {
 };
 
 $MethodInfo _SystemModuleFinders$SystemImage_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(SystemModuleFinders$SystemImage::*)()>(&SystemModuleFinders$SystemImage::init$))},
-	{"reader", "()Ljdk/internal/jimage/ImageReader;", nullptr, $STATIC, $method(static_cast<$ImageReader*(*)()>(&SystemModuleFinders$SystemImage::reader))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(SystemModuleFinders$SystemImage, init$, void)},
+	{"reader", "()Ljdk/internal/jimage/ImageReader;", nullptr, $STATIC, $staticMethod(SystemModuleFinders$SystemImage, reader, $ImageReader*)},
 	{}
 };
 

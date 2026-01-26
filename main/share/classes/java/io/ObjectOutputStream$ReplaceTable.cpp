@@ -22,12 +22,12 @@ $FieldInfo _ObjectOutputStream$ReplaceTable_FieldInfo_[] = {
 };
 
 $MethodInfo _ObjectOutputStream$ReplaceTable_MethodInfo_[] = {
-	{"<init>", "(IF)V", nullptr, 0, $method(static_cast<void(ObjectOutputStream$ReplaceTable::*)(int32_t,float)>(&ObjectOutputStream$ReplaceTable::init$))},
-	{"assign", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, 0},
-	{"clear", "()V", nullptr, 0},
-	{"grow", "()V", nullptr, $PRIVATE, $method(static_cast<void(ObjectOutputStream$ReplaceTable::*)()>(&ObjectOutputStream$ReplaceTable::grow))},
-	{"lookup", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, 0},
-	{"size", "()I", nullptr, 0},
+	{"<init>", "(IF)V", nullptr, 0, $method(ObjectOutputStream$ReplaceTable, init$, void, int32_t, float)},
+	{"assign", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, 0, $virtualMethod(ObjectOutputStream$ReplaceTable, assign, void, Object$*, Object$*)},
+	{"clear", "()V", nullptr, 0, $virtualMethod(ObjectOutputStream$ReplaceTable, clear, void)},
+	{"grow", "()V", nullptr, $PRIVATE, $method(ObjectOutputStream$ReplaceTable, grow, void)},
+	{"lookup", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, 0, $virtualMethod(ObjectOutputStream$ReplaceTable, lookup, $Object*, Object$*)},
+	{"size", "()I", nullptr, 0, $virtualMethod(ObjectOutputStream$ReplaceTable, size, int32_t)},
 	{}
 };
 

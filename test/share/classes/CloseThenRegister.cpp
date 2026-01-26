@@ -23,8 +23,8 @@ using $Selector = ::java::nio::channels::Selector;
 using $ServerSocketChannel = ::java::nio::channels::ServerSocketChannel;
 
 $MethodInfo _CloseThenRegister_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CloseThenRegister::*)()>(&CloseThenRegister::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&CloseThenRegister::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CloseThenRegister, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(CloseThenRegister, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

@@ -51,17 +51,17 @@ $FieldInfo _CertStore_FieldInfo_[] = {
 };
 
 $MethodInfo _CertStore_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/cert/CertStoreSpi;Ljava/security/Provider;Ljava/lang/String;Ljava/security/cert/CertStoreParameters;)V", nullptr, $PROTECTED, $method(static_cast<void(CertStore::*)($CertStoreSpi*,$Provider*,$String*,$CertStoreParameters*)>(&CertStore::init$))},
-	{"getCRLs", "(Ljava/security/cert/CRLSelector;)Ljava/util/Collection;", "(Ljava/security/cert/CRLSelector;)Ljava/util/Collection<+Ljava/security/cert/CRL;>;", $PUBLIC | $FINAL, $method(static_cast<$Collection*(CertStore::*)($CRLSelector*)>(&CertStore::getCRLs)), "java.security.cert.CertStoreException"},
-	{"getCertStoreParameters", "()Ljava/security/cert/CertStoreParameters;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$CertStoreParameters*(CertStore::*)()>(&CertStore::getCertStoreParameters))},
-	{"getCertificates", "(Ljava/security/cert/CertSelector;)Ljava/util/Collection;", "(Ljava/security/cert/CertSelector;)Ljava/util/Collection<+Ljava/security/cert/Certificate;>;", $PUBLIC | $FINAL, $method(static_cast<$Collection*(CertStore::*)($CertSelector*)>(&CertStore::getCertificates)), "java.security.cert.CertStoreException"},
-	{"getDefaultType", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $method(static_cast<$String*(*)()>(&CertStore::getDefaultType))},
-	{"getInstance", "(Ljava/lang/String;Ljava/security/cert/CertStoreParameters;)Ljava/security/cert/CertStore;", nullptr, $PUBLIC | $STATIC, $method(static_cast<CertStore*(*)($String*,$CertStoreParameters*)>(&CertStore::getInstance)), "java.security.InvalidAlgorithmParameterException,java.security.NoSuchAlgorithmException"},
-	{"getInstance", "(Ljava/lang/String;Ljava/security/cert/CertStoreParameters;Ljava/lang/String;)Ljava/security/cert/CertStore;", nullptr, $PUBLIC | $STATIC, $method(static_cast<CertStore*(*)($String*,$CertStoreParameters*,$String*)>(&CertStore::getInstance)), "java.security.InvalidAlgorithmParameterException,java.security.NoSuchAlgorithmException,java.security.NoSuchProviderException"},
-	{"getInstance", "(Ljava/lang/String;Ljava/security/cert/CertStoreParameters;Ljava/security/Provider;)Ljava/security/cert/CertStore;", nullptr, $PUBLIC | $STATIC, $method(static_cast<CertStore*(*)($String*,$CertStoreParameters*,$Provider*)>(&CertStore::getInstance)), "java.security.NoSuchAlgorithmException,java.security.InvalidAlgorithmParameterException"},
-	{"getProvider", "()Ljava/security/Provider;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$Provider*(CertStore::*)()>(&CertStore::getProvider))},
-	{"getType", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$String*(CertStore::*)()>(&CertStore::getType))},
-	{"handleException", "(Ljava/security/NoSuchAlgorithmException;)Ljava/security/cert/CertStore;", nullptr, $PRIVATE | $STATIC, $method(static_cast<CertStore*(*)($NoSuchAlgorithmException*)>(&CertStore::handleException)), "java.security.NoSuchAlgorithmException,java.security.InvalidAlgorithmParameterException"},
+	{"<init>", "(Ljava/security/cert/CertStoreSpi;Ljava/security/Provider;Ljava/lang/String;Ljava/security/cert/CertStoreParameters;)V", nullptr, $PROTECTED, $method(CertStore, init$, void, $CertStoreSpi*, $Provider*, $String*, $CertStoreParameters*)},
+	{"getCRLs", "(Ljava/security/cert/CRLSelector;)Ljava/util/Collection;", "(Ljava/security/cert/CRLSelector;)Ljava/util/Collection<+Ljava/security/cert/CRL;>;", $PUBLIC | $FINAL, $method(CertStore, getCRLs, $Collection*, $CRLSelector*), "java.security.cert.CertStoreException"},
+	{"getCertStoreParameters", "()Ljava/security/cert/CertStoreParameters;", nullptr, $PUBLIC | $FINAL, $method(CertStore, getCertStoreParameters, $CertStoreParameters*)},
+	{"getCertificates", "(Ljava/security/cert/CertSelector;)Ljava/util/Collection;", "(Ljava/security/cert/CertSelector;)Ljava/util/Collection<+Ljava/security/cert/Certificate;>;", $PUBLIC | $FINAL, $method(CertStore, getCertificates, $Collection*, $CertSelector*), "java.security.cert.CertStoreException"},
+	{"getDefaultType", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(CertStore, getDefaultType, $String*)},
+	{"getInstance", "(Ljava/lang/String;Ljava/security/cert/CertStoreParameters;)Ljava/security/cert/CertStore;", nullptr, $PUBLIC | $STATIC, $staticMethod(CertStore, getInstance, CertStore*, $String*, $CertStoreParameters*), "java.security.InvalidAlgorithmParameterException,java.security.NoSuchAlgorithmException"},
+	{"getInstance", "(Ljava/lang/String;Ljava/security/cert/CertStoreParameters;Ljava/lang/String;)Ljava/security/cert/CertStore;", nullptr, $PUBLIC | $STATIC, $staticMethod(CertStore, getInstance, CertStore*, $String*, $CertStoreParameters*, $String*), "java.security.InvalidAlgorithmParameterException,java.security.NoSuchAlgorithmException,java.security.NoSuchProviderException"},
+	{"getInstance", "(Ljava/lang/String;Ljava/security/cert/CertStoreParameters;Ljava/security/Provider;)Ljava/security/cert/CertStore;", nullptr, $PUBLIC | $STATIC, $staticMethod(CertStore, getInstance, CertStore*, $String*, $CertStoreParameters*, $Provider*), "java.security.NoSuchAlgorithmException,java.security.InvalidAlgorithmParameterException"},
+	{"getProvider", "()Ljava/security/Provider;", nullptr, $PUBLIC | $FINAL, $method(CertStore, getProvider, $Provider*)},
+	{"getType", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(CertStore, getType, $String*)},
+	{"handleException", "(Ljava/security/NoSuchAlgorithmException;)Ljava/security/cert/CertStore;", nullptr, $PRIVATE | $STATIC, $staticMethod(CertStore, handleException, CertStore*, $NoSuchAlgorithmException*), "java.security.NoSuchAlgorithmException,java.security.InvalidAlgorithmParameterException"},
 	{}
 };
 

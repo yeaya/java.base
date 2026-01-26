@@ -33,10 +33,10 @@ $FieldInfo _SortedOps$DoubleSortingSink_FieldInfo_[] = {
 };
 
 $MethodInfo _SortedOps$DoubleSortingSink_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/stream/Sink;)V", "(Ljava/util/stream/Sink<-Ljava/lang/Double;>;)V", 0, $method(static_cast<void(SortedOps$DoubleSortingSink::*)($Sink*)>(&SortedOps$DoubleSortingSink::init$))},
-	{"accept", "(D)V", nullptr, $PUBLIC},
-	{"begin", "(J)V", nullptr, $PUBLIC},
-	{"end", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/stream/Sink;)V", "(Ljava/util/stream/Sink<-Ljava/lang/Double;>;)V", 0, $method(SortedOps$DoubleSortingSink, init$, void, $Sink*)},
+	{"accept", "(D)V", nullptr, $PUBLIC, $virtualMethod(SortedOps$DoubleSortingSink, accept, void, double)},
+	{"begin", "(J)V", nullptr, $PUBLIC, $virtualMethod(SortedOps$DoubleSortingSink, begin, void, int64_t)},
+	{"end", "()V", nullptr, $PUBLIC, $virtualMethod(SortedOps$DoubleSortingSink, end, void)},
 	{}
 };
 

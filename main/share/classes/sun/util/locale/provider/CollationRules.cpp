@@ -19,7 +19,7 @@ $FieldInfo _CollationRules_FieldInfo_[] = {
 };
 
 $MethodInfo _CollationRules_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(CollationRules::*)()>(&CollationRules::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(CollationRules, init$, void)},
 	{}
 };
 

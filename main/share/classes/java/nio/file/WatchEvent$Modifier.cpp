@@ -12,7 +12,7 @@ namespace java {
 		namespace file {
 
 $MethodInfo _WatchEvent$Modifier_MethodInfo_[] = {
-	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
+	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(WatchEvent$Modifier, name, $String*)},
 	{}
 };
 

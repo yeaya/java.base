@@ -42,8 +42,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo LauncherHelper$JrtFirstComparator$$Lambda$descriptor::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(LauncherHelper$JrtFirstComparator$$Lambda$descriptor::*)()>(&LauncherHelper$JrtFirstComparator$$Lambda$descriptor::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(LauncherHelper$JrtFirstComparator$$Lambda$descriptor, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LauncherHelper$JrtFirstComparator$$Lambda$descriptor, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo LauncherHelper$JrtFirstComparator$$Lambda$descriptor::classInfo$ = {
@@ -66,9 +66,9 @@ $FieldInfo _LauncherHelper$JrtFirstComparator_FieldInfo_[] = {
 };
 
 $MethodInfo _LauncherHelper$JrtFirstComparator_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(LauncherHelper$JrtFirstComparator::*)()>(&LauncherHelper$JrtFirstComparator::init$))},
-	{"compare", "(Ljava/lang/module/ModuleReference;Ljava/lang/module/ModuleReference;)I", nullptr, $PUBLIC},
-	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "()V", nullptr, 0, $method(LauncherHelper$JrtFirstComparator, init$, void)},
+	{"compare", "(Ljava/lang/module/ModuleReference;Ljava/lang/module/ModuleReference;)I", nullptr, $PUBLIC, $virtualMethod(LauncherHelper$JrtFirstComparator, compare, int32_t, $ModuleReference*, $ModuleReference*)},
+	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(LauncherHelper$JrtFirstComparator, compare, int32_t, Object$*, Object$*)},
 	{}
 };
 

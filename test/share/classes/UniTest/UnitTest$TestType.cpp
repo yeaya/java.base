@@ -1539,10 +1539,10 @@ $FieldInfo _UnitTest$TestType_FieldInfo_[] = {
 };
 
 $MethodInfo _UnitTest$TestType_MethodInfo_[] = {
-	{"$values", "()[LUniTest/UnitTest$TestType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$UnitTest$TestTypeArray*(*)()>(&UnitTest$TestType::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(UnitTest$TestType::*)($String*,int32_t)>(&UnitTest$TestType::init$))},
-	{"valueOf", "(Ljava/lang/String;)LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC, $method(static_cast<UnitTest$TestType*(*)($String*)>(&UnitTest$TestType::valueOf))},
-	{"values", "()[LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$UnitTest$TestTypeArray*(*)()>(&UnitTest$TestType::values))},
+	{"$values", "()[LUniTest/UnitTest$TestType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(UnitTest$TestType, $values, $UnitTest$TestTypeArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(UnitTest$TestType, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC, $staticMethod(UnitTest$TestType, valueOf, UnitTest$TestType*, $String*)},
+	{"values", "()[LUniTest/UnitTest$TestType;", nullptr, $PUBLIC | $STATIC, $staticMethod(UnitTest$TestType, values, $UnitTest$TestTypeArray*)},
 	{}
 };
 

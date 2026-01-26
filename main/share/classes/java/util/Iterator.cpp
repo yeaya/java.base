@@ -15,10 +15,10 @@ namespace java {
 	namespace util {
 
 $MethodInfo _Iterator_MethodInfo_[] = {
-	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC},
-	{"hasNext", "()Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"next", "()Ljava/lang/Object;", "()TE;", $PUBLIC | $ABSTRACT},
-	{"remove", "()V", nullptr, $PUBLIC},
+	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC, $virtualMethod(Iterator, forEachRemaining, void, $Consumer*)},
+	{"hasNext", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Iterator, hasNext, bool)},
+	{"next", "()Ljava/lang/Object;", "()TE;", $PUBLIC | $ABSTRACT, $virtualMethod(Iterator, next, $Object*)},
+	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(Iterator, remove, void)},
 	{}
 };
 

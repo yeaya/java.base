@@ -13,7 +13,7 @@ namespace sun {
 		namespace cs {
 
 $MethodInfo _HKSCS_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(HKSCS::*)()>(&HKSCS::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(HKSCS, init$, void)},
 	{}
 };
 

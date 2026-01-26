@@ -27,10 +27,10 @@ $FieldInfo _ConcurrentHashMap$BaseIterator_FieldInfo_[] = {
 };
 
 $MethodInfo _ConcurrentHashMap$BaseIterator_MethodInfo_[] = {
-	{"<init>", "([Ljava/util/concurrent/ConcurrentHashMap$Node;IIILjava/util/concurrent/ConcurrentHashMap;)V", "([Ljava/util/concurrent/ConcurrentHashMap$Node<TK;TV;>;IIILjava/util/concurrent/ConcurrentHashMap<TK;TV;>;)V", 0, $method(static_cast<void(ConcurrentHashMap$BaseIterator::*)($ConcurrentHashMap$NodeArray*,int32_t,int32_t,int32_t,$ConcurrentHashMap*)>(&ConcurrentHashMap$BaseIterator::init$))},
-	{"hasMoreElements", "()Z", nullptr, $PUBLIC | $FINAL, $method(static_cast<bool(ConcurrentHashMap$BaseIterator::*)()>(&ConcurrentHashMap$BaseIterator::hasMoreElements))},
-	{"hasNext", "()Z", nullptr, $PUBLIC | $FINAL, $method(static_cast<bool(ConcurrentHashMap$BaseIterator::*)()>(&ConcurrentHashMap$BaseIterator::hasNext))},
-	{"remove", "()V", nullptr, $PUBLIC | $FINAL, $method(static_cast<void(ConcurrentHashMap$BaseIterator::*)()>(&ConcurrentHashMap$BaseIterator::remove))},
+	{"<init>", "([Ljava/util/concurrent/ConcurrentHashMap$Node;IIILjava/util/concurrent/ConcurrentHashMap;)V", "([Ljava/util/concurrent/ConcurrentHashMap$Node<TK;TV;>;IIILjava/util/concurrent/ConcurrentHashMap<TK;TV;>;)V", 0, $method(ConcurrentHashMap$BaseIterator, init$, void, $ConcurrentHashMap$NodeArray*, int32_t, int32_t, int32_t, $ConcurrentHashMap*)},
+	{"hasMoreElements", "()Z", nullptr, $PUBLIC | $FINAL, $method(ConcurrentHashMap$BaseIterator, hasMoreElements, bool)},
+	{"hasNext", "()Z", nullptr, $PUBLIC | $FINAL, $method(ConcurrentHashMap$BaseIterator, hasNext, bool)},
+	{"remove", "()V", nullptr, $PUBLIC | $FINAL, $method(ConcurrentHashMap$BaseIterator, remove, void)},
 	{}
 };
 

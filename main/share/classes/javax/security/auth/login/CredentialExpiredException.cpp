@@ -19,8 +19,8 @@ $FieldInfo _CredentialExpiredException_FieldInfo_[] = {
 };
 
 $MethodInfo _CredentialExpiredException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CredentialExpiredException::*)()>(&CredentialExpiredException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(CredentialExpiredException::*)($String*)>(&CredentialExpiredException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CredentialExpiredException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(CredentialExpiredException, init$, void, $String*)},
 	{}
 };
 

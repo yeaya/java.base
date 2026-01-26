@@ -17,8 +17,8 @@ $FieldInfo _ServiceConfigurationError_FieldInfo_[] = {
 };
 
 $MethodInfo _ServiceConfigurationError_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(ServiceConfigurationError::*)($String*)>(&ServiceConfigurationError::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(ServiceConfigurationError::*)($String*,$Throwable*)>(&ServiceConfigurationError::init$))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ServiceConfigurationError, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(ServiceConfigurationError, init$, void, $String*, $Throwable*)},
 	{}
 };
 

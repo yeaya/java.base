@@ -15,9 +15,9 @@ namespace java {
 	namespace net {
 
 $MethodInfo _HttpCookie$12_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(HttpCookie$12::*)()>(&HttpCookie$12::init$))},
-	{"header", "(Ljava/net/HttpCookie;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"parse", "(Ljava/lang/String;)Ljava/util/List;", "(Ljava/lang/String;)Ljava/util/List<Ljava/net/HttpCookie;>;", $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(HttpCookie$12, init$, void)},
+	{"header", "(Ljava/net/HttpCookie;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HttpCookie$12, header, $String*, $HttpCookie*)},
+	{"parse", "(Ljava/lang/String;)Ljava/util/List;", "(Ljava/lang/String;)Ljava/util/List<Ljava/net/HttpCookie;>;", $PUBLIC, $virtualMethod(HttpCookie$12, parse, $List*, $String*)},
 	{}
 };
 

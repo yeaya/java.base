@@ -145,20 +145,20 @@ $FieldInfo _StatusResponseManager_FieldInfo_[] = {
 };
 
 $MethodInfo _StatusResponseManager_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(StatusResponseManager::*)()>(&StatusResponseManager::init$))},
-	{"clear", "()V", nullptr, 0, $method(static_cast<void(StatusResponseManager::*)()>(&StatusResponseManager::clear))},
-	{"get", "(Lsun/security/ssl/CertStatusExtension$CertStatusRequestType;Lsun/security/ssl/CertStatusExtension$CertStatusRequest;[Ljava/security/cert/X509Certificate;JLjava/util/concurrent/TimeUnit;)Ljava/util/Map;", "(Lsun/security/ssl/CertStatusExtension$CertStatusRequestType;Lsun/security/ssl/CertStatusExtension$CertStatusRequest;[Ljava/security/cert/X509Certificate;JLjava/util/concurrent/TimeUnit;)Ljava/util/Map<Ljava/security/cert/X509Certificate;[B>;", 0, $method(static_cast<$Map*(StatusResponseManager::*)($CertStatusExtension$CertStatusRequestType*,$CertStatusExtension$CertStatusRequest*,$X509CertificateArray*,int64_t,$TimeUnit*)>(&StatusResponseManager::get))},
-	{"getCacheCapacity", "()I", nullptr, 0, $method(static_cast<int32_t(StatusResponseManager::*)()>(&StatusResponseManager::getCacheCapacity))},
-	{"getCacheLifetime", "()I", nullptr, 0, $method(static_cast<int32_t(StatusResponseManager::*)()>(&StatusResponseManager::getCacheLifetime))},
-	{"getDefaultResponder", "()Ljava/net/URI;", nullptr, 0, $method(static_cast<$URI*(StatusResponseManager::*)()>(&StatusResponseManager::getDefaultResponder))},
-	{"getFromCache", "(Lsun/security/provider/certpath/CertId;Lsun/security/ssl/CertStatusExtension$OCSPStatusRequest;)Lsun/security/ssl/StatusResponseManager$ResponseCacheEntry;", nullptr, $PRIVATE, $method(static_cast<$StatusResponseManager$ResponseCacheEntry*(StatusResponseManager::*)($CertId*,$CertStatusExtension$OCSPStatusRequest*)>(&StatusResponseManager::getFromCache))},
-	{"getIgnoreExtensions", "()Z", nullptr, 0, $method(static_cast<bool(StatusResponseManager::*)()>(&StatusResponseManager::getIgnoreExtensions))},
-	{"getURI", "(Ljava/security/cert/X509Certificate;)Ljava/net/URI;", nullptr, 0, $method(static_cast<$URI*(StatusResponseManager::*)($X509Certificate*)>(&StatusResponseManager::getURI))},
-	{"getURIOverride", "()Z", nullptr, 0, $method(static_cast<bool(StatusResponseManager::*)()>(&StatusResponseManager::getURIOverride))},
-	{"processStapling", "(Lsun/security/ssl/ServerHandshakeContext;)Lsun/security/ssl/StatusResponseManager$StaplingParameters;", nullptr, $STATIC | $FINAL, $method(static_cast<$StatusResponseManager$StaplingParameters*(*)($ServerHandshakeContext*)>(&StatusResponseManager::processStapling))},
-	{"shutdown", "()V", nullptr, 0, $method(static_cast<void(StatusResponseManager::*)()>(&StatusResponseManager::shutdown))},
-	{"size", "()I", nullptr, 0, $method(static_cast<int32_t(StatusResponseManager::*)()>(&StatusResponseManager::size))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(StatusResponseManager, init$, void)},
+	{"clear", "()V", nullptr, 0, $method(StatusResponseManager, clear, void)},
+	{"get", "(Lsun/security/ssl/CertStatusExtension$CertStatusRequestType;Lsun/security/ssl/CertStatusExtension$CertStatusRequest;[Ljava/security/cert/X509Certificate;JLjava/util/concurrent/TimeUnit;)Ljava/util/Map;", "(Lsun/security/ssl/CertStatusExtension$CertStatusRequestType;Lsun/security/ssl/CertStatusExtension$CertStatusRequest;[Ljava/security/cert/X509Certificate;JLjava/util/concurrent/TimeUnit;)Ljava/util/Map<Ljava/security/cert/X509Certificate;[B>;", 0, $method(StatusResponseManager, get, $Map*, $CertStatusExtension$CertStatusRequestType*, $CertStatusExtension$CertStatusRequest*, $X509CertificateArray*, int64_t, $TimeUnit*)},
+	{"getCacheCapacity", "()I", nullptr, 0, $method(StatusResponseManager, getCacheCapacity, int32_t)},
+	{"getCacheLifetime", "()I", nullptr, 0, $method(StatusResponseManager, getCacheLifetime, int32_t)},
+	{"getDefaultResponder", "()Ljava/net/URI;", nullptr, 0, $method(StatusResponseManager, getDefaultResponder, $URI*)},
+	{"getFromCache", "(Lsun/security/provider/certpath/CertId;Lsun/security/ssl/CertStatusExtension$OCSPStatusRequest;)Lsun/security/ssl/StatusResponseManager$ResponseCacheEntry;", nullptr, $PRIVATE, $method(StatusResponseManager, getFromCache, $StatusResponseManager$ResponseCacheEntry*, $CertId*, $CertStatusExtension$OCSPStatusRequest*)},
+	{"getIgnoreExtensions", "()Z", nullptr, 0, $method(StatusResponseManager, getIgnoreExtensions, bool)},
+	{"getURI", "(Ljava/security/cert/X509Certificate;)Ljava/net/URI;", nullptr, 0, $method(StatusResponseManager, getURI, $URI*, $X509Certificate*)},
+	{"getURIOverride", "()Z", nullptr, 0, $method(StatusResponseManager, getURIOverride, bool)},
+	{"processStapling", "(Lsun/security/ssl/ServerHandshakeContext;)Lsun/security/ssl/StatusResponseManager$StaplingParameters;", nullptr, $STATIC | $FINAL, $staticMethod(StatusResponseManager, processStapling, $StatusResponseManager$StaplingParameters*, $ServerHandshakeContext*)},
+	{"shutdown", "()V", nullptr, 0, $method(StatusResponseManager, shutdown, void)},
+	{"size", "()I", nullptr, 0, $method(StatusResponseManager, size, int32_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StatusResponseManager, toString, $String*)},
 	{}
 };
 

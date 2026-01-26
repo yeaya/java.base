@@ -9,8 +9,8 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $URL = ::java::net::URL;
 
 $MethodInfo _RelativeURLTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(RelativeURLTest::*)()>(&RelativeURLTest::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&RelativeURLTest::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(RelativeURLTest, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(RelativeURLTest, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

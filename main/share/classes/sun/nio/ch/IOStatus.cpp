@@ -28,13 +28,13 @@ $FieldInfo _IOStatus_FieldInfo_[] = {
 };
 
 $MethodInfo _IOStatus_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(IOStatus::*)()>(&IOStatus::init$))},
-	{"check", "(I)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)(int32_t)>(&IOStatus::check))},
-	{"check", "(J)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)(int64_t)>(&IOStatus::check))},
-	{"checkAll", "(J)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)(int64_t)>(&IOStatus::checkAll))},
-	{"normalize", "(I)I", nullptr, $PUBLIC | $STATIC, $method(static_cast<int32_t(*)(int32_t)>(&IOStatus::normalize))},
-	{"normalize", "(J)J", nullptr, $PUBLIC | $STATIC, $method(static_cast<int64_t(*)(int64_t)>(&IOStatus::normalize))},
-	{"okayToRetry", "(J)Z", nullptr, $STATIC, $method(static_cast<bool(*)(int64_t)>(&IOStatus::okayToRetry))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(IOStatus, init$, void)},
+	{"check", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(IOStatus, check, bool, int32_t)},
+	{"check", "(J)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(IOStatus, check, bool, int64_t)},
+	{"checkAll", "(J)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(IOStatus, checkAll, bool, int64_t)},
+	{"normalize", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(IOStatus, normalize, int32_t, int32_t)},
+	{"normalize", "(J)J", nullptr, $PUBLIC | $STATIC, $staticMethod(IOStatus, normalize, int64_t, int64_t)},
+	{"okayToRetry", "(J)Z", nullptr, $STATIC, $staticMethod(IOStatus, okayToRetry, bool, int64_t)},
 	{}
 };
 

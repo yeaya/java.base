@@ -24,11 +24,11 @@ $FieldInfo _Collections$CheckedCollection$1_FieldInfo_[] = {
 };
 
 $MethodInfo _Collections$CheckedCollection$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Collections$CheckedCollection;Ljava/util/Iterator;)V", "()V", 0, $method(static_cast<void(Collections$CheckedCollection$1::*)($Collections$CheckedCollection*,$Iterator*)>(&Collections$CheckedCollection$1::init$))},
-	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC},
-	{"hasNext", "()Z", nullptr, $PUBLIC},
-	{"next", "()Ljava/lang/Object;", "()TE;", $PUBLIC},
-	{"remove", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/Collections$CheckedCollection;Ljava/util/Iterator;)V", "()V", 0, $method(Collections$CheckedCollection$1, init$, void, $Collections$CheckedCollection*, $Iterator*)},
+	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC, $virtualMethod(Collections$CheckedCollection$1, forEachRemaining, void, $Consumer*)},
+	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(Collections$CheckedCollection$1, hasNext, bool)},
+	{"next", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(Collections$CheckedCollection$1, next, $Object*)},
+	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(Collections$CheckedCollection$1, remove, void)},
 	{}
 };
 

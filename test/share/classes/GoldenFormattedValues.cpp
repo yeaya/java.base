@@ -15,7 +15,7 @@ $FieldInfo _GoldenFormattedValues_FieldInfo_[] = {
 };
 
 $MethodInfo _GoldenFormattedValues_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(GoldenFormattedValues::*)()>(&GoldenFormattedValues::init$))},
+	{"<init>", "()V", nullptr, 0, $method(GoldenFormattedValues, init$, void)},
 	{}
 };
 

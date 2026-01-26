@@ -29,12 +29,12 @@ $MethodInfo _CompletableFuture$AsyncSupply_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/util/concurrent/CompletableFuture;Ljava/util/function/Supplier;)V", "(Ljava/util/concurrent/CompletableFuture<TT;>;Ljava/util/function/Supplier<+TT;>;)V", 0, $method(static_cast<void(CompletableFuture$AsyncSupply::*)($CompletableFuture*,$Supplier*)>(&CompletableFuture$AsyncSupply::init$))},
-	{"exec", "()Z", nullptr, $PUBLIC | $FINAL},
-	{"getRawResult", "()Ljava/lang/Void;", nullptr, $PUBLIC | $FINAL},
-	{"run", "()V", nullptr, $PUBLIC},
-	{"setRawResult", "(Ljava/lang/Void;)V", nullptr, $PUBLIC | $FINAL, $method(static_cast<void(CompletableFuture$AsyncSupply::*)($Void*)>(&CompletableFuture$AsyncSupply::setRawResult))},
-	{"setRawResult", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "(Ljava/util/concurrent/CompletableFuture;Ljava/util/function/Supplier;)V", "(Ljava/util/concurrent/CompletableFuture<TT;>;Ljava/util/function/Supplier<+TT;>;)V", 0, $method(CompletableFuture$AsyncSupply, init$, void, $CompletableFuture*, $Supplier*)},
+	{"exec", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(CompletableFuture$AsyncSupply, exec, bool)},
+	{"getRawResult", "()Ljava/lang/Void;", nullptr, $PUBLIC | $FINAL, $virtualMethod(CompletableFuture$AsyncSupply, getRawResult, $Object*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(CompletableFuture$AsyncSupply, run, void)},
+	{"setRawResult", "(Ljava/lang/Void;)V", nullptr, $PUBLIC | $FINAL, $method(CompletableFuture$AsyncSupply, setRawResult, void, $Void*)},
+	{"setRawResult", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(CompletableFuture$AsyncSupply, setRawResult, void, Object$*)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

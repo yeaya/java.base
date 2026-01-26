@@ -54,21 +54,21 @@ $FieldInfo _VerifyAccess_FieldInfo_[] = {
 };
 
 $MethodInfo _VerifyAccess_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(VerifyAccess::*)()>(&VerifyAccess::init$))},
-	{"classLoaderIsAncestor", "(Ljava/lang/Class;Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)Z", $PUBLIC | $STATIC, $method(static_cast<bool(*)($Class*,$Class*)>(&VerifyAccess::classLoaderIsAncestor))},
-	{"getClassModifiers", "(Ljava/lang/Class;)I", "(Ljava/lang/Class<*>;)I", $STATIC, $method(static_cast<int32_t(*)($Class*)>(&VerifyAccess::getClassModifiers))},
-	{"getOutermostEnclosingClass", "(Ljava/lang/Class;)Ljava/lang/Class;", "(Ljava/lang/Class<*>;)Ljava/lang/Class<*>;", $PRIVATE | $STATIC, $method(static_cast<$Class*(*)($Class*)>(&VerifyAccess::getOutermostEnclosingClass))},
-	{"isClassAccessible", "(Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/Class;I)Z", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;Ljava/lang/Class<*>;I)Z", $PUBLIC | $STATIC, $method(static_cast<bool(*)($Class*,$Class*,$Class*,int32_t)>(&VerifyAccess::isClassAccessible))},
-	{"isMemberAccessible", "(Ljava/lang/Class;Ljava/lang/Class;ILjava/lang/Class;Ljava/lang/Class;I)Z", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;ILjava/lang/Class<*>;Ljava/lang/Class<*>;I)Z", $PUBLIC | $STATIC, $method(static_cast<bool(*)($Class*,$Class*,int32_t,$Class*,$Class*,int32_t)>(&VerifyAccess::isMemberAccessible))},
-	{"isModuleAccessible", "(Ljava/lang/Class;Ljava/lang/Module;Ljava/lang/Module;)Z", "(Ljava/lang/Class<*>;Ljava/lang/Module;Ljava/lang/Module;)Z", $PUBLIC | $STATIC, $method(static_cast<bool(*)($Class*,$Module*,$Module*)>(&VerifyAccess::isModuleAccessible))},
-	{"isRelatedClass", "(Ljava/lang/Class;Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)Z", $STATIC, $method(static_cast<bool(*)($Class*,$Class*)>(&VerifyAccess::isRelatedClass))},
-	{"isSameModule", "(Ljava/lang/Class;Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)Z", $PUBLIC | $STATIC, $method(static_cast<bool(*)($Class*,$Class*)>(&VerifyAccess::isSameModule))},
-	{"isSamePackage", "(Ljava/lang/Class;Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)Z", $PUBLIC | $STATIC, $method(static_cast<bool(*)($Class*,$Class*)>(&VerifyAccess::isSamePackage))},
-	{"isSamePackageMember", "(Ljava/lang/Class;Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)Z", $PUBLIC | $STATIC, $method(static_cast<bool(*)($Class*,$Class*)>(&VerifyAccess::isSamePackageMember))},
-	{"isSubClass", "(Ljava/lang/Class;Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)Z", $STATIC, $method(static_cast<bool(*)($Class*,$Class*)>(&VerifyAccess::isSubClass))},
-	{"isTypeVisible", "(Ljava/lang/Class;Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)Z", $PUBLIC | $STATIC, $method(static_cast<bool(*)($Class*,$Class*)>(&VerifyAccess::isTypeVisible))},
-	{"isTypeVisible", "(Ljava/lang/invoke/MethodType;Ljava/lang/Class;)Z", "(Ljava/lang/invoke/MethodType;Ljava/lang/Class<*>;)Z", $PUBLIC | $STATIC, $method(static_cast<bool(*)($MethodType*,$Class*)>(&VerifyAccess::isTypeVisible))},
-	{"loadersAreRelated", "(Ljava/lang/ClassLoader;Ljava/lang/ClassLoader;Z)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($ClassLoader*,$ClassLoader*,bool)>(&VerifyAccess::loadersAreRelated))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(VerifyAccess, init$, void)},
+	{"classLoaderIsAncestor", "(Ljava/lang/Class;Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)Z", $PUBLIC | $STATIC, $staticMethod(VerifyAccess, classLoaderIsAncestor, bool, $Class*, $Class*)},
+	{"getClassModifiers", "(Ljava/lang/Class;)I", "(Ljava/lang/Class<*>;)I", $STATIC, $staticMethod(VerifyAccess, getClassModifiers, int32_t, $Class*)},
+	{"getOutermostEnclosingClass", "(Ljava/lang/Class;)Ljava/lang/Class;", "(Ljava/lang/Class<*>;)Ljava/lang/Class<*>;", $PRIVATE | $STATIC, $staticMethod(VerifyAccess, getOutermostEnclosingClass, $Class*, $Class*)},
+	{"isClassAccessible", "(Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/Class;I)Z", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;Ljava/lang/Class<*>;I)Z", $PUBLIC | $STATIC, $staticMethod(VerifyAccess, isClassAccessible, bool, $Class*, $Class*, $Class*, int32_t)},
+	{"isMemberAccessible", "(Ljava/lang/Class;Ljava/lang/Class;ILjava/lang/Class;Ljava/lang/Class;I)Z", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;ILjava/lang/Class<*>;Ljava/lang/Class<*>;I)Z", $PUBLIC | $STATIC, $staticMethod(VerifyAccess, isMemberAccessible, bool, $Class*, $Class*, int32_t, $Class*, $Class*, int32_t)},
+	{"isModuleAccessible", "(Ljava/lang/Class;Ljava/lang/Module;Ljava/lang/Module;)Z", "(Ljava/lang/Class<*>;Ljava/lang/Module;Ljava/lang/Module;)Z", $PUBLIC | $STATIC, $staticMethod(VerifyAccess, isModuleAccessible, bool, $Class*, $Module*, $Module*)},
+	{"isRelatedClass", "(Ljava/lang/Class;Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)Z", $STATIC, $staticMethod(VerifyAccess, isRelatedClass, bool, $Class*, $Class*)},
+	{"isSameModule", "(Ljava/lang/Class;Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)Z", $PUBLIC | $STATIC, $staticMethod(VerifyAccess, isSameModule, bool, $Class*, $Class*)},
+	{"isSamePackage", "(Ljava/lang/Class;Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)Z", $PUBLIC | $STATIC, $staticMethod(VerifyAccess, isSamePackage, bool, $Class*, $Class*)},
+	{"isSamePackageMember", "(Ljava/lang/Class;Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)Z", $PUBLIC | $STATIC, $staticMethod(VerifyAccess, isSamePackageMember, bool, $Class*, $Class*)},
+	{"isSubClass", "(Ljava/lang/Class;Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)Z", $STATIC, $staticMethod(VerifyAccess, isSubClass, bool, $Class*, $Class*)},
+	{"isTypeVisible", "(Ljava/lang/Class;Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)Z", $PUBLIC | $STATIC, $staticMethod(VerifyAccess, isTypeVisible, bool, $Class*, $Class*)},
+	{"isTypeVisible", "(Ljava/lang/invoke/MethodType;Ljava/lang/Class;)Z", "(Ljava/lang/invoke/MethodType;Ljava/lang/Class<*>;)Z", $PUBLIC | $STATIC, $staticMethod(VerifyAccess, isTypeVisible, bool, $MethodType*, $Class*)},
+	{"loadersAreRelated", "(Ljava/lang/ClassLoader;Ljava/lang/ClassLoader;Z)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(VerifyAccess, loadersAreRelated, bool, $ClassLoader*, $ClassLoader*, bool)},
 	{}
 };
 

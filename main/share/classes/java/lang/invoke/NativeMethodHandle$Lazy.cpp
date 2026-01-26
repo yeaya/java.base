@@ -38,7 +38,7 @@ $FieldInfo _NativeMethodHandle$Lazy_FieldInfo_[] = {
 };
 
 $MethodInfo _NativeMethodHandle$Lazy_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(NativeMethodHandle$Lazy::*)()>(&NativeMethodHandle$Lazy::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(NativeMethodHandle$Lazy, init$, void)},
 	{}
 };
 

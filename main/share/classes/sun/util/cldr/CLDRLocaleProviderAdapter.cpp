@@ -111,8 +111,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo CLDRLocaleProviderAdapter$$Lambda$lambda$new$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CLDRLocaleProviderAdapter$$Lambda$lambda$new$0::*)()>(&CLDRLocaleProviderAdapter$$Lambda$lambda$new$0::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CLDRLocaleProviderAdapter$$Lambda$lambda$new$0, init$, void)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(CLDRLocaleProviderAdapter$$Lambda$lambda$new$0, run, $Object*)},
 	{}
 };
 $ClassInfo CLDRLocaleProviderAdapter$$Lambda$lambda$new$0::classInfo$ = {
@@ -151,8 +151,8 @@ $FieldInfo CLDRLocaleProviderAdapter$$Lambda$lambda$getCalendarDataProvider$1$1:
 	{}
 };
 $MethodInfo CLDRLocaleProviderAdapter$$Lambda$lambda$getCalendarDataProvider$1$1::methodInfos[3] = {
-	{"<init>", "(Lsun/util/cldr/CLDRLocaleProviderAdapter;)V", nullptr, $PUBLIC, $method(static_cast<void(CLDRLocaleProviderAdapter$$Lambda$lambda$getCalendarDataProvider$1$1::*)(CLDRLocaleProviderAdapter*)>(&CLDRLocaleProviderAdapter$$Lambda$lambda$getCalendarDataProvider$1$1::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/util/cldr/CLDRLocaleProviderAdapter;)V", nullptr, $PUBLIC, $method(CLDRLocaleProviderAdapter$$Lambda$lambda$getCalendarDataProvider$1$1, init$, void, CLDRLocaleProviderAdapter*)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(CLDRLocaleProviderAdapter$$Lambda$lambda$getCalendarDataProvider$1$1, run, $Object*)},
 	{}
 };
 $ClassInfo CLDRLocaleProviderAdapter$$Lambda$lambda$getCalendarDataProvider$1$1::classInfo$ = {
@@ -191,8 +191,8 @@ $FieldInfo CLDRLocaleProviderAdapter$$Lambda$lambda$getCalendarNameProvider$2$2:
 	{}
 };
 $MethodInfo CLDRLocaleProviderAdapter$$Lambda$lambda$getCalendarNameProvider$2$2::methodInfos[3] = {
-	{"<init>", "(Lsun/util/cldr/CLDRLocaleProviderAdapter;)V", nullptr, $PUBLIC, $method(static_cast<void(CLDRLocaleProviderAdapter$$Lambda$lambda$getCalendarNameProvider$2$2::*)(CLDRLocaleProviderAdapter*)>(&CLDRLocaleProviderAdapter$$Lambda$lambda$getCalendarNameProvider$2$2::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/util/cldr/CLDRLocaleProviderAdapter;)V", nullptr, $PUBLIC, $method(CLDRLocaleProviderAdapter$$Lambda$lambda$getCalendarNameProvider$2$2, init$, void, CLDRLocaleProviderAdapter*)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(CLDRLocaleProviderAdapter$$Lambda$lambda$getCalendarNameProvider$2$2, run, $Object*)},
 	{}
 };
 $ClassInfo CLDRLocaleProviderAdapter$$Lambda$lambda$getCalendarNameProvider$2$2::classInfo$ = {
@@ -231,8 +231,8 @@ $FieldInfo CLDRLocaleProviderAdapter$$Lambda$lambda$getTimeZoneNameProvider$3$3:
 	{}
 };
 $MethodInfo CLDRLocaleProviderAdapter$$Lambda$lambda$getTimeZoneNameProvider$3$3::methodInfos[3] = {
-	{"<init>", "(Lsun/util/cldr/CLDRLocaleProviderAdapter;)V", nullptr, $PUBLIC, $method(static_cast<void(CLDRLocaleProviderAdapter$$Lambda$lambda$getTimeZoneNameProvider$3$3::*)(CLDRLocaleProviderAdapter*)>(&CLDRLocaleProviderAdapter$$Lambda$lambda$getTimeZoneNameProvider$3$3::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/util/cldr/CLDRLocaleProviderAdapter;)V", nullptr, $PUBLIC, $method(CLDRLocaleProviderAdapter$$Lambda$lambda$getTimeZoneNameProvider$3$3, init$, void, CLDRLocaleProviderAdapter*)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(CLDRLocaleProviderAdapter$$Lambda$lambda$getTimeZoneNameProvider$3$3, run, $Object*)},
 	{}
 };
 $ClassInfo CLDRLocaleProviderAdapter$$Lambda$lambda$getTimeZoneNameProvider$3$3::classInfo$ = {
@@ -259,26 +259,26 @@ $FieldInfo _CLDRLocaleProviderAdapter_FieldInfo_[] = {
 };
 
 $MethodInfo _CLDRLocaleProviderAdapter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CLDRLocaleProviderAdapter::*)()>(&CLDRLocaleProviderAdapter::init$))},
-	{"applyAliases", "(Ljava/util/Locale;)Ljava/util/Locale;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$Locale*(*)($Locale*)>(&CLDRLocaleProviderAdapter::applyAliases))},
-	{"applyParentLocales", "(Ljava/lang/String;Ljava/util/List;)Ljava/util/List;", "(Ljava/lang/String;Ljava/util/List<Ljava/util/Locale;>;)Ljava/util/List<Ljava/util/Locale;>;", $PRIVATE, $method(static_cast<$List*(CLDRLocaleProviderAdapter::*)($String*,$List*)>(&CLDRLocaleProviderAdapter::applyParentLocales))},
-	{"canonicalTZID", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/lang/String;>;", $PUBLIC},
-	{"createLanguageTagSet", "(Ljava/lang/String;)Ljava/util/Set;", "(Ljava/lang/String;)Ljava/util/Set<Ljava/lang/String;>;", $PROTECTED},
-	{"getAdapterType", "()Lsun/util/locale/provider/LocaleProviderAdapter$Type;", nullptr, $PUBLIC},
-	{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC},
-	{"getBreakIteratorProvider", "()Ljava/text/spi/BreakIteratorProvider;", nullptr, $PUBLIC},
-	{"getCalendarDataProvider", "()Ljava/util/spi/CalendarDataProvider;", nullptr, $PUBLIC},
-	{"getCalendarNameProvider", "()Ljava/util/spi/CalendarNameProvider;", nullptr, $PUBLIC},
-	{"getCandidateLocales", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/util/List;", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/util/List<Ljava/util/Locale;>;", $PUBLIC},
-	{"getCollatorProvider", "()Ljava/text/spi/CollatorProvider;", nullptr, $PUBLIC},
-	{"getEquivalentLoc", "(Ljava/util/Locale;)Ljava/util/Locale;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$Locale*(*)($Locale*)>(&CLDRLocaleProviderAdapter::getEquivalentLoc))},
-	{"getParentLocale", "(Ljava/util/Locale;)Ljava/util/Locale;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$Locale*(*)($Locale*)>(&CLDRLocaleProviderAdapter::getParentLocale))},
-	{"getTimeZoneNameProvider", "()Ljava/util/spi/TimeZoneNameProvider;", nullptr, $PUBLIC},
-	{"isSupportedProviderLocale", "(Ljava/util/Locale;Ljava/util/Set;)Z", "(Ljava/util/Locale;Ljava/util/Set<Ljava/lang/String;>;)Z", $PUBLIC},
-	{"lambda$getCalendarDataProvider$1", "()Ljava/util/spi/CalendarDataProvider;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$CalendarDataProvider*(CLDRLocaleProviderAdapter::*)()>(&CLDRLocaleProviderAdapter::lambda$getCalendarDataProvider$1))},
-	{"lambda$getCalendarNameProvider$2", "()Ljava/util/spi/CalendarNameProvider;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$CalendarNameProvider*(CLDRLocaleProviderAdapter::*)()>(&CLDRLocaleProviderAdapter::lambda$getCalendarNameProvider$2))},
-	{"lambda$getTimeZoneNameProvider$3", "()Ljava/util/spi/TimeZoneNameProvider;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$TimeZoneNameProvider*(CLDRLocaleProviderAdapter::*)()>(&CLDRLocaleProviderAdapter::lambda$getTimeZoneNameProvider$3))},
-	{"lambda$new$0", "()Lsun/util/locale/provider/LocaleDataMetaInfo;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$LocaleDataMetaInfo*(*)()>(&CLDRLocaleProviderAdapter::lambda$new$0)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CLDRLocaleProviderAdapter, init$, void)},
+	{"applyAliases", "(Ljava/util/Locale;)Ljava/util/Locale;", nullptr, $PRIVATE | $STATIC, $staticMethod(CLDRLocaleProviderAdapter, applyAliases, $Locale*, $Locale*)},
+	{"applyParentLocales", "(Ljava/lang/String;Ljava/util/List;)Ljava/util/List;", "(Ljava/lang/String;Ljava/util/List<Ljava/util/Locale;>;)Ljava/util/List<Ljava/util/Locale;>;", $PRIVATE, $method(CLDRLocaleProviderAdapter, applyParentLocales, $List*, $String*, $List*)},
+	{"canonicalTZID", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(CLDRLocaleProviderAdapter, canonicalTZID, $Optional*, $String*)},
+	{"createLanguageTagSet", "(Ljava/lang/String;)Ljava/util/Set;", "(Ljava/lang/String;)Ljava/util/Set<Ljava/lang/String;>;", $PROTECTED, $virtualMethod(CLDRLocaleProviderAdapter, createLanguageTagSet, $Set*, $String*)},
+	{"getAdapterType", "()Lsun/util/locale/provider/LocaleProviderAdapter$Type;", nullptr, $PUBLIC, $virtualMethod(CLDRLocaleProviderAdapter, getAdapterType, $LocaleProviderAdapter$Type*)},
+	{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(CLDRLocaleProviderAdapter, getAvailableLocales, $LocaleArray*)},
+	{"getBreakIteratorProvider", "()Ljava/text/spi/BreakIteratorProvider;", nullptr, $PUBLIC, $virtualMethod(CLDRLocaleProviderAdapter, getBreakIteratorProvider, $BreakIteratorProvider*)},
+	{"getCalendarDataProvider", "()Ljava/util/spi/CalendarDataProvider;", nullptr, $PUBLIC, $virtualMethod(CLDRLocaleProviderAdapter, getCalendarDataProvider, $CalendarDataProvider*)},
+	{"getCalendarNameProvider", "()Ljava/util/spi/CalendarNameProvider;", nullptr, $PUBLIC, $virtualMethod(CLDRLocaleProviderAdapter, getCalendarNameProvider, $CalendarNameProvider*)},
+	{"getCandidateLocales", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/util/List;", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/util/List<Ljava/util/Locale;>;", $PUBLIC, $virtualMethod(CLDRLocaleProviderAdapter, getCandidateLocales, $List*, $String*, $Locale*)},
+	{"getCollatorProvider", "()Ljava/text/spi/CollatorProvider;", nullptr, $PUBLIC, $virtualMethod(CLDRLocaleProviderAdapter, getCollatorProvider, $CollatorProvider*)},
+	{"getEquivalentLoc", "(Ljava/util/Locale;)Ljava/util/Locale;", nullptr, $PRIVATE | $STATIC, $staticMethod(CLDRLocaleProviderAdapter, getEquivalentLoc, $Locale*, $Locale*)},
+	{"getParentLocale", "(Ljava/util/Locale;)Ljava/util/Locale;", nullptr, $PRIVATE | $STATIC, $staticMethod(CLDRLocaleProviderAdapter, getParentLocale, $Locale*, $Locale*)},
+	{"getTimeZoneNameProvider", "()Ljava/util/spi/TimeZoneNameProvider;", nullptr, $PUBLIC, $virtualMethod(CLDRLocaleProviderAdapter, getTimeZoneNameProvider, $TimeZoneNameProvider*)},
+	{"isSupportedProviderLocale", "(Ljava/util/Locale;Ljava/util/Set;)Z", "(Ljava/util/Locale;Ljava/util/Set<Ljava/lang/String;>;)Z", $PUBLIC, $virtualMethod(CLDRLocaleProviderAdapter, isSupportedProviderLocale, bool, $Locale*, $Set*)},
+	{"lambda$getCalendarDataProvider$1", "()Ljava/util/spi/CalendarDataProvider;", nullptr, $PRIVATE | $SYNTHETIC, $method(CLDRLocaleProviderAdapter, lambda$getCalendarDataProvider$1, $CalendarDataProvider*)},
+	{"lambda$getCalendarNameProvider$2", "()Ljava/util/spi/CalendarNameProvider;", nullptr, $PRIVATE | $SYNTHETIC, $method(CLDRLocaleProviderAdapter, lambda$getCalendarNameProvider$2, $CalendarNameProvider*)},
+	{"lambda$getTimeZoneNameProvider$3", "()Ljava/util/spi/TimeZoneNameProvider;", nullptr, $PRIVATE | $SYNTHETIC, $method(CLDRLocaleProviderAdapter, lambda$getTimeZoneNameProvider$3, $TimeZoneNameProvider*)},
+	{"lambda$new$0", "()Lsun/util/locale/provider/LocaleDataMetaInfo;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CLDRLocaleProviderAdapter, lambda$new$0, $LocaleDataMetaInfo*), "java.lang.Exception"},
 	{}
 };
 

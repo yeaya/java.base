@@ -34,19 +34,20 @@ namespace java {
 	}
 }
 
-template<typename t>
-void* $method(t tp) {
-    union {
-        void* p;
-        t tp;
-    } u;
-    u.tp = tp;
-    return u.p;
+template<typename T>
+void* $methodToVoidPtr(T method) {
+	union {
+		void* p;
+		T method;
+	} u;
+	u.method = method;
+	return u.p;
 }
 
-//#define $virtualMethod(type, member) (nullptr)
-//#define $staticMethod(type, member) ($funcationToVoidPtr(&type::member))
-//#define $method(type, member) ($funcationToVoidPtr(&type::member))
+#define $method(type, member, returnType, ...) $methodToVoidPtr(static_cast<returnType(type::*)(__VA_ARGS__)>(&type::member))
+#define $constMethod(type, member, returnType, ...) $methodToVoidPtr(static_cast<returnType(type::*)(__VA_ARGS__)const>(&type::member))
+#define $staticMethod(type, member, returnType, ...) $methodToVoidPtr(static_cast<returnType(*)(__VA_ARGS__)>(&type::member))
+#define $virtualMethod(type, member, returnType, ...) (nullptr)
 
 namespace java {
     namespace lang {

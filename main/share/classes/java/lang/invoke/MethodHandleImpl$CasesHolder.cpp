@@ -26,7 +26,7 @@ $FieldInfo _MethodHandleImpl$CasesHolder_FieldInfo_[] = {
 };
 
 $MethodInfo _MethodHandleImpl$CasesHolder_MethodInfo_[] = {
-	{"<init>", "([Ljava/lang/invoke/MethodHandle;)V", nullptr, $PUBLIC, $method(static_cast<void(MethodHandleImpl$CasesHolder::*)($MethodHandleArray*)>(&MethodHandleImpl$CasesHolder::init$))},
+	{"<init>", "([Ljava/lang/invoke/MethodHandle;)V", nullptr, $PUBLIC, $method(MethodHandleImpl$CasesHolder, init$, void, $MethodHandleArray*)},
 	{}
 };
 

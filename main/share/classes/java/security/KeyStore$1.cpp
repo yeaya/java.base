@@ -14,8 +14,8 @@ namespace java {
 	namespace security {
 
 $MethodInfo _KeyStore$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(KeyStore$1::*)()>(&KeyStore$1::init$))},
-	{"run", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(KeyStore$1, init$, void)},
+	{"run", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KeyStore$1, run, $Object*)},
 	{}
 };
 

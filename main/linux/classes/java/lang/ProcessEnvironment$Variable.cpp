@@ -17,15 +17,15 @@ $MethodInfo _ProcessEnvironment$Variable_MethodInfo_[] = {
 	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "(Ljava/lang/String;[B)V", nullptr, $PROTECTED, $method(static_cast<void(ProcessEnvironment$Variable::*)($String*,$bytes*)>(&ProcessEnvironment$Variable::init$))},
-	{"compareTo", "(Ljava/lang/ProcessEnvironment$Variable;)I", nullptr, $PUBLIC},
-	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;[B)V", nullptr, $PROTECTED, $method(ProcessEnvironment$Variable, init$, void, $String*, $bytes*)},
+	{"compareTo", "(Ljava/lang/ProcessEnvironment$Variable;)I", nullptr, $PUBLIC, $virtualMethod(ProcessEnvironment$Variable, compareTo, int32_t, ProcessEnvironment$Variable*)},
+	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ProcessEnvironment$Variable, compareTo, int32_t, Object$*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ProcessEnvironment$Variable, equals, bool, Object$*)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"valueOf", "(Ljava/lang/String;)Ljava/lang/ProcessEnvironment$Variable;", nullptr, $PUBLIC | $STATIC, $method(static_cast<ProcessEnvironment$Variable*(*)($String*)>(&ProcessEnvironment$Variable::valueOf))},
-	{"valueOf", "([B)Ljava/lang/ProcessEnvironment$Variable;", nullptr, $PUBLIC | $STATIC, $method(static_cast<ProcessEnvironment$Variable*(*)($bytes*)>(&ProcessEnvironment$Variable::valueOf))},
-	{"valueOfQueryOnly", "(Ljava/lang/Object;)Ljava/lang/ProcessEnvironment$Variable;", nullptr, $PUBLIC | $STATIC, $method(static_cast<ProcessEnvironment$Variable*(*)(Object$*)>(&ProcessEnvironment$Variable::valueOfQueryOnly))},
-	{"valueOfQueryOnly", "(Ljava/lang/String;)Ljava/lang/ProcessEnvironment$Variable;", nullptr, $PUBLIC | $STATIC, $method(static_cast<ProcessEnvironment$Variable*(*)($String*)>(&ProcessEnvironment$Variable::valueOfQueryOnly))},
+	{"valueOf", "(Ljava/lang/String;)Ljava/lang/ProcessEnvironment$Variable;", nullptr, $PUBLIC | $STATIC, $staticMethod(ProcessEnvironment$Variable, valueOf, ProcessEnvironment$Variable*, $String*)},
+	{"valueOf", "([B)Ljava/lang/ProcessEnvironment$Variable;", nullptr, $PUBLIC | $STATIC, $staticMethod(ProcessEnvironment$Variable, valueOf, ProcessEnvironment$Variable*, $bytes*)},
+	{"valueOfQueryOnly", "(Ljava/lang/Object;)Ljava/lang/ProcessEnvironment$Variable;", nullptr, $PUBLIC | $STATIC, $staticMethod(ProcessEnvironment$Variable, valueOfQueryOnly, ProcessEnvironment$Variable*, Object$*)},
+	{"valueOfQueryOnly", "(Ljava/lang/String;)Ljava/lang/ProcessEnvironment$Variable;", nullptr, $PUBLIC | $STATIC, $staticMethod(ProcessEnvironment$Variable, valueOfQueryOnly, ProcessEnvironment$Variable*, $String*)},
 	{}
 };
 

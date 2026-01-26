@@ -14,7 +14,7 @@ $CompoundAttribute _EqualityTest$AnnotationHost_Annotations_[] = {
 };
 
 $MethodInfo _EqualityTest$AnnotationHost_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(EqualityTest$AnnotationHost::*)()>(&EqualityTest$AnnotationHost::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(EqualityTest$AnnotationHost, init$, void)},
 	{}
 };
 

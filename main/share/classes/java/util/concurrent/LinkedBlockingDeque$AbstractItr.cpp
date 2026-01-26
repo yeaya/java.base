@@ -34,14 +34,14 @@ $FieldInfo _LinkedBlockingDeque$AbstractItr_FieldInfo_[] = {
 };
 
 $MethodInfo _LinkedBlockingDeque$AbstractItr_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/LinkedBlockingDeque;)V", nullptr, 0, $method(static_cast<void(LinkedBlockingDeque$AbstractItr::*)($LinkedBlockingDeque*)>(&LinkedBlockingDeque$AbstractItr::init$))},
-	{"firstNode", "()Ljava/util/concurrent/LinkedBlockingDeque$Node;", "()Ljava/util/concurrent/LinkedBlockingDeque$Node<TE;>;", $ABSTRACT},
-	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC},
-	{"hasNext", "()Z", nullptr, $PUBLIC},
-	{"next", "()Ljava/lang/Object;", "()TE;", $PUBLIC},
-	{"nextNode", "(Ljava/util/concurrent/LinkedBlockingDeque$Node;)Ljava/util/concurrent/LinkedBlockingDeque$Node;", "(Ljava/util/concurrent/LinkedBlockingDeque$Node<TE;>;)Ljava/util/concurrent/LinkedBlockingDeque$Node<TE;>;", $ABSTRACT},
-	{"remove", "()V", nullptr, $PUBLIC},
-	{"succ", "(Ljava/util/concurrent/LinkedBlockingDeque$Node;)Ljava/util/concurrent/LinkedBlockingDeque$Node;", "(Ljava/util/concurrent/LinkedBlockingDeque$Node<TE;>;)Ljava/util/concurrent/LinkedBlockingDeque$Node<TE;>;", $PRIVATE, $method(static_cast<$LinkedBlockingDeque$Node*(LinkedBlockingDeque$AbstractItr::*)($LinkedBlockingDeque$Node*)>(&LinkedBlockingDeque$AbstractItr::succ))},
+	{"<init>", "(Ljava/util/concurrent/LinkedBlockingDeque;)V", nullptr, 0, $method(LinkedBlockingDeque$AbstractItr, init$, void, $LinkedBlockingDeque*)},
+	{"firstNode", "()Ljava/util/concurrent/LinkedBlockingDeque$Node;", "()Ljava/util/concurrent/LinkedBlockingDeque$Node<TE;>;", $ABSTRACT, $virtualMethod(LinkedBlockingDeque$AbstractItr, firstNode, $LinkedBlockingDeque$Node*)},
+	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC, $virtualMethod(LinkedBlockingDeque$AbstractItr, forEachRemaining, void, $Consumer*)},
+	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(LinkedBlockingDeque$AbstractItr, hasNext, bool)},
+	{"next", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(LinkedBlockingDeque$AbstractItr, next, $Object*)},
+	{"nextNode", "(Ljava/util/concurrent/LinkedBlockingDeque$Node;)Ljava/util/concurrent/LinkedBlockingDeque$Node;", "(Ljava/util/concurrent/LinkedBlockingDeque$Node<TE;>;)Ljava/util/concurrent/LinkedBlockingDeque$Node<TE;>;", $ABSTRACT, $virtualMethod(LinkedBlockingDeque$AbstractItr, nextNode, $LinkedBlockingDeque$Node*, $LinkedBlockingDeque$Node*)},
+	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(LinkedBlockingDeque$AbstractItr, remove, void)},
+	{"succ", "(Ljava/util/concurrent/LinkedBlockingDeque$Node;)Ljava/util/concurrent/LinkedBlockingDeque$Node;", "(Ljava/util/concurrent/LinkedBlockingDeque$Node<TE;>;)Ljava/util/concurrent/LinkedBlockingDeque$Node<TE;>;", $PRIVATE, $method(LinkedBlockingDeque$AbstractItr, succ, $LinkedBlockingDeque$Node*, $LinkedBlockingDeque$Node*)},
 	{}
 };
 

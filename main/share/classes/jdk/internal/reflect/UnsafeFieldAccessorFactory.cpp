@@ -110,8 +110,8 @@ namespace jdk {
 		namespace reflect {
 
 $MethodInfo _UnsafeFieldAccessorFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(UnsafeFieldAccessorFactory::*)()>(&UnsafeFieldAccessorFactory::init$))},
-	{"newFieldAccessor", "(Ljava/lang/reflect/Field;Z)Ljdk/internal/reflect/FieldAccessor;", nullptr, $STATIC, $method(static_cast<$FieldAccessor*(*)($Field*,bool)>(&UnsafeFieldAccessorFactory::newFieldAccessor))},
+	{"<init>", "()V", nullptr, 0, $method(UnsafeFieldAccessorFactory, init$, void)},
+	{"newFieldAccessor", "(Ljava/lang/reflect/Field;Z)Ljdk/internal/reflect/FieldAccessor;", nullptr, $STATIC, $staticMethod(UnsafeFieldAccessorFactory, newFieldAccessor, $FieldAccessor*, $Field*, bool)},
 	{}
 };
 

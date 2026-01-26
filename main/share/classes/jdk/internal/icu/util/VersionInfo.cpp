@@ -34,11 +34,11 @@ $FieldInfo _VersionInfo_FieldInfo_[] = {
 };
 
 $MethodInfo _VersionInfo_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PRIVATE, $method(static_cast<void(VersionInfo::*)(int32_t)>(&VersionInfo::init$))},
-	{"compareTo", "(Ljdk/internal/icu/util/VersionInfo;)I", nullptr, $PUBLIC, $method(static_cast<int32_t(VersionInfo::*)(VersionInfo*)>(&VersionInfo::compareTo))},
-	{"getInstance", "(Ljava/lang/String;)Ljdk/internal/icu/util/VersionInfo;", nullptr, $PUBLIC | $STATIC, $method(static_cast<VersionInfo*(*)($String*)>(&VersionInfo::getInstance))},
-	{"getInstance", "(IIII)Ljdk/internal/icu/util/VersionInfo;", nullptr, $PUBLIC | $STATIC, $method(static_cast<VersionInfo*(*)(int32_t,int32_t,int32_t,int32_t)>(&VersionInfo::getInstance))},
-	{"getInt", "(IIII)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)(int32_t,int32_t,int32_t,int32_t)>(&VersionInfo::getInt))},
+	{"<init>", "(I)V", nullptr, $PRIVATE, $method(VersionInfo, init$, void, int32_t)},
+	{"compareTo", "(Ljdk/internal/icu/util/VersionInfo;)I", nullptr, $PUBLIC, $method(VersionInfo, compareTo, int32_t, VersionInfo*)},
+	{"getInstance", "(Ljava/lang/String;)Ljdk/internal/icu/util/VersionInfo;", nullptr, $PUBLIC | $STATIC, $staticMethod(VersionInfo, getInstance, VersionInfo*, $String*)},
+	{"getInstance", "(IIII)Ljdk/internal/icu/util/VersionInfo;", nullptr, $PUBLIC | $STATIC, $staticMethod(VersionInfo, getInstance, VersionInfo*, int32_t, int32_t, int32_t, int32_t)},
+	{"getInt", "(IIII)I", nullptr, $PRIVATE | $STATIC, $staticMethod(VersionInfo, getInt, int32_t, int32_t, int32_t, int32_t, int32_t)},
 	{}
 };
 

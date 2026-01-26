@@ -31,11 +31,11 @@ $FieldInfo _CollectionCertStoreParameters_FieldInfo_[] = {
 };
 
 $MethodInfo _CollectionCertStoreParameters_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Collection;)V", "(Ljava/util/Collection<*>;)V", $PUBLIC, $method(static_cast<void(CollectionCertStoreParameters::*)($Collection*)>(&CollectionCertStoreParameters::init$))},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CollectionCertStoreParameters::*)()>(&CollectionCertStoreParameters::init$))},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"getCollection", "()Ljava/util/Collection;", "()Ljava/util/Collection<*>;", $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/Collection;)V", "(Ljava/util/Collection<*>;)V", $PUBLIC, $method(CollectionCertStoreParameters, init$, void, $Collection*)},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CollectionCertStoreParameters, init$, void)},
+	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(CollectionCertStoreParameters, clone, $Object*)},
+	{"getCollection", "()Ljava/util/Collection;", "()Ljava/util/Collection<*>;", $PUBLIC, $virtualMethod(CollectionCertStoreParameters, getCollection, $Collection*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CollectionCertStoreParameters, toString, $String*)},
 	{}
 };
 

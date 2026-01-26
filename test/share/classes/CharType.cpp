@@ -17,8 +17,8 @@ using $InvocationHandler = ::java::lang::reflect::InvocationHandler;
 using $Proxy = ::java::lang::reflect::Proxy;
 
 $MethodInfo _CharType_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CharType::*)()>(&CharType::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&CharType::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CharType, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(CharType, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

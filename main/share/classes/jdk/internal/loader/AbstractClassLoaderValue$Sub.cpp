@@ -22,12 +22,12 @@ $FieldInfo _AbstractClassLoaderValue$Sub_FieldInfo_[] = {
 };
 
 $MethodInfo _AbstractClassLoaderValue$Sub_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/loader/AbstractClassLoaderValue;Ljava/lang/Object;)V", "(TK;)V", 0, $method(static_cast<void(AbstractClassLoaderValue$Sub::*)($AbstractClassLoaderValue*,Object$*)>(&AbstractClassLoaderValue$Sub::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"isEqualOrDescendantOf", "(Ljdk/internal/loader/AbstractClassLoaderValue;)Z", "(Ljdk/internal/loader/AbstractClassLoaderValue<*TV;>;)Z", $PUBLIC},
-	{"key", "()Ljava/lang/Object;", "()TK;", $PUBLIC},
-	{"parent", "()Ljdk/internal/loader/AbstractClassLoaderValue;", "()Ljdk/internal/loader/AbstractClassLoaderValue<TCLV;TV;>;", $PUBLIC, $method(static_cast<$AbstractClassLoaderValue*(AbstractClassLoaderValue$Sub::*)()>(&AbstractClassLoaderValue$Sub::parent))},
+	{"<init>", "(Ljdk/internal/loader/AbstractClassLoaderValue;Ljava/lang/Object;)V", "(TK;)V", 0, $method(AbstractClassLoaderValue$Sub, init$, void, $AbstractClassLoaderValue*, Object$*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(AbstractClassLoaderValue$Sub, equals, bool, Object$*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(AbstractClassLoaderValue$Sub, hashCode, int32_t)},
+	{"isEqualOrDescendantOf", "(Ljdk/internal/loader/AbstractClassLoaderValue;)Z", "(Ljdk/internal/loader/AbstractClassLoaderValue<*TV;>;)Z", $PUBLIC, $virtualMethod(AbstractClassLoaderValue$Sub, isEqualOrDescendantOf, bool, $AbstractClassLoaderValue*)},
+	{"key", "()Ljava/lang/Object;", "()TK;", $PUBLIC, $virtualMethod(AbstractClassLoaderValue$Sub, key, $Object*)},
+	{"parent", "()Ljdk/internal/loader/AbstractClassLoaderValue;", "()Ljdk/internal/loader/AbstractClassLoaderValue<TCLV;TV;>;", $PUBLIC, $method(AbstractClassLoaderValue$Sub, parent, $AbstractClassLoaderValue*)},
 	{}
 };
 

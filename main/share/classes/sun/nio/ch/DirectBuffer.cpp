@@ -5,15 +5,16 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Cleaner = ::jdk::internal::ref::Cleaner;
 
 namespace sun {
 	namespace nio {
 		namespace ch {
 
 $MethodInfo _DirectBuffer_MethodInfo_[] = {
-	{"address", "()J", nullptr, $PUBLIC | $ABSTRACT},
-	{"attachment", "()Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
-	{"cleaner", "()Ljdk/internal/ref/Cleaner;", nullptr, $PUBLIC | $ABSTRACT},
+	{"address", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DirectBuffer, address, int64_t)},
+	{"attachment", "()Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DirectBuffer, attachment, $Object*)},
+	{"cleaner", "()Ljdk/internal/ref/Cleaner;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DirectBuffer, cleaner, $Cleaner*)},
 	{}
 };
 

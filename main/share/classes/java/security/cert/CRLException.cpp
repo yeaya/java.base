@@ -18,10 +18,10 @@ $FieldInfo _CRLException_FieldInfo_[] = {
 };
 
 $MethodInfo _CRLException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CRLException::*)()>(&CRLException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(CRLException::*)($String*)>(&CRLException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(CRLException::*)($String*,$Throwable*)>(&CRLException::init$))},
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(CRLException::*)($Throwable*)>(&CRLException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CRLException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(CRLException, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(CRLException, init$, void, $String*, $Throwable*)},
+	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(CRLException, init$, void, $Throwable*)},
 	{}
 };
 

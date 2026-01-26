@@ -11,6 +11,7 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Signal = ::jdk::internal::misc::Signal;
 using $Signal$NativeHandler = ::jdk::internal::misc::Signal$NativeHandler;
 
 namespace jdk {
@@ -24,7 +25,7 @@ $FieldInfo _Signal$Handler_FieldInfo_[] = {
 };
 
 $MethodInfo _Signal$Handler_MethodInfo_[] = {
-	{"handle", "(Ljdk/internal/misc/Signal;)V", nullptr, $PUBLIC | $ABSTRACT},
+	{"handle", "(Ljdk/internal/misc/Signal;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Signal$Handler, handle, void, $Signal*)},
 	{}
 };
 

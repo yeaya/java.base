@@ -37,20 +37,20 @@ $FieldInfo _Method_FieldInfo_[] = {
 };
 
 $MethodInfo _Method_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(Method::*)($String*,$String*)>(&Method::init$))},
-	{"<init>", "(Ljava/lang/String;Ljdk/internal/org/objectweb/asm/Type;[Ljdk/internal/org/objectweb/asm/Type;)V", nullptr, $PUBLIC, $method(static_cast<void(Method::*)($String*,$Type*,$TypeArray*)>(&Method::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getArgumentTypes", "()[Ljdk/internal/org/objectweb/asm/Type;", nullptr, $PUBLIC},
-	{"getDescriptor", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getDescriptorInternal", "(Ljava/lang/String;Z)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($String*,bool)>(&Method::getDescriptorInternal))},
-	{"getMethod", "(Ljava/lang/reflect/Method;)Ljdk/internal/org/objectweb/asm/commons/Method;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Method*(*)($Method*)>(&Method::getMethod))},
-	{"getMethod", "(Ljava/lang/reflect/Constructor;)Ljdk/internal/org/objectweb/asm/commons/Method;", "(Ljava/lang/reflect/Constructor<*>;)Ljdk/internal/org/objectweb/asm/commons/Method;", $PUBLIC | $STATIC, $method(static_cast<Method*(*)($Constructor*)>(&Method::getMethod))},
-	{"getMethod", "(Ljava/lang/String;)Ljdk/internal/org/objectweb/asm/commons/Method;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Method*(*)($String*)>(&Method::getMethod))},
-	{"getMethod", "(Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/commons/Method;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Method*(*)($String*,bool)>(&Method::getMethod))},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getReturnType", "()Ljdk/internal/org/objectweb/asm/Type;", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Method, init$, void, $String*, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljdk/internal/org/objectweb/asm/Type;[Ljdk/internal/org/objectweb/asm/Type;)V", nullptr, $PUBLIC, $method(Method, init$, void, $String*, $Type*, $TypeArray*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Method, equals, bool, Object$*)},
+	{"getArgumentTypes", "()[Ljdk/internal/org/objectweb/asm/Type;", nullptr, $PUBLIC, $virtualMethod(Method, getArgumentTypes, $TypeArray*)},
+	{"getDescriptor", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Method, getDescriptor, $String*)},
+	{"getDescriptorInternal", "(Ljava/lang/String;Z)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Method, getDescriptorInternal, $String*, $String*, bool)},
+	{"getMethod", "(Ljava/lang/reflect/Method;)Ljdk/internal/org/objectweb/asm/commons/Method;", nullptr, $PUBLIC | $STATIC, $staticMethod(Method, getMethod, Method*, $Method*)},
+	{"getMethod", "(Ljava/lang/reflect/Constructor;)Ljdk/internal/org/objectweb/asm/commons/Method;", "(Ljava/lang/reflect/Constructor<*>;)Ljdk/internal/org/objectweb/asm/commons/Method;", $PUBLIC | $STATIC, $staticMethod(Method, getMethod, Method*, $Constructor*)},
+	{"getMethod", "(Ljava/lang/String;)Ljdk/internal/org/objectweb/asm/commons/Method;", nullptr, $PUBLIC | $STATIC, $staticMethod(Method, getMethod, Method*, $String*)},
+	{"getMethod", "(Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/commons/Method;", nullptr, $PUBLIC | $STATIC, $staticMethod(Method, getMethod, Method*, $String*, bool)},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Method, getName, $String*)},
+	{"getReturnType", "()Ljdk/internal/org/objectweb/asm/Type;", nullptr, $PUBLIC, $virtualMethod(Method, getReturnType, $Type*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Method, hashCode, int32_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Method, toString, $String*)},
 	{}
 };
 

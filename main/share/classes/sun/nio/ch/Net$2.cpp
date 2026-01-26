@@ -27,8 +27,8 @@ $FieldInfo _Net$2_FieldInfo_[] = {
 };
 
 $MethodInfo _Net$2_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/NetworkInterface;)V", "()V", 0, $method(static_cast<void(Net$2::*)($NetworkInterface*)>(&Net$2::init$))},
-	{"run", "()Ljava/net/Inet4Address;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/net/NetworkInterface;)V", "()V", 0, $method(Net$2, init$, void, $NetworkInterface*)},
+	{"run", "()Ljava/net/Inet4Address;", nullptr, $PUBLIC, $virtualMethod(Net$2, run, $Object*)},
 	{}
 };
 

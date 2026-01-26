@@ -143,8 +143,8 @@ $FieldInfo ProcessImpl$$Lambda$lambda$new$0::fieldInfos[4] = {
 	{}
 };
 $MethodInfo ProcessImpl$$Lambda$lambda$new$0::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/ProcessImpl;[IZ)V", nullptr, $PUBLIC, $method(static_cast<void(ProcessImpl$$Lambda$lambda$new$0::*)(ProcessImpl*,$ints*,bool)>(&ProcessImpl$$Lambda$lambda$new$0::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/ProcessImpl;[IZ)V", nullptr, $PUBLIC, $method(ProcessImpl$$Lambda$lambda$new$0, init$, void, ProcessImpl*, $ints*, bool)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ProcessImpl$$Lambda$lambda$new$0, run, $Object*)},
 	{}
 };
 $ClassInfo ProcessImpl$$Lambda$lambda$new$0::classInfo$ = {
@@ -183,8 +183,8 @@ $FieldInfo ProcessImpl$$Lambda$lambda$initStreams$1$1::fieldInfos[2] = {
 	{}
 };
 $MethodInfo ProcessImpl$$Lambda$lambda$initStreams$1$1::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/ProcessImpl;)V", nullptr, $PUBLIC, $method(static_cast<void(ProcessImpl$$Lambda$lambda$initStreams$1$1::*)(ProcessImpl*)>(&ProcessImpl$$Lambda$lambda$initStreams$1$1::init$))},
-	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/ProcessImpl;)V", nullptr, $PUBLIC, $method(ProcessImpl$$Lambda$lambda$initStreams$1$1, init$, void, ProcessImpl*)},
+	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ProcessImpl$$Lambda$lambda$initStreams$1$1, apply, $Object*, Object$*, Object$*)},
 	{}
 };
 $ClassInfo ProcessImpl$$Lambda$lambda$initStreams$1$1::classInfo$ = {
@@ -223,8 +223,8 @@ $FieldInfo ProcessImpl$$Lambda$lambda$initStreams$2$2::fieldInfos[2] = {
 	{}
 };
 $MethodInfo ProcessImpl$$Lambda$lambda$initStreams$2$2::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/ProcessImpl;)V", nullptr, $PUBLIC, $method(static_cast<void(ProcessImpl$$Lambda$lambda$initStreams$2$2::*)(ProcessImpl*)>(&ProcessImpl$$Lambda$lambda$initStreams$2$2::init$))},
-	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/ProcessImpl;)V", nullptr, $PUBLIC, $method(ProcessImpl$$Lambda$lambda$initStreams$2$2, init$, void, ProcessImpl*)},
+	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ProcessImpl$$Lambda$lambda$initStreams$2$2, apply, $Object*, Object$*, Object$*)},
 	{}
 };
 $ClassInfo ProcessImpl$$Lambda$lambda$initStreams$2$2::classInfo$ = {
@@ -263,8 +263,8 @@ $FieldInfo ProcessImpl$$Lambda$lambda$onExit$3$3::fieldInfos[2] = {
 	{}
 };
 $MethodInfo ProcessImpl$$Lambda$lambda$onExit$3$3::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/ProcessImpl;)V", nullptr, $PUBLIC, $method(static_cast<void(ProcessImpl$$Lambda$lambda$onExit$3$3::*)(ProcessImpl*)>(&ProcessImpl$$Lambda$lambda$onExit$3$3::init$))},
-	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/ProcessImpl;)V", nullptr, $PUBLIC, $method(ProcessImpl$$Lambda$lambda$onExit$3$3, init$, void, ProcessImpl*)},
+	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ProcessImpl$$Lambda$lambda$onExit$3$3, apply, $Object*, Object$*, Object$*)},
 	{}
 };
 $ClassInfo ProcessImpl$$Lambda$lambda$onExit$3$3::classInfo$ = {
@@ -299,32 +299,32 @@ $FieldInfo _ProcessImpl_FieldInfo_[] = {
 };
 
 $MethodInfo _ProcessImpl_MethodInfo_[] = {
-	{"<init>", "([B[BI[BI[B[IZZ)V", nullptr, $PRIVATE, $method(static_cast<void(ProcessImpl::*)($bytes*,$bytes*,int32_t,$bytes*,int32_t,$bytes*,$ints*,bool,bool)>(&ProcessImpl::init$)), "java.io.IOException"},
-	{"destroy", "(Z)V", nullptr, $PRIVATE, $method(static_cast<void(ProcessImpl::*)(bool)>(&ProcessImpl::destroy))},
-	{"destroy", "()V", nullptr, $PUBLIC},
-	{"destroyForcibly", "()Ljava/lang/Process;", nullptr, $PUBLIC},
-	{"exitValue", "()I", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"forkAndExec", "(I[B[B[BI[BI[B[IZ)I", nullptr, $PRIVATE | $NATIVE, $method(static_cast<int32_t(ProcessImpl::*)(int32_t,$bytes*,$bytes*,$bytes*,int32_t,$bytes*,int32_t,$bytes*,$ints*,bool)>(&ProcessImpl::forkAndExec)), "java.io.IOException"},
-	{"getErrorStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC},
-	{"getInputStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC},
-	{"getOutputStream", "()Ljava/io/OutputStream;", nullptr, $PUBLIC},
-	{"init", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $method(static_cast<void(*)()>(&ProcessImpl::init))},
-	{"initStreams", "([IZ)V", nullptr, 0, $method(static_cast<void(ProcessImpl::*)($ints*,bool)>(&ProcessImpl::initStreams)), "java.io.IOException"},
-	{"isAlive", "()Z", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"lambda$initStreams$1", "(Ljava/lang/Integer;Ljava/lang/Throwable;)Ljava/lang/Object;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$Object*(ProcessImpl::*)($Integer*,$Throwable*)>(&ProcessImpl::lambda$initStreams$1))},
-	{"lambda$initStreams$2", "(Ljava/lang/Integer;Ljava/lang/Throwable;)Ljava/lang/Object;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$Object*(ProcessImpl::*)($Integer*,$Throwable*)>(&ProcessImpl::lambda$initStreams$2))},
-	{"lambda$new$0", "([IZ)Ljava/lang/Void;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$Void*(ProcessImpl::*)($ints*,bool)>(&ProcessImpl::lambda$new$0)), "java.lang.Exception"},
-	{"lambda$onExit$3", "(Ljava/lang/Integer;Ljava/lang/Throwable;)Ljava/lang/Process;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$Process*(ProcessImpl::*)($Integer*,$Throwable*)>(&ProcessImpl::lambda$onExit$3))},
-	{"newFileDescriptor", "(I)Ljava/io/FileDescriptor;", nullptr, $STATIC, $method(static_cast<$FileDescriptor*(*)(int32_t)>(&ProcessImpl::newFileDescriptor))},
-	{"onExit", "()Ljava/util/concurrent/CompletableFuture;", "()Ljava/util/concurrent/CompletableFuture<Ljava/lang/Process;>;", $PUBLIC},
-	{"pid", "()J", nullptr, $PUBLIC},
-	{"start", "([Ljava/lang/String;Ljava/util/Map;Ljava/lang/String;[Ljava/lang/ProcessBuilder$Redirect;Z)Ljava/lang/Process;", "([Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;Ljava/lang/String;[Ljava/lang/ProcessBuilder$Redirect;Z)Ljava/lang/Process;", $STATIC, $method(static_cast<$Process*(*)($StringArray*,$Map*,$String*,$ProcessBuilder$RedirectArray*,bool)>(&ProcessImpl::start)), "java.io.IOException"},
-	{"supportsNormalTermination", "()Z", nullptr, $PUBLIC},
-	{"toCString", "(Ljava/lang/String;)[B", nullptr, $PRIVATE | $STATIC, $method(static_cast<$bytes*(*)($String*)>(&ProcessImpl::toCString))},
-	{"toHandle", "()Ljava/lang/ProcessHandle;", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"waitFor", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, nullptr, "java.lang.InterruptedException"},
-	{"waitFor", "(JLjava/util/concurrent/TimeUnit;)Z", nullptr, $PUBLIC | $SYNCHRONIZED, nullptr, "java.lang.InterruptedException"},
+	{"<init>", "([B[BI[BI[B[IZZ)V", nullptr, $PRIVATE, $method(ProcessImpl, init$, void, $bytes*, $bytes*, int32_t, $bytes*, int32_t, $bytes*, $ints*, bool, bool), "java.io.IOException"},
+	{"destroy", "(Z)V", nullptr, $PRIVATE, $method(ProcessImpl, destroy, void, bool)},
+	{"destroy", "()V", nullptr, $PUBLIC, $virtualMethod(ProcessImpl, destroy, void)},
+	{"destroyForcibly", "()Ljava/lang/Process;", nullptr, $PUBLIC, $virtualMethod(ProcessImpl, destroyForcibly, $Process*)},
+	{"exitValue", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ProcessImpl, exitValue, int32_t)},
+	{"forkAndExec", "(I[B[B[BI[BI[B[IZ)I", nullptr, $PRIVATE | $NATIVE, $method(ProcessImpl, forkAndExec, int32_t, int32_t, $bytes*, $bytes*, $bytes*, int32_t, $bytes*, int32_t, $bytes*, $ints*, bool), "java.io.IOException"},
+	{"getErrorStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(ProcessImpl, getErrorStream, $InputStream*)},
+	{"getInputStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(ProcessImpl, getInputStream, $InputStream*)},
+	{"getOutputStream", "()Ljava/io/OutputStream;", nullptr, $PUBLIC, $virtualMethod(ProcessImpl, getOutputStream, $OutputStream*)},
+	{"init", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(ProcessImpl, init, void)},
+	{"initStreams", "([IZ)V", nullptr, 0, $method(ProcessImpl, initStreams, void, $ints*, bool), "java.io.IOException"},
+	{"isAlive", "()Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ProcessImpl, isAlive, bool)},
+	{"lambda$initStreams$1", "(Ljava/lang/Integer;Ljava/lang/Throwable;)Ljava/lang/Object;", nullptr, $PRIVATE | $SYNTHETIC, $method(ProcessImpl, lambda$initStreams$1, $Object*, $Integer*, $Throwable*)},
+	{"lambda$initStreams$2", "(Ljava/lang/Integer;Ljava/lang/Throwable;)Ljava/lang/Object;", nullptr, $PRIVATE | $SYNTHETIC, $method(ProcessImpl, lambda$initStreams$2, $Object*, $Integer*, $Throwable*)},
+	{"lambda$new$0", "([IZ)Ljava/lang/Void;", nullptr, $PRIVATE | $SYNTHETIC, $method(ProcessImpl, lambda$new$0, $Void*, $ints*, bool), "java.lang.Exception"},
+	{"lambda$onExit$3", "(Ljava/lang/Integer;Ljava/lang/Throwable;)Ljava/lang/Process;", nullptr, $PRIVATE | $SYNTHETIC, $method(ProcessImpl, lambda$onExit$3, $Process*, $Integer*, $Throwable*)},
+	{"newFileDescriptor", "(I)Ljava/io/FileDescriptor;", nullptr, $STATIC, $staticMethod(ProcessImpl, newFileDescriptor, $FileDescriptor*, int32_t)},
+	{"onExit", "()Ljava/util/concurrent/CompletableFuture;", "()Ljava/util/concurrent/CompletableFuture<Ljava/lang/Process;>;", $PUBLIC, $virtualMethod(ProcessImpl, onExit, $CompletableFuture*)},
+	{"pid", "()J", nullptr, $PUBLIC, $virtualMethod(ProcessImpl, pid, int64_t)},
+	{"start", "([Ljava/lang/String;Ljava/util/Map;Ljava/lang/String;[Ljava/lang/ProcessBuilder$Redirect;Z)Ljava/lang/Process;", "([Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;Ljava/lang/String;[Ljava/lang/ProcessBuilder$Redirect;Z)Ljava/lang/Process;", $STATIC, $staticMethod(ProcessImpl, start, $Process*, $StringArray*, $Map*, $String*, $ProcessBuilder$RedirectArray*, bool), "java.io.IOException"},
+	{"supportsNormalTermination", "()Z", nullptr, $PUBLIC, $virtualMethod(ProcessImpl, supportsNormalTermination, bool)},
+	{"toCString", "(Ljava/lang/String;)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(ProcessImpl, toCString, $bytes*, $String*)},
+	{"toHandle", "()Ljava/lang/ProcessHandle;", nullptr, $PUBLIC, $virtualMethod(ProcessImpl, toHandle, $ProcessHandle*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ProcessImpl, toString, $String*)},
+	{"waitFor", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ProcessImpl, waitFor, int32_t), "java.lang.InterruptedException"},
+	{"waitFor", "(JLjava/util/concurrent/TimeUnit;)Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ProcessImpl, waitFor, bool, int64_t, $TimeUnit*), "java.lang.InterruptedException"},
 	{}
 };
 

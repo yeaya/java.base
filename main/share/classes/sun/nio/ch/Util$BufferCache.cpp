@@ -29,13 +29,13 @@ $FieldInfo _Util$BufferCache_FieldInfo_[] = {
 };
 
 $MethodInfo _Util$BufferCache_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Util$BufferCache::*)()>(&Util$BufferCache::init$))},
-	{"get", "(I)Ljava/nio/ByteBuffer;", nullptr, 0},
-	{"isEmpty", "()Z", nullptr, 0},
-	{"next", "(I)I", nullptr, $PRIVATE, $method(static_cast<int32_t(Util$BufferCache::*)(int32_t)>(&Util$BufferCache::next))},
-	{"offerFirst", "(Ljava/nio/ByteBuffer;)Z", nullptr, 0},
-	{"offerLast", "(Ljava/nio/ByteBuffer;)Z", nullptr, 0},
-	{"removeFirst", "()Ljava/nio/ByteBuffer;", nullptr, 0},
+	{"<init>", "()V", nullptr, 0, $method(Util$BufferCache, init$, void)},
+	{"get", "(I)Ljava/nio/ByteBuffer;", nullptr, 0, $virtualMethod(Util$BufferCache, get, $ByteBuffer*, int32_t)},
+	{"isEmpty", "()Z", nullptr, 0, $virtualMethod(Util$BufferCache, isEmpty, bool)},
+	{"next", "(I)I", nullptr, $PRIVATE, $method(Util$BufferCache, next, int32_t, int32_t)},
+	{"offerFirst", "(Ljava/nio/ByteBuffer;)Z", nullptr, 0, $virtualMethod(Util$BufferCache, offerFirst, bool, $ByteBuffer*)},
+	{"offerLast", "(Ljava/nio/ByteBuffer;)Z", nullptr, 0, $virtualMethod(Util$BufferCache, offerLast, bool, $ByteBuffer*)},
+	{"removeFirst", "()Ljava/nio/ByteBuffer;", nullptr, 0, $virtualMethod(Util$BufferCache, removeFirst, $ByteBuffer*)},
 	{}
 };
 

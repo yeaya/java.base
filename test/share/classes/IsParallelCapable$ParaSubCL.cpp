@@ -12,8 +12,8 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _IsParallelCapable$ParaSubCL_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(IsParallelCapable$ParaSubCL::*)()>(&IsParallelCapable$ParaSubCL::init$))},
-	{"expectCapable", "()Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(IsParallelCapable$ParaSubCL, init$, void)},
+	{"expectCapable", "()Z", nullptr, $PUBLIC, $virtualMethod(IsParallelCapable$ParaSubCL, expectCapable, bool)},
 	{}
 };
 

@@ -20,7 +20,7 @@ $FieldInfo _RSAKeyExchange$EphemeralRSACredentials_FieldInfo_[] = {
 };
 
 $MethodInfo _RSAKeyExchange$EphemeralRSACredentials_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/interfaces/RSAPublicKey;)V", nullptr, 0, $method(static_cast<void(RSAKeyExchange$EphemeralRSACredentials::*)($RSAPublicKey*)>(&RSAKeyExchange$EphemeralRSACredentials::init$))},
+	{"<init>", "(Ljava/security/interfaces/RSAPublicKey;)V", nullptr, 0, $method(RSAKeyExchange$EphemeralRSACredentials, init$, void, $RSAPublicKey*)},
 	{}
 };
 

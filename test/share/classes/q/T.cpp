@@ -10,7 +10,7 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace q {
 
 $MethodInfo _T_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(T::*)()>(&T::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(T, init$, void)},
 	{}
 };
 

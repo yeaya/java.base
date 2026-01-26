@@ -50,9 +50,9 @@ $FieldInfo _KeyProtector_FieldInfo_[] = {
 };
 
 $MethodInfo _KeyProtector_MethodInfo_[] = {
-	{"<init>", "([B)V", nullptr, $PUBLIC, $method(static_cast<void(KeyProtector::*)($bytes*)>(&KeyProtector::init$)), "java.security.NoSuchAlgorithmException"},
-	{"protect", "(Ljava/security/Key;)[B", nullptr, $PUBLIC, $method(static_cast<$bytes*(KeyProtector::*)($Key*)>(&KeyProtector::protect)), "java.security.KeyStoreException"},
-	{"recover", "(Lsun/security/pkcs/EncryptedPrivateKeyInfo;)Ljava/security/Key;", nullptr, $PUBLIC, $method(static_cast<$Key*(KeyProtector::*)($EncryptedPrivateKeyInfo*)>(&KeyProtector::recover)), "java.security.UnrecoverableKeyException"},
+	{"<init>", "([B)V", nullptr, $PUBLIC, $method(KeyProtector, init$, void, $bytes*), "java.security.NoSuchAlgorithmException"},
+	{"protect", "(Ljava/security/Key;)[B", nullptr, $PUBLIC, $method(KeyProtector, protect, $bytes*, $Key*), "java.security.KeyStoreException"},
+	{"recover", "(Lsun/security/pkcs/EncryptedPrivateKeyInfo;)Ljava/security/Key;", nullptr, $PUBLIC, $method(KeyProtector, recover, $Key*, $EncryptedPrivateKeyInfo*), "java.security.UnrecoverableKeyException"},
 	{}
 };
 

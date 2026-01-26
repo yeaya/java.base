@@ -4,6 +4,8 @@
 #include <UniTest/Stooge.h>
 #include <jcpp.h>
 
+using $Point = ::UniTest::Point;
+using $Stooge = ::UniTest::Stooge;
 using $Attribute = ::java::lang::Attribute;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
@@ -81,18 +83,18 @@ $Attribute _ScalarTypesWithDefault_DefaultValue_str11 = {
 };
 
 $MethodInfo _ScalarTypesWithDefault_MethodInfo_[] = {
-	{"a", "()LUniTest/Point;", nullptr, $PUBLIC | $ABSTRACT, nullptr, nullptr, &_ScalarTypesWithDefault_DefaultValue_a0},
-	{"b", "()B", nullptr, $PUBLIC | $ABSTRACT, nullptr, nullptr, &_ScalarTypesWithDefault_DefaultValue_b1},
-	{"bool", "()Z", nullptr, $PUBLIC | $ABSTRACT, nullptr, nullptr, &_ScalarTypesWithDefault_DefaultValue_bool$2},
-	{"c", "()C", nullptr, $PUBLIC | $ABSTRACT, nullptr, nullptr, &_ScalarTypesWithDefault_DefaultValue_c3},
-	{"cls", "()Ljava/lang/Class;", nullptr, $PUBLIC | $ABSTRACT, nullptr, nullptr, &_ScalarTypesWithDefault_DefaultValue_cls4},
-	{"d", "()D", nullptr, $PUBLIC | $ABSTRACT, nullptr, nullptr, &_ScalarTypesWithDefault_DefaultValue_d5},
-	{"e", "()LUniTest/Stooge;", nullptr, $PUBLIC | $ABSTRACT, nullptr, nullptr, &_ScalarTypesWithDefault_DefaultValue_e6},
-	{"f", "()F", nullptr, $PUBLIC | $ABSTRACT, nullptr, nullptr, &_ScalarTypesWithDefault_DefaultValue_f7},
-	{"i", "()I", nullptr, $PUBLIC | $ABSTRACT, nullptr, nullptr, &_ScalarTypesWithDefault_DefaultValue_i8},
-	{"l", "()J", nullptr, $PUBLIC | $ABSTRACT, nullptr, nullptr, &_ScalarTypesWithDefault_DefaultValue_l9},
-	{"s", "()S", nullptr, $PUBLIC | $ABSTRACT, nullptr, nullptr, &_ScalarTypesWithDefault_DefaultValue_s10},
-	{"str", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, nullptr, nullptr, &_ScalarTypesWithDefault_DefaultValue_str11},
+	{"a", "()LUniTest/Point;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ScalarTypesWithDefault, a, $Point*), nullptr, &_ScalarTypesWithDefault_DefaultValue_a0},
+	{"b", "()B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ScalarTypesWithDefault, b, int8_t), nullptr, &_ScalarTypesWithDefault_DefaultValue_b1},
+	{"bool", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ScalarTypesWithDefault, bool$, bool), nullptr, &_ScalarTypesWithDefault_DefaultValue_bool$2},
+	{"c", "()C", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ScalarTypesWithDefault, c, char16_t), nullptr, &_ScalarTypesWithDefault_DefaultValue_c3},
+	{"cls", "()Ljava/lang/Class;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ScalarTypesWithDefault, cls, $Class*), nullptr, &_ScalarTypesWithDefault_DefaultValue_cls4},
+	{"d", "()D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ScalarTypesWithDefault, d, double), nullptr, &_ScalarTypesWithDefault_DefaultValue_d5},
+	{"e", "()LUniTest/Stooge;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ScalarTypesWithDefault, e, $Stooge*), nullptr, &_ScalarTypesWithDefault_DefaultValue_e6},
+	{"f", "()F", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ScalarTypesWithDefault, f, float), nullptr, &_ScalarTypesWithDefault_DefaultValue_f7},
+	{"i", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ScalarTypesWithDefault, i, int32_t), nullptr, &_ScalarTypesWithDefault_DefaultValue_i8},
+	{"l", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ScalarTypesWithDefault, l, int64_t), nullptr, &_ScalarTypesWithDefault_DefaultValue_l9},
+	{"s", "()S", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ScalarTypesWithDefault, s, int16_t), nullptr, &_ScalarTypesWithDefault_DefaultValue_s10},
+	{"str", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ScalarTypesWithDefault, str, $String*), nullptr, &_ScalarTypesWithDefault_DefaultValue_str11},
 	{}
 };
 

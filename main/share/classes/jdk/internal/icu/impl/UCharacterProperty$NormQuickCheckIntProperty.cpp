@@ -24,7 +24,7 @@ $FieldInfo _UCharacterProperty$NormQuickCheckIntProperty_FieldInfo_[] = {
 };
 
 $MethodInfo _UCharacterProperty$NormQuickCheckIntProperty_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/icu/impl/UCharacterProperty;III)V", nullptr, 0, $method(static_cast<void(UCharacterProperty$NormQuickCheckIntProperty::*)($UCharacterProperty*,int32_t,int32_t,int32_t)>(&UCharacterProperty$NormQuickCheckIntProperty::init$))},
+	{"<init>", "(Ljdk/internal/icu/impl/UCharacterProperty;III)V", nullptr, 0, $method(UCharacterProperty$NormQuickCheckIntProperty, init$, void, $UCharacterProperty*, int32_t, int32_t, int32_t)},
 	{}
 };
 

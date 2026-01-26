@@ -23,8 +23,8 @@ $FieldInfo _Signal$1_FieldInfo_[] = {
 };
 
 $MethodInfo _Signal$1_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/misc/Signal$Handler;Ljdk/internal/misc/Signal;)V", "()V", 0, $method(static_cast<void(Signal$1::*)($Signal$Handler*,$Signal*)>(&Signal$1::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/misc/Signal$Handler;Ljdk/internal/misc/Signal;)V", "()V", 0, $method(Signal$1, init$, void, $Signal$Handler*, $Signal*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Signal$1, run, void)},
 	{}
 };
 

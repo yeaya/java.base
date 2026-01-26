@@ -23,9 +23,9 @@ $FieldInfo _DefaultFileSystemProvider_FieldInfo_[] = {
 };
 
 $MethodInfo _DefaultFileSystemProvider_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(DefaultFileSystemProvider::*)()>(&DefaultFileSystemProvider::init$))},
-	{"instance", "()Lsun/nio/fs/LinuxFileSystemProvider;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$LinuxFileSystemProvider*(*)()>(&DefaultFileSystemProvider::instance))},
-	{"theFileSystem", "()Ljava/nio/file/FileSystem;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$FileSystem*(*)()>(&DefaultFileSystemProvider::theFileSystem))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(DefaultFileSystemProvider, init$, void)},
+	{"instance", "()Lsun/nio/fs/LinuxFileSystemProvider;", nullptr, $PUBLIC | $STATIC, $staticMethod(DefaultFileSystemProvider, instance, $LinuxFileSystemProvider*)},
+	{"theFileSystem", "()Ljava/nio/file/FileSystem;", nullptr, $PUBLIC | $STATIC, $staticMethod(DefaultFileSystemProvider, theFileSystem, $FileSystem*)},
 	{}
 };
 

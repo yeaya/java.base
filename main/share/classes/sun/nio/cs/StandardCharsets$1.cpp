@@ -29,10 +29,10 @@ $FieldInfo _StandardCharsets$1_FieldInfo_[] = {
 };
 
 $MethodInfo _StandardCharsets$1_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/cs/StandardCharsets;Ljava/util/Set;)V", "()V", 0, $method(static_cast<void(StandardCharsets$1::*)($StandardCharsets*,$Set*)>(&StandardCharsets$1::init$))},
-	{"hasNext", "()Z", nullptr, $PUBLIC},
-	{"next", "()Ljava/nio/charset/Charset;", nullptr, $PUBLIC},
-	{"remove", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/nio/cs/StandardCharsets;Ljava/util/Set;)V", "()V", 0, $method(StandardCharsets$1, init$, void, $StandardCharsets*, $Set*)},
+	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(StandardCharsets$1, hasNext, bool)},
+	{"next", "()Ljava/nio/charset/Charset;", nullptr, $PUBLIC, $virtualMethod(StandardCharsets$1, next, $Object*)},
+	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(StandardCharsets$1, remove, void)},
 	{}
 };
 

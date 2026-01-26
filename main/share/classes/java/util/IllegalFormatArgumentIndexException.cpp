@@ -21,9 +21,9 @@ $FieldInfo _IllegalFormatArgumentIndexException_FieldInfo_[] = {
 };
 
 $MethodInfo _IllegalFormatArgumentIndexException_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, 0, $method(static_cast<void(IllegalFormatArgumentIndexException::*)(int32_t)>(&IllegalFormatArgumentIndexException::init$))},
-	{"getIndex", "()I", nullptr, 0},
-	{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(I)V", nullptr, 0, $method(IllegalFormatArgumentIndexException, init$, void, int32_t)},
+	{"getIndex", "()I", nullptr, 0, $virtualMethod(IllegalFormatArgumentIndexException, getIndex, int32_t)},
+	{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IllegalFormatArgumentIndexException, getMessage, $String*)},
 	{}
 };
 

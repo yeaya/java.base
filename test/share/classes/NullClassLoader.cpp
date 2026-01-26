@@ -16,8 +16,8 @@ using $Proxy = ::java::lang::reflect::Proxy;
 using $Observer = ::java::util::Observer;
 
 $MethodInfo _NullClassLoader_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(NullClassLoader::*)()>(&NullClassLoader::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&NullClassLoader::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(NullClassLoader, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(NullClassLoader, main, void, $StringArray*)},
 	{}
 };
 

@@ -21,7 +21,7 @@ $FieldInfo _Byte$ByteCache_FieldInfo_[] = {
 };
 
 $MethodInfo _Byte$ByteCache_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(Byte$ByteCache::*)()>(&Byte$ByteCache::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(Byte$ByteCache, init$, void)},
 	{}
 };
 

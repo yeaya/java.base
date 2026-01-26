@@ -9,8 +9,8 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $Selector = ::java::nio::channels::Selector;
 
 $MethodInfo _WakeupSpeed_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(WakeupSpeed::*)()>(&WakeupSpeed::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&WakeupSpeed::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(WakeupSpeed, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(WakeupSpeed, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

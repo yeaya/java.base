@@ -28,10 +28,10 @@ $FieldInfo _CipherType_FieldInfo_[] = {
 };
 
 $MethodInfo _CipherType_MethodInfo_[] = {
-	{"$values", "()[Lsun/security/ssl/CipherType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$CipherTypeArray*(*)()>(&CipherType::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(CipherType::*)($String*,int32_t)>(&CipherType::init$))},
-	{"valueOf", "(Ljava/lang/String;)Lsun/security/ssl/CipherType;", nullptr, $PUBLIC | $STATIC, $method(static_cast<CipherType*(*)($String*)>(&CipherType::valueOf))},
-	{"values", "()[Lsun/security/ssl/CipherType;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$CipherTypeArray*(*)()>(&CipherType::values))},
+	{"$values", "()[Lsun/security/ssl/CipherType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CipherType, $values, $CipherTypeArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(CipherType, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Lsun/security/ssl/CipherType;", nullptr, $PUBLIC | $STATIC, $staticMethod(CipherType, valueOf, CipherType*, $String*)},
+	{"values", "()[Lsun/security/ssl/CipherType;", nullptr, $PUBLIC | $STATIC, $staticMethod(CipherType, values, $CipherTypeArray*)},
 	{}
 };
 

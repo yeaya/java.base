@@ -39,8 +39,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo IsBlank$$Lambda$lambda$testWhitespace$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(IsBlank$$Lambda$lambda$testWhitespace$0::*)()>(&IsBlank$$Lambda$lambda$testWhitespace$0::init$))},
-	{"test", "(I)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(IsBlank$$Lambda$lambda$testWhitespace$0, init$, void)},
+	{"test", "(I)Z", nullptr, $PUBLIC, $virtualMethod(IsBlank$$Lambda$lambda$testWhitespace$0, test, bool, int32_t)},
 	{}
 };
 $ClassInfo IsBlank$$Lambda$lambda$testWhitespace$0::classInfo$ = {
@@ -79,8 +79,8 @@ $FieldInfo IsBlank$$Lambda$lambda$testWhitespace$1$1::fieldInfos[2] = {
 	{}
 };
 $MethodInfo IsBlank$$Lambda$lambda$testWhitespace$1$1::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/StringBuilder;)V", nullptr, $PUBLIC, $method(static_cast<void(IsBlank$$Lambda$lambda$testWhitespace$1$1::*)($StringBuilder*)>(&IsBlank$$Lambda$lambda$testWhitespace$1$1::init$))},
-	{"accept", "(I)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/StringBuilder;)V", nullptr, $PUBLIC, $method(IsBlank$$Lambda$lambda$testWhitespace$1$1, init$, void, $StringBuilder*)},
+	{"accept", "(I)V", nullptr, $PUBLIC, $virtualMethod(IsBlank$$Lambda$lambda$testWhitespace$1$1, accept, void, int32_t)},
 	{}
 };
 $ClassInfo IsBlank$$Lambda$lambda$testWhitespace$1$1::classInfo$ = {
@@ -98,13 +98,13 @@ $Class* IsBlank$$Lambda$lambda$testWhitespace$1$1::load$($String* name, bool ini
 $Class* IsBlank$$Lambda$lambda$testWhitespace$1$1::class$ = nullptr;
 
 $MethodInfo _IsBlank_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(IsBlank::*)()>(&IsBlank::init$))},
-	{"lambda$testWhitespace$0", "(I)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)(int32_t)>(&IsBlank::lambda$testWhitespace$0))},
-	{"lambda$testWhitespace$1", "(Ljava/lang/StringBuilder;I)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($StringBuilder*,int32_t)>(&IsBlank::lambda$testWhitespace$1))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<void(*)($StringArray*)>(&IsBlank::main))},
-	{"test", "(Ljava/lang/String;Z)V", nullptr, $STATIC, $method(static_cast<void(*)($String*,bool)>(&IsBlank::test))},
-	{"testIsBlank", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&IsBlank::testIsBlank))},
-	{"testWhitespace", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&IsBlank::testWhitespace))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(IsBlank, init$, void)},
+	{"lambda$testWhitespace$0", "(I)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(IsBlank, lambda$testWhitespace$0, bool, int32_t)},
+	{"lambda$testWhitespace$1", "(Ljava/lang/StringBuilder;I)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(IsBlank, lambda$testWhitespace$1, void, $StringBuilder*, int32_t)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(IsBlank, main, void, $StringArray*)},
+	{"test", "(Ljava/lang/String;Z)V", nullptr, $STATIC, $staticMethod(IsBlank, test, void, $String*, bool)},
+	{"testIsBlank", "()V", nullptr, $STATIC, $staticMethod(IsBlank, testIsBlank, void)},
+	{"testWhitespace", "()V", nullptr, $STATIC, $staticMethod(IsBlank, testWhitespace, void)},
 	{}
 };
 

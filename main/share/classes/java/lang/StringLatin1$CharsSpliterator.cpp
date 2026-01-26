@@ -31,15 +31,15 @@ $FieldInfo _StringLatin1$CharsSpliterator_FieldInfo_[] = {
 };
 
 $MethodInfo _StringLatin1$CharsSpliterator_MethodInfo_[] = {
-	{"<init>", "([BI)V", nullptr, 0, $method(static_cast<void(StringLatin1$CharsSpliterator::*)($bytes*,int32_t)>(&StringLatin1$CharsSpliterator::init$))},
-	{"<init>", "([BIII)V", nullptr, 0, $method(static_cast<void(StringLatin1$CharsSpliterator::*)($bytes*,int32_t,int32_t,int32_t)>(&StringLatin1$CharsSpliterator::init$))},
-	{"characteristics", "()I", nullptr, $PUBLIC},
-	{"estimateSize", "()J", nullptr, $PUBLIC},
-	{"forEachRemaining", "(Ljava/util/function/IntConsumer;)V", nullptr, $PUBLIC},
-	{"forEachRemaining", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"tryAdvance", "(Ljava/util/function/IntConsumer;)Z", nullptr, $PUBLIC},
-	{"tryAdvance", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"trySplit", "()Ljava/util/Spliterator$OfInt;", nullptr, $PUBLIC},
+	{"<init>", "([BI)V", nullptr, 0, $method(StringLatin1$CharsSpliterator, init$, void, $bytes*, int32_t)},
+	{"<init>", "([BIII)V", nullptr, 0, $method(StringLatin1$CharsSpliterator, init$, void, $bytes*, int32_t, int32_t, int32_t)},
+	{"characteristics", "()I", nullptr, $PUBLIC, $virtualMethod(StringLatin1$CharsSpliterator, characteristics, int32_t)},
+	{"estimateSize", "()J", nullptr, $PUBLIC, $virtualMethod(StringLatin1$CharsSpliterator, estimateSize, int64_t)},
+	{"forEachRemaining", "(Ljava/util/function/IntConsumer;)V", nullptr, $PUBLIC, $virtualMethod(StringLatin1$CharsSpliterator, forEachRemaining, void, $IntConsumer*)},
+	{"forEachRemaining", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(StringLatin1$CharsSpliterator, forEachRemaining, void, Object$*)},
+	{"tryAdvance", "(Ljava/util/function/IntConsumer;)Z", nullptr, $PUBLIC, $virtualMethod(StringLatin1$CharsSpliterator, tryAdvance, bool, $IntConsumer*)},
+	{"tryAdvance", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(StringLatin1$CharsSpliterator, tryAdvance, bool, Object$*)},
+	{"trySplit", "()Ljava/util/Spliterator$OfInt;", nullptr, $PUBLIC, $virtualMethod(StringLatin1$CharsSpliterator, trySplit, $Spliterator$OfInt*)},
 	{}
 };
 

@@ -69,8 +69,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Currency$1$$Lambda$replaceCurrencyData::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Currency$1$$Lambda$replaceCurrencyData::*)()>(&Currency$1$$Lambda$replaceCurrencyData::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Currency$1$$Lambda$replaceCurrencyData, init$, void)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Currency$1$$Lambda$replaceCurrencyData, accept, void, Object$*)},
 	{}
 };
 $ClassInfo Currency$1$$Lambda$replaceCurrencyData::classInfo$ = {
@@ -88,8 +88,8 @@ $Class* Currency$1$$Lambda$replaceCurrencyData::load$($String* name, bool initia
 $Class* Currency$1$$Lambda$replaceCurrencyData::class$ = nullptr;
 
 $MethodInfo _Currency$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Currency$1::*)()>(&Currency$1::init$))},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(Currency$1, init$, void)},
+	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(Currency$1, run, $Object*)},
 	{}
 };
 

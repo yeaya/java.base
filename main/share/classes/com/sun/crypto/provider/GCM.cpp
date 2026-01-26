@@ -7,6 +7,7 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $ByteBuffer = ::java::nio::ByteBuffer;
 
 namespace com {
 	namespace sun {
@@ -14,11 +15,11 @@ namespace com {
 			namespace provider {
 
 $MethodInfo _GCM_MethodInfo_[] = {
-	{"doFinal", "([BII[BI)I", nullptr, $PUBLIC | $ABSTRACT},
-	{"doFinal", "(Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC | $ABSTRACT},
-	{"update", "([BII[BI)I", nullptr, $PUBLIC | $ABSTRACT},
-	{"update", "([BIILjava/nio/ByteBuffer;)I", nullptr, $PUBLIC | $ABSTRACT},
-	{"update", "(Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC | $ABSTRACT},
+	{"doFinal", "([BII[BI)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GCM, doFinal, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t)},
+	{"doFinal", "(Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GCM, doFinal, int32_t, $ByteBuffer*, $ByteBuffer*)},
+	{"update", "([BII[BI)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GCM, update, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t)},
+	{"update", "([BIILjava/nio/ByteBuffer;)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GCM, update, int32_t, $bytes*, int32_t, int32_t, $ByteBuffer*)},
+	{"update", "(Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GCM, update, int32_t, $ByteBuffer*, $ByteBuffer*)},
 	{}
 };
 

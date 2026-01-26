@@ -28,12 +28,12 @@ $FieldInfo _EncodedKeySpec_FieldInfo_[] = {
 };
 
 $MethodInfo _EncodedKeySpec_MethodInfo_[] = {
-	{"<init>", "([B)V", nullptr, $PUBLIC, $method(static_cast<void(EncodedKeySpec::*)($bytes*)>(&EncodedKeySpec::init$))},
-	{"<init>", "([BLjava/lang/String;)V", nullptr, $PROTECTED, $method(static_cast<void(EncodedKeySpec::*)($bytes*,$String*)>(&EncodedKeySpec::init$))},
-	{"clear", "()V", nullptr, 0},
-	{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getEncoded", "()[B", nullptr, $PUBLIC},
-	{"getFormat", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
+	{"<init>", "([B)V", nullptr, $PUBLIC, $method(EncodedKeySpec, init$, void, $bytes*)},
+	{"<init>", "([BLjava/lang/String;)V", nullptr, $PROTECTED, $method(EncodedKeySpec, init$, void, $bytes*, $String*)},
+	{"clear", "()V", nullptr, 0, $virtualMethod(EncodedKeySpec, clear, void)},
+	{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(EncodedKeySpec, getAlgorithm, $String*)},
+	{"getEncoded", "()[B", nullptr, $PUBLIC, $virtualMethod(EncodedKeySpec, getEncoded, $bytes*)},
+	{"getFormat", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(EncodedKeySpec, getFormat, $String*)},
 	{}
 };
 

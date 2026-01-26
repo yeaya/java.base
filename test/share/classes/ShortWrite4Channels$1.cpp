@@ -15,10 +15,10 @@ using $ByteBuffer = ::java::nio::ByteBuffer;
 using $Random = ::java::util::Random;
 
 $MethodInfo _ShortWrite4Channels$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ShortWrite4Channels$1::*)()>(&ShortWrite4Channels$1::init$))},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"isOpen", "()Z", nullptr, $PUBLIC},
-	{"write", "(Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(ShortWrite4Channels$1, init$, void)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(ShortWrite4Channels$1, close, void), "java.io.IOException"},
+	{"isOpen", "()Z", nullptr, $PUBLIC, $virtualMethod(ShortWrite4Channels$1, isOpen, bool)},
+	{"write", "(Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC, $virtualMethod(ShortWrite4Channels$1, write, int32_t, $ByteBuffer*)},
 	{}
 };
 

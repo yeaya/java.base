@@ -41,7 +41,7 @@ $FieldInfo _Runtime$VersionPattern_FieldInfo_[] = {
 };
 
 $MethodInfo _Runtime$VersionPattern_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(Runtime$VersionPattern::*)()>(&Runtime$VersionPattern::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(Runtime$VersionPattern, init$, void)},
 	{}
 };
 

@@ -23,10 +23,10 @@ $FieldInfo _Provider$ServiceKey_FieldInfo_[] = {
 };
 
 $MethodInfo _Provider$ServiceKey_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, $PRIVATE, $method(static_cast<void(Provider$ServiceKey::*)($String*,$String*,bool)>(&Provider$ServiceKey::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"matches", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, 0},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, $PRIVATE, $method(Provider$ServiceKey, init$, void, $String*, $String*, bool)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Provider$ServiceKey, equals, bool, Object$*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Provider$ServiceKey, hashCode, int32_t)},
+	{"matches", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, 0, $virtualMethod(Provider$ServiceKey, matches, bool, $String*, $String*)},
 	{}
 };
 

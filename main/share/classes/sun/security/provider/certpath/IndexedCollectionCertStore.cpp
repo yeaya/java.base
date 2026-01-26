@@ -72,14 +72,14 @@ $FieldInfo _IndexedCollectionCertStore_FieldInfo_[] = {
 };
 
 $MethodInfo _IndexedCollectionCertStore_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/cert/CertStoreParameters;)V", nullptr, $PUBLIC, $method(static_cast<void(IndexedCollectionCertStore::*)($CertStoreParameters*)>(&IndexedCollectionCertStore::init$)), "java.security.InvalidAlgorithmParameterException"},
-	{"buildIndex", "(Ljava/util/Collection;)V", "(Ljava/util/Collection<*>;)V", $PRIVATE, $method(static_cast<void(IndexedCollectionCertStore::*)($Collection*)>(&IndexedCollectionCertStore::buildIndex))},
-	{"engineGetCRLs", "(Ljava/security/cert/CRLSelector;)Ljava/util/Collection;", "(Ljava/security/cert/CRLSelector;)Ljava/util/Collection<Ljava/security/cert/CRL;>;", $PUBLIC, nullptr, "java.security.cert.CertStoreException"},
-	{"engineGetCertificates", "(Ljava/security/cert/CertSelector;)Ljava/util/Collection;", "(Ljava/security/cert/CertSelector;)Ljava/util/Collection<+Ljava/security/cert/Certificate;>;", $PUBLIC, nullptr, "java.security.cert.CertStoreException"},
-	{"indexCRL", "(Ljava/security/cert/X509CRL;)V", nullptr, $PRIVATE, $method(static_cast<void(IndexedCollectionCertStore::*)($X509CRL*)>(&IndexedCollectionCertStore::indexCRL))},
-	{"indexCertificate", "(Ljava/security/cert/X509Certificate;)V", nullptr, $PRIVATE, $method(static_cast<void(IndexedCollectionCertStore::*)($X509Certificate*)>(&IndexedCollectionCertStore::indexCertificate))},
-	{"matchX509CRLs", "(Ljava/security/cert/CRLSelector;Ljava/util/Collection;)V", "(Ljava/security/cert/CRLSelector;Ljava/util/Collection<Ljava/security/cert/CRL;>;)V", $PRIVATE, $method(static_cast<void(IndexedCollectionCertStore::*)($CRLSelector*,$Collection*)>(&IndexedCollectionCertStore::matchX509CRLs))},
-	{"matchX509Certs", "(Ljava/security/cert/CertSelector;Ljava/util/Collection;)V", "(Ljava/security/cert/CertSelector;Ljava/util/Collection<Ljava/security/cert/Certificate;>;)V", $PRIVATE, $method(static_cast<void(IndexedCollectionCertStore::*)($CertSelector*,$Collection*)>(&IndexedCollectionCertStore::matchX509Certs))},
+	{"<init>", "(Ljava/security/cert/CertStoreParameters;)V", nullptr, $PUBLIC, $method(IndexedCollectionCertStore, init$, void, $CertStoreParameters*), "java.security.InvalidAlgorithmParameterException"},
+	{"buildIndex", "(Ljava/util/Collection;)V", "(Ljava/util/Collection<*>;)V", $PRIVATE, $method(IndexedCollectionCertStore, buildIndex, void, $Collection*)},
+	{"engineGetCRLs", "(Ljava/security/cert/CRLSelector;)Ljava/util/Collection;", "(Ljava/security/cert/CRLSelector;)Ljava/util/Collection<Ljava/security/cert/CRL;>;", $PUBLIC, $virtualMethod(IndexedCollectionCertStore, engineGetCRLs, $Collection*, $CRLSelector*), "java.security.cert.CertStoreException"},
+	{"engineGetCertificates", "(Ljava/security/cert/CertSelector;)Ljava/util/Collection;", "(Ljava/security/cert/CertSelector;)Ljava/util/Collection<+Ljava/security/cert/Certificate;>;", $PUBLIC, $virtualMethod(IndexedCollectionCertStore, engineGetCertificates, $Collection*, $CertSelector*), "java.security.cert.CertStoreException"},
+	{"indexCRL", "(Ljava/security/cert/X509CRL;)V", nullptr, $PRIVATE, $method(IndexedCollectionCertStore, indexCRL, void, $X509CRL*)},
+	{"indexCertificate", "(Ljava/security/cert/X509Certificate;)V", nullptr, $PRIVATE, $method(IndexedCollectionCertStore, indexCertificate, void, $X509Certificate*)},
+	{"matchX509CRLs", "(Ljava/security/cert/CRLSelector;Ljava/util/Collection;)V", "(Ljava/security/cert/CRLSelector;Ljava/util/Collection<Ljava/security/cert/CRL;>;)V", $PRIVATE, $method(IndexedCollectionCertStore, matchX509CRLs, void, $CRLSelector*, $Collection*)},
+	{"matchX509Certs", "(Ljava/security/cert/CertSelector;Ljava/util/Collection;)V", "(Ljava/security/cert/CertSelector;Ljava/util/Collection<Ljava/security/cert/Certificate;>;)V", $PRIVATE, $method(IndexedCollectionCertStore, matchX509Certs, void, $CertSelector*, $Collection*)},
 	{}
 };
 

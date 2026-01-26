@@ -10,7 +10,7 @@ namespace java {
 		namespace spec {
 
 $MethodInfo _ECField_MethodInfo_[] = {
-	{"getFieldSize", "()I", nullptr, $PUBLIC | $ABSTRACT},
+	{"getFieldSize", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ECField, getFieldSize, int32_t)},
 	{}
 };
 

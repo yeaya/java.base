@@ -30,8 +30,8 @@ $FieldInfo _Boxing$TestHandler_FieldInfo_[] = {
 };
 
 $MethodInfo _Boxing$TestHandler_MethodInfo_[] = {
-	{"<init>", "(LBoxing;)V", nullptr, $PRIVATE, $method(static_cast<void(Boxing$TestHandler::*)($Boxing*)>(&Boxing$TestHandler::init$))},
-	{"invoke", "(Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, nullptr, "java.lang.Throwable"},
+	{"<init>", "(LBoxing;)V", nullptr, $PRIVATE, $method(Boxing$TestHandler, init$, void, $Boxing*)},
+	{"invoke", "(Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Boxing$TestHandler, invoke, $Object*, Object$*, $Method*, $ObjectArray*), "java.lang.Throwable"},
 	{}
 };
 

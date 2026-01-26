@@ -9,11 +9,11 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $StackTraceElement = ::java::lang::StackTraceElement;
 
 $MethodInfo _PublicConstructor_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PublicConstructor::*)()>(&PublicConstructor::init$))},
-	{"assertEquals", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $STATIC, $method(static_cast<void(*)($String*,$String*)>(&PublicConstructor::assertEquals))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<void(*)($StringArray*)>(&PublicConstructor::main))},
-	{"testConstructor", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&PublicConstructor::testConstructor))},
-	{"testConstructorWithModule", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&PublicConstructor::testConstructorWithModule))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PublicConstructor, init$, void)},
+	{"assertEquals", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(PublicConstructor, assertEquals, void, $String*, $String*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(PublicConstructor, main, void, $StringArray*)},
+	{"testConstructor", "()V", nullptr, $STATIC, $staticMethod(PublicConstructor, testConstructor, void)},
+	{"testConstructorWithModule", "()V", nullptr, $STATIC, $staticMethod(PublicConstructor, testConstructorWithModule, void)},
 	{}
 };
 

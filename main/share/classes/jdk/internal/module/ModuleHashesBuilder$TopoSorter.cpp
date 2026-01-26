@@ -68,8 +68,8 @@ $FieldInfo ModuleHashesBuilder$TopoSorter$$Lambda$lambda$sort$0::fieldInfos[4] =
 	{}
 };
 $MethodInfo ModuleHashesBuilder$TopoSorter$$Lambda$lambda$sort$0::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/module/ModuleHashesBuilder$TopoSorter;Ljava/util/Set;Ljava/util/Deque;)V", nullptr, $PUBLIC, $method(static_cast<void(ModuleHashesBuilder$TopoSorter$$Lambda$lambda$sort$0::*)(ModuleHashesBuilder$TopoSorter*,$Set*,$Deque*)>(&ModuleHashesBuilder$TopoSorter$$Lambda$lambda$sort$0::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/module/ModuleHashesBuilder$TopoSorter;Ljava/util/Set;Ljava/util/Deque;)V", nullptr, $PUBLIC, $method(ModuleHashesBuilder$TopoSorter$$Lambda$lambda$sort$0, init$, void, ModuleHashesBuilder$TopoSorter*, $Set*, $Deque*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ModuleHashesBuilder$TopoSorter$$Lambda$lambda$sort$0, accept, void, Object$*)},
 	{}
 };
 $ClassInfo ModuleHashesBuilder$TopoSorter$$Lambda$lambda$sort$0::classInfo$ = {
@@ -93,13 +93,13 @@ $FieldInfo _ModuleHashesBuilder$TopoSorter_FieldInfo_[] = {
 };
 
 $MethodInfo _ModuleHashesBuilder$TopoSorter_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/module/ModuleHashesBuilder$Graph;)V", "(Ljdk/internal/module/ModuleHashesBuilder$Graph<TT;>;)V", 0, $method(static_cast<void(ModuleHashesBuilder$TopoSorter::*)($ModuleHashesBuilder$Graph*)>(&ModuleHashesBuilder$TopoSorter::init$))},
-	{"children", "(Ljava/lang/Object;)Ljava/util/Set;", "(TT;)Ljava/util/Set<TT;>;", $PRIVATE, $method(static_cast<$Set*(ModuleHashesBuilder$TopoSorter::*)(Object$*)>(&ModuleHashesBuilder$TopoSorter::children))},
-	{"lambda$sort$0", "(Ljava/util/Set;Ljava/util/Deque;Ljava/lang/Object;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(ModuleHashesBuilder$TopoSorter::*)($Set*,$Deque*,Object$*)>(&ModuleHashesBuilder$TopoSorter::lambda$sort$0))},
-	{"ordered", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<TT;>;)V", $PUBLIC},
-	{"reverse", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<TT;>;)V", $PUBLIC},
-	{"sort", "()V", nullptr, $PRIVATE, $method(static_cast<void(ModuleHashesBuilder$TopoSorter::*)()>(&ModuleHashesBuilder$TopoSorter::sort))},
-	{"visit", "(Ljava/lang/Object;Ljava/util/Set;Ljava/util/Deque;)V", "(TT;Ljava/util/Set<TT;>;Ljava/util/Deque<TT;>;)V", $PRIVATE, $method(static_cast<void(ModuleHashesBuilder$TopoSorter::*)(Object$*,$Set*,$Deque*)>(&ModuleHashesBuilder$TopoSorter::visit))},
+	{"<init>", "(Ljdk/internal/module/ModuleHashesBuilder$Graph;)V", "(Ljdk/internal/module/ModuleHashesBuilder$Graph<TT;>;)V", 0, $method(ModuleHashesBuilder$TopoSorter, init$, void, $ModuleHashesBuilder$Graph*)},
+	{"children", "(Ljava/lang/Object;)Ljava/util/Set;", "(TT;)Ljava/util/Set<TT;>;", $PRIVATE, $method(ModuleHashesBuilder$TopoSorter, children, $Set*, Object$*)},
+	{"lambda$sort$0", "(Ljava/util/Set;Ljava/util/Deque;Ljava/lang/Object;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(ModuleHashesBuilder$TopoSorter, lambda$sort$0, void, $Set*, $Deque*, Object$*)},
+	{"ordered", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<TT;>;)V", $PUBLIC, $virtualMethod(ModuleHashesBuilder$TopoSorter, ordered, void, $Consumer*)},
+	{"reverse", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<TT;>;)V", $PUBLIC, $virtualMethod(ModuleHashesBuilder$TopoSorter, reverse, void, $Consumer*)},
+	{"sort", "()V", nullptr, $PRIVATE, $method(ModuleHashesBuilder$TopoSorter, sort, void)},
+	{"visit", "(Ljava/lang/Object;Ljava/util/Set;Ljava/util/Deque;)V", "(TT;Ljava/util/Set<TT;>;Ljava/util/Deque<TT;>;)V", $PRIVATE, $method(ModuleHashesBuilder$TopoSorter, visit, void, Object$*, $Set*, $Deque*)},
 	{}
 };
 

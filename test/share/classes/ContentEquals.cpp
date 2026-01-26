@@ -28,12 +28,12 @@ $FieldInfo _ContentEquals_FieldInfo_[] = {
 };
 
 $MethodInfo _ContentEquals_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ContentEquals::*)()>(&ContentEquals::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&ContentEquals::main)), "java.lang.Exception"},
-	{"testCharSequence", "()V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)()>(&ContentEquals::testCharSequence)), "java.lang.Exception"},
-	{"testString", "()V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)()>(&ContentEquals::testString)), "java.lang.Exception"},
-	{"testStringBuffer", "()V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)()>(&ContentEquals::testStringBuffer)), "java.lang.Exception"},
-	{"testStringBuilder", "()V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)()>(&ContentEquals::testStringBuilder)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ContentEquals, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ContentEquals, main, void, $StringArray*), "java.lang.Exception"},
+	{"testCharSequence", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(ContentEquals, testCharSequence, void), "java.lang.Exception"},
+	{"testString", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(ContentEquals, testString, void), "java.lang.Exception"},
+	{"testStringBuffer", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(ContentEquals, testStringBuffer, void), "java.lang.Exception"},
+	{"testStringBuilder", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(ContentEquals, testStringBuilder, void), "java.lang.Exception"},
 	{}
 };
 

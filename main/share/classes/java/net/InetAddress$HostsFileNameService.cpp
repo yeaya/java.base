@@ -59,13 +59,13 @@ $FieldInfo _InetAddress$HostsFileNameService_FieldInfo_[] = {
 };
 
 $MethodInfo _InetAddress$HostsFileNameService_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(InetAddress$HostsFileNameService::*)($String*)>(&InetAddress$HostsFileNameService::init$))},
-	{"concatAddresses", "(Ljava/util/List;Ljava/util/List;)Ljava/util/List;", "(Ljava/util/List<Ljava/net/InetAddress;>;Ljava/util/List<Ljava/net/InetAddress;>;)Ljava/util/List<Ljava/net/InetAddress;>;", $PRIVATE | $STATIC, $method(static_cast<$List*(*)($List*,$List*)>(&InetAddress$HostsFileNameService::concatAddresses))},
-	{"createAddressByteArray", "(Ljava/lang/String;)[B", nullptr, $PRIVATE, $method(static_cast<$bytes*(InetAddress$HostsFileNameService::*)($String*)>(&InetAddress$HostsFileNameService::createAddressByteArray))},
-	{"extractHostAddr", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(InetAddress$HostsFileNameService::*)($String*,$String*)>(&InetAddress$HostsFileNameService::extractHostAddr))},
-	{"getHostByAddr", "([B)Ljava/lang/String;", nullptr, $PUBLIC, nullptr, "java.net.UnknownHostException"},
-	{"lookupAllHostAddr", "(Ljava/lang/String;)[Ljava/net/InetAddress;", nullptr, $PUBLIC, nullptr, "java.net.UnknownHostException"},
-	{"removeComments", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(InetAddress$HostsFileNameService::*)($String*)>(&InetAddress$HostsFileNameService::removeComments))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InetAddress$HostsFileNameService, init$, void, $String*)},
+	{"concatAddresses", "(Ljava/util/List;Ljava/util/List;)Ljava/util/List;", "(Ljava/util/List<Ljava/net/InetAddress;>;Ljava/util/List<Ljava/net/InetAddress;>;)Ljava/util/List<Ljava/net/InetAddress;>;", $PRIVATE | $STATIC, $staticMethod(InetAddress$HostsFileNameService, concatAddresses, $List*, $List*, $List*)},
+	{"createAddressByteArray", "(Ljava/lang/String;)[B", nullptr, $PRIVATE, $method(InetAddress$HostsFileNameService, createAddressByteArray, $bytes*, $String*)},
+	{"extractHostAddr", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(InetAddress$HostsFileNameService, extractHostAddr, $String*, $String*, $String*)},
+	{"getHostByAddr", "([B)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(InetAddress$HostsFileNameService, getHostByAddr, $String*, $bytes*), "java.net.UnknownHostException"},
+	{"lookupAllHostAddr", "(Ljava/lang/String;)[Ljava/net/InetAddress;", nullptr, $PUBLIC, $virtualMethod(InetAddress$HostsFileNameService, lookupAllHostAddr, $InetAddressArray*, $String*), "java.net.UnknownHostException"},
+	{"removeComments", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(InetAddress$HostsFileNameService, removeComments, $String*, $String*)},
 	{}
 };
 

@@ -24,8 +24,8 @@ $FieldInfo _InnerClassNode_FieldInfo_[] = {
 };
 
 $MethodInfo _InnerClassNode_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(static_cast<void(InnerClassNode::*)($String*,$String*,$String*,int32_t)>(&InnerClassNode::init$))},
-	{"accept", "(Ljdk/internal/org/objectweb/asm/ClassVisitor;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(InnerClassNode, init$, void, $String*, $String*, $String*, int32_t)},
+	{"accept", "(Ljdk/internal/org/objectweb/asm/ClassVisitor;)V", nullptr, $PUBLIC, $virtualMethod(InnerClassNode, accept, void, $ClassVisitor*)},
 	{}
 };
 

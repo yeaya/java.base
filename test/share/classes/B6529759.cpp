@@ -15,8 +15,8 @@ using $URL = ::java::net::URL;
 using $URLStreamHandler = ::java::net::URLStreamHandler;
 
 $MethodInfo _B6529759_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(B6529759::*)()>(&B6529759::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&B6529759::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(B6529759, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(B6529759, main, void, $StringArray*)},
 	{}
 };
 

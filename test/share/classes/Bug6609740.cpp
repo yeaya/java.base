@@ -22,10 +22,10 @@ using $ParseException = ::java::text::ParseException;
 using $Locale = ::java::util::Locale;
 
 $MethodInfo _Bug6609740_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Bug6609740::*)()>(&Bug6609740::init$))},
-	{"formatOnPattern", "(Ljava/text/NumberFormat;Ljava/lang/String;DLjava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($NumberFormat*,$String*,double,$String*)>(&Bug6609740::formatOnPattern))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Bug6609740::main))},
-	{"parseOnPattern", "(Ljava/text/NumberFormat;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Number;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($NumberFormat*,$String*,$String*,$Number*)>(&Bug6609740::parseOnPattern))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Bug6609740, init$, void)},
+	{"formatOnPattern", "(Ljava/text/NumberFormat;Ljava/lang/String;DLjava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Bug6609740, formatOnPattern, void, $NumberFormat*, $String*, double, $String*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Bug6609740, main, void, $StringArray*)},
+	{"parseOnPattern", "(Ljava/text/NumberFormat;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Number;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Bug6609740, parseOnPattern, void, $NumberFormat*, $String*, $String*, $Number*)},
 	{}
 };
 

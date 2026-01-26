@@ -21,9 +21,9 @@ $FieldInfo _WriteLengths_FieldInfo_[] = {
 };
 
 $MethodInfo _WriteLengths_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(WriteLengths::*)()>(&WriteLengths::init$))},
-	{"go", "(ILjava/lang/String;)V", nullptr, $STATIC, $method(static_cast<void(*)(int32_t,$String*)>(&WriteLengths::go)), "java.lang.Exception"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&WriteLengths::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(WriteLengths, init$, void)},
+	{"go", "(ILjava/lang/String;)V", nullptr, $STATIC, $staticMethod(WriteLengths, go, void, int32_t, $String*), "java.lang.Exception"},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(WriteLengths, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

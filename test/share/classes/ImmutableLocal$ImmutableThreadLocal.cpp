@@ -11,9 +11,9 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $ThreadLocal = ::java::lang::ThreadLocal;
 
 $MethodInfo _ImmutableLocal$ImmutableThreadLocal_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ImmutableLocal$ImmutableThreadLocal::*)()>(&ImmutableLocal$ImmutableThreadLocal::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ImmutableLocal$ImmutableThreadLocal, init$, void)},
 	{"initialValue", "()Ljava/lang/Object;", nullptr, $PROTECTED | $ABSTRACT},
-	{"set", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"set", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ImmutableLocal$ImmutableThreadLocal, set, void, Object$*)},
 	{}
 };
 

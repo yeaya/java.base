@@ -9,15 +9,16 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ByteBuffer = ::java::nio::ByteBuffer;
+using $CipherSuite$MacAlg = ::sun::security::ssl::CipherSuite$MacAlg;
 
 namespace sun {
 	namespace security {
 		namespace ssl {
 
 $MethodInfo _Authenticator$MAC_MethodInfo_[] = {
-	{"compute", "(BLjava/nio/ByteBuffer;[BZ)[B", nullptr, $PUBLIC | $ABSTRACT},
-	{"compute", "(BLjava/nio/ByteBuffer;Z)[B", nullptr, $PUBLIC},
-	{"macAlg", "()Lsun/security/ssl/CipherSuite$MacAlg;", nullptr, $PUBLIC | $ABSTRACT},
+	{"compute", "(BLjava/nio/ByteBuffer;[BZ)[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Authenticator$MAC, compute, $bytes*, int8_t, $ByteBuffer*, $bytes*, bool)},
+	{"compute", "(BLjava/nio/ByteBuffer;Z)[B", nullptr, $PUBLIC, $virtualMethod(Authenticator$MAC, compute, $bytes*, int8_t, $ByteBuffer*, bool)},
+	{"macAlg", "()Lsun/security/ssl/CipherSuite$MacAlg;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Authenticator$MAC, macAlg, $CipherSuite$MacAlg*)},
 	{}
 };
 

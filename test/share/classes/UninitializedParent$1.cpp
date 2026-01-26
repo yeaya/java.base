@@ -12,8 +12,8 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _UninitializedParent$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/ClassLoader;)V", nullptr, 0, $method(static_cast<void(UninitializedParent$1::*)($ClassLoader*)>(&UninitializedParent$1::init$))},
-	{"finalize", "()V", nullptr, $PROTECTED},
+	{"<init>", "(Ljava/lang/ClassLoader;)V", nullptr, 0, $method(UninitializedParent$1, init$, void, $ClassLoader*)},
+	{"finalize", "()V", nullptr, $PROTECTED, $virtualMethod(UninitializedParent$1, finalize, void)},
 	{}
 };
 

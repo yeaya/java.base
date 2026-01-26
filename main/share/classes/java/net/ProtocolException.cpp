@@ -17,8 +17,8 @@ $FieldInfo _ProtocolException_FieldInfo_[] = {
 };
 
 $MethodInfo _ProtocolException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(ProtocolException::*)($String*)>(&ProtocolException::init$))},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ProtocolException::*)()>(&ProtocolException::init$))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ProtocolException, init$, void, $String*)},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ProtocolException, init$, void)},
 	{}
 };
 

@@ -107,6 +107,7 @@ public:
 	~Throwable();
 	Throwable* throwing$ = nullptr;
 	$longs* stack$ = nullptr;
+	$Array<::java::lang::StackTraceElement>* byteCodeStackTrace$ = nullptr;
 };
 
 	} // lang

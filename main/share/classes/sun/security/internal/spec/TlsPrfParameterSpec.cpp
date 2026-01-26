@@ -33,14 +33,14 @@ $FieldInfo _TlsPrfParameterSpec_FieldInfo_[] = {
 };
 
 $MethodInfo _TlsPrfParameterSpec_MethodInfo_[] = {
-	{"<init>", "(Ljavax/crypto/SecretKey;Ljava/lang/String;[BILjava/lang/String;II)V", nullptr, $PUBLIC, $method(static_cast<void(TlsPrfParameterSpec::*)($SecretKey*,$String*,$bytes*,int32_t,$String*,int32_t,int32_t)>(&TlsPrfParameterSpec::init$))},
-	{"getLabel", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getOutputLength", "()I", nullptr, $PUBLIC},
-	{"getPRFBlockSize", "()I", nullptr, $PUBLIC},
-	{"getPRFHashAlg", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getPRFHashLength", "()I", nullptr, $PUBLIC},
-	{"getSecret", "()Ljavax/crypto/SecretKey;", nullptr, $PUBLIC},
-	{"getSeed", "()[B", nullptr, $PUBLIC},
+	{"<init>", "(Ljavax/crypto/SecretKey;Ljava/lang/String;[BILjava/lang/String;II)V", nullptr, $PUBLIC, $method(TlsPrfParameterSpec, init$, void, $SecretKey*, $String*, $bytes*, int32_t, $String*, int32_t, int32_t)},
+	{"getLabel", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TlsPrfParameterSpec, getLabel, $String*)},
+	{"getOutputLength", "()I", nullptr, $PUBLIC, $virtualMethod(TlsPrfParameterSpec, getOutputLength, int32_t)},
+	{"getPRFBlockSize", "()I", nullptr, $PUBLIC, $virtualMethod(TlsPrfParameterSpec, getPRFBlockSize, int32_t)},
+	{"getPRFHashAlg", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TlsPrfParameterSpec, getPRFHashAlg, $String*)},
+	{"getPRFHashLength", "()I", nullptr, $PUBLIC, $virtualMethod(TlsPrfParameterSpec, getPRFHashLength, int32_t)},
+	{"getSecret", "()Ljavax/crypto/SecretKey;", nullptr, $PUBLIC, $virtualMethod(TlsPrfParameterSpec, getSecret, $SecretKey*)},
+	{"getSeed", "()[B", nullptr, $PUBLIC, $virtualMethod(TlsPrfParameterSpec, getSeed, $bytes*)},
 	{}
 };
 

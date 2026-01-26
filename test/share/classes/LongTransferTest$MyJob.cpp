@@ -22,8 +22,8 @@ $FieldInfo _LongTransferTest$MyJob_FieldInfo_[] = {
 };
 
 $MethodInfo _LongTransferTest$MyJob_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/ServerSocket;)V", nullptr, $PUBLIC, $method(static_cast<void(LongTransferTest$MyJob::*)($ServerSocket*)>(&LongTransferTest$MyJob::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/net/ServerSocket;)V", nullptr, $PUBLIC, $method(LongTransferTest$MyJob, init$, void, $ServerSocket*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(LongTransferTest$MyJob, run, void)},
 	{}
 };
 

@@ -19,10 +19,10 @@ $FieldInfo _LiveStackFrameInfo$PrimitiveSlot64_FieldInfo_[] = {
 };
 
 $MethodInfo _LiveStackFrameInfo$PrimitiveSlot64_MethodInfo_[] = {
-	{"<init>", "(J)V", nullptr, 0, $method(static_cast<void(LiveStackFrameInfo$PrimitiveSlot64::*)(int64_t)>(&LiveStackFrameInfo$PrimitiveSlot64::init$))},
-	{"longValue", "()J", nullptr, $PUBLIC},
-	{"size", "()I", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(J)V", nullptr, 0, $method(LiveStackFrameInfo$PrimitiveSlot64, init$, void, int64_t)},
+	{"longValue", "()J", nullptr, $PUBLIC, $virtualMethod(LiveStackFrameInfo$PrimitiveSlot64, longValue, int64_t)},
+	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(LiveStackFrameInfo$PrimitiveSlot64, size, int32_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LiveStackFrameInfo$PrimitiveSlot64, toString, $String*)},
 	{}
 };
 

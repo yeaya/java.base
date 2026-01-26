@@ -8,6 +8,7 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Certificate = ::java::security::cert::Certificate;
 
 namespace java {
 	namespace security {
@@ -19,9 +20,9 @@ $FieldInfo _CRL_FieldInfo_[] = {
 };
 
 $MethodInfo _CRL_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $method(static_cast<void(CRL::*)($String*)>(&CRL::init$))},
-	{"getType", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$String*(CRL::*)()>(&CRL::getType))},
-	{"isRevoked", "(Ljava/security/cert/Certificate;)Z", nullptr, $PUBLIC | $ABSTRACT},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $method(CRL, init$, void, $String*)},
+	{"getType", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(CRL, getType, $String*)},
+	{"isRevoked", "(Ljava/security/cert/Certificate;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CRL, isRevoked, bool, $Certificate*)},
 	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
 	{}
 };

@@ -14,12 +14,12 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $1Array = ::java::lang::reflect::Array;
 
 $MethodInfo _ExceedMaxDim4Array_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ExceedMaxDim4Array::*)()>(&ExceedMaxDim4Array::init$))},
-	{"getArrayOf256Dimensions", "()Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$Object*(*)()>(&ExceedMaxDim4Array::getArrayOf256Dimensions))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&ExceedMaxDim4Array::main)), "java.lang.Exception"},
-	{"newInstanceMulti", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&ExceedMaxDim4Array::newInstanceMulti)), "java.lang.Exception"},
-	{"newInstanceOne", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&ExceedMaxDim4Array::newInstanceOne)), "java.lang.Exception"},
-	{"zeroDimension", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&ExceedMaxDim4Array::zeroDimension)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ExceedMaxDim4Array, init$, void)},
+	{"getArrayOf256Dimensions", "()Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC, $staticMethod(ExceedMaxDim4Array, getArrayOf256Dimensions, $Object*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ExceedMaxDim4Array, main, void, $StringArray*), "java.lang.Exception"},
+	{"newInstanceMulti", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(ExceedMaxDim4Array, newInstanceMulti, void), "java.lang.Exception"},
+	{"newInstanceOne", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(ExceedMaxDim4Array, newInstanceOne, void), "java.lang.Exception"},
+	{"zeroDimension", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(ExceedMaxDim4Array, zeroDimension, void), "java.lang.Exception"},
 	{}
 };
 

@@ -3,6 +3,7 @@
 #include <java/lang/reflect/TypeVariable.h>
 #include <jcpp.h>
 
+using $TypeVariableArray = $Array<::java::lang::reflect::TypeVariable>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
@@ -11,7 +12,7 @@ namespace java {
 		namespace reflect {
 
 $MethodInfo _GenericDeclaration_MethodInfo_[] = {
-	{"getTypeParameters", "()[Ljava/lang/reflect/TypeVariable;", "()[Ljava/lang/reflect/TypeVariable<*>;", $PUBLIC | $ABSTRACT},
+	{"getTypeParameters", "()[Ljava/lang/reflect/TypeVariable;", "()[Ljava/lang/reflect/TypeVariable<*>;", $PUBLIC | $ABSTRACT, $virtualMethod(GenericDeclaration, getTypeParameters, $TypeVariableArray*)},
 	{}
 };
 

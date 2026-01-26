@@ -49,15 +49,15 @@ using $Matcher = ::java::util::regex::Matcher;
 using $Pattern = ::java::util::regex::Pattern;
 
 $MethodInfo _TypeCheckMicroBenchmark_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TypeCheckMicroBenchmark::*)()>(&TypeCheckMicroBenchmark::init$))},
-	{"collectAllGarbage", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&TypeCheckMicroBenchmark::collectAllGarbage))},
-	{"filter", "(Ljava/util/regex/Pattern;[LTypeCheckMicroBenchmark$Job;)[LTypeCheckMicroBenchmark$Job;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$TypeCheckMicroBenchmark$JobArray*(*)($Pattern*,$TypeCheckMicroBenchmark$JobArray*)>(&TypeCheckMicroBenchmark::filter))},
-	{"intArg", "([Ljava/lang/String;Ljava/lang/String;I)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)($StringArray*,$String*,int32_t)>(&TypeCheckMicroBenchmark::intArg))},
-	{"keywordValue", "([Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($StringArray*,$String*)>(&TypeCheckMicroBenchmark::keywordValue))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&TypeCheckMicroBenchmark::main)), "java.lang.Throwable"},
-	{"patternArg", "([Ljava/lang/String;Ljava/lang/String;)Ljava/util/regex/Pattern;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$Pattern*(*)($StringArray*,$String*)>(&TypeCheckMicroBenchmark::patternArg))},
-	{"time", "([LTypeCheckMicroBenchmark$Job;)V", nullptr, $PRIVATE | $STATIC | $TRANSIENT, $method(static_cast<void(*)($TypeCheckMicroBenchmark$JobArray*)>(&TypeCheckMicroBenchmark::time)), "java.lang.Throwable"},
-	{"time0", "([LTypeCheckMicroBenchmark$Job;)[J", nullptr, $PRIVATE | $STATIC | $TRANSIENT, $method(static_cast<$longs*(*)($TypeCheckMicroBenchmark$JobArray*)>(&TypeCheckMicroBenchmark::time0)), "java.lang.Throwable"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TypeCheckMicroBenchmark, init$, void)},
+	{"collectAllGarbage", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(TypeCheckMicroBenchmark, collectAllGarbage, void)},
+	{"filter", "(Ljava/util/regex/Pattern;[LTypeCheckMicroBenchmark$Job;)[LTypeCheckMicroBenchmark$Job;", nullptr, $PRIVATE | $STATIC, $staticMethod(TypeCheckMicroBenchmark, filter, $TypeCheckMicroBenchmark$JobArray*, $Pattern*, $TypeCheckMicroBenchmark$JobArray*)},
+	{"intArg", "([Ljava/lang/String;Ljava/lang/String;I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(TypeCheckMicroBenchmark, intArg, int32_t, $StringArray*, $String*, int32_t)},
+	{"keywordValue", "([Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(TypeCheckMicroBenchmark, keywordValue, $String*, $StringArray*, $String*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TypeCheckMicroBenchmark, main, void, $StringArray*), "java.lang.Throwable"},
+	{"patternArg", "([Ljava/lang/String;Ljava/lang/String;)Ljava/util/regex/Pattern;", nullptr, $PRIVATE | $STATIC, $staticMethod(TypeCheckMicroBenchmark, patternArg, $Pattern*, $StringArray*, $String*)},
+	{"time", "([LTypeCheckMicroBenchmark$Job;)V", nullptr, $PRIVATE | $STATIC | $TRANSIENT, $staticMethod(TypeCheckMicroBenchmark, time, void, $TypeCheckMicroBenchmark$JobArray*), "java.lang.Throwable"},
+	{"time0", "([LTypeCheckMicroBenchmark$Job;)[J", nullptr, $PRIVATE | $STATIC | $TRANSIENT, $staticMethod(TypeCheckMicroBenchmark, time0, $longs*, $TypeCheckMicroBenchmark$JobArray*), "java.lang.Throwable"},
 	{}
 };
 

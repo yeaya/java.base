@@ -19,10 +19,10 @@ using $Iterator = ::java::util::Iterator;
 using $Stream = ::java::util::stream::Stream;
 
 $MethodInfo _Lines_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Lines::*)()>(&Lines::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<void(*)($StringArray*)>(&Lines::main))},
-	{"testLines", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&Lines::testLines))},
-	{"testString", "(Ljava/lang/String;)V", nullptr, $STATIC, $method(static_cast<void(*)($String*)>(&Lines::testString))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Lines, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(Lines, main, void, $StringArray*)},
+	{"testLines", "()V", nullptr, $STATIC, $staticMethod(Lines, testLines, void)},
+	{"testString", "(Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(Lines, testString, void, $String*)},
 	{}
 };
 

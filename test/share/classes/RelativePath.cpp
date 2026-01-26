@@ -11,8 +11,8 @@ using $URI = ::java::net::URI;
 using $URL = ::java::net::URL;
 
 $MethodInfo _RelativePath_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(RelativePath::*)()>(&RelativePath::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&RelativePath::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(RelativePath, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(RelativePath, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

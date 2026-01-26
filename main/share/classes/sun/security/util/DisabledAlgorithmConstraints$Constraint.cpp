@@ -25,12 +25,12 @@ $FieldInfo _DisabledAlgorithmConstraints$Constraint_FieldInfo_[] = {
 };
 
 $MethodInfo _DisabledAlgorithmConstraints$Constraint_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(DisabledAlgorithmConstraints$Constraint::*)()>(&DisabledAlgorithmConstraints$Constraint::init$))},
-	{"next", "(Lsun/security/util/ConstraintsParameters;)Z", nullptr, 0, nullptr, "java.security.cert.CertPathValidatorException"},
-	{"next", "(Ljava/security/Key;)Z", nullptr, 0},
-	{"permits", "(Ljava/security/Key;)Z", nullptr, $PUBLIC},
-	{"permits", "(Ljava/security/AlgorithmParameters;)Z", nullptr, $PUBLIC},
-	{"permits", "(Lsun/security/util/ConstraintsParameters;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.security.cert.CertPathValidatorException"},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(DisabledAlgorithmConstraints$Constraint, init$, void)},
+	{"next", "(Lsun/security/util/ConstraintsParameters;)Z", nullptr, 0, $virtualMethod(DisabledAlgorithmConstraints$Constraint, next, bool, $ConstraintsParameters*), "java.security.cert.CertPathValidatorException"},
+	{"next", "(Ljava/security/Key;)Z", nullptr, 0, $virtualMethod(DisabledAlgorithmConstraints$Constraint, next, bool, $Key*)},
+	{"permits", "(Ljava/security/Key;)Z", nullptr, $PUBLIC, $virtualMethod(DisabledAlgorithmConstraints$Constraint, permits, bool, $Key*)},
+	{"permits", "(Ljava/security/AlgorithmParameters;)Z", nullptr, $PUBLIC, $virtualMethod(DisabledAlgorithmConstraints$Constraint, permits, bool, $AlgorithmParameters*)},
+	{"permits", "(Lsun/security/util/ConstraintsParameters;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DisabledAlgorithmConstraints$Constraint, permits, void, $ConstraintsParameters*), "java.security.cert.CertPathValidatorException"},
 	{}
 };
 

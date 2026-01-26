@@ -14,6 +14,7 @@ using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
 using $CodeSource = ::java::security::CodeSource;
+using $Permission = ::java::security::Permission;
 using $PermissionCollection = ::java::security::PermissionCollection;
 using $Policy = ::java::security::Policy;
 using $ProtectionDomain = ::java::security::ProtectionDomain;
@@ -33,11 +34,11 @@ $CompoundAttribute _PolicySpi_Annotations_[] = {
 };
 
 $MethodInfo _PolicySpi_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PolicySpi::*)()>(&PolicySpi::init$))},
-	{"engineGetPermissions", "(Ljava/security/CodeSource;)Ljava/security/PermissionCollection;", nullptr, $PROTECTED},
-	{"engineGetPermissions", "(Ljava/security/ProtectionDomain;)Ljava/security/PermissionCollection;", nullptr, $PROTECTED},
-	{"engineImplies", "(Ljava/security/ProtectionDomain;Ljava/security/Permission;)Z", nullptr, $PROTECTED | $ABSTRACT},
-	{"engineRefresh", "()V", nullptr, $PROTECTED},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PolicySpi, init$, void)},
+	{"engineGetPermissions", "(Ljava/security/CodeSource;)Ljava/security/PermissionCollection;", nullptr, $PROTECTED, $virtualMethod(PolicySpi, engineGetPermissions, $PermissionCollection*, $CodeSource*)},
+	{"engineGetPermissions", "(Ljava/security/ProtectionDomain;)Ljava/security/PermissionCollection;", nullptr, $PROTECTED, $virtualMethod(PolicySpi, engineGetPermissions, $PermissionCollection*, $ProtectionDomain*)},
+	{"engineImplies", "(Ljava/security/ProtectionDomain;Ljava/security/Permission;)Z", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(PolicySpi, engineImplies, bool, $ProtectionDomain*, $Permission*)},
+	{"engineRefresh", "()V", nullptr, $PROTECTED, $virtualMethod(PolicySpi, engineRefresh, void)},
 	{}
 };
 

@@ -72,8 +72,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo RuntimeImageReader$$Lambda$getNameString::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(RuntimeImageReader$$Lambda$getNameString::*)()>(&RuntimeImageReader$$Lambda$getNameString::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(RuntimeImageReader$$Lambda$getNameString, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(RuntimeImageReader$$Lambda$getNameString, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo RuntimeImageReader$$Lambda$getNameString::classInfo$ = {
@@ -112,8 +112,8 @@ $FieldInfo RuntimeImageReader$$Lambda$lambda$getModuleNames$0$1::fieldInfos[2] =
 	{}
 };
 $MethodInfo RuntimeImageReader$$Lambda$lambda$getModuleNames$0$1::methodInfos[3] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(static_cast<void(RuntimeImageReader$$Lambda$lambda$getModuleNames$0$1::*)(int32_t)>(&RuntimeImageReader$$Lambda$lambda$getModuleNames$0$1::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(I)V", nullptr, $PUBLIC, $method(RuntimeImageReader$$Lambda$lambda$getModuleNames$0$1, init$, void, int32_t)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(RuntimeImageReader$$Lambda$lambda$getModuleNames$0$1, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo RuntimeImageReader$$Lambda$lambda$getModuleNames$0$1::classInfo$ = {
@@ -145,8 +145,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo RuntimeImageReader$$Lambda$lambda$getModuleNames$1$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(RuntimeImageReader$$Lambda$lambda$getModuleNames$1$2::*)()>(&RuntimeImageReader$$Lambda$lambda$getModuleNames$1$2::init$))},
-	{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(RuntimeImageReader$$Lambda$lambda$getModuleNames$1$2, init$, void)},
+	{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(RuntimeImageReader$$Lambda$lambda$getModuleNames$1$2, apply, $Object*, int32_t)},
 	{}
 };
 $ClassInfo RuntimeImageReader$$Lambda$lambda$getModuleNames$1$2::classInfo$ = {
@@ -185,8 +185,8 @@ $FieldInfo RuntimeImageReader$$Lambda$lambda$handlePackages$2$3::fieldInfos[2] =
 	{}
 };
 $MethodInfo RuntimeImageReader$$Lambda$lambda$handlePackages$2$3::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/jimage/RuntimeImageReader;)V", nullptr, $PUBLIC, $method(static_cast<void(RuntimeImageReader$$Lambda$lambda$handlePackages$2$3::*)(RuntimeImageReader*)>(&RuntimeImageReader$$Lambda$lambda$handlePackages$2$3::init$))},
-	{"visit", "(Ljdk/internal/jimage/RuntimeImageLocation;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/jimage/RuntimeImageReader;)V", nullptr, $PUBLIC, $method(RuntimeImageReader$$Lambda$lambda$handlePackages$2$3, init$, void, RuntimeImageReader*)},
+	{"visit", "(Ljdk/internal/jimage/RuntimeImageLocation;)V", nullptr, $PUBLIC, $virtualMethod(RuntimeImageReader$$Lambda$lambda$handlePackages$2$3, visit, void, $RuntimeImageLocation*)},
 	{}
 };
 $ClassInfo RuntimeImageReader$$Lambda$lambda$handlePackages$2$3::classInfo$ = {
@@ -228,8 +228,8 @@ $FieldInfo RuntimeImageReader$$Lambda$lambda$handleModulesSubTree$3$4::fieldInfo
 	{}
 };
 $MethodInfo RuntimeImageReader$$Lambda$lambda$handleModulesSubTree$3$4::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/jimage/RuntimeImageReader;Ljdk/internal/jimage/ImageReader$Directory;)V", nullptr, $PUBLIC, $method(static_cast<void(RuntimeImageReader$$Lambda$lambda$handleModulesSubTree$3$4::*)(RuntimeImageReader*,$ImageReader$Directory*)>(&RuntimeImageReader$$Lambda$lambda$handleModulesSubTree$3$4::init$))},
-	{"visit", "(Ljdk/internal/jimage/RuntimeImageLocation;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/jimage/RuntimeImageReader;Ljdk/internal/jimage/ImageReader$Directory;)V", nullptr, $PUBLIC, $method(RuntimeImageReader$$Lambda$lambda$handleModulesSubTree$3$4, init$, void, RuntimeImageReader*, $ImageReader$Directory*)},
+	{"visit", "(Ljdk/internal/jimage/RuntimeImageLocation;)V", nullptr, $PUBLIC, $virtualMethod(RuntimeImageReader$$Lambda$lambda$handleModulesSubTree$3$4, visit, void, $RuntimeImageLocation*)},
 	{}
 };
 $ClassInfo RuntimeImageReader$$Lambda$lambda$handleModulesSubTree$3$4::classInfo$ = {
@@ -258,41 +258,41 @@ $FieldInfo _RuntimeImageReader_FieldInfo_[] = {
 };
 
 $MethodInfo _RuntimeImageReader_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(RuntimeImageReader::*)()>(&RuntimeImageReader::init$))},
-	{"buildNode", "(Ljava/lang/String;)Ljdk/internal/jimage/ImageReader$Node;", nullptr, $SYNCHRONIZED, $method(static_cast<$ImageReader$Node*(RuntimeImageReader::*)($String*)>(&RuntimeImageReader::buildNode))},
-	{"buildRootDirectory", "()Ljdk/internal/jimage/ImageReader$Directory;", nullptr, $SYNCHRONIZED, $method(static_cast<$ImageReader$Directory*(RuntimeImageReader::*)()>(&RuntimeImageReader::buildRootDirectory))},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"ensureOpen", "()V", nullptr, $PRIVATE, $method(static_cast<void(RuntimeImageReader::*)()>(&RuntimeImageReader::ensureOpen)), "java.io.IOException"},
-	{"findLocation", "(Ljava/lang/String;Ljava/lang/String;)Ljdk/internal/jimage/RuntimeImageLocation;", nullptr, $PUBLIC, $method(static_cast<$RuntimeImageLocation*(RuntimeImageReader::*)($String*,$String*)>(&RuntimeImageReader::findLocation))},
-	{"findLocation", "(Ljava/lang/String;)Ljdk/internal/jimage/RuntimeImageLocation;", nullptr, $PUBLIC, $method(static_cast<$RuntimeImageLocation*(RuntimeImageReader::*)($String*)>(&RuntimeImageReader::findLocation))},
-	{"findLocation0", "(Ljava/lang/String;Ljava/lang/String;)Ljdk/internal/jimage/RuntimeImageLocation;", nullptr, $PUBLIC | $NATIVE, $method(static_cast<$RuntimeImageLocation*(RuntimeImageReader::*)($String*,$String*)>(&RuntimeImageReader::findLocation0))},
-	{"findLocation0", "(Ljava/lang/String;)Ljdk/internal/jimage/RuntimeImageLocation;", nullptr, $PUBLIC | $NATIVE, $method(static_cast<$RuntimeImageLocation*(RuntimeImageReader::*)($String*)>(&RuntimeImageReader::findLocation0))},
-	{"findNode", "(Ljava/lang/String;)Ljdk/internal/jimage/ImageReader$Node;", nullptr, $PUBLIC, $method(static_cast<$ImageReader$Node*(RuntimeImageReader::*)($String*)>(&RuntimeImageReader::findNode)), "java.io.IOException"},
-	{"findNode0", "(Ljava/lang/String;)Ljdk/internal/jimage/ImageReader$Node;", nullptr, $SYNCHRONIZED, $method(static_cast<$ImageReader$Node*(RuntimeImageReader::*)($String*)>(&RuntimeImageReader::findNode0))},
-	{"getBaseExt", "(Ljdk/internal/jimage/RuntimeImageLocation;)Ljava/lang/String;", nullptr, 0, $method(static_cast<$String*(RuntimeImageReader::*)($RuntimeImageLocation*)>(&RuntimeImageReader::getBaseExt))},
-	{"getModuleNames", "()[Ljava/lang/String;", nullptr, $PUBLIC, $method(static_cast<$StringArray*(RuntimeImageReader::*)()>(&RuntimeImageReader::getModuleNames))},
-	{"getResource", "(Ljdk/internal/jimage/ImageReader$Node;)[B", nullptr, $PUBLIC, $method(static_cast<$bytes*(RuntimeImageReader::*)($ImageReader$Node*)>(&RuntimeImageReader::getResource)), "java.io.IOException"},
-	{"getResource", "(Ljdk/internal/jimage/RuntimeImageReader$Resource;)[B", nullptr, $PUBLIC, $method(static_cast<$bytes*(RuntimeImageReader::*)($RuntimeImageReader$Resource*)>(&RuntimeImageReader::getResource)), "java.io.IOException"},
-	{"getResource0", "(Ljdk/internal/jimage/RuntimeImageReader$Resource;)[B", nullptr, $PUBLIC | $NATIVE, $method(static_cast<$bytes*(RuntimeImageReader::*)($RuntimeImageReader$Resource*)>(&RuntimeImageReader::getResource0)), "java.io.IOException"},
-	{"getRootDirectory", "()Ljdk/internal/jimage/ImageReader$Directory;", nullptr, $PUBLIC, $method(static_cast<$ImageReader$Directory*(RuntimeImageReader::*)()>(&RuntimeImageReader::getRootDirectory)), "java.io.IOException"},
-	{"handleModuleLink", "(Ljava/lang/String;)Ljdk/internal/jimage/ImageReader$Node;", nullptr, 0, $method(static_cast<$ImageReader$Node*(RuntimeImageReader::*)($String*)>(&RuntimeImageReader::handleModuleLink))},
-	{"handleModulesSubTree", "(Ljava/lang/String;Ljdk/internal/jimage/RuntimeImageLocation;)Ljdk/internal/jimage/ImageReader$Node;", nullptr, 0, $method(static_cast<$ImageReader$Node*(RuntimeImageReader::*)($String*,$RuntimeImageLocation*)>(&RuntimeImageReader::handleModulesSubTree))},
-	{"handlePackages", "(Ljava/lang/String;Ljdk/internal/jimage/RuntimeImageLocation;)Ljdk/internal/jimage/ImageReader$Node;", nullptr, 0, $method(static_cast<$ImageReader$Node*(RuntimeImageReader::*)($String*,$RuntimeImageLocation*)>(&RuntimeImageReader::handlePackages))},
-	{"handleResource", "(Ljava/lang/String;)Ljdk/internal/jimage/ImageReader$Node;", nullptr, 0, $method(static_cast<$ImageReader$Node*(RuntimeImageReader::*)($String*)>(&RuntimeImageReader::handleResource))},
-	{"imageFileAttributes", "()Ljava/nio/file/attribute/BasicFileAttributes;", nullptr, 0, $method(static_cast<$BasicFileAttributes*(RuntimeImageReader::*)()>(&RuntimeImageReader::imageFileAttributes))},
-	{"lambda$getModuleNames$0", "(ILjava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$String*(*)(int32_t,$String*)>(&RuntimeImageReader::lambda$getModuleNames$0))},
-	{"lambda$getModuleNames$1", "(I)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$StringArray*(*)(int32_t)>(&RuntimeImageReader::lambda$getModuleNames$1))},
-	{"lambda$handleModulesSubTree$3", "(Ljdk/internal/jimage/ImageReader$Directory;Ljdk/internal/jimage/RuntimeImageLocation;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(RuntimeImageReader::*)($ImageReader$Directory*,$RuntimeImageLocation*)>(&RuntimeImageReader::lambda$handleModulesSubTree$3))},
-	{"lambda$handlePackages$2", "(Ljdk/internal/jimage/RuntimeImageLocation;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(RuntimeImageReader::*)($RuntimeImageLocation*)>(&RuntimeImageReader::lambda$handlePackages$2))},
-	{"makeDirectories", "(Ljava/lang/String;)Ljdk/internal/jimage/ImageReader$Directory;", nullptr, 0, $method(static_cast<$ImageReader$Directory*(RuntimeImageReader::*)($String*)>(&RuntimeImageReader::makeDirectories))},
-	{"makeDirectory", "(Ljava/lang/String;Ljdk/internal/jimage/ImageReader$Directory;)Ljdk/internal/jimage/ImageReader$Directory;", nullptr, 0, $method(static_cast<$ImageReader$Directory*(RuntimeImageReader::*)($String*,$ImageReader$Directory*)>(&RuntimeImageReader::makeDirectory))},
-	{"newDirectory", "(Ljdk/internal/jimage/ImageReader$Directory;Ljava/lang/String;)Ljdk/internal/jimage/ImageReader$Directory;", nullptr, 0, $method(static_cast<$ImageReader$Directory*(RuntimeImageReader::*)($ImageReader$Directory*,$String*)>(&RuntimeImageReader::newDirectory))},
-	{"newLinkNode", "(Ljdk/internal/jimage/ImageReader$Directory;Ljava/lang/String;Ljdk/internal/jimage/ImageReader$Node;)Ljdk/internal/jimage/ImageReader$LinkNode;", nullptr, 0, $method(static_cast<$ImageReader$LinkNode*(RuntimeImageReader::*)($ImageReader$Directory*,$String*,$ImageReader$Node*)>(&RuntimeImageReader::newLinkNode))},
-	{"newResource", "(Ljdk/internal/jimage/ImageReader$Directory;Ljdk/internal/jimage/RuntimeImageLocation;)Ljdk/internal/jimage/RuntimeImageReader$Resource;", nullptr, 0, $method(static_cast<$RuntimeImageReader$Resource*(RuntimeImageReader::*)($ImageReader$Directory*,$RuntimeImageLocation*)>(&RuntimeImageReader::newResource))},
-	{"open", "()Ljdk/internal/jimage/RuntimeImageReader;", nullptr, $PUBLIC | $STATIC, $method(static_cast<RuntimeImageReader*(*)()>(&RuntimeImageReader::open)), "java.io.IOException"},
-	{"requireOpen", "()V", nullptr, $PRIVATE, $method(static_cast<void(RuntimeImageReader::*)()>(&RuntimeImageReader::requireOpen))},
-	{"visitLocation", "(Ljdk/internal/jimage/RuntimeImageLocation;Ljdk/internal/jimage/RuntimeImageReader$LocationVisitor;)V", nullptr, 0, $method(static_cast<void(RuntimeImageReader::*)($RuntimeImageLocation*,$RuntimeImageReader$LocationVisitor*)>(&RuntimeImageReader::visitLocation))},
-	{"visitPackageLocation", "(Ljdk/internal/jimage/RuntimeImageLocation;)V", nullptr, 0, $method(static_cast<void(RuntimeImageReader::*)($RuntimeImageLocation*)>(&RuntimeImageReader::visitPackageLocation))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(RuntimeImageReader, init$, void)},
+	{"buildNode", "(Ljava/lang/String;)Ljdk/internal/jimage/ImageReader$Node;", nullptr, $SYNCHRONIZED, $method(RuntimeImageReader, buildNode, $ImageReader$Node*, $String*)},
+	{"buildRootDirectory", "()Ljdk/internal/jimage/ImageReader$Directory;", nullptr, $SYNCHRONIZED, $method(RuntimeImageReader, buildRootDirectory, $ImageReader$Directory*)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(RuntimeImageReader, close, void), "java.io.IOException"},
+	{"ensureOpen", "()V", nullptr, $PRIVATE, $method(RuntimeImageReader, ensureOpen, void), "java.io.IOException"},
+	{"findLocation", "(Ljava/lang/String;Ljava/lang/String;)Ljdk/internal/jimage/RuntimeImageLocation;", nullptr, $PUBLIC, $method(RuntimeImageReader, findLocation, $RuntimeImageLocation*, $String*, $String*)},
+	{"findLocation", "(Ljava/lang/String;)Ljdk/internal/jimage/RuntimeImageLocation;", nullptr, $PUBLIC, $method(RuntimeImageReader, findLocation, $RuntimeImageLocation*, $String*)},
+	{"findLocation0", "(Ljava/lang/String;Ljava/lang/String;)Ljdk/internal/jimage/RuntimeImageLocation;", nullptr, $PUBLIC | $NATIVE, $method(RuntimeImageReader, findLocation0, $RuntimeImageLocation*, $String*, $String*)},
+	{"findLocation0", "(Ljava/lang/String;)Ljdk/internal/jimage/RuntimeImageLocation;", nullptr, $PUBLIC | $NATIVE, $method(RuntimeImageReader, findLocation0, $RuntimeImageLocation*, $String*)},
+	{"findNode", "(Ljava/lang/String;)Ljdk/internal/jimage/ImageReader$Node;", nullptr, $PUBLIC, $method(RuntimeImageReader, findNode, $ImageReader$Node*, $String*), "java.io.IOException"},
+	{"findNode0", "(Ljava/lang/String;)Ljdk/internal/jimage/ImageReader$Node;", nullptr, $SYNCHRONIZED, $method(RuntimeImageReader, findNode0, $ImageReader$Node*, $String*)},
+	{"getBaseExt", "(Ljdk/internal/jimage/RuntimeImageLocation;)Ljava/lang/String;", nullptr, 0, $method(RuntimeImageReader, getBaseExt, $String*, $RuntimeImageLocation*)},
+	{"getModuleNames", "()[Ljava/lang/String;", nullptr, $PUBLIC, $method(RuntimeImageReader, getModuleNames, $StringArray*)},
+	{"getResource", "(Ljdk/internal/jimage/ImageReader$Node;)[B", nullptr, $PUBLIC, $method(RuntimeImageReader, getResource, $bytes*, $ImageReader$Node*), "java.io.IOException"},
+	{"getResource", "(Ljdk/internal/jimage/RuntimeImageReader$Resource;)[B", nullptr, $PUBLIC, $method(RuntimeImageReader, getResource, $bytes*, $RuntimeImageReader$Resource*), "java.io.IOException"},
+	{"getResource0", "(Ljdk/internal/jimage/RuntimeImageReader$Resource;)[B", nullptr, $PUBLIC | $NATIVE, $method(RuntimeImageReader, getResource0, $bytes*, $RuntimeImageReader$Resource*), "java.io.IOException"},
+	{"getRootDirectory", "()Ljdk/internal/jimage/ImageReader$Directory;", nullptr, $PUBLIC, $method(RuntimeImageReader, getRootDirectory, $ImageReader$Directory*), "java.io.IOException"},
+	{"handleModuleLink", "(Ljava/lang/String;)Ljdk/internal/jimage/ImageReader$Node;", nullptr, 0, $method(RuntimeImageReader, handleModuleLink, $ImageReader$Node*, $String*)},
+	{"handleModulesSubTree", "(Ljava/lang/String;Ljdk/internal/jimage/RuntimeImageLocation;)Ljdk/internal/jimage/ImageReader$Node;", nullptr, 0, $method(RuntimeImageReader, handleModulesSubTree, $ImageReader$Node*, $String*, $RuntimeImageLocation*)},
+	{"handlePackages", "(Ljava/lang/String;Ljdk/internal/jimage/RuntimeImageLocation;)Ljdk/internal/jimage/ImageReader$Node;", nullptr, 0, $method(RuntimeImageReader, handlePackages, $ImageReader$Node*, $String*, $RuntimeImageLocation*)},
+	{"handleResource", "(Ljava/lang/String;)Ljdk/internal/jimage/ImageReader$Node;", nullptr, 0, $method(RuntimeImageReader, handleResource, $ImageReader$Node*, $String*)},
+	{"imageFileAttributes", "()Ljava/nio/file/attribute/BasicFileAttributes;", nullptr, 0, $method(RuntimeImageReader, imageFileAttributes, $BasicFileAttributes*)},
+	{"lambda$getModuleNames$0", "(ILjava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(RuntimeImageReader, lambda$getModuleNames$0, $String*, int32_t, $String*)},
+	{"lambda$getModuleNames$1", "(I)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(RuntimeImageReader, lambda$getModuleNames$1, $StringArray*, int32_t)},
+	{"lambda$handleModulesSubTree$3", "(Ljdk/internal/jimage/ImageReader$Directory;Ljdk/internal/jimage/RuntimeImageLocation;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(RuntimeImageReader, lambda$handleModulesSubTree$3, void, $ImageReader$Directory*, $RuntimeImageLocation*)},
+	{"lambda$handlePackages$2", "(Ljdk/internal/jimage/RuntimeImageLocation;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(RuntimeImageReader, lambda$handlePackages$2, void, $RuntimeImageLocation*)},
+	{"makeDirectories", "(Ljava/lang/String;)Ljdk/internal/jimage/ImageReader$Directory;", nullptr, 0, $method(RuntimeImageReader, makeDirectories, $ImageReader$Directory*, $String*)},
+	{"makeDirectory", "(Ljava/lang/String;Ljdk/internal/jimage/ImageReader$Directory;)Ljdk/internal/jimage/ImageReader$Directory;", nullptr, 0, $method(RuntimeImageReader, makeDirectory, $ImageReader$Directory*, $String*, $ImageReader$Directory*)},
+	{"newDirectory", "(Ljdk/internal/jimage/ImageReader$Directory;Ljava/lang/String;)Ljdk/internal/jimage/ImageReader$Directory;", nullptr, 0, $method(RuntimeImageReader, newDirectory, $ImageReader$Directory*, $ImageReader$Directory*, $String*)},
+	{"newLinkNode", "(Ljdk/internal/jimage/ImageReader$Directory;Ljava/lang/String;Ljdk/internal/jimage/ImageReader$Node;)Ljdk/internal/jimage/ImageReader$LinkNode;", nullptr, 0, $method(RuntimeImageReader, newLinkNode, $ImageReader$LinkNode*, $ImageReader$Directory*, $String*, $ImageReader$Node*)},
+	{"newResource", "(Ljdk/internal/jimage/ImageReader$Directory;Ljdk/internal/jimage/RuntimeImageLocation;)Ljdk/internal/jimage/RuntimeImageReader$Resource;", nullptr, 0, $method(RuntimeImageReader, newResource, $RuntimeImageReader$Resource*, $ImageReader$Directory*, $RuntimeImageLocation*)},
+	{"open", "()Ljdk/internal/jimage/RuntimeImageReader;", nullptr, $PUBLIC | $STATIC, $staticMethod(RuntimeImageReader, open, RuntimeImageReader*), "java.io.IOException"},
+	{"requireOpen", "()V", nullptr, $PRIVATE, $method(RuntimeImageReader, requireOpen, void)},
+	{"visitLocation", "(Ljdk/internal/jimage/RuntimeImageLocation;Ljdk/internal/jimage/RuntimeImageReader$LocationVisitor;)V", nullptr, 0, $method(RuntimeImageReader, visitLocation, void, $RuntimeImageLocation*, $RuntimeImageReader$LocationVisitor*)},
+	{"visitPackageLocation", "(Ljdk/internal/jimage/RuntimeImageLocation;)V", nullptr, 0, $method(RuntimeImageReader, visitPackageLocation, void, $RuntimeImageLocation*)},
 	{}
 };
 

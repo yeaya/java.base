@@ -50,9 +50,9 @@ using $HashSet = ::java::util::HashSet;
 using $Set = ::java::util::Set;
 
 $MethodInfo _Nulls_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Nulls::*)()>(&Nulls::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Nulls::main)), "java.io.IOException"},
-	{"npeExpected", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&Nulls::npeExpected))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Nulls, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Nulls, main, void, $StringArray*), "java.io.IOException"},
+	{"npeExpected", "()V", nullptr, $STATIC, $staticMethod(Nulls, npeExpected, void)},
 	{}
 };
 

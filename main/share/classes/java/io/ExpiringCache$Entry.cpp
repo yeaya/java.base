@@ -18,11 +18,11 @@ $FieldInfo _ExpiringCache$Entry_FieldInfo_[] = {
 };
 
 $MethodInfo _ExpiringCache$Entry_MethodInfo_[] = {
-	{"<init>", "(JLjava/lang/String;)V", nullptr, 0, $method(static_cast<void(ExpiringCache$Entry::*)(int64_t,$String*)>(&ExpiringCache$Entry::init$))},
-	{"setTimestamp", "(J)V", nullptr, 0},
-	{"setVal", "(Ljava/lang/String;)V", nullptr, 0},
-	{"timestamp", "()J", nullptr, 0},
-	{"val", "()Ljava/lang/String;", nullptr, 0},
+	{"<init>", "(JLjava/lang/String;)V", nullptr, 0, $method(ExpiringCache$Entry, init$, void, int64_t, $String*)},
+	{"setTimestamp", "(J)V", nullptr, 0, $virtualMethod(ExpiringCache$Entry, setTimestamp, void, int64_t)},
+	{"setVal", "(Ljava/lang/String;)V", nullptr, 0, $virtualMethod(ExpiringCache$Entry, setVal, void, $String*)},
+	{"timestamp", "()J", nullptr, 0, $virtualMethod(ExpiringCache$Entry, timestamp, int64_t)},
+	{"val", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(ExpiringCache$Entry, val, $String*)},
 	{}
 };
 

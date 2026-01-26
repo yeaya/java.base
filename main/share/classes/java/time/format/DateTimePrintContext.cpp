@@ -66,16 +66,16 @@ $FieldInfo _DateTimePrintContext_FieldInfo_[] = {
 };
 
 $MethodInfo _DateTimePrintContext_MethodInfo_[] = {
-	{"<init>", "(Ljava/time/temporal/TemporalAccessor;Ljava/time/format/DateTimeFormatter;)V", nullptr, 0, $method(static_cast<void(DateTimePrintContext::*)($TemporalAccessor*,$DateTimeFormatter*)>(&DateTimePrintContext::init$))},
-	{"adjust", "(Ljava/time/temporal/TemporalAccessor;Ljava/time/format/DateTimeFormatter;)Ljava/time/temporal/TemporalAccessor;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$TemporalAccessor*(*)($TemporalAccessor*,$DateTimeFormatter*)>(&DateTimePrintContext::adjust))},
-	{"endOptional", "()V", nullptr, 0, $method(static_cast<void(DateTimePrintContext::*)()>(&DateTimePrintContext::endOptional))},
-	{"getDecimalStyle", "()Ljava/time/format/DecimalStyle;", nullptr, 0, $method(static_cast<$DecimalStyle*(DateTimePrintContext::*)()>(&DateTimePrintContext::getDecimalStyle))},
-	{"getLocale", "()Ljava/util/Locale;", nullptr, 0, $method(static_cast<$Locale*(DateTimePrintContext::*)()>(&DateTimePrintContext::getLocale))},
-	{"getTemporal", "()Ljava/time/temporal/TemporalAccessor;", nullptr, 0, $method(static_cast<$TemporalAccessor*(DateTimePrintContext::*)()>(&DateTimePrintContext::getTemporal))},
-	{"getValue", "(Ljava/time/temporal/TemporalQuery;)Ljava/lang/Object;", "<R:Ljava/lang/Object;>(Ljava/time/temporal/TemporalQuery<TR;>;)TR;", 0, $method(static_cast<$Object*(DateTimePrintContext::*)($TemporalQuery*)>(&DateTimePrintContext::getValue))},
-	{"getValue", "(Ljava/time/temporal/TemporalField;)Ljava/lang/Long;", nullptr, 0, $method(static_cast<$Long*(DateTimePrintContext::*)($TemporalField*)>(&DateTimePrintContext::getValue))},
-	{"startOptional", "()V", nullptr, 0, $method(static_cast<void(DateTimePrintContext::*)()>(&DateTimePrintContext::startOptional))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/time/temporal/TemporalAccessor;Ljava/time/format/DateTimeFormatter;)V", nullptr, 0, $method(DateTimePrintContext, init$, void, $TemporalAccessor*, $DateTimeFormatter*)},
+	{"adjust", "(Ljava/time/temporal/TemporalAccessor;Ljava/time/format/DateTimeFormatter;)Ljava/time/temporal/TemporalAccessor;", nullptr, $PRIVATE | $STATIC, $staticMethod(DateTimePrintContext, adjust, $TemporalAccessor*, $TemporalAccessor*, $DateTimeFormatter*)},
+	{"endOptional", "()V", nullptr, 0, $method(DateTimePrintContext, endOptional, void)},
+	{"getDecimalStyle", "()Ljava/time/format/DecimalStyle;", nullptr, 0, $method(DateTimePrintContext, getDecimalStyle, $DecimalStyle*)},
+	{"getLocale", "()Ljava/util/Locale;", nullptr, 0, $method(DateTimePrintContext, getLocale, $Locale*)},
+	{"getTemporal", "()Ljava/time/temporal/TemporalAccessor;", nullptr, 0, $method(DateTimePrintContext, getTemporal, $TemporalAccessor*)},
+	{"getValue", "(Ljava/time/temporal/TemporalQuery;)Ljava/lang/Object;", "<R:Ljava/lang/Object;>(Ljava/time/temporal/TemporalQuery<TR;>;)TR;", 0, $method(DateTimePrintContext, getValue, $Object*, $TemporalQuery*)},
+	{"getValue", "(Ljava/time/temporal/TemporalField;)Ljava/lang/Long;", nullptr, 0, $method(DateTimePrintContext, getValue, $Long*, $TemporalField*)},
+	{"startOptional", "()V", nullptr, 0, $method(DateTimePrintContext, startOptional, void)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DateTimePrintContext, toString, $String*)},
 	{}
 };
 

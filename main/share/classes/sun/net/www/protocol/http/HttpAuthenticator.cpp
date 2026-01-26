@@ -6,6 +6,7 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $URL = ::java::net::URL;
 
 namespace sun {
 	namespace net {
@@ -19,8 +20,8 @@ $CompoundAttribute _HttpAuthenticator_Annotations_[] = {
 };
 
 $MethodInfo _HttpAuthenticator_MethodInfo_[] = {
-	{"authString", "(Ljava/net/URL;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"schemeSupported", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $ABSTRACT},
+	{"authString", "(Ljava/net/URL;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HttpAuthenticator, authString, $String*, $URL*, $String*, $String*)},
+	{"schemeSupported", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HttpAuthenticator, schemeSupported, bool, $String*)},
 	{}
 };
 

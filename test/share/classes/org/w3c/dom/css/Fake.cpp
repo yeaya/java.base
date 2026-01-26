@@ -11,7 +11,7 @@ namespace org {
 			namespace css {
 
 $MethodInfo _Fake_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Fake::*)()>(&Fake::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Fake, init$, void)},
 	{}
 };
 

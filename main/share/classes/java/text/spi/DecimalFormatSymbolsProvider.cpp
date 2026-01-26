@@ -7,6 +7,8 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $DecimalFormatSymbols = ::java::text::DecimalFormatSymbols;
+using $Locale = ::java::util::Locale;
 using $LocaleServiceProvider = ::java::util::spi::LocaleServiceProvider;
 
 namespace java {
@@ -14,8 +16,8 @@ namespace java {
 		namespace spi {
 
 $MethodInfo _DecimalFormatSymbolsProvider_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(DecimalFormatSymbolsProvider::*)()>(&DecimalFormatSymbolsProvider::init$))},
-	{"getInstance", "(Ljava/util/Locale;)Ljava/text/DecimalFormatSymbols;", nullptr, $PUBLIC | $ABSTRACT},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(DecimalFormatSymbolsProvider, init$, void)},
+	{"getInstance", "(Ljava/util/Locale;)Ljava/text/DecimalFormatSymbols;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DecimalFormatSymbolsProvider, getInstance, $DecimalFormatSymbols*, $Locale*)},
 	{}
 };
 

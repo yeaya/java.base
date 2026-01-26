@@ -20,8 +20,8 @@ $FieldInfo _VerifyStackTrace$Recorder_FieldInfo_[] = {
 };
 
 $MethodInfo _VerifyStackTrace$Recorder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(VerifyStackTrace$Recorder::*)()>(&VerifyStackTrace$Recorder::init$))},
-	{"recordSTE", "(JLjava/lang/StringBuilder;Ljava/lang/StackWalker$StackFrame;)V", nullptr, $PUBLIC, $method(static_cast<void(VerifyStackTrace$Recorder::*)(int64_t,$StringBuilder*,$StackWalker$StackFrame*)>(&VerifyStackTrace$Recorder::recordSTE))},
+	{"<init>", "()V", nullptr, 0, $method(VerifyStackTrace$Recorder, init$, void)},
+	{"recordSTE", "(JLjava/lang/StringBuilder;Ljava/lang/StackWalker$StackFrame;)V", nullptr, $PUBLIC, $method(VerifyStackTrace$Recorder, recordSTE, void, int64_t, $StringBuilder*, $StackWalker$StackFrame*)},
 	{}
 };
 

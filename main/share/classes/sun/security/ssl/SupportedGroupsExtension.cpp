@@ -42,7 +42,7 @@ $FieldInfo _SupportedGroupsExtension_FieldInfo_[] = {
 };
 
 $MethodInfo _SupportedGroupsExtension_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(SupportedGroupsExtension::*)()>(&SupportedGroupsExtension::init$))},
+	{"<init>", "()V", nullptr, 0, $method(SupportedGroupsExtension, init$, void)},
 	{}
 };
 

@@ -22,16 +22,16 @@ $FieldInfo _NullCache_FieldInfo_[] = {
 };
 
 $MethodInfo _NullCache_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(NullCache::*)()>(&NullCache::init$))},
-	{"accept", "(Lsun/security/util/Cache$CacheVisitor;)V", "(Lsun/security/util/Cache$CacheVisitor<TK;TV;>;)V", $PUBLIC},
-	{"clear", "()V", nullptr, $PUBLIC},
-	{"get", "(Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/lang/Object;)TV;", $PUBLIC},
-	{"pull", "(Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/lang/Object;)TV;", $PUBLIC},
-	{"put", "(Ljava/lang/Object;Ljava/lang/Object;)V", "(TK;TV;)V", $PUBLIC},
-	{"remove", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
-	{"setCapacity", "(I)V", nullptr, $PUBLIC},
-	{"setTimeout", "(I)V", nullptr, $PUBLIC},
-	{"size", "()I", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(NullCache, init$, void)},
+	{"accept", "(Lsun/security/util/Cache$CacheVisitor;)V", "(Lsun/security/util/Cache$CacheVisitor<TK;TV;>;)V", $PUBLIC, $virtualMethod(NullCache, accept, void, $Cache$CacheVisitor*)},
+	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(NullCache, clear, void)},
+	{"get", "(Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/lang/Object;)TV;", $PUBLIC, $virtualMethod(NullCache, get, $Object*, Object$*)},
+	{"pull", "(Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/lang/Object;)TV;", $PUBLIC, $virtualMethod(NullCache, pull, $Object*, Object$*)},
+	{"put", "(Ljava/lang/Object;Ljava/lang/Object;)V", "(TK;TV;)V", $PUBLIC, $virtualMethod(NullCache, put, void, Object$*, Object$*)},
+	{"remove", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(NullCache, remove, void, Object$*)},
+	{"setCapacity", "(I)V", nullptr, $PUBLIC, $virtualMethod(NullCache, setCapacity, void, int32_t)},
+	{"setTimeout", "(I)V", nullptr, $PUBLIC, $virtualMethod(NullCache, setTimeout, void, int32_t)},
+	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(NullCache, size, int32_t)},
 	{}
 };
 

@@ -22,8 +22,8 @@ $FieldInfo _ProtectionDomain$1_FieldInfo_[] = {
 };
 
 $MethodInfo _ProtectionDomain$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/ProtectionDomain;)V", nullptr, 0, $method(static_cast<void(ProtectionDomain$1::*)($ProtectionDomain*)>(&ProtectionDomain$1::init$))},
-	{"run", "()Ljava/security/PermissionCollection;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/security/ProtectionDomain;)V", nullptr, 0, $method(ProtectionDomain$1, init$, void, $ProtectionDomain*)},
+	{"run", "()Ljava/security/PermissionCollection;", nullptr, $PUBLIC, $virtualMethod(ProtectionDomain$1, run, $Object*)},
 	{}
 };
 

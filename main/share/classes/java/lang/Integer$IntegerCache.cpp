@@ -34,7 +34,7 @@ $FieldInfo _Integer$IntegerCache_FieldInfo_[] = {
 };
 
 $MethodInfo _Integer$IntegerCache_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(Integer$IntegerCache::*)()>(&Integer$IntegerCache::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(Integer$IntegerCache, init$, void)},
 	{}
 };
 

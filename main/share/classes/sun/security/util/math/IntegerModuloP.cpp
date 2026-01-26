@@ -19,21 +19,21 @@ namespace sun {
 			namespace math {
 
 $MethodInfo _IntegerModuloP_MethodInfo_[] = {
-	{"add", "(Lsun/security/util/math/IntegerModuloP;)Lsun/security/util/math/ImmutableIntegerModuloP;", nullptr, $PUBLIC | $ABSTRACT},
-	{"addModPowerTwo", "(Lsun/security/util/math/IntegerModuloP;I)[B", nullptr, $PUBLIC},
-	{"addModPowerTwo", "(Lsun/security/util/math/IntegerModuloP;[B)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"additiveInverse", "()Lsun/security/util/math/ImmutableIntegerModuloP;", nullptr, $PUBLIC | $ABSTRACT},
-	{"asBigInteger", "()Ljava/math/BigInteger;", nullptr, $PUBLIC | $ABSTRACT},
-	{"asByteArray", "(I)[B", nullptr, $PUBLIC},
-	{"asByteArray", "([B)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"fixed", "()Lsun/security/util/math/ImmutableIntegerModuloP;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getField", "()Lsun/security/util/math/IntegerFieldModuloP;", nullptr, $PUBLIC | $ABSTRACT},
-	{"multiplicativeInverse", "()Lsun/security/util/math/ImmutableIntegerModuloP;", nullptr, $PUBLIC},
-	{"multiply", "(Lsun/security/util/math/IntegerModuloP;)Lsun/security/util/math/ImmutableIntegerModuloP;", nullptr, $PUBLIC | $ABSTRACT},
-	{"mutable", "()Lsun/security/util/math/MutableIntegerModuloP;", nullptr, $PUBLIC | $ABSTRACT},
-	{"pow", "(Ljava/math/BigInteger;)Lsun/security/util/math/ImmutableIntegerModuloP;", nullptr, $PUBLIC},
-	{"square", "()Lsun/security/util/math/ImmutableIntegerModuloP;", nullptr, $PUBLIC},
-	{"subtract", "(Lsun/security/util/math/IntegerModuloP;)Lsun/security/util/math/ImmutableIntegerModuloP;", nullptr, $PUBLIC},
+	{"add", "(Lsun/security/util/math/IntegerModuloP;)Lsun/security/util/math/ImmutableIntegerModuloP;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(IntegerModuloP, add, $ImmutableIntegerModuloP*, IntegerModuloP*)},
+	{"addModPowerTwo", "(Lsun/security/util/math/IntegerModuloP;I)[B", nullptr, $PUBLIC, $virtualMethod(IntegerModuloP, addModPowerTwo, $bytes*, IntegerModuloP*, int32_t)},
+	{"addModPowerTwo", "(Lsun/security/util/math/IntegerModuloP;[B)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(IntegerModuloP, addModPowerTwo, void, IntegerModuloP*, $bytes*)},
+	{"additiveInverse", "()Lsun/security/util/math/ImmutableIntegerModuloP;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(IntegerModuloP, additiveInverse, $ImmutableIntegerModuloP*)},
+	{"asBigInteger", "()Ljava/math/BigInteger;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(IntegerModuloP, asBigInteger, $BigInteger*)},
+	{"asByteArray", "(I)[B", nullptr, $PUBLIC, $virtualMethod(IntegerModuloP, asByteArray, $bytes*, int32_t)},
+	{"asByteArray", "([B)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(IntegerModuloP, asByteArray, void, $bytes*)},
+	{"fixed", "()Lsun/security/util/math/ImmutableIntegerModuloP;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(IntegerModuloP, fixed, $ImmutableIntegerModuloP*)},
+	{"getField", "()Lsun/security/util/math/IntegerFieldModuloP;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(IntegerModuloP, getField, $IntegerFieldModuloP*)},
+	{"multiplicativeInverse", "()Lsun/security/util/math/ImmutableIntegerModuloP;", nullptr, $PUBLIC, $virtualMethod(IntegerModuloP, multiplicativeInverse, $ImmutableIntegerModuloP*)},
+	{"multiply", "(Lsun/security/util/math/IntegerModuloP;)Lsun/security/util/math/ImmutableIntegerModuloP;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(IntegerModuloP, multiply, $ImmutableIntegerModuloP*, IntegerModuloP*)},
+	{"mutable", "()Lsun/security/util/math/MutableIntegerModuloP;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(IntegerModuloP, mutable$, $MutableIntegerModuloP*)},
+	{"pow", "(Ljava/math/BigInteger;)Lsun/security/util/math/ImmutableIntegerModuloP;", nullptr, $PUBLIC, $virtualMethod(IntegerModuloP, pow, $ImmutableIntegerModuloP*, $BigInteger*)},
+	{"square", "()Lsun/security/util/math/ImmutableIntegerModuloP;", nullptr, $PUBLIC, $virtualMethod(IntegerModuloP, square, $ImmutableIntegerModuloP*)},
+	{"subtract", "(Lsun/security/util/math/IntegerModuloP;)Lsun/security/util/math/ImmutableIntegerModuloP;", nullptr, $PUBLIC, $virtualMethod(IntegerModuloP, subtract, $ImmutableIntegerModuloP*, IntegerModuloP*)},
 	{}
 };
 

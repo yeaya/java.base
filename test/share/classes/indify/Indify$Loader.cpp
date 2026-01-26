@@ -32,12 +32,12 @@ $FieldInfo _Indify$Loader_FieldInfo_[] = {
 };
 
 $MethodInfo _Indify$Loader_MethodInfo_[] = {
-	{"<init>", "(Lindify/Indify;)V", nullptr, 0, $method(static_cast<void(Indify$Loader::*)($Indify*)>(&Indify$Loader::init$))},
-	{"<init>", "(Lindify/Indify;Ljava/lang/ClassLoader;)V", nullptr, 0, $method(static_cast<void(Indify$Loader::*)($Indify*,$ClassLoader*)>(&Indify$Loader::init$))},
-	{"findClass", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $PROTECTED, nullptr, "java.lang.ClassNotFoundException"},
-	{"findClassInPath", "(Ljava/lang/String;)Ljava/io/File;", nullptr, $PRIVATE, $method(static_cast<$File*(Indify$Loader::*)($String*)>(&Indify$Loader::findClassInPath))},
-	{"loadClass", "(Ljava/lang/String;Z)Ljava/lang/Class;", "(Ljava/lang/String;Z)Ljava/lang/Class<*>;", $PUBLIC, nullptr, "java.lang.ClassNotFoundException"},
-	{"transformAndLoadClass", "(Ljava/io/File;)Ljava/lang/Class;", "(Ljava/io/File;)Ljava/lang/Class<*>;", $PRIVATE, $method(static_cast<$Class*(Indify$Loader::*)($File*)>(&Indify$Loader::transformAndLoadClass)), "java.lang.ClassNotFoundException,java.io.IOException"},
+	{"<init>", "(Lindify/Indify;)V", nullptr, 0, $method(Indify$Loader, init$, void, $Indify*)},
+	{"<init>", "(Lindify/Indify;Ljava/lang/ClassLoader;)V", nullptr, 0, $method(Indify$Loader, init$, void, $Indify*, $ClassLoader*)},
+	{"findClass", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $PROTECTED, $virtualMethod(Indify$Loader, findClass, $Class*, $String*), "java.lang.ClassNotFoundException"},
+	{"findClassInPath", "(Ljava/lang/String;)Ljava/io/File;", nullptr, $PRIVATE, $method(Indify$Loader, findClassInPath, $File*, $String*)},
+	{"loadClass", "(Ljava/lang/String;Z)Ljava/lang/Class;", "(Ljava/lang/String;Z)Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(Indify$Loader, loadClass, $Class*, $String*, bool), "java.lang.ClassNotFoundException"},
+	{"transformAndLoadClass", "(Ljava/io/File;)Ljava/lang/Class;", "(Ljava/io/File;)Ljava/lang/Class<*>;", $PRIVATE, $method(Indify$Loader, transformAndLoadClass, $Class*, $File*), "java.lang.ClassNotFoundException,java.io.IOException"},
 	{}
 };
 

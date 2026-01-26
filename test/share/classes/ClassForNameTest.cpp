@@ -29,8 +29,8 @@ $FieldInfo _ClassForNameTest_FieldInfo_[] = {
 };
 
 $MethodInfo _ClassForNameTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ClassForNameTest::*)()>(&ClassForNameTest::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&ClassForNameTest::main)), "java.lang.Throwable"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ClassForNameTest, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ClassForNameTest, main, void, $StringArray*), "java.lang.Throwable"},
 	{}
 };
 

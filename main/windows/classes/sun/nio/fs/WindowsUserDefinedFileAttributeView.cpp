@@ -68,15 +68,15 @@ $FieldInfo _WindowsUserDefinedFileAttributeView_FieldInfo_[] = {
 };
 
 $MethodInfo _WindowsUserDefinedFileAttributeView_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/fs/WindowsPath;Z)V", nullptr, 0, $method(static_cast<void(WindowsUserDefinedFileAttributeView::*)($WindowsPath*,bool)>(&WindowsUserDefinedFileAttributeView::init$))},
-	{"delete", "(Ljava/lang/String;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"join", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(WindowsUserDefinedFileAttributeView::*)($String*,$String*)>(&WindowsUserDefinedFileAttributeView::join))},
-	{"join", "(Lsun/nio/fs/WindowsPath;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(WindowsUserDefinedFileAttributeView::*)($WindowsPath*,$String*)>(&WindowsUserDefinedFileAttributeView::join)), "sun.nio.fs.WindowsException"},
-	{"list", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PUBLIC, nullptr, "java.io.IOException"},
-	{"listUsingStreamEnumeration", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PRIVATE, $method(static_cast<$List*(WindowsUserDefinedFileAttributeView::*)()>(&WindowsUserDefinedFileAttributeView::listUsingStreamEnumeration)), "java.io.IOException"},
-	{"read", "(Ljava/lang/String;Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"size", "(Ljava/lang/String;)I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"write", "(Ljava/lang/String;Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Lsun/nio/fs/WindowsPath;Z)V", nullptr, 0, $method(WindowsUserDefinedFileAttributeView, init$, void, $WindowsPath*, bool)},
+	{"delete", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(WindowsUserDefinedFileAttributeView, delete$, void, $String*), "java.io.IOException"},
+	{"join", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(WindowsUserDefinedFileAttributeView, join, $String*, $String*, $String*)},
+	{"join", "(Lsun/nio/fs/WindowsPath;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(WindowsUserDefinedFileAttributeView, join, $String*, $WindowsPath*, $String*), "sun.nio.fs.WindowsException"},
+	{"list", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(WindowsUserDefinedFileAttributeView, list, $List*), "java.io.IOException"},
+	{"listUsingStreamEnumeration", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PRIVATE, $method(WindowsUserDefinedFileAttributeView, listUsingStreamEnumeration, $List*), "java.io.IOException"},
+	{"read", "(Ljava/lang/String;Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC, $virtualMethod(WindowsUserDefinedFileAttributeView, read, int32_t, $String*, $ByteBuffer*), "java.io.IOException"},
+	{"size", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(WindowsUserDefinedFileAttributeView, size, int32_t, $String*), "java.io.IOException"},
+	{"write", "(Ljava/lang/String;Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC, $virtualMethod(WindowsUserDefinedFileAttributeView, write, int32_t, $String*, $ByteBuffer*), "java.io.IOException"},
 	{}
 };
 

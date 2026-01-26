@@ -33,8 +33,8 @@ $FieldInfo _FdLibm$Hypot_FieldInfo_[] = {
 };
 
 $MethodInfo _FdLibm$Hypot_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(FdLibm$Hypot::*)()>(&FdLibm$Hypot::init$))},
-	{"compute", "(DD)D", nullptr, $PUBLIC | $STATIC, $method(static_cast<double(*)(double,double)>(&FdLibm$Hypot::compute))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(FdLibm$Hypot, init$, void)},
+	{"compute", "(DD)D", nullptr, $PUBLIC | $STATIC, $staticMethod(FdLibm$Hypot, compute, double, double, double)},
 	{}
 };
 

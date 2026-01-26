@@ -24,13 +24,13 @@ $FieldInfo _XMLStreamWriterImpl$Element_FieldInfo_[] = {
 };
 
 $MethodInfo _XMLStreamWriterImpl$Element_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(XMLStreamWriterImpl$Element::*)()>(&XMLStreamWriterImpl$Element::init$))},
-	{"<init>", "(Ljdk/internal/util/xml/impl/XMLStreamWriterImpl$Element;Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(static_cast<void(XMLStreamWriterImpl$Element::*)(XMLStreamWriterImpl$Element*,$String*,bool)>(&XMLStreamWriterImpl$Element::init$))},
-	{"getLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getParent", "()Ljdk/internal/util/xml/impl/XMLStreamWriterImpl$Element;", nullptr, $PUBLIC},
-	{"getState", "()I", nullptr, $PUBLIC},
-	{"isEmpty", "()Z", nullptr, $PUBLIC},
-	{"setState", "(I)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(XMLStreamWriterImpl$Element, init$, void)},
+	{"<init>", "(Ljdk/internal/util/xml/impl/XMLStreamWriterImpl$Element;Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(XMLStreamWriterImpl$Element, init$, void, XMLStreamWriterImpl$Element*, $String*, bool)},
+	{"getLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLStreamWriterImpl$Element, getLocalName, $String*)},
+	{"getParent", "()Ljdk/internal/util/xml/impl/XMLStreamWriterImpl$Element;", nullptr, $PUBLIC, $virtualMethod(XMLStreamWriterImpl$Element, getParent, XMLStreamWriterImpl$Element*)},
+	{"getState", "()I", nullptr, $PUBLIC, $virtualMethod(XMLStreamWriterImpl$Element, getState, int32_t)},
+	{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(XMLStreamWriterImpl$Element, isEmpty, bool)},
+	{"setState", "(I)V", nullptr, $PUBLIC, $virtualMethod(XMLStreamWriterImpl$Element, setState, void, int32_t)},
 	{}
 };
 

@@ -69,8 +69,8 @@ $FieldInfo DateTimeFormatterBuilder$ChronoPrinterParser$$Lambda$lambda$getChrono
 	{}
 };
 $MethodInfo DateTimeFormatterBuilder$ChronoPrinterParser$$Lambda$lambda$getChronologyName$0::methodInfos[3] = {
-	{"<init>", "(Ljava/time/chrono/Chronology;)V", nullptr, $PUBLIC, $method(static_cast<void(DateTimeFormatterBuilder$ChronoPrinterParser$$Lambda$lambda$getChronologyName$0::*)($Chronology*)>(&DateTimeFormatterBuilder$ChronoPrinterParser$$Lambda$lambda$getChronologyName$0::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/time/chrono/Chronology;)V", nullptr, $PUBLIC, $method(DateTimeFormatterBuilder$ChronoPrinterParser$$Lambda$lambda$getChronologyName$0, init$, void, $Chronology*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$ChronoPrinterParser$$Lambda$lambda$getChronologyName$0, get, $Object*)},
 	{}
 };
 $ClassInfo DateTimeFormatterBuilder$ChronoPrinterParser$$Lambda$lambda$getChronologyName$0::classInfo$ = {
@@ -93,11 +93,11 @@ $FieldInfo _DateTimeFormatterBuilder$ChronoPrinterParser_FieldInfo_[] = {
 };
 
 $MethodInfo _DateTimeFormatterBuilder$ChronoPrinterParser_MethodInfo_[] = {
-	{"<init>", "(Ljava/time/format/TextStyle;)V", nullptr, 0, $method(static_cast<void(DateTimeFormatterBuilder$ChronoPrinterParser::*)($TextStyle*)>(&DateTimeFormatterBuilder$ChronoPrinterParser::init$))},
-	{"format", "(Ljava/time/format/DateTimePrintContext;Ljava/lang/StringBuilder;)Z", nullptr, $PUBLIC},
-	{"getChronologyName", "(Ljava/time/chrono/Chronology;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(DateTimeFormatterBuilder$ChronoPrinterParser::*)($Chronology*,$Locale*)>(&DateTimeFormatterBuilder$ChronoPrinterParser::getChronologyName))},
-	{"lambda$getChronologyName$0", "(Ljava/time/chrono/Chronology;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$String*(*)($Chronology*)>(&DateTimeFormatterBuilder$ChronoPrinterParser::lambda$getChronologyName$0))},
-	{"parse", "(Ljava/time/format/DateTimeParseContext;Ljava/lang/CharSequence;I)I", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/time/format/TextStyle;)V", nullptr, 0, $method(DateTimeFormatterBuilder$ChronoPrinterParser, init$, void, $TextStyle*)},
+	{"format", "(Ljava/time/format/DateTimePrintContext;Ljava/lang/StringBuilder;)Z", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$ChronoPrinterParser, format, bool, $DateTimePrintContext*, $StringBuilder*)},
+	{"getChronologyName", "(Ljava/time/chrono/Chronology;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PRIVATE, $method(DateTimeFormatterBuilder$ChronoPrinterParser, getChronologyName, $String*, $Chronology*, $Locale*)},
+	{"lambda$getChronologyName$0", "(Ljava/time/chrono/Chronology;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DateTimeFormatterBuilder$ChronoPrinterParser, lambda$getChronologyName$0, $String*, $Chronology*)},
+	{"parse", "(Ljava/time/format/DateTimeParseContext;Ljava/lang/CharSequence;I)I", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$ChronoPrinterParser, parse, int32_t, $DateTimeParseContext*, $CharSequence*, int32_t)},
 	{}
 };
 

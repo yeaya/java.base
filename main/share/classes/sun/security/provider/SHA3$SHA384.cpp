@@ -13,8 +13,8 @@ namespace sun {
 		namespace provider {
 
 $MethodInfo _SHA3$SHA384_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SHA3$SHA384::*)()>(&SHA3$SHA384::init$))},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, nullptr, "java.lang.CloneNotSupportedException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SHA3$SHA384, init$, void)},
+	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(SHA3$SHA384, clone, $Object*), "java.lang.CloneNotSupportedException"},
 	{}
 };
 

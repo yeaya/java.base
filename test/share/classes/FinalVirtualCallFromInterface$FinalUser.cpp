@@ -21,7 +21,7 @@ using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
 using $MethodType = ::java::lang::invoke::MethodType;
 
 $MethodInfo _FinalVirtualCallFromInterface$FinalUser_MethodInfo_[] = {
-	{"test", "()V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)()>(&FinalVirtualCallFromInterface$FinalUser::test)), "java.lang.Throwable"},
+	{"test", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(FinalVirtualCallFromInterface$FinalUser, test, void), "java.lang.Throwable"},
 	{}
 };
 

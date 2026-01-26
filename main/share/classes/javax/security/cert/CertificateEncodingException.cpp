@@ -31,8 +31,8 @@ $FieldInfo _CertificateEncodingException_FieldInfo_[] = {
 };
 
 $MethodInfo _CertificateEncodingException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CertificateEncodingException::*)()>(&CertificateEncodingException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(CertificateEncodingException::*)($String*)>(&CertificateEncodingException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CertificateEncodingException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(CertificateEncodingException, init$, void, $String*)},
 	{}
 };
 

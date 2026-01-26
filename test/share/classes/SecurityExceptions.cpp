@@ -17,8 +17,8 @@ using $StackWalker = ::java::lang::StackWalker;
 using $StackWalker$Option = ::java::lang::StackWalker$Option;
 
 $MethodInfo _SecurityExceptions_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SecurityExceptions::*)()>(&SecurityExceptions::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&SecurityExceptions::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SecurityExceptions, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SecurityExceptions, main, void, $StringArray*)},
 	{}
 };
 

@@ -3,6 +3,7 @@
 #include <java/io/ObjectInputStream.h>
 #include <jcpp.h>
 
+using $ObjectInputStream = ::java::io::ObjectInputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -17,7 +18,7 @@ $CompoundAttribute _JavaObjectInputStreamAccess_Annotations_[] = {
 };
 
 $MethodInfo _JavaObjectInputStreamAccess_MethodInfo_[] = {
-	{"checkArray", "(Ljava/io/ObjectInputStream;Ljava/lang/Class;I)V", "(Ljava/io/ObjectInputStream;Ljava/lang/Class<*>;I)V", $PUBLIC | $ABSTRACT, nullptr, "java.io.InvalidClassException"},
+	{"checkArray", "(Ljava/io/ObjectInputStream;Ljava/lang/Class;I)V", "(Ljava/io/ObjectInputStream;Ljava/lang/Class<*>;I)V", $PUBLIC | $ABSTRACT, $virtualMethod(JavaObjectInputStreamAccess, checkArray, void, $ObjectInputStream*, $Class*, int32_t), "java.io.InvalidClassException"},
 	{}
 };
 

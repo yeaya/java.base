@@ -34,10 +34,10 @@ $FieldInfo _SortedOps$SizedRefSortingSink_FieldInfo_[] = {
 };
 
 $MethodInfo _SortedOps$SizedRefSortingSink_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/stream/Sink;Ljava/util/Comparator;)V", "(Ljava/util/stream/Sink<-TT;>;Ljava/util/Comparator<-TT;>;)V", 0, $method(static_cast<void(SortedOps$SizedRefSortingSink::*)($Sink*,$Comparator*)>(&SortedOps$SizedRefSortingSink::init$))},
-	{"accept", "(Ljava/lang/Object;)V", "(TT;)V", $PUBLIC},
-	{"begin", "(J)V", nullptr, $PUBLIC},
-	{"end", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/stream/Sink;Ljava/util/Comparator;)V", "(Ljava/util/stream/Sink<-TT;>;Ljava/util/Comparator<-TT;>;)V", 0, $method(SortedOps$SizedRefSortingSink, init$, void, $Sink*, $Comparator*)},
+	{"accept", "(Ljava/lang/Object;)V", "(TT;)V", $PUBLIC, $virtualMethod(SortedOps$SizedRefSortingSink, accept, void, Object$*)},
+	{"begin", "(J)V", nullptr, $PUBLIC, $virtualMethod(SortedOps$SizedRefSortingSink, begin, void, int64_t)},
+	{"end", "()V", nullptr, $PUBLIC, $virtualMethod(SortedOps$SizedRefSortingSink, end, void)},
 	{}
 };
 

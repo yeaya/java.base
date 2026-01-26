@@ -15,9 +15,9 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 
 $MethodInfo _DefineClassByteBuffer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DefineClassByteBuffer::*)()>(&DefineClassByteBuffer::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&DefineClassByteBuffer::main)), "java.lang.Exception"},
-	{"test", "(Ljava/lang/ClassLoader;)V", nullptr, $STATIC, $method(static_cast<void(*)($ClassLoader*)>(&DefineClassByteBuffer::test)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DefineClassByteBuffer, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(DefineClassByteBuffer, main, void, $StringArray*), "java.lang.Exception"},
+	{"test", "(Ljava/lang/ClassLoader;)V", nullptr, $STATIC, $staticMethod(DefineClassByteBuffer, test, void, $ClassLoader*), "java.lang.Exception"},
 	{}
 };
 

@@ -26,9 +26,9 @@ $FieldInfo _TinyBuffers_FieldInfo_[] = {
 };
 
 $MethodInfo _TinyBuffers_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TinyBuffers::*)()>(&TinyBuffers::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&TinyBuffers::main)), "java.lang.Exception"},
-	{"test", "(I)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)(int32_t)>(&TinyBuffers::test)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TinyBuffers, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TinyBuffers, main, void, $StringArray*), "java.lang.Exception"},
+	{"test", "(I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(TinyBuffers, test, void, int32_t), "java.lang.Exception"},
 	{}
 };
 

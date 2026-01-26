@@ -15,7 +15,7 @@ namespace jdk {
 			namespace vector {
 
 $MethodInfo _VectorSupport$VectorShuffle_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(static_cast<void(VectorSupport$VectorShuffle::*)(Object$*)>(&VectorSupport$VectorShuffle::init$))},
+	{"<init>", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(VectorSupport$VectorShuffle, init$, void, Object$*)},
 	{}
 };
 

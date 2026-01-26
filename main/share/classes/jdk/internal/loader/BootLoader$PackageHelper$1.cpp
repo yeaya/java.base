@@ -30,8 +30,8 @@ $FieldInfo _BootLoader$PackageHelper$1_FieldInfo_[] = {
 };
 
 $MethodInfo _BootLoader$PackageHelper$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(BootLoader$PackageHelper$1::*)($String*)>(&BootLoader$PackageHelper$1::init$))},
-	{"run", "()Ljava/net/URL;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(BootLoader$PackageHelper$1, init$, void, $String*)},
+	{"run", "()Ljava/net/URL;", nullptr, $PUBLIC, $virtualMethod(BootLoader$PackageHelper$1, run, $Object*)},
 	{}
 };
 

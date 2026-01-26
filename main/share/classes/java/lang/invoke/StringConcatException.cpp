@@ -17,8 +17,8 @@ $FieldInfo _StringConcatException_FieldInfo_[] = {
 };
 
 $MethodInfo _StringConcatException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(StringConcatException::*)($String*)>(&StringConcatException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(StringConcatException::*)($String*,$Throwable*)>(&StringConcatException::init$))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(StringConcatException, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(StringConcatException, init$, void, $String*, $Throwable*)},
 	{}
 };
 

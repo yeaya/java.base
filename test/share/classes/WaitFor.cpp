@@ -17,8 +17,8 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $TimeUnit = ::java::util::concurrent::TimeUnit;
 
 $MethodInfo _WaitFor_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(WaitFor::*)()>(&WaitFor::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&WaitFor::main)), "java.lang.Throwable"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(WaitFor, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(WaitFor, main, void, $StringArray*), "java.lang.Throwable"},
 	{}
 };
 

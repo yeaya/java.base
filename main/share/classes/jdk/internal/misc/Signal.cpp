@@ -39,18 +39,18 @@ $FieldInfo _Signal_FieldInfo_[] = {
 };
 
 $MethodInfo _Signal_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(Signal::*)($String*)>(&Signal::init$))},
-	{"dispatch", "(I)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)(int32_t)>(&Signal::dispatch))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"findSignal0", "(Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $method(static_cast<int32_t(*)($String*)>(&Signal::findSignal0))},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(static_cast<$String*(Signal::*)()>(&Signal::getName))},
-	{"getNumber", "()I", nullptr, $PUBLIC, $method(static_cast<int32_t(Signal::*)()>(&Signal::getNumber))},
-	{"handle", "(Ljdk/internal/misc/Signal;Ljdk/internal/misc/Signal$Handler;)Ljdk/internal/misc/Signal$Handler;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $method(static_cast<$Signal$Handler*(*)(Signal*,$Signal$Handler*)>(&Signal::handle)), "java.lang.IllegalArgumentException"},
-	{"handle0", "(IJ)J", nullptr, $PRIVATE | $STATIC | $NATIVE, $method(static_cast<int64_t(*)(int32_t,int64_t)>(&Signal::handle0))},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"raise", "(Ljdk/internal/misc/Signal;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)(Signal*)>(&Signal::raise)), "java.lang.IllegalArgumentException"},
-	{"raise0", "(I)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $method(static_cast<void(*)(int32_t)>(&Signal::raise0))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Signal, init$, void, $String*)},
+	{"dispatch", "(I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Signal, dispatch, void, int32_t)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Signal, equals, bool, Object$*)},
+	{"findSignal0", "(Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Signal, findSignal0, int32_t, $String*)},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(Signal, getName, $String*)},
+	{"getNumber", "()I", nullptr, $PUBLIC, $method(Signal, getNumber, int32_t)},
+	{"handle", "(Ljdk/internal/misc/Signal;Ljdk/internal/misc/Signal$Handler;)Ljdk/internal/misc/Signal$Handler;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(Signal, handle, $Signal$Handler*, Signal*, $Signal$Handler*), "java.lang.IllegalArgumentException"},
+	{"handle0", "(IJ)J", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Signal, handle0, int64_t, int32_t, int64_t)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Signal, hashCode, int32_t)},
+	{"raise", "(Ljdk/internal/misc/Signal;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Signal, raise, void, Signal*), "java.lang.IllegalArgumentException"},
+	{"raise0", "(I)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Signal, raise0, void, int32_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Signal, toString, $String*)},
 	{}
 };
 

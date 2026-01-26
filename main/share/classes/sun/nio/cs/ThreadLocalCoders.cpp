@@ -31,9 +31,9 @@ $FieldInfo _ThreadLocalCoders_FieldInfo_[] = {
 };
 
 $MethodInfo _ThreadLocalCoders_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ThreadLocalCoders::*)()>(&ThreadLocalCoders::init$))},
-	{"decoderFor", "(Ljava/lang/Object;)Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$CharsetDecoder*(*)(Object$*)>(&ThreadLocalCoders::decoderFor))},
-	{"encoderFor", "(Ljava/lang/Object;)Ljava/nio/charset/CharsetEncoder;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$CharsetEncoder*(*)(Object$*)>(&ThreadLocalCoders::encoderFor))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ThreadLocalCoders, init$, void)},
+	{"decoderFor", "(Ljava/lang/Object;)Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC | $STATIC, $staticMethod(ThreadLocalCoders, decoderFor, $CharsetDecoder*, Object$*)},
+	{"encoderFor", "(Ljava/lang/Object;)Ljava/nio/charset/CharsetEncoder;", nullptr, $PUBLIC | $STATIC, $staticMethod(ThreadLocalCoders, encoderFor, $CharsetEncoder*, Object$*)},
 	{}
 };
 

@@ -30,10 +30,10 @@ $FieldInfo _OCSP$RevocationStatus$CertStatus_FieldInfo_[] = {
 };
 
 $MethodInfo _OCSP$RevocationStatus$CertStatus_MethodInfo_[] = {
-	{"$values", "()[Lsun/security/provider/certpath/OCSP$RevocationStatus$CertStatus;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$OCSP$RevocationStatus$CertStatusArray*(*)()>(&OCSP$RevocationStatus$CertStatus::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(OCSP$RevocationStatus$CertStatus::*)($String*,int32_t)>(&OCSP$RevocationStatus$CertStatus::init$))},
-	{"valueOf", "(Ljava/lang/String;)Lsun/security/provider/certpath/OCSP$RevocationStatus$CertStatus;", nullptr, $PUBLIC | $STATIC, $method(static_cast<OCSP$RevocationStatus$CertStatus*(*)($String*)>(&OCSP$RevocationStatus$CertStatus::valueOf))},
-	{"values", "()[Lsun/security/provider/certpath/OCSP$RevocationStatus$CertStatus;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$OCSP$RevocationStatus$CertStatusArray*(*)()>(&OCSP$RevocationStatus$CertStatus::values))},
+	{"$values", "()[Lsun/security/provider/certpath/OCSP$RevocationStatus$CertStatus;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(OCSP$RevocationStatus$CertStatus, $values, $OCSP$RevocationStatus$CertStatusArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(OCSP$RevocationStatus$CertStatus, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Lsun/security/provider/certpath/OCSP$RevocationStatus$CertStatus;", nullptr, $PUBLIC | $STATIC, $staticMethod(OCSP$RevocationStatus$CertStatus, valueOf, OCSP$RevocationStatus$CertStatus*, $String*)},
+	{"values", "()[Lsun/security/provider/certpath/OCSP$RevocationStatus$CertStatus;", nullptr, $PUBLIC | $STATIC, $staticMethod(OCSP$RevocationStatus$CertStatus, values, $OCSP$RevocationStatus$CertStatusArray*)},
 	{}
 };
 

@@ -14,11 +14,11 @@ namespace javax {
 		namespace ssl {
 
 $MethodInfo _ExtendedSSLSession_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ExtendedSSLSession::*)()>(&ExtendedSSLSession::init$))},
-	{"getLocalSupportedSignatureAlgorithms", "()[Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getPeerSupportedSignatureAlgorithms", "()[Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getRequestedServerNames", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/net/ssl/SNIServerName;>;", $PUBLIC},
-	{"getStatusResponses", "()Ljava/util/List;", "()Ljava/util/List<[B>;", $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ExtendedSSLSession, init$, void)},
+	{"getLocalSupportedSignatureAlgorithms", "()[Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ExtendedSSLSession, getLocalSupportedSignatureAlgorithms, $StringArray*)},
+	{"getPeerSupportedSignatureAlgorithms", "()[Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ExtendedSSLSession, getPeerSupportedSignatureAlgorithms, $StringArray*)},
+	{"getRequestedServerNames", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/net/ssl/SNIServerName;>;", $PUBLIC, $virtualMethod(ExtendedSSLSession, getRequestedServerNames, $List*)},
+	{"getStatusResponses", "()Ljava/util/List;", "()Ljava/util/List<[B>;", $PUBLIC, $virtualMethod(ExtendedSSLSession, getStatusResponses, $List*)},
 	{}
 };
 

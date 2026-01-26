@@ -48,10 +48,10 @@ $FieldInfo _NumberFormatRounding_FieldInfo_[] = {
 };
 
 $MethodInfo _NumberFormatRounding_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(NumberFormatRounding::*)()>(&NumberFormatRounding::init$))},
-	{"basicTest", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&NumberFormatRounding::basicTest))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&NumberFormatRounding::main))},
-	{"roundTest", "(Ljava/math/RoundingMode;[Ljava/lang/String;)V", nullptr, $STATIC, $method(static_cast<void(*)($RoundingMode*,$StringArray*)>(&NumberFormatRounding::roundTest))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(NumberFormatRounding, init$, void)},
+	{"basicTest", "()V", nullptr, $STATIC, $staticMethod(NumberFormatRounding, basicTest, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(NumberFormatRounding, main, void, $StringArray*)},
+	{"roundTest", "(Ljava/math/RoundingMode;[Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(NumberFormatRounding, roundTest, void, $RoundingMode*, $StringArray*)},
 	{}
 };
 

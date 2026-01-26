@@ -29,7 +29,7 @@ $Attribute _ClassArray_DefaultValue_value0 = {
 };
 
 $MethodInfo _ClassArray_MethodInfo_[] = {
-	{"value", "()[Ljava/lang/Class;", "()[Ljava/lang/Class<*>;", $PUBLIC | $ABSTRACT, nullptr, nullptr, &_ClassArray_DefaultValue_value0},
+	{"value", "()[Ljava/lang/Class;", "()[Ljava/lang/Class<*>;", $PUBLIC | $ABSTRACT, $virtualMethod(ClassArray, value, $ClassArray*), nullptr, &_ClassArray_DefaultValue_value0},
 	{}
 };
 

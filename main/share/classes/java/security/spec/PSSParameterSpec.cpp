@@ -34,15 +34,15 @@ $FieldInfo _PSSParameterSpec_FieldInfo_[] = {
 };
 
 $MethodInfo _PSSParameterSpec_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(PSSParameterSpec::*)()>(&PSSParameterSpec::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/security/spec/AlgorithmParameterSpec;II)V", nullptr, $PUBLIC, $method(static_cast<void(PSSParameterSpec::*)($String*,$String*,$AlgorithmParameterSpec*,int32_t,int32_t)>(&PSSParameterSpec::init$))},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(static_cast<void(PSSParameterSpec::*)(int32_t)>(&PSSParameterSpec::init$))},
-	{"getDigestAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getMGFAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getMGFParameters", "()Ljava/security/spec/AlgorithmParameterSpec;", nullptr, $PUBLIC},
-	{"getSaltLength", "()I", nullptr, $PUBLIC},
-	{"getTrailerField", "()I", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(PSSParameterSpec, init$, void)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/security/spec/AlgorithmParameterSpec;II)V", nullptr, $PUBLIC, $method(PSSParameterSpec, init$, void, $String*, $String*, $AlgorithmParameterSpec*, int32_t, int32_t)},
+	{"<init>", "(I)V", nullptr, $PUBLIC, $method(PSSParameterSpec, init$, void, int32_t)},
+	{"getDigestAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PSSParameterSpec, getDigestAlgorithm, $String*)},
+	{"getMGFAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PSSParameterSpec, getMGFAlgorithm, $String*)},
+	{"getMGFParameters", "()Ljava/security/spec/AlgorithmParameterSpec;", nullptr, $PUBLIC, $virtualMethod(PSSParameterSpec, getMGFParameters, $AlgorithmParameterSpec*)},
+	{"getSaltLength", "()I", nullptr, $PUBLIC, $virtualMethod(PSSParameterSpec, getSaltLength, int32_t)},
+	{"getTrailerField", "()I", nullptr, $PUBLIC, $virtualMethod(PSSParameterSpec, getTrailerField, int32_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PSSParameterSpec, toString, $String*)},
 	{}
 };
 

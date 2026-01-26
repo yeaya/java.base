@@ -21,7 +21,7 @@ $FieldInfo _TestParameterAnnotations$Inner_FieldInfo_[] = {
 };
 
 $MethodInfo _TestParameterAnnotations$Inner_MethodInfo_[] = {
-	{"<init>", "(LTestParameterAnnotations;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(static_cast<void(TestParameterAnnotations$Inner::*)($TestParameterAnnotations*,Object$*)>(&TestParameterAnnotations$Inner::init$)), nullptr, nullptr, nullptr, nullptr, _TestParameterAnnotations$Inner_MethodParamAnnotations_init$0},
+	{"<init>", "(LTestParameterAnnotations;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(TestParameterAnnotations$Inner, init$, void, $TestParameterAnnotations*, Object$*), nullptr, nullptr, nullptr, nullptr, _TestParameterAnnotations$Inner_MethodParamAnnotations_init$0},
 	{}
 };
 

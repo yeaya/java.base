@@ -49,10 +49,10 @@ $CompoundAttribute _TestType5_MethodAnnotations_sFoo3[] = {
 };
 
 $MethodInfo _TestType5_MethodInfo_[] = {
-	{"aFoo", "()V", nullptr, $PUBLIC | $ABSTRACT, nullptr, nullptr, nullptr, _TestType5_MethodAnnotations_aFoo0},
-	{"pBar", "()V", nullptr, $PUBLIC, nullptr, nullptr, nullptr, _TestType5_MethodAnnotations_pBar1},
-	{"sBar", "()Ljava/lang/String;", nullptr, $PUBLIC, nullptr, nullptr, nullptr, _TestType5_MethodAnnotations_sBar2},
-	{"sFoo", "()V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)()>(&TestType5::sFoo)), nullptr, nullptr, _TestType5_MethodAnnotations_sFoo3},
+	{"aFoo", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TestType5, aFoo, void), nullptr, nullptr, _TestType5_MethodAnnotations_aFoo0},
+	{"pBar", "()V", nullptr, $PUBLIC, $virtualMethod(TestType5, pBar, void), nullptr, nullptr, _TestType5_MethodAnnotations_pBar1},
+	{"sBar", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TestType5, sBar, $String*), nullptr, nullptr, _TestType5_MethodAnnotations_sBar2},
+	{"sFoo", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(TestType5, sFoo, void), nullptr, nullptr, _TestType5_MethodAnnotations_sFoo3},
 	{}
 };
 

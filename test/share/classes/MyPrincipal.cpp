@@ -13,11 +13,11 @@ $FieldInfo _MyPrincipal_FieldInfo_[] = {
 };
 
 $MethodInfo _MyPrincipal_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(MyPrincipal::*)($String*)>(&MyPrincipal::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(MyPrincipal, init$, void, $String*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(MyPrincipal, equals, bool, Object$*)},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MyPrincipal, getName, $String*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(MyPrincipal, hashCode, int32_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MyPrincipal, toString, $String*)},
 	{}
 };
 

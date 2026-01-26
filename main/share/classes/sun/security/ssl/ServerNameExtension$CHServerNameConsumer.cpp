@@ -53,9 +53,9 @@ namespace sun {
 		namespace ssl {
 
 $MethodInfo _ServerNameExtension$CHServerNameConsumer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(ServerNameExtension$CHServerNameConsumer::*)()>(&ServerNameExtension$CHServerNameConsumer::init$))},
-	{"chooseSni", "(Ljava/util/Collection;Ljava/util/List;)Ljavax/net/ssl/SNIServerName;", "(Ljava/util/Collection<Ljavax/net/ssl/SNIMatcher;>;Ljava/util/List<Ljavax/net/ssl/SNIServerName;>;)Ljavax/net/ssl/SNIServerName;", $PRIVATE | $STATIC, $method(static_cast<$SNIServerName*(*)($Collection*,$List*)>(&ServerNameExtension$CHServerNameConsumer::chooseSni))},
-	{"consume", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(ServerNameExtension$CHServerNameConsumer, init$, void)},
+	{"chooseSni", "(Ljava/util/Collection;Ljava/util/List;)Ljavax/net/ssl/SNIServerName;", "(Ljava/util/Collection<Ljavax/net/ssl/SNIMatcher;>;Ljava/util/List<Ljavax/net/ssl/SNIServerName;>;)Ljavax/net/ssl/SNIServerName;", $PRIVATE | $STATIC, $staticMethod(ServerNameExtension$CHServerNameConsumer, chooseSni, $SNIServerName*, $Collection*, $List*)},
+	{"consume", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(ServerNameExtension$CHServerNameConsumer, consume, void, $ConnectionContext*, $SSLHandshake$HandshakeMessage*, $ByteBuffer*), "java.io.IOException"},
 	{}
 };
 

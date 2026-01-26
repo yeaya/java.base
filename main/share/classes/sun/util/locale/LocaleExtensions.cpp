@@ -66,22 +66,22 @@ $FieldInfo _LocaleExtensions_FieldInfo_[] = {
 };
 
 $MethodInfo _LocaleExtensions_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Character;Lsun/util/locale/Extension;)V", nullptr, $PRIVATE, $method(static_cast<void(LocaleExtensions::*)($String*,$Character*,$Extension*)>(&LocaleExtensions::init$))},
-	{"<init>", "(Ljava/util/Map;Ljava/util/Set;Ljava/util/Map;)V", "(Ljava/util/Map<Lsun/util/locale/InternalLocaleBuilder$CaseInsensitiveChar;Ljava/lang/String;>;Ljava/util/Set<Lsun/util/locale/InternalLocaleBuilder$CaseInsensitiveString;>;Ljava/util/Map<Lsun/util/locale/InternalLocaleBuilder$CaseInsensitiveString;Ljava/lang/String;>;)V", 0, $method(static_cast<void(LocaleExtensions::*)($Map*,$Set*,$Map*)>(&LocaleExtensions::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getExtension", "(Ljava/lang/Character;)Lsun/util/locale/Extension;", nullptr, $PUBLIC},
-	{"getExtensionValue", "(Ljava/lang/Character;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getID", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getKeys", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/Character;>;", $PUBLIC},
-	{"getUnicodeLocaleAttributes", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC},
-	{"getUnicodeLocaleKeys", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC},
-	{"getUnicodeLocaleType", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"isEmpty", "()Z", nullptr, $PUBLIC},
-	{"isValidKey", "(C)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)(char16_t)>(&LocaleExtensions::isValidKey))},
-	{"isValidUnicodeLocaleKey", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)($String*)>(&LocaleExtensions::isValidUnicodeLocaleKey))},
-	{"toID", "(Ljava/util/SortedMap;)Ljava/lang/String;", "(Ljava/util/SortedMap<Ljava/lang/Character;Lsun/util/locale/Extension;>;)Ljava/lang/String;", $PRIVATE | $STATIC, $method(static_cast<$String*(*)($SortedMap*)>(&LocaleExtensions::toID))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Character;Lsun/util/locale/Extension;)V", nullptr, $PRIVATE, $method(LocaleExtensions, init$, void, $String*, $Character*, $Extension*)},
+	{"<init>", "(Ljava/util/Map;Ljava/util/Set;Ljava/util/Map;)V", "(Ljava/util/Map<Lsun/util/locale/InternalLocaleBuilder$CaseInsensitiveChar;Ljava/lang/String;>;Ljava/util/Set<Lsun/util/locale/InternalLocaleBuilder$CaseInsensitiveString;>;Ljava/util/Map<Lsun/util/locale/InternalLocaleBuilder$CaseInsensitiveString;Ljava/lang/String;>;)V", 0, $method(LocaleExtensions, init$, void, $Map*, $Set*, $Map*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(LocaleExtensions, equals, bool, Object$*)},
+	{"getExtension", "(Ljava/lang/Character;)Lsun/util/locale/Extension;", nullptr, $PUBLIC, $virtualMethod(LocaleExtensions, getExtension, $Extension*, $Character*)},
+	{"getExtensionValue", "(Ljava/lang/Character;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LocaleExtensions, getExtensionValue, $String*, $Character*)},
+	{"getID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LocaleExtensions, getID, $String*)},
+	{"getKeys", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/Character;>;", $PUBLIC, $virtualMethod(LocaleExtensions, getKeys, $Set*)},
+	{"getUnicodeLocaleAttributes", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(LocaleExtensions, getUnicodeLocaleAttributes, $Set*)},
+	{"getUnicodeLocaleKeys", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(LocaleExtensions, getUnicodeLocaleKeys, $Set*)},
+	{"getUnicodeLocaleType", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LocaleExtensions, getUnicodeLocaleType, $String*, $String*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(LocaleExtensions, hashCode, int32_t)},
+	{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(LocaleExtensions, isEmpty, bool)},
+	{"isValidKey", "(C)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(LocaleExtensions, isValidKey, bool, char16_t)},
+	{"isValidUnicodeLocaleKey", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(LocaleExtensions, isValidUnicodeLocaleKey, bool, $String*)},
+	{"toID", "(Ljava/util/SortedMap;)Ljava/lang/String;", "(Ljava/util/SortedMap<Ljava/lang/Character;Lsun/util/locale/Extension;>;)Ljava/lang/String;", $PRIVATE | $STATIC, $staticMethod(LocaleExtensions, toID, $String*, $SortedMap*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LocaleExtensions, toString, $String*)},
 	{}
 };
 

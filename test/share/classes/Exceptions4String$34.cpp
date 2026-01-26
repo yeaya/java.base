@@ -11,8 +11,8 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Charset = ::java::nio::charset::Charset;
 
 $MethodInfo _Exceptions4String$34_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Exceptions4String$34::*)()>(&Exceptions4String$34::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(Exceptions4String$34, init$, void)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Exceptions4String$34, run, void)},
 	{}
 };
 

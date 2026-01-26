@@ -22,7 +22,7 @@ $FieldInfo _ConcurrentSkipListMap$Index_FieldInfo_[] = {
 };
 
 $MethodInfo _ConcurrentSkipListMap$Index_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/ConcurrentSkipListMap$Node;Ljava/util/concurrent/ConcurrentSkipListMap$Index;Ljava/util/concurrent/ConcurrentSkipListMap$Index;)V", "(Ljava/util/concurrent/ConcurrentSkipListMap$Node<TK;TV;>;Ljava/util/concurrent/ConcurrentSkipListMap$Index<TK;TV;>;Ljava/util/concurrent/ConcurrentSkipListMap$Index<TK;TV;>;)V", 0, $method(static_cast<void(ConcurrentSkipListMap$Index::*)($ConcurrentSkipListMap$Node*,ConcurrentSkipListMap$Index*,ConcurrentSkipListMap$Index*)>(&ConcurrentSkipListMap$Index::init$))},
+	{"<init>", "(Ljava/util/concurrent/ConcurrentSkipListMap$Node;Ljava/util/concurrent/ConcurrentSkipListMap$Index;Ljava/util/concurrent/ConcurrentSkipListMap$Index;)V", "(Ljava/util/concurrent/ConcurrentSkipListMap$Node<TK;TV;>;Ljava/util/concurrent/ConcurrentSkipListMap$Index<TK;TV;>;Ljava/util/concurrent/ConcurrentSkipListMap$Index<TK;TV;>;)V", 0, $method(ConcurrentSkipListMap$Index, init$, void, $ConcurrentSkipListMap$Node*, ConcurrentSkipListMap$Index*, ConcurrentSkipListMap$Index*)},
 	{}
 };
 

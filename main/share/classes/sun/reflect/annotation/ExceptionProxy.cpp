@@ -5,6 +5,7 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $RuntimeException = ::java::lang::RuntimeException;
 
 namespace sun {
 	namespace reflect {
@@ -16,8 +17,8 @@ $FieldInfo _ExceptionProxy_FieldInfo_[] = {
 };
 
 $MethodInfo _ExceptionProxy_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ExceptionProxy::*)()>(&ExceptionProxy::init$))},
-	{"generateException", "()Ljava/lang/RuntimeException;", nullptr, $PROTECTED | $ABSTRACT},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ExceptionProxy, init$, void)},
+	{"generateException", "()Ljava/lang/RuntimeException;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(ExceptionProxy, generateException, $RuntimeException*)},
 	{}
 };
 

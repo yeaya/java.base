@@ -53,11 +53,11 @@ $FieldInfo _PropertyResourceBundle_FieldInfo_[] = {
 };
 
 $MethodInfo _PropertyResourceBundle_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(static_cast<void(PropertyResourceBundle::*)($InputStream*)>(&PropertyResourceBundle::init$)), "java.io.IOException"},
-	{"<init>", "(Ljava/io/Reader;)V", nullptr, $PUBLIC, $method(static_cast<void(PropertyResourceBundle::*)($Reader*)>(&PropertyResourceBundle::init$)), "java.io.IOException"},
-	{"getKeys", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC},
-	{"handleGetObject", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"handleKeySet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PROTECTED},
+	{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(PropertyResourceBundle, init$, void, $InputStream*), "java.io.IOException"},
+	{"<init>", "(Ljava/io/Reader;)V", nullptr, $PUBLIC, $method(PropertyResourceBundle, init$, void, $Reader*), "java.io.IOException"},
+	{"getKeys", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(PropertyResourceBundle, getKeys, $Enumeration*)},
+	{"handleGetObject", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PropertyResourceBundle, handleGetObject, $Object*, $String*)},
+	{"handleKeySet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PROTECTED, $virtualMethod(PropertyResourceBundle, handleKeySet, $Set*)},
 	{}
 };
 

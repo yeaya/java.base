@@ -29,14 +29,14 @@ $FieldInfo _TlsRsaPremasterSecretParameterSpec_FieldInfo_[] = {
 };
 
 $MethodInfo _TlsRsaPremasterSecretParameterSpec_MethodInfo_[] = {
-	{"<init>", "(II)V", nullptr, $PUBLIC, $method(static_cast<void(TlsRsaPremasterSecretParameterSpec::*)(int32_t,int32_t)>(&TlsRsaPremasterSecretParameterSpec::init$))},
-	{"<init>", "(II[B)V", nullptr, $PUBLIC, $method(static_cast<void(TlsRsaPremasterSecretParameterSpec::*)(int32_t,int32_t,$bytes*)>(&TlsRsaPremasterSecretParameterSpec::init$))},
-	{"checkVersion", "(I)I", nullptr, $PRIVATE, $method(static_cast<int32_t(TlsRsaPremasterSecretParameterSpec::*)(int32_t)>(&TlsRsaPremasterSecretParameterSpec::checkVersion))},
-	{"getClientVersion", "()I", nullptr, $PUBLIC},
-	{"getEncodedSecret", "()[B", nullptr, $PUBLIC},
-	{"getMajorVersion", "()I", nullptr, $PUBLIC},
-	{"getMinorVersion", "()I", nullptr, $PUBLIC},
-	{"getServerVersion", "()I", nullptr, $PUBLIC},
+	{"<init>", "(II)V", nullptr, $PUBLIC, $method(TlsRsaPremasterSecretParameterSpec, init$, void, int32_t, int32_t)},
+	{"<init>", "(II[B)V", nullptr, $PUBLIC, $method(TlsRsaPremasterSecretParameterSpec, init$, void, int32_t, int32_t, $bytes*)},
+	{"checkVersion", "(I)I", nullptr, $PRIVATE, $method(TlsRsaPremasterSecretParameterSpec, checkVersion, int32_t, int32_t)},
+	{"getClientVersion", "()I", nullptr, $PUBLIC, $virtualMethod(TlsRsaPremasterSecretParameterSpec, getClientVersion, int32_t)},
+	{"getEncodedSecret", "()[B", nullptr, $PUBLIC, $virtualMethod(TlsRsaPremasterSecretParameterSpec, getEncodedSecret, $bytes*)},
+	{"getMajorVersion", "()I", nullptr, $PUBLIC, $virtualMethod(TlsRsaPremasterSecretParameterSpec, getMajorVersion, int32_t)},
+	{"getMinorVersion", "()I", nullptr, $PUBLIC, $virtualMethod(TlsRsaPremasterSecretParameterSpec, getMinorVersion, int32_t)},
+	{"getServerVersion", "()I", nullptr, $PUBLIC, $virtualMethod(TlsRsaPremasterSecretParameterSpec, getServerVersion, int32_t)},
 	{}
 };
 

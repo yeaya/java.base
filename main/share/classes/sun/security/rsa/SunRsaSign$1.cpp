@@ -23,8 +23,8 @@ $FieldInfo _SunRsaSign$1_FieldInfo_[] = {
 };
 
 $MethodInfo _SunRsaSign$1_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/rsa/SunRsaSign;Ljava/util/Iterator;)V", "()V", 0, $method(static_cast<void(SunRsaSign$1::*)($SunRsaSign*,$Iterator*)>(&SunRsaSign$1::init$))},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/security/rsa/SunRsaSign;Ljava/util/Iterator;)V", "()V", 0, $method(SunRsaSign$1, init$, void, $SunRsaSign*, $Iterator*)},
+	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(SunRsaSign$1, run, $Object*)},
 	{}
 };
 

@@ -5,13 +5,14 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $EncodedKeySpec = ::java::security::spec::EncodedKeySpec;
 
 namespace jdk {
 	namespace internal {
 		namespace access {
 
 $MethodInfo _JavaSecuritySpecAccess_MethodInfo_[] = {
-	{"clearEncodedKeySpec", "(Ljava/security/spec/EncodedKeySpec;)V", nullptr, $PUBLIC | $ABSTRACT},
+	{"clearEncodedKeySpec", "(Ljava/security/spec/EncodedKeySpec;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JavaSecuritySpecAccess, clearEncodedKeySpec, void, $EncodedKeySpec*)},
 	{}
 };
 

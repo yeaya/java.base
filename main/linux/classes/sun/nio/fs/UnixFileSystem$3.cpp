@@ -29,8 +29,8 @@ $FieldInfo _UnixFileSystem$3_FieldInfo_[] = {
 };
 
 $MethodInfo _UnixFileSystem$3_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/fs/UnixFileSystem;Ljava/util/regex/Pattern;)V", "()V", 0, $method(static_cast<void(UnixFileSystem$3::*)($UnixFileSystem*,$Pattern*)>(&UnixFileSystem$3::init$))},
-	{"matches", "(Ljava/nio/file/Path;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/nio/fs/UnixFileSystem;Ljava/util/regex/Pattern;)V", "()V", 0, $method(UnixFileSystem$3, init$, void, $UnixFileSystem*, $Pattern*)},
+	{"matches", "(Ljava/nio/file/Path;)Z", nullptr, $PUBLIC, $virtualMethod(UnixFileSystem$3, matches, bool, $Path*)},
 	{}
 };
 

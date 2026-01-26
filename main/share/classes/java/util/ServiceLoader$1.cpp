@@ -22,8 +22,8 @@ $FieldInfo _ServiceLoader$1_FieldInfo_[] = {
 };
 
 $MethodInfo _ServiceLoader$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/ServiceLoader;Ljava/lang/Class;)V", nullptr, 0, $method(static_cast<void(ServiceLoader$1::*)($ServiceLoader*,$Class*)>(&ServiceLoader$1::init$))},
-	{"run", "()Ljava/lang/reflect/Constructor;", "()Ljava/lang/reflect/Constructor<*>;", $PUBLIC, nullptr, "java.lang.Exception"},
+	{"<init>", "(Ljava/util/ServiceLoader;Ljava/lang/Class;)V", nullptr, 0, $method(ServiceLoader$1, init$, void, $ServiceLoader*, $Class*)},
+	{"run", "()Ljava/lang/reflect/Constructor;", "()Ljava/lang/reflect/Constructor<*>;", $PUBLIC, $virtualMethod(ServiceLoader$1, run, $Object*), "java.lang.Exception"},
 	{}
 };
 

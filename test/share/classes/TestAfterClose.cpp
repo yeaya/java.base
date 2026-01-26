@@ -22,9 +22,9 @@ $FieldInfo _TestAfterClose_FieldInfo_[] = {
 };
 
 $MethodInfo _TestAfterClose_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TestAfterClose::*)()>(&TestAfterClose::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&TestAfterClose::main))},
-	{"test", "(Ljava/net/ServerSocket;)V", nullptr, $STATIC, $method(static_cast<void(*)($ServerSocket*)>(&TestAfterClose::test)), "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TestAfterClose, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TestAfterClose, main, void, $StringArray*)},
+	{"test", "(Ljava/net/ServerSocket;)V", nullptr, $STATIC, $staticMethod(TestAfterClose, test, void, $ServerSocket*), "java.io.IOException"},
 	{}
 };
 

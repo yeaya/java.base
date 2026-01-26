@@ -19,9 +19,9 @@ $FieldInfo _DummyScope_FieldInfo_[] = {
 };
 
 $MethodInfo _DummyScope_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(DummyScope::*)()>(&DummyScope::init$))},
-	{"lookup", "(Ljava/lang/String;)Ljava/lang/reflect/TypeVariable;", "(Ljava/lang/String;)Ljava/lang/reflect/TypeVariable<*>;", $PUBLIC},
-	{"make", "()Lsun/reflect/generics/scope/DummyScope;", nullptr, $PUBLIC | $STATIC, $method(static_cast<DummyScope*(*)()>(&DummyScope::make))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(DummyScope, init$, void)},
+	{"lookup", "(Ljava/lang/String;)Ljava/lang/reflect/TypeVariable;", "(Ljava/lang/String;)Ljava/lang/reflect/TypeVariable<*>;", $PUBLIC, $virtualMethod(DummyScope, lookup, $TypeVariable*, $String*)},
+	{"make", "()Lsun/reflect/generics/scope/DummyScope;", nullptr, $PUBLIC | $STATIC, $staticMethod(DummyScope, make, DummyScope*)},
 	{}
 };
 

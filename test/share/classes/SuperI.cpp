@@ -30,8 +30,8 @@ $CompoundAttribute _SuperI_MethodAnnotations_foo1[] = {
 };
 
 $MethodInfo _SuperI_MethodInfo_[] = {
-	{"bar", "()V", nullptr, $PUBLIC | $ABSTRACT, nullptr, nullptr, nullptr, _SuperI_MethodAnnotations_bar0},
-	{"foo", "()V", nullptr, $PUBLIC | $ABSTRACT, nullptr, nullptr, nullptr, _SuperI_MethodAnnotations_foo1},
+	{"bar", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SuperI, bar, void), nullptr, nullptr, _SuperI_MethodAnnotations_bar0},
+	{"foo", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SuperI, foo, void), nullptr, nullptr, _SuperI_MethodAnnotations_foo1},
 	{}
 };
 

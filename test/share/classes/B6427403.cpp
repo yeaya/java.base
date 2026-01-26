@@ -14,8 +14,8 @@ using $MulticastSocket = ::java::net::MulticastSocket;
 using $SocketAddress = ::java::net::SocketAddress;
 
 $MethodInfo _B6427403_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(B6427403::*)()>(&B6427403::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&B6427403::main)), "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(B6427403, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(B6427403, main, void, $StringArray*), "java.io.IOException"},
 	{}
 };
 

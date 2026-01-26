@@ -128,8 +128,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ProxyGenerator$$Lambda$lambda$addProxyMethod$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ProxyGenerator$$Lambda$lambda$addProxyMethod$0::*)()>(&ProxyGenerator$$Lambda$lambda$addProxyMethod$0::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ProxyGenerator$$Lambda$lambda$addProxyMethod$0, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ProxyGenerator$$Lambda$lambda$addProxyMethod$0, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo ProxyGenerator$$Lambda$lambda$addProxyMethod$0::classInfo$ = {
@@ -184,22 +184,22 @@ $FieldInfo _ProxyGenerator_FieldInfo_[] = {
 };
 
 $MethodInfo _ProxyGenerator_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/ClassLoader;Ljava/lang/String;Ljava/util/List;I)V", "(Ljava/lang/ClassLoader;Ljava/lang/String;Ljava/util/List<Ljava/lang/Class<*>;>;I)V", $PRIVATE, $method(static_cast<void(ProxyGenerator::*)($ClassLoader*,$String*,$List*,int32_t)>(&ProxyGenerator::init$))},
-	{"addProxyMethod", "(Ljava/lang/reflect/Method;Ljava/lang/Class;)V", "(Ljava/lang/reflect/Method;Ljava/lang/Class<*>;)V", $PRIVATE, $method(static_cast<void(ProxyGenerator::*)($Method*,$Class*)>(&ProxyGenerator::addProxyMethod))},
-	{"addProxyMethod", "(Ljava/lang/reflect/ProxyGenerator$ProxyMethod;)V", nullptr, $PRIVATE, $method(static_cast<void(ProxyGenerator::*)($ProxyGenerator$ProxyMethod*)>(&ProxyGenerator::addProxyMethod))},
-	{"checkReturnTypes", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/lang/reflect/ProxyGenerator$ProxyMethod;>;)V", $PRIVATE | $STATIC, $method(static_cast<void(*)($List*)>(&ProxyGenerator::checkReturnTypes))},
-	{"collectCompatibleTypes", "([Ljava/lang/Class;[Ljava/lang/Class;Ljava/util/List;)V", "([Ljava/lang/Class<*>;[Ljava/lang/Class<*>;Ljava/util/List<Ljava/lang/Class<*>;>;)V", $PRIVATE | $STATIC, $method(static_cast<void(*)($ClassArray*,$ClassArray*,$List*)>(&ProxyGenerator::collectCompatibleTypes))},
-	{"computeUniqueCatchList", "([Ljava/lang/Class;)Ljava/util/List;", "([Ljava/lang/Class<*>;)Ljava/util/List<Ljava/lang/Class<*>;>;", $PRIVATE | $STATIC, $method(static_cast<$List*(*)($ClassArray*)>(&ProxyGenerator::computeUniqueCatchList))},
-	{"dotToSlash", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($String*)>(&ProxyGenerator::dotToSlash))},
-	{"generateClassFile", "()[B", nullptr, $PRIVATE, $method(static_cast<$bytes*(ProxyGenerator::*)()>(&ProxyGenerator::generateClassFile))},
-	{"generateConstructor", "()V", nullptr, $PRIVATE, $method(static_cast<void(ProxyGenerator::*)()>(&ProxyGenerator::generateConstructor))},
-	{"generateLookupAccessor", "()V", nullptr, $PRIVATE, $method(static_cast<void(ProxyGenerator::*)()>(&ProxyGenerator::generateLookupAccessor))},
-	{"generateProxyClass", "(Ljava/lang/ClassLoader;Ljava/lang/String;Ljava/util/List;I)[B", "(Ljava/lang/ClassLoader;Ljava/lang/String;Ljava/util/List<Ljava/lang/Class<*>;>;I)[B", $STATIC, $method(static_cast<$bytes*(*)($ClassLoader*,$String*,$List*,int32_t)>(&ProxyGenerator::generateProxyClass))},
-	{"generateStaticInitializer", "()V", nullptr, $PRIVATE, $method(static_cast<void(ProxyGenerator::*)()>(&ProxyGenerator::generateStaticInitializer))},
-	{"getClassLoader", "()Ljava/lang/ClassLoader;", nullptr, $PROTECTED},
-	{"getWordsPerType", "(Ljava/lang/Class;)I", "(Ljava/lang/Class<*>;)I", $PRIVATE | $STATIC, $method(static_cast<int32_t(*)($Class*)>(&ProxyGenerator::getWordsPerType))},
-	{"lambda$addProxyMethod$0", "(Ljava/lang/String;)Ljava/util/List;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$List*(*)($String*)>(&ProxyGenerator::lambda$addProxyMethod$0))},
-	{"typeNames", "(Ljava/util/List;)[Ljava/lang/String;", "(Ljava/util/List<Ljava/lang/Class<*>;>;)[Ljava/lang/String;", $PRIVATE | $STATIC, $method(static_cast<$StringArray*(*)($List*)>(&ProxyGenerator::typeNames))},
+	{"<init>", "(Ljava/lang/ClassLoader;Ljava/lang/String;Ljava/util/List;I)V", "(Ljava/lang/ClassLoader;Ljava/lang/String;Ljava/util/List<Ljava/lang/Class<*>;>;I)V", $PRIVATE, $method(ProxyGenerator, init$, void, $ClassLoader*, $String*, $List*, int32_t)},
+	{"addProxyMethod", "(Ljava/lang/reflect/Method;Ljava/lang/Class;)V", "(Ljava/lang/reflect/Method;Ljava/lang/Class<*>;)V", $PRIVATE, $method(ProxyGenerator, addProxyMethod, void, $Method*, $Class*)},
+	{"addProxyMethod", "(Ljava/lang/reflect/ProxyGenerator$ProxyMethod;)V", nullptr, $PRIVATE, $method(ProxyGenerator, addProxyMethod, void, $ProxyGenerator$ProxyMethod*)},
+	{"checkReturnTypes", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/lang/reflect/ProxyGenerator$ProxyMethod;>;)V", $PRIVATE | $STATIC, $staticMethod(ProxyGenerator, checkReturnTypes, void, $List*)},
+	{"collectCompatibleTypes", "([Ljava/lang/Class;[Ljava/lang/Class;Ljava/util/List;)V", "([Ljava/lang/Class<*>;[Ljava/lang/Class<*>;Ljava/util/List<Ljava/lang/Class<*>;>;)V", $PRIVATE | $STATIC, $staticMethod(ProxyGenerator, collectCompatibleTypes, void, $ClassArray*, $ClassArray*, $List*)},
+	{"computeUniqueCatchList", "([Ljava/lang/Class;)Ljava/util/List;", "([Ljava/lang/Class<*>;)Ljava/util/List<Ljava/lang/Class<*>;>;", $PRIVATE | $STATIC, $staticMethod(ProxyGenerator, computeUniqueCatchList, $List*, $ClassArray*)},
+	{"dotToSlash", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(ProxyGenerator, dotToSlash, $String*, $String*)},
+	{"generateClassFile", "()[B", nullptr, $PRIVATE, $method(ProxyGenerator, generateClassFile, $bytes*)},
+	{"generateConstructor", "()V", nullptr, $PRIVATE, $method(ProxyGenerator, generateConstructor, void)},
+	{"generateLookupAccessor", "()V", nullptr, $PRIVATE, $method(ProxyGenerator, generateLookupAccessor, void)},
+	{"generateProxyClass", "(Ljava/lang/ClassLoader;Ljava/lang/String;Ljava/util/List;I)[B", "(Ljava/lang/ClassLoader;Ljava/lang/String;Ljava/util/List<Ljava/lang/Class<*>;>;I)[B", $STATIC, $staticMethod(ProxyGenerator, generateProxyClass, $bytes*, $ClassLoader*, $String*, $List*, int32_t)},
+	{"generateStaticInitializer", "()V", nullptr, $PRIVATE, $method(ProxyGenerator, generateStaticInitializer, void)},
+	{"getClassLoader", "()Ljava/lang/ClassLoader;", nullptr, $PROTECTED, $virtualMethod(ProxyGenerator, getClassLoader, $ClassLoader*)},
+	{"getWordsPerType", "(Ljava/lang/Class;)I", "(Ljava/lang/Class<*>;)I", $PRIVATE | $STATIC, $staticMethod(ProxyGenerator, getWordsPerType, int32_t, $Class*)},
+	{"lambda$addProxyMethod$0", "(Ljava/lang/String;)Ljava/util/List;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ProxyGenerator, lambda$addProxyMethod$0, $List*, $String*)},
+	{"typeNames", "(Ljava/util/List;)[Ljava/lang/String;", "(Ljava/util/List<Ljava/lang/Class<*>;>;)[Ljava/lang/String;", $PRIVATE | $STATIC, $staticMethod(ProxyGenerator, typeNames, $StringArray*, $List*)},
 	{}
 };
 

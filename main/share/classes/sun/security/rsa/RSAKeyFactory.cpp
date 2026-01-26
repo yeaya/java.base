@@ -102,21 +102,21 @@ $FieldInfo _RSAKeyFactory_FieldInfo_[] = {
 };
 
 $MethodInfo _RSAKeyFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(RSAKeyFactory::*)()>(&RSAKeyFactory::init$))},
-	{"<init>", "(Lsun/security/rsa/RSAUtil$KeyType;)V", nullptr, $PUBLIC, $method(static_cast<void(RSAKeyFactory::*)($RSAUtil$KeyType*)>(&RSAKeyFactory::init$))},
-	{"checkKeyAlgo", "(Ljava/security/Key;Ljava/lang/String;)V", nullptr, $STATIC, $method(static_cast<void(*)($Key*,$String*)>(&RSAKeyFactory::checkKeyAlgo)), "java.security.InvalidKeyException"},
-	{"checkKeyLengths", "(ILjava/math/BigInteger;II)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)(int32_t,$BigInteger*,int32_t,int32_t)>(&RSAKeyFactory::checkKeyLengths)), "java.security.InvalidKeyException"},
-	{"checkRSAProviderKeyLengths", "(ILjava/math/BigInteger;)V", nullptr, $STATIC, $method(static_cast<void(*)(int32_t,$BigInteger*)>(&RSAKeyFactory::checkRSAProviderKeyLengths)), "java.security.InvalidKeyException"},
-	{"engineGeneratePrivate", "(Ljava/security/spec/KeySpec;)Ljava/security/PrivateKey;", nullptr, $PROTECTED, nullptr, "java.security.spec.InvalidKeySpecException"},
-	{"engineGeneratePublic", "(Ljava/security/spec/KeySpec;)Ljava/security/PublicKey;", nullptr, $PROTECTED, nullptr, "java.security.spec.InvalidKeySpecException"},
-	{"engineGetKeySpec", "(Ljava/security/Key;Ljava/lang/Class;)Ljava/security/spec/KeySpec;", "<T::Ljava/security/spec/KeySpec;>(Ljava/security/Key;Ljava/lang/Class<TT;>;)TT;", $PROTECTED, nullptr, "java.security.spec.InvalidKeySpecException"},
-	{"engineTranslateKey", "(Ljava/security/Key;)Ljava/security/Key;", nullptr, $PROTECTED, nullptr, "java.security.InvalidKeyException"},
-	{"generatePrivate", "(Ljava/security/spec/KeySpec;)Ljava/security/PrivateKey;", nullptr, $PRIVATE, $method(static_cast<$PrivateKey*(RSAKeyFactory::*)($KeySpec*)>(&RSAKeyFactory::generatePrivate)), "java.security.GeneralSecurityException"},
-	{"generatePublic", "(Ljava/security/spec/KeySpec;)Ljava/security/PublicKey;", nullptr, $PRIVATE, $method(static_cast<$PublicKey*(RSAKeyFactory::*)($KeySpec*)>(&RSAKeyFactory::generatePublic)), "java.security.GeneralSecurityException"},
-	{"getInstance", "(Lsun/security/rsa/RSAUtil$KeyType;)Lsun/security/rsa/RSAKeyFactory;", nullptr, $STATIC, $method(static_cast<RSAKeyFactory*(*)($RSAUtil$KeyType*)>(&RSAKeyFactory::getInstance))},
-	{"toRSAKey", "(Ljava/security/Key;)Ljava/security/interfaces/RSAKey;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$RSAKey*(*)($Key*)>(&RSAKeyFactory::toRSAKey)), "java.security.InvalidKeyException"},
-	{"translatePrivateKey", "(Ljava/security/PrivateKey;)Ljava/security/PrivateKey;", nullptr, $PRIVATE, $method(static_cast<$PrivateKey*(RSAKeyFactory::*)($PrivateKey*)>(&RSAKeyFactory::translatePrivateKey)), "java.security.InvalidKeyException"},
-	{"translatePublicKey", "(Ljava/security/PublicKey;)Ljava/security/PublicKey;", nullptr, $PRIVATE, $method(static_cast<$PublicKey*(RSAKeyFactory::*)($PublicKey*)>(&RSAKeyFactory::translatePublicKey)), "java.security.InvalidKeyException"},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(RSAKeyFactory, init$, void)},
+	{"<init>", "(Lsun/security/rsa/RSAUtil$KeyType;)V", nullptr, $PUBLIC, $method(RSAKeyFactory, init$, void, $RSAUtil$KeyType*)},
+	{"checkKeyAlgo", "(Ljava/security/Key;Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(RSAKeyFactory, checkKeyAlgo, void, $Key*, $String*), "java.security.InvalidKeyException"},
+	{"checkKeyLengths", "(ILjava/math/BigInteger;II)V", nullptr, $PUBLIC | $STATIC, $staticMethod(RSAKeyFactory, checkKeyLengths, void, int32_t, $BigInteger*, int32_t, int32_t), "java.security.InvalidKeyException"},
+	{"checkRSAProviderKeyLengths", "(ILjava/math/BigInteger;)V", nullptr, $STATIC, $staticMethod(RSAKeyFactory, checkRSAProviderKeyLengths, void, int32_t, $BigInteger*), "java.security.InvalidKeyException"},
+	{"engineGeneratePrivate", "(Ljava/security/spec/KeySpec;)Ljava/security/PrivateKey;", nullptr, $PROTECTED, $virtualMethod(RSAKeyFactory, engineGeneratePrivate, $PrivateKey*, $KeySpec*), "java.security.spec.InvalidKeySpecException"},
+	{"engineGeneratePublic", "(Ljava/security/spec/KeySpec;)Ljava/security/PublicKey;", nullptr, $PROTECTED, $virtualMethod(RSAKeyFactory, engineGeneratePublic, $PublicKey*, $KeySpec*), "java.security.spec.InvalidKeySpecException"},
+	{"engineGetKeySpec", "(Ljava/security/Key;Ljava/lang/Class;)Ljava/security/spec/KeySpec;", "<T::Ljava/security/spec/KeySpec;>(Ljava/security/Key;Ljava/lang/Class<TT;>;)TT;", $PROTECTED, $virtualMethod(RSAKeyFactory, engineGetKeySpec, $KeySpec*, $Key*, $Class*), "java.security.spec.InvalidKeySpecException"},
+	{"engineTranslateKey", "(Ljava/security/Key;)Ljava/security/Key;", nullptr, $PROTECTED, $virtualMethod(RSAKeyFactory, engineTranslateKey, $Key*, $Key*), "java.security.InvalidKeyException"},
+	{"generatePrivate", "(Ljava/security/spec/KeySpec;)Ljava/security/PrivateKey;", nullptr, $PRIVATE, $method(RSAKeyFactory, generatePrivate, $PrivateKey*, $KeySpec*), "java.security.GeneralSecurityException"},
+	{"generatePublic", "(Ljava/security/spec/KeySpec;)Ljava/security/PublicKey;", nullptr, $PRIVATE, $method(RSAKeyFactory, generatePublic, $PublicKey*, $KeySpec*), "java.security.GeneralSecurityException"},
+	{"getInstance", "(Lsun/security/rsa/RSAUtil$KeyType;)Lsun/security/rsa/RSAKeyFactory;", nullptr, $STATIC, $staticMethod(RSAKeyFactory, getInstance, RSAKeyFactory*, $RSAUtil$KeyType*)},
+	{"toRSAKey", "(Ljava/security/Key;)Ljava/security/interfaces/RSAKey;", nullptr, $PUBLIC | $STATIC, $staticMethod(RSAKeyFactory, toRSAKey, $RSAKey*, $Key*), "java.security.InvalidKeyException"},
+	{"translatePrivateKey", "(Ljava/security/PrivateKey;)Ljava/security/PrivateKey;", nullptr, $PRIVATE, $method(RSAKeyFactory, translatePrivateKey, $PrivateKey*, $PrivateKey*), "java.security.InvalidKeyException"},
+	{"translatePublicKey", "(Ljava/security/PublicKey;)Ljava/security/PublicKey;", nullptr, $PRIVATE, $method(RSAKeyFactory, translatePublicKey, $PublicKey*, $PublicKey*), "java.security.InvalidKeyException"},
 	{}
 };
 

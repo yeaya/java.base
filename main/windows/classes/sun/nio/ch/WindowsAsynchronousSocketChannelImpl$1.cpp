@@ -25,8 +25,8 @@ $FieldInfo _WindowsAsynchronousSocketChannelImpl$1_FieldInfo_[] = {
 };
 
 $MethodInfo _WindowsAsynchronousSocketChannelImpl$1_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/ch/WindowsAsynchronousSocketChannelImpl;Ljava/net/SocketAddress;)V", "()V", 0, $method(static_cast<void(WindowsAsynchronousSocketChannelImpl$1::*)($WindowsAsynchronousSocketChannelImpl*,$SocketAddress*)>(&WindowsAsynchronousSocketChannelImpl$1::init$))},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Lsun/nio/ch/WindowsAsynchronousSocketChannelImpl;Ljava/net/SocketAddress;)V", "()V", 0, $method(WindowsAsynchronousSocketChannelImpl$1, init$, void, $WindowsAsynchronousSocketChannelImpl*, $SocketAddress*)},
+	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(WindowsAsynchronousSocketChannelImpl$1, run, $Object*), "java.io.IOException"},
 	{}
 };
 

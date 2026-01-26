@@ -87,8 +87,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo SliceOps$2$$Lambda$lambda$opEvaluateParallelLazy$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SliceOps$2$$Lambda$lambda$opEvaluateParallelLazy$0::*)()>(&SliceOps$2$$Lambda$lambda$opEvaluateParallelLazy$0::init$))},
-	{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SliceOps$2$$Lambda$lambda$opEvaluateParallelLazy$0, init$, void)},
+	{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SliceOps$2$$Lambda$lambda$opEvaluateParallelLazy$0, apply, $Object*, int32_t)},
 	{}
 };
 $ClassInfo SliceOps$2$$Lambda$lambda$opEvaluateParallelLazy$0::classInfo$ = {
@@ -113,13 +113,13 @@ $FieldInfo _SliceOps$2_FieldInfo_[] = {
 };
 
 $MethodInfo _SliceOps$2_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/stream/AbstractPipeline;Ljava/util/stream/StreamShape;IJJJ)V", nullptr, 0, $method(static_cast<void(SliceOps$2::*)($AbstractPipeline*,$StreamShape*,int32_t,int64_t,int64_t,int64_t)>(&SliceOps$2::init$))},
-	{"exactOutputSize", "(J)J", nullptr, 0},
-	{"lambda$opEvaluateParallelLazy$0", "(I)[Ljava/lang/Integer;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$IntegerArray*(*)(int32_t)>(&SliceOps$2::lambda$opEvaluateParallelLazy$0))},
-	{"opEvaluateParallel", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;Ljava/util/function/IntFunction;)Ljava/util/stream/Node;", "<P_IN:Ljava/lang/Object;>(Ljava/util/stream/PipelineHelper<Ljava/lang/Integer;>;Ljava/util/Spliterator<TP_IN;>;Ljava/util/function/IntFunction<[Ljava/lang/Integer;>;)Ljava/util/stream/Node<Ljava/lang/Integer;>;", 0},
-	{"opEvaluateParallelLazy", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;)Ljava/util/Spliterator;", "<P_IN:Ljava/lang/Object;>(Ljava/util/stream/PipelineHelper<Ljava/lang/Integer;>;Ljava/util/Spliterator<TP_IN;>;)Ljava/util/Spliterator<Ljava/lang/Integer;>;", 0},
-	{"opWrapSink", "(ILjava/util/stream/Sink;)Ljava/util/stream/Sink;", "(ILjava/util/stream/Sink<Ljava/lang/Integer;>;)Ljava/util/stream/Sink<Ljava/lang/Integer;>;", 0},
-	{"unorderedSkipLimitSpliterator", "(Ljava/util/Spliterator$OfInt;JJJ)Ljava/util/Spliterator$OfInt;", nullptr, 0},
+	{"<init>", "(Ljava/util/stream/AbstractPipeline;Ljava/util/stream/StreamShape;IJJJ)V", nullptr, 0, $method(SliceOps$2, init$, void, $AbstractPipeline*, $StreamShape*, int32_t, int64_t, int64_t, int64_t)},
+	{"exactOutputSize", "(J)J", nullptr, 0, $virtualMethod(SliceOps$2, exactOutputSize, int64_t, int64_t)},
+	{"lambda$opEvaluateParallelLazy$0", "(I)[Ljava/lang/Integer;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SliceOps$2, lambda$opEvaluateParallelLazy$0, $IntegerArray*, int32_t)},
+	{"opEvaluateParallel", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;Ljava/util/function/IntFunction;)Ljava/util/stream/Node;", "<P_IN:Ljava/lang/Object;>(Ljava/util/stream/PipelineHelper<Ljava/lang/Integer;>;Ljava/util/Spliterator<TP_IN;>;Ljava/util/function/IntFunction<[Ljava/lang/Integer;>;)Ljava/util/stream/Node<Ljava/lang/Integer;>;", 0, $virtualMethod(SliceOps$2, opEvaluateParallel, $Node*, $PipelineHelper*, $Spliterator*, $IntFunction*)},
+	{"opEvaluateParallelLazy", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;)Ljava/util/Spliterator;", "<P_IN:Ljava/lang/Object;>(Ljava/util/stream/PipelineHelper<Ljava/lang/Integer;>;Ljava/util/Spliterator<TP_IN;>;)Ljava/util/Spliterator<Ljava/lang/Integer;>;", 0, $virtualMethod(SliceOps$2, opEvaluateParallelLazy, $Spliterator*, $PipelineHelper*, $Spliterator*)},
+	{"opWrapSink", "(ILjava/util/stream/Sink;)Ljava/util/stream/Sink;", "(ILjava/util/stream/Sink<Ljava/lang/Integer;>;)Ljava/util/stream/Sink<Ljava/lang/Integer;>;", 0, $virtualMethod(SliceOps$2, opWrapSink, $Sink*, int32_t, $Sink*)},
+	{"unorderedSkipLimitSpliterator", "(Ljava/util/Spliterator$OfInt;JJJ)Ljava/util/Spliterator$OfInt;", nullptr, 0, $virtualMethod(SliceOps$2, unorderedSkipLimitSpliterator, $Spliterator$OfInt*, $Spliterator$OfInt*, int64_t, int64_t, int64_t)},
 	{}
 };
 

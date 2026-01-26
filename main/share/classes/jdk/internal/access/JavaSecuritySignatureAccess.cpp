@@ -10,15 +10,21 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $PrivateKey = ::java::security::PrivateKey;
+using $PublicKey = ::java::security::PublicKey;
+using $SecureRandom = ::java::security::SecureRandom;
+using $Signature = ::java::security::Signature;
+using $Certificate = ::java::security::cert::Certificate;
+using $AlgorithmParameterSpec = ::java::security::spec::AlgorithmParameterSpec;
 
 namespace jdk {
 	namespace internal {
 		namespace access {
 
 $MethodInfo _JavaSecuritySignatureAccess_MethodInfo_[] = {
-	{"initSign", "(Ljava/security/Signature;Ljava/security/PrivateKey;Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
-	{"initVerify", "(Ljava/security/Signature;Ljava/security/PublicKey;Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
-	{"initVerify", "(Ljava/security/Signature;Ljava/security/cert/Certificate;Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
+	{"initSign", "(Ljava/security/Signature;Ljava/security/PrivateKey;Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JavaSecuritySignatureAccess, initSign, void, $Signature*, $PrivateKey*, $AlgorithmParameterSpec*, $SecureRandom*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
+	{"initVerify", "(Ljava/security/Signature;Ljava/security/PublicKey;Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JavaSecuritySignatureAccess, initVerify, void, $Signature*, $PublicKey*, $AlgorithmParameterSpec*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
+	{"initVerify", "(Ljava/security/Signature;Ljava/security/cert/Certificate;Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JavaSecuritySignatureAccess, initVerify, void, $Signature*, $Certificate*, $AlgorithmParameterSpec*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
 	{}
 };
 

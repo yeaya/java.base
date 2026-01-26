@@ -29,10 +29,10 @@ $FieldInfo _FtpDirEntry$Permission_FieldInfo_[] = {
 };
 
 $MethodInfo _FtpDirEntry$Permission_MethodInfo_[] = {
-	{"$values", "()[Lsun/net/ftp/FtpDirEntry$Permission;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$FtpDirEntry$PermissionArray*(*)()>(&FtpDirEntry$Permission::$values))},
-	{"<init>", "(Ljava/lang/String;II)V", "(I)V", $PRIVATE, $method(static_cast<void(FtpDirEntry$Permission::*)($String*,int32_t,int32_t)>(&FtpDirEntry$Permission::init$))},
-	{"valueOf", "(Ljava/lang/String;)Lsun/net/ftp/FtpDirEntry$Permission;", nullptr, $PUBLIC | $STATIC, $method(static_cast<FtpDirEntry$Permission*(*)($String*)>(&FtpDirEntry$Permission::valueOf))},
-	{"values", "()[Lsun/net/ftp/FtpDirEntry$Permission;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$FtpDirEntry$PermissionArray*(*)()>(&FtpDirEntry$Permission::values))},
+	{"$values", "()[Lsun/net/ftp/FtpDirEntry$Permission;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(FtpDirEntry$Permission, $values, $FtpDirEntry$PermissionArray*)},
+	{"<init>", "(Ljava/lang/String;II)V", "(I)V", $PRIVATE, $method(FtpDirEntry$Permission, init$, void, $String*, int32_t, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Lsun/net/ftp/FtpDirEntry$Permission;", nullptr, $PUBLIC | $STATIC, $staticMethod(FtpDirEntry$Permission, valueOf, FtpDirEntry$Permission*, $String*)},
+	{"values", "()[Lsun/net/ftp/FtpDirEntry$Permission;", nullptr, $PUBLIC | $STATIC, $staticMethod(FtpDirEntry$Permission, values, $FtpDirEntry$PermissionArray*)},
 	{}
 };
 

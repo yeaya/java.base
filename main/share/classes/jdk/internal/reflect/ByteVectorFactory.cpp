@@ -14,9 +14,9 @@ namespace jdk {
 		namespace reflect {
 
 $MethodInfo _ByteVectorFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ByteVectorFactory::*)()>(&ByteVectorFactory::init$))},
-	{"create", "()Ljdk/internal/reflect/ByteVector;", nullptr, $STATIC, $method(static_cast<$ByteVector*(*)()>(&ByteVectorFactory::create))},
-	{"create", "(I)Ljdk/internal/reflect/ByteVector;", nullptr, $STATIC, $method(static_cast<$ByteVector*(*)(int32_t)>(&ByteVectorFactory::create))},
+	{"<init>", "()V", nullptr, 0, $method(ByteVectorFactory, init$, void)},
+	{"create", "()Ljdk/internal/reflect/ByteVector;", nullptr, $STATIC, $staticMethod(ByteVectorFactory, create, $ByteVector*)},
+	{"create", "(I)Ljdk/internal/reflect/ByteVector;", nullptr, $STATIC, $staticMethod(ByteVectorFactory, create, $ByteVector*, int32_t)},
 	{}
 };
 

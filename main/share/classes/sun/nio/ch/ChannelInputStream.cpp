@@ -39,14 +39,14 @@ $FieldInfo _ChannelInputStream_FieldInfo_[] = {
 };
 
 $MethodInfo _ChannelInputStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/channels/ReadableByteChannel;)V", nullptr, $PUBLIC, $method(static_cast<void(ChannelInputStream::*)($ReadableByteChannel*)>(&ChannelInputStream::init$))},
-	{"available", "()I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"read", "(Ljava/nio/channels/ReadableByteChannel;Ljava/nio/ByteBuffer;Z)I", nullptr, $PUBLIC | $STATIC, $method(static_cast<int32_t(*)($ReadableByteChannel*,$ByteBuffer*,bool)>(&ChannelInputStream::read)), "java.io.IOException"},
-	{"read", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, nullptr, "java.io.IOException"},
-	{"read", "([BII)I", nullptr, $PUBLIC | $SYNCHRONIZED, nullptr, "java.io.IOException"},
-	{"read", "(Ljava/nio/ByteBuffer;)I", nullptr, $PROTECTED, nullptr, "java.io.IOException"},
-	{"skip", "(J)J", nullptr, $PUBLIC | $SYNCHRONIZED, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljava/nio/channels/ReadableByteChannel;)V", nullptr, $PUBLIC, $method(ChannelInputStream, init$, void, $ReadableByteChannel*)},
+	{"available", "()I", nullptr, $PUBLIC, $virtualMethod(ChannelInputStream, available, int32_t), "java.io.IOException"},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(ChannelInputStream, close, void), "java.io.IOException"},
+	{"read", "(Ljava/nio/channels/ReadableByteChannel;Ljava/nio/ByteBuffer;Z)I", nullptr, $PUBLIC | $STATIC, $staticMethod(ChannelInputStream, read, int32_t, $ReadableByteChannel*, $ByteBuffer*, bool), "java.io.IOException"},
+	{"read", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ChannelInputStream, read, int32_t), "java.io.IOException"},
+	{"read", "([BII)I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ChannelInputStream, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
+	{"read", "(Ljava/nio/ByteBuffer;)I", nullptr, $PROTECTED, $virtualMethod(ChannelInputStream, read, int32_t, $ByteBuffer*), "java.io.IOException"},
+	{"skip", "(J)J", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ChannelInputStream, skip, int64_t, int64_t), "java.io.IOException"},
 	{}
 };
 

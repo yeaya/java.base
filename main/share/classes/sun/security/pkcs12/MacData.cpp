@@ -36,14 +36,14 @@ $FieldInfo _MacData_FieldInfo_[] = {
 };
 
 $MethodInfo _MacData_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/util/DerInputStream;)V", nullptr, 0, $method(static_cast<void(MacData::*)($DerInputStream*)>(&MacData::init$)), "java.io.IOException,sun.security.pkcs.ParsingException"},
-	{"<init>", "(Ljava/lang/String;[B[BI)V", nullptr, 0, $method(static_cast<void(MacData::*)($String*,$bytes*,$bytes*,int32_t)>(&MacData::init$)), "java.security.NoSuchAlgorithmException"},
-	{"<init>", "(Ljava/security/AlgorithmParameters;[B[BI)V", nullptr, 0, $method(static_cast<void(MacData::*)($AlgorithmParameters*,$bytes*,$bytes*,int32_t)>(&MacData::init$)), "java.security.NoSuchAlgorithmException"},
-	{"getDigest", "()[B", nullptr, 0},
-	{"getDigestAlgName", "()Ljava/lang/String;", nullptr, 0},
-	{"getEncoded", "()[B", nullptr, $PUBLIC, nullptr, "java.security.NoSuchAlgorithmException,java.io.IOException"},
-	{"getIterations", "()I", nullptr, 0},
-	{"getSalt", "()[B", nullptr, 0},
+	{"<init>", "(Lsun/security/util/DerInputStream;)V", nullptr, 0, $method(MacData, init$, void, $DerInputStream*), "java.io.IOException,sun.security.pkcs.ParsingException"},
+	{"<init>", "(Ljava/lang/String;[B[BI)V", nullptr, 0, $method(MacData, init$, void, $String*, $bytes*, $bytes*, int32_t), "java.security.NoSuchAlgorithmException"},
+	{"<init>", "(Ljava/security/AlgorithmParameters;[B[BI)V", nullptr, 0, $method(MacData, init$, void, $AlgorithmParameters*, $bytes*, $bytes*, int32_t), "java.security.NoSuchAlgorithmException"},
+	{"getDigest", "()[B", nullptr, 0, $virtualMethod(MacData, getDigest, $bytes*)},
+	{"getDigestAlgName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(MacData, getDigestAlgName, $String*)},
+	{"getEncoded", "()[B", nullptr, $PUBLIC, $virtualMethod(MacData, getEncoded, $bytes*), "java.security.NoSuchAlgorithmException,java.io.IOException"},
+	{"getIterations", "()I", nullptr, 0, $virtualMethod(MacData, getIterations, int32_t)},
+	{"getSalt", "()[B", nullptr, 0, $virtualMethod(MacData, getSalt, $bytes*)},
 	{}
 };
 

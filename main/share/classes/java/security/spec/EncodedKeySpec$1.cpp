@@ -14,8 +14,8 @@ namespace java {
 		namespace spec {
 
 $MethodInfo _EncodedKeySpec$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(EncodedKeySpec$1::*)()>(&EncodedKeySpec$1::init$))},
-	{"clearEncodedKeySpec", "(Ljava/security/spec/EncodedKeySpec;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(EncodedKeySpec$1, init$, void)},
+	{"clearEncodedKeySpec", "(Ljava/security/spec/EncodedKeySpec;)V", nullptr, $PUBLIC, $virtualMethod(EncodedKeySpec$1, clearEncodedKeySpec, void, $EncodedKeySpec*)},
 	{}
 };
 

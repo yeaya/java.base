@@ -12,8 +12,8 @@ using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
 namespace c1 {
 
 $MethodInfo _C1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(C1::*)()>(&C1::init$))},
-	{"lookup", "()Ljava/lang/invoke/MethodHandles$Lookup;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$MethodHandles$Lookup*(*)()>(&C1::lookup))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(C1, init$, void)},
+	{"lookup", "()Ljava/lang/invoke/MethodHandles$Lookup;", nullptr, $PUBLIC | $STATIC, $staticMethod(C1, lookup, $MethodHandles$Lookup*)},
 	{}
 };
 

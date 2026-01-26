@@ -34,12 +34,12 @@ $MethodInfo _Spliterators$4Adapter_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/util/Spliterator$OfDouble;)V", "()V", 0, $method(static_cast<void(Spliterators$4Adapter::*)($Spliterator$OfDouble*)>(&Spliterators$4Adapter::init$))},
-	{"accept", "(D)V", nullptr, $PUBLIC},
-	{"forEachRemaining", "(Ljava/util/function/DoubleConsumer;)V", nullptr, $PUBLIC},
-	{"forEachRemaining", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"hasNext", "()Z", nullptr, $PUBLIC},
-	{"nextDouble", "()D", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/Spliterator$OfDouble;)V", "()V", 0, $method(Spliterators$4Adapter, init$, void, $Spliterator$OfDouble*)},
+	{"accept", "(D)V", nullptr, $PUBLIC, $virtualMethod(Spliterators$4Adapter, accept, void, double)},
+	{"forEachRemaining", "(Ljava/util/function/DoubleConsumer;)V", nullptr, $PUBLIC, $virtualMethod(Spliterators$4Adapter, forEachRemaining, void, $DoubleConsumer*)},
+	{"forEachRemaining", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Spliterators$4Adapter, forEachRemaining, void, Object$*)},
+	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(Spliterators$4Adapter, hasNext, bool)},
+	{"nextDouble", "()D", nullptr, $PUBLIC, $virtualMethod(Spliterators$4Adapter, nextDouble, double)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

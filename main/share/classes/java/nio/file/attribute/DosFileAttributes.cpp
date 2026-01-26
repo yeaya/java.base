@@ -11,10 +11,10 @@ namespace java {
 			namespace attribute {
 
 $MethodInfo _DosFileAttributes_MethodInfo_[] = {
-	{"isArchive", "()Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"isHidden", "()Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"isReadOnly", "()Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"isSystem", "()Z", nullptr, $PUBLIC | $ABSTRACT},
+	{"isArchive", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DosFileAttributes, isArchive, bool)},
+	{"isHidden", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DosFileAttributes, isHidden, bool)},
+	{"isReadOnly", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DosFileAttributes, isReadOnly, bool)},
+	{"isSystem", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DosFileAttributes, isSystem, bool)},
 	{}
 };
 

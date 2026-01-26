@@ -42,12 +42,12 @@ $MethodInfo _Hashtable$Enumerator_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/util/Hashtable;IZ)V", nullptr, 0, $method(static_cast<void(Hashtable$Enumerator::*)($Hashtable*,int32_t,bool)>(&Hashtable$Enumerator::init$))},
-	{"hasMoreElements", "()Z", nullptr, $PUBLIC},
-	{"hasNext", "()Z", nullptr, $PUBLIC},
-	{"next", "()Ljava/lang/Object;", "()TT;", $PUBLIC},
-	{"nextElement", "()Ljava/lang/Object;", "()TT;", $PUBLIC},
-	{"remove", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/Hashtable;IZ)V", nullptr, 0, $method(Hashtable$Enumerator, init$, void, $Hashtable*, int32_t, bool)},
+	{"hasMoreElements", "()Z", nullptr, $PUBLIC, $virtualMethod(Hashtable$Enumerator, hasMoreElements, bool)},
+	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(Hashtable$Enumerator, hasNext, bool)},
+	{"next", "()Ljava/lang/Object;", "()TT;", $PUBLIC, $virtualMethod(Hashtable$Enumerator, next, $Object*)},
+	{"nextElement", "()Ljava/lang/Object;", "()TT;", $PUBLIC, $virtualMethod(Hashtable$Enumerator, nextElement, $Object*)},
+	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(Hashtable$Enumerator, remove, void)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

@@ -21,10 +21,10 @@ $FieldInfo _ClassValue$Version_FieldInfo_[] = {
 };
 
 $MethodInfo _ClassValue$Version_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/ClassValue;)V", "(Ljava/lang/ClassValue<TT;>;)V", 0, $method(static_cast<void(ClassValue$Version::*)($ClassValue*)>(&ClassValue$Version::init$))},
-	{"classValue", "()Ljava/lang/ClassValue;", "()Ljava/lang/ClassValue<TT;>;", 0},
-	{"isLive", "()Z", nullptr, 0},
-	{"promise", "()Ljava/lang/ClassValue$Entry;", "()Ljava/lang/ClassValue$Entry<TT;>;", 0},
+	{"<init>", "(Ljava/lang/ClassValue;)V", "(Ljava/lang/ClassValue<TT;>;)V", 0, $method(ClassValue$Version, init$, void, $ClassValue*)},
+	{"classValue", "()Ljava/lang/ClassValue;", "()Ljava/lang/ClassValue<TT;>;", 0, $virtualMethod(ClassValue$Version, classValue, $ClassValue*)},
+	{"isLive", "()Z", nullptr, 0, $virtualMethod(ClassValue$Version, isLive, bool)},
+	{"promise", "()Ljava/lang/ClassValue$Entry;", "()Ljava/lang/ClassValue$Entry<TT;>;", 0, $virtualMethod(ClassValue$Version, promise, $ClassValue$Entry*)},
 	{}
 };
 

@@ -49,9 +49,9 @@ $FieldInfo _CertStatusExtension$CertStatusRequestSpec_FieldInfo_[] = {
 };
 
 $MethodInfo _CertStatusExtension$CertStatusRequestSpec_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/ssl/CertStatusExtension$CertStatusRequest;)V", nullptr, $PRIVATE, $method(static_cast<void(CertStatusExtension$CertStatusRequestSpec::*)($CertStatusExtension$CertStatusRequest*)>(&CertStatusExtension$CertStatusRequestSpec::init$))},
-	{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE, $method(static_cast<void(CertStatusExtension$CertStatusRequestSpec::*)($HandshakeContext*,$ByteBuffer*)>(&CertStatusExtension$CertStatusRequestSpec::init$)), "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/security/ssl/CertStatusExtension$CertStatusRequest;)V", nullptr, $PRIVATE, $method(CertStatusExtension$CertStatusRequestSpec, init$, void, $CertStatusExtension$CertStatusRequest*)},
+	{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE, $method(CertStatusExtension$CertStatusRequestSpec, init$, void, $HandshakeContext*, $ByteBuffer*), "java.io.IOException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CertStatusExtension$CertStatusRequestSpec, toString, $String*)},
 	{}
 };
 

@@ -21,10 +21,10 @@ $FieldInfo _AbstractConstantGroup_FieldInfo_[] = {
 $MethodInfo _AbstractConstantGroup_MethodInfo_[] = {
 	{"get", "(I)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
 	{"get", "(ILjava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
-	{"<init>", "(I)V", nullptr, 0, $method(static_cast<void(AbstractConstantGroup::*)(int32_t)>(&AbstractConstantGroup::init$))},
+	{"<init>", "(I)V", nullptr, 0, $method(AbstractConstantGroup, init$, void, int32_t)},
 	{"isPresent", "(I)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"size", "()I", nullptr, $PUBLIC | $FINAL},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"size", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractConstantGroup, size, int32_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractConstantGroup, toString, $String*)},
 	{}
 };
 

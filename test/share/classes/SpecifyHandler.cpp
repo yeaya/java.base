@@ -10,9 +10,9 @@ using $URL = ::java::net::URL;
 using $URLStreamHandler = ::java::net::URLStreamHandler;
 
 $MethodInfo _SpecifyHandler_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SpecifyHandler::*)()>(&SpecifyHandler::init$))},
-	{"getFileHandler", "()Ljava/net/URLStreamHandler;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$URLStreamHandler*(*)()>(&SpecifyHandler::getFileHandler)), "java.lang.Exception"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&SpecifyHandler::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SpecifyHandler, init$, void)},
+	{"getFileHandler", "()Ljava/net/URLStreamHandler;", nullptr, $PRIVATE | $STATIC, $staticMethod(SpecifyHandler, getFileHandler, $URLStreamHandler*), "java.lang.Exception"},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SpecifyHandler, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

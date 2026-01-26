@@ -16,7 +16,7 @@ $CompoundAttribute _ToLongBiFunction_Annotations_[] = {
 };
 
 $MethodInfo _ToLongBiFunction_MethodInfo_[] = {
-	{"applyAsLong", "(Ljava/lang/Object;Ljava/lang/Object;)J", "(TT;TU;)J", $PUBLIC | $ABSTRACT},
+	{"applyAsLong", "(Ljava/lang/Object;Ljava/lang/Object;)J", "(TT;TU;)J", $PUBLIC | $ABSTRACT, $virtualMethod(ToLongBiFunction, applyAsLong, int64_t, Object$*, Object$*)},
 	{}
 };
 

@@ -21,8 +21,8 @@ $FieldInfo _Class3_FieldInfo_[] = {
 };
 
 $MethodInfo _Class3_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Class3::*)()>(&Class3::init$))},
-	{"testAssert", "(Z)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Class3, init$, void)},
+	{"testAssert", "(Z)V", nullptr, $PUBLIC, $virtualMethod(Class3, testAssert, void, bool)},
 	{}
 };
 

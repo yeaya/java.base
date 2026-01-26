@@ -25,8 +25,8 @@ $FieldInfo _ModuleExportNode_FieldInfo_[] = {
 };
 
 $MethodInfo _ModuleExportNode_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;ILjava/util/List;)V", "(Ljava/lang/String;ILjava/util/List<Ljava/lang/String;>;)V", $PUBLIC, $method(static_cast<void(ModuleExportNode::*)($String*,int32_t,$List*)>(&ModuleExportNode::init$))},
-	{"accept", "(Ljdk/internal/org/objectweb/asm/ModuleVisitor;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;ILjava/util/List;)V", "(Ljava/lang/String;ILjava/util/List<Ljava/lang/String;>;)V", $PUBLIC, $method(ModuleExportNode, init$, void, $String*, int32_t, $List*)},
+	{"accept", "(Ljdk/internal/org/objectweb/asm/ModuleVisitor;)V", nullptr, $PUBLIC, $virtualMethod(ModuleExportNode, accept, void, $ModuleVisitor*)},
 	{}
 };
 

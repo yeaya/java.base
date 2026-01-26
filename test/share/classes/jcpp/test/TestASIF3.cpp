@@ -9,7 +9,7 @@ namespace jcpp {
 	namespace test {
 
 $MethodInfo _TestASIF3_MethodInfo_[] = {
-	{"get3", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
+	{"get3", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TestASIF3, get3, $String*)},
 	{}
 };
 

@@ -20,7 +20,7 @@ $FieldInfo _BidiBase$Point_FieldInfo_[] = {
 };
 
 $MethodInfo _BidiBase$Point_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(BidiBase$Point::*)()>(&BidiBase$Point::init$))},
+	{"<init>", "()V", nullptr, 0, $method(BidiBase$Point, init$, void)},
 	{}
 };
 

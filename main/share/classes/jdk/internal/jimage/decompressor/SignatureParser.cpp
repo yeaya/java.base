@@ -16,9 +16,9 @@ namespace jdk {
 			namespace decompressor {
 
 $MethodInfo _SignatureParser_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(SignatureParser::*)()>(&SignatureParser::init$))},
-	{"parseSignatureDescriptor", "(Ljava/lang/String;)Ljdk/internal/jimage/decompressor/SignatureParser$ParseResult;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$SignatureParser$ParseResult*(*)($String*)>(&SignatureParser::parseSignatureDescriptor))},
-	{"reconstruct", "(Ljava/lang/String;Ljava/util/List;)Ljava/lang/String;", "(Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;)Ljava/lang/String;", $PUBLIC | $STATIC, $method(static_cast<$String*(*)($String*,$List*)>(&SignatureParser::reconstruct))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(SignatureParser, init$, void)},
+	{"parseSignatureDescriptor", "(Ljava/lang/String;)Ljdk/internal/jimage/decompressor/SignatureParser$ParseResult;", nullptr, $PUBLIC | $STATIC, $staticMethod(SignatureParser, parseSignatureDescriptor, $SignatureParser$ParseResult*, $String*)},
+	{"reconstruct", "(Ljava/lang/String;Ljava/util/List;)Ljava/lang/String;", "(Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;)Ljava/lang/String;", $PUBLIC | $STATIC, $staticMethod(SignatureParser, reconstruct, $String*, $String*, $List*)},
 	{}
 };
 

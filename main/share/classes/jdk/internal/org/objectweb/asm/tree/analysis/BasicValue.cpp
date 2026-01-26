@@ -44,13 +44,13 @@ $FieldInfo _BasicValue_FieldInfo_[] = {
 };
 
 $MethodInfo _BasicValue_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/org/objectweb/asm/Type;)V", nullptr, $PUBLIC, $method(static_cast<void(BasicValue::*)($Type*)>(&BasicValue::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getSize", "()I", nullptr, $PUBLIC},
-	{"getType", "()Ljdk/internal/org/objectweb/asm/Type;", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"isReference", "()Z", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/org/objectweb/asm/Type;)V", nullptr, $PUBLIC, $method(BasicValue, init$, void, $Type*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(BasicValue, equals, bool, Object$*)},
+	{"getSize", "()I", nullptr, $PUBLIC, $virtualMethod(BasicValue, getSize, int32_t)},
+	{"getType", "()Ljdk/internal/org/objectweb/asm/Type;", nullptr, $PUBLIC, $virtualMethod(BasicValue, getType, $Type*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(BasicValue, hashCode, int32_t)},
+	{"isReference", "()Z", nullptr, $PUBLIC, $virtualMethod(BasicValue, isReference, bool)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BasicValue, toString, $String*)},
 	{}
 };
 

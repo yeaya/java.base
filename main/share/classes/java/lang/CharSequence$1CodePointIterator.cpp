@@ -25,11 +25,11 @@ $FieldInfo _CharSequence$1CodePointIterator_FieldInfo_[] = {
 };
 
 $MethodInfo _CharSequence$1CodePointIterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/CharSequence;)V", nullptr, 0, $method(static_cast<void(CharSequence$1CodePointIterator::*)($CharSequence*)>(&CharSequence$1CodePointIterator::init$))},
-	{"forEachRemaining", "(Ljava/util/function/IntConsumer;)V", nullptr, $PUBLIC},
-	{"forEachRemaining", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"hasNext", "()Z", nullptr, $PUBLIC},
-	{"nextInt", "()I", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/CharSequence;)V", nullptr, 0, $method(CharSequence$1CodePointIterator, init$, void, $CharSequence*)},
+	{"forEachRemaining", "(Ljava/util/function/IntConsumer;)V", nullptr, $PUBLIC, $virtualMethod(CharSequence$1CodePointIterator, forEachRemaining, void, $IntConsumer*)},
+	{"forEachRemaining", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(CharSequence$1CodePointIterator, forEachRemaining, void, Object$*)},
+	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(CharSequence$1CodePointIterator, hasNext, bool)},
+	{"nextInt", "()I", nullptr, $PUBLIC, $virtualMethod(CharSequence$1CodePointIterator, nextInt, int32_t)},
 	{}
 };
 

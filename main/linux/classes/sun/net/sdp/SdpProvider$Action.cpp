@@ -26,10 +26,10 @@ $FieldInfo _SdpProvider$Action_FieldInfo_[] = {
 };
 
 $MethodInfo _SdpProvider$Action_MethodInfo_[] = {
-	{"$values", "()[Lsun/net/sdp/SdpProvider$Action;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$SdpProvider$ActionArray*(*)()>(&SdpProvider$Action::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(SdpProvider$Action::*)($String*,int32_t)>(&SdpProvider$Action::init$))},
-	{"valueOf", "(Ljava/lang/String;)Lsun/net/sdp/SdpProvider$Action;", nullptr, $PUBLIC | $STATIC, $method(static_cast<SdpProvider$Action*(*)($String*)>(&SdpProvider$Action::valueOf))},
-	{"values", "()[Lsun/net/sdp/SdpProvider$Action;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$SdpProvider$ActionArray*(*)()>(&SdpProvider$Action::values))},
+	{"$values", "()[Lsun/net/sdp/SdpProvider$Action;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SdpProvider$Action, $values, $SdpProvider$ActionArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(SdpProvider$Action, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Lsun/net/sdp/SdpProvider$Action;", nullptr, $PUBLIC | $STATIC, $staticMethod(SdpProvider$Action, valueOf, SdpProvider$Action*, $String*)},
+	{"values", "()[Lsun/net/sdp/SdpProvider$Action;", nullptr, $PUBLIC | $STATIC, $staticMethod(SdpProvider$Action, values, $SdpProvider$ActionArray*)},
 	{}
 };
 

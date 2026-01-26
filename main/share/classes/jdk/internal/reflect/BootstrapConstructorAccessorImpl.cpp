@@ -31,8 +31,8 @@ $FieldInfo _BootstrapConstructorAccessorImpl_FieldInfo_[] = {
 };
 
 $MethodInfo _BootstrapConstructorAccessorImpl_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/reflect/Constructor;)V", "(Ljava/lang/reflect/Constructor<*>;)V", 0, $method(static_cast<void(BootstrapConstructorAccessorImpl::*)($Constructor*)>(&BootstrapConstructorAccessorImpl::init$))},
-	{"newInstance", "([Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, nullptr, "java.lang.IllegalArgumentException,java.lang.reflect.InvocationTargetException"},
+	{"<init>", "(Ljava/lang/reflect/Constructor;)V", "(Ljava/lang/reflect/Constructor<*>;)V", 0, $method(BootstrapConstructorAccessorImpl, init$, void, $Constructor*)},
+	{"newInstance", "([Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(BootstrapConstructorAccessorImpl, newInstance, $Object*, $ObjectArray*), "java.lang.IllegalArgumentException,java.lang.reflect.InvocationTargetException"},
 	{}
 };
 

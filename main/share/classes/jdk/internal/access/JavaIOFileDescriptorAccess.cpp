@@ -4,24 +4,26 @@
 #include <jdk/internal/ref/PhantomCleanable.h>
 #include <jcpp.h>
 
+using $FileDescriptor = ::java::io::FileDescriptor;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $PhantomCleanable = ::jdk::internal::ref::PhantomCleanable;
 
 namespace jdk {
 	namespace internal {
 		namespace access {
 
 $MethodInfo _JavaIOFileDescriptorAccess_MethodInfo_[] = {
-	{"close", "(Ljava/io/FileDescriptor;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"get", "(Ljava/io/FileDescriptor;)I", nullptr, $PUBLIC | $ABSTRACT},
-	{"getAppend", "(Ljava/io/FileDescriptor;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"getHandle", "(Ljava/io/FileDescriptor;)J", nullptr, $PUBLIC | $ABSTRACT},
-	{"registerCleanup", "(Ljava/io/FileDescriptor;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"registerCleanup", "(Ljava/io/FileDescriptor;Ljdk/internal/ref/PhantomCleanable;)V", "(Ljava/io/FileDescriptor;Ljdk/internal/ref/PhantomCleanable<Ljava/io/FileDescriptor;>;)V", $PUBLIC | $ABSTRACT},
-	{"set", "(Ljava/io/FileDescriptor;I)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"setAppend", "(Ljava/io/FileDescriptor;Z)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"setHandle", "(Ljava/io/FileDescriptor;J)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"unregisterCleanup", "(Ljava/io/FileDescriptor;)V", nullptr, $PUBLIC | $ABSTRACT},
+	{"close", "(Ljava/io/FileDescriptor;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JavaIOFileDescriptorAccess, close, void, $FileDescriptor*), "java.io.IOException"},
+	{"get", "(Ljava/io/FileDescriptor;)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JavaIOFileDescriptorAccess, get, int32_t, $FileDescriptor*)},
+	{"getAppend", "(Ljava/io/FileDescriptor;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JavaIOFileDescriptorAccess, getAppend, bool, $FileDescriptor*)},
+	{"getHandle", "(Ljava/io/FileDescriptor;)J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JavaIOFileDescriptorAccess, getHandle, int64_t, $FileDescriptor*)},
+	{"registerCleanup", "(Ljava/io/FileDescriptor;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JavaIOFileDescriptorAccess, registerCleanup, void, $FileDescriptor*)},
+	{"registerCleanup", "(Ljava/io/FileDescriptor;Ljdk/internal/ref/PhantomCleanable;)V", "(Ljava/io/FileDescriptor;Ljdk/internal/ref/PhantomCleanable<Ljava/io/FileDescriptor;>;)V", $PUBLIC | $ABSTRACT, $virtualMethod(JavaIOFileDescriptorAccess, registerCleanup, void, $FileDescriptor*, $PhantomCleanable*)},
+	{"set", "(Ljava/io/FileDescriptor;I)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JavaIOFileDescriptorAccess, set, void, $FileDescriptor*, int32_t)},
+	{"setAppend", "(Ljava/io/FileDescriptor;Z)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JavaIOFileDescriptorAccess, setAppend, void, $FileDescriptor*, bool)},
+	{"setHandle", "(Ljava/io/FileDescriptor;J)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JavaIOFileDescriptorAccess, setHandle, void, $FileDescriptor*, int64_t)},
+	{"unregisterCleanup", "(Ljava/io/FileDescriptor;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JavaIOFileDescriptorAccess, unregisterCleanup, void, $FileDescriptor*)},
 	{}
 };
 

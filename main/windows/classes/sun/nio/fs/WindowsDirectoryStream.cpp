@@ -48,9 +48,9 @@ $FieldInfo _WindowsDirectoryStream_FieldInfo_[] = {
 };
 
 $MethodInfo _WindowsDirectoryStream_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/fs/WindowsPath;Ljava/nio/file/DirectoryStream$Filter;)V", "(Lsun/nio/fs/WindowsPath;Ljava/nio/file/DirectoryStream$Filter<-Ljava/nio/file/Path;>;)V", 0, $method(static_cast<void(WindowsDirectoryStream::*)($WindowsPath*,$DirectoryStream$Filter*)>(&WindowsDirectoryStream::init$)), "java.io.IOException"},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/nio/file/Path;>;", $PUBLIC},
+	{"<init>", "(Lsun/nio/fs/WindowsPath;Ljava/nio/file/DirectoryStream$Filter;)V", "(Lsun/nio/fs/WindowsPath;Ljava/nio/file/DirectoryStream$Filter<-Ljava/nio/file/Path;>;)V", 0, $method(WindowsDirectoryStream, init$, void, $WindowsPath*, $DirectoryStream$Filter*), "java.io.IOException"},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(WindowsDirectoryStream, close, void), "java.io.IOException"},
+	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/nio/file/Path;>;", $PUBLIC, $virtualMethod(WindowsDirectoryStream, iterator, $Iterator*)},
 	{}
 };
 

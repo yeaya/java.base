@@ -9,8 +9,8 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $InetSocketAddress = ::java::net::InetSocketAddress;
 
 $MethodInfo _B6469803_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(B6469803::*)()>(&B6469803::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&B6469803::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(B6469803, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(B6469803, main, void, $StringArray*)},
 	{}
 };
 

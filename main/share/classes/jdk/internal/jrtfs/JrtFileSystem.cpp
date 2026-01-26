@@ -158,8 +158,8 @@ $FieldInfo JrtFileSystem$$Lambda$lambda$getPathMatcher$0::fieldInfos[2] = {
 	{}
 };
 $MethodInfo JrtFileSystem$$Lambda$lambda$getPathMatcher$0::methodInfos[3] = {
-	{"<init>", "(Ljava/util/regex/Pattern;)V", nullptr, $PUBLIC, $method(static_cast<void(JrtFileSystem$$Lambda$lambda$getPathMatcher$0::*)($Pattern*)>(&JrtFileSystem$$Lambda$lambda$getPathMatcher$0::init$))},
-	{"matches", "(Ljava/nio/file/Path;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/regex/Pattern;)V", nullptr, $PUBLIC, $method(JrtFileSystem$$Lambda$lambda$getPathMatcher$0, init$, void, $Pattern*)},
+	{"matches", "(Ljava/nio/file/Path;)Z", nullptr, $PUBLIC, $virtualMethod(JrtFileSystem$$Lambda$lambda$getPathMatcher$0, matches, bool, $Path*)},
 	{}
 };
 $ClassInfo JrtFileSystem$$Lambda$lambda$getPathMatcher$0::classInfo$ = {
@@ -201,8 +201,8 @@ $FieldInfo JrtFileSystem$$Lambda$lambda$iteratorOf$1$1::fieldInfos[3] = {
 	{}
 };
 $MethodInfo JrtFileSystem$$Lambda$lambda$iteratorOf$1$1::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/jrtfs/JrtFileSystem;Ljdk/internal/jrtfs/JrtPath;)V", nullptr, $PUBLIC, $method(static_cast<void(JrtFileSystem$$Lambda$lambda$iteratorOf$1$1::*)(JrtFileSystem*,$JrtPath*)>(&JrtFileSystem$$Lambda$lambda$iteratorOf$1$1::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/jrtfs/JrtFileSystem;Ljdk/internal/jrtfs/JrtPath;)V", nullptr, $PUBLIC, $method(JrtFileSystem$$Lambda$lambda$iteratorOf$1$1, init$, void, JrtFileSystem*, $JrtPath*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JrtFileSystem$$Lambda$lambda$iteratorOf$1$1, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo JrtFileSystem$$Lambda$lambda$iteratorOf$1$1::classInfo$ = {
@@ -241,8 +241,8 @@ $FieldInfo JrtFileSystem$$Lambda$lambda$iteratorOf$3$2::fieldInfos[2] = {
 	{}
 };
 $MethodInfo JrtFileSystem$$Lambda$lambda$iteratorOf$3$2::methodInfos[3] = {
-	{"<init>", "(Ljava/nio/file/DirectoryStream$Filter;)V", nullptr, $PUBLIC, $method(static_cast<void(JrtFileSystem$$Lambda$lambda$iteratorOf$3$2::*)($DirectoryStream$Filter*)>(&JrtFileSystem$$Lambda$lambda$iteratorOf$3$2::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/nio/file/DirectoryStream$Filter;)V", nullptr, $PUBLIC, $method(JrtFileSystem$$Lambda$lambda$iteratorOf$3$2, init$, void, $DirectoryStream$Filter*)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(JrtFileSystem$$Lambda$lambda$iteratorOf$3$2, test, bool, Object$*)},
 	{}
 };
 $ClassInfo JrtFileSystem$$Lambda$lambda$iteratorOf$3$2::classInfo$ = {
@@ -270,50 +270,50 @@ $FieldInfo _JrtFileSystem_FieldInfo_[] = {
 };
 
 $MethodInfo _JrtFileSystem_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/jrtfs/JrtFileSystemProvider;Ljava/util/Map;)V", "(Ljdk/internal/jrtfs/JrtFileSystemProvider;Ljava/util/Map<Ljava/lang/String;*>;)V", 0, $method(static_cast<void(JrtFileSystem::*)($JrtFileSystemProvider*,$Map*)>(&JrtFileSystem::init$)), "java.io.IOException"},
-	{"checkNode", "(Ljdk/internal/jrtfs/JrtPath;)Ljdk/internal/jimage/ImageReader$Node;", nullptr, 0, nullptr, "java.io.IOException"},
-	{"checkOptions", "(Ljava/util/Set;)V", "(Ljava/util/Set<+Ljava/nio/file/OpenOption;>;)V", $STATIC, $method(static_cast<void(*)($Set*)>(&JrtFileSystem::checkOptions))},
-	{"cleanup", "()V", nullptr, $SYNCHRONIZED, nullptr, "java.io.IOException"},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"copyFile", "(ZLjdk/internal/jrtfs/JrtPath;Ljdk/internal/jrtfs/JrtPath;[Ljava/nio/file/CopyOption;)V", nullptr, $FINAL | $TRANSIENT, $method(static_cast<void(JrtFileSystem::*)(bool,$JrtPath*,$JrtPath*,$CopyOptionArray*)>(&JrtFileSystem::copyFile)), "java.io.IOException"},
-	{"createDirectory", "(Ljdk/internal/jrtfs/JrtPath;[Ljava/nio/file/attribute/FileAttribute;)V", "(Ljdk/internal/jrtfs/JrtPath;[Ljava/nio/file/attribute/FileAttribute<*>;)V", $FINAL | $TRANSIENT, $method(static_cast<void(JrtFileSystem::*)($JrtPath*,$FileAttributeArray*)>(&JrtFileSystem::createDirectory)), "java.io.IOException"},
-	{"deleteFile", "(Ljdk/internal/jrtfs/JrtPath;Z)V", nullptr, $FINAL, $method(static_cast<void(JrtFileSystem::*)($JrtPath*,bool)>(&JrtFileSystem::deleteFile)), "java.io.IOException"},
-	{"ensureOpen", "()V", nullptr, $FINAL, $method(static_cast<void(JrtFileSystem::*)()>(&JrtFileSystem::ensureOpen)), "java.io.IOException"},
-	{"exists", "(Ljdk/internal/jrtfs/JrtPath;)Z", nullptr, 0, nullptr, "java.io.IOException"},
-	{"followLinks", "([Ljava/nio/file/LinkOption;)Z", nullptr, $STATIC | $TRANSIENT, $method(static_cast<bool(*)($LinkOptionArray*)>(&JrtFileSystem::followLinks))},
-	{"getFileAttributes", "(Ljdk/internal/jrtfs/JrtPath;[Ljava/nio/file/LinkOption;)Ljdk/internal/jrtfs/JrtFileAttributes;", nullptr, $TRANSIENT, nullptr, "java.io.IOException"},
-	{"getFileContent", "(Ljdk/internal/jrtfs/JrtPath;)[B", nullptr, 0, nullptr, "java.io.IOException"},
-	{"getFileStore", "(Ljdk/internal/jrtfs/JrtPath;)Ljdk/internal/jrtfs/JrtFileStore;", nullptr, $FINAL, $method(static_cast<$JrtFileStore*(JrtFileSystem::*)($JrtPath*)>(&JrtFileSystem::getFileStore))},
-	{"getFileStores", "()Ljava/lang/Iterable;", "()Ljava/lang/Iterable<Ljava/nio/file/FileStore;>;", $PUBLIC | $FINAL},
-	{"getPath", "(Ljava/lang/String;[Ljava/lang/String;)Ljdk/internal/jrtfs/JrtPath;", nullptr, $PUBLIC | $TRANSIENT},
-	{"getPathMatcher", "(Ljava/lang/String;)Ljava/nio/file/PathMatcher;", nullptr, $PUBLIC},
-	{"getRootDirectories", "()Ljava/lang/Iterable;", "()Ljava/lang/Iterable<Ljava/nio/file/Path;>;", $PUBLIC},
-	{"getRootPath", "()Ljdk/internal/jrtfs/JrtPath;", nullptr, $FINAL, $method(static_cast<$JrtPath*(JrtFileSystem::*)()>(&JrtFileSystem::getRootPath))},
-	{"getSeparator", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL},
-	{"getUserPrincipalLookupService", "()Ljava/nio/file/attribute/UserPrincipalLookupService;", nullptr, $PUBLIC | $FINAL},
-	{"isDirectory", "(Ljdk/internal/jrtfs/JrtPath;Z)Z", nullptr, 0, nullptr, "java.io.IOException"},
-	{"isLink", "(Ljdk/internal/jrtfs/JrtPath;)Z", nullptr, 0, nullptr, "java.io.IOException"},
-	{"isOpen", "()Z", nullptr, $PUBLIC},
-	{"isReadOnly", "()Z", nullptr, $PUBLIC | $FINAL},
-	{"isSameFile", "(Ljdk/internal/jrtfs/JrtPath;Ljdk/internal/jrtfs/JrtPath;)Z", nullptr, 0, nullptr, "java.io.IOException"},
-	{"iteratorOf", "(Ljdk/internal/jrtfs/JrtPath;Ljava/nio/file/DirectoryStream$Filter;)Ljava/util/Iterator;", "(Ljdk/internal/jrtfs/JrtPath;Ljava/nio/file/DirectoryStream$Filter<-Ljava/nio/file/Path;>;)Ljava/util/Iterator<Ljava/nio/file/Path;>;", 0, nullptr, "java.io.IOException"},
-	{"lambda$getPathMatcher$0", "(Ljava/util/regex/Pattern;Ljava/nio/file/Path;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($Pattern*,$Path*)>(&JrtFileSystem::lambda$getPathMatcher$0))},
-	{"lambda$iteratorOf$1", "(Ljdk/internal/jrtfs/JrtPath;Ljdk/internal/jimage/ImageReader$Node;)Ljava/nio/file/Path;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$Path*(JrtFileSystem::*)($JrtPath*,$ImageReader$Node*)>(&JrtFileSystem::lambda$iteratorOf$1))},
-	{"lambda$iteratorOf$3", "(Ljava/nio/file/DirectoryStream$Filter;Ljava/nio/file/Path;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($DirectoryStream$Filter*,$Path*)>(&JrtFileSystem::lambda$iteratorOf$3))},
-	{"lookup", "(Ljava/lang/String;)Ljdk/internal/jimage/ImageReader$Node;", nullptr, $PRIVATE, $method(static_cast<$ImageReader$Node*(JrtFileSystem::*)($String*)>(&JrtFileSystem::lookup))},
-	{"lookupSymbolic", "(Ljava/lang/String;)Ljdk/internal/jimage/ImageReader$Node;", nullptr, $PRIVATE, $method(static_cast<$ImageReader$Node*(JrtFileSystem::*)($String*)>(&JrtFileSystem::lookupSymbolic))},
-	{"newByteChannel", "(Ljdk/internal/jrtfs/JrtPath;Ljava/util/Set;[Ljava/nio/file/attribute/FileAttribute;)Ljava/nio/channels/SeekableByteChannel;", "(Ljdk/internal/jrtfs/JrtPath;Ljava/util/Set<+Ljava/nio/file/OpenOption;>;[Ljava/nio/file/attribute/FileAttribute<*>;)Ljava/nio/channels/SeekableByteChannel;", $FINAL | $TRANSIENT, $method(static_cast<$SeekableByteChannel*(JrtFileSystem::*)($JrtPath*,$Set*,$FileAttributeArray*)>(&JrtFileSystem::newByteChannel)), "java.io.IOException"},
-	{"newFileChannel", "(Ljdk/internal/jrtfs/JrtPath;Ljava/util/Set;[Ljava/nio/file/attribute/FileAttribute;)Ljava/nio/channels/FileChannel;", "(Ljdk/internal/jrtfs/JrtPath;Ljava/util/Set<+Ljava/nio/file/OpenOption;>;[Ljava/nio/file/attribute/FileAttribute<*>;)Ljava/nio/channels/FileChannel;", $FINAL | $TRANSIENT, $method(static_cast<$FileChannel*(JrtFileSystem::*)($JrtPath*,$Set*,$FileAttributeArray*)>(&JrtFileSystem::newFileChannel)), "java.io.IOException"},
-	{"newInputStream", "(Ljdk/internal/jrtfs/JrtPath;)Ljava/io/InputStream;", nullptr, $FINAL, $method(static_cast<$InputStream*(JrtFileSystem::*)($JrtPath*)>(&JrtFileSystem::newInputStream)), "java.io.IOException"},
-	{"newOutputStream", "(Ljdk/internal/jrtfs/JrtPath;[Ljava/nio/file/OpenOption;)Ljava/io/OutputStream;", nullptr, $FINAL | $TRANSIENT, $method(static_cast<$OutputStream*(JrtFileSystem::*)($JrtPath*,$OpenOptionArray*)>(&JrtFileSystem::newOutputStream)), "java.io.IOException"},
-	{"newWatchService", "()Ljava/nio/file/WatchService;", nullptr, $PUBLIC | $FINAL},
-	{"provider", "()Ljava/nio/file/spi/FileSystemProvider;", nullptr, $PUBLIC},
-	{"readOnly", "()Ljava/nio/file/ReadOnlyFileSystemException;", nullptr, $STATIC, $method(static_cast<$ReadOnlyFileSystemException*(*)()>(&JrtFileSystem::readOnly))},
-	{"resolveLink", "(Ljdk/internal/jrtfs/JrtPath;)Ljdk/internal/jrtfs/JrtPath;", nullptr, 0, nullptr, "java.io.IOException"},
-	{"setTimes", "(Ljdk/internal/jrtfs/JrtPath;Ljava/nio/file/attribute/FileTime;Ljava/nio/file/attribute/FileTime;Ljava/nio/file/attribute/FileTime;)V", nullptr, $FINAL, $method(static_cast<void(JrtFileSystem::*)($JrtPath*,$FileTime*,$FileTime*,$FileTime*)>(&JrtFileSystem::setTimes)), "java.io.IOException"},
-	{"supportedFileAttributeViews", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC | $FINAL},
-	{"toRealPath", "(Ljdk/internal/jrtfs/JrtPath;[Ljava/nio/file/LinkOption;)Ljdk/internal/jrtfs/JrtPath;", nullptr, $TRANSIENT, nullptr, "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL},
+	{"<init>", "(Ljdk/internal/jrtfs/JrtFileSystemProvider;Ljava/util/Map;)V", "(Ljdk/internal/jrtfs/JrtFileSystemProvider;Ljava/util/Map<Ljava/lang/String;*>;)V", 0, $method(JrtFileSystem, init$, void, $JrtFileSystemProvider*, $Map*), "java.io.IOException"},
+	{"checkNode", "(Ljdk/internal/jrtfs/JrtPath;)Ljdk/internal/jimage/ImageReader$Node;", nullptr, 0, $virtualMethod(JrtFileSystem, checkNode, $ImageReader$Node*, $JrtPath*), "java.io.IOException"},
+	{"checkOptions", "(Ljava/util/Set;)V", "(Ljava/util/Set<+Ljava/nio/file/OpenOption;>;)V", $STATIC, $staticMethod(JrtFileSystem, checkOptions, void, $Set*)},
+	{"cleanup", "()V", nullptr, $SYNCHRONIZED, $virtualMethod(JrtFileSystem, cleanup, void), "java.io.IOException"},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(JrtFileSystem, close, void), "java.io.IOException"},
+	{"copyFile", "(ZLjdk/internal/jrtfs/JrtPath;Ljdk/internal/jrtfs/JrtPath;[Ljava/nio/file/CopyOption;)V", nullptr, $FINAL | $TRANSIENT, $method(JrtFileSystem, copyFile, void, bool, $JrtPath*, $JrtPath*, $CopyOptionArray*), "java.io.IOException"},
+	{"createDirectory", "(Ljdk/internal/jrtfs/JrtPath;[Ljava/nio/file/attribute/FileAttribute;)V", "(Ljdk/internal/jrtfs/JrtPath;[Ljava/nio/file/attribute/FileAttribute<*>;)V", $FINAL | $TRANSIENT, $method(JrtFileSystem, createDirectory, void, $JrtPath*, $FileAttributeArray*), "java.io.IOException"},
+	{"deleteFile", "(Ljdk/internal/jrtfs/JrtPath;Z)V", nullptr, $FINAL, $method(JrtFileSystem, deleteFile, void, $JrtPath*, bool), "java.io.IOException"},
+	{"ensureOpen", "()V", nullptr, $FINAL, $method(JrtFileSystem, ensureOpen, void), "java.io.IOException"},
+	{"exists", "(Ljdk/internal/jrtfs/JrtPath;)Z", nullptr, 0, $virtualMethod(JrtFileSystem, exists, bool, $JrtPath*), "java.io.IOException"},
+	{"followLinks", "([Ljava/nio/file/LinkOption;)Z", nullptr, $STATIC | $TRANSIENT, $staticMethod(JrtFileSystem, followLinks, bool, $LinkOptionArray*)},
+	{"getFileAttributes", "(Ljdk/internal/jrtfs/JrtPath;[Ljava/nio/file/LinkOption;)Ljdk/internal/jrtfs/JrtFileAttributes;", nullptr, $TRANSIENT, $virtualMethod(JrtFileSystem, getFileAttributes, $JrtFileAttributes*, $JrtPath*, $LinkOptionArray*), "java.io.IOException"},
+	{"getFileContent", "(Ljdk/internal/jrtfs/JrtPath;)[B", nullptr, 0, $virtualMethod(JrtFileSystem, getFileContent, $bytes*, $JrtPath*), "java.io.IOException"},
+	{"getFileStore", "(Ljdk/internal/jrtfs/JrtPath;)Ljdk/internal/jrtfs/JrtFileStore;", nullptr, $FINAL, $method(JrtFileSystem, getFileStore, $JrtFileStore*, $JrtPath*)},
+	{"getFileStores", "()Ljava/lang/Iterable;", "()Ljava/lang/Iterable<Ljava/nio/file/FileStore;>;", $PUBLIC | $FINAL, $virtualMethod(JrtFileSystem, getFileStores, $Iterable*)},
+	{"getPath", "(Ljava/lang/String;[Ljava/lang/String;)Ljdk/internal/jrtfs/JrtPath;", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(JrtFileSystem, getPath, $Path*, $String*, $StringArray*)},
+	{"getPathMatcher", "(Ljava/lang/String;)Ljava/nio/file/PathMatcher;", nullptr, $PUBLIC, $virtualMethod(JrtFileSystem, getPathMatcher, $PathMatcher*, $String*)},
+	{"getRootDirectories", "()Ljava/lang/Iterable;", "()Ljava/lang/Iterable<Ljava/nio/file/Path;>;", $PUBLIC, $virtualMethod(JrtFileSystem, getRootDirectories, $Iterable*)},
+	{"getRootPath", "()Ljdk/internal/jrtfs/JrtPath;", nullptr, $FINAL, $method(JrtFileSystem, getRootPath, $JrtPath*)},
+	{"getSeparator", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(JrtFileSystem, getSeparator, $String*)},
+	{"getUserPrincipalLookupService", "()Ljava/nio/file/attribute/UserPrincipalLookupService;", nullptr, $PUBLIC | $FINAL, $virtualMethod(JrtFileSystem, getUserPrincipalLookupService, $UserPrincipalLookupService*)},
+	{"isDirectory", "(Ljdk/internal/jrtfs/JrtPath;Z)Z", nullptr, 0, $virtualMethod(JrtFileSystem, isDirectory, bool, $JrtPath*, bool), "java.io.IOException"},
+	{"isLink", "(Ljdk/internal/jrtfs/JrtPath;)Z", nullptr, 0, $virtualMethod(JrtFileSystem, isLink, bool, $JrtPath*), "java.io.IOException"},
+	{"isOpen", "()Z", nullptr, $PUBLIC, $virtualMethod(JrtFileSystem, isOpen, bool)},
+	{"isReadOnly", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(JrtFileSystem, isReadOnly, bool)},
+	{"isSameFile", "(Ljdk/internal/jrtfs/JrtPath;Ljdk/internal/jrtfs/JrtPath;)Z", nullptr, 0, $virtualMethod(JrtFileSystem, isSameFile, bool, $JrtPath*, $JrtPath*), "java.io.IOException"},
+	{"iteratorOf", "(Ljdk/internal/jrtfs/JrtPath;Ljava/nio/file/DirectoryStream$Filter;)Ljava/util/Iterator;", "(Ljdk/internal/jrtfs/JrtPath;Ljava/nio/file/DirectoryStream$Filter<-Ljava/nio/file/Path;>;)Ljava/util/Iterator<Ljava/nio/file/Path;>;", 0, $virtualMethod(JrtFileSystem, iteratorOf, $Iterator*, $JrtPath*, $DirectoryStream$Filter*), "java.io.IOException"},
+	{"lambda$getPathMatcher$0", "(Ljava/util/regex/Pattern;Ljava/nio/file/Path;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JrtFileSystem, lambda$getPathMatcher$0, bool, $Pattern*, $Path*)},
+	{"lambda$iteratorOf$1", "(Ljdk/internal/jrtfs/JrtPath;Ljdk/internal/jimage/ImageReader$Node;)Ljava/nio/file/Path;", nullptr, $PRIVATE | $SYNTHETIC, $method(JrtFileSystem, lambda$iteratorOf$1, $Path*, $JrtPath*, $ImageReader$Node*)},
+	{"lambda$iteratorOf$3", "(Ljava/nio/file/DirectoryStream$Filter;Ljava/nio/file/Path;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JrtFileSystem, lambda$iteratorOf$3, bool, $DirectoryStream$Filter*, $Path*)},
+	{"lookup", "(Ljava/lang/String;)Ljdk/internal/jimage/ImageReader$Node;", nullptr, $PRIVATE, $method(JrtFileSystem, lookup, $ImageReader$Node*, $String*)},
+	{"lookupSymbolic", "(Ljava/lang/String;)Ljdk/internal/jimage/ImageReader$Node;", nullptr, $PRIVATE, $method(JrtFileSystem, lookupSymbolic, $ImageReader$Node*, $String*)},
+	{"newByteChannel", "(Ljdk/internal/jrtfs/JrtPath;Ljava/util/Set;[Ljava/nio/file/attribute/FileAttribute;)Ljava/nio/channels/SeekableByteChannel;", "(Ljdk/internal/jrtfs/JrtPath;Ljava/util/Set<+Ljava/nio/file/OpenOption;>;[Ljava/nio/file/attribute/FileAttribute<*>;)Ljava/nio/channels/SeekableByteChannel;", $FINAL | $TRANSIENT, $method(JrtFileSystem, newByteChannel, $SeekableByteChannel*, $JrtPath*, $Set*, $FileAttributeArray*), "java.io.IOException"},
+	{"newFileChannel", "(Ljdk/internal/jrtfs/JrtPath;Ljava/util/Set;[Ljava/nio/file/attribute/FileAttribute;)Ljava/nio/channels/FileChannel;", "(Ljdk/internal/jrtfs/JrtPath;Ljava/util/Set<+Ljava/nio/file/OpenOption;>;[Ljava/nio/file/attribute/FileAttribute<*>;)Ljava/nio/channels/FileChannel;", $FINAL | $TRANSIENT, $method(JrtFileSystem, newFileChannel, $FileChannel*, $JrtPath*, $Set*, $FileAttributeArray*), "java.io.IOException"},
+	{"newInputStream", "(Ljdk/internal/jrtfs/JrtPath;)Ljava/io/InputStream;", nullptr, $FINAL, $method(JrtFileSystem, newInputStream, $InputStream*, $JrtPath*), "java.io.IOException"},
+	{"newOutputStream", "(Ljdk/internal/jrtfs/JrtPath;[Ljava/nio/file/OpenOption;)Ljava/io/OutputStream;", nullptr, $FINAL | $TRANSIENT, $method(JrtFileSystem, newOutputStream, $OutputStream*, $JrtPath*, $OpenOptionArray*), "java.io.IOException"},
+	{"newWatchService", "()Ljava/nio/file/WatchService;", nullptr, $PUBLIC | $FINAL, $virtualMethod(JrtFileSystem, newWatchService, $WatchService*)},
+	{"provider", "()Ljava/nio/file/spi/FileSystemProvider;", nullptr, $PUBLIC, $virtualMethod(JrtFileSystem, provider, $FileSystemProvider*)},
+	{"readOnly", "()Ljava/nio/file/ReadOnlyFileSystemException;", nullptr, $STATIC, $staticMethod(JrtFileSystem, readOnly, $ReadOnlyFileSystemException*)},
+	{"resolveLink", "(Ljdk/internal/jrtfs/JrtPath;)Ljdk/internal/jrtfs/JrtPath;", nullptr, 0, $virtualMethod(JrtFileSystem, resolveLink, $JrtPath*, $JrtPath*), "java.io.IOException"},
+	{"setTimes", "(Ljdk/internal/jrtfs/JrtPath;Ljava/nio/file/attribute/FileTime;Ljava/nio/file/attribute/FileTime;Ljava/nio/file/attribute/FileTime;)V", nullptr, $FINAL, $method(JrtFileSystem, setTimes, void, $JrtPath*, $FileTime*, $FileTime*, $FileTime*), "java.io.IOException"},
+	{"supportedFileAttributeViews", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC | $FINAL, $virtualMethod(JrtFileSystem, supportedFileAttributeViews, $Set*)},
+	{"toRealPath", "(Ljdk/internal/jrtfs/JrtPath;[Ljava/nio/file/LinkOption;)Ljdk/internal/jrtfs/JrtPath;", nullptr, $TRANSIENT, $virtualMethod(JrtFileSystem, toRealPath, $JrtPath*, $JrtPath*, $LinkOptionArray*), "java.io.IOException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(JrtFileSystem, toString, $String*)},
 	{}
 };
 

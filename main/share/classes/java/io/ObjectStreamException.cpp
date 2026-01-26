@@ -17,8 +17,8 @@ $FieldInfo _ObjectStreamException_FieldInfo_[] = {
 };
 
 $MethodInfo _ObjectStreamException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $method(static_cast<void(ObjectStreamException::*)($String*)>(&ObjectStreamException::init$))},
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(ObjectStreamException::*)()>(&ObjectStreamException::init$))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $method(ObjectStreamException, init$, void, $String*)},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(ObjectStreamException, init$, void)},
 	{}
 };
 

@@ -20,11 +20,11 @@ $FieldInfo _PatternSyntaxException_FieldInfo_[] = {
 };
 
 $MethodInfo _PatternSyntaxException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(static_cast<void(PatternSyntaxException::*)($String*,$String*,int32_t)>(&PatternSyntaxException::init$))},
-	{"getDescription", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getIndex", "()I", nullptr, $PUBLIC},
-	{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getPattern", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(PatternSyntaxException, init$, void, $String*, $String*, int32_t)},
+	{"getDescription", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PatternSyntaxException, getDescription, $String*)},
+	{"getIndex", "()I", nullptr, $PUBLIC, $virtualMethod(PatternSyntaxException, getIndex, int32_t)},
+	{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PatternSyntaxException, getMessage, $String*)},
+	{"getPattern", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PatternSyntaxException, getPattern, $String*)},
 	{}
 };
 

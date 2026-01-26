@@ -23,8 +23,8 @@ using $BreakIterator = ::java::text::BreakIterator;
 using $Locale = ::java::util::Locale;
 
 $MethodInfo _NewVSOld_th_TH_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(NewVSOld_th_TH::*)()>(&NewVSOld_th_TH::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&NewVSOld_th_TH::main)), "java.io.FileNotFoundException,java.io.UnsupportedEncodingException,java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(NewVSOld_th_TH, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(NewVSOld_th_TH, main, void, $StringArray*), "java.io.FileNotFoundException,java.io.UnsupportedEncodingException,java.io.IOException"},
 	{}
 };
 

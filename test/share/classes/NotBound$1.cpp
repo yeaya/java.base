@@ -27,8 +27,8 @@ $FieldInfo _NotBound$1_FieldInfo_[] = {
 };
 
 $MethodInfo _NotBound$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/channels/DatagramChannel;)V", "()V", 0, $method(static_cast<void(NotBound$1::*)($DatagramChannel*)>(&NotBound$1::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/nio/channels/DatagramChannel;)V", "()V", 0, $method(NotBound$1, init$, void, $DatagramChannel*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(NotBound$1, run, void)},
 	{}
 };
 

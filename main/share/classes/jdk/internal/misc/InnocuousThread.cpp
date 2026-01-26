@@ -70,19 +70,19 @@ $FieldInfo _InnocuousThread_FieldInfo_[] = {
 };
 
 $MethodInfo _InnocuousThread_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/ThreadGroup;Ljava/lang/Runnable;Ljava/lang/String;Ljava/lang/ClassLoader;)V", nullptr, $PRIVATE, $method(static_cast<void(InnocuousThread::*)($ThreadGroup*,$Runnable*,$String*,$ClassLoader*)>(&InnocuousThread::init$))},
-	{"createThread", "(Ljava/lang/String;Ljava/lang/Runnable;Ljava/lang/ClassLoader;I)Ljava/lang/Thread;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$Thread*(*)($String*,$Runnable*,$ClassLoader*,int32_t)>(&InnocuousThread::createThread))},
-	{"eraseThreadLocals", "()V", nullptr, $PUBLIC | $FINAL, $method(static_cast<void(InnocuousThread::*)()>(&InnocuousThread::eraseThreadLocals))},
-	{"newName", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)()>(&InnocuousThread::newName))},
-	{"newSystemThread", "(Ljava/lang/Runnable;)Ljava/lang/Thread;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Thread*(*)($Runnable*)>(&InnocuousThread::newSystemThread))},
-	{"newSystemThread", "(Ljava/lang/String;Ljava/lang/Runnable;)Ljava/lang/Thread;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Thread*(*)($String*,$Runnable*)>(&InnocuousThread::newSystemThread))},
-	{"newSystemThread", "(Ljava/lang/String;Ljava/lang/Runnable;I)Ljava/lang/Thread;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Thread*(*)($String*,$Runnable*,int32_t)>(&InnocuousThread::newSystemThread))},
-	{"newThread", "(Ljava/lang/Runnable;)Ljava/lang/Thread;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Thread*(*)($Runnable*)>(&InnocuousThread::newThread))},
-	{"newThread", "(Ljava/lang/String;Ljava/lang/Runnable;)Ljava/lang/Thread;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Thread*(*)($String*,$Runnable*)>(&InnocuousThread::newThread))},
-	{"newThread", "(Ljava/lang/String;Ljava/lang/Runnable;I)Ljava/lang/Thread;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Thread*(*)($String*,$Runnable*,int32_t)>(&InnocuousThread::newThread))},
-	{"run", "()V", nullptr, $PUBLIC},
-	{"setContextClassLoader", "(Ljava/lang/ClassLoader;)V", nullptr, $PUBLIC},
-	{"setUncaughtExceptionHandler", "(Ljava/lang/Thread$UncaughtExceptionHandler;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/ThreadGroup;Ljava/lang/Runnable;Ljava/lang/String;Ljava/lang/ClassLoader;)V", nullptr, $PRIVATE, $method(InnocuousThread, init$, void, $ThreadGroup*, $Runnable*, $String*, $ClassLoader*)},
+	{"createThread", "(Ljava/lang/String;Ljava/lang/Runnable;Ljava/lang/ClassLoader;I)Ljava/lang/Thread;", nullptr, $PRIVATE | $STATIC, $staticMethod(InnocuousThread, createThread, $Thread*, $String*, $Runnable*, $ClassLoader*, int32_t)},
+	{"eraseThreadLocals", "()V", nullptr, $PUBLIC | $FINAL, $method(InnocuousThread, eraseThreadLocals, void)},
+	{"newName", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(InnocuousThread, newName, $String*)},
+	{"newSystemThread", "(Ljava/lang/Runnable;)Ljava/lang/Thread;", nullptr, $PUBLIC | $STATIC, $staticMethod(InnocuousThread, newSystemThread, $Thread*, $Runnable*)},
+	{"newSystemThread", "(Ljava/lang/String;Ljava/lang/Runnable;)Ljava/lang/Thread;", nullptr, $PUBLIC | $STATIC, $staticMethod(InnocuousThread, newSystemThread, $Thread*, $String*, $Runnable*)},
+	{"newSystemThread", "(Ljava/lang/String;Ljava/lang/Runnable;I)Ljava/lang/Thread;", nullptr, $PUBLIC | $STATIC, $staticMethod(InnocuousThread, newSystemThread, $Thread*, $String*, $Runnable*, int32_t)},
+	{"newThread", "(Ljava/lang/Runnable;)Ljava/lang/Thread;", nullptr, $PUBLIC | $STATIC, $staticMethod(InnocuousThread, newThread, $Thread*, $Runnable*)},
+	{"newThread", "(Ljava/lang/String;Ljava/lang/Runnable;)Ljava/lang/Thread;", nullptr, $PUBLIC | $STATIC, $staticMethod(InnocuousThread, newThread, $Thread*, $String*, $Runnable*)},
+	{"newThread", "(Ljava/lang/String;Ljava/lang/Runnable;I)Ljava/lang/Thread;", nullptr, $PUBLIC | $STATIC, $staticMethod(InnocuousThread, newThread, $Thread*, $String*, $Runnable*, int32_t)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(InnocuousThread, run, void)},
+	{"setContextClassLoader", "(Ljava/lang/ClassLoader;)V", nullptr, $PUBLIC, $virtualMethod(InnocuousThread, setContextClassLoader, void, $ClassLoader*)},
+	{"setUncaughtExceptionHandler", "(Ljava/lang/Thread$UncaughtExceptionHandler;)V", nullptr, $PUBLIC, $virtualMethod(InnocuousThread, setUncaughtExceptionHandler, void, $Thread$UncaughtExceptionHandler*)},
 	{}
 };
 

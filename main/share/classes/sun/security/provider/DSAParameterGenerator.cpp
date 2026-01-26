@@ -60,13 +60,13 @@ $FieldInfo _DSAParameterGenerator_FieldInfo_[] = {
 };
 
 $MethodInfo _DSAParameterGenerator_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DSAParameterGenerator::*)()>(&DSAParameterGenerator::init$))},
-	{"engineGenerateParameters", "()Ljava/security/AlgorithmParameters;", nullptr, $PROTECTED},
-	{"engineInit", "(ILjava/security/SecureRandom;)V", nullptr, $PROTECTED},
-	{"engineInit", "(Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, nullptr, "java.security.InvalidAlgorithmParameterException"},
-	{"generateG", "(Ljava/math/BigInteger;Ljava/math/BigInteger;)Ljava/math/BigInteger;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$BigInteger*(*)($BigInteger*,$BigInteger*)>(&DSAParameterGenerator::generateG))},
-	{"generatePandQ", "(Ljava/security/SecureRandom;III)[Ljava/math/BigInteger;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$BigIntegerArray*(*)($SecureRandom*,int32_t,int32_t,int32_t)>(&DSAParameterGenerator::generatePandQ))},
-	{"toByteArray", "(Ljava/math/BigInteger;)[B", nullptr, $PRIVATE | $STATIC, $method(static_cast<$bytes*(*)($BigInteger*)>(&DSAParameterGenerator::toByteArray))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DSAParameterGenerator, init$, void)},
+	{"engineGenerateParameters", "()Ljava/security/AlgorithmParameters;", nullptr, $PROTECTED, $virtualMethod(DSAParameterGenerator, engineGenerateParameters, $AlgorithmParameters*)},
+	{"engineInit", "(ILjava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(DSAParameterGenerator, engineInit, void, int32_t, $SecureRandom*)},
+	{"engineInit", "(Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(DSAParameterGenerator, engineInit, void, $AlgorithmParameterSpec*, $SecureRandom*), "java.security.InvalidAlgorithmParameterException"},
+	{"generateG", "(Ljava/math/BigInteger;Ljava/math/BigInteger;)Ljava/math/BigInteger;", nullptr, $PRIVATE | $STATIC, $staticMethod(DSAParameterGenerator, generateG, $BigInteger*, $BigInteger*, $BigInteger*)},
+	{"generatePandQ", "(Ljava/security/SecureRandom;III)[Ljava/math/BigInteger;", nullptr, $PRIVATE | $STATIC, $staticMethod(DSAParameterGenerator, generatePandQ, $BigIntegerArray*, $SecureRandom*, int32_t, int32_t, int32_t)},
+	{"toByteArray", "(Ljava/math/BigInteger;)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(DSAParameterGenerator, toByteArray, $bytes*, $BigInteger*)},
 	{}
 };
 

@@ -17,7 +17,7 @@ namespace sun {
 		namespace pkcs12 {
 
 $MethodInfo _PKCS12KeyStore$DualFormatPKCS12_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PKCS12KeyStore$DualFormatPKCS12::*)()>(&PKCS12KeyStore$DualFormatPKCS12::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PKCS12KeyStore$DualFormatPKCS12, init$, void)},
 	{}
 };
 

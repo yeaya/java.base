@@ -48,19 +48,19 @@ $FieldInfo _StreamSpliterators$AbstractWrappingSpliterator_FieldInfo_[] = {
 };
 
 $MethodInfo _StreamSpliterators$AbstractWrappingSpliterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/stream/PipelineHelper;Ljava/util/function/Supplier;Z)V", "(Ljava/util/stream/PipelineHelper<TP_OUT;>;Ljava/util/function/Supplier<Ljava/util/Spliterator<TP_IN;>;>;Z)V", 0, $method(static_cast<void(StreamSpliterators$AbstractWrappingSpliterator::*)($PipelineHelper*,$Supplier*,bool)>(&StreamSpliterators$AbstractWrappingSpliterator::init$))},
-	{"<init>", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;Z)V", "(Ljava/util/stream/PipelineHelper<TP_OUT;>;Ljava/util/Spliterator<TP_IN;>;Z)V", 0, $method(static_cast<void(StreamSpliterators$AbstractWrappingSpliterator::*)($PipelineHelper*,$Spliterator*,bool)>(&StreamSpliterators$AbstractWrappingSpliterator::init$))},
-	{"characteristics", "()I", nullptr, $PUBLIC | $FINAL},
-	{"doAdvance", "()Z", nullptr, $FINAL, $method(static_cast<bool(StreamSpliterators$AbstractWrappingSpliterator::*)()>(&StreamSpliterators$AbstractWrappingSpliterator::doAdvance))},
-	{"estimateSize", "()J", nullptr, $PUBLIC | $FINAL},
-	{"fillBuffer", "()Z", nullptr, $PRIVATE, $method(static_cast<bool(StreamSpliterators$AbstractWrappingSpliterator::*)()>(&StreamSpliterators$AbstractWrappingSpliterator::fillBuffer))},
-	{"getComparator", "()Ljava/util/Comparator;", "()Ljava/util/Comparator<-TP_OUT;>;", $PUBLIC},
-	{"getExactSizeIfKnown", "()J", nullptr, $PUBLIC | $FINAL},
-	{"init", "()V", nullptr, $FINAL, $method(static_cast<void(StreamSpliterators$AbstractWrappingSpliterator::*)()>(&StreamSpliterators$AbstractWrappingSpliterator::init))},
-	{"initPartialTraversalState", "()V", nullptr, $ABSTRACT},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL},
-	{"trySplit", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TP_OUT;>;", $PUBLIC},
-	{"wrap", "(Ljava/util/Spliterator;)Ljava/util/stream/StreamSpliterators$AbstractWrappingSpliterator;", "(Ljava/util/Spliterator<TP_IN;>;)Ljava/util/stream/StreamSpliterators$AbstractWrappingSpliterator<TP_IN;TP_OUT;*>;", $ABSTRACT},
+	{"<init>", "(Ljava/util/stream/PipelineHelper;Ljava/util/function/Supplier;Z)V", "(Ljava/util/stream/PipelineHelper<TP_OUT;>;Ljava/util/function/Supplier<Ljava/util/Spliterator<TP_IN;>;>;Z)V", 0, $method(StreamSpliterators$AbstractWrappingSpliterator, init$, void, $PipelineHelper*, $Supplier*, bool)},
+	{"<init>", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;Z)V", "(Ljava/util/stream/PipelineHelper<TP_OUT;>;Ljava/util/Spliterator<TP_IN;>;Z)V", 0, $method(StreamSpliterators$AbstractWrappingSpliterator, init$, void, $PipelineHelper*, $Spliterator*, bool)},
+	{"characteristics", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(StreamSpliterators$AbstractWrappingSpliterator, characteristics, int32_t)},
+	{"doAdvance", "()Z", nullptr, $FINAL, $method(StreamSpliterators$AbstractWrappingSpliterator, doAdvance, bool)},
+	{"estimateSize", "()J", nullptr, $PUBLIC | $FINAL, $virtualMethod(StreamSpliterators$AbstractWrappingSpliterator, estimateSize, int64_t)},
+	{"fillBuffer", "()Z", nullptr, $PRIVATE, $method(StreamSpliterators$AbstractWrappingSpliterator, fillBuffer, bool)},
+	{"getComparator", "()Ljava/util/Comparator;", "()Ljava/util/Comparator<-TP_OUT;>;", $PUBLIC, $virtualMethod(StreamSpliterators$AbstractWrappingSpliterator, getComparator, $Comparator*)},
+	{"getExactSizeIfKnown", "()J", nullptr, $PUBLIC | $FINAL, $virtualMethod(StreamSpliterators$AbstractWrappingSpliterator, getExactSizeIfKnown, int64_t)},
+	{"init", "()V", nullptr, $FINAL, $method(StreamSpliterators$AbstractWrappingSpliterator, init, void)},
+	{"initPartialTraversalState", "()V", nullptr, $ABSTRACT, $virtualMethod(StreamSpliterators$AbstractWrappingSpliterator, initPartialTraversalState, void)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(StreamSpliterators$AbstractWrappingSpliterator, toString, $String*)},
+	{"trySplit", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TP_OUT;>;", $PUBLIC, $virtualMethod(StreamSpliterators$AbstractWrappingSpliterator, trySplit, $Spliterator*)},
+	{"wrap", "(Ljava/util/Spliterator;)Ljava/util/stream/StreamSpliterators$AbstractWrappingSpliterator;", "(Ljava/util/Spliterator<TP_IN;>;)Ljava/util/stream/StreamSpliterators$AbstractWrappingSpliterator<TP_IN;TP_OUT;*>;", $ABSTRACT, $virtualMethod(StreamSpliterators$AbstractWrappingSpliterator, wrap, StreamSpliterators$AbstractWrappingSpliterator*, $Spliterator*)},
 	{}
 };
 

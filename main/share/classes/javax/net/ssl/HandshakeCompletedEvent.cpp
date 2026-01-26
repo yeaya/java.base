@@ -47,15 +47,15 @@ $FieldInfo _HandshakeCompletedEvent_FieldInfo_[] = {
 };
 
 $MethodInfo _HandshakeCompletedEvent_MethodInfo_[] = {
-	{"<init>", "(Ljavax/net/ssl/SSLSocket;Ljavax/net/ssl/SSLSession;)V", nullptr, $PUBLIC, $method(static_cast<void(HandshakeCompletedEvent::*)($SSLSocket*,$SSLSession*)>(&HandshakeCompletedEvent::init$))},
-	{"getCipherSuite", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getLocalCertificates", "()[Ljava/security/cert/Certificate;", nullptr, $PUBLIC},
-	{"getLocalPrincipal", "()Ljava/security/Principal;", nullptr, $PUBLIC},
-	{"getPeerCertificateChain", "()[Ljavax/security/cert/X509Certificate;", nullptr, $PUBLIC | $DEPRECATED, nullptr, "javax.net.ssl.SSLPeerUnverifiedException", nullptr, _HandshakeCompletedEvent_MethodAnnotations_getPeerCertificateChain4},
-	{"getPeerCertificates", "()[Ljava/security/cert/Certificate;", nullptr, $PUBLIC, nullptr, "javax.net.ssl.SSLPeerUnverifiedException"},
-	{"getPeerPrincipal", "()Ljava/security/Principal;", nullptr, $PUBLIC, nullptr, "javax.net.ssl.SSLPeerUnverifiedException"},
-	{"getSession", "()Ljavax/net/ssl/SSLSession;", nullptr, $PUBLIC},
-	{"getSocket", "()Ljavax/net/ssl/SSLSocket;", nullptr, $PUBLIC},
+	{"<init>", "(Ljavax/net/ssl/SSLSocket;Ljavax/net/ssl/SSLSession;)V", nullptr, $PUBLIC, $method(HandshakeCompletedEvent, init$, void, $SSLSocket*, $SSLSession*)},
+	{"getCipherSuite", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HandshakeCompletedEvent, getCipherSuite, $String*)},
+	{"getLocalCertificates", "()[Ljava/security/cert/Certificate;", nullptr, $PUBLIC, $virtualMethod(HandshakeCompletedEvent, getLocalCertificates, $CertificateArray*)},
+	{"getLocalPrincipal", "()Ljava/security/Principal;", nullptr, $PUBLIC, $virtualMethod(HandshakeCompletedEvent, getLocalPrincipal, $Principal*)},
+	{"getPeerCertificateChain", "()[Ljavax/security/cert/X509Certificate;", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(HandshakeCompletedEvent, getPeerCertificateChain, $X509CertificateArray*), "javax.net.ssl.SSLPeerUnverifiedException", nullptr, _HandshakeCompletedEvent_MethodAnnotations_getPeerCertificateChain4},
+	{"getPeerCertificates", "()[Ljava/security/cert/Certificate;", nullptr, $PUBLIC, $virtualMethod(HandshakeCompletedEvent, getPeerCertificates, $CertificateArray*), "javax.net.ssl.SSLPeerUnverifiedException"},
+	{"getPeerPrincipal", "()Ljava/security/Principal;", nullptr, $PUBLIC, $virtualMethod(HandshakeCompletedEvent, getPeerPrincipal, $Principal*), "javax.net.ssl.SSLPeerUnverifiedException"},
+	{"getSession", "()Ljavax/net/ssl/SSLSession;", nullptr, $PUBLIC, $virtualMethod(HandshakeCompletedEvent, getSession, $SSLSession*)},
+	{"getSocket", "()Ljavax/net/ssl/SSLSocket;", nullptr, $PUBLIC, $virtualMethod(HandshakeCompletedEvent, getSocket, $SSLSocket*)},
 	{}
 };
 

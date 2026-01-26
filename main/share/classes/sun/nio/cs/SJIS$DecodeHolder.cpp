@@ -26,7 +26,7 @@ $FieldInfo _SJIS$DecodeHolder_FieldInfo_[] = {
 };
 
 $MethodInfo _SJIS$DecodeHolder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(SJIS$DecodeHolder::*)()>(&SJIS$DecodeHolder::init$))},
+	{"<init>", "()V", nullptr, 0, $method(SJIS$DecodeHolder, init$, void)},
 	{}
 };
 

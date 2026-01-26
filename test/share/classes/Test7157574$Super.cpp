@@ -14,8 +14,8 @@ $FieldInfo _Test7157574$Super_FieldInfo_[] = {
 };
 
 $MethodInfo _Test7157574$Super_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Test7157574$Super::*)()>(&Test7157574$Super::init$))},
-	{"m2", "()V", nullptr, $PUBLIC | $ABSTRACT},
+	{"<init>", "()V", nullptr, 0, $method(Test7157574$Super, init$, void)},
+	{"m2", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Test7157574$Super, m2, void)},
 	{}
 };
 

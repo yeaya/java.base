@@ -18,7 +18,7 @@ $FieldInfo _InterruptedByTimeoutException_FieldInfo_[] = {
 };
 
 $MethodInfo _InterruptedByTimeoutException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(InterruptedByTimeoutException::*)()>(&InterruptedByTimeoutException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(InterruptedByTimeoutException, init$, void)},
 	{}
 };
 

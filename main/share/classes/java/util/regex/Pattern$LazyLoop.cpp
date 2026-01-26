@@ -22,10 +22,10 @@ namespace java {
 		namespace regex {
 
 $MethodInfo _Pattern$LazyLoop_MethodInfo_[] = {
-	{"<init>", "(II)V", nullptr, 0, $method(static_cast<void(Pattern$LazyLoop::*)(int32_t,int32_t)>(&Pattern$LazyLoop::init$))},
-	{"match", "(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z", nullptr, 0},
-	{"matchInit", "(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z", nullptr, 0},
-	{"study", "(Ljava/util/regex/Pattern$TreeInfo;)Z", nullptr, 0},
+	{"<init>", "(II)V", nullptr, 0, $method(Pattern$LazyLoop, init$, void, int32_t, int32_t)},
+	{"match", "(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z", nullptr, 0, $virtualMethod(Pattern$LazyLoop, match, bool, $Matcher*, int32_t, $CharSequence*)},
+	{"matchInit", "(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z", nullptr, 0, $virtualMethod(Pattern$LazyLoop, matchInit, bool, $Matcher*, int32_t, $CharSequence*)},
+	{"study", "(Ljava/util/regex/Pattern$TreeInfo;)Z", nullptr, 0, $virtualMethod(Pattern$LazyLoop, study, bool, $Pattern$TreeInfo*)},
 	{}
 };
 

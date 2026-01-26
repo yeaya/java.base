@@ -19,10 +19,10 @@ $FieldInfo _StandardWatchEventKinds$StdWatchEventKind_FieldInfo_[] = {
 };
 
 $MethodInfo _StandardWatchEventKinds$StdWatchEventKind_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Class;)V", "(Ljava/lang/String;Ljava/lang/Class<TT;>;)V", 0, $method(static_cast<void(StandardWatchEventKinds$StdWatchEventKind::*)($String*,$Class*)>(&StandardWatchEventKinds$StdWatchEventKind::init$))},
-	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"type", "()Ljava/lang/Class;", "()Ljava/lang/Class<TT;>;", $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Class;)V", "(Ljava/lang/String;Ljava/lang/Class<TT;>;)V", 0, $method(StandardWatchEventKinds$StdWatchEventKind, init$, void, $String*, $Class*)},
+	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StandardWatchEventKinds$StdWatchEventKind, name, $String*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StandardWatchEventKinds$StdWatchEventKind, toString, $String*)},
+	{"type", "()Ljava/lang/Class;", "()Ljava/lang/Class<TT;>;", $PUBLIC, $virtualMethod(StandardWatchEventKinds$StdWatchEventKind, type, $Class*)},
 	{}
 };
 

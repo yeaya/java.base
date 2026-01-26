@@ -63,15 +63,15 @@ $FieldInfo _CertificateRevokedException_FieldInfo_[] = {
 };
 
 $MethodInfo _CertificateRevokedException_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Date;Ljava/security/cert/CRLReason;Ljavax/security/auth/x500/X500Principal;Ljava/util/Map;)V", "(Ljava/util/Date;Ljava/security/cert/CRLReason;Ljavax/security/auth/x500/X500Principal;Ljava/util/Map<Ljava/lang/String;Ljava/security/cert/Extension;>;)V", $PUBLIC, $method(static_cast<void(CertificateRevokedException::*)($Date*,$CRLReason*,$X500Principal*,$Map*)>(&CertificateRevokedException::init$))},
-	{"getAuthorityName", "()Ljavax/security/auth/x500/X500Principal;", nullptr, $PUBLIC},
-	{"getExtensions", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/security/cert/Extension;>;", $PUBLIC},
-	{"getInvalidityDate", "()Ljava/util/Date;", nullptr, $PUBLIC},
-	{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getRevocationDate", "()Ljava/util/Date;", nullptr, $PUBLIC},
-	{"getRevocationReason", "()Ljava/security/cert/CRLReason;", nullptr, $PUBLIC},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(CertificateRevokedException::*)($ObjectInputStream*)>(&CertificateRevokedException::readObject)), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(CertificateRevokedException::*)($ObjectOutputStream*)>(&CertificateRevokedException::writeObject)), "java.io.IOException"},
+	{"<init>", "(Ljava/util/Date;Ljava/security/cert/CRLReason;Ljavax/security/auth/x500/X500Principal;Ljava/util/Map;)V", "(Ljava/util/Date;Ljava/security/cert/CRLReason;Ljavax/security/auth/x500/X500Principal;Ljava/util/Map<Ljava/lang/String;Ljava/security/cert/Extension;>;)V", $PUBLIC, $method(CertificateRevokedException, init$, void, $Date*, $CRLReason*, $X500Principal*, $Map*)},
+	{"getAuthorityName", "()Ljavax/security/auth/x500/X500Principal;", nullptr, $PUBLIC, $virtualMethod(CertificateRevokedException, getAuthorityName, $X500Principal*)},
+	{"getExtensions", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/security/cert/Extension;>;", $PUBLIC, $virtualMethod(CertificateRevokedException, getExtensions, $Map*)},
+	{"getInvalidityDate", "()Ljava/util/Date;", nullptr, $PUBLIC, $virtualMethod(CertificateRevokedException, getInvalidityDate, $Date*)},
+	{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CertificateRevokedException, getMessage, $String*)},
+	{"getRevocationDate", "()Ljava/util/Date;", nullptr, $PUBLIC, $virtualMethod(CertificateRevokedException, getRevocationDate, $Date*)},
+	{"getRevocationReason", "()Ljava/security/cert/CRLReason;", nullptr, $PUBLIC, $virtualMethod(CertificateRevokedException, getRevocationReason, $CRLReason*)},
+	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(CertificateRevokedException, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(CertificateRevokedException, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
 	{}
 };
 

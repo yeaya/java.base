@@ -24,7 +24,7 @@ $FieldInfo _ConcurrentHashMap$CounterCell_FieldInfo_[] = {
 };
 
 $MethodInfo _ConcurrentHashMap$CounterCell_MethodInfo_[] = {
-	{"<init>", "(J)V", nullptr, 0, $method(static_cast<void(ConcurrentHashMap$CounterCell::*)(int64_t)>(&ConcurrentHashMap$CounterCell::init$))},
+	{"<init>", "(J)V", nullptr, 0, $method(ConcurrentHashMap$CounterCell, init$, void, int64_t)},
 	{}
 };
 

@@ -55,8 +55,8 @@ namespace sun {
 		namespace ssl {
 
 $MethodInfo _ECDHKeyExchange$ECDHEXDHKAGenerator_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(ECDHKeyExchange$ECDHEXDHKAGenerator::*)()>(&ECDHKeyExchange$ECDHEXDHKAGenerator::init$))},
-	{"createKeyDerivation", "(Lsun/security/ssl/HandshakeContext;)Lsun/security/ssl/SSLKeyDerivation;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(ECDHKeyExchange$ECDHEXDHKAGenerator, init$, void)},
+	{"createKeyDerivation", "(Lsun/security/ssl/HandshakeContext;)Lsun/security/ssl/SSLKeyDerivation;", nullptr, $PUBLIC, $virtualMethod(ECDHKeyExchange$ECDHEXDHKAGenerator, createKeyDerivation, $SSLKeyDerivation*, $HandshakeContext*), "java.io.IOException"},
 	{}
 };
 

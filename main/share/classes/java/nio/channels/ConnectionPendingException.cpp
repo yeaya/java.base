@@ -18,7 +18,7 @@ $FieldInfo _ConnectionPendingException_FieldInfo_[] = {
 };
 
 $MethodInfo _ConnectionPendingException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ConnectionPendingException::*)()>(&ConnectionPendingException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ConnectionPendingException, init$, void)},
 	{}
 };
 

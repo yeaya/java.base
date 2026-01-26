@@ -35,12 +35,12 @@ $FieldInfo _TraceRecordComponentVisitor_FieldInfo_[] = {
 };
 
 $MethodInfo _TraceRecordComponentVisitor_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/org/objectweb/asm/util/Printer;)V", nullptr, $PUBLIC, $method(static_cast<void(TraceRecordComponentVisitor::*)($Printer*)>(&TraceRecordComponentVisitor::init$))},
-	{"<init>", "(Ljdk/internal/org/objectweb/asm/RecordComponentVisitor;Ljdk/internal/org/objectweb/asm/util/Printer;)V", nullptr, $PUBLIC, $method(static_cast<void(TraceRecordComponentVisitor::*)($RecordComponentVisitor*,$Printer*)>(&TraceRecordComponentVisitor::init$))},
-	{"visitAnnotation", "(Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC},
-	{"visitAttribute", "(Ljdk/internal/org/objectweb/asm/Attribute;)V", nullptr, $PUBLIC},
-	{"visitEnd", "()V", nullptr, $PUBLIC},
-	{"visitTypeAnnotation", "(ILjdk/internal/org/objectweb/asm/TypePath;Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/org/objectweb/asm/util/Printer;)V", nullptr, $PUBLIC, $method(TraceRecordComponentVisitor, init$, void, $Printer*)},
+	{"<init>", "(Ljdk/internal/org/objectweb/asm/RecordComponentVisitor;Ljdk/internal/org/objectweb/asm/util/Printer;)V", nullptr, $PUBLIC, $method(TraceRecordComponentVisitor, init$, void, $RecordComponentVisitor*, $Printer*)},
+	{"visitAnnotation", "(Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(TraceRecordComponentVisitor, visitAnnotation, $AnnotationVisitor*, $String*, bool)},
+	{"visitAttribute", "(Ljdk/internal/org/objectweb/asm/Attribute;)V", nullptr, $PUBLIC, $virtualMethod(TraceRecordComponentVisitor, visitAttribute, void, $Attribute*)},
+	{"visitEnd", "()V", nullptr, $PUBLIC, $virtualMethod(TraceRecordComponentVisitor, visitEnd, void)},
+	{"visitTypeAnnotation", "(ILjdk/internal/org/objectweb/asm/TypePath;Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(TraceRecordComponentVisitor, visitTypeAnnotation, $AnnotationVisitor*, int32_t, $TypePath*, $String*, bool)},
 	{}
 };
 

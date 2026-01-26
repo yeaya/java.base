@@ -26,10 +26,10 @@ $FieldInfo _Policy$UnsupportedEmptyCollection_FieldInfo_[] = {
 };
 
 $MethodInfo _Policy$UnsupportedEmptyCollection_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Policy$UnsupportedEmptyCollection::*)()>(&Policy$UnsupportedEmptyCollection::init$))},
-	{"add", "(Ljava/security/Permission;)V", nullptr, $PUBLIC},
-	{"elements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/security/Permission;>;", $PUBLIC},
-	{"implies", "(Ljava/security/Permission;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Policy$UnsupportedEmptyCollection, init$, void)},
+	{"add", "(Ljava/security/Permission;)V", nullptr, $PUBLIC, $virtualMethod(Policy$UnsupportedEmptyCollection, add, void, $Permission*)},
+	{"elements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/security/Permission;>;", $PUBLIC, $virtualMethod(Policy$UnsupportedEmptyCollection, elements, $Enumeration*)},
+	{"implies", "(Ljava/security/Permission;)Z", nullptr, $PUBLIC, $virtualMethod(Policy$UnsupportedEmptyCollection, implies, bool, $Permission*)},
 	{}
 };
 

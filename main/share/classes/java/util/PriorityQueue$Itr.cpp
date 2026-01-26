@@ -31,10 +31,10 @@ $FieldInfo _PriorityQueue$Itr_FieldInfo_[] = {
 };
 
 $MethodInfo _PriorityQueue$Itr_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/PriorityQueue;)V", nullptr, 0, $method(static_cast<void(PriorityQueue$Itr::*)($PriorityQueue*)>(&PriorityQueue$Itr::init$))},
-	{"hasNext", "()Z", nullptr, $PUBLIC},
-	{"next", "()Ljava/lang/Object;", "()TE;", $PUBLIC},
-	{"remove", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/PriorityQueue;)V", nullptr, 0, $method(PriorityQueue$Itr, init$, void, $PriorityQueue*)},
+	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(PriorityQueue$Itr, hasNext, bool)},
+	{"next", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(PriorityQueue$Itr, next, $Object*)},
+	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(PriorityQueue$Itr, remove, void)},
 	{}
 };
 

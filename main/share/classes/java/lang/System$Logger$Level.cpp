@@ -39,12 +39,12 @@ $FieldInfo _System$Logger$Level_FieldInfo_[] = {
 };
 
 $MethodInfo _System$Logger$Level_MethodInfo_[] = {
-	{"$values", "()[Ljava/lang/System$Logger$Level;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$System$Logger$LevelArray*(*)()>(&System$Logger$Level::$values))},
-	{"<init>", "(Ljava/lang/String;II)V", "(I)V", $PRIVATE, $method(static_cast<void(System$Logger$Level::*)($String*,int32_t,int32_t)>(&System$Logger$Level::init$))},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$String*(System$Logger$Level::*)()>(&System$Logger$Level::getName))},
-	{"getSeverity", "()I", nullptr, $PUBLIC | $FINAL, $method(static_cast<int32_t(System$Logger$Level::*)()>(&System$Logger$Level::getSeverity))},
-	{"valueOf", "(Ljava/lang/String;)Ljava/lang/System$Logger$Level;", nullptr, $PUBLIC | $STATIC, $method(static_cast<System$Logger$Level*(*)($String*)>(&System$Logger$Level::valueOf))},
-	{"values", "()[Ljava/lang/System$Logger$Level;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$System$Logger$LevelArray*(*)()>(&System$Logger$Level::values))},
+	{"$values", "()[Ljava/lang/System$Logger$Level;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(System$Logger$Level, $values, $System$Logger$LevelArray*)},
+	{"<init>", "(Ljava/lang/String;II)V", "(I)V", $PRIVATE, $method(System$Logger$Level, init$, void, $String*, int32_t, int32_t)},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(System$Logger$Level, getName, $String*)},
+	{"getSeverity", "()I", nullptr, $PUBLIC | $FINAL, $method(System$Logger$Level, getSeverity, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Ljava/lang/System$Logger$Level;", nullptr, $PUBLIC | $STATIC, $staticMethod(System$Logger$Level, valueOf, System$Logger$Level*, $String*)},
+	{"values", "()[Ljava/lang/System$Logger$Level;", nullptr, $PUBLIC | $STATIC, $staticMethod(System$Logger$Level, values, $System$Logger$LevelArray*)},
 	{}
 };
 

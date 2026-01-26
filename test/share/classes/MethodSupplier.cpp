@@ -7,8 +7,8 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _MethodSupplier_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(MethodSupplier::*)()>(&MethodSupplier::init$))},
-	{"m", "()V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(MethodSupplier, init$, void)},
+	{"m", "()V", nullptr, $PUBLIC, $virtualMethod(MethodSupplier, m, void)},
 	{}
 };
 

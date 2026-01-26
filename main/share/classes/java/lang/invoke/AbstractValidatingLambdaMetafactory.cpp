@@ -19,6 +19,7 @@ using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Void = ::java::lang::Void;
+using $CallSite = ::java::lang::invoke::CallSite;
 using $LambdaConversionException = ::java::lang::invoke::LambdaConversionException;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $MethodHandleInfo = ::java::lang::invoke::MethodHandleInfo;
@@ -51,13 +52,13 @@ $FieldInfo _AbstractValidatingLambdaMetafactory_FieldInfo_[] = {
 };
 
 $MethodInfo _AbstractValidatingLambdaMetafactory_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/invoke/MethodType;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;Z[Ljava/lang/Class;[Ljava/lang/invoke/MethodType;)V", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/invoke/MethodType;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;Z[Ljava/lang/Class<*>;[Ljava/lang/invoke/MethodType;)V", 0, $method(static_cast<void(AbstractValidatingLambdaMetafactory::*)($MethodHandles$Lookup*,$MethodType*,$String*,$MethodType*,$MethodHandle*,$MethodType*,bool,$ClassArray*,$MethodTypeArray*)>(&AbstractValidatingLambdaMetafactory::init$)), "java.lang.invoke.LambdaConversionException"},
-	{"buildCallSite", "()Ljava/lang/invoke/CallSite;", nullptr, $ABSTRACT, nullptr, "java.lang.invoke.LambdaConversionException"},
-	{"checkDescriptor", "(Ljava/lang/invoke/MethodType;)V", nullptr, $PRIVATE, $method(static_cast<void(AbstractValidatingLambdaMetafactory::*)($MethodType*)>(&AbstractValidatingLambdaMetafactory::checkDescriptor)), "java.lang.invoke.LambdaConversionException"},
-	{"isAdaptableTo", "(Ljava/lang/Class;Ljava/lang/Class;Z)Z", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;Z)Z", $PRIVATE, $method(static_cast<bool(AbstractValidatingLambdaMetafactory::*)($Class*,$Class*,bool)>(&AbstractValidatingLambdaMetafactory::isAdaptableTo))},
-	{"isAdaptableToAsReturn", "(Ljava/lang/Class;Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)Z", $PRIVATE, $method(static_cast<bool(AbstractValidatingLambdaMetafactory::*)($Class*,$Class*)>(&AbstractValidatingLambdaMetafactory::isAdaptableToAsReturn))},
-	{"isAdaptableToAsReturnStrict", "(Ljava/lang/Class;Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)Z", $PRIVATE, $method(static_cast<bool(AbstractValidatingLambdaMetafactory::*)($Class*,$Class*)>(&AbstractValidatingLambdaMetafactory::isAdaptableToAsReturnStrict))},
-	{"validateMetafactoryArgs", "()V", nullptr, 0, nullptr, "java.lang.invoke.LambdaConversionException"},
+	{"<init>", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/invoke/MethodType;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;Z[Ljava/lang/Class;[Ljava/lang/invoke/MethodType;)V", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/invoke/MethodType;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;Z[Ljava/lang/Class<*>;[Ljava/lang/invoke/MethodType;)V", 0, $method(AbstractValidatingLambdaMetafactory, init$, void, $MethodHandles$Lookup*, $MethodType*, $String*, $MethodType*, $MethodHandle*, $MethodType*, bool, $ClassArray*, $MethodTypeArray*), "java.lang.invoke.LambdaConversionException"},
+	{"buildCallSite", "()Ljava/lang/invoke/CallSite;", nullptr, $ABSTRACT, $virtualMethod(AbstractValidatingLambdaMetafactory, buildCallSite, $CallSite*), "java.lang.invoke.LambdaConversionException"},
+	{"checkDescriptor", "(Ljava/lang/invoke/MethodType;)V", nullptr, $PRIVATE, $method(AbstractValidatingLambdaMetafactory, checkDescriptor, void, $MethodType*), "java.lang.invoke.LambdaConversionException"},
+	{"isAdaptableTo", "(Ljava/lang/Class;Ljava/lang/Class;Z)Z", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;Z)Z", $PRIVATE, $method(AbstractValidatingLambdaMetafactory, isAdaptableTo, bool, $Class*, $Class*, bool)},
+	{"isAdaptableToAsReturn", "(Ljava/lang/Class;Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)Z", $PRIVATE, $method(AbstractValidatingLambdaMetafactory, isAdaptableToAsReturn, bool, $Class*, $Class*)},
+	{"isAdaptableToAsReturnStrict", "(Ljava/lang/Class;Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)Z", $PRIVATE, $method(AbstractValidatingLambdaMetafactory, isAdaptableToAsReturnStrict, bool, $Class*, $Class*)},
+	{"validateMetafactoryArgs", "()V", nullptr, 0, $virtualMethod(AbstractValidatingLambdaMetafactory, validateMetafactoryArgs, void), "java.lang.invoke.LambdaConversionException"},
 	{}
 };
 

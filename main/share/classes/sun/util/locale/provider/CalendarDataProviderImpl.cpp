@@ -41,12 +41,12 @@ $MethodInfo _CalendarDataProviderImpl_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lsun/util/locale/provider/LocaleProviderAdapter$Type;Ljava/util/Set;)V", "(Lsun/util/locale/provider/LocaleProviderAdapter$Type;Ljava/util/Set<Ljava/lang/String;>;)V", $PUBLIC, $method(static_cast<void(CalendarDataProviderImpl::*)($LocaleProviderAdapter$Type*,$Set*)>(&CalendarDataProviderImpl::init$))},
-	{"convertToCalendarData", "(Ljava/lang/String;)I", nullptr, $PRIVATE, $method(static_cast<int32_t(CalendarDataProviderImpl::*)($String*)>(&CalendarDataProviderImpl::convertToCalendarData))},
-	{"getAvailableLanguageTags", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC},
-	{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC},
-	{"getFirstDayOfWeek", "(Ljava/util/Locale;)I", nullptr, $PUBLIC},
-	{"getMinimalDaysInFirstWeek", "(Ljava/util/Locale;)I", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/util/locale/provider/LocaleProviderAdapter$Type;Ljava/util/Set;)V", "(Lsun/util/locale/provider/LocaleProviderAdapter$Type;Ljava/util/Set<Ljava/lang/String;>;)V", $PUBLIC, $method(CalendarDataProviderImpl, init$, void, $LocaleProviderAdapter$Type*, $Set*)},
+	{"convertToCalendarData", "(Ljava/lang/String;)I", nullptr, $PRIVATE, $method(CalendarDataProviderImpl, convertToCalendarData, int32_t, $String*)},
+	{"getAvailableLanguageTags", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(CalendarDataProviderImpl, getAvailableLanguageTags, $Set*)},
+	{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(CalendarDataProviderImpl, getAvailableLocales, $LocaleArray*)},
+	{"getFirstDayOfWeek", "(Ljava/util/Locale;)I", nullptr, $PUBLIC, $virtualMethod(CalendarDataProviderImpl, getFirstDayOfWeek, int32_t, $Locale*)},
+	{"getMinimalDaysInFirstWeek", "(Ljava/util/Locale;)I", nullptr, $PUBLIC, $virtualMethod(CalendarDataProviderImpl, getMinimalDaysInFirstWeek, int32_t, $Locale*)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

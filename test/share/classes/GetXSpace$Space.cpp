@@ -25,12 +25,12 @@ $FieldInfo _GetXSpace$Space_FieldInfo_[] = {
 };
 
 $MethodInfo _GetXSpace$Space_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(GetXSpace$Space::*)($String*,$String*,$String*)>(&GetXSpace$Space::init$))},
-	{"free", "()J", nullptr, 0},
-	{"name", "()Ljava/lang/String;", nullptr, 0},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"total", "()J", nullptr, 0},
-	{"woomFree", "(J)Z", nullptr, 0},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(GetXSpace$Space, init$, void, $String*, $String*, $String*)},
+	{"free", "()J", nullptr, 0, $virtualMethod(GetXSpace$Space, free, int64_t)},
+	{"name", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(GetXSpace$Space, name, $String*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(GetXSpace$Space, toString, $String*)},
+	{"total", "()J", nullptr, 0, $virtualMethod(GetXSpace$Space, total, int64_t)},
+	{"woomFree", "(J)Z", nullptr, 0, $virtualMethod(GetXSpace$Space, woomFree, bool, int64_t)},
 	{}
 };
 

@@ -29,11 +29,11 @@ $FieldInfo _ECPointFormatsExtension$ECPointFormat_FieldInfo_[] = {
 };
 
 $MethodInfo _ECPointFormatsExtension$ECPointFormat_MethodInfo_[] = {
-	{"$values", "()[Lsun/security/ssl/ECPointFormatsExtension$ECPointFormat;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$ECPointFormatsExtension$ECPointFormatArray*(*)()>(&ECPointFormatsExtension$ECPointFormat::$values))},
-	{"<init>", "(Ljava/lang/String;IBLjava/lang/String;)V", "(BLjava/lang/String;)V", $PRIVATE, $method(static_cast<void(ECPointFormatsExtension$ECPointFormat::*)($String*,int32_t,int8_t,$String*)>(&ECPointFormatsExtension$ECPointFormat::init$))},
-	{"nameOf", "(I)Ljava/lang/String;", nullptr, $STATIC, $method(static_cast<$String*(*)(int32_t)>(&ECPointFormatsExtension$ECPointFormat::nameOf))},
-	{"valueOf", "(Ljava/lang/String;)Lsun/security/ssl/ECPointFormatsExtension$ECPointFormat;", nullptr, $PUBLIC | $STATIC, $method(static_cast<ECPointFormatsExtension$ECPointFormat*(*)($String*)>(&ECPointFormatsExtension$ECPointFormat::valueOf))},
-	{"values", "()[Lsun/security/ssl/ECPointFormatsExtension$ECPointFormat;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$ECPointFormatsExtension$ECPointFormatArray*(*)()>(&ECPointFormatsExtension$ECPointFormat::values))},
+	{"$values", "()[Lsun/security/ssl/ECPointFormatsExtension$ECPointFormat;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ECPointFormatsExtension$ECPointFormat, $values, $ECPointFormatsExtension$ECPointFormatArray*)},
+	{"<init>", "(Ljava/lang/String;IBLjava/lang/String;)V", "(BLjava/lang/String;)V", $PRIVATE, $method(ECPointFormatsExtension$ECPointFormat, init$, void, $String*, int32_t, int8_t, $String*)},
+	{"nameOf", "(I)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(ECPointFormatsExtension$ECPointFormat, nameOf, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Lsun/security/ssl/ECPointFormatsExtension$ECPointFormat;", nullptr, $PUBLIC | $STATIC, $staticMethod(ECPointFormatsExtension$ECPointFormat, valueOf, ECPointFormatsExtension$ECPointFormat*, $String*)},
+	{"values", "()[Lsun/security/ssl/ECPointFormatsExtension$ECPointFormat;", nullptr, $PUBLIC | $STATIC, $staticMethod(ECPointFormatsExtension$ECPointFormat, values, $ECPointFormatsExtension$ECPointFormatArray*)},
 	{}
 };
 

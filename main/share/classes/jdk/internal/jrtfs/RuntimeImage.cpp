@@ -22,10 +22,10 @@ $FieldInfo _RuntimeImage_FieldInfo_[] = {
 };
 
 $MethodInfo _RuntimeImage_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/jimage/RuntimeImageReader;)V", nullptr, $PUBLIC, $method(static_cast<void(RuntimeImage::*)($RuntimeImageReader*)>(&RuntimeImage::init$))},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"findNode", "(Ljava/lang/String;)Ljdk/internal/jimage/ImageReader$Node;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"getResource", "(Ljdk/internal/jimage/ImageReader$Node;)[B", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljdk/internal/jimage/RuntimeImageReader;)V", nullptr, $PUBLIC, $method(RuntimeImage, init$, void, $RuntimeImageReader*)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(RuntimeImage, close, void), "java.io.IOException"},
+	{"findNode", "(Ljava/lang/String;)Ljdk/internal/jimage/ImageReader$Node;", nullptr, $PUBLIC, $virtualMethod(RuntimeImage, findNode, $ImageReader$Node*, $String*), "java.io.IOException"},
+	{"getResource", "(Ljdk/internal/jimage/ImageReader$Node;)[B", nullptr, $PUBLIC, $virtualMethod(RuntimeImage, getResource, $bytes*, $ImageReader$Node*), "java.io.IOException"},
 	{}
 };
 

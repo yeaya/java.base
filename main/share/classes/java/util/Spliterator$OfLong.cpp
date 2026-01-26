@@ -49,8 +49,8 @@ $FieldInfo Spliterator$OfLong$$Lambda$accept::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Spliterator$OfLong$$Lambda$accept::methodInfos[3] = {
-	{"<init>", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC, $method(static_cast<void(Spliterator$OfLong$$Lambda$accept::*)($Consumer*)>(&Spliterator$OfLong$$Lambda$accept::init$))},
-	{"accept", "(J)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC, $method(Spliterator$OfLong$$Lambda$accept, init$, void, $Consumer*)},
+	{"accept", "(J)V", nullptr, $PUBLIC, $virtualMethod(Spliterator$OfLong$$Lambda$accept, accept, void, int64_t)},
 	{}
 };
 $ClassInfo Spliterator$OfLong$$Lambda$accept::classInfo$ = {
@@ -68,12 +68,12 @@ $Class* Spliterator$OfLong$$Lambda$accept::load$($String* name, bool initialize)
 $Class* Spliterator$OfLong$$Lambda$accept::class$ = nullptr;
 
 $MethodInfo _Spliterator$OfLong_MethodInfo_[] = {
-	{"forEachRemaining", "(Ljava/util/function/LongConsumer;)V", nullptr, $PUBLIC},
-	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-Ljava/lang/Long;>;)V", $PUBLIC},
-	{"forEachRemaining", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"tryAdvance", "(Ljava/util/function/LongConsumer;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-Ljava/lang/Long;>;)Z", $PUBLIC},
-	{"tryAdvance", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"forEachRemaining", "(Ljava/util/function/LongConsumer;)V", nullptr, $PUBLIC, $virtualMethod(Spliterator$OfLong, forEachRemaining, void, $LongConsumer*)},
+	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-Ljava/lang/Long;>;)V", $PUBLIC, $virtualMethod(Spliterator$OfLong, forEachRemaining, void, $Consumer*)},
+	{"forEachRemaining", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Spliterator$OfLong, forEachRemaining, void, Object$*)},
+	{"tryAdvance", "(Ljava/util/function/LongConsumer;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Spliterator$OfLong, tryAdvance, bool, $LongConsumer*)},
+	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-Ljava/lang/Long;>;)Z", $PUBLIC, $virtualMethod(Spliterator$OfLong, tryAdvance, bool, $Consumer*)},
+	{"tryAdvance", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Spliterator$OfLong, tryAdvance, bool, Object$*)},
 	{"trySplit", "()Ljava/util/Spliterator$OfLong;", nullptr, $PUBLIC | $ABSTRACT},
 	{}
 };

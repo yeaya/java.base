@@ -21,7 +21,7 @@ $FieldInfo _Character$CharacterCache_FieldInfo_[] = {
 };
 
 $MethodInfo _Character$CharacterCache_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(Character$CharacterCache::*)()>(&Character$CharacterCache::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(Character$CharacterCache, init$, void)},
 	{}
 };
 

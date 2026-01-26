@@ -36,9 +36,9 @@ $FieldInfo _StressNativeSignal$UDPThread_FieldInfo_[] = {
 };
 
 $MethodInfo _StressNativeSignal$UDPThread_MethodInfo_[] = {
-	{"<init>", "(LStressNativeSignal;)V", nullptr, $PUBLIC, $method(static_cast<void(StressNativeSignal$UDPThread::*)($StressNativeSignal*)>(&StressNativeSignal$UDPThread::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
-	{"terminate", "()V", nullptr, $PUBLIC},
+	{"<init>", "(LStressNativeSignal;)V", nullptr, $PUBLIC, $method(StressNativeSignal$UDPThread, init$, void, $StressNativeSignal*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(StressNativeSignal$UDPThread, run, void)},
+	{"terminate", "()V", nullptr, $PUBLIC, $virtualMethod(StressNativeSignal$UDPThread, terminate, void)},
 	{}
 };
 

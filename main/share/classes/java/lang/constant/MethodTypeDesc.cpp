@@ -54,8 +54,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo MethodTypeDesc$$Lambda$descriptorString::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(MethodTypeDesc$$Lambda$descriptorString::*)()>(&MethodTypeDesc$$Lambda$descriptorString::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(MethodTypeDesc$$Lambda$descriptorString, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MethodTypeDesc$$Lambda$descriptorString, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo MethodTypeDesc$$Lambda$descriptorString::classInfo$ = {
@@ -87,8 +87,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo MethodTypeDesc$$Lambda$displayName$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(MethodTypeDesc$$Lambda$displayName$1::*)()>(&MethodTypeDesc$$Lambda$displayName$1::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(MethodTypeDesc$$Lambda$displayName$1, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MethodTypeDesc$$Lambda$displayName$1, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo MethodTypeDesc$$Lambda$displayName$1::classInfo$ = {
@@ -106,21 +106,21 @@ $Class* MethodTypeDesc$$Lambda$displayName$1::load$($String* name, bool initiali
 $Class* MethodTypeDesc$$Lambda$displayName$1::class$ = nullptr;
 
 $MethodInfo _MethodTypeDesc_MethodInfo_[] = {
-	{"changeParameterType", "(ILjava/lang/constant/ClassDesc;)Ljava/lang/constant/MethodTypeDesc;", nullptr, $PUBLIC | $ABSTRACT},
-	{"changeParameterType", "(ILjava/lang/invoke/TypeDescriptor$OfField;)Ljava/lang/invoke/TypeDescriptor$OfMethod;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"changeReturnType", "(Ljava/lang/constant/ClassDesc;)Ljava/lang/constant/MethodTypeDesc;", nullptr, $PUBLIC | $ABSTRACT},
-	{"changeReturnType", "(Ljava/lang/invoke/TypeDescriptor$OfField;)Ljava/lang/invoke/TypeDescriptor$OfMethod;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"changeParameterType", "(ILjava/lang/constant/ClassDesc;)Ljava/lang/constant/MethodTypeDesc;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MethodTypeDesc, changeParameterType, MethodTypeDesc*, int32_t, $ClassDesc*)},
+	{"changeParameterType", "(ILjava/lang/invoke/TypeDescriptor$OfField;)Ljava/lang/invoke/TypeDescriptor$OfMethod;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(MethodTypeDesc, changeParameterType, $TypeDescriptor$OfMethod*, int32_t, $TypeDescriptor$OfField*)},
+	{"changeReturnType", "(Ljava/lang/constant/ClassDesc;)Ljava/lang/constant/MethodTypeDesc;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MethodTypeDesc, changeReturnType, MethodTypeDesc*, $ClassDesc*)},
+	{"changeReturnType", "(Ljava/lang/invoke/TypeDescriptor$OfField;)Ljava/lang/invoke/TypeDescriptor$OfMethod;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(MethodTypeDesc, changeReturnType, $TypeDescriptor$OfMethod*, $TypeDescriptor$OfField*)},
 	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"descriptorString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"displayDescriptor", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"descriptorString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MethodTypeDesc, descriptorString, $String*)},
+	{"displayDescriptor", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MethodTypeDesc, displayDescriptor, $String*)},
 	{"dropParameterTypes", "(II)Ljava/lang/invoke/TypeDescriptor$OfMethod;", nullptr, $PUBLIC | $ABSTRACT},
 	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"insertParameterTypes", "(I[Ljava/lang/constant/ClassDesc;)Ljava/lang/constant/MethodTypeDesc;", nullptr, $PUBLIC | $TRANSIENT | $ABSTRACT},
-	{"insertParameterTypes", "(I[Ljava/lang/invoke/TypeDescriptor$OfField;)Ljava/lang/invoke/TypeDescriptor$OfMethod;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"of", "(Ljava/lang/constant/ClassDesc;[Ljava/lang/constant/ClassDesc;)Ljava/lang/constant/MethodTypeDesc;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<MethodTypeDesc*(*)($ClassDesc*,$ClassDescArray*)>(&MethodTypeDesc::of))},
-	{"ofDescriptor", "(Ljava/lang/String;)Ljava/lang/constant/MethodTypeDesc;", nullptr, $PUBLIC | $STATIC, $method(static_cast<MethodTypeDesc*(*)($String*)>(&MethodTypeDesc::ofDescriptor))},
+	{"insertParameterTypes", "(I[Ljava/lang/constant/ClassDesc;)Ljava/lang/constant/MethodTypeDesc;", nullptr, $PUBLIC | $TRANSIENT | $ABSTRACT, $virtualMethod(MethodTypeDesc, insertParameterTypes, MethodTypeDesc*, int32_t, $ClassDescArray*)},
+	{"insertParameterTypes", "(I[Ljava/lang/invoke/TypeDescriptor$OfField;)Ljava/lang/invoke/TypeDescriptor$OfMethod;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(MethodTypeDesc, insertParameterTypes, $TypeDescriptor$OfMethod*, int32_t, $TypeDescriptor$OfFieldArray*)},
+	{"of", "(Ljava/lang/constant/ClassDesc;[Ljava/lang/constant/ClassDesc;)Ljava/lang/constant/MethodTypeDesc;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(MethodTypeDesc, of, MethodTypeDesc*, $ClassDesc*, $ClassDescArray*)},
+	{"ofDescriptor", "(Ljava/lang/String;)Ljava/lang/constant/MethodTypeDesc;", nullptr, $PUBLIC | $STATIC, $staticMethod(MethodTypeDesc, ofDescriptor, MethodTypeDesc*, $String*)},
 	{"returnType", "()Ljava/lang/invoke/TypeDescriptor$OfField;", nullptr, $PUBLIC | $ABSTRACT},
 	{"parameterCount", "()I", nullptr, $PUBLIC | $ABSTRACT},
 	{"parameterType", "(I)Ljava/lang/invoke/TypeDescriptor$OfField;", nullptr, $PUBLIC | $ABSTRACT},

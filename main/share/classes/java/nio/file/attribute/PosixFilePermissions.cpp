@@ -42,15 +42,15 @@ namespace java {
 			namespace attribute {
 
 $MethodInfo _PosixFilePermissions_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(PosixFilePermissions::*)()>(&PosixFilePermissions::init$))},
-	{"asFileAttribute", "(Ljava/util/Set;)Ljava/nio/file/attribute/FileAttribute;", "(Ljava/util/Set<Ljava/nio/file/attribute/PosixFilePermission;>;)Ljava/nio/file/attribute/FileAttribute<Ljava/util/Set<Ljava/nio/file/attribute/PosixFilePermission;>;>;", $PUBLIC | $STATIC, $method(static_cast<$FileAttribute*(*)($Set*)>(&PosixFilePermissions::asFileAttribute))},
-	{"fromString", "(Ljava/lang/String;)Ljava/util/Set;", "(Ljava/lang/String;)Ljava/util/Set<Ljava/nio/file/attribute/PosixFilePermission;>;", $PUBLIC | $STATIC, $method(static_cast<$Set*(*)($String*)>(&PosixFilePermissions::fromString))},
-	{"isR", "(C)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)(char16_t)>(&PosixFilePermissions::isR))},
-	{"isSet", "(CC)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)(char16_t,char16_t)>(&PosixFilePermissions::isSet))},
-	{"isW", "(C)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)(char16_t)>(&PosixFilePermissions::isW))},
-	{"isX", "(C)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)(char16_t)>(&PosixFilePermissions::isX))},
-	{"toString", "(Ljava/util/Set;)Ljava/lang/String;", "(Ljava/util/Set<Ljava/nio/file/attribute/PosixFilePermission;>;)Ljava/lang/String;", $PUBLIC | $STATIC, $method(static_cast<$String*(*)($Set*)>(&PosixFilePermissions::toString))},
-	{"writeBits", "(Ljava/lang/StringBuilder;ZZZ)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($StringBuilder*,bool,bool,bool)>(&PosixFilePermissions::writeBits))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(PosixFilePermissions, init$, void)},
+	{"asFileAttribute", "(Ljava/util/Set;)Ljava/nio/file/attribute/FileAttribute;", "(Ljava/util/Set<Ljava/nio/file/attribute/PosixFilePermission;>;)Ljava/nio/file/attribute/FileAttribute<Ljava/util/Set<Ljava/nio/file/attribute/PosixFilePermission;>;>;", $PUBLIC | $STATIC, $staticMethod(PosixFilePermissions, asFileAttribute, $FileAttribute*, $Set*)},
+	{"fromString", "(Ljava/lang/String;)Ljava/util/Set;", "(Ljava/lang/String;)Ljava/util/Set<Ljava/nio/file/attribute/PosixFilePermission;>;", $PUBLIC | $STATIC, $staticMethod(PosixFilePermissions, fromString, $Set*, $String*)},
+	{"isR", "(C)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(PosixFilePermissions, isR, bool, char16_t)},
+	{"isSet", "(CC)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(PosixFilePermissions, isSet, bool, char16_t, char16_t)},
+	{"isW", "(C)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(PosixFilePermissions, isW, bool, char16_t)},
+	{"isX", "(C)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(PosixFilePermissions, isX, bool, char16_t)},
+	{"toString", "(Ljava/util/Set;)Ljava/lang/String;", "(Ljava/util/Set<Ljava/nio/file/attribute/PosixFilePermission;>;)Ljava/lang/String;", $PUBLIC | $STATIC, $staticMethod(PosixFilePermissions, toString, $String*, $Set*)},
+	{"writeBits", "(Ljava/lang/StringBuilder;ZZZ)V", nullptr, $PRIVATE | $STATIC, $staticMethod(PosixFilePermissions, writeBits, void, $StringBuilder*, bool, bool, bool)},
 	{}
 };
 

@@ -29,22 +29,22 @@ $FieldInfo _StringCharacterIterator_FieldInfo_[] = {
 };
 
 $MethodInfo _StringCharacterIterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(StringCharacterIterator::*)($String*)>(&StringCharacterIterator::init$))},
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(static_cast<void(StringCharacterIterator::*)($String*,int32_t)>(&StringCharacterIterator::init$))},
-	{"<init>", "(Ljava/lang/String;III)V", nullptr, $PUBLIC, $method(static_cast<void(StringCharacterIterator::*)($String*,int32_t,int32_t,int32_t)>(&StringCharacterIterator::init$))},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"current", "()C", nullptr, $PUBLIC},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"first", "()C", nullptr, $PUBLIC},
-	{"getBeginIndex", "()I", nullptr, $PUBLIC},
-	{"getEndIndex", "()I", nullptr, $PUBLIC},
-	{"getIndex", "()I", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"last", "()C", nullptr, $PUBLIC},
-	{"next", "()C", nullptr, $PUBLIC},
-	{"previous", "()C", nullptr, $PUBLIC},
-	{"setIndex", "(I)C", nullptr, $PUBLIC},
-	{"setText", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(StringCharacterIterator::*)($String*)>(&StringCharacterIterator::setText))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(StringCharacterIterator, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(StringCharacterIterator, init$, void, $String*, int32_t)},
+	{"<init>", "(Ljava/lang/String;III)V", nullptr, $PUBLIC, $method(StringCharacterIterator, init$, void, $String*, int32_t, int32_t, int32_t)},
+	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(StringCharacterIterator, clone, $Object*)},
+	{"current", "()C", nullptr, $PUBLIC, $virtualMethod(StringCharacterIterator, current, char16_t)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(StringCharacterIterator, equals, bool, Object$*)},
+	{"first", "()C", nullptr, $PUBLIC, $virtualMethod(StringCharacterIterator, first, char16_t)},
+	{"getBeginIndex", "()I", nullptr, $PUBLIC, $virtualMethod(StringCharacterIterator, getBeginIndex, int32_t)},
+	{"getEndIndex", "()I", nullptr, $PUBLIC, $virtualMethod(StringCharacterIterator, getEndIndex, int32_t)},
+	{"getIndex", "()I", nullptr, $PUBLIC, $virtualMethod(StringCharacterIterator, getIndex, int32_t)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(StringCharacterIterator, hashCode, int32_t)},
+	{"last", "()C", nullptr, $PUBLIC, $virtualMethod(StringCharacterIterator, last, char16_t)},
+	{"next", "()C", nullptr, $PUBLIC, $virtualMethod(StringCharacterIterator, next, char16_t)},
+	{"previous", "()C", nullptr, $PUBLIC, $virtualMethod(StringCharacterIterator, previous, char16_t)},
+	{"setIndex", "(I)C", nullptr, $PUBLIC, $virtualMethod(StringCharacterIterator, setIndex, char16_t, int32_t)},
+	{"setText", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(StringCharacterIterator, setText, void, $String*)},
 	{}
 };
 

@@ -19,13 +19,13 @@ $FieldInfo _TestThread_FieldInfo_[] = {
 };
 
 $MethodInfo _TestThread_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/io/PrintStream;)V", nullptr, 0, $method(static_cast<void(TestThread::*)($String*,$PrintStream*)>(&TestThread::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(TestThread::*)($String*)>(&TestThread::init$))},
-	{"finish", "(J)I", nullptr, 0},
-	{"finishAndThrow", "(J)V", nullptr, 0, nullptr, "java.lang.Exception"},
-	{"go", "()V", nullptr, $ABSTRACT, nullptr, "java.lang.Exception"},
-	{"run", "()V", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Ljava/io/PrintStream;)V", nullptr, 0, $method(TestThread, init$, void, $String*, $PrintStream*)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(TestThread, init$, void, $String*)},
+	{"finish", "(J)I", nullptr, 0, $virtualMethod(TestThread, finish, int32_t, int64_t)},
+	{"finishAndThrow", "(J)V", nullptr, 0, $virtualMethod(TestThread, finishAndThrow, void, int64_t), "java.lang.Exception"},
+	{"go", "()V", nullptr, $ABSTRACT, $virtualMethod(TestThread, go, void), "java.lang.Exception"},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestThread, run, void)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TestThread, toString, $String*)},
 	{}
 };
 

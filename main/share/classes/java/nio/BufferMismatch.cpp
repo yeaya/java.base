@@ -47,14 +47,14 @@ $FieldInfo _BufferMismatch_FieldInfo_[] = {
 };
 
 $MethodInfo _BufferMismatch_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(BufferMismatch::*)()>(&BufferMismatch::init$))},
-	{"mismatch", "(Ljava/nio/ByteBuffer;ILjava/nio/ByteBuffer;II)I", nullptr, $STATIC, $method(static_cast<int32_t(*)($ByteBuffer*,int32_t,$ByteBuffer*,int32_t,int32_t)>(&BufferMismatch::mismatch))},
-	{"mismatch", "(Ljava/nio/CharBuffer;ILjava/nio/CharBuffer;II)I", nullptr, $STATIC, $method(static_cast<int32_t(*)($CharBuffer*,int32_t,$CharBuffer*,int32_t,int32_t)>(&BufferMismatch::mismatch))},
-	{"mismatch", "(Ljava/nio/ShortBuffer;ILjava/nio/ShortBuffer;II)I", nullptr, $STATIC, $method(static_cast<int32_t(*)($ShortBuffer*,int32_t,$ShortBuffer*,int32_t,int32_t)>(&BufferMismatch::mismatch))},
-	{"mismatch", "(Ljava/nio/IntBuffer;ILjava/nio/IntBuffer;II)I", nullptr, $STATIC, $method(static_cast<int32_t(*)($IntBuffer*,int32_t,$IntBuffer*,int32_t,int32_t)>(&BufferMismatch::mismatch))},
-	{"mismatch", "(Ljava/nio/FloatBuffer;ILjava/nio/FloatBuffer;II)I", nullptr, $STATIC, $method(static_cast<int32_t(*)($FloatBuffer*,int32_t,$FloatBuffer*,int32_t,int32_t)>(&BufferMismatch::mismatch))},
-	{"mismatch", "(Ljava/nio/LongBuffer;ILjava/nio/LongBuffer;II)I", nullptr, $STATIC, $method(static_cast<int32_t(*)($LongBuffer*,int32_t,$LongBuffer*,int32_t,int32_t)>(&BufferMismatch::mismatch))},
-	{"mismatch", "(Ljava/nio/DoubleBuffer;ILjava/nio/DoubleBuffer;II)I", nullptr, $STATIC, $method(static_cast<int32_t(*)($DoubleBuffer*,int32_t,$DoubleBuffer*,int32_t,int32_t)>(&BufferMismatch::mismatch))},
+	{"<init>", "()V", nullptr, 0, $method(BufferMismatch, init$, void)},
+	{"mismatch", "(Ljava/nio/ByteBuffer;ILjava/nio/ByteBuffer;II)I", nullptr, $STATIC, $staticMethod(BufferMismatch, mismatch, int32_t, $ByteBuffer*, int32_t, $ByteBuffer*, int32_t, int32_t)},
+	{"mismatch", "(Ljava/nio/CharBuffer;ILjava/nio/CharBuffer;II)I", nullptr, $STATIC, $staticMethod(BufferMismatch, mismatch, int32_t, $CharBuffer*, int32_t, $CharBuffer*, int32_t, int32_t)},
+	{"mismatch", "(Ljava/nio/ShortBuffer;ILjava/nio/ShortBuffer;II)I", nullptr, $STATIC, $staticMethod(BufferMismatch, mismatch, int32_t, $ShortBuffer*, int32_t, $ShortBuffer*, int32_t, int32_t)},
+	{"mismatch", "(Ljava/nio/IntBuffer;ILjava/nio/IntBuffer;II)I", nullptr, $STATIC, $staticMethod(BufferMismatch, mismatch, int32_t, $IntBuffer*, int32_t, $IntBuffer*, int32_t, int32_t)},
+	{"mismatch", "(Ljava/nio/FloatBuffer;ILjava/nio/FloatBuffer;II)I", nullptr, $STATIC, $staticMethod(BufferMismatch, mismatch, int32_t, $FloatBuffer*, int32_t, $FloatBuffer*, int32_t, int32_t)},
+	{"mismatch", "(Ljava/nio/LongBuffer;ILjava/nio/LongBuffer;II)I", nullptr, $STATIC, $staticMethod(BufferMismatch, mismatch, int32_t, $LongBuffer*, int32_t, $LongBuffer*, int32_t, int32_t)},
+	{"mismatch", "(Ljava/nio/DoubleBuffer;ILjava/nio/DoubleBuffer;II)I", nullptr, $STATIC, $staticMethod(BufferMismatch, mismatch, int32_t, $DoubleBuffer*, int32_t, $DoubleBuffer*, int32_t, int32_t)},
 	{}
 };
 

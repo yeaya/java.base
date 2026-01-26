@@ -22,8 +22,8 @@ $FieldInfo _SortedOps$AbstractLongSortingSink_FieldInfo_[] = {
 };
 
 $MethodInfo _SortedOps$AbstractLongSortingSink_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/stream/Sink;)V", "(Ljava/util/stream/Sink<-Ljava/lang/Long;>;)V", 0, $method(static_cast<void(SortedOps$AbstractLongSortingSink::*)($Sink*)>(&SortedOps$AbstractLongSortingSink::init$))},
-	{"cancellationRequested", "()Z", nullptr, $PUBLIC | $FINAL},
+	{"<init>", "(Ljava/util/stream/Sink;)V", "(Ljava/util/stream/Sink<-Ljava/lang/Long;>;)V", 0, $method(SortedOps$AbstractLongSortingSink, init$, void, $Sink*)},
+	{"cancellationRequested", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(SortedOps$AbstractLongSortingSink, cancellationRequested, bool)},
 	{}
 };
 

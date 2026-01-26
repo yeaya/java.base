@@ -8,7 +8,7 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _TypeTag$Inner_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(TypeTag$Inner::*)()>(&TypeTag$Inner::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(TypeTag$Inner, init$, void)},
 	{}
 };
 

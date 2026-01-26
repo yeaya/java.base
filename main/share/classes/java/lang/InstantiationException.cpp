@@ -17,8 +17,8 @@ $FieldInfo _InstantiationException_FieldInfo_[] = {
 };
 
 $MethodInfo _InstantiationException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(InstantiationException::*)()>(&InstantiationException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(InstantiationException::*)($String*)>(&InstantiationException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(InstantiationException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InstantiationException, init$, void, $String*)},
 	{}
 };
 

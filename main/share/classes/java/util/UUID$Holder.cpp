@@ -19,7 +19,7 @@ $FieldInfo _UUID$Holder_FieldInfo_[] = {
 };
 
 $MethodInfo _UUID$Holder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(UUID$Holder::*)()>(&UUID$Holder::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(UUID$Holder, init$, void)},
 	{}
 };
 

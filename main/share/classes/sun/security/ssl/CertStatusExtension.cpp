@@ -61,7 +61,7 @@ $FieldInfo _CertStatusExtension_FieldInfo_[] = {
 };
 
 $MethodInfo _CertStatusExtension_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(CertStatusExtension::*)()>(&CertStatusExtension::init$))},
+	{"<init>", "()V", nullptr, 0, $method(CertStatusExtension, init$, void)},
 	{}
 };
 

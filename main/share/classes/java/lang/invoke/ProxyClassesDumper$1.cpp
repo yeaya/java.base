@@ -22,8 +22,8 @@ $FieldInfo _ProxyClassesDumper$1_FieldInfo_[] = {
 };
 
 $MethodInfo _ProxyClassesDumper$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/file/Path;)V", nullptr, 0, $method(static_cast<void(ProxyClassesDumper$1::*)($Path*)>(&ProxyClassesDumper$1::init$))},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/nio/file/Path;)V", nullptr, 0, $method(ProxyClassesDumper$1, init$, void, $Path*)},
+	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(ProxyClassesDumper$1, run, $Object*)},
 	{}
 };
 

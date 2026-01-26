@@ -14,8 +14,8 @@ namespace com {
 			namespace provider {
 
 $MethodInfo _HmacCore$HmacSHA3_256_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(HmacCore$HmacSHA3_256::*)()>(&HmacCore$HmacSHA3_256::init$)), "java.security.NoSuchAlgorithmException"},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, nullptr, "java.lang.CloneNotSupportedException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(HmacCore$HmacSHA3_256, init$, void), "java.security.NoSuchAlgorithmException"},
+	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(HmacCore$HmacSHA3_256, clone, $Object*), "java.lang.CloneNotSupportedException"},
 	{}
 };
 

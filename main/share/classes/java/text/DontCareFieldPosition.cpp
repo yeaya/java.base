@@ -25,8 +25,8 @@ $FieldInfo _DontCareFieldPosition_FieldInfo_[] = {
 };
 
 $MethodInfo _DontCareFieldPosition_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(DontCareFieldPosition::*)()>(&DontCareFieldPosition::init$))},
-	{"getFieldDelegate", "()Ljava/text/Format$FieldDelegate;", nullptr, 0},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(DontCareFieldPosition, init$, void)},
+	{"getFieldDelegate", "()Ljava/text/Format$FieldDelegate;", nullptr, 0, $virtualMethod(DontCareFieldPosition, getFieldDelegate, $Format$FieldDelegate*)},
 	{}
 };
 

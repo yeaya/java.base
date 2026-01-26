@@ -29,9 +29,9 @@ $FieldInfo _StressNativeSignal$ServerSocketThread_FieldInfo_[] = {
 };
 
 $MethodInfo _StressNativeSignal$ServerSocketThread_MethodInfo_[] = {
-	{"<init>", "(LStressNativeSignal;)V", nullptr, $PUBLIC, $method(static_cast<void(StressNativeSignal$ServerSocketThread::*)($StressNativeSignal*)>(&StressNativeSignal$ServerSocketThread::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
-	{"terminate", "()V", nullptr, $PUBLIC},
+	{"<init>", "(LStressNativeSignal;)V", nullptr, $PUBLIC, $method(StressNativeSignal$ServerSocketThread, init$, void, $StressNativeSignal*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(StressNativeSignal$ServerSocketThread, run, void)},
+	{"terminate", "()V", nullptr, $PUBLIC, $virtualMethod(StressNativeSignal$ServerSocketThread, terminate, void)},
 	{}
 };
 

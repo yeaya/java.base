@@ -28,10 +28,10 @@ $FieldInfo _FileTreeWalker$EventType_FieldInfo_[] = {
 };
 
 $MethodInfo _FileTreeWalker$EventType_MethodInfo_[] = {
-	{"$values", "()[Ljava/nio/file/FileTreeWalker$EventType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$FileTreeWalker$EventTypeArray*(*)()>(&FileTreeWalker$EventType::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(FileTreeWalker$EventType::*)($String*,int32_t)>(&FileTreeWalker$EventType::init$))},
-	{"valueOf", "(Ljava/lang/String;)Ljava/nio/file/FileTreeWalker$EventType;", nullptr, $PUBLIC | $STATIC, $method(static_cast<FileTreeWalker$EventType*(*)($String*)>(&FileTreeWalker$EventType::valueOf))},
-	{"values", "()[Ljava/nio/file/FileTreeWalker$EventType;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$FileTreeWalker$EventTypeArray*(*)()>(&FileTreeWalker$EventType::values))},
+	{"$values", "()[Ljava/nio/file/FileTreeWalker$EventType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(FileTreeWalker$EventType, $values, $FileTreeWalker$EventTypeArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(FileTreeWalker$EventType, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Ljava/nio/file/FileTreeWalker$EventType;", nullptr, $PUBLIC | $STATIC, $staticMethod(FileTreeWalker$EventType, valueOf, FileTreeWalker$EventType*, $String*)},
+	{"values", "()[Ljava/nio/file/FileTreeWalker$EventType;", nullptr, $PUBLIC | $STATIC, $staticMethod(FileTreeWalker$EventType, values, $FileTreeWalker$EventTypeArray*)},
 	{}
 };
 

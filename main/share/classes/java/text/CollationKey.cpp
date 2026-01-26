@@ -16,11 +16,11 @@ $FieldInfo _CollationKey_FieldInfo_[] = {
 };
 
 $MethodInfo _CollationKey_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $method(static_cast<void(CollationKey::*)($String*)>(&CollationKey::init$))},
-	{"compareTo", "(Ljava/text/CollationKey;)I", nullptr, $PUBLIC | $ABSTRACT},
-	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"getSourceString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"toByteArray", "()[B", nullptr, $PUBLIC | $ABSTRACT},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $method(CollationKey, init$, void, $String*)},
+	{"compareTo", "(Ljava/text/CollationKey;)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CollationKey, compareTo, int32_t, CollationKey*)},
+	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(CollationKey, compareTo, int32_t, Object$*)},
+	{"getSourceString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CollationKey, getSourceString, $String*)},
+	{"toByteArray", "()[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CollationKey, toByteArray, $bytes*)},
 	{}
 };
 

@@ -41,11 +41,11 @@ $FieldInfo _Striped64$Cell_FieldInfo_[] = {
 };
 
 $MethodInfo _Striped64$Cell_MethodInfo_[] = {
-	{"<init>", "(J)V", nullptr, 0, $method(static_cast<void(Striped64$Cell::*)(int64_t)>(&Striped64$Cell::init$))},
-	{"cas", "(JJ)Z", nullptr, $FINAL, $method(static_cast<bool(Striped64$Cell::*)(int64_t,int64_t)>(&Striped64$Cell::cas))},
-	{"getAndSet", "(J)J", nullptr, $FINAL, $method(static_cast<int64_t(Striped64$Cell::*)(int64_t)>(&Striped64$Cell::getAndSet))},
-	{"reset", "()V", nullptr, $FINAL, $method(static_cast<void(Striped64$Cell::*)()>(&Striped64$Cell::reset))},
-	{"reset", "(J)V", nullptr, $FINAL, $method(static_cast<void(Striped64$Cell::*)(int64_t)>(&Striped64$Cell::reset))},
+	{"<init>", "(J)V", nullptr, 0, $method(Striped64$Cell, init$, void, int64_t)},
+	{"cas", "(JJ)Z", nullptr, $FINAL, $method(Striped64$Cell, cas, bool, int64_t, int64_t)},
+	{"getAndSet", "(J)J", nullptr, $FINAL, $method(Striped64$Cell, getAndSet, int64_t, int64_t)},
+	{"reset", "()V", nullptr, $FINAL, $method(Striped64$Cell, reset, void)},
+	{"reset", "(J)V", nullptr, $FINAL, $method(Striped64$Cell, reset, void, int64_t)},
 	{}
 };
 

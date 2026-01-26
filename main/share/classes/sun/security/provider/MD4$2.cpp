@@ -16,8 +16,8 @@ namespace sun {
 		namespace provider {
 
 $MethodInfo _MD4$2_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(MD4$2::*)()>(&MD4$2::init$))},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(MD4$2, init$, void)},
+	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(MD4$2, run, $Object*)},
 	{}
 };
 

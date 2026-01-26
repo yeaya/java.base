@@ -28,9 +28,9 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 
 $MethodInfo _HexDumpReader_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(HexDumpReader::*)()>(&HexDumpReader::init$))},
-	{"getStreamFromHexDump", "(Ljava/lang/String;)Ljava/io/InputStream;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$InputStream*(*)($String*)>(&HexDumpReader::getStreamFromHexDump))},
-	{"getStreamFromHexDump", "(Ljava/io/File;)Ljava/io/InputStream;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$InputStream*(*)($File*)>(&HexDumpReader::getStreamFromHexDump))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(HexDumpReader, init$, void)},
+	{"getStreamFromHexDump", "(Ljava/lang/String;)Ljava/io/InputStream;", nullptr, $PUBLIC | $STATIC, $staticMethod(HexDumpReader, getStreamFromHexDump, $InputStream*, $String*)},
+	{"getStreamFromHexDump", "(Ljava/io/File;)Ljava/io/InputStream;", nullptr, $PUBLIC | $STATIC, $staticMethod(HexDumpReader, getStreamFromHexDump, $InputStream*, $File*)},
 	{}
 };
 

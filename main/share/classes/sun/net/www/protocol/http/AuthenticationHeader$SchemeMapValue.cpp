@@ -23,7 +23,7 @@ $FieldInfo _AuthenticationHeader$SchemeMapValue_FieldInfo_[] = {
 };
 
 $MethodInfo _AuthenticationHeader$SchemeMapValue_MethodInfo_[] = {
-	{"<init>", "(Lsun/net/www/HeaderParser;Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(AuthenticationHeader$SchemeMapValue::*)($HeaderParser*,$String*)>(&AuthenticationHeader$SchemeMapValue::init$))},
+	{"<init>", "(Lsun/net/www/HeaderParser;Ljava/lang/String;)V", nullptr, 0, $method(AuthenticationHeader$SchemeMapValue, init$, void, $HeaderParser*, $String*)},
 	{}
 };
 

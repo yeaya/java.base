@@ -36,8 +36,8 @@ $FieldInfo _BlockDeviceSize_FieldInfo_[] = {
 };
 
 $MethodInfo _BlockDeviceSize_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(BlockDeviceSize::*)()>(&BlockDeviceSize::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&BlockDeviceSize::main)), "java.lang.Throwable"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(BlockDeviceSize, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(BlockDeviceSize, main, void, $StringArray*), "java.lang.Throwable"},
 	{}
 };
 

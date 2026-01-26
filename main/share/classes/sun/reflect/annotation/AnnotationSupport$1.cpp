@@ -23,8 +23,8 @@ $FieldInfo _AnnotationSupport$1_FieldInfo_[] = {
 };
 
 $MethodInfo _AnnotationSupport$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/reflect/Method;)V", "()V", 0, $method(static_cast<void(AnnotationSupport$1::*)($Method*)>(&AnnotationSupport$1::init$))},
-	{"run", "()Ljava/lang/reflect/Method;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/reflect/Method;)V", "()V", 0, $method(AnnotationSupport$1, init$, void, $Method*)},
+	{"run", "()Ljava/lang/reflect/Method;", nullptr, $PUBLIC, $virtualMethod(AnnotationSupport$1, run, $Object*)},
 	{}
 };
 

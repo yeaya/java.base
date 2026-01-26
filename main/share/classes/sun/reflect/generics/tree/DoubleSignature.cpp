@@ -19,9 +19,9 @@ $FieldInfo _DoubleSignature_FieldInfo_[] = {
 };
 
 $MethodInfo _DoubleSignature_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(DoubleSignature::*)()>(&DoubleSignature::init$))},
-	{"accept", "(Lsun/reflect/generics/visitor/TypeTreeVisitor;)V", "(Lsun/reflect/generics/visitor/TypeTreeVisitor<*>;)V", $PUBLIC},
-	{"make", "()Lsun/reflect/generics/tree/DoubleSignature;", nullptr, $PUBLIC | $STATIC, $method(static_cast<DoubleSignature*(*)()>(&DoubleSignature::make))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(DoubleSignature, init$, void)},
+	{"accept", "(Lsun/reflect/generics/visitor/TypeTreeVisitor;)V", "(Lsun/reflect/generics/visitor/TypeTreeVisitor<*>;)V", $PUBLIC, $virtualMethod(DoubleSignature, accept, void, $TypeTreeVisitor*)},
+	{"make", "()Lsun/reflect/generics/tree/DoubleSignature;", nullptr, $PUBLIC | $STATIC, $staticMethod(DoubleSignature, make, DoubleSignature*)},
 	{}
 };
 

@@ -25,10 +25,10 @@ $FieldInfo _PreSharedKeyExtension$PskIdentity_FieldInfo_[] = {
 };
 
 $MethodInfo _PreSharedKeyExtension$PskIdentity_MethodInfo_[] = {
-	{"<init>", "([BI)V", nullptr, 0, $method(static_cast<void(PreSharedKeyExtension$PskIdentity::*)($bytes*,int32_t)>(&PreSharedKeyExtension$PskIdentity::init$))},
-	{"getEncodedLength", "()I", nullptr, 0, $method(static_cast<int32_t(PreSharedKeyExtension$PskIdentity::*)()>(&PreSharedKeyExtension$PskIdentity::getEncodedLength))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"writeEncoded", "(Ljava/nio/ByteBuffer;)V", nullptr, 0, $method(static_cast<void(PreSharedKeyExtension$PskIdentity::*)($ByteBuffer*)>(&PreSharedKeyExtension$PskIdentity::writeEncoded)), "java.io.IOException"},
+	{"<init>", "([BI)V", nullptr, 0, $method(PreSharedKeyExtension$PskIdentity, init$, void, $bytes*, int32_t)},
+	{"getEncodedLength", "()I", nullptr, 0, $method(PreSharedKeyExtension$PskIdentity, getEncodedLength, int32_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PreSharedKeyExtension$PskIdentity, toString, $String*)},
+	{"writeEncoded", "(Ljava/nio/ByteBuffer;)V", nullptr, 0, $method(PreSharedKeyExtension$PskIdentity, writeEncoded, void, $ByteBuffer*), "java.io.IOException"},
 	{}
 };
 

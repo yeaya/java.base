@@ -68,15 +68,15 @@ $MethodInfo _Indify$ClassFile_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lindify/Indify;Ljava/io/File;)V", nullptr, 0, $method(static_cast<void(Indify$ClassFile::*)($Indify*,$File*)>(&Indify$ClassFile::init$)), "java.io.IOException"},
-	{"attrs", "()Ljava/util/List;", "()Ljava/util/List<Lindify/Indify$Attr;>;", $PUBLIC},
-	{"inners", "()Ljava/util/List;", "()Ljava/util/List<Lindify/Indify$Inner;>;", $PUBLIC},
-	{"nameString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"readFrom", "(Ljava/io/DataInputStream;)V", nullptr, $PUBLIC | $FINAL, nullptr, "java.io.IOException"},
-	{"toByteArray", "()[B", nullptr, $PUBLIC},
+	{"<init>", "(Lindify/Indify;Ljava/io/File;)V", nullptr, 0, $method(Indify$ClassFile, init$, void, $Indify*, $File*), "java.io.IOException"},
+	{"attrs", "()Ljava/util/List;", "()Ljava/util/List<Lindify/Indify$Attr;>;", $PUBLIC, $virtualMethod(Indify$ClassFile, attrs, $List*)},
+	{"inners", "()Ljava/util/List;", "()Ljava/util/List<Lindify/Indify$Inner;>;", $PUBLIC, $virtualMethod(Indify$ClassFile, inners, $List*)},
+	{"nameString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Indify$ClassFile, nameString, $String*)},
+	{"readFrom", "(Ljava/io/DataInputStream;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(Indify$ClassFile, readFrom, void, $DataInputStream*), "java.io.IOException"},
+	{"toByteArray", "()[B", nullptr, $PUBLIC, $virtualMethod(Indify$ClassFile, toByteArray, $bytes*)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"writeTo", "(Ljava/io/File;)V", nullptr, 0, nullptr, "java.io.IOException"},
-	{"writeTo", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"writeTo", "(Ljava/io/File;)V", nullptr, 0, $virtualMethod(Indify$ClassFile, writeTo, void, $File*), "java.io.IOException"},
+	{"writeTo", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(Indify$ClassFile, writeTo, void, $DataOutputStream*), "java.io.IOException"},
 	{}
 };
 

@@ -26,15 +26,15 @@ $FieldInfo _Collections$UnmodifiableMap$UnmodifiableEntrySet$UnmodifiableEntrySe
 };
 
 $MethodInfo _Collections$UnmodifiableMap$UnmodifiableEntrySet$UnmodifiableEntrySetSpliterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Spliterator;)V", "(Ljava/util/Spliterator<Ljava/util/Map$Entry<TK;TV;>;>;)V", 0, $method(static_cast<void(Collections$UnmodifiableMap$UnmodifiableEntrySet$UnmodifiableEntrySetSpliterator::*)($Spliterator*)>(&Collections$UnmodifiableMap$UnmodifiableEntrySet$UnmodifiableEntrySetSpliterator::init$))},
-	{"characteristics", "()I", nullptr, $PUBLIC},
-	{"estimateSize", "()J", nullptr, $PUBLIC},
-	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-Ljava/util/Map$Entry<TK;TV;>;>;)V", $PUBLIC},
-	{"getComparator", "()Ljava/util/Comparator;", "()Ljava/util/Comparator<-Ljava/util/Map$Entry<TK;TV;>;>;", $PUBLIC},
-	{"getExactSizeIfKnown", "()J", nullptr, $PUBLIC},
-	{"hasCharacteristics", "(I)Z", nullptr, $PUBLIC},
-	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-Ljava/util/Map$Entry<TK;TV;>;>;)Z", $PUBLIC},
-	{"trySplit", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<Ljava/util/Map$Entry<TK;TV;>;>;", $PUBLIC},
+	{"<init>", "(Ljava/util/Spliterator;)V", "(Ljava/util/Spliterator<Ljava/util/Map$Entry<TK;TV;>;>;)V", 0, $method(Collections$UnmodifiableMap$UnmodifiableEntrySet$UnmodifiableEntrySetSpliterator, init$, void, $Spliterator*)},
+	{"characteristics", "()I", nullptr, $PUBLIC, $virtualMethod(Collections$UnmodifiableMap$UnmodifiableEntrySet$UnmodifiableEntrySetSpliterator, characteristics, int32_t)},
+	{"estimateSize", "()J", nullptr, $PUBLIC, $virtualMethod(Collections$UnmodifiableMap$UnmodifiableEntrySet$UnmodifiableEntrySetSpliterator, estimateSize, int64_t)},
+	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-Ljava/util/Map$Entry<TK;TV;>;>;)V", $PUBLIC, $virtualMethod(Collections$UnmodifiableMap$UnmodifiableEntrySet$UnmodifiableEntrySetSpliterator, forEachRemaining, void, $Consumer*)},
+	{"getComparator", "()Ljava/util/Comparator;", "()Ljava/util/Comparator<-Ljava/util/Map$Entry<TK;TV;>;>;", $PUBLIC, $virtualMethod(Collections$UnmodifiableMap$UnmodifiableEntrySet$UnmodifiableEntrySetSpliterator, getComparator, $Comparator*)},
+	{"getExactSizeIfKnown", "()J", nullptr, $PUBLIC, $virtualMethod(Collections$UnmodifiableMap$UnmodifiableEntrySet$UnmodifiableEntrySetSpliterator, getExactSizeIfKnown, int64_t)},
+	{"hasCharacteristics", "(I)Z", nullptr, $PUBLIC, $virtualMethod(Collections$UnmodifiableMap$UnmodifiableEntrySet$UnmodifiableEntrySetSpliterator, hasCharacteristics, bool, int32_t)},
+	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-Ljava/util/Map$Entry<TK;TV;>;>;)Z", $PUBLIC, $virtualMethod(Collections$UnmodifiableMap$UnmodifiableEntrySet$UnmodifiableEntrySetSpliterator, tryAdvance, bool, $Consumer*)},
+	{"trySplit", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<Ljava/util/Map$Entry<TK;TV;>;>;", $PUBLIC, $virtualMethod(Collections$UnmodifiableMap$UnmodifiableEntrySet$UnmodifiableEntrySetSpliterator, trySplit, $Spliterator*)},
 	{}
 };
 

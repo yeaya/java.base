@@ -23,14 +23,14 @@ namespace sun {
 		namespace fs {
 
 $MethodInfo _ExtendedOptions$InternalOption_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ExtendedOptions$InternalOption::*)()>(&ExtendedOptions$InternalOption::init$))},
-	{"matches", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $method(static_cast<bool(ExtendedOptions$InternalOption::*)(Object$*)>(&ExtendedOptions$InternalOption::matches))},
-	{"parameter", "()Ljava/lang/Object;", "()TT;", $PUBLIC, $method(static_cast<$Object*(ExtendedOptions$InternalOption::*)()>(&ExtendedOptions$InternalOption::parameter))},
-	{"register", "(Ljava/nio/file/OpenOption;)V", nullptr, $PUBLIC, $method(static_cast<void(ExtendedOptions$InternalOption::*)($OpenOption*)>(&ExtendedOptions$InternalOption::register$))},
-	{"register", "(Ljava/nio/file/CopyOption;)V", nullptr, $PUBLIC, $method(static_cast<void(ExtendedOptions$InternalOption::*)($CopyOption*)>(&ExtendedOptions$InternalOption::register$))},
-	{"register", "(Ljava/nio/file/WatchEvent$Modifier;)V", nullptr, $PUBLIC, $method(static_cast<void(ExtendedOptions$InternalOption::*)($WatchEvent$Modifier*)>(&ExtendedOptions$InternalOption::register$))},
-	{"register", "(Ljava/nio/file/WatchEvent$Modifier;Ljava/lang/Object;)V", "(Ljava/nio/file/WatchEvent$Modifier;TT;)V", $PUBLIC, $method(static_cast<void(ExtendedOptions$InternalOption::*)($WatchEvent$Modifier*,Object$*)>(&ExtendedOptions$InternalOption::register$))},
-	{"registerInternal", "(Ljava/lang/Object;Ljava/lang/Object;)V", "(Ljava/lang/Object;TT;)V", $PRIVATE, $method(static_cast<void(ExtendedOptions$InternalOption::*)(Object$*,Object$*)>(&ExtendedOptions$InternalOption::registerInternal))},
+	{"<init>", "()V", nullptr, 0, $method(ExtendedOptions$InternalOption, init$, void)},
+	{"matches", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $method(ExtendedOptions$InternalOption, matches, bool, Object$*)},
+	{"parameter", "()Ljava/lang/Object;", "()TT;", $PUBLIC, $method(ExtendedOptions$InternalOption, parameter, $Object*)},
+	{"register", "(Ljava/nio/file/OpenOption;)V", nullptr, $PUBLIC, $method(ExtendedOptions$InternalOption, register$, void, $OpenOption*)},
+	{"register", "(Ljava/nio/file/CopyOption;)V", nullptr, $PUBLIC, $method(ExtendedOptions$InternalOption, register$, void, $CopyOption*)},
+	{"register", "(Ljava/nio/file/WatchEvent$Modifier;)V", nullptr, $PUBLIC, $method(ExtendedOptions$InternalOption, register$, void, $WatchEvent$Modifier*)},
+	{"register", "(Ljava/nio/file/WatchEvent$Modifier;Ljava/lang/Object;)V", "(Ljava/nio/file/WatchEvent$Modifier;TT;)V", $PUBLIC, $method(ExtendedOptions$InternalOption, register$, void, $WatchEvent$Modifier*, Object$*)},
+	{"registerInternal", "(Ljava/lang/Object;Ljava/lang/Object;)V", "(Ljava/lang/Object;TT;)V", $PRIVATE, $method(ExtendedOptions$InternalOption, registerInternal, void, Object$*, Object$*)},
 	{}
 };
 

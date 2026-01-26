@@ -52,12 +52,12 @@ using $Files = ::java::nio::file::Files;
 using $Arrays = ::java::util::Arrays;
 
 $MethodInfo _Shutdown_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Shutdown::*)()>(&Shutdown::init$))},
-	{"assertTrue", "(ZLjava/lang/String;)V", nullptr, $STATIC, $method(static_cast<void(*)(bool,$String*)>(&Shutdown::assertTrue))},
-	{"close", "(Ljava/io/Closeable;)V", nullptr, $STATIC, $method(static_cast<void(*)($Closeable*)>(&Shutdown::close))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Shutdown::main)), "java.lang.Exception"},
-	{"runTest", "()V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)()>(&Shutdown::runTest)), "java.io.IOException"},
-	{"supported", "()Z", nullptr, $STATIC, $method(static_cast<bool(*)()>(&Shutdown::supported))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Shutdown, init$, void)},
+	{"assertTrue", "(ZLjava/lang/String;)V", nullptr, $STATIC, $staticMethod(Shutdown, assertTrue, void, bool, $String*)},
+	{"close", "(Ljava/io/Closeable;)V", nullptr, $STATIC, $staticMethod(Shutdown, close, void, $Closeable*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Shutdown, main, void, $StringArray*), "java.lang.Exception"},
+	{"runTest", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(Shutdown, runTest, void), "java.io.IOException"},
+	{"supported", "()Z", nullptr, $STATIC, $staticMethod(Shutdown, supported, bool)},
 	{}
 };
 

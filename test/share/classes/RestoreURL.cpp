@@ -21,8 +21,8 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $URL = ::java::net::URL;
 
 $MethodInfo _RestoreURL_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(RestoreURL::*)()>(&RestoreURL::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&RestoreURL::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(RestoreURL, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(RestoreURL, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

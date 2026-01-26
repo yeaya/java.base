@@ -20,9 +20,9 @@ $FieldInfo _TestObjectStreamClass$TestObjectInputStream_FieldInfo_[] = {
 };
 
 $MethodInfo _TestObjectStreamClass$TestObjectInputStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(static_cast<void(TestObjectStreamClass$TestObjectInputStream::*)($InputStream*)>(&TestObjectStreamClass$TestObjectInputStream::init$)), "java.io.IOException"},
-	{"getDescriptor", "()Ljava/io/ObjectStreamClass;", nullptr, $PUBLIC, nullptr, "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"readClassDescriptor", "()Ljava/io/ObjectStreamClass;", nullptr, $PUBLIC, nullptr, "java.io.IOException,java.lang.ClassNotFoundException"},
+	{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(TestObjectStreamClass$TestObjectInputStream, init$, void, $InputStream*), "java.io.IOException"},
+	{"getDescriptor", "()Ljava/io/ObjectStreamClass;", nullptr, $PUBLIC, $virtualMethod(TestObjectStreamClass$TestObjectInputStream, getDescriptor, $ObjectStreamClass*), "java.io.IOException,java.lang.ClassNotFoundException"},
+	{"readClassDescriptor", "()Ljava/io/ObjectStreamClass;", nullptr, $PUBLIC, $virtualMethod(TestObjectStreamClass$TestObjectInputStream, readClassDescriptor, $ObjectStreamClass*), "java.io.IOException,java.lang.ClassNotFoundException"},
 	{}
 };
 

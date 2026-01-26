@@ -24,9 +24,9 @@ $FieldInfo _GetContentType_FieldInfo_[] = {
 };
 
 $MethodInfo _GetContentType_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(GetContentType::*)()>(&GetContentType::init$))},
-	{"getSpec", "()Ljava/lang/String;", nullptr, $STATIC, $method(static_cast<$String*(*)()>(&GetContentType::getSpec)), "java.io.IOException"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&GetContentType::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(GetContentType, init$, void)},
+	{"getSpec", "()Ljava/lang/String;", nullptr, $STATIC, $staticMethod(GetContentType, getSpec, $String*), "java.io.IOException"},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(GetContentType, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

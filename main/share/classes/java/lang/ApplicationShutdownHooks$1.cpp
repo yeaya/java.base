@@ -13,8 +13,8 @@ namespace java {
 	namespace lang {
 
 $MethodInfo _ApplicationShutdownHooks$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ApplicationShutdownHooks$1::*)()>(&ApplicationShutdownHooks$1::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(ApplicationShutdownHooks$1, init$, void)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ApplicationShutdownHooks$1, run, void)},
 	{}
 };
 

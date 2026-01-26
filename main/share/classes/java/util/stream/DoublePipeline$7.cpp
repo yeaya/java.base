@@ -28,8 +28,8 @@ $FieldInfo _DoublePipeline$7_FieldInfo_[] = {
 };
 
 $MethodInfo _DoublePipeline$7_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/stream/DoublePipeline;Ljava/util/stream/AbstractPipeline;Ljava/util/stream/StreamShape;I)V", nullptr, 0, $method(static_cast<void(DoublePipeline$7::*)($DoublePipeline*,$AbstractPipeline*,$StreamShape*,int32_t)>(&DoublePipeline$7::init$))},
-	{"opWrapSink", "(ILjava/util/stream/Sink;)Ljava/util/stream/Sink;", "(ILjava/util/stream/Sink<Ljava/lang/Double;>;)Ljava/util/stream/Sink<Ljava/lang/Double;>;", 0},
+	{"<init>", "(Ljava/util/stream/DoublePipeline;Ljava/util/stream/AbstractPipeline;Ljava/util/stream/StreamShape;I)V", nullptr, 0, $method(DoublePipeline$7, init$, void, $DoublePipeline*, $AbstractPipeline*, $StreamShape*, int32_t)},
+	{"opWrapSink", "(ILjava/util/stream/Sink;)Ljava/util/stream/Sink;", "(ILjava/util/stream/Sink<Ljava/lang/Double;>;)Ljava/util/stream/Sink<Ljava/lang/Double;>;", 0, $virtualMethod(DoublePipeline$7, opWrapSink, $Sink*, int32_t, $Sink*)},
 	{}
 };
 

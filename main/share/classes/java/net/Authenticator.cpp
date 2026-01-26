@@ -55,8 +55,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Authenticator$$Lambda$getKey::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Authenticator$$Lambda$getKey::*)()>(&Authenticator$$Lambda$getKey::init$))},
-	{"getKey", "(Ljava/net/Authenticator;)Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Authenticator$$Lambda$getKey, init$, void)},
+	{"getKey", "(Ljava/net/Authenticator;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Authenticator$$Lambda$getKey, getKey, $String*, Authenticator*)},
 	{}
 };
 $ClassInfo Authenticator$$Lambda$getKey::classInfo$ = {
@@ -88,25 +88,25 @@ $FieldInfo _Authenticator_FieldInfo_[] = {
 };
 
 $MethodInfo _Authenticator_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Authenticator::*)()>(&Authenticator::init$))},
-	{"getDefault", "()Ljava/net/Authenticator;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Authenticator*(*)()>(&Authenticator::getDefault))},
-	{"getKey", "(Ljava/net/Authenticator;)Ljava/lang/String;", nullptr, $STATIC, $method(static_cast<$String*(*)(Authenticator*)>(&Authenticator::getKey))},
-	{"getPasswordAuthentication", "()Ljava/net/PasswordAuthentication;", nullptr, $PROTECTED},
-	{"getRequestingHost", "()Ljava/lang/String;", nullptr, $PROTECTED | $FINAL, $method(static_cast<$String*(Authenticator::*)()>(&Authenticator::getRequestingHost))},
-	{"getRequestingPort", "()I", nullptr, $PROTECTED | $FINAL, $method(static_cast<int32_t(Authenticator::*)()>(&Authenticator::getRequestingPort))},
-	{"getRequestingPrompt", "()Ljava/lang/String;", nullptr, $PROTECTED | $FINAL, $method(static_cast<$String*(Authenticator::*)()>(&Authenticator::getRequestingPrompt))},
-	{"getRequestingProtocol", "()Ljava/lang/String;", nullptr, $PROTECTED | $FINAL, $method(static_cast<$String*(Authenticator::*)()>(&Authenticator::getRequestingProtocol))},
-	{"getRequestingScheme", "()Ljava/lang/String;", nullptr, $PROTECTED | $FINAL, $method(static_cast<$String*(Authenticator::*)()>(&Authenticator::getRequestingScheme))},
-	{"getRequestingSite", "()Ljava/net/InetAddress;", nullptr, $PROTECTED | $FINAL, $method(static_cast<$InetAddress*(Authenticator::*)()>(&Authenticator::getRequestingSite))},
-	{"getRequestingURL", "()Ljava/net/URL;", nullptr, $PROTECTED},
-	{"getRequestorType", "()Ljava/net/Authenticator$RequestorType;", nullptr, $PROTECTED},
-	{"requestPasswordAuthentication", "(Ljava/net/InetAddress;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/net/PasswordAuthentication;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$PasswordAuthentication*(*)($InetAddress*,int32_t,$String*,$String*,$String*)>(&Authenticator::requestPasswordAuthentication))},
-	{"requestPasswordAuthentication", "(Ljava/lang/String;Ljava/net/InetAddress;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/net/PasswordAuthentication;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$PasswordAuthentication*(*)($String*,$InetAddress*,int32_t,$String*,$String*,$String*)>(&Authenticator::requestPasswordAuthentication))},
-	{"requestPasswordAuthentication", "(Ljava/lang/String;Ljava/net/InetAddress;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/net/URL;Ljava/net/Authenticator$RequestorType;)Ljava/net/PasswordAuthentication;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$PasswordAuthentication*(*)($String*,$InetAddress*,int32_t,$String*,$String*,$String*,$URL*,$Authenticator$RequestorType*)>(&Authenticator::requestPasswordAuthentication))},
-	{"requestPasswordAuthentication", "(Ljava/net/Authenticator;Ljava/lang/String;Ljava/net/InetAddress;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/net/URL;Ljava/net/Authenticator$RequestorType;)Ljava/net/PasswordAuthentication;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$PasswordAuthentication*(*)(Authenticator*,$String*,$InetAddress*,int32_t,$String*,$String*,$String*,$URL*,$Authenticator$RequestorType*)>(&Authenticator::requestPasswordAuthentication))},
-	{"requestPasswordAuthenticationInstance", "(Ljava/lang/String;Ljava/net/InetAddress;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/net/URL;Ljava/net/Authenticator$RequestorType;)Ljava/net/PasswordAuthentication;", nullptr, $PUBLIC},
-	{"reset", "()V", nullptr, $PRIVATE, $method(static_cast<void(Authenticator::*)()>(&Authenticator::reset))},
-	{"setDefault", "(Ljava/net/Authenticator;)V", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $method(static_cast<void(*)(Authenticator*)>(&Authenticator::setDefault))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Authenticator, init$, void)},
+	{"getDefault", "()Ljava/net/Authenticator;", nullptr, $PUBLIC | $STATIC, $staticMethod(Authenticator, getDefault, Authenticator*)},
+	{"getKey", "(Ljava/net/Authenticator;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(Authenticator, getKey, $String*, Authenticator*)},
+	{"getPasswordAuthentication", "()Ljava/net/PasswordAuthentication;", nullptr, $PROTECTED, $virtualMethod(Authenticator, getPasswordAuthentication, $PasswordAuthentication*)},
+	{"getRequestingHost", "()Ljava/lang/String;", nullptr, $PROTECTED | $FINAL, $method(Authenticator, getRequestingHost, $String*)},
+	{"getRequestingPort", "()I", nullptr, $PROTECTED | $FINAL, $method(Authenticator, getRequestingPort, int32_t)},
+	{"getRequestingPrompt", "()Ljava/lang/String;", nullptr, $PROTECTED | $FINAL, $method(Authenticator, getRequestingPrompt, $String*)},
+	{"getRequestingProtocol", "()Ljava/lang/String;", nullptr, $PROTECTED | $FINAL, $method(Authenticator, getRequestingProtocol, $String*)},
+	{"getRequestingScheme", "()Ljava/lang/String;", nullptr, $PROTECTED | $FINAL, $method(Authenticator, getRequestingScheme, $String*)},
+	{"getRequestingSite", "()Ljava/net/InetAddress;", nullptr, $PROTECTED | $FINAL, $method(Authenticator, getRequestingSite, $InetAddress*)},
+	{"getRequestingURL", "()Ljava/net/URL;", nullptr, $PROTECTED, $virtualMethod(Authenticator, getRequestingURL, $URL*)},
+	{"getRequestorType", "()Ljava/net/Authenticator$RequestorType;", nullptr, $PROTECTED, $virtualMethod(Authenticator, getRequestorType, $Authenticator$RequestorType*)},
+	{"requestPasswordAuthentication", "(Ljava/net/InetAddress;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/net/PasswordAuthentication;", nullptr, $PUBLIC | $STATIC, $staticMethod(Authenticator, requestPasswordAuthentication, $PasswordAuthentication*, $InetAddress*, int32_t, $String*, $String*, $String*)},
+	{"requestPasswordAuthentication", "(Ljava/lang/String;Ljava/net/InetAddress;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/net/PasswordAuthentication;", nullptr, $PUBLIC | $STATIC, $staticMethod(Authenticator, requestPasswordAuthentication, $PasswordAuthentication*, $String*, $InetAddress*, int32_t, $String*, $String*, $String*)},
+	{"requestPasswordAuthentication", "(Ljava/lang/String;Ljava/net/InetAddress;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/net/URL;Ljava/net/Authenticator$RequestorType;)Ljava/net/PasswordAuthentication;", nullptr, $PUBLIC | $STATIC, $staticMethod(Authenticator, requestPasswordAuthentication, $PasswordAuthentication*, $String*, $InetAddress*, int32_t, $String*, $String*, $String*, $URL*, $Authenticator$RequestorType*)},
+	{"requestPasswordAuthentication", "(Ljava/net/Authenticator;Ljava/lang/String;Ljava/net/InetAddress;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/net/URL;Ljava/net/Authenticator$RequestorType;)Ljava/net/PasswordAuthentication;", nullptr, $PUBLIC | $STATIC, $staticMethod(Authenticator, requestPasswordAuthentication, $PasswordAuthentication*, Authenticator*, $String*, $InetAddress*, int32_t, $String*, $String*, $String*, $URL*, $Authenticator$RequestorType*)},
+	{"requestPasswordAuthenticationInstance", "(Ljava/lang/String;Ljava/net/InetAddress;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/net/URL;Ljava/net/Authenticator$RequestorType;)Ljava/net/PasswordAuthentication;", nullptr, $PUBLIC, $virtualMethod(Authenticator, requestPasswordAuthenticationInstance, $PasswordAuthentication*, $String*, $InetAddress*, int32_t, $String*, $String*, $String*, $URL*, $Authenticator$RequestorType*)},
+	{"reset", "()V", nullptr, $PRIVATE, $method(Authenticator, reset, void)},
+	{"setDefault", "(Ljava/net/Authenticator;)V", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(Authenticator, setDefault, void, Authenticator*)},
 	{}
 };
 

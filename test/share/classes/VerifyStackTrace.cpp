@@ -81,8 +81,8 @@ $FieldInfo VerifyStackTrace$$Lambda$lambda$test$1::fieldInfos[5] = {
 	{}
 };
 $MethodInfo VerifyStackTrace$$Lambda$lambda$test$1::methodInfos[3] = {
-	{"<init>", "(LVerifyStackTrace$TestCase;LVerifyStackTrace$Recorder;Ljava/util/concurrent/atomic/AtomicLong;Ljava/lang/StringBuilder;)V", nullptr, $PUBLIC, $method(static_cast<void(VerifyStackTrace$$Lambda$lambda$test$1::*)($VerifyStackTrace$TestCase*,$VerifyStackTrace$Recorder*,$AtomicLong*,$StringBuilder*)>(&VerifyStackTrace$$Lambda$lambda$test$1::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(LVerifyStackTrace$TestCase;LVerifyStackTrace$Recorder;Ljava/util/concurrent/atomic/AtomicLong;Ljava/lang/StringBuilder;)V", nullptr, $PUBLIC, $method(VerifyStackTrace$$Lambda$lambda$test$1, init$, void, $VerifyStackTrace$TestCase*, $VerifyStackTrace$Recorder*, $AtomicLong*, $StringBuilder*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(VerifyStackTrace$$Lambda$lambda$test$1, run, void)},
 	{}
 };
 $ClassInfo VerifyStackTrace$$Lambda$lambda$test$1::classInfo$ = {
@@ -127,8 +127,8 @@ $FieldInfo VerifyStackTrace$$Lambda$lambda$test$0$1::fieldInfos[4] = {
 	{}
 };
 $MethodInfo VerifyStackTrace$$Lambda$lambda$test$0$1::methodInfos[3] = {
-	{"<init>", "(LVerifyStackTrace$Recorder;Ljava/util/concurrent/atomic/AtomicLong;Ljava/lang/StringBuilder;)V", nullptr, $PUBLIC, $method(static_cast<void(VerifyStackTrace$$Lambda$lambda$test$0$1::*)($VerifyStackTrace$Recorder*,$AtomicLong*,$StringBuilder*)>(&VerifyStackTrace$$Lambda$lambda$test$0$1::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(LVerifyStackTrace$Recorder;Ljava/util/concurrent/atomic/AtomicLong;Ljava/lang/StringBuilder;)V", nullptr, $PUBLIC, $method(VerifyStackTrace$$Lambda$lambda$test$0$1, init$, void, $VerifyStackTrace$Recorder*, $AtomicLong*, $StringBuilder*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(VerifyStackTrace$$Lambda$lambda$test$0$1, accept, void, Object$*)},
 	{}
 };
 $ClassInfo VerifyStackTrace$$Lambda$lambda$test$0$1::classInfo$ = {
@@ -146,13 +146,13 @@ $Class* VerifyStackTrace$$Lambda$lambda$test$0$1::load$($String* name, bool init
 $Class* VerifyStackTrace$$Lambda$lambda$test$0$1::class$ = nullptr;
 
 $MethodInfo _VerifyStackTrace_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(VerifyStackTrace::*)()>(&VerifyStackTrace::init$))},
-	{"invoke", "(Ljava/lang/Runnable;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($Runnable*)>(&VerifyStackTrace::invoke))},
-	{"lambda$test$0", "(LVerifyStackTrace$Recorder;Ljava/util/concurrent/atomic/AtomicLong;Ljava/lang/StringBuilder;Ljava/lang/StackWalker$StackFrame;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($VerifyStackTrace$Recorder*,$AtomicLong*,$StringBuilder*,$StackWalker$StackFrame*)>(&VerifyStackTrace::lambda$test$0))},
-	{"lambda$test$1", "(LVerifyStackTrace$TestCase;LVerifyStackTrace$Recorder;Ljava/util/concurrent/atomic/AtomicLong;Ljava/lang/StringBuilder;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($VerifyStackTrace$TestCase*,$VerifyStackTrace$Recorder*,$AtomicLong*,$StringBuilder*)>(&VerifyStackTrace::lambda$test$1))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&VerifyStackTrace::main))},
-	{"prepare", "(Ljava/lang/String;Z)Ljava/lang/String;", nullptr, $STATIC, $method(static_cast<$String*(*)($String*,bool)>(&VerifyStackTrace::prepare))},
-	{"test", "(LVerifyStackTrace$TestCase;)V", nullptr, $STATIC, $method(static_cast<void(*)($VerifyStackTrace$TestCase*)>(&VerifyStackTrace::test))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(VerifyStackTrace, init$, void)},
+	{"invoke", "(Ljava/lang/Runnable;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(VerifyStackTrace, invoke, void, $Runnable*)},
+	{"lambda$test$0", "(LVerifyStackTrace$Recorder;Ljava/util/concurrent/atomic/AtomicLong;Ljava/lang/StringBuilder;Ljava/lang/StackWalker$StackFrame;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(VerifyStackTrace, lambda$test$0, void, $VerifyStackTrace$Recorder*, $AtomicLong*, $StringBuilder*, $StackWalker$StackFrame*)},
+	{"lambda$test$1", "(LVerifyStackTrace$TestCase;LVerifyStackTrace$Recorder;Ljava/util/concurrent/atomic/AtomicLong;Ljava/lang/StringBuilder;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(VerifyStackTrace, lambda$test$1, void, $VerifyStackTrace$TestCase*, $VerifyStackTrace$Recorder*, $AtomicLong*, $StringBuilder*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(VerifyStackTrace, main, void, $StringArray*)},
+	{"prepare", "(Ljava/lang/String;Z)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(VerifyStackTrace, prepare, $String*, $String*, bool)},
+	{"test", "(LVerifyStackTrace$TestCase;)V", nullptr, $STATIC, $staticMethod(VerifyStackTrace, test, void, $VerifyStackTrace$TestCase*)},
 	{}
 };
 

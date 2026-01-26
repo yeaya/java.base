@@ -58,9 +58,9 @@ $FieldInfo _SSLTrafficKeyDerivation$LegacyTrafficKeyDerivation_FieldInfo_[] = {
 };
 
 $MethodInfo _SSLTrafficKeyDerivation$LegacyTrafficKeyDerivation_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljavax/crypto/SecretKey;)V", nullptr, 0, $method(static_cast<void(SSLTrafficKeyDerivation$LegacyTrafficKeyDerivation::*)($HandshakeContext*,$SecretKey*)>(&SSLTrafficKeyDerivation$LegacyTrafficKeyDerivation::init$))},
-	{"deriveKey", "(Ljava/lang/String;Ljava/security/spec/AlgorithmParameterSpec;)Ljavax/crypto/SecretKey;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"getTrafficKey", "(Ljava/lang/String;)Ljavax/crypto/SecretKey;", nullptr, 0, $method(static_cast<$SecretKey*(SSLTrafficKeyDerivation$LegacyTrafficKeyDerivation::*)($String*)>(&SSLTrafficKeyDerivation$LegacyTrafficKeyDerivation::getTrafficKey))},
+	{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljavax/crypto/SecretKey;)V", nullptr, 0, $method(SSLTrafficKeyDerivation$LegacyTrafficKeyDerivation, init$, void, $HandshakeContext*, $SecretKey*)},
+	{"deriveKey", "(Ljava/lang/String;Ljava/security/spec/AlgorithmParameterSpec;)Ljavax/crypto/SecretKey;", nullptr, $PUBLIC, $virtualMethod(SSLTrafficKeyDerivation$LegacyTrafficKeyDerivation, deriveKey, $SecretKey*, $String*, $AlgorithmParameterSpec*), "java.io.IOException"},
+	{"getTrafficKey", "(Ljava/lang/String;)Ljavax/crypto/SecretKey;", nullptr, 0, $method(SSLTrafficKeyDerivation$LegacyTrafficKeyDerivation, getTrafficKey, $SecretKey*, $String*)},
 	{}
 };
 

@@ -44,15 +44,15 @@ $FieldInfo _CertPathBuilder_FieldInfo_[] = {
 };
 
 $MethodInfo _CertPathBuilder_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/cert/CertPathBuilderSpi;Ljava/security/Provider;Ljava/lang/String;)V", nullptr, $PROTECTED, $method(static_cast<void(CertPathBuilder::*)($CertPathBuilderSpi*,$Provider*,$String*)>(&CertPathBuilder::init$))},
-	{"build", "(Ljava/security/cert/CertPathParameters;)Ljava/security/cert/CertPathBuilderResult;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$CertPathBuilderResult*(CertPathBuilder::*)($CertPathParameters*)>(&CertPathBuilder::build)), "java.security.cert.CertPathBuilderException,java.security.InvalidAlgorithmParameterException"},
-	{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$String*(CertPathBuilder::*)()>(&CertPathBuilder::getAlgorithm))},
-	{"getDefaultType", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $method(static_cast<$String*(*)()>(&CertPathBuilder::getDefaultType))},
-	{"getInstance", "(Ljava/lang/String;)Ljava/security/cert/CertPathBuilder;", nullptr, $PUBLIC | $STATIC, $method(static_cast<CertPathBuilder*(*)($String*)>(&CertPathBuilder::getInstance)), "java.security.NoSuchAlgorithmException"},
-	{"getInstance", "(Ljava/lang/String;Ljava/lang/String;)Ljava/security/cert/CertPathBuilder;", nullptr, $PUBLIC | $STATIC, $method(static_cast<CertPathBuilder*(*)($String*,$String*)>(&CertPathBuilder::getInstance)), "java.security.NoSuchAlgorithmException,java.security.NoSuchProviderException"},
-	{"getInstance", "(Ljava/lang/String;Ljava/security/Provider;)Ljava/security/cert/CertPathBuilder;", nullptr, $PUBLIC | $STATIC, $method(static_cast<CertPathBuilder*(*)($String*,$Provider*)>(&CertPathBuilder::getInstance)), "java.security.NoSuchAlgorithmException"},
-	{"getProvider", "()Ljava/security/Provider;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$Provider*(CertPathBuilder::*)()>(&CertPathBuilder::getProvider))},
-	{"getRevocationChecker", "()Ljava/security/cert/CertPathChecker;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$CertPathChecker*(CertPathBuilder::*)()>(&CertPathBuilder::getRevocationChecker))},
+	{"<init>", "(Ljava/security/cert/CertPathBuilderSpi;Ljava/security/Provider;Ljava/lang/String;)V", nullptr, $PROTECTED, $method(CertPathBuilder, init$, void, $CertPathBuilderSpi*, $Provider*, $String*)},
+	{"build", "(Ljava/security/cert/CertPathParameters;)Ljava/security/cert/CertPathBuilderResult;", nullptr, $PUBLIC | $FINAL, $method(CertPathBuilder, build, $CertPathBuilderResult*, $CertPathParameters*), "java.security.cert.CertPathBuilderException,java.security.InvalidAlgorithmParameterException"},
+	{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(CertPathBuilder, getAlgorithm, $String*)},
+	{"getDefaultType", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(CertPathBuilder, getDefaultType, $String*)},
+	{"getInstance", "(Ljava/lang/String;)Ljava/security/cert/CertPathBuilder;", nullptr, $PUBLIC | $STATIC, $staticMethod(CertPathBuilder, getInstance, CertPathBuilder*, $String*), "java.security.NoSuchAlgorithmException"},
+	{"getInstance", "(Ljava/lang/String;Ljava/lang/String;)Ljava/security/cert/CertPathBuilder;", nullptr, $PUBLIC | $STATIC, $staticMethod(CertPathBuilder, getInstance, CertPathBuilder*, $String*, $String*), "java.security.NoSuchAlgorithmException,java.security.NoSuchProviderException"},
+	{"getInstance", "(Ljava/lang/String;Ljava/security/Provider;)Ljava/security/cert/CertPathBuilder;", nullptr, $PUBLIC | $STATIC, $staticMethod(CertPathBuilder, getInstance, CertPathBuilder*, $String*, $Provider*), "java.security.NoSuchAlgorithmException"},
+	{"getProvider", "()Ljava/security/Provider;", nullptr, $PUBLIC | $FINAL, $method(CertPathBuilder, getProvider, $Provider*)},
+	{"getRevocationChecker", "()Ljava/security/cert/CertPathChecker;", nullptr, $PUBLIC | $FINAL, $method(CertPathBuilder, getRevocationChecker, $CertPathChecker*)},
 	{}
 };
 

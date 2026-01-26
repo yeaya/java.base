@@ -30,10 +30,10 @@ $FieldInfo _Pattern$Qtype_FieldInfo_[] = {
 };
 
 $MethodInfo _Pattern$Qtype_MethodInfo_[] = {
-	{"$values", "()[Ljava/util/regex/Pattern$Qtype;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Pattern$QtypeArray*(*)()>(&Pattern$Qtype::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(Pattern$Qtype::*)($String*,int32_t)>(&Pattern$Qtype::init$))},
-	{"valueOf", "(Ljava/lang/String;)Ljava/util/regex/Pattern$Qtype;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Pattern$Qtype*(*)($String*)>(&Pattern$Qtype::valueOf))},
-	{"values", "()[Ljava/util/regex/Pattern$Qtype;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Pattern$QtypeArray*(*)()>(&Pattern$Qtype::values))},
+	{"$values", "()[Ljava/util/regex/Pattern$Qtype;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Pattern$Qtype, $values, $Pattern$QtypeArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Pattern$Qtype, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Ljava/util/regex/Pattern$Qtype;", nullptr, $PUBLIC | $STATIC, $staticMethod(Pattern$Qtype, valueOf, Pattern$Qtype*, $String*)},
+	{"values", "()[Ljava/util/regex/Pattern$Qtype;", nullptr, $PUBLIC | $STATIC, $staticMethod(Pattern$Qtype, values, $Pattern$QtypeArray*)},
 	{}
 };
 

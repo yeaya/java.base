@@ -22,9 +22,9 @@ $FieldInfo _StampedLock$ReadWriteLockView_FieldInfo_[] = {
 };
 
 $MethodInfo _StampedLock$ReadWriteLockView_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/locks/StampedLock;)V", nullptr, 0, $method(static_cast<void(StampedLock$ReadWriteLockView::*)($StampedLock*)>(&StampedLock$ReadWriteLockView::init$))},
-	{"readLock", "()Ljava/util/concurrent/locks/Lock;", nullptr, $PUBLIC},
-	{"writeLock", "()Ljava/util/concurrent/locks/Lock;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/concurrent/locks/StampedLock;)V", nullptr, 0, $method(StampedLock$ReadWriteLockView, init$, void, $StampedLock*)},
+	{"readLock", "()Ljava/util/concurrent/locks/Lock;", nullptr, $PUBLIC, $virtualMethod(StampedLock$ReadWriteLockView, readLock, $Lock*)},
+	{"writeLock", "()Ljava/util/concurrent/locks/Lock;", nullptr, $PUBLIC, $virtualMethod(StampedLock$ReadWriteLockView, writeLock, $Lock*)},
 	{}
 };
 

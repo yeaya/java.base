@@ -189,8 +189,8 @@ $FieldInfo CompactNumberFormat$$Lambda$lambda$processCompactPatterns$0::fieldInf
 	{}
 };
 $MethodInfo CompactNumberFormat$$Lambda$lambda$processCompactPatterns$0::methodInfos[3] = {
-	{"<init>", "(Ljava/text/CompactNumberFormat;I)V", nullptr, $PUBLIC, $method(static_cast<void(CompactNumberFormat$$Lambda$lambda$processCompactPatterns$0::*)(CompactNumberFormat*,int32_t)>(&CompactNumberFormat$$Lambda$lambda$processCompactPatterns$0::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/text/CompactNumberFormat;I)V", nullptr, $PUBLIC, $method(CompactNumberFormat$$Lambda$lambda$processCompactPatterns$0, init$, void, CompactNumberFormat*, int32_t)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(CompactNumberFormat$$Lambda$lambda$processCompactPatterns$0, accept, void, Object$*)},
 	{}
 };
 $ClassInfo CompactNumberFormat$$Lambda$lambda$processCompactPatterns$0::classInfo$ = {
@@ -229,8 +229,8 @@ $FieldInfo CompactNumberFormat$$Lambda$validateRule$1::fieldInfos[2] = {
 	{}
 };
 $MethodInfo CompactNumberFormat$$Lambda$validateRule$1::methodInfos[3] = {
-	{"<init>", "(Ljava/text/CompactNumberFormat;)V", nullptr, $PUBLIC, $method(static_cast<void(CompactNumberFormat$$Lambda$validateRule$1::*)(CompactNumberFormat*)>(&CompactNumberFormat$$Lambda$validateRule$1::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/text/CompactNumberFormat;)V", nullptr, $PUBLIC, $method(CompactNumberFormat$$Lambda$validateRule$1, init$, void, CompactNumberFormat*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(CompactNumberFormat$$Lambda$validateRule$1, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo CompactNumberFormat$$Lambda$validateRule$1::classInfo$ = {
@@ -262,8 +262,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo CompactNumberFormat$$Lambda$lambda$buildPluralRulesMap$1$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CompactNumberFormat$$Lambda$lambda$buildPluralRulesMap$1$2::*)()>(&CompactNumberFormat$$Lambda$lambda$buildPluralRulesMap$1$2::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CompactNumberFormat$$Lambda$lambda$buildPluralRulesMap$1$2, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(CompactNumberFormat$$Lambda$lambda$buildPluralRulesMap$1$2, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo CompactNumberFormat$$Lambda$lambda$buildPluralRulesMap$1$2::classInfo$ = {
@@ -295,8 +295,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo CompactNumberFormat$$Lambda$lambda$buildPluralRulesMap$2$3::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CompactNumberFormat$$Lambda$lambda$buildPluralRulesMap$2$3::*)()>(&CompactNumberFormat$$Lambda$lambda$buildPluralRulesMap$2$3::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CompactNumberFormat$$Lambda$lambda$buildPluralRulesMap$2$3, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(CompactNumberFormat$$Lambda$lambda$buildPluralRulesMap$2$3, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo CompactNumberFormat$$Lambda$lambda$buildPluralRulesMap$2$3::classInfo$ = {
@@ -328,8 +328,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo CompactNumberFormat$$Lambda$getNumericValue$4::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CompactNumberFormat$$Lambda$getNumericValue$4::*)()>(&CompactNumberFormat$$Lambda$getNumericValue$4::init$))},
-	{"applyAsInt", "(I)I", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CompactNumberFormat$$Lambda$getNumericValue$4, init$, void)},
+	{"applyAsInt", "(I)I", nullptr, $PUBLIC, $virtualMethod(CompactNumberFormat$$Lambda$getNumericValue$4, applyAsInt, int32_t, int32_t)},
 	{}
 };
 $ClassInfo CompactNumberFormat$$Lambda$getNumericValue$4::classInfo$ = {
@@ -361,8 +361,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo CompactNumberFormat$$Lambda$toString$5::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CompactNumberFormat$$Lambda$toString$5::*)()>(&CompactNumberFormat$$Lambda$toString$5::init$))},
-	{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CompactNumberFormat$$Lambda$toString$5, init$, void)},
+	{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(CompactNumberFormat$$Lambda$toString$5, apply, $Object*, int32_t)},
 	{}
 };
 $ClassInfo CompactNumberFormat$$Lambda$toString$5::classInfo$ = {
@@ -401,8 +401,8 @@ $FieldInfo CompactNumberFormat$$Lambda$lambda$getPluralCategory$3$6::fieldInfos[
 	{}
 };
 $MethodInfo CompactNumberFormat$$Lambda$lambda$getPluralCategory$3$6::methodInfos[3] = {
-	{"<init>", "(D)V", nullptr, $PUBLIC, $method(static_cast<void(CompactNumberFormat$$Lambda$lambda$getPluralCategory$3$6::*)(double)>(&CompactNumberFormat$$Lambda$lambda$getPluralCategory$3$6::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "(D)V", nullptr, $PUBLIC, $method(CompactNumberFormat$$Lambda$lambda$getPluralCategory$3$6, init$, void, double)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(CompactNumberFormat$$Lambda$lambda$getPluralCategory$3$6, test, bool, Object$*)},
 	{}
 };
 $ClassInfo CompactNumberFormat$$Lambda$lambda$getPluralCategory$3$6::classInfo$ = {
@@ -434,8 +434,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo CompactNumberFormat$$Lambda$getKey$7::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CompactNumberFormat$$Lambda$getKey$7::*)()>(&CompactNumberFormat$$Lambda$getKey$7::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CompactNumberFormat$$Lambda$getKey$7, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(CompactNumberFormat$$Lambda$getKey$7, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo CompactNumberFormat$$Lambda$getKey$7::classInfo$ = {
@@ -474,8 +474,8 @@ $FieldInfo CompactNumberFormat$$Lambda$lambda$matchPluralRule$5$8::fieldInfos[2]
 	{}
 };
 $MethodInfo CompactNumberFormat$$Lambda$lambda$matchPluralRule$5$8::methodInfos[3] = {
-	{"<init>", "(D)V", nullptr, $PUBLIC, $method(static_cast<void(CompactNumberFormat$$Lambda$lambda$matchPluralRule$5$8::*)(double)>(&CompactNumberFormat$$Lambda$lambda$matchPluralRule$5$8::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "(D)V", nullptr, $PUBLIC, $method(CompactNumberFormat$$Lambda$lambda$matchPluralRule$5$8, init$, void, double)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(CompactNumberFormat$$Lambda$lambda$matchPluralRule$5$8, test, bool, Object$*)},
 	{}
 };
 $ClassInfo CompactNumberFormat$$Lambda$lambda$matchPluralRule$5$8::classInfo$ = {
@@ -514,8 +514,8 @@ $FieldInfo CompactNumberFormat$$Lambda$lambda$relationCheck$6$9::fieldInfos[2] =
 	{}
 };
 $MethodInfo CompactNumberFormat$$Lambda$lambda$relationCheck$6$9::methodInfos[3] = {
-	{"<init>", "(D)V", nullptr, $PUBLIC, $method(static_cast<void(CompactNumberFormat$$Lambda$lambda$relationCheck$6$9::*)(double)>(&CompactNumberFormat$$Lambda$lambda$relationCheck$6$9::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "(D)V", nullptr, $PUBLIC, $method(CompactNumberFormat$$Lambda$lambda$relationCheck$6$9, init$, void, double)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(CompactNumberFormat$$Lambda$lambda$relationCheck$6$9, test, bool, Object$*)},
 	{}
 };
 $ClassInfo CompactNumberFormat$$Lambda$lambda$relationCheck$6$9::classInfo$ = {
@@ -554,8 +554,8 @@ $FieldInfo CompactNumberFormat$$Lambda$lambda$matchPluralRule$4$10::fieldInfos[2
 	{}
 };
 $MethodInfo CompactNumberFormat$$Lambda$lambda$matchPluralRule$4$10::methodInfos[3] = {
-	{"<init>", "(D)V", nullptr, $PUBLIC, $method(static_cast<void(CompactNumberFormat$$Lambda$lambda$matchPluralRule$4$10::*)(double)>(&CompactNumberFormat$$Lambda$lambda$matchPluralRule$4$10::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "(D)V", nullptr, $PUBLIC, $method(CompactNumberFormat$$Lambda$lambda$matchPluralRule$4$10, init$, void, double)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(CompactNumberFormat$$Lambda$lambda$matchPluralRule$4$10, test, bool, Object$*)},
 	{}
 };
 $ClassInfo CompactNumberFormat$$Lambda$lambda$matchPluralRule$4$10::classInfo$ = {
@@ -628,70 +628,70 @@ $FieldInfo _CompactNumberFormat_FieldInfo_[] = {
 };
 
 $MethodInfo _CompactNumberFormat_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/text/DecimalFormatSymbols;[Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(CompactNumberFormat::*)($String*,$DecimalFormatSymbols*,$StringArray*)>(&CompactNumberFormat::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/text/DecimalFormatSymbols;[Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(CompactNumberFormat::*)($String*,$DecimalFormatSymbols*,$StringArray*,$String*)>(&CompactNumberFormat::init$))},
-	{"append", "(Ljava/lang/StringBuffer;Ljava/lang/String;Ljava/text/Format$FieldDelegate;Ljava/util/List;)V", "(Ljava/lang/StringBuffer;Ljava/lang/String;Ljava/text/Format$FieldDelegate;Ljava/util/List<Ljava/text/FieldPosition;>;)V", $PRIVATE, $method(static_cast<void(CompactNumberFormat::*)($StringBuffer*,$String*,$Format$FieldDelegate*,$List*)>(&CompactNumberFormat::append))},
-	{"appendPrefix", "(Ljava/lang/StringBuffer;Ljava/lang/String;Ljava/text/Format$FieldDelegate;)V", nullptr, $PRIVATE, $method(static_cast<void(CompactNumberFormat::*)($StringBuffer*,$String*,$Format$FieldDelegate*)>(&CompactNumberFormat::appendPrefix))},
-	{"appendSuffix", "(Ljava/lang/StringBuffer;Ljava/lang/String;Ljava/text/Format$FieldDelegate;)V", nullptr, $PRIVATE, $method(static_cast<void(CompactNumberFormat::*)($StringBuffer*,$String*,$Format$FieldDelegate*)>(&CompactNumberFormat::appendSuffix))},
-	{"applyPattern", "(Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(static_cast<void(CompactNumberFormat::*)($String*,$String*,int32_t)>(&CompactNumberFormat::applyPattern))},
-	{"buildPluralRulesMap", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE, $method(static_cast<$Map*(CompactNumberFormat::*)()>(&CompactNumberFormat::buildPluralRulesMap))},
-	{"clone", "()Ljava/text/CompactNumberFormat;", nullptr, $PUBLIC},
-	{"computeDivisor", "(Ljava/lang/String;I)Ljava/lang/Number;", nullptr, $PRIVATE, $method(static_cast<$Number*(CompactNumberFormat::*)($String*,int32_t)>(&CompactNumberFormat::computeDivisor))},
-	{"computeParseMultiplier", "(Ljava/lang/String;Ljava/text/ParsePosition;Ljava/lang/String;[ZZZD)Ljava/lang/Number;", nullptr, $PRIVATE, $method(static_cast<$Number*(CompactNumberFormat::*)($String*,$ParsePosition*,$String*,$booleans*,bool,bool,double)>(&CompactNumberFormat::computeParseMultiplier))},
-	{"convertIfNegative", "(Ljava/lang/Number;[ZZ)Ljava/lang/Number;", nullptr, $PRIVATE, $method(static_cast<$Number*(CompactNumberFormat::*)($Number*,$booleans*,bool)>(&CompactNumberFormat::convertIfNegative))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"evalLOperand", "(Ljava/util/regex/Matcher;D)D", nullptr, $PRIVATE | $STATIC, $method(static_cast<double(*)($Matcher*,double)>(&CompactNumberFormat::evalLOperand))},
-	{"expandAffix", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(CompactNumberFormat::*)($String*)>(&CompactNumberFormat::expandAffix))},
-	{"expandAffixPatterns", "()V", nullptr, $PRIVATE, $method(static_cast<void(CompactNumberFormat::*)()>(&CompactNumberFormat::expandAffixPatterns))},
-	{"format", "(Ljava/lang/Object;Ljava/lang/StringBuffer;Ljava/text/FieldPosition;)Ljava/lang/StringBuffer;", nullptr, $PUBLIC | $FINAL},
-	{"format", "(DLjava/lang/StringBuffer;Ljava/text/FieldPosition;)Ljava/lang/StringBuffer;", nullptr, $PUBLIC},
-	{"format", "(DLjava/lang/StringBuffer;Ljava/text/Format$FieldDelegate;)Ljava/lang/StringBuffer;", nullptr, $PRIVATE, $method(static_cast<$StringBuffer*(CompactNumberFormat::*)(double,$StringBuffer*,$Format$FieldDelegate*)>(&CompactNumberFormat::format))},
-	{"format", "(JLjava/lang/StringBuffer;Ljava/text/FieldPosition;)Ljava/lang/StringBuffer;", nullptr, $PUBLIC},
-	{"format", "(JLjava/lang/StringBuffer;Ljava/text/Format$FieldDelegate;)Ljava/lang/StringBuffer;", nullptr, $PRIVATE, $method(static_cast<$StringBuffer*(CompactNumberFormat::*)(int64_t,$StringBuffer*,$Format$FieldDelegate*)>(&CompactNumberFormat::format))},
-	{"format", "(Ljava/math/BigDecimal;Ljava/lang/StringBuffer;Ljava/text/FieldPosition;)Ljava/lang/StringBuffer;", nullptr, $PRIVATE, $method(static_cast<$StringBuffer*(CompactNumberFormat::*)($BigDecimal*,$StringBuffer*,$FieldPosition*)>(&CompactNumberFormat::format))},
-	{"format", "(Ljava/math/BigDecimal;Ljava/lang/StringBuffer;Ljava/text/Format$FieldDelegate;)Ljava/lang/StringBuffer;", nullptr, $PRIVATE, $method(static_cast<$StringBuffer*(CompactNumberFormat::*)($BigDecimal*,$StringBuffer*,$Format$FieldDelegate*)>(&CompactNumberFormat::format))},
-	{"format", "(Ljava/math/BigInteger;Ljava/lang/StringBuffer;Ljava/text/FieldPosition;)Ljava/lang/StringBuffer;", nullptr, $PRIVATE, $method(static_cast<$StringBuffer*(CompactNumberFormat::*)($BigInteger*,$StringBuffer*,$FieldPosition*)>(&CompactNumberFormat::format))},
-	{"format", "(Ljava/math/BigInteger;Ljava/lang/StringBuffer;Ljava/text/Format$FieldDelegate;Z)Ljava/lang/StringBuffer;", nullptr, $PRIVATE, $method(static_cast<$StringBuffer*(CompactNumberFormat::*)($BigInteger*,$StringBuffer*,$Format$FieldDelegate*,bool)>(&CompactNumberFormat::format))},
-	{"formatToCharacterIterator", "(Ljava/lang/Object;)Ljava/text/AttributedCharacterIterator;", nullptr, $PUBLIC},
-	{"generateParseResult", "(Ljava/lang/Number;ZZ[ZLjava/lang/Number;)Ljava/lang/Number;", nullptr, $PRIVATE, $method(static_cast<$Number*(CompactNumberFormat::*)($Number*,bool,bool,$booleans*,$Number*)>(&CompactNumberFormat::generateParseResult))},
-	{"getAffix", "(ZZZII)Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(CompactNumberFormat::*)(bool,bool,bool,int32_t,int32_t)>(&CompactNumberFormat::getAffix))},
-	{"getFieldPositions", "(Ljava/lang/String;Ljava/text/NumberFormat$Field;)Ljava/util/List;", "(Ljava/lang/String;Ljava/text/NumberFormat$Field;)Ljava/util/List<Ljava/text/FieldPosition;>;", $PRIVATE, $method(static_cast<$List*(CompactNumberFormat::*)($String*,$NumberFormat$Field*)>(&CompactNumberFormat::getFieldPositions))},
-	{"getGroupingSize", "()I", nullptr, $PUBLIC, $method(static_cast<int32_t(CompactNumberFormat::*)()>(&CompactNumberFormat::getGroupingSize))},
-	{"getIntegerPart", "(DD)I", nullptr, $PRIVATE, $method(static_cast<int32_t(CompactNumberFormat::*)(double,double)>(&CompactNumberFormat::getIntegerPart))},
-	{"getPluralCategory", "(D)Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(CompactNumberFormat::*)(double)>(&CompactNumberFormat::getPluralCategory))},
-	{"getRoundingMode", "()Ljava/math/RoundingMode;", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"isGroupingUsed", "()Z", nullptr, $PUBLIC},
-	{"isParseBigDecimal", "()Z", nullptr, $PUBLIC, $method(static_cast<bool(CompactNumberFormat::*)()>(&CompactNumberFormat::isParseBigDecimal))},
-	{"isParseIntegerOnly", "()Z", nullptr, $PUBLIC},
-	{"lambda$buildPluralRulesMap$1", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$String*(*)($String*)>(&CompactNumberFormat::lambda$buildPluralRulesMap$1))},
-	{"lambda$buildPluralRulesMap$2", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$String*(*)($String*)>(&CompactNumberFormat::lambda$buildPluralRulesMap$2))},
-	{"lambda$getPluralCategory$3", "(DLjava/util/Map$Entry;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)(double,$Map$Entry*)>(&CompactNumberFormat::lambda$getPluralCategory$3))},
-	{"lambda$matchPluralRule$4", "(DLjava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)(double,$String*)>(&CompactNumberFormat::lambda$matchPluralRule$4))},
-	{"lambda$matchPluralRule$5", "(DLjava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)(double,$String*)>(&CompactNumberFormat::lambda$matchPluralRule$5))},
-	{"lambda$processCompactPatterns$0", "(ILjava/util/regex/MatchResult;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(CompactNumberFormat::*)(int32_t,$MatchResult*)>(&CompactNumberFormat::lambda$processCompactPatterns$0))},
-	{"lambda$relationCheck$6", "(DLjava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)(double,$String*)>(&CompactNumberFormat::lambda$relationCheck$6))},
-	{"matchAffix", "(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(static_cast<bool(CompactNumberFormat::*)($String*,int32_t,$String*,$String*,$String*)>(&CompactNumberFormat::matchAffix))},
-	{"matchPluralRule", "(Ljava/lang/String;D)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($String*,double)>(&CompactNumberFormat::matchPluralRule))},
-	{"matchPrefixAndSuffix", "(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(static_cast<bool(CompactNumberFormat::*)($String*,int32_t,$String*,$String*,$String*,$String*,$String*,$String*)>(&CompactNumberFormat::matchPrefixAndSuffix))},
-	{"parse", "(Ljava/lang/String;Ljava/text/ParsePosition;)Ljava/lang/Number;", nullptr, $PUBLIC},
-	{"parseNumberPart", "(Ljava/lang/String;I)D", nullptr, $PRIVATE, $method(static_cast<double(CompactNumberFormat::*)($String*,int32_t)>(&CompactNumberFormat::parseNumberPart))},
-	{"processCompactPatterns", "()V", nullptr, $PRIVATE, $method(static_cast<void(CompactNumberFormat::*)()>(&CompactNumberFormat::processCompactPatterns))},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(CompactNumberFormat::*)($ObjectInputStream*)>(&CompactNumberFormat::readObject)), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"relationCheck", "(Ljava/lang/String;D)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($String*,double)>(&CompactNumberFormat::relationCheck))},
-	{"selectCompactPattern", "(J)I", nullptr, $PRIVATE, $method(static_cast<int32_t(CompactNumberFormat::*)(int64_t)>(&CompactNumberFormat::selectCompactPattern))},
-	{"selectCompactPattern", "(Ljava/math/BigInteger;)I", nullptr, $PRIVATE, $method(static_cast<int32_t(CompactNumberFormat::*)($BigInteger*)>(&CompactNumberFormat::selectCompactPattern))},
-	{"setGroupingSize", "(I)V", nullptr, $PUBLIC, $method(static_cast<void(CompactNumberFormat::*)(int32_t)>(&CompactNumberFormat::setGroupingSize))},
-	{"setGroupingUsed", "(Z)V", nullptr, $PUBLIC},
-	{"setMaximumFractionDigits", "(I)V", nullptr, $PUBLIC},
-	{"setMaximumIntegerDigits", "(I)V", nullptr, $PUBLIC},
-	{"setMinimumFractionDigits", "(I)V", nullptr, $PUBLIC},
-	{"setMinimumIntegerDigits", "(I)V", nullptr, $PUBLIC},
-	{"setParseBigDecimal", "(Z)V", nullptr, $PUBLIC, $method(static_cast<void(CompactNumberFormat::*)(bool)>(&CompactNumberFormat::setParseBigDecimal))},
-	{"setParseIntegerOnly", "(Z)V", nullptr, $PUBLIC},
-	{"setRoundingMode", "(Ljava/math/RoundingMode;)V", nullptr, $PUBLIC},
-	{"valOrRangeMatches", "(Ljava/lang/String;D)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($String*,double)>(&CompactNumberFormat::valOrRangeMatches))},
-	{"validateRule", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(CompactNumberFormat::*)($String*)>(&CompactNumberFormat::validateRule))},
+	{"<init>", "(Ljava/lang/String;Ljava/text/DecimalFormatSymbols;[Ljava/lang/String;)V", nullptr, $PUBLIC, $method(CompactNumberFormat, init$, void, $String*, $DecimalFormatSymbols*, $StringArray*)},
+	{"<init>", "(Ljava/lang/String;Ljava/text/DecimalFormatSymbols;[Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(CompactNumberFormat, init$, void, $String*, $DecimalFormatSymbols*, $StringArray*, $String*)},
+	{"append", "(Ljava/lang/StringBuffer;Ljava/lang/String;Ljava/text/Format$FieldDelegate;Ljava/util/List;)V", "(Ljava/lang/StringBuffer;Ljava/lang/String;Ljava/text/Format$FieldDelegate;Ljava/util/List<Ljava/text/FieldPosition;>;)V", $PRIVATE, $method(CompactNumberFormat, append, void, $StringBuffer*, $String*, $Format$FieldDelegate*, $List*)},
+	{"appendPrefix", "(Ljava/lang/StringBuffer;Ljava/lang/String;Ljava/text/Format$FieldDelegate;)V", nullptr, $PRIVATE, $method(CompactNumberFormat, appendPrefix, void, $StringBuffer*, $String*, $Format$FieldDelegate*)},
+	{"appendSuffix", "(Ljava/lang/StringBuffer;Ljava/lang/String;Ljava/text/Format$FieldDelegate;)V", nullptr, $PRIVATE, $method(CompactNumberFormat, appendSuffix, void, $StringBuffer*, $String*, $Format$FieldDelegate*)},
+	{"applyPattern", "(Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(CompactNumberFormat, applyPattern, void, $String*, $String*, int32_t)},
+	{"buildPluralRulesMap", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE, $method(CompactNumberFormat, buildPluralRulesMap, $Map*)},
+	{"clone", "()Ljava/text/CompactNumberFormat;", nullptr, $PUBLIC, $virtualMethod(CompactNumberFormat, clone, $Object*)},
+	{"computeDivisor", "(Ljava/lang/String;I)Ljava/lang/Number;", nullptr, $PRIVATE, $method(CompactNumberFormat, computeDivisor, $Number*, $String*, int32_t)},
+	{"computeParseMultiplier", "(Ljava/lang/String;Ljava/text/ParsePosition;Ljava/lang/String;[ZZZD)Ljava/lang/Number;", nullptr, $PRIVATE, $method(CompactNumberFormat, computeParseMultiplier, $Number*, $String*, $ParsePosition*, $String*, $booleans*, bool, bool, double)},
+	{"convertIfNegative", "(Ljava/lang/Number;[ZZ)Ljava/lang/Number;", nullptr, $PRIVATE, $method(CompactNumberFormat, convertIfNegative, $Number*, $Number*, $booleans*, bool)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(CompactNumberFormat, equals, bool, Object$*)},
+	{"evalLOperand", "(Ljava/util/regex/Matcher;D)D", nullptr, $PRIVATE | $STATIC, $staticMethod(CompactNumberFormat, evalLOperand, double, $Matcher*, double)},
+	{"expandAffix", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(CompactNumberFormat, expandAffix, $String*, $String*)},
+	{"expandAffixPatterns", "()V", nullptr, $PRIVATE, $method(CompactNumberFormat, expandAffixPatterns, void)},
+	{"format", "(Ljava/lang/Object;Ljava/lang/StringBuffer;Ljava/text/FieldPosition;)Ljava/lang/StringBuffer;", nullptr, $PUBLIC | $FINAL, $virtualMethod(CompactNumberFormat, format, $StringBuffer*, Object$*, $StringBuffer*, $FieldPosition*)},
+	{"format", "(DLjava/lang/StringBuffer;Ljava/text/FieldPosition;)Ljava/lang/StringBuffer;", nullptr, $PUBLIC, $virtualMethod(CompactNumberFormat, format, $StringBuffer*, double, $StringBuffer*, $FieldPosition*)},
+	{"format", "(DLjava/lang/StringBuffer;Ljava/text/Format$FieldDelegate;)Ljava/lang/StringBuffer;", nullptr, $PRIVATE, $method(CompactNumberFormat, format, $StringBuffer*, double, $StringBuffer*, $Format$FieldDelegate*)},
+	{"format", "(JLjava/lang/StringBuffer;Ljava/text/FieldPosition;)Ljava/lang/StringBuffer;", nullptr, $PUBLIC, $virtualMethod(CompactNumberFormat, format, $StringBuffer*, int64_t, $StringBuffer*, $FieldPosition*)},
+	{"format", "(JLjava/lang/StringBuffer;Ljava/text/Format$FieldDelegate;)Ljava/lang/StringBuffer;", nullptr, $PRIVATE, $method(CompactNumberFormat, format, $StringBuffer*, int64_t, $StringBuffer*, $Format$FieldDelegate*)},
+	{"format", "(Ljava/math/BigDecimal;Ljava/lang/StringBuffer;Ljava/text/FieldPosition;)Ljava/lang/StringBuffer;", nullptr, $PRIVATE, $method(CompactNumberFormat, format, $StringBuffer*, $BigDecimal*, $StringBuffer*, $FieldPosition*)},
+	{"format", "(Ljava/math/BigDecimal;Ljava/lang/StringBuffer;Ljava/text/Format$FieldDelegate;)Ljava/lang/StringBuffer;", nullptr, $PRIVATE, $method(CompactNumberFormat, format, $StringBuffer*, $BigDecimal*, $StringBuffer*, $Format$FieldDelegate*)},
+	{"format", "(Ljava/math/BigInteger;Ljava/lang/StringBuffer;Ljava/text/FieldPosition;)Ljava/lang/StringBuffer;", nullptr, $PRIVATE, $method(CompactNumberFormat, format, $StringBuffer*, $BigInteger*, $StringBuffer*, $FieldPosition*)},
+	{"format", "(Ljava/math/BigInteger;Ljava/lang/StringBuffer;Ljava/text/Format$FieldDelegate;Z)Ljava/lang/StringBuffer;", nullptr, $PRIVATE, $method(CompactNumberFormat, format, $StringBuffer*, $BigInteger*, $StringBuffer*, $Format$FieldDelegate*, bool)},
+	{"formatToCharacterIterator", "(Ljava/lang/Object;)Ljava/text/AttributedCharacterIterator;", nullptr, $PUBLIC, $virtualMethod(CompactNumberFormat, formatToCharacterIterator, $AttributedCharacterIterator*, Object$*)},
+	{"generateParseResult", "(Ljava/lang/Number;ZZ[ZLjava/lang/Number;)Ljava/lang/Number;", nullptr, $PRIVATE, $method(CompactNumberFormat, generateParseResult, $Number*, $Number*, bool, bool, $booleans*, $Number*)},
+	{"getAffix", "(ZZZII)Ljava/lang/String;", nullptr, $PRIVATE, $method(CompactNumberFormat, getAffix, $String*, bool, bool, bool, int32_t, int32_t)},
+	{"getFieldPositions", "(Ljava/lang/String;Ljava/text/NumberFormat$Field;)Ljava/util/List;", "(Ljava/lang/String;Ljava/text/NumberFormat$Field;)Ljava/util/List<Ljava/text/FieldPosition;>;", $PRIVATE, $method(CompactNumberFormat, getFieldPositions, $List*, $String*, $NumberFormat$Field*)},
+	{"getGroupingSize", "()I", nullptr, $PUBLIC, $method(CompactNumberFormat, getGroupingSize, int32_t)},
+	{"getIntegerPart", "(DD)I", nullptr, $PRIVATE, $method(CompactNumberFormat, getIntegerPart, int32_t, double, double)},
+	{"getPluralCategory", "(D)Ljava/lang/String;", nullptr, $PRIVATE, $method(CompactNumberFormat, getPluralCategory, $String*, double)},
+	{"getRoundingMode", "()Ljava/math/RoundingMode;", nullptr, $PUBLIC, $virtualMethod(CompactNumberFormat, getRoundingMode, $RoundingMode*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(CompactNumberFormat, hashCode, int32_t)},
+	{"isGroupingUsed", "()Z", nullptr, $PUBLIC, $virtualMethod(CompactNumberFormat, isGroupingUsed, bool)},
+	{"isParseBigDecimal", "()Z", nullptr, $PUBLIC, $method(CompactNumberFormat, isParseBigDecimal, bool)},
+	{"isParseIntegerOnly", "()Z", nullptr, $PUBLIC, $virtualMethod(CompactNumberFormat, isParseIntegerOnly, bool)},
+	{"lambda$buildPluralRulesMap$1", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CompactNumberFormat, lambda$buildPluralRulesMap$1, $String*, $String*)},
+	{"lambda$buildPluralRulesMap$2", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CompactNumberFormat, lambda$buildPluralRulesMap$2, $String*, $String*)},
+	{"lambda$getPluralCategory$3", "(DLjava/util/Map$Entry;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CompactNumberFormat, lambda$getPluralCategory$3, bool, double, $Map$Entry*)},
+	{"lambda$matchPluralRule$4", "(DLjava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CompactNumberFormat, lambda$matchPluralRule$4, bool, double, $String*)},
+	{"lambda$matchPluralRule$5", "(DLjava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CompactNumberFormat, lambda$matchPluralRule$5, bool, double, $String*)},
+	{"lambda$processCompactPatterns$0", "(ILjava/util/regex/MatchResult;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(CompactNumberFormat, lambda$processCompactPatterns$0, void, int32_t, $MatchResult*)},
+	{"lambda$relationCheck$6", "(DLjava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CompactNumberFormat, lambda$relationCheck$6, bool, double, $String*)},
+	{"matchAffix", "(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(CompactNumberFormat, matchAffix, bool, $String*, int32_t, $String*, $String*, $String*)},
+	{"matchPluralRule", "(Ljava/lang/String;D)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(CompactNumberFormat, matchPluralRule, bool, $String*, double)},
+	{"matchPrefixAndSuffix", "(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(CompactNumberFormat, matchPrefixAndSuffix, bool, $String*, int32_t, $String*, $String*, $String*, $String*, $String*, $String*)},
+	{"parse", "(Ljava/lang/String;Ljava/text/ParsePosition;)Ljava/lang/Number;", nullptr, $PUBLIC, $virtualMethod(CompactNumberFormat, parse, $Number*, $String*, $ParsePosition*)},
+	{"parseNumberPart", "(Ljava/lang/String;I)D", nullptr, $PRIVATE, $method(CompactNumberFormat, parseNumberPart, double, $String*, int32_t)},
+	{"processCompactPatterns", "()V", nullptr, $PRIVATE, $method(CompactNumberFormat, processCompactPatterns, void)},
+	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(CompactNumberFormat, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+	{"relationCheck", "(Ljava/lang/String;D)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(CompactNumberFormat, relationCheck, bool, $String*, double)},
+	{"selectCompactPattern", "(J)I", nullptr, $PRIVATE, $method(CompactNumberFormat, selectCompactPattern, int32_t, int64_t)},
+	{"selectCompactPattern", "(Ljava/math/BigInteger;)I", nullptr, $PRIVATE, $method(CompactNumberFormat, selectCompactPattern, int32_t, $BigInteger*)},
+	{"setGroupingSize", "(I)V", nullptr, $PUBLIC, $method(CompactNumberFormat, setGroupingSize, void, int32_t)},
+	{"setGroupingUsed", "(Z)V", nullptr, $PUBLIC, $virtualMethod(CompactNumberFormat, setGroupingUsed, void, bool)},
+	{"setMaximumFractionDigits", "(I)V", nullptr, $PUBLIC, $virtualMethod(CompactNumberFormat, setMaximumFractionDigits, void, int32_t)},
+	{"setMaximumIntegerDigits", "(I)V", nullptr, $PUBLIC, $virtualMethod(CompactNumberFormat, setMaximumIntegerDigits, void, int32_t)},
+	{"setMinimumFractionDigits", "(I)V", nullptr, $PUBLIC, $virtualMethod(CompactNumberFormat, setMinimumFractionDigits, void, int32_t)},
+	{"setMinimumIntegerDigits", "(I)V", nullptr, $PUBLIC, $virtualMethod(CompactNumberFormat, setMinimumIntegerDigits, void, int32_t)},
+	{"setParseBigDecimal", "(Z)V", nullptr, $PUBLIC, $method(CompactNumberFormat, setParseBigDecimal, void, bool)},
+	{"setParseIntegerOnly", "(Z)V", nullptr, $PUBLIC, $virtualMethod(CompactNumberFormat, setParseIntegerOnly, void, bool)},
+	{"setRoundingMode", "(Ljava/math/RoundingMode;)V", nullptr, $PUBLIC, $virtualMethod(CompactNumberFormat, setRoundingMode, void, $RoundingMode*)},
+	{"valOrRangeMatches", "(Ljava/lang/String;D)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(CompactNumberFormat, valOrRangeMatches, bool, $String*, double)},
+	{"validateRule", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(CompactNumberFormat, validateRule, $String*, $String*)},
 	{}
 };
 

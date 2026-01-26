@@ -29,12 +29,12 @@ $FieldInfo _MethodHandleImpl$WrappedMember_FieldInfo_[] = {
 };
 
 $MethodInfo _MethodHandleImpl$WrappedMember_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MemberName;ZLjava/lang/Class;)V", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MemberName;ZLjava/lang/Class<*>;)V", $PRIVATE, $method(static_cast<void(MethodHandleImpl$WrappedMember::*)($MethodHandle*,$MethodType*,$MemberName*,bool,$Class*)>(&MethodHandleImpl$WrappedMember::init$))},
-	{"asTypeUncached", "(Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC},
-	{"getTarget", "()Ljava/lang/invoke/MethodHandle;", nullptr, $PROTECTED},
-	{"internalCallerClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", 0},
-	{"internalMemberName", "()Ljava/lang/invoke/MemberName;", nullptr, 0},
-	{"isInvokeSpecial", "()Z", nullptr, 0},
+	{"<init>", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MemberName;ZLjava/lang/Class;)V", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MemberName;ZLjava/lang/Class<*>;)V", $PRIVATE, $method(MethodHandleImpl$WrappedMember, init$, void, $MethodHandle*, $MethodType*, $MemberName*, bool, $Class*)},
+	{"asTypeUncached", "(Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC, $virtualMethod(MethodHandleImpl$WrappedMember, asTypeUncached, $MethodHandle*, $MethodType*)},
+	{"getTarget", "()Ljava/lang/invoke/MethodHandle;", nullptr, $PROTECTED, $virtualMethod(MethodHandleImpl$WrappedMember, getTarget, $MethodHandle*)},
+	{"internalCallerClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", 0, $virtualMethod(MethodHandleImpl$WrappedMember, internalCallerClass, $Class*)},
+	{"internalMemberName", "()Ljava/lang/invoke/MemberName;", nullptr, 0, $virtualMethod(MethodHandleImpl$WrappedMember, internalMemberName, $MemberName*)},
+	{"isInvokeSpecial", "()Z", nullptr, 0, $virtualMethod(MethodHandleImpl$WrappedMember, isInvokeSpecial, bool)},
 	{}
 };
 

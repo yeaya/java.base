@@ -18,7 +18,7 @@ $FieldInfo _CompletableFuture$AltResult_FieldInfo_[] = {
 };
 
 $MethodInfo _CompletableFuture$AltResult_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, 0, $method(static_cast<void(CompletableFuture$AltResult::*)($Throwable*)>(&CompletableFuture$AltResult::init$))},
+	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, 0, $method(CompletableFuture$AltResult, init$, void, $Throwable*)},
 	{}
 };
 

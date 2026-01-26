@@ -65,17 +65,17 @@ $FieldInfo _Bits_FieldInfo_[] = {
 };
 
 $MethodInfo _Bits_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(Bits::*)()>(&Bits::init$))},
-	{"pageCount", "(J)J", nullptr, $STATIC, $method(static_cast<int64_t(*)(int64_t)>(&Bits::pageCount))},
-	{"pageSize", "()I", nullptr, $STATIC, $method(static_cast<int32_t(*)()>(&Bits::pageSize))},
-	{"reserveMemory", "(JJ)V", nullptr, $STATIC, $method(static_cast<void(*)(int64_t,int64_t)>(&Bits::reserveMemory))},
-	{"swap", "(S)S", nullptr, $STATIC, $method(static_cast<int16_t(*)(int16_t)>(&Bits::swap))},
-	{"swap", "(C)C", nullptr, $STATIC, $method(static_cast<char16_t(*)(char16_t)>(&Bits::swap))},
-	{"swap", "(I)I", nullptr, $STATIC, $method(static_cast<int32_t(*)(int32_t)>(&Bits::swap))},
-	{"swap", "(J)J", nullptr, $STATIC, $method(static_cast<int64_t(*)(int64_t)>(&Bits::swap))},
-	{"tryReserveMemory", "(JJ)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)(int64_t,int64_t)>(&Bits::tryReserveMemory))},
-	{"unaligned", "()Z", nullptr, $STATIC, $method(static_cast<bool(*)()>(&Bits::unaligned))},
-	{"unreserveMemory", "(JJ)V", nullptr, $STATIC, $method(static_cast<void(*)(int64_t,int64_t)>(&Bits::unreserveMemory))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(Bits, init$, void)},
+	{"pageCount", "(J)J", nullptr, $STATIC, $staticMethod(Bits, pageCount, int64_t, int64_t)},
+	{"pageSize", "()I", nullptr, $STATIC, $staticMethod(Bits, pageSize, int32_t)},
+	{"reserveMemory", "(JJ)V", nullptr, $STATIC, $staticMethod(Bits, reserveMemory, void, int64_t, int64_t)},
+	{"swap", "(S)S", nullptr, $STATIC, $staticMethod(Bits, swap, int16_t, int16_t)},
+	{"swap", "(C)C", nullptr, $STATIC, $staticMethod(Bits, swap, char16_t, char16_t)},
+	{"swap", "(I)I", nullptr, $STATIC, $staticMethod(Bits, swap, int32_t, int32_t)},
+	{"swap", "(J)J", nullptr, $STATIC, $staticMethod(Bits, swap, int64_t, int64_t)},
+	{"tryReserveMemory", "(JJ)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Bits, tryReserveMemory, bool, int64_t, int64_t)},
+	{"unaligned", "()Z", nullptr, $STATIC, $staticMethod(Bits, unaligned, bool)},
+	{"unreserveMemory", "(JJ)V", nullptr, $STATIC, $staticMethod(Bits, unreserveMemory, void, int64_t, int64_t)},
 	{}
 };
 

@@ -16,11 +16,11 @@ $FieldInfo _MyInputStream4LargeCopyWithMark_FieldInfo_[] = {
 };
 
 $MethodInfo _MyInputStream4LargeCopyWithMark_MethodInfo_[] = {
-	{"<init>", "(J)V", nullptr, $PUBLIC, $method(static_cast<void(MyInputStream4LargeCopyWithMark::*)(int64_t)>(&MyInputStream4LargeCopyWithMark::init$))},
-	{"available", "()I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"read", "()I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"read", "([B)I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"read", "([BII)I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(J)V", nullptr, $PUBLIC, $method(MyInputStream4LargeCopyWithMark, init$, void, int64_t)},
+	{"available", "()I", nullptr, $PUBLIC, $virtualMethod(MyInputStream4LargeCopyWithMark, available, int32_t), "java.io.IOException"},
+	{"read", "()I", nullptr, $PUBLIC, $virtualMethod(MyInputStream4LargeCopyWithMark, read, int32_t), "java.io.IOException"},
+	{"read", "([B)I", nullptr, $PUBLIC, $virtualMethod(MyInputStream4LargeCopyWithMark, read, int32_t, $bytes*), "java.io.IOException"},
+	{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(MyInputStream4LargeCopyWithMark, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
 	{}
 };
 

@@ -14,8 +14,8 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 
 $MethodInfo _NonInheritableContainee_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(NonInheritableContainee::*)()>(&NonInheritableContainee::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&NonInheritableContainee::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(NonInheritableContainee, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(NonInheritableContainee, main, void, $StringArray*)},
 	{}
 };
 

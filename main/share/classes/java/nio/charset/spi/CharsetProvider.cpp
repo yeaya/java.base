@@ -13,8 +13,10 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimePermission = ::java::lang::RuntimePermission;
 using $SecurityManager = ::java::lang::SecurityManager;
 using $Void = ::java::lang::Void;
+using $Charset = ::java::nio::charset::Charset;
 using $BasicPermission = ::java::security::BasicPermission;
 using $Permission = ::java::security::Permission;
+using $Iterator = ::java::util::Iterator;
 
 namespace java {
 	namespace nio {
@@ -22,11 +24,11 @@ namespace java {
 			namespace spi {
 
 $MethodInfo _CharsetProvider_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Void;)V", nullptr, $PRIVATE, $method(static_cast<void(CharsetProvider::*)($Void*)>(&CharsetProvider::init$))},
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(CharsetProvider::*)()>(&CharsetProvider::init$))},
-	{"charsetForName", "(Ljava/lang/String;)Ljava/nio/charset/Charset;", nullptr, $PUBLIC | $ABSTRACT},
-	{"charsets", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/nio/charset/Charset;>;", $PUBLIC | $ABSTRACT},
-	{"checkPermission", "()Ljava/lang/Void;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$Void*(*)()>(&CharsetProvider::checkPermission))},
+	{"<init>", "(Ljava/lang/Void;)V", nullptr, $PRIVATE, $method(CharsetProvider, init$, void, $Void*)},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(CharsetProvider, init$, void)},
+	{"charsetForName", "(Ljava/lang/String;)Ljava/nio/charset/Charset;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CharsetProvider, charsetForName, $Charset*, $String*)},
+	{"charsets", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/nio/charset/Charset;>;", $PUBLIC | $ABSTRACT, $virtualMethod(CharsetProvider, charsets, $Iterator*)},
+	{"checkPermission", "()Ljava/lang/Void;", nullptr, $PRIVATE | $STATIC, $staticMethod(CharsetProvider, checkPermission, $Void*)},
 	{}
 };
 

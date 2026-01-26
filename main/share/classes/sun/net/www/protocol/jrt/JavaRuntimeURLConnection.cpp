@@ -77,8 +77,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo JavaRuntimeURLConnection$$Lambda$getImageReader::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(JavaRuntimeURLConnection$$Lambda$getImageReader::*)()>(&JavaRuntimeURLConnection$$Lambda$getImageReader::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(JavaRuntimeURLConnection$$Lambda$getImageReader, init$, void)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JavaRuntimeURLConnection$$Lambda$getImageReader, run, $Object*)},
 	{}
 };
 $ClassInfo JavaRuntimeURLConnection$$Lambda$getImageReader::classInfo$ = {
@@ -104,15 +104,15 @@ $FieldInfo _JavaRuntimeURLConnection_FieldInfo_[] = {
 };
 
 $MethodInfo _JavaRuntimeURLConnection_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/URL;)V", nullptr, 0, $method(static_cast<void(JavaRuntimeURLConnection::*)($URL*)>(&JavaRuntimeURLConnection::init$)), "java.io.IOException"},
-	{"connect", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, nullptr, "java.io.IOException"},
-	{"findResource", "(Ljava/lang/String;Ljava/lang/String;)Ljdk/internal/loader/Resource;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$Resource*(*)($String*,$String*)>(&JavaRuntimeURLConnection::findResource))},
-	{"getContentLength", "()I", nullptr, $PUBLIC},
-	{"getContentLengthLong", "()J", nullptr, $PUBLIC},
-	{"getInputStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"getPermission", "()Ljava/security/Permission;", nullptr, $PUBLIC},
-	{"toJrtURL", "(Ljava/lang/String;Ljava/lang/String;)Ljava/net/URL;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$URL*(*)($String*,$String*)>(&JavaRuntimeURLConnection::toJrtURL))},
-	{"toJrtURL", "(Ljava/lang/String;)Ljava/net/URL;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$URL*(*)($String*)>(&JavaRuntimeURLConnection::toJrtURL))},
+	{"<init>", "(Ljava/net/URL;)V", nullptr, 0, $method(JavaRuntimeURLConnection, init$, void, $URL*), "java.io.IOException"},
+	{"connect", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(JavaRuntimeURLConnection, connect, void), "java.io.IOException"},
+	{"findResource", "(Ljava/lang/String;Ljava/lang/String;)Ljdk/internal/loader/Resource;", nullptr, $PRIVATE | $STATIC, $staticMethod(JavaRuntimeURLConnection, findResource, $Resource*, $String*, $String*)},
+	{"getContentLength", "()I", nullptr, $PUBLIC, $virtualMethod(JavaRuntimeURLConnection, getContentLength, int32_t)},
+	{"getContentLengthLong", "()J", nullptr, $PUBLIC, $virtualMethod(JavaRuntimeURLConnection, getContentLengthLong, int64_t)},
+	{"getInputStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(JavaRuntimeURLConnection, getInputStream, $InputStream*), "java.io.IOException"},
+	{"getPermission", "()Ljava/security/Permission;", nullptr, $PUBLIC, $virtualMethod(JavaRuntimeURLConnection, getPermission, $Permission*)},
+	{"toJrtURL", "(Ljava/lang/String;Ljava/lang/String;)Ljava/net/URL;", nullptr, $PRIVATE | $STATIC, $staticMethod(JavaRuntimeURLConnection, toJrtURL, $URL*, $String*, $String*)},
+	{"toJrtURL", "(Ljava/lang/String;)Ljava/net/URL;", nullptr, $PRIVATE | $STATIC, $staticMethod(JavaRuntimeURLConnection, toJrtURL, $URL*, $String*)},
 	{}
 };
 

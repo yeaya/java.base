@@ -112,8 +112,8 @@ $FieldInfo CgroupSubsystemFactory$$Lambda$lambda$determineType$0::fieldInfos[2] 
 	{}
 };
 $MethodInfo CgroupSubsystemFactory$$Lambda$lambda$determineType$0::methodInfos[3] = {
-	{"<init>", "(Ljava/util/Map;)V", nullptr, $PUBLIC, $method(static_cast<void(CgroupSubsystemFactory$$Lambda$lambda$determineType$0::*)($Map*)>(&CgroupSubsystemFactory$$Lambda$lambda$determineType$0::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/Map;)V", nullptr, $PUBLIC, $method(CgroupSubsystemFactory$$Lambda$lambda$determineType$0, init$, void, $Map*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(CgroupSubsystemFactory$$Lambda$lambda$determineType$0, accept, void, Object$*)},
 	{}
 };
 $ClassInfo CgroupSubsystemFactory$$Lambda$lambda$determineType$0::classInfo$ = {
@@ -152,8 +152,8 @@ $FieldInfo CgroupSubsystemFactory$$Lambda$lambda$determineType$1$1::fieldInfos[2
 	{}
 };
 $MethodInfo CgroupSubsystemFactory$$Lambda$lambda$determineType$1$1::methodInfos[3] = {
-	{"<init>", "(Ljava/util/Map;)V", nullptr, $PUBLIC, $method(static_cast<void(CgroupSubsystemFactory$$Lambda$lambda$determineType$1$1::*)($Map*)>(&CgroupSubsystemFactory$$Lambda$lambda$determineType$1$1::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/Map;)V", nullptr, $PUBLIC, $method(CgroupSubsystemFactory$$Lambda$lambda$determineType$1$1, init$, void, $Map*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(CgroupSubsystemFactory$$Lambda$lambda$determineType$1$1, accept, void, Object$*)},
 	{}
 };
 $ClassInfo CgroupSubsystemFactory$$Lambda$lambda$determineType$1$1::classInfo$ = {
@@ -185,8 +185,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo CgroupSubsystemFactory$$Lambda$lambda$determineType$2$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CgroupSubsystemFactory$$Lambda$lambda$determineType$2$2::*)()>(&CgroupSubsystemFactory$$Lambda$lambda$determineType$2$2::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CgroupSubsystemFactory$$Lambda$lambda$determineType$2$2, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(CgroupSubsystemFactory$$Lambda$lambda$determineType$2$2, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo CgroupSubsystemFactory$$Lambda$lambda$determineType$2$2::classInfo$ = {
@@ -218,8 +218,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo CgroupSubsystemFactory$$Lambda$lambda$determineType$3$3::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CgroupSubsystemFactory$$Lambda$lambda$determineType$3$3::*)()>(&CgroupSubsystemFactory$$Lambda$lambda$determineType$3$3::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CgroupSubsystemFactory$$Lambda$lambda$determineType$3$3, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(CgroupSubsystemFactory$$Lambda$lambda$determineType$3$3, test, bool, Object$*)},
 	{}
 };
 $ClassInfo CgroupSubsystemFactory$$Lambda$lambda$determineType$3$3::classInfo$ = {
@@ -248,16 +248,16 @@ $FieldInfo _CgroupSubsystemFactory_FieldInfo_[] = {
 };
 
 $MethodInfo _CgroupSubsystemFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CgroupSubsystemFactory::*)()>(&CgroupSubsystemFactory::init$))},
-	{"amendCgroupInfos", "(Ljava/lang/String;Ljava/util/Map;Z)Z", "(Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljdk/internal/platform/CgroupInfo;>;Z)Z", $PRIVATE | $STATIC, $method(static_cast<bool(*)($String*,$Map*,bool)>(&CgroupSubsystemFactory::amendCgroupInfos))},
-	{"create", "()Ljdk/internal/platform/CgroupMetrics;", nullptr, $STATIC, $method(static_cast<$CgroupMetrics*(*)()>(&CgroupSubsystemFactory::create))},
-	{"determineType", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/util/Optional<Ljdk/internal/platform/CgroupSubsystemFactory$CgroupTypeResult;>;", $PUBLIC | $STATIC, $method(static_cast<$Optional*(*)($String*,$String*,$String*)>(&CgroupSubsystemFactory::determineType)), "java.io.IOException"},
-	{"lambda$determineType$0", "(Ljava/util/Map;[Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($Map*,$StringArray*)>(&CgroupSubsystemFactory::lambda$determineType$0))},
-	{"lambda$determineType$1", "(Ljava/util/Map;[Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($Map*,$StringArray*)>(&CgroupSubsystemFactory::lambda$determineType$1))},
-	{"lambda$determineType$2", "(Ljava/lang/String;)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$StringArray*(*)($String*)>(&CgroupSubsystemFactory::lambda$determineType$2))},
-	{"lambda$determineType$3", "([Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($StringArray*)>(&CgroupSubsystemFactory::lambda$determineType$3))},
-	{"setCgroupV1Path", "(Ljava/util/Map;[Ljava/lang/String;)V", "(Ljava/util/Map<Ljava/lang/String;Ljdk/internal/platform/CgroupInfo;>;[Ljava/lang/String;)V", $PRIVATE | $STATIC, $method(static_cast<void(*)($Map*,$StringArray*)>(&CgroupSubsystemFactory::setCgroupV1Path))},
-	{"setCgroupV2Path", "(Ljava/util/Map;[Ljava/lang/String;)V", "(Ljava/util/Map<Ljava/lang/String;Ljdk/internal/platform/CgroupInfo;>;[Ljava/lang/String;)V", $PRIVATE | $STATIC, $method(static_cast<void(*)($Map*,$StringArray*)>(&CgroupSubsystemFactory::setCgroupV2Path))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CgroupSubsystemFactory, init$, void)},
+	{"amendCgroupInfos", "(Ljava/lang/String;Ljava/util/Map;Z)Z", "(Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljdk/internal/platform/CgroupInfo;>;Z)Z", $PRIVATE | $STATIC, $staticMethod(CgroupSubsystemFactory, amendCgroupInfos, bool, $String*, $Map*, bool)},
+	{"create", "()Ljdk/internal/platform/CgroupMetrics;", nullptr, $STATIC, $staticMethod(CgroupSubsystemFactory, create, $CgroupMetrics*)},
+	{"determineType", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/util/Optional<Ljdk/internal/platform/CgroupSubsystemFactory$CgroupTypeResult;>;", $PUBLIC | $STATIC, $staticMethod(CgroupSubsystemFactory, determineType, $Optional*, $String*, $String*, $String*), "java.io.IOException"},
+	{"lambda$determineType$0", "(Ljava/util/Map;[Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CgroupSubsystemFactory, lambda$determineType$0, void, $Map*, $StringArray*)},
+	{"lambda$determineType$1", "(Ljava/util/Map;[Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CgroupSubsystemFactory, lambda$determineType$1, void, $Map*, $StringArray*)},
+	{"lambda$determineType$2", "(Ljava/lang/String;)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CgroupSubsystemFactory, lambda$determineType$2, $StringArray*, $String*)},
+	{"lambda$determineType$3", "([Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CgroupSubsystemFactory, lambda$determineType$3, bool, $StringArray*)},
+	{"setCgroupV1Path", "(Ljava/util/Map;[Ljava/lang/String;)V", "(Ljava/util/Map<Ljava/lang/String;Ljdk/internal/platform/CgroupInfo;>;[Ljava/lang/String;)V", $PRIVATE | $STATIC, $staticMethod(CgroupSubsystemFactory, setCgroupV1Path, void, $Map*, $StringArray*)},
+	{"setCgroupV2Path", "(Ljava/util/Map;[Ljava/lang/String;)V", "(Ljava/util/Map<Ljava/lang/String;Ljdk/internal/platform/CgroupInfo;>;[Ljava/lang/String;)V", $PRIVATE | $STATIC, $staticMethod(CgroupSubsystemFactory, setCgroupV2Path, void, $Map*, $StringArray*)},
 	{}
 };
 

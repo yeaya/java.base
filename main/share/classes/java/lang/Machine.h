@@ -104,14 +104,13 @@ public:
 
 	static void* loadNativeMethod(Class* clazz, MethodInfo* methodInfo);
 	static ClassEntry* getClassEntry(String* name);
-	static Class* getPendingClass(const char* name);
 
 	static void addLibrary(Library* lib);
 
 	static bool isBuildinLibraryHandle(void* handle);
 	static void* findLibraryEntry(void* handle, const char* name, bool force);
 
-	static void notifyThreadStart();
+	//static void notifyThreadStart();
 
 	static ::java::lang::module::ModuleFinder* getSystemModuleFinder();
 
@@ -119,6 +118,7 @@ public:
 	static void initPrimitiveClass(Class* clazz, const char* name);
 	static Class* getPrimitiveClass(String* name);
 
+	static Class* tryLoadClass(String* name, bool initialize, ClassLoader* loader);
 	static Class* forName0(String* name, bool initialize, ClassLoader* loader, Class* caller);
 	static Class* findBootstrapClass(ClassLoader* loader, String* name);
 	static Class* findLoadedClass0(ClassLoader* loader, String* name);
@@ -176,8 +176,6 @@ protected:
 
 private:
 	static bool inited;
-	static Class** pendingClasses;
-	static int32_t pendingClassesCount;
 
 	static Object0* lockObject;
 	static ::java::util::HashMap* registerClasses;

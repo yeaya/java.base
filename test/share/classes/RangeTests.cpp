@@ -23,14 +23,14 @@ using $BigInteger = ::java::math::BigInteger;
 using $MathContext = ::java::math::MathContext;
 
 $MethodInfo _RangeTests_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(RangeTests::*)()>(&RangeTests::init$))},
-	{"addBoundaryTest", "()I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)()>(&RangeTests::addBoundaryTest))},
-	{"addTest", "(Ljava/math/BigDecimal;Ljava/math/BigDecimal;Ljava/math/BigDecimal;)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)($BigDecimal*,$BigDecimal*,$BigDecimal*)>(&RangeTests::addTest))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&RangeTests::main))},
-	{"minLongConstructorTest", "(Ljava/math/MathContext;)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)($MathContext*)>(&RangeTests::minLongConstructorTest))},
-	{"minLongConstructorTest", "()I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)()>(&RangeTests::minLongConstructorTest))},
-	{"roundingConstructorTest", "()I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)()>(&RangeTests::roundingConstructorTest))},
-	{"testRoundingFromBigInteger", "(Ljava/math/BigInteger;ILjava/math/MathContext;)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)($BigInteger*,int32_t,$MathContext*)>(&RangeTests::testRoundingFromBigInteger))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(RangeTests, init$, void)},
+	{"addBoundaryTest", "()I", nullptr, $PRIVATE | $STATIC, $staticMethod(RangeTests, addBoundaryTest, int32_t)},
+	{"addTest", "(Ljava/math/BigDecimal;Ljava/math/BigDecimal;Ljava/math/BigDecimal;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(RangeTests, addTest, int32_t, $BigDecimal*, $BigDecimal*, $BigDecimal*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(RangeTests, main, void, $StringArray*)},
+	{"minLongConstructorTest", "(Ljava/math/MathContext;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(RangeTests, minLongConstructorTest, int32_t, $MathContext*)},
+	{"minLongConstructorTest", "()I", nullptr, $PRIVATE | $STATIC, $staticMethod(RangeTests, minLongConstructorTest, int32_t)},
+	{"roundingConstructorTest", "()I", nullptr, $PRIVATE | $STATIC, $staticMethod(RangeTests, roundingConstructorTest, int32_t)},
+	{"testRoundingFromBigInteger", "(Ljava/math/BigInteger;ILjava/math/MathContext;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(RangeTests, testRoundingFromBigInteger, int32_t, $BigInteger*, int32_t, $MathContext*)},
 	{}
 };
 

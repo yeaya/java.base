@@ -5,13 +5,14 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $ResourceBundle$Control = ::java::util::ResourceBundle$Control;
 
 namespace java {
 	namespace util {
 		namespace spi {
 
 $MethodInfo _ResourceBundleControlProvider_MethodInfo_[] = {
-	{"getControl", "(Ljava/lang/String;)Ljava/util/ResourceBundle$Control;", nullptr, $PUBLIC | $ABSTRACT},
+	{"getControl", "(Ljava/lang/String;)Ljava/util/ResourceBundle$Control;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ResourceBundleControlProvider, getControl, $ResourceBundle$Control*, $String*)},
 	{}
 };
 

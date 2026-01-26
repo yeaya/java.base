@@ -20,8 +20,8 @@ using $ServerSocket = ::java::net::ServerSocket;
 using $Socket = ::java::net::Socket;
 
 $MethodInfo _AsyncCloseChannel$TargetServer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(AsyncCloseChannel$TargetServer::*)()>(&AsyncCloseChannel$TargetServer::init$))},
-	{"runEx", "()V", nullptr, $PUBLIC, nullptr, "java.lang.Exception"},
+	{"<init>", "()V", nullptr, 0, $method(AsyncCloseChannel$TargetServer, init$, void)},
+	{"runEx", "()V", nullptr, $PUBLIC, $virtualMethod(AsyncCloseChannel$TargetServer, runEx, void), "java.lang.Exception"},
 	{}
 };
 

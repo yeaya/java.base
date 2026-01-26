@@ -17,8 +17,8 @@ $FieldInfo _EventListenerProxy_FieldInfo_[] = {
 };
 
 $MethodInfo _EventListenerProxy_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/EventListener;)V", "(TT;)V", $PUBLIC, $method(static_cast<void(EventListenerProxy::*)($EventListener*)>(&EventListenerProxy::init$))},
-	{"getListener", "()Ljava/util/EventListener;", "()TT;", $PUBLIC},
+	{"<init>", "(Ljava/util/EventListener;)V", "(TT;)V", $PUBLIC, $method(EventListenerProxy, init$, void, $EventListener*)},
+	{"getListener", "()Ljava/util/EventListener;", "()TT;", $PUBLIC, $virtualMethod(EventListenerProxy, getListener, $EventListener*)},
 	{}
 };
 

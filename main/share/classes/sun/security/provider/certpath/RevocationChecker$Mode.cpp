@@ -31,10 +31,10 @@ $FieldInfo _RevocationChecker$Mode_FieldInfo_[] = {
 };
 
 $MethodInfo _RevocationChecker$Mode_MethodInfo_[] = {
-	{"$values", "()[Lsun/security/provider/certpath/RevocationChecker$Mode;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$RevocationChecker$ModeArray*(*)()>(&RevocationChecker$Mode::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(RevocationChecker$Mode::*)($String*,int32_t)>(&RevocationChecker$Mode::init$))},
-	{"valueOf", "(Ljava/lang/String;)Lsun/security/provider/certpath/RevocationChecker$Mode;", nullptr, $PUBLIC | $STATIC, $method(static_cast<RevocationChecker$Mode*(*)($String*)>(&RevocationChecker$Mode::valueOf))},
-	{"values", "()[Lsun/security/provider/certpath/RevocationChecker$Mode;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$RevocationChecker$ModeArray*(*)()>(&RevocationChecker$Mode::values))},
+	{"$values", "()[Lsun/security/provider/certpath/RevocationChecker$Mode;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(RevocationChecker$Mode, $values, $RevocationChecker$ModeArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(RevocationChecker$Mode, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Lsun/security/provider/certpath/RevocationChecker$Mode;", nullptr, $PUBLIC | $STATIC, $staticMethod(RevocationChecker$Mode, valueOf, RevocationChecker$Mode*, $String*)},
+	{"values", "()[Lsun/security/provider/certpath/RevocationChecker$Mode;", nullptr, $PUBLIC | $STATIC, $staticMethod(RevocationChecker$Mode, values, $RevocationChecker$ModeArray*)},
 	{}
 };
 

@@ -38,12 +38,12 @@ $MethodInfo _FtpClient$FtpFileIterator_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lsun/net/ftp/FtpDirParser;Ljava/io/BufferedReader;)V", nullptr, $PUBLIC, $method(static_cast<void(FtpClient$FtpFileIterator::*)($FtpDirParser*,$BufferedReader*)>(&FtpClient$FtpFileIterator::init$))},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"hasNext", "()Z", nullptr, $PUBLIC},
-	{"next", "()Lsun/net/ftp/FtpDirEntry;", nullptr, $PUBLIC},
-	{"readNext", "()V", nullptr, $PRIVATE, $method(static_cast<void(FtpClient$FtpFileIterator::*)()>(&FtpClient$FtpFileIterator::readNext))},
-	{"remove", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/net/ftp/FtpDirParser;Ljava/io/BufferedReader;)V", nullptr, $PUBLIC, $method(FtpClient$FtpFileIterator, init$, void, $FtpDirParser*, $BufferedReader*)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(FtpClient$FtpFileIterator, close, void), "java.io.IOException"},
+	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(FtpClient$FtpFileIterator, hasNext, bool)},
+	{"next", "()Lsun/net/ftp/FtpDirEntry;", nullptr, $PUBLIC, $virtualMethod(FtpClient$FtpFileIterator, next, $Object*)},
+	{"readNext", "()V", nullptr, $PRIVATE, $method(FtpClient$FtpFileIterator, readNext, void)},
+	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(FtpClient$FtpFileIterator, remove, void)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

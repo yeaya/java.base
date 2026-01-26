@@ -9,6 +9,7 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Void = ::java::lang::Void;
+using $CompletableFuture = ::java::util::concurrent::CompletableFuture;
 using $ForkJoinTask = ::java::util::concurrent::ForkJoinTask;
 
 namespace java {
@@ -25,15 +26,15 @@ $MethodInfo _CompletableFuture$Completion_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(CompletableFuture$Completion::*)()>(&CompletableFuture$Completion::init$))},
-	{"exec", "()Z", nullptr, $PUBLIC | $FINAL},
-	{"getRawResult", "()Ljava/lang/Void;", nullptr, $PUBLIC | $FINAL},
-	{"isLive", "()Z", nullptr, $ABSTRACT},
-	{"run", "()V", nullptr, $PUBLIC | $FINAL},
-	{"setRawResult", "(Ljava/lang/Void;)V", nullptr, $PUBLIC | $FINAL, $method(static_cast<void(CompletableFuture$Completion::*)($Void*)>(&CompletableFuture$Completion::setRawResult))},
-	{"setRawResult", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "()V", nullptr, 0, $method(CompletableFuture$Completion, init$, void)},
+	{"exec", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(CompletableFuture$Completion, exec, bool)},
+	{"getRawResult", "()Ljava/lang/Void;", nullptr, $PUBLIC | $FINAL, $virtualMethod(CompletableFuture$Completion, getRawResult, $Object*)},
+	{"isLive", "()Z", nullptr, $ABSTRACT, $virtualMethod(CompletableFuture$Completion, isLive, bool)},
+	{"run", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(CompletableFuture$Completion, run, void)},
+	{"setRawResult", "(Ljava/lang/Void;)V", nullptr, $PUBLIC | $FINAL, $method(CompletableFuture$Completion, setRawResult, void, $Void*)},
+	{"setRawResult", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(CompletableFuture$Completion, setRawResult, void, Object$*)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"tryFire", "(I)Ljava/util/concurrent/CompletableFuture;", "(I)Ljava/util/concurrent/CompletableFuture<*>;", $ABSTRACT},
+	{"tryFire", "(I)Ljava/util/concurrent/CompletableFuture;", "(I)Ljava/util/concurrent/CompletableFuture<*>;", $ABSTRACT, $virtualMethod(CompletableFuture$Completion, tryFire, $CompletableFuture*, int32_t)},
 	{}
 };
 

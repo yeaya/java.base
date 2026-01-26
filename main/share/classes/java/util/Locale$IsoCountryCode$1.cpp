@@ -17,8 +17,8 @@ namespace java {
 	namespace util {
 
 $MethodInfo _Locale$IsoCountryCode$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(static_cast<void(Locale$IsoCountryCode$1::*)($String*,int32_t)>(&Locale$IsoCountryCode$1::init$))},
-	{"createCountryCodeSet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", 0},
+	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(Locale$IsoCountryCode$1, init$, void, $String*, int32_t)},
+	{"createCountryCodeSet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", 0, $virtualMethod(Locale$IsoCountryCode$1, createCountryCodeSet, $Set*)},
 	{}
 };
 

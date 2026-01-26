@@ -46,7 +46,7 @@ $FieldInfo _StandardCharsets_FieldInfo_[] = {
 };
 
 $MethodInfo _StandardCharsets_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(StandardCharsets::*)()>(&StandardCharsets::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(StandardCharsets, init$, void)},
 	{}
 };
 

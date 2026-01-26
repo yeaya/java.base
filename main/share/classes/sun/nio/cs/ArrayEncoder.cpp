@@ -10,10 +10,10 @@ namespace sun {
 		namespace cs {
 
 $MethodInfo _ArrayEncoder_MethodInfo_[] = {
-	{"encode", "([CII[B)I", nullptr, $PUBLIC | $ABSTRACT},
-	{"encodeFromLatin1", "([BII[B)I", nullptr, $PUBLIC},
-	{"encodeFromUTF16", "([BII[B)I", nullptr, $PUBLIC},
-	{"isASCIICompatible", "()Z", nullptr, $PUBLIC},
+	{"encode", "([CII[B)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ArrayEncoder, encode, int32_t, $chars*, int32_t, int32_t, $bytes*)},
+	{"encodeFromLatin1", "([BII[B)I", nullptr, $PUBLIC, $virtualMethod(ArrayEncoder, encodeFromLatin1, int32_t, $bytes*, int32_t, int32_t, $bytes*)},
+	{"encodeFromUTF16", "([BII[B)I", nullptr, $PUBLIC, $virtualMethod(ArrayEncoder, encodeFromUTF16, int32_t, $bytes*, int32_t, int32_t, $bytes*)},
+	{"isASCIICompatible", "()Z", nullptr, $PUBLIC, $virtualMethod(ArrayEncoder, isASCIICompatible, bool)},
 	{}
 };
 

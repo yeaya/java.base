@@ -15,21 +15,23 @@ using $Cloneable = ::java::lang::Cloneable;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ByteBuffer = ::java::nio::ByteBuffer;
+using $Key = ::java::security::Key;
+using $AlgorithmParameterSpec = ::java::security::spec::AlgorithmParameterSpec;
 using $CipherSpi = ::javax::crypto::CipherSpi;
 
 namespace javax {
 	namespace crypto {
 
 $MethodInfo _MacSpi_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(MacSpi::*)()>(&MacSpi::init$))},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, nullptr, "java.lang.CloneNotSupportedException"},
-	{"engineDoFinal", "()[B", nullptr, $PROTECTED | $ABSTRACT},
-	{"engineGetMacLength", "()I", nullptr, $PROTECTED | $ABSTRACT},
-	{"engineInit", "(Ljava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PROTECTED | $ABSTRACT, nullptr, "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
-	{"engineReset", "()V", nullptr, $PROTECTED | $ABSTRACT},
-	{"engineUpdate", "(B)V", nullptr, $PROTECTED | $ABSTRACT},
-	{"engineUpdate", "([BII)V", nullptr, $PROTECTED | $ABSTRACT},
-	{"engineUpdate", "(Ljava/nio/ByteBuffer;)V", nullptr, $PROTECTED},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(MacSpi, init$, void)},
+	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MacSpi, clone, $Object*), "java.lang.CloneNotSupportedException"},
+	{"engineDoFinal", "()[B", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(MacSpi, engineDoFinal, $bytes*)},
+	{"engineGetMacLength", "()I", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(MacSpi, engineGetMacLength, int32_t)},
+	{"engineInit", "(Ljava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(MacSpi, engineInit, void, $Key*, $AlgorithmParameterSpec*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
+	{"engineReset", "()V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(MacSpi, engineReset, void)},
+	{"engineUpdate", "(B)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(MacSpi, engineUpdate, void, int8_t)},
+	{"engineUpdate", "([BII)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(MacSpi, engineUpdate, void, $bytes*, int32_t, int32_t)},
+	{"engineUpdate", "(Ljava/nio/ByteBuffer;)V", nullptr, $PROTECTED, $virtualMethod(MacSpi, engineUpdate, void, $ByteBuffer*)},
 	{}
 };
 

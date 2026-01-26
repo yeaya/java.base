@@ -16,7 +16,7 @@ $CompoundAttribute _DoubleBinaryOperator_Annotations_[] = {
 };
 
 $MethodInfo _DoubleBinaryOperator_MethodInfo_[] = {
-	{"applyAsDouble", "(DD)D", nullptr, $PUBLIC | $ABSTRACT},
+	{"applyAsDouble", "(DD)D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DoubleBinaryOperator, applyAsDouble, double, double, double)},
 	{}
 };
 

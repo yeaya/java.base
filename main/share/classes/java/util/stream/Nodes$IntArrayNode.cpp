@@ -30,16 +30,16 @@ $FieldInfo _Nodes$IntArrayNode_FieldInfo_[] = {
 };
 
 $MethodInfo _Nodes$IntArrayNode_MethodInfo_[] = {
-	{"<init>", "(J)V", nullptr, 0, $method(static_cast<void(Nodes$IntArrayNode::*)(int64_t)>(&Nodes$IntArrayNode::init$))},
-	{"<init>", "([I)V", nullptr, 0, $method(static_cast<void(Nodes$IntArrayNode::*)($ints*)>(&Nodes$IntArrayNode::init$))},
-	{"asPrimitiveArray", "()[I", nullptr, $PUBLIC},
-	{"copyInto", "([II)V", nullptr, $PUBLIC},
-	{"copyInto", "(Ljava/lang/Object;I)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"count", "()J", nullptr, $PUBLIC},
-	{"forEach", "(Ljava/util/function/IntConsumer;)V", nullptr, $PUBLIC},
-	{"forEach", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"spliterator", "()Ljava/util/Spliterator$OfInt;", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(J)V", nullptr, 0, $method(Nodes$IntArrayNode, init$, void, int64_t)},
+	{"<init>", "([I)V", nullptr, 0, $method(Nodes$IntArrayNode, init$, void, $ints*)},
+	{"asPrimitiveArray", "()[I", nullptr, $PUBLIC, $virtualMethod(Nodes$IntArrayNode, asPrimitiveArray, $Object*)},
+	{"copyInto", "([II)V", nullptr, $PUBLIC, $virtualMethod(Nodes$IntArrayNode, copyInto, void, $ints*, int32_t)},
+	{"copyInto", "(Ljava/lang/Object;I)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Nodes$IntArrayNode, copyInto, void, Object$*, int32_t)},
+	{"count", "()J", nullptr, $PUBLIC, $virtualMethod(Nodes$IntArrayNode, count, int64_t)},
+	{"forEach", "(Ljava/util/function/IntConsumer;)V", nullptr, $PUBLIC, $virtualMethod(Nodes$IntArrayNode, forEach, void, $IntConsumer*)},
+	{"forEach", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Nodes$IntArrayNode, forEach, void, Object$*)},
+	{"spliterator", "()Ljava/util/Spliterator$OfInt;", nullptr, $PUBLIC, $virtualMethod(Nodes$IntArrayNode, spliterator, $Spliterator*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Nodes$IntArrayNode, toString, $String*)},
 	{}
 };
 

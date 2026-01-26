@@ -7,6 +7,8 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $BreakIterator = ::java::text::BreakIterator;
+using $Locale = ::java::util::Locale;
 using $LocaleServiceProvider = ::java::util::spi::LocaleServiceProvider;
 
 namespace java {
@@ -14,11 +16,11 @@ namespace java {
 		namespace spi {
 
 $MethodInfo _BreakIteratorProvider_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(BreakIteratorProvider::*)()>(&BreakIteratorProvider::init$))},
-	{"getCharacterInstance", "(Ljava/util/Locale;)Ljava/text/BreakIterator;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getLineInstance", "(Ljava/util/Locale;)Ljava/text/BreakIterator;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getSentenceInstance", "(Ljava/util/Locale;)Ljava/text/BreakIterator;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getWordInstance", "(Ljava/util/Locale;)Ljava/text/BreakIterator;", nullptr, $PUBLIC | $ABSTRACT},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(BreakIteratorProvider, init$, void)},
+	{"getCharacterInstance", "(Ljava/util/Locale;)Ljava/text/BreakIterator;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(BreakIteratorProvider, getCharacterInstance, $BreakIterator*, $Locale*)},
+	{"getLineInstance", "(Ljava/util/Locale;)Ljava/text/BreakIterator;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(BreakIteratorProvider, getLineInstance, $BreakIterator*, $Locale*)},
+	{"getSentenceInstance", "(Ljava/util/Locale;)Ljava/text/BreakIterator;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(BreakIteratorProvider, getSentenceInstance, $BreakIterator*, $Locale*)},
+	{"getWordInstance", "(Ljava/util/Locale;)Ljava/text/BreakIterator;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(BreakIteratorProvider, getWordInstance, $BreakIterator*, $Locale*)},
 	{}
 };
 

@@ -23,8 +23,8 @@ $FieldInfo _Console$3_FieldInfo_[] = {
 };
 
 $MethodInfo _Console$3_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/Console;Ljava/io/Writer;Z)V", nullptr, 0, $method(static_cast<void(Console$3::*)($Console*,$Writer*,bool)>(&Console$3::init$))},
-	{"close", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/io/Console;Ljava/io/Writer;Z)V", nullptr, 0, $method(Console$3, init$, void, $Console*, $Writer*, bool)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(Console$3, close, void)},
 	{}
 };
 

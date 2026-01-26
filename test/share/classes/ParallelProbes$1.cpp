@@ -24,8 +24,8 @@ $FieldInfo _ParallelProbes$1_FieldInfo_[] = {
 };
 
 $MethodInfo _ParallelProbes$1_MethodInfo_[] = {
-	{"<init>", "(LParallelProbes;Ljava/nio/file/Path;)V", "()V", 0, $method(static_cast<void(ParallelProbes$1::*)($ParallelProbes*,$Path*)>(&ParallelProbes$1::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(LParallelProbes;Ljava/nio/file/Path;)V", "()V", 0, $method(ParallelProbes$1, init$, void, $ParallelProbes*, $Path*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ParallelProbes$1, run, void)},
 	{}
 };
 

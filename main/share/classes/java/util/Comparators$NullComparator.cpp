@@ -27,10 +27,10 @@ $MethodInfo _Comparators$NullComparator_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(ZLjava/util/Comparator;)V", "(ZLjava/util/Comparator<-TT;>;)V", 0, $method(static_cast<void(Comparators$NullComparator::*)(bool,$Comparator*)>(&Comparators$NullComparator::init$))},
-	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", "(TT;TT;)I", $PUBLIC},
-	{"reversed", "()Ljava/util/Comparator;", "()Ljava/util/Comparator<TT;>;", $PUBLIC},
-	{"thenComparing", "(Ljava/util/Comparator;)Ljava/util/Comparator;", "(Ljava/util/Comparator<-TT;>;)Ljava/util/Comparator<TT;>;", $PUBLIC},
+	{"<init>", "(ZLjava/util/Comparator;)V", "(ZLjava/util/Comparator<-TT;>;)V", 0, $method(Comparators$NullComparator, init$, void, bool, $Comparator*)},
+	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", "(TT;TT;)I", $PUBLIC, $virtualMethod(Comparators$NullComparator, compare, int32_t, Object$*, Object$*)},
+	{"reversed", "()Ljava/util/Comparator;", "()Ljava/util/Comparator<TT;>;", $PUBLIC, $virtualMethod(Comparators$NullComparator, reversed, $Comparator*)},
+	{"thenComparing", "(Ljava/util/Comparator;)Ljava/util/Comparator;", "(Ljava/util/Comparator<-TT;>;)Ljava/util/Comparator<TT;>;", $PUBLIC, $virtualMethod(Comparators$NullComparator, thenComparing, $Comparator*, $Comparator*)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

@@ -31,14 +31,14 @@ $FieldInfo _Surrogate$Parser_FieldInfo_[] = {
 };
 
 $MethodInfo _Surrogate$Parser_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Surrogate$Parser::*)()>(&Surrogate$Parser::init$))},
-	{"character", "()I", nullptr, $PUBLIC},
-	{"error", "()Ljava/nio/charset/CoderResult;", nullptr, $PUBLIC},
-	{"increment", "()I", nullptr, $PUBLIC},
-	{"isPair", "()Z", nullptr, $PUBLIC},
-	{"parse", "(CLjava/nio/CharBuffer;)I", nullptr, $PUBLIC},
-	{"parse", "(C[CII)I", nullptr, $PUBLIC},
-	{"unmappableResult", "()Ljava/nio/charset/CoderResult;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Surrogate$Parser, init$, void)},
+	{"character", "()I", nullptr, $PUBLIC, $virtualMethod(Surrogate$Parser, character, int32_t)},
+	{"error", "()Ljava/nio/charset/CoderResult;", nullptr, $PUBLIC, $virtualMethod(Surrogate$Parser, error, $CoderResult*)},
+	{"increment", "()I", nullptr, $PUBLIC, $virtualMethod(Surrogate$Parser, increment, int32_t)},
+	{"isPair", "()Z", nullptr, $PUBLIC, $virtualMethod(Surrogate$Parser, isPair, bool)},
+	{"parse", "(CLjava/nio/CharBuffer;)I", nullptr, $PUBLIC, $virtualMethod(Surrogate$Parser, parse, int32_t, char16_t, $CharBuffer*)},
+	{"parse", "(C[CII)I", nullptr, $PUBLIC, $virtualMethod(Surrogate$Parser, parse, int32_t, char16_t, $chars*, int32_t, int32_t)},
+	{"unmappableResult", "()Ljava/nio/charset/CoderResult;", nullptr, $PUBLIC, $virtualMethod(Surrogate$Parser, unmappableResult, $CoderResult*)},
 	{}
 };
 

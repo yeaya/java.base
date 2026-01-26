@@ -37,7 +37,7 @@ $CompoundAttribute _A3_Annotations_[] = {
 };
 
 $MethodInfo _A3_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(A3::*)()>(&A3::init$))},
+	{"<init>", "()V", nullptr, 0, $method(A3, init$, void)},
 	{}
 };
 

@@ -26,8 +26,8 @@ $FieldInfo _AsyncCloseChannel$TargetClient$1_FieldInfo_[] = {
 };
 
 $MethodInfo _AsyncCloseChannel$TargetClient$1_MethodInfo_[] = {
-	{"<init>", "(LAsyncCloseChannel$TargetClient;Ljava/nio/channels/SocketChannel;)V", nullptr, 0, $method(static_cast<void(AsyncCloseChannel$TargetClient$1::*)($AsyncCloseChannel$TargetClient*,$SocketChannel*)>(&AsyncCloseChannel$TargetClient$1::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(LAsyncCloseChannel$TargetClient;Ljava/nio/channels/SocketChannel;)V", nullptr, 0, $method(AsyncCloseChannel$TargetClient$1, init$, void, $AsyncCloseChannel$TargetClient*, $SocketChannel*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(AsyncCloseChannel$TargetClient$1, run, void)},
 	{}
 };
 

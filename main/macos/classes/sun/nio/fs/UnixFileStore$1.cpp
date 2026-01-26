@@ -21,8 +21,8 @@ $FieldInfo _UnixFileStore$1_FieldInfo_[] = {
 };
 
 $MethodInfo _UnixFileStore$1_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/fs/UnixFileStore;)V", nullptr, 0, $method(static_cast<void(UnixFileStore$1::*)($UnixFileStore*)>(&UnixFileStore$1::init$))},
-	{"run", "()Ljava/util/Properties;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/nio/fs/UnixFileStore;)V", nullptr, 0, $method(UnixFileStore$1, init$, void, $UnixFileStore*)},
+	{"run", "()Ljava/util/Properties;", nullptr, $PUBLIC, $virtualMethod(UnixFileStore$1, run, $Object*)},
 	{}
 };
 

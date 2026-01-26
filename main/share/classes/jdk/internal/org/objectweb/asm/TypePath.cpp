@@ -33,13 +33,13 @@ $FieldInfo _TypePath_FieldInfo_[] = {
 };
 
 $MethodInfo _TypePath_MethodInfo_[] = {
-	{"<init>", "([BI)V", nullptr, 0, $method(static_cast<void(TypePath::*)($bytes*,int32_t)>(&TypePath::init$))},
-	{"fromString", "(Ljava/lang/String;)Ljdk/internal/org/objectweb/asm/TypePath;", nullptr, $PUBLIC | $STATIC, $method(static_cast<TypePath*(*)($String*)>(&TypePath::fromString))},
-	{"getLength", "()I", nullptr, $PUBLIC, $method(static_cast<int32_t(TypePath::*)()>(&TypePath::getLength))},
-	{"getStep", "(I)I", nullptr, $PUBLIC, $method(static_cast<int32_t(TypePath::*)(int32_t)>(&TypePath::getStep))},
-	{"getStepArgument", "(I)I", nullptr, $PUBLIC, $method(static_cast<int32_t(TypePath::*)(int32_t)>(&TypePath::getStepArgument))},
-	{"put", "(Ljdk/internal/org/objectweb/asm/TypePath;Ljdk/internal/org/objectweb/asm/ByteVector;)V", nullptr, $STATIC, $method(static_cast<void(*)(TypePath*,$ByteVector*)>(&TypePath::put))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "([BI)V", nullptr, 0, $method(TypePath, init$, void, $bytes*, int32_t)},
+	{"fromString", "(Ljava/lang/String;)Ljdk/internal/org/objectweb/asm/TypePath;", nullptr, $PUBLIC | $STATIC, $staticMethod(TypePath, fromString, TypePath*, $String*)},
+	{"getLength", "()I", nullptr, $PUBLIC, $method(TypePath, getLength, int32_t)},
+	{"getStep", "(I)I", nullptr, $PUBLIC, $method(TypePath, getStep, int32_t, int32_t)},
+	{"getStepArgument", "(I)I", nullptr, $PUBLIC, $method(TypePath, getStepArgument, int32_t, int32_t)},
+	{"put", "(Ljdk/internal/org/objectweb/asm/TypePath;Ljdk/internal/org/objectweb/asm/ByteVector;)V", nullptr, $STATIC, $staticMethod(TypePath, put, void, TypePath*, $ByteVector*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TypePath, toString, $String*)},
 	{}
 };
 

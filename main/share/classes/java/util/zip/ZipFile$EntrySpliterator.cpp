@@ -39,8 +39,8 @@ $FieldInfo _ZipFile$EntrySpliterator_FieldInfo_[] = {
 };
 
 $MethodInfo _ZipFile$EntrySpliterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/zip/ZipFile;IILjava/util/function/IntFunction;)V", "(IILjava/util/function/IntFunction<TT;>;)V", 0, $method(static_cast<void(ZipFile$EntrySpliterator::*)($ZipFile*,int32_t,int32_t,$IntFunction*)>(&ZipFile$EntrySpliterator::init$))},
-	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-TT;>;)Z", $PUBLIC},
+	{"<init>", "(Ljava/util/zip/ZipFile;IILjava/util/function/IntFunction;)V", "(IILjava/util/function/IntFunction<TT;>;)V", 0, $method(ZipFile$EntrySpliterator, init$, void, $ZipFile*, int32_t, int32_t, $IntFunction*)},
+	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-TT;>;)Z", $PUBLIC, $virtualMethod(ZipFile$EntrySpliterator, tryAdvance, bool, $Consumer*)},
 	{}
 };
 

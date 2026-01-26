@@ -23,8 +23,8 @@ $FieldInfo _PollingWatchService$3_FieldInfo_[] = {
 };
 
 $MethodInfo _PollingWatchService$3_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/fs/PollingWatchService;)V", nullptr, 0, $method(static_cast<void(PollingWatchService$3::*)($PollingWatchService*)>(&PollingWatchService$3::init$))},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/nio/fs/PollingWatchService;)V", nullptr, 0, $method(PollingWatchService$3, init$, void, $PollingWatchService*)},
+	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(PollingWatchService$3, run, $Object*)},
 	{}
 };
 

@@ -6,13 +6,15 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $AlgorithmParameterSpec = ::java::security::spec::AlgorithmParameterSpec;
+using $SecretKey = ::javax::crypto::SecretKey;
 
 namespace sun {
 	namespace security {
 		namespace ssl {
 
 $MethodInfo _SSLKeyDerivation_MethodInfo_[] = {
-	{"deriveKey", "(Ljava/lang/String;Ljava/security/spec/AlgorithmParameterSpec;)Ljavax/crypto/SecretKey;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
+	{"deriveKey", "(Ljava/lang/String;Ljava/security/spec/AlgorithmParameterSpec;)Ljavax/crypto/SecretKey;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SSLKeyDerivation, deriveKey, $SecretKey*, $String*, $AlgorithmParameterSpec*), "java.io.IOException"},
 	{}
 };
 

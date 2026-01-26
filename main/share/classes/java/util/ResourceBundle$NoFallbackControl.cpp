@@ -35,8 +35,8 @@ $FieldInfo _ResourceBundle$NoFallbackControl_FieldInfo_[] = {
 };
 
 $MethodInfo _ResourceBundle$NoFallbackControl_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/lang/String;>;)V", $PROTECTED, $method(static_cast<void(ResourceBundle$NoFallbackControl::*)($List*)>(&ResourceBundle$NoFallbackControl::init$))},
-	{"getFallbackLocale", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/util/Locale;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/lang/String;>;)V", $PROTECTED, $method(ResourceBundle$NoFallbackControl, init$, void, $List*)},
+	{"getFallbackLocale", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(ResourceBundle$NoFallbackControl, getFallbackLocale, $Locale*, $String*, $Locale*)},
 	{}
 };
 

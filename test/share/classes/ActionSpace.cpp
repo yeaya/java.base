@@ -9,8 +9,8 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $SocketPermission = ::java::net::SocketPermission;
 
 $MethodInfo _ActionSpace_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ActionSpace::*)()>(&ActionSpace::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&ActionSpace::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ActionSpace, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ActionSpace, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

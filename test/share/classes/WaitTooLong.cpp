@@ -16,9 +16,9 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 
 $MethodInfo _WaitTooLong_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(WaitTooLong::*)()>(&WaitTooLong::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&WaitTooLong::main))},
-	{"test", "(I)V", nullptr, $STATIC, $method(static_cast<void(*)(int32_t)>(&WaitTooLong::test))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(WaitTooLong, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(WaitTooLong, main, void, $StringArray*)},
+	{"test", "(I)V", nullptr, $STATIC, $staticMethod(WaitTooLong, test, void, int32_t)},
 	{}
 };
 

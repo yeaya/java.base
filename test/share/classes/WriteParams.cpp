@@ -40,9 +40,9 @@ $FieldInfo _WriteParams_FieldInfo_[] = {
 };
 
 $MethodInfo _WriteParams_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(WriteParams::*)()>(&WriteParams::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&WriteParams::main)), "java.lang.Exception"},
-	{"test", "(Ljava/io/Writer;)V", nullptr, $STATIC, $method(static_cast<void(*)($Writer*)>(&WriteParams::test)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(WriteParams, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(WriteParams, main, void, $StringArray*), "java.lang.Exception"},
+	{"test", "(Ljava/io/Writer;)V", nullptr, $STATIC, $staticMethod(WriteParams, test, void, $Writer*), "java.lang.Exception"},
 	{}
 };
 

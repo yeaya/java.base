@@ -44,16 +44,16 @@ $FieldInfo _HttpURLConnection$HttpInputStream_FieldInfo_[] = {
 };
 
 $MethodInfo _HttpURLConnection$HttpInputStream_MethodInfo_[] = {
-	{"<init>", "(Lsun/net/www/protocol/http/HttpURLConnection;Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(static_cast<void(HttpURLConnection$HttpInputStream::*)($HttpURLConnection*,$InputStream*)>(&HttpURLConnection$HttpInputStream::init$))},
-	{"<init>", "(Lsun/net/www/protocol/http/HttpURLConnection;Ljava/io/InputStream;Ljava/net/CacheRequest;)V", nullptr, $PUBLIC, $method(static_cast<void(HttpURLConnection$HttpInputStream::*)($HttpURLConnection*,$InputStream*,$CacheRequest*)>(&HttpURLConnection$HttpInputStream::init$))},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"ensureOpen", "()V", nullptr, $PRIVATE, $method(static_cast<void(HttpURLConnection$HttpInputStream::*)()>(&HttpURLConnection$HttpInputStream::ensureOpen)), "java.io.IOException"},
-	{"mark", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"read", "()I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"read", "([B)I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"read", "([BII)I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"reset", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, nullptr, "java.io.IOException"},
-	{"skip", "(J)J", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Lsun/net/www/protocol/http/HttpURLConnection;Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(HttpURLConnection$HttpInputStream, init$, void, $HttpURLConnection*, $InputStream*)},
+	{"<init>", "(Lsun/net/www/protocol/http/HttpURLConnection;Ljava/io/InputStream;Ljava/net/CacheRequest;)V", nullptr, $PUBLIC, $method(HttpURLConnection$HttpInputStream, init$, void, $HttpURLConnection*, $InputStream*, $CacheRequest*)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(HttpURLConnection$HttpInputStream, close, void), "java.io.IOException"},
+	{"ensureOpen", "()V", nullptr, $PRIVATE, $method(HttpURLConnection$HttpInputStream, ensureOpen, void), "java.io.IOException"},
+	{"mark", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(HttpURLConnection$HttpInputStream, mark, void, int32_t)},
+	{"read", "()I", nullptr, $PUBLIC, $virtualMethod(HttpURLConnection$HttpInputStream, read, int32_t), "java.io.IOException"},
+	{"read", "([B)I", nullptr, $PUBLIC, $virtualMethod(HttpURLConnection$HttpInputStream, read, int32_t, $bytes*), "java.io.IOException"},
+	{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(HttpURLConnection$HttpInputStream, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
+	{"reset", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(HttpURLConnection$HttpInputStream, reset, void), "java.io.IOException"},
+	{"skip", "(J)J", nullptr, $PUBLIC, $virtualMethod(HttpURLConnection$HttpInputStream, skip, int64_t, int64_t), "java.io.IOException"},
 	{}
 };
 

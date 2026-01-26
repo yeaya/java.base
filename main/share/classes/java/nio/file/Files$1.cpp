@@ -23,9 +23,9 @@ $FieldInfo _Files$1_FieldInfo_[] = {
 };
 
 $MethodInfo _Files$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/file/PathMatcher;)V", nullptr, 0, $method(static_cast<void(Files$1::*)($PathMatcher*)>(&Files$1::init$))},
-	{"accept", "(Ljava/nio/file/Path;)Z", nullptr, $PUBLIC},
-	{"accept", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljava/nio/file/PathMatcher;)V", nullptr, 0, $method(Files$1, init$, void, $PathMatcher*)},
+	{"accept", "(Ljava/nio/file/Path;)Z", nullptr, $PUBLIC, $virtualMethod(Files$1, accept, bool, $Path*)},
+	{"accept", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Files$1, accept, bool, Object$*), "java.io.IOException"},
 	{}
 };
 

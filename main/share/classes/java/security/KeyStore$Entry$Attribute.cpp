@@ -11,8 +11,8 @@ namespace java {
 	namespace security {
 
 $MethodInfo _KeyStore$Entry$Attribute_MethodInfo_[] = {
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getValue", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(KeyStore$Entry$Attribute, getName, $String*)},
+	{"getValue", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(KeyStore$Entry$Attribute, getValue, $String*)},
 	{}
 };
 

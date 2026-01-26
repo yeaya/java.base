@@ -17,10 +17,10 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 
 $MethodInfo _SJIS_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SJIS::*)()>(&SJIS::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&SJIS::main)), "java.lang.Exception"},
-	{"rm", "(Ljava/io/File;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($File*)>(&SJIS::rm))},
-	{"touch", "(Ljava/io/File;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($File*)>(&SJIS::touch)), "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SJIS, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SJIS, main, void, $StringArray*), "java.lang.Exception"},
+	{"rm", "(Ljava/io/File;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(SJIS, rm, void, $File*)},
+	{"touch", "(Ljava/io/File;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(SJIS, touch, void, $File*), "java.io.IOException"},
 	{}
 };
 

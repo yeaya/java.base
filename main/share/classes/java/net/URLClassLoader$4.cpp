@@ -25,8 +25,8 @@ $FieldInfo _URLClassLoader$4_FieldInfo_[] = {
 };
 
 $MethodInfo _URLClassLoader$4_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/URLClassLoader;Ljava/lang/SecurityManager;Ljava/security/Permission;)V", nullptr, 0, $method(static_cast<void(URLClassLoader$4::*)($URLClassLoader*,$SecurityManager*,$Permission*)>(&URLClassLoader$4::init$))},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, nullptr, "java.lang.SecurityException"},
+	{"<init>", "(Ljava/net/URLClassLoader;Ljava/lang/SecurityManager;Ljava/security/Permission;)V", nullptr, 0, $method(URLClassLoader$4, init$, void, $URLClassLoader*, $SecurityManager*, $Permission*)},
+	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(URLClassLoader$4, run, $Object*), "java.lang.SecurityException"},
 	{}
 };
 

@@ -23,8 +23,8 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Comparator = ::java::util::Comparator;
 
 $MethodInfo _CaseInsensitiveComparator_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CaseInsensitiveComparator::*)()>(&CaseInsensitiveComparator::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&CaseInsensitiveComparator::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CaseInsensitiveComparator, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(CaseInsensitiveComparator, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

@@ -23,9 +23,9 @@ $FieldInfo _MethodType$ConcurrentWeakInternSet$WeakEntry_FieldInfo_[] = {
 };
 
 $MethodInfo _MethodType$ConcurrentWeakInternSet$WeakEntry_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;Ljava/lang/ref/ReferenceQueue;)V", "(TT;Ljava/lang/ref/ReferenceQueue<TT;>;)V", $PUBLIC, $method(static_cast<void(MethodType$ConcurrentWeakInternSet$WeakEntry::*)(Object$*,$ReferenceQueue*)>(&MethodType$ConcurrentWeakInternSet$WeakEntry::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Object;Ljava/lang/ref/ReferenceQueue;)V", "(TT;Ljava/lang/ref/ReferenceQueue<TT;>;)V", $PUBLIC, $method(MethodType$ConcurrentWeakInternSet$WeakEntry, init$, void, Object$*, $ReferenceQueue*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(MethodType$ConcurrentWeakInternSet$WeakEntry, equals, bool, Object$*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(MethodType$ConcurrentWeakInternSet$WeakEntry, hashCode, int32_t)},
 	{}
 };
 

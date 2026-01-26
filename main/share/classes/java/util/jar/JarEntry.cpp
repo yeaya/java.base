@@ -26,13 +26,13 @@ $FieldInfo _JarEntry_FieldInfo_[] = {
 };
 
 $MethodInfo _JarEntry_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(JarEntry::*)($String*)>(&JarEntry::init$))},
-	{"<init>", "(Ljava/util/zip/ZipEntry;)V", nullptr, $PUBLIC, $method(static_cast<void(JarEntry::*)($ZipEntry*)>(&JarEntry::init$))},
-	{"<init>", "(Ljava/util/jar/JarEntry;)V", nullptr, $PUBLIC, $method(static_cast<void(JarEntry::*)(JarEntry*)>(&JarEntry::init$))},
-	{"getAttributes", "()Ljava/util/jar/Attributes;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"getCertificates", "()[Ljava/security/cert/Certificate;", nullptr, $PUBLIC},
-	{"getCodeSigners", "()[Ljava/security/CodeSigner;", nullptr, $PUBLIC},
-	{"getRealName", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(JarEntry, init$, void, $String*)},
+	{"<init>", "(Ljava/util/zip/ZipEntry;)V", nullptr, $PUBLIC, $method(JarEntry, init$, void, $ZipEntry*)},
+	{"<init>", "(Ljava/util/jar/JarEntry;)V", nullptr, $PUBLIC, $method(JarEntry, init$, void, JarEntry*)},
+	{"getAttributes", "()Ljava/util/jar/Attributes;", nullptr, $PUBLIC, $virtualMethod(JarEntry, getAttributes, $Attributes*), "java.io.IOException"},
+	{"getCertificates", "()[Ljava/security/cert/Certificate;", nullptr, $PUBLIC, $virtualMethod(JarEntry, getCertificates, $CertificateArray*)},
+	{"getCodeSigners", "()[Ljava/security/CodeSigner;", nullptr, $PUBLIC, $virtualMethod(JarEntry, getCodeSigners, $CodeSignerArray*)},
+	{"getRealName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JarEntry, getRealName, $String*)},
 	{}
 };
 

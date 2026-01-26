@@ -16,10 +16,10 @@ namespace java {
 		namespace ref {
 
 $MethodInfo _FinalReference_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;Ljava/lang/ref/ReferenceQueue;)V", "(TT;Ljava/lang/ref/ReferenceQueue<-TT;>;)V", $PUBLIC, $method(static_cast<void(FinalReference::*)(Object$*,$ReferenceQueue*)>(&FinalReference::init$))},
-	{"clear", "()V", nullptr, $PUBLIC},
-	{"enqueue", "()Z", nullptr, $PUBLIC},
-	{"get", "()Ljava/lang/Object;", "()TT;", $PUBLIC},
+	{"<init>", "(Ljava/lang/Object;Ljava/lang/ref/ReferenceQueue;)V", "(TT;Ljava/lang/ref/ReferenceQueue<-TT;>;)V", $PUBLIC, $method(FinalReference, init$, void, Object$*, $ReferenceQueue*)},
+	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(FinalReference, clear, void)},
+	{"enqueue", "()Z", nullptr, $PUBLIC, $virtualMethod(FinalReference, enqueue, bool)},
+	{"get", "()Ljava/lang/Object;", "()TT;", $PUBLIC, $virtualMethod(FinalReference, get, $Object*)},
 	{}
 };
 

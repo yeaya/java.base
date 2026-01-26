@@ -16,10 +16,10 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $Locale = ::java::util::Locale;
 
 $MethodInfo _ToUpperCase_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ToUpperCase::*)()>(&ToUpperCase::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&ToUpperCase::main))},
-	{"test", "(Ljava/lang/String;Ljava/util/Locale;Ljava/lang/String;)V", nullptr, $STATIC, $method(static_cast<void(*)($String*,$Locale*,$String*)>(&ToUpperCase::test))},
-	{"test0", "(Ljava/lang/String;Ljava/util/Locale;Ljava/lang/String;)V", nullptr, $STATIC, $method(static_cast<void(*)($String*,$Locale*,$String*)>(&ToUpperCase::test0))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ToUpperCase, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ToUpperCase, main, void, $StringArray*)},
+	{"test", "(Ljava/lang/String;Ljava/util/Locale;Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(ToUpperCase, test, void, $String*, $Locale*, $String*)},
+	{"test0", "(Ljava/lang/String;Ljava/util/Locale;Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(ToUpperCase, test0, void, $String*, $Locale*, $String*)},
 	{}
 };
 

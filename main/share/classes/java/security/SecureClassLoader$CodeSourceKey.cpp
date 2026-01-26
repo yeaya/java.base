@@ -21,9 +21,9 @@ $FieldInfo _SecureClassLoader$CodeSourceKey_FieldInfo_[] = {
 };
 
 $MethodInfo _SecureClassLoader$CodeSourceKey_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/CodeSource;)V", nullptr, 0, $method(static_cast<void(SecureClassLoader$CodeSourceKey::*)($CodeSource*)>(&SecureClassLoader$CodeSourceKey::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/security/CodeSource;)V", nullptr, 0, $method(SecureClassLoader$CodeSourceKey, init$, void, $CodeSource*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(SecureClassLoader$CodeSourceKey, equals, bool, Object$*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(SecureClassLoader$CodeSourceKey, hashCode, int32_t)},
 	{}
 };
 

@@ -48,21 +48,21 @@ $FieldInfo _ObjectInputStream$FieldValues_FieldInfo_[] = {
 };
 
 $MethodInfo _ObjectInputStream$FieldValues_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/ObjectInputStream;Ljava/io/ObjectStreamClass;Z)V", nullptr, 0, $method(static_cast<void(ObjectInputStream$FieldValues::*)($ObjectInputStream*,$ObjectStreamClass*,bool)>(&ObjectInputStream$FieldValues::init$)), "java.io.IOException"},
-	{"defaultCheckFieldValues", "(Ljava/lang/Object;)V", nullptr, 0, $method(static_cast<void(ObjectInputStream$FieldValues::*)(Object$*)>(&ObjectInputStream$FieldValues::defaultCheckFieldValues))},
-	{"defaultSetFieldValues", "(Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(static_cast<void(ObjectInputStream$FieldValues::*)(Object$*)>(&ObjectInputStream$FieldValues::defaultSetFieldValues))},
-	{"defaulted", "(Ljava/lang/String;)Z", nullptr, $PUBLIC},
-	{"get", "(Ljava/lang/String;Z)Z", nullptr, $PUBLIC},
-	{"get", "(Ljava/lang/String;B)B", nullptr, $PUBLIC},
-	{"get", "(Ljava/lang/String;C)C", nullptr, $PUBLIC},
-	{"get", "(Ljava/lang/String;S)S", nullptr, $PUBLIC},
-	{"get", "(Ljava/lang/String;I)I", nullptr, $PUBLIC},
-	{"get", "(Ljava/lang/String;F)F", nullptr, $PUBLIC},
-	{"get", "(Ljava/lang/String;J)J", nullptr, $PUBLIC},
-	{"get", "(Ljava/lang/String;D)D", nullptr, $PUBLIC},
-	{"get", "(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"getFieldOffset", "(Ljava/lang/String;Ljava/lang/Class;)I", "(Ljava/lang/String;Ljava/lang/Class<*>;)I", $PRIVATE, $method(static_cast<int32_t(ObjectInputStream$FieldValues::*)($String*,$Class*)>(&ObjectInputStream$FieldValues::getFieldOffset))},
-	{"getObjectStreamClass", "()Ljava/io/ObjectStreamClass;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/io/ObjectInputStream;Ljava/io/ObjectStreamClass;Z)V", nullptr, 0, $method(ObjectInputStream$FieldValues, init$, void, $ObjectInputStream*, $ObjectStreamClass*, bool), "java.io.IOException"},
+	{"defaultCheckFieldValues", "(Ljava/lang/Object;)V", nullptr, 0, $method(ObjectInputStream$FieldValues, defaultCheckFieldValues, void, Object$*)},
+	{"defaultSetFieldValues", "(Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(ObjectInputStream$FieldValues, defaultSetFieldValues, void, Object$*)},
+	{"defaulted", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(ObjectInputStream$FieldValues, defaulted, bool, $String*)},
+	{"get", "(Ljava/lang/String;Z)Z", nullptr, $PUBLIC, $virtualMethod(ObjectInputStream$FieldValues, get, bool, $String*, bool)},
+	{"get", "(Ljava/lang/String;B)B", nullptr, $PUBLIC, $virtualMethod(ObjectInputStream$FieldValues, get, int8_t, $String*, int8_t)},
+	{"get", "(Ljava/lang/String;C)C", nullptr, $PUBLIC, $virtualMethod(ObjectInputStream$FieldValues, get, char16_t, $String*, char16_t)},
+	{"get", "(Ljava/lang/String;S)S", nullptr, $PUBLIC, $virtualMethod(ObjectInputStream$FieldValues, get, int16_t, $String*, int16_t)},
+	{"get", "(Ljava/lang/String;I)I", nullptr, $PUBLIC, $virtualMethod(ObjectInputStream$FieldValues, get, int32_t, $String*, int32_t)},
+	{"get", "(Ljava/lang/String;F)F", nullptr, $PUBLIC, $virtualMethod(ObjectInputStream$FieldValues, get, float, $String*, float)},
+	{"get", "(Ljava/lang/String;J)J", nullptr, $PUBLIC, $virtualMethod(ObjectInputStream$FieldValues, get, int64_t, $String*, int64_t)},
+	{"get", "(Ljava/lang/String;D)D", nullptr, $PUBLIC, $virtualMethod(ObjectInputStream$FieldValues, get, double, $String*, double)},
+	{"get", "(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ObjectInputStream$FieldValues, get, $Object*, $String*, Object$*)},
+	{"getFieldOffset", "(Ljava/lang/String;Ljava/lang/Class;)I", "(Ljava/lang/String;Ljava/lang/Class<*>;)I", $PRIVATE, $method(ObjectInputStream$FieldValues, getFieldOffset, int32_t, $String*, $Class*)},
+	{"getObjectStreamClass", "()Ljava/io/ObjectStreamClass;", nullptr, $PUBLIC, $virtualMethod(ObjectInputStream$FieldValues, getObjectStreamClass, $ObjectStreamClass*)},
 	{}
 };
 

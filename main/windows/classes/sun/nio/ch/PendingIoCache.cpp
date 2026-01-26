@@ -58,12 +58,12 @@ $FieldInfo _PendingIoCache_FieldInfo_[] = {
 };
 
 $MethodInfo _PendingIoCache_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(PendingIoCache::*)()>(&PendingIoCache::init$))},
-	{"add", "(Lsun/nio/ch/PendingFuture;)J", "(Lsun/nio/ch/PendingFuture<**>;)J", 0},
-	{"clearPendingIoMap", "()V", nullptr, $PRIVATE, $method(static_cast<void(PendingIoCache::*)()>(&PendingIoCache::clearPendingIoMap))},
-	{"close", "()V", nullptr, 0},
-	{"dependsArch", "(II)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)(int32_t,int32_t)>(&PendingIoCache::dependsArch))},
-	{"remove", "(J)Lsun/nio/ch/PendingFuture;", "<V:Ljava/lang/Object;A:Ljava/lang/Object;>(J)Lsun/nio/ch/PendingFuture<TV;TA;>;", 0},
+	{"<init>", "()V", nullptr, 0, $method(PendingIoCache, init$, void)},
+	{"add", "(Lsun/nio/ch/PendingFuture;)J", "(Lsun/nio/ch/PendingFuture<**>;)J", 0, $virtualMethod(PendingIoCache, add, int64_t, $PendingFuture*)},
+	{"clearPendingIoMap", "()V", nullptr, $PRIVATE, $method(PendingIoCache, clearPendingIoMap, void)},
+	{"close", "()V", nullptr, 0, $virtualMethod(PendingIoCache, close, void)},
+	{"dependsArch", "(II)I", nullptr, $PRIVATE | $STATIC, $staticMethod(PendingIoCache, dependsArch, int32_t, int32_t, int32_t)},
+	{"remove", "(J)Lsun/nio/ch/PendingFuture;", "<V:Ljava/lang/Object;A:Ljava/lang/Object;>(J)Lsun/nio/ch/PendingFuture<TV;TA;>;", 0, $virtualMethod(PendingIoCache, remove, $PendingFuture*, int64_t)},
 	{}
 };
 

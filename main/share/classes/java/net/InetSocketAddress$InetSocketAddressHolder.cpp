@@ -25,15 +25,15 @@ $FieldInfo _InetSocketAddress$InetSocketAddressHolder_FieldInfo_[] = {
 };
 
 $MethodInfo _InetSocketAddress$InetSocketAddressHolder_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/net/InetAddress;I)V", nullptr, $PRIVATE, $method(static_cast<void(InetSocketAddress$InetSocketAddressHolder::*)($String*,$InetAddress*,int32_t)>(&InetSocketAddress$InetSocketAddressHolder::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
-	{"getAddress", "()Ljava/net/InetAddress;", nullptr, $PRIVATE, $method(static_cast<$InetAddress*(InetSocketAddress$InetSocketAddressHolder::*)()>(&InetSocketAddress$InetSocketAddressHolder::getAddress))},
-	{"getHostName", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(InetSocketAddress$InetSocketAddressHolder::*)()>(&InetSocketAddress$InetSocketAddressHolder::getHostName))},
-	{"getHostString", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(InetSocketAddress$InetSocketAddressHolder::*)()>(&InetSocketAddress$InetSocketAddressHolder::getHostString))},
-	{"getPort", "()I", nullptr, $PRIVATE, $method(static_cast<int32_t(InetSocketAddress$InetSocketAddressHolder::*)()>(&InetSocketAddress$InetSocketAddressHolder::getPort))},
-	{"hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"isUnresolved", "()Z", nullptr, $PRIVATE, $method(static_cast<bool(InetSocketAddress$InetSocketAddressHolder::*)()>(&InetSocketAddress$InetSocketAddressHolder::isUnresolved))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Ljava/net/InetAddress;I)V", nullptr, $PRIVATE, $method(InetSocketAddress$InetSocketAddressHolder, init$, void, $String*, $InetAddress*, int32_t)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(InetSocketAddress$InetSocketAddressHolder, equals, bool, Object$*)},
+	{"getAddress", "()Ljava/net/InetAddress;", nullptr, $PRIVATE, $method(InetSocketAddress$InetSocketAddressHolder, getAddress, $InetAddress*)},
+	{"getHostName", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(InetSocketAddress$InetSocketAddressHolder, getHostName, $String*)},
+	{"getHostString", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(InetSocketAddress$InetSocketAddressHolder, getHostString, $String*)},
+	{"getPort", "()I", nullptr, $PRIVATE, $method(InetSocketAddress$InetSocketAddressHolder, getPort, int32_t)},
+	{"hashCode", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(InetSocketAddress$InetSocketAddressHolder, hashCode, int32_t)},
+	{"isUnresolved", "()Z", nullptr, $PRIVATE, $method(InetSocketAddress$InetSocketAddressHolder, isUnresolved, bool)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(InetSocketAddress$InetSocketAddressHolder, toString, $String*)},
 	{}
 };
 

@@ -25,8 +25,8 @@ $FieldInfo _LongAccumulator$SerializationProxy_FieldInfo_[] = {
 };
 
 $MethodInfo _LongAccumulator$SerializationProxy_MethodInfo_[] = {
-	{"<init>", "(JLjava/util/function/LongBinaryOperator;J)V", nullptr, 0, $method(static_cast<void(LongAccumulator$SerializationProxy::*)(int64_t,$LongBinaryOperator*,int64_t)>(&LongAccumulator$SerializationProxy::init$))},
-	{"readResolve", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(static_cast<$Object*(LongAccumulator$SerializationProxy::*)()>(&LongAccumulator$SerializationProxy::readResolve))},
+	{"<init>", "(JLjava/util/function/LongBinaryOperator;J)V", nullptr, 0, $method(LongAccumulator$SerializationProxy, init$, void, int64_t, $LongBinaryOperator*, int64_t)},
+	{"readResolve", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(LongAccumulator$SerializationProxy, readResolve, $Object*)},
 	{}
 };
 

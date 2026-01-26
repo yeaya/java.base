@@ -25,9 +25,9 @@ $FieldInfo _Concurrent_FieldInfo_[] = {
 };
 
 $MethodInfo _Concurrent_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/InetAddress;I)V", nullptr, 0, $method(static_cast<void(Concurrent::*)($InetAddress*,int32_t)>(&Concurrent::init$)), "java.lang.Exception"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Concurrent::main)), "java.lang.Exception"},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/net/InetAddress;I)V", nullptr, 0, $method(Concurrent, init$, void, $InetAddress*, int32_t), "java.lang.Exception"},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Concurrent, main, void, $StringArray*), "java.lang.Exception"},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Concurrent, run, void)},
 	{}
 };
 

@@ -16,8 +16,8 @@ $FieldInfo _ClassCastException_FieldInfo_[] = {
 };
 
 $MethodInfo _ClassCastException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ClassCastException::*)()>(&ClassCastException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(ClassCastException::*)($String*)>(&ClassCastException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ClassCastException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ClassCastException, init$, void, $String*)},
 	{}
 };
 

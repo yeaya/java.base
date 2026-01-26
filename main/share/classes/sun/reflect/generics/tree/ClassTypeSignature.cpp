@@ -21,10 +21,10 @@ $FieldInfo _ClassTypeSignature_FieldInfo_[] = {
 };
 
 $MethodInfo _ClassTypeSignature_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/List;)V", "(Ljava/util/List<Lsun/reflect/generics/tree/SimpleClassTypeSignature;>;)V", $PRIVATE, $method(static_cast<void(ClassTypeSignature::*)($List*)>(&ClassTypeSignature::init$))},
-	{"accept", "(Lsun/reflect/generics/visitor/TypeTreeVisitor;)V", "(Lsun/reflect/generics/visitor/TypeTreeVisitor<*>;)V", $PUBLIC},
-	{"getPath", "()Ljava/util/List;", "()Ljava/util/List<Lsun/reflect/generics/tree/SimpleClassTypeSignature;>;", $PUBLIC},
-	{"make", "(Ljava/util/List;)Lsun/reflect/generics/tree/ClassTypeSignature;", "(Ljava/util/List<Lsun/reflect/generics/tree/SimpleClassTypeSignature;>;)Lsun/reflect/generics/tree/ClassTypeSignature;", $PUBLIC | $STATIC, $method(static_cast<ClassTypeSignature*(*)($List*)>(&ClassTypeSignature::make))},
+	{"<init>", "(Ljava/util/List;)V", "(Ljava/util/List<Lsun/reflect/generics/tree/SimpleClassTypeSignature;>;)V", $PRIVATE, $method(ClassTypeSignature, init$, void, $List*)},
+	{"accept", "(Lsun/reflect/generics/visitor/TypeTreeVisitor;)V", "(Lsun/reflect/generics/visitor/TypeTreeVisitor<*>;)V", $PUBLIC, $virtualMethod(ClassTypeSignature, accept, void, $TypeTreeVisitor*)},
+	{"getPath", "()Ljava/util/List;", "()Ljava/util/List<Lsun/reflect/generics/tree/SimpleClassTypeSignature;>;", $PUBLIC, $virtualMethod(ClassTypeSignature, getPath, $List*)},
+	{"make", "(Ljava/util/List;)Lsun/reflect/generics/tree/ClassTypeSignature;", "(Ljava/util/List<Lsun/reflect/generics/tree/SimpleClassTypeSignature;>;)Lsun/reflect/generics/tree/ClassTypeSignature;", $PUBLIC | $STATIC, $staticMethod(ClassTypeSignature, make, ClassTypeSignature*, $List*)},
 	{}
 };
 

@@ -19,9 +19,9 @@ $FieldInfo _IllegalFormatPrecisionException_FieldInfo_[] = {
 };
 
 $MethodInfo _IllegalFormatPrecisionException_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(static_cast<void(IllegalFormatPrecisionException::*)(int32_t)>(&IllegalFormatPrecisionException::init$))},
-	{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getPrecision", "()I", nullptr, $PUBLIC},
+	{"<init>", "(I)V", nullptr, $PUBLIC, $method(IllegalFormatPrecisionException, init$, void, int32_t)},
+	{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IllegalFormatPrecisionException, getMessage, $String*)},
+	{"getPrecision", "()I", nullptr, $PUBLIC, $virtualMethod(IllegalFormatPrecisionException, getPrecision, int32_t)},
 	{}
 };
 

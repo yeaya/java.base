@@ -29,9 +29,9 @@ $FieldInfo _Pattern$CharProperty_FieldInfo_[] = {
 };
 
 $MethodInfo _Pattern$CharProperty_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/regex/Pattern$CharPredicate;)V", nullptr, 0, $method(static_cast<void(Pattern$CharProperty::*)($Pattern$CharPredicate*)>(&Pattern$CharProperty::init$))},
-	{"match", "(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z", nullptr, 0},
-	{"study", "(Ljava/util/regex/Pattern$TreeInfo;)Z", nullptr, 0},
+	{"<init>", "(Ljava/util/regex/Pattern$CharPredicate;)V", nullptr, 0, $method(Pattern$CharProperty, init$, void, $Pattern$CharPredicate*)},
+	{"match", "(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z", nullptr, 0, $virtualMethod(Pattern$CharProperty, match, bool, $Matcher*, int32_t, $CharSequence*)},
+	{"study", "(Ljava/util/regex/Pattern$TreeInfo;)Z", nullptr, 0, $virtualMethod(Pattern$CharProperty, study, bool, $Pattern$TreeInfo*)},
 	{}
 };
 

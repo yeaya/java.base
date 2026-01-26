@@ -13,8 +13,8 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $DatagramPacket = ::java::net::DatagramPacket;
 
 $MethodInfo _CheckBoundaries_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CheckBoundaries::*)()>(&CheckBoundaries::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&CheckBoundaries::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CheckBoundaries, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(CheckBoundaries, main, void, $StringArray*)},
 	{}
 };
 

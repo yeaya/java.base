@@ -49,21 +49,21 @@ $FieldInfo _PassThroughFileSystem_FieldInfo_[] = {
 };
 
 $MethodInfo _PassThroughFileSystem_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/file/spi/FileSystemProvider;Ljava/nio/file/FileSystem;)V", nullptr, 0, $method(static_cast<void(PassThroughFileSystem::*)($FileSystemProvider*,$FileSystem*)>(&PassThroughFileSystem::init$))},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"create", "()Ljava/nio/file/FileSystem;", nullptr, $STATIC, $method(static_cast<$FileSystem*(*)()>(&PassThroughFileSystem::create)), "java.io.IOException"},
-	{"getFileStores", "()Ljava/lang/Iterable;", "()Ljava/lang/Iterable<Ljava/nio/file/FileStore;>;", $PUBLIC},
-	{"getPath", "(Ljava/lang/String;[Ljava/lang/String;)Ljava/nio/file/Path;", nullptr, $PUBLIC | $TRANSIENT},
-	{"getPathMatcher", "(Ljava/lang/String;)Ljava/nio/file/PathMatcher;", nullptr, $PUBLIC},
-	{"getRootDirectories", "()Ljava/lang/Iterable;", "()Ljava/lang/Iterable<Ljava/nio/file/Path;>;", $PUBLIC},
-	{"getSeparator", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getUserPrincipalLookupService", "()Ljava/nio/file/attribute/UserPrincipalLookupService;", nullptr, $PUBLIC},
-	{"isOpen", "()Z", nullptr, $PUBLIC},
-	{"isReadOnly", "()Z", nullptr, $PUBLIC},
-	{"newWatchService", "()Ljava/nio/file/WatchService;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"provider", "()Ljava/nio/file/spi/FileSystemProvider;", nullptr, $PUBLIC},
-	{"supportedFileAttributeViews", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC},
-	{"unwrap", "(Ljava/nio/file/Path;)Ljava/nio/file/Path;", nullptr, $STATIC, $method(static_cast<$Path*(*)($Path*)>(&PassThroughFileSystem::unwrap))},
+	{"<init>", "(Ljava/nio/file/spi/FileSystemProvider;Ljava/nio/file/FileSystem;)V", nullptr, 0, $method(PassThroughFileSystem, init$, void, $FileSystemProvider*, $FileSystem*)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(PassThroughFileSystem, close, void), "java.io.IOException"},
+	{"create", "()Ljava/nio/file/FileSystem;", nullptr, $STATIC, $staticMethod(PassThroughFileSystem, create, $FileSystem*), "java.io.IOException"},
+	{"getFileStores", "()Ljava/lang/Iterable;", "()Ljava/lang/Iterable<Ljava/nio/file/FileStore;>;", $PUBLIC, $virtualMethod(PassThroughFileSystem, getFileStores, $Iterable*)},
+	{"getPath", "(Ljava/lang/String;[Ljava/lang/String;)Ljava/nio/file/Path;", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(PassThroughFileSystem, getPath, $Path*, $String*, $StringArray*)},
+	{"getPathMatcher", "(Ljava/lang/String;)Ljava/nio/file/PathMatcher;", nullptr, $PUBLIC, $virtualMethod(PassThroughFileSystem, getPathMatcher, $PathMatcher*, $String*)},
+	{"getRootDirectories", "()Ljava/lang/Iterable;", "()Ljava/lang/Iterable<Ljava/nio/file/Path;>;", $PUBLIC, $virtualMethod(PassThroughFileSystem, getRootDirectories, $Iterable*)},
+	{"getSeparator", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PassThroughFileSystem, getSeparator, $String*)},
+	{"getUserPrincipalLookupService", "()Ljava/nio/file/attribute/UserPrincipalLookupService;", nullptr, $PUBLIC, $virtualMethod(PassThroughFileSystem, getUserPrincipalLookupService, $UserPrincipalLookupService*)},
+	{"isOpen", "()Z", nullptr, $PUBLIC, $virtualMethod(PassThroughFileSystem, isOpen, bool)},
+	{"isReadOnly", "()Z", nullptr, $PUBLIC, $virtualMethod(PassThroughFileSystem, isReadOnly, bool)},
+	{"newWatchService", "()Ljava/nio/file/WatchService;", nullptr, $PUBLIC, $virtualMethod(PassThroughFileSystem, newWatchService, $WatchService*), "java.io.IOException"},
+	{"provider", "()Ljava/nio/file/spi/FileSystemProvider;", nullptr, $PUBLIC, $virtualMethod(PassThroughFileSystem, provider, $FileSystemProvider*)},
+	{"supportedFileAttributeViews", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(PassThroughFileSystem, supportedFileAttributeViews, $Set*)},
+	{"unwrap", "(Ljava/nio/file/Path;)Ljava/nio/file/Path;", nullptr, $STATIC, $staticMethod(PassThroughFileSystem, unwrap, $Path*, $Path*)},
 	{}
 };
 

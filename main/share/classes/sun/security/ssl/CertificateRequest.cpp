@@ -38,7 +38,7 @@ $FieldInfo _CertificateRequest_FieldInfo_[] = {
 };
 
 $MethodInfo _CertificateRequest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(CertificateRequest::*)()>(&CertificateRequest::init$))},
+	{"<init>", "()V", nullptr, 0, $method(CertificateRequest, init$, void)},
 	{}
 };
 

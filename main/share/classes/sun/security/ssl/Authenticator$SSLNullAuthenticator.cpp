@@ -14,7 +14,7 @@ namespace sun {
 		namespace ssl {
 
 $MethodInfo _Authenticator$SSLNullAuthenticator_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(Authenticator$SSLNullAuthenticator::*)()>(&Authenticator$SSLNullAuthenticator::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(Authenticator$SSLNullAuthenticator, init$, void)},
 	{}
 };
 

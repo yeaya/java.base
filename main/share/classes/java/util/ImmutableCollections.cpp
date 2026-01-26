@@ -62,12 +62,12 @@ $FieldInfo _ImmutableCollections_FieldInfo_[] = {
 };
 
 $MethodInfo _ImmutableCollections_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(ImmutableCollections::*)()>(&ImmutableCollections::init$))},
-	{"listCopy", "(Ljava/util/Collection;)Ljava/util/List;", "<E:Ljava/lang/Object;>(Ljava/util/Collection<+TE;>;)Ljava/util/List<TE;>;", $STATIC, $method(static_cast<$List*(*)($Collection*)>(&ImmutableCollections::listCopy))},
-	{"listFromArray", "([Ljava/lang/Object;)Ljava/util/List;", "<E:Ljava/lang/Object;>([TE;)Ljava/util/List<TE;>;", $STATIC | $TRANSIENT, $method(static_cast<$List*(*)($ObjectArray*)>(&ImmutableCollections::listFromArray)), nullptr, nullptr, _ImmutableCollections_MethodAnnotations_listFromArray2},
-	{"listFromTrustedArray", "([Ljava/lang/Object;)Ljava/util/List;", "<E:Ljava/lang/Object;>([Ljava/lang/Object;)Ljava/util/List<TE;>;", $STATIC | $TRANSIENT, $method(static_cast<$List*(*)($ObjectArray*)>(&ImmutableCollections::listFromTrustedArray))},
-	{"listFromTrustedArrayNullsAllowed", "([Ljava/lang/Object;)Ljava/util/List;", "<E:Ljava/lang/Object;>([Ljava/lang/Object;)Ljava/util/List<TE;>;", $STATIC | $TRANSIENT, $method(static_cast<$List*(*)($ObjectArray*)>(&ImmutableCollections::listFromTrustedArrayNullsAllowed))},
-	{"uoe", "()Ljava/lang/UnsupportedOperationException;", nullptr, $STATIC, $method(static_cast<$UnsupportedOperationException*(*)()>(&ImmutableCollections::uoe))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(ImmutableCollections, init$, void)},
+	{"listCopy", "(Ljava/util/Collection;)Ljava/util/List;", "<E:Ljava/lang/Object;>(Ljava/util/Collection<+TE;>;)Ljava/util/List<TE;>;", $STATIC, $staticMethod(ImmutableCollections, listCopy, $List*, $Collection*)},
+	{"listFromArray", "([Ljava/lang/Object;)Ljava/util/List;", "<E:Ljava/lang/Object;>([TE;)Ljava/util/List<TE;>;", $STATIC | $TRANSIENT, $staticMethod(ImmutableCollections, listFromArray, $List*, $ObjectArray*), nullptr, nullptr, _ImmutableCollections_MethodAnnotations_listFromArray2},
+	{"listFromTrustedArray", "([Ljava/lang/Object;)Ljava/util/List;", "<E:Ljava/lang/Object;>([Ljava/lang/Object;)Ljava/util/List<TE;>;", $STATIC | $TRANSIENT, $staticMethod(ImmutableCollections, listFromTrustedArray, $List*, $ObjectArray*)},
+	{"listFromTrustedArrayNullsAllowed", "([Ljava/lang/Object;)Ljava/util/List;", "<E:Ljava/lang/Object;>([Ljava/lang/Object;)Ljava/util/List<TE;>;", $STATIC | $TRANSIENT, $staticMethod(ImmutableCollections, listFromTrustedArrayNullsAllowed, $List*, $ObjectArray*)},
+	{"uoe", "()Ljava/lang/UnsupportedOperationException;", nullptr, $STATIC, $staticMethod(ImmutableCollections, uoe, $UnsupportedOperationException*)},
 	{}
 };
 

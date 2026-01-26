@@ -44,20 +44,20 @@ $FieldInfo _IntegerPolynomial1305_FieldInfo_[] = {
 };
 
 $MethodInfo _IntegerPolynomial1305_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(IntegerPolynomial1305::*)()>(&IntegerPolynomial1305::init$))},
-	{"carryReduce", "([JJJJJJJJJJ)V", nullptr, $PRIVATE, $method(static_cast<void(IntegerPolynomial1305::*)($longs*,int64_t,int64_t,int64_t,int64_t,int64_t,int64_t,int64_t,int64_t,int64_t)>(&IntegerPolynomial1305::carryReduce))},
-	{"carryValue", "(J)J", nullptr, $PROTECTED},
-	{"encode", "(Ljava/nio/ByteBuffer;IB[J)V", nullptr, $PROTECTED},
-	{"encode", "(JJB[J)V", nullptr, $PROTECTED},
-	{"encode", "([BIIB[J)V", nullptr, $PROTECTED},
-	{"finalCarryReduceLast", "([J)V", nullptr, $PROTECTED},
-	{"modReduce", "([JII)V", nullptr, $PROTECTED | $FINAL, $method(static_cast<void(IntegerPolynomial1305::*)($longs*,int32_t,int32_t)>(&IntegerPolynomial1305::modReduce))},
-	{"modReduce", "([J)V", nullptr, $PROTECTED},
-	{"mult", "([J[J[J)V", nullptr, $PROTECTED},
-	{"postEncodeCarry", "([J)V", nullptr, $PROTECTED},
-	{"reduce", "([J)V", nullptr, $PROTECTED},
-	{"reduceIn", "([JJI)V", nullptr, $PROTECTED},
-	{"square", "([J[J)V", nullptr, $PROTECTED},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(IntegerPolynomial1305, init$, void)},
+	{"carryReduce", "([JJJJJJJJJJ)V", nullptr, $PRIVATE, $method(IntegerPolynomial1305, carryReduce, void, $longs*, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t)},
+	{"carryValue", "(J)J", nullptr, $PROTECTED, $virtualMethod(IntegerPolynomial1305, carryValue, int64_t, int64_t)},
+	{"encode", "(Ljava/nio/ByteBuffer;IB[J)V", nullptr, $PROTECTED, $virtualMethod(IntegerPolynomial1305, encode, void, $ByteBuffer*, int32_t, int8_t, $longs*)},
+	{"encode", "(JJB[J)V", nullptr, $PROTECTED, $virtualMethod(IntegerPolynomial1305, encode, void, int64_t, int64_t, int8_t, $longs*)},
+	{"encode", "([BIIB[J)V", nullptr, $PROTECTED, $virtualMethod(IntegerPolynomial1305, encode, void, $bytes*, int32_t, int32_t, int8_t, $longs*)},
+	{"finalCarryReduceLast", "([J)V", nullptr, $PROTECTED, $virtualMethod(IntegerPolynomial1305, finalCarryReduceLast, void, $longs*)},
+	{"modReduce", "([JII)V", nullptr, $PROTECTED | $FINAL, $method(IntegerPolynomial1305, modReduce, void, $longs*, int32_t, int32_t)},
+	{"modReduce", "([J)V", nullptr, $PROTECTED, $virtualMethod(IntegerPolynomial1305, modReduce, void, $longs*)},
+	{"mult", "([J[J[J)V", nullptr, $PROTECTED, $virtualMethod(IntegerPolynomial1305, mult, void, $longs*, $longs*, $longs*)},
+	{"postEncodeCarry", "([J)V", nullptr, $PROTECTED, $virtualMethod(IntegerPolynomial1305, postEncodeCarry, void, $longs*)},
+	{"reduce", "([J)V", nullptr, $PROTECTED, $virtualMethod(IntegerPolynomial1305, reduce, void, $longs*)},
+	{"reduceIn", "([JJI)V", nullptr, $PROTECTED, $virtualMethod(IntegerPolynomial1305, reduceIn, void, $longs*, int64_t, int32_t)},
+	{"square", "([J[J)V", nullptr, $PROTECTED, $virtualMethod(IntegerPolynomial1305, square, void, $longs*, $longs*)},
 	{}
 };
 

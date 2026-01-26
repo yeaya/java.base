@@ -30,9 +30,9 @@ $FieldInfo _DoubleStream$1_FieldInfo_[] = {
 };
 
 $MethodInfo _DoubleStream$1_MethodInfo_[] = {
-	{"<init>", "(JILjava/util/function/DoubleUnaryOperator;D)V", nullptr, 0, $method(static_cast<void(DoubleStream$1::*)(int64_t,int32_t,$DoubleUnaryOperator*,double)>(&DoubleStream$1::init$))},
-	{"tryAdvance", "(Ljava/util/function/DoubleConsumer;)Z", nullptr, $PUBLIC},
-	{"tryAdvance", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "(JILjava/util/function/DoubleUnaryOperator;D)V", nullptr, 0, $method(DoubleStream$1, init$, void, int64_t, int32_t, $DoubleUnaryOperator*, double)},
+	{"tryAdvance", "(Ljava/util/function/DoubleConsumer;)Z", nullptr, $PUBLIC, $virtualMethod(DoubleStream$1, tryAdvance, bool, $DoubleConsumer*)},
+	{"tryAdvance", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DoubleStream$1, tryAdvance, bool, Object$*)},
 	{}
 };
 

@@ -23,9 +23,9 @@ $FieldInfo _Terminator_FieldInfo_[] = {
 };
 
 $MethodInfo _Terminator_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Terminator::*)()>(&Terminator::init$))},
-	{"setup", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&Terminator::setup))},
-	{"teardown", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&Terminator::teardown))},
+	{"<init>", "()V", nullptr, 0, $method(Terminator, init$, void)},
+	{"setup", "()V", nullptr, $STATIC, $staticMethod(Terminator, setup, void)},
+	{"teardown", "()V", nullptr, $STATIC, $staticMethod(Terminator, teardown, void)},
 	{}
 };
 

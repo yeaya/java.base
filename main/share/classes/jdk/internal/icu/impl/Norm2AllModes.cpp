@@ -38,10 +38,10 @@ $FieldInfo _Norm2AllModes_FieldInfo_[] = {
 };
 
 $MethodInfo _Norm2AllModes_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/icu/impl/NormalizerImpl;)V", nullptr, $PRIVATE, $method(static_cast<void(Norm2AllModes::*)($NormalizerImpl*)>(&Norm2AllModes::init$))},
-	{"getInstanceFromSingleton", "(Ljdk/internal/icu/impl/Norm2AllModes$Norm2AllModesSingleton;)Ljdk/internal/icu/impl/Norm2AllModes;", nullptr, $PRIVATE | $STATIC, $method(static_cast<Norm2AllModes*(*)($Norm2AllModes$Norm2AllModesSingleton*)>(&Norm2AllModes::getInstanceFromSingleton))},
-	{"getNFCInstance", "()Ljdk/internal/icu/impl/Norm2AllModes;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Norm2AllModes*(*)()>(&Norm2AllModes::getNFCInstance))},
-	{"getNFKCInstance", "()Ljdk/internal/icu/impl/Norm2AllModes;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Norm2AllModes*(*)()>(&Norm2AllModes::getNFKCInstance))},
+	{"<init>", "(Ljdk/internal/icu/impl/NormalizerImpl;)V", nullptr, $PRIVATE, $method(Norm2AllModes, init$, void, $NormalizerImpl*)},
+	{"getInstanceFromSingleton", "(Ljdk/internal/icu/impl/Norm2AllModes$Norm2AllModesSingleton;)Ljdk/internal/icu/impl/Norm2AllModes;", nullptr, $PRIVATE | $STATIC, $staticMethod(Norm2AllModes, getInstanceFromSingleton, Norm2AllModes*, $Norm2AllModes$Norm2AllModesSingleton*)},
+	{"getNFCInstance", "()Ljdk/internal/icu/impl/Norm2AllModes;", nullptr, $PUBLIC | $STATIC, $staticMethod(Norm2AllModes, getNFCInstance, Norm2AllModes*)},
+	{"getNFKCInstance", "()Ljdk/internal/icu/impl/Norm2AllModes;", nullptr, $PUBLIC | $STATIC, $staticMethod(Norm2AllModes, getNFKCInstance, Norm2AllModes*)},
 	{}
 };
 

@@ -14,8 +14,8 @@ using $Retention = ::java::lang::annotation::Retention;
 using $Method = ::java::lang::reflect::Method;
 
 $MethodInfo _getAnnotationTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(getAnnotationTest::*)()>(&getAnnotationTest::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&getAnnotationTest::main)), "java.lang.Throwable"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(getAnnotationTest, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(getAnnotationTest, main, void, $StringArray*), "java.lang.Throwable"},
 	{}
 };
 

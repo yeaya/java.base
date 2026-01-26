@@ -16,10 +16,10 @@ using $Constructor = ::java::lang::reflect::Constructor;
 using $Method = ::java::lang::reflect::Method;
 
 $MethodInfo _PeekInputStreamTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PeekInputStreamTest::*)()>(&PeekInputStreamTest::init$))},
-	{"createPeekInputStream", "(Ljava/io/InputStream;)Ljava/io/InputStream;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$InputStream*(*)($InputStream*)>(&PeekInputStreamTest::createPeekInputStream)), "java.lang.ReflectiveOperationException"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&PeekInputStreamTest::main)), "java.lang.ReflectiveOperationException,java.io.IOException"},
-	{"peek", "(Ljava/io/InputStream;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($InputStream*)>(&PeekInputStreamTest::peek)), "java.lang.ReflectiveOperationException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PeekInputStreamTest, init$, void)},
+	{"createPeekInputStream", "(Ljava/io/InputStream;)Ljava/io/InputStream;", nullptr, $PRIVATE | $STATIC, $staticMethod(PeekInputStreamTest, createPeekInputStream, $InputStream*, $InputStream*), "java.lang.ReflectiveOperationException"},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(PeekInputStreamTest, main, void, $StringArray*), "java.lang.ReflectiveOperationException,java.io.IOException"},
+	{"peek", "(Ljava/io/InputStream;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(PeekInputStreamTest, peek, void, $InputStream*), "java.lang.ReflectiveOperationException"},
 	{}
 };
 

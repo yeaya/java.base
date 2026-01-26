@@ -50,9 +50,9 @@ $FieldInfo _CheckMethodAdapter$1_FieldInfo_[] = {
 };
 
 $MethodInfo _CheckMethodAdapter$1_MethodInfo_[] = {
-	{"<init>", "(IILjava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljdk/internal/org/objectweb/asm/MethodVisitor;)V", nullptr, 0, $method(static_cast<void(CheckMethodAdapter$1::*)(int32_t,int32_t,$String*,$String*,$String*,$StringArray*,$MethodVisitor*)>(&CheckMethodAdapter$1::init$))},
-	{"throwError", "(Ljdk/internal/org/objectweb/asm/tree/analysis/Analyzer;Ljava/lang/Exception;)V", "(Ljdk/internal/org/objectweb/asm/tree/analysis/Analyzer<Ljdk/internal/org/objectweb/asm/tree/analysis/BasicValue;>;Ljava/lang/Exception;)V", $PRIVATE, $method(static_cast<void(CheckMethodAdapter$1::*)($Analyzer*,$Exception*)>(&CheckMethodAdapter$1::throwError))},
-	{"visitEnd", "()V", nullptr, $PUBLIC},
+	{"<init>", "(IILjava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljdk/internal/org/objectweb/asm/MethodVisitor;)V", nullptr, 0, $method(CheckMethodAdapter$1, init$, void, int32_t, int32_t, $String*, $String*, $String*, $StringArray*, $MethodVisitor*)},
+	{"throwError", "(Ljdk/internal/org/objectweb/asm/tree/analysis/Analyzer;Ljava/lang/Exception;)V", "(Ljdk/internal/org/objectweb/asm/tree/analysis/Analyzer<Ljdk/internal/org/objectweb/asm/tree/analysis/BasicValue;>;Ljava/lang/Exception;)V", $PRIVATE, $method(CheckMethodAdapter$1, throwError, void, $Analyzer*, $Exception*)},
+	{"visitEnd", "()V", nullptr, $PUBLIC, $virtualMethod(CheckMethodAdapter$1, visitEnd, void)},
 	{}
 };
 

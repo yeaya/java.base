@@ -22,10 +22,10 @@ $FieldInfo _NioSocketImpl$2_FieldInfo_[] = {
 };
 
 $MethodInfo _NioSocketImpl$2_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/ch/NioSocketImpl;)V", nullptr, 0, $method(static_cast<void(NioSocketImpl$2::*)($NioSocketImpl*)>(&NioSocketImpl$2::init$))},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"write", "(I)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"write", "([BII)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Lsun/nio/ch/NioSocketImpl;)V", nullptr, 0, $method(NioSocketImpl$2, init$, void, $NioSocketImpl*)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(NioSocketImpl$2, close, void), "java.io.IOException"},
+	{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(NioSocketImpl$2, write, void, int32_t), "java.io.IOException"},
+	{"write", "([BII)V", nullptr, $PUBLIC, $virtualMethod(NioSocketImpl$2, write, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
 	{}
 };
 

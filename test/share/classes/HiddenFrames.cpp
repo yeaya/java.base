@@ -63,8 +63,8 @@ $FieldInfo HiddenFrames$$Lambda$lambda$walk$1::fieldInfos[2] = {
 	{}
 };
 $MethodInfo HiddenFrames$$Lambda$lambda$walk$1::methodInfos[3] = {
-	{"<init>", "(LHiddenFrames;)V", nullptr, $PUBLIC, $method(static_cast<void(HiddenFrames$$Lambda$lambda$walk$1::*)(HiddenFrames*)>(&HiddenFrames$$Lambda$lambda$walk$1::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(LHiddenFrames;)V", nullptr, $PUBLIC, $method(HiddenFrames$$Lambda$lambda$walk$1, init$, void, HiddenFrames*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(HiddenFrames$$Lambda$lambda$walk$1, accept, void, Object$*)},
 	{}
 };
 $ClassInfo HiddenFrames$$Lambda$lambda$walk$1::classInfo$ = {
@@ -103,8 +103,8 @@ $FieldInfo HiddenFrames$$Lambda$lambda$walk$0$1::fieldInfos[2] = {
 	{}
 };
 $MethodInfo HiddenFrames$$Lambda$lambda$walk$0$1::methodInfos[3] = {
-	{"<init>", "(LHiddenFrames;)V", nullptr, $PUBLIC, $method(static_cast<void(HiddenFrames$$Lambda$lambda$walk$0$1::*)(HiddenFrames*)>(&HiddenFrames$$Lambda$lambda$walk$0$1::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(LHiddenFrames;)V", nullptr, $PUBLIC, $method(HiddenFrames$$Lambda$lambda$walk$0$1, init$, void, HiddenFrames*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HiddenFrames$$Lambda$lambda$walk$0$1, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo HiddenFrames$$Lambda$lambda$walk$0$1::classInfo$ = {
@@ -143,8 +143,8 @@ $FieldInfo HiddenFrames$$Lambda$checkFrame$2::fieldInfos[2] = {
 	{}
 };
 $MethodInfo HiddenFrames$$Lambda$checkFrame$2::methodInfos[3] = {
-	{"<init>", "(LHiddenFrames;)V", nullptr, $PUBLIC, $method(static_cast<void(HiddenFrames$$Lambda$checkFrame$2::*)(HiddenFrames*)>(&HiddenFrames$$Lambda$checkFrame$2::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(LHiddenFrames;)V", nullptr, $PUBLIC, $method(HiddenFrames$$Lambda$checkFrame$2, init$, void, HiddenFrames*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(HiddenFrames$$Lambda$checkFrame$2, accept, void, Object$*)},
 	{}
 };
 $ClassInfo HiddenFrames$$Lambda$checkFrame$2::classInfo$ = {
@@ -170,15 +170,15 @@ $FieldInfo _HiddenFrames_FieldInfo_[] = {
 };
 
 $MethodInfo _HiddenFrames_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(HiddenFrames::*)()>(&HiddenFrames::init$))},
-	{"<init>", "(Ljava/lang/StackWalker$Option;)V", nullptr, 0, $method(static_cast<void(HiddenFrames::*)($StackWalker$Option*)>(&HiddenFrames::init$))},
-	{"checkFrame", "(Ljava/lang/StackWalker$StackFrame;)V", nullptr, 0},
-	{"lambda$walk$0", "(Ljava/util/stream/Stream;)Ljava/lang/Object;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$Object*(HiddenFrames::*)($Stream*)>(&HiddenFrames::lambda$walk$0))},
-	{"lambda$walk$1", "(Ljava/lang/Integer;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(HiddenFrames::*)($Integer*)>(&HiddenFrames::lambda$walk$1))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<void(*)($StringArray*)>(&HiddenFrames::main)), "java.lang.Exception"},
-	{"test", "()V", nullptr, 0, nullptr, "java.lang.Exception"},
-	{"walk", "()V", nullptr, 0},
-	{"walkFromReflection", "()V", nullptr, 0, nullptr, "java.lang.Exception"},
+	{"<init>", "()V", nullptr, 0, $method(HiddenFrames, init$, void)},
+	{"<init>", "(Ljava/lang/StackWalker$Option;)V", nullptr, 0, $method(HiddenFrames, init$, void, $StackWalker$Option*)},
+	{"checkFrame", "(Ljava/lang/StackWalker$StackFrame;)V", nullptr, 0, $virtualMethod(HiddenFrames, checkFrame, void, $StackWalker$StackFrame*)},
+	{"lambda$walk$0", "(Ljava/util/stream/Stream;)Ljava/lang/Object;", nullptr, $PRIVATE | $SYNTHETIC, $method(HiddenFrames, lambda$walk$0, $Object*, $Stream*)},
+	{"lambda$walk$1", "(Ljava/lang/Integer;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(HiddenFrames, lambda$walk$1, void, $Integer*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(HiddenFrames, main, void, $StringArray*), "java.lang.Exception"},
+	{"test", "()V", nullptr, 0, $virtualMethod(HiddenFrames, test, void), "java.lang.Exception"},
+	{"walk", "()V", nullptr, 0, $virtualMethod(HiddenFrames, walk, void)},
+	{"walkFromReflection", "()V", nullptr, 0, $virtualMethod(HiddenFrames, walkFromReflection, void), "java.lang.Exception"},
 	{}
 };
 

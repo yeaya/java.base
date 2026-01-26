@@ -79,13 +79,13 @@ $FieldInfo _ManifestEntryVerifier_FieldInfo_[] = {
 };
 
 $MethodInfo _ManifestEntryVerifier_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/jar/Manifest;)V", nullptr, $PUBLIC, $method(static_cast<void(ManifestEntryVerifier::*)($Manifest*)>(&ManifestEntryVerifier::init$))},
-	{"getEntry", "()Ljava/util/jar/JarEntry;", nullptr, $PUBLIC},
-	{"getParams", "(Ljava/util/Map;Ljava/util/Map;)Lsun/security/util/JarConstraintsParameters;", "(Ljava/util/Map<Ljava/lang/String;[Ljava/security/CodeSigner;>;Ljava/util/Map<Ljava/lang/String;[Ljava/security/CodeSigner;>;)Lsun/security/util/JarConstraintsParameters;", $PRIVATE, $method(static_cast<$JarConstraintsParameters*(ManifestEntryVerifier::*)($Map*,$Map*)>(&ManifestEntryVerifier::getParams))},
-	{"setEntry", "(Ljava/lang/String;Ljava/util/jar/JarEntry;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"update", "(B)V", nullptr, $PUBLIC},
-	{"update", "([BII)V", nullptr, $PUBLIC},
-	{"verify", "(Ljava/util/Hashtable;Ljava/util/Hashtable;)[Ljava/security/CodeSigner;", "(Ljava/util/Hashtable<Ljava/lang/String;[Ljava/security/CodeSigner;>;Ljava/util/Hashtable<Ljava/lang/String;[Ljava/security/CodeSigner;>;)[Ljava/security/CodeSigner;", $PUBLIC, nullptr, "java.util.jar.JarException"},
+	{"<init>", "(Ljava/util/jar/Manifest;)V", nullptr, $PUBLIC, $method(ManifestEntryVerifier, init$, void, $Manifest*)},
+	{"getEntry", "()Ljava/util/jar/JarEntry;", nullptr, $PUBLIC, $virtualMethod(ManifestEntryVerifier, getEntry, $JarEntry*)},
+	{"getParams", "(Ljava/util/Map;Ljava/util/Map;)Lsun/security/util/JarConstraintsParameters;", "(Ljava/util/Map<Ljava/lang/String;[Ljava/security/CodeSigner;>;Ljava/util/Map<Ljava/lang/String;[Ljava/security/CodeSigner;>;)Lsun/security/util/JarConstraintsParameters;", $PRIVATE, $method(ManifestEntryVerifier, getParams, $JarConstraintsParameters*, $Map*, $Map*)},
+	{"setEntry", "(Ljava/lang/String;Ljava/util/jar/JarEntry;)V", nullptr, $PUBLIC, $virtualMethod(ManifestEntryVerifier, setEntry, void, $String*, $JarEntry*), "java.io.IOException"},
+	{"update", "(B)V", nullptr, $PUBLIC, $virtualMethod(ManifestEntryVerifier, update, void, int8_t)},
+	{"update", "([BII)V", nullptr, $PUBLIC, $virtualMethod(ManifestEntryVerifier, update, void, $bytes*, int32_t, int32_t)},
+	{"verify", "(Ljava/util/Hashtable;Ljava/util/Hashtable;)[Ljava/security/CodeSigner;", "(Ljava/util/Hashtable<Ljava/lang/String;[Ljava/security/CodeSigner;>;Ljava/util/Hashtable<Ljava/lang/String;[Ljava/security/CodeSigner;>;)[Ljava/security/CodeSigner;", $PUBLIC, $virtualMethod(ManifestEntryVerifier, verify, $CodeSignerArray*, $Hashtable*, $Hashtable*), "java.util.jar.JarException"},
 	{}
 };
 

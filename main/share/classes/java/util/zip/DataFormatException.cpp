@@ -17,8 +17,8 @@ $FieldInfo _DataFormatException_FieldInfo_[] = {
 };
 
 $MethodInfo _DataFormatException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DataFormatException::*)()>(&DataFormatException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(DataFormatException::*)($String*)>(&DataFormatException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DataFormatException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(DataFormatException, init$, void, $String*)},
 	{}
 };
 

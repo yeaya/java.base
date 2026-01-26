@@ -30,10 +30,10 @@ $FieldInfo _MethodType$ConcurrentWeakInternSet_FieldInfo_[] = {
 };
 
 $MethodInfo _MethodType$ConcurrentWeakInternSet_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(MethodType$ConcurrentWeakInternSet::*)()>(&MethodType$ConcurrentWeakInternSet::init$))},
-	{"add", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TT;)TT;", $PUBLIC},
-	{"expungeStaleElements", "()V", nullptr, $PRIVATE, $method(static_cast<void(MethodType$ConcurrentWeakInternSet::*)()>(&MethodType$ConcurrentWeakInternSet::expungeStaleElements))},
-	{"get", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TT;)TT;", $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(MethodType$ConcurrentWeakInternSet, init$, void)},
+	{"add", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TT;)TT;", $PUBLIC, $virtualMethod(MethodType$ConcurrentWeakInternSet, add, $Object*, Object$*)},
+	{"expungeStaleElements", "()V", nullptr, $PRIVATE, $method(MethodType$ConcurrentWeakInternSet, expungeStaleElements, void)},
+	{"get", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TT;)TT;", $PUBLIC, $virtualMethod(MethodType$ConcurrentWeakInternSet, get, $Object*, Object$*)},
 	{}
 };
 

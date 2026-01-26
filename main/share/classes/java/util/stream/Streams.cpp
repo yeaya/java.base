@@ -21,9 +21,9 @@ namespace java {
 		namespace stream {
 
 $MethodInfo _Streams_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(Streams::*)()>(&Streams::init$))},
-	{"composeWithExceptions", "(Ljava/lang/Runnable;Ljava/lang/Runnable;)Ljava/lang/Runnable;", nullptr, $STATIC, $method(static_cast<$Runnable*(*)($Runnable*,$Runnable*)>(&Streams::composeWithExceptions))},
-	{"composedClose", "(Ljava/util/stream/BaseStream;Ljava/util/stream/BaseStream;)Ljava/lang/Runnable;", "(Ljava/util/stream/BaseStream<**>;Ljava/util/stream/BaseStream<**>;)Ljava/lang/Runnable;", $STATIC, $method(static_cast<$Runnable*(*)($BaseStream*,$BaseStream*)>(&Streams::composedClose))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(Streams, init$, void)},
+	{"composeWithExceptions", "(Ljava/lang/Runnable;Ljava/lang/Runnable;)Ljava/lang/Runnable;", nullptr, $STATIC, $staticMethod(Streams, composeWithExceptions, $Runnable*, $Runnable*, $Runnable*)},
+	{"composedClose", "(Ljava/util/stream/BaseStream;Ljava/util/stream/BaseStream;)Ljava/lang/Runnable;", "(Ljava/util/stream/BaseStream<**>;Ljava/util/stream/BaseStream<**>;)Ljava/lang/Runnable;", $STATIC, $staticMethod(Streams, composedClose, $Runnable*, $BaseStream*, $BaseStream*)},
 	{}
 };
 

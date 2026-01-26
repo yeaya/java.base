@@ -924,7 +924,7 @@ public:
 					$String* include = $arrayGet($String, casesArgs, i);
 					$var($StringArray, includeArray, include->split(","_s));
 					for (int32_t j = 0; j < includeArray->length; j++) {
-						$String* includeItem = $arrayGet<$String>(includeArray, j);
+						$String* includeItem = $arrayGet($String, includeArray, j);
 						if ($(includeItem->trim())->equals(caseName)) {
 							return true;
 						}
@@ -936,7 +936,7 @@ public:
 					$String* exclude = $arrayGet($String, casesArgs, i);
 					$var($StringArray, excludeArray, exclude->split(","_s));
 					for (int32_t j = 0; j < excludeArray->length; j++) {
-						$String* excludeItem = $arrayGet<$String>(excludeArray, j);
+						$String* excludeItem = $arrayGet($String, excludeArray, j);
 						if ($(excludeItem->trim())->equals(caseName)) {
 							return false;
 						}

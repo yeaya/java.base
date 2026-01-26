@@ -3,6 +3,7 @@
 #include <java/math/BigInteger.h>
 #include <java/security/GeneralSecurityException.h>
 #include <java/security/InvalidAlgorithmParameterException.h>
+#include <java/security/Principal.h>
 #include <java/security/Provider.h>
 #include <java/security/ProviderException.h>
 #include <java/security/PublicKey.h>
@@ -29,8 +30,10 @@ using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
+using $BigInteger = ::java::math::BigInteger;
 using $GeneralSecurityException = ::java::security::GeneralSecurityException;
 using $InvalidAlgorithmParameterException = ::java::security::InvalidAlgorithmParameterException;
+using $Principal = ::java::security::Principal;
 using $Provider = ::java::security::Provider;
 using $ProviderException = ::java::security::ProviderException;
 using $PublicKey = ::java::security::PublicKey;
@@ -41,6 +44,8 @@ using $CRLException = ::java::security::cert::CRLException;
 using $X509CRLEntry = ::java::security::cert::X509CRLEntry;
 using $X509Certificate = ::java::security::cert::X509Certificate;
 using $Arrays = ::java::util::Arrays;
+using $Date = ::java::util::Date;
+using $Set = ::java::util::Set;
 using $X500Principal = ::javax::security::auth::x500::X500Principal;
 using $SignatureUtil = ::sun::security::util::SignatureUtil;
 using $X509CRLImpl = ::sun::security::x509::X509CRLImpl;
@@ -67,27 +72,27 @@ $FieldInfo _X509CRL_FieldInfo_[] = {
 $MethodInfo _X509CRL_MethodInfo_[] = {
 	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(X509CRL::*)()>(&X509CRL::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getEncoded", "()[B", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.security.cert.CRLException"},
-	{"getIssuerDN", "()Ljava/security/Principal;", nullptr, $PUBLIC | $ABSTRACT | $DEPRECATED, nullptr, nullptr, nullptr, _X509CRL_MethodAnnotations_getIssuerDN3},
-	{"getIssuerX500Principal", "()Ljavax/security/auth/x500/X500Principal;", nullptr, $PUBLIC},
-	{"getNextUpdate", "()Ljava/util/Date;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getRevokedCertificate", "(Ljava/math/BigInteger;)Ljava/security/cert/X509CRLEntry;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getRevokedCertificate", "(Ljava/security/cert/X509Certificate;)Ljava/security/cert/X509CRLEntry;", nullptr, $PUBLIC},
-	{"getRevokedCertificates", "()Ljava/util/Set;", "()Ljava/util/Set<+Ljava/security/cert/X509CRLEntry;>;", $PUBLIC | $ABSTRACT},
-	{"getSigAlgName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getSigAlgOID", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getSigAlgParams", "()[B", nullptr, $PUBLIC | $ABSTRACT},
-	{"getSignature", "()[B", nullptr, $PUBLIC | $ABSTRACT},
-	{"getTBSCertList", "()[B", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.security.cert.CRLException"},
-	{"getThisUpdate", "()Ljava/util/Date;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getVersion", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"hashCode", "()I", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(X509CRL, init$, void)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(X509CRL, equals, bool, Object$*)},
+	{"getEncoded", "()[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(X509CRL, getEncoded, $bytes*), "java.security.cert.CRLException"},
+	{"getIssuerDN", "()Ljava/security/Principal;", nullptr, $PUBLIC | $ABSTRACT | $DEPRECATED, $virtualMethod(X509CRL, getIssuerDN, $Principal*), nullptr, nullptr, _X509CRL_MethodAnnotations_getIssuerDN3},
+	{"getIssuerX500Principal", "()Ljavax/security/auth/x500/X500Principal;", nullptr, $PUBLIC, $virtualMethod(X509CRL, getIssuerX500Principal, $X500Principal*)},
+	{"getNextUpdate", "()Ljava/util/Date;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(X509CRL, getNextUpdate, $Date*)},
+	{"getRevokedCertificate", "(Ljava/math/BigInteger;)Ljava/security/cert/X509CRLEntry;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(X509CRL, getRevokedCertificate, $X509CRLEntry*, $BigInteger*)},
+	{"getRevokedCertificate", "(Ljava/security/cert/X509Certificate;)Ljava/security/cert/X509CRLEntry;", nullptr, $PUBLIC, $virtualMethod(X509CRL, getRevokedCertificate, $X509CRLEntry*, $X509Certificate*)},
+	{"getRevokedCertificates", "()Ljava/util/Set;", "()Ljava/util/Set<+Ljava/security/cert/X509CRLEntry;>;", $PUBLIC | $ABSTRACT, $virtualMethod(X509CRL, getRevokedCertificates, $Set*)},
+	{"getSigAlgName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(X509CRL, getSigAlgName, $String*)},
+	{"getSigAlgOID", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(X509CRL, getSigAlgOID, $String*)},
+	{"getSigAlgParams", "()[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(X509CRL, getSigAlgParams, $bytes*)},
+	{"getSignature", "()[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(X509CRL, getSignature, $bytes*)},
+	{"getTBSCertList", "()[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(X509CRL, getTBSCertList, $bytes*), "java.security.cert.CRLException"},
+	{"getThisUpdate", "()Ljava/util/Date;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(X509CRL, getThisUpdate, $Date*)},
+	{"getVersion", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(X509CRL, getVersion, int32_t)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(X509CRL, hashCode, int32_t)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"verify", "(Ljava/security/PublicKey;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.security.cert.CRLException,java.security.NoSuchAlgorithmException,java.security.InvalidKeyException,java.security.NoSuchProviderException,java.security.SignatureException"},
-	{"verify", "(Ljava/security/PublicKey;Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.security.cert.CRLException,java.security.NoSuchAlgorithmException,java.security.InvalidKeyException,java.security.NoSuchProviderException,java.security.SignatureException"},
-	{"verify", "(Ljava/security/PublicKey;Ljava/security/Provider;)V", nullptr, $PUBLIC, nullptr, "java.security.cert.CRLException,java.security.NoSuchAlgorithmException,java.security.InvalidKeyException,java.security.SignatureException"},
+	{"verify", "(Ljava/security/PublicKey;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(X509CRL, verify, void, $PublicKey*), "java.security.cert.CRLException,java.security.NoSuchAlgorithmException,java.security.InvalidKeyException,java.security.NoSuchProviderException,java.security.SignatureException"},
+	{"verify", "(Ljava/security/PublicKey;Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(X509CRL, verify, void, $PublicKey*, $String*), "java.security.cert.CRLException,java.security.NoSuchAlgorithmException,java.security.InvalidKeyException,java.security.NoSuchProviderException,java.security.SignatureException"},
+	{"verify", "(Ljava/security/PublicKey;Ljava/security/Provider;)V", nullptr, $PUBLIC, $virtualMethod(X509CRL, verify, void, $PublicKey*, $Provider*), "java.security.cert.CRLException,java.security.NoSuchAlgorithmException,java.security.InvalidKeyException,java.security.SignatureException"},
 	{}
 };
 

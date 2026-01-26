@@ -20,14 +20,14 @@ $MethodInfo _OutputStream_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(OutputStream::*)()>(&OutputStream::init$))},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"flush", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"nullOutputStream", "()Ljava/io/OutputStream;", nullptr, $PUBLIC | $STATIC, $method(static_cast<OutputStream*(*)()>(&OutputStream::nullOutputStream))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(OutputStream, init$, void)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(OutputStream, close, void), "java.io.IOException"},
+	{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(OutputStream, flush, void), "java.io.IOException"},
+	{"nullOutputStream", "()Ljava/io/OutputStream;", nullptr, $PUBLIC | $STATIC, $staticMethod(OutputStream, nullOutputStream, OutputStream*)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"write", "(I)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"write", "([B)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"write", "([BII)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"write", "(I)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(OutputStream, write, void, int32_t), "java.io.IOException"},
+	{"write", "([B)V", nullptr, $PUBLIC, $virtualMethod(OutputStream, write, void, $bytes*), "java.io.IOException"},
+	{"write", "([BII)V", nullptr, $PUBLIC, $virtualMethod(OutputStream, write, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
 	{}
 };
 

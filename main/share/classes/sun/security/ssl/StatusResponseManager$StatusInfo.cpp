@@ -33,10 +33,10 @@ $FieldInfo _StatusResponseManager$StatusInfo_FieldInfo_[] = {
 };
 
 $MethodInfo _StatusResponseManager$StatusInfo_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/ssl/StatusResponseManager;Ljava/security/cert/X509Certificate;Ljava/security/cert/X509Certificate;)V", nullptr, 0, $method(static_cast<void(StatusResponseManager$StatusInfo::*)($StatusResponseManager*,$X509Certificate*,$X509Certificate*)>(&StatusResponseManager$StatusInfo::init$)), "java.io.IOException"},
-	{"<init>", "(Lsun/security/ssl/StatusResponseManager;Ljava/security/cert/X509Certificate;Lsun/security/provider/certpath/CertId;)V", nullptr, 0, $method(static_cast<void(StatusResponseManager$StatusInfo::*)($StatusResponseManager*,$X509Certificate*,$CertId*)>(&StatusResponseManager$StatusInfo::init$))},
-	{"<init>", "(Lsun/security/ssl/StatusResponseManager;Lsun/security/ssl/StatusResponseManager$StatusInfo;)V", nullptr, 0, $method(static_cast<void(StatusResponseManager$StatusInfo::*)($StatusResponseManager*,StatusResponseManager$StatusInfo*)>(&StatusResponseManager$StatusInfo::init$))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/security/ssl/StatusResponseManager;Ljava/security/cert/X509Certificate;Ljava/security/cert/X509Certificate;)V", nullptr, 0, $method(StatusResponseManager$StatusInfo, init$, void, $StatusResponseManager*, $X509Certificate*, $X509Certificate*), "java.io.IOException"},
+	{"<init>", "(Lsun/security/ssl/StatusResponseManager;Ljava/security/cert/X509Certificate;Lsun/security/provider/certpath/CertId;)V", nullptr, 0, $method(StatusResponseManager$StatusInfo, init$, void, $StatusResponseManager*, $X509Certificate*, $CertId*)},
+	{"<init>", "(Lsun/security/ssl/StatusResponseManager;Lsun/security/ssl/StatusResponseManager$StatusInfo;)V", nullptr, 0, $method(StatusResponseManager$StatusInfo, init$, void, $StatusResponseManager*, StatusResponseManager$StatusInfo*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StatusResponseManager$StatusInfo, toString, $String*)},
 	{}
 };
 

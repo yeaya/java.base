@@ -30,13 +30,13 @@ $FieldInfo _DrbgParameters$Capability_FieldInfo_[] = {
 };
 
 $MethodInfo _DrbgParameters$Capability_MethodInfo_[] = {
-	{"$values", "()[Ljava/security/DrbgParameters$Capability;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$DrbgParameters$CapabilityArray*(*)()>(&DrbgParameters$Capability::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(DrbgParameters$Capability::*)($String*,int32_t)>(&DrbgParameters$Capability::init$))},
-	{"supportsPredictionResistance", "()Z", nullptr, $PUBLIC, $method(static_cast<bool(DrbgParameters$Capability::*)()>(&DrbgParameters$Capability::supportsPredictionResistance))},
-	{"supportsReseeding", "()Z", nullptr, $PUBLIC, $method(static_cast<bool(DrbgParameters$Capability::*)()>(&DrbgParameters$Capability::supportsReseeding))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"valueOf", "(Ljava/lang/String;)Ljava/security/DrbgParameters$Capability;", nullptr, $PUBLIC | $STATIC, $method(static_cast<DrbgParameters$Capability*(*)($String*)>(&DrbgParameters$Capability::valueOf))},
-	{"values", "()[Ljava/security/DrbgParameters$Capability;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$DrbgParameters$CapabilityArray*(*)()>(&DrbgParameters$Capability::values))},
+	{"$values", "()[Ljava/security/DrbgParameters$Capability;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DrbgParameters$Capability, $values, $DrbgParameters$CapabilityArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(DrbgParameters$Capability, init$, void, $String*, int32_t)},
+	{"supportsPredictionResistance", "()Z", nullptr, $PUBLIC, $method(DrbgParameters$Capability, supportsPredictionResistance, bool)},
+	{"supportsReseeding", "()Z", nullptr, $PUBLIC, $method(DrbgParameters$Capability, supportsReseeding, bool)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DrbgParameters$Capability, toString, $String*)},
+	{"valueOf", "(Ljava/lang/String;)Ljava/security/DrbgParameters$Capability;", nullptr, $PUBLIC | $STATIC, $staticMethod(DrbgParameters$Capability, valueOf, DrbgParameters$Capability*, $String*)},
+	{"values", "()[Ljava/security/DrbgParameters$Capability;", nullptr, $PUBLIC | $STATIC, $staticMethod(DrbgParameters$Capability, values, $DrbgParameters$CapabilityArray*)},
 	{}
 };
 

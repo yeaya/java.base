@@ -31,12 +31,12 @@ $FieldInfo _Configuration$ConfigDelegate_FieldInfo_[] = {
 };
 
 $MethodInfo _Configuration$ConfigDelegate_MethodInfo_[] = {
-	{"<init>", "(Ljavax/security/auth/login/ConfigurationSpi;Ljava/security/Provider;Ljava/lang/String;Ljavax/security/auth/login/Configuration$Parameters;)V", nullptr, $PRIVATE, $method(static_cast<void(Configuration$ConfigDelegate::*)($ConfigurationSpi*,$Provider*,$String*,$Configuration$Parameters*)>(&Configuration$ConfigDelegate::init$))},
-	{"getAppConfigurationEntry", "(Ljava/lang/String;)[Ljavax/security/auth/login/AppConfigurationEntry;", nullptr, $PUBLIC},
-	{"getParameters", "()Ljavax/security/auth/login/Configuration$Parameters;", nullptr, $PUBLIC},
-	{"getProvider", "()Ljava/security/Provider;", nullptr, $PUBLIC},
-	{"getType", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"refresh", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljavax/security/auth/login/ConfigurationSpi;Ljava/security/Provider;Ljava/lang/String;Ljavax/security/auth/login/Configuration$Parameters;)V", nullptr, $PRIVATE, $method(Configuration$ConfigDelegate, init$, void, $ConfigurationSpi*, $Provider*, $String*, $Configuration$Parameters*)},
+	{"getAppConfigurationEntry", "(Ljava/lang/String;)[Ljavax/security/auth/login/AppConfigurationEntry;", nullptr, $PUBLIC, $virtualMethod(Configuration$ConfigDelegate, getAppConfigurationEntry, $AppConfigurationEntryArray*, $String*)},
+	{"getParameters", "()Ljavax/security/auth/login/Configuration$Parameters;", nullptr, $PUBLIC, $virtualMethod(Configuration$ConfigDelegate, getParameters, $Configuration$Parameters*)},
+	{"getProvider", "()Ljava/security/Provider;", nullptr, $PUBLIC, $virtualMethod(Configuration$ConfigDelegate, getProvider, $Provider*)},
+	{"getType", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Configuration$ConfigDelegate, getType, $String*)},
+	{"refresh", "()V", nullptr, $PUBLIC, $virtualMethod(Configuration$ConfigDelegate, refresh, void)},
 	{}
 };
 

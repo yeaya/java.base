@@ -24,8 +24,8 @@ $FieldInfo _MessageFormat$Field_FieldInfo_[] = {
 };
 
 $MethodInfo _MessageFormat$Field_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $method(static_cast<void(MessageFormat$Field::*)($String*)>(&MessageFormat$Field::init$))},
-	{"readResolve", "()Ljava/lang/Object;", nullptr, $PROTECTED, nullptr, "java.io.InvalidObjectException"},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $method(MessageFormat$Field, init$, void, $String*)},
+	{"readResolve", "()Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(MessageFormat$Field, readResolve, $Object*), "java.io.InvalidObjectException"},
 	{}
 };
 

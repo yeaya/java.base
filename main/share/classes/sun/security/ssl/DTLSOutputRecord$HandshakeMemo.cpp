@@ -22,7 +22,7 @@ $FieldInfo _DTLSOutputRecord$HandshakeMemo_FieldInfo_[] = {
 };
 
 $MethodInfo _DTLSOutputRecord$HandshakeMemo_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(DTLSOutputRecord$HandshakeMemo::*)()>(&DTLSOutputRecord$HandshakeMemo::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(DTLSOutputRecord$HandshakeMemo, init$, void)},
 	{}
 };
 

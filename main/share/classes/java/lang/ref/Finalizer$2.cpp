@@ -27,8 +27,8 @@ $FieldInfo _Finalizer$2_FieldInfo_[] = {
 };
 
 $MethodInfo _Finalizer$2_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Finalizer$2::*)()>(&Finalizer$2::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(Finalizer$2, init$, void)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Finalizer$2, run, void)},
 	{}
 };
 

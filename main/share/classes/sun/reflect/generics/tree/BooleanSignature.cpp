@@ -19,9 +19,9 @@ $FieldInfo _BooleanSignature_FieldInfo_[] = {
 };
 
 $MethodInfo _BooleanSignature_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(BooleanSignature::*)()>(&BooleanSignature::init$))},
-	{"accept", "(Lsun/reflect/generics/visitor/TypeTreeVisitor;)V", "(Lsun/reflect/generics/visitor/TypeTreeVisitor<*>;)V", $PUBLIC},
-	{"make", "()Lsun/reflect/generics/tree/BooleanSignature;", nullptr, $PUBLIC | $STATIC, $method(static_cast<BooleanSignature*(*)()>(&BooleanSignature::make))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(BooleanSignature, init$, void)},
+	{"accept", "(Lsun/reflect/generics/visitor/TypeTreeVisitor;)V", "(Lsun/reflect/generics/visitor/TypeTreeVisitor<*>;)V", $PUBLIC, $virtualMethod(BooleanSignature, accept, void, $TypeTreeVisitor*)},
+	{"make", "()Lsun/reflect/generics/tree/BooleanSignature;", nullptr, $PUBLIC | $STATIC, $staticMethod(BooleanSignature, make, BooleanSignature*)},
 	{}
 };
 

@@ -36,9 +36,9 @@ $FieldInfo _ArrayPrefixHelpers$CumulateTask_FieldInfo_[] = {
 };
 
 $MethodInfo _ArrayPrefixHelpers$CumulateTask_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/ArrayPrefixHelpers$CumulateTask;Ljava/util/function/BinaryOperator;[Ljava/lang/Object;II)V", "(Ljava/util/ArrayPrefixHelpers$CumulateTask<TT;>;Ljava/util/function/BinaryOperator<TT;>;[TT;II)V", $PUBLIC, $method(static_cast<void(ArrayPrefixHelpers$CumulateTask::*)(ArrayPrefixHelpers$CumulateTask*,$BinaryOperator*,$ObjectArray*,int32_t,int32_t)>(&ArrayPrefixHelpers$CumulateTask::init$))},
-	{"<init>", "(Ljava/util/ArrayPrefixHelpers$CumulateTask;Ljava/util/function/BinaryOperator;[Ljava/lang/Object;IIIII)V", "(Ljava/util/ArrayPrefixHelpers$CumulateTask<TT;>;Ljava/util/function/BinaryOperator<TT;>;[TT;IIIII)V", 0, $method(static_cast<void(ArrayPrefixHelpers$CumulateTask::*)(ArrayPrefixHelpers$CumulateTask*,$BinaryOperator*,$ObjectArray*,int32_t,int32_t,int32_t,int32_t,int32_t)>(&ArrayPrefixHelpers$CumulateTask::init$))},
-	{"compute", "()V", nullptr, $PUBLIC | $FINAL},
+	{"<init>", "(Ljava/util/ArrayPrefixHelpers$CumulateTask;Ljava/util/function/BinaryOperator;[Ljava/lang/Object;II)V", "(Ljava/util/ArrayPrefixHelpers$CumulateTask<TT;>;Ljava/util/function/BinaryOperator<TT;>;[TT;II)V", $PUBLIC, $method(ArrayPrefixHelpers$CumulateTask, init$, void, ArrayPrefixHelpers$CumulateTask*, $BinaryOperator*, $ObjectArray*, int32_t, int32_t)},
+	{"<init>", "(Ljava/util/ArrayPrefixHelpers$CumulateTask;Ljava/util/function/BinaryOperator;[Ljava/lang/Object;IIIII)V", "(Ljava/util/ArrayPrefixHelpers$CumulateTask<TT;>;Ljava/util/function/BinaryOperator<TT;>;[TT;IIIII)V", 0, $method(ArrayPrefixHelpers$CumulateTask, init$, void, ArrayPrefixHelpers$CumulateTask*, $BinaryOperator*, $ObjectArray*, int32_t, int32_t, int32_t, int32_t, int32_t)},
+	{"compute", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(ArrayPrefixHelpers$CumulateTask, compute, void)},
 	{}
 };
 

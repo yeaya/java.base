@@ -27,9 +27,9 @@ $FieldInfo _Input_FieldInfo_[] = {
 };
 
 $MethodInfo _Input_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(static_cast<void(Input::*)(int32_t)>(&Input::init$))},
-	{"<init>", "([C)V", nullptr, $PUBLIC, $method(static_cast<void(Input::*)($chars*)>(&Input::init$))},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Input::*)()>(&Input::init$))},
+	{"<init>", "(I)V", nullptr, $PUBLIC, $method(Input, init$, void, int32_t)},
+	{"<init>", "([C)V", nullptr, $PUBLIC, $method(Input, init$, void, $chars*)},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Input, init$, void)},
 	{}
 };
 

@@ -32,9 +32,9 @@ $FieldInfo _GetAnnotatedInterfaces_FieldInfo_[] = {
 };
 
 $MethodInfo _GetAnnotatedInterfaces_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(GetAnnotatedInterfaces::*)()>(&GetAnnotatedInterfaces::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&GetAnnotatedInterfaces::main)), "java.lang.Exception"},
-	{"testReturnsZeroLengthArray", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&GetAnnotatedInterfaces::testReturnsZeroLengthArray))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(GetAnnotatedInterfaces, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(GetAnnotatedInterfaces, main, void, $StringArray*), "java.lang.Exception"},
+	{"testReturnsZeroLengthArray", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(GetAnnotatedInterfaces, testReturnsZeroLengthArray, void)},
 	{}
 };
 

@@ -20,9 +20,9 @@ using $NetworkInterface = ::java::net::NetworkInterface;
 using $Enumeration = ::java::util::Enumeration;
 
 $MethodInfo _B6411513_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(B6411513::*)()>(&B6411513::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&B6411513::main)), "java.lang.Exception"},
-	{"testConnectedUDP", "(Ljava/net/InetAddress;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($InetAddress*)>(&B6411513::testConnectedUDP)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(B6411513, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(B6411513, main, void, $StringArray*), "java.lang.Exception"},
+	{"testConnectedUDP", "(Ljava/net/InetAddress;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(B6411513, testConnectedUDP, void, $InetAddress*), "java.lang.Exception"},
 	{}
 };
 

@@ -44,7 +44,7 @@ $ParameterAnnotation _TestConstructorParameterAnnotations$StaticNestedClass4_Met
 };
 
 $MethodInfo _TestConstructorParameterAnnotations$StaticNestedClass4_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;Ljava/lang/Object;)V", "<P:Ljava/lang/Object;Q:Ljava/lang/Object;>(TP;TQ;)V", $PUBLIC, $method(static_cast<void(TestConstructorParameterAnnotations$StaticNestedClass4::*)(Object$*,Object$*)>(&TestConstructorParameterAnnotations$StaticNestedClass4::init$)), nullptr, nullptr, nullptr, nullptr, _TestConstructorParameterAnnotations$StaticNestedClass4_MethodParamAnnotations_init$0},
+	{"<init>", "(Ljava/lang/Object;Ljava/lang/Object;)V", "<P:Ljava/lang/Object;Q:Ljava/lang/Object;>(TP;TQ;)V", $PUBLIC, $method(TestConstructorParameterAnnotations$StaticNestedClass4, init$, void, Object$*, Object$*), nullptr, nullptr, nullptr, nullptr, _TestConstructorParameterAnnotations$StaticNestedClass4_MethodParamAnnotations_init$0},
 	{}
 };
 

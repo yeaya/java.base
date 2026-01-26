@@ -15,9 +15,9 @@ $FieldInfo _MyInputStream_FieldInfo_[] = {
 };
 
 $MethodInfo _MyInputStream_MethodInfo_[] = {
-	{"<init>", "(J)V", nullptr, $PUBLIC, $method(static_cast<void(MyInputStream::*)(int64_t)>(&MyInputStream::init$))},
-	{"available", "()I", nullptr, $PUBLIC},
-	{"read", "()I", nullptr, $PUBLIC},
+	{"<init>", "(J)V", nullptr, $PUBLIC, $method(MyInputStream, init$, void, int64_t)},
+	{"available", "()I", nullptr, $PUBLIC, $virtualMethod(MyInputStream, available, int32_t)},
+	{"read", "()I", nullptr, $PUBLIC, $virtualMethod(MyInputStream, read, int32_t)},
 	{}
 };
 

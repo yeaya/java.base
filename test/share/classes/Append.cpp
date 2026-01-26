@@ -42,10 +42,10 @@ $FieldInfo _Append_FieldInfo_[] = {
 };
 
 $MethodInfo _Append_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Append::*)()>(&Append::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Append::main))},
-	{"test", "(Ljava/lang/Class;Z)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($Class*,bool)>(&Append::test))},
-	{"test", "(Ljava/lang/reflect/Method;Z)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($Method*,bool)>(&Append::test))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Append, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Append, main, void, $StringArray*)},
+	{"test", "(Ljava/lang/Class;Z)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Append, test, void, $Class*, bool)},
+	{"test", "(Ljava/lang/reflect/Method;Z)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Append, test, void, $Method*, bool)},
 	{}
 };
 

@@ -25,9 +25,9 @@ $FieldInfo _ImmutableCollections$MapN$1_FieldInfo_[] = {
 };
 
 $MethodInfo _ImmutableCollections$MapN$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/ImmutableCollections$MapN;)V", nullptr, 0, $method(static_cast<void(ImmutableCollections$MapN$1::*)($ImmutableCollections$MapN*)>(&ImmutableCollections$MapN$1::init$))},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/util/Map$Entry<TK;TV;>;>;", $PUBLIC},
-	{"size", "()I", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/ImmutableCollections$MapN;)V", nullptr, 0, $method(ImmutableCollections$MapN$1, init$, void, $ImmutableCollections$MapN*)},
+	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/util/Map$Entry<TK;TV;>;>;", $PUBLIC, $virtualMethod(ImmutableCollections$MapN$1, iterator, $Iterator*)},
+	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(ImmutableCollections$MapN$1, size, int32_t)},
 	{}
 };
 

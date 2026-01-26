@@ -57,11 +57,11 @@ $FieldInfo _DisabledAlgorithmConstraints$KeySizeConstraint_FieldInfo_[] = {
 };
 
 $MethodInfo _DisabledAlgorithmConstraints$KeySizeConstraint_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Lsun/security/util/DisabledAlgorithmConstraints$Constraint$Operator;I)V", nullptr, $PUBLIC, $method(static_cast<void(DisabledAlgorithmConstraints$KeySizeConstraint::*)($String*,$DisabledAlgorithmConstraints$Constraint$Operator*,int32_t)>(&DisabledAlgorithmConstraints$KeySizeConstraint::init$))},
-	{"permits", "(Lsun/security/util/ConstraintsParameters;)V", nullptr, $PUBLIC, nullptr, "java.security.cert.CertPathValidatorException"},
-	{"permits", "(Ljava/security/Key;)Z", nullptr, $PUBLIC},
-	{"permits", "(Ljava/security/AlgorithmParameters;)Z", nullptr, $PUBLIC},
-	{"permitsImpl", "(Ljava/security/Key;)Z", nullptr, $PRIVATE, $method(static_cast<bool(DisabledAlgorithmConstraints$KeySizeConstraint::*)($Key*)>(&DisabledAlgorithmConstraints$KeySizeConstraint::permitsImpl))},
+	{"<init>", "(Ljava/lang/String;Lsun/security/util/DisabledAlgorithmConstraints$Constraint$Operator;I)V", nullptr, $PUBLIC, $method(DisabledAlgorithmConstraints$KeySizeConstraint, init$, void, $String*, $DisabledAlgorithmConstraints$Constraint$Operator*, int32_t)},
+	{"permits", "(Lsun/security/util/ConstraintsParameters;)V", nullptr, $PUBLIC, $virtualMethod(DisabledAlgorithmConstraints$KeySizeConstraint, permits, void, $ConstraintsParameters*), "java.security.cert.CertPathValidatorException"},
+	{"permits", "(Ljava/security/Key;)Z", nullptr, $PUBLIC, $virtualMethod(DisabledAlgorithmConstraints$KeySizeConstraint, permits, bool, $Key*)},
+	{"permits", "(Ljava/security/AlgorithmParameters;)Z", nullptr, $PUBLIC, $virtualMethod(DisabledAlgorithmConstraints$KeySizeConstraint, permits, bool, $AlgorithmParameters*)},
+	{"permitsImpl", "(Ljava/security/Key;)Z", nullptr, $PRIVATE, $method(DisabledAlgorithmConstraints$KeySizeConstraint, permitsImpl, bool, $Key*)},
 	{}
 };
 

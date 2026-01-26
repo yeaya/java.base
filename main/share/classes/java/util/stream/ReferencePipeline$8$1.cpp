@@ -57,8 +57,8 @@ $FieldInfo ReferencePipeline$8$1$$Lambda$accept::fieldInfos[2] = {
 	{}
 };
 $MethodInfo ReferencePipeline$8$1$$Lambda$accept::methodInfos[3] = {
-	{"<init>", "(Ljava/util/stream/Sink;)V", nullptr, $PUBLIC, $method(static_cast<void(ReferencePipeline$8$1$$Lambda$accept::*)($Sink*)>(&ReferencePipeline$8$1$$Lambda$accept::init$))},
-	{"accept", "(I)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/stream/Sink;)V", nullptr, $PUBLIC, $method(ReferencePipeline$8$1$$Lambda$accept, init$, void, $Sink*)},
+	{"accept", "(I)V", nullptr, $PUBLIC, $virtualMethod(ReferencePipeline$8$1$$Lambda$accept, accept, void, int32_t)},
 	{}
 };
 $ClassInfo ReferencePipeline$8$1$$Lambda$accept::classInfo$ = {
@@ -83,10 +83,10 @@ $FieldInfo _ReferencePipeline$8$1_FieldInfo_[] = {
 };
 
 $MethodInfo _ReferencePipeline$8$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/stream/ReferencePipeline$8;Ljava/util/stream/Sink;)V", nullptr, 0, $method(static_cast<void(ReferencePipeline$8$1::*)($ReferencePipeline$8*,$Sink*)>(&ReferencePipeline$8$1::init$))},
-	{"accept", "(Ljava/lang/Object;)V", "(TP_OUT;)V", $PUBLIC},
-	{"begin", "(J)V", nullptr, $PUBLIC},
-	{"cancellationRequested", "()Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/stream/ReferencePipeline$8;Ljava/util/stream/Sink;)V", nullptr, 0, $method(ReferencePipeline$8$1, init$, void, $ReferencePipeline$8*, $Sink*)},
+	{"accept", "(Ljava/lang/Object;)V", "(TP_OUT;)V", $PUBLIC, $virtualMethod(ReferencePipeline$8$1, accept, void, Object$*)},
+	{"begin", "(J)V", nullptr, $PUBLIC, $virtualMethod(ReferencePipeline$8$1, begin, void, int64_t)},
+	{"cancellationRequested", "()Z", nullptr, $PUBLIC, $virtualMethod(ReferencePipeline$8$1, cancellationRequested, bool)},
 	{}
 };
 

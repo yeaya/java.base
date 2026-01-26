@@ -3,6 +3,7 @@
 #include <UniTest/Stooge.h>
 #include <jcpp.h>
 
+using $StoogeArray = $Array<::UniTest::Stooge>;
 using $Attribute = ::java::lang::Attribute;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
@@ -31,7 +32,7 @@ $Attribute _SingleMemberEnumArrayDef_DefaultValue_value0 = {
 };
 
 $MethodInfo _SingleMemberEnumArrayDef_MethodInfo_[] = {
-	{"value", "()[LUniTest/Stooge;", nullptr, $PUBLIC | $ABSTRACT, nullptr, nullptr, &_SingleMemberEnumArrayDef_DefaultValue_value0},
+	{"value", "()[LUniTest/Stooge;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SingleMemberEnumArrayDef, value, $StoogeArray*), nullptr, &_SingleMemberEnumArrayDef_DefaultValue_value0},
 	{}
 };
 

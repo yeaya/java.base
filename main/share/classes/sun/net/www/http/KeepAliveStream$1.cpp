@@ -22,8 +22,8 @@ namespace sun {
 			namespace http {
 
 $MethodInfo _KeepAliveStream$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(KeepAliveStream$1::*)()>(&KeepAliveStream$1::init$))},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(KeepAliveStream$1, init$, void)},
+	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(KeepAliveStream$1, run, $Object*)},
 	{}
 };
 

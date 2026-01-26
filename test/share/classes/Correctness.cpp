@@ -32,14 +32,14 @@ $FieldInfo _Correctness_FieldInfo_[] = {
 };
 
 $MethodInfo _Correctness_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Correctness::*)()>(&Correctness::init$))},
-	{"check", "(Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, $STATIC, $method(static_cast<void(*)($String*,$String*,bool)>(&Correctness::check))},
-	{"check", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $STATIC, $method(static_cast<void(*)($String*,$String*)>(&Correctness::check))},
-	{"check0", "(Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, $STATIC, $method(static_cast<void(*)($String*,$String*,bool)>(&Correctness::check0))},
-	{"checkNo", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $STATIC, $method(static_cast<void(*)($String*,$String*)>(&Correctness::checkNo))},
-	{"contains", "(Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $STATIC, $method(static_cast<void(*)($String*,$String*,int32_t)>(&Correctness::contains)), "java.lang.Exception"},
-	{"contains0", "(Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $STATIC, $method(static_cast<void(*)($String*,$String*,int32_t)>(&Correctness::contains0)), "java.lang.Exception"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Correctness::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Correctness, init$, void)},
+	{"check", "(Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, $STATIC, $staticMethod(Correctness, check, void, $String*, $String*, bool)},
+	{"check", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(Correctness, check, void, $String*, $String*)},
+	{"check0", "(Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, $STATIC, $staticMethod(Correctness, check0, void, $String*, $String*, bool)},
+	{"checkNo", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(Correctness, checkNo, void, $String*, $String*)},
+	{"contains", "(Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $STATIC, $staticMethod(Correctness, contains, void, $String*, $String*, int32_t), "java.lang.Exception"},
+	{"contains0", "(Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $STATIC, $staticMethod(Correctness, contains0, void, $String*, $String*, int32_t), "java.lang.Exception"},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Correctness, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

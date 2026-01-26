@@ -56,7 +56,7 @@ $FieldInfo _SessionTicketExtension_FieldInfo_[] = {
 };
 
 $MethodInfo _SessionTicketExtension_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(SessionTicketExtension::*)()>(&SessionTicketExtension::init$))},
+	{"<init>", "()V", nullptr, 0, $method(SessionTicketExtension, init$, void)},
 	{}
 };
 

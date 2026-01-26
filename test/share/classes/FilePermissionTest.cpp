@@ -55,8 +55,8 @@ $FieldInfo FilePermissionTest$$Lambda$lambda$check$0::fieldInfos[2] = {
 	{}
 };
 $MethodInfo FilePermissionTest$$Lambda$lambda$check$0::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/StringBuilder;)V", nullptr, $PUBLIC, $method(static_cast<void(FilePermissionTest$$Lambda$lambda$check$0::*)($StringBuilder*)>(&FilePermissionTest$$Lambda$lambda$check$0::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/StringBuilder;)V", nullptr, $PUBLIC, $method(FilePermissionTest$$Lambda$lambda$check$0, init$, void, $StringBuilder*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(FilePermissionTest$$Lambda$lambda$check$0, accept, void, Object$*)},
 	{}
 };
 $ClassInfo FilePermissionTest$$Lambda$lambda$check$0::classInfo$ = {
@@ -74,10 +74,10 @@ $Class* FilePermissionTest$$Lambda$lambda$check$0::load$($String* name, bool ini
 $Class* FilePermissionTest$$Lambda$lambda$check$0::class$ = nullptr;
 
 $MethodInfo _FilePermissionTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(FilePermissionTest::*)()>(&FilePermissionTest::init$))},
-	{"check", "(Ljava/util/List;Ljava/lang/String;)V", "(Ljava/util/List<Ljava/lang/String;>;Ljava/lang/String;)V", $PRIVATE | $STATIC, $method(static_cast<void(*)($List*,$String*)>(&FilePermissionTest::check))},
-	{"lambda$check$0", "(Ljava/lang/StringBuilder;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($StringBuilder*,$String*)>(&FilePermissionTest::lambda$check$0))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&FilePermissionTest::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(FilePermissionTest, init$, void)},
+	{"check", "(Ljava/util/List;Ljava/lang/String;)V", "(Ljava/util/List<Ljava/lang/String;>;Ljava/lang/String;)V", $PRIVATE | $STATIC, $staticMethod(FilePermissionTest, check, void, $List*, $String*)},
+	{"lambda$check$0", "(Ljava/lang/StringBuilder;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(FilePermissionTest, lambda$check$0, void, $StringBuilder*, $String*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(FilePermissionTest, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

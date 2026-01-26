@@ -20,8 +20,8 @@ $FieldInfo _ObjectStreamClass$ExceptionInfo_FieldInfo_[] = {
 };
 
 $MethodInfo _ObjectStreamClass$ExceptionInfo_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(ObjectStreamClass$ExceptionInfo::*)($String*,$String*)>(&ObjectStreamClass$ExceptionInfo::init$))},
-	{"newInvalidClassException", "()Ljava/io/InvalidClassException;", nullptr, 0},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(ObjectStreamClass$ExceptionInfo, init$, void, $String*, $String*)},
+	{"newInvalidClassException", "()Ljava/io/InvalidClassException;", nullptr, 0, $virtualMethod(ObjectStreamClass$ExceptionInfo, newInvalidClassException, $InvalidClassException*)},
 	{}
 };
 

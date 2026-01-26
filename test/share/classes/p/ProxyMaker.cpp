@@ -14,9 +14,9 @@ using $Proxy = ::java::lang::reflect::Proxy;
 namespace p {
 
 $MethodInfo _ProxyMaker_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ProxyMaker::*)()>(&ProxyMaker::init$))},
-	{"getInvocationHandler", "(Ljava/lang/Object;)Ljava/lang/reflect/InvocationHandler;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$InvocationHandler*(*)(Object$*)>(&ProxyMaker::getInvocationHandler))},
-	{"invoke", "(Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<$Object*(*)(Object$*,$Method*,$ObjectArray*)>(&ProxyMaker::invoke)), "java.lang.Throwable"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ProxyMaker, init$, void)},
+	{"getInvocationHandler", "(Ljava/lang/Object;)Ljava/lang/reflect/InvocationHandler;", nullptr, $PUBLIC | $STATIC, $staticMethod(ProxyMaker, getInvocationHandler, $InvocationHandler*, Object$*)},
+	{"invoke", "(Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(ProxyMaker, invoke, $Object*, Object$*, $Method*, $ObjectArray*), "java.lang.Throwable"},
 	{}
 };
 

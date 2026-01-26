@@ -8,7 +8,7 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _Args$Thunk_MethodInfo_[] = {
-	{"run", "()V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.lang.Exception"},
+	{"run", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Args$Thunk, run, void), "java.lang.Exception"},
 	{}
 };
 

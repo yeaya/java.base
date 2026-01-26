@@ -83,10 +83,10 @@ $FieldInfo _Grapheme_FieldInfo_[] = {
 };
 
 $MethodInfo _Grapheme_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Grapheme::*)()>(&Grapheme::init$))},
-	{"getType", "(I)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)(int32_t)>(&Grapheme::getType))},
-	{"isExcludedSpacingMark", "(I)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)(int32_t)>(&Grapheme::isExcludedSpacingMark))},
-	{"nextBoundary", "(Ljava/lang/CharSequence;II)I", nullptr, $STATIC, $method(static_cast<int32_t(*)($CharSequence*,int32_t,int32_t)>(&Grapheme::nextBoundary))},
+	{"<init>", "()V", nullptr, 0, $method(Grapheme, init$, void)},
+	{"getType", "(I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(Grapheme, getType, int32_t, int32_t)},
+	{"isExcludedSpacingMark", "(I)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Grapheme, isExcludedSpacingMark, bool, int32_t)},
+	{"nextBoundary", "(Ljava/lang/CharSequence;II)I", nullptr, $STATIC, $staticMethod(Grapheme, nextBoundary, int32_t, $CharSequence*, int32_t, int32_t)},
 	{}
 };
 

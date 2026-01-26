@@ -32,10 +32,10 @@ $FieldInfo _ProcessBuilder$Redirect$Type_FieldInfo_[] = {
 };
 
 $MethodInfo _ProcessBuilder$Redirect$Type_MethodInfo_[] = {
-	{"$values", "()[Ljava/lang/ProcessBuilder$Redirect$Type;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$ProcessBuilder$Redirect$TypeArray*(*)()>(&ProcessBuilder$Redirect$Type::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(ProcessBuilder$Redirect$Type::*)($String*,int32_t)>(&ProcessBuilder$Redirect$Type::init$))},
-	{"valueOf", "(Ljava/lang/String;)Ljava/lang/ProcessBuilder$Redirect$Type;", nullptr, $PUBLIC | $STATIC, $method(static_cast<ProcessBuilder$Redirect$Type*(*)($String*)>(&ProcessBuilder$Redirect$Type::valueOf))},
-	{"values", "()[Ljava/lang/ProcessBuilder$Redirect$Type;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$ProcessBuilder$Redirect$TypeArray*(*)()>(&ProcessBuilder$Redirect$Type::values))},
+	{"$values", "()[Ljava/lang/ProcessBuilder$Redirect$Type;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ProcessBuilder$Redirect$Type, $values, $ProcessBuilder$Redirect$TypeArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(ProcessBuilder$Redirect$Type, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Ljava/lang/ProcessBuilder$Redirect$Type;", nullptr, $PUBLIC | $STATIC, $staticMethod(ProcessBuilder$Redirect$Type, valueOf, ProcessBuilder$Redirect$Type*, $String*)},
+	{"values", "()[Ljava/lang/ProcessBuilder$Redirect$Type;", nullptr, $PUBLIC | $STATIC, $staticMethod(ProcessBuilder$Redirect$Type, values, $ProcessBuilder$Redirect$TypeArray*)},
 	{}
 };
 

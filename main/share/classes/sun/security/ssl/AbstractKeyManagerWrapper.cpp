@@ -28,13 +28,13 @@ $FieldInfo _AbstractKeyManagerWrapper_FieldInfo_[] = {
 };
 
 $MethodInfo _AbstractKeyManagerWrapper_MethodInfo_[] = {
-	{"<init>", "(Ljavax/net/ssl/X509KeyManager;)V", nullptr, 0, $method(static_cast<void(AbstractKeyManagerWrapper::*)($X509KeyManager*)>(&AbstractKeyManagerWrapper::init$))},
-	{"chooseClientAlias", "([Ljava/lang/String;[Ljava/security/Principal;Ljava/net/Socket;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"chooseServerAlias", "(Ljava/lang/String;[Ljava/security/Principal;Ljava/net/Socket;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getCertificateChain", "(Ljava/lang/String;)[Ljava/security/cert/X509Certificate;", nullptr, $PUBLIC},
-	{"getClientAliases", "(Ljava/lang/String;[Ljava/security/Principal;)[Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getPrivateKey", "(Ljava/lang/String;)Ljava/security/PrivateKey;", nullptr, $PUBLIC},
-	{"getServerAliases", "(Ljava/lang/String;[Ljava/security/Principal;)[Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljavax/net/ssl/X509KeyManager;)V", nullptr, 0, $method(AbstractKeyManagerWrapper, init$, void, $X509KeyManager*)},
+	{"chooseClientAlias", "([Ljava/lang/String;[Ljava/security/Principal;Ljava/net/Socket;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractKeyManagerWrapper, chooseClientAlias, $String*, $StringArray*, $PrincipalArray*, $Socket*)},
+	{"chooseServerAlias", "(Ljava/lang/String;[Ljava/security/Principal;Ljava/net/Socket;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractKeyManagerWrapper, chooseServerAlias, $String*, $String*, $PrincipalArray*, $Socket*)},
+	{"getCertificateChain", "(Ljava/lang/String;)[Ljava/security/cert/X509Certificate;", nullptr, $PUBLIC, $virtualMethod(AbstractKeyManagerWrapper, getCertificateChain, $X509CertificateArray*, $String*)},
+	{"getClientAliases", "(Ljava/lang/String;[Ljava/security/Principal;)[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractKeyManagerWrapper, getClientAliases, $StringArray*, $String*, $PrincipalArray*)},
+	{"getPrivateKey", "(Ljava/lang/String;)Ljava/security/PrivateKey;", nullptr, $PUBLIC, $virtualMethod(AbstractKeyManagerWrapper, getPrivateKey, $PrivateKey*, $String*)},
+	{"getServerAliases", "(Ljava/lang/String;[Ljava/security/Principal;)[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractKeyManagerWrapper, getServerAliases, $StringArray*, $String*, $PrincipalArray*)},
 	{}
 };
 

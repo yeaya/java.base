@@ -28,13 +28,13 @@ $FieldInfo _Proxy_FieldInfo_[] = {
 };
 
 $MethodInfo _Proxy_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(Proxy::*)()>(&Proxy::init$))},
-	{"<init>", "(Ljava/net/Proxy$Type;Ljava/net/SocketAddress;)V", nullptr, $PUBLIC, $method(static_cast<void(Proxy::*)($Proxy$Type*,$SocketAddress*)>(&Proxy::init$))},
-	{"address", "()Ljava/net/SocketAddress;", nullptr, $PUBLIC},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
-	{"hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"type", "()Ljava/net/Proxy$Type;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(Proxy, init$, void)},
+	{"<init>", "(Ljava/net/Proxy$Type;Ljava/net/SocketAddress;)V", nullptr, $PUBLIC, $method(Proxy, init$, void, $Proxy$Type*, $SocketAddress*)},
+	{"address", "()Ljava/net/SocketAddress;", nullptr, $PUBLIC, $virtualMethod(Proxy, address, $SocketAddress*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(Proxy, equals, bool, Object$*)},
+	{"hashCode", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(Proxy, hashCode, int32_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Proxy, toString, $String*)},
+	{"type", "()Ljava/net/Proxy$Type;", nullptr, $PUBLIC, $virtualMethod(Proxy, type, $Proxy$Type*)},
 	{}
 };
 

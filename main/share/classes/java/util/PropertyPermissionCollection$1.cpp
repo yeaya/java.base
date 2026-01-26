@@ -22,9 +22,9 @@ $FieldInfo _PropertyPermissionCollection$1_FieldInfo_[] = {
 };
 
 $MethodInfo _PropertyPermissionCollection$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/PropertyPermissionCollection;Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(PropertyPermissionCollection$1::*)($PropertyPermissionCollection*,$String*)>(&PropertyPermissionCollection$1::init$))},
-	{"apply", "(Ljava/util/PropertyPermission;Ljava/util/PropertyPermission;)Ljava/util/PropertyPermission;", nullptr, $PUBLIC},
-	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "(Ljava/util/PropertyPermissionCollection;Ljava/lang/String;)V", nullptr, 0, $method(PropertyPermissionCollection$1, init$, void, $PropertyPermissionCollection*, $String*)},
+	{"apply", "(Ljava/util/PropertyPermission;Ljava/util/PropertyPermission;)Ljava/util/PropertyPermission;", nullptr, $PUBLIC, $virtualMethod(PropertyPermissionCollection$1, apply, $PropertyPermission*, $PropertyPermission*, $PropertyPermission*)},
+	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(PropertyPermissionCollection$1, apply, $Object*, Object$*, Object$*)},
 	{}
 };
 

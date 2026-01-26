@@ -41,10 +41,10 @@ $FieldInfo _Password_FieldInfo_[] = {
 };
 
 $MethodInfo _Password_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Password::*)()>(&Password::init$))},
-	{"convertToBytes", "([C)[B", nullptr, $PRIVATE | $STATIC, $method(static_cast<$bytes*(*)($chars*)>(&Password::convertToBytes))},
-	{"readPassword", "(Ljava/io/InputStream;)[C", nullptr, $PUBLIC | $STATIC, $method(static_cast<$chars*(*)($InputStream*)>(&Password::readPassword)), "java.io.IOException"},
-	{"readPassword", "(Ljava/io/InputStream;Z)[C", nullptr, $PUBLIC | $STATIC, $method(static_cast<$chars*(*)($InputStream*,bool)>(&Password::readPassword)), "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Password, init$, void)},
+	{"convertToBytes", "([C)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(Password, convertToBytes, $bytes*, $chars*)},
+	{"readPassword", "(Ljava/io/InputStream;)[C", nullptr, $PUBLIC | $STATIC, $staticMethod(Password, readPassword, $chars*, $InputStream*), "java.io.IOException"},
+	{"readPassword", "(Ljava/io/InputStream;Z)[C", nullptr, $PUBLIC | $STATIC, $staticMethod(Password, readPassword, $chars*, $InputStream*, bool), "java.io.IOException"},
 	{}
 };
 

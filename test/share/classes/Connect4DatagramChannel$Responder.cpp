@@ -46,10 +46,10 @@ $MethodInfo _Connect4DatagramChannel$Responder_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Connect4DatagramChannel$Responder::*)()>(&Connect4DatagramChannel$Responder::init$)), "java.io.IOException"},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"getSocketAddress", "()Ljava/net/SocketAddress;", nullptr, 0, nullptr, "java.io.IOException"},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(Connect4DatagramChannel$Responder, init$, void), "java.io.IOException"},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(Connect4DatagramChannel$Responder, close, void), "java.io.IOException"},
+	{"getSocketAddress", "()Ljava/net/SocketAddress;", nullptr, 0, $virtualMethod(Connect4DatagramChannel$Responder, getSocketAddress, $SocketAddress*), "java.io.IOException"},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Connect4DatagramChannel$Responder, run, void)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

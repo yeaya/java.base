@@ -113,9 +113,9 @@ $FieldInfo _ConstantDescs_FieldInfo_[] = {
 };
 
 $MethodInfo _ConstantDescs_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(ConstantDescs::*)()>(&ConstantDescs::init$))},
-	{"ofCallsiteBootstrap", "(Ljava/lang/constant/ClassDesc;Ljava/lang/String;Ljava/lang/constant/ClassDesc;[Ljava/lang/constant/ClassDesc;)Ljava/lang/constant/DirectMethodHandleDesc;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<$DirectMethodHandleDesc*(*)($ClassDesc*,$String*,$ClassDesc*,$ClassDescArray*)>(&ConstantDescs::ofCallsiteBootstrap))},
-	{"ofConstantBootstrap", "(Ljava/lang/constant/ClassDesc;Ljava/lang/String;Ljava/lang/constant/ClassDesc;[Ljava/lang/constant/ClassDesc;)Ljava/lang/constant/DirectMethodHandleDesc;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<$DirectMethodHandleDesc*(*)($ClassDesc*,$String*,$ClassDesc*,$ClassDescArray*)>(&ConstantDescs::ofConstantBootstrap))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(ConstantDescs, init$, void)},
+	{"ofCallsiteBootstrap", "(Ljava/lang/constant/ClassDesc;Ljava/lang/String;Ljava/lang/constant/ClassDesc;[Ljava/lang/constant/ClassDesc;)Ljava/lang/constant/DirectMethodHandleDesc;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(ConstantDescs, ofCallsiteBootstrap, $DirectMethodHandleDesc*, $ClassDesc*, $String*, $ClassDesc*, $ClassDescArray*)},
+	{"ofConstantBootstrap", "(Ljava/lang/constant/ClassDesc;Ljava/lang/String;Ljava/lang/constant/ClassDesc;[Ljava/lang/constant/ClassDesc;)Ljava/lang/constant/DirectMethodHandleDesc;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(ConstantDescs, ofConstantBootstrap, $DirectMethodHandleDesc*, $ClassDesc*, $String*, $ClassDesc*, $ClassDescArray*)},
 	{}
 };
 

@@ -85,8 +85,8 @@ $FieldInfo StackWalker$$Lambda$lambda$forEach$0::fieldInfos[2] = {
 	{}
 };
 $MethodInfo StackWalker$$Lambda$lambda$forEach$0::methodInfos[3] = {
-	{"<init>", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC, $method(static_cast<void(StackWalker$$Lambda$lambda$forEach$0::*)($Consumer*)>(&StackWalker$$Lambda$lambda$forEach$0::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC, $method(StackWalker$$Lambda$lambda$forEach$0, init$, void, $Consumer*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(StackWalker$$Lambda$lambda$forEach$0, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo StackWalker$$Lambda$lambda$forEach$0::classInfo$ = {
@@ -129,23 +129,23 @@ $FieldInfo _StackWalker_FieldInfo_[] = {
 };
 
 $MethodInfo _StackWalker_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/EnumSet;)V", "(Ljava/util/EnumSet<Ljava/lang/StackWalker$Option;>;)V", $PRIVATE, $method(static_cast<void(StackWalker::*)($EnumSet*)>(&StackWalker::init$))},
-	{"<init>", "(Ljava/util/EnumSet;I)V", "(Ljava/util/EnumSet<Ljava/lang/StackWalker$Option;>;I)V", $PRIVATE, $method(static_cast<void(StackWalker::*)($EnumSet*,int32_t)>(&StackWalker::init$))},
-	{"<init>", "(Ljava/util/EnumSet;ILjava/lang/StackWalker$ExtendedOption;)V", "(Ljava/util/EnumSet<Ljava/lang/StackWalker$Option;>;ILjava/lang/StackWalker$ExtendedOption;)V", $PRIVATE, $method(static_cast<void(StackWalker::*)($EnumSet*,int32_t,$StackWalker$ExtendedOption*)>(&StackWalker::init$))},
-	{"checkPermission", "(Ljava/util/Set;)V", "(Ljava/util/Set<Ljava/lang/StackWalker$Option;>;)V", $PRIVATE | $STATIC, $method(static_cast<void(*)($Set*)>(&StackWalker::checkPermission))},
-	{"estimateDepth", "()I", nullptr, 0, $method(static_cast<int32_t(StackWalker::*)()>(&StackWalker::estimateDepth))},
-	{"forEach", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-Ljava/lang/StackWalker$StackFrame;>;)V", $PUBLIC, $method(static_cast<void(StackWalker::*)($Consumer*)>(&StackWalker::forEach)), nullptr, nullptr, _StackWalker_MethodAnnotations_forEach5},
-	{"getCallerClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC, $method(static_cast<$Class*(StackWalker::*)()>(&StackWalker::getCallerClass)), nullptr, nullptr, _StackWalker_MethodAnnotations_getCallerClass6},
-	{"getInstance", "()Ljava/lang/StackWalker;", nullptr, $PUBLIC | $STATIC, $method(static_cast<StackWalker*(*)()>(&StackWalker::getInstance))},
-	{"getInstance", "(Ljava/lang/StackWalker$Option;)Ljava/lang/StackWalker;", nullptr, $PUBLIC | $STATIC, $method(static_cast<StackWalker*(*)($StackWalker$Option*)>(&StackWalker::getInstance))},
-	{"getInstance", "(Ljava/util/Set;)Ljava/lang/StackWalker;", "(Ljava/util/Set<Ljava/lang/StackWalker$Option;>;)Ljava/lang/StackWalker;", $PUBLIC | $STATIC, $method(static_cast<StackWalker*(*)($Set*)>(&StackWalker::getInstance))},
-	{"getInstance", "(Ljava/util/Set;I)Ljava/lang/StackWalker;", "(Ljava/util/Set<Ljava/lang/StackWalker$Option;>;I)Ljava/lang/StackWalker;", $PUBLIC | $STATIC, $method(static_cast<StackWalker*(*)($Set*,int32_t)>(&StackWalker::getInstance))},
-	{"hasLocalsOperandsOption", "()Z", nullptr, 0, $method(static_cast<bool(StackWalker::*)()>(&StackWalker::hasLocalsOperandsOption))},
-	{"hasOption", "(Ljava/lang/StackWalker$Option;)Z", nullptr, 0, $method(static_cast<bool(StackWalker::*)($StackWalker$Option*)>(&StackWalker::hasOption))},
-	{"lambda$forEach$0", "(Ljava/util/function/Consumer;Ljava/util/stream/Stream;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Object*(*)($Consumer*,$Stream*)>(&StackWalker::lambda$forEach$0))},
-	{"newInstance", "(Ljava/util/Set;Ljava/lang/StackWalker$ExtendedOption;)Ljava/lang/StackWalker;", "(Ljava/util/Set<Ljava/lang/StackWalker$Option;>;Ljava/lang/StackWalker$ExtendedOption;)Ljava/lang/StackWalker;", $STATIC, $method(static_cast<StackWalker*(*)($Set*,$StackWalker$ExtendedOption*)>(&StackWalker::newInstance))},
-	{"toEnumSet", "(Ljava/util/Set;)Ljava/util/EnumSet;", "(Ljava/util/Set<Ljava/lang/StackWalker$Option;>;)Ljava/util/EnumSet<Ljava/lang/StackWalker$Option;>;", $PRIVATE | $STATIC, $method(static_cast<$EnumSet*(*)($Set*)>(&StackWalker::toEnumSet))},
-	{"walk", "(Ljava/util/function/Function;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/util/function/Function<-Ljava/util/stream/Stream<Ljava/lang/StackWalker$StackFrame;>;+TT;>;)TT;", $PUBLIC, $method(static_cast<$Object*(StackWalker::*)($Function*)>(&StackWalker::walk)), nullptr, nullptr, _StackWalker_MethodAnnotations_walk16},
+	{"<init>", "(Ljava/util/EnumSet;)V", "(Ljava/util/EnumSet<Ljava/lang/StackWalker$Option;>;)V", $PRIVATE, $method(StackWalker, init$, void, $EnumSet*)},
+	{"<init>", "(Ljava/util/EnumSet;I)V", "(Ljava/util/EnumSet<Ljava/lang/StackWalker$Option;>;I)V", $PRIVATE, $method(StackWalker, init$, void, $EnumSet*, int32_t)},
+	{"<init>", "(Ljava/util/EnumSet;ILjava/lang/StackWalker$ExtendedOption;)V", "(Ljava/util/EnumSet<Ljava/lang/StackWalker$Option;>;ILjava/lang/StackWalker$ExtendedOption;)V", $PRIVATE, $method(StackWalker, init$, void, $EnumSet*, int32_t, $StackWalker$ExtendedOption*)},
+	{"checkPermission", "(Ljava/util/Set;)V", "(Ljava/util/Set<Ljava/lang/StackWalker$Option;>;)V", $PRIVATE | $STATIC, $staticMethod(StackWalker, checkPermission, void, $Set*)},
+	{"estimateDepth", "()I", nullptr, 0, $method(StackWalker, estimateDepth, int32_t)},
+	{"forEach", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-Ljava/lang/StackWalker$StackFrame;>;)V", $PUBLIC, $method(StackWalker, forEach, void, $Consumer*), nullptr, nullptr, _StackWalker_MethodAnnotations_forEach5},
+	{"getCallerClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC, $method(StackWalker, getCallerClass, $Class*), nullptr, nullptr, _StackWalker_MethodAnnotations_getCallerClass6},
+	{"getInstance", "()Ljava/lang/StackWalker;", nullptr, $PUBLIC | $STATIC, $staticMethod(StackWalker, getInstance, StackWalker*)},
+	{"getInstance", "(Ljava/lang/StackWalker$Option;)Ljava/lang/StackWalker;", nullptr, $PUBLIC | $STATIC, $staticMethod(StackWalker, getInstance, StackWalker*, $StackWalker$Option*)},
+	{"getInstance", "(Ljava/util/Set;)Ljava/lang/StackWalker;", "(Ljava/util/Set<Ljava/lang/StackWalker$Option;>;)Ljava/lang/StackWalker;", $PUBLIC | $STATIC, $staticMethod(StackWalker, getInstance, StackWalker*, $Set*)},
+	{"getInstance", "(Ljava/util/Set;I)Ljava/lang/StackWalker;", "(Ljava/util/Set<Ljava/lang/StackWalker$Option;>;I)Ljava/lang/StackWalker;", $PUBLIC | $STATIC, $staticMethod(StackWalker, getInstance, StackWalker*, $Set*, int32_t)},
+	{"hasLocalsOperandsOption", "()Z", nullptr, 0, $method(StackWalker, hasLocalsOperandsOption, bool)},
+	{"hasOption", "(Ljava/lang/StackWalker$Option;)Z", nullptr, 0, $method(StackWalker, hasOption, bool, $StackWalker$Option*)},
+	{"lambda$forEach$0", "(Ljava/util/function/Consumer;Ljava/util/stream/Stream;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StackWalker, lambda$forEach$0, $Object*, $Consumer*, $Stream*)},
+	{"newInstance", "(Ljava/util/Set;Ljava/lang/StackWalker$ExtendedOption;)Ljava/lang/StackWalker;", "(Ljava/util/Set<Ljava/lang/StackWalker$Option;>;Ljava/lang/StackWalker$ExtendedOption;)Ljava/lang/StackWalker;", $STATIC, $staticMethod(StackWalker, newInstance, StackWalker*, $Set*, $StackWalker$ExtendedOption*)},
+	{"toEnumSet", "(Ljava/util/Set;)Ljava/util/EnumSet;", "(Ljava/util/Set<Ljava/lang/StackWalker$Option;>;)Ljava/util/EnumSet<Ljava/lang/StackWalker$Option;>;", $PRIVATE | $STATIC, $staticMethod(StackWalker, toEnumSet, $EnumSet*, $Set*)},
+	{"walk", "(Ljava/util/function/Function;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/util/function/Function<-Ljava/util/stream/Stream<Ljava/lang/StackWalker$StackFrame;>;+TT;>;)TT;", $PUBLIC, $method(StackWalker, walk, $Object*, $Function*), nullptr, nullptr, _StackWalker_MethodAnnotations_walk16},
 	{}
 };
 

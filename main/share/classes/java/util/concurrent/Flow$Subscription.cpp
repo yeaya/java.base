@@ -12,8 +12,8 @@ namespace java {
 		namespace concurrent {
 
 $MethodInfo _Flow$Subscription_MethodInfo_[] = {
-	{"cancel", "()V", nullptr, $PUBLIC | $ABSTRACT},
-	{"request", "(J)V", nullptr, $PUBLIC | $ABSTRACT},
+	{"cancel", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Flow$Subscription, cancel, void)},
+	{"request", "(J)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Flow$Subscription, request, void, int64_t)},
 	{}
 };
 

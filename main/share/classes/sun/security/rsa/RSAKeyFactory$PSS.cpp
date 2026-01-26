@@ -17,7 +17,7 @@ namespace sun {
 		namespace rsa {
 
 $MethodInfo _RSAKeyFactory$PSS_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(RSAKeyFactory$PSS::*)()>(&RSAKeyFactory$PSS::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(RSAKeyFactory$PSS, init$, void)},
 	{}
 };
 

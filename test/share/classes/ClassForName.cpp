@@ -13,8 +13,8 @@ using $URLClassLoader = ::java::net::URLClassLoader;
 using $List = ::java::util::List;
 
 $MethodInfo _ClassForName_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ClassForName::*)()>(&ClassForName::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ClassForName, init$, void)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ClassForName, run, void)},
 	{}
 };
 

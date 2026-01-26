@@ -31,9 +31,9 @@ $FieldInfo _DomainName$CommonMatch_FieldInfo_[] = {
 };
 
 $MethodInfo _DomainName$CommonMatch_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Lsun/security/util/DomainName$Rule;I)V", nullptr, 0, $method(static_cast<void(DomainName$CommonMatch::*)($String*,$DomainName$Rule*,int32_t)>(&DomainName$CommonMatch::init$))},
-	{"registeredDomain", "()Lsun/security/util/RegisteredDomain;", nullptr, $PUBLIC},
-	{"type", "()Lsun/security/util/DomainName$Rule$Type;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Lsun/security/util/DomainName$Rule;I)V", nullptr, 0, $method(DomainName$CommonMatch, init$, void, $String*, $DomainName$Rule*, int32_t)},
+	{"registeredDomain", "()Lsun/security/util/RegisteredDomain;", nullptr, $PUBLIC, $virtualMethod(DomainName$CommonMatch, registeredDomain, $RegisteredDomain*)},
+	{"type", "()Lsun/security/util/DomainName$Rule$Type;", nullptr, $PUBLIC, $virtualMethod(DomainName$CommonMatch, type, $DomainName$Rule$Type*)},
 	{}
 };
 

@@ -28,10 +28,10 @@ $FieldInfo _AbstractMap$2$1_FieldInfo_[] = {
 };
 
 $MethodInfo _AbstractMap$2$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/AbstractMap$2;)V", nullptr, 0, $method(static_cast<void(AbstractMap$2$1::*)($AbstractMap$2*)>(&AbstractMap$2$1::init$))},
-	{"hasNext", "()Z", nullptr, $PUBLIC},
-	{"next", "()Ljava/lang/Object;", "()TV;", $PUBLIC},
-	{"remove", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/AbstractMap$2;)V", nullptr, 0, $method(AbstractMap$2$1, init$, void, $AbstractMap$2*)},
+	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(AbstractMap$2$1, hasNext, bool)},
+	{"next", "()Ljava/lang/Object;", "()TV;", $PUBLIC, $virtualMethod(AbstractMap$2$1, next, $Object*)},
+	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(AbstractMap$2$1, remove, void)},
 	{}
 };
 

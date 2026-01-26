@@ -11,8 +11,8 @@ using $Files = ::java::nio::file::Files;
 using $Paths = ::java::nio::file::Paths;
 
 $MethodInfo _ForceLoad_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ForceLoad::*)()>(&ForceLoad::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&ForceLoad::main)), "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ForceLoad, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ForceLoad, main, void, $StringArray*), "java.io.IOException"},
 	{}
 };
 

@@ -27,12 +27,12 @@ $MethodInfo _SubmissionPublisher$ConsumerTask_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/util/concurrent/SubmissionPublisher$BufferedSubscription;)V", "(Ljava/util/concurrent/SubmissionPublisher$BufferedSubscription<TT;>;)V", 0, $method(static_cast<void(SubmissionPublisher$ConsumerTask::*)($SubmissionPublisher$BufferedSubscription*)>(&SubmissionPublisher$ConsumerTask::init$))},
-	{"exec", "()Z", nullptr, $PUBLIC | $FINAL},
-	{"getRawResult", "()Ljava/lang/Void;", nullptr, $PUBLIC | $FINAL},
-	{"run", "()V", nullptr, $PUBLIC | $FINAL},
-	{"setRawResult", "(Ljava/lang/Void;)V", nullptr, $PUBLIC | $FINAL, $method(static_cast<void(SubmissionPublisher$ConsumerTask::*)($Void*)>(&SubmissionPublisher$ConsumerTask::setRawResult))},
-	{"setRawResult", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "(Ljava/util/concurrent/SubmissionPublisher$BufferedSubscription;)V", "(Ljava/util/concurrent/SubmissionPublisher$BufferedSubscription<TT;>;)V", 0, $method(SubmissionPublisher$ConsumerTask, init$, void, $SubmissionPublisher$BufferedSubscription*)},
+	{"exec", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(SubmissionPublisher$ConsumerTask, exec, bool)},
+	{"getRawResult", "()Ljava/lang/Void;", nullptr, $PUBLIC | $FINAL, $virtualMethod(SubmissionPublisher$ConsumerTask, getRawResult, $Object*)},
+	{"run", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(SubmissionPublisher$ConsumerTask, run, void)},
+	{"setRawResult", "(Ljava/lang/Void;)V", nullptr, $PUBLIC | $FINAL, $method(SubmissionPublisher$ConsumerTask, setRawResult, void, $Void*)},
+	{"setRawResult", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(SubmissionPublisher$ConsumerTask, setRawResult, void, Object$*)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

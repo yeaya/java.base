@@ -17,15 +17,15 @@ $FieldInfo _ByteVectorImpl_FieldInfo_[] = {
 };
 
 $MethodInfo _ByteVectorImpl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ByteVectorImpl::*)()>(&ByteVectorImpl::init$))},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(static_cast<void(ByteVectorImpl::*)(int32_t)>(&ByteVectorImpl::init$))},
-	{"add", "(B)V", nullptr, $PUBLIC},
-	{"get", "(I)B", nullptr, $PUBLIC},
-	{"getData", "()[B", nullptr, $PUBLIC},
-	{"getLength", "()I", nullptr, $PUBLIC},
-	{"put", "(IB)V", nullptr, $PUBLIC},
-	{"resize", "(I)V", nullptr, $PRIVATE, $method(static_cast<void(ByteVectorImpl::*)(int32_t)>(&ByteVectorImpl::resize))},
-	{"trim", "()V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ByteVectorImpl, init$, void)},
+	{"<init>", "(I)V", nullptr, $PUBLIC, $method(ByteVectorImpl, init$, void, int32_t)},
+	{"add", "(B)V", nullptr, $PUBLIC, $virtualMethod(ByteVectorImpl, add, void, int8_t)},
+	{"get", "(I)B", nullptr, $PUBLIC, $virtualMethod(ByteVectorImpl, get, int8_t, int32_t)},
+	{"getData", "()[B", nullptr, $PUBLIC, $virtualMethod(ByteVectorImpl, getData, $bytes*)},
+	{"getLength", "()I", nullptr, $PUBLIC, $virtualMethod(ByteVectorImpl, getLength, int32_t)},
+	{"put", "(IB)V", nullptr, $PUBLIC, $virtualMethod(ByteVectorImpl, put, void, int32_t, int8_t)},
+	{"resize", "(I)V", nullptr, $PRIVATE, $method(ByteVectorImpl, resize, void, int32_t)},
+	{"trim", "()V", nullptr, $PUBLIC, $virtualMethod(ByteVectorImpl, trim, void)},
 	{}
 };
 

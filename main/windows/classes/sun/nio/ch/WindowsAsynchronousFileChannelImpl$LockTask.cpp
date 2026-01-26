@@ -47,10 +47,10 @@ $MethodInfo _WindowsAsynchronousFileChannelImpl$LockTask_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lsun/nio/ch/WindowsAsynchronousFileChannelImpl;JLsun/nio/ch/FileLockImpl;Lsun/nio/ch/PendingFuture;)V", "(JLsun/nio/ch/FileLockImpl;Lsun/nio/ch/PendingFuture<Ljava/nio/channels/FileLock;TA;>;)V", 0, $method(static_cast<void(WindowsAsynchronousFileChannelImpl$LockTask::*)($WindowsAsynchronousFileChannelImpl*,int64_t,$FileLockImpl*,$PendingFuture*)>(&WindowsAsynchronousFileChannelImpl$LockTask::init$))},
-	{"completed", "(IZ)V", nullptr, $PUBLIC},
-	{"failed", "(ILjava/io/IOException;)V", nullptr, $PUBLIC},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/nio/ch/WindowsAsynchronousFileChannelImpl;JLsun/nio/ch/FileLockImpl;Lsun/nio/ch/PendingFuture;)V", "(JLsun/nio/ch/FileLockImpl;Lsun/nio/ch/PendingFuture<Ljava/nio/channels/FileLock;TA;>;)V", 0, $method(WindowsAsynchronousFileChannelImpl$LockTask, init$, void, $WindowsAsynchronousFileChannelImpl*, int64_t, $FileLockImpl*, $PendingFuture*)},
+	{"completed", "(IZ)V", nullptr, $PUBLIC, $virtualMethod(WindowsAsynchronousFileChannelImpl$LockTask, completed, void, int32_t, bool)},
+	{"failed", "(ILjava/io/IOException;)V", nullptr, $PUBLIC, $virtualMethod(WindowsAsynchronousFileChannelImpl$LockTask, failed, void, int32_t, $IOException*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(WindowsAsynchronousFileChannelImpl$LockTask, run, void)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

@@ -24,9 +24,9 @@ $FieldInfo _MGF1_FieldInfo_[] = {
 };
 
 $MethodInfo _MGF1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(MGF1::*)($String*)>(&MGF1::init$)), "java.security.NoSuchAlgorithmException"},
-	{"generateAndXor", "([BIII[BI)V", nullptr, 0, $method(static_cast<void(MGF1::*)($bytes*,int32_t,int32_t,int32_t,$bytes*,int32_t)>(&MGF1::generateAndXor)), "java.lang.RuntimeException"},
-	{"getName", "()Ljava/lang/String;", nullptr, 0, $method(static_cast<$String*(MGF1::*)()>(&MGF1::getName))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(MGF1, init$, void, $String*), "java.security.NoSuchAlgorithmException"},
+	{"generateAndXor", "([BIII[BI)V", nullptr, 0, $method(MGF1, generateAndXor, void, $bytes*, int32_t, int32_t, int32_t, $bytes*, int32_t), "java.lang.RuntimeException"},
+	{"getName", "()Ljava/lang/String;", nullptr, 0, $method(MGF1, getName, $String*)},
 	{}
 };
 

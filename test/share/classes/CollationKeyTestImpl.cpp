@@ -25,16 +25,16 @@ $FieldInfo _CollationKeyTestImpl_FieldInfo_[] = {
 };
 
 $MethodInfo _CollationKeyTestImpl_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(CollationKeyTestImpl::*)($String*)>(&CollationKeyTestImpl::init$))},
-	{"InsertionSort", "([Ljava/text/CollationKey;)V", nullptr, $PRIVATE, $method(static_cast<void(CollationKeyTestImpl::*)($CollationKeyArray*)>(&CollationKeyTestImpl::InsertionSort))},
-	{"compareTo", "(Ljava/text/CollationKey;)I", nullptr, $PUBLIC},
-	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getSourceString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"run", "()V", nullptr, $PUBLIC},
-	{"testConstructor", "()V", nullptr, $PRIVATE, $method(static_cast<void(CollationKeyTestImpl::*)()>(&CollationKeyTestImpl::testConstructor))},
-	{"testSubclassMethods", "()V", nullptr, $PRIVATE, $method(static_cast<void(CollationKeyTestImpl::*)()>(&CollationKeyTestImpl::testSubclassMethods))},
-	{"toByteArray", "()[B", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(CollationKeyTestImpl, init$, void, $String*)},
+	{"InsertionSort", "([Ljava/text/CollationKey;)V", nullptr, $PRIVATE, $method(CollationKeyTestImpl, InsertionSort, void, $CollationKeyArray*)},
+	{"compareTo", "(Ljava/text/CollationKey;)I", nullptr, $PUBLIC, $virtualMethod(CollationKeyTestImpl, compareTo, int32_t, $CollationKey*)},
+	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(CollationKeyTestImpl, compareTo, int32_t, Object$*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(CollationKeyTestImpl, equals, bool, Object$*)},
+	{"getSourceString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CollationKeyTestImpl, getSourceString, $String*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(CollationKeyTestImpl, run, void)},
+	{"testConstructor", "()V", nullptr, $PRIVATE, $method(CollationKeyTestImpl, testConstructor, void)},
+	{"testSubclassMethods", "()V", nullptr, $PRIVATE, $method(CollationKeyTestImpl, testSubclassMethods, void)},
+	{"toByteArray", "()[B", nullptr, $PUBLIC, $virtualMethod(CollationKeyTestImpl, toByteArray, $bytes*)},
 	{}
 };
 

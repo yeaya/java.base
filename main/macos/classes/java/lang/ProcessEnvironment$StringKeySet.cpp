@@ -27,13 +27,13 @@ $FieldInfo _ProcessEnvironment$StringKeySet_FieldInfo_[] = {
 };
 
 $MethodInfo _ProcessEnvironment$StringKeySet_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Set;)V", "(Ljava/util/Set<Ljava/lang/ProcessEnvironment$Variable;>;)V", $PUBLIC, $method(static_cast<void(ProcessEnvironment$StringKeySet::*)($Set*)>(&ProcessEnvironment$StringKeySet::init$))},
-	{"clear", "()V", nullptr, $PUBLIC},
-	{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"isEmpty", "()Z", nullptr, $PUBLIC},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/lang/String;>;", $PUBLIC},
-	{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"size", "()I", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/Set;)V", "(Ljava/util/Set<Ljava/lang/ProcessEnvironment$Variable;>;)V", $PUBLIC, $method(ProcessEnvironment$StringKeySet, init$, void, $Set*)},
+	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(ProcessEnvironment$StringKeySet, clear, void)},
+	{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ProcessEnvironment$StringKeySet, contains, bool, Object$*)},
+	{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(ProcessEnvironment$StringKeySet, isEmpty, bool)},
+	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(ProcessEnvironment$StringKeySet, iterator, $Iterator*)},
+	{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ProcessEnvironment$StringKeySet, remove, bool, Object$*)},
+	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(ProcessEnvironment$StringKeySet, size, int32_t)},
 	{}
 };
 

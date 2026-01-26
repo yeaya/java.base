@@ -32,13 +32,13 @@ $FieldInfo _Nodes$InternalNodeSpliterator_FieldInfo_[] = {
 };
 
 $MethodInfo _Nodes$InternalNodeSpliterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/stream/Node;)V", "(TN;)V", 0, $method(static_cast<void(Nodes$InternalNodeSpliterator::*)($Node*)>(&Nodes$InternalNodeSpliterator::init$))},
-	{"characteristics", "()I", nullptr, $PUBLIC | $FINAL},
-	{"estimateSize", "()J", nullptr, $PUBLIC | $FINAL},
-	{"findNextLeafNode", "(Ljava/util/Deque;)Ljava/util/stream/Node;", "(Ljava/util/Deque<TN;>;)TN;", $PROTECTED | $FINAL, $method(static_cast<$Node*(Nodes$InternalNodeSpliterator::*)($Deque*)>(&Nodes$InternalNodeSpliterator::findNextLeafNode))},
-	{"initStack", "()Ljava/util/Deque;", "()Ljava/util/Deque<TN;>;", $PROTECTED | $FINAL, $method(static_cast<$Deque*(Nodes$InternalNodeSpliterator::*)()>(&Nodes$InternalNodeSpliterator::initStack))},
-	{"initTryAdvance", "()Z", nullptr, $PROTECTED | $FINAL, $method(static_cast<bool(Nodes$InternalNodeSpliterator::*)()>(&Nodes$InternalNodeSpliterator::initTryAdvance))},
-	{"trySplit", "()Ljava/util/Spliterator;", "()TS;", $PUBLIC | $FINAL},
+	{"<init>", "(Ljava/util/stream/Node;)V", "(TN;)V", 0, $method(Nodes$InternalNodeSpliterator, init$, void, $Node*)},
+	{"characteristics", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(Nodes$InternalNodeSpliterator, characteristics, int32_t)},
+	{"estimateSize", "()J", nullptr, $PUBLIC | $FINAL, $virtualMethod(Nodes$InternalNodeSpliterator, estimateSize, int64_t)},
+	{"findNextLeafNode", "(Ljava/util/Deque;)Ljava/util/stream/Node;", "(Ljava/util/Deque<TN;>;)TN;", $PROTECTED | $FINAL, $method(Nodes$InternalNodeSpliterator, findNextLeafNode, $Node*, $Deque*)},
+	{"initStack", "()Ljava/util/Deque;", "()Ljava/util/Deque<TN;>;", $PROTECTED | $FINAL, $method(Nodes$InternalNodeSpliterator, initStack, $Deque*)},
+	{"initTryAdvance", "()Z", nullptr, $PROTECTED | $FINAL, $method(Nodes$InternalNodeSpliterator, initTryAdvance, bool)},
+	{"trySplit", "()Ljava/util/Spliterator;", "()TS;", $PUBLIC | $FINAL, $virtualMethod(Nodes$InternalNodeSpliterator, trySplit, $Spliterator*)},
 	{}
 };
 

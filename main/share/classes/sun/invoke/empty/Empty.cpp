@@ -12,7 +12,7 @@ namespace sun {
 		namespace empty {
 
 $MethodInfo _Empty_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(Empty::*)()>(&Empty::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(Empty, init$, void)},
 	{}
 };
 

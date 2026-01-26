@@ -41,20 +41,20 @@ $FieldInfo _KQueue_FieldInfo_[] = {
 };
 
 $MethodInfo _KQueue_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(KQueue::*)()>(&KQueue::init$))},
-	{"allocatePollArray", "(I)J", nullptr, $STATIC, $method(static_cast<int64_t(*)(int32_t)>(&KQueue::allocatePollArray))},
-	{"create", "()I", nullptr, $STATIC | $NATIVE, $method(static_cast<int32_t(*)()>(&KQueue::create)), "java.io.IOException"},
-	{"filterOffset", "()I", nullptr, $PRIVATE | $STATIC | $NATIVE, $method(static_cast<int32_t(*)()>(&KQueue::filterOffset))},
-	{"flagsOffset", "()I", nullptr, $PRIVATE | $STATIC | $NATIVE, $method(static_cast<int32_t(*)()>(&KQueue::flagsOffset))},
-	{"freePollArray", "(J)V", nullptr, $STATIC, $method(static_cast<void(*)(int64_t)>(&KQueue::freePollArray))},
-	{"getDescriptor", "(J)I", nullptr, $STATIC, $method(static_cast<int32_t(*)(int64_t)>(&KQueue::getDescriptor))},
-	{"getEvent", "(JI)J", nullptr, $STATIC, $method(static_cast<int64_t(*)(int64_t,int32_t)>(&KQueue::getEvent))},
-	{"getFilter", "(J)S", nullptr, $STATIC, $method(static_cast<int16_t(*)(int64_t)>(&KQueue::getFilter))},
-	{"getFlags", "(J)S", nullptr, $STATIC, $method(static_cast<int16_t(*)(int64_t)>(&KQueue::getFlags))},
-	{"identOffset", "()I", nullptr, $PRIVATE | $STATIC | $NATIVE, $method(static_cast<int32_t(*)()>(&KQueue::identOffset))},
-	{"keventSize", "()I", nullptr, $PRIVATE | $STATIC | $NATIVE, $method(static_cast<int32_t(*)()>(&KQueue::keventSize))},
-	{"poll", "(IJIJ)I", nullptr, $STATIC | $NATIVE, $method(static_cast<int32_t(*)(int32_t,int64_t,int32_t,int64_t)>(&KQueue::poll)), "java.io.IOException"},
-	{"register", "(IIII)I", nullptr, $STATIC | $NATIVE, $method(static_cast<int32_t(*)(int32_t,int32_t,int32_t,int32_t)>(&KQueue::register$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(KQueue, init$, void)},
+	{"allocatePollArray", "(I)J", nullptr, $STATIC, $staticMethod(KQueue, allocatePollArray, int64_t, int32_t)},
+	{"create", "()I", nullptr, $STATIC | $NATIVE, $staticMethod(KQueue, create, int32_t), "java.io.IOException"},
+	{"filterOffset", "()I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(KQueue, filterOffset, int32_t)},
+	{"flagsOffset", "()I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(KQueue, flagsOffset, int32_t)},
+	{"freePollArray", "(J)V", nullptr, $STATIC, $staticMethod(KQueue, freePollArray, void, int64_t)},
+	{"getDescriptor", "(J)I", nullptr, $STATIC, $staticMethod(KQueue, getDescriptor, int32_t, int64_t)},
+	{"getEvent", "(JI)J", nullptr, $STATIC, $staticMethod(KQueue, getEvent, int64_t, int64_t, int32_t)},
+	{"getFilter", "(J)S", nullptr, $STATIC, $staticMethod(KQueue, getFilter, int16_t, int64_t)},
+	{"getFlags", "(J)S", nullptr, $STATIC, $staticMethod(KQueue, getFlags, int16_t, int64_t)},
+	{"identOffset", "()I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(KQueue, identOffset, int32_t)},
+	{"keventSize", "()I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(KQueue, keventSize, int32_t)},
+	{"poll", "(IJIJ)I", nullptr, $STATIC | $NATIVE, $staticMethod(KQueue, poll, int32_t, int32_t, int64_t, int32_t, int64_t), "java.io.IOException"},
+	{"register", "(IIII)I", nullptr, $STATIC | $NATIVE, $staticMethod(KQueue, register$, int32_t, int32_t, int32_t, int32_t, int32_t)},
 	{}
 };
 

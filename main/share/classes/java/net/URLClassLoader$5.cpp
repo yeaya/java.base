@@ -27,8 +27,8 @@ $FieldInfo _URLClassLoader$5_FieldInfo_[] = {
 };
 
 $MethodInfo _URLClassLoader$5_MethodInfo_[] = {
-	{"<init>", "([Ljava/net/URL;Ljava/lang/ClassLoader;Ljava/security/AccessControlContext;)V", nullptr, 0, $method(static_cast<void(URLClassLoader$5::*)($URLArray*,$ClassLoader*,$AccessControlContext*)>(&URLClassLoader$5::init$))},
-	{"run", "()Ljava/net/URLClassLoader;", nullptr, $PUBLIC},
+	{"<init>", "([Ljava/net/URL;Ljava/lang/ClassLoader;Ljava/security/AccessControlContext;)V", nullptr, 0, $method(URLClassLoader$5, init$, void, $URLArray*, $ClassLoader*, $AccessControlContext*)},
+	{"run", "()Ljava/net/URLClassLoader;", nullptr, $PUBLIC, $virtualMethod(URLClassLoader$5, run, $Object*)},
 	{}
 };
 

@@ -14,7 +14,7 @@ $ParameterAnnotation _TestParameterAnnotations$StaticNested_MethodParamAnnotatio
 };
 
 $MethodInfo _TestParameterAnnotations$StaticNested_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(static_cast<void(TestParameterAnnotations$StaticNested::*)(Object$*)>(&TestParameterAnnotations$StaticNested::init$)), nullptr, nullptr, nullptr, nullptr, _TestParameterAnnotations$StaticNested_MethodParamAnnotations_init$0},
+	{"<init>", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(TestParameterAnnotations$StaticNested, init$, void, Object$*), nullptr, nullptr, nullptr, nullptr, _TestParameterAnnotations$StaticNested_MethodParamAnnotations_init$0},
 	{}
 };
 

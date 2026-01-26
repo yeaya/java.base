@@ -32,17 +32,17 @@ $FieldInfo _Utils$1_FieldInfo_[] = {
 };
 
 $MethodInfo _Utils$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/String;)V", "()V", 0, $method(static_cast<void(Utils$1::*)($Class*,$String*,$String*)>(&Utils$1::init$))},
-	{"getByteCodeIndex", "()I", nullptr, $PUBLIC},
-	{"getClassLoaderName", "(Ljava/lang/Class;)Ljava/lang/String;", "(Ljava/lang/Class<*>;)Ljava/lang/String;", $PRIVATE, $method(static_cast<$String*(Utils$1::*)($Class*)>(&Utils$1::getClassLoaderName))},
-	{"getClassName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getDeclaringClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC},
-	{"getFileName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getLineNumber", "()I", nullptr, $PUBLIC},
-	{"getMethodName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"isNativeMethod", "()Z", nullptr, $PUBLIC},
-	{"toStackTraceElement", "()Ljava/lang/StackTraceElement;", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/String;)V", "()V", 0, $method(Utils$1, init$, void, $Class*, $String*, $String*)},
+	{"getByteCodeIndex", "()I", nullptr, $PUBLIC, $virtualMethod(Utils$1, getByteCodeIndex, int32_t)},
+	{"getClassLoaderName", "(Ljava/lang/Class;)Ljava/lang/String;", "(Ljava/lang/Class<*>;)Ljava/lang/String;", $PRIVATE, $method(Utils$1, getClassLoaderName, $String*, $Class*)},
+	{"getClassName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Utils$1, getClassName, $String*)},
+	{"getDeclaringClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(Utils$1, getDeclaringClass, $Class*)},
+	{"getFileName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Utils$1, getFileName, $String*)},
+	{"getLineNumber", "()I", nullptr, $PUBLIC, $virtualMethod(Utils$1, getLineNumber, int32_t)},
+	{"getMethodName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Utils$1, getMethodName, $String*)},
+	{"isNativeMethod", "()Z", nullptr, $PUBLIC, $virtualMethod(Utils$1, isNativeMethod, bool)},
+	{"toStackTraceElement", "()Ljava/lang/StackTraceElement;", nullptr, $PUBLIC, $virtualMethod(Utils$1, toStackTraceElement, $StackTraceElement*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Utils$1, toString, $String*)},
 	{}
 };
 

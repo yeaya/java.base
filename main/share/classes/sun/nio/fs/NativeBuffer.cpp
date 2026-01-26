@@ -35,14 +35,14 @@ $FieldInfo _NativeBuffer_FieldInfo_[] = {
 };
 
 $MethodInfo _NativeBuffer_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, 0, $method(static_cast<void(NativeBuffer::*)(int32_t)>(&NativeBuffer::init$))},
-	{"address", "()J", nullptr, 0},
-	{"close", "()V", nullptr, $PUBLIC},
-	{"free", "()V", nullptr, 0},
-	{"owner", "()Ljava/lang/Object;", nullptr, 0},
-	{"release", "()V", nullptr, 0},
-	{"setOwner", "(Ljava/lang/Object;)V", nullptr, 0},
-	{"size", "()I", nullptr, 0},
+	{"<init>", "(I)V", nullptr, 0, $method(NativeBuffer, init$, void, int32_t)},
+	{"address", "()J", nullptr, 0, $virtualMethod(NativeBuffer, address, int64_t)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(NativeBuffer, close, void)},
+	{"free", "()V", nullptr, 0, $virtualMethod(NativeBuffer, free, void)},
+	{"owner", "()Ljava/lang/Object;", nullptr, 0, $virtualMethod(NativeBuffer, owner, $Object*)},
+	{"release", "()V", nullptr, 0, $virtualMethod(NativeBuffer, release, void)},
+	{"setOwner", "(Ljava/lang/Object;)V", nullptr, 0, $virtualMethod(NativeBuffer, setOwner, void, Object$*)},
+	{"size", "()I", nullptr, 0, $virtualMethod(NativeBuffer, size, int32_t)},
 	{}
 };
 

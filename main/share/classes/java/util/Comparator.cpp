@@ -69,8 +69,8 @@ $FieldInfo Comparator$$Lambda$lambda$thenComparing$36697e65$1::fieldInfos[3] = {
 	{}
 };
 $MethodInfo Comparator$$Lambda$lambda$thenComparing$36697e65$1::methodInfos[3] = {
-	{"<init>", "(Ljava/util/Comparator;Ljava/util/Comparator;)V", nullptr, $PUBLIC, $method(static_cast<void(Comparator$$Lambda$lambda$thenComparing$36697e65$1::*)(Comparator*,Comparator*)>(&Comparator$$Lambda$lambda$thenComparing$36697e65$1::init$))},
-	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/Comparator;Ljava/util/Comparator;)V", nullptr, $PUBLIC, $method(Comparator$$Lambda$lambda$thenComparing$36697e65$1, init$, void, Comparator*, Comparator*)},
+	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(Comparator$$Lambda$lambda$thenComparing$36697e65$1, compare, int32_t, Object$*, Object$*)},
 	{}
 };
 $ClassInfo Comparator$$Lambda$lambda$thenComparing$36697e65$1::classInfo$ = {
@@ -112,8 +112,8 @@ $FieldInfo Comparator$$Lambda$lambda$comparing$ea9a8b3a$1$1::fieldInfos[3] = {
 	{}
 };
 $MethodInfo Comparator$$Lambda$lambda$comparing$ea9a8b3a$1$1::methodInfos[3] = {
-	{"<init>", "(Ljava/util/Comparator;Ljava/util/function/Function;)V", nullptr, $PUBLIC, $method(static_cast<void(Comparator$$Lambda$lambda$comparing$ea9a8b3a$1$1::*)(Comparator*,$Function*)>(&Comparator$$Lambda$lambda$comparing$ea9a8b3a$1$1::init$))},
-	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/Comparator;Ljava/util/function/Function;)V", nullptr, $PUBLIC, $method(Comparator$$Lambda$lambda$comparing$ea9a8b3a$1$1, init$, void, Comparator*, $Function*)},
+	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(Comparator$$Lambda$lambda$comparing$ea9a8b3a$1$1, compare, int32_t, Object$*, Object$*)},
 	{}
 };
 $ClassInfo Comparator$$Lambda$lambda$comparing$ea9a8b3a$1$1::classInfo$ = {
@@ -152,8 +152,8 @@ $FieldInfo Comparator$$Lambda$lambda$comparing$77a9974f$1$2::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Comparator$$Lambda$lambda$comparing$77a9974f$1$2::methodInfos[3] = {
-	{"<init>", "(Ljava/util/function/Function;)V", nullptr, $PUBLIC, $method(static_cast<void(Comparator$$Lambda$lambda$comparing$77a9974f$1$2::*)($Function*)>(&Comparator$$Lambda$lambda$comparing$77a9974f$1$2::init$))},
-	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/function/Function;)V", nullptr, $PUBLIC, $method(Comparator$$Lambda$lambda$comparing$77a9974f$1$2, init$, void, $Function*)},
+	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(Comparator$$Lambda$lambda$comparing$77a9974f$1$2, compare, int32_t, Object$*, Object$*)},
 	{}
 };
 $ClassInfo Comparator$$Lambda$lambda$comparing$77a9974f$1$2::classInfo$ = {
@@ -192,8 +192,8 @@ $FieldInfo Comparator$$Lambda$lambda$comparingInt$7b0bb60$1$3::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Comparator$$Lambda$lambda$comparingInt$7b0bb60$1$3::methodInfos[3] = {
-	{"<init>", "(Ljava/util/function/ToIntFunction;)V", nullptr, $PUBLIC, $method(static_cast<void(Comparator$$Lambda$lambda$comparingInt$7b0bb60$1$3::*)($ToIntFunction*)>(&Comparator$$Lambda$lambda$comparingInt$7b0bb60$1$3::init$))},
-	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/function/ToIntFunction;)V", nullptr, $PUBLIC, $method(Comparator$$Lambda$lambda$comparingInt$7b0bb60$1$3, init$, void, $ToIntFunction*)},
+	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(Comparator$$Lambda$lambda$comparingInt$7b0bb60$1$3, compare, int32_t, Object$*, Object$*)},
 	{}
 };
 $ClassInfo Comparator$$Lambda$lambda$comparingInt$7b0bb60$1$3::classInfo$ = {
@@ -232,8 +232,8 @@ $FieldInfo Comparator$$Lambda$lambda$comparingLong$6043328a$1$4::fieldInfos[2] =
 	{}
 };
 $MethodInfo Comparator$$Lambda$lambda$comparingLong$6043328a$1$4::methodInfos[3] = {
-	{"<init>", "(Ljava/util/function/ToLongFunction;)V", nullptr, $PUBLIC, $method(static_cast<void(Comparator$$Lambda$lambda$comparingLong$6043328a$1$4::*)($ToLongFunction*)>(&Comparator$$Lambda$lambda$comparingLong$6043328a$1$4::init$))},
-	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/function/ToLongFunction;)V", nullptr, $PUBLIC, $method(Comparator$$Lambda$lambda$comparingLong$6043328a$1$4, init$, void, $ToLongFunction*)},
+	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(Comparator$$Lambda$lambda$comparingLong$6043328a$1$4, compare, int32_t, Object$*, Object$*)},
 	{}
 };
 $ClassInfo Comparator$$Lambda$lambda$comparingLong$6043328a$1$4::classInfo$ = {
@@ -272,8 +272,8 @@ $FieldInfo Comparator$$Lambda$lambda$comparingDouble$8dcf42ea$1$5::fieldInfos[2]
 	{}
 };
 $MethodInfo Comparator$$Lambda$lambda$comparingDouble$8dcf42ea$1$5::methodInfos[3] = {
-	{"<init>", "(Ljava/util/function/ToDoubleFunction;)V", nullptr, $PUBLIC, $method(static_cast<void(Comparator$$Lambda$lambda$comparingDouble$8dcf42ea$1$5::*)($ToDoubleFunction*)>(&Comparator$$Lambda$lambda$comparingDouble$8dcf42ea$1$5::init$))},
-	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/function/ToDoubleFunction;)V", nullptr, $PUBLIC, $method(Comparator$$Lambda$lambda$comparingDouble$8dcf42ea$1$5, init$, void, $ToDoubleFunction*)},
+	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(Comparator$$Lambda$lambda$comparingDouble$8dcf42ea$1$5, compare, int32_t, Object$*, Object$*)},
 	{}
 };
 $ClassInfo Comparator$$Lambda$lambda$comparingDouble$8dcf42ea$1$5::classInfo$ = {
@@ -296,31 +296,31 @@ $CompoundAttribute _Comparator_Annotations_[] = {
 };
 
 $MethodInfo _Comparator_MethodInfo_[] = {
-	{"$deserializeLambda$", "(Ljava/lang/invoke/SerializedLambda;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Object*(*)($SerializedLambda*)>(&Comparator::$deserializeLambda$))},
-	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", "(TT;TT;)I", $PUBLIC | $ABSTRACT},
-	{"comparing", "(Ljava/util/function/Function;Ljava/util/Comparator;)Ljava/util/Comparator;", "<T:Ljava/lang/Object;U:Ljava/lang/Object;>(Ljava/util/function/Function<-TT;+TU;>;Ljava/util/Comparator<-TU;>;)Ljava/util/Comparator<TT;>;", $PUBLIC | $STATIC, $method(static_cast<Comparator*(*)($Function*,Comparator*)>(&Comparator::comparing))},
-	{"comparing", "(Ljava/util/function/Function;)Ljava/util/Comparator;", "<T:Ljava/lang/Object;U::Ljava/lang/Comparable<-TU;>;>(Ljava/util/function/Function<-TT;+TU;>;)Ljava/util/Comparator<TT;>;", $PUBLIC | $STATIC, $method(static_cast<Comparator*(*)($Function*)>(&Comparator::comparing))},
-	{"comparingDouble", "(Ljava/util/function/ToDoubleFunction;)Ljava/util/Comparator;", "<T:Ljava/lang/Object;>(Ljava/util/function/ToDoubleFunction<-TT;>;)Ljava/util/Comparator<TT;>;", $PUBLIC | $STATIC, $method(static_cast<Comparator*(*)($ToDoubleFunction*)>(&Comparator::comparingDouble))},
-	{"comparingInt", "(Ljava/util/function/ToIntFunction;)Ljava/util/Comparator;", "<T:Ljava/lang/Object;>(Ljava/util/function/ToIntFunction<-TT;>;)Ljava/util/Comparator<TT;>;", $PUBLIC | $STATIC, $method(static_cast<Comparator*(*)($ToIntFunction*)>(&Comparator::comparingInt))},
-	{"comparingLong", "(Ljava/util/function/ToLongFunction;)Ljava/util/Comparator;", "<T:Ljava/lang/Object;>(Ljava/util/function/ToLongFunction<-TT;>;)Ljava/util/Comparator<TT;>;", $PUBLIC | $STATIC, $method(static_cast<Comparator*(*)($ToLongFunction*)>(&Comparator::comparingLong))},
+	{"$deserializeLambda$", "(Ljava/lang/invoke/SerializedLambda;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Comparator, $deserializeLambda$, $Object*, $SerializedLambda*)},
+	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", "(TT;TT;)I", $PUBLIC | $ABSTRACT, $virtualMethod(Comparator, compare, int32_t, Object$*, Object$*)},
+	{"comparing", "(Ljava/util/function/Function;Ljava/util/Comparator;)Ljava/util/Comparator;", "<T:Ljava/lang/Object;U:Ljava/lang/Object;>(Ljava/util/function/Function<-TT;+TU;>;Ljava/util/Comparator<-TU;>;)Ljava/util/Comparator<TT;>;", $PUBLIC | $STATIC, $staticMethod(Comparator, comparing, Comparator*, $Function*, Comparator*)},
+	{"comparing", "(Ljava/util/function/Function;)Ljava/util/Comparator;", "<T:Ljava/lang/Object;U::Ljava/lang/Comparable<-TU;>;>(Ljava/util/function/Function<-TT;+TU;>;)Ljava/util/Comparator<TT;>;", $PUBLIC | $STATIC, $staticMethod(Comparator, comparing, Comparator*, $Function*)},
+	{"comparingDouble", "(Ljava/util/function/ToDoubleFunction;)Ljava/util/Comparator;", "<T:Ljava/lang/Object;>(Ljava/util/function/ToDoubleFunction<-TT;>;)Ljava/util/Comparator<TT;>;", $PUBLIC | $STATIC, $staticMethod(Comparator, comparingDouble, Comparator*, $ToDoubleFunction*)},
+	{"comparingInt", "(Ljava/util/function/ToIntFunction;)Ljava/util/Comparator;", "<T:Ljava/lang/Object;>(Ljava/util/function/ToIntFunction<-TT;>;)Ljava/util/Comparator<TT;>;", $PUBLIC | $STATIC, $staticMethod(Comparator, comparingInt, Comparator*, $ToIntFunction*)},
+	{"comparingLong", "(Ljava/util/function/ToLongFunction;)Ljava/util/Comparator;", "<T:Ljava/lang/Object;>(Ljava/util/function/ToLongFunction<-TT;>;)Ljava/util/Comparator<TT;>;", $PUBLIC | $STATIC, $staticMethod(Comparator, comparingLong, Comparator*, $ToLongFunction*)},
 	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"lambda$comparing$77a9974f$1", "(Ljava/util/function/Function;Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<int32_t(*)($Function*,Object$*,Object$*)>(&Comparator::lambda$comparing$77a9974f$1))},
-	{"lambda$comparing$ea9a8b3a$1", "(Ljava/util/Comparator;Ljava/util/function/Function;Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<int32_t(*)(Comparator*,$Function*,Object$*,Object$*)>(&Comparator::lambda$comparing$ea9a8b3a$1))},
-	{"lambda$comparingDouble$8dcf42ea$1", "(Ljava/util/function/ToDoubleFunction;Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<int32_t(*)($ToDoubleFunction*,Object$*,Object$*)>(&Comparator::lambda$comparingDouble$8dcf42ea$1))},
-	{"lambda$comparingInt$7b0bb60$1", "(Ljava/util/function/ToIntFunction;Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<int32_t(*)($ToIntFunction*,Object$*,Object$*)>(&Comparator::lambda$comparingInt$7b0bb60$1))},
-	{"lambda$comparingLong$6043328a$1", "(Ljava/util/function/ToLongFunction;Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<int32_t(*)($ToLongFunction*,Object$*,Object$*)>(&Comparator::lambda$comparingLong$6043328a$1))},
-	{"lambda$thenComparing$36697e65$1", "(Ljava/util/Comparator;Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<int32_t(Comparator::*)(Comparator*,Object$*,Object$*)>(&Comparator::lambda$thenComparing$36697e65$1))},
-	{"naturalOrder", "()Ljava/util/Comparator;", "<T::Ljava/lang/Comparable<-TT;>;>()Ljava/util/Comparator<TT;>;", $PUBLIC | $STATIC, $method(static_cast<Comparator*(*)()>(&Comparator::naturalOrder))},
-	{"nullsFirst", "(Ljava/util/Comparator;)Ljava/util/Comparator;", "<T:Ljava/lang/Object;>(Ljava/util/Comparator<-TT;>;)Ljava/util/Comparator<TT;>;", $PUBLIC | $STATIC, $method(static_cast<Comparator*(*)(Comparator*)>(&Comparator::nullsFirst))},
-	{"nullsLast", "(Ljava/util/Comparator;)Ljava/util/Comparator;", "<T:Ljava/lang/Object;>(Ljava/util/Comparator<-TT;>;)Ljava/util/Comparator<TT;>;", $PUBLIC | $STATIC, $method(static_cast<Comparator*(*)(Comparator*)>(&Comparator::nullsLast))},
-	{"reverseOrder", "()Ljava/util/Comparator;", "<T::Ljava/lang/Comparable<-TT;>;>()Ljava/util/Comparator<TT;>;", $PUBLIC | $STATIC, $method(static_cast<Comparator*(*)()>(&Comparator::reverseOrder))},
-	{"reversed", "()Ljava/util/Comparator;", "()Ljava/util/Comparator<TT;>;", $PUBLIC},
-	{"thenComparing", "(Ljava/util/Comparator;)Ljava/util/Comparator;", "(Ljava/util/Comparator<-TT;>;)Ljava/util/Comparator<TT;>;", $PUBLIC},
-	{"thenComparing", "(Ljava/util/function/Function;Ljava/util/Comparator;)Ljava/util/Comparator;", "<U:Ljava/lang/Object;>(Ljava/util/function/Function<-TT;+TU;>;Ljava/util/Comparator<-TU;>;)Ljava/util/Comparator<TT;>;", $PUBLIC},
-	{"thenComparing", "(Ljava/util/function/Function;)Ljava/util/Comparator;", "<U::Ljava/lang/Comparable<-TU;>;>(Ljava/util/function/Function<-TT;+TU;>;)Ljava/util/Comparator<TT;>;", $PUBLIC},
-	{"thenComparingDouble", "(Ljava/util/function/ToDoubleFunction;)Ljava/util/Comparator;", "(Ljava/util/function/ToDoubleFunction<-TT;>;)Ljava/util/Comparator<TT;>;", $PUBLIC},
-	{"thenComparingInt", "(Ljava/util/function/ToIntFunction;)Ljava/util/Comparator;", "(Ljava/util/function/ToIntFunction<-TT;>;)Ljava/util/Comparator<TT;>;", $PUBLIC},
-	{"thenComparingLong", "(Ljava/util/function/ToLongFunction;)Ljava/util/Comparator;", "(Ljava/util/function/ToLongFunction<-TT;>;)Ljava/util/Comparator<TT;>;", $PUBLIC},
+	{"lambda$comparing$77a9974f$1", "(Ljava/util/function/Function;Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Comparator, lambda$comparing$77a9974f$1, int32_t, $Function*, Object$*, Object$*)},
+	{"lambda$comparing$ea9a8b3a$1", "(Ljava/util/Comparator;Ljava/util/function/Function;Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Comparator, lambda$comparing$ea9a8b3a$1, int32_t, Comparator*, $Function*, Object$*, Object$*)},
+	{"lambda$comparingDouble$8dcf42ea$1", "(Ljava/util/function/ToDoubleFunction;Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Comparator, lambda$comparingDouble$8dcf42ea$1, int32_t, $ToDoubleFunction*, Object$*, Object$*)},
+	{"lambda$comparingInt$7b0bb60$1", "(Ljava/util/function/ToIntFunction;Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Comparator, lambda$comparingInt$7b0bb60$1, int32_t, $ToIntFunction*, Object$*, Object$*)},
+	{"lambda$comparingLong$6043328a$1", "(Ljava/util/function/ToLongFunction;Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Comparator, lambda$comparingLong$6043328a$1, int32_t, $ToLongFunction*, Object$*, Object$*)},
+	{"lambda$thenComparing$36697e65$1", "(Ljava/util/Comparator;Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PRIVATE | $SYNTHETIC, $method(Comparator, lambda$thenComparing$36697e65$1, int32_t, Comparator*, Object$*, Object$*)},
+	{"naturalOrder", "()Ljava/util/Comparator;", "<T::Ljava/lang/Comparable<-TT;>;>()Ljava/util/Comparator<TT;>;", $PUBLIC | $STATIC, $staticMethod(Comparator, naturalOrder, Comparator*)},
+	{"nullsFirst", "(Ljava/util/Comparator;)Ljava/util/Comparator;", "<T:Ljava/lang/Object;>(Ljava/util/Comparator<-TT;>;)Ljava/util/Comparator<TT;>;", $PUBLIC | $STATIC, $staticMethod(Comparator, nullsFirst, Comparator*, Comparator*)},
+	{"nullsLast", "(Ljava/util/Comparator;)Ljava/util/Comparator;", "<T:Ljava/lang/Object;>(Ljava/util/Comparator<-TT;>;)Ljava/util/Comparator<TT;>;", $PUBLIC | $STATIC, $staticMethod(Comparator, nullsLast, Comparator*, Comparator*)},
+	{"reverseOrder", "()Ljava/util/Comparator;", "<T::Ljava/lang/Comparable<-TT;>;>()Ljava/util/Comparator<TT;>;", $PUBLIC | $STATIC, $staticMethod(Comparator, reverseOrder, Comparator*)},
+	{"reversed", "()Ljava/util/Comparator;", "()Ljava/util/Comparator<TT;>;", $PUBLIC, $virtualMethod(Comparator, reversed, Comparator*)},
+	{"thenComparing", "(Ljava/util/Comparator;)Ljava/util/Comparator;", "(Ljava/util/Comparator<-TT;>;)Ljava/util/Comparator<TT;>;", $PUBLIC, $virtualMethod(Comparator, thenComparing, Comparator*, Comparator*)},
+	{"thenComparing", "(Ljava/util/function/Function;Ljava/util/Comparator;)Ljava/util/Comparator;", "<U:Ljava/lang/Object;>(Ljava/util/function/Function<-TT;+TU;>;Ljava/util/Comparator<-TU;>;)Ljava/util/Comparator<TT;>;", $PUBLIC, $virtualMethod(Comparator, thenComparing, Comparator*, $Function*, Comparator*)},
+	{"thenComparing", "(Ljava/util/function/Function;)Ljava/util/Comparator;", "<U::Ljava/lang/Comparable<-TU;>;>(Ljava/util/function/Function<-TT;+TU;>;)Ljava/util/Comparator<TT;>;", $PUBLIC, $virtualMethod(Comparator, thenComparing, Comparator*, $Function*)},
+	{"thenComparingDouble", "(Ljava/util/function/ToDoubleFunction;)Ljava/util/Comparator;", "(Ljava/util/function/ToDoubleFunction<-TT;>;)Ljava/util/Comparator<TT;>;", $PUBLIC, $virtualMethod(Comparator, thenComparingDouble, Comparator*, $ToDoubleFunction*)},
+	{"thenComparingInt", "(Ljava/util/function/ToIntFunction;)Ljava/util/Comparator;", "(Ljava/util/function/ToIntFunction<-TT;>;)Ljava/util/Comparator<TT;>;", $PUBLIC, $virtualMethod(Comparator, thenComparingInt, Comparator*, $ToIntFunction*)},
+	{"thenComparingLong", "(Ljava/util/function/ToLongFunction;)Ljava/util/Comparator;", "(Ljava/util/function/ToLongFunction<-TT;>;)Ljava/util/Comparator<TT;>;", $PUBLIC, $virtualMethod(Comparator, thenComparingLong, Comparator*, $ToLongFunction*)},
 	{}
 };
 

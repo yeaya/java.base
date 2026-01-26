@@ -1,10 +1,13 @@
 #include <java/nio/file/attribute/UserPrincipalLookupService.h>
 
 #include <java/nio/file/attribute/GroupPrincipal.h>
+#include <java/nio/file/attribute/UserPrincipal.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $GroupPrincipal = ::java::nio::file::attribute::GroupPrincipal;
+using $UserPrincipal = ::java::nio::file::attribute::UserPrincipal;
 
 namespace java {
 	namespace nio {
@@ -12,9 +15,9 @@ namespace java {
 			namespace attribute {
 
 $MethodInfo _UserPrincipalLookupService_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(UserPrincipalLookupService::*)()>(&UserPrincipalLookupService::init$))},
-	{"lookupPrincipalByGroupName", "(Ljava/lang/String;)Ljava/nio/file/attribute/GroupPrincipal;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"lookupPrincipalByName", "(Ljava/lang/String;)Ljava/nio/file/attribute/UserPrincipal;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(UserPrincipalLookupService, init$, void)},
+	{"lookupPrincipalByGroupName", "(Ljava/lang/String;)Ljava/nio/file/attribute/GroupPrincipal;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(UserPrincipalLookupService, lookupPrincipalByGroupName, $GroupPrincipal*, $String*), "java.io.IOException"},
+	{"lookupPrincipalByName", "(Ljava/lang/String;)Ljava/nio/file/attribute/UserPrincipal;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(UserPrincipalLookupService, lookupPrincipalByName, $UserPrincipal*, $String*), "java.io.IOException"},
 	{}
 };
 

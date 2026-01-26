@@ -25,19 +25,19 @@ namespace java {
 	namespace nio {
 
 $MethodInfo _ByteBufferAsFloatBufferRB_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/ByteBuffer;Ljdk/internal/access/foreign/MemorySegmentProxy;)V", nullptr, 0, $method(static_cast<void(ByteBufferAsFloatBufferRB::*)($ByteBuffer*,$MemorySegmentProxy*)>(&ByteBufferAsFloatBufferRB::init$))},
-	{"<init>", "(Ljava/nio/ByteBuffer;IIIIJLjdk/internal/access/foreign/MemorySegmentProxy;)V", nullptr, 0, $method(static_cast<void(ByteBufferAsFloatBufferRB::*)($ByteBuffer*,int32_t,int32_t,int32_t,int32_t,int64_t,$MemorySegmentProxy*)>(&ByteBufferAsFloatBufferRB::init$))},
-	{"asReadOnlyBuffer", "()Ljava/nio/FloatBuffer;", nullptr, $PUBLIC},
-	{"base", "()Ljava/lang/Object;", nullptr, 0},
-	{"compact", "()Ljava/nio/FloatBuffer;", nullptr, $PUBLIC},
-	{"duplicate", "()Ljava/nio/FloatBuffer;", nullptr, $PUBLIC},
-	{"isDirect", "()Z", nullptr, $PUBLIC},
-	{"isReadOnly", "()Z", nullptr, $PUBLIC},
-	{"order", "()Ljava/nio/ByteOrder;", nullptr, $PUBLIC},
-	{"put", "(F)Ljava/nio/FloatBuffer;", nullptr, $PUBLIC},
-	{"put", "(IF)Ljava/nio/FloatBuffer;", nullptr, $PUBLIC},
-	{"slice", "()Ljava/nio/FloatBuffer;", nullptr, $PUBLIC},
-	{"slice", "(II)Ljava/nio/FloatBuffer;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/nio/ByteBuffer;Ljdk/internal/access/foreign/MemorySegmentProxy;)V", nullptr, 0, $method(ByteBufferAsFloatBufferRB, init$, void, $ByteBuffer*, $MemorySegmentProxy*)},
+	{"<init>", "(Ljava/nio/ByteBuffer;IIIIJLjdk/internal/access/foreign/MemorySegmentProxy;)V", nullptr, 0, $method(ByteBufferAsFloatBufferRB, init$, void, $ByteBuffer*, int32_t, int32_t, int32_t, int32_t, int64_t, $MemorySegmentProxy*)},
+	{"asReadOnlyBuffer", "()Ljava/nio/FloatBuffer;", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsFloatBufferRB, asReadOnlyBuffer, $FloatBuffer*)},
+	{"base", "()Ljava/lang/Object;", nullptr, 0, $virtualMethod(ByteBufferAsFloatBufferRB, base, $Object*)},
+	{"compact", "()Ljava/nio/FloatBuffer;", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsFloatBufferRB, compact, $FloatBuffer*)},
+	{"duplicate", "()Ljava/nio/FloatBuffer;", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsFloatBufferRB, duplicate, $FloatBuffer*)},
+	{"isDirect", "()Z", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsFloatBufferRB, isDirect, bool)},
+	{"isReadOnly", "()Z", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsFloatBufferRB, isReadOnly, bool)},
+	{"order", "()Ljava/nio/ByteOrder;", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsFloatBufferRB, order, $ByteOrder*)},
+	{"put", "(F)Ljava/nio/FloatBuffer;", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsFloatBufferRB, put, $FloatBuffer*, float)},
+	{"put", "(IF)Ljava/nio/FloatBuffer;", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsFloatBufferRB, put, $FloatBuffer*, int32_t, float)},
+	{"slice", "()Ljava/nio/FloatBuffer;", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsFloatBufferRB, slice, $FloatBuffer*)},
+	{"slice", "(II)Ljava/nio/FloatBuffer;", nullptr, $PUBLIC, $virtualMethod(ByteBufferAsFloatBufferRB, slice, $FloatBuffer*, int32_t, int32_t)},
 	{}
 };
 

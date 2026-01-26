@@ -79,20 +79,20 @@ $FieldInfo _UBiDiProps_FieldInfo_[] = {
 };
 
 $MethodInfo _UBiDiProps_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(UBiDiProps::*)()>(&UBiDiProps::init$)), "java.io.IOException"},
-	{"getClass", "(I)I", nullptr, $PUBLIC | $FINAL, $method(static_cast<int32_t(UBiDiProps::*)(int32_t)>(&UBiDiProps::getClass))},
-	{"getClassFromProps", "(I)I", nullptr, $PRIVATE | $STATIC | $FINAL, $method(static_cast<int32_t(*)(int32_t)>(&UBiDiProps::getClassFromProps))},
-	{"getFlagFromProps", "(II)Z", nullptr, $PRIVATE | $STATIC | $FINAL, $method(static_cast<bool(*)(int32_t,int32_t)>(&UBiDiProps::getFlagFromProps))},
-	{"getJoiningGroup", "(I)I", nullptr, $PUBLIC | $FINAL, $method(static_cast<int32_t(UBiDiProps::*)(int32_t)>(&UBiDiProps::getJoiningGroup))},
-	{"getJoiningType", "(I)I", nullptr, $PUBLIC | $FINAL, $method(static_cast<int32_t(UBiDiProps::*)(int32_t)>(&UBiDiProps::getJoiningType))},
-	{"getMirror", "(II)I", nullptr, $PRIVATE | $FINAL, $method(static_cast<int32_t(UBiDiProps::*)(int32_t,int32_t)>(&UBiDiProps::getMirror))},
-	{"getMirror", "(I)I", nullptr, $PUBLIC | $FINAL, $method(static_cast<int32_t(UBiDiProps::*)(int32_t)>(&UBiDiProps::getMirror))},
-	{"getMirrorCodePoint", "(I)I", nullptr, $PRIVATE | $STATIC | $FINAL, $method(static_cast<int32_t(*)(int32_t)>(&UBiDiProps::getMirrorCodePoint))},
-	{"getMirrorDeltaFromProps", "(I)I", nullptr, $PRIVATE | $STATIC | $FINAL, $method(static_cast<int32_t(*)(int32_t)>(&UBiDiProps::getMirrorDeltaFromProps))},
-	{"getMirrorIndex", "(I)I", nullptr, $PRIVATE | $STATIC | $FINAL, $method(static_cast<int32_t(*)(int32_t)>(&UBiDiProps::getMirrorIndex))},
-	{"getPairedBracket", "(I)I", nullptr, $PUBLIC | $FINAL, $method(static_cast<int32_t(UBiDiProps::*)(int32_t)>(&UBiDiProps::getPairedBracket))},
-	{"getPairedBracketType", "(I)I", nullptr, $PUBLIC | $FINAL, $method(static_cast<int32_t(UBiDiProps::*)(int32_t)>(&UBiDiProps::getPairedBracketType))},
-	{"readData", "(Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE, $method(static_cast<void(UBiDiProps::*)($ByteBuffer*)>(&UBiDiProps::readData)), "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(UBiDiProps, init$, void), "java.io.IOException"},
+	{"getClass", "(I)I", nullptr, $PUBLIC | $FINAL, $method(UBiDiProps, getClass, int32_t, int32_t)},
+	{"getClassFromProps", "(I)I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(UBiDiProps, getClassFromProps, int32_t, int32_t)},
+	{"getFlagFromProps", "(II)Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(UBiDiProps, getFlagFromProps, bool, int32_t, int32_t)},
+	{"getJoiningGroup", "(I)I", nullptr, $PUBLIC | $FINAL, $method(UBiDiProps, getJoiningGroup, int32_t, int32_t)},
+	{"getJoiningType", "(I)I", nullptr, $PUBLIC | $FINAL, $method(UBiDiProps, getJoiningType, int32_t, int32_t)},
+	{"getMirror", "(II)I", nullptr, $PRIVATE | $FINAL, $method(UBiDiProps, getMirror, int32_t, int32_t, int32_t)},
+	{"getMirror", "(I)I", nullptr, $PUBLIC | $FINAL, $method(UBiDiProps, getMirror, int32_t, int32_t)},
+	{"getMirrorCodePoint", "(I)I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(UBiDiProps, getMirrorCodePoint, int32_t, int32_t)},
+	{"getMirrorDeltaFromProps", "(I)I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(UBiDiProps, getMirrorDeltaFromProps, int32_t, int32_t)},
+	{"getMirrorIndex", "(I)I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(UBiDiProps, getMirrorIndex, int32_t, int32_t)},
+	{"getPairedBracket", "(I)I", nullptr, $PUBLIC | $FINAL, $method(UBiDiProps, getPairedBracket, int32_t, int32_t)},
+	{"getPairedBracketType", "(I)I", nullptr, $PUBLIC | $FINAL, $method(UBiDiProps, getPairedBracketType, int32_t, int32_t)},
+	{"readData", "(Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE, $method(UBiDiProps, readData, void, $ByteBuffer*), "java.io.IOException"},
 	{}
 };
 

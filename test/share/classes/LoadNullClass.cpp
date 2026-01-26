@@ -13,8 +13,8 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $URL = ::java::net::URL;
 
 $MethodInfo _LoadNullClass_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(LoadNullClass::*)()>(&LoadNullClass::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&LoadNullClass::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(LoadNullClass, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(LoadNullClass, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

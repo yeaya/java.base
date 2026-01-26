@@ -29,15 +29,15 @@ $FieldInfo _ClassValue$Entry_FieldInfo_[] = {
 };
 
 $MethodInfo _ClassValue$Entry_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/ClassValue$Version;Ljava/lang/Object;)V", "(Ljava/lang/ClassValue$Version<TT;>;TT;)V", 0, $method(static_cast<void(ClassValue$Entry::*)($ClassValue$Version*,Object$*)>(&ClassValue$Entry::init$))},
-	{"<init>", "(Ljava/lang/ClassValue$Version;)V", "(Ljava/lang/ClassValue$Version<TT;>;)V", 0, $method(static_cast<void(ClassValue$Entry::*)($ClassValue$Version*)>(&ClassValue$Entry::init$))},
-	{"assertNotPromise", "()V", nullptr, $PRIVATE, $method(static_cast<void(ClassValue$Entry::*)()>(&ClassValue$Entry::assertNotPromise))},
-	{"classValueOrNull", "()Ljava/lang/ClassValue;", "()Ljava/lang/ClassValue<TT;>;", 0},
-	{"isLive", "()Z", nullptr, 0},
-	{"isPromise", "()Z", nullptr, 0},
-	{"refreshVersion", "(Ljava/lang/ClassValue$Version;)Ljava/lang/ClassValue$Entry;", "(Ljava/lang/ClassValue$Version<TT;>;)Ljava/lang/ClassValue$Entry<TT;>;", 0},
-	{"value", "()Ljava/lang/Object;", "()TT;", 0},
-	{"version", "()Ljava/lang/ClassValue$Version;", "()Ljava/lang/ClassValue$Version<TT;>;", 0},
+	{"<init>", "(Ljava/lang/ClassValue$Version;Ljava/lang/Object;)V", "(Ljava/lang/ClassValue$Version<TT;>;TT;)V", 0, $method(ClassValue$Entry, init$, void, $ClassValue$Version*, Object$*)},
+	{"<init>", "(Ljava/lang/ClassValue$Version;)V", "(Ljava/lang/ClassValue$Version<TT;>;)V", 0, $method(ClassValue$Entry, init$, void, $ClassValue$Version*)},
+	{"assertNotPromise", "()V", nullptr, $PRIVATE, $method(ClassValue$Entry, assertNotPromise, void)},
+	{"classValueOrNull", "()Ljava/lang/ClassValue;", "()Ljava/lang/ClassValue<TT;>;", 0, $virtualMethod(ClassValue$Entry, classValueOrNull, $ClassValue*)},
+	{"isLive", "()Z", nullptr, 0, $virtualMethod(ClassValue$Entry, isLive, bool)},
+	{"isPromise", "()Z", nullptr, 0, $virtualMethod(ClassValue$Entry, isPromise, bool)},
+	{"refreshVersion", "(Ljava/lang/ClassValue$Version;)Ljava/lang/ClassValue$Entry;", "(Ljava/lang/ClassValue$Version<TT;>;)Ljava/lang/ClassValue$Entry<TT;>;", 0, $virtualMethod(ClassValue$Entry, refreshVersion, ClassValue$Entry*, $ClassValue$Version*)},
+	{"value", "()Ljava/lang/Object;", "()TT;", 0, $virtualMethod(ClassValue$Entry, value, $Object*)},
+	{"version", "()Ljava/lang/ClassValue$Version;", "()Ljava/lang/ClassValue$Version<TT;>;", 0, $virtualMethod(ClassValue$Entry, version, $ClassValue$Version*)},
 	{}
 };
 

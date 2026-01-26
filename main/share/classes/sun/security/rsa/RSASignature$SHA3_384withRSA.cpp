@@ -16,7 +16,7 @@ namespace sun {
 		namespace rsa {
 
 $MethodInfo _RSASignature$SHA3_384withRSA_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(RSASignature$SHA3_384withRSA::*)()>(&RSASignature$SHA3_384withRSA::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(RSASignature$SHA3_384withRSA, init$, void)},
 	{}
 };
 

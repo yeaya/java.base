@@ -19,8 +19,8 @@ $FieldInfo _OpenSync_FieldInfo_[] = {
 };
 
 $MethodInfo _OpenSync_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(OpenSync::*)()>(&OpenSync::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&OpenSync::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(OpenSync, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(OpenSync, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

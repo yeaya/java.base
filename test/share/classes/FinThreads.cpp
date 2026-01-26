@@ -23,9 +23,9 @@ $FieldInfo _FinThreads_FieldInfo_[] = {
 };
 
 $MethodInfo _FinThreads_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(FinThreads::*)()>(&FinThreads::init$))},
-	{"alarm", "(Ljava/lang/Thread;J)V", nullptr, $STATIC, $method(static_cast<void(*)($Thread*,int64_t)>(&FinThreads::alarm)), "java.lang.InterruptedException"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&FinThreads::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(FinThreads, init$, void)},
+	{"alarm", "(Ljava/lang/Thread;J)V", nullptr, $STATIC, $staticMethod(FinThreads, alarm, void, $Thread*, int64_t), "java.lang.InterruptedException"},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(FinThreads, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

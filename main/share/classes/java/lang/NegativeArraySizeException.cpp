@@ -16,8 +16,8 @@ $FieldInfo _NegativeArraySizeException_FieldInfo_[] = {
 };
 
 $MethodInfo _NegativeArraySizeException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(NegativeArraySizeException::*)()>(&NegativeArraySizeException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(NegativeArraySizeException::*)($String*)>(&NegativeArraySizeException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(NegativeArraySizeException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NegativeArraySizeException, init$, void, $String*)},
 	{}
 };
 

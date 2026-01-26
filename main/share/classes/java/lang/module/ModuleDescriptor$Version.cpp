@@ -33,17 +33,17 @@ $FieldInfo _ModuleDescriptor$Version_FieldInfo_[] = {
 };
 
 $MethodInfo _ModuleDescriptor$Version_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(static_cast<void(ModuleDescriptor$Version::*)($String*)>(&ModuleDescriptor$Version::init$))},
-	{"cmp", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PRIVATE, $method(static_cast<int32_t(ModuleDescriptor$Version::*)(Object$*,Object$*)>(&ModuleDescriptor$Version::cmp))},
-	{"compareTo", "(Ljava/lang/module/ModuleDescriptor$Version;)I", nullptr, $PUBLIC, $method(static_cast<int32_t(ModuleDescriptor$Version::*)(ModuleDescriptor$Version*)>(&ModuleDescriptor$Version::compareTo))},
-	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"compareTokens", "(Ljava/util/List;Ljava/util/List;)I", "(Ljava/util/List<Ljava/lang/Object;>;Ljava/util/List<Ljava/lang/Object;>;)I", $PRIVATE, $method(static_cast<int32_t(ModuleDescriptor$Version::*)($List*,$List*)>(&ModuleDescriptor$Version::compareTokens))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"parse", "(Ljava/lang/String;)Ljava/lang/module/ModuleDescriptor$Version;", nullptr, $PUBLIC | $STATIC, $method(static_cast<ModuleDescriptor$Version*(*)($String*)>(&ModuleDescriptor$Version::parse))},
-	{"takeNumber", "(Ljava/lang/String;ILjava/util/List;)I", "(Ljava/lang/String;ILjava/util/List<Ljava/lang/Object;>;)I", $PRIVATE | $STATIC, $method(static_cast<int32_t(*)($String*,int32_t,$List*)>(&ModuleDescriptor$Version::takeNumber))},
-	{"takeString", "(Ljava/lang/String;ILjava/util/List;)I", "(Ljava/lang/String;ILjava/util/List<Ljava/lang/Object;>;)I", $PRIVATE | $STATIC, $method(static_cast<int32_t(*)($String*,int32_t,$List*)>(&ModuleDescriptor$Version::takeString))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(ModuleDescriptor$Version, init$, void, $String*)},
+	{"cmp", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PRIVATE, $method(ModuleDescriptor$Version, cmp, int32_t, Object$*, Object$*)},
+	{"compareTo", "(Ljava/lang/module/ModuleDescriptor$Version;)I", nullptr, $PUBLIC, $method(ModuleDescriptor$Version, compareTo, int32_t, ModuleDescriptor$Version*)},
+	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ModuleDescriptor$Version, compareTo, int32_t, Object$*)},
+	{"compareTokens", "(Ljava/util/List;Ljava/util/List;)I", "(Ljava/util/List<Ljava/lang/Object;>;Ljava/util/List<Ljava/lang/Object;>;)I", $PRIVATE, $method(ModuleDescriptor$Version, compareTokens, int32_t, $List*, $List*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ModuleDescriptor$Version, equals, bool, Object$*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ModuleDescriptor$Version, hashCode, int32_t)},
+	{"parse", "(Ljava/lang/String;)Ljava/lang/module/ModuleDescriptor$Version;", nullptr, $PUBLIC | $STATIC, $staticMethod(ModuleDescriptor$Version, parse, ModuleDescriptor$Version*, $String*)},
+	{"takeNumber", "(Ljava/lang/String;ILjava/util/List;)I", "(Ljava/lang/String;ILjava/util/List<Ljava/lang/Object;>;)I", $PRIVATE | $STATIC, $staticMethod(ModuleDescriptor$Version, takeNumber, int32_t, $String*, int32_t, $List*)},
+	{"takeString", "(Ljava/lang/String;ILjava/util/List;)I", "(Ljava/lang/String;ILjava/util/List<Ljava/lang/Object;>;)I", $PRIVATE | $STATIC, $staticMethod(ModuleDescriptor$Version, takeString, int32_t, $String*, int32_t, $List*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ModuleDescriptor$Version, toString, $String*)},
 	{}
 };
 

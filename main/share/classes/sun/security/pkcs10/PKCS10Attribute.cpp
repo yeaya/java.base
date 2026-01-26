@@ -25,13 +25,13 @@ $FieldInfo _PKCS10Attribute_FieldInfo_[] = {
 };
 
 $MethodInfo _PKCS10Attribute_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(static_cast<void(PKCS10Attribute::*)($DerValue*)>(&PKCS10Attribute::init$)), "java.io.IOException"},
-	{"<init>", "(Lsun/security/util/ObjectIdentifier;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(static_cast<void(PKCS10Attribute::*)($ObjectIdentifier*,Object$*)>(&PKCS10Attribute::init$))},
-	{"<init>", "(Lsun/security/pkcs/PKCS9Attribute;)V", nullptr, $PUBLIC, $method(static_cast<void(PKCS10Attribute::*)($PKCS9Attribute*)>(&PKCS10Attribute::init$))},
-	{"derEncode", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"getAttributeId", "()Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC},
-	{"getAttributeValue", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(PKCS10Attribute, init$, void, $DerValue*), "java.io.IOException"},
+	{"<init>", "(Lsun/security/util/ObjectIdentifier;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(PKCS10Attribute, init$, void, $ObjectIdentifier*, Object$*)},
+	{"<init>", "(Lsun/security/pkcs/PKCS9Attribute;)V", nullptr, $PUBLIC, $method(PKCS10Attribute, init$, void, $PKCS9Attribute*)},
+	{"derEncode", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(PKCS10Attribute, derEncode, void, $OutputStream*), "java.io.IOException"},
+	{"getAttributeId", "()Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC, $virtualMethod(PKCS10Attribute, getAttributeId, $ObjectIdentifier*)},
+	{"getAttributeValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PKCS10Attribute, getAttributeValue, $Object*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PKCS10Attribute, toString, $String*)},
 	{}
 };
 

@@ -20,7 +20,7 @@ $FieldInfo _KeepAliveEntry_FieldInfo_[] = {
 };
 
 $MethodInfo _KeepAliveEntry_MethodInfo_[] = {
-	{"<init>", "(Lsun/net/www/http/HttpClient;J)V", nullptr, 0, $method(static_cast<void(KeepAliveEntry::*)($HttpClient*,int64_t)>(&KeepAliveEntry::init$))},
+	{"<init>", "(Lsun/net/www/http/HttpClient;J)V", nullptr, 0, $method(KeepAliveEntry, init$, void, $HttpClient*, int64_t)},
 	{}
 };
 

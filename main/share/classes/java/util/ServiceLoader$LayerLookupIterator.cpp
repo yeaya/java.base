@@ -56,10 +56,10 @@ $FieldInfo _ServiceLoader$LayerLookupIterator_FieldInfo_[] = {
 };
 
 $MethodInfo _ServiceLoader$LayerLookupIterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/ServiceLoader;)V", nullptr, 0, $method(static_cast<void(ServiceLoader$LayerLookupIterator::*)($ServiceLoader*)>(&ServiceLoader$LayerLookupIterator::init$))},
-	{"hasNext", "()Z", nullptr, $PUBLIC},
-	{"next", "()Ljava/util/ServiceLoader$Provider;", "()Ljava/util/ServiceLoader$Provider<TT;>;", $PUBLIC},
-	{"providers", "(Ljava/lang/ModuleLayer;)Ljava/util/Iterator;", "(Ljava/lang/ModuleLayer;)Ljava/util/Iterator<Ljdk/internal/module/ServicesCatalog$ServiceProvider;>;", $PRIVATE, $method(static_cast<$Iterator*(ServiceLoader$LayerLookupIterator::*)($ModuleLayer*)>(&ServiceLoader$LayerLookupIterator::providers))},
+	{"<init>", "(Ljava/util/ServiceLoader;)V", nullptr, 0, $method(ServiceLoader$LayerLookupIterator, init$, void, $ServiceLoader*)},
+	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(ServiceLoader$LayerLookupIterator, hasNext, bool)},
+	{"next", "()Ljava/util/ServiceLoader$Provider;", "()Ljava/util/ServiceLoader$Provider<TT;>;", $PUBLIC, $virtualMethod(ServiceLoader$LayerLookupIterator, next, $Object*)},
+	{"providers", "(Ljava/lang/ModuleLayer;)Ljava/util/Iterator;", "(Ljava/lang/ModuleLayer;)Ljava/util/Iterator<Ljdk/internal/module/ServicesCatalog$ServiceProvider;>;", $PRIVATE, $method(ServiceLoader$LayerLookupIterator, providers, $Iterator*, $ModuleLayer*)},
 	{}
 };
 

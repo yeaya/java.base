@@ -15,9 +15,9 @@ $FieldInfo _Annotation_FieldInfo_[] = {
 };
 
 $MethodInfo _Annotation_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(static_cast<void(Annotation::*)(Object$*)>(&Annotation::init$))},
-	{"getValue", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(Annotation, init$, void, Object$*)},
+	{"getValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Annotation, getValue, $Object*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Annotation, toString, $String*)},
 	{}
 };
 

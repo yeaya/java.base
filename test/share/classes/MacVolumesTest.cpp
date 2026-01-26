@@ -60,11 +60,11 @@ $FieldInfo _MacVolumesTest_FieldInfo_[] = {
 };
 
 $MethodInfo _MacVolumesTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(MacVolumesTest::*)()>(&MacVolumesTest::init$))},
-	{"checkDataVolume", "()V", nullptr, $PRIVATE | $STATIC | $FINAL, $method(static_cast<void(*)()>(&MacVolumesTest::checkDataVolume)), "java.io.IOException"},
-	{"checkFirmlinks", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&MacVolumesTest::checkFirmlinks)), "java.io.IOException"},
-	{"checkSystemVolume", "()V", nullptr, $PRIVATE | $STATIC | $FINAL, $method(static_cast<void(*)()>(&MacVolumesTest::checkSystemVolume)), "java.io.IOException"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&MacVolumesTest::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(MacVolumesTest, init$, void)},
+	{"checkDataVolume", "()V", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(MacVolumesTest, checkDataVolume, void), "java.io.IOException"},
+	{"checkFirmlinks", "()V", nullptr, $STATIC, $staticMethod(MacVolumesTest, checkFirmlinks, void), "java.io.IOException"},
+	{"checkSystemVolume", "()V", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(MacVolumesTest, checkSystemVolume, void), "java.io.IOException"},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(MacVolumesTest, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

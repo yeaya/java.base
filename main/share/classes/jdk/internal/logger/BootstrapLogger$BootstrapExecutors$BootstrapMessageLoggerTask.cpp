@@ -23,8 +23,8 @@ $FieldInfo _BootstrapLogger$BootstrapExecutors$BootstrapMessageLoggerTask_FieldI
 };
 
 $MethodInfo _BootstrapLogger$BootstrapExecutors$BootstrapMessageLoggerTask_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/ExecutorService;Ljava/lang/Runnable;)V", nullptr, $PUBLIC, $method(static_cast<void(BootstrapLogger$BootstrapExecutors$BootstrapMessageLoggerTask::*)($ExecutorService*,$Runnable*)>(&BootstrapLogger$BootstrapExecutors$BootstrapMessageLoggerTask::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/concurrent/ExecutorService;Ljava/lang/Runnable;)V", nullptr, $PUBLIC, $method(BootstrapLogger$BootstrapExecutors$BootstrapMessageLoggerTask, init$, void, $ExecutorService*, $Runnable*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(BootstrapLogger$BootstrapExecutors$BootstrapMessageLoggerTask, run, void)},
 	{}
 };
 

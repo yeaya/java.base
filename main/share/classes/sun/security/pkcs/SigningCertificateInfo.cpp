@@ -27,9 +27,9 @@ $FieldInfo _SigningCertificateInfo_FieldInfo_[] = {
 };
 
 $MethodInfo _SigningCertificateInfo_MethodInfo_[] = {
-	{"<init>", "([B)V", nullptr, $PUBLIC, $method(static_cast<void(SigningCertificateInfo::*)($bytes*)>(&SigningCertificateInfo::init$)), "java.io.IOException"},
-	{"parse", "([B)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "([B)V", nullptr, $PUBLIC, $method(SigningCertificateInfo, init$, void, $bytes*), "java.io.IOException"},
+	{"parse", "([B)V", nullptr, $PUBLIC, $virtualMethod(SigningCertificateInfo, parse, void, $bytes*), "java.io.IOException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SigningCertificateInfo, toString, $String*)},
 	{}
 };
 

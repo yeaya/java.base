@@ -23,9 +23,9 @@ $FieldInfo _ComposedCharIter_FieldInfo_[] = {
 };
 
 $MethodInfo _ComposedCharIter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ComposedCharIter::*)()>(&ComposedCharIter::init$))},
-	{"decomposition", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(static_cast<$String*(ComposedCharIter::*)()>(&ComposedCharIter::decomposition))},
-	{"next", "()I", nullptr, $PUBLIC, $method(static_cast<int32_t(ComposedCharIter::*)()>(&ComposedCharIter::next))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ComposedCharIter, init$, void)},
+	{"decomposition", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(ComposedCharIter, decomposition, $String*)},
+	{"next", "()I", nullptr, $PUBLIC, $method(ComposedCharIter, next, int32_t)},
 	{}
 };
 

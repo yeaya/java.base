@@ -69,20 +69,20 @@ $FieldInfo _CRLExtensions_FieldInfo_[] = {
 };
 
 $MethodInfo _CRLExtensions_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CRLExtensions::*)()>(&CRLExtensions::init$))},
-	{"<init>", "(Lsun/security/util/DerInputStream;)V", nullptr, $PUBLIC, $method(static_cast<void(CRLExtensions::*)($DerInputStream*)>(&CRLExtensions::init$)), "java.security.cert.CRLException"},
-	{"delete", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"encode", "(Ljava/io/OutputStream;Z)V", nullptr, $PUBLIC, nullptr, "java.security.cert.CRLException"},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"get", "(Ljava/lang/String;)Lsun/security/x509/Extension;", nullptr, $PUBLIC},
-	{"getAllExtensions", "()Ljava/util/Collection;", "()Ljava/util/Collection<Lsun/security/x509/Extension;>;", $PUBLIC},
-	{"getElements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Lsun/security/x509/Extension;>;", $PUBLIC},
-	{"hasUnsupportedCriticalExtension", "()Z", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"init", "(Lsun/security/util/DerInputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(CRLExtensions::*)($DerInputStream*)>(&CRLExtensions::init)), "java.security.cert.CRLException"},
-	{"parseExtension", "(Lsun/security/x509/Extension;)V", nullptr, $PRIVATE, $method(static_cast<void(CRLExtensions::*)($Extension*)>(&CRLExtensions::parseExtension)), "java.security.cert.CRLException"},
-	{"set", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CRLExtensions, init$, void)},
+	{"<init>", "(Lsun/security/util/DerInputStream;)V", nullptr, $PUBLIC, $method(CRLExtensions, init$, void, $DerInputStream*), "java.security.cert.CRLException"},
+	{"delete", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CRLExtensions, delete$, void, $String*)},
+	{"encode", "(Ljava/io/OutputStream;Z)V", nullptr, $PUBLIC, $virtualMethod(CRLExtensions, encode, void, $OutputStream*, bool), "java.security.cert.CRLException"},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(CRLExtensions, equals, bool, Object$*)},
+	{"get", "(Ljava/lang/String;)Lsun/security/x509/Extension;", nullptr, $PUBLIC, $virtualMethod(CRLExtensions, get, $Extension*, $String*)},
+	{"getAllExtensions", "()Ljava/util/Collection;", "()Ljava/util/Collection<Lsun/security/x509/Extension;>;", $PUBLIC, $virtualMethod(CRLExtensions, getAllExtensions, $Collection*)},
+	{"getElements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Lsun/security/x509/Extension;>;", $PUBLIC, $virtualMethod(CRLExtensions, getElements, $Enumeration*)},
+	{"hasUnsupportedCriticalExtension", "()Z", nullptr, $PUBLIC, $virtualMethod(CRLExtensions, hasUnsupportedCriticalExtension, bool)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(CRLExtensions, hashCode, int32_t)},
+	{"init", "(Lsun/security/util/DerInputStream;)V", nullptr, $PRIVATE, $method(CRLExtensions, init, void, $DerInputStream*), "java.security.cert.CRLException"},
+	{"parseExtension", "(Lsun/security/x509/Extension;)V", nullptr, $PRIVATE, $method(CRLExtensions, parseExtension, void, $Extension*), "java.security.cert.CRLException"},
+	{"set", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(CRLExtensions, set, void, $String*, Object$*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CRLExtensions, toString, $String*)},
 	{}
 };
 

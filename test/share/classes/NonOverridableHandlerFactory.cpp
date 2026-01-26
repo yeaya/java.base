@@ -18,9 +18,9 @@ using $URLStreamHandler = ::java::net::URLStreamHandler;
 using $URLStreamHandlerFactory = ::java::net::URLStreamHandlerFactory;
 
 $MethodInfo _NonOverridableHandlerFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(NonOverridableHandlerFactory::*)()>(&NonOverridableHandlerFactory::init$))},
-	{"createURLStreamHandler", "(Ljava/lang/String;)Ljava/net/URLStreamHandler;", nullptr, $PUBLIC},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&NonOverridableHandlerFactory::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(NonOverridableHandlerFactory, init$, void)},
+	{"createURLStreamHandler", "(Ljava/lang/String;)Ljava/net/URLStreamHandler;", nullptr, $PUBLIC, $virtualMethod(NonOverridableHandlerFactory, createURLStreamHandler, $URLStreamHandler*, $String*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(NonOverridableHandlerFactory, main, void, $StringArray*)},
 	{}
 };
 

@@ -6,6 +6,7 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Temporal = ::java::time::temporal::Temporal;
 
 namespace java {
 	namespace time {
@@ -17,7 +18,7 @@ $CompoundAttribute _TemporalAdjuster_Annotations_[] = {
 };
 
 $MethodInfo _TemporalAdjuster_MethodInfo_[] = {
-	{"adjustInto", "(Ljava/time/temporal/Temporal;)Ljava/time/temporal/Temporal;", nullptr, $PUBLIC | $ABSTRACT},
+	{"adjustInto", "(Ljava/time/temporal/Temporal;)Ljava/time/temporal/Temporal;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TemporalAdjuster, adjustInto, $Temporal*, $Temporal*)},
 	{}
 };
 

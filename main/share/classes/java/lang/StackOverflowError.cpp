@@ -17,8 +17,8 @@ $FieldInfo _StackOverflowError_FieldInfo_[] = {
 };
 
 $MethodInfo _StackOverflowError_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(StackOverflowError::*)()>(&StackOverflowError::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(StackOverflowError::*)($String*)>(&StackOverflowError::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(StackOverflowError, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(StackOverflowError, init$, void, $String*)},
 	{}
 };
 

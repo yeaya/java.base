@@ -19,14 +19,14 @@ $FieldInfo _ABCInputStream_FieldInfo_[] = {
 };
 
 $MethodInfo _ABCInputStream_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, 0, $method(static_cast<void(ABCInputStream::*)(int32_t)>(&ABCInputStream::init$))},
-	{"<init>", "(II)V", nullptr, 0, $method(static_cast<void(ABCInputStream::*)(int32_t,int32_t)>(&ABCInputStream::init$))},
-	{"available", "()I", nullptr, $PUBLIC},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"firstChar", "()C", nullptr, $STATIC, $method(static_cast<char16_t(*)()>(&ABCInputStream::firstChar))},
-	{"nextChar", "(C)C", nullptr, $STATIC, $method(static_cast<char16_t(*)(char16_t)>(&ABCInputStream::nextChar))},
-	{"read", "()I", nullptr, $PUBLIC},
-	{"read", "([BII)I", nullptr, $PUBLIC},
+	{"<init>", "(I)V", nullptr, 0, $method(ABCInputStream, init$, void, int32_t)},
+	{"<init>", "(II)V", nullptr, 0, $method(ABCInputStream, init$, void, int32_t, int32_t)},
+	{"available", "()I", nullptr, $PUBLIC, $virtualMethod(ABCInputStream, available, int32_t)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(ABCInputStream, close, void), "java.io.IOException"},
+	{"firstChar", "()C", nullptr, $STATIC, $staticMethod(ABCInputStream, firstChar, char16_t)},
+	{"nextChar", "(C)C", nullptr, $STATIC, $staticMethod(ABCInputStream, nextChar, char16_t, char16_t)},
+	{"read", "()I", nullptr, $PUBLIC, $virtualMethod(ABCInputStream, read, int32_t)},
+	{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(ABCInputStream, read, int32_t, $bytes*, int32_t, int32_t)},
 	{}
 };
 

@@ -40,15 +40,15 @@ $FieldInfo _JarFile$JarFileEntry_FieldInfo_[] = {
 };
 
 $MethodInfo _JarFile$JarFileEntry_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/jar/JarFile;Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(JarFile$JarFileEntry::*)($JarFile*,$String*)>(&JarFile$JarFileEntry::init$))},
-	{"<init>", "(Ljava/util/jar/JarFile;Ljava/lang/String;Ljava/util/zip/ZipEntry;)V", nullptr, 0, $method(static_cast<void(JarFile$JarFileEntry::*)($JarFile*,$String*,$ZipEntry*)>(&JarFile$JarFileEntry::init$))},
-	{"getAttributes", "()Ljava/util/jar/Attributes;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"getCertificates", "()[Ljava/security/cert/Certificate;", nullptr, $PUBLIC},
-	{"getCodeSigners", "()[Ljava/security/CodeSigner;", nullptr, $PUBLIC},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getRealName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"realEntry", "()Ljava/util/jar/JarFile$JarFileEntry;", nullptr, 0},
-	{"withBasename", "(Ljava/lang/String;)Ljava/util/jar/JarFile$JarFileEntry;", nullptr, 0},
+	{"<init>", "(Ljava/util/jar/JarFile;Ljava/lang/String;)V", nullptr, 0, $method(JarFile$JarFileEntry, init$, void, $JarFile*, $String*)},
+	{"<init>", "(Ljava/util/jar/JarFile;Ljava/lang/String;Ljava/util/zip/ZipEntry;)V", nullptr, 0, $method(JarFile$JarFileEntry, init$, void, $JarFile*, $String*, $ZipEntry*)},
+	{"getAttributes", "()Ljava/util/jar/Attributes;", nullptr, $PUBLIC, $virtualMethod(JarFile$JarFileEntry, getAttributes, $Attributes*), "java.io.IOException"},
+	{"getCertificates", "()[Ljava/security/cert/Certificate;", nullptr, $PUBLIC, $virtualMethod(JarFile$JarFileEntry, getCertificates, $CertificateArray*)},
+	{"getCodeSigners", "()[Ljava/security/CodeSigner;", nullptr, $PUBLIC, $virtualMethod(JarFile$JarFileEntry, getCodeSigners, $CodeSignerArray*)},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JarFile$JarFileEntry, getName, $String*)},
+	{"getRealName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JarFile$JarFileEntry, getRealName, $String*)},
+	{"realEntry", "()Ljava/util/jar/JarFile$JarFileEntry;", nullptr, 0, $virtualMethod(JarFile$JarFileEntry, realEntry, JarFile$JarFileEntry*)},
+	{"withBasename", "(Ljava/lang/String;)Ljava/util/jar/JarFile$JarFileEntry;", nullptr, 0, $virtualMethod(JarFile$JarFileEntry, withBasename, JarFile$JarFileEntry*, $String*)},
 	{}
 };
 

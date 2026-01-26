@@ -16,8 +16,8 @@ $FieldInfo _ArrayStoreException_FieldInfo_[] = {
 };
 
 $MethodInfo _ArrayStoreException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ArrayStoreException::*)()>(&ArrayStoreException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(ArrayStoreException::*)($String*)>(&ArrayStoreException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ArrayStoreException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ArrayStoreException, init$, void, $String*)},
 	{}
 };
 

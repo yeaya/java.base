@@ -104,8 +104,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo HostnameChecker$$Lambda$lambda$hasIllegalWildcard$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(HostnameChecker$$Lambda$lambda$hasIllegalWildcard$0::*)()>(&HostnameChecker$$Lambda$lambda$hasIllegalWildcard$0::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(HostnameChecker$$Lambda$lambda$hasIllegalWildcard$0, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(HostnameChecker$$Lambda$lambda$hasIllegalWildcard$0, test, bool, Object$*)},
 	{}
 };
 $ClassInfo HostnameChecker$$Lambda$lambda$hasIllegalWildcard$0::classInfo$ = {
@@ -137,8 +137,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo HostnameChecker$$Lambda$publicSuffix$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(HostnameChecker$$Lambda$publicSuffix$1::*)()>(&HostnameChecker$$Lambda$publicSuffix$1::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(HostnameChecker$$Lambda$publicSuffix$1, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HostnameChecker$$Lambda$publicSuffix$1, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo HostnameChecker$$Lambda$publicSuffix$1::classInfo$ = {
@@ -167,20 +167,20 @@ $FieldInfo _HostnameChecker_FieldInfo_[] = {
 };
 
 $MethodInfo _HostnameChecker_MethodInfo_[] = {
-	{"<init>", "(B)V", nullptr, $PRIVATE, $method(static_cast<void(HostnameChecker::*)(int8_t)>(&HostnameChecker::init$))},
-	{"getInstance", "(B)Lsun/security/util/HostnameChecker;", nullptr, $PUBLIC | $STATIC, $method(static_cast<HostnameChecker*(*)(int8_t)>(&HostnameChecker::getInstance))},
-	{"getSubjectX500Name", "(Ljava/security/cert/X509Certificate;)Lsun/security/x509/X500Name;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$X500Name*(*)($X509Certificate*)>(&HostnameChecker::getSubjectX500Name)), "java.security.cert.CertificateParsingException"},
-	{"hasIllegalWildcard", "(Ljava/lang/String;Z)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($String*,bool)>(&HostnameChecker::hasIllegalWildcard))},
-	{"isIpAddress", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($String*)>(&HostnameChecker::isIpAddress))},
-	{"isMatched", "(Ljava/lang/String;Ljava/lang/String;Z)Z", nullptr, $PRIVATE, $method(static_cast<bool(HostnameChecker::*)($String*,$String*,bool)>(&HostnameChecker::isMatched))},
-	{"lambda$hasIllegalWildcard$0", "(Lsun/security/util/RegisteredDomain;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($RegisteredDomain*)>(&HostnameChecker::lambda$hasIllegalWildcard$0))},
-	{"match", "(Ljava/lang/String;Ljava/security/cert/X509Certificate;Z)V", nullptr, $PUBLIC, nullptr, "java.security.cert.CertificateException"},
-	{"match", "(Ljava/lang/String;Ljava/security/cert/X509Certificate;)V", nullptr, $PUBLIC, nullptr, "java.security.cert.CertificateException"},
-	{"matchAllWildcards", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($String*,$String*)>(&HostnameChecker::matchAllWildcards))},
-	{"matchDNS", "(Ljava/lang/String;Ljava/security/cert/X509Certificate;Z)V", nullptr, $PRIVATE, $method(static_cast<void(HostnameChecker::*)($String*,$X509Certificate*,bool)>(&HostnameChecker::matchDNS)), "java.security.cert.CertificateException"},
-	{"matchIP", "(Ljava/lang/String;Ljava/security/cert/X509Certificate;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($String*,$X509Certificate*)>(&HostnameChecker::matchIP)), "java.security.cert.CertificateException"},
-	{"matchLeftmostWildcard", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($String*,$String*)>(&HostnameChecker::matchLeftmostWildcard))},
-	{"matchWildCards", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($String*,$String*)>(&HostnameChecker::matchWildCards))},
+	{"<init>", "(B)V", nullptr, $PRIVATE, $method(HostnameChecker, init$, void, int8_t)},
+	{"getInstance", "(B)Lsun/security/util/HostnameChecker;", nullptr, $PUBLIC | $STATIC, $staticMethod(HostnameChecker, getInstance, HostnameChecker*, int8_t)},
+	{"getSubjectX500Name", "(Ljava/security/cert/X509Certificate;)Lsun/security/x509/X500Name;", nullptr, $PUBLIC | $STATIC, $staticMethod(HostnameChecker, getSubjectX500Name, $X500Name*, $X509Certificate*), "java.security.cert.CertificateParsingException"},
+	{"hasIllegalWildcard", "(Ljava/lang/String;Z)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(HostnameChecker, hasIllegalWildcard, bool, $String*, bool)},
+	{"isIpAddress", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(HostnameChecker, isIpAddress, bool, $String*)},
+	{"isMatched", "(Ljava/lang/String;Ljava/lang/String;Z)Z", nullptr, $PRIVATE, $method(HostnameChecker, isMatched, bool, $String*, $String*, bool)},
+	{"lambda$hasIllegalWildcard$0", "(Lsun/security/util/RegisteredDomain;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HostnameChecker, lambda$hasIllegalWildcard$0, bool, $RegisteredDomain*)},
+	{"match", "(Ljava/lang/String;Ljava/security/cert/X509Certificate;Z)V", nullptr, $PUBLIC, $virtualMethod(HostnameChecker, match, void, $String*, $X509Certificate*, bool), "java.security.cert.CertificateException"},
+	{"match", "(Ljava/lang/String;Ljava/security/cert/X509Certificate;)V", nullptr, $PUBLIC, $virtualMethod(HostnameChecker, match, void, $String*, $X509Certificate*), "java.security.cert.CertificateException"},
+	{"matchAllWildcards", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(HostnameChecker, matchAllWildcards, bool, $String*, $String*)},
+	{"matchDNS", "(Ljava/lang/String;Ljava/security/cert/X509Certificate;Z)V", nullptr, $PRIVATE, $method(HostnameChecker, matchDNS, void, $String*, $X509Certificate*, bool), "java.security.cert.CertificateException"},
+	{"matchIP", "(Ljava/lang/String;Ljava/security/cert/X509Certificate;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(HostnameChecker, matchIP, void, $String*, $X509Certificate*), "java.security.cert.CertificateException"},
+	{"matchLeftmostWildcard", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(HostnameChecker, matchLeftmostWildcard, bool, $String*, $String*)},
+	{"matchWildCards", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(HostnameChecker, matchWildCards, bool, $String*, $String*)},
 	{}
 };
 

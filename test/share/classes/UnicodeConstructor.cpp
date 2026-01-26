@@ -12,8 +12,8 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $BigInteger = ::java::math::BigInteger;
 
 $MethodInfo _UnicodeConstructor_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(UnicodeConstructor::*)()>(&UnicodeConstructor::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&UnicodeConstructor::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(UnicodeConstructor, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(UnicodeConstructor, main, void, $StringArray*)},
 	{}
 };
 

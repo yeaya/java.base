@@ -23,10 +23,10 @@ $FieldInfo _PKCS5Padding_FieldInfo_[] = {
 };
 
 $MethodInfo _PKCS5Padding_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, 0, $method(static_cast<void(PKCS5Padding::*)(int32_t)>(&PKCS5Padding::init$))},
-	{"padLength", "(I)I", nullptr, $PUBLIC},
-	{"padWithLen", "([BII)V", nullptr, $PUBLIC, nullptr, "javax.crypto.ShortBufferException"},
-	{"unpad", "([BII)I", nullptr, $PUBLIC},
+	{"<init>", "(I)V", nullptr, 0, $method(PKCS5Padding, init$, void, int32_t)},
+	{"padLength", "(I)I", nullptr, $PUBLIC, $virtualMethod(PKCS5Padding, padLength, int32_t, int32_t)},
+	{"padWithLen", "([BII)V", nullptr, $PUBLIC, $virtualMethod(PKCS5Padding, padWithLen, void, $bytes*, int32_t, int32_t), "javax.crypto.ShortBufferException"},
+	{"unpad", "([BII)I", nullptr, $PUBLIC, $virtualMethod(PKCS5Padding, unpad, int32_t, $bytes*, int32_t, int32_t)},
 	{}
 };
 

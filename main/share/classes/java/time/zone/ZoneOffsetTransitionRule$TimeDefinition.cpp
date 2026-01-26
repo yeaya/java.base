@@ -34,11 +34,11 @@ $FieldInfo _ZoneOffsetTransitionRule$TimeDefinition_FieldInfo_[] = {
 };
 
 $MethodInfo _ZoneOffsetTransitionRule$TimeDefinition_MethodInfo_[] = {
-	{"$values", "()[Ljava/time/zone/ZoneOffsetTransitionRule$TimeDefinition;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$ZoneOffsetTransitionRule$TimeDefinitionArray*(*)()>(&ZoneOffsetTransitionRule$TimeDefinition::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(ZoneOffsetTransitionRule$TimeDefinition::*)($String*,int32_t)>(&ZoneOffsetTransitionRule$TimeDefinition::init$))},
-	{"createDateTime", "(Ljava/time/LocalDateTime;Ljava/time/ZoneOffset;Ljava/time/ZoneOffset;)Ljava/time/LocalDateTime;", nullptr, $PUBLIC, $method(static_cast<$LocalDateTime*(ZoneOffsetTransitionRule$TimeDefinition::*)($LocalDateTime*,$ZoneOffset*,$ZoneOffset*)>(&ZoneOffsetTransitionRule$TimeDefinition::createDateTime))},
-	{"valueOf", "(Ljava/lang/String;)Ljava/time/zone/ZoneOffsetTransitionRule$TimeDefinition;", nullptr, $PUBLIC | $STATIC, $method(static_cast<ZoneOffsetTransitionRule$TimeDefinition*(*)($String*)>(&ZoneOffsetTransitionRule$TimeDefinition::valueOf))},
-	{"values", "()[Ljava/time/zone/ZoneOffsetTransitionRule$TimeDefinition;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$ZoneOffsetTransitionRule$TimeDefinitionArray*(*)()>(&ZoneOffsetTransitionRule$TimeDefinition::values))},
+	{"$values", "()[Ljava/time/zone/ZoneOffsetTransitionRule$TimeDefinition;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ZoneOffsetTransitionRule$TimeDefinition, $values, $ZoneOffsetTransitionRule$TimeDefinitionArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(ZoneOffsetTransitionRule$TimeDefinition, init$, void, $String*, int32_t)},
+	{"createDateTime", "(Ljava/time/LocalDateTime;Ljava/time/ZoneOffset;Ljava/time/ZoneOffset;)Ljava/time/LocalDateTime;", nullptr, $PUBLIC, $method(ZoneOffsetTransitionRule$TimeDefinition, createDateTime, $LocalDateTime*, $LocalDateTime*, $ZoneOffset*, $ZoneOffset*)},
+	{"valueOf", "(Ljava/lang/String;)Ljava/time/zone/ZoneOffsetTransitionRule$TimeDefinition;", nullptr, $PUBLIC | $STATIC, $staticMethod(ZoneOffsetTransitionRule$TimeDefinition, valueOf, ZoneOffsetTransitionRule$TimeDefinition*, $String*)},
+	{"values", "()[Ljava/time/zone/ZoneOffsetTransitionRule$TimeDefinition;", nullptr, $PUBLIC | $STATIC, $staticMethod(ZoneOffsetTransitionRule$TimeDefinition, values, $ZoneOffsetTransitionRule$TimeDefinitionArray*)},
 	{}
 };
 

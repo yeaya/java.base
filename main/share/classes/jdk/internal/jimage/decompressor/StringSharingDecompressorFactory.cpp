@@ -27,8 +27,8 @@ $FieldInfo _StringSharingDecompressorFactory_FieldInfo_[] = {
 };
 
 $MethodInfo _StringSharingDecompressorFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(StringSharingDecompressorFactory::*)()>(&StringSharingDecompressorFactory::init$))},
-	{"newDecompressor", "(Ljava/util/Properties;)Ljdk/internal/jimage/decompressor/ResourceDecompressor;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(StringSharingDecompressorFactory, init$, void)},
+	{"newDecompressor", "(Ljava/util/Properties;)Ljdk/internal/jimage/decompressor/ResourceDecompressor;", nullptr, $PUBLIC, $virtualMethod(StringSharingDecompressorFactory, newDecompressor, $ResourceDecompressor*, $Properties*), "java.io.IOException"},
 	{}
 };
 

@@ -11,8 +11,8 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $URLClassLoader = ::java::net::URLClassLoader;
 
 $MethodInfo _FileClassLoader_MethodInfo_[] = {
-	{"<init>", "([Ljava/net/URL;)V", nullptr, $PUBLIC, $method(static_cast<void(FileClassLoader::*)($URLArray*)>(&FileClassLoader::init$))},
-	{"testFindLoadedClass", "(Ljava/lang/String;)V", nullptr, $PUBLIC, nullptr, "java.lang.Exception"},
+	{"<init>", "([Ljava/net/URL;)V", nullptr, $PUBLIC, $method(FileClassLoader, init$, void, $URLArray*)},
+	{"testFindLoadedClass", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(FileClassLoader, testFindLoadedClass, void, $String*), "java.lang.Exception"},
 	{}
 };
 

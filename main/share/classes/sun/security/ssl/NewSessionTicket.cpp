@@ -50,8 +50,8 @@ $FieldInfo _NewSessionTicket_FieldInfo_[] = {
 };
 
 $MethodInfo _NewSessionTicket_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(NewSessionTicket::*)()>(&NewSessionTicket::init$))},
-	{"derivePreSharedKey", "(Lsun/security/ssl/CipherSuite$HashAlg;Ljavax/crypto/SecretKey;[B)Ljavax/crypto/SecretKey;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$SecretKey*(*)($CipherSuite$HashAlg*,$SecretKey*,$bytes*)>(&NewSessionTicket::derivePreSharedKey)), "java.io.IOException"},
+	{"<init>", "()V", nullptr, 0, $method(NewSessionTicket, init$, void)},
+	{"derivePreSharedKey", "(Lsun/security/ssl/CipherSuite$HashAlg;Ljavax/crypto/SecretKey;[B)Ljavax/crypto/SecretKey;", nullptr, $PRIVATE | $STATIC, $staticMethod(NewSessionTicket, derivePreSharedKey, $SecretKey*, $CipherSuite$HashAlg*, $SecretKey*, $bytes*), "java.io.IOException"},
 	{}
 };
 

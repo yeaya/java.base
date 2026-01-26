@@ -81,6 +81,7 @@ using ::java::lang::Module;
 using ::java::lang::Package;
 using ::java::lang::StackWalker;
 using ::java::lang::StackWalker$Option;
+using ::java::lang::Platform;
 using ::java::lang::module::ModuleDescriptor;
 using $Thread = ::java::lang::Thread;
 using ::java::lang::ref::PhantomReference;

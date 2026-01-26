@@ -42,17 +42,17 @@ $FieldInfo _AbstractClassLoaderValue_FieldInfo_[] = {
 };
 
 $MethodInfo _AbstractClassLoaderValue_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(AbstractClassLoaderValue::*)()>(&AbstractClassLoaderValue::init$))},
-	{"computeIfAbsent", "(Ljava/lang/ClassLoader;Ljava/util/function/BiFunction;)Ljava/lang/Object;", "(Ljava/lang/ClassLoader;Ljava/util/function/BiFunction<-Ljava/lang/ClassLoader;-TCLV;+TV;>;)TV;", $PUBLIC, nullptr, "java.lang.IllegalStateException"},
-	{"extractValue", "(Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/lang/Object;)TV;", $PRIVATE, $method(static_cast<$Object*(AbstractClassLoaderValue::*)(Object$*)>(&AbstractClassLoaderValue::extractValue))},
-	{"get", "(Ljava/lang/ClassLoader;)Ljava/lang/Object;", "(Ljava/lang/ClassLoader;)TV;", $PUBLIC},
-	{"isEqualOrDescendantOf", "(Ljdk/internal/loader/AbstractClassLoaderValue;)Z", "(Ljdk/internal/loader/AbstractClassLoaderValue<*TV;>;)Z", $PUBLIC | $ABSTRACT},
-	{"key", "()Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
-	{"map", "(Ljava/lang/ClassLoader;)Ljava/util/concurrent/ConcurrentHashMap;", "<CLV:Ljdk/internal/loader/AbstractClassLoaderValue<TCLV;*>;>(Ljava/lang/ClassLoader;)Ljava/util/concurrent/ConcurrentHashMap<TCLV;Ljava/lang/Object;>;", $PRIVATE | $STATIC, $method(static_cast<$ConcurrentHashMap*(*)($ClassLoader*)>(&AbstractClassLoaderValue::map))},
-	{"putIfAbsent", "(Ljava/lang/ClassLoader;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/lang/ClassLoader;TV;)TV;", $PUBLIC},
-	{"remove", "(Ljava/lang/ClassLoader;Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"removeAll", "(Ljava/lang/ClassLoader;)V", nullptr, $PUBLIC},
-	{"sub", "(Ljava/lang/Object;)Ljdk/internal/loader/AbstractClassLoaderValue$Sub;", "<K:Ljava/lang/Object;>(TK;)Ljdk/internal/loader/AbstractClassLoaderValue<TCLV;TV;>.Sub<TK;>;", $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(AbstractClassLoaderValue, init$, void)},
+	{"computeIfAbsent", "(Ljava/lang/ClassLoader;Ljava/util/function/BiFunction;)Ljava/lang/Object;", "(Ljava/lang/ClassLoader;Ljava/util/function/BiFunction<-Ljava/lang/ClassLoader;-TCLV;+TV;>;)TV;", $PUBLIC, $virtualMethod(AbstractClassLoaderValue, computeIfAbsent, $Object*, $ClassLoader*, $BiFunction*), "java.lang.IllegalStateException"},
+	{"extractValue", "(Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/lang/Object;)TV;", $PRIVATE, $method(AbstractClassLoaderValue, extractValue, $Object*, Object$*)},
+	{"get", "(Ljava/lang/ClassLoader;)Ljava/lang/Object;", "(Ljava/lang/ClassLoader;)TV;", $PUBLIC, $virtualMethod(AbstractClassLoaderValue, get, $Object*, $ClassLoader*)},
+	{"isEqualOrDescendantOf", "(Ljdk/internal/loader/AbstractClassLoaderValue;)Z", "(Ljdk/internal/loader/AbstractClassLoaderValue<*TV;>;)Z", $PUBLIC | $ABSTRACT, $virtualMethod(AbstractClassLoaderValue, isEqualOrDescendantOf, bool, AbstractClassLoaderValue*)},
+	{"key", "()Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AbstractClassLoaderValue, key, $Object*)},
+	{"map", "(Ljava/lang/ClassLoader;)Ljava/util/concurrent/ConcurrentHashMap;", "<CLV:Ljdk/internal/loader/AbstractClassLoaderValue<TCLV;*>;>(Ljava/lang/ClassLoader;)Ljava/util/concurrent/ConcurrentHashMap<TCLV;Ljava/lang/Object;>;", $PRIVATE | $STATIC, $staticMethod(AbstractClassLoaderValue, map, $ConcurrentHashMap*, $ClassLoader*)},
+	{"putIfAbsent", "(Ljava/lang/ClassLoader;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/lang/ClassLoader;TV;)TV;", $PUBLIC, $virtualMethod(AbstractClassLoaderValue, putIfAbsent, $Object*, $ClassLoader*, Object$*)},
+	{"remove", "(Ljava/lang/ClassLoader;Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(AbstractClassLoaderValue, remove, bool, $ClassLoader*, Object$*)},
+	{"removeAll", "(Ljava/lang/ClassLoader;)V", nullptr, $PUBLIC, $virtualMethod(AbstractClassLoaderValue, removeAll, void, $ClassLoader*)},
+	{"sub", "(Ljava/lang/Object;)Ljdk/internal/loader/AbstractClassLoaderValue$Sub;", "<K:Ljava/lang/Object;>(TK;)Ljdk/internal/loader/AbstractClassLoaderValue<TCLV;TV;>.Sub<TK;>;", $PUBLIC, $virtualMethod(AbstractClassLoaderValue, sub, $AbstractClassLoaderValue$Sub*, Object$*)},
 	{}
 };
 

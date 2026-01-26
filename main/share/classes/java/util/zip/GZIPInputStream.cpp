@@ -59,17 +59,17 @@ $FieldInfo _GZIPInputStream_FieldInfo_[] = {
 };
 
 $MethodInfo _GZIPInputStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/InputStream;I)V", nullptr, $PUBLIC, $method(static_cast<void(GZIPInputStream::*)($InputStream*,int32_t)>(&GZIPInputStream::init$)), "java.io.IOException"},
-	{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(static_cast<void(GZIPInputStream::*)($InputStream*)>(&GZIPInputStream::init$)), "java.io.IOException"},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"ensureOpen", "()V", nullptr, $PRIVATE, $method(static_cast<void(GZIPInputStream::*)()>(&GZIPInputStream::ensureOpen)), "java.io.IOException"},
-	{"read", "([BII)I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"readHeader", "(Ljava/io/InputStream;)I", nullptr, $PRIVATE, $method(static_cast<int32_t(GZIPInputStream::*)($InputStream*)>(&GZIPInputStream::readHeader)), "java.io.IOException"},
-	{"readTrailer", "()Z", nullptr, $PRIVATE, $method(static_cast<bool(GZIPInputStream::*)()>(&GZIPInputStream::readTrailer)), "java.io.IOException"},
-	{"readUByte", "(Ljava/io/InputStream;)I", nullptr, $PRIVATE, $method(static_cast<int32_t(GZIPInputStream::*)($InputStream*)>(&GZIPInputStream::readUByte)), "java.io.IOException"},
-	{"readUInt", "(Ljava/io/InputStream;)J", nullptr, $PRIVATE, $method(static_cast<int64_t(GZIPInputStream::*)($InputStream*)>(&GZIPInputStream::readUInt)), "java.io.IOException"},
-	{"readUShort", "(Ljava/io/InputStream;)I", nullptr, $PRIVATE, $method(static_cast<int32_t(GZIPInputStream::*)($InputStream*)>(&GZIPInputStream::readUShort)), "java.io.IOException"},
-	{"skipBytes", "(Ljava/io/InputStream;I)V", nullptr, $PRIVATE, $method(static_cast<void(GZIPInputStream::*)($InputStream*,int32_t)>(&GZIPInputStream::skipBytes)), "java.io.IOException"},
+	{"<init>", "(Ljava/io/InputStream;I)V", nullptr, $PUBLIC, $method(GZIPInputStream, init$, void, $InputStream*, int32_t), "java.io.IOException"},
+	{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(GZIPInputStream, init$, void, $InputStream*), "java.io.IOException"},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(GZIPInputStream, close, void), "java.io.IOException"},
+	{"ensureOpen", "()V", nullptr, $PRIVATE, $method(GZIPInputStream, ensureOpen, void), "java.io.IOException"},
+	{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(GZIPInputStream, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
+	{"readHeader", "(Ljava/io/InputStream;)I", nullptr, $PRIVATE, $method(GZIPInputStream, readHeader, int32_t, $InputStream*), "java.io.IOException"},
+	{"readTrailer", "()Z", nullptr, $PRIVATE, $method(GZIPInputStream, readTrailer, bool), "java.io.IOException"},
+	{"readUByte", "(Ljava/io/InputStream;)I", nullptr, $PRIVATE, $method(GZIPInputStream, readUByte, int32_t, $InputStream*), "java.io.IOException"},
+	{"readUInt", "(Ljava/io/InputStream;)J", nullptr, $PRIVATE, $method(GZIPInputStream, readUInt, int64_t, $InputStream*), "java.io.IOException"},
+	{"readUShort", "(Ljava/io/InputStream;)I", nullptr, $PRIVATE, $method(GZIPInputStream, readUShort, int32_t, $InputStream*), "java.io.IOException"},
+	{"skipBytes", "(Ljava/io/InputStream;I)V", nullptr, $PRIVATE, $method(GZIPInputStream, skipBytes, void, $InputStream*, int32_t), "java.io.IOException"},
 	{}
 };
 

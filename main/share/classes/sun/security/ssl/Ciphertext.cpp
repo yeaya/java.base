@@ -20,8 +20,8 @@ $FieldInfo _Ciphertext_FieldInfo_[] = {
 };
 
 $MethodInfo _Ciphertext_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(Ciphertext::*)()>(&Ciphertext::init$))},
-	{"<init>", "(BBJ)V", nullptr, 0, $method(static_cast<void(Ciphertext::*)(int8_t,int8_t,int64_t)>(&Ciphertext::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(Ciphertext, init$, void)},
+	{"<init>", "(BBJ)V", nullptr, 0, $method(Ciphertext, init$, void, int8_t, int8_t, int64_t)},
 	{}
 };
 

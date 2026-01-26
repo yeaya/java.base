@@ -21,10 +21,10 @@ $FieldInfo _AppendStringBuilder_FieldInfo_[] = {
 };
 
 $MethodInfo _AppendStringBuilder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(AppendStringBuilder::*)()>(&AppendStringBuilder::init$))},
-	{"generateTestBuilder", "(II)Ljava/lang/StringBuilder;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$StringBuilder*(*)(int32_t,int32_t)>(&AppendStringBuilder::generateTestBuilder))},
-	{"getRandomIndex", "(II)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)(int32_t,int32_t)>(&AppendStringBuilder::getRandomIndex))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&AppendStringBuilder::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(AppendStringBuilder, init$, void)},
+	{"generateTestBuilder", "(II)Ljava/lang/StringBuilder;", nullptr, $PRIVATE | $STATIC, $staticMethod(AppendStringBuilder, generateTestBuilder, $StringBuilder*, int32_t, int32_t)},
+	{"getRandomIndex", "(II)I", nullptr, $PRIVATE | $STATIC, $staticMethod(AppendStringBuilder, getRandomIndex, int32_t, int32_t, int32_t)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(AppendStringBuilder, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

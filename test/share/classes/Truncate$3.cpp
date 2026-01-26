@@ -18,8 +18,8 @@ $FieldInfo _Truncate$3_FieldInfo_[] = {
 };
 
 $MethodInfo _Truncate$3_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/Callable;)V", "()V", 0, $method(static_cast<void(Truncate$3::*)($Callable*)>(&Truncate$3::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/concurrent/Callable;)V", "()V", 0, $method(Truncate$3, init$, void, $Callable*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Truncate$3, run, void)},
 	{}
 };
 

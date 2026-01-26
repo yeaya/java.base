@@ -47,7 +47,7 @@ $CompoundAttribute _C2_Annotations_[] = {
 };
 
 $MethodInfo _C2_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(C2::*)()>(&C2::init$))},
+	{"<init>", "()V", nullptr, 0, $method(C2, init$, void)},
 	{}
 };
 

@@ -14,8 +14,8 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Enumeration = ::java::util::Enumeration;
 
 $MethodInfo _ResourcesStreamTest$FailingClassLoader_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ResourcesStreamTest$FailingClassLoader::*)()>(&ResourcesStreamTest$FailingClassLoader::init$))},
-	{"getResources", "(Ljava/lang/String;)Ljava/util/Enumeration;", "(Ljava/lang/String;)Ljava/util/Enumeration<Ljava/net/URL;>;", $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ResourcesStreamTest$FailingClassLoader, init$, void)},
+	{"getResources", "(Ljava/lang/String;)Ljava/util/Enumeration;", "(Ljava/lang/String;)Ljava/util/Enumeration<Ljava/net/URL;>;", $PUBLIC, $virtualMethod(ResourcesStreamTest$FailingClassLoader, getResources, $Enumeration*, $String*), "java.io.IOException"},
 	{}
 };
 

@@ -27,12 +27,12 @@ $FieldInfo _ReduceOps$2ReducingSink_FieldInfo_[] = {
 };
 
 $MethodInfo _ReduceOps$2ReducingSink_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/function/BinaryOperator;)V", "()V", 0, $method(static_cast<void(ReduceOps$2ReducingSink::*)($BinaryOperator*)>(&ReduceOps$2ReducingSink::init$))},
-	{"accept", "(Ljava/lang/Object;)V", "(TT;)V", $PUBLIC},
-	{"begin", "(J)V", nullptr, $PUBLIC},
-	{"combine", "(Ljava/util/stream/ReduceOps$2ReducingSink;)V", nullptr, $PUBLIC},
-	{"combine", "(Ljava/util/stream/ReduceOps$AccumulatingSink;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"get", "()Ljava/util/Optional;", "()Ljava/util/Optional<TT;>;", $PUBLIC},
+	{"<init>", "(Ljava/util/function/BinaryOperator;)V", "()V", 0, $method(ReduceOps$2ReducingSink, init$, void, $BinaryOperator*)},
+	{"accept", "(Ljava/lang/Object;)V", "(TT;)V", $PUBLIC, $virtualMethod(ReduceOps$2ReducingSink, accept, void, Object$*)},
+	{"begin", "(J)V", nullptr, $PUBLIC, $virtualMethod(ReduceOps$2ReducingSink, begin, void, int64_t)},
+	{"combine", "(Ljava/util/stream/ReduceOps$2ReducingSink;)V", nullptr, $PUBLIC, $virtualMethod(ReduceOps$2ReducingSink, combine, void, ReduceOps$2ReducingSink*)},
+	{"combine", "(Ljava/util/stream/ReduceOps$AccumulatingSink;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ReduceOps$2ReducingSink, combine, void, $ReduceOps$AccumulatingSink*)},
+	{"get", "()Ljava/util/Optional;", "()Ljava/util/Optional<TT;>;", $PUBLIC, $virtualMethod(ReduceOps$2ReducingSink, get, $Object*)},
 	{}
 };
 

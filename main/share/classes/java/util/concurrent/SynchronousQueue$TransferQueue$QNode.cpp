@@ -42,16 +42,16 @@ $FieldInfo _SynchronousQueue$TransferQueue$QNode_FieldInfo_[] = {
 };
 
 $MethodInfo _SynchronousQueue$TransferQueue$QNode_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;Z)V", nullptr, 0, $method(static_cast<void(SynchronousQueue$TransferQueue$QNode::*)(Object$*,bool)>(&SynchronousQueue$TransferQueue$QNode::init$))},
-	{"block", "()Z", nullptr, $PUBLIC | $FINAL},
-	{"casItem", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, 0, $method(static_cast<bool(SynchronousQueue$TransferQueue$QNode::*)(Object$*,Object$*)>(&SynchronousQueue$TransferQueue$QNode::casItem))},
-	{"casNext", "(Ljava/util/concurrent/SynchronousQueue$TransferQueue$QNode;Ljava/util/concurrent/SynchronousQueue$TransferQueue$QNode;)Z", nullptr, 0, $method(static_cast<bool(SynchronousQueue$TransferQueue$QNode::*)(SynchronousQueue$TransferQueue$QNode*,SynchronousQueue$TransferQueue$QNode*)>(&SynchronousQueue$TransferQueue$QNode::casNext))},
-	{"forgetWaiter", "()V", nullptr, 0, $method(static_cast<void(SynchronousQueue$TransferQueue$QNode::*)()>(&SynchronousQueue$TransferQueue$QNode::forgetWaiter))},
-	{"isCancelled", "()Z", nullptr, 0, $method(static_cast<bool(SynchronousQueue$TransferQueue$QNode::*)()>(&SynchronousQueue$TransferQueue$QNode::isCancelled))},
-	{"isFulfilled", "()Z", nullptr, 0, $method(static_cast<bool(SynchronousQueue$TransferQueue$QNode::*)()>(&SynchronousQueue$TransferQueue$QNode::isFulfilled))},
-	{"isOffList", "()Z", nullptr, 0, $method(static_cast<bool(SynchronousQueue$TransferQueue$QNode::*)()>(&SynchronousQueue$TransferQueue$QNode::isOffList))},
-	{"isReleasable", "()Z", nullptr, $PUBLIC | $FINAL},
-	{"tryCancel", "(Ljava/lang/Object;)Z", nullptr, 0, $method(static_cast<bool(SynchronousQueue$TransferQueue$QNode::*)(Object$*)>(&SynchronousQueue$TransferQueue$QNode::tryCancel))},
+	{"<init>", "(Ljava/lang/Object;Z)V", nullptr, 0, $method(SynchronousQueue$TransferQueue$QNode, init$, void, Object$*, bool)},
+	{"block", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(SynchronousQueue$TransferQueue$QNode, block, bool)},
+	{"casItem", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, 0, $method(SynchronousQueue$TransferQueue$QNode, casItem, bool, Object$*, Object$*)},
+	{"casNext", "(Ljava/util/concurrent/SynchronousQueue$TransferQueue$QNode;Ljava/util/concurrent/SynchronousQueue$TransferQueue$QNode;)Z", nullptr, 0, $method(SynchronousQueue$TransferQueue$QNode, casNext, bool, SynchronousQueue$TransferQueue$QNode*, SynchronousQueue$TransferQueue$QNode*)},
+	{"forgetWaiter", "()V", nullptr, 0, $method(SynchronousQueue$TransferQueue$QNode, forgetWaiter, void)},
+	{"isCancelled", "()Z", nullptr, 0, $method(SynchronousQueue$TransferQueue$QNode, isCancelled, bool)},
+	{"isFulfilled", "()Z", nullptr, 0, $method(SynchronousQueue$TransferQueue$QNode, isFulfilled, bool)},
+	{"isOffList", "()Z", nullptr, 0, $method(SynchronousQueue$TransferQueue$QNode, isOffList, bool)},
+	{"isReleasable", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(SynchronousQueue$TransferQueue$QNode, isReleasable, bool)},
+	{"tryCancel", "(Ljava/lang/Object;)Z", nullptr, 0, $method(SynchronousQueue$TransferQueue$QNode, tryCancel, bool, Object$*)},
 	{}
 };
 

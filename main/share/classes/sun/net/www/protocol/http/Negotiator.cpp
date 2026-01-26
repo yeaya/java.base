@@ -33,11 +33,11 @@ namespace sun {
 				namespace http {
 
 $MethodInfo _Negotiator_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Negotiator::*)()>(&Negotiator::init$))},
-	{"finest", "(Ljava/lang/Exception;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($Exception*)>(&Negotiator::finest))},
-	{"firstToken", "()[B", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"getNegotiator", "(Lsun/net/www/protocol/http/HttpCallerInfo;)Lsun/net/www/protocol/http/Negotiator;", nullptr, $STATIC, $method(static_cast<Negotiator*(*)($HttpCallerInfo*)>(&Negotiator::getNegotiator))},
-	{"nextToken", "([B)[B", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Negotiator, init$, void)},
+	{"finest", "(Ljava/lang/Exception;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Negotiator, finest, void, $Exception*)},
+	{"firstToken", "()[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Negotiator, firstToken, $bytes*), "java.io.IOException"},
+	{"getNegotiator", "(Lsun/net/www/protocol/http/HttpCallerInfo;)Lsun/net/www/protocol/http/Negotiator;", nullptr, $STATIC, $staticMethod(Negotiator, getNegotiator, Negotiator*, $HttpCallerInfo*)},
+	{"nextToken", "([B)[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Negotiator, nextToken, $bytes*, $bytes*), "java.io.IOException"},
 	{}
 };
 

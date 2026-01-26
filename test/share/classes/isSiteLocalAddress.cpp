@@ -16,8 +16,8 @@ using $Iterator = ::java::util::Iterator;
 using $Vector = ::java::util::Vector;
 
 $MethodInfo _isSiteLocalAddress_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(isSiteLocalAddress::*)()>(&isSiteLocalAddress::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&isSiteLocalAddress::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(isSiteLocalAddress, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(isSiteLocalAddress, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

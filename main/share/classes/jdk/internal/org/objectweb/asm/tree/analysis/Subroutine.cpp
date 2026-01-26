@@ -34,9 +34,9 @@ $FieldInfo _Subroutine_FieldInfo_[] = {
 };
 
 $MethodInfo _Subroutine_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/org/objectweb/asm/tree/LabelNode;ILjdk/internal/org/objectweb/asm/tree/JumpInsnNode;)V", nullptr, 0, $method(static_cast<void(Subroutine::*)($LabelNode*,int32_t,$JumpInsnNode*)>(&Subroutine::init$))},
-	{"<init>", "(Ljdk/internal/org/objectweb/asm/tree/analysis/Subroutine;)V", nullptr, 0, $method(static_cast<void(Subroutine::*)(Subroutine*)>(&Subroutine::init$))},
-	{"merge", "(Ljdk/internal/org/objectweb/asm/tree/analysis/Subroutine;)Z", nullptr, $PUBLIC, $method(static_cast<bool(Subroutine::*)(Subroutine*)>(&Subroutine::merge))},
+	{"<init>", "(Ljdk/internal/org/objectweb/asm/tree/LabelNode;ILjdk/internal/org/objectweb/asm/tree/JumpInsnNode;)V", nullptr, 0, $method(Subroutine, init$, void, $LabelNode*, int32_t, $JumpInsnNode*)},
+	{"<init>", "(Ljdk/internal/org/objectweb/asm/tree/analysis/Subroutine;)V", nullptr, 0, $method(Subroutine, init$, void, Subroutine*)},
+	{"merge", "(Ljdk/internal/org/objectweb/asm/tree/analysis/Subroutine;)Z", nullptr, $PUBLIC, $method(Subroutine, merge, bool, Subroutine*)},
 	{}
 };
 

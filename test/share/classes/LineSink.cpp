@@ -31,10 +31,10 @@ $FieldInfo _LineSink_FieldInfo_[] = {
 };
 
 $MethodInfo _LineSink_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/InputStream;Ljava/io/BufferedReader;ILjava/io/PrintWriter;)V", nullptr, $PUBLIC, $method(static_cast<void(LineSink::*)($InputStream*,$BufferedReader*,int32_t,$PrintWriter*)>(&LineSink::init$)), "java.io.IOException"},
-	{"<init>", "(Ljava/io/InputStream;Ljava/io/BufferedReader;Ljava/io/PrintWriter;)V", nullptr, $PUBLIC, $method(static_cast<void(LineSink::*)($InputStream*,$BufferedReader*,$PrintWriter*)>(&LineSink::init$)), "java.io.IOException"},
-	{"readUTFLine", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(LineSink::*)()>(&LineSink::readUTFLine)), "java.io.IOException"},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/io/InputStream;Ljava/io/BufferedReader;ILjava/io/PrintWriter;)V", nullptr, $PUBLIC, $method(LineSink, init$, void, $InputStream*, $BufferedReader*, int32_t, $PrintWriter*), "java.io.IOException"},
+	{"<init>", "(Ljava/io/InputStream;Ljava/io/BufferedReader;Ljava/io/PrintWriter;)V", nullptr, $PUBLIC, $method(LineSink, init$, void, $InputStream*, $BufferedReader*, $PrintWriter*), "java.io.IOException"},
+	{"readUTFLine", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(LineSink, readUTFLine, $String*), "java.io.IOException"},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(LineSink, run, void)},
 	{}
 };
 

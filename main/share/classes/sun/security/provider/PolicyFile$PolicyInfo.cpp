@@ -47,8 +47,8 @@ $FieldInfo _PolicyFile$PolicyInfo_FieldInfo_[] = {
 };
 
 $MethodInfo _PolicyFile$PolicyInfo_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, 0, $method(static_cast<void(PolicyFile$PolicyInfo::*)(int32_t)>(&PolicyFile$PolicyInfo::init$))},
-	{"getPdMapping", "()Ljdk/internal/access/JavaSecurityAccess$ProtectionDomainCache;", nullptr, 0},
+	{"<init>", "(I)V", nullptr, 0, $method(PolicyFile$PolicyInfo, init$, void, int32_t)},
+	{"getPdMapping", "()Ljdk/internal/access/JavaSecurityAccess$ProtectionDomainCache;", nullptr, 0, $virtualMethod(PolicyFile$PolicyInfo, getPdMapping, $JavaSecurityAccess$ProtectionDomainCache*)},
 	{}
 };
 

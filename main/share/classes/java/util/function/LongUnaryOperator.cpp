@@ -46,8 +46,8 @@ $FieldInfo LongUnaryOperator$$Lambda$lambda$compose$0::fieldInfos[3] = {
 	{}
 };
 $MethodInfo LongUnaryOperator$$Lambda$lambda$compose$0::methodInfos[3] = {
-	{"<init>", "(Ljava/util/function/LongUnaryOperator;Ljava/util/function/LongUnaryOperator;)V", nullptr, $PUBLIC, $method(static_cast<void(LongUnaryOperator$$Lambda$lambda$compose$0::*)(LongUnaryOperator*,LongUnaryOperator*)>(&LongUnaryOperator$$Lambda$lambda$compose$0::init$))},
-	{"applyAsLong", "(J)J", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/function/LongUnaryOperator;Ljava/util/function/LongUnaryOperator;)V", nullptr, $PUBLIC, $method(LongUnaryOperator$$Lambda$lambda$compose$0, init$, void, LongUnaryOperator*, LongUnaryOperator*)},
+	{"applyAsLong", "(J)J", nullptr, $PUBLIC, $virtualMethod(LongUnaryOperator$$Lambda$lambda$compose$0, applyAsLong, int64_t, int64_t)},
 	{}
 };
 $ClassInfo LongUnaryOperator$$Lambda$lambda$compose$0::classInfo$ = {
@@ -89,8 +89,8 @@ $FieldInfo LongUnaryOperator$$Lambda$lambda$andThen$1$1::fieldInfos[3] = {
 	{}
 };
 $MethodInfo LongUnaryOperator$$Lambda$lambda$andThen$1$1::methodInfos[3] = {
-	{"<init>", "(Ljava/util/function/LongUnaryOperator;Ljava/util/function/LongUnaryOperator;)V", nullptr, $PUBLIC, $method(static_cast<void(LongUnaryOperator$$Lambda$lambda$andThen$1$1::*)(LongUnaryOperator*,LongUnaryOperator*)>(&LongUnaryOperator$$Lambda$lambda$andThen$1$1::init$))},
-	{"applyAsLong", "(J)J", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/function/LongUnaryOperator;Ljava/util/function/LongUnaryOperator;)V", nullptr, $PUBLIC, $method(LongUnaryOperator$$Lambda$lambda$andThen$1$1, init$, void, LongUnaryOperator*, LongUnaryOperator*)},
+	{"applyAsLong", "(J)J", nullptr, $PUBLIC, $virtualMethod(LongUnaryOperator$$Lambda$lambda$andThen$1$1, applyAsLong, int64_t, int64_t)},
 	{}
 };
 $ClassInfo LongUnaryOperator$$Lambda$lambda$andThen$1$1::classInfo$ = {
@@ -122,8 +122,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo LongUnaryOperator$$Lambda$lambda$identity$2$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(LongUnaryOperator$$Lambda$lambda$identity$2$2::*)()>(&LongUnaryOperator$$Lambda$lambda$identity$2$2::init$))},
-	{"applyAsLong", "(J)J", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(LongUnaryOperator$$Lambda$lambda$identity$2$2, init$, void)},
+	{"applyAsLong", "(J)J", nullptr, $PUBLIC, $virtualMethod(LongUnaryOperator$$Lambda$lambda$identity$2$2, applyAsLong, int64_t, int64_t)},
 	{}
 };
 $ClassInfo LongUnaryOperator$$Lambda$lambda$identity$2$2::classInfo$ = {
@@ -146,13 +146,13 @@ $CompoundAttribute _LongUnaryOperator_Annotations_[] = {
 };
 
 $MethodInfo _LongUnaryOperator_MethodInfo_[] = {
-	{"andThen", "(Ljava/util/function/LongUnaryOperator;)Ljava/util/function/LongUnaryOperator;", nullptr, $PUBLIC},
-	{"applyAsLong", "(J)J", nullptr, $PUBLIC | $ABSTRACT},
-	{"compose", "(Ljava/util/function/LongUnaryOperator;)Ljava/util/function/LongUnaryOperator;", nullptr, $PUBLIC},
-	{"identity", "()Ljava/util/function/LongUnaryOperator;", nullptr, $PUBLIC | $STATIC, $method(static_cast<LongUnaryOperator*(*)()>(&LongUnaryOperator::identity))},
-	{"lambda$andThen$1", "(Ljava/util/function/LongUnaryOperator;J)J", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<int64_t(LongUnaryOperator::*)(LongUnaryOperator*,int64_t)>(&LongUnaryOperator::lambda$andThen$1))},
-	{"lambda$compose$0", "(Ljava/util/function/LongUnaryOperator;J)J", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<int64_t(LongUnaryOperator::*)(LongUnaryOperator*,int64_t)>(&LongUnaryOperator::lambda$compose$0))},
-	{"lambda$identity$2", "(J)J", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<int64_t(*)(int64_t)>(&LongUnaryOperator::lambda$identity$2))},
+	{"andThen", "(Ljava/util/function/LongUnaryOperator;)Ljava/util/function/LongUnaryOperator;", nullptr, $PUBLIC, $virtualMethod(LongUnaryOperator, andThen, LongUnaryOperator*, LongUnaryOperator*)},
+	{"applyAsLong", "(J)J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LongUnaryOperator, applyAsLong, int64_t, int64_t)},
+	{"compose", "(Ljava/util/function/LongUnaryOperator;)Ljava/util/function/LongUnaryOperator;", nullptr, $PUBLIC, $virtualMethod(LongUnaryOperator, compose, LongUnaryOperator*, LongUnaryOperator*)},
+	{"identity", "()Ljava/util/function/LongUnaryOperator;", nullptr, $PUBLIC | $STATIC, $staticMethod(LongUnaryOperator, identity, LongUnaryOperator*)},
+	{"lambda$andThen$1", "(Ljava/util/function/LongUnaryOperator;J)J", nullptr, $PRIVATE | $SYNTHETIC, $method(LongUnaryOperator, lambda$andThen$1, int64_t, LongUnaryOperator*, int64_t)},
+	{"lambda$compose$0", "(Ljava/util/function/LongUnaryOperator;J)J", nullptr, $PRIVATE | $SYNTHETIC, $method(LongUnaryOperator, lambda$compose$0, int64_t, LongUnaryOperator*, int64_t)},
+	{"lambda$identity$2", "(J)J", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LongUnaryOperator, lambda$identity$2, int64_t, int64_t)},
 	{}
 };
 

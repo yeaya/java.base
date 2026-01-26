@@ -22,8 +22,8 @@ $FieldInfo _CompletableFuture$Timeout_FieldInfo_[] = {
 };
 
 $MethodInfo _CompletableFuture$Timeout_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/CompletableFuture;)V", "(Ljava/util/concurrent/CompletableFuture<*>;)V", 0, $method(static_cast<void(CompletableFuture$Timeout::*)($CompletableFuture*)>(&CompletableFuture$Timeout::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/concurrent/CompletableFuture;)V", "(Ljava/util/concurrent/CompletableFuture<*>;)V", 0, $method(CompletableFuture$Timeout, init$, void, $CompletableFuture*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(CompletableFuture$Timeout, run, void)},
 	{}
 };
 

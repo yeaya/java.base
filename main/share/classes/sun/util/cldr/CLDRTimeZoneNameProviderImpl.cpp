@@ -75,16 +75,16 @@ $FieldInfo _CLDRTimeZoneNameProviderImpl_FieldInfo_[] = {
 };
 
 $MethodInfo _CLDRTimeZoneNameProviderImpl_MethodInfo_[] = {
-	{"<init>", "(Lsun/util/locale/provider/LocaleProviderAdapter$Type;Ljava/util/Set;)V", "(Lsun/util/locale/provider/LocaleProviderAdapter$Type;Ljava/util/Set<Ljava/lang/String;>;)V", $PUBLIC, $method(static_cast<void(CLDRTimeZoneNameProviderImpl::*)($LocaleProviderAdapter$Type*,$Set*)>(&CLDRTimeZoneNameProviderImpl::init$))},
-	{"deriveFallbackName", "([Ljava/lang/String;ILjava/util/Locale;Z)V", nullptr, $PRIVATE, $method(static_cast<void(CLDRTimeZoneNameProviderImpl::*)($StringArray*,int32_t,$Locale*,bool)>(&CLDRTimeZoneNameProviderImpl::deriveFallbackName))},
-	{"deriveFallbackNames", "([Ljava/lang/String;Ljava/util/Locale;)V", nullptr, $PRIVATE, $method(static_cast<void(CLDRTimeZoneNameProviderImpl::*)($StringArray*,$Locale*)>(&CLDRTimeZoneNameProviderImpl::deriveFallbackNames))},
-	{"exists", "([Ljava/lang/String;I)Z", nullptr, $PRIVATE, $method(static_cast<bool(CLDRTimeZoneNameProviderImpl::*)($StringArray*,int32_t)>(&CLDRTimeZoneNameProviderImpl::exists))},
-	{"getDisplayNameArray", "(Ljava/lang/String;Ljava/util/Locale;)[Ljava/lang/String;", nullptr, $PROTECTED},
-	{"getZoneStrings", "(Ljava/util/Locale;)[[Ljava/lang/String;", nullptr, $PROTECTED},
-	{"mapChineseLocale", "(Ljava/util/Locale;)Ljava/util/Locale;", nullptr, $PRIVATE, $method(static_cast<$Locale*(CLDRTimeZoneNameProviderImpl::*)($Locale*)>(&CLDRTimeZoneNameProviderImpl::mapChineseLocale))},
-	{"regionFormatFallback", "([Ljava/lang/String;ILjava/util/Locale;)Z", nullptr, $PRIVATE, $method(static_cast<bool(CLDRTimeZoneNameProviderImpl::*)($StringArray*,int32_t,$Locale*)>(&CLDRTimeZoneNameProviderImpl::regionFormatFallback))},
-	{"toGMTFormat", "(Ljava/lang/String;ZLjava/util/Locale;)Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(CLDRTimeZoneNameProviderImpl::*)($String*,bool,$Locale*)>(&CLDRTimeZoneNameProviderImpl::toGMTFormat))},
-	{"typeFallback", "([Ljava/lang/String;I)Z", nullptr, $PRIVATE, $method(static_cast<bool(CLDRTimeZoneNameProviderImpl::*)($StringArray*,int32_t)>(&CLDRTimeZoneNameProviderImpl::typeFallback))},
+	{"<init>", "(Lsun/util/locale/provider/LocaleProviderAdapter$Type;Ljava/util/Set;)V", "(Lsun/util/locale/provider/LocaleProviderAdapter$Type;Ljava/util/Set<Ljava/lang/String;>;)V", $PUBLIC, $method(CLDRTimeZoneNameProviderImpl, init$, void, $LocaleProviderAdapter$Type*, $Set*)},
+	{"deriveFallbackName", "([Ljava/lang/String;ILjava/util/Locale;Z)V", nullptr, $PRIVATE, $method(CLDRTimeZoneNameProviderImpl, deriveFallbackName, void, $StringArray*, int32_t, $Locale*, bool)},
+	{"deriveFallbackNames", "([Ljava/lang/String;Ljava/util/Locale;)V", nullptr, $PRIVATE, $method(CLDRTimeZoneNameProviderImpl, deriveFallbackNames, void, $StringArray*, $Locale*)},
+	{"exists", "([Ljava/lang/String;I)Z", nullptr, $PRIVATE, $method(CLDRTimeZoneNameProviderImpl, exists, bool, $StringArray*, int32_t)},
+	{"getDisplayNameArray", "(Ljava/lang/String;Ljava/util/Locale;)[Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(CLDRTimeZoneNameProviderImpl, getDisplayNameArray, $StringArray*, $String*, $Locale*)},
+	{"getZoneStrings", "(Ljava/util/Locale;)[[Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(CLDRTimeZoneNameProviderImpl, getZoneStrings, $StringArray2*, $Locale*)},
+	{"mapChineseLocale", "(Ljava/util/Locale;)Ljava/util/Locale;", nullptr, $PRIVATE, $method(CLDRTimeZoneNameProviderImpl, mapChineseLocale, $Locale*, $Locale*)},
+	{"regionFormatFallback", "([Ljava/lang/String;ILjava/util/Locale;)Z", nullptr, $PRIVATE, $method(CLDRTimeZoneNameProviderImpl, regionFormatFallback, bool, $StringArray*, int32_t, $Locale*)},
+	{"toGMTFormat", "(Ljava/lang/String;ZLjava/util/Locale;)Ljava/lang/String;", nullptr, $PRIVATE, $method(CLDRTimeZoneNameProviderImpl, toGMTFormat, $String*, $String*, bool, $Locale*)},
+	{"typeFallback", "([Ljava/lang/String;I)Z", nullptr, $PRIVATE, $method(CLDRTimeZoneNameProviderImpl, typeFallback, bool, $StringArray*, int32_t)},
 	{}
 };
 

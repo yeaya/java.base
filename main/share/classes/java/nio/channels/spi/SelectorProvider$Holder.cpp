@@ -69,8 +69,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo SelectorProvider$Holder$$Lambda$lambda$provider$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SelectorProvider$Holder$$Lambda$lambda$provider$0::*)()>(&SelectorProvider$Holder$$Lambda$lambda$provider$0::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SelectorProvider$Holder$$Lambda$lambda$provider$0, init$, void)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SelectorProvider$Holder$$Lambda$lambda$provider$0, run, $Object*)},
 	{}
 };
 $ClassInfo SelectorProvider$Holder$$Lambda$lambda$provider$0::classInfo$ = {
@@ -93,11 +93,11 @@ $FieldInfo _SelectorProvider$Holder_FieldInfo_[] = {
 };
 
 $MethodInfo _SelectorProvider$Holder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(SelectorProvider$Holder::*)()>(&SelectorProvider$Holder::init$))},
-	{"lambda$provider$0", "()Ljava/nio/channels/spi/SelectorProvider;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$SelectorProvider*(*)()>(&SelectorProvider$Holder::lambda$provider$0))},
-	{"loadProviderAsService", "()Ljava/nio/channels/spi/SelectorProvider;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$SelectorProvider*(*)()>(&SelectorProvider$Holder::loadProviderAsService))},
-	{"loadProviderFromProperty", "()Ljava/nio/channels/spi/SelectorProvider;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$SelectorProvider*(*)()>(&SelectorProvider$Holder::loadProviderFromProperty))},
-	{"provider", "()Ljava/nio/channels/spi/SelectorProvider;", nullptr, $STATIC, $method(static_cast<$SelectorProvider*(*)()>(&SelectorProvider$Holder::provider))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(SelectorProvider$Holder, init$, void)},
+	{"lambda$provider$0", "()Ljava/nio/channels/spi/SelectorProvider;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SelectorProvider$Holder, lambda$provider$0, $SelectorProvider*)},
+	{"loadProviderAsService", "()Ljava/nio/channels/spi/SelectorProvider;", nullptr, $PRIVATE | $STATIC, $staticMethod(SelectorProvider$Holder, loadProviderAsService, $SelectorProvider*)},
+	{"loadProviderFromProperty", "()Ljava/nio/channels/spi/SelectorProvider;", nullptr, $PRIVATE | $STATIC, $staticMethod(SelectorProvider$Holder, loadProviderFromProperty, $SelectorProvider*)},
+	{"provider", "()Ljava/nio/channels/spi/SelectorProvider;", nullptr, $STATIC, $staticMethod(SelectorProvider$Holder, provider, $SelectorProvider*)},
 	{}
 };
 

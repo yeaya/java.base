@@ -34,20 +34,20 @@ $FieldInfo _StackFrameInfo_FieldInfo_[] = {
 };
 
 $MethodInfo _StackFrameInfo_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/StackWalker;)V", nullptr, 0, $method(static_cast<void(StackFrameInfo::*)($StackWalker*)>(&StackFrameInfo::init$))},
-	{"declaringClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", 0},
-	{"ensureRetainClassRefEnabled", "()V", nullptr, $PRIVATE, $method(static_cast<void(StackFrameInfo::*)()>(&StackFrameInfo::ensureRetainClassRefEnabled))},
-	{"getByteCodeIndex", "()I", nullptr, $PUBLIC},
-	{"getClassName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getDeclaringClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC},
-	{"getDescriptor", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getFileName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getLineNumber", "()I", nullptr, $PUBLIC},
-	{"getMethodName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getMethodType", "()Ljava/lang/invoke/MethodType;", nullptr, $PUBLIC},
-	{"isNativeMethod", "()Z", nullptr, $PUBLIC},
-	{"toStackTraceElement", "()Ljava/lang/StackTraceElement;", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/StackWalker;)V", nullptr, 0, $method(StackFrameInfo, init$, void, $StackWalker*)},
+	{"declaringClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", 0, $virtualMethod(StackFrameInfo, declaringClass, $Class*)},
+	{"ensureRetainClassRefEnabled", "()V", nullptr, $PRIVATE, $method(StackFrameInfo, ensureRetainClassRefEnabled, void)},
+	{"getByteCodeIndex", "()I", nullptr, $PUBLIC, $virtualMethod(StackFrameInfo, getByteCodeIndex, int32_t)},
+	{"getClassName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StackFrameInfo, getClassName, $String*)},
+	{"getDeclaringClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(StackFrameInfo, getDeclaringClass, $Class*)},
+	{"getDescriptor", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StackFrameInfo, getDescriptor, $String*)},
+	{"getFileName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StackFrameInfo, getFileName, $String*)},
+	{"getLineNumber", "()I", nullptr, $PUBLIC, $virtualMethod(StackFrameInfo, getLineNumber, int32_t)},
+	{"getMethodName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StackFrameInfo, getMethodName, $String*)},
+	{"getMethodType", "()Ljava/lang/invoke/MethodType;", nullptr, $PUBLIC, $virtualMethod(StackFrameInfo, getMethodType, $MethodType*)},
+	{"isNativeMethod", "()Z", nullptr, $PUBLIC, $virtualMethod(StackFrameInfo, isNativeMethod, bool)},
+	{"toStackTraceElement", "()Ljava/lang/StackTraceElement;", nullptr, $PUBLIC, $virtualMethod(StackFrameInfo, toStackTraceElement, $StackTraceElement*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StackFrameInfo, toString, $String*)},
 	{}
 };
 

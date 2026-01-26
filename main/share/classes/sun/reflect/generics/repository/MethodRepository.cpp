@@ -33,10 +33,10 @@ $FieldInfo _MethodRepository_FieldInfo_[] = {
 };
 
 $MethodInfo _MethodRepository_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Lsun/reflect/generics/factory/GenericsFactory;)V", nullptr, $PRIVATE, $method(static_cast<void(MethodRepository::*)($String*,$GenericsFactory*)>(&MethodRepository::init$))},
-	{"computeReturnType", "()Ljava/lang/reflect/Type;", nullptr, $PRIVATE, $method(static_cast<$Type*(MethodRepository::*)()>(&MethodRepository::computeReturnType))},
-	{"getReturnType", "()Ljava/lang/reflect/Type;", nullptr, $PUBLIC},
-	{"make", "(Ljava/lang/String;Lsun/reflect/generics/factory/GenericsFactory;)Lsun/reflect/generics/repository/MethodRepository;", nullptr, $PUBLIC | $STATIC, $method(static_cast<MethodRepository*(*)($String*,$GenericsFactory*)>(&MethodRepository::make))},
+	{"<init>", "(Ljava/lang/String;Lsun/reflect/generics/factory/GenericsFactory;)V", nullptr, $PRIVATE, $method(MethodRepository, init$, void, $String*, $GenericsFactory*)},
+	{"computeReturnType", "()Ljava/lang/reflect/Type;", nullptr, $PRIVATE, $method(MethodRepository, computeReturnType, $Type*)},
+	{"getReturnType", "()Ljava/lang/reflect/Type;", nullptr, $PUBLIC, $virtualMethod(MethodRepository, getReturnType, $Type*)},
+	{"make", "(Ljava/lang/String;Lsun/reflect/generics/factory/GenericsFactory;)Lsun/reflect/generics/repository/MethodRepository;", nullptr, $PUBLIC | $STATIC, $staticMethod(MethodRepository, make, MethodRepository*, $String*, $GenericsFactory*)},
 	{}
 };
 

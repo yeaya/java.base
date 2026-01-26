@@ -10,7 +10,7 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace UniTest {
 
 $MethodInfo _Dad_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Dad::*)()>(&Dad::init$))},
+	{"<init>", "()V", nullptr, 0, $method(Dad, init$, void)},
 	{}
 };
 

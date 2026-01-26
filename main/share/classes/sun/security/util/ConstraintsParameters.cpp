@@ -6,17 +6,19 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Date = ::java::util::Date;
+using $Set = ::java::util::Set;
 
 namespace sun {
 	namespace security {
 		namespace util {
 
 $MethodInfo _ConstraintsParameters_MethodInfo_[] = {
-	{"anchorIsJdkCA", "()Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"extendedExceptionMsg", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getDate", "()Ljava/util/Date;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getKeys", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/security/Key;>;", $PUBLIC | $ABSTRACT},
-	{"getVariant", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
+	{"anchorIsJdkCA", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ConstraintsParameters, anchorIsJdkCA, bool)},
+	{"extendedExceptionMsg", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ConstraintsParameters, extendedExceptionMsg, $String*)},
+	{"getDate", "()Ljava/util/Date;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ConstraintsParameters, getDate, $Date*)},
+	{"getKeys", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/security/Key;>;", $PUBLIC | $ABSTRACT, $virtualMethod(ConstraintsParameters, getKeys, $Set*)},
+	{"getVariant", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ConstraintsParameters, getVariant, $String*)},
 	{}
 };
 

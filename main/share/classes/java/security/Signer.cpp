@@ -54,14 +54,14 @@ $FieldInfo _Signer_FieldInfo_[] = {
 };
 
 $MethodInfo _Signer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(Signer::*)()>(&Signer::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(Signer::*)($String*)>(&Signer::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/security/IdentityScope;)V", nullptr, $PUBLIC, $method(static_cast<void(Signer::*)($String*,$IdentityScope*)>(&Signer::init$)), "java.security.KeyManagementException"},
-	{"check", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($String*)>(&Signer::check))},
-	{"getPrivateKey", "()Ljava/security/PrivateKey;", nullptr, $PUBLIC},
-	{"printKeys", "()Ljava/lang/String;", nullptr, 0},
-	{"setKeyPair", "(Ljava/security/KeyPair;)V", nullptr, $PUBLIC | $FINAL, $method(static_cast<void(Signer::*)($KeyPair*)>(&Signer::setKeyPair)), "java.security.InvalidParameterException,java.security.KeyException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(Signer, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Signer, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/security/IdentityScope;)V", nullptr, $PUBLIC, $method(Signer, init$, void, $String*, $IdentityScope*), "java.security.KeyManagementException"},
+	{"check", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Signer, check, void, $String*)},
+	{"getPrivateKey", "()Ljava/security/PrivateKey;", nullptr, $PUBLIC, $virtualMethod(Signer, getPrivateKey, $PrivateKey*)},
+	{"printKeys", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(Signer, printKeys, $String*)},
+	{"setKeyPair", "(Ljava/security/KeyPair;)V", nullptr, $PUBLIC | $FINAL, $method(Signer, setKeyPair, void, $KeyPair*), "java.security.InvalidParameterException,java.security.KeyException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Signer, toString, $String*)},
 	{}
 };
 

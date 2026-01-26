@@ -29,10 +29,10 @@ $FieldInfo _NullHost$Server_FieldInfo_[] = {
 };
 
 $MethodInfo _NullHost$Server_MethodInfo_[] = {
-	{"<init>", "(LNullHost;)V", nullptr, $PUBLIC, $method(static_cast<void(NullHost$Server::*)($NullHost*)>(&NullHost$Server::init$)), "java.io.IOException"},
-	{"getPort", "()I", nullptr, $PUBLIC},
-	{"run", "()V", nullptr, $PUBLIC},
-	{"shutdown", "()V", nullptr, $PUBLIC},
+	{"<init>", "(LNullHost;)V", nullptr, $PUBLIC, $method(NullHost$Server, init$, void, $NullHost*), "java.io.IOException"},
+	{"getPort", "()I", nullptr, $PUBLIC, $virtualMethod(NullHost$Server, getPort, int32_t)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(NullHost$Server, run, void)},
+	{"shutdown", "()V", nullptr, $PUBLIC, $virtualMethod(NullHost$Server, shutdown, void)},
 	{}
 };
 

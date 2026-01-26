@@ -14,8 +14,8 @@ namespace test {
 			namespace invoke {
 
 $MethodInfo _CallStaticInitOrder$Init2_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(CallStaticInitOrder$Init2::*)()>(&CallStaticInitOrder$Init2::init$))},
-	{"bar", "()I", nullptr, $STATIC, $method(static_cast<int32_t(*)()>(&CallStaticInitOrder$Init2::bar))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(CallStaticInitOrder$Init2, init$, void)},
+	{"bar", "()I", nullptr, $STATIC, $staticMethod(CallStaticInitOrder$Init2, bar, int32_t)},
 	{}
 };
 

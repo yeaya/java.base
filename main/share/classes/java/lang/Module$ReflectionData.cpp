@@ -21,7 +21,7 @@ $FieldInfo _Module$ReflectionData_FieldInfo_[] = {
 };
 
 $MethodInfo _Module$ReflectionData_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(Module$ReflectionData::*)()>(&Module$ReflectionData::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(Module$ReflectionData, init$, void)},
 	{}
 };
 

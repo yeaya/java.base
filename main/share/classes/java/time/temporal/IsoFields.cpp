@@ -46,8 +46,8 @@ $FieldInfo _IsoFields_FieldInfo_[] = {
 };
 
 $MethodInfo _IsoFields_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(IsoFields::*)()>(&IsoFields::init$))},
-	{"isIso", "(Ljava/time/temporal/TemporalAccessor;)Z", nullptr, $STATIC, $method(static_cast<bool(*)($TemporalAccessor*)>(&IsoFields::isIso))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(IsoFields, init$, void)},
+	{"isIso", "(Ljava/time/temporal/TemporalAccessor;)Z", nullptr, $STATIC, $staticMethod(IsoFields, isIso, bool, $TemporalAccessor*)},
 	{}
 };
 

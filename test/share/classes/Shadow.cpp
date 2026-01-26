@@ -31,12 +31,12 @@ $FieldInfo _Shadow_FieldInfo_[] = {
 };
 
 $MethodInfo _Shadow_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Shadow::*)()>(&Shadow::init$))},
-	{"check", "(Ljava/net/Socket;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($Socket*)>(&Shadow::check))},
-	{"dump", "(Ljava/net/ServerSocket;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($ServerSocket*)>(&Shadow::dump))},
-	{"dump", "(Ljava/net/Socket;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($Socket*)>(&Shadow::dump))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Shadow::main)), "java.lang.Exception"},
-	{"problem", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($String*)>(&Shadow::problem))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Shadow, init$, void)},
+	{"check", "(Ljava/net/Socket;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Shadow, check, void, $Socket*)},
+	{"dump", "(Ljava/net/ServerSocket;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Shadow, dump, void, $ServerSocket*)},
+	{"dump", "(Ljava/net/Socket;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Shadow, dump, void, $Socket*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Shadow, main, void, $StringArray*), "java.lang.Exception"},
+	{"problem", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Shadow, problem, void, $String*)},
 	{}
 };
 

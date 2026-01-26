@@ -28,8 +28,8 @@ $FieldInfo _CompletableFuture$OrAccept_FieldInfo_[] = {
 };
 
 $MethodInfo _CompletableFuture$OrAccept_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/Executor;Ljava/util/concurrent/CompletableFuture;Ljava/util/concurrent/CompletableFuture;Ljava/util/concurrent/CompletableFuture;Ljava/util/function/Consumer;)V", "(Ljava/util/concurrent/Executor;Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;Ljava/util/concurrent/CompletableFuture<TT;>;Ljava/util/concurrent/CompletableFuture<TU;>;Ljava/util/function/Consumer<-TT;>;)V", 0, $method(static_cast<void(CompletableFuture$OrAccept::*)($Executor*,$CompletableFuture*,$CompletableFuture*,$CompletableFuture*,$Consumer*)>(&CompletableFuture$OrAccept::init$))},
-	{"tryFire", "(I)Ljava/util/concurrent/CompletableFuture;", "(I)Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $FINAL},
+	{"<init>", "(Ljava/util/concurrent/Executor;Ljava/util/concurrent/CompletableFuture;Ljava/util/concurrent/CompletableFuture;Ljava/util/concurrent/CompletableFuture;Ljava/util/function/Consumer;)V", "(Ljava/util/concurrent/Executor;Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;Ljava/util/concurrent/CompletableFuture<TT;>;Ljava/util/concurrent/CompletableFuture<TU;>;Ljava/util/function/Consumer<-TT;>;)V", 0, $method(CompletableFuture$OrAccept, init$, void, $Executor*, $CompletableFuture*, $CompletableFuture*, $CompletableFuture*, $Consumer*)},
+	{"tryFire", "(I)Ljava/util/concurrent/CompletableFuture;", "(I)Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $FINAL, $virtualMethod(CompletableFuture$OrAccept, tryFire, $CompletableFuture*, int32_t)},
 	{}
 };
 

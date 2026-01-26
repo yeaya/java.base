@@ -33,8 +33,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo LambdaConstructorMethodHandleUnbox$$Lambda$Integer::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(LambdaConstructorMethodHandleUnbox$$Lambda$Integer::*)()>(&LambdaConstructorMethodHandleUnbox$$Lambda$Integer::init$))},
-	{"m", "(Ljava/lang/Object;)I", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(LambdaConstructorMethodHandleUnbox$$Lambda$Integer, init$, void)},
+	{"m", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(LambdaConstructorMethodHandleUnbox$$Lambda$Integer, m, int32_t, Object$*)},
 	{}
 };
 $ClassInfo LambdaConstructorMethodHandleUnbox$$Lambda$Integer::classInfo$ = {
@@ -52,8 +52,8 @@ $Class* LambdaConstructorMethodHandleUnbox$$Lambda$Integer::load$($String* name,
 $Class* LambdaConstructorMethodHandleUnbox$$Lambda$Integer::class$ = nullptr;
 
 $MethodInfo _LambdaConstructorMethodHandleUnbox_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(LambdaConstructorMethodHandleUnbox::*)()>(&LambdaConstructorMethodHandleUnbox::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&LambdaConstructorMethodHandleUnbox::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(LambdaConstructorMethodHandleUnbox, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(LambdaConstructorMethodHandleUnbox, main, void, $StringArray*)},
 	{}
 };
 

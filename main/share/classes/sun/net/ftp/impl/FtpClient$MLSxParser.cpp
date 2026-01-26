@@ -26,8 +26,8 @@ namespace sun {
 			namespace impl {
 
 $MethodInfo _FtpClient$MLSxParser_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(FtpClient$MLSxParser::*)()>(&FtpClient$MLSxParser::init$))},
-	{"parseLine", "(Ljava/lang/String;)Lsun/net/ftp/FtpDirEntry;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(FtpClient$MLSxParser, init$, void)},
+	{"parseLine", "(Ljava/lang/String;)Lsun/net/ftp/FtpDirEntry;", nullptr, $PUBLIC, $virtualMethod(FtpClient$MLSxParser, parseLine, $FtpDirEntry*, $String*)},
 	{}
 };
 

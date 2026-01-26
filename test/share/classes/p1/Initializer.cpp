@@ -14,9 +14,9 @@ $FieldInfo _Initializer_FieldInfo_[] = {
 };
 
 $MethodInfo _Initializer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Initializer::*)()>(&Initializer::init$))},
-	{"init", "()V", nullptr, $STATIC | $SYNCHRONIZED, $method(static_cast<void(*)()>(&Initializer::init))},
-	{"isInited", "()Z", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $method(static_cast<bool(*)()>(&Initializer::isInited))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Initializer, init$, void)},
+	{"init", "()V", nullptr, $STATIC | $SYNCHRONIZED, $staticMethod(Initializer, init, void)},
+	{"isInited", "()Z", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(Initializer, isInited, bool)},
 	{}
 };
 

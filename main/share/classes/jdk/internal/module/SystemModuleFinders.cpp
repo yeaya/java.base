@@ -134,8 +134,8 @@ $FieldInfo SystemModuleFinders$$Lambda$lambda$ofModuleInfos$0::fieldInfos[3] = {
 	{}
 };
 $MethodInfo SystemModuleFinders$$Lambda$lambda$ofModuleInfos$0::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/module/ModuleHashes;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(SystemModuleFinders$$Lambda$lambda$ofModuleInfos$0::*)($ModuleHashes*,$String*)>(&SystemModuleFinders$$Lambda$lambda$ofModuleInfos$0::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/module/ModuleHashes;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SystemModuleFinders$$Lambda$lambda$ofModuleInfos$0, init$, void, $ModuleHashes*, $String*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SystemModuleFinders$$Lambda$lambda$ofModuleInfos$0, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo SystemModuleFinders$$Lambda$lambda$ofModuleInfos$0::classInfo$ = {
@@ -160,16 +160,16 @@ $FieldInfo _SystemModuleFinders_FieldInfo_[] = {
 };
 
 $MethodInfo _SystemModuleFinders_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(SystemModuleFinders::*)()>(&SystemModuleFinders::init$))},
-	{"allSystemModules", "()Ljdk/internal/module/SystemModules;", nullptr, $STATIC, $method(static_cast<$SystemModules*(*)()>(&SystemModuleFinders::allSystemModules))},
-	{"generateNameToHash", "([Ljdk/internal/module/ModuleHashes;)Ljava/util/Map;", "([Ljdk/internal/module/ModuleHashes;)Ljava/util/Map<Ljava/lang/String;[B>;", $STATIC, $method(static_cast<$Map*(*)($ModuleHashesArray*)>(&SystemModuleFinders::generateNameToHash))},
-	{"hashSupplier", "(Ljava/util/Map;Ljava/lang/String;)Ljdk/internal/module/ModuleHashes$HashSupplier;", "(Ljava/util/Map<Ljava/lang/String;[B>;Ljava/lang/String;)Ljdk/internal/module/ModuleHashes$HashSupplier;", $STATIC, $method(static_cast<$ModuleHashes$HashSupplier*(*)($Map*,$String*)>(&SystemModuleFinders::hashSupplier))},
-	{"lambda$ofModuleInfos$0", "(Ljdk/internal/module/ModuleHashes;Ljava/lang/String;Ljava/lang/String;)[B", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$bytes*(*)($ModuleHashes*,$String*,$String*)>(&SystemModuleFinders::lambda$ofModuleInfos$0))},
-	{"of", "(Ljdk/internal/module/SystemModules;)Ljava/lang/module/ModuleFinder;", nullptr, $STATIC, $method(static_cast<$ModuleFinder*(*)($SystemModules*)>(&SystemModuleFinders::of))},
-	{"ofModuleInfos", "()Ljava/lang/module/ModuleFinder;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$ModuleFinder*(*)()>(&SystemModuleFinders::ofModuleInfos))},
-	{"ofSystem", "()Ljava/lang/module/ModuleFinder;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$ModuleFinder*(*)()>(&SystemModuleFinders::ofSystem))},
-	{"systemModules", "(Ljava/lang/String;)Ljdk/internal/module/SystemModules;", nullptr, $STATIC, $method(static_cast<$SystemModules*(*)($String*)>(&SystemModuleFinders::systemModules))},
-	{"toModuleReference", "(Ljava/lang/module/ModuleDescriptor;Ljdk/internal/module/ModuleTarget;Ljdk/internal/module/ModuleHashes;Ljdk/internal/module/ModuleHashes$HashSupplier;Ljdk/internal/module/ModuleResolution;)Ljava/lang/module/ModuleReference;", nullptr, $STATIC, $method(static_cast<$ModuleReference*(*)($ModuleDescriptor*,$ModuleTarget*,$ModuleHashes*,$ModuleHashes$HashSupplier*,$ModuleResolution*)>(&SystemModuleFinders::toModuleReference))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(SystemModuleFinders, init$, void)},
+	{"allSystemModules", "()Ljdk/internal/module/SystemModules;", nullptr, $STATIC, $staticMethod(SystemModuleFinders, allSystemModules, $SystemModules*)},
+	{"generateNameToHash", "([Ljdk/internal/module/ModuleHashes;)Ljava/util/Map;", "([Ljdk/internal/module/ModuleHashes;)Ljava/util/Map<Ljava/lang/String;[B>;", $STATIC, $staticMethod(SystemModuleFinders, generateNameToHash, $Map*, $ModuleHashesArray*)},
+	{"hashSupplier", "(Ljava/util/Map;Ljava/lang/String;)Ljdk/internal/module/ModuleHashes$HashSupplier;", "(Ljava/util/Map<Ljava/lang/String;[B>;Ljava/lang/String;)Ljdk/internal/module/ModuleHashes$HashSupplier;", $STATIC, $staticMethod(SystemModuleFinders, hashSupplier, $ModuleHashes$HashSupplier*, $Map*, $String*)},
+	{"lambda$ofModuleInfos$0", "(Ljdk/internal/module/ModuleHashes;Ljava/lang/String;Ljava/lang/String;)[B", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SystemModuleFinders, lambda$ofModuleInfos$0, $bytes*, $ModuleHashes*, $String*, $String*)},
+	{"of", "(Ljdk/internal/module/SystemModules;)Ljava/lang/module/ModuleFinder;", nullptr, $STATIC, $staticMethod(SystemModuleFinders, of, $ModuleFinder*, $SystemModules*)},
+	{"ofModuleInfos", "()Ljava/lang/module/ModuleFinder;", nullptr, $PRIVATE | $STATIC, $staticMethod(SystemModuleFinders, ofModuleInfos, $ModuleFinder*)},
+	{"ofSystem", "()Ljava/lang/module/ModuleFinder;", nullptr, $PUBLIC | $STATIC, $staticMethod(SystemModuleFinders, ofSystem, $ModuleFinder*)},
+	{"systemModules", "(Ljava/lang/String;)Ljdk/internal/module/SystemModules;", nullptr, $STATIC, $staticMethod(SystemModuleFinders, systemModules, $SystemModules*, $String*)},
+	{"toModuleReference", "(Ljava/lang/module/ModuleDescriptor;Ljdk/internal/module/ModuleTarget;Ljdk/internal/module/ModuleHashes;Ljdk/internal/module/ModuleHashes$HashSupplier;Ljdk/internal/module/ModuleResolution;)Ljava/lang/module/ModuleReference;", nullptr, $STATIC, $staticMethod(SystemModuleFinders, toModuleReference, $ModuleReference*, $ModuleDescriptor*, $ModuleTarget*, $ModuleHashes*, $ModuleHashes$HashSupplier*, $ModuleResolution*)},
 	{}
 };
 

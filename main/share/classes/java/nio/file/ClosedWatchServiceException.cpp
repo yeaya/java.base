@@ -18,7 +18,7 @@ $FieldInfo _ClosedWatchServiceException_FieldInfo_[] = {
 };
 
 $MethodInfo _ClosedWatchServiceException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ClosedWatchServiceException::*)()>(&ClosedWatchServiceException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ClosedWatchServiceException, init$, void)},
 	{}
 };
 

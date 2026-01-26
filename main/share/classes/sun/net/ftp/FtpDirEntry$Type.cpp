@@ -32,10 +32,10 @@ $FieldInfo _FtpDirEntry$Type_FieldInfo_[] = {
 };
 
 $MethodInfo _FtpDirEntry$Type_MethodInfo_[] = {
-	{"$values", "()[Lsun/net/ftp/FtpDirEntry$Type;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$FtpDirEntry$TypeArray*(*)()>(&FtpDirEntry$Type::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(FtpDirEntry$Type::*)($String*,int32_t)>(&FtpDirEntry$Type::init$))},
-	{"valueOf", "(Ljava/lang/String;)Lsun/net/ftp/FtpDirEntry$Type;", nullptr, $PUBLIC | $STATIC, $method(static_cast<FtpDirEntry$Type*(*)($String*)>(&FtpDirEntry$Type::valueOf))},
-	{"values", "()[Lsun/net/ftp/FtpDirEntry$Type;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$FtpDirEntry$TypeArray*(*)()>(&FtpDirEntry$Type::values))},
+	{"$values", "()[Lsun/net/ftp/FtpDirEntry$Type;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(FtpDirEntry$Type, $values, $FtpDirEntry$TypeArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(FtpDirEntry$Type, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Lsun/net/ftp/FtpDirEntry$Type;", nullptr, $PUBLIC | $STATIC, $staticMethod(FtpDirEntry$Type, valueOf, FtpDirEntry$Type*, $String*)},
+	{"values", "()[Lsun/net/ftp/FtpDirEntry$Type;", nullptr, $PUBLIC | $STATIC, $staticMethod(FtpDirEntry$Type, values, $FtpDirEntry$TypeArray*)},
 	{}
 };
 

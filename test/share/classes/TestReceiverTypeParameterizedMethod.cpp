@@ -34,10 +34,10 @@ $TypeAnnotation _TestReceiverTypeParameterizedMethod_MethodTypeAnnotations_m2[] 
 };
 
 $MethodInfo _TestReceiverTypeParameterizedMethod_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TestReceiverTypeParameterizedMethod::*)()>(&TestReceiverTypeParameterizedMethod::init$))},
-	{"doAssert", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $PRIVATE | $STATIC, $method(static_cast<void(*)($Class*)>(&TestReceiverTypeParameterizedMethod::doAssert)), "java.lang.NoSuchMethodException"},
-	{"m", "()V", nullptr, 0, nullptr, nullptr, nullptr, nullptr, _TestReceiverTypeParameterizedMethod_MethodTypeAnnotations_m2},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&TestReceiverTypeParameterizedMethod::main)), "java.lang.NoSuchMethodException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TestReceiverTypeParameterizedMethod, init$, void)},
+	{"doAssert", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $PRIVATE | $STATIC, $staticMethod(TestReceiverTypeParameterizedMethod, doAssert, void, $Class*), "java.lang.NoSuchMethodException"},
+	{"m", "()V", nullptr, 0, $virtualMethod(TestReceiverTypeParameterizedMethod, m, void), nullptr, nullptr, nullptr, _TestReceiverTypeParameterizedMethod_MethodTypeAnnotations_m2},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TestReceiverTypeParameterizedMethod, main, void, $StringArray*), "java.lang.NoSuchMethodException"},
 	{}
 };
 

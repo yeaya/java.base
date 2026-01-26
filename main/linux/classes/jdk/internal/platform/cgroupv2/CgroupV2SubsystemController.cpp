@@ -27,10 +27,10 @@ $FieldInfo _CgroupV2SubsystemController_FieldInfo_[] = {
 };
 
 $MethodInfo _CgroupV2SubsystemController_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(CgroupV2SubsystemController::*)($String*,$String*)>(&CgroupV2SubsystemController::init$))},
-	{"convertStringToLong", "(Ljava/lang/String;)J", nullptr, $PUBLIC | $STATIC, $method(static_cast<int64_t(*)($String*)>(&CgroupV2SubsystemController::convertStringToLong))},
-	{"getLongEntry", "(Ljdk/internal/platform/CgroupSubsystemController;Ljava/lang/String;Ljava/lang/String;)J", nullptr, $PUBLIC | $STATIC, $method(static_cast<int64_t(*)($CgroupSubsystemController*,$String*,$String*)>(&CgroupV2SubsystemController::getLongEntry))},
-	{"path", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(CgroupV2SubsystemController, init$, void, $String*, $String*)},
+	{"convertStringToLong", "(Ljava/lang/String;)J", nullptr, $PUBLIC | $STATIC, $staticMethod(CgroupV2SubsystemController, convertStringToLong, int64_t, $String*)},
+	{"getLongEntry", "(Ljdk/internal/platform/CgroupSubsystemController;Ljava/lang/String;Ljava/lang/String;)J", nullptr, $PUBLIC | $STATIC, $staticMethod(CgroupV2SubsystemController, getLongEntry, int64_t, $CgroupSubsystemController*, $String*, $String*)},
+	{"path", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CgroupV2SubsystemController, path, $String*)},
 	{}
 };
 

@@ -17,12 +17,12 @@ using $Selector = ::java::nio::channels::Selector;
 using $SocketChannel = ::java::nio::channels::SocketChannel;
 
 $MethodInfo _Close_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Close::*)()>(&Close::init$))},
-	{"check", "(Ljava/nio/channels/SelectionKey;)V", nullptr, $STATIC, $method(static_cast<void(*)($SelectionKey*)>(&Close::check)), "java.io.IOException"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Close::main)), "java.lang.Exception"},
-	{"open", "()Ljava/nio/channels/SelectionKey;", nullptr, $STATIC, $method(static_cast<$SelectionKey*(*)()>(&Close::open)), "java.io.IOException"},
-	{"testChannelClose", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&Close::testChannelClose)), "java.io.IOException"},
-	{"testSocketClose", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&Close::testSocketClose)), "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Close, init$, void)},
+	{"check", "(Ljava/nio/channels/SelectionKey;)V", nullptr, $STATIC, $staticMethod(Close, check, void, $SelectionKey*), "java.io.IOException"},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Close, main, void, $StringArray*), "java.lang.Exception"},
+	{"open", "()Ljava/nio/channels/SelectionKey;", nullptr, $STATIC, $staticMethod(Close, open, $SelectionKey*), "java.io.IOException"},
+	{"testChannelClose", "()V", nullptr, $STATIC, $staticMethod(Close, testChannelClose, void), "java.io.IOException"},
+	{"testSocketClose", "()V", nullptr, $STATIC, $staticMethod(Close, testSocketClose, void), "java.io.IOException"},
 	{}
 };
 

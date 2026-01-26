@@ -21,9 +21,9 @@ namespace java {
 		namespace stream {
 
 $MethodInfo _Nodes$InternalNodeSpliterator$OfRef_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/stream/Node;)V", "(Ljava/util/stream/Node<TT;>;)V", 0, $method(static_cast<void(Nodes$InternalNodeSpliterator$OfRef::*)($Node*)>(&Nodes$InternalNodeSpliterator$OfRef::init$))},
-	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TT;>;)V", $PUBLIC},
-	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-TT;>;)Z", $PUBLIC},
+	{"<init>", "(Ljava/util/stream/Node;)V", "(Ljava/util/stream/Node<TT;>;)V", 0, $method(Nodes$InternalNodeSpliterator$OfRef, init$, void, $Node*)},
+	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TT;>;)V", $PUBLIC, $virtualMethod(Nodes$InternalNodeSpliterator$OfRef, forEachRemaining, void, $Consumer*)},
+	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-TT;>;)Z", $PUBLIC, $virtualMethod(Nodes$InternalNodeSpliterator$OfRef, tryAdvance, bool, $Consumer*)},
 	{}
 };
 

@@ -41,10 +41,10 @@ $FieldInfo _AbstractSelectionKey_FieldInfo_[] = {
 };
 
 $MethodInfo _AbstractSelectionKey_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(AbstractSelectionKey::*)()>(&AbstractSelectionKey::init$))},
-	{"cancel", "()V", nullptr, $PUBLIC | $FINAL},
-	{"invalidate", "()V", nullptr, 0},
-	{"isValid", "()Z", nullptr, $PUBLIC | $FINAL},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(AbstractSelectionKey, init$, void)},
+	{"cancel", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractSelectionKey, cancel, void)},
+	{"invalidate", "()V", nullptr, 0, $virtualMethod(AbstractSelectionKey, invalidate, void)},
+	{"isValid", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractSelectionKey, isValid, bool)},
 	{}
 };
 

@@ -26,8 +26,8 @@ $FieldInfo _ProviderConfig$4_FieldInfo_[] = {
 };
 
 $MethodInfo _ProviderConfig$4_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", "()V", 0, $method(static_cast<void(ProviderConfig$4::*)($String*)>(&ProviderConfig$4::init$))},
-	{"run", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", "()V", 0, $method(ProviderConfig$4, init$, void, $String*)},
+	{"run", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ProviderConfig$4, run, $Object*)},
 	{}
 };
 

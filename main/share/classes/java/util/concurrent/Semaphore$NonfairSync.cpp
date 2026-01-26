@@ -20,8 +20,8 @@ $FieldInfo _Semaphore$NonfairSync_FieldInfo_[] = {
 };
 
 $MethodInfo _Semaphore$NonfairSync_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, 0, $method(static_cast<void(Semaphore$NonfairSync::*)(int32_t)>(&Semaphore$NonfairSync::init$))},
-	{"tryAcquireShared", "(I)I", nullptr, $PROTECTED},
+	{"<init>", "(I)V", nullptr, 0, $method(Semaphore$NonfairSync, init$, void, int32_t)},
+	{"tryAcquireShared", "(I)I", nullptr, $PROTECTED, $virtualMethod(Semaphore$NonfairSync, tryAcquireShared, int32_t, int32_t)},
 	{}
 };
 

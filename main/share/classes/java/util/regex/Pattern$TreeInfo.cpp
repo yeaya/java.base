@@ -21,8 +21,8 @@ $FieldInfo _Pattern$TreeInfo_FieldInfo_[] = {
 };
 
 $MethodInfo _Pattern$TreeInfo_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Pattern$TreeInfo::*)()>(&Pattern$TreeInfo::init$))},
-	{"reset", "()V", nullptr, 0, $method(static_cast<void(Pattern$TreeInfo::*)()>(&Pattern$TreeInfo::reset))},
+	{"<init>", "()V", nullptr, 0, $method(Pattern$TreeInfo, init$, void)},
+	{"reset", "()V", nullptr, 0, $method(Pattern$TreeInfo, reset, void)},
 	{}
 };
 

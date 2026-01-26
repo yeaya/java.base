@@ -34,11 +34,11 @@ $FieldInfo _ReadAfterReset_FieldInfo_[] = {
 };
 
 $MethodInfo _ReadAfterReset_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ReadAfterReset::*)()>(&ReadAfterReset::init$))},
-	{"acceptAndResetConnection", "(Ljava/net/ServerSocket;)I", nullptr, $STATIC, $method(static_cast<int32_t(*)($ServerSocket*)>(&ReadAfterReset::acceptAndResetConnection)), "java.io.IOException"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&ReadAfterReset::main)), "java.io.IOException"},
-	{"readUntilIOException", "(Ljava/net/Socket;)I", nullptr, $STATIC, $method(static_cast<int32_t(*)($Socket*)>(&ReadAfterReset::readUntilIOException))},
-	{"writeUntilIOException", "(Ljava/net/Socket;)V", nullptr, $STATIC, $method(static_cast<void(*)($Socket*)>(&ReadAfterReset::writeUntilIOException))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ReadAfterReset, init$, void)},
+	{"acceptAndResetConnection", "(Ljava/net/ServerSocket;)I", nullptr, $STATIC, $staticMethod(ReadAfterReset, acceptAndResetConnection, int32_t, $ServerSocket*), "java.io.IOException"},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ReadAfterReset, main, void, $StringArray*), "java.io.IOException"},
+	{"readUntilIOException", "(Ljava/net/Socket;)I", nullptr, $STATIC, $staticMethod(ReadAfterReset, readUntilIOException, int32_t, $Socket*)},
+	{"writeUntilIOException", "(Ljava/net/Socket;)V", nullptr, $STATIC, $staticMethod(ReadAfterReset, writeUntilIOException, void, $Socket*)},
 	{}
 };
 

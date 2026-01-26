@@ -68,21 +68,21 @@ $FieldInfo _RecordComponent_FieldInfo_[] = {
 };
 
 $MethodInfo _RecordComponent_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(RecordComponent::*)()>(&RecordComponent::init$))},
-	{"declaredAnnotations", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/Class<+Ljava/lang/annotation/Annotation;>;Ljava/lang/annotation/Annotation;>;", $PRIVATE, $method(static_cast<$Map*(RecordComponent::*)()>(&RecordComponent::declaredAnnotations))},
-	{"getAccessor", "()Ljava/lang/reflect/Method;", nullptr, $PUBLIC, $method(static_cast<$Method*(RecordComponent::*)()>(&RecordComponent::getAccessor))},
-	{"getAnnotatedType", "()Ljava/lang/reflect/AnnotatedType;", nullptr, $PUBLIC, $method(static_cast<$AnnotatedType*(RecordComponent::*)()>(&RecordComponent::getAnnotatedType))},
-	{"getAnnotation", "(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;", "<T::Ljava/lang/annotation/Annotation;>(Ljava/lang/Class<TT;>;)TT;", $PUBLIC},
-	{"getAnnotations", "()[Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC},
-	{"getDeclaredAnnotations", "()[Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC},
-	{"getDeclaringRecord", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC, $method(static_cast<$Class*(RecordComponent::*)()>(&RecordComponent::getDeclaringRecord))},
-	{"getFactory", "()Lsun/reflect/generics/factory/GenericsFactory;", nullptr, $PRIVATE, $method(static_cast<$GenericsFactory*(RecordComponent::*)()>(&RecordComponent::getFactory))},
-	{"getGenericInfo", "()Lsun/reflect/generics/repository/FieldRepository;", nullptr, $PRIVATE, $method(static_cast<$FieldRepository*(RecordComponent::*)()>(&RecordComponent::getGenericInfo))},
-	{"getGenericSignature", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(static_cast<$String*(RecordComponent::*)()>(&RecordComponent::getGenericSignature))},
-	{"getGenericType", "()Ljava/lang/reflect/Type;", nullptr, $PUBLIC, $method(static_cast<$Type*(RecordComponent::*)()>(&RecordComponent::getGenericType))},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(static_cast<$String*(RecordComponent::*)()>(&RecordComponent::getName))},
-	{"getType", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC, $method(static_cast<$Class*(RecordComponent::*)()>(&RecordComponent::getType))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(RecordComponent, init$, void)},
+	{"declaredAnnotations", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/Class<+Ljava/lang/annotation/Annotation;>;Ljava/lang/annotation/Annotation;>;", $PRIVATE, $method(RecordComponent, declaredAnnotations, $Map*)},
+	{"getAccessor", "()Ljava/lang/reflect/Method;", nullptr, $PUBLIC, $method(RecordComponent, getAccessor, $Method*)},
+	{"getAnnotatedType", "()Ljava/lang/reflect/AnnotatedType;", nullptr, $PUBLIC, $method(RecordComponent, getAnnotatedType, $AnnotatedType*)},
+	{"getAnnotation", "(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;", "<T::Ljava/lang/annotation/Annotation;>(Ljava/lang/Class<TT;>;)TT;", $PUBLIC, $virtualMethod(RecordComponent, getAnnotation, $Annotation*, $Class*)},
+	{"getAnnotations", "()[Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC, $virtualMethod(RecordComponent, getAnnotations, $AnnotationArray*)},
+	{"getDeclaredAnnotations", "()[Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC, $virtualMethod(RecordComponent, getDeclaredAnnotations, $AnnotationArray*)},
+	{"getDeclaringRecord", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC, $method(RecordComponent, getDeclaringRecord, $Class*)},
+	{"getFactory", "()Lsun/reflect/generics/factory/GenericsFactory;", nullptr, $PRIVATE, $method(RecordComponent, getFactory, $GenericsFactory*)},
+	{"getGenericInfo", "()Lsun/reflect/generics/repository/FieldRepository;", nullptr, $PRIVATE, $method(RecordComponent, getGenericInfo, $FieldRepository*)},
+	{"getGenericSignature", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(RecordComponent, getGenericSignature, $String*)},
+	{"getGenericType", "()Ljava/lang/reflect/Type;", nullptr, $PUBLIC, $method(RecordComponent, getGenericType, $Type*)},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(RecordComponent, getName, $String*)},
+	{"getType", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC, $method(RecordComponent, getType, $Class*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RecordComponent, toString, $String*)},
 	{}
 };
 

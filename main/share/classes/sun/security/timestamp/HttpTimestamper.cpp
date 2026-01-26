@@ -56,9 +56,9 @@ $FieldInfo _HttpTimestamper_FieldInfo_[] = {
 };
 
 $MethodInfo _HttpTimestamper_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/URI;)V", nullptr, $PUBLIC, $method(static_cast<void(HttpTimestamper::*)($URI*)>(&HttpTimestamper::init$))},
-	{"generateTimestamp", "(Lsun/security/timestamp/TSRequest;)Lsun/security/timestamp/TSResponse;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"verifyMimeType", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($String*)>(&HttpTimestamper::verifyMimeType)), "java.io.IOException"},
+	{"<init>", "(Ljava/net/URI;)V", nullptr, $PUBLIC, $method(HttpTimestamper, init$, void, $URI*)},
+	{"generateTimestamp", "(Lsun/security/timestamp/TSRequest;)Lsun/security/timestamp/TSResponse;", nullptr, $PUBLIC, $virtualMethod(HttpTimestamper, generateTimestamp, $TSResponse*, $TSRequest*), "java.io.IOException"},
+	{"verifyMimeType", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(HttpTimestamper, verifyMimeType, void, $String*), "java.io.IOException"},
 	{}
 };
 

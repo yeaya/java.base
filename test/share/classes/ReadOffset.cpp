@@ -15,8 +15,8 @@ using $Channels = ::java::nio::channels::Channels;
 using $ReadableByteChannel = ::java::nio::channels::ReadableByteChannel;
 
 $MethodInfo _ReadOffset_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ReadOffset::*)()>(&ReadOffset::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&ReadOffset::main)), "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ReadOffset, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ReadOffset, main, void, $StringArray*), "java.io.IOException"},
 	{}
 };
 

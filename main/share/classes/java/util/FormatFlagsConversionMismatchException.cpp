@@ -20,10 +20,10 @@ $FieldInfo _FormatFlagsConversionMismatchException_FieldInfo_[] = {
 };
 
 $MethodInfo _FormatFlagsConversionMismatchException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;C)V", nullptr, $PUBLIC, $method(static_cast<void(FormatFlagsConversionMismatchException::*)($String*,char16_t)>(&FormatFlagsConversionMismatchException::init$))},
-	{"getConversion", "()C", nullptr, $PUBLIC},
-	{"getFlags", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;C)V", nullptr, $PUBLIC, $method(FormatFlagsConversionMismatchException, init$, void, $String*, char16_t)},
+	{"getConversion", "()C", nullptr, $PUBLIC, $virtualMethod(FormatFlagsConversionMismatchException, getConversion, char16_t)},
+	{"getFlags", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FormatFlagsConversionMismatchException, getFlags, $String*)},
+	{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FormatFlagsConversionMismatchException, getMessage, $String*)},
 	{}
 };
 

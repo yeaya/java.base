@@ -34,9 +34,9 @@ $FieldInfo _Pattern$CharPropertyGreedy_FieldInfo_[] = {
 };
 
 $MethodInfo _Pattern$CharPropertyGreedy_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/regex/Pattern$CharProperty;I)V", nullptr, 0, $method(static_cast<void(Pattern$CharPropertyGreedy::*)($Pattern$CharProperty*,int32_t)>(&Pattern$CharPropertyGreedy::init$))},
-	{"match", "(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z", nullptr, 0},
-	{"study", "(Ljava/util/regex/Pattern$TreeInfo;)Z", nullptr, 0},
+	{"<init>", "(Ljava/util/regex/Pattern$CharProperty;I)V", nullptr, 0, $method(Pattern$CharPropertyGreedy, init$, void, $Pattern$CharProperty*, int32_t)},
+	{"match", "(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z", nullptr, 0, $virtualMethod(Pattern$CharPropertyGreedy, match, bool, $Matcher*, int32_t, $CharSequence*)},
+	{"study", "(Ljava/util/regex/Pattern$TreeInfo;)Z", nullptr, 0, $virtualMethod(Pattern$CharPropertyGreedy, study, bool, $Pattern$TreeInfo*)},
 	{}
 };
 

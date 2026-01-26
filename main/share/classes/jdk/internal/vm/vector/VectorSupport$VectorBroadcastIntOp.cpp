@@ -7,6 +7,7 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $VectorSupport$Vector = ::jdk::internal::vm::vector::VectorSupport$Vector;
 
 namespace jdk {
 	namespace internal {
@@ -14,7 +15,7 @@ namespace jdk {
 			namespace vector {
 
 $MethodInfo _VectorSupport$VectorBroadcastIntOp_MethodInfo_[] = {
-	{"apply", "(Ljdk/internal/vm/vector/VectorSupport$Vector;I)Ljdk/internal/vm/vector/VectorSupport$Vector;", "(TV;I)TV;", $PUBLIC | $ABSTRACT},
+	{"apply", "(Ljdk/internal/vm/vector/VectorSupport$Vector;I)Ljdk/internal/vm/vector/VectorSupport$Vector;", "(TV;I)TV;", $PUBLIC | $ABSTRACT, $virtualMethod(VectorSupport$VectorBroadcastIntOp, apply, $VectorSupport$Vector*, $VectorSupport$Vector*, int32_t)},
 	{}
 };
 

@@ -35,8 +35,8 @@ namespace sun {
 		namespace ssl {
 
 $MethodInfo _ExtendedMasterSecretExtension$CHExtendedMasterSecretProducer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(ExtendedMasterSecretExtension$CHExtendedMasterSecretProducer::*)()>(&ExtendedMasterSecretExtension$CHExtendedMasterSecretProducer::init$))},
-	{"produce", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)[B", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(ExtendedMasterSecretExtension$CHExtendedMasterSecretProducer, init$, void)},
+	{"produce", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)[B", nullptr, $PUBLIC, $virtualMethod(ExtendedMasterSecretExtension$CHExtendedMasterSecretProducer, produce, $bytes*, $ConnectionContext*, $SSLHandshake$HandshakeMessage*), "java.io.IOException"},
 	{}
 };
 

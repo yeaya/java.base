@@ -24,8 +24,8 @@ $FieldInfo _SocksSocketImpl$1_FieldInfo_[] = {
 };
 
 $MethodInfo _SocksSocketImpl$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/SocksSocketImpl;Ljava/lang/String;II)V", nullptr, 0, $method(static_cast<void(SocksSocketImpl$1::*)($SocksSocketImpl*,$String*,int32_t,int32_t)>(&SocksSocketImpl$1::init$))},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljava/net/SocksSocketImpl;Ljava/lang/String;II)V", nullptr, 0, $method(SocksSocketImpl$1, init$, void, $SocksSocketImpl*, $String*, int32_t, int32_t)},
+	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(SocksSocketImpl$1, run, $Object*), "java.io.IOException"},
 	{}
 };
 

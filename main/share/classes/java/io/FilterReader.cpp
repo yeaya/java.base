@@ -17,15 +17,15 @@ $FieldInfo _FilterReader_FieldInfo_[] = {
 };
 
 $MethodInfo _FilterReader_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/Reader;)V", nullptr, $PROTECTED, $method(static_cast<void(FilterReader::*)($Reader*)>(&FilterReader::init$))},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"mark", "(I)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"markSupported", "()Z", nullptr, $PUBLIC},
-	{"read", "()I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"read", "([CII)I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"ready", "()Z", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"reset", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"skip", "(J)J", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljava/io/Reader;)V", nullptr, $PROTECTED, $method(FilterReader, init$, void, $Reader*)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(FilterReader, close, void), "java.io.IOException"},
+	{"mark", "(I)V", nullptr, $PUBLIC, $virtualMethod(FilterReader, mark, void, int32_t), "java.io.IOException"},
+	{"markSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(FilterReader, markSupported, bool)},
+	{"read", "()I", nullptr, $PUBLIC, $virtualMethod(FilterReader, read, int32_t), "java.io.IOException"},
+	{"read", "([CII)I", nullptr, $PUBLIC, $virtualMethod(FilterReader, read, int32_t, $chars*, int32_t, int32_t), "java.io.IOException"},
+	{"ready", "()Z", nullptr, $PUBLIC, $virtualMethod(FilterReader, ready, bool), "java.io.IOException"},
+	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(FilterReader, reset, void), "java.io.IOException"},
+	{"skip", "(J)J", nullptr, $PUBLIC, $virtualMethod(FilterReader, skip, int64_t, int64_t), "java.io.IOException"},
 	{}
 };
 

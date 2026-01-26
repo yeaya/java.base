@@ -41,11 +41,11 @@ $MethodInfo _ForEachOps$ForEachOp_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Z)V", nullptr, $PROTECTED, $method(static_cast<void(ForEachOps$ForEachOp::*)(bool)>(&ForEachOps$ForEachOp::init$))},
-	{"evaluateParallel", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;)Ljava/lang/Void;", "<S:Ljava/lang/Object;>(Ljava/util/stream/PipelineHelper<TT;>;Ljava/util/Spliterator<TS;>;)Ljava/lang/Void;", $PUBLIC},
-	{"evaluateSequential", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;)Ljava/lang/Void;", "<S:Ljava/lang/Object;>(Ljava/util/stream/PipelineHelper<TT;>;Ljava/util/Spliterator<TS;>;)Ljava/lang/Void;", $PUBLIC},
-	{"get", "()Ljava/lang/Void;", nullptr, $PUBLIC},
-	{"getOpFlags", "()I", nullptr, $PUBLIC},
+	{"<init>", "(Z)V", nullptr, $PROTECTED, $method(ForEachOps$ForEachOp, init$, void, bool)},
+	{"evaluateParallel", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;)Ljava/lang/Void;", "<S:Ljava/lang/Object;>(Ljava/util/stream/PipelineHelper<TT;>;Ljava/util/Spliterator<TS;>;)Ljava/lang/Void;", $PUBLIC, $virtualMethod(ForEachOps$ForEachOp, evaluateParallel, $Object*, $PipelineHelper*, $Spliterator*)},
+	{"evaluateSequential", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;)Ljava/lang/Void;", "<S:Ljava/lang/Object;>(Ljava/util/stream/PipelineHelper<TT;>;Ljava/util/Spliterator<TS;>;)Ljava/lang/Void;", $PUBLIC, $virtualMethod(ForEachOps$ForEachOp, evaluateSequential, $Object*, $PipelineHelper*, $Spliterator*)},
+	{"get", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(ForEachOps$ForEachOp, get, $Object*)},
+	{"getOpFlags", "()I", nullptr, $PUBLIC, $virtualMethod(ForEachOps$ForEachOp, getOpFlags, int32_t)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

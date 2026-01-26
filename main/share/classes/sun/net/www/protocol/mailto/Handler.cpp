@@ -24,10 +24,10 @@ namespace sun {
 				namespace mailto {
 
 $MethodInfo _Handler_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Handler::*)()>(&Handler::init$))},
-	{"openConnection", "(Ljava/net/URL;)Ljava/net/URLConnection;", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"parseURL", "(Ljava/net/URL;Ljava/lang/String;II)V", nullptr, $PUBLIC},
-	{"setURLHandler", "(Ljava/net/URL;Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(static_cast<void(Handler::*)($URL*,$String*,$String*,int32_t,$String*,$String*)>(&Handler::setURLHandler))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Handler, init$, void)},
+	{"openConnection", "(Ljava/net/URL;)Ljava/net/URLConnection;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Handler, openConnection, $URLConnection*, $URL*)},
+	{"parseURL", "(Ljava/net/URL;Ljava/lang/String;II)V", nullptr, $PUBLIC, $virtualMethod(Handler, parseURL, void, $URL*, $String*, int32_t, int32_t)},
+	{"setURLHandler", "(Ljava/net/URL;Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(Handler, setURLHandler, void, $URL*, $String*, $String*, int32_t, $String*, $String*)},
 	{}
 };
 

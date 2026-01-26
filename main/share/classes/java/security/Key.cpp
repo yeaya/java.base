@@ -21,9 +21,9 @@ $FieldInfo _Key_FieldInfo_[] = {
 };
 
 $MethodInfo _Key_MethodInfo_[] = {
-	{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getEncoded", "()[B", nullptr, $PUBLIC | $ABSTRACT},
-	{"getFormat", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
+	{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Key, getAlgorithm, $String*)},
+	{"getEncoded", "()[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Key, getEncoded, $bytes*)},
+	{"getFormat", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Key, getFormat, $String*)},
 	{}
 };
 

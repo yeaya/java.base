@@ -40,9 +40,9 @@ $FieldInfo _JarVerifier$2_FieldInfo_[] = {
 };
 
 $MethodInfo _JarVerifier$2_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/jar/JarVerifier;Ljava/util/Enumeration;Ljava/util/jar/JarFile;Ljava/util/Map;)V", nullptr, 0, $method(static_cast<void(JarVerifier$2::*)($JarVerifier*,$Enumeration*,$JarFile*,$Map*)>(&JarVerifier$2::init$))},
-	{"hasMoreElements", "()Z", nullptr, $PUBLIC},
-	{"nextElement", "()Ljava/util/jar/JarEntry;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/jar/JarVerifier;Ljava/util/Enumeration;Ljava/util/jar/JarFile;Ljava/util/Map;)V", nullptr, 0, $method(JarVerifier$2, init$, void, $JarVerifier*, $Enumeration*, $JarFile*, $Map*)},
+	{"hasMoreElements", "()Z", nullptr, $PUBLIC, $virtualMethod(JarVerifier$2, hasMoreElements, bool)},
+	{"nextElement", "()Ljava/util/jar/JarEntry;", nullptr, $PUBLIC, $virtualMethod(JarVerifier$2, nextElement, $Object*)},
 	{}
 };
 

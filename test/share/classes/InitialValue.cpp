@@ -23,9 +23,9 @@ $FieldInfo _InitialValue_FieldInfo_[] = {
 };
 
 $MethodInfo _InitialValue_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(InitialValue::*)()>(&InitialValue::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&InitialValue::main))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(InitialValue, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(InitialValue, main, void, $StringArray*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(InitialValue, run, void)},
 	{}
 };
 

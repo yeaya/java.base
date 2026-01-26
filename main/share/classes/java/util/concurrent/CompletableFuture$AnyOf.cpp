@@ -24,9 +24,9 @@ $FieldInfo _CompletableFuture$AnyOf_FieldInfo_[] = {
 };
 
 $MethodInfo _CompletableFuture$AnyOf_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/CompletableFuture;Ljava/util/concurrent/CompletableFuture;[Ljava/util/concurrent/CompletableFuture;)V", "(Ljava/util/concurrent/CompletableFuture<Ljava/lang/Object;>;Ljava/util/concurrent/CompletableFuture<*>;[Ljava/util/concurrent/CompletableFuture<*>;)V", 0, $method(static_cast<void(CompletableFuture$AnyOf::*)($CompletableFuture*,$CompletableFuture*,$CompletableFutureArray*)>(&CompletableFuture$AnyOf::init$))},
-	{"isLive", "()Z", nullptr, $FINAL},
-	{"tryFire", "(I)Ljava/util/concurrent/CompletableFuture;", "(I)Ljava/util/concurrent/CompletableFuture<Ljava/lang/Object;>;", $FINAL},
+	{"<init>", "(Ljava/util/concurrent/CompletableFuture;Ljava/util/concurrent/CompletableFuture;[Ljava/util/concurrent/CompletableFuture;)V", "(Ljava/util/concurrent/CompletableFuture<Ljava/lang/Object;>;Ljava/util/concurrent/CompletableFuture<*>;[Ljava/util/concurrent/CompletableFuture<*>;)V", 0, $method(CompletableFuture$AnyOf, init$, void, $CompletableFuture*, $CompletableFuture*, $CompletableFutureArray*)},
+	{"isLive", "()Z", nullptr, $FINAL, $virtualMethod(CompletableFuture$AnyOf, isLive, bool)},
+	{"tryFire", "(I)Ljava/util/concurrent/CompletableFuture;", "(I)Ljava/util/concurrent/CompletableFuture<Ljava/lang/Object;>;", $FINAL, $virtualMethod(CompletableFuture$AnyOf, tryFire, $CompletableFuture*, int32_t)},
 	{}
 };
 

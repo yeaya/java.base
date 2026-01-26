@@ -39,7 +39,7 @@ $FieldInfo _PskKeyExchangeModesExtension_FieldInfo_[] = {
 };
 
 $MethodInfo _PskKeyExchangeModesExtension_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(PskKeyExchangeModesExtension::*)()>(&PskKeyExchangeModesExtension::init$))},
+	{"<init>", "()V", nullptr, 0, $method(PskKeyExchangeModesExtension, init$, void)},
 	{}
 };
 

@@ -22,10 +22,10 @@ $FieldInfo _VerifyStackTrace$TestCase1_FieldInfo_[] = {
 };
 
 $MethodInfo _VerifyStackTrace$TestCase1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(VerifyStackTrace$TestCase1::*)()>(&VerifyStackTrace$TestCase1::init$))},
-	{"description", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"expected", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"walker", "()Ljava/lang/StackWalker;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(VerifyStackTrace$TestCase1, init$, void)},
+	{"description", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(VerifyStackTrace$TestCase1, description, $String*)},
+	{"expected", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(VerifyStackTrace$TestCase1, expected, $String*)},
+	{"walker", "()Ljava/lang/StackWalker;", nullptr, $PUBLIC, $virtualMethod(VerifyStackTrace$TestCase1, walker, $StackWalker*)},
 	{}
 };
 

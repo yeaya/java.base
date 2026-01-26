@@ -46,8 +46,8 @@ $FieldInfo DoubleUnaryOperator$$Lambda$lambda$compose$0::fieldInfos[3] = {
 	{}
 };
 $MethodInfo DoubleUnaryOperator$$Lambda$lambda$compose$0::methodInfos[3] = {
-	{"<init>", "(Ljava/util/function/DoubleUnaryOperator;Ljava/util/function/DoubleUnaryOperator;)V", nullptr, $PUBLIC, $method(static_cast<void(DoubleUnaryOperator$$Lambda$lambda$compose$0::*)(DoubleUnaryOperator*,DoubleUnaryOperator*)>(&DoubleUnaryOperator$$Lambda$lambda$compose$0::init$))},
-	{"applyAsDouble", "(D)D", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/function/DoubleUnaryOperator;Ljava/util/function/DoubleUnaryOperator;)V", nullptr, $PUBLIC, $method(DoubleUnaryOperator$$Lambda$lambda$compose$0, init$, void, DoubleUnaryOperator*, DoubleUnaryOperator*)},
+	{"applyAsDouble", "(D)D", nullptr, $PUBLIC, $virtualMethod(DoubleUnaryOperator$$Lambda$lambda$compose$0, applyAsDouble, double, double)},
 	{}
 };
 $ClassInfo DoubleUnaryOperator$$Lambda$lambda$compose$0::classInfo$ = {
@@ -89,8 +89,8 @@ $FieldInfo DoubleUnaryOperator$$Lambda$lambda$andThen$1$1::fieldInfos[3] = {
 	{}
 };
 $MethodInfo DoubleUnaryOperator$$Lambda$lambda$andThen$1$1::methodInfos[3] = {
-	{"<init>", "(Ljava/util/function/DoubleUnaryOperator;Ljava/util/function/DoubleUnaryOperator;)V", nullptr, $PUBLIC, $method(static_cast<void(DoubleUnaryOperator$$Lambda$lambda$andThen$1$1::*)(DoubleUnaryOperator*,DoubleUnaryOperator*)>(&DoubleUnaryOperator$$Lambda$lambda$andThen$1$1::init$))},
-	{"applyAsDouble", "(D)D", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/function/DoubleUnaryOperator;Ljava/util/function/DoubleUnaryOperator;)V", nullptr, $PUBLIC, $method(DoubleUnaryOperator$$Lambda$lambda$andThen$1$1, init$, void, DoubleUnaryOperator*, DoubleUnaryOperator*)},
+	{"applyAsDouble", "(D)D", nullptr, $PUBLIC, $virtualMethod(DoubleUnaryOperator$$Lambda$lambda$andThen$1$1, applyAsDouble, double, double)},
 	{}
 };
 $ClassInfo DoubleUnaryOperator$$Lambda$lambda$andThen$1$1::classInfo$ = {
@@ -122,8 +122,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo DoubleUnaryOperator$$Lambda$lambda$identity$2$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DoubleUnaryOperator$$Lambda$lambda$identity$2$2::*)()>(&DoubleUnaryOperator$$Lambda$lambda$identity$2$2::init$))},
-	{"applyAsDouble", "(D)D", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DoubleUnaryOperator$$Lambda$lambda$identity$2$2, init$, void)},
+	{"applyAsDouble", "(D)D", nullptr, $PUBLIC, $virtualMethod(DoubleUnaryOperator$$Lambda$lambda$identity$2$2, applyAsDouble, double, double)},
 	{}
 };
 $ClassInfo DoubleUnaryOperator$$Lambda$lambda$identity$2$2::classInfo$ = {
@@ -146,13 +146,13 @@ $CompoundAttribute _DoubleUnaryOperator_Annotations_[] = {
 };
 
 $MethodInfo _DoubleUnaryOperator_MethodInfo_[] = {
-	{"andThen", "(Ljava/util/function/DoubleUnaryOperator;)Ljava/util/function/DoubleUnaryOperator;", nullptr, $PUBLIC},
-	{"applyAsDouble", "(D)D", nullptr, $PUBLIC | $ABSTRACT},
-	{"compose", "(Ljava/util/function/DoubleUnaryOperator;)Ljava/util/function/DoubleUnaryOperator;", nullptr, $PUBLIC},
-	{"identity", "()Ljava/util/function/DoubleUnaryOperator;", nullptr, $PUBLIC | $STATIC, $method(static_cast<DoubleUnaryOperator*(*)()>(&DoubleUnaryOperator::identity))},
-	{"lambda$andThen$1", "(Ljava/util/function/DoubleUnaryOperator;D)D", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<double(DoubleUnaryOperator::*)(DoubleUnaryOperator*,double)>(&DoubleUnaryOperator::lambda$andThen$1))},
-	{"lambda$compose$0", "(Ljava/util/function/DoubleUnaryOperator;D)D", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<double(DoubleUnaryOperator::*)(DoubleUnaryOperator*,double)>(&DoubleUnaryOperator::lambda$compose$0))},
-	{"lambda$identity$2", "(D)D", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<double(*)(double)>(&DoubleUnaryOperator::lambda$identity$2))},
+	{"andThen", "(Ljava/util/function/DoubleUnaryOperator;)Ljava/util/function/DoubleUnaryOperator;", nullptr, $PUBLIC, $virtualMethod(DoubleUnaryOperator, andThen, DoubleUnaryOperator*, DoubleUnaryOperator*)},
+	{"applyAsDouble", "(D)D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DoubleUnaryOperator, applyAsDouble, double, double)},
+	{"compose", "(Ljava/util/function/DoubleUnaryOperator;)Ljava/util/function/DoubleUnaryOperator;", nullptr, $PUBLIC, $virtualMethod(DoubleUnaryOperator, compose, DoubleUnaryOperator*, DoubleUnaryOperator*)},
+	{"identity", "()Ljava/util/function/DoubleUnaryOperator;", nullptr, $PUBLIC | $STATIC, $staticMethod(DoubleUnaryOperator, identity, DoubleUnaryOperator*)},
+	{"lambda$andThen$1", "(Ljava/util/function/DoubleUnaryOperator;D)D", nullptr, $PRIVATE | $SYNTHETIC, $method(DoubleUnaryOperator, lambda$andThen$1, double, DoubleUnaryOperator*, double)},
+	{"lambda$compose$0", "(Ljava/util/function/DoubleUnaryOperator;D)D", nullptr, $PRIVATE | $SYNTHETIC, $method(DoubleUnaryOperator, lambda$compose$0, double, DoubleUnaryOperator*, double)},
+	{"lambda$identity$2", "(D)D", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DoubleUnaryOperator, lambda$identity$2, double, double)},
 	{}
 };
 

@@ -10,8 +10,8 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _ValueOf4Enum$Specialized$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(static_cast<void(ValueOf4Enum$Specialized$1::*)($String*,int32_t)>(&ValueOf4Enum$Specialized$1::init$))},
-	{"foo", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(ValueOf4Enum$Specialized$1, init$, void, $String*, int32_t)},
+	{"foo", "()V", nullptr, $PUBLIC, $virtualMethod(ValueOf4Enum$Specialized$1, foo, void)},
 	{}
 };
 

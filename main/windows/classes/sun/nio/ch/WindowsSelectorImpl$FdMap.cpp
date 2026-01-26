@@ -26,10 +26,10 @@ $FieldInfo _WindowsSelectorImpl$FdMap_FieldInfo_[] = {
 };
 
 $MethodInfo _WindowsSelectorImpl$FdMap_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(WindowsSelectorImpl$FdMap::*)()>(&WindowsSelectorImpl$FdMap::init$))},
-	{"get", "(I)Lsun/nio/ch/WindowsSelectorImpl$MapEntry;", nullptr, $PRIVATE, $method(static_cast<$WindowsSelectorImpl$MapEntry*(WindowsSelectorImpl$FdMap::*)(int32_t)>(&WindowsSelectorImpl$FdMap::get))},
-	{"put", "(Lsun/nio/ch/SelectionKeyImpl;)Lsun/nio/ch/WindowsSelectorImpl$MapEntry;", nullptr, $PRIVATE, $method(static_cast<$WindowsSelectorImpl$MapEntry*(WindowsSelectorImpl$FdMap::*)($SelectionKeyImpl*)>(&WindowsSelectorImpl$FdMap::put))},
-	{"remove", "(Lsun/nio/ch/SelectionKeyImpl;)Lsun/nio/ch/WindowsSelectorImpl$MapEntry;", nullptr, $PRIVATE, $method(static_cast<$WindowsSelectorImpl$MapEntry*(WindowsSelectorImpl$FdMap::*)($SelectionKeyImpl*)>(&WindowsSelectorImpl$FdMap::remove))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(WindowsSelectorImpl$FdMap, init$, void)},
+	{"get", "(I)Lsun/nio/ch/WindowsSelectorImpl$MapEntry;", nullptr, $PRIVATE, $method(WindowsSelectorImpl$FdMap, get, $WindowsSelectorImpl$MapEntry*, int32_t)},
+	{"put", "(Lsun/nio/ch/SelectionKeyImpl;)Lsun/nio/ch/WindowsSelectorImpl$MapEntry;", nullptr, $PRIVATE, $method(WindowsSelectorImpl$FdMap, put, $WindowsSelectorImpl$MapEntry*, $SelectionKeyImpl*)},
+	{"remove", "(Lsun/nio/ch/SelectionKeyImpl;)Lsun/nio/ch/WindowsSelectorImpl$MapEntry;", nullptr, $PRIVATE, $method(WindowsSelectorImpl$FdMap, remove, $WindowsSelectorImpl$MapEntry*, $SelectionKeyImpl*)},
 	{}
 };
 

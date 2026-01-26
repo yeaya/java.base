@@ -12,10 +12,10 @@ using $SecurityManager = ::java::lang::SecurityManager;
 using $Permission = ::java::security::Permission;
 
 $MethodInfo _GetXSpace$Allow_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(GetXSpace$Allow::*)()>(&GetXSpace$Allow::init$))},
-	{"checkPermission", "(Ljava/security/Permission;)V", nullptr, $PUBLIC},
-	{"checkPermission", "(Ljava/security/Permission;Ljava/lang/Object;)V", nullptr, $PUBLIC},
-	{"checkRead", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(GetXSpace$Allow, init$, void)},
+	{"checkPermission", "(Ljava/security/Permission;)V", nullptr, $PUBLIC, $virtualMethod(GetXSpace$Allow, checkPermission, void, $Permission*)},
+	{"checkPermission", "(Ljava/security/Permission;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(GetXSpace$Allow, checkPermission, void, $Permission*, Object$*)},
+	{"checkRead", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(GetXSpace$Allow, checkRead, void, $String*)},
 	{}
 };
 

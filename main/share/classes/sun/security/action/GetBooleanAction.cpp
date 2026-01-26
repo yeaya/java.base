@@ -22,9 +22,9 @@ $FieldInfo _GetBooleanAction_FieldInfo_[] = {
 };
 
 $MethodInfo _GetBooleanAction_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(GetBooleanAction::*)($String*)>(&GetBooleanAction::init$))},
-	{"privilegedGetProperty", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)($String*)>(&GetBooleanAction::privilegedGetProperty))},
-	{"run", "()Ljava/lang/Boolean;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(GetBooleanAction, init$, void, $String*)},
+	{"privilegedGetProperty", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(GetBooleanAction, privilegedGetProperty, bool, $String*)},
+	{"run", "()Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(GetBooleanAction, run, $Object*)},
 	{}
 };
 

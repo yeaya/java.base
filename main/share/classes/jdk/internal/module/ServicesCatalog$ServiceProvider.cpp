@@ -23,11 +23,11 @@ $FieldInfo _ServicesCatalog$ServiceProvider_FieldInfo_[] = {
 };
 
 $MethodInfo _ServicesCatalog$ServiceProvider_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Module;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(ServicesCatalog$ServiceProvider::*)($Module*,$String*)>(&ServicesCatalog$ServiceProvider::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"module", "()Ljava/lang/Module;", nullptr, $PUBLIC, $method(static_cast<$Module*(ServicesCatalog$ServiceProvider::*)()>(&ServicesCatalog$ServiceProvider::module))},
-	{"providerName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(static_cast<$String*(ServicesCatalog$ServiceProvider::*)()>(&ServicesCatalog$ServiceProvider::providerName))},
+	{"<init>", "(Ljava/lang/Module;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ServicesCatalog$ServiceProvider, init$, void, $Module*, $String*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ServicesCatalog$ServiceProvider, equals, bool, Object$*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ServicesCatalog$ServiceProvider, hashCode, int32_t)},
+	{"module", "()Ljava/lang/Module;", nullptr, $PUBLIC, $method(ServicesCatalog$ServiceProvider, module, $Module*)},
+	{"providerName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(ServicesCatalog$ServiceProvider, providerName, $String*)},
 	{}
 };
 

@@ -39,12 +39,12 @@ $FieldInfo _FieldVisitor_FieldInfo_[] = {
 };
 
 $MethodInfo _FieldVisitor_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(static_cast<void(FieldVisitor::*)(int32_t)>(&FieldVisitor::init$))},
-	{"<init>", "(ILjdk/internal/org/objectweb/asm/FieldVisitor;)V", nullptr, $PUBLIC, $method(static_cast<void(FieldVisitor::*)(int32_t,FieldVisitor*)>(&FieldVisitor::init$))},
-	{"visitAnnotation", "(Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC},
-	{"visitAttribute", "(Ljdk/internal/org/objectweb/asm/Attribute;)V", nullptr, $PUBLIC},
-	{"visitEnd", "()V", nullptr, $PUBLIC},
-	{"visitTypeAnnotation", "(ILjdk/internal/org/objectweb/asm/TypePath;Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC},
+	{"<init>", "(I)V", nullptr, $PUBLIC, $method(FieldVisitor, init$, void, int32_t)},
+	{"<init>", "(ILjdk/internal/org/objectweb/asm/FieldVisitor;)V", nullptr, $PUBLIC, $method(FieldVisitor, init$, void, int32_t, FieldVisitor*)},
+	{"visitAnnotation", "(Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(FieldVisitor, visitAnnotation, $AnnotationVisitor*, $String*, bool)},
+	{"visitAttribute", "(Ljdk/internal/org/objectweb/asm/Attribute;)V", nullptr, $PUBLIC, $virtualMethod(FieldVisitor, visitAttribute, void, $Attribute*)},
+	{"visitEnd", "()V", nullptr, $PUBLIC, $virtualMethod(FieldVisitor, visitEnd, void)},
+	{"visitTypeAnnotation", "(ILjdk/internal/org/objectweb/asm/TypePath;Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(FieldVisitor, visitTypeAnnotation, $AnnotationVisitor*, int32_t, $TypePath*, $String*, bool)},
 	{}
 };
 

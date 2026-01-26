@@ -73,13 +73,13 @@ $FieldInfo _NativePRNG$RandomIO_FieldInfo_[] = {
 };
 
 $MethodInfo _NativePRNG$RandomIO_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/File;Ljava/io/File;)V", nullptr, $PRIVATE, $method(static_cast<void(NativePRNG$RandomIO::*)($File*,$File*)>(&NativePRNG$RandomIO::init$)), "java.io.IOException"},
-	{"ensureBufferValid", "()V", nullptr, $PRIVATE, $method(static_cast<void(NativePRNG$RandomIO::*)()>(&NativePRNG$RandomIO::ensureBufferValid)), "java.io.IOException"},
-	{"getMixRandom", "()Lsun/security/provider/SecureRandom;", nullptr, $PRIVATE, $method(static_cast<$SecureRandom*(NativePRNG$RandomIO::*)()>(&NativePRNG$RandomIO::getMixRandom))},
-	{"implGenerateSeed", "(I)[B", nullptr, $PRIVATE, $method(static_cast<$bytes*(NativePRNG$RandomIO::*)(int32_t)>(&NativePRNG$RandomIO::implGenerateSeed))},
-	{"implNextBytes", "([B)V", nullptr, $PRIVATE, $method(static_cast<void(NativePRNG$RandomIO::*)($bytes*)>(&NativePRNG$RandomIO::implNextBytes))},
-	{"implSetSeed", "([B)V", nullptr, $PRIVATE, $method(static_cast<void(NativePRNG$RandomIO::*)($bytes*)>(&NativePRNG$RandomIO::implSetSeed))},
-	{"readFully", "(Ljava/io/InputStream;[B)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($InputStream*,$bytes*)>(&NativePRNG$RandomIO::readFully)), "java.io.IOException"},
+	{"<init>", "(Ljava/io/File;Ljava/io/File;)V", nullptr, $PRIVATE, $method(NativePRNG$RandomIO, init$, void, $File*, $File*), "java.io.IOException"},
+	{"ensureBufferValid", "()V", nullptr, $PRIVATE, $method(NativePRNG$RandomIO, ensureBufferValid, void), "java.io.IOException"},
+	{"getMixRandom", "()Lsun/security/provider/SecureRandom;", nullptr, $PRIVATE, $method(NativePRNG$RandomIO, getMixRandom, $SecureRandom*)},
+	{"implGenerateSeed", "(I)[B", nullptr, $PRIVATE, $method(NativePRNG$RandomIO, implGenerateSeed, $bytes*, int32_t)},
+	{"implNextBytes", "([B)V", nullptr, $PRIVATE, $method(NativePRNG$RandomIO, implNextBytes, void, $bytes*)},
+	{"implSetSeed", "([B)V", nullptr, $PRIVATE, $method(NativePRNG$RandomIO, implSetSeed, void, $bytes*)},
+	{"readFully", "(Ljava/io/InputStream;[B)V", nullptr, $PRIVATE | $STATIC, $staticMethod(NativePRNG$RandomIO, readFully, void, $InputStream*, $bytes*), "java.io.IOException"},
 	{}
 };
 

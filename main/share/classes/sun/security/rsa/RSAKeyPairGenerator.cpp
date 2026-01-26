@@ -77,13 +77,13 @@ $FieldInfo _RSAKeyPairGenerator_FieldInfo_[] = {
 };
 
 $MethodInfo _RSAKeyPairGenerator_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/rsa/RSAUtil$KeyType;I)V", nullptr, 0, $method(static_cast<void(RSAKeyPairGenerator::*)($RSAUtil$KeyType*,int32_t)>(&RSAKeyPairGenerator::init$))},
-	{"createKeyPair", "(Lsun/security/rsa/RSAUtil$KeyType;Ljava/security/spec/AlgorithmParameterSpec;Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;)Ljava/security/KeyPair;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$KeyPair*(*)($RSAUtil$KeyType*,$AlgorithmParameterSpec*,$BigInteger*,$BigInteger*,$BigInteger*,$BigInteger*)>(&RSAKeyPairGenerator::createKeyPair))},
-	{"generateKeyPair", "()Ljava/security/KeyPair;", nullptr, $PUBLIC},
-	{"getSqrt", "(I)Ljava/math/BigInteger;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$BigInteger*(*)(int32_t)>(&RSAKeyPairGenerator::getSqrt))},
-	{"initialize", "(ILjava/security/SecureRandom;)V", nullptr, $PUBLIC},
-	{"initialize", "(Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, $PUBLIC, nullptr, "java.security.InvalidAlgorithmParameterException"},
-	{"isRelativePrime", "(Ljava/math/BigInteger;Ljava/math/BigInteger;)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($BigInteger*,$BigInteger*)>(&RSAKeyPairGenerator::isRelativePrime))},
+	{"<init>", "(Lsun/security/rsa/RSAUtil$KeyType;I)V", nullptr, 0, $method(RSAKeyPairGenerator, init$, void, $RSAUtil$KeyType*, int32_t)},
+	{"createKeyPair", "(Lsun/security/rsa/RSAUtil$KeyType;Ljava/security/spec/AlgorithmParameterSpec;Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;)Ljava/security/KeyPair;", nullptr, $PRIVATE | $STATIC, $staticMethod(RSAKeyPairGenerator, createKeyPair, $KeyPair*, $RSAUtil$KeyType*, $AlgorithmParameterSpec*, $BigInteger*, $BigInteger*, $BigInteger*, $BigInteger*)},
+	{"generateKeyPair", "()Ljava/security/KeyPair;", nullptr, $PUBLIC, $virtualMethod(RSAKeyPairGenerator, generateKeyPair, $KeyPair*)},
+	{"getSqrt", "(I)Ljava/math/BigInteger;", nullptr, $PRIVATE | $STATIC, $staticMethod(RSAKeyPairGenerator, getSqrt, $BigInteger*, int32_t)},
+	{"initialize", "(ILjava/security/SecureRandom;)V", nullptr, $PUBLIC, $virtualMethod(RSAKeyPairGenerator, initialize, void, int32_t, $SecureRandom*)},
+	{"initialize", "(Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, $PUBLIC, $virtualMethod(RSAKeyPairGenerator, initialize, void, $AlgorithmParameterSpec*, $SecureRandom*), "java.security.InvalidAlgorithmParameterException"},
+	{"isRelativePrime", "(Ljava/math/BigInteger;Ljava/math/BigInteger;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(RSAKeyPairGenerator, isRelativePrime, bool, $BigInteger*, $BigInteger*)},
 	{}
 };
 

@@ -8,8 +8,8 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _MetafactoryMethodNameTest$C_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(MetafactoryMethodNameTest$C::*)()>(&MetafactoryMethodNameTest$C::init$))},
-	{"m", "()V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)()>(&MetafactoryMethodNameTest$C::m))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(MetafactoryMethodNameTest$C, init$, void)},
+	{"m", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(MetafactoryMethodNameTest$C, m, void)},
 	{}
 };
 

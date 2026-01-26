@@ -186,19 +186,19 @@ $FieldInfo _InnerClassLambdaMetafactory_FieldInfo_[] = {
 };
 
 $MethodInfo _InnerClassLambdaMetafactory_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/invoke/MethodType;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;Z[Ljava/lang/Class;[Ljava/lang/invoke/MethodType;)V", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/invoke/MethodType;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;Z[Ljava/lang/Class<*>;[Ljava/lang/invoke/MethodType;)V", $PUBLIC, $method(static_cast<void(InnerClassLambdaMetafactory::*)($MethodHandles$Lookup*,$MethodType*,$String*,$MethodType*,$MethodHandle*,$MethodType*,bool,$ClassArray*,$MethodTypeArray*)>(&InnerClassLambdaMetafactory::init$)), "java.lang.invoke.LambdaConversionException"},
-	{"buildCallSite", "()Ljava/lang/invoke/CallSite;", nullptr, 0, nullptr, "java.lang.invoke.LambdaConversionException"},
-	{"generateClassInitializer", "()V", nullptr, $PRIVATE, $method(static_cast<void(InnerClassLambdaMetafactory::*)()>(&InnerClassLambdaMetafactory::generateClassInitializer))},
-	{"generateConstructor", "()V", nullptr, $PRIVATE, $method(static_cast<void(InnerClassLambdaMetafactory::*)()>(&InnerClassLambdaMetafactory::generateConstructor))},
-	{"generateInnerClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PRIVATE, $method(static_cast<$Class*(InnerClassLambdaMetafactory::*)()>(&InnerClassLambdaMetafactory::generateInnerClass)), "java.lang.invoke.LambdaConversionException"},
-	{"generateSerializationFriendlyMethods", "()V", nullptr, $PRIVATE, $method(static_cast<void(InnerClassLambdaMetafactory::*)()>(&InnerClassLambdaMetafactory::generateSerializationFriendlyMethods))},
-	{"generateSerializationHostileMethods", "()V", nullptr, $PRIVATE, $method(static_cast<void(InnerClassLambdaMetafactory::*)()>(&InnerClassLambdaMetafactory::generateSerializationHostileMethods))},
-	{"getLoadOpcode", "(Ljava/lang/Class;)I", "(Ljava/lang/Class<*>;)I", $STATIC, $method(static_cast<int32_t(*)($Class*)>(&InnerClassLambdaMetafactory::getLoadOpcode))},
-	{"getOpcodeOffset", "(Ljava/lang/Class;)I", "(Ljava/lang/Class<*>;)I", $PRIVATE | $STATIC, $method(static_cast<int32_t(*)($Class*)>(&InnerClassLambdaMetafactory::getOpcodeOffset))},
-	{"getParameterSize", "(Ljava/lang/Class;)I", "(Ljava/lang/Class<*>;)I", $STATIC, $method(static_cast<int32_t(*)($Class*)>(&InnerClassLambdaMetafactory::getParameterSize))},
-	{"getReturnOpcode", "(Ljava/lang/Class;)I", "(Ljava/lang/Class<*>;)I", $STATIC, $method(static_cast<int32_t(*)($Class*)>(&InnerClassLambdaMetafactory::getReturnOpcode))},
-	{"lambdaClassName", "(Ljava/lang/Class;)Ljava/lang/String;", "(Ljava/lang/Class<*>;)Ljava/lang/String;", $PRIVATE | $STATIC, $method(static_cast<$String*(*)($Class*)>(&InnerClassLambdaMetafactory::lambdaClassName))},
-	{"spinInnerClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PRIVATE, $method(static_cast<$Class*(InnerClassLambdaMetafactory::*)()>(&InnerClassLambdaMetafactory::spinInnerClass)), "java.lang.invoke.LambdaConversionException"},
+	{"<init>", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/invoke/MethodType;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;Z[Ljava/lang/Class;[Ljava/lang/invoke/MethodType;)V", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/invoke/MethodType;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;Z[Ljava/lang/Class<*>;[Ljava/lang/invoke/MethodType;)V", $PUBLIC, $method(InnerClassLambdaMetafactory, init$, void, $MethodHandles$Lookup*, $MethodType*, $String*, $MethodType*, $MethodHandle*, $MethodType*, bool, $ClassArray*, $MethodTypeArray*), "java.lang.invoke.LambdaConversionException"},
+	{"buildCallSite", "()Ljava/lang/invoke/CallSite;", nullptr, 0, $virtualMethod(InnerClassLambdaMetafactory, buildCallSite, $CallSite*), "java.lang.invoke.LambdaConversionException"},
+	{"generateClassInitializer", "()V", nullptr, $PRIVATE, $method(InnerClassLambdaMetafactory, generateClassInitializer, void)},
+	{"generateConstructor", "()V", nullptr, $PRIVATE, $method(InnerClassLambdaMetafactory, generateConstructor, void)},
+	{"generateInnerClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PRIVATE, $method(InnerClassLambdaMetafactory, generateInnerClass, $Class*), "java.lang.invoke.LambdaConversionException"},
+	{"generateSerializationFriendlyMethods", "()V", nullptr, $PRIVATE, $method(InnerClassLambdaMetafactory, generateSerializationFriendlyMethods, void)},
+	{"generateSerializationHostileMethods", "()V", nullptr, $PRIVATE, $method(InnerClassLambdaMetafactory, generateSerializationHostileMethods, void)},
+	{"getLoadOpcode", "(Ljava/lang/Class;)I", "(Ljava/lang/Class<*>;)I", $STATIC, $staticMethod(InnerClassLambdaMetafactory, getLoadOpcode, int32_t, $Class*)},
+	{"getOpcodeOffset", "(Ljava/lang/Class;)I", "(Ljava/lang/Class<*>;)I", $PRIVATE | $STATIC, $staticMethod(InnerClassLambdaMetafactory, getOpcodeOffset, int32_t, $Class*)},
+	{"getParameterSize", "(Ljava/lang/Class;)I", "(Ljava/lang/Class<*>;)I", $STATIC, $staticMethod(InnerClassLambdaMetafactory, getParameterSize, int32_t, $Class*)},
+	{"getReturnOpcode", "(Ljava/lang/Class;)I", "(Ljava/lang/Class<*>;)I", $STATIC, $staticMethod(InnerClassLambdaMetafactory, getReturnOpcode, int32_t, $Class*)},
+	{"lambdaClassName", "(Ljava/lang/Class;)Ljava/lang/String;", "(Ljava/lang/Class<*>;)Ljava/lang/String;", $PRIVATE | $STATIC, $staticMethod(InnerClassLambdaMetafactory, lambdaClassName, $String*, $Class*)},
+	{"spinInnerClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PRIVATE, $method(InnerClassLambdaMetafactory, spinInnerClass, $Class*), "java.lang.invoke.LambdaConversionException"},
 	{}
 };
 

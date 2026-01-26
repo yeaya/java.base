@@ -16,8 +16,8 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 
 $MethodInfo _ITLRemoveTest$MyThread_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(ITLRemoveTest$MyThread::*)()>(&ITLRemoveTest$MyThread::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(ITLRemoveTest$MyThread, init$, void)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ITLRemoveTest$MyThread, run, void)},
 	{}
 };
 

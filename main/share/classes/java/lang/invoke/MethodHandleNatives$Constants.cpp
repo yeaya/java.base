@@ -65,7 +65,7 @@ $FieldInfo _MethodHandleNatives$Constants_FieldInfo_[] = {
 };
 
 $MethodInfo _MethodHandleNatives$Constants_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(MethodHandleNatives$Constants::*)()>(&MethodHandleNatives$Constants::init$))},
+	{"<init>", "()V", nullptr, 0, $method(MethodHandleNatives$Constants, init$, void)},
 	{}
 };
 

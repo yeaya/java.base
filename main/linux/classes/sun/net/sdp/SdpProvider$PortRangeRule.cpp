@@ -24,9 +24,9 @@ $FieldInfo _SdpProvider$PortRangeRule_FieldInfo_[] = {
 };
 
 $MethodInfo _SdpProvider$PortRangeRule_MethodInfo_[] = {
-	{"<init>", "(Lsun/net/sdp/SdpProvider$Action;II)V", nullptr, 0, $method(static_cast<void(SdpProvider$PortRangeRule::*)($SdpProvider$Action*,int32_t,int32_t)>(&SdpProvider$PortRangeRule::init$))},
-	{"action", "()Lsun/net/sdp/SdpProvider$Action;", nullptr, 0},
-	{"match", "(Lsun/net/sdp/SdpProvider$Action;Ljava/net/InetAddress;I)Z", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/net/sdp/SdpProvider$Action;II)V", nullptr, 0, $method(SdpProvider$PortRangeRule, init$, void, $SdpProvider$Action*, int32_t, int32_t)},
+	{"action", "()Lsun/net/sdp/SdpProvider$Action;", nullptr, 0, $virtualMethod(SdpProvider$PortRangeRule, action, $SdpProvider$Action*)},
+	{"match", "(Lsun/net/sdp/SdpProvider$Action;Ljava/net/InetAddress;I)Z", nullptr, $PUBLIC, $virtualMethod(SdpProvider$PortRangeRule, match, bool, $SdpProvider$Action*, $InetAddress*, int32_t)},
 	{}
 };
 

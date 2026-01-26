@@ -72,13 +72,13 @@ $FieldInfo _SessionTicketExtension$SessionTicketSpec_FieldInfo_[] = {
 };
 
 $MethodInfo _SessionTicketExtension$SessionTicketSpec_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(SessionTicketExtension$SessionTicketSpec::*)()>(&SessionTicketExtension$SessionTicketSpec::init$))},
-	{"<init>", "(Lsun/security/ssl/HandshakeContext;[B)V", nullptr, 0, $method(static_cast<void(SessionTicketExtension$SessionTicketSpec::*)($HandshakeContext*,$bytes*)>(&SessionTicketExtension$SessionTicketSpec::init$)), "java.io.IOException"},
-	{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)V", nullptr, 0, $method(static_cast<void(SessionTicketExtension$SessionTicketSpec::*)($HandshakeContext*,$ByteBuffer*)>(&SessionTicketExtension$SessionTicketSpec::init$)), "java.io.IOException"},
-	{"decrypt", "(Lsun/security/ssl/HandshakeContext;)Ljava/nio/ByteBuffer;", nullptr, 0, $method(static_cast<$ByteBuffer*(SessionTicketExtension$SessionTicketSpec::*)($HandshakeContext*)>(&SessionTicketExtension$SessionTicketSpec::decrypt))},
-	{"encrypt", "(Lsun/security/ssl/HandshakeContext;Lsun/security/ssl/SSLSessionImpl;)[B", nullptr, $PUBLIC, $method(static_cast<$bytes*(SessionTicketExtension$SessionTicketSpec::*)($HandshakeContext*,$SSLSessionImpl*)>(&SessionTicketExtension$SessionTicketSpec::encrypt))},
-	{"getEncoded", "()[B", nullptr, 0, $method(static_cast<$bytes*(SessionTicketExtension$SessionTicketSpec::*)()>(&SessionTicketExtension$SessionTicketSpec::getEncoded))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(SessionTicketExtension$SessionTicketSpec, init$, void)},
+	{"<init>", "(Lsun/security/ssl/HandshakeContext;[B)V", nullptr, 0, $method(SessionTicketExtension$SessionTicketSpec, init$, void, $HandshakeContext*, $bytes*), "java.io.IOException"},
+	{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)V", nullptr, 0, $method(SessionTicketExtension$SessionTicketSpec, init$, void, $HandshakeContext*, $ByteBuffer*), "java.io.IOException"},
+	{"decrypt", "(Lsun/security/ssl/HandshakeContext;)Ljava/nio/ByteBuffer;", nullptr, 0, $method(SessionTicketExtension$SessionTicketSpec, decrypt, $ByteBuffer*, $HandshakeContext*)},
+	{"encrypt", "(Lsun/security/ssl/HandshakeContext;Lsun/security/ssl/SSLSessionImpl;)[B", nullptr, $PUBLIC, $method(SessionTicketExtension$SessionTicketSpec, encrypt, $bytes*, $HandshakeContext*, $SSLSessionImpl*)},
+	{"getEncoded", "()[B", nullptr, 0, $method(SessionTicketExtension$SessionTicketSpec, getEncoded, $bytes*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SessionTicketExtension$SessionTicketSpec, toString, $String*)},
 	{}
 };
 

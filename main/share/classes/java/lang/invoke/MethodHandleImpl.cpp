@@ -234,8 +234,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo MethodHandleImpl$$Lambda$lambda$makeLoop$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(MethodHandleImpl$$Lambda$lambda$makeLoop$0::*)()>(&MethodHandleImpl$$Lambda$lambda$makeLoop$0::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(MethodHandleImpl$$Lambda$lambda$makeLoop$0, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MethodHandleImpl$$Lambda$lambda$makeLoop$0, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo MethodHandleImpl$$Lambda$lambda$makeLoop$0::classInfo$ = {
@@ -267,8 +267,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo MethodHandleImpl$$Lambda$basicType$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(MethodHandleImpl$$Lambda$basicType$1::*)()>(&MethodHandleImpl$$Lambda$basicType$1::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(MethodHandleImpl$$Lambda$basicType$1, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MethodHandleImpl$$Lambda$basicType$1, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo MethodHandleImpl$$Lambda$basicType$1::classInfo$ = {
@@ -300,8 +300,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo MethodHandleImpl$$Lambda$lambda$makeLoop$1$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(MethodHandleImpl$$Lambda$lambda$makeLoop$1$2::*)()>(&MethodHandleImpl$$Lambda$lambda$makeLoop$1$2::init$))},
-	{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(MethodHandleImpl$$Lambda$lambda$makeLoop$1$2, init$, void)},
+	{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MethodHandleImpl$$Lambda$lambda$makeLoop$1$2, apply, $Object*, int32_t)},
 	{}
 };
 $ClassInfo MethodHandleImpl$$Lambda$lambda$makeLoop$1$2::classInfo$ = {
@@ -333,8 +333,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo MethodHandleImpl$$Lambda$lambda$loop$2$3::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(MethodHandleImpl$$Lambda$lambda$loop$2$3::*)()>(&MethodHandleImpl$$Lambda$lambda$loop$2$3::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(MethodHandleImpl$$Lambda$lambda$loop$2$3, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(MethodHandleImpl$$Lambda$lambda$loop$2$3, test, bool, Object$*)},
 	{}
 };
 $ClassInfo MethodHandleImpl$$Lambda$lambda$loop$2$3::classInfo$ = {
@@ -436,67 +436,67 @@ $FieldInfo _MethodHandleImpl_FieldInfo_[] = {
 };
 
 $MethodInfo _MethodHandleImpl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(MethodHandleImpl::*)()>(&MethodHandleImpl::init$))},
-	{"assertCorrectArity", "(Ljava/lang/invoke/MethodHandle;I)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($MethodHandle*,int32_t)>(&MethodHandleImpl::assertCorrectArity))},
-	{"assertSame", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $STATIC, $method(static_cast<void(*)(Object$*,Object$*)>(&MethodHandleImpl::assertSame))},
-	{"bindCaller", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodHandle;", $STATIC, $method(static_cast<$MethodHandle*(*)($MethodHandle*,$Class*)>(&MethodHandleImpl::bindCaller))},
-	{"checkSpreadArgument", "(Ljava/lang/Object;I)V", nullptr, $STATIC, $method(static_cast<void(*)(Object$*,int32_t)>(&MethodHandleImpl::checkSpreadArgument))},
-	{"computeValueConversions", "(Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;ZZ)[Ljava/lang/Object;", nullptr, $STATIC, $method(static_cast<$ObjectArray*(*)($MethodType*,$MethodType*,bool,bool)>(&MethodHandleImpl::computeValueConversions))},
-	{"countNonNull", "([Ljava/lang/Object;)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)($ObjectArray*)>(&MethodHandleImpl::countNonNull))},
-	{"countedLoopPredicate", "(II)Z", nullptr, $STATIC, $method(static_cast<bool(*)(int32_t,int32_t)>(&MethodHandleImpl::countedLoopPredicate))},
-	{"countedLoopStep", "(II)I", nullptr, $STATIC, $method(static_cast<int32_t(*)(int32_t,int32_t)>(&MethodHandleImpl::countedLoopStep))},
-	{"createFunction", "(B)Ljava/lang/invoke/LambdaForm$NamedFunction;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$LambdaForm$NamedFunction*(*)(int8_t)>(&MethodHandleImpl::createFunction))},
-	{"fakeMethodHandleInvoke", "(Ljava/lang/invoke/MemberName;)Ljava/lang/invoke/MethodHandle;", nullptr, $STATIC, $method(static_cast<$MethodHandle*(*)($MemberName*)>(&MethodHandleImpl::fakeMethodHandleInvoke))},
-	{"fakeVarHandleInvoke", "(Ljava/lang/invoke/MemberName;)Ljava/lang/invoke/MethodHandle;", nullptr, $STATIC, $method(static_cast<$MethodHandle*(*)($MemberName*)>(&MethodHandleImpl::fakeVarHandleInvoke))},
-	{"getConstantHandle", "(I)Ljava/lang/invoke/MethodHandle;", nullptr, $STATIC, $method(static_cast<$MethodHandle*(*)(int32_t)>(&MethodHandleImpl::getConstantHandle))},
-	{"getFunction", "(B)Ljava/lang/invoke/LambdaForm$NamedFunction;", nullptr, $STATIC, $method(static_cast<$LambdaForm$NamedFunction*(*)(int8_t)>(&MethodHandleImpl::getFunction))},
-	{"guardWithCatch", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/Class;Ljava/lang/invoke/MethodHandle;[Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/Class<+Ljava/lang/Throwable;>;Ljava/lang/invoke/MethodHandle;[Ljava/lang/Object;)Ljava/lang/Object;", $STATIC | $TRANSIENT, $method(static_cast<$Object*(*)($MethodHandle*,$Class*,$MethodHandle*,$ObjectArray*)>(&MethodHandleImpl::guardWithCatch)), "java.lang.Throwable", nullptr, _MethodHandleImpl_MethodAnnotations_guardWithCatch14},
-	{"initIterator", "(Ljava/lang/Iterable;)Ljava/util/Iterator;", "(Ljava/lang/Iterable<*>;)Ljava/util/Iterator<*>;", $STATIC, $method(static_cast<$Iterator*(*)($Iterable*)>(&MethodHandleImpl::initIterator))},
-	{"isCompileConstant", "(Ljava/lang/Object;)Z", nullptr, $STATIC, $method(static_cast<bool(*)(Object$*)>(&MethodHandleImpl::isCompileConstant)), nullptr, nullptr, _MethodHandleImpl_MethodAnnotations_isCompileConstant16},
-	{"iterateNext", "(Ljava/util/Iterator;)Ljava/lang/Object;", "(Ljava/util/Iterator<*>;)Ljava/lang/Object;", $STATIC, $method(static_cast<$Object*(*)($Iterator*)>(&MethodHandleImpl::iterateNext))},
-	{"iteratePredicate", "(Ljava/util/Iterator;)Z", "(Ljava/util/Iterator<*>;)Z", $STATIC, $method(static_cast<bool(*)($Iterator*)>(&MethodHandleImpl::iteratePredicate))},
-	{"lambda$loop$2", "(Ljava/lang/invoke/MethodHandle;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($MethodHandle*)>(&MethodHandleImpl::lambda$loop$2))},
-	{"lambda$makeLoop$0", "(Ljava/lang/invoke/MethodHandle;)Ljava/lang/Class;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Class*(*)($MethodHandle*)>(&MethodHandleImpl::lambda$makeLoop$0))},
-	{"lambda$makeLoop$1", "(I)[Ljava/lang/invoke/LambdaForm$BasicType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$LambdaForm$BasicTypeArray*(*)(int32_t)>(&MethodHandleImpl::lambda$makeLoop$1))},
-	{"loop", "([Ljava/lang/invoke/LambdaForm$BasicType;Ljava/lang/invoke/MethodHandleImpl$LoopClauses;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $STATIC | $TRANSIENT, $method(static_cast<$Object*(*)($LambdaForm$BasicTypeArray*,$MethodHandleImpl$LoopClauses*,$ObjectArray*)>(&MethodHandleImpl::loop)), "java.lang.Throwable", nullptr, _MethodHandleImpl_MethodAnnotations_loop22},
-	{"makeArrayElementAccessor", "(Ljava/lang/Class;Ljava/lang/invoke/MethodHandleImpl$ArrayAccess;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<*>;Ljava/lang/invoke/MethodHandleImpl$ArrayAccess;)Ljava/lang/invoke/MethodHandle;", $STATIC, $method(static_cast<$MethodHandle*(*)($Class*,$MethodHandleImpl$ArrayAccess*)>(&MethodHandleImpl::makeArrayElementAccessor))},
-	{"makeBlockInliningWrapper", "(Ljava/lang/invoke/MethodHandle;)Ljava/lang/invoke/MethodHandle;", nullptr, $STATIC, $method(static_cast<$MethodHandle*(*)($MethodHandle*)>(&MethodHandleImpl::makeBlockInliningWrapper))},
-	{"makeCollector", "(Ljava/lang/Class;I)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<*>;I)Ljava/lang/invoke/MethodHandle;", $PRIVATE | $STATIC, $method(static_cast<$MethodHandle*(*)($Class*,int32_t)>(&MethodHandleImpl::makeCollector))},
-	{"makeCollectorForm", "(Ljava/lang/invoke/MethodType;Ljava/lang/Class;)Ljava/lang/invoke/LambdaForm;", "(Ljava/lang/invoke/MethodType;Ljava/lang/Class<*>;)Ljava/lang/invoke/LambdaForm;", $PRIVATE | $STATIC, $method(static_cast<$LambdaForm*(*)($MethodType*,$Class*)>(&MethodHandleImpl::makeCollectorForm))},
-	{"makeConstantHandle", "(I)Ljava/lang/invoke/MethodHandle;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$MethodHandle*(*)(int32_t)>(&MethodHandleImpl::makeConstantHandle))},
-	{"makeGuardWithCatch", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/Class;Ljava/lang/invoke/MethodHandle;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/Class<+Ljava/lang/Throwable;>;Ljava/lang/invoke/MethodHandle;)Ljava/lang/invoke/MethodHandle;", $STATIC, $method(static_cast<$MethodHandle*(*)($MethodHandle*,$Class*,$MethodHandle*)>(&MethodHandleImpl::makeGuardWithCatch))},
-	{"makeGuardWithCatchForm", "(Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/LambdaForm;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$LambdaForm*(*)($MethodType*)>(&MethodHandleImpl::makeGuardWithCatchForm))},
-	{"makeGuardWithTest", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandle;)Ljava/lang/invoke/MethodHandle;", nullptr, $STATIC, $method(static_cast<$MethodHandle*(*)($MethodHandle*,$MethodHandle*,$MethodHandle*)>(&MethodHandleImpl::makeGuardWithTest))},
-	{"makeGuardWithTestForm", "(Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/LambdaForm;", nullptr, $STATIC, $method(static_cast<$LambdaForm*(*)($MethodType*)>(&MethodHandleImpl::makeGuardWithTestForm))},
-	{"makeIntrinsic", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandleImpl$Intrinsic;)Ljava/lang/invoke/MethodHandle;", nullptr, $STATIC, $method(static_cast<$MethodHandle*(*)($MethodHandle*,$MethodHandleImpl$Intrinsic*)>(&MethodHandleImpl::makeIntrinsic))},
-	{"makeIntrinsic", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandleImpl$Intrinsic;Ljava/lang/Object;)Ljava/lang/invoke/MethodHandle;", nullptr, $STATIC, $method(static_cast<$MethodHandle*(*)($MethodHandle*,$MethodHandleImpl$Intrinsic*,Object$*)>(&MethodHandleImpl::makeIntrinsic))},
-	{"makeIntrinsic", "(Ljava/lang/invoke/MethodType;Ljava/lang/invoke/LambdaForm;Ljava/lang/invoke/MethodHandleImpl$Intrinsic;)Ljava/lang/invoke/MethodHandle;", nullptr, $STATIC, $method(static_cast<$MethodHandle*(*)($MethodType*,$LambdaForm*,$MethodHandleImpl$Intrinsic*)>(&MethodHandleImpl::makeIntrinsic))},
-	{"makeLoop", "(Ljava/lang/Class;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<*>;Ljava/util/List<Ljava/lang/Class<*>;>;Ljava/util/List<Ljava/lang/invoke/MethodHandle;>;Ljava/util/List<Ljava/lang/invoke/MethodHandle;>;Ljava/util/List<Ljava/lang/invoke/MethodHandle;>;Ljava/util/List<Ljava/lang/invoke/MethodHandle;>;)Ljava/lang/invoke/MethodHandle;", $STATIC, $method(static_cast<$MethodHandle*(*)($Class*,$List*,$List*,$List*,$List*,$List*)>(&MethodHandleImpl::makeLoop))},
-	{"makeLoopForm", "(Ljava/lang/invoke/MethodType;[Ljava/lang/invoke/LambdaForm$BasicType;)Ljava/lang/invoke/LambdaForm;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$LambdaForm*(*)($MethodType*,$LambdaForm$BasicTypeArray*)>(&MethodHandleImpl::makeLoopForm))},
-	{"makePairwiseConvert", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;ZZ)Ljava/lang/invoke/MethodHandle;", nullptr, $STATIC, $method(static_cast<$MethodHandle*(*)($MethodHandle*,$MethodType*,bool,bool)>(&MethodHandleImpl::makePairwiseConvert))},
-	{"makePairwiseConvert", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;Z)Ljava/lang/invoke/MethodHandle;", nullptr, $STATIC, $method(static_cast<$MethodHandle*(*)($MethodHandle*,$MethodType*,bool)>(&MethodHandleImpl::makePairwiseConvert))},
-	{"makePairwiseConvertByEditor", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;ZZ)Ljava/lang/invoke/MethodHandle;", nullptr, $STATIC, $method(static_cast<$MethodHandle*(*)($MethodHandle*,$MethodType*,bool,bool)>(&MethodHandleImpl::makePairwiseConvertByEditor))},
-	{"makeTableSwitch", "(Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;[Ljava/lang/invoke/MethodHandle;)Ljava/lang/invoke/MethodHandle;", nullptr, $STATIC, $method(static_cast<$MethodHandle*(*)($MethodType*,$MethodHandle*,$MethodHandleArray*)>(&MethodHandleImpl::makeTableSwitch))},
-	{"makeTableSwitchForm", "(Ljava/lang/invoke/MethodType;Ljava/lang/invoke/BoundMethodHandle$SpeciesData;I)Ljava/lang/invoke/LambdaForm;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$LambdaForm*(*)($MethodType*,$BoundMethodHandle$SpeciesData*,int32_t)>(&MethodHandleImpl::makeTableSwitchForm))},
-	{"makeTryFinally", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandle;Ljava/lang/Class;Ljava/util/List;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandle;Ljava/lang/Class<*>;Ljava/util/List<Ljava/lang/Class<*>;>;)Ljava/lang/invoke/MethodHandle;", $STATIC, $method(static_cast<$MethodHandle*(*)($MethodHandle*,$MethodHandle*,$Class*,$List*)>(&MethodHandleImpl::makeTryFinally))},
-	{"makeTryFinallyForm", "(Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/LambdaForm;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$LambdaForm*(*)($MethodType*)>(&MethodHandleImpl::makeTryFinallyForm))},
-	{"makeVarargsCollector", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodHandle;", $STATIC, $method(static_cast<$MethodHandle*(*)($MethodHandle*,$Class*)>(&MethodHandleImpl::makeVarargsCollector))},
-	{"makeWrappedMember", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MemberName;Z)Ljava/lang/invoke/MethodHandle;", nullptr, $STATIC, $method(static_cast<$MethodHandle*(*)($MethodHandle*,$MemberName*,bool)>(&MethodHandleImpl::makeWrappedMember))},
-	{"prepend", "([Ljava/lang/Object;[Ljava/lang/Object;)[Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $TRANSIENT, $method(static_cast<$ObjectArray*(*)($ObjectArray*,$ObjectArray*)>(&MethodHandleImpl::prepend)), nullptr, nullptr, _MethodHandleImpl_MethodAnnotations_prepend46},
-	{"profile", "(Ljava/lang/invoke/MethodHandle;)Ljava/lang/invoke/MethodHandle;", nullptr, $STATIC, $method(static_cast<$MethodHandle*(*)($MethodHandle*)>(&MethodHandleImpl::profile))},
-	{"profileBoolean", "(Z[I)Z", nullptr, $STATIC, $method(static_cast<bool(*)(bool,$ints*)>(&MethodHandleImpl::profileBoolean)), nullptr, nullptr, _MethodHandleImpl_MethodAnnotations_profileBoolean48},
-	{"selectAlternative", "(ZLjava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandle;)Ljava/lang/invoke/MethodHandle;", nullptr, $STATIC, $method(static_cast<$MethodHandle*(*)(bool,$MethodHandle*,$MethodHandle*)>(&MethodHandleImpl::selectAlternative)), nullptr, nullptr, _MethodHandleImpl_MethodAnnotations_selectAlternative49},
-	{"setCachedHandle", "(ILjava/lang/invoke/MethodHandle;)Ljava/lang/invoke/MethodHandle;", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $method(static_cast<$MethodHandle*(*)(int32_t,$MethodHandle*)>(&MethodHandleImpl::setCachedHandle))},
-	{"tableSwitch", "(ILjava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandleImpl$CasesHolder;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $STATIC, $method(static_cast<$Object*(*)(int32_t,$MethodHandle*,$MethodHandleImpl$CasesHolder*,$ObjectArray*)>(&MethodHandleImpl::tableSwitch)), "java.lang.Throwable", nullptr, _MethodHandleImpl_MethodAnnotations_tableSwitch51},
-	{"throwException", "(Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/MethodHandle;", nullptr, $STATIC, $method(static_cast<$MethodHandle*(*)($MethodType*)>(&MethodHandleImpl::throwException))},
-	{"throwException", "(Ljava/lang/Throwable;)Lsun/invoke/empty/Empty;", "<T:Ljava/lang/Throwable;>(TT;)Lsun/invoke/empty/Empty;^TT;", $STATIC, $method(static_cast<$Empty*(*)($Throwable*)>(&MethodHandleImpl::throwException)), "java.lang.Throwable"},
-	{"toArray", "(Ljava/util/List;)[Ljava/lang/invoke/MethodHandle;", "(Ljava/util/List<Ljava/lang/invoke/MethodHandle;>;)[Ljava/lang/invoke/MethodHandle;", $PRIVATE | $STATIC, $method(static_cast<$MethodHandleArray*(*)($List*)>(&MethodHandleImpl::toArray))},
-	{"tryFinally", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandle;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $STATIC | $TRANSIENT, $method(static_cast<$Object*(*)($MethodHandle*,$MethodHandle*,$ObjectArray*)>(&MethodHandleImpl::tryFinally)), "java.lang.Throwable", nullptr, _MethodHandleImpl_MethodAnnotations_tryFinally55},
-	{"unboxResultHandle", "(Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodHandle;", $PRIVATE | $STATIC, $method(static_cast<$MethodHandle*(*)($Class*)>(&MethodHandleImpl::unboxResultHandle))},
-	{"unmatchedArrayAccess", "(Ljava/lang/invoke/MethodHandleImpl$ArrayAccess;)Ljava/lang/InternalError;", nullptr, $STATIC, $method(static_cast<$InternalError*(*)($MethodHandleImpl$ArrayAccess*)>(&MethodHandleImpl::unmatchedArrayAccess))},
-	{"valueConversion", "(Ljava/lang/Class;Ljava/lang/Class;ZZ)Ljava/lang/Object;", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;ZZ)Ljava/lang/Object;", $STATIC, $method(static_cast<$Object*(*)($Class*,$Class*,bool,bool)>(&MethodHandleImpl::valueConversion))},
-	{"varargsArray", "(I)Ljava/lang/invoke/MethodHandle;", nullptr, $STATIC, $method(static_cast<$MethodHandle*(*)(int32_t)>(&MethodHandleImpl::varargsArray))},
-	{"varargsArray", "(Ljava/lang/Class;I)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<*>;I)Ljava/lang/invoke/MethodHandle;", $STATIC, $method(static_cast<$MethodHandle*(*)($Class*,int32_t)>(&MethodHandleImpl::varargsArray))},
+	{"<init>", "()V", nullptr, 0, $method(MethodHandleImpl, init$, void)},
+	{"assertCorrectArity", "(Ljava/lang/invoke/MethodHandle;I)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(MethodHandleImpl, assertCorrectArity, bool, $MethodHandle*, int32_t)},
+	{"assertSame", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $STATIC, $staticMethod(MethodHandleImpl, assertSame, void, Object$*, Object$*)},
+	{"bindCaller", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodHandle;", $STATIC, $staticMethod(MethodHandleImpl, bindCaller, $MethodHandle*, $MethodHandle*, $Class*)},
+	{"checkSpreadArgument", "(Ljava/lang/Object;I)V", nullptr, $STATIC, $staticMethod(MethodHandleImpl, checkSpreadArgument, void, Object$*, int32_t)},
+	{"computeValueConversions", "(Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;ZZ)[Ljava/lang/Object;", nullptr, $STATIC, $staticMethod(MethodHandleImpl, computeValueConversions, $ObjectArray*, $MethodType*, $MethodType*, bool, bool)},
+	{"countNonNull", "([Ljava/lang/Object;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(MethodHandleImpl, countNonNull, int32_t, $ObjectArray*)},
+	{"countedLoopPredicate", "(II)Z", nullptr, $STATIC, $staticMethod(MethodHandleImpl, countedLoopPredicate, bool, int32_t, int32_t)},
+	{"countedLoopStep", "(II)I", nullptr, $STATIC, $staticMethod(MethodHandleImpl, countedLoopStep, int32_t, int32_t, int32_t)},
+	{"createFunction", "(B)Ljava/lang/invoke/LambdaForm$NamedFunction;", nullptr, $PRIVATE | $STATIC, $staticMethod(MethodHandleImpl, createFunction, $LambdaForm$NamedFunction*, int8_t)},
+	{"fakeMethodHandleInvoke", "(Ljava/lang/invoke/MemberName;)Ljava/lang/invoke/MethodHandle;", nullptr, $STATIC, $staticMethod(MethodHandleImpl, fakeMethodHandleInvoke, $MethodHandle*, $MemberName*)},
+	{"fakeVarHandleInvoke", "(Ljava/lang/invoke/MemberName;)Ljava/lang/invoke/MethodHandle;", nullptr, $STATIC, $staticMethod(MethodHandleImpl, fakeVarHandleInvoke, $MethodHandle*, $MemberName*)},
+	{"getConstantHandle", "(I)Ljava/lang/invoke/MethodHandle;", nullptr, $STATIC, $staticMethod(MethodHandleImpl, getConstantHandle, $MethodHandle*, int32_t)},
+	{"getFunction", "(B)Ljava/lang/invoke/LambdaForm$NamedFunction;", nullptr, $STATIC, $staticMethod(MethodHandleImpl, getFunction, $LambdaForm$NamedFunction*, int8_t)},
+	{"guardWithCatch", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/Class;Ljava/lang/invoke/MethodHandle;[Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/Class<+Ljava/lang/Throwable;>;Ljava/lang/invoke/MethodHandle;[Ljava/lang/Object;)Ljava/lang/Object;", $STATIC | $TRANSIENT, $staticMethod(MethodHandleImpl, guardWithCatch, $Object*, $MethodHandle*, $Class*, $MethodHandle*, $ObjectArray*), "java.lang.Throwable", nullptr, _MethodHandleImpl_MethodAnnotations_guardWithCatch14},
+	{"initIterator", "(Ljava/lang/Iterable;)Ljava/util/Iterator;", "(Ljava/lang/Iterable<*>;)Ljava/util/Iterator<*>;", $STATIC, $staticMethod(MethodHandleImpl, initIterator, $Iterator*, $Iterable*)},
+	{"isCompileConstant", "(Ljava/lang/Object;)Z", nullptr, $STATIC, $staticMethod(MethodHandleImpl, isCompileConstant, bool, Object$*), nullptr, nullptr, _MethodHandleImpl_MethodAnnotations_isCompileConstant16},
+	{"iterateNext", "(Ljava/util/Iterator;)Ljava/lang/Object;", "(Ljava/util/Iterator<*>;)Ljava/lang/Object;", $STATIC, $staticMethod(MethodHandleImpl, iterateNext, $Object*, $Iterator*)},
+	{"iteratePredicate", "(Ljava/util/Iterator;)Z", "(Ljava/util/Iterator<*>;)Z", $STATIC, $staticMethod(MethodHandleImpl, iteratePredicate, bool, $Iterator*)},
+	{"lambda$loop$2", "(Ljava/lang/invoke/MethodHandle;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MethodHandleImpl, lambda$loop$2, bool, $MethodHandle*)},
+	{"lambda$makeLoop$0", "(Ljava/lang/invoke/MethodHandle;)Ljava/lang/Class;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MethodHandleImpl, lambda$makeLoop$0, $Class*, $MethodHandle*)},
+	{"lambda$makeLoop$1", "(I)[Ljava/lang/invoke/LambdaForm$BasicType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MethodHandleImpl, lambda$makeLoop$1, $LambdaForm$BasicTypeArray*, int32_t)},
+	{"loop", "([Ljava/lang/invoke/LambdaForm$BasicType;Ljava/lang/invoke/MethodHandleImpl$LoopClauses;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $STATIC | $TRANSIENT, $staticMethod(MethodHandleImpl, loop, $Object*, $LambdaForm$BasicTypeArray*, $MethodHandleImpl$LoopClauses*, $ObjectArray*), "java.lang.Throwable", nullptr, _MethodHandleImpl_MethodAnnotations_loop22},
+	{"makeArrayElementAccessor", "(Ljava/lang/Class;Ljava/lang/invoke/MethodHandleImpl$ArrayAccess;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<*>;Ljava/lang/invoke/MethodHandleImpl$ArrayAccess;)Ljava/lang/invoke/MethodHandle;", $STATIC, $staticMethod(MethodHandleImpl, makeArrayElementAccessor, $MethodHandle*, $Class*, $MethodHandleImpl$ArrayAccess*)},
+	{"makeBlockInliningWrapper", "(Ljava/lang/invoke/MethodHandle;)Ljava/lang/invoke/MethodHandle;", nullptr, $STATIC, $staticMethod(MethodHandleImpl, makeBlockInliningWrapper, $MethodHandle*, $MethodHandle*)},
+	{"makeCollector", "(Ljava/lang/Class;I)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<*>;I)Ljava/lang/invoke/MethodHandle;", $PRIVATE | $STATIC, $staticMethod(MethodHandleImpl, makeCollector, $MethodHandle*, $Class*, int32_t)},
+	{"makeCollectorForm", "(Ljava/lang/invoke/MethodType;Ljava/lang/Class;)Ljava/lang/invoke/LambdaForm;", "(Ljava/lang/invoke/MethodType;Ljava/lang/Class<*>;)Ljava/lang/invoke/LambdaForm;", $PRIVATE | $STATIC, $staticMethod(MethodHandleImpl, makeCollectorForm, $LambdaForm*, $MethodType*, $Class*)},
+	{"makeConstantHandle", "(I)Ljava/lang/invoke/MethodHandle;", nullptr, $PRIVATE | $STATIC, $staticMethod(MethodHandleImpl, makeConstantHandle, $MethodHandle*, int32_t)},
+	{"makeGuardWithCatch", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/Class;Ljava/lang/invoke/MethodHandle;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/Class<+Ljava/lang/Throwable;>;Ljava/lang/invoke/MethodHandle;)Ljava/lang/invoke/MethodHandle;", $STATIC, $staticMethod(MethodHandleImpl, makeGuardWithCatch, $MethodHandle*, $MethodHandle*, $Class*, $MethodHandle*)},
+	{"makeGuardWithCatchForm", "(Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/LambdaForm;", nullptr, $PRIVATE | $STATIC, $staticMethod(MethodHandleImpl, makeGuardWithCatchForm, $LambdaForm*, $MethodType*)},
+	{"makeGuardWithTest", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandle;)Ljava/lang/invoke/MethodHandle;", nullptr, $STATIC, $staticMethod(MethodHandleImpl, makeGuardWithTest, $MethodHandle*, $MethodHandle*, $MethodHandle*, $MethodHandle*)},
+	{"makeGuardWithTestForm", "(Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/LambdaForm;", nullptr, $STATIC, $staticMethod(MethodHandleImpl, makeGuardWithTestForm, $LambdaForm*, $MethodType*)},
+	{"makeIntrinsic", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandleImpl$Intrinsic;)Ljava/lang/invoke/MethodHandle;", nullptr, $STATIC, $staticMethod(MethodHandleImpl, makeIntrinsic, $MethodHandle*, $MethodHandle*, $MethodHandleImpl$Intrinsic*)},
+	{"makeIntrinsic", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandleImpl$Intrinsic;Ljava/lang/Object;)Ljava/lang/invoke/MethodHandle;", nullptr, $STATIC, $staticMethod(MethodHandleImpl, makeIntrinsic, $MethodHandle*, $MethodHandle*, $MethodHandleImpl$Intrinsic*, Object$*)},
+	{"makeIntrinsic", "(Ljava/lang/invoke/MethodType;Ljava/lang/invoke/LambdaForm;Ljava/lang/invoke/MethodHandleImpl$Intrinsic;)Ljava/lang/invoke/MethodHandle;", nullptr, $STATIC, $staticMethod(MethodHandleImpl, makeIntrinsic, $MethodHandle*, $MethodType*, $LambdaForm*, $MethodHandleImpl$Intrinsic*)},
+	{"makeLoop", "(Ljava/lang/Class;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<*>;Ljava/util/List<Ljava/lang/Class<*>;>;Ljava/util/List<Ljava/lang/invoke/MethodHandle;>;Ljava/util/List<Ljava/lang/invoke/MethodHandle;>;Ljava/util/List<Ljava/lang/invoke/MethodHandle;>;Ljava/util/List<Ljava/lang/invoke/MethodHandle;>;)Ljava/lang/invoke/MethodHandle;", $STATIC, $staticMethod(MethodHandleImpl, makeLoop, $MethodHandle*, $Class*, $List*, $List*, $List*, $List*, $List*)},
+	{"makeLoopForm", "(Ljava/lang/invoke/MethodType;[Ljava/lang/invoke/LambdaForm$BasicType;)Ljava/lang/invoke/LambdaForm;", nullptr, $PRIVATE | $STATIC, $staticMethod(MethodHandleImpl, makeLoopForm, $LambdaForm*, $MethodType*, $LambdaForm$BasicTypeArray*)},
+	{"makePairwiseConvert", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;ZZ)Ljava/lang/invoke/MethodHandle;", nullptr, $STATIC, $staticMethod(MethodHandleImpl, makePairwiseConvert, $MethodHandle*, $MethodHandle*, $MethodType*, bool, bool)},
+	{"makePairwiseConvert", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;Z)Ljava/lang/invoke/MethodHandle;", nullptr, $STATIC, $staticMethod(MethodHandleImpl, makePairwiseConvert, $MethodHandle*, $MethodHandle*, $MethodType*, bool)},
+	{"makePairwiseConvertByEditor", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;ZZ)Ljava/lang/invoke/MethodHandle;", nullptr, $STATIC, $staticMethod(MethodHandleImpl, makePairwiseConvertByEditor, $MethodHandle*, $MethodHandle*, $MethodType*, bool, bool)},
+	{"makeTableSwitch", "(Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;[Ljava/lang/invoke/MethodHandle;)Ljava/lang/invoke/MethodHandle;", nullptr, $STATIC, $staticMethod(MethodHandleImpl, makeTableSwitch, $MethodHandle*, $MethodType*, $MethodHandle*, $MethodHandleArray*)},
+	{"makeTableSwitchForm", "(Ljava/lang/invoke/MethodType;Ljava/lang/invoke/BoundMethodHandle$SpeciesData;I)Ljava/lang/invoke/LambdaForm;", nullptr, $PRIVATE | $STATIC, $staticMethod(MethodHandleImpl, makeTableSwitchForm, $LambdaForm*, $MethodType*, $BoundMethodHandle$SpeciesData*, int32_t)},
+	{"makeTryFinally", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandle;Ljava/lang/Class;Ljava/util/List;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandle;Ljava/lang/Class<*>;Ljava/util/List<Ljava/lang/Class<*>;>;)Ljava/lang/invoke/MethodHandle;", $STATIC, $staticMethod(MethodHandleImpl, makeTryFinally, $MethodHandle*, $MethodHandle*, $MethodHandle*, $Class*, $List*)},
+	{"makeTryFinallyForm", "(Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/LambdaForm;", nullptr, $PRIVATE | $STATIC, $staticMethod(MethodHandleImpl, makeTryFinallyForm, $LambdaForm*, $MethodType*)},
+	{"makeVarargsCollector", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodHandle;", $STATIC, $staticMethod(MethodHandleImpl, makeVarargsCollector, $MethodHandle*, $MethodHandle*, $Class*)},
+	{"makeWrappedMember", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MemberName;Z)Ljava/lang/invoke/MethodHandle;", nullptr, $STATIC, $staticMethod(MethodHandleImpl, makeWrappedMember, $MethodHandle*, $MethodHandle*, $MemberName*, bool)},
+	{"prepend", "([Ljava/lang/Object;[Ljava/lang/Object;)[Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $TRANSIENT, $staticMethod(MethodHandleImpl, prepend, $ObjectArray*, $ObjectArray*, $ObjectArray*), nullptr, nullptr, _MethodHandleImpl_MethodAnnotations_prepend46},
+	{"profile", "(Ljava/lang/invoke/MethodHandle;)Ljava/lang/invoke/MethodHandle;", nullptr, $STATIC, $staticMethod(MethodHandleImpl, profile, $MethodHandle*, $MethodHandle*)},
+	{"profileBoolean", "(Z[I)Z", nullptr, $STATIC, $staticMethod(MethodHandleImpl, profileBoolean, bool, bool, $ints*), nullptr, nullptr, _MethodHandleImpl_MethodAnnotations_profileBoolean48},
+	{"selectAlternative", "(ZLjava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandle;)Ljava/lang/invoke/MethodHandle;", nullptr, $STATIC, $staticMethod(MethodHandleImpl, selectAlternative, $MethodHandle*, bool, $MethodHandle*, $MethodHandle*), nullptr, nullptr, _MethodHandleImpl_MethodAnnotations_selectAlternative49},
+	{"setCachedHandle", "(ILjava/lang/invoke/MethodHandle;)Ljava/lang/invoke/MethodHandle;", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(MethodHandleImpl, setCachedHandle, $MethodHandle*, int32_t, $MethodHandle*)},
+	{"tableSwitch", "(ILjava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandleImpl$CasesHolder;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $STATIC, $staticMethod(MethodHandleImpl, tableSwitch, $Object*, int32_t, $MethodHandle*, $MethodHandleImpl$CasesHolder*, $ObjectArray*), "java.lang.Throwable", nullptr, _MethodHandleImpl_MethodAnnotations_tableSwitch51},
+	{"throwException", "(Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/MethodHandle;", nullptr, $STATIC, $staticMethod(MethodHandleImpl, throwException, $MethodHandle*, $MethodType*)},
+	{"throwException", "(Ljava/lang/Throwable;)Lsun/invoke/empty/Empty;", "<T:Ljava/lang/Throwable;>(TT;)Lsun/invoke/empty/Empty;^TT;", $STATIC, $staticMethod(MethodHandleImpl, throwException, $Empty*, $Throwable*), "java.lang.Throwable"},
+	{"toArray", "(Ljava/util/List;)[Ljava/lang/invoke/MethodHandle;", "(Ljava/util/List<Ljava/lang/invoke/MethodHandle;>;)[Ljava/lang/invoke/MethodHandle;", $PRIVATE | $STATIC, $staticMethod(MethodHandleImpl, toArray, $MethodHandleArray*, $List*)},
+	{"tryFinally", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandle;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $STATIC | $TRANSIENT, $staticMethod(MethodHandleImpl, tryFinally, $Object*, $MethodHandle*, $MethodHandle*, $ObjectArray*), "java.lang.Throwable", nullptr, _MethodHandleImpl_MethodAnnotations_tryFinally55},
+	{"unboxResultHandle", "(Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodHandle;", $PRIVATE | $STATIC, $staticMethod(MethodHandleImpl, unboxResultHandle, $MethodHandle*, $Class*)},
+	{"unmatchedArrayAccess", "(Ljava/lang/invoke/MethodHandleImpl$ArrayAccess;)Ljava/lang/InternalError;", nullptr, $STATIC, $staticMethod(MethodHandleImpl, unmatchedArrayAccess, $InternalError*, $MethodHandleImpl$ArrayAccess*)},
+	{"valueConversion", "(Ljava/lang/Class;Ljava/lang/Class;ZZ)Ljava/lang/Object;", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;ZZ)Ljava/lang/Object;", $STATIC, $staticMethod(MethodHandleImpl, valueConversion, $Object*, $Class*, $Class*, bool, bool)},
+	{"varargsArray", "(I)Ljava/lang/invoke/MethodHandle;", nullptr, $STATIC, $staticMethod(MethodHandleImpl, varargsArray, $MethodHandle*, int32_t)},
+	{"varargsArray", "(Ljava/lang/Class;I)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<*>;I)Ljava/lang/invoke/MethodHandle;", $STATIC, $staticMethod(MethodHandleImpl, varargsArray, $MethodHandle*, $Class*, int32_t)},
 	{}
 };
 

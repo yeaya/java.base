@@ -28,8 +28,8 @@ $FieldInfo _Package$VersionInfo_FieldInfo_[] = {
 };
 
 $MethodInfo _Package$VersionInfo_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/net/URL;)V", nullptr, $PRIVATE, $method(static_cast<void(Package$VersionInfo::*)($String*,$String*,$String*,$String*,$String*,$String*,$URL*)>(&Package$VersionInfo::init$))},
-	{"getInstance", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/net/URL;)Ljava/lang/Package$VersionInfo;", nullptr, $STATIC, $method(static_cast<Package$VersionInfo*(*)($String*,$String*,$String*,$String*,$String*,$String*,$URL*)>(&Package$VersionInfo::getInstance))},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/net/URL;)V", nullptr, $PRIVATE, $method(Package$VersionInfo, init$, void, $String*, $String*, $String*, $String*, $String*, $String*, $URL*)},
+	{"getInstance", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/net/URL;)Ljava/lang/Package$VersionInfo;", nullptr, $STATIC, $staticMethod(Package$VersionInfo, getInstance, Package$VersionInfo*, $String*, $String*, $String*, $String*, $String*, $String*, $URL*)},
 	{}
 };
 

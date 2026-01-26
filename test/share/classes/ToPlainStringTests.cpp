@@ -11,8 +11,8 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $BigDecimal = ::java::math::BigDecimal;
 
 $MethodInfo _ToPlainStringTests_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ToPlainStringTests::*)()>(&ToPlainStringTests::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&ToPlainStringTests::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ToPlainStringTests, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ToPlainStringTests, main, void, $StringArray*)},
 	{}
 };
 

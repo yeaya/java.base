@@ -33,8 +33,8 @@ $FieldInfo _Scanner$TokenSpliterator_FieldInfo_[] = {
 };
 
 $MethodInfo _Scanner$TokenSpliterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Scanner;)V", nullptr, 0, $method(static_cast<void(Scanner$TokenSpliterator::*)($Scanner*)>(&Scanner$TokenSpliterator::init$))},
-	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-Ljava/lang/String;>;)Z", $PUBLIC},
+	{"<init>", "(Ljava/util/Scanner;)V", nullptr, 0, $method(Scanner$TokenSpliterator, init$, void, $Scanner*)},
+	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-Ljava/lang/String;>;)Z", $PUBLIC, $virtualMethod(Scanner$TokenSpliterator, tryAdvance, bool, $Consumer*)},
 	{}
 };
 

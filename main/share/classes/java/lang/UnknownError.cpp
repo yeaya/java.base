@@ -17,8 +17,8 @@ $FieldInfo _UnknownError_FieldInfo_[] = {
 };
 
 $MethodInfo _UnknownError_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(UnknownError::*)()>(&UnknownError::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(UnknownError::*)($String*)>(&UnknownError::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(UnknownError, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(UnknownError, init$, void, $String*)},
 	{}
 };
 

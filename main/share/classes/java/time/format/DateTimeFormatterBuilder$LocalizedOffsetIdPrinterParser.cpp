@@ -39,12 +39,12 @@ $FieldInfo _DateTimeFormatterBuilder$LocalizedOffsetIdPrinterParser_FieldInfo_[]
 };
 
 $MethodInfo _DateTimeFormatterBuilder$LocalizedOffsetIdPrinterParser_MethodInfo_[] = {
-	{"<init>", "(Ljava/time/format/TextStyle;)V", nullptr, 0, $method(static_cast<void(DateTimeFormatterBuilder$LocalizedOffsetIdPrinterParser::*)($TextStyle*)>(&DateTimeFormatterBuilder$LocalizedOffsetIdPrinterParser::init$))},
-	{"appendHMS", "(Ljava/lang/StringBuilder;I)Ljava/lang/StringBuilder;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$StringBuilder*(*)($StringBuilder*,int32_t)>(&DateTimeFormatterBuilder$LocalizedOffsetIdPrinterParser::appendHMS))},
-	{"format", "(Ljava/time/format/DateTimePrintContext;Ljava/lang/StringBuilder;)Z", nullptr, $PUBLIC},
-	{"getDigit", "(Ljava/lang/CharSequence;I)I", nullptr, 0, $method(static_cast<int32_t(DateTimeFormatterBuilder$LocalizedOffsetIdPrinterParser::*)($CharSequence*,int32_t)>(&DateTimeFormatterBuilder$LocalizedOffsetIdPrinterParser::getDigit))},
-	{"parse", "(Ljava/time/format/DateTimeParseContext;Ljava/lang/CharSequence;I)I", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/time/format/TextStyle;)V", nullptr, 0, $method(DateTimeFormatterBuilder$LocalizedOffsetIdPrinterParser, init$, void, $TextStyle*)},
+	{"appendHMS", "(Ljava/lang/StringBuilder;I)Ljava/lang/StringBuilder;", nullptr, $PRIVATE | $STATIC, $staticMethod(DateTimeFormatterBuilder$LocalizedOffsetIdPrinterParser, appendHMS, $StringBuilder*, $StringBuilder*, int32_t)},
+	{"format", "(Ljava/time/format/DateTimePrintContext;Ljava/lang/StringBuilder;)Z", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$LocalizedOffsetIdPrinterParser, format, bool, $DateTimePrintContext*, $StringBuilder*)},
+	{"getDigit", "(Ljava/lang/CharSequence;I)I", nullptr, 0, $method(DateTimeFormatterBuilder$LocalizedOffsetIdPrinterParser, getDigit, int32_t, $CharSequence*, int32_t)},
+	{"parse", "(Ljava/time/format/DateTimeParseContext;Ljava/lang/CharSequence;I)I", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$LocalizedOffsetIdPrinterParser, parse, int32_t, $DateTimeParseContext*, $CharSequence*, int32_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$LocalizedOffsetIdPrinterParser, toString, $String*)},
 	{}
 };
 

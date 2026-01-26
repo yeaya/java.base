@@ -31,7 +31,7 @@ $FieldInfo _KeyUpdate_FieldInfo_[] = {
 };
 
 $MethodInfo _KeyUpdate_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(KeyUpdate::*)()>(&KeyUpdate::init$))},
+	{"<init>", "()V", nullptr, 0, $method(KeyUpdate, init$, void)},
 	{}
 };
 

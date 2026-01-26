@@ -51,17 +51,17 @@ $FieldInfo _SSLTrafficKeyDerivation_FieldInfo_[] = {
 };
 
 $MethodInfo _SSLTrafficKeyDerivation_MethodInfo_[] = {
-	{"$values", "()[Lsun/security/ssl/SSLTrafficKeyDerivation;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$SSLTrafficKeyDerivationArray*(*)()>(&SSLTrafficKeyDerivation::$values))},
+	{"$values", "()[Lsun/security/ssl/SSLTrafficKeyDerivation;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SSLTrafficKeyDerivation, $values, $SSLTrafficKeyDerivationArray*)},
 	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
 	{"*finalize", "()V", nullptr, $PROTECTED | $FINAL},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;Lsun/security/ssl/SSLKeyDerivationGenerator;)V", "(Ljava/lang/String;Lsun/security/ssl/SSLKeyDerivationGenerator;)V", $PRIVATE, $method(static_cast<void(SSLTrafficKeyDerivation::*)($String*,int32_t,$String*,$SSLKeyDerivationGenerator*)>(&SSLTrafficKeyDerivation::init$))},
-	{"createKeyDerivation", "(Lsun/security/ssl/HandshakeContext;Ljavax/crypto/SecretKey;)Lsun/security/ssl/SSLKeyDerivation;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljava/lang/String;ILjava/lang/String;Lsun/security/ssl/SSLKeyDerivationGenerator;)V", "(Ljava/lang/String;Lsun/security/ssl/SSLKeyDerivationGenerator;)V", $PRIVATE, $method(SSLTrafficKeyDerivation, init$, void, $String*, int32_t, $String*, $SSLKeyDerivationGenerator*)},
+	{"createKeyDerivation", "(Lsun/security/ssl/HandshakeContext;Ljavax/crypto/SecretKey;)Lsun/security/ssl/SSLKeyDerivation;", nullptr, $PUBLIC, $virtualMethod(SSLTrafficKeyDerivation, createKeyDerivation, $SSLKeyDerivation*, $HandshakeContext*, $SecretKey*), "java.io.IOException"},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"valueOf", "(Ljava/lang/String;)Lsun/security/ssl/SSLTrafficKeyDerivation;", nullptr, $PUBLIC | $STATIC, $method(static_cast<SSLTrafficKeyDerivation*(*)($String*)>(&SSLTrafficKeyDerivation::valueOf))},
-	{"valueOf", "(Lsun/security/ssl/ProtocolVersion;)Lsun/security/ssl/SSLTrafficKeyDerivation;", nullptr, $STATIC, $method(static_cast<SSLTrafficKeyDerivation*(*)($ProtocolVersion*)>(&SSLTrafficKeyDerivation::valueOf))},
-	{"values", "()[Lsun/security/ssl/SSLTrafficKeyDerivation;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$SSLTrafficKeyDerivationArray*(*)()>(&SSLTrafficKeyDerivation::values))},
+	{"valueOf", "(Ljava/lang/String;)Lsun/security/ssl/SSLTrafficKeyDerivation;", nullptr, $PUBLIC | $STATIC, $staticMethod(SSLTrafficKeyDerivation, valueOf, SSLTrafficKeyDerivation*, $String*)},
+	{"valueOf", "(Lsun/security/ssl/ProtocolVersion;)Lsun/security/ssl/SSLTrafficKeyDerivation;", nullptr, $STATIC, $staticMethod(SSLTrafficKeyDerivation, valueOf, SSLTrafficKeyDerivation*, $ProtocolVersion*)},
+	{"values", "()[Lsun/security/ssl/SSLTrafficKeyDerivation;", nullptr, $PUBLIC | $STATIC, $staticMethod(SSLTrafficKeyDerivation, values, $SSLTrafficKeyDerivationArray*)},
 	{}
 };
 

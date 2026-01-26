@@ -19,7 +19,7 @@ $FieldInfo _LinkedBlockingQueue$Node_FieldInfo_[] = {
 };
 
 $MethodInfo _LinkedBlockingQueue$Node_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;)V", "(TE;)V", 0, $method(static_cast<void(LinkedBlockingQueue$Node::*)(Object$*)>(&LinkedBlockingQueue$Node::init$))},
+	{"<init>", "(Ljava/lang/Object;)V", "(TE;)V", 0, $method(LinkedBlockingQueue$Node, init$, void, Object$*)},
 	{}
 };
 

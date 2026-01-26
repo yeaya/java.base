@@ -12,11 +12,11 @@ namespace java {
 		namespace concurrent {
 
 $MethodInfo _Helpers_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(Helpers::*)()>(&Helpers::init$))},
-	{"collectionToString", "(Ljava/util/Collection;)Ljava/lang/String;", "(Ljava/util/Collection<*>;)Ljava/lang/String;", $STATIC, $method(static_cast<$String*(*)($Collection*)>(&Helpers::collectionToString))},
-	{"mapEntryToString", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/String;", nullptr, $STATIC, $method(static_cast<$String*(*)(Object$*,Object$*)>(&Helpers::mapEntryToString))},
-	{"objectToString", "(Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)(Object$*)>(&Helpers::objectToString))},
-	{"toString", "([Ljava/lang/Object;II)Ljava/lang/String;", nullptr, $STATIC, $method(static_cast<$String*(*)($ObjectArray*,int32_t,int32_t)>(&Helpers::toString))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(Helpers, init$, void)},
+	{"collectionToString", "(Ljava/util/Collection;)Ljava/lang/String;", "(Ljava/util/Collection<*>;)Ljava/lang/String;", $STATIC, $staticMethod(Helpers, collectionToString, $String*, $Collection*)},
+	{"mapEntryToString", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(Helpers, mapEntryToString, $String*, Object$*, Object$*)},
+	{"objectToString", "(Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Helpers, objectToString, $String*, Object$*)},
+	{"toString", "([Ljava/lang/Object;II)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(Helpers, toString, $String*, $ObjectArray*, int32_t, int32_t)},
 	{}
 };
 

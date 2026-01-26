@@ -16,8 +16,8 @@ using $HashSet = ::java::util::HashSet;
 using $Set = ::java::util::Set;
 
 $MethodInfo _EmptySet_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(EmptySet::*)()>(&EmptySet::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&EmptySet::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(EmptySet, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(EmptySet, main, void, $StringArray*)},
 	{}
 };
 

@@ -23,9 +23,9 @@ $FieldInfo _SocketOptionRegistry$RegistryKey_FieldInfo_[] = {
 };
 
 $MethodInfo _SocketOptionRegistry$RegistryKey_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/SocketOption;Ljava/net/ProtocolFamily;)V", "(Ljava/net/SocketOption<*>;Ljava/net/ProtocolFamily;)V", 0, $method(static_cast<void(SocketOptionRegistry$RegistryKey::*)($SocketOption*,$ProtocolFamily*)>(&SocketOptionRegistry$RegistryKey::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/net/SocketOption;Ljava/net/ProtocolFamily;)V", "(Ljava/net/SocketOption<*>;Ljava/net/ProtocolFamily;)V", 0, $method(SocketOptionRegistry$RegistryKey, init$, void, $SocketOption*, $ProtocolFamily*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(SocketOptionRegistry$RegistryKey, equals, bool, Object$*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(SocketOptionRegistry$RegistryKey, hashCode, int32_t)},
 	{}
 };
 

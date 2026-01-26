@@ -38,10 +38,10 @@ $FieldInfo _AdjacencyList_FieldInfo_[] = {
 };
 
 $MethodInfo _AdjacencyList_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/util/List<Lsun/security/provider/certpath/Vertex;>;>;)V", $PUBLIC, $method(static_cast<void(AdjacencyList::*)($List*)>(&AdjacencyList::init$))},
-	{"buildList", "(Ljava/util/List;ILsun/security/provider/certpath/BuildStep;)Z", "(Ljava/util/List<Ljava/util/List<Lsun/security/provider/certpath/Vertex;>;>;ILsun/security/provider/certpath/BuildStep;)Z", $PRIVATE, $method(static_cast<bool(AdjacencyList::*)($List*,int32_t,$BuildStep*)>(&AdjacencyList::buildList))},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Lsun/security/provider/certpath/BuildStep;>;", $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/util/List<Lsun/security/provider/certpath/Vertex;>;>;)V", $PUBLIC, $method(AdjacencyList, init$, void, $List*)},
+	{"buildList", "(Ljava/util/List;ILsun/security/provider/certpath/BuildStep;)Z", "(Ljava/util/List<Ljava/util/List<Lsun/security/provider/certpath/Vertex;>;>;ILsun/security/provider/certpath/BuildStep;)Z", $PRIVATE, $method(AdjacencyList, buildList, bool, $List*, int32_t, $BuildStep*)},
+	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Lsun/security/provider/certpath/BuildStep;>;", $PUBLIC, $virtualMethod(AdjacencyList, iterator, $Iterator*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AdjacencyList, toString, $String*)},
 	{}
 };
 

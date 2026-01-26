@@ -17,8 +17,8 @@ namespace sun {
 		namespace provider {
 
 $MethodInfo _JavaKeyStore$JKS_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(JavaKeyStore$JKS::*)()>(&JavaKeyStore$JKS::init$))},
-	{"convertAlias", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, 0},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(JavaKeyStore$JKS, init$, void)},
+	{"convertAlias", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, 0, $virtualMethod(JavaKeyStore$JKS, convertAlias, $String*, $String*)},
 	{}
 };
 

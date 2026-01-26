@@ -34,9 +34,9 @@ $FieldInfo _MethodTypeSecurityManager_FieldInfo_[] = {
 };
 
 $MethodInfo _MethodTypeSecurityManager_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(MethodTypeSecurityManager::*)()>(&MethodTypeSecurityManager::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<void(*)($StringArray*)>(&MethodTypeSecurityManager::main)), "java.lang.Throwable"},
-	{"throwACC", "(Ljava/lang/String;Ljava/lang/ClassLoader;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($String*,$ClassLoader*)>(&MethodTypeSecurityManager::throwACC))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(MethodTypeSecurityManager, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(MethodTypeSecurityManager, main, void, $StringArray*), "java.lang.Throwable"},
+	{"throwACC", "(Ljava/lang/String;Ljava/lang/ClassLoader;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(MethodTypeSecurityManager, throwACC, void, $String*, $ClassLoader*)},
 	{}
 };
 

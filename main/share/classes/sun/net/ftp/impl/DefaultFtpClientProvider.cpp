@@ -17,8 +17,8 @@ namespace sun {
 			namespace impl {
 
 $MethodInfo _DefaultFtpClientProvider_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DefaultFtpClientProvider::*)()>(&DefaultFtpClientProvider::init$))},
-	{"createFtpClient", "()Lsun/net/ftp/FtpClient;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DefaultFtpClientProvider, init$, void)},
+	{"createFtpClient", "()Lsun/net/ftp/FtpClient;", nullptr, $PUBLIC, $virtualMethod(DefaultFtpClientProvider, createFtpClient, $FtpClient*)},
 	{}
 };
 

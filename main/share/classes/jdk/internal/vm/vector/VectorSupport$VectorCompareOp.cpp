@@ -13,7 +13,7 @@ namespace jdk {
 			namespace vector {
 
 $MethodInfo _VectorSupport$VectorCompareOp_MethodInfo_[] = {
-	{"apply", "(ILjava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", "(ITV;TV;)TM;", $PUBLIC | $ABSTRACT},
+	{"apply", "(ILjava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", "(ITV;TV;)TM;", $PUBLIC | $ABSTRACT, $virtualMethod(VectorSupport$VectorCompareOp, apply, $Object*, int32_t, Object$*, Object$*)},
 	{}
 };
 

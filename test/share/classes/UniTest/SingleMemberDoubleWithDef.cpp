@@ -25,7 +25,7 @@ $Attribute _SingleMemberDoubleWithDef_DefaultValue_value0 = {
 };
 
 $MethodInfo _SingleMemberDoubleWithDef_MethodInfo_[] = {
-	{"value", "()D", nullptr, $PUBLIC | $ABSTRACT, nullptr, nullptr, &_SingleMemberDoubleWithDef_DefaultValue_value0},
+	{"value", "()D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SingleMemberDoubleWithDef, value, double), nullptr, &_SingleMemberDoubleWithDef_DefaultValue_value0},
 	{}
 };
 

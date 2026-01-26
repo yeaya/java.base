@@ -8,8 +8,8 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _TestHelpers$TestSuperclass_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(TestHelpers$TestSuperclass::*)()>(&TestHelpers$TestSuperclass::init$))},
-	{"m", "(I)I", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(TestHelpers$TestSuperclass, init$, void)},
+	{"m", "(I)I", nullptr, $PUBLIC, $virtualMethod(TestHelpers$TestSuperclass, m, int32_t, int32_t)},
 	{}
 };
 

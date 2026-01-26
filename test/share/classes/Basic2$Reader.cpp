@@ -24,10 +24,10 @@ $FieldInfo _Basic2$Reader_FieldInfo_[] = {
 };
 
 $MethodInfo _Basic2$Reader_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/InputStream;)V", nullptr, 0, $method(static_cast<void(Basic2$Reader::*)($InputStream*)>(&Basic2$Reader::init$))},
-	{"hash", "()I", nullptr, 0},
-	{"run", "()V", nullptr, $PUBLIC},
-	{"total", "()I", nullptr, 0},
+	{"<init>", "(Ljava/io/InputStream;)V", nullptr, 0, $method(Basic2$Reader, init$, void, $InputStream*)},
+	{"hash", "()I", nullptr, 0, $virtualMethod(Basic2$Reader, hash, int32_t)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Basic2$Reader, run, void)},
+	{"total", "()I", nullptr, 0, $virtualMethod(Basic2$Reader, total, int32_t)},
 	{}
 };
 

@@ -5,13 +5,14 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $TimeUnit = ::java::util::concurrent::TimeUnit;
 
 namespace java {
 	namespace util {
 		namespace concurrent {
 
 $MethodInfo _Delayed_MethodInfo_[] = {
-	{"getDelay", "(Ljava/util/concurrent/TimeUnit;)J", nullptr, $PUBLIC | $ABSTRACT},
+	{"getDelay", "(Ljava/util/concurrent/TimeUnit;)J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Delayed, getDelay, int64_t, $TimeUnit*)},
 	{}
 };
 

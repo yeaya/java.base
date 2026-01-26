@@ -53,10 +53,10 @@ $FieldInfo _SSLSecretDerivation_FieldInfo_[] = {
 };
 
 $MethodInfo _SSLSecretDerivation_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljavax/crypto/SecretKey;)V", nullptr, 0, $method(static_cast<void(SSLSecretDerivation::*)($HandshakeContext*,$SecretKey*)>(&SSLSecretDerivation::init$))},
-	{"createHkdfInfo", "([B[BI)[B", nullptr, $PUBLIC | $STATIC, $method(static_cast<$bytes*(*)($bytes*,$bytes*,int32_t)>(&SSLSecretDerivation::createHkdfInfo))},
-	{"deriveKey", "(Ljava/lang/String;Ljava/security/spec/AlgorithmParameterSpec;)Ljavax/crypto/SecretKey;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"forContext", "(Lsun/security/ssl/HandshakeContext;)Lsun/security/ssl/SSLSecretDerivation;", nullptr, 0, $method(static_cast<SSLSecretDerivation*(SSLSecretDerivation::*)($HandshakeContext*)>(&SSLSecretDerivation::forContext))},
+	{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljavax/crypto/SecretKey;)V", nullptr, 0, $method(SSLSecretDerivation, init$, void, $HandshakeContext*, $SecretKey*)},
+	{"createHkdfInfo", "([B[BI)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(SSLSecretDerivation, createHkdfInfo, $bytes*, $bytes*, $bytes*, int32_t)},
+	{"deriveKey", "(Ljava/lang/String;Ljava/security/spec/AlgorithmParameterSpec;)Ljavax/crypto/SecretKey;", nullptr, $PUBLIC, $virtualMethod(SSLSecretDerivation, deriveKey, $SecretKey*, $String*, $AlgorithmParameterSpec*), "java.io.IOException"},
+	{"forContext", "(Lsun/security/ssl/HandshakeContext;)Lsun/security/ssl/SSLSecretDerivation;", nullptr, 0, $method(SSLSecretDerivation, forContext, SSLSecretDerivation*, $HandshakeContext*)},
 	{}
 };
 

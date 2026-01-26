@@ -39,10 +39,10 @@ $FieldInfo _CryptoPrimitive_FieldInfo_[] = {
 };
 
 $MethodInfo _CryptoPrimitive_MethodInfo_[] = {
-	{"$values", "()[Ljava/security/CryptoPrimitive;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$CryptoPrimitiveArray*(*)()>(&CryptoPrimitive::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(CryptoPrimitive::*)($String*,int32_t)>(&CryptoPrimitive::init$))},
-	{"valueOf", "(Ljava/lang/String;)Ljava/security/CryptoPrimitive;", nullptr, $PUBLIC | $STATIC, $method(static_cast<CryptoPrimitive*(*)($String*)>(&CryptoPrimitive::valueOf))},
-	{"values", "()[Ljava/security/CryptoPrimitive;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$CryptoPrimitiveArray*(*)()>(&CryptoPrimitive::values))},
+	{"$values", "()[Ljava/security/CryptoPrimitive;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CryptoPrimitive, $values, $CryptoPrimitiveArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(CryptoPrimitive, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Ljava/security/CryptoPrimitive;", nullptr, $PUBLIC | $STATIC, $staticMethod(CryptoPrimitive, valueOf, CryptoPrimitive*, $String*)},
+	{"values", "()[Ljava/security/CryptoPrimitive;", nullptr, $PUBLIC | $STATIC, $staticMethod(CryptoPrimitive, values, $CryptoPrimitiveArray*)},
 	{}
 };
 

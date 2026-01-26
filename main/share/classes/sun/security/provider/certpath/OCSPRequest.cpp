@@ -49,12 +49,12 @@ $FieldInfo _OCSPRequest_FieldInfo_[] = {
 };
 
 $MethodInfo _OCSPRequest_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/provider/certpath/CertId;)V", nullptr, 0, $method(static_cast<void(OCSPRequest::*)($CertId*)>(&OCSPRequest::init$))},
-	{"<init>", "(Ljava/util/List;)V", "(Ljava/util/List<Lsun/security/provider/certpath/CertId;>;)V", 0, $method(static_cast<void(OCSPRequest::*)($List*)>(&OCSPRequest::init$))},
-	{"<init>", "(Ljava/util/List;Ljava/util/List;)V", "(Ljava/util/List<Lsun/security/provider/certpath/CertId;>;Ljava/util/List<Ljava/security/cert/Extension;>;)V", 0, $method(static_cast<void(OCSPRequest::*)($List*,$List*)>(&OCSPRequest::init$))},
-	{"encodeBytes", "()[B", nullptr, 0, nullptr, "java.io.IOException"},
-	{"getCertIds", "()Ljava/util/List;", "()Ljava/util/List<Lsun/security/provider/certpath/CertId;>;", 0},
-	{"getNonce", "()[B", nullptr, 0},
+	{"<init>", "(Lsun/security/provider/certpath/CertId;)V", nullptr, 0, $method(OCSPRequest, init$, void, $CertId*)},
+	{"<init>", "(Ljava/util/List;)V", "(Ljava/util/List<Lsun/security/provider/certpath/CertId;>;)V", 0, $method(OCSPRequest, init$, void, $List*)},
+	{"<init>", "(Ljava/util/List;Ljava/util/List;)V", "(Ljava/util/List<Lsun/security/provider/certpath/CertId;>;Ljava/util/List<Ljava/security/cert/Extension;>;)V", 0, $method(OCSPRequest, init$, void, $List*, $List*)},
+	{"encodeBytes", "()[B", nullptr, 0, $virtualMethod(OCSPRequest, encodeBytes, $bytes*), "java.io.IOException"},
+	{"getCertIds", "()Ljava/util/List;", "()Ljava/util/List<Lsun/security/provider/certpath/CertId;>;", 0, $virtualMethod(OCSPRequest, getCertIds, $List*)},
+	{"getNonce", "()[B", nullptr, 0, $virtualMethod(OCSPRequest, getNonce, $bytes*)},
 	{}
 };
 

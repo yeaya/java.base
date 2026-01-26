@@ -25,10 +25,10 @@ $FieldInfo _SocketAdaptor$2_FieldInfo_[] = {
 };
 
 $MethodInfo _SocketAdaptor$2_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/ch/SocketAdaptor;)V", nullptr, 0, $method(static_cast<void(SocketAdaptor$2::*)($SocketAdaptor*)>(&SocketAdaptor$2::init$))},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"write", "(I)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"write", "([BII)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Lsun/nio/ch/SocketAdaptor;)V", nullptr, 0, $method(SocketAdaptor$2, init$, void, $SocketAdaptor*)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(SocketAdaptor$2, close, void), "java.io.IOException"},
+	{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(SocketAdaptor$2, write, void, int32_t), "java.io.IOException"},
+	{"write", "([BII)V", nullptr, $PUBLIC, $virtualMethod(SocketAdaptor$2, write, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
 	{}
 };
 

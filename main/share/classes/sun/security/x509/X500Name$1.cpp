@@ -20,8 +20,8 @@ namespace sun {
 		namespace x509 {
 
 $MethodInfo _X500Name$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(X500Name$1::*)()>(&X500Name$1::init$))},
-	{"run", "()[Ljava/lang/Object;", nullptr, $PUBLIC, nullptr, "java.lang.Exception"},
+	{"<init>", "()V", nullptr, 0, $method(X500Name$1, init$, void)},
+	{"run", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(X500Name$1, run, $Object*), "java.lang.Exception"},
 	{}
 };
 

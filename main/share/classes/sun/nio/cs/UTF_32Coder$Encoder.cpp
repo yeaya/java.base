@@ -35,10 +35,10 @@ $FieldInfo _UTF_32Coder$Encoder_FieldInfo_[] = {
 };
 
 $MethodInfo _UTF_32Coder$Encoder_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/charset/Charset;IZ)V", nullptr, $PROTECTED, $method(static_cast<void(UTF_32Coder$Encoder::*)($Charset*,int32_t,bool)>(&UTF_32Coder$Encoder::init$))},
-	{"encodeLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED},
-	{"implReset", "()V", nullptr, $PROTECTED},
-	{"put", "(ILjava/nio/ByteBuffer;)V", nullptr, $PROTECTED},
+	{"<init>", "(Ljava/nio/charset/Charset;IZ)V", nullptr, $PROTECTED, $method(UTF_32Coder$Encoder, init$, void, $Charset*, int32_t, bool)},
+	{"encodeLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED, $virtualMethod(UTF_32Coder$Encoder, encodeLoop, $CoderResult*, $CharBuffer*, $ByteBuffer*)},
+	{"implReset", "()V", nullptr, $PROTECTED, $virtualMethod(UTF_32Coder$Encoder, implReset, void)},
+	{"put", "(ILjava/nio/ByteBuffer;)V", nullptr, $PROTECTED, $virtualMethod(UTF_32Coder$Encoder, put, void, int32_t, $ByteBuffer*)},
 	{}
 };
 

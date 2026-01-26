@@ -16,7 +16,7 @@ $FieldInfo _BufferOverflowException_FieldInfo_[] = {
 };
 
 $MethodInfo _BufferOverflowException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(BufferOverflowException::*)()>(&BufferOverflowException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(BufferOverflowException, init$, void)},
 	{}
 };
 

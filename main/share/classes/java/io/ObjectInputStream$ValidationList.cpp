@@ -33,10 +33,10 @@ $FieldInfo _ObjectInputStream$ValidationList_FieldInfo_[] = {
 };
 
 $MethodInfo _ObjectInputStream$ValidationList_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ObjectInputStream$ValidationList::*)()>(&ObjectInputStream$ValidationList::init$))},
-	{"clear", "()V", nullptr, $PUBLIC},
-	{"doCallbacks", "()V", nullptr, 0, nullptr, "java.io.InvalidObjectException"},
-	{"register", "(Ljava/io/ObjectInputValidation;I)V", nullptr, 0, nullptr, "java.io.InvalidObjectException"},
+	{"<init>", "()V", nullptr, 0, $method(ObjectInputStream$ValidationList, init$, void)},
+	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(ObjectInputStream$ValidationList, clear, void)},
+	{"doCallbacks", "()V", nullptr, 0, $virtualMethod(ObjectInputStream$ValidationList, doCallbacks, void), "java.io.InvalidObjectException"},
+	{"register", "(Ljava/io/ObjectInputValidation;I)V", nullptr, 0, $virtualMethod(ObjectInputStream$ValidationList, register$, void, $ObjectInputValidation*, int32_t), "java.io.InvalidObjectException"},
 	{}
 };
 

@@ -15,8 +15,8 @@ namespace com {
 			namespace provider {
 
 $MethodInfo _HmacPKCS12PBECore$HmacPKCS12PBE_SHA256_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(HmacPKCS12PBECore$HmacPKCS12PBE_SHA256::*)()>(&HmacPKCS12PBECore$HmacPKCS12PBE_SHA256::init$)), "java.security.NoSuchAlgorithmException"},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, nullptr, "java.lang.CloneNotSupportedException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(HmacPKCS12PBECore$HmacPKCS12PBE_SHA256, init$, void), "java.security.NoSuchAlgorithmException"},
+	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(HmacPKCS12PBECore$HmacPKCS12PBE_SHA256, clone, $Object*), "java.lang.CloneNotSupportedException"},
 	{}
 };
 

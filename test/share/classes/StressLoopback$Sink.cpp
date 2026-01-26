@@ -32,9 +32,9 @@ $FieldInfo _StressLoopback$Sink_FieldInfo_[] = {
 };
 
 $MethodInfo _StressLoopback$Sink_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/channels/AsynchronousByteChannel;)V", nullptr, 0, $method(static_cast<void(StressLoopback$Sink::*)($AsynchronousByteChannel*)>(&StressLoopback$Sink::init$))},
-	{"finish", "()J", nullptr, 0},
-	{"start", "()V", nullptr, 0},
+	{"<init>", "(Ljava/nio/channels/AsynchronousByteChannel;)V", nullptr, 0, $method(StressLoopback$Sink, init$, void, $AsynchronousByteChannel*)},
+	{"finish", "()J", nullptr, 0, $virtualMethod(StressLoopback$Sink, finish, int64_t)},
+	{"start", "()V", nullptr, 0, $virtualMethod(StressLoopback$Sink, start, void)},
 	{}
 };
 

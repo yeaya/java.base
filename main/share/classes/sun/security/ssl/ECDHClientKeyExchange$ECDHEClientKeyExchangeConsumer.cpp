@@ -99,8 +99,8 @@ $FieldInfo ECDHClientKeyExchange$ECDHEClientKeyExchangeConsumer$$Lambda$lambda$c
 	{}
 };
 $MethodInfo ECDHClientKeyExchange$ECDHEClientKeyExchangeConsumer$$Lambda$lambda$consume$0::methodInfos[3] = {
-	{"<init>", "(Lsun/security/ssl/ServerHandshakeContext;Lsun/security/ssl/NamedGroup;)V", nullptr, $PUBLIC, $method(static_cast<void(ECDHClientKeyExchange$ECDHEClientKeyExchangeConsumer$$Lambda$lambda$consume$0::*)($ServerHandshakeContext*,$NamedGroup*)>(&ECDHClientKeyExchange$ECDHEClientKeyExchangeConsumer$$Lambda$lambda$consume$0::init$))},
-	{"apply", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/security/ssl/ServerHandshakeContext;Lsun/security/ssl/NamedGroup;)V", nullptr, $PUBLIC, $method(ECDHClientKeyExchange$ECDHEClientKeyExchangeConsumer$$Lambda$lambda$consume$0, init$, void, $ServerHandshakeContext*, $NamedGroup*)},
+	{"apply", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ECDHClientKeyExchange$ECDHEClientKeyExchangeConsumer$$Lambda$lambda$consume$0, apply, void, $String*)},
 	{}
 };
 $ClassInfo ECDHClientKeyExchange$ECDHEClientKeyExchangeConsumer$$Lambda$lambda$consume$0::classInfo$ = {
@@ -118,9 +118,9 @@ $Class* ECDHClientKeyExchange$ECDHEClientKeyExchangeConsumer$$Lambda$lambda$cons
 $Class* ECDHClientKeyExchange$ECDHEClientKeyExchangeConsumer$$Lambda$lambda$consume$0::class$ = nullptr;
 
 $MethodInfo _ECDHClientKeyExchange$ECDHEClientKeyExchangeConsumer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(ECDHClientKeyExchange$ECDHEClientKeyExchangeConsumer::*)()>(&ECDHClientKeyExchange$ECDHEClientKeyExchangeConsumer::init$))},
-	{"consume", "(Lsun/security/ssl/ConnectionContext;Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"lambda$consume$0", "(Lsun/security/ssl/ServerHandshakeContext;Lsun/security/ssl/NamedGroup;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($ServerHandshakeContext*,$NamedGroup*,$String*)>(&ECDHClientKeyExchange$ECDHEClientKeyExchangeConsumer::lambda$consume$0)), "javax.net.ssl.SSLException"},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(ECDHClientKeyExchange$ECDHEClientKeyExchangeConsumer, init$, void)},
+	{"consume", "(Lsun/security/ssl/ConnectionContext;Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(ECDHClientKeyExchange$ECDHEClientKeyExchangeConsumer, consume, void, $ConnectionContext*, $ByteBuffer*), "java.io.IOException"},
+	{"lambda$consume$0", "(Lsun/security/ssl/ServerHandshakeContext;Lsun/security/ssl/NamedGroup;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ECDHClientKeyExchange$ECDHEClientKeyExchangeConsumer, lambda$consume$0, void, $ServerHandshakeContext*, $NamedGroup*, $String*), "javax.net.ssl.SSLException"},
 	{}
 };
 

@@ -18,9 +18,9 @@ $FieldInfo _DrbgParameters$Reseed_FieldInfo_[] = {
 };
 
 $MethodInfo _DrbgParameters$Reseed_MethodInfo_[] = {
-	{"<init>", "(Z[B)V", nullptr, $PRIVATE, $method(static_cast<void(DrbgParameters$Reseed::*)(bool,$bytes*)>(&DrbgParameters$Reseed::init$))},
-	{"getAdditionalInput", "()[B", nullptr, $PUBLIC, $method(static_cast<$bytes*(DrbgParameters$Reseed::*)()>(&DrbgParameters$Reseed::getAdditionalInput))},
-	{"getPredictionResistance", "()Z", nullptr, $PUBLIC, $method(static_cast<bool(DrbgParameters$Reseed::*)()>(&DrbgParameters$Reseed::getPredictionResistance))},
+	{"<init>", "(Z[B)V", nullptr, $PRIVATE, $method(DrbgParameters$Reseed, init$, void, bool, $bytes*)},
+	{"getAdditionalInput", "()[B", nullptr, $PUBLIC, $method(DrbgParameters$Reseed, getAdditionalInput, $bytes*)},
+	{"getPredictionResistance", "()Z", nullptr, $PUBLIC, $method(DrbgParameters$Reseed, getPredictionResistance, bool)},
 	{}
 };
 

@@ -30,8 +30,8 @@ $CompoundAttribute _TestType5$nestedTestType5_MethodAnnotations_nestedFoo1[] = {
 };
 
 $MethodInfo _TestType5$nestedTestType5_MethodInfo_[] = {
-	{"nestedBar", "()V", nullptr, $PUBLIC, nullptr, nullptr, nullptr, _TestType5$nestedTestType5_MethodAnnotations_nestedBar0},
-	{"nestedFoo", "()V", nullptr, $PUBLIC | $ABSTRACT, nullptr, nullptr, nullptr, _TestType5$nestedTestType5_MethodAnnotations_nestedFoo1},
+	{"nestedBar", "()V", nullptr, $PUBLIC, $virtualMethod(TestType5$nestedTestType5, nestedBar, void), nullptr, nullptr, _TestType5$nestedTestType5_MethodAnnotations_nestedBar0},
+	{"nestedFoo", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TestType5$nestedTestType5, nestedFoo, void), nullptr, nullptr, _TestType5$nestedTestType5_MethodAnnotations_nestedFoo1},
 	{}
 };
 

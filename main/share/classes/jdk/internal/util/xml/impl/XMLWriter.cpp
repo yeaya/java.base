@@ -40,16 +40,16 @@ $FieldInfo _XMLWriter_FieldInfo_[] = {
 };
 
 $MethodInfo _XMLWriter_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/OutputStream;Ljava/lang/String;Ljava/nio/charset/Charset;)V", nullptr, $PUBLIC, $method(static_cast<void(XMLWriter::*)($OutputStream*,$String*,$Charset*)>(&XMLWriter::init$)), "jdk.internal.util.xml.XMLStreamException"},
-	{"canEncode", "(C)Z", nullptr, $PUBLIC},
-	{"close", "()V", nullptr, 0, nullptr, "jdk.internal.util.xml.XMLStreamException"},
-	{"flush", "()V", nullptr, 0, nullptr, "jdk.internal.util.xml.XMLStreamException"},
-	{"getWriter", "(Ljava/io/OutputStream;Ljava/lang/String;Ljava/nio/charset/Charset;)Ljava/io/Writer;", nullptr, $PRIVATE, $method(static_cast<$Writer*(XMLWriter::*)($OutputStream*,$String*,$Charset*)>(&XMLWriter::getWriter)), "jdk.internal.util.xml.XMLStreamException,java.io.UnsupportedEncodingException"},
-	{"nl", "()V", nullptr, $PRIVATE, $method(static_cast<void(XMLWriter::*)()>(&XMLWriter::nl)), "jdk.internal.util.xml.XMLStreamException"},
-	{"write", "(Ljava/lang/String;)V", nullptr, $PUBLIC, nullptr, "jdk.internal.util.xml.XMLStreamException"},
-	{"write", "(Ljava/lang/String;II)V", nullptr, $PUBLIC, nullptr, "jdk.internal.util.xml.XMLStreamException"},
-	{"write", "([CII)V", nullptr, $PUBLIC, nullptr, "jdk.internal.util.xml.XMLStreamException"},
-	{"write", "(I)V", nullptr, 0, nullptr, "jdk.internal.util.xml.XMLStreamException"},
+	{"<init>", "(Ljava/io/OutputStream;Ljava/lang/String;Ljava/nio/charset/Charset;)V", nullptr, $PUBLIC, $method(XMLWriter, init$, void, $OutputStream*, $String*, $Charset*), "jdk.internal.util.xml.XMLStreamException"},
+	{"canEncode", "(C)Z", nullptr, $PUBLIC, $virtualMethod(XMLWriter, canEncode, bool, char16_t)},
+	{"close", "()V", nullptr, 0, $virtualMethod(XMLWriter, close, void), "jdk.internal.util.xml.XMLStreamException"},
+	{"flush", "()V", nullptr, 0, $virtualMethod(XMLWriter, flush, void), "jdk.internal.util.xml.XMLStreamException"},
+	{"getWriter", "(Ljava/io/OutputStream;Ljava/lang/String;Ljava/nio/charset/Charset;)Ljava/io/Writer;", nullptr, $PRIVATE, $method(XMLWriter, getWriter, $Writer*, $OutputStream*, $String*, $Charset*), "jdk.internal.util.xml.XMLStreamException,java.io.UnsupportedEncodingException"},
+	{"nl", "()V", nullptr, $PRIVATE, $method(XMLWriter, nl, void), "jdk.internal.util.xml.XMLStreamException"},
+	{"write", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XMLWriter, write, void, $String*), "jdk.internal.util.xml.XMLStreamException"},
+	{"write", "(Ljava/lang/String;II)V", nullptr, $PUBLIC, $virtualMethod(XMLWriter, write, void, $String*, int32_t, int32_t), "jdk.internal.util.xml.XMLStreamException"},
+	{"write", "([CII)V", nullptr, $PUBLIC, $virtualMethod(XMLWriter, write, void, $chars*, int32_t, int32_t), "jdk.internal.util.xml.XMLStreamException"},
+	{"write", "(I)V", nullptr, 0, $virtualMethod(XMLWriter, write, void, int32_t), "jdk.internal.util.xml.XMLStreamException"},
 	{}
 };
 

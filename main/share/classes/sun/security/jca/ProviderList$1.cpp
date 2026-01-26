@@ -22,8 +22,8 @@ $FieldInfo _ProviderList$1_FieldInfo_[] = {
 };
 
 $MethodInfo _ProviderList$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(ProviderList$1::*)($String*,$String*,$String*)>(&ProviderList$1::init$))},
-	{"getService", "(Ljava/lang/String;Ljava/lang/String;)Ljava/security/Provider$Service;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(ProviderList$1, init$, void, $String*, $String*, $String*)},
+	{"getService", "(Ljava/lang/String;Ljava/lang/String;)Ljava/security/Provider$Service;", nullptr, $PUBLIC, $virtualMethod(ProviderList$1, getService, $Provider$Service*, $String*, $String*)},
 	{}
 };
 

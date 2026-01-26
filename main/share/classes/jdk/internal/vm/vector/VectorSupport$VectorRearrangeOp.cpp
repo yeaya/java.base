@@ -8,6 +8,8 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $VectorSupport$Vector = ::jdk::internal::vm::vector::VectorSupport$Vector;
+using $VectorSupport$VectorShuffle = ::jdk::internal::vm::vector::VectorSupport$VectorShuffle;
 
 namespace jdk {
 	namespace internal {
@@ -15,7 +17,7 @@ namespace jdk {
 			namespace vector {
 
 $MethodInfo _VectorSupport$VectorRearrangeOp_MethodInfo_[] = {
-	{"apply", "(Ljdk/internal/vm/vector/VectorSupport$Vector;Ljdk/internal/vm/vector/VectorSupport$VectorShuffle;)Ljdk/internal/vm/vector/VectorSupport$Vector;", "(TV;TSh;)TV;", $PUBLIC | $ABSTRACT},
+	{"apply", "(Ljdk/internal/vm/vector/VectorSupport$Vector;Ljdk/internal/vm/vector/VectorSupport$VectorShuffle;)Ljdk/internal/vm/vector/VectorSupport$Vector;", "(TV;TSh;)TV;", $PUBLIC | $ABSTRACT, $virtualMethod(VectorSupport$VectorRearrangeOp, apply, $VectorSupport$Vector*, $VectorSupport$Vector*, $VectorSupport$VectorShuffle*)},
 	{}
 };
 

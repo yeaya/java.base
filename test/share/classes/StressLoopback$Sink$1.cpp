@@ -30,11 +30,11 @@ $FieldInfo _StressLoopback$Sink$1_FieldInfo_[] = {
 };
 
 $MethodInfo _StressLoopback$Sink$1_MethodInfo_[] = {
-	{"<init>", "(LStressLoopback$Sink;)V", nullptr, 0, $method(static_cast<void(StressLoopback$Sink$1::*)($StressLoopback$Sink*)>(&StressLoopback$Sink$1::init$))},
-	{"completed", "(Ljava/lang/Integer;Ljava/lang/Void;)V", nullptr, $PUBLIC},
-	{"completed", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"failed", "(Ljava/lang/Throwable;Ljava/lang/Void;)V", nullptr, $PUBLIC},
-	{"failed", "(Ljava/lang/Throwable;Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "(LStressLoopback$Sink;)V", nullptr, 0, $method(StressLoopback$Sink$1, init$, void, $StressLoopback$Sink*)},
+	{"completed", "(Ljava/lang/Integer;Ljava/lang/Void;)V", nullptr, $PUBLIC, $virtualMethod(StressLoopback$Sink$1, completed, void, $Integer*, $Void*)},
+	{"completed", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(StressLoopback$Sink$1, completed, void, Object$*, Object$*)},
+	{"failed", "(Ljava/lang/Throwable;Ljava/lang/Void;)V", nullptr, $PUBLIC, $virtualMethod(StressLoopback$Sink$1, failed, void, $Throwable*, $Void*)},
+	{"failed", "(Ljava/lang/Throwable;Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(StressLoopback$Sink$1, failed, void, $Throwable*, Object$*)},
 	{}
 };
 

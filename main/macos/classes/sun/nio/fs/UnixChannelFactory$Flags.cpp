@@ -53,8 +53,8 @@ $FieldInfo _UnixChannelFactory$Flags_FieldInfo_[] = {
 };
 
 $MethodInfo _UnixChannelFactory$Flags_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(UnixChannelFactory$Flags::*)()>(&UnixChannelFactory$Flags::init$))},
-	{"toFlags", "(Ljava/util/Set;)Lsun/nio/fs/UnixChannelFactory$Flags;", "(Ljava/util/Set<+Ljava/nio/file/OpenOption;>;)Lsun/nio/fs/UnixChannelFactory$Flags;", $STATIC, $method(static_cast<UnixChannelFactory$Flags*(*)($Set*)>(&UnixChannelFactory$Flags::toFlags))},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(UnixChannelFactory$Flags, init$, void)},
+	{"toFlags", "(Ljava/util/Set;)Lsun/nio/fs/UnixChannelFactory$Flags;", "(Ljava/util/Set<+Ljava/nio/file/OpenOption;>;)Lsun/nio/fs/UnixChannelFactory$Flags;", $STATIC, $staticMethod(UnixChannelFactory$Flags, toFlags, UnixChannelFactory$Flags*, $Set*)},
 	{}
 };
 

@@ -37,8 +37,8 @@ $FieldInfo _ArraysParallelSortHelpers$FJObject$Sorter_FieldInfo_[] = {
 };
 
 $MethodInfo _ArraysParallelSortHelpers$FJObject$Sorter_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/CountedCompleter;[Ljava/lang/Object;[Ljava/lang/Object;IIIILjava/util/Comparator;)V", "(Ljava/util/concurrent/CountedCompleter<*>;[TT;[TT;IIIILjava/util/Comparator<-TT;>;)V", 0, $method(static_cast<void(ArraysParallelSortHelpers$FJObject$Sorter::*)($CountedCompleter*,$ObjectArray*,$ObjectArray*,int32_t,int32_t,int32_t,int32_t,$Comparator*)>(&ArraysParallelSortHelpers$FJObject$Sorter::init$))},
-	{"compute", "()V", nullptr, $PUBLIC | $FINAL},
+	{"<init>", "(Ljava/util/concurrent/CountedCompleter;[Ljava/lang/Object;[Ljava/lang/Object;IIIILjava/util/Comparator;)V", "(Ljava/util/concurrent/CountedCompleter<*>;[TT;[TT;IIIILjava/util/Comparator<-TT;>;)V", 0, $method(ArraysParallelSortHelpers$FJObject$Sorter, init$, void, $CountedCompleter*, $ObjectArray*, $ObjectArray*, int32_t, int32_t, int32_t, int32_t, $Comparator*)},
+	{"compute", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(ArraysParallelSortHelpers$FJObject$Sorter, compute, void)},
 	{}
 };
 

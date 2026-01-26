@@ -28,8 +28,8 @@ $FieldInfo _PipeChannel_FieldInfo_[] = {
 };
 
 $MethodInfo _PipeChannel_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PipeChannel::*)()>(&PipeChannel::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&PipeChannel::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PipeChannel, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(PipeChannel, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

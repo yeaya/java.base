@@ -28,9 +28,9 @@ $FieldInfo _ProxyTest$Data_FieldInfo_[] = {
 };
 
 $MethodInfo _ProxyTest$Data_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Module;Ljava/lang/ClassLoader;[Ljava/lang/Class;)V", "(Ljava/lang/Module;Ljava/lang/ClassLoader;[Ljava/lang/Class<*>;)V", $PUBLIC | $TRANSIENT, $method(static_cast<void(ProxyTest$Data::*)($Module*,$ClassLoader*,$ClassArray*)>(&ProxyTest$Data::init$))},
-	{"<init>", "(Ljava/lang/ClassLoader;[Ljava/lang/Class;)V", "(Ljava/lang/ClassLoader;[Ljava/lang/Class<*>;)V", $PUBLIC | $TRANSIENT, $method(static_cast<void(ProxyTest$Data::*)($ClassLoader*,$ClassArray*)>(&ProxyTest$Data::init$))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Module;Ljava/lang/ClassLoader;[Ljava/lang/Class;)V", "(Ljava/lang/Module;Ljava/lang/ClassLoader;[Ljava/lang/Class<*>;)V", $PUBLIC | $TRANSIENT, $method(ProxyTest$Data, init$, void, $Module*, $ClassLoader*, $ClassArray*)},
+	{"<init>", "(Ljava/lang/ClassLoader;[Ljava/lang/Class;)V", "(Ljava/lang/ClassLoader;[Ljava/lang/Class<*>;)V", $PUBLIC | $TRANSIENT, $method(ProxyTest$Data, init$, void, $ClassLoader*, $ClassArray*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ProxyTest$Data, toString, $String*)},
 	{}
 };
 

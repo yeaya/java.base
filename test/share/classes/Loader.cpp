@@ -38,11 +38,11 @@ $FieldInfo _Loader_FieldInfo_[] = {
 };
 
 $MethodInfo _Loader_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Loader::*)()>(&Loader::init$))},
-	{"loadClass", "(Ljava/lang/String;Z)Ljava/lang/Class;", nullptr, $PUBLIC, nullptr, "java.lang.ClassNotFoundException"},
-	{"locateBytes", "()[B", nullptr, $PRIVATE, $method(static_cast<$bytes*(Loader::*)()>(&Loader::locateBytes))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Loader::main)), "java.lang.Exception"},
-	{"report", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($String*)>(&Loader::report))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Loader, init$, void)},
+	{"loadClass", "(Ljava/lang/String;Z)Ljava/lang/Class;", nullptr, $PUBLIC, $virtualMethod(Loader, loadClass, $Class*, $String*, bool), "java.lang.ClassNotFoundException"},
+	{"locateBytes", "()[B", nullptr, $PRIVATE, $method(Loader, locateBytes, $bytes*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Loader, main, void, $StringArray*), "java.lang.Exception"},
+	{"report", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Loader, report, void, $String*)},
 	{}
 };
 

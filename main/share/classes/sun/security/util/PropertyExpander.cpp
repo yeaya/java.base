@@ -21,9 +21,9 @@ namespace sun {
 		namespace util {
 
 $MethodInfo _PropertyExpander_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PropertyExpander::*)()>(&PropertyExpander::init$))},
-	{"expand", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)($String*)>(&PropertyExpander::expand)), "sun.security.util.PropertyExpander$ExpandException"},
-	{"expand", "(Ljava/lang/String;Z)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)($String*,bool)>(&PropertyExpander::expand)), "sun.security.util.PropertyExpander$ExpandException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PropertyExpander, init$, void)},
+	{"expand", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(PropertyExpander, expand, $String*, $String*), "sun.security.util.PropertyExpander$ExpandException"},
+	{"expand", "(Ljava/lang/String;Z)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(PropertyExpander, expand, $String*, $String*, bool), "sun.security.util.PropertyExpander$ExpandException"},
 	{}
 };
 

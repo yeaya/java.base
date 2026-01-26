@@ -27,11 +27,11 @@ $FieldInfo _SystemProps_FieldInfo_[] = {
 };
 
 $MethodInfo _SystemProps_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(SystemProps::*)()>(&SystemProps::init$))},
-	{"fillI18nProps", "(Ljava/util/HashMap;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", "(Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/String;>;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", $PRIVATE | $STATIC, $method(static_cast<void(*)($HashMap*,$String*,$String*,$String*)>(&SystemProps::fillI18nProps))},
-	{"initProperties", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PUBLIC | $STATIC, $method(static_cast<$Map*(*)()>(&SystemProps::initProperties))},
-	{"put", "(Ljava/util/HashMap;Ljava/lang/String;Ljava/lang/String;)V", "(Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/String;>;Ljava/lang/String;Ljava/lang/String;)V", $PRIVATE | $STATIC, $method(static_cast<void(*)($HashMap*,$String*,$String*)>(&SystemProps::put))},
-	{"putIfAbsent", "(Ljava/util/HashMap;Ljava/lang/String;Ljava/lang/String;)V", "(Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/String;>;Ljava/lang/String;Ljava/lang/String;)V", $PRIVATE | $STATIC, $method(static_cast<void(*)($HashMap*,$String*,$String*)>(&SystemProps::putIfAbsent))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(SystemProps, init$, void)},
+	{"fillI18nProps", "(Ljava/util/HashMap;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", "(Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/String;>;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", $PRIVATE | $STATIC, $staticMethod(SystemProps, fillI18nProps, void, $HashMap*, $String*, $String*, $String*)},
+	{"initProperties", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PUBLIC | $STATIC, $staticMethod(SystemProps, initProperties, $Map*)},
+	{"put", "(Ljava/util/HashMap;Ljava/lang/String;Ljava/lang/String;)V", "(Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/String;>;Ljava/lang/String;Ljava/lang/String;)V", $PRIVATE | $STATIC, $staticMethod(SystemProps, put, void, $HashMap*, $String*, $String*)},
+	{"putIfAbsent", "(Ljava/util/HashMap;Ljava/lang/String;Ljava/lang/String;)V", "(Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/String;>;Ljava/lang/String;Ljava/lang/String;)V", $PRIVATE | $STATIC, $staticMethod(SystemProps, putIfAbsent, void, $HashMap*, $String*, $String*)},
 	{}
 };
 

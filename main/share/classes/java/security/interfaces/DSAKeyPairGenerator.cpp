@@ -6,14 +6,16 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $SecureRandom = ::java::security::SecureRandom;
+using $DSAParams = ::java::security::interfaces::DSAParams;
 
 namespace java {
 	namespace security {
 		namespace interfaces {
 
 $MethodInfo _DSAKeyPairGenerator_MethodInfo_[] = {
-	{"initialize", "(Ljava/security/interfaces/DSAParams;Ljava/security/SecureRandom;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.security.InvalidParameterException"},
-	{"initialize", "(IZLjava/security/SecureRandom;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.security.InvalidParameterException"},
+	{"initialize", "(Ljava/security/interfaces/DSAParams;Ljava/security/SecureRandom;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DSAKeyPairGenerator, initialize, void, $DSAParams*, $SecureRandom*), "java.security.InvalidParameterException"},
+	{"initialize", "(IZLjava/security/SecureRandom;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DSAKeyPairGenerator, initialize, void, int32_t, bool, $SecureRandom*), "java.security.InvalidParameterException"},
 	{}
 };
 

@@ -30,10 +30,10 @@ $FieldInfo _HttpURLConnection$TunnelState_FieldInfo_[] = {
 };
 
 $MethodInfo _HttpURLConnection$TunnelState_MethodInfo_[] = {
-	{"$values", "()[Lsun/net/www/protocol/http/HttpURLConnection$TunnelState;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$HttpURLConnection$TunnelStateArray*(*)()>(&HttpURLConnection$TunnelState::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(HttpURLConnection$TunnelState::*)($String*,int32_t)>(&HttpURLConnection$TunnelState::init$))},
-	{"valueOf", "(Ljava/lang/String;)Lsun/net/www/protocol/http/HttpURLConnection$TunnelState;", nullptr, $PUBLIC | $STATIC, $method(static_cast<HttpURLConnection$TunnelState*(*)($String*)>(&HttpURLConnection$TunnelState::valueOf))},
-	{"values", "()[Lsun/net/www/protocol/http/HttpURLConnection$TunnelState;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$HttpURLConnection$TunnelStateArray*(*)()>(&HttpURLConnection$TunnelState::values))},
+	{"$values", "()[Lsun/net/www/protocol/http/HttpURLConnection$TunnelState;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HttpURLConnection$TunnelState, $values, $HttpURLConnection$TunnelStateArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(HttpURLConnection$TunnelState, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Lsun/net/www/protocol/http/HttpURLConnection$TunnelState;", nullptr, $PUBLIC | $STATIC, $staticMethod(HttpURLConnection$TunnelState, valueOf, HttpURLConnection$TunnelState*, $String*)},
+	{"values", "()[Lsun/net/www/protocol/http/HttpURLConnection$TunnelState;", nullptr, $PUBLIC | $STATIC, $staticMethod(HttpURLConnection$TunnelState, values, $HttpURLConnection$TunnelStateArray*)},
 	{}
 };
 

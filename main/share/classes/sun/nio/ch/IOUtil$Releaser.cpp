@@ -50,8 +50,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo IOUtil$Releaser$$Lambda$lambda$ofNullable$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(IOUtil$Releaser$$Lambda$lambda$ofNullable$0::*)()>(&IOUtil$Releaser$$Lambda$lambda$ofNullable$0::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(IOUtil$Releaser$$Lambda$lambda$ofNullable$0, init$, void)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(IOUtil$Releaser$$Lambda$lambda$ofNullable$0, run, void)},
 	{}
 };
 $ClassInfo IOUtil$Releaser$$Lambda$lambda$ofNullable$0::classInfo$ = {
@@ -76,15 +76,15 @@ $FieldInfo _IOUtil$Releaser_FieldInfo_[] = {
 $MethodInfo _IOUtil$Releaser_MethodInfo_[] = {
 	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(Ljdk/internal/misc/ScopedMemoryAccess$Scope$Handle;)V", nullptr, 0, $method(static_cast<void(IOUtil$Releaser::*)($ScopedMemoryAccess$Scope$Handle*)>(&IOUtil$Releaser::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
-	{"handle", "()Ljdk/internal/misc/ScopedMemoryAccess$Scope$Handle;", nullptr, $PUBLIC, $method(static_cast<$ScopedMemoryAccess$Scope$Handle*(IOUtil$Releaser::*)()>(&IOUtil$Releaser::handle))},
-	{"hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"lambda$ofNullable$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)()>(&IOUtil$Releaser::lambda$ofNullable$0))},
-	{"of", "(Ljdk/internal/misc/ScopedMemoryAccess$Scope$Handle;)Ljava/lang/Runnable;", nullptr, $STATIC, $method(static_cast<$Runnable*(*)($ScopedMemoryAccess$Scope$Handle*)>(&IOUtil$Releaser::of))},
-	{"ofNullable", "(Ljdk/internal/misc/ScopedMemoryAccess$Scope$Handle;)Ljava/lang/Runnable;", nullptr, $STATIC, $method(static_cast<$Runnable*(*)($ScopedMemoryAccess$Scope$Handle*)>(&IOUtil$Releaser::ofNullable))},
-	{"run", "()V", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL},
+	{"<init>", "(Ljdk/internal/misc/ScopedMemoryAccess$Scope$Handle;)V", nullptr, 0, $method(IOUtil$Releaser, init$, void, $ScopedMemoryAccess$Scope$Handle*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(IOUtil$Releaser, equals, bool, Object$*)},
+	{"handle", "()Ljdk/internal/misc/ScopedMemoryAccess$Scope$Handle;", nullptr, $PUBLIC, $method(IOUtil$Releaser, handle, $ScopedMemoryAccess$Scope$Handle*)},
+	{"hashCode", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(IOUtil$Releaser, hashCode, int32_t)},
+	{"lambda$ofNullable$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(IOUtil$Releaser, lambda$ofNullable$0, void)},
+	{"of", "(Ljdk/internal/misc/ScopedMemoryAccess$Scope$Handle;)Ljava/lang/Runnable;", nullptr, $STATIC, $staticMethod(IOUtil$Releaser, of, $Runnable*, $ScopedMemoryAccess$Scope$Handle*)},
+	{"ofNullable", "(Ljdk/internal/misc/ScopedMemoryAccess$Scope$Handle;)Ljava/lang/Runnable;", nullptr, $STATIC, $staticMethod(IOUtil$Releaser, ofNullable, $Runnable*, $ScopedMemoryAccess$Scope$Handle*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(IOUtil$Releaser, run, void)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(IOUtil$Releaser, toString, $String*)},
 	{}
 };
 

@@ -36,11 +36,11 @@ $FieldInfo _NamedCurve_FieldInfo_[] = {
 };
 
 $MethodInfo _NamedCurve_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/util/KnownOIDs;Ljava/security/spec/EllipticCurve;Ljava/security/spec/ECPoint;Ljava/math/BigInteger;I)V", nullptr, 0, $method(static_cast<void(NamedCurve::*)($KnownOIDs*,$EllipticCurve*,$ECPoint*,$BigInteger*,int32_t)>(&NamedCurve::init$))},
-	{"getEncoded", "()[B", nullptr, $PUBLIC, $method(static_cast<$bytes*(NamedCurve::*)()>(&NamedCurve::getEncoded))},
-	{"getNameAndAliases", "()[Ljava/lang/String;", nullptr, $PUBLIC, $method(static_cast<$StringArray*(NamedCurve::*)()>(&NamedCurve::getNameAndAliases))},
-	{"getObjectId", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(static_cast<$String*(NamedCurve::*)()>(&NamedCurve::getObjectId))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/security/util/KnownOIDs;Ljava/security/spec/EllipticCurve;Ljava/security/spec/ECPoint;Ljava/math/BigInteger;I)V", nullptr, 0, $method(NamedCurve, init$, void, $KnownOIDs*, $EllipticCurve*, $ECPoint*, $BigInteger*, int32_t)},
+	{"getEncoded", "()[B", nullptr, $PUBLIC, $method(NamedCurve, getEncoded, $bytes*)},
+	{"getNameAndAliases", "()[Ljava/lang/String;", nullptr, $PUBLIC, $method(NamedCurve, getNameAndAliases, $StringArray*)},
+	{"getObjectId", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(NamedCurve, getObjectId, $String*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NamedCurve, toString, $String*)},
 	{}
 };
 

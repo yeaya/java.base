@@ -20,9 +20,9 @@ namespace jdk {
 		namespace reflect {
 
 $MethodInfo _UTF8_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(UTF8::*)()>(&UTF8::init$))},
-	{"encode", "(Ljava/lang/String;)[B", nullptr, $STATIC, $method(static_cast<$bytes*(*)($String*)>(&UTF8::encode))},
-	{"utf8Length", "(Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)($String*)>(&UTF8::utf8Length))},
+	{"<init>", "()V", nullptr, 0, $method(UTF8, init$, void)},
+	{"encode", "(Ljava/lang/String;)[B", nullptr, $STATIC, $staticMethod(UTF8, encode, $bytes*, $String*)},
+	{"utf8Length", "(Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(UTF8, utf8Length, int32_t, $String*)},
 	{}
 };
 

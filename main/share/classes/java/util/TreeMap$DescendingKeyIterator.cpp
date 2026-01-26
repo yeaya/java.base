@@ -26,9 +26,9 @@ $FieldInfo _TreeMap$DescendingKeyIterator_FieldInfo_[] = {
 };
 
 $MethodInfo _TreeMap$DescendingKeyIterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/TreeMap;Ljava/util/TreeMap$Entry;)V", "(Ljava/util/TreeMap$Entry<TK;TV;>;)V", 0, $method(static_cast<void(TreeMap$DescendingKeyIterator::*)($TreeMap*,$TreeMap$Entry*)>(&TreeMap$DescendingKeyIterator::init$))},
-	{"next", "()Ljava/lang/Object;", "()TK;", $PUBLIC},
-	{"remove", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/TreeMap;Ljava/util/TreeMap$Entry;)V", "(Ljava/util/TreeMap$Entry<TK;TV;>;)V", 0, $method(TreeMap$DescendingKeyIterator, init$, void, $TreeMap*, $TreeMap$Entry*)},
+	{"next", "()Ljava/lang/Object;", "()TK;", $PUBLIC, $virtualMethod(TreeMap$DescendingKeyIterator, next, $Object*)},
+	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(TreeMap$DescendingKeyIterator, remove, void)},
 	{}
 };
 

@@ -16,10 +16,10 @@ $FieldInfo _ConcurrentModificationException_FieldInfo_[] = {
 };
 
 $MethodInfo _ConcurrentModificationException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ConcurrentModificationException::*)()>(&ConcurrentModificationException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(ConcurrentModificationException::*)($String*)>(&ConcurrentModificationException::init$))},
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(ConcurrentModificationException::*)($Throwable*)>(&ConcurrentModificationException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(ConcurrentModificationException::*)($String*,$Throwable*)>(&ConcurrentModificationException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ConcurrentModificationException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ConcurrentModificationException, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(ConcurrentModificationException, init$, void, $Throwable*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(ConcurrentModificationException, init$, void, $String*, $Throwable*)},
 	{}
 };
 

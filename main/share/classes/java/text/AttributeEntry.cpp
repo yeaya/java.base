@@ -23,13 +23,13 @@ $FieldInfo _AttributeEntry_FieldInfo_[] = {
 };
 
 $MethodInfo _AttributeEntry_MethodInfo_[] = {
-	{"<init>", "(Ljava/text/AttributedCharacterIterator$Attribute;Ljava/lang/Object;)V", nullptr, 0, $method(static_cast<void(AttributeEntry::*)($AttributedCharacterIterator$Attribute*,Object$*)>(&AttributeEntry::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getKey", "()Ljava/text/AttributedCharacterIterator$Attribute;", nullptr, $PUBLIC},
-	{"getValue", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"setValue", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/text/AttributedCharacterIterator$Attribute;Ljava/lang/Object;)V", nullptr, 0, $method(AttributeEntry, init$, void, $AttributedCharacterIterator$Attribute*, Object$*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(AttributeEntry, equals, bool, Object$*)},
+	{"getKey", "()Ljava/text/AttributedCharacterIterator$Attribute;", nullptr, $PUBLIC, $virtualMethod(AttributeEntry, getKey, $Object*)},
+	{"getValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AttributeEntry, getValue, $Object*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(AttributeEntry, hashCode, int32_t)},
+	{"setValue", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AttributeEntry, setValue, $Object*, Object$*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AttributeEntry, toString, $String*)},
 	{}
 };
 

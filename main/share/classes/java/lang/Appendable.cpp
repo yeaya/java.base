@@ -3,6 +3,7 @@
 #include <java/lang/CharSequence.h>
 #include <jcpp.h>
 
+using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
@@ -10,9 +11,9 @@ namespace java {
 	namespace lang {
 
 $MethodInfo _Appendable_MethodInfo_[] = {
-	{"append", "(Ljava/lang/CharSequence;)Ljava/lang/Appendable;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"append", "(Ljava/lang/CharSequence;II)Ljava/lang/Appendable;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"append", "(C)Ljava/lang/Appendable;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
+	{"append", "(Ljava/lang/CharSequence;)Ljava/lang/Appendable;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Appendable, append, Appendable*, $CharSequence*), "java.io.IOException"},
+	{"append", "(Ljava/lang/CharSequence;II)Ljava/lang/Appendable;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Appendable, append, Appendable*, $CharSequence*, int32_t, int32_t), "java.io.IOException"},
+	{"append", "(C)Ljava/lang/Appendable;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Appendable, append, Appendable*, char16_t), "java.io.IOException"},
 	{}
 };
 

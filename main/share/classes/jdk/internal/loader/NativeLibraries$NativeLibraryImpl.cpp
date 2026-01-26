@@ -33,11 +33,11 @@ $FieldInfo _NativeLibraries$NativeLibraryImpl_FieldInfo_[] = {
 };
 
 $MethodInfo _NativeLibraries$NativeLibraryImpl_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Class;Ljava/lang/String;ZZ)V", "(Ljava/lang/Class<*>;Ljava/lang/String;ZZ)V", 0, $method(static_cast<void(NativeLibraries$NativeLibraryImpl::*)($Class*,$String*,bool,bool)>(&NativeLibraries$NativeLibraryImpl::init$))},
-	{"find", "(Ljava/lang/String;)J", nullptr, $PUBLIC},
-	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"open", "()Z", nullptr, 0},
-	{"unloader", "()Ljava/lang/Runnable;", nullptr, 0},
+	{"<init>", "(Ljava/lang/Class;Ljava/lang/String;ZZ)V", "(Ljava/lang/Class<*>;Ljava/lang/String;ZZ)V", 0, $method(NativeLibraries$NativeLibraryImpl, init$, void, $Class*, $String*, bool, bool)},
+	{"find", "(Ljava/lang/String;)J", nullptr, $PUBLIC, $virtualMethod(NativeLibraries$NativeLibraryImpl, find, int64_t, $String*)},
+	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NativeLibraries$NativeLibraryImpl, name, $String*)},
+	{"open", "()Z", nullptr, 0, $virtualMethod(NativeLibraries$NativeLibraryImpl, open, bool)},
+	{"unloader", "()Ljava/lang/Runnable;", nullptr, 0, $virtualMethod(NativeLibraries$NativeLibraryImpl, unloader, $Runnable*)},
 	{}
 };
 

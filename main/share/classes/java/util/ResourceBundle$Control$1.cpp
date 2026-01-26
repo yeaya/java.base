@@ -21,8 +21,8 @@ $FieldInfo _ResourceBundle$Control$1_FieldInfo_[] = {
 };
 
 $MethodInfo _ResourceBundle$Control$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/ResourceBundle$Control;Ljava/lang/Class;)V", nullptr, 0, $method(static_cast<void(ResourceBundle$Control$1::*)($ResourceBundle$Control*,$Class*)>(&ResourceBundle$Control$1::init$))},
-	{"run", "()Ljava/lang/reflect/Constructor;", "()Ljava/lang/reflect/Constructor<Ljava/util/ResourceBundle;>;", $PUBLIC, nullptr, "java.lang.NoSuchMethodException"},
+	{"<init>", "(Ljava/util/ResourceBundle$Control;Ljava/lang/Class;)V", nullptr, 0, $method(ResourceBundle$Control$1, init$, void, $ResourceBundle$Control*, $Class*)},
+	{"run", "()Ljava/lang/reflect/Constructor;", "()Ljava/lang/reflect/Constructor<Ljava/util/ResourceBundle;>;", $PUBLIC, $virtualMethod(ResourceBundle$Control$1, run, $Object*), "java.lang.NoSuchMethodException"},
 	{}
 };
 

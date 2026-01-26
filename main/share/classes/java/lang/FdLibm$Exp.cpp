@@ -34,8 +34,8 @@ $FieldInfo _FdLibm$Exp_FieldInfo_[] = {
 };
 
 $MethodInfo _FdLibm$Exp_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(FdLibm$Exp::*)()>(&FdLibm$Exp::init$))},
-	{"compute", "(D)D", nullptr, $PUBLIC | $STATIC, $method(static_cast<double(*)(double)>(&FdLibm$Exp::compute))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(FdLibm$Exp, init$, void)},
+	{"compute", "(D)D", nullptr, $PUBLIC | $STATIC, $staticMethod(FdLibm$Exp, compute, double, double)},
 	{}
 };
 

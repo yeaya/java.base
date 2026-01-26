@@ -105,14 +105,14 @@ $FieldInfo _Alert_FieldInfo_[] = {
 };
 
 $MethodInfo _Alert_MethodInfo_[] = {
-	{"$values", "()[Lsun/security/ssl/Alert;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$AlertArray*(*)()>(&Alert::$values))},
-	{"<init>", "(Ljava/lang/String;IBLjava/lang/String;Z)V", "(BLjava/lang/String;Z)V", $PRIVATE, $method(static_cast<void(Alert::*)($String*,int32_t,int8_t,$String*,bool)>(&Alert::init$))},
-	{"createSSLException", "(Ljava/lang/String;)Ljavax/net/ssl/SSLException;", nullptr, 0, $method(static_cast<$SSLException*(Alert::*)($String*)>(&Alert::createSSLException))},
-	{"createSSLException", "(Ljava/lang/String;Ljava/lang/Throwable;)Ljavax/net/ssl/SSLException;", nullptr, 0, $method(static_cast<$SSLException*(Alert::*)($String*,$Throwable*)>(&Alert::createSSLException))},
-	{"nameOf", "(B)Ljava/lang/String;", nullptr, $STATIC, $method(static_cast<$String*(*)(int8_t)>(&Alert::nameOf))},
-	{"valueOf", "(Ljava/lang/String;)Lsun/security/ssl/Alert;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Alert*(*)($String*)>(&Alert::valueOf))},
-	{"valueOf", "(B)Lsun/security/ssl/Alert;", nullptr, $STATIC, $method(static_cast<Alert*(*)(int8_t)>(&Alert::valueOf))},
-	{"values", "()[Lsun/security/ssl/Alert;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$AlertArray*(*)()>(&Alert::values))},
+	{"$values", "()[Lsun/security/ssl/Alert;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Alert, $values, $AlertArray*)},
+	{"<init>", "(Ljava/lang/String;IBLjava/lang/String;Z)V", "(BLjava/lang/String;Z)V", $PRIVATE, $method(Alert, init$, void, $String*, int32_t, int8_t, $String*, bool)},
+	{"createSSLException", "(Ljava/lang/String;)Ljavax/net/ssl/SSLException;", nullptr, 0, $method(Alert, createSSLException, $SSLException*, $String*)},
+	{"createSSLException", "(Ljava/lang/String;Ljava/lang/Throwable;)Ljavax/net/ssl/SSLException;", nullptr, 0, $method(Alert, createSSLException, $SSLException*, $String*, $Throwable*)},
+	{"nameOf", "(B)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(Alert, nameOf, $String*, int8_t)},
+	{"valueOf", "(Ljava/lang/String;)Lsun/security/ssl/Alert;", nullptr, $PUBLIC | $STATIC, $staticMethod(Alert, valueOf, Alert*, $String*)},
+	{"valueOf", "(B)Lsun/security/ssl/Alert;", nullptr, $STATIC, $staticMethod(Alert, valueOf, Alert*, int8_t)},
+	{"values", "()[Lsun/security/ssl/Alert;", nullptr, $PUBLIC | $STATIC, $staticMethod(Alert, values, $AlertArray*)},
 	{}
 };
 

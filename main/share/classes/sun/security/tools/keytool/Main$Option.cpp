@@ -122,11 +122,11 @@ $FieldInfo _Main$Option_FieldInfo_[] = {
 };
 
 $MethodInfo _Main$Option_MethodInfo_[] = {
-	{"$values", "()[Lsun/security/tools/keytool/Main$Option;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Main$OptionArray*(*)()>(&Main$Option::$values))},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", $PRIVATE, $method(static_cast<void(Main$Option::*)($String*,int32_t,$String*,$String*,$String*)>(&Main$Option::init$))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"valueOf", "(Ljava/lang/String;)Lsun/security/tools/keytool/Main$Option;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Main$Option*(*)($String*)>(&Main$Option::valueOf))},
-	{"values", "()[Lsun/security/tools/keytool/Main$Option;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Main$OptionArray*(*)()>(&Main$Option::values))},
+	{"$values", "()[Lsun/security/tools/keytool/Main$Option;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Main$Option, $values, $Main$OptionArray*)},
+	{"<init>", "(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", $PRIVATE, $method(Main$Option, init$, void, $String*, int32_t, $String*, $String*, $String*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Main$Option, toString, $String*)},
+	{"valueOf", "(Ljava/lang/String;)Lsun/security/tools/keytool/Main$Option;", nullptr, $PUBLIC | $STATIC, $staticMethod(Main$Option, valueOf, Main$Option*, $String*)},
+	{"values", "()[Lsun/security/tools/keytool/Main$Option;", nullptr, $PUBLIC | $STATIC, $staticMethod(Main$Option, values, $Main$OptionArray*)},
 	{}
 };
 

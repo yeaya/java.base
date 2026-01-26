@@ -26,7 +26,7 @@ $FieldInfo _RevocationChecker$RevocationProperties_FieldInfo_[] = {
 };
 
 $MethodInfo _RevocationChecker$RevocationProperties_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(RevocationChecker$RevocationProperties::*)()>(&RevocationChecker$RevocationProperties::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(RevocationChecker$RevocationProperties, init$, void)},
 	{}
 };
 

@@ -17,9 +17,9 @@ $FieldInfo _FileNotFoundException_FieldInfo_[] = {
 };
 
 $MethodInfo _FileNotFoundException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(FileNotFoundException::*)()>(&FileNotFoundException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(FileNotFoundException::*)($String*)>(&FileNotFoundException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(static_cast<void(FileNotFoundException::*)($String*,$String*)>(&FileNotFoundException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(FileNotFoundException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(FileNotFoundException, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(FileNotFoundException, init$, void, $String*, $String*)},
 	{}
 };
 

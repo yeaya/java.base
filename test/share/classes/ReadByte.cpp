@@ -16,8 +16,8 @@ using $Channels = ::java::nio::channels::Channels;
 using $ReadableByteChannel = ::java::nio::channels::ReadableByteChannel;
 
 $MethodInfo _ReadByte_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ReadByte::*)()>(&ReadByte::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&ReadByte::main)), "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ReadByte, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ReadByte, main, void, $StringArray*), "java.io.IOException"},
 	{}
 };
 

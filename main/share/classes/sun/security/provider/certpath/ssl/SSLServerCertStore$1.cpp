@@ -17,8 +17,8 @@ namespace sun {
 				namespace ssl {
 
 $MethodInfo _SSLServerCertStore$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(SSLServerCertStore$1::*)()>(&SSLServerCertStore$1::init$))},
-	{"verify", "(Ljava/lang/String;Ljavax/net/ssl/SSLSession;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(SSLServerCertStore$1, init$, void)},
+	{"verify", "(Ljava/lang/String;Ljavax/net/ssl/SSLSession;)Z", nullptr, $PUBLIC, $virtualMethod(SSLServerCertStore$1, verify, bool, $String*, $SSLSession*)},
 	{}
 };
 

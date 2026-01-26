@@ -37,14 +37,14 @@ $FieldInfo _ParseFloat_FieldInfo_[] = {
 };
 
 $MethodInfo _ParseFloat_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ParseFloat::*)()>(&ParseFloat::init$))},
-	{"check", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($String*)>(&ParseFloat::check))},
-	{"check", "(Ljava/lang/String;F)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($String*,float)>(&ParseFloat::check))},
-	{"fail", "(Ljava/lang/String;F)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($String*,float)>(&ParseFloat::fail))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&ParseFloat::main)), "java.lang.Exception"},
-	{"rudimentaryTest", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&ParseFloat::rudimentaryTest))},
-	{"testParsing", "([Ljava/lang/String;Z)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($StringArray*,bool)>(&ParseFloat::testParsing))},
-	{"testPowers", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&ParseFloat::testPowers))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ParseFloat, init$, void)},
+	{"check", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ParseFloat, check, void, $String*)},
+	{"check", "(Ljava/lang/String;F)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ParseFloat, check, void, $String*, float)},
+	{"fail", "(Ljava/lang/String;F)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ParseFloat, fail, void, $String*, float)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ParseFloat, main, void, $StringArray*), "java.lang.Exception"},
+	{"rudimentaryTest", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(ParseFloat, rudimentaryTest, void)},
+	{"testParsing", "([Ljava/lang/String;Z)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ParseFloat, testParsing, void, $StringArray*, bool)},
+	{"testPowers", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(ParseFloat, testPowers, void)},
 	{}
 };
 

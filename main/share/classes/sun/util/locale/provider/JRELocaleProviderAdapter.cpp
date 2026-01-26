@@ -156,8 +156,8 @@ $FieldInfo JRELocaleProviderAdapter$$Lambda$lambda$getBreakIteratorProvider$0::f
 	{}
 };
 $MethodInfo JRELocaleProviderAdapter$$Lambda$lambda$getBreakIteratorProvider$0::methodInfos[3] = {
-	{"<init>", "(Lsun/util/locale/provider/JRELocaleProviderAdapter;)V", nullptr, $PUBLIC, $method(static_cast<void(JRELocaleProviderAdapter$$Lambda$lambda$getBreakIteratorProvider$0::*)(JRELocaleProviderAdapter*)>(&JRELocaleProviderAdapter$$Lambda$lambda$getBreakIteratorProvider$0::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/util/locale/provider/JRELocaleProviderAdapter;)V", nullptr, $PUBLIC, $method(JRELocaleProviderAdapter$$Lambda$lambda$getBreakIteratorProvider$0, init$, void, JRELocaleProviderAdapter*)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JRELocaleProviderAdapter$$Lambda$lambda$getBreakIteratorProvider$0, run, $Object*)},
 	{}
 };
 $ClassInfo JRELocaleProviderAdapter$$Lambda$lambda$getBreakIteratorProvider$0::classInfo$ = {
@@ -196,8 +196,8 @@ $FieldInfo JRELocaleProviderAdapter$$Lambda$lambda$getCollatorProvider$1$1::fiel
 	{}
 };
 $MethodInfo JRELocaleProviderAdapter$$Lambda$lambda$getCollatorProvider$1$1::methodInfos[3] = {
-	{"<init>", "(Lsun/util/locale/provider/JRELocaleProviderAdapter;)V", nullptr, $PUBLIC, $method(static_cast<void(JRELocaleProviderAdapter$$Lambda$lambda$getCollatorProvider$1$1::*)(JRELocaleProviderAdapter*)>(&JRELocaleProviderAdapter$$Lambda$lambda$getCollatorProvider$1$1::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/util/locale/provider/JRELocaleProviderAdapter;)V", nullptr, $PUBLIC, $method(JRELocaleProviderAdapter$$Lambda$lambda$getCollatorProvider$1$1, init$, void, JRELocaleProviderAdapter*)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JRELocaleProviderAdapter$$Lambda$lambda$getCollatorProvider$1$1, run, $Object*)},
 	{}
 };
 $ClassInfo JRELocaleProviderAdapter$$Lambda$lambda$getCollatorProvider$1$1::classInfo$ = {
@@ -236,8 +236,8 @@ $FieldInfo JRELocaleProviderAdapter$$Lambda$lambda$getDateFormatProvider$2$2::fi
 	{}
 };
 $MethodInfo JRELocaleProviderAdapter$$Lambda$lambda$getDateFormatProvider$2$2::methodInfos[3] = {
-	{"<init>", "(Lsun/util/locale/provider/JRELocaleProviderAdapter;)V", nullptr, $PUBLIC, $method(static_cast<void(JRELocaleProviderAdapter$$Lambda$lambda$getDateFormatProvider$2$2::*)(JRELocaleProviderAdapter*)>(&JRELocaleProviderAdapter$$Lambda$lambda$getDateFormatProvider$2$2::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/util/locale/provider/JRELocaleProviderAdapter;)V", nullptr, $PUBLIC, $method(JRELocaleProviderAdapter$$Lambda$lambda$getDateFormatProvider$2$2, init$, void, JRELocaleProviderAdapter*)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JRELocaleProviderAdapter$$Lambda$lambda$getDateFormatProvider$2$2, run, $Object*)},
 	{}
 };
 $ClassInfo JRELocaleProviderAdapter$$Lambda$lambda$getDateFormatProvider$2$2::classInfo$ = {
@@ -276,8 +276,8 @@ $FieldInfo JRELocaleProviderAdapter$$Lambda$lambda$getDateFormatSymbolsProvider$
 	{}
 };
 $MethodInfo JRELocaleProviderAdapter$$Lambda$lambda$getDateFormatSymbolsProvider$3$3::methodInfos[3] = {
-	{"<init>", "(Lsun/util/locale/provider/JRELocaleProviderAdapter;)V", nullptr, $PUBLIC, $method(static_cast<void(JRELocaleProviderAdapter$$Lambda$lambda$getDateFormatSymbolsProvider$3$3::*)(JRELocaleProviderAdapter*)>(&JRELocaleProviderAdapter$$Lambda$lambda$getDateFormatSymbolsProvider$3$3::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/util/locale/provider/JRELocaleProviderAdapter;)V", nullptr, $PUBLIC, $method(JRELocaleProviderAdapter$$Lambda$lambda$getDateFormatSymbolsProvider$3$3, init$, void, JRELocaleProviderAdapter*)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JRELocaleProviderAdapter$$Lambda$lambda$getDateFormatSymbolsProvider$3$3, run, $Object*)},
 	{}
 };
 $ClassInfo JRELocaleProviderAdapter$$Lambda$lambda$getDateFormatSymbolsProvider$3$3::classInfo$ = {
@@ -316,8 +316,8 @@ $FieldInfo JRELocaleProviderAdapter$$Lambda$lambda$getDecimalFormatSymbolsProvid
 	{}
 };
 $MethodInfo JRELocaleProviderAdapter$$Lambda$lambda$getDecimalFormatSymbolsProvider$4$4::methodInfos[3] = {
-	{"<init>", "(Lsun/util/locale/provider/JRELocaleProviderAdapter;)V", nullptr, $PUBLIC, $method(static_cast<void(JRELocaleProviderAdapter$$Lambda$lambda$getDecimalFormatSymbolsProvider$4$4::*)(JRELocaleProviderAdapter*)>(&JRELocaleProviderAdapter$$Lambda$lambda$getDecimalFormatSymbolsProvider$4$4::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/util/locale/provider/JRELocaleProviderAdapter;)V", nullptr, $PUBLIC, $method(JRELocaleProviderAdapter$$Lambda$lambda$getDecimalFormatSymbolsProvider$4$4, init$, void, JRELocaleProviderAdapter*)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JRELocaleProviderAdapter$$Lambda$lambda$getDecimalFormatSymbolsProvider$4$4, run, $Object*)},
 	{}
 };
 $ClassInfo JRELocaleProviderAdapter$$Lambda$lambda$getDecimalFormatSymbolsProvider$4$4::classInfo$ = {
@@ -356,8 +356,8 @@ $FieldInfo JRELocaleProviderAdapter$$Lambda$lambda$getNumberFormatProvider$5$5::
 	{}
 };
 $MethodInfo JRELocaleProviderAdapter$$Lambda$lambda$getNumberFormatProvider$5$5::methodInfos[3] = {
-	{"<init>", "(Lsun/util/locale/provider/JRELocaleProviderAdapter;)V", nullptr, $PUBLIC, $method(static_cast<void(JRELocaleProviderAdapter$$Lambda$lambda$getNumberFormatProvider$5$5::*)(JRELocaleProviderAdapter*)>(&JRELocaleProviderAdapter$$Lambda$lambda$getNumberFormatProvider$5$5::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/util/locale/provider/JRELocaleProviderAdapter;)V", nullptr, $PUBLIC, $method(JRELocaleProviderAdapter$$Lambda$lambda$getNumberFormatProvider$5$5, init$, void, JRELocaleProviderAdapter*)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JRELocaleProviderAdapter$$Lambda$lambda$getNumberFormatProvider$5$5, run, $Object*)},
 	{}
 };
 $ClassInfo JRELocaleProviderAdapter$$Lambda$lambda$getNumberFormatProvider$5$5::classInfo$ = {
@@ -396,8 +396,8 @@ $FieldInfo JRELocaleProviderAdapter$$Lambda$lambda$getCurrencyNameProvider$6$6::
 	{}
 };
 $MethodInfo JRELocaleProviderAdapter$$Lambda$lambda$getCurrencyNameProvider$6$6::methodInfos[3] = {
-	{"<init>", "(Lsun/util/locale/provider/JRELocaleProviderAdapter;)V", nullptr, $PUBLIC, $method(static_cast<void(JRELocaleProviderAdapter$$Lambda$lambda$getCurrencyNameProvider$6$6::*)(JRELocaleProviderAdapter*)>(&JRELocaleProviderAdapter$$Lambda$lambda$getCurrencyNameProvider$6$6::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/util/locale/provider/JRELocaleProviderAdapter;)V", nullptr, $PUBLIC, $method(JRELocaleProviderAdapter$$Lambda$lambda$getCurrencyNameProvider$6$6, init$, void, JRELocaleProviderAdapter*)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JRELocaleProviderAdapter$$Lambda$lambda$getCurrencyNameProvider$6$6, run, $Object*)},
 	{}
 };
 $ClassInfo JRELocaleProviderAdapter$$Lambda$lambda$getCurrencyNameProvider$6$6::classInfo$ = {
@@ -436,8 +436,8 @@ $FieldInfo JRELocaleProviderAdapter$$Lambda$lambda$getLocaleNameProvider$7$7::fi
 	{}
 };
 $MethodInfo JRELocaleProviderAdapter$$Lambda$lambda$getLocaleNameProvider$7$7::methodInfos[3] = {
-	{"<init>", "(Lsun/util/locale/provider/JRELocaleProviderAdapter;)V", nullptr, $PUBLIC, $method(static_cast<void(JRELocaleProviderAdapter$$Lambda$lambda$getLocaleNameProvider$7$7::*)(JRELocaleProviderAdapter*)>(&JRELocaleProviderAdapter$$Lambda$lambda$getLocaleNameProvider$7$7::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/util/locale/provider/JRELocaleProviderAdapter;)V", nullptr, $PUBLIC, $method(JRELocaleProviderAdapter$$Lambda$lambda$getLocaleNameProvider$7$7, init$, void, JRELocaleProviderAdapter*)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JRELocaleProviderAdapter$$Lambda$lambda$getLocaleNameProvider$7$7, run, $Object*)},
 	{}
 };
 $ClassInfo JRELocaleProviderAdapter$$Lambda$lambda$getLocaleNameProvider$7$7::classInfo$ = {
@@ -476,8 +476,8 @@ $FieldInfo JRELocaleProviderAdapter$$Lambda$lambda$getTimeZoneNameProvider$8$8::
 	{}
 };
 $MethodInfo JRELocaleProviderAdapter$$Lambda$lambda$getTimeZoneNameProvider$8$8::methodInfos[3] = {
-	{"<init>", "(Lsun/util/locale/provider/JRELocaleProviderAdapter;)V", nullptr, $PUBLIC, $method(static_cast<void(JRELocaleProviderAdapter$$Lambda$lambda$getTimeZoneNameProvider$8$8::*)(JRELocaleProviderAdapter*)>(&JRELocaleProviderAdapter$$Lambda$lambda$getTimeZoneNameProvider$8$8::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/util/locale/provider/JRELocaleProviderAdapter;)V", nullptr, $PUBLIC, $method(JRELocaleProviderAdapter$$Lambda$lambda$getTimeZoneNameProvider$8$8, init$, void, JRELocaleProviderAdapter*)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JRELocaleProviderAdapter$$Lambda$lambda$getTimeZoneNameProvider$8$8, run, $Object*)},
 	{}
 };
 $ClassInfo JRELocaleProviderAdapter$$Lambda$lambda$getTimeZoneNameProvider$8$8::classInfo$ = {
@@ -516,8 +516,8 @@ $FieldInfo JRELocaleProviderAdapter$$Lambda$lambda$getCalendarDataProvider$9$9::
 	{}
 };
 $MethodInfo JRELocaleProviderAdapter$$Lambda$lambda$getCalendarDataProvider$9$9::methodInfos[3] = {
-	{"<init>", "(Lsun/util/locale/provider/JRELocaleProviderAdapter;)V", nullptr, $PUBLIC, $method(static_cast<void(JRELocaleProviderAdapter$$Lambda$lambda$getCalendarDataProvider$9$9::*)(JRELocaleProviderAdapter*)>(&JRELocaleProviderAdapter$$Lambda$lambda$getCalendarDataProvider$9$9::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/util/locale/provider/JRELocaleProviderAdapter;)V", nullptr, $PUBLIC, $method(JRELocaleProviderAdapter$$Lambda$lambda$getCalendarDataProvider$9$9, init$, void, JRELocaleProviderAdapter*)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JRELocaleProviderAdapter$$Lambda$lambda$getCalendarDataProvider$9$9, run, $Object*)},
 	{}
 };
 $ClassInfo JRELocaleProviderAdapter$$Lambda$lambda$getCalendarDataProvider$9$9::classInfo$ = {
@@ -556,8 +556,8 @@ $FieldInfo JRELocaleProviderAdapter$$Lambda$lambda$getCalendarNameProvider$10$10
 	{}
 };
 $MethodInfo JRELocaleProviderAdapter$$Lambda$lambda$getCalendarNameProvider$10$10::methodInfos[3] = {
-	{"<init>", "(Lsun/util/locale/provider/JRELocaleProviderAdapter;)V", nullptr, $PUBLIC, $method(static_cast<void(JRELocaleProviderAdapter$$Lambda$lambda$getCalendarNameProvider$10$10::*)(JRELocaleProviderAdapter*)>(&JRELocaleProviderAdapter$$Lambda$lambda$getCalendarNameProvider$10$10::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/util/locale/provider/JRELocaleProviderAdapter;)V", nullptr, $PUBLIC, $method(JRELocaleProviderAdapter$$Lambda$lambda$getCalendarNameProvider$10$10, init$, void, JRELocaleProviderAdapter*)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JRELocaleProviderAdapter$$Lambda$lambda$getCalendarNameProvider$10$10, run, $Object*)},
 	{}
 };
 $ClassInfo JRELocaleProviderAdapter$$Lambda$lambda$getCalendarNameProvider$10$10::classInfo$ = {
@@ -596,8 +596,8 @@ $FieldInfo JRELocaleProviderAdapter$$Lambda$lambda$getCalendarProvider$11$11::fi
 	{}
 };
 $MethodInfo JRELocaleProviderAdapter$$Lambda$lambda$getCalendarProvider$11$11::methodInfos[3] = {
-	{"<init>", "(Lsun/util/locale/provider/JRELocaleProviderAdapter;)V", nullptr, $PUBLIC, $method(static_cast<void(JRELocaleProviderAdapter$$Lambda$lambda$getCalendarProvider$11$11::*)(JRELocaleProviderAdapter*)>(&JRELocaleProviderAdapter$$Lambda$lambda$getCalendarProvider$11$11::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/util/locale/provider/JRELocaleProviderAdapter;)V", nullptr, $PUBLIC, $method(JRELocaleProviderAdapter$$Lambda$lambda$getCalendarProvider$11$11, init$, void, JRELocaleProviderAdapter*)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JRELocaleProviderAdapter$$Lambda$lambda$getCalendarProvider$11$11, run, $Object*)},
 	{}
 };
 $ClassInfo JRELocaleProviderAdapter$$Lambda$lambda$getCalendarProvider$11$11::classInfo$ = {
@@ -636,8 +636,8 @@ $FieldInfo JRELocaleProviderAdapter$$Lambda$lambda$getJavaTimeDateTimePatternPro
 	{}
 };
 $MethodInfo JRELocaleProviderAdapter$$Lambda$lambda$getJavaTimeDateTimePatternProvider$12$12::methodInfos[3] = {
-	{"<init>", "(Lsun/util/locale/provider/JRELocaleProviderAdapter;)V", nullptr, $PUBLIC, $method(static_cast<void(JRELocaleProviderAdapter$$Lambda$lambda$getJavaTimeDateTimePatternProvider$12$12::*)(JRELocaleProviderAdapter*)>(&JRELocaleProviderAdapter$$Lambda$lambda$getJavaTimeDateTimePatternProvider$12$12::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/util/locale/provider/JRELocaleProviderAdapter;)V", nullptr, $PUBLIC, $method(JRELocaleProviderAdapter$$Lambda$lambda$getJavaTimeDateTimePatternProvider$12$12, init$, void, JRELocaleProviderAdapter*)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JRELocaleProviderAdapter$$Lambda$lambda$getJavaTimeDateTimePatternProvider$12$12, run, $Object*)},
 	{}
 };
 $ClassInfo JRELocaleProviderAdapter$$Lambda$lambda$getJavaTimeDateTimePatternProvider$12$12::classInfo$ = {
@@ -676,8 +676,8 @@ $FieldInfo JRELocaleProviderAdapter$$Lambda$lambda$createSupportedLocaleString$1
 	{}
 };
 $MethodInfo JRELocaleProviderAdapter$$Lambda$lambda$createSupportedLocaleString$13$13::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(JRELocaleProviderAdapter$$Lambda$lambda$createSupportedLocaleString$13$13::*)($String*)>(&JRELocaleProviderAdapter$$Lambda$lambda$createSupportedLocaleString$13$13::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(JRELocaleProviderAdapter$$Lambda$lambda$createSupportedLocaleString$13$13, init$, void, $String*)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JRELocaleProviderAdapter$$Lambda$lambda$createSupportedLocaleString$13$13, run, $Object*)},
 	{}
 };
 $ClassInfo JRELocaleProviderAdapter$$Lambda$lambda$createSupportedLocaleString$13$13::classInfo$ = {
@@ -719,45 +719,45 @@ $MethodInfo _JRELocaleProviderAdapter_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(JRELocaleProviderAdapter::*)()>(&JRELocaleProviderAdapter::init$))},
-	{"createAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$LocaleArray*(*)()>(&JRELocaleProviderAdapter::createAvailableLocales))},
-	{"createLanguageTagSet", "(Ljava/lang/String;)Ljava/util/Set;", "(Ljava/lang/String;)Ljava/util/Set<Ljava/lang/String;>;", $PROTECTED},
-	{"createSupportedLocaleString", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($String*)>(&JRELocaleProviderAdapter::createSupportedLocaleString))},
-	{"getAdapterType", "()Lsun/util/locale/provider/LocaleProviderAdapter$Type;", nullptr, $PUBLIC},
-	{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC},
-	{"getBreakIteratorProvider", "()Ljava/text/spi/BreakIteratorProvider;", nullptr, $PUBLIC},
-	{"getCalendarDataProvider", "()Ljava/util/spi/CalendarDataProvider;", nullptr, $PUBLIC},
-	{"getCalendarNameProvider", "()Ljava/util/spi/CalendarNameProvider;", nullptr, $PUBLIC},
-	{"getCalendarProvider", "()Lsun/util/spi/CalendarProvider;", nullptr, $PUBLIC},
-	{"getCandidateLocales", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/util/List;", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/util/List<Ljava/util/Locale;>;", $PUBLIC},
-	{"getCollatorProvider", "()Ljava/text/spi/CollatorProvider;", nullptr, $PUBLIC},
-	{"getCurrencyNameProvider", "()Ljava/util/spi/CurrencyNameProvider;", nullptr, $PUBLIC},
-	{"getDateFormatProvider", "()Ljava/text/spi/DateFormatProvider;", nullptr, $PUBLIC},
-	{"getDateFormatSymbolsProvider", "()Ljava/text/spi/DateFormatSymbolsProvider;", nullptr, $PUBLIC},
-	{"getDecimalFormatSymbolsProvider", "()Ljava/text/spi/DecimalFormatSymbolsProvider;", nullptr, $PUBLIC},
-	{"getJavaTimeDateTimePatternProvider", "()Lsun/text/spi/JavaTimeDateTimePatternProvider;", nullptr, $PUBLIC},
-	{"getLanguageTagSet", "(Ljava/lang/String;)Ljava/util/Set;", "(Ljava/lang/String;)Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC},
-	{"getLocaleData", "()Lsun/util/resources/LocaleData;", nullptr, $PUBLIC},
-	{"getLocaleNameProvider", "()Ljava/util/spi/LocaleNameProvider;", nullptr, $PUBLIC},
-	{"getLocaleResources", "(Ljava/util/Locale;)Lsun/util/locale/provider/LocaleResources;", nullptr, $PUBLIC},
-	{"getLocaleServiceProvider", "(Ljava/lang/Class;)Ljava/util/spi/LocaleServiceProvider;", "<P:Ljava/util/spi/LocaleServiceProvider;>(Ljava/lang/Class<TP;>;)TP;", $PUBLIC},
-	{"getNumberFormatProvider", "()Ljava/text/spi/NumberFormatProvider;", nullptr, $PUBLIC},
-	{"getTimeZoneNameProvider", "()Ljava/util/spi/TimeZoneNameProvider;", nullptr, $PUBLIC},
-	{"isSupportedProviderLocale", "(Ljava/util/Locale;Ljava/util/Set;)Z", "(Ljava/util/Locale;Ljava/util/Set<Ljava/lang/String;>;)Z", $PUBLIC},
-	{"lambda$createSupportedLocaleString$13", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$String*(*)($String*)>(&JRELocaleProviderAdapter::lambda$createSupportedLocaleString$13)), "java.lang.Exception"},
-	{"lambda$getBreakIteratorProvider$0", "()Ljava/text/spi/BreakIteratorProvider;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$BreakIteratorProvider*(JRELocaleProviderAdapter::*)()>(&JRELocaleProviderAdapter::lambda$getBreakIteratorProvider$0))},
-	{"lambda$getCalendarDataProvider$9", "()Ljava/util/spi/CalendarDataProvider;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$CalendarDataProvider*(JRELocaleProviderAdapter::*)()>(&JRELocaleProviderAdapter::lambda$getCalendarDataProvider$9))},
-	{"lambda$getCalendarNameProvider$10", "()Ljava/util/spi/CalendarNameProvider;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$CalendarNameProvider*(JRELocaleProviderAdapter::*)()>(&JRELocaleProviderAdapter::lambda$getCalendarNameProvider$10))},
-	{"lambda$getCalendarProvider$11", "()Lsun/util/spi/CalendarProvider;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$CalendarProvider*(JRELocaleProviderAdapter::*)()>(&JRELocaleProviderAdapter::lambda$getCalendarProvider$11))},
-	{"lambda$getCollatorProvider$1", "()Ljava/text/spi/CollatorProvider;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$CollatorProvider*(JRELocaleProviderAdapter::*)()>(&JRELocaleProviderAdapter::lambda$getCollatorProvider$1))},
-	{"lambda$getCurrencyNameProvider$6", "()Ljava/util/spi/CurrencyNameProvider;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$CurrencyNameProvider*(JRELocaleProviderAdapter::*)()>(&JRELocaleProviderAdapter::lambda$getCurrencyNameProvider$6))},
-	{"lambda$getDateFormatProvider$2", "()Ljava/text/spi/DateFormatProvider;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$DateFormatProvider*(JRELocaleProviderAdapter::*)()>(&JRELocaleProviderAdapter::lambda$getDateFormatProvider$2))},
-	{"lambda$getDateFormatSymbolsProvider$3", "()Ljava/text/spi/DateFormatSymbolsProvider;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$DateFormatSymbolsProvider*(JRELocaleProviderAdapter::*)()>(&JRELocaleProviderAdapter::lambda$getDateFormatSymbolsProvider$3))},
-	{"lambda$getDecimalFormatSymbolsProvider$4", "()Ljava/text/spi/DecimalFormatSymbolsProvider;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$DecimalFormatSymbolsProvider*(JRELocaleProviderAdapter::*)()>(&JRELocaleProviderAdapter::lambda$getDecimalFormatSymbolsProvider$4))},
-	{"lambda$getJavaTimeDateTimePatternProvider$12", "()Lsun/text/spi/JavaTimeDateTimePatternProvider;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$JavaTimeDateTimePatternProvider*(JRELocaleProviderAdapter::*)()>(&JRELocaleProviderAdapter::lambda$getJavaTimeDateTimePatternProvider$12))},
-	{"lambda$getLocaleNameProvider$7", "()Ljava/util/spi/LocaleNameProvider;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$LocaleNameProvider*(JRELocaleProviderAdapter::*)()>(&JRELocaleProviderAdapter::lambda$getLocaleNameProvider$7))},
-	{"lambda$getNumberFormatProvider$5", "()Ljava/text/spi/NumberFormatProvider;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$NumberFormatProvider*(JRELocaleProviderAdapter::*)()>(&JRELocaleProviderAdapter::lambda$getNumberFormatProvider$5))},
-	{"lambda$getTimeZoneNameProvider$8", "()Ljava/util/spi/TimeZoneNameProvider;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$TimeZoneNameProvider*(JRELocaleProviderAdapter::*)()>(&JRELocaleProviderAdapter::lambda$getTimeZoneNameProvider$8))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(JRELocaleProviderAdapter, init$, void)},
+	{"createAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PRIVATE | $STATIC, $staticMethod(JRELocaleProviderAdapter, createAvailableLocales, $LocaleArray*)},
+	{"createLanguageTagSet", "(Ljava/lang/String;)Ljava/util/Set;", "(Ljava/lang/String;)Ljava/util/Set<Ljava/lang/String;>;", $PROTECTED, $virtualMethod(JRELocaleProviderAdapter, createLanguageTagSet, $Set*, $String*)},
+	{"createSupportedLocaleString", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(JRELocaleProviderAdapter, createSupportedLocaleString, $String*, $String*)},
+	{"getAdapterType", "()Lsun/util/locale/provider/LocaleProviderAdapter$Type;", nullptr, $PUBLIC, $virtualMethod(JRELocaleProviderAdapter, getAdapterType, $LocaleProviderAdapter$Type*)},
+	{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(JRELocaleProviderAdapter, getAvailableLocales, $LocaleArray*)},
+	{"getBreakIteratorProvider", "()Ljava/text/spi/BreakIteratorProvider;", nullptr, $PUBLIC, $virtualMethod(JRELocaleProviderAdapter, getBreakIteratorProvider, $BreakIteratorProvider*)},
+	{"getCalendarDataProvider", "()Ljava/util/spi/CalendarDataProvider;", nullptr, $PUBLIC, $virtualMethod(JRELocaleProviderAdapter, getCalendarDataProvider, $CalendarDataProvider*)},
+	{"getCalendarNameProvider", "()Ljava/util/spi/CalendarNameProvider;", nullptr, $PUBLIC, $virtualMethod(JRELocaleProviderAdapter, getCalendarNameProvider, $CalendarNameProvider*)},
+	{"getCalendarProvider", "()Lsun/util/spi/CalendarProvider;", nullptr, $PUBLIC, $virtualMethod(JRELocaleProviderAdapter, getCalendarProvider, $CalendarProvider*)},
+	{"getCandidateLocales", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/util/List;", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/util/List<Ljava/util/Locale;>;", $PUBLIC, $virtualMethod(JRELocaleProviderAdapter, getCandidateLocales, $List*, $String*, $Locale*)},
+	{"getCollatorProvider", "()Ljava/text/spi/CollatorProvider;", nullptr, $PUBLIC, $virtualMethod(JRELocaleProviderAdapter, getCollatorProvider, $CollatorProvider*)},
+	{"getCurrencyNameProvider", "()Ljava/util/spi/CurrencyNameProvider;", nullptr, $PUBLIC, $virtualMethod(JRELocaleProviderAdapter, getCurrencyNameProvider, $CurrencyNameProvider*)},
+	{"getDateFormatProvider", "()Ljava/text/spi/DateFormatProvider;", nullptr, $PUBLIC, $virtualMethod(JRELocaleProviderAdapter, getDateFormatProvider, $DateFormatProvider*)},
+	{"getDateFormatSymbolsProvider", "()Ljava/text/spi/DateFormatSymbolsProvider;", nullptr, $PUBLIC, $virtualMethod(JRELocaleProviderAdapter, getDateFormatSymbolsProvider, $DateFormatSymbolsProvider*)},
+	{"getDecimalFormatSymbolsProvider", "()Ljava/text/spi/DecimalFormatSymbolsProvider;", nullptr, $PUBLIC, $virtualMethod(JRELocaleProviderAdapter, getDecimalFormatSymbolsProvider, $DecimalFormatSymbolsProvider*)},
+	{"getJavaTimeDateTimePatternProvider", "()Lsun/text/spi/JavaTimeDateTimePatternProvider;", nullptr, $PUBLIC, $virtualMethod(JRELocaleProviderAdapter, getJavaTimeDateTimePatternProvider, $JavaTimeDateTimePatternProvider*)},
+	{"getLanguageTagSet", "(Ljava/lang/String;)Ljava/util/Set;", "(Ljava/lang/String;)Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(JRELocaleProviderAdapter, getLanguageTagSet, $Set*, $String*)},
+	{"getLocaleData", "()Lsun/util/resources/LocaleData;", nullptr, $PUBLIC, $virtualMethod(JRELocaleProviderAdapter, getLocaleData, $LocaleData*)},
+	{"getLocaleNameProvider", "()Ljava/util/spi/LocaleNameProvider;", nullptr, $PUBLIC, $virtualMethod(JRELocaleProviderAdapter, getLocaleNameProvider, $LocaleNameProvider*)},
+	{"getLocaleResources", "(Ljava/util/Locale;)Lsun/util/locale/provider/LocaleResources;", nullptr, $PUBLIC, $virtualMethod(JRELocaleProviderAdapter, getLocaleResources, $LocaleResources*, $Locale*)},
+	{"getLocaleServiceProvider", "(Ljava/lang/Class;)Ljava/util/spi/LocaleServiceProvider;", "<P:Ljava/util/spi/LocaleServiceProvider;>(Ljava/lang/Class<TP;>;)TP;", $PUBLIC, $virtualMethod(JRELocaleProviderAdapter, getLocaleServiceProvider, $LocaleServiceProvider*, $Class*)},
+	{"getNumberFormatProvider", "()Ljava/text/spi/NumberFormatProvider;", nullptr, $PUBLIC, $virtualMethod(JRELocaleProviderAdapter, getNumberFormatProvider, $NumberFormatProvider*)},
+	{"getTimeZoneNameProvider", "()Ljava/util/spi/TimeZoneNameProvider;", nullptr, $PUBLIC, $virtualMethod(JRELocaleProviderAdapter, getTimeZoneNameProvider, $TimeZoneNameProvider*)},
+	{"isSupportedProviderLocale", "(Ljava/util/Locale;Ljava/util/Set;)Z", "(Ljava/util/Locale;Ljava/util/Set<Ljava/lang/String;>;)Z", $PUBLIC, $virtualMethod(JRELocaleProviderAdapter, isSupportedProviderLocale, bool, $Locale*, $Set*)},
+	{"lambda$createSupportedLocaleString$13", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JRELocaleProviderAdapter, lambda$createSupportedLocaleString$13, $String*, $String*), "java.lang.Exception"},
+	{"lambda$getBreakIteratorProvider$0", "()Ljava/text/spi/BreakIteratorProvider;", nullptr, $PRIVATE | $SYNTHETIC, $method(JRELocaleProviderAdapter, lambda$getBreakIteratorProvider$0, $BreakIteratorProvider*)},
+	{"lambda$getCalendarDataProvider$9", "()Ljava/util/spi/CalendarDataProvider;", nullptr, $PRIVATE | $SYNTHETIC, $method(JRELocaleProviderAdapter, lambda$getCalendarDataProvider$9, $CalendarDataProvider*)},
+	{"lambda$getCalendarNameProvider$10", "()Ljava/util/spi/CalendarNameProvider;", nullptr, $PRIVATE | $SYNTHETIC, $method(JRELocaleProviderAdapter, lambda$getCalendarNameProvider$10, $CalendarNameProvider*)},
+	{"lambda$getCalendarProvider$11", "()Lsun/util/spi/CalendarProvider;", nullptr, $PRIVATE | $SYNTHETIC, $method(JRELocaleProviderAdapter, lambda$getCalendarProvider$11, $CalendarProvider*)},
+	{"lambda$getCollatorProvider$1", "()Ljava/text/spi/CollatorProvider;", nullptr, $PRIVATE | $SYNTHETIC, $method(JRELocaleProviderAdapter, lambda$getCollatorProvider$1, $CollatorProvider*)},
+	{"lambda$getCurrencyNameProvider$6", "()Ljava/util/spi/CurrencyNameProvider;", nullptr, $PRIVATE | $SYNTHETIC, $method(JRELocaleProviderAdapter, lambda$getCurrencyNameProvider$6, $CurrencyNameProvider*)},
+	{"lambda$getDateFormatProvider$2", "()Ljava/text/spi/DateFormatProvider;", nullptr, $PRIVATE | $SYNTHETIC, $method(JRELocaleProviderAdapter, lambda$getDateFormatProvider$2, $DateFormatProvider*)},
+	{"lambda$getDateFormatSymbolsProvider$3", "()Ljava/text/spi/DateFormatSymbolsProvider;", nullptr, $PRIVATE | $SYNTHETIC, $method(JRELocaleProviderAdapter, lambda$getDateFormatSymbolsProvider$3, $DateFormatSymbolsProvider*)},
+	{"lambda$getDecimalFormatSymbolsProvider$4", "()Ljava/text/spi/DecimalFormatSymbolsProvider;", nullptr, $PRIVATE | $SYNTHETIC, $method(JRELocaleProviderAdapter, lambda$getDecimalFormatSymbolsProvider$4, $DecimalFormatSymbolsProvider*)},
+	{"lambda$getJavaTimeDateTimePatternProvider$12", "()Lsun/text/spi/JavaTimeDateTimePatternProvider;", nullptr, $PRIVATE | $SYNTHETIC, $method(JRELocaleProviderAdapter, lambda$getJavaTimeDateTimePatternProvider$12, $JavaTimeDateTimePatternProvider*)},
+	{"lambda$getLocaleNameProvider$7", "()Ljava/util/spi/LocaleNameProvider;", nullptr, $PRIVATE | $SYNTHETIC, $method(JRELocaleProviderAdapter, lambda$getLocaleNameProvider$7, $LocaleNameProvider*)},
+	{"lambda$getNumberFormatProvider$5", "()Ljava/text/spi/NumberFormatProvider;", nullptr, $PRIVATE | $SYNTHETIC, $method(JRELocaleProviderAdapter, lambda$getNumberFormatProvider$5, $NumberFormatProvider*)},
+	{"lambda$getTimeZoneNameProvider$8", "()Ljava/util/spi/TimeZoneNameProvider;", nullptr, $PRIVATE | $SYNTHETIC, $method(JRELocaleProviderAdapter, lambda$getTimeZoneNameProvider$8, $TimeZoneNameProvider*)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

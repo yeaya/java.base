@@ -23,10 +23,10 @@ $FieldInfo _TestProvider$TestPath$1_FieldInfo_[] = {
 };
 
 $MethodInfo _TestProvider$TestPath$1_MethodInfo_[] = {
-	{"<init>", "(LTestProvider$TestPath;Ljava/util/Iterator;)V", "()V", 0, $method(static_cast<void(TestProvider$TestPath$1::*)($TestProvider$TestPath*,$Iterator*)>(&TestProvider$TestPath$1::init$))},
-	{"hasNext", "()Z", nullptr, $PUBLIC},
-	{"next", "()Ljava/nio/file/Path;", nullptr, $PUBLIC},
-	{"remove", "()V", nullptr, $PUBLIC},
+	{"<init>", "(LTestProvider$TestPath;Ljava/util/Iterator;)V", "()V", 0, $method(TestProvider$TestPath$1, init$, void, $TestProvider$TestPath*, $Iterator*)},
+	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(TestProvider$TestPath$1, hasNext, bool)},
+	{"next", "()Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(TestProvider$TestPath$1, next, $Object*)},
+	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(TestProvider$TestPath$1, remove, void)},
 	{}
 };
 

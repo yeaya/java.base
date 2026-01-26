@@ -26,8 +26,8 @@ $FieldInfo _InheritHandle_FieldInfo_[] = {
 };
 
 $MethodInfo _InheritHandle_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(InheritHandle::*)()>(&InheritHandle::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&InheritHandle::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(InheritHandle, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(InheritHandle, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

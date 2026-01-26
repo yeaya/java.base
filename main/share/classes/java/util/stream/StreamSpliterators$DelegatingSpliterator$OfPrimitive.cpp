@@ -33,12 +33,12 @@ $MethodInfo _StreamSpliterators$DelegatingSpliterator$OfPrimitive_MethodInfo_[] 
 	{"*getExactSizeIfKnown", "()J", nullptr, $PUBLIC},
 	{"*hasCharacteristics", "(I)Z", nullptr, $PUBLIC | $ABSTRACT},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/util/function/Supplier;)V", "(Ljava/util/function/Supplier<+TT_SPLITR;>;)V", 0, $method(static_cast<void(StreamSpliterators$DelegatingSpliterator$OfPrimitive::*)($Supplier*)>(&StreamSpliterators$DelegatingSpliterator$OfPrimitive::init$))},
-	{"forEachRemaining", "(Ljava/lang/Object;)V", "(TT_CONS;)V", $PUBLIC},
+	{"<init>", "(Ljava/util/function/Supplier;)V", "(Ljava/util/function/Supplier<+TT_SPLITR;>;)V", 0, $method(StreamSpliterators$DelegatingSpliterator$OfPrimitive, init$, void, $Supplier*)},
+	{"forEachRemaining", "(Ljava/lang/Object;)V", "(TT_CONS;)V", $PUBLIC, $virtualMethod(StreamSpliterators$DelegatingSpliterator$OfPrimitive, forEachRemaining, void, Object$*)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{"*tryAdvance", "(Ljava/util/function/Consumer;)Z", nullptr, $PUBLIC},
-	{"tryAdvance", "(Ljava/lang/Object;)Z", "(TT_CONS;)Z", $PUBLIC},
-	{"trySplit", "()Ljava/util/Spliterator$OfPrimitive;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"tryAdvance", "(Ljava/lang/Object;)Z", "(TT_CONS;)Z", $PUBLIC, $virtualMethod(StreamSpliterators$DelegatingSpliterator$OfPrimitive, tryAdvance, bool, Object$*)},
+	{"trySplit", "()Ljava/util/Spliterator$OfPrimitive;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(StreamSpliterators$DelegatingSpliterator$OfPrimitive, trySplit, $Spliterator*)},
 	{}
 };
 

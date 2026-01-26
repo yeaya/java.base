@@ -24,8 +24,8 @@ $FieldInfo _Pattern$Neg_FieldInfo_[] = {
 };
 
 $MethodInfo _Pattern$Neg_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/regex/Pattern$Node;)V", nullptr, 0, $method(static_cast<void(Pattern$Neg::*)($Pattern$Node*)>(&Pattern$Neg::init$))},
-	{"match", "(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z", nullptr, 0},
+	{"<init>", "(Ljava/util/regex/Pattern$Node;)V", nullptr, 0, $method(Pattern$Neg, init$, void, $Pattern$Node*)},
+	{"match", "(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z", nullptr, 0, $virtualMethod(Pattern$Neg, match, bool, $Matcher*, int32_t, $CharSequence*)},
 	{}
 };
 

@@ -19,7 +19,7 @@ $TypeAnnotation _ParameterizedBoundIndex$ConstructorClassBound_MethodTypeAnnotat
 };
 
 $MethodInfo _ParameterizedBoundIndex$ConstructorClassBound_MethodInfo_[] = {
-	{"<init>", "()V", "<T:Ljava/lang/Void;>()V", 0, $method(static_cast<void(ParameterizedBoundIndex$ConstructorClassBound::*)()>(&ParameterizedBoundIndex$ConstructorClassBound::init$)), nullptr, nullptr, nullptr, _ParameterizedBoundIndex$ConstructorClassBound_MethodTypeAnnotations_init$0},
+	{"<init>", "()V", "<T:Ljava/lang/Void;>()V", 0, $method(ParameterizedBoundIndex$ConstructorClassBound, init$, void), nullptr, nullptr, nullptr, _ParameterizedBoundIndex$ConstructorClassBound_MethodTypeAnnotations_init$0},
 	{}
 };
 

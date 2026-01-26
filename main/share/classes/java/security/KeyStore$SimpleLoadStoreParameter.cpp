@@ -19,8 +19,8 @@ $FieldInfo _KeyStore$SimpleLoadStoreParameter_FieldInfo_[] = {
 };
 
 $MethodInfo _KeyStore$SimpleLoadStoreParameter_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/KeyStore$ProtectionParameter;)V", nullptr, 0, $method(static_cast<void(KeyStore$SimpleLoadStoreParameter::*)($KeyStore$ProtectionParameter*)>(&KeyStore$SimpleLoadStoreParameter::init$))},
-	{"getProtectionParameter", "()Ljava/security/KeyStore$ProtectionParameter;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/security/KeyStore$ProtectionParameter;)V", nullptr, 0, $method(KeyStore$SimpleLoadStoreParameter, init$, void, $KeyStore$ProtectionParameter*)},
+	{"getProtectionParameter", "()Ljava/security/KeyStore$ProtectionParameter;", nullptr, $PUBLIC, $virtualMethod(KeyStore$SimpleLoadStoreParameter, getProtectionParameter, $KeyStore$ProtectionParameter*)},
 	{}
 };
 

@@ -54,13 +54,13 @@ $MethodInfo _RSAPrivateKeyImpl_MethodInfo_[] = {
 	{"*getEncoded", "()[B", nullptr, $PUBLIC},
 	{"*getFormat", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "(Lsun/security/rsa/RSAUtil$KeyType;Ljava/security/spec/AlgorithmParameterSpec;Ljava/math/BigInteger;Ljava/math/BigInteger;)V", nullptr, 0, $method(static_cast<void(RSAPrivateKeyImpl::*)($RSAUtil$KeyType*,$AlgorithmParameterSpec*,$BigInteger*,$BigInteger*)>(&RSAPrivateKeyImpl::init$)), "java.security.InvalidKeyException"},
-	{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getModulus", "()Ljava/math/BigInteger;", nullptr, $PUBLIC},
-	{"getParams", "()Ljava/security/spec/AlgorithmParameterSpec;", nullptr, $PUBLIC},
-	{"getPrivateExponent", "()Ljava/math/BigInteger;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/security/rsa/RSAUtil$KeyType;Ljava/security/spec/AlgorithmParameterSpec;Ljava/math/BigInteger;Ljava/math/BigInteger;)V", nullptr, 0, $method(RSAPrivateKeyImpl, init$, void, $RSAUtil$KeyType*, $AlgorithmParameterSpec*, $BigInteger*, $BigInteger*), "java.security.InvalidKeyException"},
+	{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RSAPrivateKeyImpl, getAlgorithm, $String*)},
+	{"getModulus", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(RSAPrivateKeyImpl, getModulus, $BigInteger*)},
+	{"getParams", "()Ljava/security/spec/AlgorithmParameterSpec;", nullptr, $PUBLIC, $virtualMethod(RSAPrivateKeyImpl, getParams, $AlgorithmParameterSpec*)},
+	{"getPrivateExponent", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(RSAPrivateKeyImpl, getPrivateExponent, $BigInteger*)},
 	{"*isDestroyed", "()Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RSAPrivateKeyImpl, toString, $String*)},
 	{}
 };
 

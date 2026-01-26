@@ -38,11 +38,11 @@ $MethodInfo _Channels$WritableByteChannelImpl_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/io/OutputStream;)V", nullptr, 0, $method(static_cast<void(Channels$WritableByteChannelImpl::*)($OutputStream*)>(&Channels$WritableByteChannelImpl::init$))},
-	{"implCloseChannel", "()V", nullptr, $PROTECTED, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljava/io/OutputStream;)V", nullptr, 0, $method(Channels$WritableByteChannelImpl, init$, void, $OutputStream*)},
+	{"implCloseChannel", "()V", nullptr, $PROTECTED, $virtualMethod(Channels$WritableByteChannelImpl, implCloseChannel, void), "java.io.IOException"},
 	{"*isOpen", "()Z", nullptr, $PUBLIC | $FINAL},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"write", "(Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"write", "(Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC, $virtualMethod(Channels$WritableByteChannelImpl, write, int32_t, $ByteBuffer*), "java.io.IOException"},
 	{}
 };
 

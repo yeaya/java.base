@@ -44,8 +44,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo DoubleSummaryStatistics$$Lambda$isNaN::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DoubleSummaryStatistics$$Lambda$isNaN::*)()>(&DoubleSummaryStatistics$$Lambda$isNaN::init$))},
-	{"test", "(D)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DoubleSummaryStatistics$$Lambda$isNaN, init$, void)},
+	{"test", "(D)Z", nullptr, $PUBLIC, $virtualMethod(DoubleSummaryStatistics$$Lambda$isNaN, test, bool, double)},
 	{}
 };
 $ClassInfo DoubleSummaryStatistics$$Lambda$isNaN::classInfo$ = {
@@ -73,17 +73,17 @@ $FieldInfo _DoubleSummaryStatistics_FieldInfo_[] = {
 };
 
 $MethodInfo _DoubleSummaryStatistics_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DoubleSummaryStatistics::*)()>(&DoubleSummaryStatistics::init$))},
-	{"<init>", "(JDDD)V", nullptr, $PUBLIC, $method(static_cast<void(DoubleSummaryStatistics::*)(int64_t,double,double,double)>(&DoubleSummaryStatistics::init$)), "java.lang.IllegalArgumentException"},
-	{"accept", "(D)V", nullptr, $PUBLIC},
-	{"combine", "(Ljava/util/DoubleSummaryStatistics;)V", nullptr, $PUBLIC},
-	{"getAverage", "()D", nullptr, $PUBLIC | $FINAL, $method(static_cast<double(DoubleSummaryStatistics::*)()>(&DoubleSummaryStatistics::getAverage))},
-	{"getCount", "()J", nullptr, $PUBLIC | $FINAL, $method(static_cast<int64_t(DoubleSummaryStatistics::*)()>(&DoubleSummaryStatistics::getCount))},
-	{"getMax", "()D", nullptr, $PUBLIC | $FINAL, $method(static_cast<double(DoubleSummaryStatistics::*)()>(&DoubleSummaryStatistics::getMax))},
-	{"getMin", "()D", nullptr, $PUBLIC | $FINAL, $method(static_cast<double(DoubleSummaryStatistics::*)()>(&DoubleSummaryStatistics::getMin))},
-	{"getSum", "()D", nullptr, $PUBLIC | $FINAL, $method(static_cast<double(DoubleSummaryStatistics::*)()>(&DoubleSummaryStatistics::getSum))},
-	{"sumWithCompensation", "(D)V", nullptr, $PRIVATE, $method(static_cast<void(DoubleSummaryStatistics::*)(double)>(&DoubleSummaryStatistics::sumWithCompensation))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DoubleSummaryStatistics, init$, void)},
+	{"<init>", "(JDDD)V", nullptr, $PUBLIC, $method(DoubleSummaryStatistics, init$, void, int64_t, double, double, double), "java.lang.IllegalArgumentException"},
+	{"accept", "(D)V", nullptr, $PUBLIC, $virtualMethod(DoubleSummaryStatistics, accept, void, double)},
+	{"combine", "(Ljava/util/DoubleSummaryStatistics;)V", nullptr, $PUBLIC, $virtualMethod(DoubleSummaryStatistics, combine, void, DoubleSummaryStatistics*)},
+	{"getAverage", "()D", nullptr, $PUBLIC | $FINAL, $method(DoubleSummaryStatistics, getAverage, double)},
+	{"getCount", "()J", nullptr, $PUBLIC | $FINAL, $method(DoubleSummaryStatistics, getCount, int64_t)},
+	{"getMax", "()D", nullptr, $PUBLIC | $FINAL, $method(DoubleSummaryStatistics, getMax, double)},
+	{"getMin", "()D", nullptr, $PUBLIC | $FINAL, $method(DoubleSummaryStatistics, getMin, double)},
+	{"getSum", "()D", nullptr, $PUBLIC | $FINAL, $method(DoubleSummaryStatistics, getSum, double)},
+	{"sumWithCompensation", "(D)V", nullptr, $PRIVATE, $method(DoubleSummaryStatistics, sumWithCompensation, void, double)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DoubleSummaryStatistics, toString, $String*)},
 	{}
 };
 

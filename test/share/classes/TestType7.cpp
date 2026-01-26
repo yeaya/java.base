@@ -29,9 +29,9 @@ $CompoundAttribute _TestType7_MethodAnnotations_nestedFoo2[] = {
 };
 
 $MethodInfo _TestType7_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(TestType7::*)()>(&TestType7::init$))},
-	{"nestedBar", "()V", nullptr, $PUBLIC, nullptr, nullptr, nullptr, _TestType7_MethodAnnotations_nestedBar1},
-	{"nestedFoo", "()V", nullptr, $PUBLIC, nullptr, nullptr, nullptr, _TestType7_MethodAnnotations_nestedFoo2},
+	{"<init>", "()V", nullptr, 0, $method(TestType7, init$, void)},
+	{"nestedBar", "()V", nullptr, $PUBLIC, $virtualMethod(TestType7, nestedBar, void), nullptr, nullptr, _TestType7_MethodAnnotations_nestedBar1},
+	{"nestedFoo", "()V", nullptr, $PUBLIC, $virtualMethod(TestType7, nestedFoo, void), nullptr, nullptr, _TestType7_MethodAnnotations_nestedFoo2},
 	{}
 };
 

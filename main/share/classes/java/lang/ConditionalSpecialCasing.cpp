@@ -51,20 +51,20 @@ $FieldInfo _ConditionalSpecialCasing_FieldInfo_[] = {
 };
 
 $MethodInfo _ConditionalSpecialCasing_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ConditionalSpecialCasing::*)()>(&ConditionalSpecialCasing::init$))},
-	{"isAfterI", "(Ljava/lang/String;I)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($String*,int32_t)>(&ConditionalSpecialCasing::isAfterI))},
-	{"isAfterSoftDotted", "(Ljava/lang/String;I)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($String*,int32_t)>(&ConditionalSpecialCasing::isAfterSoftDotted))},
-	{"isBeforeDot", "(Ljava/lang/String;I)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($String*,int32_t)>(&ConditionalSpecialCasing::isBeforeDot))},
-	{"isCased", "(I)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)(int32_t)>(&ConditionalSpecialCasing::isCased))},
-	{"isConditionMet", "(Ljava/lang/String;ILjava/util/Locale;I)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($String*,int32_t,$Locale*,int32_t)>(&ConditionalSpecialCasing::isConditionMet))},
-	{"isFinalCased", "(Ljava/lang/String;ILjava/util/Locale;)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($String*,int32_t,$Locale*)>(&ConditionalSpecialCasing::isFinalCased))},
-	{"isMoreAbove", "(Ljava/lang/String;I)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($String*,int32_t)>(&ConditionalSpecialCasing::isMoreAbove))},
-	{"isSoftDotted", "(I)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)(int32_t)>(&ConditionalSpecialCasing::isSoftDotted))},
-	{"lookUpTable", "(Ljava/lang/String;ILjava/util/Locale;Z)[C", nullptr, $PRIVATE | $STATIC, $method(static_cast<$chars*(*)($String*,int32_t,$Locale*,bool)>(&ConditionalSpecialCasing::lookUpTable))},
-	{"toLowerCaseCharArray", "(Ljava/lang/String;ILjava/util/Locale;)[C", nullptr, $STATIC, $method(static_cast<$chars*(*)($String*,int32_t,$Locale*)>(&ConditionalSpecialCasing::toLowerCaseCharArray))},
-	{"toLowerCaseEx", "(Ljava/lang/String;ILjava/util/Locale;)I", nullptr, $STATIC, $method(static_cast<int32_t(*)($String*,int32_t,$Locale*)>(&ConditionalSpecialCasing::toLowerCaseEx))},
-	{"toUpperCaseCharArray", "(Ljava/lang/String;ILjava/util/Locale;)[C", nullptr, $STATIC, $method(static_cast<$chars*(*)($String*,int32_t,$Locale*)>(&ConditionalSpecialCasing::toUpperCaseCharArray))},
-	{"toUpperCaseEx", "(Ljava/lang/String;ILjava/util/Locale;)I", nullptr, $STATIC, $method(static_cast<int32_t(*)($String*,int32_t,$Locale*)>(&ConditionalSpecialCasing::toUpperCaseEx))},
+	{"<init>", "()V", nullptr, 0, $method(ConditionalSpecialCasing, init$, void)},
+	{"isAfterI", "(Ljava/lang/String;I)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(ConditionalSpecialCasing, isAfterI, bool, $String*, int32_t)},
+	{"isAfterSoftDotted", "(Ljava/lang/String;I)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(ConditionalSpecialCasing, isAfterSoftDotted, bool, $String*, int32_t)},
+	{"isBeforeDot", "(Ljava/lang/String;I)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(ConditionalSpecialCasing, isBeforeDot, bool, $String*, int32_t)},
+	{"isCased", "(I)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(ConditionalSpecialCasing, isCased, bool, int32_t)},
+	{"isConditionMet", "(Ljava/lang/String;ILjava/util/Locale;I)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(ConditionalSpecialCasing, isConditionMet, bool, $String*, int32_t, $Locale*, int32_t)},
+	{"isFinalCased", "(Ljava/lang/String;ILjava/util/Locale;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(ConditionalSpecialCasing, isFinalCased, bool, $String*, int32_t, $Locale*)},
+	{"isMoreAbove", "(Ljava/lang/String;I)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(ConditionalSpecialCasing, isMoreAbove, bool, $String*, int32_t)},
+	{"isSoftDotted", "(I)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(ConditionalSpecialCasing, isSoftDotted, bool, int32_t)},
+	{"lookUpTable", "(Ljava/lang/String;ILjava/util/Locale;Z)[C", nullptr, $PRIVATE | $STATIC, $staticMethod(ConditionalSpecialCasing, lookUpTable, $chars*, $String*, int32_t, $Locale*, bool)},
+	{"toLowerCaseCharArray", "(Ljava/lang/String;ILjava/util/Locale;)[C", nullptr, $STATIC, $staticMethod(ConditionalSpecialCasing, toLowerCaseCharArray, $chars*, $String*, int32_t, $Locale*)},
+	{"toLowerCaseEx", "(Ljava/lang/String;ILjava/util/Locale;)I", nullptr, $STATIC, $staticMethod(ConditionalSpecialCasing, toLowerCaseEx, int32_t, $String*, int32_t, $Locale*)},
+	{"toUpperCaseCharArray", "(Ljava/lang/String;ILjava/util/Locale;)[C", nullptr, $STATIC, $staticMethod(ConditionalSpecialCasing, toUpperCaseCharArray, $chars*, $String*, int32_t, $Locale*)},
+	{"toUpperCaseEx", "(Ljava/lang/String;ILjava/util/Locale;)I", nullptr, $STATIC, $staticMethod(ConditionalSpecialCasing, toUpperCaseEx, int32_t, $String*, int32_t, $Locale*)},
 	{}
 };
 

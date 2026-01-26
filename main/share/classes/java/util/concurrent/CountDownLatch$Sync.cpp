@@ -20,10 +20,10 @@ $FieldInfo _CountDownLatch$Sync_FieldInfo_[] = {
 };
 
 $MethodInfo _CountDownLatch$Sync_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, 0, $method(static_cast<void(CountDownLatch$Sync::*)(int32_t)>(&CountDownLatch$Sync::init$))},
-	{"getCount", "()I", nullptr, 0, $method(static_cast<int32_t(CountDownLatch$Sync::*)()>(&CountDownLatch$Sync::getCount))},
-	{"tryAcquireShared", "(I)I", nullptr, $PROTECTED},
-	{"tryReleaseShared", "(I)Z", nullptr, $PROTECTED},
+	{"<init>", "(I)V", nullptr, 0, $method(CountDownLatch$Sync, init$, void, int32_t)},
+	{"getCount", "()I", nullptr, 0, $method(CountDownLatch$Sync, getCount, int32_t)},
+	{"tryAcquireShared", "(I)I", nullptr, $PROTECTED, $virtualMethod(CountDownLatch$Sync, tryAcquireShared, int32_t, int32_t)},
+	{"tryReleaseShared", "(I)Z", nullptr, $PROTECTED, $virtualMethod(CountDownLatch$Sync, tryReleaseShared, bool, int32_t)},
 	{}
 };
 

@@ -10,13 +10,13 @@ namespace jdk {
 		namespace event {
 
 $MethodInfo _Event_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(Event::*)()>(&Event::init$))},
-	{"begin", "()V", nullptr, $PUBLIC},
-	{"commit", "()V", nullptr, $PUBLIC},
-	{"end", "()V", nullptr, $PUBLIC},
-	{"isEnabled", "()Z", nullptr, $PUBLIC},
-	{"set", "(ILjava/lang/Object;)V", nullptr, $PUBLIC},
-	{"shouldCommit", "()Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(Event, init$, void)},
+	{"begin", "()V", nullptr, $PUBLIC, $virtualMethod(Event, begin, void)},
+	{"commit", "()V", nullptr, $PUBLIC, $virtualMethod(Event, commit, void)},
+	{"end", "()V", nullptr, $PUBLIC, $virtualMethod(Event, end, void)},
+	{"isEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(Event, isEnabled, bool)},
+	{"set", "(ILjava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Event, set, void, int32_t, Object$*)},
+	{"shouldCommit", "()Z", nullptr, $PUBLIC, $virtualMethod(Event, shouldCommit, bool)},
 	{}
 };
 

@@ -9,9 +9,9 @@ using $RuntimeException = ::java::lang::RuntimeException;
 namespace p {
 
 $MethodInfo _Test_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Test::*)()>(&Test::init$))},
-	{"count", "()I", nullptr, $PUBLIC | $STATIC | $NATIVE, $method(static_cast<int32_t(*)()>(&Test::count))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Test, init$, void)},
+	{"count", "()I", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(Test, count, int32_t)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Test, run, void)},
 	{}
 };
 

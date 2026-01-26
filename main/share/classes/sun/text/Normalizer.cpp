@@ -25,10 +25,10 @@ $FieldInfo _Normalizer_FieldInfo_[] = {
 };
 
 $MethodInfo _Normalizer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(Normalizer::*)()>(&Normalizer::init$))},
-	{"getCombiningClass", "(I)I", nullptr, $PUBLIC | $STATIC | $FINAL, $method(static_cast<int32_t(*)(int32_t)>(&Normalizer::getCombiningClass))},
-	{"isNormalized", "(Ljava/lang/CharSequence;Ljava/text/Normalizer$Form;I)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)($CharSequence*,$Normalizer$Form*,int32_t)>(&Normalizer::isNormalized))},
-	{"normalize", "(Ljava/lang/CharSequence;Ljava/text/Normalizer$Form;I)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)($CharSequence*,$Normalizer$Form*,int32_t)>(&Normalizer::normalize))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(Normalizer, init$, void)},
+	{"getCombiningClass", "(I)I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(Normalizer, getCombiningClass, int32_t, int32_t)},
+	{"isNormalized", "(Ljava/lang/CharSequence;Ljava/text/Normalizer$Form;I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Normalizer, isNormalized, bool, $CharSequence*, $Normalizer$Form*, int32_t)},
+	{"normalize", "(Ljava/lang/CharSequence;Ljava/text/Normalizer$Form;I)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Normalizer, normalize, $String*, $CharSequence*, $Normalizer$Form*, int32_t)},
 	{}
 };
 

@@ -21,7 +21,7 @@ $FieldInfo _Long$LongCache_FieldInfo_[] = {
 };
 
 $MethodInfo _Long$LongCache_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(Long$LongCache::*)()>(&Long$LongCache::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(Long$LongCache, init$, void)},
 	{}
 };
 

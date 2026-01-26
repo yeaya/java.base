@@ -23,9 +23,9 @@ $FieldInfo _FinThreads$Foo_FieldInfo_[] = {
 };
 
 $MethodInfo _FinThreads$Foo_MethodInfo_[] = {
-	{"<init>", "(Z)V", nullptr, $PUBLIC, $method(static_cast<void(FinThreads$Foo::*)(bool)>(&FinThreads$Foo::init$))},
-	{"create", "(Z)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)(bool)>(&FinThreads$Foo::create)), "java.lang.InterruptedException"},
-	{"finalize", "()V", nullptr, $PUBLIC, nullptr, "java.lang.InterruptedException"},
+	{"<init>", "(Z)V", nullptr, $PUBLIC, $method(FinThreads$Foo, init$, void, bool)},
+	{"create", "(Z)V", nullptr, $PUBLIC | $STATIC, $staticMethod(FinThreads$Foo, create, void, bool), "java.lang.InterruptedException"},
+	{"finalize", "()V", nullptr, $PUBLIC, $virtualMethod(FinThreads$Foo, finalize, void), "java.lang.InterruptedException"},
 	{}
 };
 

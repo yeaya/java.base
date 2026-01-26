@@ -15,7 +15,7 @@ $ParameterAnnotation _TestParameterAnnotations$1LocalClass_MethodParamAnnotation
 };
 
 $MethodInfo _TestParameterAnnotations$1LocalClass_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, 0, $method(static_cast<void(TestParameterAnnotations$1LocalClass::*)(int32_t)>(&TestParameterAnnotations$1LocalClass::init$)), nullptr, nullptr, nullptr, nullptr, _TestParameterAnnotations$1LocalClass_MethodParamAnnotations_init$0},
+	{"<init>", "(I)V", nullptr, 0, $method(TestParameterAnnotations$1LocalClass, init$, void, int32_t), nullptr, nullptr, nullptr, nullptr, _TestParameterAnnotations$1LocalClass_MethodParamAnnotations_init$0},
 	{}
 };
 

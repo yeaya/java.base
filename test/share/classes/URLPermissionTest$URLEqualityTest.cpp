@@ -19,8 +19,8 @@ $FieldInfo _URLPermissionTest$URLEqualityTest_FieldInfo_[] = {
 };
 
 $MethodInfo _URLPermissionTest$URLEqualityTest_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, 0, $method(static_cast<void(URLPermissionTest$URLEqualityTest::*)($String*,$String*,bool)>(&URLPermissionTest$URLEqualityTest::init$))},
-	{"execute", "()Z", nullptr, 0},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, 0, $method(URLPermissionTest$URLEqualityTest, init$, void, $String*, $String*, bool)},
+	{"execute", "()Z", nullptr, 0, $virtualMethod(URLPermissionTest$URLEqualityTest, execute, bool)},
 	{}
 };
 

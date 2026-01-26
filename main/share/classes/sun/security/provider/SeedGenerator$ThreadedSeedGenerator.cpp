@@ -49,10 +49,10 @@ $MethodInfo _SeedGenerator$ThreadedSeedGenerator_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(SeedGenerator$ThreadedSeedGenerator::*)()>(&SeedGenerator$ThreadedSeedGenerator::init$))},
-	{"getSeedByte", "()B", nullptr, 0},
-	{"getSeedBytes", "([B)V", nullptr, 0},
-	{"run", "()V", nullptr, $PUBLIC | $FINAL},
+	{"<init>", "()V", nullptr, 0, $method(SeedGenerator$ThreadedSeedGenerator, init$, void)},
+	{"getSeedByte", "()B", nullptr, 0, $virtualMethod(SeedGenerator$ThreadedSeedGenerator, getSeedByte, int8_t)},
+	{"getSeedBytes", "([B)V", nullptr, 0, $virtualMethod(SeedGenerator$ThreadedSeedGenerator, getSeedBytes, void, $bytes*)},
+	{"run", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(SeedGenerator$ThreadedSeedGenerator, run, void)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

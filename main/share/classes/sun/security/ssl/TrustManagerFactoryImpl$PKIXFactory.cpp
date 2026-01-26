@@ -35,9 +35,9 @@ namespace sun {
 		namespace ssl {
 
 $MethodInfo _TrustManagerFactoryImpl$PKIXFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TrustManagerFactoryImpl$PKIXFactory::*)()>(&TrustManagerFactoryImpl$PKIXFactory::init$))},
-	{"getInstance", "(Ljava/util/Collection;)Ljavax/net/ssl/X509TrustManager;", "(Ljava/util/Collection<Ljava/security/cert/X509Certificate;>;)Ljavax/net/ssl/X509TrustManager;", 0},
-	{"getInstance", "(Ljavax/net/ssl/ManagerFactoryParameters;)Ljavax/net/ssl/X509TrustManager;", nullptr, 0, nullptr, "java.security.InvalidAlgorithmParameterException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TrustManagerFactoryImpl$PKIXFactory, init$, void)},
+	{"getInstance", "(Ljava/util/Collection;)Ljavax/net/ssl/X509TrustManager;", "(Ljava/util/Collection<Ljava/security/cert/X509Certificate;>;)Ljavax/net/ssl/X509TrustManager;", 0, $virtualMethod(TrustManagerFactoryImpl$PKIXFactory, getInstance, $X509TrustManager*, $Collection*)},
+	{"getInstance", "(Ljavax/net/ssl/ManagerFactoryParameters;)Ljavax/net/ssl/X509TrustManager;", nullptr, 0, $virtualMethod(TrustManagerFactoryImpl$PKIXFactory, getInstance, $X509TrustManager*, $ManagerFactoryParameters*), "java.security.InvalidAlgorithmParameterException"},
 	{}
 };
 

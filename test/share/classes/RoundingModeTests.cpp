@@ -27,8 +27,8 @@ using $BigDecimal = ::java::math::BigDecimal;
 using $RoundingMode = ::java::math::RoundingMode;
 
 $MethodInfo _RoundingModeTests_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(RoundingModeTests::*)()>(&RoundingModeTests::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&RoundingModeTests::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(RoundingModeTests, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(RoundingModeTests, main, void, $StringArray*)},
 	{}
 };
 

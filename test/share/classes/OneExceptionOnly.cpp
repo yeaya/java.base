@@ -19,9 +19,9 @@ using $PortUnreachableException = ::java::net::PortUnreachableException;
 using $SocketTimeoutException = ::java::net::SocketTimeoutException;
 
 $MethodInfo _OneExceptionOnly_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(OneExceptionOnly::*)()>(&OneExceptionOnly::init$))},
-	{"doTest", "(Ljava/net/InetAddress;IZ)V", nullptr, $STATIC, $method(static_cast<void(*)($InetAddress*,int32_t,bool)>(&OneExceptionOnly::doTest)), "java.lang.Exception"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&OneExceptionOnly::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(OneExceptionOnly, init$, void)},
+	{"doTest", "(Ljava/net/InetAddress;IZ)V", nullptr, $STATIC, $staticMethod(OneExceptionOnly, doTest, void, $InetAddress*, int32_t, bool), "java.lang.Exception"},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(OneExceptionOnly, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

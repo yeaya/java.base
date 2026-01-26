@@ -30,12 +30,12 @@ $FieldInfo _Handler_FieldInfo_[] = {
 };
 
 $MethodInfo _Handler_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/org/objectweb/asm/Label;Ljdk/internal/org/objectweb/asm/Label;Ljdk/internal/org/objectweb/asm/Label;ILjava/lang/String;)V", nullptr, 0, $method(static_cast<void(Handler::*)($Label*,$Label*,$Label*,int32_t,$String*)>(&Handler::init$))},
-	{"<init>", "(Ljdk/internal/org/objectweb/asm/Handler;Ljdk/internal/org/objectweb/asm/Label;Ljdk/internal/org/objectweb/asm/Label;)V", nullptr, 0, $method(static_cast<void(Handler::*)(Handler*,$Label*,$Label*)>(&Handler::init$))},
-	{"getExceptionTableLength", "(Ljdk/internal/org/objectweb/asm/Handler;)I", nullptr, $STATIC, $method(static_cast<int32_t(*)(Handler*)>(&Handler::getExceptionTableLength))},
-	{"getExceptionTableSize", "(Ljdk/internal/org/objectweb/asm/Handler;)I", nullptr, $STATIC, $method(static_cast<int32_t(*)(Handler*)>(&Handler::getExceptionTableSize))},
-	{"putExceptionTable", "(Ljdk/internal/org/objectweb/asm/Handler;Ljdk/internal/org/objectweb/asm/ByteVector;)V", nullptr, $STATIC, $method(static_cast<void(*)(Handler*,$ByteVector*)>(&Handler::putExceptionTable))},
-	{"removeRange", "(Ljdk/internal/org/objectweb/asm/Handler;Ljdk/internal/org/objectweb/asm/Label;Ljdk/internal/org/objectweb/asm/Label;)Ljdk/internal/org/objectweb/asm/Handler;", nullptr, $STATIC, $method(static_cast<Handler*(*)(Handler*,$Label*,$Label*)>(&Handler::removeRange))},
+	{"<init>", "(Ljdk/internal/org/objectweb/asm/Label;Ljdk/internal/org/objectweb/asm/Label;Ljdk/internal/org/objectweb/asm/Label;ILjava/lang/String;)V", nullptr, 0, $method(Handler, init$, void, $Label*, $Label*, $Label*, int32_t, $String*)},
+	{"<init>", "(Ljdk/internal/org/objectweb/asm/Handler;Ljdk/internal/org/objectweb/asm/Label;Ljdk/internal/org/objectweb/asm/Label;)V", nullptr, 0, $method(Handler, init$, void, Handler*, $Label*, $Label*)},
+	{"getExceptionTableLength", "(Ljdk/internal/org/objectweb/asm/Handler;)I", nullptr, $STATIC, $staticMethod(Handler, getExceptionTableLength, int32_t, Handler*)},
+	{"getExceptionTableSize", "(Ljdk/internal/org/objectweb/asm/Handler;)I", nullptr, $STATIC, $staticMethod(Handler, getExceptionTableSize, int32_t, Handler*)},
+	{"putExceptionTable", "(Ljdk/internal/org/objectweb/asm/Handler;Ljdk/internal/org/objectweb/asm/ByteVector;)V", nullptr, $STATIC, $staticMethod(Handler, putExceptionTable, void, Handler*, $ByteVector*)},
+	{"removeRange", "(Ljdk/internal/org/objectweb/asm/Handler;Ljdk/internal/org/objectweb/asm/Label;Ljdk/internal/org/objectweb/asm/Label;)Ljdk/internal/org/objectweb/asm/Handler;", nullptr, $STATIC, $staticMethod(Handler, removeRange, Handler*, Handler*, $Label*, $Label*)},
 	{}
 };
 

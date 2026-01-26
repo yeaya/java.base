@@ -24,8 +24,8 @@ $FieldInfo _TestSynchronization$InvokeTask_FieldInfo_[] = {
 };
 
 $MethodInfo _TestSynchronization$InvokeTask_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/reflect/Method;Ljava/lang/Object;[Ljava/lang/Object;)V", nullptr, $TRANSIENT, $method(static_cast<void(TestSynchronization$InvokeTask::*)($Method*,Object$*,$ObjectArray*)>(&TestSynchronization$InvokeTask::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/reflect/Method;Ljava/lang/Object;[Ljava/lang/Object;)V", nullptr, $TRANSIENT, $method(TestSynchronization$InvokeTask, init$, void, $Method*, Object$*, $ObjectArray*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestSynchronization$InvokeTask, run, void)},
 	{}
 };
 

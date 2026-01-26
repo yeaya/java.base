@@ -14,7 +14,7 @@ $CompoundAttribute _arrayTypesAcceptDefaultClass_Annotations_[] = {
 };
 
 $MethodInfo _arrayTypesAcceptDefaultClass_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(arrayTypesAcceptDefaultClass::*)()>(&arrayTypesAcceptDefaultClass::init$))},
+	{"<init>", "()V", nullptr, 0, $method(arrayTypesAcceptDefaultClass, init$, void)},
 	{}
 };
 

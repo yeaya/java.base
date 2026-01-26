@@ -9,8 +9,8 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $StringBuffer = ::java::lang::StringBuffer;
 
 $MethodInfo _Substring_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Substring::*)()>(&Substring::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Substring::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Substring, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Substring, main, void, $StringArray*)},
 	{}
 };
 

@@ -28,12 +28,12 @@ $MethodInfo _IdentityHashMap$ValueSpliterator_MethodInfo_[] = {
 	{"*estimateSize", "()J", nullptr, $PUBLIC | $FINAL},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/util/IdentityHashMap;IIII)V", "(Ljava/util/IdentityHashMap<TK;TV;>;IIII)V", 0, $method(static_cast<void(IdentityHashMap$ValueSpliterator::*)($IdentityHashMap*,int32_t,int32_t,int32_t,int32_t)>(&IdentityHashMap$ValueSpliterator::init$))},
-	{"characteristics", "()I", nullptr, $PUBLIC},
-	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TV;>;)V", $PUBLIC},
+	{"<init>", "(Ljava/util/IdentityHashMap;IIII)V", "(Ljava/util/IdentityHashMap<TK;TV;>;IIII)V", 0, $method(IdentityHashMap$ValueSpliterator, init$, void, $IdentityHashMap*, int32_t, int32_t, int32_t, int32_t)},
+	{"characteristics", "()I", nullptr, $PUBLIC, $virtualMethod(IdentityHashMap$ValueSpliterator, characteristics, int32_t)},
+	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TV;>;)V", $PUBLIC, $virtualMethod(IdentityHashMap$ValueSpliterator, forEachRemaining, void, $Consumer*)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-TV;>;)Z", $PUBLIC},
-	{"trySplit", "()Ljava/util/IdentityHashMap$ValueSpliterator;", "()Ljava/util/IdentityHashMap$ValueSpliterator<TK;TV;>;", $PUBLIC},
+	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-TV;>;)Z", $PUBLIC, $virtualMethod(IdentityHashMap$ValueSpliterator, tryAdvance, bool, $Consumer*)},
+	{"trySplit", "()Ljava/util/IdentityHashMap$ValueSpliterator;", "()Ljava/util/IdentityHashMap$ValueSpliterator<TK;TV;>;", $PUBLIC, $virtualMethod(IdentityHashMap$ValueSpliterator, trySplit, $Spliterator*)},
 	{}
 };
 

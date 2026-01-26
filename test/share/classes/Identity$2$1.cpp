@@ -24,8 +24,8 @@ $FieldInfo _Identity$2$1_FieldInfo_[] = {
 };
 
 $MethodInfo _Identity$2$1_MethodInfo_[] = {
-	{"<init>", "(LIdentity$2;Ljava/lang/Runnable;)V", "()V", 0, $method(static_cast<void(Identity$2$1::*)($Identity$2*,$Runnable*)>(&Identity$2$1::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(LIdentity$2;Ljava/lang/Runnable;)V", "()V", 0, $method(Identity$2$1, init$, void, $Identity$2*, $Runnable*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Identity$2$1, run, void)},
 	{}
 };
 

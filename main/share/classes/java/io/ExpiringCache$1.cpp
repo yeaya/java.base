@@ -26,8 +26,8 @@ $FieldInfo _ExpiringCache$1_FieldInfo_[] = {
 };
 
 $MethodInfo _ExpiringCache$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/ExpiringCache;)V", nullptr, 0, $method(static_cast<void(ExpiringCache$1::*)($ExpiringCache*)>(&ExpiringCache$1::init$))},
-	{"removeEldestEntry", "(Ljava/util/Map$Entry;)Z", "(Ljava/util/Map$Entry<Ljava/lang/String;Ljava/io/ExpiringCache$Entry;>;)Z", $PROTECTED},
+	{"<init>", "(Ljava/io/ExpiringCache;)V", nullptr, 0, $method(ExpiringCache$1, init$, void, $ExpiringCache*)},
+	{"removeEldestEntry", "(Ljava/util/Map$Entry;)Z", "(Ljava/util/Map$Entry<Ljava/lang/String;Ljava/io/ExpiringCache$Entry;>;)Z", $PROTECTED, $virtualMethod(ExpiringCache$1, removeEldestEntry, bool, $Map$Entry*)},
 	{}
 };
 

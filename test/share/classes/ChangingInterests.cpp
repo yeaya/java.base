@@ -47,14 +47,14 @@ $FieldInfo _ChangingInterests_FieldInfo_[] = {
 };
 
 $MethodInfo _ChangingInterests_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ChangingInterests::*)()>(&ChangingInterests::init$))},
-	{"assertTrue", "(ZLjava/lang/String;)V", nullptr, $STATIC, $method(static_cast<void(*)(bool,$String*)>(&ChangingInterests::assertTrue))},
-	{"drain", "(Ljava/nio/channels/SocketChannel;)V", nullptr, $STATIC, $method(static_cast<void(*)($SocketChannel*)>(&ChangingInterests::drain)), "java.io.IOException"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&ChangingInterests::main)), "java.io.IOException"},
-	{"makeReadable", "(Ljava/nio/channels/SocketChannel;Ljava/nio/channels/SocketChannel;)V", nullptr, $STATIC, $method(static_cast<void(*)($SocketChannel*,$SocketChannel*)>(&ChangingInterests::makeReadable)), "java.io.IOException"},
-	{"testChange", "(Ljava/nio/channels/SelectionKey;II)V", nullptr, $STATIC, $method(static_cast<void(*)($SelectionKey*,int32_t,int32_t)>(&ChangingInterests::testChange)), "java.io.IOException"},
-	{"testForSpin", "(Ljava/nio/channels/Selector;)V", nullptr, $STATIC, $method(static_cast<void(*)($Selector*)>(&ChangingInterests::testForSpin)), "java.io.IOException"},
-	{"toOpsString", "(I)Ljava/lang/String;", nullptr, $STATIC, $method(static_cast<$String*(*)(int32_t)>(&ChangingInterests::toOpsString))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ChangingInterests, init$, void)},
+	{"assertTrue", "(ZLjava/lang/String;)V", nullptr, $STATIC, $staticMethod(ChangingInterests, assertTrue, void, bool, $String*)},
+	{"drain", "(Ljava/nio/channels/SocketChannel;)V", nullptr, $STATIC, $staticMethod(ChangingInterests, drain, void, $SocketChannel*), "java.io.IOException"},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ChangingInterests, main, void, $StringArray*), "java.io.IOException"},
+	{"makeReadable", "(Ljava/nio/channels/SocketChannel;Ljava/nio/channels/SocketChannel;)V", nullptr, $STATIC, $staticMethod(ChangingInterests, makeReadable, void, $SocketChannel*, $SocketChannel*), "java.io.IOException"},
+	{"testChange", "(Ljava/nio/channels/SelectionKey;II)V", nullptr, $STATIC, $staticMethod(ChangingInterests, testChange, void, $SelectionKey*, int32_t, int32_t), "java.io.IOException"},
+	{"testForSpin", "(Ljava/nio/channels/Selector;)V", nullptr, $STATIC, $staticMethod(ChangingInterests, testForSpin, void, $Selector*), "java.io.IOException"},
+	{"toOpsString", "(I)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(ChangingInterests, toOpsString, $String*, int32_t)},
 	{}
 };
 

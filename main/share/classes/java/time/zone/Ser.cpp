@@ -47,19 +47,19 @@ $FieldInfo _Ser_FieldInfo_[] = {
 };
 
 $MethodInfo _Ser_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Ser::*)()>(&Ser::init$))},
-	{"<init>", "(BLjava/io/Serializable;)V", nullptr, 0, $method(static_cast<void(Ser::*)(int8_t,$Serializable*)>(&Ser::init$))},
-	{"read", "(Ljava/io/DataInput;)Ljava/io/Serializable;", nullptr, $STATIC, $method(static_cast<$Serializable*(*)($DataInput*)>(&Ser::read)), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"readEpochSec", "(Ljava/io/DataInput;)J", nullptr, $STATIC, $method(static_cast<int64_t(*)($DataInput*)>(&Ser::readEpochSec)), "java.io.IOException"},
-	{"readExternal", "(Ljava/io/ObjectInput;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"readInternal", "(BLjava/io/DataInput;)Ljava/io/Serializable;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$Serializable*(*)(int8_t,$DataInput*)>(&Ser::readInternal)), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"readOffset", "(Ljava/io/DataInput;)Ljava/time/ZoneOffset;", nullptr, $STATIC, $method(static_cast<$ZoneOffset*(*)($DataInput*)>(&Ser::readOffset)), "java.io.IOException"},
-	{"readResolve", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(static_cast<$Object*(Ser::*)()>(&Ser::readResolve))},
-	{"write", "(Ljava/lang/Object;Ljava/io/DataOutput;)V", nullptr, $STATIC, $method(static_cast<void(*)(Object$*,$DataOutput*)>(&Ser::write)), "java.io.IOException"},
-	{"writeEpochSec", "(JLjava/io/DataOutput;)V", nullptr, $STATIC, $method(static_cast<void(*)(int64_t,$DataOutput*)>(&Ser::writeEpochSec)), "java.io.IOException"},
-	{"writeExternal", "(Ljava/io/ObjectOutput;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"writeInternal", "(BLjava/lang/Object;Ljava/io/DataOutput;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)(int8_t,Object$*,$DataOutput*)>(&Ser::writeInternal)), "java.io.IOException"},
-	{"writeOffset", "(Ljava/time/ZoneOffset;Ljava/io/DataOutput;)V", nullptr, $STATIC, $method(static_cast<void(*)($ZoneOffset*,$DataOutput*)>(&Ser::writeOffset)), "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Ser, init$, void)},
+	{"<init>", "(BLjava/io/Serializable;)V", nullptr, 0, $method(Ser, init$, void, int8_t, $Serializable*)},
+	{"read", "(Ljava/io/DataInput;)Ljava/io/Serializable;", nullptr, $STATIC, $staticMethod(Ser, read, $Serializable*, $DataInput*), "java.io.IOException,java.lang.ClassNotFoundException"},
+	{"readEpochSec", "(Ljava/io/DataInput;)J", nullptr, $STATIC, $staticMethod(Ser, readEpochSec, int64_t, $DataInput*), "java.io.IOException"},
+	{"readExternal", "(Ljava/io/ObjectInput;)V", nullptr, $PUBLIC, $virtualMethod(Ser, readExternal, void, $ObjectInput*), "java.io.IOException,java.lang.ClassNotFoundException"},
+	{"readInternal", "(BLjava/io/DataInput;)Ljava/io/Serializable;", nullptr, $PRIVATE | $STATIC, $staticMethod(Ser, readInternal, $Serializable*, int8_t, $DataInput*), "java.io.IOException,java.lang.ClassNotFoundException"},
+	{"readOffset", "(Ljava/io/DataInput;)Ljava/time/ZoneOffset;", nullptr, $STATIC, $staticMethod(Ser, readOffset, $ZoneOffset*, $DataInput*), "java.io.IOException"},
+	{"readResolve", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(Ser, readResolve, $Object*)},
+	{"write", "(Ljava/lang/Object;Ljava/io/DataOutput;)V", nullptr, $STATIC, $staticMethod(Ser, write, void, Object$*, $DataOutput*), "java.io.IOException"},
+	{"writeEpochSec", "(JLjava/io/DataOutput;)V", nullptr, $STATIC, $staticMethod(Ser, writeEpochSec, void, int64_t, $DataOutput*), "java.io.IOException"},
+	{"writeExternal", "(Ljava/io/ObjectOutput;)V", nullptr, $PUBLIC, $virtualMethod(Ser, writeExternal, void, $ObjectOutput*), "java.io.IOException"},
+	{"writeInternal", "(BLjava/lang/Object;Ljava/io/DataOutput;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Ser, writeInternal, void, int8_t, Object$*, $DataOutput*), "java.io.IOException"},
+	{"writeOffset", "(Ljava/time/ZoneOffset;Ljava/io/DataOutput;)V", nullptr, $STATIC, $staticMethod(Ser, writeOffset, void, $ZoneOffset*, $DataOutput*), "java.io.IOException"},
 	{}
 };
 

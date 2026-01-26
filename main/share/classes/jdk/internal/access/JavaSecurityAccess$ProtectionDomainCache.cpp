@@ -8,14 +8,16 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $PermissionCollection = ::java::security::PermissionCollection;
+using $ProtectionDomain = ::java::security::ProtectionDomain;
 
 namespace jdk {
 	namespace internal {
 		namespace access {
 
 $MethodInfo _JavaSecurityAccess$ProtectionDomainCache_MethodInfo_[] = {
-	{"get", "(Ljava/security/ProtectionDomain;)Ljava/security/PermissionCollection;", nullptr, $PUBLIC | $ABSTRACT},
-	{"put", "(Ljava/security/ProtectionDomain;Ljava/security/PermissionCollection;)V", nullptr, $PUBLIC | $ABSTRACT},
+	{"get", "(Ljava/security/ProtectionDomain;)Ljava/security/PermissionCollection;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JavaSecurityAccess$ProtectionDomainCache, get, $PermissionCollection*, $ProtectionDomain*)},
+	{"put", "(Ljava/security/ProtectionDomain;Ljava/security/PermissionCollection;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JavaSecurityAccess$ProtectionDomainCache, put, void, $ProtectionDomain*, $PermissionCollection*)},
 	{}
 };
 

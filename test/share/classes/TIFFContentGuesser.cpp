@@ -26,8 +26,8 @@ $FieldInfo _TIFFContentGuesser_FieldInfo_[] = {
 };
 
 $MethodInfo _TIFFContentGuesser_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TIFFContentGuesser::*)()>(&TIFFContentGuesser::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&TIFFContentGuesser::main)), "java.lang.Throwable"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TIFFContentGuesser, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TIFFContentGuesser, main, void, $StringArray*), "java.lang.Throwable"},
 	{}
 };
 

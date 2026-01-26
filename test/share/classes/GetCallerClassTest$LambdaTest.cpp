@@ -45,8 +45,8 @@ $FieldInfo GetCallerClassTest$LambdaTest$$Lambda$lambda$run$0::fieldInfos[2] = {
 	{}
 };
 $MethodInfo GetCallerClassTest$LambdaTest$$Lambda$lambda$run$0::methodInfos[3] = {
-	{"<init>", "(LGetCallerClassTest$LambdaTest;)V", nullptr, $PUBLIC, $method(static_cast<void(GetCallerClassTest$LambdaTest$$Lambda$lambda$run$0::*)(GetCallerClassTest$LambdaTest*)>(&GetCallerClassTest$LambdaTest$$Lambda$lambda$run$0::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(LGetCallerClassTest$LambdaTest;)V", nullptr, $PUBLIC, $method(GetCallerClassTest$LambdaTest$$Lambda$lambda$run$0, init$, void, GetCallerClassTest$LambdaTest*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(GetCallerClassTest$LambdaTest$$Lambda$lambda$run$0, run, void)},
 	{}
 };
 $ClassInfo GetCallerClassTest$LambdaTest$$Lambda$lambda$run$0::classInfo$ = {
@@ -69,9 +69,9 @@ $FieldInfo _GetCallerClassTest$LambdaTest_FieldInfo_[] = {
 };
 
 $MethodInfo _GetCallerClassTest$LambdaTest_MethodInfo_[] = {
-	{"<init>", "(LGetCallerClassTest;)V", nullptr, 0, $method(static_cast<void(GetCallerClassTest$LambdaTest::*)($GetCallerClassTest*)>(&GetCallerClassTest$LambdaTest::init$))},
-	{"lambda$run$0", "()V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(GetCallerClassTest$LambdaTest::*)()>(&GetCallerClassTest$LambdaTest::lambda$run$0))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(LGetCallerClassTest;)V", nullptr, 0, $method(GetCallerClassTest$LambdaTest, init$, void, $GetCallerClassTest*)},
+	{"lambda$run$0", "()V", nullptr, $PRIVATE | $SYNTHETIC, $method(GetCallerClassTest$LambdaTest, lambda$run$0, void)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(GetCallerClassTest$LambdaTest, run, void)},
 	{}
 };
 

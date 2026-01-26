@@ -62,8 +62,8 @@ $FieldInfo StreamSpliterators$WrappingSpliterator$$Lambda$accept::fieldInfos[2] 
 	{}
 };
 $MethodInfo StreamSpliterators$WrappingSpliterator$$Lambda$accept::methodInfos[3] = {
-	{"<init>", "(Ljava/util/stream/SpinedBuffer;)V", nullptr, $PUBLIC, $method(static_cast<void(StreamSpliterators$WrappingSpliterator$$Lambda$accept::*)($SpinedBuffer*)>(&StreamSpliterators$WrappingSpliterator$$Lambda$accept::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/stream/SpinedBuffer;)V", nullptr, $PUBLIC, $method(StreamSpliterators$WrappingSpliterator$$Lambda$accept, init$, void, $SpinedBuffer*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(StreamSpliterators$WrappingSpliterator$$Lambda$accept, accept, void, Object$*)},
 	{}
 };
 $ClassInfo StreamSpliterators$WrappingSpliterator$$Lambda$accept::classInfo$ = {
@@ -102,8 +102,8 @@ $FieldInfo StreamSpliterators$WrappingSpliterator$$Lambda$lambda$initPartialTrav
 	{}
 };
 $MethodInfo StreamSpliterators$WrappingSpliterator$$Lambda$lambda$initPartialTraversalState$0$1::methodInfos[3] = {
-	{"<init>", "(Ljava/util/stream/StreamSpliterators$WrappingSpliterator;)V", nullptr, $PUBLIC, $method(static_cast<void(StreamSpliterators$WrappingSpliterator$$Lambda$lambda$initPartialTraversalState$0$1::*)(StreamSpliterators$WrappingSpliterator*)>(&StreamSpliterators$WrappingSpliterator$$Lambda$lambda$initPartialTraversalState$0$1::init$))},
-	{"getAsBoolean", "()Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/stream/StreamSpliterators$WrappingSpliterator;)V", nullptr, $PUBLIC, $method(StreamSpliterators$WrappingSpliterator$$Lambda$lambda$initPartialTraversalState$0$1, init$, void, StreamSpliterators$WrappingSpliterator*)},
+	{"getAsBoolean", "()Z", nullptr, $PUBLIC, $virtualMethod(StreamSpliterators$WrappingSpliterator$$Lambda$lambda$initPartialTraversalState$0$1, getAsBoolean, bool)},
 	{}
 };
 $ClassInfo StreamSpliterators$WrappingSpliterator$$Lambda$lambda$initPartialTraversalState$0$1::classInfo$ = {
@@ -142,8 +142,8 @@ $FieldInfo StreamSpliterators$WrappingSpliterator$$Lambda$accept$2::fieldInfos[2
 	{}
 };
 $MethodInfo StreamSpliterators$WrappingSpliterator$$Lambda$accept$2::methodInfos[3] = {
-	{"<init>", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC, $method(static_cast<void(StreamSpliterators$WrappingSpliterator$$Lambda$accept$2::*)($Consumer*)>(&StreamSpliterators$WrappingSpliterator$$Lambda$accept$2::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC, $method(StreamSpliterators$WrappingSpliterator$$Lambda$accept$2, init$, void, $Consumer*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(StreamSpliterators$WrappingSpliterator$$Lambda$accept$2, accept, void, Object$*)},
 	{}
 };
 $ClassInfo StreamSpliterators$WrappingSpliterator$$Lambda$accept$2::classInfo$ = {
@@ -161,13 +161,13 @@ $Class* StreamSpliterators$WrappingSpliterator$$Lambda$accept$2::load$($String* 
 $Class* StreamSpliterators$WrappingSpliterator$$Lambda$accept$2::class$ = nullptr;
 
 $MethodInfo _StreamSpliterators$WrappingSpliterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/stream/PipelineHelper;Ljava/util/function/Supplier;Z)V", "(Ljava/util/stream/PipelineHelper<TP_OUT;>;Ljava/util/function/Supplier<Ljava/util/Spliterator<TP_IN;>;>;Z)V", 0, $method(static_cast<void(StreamSpliterators$WrappingSpliterator::*)($PipelineHelper*,$Supplier*,bool)>(&StreamSpliterators$WrappingSpliterator::init$))},
-	{"<init>", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;Z)V", "(Ljava/util/stream/PipelineHelper<TP_OUT;>;Ljava/util/Spliterator<TP_IN;>;Z)V", 0, $method(static_cast<void(StreamSpliterators$WrappingSpliterator::*)($PipelineHelper*,$Spliterator*,bool)>(&StreamSpliterators$WrappingSpliterator::init$))},
-	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TP_OUT;>;)V", $PUBLIC},
-	{"initPartialTraversalState", "()V", nullptr, 0},
-	{"lambda$initPartialTraversalState$0", "()Z", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<bool(StreamSpliterators$WrappingSpliterator::*)()>(&StreamSpliterators$WrappingSpliterator::lambda$initPartialTraversalState$0))},
-	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-TP_OUT;>;)Z", $PUBLIC},
-	{"wrap", "(Ljava/util/Spliterator;)Ljava/util/stream/StreamSpliterators$WrappingSpliterator;", "(Ljava/util/Spliterator<TP_IN;>;)Ljava/util/stream/StreamSpliterators$WrappingSpliterator<TP_IN;TP_OUT;>;", 0},
+	{"<init>", "(Ljava/util/stream/PipelineHelper;Ljava/util/function/Supplier;Z)V", "(Ljava/util/stream/PipelineHelper<TP_OUT;>;Ljava/util/function/Supplier<Ljava/util/Spliterator<TP_IN;>;>;Z)V", 0, $method(StreamSpliterators$WrappingSpliterator, init$, void, $PipelineHelper*, $Supplier*, bool)},
+	{"<init>", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;Z)V", "(Ljava/util/stream/PipelineHelper<TP_OUT;>;Ljava/util/Spliterator<TP_IN;>;Z)V", 0, $method(StreamSpliterators$WrappingSpliterator, init$, void, $PipelineHelper*, $Spliterator*, bool)},
+	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TP_OUT;>;)V", $PUBLIC, $virtualMethod(StreamSpliterators$WrappingSpliterator, forEachRemaining, void, $Consumer*)},
+	{"initPartialTraversalState", "()V", nullptr, 0, $virtualMethod(StreamSpliterators$WrappingSpliterator, initPartialTraversalState, void)},
+	{"lambda$initPartialTraversalState$0", "()Z", nullptr, $PRIVATE | $SYNTHETIC, $method(StreamSpliterators$WrappingSpliterator, lambda$initPartialTraversalState$0, bool)},
+	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-TP_OUT;>;)Z", $PUBLIC, $virtualMethod(StreamSpliterators$WrappingSpliterator, tryAdvance, bool, $Consumer*)},
+	{"wrap", "(Ljava/util/Spliterator;)Ljava/util/stream/StreamSpliterators$WrappingSpliterator;", "(Ljava/util/Spliterator<TP_IN;>;)Ljava/util/stream/StreamSpliterators$WrappingSpliterator<TP_IN;TP_OUT;>;", 0, $virtualMethod(StreamSpliterators$WrappingSpliterator, wrap, StreamSpliterators$WrappingSpliterator*, $Spliterator*)},
 	{}
 };
 

@@ -8,8 +8,8 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 
 $MethodInfo _Chew_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Chew::*)()>(&Chew::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Chew::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Chew, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Chew, main, void, $StringArray*)},
 	{}
 };
 

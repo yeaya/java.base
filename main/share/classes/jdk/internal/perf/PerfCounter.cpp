@@ -39,22 +39,22 @@ $FieldInfo _PerfCounter_FieldInfo_[] = {
 };
 
 $MethodInfo _PerfCounter_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(static_cast<void(PerfCounter::*)($String*,int32_t)>(&PerfCounter::init$))},
-	{"add", "(J)V", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"addElapsedTimeFrom", "(J)V", nullptr, $PUBLIC},
-	{"addTime", "(J)V", nullptr, $PUBLIC},
-	{"get", "()J", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"getFindClassTime", "()Ljdk/internal/perf/PerfCounter;", nullptr, $PUBLIC | $STATIC, $method(static_cast<PerfCounter*(*)()>(&PerfCounter::getFindClassTime))},
-	{"getFindClasses", "()Ljdk/internal/perf/PerfCounter;", nullptr, $PUBLIC | $STATIC, $method(static_cast<PerfCounter*(*)()>(&PerfCounter::getFindClasses))},
-	{"getParentDelegationTime", "()Ljdk/internal/perf/PerfCounter;", nullptr, $PUBLIC | $STATIC, $method(static_cast<PerfCounter*(*)()>(&PerfCounter::getParentDelegationTime))},
-	{"getReadClassBytesTime", "()Ljdk/internal/perf/PerfCounter;", nullptr, $PUBLIC | $STATIC, $method(static_cast<PerfCounter*(*)()>(&PerfCounter::getReadClassBytesTime))},
-	{"getZipFileCount", "()Ljdk/internal/perf/PerfCounter;", nullptr, $PUBLIC | $STATIC, $method(static_cast<PerfCounter*(*)()>(&PerfCounter::getZipFileCount))},
-	{"getZipFileOpenTime", "()Ljdk/internal/perf/PerfCounter;", nullptr, $PUBLIC | $STATIC, $method(static_cast<PerfCounter*(*)()>(&PerfCounter::getZipFileOpenTime))},
-	{"increment", "()V", nullptr, $PUBLIC},
-	{"newConstantPerfCounter", "(Ljava/lang/String;)Ljdk/internal/perf/PerfCounter;", nullptr, $PUBLIC | $STATIC, $method(static_cast<PerfCounter*(*)($String*)>(&PerfCounter::newConstantPerfCounter))},
-	{"newPerfCounter", "(Ljava/lang/String;)Ljdk/internal/perf/PerfCounter;", nullptr, $PUBLIC | $STATIC, $method(static_cast<PerfCounter*(*)($String*)>(&PerfCounter::newPerfCounter))},
-	{"set", "(J)V", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(PerfCounter, init$, void, $String*, int32_t)},
+	{"add", "(J)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(PerfCounter, add, void, int64_t)},
+	{"addElapsedTimeFrom", "(J)V", nullptr, $PUBLIC, $virtualMethod(PerfCounter, addElapsedTimeFrom, void, int64_t)},
+	{"addTime", "(J)V", nullptr, $PUBLIC, $virtualMethod(PerfCounter, addTime, void, int64_t)},
+	{"get", "()J", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(PerfCounter, get, int64_t)},
+	{"getFindClassTime", "()Ljdk/internal/perf/PerfCounter;", nullptr, $PUBLIC | $STATIC, $staticMethod(PerfCounter, getFindClassTime, PerfCounter*)},
+	{"getFindClasses", "()Ljdk/internal/perf/PerfCounter;", nullptr, $PUBLIC | $STATIC, $staticMethod(PerfCounter, getFindClasses, PerfCounter*)},
+	{"getParentDelegationTime", "()Ljdk/internal/perf/PerfCounter;", nullptr, $PUBLIC | $STATIC, $staticMethod(PerfCounter, getParentDelegationTime, PerfCounter*)},
+	{"getReadClassBytesTime", "()Ljdk/internal/perf/PerfCounter;", nullptr, $PUBLIC | $STATIC, $staticMethod(PerfCounter, getReadClassBytesTime, PerfCounter*)},
+	{"getZipFileCount", "()Ljdk/internal/perf/PerfCounter;", nullptr, $PUBLIC | $STATIC, $staticMethod(PerfCounter, getZipFileCount, PerfCounter*)},
+	{"getZipFileOpenTime", "()Ljdk/internal/perf/PerfCounter;", nullptr, $PUBLIC | $STATIC, $staticMethod(PerfCounter, getZipFileOpenTime, PerfCounter*)},
+	{"increment", "()V", nullptr, $PUBLIC, $virtualMethod(PerfCounter, increment, void)},
+	{"newConstantPerfCounter", "(Ljava/lang/String;)Ljdk/internal/perf/PerfCounter;", nullptr, $PUBLIC | $STATIC, $staticMethod(PerfCounter, newConstantPerfCounter, PerfCounter*, $String*)},
+	{"newPerfCounter", "(Ljava/lang/String;)Ljdk/internal/perf/PerfCounter;", nullptr, $PUBLIC | $STATIC, $staticMethod(PerfCounter, newPerfCounter, PerfCounter*, $String*)},
+	{"set", "(J)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(PerfCounter, set, void, int64_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PerfCounter, toString, $String*)},
 	{}
 };
 

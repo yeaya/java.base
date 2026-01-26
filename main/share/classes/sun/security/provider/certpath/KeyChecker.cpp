@@ -57,12 +57,12 @@ $FieldInfo _KeyChecker_FieldInfo_[] = {
 };
 
 $MethodInfo _KeyChecker_MethodInfo_[] = {
-	{"<init>", "(ILjava/security/cert/CertSelector;)V", nullptr, 0, $method(static_cast<void(KeyChecker::*)(int32_t,$CertSelector*)>(&KeyChecker::init$))},
-	{"check", "(Ljava/security/cert/Certificate;Ljava/util/Collection;)V", "(Ljava/security/cert/Certificate;Ljava/util/Collection<Ljava/lang/String;>;)V", $PUBLIC, nullptr, "java.security.cert.CertPathValidatorException"},
-	{"getSupportedExtensions", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC},
-	{"init", "(Z)V", nullptr, $PUBLIC, nullptr, "java.security.cert.CertPathValidatorException"},
-	{"isForwardCheckingSupported", "()Z", nullptr, $PUBLIC},
-	{"verifyCAKeyUsage", "(Ljava/security/cert/X509Certificate;)V", nullptr, $STATIC, $method(static_cast<void(*)($X509Certificate*)>(&KeyChecker::verifyCAKeyUsage)), "java.security.cert.CertPathValidatorException"},
+	{"<init>", "(ILjava/security/cert/CertSelector;)V", nullptr, 0, $method(KeyChecker, init$, void, int32_t, $CertSelector*)},
+	{"check", "(Ljava/security/cert/Certificate;Ljava/util/Collection;)V", "(Ljava/security/cert/Certificate;Ljava/util/Collection<Ljava/lang/String;>;)V", $PUBLIC, $virtualMethod(KeyChecker, check, void, $Certificate*, $Collection*), "java.security.cert.CertPathValidatorException"},
+	{"getSupportedExtensions", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(KeyChecker, getSupportedExtensions, $Set*)},
+	{"init", "(Z)V", nullptr, $PUBLIC, $virtualMethod(KeyChecker, init, void, bool), "java.security.cert.CertPathValidatorException"},
+	{"isForwardCheckingSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(KeyChecker, isForwardCheckingSupported, bool)},
+	{"verifyCAKeyUsage", "(Ljava/security/cert/X509Certificate;)V", nullptr, $STATIC, $staticMethod(KeyChecker, verifyCAKeyUsage, void, $X509Certificate*), "java.security.cert.CertPathValidatorException"},
 	{}
 };
 

@@ -17,10 +17,10 @@ $FieldInfo _WrongMethodTypeException_FieldInfo_[] = {
 };
 
 $MethodInfo _WrongMethodTypeException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(WrongMethodTypeException::*)()>(&WrongMethodTypeException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(WrongMethodTypeException::*)($String*)>(&WrongMethodTypeException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, 0, $method(static_cast<void(WrongMethodTypeException::*)($String*,$Throwable*)>(&WrongMethodTypeException::init$))},
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, 0, $method(static_cast<void(WrongMethodTypeException::*)($Throwable*)>(&WrongMethodTypeException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(WrongMethodTypeException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(WrongMethodTypeException, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, 0, $method(WrongMethodTypeException, init$, void, $String*, $Throwable*)},
+	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, 0, $method(WrongMethodTypeException, init$, void, $Throwable*)},
 	{}
 };
 

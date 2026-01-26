@@ -76,8 +76,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ManySourcesAndTargets$$Lambda$networkInterface::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ManySourcesAndTargets$$Lambda$networkInterface::*)()>(&ManySourcesAndTargets$$Lambda$networkInterface::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ManySourcesAndTargets$$Lambda$networkInterface, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ManySourcesAndTargets$$Lambda$networkInterface, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo ManySourcesAndTargets$$Lambda$networkInterface::classInfo$ = {
@@ -109,8 +109,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ManySourcesAndTargets$$Lambda$stream$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ManySourcesAndTargets$$Lambda$stream$1::*)()>(&ManySourcesAndTargets$$Lambda$stream$1::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ManySourcesAndTargets$$Lambda$stream$1, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ManySourcesAndTargets$$Lambda$stream$1, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo ManySourcesAndTargets$$Lambda$stream$1::classInfo$ = {
@@ -142,8 +142,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ManySourcesAndTargets$$Lambda$inetAddresses$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ManySourcesAndTargets$$Lambda$inetAddresses$2::*)()>(&ManySourcesAndTargets$$Lambda$inetAddresses$2::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ManySourcesAndTargets$$Lambda$inetAddresses$2, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ManySourcesAndTargets$$Lambda$inetAddresses$2, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo ManySourcesAndTargets$$Lambda$inetAddresses$2::classInfo$ = {
@@ -175,8 +175,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ManySourcesAndTargets$$Lambda$lambda$main$0$3::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ManySourcesAndTargets$$Lambda$lambda$main$0$3::*)()>(&ManySourcesAndTargets$$Lambda$lambda$main$0$3::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ManySourcesAndTargets$$Lambda$lambda$main$0$3, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ManySourcesAndTargets$$Lambda$lambda$main$0$3, test, bool, Object$*)},
 	{}
 };
 $ClassInfo ManySourcesAndTargets$$Lambda$lambda$main$0$3::classInfo$ = {
@@ -194,14 +194,14 @@ $Class* ManySourcesAndTargets$$Lambda$lambda$main$0$3::load$($String* name, bool
 $Class* ManySourcesAndTargets$$Lambda$lambda$main$0$3::class$ = nullptr;
 
 $MethodInfo _ManySourcesAndTargets_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ManySourcesAndTargets::*)()>(&ManySourcesAndTargets::init$))},
-	{"deserialize", "([B)Ljava/net/SocketAddress;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$SocketAddress*(*)($bytes*)>(&ManySourcesAndTargets::deserialize)), "java.lang.Exception"},
-	{"lambda$main$0", "(Ljava/net/InetAddress;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($InetAddress*)>(&ManySourcesAndTargets::lambda$main$0))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&ManySourcesAndTargets::main)), "java.lang.Exception"},
-	{"networkInterface", "(Ljava/net/InetAddress;)Ljava/util/Optional;", "(Ljava/net/InetAddress;)Ljava/util/Optional<Ljava/net/NetworkInterface;>;", $PRIVATE | $STATIC, $method(static_cast<$Optional*(*)($InetAddress*)>(&ManySourcesAndTargets::networkInterface))},
-	{"serialize", "(Ljava/net/SocketAddress;)[B", nullptr, $PRIVATE | $STATIC, $method(static_cast<$bytes*(*)($SocketAddress*)>(&ManySourcesAndTargets::serialize)), "java.lang.Exception"},
-	{"testReceive", "(ILjava/nio/channels/DatagramChannel;Ljava/net/InetAddress;)V", nullptr, $STATIC, $method(static_cast<void(*)(int32_t,$DatagramChannel*,$InetAddress*)>(&ManySourcesAndTargets::testReceive)), "java.lang.Exception"},
-	{"testSend", "(ILjava/net/InetAddress;Ljava/nio/channels/DatagramChannel;)V", nullptr, $STATIC, $method(static_cast<void(*)(int32_t,$InetAddress*,$DatagramChannel*)>(&ManySourcesAndTargets::testSend)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ManySourcesAndTargets, init$, void)},
+	{"deserialize", "([B)Ljava/net/SocketAddress;", nullptr, $PRIVATE | $STATIC, $staticMethod(ManySourcesAndTargets, deserialize, $SocketAddress*, $bytes*), "java.lang.Exception"},
+	{"lambda$main$0", "(Ljava/net/InetAddress;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ManySourcesAndTargets, lambda$main$0, bool, $InetAddress*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ManySourcesAndTargets, main, void, $StringArray*), "java.lang.Exception"},
+	{"networkInterface", "(Ljava/net/InetAddress;)Ljava/util/Optional;", "(Ljava/net/InetAddress;)Ljava/util/Optional<Ljava/net/NetworkInterface;>;", $PRIVATE | $STATIC, $staticMethod(ManySourcesAndTargets, networkInterface, $Optional*, $InetAddress*)},
+	{"serialize", "(Ljava/net/SocketAddress;)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(ManySourcesAndTargets, serialize, $bytes*, $SocketAddress*), "java.lang.Exception"},
+	{"testReceive", "(ILjava/nio/channels/DatagramChannel;Ljava/net/InetAddress;)V", nullptr, $STATIC, $staticMethod(ManySourcesAndTargets, testReceive, void, int32_t, $DatagramChannel*, $InetAddress*), "java.lang.Exception"},
+	{"testSend", "(ILjava/net/InetAddress;Ljava/nio/channels/DatagramChannel;)V", nullptr, $STATIC, $staticMethod(ManySourcesAndTargets, testSend, void, int32_t, $InetAddress*, $DatagramChannel*), "java.lang.Exception"},
 	{}
 };
 

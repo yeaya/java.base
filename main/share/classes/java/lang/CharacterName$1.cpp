@@ -20,8 +20,8 @@ $FieldInfo _CharacterName$1_FieldInfo_[] = {
 };
 
 $MethodInfo _CharacterName$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/CharacterName;)V", nullptr, 0, $method(static_cast<void(CharacterName$1::*)($CharacterName*)>(&CharacterName$1::init$))},
-	{"run", "()Ljava/io/InputStream;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/CharacterName;)V", nullptr, 0, $method(CharacterName$1, init$, void, $CharacterName*)},
+	{"run", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(CharacterName$1, run, $Object*)},
 	{}
 };
 

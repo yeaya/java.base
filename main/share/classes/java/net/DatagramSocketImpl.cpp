@@ -17,7 +17,10 @@ using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
+using $DatagramPacket = ::java::net::DatagramPacket;
 using $InetAddress = ::java::net::InetAddress;
+using $NetworkInterface = ::java::net::NetworkInterface;
+using $SocketAddress = ::java::net::SocketAddress;
 using $SocketOption = ::java::net::SocketOption;
 using $Objects = ::java::util::Objects;
 using $Set = ::java::util::Set;
@@ -42,30 +45,30 @@ $FieldInfo _DatagramSocketImpl_FieldInfo_[] = {
 };
 
 $MethodInfo _DatagramSocketImpl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DatagramSocketImpl::*)()>(&DatagramSocketImpl::init$))},
-	{"bind", "(ILjava/net/InetAddress;)V", nullptr, $PROTECTED | $ABSTRACT, nullptr, "java.net.SocketException"},
-	{"close", "()V", nullptr, $PROTECTED | $ABSTRACT},
-	{"connect", "(Ljava/net/InetAddress;I)V", nullptr, $PROTECTED, nullptr, "java.net.SocketException"},
-	{"create", "()V", nullptr, $PROTECTED | $ABSTRACT, nullptr, "java.net.SocketException"},
-	{"dataAvailable", "()I", nullptr, 0},
-	{"disconnect", "()V", nullptr, $PROTECTED},
-	{"getFileDescriptor", "()Ljava/io/FileDescriptor;", nullptr, $PROTECTED},
-	{"getLocalPort", "()I", nullptr, $PROTECTED},
-	{"getOption", "(Ljava/net/SocketOption;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/net/SocketOption<TT;>;)TT;", $PROTECTED, nullptr, "java.io.IOException"},
-	{"getTTL", "()B", nullptr, $PROTECTED | $ABSTRACT | $DEPRECATED, nullptr, "java.io.IOException", nullptr, _DatagramSocketImpl_MethodAnnotations_getTTL10},
-	{"getTimeToLive", "()I", nullptr, $PROTECTED | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"join", "(Ljava/net/InetAddress;)V", nullptr, $PROTECTED | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"joinGroup", "(Ljava/net/SocketAddress;Ljava/net/NetworkInterface;)V", nullptr, $PROTECTED | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"leave", "(Ljava/net/InetAddress;)V", nullptr, $PROTECTED | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"leaveGroup", "(Ljava/net/SocketAddress;Ljava/net/NetworkInterface;)V", nullptr, $PROTECTED | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"peek", "(Ljava/net/InetAddress;)I", nullptr, $PROTECTED | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"peekData", "(Ljava/net/DatagramPacket;)I", nullptr, $PROTECTED | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"receive", "(Ljava/net/DatagramPacket;)V", nullptr, $PROTECTED | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"send", "(Ljava/net/DatagramPacket;)V", nullptr, $PROTECTED | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"setOption", "(Ljava/net/SocketOption;Ljava/lang/Object;)V", "<T:Ljava/lang/Object;>(Ljava/net/SocketOption<TT;>;TT;)V", $PROTECTED, nullptr, "java.io.IOException"},
-	{"setTTL", "(B)V", nullptr, $PROTECTED | $ABSTRACT | $DEPRECATED, nullptr, "java.io.IOException", nullptr, _DatagramSocketImpl_MethodAnnotations_setTTL21},
-	{"setTimeToLive", "(I)V", nullptr, $PROTECTED | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"supportedOptions", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/net/SocketOption<*>;>;", $PROTECTED},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DatagramSocketImpl, init$, void)},
+	{"bind", "(ILjava/net/InetAddress;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(DatagramSocketImpl, bind, void, int32_t, $InetAddress*), "java.net.SocketException"},
+	{"close", "()V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(DatagramSocketImpl, close, void)},
+	{"connect", "(Ljava/net/InetAddress;I)V", nullptr, $PROTECTED, $virtualMethod(DatagramSocketImpl, connect, void, $InetAddress*, int32_t), "java.net.SocketException"},
+	{"create", "()V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(DatagramSocketImpl, create, void), "java.net.SocketException"},
+	{"dataAvailable", "()I", nullptr, 0, $virtualMethod(DatagramSocketImpl, dataAvailable, int32_t)},
+	{"disconnect", "()V", nullptr, $PROTECTED, $virtualMethod(DatagramSocketImpl, disconnect, void)},
+	{"getFileDescriptor", "()Ljava/io/FileDescriptor;", nullptr, $PROTECTED, $virtualMethod(DatagramSocketImpl, getFileDescriptor, $FileDescriptor*)},
+	{"getLocalPort", "()I", nullptr, $PROTECTED, $virtualMethod(DatagramSocketImpl, getLocalPort, int32_t)},
+	{"getOption", "(Ljava/net/SocketOption;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/net/SocketOption<TT;>;)TT;", $PROTECTED, $virtualMethod(DatagramSocketImpl, getOption, $Object*, $SocketOption*), "java.io.IOException"},
+	{"getTTL", "()B", nullptr, $PROTECTED | $ABSTRACT | $DEPRECATED, $virtualMethod(DatagramSocketImpl, getTTL, int8_t), "java.io.IOException", nullptr, _DatagramSocketImpl_MethodAnnotations_getTTL10},
+	{"getTimeToLive", "()I", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(DatagramSocketImpl, getTimeToLive, int32_t), "java.io.IOException"},
+	{"join", "(Ljava/net/InetAddress;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(DatagramSocketImpl, join, void, $InetAddress*), "java.io.IOException"},
+	{"joinGroup", "(Ljava/net/SocketAddress;Ljava/net/NetworkInterface;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(DatagramSocketImpl, joinGroup, void, $SocketAddress*, $NetworkInterface*), "java.io.IOException"},
+	{"leave", "(Ljava/net/InetAddress;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(DatagramSocketImpl, leave, void, $InetAddress*), "java.io.IOException"},
+	{"leaveGroup", "(Ljava/net/SocketAddress;Ljava/net/NetworkInterface;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(DatagramSocketImpl, leaveGroup, void, $SocketAddress*, $NetworkInterface*), "java.io.IOException"},
+	{"peek", "(Ljava/net/InetAddress;)I", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(DatagramSocketImpl, peek, int32_t, $InetAddress*), "java.io.IOException"},
+	{"peekData", "(Ljava/net/DatagramPacket;)I", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(DatagramSocketImpl, peekData, int32_t, $DatagramPacket*), "java.io.IOException"},
+	{"receive", "(Ljava/net/DatagramPacket;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(DatagramSocketImpl, receive, void, $DatagramPacket*), "java.io.IOException"},
+	{"send", "(Ljava/net/DatagramPacket;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(DatagramSocketImpl, send, void, $DatagramPacket*), "java.io.IOException"},
+	{"setOption", "(Ljava/net/SocketOption;Ljava/lang/Object;)V", "<T:Ljava/lang/Object;>(Ljava/net/SocketOption<TT;>;TT;)V", $PROTECTED, $virtualMethod(DatagramSocketImpl, setOption, void, $SocketOption*, Object$*), "java.io.IOException"},
+	{"setTTL", "(B)V", nullptr, $PROTECTED | $ABSTRACT | $DEPRECATED, $virtualMethod(DatagramSocketImpl, setTTL, void, int8_t), "java.io.IOException", nullptr, _DatagramSocketImpl_MethodAnnotations_setTTL21},
+	{"setTimeToLive", "(I)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(DatagramSocketImpl, setTimeToLive, void, int32_t), "java.io.IOException"},
+	{"supportedOptions", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/net/SocketOption<*>;>;", $PROTECTED, $virtualMethod(DatagramSocketImpl, supportedOptions, $Set*)},
 	{}
 };
 

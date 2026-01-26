@@ -40,10 +40,10 @@ $FieldInfo _HandshakeHash$T12HandshakeHash_FieldInfo_[] = {
 };
 
 $MethodInfo _HandshakeHash$T12HandshakeHash_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/ssl/CipherSuite;)V", nullptr, 0, $method(static_cast<void(HandshakeHash$T12HandshakeHash::*)($CipherSuite*)>(&HandshakeHash$T12HandshakeHash::init$))},
-	{"archived", "()[B", nullptr, $PUBLIC},
-	{"digest", "()[B", nullptr, $PUBLIC},
-	{"update", "([BII)V", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/security/ssl/CipherSuite;)V", nullptr, 0, $method(HandshakeHash$T12HandshakeHash, init$, void, $CipherSuite*)},
+	{"archived", "()[B", nullptr, $PUBLIC, $virtualMethod(HandshakeHash$T12HandshakeHash, archived, $bytes*)},
+	{"digest", "()[B", nullptr, $PUBLIC, $virtualMethod(HandshakeHash$T12HandshakeHash, digest, $bytes*)},
+	{"update", "([BII)V", nullptr, $PUBLIC, $virtualMethod(HandshakeHash$T12HandshakeHash, update, void, $bytes*, int32_t, int32_t)},
 	{}
 };
 

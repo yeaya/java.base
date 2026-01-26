@@ -42,8 +42,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo LambdaClassFinal$$Lambda$lambda$test$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(LambdaClassFinal$$Lambda$lambda$test$0::*)()>(&LambdaClassFinal$$Lambda$lambda$test$0::init$))},
-	{"m", "()V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(LambdaClassFinal$$Lambda$lambda$test$0, init$, void)},
+	{"m", "()V", nullptr, $PUBLIC, $virtualMethod(LambdaClassFinal$$Lambda$lambda$test$0, m, void)},
 	{}
 };
 $ClassInfo LambdaClassFinal$$Lambda$lambda$test$0::classInfo$ = {
@@ -75,8 +75,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo LambdaClassFinal$$Lambda$lambda$test$e8a97009$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(LambdaClassFinal$$Lambda$lambda$test$e8a97009$1$1::*)()>(&LambdaClassFinal$$Lambda$lambda$test$e8a97009$1$1::init$))},
-	{"m", "()V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(LambdaClassFinal$$Lambda$lambda$test$e8a97009$1$1, init$, void)},
+	{"m", "()V", nullptr, $PUBLIC, $virtualMethod(LambdaClassFinal$$Lambda$lambda$test$e8a97009$1$1, m, void)},
 	{}
 };
 $ClassInfo LambdaClassFinal$$Lambda$lambda$test$e8a97009$1$1::classInfo$ = {
@@ -94,13 +94,13 @@ $Class* LambdaClassFinal$$Lambda$lambda$test$e8a97009$1$1::load$($String* name, 
 $Class* LambdaClassFinal$$Lambda$lambda$test$e8a97009$1$1::class$ = nullptr;
 
 $MethodInfo _LambdaClassFinal_MethodInfo_[] = {
-	{"$deserializeLambda$", "(Ljava/lang/invoke/SerializedLambda;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Object*(*)($SerializedLambda*)>(&LambdaClassFinal::$deserializeLambda$))},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(LambdaClassFinal::*)()>(&LambdaClassFinal::init$))},
-	{"assertTrue", "(Z)V", nullptr, $STATIC, $method(static_cast<void(*)(bool)>(&LambdaClassFinal::assertTrue))},
-	{"lambda$test$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)()>(&LambdaClassFinal::lambda$test$0))},
-	{"lambda$test$e8a97009$1", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)()>(&LambdaClassFinal::lambda$test$e8a97009$1))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&LambdaClassFinal::main)), "java.lang.Exception"},
-	{"test", "()V", nullptr, 0, nullptr, "java.lang.Exception"},
+	{"$deserializeLambda$", "(Ljava/lang/invoke/SerializedLambda;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LambdaClassFinal, $deserializeLambda$, $Object*, $SerializedLambda*)},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(LambdaClassFinal, init$, void)},
+	{"assertTrue", "(Z)V", nullptr, $STATIC, $staticMethod(LambdaClassFinal, assertTrue, void, bool)},
+	{"lambda$test$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LambdaClassFinal, lambda$test$0, void)},
+	{"lambda$test$e8a97009$1", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LambdaClassFinal, lambda$test$e8a97009$1, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(LambdaClassFinal, main, void, $StringArray*), "java.lang.Exception"},
+	{"test", "()V", nullptr, 0, $virtualMethod(LambdaClassFinal, test, void), "java.lang.Exception"},
 	{}
 };
 

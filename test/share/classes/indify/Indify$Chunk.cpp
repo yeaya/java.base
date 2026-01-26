@@ -5,6 +5,8 @@
 #include <java/io/DataOutputStream.h>
 #include <jcpp.h>
 
+using $DataInputStream = ::java::io::DataInputStream;
+using $DataOutputStream = ::java::io::DataOutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -12,8 +14,8 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace indify {
 
 $MethodInfo _Indify$Chunk_MethodInfo_[] = {
-	{"readFrom", "(Ljava/io/DataInputStream;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"writeTo", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
+	{"readFrom", "(Ljava/io/DataInputStream;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Indify$Chunk, readFrom, void, $DataInputStream*), "java.io.IOException"},
+	{"writeTo", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Indify$Chunk, writeTo, void, $DataOutputStream*), "java.io.IOException"},
 	{}
 };
 

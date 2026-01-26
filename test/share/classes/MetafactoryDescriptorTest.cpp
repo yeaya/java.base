@@ -52,13 +52,13 @@ $FieldInfo _MetafactoryDescriptorTest_FieldInfo_[] = {
 };
 
 $MethodInfo _MetafactoryDescriptorTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(MetafactoryDescriptorTest::*)()>(&MetafactoryDescriptorTest::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<void(*)($StringArray*)>(&MetafactoryDescriptorTest::main))},
-	{"mt", "(Ljava/lang/Class;[Ljava/lang/Class;)Ljava/lang/invoke/MethodType;", "(Ljava/lang/Class<*>;[Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodType;", $STATIC | $TRANSIENT, $method(static_cast<$MethodType*(*)($Class*,$ClassArray*)>(&MetafactoryDescriptorTest::mt))},
-	{"test", "(ZLjava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;)V", nullptr, $STATIC, $method(static_cast<void(*)(bool,$MethodHandle*,$MethodType*,$MethodType*)>(&MetafactoryDescriptorTest::test))},
-	{"testBridge", "(ZLjava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;[Ljava/lang/invoke/MethodType;)V", nullptr, $STATIC | $TRANSIENT, $method(static_cast<void(*)(bool,$MethodHandle*,$MethodType*,$MethodType*,$MethodTypeArray*)>(&MetafactoryDescriptorTest::testBridge))},
-	{"tryAltMetafactory", "(ZLjava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;[Ljava/lang/invoke/MethodType;)V", nullptr, $STATIC | $TRANSIENT, $method(static_cast<void(*)(bool,$MethodHandle*,$MethodType*,$MethodType*,$MethodTypeArray*)>(&MetafactoryDescriptorTest::tryAltMetafactory))},
-	{"tryMetafactory", "(ZLjava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;)V", nullptr, $STATIC, $method(static_cast<void(*)(bool,$MethodHandle*,$MethodType*,$MethodType*)>(&MetafactoryDescriptorTest::tryMetafactory))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(MetafactoryDescriptorTest, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(MetafactoryDescriptorTest, main, void, $StringArray*)},
+	{"mt", "(Ljava/lang/Class;[Ljava/lang/Class;)Ljava/lang/invoke/MethodType;", "(Ljava/lang/Class<*>;[Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodType;", $STATIC | $TRANSIENT, $staticMethod(MetafactoryDescriptorTest, mt, $MethodType*, $Class*, $ClassArray*)},
+	{"test", "(ZLjava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;)V", nullptr, $STATIC, $staticMethod(MetafactoryDescriptorTest, test, void, bool, $MethodHandle*, $MethodType*, $MethodType*)},
+	{"testBridge", "(ZLjava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;[Ljava/lang/invoke/MethodType;)V", nullptr, $STATIC | $TRANSIENT, $staticMethod(MetafactoryDescriptorTest, testBridge, void, bool, $MethodHandle*, $MethodType*, $MethodType*, $MethodTypeArray*)},
+	{"tryAltMetafactory", "(ZLjava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;[Ljava/lang/invoke/MethodType;)V", nullptr, $STATIC | $TRANSIENT, $staticMethod(MetafactoryDescriptorTest, tryAltMetafactory, void, bool, $MethodHandle*, $MethodType*, $MethodType*, $MethodTypeArray*)},
+	{"tryMetafactory", "(ZLjava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;)V", nullptr, $STATIC, $staticMethod(MetafactoryDescriptorTest, tryMetafactory, void, bool, $MethodHandle*, $MethodType*, $MethodType*)},
 	{}
 };
 

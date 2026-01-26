@@ -52,7 +52,7 @@ $FieldInfo _TestConstructorParameterAnnotations$NestedClass4_FieldInfo_[] = {
 };
 
 $MethodInfo _TestConstructorParameterAnnotations$NestedClass4_MethodInfo_[] = {
-	{"<init>", "(LTestConstructorParameterAnnotations;Ljava/lang/Object;Ljava/lang/Object;)V", "<P:Ljava/lang/Object;Q:Ljava/lang/Object;>(TP;TQ;)V", $PUBLIC, $method(static_cast<void(TestConstructorParameterAnnotations$NestedClass4::*)($TestConstructorParameterAnnotations*,Object$*,Object$*)>(&TestConstructorParameterAnnotations$NestedClass4::init$)), nullptr, nullptr, nullptr, nullptr, _TestConstructorParameterAnnotations$NestedClass4_MethodParamAnnotations_init$0},
+	{"<init>", "(LTestConstructorParameterAnnotations;Ljava/lang/Object;Ljava/lang/Object;)V", "<P:Ljava/lang/Object;Q:Ljava/lang/Object;>(TP;TQ;)V", $PUBLIC, $method(TestConstructorParameterAnnotations$NestedClass4, init$, void, $TestConstructorParameterAnnotations*, Object$*, Object$*), nullptr, nullptr, nullptr, nullptr, _TestConstructorParameterAnnotations$NestedClass4_MethodParamAnnotations_init$0},
 	{}
 };
 

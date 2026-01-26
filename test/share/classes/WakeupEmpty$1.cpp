@@ -19,8 +19,8 @@ $FieldInfo _WakeupEmpty$1_FieldInfo_[] = {
 };
 
 $MethodInfo _WakeupEmpty$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/channels/Selector;)V", nullptr, 0, $method(static_cast<void(WakeupEmpty$1::*)($Selector*)>(&WakeupEmpty$1::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/nio/channels/Selector;)V", nullptr, 0, $method(WakeupEmpty$1, init$, void, $Selector*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(WakeupEmpty$1, run, void)},
 	{}
 };
 

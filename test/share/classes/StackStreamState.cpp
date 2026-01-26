@@ -39,8 +39,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo StackStreamState$$Lambda$lambda$testStatic$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(StackStreamState$$Lambda$lambda$testStatic$0::*)()>(&StackStreamState$$Lambda$lambda$testStatic$0::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(StackStreamState$$Lambda$lambda$testStatic$0, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(StackStreamState$$Lambda$lambda$testStatic$0, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo StackStreamState$$Lambda$lambda$testStatic$0::classInfo$ = {
@@ -79,8 +79,8 @@ $FieldInfo StackStreamState$$Lambda$lambda$testInstance$1$1::fieldInfos[2] = {
 	{}
 };
 $MethodInfo StackStreamState$$Lambda$lambda$testInstance$1$1::methodInfos[3] = {
-	{"<init>", "(LStackStreamState;)V", nullptr, $PUBLIC, $method(static_cast<void(StackStreamState$$Lambda$lambda$testInstance$1$1::*)(StackStreamState*)>(&StackStreamState$$Lambda$lambda$testInstance$1$1::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(LStackStreamState;)V", nullptr, $PUBLIC, $method(StackStreamState$$Lambda$lambda$testInstance$1$1, init$, void, StackStreamState*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(StackStreamState$$Lambda$lambda$testInstance$1$1, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo StackStreamState$$Lambda$lambda$testInstance$1$1::classInfo$ = {
@@ -112,8 +112,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo StackStreamState$$Lambda$lambda$testLocal$2$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(StackStreamState$$Lambda$lambda$testLocal$2$2::*)()>(&StackStreamState$$Lambda$lambda$testLocal$2$2::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(StackStreamState$$Lambda$lambda$testLocal$2$2, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(StackStreamState$$Lambda$lambda$testLocal$2$2, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo StackStreamState$$Lambda$lambda$testLocal$2$2::classInfo$ = {
@@ -138,15 +138,15 @@ $FieldInfo _StackStreamState_FieldInfo_[] = {
 };
 
 $MethodInfo _StackStreamState_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(StackStreamState::*)()>(&StackStreamState::init$))},
-	{"checkStreamState", "(Ljava/util/stream/Stream;)V", "(Ljava/util/stream/Stream<Ljava/lang/StackWalker$StackFrame;>;)V", 0},
-	{"lambda$testInstance$1", "(Ljava/util/stream/Stream;)Ljava/lang/Object;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$Object*(StackStreamState::*)($Stream*)>(&StackStreamState::lambda$testInstance$1))},
-	{"lambda$testLocal$2", "(Ljava/util/stream/Stream;)Ljava/util/stream/Stream;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Stream*(*)($Stream*)>(&StackStreamState::lambda$testLocal$2))},
-	{"lambda$testStatic$0", "(Ljava/util/stream/Stream;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Object*(*)($Stream*)>(&StackStreamState::lambda$testStatic$0))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<void(*)($StringArray*)>(&StackStreamState::main))},
-	{"testInstance", "()V", nullptr, 0},
-	{"testLocal", "()V", nullptr, 0},
-	{"testStatic", "()V", nullptr, 0},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(StackStreamState, init$, void)},
+	{"checkStreamState", "(Ljava/util/stream/Stream;)V", "(Ljava/util/stream/Stream<Ljava/lang/StackWalker$StackFrame;>;)V", 0, $virtualMethod(StackStreamState, checkStreamState, void, $Stream*)},
+	{"lambda$testInstance$1", "(Ljava/util/stream/Stream;)Ljava/lang/Object;", nullptr, $PRIVATE | $SYNTHETIC, $method(StackStreamState, lambda$testInstance$1, $Object*, $Stream*)},
+	{"lambda$testLocal$2", "(Ljava/util/stream/Stream;)Ljava/util/stream/Stream;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StackStreamState, lambda$testLocal$2, $Stream*, $Stream*)},
+	{"lambda$testStatic$0", "(Ljava/util/stream/Stream;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StackStreamState, lambda$testStatic$0, $Object*, $Stream*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(StackStreamState, main, void, $StringArray*)},
+	{"testInstance", "()V", nullptr, 0, $virtualMethod(StackStreamState, testInstance, void)},
+	{"testLocal", "()V", nullptr, 0, $virtualMethod(StackStreamState, testLocal, void)},
+	{"testStatic", "()V", nullptr, 0, $virtualMethod(StackStreamState, testStatic, void)},
 	{}
 };
 

@@ -22,8 +22,8 @@ $FieldInfo _ProcessImpl$1_FieldInfo_[] = {
 };
 
 $MethodInfo _ProcessImpl$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/FileDescriptor;)V", "()V", 0, $method(static_cast<void(ProcessImpl$1::*)($FileDescriptor*)>(&ProcessImpl$1::init$))},
-	{"run", "()Ljava/io/FileOutputStream;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/io/FileDescriptor;)V", "()V", 0, $method(ProcessImpl$1, init$, void, $FileDescriptor*)},
+	{"run", "()Ljava/io/FileOutputStream;", nullptr, $PUBLIC, $virtualMethod(ProcessImpl$1, run, $Object*)},
 	{}
 };
 

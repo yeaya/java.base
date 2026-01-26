@@ -35,12 +35,12 @@ $FieldInfo _ISO8601ZoneTest_FieldInfo_[] = {
 };
 
 $MethodInfo _ISO8601ZoneTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ISO8601ZoneTest::*)()>(&ISO8601ZoneTest::init$))},
-	{"badDataParsing", "(Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $STATIC, $method(static_cast<void(*)($String*,$String*,int32_t)>(&ISO8601ZoneTest::badDataParsing))},
-	{"badFormat", "(Ljava/lang/String;)V", nullptr, $STATIC, $method(static_cast<void(*)($String*)>(&ISO8601ZoneTest::badFormat))},
-	{"formatTest", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $STATIC, $method(static_cast<void(*)($String*,$String*)>(&ISO8601ZoneTest::formatTest)), "java.lang.Exception"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&ISO8601ZoneTest::main)), "java.lang.Exception"},
-	{"roundtripTest", "(Ljava/lang/String;)V", nullptr, $STATIC, $method(static_cast<void(*)($String*)>(&ISO8601ZoneTest::roundtripTest)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ISO8601ZoneTest, init$, void)},
+	{"badDataParsing", "(Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $STATIC, $staticMethod(ISO8601ZoneTest, badDataParsing, void, $String*, $String*, int32_t)},
+	{"badFormat", "(Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(ISO8601ZoneTest, badFormat, void, $String*)},
+	{"formatTest", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(ISO8601ZoneTest, formatTest, void, $String*, $String*), "java.lang.Exception"},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ISO8601ZoneTest, main, void, $StringArray*), "java.lang.Exception"},
+	{"roundtripTest", "(Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(ISO8601ZoneTest, roundtripTest, void, $String*), "java.lang.Exception"},
 	{}
 };
 

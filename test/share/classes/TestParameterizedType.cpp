@@ -25,20 +25,20 @@ using $Map = ::java::util::Map;
 using $Set = ::java::util::Set;
 
 $MethodInfo _TestParameterizedType_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TestParameterizedType::*)()>(&TestParameterizedType::init$))},
-	{"createTypes", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/reflect/Type;>;", $STATIC, $method(static_cast<$List*(*)()>(&TestParameterizedType::createTypes)), "java.lang.Exception"},
-	{"genericMethod0", "()Ljava/lang/Object;", "<T:Ljava/lang/Object;>()TT;", $PUBLIC},
-	{"genericMethod1", "()Ljava/util/Set;", "<T:Ljava/lang/Object;>()Ljava/util/Set<TT;>;", $PUBLIC},
-	{"genericMethod2", "()Ljava/util/Set;", "<T:Ljava/lang/Object;>()Ljava/util/Set<TT;>;", $PUBLIC},
-	{"genericMethod3", "()Ljava/util/List;", "<S:Ljava/lang/Object;>()Ljava/util/List<TS;>;", $PUBLIC},
-	{"genericMethod4", "()Ljava/util/Map;", "<X:Ljava/lang/Object;Y:Ljava/lang/Object;>()Ljava/util/Map<TX;TY;>;", $PUBLIC},
-	{"genericMethod5", "()[Ljava/lang/Object;", "<T:Ljava/lang/Object;>()[TT;", $PUBLIC},
-	{"genericMethod6", "()[Ljava/lang/Object;", "<T:Ljava/lang/Object;>()[TT;", $PUBLIC},
-	{"genericMethod7", "()Ljava/util/Set;", "()Ljava/util/Set<+Ljava/lang/Cloneable;>;", $PUBLIC},
-	{"genericMethod8", "()Ljava/util/Set;", "()Ljava/util/Set<-Ljava/lang/Number;>;", $PUBLIC},
-	{"genericMethod9", "()Ljava/util/Set;", "()Ljava/util/Set<*>;", $PUBLIC},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&TestParameterizedType::main)), "java.lang.Exception"},
-	{"testReflexes", "(Ljava/util/List;)Z", "(Ljava/util/List<Ljava/lang/reflect/Type;>;)Z", $STATIC, $method(static_cast<bool(*)($List*)>(&TestParameterizedType::testReflexes))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TestParameterizedType, init$, void)},
+	{"createTypes", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/reflect/Type;>;", $STATIC, $staticMethod(TestParameterizedType, createTypes, $List*), "java.lang.Exception"},
+	{"genericMethod0", "()Ljava/lang/Object;", "<T:Ljava/lang/Object;>()TT;", $PUBLIC, $virtualMethod(TestParameterizedType, genericMethod0, $Object*)},
+	{"genericMethod1", "()Ljava/util/Set;", "<T:Ljava/lang/Object;>()Ljava/util/Set<TT;>;", $PUBLIC, $virtualMethod(TestParameterizedType, genericMethod1, $Set*)},
+	{"genericMethod2", "()Ljava/util/Set;", "<T:Ljava/lang/Object;>()Ljava/util/Set<TT;>;", $PUBLIC, $virtualMethod(TestParameterizedType, genericMethod2, $Set*)},
+	{"genericMethod3", "()Ljava/util/List;", "<S:Ljava/lang/Object;>()Ljava/util/List<TS;>;", $PUBLIC, $virtualMethod(TestParameterizedType, genericMethod3, $List*)},
+	{"genericMethod4", "()Ljava/util/Map;", "<X:Ljava/lang/Object;Y:Ljava/lang/Object;>()Ljava/util/Map<TX;TY;>;", $PUBLIC, $virtualMethod(TestParameterizedType, genericMethod4, $Map*)},
+	{"genericMethod5", "()[Ljava/lang/Object;", "<T:Ljava/lang/Object;>()[TT;", $PUBLIC, $virtualMethod(TestParameterizedType, genericMethod5, $ObjectArray*)},
+	{"genericMethod6", "()[Ljava/lang/Object;", "<T:Ljava/lang/Object;>()[TT;", $PUBLIC, $virtualMethod(TestParameterizedType, genericMethod6, $ObjectArray*)},
+	{"genericMethod7", "()Ljava/util/Set;", "()Ljava/util/Set<+Ljava/lang/Cloneable;>;", $PUBLIC, $virtualMethod(TestParameterizedType, genericMethod7, $Set*)},
+	{"genericMethod8", "()Ljava/util/Set;", "()Ljava/util/Set<-Ljava/lang/Number;>;", $PUBLIC, $virtualMethod(TestParameterizedType, genericMethod8, $Set*)},
+	{"genericMethod9", "()Ljava/util/Set;", "()Ljava/util/Set<*>;", $PUBLIC, $virtualMethod(TestParameterizedType, genericMethod9, $Set*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TestParameterizedType, main, void, $StringArray*), "java.lang.Exception"},
+	{"testReflexes", "(Ljava/util/List;)Z", "(Ljava/util/List<Ljava/lang/reflect/Type;>;)Z", $STATIC, $staticMethod(TestParameterizedType, testReflexes, bool, $List*)},
 	{}
 };
 

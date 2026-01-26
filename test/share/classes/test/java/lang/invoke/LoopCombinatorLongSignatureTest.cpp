@@ -44,9 +44,9 @@ $FieldInfo _LoopCombinatorLongSignatureTest_FieldInfo_[] = {
 };
 
 $MethodInfo _LoopCombinatorLongSignatureTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(LoopCombinatorLongSignatureTest::*)()>(&LoopCombinatorLongSignatureTest::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&LoopCombinatorLongSignatureTest::main))},
-	{"testLongSignature", "(IZZ)V", nullptr, $STATIC, $method(static_cast<void(*)(int32_t,bool,bool)>(&LoopCombinatorLongSignatureTest::testLongSignature))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(LoopCombinatorLongSignatureTest, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(LoopCombinatorLongSignatureTest, main, void, $StringArray*)},
+	{"testLongSignature", "(IZZ)V", nullptr, $STATIC, $staticMethod(LoopCombinatorLongSignatureTest, testLongSignature, void, int32_t, bool, bool)},
 	{}
 };
 

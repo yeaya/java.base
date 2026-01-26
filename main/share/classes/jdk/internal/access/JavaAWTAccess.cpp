@@ -10,7 +10,7 @@ namespace jdk {
 		namespace access {
 
 $MethodInfo _JavaAWTAccess_MethodInfo_[] = {
-	{"getAppletContext", "()Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
+	{"getAppletContext", "()Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JavaAWTAccess, getAppletContext, $Object*)},
 	{}
 };
 

@@ -36,15 +36,15 @@ $FieldInfo _InflaterOutputStream_FieldInfo_[] = {
 };
 
 $MethodInfo _InflaterOutputStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $method(static_cast<void(InflaterOutputStream::*)($OutputStream*)>(&InflaterOutputStream::init$))},
-	{"<init>", "(Ljava/io/OutputStream;Ljava/util/zip/Inflater;)V", nullptr, $PUBLIC, $method(static_cast<void(InflaterOutputStream::*)($OutputStream*,$Inflater*)>(&InflaterOutputStream::init$))},
-	{"<init>", "(Ljava/io/OutputStream;Ljava/util/zip/Inflater;I)V", nullptr, $PUBLIC, $method(static_cast<void(InflaterOutputStream::*)($OutputStream*,$Inflater*,int32_t)>(&InflaterOutputStream::init$))},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"ensureOpen", "()V", nullptr, $PRIVATE, $method(static_cast<void(InflaterOutputStream::*)()>(&InflaterOutputStream::ensureOpen)), "java.io.IOException"},
-	{"finish", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"flush", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"write", "(I)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"write", "([BII)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $method(InflaterOutputStream, init$, void, $OutputStream*)},
+	{"<init>", "(Ljava/io/OutputStream;Ljava/util/zip/Inflater;)V", nullptr, $PUBLIC, $method(InflaterOutputStream, init$, void, $OutputStream*, $Inflater*)},
+	{"<init>", "(Ljava/io/OutputStream;Ljava/util/zip/Inflater;I)V", nullptr, $PUBLIC, $method(InflaterOutputStream, init$, void, $OutputStream*, $Inflater*, int32_t)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(InflaterOutputStream, close, void), "java.io.IOException"},
+	{"ensureOpen", "()V", nullptr, $PRIVATE, $method(InflaterOutputStream, ensureOpen, void), "java.io.IOException"},
+	{"finish", "()V", nullptr, $PUBLIC, $virtualMethod(InflaterOutputStream, finish, void), "java.io.IOException"},
+	{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(InflaterOutputStream, flush, void), "java.io.IOException"},
+	{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(InflaterOutputStream, write, void, int32_t), "java.io.IOException"},
+	{"write", "([BII)V", nullptr, $PUBLIC, $virtualMethod(InflaterOutputStream, write, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
 	{}
 };
 

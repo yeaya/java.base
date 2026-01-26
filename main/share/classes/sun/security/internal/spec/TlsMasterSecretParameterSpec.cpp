@@ -35,19 +35,19 @@ $FieldInfo _TlsMasterSecretParameterSpec_FieldInfo_[] = {
 };
 
 $MethodInfo _TlsMasterSecretParameterSpec_MethodInfo_[] = {
-	{"<init>", "(Ljavax/crypto/SecretKey;II[B[BLjava/lang/String;II)V", nullptr, $PUBLIC, $method(static_cast<void(TlsMasterSecretParameterSpec::*)($SecretKey*,int32_t,int32_t,$bytes*,$bytes*,$String*,int32_t,int32_t)>(&TlsMasterSecretParameterSpec::init$))},
-	{"<init>", "(Ljavax/crypto/SecretKey;II[BLjava/lang/String;II)V", nullptr, $PUBLIC, $method(static_cast<void(TlsMasterSecretParameterSpec::*)($SecretKey*,int32_t,int32_t,$bytes*,$String*,int32_t,int32_t)>(&TlsMasterSecretParameterSpec::init$))},
-	{"<init>", "(Ljavax/crypto/SecretKey;II[B[B[BLjava/lang/String;II)V", nullptr, $PRIVATE, $method(static_cast<void(TlsMasterSecretParameterSpec::*)($SecretKey*,int32_t,int32_t,$bytes*,$bytes*,$bytes*,$String*,int32_t,int32_t)>(&TlsMasterSecretParameterSpec::init$))},
-	{"checkVersion", "(I)I", nullptr, $STATIC, $method(static_cast<int32_t(*)(int32_t)>(&TlsMasterSecretParameterSpec::checkVersion))},
-	{"getClientRandom", "()[B", nullptr, $PUBLIC},
-	{"getExtendedMasterSecretSessionHash", "()[B", nullptr, $PUBLIC},
-	{"getMajorVersion", "()I", nullptr, $PUBLIC},
-	{"getMinorVersion", "()I", nullptr, $PUBLIC},
-	{"getPRFBlockSize", "()I", nullptr, $PUBLIC},
-	{"getPRFHashAlg", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getPRFHashLength", "()I", nullptr, $PUBLIC},
-	{"getPremasterSecret", "()Ljavax/crypto/SecretKey;", nullptr, $PUBLIC},
-	{"getServerRandom", "()[B", nullptr, $PUBLIC},
+	{"<init>", "(Ljavax/crypto/SecretKey;II[B[BLjava/lang/String;II)V", nullptr, $PUBLIC, $method(TlsMasterSecretParameterSpec, init$, void, $SecretKey*, int32_t, int32_t, $bytes*, $bytes*, $String*, int32_t, int32_t)},
+	{"<init>", "(Ljavax/crypto/SecretKey;II[BLjava/lang/String;II)V", nullptr, $PUBLIC, $method(TlsMasterSecretParameterSpec, init$, void, $SecretKey*, int32_t, int32_t, $bytes*, $String*, int32_t, int32_t)},
+	{"<init>", "(Ljavax/crypto/SecretKey;II[B[B[BLjava/lang/String;II)V", nullptr, $PRIVATE, $method(TlsMasterSecretParameterSpec, init$, void, $SecretKey*, int32_t, int32_t, $bytes*, $bytes*, $bytes*, $String*, int32_t, int32_t)},
+	{"checkVersion", "(I)I", nullptr, $STATIC, $staticMethod(TlsMasterSecretParameterSpec, checkVersion, int32_t, int32_t)},
+	{"getClientRandom", "()[B", nullptr, $PUBLIC, $virtualMethod(TlsMasterSecretParameterSpec, getClientRandom, $bytes*)},
+	{"getExtendedMasterSecretSessionHash", "()[B", nullptr, $PUBLIC, $virtualMethod(TlsMasterSecretParameterSpec, getExtendedMasterSecretSessionHash, $bytes*)},
+	{"getMajorVersion", "()I", nullptr, $PUBLIC, $virtualMethod(TlsMasterSecretParameterSpec, getMajorVersion, int32_t)},
+	{"getMinorVersion", "()I", nullptr, $PUBLIC, $virtualMethod(TlsMasterSecretParameterSpec, getMinorVersion, int32_t)},
+	{"getPRFBlockSize", "()I", nullptr, $PUBLIC, $virtualMethod(TlsMasterSecretParameterSpec, getPRFBlockSize, int32_t)},
+	{"getPRFHashAlg", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TlsMasterSecretParameterSpec, getPRFHashAlg, $String*)},
+	{"getPRFHashLength", "()I", nullptr, $PUBLIC, $virtualMethod(TlsMasterSecretParameterSpec, getPRFHashLength, int32_t)},
+	{"getPremasterSecret", "()Ljavax/crypto/SecretKey;", nullptr, $PUBLIC, $virtualMethod(TlsMasterSecretParameterSpec, getPremasterSecret, $SecretKey*)},
+	{"getServerRandom", "()[B", nullptr, $PUBLIC, $virtualMethod(TlsMasterSecretParameterSpec, getServerRandom, $bytes*)},
 	{}
 };
 

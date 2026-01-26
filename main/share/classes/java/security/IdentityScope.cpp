@@ -25,6 +25,8 @@ using $Identity = ::java::security::Identity;
 using $IdentityScope$1 = ::java::security::IdentityScope$1;
 using $Principal = ::java::security::Principal;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
+using $PublicKey = ::java::security::PublicKey;
+using $Enumeration = ::java::util::Enumeration;
 
 namespace java {
 	namespace security {
@@ -47,21 +49,21 @@ $FieldInfo _IdentityScope_FieldInfo_[] = {
 };
 
 $MethodInfo _IdentityScope_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(IdentityScope::*)()>(&IdentityScope::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(IdentityScope::*)($String*)>(&IdentityScope::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/security/IdentityScope;)V", nullptr, $PUBLIC, $method(static_cast<void(IdentityScope::*)($String*,IdentityScope*)>(&IdentityScope::init$)), "java.security.KeyManagementException"},
-	{"addIdentity", "(Ljava/security/Identity;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.security.KeyManagementException"},
-	{"check", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($String*)>(&IdentityScope::check))},
-	{"getIdentity", "(Ljava/lang/String;)Ljava/security/Identity;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getIdentity", "(Ljava/security/Principal;)Ljava/security/Identity;", nullptr, $PUBLIC},
-	{"getIdentity", "(Ljava/security/PublicKey;)Ljava/security/Identity;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getSystemScope", "()Ljava/security/IdentityScope;", nullptr, $PUBLIC | $STATIC, $method(static_cast<IdentityScope*(*)()>(&IdentityScope::getSystemScope))},
-	{"identities", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/security/Identity;>;", $PUBLIC | $ABSTRACT},
-	{"initializeSystemScope", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&IdentityScope::initializeSystemScope))},
-	{"removeIdentity", "(Ljava/security/Identity;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.security.KeyManagementException"},
-	{"setSystemScope", "(Ljava/security/IdentityScope;)V", nullptr, $PROTECTED | $STATIC, $method(static_cast<void(*)(IdentityScope*)>(&IdentityScope::setSystemScope))},
-	{"size", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(IdentityScope, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(IdentityScope, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/security/IdentityScope;)V", nullptr, $PUBLIC, $method(IdentityScope, init$, void, $String*, IdentityScope*), "java.security.KeyManagementException"},
+	{"addIdentity", "(Ljava/security/Identity;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(IdentityScope, addIdentity, void, $Identity*), "java.security.KeyManagementException"},
+	{"check", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(IdentityScope, check, void, $String*)},
+	{"getIdentity", "(Ljava/lang/String;)Ljava/security/Identity;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(IdentityScope, getIdentity, $Identity*, $String*)},
+	{"getIdentity", "(Ljava/security/Principal;)Ljava/security/Identity;", nullptr, $PUBLIC, $virtualMethod(IdentityScope, getIdentity, $Identity*, $Principal*)},
+	{"getIdentity", "(Ljava/security/PublicKey;)Ljava/security/Identity;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(IdentityScope, getIdentity, $Identity*, $PublicKey*)},
+	{"getSystemScope", "()Ljava/security/IdentityScope;", nullptr, $PUBLIC | $STATIC, $staticMethod(IdentityScope, getSystemScope, IdentityScope*)},
+	{"identities", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/security/Identity;>;", $PUBLIC | $ABSTRACT, $virtualMethod(IdentityScope, identities, $Enumeration*)},
+	{"initializeSystemScope", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(IdentityScope, initializeSystemScope, void)},
+	{"removeIdentity", "(Ljava/security/Identity;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(IdentityScope, removeIdentity, void, $Identity*), "java.security.KeyManagementException"},
+	{"setSystemScope", "(Ljava/security/IdentityScope;)V", nullptr, $PROTECTED | $STATIC, $staticMethod(IdentityScope, setSystemScope, void, IdentityScope*)},
+	{"size", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(IdentityScope, size, int32_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IdentityScope, toString, $String*)},
 	{}
 };
 

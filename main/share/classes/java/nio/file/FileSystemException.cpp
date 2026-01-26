@@ -20,12 +20,12 @@ $FieldInfo _FileSystemException_FieldInfo_[] = {
 };
 
 $MethodInfo _FileSystemException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(FileSystemException::*)($String*)>(&FileSystemException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(FileSystemException::*)($String*,$String*,$String*)>(&FileSystemException::init$))},
-	{"getFile", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getOtherFile", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getReason", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(FileSystemException, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(FileSystemException, init$, void, $String*, $String*, $String*)},
+	{"getFile", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FileSystemException, getFile, $String*)},
+	{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FileSystemException, getMessage, $String*)},
+	{"getOtherFile", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FileSystemException, getOtherFile, $String*)},
+	{"getReason", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FileSystemException, getReason, $String*)},
 	{}
 };
 

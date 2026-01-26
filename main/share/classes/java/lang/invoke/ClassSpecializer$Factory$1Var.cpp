@@ -48,16 +48,16 @@ $FieldInfo _ClassSpecializer$Factory$1Var_FieldInfo_[] = {
 };
 
 $MethodInfo _ClassSpecializer$Factory$1Var_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/invoke/ClassSpecializer$Factory;IILjava/lang/String;)V", "(II)V", 0, $method(static_cast<void(ClassSpecializer$Factory$1Var::*)($ClassSpecializer$Factory*,int32_t,int32_t,$String*)>(&ClassSpecializer$Factory$1Var::init$))},
-	{"<init>", "(Ljava/lang/invoke/ClassSpecializer$Factory;Ljava/lang/String;Ljava/lang/Class;Ljava/lang/invoke/ClassSpecializer$Factory$1Var;Ljava/lang/String;)V", "(Ljava/lang/String;Ljava/lang/Class<*>;Ljava/lang/invoke/ClassSpecializer$Factory$1Var;)V", 0, $method(static_cast<void(ClassSpecializer$Factory$1Var::*)($ClassSpecializer$Factory*,$String*,$Class*,ClassSpecializer$Factory$1Var*,$String*)>(&ClassSpecializer$Factory$1Var::init$))},
-	{"emitFieldInsn", "(ILjdk/internal/org/objectweb/asm/MethodVisitor;)V", nullptr, $PUBLIC},
-	{"emitVarInstruction", "(ILjdk/internal/org/objectweb/asm/MethodVisitor;)V", nullptr, 0},
-	{"fromTypes", "(Ljava/util/List;)Ljava/util/List;", "<X:Ljava/lang/Object;>(Ljava/util/List<TX;>;)Ljava/util/List<Ljava/lang/invoke/ClassSpecializer$Factory$1Var;>;", 0},
-	{"isInHeap", "()Z", nullptr, 0},
-	{"lastOf", "(Ljava/util/List;)Ljava/lang/invoke/ClassSpecializer$Factory$1Var;", "(Ljava/util/List<Ljava/lang/invoke/ClassSpecializer$Factory$1Var;>;)Ljava/lang/invoke/ClassSpecializer$Factory$1Var;", 0},
-	{"nextIndex", "()I", nullptr, 0},
-	{"nextSlotIndex", "()I", nullptr, 0},
-	{"slotSize", "()I", nullptr, 0},
+	{"<init>", "(Ljava/lang/invoke/ClassSpecializer$Factory;IILjava/lang/String;)V", "(II)V", 0, $method(ClassSpecializer$Factory$1Var, init$, void, $ClassSpecializer$Factory*, int32_t, int32_t, $String*)},
+	{"<init>", "(Ljava/lang/invoke/ClassSpecializer$Factory;Ljava/lang/String;Ljava/lang/Class;Ljava/lang/invoke/ClassSpecializer$Factory$1Var;Ljava/lang/String;)V", "(Ljava/lang/String;Ljava/lang/Class<*>;Ljava/lang/invoke/ClassSpecializer$Factory$1Var;)V", 0, $method(ClassSpecializer$Factory$1Var, init$, void, $ClassSpecializer$Factory*, $String*, $Class*, ClassSpecializer$Factory$1Var*, $String*)},
+	{"emitFieldInsn", "(ILjdk/internal/org/objectweb/asm/MethodVisitor;)V", nullptr, $PUBLIC, $virtualMethod(ClassSpecializer$Factory$1Var, emitFieldInsn, void, int32_t, $MethodVisitor*)},
+	{"emitVarInstruction", "(ILjdk/internal/org/objectweb/asm/MethodVisitor;)V", nullptr, 0, $virtualMethod(ClassSpecializer$Factory$1Var, emitVarInstruction, void, int32_t, $MethodVisitor*)},
+	{"fromTypes", "(Ljava/util/List;)Ljava/util/List;", "<X:Ljava/lang/Object;>(Ljava/util/List<TX;>;)Ljava/util/List<Ljava/lang/invoke/ClassSpecializer$Factory$1Var;>;", 0, $virtualMethod(ClassSpecializer$Factory$1Var, fromTypes, $List*, $List*)},
+	{"isInHeap", "()Z", nullptr, 0, $virtualMethod(ClassSpecializer$Factory$1Var, isInHeap, bool)},
+	{"lastOf", "(Ljava/util/List;)Ljava/lang/invoke/ClassSpecializer$Factory$1Var;", "(Ljava/util/List<Ljava/lang/invoke/ClassSpecializer$Factory$1Var;>;)Ljava/lang/invoke/ClassSpecializer$Factory$1Var;", 0, $virtualMethod(ClassSpecializer$Factory$1Var, lastOf, ClassSpecializer$Factory$1Var*, $List*)},
+	{"nextIndex", "()I", nullptr, 0, $virtualMethod(ClassSpecializer$Factory$1Var, nextIndex, int32_t)},
+	{"nextSlotIndex", "()I", nullptr, 0, $virtualMethod(ClassSpecializer$Factory$1Var, nextSlotIndex, int32_t)},
+	{"slotSize", "()I", nullptr, 0, $virtualMethod(ClassSpecializer$Factory$1Var, slotSize, int32_t)},
 	{}
 };
 

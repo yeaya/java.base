@@ -22,11 +22,11 @@ namespace java {
 		namespace cert {
 
 $MethodInfo _CertPathHelperImpl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(CertPathHelperImpl::*)()>(&CertPathHelperImpl::init$))},
-	{"implIsJdkCA", "(Ljava/security/cert/TrustAnchor;)Z", nullptr, $PROTECTED},
-	{"implSetDateAndTime", "(Ljava/security/cert/X509CRLSelector;Ljava/util/Date;J)V", nullptr, $PROTECTED},
-	{"implSetPathToNames", "(Ljava/security/cert/X509CertSelector;Ljava/util/Set;)V", "(Ljava/security/cert/X509CertSelector;Ljava/util/Set<Lsun/security/x509/GeneralNameInterface;>;)V", $PROTECTED},
-	{"initialize", "()V", nullptr, $STATIC | $SYNCHRONIZED, $method(static_cast<void(*)()>(&CertPathHelperImpl::initialize))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(CertPathHelperImpl, init$, void)},
+	{"implIsJdkCA", "(Ljava/security/cert/TrustAnchor;)Z", nullptr, $PROTECTED, $virtualMethod(CertPathHelperImpl, implIsJdkCA, bool, $TrustAnchor*)},
+	{"implSetDateAndTime", "(Ljava/security/cert/X509CRLSelector;Ljava/util/Date;J)V", nullptr, $PROTECTED, $virtualMethod(CertPathHelperImpl, implSetDateAndTime, void, $X509CRLSelector*, $Date*, int64_t)},
+	{"implSetPathToNames", "(Ljava/security/cert/X509CertSelector;Ljava/util/Set;)V", "(Ljava/security/cert/X509CertSelector;Ljava/util/Set<Lsun/security/x509/GeneralNameInterface;>;)V", $PROTECTED, $virtualMethod(CertPathHelperImpl, implSetPathToNames, void, $X509CertSelector*, $Set*)},
+	{"initialize", "()V", nullptr, $STATIC | $SYNCHRONIZED, $staticMethod(CertPathHelperImpl, initialize, void)},
 	{}
 };
 

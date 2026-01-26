@@ -26,10 +26,10 @@ $FieldInfo _RegularEnumSet$EnumSetIterator_FieldInfo_[] = {
 };
 
 $MethodInfo _RegularEnumSet$EnumSetIterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/RegularEnumSet;)V", nullptr, 0, $method(static_cast<void(RegularEnumSet$EnumSetIterator::*)($RegularEnumSet*)>(&RegularEnumSet$EnumSetIterator::init$))},
-	{"hasNext", "()Z", nullptr, $PUBLIC},
-	{"next", "()Ljava/lang/Enum;", "()TE;", $PUBLIC},
-	{"remove", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/RegularEnumSet;)V", nullptr, 0, $method(RegularEnumSet$EnumSetIterator, init$, void, $RegularEnumSet*)},
+	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(RegularEnumSet$EnumSetIterator, hasNext, bool)},
+	{"next", "()Ljava/lang/Enum;", "()TE;", $PUBLIC, $virtualMethod(RegularEnumSet$EnumSetIterator, next, $Object*)},
+	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(RegularEnumSet$EnumSetIterator, remove, void)},
 	{}
 };
 

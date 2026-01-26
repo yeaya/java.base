@@ -20,8 +20,8 @@ using $Pipe$SourceChannel = ::java::nio::channels::Pipe$SourceChannel;
 using $SelectorProvider = ::java::nio::channels::spi::SelectorProvider;
 
 $MethodInfo _EmptyRead_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(EmptyRead::*)()>(&EmptyRead::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&EmptyRead::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(EmptyRead, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(EmptyRead, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

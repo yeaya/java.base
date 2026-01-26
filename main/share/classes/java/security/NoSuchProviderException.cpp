@@ -17,8 +17,8 @@ $FieldInfo _NoSuchProviderException_FieldInfo_[] = {
 };
 
 $MethodInfo _NoSuchProviderException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(NoSuchProviderException::*)()>(&NoSuchProviderException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(NoSuchProviderException::*)($String*)>(&NoSuchProviderException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(NoSuchProviderException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NoSuchProviderException, init$, void, $String*)},
 	{}
 };
 

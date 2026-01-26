@@ -3,6 +3,7 @@
 #include <java/net/InetAddress.h>
 #include <jcpp.h>
 
+using $InetAddressArray = $Array<::java::net::InetAddress>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -11,7 +12,7 @@ namespace java {
 	namespace net {
 
 $MethodInfo _InetAddress$Addresses_MethodInfo_[] = {
-	{"get", "()[Ljava/net/InetAddress;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.net.UnknownHostException"},
+	{"get", "()[Ljava/net/InetAddress;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(InetAddress$Addresses, get, $InetAddressArray*), "java.net.UnknownHostException"},
 	{}
 };
 

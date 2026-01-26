@@ -29,12 +29,12 @@ $FieldInfo _ResponderId$Type_FieldInfo_[] = {
 };
 
 $MethodInfo _ResponderId$Type_MethodInfo_[] = {
-	{"$values", "()[Lsun/security/provider/certpath/ResponderId$Type;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$ResponderId$TypeArray*(*)()>(&ResponderId$Type::$values))},
-	{"<init>", "(Ljava/lang/String;IILjava/lang/String;)V", "(ILjava/lang/String;)V", $PRIVATE, $method(static_cast<void(ResponderId$Type::*)($String*,int32_t,int32_t,$String*)>(&ResponderId$Type::init$))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"value", "()I", nullptr, $PUBLIC, $method(static_cast<int32_t(ResponderId$Type::*)()>(&ResponderId$Type::value))},
-	{"valueOf", "(Ljava/lang/String;)Lsun/security/provider/certpath/ResponderId$Type;", nullptr, $PUBLIC | $STATIC, $method(static_cast<ResponderId$Type*(*)($String*)>(&ResponderId$Type::valueOf))},
-	{"values", "()[Lsun/security/provider/certpath/ResponderId$Type;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$ResponderId$TypeArray*(*)()>(&ResponderId$Type::values))},
+	{"$values", "()[Lsun/security/provider/certpath/ResponderId$Type;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ResponderId$Type, $values, $ResponderId$TypeArray*)},
+	{"<init>", "(Ljava/lang/String;IILjava/lang/String;)V", "(ILjava/lang/String;)V", $PRIVATE, $method(ResponderId$Type, init$, void, $String*, int32_t, int32_t, $String*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ResponderId$Type, toString, $String*)},
+	{"value", "()I", nullptr, $PUBLIC, $method(ResponderId$Type, value, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Lsun/security/provider/certpath/ResponderId$Type;", nullptr, $PUBLIC | $STATIC, $staticMethod(ResponderId$Type, valueOf, ResponderId$Type*, $String*)},
+	{"values", "()[Lsun/security/provider/certpath/ResponderId$Type;", nullptr, $PUBLIC | $STATIC, $staticMethod(ResponderId$Type, values, $ResponderId$TypeArray*)},
 	{}
 };
 

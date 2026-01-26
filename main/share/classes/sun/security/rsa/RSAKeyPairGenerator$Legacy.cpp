@@ -20,7 +20,7 @@ namespace sun {
 		namespace rsa {
 
 $MethodInfo _RSAKeyPairGenerator$Legacy_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(RSAKeyPairGenerator$Legacy::*)()>(&RSAKeyPairGenerator$Legacy::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(RSAKeyPairGenerator$Legacy, init$, void)},
 	{}
 };
 

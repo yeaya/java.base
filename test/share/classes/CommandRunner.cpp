@@ -26,7 +26,7 @@ $FieldInfo _CommandRunner_FieldInfo_[] = {
 };
 
 $MethodInfo _CommandRunner_MethodInfo_[] = {
-	{"<init>", "([Ljava/lang/String;)V", nullptr, $TRANSIENT, $method(static_cast<void(CommandRunner::*)($StringArray*)>(&CommandRunner::init$)), "java.lang.Exception"},
+	{"<init>", "([Ljava/lang/String;)V", nullptr, $TRANSIENT, $method(CommandRunner, init$, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

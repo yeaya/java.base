@@ -16,8 +16,8 @@ namespace java {
 		namespace concurrent {
 
 $MethodInfo _CompletableFuture$ThreadPerTaskExecutor_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(CompletableFuture$ThreadPerTaskExecutor::*)()>(&CompletableFuture$ThreadPerTaskExecutor::init$))},
-	{"execute", "(Ljava/lang/Runnable;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(CompletableFuture$ThreadPerTaskExecutor, init$, void)},
+	{"execute", "(Ljava/lang/Runnable;)V", nullptr, $PUBLIC, $virtualMethod(CompletableFuture$ThreadPerTaskExecutor, execute, void, $Runnable*)},
 	{}
 };
 

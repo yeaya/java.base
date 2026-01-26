@@ -19,9 +19,9 @@ $FieldInfo _VoidDescriptor_FieldInfo_[] = {
 };
 
 $MethodInfo _VoidDescriptor_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(VoidDescriptor::*)()>(&VoidDescriptor::init$))},
-	{"accept", "(Lsun/reflect/generics/visitor/TypeTreeVisitor;)V", "(Lsun/reflect/generics/visitor/TypeTreeVisitor<*>;)V", $PUBLIC},
-	{"make", "()Lsun/reflect/generics/tree/VoidDescriptor;", nullptr, $PUBLIC | $STATIC, $method(static_cast<VoidDescriptor*(*)()>(&VoidDescriptor::make))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(VoidDescriptor, init$, void)},
+	{"accept", "(Lsun/reflect/generics/visitor/TypeTreeVisitor;)V", "(Lsun/reflect/generics/visitor/TypeTreeVisitor<*>;)V", $PUBLIC, $virtualMethod(VoidDescriptor, accept, void, $TypeTreeVisitor*)},
+	{"make", "()Lsun/reflect/generics/tree/VoidDescriptor;", nullptr, $PUBLIC | $STATIC, $staticMethod(VoidDescriptor, make, VoidDescriptor*)},
 	{}
 };
 

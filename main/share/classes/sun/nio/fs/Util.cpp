@@ -47,14 +47,14 @@ $FieldInfo _Util_FieldInfo_[] = {
 };
 
 $MethodInfo _Util_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(Util::*)()>(&Util::init$))},
-	{"followLinks", "([Ljava/nio/file/LinkOption;)Z", nullptr, $STATIC | $TRANSIENT, $method(static_cast<bool(*)($LinkOptionArray*)>(&Util::followLinks))},
-	{"jnuEncoding", "()Ljava/nio/charset/Charset;", nullptr, $STATIC, $method(static_cast<$Charset*(*)()>(&Util::jnuEncoding))},
-	{"newSet", "([Ljava/lang/Object;)Ljava/util/Set;", "<E:Ljava/lang/Object;>([TE;)Ljava/util/Set<TE;>;", $STATIC | $TRANSIENT, $method(static_cast<$Set*(*)($ObjectArray*)>(&Util::newSet)), nullptr, nullptr, _Util_MethodAnnotations_newSet3},
-	{"newSet", "(Ljava/util/Set;[Ljava/lang/Object;)Ljava/util/Set;", "<E:Ljava/lang/Object;>(Ljava/util/Set<TE;>;[TE;)Ljava/util/Set<TE;>;", $STATIC | $TRANSIENT, $method(static_cast<$Set*(*)($Set*,$ObjectArray*)>(&Util::newSet)), nullptr, nullptr, _Util_MethodAnnotations_newSet4},
-	{"split", "(Ljava/lang/String;C)[Ljava/lang/String;", nullptr, $STATIC, $method(static_cast<$StringArray*(*)($String*,char16_t)>(&Util::split))},
-	{"toBytes", "(Ljava/lang/String;)[B", nullptr, $STATIC, $method(static_cast<$bytes*(*)($String*)>(&Util::toBytes))},
-	{"toString", "([B)Ljava/lang/String;", nullptr, $STATIC, $method(static_cast<$String*(*)($bytes*)>(&Util::toString))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(Util, init$, void)},
+	{"followLinks", "([Ljava/nio/file/LinkOption;)Z", nullptr, $STATIC | $TRANSIENT, $staticMethod(Util, followLinks, bool, $LinkOptionArray*)},
+	{"jnuEncoding", "()Ljava/nio/charset/Charset;", nullptr, $STATIC, $staticMethod(Util, jnuEncoding, $Charset*)},
+	{"newSet", "([Ljava/lang/Object;)Ljava/util/Set;", "<E:Ljava/lang/Object;>([TE;)Ljava/util/Set<TE;>;", $STATIC | $TRANSIENT, $staticMethod(Util, newSet, $Set*, $ObjectArray*), nullptr, nullptr, _Util_MethodAnnotations_newSet3},
+	{"newSet", "(Ljava/util/Set;[Ljava/lang/Object;)Ljava/util/Set;", "<E:Ljava/lang/Object;>(Ljava/util/Set<TE;>;[TE;)Ljava/util/Set<TE;>;", $STATIC | $TRANSIENT, $staticMethod(Util, newSet, $Set*, $Set*, $ObjectArray*), nullptr, nullptr, _Util_MethodAnnotations_newSet4},
+	{"split", "(Ljava/lang/String;C)[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(Util, split, $StringArray*, $String*, char16_t)},
+	{"toBytes", "(Ljava/lang/String;)[B", nullptr, $STATIC, $staticMethod(Util, toBytes, $bytes*, $String*)},
+	{"toString", "([B)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(Util, toString, $String*, $bytes*)},
 	{}
 };
 

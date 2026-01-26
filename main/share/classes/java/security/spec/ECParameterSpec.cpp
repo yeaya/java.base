@@ -27,11 +27,11 @@ $FieldInfo _ECParameterSpec_FieldInfo_[] = {
 };
 
 $MethodInfo _ECParameterSpec_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/spec/EllipticCurve;Ljava/security/spec/ECPoint;Ljava/math/BigInteger;I)V", nullptr, $PUBLIC, $method(static_cast<void(ECParameterSpec::*)($EllipticCurve*,$ECPoint*,$BigInteger*,int32_t)>(&ECParameterSpec::init$))},
-	{"getCofactor", "()I", nullptr, $PUBLIC},
-	{"getCurve", "()Ljava/security/spec/EllipticCurve;", nullptr, $PUBLIC},
-	{"getGenerator", "()Ljava/security/spec/ECPoint;", nullptr, $PUBLIC},
-	{"getOrder", "()Ljava/math/BigInteger;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/security/spec/EllipticCurve;Ljava/security/spec/ECPoint;Ljava/math/BigInteger;I)V", nullptr, $PUBLIC, $method(ECParameterSpec, init$, void, $EllipticCurve*, $ECPoint*, $BigInteger*, int32_t)},
+	{"getCofactor", "()I", nullptr, $PUBLIC, $virtualMethod(ECParameterSpec, getCofactor, int32_t)},
+	{"getCurve", "()Ljava/security/spec/EllipticCurve;", nullptr, $PUBLIC, $virtualMethod(ECParameterSpec, getCurve, $EllipticCurve*)},
+	{"getGenerator", "()Ljava/security/spec/ECPoint;", nullptr, $PUBLIC, $virtualMethod(ECParameterSpec, getGenerator, $ECPoint*)},
+	{"getOrder", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(ECParameterSpec, getOrder, $BigInteger*)},
 	{}
 };
 

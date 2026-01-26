@@ -30,18 +30,18 @@ $FieldInfo _Compare_FieldInfo_[] = {
 };
 
 $MethodInfo _Compare_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Compare::*)()>(&Compare::init$))},
-	{"check", "(Z)V", nullptr, 0},
-	{"compareAll", "(JJ)V", nullptr, 0},
-	{"equal", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, 0},
-	{"fail", "()V", nullptr, 0},
-	{"fail", "(Ljava/lang/String;)V", nullptr, 0},
-	{"instanceMain", "([Ljava/lang/String;)V", nullptr, $PUBLIC, nullptr, "java.lang.Throwable"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Compare::main)), "java.lang.Throwable"},
-	{"pass", "()V", nullptr, 0},
-	{"test", "([Ljava/lang/String;)V", nullptr, 0, nullptr, "java.lang.Exception"},
-	{"toBoolean", "(J)Z", nullptr, 0},
-	{"unexpected", "(Ljava/lang/Throwable;)V", nullptr, 0},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Compare, init$, void)},
+	{"check", "(Z)V", nullptr, 0, $virtualMethod(Compare, check, void, bool)},
+	{"compareAll", "(JJ)V", nullptr, 0, $virtualMethod(Compare, compareAll, void, int64_t, int64_t)},
+	{"equal", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, 0, $virtualMethod(Compare, equal, void, Object$*, Object$*)},
+	{"fail", "()V", nullptr, 0, $virtualMethod(Compare, fail, void)},
+	{"fail", "(Ljava/lang/String;)V", nullptr, 0, $virtualMethod(Compare, fail, void, $String*)},
+	{"instanceMain", "([Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Compare, instanceMain, void, $StringArray*), "java.lang.Throwable"},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Compare, main, void, $StringArray*), "java.lang.Throwable"},
+	{"pass", "()V", nullptr, 0, $virtualMethod(Compare, pass, void)},
+	{"test", "([Ljava/lang/String;)V", nullptr, 0, $virtualMethod(Compare, test, void, $StringArray*), "java.lang.Exception"},
+	{"toBoolean", "(J)Z", nullptr, 0, $virtualMethod(Compare, toBoolean, bool, int64_t)},
+	{"unexpected", "(Ljava/lang/Throwable;)V", nullptr, 0, $virtualMethod(Compare, unexpected, void, $Throwable*)},
 	{}
 };
 

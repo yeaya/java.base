@@ -20,7 +20,7 @@ $CompoundAttribute _SingleMemberFloatArray_Annotations_[] = {
 };
 
 $MethodInfo _SingleMemberFloatArray_MethodInfo_[] = {
-	{"value", "()[F", nullptr, $PUBLIC | $ABSTRACT},
+	{"value", "()[F", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SingleMemberFloatArray, value, $floats*)},
 	{}
 };
 

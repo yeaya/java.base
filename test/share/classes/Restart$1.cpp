@@ -17,8 +17,8 @@ $FieldInfo _Restart$1_FieldInfo_[] = {
 };
 
 $MethodInfo _Restart$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/atomic/AtomicInteger;)V", "()V", 0, $method(static_cast<void(Restart$1::*)($AtomicInteger*)>(&Restart$1::init$))},
-	{"uncaughtException", "(Ljava/lang/Thread;Ljava/lang/Throwable;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/concurrent/atomic/AtomicInteger;)V", "()V", 0, $method(Restart$1, init$, void, $AtomicInteger*)},
+	{"uncaughtException", "(Ljava/lang/Thread;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(Restart$1, uncaughtException, void, $Thread*, $Throwable*)},
 	{}
 };
 

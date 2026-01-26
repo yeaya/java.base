@@ -37,12 +37,12 @@ $FieldInfo _JavaRuntimeURLConnection$1_FieldInfo_[] = {
 };
 
 $MethodInfo _JavaRuntimeURLConnection$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/net/URL;Ljava/lang/String;Ljdk/internal/jimage/ImageLocation;)V", nullptr, 0, $method(static_cast<void(JavaRuntimeURLConnection$1::*)($String*,$URL*,$String*,$ImageLocation*)>(&JavaRuntimeURLConnection$1::init$))},
-	{"getCodeSourceURL", "()Ljava/net/URL;", nullptr, $PUBLIC},
-	{"getContentLength", "()I", nullptr, $PUBLIC},
-	{"getInputStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getURL", "()Ljava/net/URL;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Ljava/net/URL;Ljava/lang/String;Ljdk/internal/jimage/ImageLocation;)V", nullptr, 0, $method(JavaRuntimeURLConnection$1, init$, void, $String*, $URL*, $String*, $ImageLocation*)},
+	{"getCodeSourceURL", "()Ljava/net/URL;", nullptr, $PUBLIC, $virtualMethod(JavaRuntimeURLConnection$1, getCodeSourceURL, $URL*)},
+	{"getContentLength", "()I", nullptr, $PUBLIC, $virtualMethod(JavaRuntimeURLConnection$1, getContentLength, int32_t)},
+	{"getInputStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(JavaRuntimeURLConnection$1, getInputStream, $InputStream*), "java.io.IOException"},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JavaRuntimeURLConnection$1, getName, $String*)},
+	{"getURL", "()Ljava/net/URL;", nullptr, $PUBLIC, $virtualMethod(JavaRuntimeURLConnection$1, getURL, $URL*)},
 	{}
 };
 

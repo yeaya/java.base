@@ -19,8 +19,8 @@ namespace java {
 			namespace spi {
 
 $MethodInfo _AsynchronousChannelProvider$ProviderHolder$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(AsynchronousChannelProvider$ProviderHolder$1::*)()>(&AsynchronousChannelProvider$ProviderHolder$1::init$))},
-	{"run", "()Ljava/nio/channels/spi/AsynchronousChannelProvider;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(AsynchronousChannelProvider$ProviderHolder$1, init$, void)},
+	{"run", "()Ljava/nio/channels/spi/AsynchronousChannelProvider;", nullptr, $PUBLIC, $virtualMethod(AsynchronousChannelProvider$ProviderHolder$1, run, $Object*)},
 	{}
 };
 

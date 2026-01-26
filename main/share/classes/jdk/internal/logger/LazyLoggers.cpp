@@ -75,8 +75,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo LazyLoggers$$Lambda$getLoggerFinder::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(LazyLoggers$$Lambda$getLoggerFinder::*)()>(&LazyLoggers$$Lambda$getLoggerFinder::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(LazyLoggers$$Lambda$getLoggerFinder, init$, void)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LazyLoggers$$Lambda$getLoggerFinder, run, $Object*)},
 	{}
 };
 $ClassInfo LazyLoggers$$Lambda$getLoggerFinder::classInfo$ = {
@@ -118,8 +118,8 @@ $FieldInfo LazyLoggers$$Lambda$lambda$getLoggerFromFinder$0$1::fieldInfos[3] = {
 	{}
 };
 $MethodInfo LazyLoggers$$Lambda$lambda$getLoggerFromFinder$0$1::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Module;)V", nullptr, $PUBLIC, $method(static_cast<void(LazyLoggers$$Lambda$lambda$getLoggerFromFinder$0$1::*)($String*,$Module*)>(&LazyLoggers$$Lambda$lambda$getLoggerFromFinder$0$1::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Module;)V", nullptr, $PUBLIC, $method(LazyLoggers$$Lambda$lambda$getLoggerFromFinder$0$1, init$, void, $String*, $Module*)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LazyLoggers$$Lambda$lambda$getLoggerFromFinder$0$1, run, $Object*)},
 	{}
 };
 $ClassInfo LazyLoggers$$Lambda$lambda$getLoggerFromFinder$0$1::classInfo$ = {
@@ -145,12 +145,12 @@ $FieldInfo _LazyLoggers_FieldInfo_[] = {
 };
 
 $MethodInfo _LazyLoggers_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(LazyLoggers::*)()>(&LazyLoggers::init$))},
-	{"accessLoggerFinder", "()Ljava/lang/System$LoggerFinder;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$System$LoggerFinder*(*)()>(&LazyLoggers::accessLoggerFinder))},
-	{"getLazyLogger", "(Ljava/lang/String;Ljava/lang/Module;)Ljava/lang/System$Logger;", nullptr, $PUBLIC | $STATIC | $FINAL, $method(static_cast<$System$Logger*(*)($String*,$Module*)>(&LazyLoggers::getLazyLogger))},
-	{"getLogger", "(Ljava/lang/String;Ljava/lang/Module;)Ljava/lang/System$Logger;", nullptr, $PUBLIC | $STATIC | $FINAL, $method(static_cast<$System$Logger*(*)($String*,$Module*)>(&LazyLoggers::getLogger))},
-	{"getLoggerFromFinder", "(Ljava/lang/String;Ljava/lang/Module;)Ljava/lang/System$Logger;", nullptr, $STATIC, $method(static_cast<$System$Logger*(*)($String*,$Module*)>(&LazyLoggers::getLoggerFromFinder))},
-	{"lambda$getLoggerFromFinder$0", "(Ljava/lang/String;Ljava/lang/Module;)Ljava/lang/System$Logger;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$System$Logger*(*)($String*,$Module*)>(&LazyLoggers::lambda$getLoggerFromFinder$0))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(LazyLoggers, init$, void)},
+	{"accessLoggerFinder", "()Ljava/lang/System$LoggerFinder;", nullptr, $PRIVATE | $STATIC, $staticMethod(LazyLoggers, accessLoggerFinder, $System$LoggerFinder*)},
+	{"getLazyLogger", "(Ljava/lang/String;Ljava/lang/Module;)Ljava/lang/System$Logger;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(LazyLoggers, getLazyLogger, $System$Logger*, $String*, $Module*)},
+	{"getLogger", "(Ljava/lang/String;Ljava/lang/Module;)Ljava/lang/System$Logger;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(LazyLoggers, getLogger, $System$Logger*, $String*, $Module*)},
+	{"getLoggerFromFinder", "(Ljava/lang/String;Ljava/lang/Module;)Ljava/lang/System$Logger;", nullptr, $STATIC, $staticMethod(LazyLoggers, getLoggerFromFinder, $System$Logger*, $String*, $Module*)},
+	{"lambda$getLoggerFromFinder$0", "(Ljava/lang/String;Ljava/lang/Module;)Ljava/lang/System$Logger;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LazyLoggers, lambda$getLoggerFromFinder$0, $System$Logger*, $String*, $Module*)},
 	{}
 };
 

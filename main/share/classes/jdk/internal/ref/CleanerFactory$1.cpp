@@ -19,8 +19,8 @@ namespace jdk {
 		namespace ref {
 
 $MethodInfo _CleanerFactory$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(CleanerFactory$1::*)()>(&CleanerFactory$1::init$))},
-	{"newThread", "(Ljava/lang/Runnable;)Ljava/lang/Thread;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(CleanerFactory$1, init$, void)},
+	{"newThread", "(Ljava/lang/Runnable;)Ljava/lang/Thread;", nullptr, $PUBLIC, $virtualMethod(CleanerFactory$1, newThread, $Thread*, $Runnable*)},
 	{}
 };
 

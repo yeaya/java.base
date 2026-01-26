@@ -20,11 +20,13 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
+using $ByteBuffer = ::java::nio::ByteBuffer;
 using $GeneralSecurityException = ::java::security::GeneralSecurityException;
 using $SecureRandom = ::java::security::SecureRandom;
 using $SecretKey = ::javax::crypto::SecretKey;
 using $IvParameterSpec = ::javax::crypto::spec::IvParameterSpec;
 using $Authenticator = ::sun::security::ssl::Authenticator;
+using $Plaintext = ::sun::security::ssl::Plaintext;
 using $ProtocolVersion = ::sun::security::ssl::ProtocolVersion;
 using $SSLCipher = ::sun::security::ssl::SSLCipher;
 
@@ -42,14 +44,14 @@ $FieldInfo _SSLCipher$SSLReadCipher_FieldInfo_[] = {
 };
 
 $MethodInfo _SSLCipher$SSLReadCipher_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/ssl/Authenticator;Lsun/security/ssl/ProtocolVersion;)V", nullptr, 0, $method(static_cast<void(SSLCipher$SSLReadCipher::*)($Authenticator*,$ProtocolVersion*)>(&SSLCipher$SSLReadCipher::init$))},
-	{"atKeyLimit", "()Z", nullptr, $PUBLIC},
-	{"decrypt", "(BLjava/nio/ByteBuffer;[B)Lsun/security/ssl/Plaintext;", nullptr, $ABSTRACT, nullptr, "java.security.GeneralSecurityException"},
-	{"dispose", "()V", nullptr, 0},
-	{"estimateFragmentSize", "(II)I", nullptr, $ABSTRACT},
-	{"isNullCipher", "()Z", nullptr, 0},
-	{"nullDTlsReadCipher", "()Lsun/security/ssl/SSLCipher$SSLReadCipher;", nullptr, $STATIC | $FINAL, $method(static_cast<SSLCipher$SSLReadCipher*(*)()>(&SSLCipher$SSLReadCipher::nullDTlsReadCipher))},
-	{"nullTlsReadCipher", "()Lsun/security/ssl/SSLCipher$SSLReadCipher;", nullptr, $STATIC | $FINAL, $method(static_cast<SSLCipher$SSLReadCipher*(*)()>(&SSLCipher$SSLReadCipher::nullTlsReadCipher))},
+	{"<init>", "(Lsun/security/ssl/Authenticator;Lsun/security/ssl/ProtocolVersion;)V", nullptr, 0, $method(SSLCipher$SSLReadCipher, init$, void, $Authenticator*, $ProtocolVersion*)},
+	{"atKeyLimit", "()Z", nullptr, $PUBLIC, $virtualMethod(SSLCipher$SSLReadCipher, atKeyLimit, bool)},
+	{"decrypt", "(BLjava/nio/ByteBuffer;[B)Lsun/security/ssl/Plaintext;", nullptr, $ABSTRACT, $virtualMethod(SSLCipher$SSLReadCipher, decrypt, $Plaintext*, int8_t, $ByteBuffer*, $bytes*), "java.security.GeneralSecurityException"},
+	{"dispose", "()V", nullptr, 0, $virtualMethod(SSLCipher$SSLReadCipher, dispose, void)},
+	{"estimateFragmentSize", "(II)I", nullptr, $ABSTRACT, $virtualMethod(SSLCipher$SSLReadCipher, estimateFragmentSize, int32_t, int32_t, int32_t)},
+	{"isNullCipher", "()Z", nullptr, 0, $virtualMethod(SSLCipher$SSLReadCipher, isNullCipher, bool)},
+	{"nullDTlsReadCipher", "()Lsun/security/ssl/SSLCipher$SSLReadCipher;", nullptr, $STATIC | $FINAL, $staticMethod(SSLCipher$SSLReadCipher, nullDTlsReadCipher, SSLCipher$SSLReadCipher*)},
+	{"nullTlsReadCipher", "()Lsun/security/ssl/SSLCipher$SSLReadCipher;", nullptr, $STATIC | $FINAL, $staticMethod(SSLCipher$SSLReadCipher, nullTlsReadCipher, SSLCipher$SSLReadCipher*)},
 	{}
 };
 

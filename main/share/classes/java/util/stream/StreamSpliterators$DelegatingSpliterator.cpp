@@ -27,16 +27,16 @@ $FieldInfo _StreamSpliterators$DelegatingSpliterator_FieldInfo_[] = {
 };
 
 $MethodInfo _StreamSpliterators$DelegatingSpliterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/function/Supplier;)V", "(Ljava/util/function/Supplier<+TT_SPLITR;>;)V", 0, $method(static_cast<void(StreamSpliterators$DelegatingSpliterator::*)($Supplier*)>(&StreamSpliterators$DelegatingSpliterator::init$))},
-	{"characteristics", "()I", nullptr, $PUBLIC},
-	{"estimateSize", "()J", nullptr, $PUBLIC},
-	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TT;>;)V", $PUBLIC},
-	{"get", "()Ljava/util/Spliterator;", "()TT_SPLITR;", 0},
-	{"getComparator", "()Ljava/util/Comparator;", "()Ljava/util/Comparator<-TT;>;", $PUBLIC},
-	{"getExactSizeIfKnown", "()J", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-TT;>;)Z", $PUBLIC},
-	{"trySplit", "()Ljava/util/Spliterator;", "()TT_SPLITR;", $PUBLIC},
+	{"<init>", "(Ljava/util/function/Supplier;)V", "(Ljava/util/function/Supplier<+TT_SPLITR;>;)V", 0, $method(StreamSpliterators$DelegatingSpliterator, init$, void, $Supplier*)},
+	{"characteristics", "()I", nullptr, $PUBLIC, $virtualMethod(StreamSpliterators$DelegatingSpliterator, characteristics, int32_t)},
+	{"estimateSize", "()J", nullptr, $PUBLIC, $virtualMethod(StreamSpliterators$DelegatingSpliterator, estimateSize, int64_t)},
+	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TT;>;)V", $PUBLIC, $virtualMethod(StreamSpliterators$DelegatingSpliterator, forEachRemaining, void, $Consumer*)},
+	{"get", "()Ljava/util/Spliterator;", "()TT_SPLITR;", 0, $virtualMethod(StreamSpliterators$DelegatingSpliterator, get, $Spliterator*)},
+	{"getComparator", "()Ljava/util/Comparator;", "()Ljava/util/Comparator<-TT;>;", $PUBLIC, $virtualMethod(StreamSpliterators$DelegatingSpliterator, getComparator, $Comparator*)},
+	{"getExactSizeIfKnown", "()J", nullptr, $PUBLIC, $virtualMethod(StreamSpliterators$DelegatingSpliterator, getExactSizeIfKnown, int64_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StreamSpliterators$DelegatingSpliterator, toString, $String*)},
+	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-TT;>;)Z", $PUBLIC, $virtualMethod(StreamSpliterators$DelegatingSpliterator, tryAdvance, bool, $Consumer*)},
+	{"trySplit", "()Ljava/util/Spliterator;", "()TT_SPLITR;", $PUBLIC, $virtualMethod(StreamSpliterators$DelegatingSpliterator, trySplit, $Spliterator*)},
 	{}
 };
 

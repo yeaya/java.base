@@ -49,11 +49,11 @@ $FieldInfo _ShortWrite_FieldInfo_[] = {
 };
 
 $MethodInfo _ShortWrite_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ShortWrite::*)()>(&ShortWrite::init$))},
-	{"computeChecksum", "([Ljava/nio/ByteBuffer;)J", nullptr, $STATIC | $TRANSIENT, $method(static_cast<int64_t(*)($ByteBufferArray*)>(&ShortWrite::computeChecksum))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&ShortWrite::main)), "java.lang.Exception"},
-	{"test1", "(Ljava/util/concurrent/ExecutorService;Ljava/nio/channels/SocketChannel;Ljava/nio/channels/SocketChannel;I)V", nullptr, $STATIC, $method(static_cast<void(*)($ExecutorService*,$SocketChannel*,$SocketChannel*,int32_t)>(&ShortWrite::test1)), "java.lang.Exception"},
-	{"testN", "(Ljava/util/concurrent/ExecutorService;Ljava/nio/channels/SocketChannel;Ljava/nio/channels/SocketChannel;[I)V", nullptr, $STATIC | $TRANSIENT, $method(static_cast<void(*)($ExecutorService*,$SocketChannel*,$SocketChannel*,$ints*)>(&ShortWrite::testN)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ShortWrite, init$, void)},
+	{"computeChecksum", "([Ljava/nio/ByteBuffer;)J", nullptr, $STATIC | $TRANSIENT, $staticMethod(ShortWrite, computeChecksum, int64_t, $ByteBufferArray*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ShortWrite, main, void, $StringArray*), "java.lang.Exception"},
+	{"test1", "(Ljava/util/concurrent/ExecutorService;Ljava/nio/channels/SocketChannel;Ljava/nio/channels/SocketChannel;I)V", nullptr, $STATIC, $staticMethod(ShortWrite, test1, void, $ExecutorService*, $SocketChannel*, $SocketChannel*, int32_t), "java.lang.Exception"},
+	{"testN", "(Ljava/util/concurrent/ExecutorService;Ljava/nio/channels/SocketChannel;Ljava/nio/channels/SocketChannel;[I)V", nullptr, $STATIC | $TRANSIENT, $staticMethod(ShortWrite, testN, void, $ExecutorService*, $SocketChannel*, $SocketChannel*, $ints*), "java.lang.Exception"},
 	{}
 };
 

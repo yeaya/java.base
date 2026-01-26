@@ -11,7 +11,7 @@ namespace java {
 $MethodInfo _Record_MethodInfo_[] = {
 	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
 	{"hashCode", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(Record::*)()>(&Record::init$))},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(Record, init$, void)},
 	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
 	{}
 };

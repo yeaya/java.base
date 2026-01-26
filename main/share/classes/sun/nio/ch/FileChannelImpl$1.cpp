@@ -15,11 +15,11 @@ namespace sun {
 		namespace ch {
 
 $MethodInfo _FileChannelImpl$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(FileChannelImpl$1::*)()>(&FileChannelImpl$1::init$))},
-	{"getCount", "()J", nullptr, $PUBLIC},
-	{"getMemoryUsed", "()J", nullptr, $PUBLIC},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getTotalCapacity", "()J", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(FileChannelImpl$1, init$, void)},
+	{"getCount", "()J", nullptr, $PUBLIC, $virtualMethod(FileChannelImpl$1, getCount, int64_t)},
+	{"getMemoryUsed", "()J", nullptr, $PUBLIC, $virtualMethod(FileChannelImpl$1, getMemoryUsed, int64_t)},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FileChannelImpl$1, getName, $String*)},
+	{"getTotalCapacity", "()J", nullptr, $PUBLIC, $virtualMethod(FileChannelImpl$1, getTotalCapacity, int64_t)},
 	{}
 };
 

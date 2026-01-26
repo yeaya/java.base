@@ -17,9 +17,9 @@ $FieldInfo _ImplicitStringConcatOrder_FieldInfo_[] = {
 };
 
 $MethodInfo _ImplicitStringConcatOrder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ImplicitStringConcatOrder::*)()>(&ImplicitStringConcatOrder::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&ImplicitStringConcatOrder::main)), "java.lang.Exception"},
-	{"test", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($String*,$String*)>(&ImplicitStringConcatOrder::test))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ImplicitStringConcatOrder, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ImplicitStringConcatOrder, main, void, $StringArray*), "java.lang.Exception"},
+	{"test", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ImplicitStringConcatOrder, test, void, $String*, $String*)},
 	{}
 };
 

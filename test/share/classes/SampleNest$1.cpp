@@ -18,8 +18,8 @@ $FieldInfo _SampleNest$1_FieldInfo_[] = {
 };
 
 $MethodInfo _SampleNest$1_MethodInfo_[] = {
-	{"<init>", "(LSampleNest;)V", nullptr, 0, $method(static_cast<void(SampleNest$1::*)($SampleNest*)>(&SampleNest$1::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(LSampleNest;)V", nullptr, 0, $method(SampleNest$1, init$, void, $SampleNest*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(SampleNest$1, run, void)},
 	{}
 };
 

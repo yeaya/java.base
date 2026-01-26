@@ -29,8 +29,8 @@ $FieldInfo _Bug7177315_FieldInfo_[] = {
 };
 
 $MethodInfo _Bug7177315_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Bug7177315::*)()>(&Bug7177315::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Bug7177315::main)), "java.text.ParseException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Bug7177315, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Bug7177315, main, void, $StringArray*), "java.text.ParseException"},
 	{}
 };
 

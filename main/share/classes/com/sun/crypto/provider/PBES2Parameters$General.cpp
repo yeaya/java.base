@@ -14,7 +14,7 @@ namespace com {
 			namespace provider {
 
 $MethodInfo _PBES2Parameters$General_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PBES2Parameters$General::*)()>(&PBES2Parameters$General::init$)), "java.security.NoSuchAlgorithmException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PBES2Parameters$General, init$, void), "java.security.NoSuchAlgorithmException"},
 	{}
 };
 

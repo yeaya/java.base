@@ -18,7 +18,7 @@ $FieldInfo _NonWritableChannelException_FieldInfo_[] = {
 };
 
 $MethodInfo _NonWritableChannelException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(NonWritableChannelException::*)()>(&NonWritableChannelException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(NonWritableChannelException, init$, void)},
 	{}
 };
 

@@ -21,8 +21,8 @@ $FieldInfo _SubjectDomainCombiner$2_FieldInfo_[] = {
 };
 
 $MethodInfo _SubjectDomainCombiner$2_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/ProtectionDomain;)V", "()V", 0, $method(static_cast<void(SubjectDomainCombiner$2::*)($ProtectionDomain*)>(&SubjectDomainCombiner$2::init$))},
-	{"run", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/security/ProtectionDomain;)V", "()V", 0, $method(SubjectDomainCombiner$2, init$, void, $ProtectionDomain*)},
+	{"run", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SubjectDomainCombiner$2, run, $Object*)},
 	{}
 };
 

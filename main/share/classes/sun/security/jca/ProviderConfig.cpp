@@ -58,20 +58,20 @@ $FieldInfo _ProviderConfig_FieldInfo_[] = {
 };
 
 $MethodInfo _ProviderConfig_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(ProviderConfig::*)($String*,$String*)>(&ProviderConfig::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(ProviderConfig::*)($String*)>(&ProviderConfig::init$))},
-	{"<init>", "(Ljava/security/Provider;)V", nullptr, 0, $method(static_cast<void(ProviderConfig::*)($Provider*)>(&ProviderConfig::init$))},
-	{"checkSunPKCS11Solaris", "()V", nullptr, $PRIVATE, $method(static_cast<void(ProviderConfig::*)()>(&ProviderConfig::checkSunPKCS11Solaris))},
-	{"disableLoad", "()V", nullptr, $PRIVATE, $method(static_cast<void(ProviderConfig::*)()>(&ProviderConfig::disableLoad))},
-	{"doLoadProvider", "()Ljava/security/Provider;", nullptr, $PRIVATE, $method(static_cast<$Provider*(ProviderConfig::*)()>(&ProviderConfig::doLoadProvider))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"expand", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($String*)>(&ProviderConfig::expand))},
-	{"getProvider", "()Ljava/security/Provider;", nullptr, 0, $method(static_cast<$Provider*(ProviderConfig::*)()>(&ProviderConfig::getProvider))},
-	{"hasArgument", "()Z", nullptr, $PRIVATE, $method(static_cast<bool(ProviderConfig::*)()>(&ProviderConfig::hasArgument))},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"isLoaded", "()Z", nullptr, 0, $method(static_cast<bool(ProviderConfig::*)()>(&ProviderConfig::isLoaded))},
-	{"shouldLoad", "()Z", nullptr, $PRIVATE, $method(static_cast<bool(ProviderConfig::*)()>(&ProviderConfig::shouldLoad))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(ProviderConfig, init$, void, $String*, $String*)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(ProviderConfig, init$, void, $String*)},
+	{"<init>", "(Ljava/security/Provider;)V", nullptr, 0, $method(ProviderConfig, init$, void, $Provider*)},
+	{"checkSunPKCS11Solaris", "()V", nullptr, $PRIVATE, $method(ProviderConfig, checkSunPKCS11Solaris, void)},
+	{"disableLoad", "()V", nullptr, $PRIVATE, $method(ProviderConfig, disableLoad, void)},
+	{"doLoadProvider", "()Ljava/security/Provider;", nullptr, $PRIVATE, $method(ProviderConfig, doLoadProvider, $Provider*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ProviderConfig, equals, bool, Object$*)},
+	{"expand", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(ProviderConfig, expand, $String*, $String*)},
+	{"getProvider", "()Ljava/security/Provider;", nullptr, 0, $method(ProviderConfig, getProvider, $Provider*)},
+	{"hasArgument", "()Z", nullptr, $PRIVATE, $method(ProviderConfig, hasArgument, bool)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ProviderConfig, hashCode, int32_t)},
+	{"isLoaded", "()Z", nullptr, 0, $method(ProviderConfig, isLoaded, bool)},
+	{"shouldLoad", "()Z", nullptr, $PRIVATE, $method(ProviderConfig, shouldLoad, bool)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ProviderConfig, toString, $String*)},
 	{}
 };
 

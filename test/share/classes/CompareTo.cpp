@@ -9,10 +9,10 @@ using $Exception = ::java::lang::Exception;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _CompareTo_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CompareTo::*)()>(&CompareTo::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&CompareTo::main)), "java.lang.Exception"},
-	{"testUnix", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&CompareTo::testUnix)), "java.lang.Exception"},
-	{"testWin32", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&CompareTo::testWin32)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CompareTo, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(CompareTo, main, void, $StringArray*), "java.lang.Exception"},
+	{"testUnix", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(CompareTo, testUnix, void), "java.lang.Exception"},
+	{"testWin32", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(CompareTo, testWin32, void), "java.lang.Exception"},
 	{}
 };
 

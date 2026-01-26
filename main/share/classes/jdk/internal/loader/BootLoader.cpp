@@ -88,8 +88,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo BootLoader$$Lambda$lambda$packages$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(BootLoader$$Lambda$lambda$packages$0::*)()>(&BootLoader$$Lambda$lambda$packages$0::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(BootLoader$$Lambda$lambda$packages$0, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(BootLoader$$Lambda$lambda$packages$0, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo BootLoader$$Lambda$lambda$packages$0::classInfo$ = {
@@ -116,27 +116,27 @@ $FieldInfo _BootLoader_FieldInfo_[] = {
 };
 
 $MethodInfo _BootLoader_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(BootLoader::*)()>(&BootLoader::init$))},
-	{"definePackage", "(Ljava/lang/Class;)Ljava/lang/Package;", "(Ljava/lang/Class<*>;)Ljava/lang/Package;", $PUBLIC | $STATIC, $method(static_cast<$Package*(*)($Class*)>(&BootLoader::definePackage))},
-	{"findResource", "(Ljava/lang/String;Ljava/lang/String;)Ljava/net/URL;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$URL*(*)($String*,$String*)>(&BootLoader::findResource)), "java.io.IOException"},
-	{"findResource", "(Ljava/lang/String;)Ljava/net/URL;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$URL*(*)($String*)>(&BootLoader::findResource))},
-	{"findResourceAsStream", "(Ljava/lang/String;Ljava/lang/String;)Ljava/io/InputStream;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$InputStream*(*)($String*,$String*)>(&BootLoader::findResourceAsStream)), "java.io.IOException"},
-	{"findResources", "(Ljava/lang/String;)Ljava/util/Enumeration;", "(Ljava/lang/String;)Ljava/util/Enumeration<Ljava/net/URL;>;", $PUBLIC | $STATIC, $method(static_cast<$Enumeration*(*)($String*)>(&BootLoader::findResources)), "java.io.IOException"},
-	{"getClassLoaderValueMap", "()Ljava/util/concurrent/ConcurrentHashMap;", "()Ljava/util/concurrent/ConcurrentHashMap<**>;", $PUBLIC | $STATIC, $method(static_cast<$ConcurrentHashMap*(*)()>(&BootLoader::getClassLoaderValueMap))},
-	{"getDefinedPackage", "(Ljava/lang/String;)Ljava/lang/Package;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Package*(*)($String*)>(&BootLoader::getDefinedPackage))},
-	{"getNativeLibraries", "()Ljdk/internal/loader/NativeLibraries;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$NativeLibraries*(*)()>(&BootLoader::getNativeLibraries))},
-	{"getServicesCatalog", "()Ljdk/internal/module/ServicesCatalog;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$ServicesCatalog*(*)()>(&BootLoader::getServicesCatalog))},
-	{"getSystemPackageLocation", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $NATIVE, $method(static_cast<$String*(*)($String*)>(&BootLoader::getSystemPackageLocation))},
-	{"getSystemPackageNames", "()[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $NATIVE, $method(static_cast<$StringArray*(*)()>(&BootLoader::getSystemPackageNames))},
-	{"getUnnamedModule", "()Ljava/lang/Module;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Module*(*)()>(&BootLoader::getUnnamedModule))},
-	{"hasClassPath", "()Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)()>(&BootLoader::hasClassPath))},
-	{"lambda$packages$0", "(Ljava/lang/String;)Ljava/lang/Package;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Package*(*)($String*)>(&BootLoader::lambda$packages$0))},
-	{"loadClass", "(Ljava/lang/Module;Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/Module;Ljava/lang/String;)Ljava/lang/Class<*>;", $PUBLIC | $STATIC, $method(static_cast<$Class*(*)($Module*,$String*)>(&BootLoader::loadClass))},
-	{"loadClassOrNull", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $PUBLIC | $STATIC, $method(static_cast<$Class*(*)($String*)>(&BootLoader::loadClassOrNull))},
-	{"loadLibrary", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($String*)>(&BootLoader::loadLibrary))},
-	{"loadModule", "(Ljava/lang/module/ModuleReference;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($ModuleReference*)>(&BootLoader::loadModule))},
-	{"packages", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljava/lang/Package;>;", $PUBLIC | $STATIC, $method(static_cast<$Stream*(*)()>(&BootLoader::packages))},
-	{"setBootLoaderUnnamedModule0", "(Ljava/lang/Module;)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $method(static_cast<void(*)($Module*)>(&BootLoader::setBootLoaderUnnamedModule0))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(BootLoader, init$, void)},
+	{"definePackage", "(Ljava/lang/Class;)Ljava/lang/Package;", "(Ljava/lang/Class<*>;)Ljava/lang/Package;", $PUBLIC | $STATIC, $staticMethod(BootLoader, definePackage, $Package*, $Class*)},
+	{"findResource", "(Ljava/lang/String;Ljava/lang/String;)Ljava/net/URL;", nullptr, $PUBLIC | $STATIC, $staticMethod(BootLoader, findResource, $URL*, $String*, $String*), "java.io.IOException"},
+	{"findResource", "(Ljava/lang/String;)Ljava/net/URL;", nullptr, $PUBLIC | $STATIC, $staticMethod(BootLoader, findResource, $URL*, $String*)},
+	{"findResourceAsStream", "(Ljava/lang/String;Ljava/lang/String;)Ljava/io/InputStream;", nullptr, $PUBLIC | $STATIC, $staticMethod(BootLoader, findResourceAsStream, $InputStream*, $String*, $String*), "java.io.IOException"},
+	{"findResources", "(Ljava/lang/String;)Ljava/util/Enumeration;", "(Ljava/lang/String;)Ljava/util/Enumeration<Ljava/net/URL;>;", $PUBLIC | $STATIC, $staticMethod(BootLoader, findResources, $Enumeration*, $String*), "java.io.IOException"},
+	{"getClassLoaderValueMap", "()Ljava/util/concurrent/ConcurrentHashMap;", "()Ljava/util/concurrent/ConcurrentHashMap<**>;", $PUBLIC | $STATIC, $staticMethod(BootLoader, getClassLoaderValueMap, $ConcurrentHashMap*)},
+	{"getDefinedPackage", "(Ljava/lang/String;)Ljava/lang/Package;", nullptr, $PUBLIC | $STATIC, $staticMethod(BootLoader, getDefinedPackage, $Package*, $String*)},
+	{"getNativeLibraries", "()Ljdk/internal/loader/NativeLibraries;", nullptr, $PUBLIC | $STATIC, $staticMethod(BootLoader, getNativeLibraries, $NativeLibraries*)},
+	{"getServicesCatalog", "()Ljdk/internal/module/ServicesCatalog;", nullptr, $PUBLIC | $STATIC, $staticMethod(BootLoader, getServicesCatalog, $ServicesCatalog*)},
+	{"getSystemPackageLocation", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(BootLoader, getSystemPackageLocation, $String*, $String*)},
+	{"getSystemPackageNames", "()[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(BootLoader, getSystemPackageNames, $StringArray*)},
+	{"getUnnamedModule", "()Ljava/lang/Module;", nullptr, $PUBLIC | $STATIC, $staticMethod(BootLoader, getUnnamedModule, $Module*)},
+	{"hasClassPath", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(BootLoader, hasClassPath, bool)},
+	{"lambda$packages$0", "(Ljava/lang/String;)Ljava/lang/Package;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(BootLoader, lambda$packages$0, $Package*, $String*)},
+	{"loadClass", "(Ljava/lang/Module;Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/Module;Ljava/lang/String;)Ljava/lang/Class<*>;", $PUBLIC | $STATIC, $staticMethod(BootLoader, loadClass, $Class*, $Module*, $String*)},
+	{"loadClassOrNull", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $PUBLIC | $STATIC, $staticMethod(BootLoader, loadClassOrNull, $Class*, $String*)},
+	{"loadLibrary", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(BootLoader, loadLibrary, void, $String*)},
+	{"loadModule", "(Ljava/lang/module/ModuleReference;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(BootLoader, loadModule, void, $ModuleReference*)},
+	{"packages", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljava/lang/Package;>;", $PUBLIC | $STATIC, $staticMethod(BootLoader, packages, $Stream*)},
+	{"setBootLoaderUnnamedModule0", "(Ljava/lang/Module;)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(BootLoader, setBootLoaderUnnamedModule0, void, $Module*)},
 	{}
 };
 

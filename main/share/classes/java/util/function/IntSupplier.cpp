@@ -16,7 +16,7 @@ $CompoundAttribute _IntSupplier_Annotations_[] = {
 };
 
 $MethodInfo _IntSupplier_MethodInfo_[] = {
-	{"getAsInt", "()I", nullptr, $PUBLIC | $ABSTRACT},
+	{"getAsInt", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(IntSupplier, getAsInt, int32_t)},
 	{}
 };
 

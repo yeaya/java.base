@@ -22,8 +22,8 @@ $FieldInfo _Timer$ThreadReaper_FieldInfo_[] = {
 };
 
 $MethodInfo _Timer$ThreadReaper_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/TaskQueue;Ljava/util/TimerThread;)V", nullptr, 0, $method(static_cast<void(Timer$ThreadReaper::*)($TaskQueue*,$TimerThread*)>(&Timer$ThreadReaper::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/TaskQueue;Ljava/util/TimerThread;)V", nullptr, 0, $method(Timer$ThreadReaper, init$, void, $TaskQueue*, $TimerThread*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Timer$ThreadReaper, run, void)},
 	{}
 };
 

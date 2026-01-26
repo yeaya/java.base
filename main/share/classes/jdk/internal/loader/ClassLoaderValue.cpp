@@ -14,9 +14,9 @@ namespace jdk {
 		namespace loader {
 
 $MethodInfo _ClassLoaderValue_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ClassLoaderValue::*)()>(&ClassLoaderValue::init$))},
-	{"isEqualOrDescendantOf", "(Ljdk/internal/loader/AbstractClassLoaderValue;)Z", "(Ljdk/internal/loader/AbstractClassLoaderValue<*TV;>;)Z", $PUBLIC},
-	{"key", "()Ljdk/internal/loader/ClassLoaderValue;", "()Ljdk/internal/loader/ClassLoaderValue<TV;>;", $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ClassLoaderValue, init$, void)},
+	{"isEqualOrDescendantOf", "(Ljdk/internal/loader/AbstractClassLoaderValue;)Z", "(Ljdk/internal/loader/AbstractClassLoaderValue<*TV;>;)Z", $PUBLIC, $virtualMethod(ClassLoaderValue, isEqualOrDescendantOf, bool, $AbstractClassLoaderValue*)},
+	{"key", "()Ljdk/internal/loader/ClassLoaderValue;", "()Ljdk/internal/loader/ClassLoaderValue<TV;>;", $PUBLIC, $virtualMethod(ClassLoaderValue, key, ClassLoaderValue*)},
 	{}
 };
 

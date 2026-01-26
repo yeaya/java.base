@@ -45,8 +45,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ArrayUtil$$Lambda$ArrayIndexOutOfBoundsException::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ArrayUtil$$Lambda$ArrayIndexOutOfBoundsException::*)()>(&ArrayUtil$$Lambda$ArrayIndexOutOfBoundsException::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ArrayUtil$$Lambda$ArrayIndexOutOfBoundsException, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ArrayUtil$$Lambda$ArrayIndexOutOfBoundsException, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo ArrayUtil$$Lambda$ArrayIndexOutOfBoundsException::classInfo$ = {
@@ -69,11 +69,11 @@ $FieldInfo _ArrayUtil_FieldInfo_[] = {
 };
 
 $MethodInfo _ArrayUtil_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ArrayUtil::*)()>(&ArrayUtil::init$))},
-	{"blockSizeCheck", "(II)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)(int32_t,int32_t)>(&ArrayUtil::blockSizeCheck))},
-	{"nullAndBoundsCheck", "([BII)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($bytes*,int32_t,int32_t)>(&ArrayUtil::nullAndBoundsCheck))},
-	{"reverse", "([B)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($bytes*)>(&ArrayUtil::reverse))},
-	{"swap", "([BII)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($bytes*,int32_t,int32_t)>(&ArrayUtil::swap))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ArrayUtil, init$, void)},
+	{"blockSizeCheck", "(II)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ArrayUtil, blockSizeCheck, void, int32_t, int32_t)},
+	{"nullAndBoundsCheck", "([BII)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ArrayUtil, nullAndBoundsCheck, void, $bytes*, int32_t, int32_t)},
+	{"reverse", "([B)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ArrayUtil, reverse, void, $bytes*)},
+	{"swap", "([BII)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ArrayUtil, swap, void, $bytes*, int32_t, int32_t)},
 	{}
 };
 

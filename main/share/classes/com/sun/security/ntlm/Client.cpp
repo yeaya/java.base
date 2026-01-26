@@ -44,13 +44,13 @@ $FieldInfo _Client_FieldInfo_[] = {
 };
 
 $MethodInfo _Client_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[C)V", nullptr, $PUBLIC, $method(static_cast<void(Client::*)($String*,$String*,$String*,$String*,$chars*)>(&Client::init$)), "com.sun.security.ntlm.NTLMException"},
-	{"debug", "([B)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"debug", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"dispose", "()V", nullptr, $PUBLIC, $method(static_cast<void(Client::*)()>(&Client::dispose))},
-	{"getDomain", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(static_cast<$String*(Client::*)()>(&Client::getDomain))},
-	{"type1", "()[B", nullptr, $PUBLIC, $method(static_cast<$bytes*(Client::*)()>(&Client::type1))},
-	{"type3", "([B[B)[B", nullptr, $PUBLIC, $method(static_cast<$bytes*(Client::*)($bytes*,$bytes*)>(&Client::type3)), "com.sun.security.ntlm.NTLMException"},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[C)V", nullptr, $PUBLIC, $method(Client, init$, void, $String*, $String*, $String*, $String*, $chars*), "com.sun.security.ntlm.NTLMException"},
+	{"debug", "([B)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Client, debug, void, $bytes*)},
+	{"debug", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Client, debug, void, $String*, $ObjectArray*)},
+	{"dispose", "()V", nullptr, $PUBLIC, $method(Client, dispose, void)},
+	{"getDomain", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(Client, getDomain, $String*)},
+	{"type1", "()[B", nullptr, $PUBLIC, $method(Client, type1, $bytes*)},
+	{"type3", "([B[B)[B", nullptr, $PUBLIC, $method(Client, type3, $bytes*, $bytes*, $bytes*), "com.sun.security.ntlm.NTLMException"},
 	{}
 };
 

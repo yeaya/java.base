@@ -30,8 +30,8 @@ $FieldInfo _VersionProps_FieldInfo_[] = {
 };
 
 $MethodInfo _VersionProps_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(VersionProps::*)()>(&VersionProps::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&VersionProps::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(VersionProps, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(VersionProps, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

@@ -44,19 +44,19 @@ $FieldInfo _PKCS10Attributes_FieldInfo_[] = {
 };
 
 $MethodInfo _PKCS10Attributes_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PKCS10Attributes::*)()>(&PKCS10Attributes::init$))},
-	{"<init>", "([Lsun/security/pkcs10/PKCS10Attribute;)V", nullptr, $PUBLIC, $method(static_cast<void(PKCS10Attributes::*)($PKCS10AttributeArray*)>(&PKCS10Attributes::init$))},
-	{"<init>", "(Lsun/security/util/DerInputStream;)V", nullptr, $PUBLIC, $method(static_cast<void(PKCS10Attributes::*)($DerInputStream*)>(&PKCS10Attributes::init$)), "java.io.IOException"},
-	{"deleteAttribute", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"derEncode", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"encode", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getAttribute", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"getAttributes", "()Ljava/util/Collection;", "()Ljava/util/Collection<Lsun/security/pkcs10/PKCS10Attribute;>;", $PUBLIC},
-	{"getElements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Lsun/security/pkcs10/PKCS10Attribute;>;", $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"setAttribute", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PKCS10Attributes, init$, void)},
+	{"<init>", "([Lsun/security/pkcs10/PKCS10Attribute;)V", nullptr, $PUBLIC, $method(PKCS10Attributes, init$, void, $PKCS10AttributeArray*)},
+	{"<init>", "(Lsun/security/util/DerInputStream;)V", nullptr, $PUBLIC, $method(PKCS10Attributes, init$, void, $DerInputStream*), "java.io.IOException"},
+	{"deleteAttribute", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(PKCS10Attributes, deleteAttribute, void, $String*)},
+	{"derEncode", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(PKCS10Attributes, derEncode, void, $OutputStream*), "java.io.IOException"},
+	{"encode", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(PKCS10Attributes, encode, void, $OutputStream*), "java.io.IOException"},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(PKCS10Attributes, equals, bool, Object$*)},
+	{"getAttribute", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PKCS10Attributes, getAttribute, $Object*, $String*)},
+	{"getAttributes", "()Ljava/util/Collection;", "()Ljava/util/Collection<Lsun/security/pkcs10/PKCS10Attribute;>;", $PUBLIC, $virtualMethod(PKCS10Attributes, getAttributes, $Collection*)},
+	{"getElements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Lsun/security/pkcs10/PKCS10Attribute;>;", $PUBLIC, $virtualMethod(PKCS10Attributes, getElements, $Enumeration*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(PKCS10Attributes, hashCode, int32_t)},
+	{"setAttribute", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(PKCS10Attributes, setAttribute, void, $String*, Object$*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PKCS10Attributes, toString, $String*)},
 	{}
 };
 

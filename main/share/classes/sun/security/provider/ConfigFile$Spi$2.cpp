@@ -25,8 +25,8 @@ $FieldInfo _ConfigFile$Spi$2_FieldInfo_[] = {
 };
 
 $MethodInfo _ConfigFile$Spi$2_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/provider/ConfigFile$Spi;)V", nullptr, 0, $method(static_cast<void(ConfigFile$Spi$2::*)($ConfigFile$Spi*)>(&ConfigFile$Spi$2::init$))},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/security/provider/ConfigFile$Spi;)V", nullptr, 0, $method(ConfigFile$Spi$2, init$, void, $ConfigFile$Spi*)},
+	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(ConfigFile$Spi$2, run, $Object*)},
 	{}
 };
 

@@ -24,8 +24,8 @@ $FieldInfo _AtomicLongFieldUpdater$CASUpdater$1_FieldInfo_[] = {
 };
 
 $MethodInfo _AtomicLongFieldUpdater$CASUpdater$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/atomic/AtomicLongFieldUpdater$CASUpdater;Ljava/lang/Class;Ljava/lang/String;)V", "()V", 0, $method(static_cast<void(AtomicLongFieldUpdater$CASUpdater$1::*)($AtomicLongFieldUpdater$CASUpdater*,$Class*,$String*)>(&AtomicLongFieldUpdater$CASUpdater$1::init$))},
-	{"run", "()Ljava/lang/reflect/Field;", nullptr, $PUBLIC, nullptr, "java.lang.NoSuchFieldException"},
+	{"<init>", "(Ljava/util/concurrent/atomic/AtomicLongFieldUpdater$CASUpdater;Ljava/lang/Class;Ljava/lang/String;)V", "()V", 0, $method(AtomicLongFieldUpdater$CASUpdater$1, init$, void, $AtomicLongFieldUpdater$CASUpdater*, $Class*, $String*)},
+	{"run", "()Ljava/lang/reflect/Field;", nullptr, $PUBLIC, $virtualMethod(AtomicLongFieldUpdater$CASUpdater$1, run, $Object*), "java.lang.NoSuchFieldException"},
 	{}
 };
 

@@ -23,11 +23,11 @@ $FieldInfo _OutputStream$1_FieldInfo_[] = {
 };
 
 $MethodInfo _OutputStream$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(OutputStream$1::*)()>(&OutputStream$1::init$))},
-	{"close", "()V", nullptr, $PUBLIC},
-	{"ensureOpen", "()V", nullptr, $PRIVATE, $method(static_cast<void(OutputStream$1::*)()>(&OutputStream$1::ensureOpen)), "java.io.IOException"},
-	{"write", "(I)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"write", "([BII)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, 0, $method(OutputStream$1, init$, void)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(OutputStream$1, close, void)},
+	{"ensureOpen", "()V", nullptr, $PRIVATE, $method(OutputStream$1, ensureOpen, void), "java.io.IOException"},
+	{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(OutputStream$1, write, void, int32_t), "java.io.IOException"},
+	{"write", "([BII)V", nullptr, $PUBLIC, $virtualMethod(OutputStream$1, write, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
 	{}
 };
 

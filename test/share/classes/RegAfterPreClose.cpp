@@ -58,8 +58,8 @@ $FieldInfo _RegAfterPreClose_FieldInfo_[] = {
 };
 
 $MethodInfo _RegAfterPreClose_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(RegAfterPreClose::*)()>(&RegAfterPreClose::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&RegAfterPreClose::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(RegAfterPreClose, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(RegAfterPreClose, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

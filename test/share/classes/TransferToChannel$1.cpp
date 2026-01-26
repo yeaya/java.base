@@ -20,11 +20,11 @@ $FieldInfo _TransferToChannel$1_FieldInfo_[] = {
 };
 
 $MethodInfo _TransferToChannel$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(TransferToChannel$1::*)()>(&TransferToChannel$1::init$))},
-	{"checkData", "([BI)V", nullptr, 0},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"isOpen", "()Z", nullptr, $PUBLIC},
-	{"write", "(Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, 0, $method(TransferToChannel$1, init$, void)},
+	{"checkData", "([BI)V", nullptr, 0, $virtualMethod(TransferToChannel$1, checkData, void, $bytes*, int32_t)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(TransferToChannel$1, close, void), "java.io.IOException"},
+	{"isOpen", "()Z", nullptr, $PUBLIC, $virtualMethod(TransferToChannel$1, isOpen, bool)},
+	{"write", "(Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC, $virtualMethod(TransferToChannel$1, write, int32_t, $ByteBuffer*), "java.io.IOException"},
 	{}
 };
 

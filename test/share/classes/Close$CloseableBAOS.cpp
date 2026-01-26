@@ -18,9 +18,9 @@ $FieldInfo _Close$CloseableBAOS_FieldInfo_[] = {
 };
 
 $MethodInfo _Close$CloseableBAOS_MethodInfo_[] = {
-	{"<init>", "([B)V", nullptr, 0, $method(static_cast<void(Close$CloseableBAOS::*)($bytes*)>(&Close$CloseableBAOS::init$))},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"isClosed", "()Z", nullptr, $PUBLIC},
+	{"<init>", "([B)V", nullptr, 0, $method(Close$CloseableBAOS, init$, void, $bytes*)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(Close$CloseableBAOS, close, void), "java.io.IOException"},
+	{"isClosed", "()Z", nullptr, $PUBLIC, $virtualMethod(Close$CloseableBAOS, isClosed, bool)},
 	{}
 };
 

@@ -37,13 +37,13 @@ $FieldInfo _MethodHandles$Lookup$ClassDefiner_FieldInfo_[] = {
 };
 
 $MethodInfo _MethodHandles$Lookup$ClassDefiner_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/invoke/MethodHandles$Lookup$ClassFile;I)V", nullptr, $PRIVATE, $method(static_cast<void(MethodHandles$Lookup$ClassDefiner::*)($MethodHandles$Lookup*,$MethodHandles$Lookup$ClassFile*,int32_t)>(&MethodHandles$Lookup$ClassDefiner::init$))},
-	{"className", "()Ljava/lang/String;", nullptr, 0},
-	{"defineClass", "(Z)Ljava/lang/Class;", "(Z)Ljava/lang/Class<*>;", 0},
-	{"defineClass", "(ZLjava/lang/Object;)Ljava/lang/Class;", "(ZLjava/lang/Object;)Ljava/lang/Class<*>;", 0},
-	{"defineClassAsLookup", "(Z)Ljava/lang/invoke/MethodHandles$Lookup;", nullptr, 0},
-	{"defineClassAsLookup", "(ZLjava/lang/Object;)Ljava/lang/invoke/MethodHandles$Lookup;", nullptr, 0},
-	{"isNestmate", "()Z", nullptr, $PRIVATE, $method(static_cast<bool(MethodHandles$Lookup$ClassDefiner::*)()>(&MethodHandles$Lookup$ClassDefiner::isNestmate))},
+	{"<init>", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/invoke/MethodHandles$Lookup$ClassFile;I)V", nullptr, $PRIVATE, $method(MethodHandles$Lookup$ClassDefiner, init$, void, $MethodHandles$Lookup*, $MethodHandles$Lookup$ClassFile*, int32_t)},
+	{"className", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(MethodHandles$Lookup$ClassDefiner, className, $String*)},
+	{"defineClass", "(Z)Ljava/lang/Class;", "(Z)Ljava/lang/Class<*>;", 0, $virtualMethod(MethodHandles$Lookup$ClassDefiner, defineClass, $Class*, bool)},
+	{"defineClass", "(ZLjava/lang/Object;)Ljava/lang/Class;", "(ZLjava/lang/Object;)Ljava/lang/Class<*>;", 0, $virtualMethod(MethodHandles$Lookup$ClassDefiner, defineClass, $Class*, bool, Object$*)},
+	{"defineClassAsLookup", "(Z)Ljava/lang/invoke/MethodHandles$Lookup;", nullptr, 0, $virtualMethod(MethodHandles$Lookup$ClassDefiner, defineClassAsLookup, $MethodHandles$Lookup*, bool)},
+	{"defineClassAsLookup", "(ZLjava/lang/Object;)Ljava/lang/invoke/MethodHandles$Lookup;", nullptr, 0, $virtualMethod(MethodHandles$Lookup$ClassDefiner, defineClassAsLookup, $MethodHandles$Lookup*, bool, Object$*)},
+	{"isNestmate", "()Z", nullptr, $PRIVATE, $method(MethodHandles$Lookup$ClassDefiner, isNestmate, bool)},
 	{}
 };
 

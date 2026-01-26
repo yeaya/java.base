@@ -24,17 +24,17 @@ $FieldInfo _Checks_FieldInfo_[] = {
 };
 
 $MethodInfo _Checks_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(Checks::*)()>(&Checks::init$))},
-	{"isClassName", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)($String*)>(&Checks::isClassName))},
-	{"isJavaIdentifier", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($String*)>(&Checks::isJavaIdentifier))},
-	{"isPackageName", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)($String*)>(&Checks::isPackageName))},
-	{"isTypeName", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($String*)>(&Checks::isTypeName))},
-	{"requireModuleName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)($String*)>(&Checks::requireModuleName))},
-	{"requirePackageName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)($String*)>(&Checks::requirePackageName))},
-	{"requireQualifiedClassName", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)($String*,$String*)>(&Checks::requireQualifiedClassName))},
-	{"requireServiceProviderName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)($String*)>(&Checks::requireServiceProviderName))},
-	{"requireServiceTypeName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)($String*)>(&Checks::requireServiceTypeName))},
-	{"requireTypeName", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($String*,$String*)>(&Checks::requireTypeName))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(Checks, init$, void)},
+	{"isClassName", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Checks, isClassName, bool, $String*)},
+	{"isJavaIdentifier", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Checks, isJavaIdentifier, bool, $String*)},
+	{"isPackageName", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Checks, isPackageName, bool, $String*)},
+	{"isTypeName", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Checks, isTypeName, bool, $String*)},
+	{"requireModuleName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Checks, requireModuleName, $String*, $String*)},
+	{"requirePackageName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Checks, requirePackageName, $String*, $String*)},
+	{"requireQualifiedClassName", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Checks, requireQualifiedClassName, $String*, $String*, $String*)},
+	{"requireServiceProviderName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Checks, requireServiceProviderName, $String*, $String*)},
+	{"requireServiceTypeName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Checks, requireServiceTypeName, $String*, $String*)},
+	{"requireTypeName", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Checks, requireTypeName, $String*, $String*, $String*)},
 	{}
 };
 

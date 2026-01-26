@@ -22,7 +22,7 @@ $FieldInfo _ConcurrentHashMap$TableStack_FieldInfo_[] = {
 };
 
 $MethodInfo _ConcurrentHashMap$TableStack_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ConcurrentHashMap$TableStack::*)()>(&ConcurrentHashMap$TableStack::init$))},
+	{"<init>", "()V", nullptr, 0, $method(ConcurrentHashMap$TableStack, init$, void)},
 	{}
 };
 

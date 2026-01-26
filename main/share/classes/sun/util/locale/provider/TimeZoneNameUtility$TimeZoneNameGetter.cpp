@@ -42,11 +42,11 @@ $FieldInfo _TimeZoneNameUtility$TimeZoneNameGetter_FieldInfo_[] = {
 };
 
 $MethodInfo _TimeZoneNameUtility$TimeZoneNameGetter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(TimeZoneNameUtility$TimeZoneNameGetter::*)()>(&TimeZoneNameUtility$TimeZoneNameGetter::init$))},
-	{"examineAliases", "(Ljava/util/spi/TimeZoneNameProvider;Ljava/util/Locale;Ljava/lang/String;Ljava/lang/String;ILjava/util/Map;)Ljava/lang/String;", "(Ljava/util/spi/TimeZoneNameProvider;Ljava/util/Locale;Ljava/lang/String;Ljava/lang/String;ILjava/util/Map<Ljava/lang/String;Ljava/lang/String;>;)Ljava/lang/String;", $PRIVATE | $STATIC, $method(static_cast<$String*(*)($TimeZoneNameProvider*,$Locale*,$String*,$String*,int32_t,$Map*)>(&TimeZoneNameUtility$TimeZoneNameGetter::examineAliases))},
-	{"getName", "(Ljava/util/spi/TimeZoneNameProvider;Ljava/util/Locale;Ljava/lang/String;ILjava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($TimeZoneNameProvider*,$Locale*,$String*,int32_t,$String*)>(&TimeZoneNameUtility$TimeZoneNameGetter::getName))},
-	{"getObject", "(Ljava/util/spi/TimeZoneNameProvider;Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC | $TRANSIENT},
-	{"getObject", "(Ljava/util/spi/LocaleServiceProvider;Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(TimeZoneNameUtility$TimeZoneNameGetter, init$, void)},
+	{"examineAliases", "(Ljava/util/spi/TimeZoneNameProvider;Ljava/util/Locale;Ljava/lang/String;Ljava/lang/String;ILjava/util/Map;)Ljava/lang/String;", "(Ljava/util/spi/TimeZoneNameProvider;Ljava/util/Locale;Ljava/lang/String;Ljava/lang/String;ILjava/util/Map<Ljava/lang/String;Ljava/lang/String;>;)Ljava/lang/String;", $PRIVATE | $STATIC, $staticMethod(TimeZoneNameUtility$TimeZoneNameGetter, examineAliases, $String*, $TimeZoneNameProvider*, $Locale*, $String*, $String*, int32_t, $Map*)},
+	{"getName", "(Ljava/util/spi/TimeZoneNameProvider;Ljava/util/Locale;Ljava/lang/String;ILjava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(TimeZoneNameUtility$TimeZoneNameGetter, getName, $String*, $TimeZoneNameProvider*, $Locale*, $String*, int32_t, $String*)},
+	{"getObject", "(Ljava/util/spi/TimeZoneNameProvider;Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(TimeZoneNameUtility$TimeZoneNameGetter, getObject, $String*, $TimeZoneNameProvider*, $Locale*, $String*, $ObjectArray*)},
+	{"getObject", "(Ljava/util/spi/LocaleServiceProvider;Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(TimeZoneNameUtility$TimeZoneNameGetter, getObject, $Object*, $LocaleServiceProvider*, $Locale*, $String*, $ObjectArray*)},
 	{}
 };
 

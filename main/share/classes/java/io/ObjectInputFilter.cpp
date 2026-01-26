@@ -15,6 +15,7 @@
 using $ObjectInputFilter$Config$MergeFilter = ::java::io::ObjectInputFilter$Config$MergeFilter;
 using $ObjectInputFilter$Config$PredicateFilter = ::java::io::ObjectInputFilter$Config$PredicateFilter;
 using $ObjectInputFilter$Config$RejectUndecidedFilter = ::java::io::ObjectInputFilter$Config$RejectUndecidedFilter;
+using $ObjectInputFilter$FilterInfo = ::java::io::ObjectInputFilter$FilterInfo;
 using $ObjectInputFilter$Status = ::java::io::ObjectInputFilter$Status;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
@@ -32,11 +33,11 @@ $CompoundAttribute _ObjectInputFilter_Annotations_[] = {
 };
 
 $MethodInfo _ObjectInputFilter_MethodInfo_[] = {
-	{"allowFilter", "(Ljava/util/function/Predicate;Ljava/io/ObjectInputFilter$Status;)Ljava/io/ObjectInputFilter;", "(Ljava/util/function/Predicate<Ljava/lang/Class<*>;>;Ljava/io/ObjectInputFilter$Status;)Ljava/io/ObjectInputFilter;", $PUBLIC | $STATIC, $method(static_cast<ObjectInputFilter*(*)($Predicate*,$ObjectInputFilter$Status*)>(&ObjectInputFilter::allowFilter))},
-	{"checkInput", "(Ljava/io/ObjectInputFilter$FilterInfo;)Ljava/io/ObjectInputFilter$Status;", nullptr, $PUBLIC | $ABSTRACT},
-	{"merge", "(Ljava/io/ObjectInputFilter;Ljava/io/ObjectInputFilter;)Ljava/io/ObjectInputFilter;", nullptr, $PUBLIC | $STATIC, $method(static_cast<ObjectInputFilter*(*)(ObjectInputFilter*,ObjectInputFilter*)>(&ObjectInputFilter::merge))},
-	{"rejectFilter", "(Ljava/util/function/Predicate;Ljava/io/ObjectInputFilter$Status;)Ljava/io/ObjectInputFilter;", "(Ljava/util/function/Predicate<Ljava/lang/Class<*>;>;Ljava/io/ObjectInputFilter$Status;)Ljava/io/ObjectInputFilter;", $PUBLIC | $STATIC, $method(static_cast<ObjectInputFilter*(*)($Predicate*,$ObjectInputFilter$Status*)>(&ObjectInputFilter::rejectFilter))},
-	{"rejectUndecidedClass", "(Ljava/io/ObjectInputFilter;)Ljava/io/ObjectInputFilter;", nullptr, $PUBLIC | $STATIC, $method(static_cast<ObjectInputFilter*(*)(ObjectInputFilter*)>(&ObjectInputFilter::rejectUndecidedClass))},
+	{"allowFilter", "(Ljava/util/function/Predicate;Ljava/io/ObjectInputFilter$Status;)Ljava/io/ObjectInputFilter;", "(Ljava/util/function/Predicate<Ljava/lang/Class<*>;>;Ljava/io/ObjectInputFilter$Status;)Ljava/io/ObjectInputFilter;", $PUBLIC | $STATIC, $staticMethod(ObjectInputFilter, allowFilter, ObjectInputFilter*, $Predicate*, $ObjectInputFilter$Status*)},
+	{"checkInput", "(Ljava/io/ObjectInputFilter$FilterInfo;)Ljava/io/ObjectInputFilter$Status;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ObjectInputFilter, checkInput, $ObjectInputFilter$Status*, $ObjectInputFilter$FilterInfo*)},
+	{"merge", "(Ljava/io/ObjectInputFilter;Ljava/io/ObjectInputFilter;)Ljava/io/ObjectInputFilter;", nullptr, $PUBLIC | $STATIC, $staticMethod(ObjectInputFilter, merge, ObjectInputFilter*, ObjectInputFilter*, ObjectInputFilter*)},
+	{"rejectFilter", "(Ljava/util/function/Predicate;Ljava/io/ObjectInputFilter$Status;)Ljava/io/ObjectInputFilter;", "(Ljava/util/function/Predicate<Ljava/lang/Class<*>;>;Ljava/io/ObjectInputFilter$Status;)Ljava/io/ObjectInputFilter;", $PUBLIC | $STATIC, $staticMethod(ObjectInputFilter, rejectFilter, ObjectInputFilter*, $Predicate*, $ObjectInputFilter$Status*)},
+	{"rejectUndecidedClass", "(Ljava/io/ObjectInputFilter;)Ljava/io/ObjectInputFilter;", nullptr, $PUBLIC | $STATIC, $staticMethod(ObjectInputFilter, rejectUndecidedClass, ObjectInputFilter*, ObjectInputFilter*)},
 	{}
 };
 

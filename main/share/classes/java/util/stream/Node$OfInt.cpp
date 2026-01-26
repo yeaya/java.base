@@ -61,8 +61,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Node$OfInt$$Lambda$lambda$truncate$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Node$OfInt$$Lambda$lambda$truncate$0::*)()>(&Node$OfInt$$Lambda$lambda$truncate$0::init$))},
-	{"accept", "(I)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Node$OfInt$$Lambda$lambda$truncate$0, init$, void)},
+	{"accept", "(I)V", nullptr, $PUBLIC, $virtualMethod(Node$OfInt$$Lambda$lambda$truncate$0, accept, void, int32_t)},
 	{}
 };
 $ClassInfo Node$OfInt$$Lambda$lambda$truncate$0::classInfo$ = {
@@ -80,13 +80,13 @@ $Class* Node$OfInt$$Lambda$lambda$truncate$0::load$($String* name, bool initiali
 $Class* Node$OfInt$$Lambda$lambda$truncate$0::class$ = nullptr;
 
 $MethodInfo _Node$OfInt_MethodInfo_[] = {
-	{"copyInto", "([Ljava/lang/Integer;I)V", nullptr, $PUBLIC},
-	{"copyInto", "([Ljava/lang/Object;I)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"forEach", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-Ljava/lang/Integer;>;)V", $PUBLIC},
-	{"getShape", "()Ljava/util/stream/StreamShape;", nullptr, $PUBLIC},
-	{"lambda$truncate$0", "(I)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)(int32_t)>(&Node$OfInt::lambda$truncate$0))},
-	{"newArray", "(I)[I", nullptr, $PUBLIC},
-	{"truncate", "(JJLjava/util/function/IntFunction;)Ljava/util/stream/Node$OfInt;", "(JJLjava/util/function/IntFunction<[Ljava/lang/Integer;>;)Ljava/util/stream/Node$OfInt;", $PUBLIC},
+	{"copyInto", "([Ljava/lang/Integer;I)V", nullptr, $PUBLIC, $virtualMethod(Node$OfInt, copyInto, void, $IntegerArray*, int32_t)},
+	{"copyInto", "([Ljava/lang/Object;I)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Node$OfInt, copyInto, void, $ObjectArray*, int32_t)},
+	{"forEach", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-Ljava/lang/Integer;>;)V", $PUBLIC, $virtualMethod(Node$OfInt, forEach, void, $Consumer*)},
+	{"getShape", "()Ljava/util/stream/StreamShape;", nullptr, $PUBLIC, $virtualMethod(Node$OfInt, getShape, $StreamShape*)},
+	{"lambda$truncate$0", "(I)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Node$OfInt, lambda$truncate$0, void, int32_t)},
+	{"newArray", "(I)[I", nullptr, $PUBLIC, $virtualMethod(Node$OfInt, newArray, $Object*, int32_t)},
+	{"truncate", "(JJLjava/util/function/IntFunction;)Ljava/util/stream/Node$OfInt;", "(JJLjava/util/function/IntFunction<[Ljava/lang/Integer;>;)Ljava/util/stream/Node$OfInt;", $PUBLIC, $virtualMethod(Node$OfInt, truncate, Node$OfInt*, int64_t, int64_t, $IntFunction*)},
 	{}
 };
 

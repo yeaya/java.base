@@ -92,8 +92,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ReaderBulkReadContract$$Lambda$lambda$args$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ReaderBulkReadContract$$Lambda$lambda$args$0::*)()>(&ReaderBulkReadContract$$Lambda$lambda$args$0::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ReaderBulkReadContract$$Lambda$lambda$args$0, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ReaderBulkReadContract$$Lambda$lambda$args$0, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo ReaderBulkReadContract$$Lambda$lambda$args$0::classInfo$ = {
@@ -125,8 +125,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ReaderBulkReadContract$$Lambda$lambda$args$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ReaderBulkReadContract$$Lambda$lambda$args$1$1::*)()>(&ReaderBulkReadContract$$Lambda$lambda$args$1$1::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ReaderBulkReadContract$$Lambda$lambda$args$1$1, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ReaderBulkReadContract$$Lambda$lambda$args$1$1, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo ReaderBulkReadContract$$Lambda$lambda$args$1$1::classInfo$ = {
@@ -158,8 +158,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ReaderBulkReadContract$$Lambda$lambda$args$2$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ReaderBulkReadContract$$Lambda$lambda$args$2$2::*)()>(&ReaderBulkReadContract$$Lambda$lambda$args$2$2::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ReaderBulkReadContract$$Lambda$lambda$args$2$2, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ReaderBulkReadContract$$Lambda$lambda$args$2$2, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo ReaderBulkReadContract$$Lambda$lambda$args$2$2::classInfo$ = {
@@ -191,8 +191,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ReaderBulkReadContract$$Lambda$lambda$args$3$3::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ReaderBulkReadContract$$Lambda$lambda$args$3$3::*)()>(&ReaderBulkReadContract$$Lambda$lambda$args$3$3::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ReaderBulkReadContract$$Lambda$lambda$args$3$3, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ReaderBulkReadContract$$Lambda$lambda$args$3$3, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo ReaderBulkReadContract$$Lambda$lambda$args$3$3::classInfo$ = {
@@ -231,8 +231,8 @@ $FieldInfo ReaderBulkReadContract$$Lambda$lambda$args$4$4::fieldInfos[2] = {
 	{}
 };
 $MethodInfo ReaderBulkReadContract$$Lambda$lambda$args$4$4::methodInfos[3] = {
-	{"<init>", "(LReaderBulkReadContract;)V", nullptr, $PUBLIC, $method(static_cast<void(ReaderBulkReadContract$$Lambda$lambda$args$4$4::*)(ReaderBulkReadContract*)>(&ReaderBulkReadContract$$Lambda$lambda$args$4$4::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(LReaderBulkReadContract;)V", nullptr, $PUBLIC, $method(ReaderBulkReadContract$$Lambda$lambda$args$4$4, init$, void, ReaderBulkReadContract*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ReaderBulkReadContract$$Lambda$lambda$args$4$4, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo ReaderBulkReadContract$$Lambda$lambda$args$4$4::classInfo$ = {
@@ -264,8 +264,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ReaderBulkReadContract$$Lambda$lambda$args$5$5::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ReaderBulkReadContract$$Lambda$lambda$args$5$5::*)()>(&ReaderBulkReadContract$$Lambda$lambda$args$5$5::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ReaderBulkReadContract$$Lambda$lambda$args$5$5, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ReaderBulkReadContract$$Lambda$lambda$args$5$5, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo ReaderBulkReadContract$$Lambda$lambda$args$5$5::classInfo$ = {
@@ -297,8 +297,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ReaderBulkReadContract$$Lambda$lambda$args$6$6::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ReaderBulkReadContract$$Lambda$lambda$args$6$6::*)()>(&ReaderBulkReadContract$$Lambda$lambda$args$6$6::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ReaderBulkReadContract$$Lambda$lambda$args$6$6, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ReaderBulkReadContract$$Lambda$lambda$args$6$6, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo ReaderBulkReadContract$$Lambda$lambda$args$6$6::classInfo$ = {
@@ -330,8 +330,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ReaderBulkReadContract$$Lambda$lambda$args$7$7::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ReaderBulkReadContract$$Lambda$lambda$args$7$7::*)()>(&ReaderBulkReadContract$$Lambda$lambda$args$7$7::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ReaderBulkReadContract$$Lambda$lambda$args$7$7, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ReaderBulkReadContract$$Lambda$lambda$args$7$7, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo ReaderBulkReadContract$$Lambda$lambda$args$7$7::classInfo$ = {
@@ -363,8 +363,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ReaderBulkReadContract$$Lambda$createTempFileWithContents$8::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ReaderBulkReadContract$$Lambda$createTempFileWithContents$8::*)()>(&ReaderBulkReadContract$$Lambda$createTempFileWithContents$8::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ReaderBulkReadContract$$Lambda$createTempFileWithContents$8, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ReaderBulkReadContract$$Lambda$createTempFileWithContents$8, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo ReaderBulkReadContract$$Lambda$createTempFileWithContents$8::classInfo$ = {
@@ -387,22 +387,22 @@ $FieldInfo _ReaderBulkReadContract_FieldInfo_[] = {
 };
 
 $MethodInfo _ReaderBulkReadContract_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ReaderBulkReadContract::*)()>(&ReaderBulkReadContract::init$))},
-	{"args", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<[Ljava/lang/Object;>;", $PRIVATE, $method(static_cast<$Iterator*(ReaderBulkReadContract::*)()>(&ReaderBulkReadContract::args))},
-	{"createTempFileWithContents", "(Ljava/lang/String;)Ljava/io/File;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$File*(*)($String*)>(&ReaderBulkReadContract::createTempFileWithContents))},
-	{"lambda$args$0", "(Ljava/lang/String;)Ljava/io/Reader;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Reader*(*)($String*)>(&ReaderBulkReadContract::lambda$args$0))},
-	{"lambda$args$1", "(Ljava/lang/String;)Ljava/io/Reader;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Reader*(*)($String*)>(&ReaderBulkReadContract::lambda$args$1))},
-	{"lambda$args$2", "(Ljava/lang/String;)Ljava/io/Reader;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Reader*(*)($String*)>(&ReaderBulkReadContract::lambda$args$2))},
-	{"lambda$args$3", "(Ljava/lang/String;)Ljava/io/Reader;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Reader*(*)($String*)>(&ReaderBulkReadContract::lambda$args$3))},
-	{"lambda$args$4", "(Ljava/lang/String;)Ljava/io/Reader;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$Reader*(ReaderBulkReadContract::*)($String*)>(&ReaderBulkReadContract::lambda$args$4))},
-	{"lambda$args$5", "(Ljava/lang/String;)Ljava/io/Reader;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Reader*(*)($String*)>(&ReaderBulkReadContract::lambda$args$5))},
-	{"lambda$args$6", "(Ljava/lang/String;)Ljava/io/Reader;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Reader*(*)($String*)>(&ReaderBulkReadContract::lambda$args$6))},
-	{"lambda$args$7", "(Ljava/lang/String;)Ljava/io/Reader;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Reader*(*)($String*)>(&ReaderBulkReadContract::lambda$args$7))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&ReaderBulkReadContract::main)), "java.io.IOException"},
-	{"newFileReader", "(Ljava/lang/String;)Ljava/io/FileReader;", nullptr, $PRIVATE, $method(static_cast<$FileReader*(ReaderBulkReadContract::*)($String*)>(&ReaderBulkReadContract::newFileReader))},
-	{"newPipedReader", "(Ljava/lang/String;)Ljava/io/PipedReader;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$PipedReader*(*)($String*)>(&ReaderBulkReadContract::newPipedReader))},
-	{"read", "(Ljava/io/Reader;III)V", nullptr, $PRIVATE, $method(static_cast<void(ReaderBulkReadContract::*)($Reader*,int32_t,int32_t,int32_t)>(&ReaderBulkReadContract::read)), "java.io.IOException"},
-	{"test", "()V", nullptr, $PRIVATE, $method(static_cast<void(ReaderBulkReadContract::*)()>(&ReaderBulkReadContract::test)), "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ReaderBulkReadContract, init$, void)},
+	{"args", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<[Ljava/lang/Object;>;", $PRIVATE, $method(ReaderBulkReadContract, args, $Iterator*)},
+	{"createTempFileWithContents", "(Ljava/lang/String;)Ljava/io/File;", nullptr, $PRIVATE | $STATIC, $staticMethod(ReaderBulkReadContract, createTempFileWithContents, $File*, $String*)},
+	{"lambda$args$0", "(Ljava/lang/String;)Ljava/io/Reader;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ReaderBulkReadContract, lambda$args$0, $Reader*, $String*)},
+	{"lambda$args$1", "(Ljava/lang/String;)Ljava/io/Reader;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ReaderBulkReadContract, lambda$args$1, $Reader*, $String*)},
+	{"lambda$args$2", "(Ljava/lang/String;)Ljava/io/Reader;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ReaderBulkReadContract, lambda$args$2, $Reader*, $String*)},
+	{"lambda$args$3", "(Ljava/lang/String;)Ljava/io/Reader;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ReaderBulkReadContract, lambda$args$3, $Reader*, $String*)},
+	{"lambda$args$4", "(Ljava/lang/String;)Ljava/io/Reader;", nullptr, $PRIVATE | $SYNTHETIC, $method(ReaderBulkReadContract, lambda$args$4, $Reader*, $String*)},
+	{"lambda$args$5", "(Ljava/lang/String;)Ljava/io/Reader;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ReaderBulkReadContract, lambda$args$5, $Reader*, $String*)},
+	{"lambda$args$6", "(Ljava/lang/String;)Ljava/io/Reader;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ReaderBulkReadContract, lambda$args$6, $Reader*, $String*)},
+	{"lambda$args$7", "(Ljava/lang/String;)Ljava/io/Reader;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ReaderBulkReadContract, lambda$args$7, $Reader*, $String*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ReaderBulkReadContract, main, void, $StringArray*), "java.io.IOException"},
+	{"newFileReader", "(Ljava/lang/String;)Ljava/io/FileReader;", nullptr, $PRIVATE, $method(ReaderBulkReadContract, newFileReader, $FileReader*, $String*)},
+	{"newPipedReader", "(Ljava/lang/String;)Ljava/io/PipedReader;", nullptr, $PRIVATE | $STATIC, $staticMethod(ReaderBulkReadContract, newPipedReader, $PipedReader*, $String*)},
+	{"read", "(Ljava/io/Reader;III)V", nullptr, $PRIVATE, $method(ReaderBulkReadContract, read, void, $Reader*, int32_t, int32_t, int32_t), "java.io.IOException"},
+	{"test", "()V", nullptr, $PRIVATE, $method(ReaderBulkReadContract, test, void), "java.io.IOException"},
 	{}
 };
 

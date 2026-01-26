@@ -59,8 +59,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ResourceBundle$ResourceBundleControlProviderHolder$$Lambda$lambda$static$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ResourceBundle$ResourceBundleControlProviderHolder$$Lambda$lambda$static$0::*)()>(&ResourceBundle$ResourceBundleControlProviderHolder$$Lambda$lambda$static$0::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ResourceBundle$ResourceBundleControlProviderHolder$$Lambda$lambda$static$0, init$, void)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ResourceBundle$ResourceBundleControlProviderHolder$$Lambda$lambda$static$0, run, $Object*)},
 	{}
 };
 $ClassInfo ResourceBundle$ResourceBundleControlProviderHolder$$Lambda$lambda$static$0::classInfo$ = {
@@ -99,8 +99,8 @@ $FieldInfo ResourceBundle$ResourceBundleControlProviderHolder$$Lambda$lambda$get
 	{}
 };
 $MethodInfo ResourceBundle$ResourceBundleControlProviderHolder$$Lambda$lambda$getControl$1$1::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(ResourceBundle$ResourceBundleControlProviderHolder$$Lambda$lambda$getControl$1$1::*)($String*)>(&ResourceBundle$ResourceBundleControlProviderHolder$$Lambda$lambda$getControl$1$1::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ResourceBundle$ResourceBundleControlProviderHolder$$Lambda$lambda$getControl$1$1, init$, void, $String*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ResourceBundle$ResourceBundleControlProviderHolder$$Lambda$lambda$getControl$1$1, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo ResourceBundle$ResourceBundleControlProviderHolder$$Lambda$lambda$getControl$1$1::classInfo$ = {
@@ -132,8 +132,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ResourceBundle$ResourceBundleControlProviderHolder$$Lambda$get$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ResourceBundle$ResourceBundleControlProviderHolder$$Lambda$get$2::*)()>(&ResourceBundle$ResourceBundleControlProviderHolder$$Lambda$get$2::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ResourceBundle$ResourceBundleControlProviderHolder$$Lambda$get$2, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ResourceBundle$ResourceBundleControlProviderHolder$$Lambda$get$2, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo ResourceBundle$ResourceBundleControlProviderHolder$$Lambda$get$2::classInfo$ = {
@@ -157,10 +157,10 @@ $FieldInfo _ResourceBundle$ResourceBundleControlProviderHolder_FieldInfo_[] = {
 };
 
 $MethodInfo _ResourceBundle$ResourceBundleControlProviderHolder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(ResourceBundle$ResourceBundleControlProviderHolder::*)()>(&ResourceBundle$ResourceBundleControlProviderHolder::init$))},
-	{"getControl", "(Ljava/lang/String;)Ljava/util/ResourceBundle$Control;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$ResourceBundle$Control*(*)($String*)>(&ResourceBundle$ResourceBundleControlProviderHolder::getControl))},
-	{"lambda$getControl$1", "(Ljava/lang/String;Ljava/util/spi/ResourceBundleControlProvider;)Ljava/util/stream/Stream;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Stream*(*)($String*,$ResourceBundleControlProvider*)>(&ResourceBundle$ResourceBundleControlProviderHolder::lambda$getControl$1))},
-	{"lambda$static$0", "()Ljava/util/List;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$List*(*)()>(&ResourceBundle$ResourceBundleControlProviderHolder::lambda$static$0))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(ResourceBundle$ResourceBundleControlProviderHolder, init$, void)},
+	{"getControl", "(Ljava/lang/String;)Ljava/util/ResourceBundle$Control;", nullptr, $PRIVATE | $STATIC, $staticMethod(ResourceBundle$ResourceBundleControlProviderHolder, getControl, $ResourceBundle$Control*, $String*)},
+	{"lambda$getControl$1", "(Ljava/lang/String;Ljava/util/spi/ResourceBundleControlProvider;)Ljava/util/stream/Stream;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ResourceBundle$ResourceBundleControlProviderHolder, lambda$getControl$1, $Stream*, $String*, $ResourceBundleControlProvider*)},
+	{"lambda$static$0", "()Ljava/util/List;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ResourceBundle$ResourceBundleControlProviderHolder, lambda$static$0, $List*)},
 	{}
 };
 

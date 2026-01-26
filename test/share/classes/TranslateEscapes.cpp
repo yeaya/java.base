@@ -12,16 +12,16 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 
 $MethodInfo _TranslateEscapes_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TranslateEscapes::*)()>(&TranslateEscapes::init$))},
-	{"exceptionThrown", "(Ljava/lang/String;)V", nullptr, $STATIC, $method(static_cast<void(*)($String*)>(&TranslateEscapes::exceptionThrown))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<void(*)($StringArray*)>(&TranslateEscapes::main))},
-	{"test1", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&TranslateEscapes::test1))},
-	{"test2", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&TranslateEscapes::test2))},
-	{"test3", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&TranslateEscapes::test3))},
-	{"test4", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&TranslateEscapes::test4))},
-	{"verifyEscape", "(Ljava/lang/String;C)V", nullptr, $STATIC, $method(static_cast<void(*)($String*,char16_t)>(&TranslateEscapes::verifyEscape))},
-	{"verifyLineTerminator", "(Ljava/lang/String;)V", nullptr, $STATIC, $method(static_cast<void(*)($String*)>(&TranslateEscapes::verifyLineTerminator))},
-	{"verifyOctalEscape", "(Ljava/lang/String;I)V", nullptr, $STATIC, $method(static_cast<void(*)($String*,int32_t)>(&TranslateEscapes::verifyOctalEscape))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TranslateEscapes, init$, void)},
+	{"exceptionThrown", "(Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(TranslateEscapes, exceptionThrown, void, $String*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(TranslateEscapes, main, void, $StringArray*)},
+	{"test1", "()V", nullptr, $STATIC, $staticMethod(TranslateEscapes, test1, void)},
+	{"test2", "()V", nullptr, $STATIC, $staticMethod(TranslateEscapes, test2, void)},
+	{"test3", "()V", nullptr, $STATIC, $staticMethod(TranslateEscapes, test3, void)},
+	{"test4", "()V", nullptr, $STATIC, $staticMethod(TranslateEscapes, test4, void)},
+	{"verifyEscape", "(Ljava/lang/String;C)V", nullptr, $STATIC, $staticMethod(TranslateEscapes, verifyEscape, void, $String*, char16_t)},
+	{"verifyLineTerminator", "(Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(TranslateEscapes, verifyLineTerminator, void, $String*)},
+	{"verifyOctalEscape", "(Ljava/lang/String;I)V", nullptr, $STATIC, $staticMethod(TranslateEscapes, verifyOctalEscape, void, $String*, int32_t)},
 	{}
 };
 

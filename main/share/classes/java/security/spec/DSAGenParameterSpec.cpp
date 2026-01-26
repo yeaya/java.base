@@ -19,11 +19,11 @@ $FieldInfo _DSAGenParameterSpec_FieldInfo_[] = {
 };
 
 $MethodInfo _DSAGenParameterSpec_MethodInfo_[] = {
-	{"<init>", "(II)V", nullptr, $PUBLIC, $method(static_cast<void(DSAGenParameterSpec::*)(int32_t,int32_t)>(&DSAGenParameterSpec::init$))},
-	{"<init>", "(III)V", nullptr, $PUBLIC, $method(static_cast<void(DSAGenParameterSpec::*)(int32_t,int32_t,int32_t)>(&DSAGenParameterSpec::init$))},
-	{"getPrimePLength", "()I", nullptr, $PUBLIC, $method(static_cast<int32_t(DSAGenParameterSpec::*)()>(&DSAGenParameterSpec::getPrimePLength))},
-	{"getSeedLength", "()I", nullptr, $PUBLIC, $method(static_cast<int32_t(DSAGenParameterSpec::*)()>(&DSAGenParameterSpec::getSeedLength))},
-	{"getSubprimeQLength", "()I", nullptr, $PUBLIC, $method(static_cast<int32_t(DSAGenParameterSpec::*)()>(&DSAGenParameterSpec::getSubprimeQLength))},
+	{"<init>", "(II)V", nullptr, $PUBLIC, $method(DSAGenParameterSpec, init$, void, int32_t, int32_t)},
+	{"<init>", "(III)V", nullptr, $PUBLIC, $method(DSAGenParameterSpec, init$, void, int32_t, int32_t, int32_t)},
+	{"getPrimePLength", "()I", nullptr, $PUBLIC, $method(DSAGenParameterSpec, getPrimePLength, int32_t)},
+	{"getSeedLength", "()I", nullptr, $PUBLIC, $method(DSAGenParameterSpec, getSeedLength, int32_t)},
+	{"getSubprimeQLength", "()I", nullptr, $PUBLIC, $method(DSAGenParameterSpec, getSubprimeQLength, int32_t)},
 	{}
 };
 

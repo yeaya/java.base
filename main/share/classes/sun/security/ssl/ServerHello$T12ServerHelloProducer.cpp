@@ -128,9 +128,9 @@ namespace sun {
 		namespace ssl {
 
 $MethodInfo _ServerHello$T12ServerHelloProducer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(ServerHello$T12ServerHelloProducer::*)()>(&ServerHello$T12ServerHelloProducer::init$))},
-	{"chooseCipherSuite", "(Lsun/security/ssl/ServerHandshakeContext;Lsun/security/ssl/ClientHello$ClientHelloMessage;)Lsun/security/ssl/ServerHello$T12ServerHelloProducer$KeyExchangeProperties;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$ServerHello$T12ServerHelloProducer$KeyExchangeProperties*(*)($ServerHandshakeContext*,$ClientHello$ClientHelloMessage*)>(&ServerHello$T12ServerHelloProducer::chooseCipherSuite)), "java.io.IOException"},
-	{"produce", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)[B", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(ServerHello$T12ServerHelloProducer, init$, void)},
+	{"chooseCipherSuite", "(Lsun/security/ssl/ServerHandshakeContext;Lsun/security/ssl/ClientHello$ClientHelloMessage;)Lsun/security/ssl/ServerHello$T12ServerHelloProducer$KeyExchangeProperties;", nullptr, $PRIVATE | $STATIC, $staticMethod(ServerHello$T12ServerHelloProducer, chooseCipherSuite, $ServerHello$T12ServerHelloProducer$KeyExchangeProperties*, $ServerHandshakeContext*, $ClientHello$ClientHelloMessage*), "java.io.IOException"},
+	{"produce", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)[B", nullptr, $PUBLIC, $virtualMethod(ServerHello$T12ServerHelloProducer, produce, $bytes*, $ConnectionContext*, $SSLHandshake$HandshakeMessage*), "java.io.IOException"},
 	{}
 };
 

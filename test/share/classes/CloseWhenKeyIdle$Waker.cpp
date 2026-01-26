@@ -19,8 +19,8 @@ $FieldInfo _CloseWhenKeyIdle$Waker_FieldInfo_[] = {
 };
 
 $MethodInfo _CloseWhenKeyIdle$Waker_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/channels/Selector;J)V", nullptr, 0, $method(static_cast<void(CloseWhenKeyIdle$Waker::*)($Selector*,int64_t)>(&CloseWhenKeyIdle$Waker::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/nio/channels/Selector;J)V", nullptr, 0, $method(CloseWhenKeyIdle$Waker, init$, void, $Selector*, int64_t)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(CloseWhenKeyIdle$Waker, run, void)},
 	{}
 };
 

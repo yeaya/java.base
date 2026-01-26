@@ -25,8 +25,8 @@ $FieldInfo _AccessControlContext$1_FieldInfo_[] = {
 };
 
 $MethodInfo _AccessControlContext$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/AccessControlContext;Lsun/security/util/Debug;Ljava/security/ProtectionDomain;)V", nullptr, 0, $method(static_cast<void(AccessControlContext$1::*)($AccessControlContext*,$Debug*,$ProtectionDomain*)>(&AccessControlContext$1::init$))},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/security/AccessControlContext;Lsun/security/util/Debug;Ljava/security/ProtectionDomain;)V", nullptr, 0, $method(AccessControlContext$1, init$, void, $AccessControlContext*, $Debug*, $ProtectionDomain*)},
+	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(AccessControlContext$1, run, $Object*)},
 	{}
 };
 

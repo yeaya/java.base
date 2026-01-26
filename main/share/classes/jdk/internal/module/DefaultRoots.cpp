@@ -56,8 +56,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo DefaultRoots$$Lambda$lambda$compute$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DefaultRoots$$Lambda$lambda$compute$0::*)()>(&DefaultRoots$$Lambda$lambda$compute$0::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DefaultRoots$$Lambda$lambda$compute$0, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(DefaultRoots$$Lambda$lambda$compute$0, test, bool, Object$*)},
 	{}
 };
 $ClassInfo DefaultRoots$$Lambda$lambda$compute$0::classInfo$ = {
@@ -89,8 +89,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo DefaultRoots$$Lambda$descriptor$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DefaultRoots$$Lambda$descriptor$1::*)()>(&DefaultRoots$$Lambda$descriptor$1::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DefaultRoots$$Lambda$descriptor$1, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DefaultRoots$$Lambda$descriptor$1, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo DefaultRoots$$Lambda$descriptor$1::classInfo$ = {
@@ -129,8 +129,8 @@ $FieldInfo DefaultRoots$$Lambda$lambda$compute$1$2::fieldInfos[2] = {
 	{}
 };
 $MethodInfo DefaultRoots$$Lambda$lambda$compute$1$2::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/module/ModuleFinder;)V", nullptr, $PUBLIC, $method(static_cast<void(DefaultRoots$$Lambda$lambda$compute$1$2::*)($ModuleFinder*)>(&DefaultRoots$$Lambda$lambda$compute$1$2::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/module/ModuleFinder;)V", nullptr, $PUBLIC, $method(DefaultRoots$$Lambda$lambda$compute$1$2, init$, void, $ModuleFinder*)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(DefaultRoots$$Lambda$lambda$compute$1$2, test, bool, Object$*)},
 	{}
 };
 $ClassInfo DefaultRoots$$Lambda$lambda$compute$1$2::classInfo$ = {
@@ -162,8 +162,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo DefaultRoots$$Lambda$name$3::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DefaultRoots$$Lambda$name$3::*)()>(&DefaultRoots$$Lambda$name$3::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DefaultRoots$$Lambda$name$3, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DefaultRoots$$Lambda$name$3, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo DefaultRoots$$Lambda$name$3::classInfo$ = {
@@ -195,8 +195,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo DefaultRoots$$Lambda$lambda$exportsAPI$2$4::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DefaultRoots$$Lambda$lambda$exportsAPI$2$4::*)()>(&DefaultRoots$$Lambda$lambda$exportsAPI$2$4::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DefaultRoots$$Lambda$lambda$exportsAPI$2$4, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(DefaultRoots$$Lambda$lambda$exportsAPI$2$4, test, bool, Object$*)},
 	{}
 };
 $ClassInfo DefaultRoots$$Lambda$lambda$exportsAPI$2$4::classInfo$ = {
@@ -214,13 +214,13 @@ $Class* DefaultRoots$$Lambda$lambda$exportsAPI$2$4::load$($String* name, bool in
 $Class* DefaultRoots$$Lambda$lambda$exportsAPI$2$4::class$ = nullptr;
 
 $MethodInfo _DefaultRoots_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(DefaultRoots::*)()>(&DefaultRoots::init$))},
-	{"compute", "(Ljava/lang/module/ModuleFinder;Ljava/lang/module/ModuleFinder;)Ljava/util/Set;", "(Ljava/lang/module/ModuleFinder;Ljava/lang/module/ModuleFinder;)Ljava/util/Set<Ljava/lang/String;>;", $STATIC, $method(static_cast<$Set*(*)($ModuleFinder*,$ModuleFinder*)>(&DefaultRoots::compute))},
-	{"compute", "(Ljava/lang/module/ModuleFinder;)Ljava/util/Set;", "(Ljava/lang/module/ModuleFinder;)Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC | $STATIC, $method(static_cast<$Set*(*)($ModuleFinder*)>(&DefaultRoots::compute))},
-	{"exportsAPI", "(Ljava/lang/module/ModuleDescriptor;)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($ModuleDescriptor*)>(&DefaultRoots::exportsAPI))},
-	{"lambda$compute$0", "(Ljava/lang/module/ModuleReference;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($ModuleReference*)>(&DefaultRoots::lambda$compute$0))},
-	{"lambda$compute$1", "(Ljava/lang/module/ModuleFinder;Ljava/lang/module/ModuleDescriptor;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($ModuleFinder*,$ModuleDescriptor*)>(&DefaultRoots::lambda$compute$1))},
-	{"lambda$exportsAPI$2", "(Ljava/lang/module/ModuleDescriptor$Exports;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($ModuleDescriptor$Exports*)>(&DefaultRoots::lambda$exportsAPI$2))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(DefaultRoots, init$, void)},
+	{"compute", "(Ljava/lang/module/ModuleFinder;Ljava/lang/module/ModuleFinder;)Ljava/util/Set;", "(Ljava/lang/module/ModuleFinder;Ljava/lang/module/ModuleFinder;)Ljava/util/Set<Ljava/lang/String;>;", $STATIC, $staticMethod(DefaultRoots, compute, $Set*, $ModuleFinder*, $ModuleFinder*)},
+	{"compute", "(Ljava/lang/module/ModuleFinder;)Ljava/util/Set;", "(Ljava/lang/module/ModuleFinder;)Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC | $STATIC, $staticMethod(DefaultRoots, compute, $Set*, $ModuleFinder*)},
+	{"exportsAPI", "(Ljava/lang/module/ModuleDescriptor;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(DefaultRoots, exportsAPI, bool, $ModuleDescriptor*)},
+	{"lambda$compute$0", "(Ljava/lang/module/ModuleReference;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DefaultRoots, lambda$compute$0, bool, $ModuleReference*)},
+	{"lambda$compute$1", "(Ljava/lang/module/ModuleFinder;Ljava/lang/module/ModuleDescriptor;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DefaultRoots, lambda$compute$1, bool, $ModuleFinder*, $ModuleDescriptor*)},
+	{"lambda$exportsAPI$2", "(Ljava/lang/module/ModuleDescriptor$Exports;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DefaultRoots, lambda$exportsAPI$2, bool, $ModuleDescriptor$Exports*)},
 	{}
 };
 

@@ -52,9 +52,9 @@ $FieldInfo _DisabledAlgorithmConstraints$DenyAfterConstraint_FieldInfo_[] = {
 };
 
 $MethodInfo _DisabledAlgorithmConstraints$DenyAfterConstraint_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;III)V", nullptr, 0, $method(static_cast<void(DisabledAlgorithmConstraints$DenyAfterConstraint::*)($String*,int32_t,int32_t,int32_t)>(&DisabledAlgorithmConstraints$DenyAfterConstraint::init$))},
-	{"permits", "(Lsun/security/util/ConstraintsParameters;)V", nullptr, $PUBLIC, nullptr, "java.security.cert.CertPathValidatorException"},
-	{"permits", "(Ljava/security/Key;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;III)V", nullptr, 0, $method(DisabledAlgorithmConstraints$DenyAfterConstraint, init$, void, $String*, int32_t, int32_t, int32_t)},
+	{"permits", "(Lsun/security/util/ConstraintsParameters;)V", nullptr, $PUBLIC, $virtualMethod(DisabledAlgorithmConstraints$DenyAfterConstraint, permits, void, $ConstraintsParameters*), "java.security.cert.CertPathValidatorException"},
+	{"permits", "(Ljava/security/Key;)Z", nullptr, $PUBLIC, $virtualMethod(DisabledAlgorithmConstraints$DenyAfterConstraint, permits, bool, $Key*)},
 	{}
 };
 

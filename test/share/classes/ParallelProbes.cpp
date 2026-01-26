@@ -39,12 +39,12 @@ $FieldInfo _ParallelProbes_FieldInfo_[] = {
 };
 
 $MethodInfo _ParallelProbes_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(static_cast<void(ParallelProbes::*)(int32_t)>(&ParallelProbes::init$))},
-	{"createRunnable", "(Ljava/nio/file/Path;)Ljava/lang/Runnable;", nullptr, $PRIVATE, $method(static_cast<$Runnable*(ParallelProbes::*)($Path*)>(&ParallelProbes::createRunnable))},
-	{"createTmpFile", "()Ljava/nio/file/Path;", nullptr, $PRIVATE, $method(static_cast<$Path*(ParallelProbes::*)()>(&ParallelProbes::createTmpFile)), "java.io.IOException"},
-	{"join", "()V", nullptr, $PUBLIC},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&ParallelProbes::main)), "java.lang.Exception"},
-	{"start", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(I)V", nullptr, $PUBLIC, $method(ParallelProbes, init$, void, int32_t)},
+	{"createRunnable", "(Ljava/nio/file/Path;)Ljava/lang/Runnable;", nullptr, $PRIVATE, $method(ParallelProbes, createRunnable, $Runnable*, $Path*)},
+	{"createTmpFile", "()Ljava/nio/file/Path;", nullptr, $PRIVATE, $method(ParallelProbes, createTmpFile, $Path*), "java.io.IOException"},
+	{"join", "()V", nullptr, $PUBLIC, $virtualMethod(ParallelProbes, join, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ParallelProbes, main, void, $StringArray*), "java.lang.Exception"},
+	{"start", "()V", nullptr, $PUBLIC, $virtualMethod(ParallelProbes, start, void), "java.io.IOException"},
 	{}
 };
 

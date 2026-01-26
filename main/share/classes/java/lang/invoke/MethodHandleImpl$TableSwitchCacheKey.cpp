@@ -33,9 +33,9 @@ $FieldInfo _MethodHandleImpl$TableSwitchCacheKey_FieldInfo_[] = {
 };
 
 $MethodInfo _MethodHandleImpl$TableSwitchCacheKey_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/invoke/MethodType;I)V", nullptr, $PUBLIC, $method(static_cast<void(MethodHandleImpl$TableSwitchCacheKey::*)($MethodType*,int32_t)>(&MethodHandleImpl$TableSwitchCacheKey::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/invoke/MethodType;I)V", nullptr, $PUBLIC, $method(MethodHandleImpl$TableSwitchCacheKey, init$, void, $MethodType*, int32_t)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(MethodHandleImpl$TableSwitchCacheKey, equals, bool, Object$*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(MethodHandleImpl$TableSwitchCacheKey, hashCode, int32_t)},
 	{}
 };
 

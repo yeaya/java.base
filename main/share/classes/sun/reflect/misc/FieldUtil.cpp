@@ -15,9 +15,9 @@ namespace sun {
 		namespace misc {
 
 $MethodInfo _FieldUtil_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(FieldUtil::*)()>(&FieldUtil::init$))},
-	{"getField", "(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/reflect/Field;", "(Ljava/lang/Class<*>;Ljava/lang/String;)Ljava/lang/reflect/Field;", $PUBLIC | $STATIC, $method(static_cast<$Field*(*)($Class*,$String*)>(&FieldUtil::getField)), "java.lang.NoSuchFieldException"},
-	{"getFields", "(Ljava/lang/Class;)[Ljava/lang/reflect/Field;", "(Ljava/lang/Class<*>;)[Ljava/lang/reflect/Field;", $PUBLIC | $STATIC, $method(static_cast<$FieldArray*(*)($Class*)>(&FieldUtil::getFields))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(FieldUtil, init$, void)},
+	{"getField", "(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/reflect/Field;", "(Ljava/lang/Class<*>;Ljava/lang/String;)Ljava/lang/reflect/Field;", $PUBLIC | $STATIC, $staticMethod(FieldUtil, getField, $Field*, $Class*, $String*), "java.lang.NoSuchFieldException"},
+	{"getFields", "(Ljava/lang/Class;)[Ljava/lang/reflect/Field;", "(Ljava/lang/Class<*>;)[Ljava/lang/reflect/Field;", $PUBLIC | $STATIC, $staticMethod(FieldUtil, getFields, $FieldArray*, $Class*)},
 	{}
 };
 

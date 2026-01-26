@@ -19,6 +19,7 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
+using $ByteBuffer = ::java::nio::ByteBuffer;
 using $GeneralSecurityException = ::java::security::GeneralSecurityException;
 using $SecureRandom = ::java::security::SecureRandom;
 using $SecretKey = ::javax::crypto::SecretKey;
@@ -41,17 +42,17 @@ $FieldInfo _SSLCipher$SSLWriteCipher_FieldInfo_[] = {
 };
 
 $MethodInfo _SSLCipher$SSLWriteCipher_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/ssl/Authenticator;Lsun/security/ssl/ProtocolVersion;)V", nullptr, 0, $method(static_cast<void(SSLCipher$SSLWriteCipher::*)($Authenticator*,$ProtocolVersion*)>(&SSLCipher$SSLWriteCipher::init$))},
-	{"atKeyLimit", "()Z", nullptr, $PUBLIC},
-	{"calculateFragmentSize", "(II)I", nullptr, $ABSTRACT},
-	{"calculatePacketSize", "(II)I", nullptr, $ABSTRACT},
-	{"dispose", "()V", nullptr, 0},
-	{"encrypt", "(BLjava/nio/ByteBuffer;)I", nullptr, $ABSTRACT},
-	{"getExplicitNonceSize", "()I", nullptr, $ABSTRACT},
-	{"isCBCMode", "()Z", nullptr, 0},
-	{"isNullCipher", "()Z", nullptr, 0},
-	{"nullDTlsWriteCipher", "()Lsun/security/ssl/SSLCipher$SSLWriteCipher;", nullptr, $STATIC | $FINAL, $method(static_cast<SSLCipher$SSLWriteCipher*(*)()>(&SSLCipher$SSLWriteCipher::nullDTlsWriteCipher))},
-	{"nullTlsWriteCipher", "()Lsun/security/ssl/SSLCipher$SSLWriteCipher;", nullptr, $STATIC | $FINAL, $method(static_cast<SSLCipher$SSLWriteCipher*(*)()>(&SSLCipher$SSLWriteCipher::nullTlsWriteCipher))},
+	{"<init>", "(Lsun/security/ssl/Authenticator;Lsun/security/ssl/ProtocolVersion;)V", nullptr, 0, $method(SSLCipher$SSLWriteCipher, init$, void, $Authenticator*, $ProtocolVersion*)},
+	{"atKeyLimit", "()Z", nullptr, $PUBLIC, $virtualMethod(SSLCipher$SSLWriteCipher, atKeyLimit, bool)},
+	{"calculateFragmentSize", "(II)I", nullptr, $ABSTRACT, $virtualMethod(SSLCipher$SSLWriteCipher, calculateFragmentSize, int32_t, int32_t, int32_t)},
+	{"calculatePacketSize", "(II)I", nullptr, $ABSTRACT, $virtualMethod(SSLCipher$SSLWriteCipher, calculatePacketSize, int32_t, int32_t, int32_t)},
+	{"dispose", "()V", nullptr, 0, $virtualMethod(SSLCipher$SSLWriteCipher, dispose, void)},
+	{"encrypt", "(BLjava/nio/ByteBuffer;)I", nullptr, $ABSTRACT, $virtualMethod(SSLCipher$SSLWriteCipher, encrypt, int32_t, int8_t, $ByteBuffer*)},
+	{"getExplicitNonceSize", "()I", nullptr, $ABSTRACT, $virtualMethod(SSLCipher$SSLWriteCipher, getExplicitNonceSize, int32_t)},
+	{"isCBCMode", "()Z", nullptr, 0, $virtualMethod(SSLCipher$SSLWriteCipher, isCBCMode, bool)},
+	{"isNullCipher", "()Z", nullptr, 0, $virtualMethod(SSLCipher$SSLWriteCipher, isNullCipher, bool)},
+	{"nullDTlsWriteCipher", "()Lsun/security/ssl/SSLCipher$SSLWriteCipher;", nullptr, $STATIC | $FINAL, $staticMethod(SSLCipher$SSLWriteCipher, nullDTlsWriteCipher, SSLCipher$SSLWriteCipher*)},
+	{"nullTlsWriteCipher", "()Lsun/security/ssl/SSLCipher$SSLWriteCipher;", nullptr, $STATIC | $FINAL, $staticMethod(SSLCipher$SSLWriteCipher, nullTlsWriteCipher, SSLCipher$SSLWriteCipher*)},
 	{}
 };
 

@@ -28,10 +28,10 @@ $FieldInfo _FormatStyle_FieldInfo_[] = {
 };
 
 $MethodInfo _FormatStyle_MethodInfo_[] = {
-	{"$values", "()[Ljava/time/format/FormatStyle;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$FormatStyleArray*(*)()>(&FormatStyle::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(FormatStyle::*)($String*,int32_t)>(&FormatStyle::init$))},
-	{"valueOf", "(Ljava/lang/String;)Ljava/time/format/FormatStyle;", nullptr, $PUBLIC | $STATIC, $method(static_cast<FormatStyle*(*)($String*)>(&FormatStyle::valueOf))},
-	{"values", "()[Ljava/time/format/FormatStyle;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$FormatStyleArray*(*)()>(&FormatStyle::values))},
+	{"$values", "()[Ljava/time/format/FormatStyle;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(FormatStyle, $values, $FormatStyleArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(FormatStyle, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Ljava/time/format/FormatStyle;", nullptr, $PUBLIC | $STATIC, $staticMethod(FormatStyle, valueOf, FormatStyle*, $String*)},
+	{"values", "()[Ljava/time/format/FormatStyle;", nullptr, $PUBLIC | $STATIC, $staticMethod(FormatStyle, values, $FormatStyleArray*)},
 	{}
 };
 

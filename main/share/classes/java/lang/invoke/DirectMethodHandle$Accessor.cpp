@@ -31,11 +31,11 @@ $FieldInfo _DirectMethodHandle$Accessor_FieldInfo_[] = {
 };
 
 $MethodInfo _DirectMethodHandle$Accessor_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/invoke/MethodType;Ljava/lang/invoke/LambdaForm;Ljava/lang/invoke/MemberName;ZI)V", nullptr, $PRIVATE, $method(static_cast<void(DirectMethodHandle$Accessor::*)($MethodType*,$LambdaForm*,$MemberName*,bool,int32_t)>(&DirectMethodHandle$Accessor::init$))},
-	{"checkCast", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, 0},
-	{"copyWith", "(Ljava/lang/invoke/MethodType;Ljava/lang/invoke/LambdaForm;)Ljava/lang/invoke/MethodHandle;", nullptr, 0},
-	{"internalProperties", "()Ljava/lang/Object;", nullptr, $VOLATILE | $SYNTHETIC},
-	{"viewAsType", "(Ljava/lang/invoke/MethodType;Z)Ljava/lang/invoke/MethodHandle;", nullptr, 0},
+	{"<init>", "(Ljava/lang/invoke/MethodType;Ljava/lang/invoke/LambdaForm;Ljava/lang/invoke/MemberName;ZI)V", nullptr, $PRIVATE, $method(DirectMethodHandle$Accessor, init$, void, $MethodType*, $LambdaForm*, $MemberName*, bool, int32_t)},
+	{"checkCast", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, 0, $virtualMethod(DirectMethodHandle$Accessor, checkCast, $Object*, Object$*)},
+	{"copyWith", "(Ljava/lang/invoke/MethodType;Ljava/lang/invoke/LambdaForm;)Ljava/lang/invoke/MethodHandle;", nullptr, 0, $virtualMethod(DirectMethodHandle$Accessor, copyWith, $MethodHandle*, $MethodType*, $LambdaForm*)},
+	{"internalProperties", "()Ljava/lang/Object;", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(DirectMethodHandle$Accessor, internalProperties, $Object*)},
+	{"viewAsType", "(Ljava/lang/invoke/MethodType;Z)Ljava/lang/invoke/MethodHandle;", nullptr, 0, $virtualMethod(DirectMethodHandle$Accessor, viewAsType, $MethodHandle*, $MethodType*, bool)},
 	{}
 };
 

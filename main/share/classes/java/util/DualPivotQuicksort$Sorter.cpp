@@ -30,10 +30,10 @@ $FieldInfo _DualPivotQuicksort$Sorter_FieldInfo_[] = {
 };
 
 $MethodInfo _DualPivotQuicksort$Sorter_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/CountedCompleter;Ljava/lang/Object;Ljava/lang/Object;IIII)V", "(Ljava/util/concurrent/CountedCompleter<*>;Ljava/lang/Object;Ljava/lang/Object;IIII)V", $PRIVATE, $method(static_cast<void(DualPivotQuicksort$Sorter::*)($CountedCompleter*,Object$*,Object$*,int32_t,int32_t,int32_t,int32_t)>(&DualPivotQuicksort$Sorter::init$))},
-	{"compute", "()V", nullptr, $PUBLIC | $FINAL},
-	{"forkSorter", "(III)V", nullptr, $PRIVATE, $method(static_cast<void(DualPivotQuicksort$Sorter::*)(int32_t,int32_t,int32_t)>(&DualPivotQuicksort$Sorter::forkSorter))},
-	{"onCompletion", "(Ljava/util/concurrent/CountedCompleter;)V", "(Ljava/util/concurrent/CountedCompleter<*>;)V", $PUBLIC | $FINAL},
+	{"<init>", "(Ljava/util/concurrent/CountedCompleter;Ljava/lang/Object;Ljava/lang/Object;IIII)V", "(Ljava/util/concurrent/CountedCompleter<*>;Ljava/lang/Object;Ljava/lang/Object;IIII)V", $PRIVATE, $method(DualPivotQuicksort$Sorter, init$, void, $CountedCompleter*, Object$*, Object$*, int32_t, int32_t, int32_t, int32_t)},
+	{"compute", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(DualPivotQuicksort$Sorter, compute, void)},
+	{"forkSorter", "(III)V", nullptr, $PRIVATE, $method(DualPivotQuicksort$Sorter, forkSorter, void, int32_t, int32_t, int32_t)},
+	{"onCompletion", "(Ljava/util/concurrent/CountedCompleter;)V", "(Ljava/util/concurrent/CountedCompleter<*>;)V", $PUBLIC | $FINAL, $virtualMethod(DualPivotQuicksort$Sorter, onCompletion, void, $CountedCompleter*)},
 	{}
 };
 

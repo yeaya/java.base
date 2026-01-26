@@ -49,10 +49,10 @@ $FieldInfo _SignatureScheme$SigAlgParamSpec_FieldInfo_[] = {
 };
 
 $MethodInfo _SignatureScheme$SigAlgParamSpec_MethodInfo_[] = {
-	{"$values", "()[Lsun/security/ssl/SignatureScheme$SigAlgParamSpec;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$SignatureScheme$SigAlgParamSpecArray*(*)()>(&SignatureScheme$SigAlgParamSpec::$values))},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;I)V", "(Ljava/lang/String;I)V", $PRIVATE, $method(static_cast<void(SignatureScheme$SigAlgParamSpec::*)($String*,int32_t,$String*,int32_t)>(&SignatureScheme$SigAlgParamSpec::init$))},
-	{"valueOf", "(Ljava/lang/String;)Lsun/security/ssl/SignatureScheme$SigAlgParamSpec;", nullptr, $PUBLIC | $STATIC, $method(static_cast<SignatureScheme$SigAlgParamSpec*(*)($String*)>(&SignatureScheme$SigAlgParamSpec::valueOf))},
-	{"values", "()[Lsun/security/ssl/SignatureScheme$SigAlgParamSpec;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$SignatureScheme$SigAlgParamSpecArray*(*)()>(&SignatureScheme$SigAlgParamSpec::values))},
+	{"$values", "()[Lsun/security/ssl/SignatureScheme$SigAlgParamSpec;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SignatureScheme$SigAlgParamSpec, $values, $SignatureScheme$SigAlgParamSpecArray*)},
+	{"<init>", "(Ljava/lang/String;ILjava/lang/String;I)V", "(Ljava/lang/String;I)V", $PRIVATE, $method(SignatureScheme$SigAlgParamSpec, init$, void, $String*, int32_t, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Lsun/security/ssl/SignatureScheme$SigAlgParamSpec;", nullptr, $PUBLIC | $STATIC, $staticMethod(SignatureScheme$SigAlgParamSpec, valueOf, SignatureScheme$SigAlgParamSpec*, $String*)},
+	{"values", "()[Lsun/security/ssl/SignatureScheme$SigAlgParamSpec;", nullptr, $PUBLIC | $STATIC, $staticMethod(SignatureScheme$SigAlgParamSpec, values, $SignatureScheme$SigAlgParamSpecArray*)},
 	{}
 };
 

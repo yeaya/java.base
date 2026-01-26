@@ -23,9 +23,9 @@ $FieldInfo _ThreadLocalRandom$ThreadLocalRandomProxy_FieldInfo_[] = {
 };
 
 $MethodInfo _ThreadLocalRandom$ThreadLocalRandomProxy_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(ThreadLocalRandom$ThreadLocalRandomProxy::*)()>(&ThreadLocalRandom$ThreadLocalRandomProxy::init$))},
-	{"nextInt", "()I", nullptr, $PUBLIC},
-	{"nextLong", "()J", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(ThreadLocalRandom$ThreadLocalRandomProxy, init$, void)},
+	{"nextInt", "()I", nullptr, $PUBLIC, $virtualMethod(ThreadLocalRandom$ThreadLocalRandomProxy, nextInt, int32_t)},
+	{"nextLong", "()J", nullptr, $PUBLIC, $virtualMethod(ThreadLocalRandom$ThreadLocalRandomProxy, nextLong, int64_t)},
 	{}
 };
 

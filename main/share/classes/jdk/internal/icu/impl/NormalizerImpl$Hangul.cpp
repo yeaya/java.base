@@ -46,10 +46,10 @@ $FieldInfo _NormalizerImpl$Hangul_FieldInfo_[] = {
 };
 
 $MethodInfo _NormalizerImpl$Hangul_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(NormalizerImpl$Hangul::*)()>(&NormalizerImpl$Hangul::init$))},
-	{"decompose", "(ILjava/lang/Appendable;)I", nullptr, $PUBLIC | $STATIC, $method(static_cast<int32_t(*)(int32_t,$Appendable*)>(&NormalizerImpl$Hangul::decompose))},
-	{"isHangul", "(I)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)(int32_t)>(&NormalizerImpl$Hangul::isHangul))},
-	{"isHangulLV", "(I)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)(int32_t)>(&NormalizerImpl$Hangul::isHangulLV))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(NormalizerImpl$Hangul, init$, void)},
+	{"decompose", "(ILjava/lang/Appendable;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(NormalizerImpl$Hangul, decompose, int32_t, int32_t, $Appendable*)},
+	{"isHangul", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(NormalizerImpl$Hangul, isHangul, bool, int32_t)},
+	{"isHangulLV", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(NormalizerImpl$Hangul, isHangulLV, bool, int32_t)},
 	{}
 };
 

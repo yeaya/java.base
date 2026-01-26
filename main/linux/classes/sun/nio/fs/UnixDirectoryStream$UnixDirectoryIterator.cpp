@@ -44,12 +44,12 @@ $FieldInfo _UnixDirectoryStream$UnixDirectoryIterator_FieldInfo_[] = {
 };
 
 $MethodInfo _UnixDirectoryStream$UnixDirectoryIterator_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/fs/UnixDirectoryStream;)V", nullptr, 0, $method(static_cast<void(UnixDirectoryStream$UnixDirectoryIterator::*)($UnixDirectoryStream*)>(&UnixDirectoryStream$UnixDirectoryIterator::init$))},
-	{"hasNext", "()Z", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"isSelfOrParent", "([B)Z", nullptr, $PRIVATE, $method(static_cast<bool(UnixDirectoryStream$UnixDirectoryIterator::*)($bytes*)>(&UnixDirectoryStream$UnixDirectoryIterator::isSelfOrParent))},
-	{"next", "()Ljava/nio/file/Path;", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"readNextEntry", "()Ljava/nio/file/Path;", nullptr, $PRIVATE, $method(static_cast<$Path*(UnixDirectoryStream$UnixDirectoryIterator::*)()>(&UnixDirectoryStream$UnixDirectoryIterator::readNextEntry))},
-	{"remove", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/nio/fs/UnixDirectoryStream;)V", nullptr, 0, $method(UnixDirectoryStream$UnixDirectoryIterator, init$, void, $UnixDirectoryStream*)},
+	{"hasNext", "()Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(UnixDirectoryStream$UnixDirectoryIterator, hasNext, bool)},
+	{"isSelfOrParent", "([B)Z", nullptr, $PRIVATE, $method(UnixDirectoryStream$UnixDirectoryIterator, isSelfOrParent, bool, $bytes*)},
+	{"next", "()Ljava/nio/file/Path;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(UnixDirectoryStream$UnixDirectoryIterator, next, $Object*)},
+	{"readNextEntry", "()Ljava/nio/file/Path;", nullptr, $PRIVATE, $method(UnixDirectoryStream$UnixDirectoryIterator, readNextEntry, $Path*)},
+	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(UnixDirectoryStream$UnixDirectoryIterator, remove, void)},
 	{}
 };
 

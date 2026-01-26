@@ -16,9 +16,9 @@ using $Process = ::java::lang::Process;
 using $Runtime = ::java::lang::Runtime;
 
 $MethodInfo _ArgWithSpaceAndFinalBackslash_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ArgWithSpaceAndFinalBackslash::*)()>(&ArgWithSpaceAndFinalBackslash::init$))},
-	{"getJavaCommand", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)()>(&ArgWithSpaceAndFinalBackslash::getJavaCommand))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&ArgWithSpaceAndFinalBackslash::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ArgWithSpaceAndFinalBackslash, init$, void)},
+	{"getJavaCommand", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(ArgWithSpaceAndFinalBackslash, getJavaCommand, $String*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ArgWithSpaceAndFinalBackslash, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

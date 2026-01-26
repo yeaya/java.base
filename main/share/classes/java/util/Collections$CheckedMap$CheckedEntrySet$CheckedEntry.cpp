@@ -26,14 +26,14 @@ $FieldInfo _Collections$CheckedMap$CheckedEntrySet$CheckedEntry_FieldInfo_[] = {
 };
 
 $MethodInfo _Collections$CheckedMap$CheckedEntrySet$CheckedEntry_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Map$Entry;Ljava/lang/Class;)V", "(Ljava/util/Map$Entry<TK;TV;>;Ljava/lang/Class<TT;>;)V", 0, $method(static_cast<void(Collections$CheckedMap$CheckedEntrySet$CheckedEntry::*)($Map$Entry*,$Class*)>(&Collections$CheckedMap$CheckedEntrySet$CheckedEntry::init$))},
-	{"badValueMsg", "(Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(Collections$CheckedMap$CheckedEntrySet$CheckedEntry::*)(Object$*)>(&Collections$CheckedMap$CheckedEntrySet$CheckedEntry::badValueMsg))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getKey", "()Ljava/lang/Object;", "()TK;", $PUBLIC},
-	{"getValue", "()Ljava/lang/Object;", "()TV;", $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"setValue", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TV;)TV;", $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/Map$Entry;Ljava/lang/Class;)V", "(Ljava/util/Map$Entry<TK;TV;>;Ljava/lang/Class<TT;>;)V", 0, $method(Collections$CheckedMap$CheckedEntrySet$CheckedEntry, init$, void, $Map$Entry*, $Class*)},
+	{"badValueMsg", "(Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PRIVATE, $method(Collections$CheckedMap$CheckedEntrySet$CheckedEntry, badValueMsg, $String*, Object$*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Collections$CheckedMap$CheckedEntrySet$CheckedEntry, equals, bool, Object$*)},
+	{"getKey", "()Ljava/lang/Object;", "()TK;", $PUBLIC, $virtualMethod(Collections$CheckedMap$CheckedEntrySet$CheckedEntry, getKey, $Object*)},
+	{"getValue", "()Ljava/lang/Object;", "()TV;", $PUBLIC, $virtualMethod(Collections$CheckedMap$CheckedEntrySet$CheckedEntry, getValue, $Object*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Collections$CheckedMap$CheckedEntrySet$CheckedEntry, hashCode, int32_t)},
+	{"setValue", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TV;)TV;", $PUBLIC, $virtualMethod(Collections$CheckedMap$CheckedEntrySet$CheckedEntry, setValue, $Object*, Object$*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Collections$CheckedMap$CheckedEntrySet$CheckedEntry, toString, $String*)},
 	{}
 };
 

@@ -3,11 +3,13 @@
 #include <java/lang/Cloneable.h>
 #include <jcpp.h>
 
+using $doubleArray3 = $Array<double, 3>;
 using $ClassInfo = ::java::lang::ClassInfo;
+using $Cloneable = ::java::lang::Cloneable;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _GetCloneable_MethodInfo_[] = {
-	{"get", "([[[D)Ljava/lang/Cloneable;", nullptr, $PUBLIC | $ABSTRACT},
+	{"get", "([[[D)Ljava/lang/Cloneable;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GetCloneable, get, $Cloneable*, $doubleArray3*)},
 	{}
 };
 

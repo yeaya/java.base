@@ -32,12 +32,12 @@ $FieldInfo _DirectMethodHandle$Special_FieldInfo_[] = {
 };
 
 $MethodInfo _DirectMethodHandle$Special_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/invoke/MethodType;Ljava/lang/invoke/LambdaForm;Ljava/lang/invoke/MemberName;ZLjava/lang/Class;)V", "(Ljava/lang/invoke/MethodType;Ljava/lang/invoke/LambdaForm;Ljava/lang/invoke/MemberName;ZLjava/lang/Class<*>;)V", $PRIVATE, $method(static_cast<void(DirectMethodHandle$Special::*)($MethodType*,$LambdaForm*,$MemberName*,bool,$Class*)>(&DirectMethodHandle$Special::init$))},
-	{"checkReceiver", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, 0},
-	{"copyWith", "(Ljava/lang/invoke/MethodType;Ljava/lang/invoke/LambdaForm;)Ljava/lang/invoke/MethodHandle;", nullptr, 0},
-	{"internalProperties", "()Ljava/lang/Object;", nullptr, $VOLATILE | $SYNTHETIC},
-	{"isInvokeSpecial", "()Z", nullptr, 0},
-	{"viewAsType", "(Ljava/lang/invoke/MethodType;Z)Ljava/lang/invoke/MethodHandle;", nullptr, 0},
+	{"<init>", "(Ljava/lang/invoke/MethodType;Ljava/lang/invoke/LambdaForm;Ljava/lang/invoke/MemberName;ZLjava/lang/Class;)V", "(Ljava/lang/invoke/MethodType;Ljava/lang/invoke/LambdaForm;Ljava/lang/invoke/MemberName;ZLjava/lang/Class<*>;)V", $PRIVATE, $method(DirectMethodHandle$Special, init$, void, $MethodType*, $LambdaForm*, $MemberName*, bool, $Class*)},
+	{"checkReceiver", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, 0, $virtualMethod(DirectMethodHandle$Special, checkReceiver, $Object*, Object$*)},
+	{"copyWith", "(Ljava/lang/invoke/MethodType;Ljava/lang/invoke/LambdaForm;)Ljava/lang/invoke/MethodHandle;", nullptr, 0, $virtualMethod(DirectMethodHandle$Special, copyWith, $MethodHandle*, $MethodType*, $LambdaForm*)},
+	{"internalProperties", "()Ljava/lang/Object;", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(DirectMethodHandle$Special, internalProperties, $Object*)},
+	{"isInvokeSpecial", "()Z", nullptr, 0, $virtualMethod(DirectMethodHandle$Special, isInvokeSpecial, bool)},
+	{"viewAsType", "(Ljava/lang/invoke/MethodType;Z)Ljava/lang/invoke/MethodHandle;", nullptr, 0, $virtualMethod(DirectMethodHandle$Special, viewAsType, $MethodHandle*, $MethodType*, bool)},
 	{}
 };
 

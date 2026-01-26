@@ -29,11 +29,11 @@ $FieldInfo _PolicyQualifierInfo_FieldInfo_[] = {
 };
 
 $MethodInfo _PolicyQualifierInfo_MethodInfo_[] = {
-	{"<init>", "([B)V", nullptr, $PUBLIC, $method(static_cast<void(PolicyQualifierInfo::*)($bytes*)>(&PolicyQualifierInfo::init$)), "java.io.IOException"},
-	{"getEncoded", "()[B", nullptr, $PUBLIC | $FINAL, $method(static_cast<$bytes*(PolicyQualifierInfo::*)()>(&PolicyQualifierInfo::getEncoded))},
-	{"getPolicyQualifier", "()[B", nullptr, $PUBLIC | $FINAL, $method(static_cast<$bytes*(PolicyQualifierInfo::*)()>(&PolicyQualifierInfo::getPolicyQualifier))},
-	{"getPolicyQualifierId", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$String*(PolicyQualifierInfo::*)()>(&PolicyQualifierInfo::getPolicyQualifierId))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "([B)V", nullptr, $PUBLIC, $method(PolicyQualifierInfo, init$, void, $bytes*), "java.io.IOException"},
+	{"getEncoded", "()[B", nullptr, $PUBLIC | $FINAL, $method(PolicyQualifierInfo, getEncoded, $bytes*)},
+	{"getPolicyQualifier", "()[B", nullptr, $PUBLIC | $FINAL, $method(PolicyQualifierInfo, getPolicyQualifier, $bytes*)},
+	{"getPolicyQualifierId", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(PolicyQualifierInfo, getPolicyQualifierId, $String*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PolicyQualifierInfo, toString, $String*)},
 	{}
 };
 

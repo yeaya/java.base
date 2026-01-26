@@ -47,11 +47,11 @@ $FieldInfo _CLDRCalendarDataProviderImpl_FieldInfo_[] = {
 };
 
 $MethodInfo _CLDRCalendarDataProviderImpl_MethodInfo_[] = {
-	{"<init>", "(Lsun/util/locale/provider/LocaleProviderAdapter$Type;Ljava/util/Set;)V", "(Lsun/util/locale/provider/LocaleProviderAdapter$Type;Ljava/util/Set<Ljava/lang/String;>;)V", $PUBLIC, $method(static_cast<void(CLDRCalendarDataProviderImpl::*)($LocaleProviderAdapter$Type*,$Set*)>(&CLDRCalendarDataProviderImpl::init$))},
-	{"findValue", "(Ljava/lang/String;Ljava/util/Locale;)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)($String*,$Locale*)>(&CLDRCalendarDataProviderImpl::findValue))},
-	{"getFirstDayOfWeek", "(Ljava/util/Locale;)I", nullptr, $PUBLIC},
-	{"getMinimalDaysInFirstWeek", "(Ljava/util/Locale;)I", nullptr, $PUBLIC},
-	{"retrieveInteger", "(Ljava/lang/String;Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;Ljava/lang/String;)Ljava/util/Optional<Ljava/lang/Integer;>;", $PRIVATE | $STATIC, $method(static_cast<$Optional*(*)($String*,$String*)>(&CLDRCalendarDataProviderImpl::retrieveInteger))},
+	{"<init>", "(Lsun/util/locale/provider/LocaleProviderAdapter$Type;Ljava/util/Set;)V", "(Lsun/util/locale/provider/LocaleProviderAdapter$Type;Ljava/util/Set<Ljava/lang/String;>;)V", $PUBLIC, $method(CLDRCalendarDataProviderImpl, init$, void, $LocaleProviderAdapter$Type*, $Set*)},
+	{"findValue", "(Ljava/lang/String;Ljava/util/Locale;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(CLDRCalendarDataProviderImpl, findValue, int32_t, $String*, $Locale*)},
+	{"getFirstDayOfWeek", "(Ljava/util/Locale;)I", nullptr, $PUBLIC, $virtualMethod(CLDRCalendarDataProviderImpl, getFirstDayOfWeek, int32_t, $Locale*)},
+	{"getMinimalDaysInFirstWeek", "(Ljava/util/Locale;)I", nullptr, $PUBLIC, $virtualMethod(CLDRCalendarDataProviderImpl, getMinimalDaysInFirstWeek, int32_t, $Locale*)},
+	{"retrieveInteger", "(Ljava/lang/String;Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;Ljava/lang/String;)Ljava/util/Optional<Ljava/lang/Integer;>;", $PRIVATE | $STATIC, $staticMethod(CLDRCalendarDataProviderImpl, retrieveInteger, $Optional*, $String*, $String*)},
 	{}
 };
 

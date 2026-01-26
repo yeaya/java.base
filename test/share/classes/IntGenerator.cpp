@@ -14,8 +14,8 @@ $FieldInfo _IntGenerator_FieldInfo_[] = {
 };
 
 $MethodInfo _IntGenerator_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(IntGenerator::*)()>(&IntGenerator::init$))},
-	{"next", "(I)I", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(IntGenerator, init$, void)},
+	{"next", "(I)I", nullptr, $PUBLIC, $virtualMethod(IntGenerator, next, int32_t, int32_t)},
 	{}
 };
 

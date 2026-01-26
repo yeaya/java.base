@@ -11,8 +11,8 @@ namespace p {
 	namespace one {
 
 $MethodInfo _I_MethodInfo_[] = {
-	{"m", "()I", nullptr, $PUBLIC},
-	{"run", "()V", nullptr, $PUBLIC | $ABSTRACT},
+	{"m", "()I", nullptr, $PUBLIC, $virtualMethod(I, m, int32_t)},
+	{"run", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(I, run, void)},
 	{}
 };
 

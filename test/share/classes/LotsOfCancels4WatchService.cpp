@@ -83,8 +83,8 @@ $FieldInfo LotsOfCancels4WatchService$$Lambda$lambda$main$0::fieldInfos[4] = {
 	{}
 };
 $MethodInfo LotsOfCancels4WatchService$$Lambda$lambda$main$0::methodInfos[3] = {
-	{"<init>", "(ILjava/nio/file/Path;Ljava/nio/file/WatchService;)V", nullptr, $PUBLIC, $method(static_cast<void(LotsOfCancels4WatchService$$Lambda$lambda$main$0::*)(int32_t,$Path*,$WatchService*)>(&LotsOfCancels4WatchService$$Lambda$lambda$main$0::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(ILjava/nio/file/Path;Ljava/nio/file/WatchService;)V", nullptr, $PUBLIC, $method(LotsOfCancels4WatchService$$Lambda$lambda$main$0, init$, void, int32_t, $Path*, $WatchService*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(LotsOfCancels4WatchService$$Lambda$lambda$main$0, run, void)},
 	{}
 };
 $ClassInfo LotsOfCancels4WatchService$$Lambda$lambda$main$0::classInfo$ = {
@@ -126,8 +126,8 @@ $FieldInfo LotsOfCancels4WatchService$$Lambda$lambda$main$1$1::fieldInfos[3] = {
 	{}
 };
 $MethodInfo LotsOfCancels4WatchService$$Lambda$lambda$main$1$1::methodInfos[3] = {
-	{"<init>", "(ILjava/nio/file/WatchService;)V", nullptr, $PUBLIC, $method(static_cast<void(LotsOfCancels4WatchService$$Lambda$lambda$main$1$1::*)(int32_t,$WatchService*)>(&LotsOfCancels4WatchService$$Lambda$lambda$main$1$1::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(ILjava/nio/file/WatchService;)V", nullptr, $PUBLIC, $method(LotsOfCancels4WatchService$$Lambda$lambda$main$1$1, init$, void, int32_t, $WatchService*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(LotsOfCancels4WatchService$$Lambda$lambda$main$1$1, run, void)},
 	{}
 };
 $ClassInfo LotsOfCancels4WatchService$$Lambda$lambda$main$1$1::classInfo$ = {
@@ -150,12 +150,12 @@ $FieldInfo _LotsOfCancels4WatchService_FieldInfo_[] = {
 };
 
 $MethodInfo _LotsOfCancels4WatchService_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(LotsOfCancels4WatchService::*)()>(&LotsOfCancels4WatchService::init$))},
-	{"handle", "(ILjava/nio/file/Path;Ljava/nio/file/WatchService;)V", nullptr, $STATIC, $method(static_cast<void(*)(int32_t,$Path*,$WatchService*)>(&LotsOfCancels4WatchService::handle))},
-	{"lambda$main$0", "(ILjava/nio/file/Path;Ljava/nio/file/WatchService;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)(int32_t,$Path*,$WatchService*)>(&LotsOfCancels4WatchService::lambda$main$0))},
-	{"lambda$main$1", "(ILjava/nio/file/WatchService;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)(int32_t,$WatchService*)>(&LotsOfCancels4WatchService::lambda$main$1))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&LotsOfCancels4WatchService::main)), "java.lang.Exception"},
-	{"poll", "(ILjava/nio/file/WatchService;)V", nullptr, $STATIC, $method(static_cast<void(*)(int32_t,$WatchService*)>(&LotsOfCancels4WatchService::poll))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(LotsOfCancels4WatchService, init$, void)},
+	{"handle", "(ILjava/nio/file/Path;Ljava/nio/file/WatchService;)V", nullptr, $STATIC, $staticMethod(LotsOfCancels4WatchService, handle, void, int32_t, $Path*, $WatchService*)},
+	{"lambda$main$0", "(ILjava/nio/file/Path;Ljava/nio/file/WatchService;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LotsOfCancels4WatchService, lambda$main$0, void, int32_t, $Path*, $WatchService*)},
+	{"lambda$main$1", "(ILjava/nio/file/WatchService;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LotsOfCancels4WatchService, lambda$main$1, void, int32_t, $WatchService*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(LotsOfCancels4WatchService, main, void, $StringArray*), "java.lang.Exception"},
+	{"poll", "(ILjava/nio/file/WatchService;)V", nullptr, $STATIC, $staticMethod(LotsOfCancels4WatchService, poll, void, int32_t, $WatchService*)},
 	{}
 };
 

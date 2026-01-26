@@ -39,9 +39,9 @@ $FieldInfo _MethodHandleProxies$1_FieldInfo_[] = {
 };
 
 $MethodInfo _MethodHandleProxies$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/Class;[Ljava/lang/reflect/Method;[Ljava/lang/invoke/MethodHandle;Ljava/util/concurrent/ConcurrentHashMap;)V", "()V", 0, $method(static_cast<void(MethodHandleProxies$1::*)($MethodHandle*,$Class*,$MethodArray*,$MethodHandleArray*,$ConcurrentHashMap*)>(&MethodHandleProxies$1::init$))},
-	{"getArg", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PRIVATE, $method(static_cast<$Object*(MethodHandleProxies$1::*)($String*)>(&MethodHandleProxies$1::getArg))},
-	{"invoke", "(Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, nullptr, "java.lang.Throwable"},
+	{"<init>", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/Class;[Ljava/lang/reflect/Method;[Ljava/lang/invoke/MethodHandle;Ljava/util/concurrent/ConcurrentHashMap;)V", "()V", 0, $method(MethodHandleProxies$1, init$, void, $MethodHandle*, $Class*, $MethodArray*, $MethodHandleArray*, $ConcurrentHashMap*)},
+	{"getArg", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PRIVATE, $method(MethodHandleProxies$1, getArg, $Object*, $String*)},
+	{"invoke", "(Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MethodHandleProxies$1, invoke, $Object*, Object$*, $Method*, $ObjectArray*), "java.lang.Throwable"},
 	{}
 };
 

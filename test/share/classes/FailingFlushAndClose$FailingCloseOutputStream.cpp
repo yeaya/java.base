@@ -19,10 +19,10 @@ $FieldInfo _FailingFlushAndClose$FailingCloseOutputStream_FieldInfo_[] = {
 };
 
 $MethodInfo _FailingFlushAndClose$FailingCloseOutputStream_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(FailingFlushAndClose$FailingCloseOutputStream::*)()>(&FailingFlushAndClose$FailingCloseOutputStream::init$))},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"flush", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"write", "(I)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, 0, $method(FailingFlushAndClose$FailingCloseOutputStream, init$, void)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(FailingFlushAndClose$FailingCloseOutputStream, close, void), "java.io.IOException"},
+	{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(FailingFlushAndClose$FailingCloseOutputStream, flush, void), "java.io.IOException"},
+	{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(FailingFlushAndClose$FailingCloseOutputStream, write, void, int32_t), "java.io.IOException"},
 	{}
 };
 

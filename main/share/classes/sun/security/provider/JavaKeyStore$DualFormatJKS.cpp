@@ -21,8 +21,8 @@ namespace sun {
 		namespace provider {
 
 $MethodInfo _JavaKeyStore$DualFormatJKS_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(JavaKeyStore$DualFormatJKS::*)()>(&JavaKeyStore$DualFormatJKS::init$))},
-	{"engineProbe", "(Ljava/io/InputStream;)Z", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(JavaKeyStore$DualFormatJKS, init$, void)},
+	{"engineProbe", "(Ljava/io/InputStream;)Z", nullptr, $PUBLIC, $virtualMethod(JavaKeyStore$DualFormatJKS, engineProbe, bool, $InputStream*), "java.io.IOException"},
 	{}
 };
 

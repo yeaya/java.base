@@ -37,24 +37,24 @@ $FieldInfo _MockFieldNoValue_FieldInfo_[] = {
 };
 
 $MethodInfo _MockFieldNoValue_MethodInfo_[] = {
-	{"$values", "()[Ltest/java/time/temporal/MockFieldNoValue;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$MockFieldNoValueArray*(*)()>(&MockFieldNoValue::$values))},
+	{"$values", "()[Ltest/java/time/temporal/MockFieldNoValue;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MockFieldNoValue, $values, $MockFieldNoValueArray*)},
 	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
 	{"*finalize", "()V", nullptr, $PROTECTED | $FINAL},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(MockFieldNoValue::*)($String*,int32_t)>(&MockFieldNoValue::init$))},
-	{"adjustInto", "(Ljava/time/temporal/Temporal;J)Ljava/time/temporal/Temporal;", "<R::Ljava/time/temporal/Temporal;>(TR;J)TR;", $PUBLIC},
-	{"getBaseUnit", "()Ljava/time/temporal/TemporalUnit;", nullptr, $PUBLIC},
-	{"getFrom", "(Ljava/time/temporal/TemporalAccessor;)J", nullptr, $PUBLIC},
-	{"getRangeUnit", "()Ljava/time/temporal/TemporalUnit;", nullptr, $PUBLIC},
-	{"isDateBased", "()Z", nullptr, $PUBLIC},
-	{"isSupportedBy", "(Ljava/time/temporal/TemporalAccessor;)Z", nullptr, $PUBLIC},
-	{"isTimeBased", "()Z", nullptr, $PUBLIC},
-	{"range", "()Ljava/time/temporal/ValueRange;", nullptr, $PUBLIC},
-	{"rangeRefinedBy", "(Ljava/time/temporal/TemporalAccessor;)Ljava/time/temporal/ValueRange;", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"valueOf", "(Ljava/lang/String;)Ltest/java/time/temporal/MockFieldNoValue;", nullptr, $PUBLIC | $STATIC, $method(static_cast<MockFieldNoValue*(*)($String*)>(&MockFieldNoValue::valueOf))},
-	{"values", "()[Ltest/java/time/temporal/MockFieldNoValue;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$MockFieldNoValueArray*(*)()>(&MockFieldNoValue::values))},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(MockFieldNoValue, init$, void, $String*, int32_t)},
+	{"adjustInto", "(Ljava/time/temporal/Temporal;J)Ljava/time/temporal/Temporal;", "<R::Ljava/time/temporal/Temporal;>(TR;J)TR;", $PUBLIC, $virtualMethod(MockFieldNoValue, adjustInto, $Temporal*, $Temporal*, int64_t)},
+	{"getBaseUnit", "()Ljava/time/temporal/TemporalUnit;", nullptr, $PUBLIC, $virtualMethod(MockFieldNoValue, getBaseUnit, $TemporalUnit*)},
+	{"getFrom", "(Ljava/time/temporal/TemporalAccessor;)J", nullptr, $PUBLIC, $virtualMethod(MockFieldNoValue, getFrom, int64_t, $TemporalAccessor*)},
+	{"getRangeUnit", "()Ljava/time/temporal/TemporalUnit;", nullptr, $PUBLIC, $virtualMethod(MockFieldNoValue, getRangeUnit, $TemporalUnit*)},
+	{"isDateBased", "()Z", nullptr, $PUBLIC, $virtualMethod(MockFieldNoValue, isDateBased, bool)},
+	{"isSupportedBy", "(Ljava/time/temporal/TemporalAccessor;)Z", nullptr, $PUBLIC, $virtualMethod(MockFieldNoValue, isSupportedBy, bool, $TemporalAccessor*)},
+	{"isTimeBased", "()Z", nullptr, $PUBLIC, $virtualMethod(MockFieldNoValue, isTimeBased, bool)},
+	{"range", "()Ljava/time/temporal/ValueRange;", nullptr, $PUBLIC, $virtualMethod(MockFieldNoValue, range, $ValueRange*)},
+	{"rangeRefinedBy", "(Ljava/time/temporal/TemporalAccessor;)Ljava/time/temporal/ValueRange;", nullptr, $PUBLIC, $virtualMethod(MockFieldNoValue, rangeRefinedBy, $ValueRange*, $TemporalAccessor*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MockFieldNoValue, toString, $String*)},
+	{"valueOf", "(Ljava/lang/String;)Ltest/java/time/temporal/MockFieldNoValue;", nullptr, $PUBLIC | $STATIC, $staticMethod(MockFieldNoValue, valueOf, MockFieldNoValue*, $String*)},
+	{"values", "()[Ltest/java/time/temporal/MockFieldNoValue;", nullptr, $PUBLIC | $STATIC, $staticMethod(MockFieldNoValue, values, $MockFieldNoValueArray*)},
 	{}
 };
 

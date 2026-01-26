@@ -33,6 +33,7 @@ class $export ConstantMethodHandle : public ConstantBase {
 public:
 	ConstantMethodHandle();
 	void init$(int32_t index, int8_t kind, int32_t referenceIndex);
+	virtual void init(ConstantPool* cp) override;
 
 	int8_t kind = 0;
 	int32_t referenceIndex = 0;

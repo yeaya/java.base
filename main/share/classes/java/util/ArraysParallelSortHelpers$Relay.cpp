@@ -20,9 +20,9 @@ $FieldInfo _ArraysParallelSortHelpers$Relay_FieldInfo_[] = {
 };
 
 $MethodInfo _ArraysParallelSortHelpers$Relay_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/CountedCompleter;)V", "(Ljava/util/concurrent/CountedCompleter<*>;)V", 0, $method(static_cast<void(ArraysParallelSortHelpers$Relay::*)($CountedCompleter*)>(&ArraysParallelSortHelpers$Relay::init$))},
-	{"compute", "()V", nullptr, $PUBLIC | $FINAL},
-	{"onCompletion", "(Ljava/util/concurrent/CountedCompleter;)V", "(Ljava/util/concurrent/CountedCompleter<*>;)V", $PUBLIC | $FINAL},
+	{"<init>", "(Ljava/util/concurrent/CountedCompleter;)V", "(Ljava/util/concurrent/CountedCompleter<*>;)V", 0, $method(ArraysParallelSortHelpers$Relay, init$, void, $CountedCompleter*)},
+	{"compute", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(ArraysParallelSortHelpers$Relay, compute, void)},
+	{"onCompletion", "(Ljava/util/concurrent/CountedCompleter;)V", "(Ljava/util/concurrent/CountedCompleter<*>;)V", $PUBLIC | $FINAL, $virtualMethod(ArraysParallelSortHelpers$Relay, onCompletion, void, $CountedCompleter*)},
 	{}
 };
 

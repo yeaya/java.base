@@ -25,8 +25,8 @@ $FieldInfo _SendSize$ClientThread_FieldInfo_[] = {
 };
 
 $MethodInfo _SendSize$ClientThread_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, 0, $method(static_cast<void(SendSize$ClientThread::*)(int32_t)>(&SendSize$ClientThread::init$)), "java.io.IOException"},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(I)V", nullptr, 0, $method(SendSize$ClientThread, init$, void, int32_t), "java.io.IOException"},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(SendSize$ClientThread, run, void)},
 	{}
 };
 

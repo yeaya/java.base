@@ -48,9 +48,9 @@ $FieldInfo _SignatureAlgorithmsExtension$SignatureSchemesSpec_FieldInfo_[] = {
 };
 
 $MethodInfo _SignatureAlgorithmsExtension$SignatureSchemesSpec_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/List;)V", "(Ljava/util/List<Lsun/security/ssl/SignatureScheme;>;)V", 0, $method(static_cast<void(SignatureAlgorithmsExtension$SignatureSchemesSpec::*)($List*)>(&SignatureAlgorithmsExtension$SignatureSchemesSpec::init$))},
-	{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)V", nullptr, 0, $method(static_cast<void(SignatureAlgorithmsExtension$SignatureSchemesSpec::*)($HandshakeContext*,$ByteBuffer*)>(&SignatureAlgorithmsExtension$SignatureSchemesSpec::init$)), "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/List;)V", "(Ljava/util/List<Lsun/security/ssl/SignatureScheme;>;)V", 0, $method(SignatureAlgorithmsExtension$SignatureSchemesSpec, init$, void, $List*)},
+	{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)V", nullptr, 0, $method(SignatureAlgorithmsExtension$SignatureSchemesSpec, init$, void, $HandshakeContext*, $ByteBuffer*), "java.io.IOException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SignatureAlgorithmsExtension$SignatureSchemesSpec, toString, $String*)},
 	{}
 };
 

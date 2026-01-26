@@ -22,8 +22,8 @@ using $MethodType = ::java::lang::invoke::MethodType;
 using $StringConcatFactory = ::java::lang::invoke::StringConcatFactory;
 
 $MethodInfo _StringConcatFactoryRepeatedConstants_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(StringConcatFactoryRepeatedConstants::*)()>(&StringConcatFactoryRepeatedConstants::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&StringConcatFactoryRepeatedConstants::main)), "java.lang.Throwable"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(StringConcatFactoryRepeatedConstants, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StringConcatFactoryRepeatedConstants, main, void, $StringArray*), "java.lang.Throwable"},
 	{}
 };
 

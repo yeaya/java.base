@@ -25,11 +25,11 @@ $FieldInfo _TrailingSlash_FieldInfo_[] = {
 };
 
 $MethodInfo _TrailingSlash_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TrailingSlash::*)()>(&TrailingSlash::init$))},
-	{"check", "(Ljava/lang/String;Ljava/lang/String;ZZ)V", nullptr, $STATIC, $method(static_cast<void(*)($String*,$String*,bool,bool)>(&TrailingSlash::check))},
-	{"go", "(Ljava/lang/String;ZZZ)V", nullptr, $STATIC, $method(static_cast<void(*)($String*,bool,bool,bool)>(&TrailingSlash::go)), "java.io.IOException"},
-	{"go", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $STATIC, $method(static_cast<void(*)($String*,$String*)>(&TrailingSlash::go)), "java.lang.Exception"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&TrailingSlash::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TrailingSlash, init$, void)},
+	{"check", "(Ljava/lang/String;Ljava/lang/String;ZZ)V", nullptr, $STATIC, $staticMethod(TrailingSlash, check, void, $String*, $String*, bool, bool)},
+	{"go", "(Ljava/lang/String;ZZZ)V", nullptr, $STATIC, $staticMethod(TrailingSlash, go, void, $String*, bool, bool, bool), "java.io.IOException"},
+	{"go", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(TrailingSlash, go, void, $String*, $String*), "java.lang.Exception"},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TrailingSlash, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

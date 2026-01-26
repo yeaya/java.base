@@ -23,8 +23,8 @@ $FieldInfo _CleanerFactory_FieldInfo_[] = {
 };
 
 $MethodInfo _CleanerFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CleanerFactory::*)()>(&CleanerFactory::init$))},
-	{"cleaner", "()Ljava/lang/ref/Cleaner;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Cleaner*(*)()>(&CleanerFactory::cleaner))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CleanerFactory, init$, void)},
+	{"cleaner", "()Ljava/lang/ref/Cleaner;", nullptr, $PUBLIC | $STATIC, $staticMethod(CleanerFactory, cleaner, $Cleaner*)},
 	{}
 };
 

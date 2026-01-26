@@ -24,10 +24,10 @@ $FieldInfo _SystemImage$1_FieldInfo_[] = {
 };
 
 $MethodInfo _SystemImage$1_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/jimage/ImageReader;)V", nullptr, 0, $method(static_cast<void(SystemImage$1::*)($ImageReader*)>(&SystemImage$1::init$))},
-	{"close", "()V", nullptr, 0, nullptr, "java.io.IOException"},
-	{"findNode", "(Ljava/lang/String;)Ljdk/internal/jimage/ImageReader$Node;", nullptr, 0, nullptr, "java.io.IOException"},
-	{"getResource", "(Ljdk/internal/jimage/ImageReader$Node;)[B", nullptr, 0, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljdk/internal/jimage/ImageReader;)V", nullptr, 0, $method(SystemImage$1, init$, void, $ImageReader*)},
+	{"close", "()V", nullptr, 0, $virtualMethod(SystemImage$1, close, void), "java.io.IOException"},
+	{"findNode", "(Ljava/lang/String;)Ljdk/internal/jimage/ImageReader$Node;", nullptr, 0, $virtualMethod(SystemImage$1, findNode, $ImageReader$Node*, $String*), "java.io.IOException"},
+	{"getResource", "(Ljdk/internal/jimage/ImageReader$Node;)[B", nullptr, 0, $virtualMethod(SystemImage$1, getResource, $bytes*, $ImageReader$Node*), "java.io.IOException"},
 	{}
 };
 

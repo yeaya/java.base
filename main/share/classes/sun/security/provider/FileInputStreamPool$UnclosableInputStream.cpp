@@ -16,9 +16,9 @@ namespace sun {
 		namespace provider {
 
 $MethodInfo _FileInputStreamPool$UnclosableInputStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/InputStream;)V", nullptr, 0, $method(static_cast<void(FileInputStreamPool$UnclosableInputStream::*)($InputStream*)>(&FileInputStreamPool$UnclosableInputStream::init$))},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"getWrappedStream", "()Ljava/io/InputStream;", nullptr, 0, $method(static_cast<$InputStream*(FileInputStreamPool$UnclosableInputStream::*)()>(&FileInputStreamPool$UnclosableInputStream::getWrappedStream))},
+	{"<init>", "(Ljava/io/InputStream;)V", nullptr, 0, $method(FileInputStreamPool$UnclosableInputStream, init$, void, $InputStream*)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(FileInputStreamPool$UnclosableInputStream, close, void), "java.io.IOException"},
+	{"getWrappedStream", "()Ljava/io/InputStream;", nullptr, 0, $method(FileInputStreamPool$UnclosableInputStream, getWrappedStream, $InputStream*)},
 	{}
 };
 

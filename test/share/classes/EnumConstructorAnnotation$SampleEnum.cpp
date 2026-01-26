@@ -26,10 +26,10 @@ $FieldInfo _EnumConstructorAnnotation$SampleEnum_FieldInfo_[] = {
 };
 
 $MethodInfo _EnumConstructorAnnotation$SampleEnum_MethodInfo_[] = {
-	{"$values", "()[LEnumConstructorAnnotation$SampleEnum;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$EnumConstructorAnnotation$SampleEnumArray*(*)()>(&EnumConstructorAnnotation$SampleEnum::$values))},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "(Ljava/lang/String;)V", $PRIVATE, $method(static_cast<void(EnumConstructorAnnotation$SampleEnum::*)($String*,int32_t,$String*)>(&EnumConstructorAnnotation$SampleEnum::init$)), nullptr, nullptr, nullptr, nullptr, _EnumConstructorAnnotation$SampleEnum_MethodParamAnnotations_init$1},
-	{"valueOf", "(Ljava/lang/String;)LEnumConstructorAnnotation$SampleEnum;", nullptr, $PUBLIC | $STATIC, $method(static_cast<EnumConstructorAnnotation$SampleEnum*(*)($String*)>(&EnumConstructorAnnotation$SampleEnum::valueOf))},
-	{"values", "()[LEnumConstructorAnnotation$SampleEnum;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$EnumConstructorAnnotation$SampleEnumArray*(*)()>(&EnumConstructorAnnotation$SampleEnum::values))},
+	{"$values", "()[LEnumConstructorAnnotation$SampleEnum;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(EnumConstructorAnnotation$SampleEnum, $values, $EnumConstructorAnnotation$SampleEnumArray*)},
+	{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "(Ljava/lang/String;)V", $PRIVATE, $method(EnumConstructorAnnotation$SampleEnum, init$, void, $String*, int32_t, $String*), nullptr, nullptr, nullptr, nullptr, _EnumConstructorAnnotation$SampleEnum_MethodParamAnnotations_init$1},
+	{"valueOf", "(Ljava/lang/String;)LEnumConstructorAnnotation$SampleEnum;", nullptr, $PUBLIC | $STATIC, $staticMethod(EnumConstructorAnnotation$SampleEnum, valueOf, EnumConstructorAnnotation$SampleEnum*, $String*)},
+	{"values", "()[LEnumConstructorAnnotation$SampleEnum;", nullptr, $PUBLIC | $STATIC, $staticMethod(EnumConstructorAnnotation$SampleEnum, values, $EnumConstructorAnnotation$SampleEnumArray*)},
 	{}
 };
 

@@ -5,13 +5,14 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $SecretKey = ::javax::crypto::SecretKey;
 
 namespace sun {
 	namespace security {
 		namespace util {
 
 $MethodInfo _MessageDigestSpi2_MethodInfo_[] = {
-	{"engineUpdate", "(Ljavax/crypto/SecretKey;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.security.InvalidKeyException"},
+	{"engineUpdate", "(Ljavax/crypto/SecretKey;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MessageDigestSpi2, engineUpdate, void, $SecretKey*), "java.security.InvalidKeyException"},
 	{}
 };
 

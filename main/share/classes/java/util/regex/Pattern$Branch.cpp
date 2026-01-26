@@ -34,10 +34,10 @@ $FieldInfo _Pattern$Branch_FieldInfo_[] = {
 };
 
 $MethodInfo _Pattern$Branch_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/regex/Pattern$Node;Ljava/util/regex/Pattern$Node;Ljava/util/regex/Pattern$Node;)V", nullptr, 0, $method(static_cast<void(Pattern$Branch::*)($Pattern$Node*,$Pattern$Node*,$Pattern$Node*)>(&Pattern$Branch::init$))},
-	{"add", "(Ljava/util/regex/Pattern$Node;)V", nullptr, 0, $method(static_cast<void(Pattern$Branch::*)($Pattern$Node*)>(&Pattern$Branch::add))},
-	{"match", "(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z", nullptr, 0},
-	{"study", "(Ljava/util/regex/Pattern$TreeInfo;)Z", nullptr, 0},
+	{"<init>", "(Ljava/util/regex/Pattern$Node;Ljava/util/regex/Pattern$Node;Ljava/util/regex/Pattern$Node;)V", nullptr, 0, $method(Pattern$Branch, init$, void, $Pattern$Node*, $Pattern$Node*, $Pattern$Node*)},
+	{"add", "(Ljava/util/regex/Pattern$Node;)V", nullptr, 0, $method(Pattern$Branch, add, void, $Pattern$Node*)},
+	{"match", "(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z", nullptr, 0, $virtualMethod(Pattern$Branch, match, bool, $Matcher*, int32_t, $CharSequence*)},
+	{"study", "(Ljava/util/regex/Pattern$TreeInfo;)Z", nullptr, 0, $virtualMethod(Pattern$Branch, study, bool, $Pattern$TreeInfo*)},
 	{}
 };
 

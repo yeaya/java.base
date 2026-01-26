@@ -35,8 +35,8 @@ $FieldInfo _FdLibm$Cbrt_FieldInfo_[] = {
 };
 
 $MethodInfo _FdLibm$Cbrt_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(FdLibm$Cbrt::*)()>(&FdLibm$Cbrt::init$))},
-	{"compute", "(D)D", nullptr, $PUBLIC | $STATIC, $method(static_cast<double(*)(double)>(&FdLibm$Cbrt::compute))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(FdLibm$Cbrt, init$, void)},
+	{"compute", "(D)D", nullptr, $PUBLIC | $STATIC, $staticMethod(FdLibm$Cbrt, compute, double, double)},
 	{}
 };
 

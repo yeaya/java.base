@@ -31,10 +31,10 @@ $FieldInfo _File$TempDirectory_FieldInfo_[] = {
 };
 
 $MethodInfo _File$TempDirectory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(File$TempDirectory::*)()>(&File$TempDirectory::init$))},
-	{"generateFile", "(Ljava/lang/String;Ljava/lang/String;Ljava/io/File;)Ljava/io/File;", nullptr, $STATIC, $method(static_cast<$File*(*)($String*,$String*,$File*)>(&File$TempDirectory::generateFile)), "java.io.IOException"},
-	{"location", "()Ljava/io/File;", nullptr, $STATIC, $method(static_cast<$File*(*)()>(&File$TempDirectory::location))},
-	{"shortenSubName", "(III)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)(int32_t,int32_t,int32_t)>(&File$TempDirectory::shortenSubName))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(File$TempDirectory, init$, void)},
+	{"generateFile", "(Ljava/lang/String;Ljava/lang/String;Ljava/io/File;)Ljava/io/File;", nullptr, $STATIC, $staticMethod(File$TempDirectory, generateFile, $File*, $String*, $String*, $File*), "java.io.IOException"},
+	{"location", "()Ljava/io/File;", nullptr, $STATIC, $staticMethod(File$TempDirectory, location, $File*)},
+	{"shortenSubName", "(III)I", nullptr, $PRIVATE | $STATIC, $staticMethod(File$TempDirectory, shortenSubName, int32_t, int32_t, int32_t, int32_t)},
 	{}
 };
 

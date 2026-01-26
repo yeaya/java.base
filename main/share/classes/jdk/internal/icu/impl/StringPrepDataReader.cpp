@@ -32,12 +32,12 @@ $FieldInfo _StringPrepDataReader_FieldInfo_[] = {
 };
 
 $MethodInfo _StringPrepDataReader_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(static_cast<void(StringPrepDataReader::*)($InputStream*)>(&StringPrepDataReader::init$)), "java.io.IOException"},
-	{"getDataFormatVersion", "()[B", nullptr, $PUBLIC, $method(static_cast<$bytes*(StringPrepDataReader::*)()>(&StringPrepDataReader::getDataFormatVersion))},
-	{"getUnicodeVersion", "()[B", nullptr, $PUBLIC, $method(static_cast<$bytes*(StringPrepDataReader::*)()>(&StringPrepDataReader::getUnicodeVersion))},
-	{"isDataVersionAcceptable", "([B)Z", nullptr, $PUBLIC},
-	{"read", "([B[C)V", nullptr, $PUBLIC, $method(static_cast<void(StringPrepDataReader::*)($bytes*,$chars*)>(&StringPrepDataReader::read)), "java.io.IOException"},
-	{"readIndexes", "(I)[I", nullptr, $PUBLIC, $method(static_cast<$ints*(StringPrepDataReader::*)(int32_t)>(&StringPrepDataReader::readIndexes)), "java.io.IOException"},
+	{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(StringPrepDataReader, init$, void, $InputStream*), "java.io.IOException"},
+	{"getDataFormatVersion", "()[B", nullptr, $PUBLIC, $method(StringPrepDataReader, getDataFormatVersion, $bytes*)},
+	{"getUnicodeVersion", "()[B", nullptr, $PUBLIC, $method(StringPrepDataReader, getUnicodeVersion, $bytes*)},
+	{"isDataVersionAcceptable", "([B)Z", nullptr, $PUBLIC, $virtualMethod(StringPrepDataReader, isDataVersionAcceptable, bool, $bytes*)},
+	{"read", "([B[C)V", nullptr, $PUBLIC, $method(StringPrepDataReader, read, void, $bytes*, $chars*), "java.io.IOException"},
+	{"readIndexes", "(I)[I", nullptr, $PUBLIC, $method(StringPrepDataReader, readIndexes, $ints*, int32_t), "java.io.IOException"},
 	{}
 };
 

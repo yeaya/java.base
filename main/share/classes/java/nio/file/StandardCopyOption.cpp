@@ -26,15 +26,15 @@ $FieldInfo _StandardCopyOption_FieldInfo_[] = {
 };
 
 $MethodInfo _StandardCopyOption_MethodInfo_[] = {
-	{"$values", "()[Ljava/nio/file/StandardCopyOption;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$StandardCopyOptionArray*(*)()>(&StandardCopyOption::$values))},
+	{"$values", "()[Ljava/nio/file/StandardCopyOption;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StandardCopyOption, $values, $StandardCopyOptionArray*)},
 	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
 	{"*finalize", "()V", nullptr, $PROTECTED | $FINAL},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(StandardCopyOption::*)($String*,int32_t)>(&StandardCopyOption::init$))},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(StandardCopyOption, init$, void, $String*, int32_t)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"valueOf", "(Ljava/lang/String;)Ljava/nio/file/StandardCopyOption;", nullptr, $PUBLIC | $STATIC, $method(static_cast<StandardCopyOption*(*)($String*)>(&StandardCopyOption::valueOf))},
-	{"values", "()[Ljava/nio/file/StandardCopyOption;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$StandardCopyOptionArray*(*)()>(&StandardCopyOption::values))},
+	{"valueOf", "(Ljava/lang/String;)Ljava/nio/file/StandardCopyOption;", nullptr, $PUBLIC | $STATIC, $staticMethod(StandardCopyOption, valueOf, StandardCopyOption*, $String*)},
+	{"values", "()[Ljava/nio/file/StandardCopyOption;", nullptr, $PUBLIC | $STATIC, $staticMethod(StandardCopyOption, values, $StandardCopyOptionArray*)},
 	{}
 };
 

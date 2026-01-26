@@ -22,9 +22,9 @@ $FieldInfo _ReentrantReadWriteLock$NonfairSync_FieldInfo_[] = {
 };
 
 $MethodInfo _ReentrantReadWriteLock$NonfairSync_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ReentrantReadWriteLock$NonfairSync::*)()>(&ReentrantReadWriteLock$NonfairSync::init$))},
-	{"readerShouldBlock", "()Z", nullptr, $FINAL},
-	{"writerShouldBlock", "()Z", nullptr, $FINAL},
+	{"<init>", "()V", nullptr, 0, $method(ReentrantReadWriteLock$NonfairSync, init$, void)},
+	{"readerShouldBlock", "()Z", nullptr, $FINAL, $virtualMethod(ReentrantReadWriteLock$NonfairSync, readerShouldBlock, bool)},
+	{"writerShouldBlock", "()Z", nullptr, $FINAL, $virtualMethod(ReentrantReadWriteLock$NonfairSync, writerShouldBlock, bool)},
 	{}
 };
 

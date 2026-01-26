@@ -26,7 +26,7 @@ $FieldInfo _BootstrapLogger$DetectBackend_FieldInfo_[] = {
 };
 
 $MethodInfo _BootstrapLogger$DetectBackend_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(BootstrapLogger$DetectBackend::*)()>(&BootstrapLogger$DetectBackend::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(BootstrapLogger$DetectBackend, init$, void)},
 	{}
 };
 

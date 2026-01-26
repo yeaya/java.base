@@ -31,7 +31,7 @@ $FieldInfo _SSLKeyExchange$SSLKeyExRSAExport_FieldInfo_[] = {
 };
 
 $MethodInfo _SSLKeyExchange$SSLKeyExRSAExport_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(SSLKeyExchange$SSLKeyExRSAExport::*)()>(&SSLKeyExchange$SSLKeyExRSAExport::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(SSLKeyExchange$SSLKeyExRSAExport, init$, void)},
 	{}
 };
 

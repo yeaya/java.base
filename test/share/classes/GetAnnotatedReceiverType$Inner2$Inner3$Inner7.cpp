@@ -15,8 +15,8 @@ $FieldInfo _GetAnnotatedReceiverType$Inner2$Inner3$Inner7_FieldInfo_[] = {
 };
 
 $MethodInfo _GetAnnotatedReceiverType$Inner2$Inner3$Inner7_MethodInfo_[] = {
-	{"<init>", "(LGetAnnotatedReceiverType$Inner2$Inner3;)V", nullptr, $PUBLIC, $method(static_cast<void(GetAnnotatedReceiverType$Inner2$Inner3$Inner7::*)($GetAnnotatedReceiverType$Inner2$Inner3*)>(&GetAnnotatedReceiverType$Inner2$Inner3$Inner7::init$))},
-	{"innerMethod7", "()V", nullptr, $PUBLIC},
+	{"<init>", "(LGetAnnotatedReceiverType$Inner2$Inner3;)V", nullptr, $PUBLIC, $method(GetAnnotatedReceiverType$Inner2$Inner3$Inner7, init$, void, $GetAnnotatedReceiverType$Inner2$Inner3*)},
+	{"innerMethod7", "()V", nullptr, $PUBLIC, $virtualMethod(GetAnnotatedReceiverType$Inner2$Inner3$Inner7, innerMethod7, void)},
 	{}
 };
 

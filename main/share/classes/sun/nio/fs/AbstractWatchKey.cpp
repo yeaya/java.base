@@ -65,13 +65,13 @@ $FieldInfo _AbstractWatchKey_FieldInfo_[] = {
 };
 
 $MethodInfo _AbstractWatchKey_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/file/Path;Lsun/nio/fs/AbstractWatchService;)V", nullptr, $PROTECTED, $method(static_cast<void(AbstractWatchKey::*)($Path*,$AbstractWatchService*)>(&AbstractWatchKey::init$))},
-	{"pollEvents", "()Ljava/util/List;", "()Ljava/util/List<Ljava/nio/file/WatchEvent<*>;>;", $PUBLIC | $FINAL},
-	{"reset", "()Z", nullptr, $PUBLIC | $FINAL},
-	{"signal", "()V", nullptr, $FINAL, $method(static_cast<void(AbstractWatchKey::*)()>(&AbstractWatchKey::signal))},
-	{"signalEvent", "(Ljava/nio/file/WatchEvent$Kind;Ljava/lang/Object;)V", "(Ljava/nio/file/WatchEvent$Kind<*>;Ljava/lang/Object;)V", $FINAL, $method(static_cast<void(AbstractWatchKey::*)($WatchEvent$Kind*,Object$*)>(&AbstractWatchKey::signalEvent))},
-	{"watchable", "()Ljava/nio/file/Path;", nullptr, $PUBLIC},
-	{"watcher", "()Lsun/nio/fs/AbstractWatchService;", nullptr, $FINAL, $method(static_cast<$AbstractWatchService*(AbstractWatchKey::*)()>(&AbstractWatchKey::watcher))},
+	{"<init>", "(Ljava/nio/file/Path;Lsun/nio/fs/AbstractWatchService;)V", nullptr, $PROTECTED, $method(AbstractWatchKey, init$, void, $Path*, $AbstractWatchService*)},
+	{"pollEvents", "()Ljava/util/List;", "()Ljava/util/List<Ljava/nio/file/WatchEvent<*>;>;", $PUBLIC | $FINAL, $virtualMethod(AbstractWatchKey, pollEvents, $List*)},
+	{"reset", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractWatchKey, reset, bool)},
+	{"signal", "()V", nullptr, $FINAL, $method(AbstractWatchKey, signal, void)},
+	{"signalEvent", "(Ljava/nio/file/WatchEvent$Kind;Ljava/lang/Object;)V", "(Ljava/nio/file/WatchEvent$Kind<*>;Ljava/lang/Object;)V", $FINAL, $method(AbstractWatchKey, signalEvent, void, $WatchEvent$Kind*, Object$*)},
+	{"watchable", "()Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(AbstractWatchKey, watchable, $Watchable*)},
+	{"watcher", "()Lsun/nio/fs/AbstractWatchService;", nullptr, $FINAL, $method(AbstractWatchKey, watcher, $AbstractWatchService*)},
 	{}
 };
 

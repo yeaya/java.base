@@ -48,7 +48,7 @@ $FieldInfo _StandardSocketOptions_FieldInfo_[] = {
 };
 
 $MethodInfo _StandardSocketOptions_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(StandardSocketOptions::*)()>(&StandardSocketOptions::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(StandardSocketOptions, init$, void)},
 	{}
 };
 

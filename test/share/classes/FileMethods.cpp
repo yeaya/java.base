@@ -20,10 +20,10 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _FileMethods_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(FileMethods::*)()>(&FileMethods::init$))},
-	{"ck", "(Ljava/lang/String;Ljava/io/File;Ljava/io/File;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($String*,$File*,$File*)>(&FileMethods::ck)), "java.lang.Exception"},
-	{"ck", "(Ljava/lang/String;Ljava/io/File;[Ljava/lang/String;[Ljava/io/File;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($String*,$File*,$StringArray*,$FileArray*)>(&FileMethods::ck)), "java.lang.Exception"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&FileMethods::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(FileMethods, init$, void)},
+	{"ck", "(Ljava/lang/String;Ljava/io/File;Ljava/io/File;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(FileMethods, ck, void, $String*, $File*, $File*), "java.lang.Exception"},
+	{"ck", "(Ljava/lang/String;Ljava/io/File;[Ljava/lang/String;[Ljava/io/File;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(FileMethods, ck, void, $String*, $File*, $StringArray*, $FileArray*), "java.lang.Exception"},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(FileMethods, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

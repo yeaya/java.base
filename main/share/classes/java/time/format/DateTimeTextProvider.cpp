@@ -99,17 +99,17 @@ $FieldInfo _DateTimeTextProvider_FieldInfo_[] = {
 };
 
 $MethodInfo _DateTimeTextProvider_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(DateTimeTextProvider::*)()>(&DateTimeTextProvider::init$))},
-	{"createEntry", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/Map$Entry;", "<A:Ljava/lang/Object;B:Ljava/lang/Object;>(TA;TB;)Ljava/util/Map$Entry<TA;TB;>;", $PRIVATE | $STATIC, $method(static_cast<$Map$Entry*(*)(Object$*,Object$*)>(&DateTimeTextProvider::createEntry))},
-	{"createStore", "(Ljava/time/temporal/TemporalField;Ljava/util/Locale;)Ljava/lang/Object;", nullptr, $PRIVATE, $method(static_cast<$Object*(DateTimeTextProvider::*)($TemporalField*,$Locale*)>(&DateTimeTextProvider::createStore))},
-	{"findStore", "(Ljava/time/temporal/TemporalField;Ljava/util/Locale;)Ljava/lang/Object;", nullptr, $PRIVATE, $method(static_cast<$Object*(DateTimeTextProvider::*)($TemporalField*,$Locale*)>(&DateTimeTextProvider::findStore))},
-	{"getInstance", "()Ljava/time/format/DateTimeTextProvider;", nullptr, $STATIC, $method(static_cast<DateTimeTextProvider*(*)()>(&DateTimeTextProvider::getInstance))},
-	{"getLocalizedResource", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/lang/String;Ljava/util/Locale;)TT;", $STATIC, $method(static_cast<$Object*(*)($String*,$Locale*)>(&DateTimeTextProvider::getLocalizedResource))},
-	{"getText", "(Ljava/time/temporal/TemporalField;JLjava/time/format/TextStyle;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getText", "(Ljava/time/chrono/Chronology;Ljava/time/temporal/TemporalField;JLjava/time/format/TextStyle;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getTextIterator", "(Ljava/time/temporal/TemporalField;Ljava/time/format/TextStyle;Ljava/util/Locale;)Ljava/util/Iterator;", "(Ljava/time/temporal/TemporalField;Ljava/time/format/TextStyle;Ljava/util/Locale;)Ljava/util/Iterator<Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/Long;>;>;", $PUBLIC},
-	{"getTextIterator", "(Ljava/time/chrono/Chronology;Ljava/time/temporal/TemporalField;Ljava/time/format/TextStyle;Ljava/util/Locale;)Ljava/util/Iterator;", "(Ljava/time/chrono/Chronology;Ljava/time/temporal/TemporalField;Ljava/time/format/TextStyle;Ljava/util/Locale;)Ljava/util/Iterator<Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/Long;>;>;", $PUBLIC},
-	{"toWeekDay", "(I)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)(int32_t)>(&DateTimeTextProvider::toWeekDay))},
+	{"<init>", "()V", nullptr, 0, $method(DateTimeTextProvider, init$, void)},
+	{"createEntry", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/Map$Entry;", "<A:Ljava/lang/Object;B:Ljava/lang/Object;>(TA;TB;)Ljava/util/Map$Entry<TA;TB;>;", $PRIVATE | $STATIC, $staticMethod(DateTimeTextProvider, createEntry, $Map$Entry*, Object$*, Object$*)},
+	{"createStore", "(Ljava/time/temporal/TemporalField;Ljava/util/Locale;)Ljava/lang/Object;", nullptr, $PRIVATE, $method(DateTimeTextProvider, createStore, $Object*, $TemporalField*, $Locale*)},
+	{"findStore", "(Ljava/time/temporal/TemporalField;Ljava/util/Locale;)Ljava/lang/Object;", nullptr, $PRIVATE, $method(DateTimeTextProvider, findStore, $Object*, $TemporalField*, $Locale*)},
+	{"getInstance", "()Ljava/time/format/DateTimeTextProvider;", nullptr, $STATIC, $staticMethod(DateTimeTextProvider, getInstance, DateTimeTextProvider*)},
+	{"getLocalizedResource", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/lang/String;Ljava/util/Locale;)TT;", $STATIC, $staticMethod(DateTimeTextProvider, getLocalizedResource, $Object*, $String*, $Locale*)},
+	{"getText", "(Ljava/time/temporal/TemporalField;JLjava/time/format/TextStyle;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DateTimeTextProvider, getText, $String*, $TemporalField*, int64_t, $TextStyle*, $Locale*)},
+	{"getText", "(Ljava/time/chrono/Chronology;Ljava/time/temporal/TemporalField;JLjava/time/format/TextStyle;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DateTimeTextProvider, getText, $String*, $Chronology*, $TemporalField*, int64_t, $TextStyle*, $Locale*)},
+	{"getTextIterator", "(Ljava/time/temporal/TemporalField;Ljava/time/format/TextStyle;Ljava/util/Locale;)Ljava/util/Iterator;", "(Ljava/time/temporal/TemporalField;Ljava/time/format/TextStyle;Ljava/util/Locale;)Ljava/util/Iterator<Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/Long;>;>;", $PUBLIC, $virtualMethod(DateTimeTextProvider, getTextIterator, $Iterator*, $TemporalField*, $TextStyle*, $Locale*)},
+	{"getTextIterator", "(Ljava/time/chrono/Chronology;Ljava/time/temporal/TemporalField;Ljava/time/format/TextStyle;Ljava/util/Locale;)Ljava/util/Iterator;", "(Ljava/time/chrono/Chronology;Ljava/time/temporal/TemporalField;Ljava/time/format/TextStyle;Ljava/util/Locale;)Ljava/util/Iterator<Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/Long;>;>;", $PUBLIC, $virtualMethod(DateTimeTextProvider, getTextIterator, $Iterator*, $Chronology*, $TemporalField*, $TextStyle*, $Locale*)},
+	{"toWeekDay", "(I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(DateTimeTextProvider, toWeekDay, int32_t, int32_t)},
 	{}
 };
 

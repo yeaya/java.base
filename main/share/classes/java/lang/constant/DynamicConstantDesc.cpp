@@ -86,8 +86,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo DynamicConstantDesc$$Lambda$toString::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DynamicConstantDesc$$Lambda$toString::*)()>(&DynamicConstantDesc$$Lambda$toString::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DynamicConstantDesc$$Lambda$toString, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DynamicConstantDesc$$Lambda$toString, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo DynamicConstantDesc$$Lambda$toString::classInfo$ = {
@@ -113,27 +113,27 @@ $FieldInfo _DynamicConstantDesc_FieldInfo_[] = {
 };
 
 $MethodInfo _DynamicConstantDesc_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/constant/DirectMethodHandleDesc;Ljava/lang/String;Ljava/lang/constant/ClassDesc;[Ljava/lang/constant/ConstantDesc;)V", nullptr, $PROTECTED | $TRANSIENT, $method(static_cast<void(DynamicConstantDesc::*)($DirectMethodHandleDesc*,$String*,$ClassDesc*,$ConstantDescArray*)>(&DynamicConstantDesc::init$))},
-	{"bootstrapArgs", "()[Ljava/lang/constant/ConstantDesc;", nullptr, $PUBLIC},
-	{"bootstrapArgsList", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/constant/ConstantDesc;>;", $PUBLIC},
-	{"bootstrapMethod", "()Ljava/lang/constant/DirectMethodHandleDesc;", nullptr, $PUBLIC},
-	{"canonicalizeArrayVarHandle", "(Ljava/lang/constant/DynamicConstantDesc;)Ljava/lang/constant/ConstantDesc;", "(Ljava/lang/constant/DynamicConstantDesc<*>;)Ljava/lang/constant/ConstantDesc;", $PRIVATE | $STATIC, $method(static_cast<$ConstantDesc*(*)(DynamicConstantDesc*)>(&DynamicConstantDesc::canonicalizeArrayVarHandle))},
-	{"canonicalizeEnum", "(Ljava/lang/constant/DynamicConstantDesc;)Ljava/lang/constant/ConstantDesc;", "(Ljava/lang/constant/DynamicConstantDesc<*>;)Ljava/lang/constant/ConstantDesc;", $PRIVATE | $STATIC, $method(static_cast<$ConstantDesc*(*)(DynamicConstantDesc*)>(&DynamicConstantDesc::canonicalizeEnum))},
-	{"canonicalizeFieldVarHandle", "(Ljava/lang/constant/DynamicConstantDesc;)Ljava/lang/constant/ConstantDesc;", "(Ljava/lang/constant/DynamicConstantDesc<*>;)Ljava/lang/constant/ConstantDesc;", $PRIVATE | $STATIC, $method(static_cast<$ConstantDesc*(*)(DynamicConstantDesc*)>(&DynamicConstantDesc::canonicalizeFieldVarHandle))},
-	{"canonicalizeNull", "(Ljava/lang/constant/DynamicConstantDesc;)Ljava/lang/constant/ConstantDesc;", "(Ljava/lang/constant/DynamicConstantDesc<*>;)Ljava/lang/constant/ConstantDesc;", $PRIVATE | $STATIC, $method(static_cast<$ConstantDesc*(*)(DynamicConstantDesc*)>(&DynamicConstantDesc::canonicalizeNull))},
-	{"canonicalizePrimitiveClass", "(Ljava/lang/constant/DynamicConstantDesc;)Ljava/lang/constant/ConstantDesc;", "(Ljava/lang/constant/DynamicConstantDesc<*>;)Ljava/lang/constant/ConstantDesc;", $PRIVATE | $STATIC, $method(static_cast<$ConstantDesc*(*)(DynamicConstantDesc*)>(&DynamicConstantDesc::canonicalizePrimitiveClass))},
-	{"canonicalizeStaticFieldVarHandle", "(Ljava/lang/constant/DynamicConstantDesc;)Ljava/lang/constant/ConstantDesc;", "(Ljava/lang/constant/DynamicConstantDesc<*>;)Ljava/lang/constant/ConstantDesc;", $PRIVATE | $STATIC, $method(static_cast<$ConstantDesc*(*)(DynamicConstantDesc*)>(&DynamicConstantDesc::canonicalizeStaticFieldVarHandle))},
-	{"constantName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"constantType", "()Ljava/lang/constant/ClassDesc;", nullptr, $PUBLIC},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
-	{"hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"of", "(Ljava/lang/constant/DirectMethodHandleDesc;[Ljava/lang/constant/ConstantDesc;)Ljava/lang/constant/DynamicConstantDesc;", "<T:Ljava/lang/Object;>(Ljava/lang/constant/DirectMethodHandleDesc;[Ljava/lang/constant/ConstantDesc;)Ljava/lang/constant/DynamicConstantDesc<TT;>;", $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<DynamicConstantDesc*(*)($DirectMethodHandleDesc*,$ConstantDescArray*)>(&DynamicConstantDesc::of))},
-	{"of", "(Ljava/lang/constant/DirectMethodHandleDesc;)Ljava/lang/constant/DynamicConstantDesc;", "<T:Ljava/lang/Object;>(Ljava/lang/constant/DirectMethodHandleDesc;)Ljava/lang/constant/DynamicConstantDesc<TT;>;", $PUBLIC | $STATIC, $method(static_cast<DynamicConstantDesc*(*)($DirectMethodHandleDesc*)>(&DynamicConstantDesc::of))},
-	{"ofCanonical", "(Ljava/lang/constant/DirectMethodHandleDesc;Ljava/lang/String;Ljava/lang/constant/ClassDesc;[Ljava/lang/constant/ConstantDesc;)Ljava/lang/constant/ConstantDesc;", "<T:Ljava/lang/Object;>(Ljava/lang/constant/DirectMethodHandleDesc;Ljava/lang/String;Ljava/lang/constant/ClassDesc;[Ljava/lang/constant/ConstantDesc;)Ljava/lang/constant/ConstantDesc;", $PUBLIC | $STATIC, $method(static_cast<$ConstantDesc*(*)($DirectMethodHandleDesc*,$String*,$ClassDesc*,$ConstantDescArray*)>(&DynamicConstantDesc::ofCanonical))},
-	{"ofNamed", "(Ljava/lang/constant/DirectMethodHandleDesc;Ljava/lang/String;Ljava/lang/constant/ClassDesc;[Ljava/lang/constant/ConstantDesc;)Ljava/lang/constant/DynamicConstantDesc;", "<T:Ljava/lang/Object;>(Ljava/lang/constant/DirectMethodHandleDesc;Ljava/lang/String;Ljava/lang/constant/ClassDesc;[Ljava/lang/constant/ConstantDesc;)Ljava/lang/constant/DynamicConstantDesc<TT;>;", $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<DynamicConstantDesc*(*)($DirectMethodHandleDesc*,$String*,$ClassDesc*,$ConstantDescArray*)>(&DynamicConstantDesc::ofNamed))},
-	{"resolveConstantDesc", "(Ljava/lang/invoke/MethodHandles$Lookup;)Ljava/lang/Object;", "(Ljava/lang/invoke/MethodHandles$Lookup;)TT;", $PUBLIC, nullptr, "java.lang.ReflectiveOperationException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"tryCanonicalize", "()Ljava/lang/constant/ConstantDesc;", nullptr, $PRIVATE, $method(static_cast<$ConstantDesc*(DynamicConstantDesc::*)()>(&DynamicConstantDesc::tryCanonicalize))},
+	{"<init>", "(Ljava/lang/constant/DirectMethodHandleDesc;Ljava/lang/String;Ljava/lang/constant/ClassDesc;[Ljava/lang/constant/ConstantDesc;)V", nullptr, $PROTECTED | $TRANSIENT, $method(DynamicConstantDesc, init$, void, $DirectMethodHandleDesc*, $String*, $ClassDesc*, $ConstantDescArray*)},
+	{"bootstrapArgs", "()[Ljava/lang/constant/ConstantDesc;", nullptr, $PUBLIC, $virtualMethod(DynamicConstantDesc, bootstrapArgs, $ConstantDescArray*)},
+	{"bootstrapArgsList", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/constant/ConstantDesc;>;", $PUBLIC, $virtualMethod(DynamicConstantDesc, bootstrapArgsList, $List*)},
+	{"bootstrapMethod", "()Ljava/lang/constant/DirectMethodHandleDesc;", nullptr, $PUBLIC, $virtualMethod(DynamicConstantDesc, bootstrapMethod, $DirectMethodHandleDesc*)},
+	{"canonicalizeArrayVarHandle", "(Ljava/lang/constant/DynamicConstantDesc;)Ljava/lang/constant/ConstantDesc;", "(Ljava/lang/constant/DynamicConstantDesc<*>;)Ljava/lang/constant/ConstantDesc;", $PRIVATE | $STATIC, $staticMethod(DynamicConstantDesc, canonicalizeArrayVarHandle, $ConstantDesc*, DynamicConstantDesc*)},
+	{"canonicalizeEnum", "(Ljava/lang/constant/DynamicConstantDesc;)Ljava/lang/constant/ConstantDesc;", "(Ljava/lang/constant/DynamicConstantDesc<*>;)Ljava/lang/constant/ConstantDesc;", $PRIVATE | $STATIC, $staticMethod(DynamicConstantDesc, canonicalizeEnum, $ConstantDesc*, DynamicConstantDesc*)},
+	{"canonicalizeFieldVarHandle", "(Ljava/lang/constant/DynamicConstantDesc;)Ljava/lang/constant/ConstantDesc;", "(Ljava/lang/constant/DynamicConstantDesc<*>;)Ljava/lang/constant/ConstantDesc;", $PRIVATE | $STATIC, $staticMethod(DynamicConstantDesc, canonicalizeFieldVarHandle, $ConstantDesc*, DynamicConstantDesc*)},
+	{"canonicalizeNull", "(Ljava/lang/constant/DynamicConstantDesc;)Ljava/lang/constant/ConstantDesc;", "(Ljava/lang/constant/DynamicConstantDesc<*>;)Ljava/lang/constant/ConstantDesc;", $PRIVATE | $STATIC, $staticMethod(DynamicConstantDesc, canonicalizeNull, $ConstantDesc*, DynamicConstantDesc*)},
+	{"canonicalizePrimitiveClass", "(Ljava/lang/constant/DynamicConstantDesc;)Ljava/lang/constant/ConstantDesc;", "(Ljava/lang/constant/DynamicConstantDesc<*>;)Ljava/lang/constant/ConstantDesc;", $PRIVATE | $STATIC, $staticMethod(DynamicConstantDesc, canonicalizePrimitiveClass, $ConstantDesc*, DynamicConstantDesc*)},
+	{"canonicalizeStaticFieldVarHandle", "(Ljava/lang/constant/DynamicConstantDesc;)Ljava/lang/constant/ConstantDesc;", "(Ljava/lang/constant/DynamicConstantDesc<*>;)Ljava/lang/constant/ConstantDesc;", $PRIVATE | $STATIC, $staticMethod(DynamicConstantDesc, canonicalizeStaticFieldVarHandle, $ConstantDesc*, DynamicConstantDesc*)},
+	{"constantName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DynamicConstantDesc, constantName, $String*)},
+	{"constantType", "()Ljava/lang/constant/ClassDesc;", nullptr, $PUBLIC, $virtualMethod(DynamicConstantDesc, constantType, $ClassDesc*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(DynamicConstantDesc, equals, bool, Object$*)},
+	{"hashCode", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(DynamicConstantDesc, hashCode, int32_t)},
+	{"of", "(Ljava/lang/constant/DirectMethodHandleDesc;[Ljava/lang/constant/ConstantDesc;)Ljava/lang/constant/DynamicConstantDesc;", "<T:Ljava/lang/Object;>(Ljava/lang/constant/DirectMethodHandleDesc;[Ljava/lang/constant/ConstantDesc;)Ljava/lang/constant/DynamicConstantDesc<TT;>;", $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(DynamicConstantDesc, of, DynamicConstantDesc*, $DirectMethodHandleDesc*, $ConstantDescArray*)},
+	{"of", "(Ljava/lang/constant/DirectMethodHandleDesc;)Ljava/lang/constant/DynamicConstantDesc;", "<T:Ljava/lang/Object;>(Ljava/lang/constant/DirectMethodHandleDesc;)Ljava/lang/constant/DynamicConstantDesc<TT;>;", $PUBLIC | $STATIC, $staticMethod(DynamicConstantDesc, of, DynamicConstantDesc*, $DirectMethodHandleDesc*)},
+	{"ofCanonical", "(Ljava/lang/constant/DirectMethodHandleDesc;Ljava/lang/String;Ljava/lang/constant/ClassDesc;[Ljava/lang/constant/ConstantDesc;)Ljava/lang/constant/ConstantDesc;", "<T:Ljava/lang/Object;>(Ljava/lang/constant/DirectMethodHandleDesc;Ljava/lang/String;Ljava/lang/constant/ClassDesc;[Ljava/lang/constant/ConstantDesc;)Ljava/lang/constant/ConstantDesc;", $PUBLIC | $STATIC, $staticMethod(DynamicConstantDesc, ofCanonical, $ConstantDesc*, $DirectMethodHandleDesc*, $String*, $ClassDesc*, $ConstantDescArray*)},
+	{"ofNamed", "(Ljava/lang/constant/DirectMethodHandleDesc;Ljava/lang/String;Ljava/lang/constant/ClassDesc;[Ljava/lang/constant/ConstantDesc;)Ljava/lang/constant/DynamicConstantDesc;", "<T:Ljava/lang/Object;>(Ljava/lang/constant/DirectMethodHandleDesc;Ljava/lang/String;Ljava/lang/constant/ClassDesc;[Ljava/lang/constant/ConstantDesc;)Ljava/lang/constant/DynamicConstantDesc<TT;>;", $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(DynamicConstantDesc, ofNamed, DynamicConstantDesc*, $DirectMethodHandleDesc*, $String*, $ClassDesc*, $ConstantDescArray*)},
+	{"resolveConstantDesc", "(Ljava/lang/invoke/MethodHandles$Lookup;)Ljava/lang/Object;", "(Ljava/lang/invoke/MethodHandles$Lookup;)TT;", $PUBLIC, $virtualMethod(DynamicConstantDesc, resolveConstantDesc, $Object*, $MethodHandles$Lookup*), "java.lang.ReflectiveOperationException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DynamicConstantDesc, toString, $String*)},
+	{"tryCanonicalize", "()Ljava/lang/constant/ConstantDesc;", nullptr, $PRIVATE, $method(DynamicConstantDesc, tryCanonicalize, $ConstantDesc*)},
 	{}
 };
 

@@ -11,7 +11,7 @@ namespace jdk {
 			namespace foreign {
 
 $MethodInfo _NativeLibraryProxy_MethodInfo_[] = {
-	{"lookup", "(Ljava/lang/String;)J", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.lang.NoSuchMethodException"},
+	{"lookup", "(Ljava/lang/String;)J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NativeLibraryProxy, lookup, int64_t, $String*), "java.lang.NoSuchMethodException"},
 	{}
 };
 

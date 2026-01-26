@@ -12,7 +12,7 @@ namespace java {
 		namespace ref {
 
 $MethodInfo _ReferenceQueue$Lock_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(ReferenceQueue$Lock::*)()>(&ReferenceQueue$Lock::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(ReferenceQueue$Lock, init$, void)},
 	{}
 };
 

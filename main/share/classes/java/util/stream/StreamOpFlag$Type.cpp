@@ -32,10 +32,10 @@ $FieldInfo _StreamOpFlag$Type_FieldInfo_[] = {
 };
 
 $MethodInfo _StreamOpFlag$Type_MethodInfo_[] = {
-	{"$values", "()[Ljava/util/stream/StreamOpFlag$Type;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$StreamOpFlag$TypeArray*(*)()>(&StreamOpFlag$Type::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(StreamOpFlag$Type::*)($String*,int32_t)>(&StreamOpFlag$Type::init$))},
-	{"valueOf", "(Ljava/lang/String;)Ljava/util/stream/StreamOpFlag$Type;", nullptr, $PUBLIC | $STATIC, $method(static_cast<StreamOpFlag$Type*(*)($String*)>(&StreamOpFlag$Type::valueOf))},
-	{"values", "()[Ljava/util/stream/StreamOpFlag$Type;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$StreamOpFlag$TypeArray*(*)()>(&StreamOpFlag$Type::values))},
+	{"$values", "()[Ljava/util/stream/StreamOpFlag$Type;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StreamOpFlag$Type, $values, $StreamOpFlag$TypeArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(StreamOpFlag$Type, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Ljava/util/stream/StreamOpFlag$Type;", nullptr, $PUBLIC | $STATIC, $staticMethod(StreamOpFlag$Type, valueOf, StreamOpFlag$Type*, $String*)},
+	{"values", "()[Ljava/util/stream/StreamOpFlag$Type;", nullptr, $PUBLIC | $STATIC, $staticMethod(StreamOpFlag$Type, values, $StreamOpFlag$TypeArray*)},
 	{}
 };
 

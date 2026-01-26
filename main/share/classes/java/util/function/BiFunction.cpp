@@ -48,8 +48,8 @@ $FieldInfo BiFunction$$Lambda$lambda$andThen$0::fieldInfos[3] = {
 	{}
 };
 $MethodInfo BiFunction$$Lambda$lambda$andThen$0::methodInfos[3] = {
-	{"<init>", "(Ljava/util/function/BiFunction;Ljava/util/function/Function;)V", nullptr, $PUBLIC, $method(static_cast<void(BiFunction$$Lambda$lambda$andThen$0::*)(BiFunction*,$Function*)>(&BiFunction$$Lambda$lambda$andThen$0::init$))},
-	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/function/BiFunction;Ljava/util/function/Function;)V", nullptr, $PUBLIC, $method(BiFunction$$Lambda$lambda$andThen$0, init$, void, BiFunction*, $Function*)},
+	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(BiFunction$$Lambda$lambda$andThen$0, apply, $Object*, Object$*, Object$*)},
 	{}
 };
 $ClassInfo BiFunction$$Lambda$lambda$andThen$0::classInfo$ = {
@@ -72,9 +72,9 @@ $CompoundAttribute _BiFunction_Annotations_[] = {
 };
 
 $MethodInfo _BiFunction_MethodInfo_[] = {
-	{"andThen", "(Ljava/util/function/Function;)Ljava/util/function/BiFunction;", "<V:Ljava/lang/Object;>(Ljava/util/function/Function<-TR;+TV;>;)Ljava/util/function/BiFunction<TT;TU;TV;>;", $PUBLIC},
-	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", "(TT;TU;)TR;", $PUBLIC | $ABSTRACT},
-	{"lambda$andThen$0", "(Ljava/util/function/Function;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$Object*(BiFunction::*)($Function*,Object$*,Object$*)>(&BiFunction::lambda$andThen$0))},
+	{"andThen", "(Ljava/util/function/Function;)Ljava/util/function/BiFunction;", "<V:Ljava/lang/Object;>(Ljava/util/function/Function<-TR;+TV;>;)Ljava/util/function/BiFunction<TT;TU;TV;>;", $PUBLIC, $virtualMethod(BiFunction, andThen, BiFunction*, $Function*)},
+	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", "(TT;TU;)TR;", $PUBLIC | $ABSTRACT, $virtualMethod(BiFunction, apply, $Object*, Object$*, Object$*)},
+	{"lambda$andThen$0", "(Ljava/util/function/Function;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $SYNTHETIC, $method(BiFunction, lambda$andThen$0, $Object*, $Function*, Object$*, Object$*)},
 	{}
 };
 

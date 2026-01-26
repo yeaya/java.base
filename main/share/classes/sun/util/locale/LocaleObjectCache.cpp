@@ -28,13 +28,13 @@ $FieldInfo _LocaleObjectCache_FieldInfo_[] = {
 };
 
 $MethodInfo _LocaleObjectCache_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(LocaleObjectCache::*)()>(&LocaleObjectCache::init$))},
-	{"<init>", "(IFI)V", nullptr, $PUBLIC, $method(static_cast<void(LocaleObjectCache::*)(int32_t,float,int32_t)>(&LocaleObjectCache::init$))},
-	{"cleanStaleEntries", "()V", nullptr, $PRIVATE, $method(static_cast<void(LocaleObjectCache::*)()>(&LocaleObjectCache::cleanStaleEntries))},
-	{"createObject", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TK;)TV;", $PROTECTED | $ABSTRACT},
-	{"get", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TK;)TV;", $PUBLIC},
-	{"normalizeKey", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TK;)TK;", $PROTECTED},
-	{"put", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", "(TK;TV;)TV;", $PROTECTED},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(LocaleObjectCache, init$, void)},
+	{"<init>", "(IFI)V", nullptr, $PUBLIC, $method(LocaleObjectCache, init$, void, int32_t, float, int32_t)},
+	{"cleanStaleEntries", "()V", nullptr, $PRIVATE, $method(LocaleObjectCache, cleanStaleEntries, void)},
+	{"createObject", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TK;)TV;", $PROTECTED | $ABSTRACT, $virtualMethod(LocaleObjectCache, createObject, $Object*, Object$*)},
+	{"get", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TK;)TV;", $PUBLIC, $virtualMethod(LocaleObjectCache, get, $Object*, Object$*)},
+	{"normalizeKey", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TK;)TK;", $PROTECTED, $virtualMethod(LocaleObjectCache, normalizeKey, $Object*, Object$*)},
+	{"put", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", "(TK;TV;)TV;", $PROTECTED, $virtualMethod(LocaleObjectCache, put, $Object*, Object$*, Object$*)},
 	{}
 };
 

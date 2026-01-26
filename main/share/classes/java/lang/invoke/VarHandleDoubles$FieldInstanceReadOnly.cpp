@@ -70,16 +70,16 @@ $FieldInfo _VarHandleDoubles$FieldInstanceReadOnly_FieldInfo_[] = {
 };
 
 $MethodInfo _VarHandleDoubles$FieldInstanceReadOnly_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Class;J)V", "(Ljava/lang/Class<*>;J)V", 0, $method(static_cast<void(VarHandleDoubles$FieldInstanceReadOnly::*)($Class*,int64_t)>(&VarHandleDoubles$FieldInstanceReadOnly::init$))},
-	{"<init>", "(Ljava/lang/Class;JLjava/lang/invoke/VarForm;Z)V", "(Ljava/lang/Class<*>;JLjava/lang/invoke/VarForm;Z)V", $PROTECTED, $method(static_cast<void(VarHandleDoubles$FieldInstanceReadOnly::*)($Class*,int64_t,$VarForm*,bool)>(&VarHandleDoubles$FieldInstanceReadOnly::init$))},
-	{"accessModeTypeUncached", "(Ljava/lang/invoke/VarHandle$AccessType;)Ljava/lang/invoke/MethodType;", nullptr, $FINAL},
-	{"describeConstable", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/lang/invoke/VarHandle$VarHandleDesc;>;", $PUBLIC},
-	{"get", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;)D", nullptr, $STATIC, $method(static_cast<double(*)($VarHandle*,Object$*)>(&VarHandleDoubles$FieldInstanceReadOnly::get)), nullptr, nullptr, _VarHandleDoubles$FieldInstanceReadOnly_MethodAnnotations_get4},
-	{"getAcquire", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;)D", nullptr, $STATIC, $method(static_cast<double(*)($VarHandle*,Object$*)>(&VarHandleDoubles$FieldInstanceReadOnly::getAcquire)), nullptr, nullptr, _VarHandleDoubles$FieldInstanceReadOnly_MethodAnnotations_getAcquire5},
-	{"getOpaque", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;)D", nullptr, $STATIC, $method(static_cast<double(*)($VarHandle*,Object$*)>(&VarHandleDoubles$FieldInstanceReadOnly::getOpaque)), nullptr, nullptr, _VarHandleDoubles$FieldInstanceReadOnly_MethodAnnotations_getOpaque6},
-	{"getVolatile", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;)D", nullptr, $STATIC, $method(static_cast<double(*)($VarHandle*,Object$*)>(&VarHandleDoubles$FieldInstanceReadOnly::getVolatile)), nullptr, nullptr, _VarHandleDoubles$FieldInstanceReadOnly_MethodAnnotations_getVolatile7},
-	{"withInvokeBehavior", "()Ljava/lang/invoke/VarHandleDoubles$FieldInstanceReadOnly;", nullptr, $PUBLIC},
-	{"withInvokeExactBehavior", "()Ljava/lang/invoke/VarHandleDoubles$FieldInstanceReadOnly;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Class;J)V", "(Ljava/lang/Class<*>;J)V", 0, $method(VarHandleDoubles$FieldInstanceReadOnly, init$, void, $Class*, int64_t)},
+	{"<init>", "(Ljava/lang/Class;JLjava/lang/invoke/VarForm;Z)V", "(Ljava/lang/Class<*>;JLjava/lang/invoke/VarForm;Z)V", $PROTECTED, $method(VarHandleDoubles$FieldInstanceReadOnly, init$, void, $Class*, int64_t, $VarForm*, bool)},
+	{"accessModeTypeUncached", "(Ljava/lang/invoke/VarHandle$AccessType;)Ljava/lang/invoke/MethodType;", nullptr, $FINAL, $virtualMethod(VarHandleDoubles$FieldInstanceReadOnly, accessModeTypeUncached, $MethodType*, $VarHandle$AccessType*)},
+	{"describeConstable", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/lang/invoke/VarHandle$VarHandleDesc;>;", $PUBLIC, $virtualMethod(VarHandleDoubles$FieldInstanceReadOnly, describeConstable, $Optional*)},
+	{"get", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;)D", nullptr, $STATIC, $staticMethod(VarHandleDoubles$FieldInstanceReadOnly, get, double, $VarHandle*, Object$*), nullptr, nullptr, _VarHandleDoubles$FieldInstanceReadOnly_MethodAnnotations_get4},
+	{"getAcquire", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;)D", nullptr, $STATIC, $staticMethod(VarHandleDoubles$FieldInstanceReadOnly, getAcquire, double, $VarHandle*, Object$*), nullptr, nullptr, _VarHandleDoubles$FieldInstanceReadOnly_MethodAnnotations_getAcquire5},
+	{"getOpaque", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;)D", nullptr, $STATIC, $staticMethod(VarHandleDoubles$FieldInstanceReadOnly, getOpaque, double, $VarHandle*, Object$*), nullptr, nullptr, _VarHandleDoubles$FieldInstanceReadOnly_MethodAnnotations_getOpaque6},
+	{"getVolatile", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;)D", nullptr, $STATIC, $staticMethod(VarHandleDoubles$FieldInstanceReadOnly, getVolatile, double, $VarHandle*, Object$*), nullptr, nullptr, _VarHandleDoubles$FieldInstanceReadOnly_MethodAnnotations_getVolatile7},
+	{"withInvokeBehavior", "()Ljava/lang/invoke/VarHandleDoubles$FieldInstanceReadOnly;", nullptr, $PUBLIC, $virtualMethod(VarHandleDoubles$FieldInstanceReadOnly, withInvokeBehavior, VarHandleDoubles$FieldInstanceReadOnly*)},
+	{"withInvokeExactBehavior", "()Ljava/lang/invoke/VarHandleDoubles$FieldInstanceReadOnly;", nullptr, $PUBLIC, $virtualMethod(VarHandleDoubles$FieldInstanceReadOnly, withInvokeExactBehavior, VarHandleDoubles$FieldInstanceReadOnly*)},
 	{}
 };
 

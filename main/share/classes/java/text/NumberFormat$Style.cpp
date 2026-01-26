@@ -25,10 +25,10 @@ $FieldInfo _NumberFormat$Style_FieldInfo_[] = {
 };
 
 $MethodInfo _NumberFormat$Style_MethodInfo_[] = {
-	{"$values", "()[Ljava/text/NumberFormat$Style;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$NumberFormat$StyleArray*(*)()>(&NumberFormat$Style::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(NumberFormat$Style::*)($String*,int32_t)>(&NumberFormat$Style::init$))},
-	{"valueOf", "(Ljava/lang/String;)Ljava/text/NumberFormat$Style;", nullptr, $PUBLIC | $STATIC, $method(static_cast<NumberFormat$Style*(*)($String*)>(&NumberFormat$Style::valueOf))},
-	{"values", "()[Ljava/text/NumberFormat$Style;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$NumberFormat$StyleArray*(*)()>(&NumberFormat$Style::values))},
+	{"$values", "()[Ljava/text/NumberFormat$Style;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(NumberFormat$Style, $values, $NumberFormat$StyleArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(NumberFormat$Style, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Ljava/text/NumberFormat$Style;", nullptr, $PUBLIC | $STATIC, $staticMethod(NumberFormat$Style, valueOf, NumberFormat$Style*, $String*)},
+	{"values", "()[Ljava/text/NumberFormat$Style;", nullptr, $PUBLIC | $STATIC, $staticMethod(NumberFormat$Style, values, $NumberFormat$StyleArray*)},
 	{}
 };
 

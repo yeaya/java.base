@@ -18,12 +18,12 @@ $FieldInfo _Members_FieldInfo_[] = {
 };
 
 $MethodInfo _Members_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Members::*)()>(&Members::init$))},
-	{"<init>", "(Z)V", nullptr, $PROTECTED, $method(static_cast<void(Members::*)(bool)>(&Members::init$))},
-	{"<init>", "(I)V", nullptr, $PRIVATE, $method(static_cast<void(Members::*)(int32_t)>(&Members::init$))},
-	{"privateMethod", "()V", nullptr, $PRIVATE, $method(static_cast<void(Members::*)()>(&Members::privateMethod))},
-	{"protectedMethod", "()V", nullptr, $PROTECTED},
-	{"publicMethod", "()V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Members, init$, void)},
+	{"<init>", "(Z)V", nullptr, $PROTECTED, $method(Members, init$, void, bool)},
+	{"<init>", "(I)V", nullptr, $PRIVATE, $method(Members, init$, void, int32_t)},
+	{"privateMethod", "()V", nullptr, $PRIVATE, $method(Members, privateMethod, void)},
+	{"protectedMethod", "()V", nullptr, $PROTECTED, $virtualMethod(Members, protectedMethod, void)},
+	{"publicMethod", "()V", nullptr, $PUBLIC, $virtualMethod(Members, publicMethod, void)},
 	{}
 };
 

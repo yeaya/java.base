@@ -27,10 +27,10 @@ $FieldInfo _ObjectStreamClass$EntryFuture_FieldInfo_[] = {
 };
 
 $MethodInfo _ObjectStreamClass$EntryFuture_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(ObjectStreamClass$EntryFuture::*)()>(&ObjectStreamClass$EntryFuture::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $SYNCHRONIZED},
-	{"getOwner", "()Ljava/lang/Thread;", nullptr, 0},
-	{"set", "(Ljava/lang/Object;)Z", nullptr, $SYNCHRONIZED},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(ObjectStreamClass$EntryFuture, init$, void)},
+	{"get", "()Ljava/lang/Object;", nullptr, $SYNCHRONIZED, $virtualMethod(ObjectStreamClass$EntryFuture, get, $Object*)},
+	{"getOwner", "()Ljava/lang/Thread;", nullptr, 0, $virtualMethod(ObjectStreamClass$EntryFuture, getOwner, $Thread*)},
+	{"set", "(Ljava/lang/Object;)Z", nullptr, $SYNCHRONIZED, $virtualMethod(ObjectStreamClass$EntryFuture, set, bool, Object$*)},
 	{}
 };
 

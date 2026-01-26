@@ -29,8 +29,8 @@ $FieldInfo _ManyFiles_FieldInfo_[] = {
 };
 
 $MethodInfo _ManyFiles_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ManyFiles::*)()>(&ManyFiles::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&ManyFiles::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ManyFiles, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ManyFiles, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

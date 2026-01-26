@@ -22,8 +22,8 @@ $FieldInfo _Configuration$2_FieldInfo_[] = {
 };
 
 $MethodInfo _Configuration$2_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(Configuration$2::*)($String*)>(&Configuration$2::init$))},
-	{"run", "()Ljavax/security/auth/login/Configuration;", nullptr, $PUBLIC, nullptr, "java.lang.ClassNotFoundException,java.lang.InstantiationException,java.lang.IllegalAccessException"},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(Configuration$2, init$, void, $String*)},
+	{"run", "()Ljavax/security/auth/login/Configuration;", nullptr, $PUBLIC, $virtualMethod(Configuration$2, run, $Object*), "java.lang.ClassNotFoundException,java.lang.InstantiationException,java.lang.IllegalAccessException"},
 	{}
 };
 

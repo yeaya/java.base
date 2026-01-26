@@ -16,10 +16,10 @@ $FieldInfo _IOException_FieldInfo_[] = {
 };
 
 $MethodInfo _IOException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(IOException::*)()>(&IOException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(IOException::*)($String*)>(&IOException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(IOException::*)($String*,$Throwable*)>(&IOException::init$))},
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(IOException::*)($Throwable*)>(&IOException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(IOException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(IOException, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(IOException, init$, void, $String*, $Throwable*)},
+	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(IOException, init$, void, $Throwable*)},
 	{}
 };
 

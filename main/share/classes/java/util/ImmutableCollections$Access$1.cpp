@@ -16,9 +16,9 @@ namespace java {
 	namespace util {
 
 $MethodInfo _ImmutableCollections$Access$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ImmutableCollections$Access$1::*)()>(&ImmutableCollections$Access$1::init$))},
-	{"listFromTrustedArray", "([Ljava/lang/Object;)Ljava/util/List;", "<E:Ljava/lang/Object;>([Ljava/lang/Object;)Ljava/util/List<TE;>;", $PUBLIC},
-	{"listFromTrustedArrayNullsAllowed", "([Ljava/lang/Object;)Ljava/util/List;", "<E:Ljava/lang/Object;>([Ljava/lang/Object;)Ljava/util/List<TE;>;", $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(ImmutableCollections$Access$1, init$, void)},
+	{"listFromTrustedArray", "([Ljava/lang/Object;)Ljava/util/List;", "<E:Ljava/lang/Object;>([Ljava/lang/Object;)Ljava/util/List<TE;>;", $PUBLIC, $virtualMethod(ImmutableCollections$Access$1, listFromTrustedArray, $List*, $ObjectArray*)},
+	{"listFromTrustedArrayNullsAllowed", "([Ljava/lang/Object;)Ljava/util/List;", "<E:Ljava/lang/Object;>([Ljava/lang/Object;)Ljava/util/List<TE;>;", $PUBLIC, $virtualMethod(ImmutableCollections$Access$1, listFromTrustedArrayNullsAllowed, $List*, $ObjectArray*)},
 	{}
 };
 

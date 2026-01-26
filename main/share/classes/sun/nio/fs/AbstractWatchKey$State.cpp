@@ -26,10 +26,10 @@ $FieldInfo _AbstractWatchKey$State_FieldInfo_[] = {
 };
 
 $MethodInfo _AbstractWatchKey$State_MethodInfo_[] = {
-	{"$values", "()[Lsun/nio/fs/AbstractWatchKey$State;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$AbstractWatchKey$StateArray*(*)()>(&AbstractWatchKey$State::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(AbstractWatchKey$State::*)($String*,int32_t)>(&AbstractWatchKey$State::init$))},
-	{"valueOf", "(Ljava/lang/String;)Lsun/nio/fs/AbstractWatchKey$State;", nullptr, $PUBLIC | $STATIC, $method(static_cast<AbstractWatchKey$State*(*)($String*)>(&AbstractWatchKey$State::valueOf))},
-	{"values", "()[Lsun/nio/fs/AbstractWatchKey$State;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$AbstractWatchKey$StateArray*(*)()>(&AbstractWatchKey$State::values))},
+	{"$values", "()[Lsun/nio/fs/AbstractWatchKey$State;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AbstractWatchKey$State, $values, $AbstractWatchKey$StateArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(AbstractWatchKey$State, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Lsun/nio/fs/AbstractWatchKey$State;", nullptr, $PUBLIC | $STATIC, $staticMethod(AbstractWatchKey$State, valueOf, AbstractWatchKey$State*, $String*)},
+	{"values", "()[Lsun/nio/fs/AbstractWatchKey$State;", nullptr, $PUBLIC | $STATIC, $staticMethod(AbstractWatchKey$State, values, $AbstractWatchKey$StateArray*)},
 	{}
 };
 

@@ -19,9 +19,9 @@ using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _StaticFieldsOnInterface_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(StaticFieldsOnInterface::*)()>(&StaticFieldsOnInterface::init$))},
-	{"assertOneField", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $STATIC, $method(static_cast<void(*)($Class*)>(&StaticFieldsOnInterface::assertOneField))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&StaticFieldsOnInterface::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(StaticFieldsOnInterface, init$, void)},
+	{"assertOneField", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $STATIC, $staticMethod(StaticFieldsOnInterface, assertOneField, void, $Class*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StaticFieldsOnInterface, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

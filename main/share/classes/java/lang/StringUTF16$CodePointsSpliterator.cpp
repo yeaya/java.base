@@ -31,16 +31,16 @@ $FieldInfo _StringUTF16$CodePointsSpliterator_FieldInfo_[] = {
 };
 
 $MethodInfo _StringUTF16$CodePointsSpliterator_MethodInfo_[] = {
-	{"<init>", "([BI)V", nullptr, 0, $method(static_cast<void(StringUTF16$CodePointsSpliterator::*)($bytes*,int32_t)>(&StringUTF16$CodePointsSpliterator::init$))},
-	{"<init>", "([BIII)V", nullptr, 0, $method(static_cast<void(StringUTF16$CodePointsSpliterator::*)($bytes*,int32_t,int32_t,int32_t)>(&StringUTF16$CodePointsSpliterator::init$))},
-	{"advance", "([BIILjava/util/function/IntConsumer;)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)($bytes*,int32_t,int32_t,$IntConsumer*)>(&StringUTF16$CodePointsSpliterator::advance))},
-	{"characteristics", "()I", nullptr, $PUBLIC},
-	{"estimateSize", "()J", nullptr, $PUBLIC},
-	{"forEachRemaining", "(Ljava/util/function/IntConsumer;)V", nullptr, $PUBLIC},
-	{"forEachRemaining", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"tryAdvance", "(Ljava/util/function/IntConsumer;)Z", nullptr, $PUBLIC},
-	{"tryAdvance", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"trySplit", "()Ljava/util/Spliterator$OfInt;", nullptr, $PUBLIC},
+	{"<init>", "([BI)V", nullptr, 0, $method(StringUTF16$CodePointsSpliterator, init$, void, $bytes*, int32_t)},
+	{"<init>", "([BIII)V", nullptr, 0, $method(StringUTF16$CodePointsSpliterator, init$, void, $bytes*, int32_t, int32_t, int32_t)},
+	{"advance", "([BIILjava/util/function/IntConsumer;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(StringUTF16$CodePointsSpliterator, advance, int32_t, $bytes*, int32_t, int32_t, $IntConsumer*)},
+	{"characteristics", "()I", nullptr, $PUBLIC, $virtualMethod(StringUTF16$CodePointsSpliterator, characteristics, int32_t)},
+	{"estimateSize", "()J", nullptr, $PUBLIC, $virtualMethod(StringUTF16$CodePointsSpliterator, estimateSize, int64_t)},
+	{"forEachRemaining", "(Ljava/util/function/IntConsumer;)V", nullptr, $PUBLIC, $virtualMethod(StringUTF16$CodePointsSpliterator, forEachRemaining, void, $IntConsumer*)},
+	{"forEachRemaining", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(StringUTF16$CodePointsSpliterator, forEachRemaining, void, Object$*)},
+	{"tryAdvance", "(Ljava/util/function/IntConsumer;)Z", nullptr, $PUBLIC, $virtualMethod(StringUTF16$CodePointsSpliterator, tryAdvance, bool, $IntConsumer*)},
+	{"tryAdvance", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(StringUTF16$CodePointsSpliterator, tryAdvance, bool, Object$*)},
+	{"trySplit", "()Ljava/util/Spliterator$OfInt;", nullptr, $PUBLIC, $virtualMethod(StringUTF16$CodePointsSpliterator, trySplit, $Spliterator$OfInt*)},
 	{}
 };
 

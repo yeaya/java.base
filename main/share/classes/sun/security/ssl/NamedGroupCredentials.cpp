@@ -6,14 +6,16 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $PublicKey = ::java::security::PublicKey;
+using $NamedGroup = ::sun::security::ssl::NamedGroup;
 
 namespace sun {
 	namespace security {
 		namespace ssl {
 
 $MethodInfo _NamedGroupCredentials_MethodInfo_[] = {
-	{"getNamedGroup", "()Lsun/security/ssl/NamedGroup;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getPublicKey", "()Ljava/security/PublicKey;", nullptr, $PUBLIC | $ABSTRACT},
+	{"getNamedGroup", "()Lsun/security/ssl/NamedGroup;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NamedGroupCredentials, getNamedGroup, $NamedGroup*)},
+	{"getPublicKey", "()Ljava/security/PublicKey;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NamedGroupCredentials, getPublicKey, $PublicKey*)},
 	{}
 };
 

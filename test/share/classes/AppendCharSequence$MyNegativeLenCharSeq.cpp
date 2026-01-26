@@ -18,11 +18,11 @@ $FieldInfo _AppendCharSequence$MyNegativeLenCharSeq_FieldInfo_[] = {
 };
 
 $MethodInfo _AppendCharSequence$MyNegativeLenCharSeq_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, 0, $method(static_cast<void(AppendCharSequence$MyNegativeLenCharSeq::*)(int32_t)>(&AppendCharSequence$MyNegativeLenCharSeq::init$))},
-	{"charAt", "(I)C", nullptr, $PUBLIC},
-	{"length", "()I", nullptr, $PUBLIC},
-	{"subSequence", "(II)Ljava/lang/CharSequence;", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(I)V", nullptr, 0, $method(AppendCharSequence$MyNegativeLenCharSeq, init$, void, int32_t)},
+	{"charAt", "(I)C", nullptr, $PUBLIC, $virtualMethod(AppendCharSequence$MyNegativeLenCharSeq, charAt, char16_t, int32_t)},
+	{"length", "()I", nullptr, $PUBLIC, $virtualMethod(AppendCharSequence$MyNegativeLenCharSeq, length, int32_t)},
+	{"subSequence", "(II)Ljava/lang/CharSequence;", nullptr, $PUBLIC, $virtualMethod(AppendCharSequence$MyNegativeLenCharSeq, subSequence, $CharSequence*, int32_t, int32_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AppendCharSequence$MyNegativeLenCharSeq, toString, $String*)},
 	{}
 };
 

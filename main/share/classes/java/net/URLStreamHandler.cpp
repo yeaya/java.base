@@ -35,19 +35,19 @@ $CompoundAttribute _URLStreamHandler_MethodAnnotations_setURL11[] = {
 };
 
 $MethodInfo _URLStreamHandler_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(URLStreamHandler::*)()>(&URLStreamHandler::init$))},
-	{"equals", "(Ljava/net/URL;Ljava/net/URL;)Z", nullptr, $PROTECTED},
-	{"getDefaultPort", "()I", nullptr, $PROTECTED},
-	{"getHostAddress", "(Ljava/net/URL;)Ljava/net/InetAddress;", nullptr, $PROTECTED},
-	{"hashCode", "(Ljava/net/URL;)I", nullptr, $PROTECTED},
-	{"hostsEqual", "(Ljava/net/URL;Ljava/net/URL;)Z", nullptr, $PROTECTED},
-	{"openConnection", "(Ljava/net/URL;)Ljava/net/URLConnection;", nullptr, $PROTECTED | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"openConnection", "(Ljava/net/URL;Ljava/net/Proxy;)Ljava/net/URLConnection;", nullptr, $PROTECTED, nullptr, "java.io.IOException"},
-	{"parseURL", "(Ljava/net/URL;Ljava/lang/String;II)V", nullptr, $PROTECTED},
-	{"sameFile", "(Ljava/net/URL;Ljava/net/URL;)Z", nullptr, $PROTECTED},
-	{"setURL", "(Ljava/net/URL;Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PROTECTED},
-	{"setURL", "(Ljava/net/URL;Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;)V", nullptr, $PROTECTED | $DEPRECATED, nullptr, nullptr, nullptr, _URLStreamHandler_MethodAnnotations_setURL11},
-	{"toExternalForm", "(Ljava/net/URL;)Ljava/lang/String;", nullptr, $PROTECTED},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(URLStreamHandler, init$, void)},
+	{"equals", "(Ljava/net/URL;Ljava/net/URL;)Z", nullptr, $PROTECTED, $virtualMethod(URLStreamHandler, equals, bool, $URL*, $URL*)},
+	{"getDefaultPort", "()I", nullptr, $PROTECTED, $virtualMethod(URLStreamHandler, getDefaultPort, int32_t)},
+	{"getHostAddress", "(Ljava/net/URL;)Ljava/net/InetAddress;", nullptr, $PROTECTED, $virtualMethod(URLStreamHandler, getHostAddress, $InetAddress*, $URL*)},
+	{"hashCode", "(Ljava/net/URL;)I", nullptr, $PROTECTED, $virtualMethod(URLStreamHandler, hashCode, int32_t, $URL*)},
+	{"hostsEqual", "(Ljava/net/URL;Ljava/net/URL;)Z", nullptr, $PROTECTED, $virtualMethod(URLStreamHandler, hostsEqual, bool, $URL*, $URL*)},
+	{"openConnection", "(Ljava/net/URL;)Ljava/net/URLConnection;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(URLStreamHandler, openConnection, $URLConnection*, $URL*), "java.io.IOException"},
+	{"openConnection", "(Ljava/net/URL;Ljava/net/Proxy;)Ljava/net/URLConnection;", nullptr, $PROTECTED, $virtualMethod(URLStreamHandler, openConnection, $URLConnection*, $URL*, $Proxy*), "java.io.IOException"},
+	{"parseURL", "(Ljava/net/URL;Ljava/lang/String;II)V", nullptr, $PROTECTED, $virtualMethod(URLStreamHandler, parseURL, void, $URL*, $String*, int32_t, int32_t)},
+	{"sameFile", "(Ljava/net/URL;Ljava/net/URL;)Z", nullptr, $PROTECTED, $virtualMethod(URLStreamHandler, sameFile, bool, $URL*, $URL*)},
+	{"setURL", "(Ljava/net/URL;Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(URLStreamHandler, setURL, void, $URL*, $String*, $String*, int32_t, $String*, $String*, $String*, $String*, $String*)},
+	{"setURL", "(Ljava/net/URL;Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;)V", nullptr, $PROTECTED | $DEPRECATED, $virtualMethod(URLStreamHandler, setURL, void, $URL*, $String*, $String*, int32_t, $String*, $String*), nullptr, nullptr, _URLStreamHandler_MethodAnnotations_setURL11},
+	{"toExternalForm", "(Ljava/net/URL;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(URLStreamHandler, toExternalForm, $String*, $URL*)},
 	{}
 };
 

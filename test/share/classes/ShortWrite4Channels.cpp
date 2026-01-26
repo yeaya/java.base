@@ -27,8 +27,8 @@ $FieldInfo _ShortWrite4Channels_FieldInfo_[] = {
 };
 
 $MethodInfo _ShortWrite4Channels_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ShortWrite4Channels::*)()>(&ShortWrite4Channels::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&ShortWrite4Channels::main)), "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ShortWrite4Channels, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ShortWrite4Channels, main, void, $StringArray*), "java.io.IOException"},
 	{}
 };
 

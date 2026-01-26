@@ -23,7 +23,7 @@ $FieldInfo _Label$PatchInfo_FieldInfo_[] = {
 };
 
 $MethodInfo _Label$PatchInfo_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/reflect/ClassFileAssembler;SSI)V", nullptr, 0, $method(static_cast<void(Label$PatchInfo::*)($ClassFileAssembler*,int16_t,int16_t,int32_t)>(&Label$PatchInfo::init$))},
+	{"<init>", "(Ljdk/internal/reflect/ClassFileAssembler;SSI)V", nullptr, 0, $method(Label$PatchInfo, init$, void, $ClassFileAssembler*, int16_t, int16_t, int32_t)},
 	{}
 };
 

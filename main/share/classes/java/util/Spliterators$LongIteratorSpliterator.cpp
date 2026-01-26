@@ -47,16 +47,16 @@ $FieldInfo _Spliterators$LongIteratorSpliterator_FieldInfo_[] = {
 };
 
 $MethodInfo _Spliterators$LongIteratorSpliterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/PrimitiveIterator$OfLong;JI)V", nullptr, $PUBLIC, $method(static_cast<void(Spliterators$LongIteratorSpliterator::*)($PrimitiveIterator$OfLong*,int64_t,int32_t)>(&Spliterators$LongIteratorSpliterator::init$))},
-	{"<init>", "(Ljava/util/PrimitiveIterator$OfLong;I)V", nullptr, $PUBLIC, $method(static_cast<void(Spliterators$LongIteratorSpliterator::*)($PrimitiveIterator$OfLong*,int32_t)>(&Spliterators$LongIteratorSpliterator::init$))},
-	{"characteristics", "()I", nullptr, $PUBLIC},
-	{"estimateSize", "()J", nullptr, $PUBLIC},
-	{"forEachRemaining", "(Ljava/util/function/LongConsumer;)V", nullptr, $PUBLIC},
-	{"forEachRemaining", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"getComparator", "()Ljava/util/Comparator;", "()Ljava/util/Comparator<-Ljava/lang/Long;>;", $PUBLIC},
-	{"tryAdvance", "(Ljava/util/function/LongConsumer;)Z", nullptr, $PUBLIC},
-	{"tryAdvance", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"trySplit", "()Ljava/util/Spliterator$OfLong;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/PrimitiveIterator$OfLong;JI)V", nullptr, $PUBLIC, $method(Spliterators$LongIteratorSpliterator, init$, void, $PrimitiveIterator$OfLong*, int64_t, int32_t)},
+	{"<init>", "(Ljava/util/PrimitiveIterator$OfLong;I)V", nullptr, $PUBLIC, $method(Spliterators$LongIteratorSpliterator, init$, void, $PrimitiveIterator$OfLong*, int32_t)},
+	{"characteristics", "()I", nullptr, $PUBLIC, $virtualMethod(Spliterators$LongIteratorSpliterator, characteristics, int32_t)},
+	{"estimateSize", "()J", nullptr, $PUBLIC, $virtualMethod(Spliterators$LongIteratorSpliterator, estimateSize, int64_t)},
+	{"forEachRemaining", "(Ljava/util/function/LongConsumer;)V", nullptr, $PUBLIC, $virtualMethod(Spliterators$LongIteratorSpliterator, forEachRemaining, void, $LongConsumer*)},
+	{"forEachRemaining", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Spliterators$LongIteratorSpliterator, forEachRemaining, void, Object$*)},
+	{"getComparator", "()Ljava/util/Comparator;", "()Ljava/util/Comparator<-Ljava/lang/Long;>;", $PUBLIC, $virtualMethod(Spliterators$LongIteratorSpliterator, getComparator, $Comparator*)},
+	{"tryAdvance", "(Ljava/util/function/LongConsumer;)Z", nullptr, $PUBLIC, $virtualMethod(Spliterators$LongIteratorSpliterator, tryAdvance, bool, $LongConsumer*)},
+	{"tryAdvance", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Spliterators$LongIteratorSpliterator, tryAdvance, bool, Object$*)},
+	{"trySplit", "()Ljava/util/Spliterator$OfLong;", nullptr, $PUBLIC, $virtualMethod(Spliterators$LongIteratorSpliterator, trySplit, $Spliterator$OfLong*)},
 	{}
 };
 

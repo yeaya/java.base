@@ -13,8 +13,8 @@ using $URL = ::java::net::URL;
 using $URLConnection = ::java::net::URLConnection;
 
 $MethodInfo _UnknownContentType_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(UnknownContentType::*)()>(&UnknownContentType::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&UnknownContentType::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(UnknownContentType, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(UnknownContentType, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

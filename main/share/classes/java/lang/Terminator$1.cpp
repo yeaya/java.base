@@ -16,8 +16,8 @@ namespace java {
 	namespace lang {
 
 $MethodInfo _Terminator$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Terminator$1::*)()>(&Terminator$1::init$))},
-	{"handle", "(Ljdk/internal/misc/Signal;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(Terminator$1, init$, void)},
+	{"handle", "(Ljdk/internal/misc/Signal;)V", nullptr, $PUBLIC, $virtualMethod(Terminator$1, handle, void, $Signal*)},
 	{}
 };
 

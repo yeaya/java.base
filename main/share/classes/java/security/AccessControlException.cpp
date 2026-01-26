@@ -33,9 +33,9 @@ $FieldInfo _AccessControlException_FieldInfo_[] = {
 };
 
 $MethodInfo _AccessControlException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(AccessControlException::*)($String*)>(&AccessControlException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/security/Permission;)V", nullptr, $PUBLIC, $method(static_cast<void(AccessControlException::*)($String*,$Permission*)>(&AccessControlException::init$))},
-	{"getPermission", "()Ljava/security/Permission;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(AccessControlException, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/security/Permission;)V", nullptr, $PUBLIC, $method(AccessControlException, init$, void, $String*, $Permission*)},
+	{"getPermission", "()Ljava/security/Permission;", nullptr, $PUBLIC, $virtualMethod(AccessControlException, getPermission, $Permission*)},
 	{}
 };
 

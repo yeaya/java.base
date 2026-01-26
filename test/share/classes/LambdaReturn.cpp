@@ -48,13 +48,13 @@ $FieldInfo _LambdaReturn_FieldInfo_[] = {
 };
 
 $MethodInfo _LambdaReturn_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(LambdaReturn::*)()>(&LambdaReturn::init$))},
-	{"amf", "(Ljava/util/List;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Z)V", "(Ljava/util/List<Ljava/lang/String;>;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Z)V", $PRIVATE | $STATIC, $method(static_cast<void(*)($List*,$MethodHandle*,$MethodType*,$MethodType*,$MethodType*,bool)>(&LambdaReturn::amf))},
-	{"hereS", "()Ljava/lang/String;", nullptr, $STATIC, $method(static_cast<$String*(*)()>(&LambdaReturn::hereS))},
-	{"hereV", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&LambdaReturn::hereV))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&LambdaReturn::main)), "java.lang.Throwable"},
-	{"mt", "(Ljava/lang/Class;)Ljava/lang/invoke/MethodType;", "(Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodType;", $PRIVATE | $STATIC, $method(static_cast<$MethodType*(*)($Class*)>(&LambdaReturn::mt))},
-	{"mt", "(Ljava/lang/Class;Ljava/lang/Class;)Ljava/lang/invoke/MethodType;", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodType;", $PRIVATE | $STATIC, $method(static_cast<$MethodType*(*)($Class*,$Class*)>(&LambdaReturn::mt))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(LambdaReturn, init$, void)},
+	{"amf", "(Ljava/util/List;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Z)V", "(Ljava/util/List<Ljava/lang/String;>;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Z)V", $PRIVATE | $STATIC, $staticMethod(LambdaReturn, amf, void, $List*, $MethodHandle*, $MethodType*, $MethodType*, $MethodType*, bool)},
+	{"hereS", "()Ljava/lang/String;", nullptr, $STATIC, $staticMethod(LambdaReturn, hereS, $String*)},
+	{"hereV", "()V", nullptr, $STATIC, $staticMethod(LambdaReturn, hereV, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(LambdaReturn, main, void, $StringArray*), "java.lang.Throwable"},
+	{"mt", "(Ljava/lang/Class;)Ljava/lang/invoke/MethodType;", "(Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodType;", $PRIVATE | $STATIC, $staticMethod(LambdaReturn, mt, $MethodType*, $Class*)},
+	{"mt", "(Ljava/lang/Class;Ljava/lang/Class;)Ljava/lang/invoke/MethodType;", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodType;", $PRIVATE | $STATIC, $staticMethod(LambdaReturn, mt, $MethodType*, $Class*, $Class*)},
 	{}
 };
 

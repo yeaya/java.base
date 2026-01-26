@@ -43,10 +43,10 @@ $FieldInfo _NativeMethodAccessorImpl_FieldInfo_[] = {
 };
 
 $MethodInfo _NativeMethodAccessorImpl_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/reflect/Method;)V", nullptr, 0, $method(static_cast<void(NativeMethodAccessorImpl::*)($Method*)>(&NativeMethodAccessorImpl::init$))},
-	{"invoke", "(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, nullptr, "java.lang.IllegalArgumentException,java.lang.reflect.InvocationTargetException"},
-	{"invoke0", "(Ljava/lang/reflect/Method;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $NATIVE, $method(static_cast<$Object*(*)($Method*,Object$*,$ObjectArray*)>(&NativeMethodAccessorImpl::invoke0))},
-	{"setParent", "(Ljdk/internal/reflect/DelegatingMethodAccessorImpl;)V", nullptr, 0},
+	{"<init>", "(Ljava/lang/reflect/Method;)V", nullptr, 0, $method(NativeMethodAccessorImpl, init$, void, $Method*)},
+	{"invoke", "(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(NativeMethodAccessorImpl, invoke, $Object*, Object$*, $ObjectArray*), "java.lang.IllegalArgumentException,java.lang.reflect.InvocationTargetException"},
+	{"invoke0", "(Ljava/lang/reflect/Method;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(NativeMethodAccessorImpl, invoke0, $Object*, $Method*, Object$*, $ObjectArray*)},
+	{"setParent", "(Ljdk/internal/reflect/DelegatingMethodAccessorImpl;)V", nullptr, 0, $virtualMethod(NativeMethodAccessorImpl, setParent, void, $DelegatingMethodAccessorImpl*)},
 	{"*invokeSpecial", "(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, 1},
 	{"*invokev", "(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, 1},
 	{}

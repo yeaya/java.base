@@ -19,10 +19,10 @@ $FieldInfo _TypeVariableSignature_FieldInfo_[] = {
 };
 
 $MethodInfo _TypeVariableSignature_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(static_cast<void(TypeVariableSignature::*)($String*)>(&TypeVariableSignature::init$))},
-	{"accept", "(Lsun/reflect/generics/visitor/TypeTreeVisitor;)V", "(Lsun/reflect/generics/visitor/TypeTreeVisitor<*>;)V", $PUBLIC},
-	{"getIdentifier", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"make", "(Ljava/lang/String;)Lsun/reflect/generics/tree/TypeVariableSignature;", nullptr, $PUBLIC | $STATIC, $method(static_cast<TypeVariableSignature*(*)($String*)>(&TypeVariableSignature::make))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(TypeVariableSignature, init$, void, $String*)},
+	{"accept", "(Lsun/reflect/generics/visitor/TypeTreeVisitor;)V", "(Lsun/reflect/generics/visitor/TypeTreeVisitor<*>;)V", $PUBLIC, $virtualMethod(TypeVariableSignature, accept, void, $TypeTreeVisitor*)},
+	{"getIdentifier", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TypeVariableSignature, getIdentifier, $String*)},
+	{"make", "(Ljava/lang/String;)Lsun/reflect/generics/tree/TypeVariableSignature;", nullptr, $PUBLIC | $STATIC, $staticMethod(TypeVariableSignature, make, TypeVariableSignature*, $String*)},
 	{}
 };
 

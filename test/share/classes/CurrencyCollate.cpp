@@ -21,8 +21,8 @@ $FieldInfo _CurrencyCollate_FieldInfo_[] = {
 };
 
 $MethodInfo _CurrencyCollate_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CurrencyCollate::*)()>(&CurrencyCollate::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&CurrencyCollate::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CurrencyCollate, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(CurrencyCollate, main, void, $StringArray*)},
 	{}
 };
 

@@ -67,15 +67,15 @@ $FieldInfo _ProxyGenerator$ProxyMethod_FieldInfo_[] = {
 };
 
 $MethodInfo _ProxyGenerator$ProxyMethod_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/reflect/Method;Ljava/lang/String;[Ljava/lang/Class;Ljava/lang/Class;[Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/String;)V", "(Ljava/lang/reflect/Method;Ljava/lang/String;[Ljava/lang/Class<*>;Ljava/lang/Class<*>;[Ljava/lang/Class<*>;Ljava/lang/Class<*>;Ljava/lang/String;)V", $PRIVATE, $method(static_cast<void(ProxyGenerator$ProxyMethod::*)($Method*,$String*,$ClassArray*,$Class*,$ClassArray*,$Class*,$String*)>(&ProxyGenerator$ProxyMethod::init$))},
-	{"<init>", "(Ljava/lang/reflect/Method;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(static_cast<void(ProxyGenerator$ProxyMethod::*)($Method*,$String*)>(&ProxyGenerator$ProxyMethod::init$))},
-	{"codeClassForName", "(Ljdk/internal/org/objectweb/asm/MethodVisitor;Ljava/lang/Class;)V", "(Ljdk/internal/org/objectweb/asm/MethodVisitor;Ljava/lang/Class<*>;)V", $PRIVATE, $method(static_cast<void(ProxyGenerator$ProxyMethod::*)($MethodVisitor*,$Class*)>(&ProxyGenerator$ProxyMethod::codeClassForName))},
-	{"codeFieldInitialization", "(Ljdk/internal/org/objectweb/asm/MethodVisitor;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(static_cast<void(ProxyGenerator$ProxyMethod::*)($MethodVisitor*,$String*)>(&ProxyGenerator$ProxyMethod::codeFieldInitialization))},
-	{"codeUnwrapReturnValue", "(Ljdk/internal/org/objectweb/asm/MethodVisitor;Ljava/lang/Class;)V", "(Ljdk/internal/org/objectweb/asm/MethodVisitor;Ljava/lang/Class<*>;)V", $PRIVATE, $method(static_cast<void(ProxyGenerator$ProxyMethod::*)($MethodVisitor*,$Class*)>(&ProxyGenerator$ProxyMethod::codeUnwrapReturnValue))},
-	{"codeWrapArgument", "(Ljdk/internal/org/objectweb/asm/MethodVisitor;Ljava/lang/Class;I)V", "(Ljdk/internal/org/objectweb/asm/MethodVisitor;Ljava/lang/Class<*>;I)V", $PRIVATE, $method(static_cast<void(ProxyGenerator$ProxyMethod::*)($MethodVisitor*,$Class*,int32_t)>(&ProxyGenerator$ProxyMethod::codeWrapArgument))},
-	{"emitIconstInsn", "(Ljdk/internal/org/objectweb/asm/MethodVisitor;I)V", nullptr, $PRIVATE, $method(static_cast<void(ProxyGenerator$ProxyMethod::*)($MethodVisitor*,int32_t)>(&ProxyGenerator$ProxyMethod::emitIconstInsn))},
-	{"generateMethod", "(Ljdk/internal/org/objectweb/asm/ClassWriter;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(static_cast<void(ProxyGenerator$ProxyMethod::*)($ClassWriter*,$String*)>(&ProxyGenerator$ProxyMethod::generateMethod))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/reflect/Method;Ljava/lang/String;[Ljava/lang/Class;Ljava/lang/Class;[Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/String;)V", "(Ljava/lang/reflect/Method;Ljava/lang/String;[Ljava/lang/Class<*>;Ljava/lang/Class<*>;[Ljava/lang/Class<*>;Ljava/lang/Class<*>;Ljava/lang/String;)V", $PRIVATE, $method(ProxyGenerator$ProxyMethod, init$, void, $Method*, $String*, $ClassArray*, $Class*, $ClassArray*, $Class*, $String*)},
+	{"<init>", "(Ljava/lang/reflect/Method;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(ProxyGenerator$ProxyMethod, init$, void, $Method*, $String*)},
+	{"codeClassForName", "(Ljdk/internal/org/objectweb/asm/MethodVisitor;Ljava/lang/Class;)V", "(Ljdk/internal/org/objectweb/asm/MethodVisitor;Ljava/lang/Class<*>;)V", $PRIVATE, $method(ProxyGenerator$ProxyMethod, codeClassForName, void, $MethodVisitor*, $Class*)},
+	{"codeFieldInitialization", "(Ljdk/internal/org/objectweb/asm/MethodVisitor;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(ProxyGenerator$ProxyMethod, codeFieldInitialization, void, $MethodVisitor*, $String*)},
+	{"codeUnwrapReturnValue", "(Ljdk/internal/org/objectweb/asm/MethodVisitor;Ljava/lang/Class;)V", "(Ljdk/internal/org/objectweb/asm/MethodVisitor;Ljava/lang/Class<*>;)V", $PRIVATE, $method(ProxyGenerator$ProxyMethod, codeUnwrapReturnValue, void, $MethodVisitor*, $Class*)},
+	{"codeWrapArgument", "(Ljdk/internal/org/objectweb/asm/MethodVisitor;Ljava/lang/Class;I)V", "(Ljdk/internal/org/objectweb/asm/MethodVisitor;Ljava/lang/Class<*>;I)V", $PRIVATE, $method(ProxyGenerator$ProxyMethod, codeWrapArgument, void, $MethodVisitor*, $Class*, int32_t)},
+	{"emitIconstInsn", "(Ljdk/internal/org/objectweb/asm/MethodVisitor;I)V", nullptr, $PRIVATE, $method(ProxyGenerator$ProxyMethod, emitIconstInsn, void, $MethodVisitor*, int32_t)},
+	{"generateMethod", "(Ljdk/internal/org/objectweb/asm/ClassWriter;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(ProxyGenerator$ProxyMethod, generateMethod, void, $ClassWriter*, $String*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ProxyGenerator$ProxyMethod, toString, $String*)},
 	{}
 };
 

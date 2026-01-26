@@ -17,6 +17,7 @@ using $URL = ::java::net::URL;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $Objects = ::java::util::Objects;
 using $Optional = ::java::util::Optional;
+using $Stream = ::java::util::stream::Stream;
 
 namespace java {
 	namespace lang {
@@ -24,11 +25,11 @@ namespace java {
 
 $MethodInfo _ModuleReader_MethodInfo_[] = {
 	{"close", "()V", nullptr, $PUBLIC | $ABSTRACT},
-	{"find", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/net/URI;>;", $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"list", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljava/lang/String;>;", $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"open", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/io/InputStream;>;", $PUBLIC, nullptr, "java.io.IOException"},
-	{"read", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/nio/ByteBuffer;>;", $PUBLIC, nullptr, "java.io.IOException"},
-	{"release", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC},
+	{"find", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/net/URI;>;", $PUBLIC | $ABSTRACT, $virtualMethod(ModuleReader, find, $Optional*, $String*), "java.io.IOException"},
+	{"list", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljava/lang/String;>;", $PUBLIC | $ABSTRACT, $virtualMethod(ModuleReader, list, $Stream*), "java.io.IOException"},
+	{"open", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/io/InputStream;>;", $PUBLIC, $virtualMethod(ModuleReader, open, $Optional*, $String*), "java.io.IOException"},
+	{"read", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/nio/ByteBuffer;>;", $PUBLIC, $virtualMethod(ModuleReader, read, $Optional*, $String*), "java.io.IOException"},
+	{"release", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(ModuleReader, release, void, $ByteBuffer*)},
 	{}
 };
 

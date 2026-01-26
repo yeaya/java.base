@@ -76,13 +76,13 @@ $FieldInfo _X509KeyManagerImpl$CheckType_FieldInfo_[] = {
 };
 
 $MethodInfo _X509KeyManagerImpl$CheckType_MethodInfo_[] = {
-	{"$values", "()[Lsun/security/ssl/X509KeyManagerImpl$CheckType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$X509KeyManagerImpl$CheckTypeArray*(*)()>(&X509KeyManagerImpl$CheckType::$values))},
-	{"<init>", "(Ljava/lang/String;ILjava/util/Set;)V", "(Ljava/util/Set<Ljava/lang/String;>;)V", $PRIVATE, $method(static_cast<void(X509KeyManagerImpl$CheckType::*)($String*,int32_t,$Set*)>(&X509KeyManagerImpl$CheckType::init$))},
-	{"check", "(Ljava/security/cert/X509Certificate;Ljava/util/Date;Ljava/util/List;Ljava/lang/String;)Lsun/security/ssl/X509KeyManagerImpl$CheckResult;", "(Ljava/security/cert/X509Certificate;Ljava/util/Date;Ljava/util/List<Ljavax/net/ssl/SNIServerName;>;Ljava/lang/String;)Lsun/security/ssl/X509KeyManagerImpl$CheckResult;", 0, $method(static_cast<$X509KeyManagerImpl$CheckResult*(X509KeyManagerImpl$CheckType::*)($X509Certificate*,$Date*,$List*,$String*)>(&X509KeyManagerImpl$CheckType::check))},
-	{"getBit", "([ZI)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($booleans*,int32_t)>(&X509KeyManagerImpl$CheckType::getBit))},
-	{"getValidator", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(static_cast<$String*(X509KeyManagerImpl$CheckType::*)()>(&X509KeyManagerImpl$CheckType::getValidator))},
-	{"valueOf", "(Ljava/lang/String;)Lsun/security/ssl/X509KeyManagerImpl$CheckType;", nullptr, $PUBLIC | $STATIC, $method(static_cast<X509KeyManagerImpl$CheckType*(*)($String*)>(&X509KeyManagerImpl$CheckType::valueOf))},
-	{"values", "()[Lsun/security/ssl/X509KeyManagerImpl$CheckType;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$X509KeyManagerImpl$CheckTypeArray*(*)()>(&X509KeyManagerImpl$CheckType::values))},
+	{"$values", "()[Lsun/security/ssl/X509KeyManagerImpl$CheckType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(X509KeyManagerImpl$CheckType, $values, $X509KeyManagerImpl$CheckTypeArray*)},
+	{"<init>", "(Ljava/lang/String;ILjava/util/Set;)V", "(Ljava/util/Set<Ljava/lang/String;>;)V", $PRIVATE, $method(X509KeyManagerImpl$CheckType, init$, void, $String*, int32_t, $Set*)},
+	{"check", "(Ljava/security/cert/X509Certificate;Ljava/util/Date;Ljava/util/List;Ljava/lang/String;)Lsun/security/ssl/X509KeyManagerImpl$CheckResult;", "(Ljava/security/cert/X509Certificate;Ljava/util/Date;Ljava/util/List<Ljavax/net/ssl/SNIServerName;>;Ljava/lang/String;)Lsun/security/ssl/X509KeyManagerImpl$CheckResult;", 0, $method(X509KeyManagerImpl$CheckType, check, $X509KeyManagerImpl$CheckResult*, $X509Certificate*, $Date*, $List*, $String*)},
+	{"getBit", "([ZI)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(X509KeyManagerImpl$CheckType, getBit, bool, $booleans*, int32_t)},
+	{"getValidator", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(X509KeyManagerImpl$CheckType, getValidator, $String*)},
+	{"valueOf", "(Ljava/lang/String;)Lsun/security/ssl/X509KeyManagerImpl$CheckType;", nullptr, $PUBLIC | $STATIC, $staticMethod(X509KeyManagerImpl$CheckType, valueOf, X509KeyManagerImpl$CheckType*, $String*)},
+	{"values", "()[Lsun/security/ssl/X509KeyManagerImpl$CheckType;", nullptr, $PUBLIC | $STATIC, $staticMethod(X509KeyManagerImpl$CheckType, values, $X509KeyManagerImpl$CheckTypeArray*)},
 	{}
 };
 

@@ -33,13 +33,13 @@ $FieldInfo _StampedLock$Node_FieldInfo_[] = {
 };
 
 $MethodInfo _StampedLock$Node_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(StampedLock$Node::*)()>(&StampedLock$Node::init$))},
-	{"casNext", "(Ljava/util/concurrent/locks/StampedLock$Node;Ljava/util/concurrent/locks/StampedLock$Node;)Z", nullptr, $FINAL, $method(static_cast<bool(StampedLock$Node::*)(StampedLock$Node*,StampedLock$Node*)>(&StampedLock$Node::casNext))},
-	{"casPrev", "(Ljava/util/concurrent/locks/StampedLock$Node;Ljava/util/concurrent/locks/StampedLock$Node;)Z", nullptr, $FINAL, $method(static_cast<bool(StampedLock$Node::*)(StampedLock$Node*,StampedLock$Node*)>(&StampedLock$Node::casPrev))},
-	{"clearStatus", "()V", nullptr, $FINAL, $method(static_cast<void(StampedLock$Node::*)()>(&StampedLock$Node::clearStatus))},
-	{"getAndUnsetStatus", "(I)I", nullptr, $FINAL, $method(static_cast<int32_t(StampedLock$Node::*)(int32_t)>(&StampedLock$Node::getAndUnsetStatus))},
-	{"setPrevRelaxed", "(Ljava/util/concurrent/locks/StampedLock$Node;)V", nullptr, $FINAL, $method(static_cast<void(StampedLock$Node::*)(StampedLock$Node*)>(&StampedLock$Node::setPrevRelaxed))},
-	{"setStatusRelaxed", "(I)V", nullptr, $FINAL, $method(static_cast<void(StampedLock$Node::*)(int32_t)>(&StampedLock$Node::setStatusRelaxed))},
+	{"<init>", "()V", nullptr, 0, $method(StampedLock$Node, init$, void)},
+	{"casNext", "(Ljava/util/concurrent/locks/StampedLock$Node;Ljava/util/concurrent/locks/StampedLock$Node;)Z", nullptr, $FINAL, $method(StampedLock$Node, casNext, bool, StampedLock$Node*, StampedLock$Node*)},
+	{"casPrev", "(Ljava/util/concurrent/locks/StampedLock$Node;Ljava/util/concurrent/locks/StampedLock$Node;)Z", nullptr, $FINAL, $method(StampedLock$Node, casPrev, bool, StampedLock$Node*, StampedLock$Node*)},
+	{"clearStatus", "()V", nullptr, $FINAL, $method(StampedLock$Node, clearStatus, void)},
+	{"getAndUnsetStatus", "(I)I", nullptr, $FINAL, $method(StampedLock$Node, getAndUnsetStatus, int32_t, int32_t)},
+	{"setPrevRelaxed", "(Ljava/util/concurrent/locks/StampedLock$Node;)V", nullptr, $FINAL, $method(StampedLock$Node, setPrevRelaxed, void, StampedLock$Node*)},
+	{"setStatusRelaxed", "(I)V", nullptr, $FINAL, $method(StampedLock$Node, setStatusRelaxed, void, int32_t)},
 	{}
 };
 

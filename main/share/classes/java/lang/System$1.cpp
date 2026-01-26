@@ -28,8 +28,8 @@ $FieldInfo _System$1_FieldInfo_[] = {
 };
 
 $MethodInfo _System$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/SecurityManager;)V", nullptr, 0, $method(static_cast<void(System$1::*)($SecurityManager*)>(&System$1::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/SecurityManager;)V", nullptr, 0, $method(System$1, init$, void, $SecurityManager*)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(System$1, run, $Object*)},
 	{}
 };
 

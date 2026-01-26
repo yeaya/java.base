@@ -12,7 +12,7 @@ namespace java {
 		namespace ref {
 
 $MethodInfo _Cleaner$Cleanable_MethodInfo_[] = {
-	{"clean", "()V", nullptr, $PUBLIC | $ABSTRACT},
+	{"clean", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Cleaner$Cleanable, clean, void)},
 	{}
 };
 

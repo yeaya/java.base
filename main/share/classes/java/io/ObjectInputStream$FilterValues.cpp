@@ -21,12 +21,12 @@ $FieldInfo _ObjectInputStream$FilterValues_FieldInfo_[] = {
 };
 
 $MethodInfo _ObjectInputStream$FilterValues_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Class;JJJJ)V", "(Ljava/lang/Class<*>;JJJJ)V", $PUBLIC, $method(static_cast<void(ObjectInputStream$FilterValues::*)($Class*,int64_t,int64_t,int64_t,int64_t)>(&ObjectInputStream$FilterValues::init$))},
-	{"arrayLength", "()J", nullptr, $PUBLIC},
-	{"depth", "()J", nullptr, $PUBLIC},
-	{"references", "()J", nullptr, $PUBLIC},
-	{"serialClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC},
-	{"streamBytes", "()J", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Class;JJJJ)V", "(Ljava/lang/Class<*>;JJJJ)V", $PUBLIC, $method(ObjectInputStream$FilterValues, init$, void, $Class*, int64_t, int64_t, int64_t, int64_t)},
+	{"arrayLength", "()J", nullptr, $PUBLIC, $virtualMethod(ObjectInputStream$FilterValues, arrayLength, int64_t)},
+	{"depth", "()J", nullptr, $PUBLIC, $virtualMethod(ObjectInputStream$FilterValues, depth, int64_t)},
+	{"references", "()J", nullptr, $PUBLIC, $virtualMethod(ObjectInputStream$FilterValues, references, int64_t)},
+	{"serialClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(ObjectInputStream$FilterValues, serialClass, $Class*)},
+	{"streamBytes", "()J", nullptr, $PUBLIC, $virtualMethod(ObjectInputStream$FilterValues, streamBytes, int64_t)},
 	{}
 };
 

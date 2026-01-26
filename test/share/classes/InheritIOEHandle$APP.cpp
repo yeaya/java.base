@@ -24,10 +24,10 @@ $FieldInfo _InheritIOEHandle$APP_FieldInfo_[] = {
 };
 
 $MethodInfo _InheritIOEHandle$APP_MethodInfo_[] = {
-	{"$values", "()[LInheritIOEHandle$APP;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$InheritIOEHandle$APPArray*(*)()>(&InheritIOEHandle$APP::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(InheritIOEHandle$APP::*)($String*,int32_t)>(&InheritIOEHandle$APP::init$))},
-	{"valueOf", "(Ljava/lang/String;)LInheritIOEHandle$APP;", nullptr, $PUBLIC | $STATIC, $method(static_cast<InheritIOEHandle$APP*(*)($String*)>(&InheritIOEHandle$APP::valueOf))},
-	{"values", "()[LInheritIOEHandle$APP;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$InheritIOEHandle$APPArray*(*)()>(&InheritIOEHandle$APP::values))},
+	{"$values", "()[LInheritIOEHandle$APP;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(InheritIOEHandle$APP, $values, $InheritIOEHandle$APPArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(InheritIOEHandle$APP, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)LInheritIOEHandle$APP;", nullptr, $PUBLIC | $STATIC, $staticMethod(InheritIOEHandle$APP, valueOf, InheritIOEHandle$APP*, $String*)},
+	{"values", "()[LInheritIOEHandle$APP;", nullptr, $PUBLIC | $STATIC, $staticMethod(InheritIOEHandle$APP, values, $InheritIOEHandle$APPArray*)},
 	{}
 };
 

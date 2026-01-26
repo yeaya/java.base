@@ -21,7 +21,7 @@ $FieldInfo _XDHKeyExchange_FieldInfo_[] = {
 };
 
 $MethodInfo _XDHKeyExchange_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(XDHKeyExchange::*)()>(&XDHKeyExchange::init$))},
+	{"<init>", "()V", nullptr, 0, $method(XDHKeyExchange, init$, void)},
 	{}
 };
 

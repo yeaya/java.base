@@ -50,15 +50,15 @@ namespace java {
 		namespace stream {
 
 $MethodInfo _StreamSupport_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(StreamSupport::*)()>(&StreamSupport::init$))},
-	{"doubleStream", "(Ljava/util/Spliterator$OfDouble;Z)Ljava/util/stream/DoubleStream;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$DoubleStream*(*)($Spliterator$OfDouble*,bool)>(&StreamSupport::doubleStream))},
-	{"doubleStream", "(Ljava/util/function/Supplier;IZ)Ljava/util/stream/DoubleStream;", "(Ljava/util/function/Supplier<+Ljava/util/Spliterator$OfDouble;>;IZ)Ljava/util/stream/DoubleStream;", $PUBLIC | $STATIC, $method(static_cast<$DoubleStream*(*)($Supplier*,int32_t,bool)>(&StreamSupport::doubleStream))},
-	{"intStream", "(Ljava/util/Spliterator$OfInt;Z)Ljava/util/stream/IntStream;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$IntStream*(*)($Spliterator$OfInt*,bool)>(&StreamSupport::intStream))},
-	{"intStream", "(Ljava/util/function/Supplier;IZ)Ljava/util/stream/IntStream;", "(Ljava/util/function/Supplier<+Ljava/util/Spliterator$OfInt;>;IZ)Ljava/util/stream/IntStream;", $PUBLIC | $STATIC, $method(static_cast<$IntStream*(*)($Supplier*,int32_t,bool)>(&StreamSupport::intStream))},
-	{"longStream", "(Ljava/util/Spliterator$OfLong;Z)Ljava/util/stream/LongStream;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$LongStream*(*)($Spliterator$OfLong*,bool)>(&StreamSupport::longStream))},
-	{"longStream", "(Ljava/util/function/Supplier;IZ)Ljava/util/stream/LongStream;", "(Ljava/util/function/Supplier<+Ljava/util/Spliterator$OfLong;>;IZ)Ljava/util/stream/LongStream;", $PUBLIC | $STATIC, $method(static_cast<$LongStream*(*)($Supplier*,int32_t,bool)>(&StreamSupport::longStream))},
-	{"stream", "(Ljava/util/Spliterator;Z)Ljava/util/stream/Stream;", "<T:Ljava/lang/Object;>(Ljava/util/Spliterator<TT;>;Z)Ljava/util/stream/Stream<TT;>;", $PUBLIC | $STATIC, $method(static_cast<$Stream*(*)($Spliterator*,bool)>(&StreamSupport::stream))},
-	{"stream", "(Ljava/util/function/Supplier;IZ)Ljava/util/stream/Stream;", "<T:Ljava/lang/Object;>(Ljava/util/function/Supplier<+Ljava/util/Spliterator<TT;>;>;IZ)Ljava/util/stream/Stream<TT;>;", $PUBLIC | $STATIC, $method(static_cast<$Stream*(*)($Supplier*,int32_t,bool)>(&StreamSupport::stream))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(StreamSupport, init$, void)},
+	{"doubleStream", "(Ljava/util/Spliterator$OfDouble;Z)Ljava/util/stream/DoubleStream;", nullptr, $PUBLIC | $STATIC, $staticMethod(StreamSupport, doubleStream, $DoubleStream*, $Spliterator$OfDouble*, bool)},
+	{"doubleStream", "(Ljava/util/function/Supplier;IZ)Ljava/util/stream/DoubleStream;", "(Ljava/util/function/Supplier<+Ljava/util/Spliterator$OfDouble;>;IZ)Ljava/util/stream/DoubleStream;", $PUBLIC | $STATIC, $staticMethod(StreamSupport, doubleStream, $DoubleStream*, $Supplier*, int32_t, bool)},
+	{"intStream", "(Ljava/util/Spliterator$OfInt;Z)Ljava/util/stream/IntStream;", nullptr, $PUBLIC | $STATIC, $staticMethod(StreamSupport, intStream, $IntStream*, $Spliterator$OfInt*, bool)},
+	{"intStream", "(Ljava/util/function/Supplier;IZ)Ljava/util/stream/IntStream;", "(Ljava/util/function/Supplier<+Ljava/util/Spliterator$OfInt;>;IZ)Ljava/util/stream/IntStream;", $PUBLIC | $STATIC, $staticMethod(StreamSupport, intStream, $IntStream*, $Supplier*, int32_t, bool)},
+	{"longStream", "(Ljava/util/Spliterator$OfLong;Z)Ljava/util/stream/LongStream;", nullptr, $PUBLIC | $STATIC, $staticMethod(StreamSupport, longStream, $LongStream*, $Spliterator$OfLong*, bool)},
+	{"longStream", "(Ljava/util/function/Supplier;IZ)Ljava/util/stream/LongStream;", "(Ljava/util/function/Supplier<+Ljava/util/Spliterator$OfLong;>;IZ)Ljava/util/stream/LongStream;", $PUBLIC | $STATIC, $staticMethod(StreamSupport, longStream, $LongStream*, $Supplier*, int32_t, bool)},
+	{"stream", "(Ljava/util/Spliterator;Z)Ljava/util/stream/Stream;", "<T:Ljava/lang/Object;>(Ljava/util/Spliterator<TT;>;Z)Ljava/util/stream/Stream<TT;>;", $PUBLIC | $STATIC, $staticMethod(StreamSupport, stream, $Stream*, $Spliterator*, bool)},
+	{"stream", "(Ljava/util/function/Supplier;IZ)Ljava/util/stream/Stream;", "<T:Ljava/lang/Object;>(Ljava/util/function/Supplier<+Ljava/util/Spliterator<TT;>;>;IZ)Ljava/util/stream/Stream<TT;>;", $PUBLIC | $STATIC, $staticMethod(StreamSupport, stream, $Stream*, $Supplier*, int32_t, bool)},
 	{}
 };
 

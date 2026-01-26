@@ -30,8 +30,8 @@ $FieldInfo _LocalVariableNode_FieldInfo_[] = {
 };
 
 $MethodInfo _LocalVariableNode_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljdk/internal/org/objectweb/asm/tree/LabelNode;Ljdk/internal/org/objectweb/asm/tree/LabelNode;I)V", nullptr, $PUBLIC, $method(static_cast<void(LocalVariableNode::*)($String*,$String*,$String*,$LabelNode*,$LabelNode*,int32_t)>(&LocalVariableNode::init$))},
-	{"accept", "(Ljdk/internal/org/objectweb/asm/MethodVisitor;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljdk/internal/org/objectweb/asm/tree/LabelNode;Ljdk/internal/org/objectweb/asm/tree/LabelNode;I)V", nullptr, $PUBLIC, $method(LocalVariableNode, init$, void, $String*, $String*, $String*, $LabelNode*, $LabelNode*, int32_t)},
+	{"accept", "(Ljdk/internal/org/objectweb/asm/MethodVisitor;)V", nullptr, $PUBLIC, $virtualMethod(LocalVariableNode, accept, void, $MethodVisitor*)},
 	{}
 };
 

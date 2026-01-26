@@ -18,7 +18,7 @@ $FieldInfo _ModuleInfo$ConstantPool$Entry_FieldInfo_[] = {
 };
 
 $MethodInfo _ModuleInfo$ConstantPool$Entry_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PROTECTED, $method(static_cast<void(ModuleInfo$ConstantPool$Entry::*)(int32_t)>(&ModuleInfo$ConstantPool$Entry::init$))},
+	{"<init>", "(I)V", nullptr, $PROTECTED, $method(ModuleInfo$ConstantPool$Entry, init$, void, int32_t)},
 	{}
 };
 

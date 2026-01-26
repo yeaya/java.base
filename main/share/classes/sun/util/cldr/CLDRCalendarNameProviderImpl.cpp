@@ -23,8 +23,8 @@ namespace sun {
 		namespace cldr {
 
 $MethodInfo _CLDRCalendarNameProviderImpl_MethodInfo_[] = {
-	{"<init>", "(Lsun/util/locale/provider/LocaleProviderAdapter$Type;Ljava/util/Set;)V", "(Lsun/util/locale/provider/LocaleProviderAdapter$Type;Ljava/util/Set<Ljava/lang/String;>;)V", $PUBLIC, $method(static_cast<void(CLDRCalendarNameProviderImpl::*)($LocaleProviderAdapter$Type*,$Set*)>(&CLDRCalendarNameProviderImpl::init$))},
-	{"isSupportedLocale", "(Ljava/util/Locale;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/util/locale/provider/LocaleProviderAdapter$Type;Ljava/util/Set;)V", "(Lsun/util/locale/provider/LocaleProviderAdapter$Type;Ljava/util/Set<Ljava/lang/String;>;)V", $PUBLIC, $method(CLDRCalendarNameProviderImpl, init$, void, $LocaleProviderAdapter$Type*, $Set*)},
+	{"isSupportedLocale", "(Ljava/util/Locale;)Z", nullptr, $PUBLIC, $virtualMethod(CLDRCalendarNameProviderImpl, isSupportedLocale, bool, $Locale*)},
 	{}
 };
 

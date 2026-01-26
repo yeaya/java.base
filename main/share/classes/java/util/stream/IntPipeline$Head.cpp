@@ -33,18 +33,18 @@ namespace java {
 		namespace stream {
 
 $MethodInfo _IntPipeline$Head_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/function/Supplier;IZ)V", "(Ljava/util/function/Supplier<+Ljava/util/Spliterator<Ljava/lang/Integer;>;>;IZ)V", 0, $method(static_cast<void(IntPipeline$Head::*)($Supplier*,int32_t,bool)>(&IntPipeline$Head::init$))},
-	{"<init>", "(Ljava/util/Spliterator;IZ)V", "(Ljava/util/Spliterator<Ljava/lang/Integer;>;IZ)V", 0, $method(static_cast<void(IntPipeline$Head::*)($Spliterator*,int32_t,bool)>(&IntPipeline$Head::init$))},
-	{"forEach", "(Ljava/util/function/IntConsumer;)V", nullptr, $PUBLIC},
-	{"forEachOrdered", "(Ljava/util/function/IntConsumer;)V", nullptr, $PUBLIC},
-	{"iterator", "()Ljava/util/Iterator;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"lazySpliterator", "(Ljava/util/function/Supplier;)Ljava/util/Spliterator;", nullptr, $VOLATILE | $SYNTHETIC},
-	{"opIsStateful", "()Z", nullptr, $FINAL},
-	{"opWrapSink", "(ILjava/util/stream/Sink;)Ljava/util/stream/Sink;", "(ILjava/util/stream/Sink<Ljava/lang/Integer;>;)Ljava/util/stream/Sink<TE_IN;>;", $FINAL},
-	{"parallel", "()Ljava/util/stream/IntStream;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"sequential", "()Ljava/util/stream/IntStream;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"spliterator", "()Ljava/util/Spliterator;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"unordered", "()Ljava/util/stream/BaseStream;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "(Ljava/util/function/Supplier;IZ)V", "(Ljava/util/function/Supplier<+Ljava/util/Spliterator<Ljava/lang/Integer;>;>;IZ)V", 0, $method(IntPipeline$Head, init$, void, $Supplier*, int32_t, bool)},
+	{"<init>", "(Ljava/util/Spliterator;IZ)V", "(Ljava/util/Spliterator<Ljava/lang/Integer;>;IZ)V", 0, $method(IntPipeline$Head, init$, void, $Spliterator*, int32_t, bool)},
+	{"forEach", "(Ljava/util/function/IntConsumer;)V", nullptr, $PUBLIC, $virtualMethod(IntPipeline$Head, forEach, void, $IntConsumer*)},
+	{"forEachOrdered", "(Ljava/util/function/IntConsumer;)V", nullptr, $PUBLIC, $virtualMethod(IntPipeline$Head, forEachOrdered, void, $IntConsumer*)},
+	{"iterator", "()Ljava/util/Iterator;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(IntPipeline$Head, iterator, $Iterator*)},
+	{"lazySpliterator", "(Ljava/util/function/Supplier;)Ljava/util/Spliterator;", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(IntPipeline$Head, lazySpliterator, $Spliterator*, $Supplier*)},
+	{"opIsStateful", "()Z", nullptr, $FINAL, $virtualMethod(IntPipeline$Head, opIsStateful, bool)},
+	{"opWrapSink", "(ILjava/util/stream/Sink;)Ljava/util/stream/Sink;", "(ILjava/util/stream/Sink<Ljava/lang/Integer;>;)Ljava/util/stream/Sink<TE_IN;>;", $FINAL, $virtualMethod(IntPipeline$Head, opWrapSink, $Sink*, int32_t, $Sink*)},
+	{"parallel", "()Ljava/util/stream/IntStream;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(IntPipeline$Head, parallel, $BaseStream*)},
+	{"sequential", "()Ljava/util/stream/IntStream;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(IntPipeline$Head, sequential, $BaseStream*)},
+	{"spliterator", "()Ljava/util/Spliterator;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(IntPipeline$Head, spliterator, $Spliterator*)},
+	{"unordered", "()Ljava/util/stream/BaseStream;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(IntPipeline$Head, unordered, $BaseStream*)},
 	{}
 };
 

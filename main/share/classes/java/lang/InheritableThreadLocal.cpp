@@ -13,10 +13,10 @@ namespace java {
 	namespace lang {
 
 $MethodInfo _InheritableThreadLocal_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(InheritableThreadLocal::*)()>(&InheritableThreadLocal::init$))},
-	{"childValue", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TT;)TT;", $PROTECTED},
-	{"createMap", "(Ljava/lang/Thread;Ljava/lang/Object;)V", "(Ljava/lang/Thread;TT;)V", 0},
-	{"getMap", "(Ljava/lang/Thread;)Ljava/lang/ThreadLocal$ThreadLocalMap;", nullptr, 0},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(InheritableThreadLocal, init$, void)},
+	{"childValue", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TT;)TT;", $PROTECTED, $virtualMethod(InheritableThreadLocal, childValue, $Object*, Object$*)},
+	{"createMap", "(Ljava/lang/Thread;Ljava/lang/Object;)V", "(Ljava/lang/Thread;TT;)V", 0, $virtualMethod(InheritableThreadLocal, createMap, void, $Thread*, Object$*)},
+	{"getMap", "(Ljava/lang/Thread;)Ljava/lang/ThreadLocal$ThreadLocalMap;", nullptr, 0, $virtualMethod(InheritableThreadLocal, getMap, $ThreadLocal$ThreadLocalMap*, $Thread*)},
 	{}
 };
 

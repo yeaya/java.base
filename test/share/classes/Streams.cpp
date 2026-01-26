@@ -37,9 +37,9 @@ $FieldInfo _Streams_FieldInfo_[] = {
 };
 
 $MethodInfo _Streams_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Streams::*)()>(&Streams::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Streams::main)), "java.lang.Exception"},
-	{"runTest", "(Ljava/lang/Class;Ljava/net/ServerSocket;)V", "(Ljava/lang/Class<+LStreams$StreamGetter;>;Ljava/net/ServerSocket;)V", $STATIC, $method(static_cast<void(*)($Class*,$ServerSocket*)>(&Streams::runTest)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Streams, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Streams, main, void, $StringArray*), "java.lang.Exception"},
+	{"runTest", "(Ljava/lang/Class;Ljava/net/ServerSocket;)V", "(Ljava/lang/Class<+LStreams$StreamGetter;>;Ljava/net/ServerSocket;)V", $STATIC, $staticMethod(Streams, runTest, void, $Class*, $ServerSocket*), "java.lang.Exception"},
 	{}
 };
 

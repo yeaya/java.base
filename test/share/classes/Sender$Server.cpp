@@ -31,11 +31,11 @@ $FieldInfo _Sender$Server_FieldInfo_[] = {
 };
 
 $MethodInfo _Sender$Server_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Sender$Server::*)()>(&Sender$Server::init$)), "java.io.IOException"},
-	{"port", "()I", nullptr, 0},
-	{"run", "()V", nullptr, $PUBLIC},
-	{"showBuffer", "(Ljava/lang/String;Ljava/nio/ByteBuffer;)V", nullptr, 0},
-	{"throwException", "()V", nullptr, 0, nullptr, "java.lang.Exception"},
+	{"<init>", "()V", nullptr, 0, $method(Sender$Server, init$, void), "java.io.IOException"},
+	{"port", "()I", nullptr, 0, $virtualMethod(Sender$Server, port, int32_t)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Sender$Server, run, void)},
+	{"showBuffer", "(Ljava/lang/String;Ljava/nio/ByteBuffer;)V", nullptr, 0, $virtualMethod(Sender$Server, showBuffer, void, $String*, $ByteBuffer*)},
+	{"throwException", "()V", nullptr, 0, $virtualMethod(Sender$Server, throwException, void), "java.lang.Exception"},
 	{}
 };
 

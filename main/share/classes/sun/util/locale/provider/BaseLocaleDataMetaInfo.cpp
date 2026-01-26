@@ -27,10 +27,10 @@ $FieldInfo _BaseLocaleDataMetaInfo_FieldInfo_[] = {
 };
 
 $MethodInfo _BaseLocaleDataMetaInfo_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(BaseLocaleDataMetaInfo::*)()>(&BaseLocaleDataMetaInfo::init$))},
-	{"availableLanguageTags", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getSupportedLocaleString", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)($String*)>(&BaseLocaleDataMetaInfo::getSupportedLocaleString))},
-	{"getType", "()Lsun/util/locale/provider/LocaleProviderAdapter$Type;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(BaseLocaleDataMetaInfo, init$, void)},
+	{"availableLanguageTags", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BaseLocaleDataMetaInfo, availableLanguageTags, $String*, $String*)},
+	{"getSupportedLocaleString", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(BaseLocaleDataMetaInfo, getSupportedLocaleString, $String*, $String*)},
+	{"getType", "()Lsun/util/locale/provider/LocaleProviderAdapter$Type;", nullptr, $PUBLIC, $virtualMethod(BaseLocaleDataMetaInfo, getType, $LocaleProviderAdapter$Type*)},
 	{}
 };
 

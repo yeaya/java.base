@@ -108,8 +108,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo CharPredicates$$Lambda$isAlphabetic::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CharPredicates$$Lambda$isAlphabetic::*)()>(&CharPredicates$$Lambda$isAlphabetic::init$))},
-	{"is", "(I)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CharPredicates$$Lambda$isAlphabetic, init$, void)},
+	{"is", "(I)Z", nullptr, $PUBLIC, $virtualMethod(CharPredicates$$Lambda$isAlphabetic, is, bool, int32_t)},
 	{}
 };
 $ClassInfo CharPredicates$$Lambda$isAlphabetic::classInfo$ = {
@@ -141,8 +141,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo CharPredicates$$Lambda$isDigit$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CharPredicates$$Lambda$isDigit$1::*)()>(&CharPredicates$$Lambda$isDigit$1::init$))},
-	{"is", "(I)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CharPredicates$$Lambda$isDigit$1, init$, void)},
+	{"is", "(I)Z", nullptr, $PUBLIC, $virtualMethod(CharPredicates$$Lambda$isDigit$1, is, bool, int32_t)},
 	{}
 };
 $ClassInfo CharPredicates$$Lambda$isDigit$1::classInfo$ = {
@@ -174,8 +174,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo CharPredicates$$Lambda$isLetter$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CharPredicates$$Lambda$isLetter$2::*)()>(&CharPredicates$$Lambda$isLetter$2::init$))},
-	{"is", "(I)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CharPredicates$$Lambda$isLetter$2, init$, void)},
+	{"is", "(I)Z", nullptr, $PUBLIC, $virtualMethod(CharPredicates$$Lambda$isLetter$2, is, bool, int32_t)},
 	{}
 };
 $ClassInfo CharPredicates$$Lambda$isLetter$2::classInfo$ = {
@@ -207,8 +207,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo CharPredicates$$Lambda$isIdeographic$3::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CharPredicates$$Lambda$isIdeographic$3::*)()>(&CharPredicates$$Lambda$isIdeographic$3::init$))},
-	{"is", "(I)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CharPredicates$$Lambda$isIdeographic$3, init$, void)},
+	{"is", "(I)Z", nullptr, $PUBLIC, $virtualMethod(CharPredicates$$Lambda$isIdeographic$3, is, bool, int32_t)},
 	{}
 };
 $ClassInfo CharPredicates$$Lambda$isIdeographic$3::classInfo$ = {
@@ -240,8 +240,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo CharPredicates$$Lambda$isLowerCase$4::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CharPredicates$$Lambda$isLowerCase$4::*)()>(&CharPredicates$$Lambda$isLowerCase$4::init$))},
-	{"is", "(I)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CharPredicates$$Lambda$isLowerCase$4, init$, void)},
+	{"is", "(I)Z", nullptr, $PUBLIC, $virtualMethod(CharPredicates$$Lambda$isLowerCase$4, is, bool, int32_t)},
 	{}
 };
 $ClassInfo CharPredicates$$Lambda$isLowerCase$4::classInfo$ = {
@@ -273,8 +273,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo CharPredicates$$Lambda$isUpperCase$5::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CharPredicates$$Lambda$isUpperCase$5::*)()>(&CharPredicates$$Lambda$isUpperCase$5::init$))},
-	{"is", "(I)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CharPredicates$$Lambda$isUpperCase$5, init$, void)},
+	{"is", "(I)Z", nullptr, $PUBLIC, $virtualMethod(CharPredicates$$Lambda$isUpperCase$5, is, bool, int32_t)},
 	{}
 };
 $ClassInfo CharPredicates$$Lambda$isUpperCase$5::classInfo$ = {
@@ -306,8 +306,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo CharPredicates$$Lambda$isTitleCase$6::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CharPredicates$$Lambda$isTitleCase$6::*)()>(&CharPredicates$$Lambda$isTitleCase$6::init$))},
-	{"is", "(I)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CharPredicates$$Lambda$isTitleCase$6, init$, void)},
+	{"is", "(I)Z", nullptr, $PUBLIC, $virtualMethod(CharPredicates$$Lambda$isTitleCase$6, is, bool, int32_t)},
 	{}
 };
 $ClassInfo CharPredicates$$Lambda$isTitleCase$6::classInfo$ = {
@@ -339,8 +339,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo CharPredicates$$Lambda$lambda$WHITE_SPACE$0$7::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CharPredicates$$Lambda$lambda$WHITE_SPACE$0$7::*)()>(&CharPredicates$$Lambda$lambda$WHITE_SPACE$0$7::init$))},
-	{"is", "(I)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CharPredicates$$Lambda$lambda$WHITE_SPACE$0$7, init$, void)},
+	{"is", "(I)Z", nullptr, $PUBLIC, $virtualMethod(CharPredicates$$Lambda$lambda$WHITE_SPACE$0$7, is, bool, int32_t)},
 	{}
 };
 $ClassInfo CharPredicates$$Lambda$lambda$WHITE_SPACE$0$7::classInfo$ = {
@@ -372,8 +372,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo CharPredicates$$Lambda$lambda$CONTROL$1$8::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CharPredicates$$Lambda$lambda$CONTROL$1$8::*)()>(&CharPredicates$$Lambda$lambda$CONTROL$1$8::init$))},
-	{"is", "(I)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CharPredicates$$Lambda$lambda$CONTROL$1$8, init$, void)},
+	{"is", "(I)Z", nullptr, $PUBLIC, $virtualMethod(CharPredicates$$Lambda$lambda$CONTROL$1$8, is, bool, int32_t)},
 	{}
 };
 $ClassInfo CharPredicates$$Lambda$lambda$CONTROL$1$8::classInfo$ = {
@@ -405,8 +405,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo CharPredicates$$Lambda$lambda$PUNCTUATION$2$9::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CharPredicates$$Lambda$lambda$PUNCTUATION$2$9::*)()>(&CharPredicates$$Lambda$lambda$PUNCTUATION$2$9::init$))},
-	{"is", "(I)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CharPredicates$$Lambda$lambda$PUNCTUATION$2$9, init$, void)},
+	{"is", "(I)Z", nullptr, $PUBLIC, $virtualMethod(CharPredicates$$Lambda$lambda$PUNCTUATION$2$9, is, bool, int32_t)},
 	{}
 };
 $ClassInfo CharPredicates$$Lambda$lambda$PUNCTUATION$2$9::classInfo$ = {
@@ -438,8 +438,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo CharPredicates$$Lambda$lambda$HEX_DIGIT$3$10::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CharPredicates$$Lambda$lambda$HEX_DIGIT$3$10::*)()>(&CharPredicates$$Lambda$lambda$HEX_DIGIT$3$10::init$))},
-	{"is", "(I)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CharPredicates$$Lambda$lambda$HEX_DIGIT$3$10, init$, void)},
+	{"is", "(I)Z", nullptr, $PUBLIC, $virtualMethod(CharPredicates$$Lambda$lambda$HEX_DIGIT$3$10, is, bool, int32_t)},
 	{}
 };
 $ClassInfo CharPredicates$$Lambda$lambda$HEX_DIGIT$3$10::classInfo$ = {
@@ -471,8 +471,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo CharPredicates$$Lambda$lambda$ASSIGNED$4$11::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CharPredicates$$Lambda$lambda$ASSIGNED$4$11::*)()>(&CharPredicates$$Lambda$lambda$ASSIGNED$4$11::init$))},
-	{"is", "(I)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CharPredicates$$Lambda$lambda$ASSIGNED$4$11, init$, void)},
+	{"is", "(I)Z", nullptr, $PUBLIC, $virtualMethod(CharPredicates$$Lambda$lambda$ASSIGNED$4$11, is, bool, int32_t)},
 	{}
 };
 $ClassInfo CharPredicates$$Lambda$lambda$ASSIGNED$4$11::classInfo$ = {
@@ -504,8 +504,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo CharPredicates$$Lambda$lambda$NONCHARACTER_CODE_POINT$5$12::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CharPredicates$$Lambda$lambda$NONCHARACTER_CODE_POINT$5$12::*)()>(&CharPredicates$$Lambda$lambda$NONCHARACTER_CODE_POINT$5$12::init$))},
-	{"is", "(I)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CharPredicates$$Lambda$lambda$NONCHARACTER_CODE_POINT$5$12, init$, void)},
+	{"is", "(I)Z", nullptr, $PUBLIC, $virtualMethod(CharPredicates$$Lambda$lambda$NONCHARACTER_CODE_POINT$5$12, is, bool, int32_t)},
 	{}
 };
 $ClassInfo CharPredicates$$Lambda$lambda$NONCHARACTER_CODE_POINT$5$12::classInfo$ = {
@@ -537,8 +537,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo CharPredicates$$Lambda$lambda$BLANK$6$13::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CharPredicates$$Lambda$lambda$BLANK$6$13::*)()>(&CharPredicates$$Lambda$lambda$BLANK$6$13::init$))},
-	{"is", "(I)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CharPredicates$$Lambda$lambda$BLANK$6$13, init$, void)},
+	{"is", "(I)Z", nullptr, $PUBLIC, $virtualMethod(CharPredicates$$Lambda$lambda$BLANK$6$13, is, bool, int32_t)},
 	{}
 };
 $ClassInfo CharPredicates$$Lambda$lambda$BLANK$6$13::classInfo$ = {
@@ -570,8 +570,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo CharPredicates$$Lambda$lambda$GRAPH$7$14::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CharPredicates$$Lambda$lambda$GRAPH$7$14::*)()>(&CharPredicates$$Lambda$lambda$GRAPH$7$14::init$))},
-	{"is", "(I)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CharPredicates$$Lambda$lambda$GRAPH$7$14, init$, void)},
+	{"is", "(I)Z", nullptr, $PUBLIC, $virtualMethod(CharPredicates$$Lambda$lambda$GRAPH$7$14, is, bool, int32_t)},
 	{}
 };
 $ClassInfo CharPredicates$$Lambda$lambda$GRAPH$7$14::classInfo$ = {
@@ -603,8 +603,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo CharPredicates$$Lambda$lambda$JOIN_CONTROL$8$15::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CharPredicates$$Lambda$lambda$JOIN_CONTROL$8$15::*)()>(&CharPredicates$$Lambda$lambda$JOIN_CONTROL$8$15::init$))},
-	{"is", "(I)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CharPredicates$$Lambda$lambda$JOIN_CONTROL$8$15, init$, void)},
+	{"is", "(I)Z", nullptr, $PUBLIC, $virtualMethod(CharPredicates$$Lambda$lambda$JOIN_CONTROL$8$15, is, bool, int32_t)},
 	{}
 };
 $ClassInfo CharPredicates$$Lambda$lambda$JOIN_CONTROL$8$15::classInfo$ = {
@@ -636,8 +636,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo CharPredicates$$Lambda$lambda$WORD$9$16::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CharPredicates$$Lambda$lambda$WORD$9$16::*)()>(&CharPredicates$$Lambda$lambda$WORD$9$16::init$))},
-	{"is", "(I)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CharPredicates$$Lambda$lambda$WORD$9$16, init$, void)},
+	{"is", "(I)Z", nullptr, $PUBLIC, $virtualMethod(CharPredicates$$Lambda$lambda$WORD$9$16, is, bool, int32_t)},
 	{}
 };
 $ClassInfo CharPredicates$$Lambda$lambda$WORD$9$16::classInfo$ = {
@@ -676,8 +676,8 @@ $FieldInfo CharPredicates$$Lambda$lambda$forUnicodeScript$10$17::fieldInfos[2] =
 	{}
 };
 $MethodInfo CharPredicates$$Lambda$lambda$forUnicodeScript$10$17::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/Character$UnicodeScript;)V", nullptr, $PUBLIC, $method(static_cast<void(CharPredicates$$Lambda$lambda$forUnicodeScript$10$17::*)($Character$UnicodeScript*)>(&CharPredicates$$Lambda$lambda$forUnicodeScript$10$17::init$))},
-	{"is", "(I)Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Character$UnicodeScript;)V", nullptr, $PUBLIC, $method(CharPredicates$$Lambda$lambda$forUnicodeScript$10$17, init$, void, $Character$UnicodeScript*)},
+	{"is", "(I)Z", nullptr, $PUBLIC, $virtualMethod(CharPredicates$$Lambda$lambda$forUnicodeScript$10$17, is, bool, int32_t)},
 	{}
 };
 $ClassInfo CharPredicates$$Lambda$lambda$forUnicodeScript$10$17::classInfo$ = {
@@ -716,8 +716,8 @@ $FieldInfo CharPredicates$$Lambda$lambda$forUnicodeBlock$11$18::fieldInfos[2] = 
 	{}
 };
 $MethodInfo CharPredicates$$Lambda$lambda$forUnicodeBlock$11$18::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/Character$UnicodeBlock;)V", nullptr, $PUBLIC, $method(static_cast<void(CharPredicates$$Lambda$lambda$forUnicodeBlock$11$18::*)($Character$UnicodeBlock*)>(&CharPredicates$$Lambda$lambda$forUnicodeBlock$11$18::init$))},
-	{"is", "(I)Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Character$UnicodeBlock;)V", nullptr, $PUBLIC, $method(CharPredicates$$Lambda$lambda$forUnicodeBlock$11$18, init$, void, $Character$UnicodeBlock*)},
+	{"is", "(I)Z", nullptr, $PUBLIC, $virtualMethod(CharPredicates$$Lambda$lambda$forUnicodeBlock$11$18, is, bool, int32_t)},
 	{}
 };
 $ClassInfo CharPredicates$$Lambda$lambda$forUnicodeBlock$11$18::classInfo$ = {
@@ -749,8 +749,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo CharPredicates$$Lambda$lambda$forProperty$12$19::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CharPredicates$$Lambda$lambda$forProperty$12$19::*)()>(&CharPredicates$$Lambda$lambda$forProperty$12$19::init$))},
-	{"is", "(I)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CharPredicates$$Lambda$lambda$forProperty$12$19, init$, void)},
+	{"is", "(I)Z", nullptr, $PUBLIC, $virtualMethod(CharPredicates$$Lambda$lambda$forProperty$12$19, is, bool, int32_t)},
 	{}
 };
 $ClassInfo CharPredicates$$Lambda$lambda$forProperty$12$19::classInfo$ = {
@@ -782,8 +782,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo CharPredicates$$Lambda$lambda$forProperty$13$20::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CharPredicates$$Lambda$lambda$forProperty$13$20::*)()>(&CharPredicates$$Lambda$lambda$forProperty$13$20::init$))},
-	{"is", "(I)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CharPredicates$$Lambda$lambda$forProperty$13$20, init$, void)},
+	{"is", "(I)Z", nullptr, $PUBLIC, $virtualMethod(CharPredicates$$Lambda$lambda$forProperty$13$20, is, bool, int32_t)},
 	{}
 };
 $ClassInfo CharPredicates$$Lambda$lambda$forProperty$13$20::classInfo$ = {
@@ -815,8 +815,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo CharPredicates$$Lambda$lambda$forProperty$14$21::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CharPredicates$$Lambda$lambda$forProperty$14$21::*)()>(&CharPredicates$$Lambda$lambda$forProperty$14$21::init$))},
-	{"is", "(I)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CharPredicates$$Lambda$lambda$forProperty$14$21, init$, void)},
+	{"is", "(I)Z", nullptr, $PUBLIC, $virtualMethod(CharPredicates$$Lambda$lambda$forProperty$14$21, is, bool, int32_t)},
 	{}
 };
 $ClassInfo CharPredicates$$Lambda$lambda$forProperty$14$21::classInfo$ = {
@@ -848,8 +848,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo CharPredicates$$Lambda$isDefined$22::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CharPredicates$$Lambda$isDefined$22::*)()>(&CharPredicates$$Lambda$isDefined$22::init$))},
-	{"is", "(I)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CharPredicates$$Lambda$isDefined$22, init$, void)},
+	{"is", "(I)Z", nullptr, $PUBLIC, $virtualMethod(CharPredicates$$Lambda$isDefined$22, is, bool, int32_t)},
 	{}
 };
 $ClassInfo CharPredicates$$Lambda$isDefined$22::classInfo$ = {
@@ -881,8 +881,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo CharPredicates$$Lambda$isLetterOrDigit$23::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CharPredicates$$Lambda$isLetterOrDigit$23::*)()>(&CharPredicates$$Lambda$isLetterOrDigit$23::init$))},
-	{"is", "(I)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CharPredicates$$Lambda$isLetterOrDigit$23, init$, void)},
+	{"is", "(I)Z", nullptr, $PUBLIC, $virtualMethod(CharPredicates$$Lambda$isLetterOrDigit$23, is, bool, int32_t)},
 	{}
 };
 $ClassInfo CharPredicates$$Lambda$isLetterOrDigit$23::classInfo$ = {
@@ -914,8 +914,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo CharPredicates$$Lambda$isJavaIdentifierStart$24::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CharPredicates$$Lambda$isJavaIdentifierStart$24::*)()>(&CharPredicates$$Lambda$isJavaIdentifierStart$24::init$))},
-	{"is", "(I)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CharPredicates$$Lambda$isJavaIdentifierStart$24, init$, void)},
+	{"is", "(I)Z", nullptr, $PUBLIC, $virtualMethod(CharPredicates$$Lambda$isJavaIdentifierStart$24, is, bool, int32_t)},
 	{}
 };
 $ClassInfo CharPredicates$$Lambda$isJavaIdentifierStart$24::classInfo$ = {
@@ -947,8 +947,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo CharPredicates$$Lambda$isJavaIdentifierPart$25::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CharPredicates$$Lambda$isJavaIdentifierPart$25::*)()>(&CharPredicates$$Lambda$isJavaIdentifierPart$25::init$))},
-	{"is", "(I)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CharPredicates$$Lambda$isJavaIdentifierPart$25, init$, void)},
+	{"is", "(I)Z", nullptr, $PUBLIC, $virtualMethod(CharPredicates$$Lambda$isJavaIdentifierPart$25, is, bool, int32_t)},
 	{}
 };
 $ClassInfo CharPredicates$$Lambda$isJavaIdentifierPart$25::classInfo$ = {
@@ -980,8 +980,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo CharPredicates$$Lambda$isUnicodeIdentifierStart$26::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CharPredicates$$Lambda$isUnicodeIdentifierStart$26::*)()>(&CharPredicates$$Lambda$isUnicodeIdentifierStart$26::init$))},
-	{"is", "(I)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CharPredicates$$Lambda$isUnicodeIdentifierStart$26, init$, void)},
+	{"is", "(I)Z", nullptr, $PUBLIC, $virtualMethod(CharPredicates$$Lambda$isUnicodeIdentifierStart$26, is, bool, int32_t)},
 	{}
 };
 $ClassInfo CharPredicates$$Lambda$isUnicodeIdentifierStart$26::classInfo$ = {
@@ -1013,8 +1013,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo CharPredicates$$Lambda$isUnicodeIdentifierPart$27::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CharPredicates$$Lambda$isUnicodeIdentifierPart$27::*)()>(&CharPredicates$$Lambda$isUnicodeIdentifierPart$27::init$))},
-	{"is", "(I)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CharPredicates$$Lambda$isUnicodeIdentifierPart$27, init$, void)},
+	{"is", "(I)Z", nullptr, $PUBLIC, $virtualMethod(CharPredicates$$Lambda$isUnicodeIdentifierPart$27, is, bool, int32_t)},
 	{}
 };
 $ClassInfo CharPredicates$$Lambda$isUnicodeIdentifierPart$27::classInfo$ = {
@@ -1046,8 +1046,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo CharPredicates$$Lambda$isIdentifierIgnorable$28::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CharPredicates$$Lambda$isIdentifierIgnorable$28::*)()>(&CharPredicates$$Lambda$isIdentifierIgnorable$28::init$))},
-	{"is", "(I)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CharPredicates$$Lambda$isIdentifierIgnorable$28, init$, void)},
+	{"is", "(I)Z", nullptr, $PUBLIC, $virtualMethod(CharPredicates$$Lambda$isIdentifierIgnorable$28, is, bool, int32_t)},
 	{}
 };
 $ClassInfo CharPredicates$$Lambda$isIdentifierIgnorable$28::classInfo$ = {
@@ -1079,8 +1079,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo CharPredicates$$Lambda$isSpaceChar$29::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CharPredicates$$Lambda$isSpaceChar$29::*)()>(&CharPredicates$$Lambda$isSpaceChar$29::init$))},
-	{"is", "(I)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CharPredicates$$Lambda$isSpaceChar$29, init$, void)},
+	{"is", "(I)Z", nullptr, $PUBLIC, $virtualMethod(CharPredicates$$Lambda$isSpaceChar$29, is, bool, int32_t)},
 	{}
 };
 $ClassInfo CharPredicates$$Lambda$isSpaceChar$29::classInfo$ = {
@@ -1112,8 +1112,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo CharPredicates$$Lambda$isWhitespace$30::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CharPredicates$$Lambda$isWhitespace$30::*)()>(&CharPredicates$$Lambda$isWhitespace$30::init$))},
-	{"is", "(I)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CharPredicates$$Lambda$isWhitespace$30, init$, void)},
+	{"is", "(I)Z", nullptr, $PUBLIC, $virtualMethod(CharPredicates$$Lambda$isWhitespace$30, is, bool, int32_t)},
 	{}
 };
 $ClassInfo CharPredicates$$Lambda$isWhitespace$30::classInfo$ = {
@@ -1145,8 +1145,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo CharPredicates$$Lambda$isISOControl$31::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CharPredicates$$Lambda$isISOControl$31::*)()>(&CharPredicates$$Lambda$isISOControl$31::init$))},
-	{"is", "(I)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CharPredicates$$Lambda$isISOControl$31, init$, void)},
+	{"is", "(I)Z", nullptr, $PUBLIC, $virtualMethod(CharPredicates$$Lambda$isISOControl$31, is, bool, int32_t)},
 	{}
 };
 $ClassInfo CharPredicates$$Lambda$isISOControl$31::classInfo$ = {
@@ -1178,8 +1178,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo CharPredicates$$Lambda$isMirrored$32::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CharPredicates$$Lambda$isMirrored$32::*)()>(&CharPredicates$$Lambda$isMirrored$32::init$))},
-	{"is", "(I)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CharPredicates$$Lambda$isMirrored$32, init$, void)},
+	{"is", "(I)Z", nullptr, $PUBLIC, $virtualMethod(CharPredicates$$Lambda$isMirrored$32, is, bool, int32_t)},
 	{}
 };
 $ClassInfo CharPredicates$$Lambda$isMirrored$32::classInfo$ = {
@@ -1218,8 +1218,8 @@ $FieldInfo CharPredicates$$Lambda$lambda$category$15$33::fieldInfos[2] = {
 	{}
 };
 $MethodInfo CharPredicates$$Lambda$lambda$category$15$33::methodInfos[3] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(static_cast<void(CharPredicates$$Lambda$lambda$category$15$33::*)(int32_t)>(&CharPredicates$$Lambda$lambda$category$15$33::init$))},
-	{"is", "(I)Z", nullptr, $PUBLIC},
+	{"<init>", "(I)V", nullptr, $PUBLIC, $method(CharPredicates$$Lambda$lambda$category$15$33, init$, void, int32_t)},
+	{"is", "(I)Z", nullptr, $PUBLIC, $virtualMethod(CharPredicates$$Lambda$lambda$category$15$33, is, bool, int32_t)},
 	{}
 };
 $ClassInfo CharPredicates$$Lambda$lambda$category$15$33::classInfo$ = {
@@ -1261,8 +1261,8 @@ $FieldInfo CharPredicates$$Lambda$lambda$range$16$34::fieldInfos[3] = {
 	{}
 };
 $MethodInfo CharPredicates$$Lambda$lambda$range$16$34::methodInfos[3] = {
-	{"<init>", "(II)V", nullptr, $PUBLIC, $method(static_cast<void(CharPredicates$$Lambda$lambda$range$16$34::*)(int32_t,int32_t)>(&CharPredicates$$Lambda$lambda$range$16$34::init$))},
-	{"is", "(I)Z", nullptr, $PUBLIC},
+	{"<init>", "(II)V", nullptr, $PUBLIC, $method(CharPredicates$$Lambda$lambda$range$16$34, init$, void, int32_t, int32_t)},
+	{"is", "(I)Z", nullptr, $PUBLIC, $virtualMethod(CharPredicates$$Lambda$lambda$range$16$34, is, bool, int32_t)},
 	{}
 };
 $ClassInfo CharPredicates$$Lambda$lambda$range$16$34::classInfo$ = {
@@ -1301,8 +1301,8 @@ $FieldInfo CharPredicates$$Lambda$lambda$ctype$17$35::fieldInfos[2] = {
 	{}
 };
 $MethodInfo CharPredicates$$Lambda$lambda$ctype$17$35::methodInfos[3] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(static_cast<void(CharPredicates$$Lambda$lambda$ctype$17$35::*)(int32_t)>(&CharPredicates$$Lambda$lambda$ctype$17$35::init$))},
-	{"is", "(I)Z", nullptr, $PUBLIC},
+	{"<init>", "(I)V", nullptr, $PUBLIC, $method(CharPredicates$$Lambda$lambda$ctype$17$35, init$, void, int32_t)},
+	{"is", "(I)Z", nullptr, $PUBLIC, $virtualMethod(CharPredicates$$Lambda$lambda$ctype$17$35, is, bool, int32_t)},
 	{}
 };
 $ClassInfo CharPredicates$$Lambda$lambda$ctype$17$35::classInfo$ = {
@@ -1334,8 +1334,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo CharPredicates$$Lambda$lambda$ASCII_DIGIT$18$36::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CharPredicates$$Lambda$lambda$ASCII_DIGIT$18$36::*)()>(&CharPredicates$$Lambda$lambda$ASCII_DIGIT$18$36::init$))},
-	{"is", "(I)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CharPredicates$$Lambda$lambda$ASCII_DIGIT$18$36, init$, void)},
+	{"is", "(I)Z", nullptr, $PUBLIC, $virtualMethod(CharPredicates$$Lambda$lambda$ASCII_DIGIT$18$36, is, bool, int32_t)},
 	{}
 };
 $ClassInfo CharPredicates$$Lambda$lambda$ASCII_DIGIT$18$36::classInfo$ = {
@@ -1367,8 +1367,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo CharPredicates$$Lambda$lambda$ASCII_WORD$19$37::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CharPredicates$$Lambda$lambda$ASCII_WORD$19$37::*)()>(&CharPredicates$$Lambda$lambda$ASCII_WORD$19$37::init$))},
-	{"is", "(I)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CharPredicates$$Lambda$lambda$ASCII_WORD$19$37, init$, void)},
+	{"is", "(I)Z", nullptr, $PUBLIC, $virtualMethod(CharPredicates$$Lambda$lambda$ASCII_WORD$19$37, is, bool, int32_t)},
 	{}
 };
 $ClassInfo CharPredicates$$Lambda$lambda$ASCII_WORD$19$37::classInfo$ = {
@@ -1400,8 +1400,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo CharPredicates$$Lambda$lambda$ASCII_SPACE$20$38::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CharPredicates$$Lambda$lambda$ASCII_SPACE$20$38::*)()>(&CharPredicates$$Lambda$lambda$ASCII_SPACE$20$38::init$))},
-	{"is", "(I)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CharPredicates$$Lambda$lambda$ASCII_SPACE$20$38, init$, void)},
+	{"is", "(I)Z", nullptr, $PUBLIC, $virtualMethod(CharPredicates$$Lambda$lambda$ASCII_SPACE$20$38, is, bool, int32_t)},
 	{}
 };
 $ClassInfo CharPredicates$$Lambda$lambda$ASCII_SPACE$20$38::classInfo$ = {
@@ -1419,60 +1419,60 @@ $Class* CharPredicates$$Lambda$lambda$ASCII_SPACE$20$38::load$($String* name, bo
 $Class* CharPredicates$$Lambda$lambda$ASCII_SPACE$20$38::class$ = nullptr;
 
 $MethodInfo _CharPredicates_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(CharPredicates::*)()>(&CharPredicates::init$))},
-	{"ALNUM", "()Ljava/util/regex/Pattern$CharPredicate;", nullptr, $STATIC | $FINAL, $method(static_cast<$Pattern$CharPredicate*(*)()>(&CharPredicates::ALNUM))},
-	{"ALPHABETIC", "()Ljava/util/regex/Pattern$CharPredicate;", nullptr, $STATIC | $FINAL, $method(static_cast<$Pattern$CharPredicate*(*)()>(&CharPredicates::ALPHABETIC))},
-	{"ASCII_DIGIT", "()Ljava/util/regex/Pattern$BmpCharPredicate;", nullptr, $STATIC | $FINAL, $method(static_cast<$Pattern$BmpCharPredicate*(*)()>(&CharPredicates::ASCII_DIGIT))},
-	{"ASCII_SPACE", "()Ljava/util/regex/Pattern$BmpCharPredicate;", nullptr, $STATIC | $FINAL, $method(static_cast<$Pattern$BmpCharPredicate*(*)()>(&CharPredicates::ASCII_SPACE))},
-	{"ASCII_WORD", "()Ljava/util/regex/Pattern$BmpCharPredicate;", nullptr, $STATIC | $FINAL, $method(static_cast<$Pattern$BmpCharPredicate*(*)()>(&CharPredicates::ASCII_WORD))},
-	{"ASSIGNED", "()Ljava/util/regex/Pattern$CharPredicate;", nullptr, $STATIC | $FINAL, $method(static_cast<$Pattern$CharPredicate*(*)()>(&CharPredicates::ASSIGNED))},
-	{"BLANK", "()Ljava/util/regex/Pattern$CharPredicate;", nullptr, $STATIC | $FINAL, $method(static_cast<$Pattern$CharPredicate*(*)()>(&CharPredicates::BLANK))},
-	{"CONTROL", "()Ljava/util/regex/Pattern$CharPredicate;", nullptr, $STATIC | $FINAL, $method(static_cast<$Pattern$CharPredicate*(*)()>(&CharPredicates::CONTROL))},
-	{"DIGIT", "()Ljava/util/regex/Pattern$CharPredicate;", nullptr, $STATIC | $FINAL, $method(static_cast<$Pattern$CharPredicate*(*)()>(&CharPredicates::DIGIT))},
-	{"GRAPH", "()Ljava/util/regex/Pattern$CharPredicate;", nullptr, $STATIC | $FINAL, $method(static_cast<$Pattern$CharPredicate*(*)()>(&CharPredicates::GRAPH))},
-	{"HEX_DIGIT", "()Ljava/util/regex/Pattern$CharPredicate;", nullptr, $STATIC | $FINAL, $method(static_cast<$Pattern$CharPredicate*(*)()>(&CharPredicates::HEX_DIGIT))},
-	{"IDEOGRAPHIC", "()Ljava/util/regex/Pattern$CharPredicate;", nullptr, $STATIC | $FINAL, $method(static_cast<$Pattern$CharPredicate*(*)()>(&CharPredicates::IDEOGRAPHIC))},
-	{"JOIN_CONTROL", "()Ljava/util/regex/Pattern$CharPredicate;", nullptr, $STATIC | $FINAL, $method(static_cast<$Pattern$CharPredicate*(*)()>(&CharPredicates::JOIN_CONTROL))},
-	{"LETTER", "()Ljava/util/regex/Pattern$CharPredicate;", nullptr, $STATIC | $FINAL, $method(static_cast<$Pattern$CharPredicate*(*)()>(&CharPredicates::LETTER))},
-	{"LOWERCASE", "()Ljava/util/regex/Pattern$CharPredicate;", nullptr, $STATIC | $FINAL, $method(static_cast<$Pattern$CharPredicate*(*)()>(&CharPredicates::LOWERCASE))},
-	{"NONCHARACTER_CODE_POINT", "()Ljava/util/regex/Pattern$CharPredicate;", nullptr, $STATIC | $FINAL, $method(static_cast<$Pattern$CharPredicate*(*)()>(&CharPredicates::NONCHARACTER_CODE_POINT))},
-	{"PRINT", "()Ljava/util/regex/Pattern$CharPredicate;", nullptr, $STATIC | $FINAL, $method(static_cast<$Pattern$CharPredicate*(*)()>(&CharPredicates::PRINT))},
-	{"PUNCTUATION", "()Ljava/util/regex/Pattern$CharPredicate;", nullptr, $STATIC | $FINAL, $method(static_cast<$Pattern$CharPredicate*(*)()>(&CharPredicates::PUNCTUATION))},
-	{"TITLECASE", "()Ljava/util/regex/Pattern$CharPredicate;", nullptr, $STATIC | $FINAL, $method(static_cast<$Pattern$CharPredicate*(*)()>(&CharPredicates::TITLECASE))},
-	{"UPPERCASE", "()Ljava/util/regex/Pattern$CharPredicate;", nullptr, $STATIC | $FINAL, $method(static_cast<$Pattern$CharPredicate*(*)()>(&CharPredicates::UPPERCASE))},
-	{"WHITE_SPACE", "()Ljava/util/regex/Pattern$CharPredicate;", nullptr, $STATIC | $FINAL, $method(static_cast<$Pattern$CharPredicate*(*)()>(&CharPredicates::WHITE_SPACE))},
-	{"WORD", "()Ljava/util/regex/Pattern$CharPredicate;", nullptr, $STATIC | $FINAL, $method(static_cast<$Pattern$CharPredicate*(*)()>(&CharPredicates::WORD))},
-	{"category", "(I)Ljava/util/regex/Pattern$CharPredicate;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$Pattern$CharPredicate*(*)(int32_t)>(&CharPredicates::category))},
-	{"ctype", "(I)Ljava/util/regex/Pattern$CharPredicate;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$Pattern$CharPredicate*(*)(int32_t)>(&CharPredicates::ctype))},
-	{"forPOSIXName", "(Ljava/lang/String;Z)Ljava/util/regex/Pattern$CharPredicate;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Pattern$CharPredicate*(*)($String*,bool)>(&CharPredicates::forPOSIXName))},
-	{"forProperty", "(Ljava/lang/String;Z)Ljava/util/regex/Pattern$CharPredicate;", nullptr, $STATIC, $method(static_cast<$Pattern$CharPredicate*(*)($String*,bool)>(&CharPredicates::forProperty))},
-	{"forUnicodeBlock", "(Ljava/lang/String;)Ljava/util/regex/Pattern$CharPredicate;", nullptr, $STATIC, $method(static_cast<$Pattern$CharPredicate*(*)($String*)>(&CharPredicates::forUnicodeBlock))},
-	{"forUnicodeProperty", "(Ljava/lang/String;Z)Ljava/util/regex/Pattern$CharPredicate;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Pattern$CharPredicate*(*)($String*,bool)>(&CharPredicates::forUnicodeProperty))},
-	{"forUnicodeScript", "(Ljava/lang/String;)Ljava/util/regex/Pattern$CharPredicate;", nullptr, $STATIC, $method(static_cast<$Pattern$CharPredicate*(*)($String*)>(&CharPredicates::forUnicodeScript))},
-	{"getPosixPredicate", "(Ljava/lang/String;Z)Ljava/util/regex/Pattern$CharPredicate;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$Pattern$CharPredicate*(*)($String*,bool)>(&CharPredicates::getPosixPredicate))},
-	{"getUnicodePredicate", "(Ljava/lang/String;Z)Ljava/util/regex/Pattern$CharPredicate;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$Pattern$CharPredicate*(*)($String*,bool)>(&CharPredicates::getUnicodePredicate))},
-	{"lambda$ASCII_DIGIT$18", "(I)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)(int32_t)>(&CharPredicates::lambda$ASCII_DIGIT$18))},
-	{"lambda$ASCII_SPACE$20", "(I)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)(int32_t)>(&CharPredicates::lambda$ASCII_SPACE$20))},
-	{"lambda$ASCII_WORD$19", "(I)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)(int32_t)>(&CharPredicates::lambda$ASCII_WORD$19))},
-	{"lambda$ASSIGNED$4", "(I)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)(int32_t)>(&CharPredicates::lambda$ASSIGNED$4))},
-	{"lambda$BLANK$6", "(I)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)(int32_t)>(&CharPredicates::lambda$BLANK$6))},
-	{"lambda$CONTROL$1", "(I)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)(int32_t)>(&CharPredicates::lambda$CONTROL$1))},
-	{"lambda$GRAPH$7", "(I)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)(int32_t)>(&CharPredicates::lambda$GRAPH$7))},
-	{"lambda$HEX_DIGIT$3", "(I)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)(int32_t)>(&CharPredicates::lambda$HEX_DIGIT$3))},
-	{"lambda$JOIN_CONTROL$8", "(I)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)(int32_t)>(&CharPredicates::lambda$JOIN_CONTROL$8))},
-	{"lambda$NONCHARACTER_CODE_POINT$5", "(I)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)(int32_t)>(&CharPredicates::lambda$NONCHARACTER_CODE_POINT$5))},
-	{"lambda$PUNCTUATION$2", "(I)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)(int32_t)>(&CharPredicates::lambda$PUNCTUATION$2))},
-	{"lambda$WHITE_SPACE$0", "(I)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)(int32_t)>(&CharPredicates::lambda$WHITE_SPACE$0))},
-	{"lambda$WORD$9", "(I)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)(int32_t)>(&CharPredicates::lambda$WORD$9))},
-	{"lambda$category$15", "(II)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)(int32_t,int32_t)>(&CharPredicates::lambda$category$15))},
-	{"lambda$ctype$17", "(II)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)(int32_t,int32_t)>(&CharPredicates::lambda$ctype$17))},
-	{"lambda$forProperty$12", "(I)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)(int32_t)>(&CharPredicates::lambda$forProperty$12))},
-	{"lambda$forProperty$13", "(I)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)(int32_t)>(&CharPredicates::lambda$forProperty$13))},
-	{"lambda$forProperty$14", "(I)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)(int32_t)>(&CharPredicates::lambda$forProperty$14))},
-	{"lambda$forUnicodeBlock$11", "(Ljava/lang/Character$UnicodeBlock;I)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($Character$UnicodeBlock*,int32_t)>(&CharPredicates::lambda$forUnicodeBlock$11))},
-	{"lambda$forUnicodeScript$10", "(Ljava/lang/Character$UnicodeScript;I)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($Character$UnicodeScript*,int32_t)>(&CharPredicates::lambda$forUnicodeScript$10))},
-	{"lambda$range$16", "(III)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)(int32_t,int32_t,int32_t)>(&CharPredicates::lambda$range$16))},
-	{"range", "(II)Ljava/util/regex/Pattern$CharPredicate;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$Pattern$CharPredicate*(*)(int32_t,int32_t)>(&CharPredicates::range))},
+	{"<init>", "()V", nullptr, 0, $method(CharPredicates, init$, void)},
+	{"ALNUM", "()Ljava/util/regex/Pattern$CharPredicate;", nullptr, $STATIC | $FINAL, $staticMethod(CharPredicates, ALNUM, $Pattern$CharPredicate*)},
+	{"ALPHABETIC", "()Ljava/util/regex/Pattern$CharPredicate;", nullptr, $STATIC | $FINAL, $staticMethod(CharPredicates, ALPHABETIC, $Pattern$CharPredicate*)},
+	{"ASCII_DIGIT", "()Ljava/util/regex/Pattern$BmpCharPredicate;", nullptr, $STATIC | $FINAL, $staticMethod(CharPredicates, ASCII_DIGIT, $Pattern$BmpCharPredicate*)},
+	{"ASCII_SPACE", "()Ljava/util/regex/Pattern$BmpCharPredicate;", nullptr, $STATIC | $FINAL, $staticMethod(CharPredicates, ASCII_SPACE, $Pattern$BmpCharPredicate*)},
+	{"ASCII_WORD", "()Ljava/util/regex/Pattern$BmpCharPredicate;", nullptr, $STATIC | $FINAL, $staticMethod(CharPredicates, ASCII_WORD, $Pattern$BmpCharPredicate*)},
+	{"ASSIGNED", "()Ljava/util/regex/Pattern$CharPredicate;", nullptr, $STATIC | $FINAL, $staticMethod(CharPredicates, ASSIGNED, $Pattern$CharPredicate*)},
+	{"BLANK", "()Ljava/util/regex/Pattern$CharPredicate;", nullptr, $STATIC | $FINAL, $staticMethod(CharPredicates, BLANK, $Pattern$CharPredicate*)},
+	{"CONTROL", "()Ljava/util/regex/Pattern$CharPredicate;", nullptr, $STATIC | $FINAL, $staticMethod(CharPredicates, CONTROL, $Pattern$CharPredicate*)},
+	{"DIGIT", "()Ljava/util/regex/Pattern$CharPredicate;", nullptr, $STATIC | $FINAL, $staticMethod(CharPredicates, DIGIT, $Pattern$CharPredicate*)},
+	{"GRAPH", "()Ljava/util/regex/Pattern$CharPredicate;", nullptr, $STATIC | $FINAL, $staticMethod(CharPredicates, GRAPH, $Pattern$CharPredicate*)},
+	{"HEX_DIGIT", "()Ljava/util/regex/Pattern$CharPredicate;", nullptr, $STATIC | $FINAL, $staticMethod(CharPredicates, HEX_DIGIT, $Pattern$CharPredicate*)},
+	{"IDEOGRAPHIC", "()Ljava/util/regex/Pattern$CharPredicate;", nullptr, $STATIC | $FINAL, $staticMethod(CharPredicates, IDEOGRAPHIC, $Pattern$CharPredicate*)},
+	{"JOIN_CONTROL", "()Ljava/util/regex/Pattern$CharPredicate;", nullptr, $STATIC | $FINAL, $staticMethod(CharPredicates, JOIN_CONTROL, $Pattern$CharPredicate*)},
+	{"LETTER", "()Ljava/util/regex/Pattern$CharPredicate;", nullptr, $STATIC | $FINAL, $staticMethod(CharPredicates, LETTER, $Pattern$CharPredicate*)},
+	{"LOWERCASE", "()Ljava/util/regex/Pattern$CharPredicate;", nullptr, $STATIC | $FINAL, $staticMethod(CharPredicates, LOWERCASE, $Pattern$CharPredicate*)},
+	{"NONCHARACTER_CODE_POINT", "()Ljava/util/regex/Pattern$CharPredicate;", nullptr, $STATIC | $FINAL, $staticMethod(CharPredicates, NONCHARACTER_CODE_POINT, $Pattern$CharPredicate*)},
+	{"PRINT", "()Ljava/util/regex/Pattern$CharPredicate;", nullptr, $STATIC | $FINAL, $staticMethod(CharPredicates, PRINT, $Pattern$CharPredicate*)},
+	{"PUNCTUATION", "()Ljava/util/regex/Pattern$CharPredicate;", nullptr, $STATIC | $FINAL, $staticMethod(CharPredicates, PUNCTUATION, $Pattern$CharPredicate*)},
+	{"TITLECASE", "()Ljava/util/regex/Pattern$CharPredicate;", nullptr, $STATIC | $FINAL, $staticMethod(CharPredicates, TITLECASE, $Pattern$CharPredicate*)},
+	{"UPPERCASE", "()Ljava/util/regex/Pattern$CharPredicate;", nullptr, $STATIC | $FINAL, $staticMethod(CharPredicates, UPPERCASE, $Pattern$CharPredicate*)},
+	{"WHITE_SPACE", "()Ljava/util/regex/Pattern$CharPredicate;", nullptr, $STATIC | $FINAL, $staticMethod(CharPredicates, WHITE_SPACE, $Pattern$CharPredicate*)},
+	{"WORD", "()Ljava/util/regex/Pattern$CharPredicate;", nullptr, $STATIC | $FINAL, $staticMethod(CharPredicates, WORD, $Pattern$CharPredicate*)},
+	{"category", "(I)Ljava/util/regex/Pattern$CharPredicate;", nullptr, $PRIVATE | $STATIC, $staticMethod(CharPredicates, category, $Pattern$CharPredicate*, int32_t)},
+	{"ctype", "(I)Ljava/util/regex/Pattern$CharPredicate;", nullptr, $PRIVATE | $STATIC, $staticMethod(CharPredicates, ctype, $Pattern$CharPredicate*, int32_t)},
+	{"forPOSIXName", "(Ljava/lang/String;Z)Ljava/util/regex/Pattern$CharPredicate;", nullptr, $PUBLIC | $STATIC, $staticMethod(CharPredicates, forPOSIXName, $Pattern$CharPredicate*, $String*, bool)},
+	{"forProperty", "(Ljava/lang/String;Z)Ljava/util/regex/Pattern$CharPredicate;", nullptr, $STATIC, $staticMethod(CharPredicates, forProperty, $Pattern$CharPredicate*, $String*, bool)},
+	{"forUnicodeBlock", "(Ljava/lang/String;)Ljava/util/regex/Pattern$CharPredicate;", nullptr, $STATIC, $staticMethod(CharPredicates, forUnicodeBlock, $Pattern$CharPredicate*, $String*)},
+	{"forUnicodeProperty", "(Ljava/lang/String;Z)Ljava/util/regex/Pattern$CharPredicate;", nullptr, $PUBLIC | $STATIC, $staticMethod(CharPredicates, forUnicodeProperty, $Pattern$CharPredicate*, $String*, bool)},
+	{"forUnicodeScript", "(Ljava/lang/String;)Ljava/util/regex/Pattern$CharPredicate;", nullptr, $STATIC, $staticMethod(CharPredicates, forUnicodeScript, $Pattern$CharPredicate*, $String*)},
+	{"getPosixPredicate", "(Ljava/lang/String;Z)Ljava/util/regex/Pattern$CharPredicate;", nullptr, $PRIVATE | $STATIC, $staticMethod(CharPredicates, getPosixPredicate, $Pattern$CharPredicate*, $String*, bool)},
+	{"getUnicodePredicate", "(Ljava/lang/String;Z)Ljava/util/regex/Pattern$CharPredicate;", nullptr, $PRIVATE | $STATIC, $staticMethod(CharPredicates, getUnicodePredicate, $Pattern$CharPredicate*, $String*, bool)},
+	{"lambda$ASCII_DIGIT$18", "(I)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CharPredicates, lambda$ASCII_DIGIT$18, bool, int32_t)},
+	{"lambda$ASCII_SPACE$20", "(I)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CharPredicates, lambda$ASCII_SPACE$20, bool, int32_t)},
+	{"lambda$ASCII_WORD$19", "(I)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CharPredicates, lambda$ASCII_WORD$19, bool, int32_t)},
+	{"lambda$ASSIGNED$4", "(I)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CharPredicates, lambda$ASSIGNED$4, bool, int32_t)},
+	{"lambda$BLANK$6", "(I)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CharPredicates, lambda$BLANK$6, bool, int32_t)},
+	{"lambda$CONTROL$1", "(I)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CharPredicates, lambda$CONTROL$1, bool, int32_t)},
+	{"lambda$GRAPH$7", "(I)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CharPredicates, lambda$GRAPH$7, bool, int32_t)},
+	{"lambda$HEX_DIGIT$3", "(I)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CharPredicates, lambda$HEX_DIGIT$3, bool, int32_t)},
+	{"lambda$JOIN_CONTROL$8", "(I)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CharPredicates, lambda$JOIN_CONTROL$8, bool, int32_t)},
+	{"lambda$NONCHARACTER_CODE_POINT$5", "(I)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CharPredicates, lambda$NONCHARACTER_CODE_POINT$5, bool, int32_t)},
+	{"lambda$PUNCTUATION$2", "(I)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CharPredicates, lambda$PUNCTUATION$2, bool, int32_t)},
+	{"lambda$WHITE_SPACE$0", "(I)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CharPredicates, lambda$WHITE_SPACE$0, bool, int32_t)},
+	{"lambda$WORD$9", "(I)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CharPredicates, lambda$WORD$9, bool, int32_t)},
+	{"lambda$category$15", "(II)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CharPredicates, lambda$category$15, bool, int32_t, int32_t)},
+	{"lambda$ctype$17", "(II)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CharPredicates, lambda$ctype$17, bool, int32_t, int32_t)},
+	{"lambda$forProperty$12", "(I)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CharPredicates, lambda$forProperty$12, bool, int32_t)},
+	{"lambda$forProperty$13", "(I)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CharPredicates, lambda$forProperty$13, bool, int32_t)},
+	{"lambda$forProperty$14", "(I)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CharPredicates, lambda$forProperty$14, bool, int32_t)},
+	{"lambda$forUnicodeBlock$11", "(Ljava/lang/Character$UnicodeBlock;I)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CharPredicates, lambda$forUnicodeBlock$11, bool, $Character$UnicodeBlock*, int32_t)},
+	{"lambda$forUnicodeScript$10", "(Ljava/lang/Character$UnicodeScript;I)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CharPredicates, lambda$forUnicodeScript$10, bool, $Character$UnicodeScript*, int32_t)},
+	{"lambda$range$16", "(III)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CharPredicates, lambda$range$16, bool, int32_t, int32_t, int32_t)},
+	{"range", "(II)Ljava/util/regex/Pattern$CharPredicate;", nullptr, $PRIVATE | $STATIC, $staticMethod(CharPredicates, range, $Pattern$CharPredicate*, int32_t, int32_t)},
 	{}
 };
 

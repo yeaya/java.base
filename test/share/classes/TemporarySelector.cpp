@@ -34,8 +34,8 @@ $FieldInfo _TemporarySelector_FieldInfo_[] = {
 };
 
 $MethodInfo _TemporarySelector_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TemporarySelector::*)()>(&TemporarySelector::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&TemporarySelector::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TemporarySelector, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TemporarySelector, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

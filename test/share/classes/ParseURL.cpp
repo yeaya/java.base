@@ -10,8 +10,8 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $URL = ::java::net::URL;
 
 $MethodInfo _ParseURL_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ParseURL::*)()>(&ParseURL::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&ParseURL::main)), "java.net.MalformedURLException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ParseURL, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ParseURL, main, void, $StringArray*), "java.net.MalformedURLException"},
 	{}
 };
 

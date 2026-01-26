@@ -36,16 +36,16 @@ $FieldInfo _ClassSupplier_FieldInfo_[] = {
 };
 
 $MethodInfo _ClassSupplier_MethodInfo_[] = {
-	{"$values", "()[Lutil/ClassSupplier;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$ClassSupplierArray*(*)()>(&ClassSupplier::$values))},
+	{"$values", "()[Lutil/ClassSupplier;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ClassSupplier, $values, $ClassSupplierArray*)},
 	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
 	{"*finalize", "()V", nullptr, $PROTECTED | $FINAL},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "(Ljava/lang/String;)V", $PRIVATE, $method(static_cast<void(ClassSupplier::*)($String*,int32_t,$String*)>(&ClassSupplier::init$))},
-	{"get", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC},
+	{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "(Ljava/lang/String;)V", $PRIVATE, $method(ClassSupplier, init$, void, $String*, int32_t, $String*)},
+	{"get", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(ClassSupplier, get, $Object*)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"valueOf", "(Ljava/lang/String;)Lutil/ClassSupplier;", nullptr, $PUBLIC | $STATIC, $method(static_cast<ClassSupplier*(*)($String*)>(&ClassSupplier::valueOf))},
-	{"values", "()[Lutil/ClassSupplier;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$ClassSupplierArray*(*)()>(&ClassSupplier::values))},
+	{"valueOf", "(Ljava/lang/String;)Lutil/ClassSupplier;", nullptr, $PUBLIC | $STATIC, $staticMethod(ClassSupplier, valueOf, ClassSupplier*, $String*)},
+	{"values", "()[Lutil/ClassSupplier;", nullptr, $PUBLIC | $STATIC, $staticMethod(ClassSupplier, values, $ClassSupplierArray*)},
 	{}
 };
 

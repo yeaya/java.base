@@ -5,13 +5,14 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Permission = ::java::security::Permission;
 
 namespace sun {
 	namespace security {
 		namespace util {
 
 $MethodInfo _PermissionFactory_MethodInfo_[] = {
-	{"newPermission", "(Ljava/lang/String;)Ljava/security/Permission;", "(Ljava/lang/String;)TT;", $PUBLIC | $ABSTRACT},
+	{"newPermission", "(Ljava/lang/String;)Ljava/security/Permission;", "(Ljava/lang/String;)TT;", $PUBLIC | $ABSTRACT, $virtualMethod(PermissionFactory, newPermission, $Permission*, $String*)},
 	{}
 };
 

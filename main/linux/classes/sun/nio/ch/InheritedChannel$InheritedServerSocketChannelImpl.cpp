@@ -35,22 +35,22 @@ namespace sun {
 		namespace ch {
 
 $MethodInfo _InheritedChannel$InheritedServerSocketChannelImpl_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/channels/spi/SelectorProvider;Ljava/net/ProtocolFamily;Ljava/io/FileDescriptor;)V", nullptr, 0, $method(static_cast<void(InheritedChannel$InheritedServerSocketChannelImpl::*)($SelectorProvider*,$ProtocolFamily*,$FileDescriptor*)>(&InheritedChannel$InheritedServerSocketChannelImpl::init$)), "java.io.IOException"},
-	{"accept", "()Ljava/nio/channels/SocketChannel;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, nullptr, "java.io.IOException"},
-	{"bind", "(Ljava/net/SocketAddress;I)Ljava/nio/channels/ServerSocketChannel;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, nullptr, "java.io.IOException"},
-	{"getFD", "()Ljava/io/FileDescriptor;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"getFDVal", "()I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"getLocalAddress", "()Ljava/net/SocketAddress;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, nullptr, "java.io.IOException"},
-	{"getOption", "(Ljava/net/SocketOption;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, nullptr, "java.io.IOException"},
-	{"implCloseSelectableChannel", "()V", nullptr, $PROTECTED, nullptr, "java.io.IOException"},
-	{"kill", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"setOption", "(Ljava/net/SocketOption;Ljava/lang/Object;)Ljava/nio/channels/ServerSocketChannel;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, nullptr, "java.io.IOException"},
-	{"socket", "()Ljava/net/ServerSocket;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"translateAndSetReadyOps", "(ILsun/nio/ch/SelectionKeyImpl;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"translateAndUpdateReadyOps", "(ILsun/nio/ch/SelectionKeyImpl;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"translateInterestOps", "(I)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"translateReadyOps", "(IILsun/nio/ch/SelectionKeyImpl;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "(Ljava/nio/channels/spi/SelectorProvider;Ljava/net/ProtocolFamily;Ljava/io/FileDescriptor;)V", nullptr, 0, $method(InheritedChannel$InheritedServerSocketChannelImpl, init$, void, $SelectorProvider*, $ProtocolFamily*, $FileDescriptor*), "java.io.IOException"},
+	{"accept", "()Ljava/nio/channels/SocketChannel;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(InheritedChannel$InheritedServerSocketChannelImpl, accept, $SocketChannel*), "java.io.IOException"},
+	{"bind", "(Ljava/net/SocketAddress;I)Ljava/nio/channels/ServerSocketChannel;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(InheritedChannel$InheritedServerSocketChannelImpl, bind, $ServerSocketChannel*, $SocketAddress*, int32_t), "java.io.IOException"},
+	{"getFD", "()Ljava/io/FileDescriptor;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(InheritedChannel$InheritedServerSocketChannelImpl, getFD, $FileDescriptor*)},
+	{"getFDVal", "()I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(InheritedChannel$InheritedServerSocketChannelImpl, getFDVal, int32_t)},
+	{"getLocalAddress", "()Ljava/net/SocketAddress;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(InheritedChannel$InheritedServerSocketChannelImpl, getLocalAddress, $SocketAddress*), "java.io.IOException"},
+	{"getOption", "(Ljava/net/SocketOption;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(InheritedChannel$InheritedServerSocketChannelImpl, getOption, $Object*, $SocketOption*), "java.io.IOException"},
+	{"implCloseSelectableChannel", "()V", nullptr, $PROTECTED, $virtualMethod(InheritedChannel$InheritedServerSocketChannelImpl, implCloseSelectableChannel, void), "java.io.IOException"},
+	{"kill", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(InheritedChannel$InheritedServerSocketChannelImpl, kill, void)},
+	{"setOption", "(Ljava/net/SocketOption;Ljava/lang/Object;)Ljava/nio/channels/ServerSocketChannel;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(InheritedChannel$InheritedServerSocketChannelImpl, setOption, $NetworkChannel*, $SocketOption*, Object$*), "java.io.IOException"},
+	{"socket", "()Ljava/net/ServerSocket;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(InheritedChannel$InheritedServerSocketChannelImpl, socket, $ServerSocket*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(InheritedChannel$InheritedServerSocketChannelImpl, toString, $String*)},
+	{"translateAndSetReadyOps", "(ILsun/nio/ch/SelectionKeyImpl;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(InheritedChannel$InheritedServerSocketChannelImpl, translateAndSetReadyOps, bool, int32_t, $SelectionKeyImpl*)},
+	{"translateAndUpdateReadyOps", "(ILsun/nio/ch/SelectionKeyImpl;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(InheritedChannel$InheritedServerSocketChannelImpl, translateAndUpdateReadyOps, bool, int32_t, $SelectionKeyImpl*)},
+	{"translateInterestOps", "(I)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(InheritedChannel$InheritedServerSocketChannelImpl, translateInterestOps, int32_t, int32_t)},
+	{"translateReadyOps", "(IILsun/nio/ch/SelectionKeyImpl;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(InheritedChannel$InheritedServerSocketChannelImpl, translateReadyOps, bool, int32_t, int32_t, $SelectionKeyImpl*)},
 	{}
 };
 

@@ -23,9 +23,9 @@ $FieldInfo _LinkedBlockingDeque$DescendingItr_FieldInfo_[] = {
 };
 
 $MethodInfo _LinkedBlockingDeque$DescendingItr_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/LinkedBlockingDeque;)V", nullptr, 0, $method(static_cast<void(LinkedBlockingDeque$DescendingItr::*)($LinkedBlockingDeque*)>(&LinkedBlockingDeque$DescendingItr::init$))},
-	{"firstNode", "()Ljava/util/concurrent/LinkedBlockingDeque$Node;", "()Ljava/util/concurrent/LinkedBlockingDeque$Node<TE;>;", 0},
-	{"nextNode", "(Ljava/util/concurrent/LinkedBlockingDeque$Node;)Ljava/util/concurrent/LinkedBlockingDeque$Node;", "(Ljava/util/concurrent/LinkedBlockingDeque$Node<TE;>;)Ljava/util/concurrent/LinkedBlockingDeque$Node<TE;>;", 0},
+	{"<init>", "(Ljava/util/concurrent/LinkedBlockingDeque;)V", nullptr, 0, $method(LinkedBlockingDeque$DescendingItr, init$, void, $LinkedBlockingDeque*)},
+	{"firstNode", "()Ljava/util/concurrent/LinkedBlockingDeque$Node;", "()Ljava/util/concurrent/LinkedBlockingDeque$Node<TE;>;", 0, $virtualMethod(LinkedBlockingDeque$DescendingItr, firstNode, $LinkedBlockingDeque$Node*)},
+	{"nextNode", "(Ljava/util/concurrent/LinkedBlockingDeque$Node;)Ljava/util/concurrent/LinkedBlockingDeque$Node;", "(Ljava/util/concurrent/LinkedBlockingDeque$Node<TE;>;)Ljava/util/concurrent/LinkedBlockingDeque$Node<TE;>;", 0, $virtualMethod(LinkedBlockingDeque$DescendingItr, nextNode, $LinkedBlockingDeque$Node*, $LinkedBlockingDeque$Node*)},
 	{}
 };
 

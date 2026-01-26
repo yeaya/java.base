@@ -30,9 +30,9 @@ $FieldInfo _SSLContextImpl$DTLS12Context_FieldInfo_[] = {
 };
 
 $MethodInfo _SSLContextImpl$DTLS12Context_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SSLContextImpl$DTLS12Context::*)()>(&SSLContextImpl$DTLS12Context::init$))},
-	{"getClientDefaultCipherSuites", "()Ljava/util/List;", "()Ljava/util/List<Lsun/security/ssl/CipherSuite;>;", 0},
-	{"getClientDefaultProtocolVersions", "()Ljava/util/List;", "()Ljava/util/List<Lsun/security/ssl/ProtocolVersion;>;", 0},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SSLContextImpl$DTLS12Context, init$, void)},
+	{"getClientDefaultCipherSuites", "()Ljava/util/List;", "()Ljava/util/List<Lsun/security/ssl/CipherSuite;>;", 0, $virtualMethod(SSLContextImpl$DTLS12Context, getClientDefaultCipherSuites, $List*)},
+	{"getClientDefaultProtocolVersions", "()Ljava/util/List;", "()Ljava/util/List<Lsun/security/ssl/ProtocolVersion;>;", 0, $virtualMethod(SSLContextImpl$DTLS12Context, getClientDefaultProtocolVersions, $List*)},
 	{}
 };
 

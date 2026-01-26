@@ -13,8 +13,8 @@ namespace sun {
 		namespace dns {
 
 $MethodInfo _ResolverConfigurationImpl$AddressChangeListener_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ResolverConfigurationImpl$AddressChangeListener::*)()>(&ResolverConfigurationImpl$AddressChangeListener::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(ResolverConfigurationImpl$AddressChangeListener, init$, void)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ResolverConfigurationImpl$AddressChangeListener, run, void)},
 	{}
 };
 

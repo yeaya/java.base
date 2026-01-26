@@ -54,10 +54,10 @@ $FieldInfo _StatusResponseManager$OCSPFetchCall_FieldInfo_[] = {
 };
 
 $MethodInfo _StatusResponseManager$OCSPFetchCall_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/ssl/StatusResponseManager;Lsun/security/ssl/StatusResponseManager$StatusInfo;Lsun/security/ssl/CertStatusExtension$OCSPStatusRequest;)V", nullptr, $PUBLIC, $method(static_cast<void(StatusResponseManager$OCSPFetchCall::*)($StatusResponseManager*,$StatusResponseManager$StatusInfo*,$CertStatusExtension$OCSPStatusRequest*)>(&StatusResponseManager$OCSPFetchCall::init$))},
-	{"addToCache", "(Lsun/security/provider/certpath/CertId;Lsun/security/ssl/StatusResponseManager$ResponseCacheEntry;)V", nullptr, $PRIVATE, $method(static_cast<void(StatusResponseManager$OCSPFetchCall::*)($CertId*,$StatusResponseManager$ResponseCacheEntry*)>(&StatusResponseManager$OCSPFetchCall::addToCache))},
-	{"call", "()Lsun/security/ssl/StatusResponseManager$StatusInfo;", nullptr, $PUBLIC},
-	{"getNextTaskDelay", "(Ljava/util/Date;)J", nullptr, $PRIVATE, $method(static_cast<int64_t(StatusResponseManager$OCSPFetchCall::*)($Date*)>(&StatusResponseManager$OCSPFetchCall::getNextTaskDelay))},
+	{"<init>", "(Lsun/security/ssl/StatusResponseManager;Lsun/security/ssl/StatusResponseManager$StatusInfo;Lsun/security/ssl/CertStatusExtension$OCSPStatusRequest;)V", nullptr, $PUBLIC, $method(StatusResponseManager$OCSPFetchCall, init$, void, $StatusResponseManager*, $StatusResponseManager$StatusInfo*, $CertStatusExtension$OCSPStatusRequest*)},
+	{"addToCache", "(Lsun/security/provider/certpath/CertId;Lsun/security/ssl/StatusResponseManager$ResponseCacheEntry;)V", nullptr, $PRIVATE, $method(StatusResponseManager$OCSPFetchCall, addToCache, void, $CertId*, $StatusResponseManager$ResponseCacheEntry*)},
+	{"call", "()Lsun/security/ssl/StatusResponseManager$StatusInfo;", nullptr, $PUBLIC, $virtualMethod(StatusResponseManager$OCSPFetchCall, call, $Object*)},
+	{"getNextTaskDelay", "(Ljava/util/Date;)J", nullptr, $PRIVATE, $method(StatusResponseManager$OCSPFetchCall, getNextTaskDelay, int64_t, $Date*)},
 	{}
 };
 

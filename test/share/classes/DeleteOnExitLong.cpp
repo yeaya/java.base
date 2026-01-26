@@ -8,8 +8,8 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _DeleteOnExitLong_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DeleteOnExitLong::*)()>(&DeleteOnExitLong::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&DeleteOnExitLong::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DeleteOnExitLong, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(DeleteOnExitLong, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

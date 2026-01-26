@@ -74,8 +74,8 @@ $FieldInfo StreamSpliterators$IntWrappingSpliterator$$Lambda$accept::fieldInfos[
 	{}
 };
 $MethodInfo StreamSpliterators$IntWrappingSpliterator$$Lambda$accept::methodInfos[3] = {
-	{"<init>", "(Ljava/util/stream/SpinedBuffer$OfInt;)V", nullptr, $PUBLIC, $method(static_cast<void(StreamSpliterators$IntWrappingSpliterator$$Lambda$accept::*)($SpinedBuffer$OfInt*)>(&StreamSpliterators$IntWrappingSpliterator$$Lambda$accept::init$))},
-	{"accept", "(I)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/stream/SpinedBuffer$OfInt;)V", nullptr, $PUBLIC, $method(StreamSpliterators$IntWrappingSpliterator$$Lambda$accept, init$, void, $SpinedBuffer$OfInt*)},
+	{"accept", "(I)V", nullptr, $PUBLIC, $virtualMethod(StreamSpliterators$IntWrappingSpliterator$$Lambda$accept, accept, void, int32_t)},
 	{}
 };
 $ClassInfo StreamSpliterators$IntWrappingSpliterator$$Lambda$accept::classInfo$ = {
@@ -114,8 +114,8 @@ $FieldInfo StreamSpliterators$IntWrappingSpliterator$$Lambda$lambda$initPartialT
 	{}
 };
 $MethodInfo StreamSpliterators$IntWrappingSpliterator$$Lambda$lambda$initPartialTraversalState$0$1::methodInfos[3] = {
-	{"<init>", "(Ljava/util/stream/StreamSpliterators$IntWrappingSpliterator;)V", nullptr, $PUBLIC, $method(static_cast<void(StreamSpliterators$IntWrappingSpliterator$$Lambda$lambda$initPartialTraversalState$0$1::*)(StreamSpliterators$IntWrappingSpliterator*)>(&StreamSpliterators$IntWrappingSpliterator$$Lambda$lambda$initPartialTraversalState$0$1::init$))},
-	{"getAsBoolean", "()Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/stream/StreamSpliterators$IntWrappingSpliterator;)V", nullptr, $PUBLIC, $method(StreamSpliterators$IntWrappingSpliterator$$Lambda$lambda$initPartialTraversalState$0$1, init$, void, StreamSpliterators$IntWrappingSpliterator*)},
+	{"getAsBoolean", "()Z", nullptr, $PUBLIC, $virtualMethod(StreamSpliterators$IntWrappingSpliterator$$Lambda$lambda$initPartialTraversalState$0$1, getAsBoolean, bool)},
 	{}
 };
 $ClassInfo StreamSpliterators$IntWrappingSpliterator$$Lambda$lambda$initPartialTraversalState$0$1::classInfo$ = {
@@ -154,8 +154,8 @@ $FieldInfo StreamSpliterators$IntWrappingSpliterator$$Lambda$accept$2::fieldInfo
 	{}
 };
 $MethodInfo StreamSpliterators$IntWrappingSpliterator$$Lambda$accept$2::methodInfos[3] = {
-	{"<init>", "(Ljava/util/function/IntConsumer;)V", nullptr, $PUBLIC, $method(static_cast<void(StreamSpliterators$IntWrappingSpliterator$$Lambda$accept$2::*)($IntConsumer*)>(&StreamSpliterators$IntWrappingSpliterator$$Lambda$accept$2::init$))},
-	{"accept", "(I)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/function/IntConsumer;)V", nullptr, $PUBLIC, $method(StreamSpliterators$IntWrappingSpliterator$$Lambda$accept$2, init$, void, $IntConsumer*)},
+	{"accept", "(I)V", nullptr, $PUBLIC, $virtualMethod(StreamSpliterators$IntWrappingSpliterator$$Lambda$accept$2, accept, void, int32_t)},
 	{}
 };
 $ClassInfo StreamSpliterators$IntWrappingSpliterator$$Lambda$accept$2::classInfo$ = {
@@ -183,18 +183,18 @@ $MethodInfo _StreamSpliterators$IntWrappingSpliterator_MethodInfo_[] = {
 	{"*getExactSizeIfKnown", "()J", nullptr, $PUBLIC | $FINAL},
 	{"*hasCharacteristics", "(I)Z", nullptr, $PUBLIC | $ABSTRACT},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/util/stream/PipelineHelper;Ljava/util/function/Supplier;Z)V", "(Ljava/util/stream/PipelineHelper<Ljava/lang/Integer;>;Ljava/util/function/Supplier<Ljava/util/Spliterator<TP_IN;>;>;Z)V", 0, $method(static_cast<void(StreamSpliterators$IntWrappingSpliterator::*)($PipelineHelper*,$Supplier*,bool)>(&StreamSpliterators$IntWrappingSpliterator::init$))},
-	{"<init>", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;Z)V", "(Ljava/util/stream/PipelineHelper<Ljava/lang/Integer;>;Ljava/util/Spliterator<TP_IN;>;Z)V", 0, $method(static_cast<void(StreamSpliterators$IntWrappingSpliterator::*)($PipelineHelper*,$Spliterator*,bool)>(&StreamSpliterators$IntWrappingSpliterator::init$))},
-	{"forEachRemaining", "(Ljava/util/function/IntConsumer;)V", nullptr, $PUBLIC, $method(static_cast<void(StreamSpliterators$IntWrappingSpliterator::*)($IntConsumer*)>(&StreamSpliterators$IntWrappingSpliterator::forEachRemaining))},
-	{"forEachRemaining", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $method(static_cast<void(StreamSpliterators$IntWrappingSpliterator::*)(Object$*)>(&StreamSpliterators$IntWrappingSpliterator::forEachRemaining))},
-	{"initPartialTraversalState", "()V", nullptr, 0},
-	{"lambda$initPartialTraversalState$0", "()Z", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<bool(StreamSpliterators$IntWrappingSpliterator::*)()>(&StreamSpliterators$IntWrappingSpliterator::lambda$initPartialTraversalState$0))},
+	{"<init>", "(Ljava/util/stream/PipelineHelper;Ljava/util/function/Supplier;Z)V", "(Ljava/util/stream/PipelineHelper<Ljava/lang/Integer;>;Ljava/util/function/Supplier<Ljava/util/Spliterator<TP_IN;>;>;Z)V", 0, $method(StreamSpliterators$IntWrappingSpliterator, init$, void, $PipelineHelper*, $Supplier*, bool)},
+	{"<init>", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;Z)V", "(Ljava/util/stream/PipelineHelper<Ljava/lang/Integer;>;Ljava/util/Spliterator<TP_IN;>;Z)V", 0, $method(StreamSpliterators$IntWrappingSpliterator, init$, void, $PipelineHelper*, $Spliterator*, bool)},
+	{"forEachRemaining", "(Ljava/util/function/IntConsumer;)V", nullptr, $PUBLIC, $method(StreamSpliterators$IntWrappingSpliterator, forEachRemaining, void, $IntConsumer*)},
+	{"forEachRemaining", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $method(StreamSpliterators$IntWrappingSpliterator, forEachRemaining, void, Object$*)},
+	{"initPartialTraversalState", "()V", nullptr, 0, $virtualMethod(StreamSpliterators$IntWrappingSpliterator, initPartialTraversalState, void)},
+	{"lambda$initPartialTraversalState$0", "()Z", nullptr, $PRIVATE | $SYNTHETIC, $method(StreamSpliterators$IntWrappingSpliterator, lambda$initPartialTraversalState$0, bool)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL},
 	{"*tryAdvance", "(Ljava/util/function/Consumer;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"tryAdvance", "(Ljava/util/function/IntConsumer;)Z", nullptr, $PUBLIC, $method(static_cast<bool(StreamSpliterators$IntWrappingSpliterator::*)($IntConsumer*)>(&StreamSpliterators$IntWrappingSpliterator::tryAdvance))},
-	{"tryAdvance", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $method(static_cast<bool(StreamSpliterators$IntWrappingSpliterator::*)(Object$*)>(&StreamSpliterators$IntWrappingSpliterator::tryAdvance))},
-	{"trySplit", "()Ljava/util/Spliterator$OfInt;", nullptr, $PUBLIC},
-	{"wrap", "(Ljava/util/Spliterator;)Ljava/util/stream/StreamSpliterators$AbstractWrappingSpliterator;", "(Ljava/util/Spliterator<TP_IN;>;)Ljava/util/stream/StreamSpliterators$AbstractWrappingSpliterator<TP_IN;Ljava/lang/Integer;*>;", 0},
+	{"tryAdvance", "(Ljava/util/function/IntConsumer;)Z", nullptr, $PUBLIC, $method(StreamSpliterators$IntWrappingSpliterator, tryAdvance, bool, $IntConsumer*)},
+	{"tryAdvance", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $method(StreamSpliterators$IntWrappingSpliterator, tryAdvance, bool, Object$*)},
+	{"trySplit", "()Ljava/util/Spliterator$OfInt;", nullptr, $PUBLIC, $virtualMethod(StreamSpliterators$IntWrappingSpliterator, trySplit, $Spliterator*)},
+	{"wrap", "(Ljava/util/Spliterator;)Ljava/util/stream/StreamSpliterators$AbstractWrappingSpliterator;", "(Ljava/util/Spliterator<TP_IN;>;)Ljava/util/stream/StreamSpliterators$AbstractWrappingSpliterator<TP_IN;Ljava/lang/Integer;*>;", 0, $virtualMethod(StreamSpliterators$IntWrappingSpliterator, wrap, $StreamSpliterators$AbstractWrappingSpliterator*, $Spliterator*)},
 	{}
 };
 

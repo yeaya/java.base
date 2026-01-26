@@ -32,10 +32,10 @@ $FieldInfo _Trie2$Trie2Iterator_FieldInfo_[] = {
 };
 
 $MethodInfo _Trie2$Trie2Iterator_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/icu/impl/Trie2;Ljdk/internal/icu/impl/Trie2$ValueMapper;)V", nullptr, 0, $method(static_cast<void(Trie2$Trie2Iterator::*)($Trie2*,$Trie2$ValueMapper*)>(&Trie2$Trie2Iterator::init$))},
-	{"hasNext", "()Z", nullptr, $PUBLIC},
-	{"next", "()Ljdk/internal/icu/impl/Trie2$Range;", nullptr, $PUBLIC},
-	{"rangeEndLS", "(C)I", nullptr, $PRIVATE, $method(static_cast<int32_t(Trie2$Trie2Iterator::*)(char16_t)>(&Trie2$Trie2Iterator::rangeEndLS))},
+	{"<init>", "(Ljdk/internal/icu/impl/Trie2;Ljdk/internal/icu/impl/Trie2$ValueMapper;)V", nullptr, 0, $method(Trie2$Trie2Iterator, init$, void, $Trie2*, $Trie2$ValueMapper*)},
+	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(Trie2$Trie2Iterator, hasNext, bool)},
+	{"next", "()Ljdk/internal/icu/impl/Trie2$Range;", nullptr, $PUBLIC, $virtualMethod(Trie2$Trie2Iterator, next, $Object*)},
+	{"rangeEndLS", "(C)I", nullptr, $PRIVATE, $method(Trie2$Trie2Iterator, rangeEndLS, int32_t, char16_t)},
 	{}
 };
 

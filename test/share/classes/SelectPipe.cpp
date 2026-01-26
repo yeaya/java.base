@@ -35,8 +35,8 @@ $FieldInfo _SelectPipe_FieldInfo_[] = {
 };
 
 $MethodInfo _SelectPipe_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SelectPipe::*)()>(&SelectPipe::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&SelectPipe::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SelectPipe, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SelectPipe, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

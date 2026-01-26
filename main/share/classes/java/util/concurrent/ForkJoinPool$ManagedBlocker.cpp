@@ -12,8 +12,8 @@ namespace java {
 		namespace concurrent {
 
 $MethodInfo _ForkJoinPool$ManagedBlocker_MethodInfo_[] = {
-	{"block", "()Z", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.lang.InterruptedException"},
-	{"isReleasable", "()Z", nullptr, $PUBLIC | $ABSTRACT},
+	{"block", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ForkJoinPool$ManagedBlocker, block, bool), "java.lang.InterruptedException"},
+	{"isReleasable", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ForkJoinPool$ManagedBlocker, isReleasable, bool)},
 	{}
 };
 

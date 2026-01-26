@@ -28,9 +28,9 @@ $FieldInfo _IntPipeline$8$1_FieldInfo_[] = {
 };
 
 $MethodInfo _IntPipeline$8$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/stream/IntPipeline$8;Ljava/util/stream/Sink;)V", nullptr, 0, $method(static_cast<void(IntPipeline$8$1::*)($IntPipeline$8*,$Sink*)>(&IntPipeline$8$1::init$))},
-	{"accept", "(I)V", nullptr, $PUBLIC},
-	{"begin", "(J)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/stream/IntPipeline$8;Ljava/util/stream/Sink;)V", nullptr, 0, $method(IntPipeline$8$1, init$, void, $IntPipeline$8*, $Sink*)},
+	{"accept", "(I)V", nullptr, $PUBLIC, $virtualMethod(IntPipeline$8$1, accept, void, int32_t)},
+	{"begin", "(J)V", nullptr, $PUBLIC, $virtualMethod(IntPipeline$8$1, begin, void, int64_t)},
 	{}
 };
 

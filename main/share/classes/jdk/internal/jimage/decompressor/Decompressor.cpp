@@ -50,8 +50,8 @@ $FieldInfo _Decompressor_FieldInfo_[] = {
 };
 
 $MethodInfo _Decompressor_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Decompressor::*)()>(&Decompressor::init$))},
-	{"decompressResource", "(Ljava/nio/ByteOrder;Ljdk/internal/jimage/decompressor/ResourceDecompressor$StringsProvider;[B)[B", nullptr, $PUBLIC, $method(static_cast<$bytes*(Decompressor::*)($ByteOrder*,$ResourceDecompressor$StringsProvider*,$bytes*)>(&Decompressor::decompressResource)), "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Decompressor, init$, void)},
+	{"decompressResource", "(Ljava/nio/ByteOrder;Ljdk/internal/jimage/decompressor/ResourceDecompressor$StringsProvider;[B)[B", nullptr, $PUBLIC, $method(Decompressor, decompressResource, $bytes*, $ByteOrder*, $ResourceDecompressor$StringsProvider*, $bytes*), "java.io.IOException"},
 	{}
 };
 

@@ -100,8 +100,8 @@ $FieldInfo ModuleHashes$$Lambda$lambda$computeHash$0::fieldInfos[4] = {
 	{}
 };
 $MethodInfo ModuleHashes$$Lambda$lambda$computeHash$0::methodInfos[3] = {
-	{"<init>", "(Ljava/security/MessageDigest;Ljava/lang/module/ModuleReader;[B)V", nullptr, $PUBLIC, $method(static_cast<void(ModuleHashes$$Lambda$lambda$computeHash$0::*)($MessageDigest*,$ModuleReader*,$bytes*)>(&ModuleHashes$$Lambda$lambda$computeHash$0::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/security/MessageDigest;Ljava/lang/module/ModuleReader;[B)V", nullptr, $PUBLIC, $method(ModuleHashes$$Lambda$lambda$computeHash$0, init$, void, $MessageDigest*, $ModuleReader*, $bytes*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ModuleHashes$$Lambda$lambda$computeHash$0, accept, void, Object$*)},
 	{}
 };
 $ClassInfo ModuleHashes$$Lambda$lambda$computeHash$0::classInfo$ = {
@@ -140,8 +140,8 @@ $FieldInfo ModuleHashes$$Lambda$lambda$toString$1$1::fieldInfos[2] = {
 	{}
 };
 $MethodInfo ModuleHashes$$Lambda$lambda$toString$1$1::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/StringBuilder;)V", nullptr, $PUBLIC, $method(static_cast<void(ModuleHashes$$Lambda$lambda$toString$1$1::*)($StringBuilder*)>(&ModuleHashes$$Lambda$lambda$toString$1$1::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/StringBuilder;)V", nullptr, $PUBLIC, $method(ModuleHashes$$Lambda$lambda$toString$1$1, init$, void, $StringBuilder*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ModuleHashes$$Lambda$lambda$toString$1$1, accept, void, Object$*)},
 	{}
 };
 $ClassInfo ModuleHashes$$Lambda$lambda$toString$1$1::classInfo$ = {
@@ -165,19 +165,19 @@ $FieldInfo _ModuleHashes_FieldInfo_[] = {
 };
 
 $MethodInfo _ModuleHashes_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/util/Map;)V", "(Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;[B>;)V", 0, $method(static_cast<void(ModuleHashes::*)($String*,$Map*)>(&ModuleHashes::init$))},
-	{"algorithm", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(static_cast<$String*(ModuleHashes::*)()>(&ModuleHashes::algorithm))},
-	{"computeHash", "(Ljava/lang/module/ModuleReader;Ljava/lang/String;)[B", nullptr, $PRIVATE | $STATIC, $method(static_cast<$bytes*(*)($ModuleReader*,$String*)>(&ModuleHashes::computeHash))},
-	{"computeHash", "(Ljava/util/function/Supplier;Ljava/lang/String;)[B", "(Ljava/util/function/Supplier<Ljava/lang/module/ModuleReader;>;Ljava/lang/String;)[B", $STATIC, $method(static_cast<$bytes*(*)($Supplier*,$String*)>(&ModuleHashes::computeHash))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"generate", "(Ljava/util/Set;Ljava/lang/String;)Ljdk/internal/module/ModuleHashes;", "(Ljava/util/Set<Ljava/lang/module/ModuleReference;>;Ljava/lang/String;)Ljdk/internal/module/ModuleHashes;", $STATIC, $method(static_cast<ModuleHashes*(*)($Set*,$String*)>(&ModuleHashes::generate))},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"hashFor", "(Ljava/lang/String;)[B", nullptr, $PUBLIC, $method(static_cast<$bytes*(ModuleHashes::*)($String*)>(&ModuleHashes::hashFor))},
-	{"hashes", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;[B>;", $PUBLIC, $method(static_cast<$Map*(ModuleHashes::*)()>(&ModuleHashes::hashes))},
-	{"lambda$computeHash$0", "(Ljava/security/MessageDigest;Ljava/lang/module/ModuleReader;[BLjava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($MessageDigest*,$ModuleReader*,$bytes*,$String*)>(&ModuleHashes::lambda$computeHash$0))},
-	{"lambda$toString$1", "(Ljava/lang/StringBuilder;Ljava/util/Map$Entry;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($StringBuilder*,$Map$Entry*)>(&ModuleHashes::lambda$toString$1))},
-	{"names", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $method(static_cast<$Set*(ModuleHashes::*)()>(&ModuleHashes::names))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Ljava/util/Map;)V", "(Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;[B>;)V", 0, $method(ModuleHashes, init$, void, $String*, $Map*)},
+	{"algorithm", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(ModuleHashes, algorithm, $String*)},
+	{"computeHash", "(Ljava/lang/module/ModuleReader;Ljava/lang/String;)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(ModuleHashes, computeHash, $bytes*, $ModuleReader*, $String*)},
+	{"computeHash", "(Ljava/util/function/Supplier;Ljava/lang/String;)[B", "(Ljava/util/function/Supplier<Ljava/lang/module/ModuleReader;>;Ljava/lang/String;)[B", $STATIC, $staticMethod(ModuleHashes, computeHash, $bytes*, $Supplier*, $String*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ModuleHashes, equals, bool, Object$*)},
+	{"generate", "(Ljava/util/Set;Ljava/lang/String;)Ljdk/internal/module/ModuleHashes;", "(Ljava/util/Set<Ljava/lang/module/ModuleReference;>;Ljava/lang/String;)Ljdk/internal/module/ModuleHashes;", $STATIC, $staticMethod(ModuleHashes, generate, ModuleHashes*, $Set*, $String*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ModuleHashes, hashCode, int32_t)},
+	{"hashFor", "(Ljava/lang/String;)[B", nullptr, $PUBLIC, $method(ModuleHashes, hashFor, $bytes*, $String*)},
+	{"hashes", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;[B>;", $PUBLIC, $method(ModuleHashes, hashes, $Map*)},
+	{"lambda$computeHash$0", "(Ljava/security/MessageDigest;Ljava/lang/module/ModuleReader;[BLjava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ModuleHashes, lambda$computeHash$0, void, $MessageDigest*, $ModuleReader*, $bytes*, $String*)},
+	{"lambda$toString$1", "(Ljava/lang/StringBuilder;Ljava/util/Map$Entry;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ModuleHashes, lambda$toString$1, void, $StringBuilder*, $Map$Entry*)},
+	{"names", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $method(ModuleHashes, names, $Set*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ModuleHashes, toString, $String*)},
 	{}
 };
 

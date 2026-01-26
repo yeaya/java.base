@@ -32,7 +32,7 @@ $FieldInfo _CertificateMessage_FieldInfo_[] = {
 };
 
 $MethodInfo _CertificateMessage_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(CertificateMessage::*)()>(&CertificateMessage::init$))},
+	{"<init>", "()V", nullptr, 0, $method(CertificateMessage, init$, void)},
 	{}
 };
 

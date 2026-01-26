@@ -26,8 +26,8 @@ $FieldInfo _DoubleAccumulator$SerializationProxy_FieldInfo_[] = {
 };
 
 $MethodInfo _DoubleAccumulator$SerializationProxy_MethodInfo_[] = {
-	{"<init>", "(DLjava/util/function/DoubleBinaryOperator;J)V", nullptr, 0, $method(static_cast<void(DoubleAccumulator$SerializationProxy::*)(double,$DoubleBinaryOperator*,int64_t)>(&DoubleAccumulator$SerializationProxy::init$))},
-	{"readResolve", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(static_cast<$Object*(DoubleAccumulator$SerializationProxy::*)()>(&DoubleAccumulator$SerializationProxy::readResolve))},
+	{"<init>", "(DLjava/util/function/DoubleBinaryOperator;J)V", nullptr, 0, $method(DoubleAccumulator$SerializationProxy, init$, void, double, $DoubleBinaryOperator*, int64_t)},
+	{"readResolve", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(DoubleAccumulator$SerializationProxy, readResolve, $Object*)},
 	{}
 };
 

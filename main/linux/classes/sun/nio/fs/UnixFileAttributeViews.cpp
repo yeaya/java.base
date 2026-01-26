@@ -23,11 +23,11 @@ namespace sun {
 		namespace fs {
 
 $MethodInfo _UnixFileAttributeViews_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(UnixFileAttributeViews::*)()>(&UnixFileAttributeViews::init$))},
-	{"createBasicView", "(Lsun/nio/fs/UnixPath;Z)Lsun/nio/fs/UnixFileAttributeViews$Basic;", nullptr, $STATIC, $method(static_cast<$UnixFileAttributeViews$Basic*(*)($UnixPath*,bool)>(&UnixFileAttributeViews::createBasicView))},
-	{"createOwnerView", "(Lsun/nio/fs/UnixPath;Z)Lsun/nio/fs/FileOwnerAttributeViewImpl;", nullptr, $STATIC, $method(static_cast<$FileOwnerAttributeViewImpl*(*)($UnixPath*,bool)>(&UnixFileAttributeViews::createOwnerView))},
-	{"createPosixView", "(Lsun/nio/fs/UnixPath;Z)Lsun/nio/fs/UnixFileAttributeViews$Posix;", nullptr, $STATIC, $method(static_cast<$UnixFileAttributeViews$Posix*(*)($UnixPath*,bool)>(&UnixFileAttributeViews::createPosixView))},
-	{"createUnixView", "(Lsun/nio/fs/UnixPath;Z)Lsun/nio/fs/UnixFileAttributeViews$Unix;", nullptr, $STATIC, $method(static_cast<$UnixFileAttributeViews$Unix*(*)($UnixPath*,bool)>(&UnixFileAttributeViews::createUnixView))},
+	{"<init>", "()V", nullptr, 0, $method(UnixFileAttributeViews, init$, void)},
+	{"createBasicView", "(Lsun/nio/fs/UnixPath;Z)Lsun/nio/fs/UnixFileAttributeViews$Basic;", nullptr, $STATIC, $staticMethod(UnixFileAttributeViews, createBasicView, $UnixFileAttributeViews$Basic*, $UnixPath*, bool)},
+	{"createOwnerView", "(Lsun/nio/fs/UnixPath;Z)Lsun/nio/fs/FileOwnerAttributeViewImpl;", nullptr, $STATIC, $staticMethod(UnixFileAttributeViews, createOwnerView, $FileOwnerAttributeViewImpl*, $UnixPath*, bool)},
+	{"createPosixView", "(Lsun/nio/fs/UnixPath;Z)Lsun/nio/fs/UnixFileAttributeViews$Posix;", nullptr, $STATIC, $staticMethod(UnixFileAttributeViews, createPosixView, $UnixFileAttributeViews$Posix*, $UnixPath*, bool)},
+	{"createUnixView", "(Lsun/nio/fs/UnixPath;Z)Lsun/nio/fs/UnixFileAttributeViews$Unix;", nullptr, $STATIC, $staticMethod(UnixFileAttributeViews, createUnixView, $UnixFileAttributeViews$Unix*, $UnixPath*, bool)},
 	{}
 };
 

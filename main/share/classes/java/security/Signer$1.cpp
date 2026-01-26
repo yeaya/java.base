@@ -22,8 +22,8 @@ $FieldInfo _Signer$1_FieldInfo_[] = {
 };
 
 $MethodInfo _Signer$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/Signer;Ljava/security/PublicKey;)V", nullptr, 0, $method(static_cast<void(Signer$1::*)($Signer*,$PublicKey*)>(&Signer$1::init$))},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, nullptr, "java.security.KeyManagementException"},
+	{"<init>", "(Ljava/security/Signer;Ljava/security/PublicKey;)V", nullptr, 0, $method(Signer$1, init$, void, $Signer*, $PublicKey*)},
+	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(Signer$1, run, $Object*), "java.security.KeyManagementException"},
 	{}
 };
 

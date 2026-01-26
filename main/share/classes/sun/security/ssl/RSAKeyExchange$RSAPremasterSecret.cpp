@@ -78,12 +78,12 @@ $MethodInfo _RSAKeyExchange$RSAPremasterSecret_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/crypto/SecretKey;)V", nullptr, 0, $method(static_cast<void(RSAKeyExchange$RSAPremasterSecret::*)($SecretKey*)>(&RSAKeyExchange$RSAPremasterSecret::init$))},
-	{"createPremasterSecret", "(Lsun/security/ssl/ClientHandshakeContext;)Lsun/security/ssl/RSAKeyExchange$RSAPremasterSecret;", nullptr, $STATIC, $method(static_cast<RSAKeyExchange$RSAPremasterSecret*(*)($ClientHandshakeContext*)>(&RSAKeyExchange$RSAPremasterSecret::createPremasterSecret)), "java.security.GeneralSecurityException"},
-	{"decode", "(Lsun/security/ssl/ServerHandshakeContext;Ljava/security/PrivateKey;[B)Lsun/security/ssl/RSAKeyExchange$RSAPremasterSecret;", nullptr, $STATIC, $method(static_cast<RSAKeyExchange$RSAPremasterSecret*(*)($ServerHandshakeContext*,$PrivateKey*,$bytes*)>(&RSAKeyExchange$RSAPremasterSecret::decode)), "java.security.GeneralSecurityException"},
-	{"generatePremasterSecret", "(II[BLjava/security/SecureRandom;)Ljavax/crypto/SecretKey;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$SecretKey*(*)(int32_t,int32_t,$bytes*,$SecureRandom*)>(&RSAKeyExchange$RSAPremasterSecret::generatePremasterSecret)), "java.security.GeneralSecurityException"},
-	{"getEncoded", "(Ljava/security/PublicKey;Ljava/security/SecureRandom;)[B", nullptr, 0, $method(static_cast<$bytes*(RSAKeyExchange$RSAPremasterSecret::*)($PublicKey*,$SecureRandom*)>(&RSAKeyExchange$RSAPremasterSecret::getEncoded)), "java.security.GeneralSecurityException"},
-	{"safeProviderName", "(Ljavax/crypto/Cipher;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($Cipher*)>(&RSAKeyExchange$RSAPremasterSecret::safeProviderName))},
+	{"<init>", "(Ljavax/crypto/SecretKey;)V", nullptr, 0, $method(RSAKeyExchange$RSAPremasterSecret, init$, void, $SecretKey*)},
+	{"createPremasterSecret", "(Lsun/security/ssl/ClientHandshakeContext;)Lsun/security/ssl/RSAKeyExchange$RSAPremasterSecret;", nullptr, $STATIC, $staticMethod(RSAKeyExchange$RSAPremasterSecret, createPremasterSecret, RSAKeyExchange$RSAPremasterSecret*, $ClientHandshakeContext*), "java.security.GeneralSecurityException"},
+	{"decode", "(Lsun/security/ssl/ServerHandshakeContext;Ljava/security/PrivateKey;[B)Lsun/security/ssl/RSAKeyExchange$RSAPremasterSecret;", nullptr, $STATIC, $staticMethod(RSAKeyExchange$RSAPremasterSecret, decode, RSAKeyExchange$RSAPremasterSecret*, $ServerHandshakeContext*, $PrivateKey*, $bytes*), "java.security.GeneralSecurityException"},
+	{"generatePremasterSecret", "(II[BLjava/security/SecureRandom;)Ljavax/crypto/SecretKey;", nullptr, $PRIVATE | $STATIC, $staticMethod(RSAKeyExchange$RSAPremasterSecret, generatePremasterSecret, $SecretKey*, int32_t, int32_t, $bytes*, $SecureRandom*), "java.security.GeneralSecurityException"},
+	{"getEncoded", "(Ljava/security/PublicKey;Ljava/security/SecureRandom;)[B", nullptr, 0, $method(RSAKeyExchange$RSAPremasterSecret, getEncoded, $bytes*, $PublicKey*, $SecureRandom*), "java.security.GeneralSecurityException"},
+	{"safeProviderName", "(Ljavax/crypto/Cipher;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(RSAKeyExchange$RSAPremasterSecret, safeProviderName, $String*, $Cipher*)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

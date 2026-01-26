@@ -29,12 +29,12 @@ $FieldInfo _SourceValue_FieldInfo_[] = {
 };
 
 $MethodInfo _SourceValue_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(static_cast<void(SourceValue::*)(int32_t)>(&SourceValue::init$))},
-	{"<init>", "(ILjdk/internal/org/objectweb/asm/tree/AbstractInsnNode;)V", nullptr, $PUBLIC, $method(static_cast<void(SourceValue::*)(int32_t,$AbstractInsnNode*)>(&SourceValue::init$))},
-	{"<init>", "(ILjava/util/Set;)V", "(ILjava/util/Set<Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;>;)V", $PUBLIC, $method(static_cast<void(SourceValue::*)(int32_t,$Set*)>(&SourceValue::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getSize", "()I", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
+	{"<init>", "(I)V", nullptr, $PUBLIC, $method(SourceValue, init$, void, int32_t)},
+	{"<init>", "(ILjdk/internal/org/objectweb/asm/tree/AbstractInsnNode;)V", nullptr, $PUBLIC, $method(SourceValue, init$, void, int32_t, $AbstractInsnNode*)},
+	{"<init>", "(ILjava/util/Set;)V", "(ILjava/util/Set<Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;>;)V", $PUBLIC, $method(SourceValue, init$, void, int32_t, $Set*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(SourceValue, equals, bool, Object$*)},
+	{"getSize", "()I", nullptr, $PUBLIC, $virtualMethod(SourceValue, getSize, int32_t)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(SourceValue, hashCode, int32_t)},
 	{}
 };
 

@@ -15,9 +15,9 @@ namespace sun {
 		namespace cs {
 
 $MethodInfo _SingleByte_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SingleByte::*)()>(&SingleByte::init$))},
-	{"initC2B", "([C[C[C[C)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($chars*,$chars*,$chars*,$chars*)>(&SingleByte::initC2B))},
-	{"withResult", "(Ljava/nio/charset/CoderResult;Ljava/nio/Buffer;ILjava/nio/Buffer;I)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE | $STATIC | $FINAL, $method(static_cast<$CoderResult*(*)($CoderResult*,$Buffer*,int32_t,$Buffer*,int32_t)>(&SingleByte::withResult))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SingleByte, init$, void)},
+	{"initC2B", "([C[C[C[C)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SingleByte, initC2B, void, $chars*, $chars*, $chars*, $chars*)},
+	{"withResult", "(Ljava/nio/charset/CoderResult;Ljava/nio/Buffer;ILjava/nio/Buffer;I)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(SingleByte, withResult, $CoderResult*, $CoderResult*, $Buffer*, int32_t, $Buffer*, int32_t)},
 	{}
 };
 

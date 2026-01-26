@@ -24,9 +24,9 @@ $FieldInfo _Module$2_FieldInfo_[] = {
 };
 
 $MethodInfo _Module$2_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Module;Ljava/lang/ClassLoader;[B)V", nullptr, 0, $method(static_cast<void(Module$2::*)($Module*,$ClassLoader*,$bytes*)>(&Module$2::init$))},
-	{"findClass", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $PROTECTED, nullptr, "java.lang.ClassNotFoundException"},
-	{"loadClass", "(Ljava/lang/String;Z)Ljava/lang/Class;", "(Ljava/lang/String;Z)Ljava/lang/Class<*>;", $PROTECTED, nullptr, "java.lang.ClassNotFoundException"},
+	{"<init>", "(Ljava/lang/Module;Ljava/lang/ClassLoader;[B)V", nullptr, 0, $method(Module$2, init$, void, $Module*, $ClassLoader*, $bytes*)},
+	{"findClass", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $PROTECTED, $virtualMethod(Module$2, findClass, $Class*, $String*), "java.lang.ClassNotFoundException"},
+	{"loadClass", "(Ljava/lang/String;Z)Ljava/lang/Class;", "(Ljava/lang/String;Z)Ljava/lang/Class<*>;", $PROTECTED, $virtualMethod(Module$2, loadClass, $Class*, $String*, bool), "java.lang.ClassNotFoundException"},
 	{}
 };
 

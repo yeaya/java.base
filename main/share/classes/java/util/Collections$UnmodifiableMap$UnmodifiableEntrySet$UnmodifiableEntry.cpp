@@ -25,13 +25,13 @@ $FieldInfo _Collections$UnmodifiableMap$UnmodifiableEntrySet$UnmodifiableEntry_F
 };
 
 $MethodInfo _Collections$UnmodifiableMap$UnmodifiableEntrySet$UnmodifiableEntry_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Map$Entry;)V", "(Ljava/util/Map$Entry<+TK;+TV;>;)V", 0, $method(static_cast<void(Collections$UnmodifiableMap$UnmodifiableEntrySet$UnmodifiableEntry::*)($Map$Entry*)>(&Collections$UnmodifiableMap$UnmodifiableEntrySet$UnmodifiableEntry::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getKey", "()Ljava/lang/Object;", "()TK;", $PUBLIC},
-	{"getValue", "()Ljava/lang/Object;", "()TV;", $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"setValue", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TV;)TV;", $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/Map$Entry;)V", "(Ljava/util/Map$Entry<+TK;+TV;>;)V", 0, $method(Collections$UnmodifiableMap$UnmodifiableEntrySet$UnmodifiableEntry, init$, void, $Map$Entry*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Collections$UnmodifiableMap$UnmodifiableEntrySet$UnmodifiableEntry, equals, bool, Object$*)},
+	{"getKey", "()Ljava/lang/Object;", "()TK;", $PUBLIC, $virtualMethod(Collections$UnmodifiableMap$UnmodifiableEntrySet$UnmodifiableEntry, getKey, $Object*)},
+	{"getValue", "()Ljava/lang/Object;", "()TV;", $PUBLIC, $virtualMethod(Collections$UnmodifiableMap$UnmodifiableEntrySet$UnmodifiableEntry, getValue, $Object*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Collections$UnmodifiableMap$UnmodifiableEntrySet$UnmodifiableEntry, hashCode, int32_t)},
+	{"setValue", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TV;)TV;", $PUBLIC, $virtualMethod(Collections$UnmodifiableMap$UnmodifiableEntrySet$UnmodifiableEntry, setValue, $Object*, Object$*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Collections$UnmodifiableMap$UnmodifiableEntrySet$UnmodifiableEntry, toString, $String*)},
 	{}
 };
 

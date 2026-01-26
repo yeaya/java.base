@@ -22,13 +22,13 @@ $FieldInfo _AnnotatedElementDelegate_FieldInfo_[] = {
 };
 
 $MethodInfo _AnnotatedElementDelegate_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/reflect/AnnotatedElement;)V", nullptr, $PUBLIC, $method(static_cast<void(AnnotatedElementDelegate::*)($AnnotatedElement*)>(&AnnotatedElementDelegate::init$))},
-	{"annotationArrayCheck", "([Ljava/lang/annotation/Annotation;[Ljava/lang/annotation/Annotation;Ljava/lang/Class;Ljava/lang/String;)I", "<T::Ljava/lang/annotation/Annotation;>([TT;[TT;Ljava/lang/Class<+Ljava/lang/annotation/Annotation;>;Ljava/lang/String;)I", $PRIVATE | $STATIC, $method(static_cast<int32_t(*)($AnnotationArray*,$AnnotationArray*,$Class*,$String*)>(&AnnotatedElementDelegate::annotationArrayCheck))},
-	{"getAnnotation", "(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;", "<T::Ljava/lang/annotation/Annotation;>(Ljava/lang/Class<TT;>;)TT;", $PUBLIC},
-	{"getAnnotations", "()[Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC},
-	{"getBase", "()Ljava/lang/reflect/AnnotatedElement;", nullptr, $PUBLIC},
-	{"getDeclaredAnnotations", "()[Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC},
-	{"testDelegate", "(LAnnotatedElementDelegate;Ljava/lang/Class;)I", "(LAnnotatedElementDelegate;Ljava/lang/Class<+Ljava/lang/annotation/Annotation;>;)I", $STATIC, $method(static_cast<int32_t(*)(AnnotatedElementDelegate*,$Class*)>(&AnnotatedElementDelegate::testDelegate))},
+	{"<init>", "(Ljava/lang/reflect/AnnotatedElement;)V", nullptr, $PUBLIC, $method(AnnotatedElementDelegate, init$, void, $AnnotatedElement*)},
+	{"annotationArrayCheck", "([Ljava/lang/annotation/Annotation;[Ljava/lang/annotation/Annotation;Ljava/lang/Class;Ljava/lang/String;)I", "<T::Ljava/lang/annotation/Annotation;>([TT;[TT;Ljava/lang/Class<+Ljava/lang/annotation/Annotation;>;Ljava/lang/String;)I", $PRIVATE | $STATIC, $staticMethod(AnnotatedElementDelegate, annotationArrayCheck, int32_t, $AnnotationArray*, $AnnotationArray*, $Class*, $String*)},
+	{"getAnnotation", "(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;", "<T::Ljava/lang/annotation/Annotation;>(Ljava/lang/Class<TT;>;)TT;", $PUBLIC, $virtualMethod(AnnotatedElementDelegate, getAnnotation, $Annotation*, $Class*)},
+	{"getAnnotations", "()[Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC, $virtualMethod(AnnotatedElementDelegate, getAnnotations, $AnnotationArray*)},
+	{"getBase", "()Ljava/lang/reflect/AnnotatedElement;", nullptr, $PUBLIC, $virtualMethod(AnnotatedElementDelegate, getBase, $AnnotatedElement*)},
+	{"getDeclaredAnnotations", "()[Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC, $virtualMethod(AnnotatedElementDelegate, getDeclaredAnnotations, $AnnotationArray*)},
+	{"testDelegate", "(LAnnotatedElementDelegate;Ljava/lang/Class;)I", "(LAnnotatedElementDelegate;Ljava/lang/Class<+Ljava/lang/annotation/Annotation;>;)I", $STATIC, $staticMethod(AnnotatedElementDelegate, testDelegate, int32_t, AnnotatedElementDelegate*, $Class*)},
 	{}
 };
 

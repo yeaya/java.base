@@ -69,8 +69,8 @@ $FieldInfo ToolProvider$$Lambda$lambda$findFirst$1::fieldInfos[3] = {
 	{}
 };
 $MethodInfo ToolProvider$$Lambda$lambda$findFirst$1::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/ClassLoader;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(ToolProvider$$Lambda$lambda$findFirst$1::*)($ClassLoader*,$String*)>(&ToolProvider$$Lambda$lambda$findFirst$1::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/ClassLoader;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ToolProvider$$Lambda$lambda$findFirst$1, init$, void, $ClassLoader*, $String*)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ToolProvider$$Lambda$lambda$findFirst$1, run, $Object*)},
 	{}
 };
 $ClassInfo ToolProvider$$Lambda$lambda$findFirst$1::classInfo$ = {
@@ -109,8 +109,8 @@ $FieldInfo ToolProvider$$Lambda$lambda$findFirst$0$1::fieldInfos[2] = {
 	{}
 };
 $MethodInfo ToolProvider$$Lambda$lambda$findFirst$0$1::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(ToolProvider$$Lambda$lambda$findFirst$0$1::*)($String*)>(&ToolProvider$$Lambda$lambda$findFirst$0$1::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ToolProvider$$Lambda$lambda$findFirst$0$1, init$, void, $String*)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ToolProvider$$Lambda$lambda$findFirst$0$1, test, bool, Object$*)},
 	{}
 };
 $ClassInfo ToolProvider$$Lambda$lambda$findFirst$0$1::classInfo$ = {
@@ -128,12 +128,12 @@ $Class* ToolProvider$$Lambda$lambda$findFirst$0$1::load$($String* name, bool ini
 $Class* ToolProvider$$Lambda$lambda$findFirst$0$1::class$ = nullptr;
 
 $MethodInfo _ToolProvider_MethodInfo_[] = {
-	{"findFirst", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/util/spi/ToolProvider;>;", $PUBLIC | $STATIC, $method(static_cast<$Optional*(*)($String*)>(&ToolProvider::findFirst))},
-	{"lambda$findFirst$0", "(Ljava/lang/String;Ljava/util/spi/ToolProvider;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($String*,ToolProvider*)>(&ToolProvider::lambda$findFirst$0))},
-	{"lambda$findFirst$1", "(Ljava/lang/ClassLoader;Ljava/lang/String;)Ljava/util/Optional;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Optional*(*)($ClassLoader*,$String*)>(&ToolProvider::lambda$findFirst$1))},
-	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"run", "(Ljava/io/PrintWriter;Ljava/io/PrintWriter;[Ljava/lang/String;)I", nullptr, $PUBLIC | $TRANSIENT | $ABSTRACT},
-	{"run", "(Ljava/io/PrintStream;Ljava/io/PrintStream;[Ljava/lang/String;)I", nullptr, $PUBLIC | $TRANSIENT},
+	{"findFirst", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/util/spi/ToolProvider;>;", $PUBLIC | $STATIC, $staticMethod(ToolProvider, findFirst, $Optional*, $String*)},
+	{"lambda$findFirst$0", "(Ljava/lang/String;Ljava/util/spi/ToolProvider;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ToolProvider, lambda$findFirst$0, bool, $String*, ToolProvider*)},
+	{"lambda$findFirst$1", "(Ljava/lang/ClassLoader;Ljava/lang/String;)Ljava/util/Optional;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ToolProvider, lambda$findFirst$1, $Optional*, $ClassLoader*, $String*)},
+	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ToolProvider, name, $String*)},
+	{"run", "(Ljava/io/PrintWriter;Ljava/io/PrintWriter;[Ljava/lang/String;)I", nullptr, $PUBLIC | $TRANSIENT | $ABSTRACT, $virtualMethod(ToolProvider, run, int32_t, $PrintWriter*, $PrintWriter*, $StringArray*)},
+	{"run", "(Ljava/io/PrintStream;Ljava/io/PrintStream;[Ljava/lang/String;)I", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(ToolProvider, run, int32_t, $PrintStream*, $PrintStream*, $StringArray*)},
 	{}
 };
 

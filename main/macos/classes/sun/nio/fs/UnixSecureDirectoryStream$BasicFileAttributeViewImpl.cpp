@@ -51,12 +51,12 @@ $FieldInfo _UnixSecureDirectoryStream$BasicFileAttributeViewImpl_FieldInfo_[] = 
 };
 
 $MethodInfo _UnixSecureDirectoryStream$BasicFileAttributeViewImpl_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/fs/UnixSecureDirectoryStream;Lsun/nio/fs/UnixPath;Z)V", nullptr, 0, $method(static_cast<void(UnixSecureDirectoryStream$BasicFileAttributeViewImpl::*)($UnixSecureDirectoryStream*,$UnixPath*,bool)>(&UnixSecureDirectoryStream$BasicFileAttributeViewImpl::init$))},
-	{"checkWriteAccess", "()V", nullptr, $PRIVATE, $method(static_cast<void(UnixSecureDirectoryStream$BasicFileAttributeViewImpl::*)()>(&UnixSecureDirectoryStream$BasicFileAttributeViewImpl::checkWriteAccess))},
-	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"open", "()I", nullptr, 0, nullptr, "java.io.IOException"},
-	{"readAttributes", "()Ljava/nio/file/attribute/BasicFileAttributes;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"setTimes", "(Ljava/nio/file/attribute/FileTime;Ljava/nio/file/attribute/FileTime;Ljava/nio/file/attribute/FileTime;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Lsun/nio/fs/UnixSecureDirectoryStream;Lsun/nio/fs/UnixPath;Z)V", nullptr, 0, $method(UnixSecureDirectoryStream$BasicFileAttributeViewImpl, init$, void, $UnixSecureDirectoryStream*, $UnixPath*, bool)},
+	{"checkWriteAccess", "()V", nullptr, $PRIVATE, $method(UnixSecureDirectoryStream$BasicFileAttributeViewImpl, checkWriteAccess, void)},
+	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UnixSecureDirectoryStream$BasicFileAttributeViewImpl, name, $String*)},
+	{"open", "()I", nullptr, 0, $virtualMethod(UnixSecureDirectoryStream$BasicFileAttributeViewImpl, open, int32_t), "java.io.IOException"},
+	{"readAttributes", "()Ljava/nio/file/attribute/BasicFileAttributes;", nullptr, $PUBLIC, $virtualMethod(UnixSecureDirectoryStream$BasicFileAttributeViewImpl, readAttributes, $BasicFileAttributes*), "java.io.IOException"},
+	{"setTimes", "(Ljava/nio/file/attribute/FileTime;Ljava/nio/file/attribute/FileTime;Ljava/nio/file/attribute/FileTime;)V", nullptr, $PUBLIC, $virtualMethod(UnixSecureDirectoryStream$BasicFileAttributeViewImpl, setTimes, void, $FileTime*, $FileTime*, $FileTime*), "java.io.IOException"},
 	{}
 };
 

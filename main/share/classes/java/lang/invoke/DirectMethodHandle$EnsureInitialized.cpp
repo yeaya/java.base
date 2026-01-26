@@ -29,8 +29,8 @@ $FieldInfo _DirectMethodHandle$EnsureInitialized_FieldInfo_[] = {
 };
 
 $MethodInfo _DirectMethodHandle$EnsureInitialized_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(DirectMethodHandle$EnsureInitialized::*)()>(&DirectMethodHandle$EnsureInitialized::init$))},
-	{"computeValue", "(Ljava/lang/Class;)Ljava/lang/ref/WeakReference;", "(Ljava/lang/Class<*>;)Ljava/lang/ref/WeakReference<Ljava/lang/Thread;>;", $PROTECTED},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(DirectMethodHandle$EnsureInitialized, init$, void)},
+	{"computeValue", "(Ljava/lang/Class;)Ljava/lang/ref/WeakReference;", "(Ljava/lang/Class<*>;)Ljava/lang/ref/WeakReference<Ljava/lang/Thread;>;", $PROTECTED, $virtualMethod(DirectMethodHandle$EnsureInitialized, computeValue, $Object*, $Class*)},
 	{}
 };
 

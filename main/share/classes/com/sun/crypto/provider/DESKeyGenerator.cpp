@@ -42,12 +42,12 @@ $FieldInfo _DESKeyGenerator_FieldInfo_[] = {
 };
 
 $MethodInfo _DESKeyGenerator_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DESKeyGenerator::*)()>(&DESKeyGenerator::init$))},
-	{"engineGenerateKey", "()Ljavax/crypto/SecretKey;", nullptr, $PROTECTED},
-	{"engineInit", "(Ljava/security/SecureRandom;)V", nullptr, $PROTECTED},
-	{"engineInit", "(Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, nullptr, "java.security.InvalidAlgorithmParameterException"},
-	{"engineInit", "(ILjava/security/SecureRandom;)V", nullptr, $PROTECTED},
-	{"setParityBit", "([BI)V", nullptr, $STATIC, $method(static_cast<void(*)($bytes*,int32_t)>(&DESKeyGenerator::setParityBit))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DESKeyGenerator, init$, void)},
+	{"engineGenerateKey", "()Ljavax/crypto/SecretKey;", nullptr, $PROTECTED, $virtualMethod(DESKeyGenerator, engineGenerateKey, $SecretKey*)},
+	{"engineInit", "(Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(DESKeyGenerator, engineInit, void, $SecureRandom*)},
+	{"engineInit", "(Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(DESKeyGenerator, engineInit, void, $AlgorithmParameterSpec*, $SecureRandom*), "java.security.InvalidAlgorithmParameterException"},
+	{"engineInit", "(ILjava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(DESKeyGenerator, engineInit, void, int32_t, $SecureRandom*)},
+	{"setParityBit", "([BI)V", nullptr, $STATIC, $staticMethod(DESKeyGenerator, setParityBit, void, $bytes*, int32_t)},
 	{}
 };
 

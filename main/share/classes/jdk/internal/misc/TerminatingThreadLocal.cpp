@@ -27,14 +27,14 @@ $FieldInfo _TerminatingThreadLocal_FieldInfo_[] = {
 };
 
 $MethodInfo _TerminatingThreadLocal_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TerminatingThreadLocal::*)()>(&TerminatingThreadLocal::init$))},
-	{"_threadTerminated", "()V", nullptr, $PRIVATE, $method(static_cast<void(TerminatingThreadLocal::*)()>(&TerminatingThreadLocal::_threadTerminated))},
-	{"register", "(Ljdk/internal/misc/TerminatingThreadLocal;)V", "(Ljdk/internal/misc/TerminatingThreadLocal<*>;)V", $PUBLIC | $STATIC, $method(static_cast<void(*)(TerminatingThreadLocal*)>(&TerminatingThreadLocal::register$))},
-	{"remove", "()V", nullptr, $PUBLIC},
-	{"set", "(Ljava/lang/Object;)V", "(TT;)V", $PUBLIC},
-	{"threadTerminated", "(Ljava/lang/Object;)V", "(TT;)V", $PROTECTED},
-	{"threadTerminated", "()V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)()>(&TerminatingThreadLocal::threadTerminated))},
-	{"unregister", "(Ljdk/internal/misc/TerminatingThreadLocal;)V", "(Ljdk/internal/misc/TerminatingThreadLocal<*>;)V", $PRIVATE | $STATIC, $method(static_cast<void(*)(TerminatingThreadLocal*)>(&TerminatingThreadLocal::unregister))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TerminatingThreadLocal, init$, void)},
+	{"_threadTerminated", "()V", nullptr, $PRIVATE, $method(TerminatingThreadLocal, _threadTerminated, void)},
+	{"register", "(Ljdk/internal/misc/TerminatingThreadLocal;)V", "(Ljdk/internal/misc/TerminatingThreadLocal<*>;)V", $PUBLIC | $STATIC, $staticMethod(TerminatingThreadLocal, register$, void, TerminatingThreadLocal*)},
+	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(TerminatingThreadLocal, remove, void)},
+	{"set", "(Ljava/lang/Object;)V", "(TT;)V", $PUBLIC, $virtualMethod(TerminatingThreadLocal, set, void, Object$*)},
+	{"threadTerminated", "(Ljava/lang/Object;)V", "(TT;)V", $PROTECTED, $virtualMethod(TerminatingThreadLocal, threadTerminated, void, Object$*)},
+	{"threadTerminated", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(TerminatingThreadLocal, threadTerminated, void)},
+	{"unregister", "(Ljdk/internal/misc/TerminatingThreadLocal;)V", "(Ljdk/internal/misc/TerminatingThreadLocal<*>;)V", $PRIVATE | $STATIC, $staticMethod(TerminatingThreadLocal, unregister, void, TerminatingThreadLocal*)},
 	{}
 };
 

@@ -53,10 +53,10 @@ $FieldInfo _DateTimeFormatter$ClassicFormat_FieldInfo_[] = {
 };
 
 $MethodInfo _DateTimeFormatter$ClassicFormat_MethodInfo_[] = {
-	{"<init>", "(Ljava/time/format/DateTimeFormatter;Ljava/time/temporal/TemporalQuery;)V", "(Ljava/time/format/DateTimeFormatter;Ljava/time/temporal/TemporalQuery<*>;)V", $PUBLIC, $method(static_cast<void(DateTimeFormatter$ClassicFormat::*)($DateTimeFormatter*,$TemporalQuery*)>(&DateTimeFormatter$ClassicFormat::init$))},
-	{"format", "(Ljava/lang/Object;Ljava/lang/StringBuffer;Ljava/text/FieldPosition;)Ljava/lang/StringBuffer;", nullptr, $PUBLIC},
-	{"parseObject", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, nullptr, "java.text.ParseException"},
-	{"parseObject", "(Ljava/lang/String;Ljava/text/ParsePosition;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/time/format/DateTimeFormatter;Ljava/time/temporal/TemporalQuery;)V", "(Ljava/time/format/DateTimeFormatter;Ljava/time/temporal/TemporalQuery<*>;)V", $PUBLIC, $method(DateTimeFormatter$ClassicFormat, init$, void, $DateTimeFormatter*, $TemporalQuery*)},
+	{"format", "(Ljava/lang/Object;Ljava/lang/StringBuffer;Ljava/text/FieldPosition;)Ljava/lang/StringBuffer;", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatter$ClassicFormat, format, $StringBuffer*, Object$*, $StringBuffer*, $FieldPosition*)},
+	{"parseObject", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatter$ClassicFormat, parseObject, $Object*, $String*), "java.text.ParseException"},
+	{"parseObject", "(Ljava/lang/String;Ljava/text/ParsePosition;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatter$ClassicFormat, parseObject, $Object*, $String*, $ParsePosition*)},
 	{}
 };
 

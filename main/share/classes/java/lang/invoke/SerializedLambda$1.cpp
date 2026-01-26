@@ -22,8 +22,8 @@ $FieldInfo _SerializedLambda$1_FieldInfo_[] = {
 };
 
 $MethodInfo _SerializedLambda$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/invoke/SerializedLambda;)V", nullptr, 0, $method(static_cast<void(SerializedLambda$1::*)($SerializedLambda*)>(&SerializedLambda$1::init$))},
-	{"run", "()Ljava/lang/reflect/Method;", nullptr, $PUBLIC, nullptr, "java.lang.Exception"},
+	{"<init>", "(Ljava/lang/invoke/SerializedLambda;)V", nullptr, 0, $method(SerializedLambda$1, init$, void, $SerializedLambda*)},
+	{"run", "()Ljava/lang/reflect/Method;", nullptr, $PUBLIC, $virtualMethod(SerializedLambda$1, run, $Object*), "java.lang.Exception"},
 	{}
 };
 

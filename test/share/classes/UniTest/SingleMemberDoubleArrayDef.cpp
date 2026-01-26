@@ -30,7 +30,7 @@ $Attribute _SingleMemberDoubleArrayDef_DefaultValue_value0 = {
 };
 
 $MethodInfo _SingleMemberDoubleArrayDef_MethodInfo_[] = {
-	{"value", "()[D", nullptr, $PUBLIC | $ABSTRACT, nullptr, nullptr, &_SingleMemberDoubleArrayDef_DefaultValue_value0},
+	{"value", "()[D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SingleMemberDoubleArrayDef, value, $doubles*), nullptr, &_SingleMemberDoubleArrayDef_DefaultValue_value0},
 	{}
 };
 

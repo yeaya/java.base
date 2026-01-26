@@ -10,10 +10,10 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace pkg {
 
 $MethodInfo _A_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(A::*)()>(&A::init$))},
-	{"m1", "()Ljava/lang/String;", nullptr, $PROTECTED},
-	{"m2", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"m3", "([Ljava/lang/String;)Ljava/lang/String;", nullptr, $PROTECTED | $TRANSIENT},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(A, init$, void)},
+	{"m1", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(A, m1, $String*)},
+	{"m2", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(A, m2, $String*)},
+	{"m3", "([Ljava/lang/String;)Ljava/lang/String;", nullptr, $PROTECTED | $TRANSIENT, $virtualMethod(A, m3, $String*, $StringArray*)},
 	{}
 };
 

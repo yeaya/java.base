@@ -15,7 +15,7 @@ $FieldInfo _TestGenericReturnTypeToString$FirstInnerClassGeneric$SecondInnerClas
 };
 
 $MethodInfo _TestGenericReturnTypeToString$FirstInnerClassGeneric$SecondInnerClass_MethodInfo_[] = {
-	{"<init>", "(LTestGenericReturnTypeToString$FirstInnerClassGeneric;)V", nullptr, $PUBLIC, $method(static_cast<void(TestGenericReturnTypeToString$FirstInnerClassGeneric$SecondInnerClass::*)($TestGenericReturnTypeToString$FirstInnerClassGeneric*)>(&TestGenericReturnTypeToString$FirstInnerClassGeneric$SecondInnerClass::init$))},
+	{"<init>", "(LTestGenericReturnTypeToString$FirstInnerClassGeneric;)V", nullptr, $PUBLIC, $method(TestGenericReturnTypeToString$FirstInnerClassGeneric$SecondInnerClass, init$, void, $TestGenericReturnTypeToString$FirstInnerClassGeneric*)},
 	{}
 };
 

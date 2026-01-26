@@ -20,7 +20,7 @@ namespace sun {
 		namespace cs {
 
 $MethodInfo _EUC_JP_LINUX$Decoder_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PRIVATE, $method(static_cast<void(EUC_JP_LINUX$Decoder::*)($Charset*)>(&EUC_JP_LINUX$Decoder::init$))},
+	{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PRIVATE, $method(EUC_JP_LINUX$Decoder, init$, void, $Charset*)},
 	{}
 };
 

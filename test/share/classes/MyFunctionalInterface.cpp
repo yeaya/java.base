@@ -6,7 +6,7 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _MyFunctionalInterface_MethodInfo_[] = {
-	{"invokeMethodReference", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
+	{"invokeMethodReference", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MyFunctionalInterface, invokeMethodReference, $String*)},
 	{}
 };
 

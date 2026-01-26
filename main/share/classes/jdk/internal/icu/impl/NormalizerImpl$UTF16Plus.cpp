@@ -15,10 +15,10 @@ namespace jdk {
 			namespace impl {
 
 $MethodInfo _NormalizerImpl$UTF16Plus_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(NormalizerImpl$UTF16Plus::*)()>(&NormalizerImpl$UTF16Plus::init$))},
-	{"equal", "(Ljava/lang/CharSequence;IILjava/lang/CharSequence;II)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)($CharSequence*,int32_t,int32_t,$CharSequence*,int32_t,int32_t)>(&NormalizerImpl$UTF16Plus::equal))},
-	{"isLeadSurrogate", "(I)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)(int32_t)>(&NormalizerImpl$UTF16Plus::isLeadSurrogate))},
-	{"isSurrogateLead", "(I)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)(int32_t)>(&NormalizerImpl$UTF16Plus::isSurrogateLead))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(NormalizerImpl$UTF16Plus, init$, void)},
+	{"equal", "(Ljava/lang/CharSequence;IILjava/lang/CharSequence;II)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(NormalizerImpl$UTF16Plus, equal, bool, $CharSequence*, int32_t, int32_t, $CharSequence*, int32_t, int32_t)},
+	{"isLeadSurrogate", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(NormalizerImpl$UTF16Plus, isLeadSurrogate, bool, int32_t)},
+	{"isSurrogateLead", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(NormalizerImpl$UTF16Plus, isSurrogateLead, bool, int32_t)},
 	{}
 };
 

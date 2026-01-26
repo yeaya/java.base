@@ -29,12 +29,12 @@ $FieldInfo _ExceedMaxDim_FieldInfo_[] = {
 };
 
 $MethodInfo _ExceedMaxDim_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ExceedMaxDim::*)()>(&ExceedMaxDim::init$))},
-	{"assertFailForName", "(Ljava/lang/String;Ljava/lang/ClassLoader;)V", nullptr, $PRIVATE, $method(static_cast<void(ExceedMaxDim::*)($String*,$ClassLoader*)>(&ExceedMaxDim::assertFailForName))},
-	{"assertSucceedForName", "(Ljava/lang/String;Ljava/lang/ClassLoader;)V", nullptr, $PRIVATE, $method(static_cast<void(ExceedMaxDim::*)($String*,$ClassLoader*)>(&ExceedMaxDim::assertSucceedForName))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&ExceedMaxDim::main)), "java.lang.Exception"},
-	{"testImplicitLoader", "()V", nullptr, $PRIVATE, $method(static_cast<void(ExceedMaxDim::*)()>(&ExceedMaxDim::testImplicitLoader)), "java.lang.Exception"},
-	{"testOtherLoader", "()V", nullptr, $PRIVATE, $method(static_cast<void(ExceedMaxDim::*)()>(&ExceedMaxDim::testOtherLoader)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ExceedMaxDim, init$, void)},
+	{"assertFailForName", "(Ljava/lang/String;Ljava/lang/ClassLoader;)V", nullptr, $PRIVATE, $method(ExceedMaxDim, assertFailForName, void, $String*, $ClassLoader*)},
+	{"assertSucceedForName", "(Ljava/lang/String;Ljava/lang/ClassLoader;)V", nullptr, $PRIVATE, $method(ExceedMaxDim, assertSucceedForName, void, $String*, $ClassLoader*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ExceedMaxDim, main, void, $StringArray*), "java.lang.Exception"},
+	{"testImplicitLoader", "()V", nullptr, $PRIVATE, $method(ExceedMaxDim, testImplicitLoader, void), "java.lang.Exception"},
+	{"testOtherLoader", "()V", nullptr, $PRIVATE, $method(ExceedMaxDim, testOtherLoader, void), "java.lang.Exception"},
 	{}
 };
 

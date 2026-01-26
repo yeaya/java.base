@@ -26,7 +26,7 @@ $CompoundAttribute _SingleMemberClassArrOneClass_Annotations_[] = {
 };
 
 $MethodInfo _SingleMemberClassArrOneClass_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(SingleMemberClassArrOneClass::*)()>(&SingleMemberClassArrOneClass::init$))},
+	{"<init>", "()V", nullptr, 0, $method(SingleMemberClassArrOneClass, init$, void)},
 	{}
 };
 

@@ -23,9 +23,9 @@ $FieldInfo _ManifestDigester$Section_FieldInfo_[] = {
 };
 
 $MethodInfo _ManifestDigester$Section_MethodInfo_[] = {
-	{"<init>", "(III[B)V", nullptr, $PUBLIC, $method(static_cast<void(ManifestDigester$Section::*)(int32_t,int32_t,int32_t,$bytes*)>(&ManifestDigester$Section::init$))},
-	{"doOldStyle", "(Ljava/security/MessageDigest;[BII)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($MessageDigest*,$bytes*,int32_t,int32_t)>(&ManifestDigester$Section::doOldStyle))},
-	{"isProperlySectionDelimited", "()Z", nullptr, $PRIVATE, $method(static_cast<bool(ManifestDigester$Section::*)()>(&ManifestDigester$Section::isProperlySectionDelimited))},
+	{"<init>", "(III[B)V", nullptr, $PUBLIC, $method(ManifestDigester$Section, init$, void, int32_t, int32_t, int32_t, $bytes*)},
+	{"doOldStyle", "(Ljava/security/MessageDigest;[BII)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ManifestDigester$Section, doOldStyle, void, $MessageDigest*, $bytes*, int32_t, int32_t)},
+	{"isProperlySectionDelimited", "()Z", nullptr, $PRIVATE, $method(ManifestDigester$Section, isProperlySectionDelimited, bool)},
 	{}
 };
 

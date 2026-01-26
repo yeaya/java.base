@@ -8,8 +8,8 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace T8032697_anotherpkg {
 
 $MethodInfo _T8032697_A_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(T8032697_A::*)()>(&T8032697_A::init$))},
-	{"f", "()I", nullptr, $PROTECTED | $FINAL, $method(static_cast<int32_t(T8032697_A::*)()>(&T8032697_A::f))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(T8032697_A, init$, void)},
+	{"f", "()I", nullptr, $PROTECTED | $FINAL, $method(T8032697_A, f, int32_t)},
 	{}
 };
 

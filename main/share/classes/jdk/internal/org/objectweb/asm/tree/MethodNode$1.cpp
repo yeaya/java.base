@@ -25,8 +25,8 @@ $FieldInfo _MethodNode$1_FieldInfo_[] = {
 };
 
 $MethodInfo _MethodNode$1_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/org/objectweb/asm/tree/MethodNode;I)V", nullptr, 0, $method(static_cast<void(MethodNode$1::*)($MethodNode*,int32_t)>(&MethodNode$1::init$))},
-	{"add", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/org/objectweb/asm/tree/MethodNode;I)V", nullptr, 0, $method(MethodNode$1, init$, void, $MethodNode*, int32_t)},
+	{"add", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(MethodNode$1, add, bool, Object$*)},
 	{}
 };
 

@@ -35,11 +35,11 @@ $FieldInfo _AbstractBasicFileAttributeView$AttributesBuilder_FieldInfo_[] = {
 };
 
 $MethodInfo _AbstractBasicFileAttributeView$AttributesBuilder_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Set;[Ljava/lang/String;)V", "(Ljava/util/Set<Ljava/lang/String;>;[Ljava/lang/String;)V", $PRIVATE, $method(static_cast<void(AbstractBasicFileAttributeView$AttributesBuilder::*)($Set*,$StringArray*)>(&AbstractBasicFileAttributeView$AttributesBuilder::init$))},
-	{"add", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, 0},
-	{"create", "(Ljava/util/Set;[Ljava/lang/String;)Lsun/nio/fs/AbstractBasicFileAttributeView$AttributesBuilder;", "(Ljava/util/Set<Ljava/lang/String;>;[Ljava/lang/String;)Lsun/nio/fs/AbstractBasicFileAttributeView$AttributesBuilder;", $STATIC, $method(static_cast<AbstractBasicFileAttributeView$AttributesBuilder*(*)($Set*,$StringArray*)>(&AbstractBasicFileAttributeView$AttributesBuilder::create))},
-	{"match", "(Ljava/lang/String;)Z", nullptr, 0},
-	{"unmodifiableMap", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;", 0},
+	{"<init>", "(Ljava/util/Set;[Ljava/lang/String;)V", "(Ljava/util/Set<Ljava/lang/String;>;[Ljava/lang/String;)V", $PRIVATE, $method(AbstractBasicFileAttributeView$AttributesBuilder, init$, void, $Set*, $StringArray*)},
+	{"add", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, 0, $virtualMethod(AbstractBasicFileAttributeView$AttributesBuilder, add, void, $String*, Object$*)},
+	{"create", "(Ljava/util/Set;[Ljava/lang/String;)Lsun/nio/fs/AbstractBasicFileAttributeView$AttributesBuilder;", "(Ljava/util/Set<Ljava/lang/String;>;[Ljava/lang/String;)Lsun/nio/fs/AbstractBasicFileAttributeView$AttributesBuilder;", $STATIC, $staticMethod(AbstractBasicFileAttributeView$AttributesBuilder, create, AbstractBasicFileAttributeView$AttributesBuilder*, $Set*, $StringArray*)},
+	{"match", "(Ljava/lang/String;)Z", nullptr, 0, $virtualMethod(AbstractBasicFileAttributeView$AttributesBuilder, match, bool, $String*)},
+	{"unmodifiableMap", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;", 0, $virtualMethod(AbstractBasicFileAttributeView$AttributesBuilder, unmodifiableMap, $Map*)},
 	{}
 };
 

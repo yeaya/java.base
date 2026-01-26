@@ -112,13 +112,13 @@ $FieldInfo _OpsAfterClose4DataInputStream_FieldInfo_[] = {
 };
 
 $MethodInfo _OpsAfterClose4DataInputStream_MethodInfo_[] = {
-	{"$values", "()[LOpsAfterClose4DataInputStream;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$OpsAfterClose4DataInputStreamArray*(*)()>(&OpsAfterClose4DataInputStream::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(OpsAfterClose4DataInputStream::*)($String*,int32_t)>(&OpsAfterClose4DataInputStream::init$))},
-	{"check", "(Ljava/io/DataInputStream;)Z", nullptr, $ABSTRACT},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&OpsAfterClose4DataInputStream::main)), "java.lang.Exception"},
-	{"testDataInputStream", "(Ljava/io/DataInputStream;)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($DataInputStream*)>(&OpsAfterClose4DataInputStream::testDataInputStream)), "java.lang.Exception"},
-	{"valueOf", "(Ljava/lang/String;)LOpsAfterClose4DataInputStream;", nullptr, $PUBLIC | $STATIC, $method(static_cast<OpsAfterClose4DataInputStream*(*)($String*)>(&OpsAfterClose4DataInputStream::valueOf))},
-	{"values", "()[LOpsAfterClose4DataInputStream;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$OpsAfterClose4DataInputStreamArray*(*)()>(&OpsAfterClose4DataInputStream::values))},
+	{"$values", "()[LOpsAfterClose4DataInputStream;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(OpsAfterClose4DataInputStream, $values, $OpsAfterClose4DataInputStreamArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(OpsAfterClose4DataInputStream, init$, void, $String*, int32_t)},
+	{"check", "(Ljava/io/DataInputStream;)Z", nullptr, $ABSTRACT, $virtualMethod(OpsAfterClose4DataInputStream, check, bool, $DataInputStream*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(OpsAfterClose4DataInputStream, main, void, $StringArray*), "java.lang.Exception"},
+	{"testDataInputStream", "(Ljava/io/DataInputStream;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(OpsAfterClose4DataInputStream, testDataInputStream, bool, $DataInputStream*), "java.lang.Exception"},
+	{"valueOf", "(Ljava/lang/String;)LOpsAfterClose4DataInputStream;", nullptr, $PUBLIC | $STATIC, $staticMethod(OpsAfterClose4DataInputStream, valueOf, OpsAfterClose4DataInputStream*, $String*)},
+	{"values", "()[LOpsAfterClose4DataInputStream;", nullptr, $PUBLIC | $STATIC, $staticMethod(OpsAfterClose4DataInputStream, values, $OpsAfterClose4DataInputStreamArray*)},
 	{}
 };
 

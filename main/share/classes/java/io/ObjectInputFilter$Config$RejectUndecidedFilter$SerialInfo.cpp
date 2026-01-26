@@ -20,12 +20,12 @@ $FieldInfo _ObjectInputFilter$Config$RejectUndecidedFilter$SerialInfo_FieldInfo_
 };
 
 $MethodInfo _ObjectInputFilter$Config$RejectUndecidedFilter$SerialInfo_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/ObjectInputFilter$FilterInfo;Ljava/lang/Class;)V", "(Ljava/io/ObjectInputFilter$FilterInfo;Ljava/lang/Class<*>;)V", 0, $method(static_cast<void(ObjectInputFilter$Config$RejectUndecidedFilter$SerialInfo::*)($ObjectInputFilter$FilterInfo*,$Class*)>(&ObjectInputFilter$Config$RejectUndecidedFilter$SerialInfo::init$))},
-	{"arrayLength", "()J", nullptr, $PUBLIC},
-	{"depth", "()J", nullptr, $PUBLIC},
-	{"references", "()J", nullptr, $PUBLIC},
-	{"serialClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC},
-	{"streamBytes", "()J", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/io/ObjectInputFilter$FilterInfo;Ljava/lang/Class;)V", "(Ljava/io/ObjectInputFilter$FilterInfo;Ljava/lang/Class<*>;)V", 0, $method(ObjectInputFilter$Config$RejectUndecidedFilter$SerialInfo, init$, void, $ObjectInputFilter$FilterInfo*, $Class*)},
+	{"arrayLength", "()J", nullptr, $PUBLIC, $virtualMethod(ObjectInputFilter$Config$RejectUndecidedFilter$SerialInfo, arrayLength, int64_t)},
+	{"depth", "()J", nullptr, $PUBLIC, $virtualMethod(ObjectInputFilter$Config$RejectUndecidedFilter$SerialInfo, depth, int64_t)},
+	{"references", "()J", nullptr, $PUBLIC, $virtualMethod(ObjectInputFilter$Config$RejectUndecidedFilter$SerialInfo, references, int64_t)},
+	{"serialClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(ObjectInputFilter$Config$RejectUndecidedFilter$SerialInfo, serialClass, $Class*)},
+	{"streamBytes", "()J", nullptr, $PUBLIC, $virtualMethod(ObjectInputFilter$Config$RejectUndecidedFilter$SerialInfo, streamBytes, int64_t)},
 	{}
 };
 

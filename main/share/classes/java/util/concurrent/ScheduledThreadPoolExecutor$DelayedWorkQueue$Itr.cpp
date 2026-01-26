@@ -28,10 +28,10 @@ $FieldInfo _ScheduledThreadPoolExecutor$DelayedWorkQueue$Itr_FieldInfo_[] = {
 };
 
 $MethodInfo _ScheduledThreadPoolExecutor$DelayedWorkQueue$Itr_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/ScheduledThreadPoolExecutor$DelayedWorkQueue;[Ljava/util/concurrent/RunnableScheduledFuture;)V", "([Ljava/util/concurrent/RunnableScheduledFuture<*>;)V", 0, $method(static_cast<void(ScheduledThreadPoolExecutor$DelayedWorkQueue$Itr::*)($ScheduledThreadPoolExecutor$DelayedWorkQueue*,$RunnableScheduledFutureArray*)>(&ScheduledThreadPoolExecutor$DelayedWorkQueue$Itr::init$))},
-	{"hasNext", "()Z", nullptr, $PUBLIC},
-	{"next", "()Ljava/lang/Runnable;", nullptr, $PUBLIC},
-	{"remove", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/concurrent/ScheduledThreadPoolExecutor$DelayedWorkQueue;[Ljava/util/concurrent/RunnableScheduledFuture;)V", "([Ljava/util/concurrent/RunnableScheduledFuture<*>;)V", 0, $method(ScheduledThreadPoolExecutor$DelayedWorkQueue$Itr, init$, void, $ScheduledThreadPoolExecutor$DelayedWorkQueue*, $RunnableScheduledFutureArray*)},
+	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(ScheduledThreadPoolExecutor$DelayedWorkQueue$Itr, hasNext, bool)},
+	{"next", "()Ljava/lang/Runnable;", nullptr, $PUBLIC, $virtualMethod(ScheduledThreadPoolExecutor$DelayedWorkQueue$Itr, next, $Object*)},
+	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(ScheduledThreadPoolExecutor$DelayedWorkQueue$Itr, remove, void)},
 	{}
 };
 

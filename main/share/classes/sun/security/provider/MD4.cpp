@@ -67,16 +67,16 @@ $FieldInfo _MD4_FieldInfo_[] = {
 };
 
 $MethodInfo _MD4_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(MD4::*)()>(&MD4::init$))},
-	{"FF", "(IIIIII)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)(int32_t,int32_t,int32_t,int32_t,int32_t,int32_t)>(&MD4::FF))},
-	{"GG", "(IIIIII)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)(int32_t,int32_t,int32_t,int32_t,int32_t,int32_t)>(&MD4::GG))},
-	{"HH", "(IIIIII)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)(int32_t,int32_t,int32_t,int32_t,int32_t,int32_t)>(&MD4::HH))},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, nullptr, "java.lang.CloneNotSupportedException"},
-	{"getInstance", "()Ljava/security/MessageDigest;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$MessageDigest*(*)()>(&MD4::getInstance))},
-	{"implCompress", "([BI)V", nullptr, 0},
-	{"implDigest", "([BI)V", nullptr, 0},
-	{"implReset", "()V", nullptr, 0},
-	{"resetHashes", "()V", nullptr, $PRIVATE, $method(static_cast<void(MD4::*)()>(&MD4::resetHashes))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(MD4, init$, void)},
+	{"FF", "(IIIIII)I", nullptr, $PRIVATE | $STATIC, $staticMethod(MD4, FF, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+	{"GG", "(IIIIII)I", nullptr, $PRIVATE | $STATIC, $staticMethod(MD4, GG, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+	{"HH", "(IIIIII)I", nullptr, $PRIVATE | $STATIC, $staticMethod(MD4, HH, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MD4, clone, $Object*), "java.lang.CloneNotSupportedException"},
+	{"getInstance", "()Ljava/security/MessageDigest;", nullptr, $PUBLIC | $STATIC, $staticMethod(MD4, getInstance, $MessageDigest*)},
+	{"implCompress", "([BI)V", nullptr, 0, $virtualMethod(MD4, implCompress, void, $bytes*, int32_t)},
+	{"implDigest", "([BI)V", nullptr, 0, $virtualMethod(MD4, implDigest, void, $bytes*, int32_t)},
+	{"implReset", "()V", nullptr, 0, $virtualMethod(MD4, implReset, void)},
+	{"resetHashes", "()V", nullptr, $PRIVATE, $method(MD4, resetHashes, void)},
 	{}
 };
 

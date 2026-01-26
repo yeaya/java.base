@@ -37,13 +37,13 @@ $FieldInfo _HttpURLConnection$StreamingOutputStream_FieldInfo_[] = {
 };
 
 $MethodInfo _HttpURLConnection$StreamingOutputStream_MethodInfo_[] = {
-	{"<init>", "(Lsun/net/www/protocol/http/HttpURLConnection;Ljava/io/OutputStream;J)V", nullptr, 0, $method(static_cast<void(HttpURLConnection$StreamingOutputStream::*)($HttpURLConnection*,$OutputStream*,int64_t)>(&HttpURLConnection$StreamingOutputStream::init$))},
-	{"checkError", "()V", nullptr, 0, nullptr, "java.io.IOException"},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"write", "(I)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"write", "([B)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"write", "([BII)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"writtenOK", "()Z", nullptr, 0},
+	{"<init>", "(Lsun/net/www/protocol/http/HttpURLConnection;Ljava/io/OutputStream;J)V", nullptr, 0, $method(HttpURLConnection$StreamingOutputStream, init$, void, $HttpURLConnection*, $OutputStream*, int64_t)},
+	{"checkError", "()V", nullptr, 0, $virtualMethod(HttpURLConnection$StreamingOutputStream, checkError, void), "java.io.IOException"},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(HttpURLConnection$StreamingOutputStream, close, void), "java.io.IOException"},
+	{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(HttpURLConnection$StreamingOutputStream, write, void, int32_t), "java.io.IOException"},
+	{"write", "([B)V", nullptr, $PUBLIC, $virtualMethod(HttpURLConnection$StreamingOutputStream, write, void, $bytes*), "java.io.IOException"},
+	{"write", "([BII)V", nullptr, $PUBLIC, $virtualMethod(HttpURLConnection$StreamingOutputStream, write, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
+	{"writtenOK", "()Z", nullptr, 0, $virtualMethod(HttpURLConnection$StreamingOutputStream, writtenOK, bool)},
 	{}
 };
 

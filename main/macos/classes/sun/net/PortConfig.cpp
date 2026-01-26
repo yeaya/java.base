@@ -26,11 +26,11 @@ $FieldInfo _PortConfig_FieldInfo_[] = {
 };
 
 $MethodInfo _PortConfig_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(PortConfig::*)()>(&PortConfig::init$))},
-	{"getLower", "()I", nullptr, $PUBLIC | $STATIC, $method(static_cast<int32_t(*)()>(&PortConfig::getLower))},
-	{"getLower0", "()I", nullptr, $STATIC | $NATIVE, $method(static_cast<int32_t(*)()>(&PortConfig::getLower0))},
-	{"getUpper", "()I", nullptr, $PUBLIC | $STATIC, $method(static_cast<int32_t(*)()>(&PortConfig::getUpper))},
-	{"getUpper0", "()I", nullptr, $STATIC | $NATIVE, $method(static_cast<int32_t(*)()>(&PortConfig::getUpper0))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(PortConfig, init$, void)},
+	{"getLower", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(PortConfig, getLower, int32_t)},
+	{"getLower0", "()I", nullptr, $STATIC | $NATIVE, $staticMethod(PortConfig, getLower0, int32_t)},
+	{"getUpper", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(PortConfig, getUpper, int32_t)},
+	{"getUpper0", "()I", nullptr, $STATIC | $NATIVE, $staticMethod(PortConfig, getUpper0, int32_t)},
 	{}
 };
 

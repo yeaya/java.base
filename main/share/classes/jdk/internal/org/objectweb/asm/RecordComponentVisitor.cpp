@@ -37,13 +37,13 @@ $FieldInfo _RecordComponentVisitor_FieldInfo_[] = {
 };
 
 $MethodInfo _RecordComponentVisitor_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(static_cast<void(RecordComponentVisitor::*)(int32_t)>(&RecordComponentVisitor::init$))},
-	{"<init>", "(ILjdk/internal/org/objectweb/asm/RecordComponentVisitor;)V", nullptr, $PUBLIC, $method(static_cast<void(RecordComponentVisitor::*)(int32_t,RecordComponentVisitor*)>(&RecordComponentVisitor::init$))},
-	{"getDelegate", "()Ljdk/internal/org/objectweb/asm/RecordComponentVisitor;", nullptr, $PUBLIC},
-	{"visitAnnotation", "(Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC},
-	{"visitAttribute", "(Ljdk/internal/org/objectweb/asm/Attribute;)V", nullptr, $PUBLIC},
-	{"visitEnd", "()V", nullptr, $PUBLIC},
-	{"visitTypeAnnotation", "(ILjdk/internal/org/objectweb/asm/TypePath;Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC},
+	{"<init>", "(I)V", nullptr, $PUBLIC, $method(RecordComponentVisitor, init$, void, int32_t)},
+	{"<init>", "(ILjdk/internal/org/objectweb/asm/RecordComponentVisitor;)V", nullptr, $PUBLIC, $method(RecordComponentVisitor, init$, void, int32_t, RecordComponentVisitor*)},
+	{"getDelegate", "()Ljdk/internal/org/objectweb/asm/RecordComponentVisitor;", nullptr, $PUBLIC, $virtualMethod(RecordComponentVisitor, getDelegate, RecordComponentVisitor*)},
+	{"visitAnnotation", "(Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(RecordComponentVisitor, visitAnnotation, $AnnotationVisitor*, $String*, bool)},
+	{"visitAttribute", "(Ljdk/internal/org/objectweb/asm/Attribute;)V", nullptr, $PUBLIC, $virtualMethod(RecordComponentVisitor, visitAttribute, void, $Attribute*)},
+	{"visitEnd", "()V", nullptr, $PUBLIC, $virtualMethod(RecordComponentVisitor, visitEnd, void)},
+	{"visitTypeAnnotation", "(ILjdk/internal/org/objectweb/asm/TypePath;Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(RecordComponentVisitor, visitTypeAnnotation, $AnnotationVisitor*, int32_t, $TypePath*, $String*, bool)},
 	{}
 };
 

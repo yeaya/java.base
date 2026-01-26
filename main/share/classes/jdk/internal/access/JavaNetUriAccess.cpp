@@ -5,13 +5,14 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $URI = ::java::net::URI;
 
 namespace jdk {
 	namespace internal {
 		namespace access {
 
 $MethodInfo _JavaNetUriAccess_MethodInfo_[] = {
-	{"create", "(Ljava/lang/String;Ljava/lang/String;)Ljava/net/URI;", nullptr, $PUBLIC | $ABSTRACT},
+	{"create", "(Ljava/lang/String;Ljava/lang/String;)Ljava/net/URI;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JavaNetUriAccess, create, $URI*, $String*, $String*)},
 	{}
 };
 

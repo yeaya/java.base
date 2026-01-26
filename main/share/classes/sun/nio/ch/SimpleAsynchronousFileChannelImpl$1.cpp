@@ -50,8 +50,8 @@ $FieldInfo _SimpleAsynchronousFileChannelImpl$1_FieldInfo_[] = {
 };
 
 $MethodInfo _SimpleAsynchronousFileChannelImpl$1_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/ch/SimpleAsynchronousFileChannelImpl;JJZLsun/nio/ch/FileLockImpl;Ljava/nio/channels/CompletionHandler;Lsun/nio/ch/PendingFuture;Ljava/lang/Object;)V", "()V", 0, $method(static_cast<void(SimpleAsynchronousFileChannelImpl$1::*)($SimpleAsynchronousFileChannelImpl*,int64_t,int64_t,bool,$FileLockImpl*,$CompletionHandler*,$PendingFuture*,Object$*)>(&SimpleAsynchronousFileChannelImpl$1::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/nio/ch/SimpleAsynchronousFileChannelImpl;JJZLsun/nio/ch/FileLockImpl;Ljava/nio/channels/CompletionHandler;Lsun/nio/ch/PendingFuture;Ljava/lang/Object;)V", "()V", 0, $method(SimpleAsynchronousFileChannelImpl$1, init$, void, $SimpleAsynchronousFileChannelImpl*, int64_t, int64_t, bool, $FileLockImpl*, $CompletionHandler*, $PendingFuture*, Object$*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(SimpleAsynchronousFileChannelImpl$1, run, void)},
 	{}
 };
 

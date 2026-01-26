@@ -16,8 +16,8 @@ namespace java {
 		namespace invoke {
 
 $MethodInfo _MethodHandleImpl$ArrayAccessor$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(MethodHandleImpl$ArrayAccessor$1::*)()>(&MethodHandleImpl$ArrayAccessor$1::init$))},
-	{"computeValue", "(Ljava/lang/Class;)[Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<*>;)[Ljava/lang/invoke/MethodHandle;", $PROTECTED},
+	{"<init>", "()V", nullptr, 0, $method(MethodHandleImpl$ArrayAccessor$1, init$, void)},
+	{"computeValue", "(Ljava/lang/Class;)[Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<*>;)[Ljava/lang/invoke/MethodHandle;", $PROTECTED, $virtualMethod(MethodHandleImpl$ArrayAccessor$1, computeValue, $Object*, $Class*)},
 	{}
 };
 

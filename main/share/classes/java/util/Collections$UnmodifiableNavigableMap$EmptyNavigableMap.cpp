@@ -28,9 +28,9 @@ $FieldInfo _Collections$UnmodifiableNavigableMap$EmptyNavigableMap_FieldInfo_[] 
 };
 
 $MethodInfo _Collections$UnmodifiableNavigableMap$EmptyNavigableMap_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Collections$UnmodifiableNavigableMap$EmptyNavigableMap::*)()>(&Collections$UnmodifiableNavigableMap$EmptyNavigableMap::init$))},
-	{"navigableKeySet", "()Ljava/util/NavigableSet;", "()Ljava/util/NavigableSet<TK;>;", $PUBLIC},
-	{"readResolve", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(static_cast<$Object*(Collections$UnmodifiableNavigableMap$EmptyNavigableMap::*)()>(&Collections$UnmodifiableNavigableMap$EmptyNavigableMap::readResolve))},
+	{"<init>", "()V", nullptr, 0, $method(Collections$UnmodifiableNavigableMap$EmptyNavigableMap, init$, void)},
+	{"navigableKeySet", "()Ljava/util/NavigableSet;", "()Ljava/util/NavigableSet<TK;>;", $PUBLIC, $virtualMethod(Collections$UnmodifiableNavigableMap$EmptyNavigableMap, navigableKeySet, $NavigableSet*)},
+	{"readResolve", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(Collections$UnmodifiableNavigableMap$EmptyNavigableMap, readResolve, $Object*)},
 	{}
 };
 

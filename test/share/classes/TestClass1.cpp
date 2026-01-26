@@ -62,12 +62,12 @@ $CompoundAttribute _TestClass1_MethodAnnotations_method45[] = {
 };
 
 $MethodInfo _TestClass1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(TestClass1::*)()>(&TestClass1::init$))},
-	{"max", "(Ljava/util/Collection;Ljava/util/Comparator;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/util/Collection<+TT;>;Ljava/util/Comparator<-TT;>;)TT;", $PUBLIC | $STATIC, $method(static_cast<$Object*(*)($Collection*,$Comparator*)>(&TestClass1::max)), nullptr, nullptr, _TestClass1_MethodAnnotations_max1},
-	{"method1", "(ID)V", nullptr, 0, nullptr, nullptr, nullptr, _TestClass1_MethodAnnotations_method12},
-	{"method2", "(II)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)(int32_t,int32_t)>(&TestClass1::method2)), nullptr, nullptr, _TestClass1_MethodAnnotations_method23},
-	{"method3", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&TestClass1::method3)), "java.lang.RuntimeException", nullptr, _TestClass1_MethodAnnotations_method34},
-	{"method4", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", "<S:Ljava/lang/Object;T:Ljava/lang/Object;>(TS;TT;)TS;", $PROTECTED, nullptr, "java.lang.Exception", nullptr, _TestClass1_MethodAnnotations_method45},
+	{"<init>", "()V", nullptr, 0, $method(TestClass1, init$, void)},
+	{"max", "(Ljava/util/Collection;Ljava/util/Comparator;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/util/Collection<+TT;>;Ljava/util/Comparator<-TT;>;)TT;", $PUBLIC | $STATIC, $staticMethod(TestClass1, max, $Object*, $Collection*, $Comparator*), nullptr, nullptr, _TestClass1_MethodAnnotations_max1},
+	{"method1", "(ID)V", nullptr, 0, $virtualMethod(TestClass1, method1, void, int32_t, double), nullptr, nullptr, _TestClass1_MethodAnnotations_method12},
+	{"method2", "(II)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(TestClass1, method2, $String*, int32_t, int32_t), nullptr, nullptr, _TestClass1_MethodAnnotations_method23},
+	{"method3", "()V", nullptr, $STATIC, $staticMethod(TestClass1, method3, void), "java.lang.RuntimeException", nullptr, _TestClass1_MethodAnnotations_method34},
+	{"method4", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", "<S:Ljava/lang/Object;T:Ljava/lang/Object;>(TS;TT;)TS;", $PROTECTED, $virtualMethod(TestClass1, method4, $Object*, Object$*, Object$*), "java.lang.Exception", nullptr, _TestClass1_MethodAnnotations_method45},
 	{}
 };
 

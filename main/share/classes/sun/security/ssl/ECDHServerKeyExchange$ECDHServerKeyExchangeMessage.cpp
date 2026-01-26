@@ -136,8 +136,8 @@ $FieldInfo ECDHServerKeyExchange$ECDHServerKeyExchangeMessage$$Lambda$lambda$new
 	{}
 };
 $MethodInfo ECDHServerKeyExchange$ECDHServerKeyExchangeMessage$$Lambda$lambda$new$0::methodInfos[3] = {
-	{"<init>", "(Lsun/security/ssl/ECDHServerKeyExchange$ECDHServerKeyExchangeMessage;Lsun/security/ssl/ClientHandshakeContext;)V", nullptr, $PUBLIC, $method(static_cast<void(ECDHServerKeyExchange$ECDHServerKeyExchangeMessage$$Lambda$lambda$new$0::*)(ECDHServerKeyExchange$ECDHServerKeyExchangeMessage*,$ClientHandshakeContext*)>(&ECDHServerKeyExchange$ECDHServerKeyExchangeMessage$$Lambda$lambda$new$0::init$))},
-	{"apply", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/security/ssl/ECDHServerKeyExchange$ECDHServerKeyExchangeMessage;Lsun/security/ssl/ClientHandshakeContext;)V", nullptr, $PUBLIC, $method(ECDHServerKeyExchange$ECDHServerKeyExchangeMessage$$Lambda$lambda$new$0, init$, void, ECDHServerKeyExchange$ECDHServerKeyExchangeMessage*, $ClientHandshakeContext*)},
+	{"apply", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ECDHServerKeyExchange$ECDHServerKeyExchangeMessage$$Lambda$lambda$new$0, apply, void, $String*)},
 	{}
 };
 $ClassInfo ECDHServerKeyExchange$ECDHServerKeyExchangeMessage$$Lambda$lambda$new$0::classInfo$ = {
@@ -166,15 +166,15 @@ $FieldInfo _ECDHServerKeyExchange$ECDHServerKeyExchangeMessage_FieldInfo_[] = {
 };
 
 $MethodInfo _ECDHServerKeyExchange$ECDHServerKeyExchangeMessage_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/ssl/HandshakeContext;)V", nullptr, 0, $method(static_cast<void(ECDHServerKeyExchange$ECDHServerKeyExchangeMessage::*)($HandshakeContext*)>(&ECDHServerKeyExchange$ECDHServerKeyExchangeMessage::init$)), "java.io.IOException"},
-	{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)V", nullptr, 0, $method(static_cast<void(ECDHServerKeyExchange$ECDHServerKeyExchangeMessage::*)($HandshakeContext*,$ByteBuffer*)>(&ECDHServerKeyExchange$ECDHServerKeyExchangeMessage::init$)), "java.io.IOException"},
-	{"getSignature", "(Ljava/lang/String;Ljava/security/Key;)Ljava/security/Signature;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$Signature*(*)($String*,$Key*)>(&ECDHServerKeyExchange$ECDHServerKeyExchangeMessage::getSignature)), "java.security.NoSuchAlgorithmException,java.security.InvalidKeyException"},
-	{"handshakeType", "()Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC},
-	{"lambda$new$0", "(Lsun/security/ssl/ClientHandshakeContext;Ljava/lang/String;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(ECDHServerKeyExchange$ECDHServerKeyExchangeMessage::*)($ClientHandshakeContext*,$String*)>(&ECDHServerKeyExchange$ECDHServerKeyExchangeMessage::lambda$new$0)), "javax.net.ssl.SSLException"},
-	{"messageLength", "()I", nullptr, $PUBLIC},
-	{"send", "(Lsun/security/ssl/HandshakeOutStream;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"updateSignature", "(Ljava/security/Signature;[B[BI[B)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($Signature*,$bytes*,$bytes*,int32_t,$bytes*)>(&ECDHServerKeyExchange$ECDHServerKeyExchangeMessage::updateSignature)), "java.security.SignatureException"},
+	{"<init>", "(Lsun/security/ssl/HandshakeContext;)V", nullptr, 0, $method(ECDHServerKeyExchange$ECDHServerKeyExchangeMessage, init$, void, $HandshakeContext*), "java.io.IOException"},
+	{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)V", nullptr, 0, $method(ECDHServerKeyExchange$ECDHServerKeyExchangeMessage, init$, void, $HandshakeContext*, $ByteBuffer*), "java.io.IOException"},
+	{"getSignature", "(Ljava/lang/String;Ljava/security/Key;)Ljava/security/Signature;", nullptr, $PRIVATE | $STATIC, $staticMethod(ECDHServerKeyExchange$ECDHServerKeyExchangeMessage, getSignature, $Signature*, $String*, $Key*), "java.security.NoSuchAlgorithmException,java.security.InvalidKeyException"},
+	{"handshakeType", "()Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC, $virtualMethod(ECDHServerKeyExchange$ECDHServerKeyExchangeMessage, handshakeType, $SSLHandshake*)},
+	{"lambda$new$0", "(Lsun/security/ssl/ClientHandshakeContext;Ljava/lang/String;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(ECDHServerKeyExchange$ECDHServerKeyExchangeMessage, lambda$new$0, void, $ClientHandshakeContext*, $String*), "javax.net.ssl.SSLException"},
+	{"messageLength", "()I", nullptr, $PUBLIC, $virtualMethod(ECDHServerKeyExchange$ECDHServerKeyExchangeMessage, messageLength, int32_t)},
+	{"send", "(Lsun/security/ssl/HandshakeOutStream;)V", nullptr, $PUBLIC, $virtualMethod(ECDHServerKeyExchange$ECDHServerKeyExchangeMessage, send, void, $HandshakeOutStream*), "java.io.IOException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ECDHServerKeyExchange$ECDHServerKeyExchangeMessage, toString, $String*)},
+	{"updateSignature", "(Ljava/security/Signature;[B[BI[B)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ECDHServerKeyExchange$ECDHServerKeyExchangeMessage, updateSignature, void, $Signature*, $bytes*, $bytes*, int32_t, $bytes*), "java.security.SignatureException"},
 	{}
 };
 

@@ -17,8 +17,8 @@ using $InetAddress = ::java::net::InetAddress;
 using $UnknownHostException = ::java::net::UnknownHostException;
 
 $MethodInfo _B5087907_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(B5087907::*)()>(&B5087907::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&B5087907::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(B5087907, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(B5087907, main, void, $StringArray*)},
 	{}
 };
 

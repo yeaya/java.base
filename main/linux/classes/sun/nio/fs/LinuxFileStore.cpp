@@ -60,12 +60,12 @@ $FieldInfo _LinuxFileStore_FieldInfo_[] = {
 };
 
 $MethodInfo _LinuxFileStore_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/fs/UnixPath;)V", nullptr, 0, $method(static_cast<void(LinuxFileStore::*)($UnixPath*)>(&LinuxFileStore::init$)), "java.io.IOException"},
-	{"<init>", "(Lsun/nio/fs/UnixFileSystem;Lsun/nio/fs/UnixMountEntry;)V", nullptr, 0, $method(static_cast<void(LinuxFileStore::*)($UnixFileSystem*,$UnixMountEntry*)>(&LinuxFileStore::init$)), "java.io.IOException"},
-	{"findMountEntry", "()Lsun/nio/fs/UnixMountEntry;", nullptr, 0, nullptr, "java.io.IOException"},
-	{"getKernelVersion", "()[I", nullptr, $PRIVATE | $STATIC, $method(static_cast<$ints*(*)()>(&LinuxFileStore::getKernelVersion))},
-	{"supportsFileAttributeView", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<+Ljava/nio/file/attribute/FileAttributeView;>;)Z", $PUBLIC},
-	{"supportsFileAttributeView", "(Ljava/lang/String;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/nio/fs/UnixPath;)V", nullptr, 0, $method(LinuxFileStore, init$, void, $UnixPath*), "java.io.IOException"},
+	{"<init>", "(Lsun/nio/fs/UnixFileSystem;Lsun/nio/fs/UnixMountEntry;)V", nullptr, 0, $method(LinuxFileStore, init$, void, $UnixFileSystem*, $UnixMountEntry*), "java.io.IOException"},
+	{"findMountEntry", "()Lsun/nio/fs/UnixMountEntry;", nullptr, 0, $virtualMethod(LinuxFileStore, findMountEntry, $UnixMountEntry*), "java.io.IOException"},
+	{"getKernelVersion", "()[I", nullptr, $PRIVATE | $STATIC, $staticMethod(LinuxFileStore, getKernelVersion, $ints*)},
+	{"supportsFileAttributeView", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<+Ljava/nio/file/attribute/FileAttributeView;>;)Z", $PUBLIC, $virtualMethod(LinuxFileStore, supportsFileAttributeView, bool, $Class*)},
+	{"supportsFileAttributeView", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(LinuxFileStore, supportsFileAttributeView, bool, $String*)},
 	{}
 };
 

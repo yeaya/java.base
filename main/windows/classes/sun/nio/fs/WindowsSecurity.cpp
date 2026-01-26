@@ -58,8 +58,8 @@ $FieldInfo WindowsSecurity$$Lambda$lambda$enablePrivilege$0::fieldInfos[5] = {
 	{}
 };
 $MethodInfo WindowsSecurity$$Lambda$lambda$enablePrivilege$0::methodInfos[3] = {
-	{"<init>", "(JZZJ)V", nullptr, $PUBLIC, $method(static_cast<void(WindowsSecurity$$Lambda$lambda$enablePrivilege$0::*)(int64_t,bool,bool,int64_t)>(&WindowsSecurity$$Lambda$lambda$enablePrivilege$0::init$))},
-	{"drop", "()V", nullptr, $PUBLIC},
+	{"<init>", "(JZZJ)V", nullptr, $PUBLIC, $method(WindowsSecurity$$Lambda$lambda$enablePrivilege$0, init$, void, int64_t, bool, bool, int64_t)},
+	{"drop", "()V", nullptr, $PUBLIC, $virtualMethod(WindowsSecurity$$Lambda$lambda$enablePrivilege$0, drop, void)},
 	{}
 };
 $ClassInfo WindowsSecurity$$Lambda$lambda$enablePrivilege$0::classInfo$ = {
@@ -83,11 +83,11 @@ $FieldInfo _WindowsSecurity_FieldInfo_[] = {
 };
 
 $MethodInfo _WindowsSecurity_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(WindowsSecurity::*)()>(&WindowsSecurity::init$))},
-	{"checkAccessMask", "(JIIIII)Z", nullptr, $STATIC, $method(static_cast<bool(*)(int64_t,int32_t,int32_t,int32_t,int32_t,int32_t)>(&WindowsSecurity::checkAccessMask)), "sun.nio.fs.WindowsException"},
-	{"enablePrivilege", "(Ljava/lang/String;)Lsun/nio/fs/WindowsSecurity$Privilege;", nullptr, $STATIC, $method(static_cast<$WindowsSecurity$Privilege*(*)($String*)>(&WindowsSecurity::enablePrivilege))},
-	{"lambda$enablePrivilege$0", "(JZZJ)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)(int64_t,bool,bool,int64_t)>(&WindowsSecurity::lambda$enablePrivilege$0))},
-	{"openProcessToken", "(I)J", nullptr, $PRIVATE | $STATIC, $method(static_cast<int64_t(*)(int32_t)>(&WindowsSecurity::openProcessToken))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(WindowsSecurity, init$, void)},
+	{"checkAccessMask", "(JIIIII)Z", nullptr, $STATIC, $staticMethod(WindowsSecurity, checkAccessMask, bool, int64_t, int32_t, int32_t, int32_t, int32_t, int32_t), "sun.nio.fs.WindowsException"},
+	{"enablePrivilege", "(Ljava/lang/String;)Lsun/nio/fs/WindowsSecurity$Privilege;", nullptr, $STATIC, $staticMethod(WindowsSecurity, enablePrivilege, $WindowsSecurity$Privilege*, $String*)},
+	{"lambda$enablePrivilege$0", "(JZZJ)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(WindowsSecurity, lambda$enablePrivilege$0, void, int64_t, bool, bool, int64_t)},
+	{"openProcessToken", "(I)J", nullptr, $PRIVATE | $STATIC, $staticMethod(WindowsSecurity, openProcessToken, int64_t, int32_t)},
 	{}
 };
 

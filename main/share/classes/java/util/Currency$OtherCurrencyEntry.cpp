@@ -22,8 +22,8 @@ $FieldInfo _Currency$OtherCurrencyEntry_FieldInfo_[] = {
 };
 
 $MethodInfo _Currency$OtherCurrencyEntry_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;II)V", nullptr, $PRIVATE, $method(static_cast<void(Currency$OtherCurrencyEntry::*)($String*,int32_t,int32_t)>(&Currency$OtherCurrencyEntry::init$))},
-	{"findEntry", "(Ljava/lang/String;)Ljava/util/Currency$OtherCurrencyEntry;", nullptr, $PRIVATE | $STATIC, $method(static_cast<Currency$OtherCurrencyEntry*(*)($String*)>(&Currency$OtherCurrencyEntry::findEntry))},
+	{"<init>", "(Ljava/lang/String;II)V", nullptr, $PRIVATE, $method(Currency$OtherCurrencyEntry, init$, void, $String*, int32_t, int32_t)},
+	{"findEntry", "(Ljava/lang/String;)Ljava/util/Currency$OtherCurrencyEntry;", nullptr, $PRIVATE | $STATIC, $staticMethod(Currency$OtherCurrencyEntry, findEntry, Currency$OtherCurrencyEntry*, $String*)},
 	{}
 };
 

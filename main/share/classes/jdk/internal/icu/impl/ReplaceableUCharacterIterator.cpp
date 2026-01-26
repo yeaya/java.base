@@ -34,16 +34,16 @@ $FieldInfo _ReplaceableUCharacterIterator_FieldInfo_[] = {
 };
 
 $MethodInfo _ReplaceableUCharacterIterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(ReplaceableUCharacterIterator::*)($String*)>(&ReplaceableUCharacterIterator::init$))},
-	{"<init>", "(Ljava/lang/StringBuffer;)V", nullptr, $PUBLIC, $method(static_cast<void(ReplaceableUCharacterIterator::*)($StringBuffer*)>(&ReplaceableUCharacterIterator::init$))},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"current", "()I", nullptr, $PUBLIC},
-	{"getIndex", "()I", nullptr, $PUBLIC},
-	{"getLength", "()I", nullptr, $PUBLIC},
-	{"getText", "([CI)I", nullptr, $PUBLIC},
-	{"next", "()I", nullptr, $PUBLIC},
-	{"previous", "()I", nullptr, $PUBLIC},
-	{"setIndex", "(I)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ReplaceableUCharacterIterator, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/StringBuffer;)V", nullptr, $PUBLIC, $method(ReplaceableUCharacterIterator, init$, void, $StringBuffer*)},
+	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ReplaceableUCharacterIterator, clone, $Object*)},
+	{"current", "()I", nullptr, $PUBLIC, $virtualMethod(ReplaceableUCharacterIterator, current, int32_t)},
+	{"getIndex", "()I", nullptr, $PUBLIC, $virtualMethod(ReplaceableUCharacterIterator, getIndex, int32_t)},
+	{"getLength", "()I", nullptr, $PUBLIC, $virtualMethod(ReplaceableUCharacterIterator, getLength, int32_t)},
+	{"getText", "([CI)I", nullptr, $PUBLIC, $virtualMethod(ReplaceableUCharacterIterator, getText, int32_t, $chars*, int32_t)},
+	{"next", "()I", nullptr, $PUBLIC, $virtualMethod(ReplaceableUCharacterIterator, next, int32_t)},
+	{"previous", "()I", nullptr, $PUBLIC, $virtualMethod(ReplaceableUCharacterIterator, previous, int32_t)},
+	{"setIndex", "(I)V", nullptr, $PUBLIC, $virtualMethod(ReplaceableUCharacterIterator, setIndex, void, int32_t)},
 	{}
 };
 

@@ -21,10 +21,10 @@ namespace jdk {
 			namespace decompressor {
 
 $MethodInfo _ZipDecompressor_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ZipDecompressor::*)()>(&ZipDecompressor::init$))},
-	{"decompress", "([BI)[B", nullptr, $STATIC, $method(static_cast<$bytes*(*)($bytes*,int32_t)>(&ZipDecompressor::decompress)), "java.lang.Exception"},
-	{"decompress", "(Ljdk/internal/jimage/decompressor/ResourceDecompressor$StringsProvider;[BIJ)[B", nullptr, $PUBLIC, nullptr, "java.lang.Exception"},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(ZipDecompressor, init$, void)},
+	{"decompress", "([BI)[B", nullptr, $STATIC, $staticMethod(ZipDecompressor, decompress, $bytes*, $bytes*, int32_t), "java.lang.Exception"},
+	{"decompress", "(Ljdk/internal/jimage/decompressor/ResourceDecompressor$StringsProvider;[BIJ)[B", nullptr, $PUBLIC, $virtualMethod(ZipDecompressor, decompress, $bytes*, $ResourceDecompressor$StringsProvider*, $bytes*, int32_t, int64_t), "java.lang.Exception"},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ZipDecompressor, getName, $String*)},
 	{}
 };
 

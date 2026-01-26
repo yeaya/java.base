@@ -38,17 +38,17 @@ $FieldInfo _AlgorithmParameterGenerator_FieldInfo_[] = {
 };
 
 $MethodInfo _AlgorithmParameterGenerator_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/AlgorithmParameterGeneratorSpi;Ljava/security/Provider;Ljava/lang/String;)V", nullptr, $PROTECTED, $method(static_cast<void(AlgorithmParameterGenerator::*)($AlgorithmParameterGeneratorSpi*,$Provider*,$String*)>(&AlgorithmParameterGenerator::init$))},
-	{"generateParameters", "()Ljava/security/AlgorithmParameters;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$AlgorithmParameters*(AlgorithmParameterGenerator::*)()>(&AlgorithmParameterGenerator::generateParameters))},
-	{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$String*(AlgorithmParameterGenerator::*)()>(&AlgorithmParameterGenerator::getAlgorithm))},
-	{"getInstance", "(Ljava/lang/String;)Ljava/security/AlgorithmParameterGenerator;", nullptr, $PUBLIC | $STATIC, $method(static_cast<AlgorithmParameterGenerator*(*)($String*)>(&AlgorithmParameterGenerator::getInstance)), "java.security.NoSuchAlgorithmException"},
-	{"getInstance", "(Ljava/lang/String;Ljava/lang/String;)Ljava/security/AlgorithmParameterGenerator;", nullptr, $PUBLIC | $STATIC, $method(static_cast<AlgorithmParameterGenerator*(*)($String*,$String*)>(&AlgorithmParameterGenerator::getInstance)), "java.security.NoSuchAlgorithmException,java.security.NoSuchProviderException"},
-	{"getInstance", "(Ljava/lang/String;Ljava/security/Provider;)Ljava/security/AlgorithmParameterGenerator;", nullptr, $PUBLIC | $STATIC, $method(static_cast<AlgorithmParameterGenerator*(*)($String*,$Provider*)>(&AlgorithmParameterGenerator::getInstance)), "java.security.NoSuchAlgorithmException"},
-	{"getProvider", "()Ljava/security/Provider;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$Provider*(AlgorithmParameterGenerator::*)()>(&AlgorithmParameterGenerator::getProvider))},
-	{"init", "(I)V", nullptr, $PUBLIC | $FINAL, $method(static_cast<void(AlgorithmParameterGenerator::*)(int32_t)>(&AlgorithmParameterGenerator::init))},
-	{"init", "(ILjava/security/SecureRandom;)V", nullptr, $PUBLIC | $FINAL, $method(static_cast<void(AlgorithmParameterGenerator::*)(int32_t,$SecureRandom*)>(&AlgorithmParameterGenerator::init))},
-	{"init", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PUBLIC | $FINAL, $method(static_cast<void(AlgorithmParameterGenerator::*)($AlgorithmParameterSpec*)>(&AlgorithmParameterGenerator::init)), "java.security.InvalidAlgorithmParameterException"},
-	{"init", "(Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, $PUBLIC | $FINAL, $method(static_cast<void(AlgorithmParameterGenerator::*)($AlgorithmParameterSpec*,$SecureRandom*)>(&AlgorithmParameterGenerator::init)), "java.security.InvalidAlgorithmParameterException"},
+	{"<init>", "(Ljava/security/AlgorithmParameterGeneratorSpi;Ljava/security/Provider;Ljava/lang/String;)V", nullptr, $PROTECTED, $method(AlgorithmParameterGenerator, init$, void, $AlgorithmParameterGeneratorSpi*, $Provider*, $String*)},
+	{"generateParameters", "()Ljava/security/AlgorithmParameters;", nullptr, $PUBLIC | $FINAL, $method(AlgorithmParameterGenerator, generateParameters, $AlgorithmParameters*)},
+	{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(AlgorithmParameterGenerator, getAlgorithm, $String*)},
+	{"getInstance", "(Ljava/lang/String;)Ljava/security/AlgorithmParameterGenerator;", nullptr, $PUBLIC | $STATIC, $staticMethod(AlgorithmParameterGenerator, getInstance, AlgorithmParameterGenerator*, $String*), "java.security.NoSuchAlgorithmException"},
+	{"getInstance", "(Ljava/lang/String;Ljava/lang/String;)Ljava/security/AlgorithmParameterGenerator;", nullptr, $PUBLIC | $STATIC, $staticMethod(AlgorithmParameterGenerator, getInstance, AlgorithmParameterGenerator*, $String*, $String*), "java.security.NoSuchAlgorithmException,java.security.NoSuchProviderException"},
+	{"getInstance", "(Ljava/lang/String;Ljava/security/Provider;)Ljava/security/AlgorithmParameterGenerator;", nullptr, $PUBLIC | $STATIC, $staticMethod(AlgorithmParameterGenerator, getInstance, AlgorithmParameterGenerator*, $String*, $Provider*), "java.security.NoSuchAlgorithmException"},
+	{"getProvider", "()Ljava/security/Provider;", nullptr, $PUBLIC | $FINAL, $method(AlgorithmParameterGenerator, getProvider, $Provider*)},
+	{"init", "(I)V", nullptr, $PUBLIC | $FINAL, $method(AlgorithmParameterGenerator, init, void, int32_t)},
+	{"init", "(ILjava/security/SecureRandom;)V", nullptr, $PUBLIC | $FINAL, $method(AlgorithmParameterGenerator, init, void, int32_t, $SecureRandom*)},
+	{"init", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PUBLIC | $FINAL, $method(AlgorithmParameterGenerator, init, void, $AlgorithmParameterSpec*), "java.security.InvalidAlgorithmParameterException"},
+	{"init", "(Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, $PUBLIC | $FINAL, $method(AlgorithmParameterGenerator, init, void, $AlgorithmParameterSpec*, $SecureRandom*), "java.security.InvalidAlgorithmParameterException"},
 	{}
 };
 

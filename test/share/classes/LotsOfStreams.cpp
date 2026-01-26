@@ -23,8 +23,8 @@ $FieldInfo _LotsOfStreams_FieldInfo_[] = {
 };
 
 $MethodInfo _LotsOfStreams_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(LotsOfStreams::*)()>(&LotsOfStreams::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&LotsOfStreams::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(LotsOfStreams, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(LotsOfStreams, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

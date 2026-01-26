@@ -17,8 +17,8 @@ $FieldInfo _SBConstructor_FieldInfo_[] = {
 };
 
 $MethodInfo _SBConstructor_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SBConstructor::*)()>(&SBConstructor::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&SBConstructor::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SBConstructor, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SBConstructor, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

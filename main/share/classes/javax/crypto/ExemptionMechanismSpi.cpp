@@ -7,18 +7,21 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $AlgorithmParameters = ::java::security::AlgorithmParameters;
+using $Key = ::java::security::Key;
+using $AlgorithmParameterSpec = ::java::security::spec::AlgorithmParameterSpec;
 
 namespace javax {
 	namespace crypto {
 
 $MethodInfo _ExemptionMechanismSpi_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ExemptionMechanismSpi::*)()>(&ExemptionMechanismSpi::init$))},
-	{"engineGenExemptionBlob", "()[B", nullptr, $PROTECTED | $ABSTRACT, nullptr, "javax.crypto.ExemptionMechanismException"},
-	{"engineGenExemptionBlob", "([BI)I", nullptr, $PROTECTED | $ABSTRACT, nullptr, "javax.crypto.ShortBufferException,javax.crypto.ExemptionMechanismException"},
-	{"engineGetOutputSize", "(I)I", nullptr, $PROTECTED | $ABSTRACT},
-	{"engineInit", "(Ljava/security/Key;)V", nullptr, $PROTECTED | $ABSTRACT, nullptr, "java.security.InvalidKeyException,javax.crypto.ExemptionMechanismException"},
-	{"engineInit", "(Ljava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PROTECTED | $ABSTRACT, nullptr, "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException,javax.crypto.ExemptionMechanismException"},
-	{"engineInit", "(Ljava/security/Key;Ljava/security/AlgorithmParameters;)V", nullptr, $PROTECTED | $ABSTRACT, nullptr, "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException,javax.crypto.ExemptionMechanismException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ExemptionMechanismSpi, init$, void)},
+	{"engineGenExemptionBlob", "()[B", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(ExemptionMechanismSpi, engineGenExemptionBlob, $bytes*), "javax.crypto.ExemptionMechanismException"},
+	{"engineGenExemptionBlob", "([BI)I", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(ExemptionMechanismSpi, engineGenExemptionBlob, int32_t, $bytes*, int32_t), "javax.crypto.ShortBufferException,javax.crypto.ExemptionMechanismException"},
+	{"engineGetOutputSize", "(I)I", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(ExemptionMechanismSpi, engineGetOutputSize, int32_t, int32_t)},
+	{"engineInit", "(Ljava/security/Key;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(ExemptionMechanismSpi, engineInit, void, $Key*), "java.security.InvalidKeyException,javax.crypto.ExemptionMechanismException"},
+	{"engineInit", "(Ljava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(ExemptionMechanismSpi, engineInit, void, $Key*, $AlgorithmParameterSpec*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException,javax.crypto.ExemptionMechanismException"},
+	{"engineInit", "(Ljava/security/Key;Ljava/security/AlgorithmParameters;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(ExemptionMechanismSpi, engineInit, void, $Key*, $AlgorithmParameters*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException,javax.crypto.ExemptionMechanismException"},
 	{}
 };
 

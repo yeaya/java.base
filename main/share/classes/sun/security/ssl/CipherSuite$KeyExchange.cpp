@@ -71,12 +71,12 @@ $FieldInfo _CipherSuite$KeyExchange_FieldInfo_[] = {
 };
 
 $MethodInfo _CipherSuite$KeyExchange_MethodInfo_[] = {
-	{"$values", "()[Lsun/security/ssl/CipherSuite$KeyExchange;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$CipherSuite$KeyExchangeArray*(*)()>(&CipherSuite$KeyExchange::$values))},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;ZZ[Lsun/security/ssl/NamedGroup$NamedGroupSpec;)V", "(Ljava/lang/String;ZZ[Lsun/security/ssl/NamedGroup$NamedGroupSpec;)V", $PRIVATE | $TRANSIENT, $method(static_cast<void(CipherSuite$KeyExchange::*)($String*,int32_t,$String*,bool,bool,$NamedGroup$NamedGroupSpecArray*)>(&CipherSuite$KeyExchange::init$))},
-	{"isAvailable", "()Z", nullptr, 0, $method(static_cast<bool(CipherSuite$KeyExchange::*)()>(&CipherSuite$KeyExchange::isAvailable))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"valueOf", "(Ljava/lang/String;)Lsun/security/ssl/CipherSuite$KeyExchange;", nullptr, $PUBLIC | $STATIC, $method(static_cast<CipherSuite$KeyExchange*(*)($String*)>(&CipherSuite$KeyExchange::valueOf))},
-	{"values", "()[Lsun/security/ssl/CipherSuite$KeyExchange;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$CipherSuite$KeyExchangeArray*(*)()>(&CipherSuite$KeyExchange::values))},
+	{"$values", "()[Lsun/security/ssl/CipherSuite$KeyExchange;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CipherSuite$KeyExchange, $values, $CipherSuite$KeyExchangeArray*)},
+	{"<init>", "(Ljava/lang/String;ILjava/lang/String;ZZ[Lsun/security/ssl/NamedGroup$NamedGroupSpec;)V", "(Ljava/lang/String;ZZ[Lsun/security/ssl/NamedGroup$NamedGroupSpec;)V", $PRIVATE | $TRANSIENT, $method(CipherSuite$KeyExchange, init$, void, $String*, int32_t, $String*, bool, bool, $NamedGroup$NamedGroupSpecArray*)},
+	{"isAvailable", "()Z", nullptr, 0, $method(CipherSuite$KeyExchange, isAvailable, bool)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CipherSuite$KeyExchange, toString, $String*)},
+	{"valueOf", "(Ljava/lang/String;)Lsun/security/ssl/CipherSuite$KeyExchange;", nullptr, $PUBLIC | $STATIC, $staticMethod(CipherSuite$KeyExchange, valueOf, CipherSuite$KeyExchange*, $String*)},
+	{"values", "()[Lsun/security/ssl/CipherSuite$KeyExchange;", nullptr, $PUBLIC | $STATIC, $staticMethod(CipherSuite$KeyExchange, values, $CipherSuite$KeyExchangeArray*)},
 	{}
 };
 

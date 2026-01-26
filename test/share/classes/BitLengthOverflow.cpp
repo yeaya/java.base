@@ -17,8 +17,8 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $BigInteger = ::java::math::BigInteger;
 
 $MethodInfo _BitLengthOverflow_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(BitLengthOverflow::*)()>(&BitLengthOverflow::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&BitLengthOverflow::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(BitLengthOverflow, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(BitLengthOverflow, main, void, $StringArray*)},
 	{}
 };
 

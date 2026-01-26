@@ -23,8 +23,8 @@ using $AccessControlException = ::java::security::AccessControlException;
 using $Permission = ::java::security::Permission;
 
 $MethodInfo _TestIPv6Addresses_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TestIPv6Addresses::*)()>(&TestIPv6Addresses::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&TestIPv6Addresses::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TestIPv6Addresses, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TestIPv6Addresses, main, void, $StringArray*)},
 	{}
 };
 

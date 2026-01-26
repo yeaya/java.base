@@ -33,11 +33,11 @@ $FieldInfo _FileLockImpl_FieldInfo_[] = {
 };
 
 $MethodInfo _FileLockImpl_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/channels/FileChannel;JJZ)V", nullptr, 0, $method(static_cast<void(FileLockImpl::*)($FileChannel*,int64_t,int64_t,bool)>(&FileLockImpl::init$))},
-	{"<init>", "(Ljava/nio/channels/AsynchronousFileChannel;JJZ)V", nullptr, 0, $method(static_cast<void(FileLockImpl::*)($AsynchronousFileChannel*,int64_t,int64_t,bool)>(&FileLockImpl::init$))},
-	{"invalidate", "()V", nullptr, 0},
-	{"isValid", "()Z", nullptr, $PUBLIC},
-	{"release", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljava/nio/channels/FileChannel;JJZ)V", nullptr, 0, $method(FileLockImpl, init$, void, $FileChannel*, int64_t, int64_t, bool)},
+	{"<init>", "(Ljava/nio/channels/AsynchronousFileChannel;JJZ)V", nullptr, 0, $method(FileLockImpl, init$, void, $AsynchronousFileChannel*, int64_t, int64_t, bool)},
+	{"invalidate", "()V", nullptr, 0, $virtualMethod(FileLockImpl, invalidate, void)},
+	{"isValid", "()Z", nullptr, $PUBLIC, $virtualMethod(FileLockImpl, isValid, bool)},
+	{"release", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(FileLockImpl, release, void), "java.io.IOException"},
 	{}
 };
 

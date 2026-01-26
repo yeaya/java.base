@@ -23,10 +23,10 @@ $FieldInfo _DESedeKeySpec_FieldInfo_[] = {
 };
 
 $MethodInfo _DESedeKeySpec_MethodInfo_[] = {
-	{"<init>", "([B)V", nullptr, $PUBLIC, $method(static_cast<void(DESedeKeySpec::*)($bytes*)>(&DESedeKeySpec::init$)), "java.security.InvalidKeyException"},
-	{"<init>", "([BI)V", nullptr, $PUBLIC, $method(static_cast<void(DESedeKeySpec::*)($bytes*,int32_t)>(&DESedeKeySpec::init$)), "java.security.InvalidKeyException"},
-	{"getKey", "()[B", nullptr, $PUBLIC},
-	{"isParityAdjusted", "([BI)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)($bytes*,int32_t)>(&DESedeKeySpec::isParityAdjusted)), "java.security.InvalidKeyException"},
+	{"<init>", "([B)V", nullptr, $PUBLIC, $method(DESedeKeySpec, init$, void, $bytes*), "java.security.InvalidKeyException"},
+	{"<init>", "([BI)V", nullptr, $PUBLIC, $method(DESedeKeySpec, init$, void, $bytes*, int32_t), "java.security.InvalidKeyException"},
+	{"getKey", "()[B", nullptr, $PUBLIC, $virtualMethod(DESedeKeySpec, getKey, $bytes*)},
+	{"isParityAdjusted", "([BI)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(DESedeKeySpec, isParityAdjusted, bool, $bytes*, int32_t), "java.security.InvalidKeyException"},
 	{}
 };
 

@@ -12,8 +12,8 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $URLDecoder = ::java::net::URLDecoder;
 
 $MethodInfo _URLDecoderArgs_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(URLDecoderArgs::*)()>(&URLDecoderArgs::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&URLDecoderArgs::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(URLDecoderArgs, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(URLDecoderArgs, main, void, $StringArray*)},
 	{}
 };
 

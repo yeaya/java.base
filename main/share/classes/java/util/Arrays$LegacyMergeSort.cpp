@@ -24,7 +24,7 @@ $FieldInfo _Arrays$LegacyMergeSort_FieldInfo_[] = {
 };
 
 $MethodInfo _Arrays$LegacyMergeSort_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Arrays$LegacyMergeSort::*)()>(&Arrays$LegacyMergeSort::init$))},
+	{"<init>", "()V", nullptr, 0, $method(Arrays$LegacyMergeSort, init$, void)},
 	{}
 };
 

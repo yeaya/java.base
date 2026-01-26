@@ -25,9 +25,9 @@ $FieldInfo _ProviderList$3_FieldInfo_[] = {
 };
 
 $MethodInfo _ProviderList$3_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/jca/ProviderList;)V", nullptr, 0, $method(static_cast<void(ProviderList$3::*)($ProviderList*)>(&ProviderList$3::init$))},
-	{"get", "(I)Ljava/security/Provider;", nullptr, $PUBLIC},
-	{"size", "()I", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/security/jca/ProviderList;)V", nullptr, 0, $method(ProviderList$3, init$, void, $ProviderList*)},
+	{"get", "(I)Ljava/security/Provider;", nullptr, $PUBLIC, $virtualMethod(ProviderList$3, get, $Object*, int32_t)},
+	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(ProviderList$3, size, int32_t)},
 	{}
 };
 

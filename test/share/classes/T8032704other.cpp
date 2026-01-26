@@ -6,7 +6,7 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _T8032704other_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(T8032704other::*)()>(&T8032704other::init$))},
+	{"<init>", "()V", nullptr, 0, $method(T8032704other, init$, void)},
 	{}
 };
 

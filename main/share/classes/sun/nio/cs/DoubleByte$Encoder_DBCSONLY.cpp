@@ -19,8 +19,8 @@ namespace sun {
 		namespace cs {
 
 $MethodInfo _DoubleByte$Encoder_DBCSONLY_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/charset/Charset;[B[C[CZ)V", nullptr, $PUBLIC, $method(static_cast<void(DoubleByte$Encoder_DBCSONLY::*)($Charset*,$bytes*,$chars*,$chars*,bool)>(&DoubleByte$Encoder_DBCSONLY::init$))},
-	{"encodeChar", "(C)I", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/nio/charset/Charset;[B[C[CZ)V", nullptr, $PUBLIC, $method(DoubleByte$Encoder_DBCSONLY, init$, void, $Charset*, $bytes*, $chars*, $chars*, bool)},
+	{"encodeChar", "(C)I", nullptr, $PUBLIC, $virtualMethod(DoubleByte$Encoder_DBCSONLY, encodeChar, int32_t, char16_t)},
 	{}
 };
 

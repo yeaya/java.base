@@ -16,7 +16,7 @@ $FieldInfo _IllegalFormatException_FieldInfo_[] = {
 };
 
 $MethodInfo _IllegalFormatException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(IllegalFormatException::*)()>(&IllegalFormatException::init$))},
+	{"<init>", "()V", nullptr, 0, $method(IllegalFormatException, init$, void)},
 	{}
 };
 

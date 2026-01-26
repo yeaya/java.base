@@ -28,8 +28,8 @@ using $Paths = ::java::nio::file::Paths;
 using $SecureClassLoader = ::java::security::SecureClassLoader;
 
 $MethodInfo _NonLinking_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(NonLinking::*)()>(&NonLinking::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&NonLinking::main)), "java.lang.Throwable"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(NonLinking, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(NonLinking, main, void, $StringArray*), "java.lang.Throwable"},
 	{}
 };
 

@@ -10,8 +10,8 @@ using $FileNameMap = ::java::net::FileNameMap;
 using $URLConnection = ::java::net::URLConnection;
 
 $MethodInfo _GetFileNameMap_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(GetFileNameMap::*)()>(&GetFileNameMap::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&GetFileNameMap::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(GetFileNameMap, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(GetFileNameMap, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

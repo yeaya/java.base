@@ -12,10 +12,10 @@ using $FileChannel = ::java::nio::channels::FileChannel;
 using $FileLock = ::java::nio::channels::FileLock;
 
 $MethodInfo _FileLockSub_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/channels/FileChannel;JJZ)V", nullptr, 0, $method(static_cast<void(FileLockSub::*)($FileChannel*,int64_t,int64_t,bool)>(&FileLockSub::init$))},
-	{"<init>", "(Ljava/nio/channels/AsynchronousFileChannel;JJZ)V", nullptr, 0, $method(static_cast<void(FileLockSub::*)($AsynchronousFileChannel*,int64_t,int64_t,bool)>(&FileLockSub::init$))},
-	{"isValid", "()Z", nullptr, $PUBLIC},
-	{"release", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljava/nio/channels/FileChannel;JJZ)V", nullptr, 0, $method(FileLockSub, init$, void, $FileChannel*, int64_t, int64_t, bool)},
+	{"<init>", "(Ljava/nio/channels/AsynchronousFileChannel;JJZ)V", nullptr, 0, $method(FileLockSub, init$, void, $AsynchronousFileChannel*, int64_t, int64_t, bool)},
+	{"isValid", "()Z", nullptr, $PUBLIC, $virtualMethod(FileLockSub, isValid, bool)},
+	{"release", "()V", nullptr, $PUBLIC, $virtualMethod(FileLockSub, release, void), "java.io.IOException"},
 	{}
 };
 

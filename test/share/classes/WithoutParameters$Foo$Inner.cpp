@@ -36,7 +36,7 @@ $FieldInfo _WithoutParameters$Foo$Inner_FieldInfo_[] = {
 };
 
 $MethodInfo _WithoutParameters$Foo$Inner_MethodInfo_[] = {
-	{"<init>", "(LWithoutParameters$Foo;I)V", nullptr, $PUBLIC, $method(static_cast<void(WithoutParameters$Foo$Inner::*)($WithoutParameters$Foo*,int32_t)>(&WithoutParameters$Foo$Inner::init$)), nullptr, nullptr, _WithoutParameters$Foo$Inner_MethodAnnotations_init$0},
+	{"<init>", "(LWithoutParameters$Foo;I)V", nullptr, $PUBLIC, $method(WithoutParameters$Foo$Inner, init$, void, $WithoutParameters$Foo*, int32_t), nullptr, nullptr, _WithoutParameters$Foo$Inner_MethodAnnotations_init$0},
 	{}
 };
 

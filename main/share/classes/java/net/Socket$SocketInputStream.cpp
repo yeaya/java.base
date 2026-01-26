@@ -21,11 +21,11 @@ $FieldInfo _Socket$SocketInputStream_FieldInfo_[] = {
 };
 
 $MethodInfo _Socket$SocketInputStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/Socket;Ljava/io/InputStream;)V", nullptr, 0, $method(static_cast<void(Socket$SocketInputStream::*)($Socket*,$InputStream*)>(&Socket$SocketInputStream::init$))},
-	{"available", "()I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"read", "()I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"read", "([BII)I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljava/net/Socket;Ljava/io/InputStream;)V", nullptr, 0, $method(Socket$SocketInputStream, init$, void, $Socket*, $InputStream*)},
+	{"available", "()I", nullptr, $PUBLIC, $virtualMethod(Socket$SocketInputStream, available, int32_t), "java.io.IOException"},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(Socket$SocketInputStream, close, void), "java.io.IOException"},
+	{"read", "()I", nullptr, $PUBLIC, $virtualMethod(Socket$SocketInputStream, read, int32_t), "java.io.IOException"},
+	{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(Socket$SocketInputStream, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
 	{}
 };
 

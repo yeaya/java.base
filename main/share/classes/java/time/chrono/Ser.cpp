@@ -74,14 +74,14 @@ $FieldInfo _Ser_FieldInfo_[] = {
 };
 
 $MethodInfo _Ser_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Ser::*)()>(&Ser::init$))},
-	{"<init>", "(BLjava/io/Serializable;)V", nullptr, 0, $method(static_cast<void(Ser::*)(int8_t,$Serializable*)>(&Ser::init$))},
-	{"read", "(Ljava/io/ObjectInput;)Ljava/io/Serializable;", nullptr, $STATIC, $method(static_cast<$Serializable*(*)($ObjectInput*)>(&Ser::read)), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"readExternal", "(Ljava/io/ObjectInput;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"readInternal", "(BLjava/io/ObjectInput;)Ljava/io/Serializable;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$Serializable*(*)(int8_t,$ObjectInput*)>(&Ser::readInternal)), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"readResolve", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(static_cast<$Object*(Ser::*)()>(&Ser::readResolve))},
-	{"writeExternal", "(Ljava/io/ObjectOutput;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"writeInternal", "(BLjava/lang/Object;Ljava/io/ObjectOutput;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)(int8_t,Object$*,$ObjectOutput*)>(&Ser::writeInternal)), "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Ser, init$, void)},
+	{"<init>", "(BLjava/io/Serializable;)V", nullptr, 0, $method(Ser, init$, void, int8_t, $Serializable*)},
+	{"read", "(Ljava/io/ObjectInput;)Ljava/io/Serializable;", nullptr, $STATIC, $staticMethod(Ser, read, $Serializable*, $ObjectInput*), "java.io.IOException,java.lang.ClassNotFoundException"},
+	{"readExternal", "(Ljava/io/ObjectInput;)V", nullptr, $PUBLIC, $virtualMethod(Ser, readExternal, void, $ObjectInput*), "java.io.IOException,java.lang.ClassNotFoundException"},
+	{"readInternal", "(BLjava/io/ObjectInput;)Ljava/io/Serializable;", nullptr, $PRIVATE | $STATIC, $staticMethod(Ser, readInternal, $Serializable*, int8_t, $ObjectInput*), "java.io.IOException,java.lang.ClassNotFoundException"},
+	{"readResolve", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(Ser, readResolve, $Object*)},
+	{"writeExternal", "(Ljava/io/ObjectOutput;)V", nullptr, $PUBLIC, $virtualMethod(Ser, writeExternal, void, $ObjectOutput*), "java.io.IOException"},
+	{"writeInternal", "(BLjava/lang/Object;Ljava/io/ObjectOutput;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Ser, writeInternal, void, int8_t, Object$*, $ObjectOutput*), "java.io.IOException"},
 	{}
 };
 

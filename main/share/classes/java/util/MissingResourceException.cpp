@@ -18,10 +18,10 @@ $FieldInfo _MissingResourceException_FieldInfo_[] = {
 };
 
 $MethodInfo _MissingResourceException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(MissingResourceException::*)($String*,$String*,$String*)>(&MissingResourceException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, 0, $method(static_cast<void(MissingResourceException::*)($String*,$String*,$String*,$Throwable*)>(&MissingResourceException::init$))},
-	{"getClassName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getKey", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(MissingResourceException, init$, void, $String*, $String*, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, 0, $method(MissingResourceException, init$, void, $String*, $String*, $String*, $Throwable*)},
+	{"getClassName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MissingResourceException, getClassName, $String*)},
+	{"getKey", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MissingResourceException, getKey, $String*)},
 	{}
 };
 

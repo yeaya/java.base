@@ -23,9 +23,9 @@ $FieldInfo _Collections$3_FieldInfo_[] = {
 };
 
 $MethodInfo _Collections$3_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Collection;)V", "()V", 0, $method(static_cast<void(Collections$3::*)($Collection*)>(&Collections$3::init$))},
-	{"hasMoreElements", "()Z", nullptr, $PUBLIC},
-	{"nextElement", "()Ljava/lang/Object;", "()TT;", $PUBLIC},
+	{"<init>", "(Ljava/util/Collection;)V", "()V", 0, $method(Collections$3, init$, void, $Collection*)},
+	{"hasMoreElements", "()Z", nullptr, $PUBLIC, $virtualMethod(Collections$3, hasMoreElements, bool)},
+	{"nextElement", "()Ljava/lang/Object;", "()TT;", $PUBLIC, $virtualMethod(Collections$3, nextElement, $Object*)},
 	{}
 };
 

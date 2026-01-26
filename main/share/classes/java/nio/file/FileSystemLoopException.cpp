@@ -18,7 +18,7 @@ $FieldInfo _FileSystemLoopException_FieldInfo_[] = {
 };
 
 $MethodInfo _FileSystemLoopException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(FileSystemLoopException::*)($String*)>(&FileSystemLoopException::init$))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(FileSystemLoopException, init$, void, $String*)},
 	{}
 };
 

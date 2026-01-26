@@ -52,13 +52,13 @@ $FieldInfo _BidiWriter_FieldInfo_[] = {
 };
 
 $MethodInfo _BidiWriter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(BidiWriter::*)()>(&BidiWriter::init$))},
-	{"IsCombining", "(I)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)(int32_t)>(&BidiWriter::IsCombining))},
-	{"doWriteForward", "(Ljava/lang/String;I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($String*,int32_t)>(&BidiWriter::doWriteForward))},
-	{"doWriteForward", "([CIII)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($chars*,int32_t,int32_t,int32_t)>(&BidiWriter::doWriteForward))},
-	{"doWriteReverse", "([CIII)Ljava/lang/String;", nullptr, $STATIC, $method(static_cast<$String*(*)($chars*,int32_t,int32_t,int32_t)>(&BidiWriter::doWriteReverse))},
-	{"writeReordered", "(Ljdk/internal/icu/text/BidiBase;I)Ljava/lang/String;", nullptr, $STATIC, $method(static_cast<$String*(*)($BidiBase*,int32_t)>(&BidiWriter::writeReordered))},
-	{"writeReverse", "(Ljava/lang/String;I)Ljava/lang/String;", nullptr, $STATIC, $method(static_cast<$String*(*)($String*,int32_t)>(&BidiWriter::writeReverse))},
+	{"<init>", "()V", nullptr, 0, $method(BidiWriter, init$, void)},
+	{"IsCombining", "(I)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(BidiWriter, IsCombining, bool, int32_t)},
+	{"doWriteForward", "(Ljava/lang/String;I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(BidiWriter, doWriteForward, $String*, $String*, int32_t)},
+	{"doWriteForward", "([CIII)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(BidiWriter, doWriteForward, $String*, $chars*, int32_t, int32_t, int32_t)},
+	{"doWriteReverse", "([CIII)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(BidiWriter, doWriteReverse, $String*, $chars*, int32_t, int32_t, int32_t)},
+	{"writeReordered", "(Ljdk/internal/icu/text/BidiBase;I)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(BidiWriter, writeReordered, $String*, $BidiBase*, int32_t)},
+	{"writeReverse", "(Ljava/lang/String;I)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(BidiWriter, writeReverse, $String*, $String*, int32_t)},
 	{}
 };
 

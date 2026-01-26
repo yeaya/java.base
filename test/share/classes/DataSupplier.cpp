@@ -15,11 +15,11 @@ $FieldInfo _DataSupplier_FieldInfo_[] = {
 };
 
 $MethodInfo _DataSupplier_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(DataSupplier::*)()>(&DataSupplier::init$))},
-	{"read", "()I", nullptr, $PUBLIC},
-	{"read", "([B)I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"read", "([BII)I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"skip", "(J)J", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(DataSupplier, init$, void)},
+	{"read", "()I", nullptr, $PUBLIC, $virtualMethod(DataSupplier, read, int32_t)},
+	{"read", "([B)I", nullptr, $PUBLIC, $virtualMethod(DataSupplier, read, int32_t, $bytes*), "java.io.IOException"},
+	{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(DataSupplier, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
+	{"skip", "(J)J", nullptr, $PUBLIC, $virtualMethod(DataSupplier, skip, int64_t, int64_t)},
 	{}
 };
 

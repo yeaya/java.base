@@ -14,7 +14,7 @@ namespace java {
 		namespace invoke {
 
 $MethodInfo _InvokerBytecodeGenerator$BytecodeGenerationException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Exception;)V", nullptr, 0, $method(static_cast<void(InvokerBytecodeGenerator$BytecodeGenerationException::*)($Exception*)>(&InvokerBytecodeGenerator$BytecodeGenerationException::init$))},
+	{"<init>", "(Ljava/lang/Exception;)V", nullptr, 0, $method(InvokerBytecodeGenerator$BytecodeGenerationException, init$, void, $Exception*)},
 	{}
 };
 

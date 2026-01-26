@@ -20,7 +20,7 @@ $FieldInfo _ModuleInfo$ConstantPool$ValueEntry_FieldInfo_[] = {
 };
 
 $MethodInfo _ModuleInfo$ConstantPool$ValueEntry_MethodInfo_[] = {
-	{"<init>", "(ILjava/lang/Object;)V", nullptr, 0, $method(static_cast<void(ModuleInfo$ConstantPool$ValueEntry::*)(int32_t,Object$*)>(&ModuleInfo$ConstantPool$ValueEntry::init$))},
+	{"<init>", "(ILjava/lang/Object;)V", nullptr, 0, $method(ModuleInfo$ConstantPool$ValueEntry, init$, void, int32_t, Object$*)},
 	{}
 };
 

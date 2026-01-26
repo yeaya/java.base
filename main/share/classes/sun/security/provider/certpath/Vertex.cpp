@@ -43,17 +43,17 @@ $FieldInfo _Vertex_FieldInfo_[] = {
 };
 
 $MethodInfo _Vertex_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/cert/X509Certificate;)V", nullptr, 0, $method(static_cast<void(Vertex::*)($X509Certificate*)>(&Vertex::init$))},
-	{"certToString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getCertificate", "()Ljava/security/cert/X509Certificate;", nullptr, $PUBLIC},
-	{"getIndex", "()I", nullptr, $PUBLIC},
-	{"getThrowable", "()Ljava/lang/Throwable;", nullptr, $PUBLIC},
-	{"indexToString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"moreToString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"setIndex", "(I)V", nullptr, 0},
-	{"setThrowable", "(Ljava/lang/Throwable;)V", nullptr, 0},
-	{"throwableToString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/security/cert/X509Certificate;)V", nullptr, 0, $method(Vertex, init$, void, $X509Certificate*)},
+	{"certToString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Vertex, certToString, $String*)},
+	{"getCertificate", "()Ljava/security/cert/X509Certificate;", nullptr, $PUBLIC, $virtualMethod(Vertex, getCertificate, $X509Certificate*)},
+	{"getIndex", "()I", nullptr, $PUBLIC, $virtualMethod(Vertex, getIndex, int32_t)},
+	{"getThrowable", "()Ljava/lang/Throwable;", nullptr, $PUBLIC, $virtualMethod(Vertex, getThrowable, $Throwable*)},
+	{"indexToString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Vertex, indexToString, $String*)},
+	{"moreToString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Vertex, moreToString, $String*)},
+	{"setIndex", "(I)V", nullptr, 0, $virtualMethod(Vertex, setIndex, void, int32_t)},
+	{"setThrowable", "(Ljava/lang/Throwable;)V", nullptr, 0, $virtualMethod(Vertex, setThrowable, void, $Throwable*)},
+	{"throwableToString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Vertex, throwableToString, $String*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Vertex, toString, $String*)},
 	{}
 };
 

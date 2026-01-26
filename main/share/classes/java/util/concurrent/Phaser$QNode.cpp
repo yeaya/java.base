@@ -29,9 +29,9 @@ $FieldInfo _Phaser$QNode_FieldInfo_[] = {
 };
 
 $MethodInfo _Phaser$QNode_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/Phaser;IZZJ)V", nullptr, 0, $method(static_cast<void(Phaser$QNode::*)($Phaser*,int32_t,bool,bool,int64_t)>(&Phaser$QNode::init$))},
-	{"block", "()Z", nullptr, $PUBLIC},
-	{"isReleasable", "()Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/concurrent/Phaser;IZZJ)V", nullptr, 0, $method(Phaser$QNode, init$, void, $Phaser*, int32_t, bool, bool, int64_t)},
+	{"block", "()Z", nullptr, $PUBLIC, $virtualMethod(Phaser$QNode, block, bool)},
+	{"isReleasable", "()Z", nullptr, $PUBLIC, $virtualMethod(Phaser$QNode, isReleasable, bool)},
 	{}
 };
 

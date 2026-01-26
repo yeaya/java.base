@@ -14,8 +14,8 @@ $FieldInfo _ImplicitStringConcatShapes$MyClass_FieldInfo_[] = {
 };
 
 $MethodInfo _ImplicitStringConcatShapes$MyClass_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(static_cast<void(ImplicitStringConcatShapes$MyClass::*)(int32_t)>(&ImplicitStringConcatShapes$MyClass::init$))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(I)V", nullptr, $PUBLIC, $method(ImplicitStringConcatShapes$MyClass, init$, void, int32_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ImplicitStringConcatShapes$MyClass, toString, $String*)},
 	{}
 };
 

@@ -61,14 +61,14 @@ $FieldInfo _ResolverConfigurationImpl_FieldInfo_[] = {
 };
 
 $MethodInfo _ResolverConfigurationImpl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ResolverConfigurationImpl::*)()>(&ResolverConfigurationImpl::init$))},
-	{"fallbackDomain0", "()Ljava/lang/String;", nullptr, $STATIC | $NATIVE, $method(static_cast<$String*(*)()>(&ResolverConfigurationImpl::fallbackDomain0))},
-	{"getSearchList", "()Ljava/util/LinkedList;", "()Ljava/util/LinkedList<Ljava/lang/String;>;", $PRIVATE, $method(static_cast<$LinkedList*(ResolverConfigurationImpl::*)()>(&ResolverConfigurationImpl::getSearchList))},
-	{"loadConfig", "()V", nullptr, $PRIVATE, $method(static_cast<void(ResolverConfigurationImpl::*)()>(&ResolverConfigurationImpl::loadConfig))},
-	{"nameservers", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PUBLIC},
-	{"options", "()Lsun/net/dns/ResolverConfiguration$Options;", nullptr, $PUBLIC},
-	{"resolvconf", "(Ljava/lang/String;II)Ljava/util/LinkedList;", "(Ljava/lang/String;II)Ljava/util/LinkedList<Ljava/lang/String;>;", $PRIVATE, $method(static_cast<$LinkedList*(ResolverConfigurationImpl::*)($String*,int32_t,int32_t)>(&ResolverConfigurationImpl::resolvconf))},
-	{"searchlist", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(ResolverConfigurationImpl, init$, void)},
+	{"fallbackDomain0", "()Ljava/lang/String;", nullptr, $STATIC | $NATIVE, $staticMethod(ResolverConfigurationImpl, fallbackDomain0, $String*)},
+	{"getSearchList", "()Ljava/util/LinkedList;", "()Ljava/util/LinkedList<Ljava/lang/String;>;", $PRIVATE, $method(ResolverConfigurationImpl, getSearchList, $LinkedList*)},
+	{"loadConfig", "()V", nullptr, $PRIVATE, $method(ResolverConfigurationImpl, loadConfig, void)},
+	{"nameservers", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(ResolverConfigurationImpl, nameservers, $List*)},
+	{"options", "()Lsun/net/dns/ResolverConfiguration$Options;", nullptr, $PUBLIC, $virtualMethod(ResolverConfigurationImpl, options, $ResolverConfiguration$Options*)},
+	{"resolvconf", "(Ljava/lang/String;II)Ljava/util/LinkedList;", "(Ljava/lang/String;II)Ljava/util/LinkedList<Ljava/lang/String;>;", $PRIVATE, $method(ResolverConfigurationImpl, resolvconf, $LinkedList*, $String*, int32_t, int32_t)},
+	{"searchlist", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(ResolverConfigurationImpl, searchlist, $List*)},
 	{}
 };
 

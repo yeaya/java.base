@@ -21,8 +21,8 @@ $FieldInfo _GetInstance$Instance_FieldInfo_[] = {
 };
 
 $MethodInfo _GetInstance$Instance_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/Provider;Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(static_cast<void(GetInstance$Instance::*)($Provider*,Object$*)>(&GetInstance$Instance::init$))},
-	{"toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $method(static_cast<$ObjectArray*(GetInstance$Instance::*)()>(&GetInstance$Instance::toArray))},
+	{"<init>", "(Ljava/security/Provider;Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(GetInstance$Instance, init$, void, $Provider*, Object$*)},
+	{"toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $method(GetInstance$Instance, toArray, $ObjectArray*)},
 	{}
 };
 

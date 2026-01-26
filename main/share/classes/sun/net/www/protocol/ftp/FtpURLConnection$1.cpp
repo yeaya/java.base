@@ -24,8 +24,8 @@ $FieldInfo _FtpURLConnection$1_FieldInfo_[] = {
 };
 
 $MethodInfo _FtpURLConnection$1_MethodInfo_[] = {
-	{"<init>", "(Lsun/net/www/protocol/ftp/FtpURLConnection;)V", nullptr, 0, $method(static_cast<void(FtpURLConnection$1::*)($FtpURLConnection*)>(&FtpURLConnection$1::init$))},
-	{"run", "()Ljava/net/ProxySelector;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/net/www/protocol/ftp/FtpURLConnection;)V", nullptr, 0, $method(FtpURLConnection$1, init$, void, $FtpURLConnection*)},
+	{"run", "()Ljava/net/ProxySelector;", nullptr, $PUBLIC, $virtualMethod(FtpURLConnection$1, run, $Object*)},
 	{}
 };
 

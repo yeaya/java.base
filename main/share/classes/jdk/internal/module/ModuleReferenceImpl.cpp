@@ -50,17 +50,17 @@ $FieldInfo _ModuleReferenceImpl_FieldInfo_[] = {
 };
 
 $MethodInfo _ModuleReferenceImpl_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/module/ModuleDescriptor;Ljava/net/URI;Ljava/util/function/Supplier;Ljdk/internal/module/ModulePatcher;Ljdk/internal/module/ModuleTarget;Ljdk/internal/module/ModuleHashes;Ljdk/internal/module/ModuleHashes$HashSupplier;Ljdk/internal/module/ModuleResolution;)V", "(Ljava/lang/module/ModuleDescriptor;Ljava/net/URI;Ljava/util/function/Supplier<Ljava/lang/module/ModuleReader;>;Ljdk/internal/module/ModulePatcher;Ljdk/internal/module/ModuleTarget;Ljdk/internal/module/ModuleHashes;Ljdk/internal/module/ModuleHashes$HashSupplier;Ljdk/internal/module/ModuleResolution;)V", $PUBLIC, $method(static_cast<void(ModuleReferenceImpl::*)($ModuleDescriptor*,$URI*,$Supplier*,$ModulePatcher*,$ModuleTarget*,$ModuleHashes*,$ModuleHashes$HashSupplier*,$ModuleResolution*)>(&ModuleReferenceImpl::init$))},
-	{"computeHash", "(Ljava/lang/String;)[B", nullptr, $PUBLIC},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"hasher", "()Ljdk/internal/module/ModuleHashes$HashSupplier;", nullptr, 0},
-	{"isPatched", "()Z", nullptr, $PUBLIC},
-	{"moduleResolution", "()Ljdk/internal/module/ModuleResolution;", nullptr, $PUBLIC},
-	{"moduleTarget", "()Ljdk/internal/module/ModuleTarget;", nullptr, $PUBLIC},
-	{"open", "()Ljava/lang/module/ModuleReader;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"recordedHashes", "()Ljdk/internal/module/ModuleHashes;", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/module/ModuleDescriptor;Ljava/net/URI;Ljava/util/function/Supplier;Ljdk/internal/module/ModulePatcher;Ljdk/internal/module/ModuleTarget;Ljdk/internal/module/ModuleHashes;Ljdk/internal/module/ModuleHashes$HashSupplier;Ljdk/internal/module/ModuleResolution;)V", "(Ljava/lang/module/ModuleDescriptor;Ljava/net/URI;Ljava/util/function/Supplier<Ljava/lang/module/ModuleReader;>;Ljdk/internal/module/ModulePatcher;Ljdk/internal/module/ModuleTarget;Ljdk/internal/module/ModuleHashes;Ljdk/internal/module/ModuleHashes$HashSupplier;Ljdk/internal/module/ModuleResolution;)V", $PUBLIC, $method(ModuleReferenceImpl, init$, void, $ModuleDescriptor*, $URI*, $Supplier*, $ModulePatcher*, $ModuleTarget*, $ModuleHashes*, $ModuleHashes$HashSupplier*, $ModuleResolution*)},
+	{"computeHash", "(Ljava/lang/String;)[B", nullptr, $PUBLIC, $virtualMethod(ModuleReferenceImpl, computeHash, $bytes*, $String*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ModuleReferenceImpl, equals, bool, Object$*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ModuleReferenceImpl, hashCode, int32_t)},
+	{"hasher", "()Ljdk/internal/module/ModuleHashes$HashSupplier;", nullptr, 0, $virtualMethod(ModuleReferenceImpl, hasher, $ModuleHashes$HashSupplier*)},
+	{"isPatched", "()Z", nullptr, $PUBLIC, $virtualMethod(ModuleReferenceImpl, isPatched, bool)},
+	{"moduleResolution", "()Ljdk/internal/module/ModuleResolution;", nullptr, $PUBLIC, $virtualMethod(ModuleReferenceImpl, moduleResolution, $ModuleResolution*)},
+	{"moduleTarget", "()Ljdk/internal/module/ModuleTarget;", nullptr, $PUBLIC, $virtualMethod(ModuleReferenceImpl, moduleTarget, $ModuleTarget*)},
+	{"open", "()Ljava/lang/module/ModuleReader;", nullptr, $PUBLIC, $virtualMethod(ModuleReferenceImpl, open, $ModuleReader*), "java.io.IOException"},
+	{"recordedHashes", "()Ljdk/internal/module/ModuleHashes;", nullptr, $PUBLIC, $virtualMethod(ModuleReferenceImpl, recordedHashes, $ModuleHashes*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ModuleReferenceImpl, toString, $String*)},
 	{}
 };
 

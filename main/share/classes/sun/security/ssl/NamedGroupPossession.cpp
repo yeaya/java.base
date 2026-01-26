@@ -7,15 +7,18 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $PrivateKey = ::java::security::PrivateKey;
+using $PublicKey = ::java::security::PublicKey;
+using $NamedGroup = ::sun::security::ssl::NamedGroup;
 
 namespace sun {
 	namespace security {
 		namespace ssl {
 
 $MethodInfo _NamedGroupPossession_MethodInfo_[] = {
-	{"getNamedGroup", "()Lsun/security/ssl/NamedGroup;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getPrivateKey", "()Ljava/security/PrivateKey;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getPublicKey", "()Ljava/security/PublicKey;", nullptr, $PUBLIC | $ABSTRACT},
+	{"getNamedGroup", "()Lsun/security/ssl/NamedGroup;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NamedGroupPossession, getNamedGroup, $NamedGroup*)},
+	{"getPrivateKey", "()Ljava/security/PrivateKey;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NamedGroupPossession, getPrivateKey, $PrivateKey*)},
+	{"getPublicKey", "()Ljava/security/PublicKey;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NamedGroupPossession, getPublicKey, $PublicKey*)},
 	{}
 };
 

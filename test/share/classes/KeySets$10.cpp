@@ -19,8 +19,8 @@ $FieldInfo _KeySets$10_FieldInfo_[] = {
 };
 
 $MethodInfo _KeySets$10_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/channels/Selector;)V", "()V", 0, $method(static_cast<void(KeySets$10::*)($Selector*)>(&KeySets$10::init$))},
-	{"add", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljava/nio/channels/Selector;)V", "()V", 0, $method(KeySets$10, init$, void, $Selector*)},
+	{"add", "()V", nullptr, $PUBLIC, $virtualMethod(KeySets$10, add, void), "java.io.IOException"},
 	{}
 };
 

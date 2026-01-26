@@ -19,7 +19,7 @@ namespace jdk {
 					namespace util {
 
 $MethodInfo _CheckClassAdapter$1_MethodInfo_[] = {
-	{"<init>", "(ILjdk/internal/org/objectweb/asm/ClassVisitor;Z)V", nullptr, 0, $method(static_cast<void(CheckClassAdapter$1::*)(int32_t,$ClassVisitor*,bool)>(&CheckClassAdapter$1::init$))},
+	{"<init>", "(ILjdk/internal/org/objectweb/asm/ClassVisitor;Z)V", nullptr, 0, $method(CheckClassAdapter$1, init$, void, int32_t, $ClassVisitor*, bool)},
 	{}
 };
 

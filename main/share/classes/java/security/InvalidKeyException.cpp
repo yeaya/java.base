@@ -17,10 +17,10 @@ $FieldInfo _InvalidKeyException_FieldInfo_[] = {
 };
 
 $MethodInfo _InvalidKeyException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(InvalidKeyException::*)()>(&InvalidKeyException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(InvalidKeyException::*)($String*)>(&InvalidKeyException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(InvalidKeyException::*)($String*,$Throwable*)>(&InvalidKeyException::init$))},
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(InvalidKeyException::*)($Throwable*)>(&InvalidKeyException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(InvalidKeyException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InvalidKeyException, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(InvalidKeyException, init$, void, $String*, $Throwable*)},
+	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(InvalidKeyException, init$, void, $Throwable*)},
 	{}
 };
 

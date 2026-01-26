@@ -15,7 +15,7 @@ $FieldInfo _N1$Inner1_FieldInfo_[] = {
 };
 
 $MethodInfo _N1$Inner1_MethodInfo_[] = {
-	{"<init>", "(LN1;)V", nullptr, $PUBLIC, $method(static_cast<void(N1$Inner1::*)($N1*)>(&N1$Inner1::init$))},
+	{"<init>", "(LN1;)V", nullptr, $PUBLIC, $method(N1$Inner1, init$, void, $N1*)},
 	{}
 };
 

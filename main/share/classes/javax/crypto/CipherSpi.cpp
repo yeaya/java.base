@@ -19,8 +19,11 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
 using $ByteBuffer = ::java::nio::ByteBuffer;
+using $AlgorithmParameters = ::java::security::AlgorithmParameters;
 using $Key = ::java::security::Key;
 using $ProviderException = ::java::security::ProviderException;
+using $SecureRandom = ::java::security::SecureRandom;
+using $AlgorithmParameterSpec = ::java::security::spec::AlgorithmParameterSpec;
 using $BadPaddingException = ::javax::crypto::BadPaddingException;
 using $IllegalBlockSizeException = ::javax::crypto::IllegalBlockSizeException;
 using $ShortBufferException = ::javax::crypto::ShortBufferException;
@@ -29,29 +32,29 @@ namespace javax {
 	namespace crypto {
 
 $MethodInfo _CipherSpi_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CipherSpi::*)()>(&CipherSpi::init$))},
-	{"bufferCrypt", "(Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;Z)I", nullptr, $PRIVATE, $method(static_cast<int32_t(CipherSpi::*)($ByteBuffer*,$ByteBuffer*,bool)>(&CipherSpi::bufferCrypt)), "javax.crypto.ShortBufferException,javax.crypto.IllegalBlockSizeException,javax.crypto.BadPaddingException"},
-	{"engineDoFinal", "([BII)[B", nullptr, $PROTECTED | $ABSTRACT, nullptr, "javax.crypto.IllegalBlockSizeException,javax.crypto.BadPaddingException"},
-	{"engineDoFinal", "([BII[BI)I", nullptr, $PROTECTED | $ABSTRACT, nullptr, "javax.crypto.ShortBufferException,javax.crypto.IllegalBlockSizeException,javax.crypto.BadPaddingException"},
-	{"engineDoFinal", "(Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;)I", nullptr, $PROTECTED, nullptr, "javax.crypto.ShortBufferException,javax.crypto.IllegalBlockSizeException,javax.crypto.BadPaddingException"},
-	{"engineGetBlockSize", "()I", nullptr, $PROTECTED | $ABSTRACT},
-	{"engineGetIV", "()[B", nullptr, $PROTECTED | $ABSTRACT},
-	{"engineGetKeySize", "(Ljava/security/Key;)I", nullptr, $PROTECTED, nullptr, "java.security.InvalidKeyException"},
-	{"engineGetOutputSize", "(I)I", nullptr, $PROTECTED | $ABSTRACT},
-	{"engineGetParameters", "()Ljava/security/AlgorithmParameters;", nullptr, $PROTECTED | $ABSTRACT},
-	{"engineInit", "(ILjava/security/Key;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED | $ABSTRACT, nullptr, "java.security.InvalidKeyException"},
-	{"engineInit", "(ILjava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED | $ABSTRACT, nullptr, "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
-	{"engineInit", "(ILjava/security/Key;Ljava/security/AlgorithmParameters;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED | $ABSTRACT, nullptr, "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
-	{"engineSetMode", "(Ljava/lang/String;)V", nullptr, $PROTECTED | $ABSTRACT, nullptr, "java.security.NoSuchAlgorithmException"},
-	{"engineSetPadding", "(Ljava/lang/String;)V", nullptr, $PROTECTED | $ABSTRACT, nullptr, "javax.crypto.NoSuchPaddingException"},
-	{"engineUnwrap", "([BLjava/lang/String;I)Ljava/security/Key;", nullptr, $PROTECTED, nullptr, "java.security.InvalidKeyException,java.security.NoSuchAlgorithmException"},
-	{"engineUpdate", "([BII)[B", nullptr, $PROTECTED | $ABSTRACT},
-	{"engineUpdate", "([BII[BI)I", nullptr, $PROTECTED | $ABSTRACT, nullptr, "javax.crypto.ShortBufferException"},
-	{"engineUpdate", "(Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;)I", nullptr, $PROTECTED, nullptr, "javax.crypto.ShortBufferException"},
-	{"engineUpdateAAD", "([BII)V", nullptr, $PROTECTED},
-	{"engineUpdateAAD", "(Ljava/nio/ByteBuffer;)V", nullptr, $PROTECTED},
-	{"engineWrap", "(Ljava/security/Key;)[B", nullptr, $PROTECTED, nullptr, "javax.crypto.IllegalBlockSizeException,java.security.InvalidKeyException"},
-	{"getTempArraySize", "(I)I", nullptr, $STATIC, $method(static_cast<int32_t(*)(int32_t)>(&CipherSpi::getTempArraySize))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CipherSpi, init$, void)},
+	{"bufferCrypt", "(Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;Z)I", nullptr, $PRIVATE, $method(CipherSpi, bufferCrypt, int32_t, $ByteBuffer*, $ByteBuffer*, bool), "javax.crypto.ShortBufferException,javax.crypto.IllegalBlockSizeException,javax.crypto.BadPaddingException"},
+	{"engineDoFinal", "([BII)[B", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(CipherSpi, engineDoFinal, $bytes*, $bytes*, int32_t, int32_t), "javax.crypto.IllegalBlockSizeException,javax.crypto.BadPaddingException"},
+	{"engineDoFinal", "([BII[BI)I", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(CipherSpi, engineDoFinal, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t), "javax.crypto.ShortBufferException,javax.crypto.IllegalBlockSizeException,javax.crypto.BadPaddingException"},
+	{"engineDoFinal", "(Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;)I", nullptr, $PROTECTED, $virtualMethod(CipherSpi, engineDoFinal, int32_t, $ByteBuffer*, $ByteBuffer*), "javax.crypto.ShortBufferException,javax.crypto.IllegalBlockSizeException,javax.crypto.BadPaddingException"},
+	{"engineGetBlockSize", "()I", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(CipherSpi, engineGetBlockSize, int32_t)},
+	{"engineGetIV", "()[B", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(CipherSpi, engineGetIV, $bytes*)},
+	{"engineGetKeySize", "(Ljava/security/Key;)I", nullptr, $PROTECTED, $virtualMethod(CipherSpi, engineGetKeySize, int32_t, $Key*), "java.security.InvalidKeyException"},
+	{"engineGetOutputSize", "(I)I", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(CipherSpi, engineGetOutputSize, int32_t, int32_t)},
+	{"engineGetParameters", "()Ljava/security/AlgorithmParameters;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(CipherSpi, engineGetParameters, $AlgorithmParameters*)},
+	{"engineInit", "(ILjava/security/Key;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(CipherSpi, engineInit, void, int32_t, $Key*, $SecureRandom*), "java.security.InvalidKeyException"},
+	{"engineInit", "(ILjava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(CipherSpi, engineInit, void, int32_t, $Key*, $AlgorithmParameterSpec*, $SecureRandom*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
+	{"engineInit", "(ILjava/security/Key;Ljava/security/AlgorithmParameters;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(CipherSpi, engineInit, void, int32_t, $Key*, $AlgorithmParameters*, $SecureRandom*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
+	{"engineSetMode", "(Ljava/lang/String;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(CipherSpi, engineSetMode, void, $String*), "java.security.NoSuchAlgorithmException"},
+	{"engineSetPadding", "(Ljava/lang/String;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(CipherSpi, engineSetPadding, void, $String*), "javax.crypto.NoSuchPaddingException"},
+	{"engineUnwrap", "([BLjava/lang/String;I)Ljava/security/Key;", nullptr, $PROTECTED, $virtualMethod(CipherSpi, engineUnwrap, $Key*, $bytes*, $String*, int32_t), "java.security.InvalidKeyException,java.security.NoSuchAlgorithmException"},
+	{"engineUpdate", "([BII)[B", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(CipherSpi, engineUpdate, $bytes*, $bytes*, int32_t, int32_t)},
+	{"engineUpdate", "([BII[BI)I", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(CipherSpi, engineUpdate, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t), "javax.crypto.ShortBufferException"},
+	{"engineUpdate", "(Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;)I", nullptr, $PROTECTED, $virtualMethod(CipherSpi, engineUpdate, int32_t, $ByteBuffer*, $ByteBuffer*), "javax.crypto.ShortBufferException"},
+	{"engineUpdateAAD", "([BII)V", nullptr, $PROTECTED, $virtualMethod(CipherSpi, engineUpdateAAD, void, $bytes*, int32_t, int32_t)},
+	{"engineUpdateAAD", "(Ljava/nio/ByteBuffer;)V", nullptr, $PROTECTED, $virtualMethod(CipherSpi, engineUpdateAAD, void, $ByteBuffer*)},
+	{"engineWrap", "(Ljava/security/Key;)[B", nullptr, $PROTECTED, $virtualMethod(CipherSpi, engineWrap, $bytes*, $Key*), "javax.crypto.IllegalBlockSizeException,java.security.InvalidKeyException"},
+	{"getTempArraySize", "(I)I", nullptr, $STATIC, $staticMethod(CipherSpi, getTempArraySize, int32_t, int32_t)},
 	{}
 };
 

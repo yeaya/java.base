@@ -29,12 +29,12 @@ $FieldInfo _ExceptionInInitializerError_FieldInfo_[] = {
 };
 
 $MethodInfo _ExceptionInInitializerError_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ExceptionInInitializerError::*)()>(&ExceptionInInitializerError::init$))},
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(ExceptionInInitializerError::*)($Throwable*)>(&ExceptionInInitializerError::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(ExceptionInInitializerError::*)($String*)>(&ExceptionInInitializerError::init$))},
-	{"getException", "()Ljava/lang/Throwable;", nullptr, $PUBLIC},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(ExceptionInInitializerError::*)($ObjectInputStream*)>(&ExceptionInInitializerError::readObject)), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(ExceptionInInitializerError::*)($ObjectOutputStream*)>(&ExceptionInInitializerError::writeObject)), "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ExceptionInInitializerError, init$, void)},
+	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(ExceptionInInitializerError, init$, void, $Throwable*)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ExceptionInInitializerError, init$, void, $String*)},
+	{"getException", "()Ljava/lang/Throwable;", nullptr, $PUBLIC, $virtualMethod(ExceptionInInitializerError, getException, $Throwable*)},
+	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(ExceptionInInitializerError, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(ExceptionInInitializerError, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
 	{}
 };
 

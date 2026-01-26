@@ -24,8 +24,8 @@ $FieldInfo _Test4nonJavaNames_FieldInfo_[] = {
 };
 
 $MethodInfo _Test4nonJavaNames_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Test4nonJavaNames::*)()>(&Test4nonJavaNames::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Test4nonJavaNames::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Test4nonJavaNames, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Test4nonJavaNames, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

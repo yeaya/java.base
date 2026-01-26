@@ -4,6 +4,7 @@
 #include <java/io/ObjectStreamClass.h>
 #include <jcpp.h>
 
+using $ObjectStreamClass = ::java::io::ObjectStreamClass;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -12,18 +13,18 @@ namespace java {
 	namespace io {
 
 $MethodInfo _ObjectInputStream$GetField_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ObjectInputStream$GetField::*)()>(&ObjectInputStream$GetField::init$))},
-	{"defaulted", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"get", "(Ljava/lang/String;Z)Z", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"get", "(Ljava/lang/String;B)B", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"get", "(Ljava/lang/String;C)C", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"get", "(Ljava/lang/String;S)S", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"get", "(Ljava/lang/String;I)I", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"get", "(Ljava/lang/String;J)J", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"get", "(Ljava/lang/String;F)F", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"get", "(Ljava/lang/String;D)D", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"get", "(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"getObjectStreamClass", "()Ljava/io/ObjectStreamClass;", nullptr, $PUBLIC | $ABSTRACT},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ObjectInputStream$GetField, init$, void)},
+	{"defaulted", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ObjectInputStream$GetField, defaulted, bool, $String*), "java.io.IOException"},
+	{"get", "(Ljava/lang/String;Z)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ObjectInputStream$GetField, get, bool, $String*, bool), "java.io.IOException"},
+	{"get", "(Ljava/lang/String;B)B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ObjectInputStream$GetField, get, int8_t, $String*, int8_t), "java.io.IOException"},
+	{"get", "(Ljava/lang/String;C)C", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ObjectInputStream$GetField, get, char16_t, $String*, char16_t), "java.io.IOException"},
+	{"get", "(Ljava/lang/String;S)S", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ObjectInputStream$GetField, get, int16_t, $String*, int16_t), "java.io.IOException"},
+	{"get", "(Ljava/lang/String;I)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ObjectInputStream$GetField, get, int32_t, $String*, int32_t), "java.io.IOException"},
+	{"get", "(Ljava/lang/String;J)J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ObjectInputStream$GetField, get, int64_t, $String*, int64_t), "java.io.IOException"},
+	{"get", "(Ljava/lang/String;F)F", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ObjectInputStream$GetField, get, float, $String*, float), "java.io.IOException"},
+	{"get", "(Ljava/lang/String;D)D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ObjectInputStream$GetField, get, double, $String*, double), "java.io.IOException"},
+	{"get", "(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ObjectInputStream$GetField, get, $Object*, $String*, Object$*), "java.io.IOException"},
+	{"getObjectStreamClass", "()Ljava/io/ObjectStreamClass;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ObjectInputStream$GetField, getObjectStreamClass, $ObjectStreamClass*)},
 	{}
 };
 

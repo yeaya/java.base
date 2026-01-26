@@ -45,8 +45,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo MetafactoryDescriptorTest$ConversionTable$$Lambda$lambda$put$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(MetafactoryDescriptorTest$ConversionTable$$Lambda$lambda$put$0::*)()>(&MetafactoryDescriptorTest$ConversionTable$$Lambda$lambda$put$0::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(MetafactoryDescriptorTest$ConversionTable$$Lambda$lambda$put$0, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MetafactoryDescriptorTest$ConversionTable$$Lambda$lambda$put$0, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo MetafactoryDescriptorTest$ConversionTable$$Lambda$lambda$put$0::classInfo$ = {
@@ -69,10 +69,10 @@ $FieldInfo _MetafactoryDescriptorTest$ConversionTable_FieldInfo_[] = {
 };
 
 $MethodInfo _MetafactoryDescriptorTest$ConversionTable_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(MetafactoryDescriptorTest$ConversionTable::*)()>(&MetafactoryDescriptorTest$ConversionTable::init$))},
-	{"contains", "(Ljava/lang/Class;Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)Z", $PUBLIC},
-	{"lambda$put$0", "(Ljava/lang/Class;)Ljava/util/Set;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Set*(*)($Class*)>(&MetafactoryDescriptorTest$ConversionTable::lambda$put$0))},
-	{"put", "(Ljava/lang/Class;Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)V", $PUBLIC},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(MetafactoryDescriptorTest$ConversionTable, init$, void)},
+	{"contains", "(Ljava/lang/Class;Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)Z", $PUBLIC, $virtualMethod(MetafactoryDescriptorTest$ConversionTable, contains, bool, $Class*, $Class*)},
+	{"lambda$put$0", "(Ljava/lang/Class;)Ljava/util/Set;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MetafactoryDescriptorTest$ConversionTable, lambda$put$0, $Set*, $Class*)},
+	{"put", "(Ljava/lang/Class;Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)V", $PUBLIC, $virtualMethod(MetafactoryDescriptorTest$ConversionTable, put, void, $Class*, $Class*)},
 	{}
 };
 

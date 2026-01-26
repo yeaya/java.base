@@ -23,10 +23,10 @@ $FieldInfo _ObjectStreamClass$DeserializationConstructorsCache$Key$Impl_FieldInf
 };
 
 $MethodInfo _ObjectStreamClass$DeserializationConstructorsCache$Key$Impl_MethodInfo_[] = {
-	{"<init>", "([Ljava/io/ObjectStreamField;)V", nullptr, 0, $method(static_cast<void(ObjectStreamClass$DeserializationConstructorsCache$Key$Impl::*)($ObjectStreamFieldArray*)>(&ObjectStreamClass$DeserializationConstructorsCache$Key$Impl::init$))},
-	{"fieldName", "(I)Ljava/lang/String;", nullptr, 0},
-	{"fieldType", "(I)Ljava/lang/Class;", "(I)Ljava/lang/Class<*>;", 0},
-	{"length", "()I", nullptr, 0},
+	{"<init>", "([Ljava/io/ObjectStreamField;)V", nullptr, 0, $method(ObjectStreamClass$DeserializationConstructorsCache$Key$Impl, init$, void, $ObjectStreamFieldArray*)},
+	{"fieldName", "(I)Ljava/lang/String;", nullptr, 0, $virtualMethod(ObjectStreamClass$DeserializationConstructorsCache$Key$Impl, fieldName, $String*, int32_t)},
+	{"fieldType", "(I)Ljava/lang/Class;", "(I)Ljava/lang/Class<*>;", 0, $virtualMethod(ObjectStreamClass$DeserializationConstructorsCache$Key$Impl, fieldType, $Class*, int32_t)},
+	{"length", "()I", nullptr, 0, $virtualMethod(ObjectStreamClass$DeserializationConstructorsCache$Key$Impl, length, int32_t)},
 	{}
 };
 

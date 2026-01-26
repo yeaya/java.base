@@ -38,17 +38,17 @@ $FieldInfo _SSLSocketFactoryImpl_FieldInfo_[] = {
 };
 
 $MethodInfo _SSLSocketFactoryImpl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SSLSocketFactoryImpl::*)()>(&SSLSocketFactoryImpl::init$)), "java.lang.Exception"},
-	{"<init>", "(Lsun/security/ssl/SSLContextImpl;)V", nullptr, 0, $method(static_cast<void(SSLSocketFactoryImpl::*)($SSLContextImpl*)>(&SSLSocketFactoryImpl::init$))},
-	{"createSocket", "()Ljava/net/Socket;", nullptr, $PUBLIC},
-	{"createSocket", "(Ljava/lang/String;I)Ljava/net/Socket;", nullptr, $PUBLIC, nullptr, "java.io.IOException,java.net.UnknownHostException"},
-	{"createSocket", "(Ljava/net/Socket;Ljava/lang/String;IZ)Ljava/net/Socket;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"createSocket", "(Ljava/net/Socket;Ljava/io/InputStream;Z)Ljava/net/Socket;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"createSocket", "(Ljava/net/InetAddress;I)Ljava/net/Socket;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"createSocket", "(Ljava/lang/String;ILjava/net/InetAddress;I)Ljava/net/Socket;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"createSocket", "(Ljava/net/InetAddress;ILjava/net/InetAddress;I)Ljava/net/Socket;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"getDefaultCipherSuites", "()[Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getSupportedCipherSuites", "()[Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SSLSocketFactoryImpl, init$, void), "java.lang.Exception"},
+	{"<init>", "(Lsun/security/ssl/SSLContextImpl;)V", nullptr, 0, $method(SSLSocketFactoryImpl, init$, void, $SSLContextImpl*)},
+	{"createSocket", "()Ljava/net/Socket;", nullptr, $PUBLIC, $virtualMethod(SSLSocketFactoryImpl, createSocket, $Socket*)},
+	{"createSocket", "(Ljava/lang/String;I)Ljava/net/Socket;", nullptr, $PUBLIC, $virtualMethod(SSLSocketFactoryImpl, createSocket, $Socket*, $String*, int32_t), "java.io.IOException,java.net.UnknownHostException"},
+	{"createSocket", "(Ljava/net/Socket;Ljava/lang/String;IZ)Ljava/net/Socket;", nullptr, $PUBLIC, $virtualMethod(SSLSocketFactoryImpl, createSocket, $Socket*, $Socket*, $String*, int32_t, bool), "java.io.IOException"},
+	{"createSocket", "(Ljava/net/Socket;Ljava/io/InputStream;Z)Ljava/net/Socket;", nullptr, $PUBLIC, $virtualMethod(SSLSocketFactoryImpl, createSocket, $Socket*, $Socket*, $InputStream*, bool), "java.io.IOException"},
+	{"createSocket", "(Ljava/net/InetAddress;I)Ljava/net/Socket;", nullptr, $PUBLIC, $virtualMethod(SSLSocketFactoryImpl, createSocket, $Socket*, $InetAddress*, int32_t), "java.io.IOException"},
+	{"createSocket", "(Ljava/lang/String;ILjava/net/InetAddress;I)Ljava/net/Socket;", nullptr, $PUBLIC, $virtualMethod(SSLSocketFactoryImpl, createSocket, $Socket*, $String*, int32_t, $InetAddress*, int32_t), "java.io.IOException"},
+	{"createSocket", "(Ljava/net/InetAddress;ILjava/net/InetAddress;I)Ljava/net/Socket;", nullptr, $PUBLIC, $virtualMethod(SSLSocketFactoryImpl, createSocket, $Socket*, $InetAddress*, int32_t, $InetAddress*, int32_t), "java.io.IOException"},
+	{"getDefaultCipherSuites", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SSLSocketFactoryImpl, getDefaultCipherSuites, $StringArray*)},
+	{"getSupportedCipherSuites", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SSLSocketFactoryImpl, getSupportedCipherSuites, $StringArray*)},
 	{}
 };
 

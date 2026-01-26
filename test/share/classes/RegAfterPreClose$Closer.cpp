@@ -18,8 +18,8 @@ $FieldInfo _RegAfterPreClose$Closer_FieldInfo_[] = {
 };
 
 $MethodInfo _RegAfterPreClose$Closer_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/channels/Channel;)V", nullptr, 0, $method(static_cast<void(RegAfterPreClose$Closer::*)($Channel*)>(&RegAfterPreClose$Closer::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/nio/channels/Channel;)V", nullptr, 0, $method(RegAfterPreClose$Closer, init$, void, $Channel*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(RegAfterPreClose$Closer, run, void)},
 	{}
 };
 

@@ -10,16 +10,19 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
+using $CertPath = ::java::security::cert::CertPath;
 using $CertPathChecker = ::java::security::cert::CertPathChecker;
+using $CertPathParameters = ::java::security::cert::CertPathParameters;
+using $CertPathValidatorResult = ::java::security::cert::CertPathValidatorResult;
 
 namespace java {
 	namespace security {
 		namespace cert {
 
 $MethodInfo _CertPathValidatorSpi_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CertPathValidatorSpi::*)()>(&CertPathValidatorSpi::init$))},
-	{"engineGetRevocationChecker", "()Ljava/security/cert/CertPathChecker;", nullptr, $PUBLIC},
-	{"engineValidate", "(Ljava/security/cert/CertPath;Ljava/security/cert/CertPathParameters;)Ljava/security/cert/CertPathValidatorResult;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.security.cert.CertPathValidatorException,java.security.InvalidAlgorithmParameterException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CertPathValidatorSpi, init$, void)},
+	{"engineGetRevocationChecker", "()Ljava/security/cert/CertPathChecker;", nullptr, $PUBLIC, $virtualMethod(CertPathValidatorSpi, engineGetRevocationChecker, $CertPathChecker*)},
+	{"engineValidate", "(Ljava/security/cert/CertPath;Ljava/security/cert/CertPathParameters;)Ljava/security/cert/CertPathValidatorResult;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CertPathValidatorSpi, engineValidate, $CertPathValidatorResult*, $CertPath*, $CertPathParameters*), "java.security.cert.CertPathValidatorException,java.security.InvalidAlgorithmParameterException"},
 	{}
 };
 

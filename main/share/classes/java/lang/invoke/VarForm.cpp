@@ -95,15 +95,15 @@ $FieldInfo _VarForm_FieldInfo_[] = {
 };
 
 $MethodInfo _VarForm_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/Class;[Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;Ljava/lang/Class<*>;[Ljava/lang/Class<*>;)V", $TRANSIENT, $method(static_cast<void(VarForm::*)($Class*,$Class*,$Class*,$ClassArray*)>(&VarForm::init$))},
-	{"<init>", "(Ljava/lang/Class;[Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;[Ljava/lang/Class<*>;)V", 0, $method(static_cast<void(VarForm::*)($Class*,$ClassArray*)>(&VarForm::init$))},
-	{"getMemberName", "(I)Ljava/lang/invoke/MemberName;", nullptr, $FINAL, $method(static_cast<$MemberName*(VarForm::*)(int32_t)>(&VarForm::getMemberName)), nullptr, nullptr, _VarForm_MethodAnnotations_getMemberName2},
-	{"getMemberNameOrNull", "(I)Ljava/lang/invoke/MemberName;", nullptr, $FINAL, $method(static_cast<$MemberName*(VarForm::*)(int32_t)>(&VarForm::getMemberNameOrNull)), nullptr, nullptr, _VarForm_MethodAnnotations_getMemberNameOrNull3},
-	{"getMethodType", "(I)Ljava/lang/invoke/MethodType;", nullptr, $FINAL, $method(static_cast<$MethodType*(VarForm::*)(int32_t)>(&VarForm::getMethodType)), nullptr, nullptr, _VarForm_MethodAnnotations_getMethodType4},
-	{"getMethodType_V", "(I)Ljava/lang/invoke/MethodType;", nullptr, $FINAL, $method(static_cast<$MethodType*(VarForm::*)(int32_t)>(&VarForm::getMethodType_V)), nullptr, nullptr, _VarForm_MethodAnnotations_getMethodType_V5},
-	{"getMethodType_V_init", "()[Ljava/lang/invoke/MethodType;", nullptr, $FINAL, $method(static_cast<$MethodTypeArray*(VarForm::*)()>(&VarForm::getMethodType_V_init)), nullptr, nullptr, _VarForm_MethodAnnotations_getMethodType_V_init6},
-	{"initMethodTypes", "(Ljava/lang/Class;[Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;[Ljava/lang/Class<*>;)V", $TRANSIENT, $method(static_cast<void(VarForm::*)($Class*,$ClassArray*)>(&VarForm::initMethodTypes))},
-	{"resolveMemberName", "(I)Ljava/lang/invoke/MemberName;", nullptr, 0, $method(static_cast<$MemberName*(VarForm::*)(int32_t)>(&VarForm::resolveMemberName)), nullptr, nullptr, _VarForm_MethodAnnotations_resolveMemberName8},
+	{"<init>", "(Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/Class;[Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;Ljava/lang/Class<*>;[Ljava/lang/Class<*>;)V", $TRANSIENT, $method(VarForm, init$, void, $Class*, $Class*, $Class*, $ClassArray*)},
+	{"<init>", "(Ljava/lang/Class;[Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;[Ljava/lang/Class<*>;)V", 0, $method(VarForm, init$, void, $Class*, $ClassArray*)},
+	{"getMemberName", "(I)Ljava/lang/invoke/MemberName;", nullptr, $FINAL, $method(VarForm, getMemberName, $MemberName*, int32_t), nullptr, nullptr, _VarForm_MethodAnnotations_getMemberName2},
+	{"getMemberNameOrNull", "(I)Ljava/lang/invoke/MemberName;", nullptr, $FINAL, $method(VarForm, getMemberNameOrNull, $MemberName*, int32_t), nullptr, nullptr, _VarForm_MethodAnnotations_getMemberNameOrNull3},
+	{"getMethodType", "(I)Ljava/lang/invoke/MethodType;", nullptr, $FINAL, $method(VarForm, getMethodType, $MethodType*, int32_t), nullptr, nullptr, _VarForm_MethodAnnotations_getMethodType4},
+	{"getMethodType_V", "(I)Ljava/lang/invoke/MethodType;", nullptr, $FINAL, $method(VarForm, getMethodType_V, $MethodType*, int32_t), nullptr, nullptr, _VarForm_MethodAnnotations_getMethodType_V5},
+	{"getMethodType_V_init", "()[Ljava/lang/invoke/MethodType;", nullptr, $FINAL, $method(VarForm, getMethodType_V_init, $MethodTypeArray*), nullptr, nullptr, _VarForm_MethodAnnotations_getMethodType_V_init6},
+	{"initMethodTypes", "(Ljava/lang/Class;[Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;[Ljava/lang/Class<*>;)V", $TRANSIENT, $method(VarForm, initMethodTypes, void, $Class*, $ClassArray*)},
+	{"resolveMemberName", "(I)Ljava/lang/invoke/MemberName;", nullptr, 0, $method(VarForm, resolveMemberName, $MemberName*, int32_t), nullptr, nullptr, _VarForm_MethodAnnotations_resolveMemberName8},
 	{}
 };
 

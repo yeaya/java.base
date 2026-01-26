@@ -35,8 +35,8 @@ $FieldInfo _ICCBasher_FieldInfo_[] = {
 };
 
 $MethodInfo _ICCBasher_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ICCBasher::*)()>(&ICCBasher::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&ICCBasher::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ICCBasher, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ICCBasher, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

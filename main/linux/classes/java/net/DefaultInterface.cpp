@@ -11,8 +11,8 @@ namespace java {
 	namespace net {
 
 $MethodInfo _DefaultInterface_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(DefaultInterface::*)()>(&DefaultInterface::init$))},
-	{"getDefault", "()Ljava/net/NetworkInterface;", nullptr, $STATIC, $method(static_cast<$NetworkInterface*(*)()>(&DefaultInterface::getDefault))},
+	{"<init>", "()V", nullptr, 0, $method(DefaultInterface, init$, void)},
+	{"getDefault", "()Ljava/net/NetworkInterface;", nullptr, $STATIC, $staticMethod(DefaultInterface, getDefault, $NetworkInterface*)},
 	{}
 };
 

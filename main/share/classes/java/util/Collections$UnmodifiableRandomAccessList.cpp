@@ -25,10 +25,10 @@ $MethodInfo _Collections$UnmodifiableRandomAccessList_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "(Ljava/util/List;)V", "(Ljava/util/List<+TE;>;)V", 0, $method(static_cast<void(Collections$UnmodifiableRandomAccessList::*)($List*)>(&Collections$UnmodifiableRandomAccessList::init$))},
-	{"subList", "(II)Ljava/util/List;", "(II)Ljava/util/List<TE;>;", $PUBLIC},
+	{"<init>", "(Ljava/util/List;)V", "(Ljava/util/List<+TE;>;)V", 0, $method(Collections$UnmodifiableRandomAccessList, init$, void, $List*)},
+	{"subList", "(II)Ljava/util/List;", "(II)Ljava/util/List<TE;>;", $PUBLIC, $virtualMethod(Collections$UnmodifiableRandomAccessList, subList, $List*, int32_t, int32_t)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"writeReplace", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(static_cast<$Object*(Collections$UnmodifiableRandomAccessList::*)()>(&Collections$UnmodifiableRandomAccessList::writeReplace))},
+	{"writeReplace", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(Collections$UnmodifiableRandomAccessList, writeReplace, $Object*)},
 	{}
 };
 

@@ -5,26 +5,27 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Iterator = ::java::util::Iterator;
 
 namespace java {
 	namespace util {
 
 $MethodInfo _NavigableSet_MethodInfo_[] = {
-	{"ceiling", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TE;)TE;", $PUBLIC | $ABSTRACT},
-	{"descendingIterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TE;>;", $PUBLIC | $ABSTRACT},
-	{"descendingSet", "()Ljava/util/NavigableSet;", "()Ljava/util/NavigableSet<TE;>;", $PUBLIC | $ABSTRACT},
-	{"floor", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TE;)TE;", $PUBLIC | $ABSTRACT},
+	{"ceiling", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TE;)TE;", $PUBLIC | $ABSTRACT, $virtualMethod(NavigableSet, ceiling, $Object*, Object$*)},
+	{"descendingIterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TE;>;", $PUBLIC | $ABSTRACT, $virtualMethod(NavigableSet, descendingIterator, $Iterator*)},
+	{"descendingSet", "()Ljava/util/NavigableSet;", "()Ljava/util/NavigableSet<TE;>;", $PUBLIC | $ABSTRACT, $virtualMethod(NavigableSet, descendingSet, NavigableSet*)},
+	{"floor", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TE;)TE;", $PUBLIC | $ABSTRACT, $virtualMethod(NavigableSet, floor, $Object*, Object$*)},
 	{"headSet", "(Ljava/lang/Object;)Ljava/util/SortedSet;", nullptr, $PUBLIC | $ABSTRACT},
-	{"headSet", "(Ljava/lang/Object;Z)Ljava/util/NavigableSet;", "(TE;Z)Ljava/util/NavigableSet<TE;>;", $PUBLIC | $ABSTRACT},
-	{"higher", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TE;)TE;", $PUBLIC | $ABSTRACT},
+	{"headSet", "(Ljava/lang/Object;Z)Ljava/util/NavigableSet;", "(TE;Z)Ljava/util/NavigableSet<TE;>;", $PUBLIC | $ABSTRACT, $virtualMethod(NavigableSet, headSet, NavigableSet*, Object$*, bool)},
+	{"higher", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TE;)TE;", $PUBLIC | $ABSTRACT, $virtualMethod(NavigableSet, higher, $Object*, Object$*)},
 	{"iterator", "()Ljava/util/Iterator;", nullptr, $PUBLIC | $ABSTRACT},
-	{"lower", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TE;)TE;", $PUBLIC | $ABSTRACT},
-	{"pollFirst", "()Ljava/lang/Object;", "()TE;", $PUBLIC | $ABSTRACT},
-	{"pollLast", "()Ljava/lang/Object;", "()TE;", $PUBLIC | $ABSTRACT},
+	{"lower", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TE;)TE;", $PUBLIC | $ABSTRACT, $virtualMethod(NavigableSet, lower, $Object*, Object$*)},
+	{"pollFirst", "()Ljava/lang/Object;", "()TE;", $PUBLIC | $ABSTRACT, $virtualMethod(NavigableSet, pollFirst, $Object*)},
+	{"pollLast", "()Ljava/lang/Object;", "()TE;", $PUBLIC | $ABSTRACT, $virtualMethod(NavigableSet, pollLast, $Object*)},
 	{"subSet", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/SortedSet;", nullptr, $PUBLIC | $ABSTRACT},
-	{"subSet", "(Ljava/lang/Object;ZLjava/lang/Object;Z)Ljava/util/NavigableSet;", "(TE;ZTE;Z)Ljava/util/NavigableSet<TE;>;", $PUBLIC | $ABSTRACT},
+	{"subSet", "(Ljava/lang/Object;ZLjava/lang/Object;Z)Ljava/util/NavigableSet;", "(TE;ZTE;Z)Ljava/util/NavigableSet<TE;>;", $PUBLIC | $ABSTRACT, $virtualMethod(NavigableSet, subSet, NavigableSet*, Object$*, bool, Object$*, bool)},
 	{"tailSet", "(Ljava/lang/Object;)Ljava/util/SortedSet;", nullptr, $PUBLIC | $ABSTRACT},
-	{"tailSet", "(Ljava/lang/Object;Z)Ljava/util/NavigableSet;", "(TE;Z)Ljava/util/NavigableSet<TE;>;", $PUBLIC | $ABSTRACT},
+	{"tailSet", "(Ljava/lang/Object;Z)Ljava/util/NavigableSet;", "(TE;Z)Ljava/util/NavigableSet<TE;>;", $PUBLIC | $ABSTRACT, $virtualMethod(NavigableSet, tailSet, NavigableSet*, Object$*, bool)},
 	{}
 };
 

@@ -15,8 +15,8 @@ using $Method = ::java::lang::reflect::Method;
 using $Modifier = ::java::lang::reflect::Modifier;
 
 $MethodInfo _NonPublicStaticInitializer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(NonPublicStaticInitializer::*)()>(&NonPublicStaticInitializer::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&NonPublicStaticInitializer::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(NonPublicStaticInitializer, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(NonPublicStaticInitializer, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

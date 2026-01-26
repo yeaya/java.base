@@ -11,8 +11,8 @@ namespace sun {
 		namespace provider {
 
 $MethodInfo _NativePRNG_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(NativePRNG::*)()>(&NativePRNG::init$))},
-	{"isAvailable", "()Z", nullptr, $STATIC, $method(static_cast<bool(*)()>(&NativePRNG::isAvailable))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(NativePRNG, init$, void)},
+	{"isAvailable", "()Z", nullptr, $STATIC, $staticMethod(NativePRNG, isAvailable, bool)},
 	{}
 };
 

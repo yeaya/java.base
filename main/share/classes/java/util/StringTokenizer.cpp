@@ -31,19 +31,19 @@ $FieldInfo _StringTokenizer_FieldInfo_[] = {
 };
 
 $MethodInfo _StringTokenizer_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(static_cast<void(StringTokenizer::*)($String*,$String*,bool)>(&StringTokenizer::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(StringTokenizer::*)($String*,$String*)>(&StringTokenizer::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(StringTokenizer::*)($String*)>(&StringTokenizer::init$))},
-	{"countTokens", "()I", nullptr, $PUBLIC},
-	{"hasMoreElements", "()Z", nullptr, $PUBLIC},
-	{"hasMoreTokens", "()Z", nullptr, $PUBLIC},
-	{"isDelimiter", "(I)Z", nullptr, $PRIVATE, $method(static_cast<bool(StringTokenizer::*)(int32_t)>(&StringTokenizer::isDelimiter))},
-	{"nextElement", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"nextToken", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"nextToken", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"scanToken", "(I)I", nullptr, $PRIVATE, $method(static_cast<int32_t(StringTokenizer::*)(int32_t)>(&StringTokenizer::scanToken))},
-	{"setMaxDelimCodePoint", "()V", nullptr, $PRIVATE, $method(static_cast<void(StringTokenizer::*)()>(&StringTokenizer::setMaxDelimCodePoint))},
-	{"skipDelimiters", "(I)I", nullptr, $PRIVATE, $method(static_cast<int32_t(StringTokenizer::*)(int32_t)>(&StringTokenizer::skipDelimiters))},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(StringTokenizer, init$, void, $String*, $String*, bool)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(StringTokenizer, init$, void, $String*, $String*)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(StringTokenizer, init$, void, $String*)},
+	{"countTokens", "()I", nullptr, $PUBLIC, $virtualMethod(StringTokenizer, countTokens, int32_t)},
+	{"hasMoreElements", "()Z", nullptr, $PUBLIC, $virtualMethod(StringTokenizer, hasMoreElements, bool)},
+	{"hasMoreTokens", "()Z", nullptr, $PUBLIC, $virtualMethod(StringTokenizer, hasMoreTokens, bool)},
+	{"isDelimiter", "(I)Z", nullptr, $PRIVATE, $method(StringTokenizer, isDelimiter, bool, int32_t)},
+	{"nextElement", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(StringTokenizer, nextElement, $Object*)},
+	{"nextToken", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StringTokenizer, nextToken, $String*)},
+	{"nextToken", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StringTokenizer, nextToken, $String*, $String*)},
+	{"scanToken", "(I)I", nullptr, $PRIVATE, $method(StringTokenizer, scanToken, int32_t, int32_t)},
+	{"setMaxDelimCodePoint", "()V", nullptr, $PRIVATE, $method(StringTokenizer, setMaxDelimCodePoint, void)},
+	{"skipDelimiters", "(I)I", nullptr, $PRIVATE, $method(StringTokenizer, skipDelimiters, int32_t, int32_t)},
 	{}
 };
 

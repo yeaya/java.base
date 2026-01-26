@@ -28,9 +28,9 @@ $FieldInfo _ObjectInputFilter$Config$PredicateFilter_FieldInfo_[] = {
 };
 
 $MethodInfo _ObjectInputFilter$Config$PredicateFilter_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/function/Predicate;Ljava/io/ObjectInputFilter$Status;Ljava/io/ObjectInputFilter$Status;)V", "(Ljava/util/function/Predicate<Ljava/lang/Class<*>;>;Ljava/io/ObjectInputFilter$Status;Ljava/io/ObjectInputFilter$Status;)V", 0, $method(static_cast<void(ObjectInputFilter$Config$PredicateFilter::*)($Predicate*,$ObjectInputFilter$Status*,$ObjectInputFilter$Status*)>(&ObjectInputFilter$Config$PredicateFilter::init$))},
-	{"checkInput", "(Ljava/io/ObjectInputFilter$FilterInfo;)Ljava/io/ObjectInputFilter$Status;", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/function/Predicate;Ljava/io/ObjectInputFilter$Status;Ljava/io/ObjectInputFilter$Status;)V", "(Ljava/util/function/Predicate<Ljava/lang/Class<*>;>;Ljava/io/ObjectInputFilter$Status;Ljava/io/ObjectInputFilter$Status;)V", 0, $method(ObjectInputFilter$Config$PredicateFilter, init$, void, $Predicate*, $ObjectInputFilter$Status*, $ObjectInputFilter$Status*)},
+	{"checkInput", "(Ljava/io/ObjectInputFilter$FilterInfo;)Ljava/io/ObjectInputFilter$Status;", nullptr, $PUBLIC, $virtualMethod(ObjectInputFilter$Config$PredicateFilter, checkInput, $ObjectInputFilter$Status*, $ObjectInputFilter$FilterInfo*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ObjectInputFilter$Config$PredicateFilter, toString, $String*)},
 	{}
 };
 

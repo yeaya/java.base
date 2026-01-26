@@ -7,8 +7,14 @@
 #include <sun/reflect/generics/tree/FieldTypeSignature.h>
 #include <jcpp.h>
 
+using $TypeArray = $Array<::java::lang::reflect::Type>;
+using $FieldTypeSignatureArray = $Array<::sun::reflect::generics::tree::FieldTypeSignature>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $ParameterizedType = ::java::lang::reflect::ParameterizedType;
+using $Type = ::java::lang::reflect::Type;
+using $TypeVariable = ::java::lang::reflect::TypeVariable;
+using $WildcardType = ::java::lang::reflect::WildcardType;
 
 namespace sun {
 	namespace reflect {
@@ -16,21 +22,21 @@ namespace sun {
 			namespace factory {
 
 $MethodInfo _GenericsFactory_MethodInfo_[] = {
-	{"findTypeVariable", "(Ljava/lang/String;)Ljava/lang/reflect/TypeVariable;", "(Ljava/lang/String;)Ljava/lang/reflect/TypeVariable<*>;", $PUBLIC | $ABSTRACT},
-	{"makeArrayType", "(Ljava/lang/reflect/Type;)Ljava/lang/reflect/Type;", nullptr, $PUBLIC | $ABSTRACT},
-	{"makeBool", "()Ljava/lang/reflect/Type;", nullptr, $PUBLIC | $ABSTRACT},
-	{"makeByte", "()Ljava/lang/reflect/Type;", nullptr, $PUBLIC | $ABSTRACT},
-	{"makeChar", "()Ljava/lang/reflect/Type;", nullptr, $PUBLIC | $ABSTRACT},
-	{"makeDouble", "()Ljava/lang/reflect/Type;", nullptr, $PUBLIC | $ABSTRACT},
-	{"makeFloat", "()Ljava/lang/reflect/Type;", nullptr, $PUBLIC | $ABSTRACT},
-	{"makeInt", "()Ljava/lang/reflect/Type;", nullptr, $PUBLIC | $ABSTRACT},
-	{"makeLong", "()Ljava/lang/reflect/Type;", nullptr, $PUBLIC | $ABSTRACT},
-	{"makeNamedType", "(Ljava/lang/String;)Ljava/lang/reflect/Type;", nullptr, $PUBLIC | $ABSTRACT},
-	{"makeParameterizedType", "(Ljava/lang/reflect/Type;[Ljava/lang/reflect/Type;Ljava/lang/reflect/Type;)Ljava/lang/reflect/ParameterizedType;", nullptr, $PUBLIC | $ABSTRACT},
-	{"makeShort", "()Ljava/lang/reflect/Type;", nullptr, $PUBLIC | $ABSTRACT},
-	{"makeTypeVariable", "(Ljava/lang/String;[Lsun/reflect/generics/tree/FieldTypeSignature;)Ljava/lang/reflect/TypeVariable;", "(Ljava/lang/String;[Lsun/reflect/generics/tree/FieldTypeSignature;)Ljava/lang/reflect/TypeVariable<*>;", $PUBLIC | $ABSTRACT},
-	{"makeVoid", "()Ljava/lang/reflect/Type;", nullptr, $PUBLIC | $ABSTRACT},
-	{"makeWildcard", "([Lsun/reflect/generics/tree/FieldTypeSignature;[Lsun/reflect/generics/tree/FieldTypeSignature;)Ljava/lang/reflect/WildcardType;", nullptr, $PUBLIC | $ABSTRACT},
+	{"findTypeVariable", "(Ljava/lang/String;)Ljava/lang/reflect/TypeVariable;", "(Ljava/lang/String;)Ljava/lang/reflect/TypeVariable<*>;", $PUBLIC | $ABSTRACT, $virtualMethod(GenericsFactory, findTypeVariable, $TypeVariable*, $String*)},
+	{"makeArrayType", "(Ljava/lang/reflect/Type;)Ljava/lang/reflect/Type;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GenericsFactory, makeArrayType, $Type*, $Type*)},
+	{"makeBool", "()Ljava/lang/reflect/Type;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GenericsFactory, makeBool, $Type*)},
+	{"makeByte", "()Ljava/lang/reflect/Type;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GenericsFactory, makeByte, $Type*)},
+	{"makeChar", "()Ljava/lang/reflect/Type;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GenericsFactory, makeChar, $Type*)},
+	{"makeDouble", "()Ljava/lang/reflect/Type;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GenericsFactory, makeDouble, $Type*)},
+	{"makeFloat", "()Ljava/lang/reflect/Type;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GenericsFactory, makeFloat, $Type*)},
+	{"makeInt", "()Ljava/lang/reflect/Type;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GenericsFactory, makeInt, $Type*)},
+	{"makeLong", "()Ljava/lang/reflect/Type;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GenericsFactory, makeLong, $Type*)},
+	{"makeNamedType", "(Ljava/lang/String;)Ljava/lang/reflect/Type;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GenericsFactory, makeNamedType, $Type*, $String*)},
+	{"makeParameterizedType", "(Ljava/lang/reflect/Type;[Ljava/lang/reflect/Type;Ljava/lang/reflect/Type;)Ljava/lang/reflect/ParameterizedType;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GenericsFactory, makeParameterizedType, $ParameterizedType*, $Type*, $TypeArray*, $Type*)},
+	{"makeShort", "()Ljava/lang/reflect/Type;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GenericsFactory, makeShort, $Type*)},
+	{"makeTypeVariable", "(Ljava/lang/String;[Lsun/reflect/generics/tree/FieldTypeSignature;)Ljava/lang/reflect/TypeVariable;", "(Ljava/lang/String;[Lsun/reflect/generics/tree/FieldTypeSignature;)Ljava/lang/reflect/TypeVariable<*>;", $PUBLIC | $ABSTRACT, $virtualMethod(GenericsFactory, makeTypeVariable, $TypeVariable*, $String*, $FieldTypeSignatureArray*)},
+	{"makeVoid", "()Ljava/lang/reflect/Type;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GenericsFactory, makeVoid, $Type*)},
+	{"makeWildcard", "([Lsun/reflect/generics/tree/FieldTypeSignature;[Lsun/reflect/generics/tree/FieldTypeSignature;)Ljava/lang/reflect/WildcardType;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GenericsFactory, makeWildcard, $WildcardType*, $FieldTypeSignatureArray*, $FieldTypeSignatureArray*)},
 	{}
 };
 

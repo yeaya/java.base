@@ -20,7 +20,7 @@ $CompoundAttribute _SingleMemberShort_Annotations_[] = {
 };
 
 $MethodInfo _SingleMemberShort_MethodInfo_[] = {
-	{"value", "()S", nullptr, $PUBLIC | $ABSTRACT},
+	{"value", "()S", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SingleMemberShort, value, int16_t)},
 	{}
 };
 

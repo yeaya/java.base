@@ -22,9 +22,9 @@ $FieldInfo _MultiThreadStackWalk$Marker_FieldInfo_[] = {
 };
 
 $MethodInfo _MultiThreadStackWalk$Marker_MethodInfo_[] = {
-	{"<init>", "(LMultiThreadStackWalk$Call$WalkType;)V", nullptr, 0, $method(static_cast<void(MultiThreadStackWalk$Marker::*)($MultiThreadStackWalk$Call$WalkType*)>(&MultiThreadStackWalk$Marker::init$))},
-	{"call", "(LMultiThreadStackWalk$Env;LMultiThreadStackWalk$Call;III)V", nullptr, $PUBLIC},
-	{"getWalkType", "()LMultiThreadStackWalk$Call$WalkType;", nullptr, $PUBLIC},
+	{"<init>", "(LMultiThreadStackWalk$Call$WalkType;)V", nullptr, 0, $method(MultiThreadStackWalk$Marker, init$, void, $MultiThreadStackWalk$Call$WalkType*)},
+	{"call", "(LMultiThreadStackWalk$Env;LMultiThreadStackWalk$Call;III)V", nullptr, $PUBLIC, $virtualMethod(MultiThreadStackWalk$Marker, call, void, $MultiThreadStackWalk$Env*, $MultiThreadStackWalk$Call*, int32_t, int32_t, int32_t)},
+	{"getWalkType", "()LMultiThreadStackWalk$Call$WalkType;", nullptr, $PUBLIC, $virtualMethod(MultiThreadStackWalk$Marker, getWalkType, $MultiThreadStackWalk$Call$WalkType*)},
 	{}
 };
 

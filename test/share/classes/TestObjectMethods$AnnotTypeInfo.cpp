@@ -4,6 +4,7 @@
 #include <TestObjectMethods.h>
 #include <jcpp.h>
 
+using $TestObjectMethods$Relation = ::TestObjectMethods$Relation;
 using $Attribute = ::java::lang::Attribute;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
@@ -41,8 +42,8 @@ $Attribute _TestObjectMethods$AnnotTypeInfo_DefaultValue_relation1 = {
 };
 
 $MethodInfo _TestObjectMethods$AnnotTypeInfo_MethodInfo_[] = {
-	{"count", "()I", nullptr, $PUBLIC | $ABSTRACT, nullptr, nullptr, &_TestObjectMethods$AnnotTypeInfo_DefaultValue_count0},
-	{"relation", "()LTestObjectMethods$Relation;", nullptr, $PUBLIC | $ABSTRACT, nullptr, nullptr, &_TestObjectMethods$AnnotTypeInfo_DefaultValue_relation1},
+	{"count", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TestObjectMethods$AnnotTypeInfo, count, int32_t), nullptr, &_TestObjectMethods$AnnotTypeInfo_DefaultValue_count0},
+	{"relation", "()LTestObjectMethods$Relation;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TestObjectMethods$AnnotTypeInfo, relation, $TestObjectMethods$Relation*), nullptr, &_TestObjectMethods$AnnotTypeInfo_DefaultValue_relation1},
 	{}
 };
 

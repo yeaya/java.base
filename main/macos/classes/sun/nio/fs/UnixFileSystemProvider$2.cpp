@@ -26,8 +26,8 @@ $FieldInfo _UnixFileSystemProvider$2_FieldInfo_[] = {
 };
 
 $MethodInfo _UnixFileSystemProvider$2_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/fs/UnixFileSystemProvider;[Lsun/nio/fs/AbstractFileTypeDetector;)V", nullptr, 0, $method(static_cast<void(UnixFileSystemProvider$2::*)($UnixFileSystemProvider*,$AbstractFileTypeDetectorArray*)>(&UnixFileSystemProvider$2::init$))},
-	{"implProbeContentType", "(Ljava/nio/file/Path;)Ljava/lang/String;", nullptr, $PROTECTED, nullptr, "java.io.IOException"},
+	{"<init>", "(Lsun/nio/fs/UnixFileSystemProvider;[Lsun/nio/fs/AbstractFileTypeDetector;)V", nullptr, 0, $method(UnixFileSystemProvider$2, init$, void, $UnixFileSystemProvider*, $AbstractFileTypeDetectorArray*)},
+	{"implProbeContentType", "(Ljava/nio/file/Path;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(UnixFileSystemProvider$2, implProbeContentType, $String*, $Path*), "java.io.IOException"},
 	{}
 };
 

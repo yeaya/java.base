@@ -23,8 +23,8 @@ $FieldInfo _SocksServer$ClientHandler$Tunnel_FieldInfo_[] = {
 };
 
 $MethodInfo _SocksServer$ClientHandler$Tunnel_MethodInfo_[] = {
-	{"<init>", "(LSocksServer$ClientHandler;Ljava/io/InputStream;Ljava/io/OutputStream;)V", nullptr, 0, $method(static_cast<void(SocksServer$ClientHandler$Tunnel::*)($SocksServer$ClientHandler*,$InputStream*,$OutputStream*)>(&SocksServer$ClientHandler$Tunnel::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(LSocksServer$ClientHandler;Ljava/io/InputStream;Ljava/io/OutputStream;)V", nullptr, 0, $method(SocksServer$ClientHandler$Tunnel, init$, void, $SocksServer$ClientHandler*, $InputStream*, $OutputStream*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(SocksServer$ClientHandler$Tunnel, run, void)},
 	{}
 };
 

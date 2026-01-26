@@ -37,11 +37,11 @@ $FieldInfo _JmodFile$Section_FieldInfo_[] = {
 };
 
 $MethodInfo _JmodFile$Section_MethodInfo_[] = {
-	{"$values", "()[Ljdk/internal/jmod/JmodFile$Section;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$JmodFile$SectionArray*(*)()>(&JmodFile$Section::$values))},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "(Ljava/lang/String;)V", $PRIVATE, $method(static_cast<void(JmodFile$Section::*)($String*,int32_t,$String*)>(&JmodFile$Section::init$))},
-	{"jmodDir", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(static_cast<$String*(JmodFile$Section::*)()>(&JmodFile$Section::jmodDir))},
-	{"valueOf", "(Ljava/lang/String;)Ljdk/internal/jmod/JmodFile$Section;", nullptr, $PUBLIC | $STATIC, $method(static_cast<JmodFile$Section*(*)($String*)>(&JmodFile$Section::valueOf))},
-	{"values", "()[Ljdk/internal/jmod/JmodFile$Section;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$JmodFile$SectionArray*(*)()>(&JmodFile$Section::values))},
+	{"$values", "()[Ljdk/internal/jmod/JmodFile$Section;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JmodFile$Section, $values, $JmodFile$SectionArray*)},
+	{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "(Ljava/lang/String;)V", $PRIVATE, $method(JmodFile$Section, init$, void, $String*, int32_t, $String*)},
+	{"jmodDir", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(JmodFile$Section, jmodDir, $String*)},
+	{"valueOf", "(Ljava/lang/String;)Ljdk/internal/jmod/JmodFile$Section;", nullptr, $PUBLIC | $STATIC, $staticMethod(JmodFile$Section, valueOf, JmodFile$Section*, $String*)},
+	{"values", "()[Ljdk/internal/jmod/JmodFile$Section;", nullptr, $PUBLIC | $STATIC, $staticMethod(JmodFile$Section, values, $JmodFile$SectionArray*)},
 	{}
 };
 

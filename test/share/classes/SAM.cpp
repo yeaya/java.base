@@ -8,7 +8,7 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _SAM_MethodInfo_[] = {
-	{"m", "()Ljava/lang/Object;", "()TP1;", $PUBLIC | $ABSTRACT},
+	{"m", "()Ljava/lang/Object;", "()TP1;", $PUBLIC | $ABSTRACT, $virtualMethod(SAM, m, $Object*)},
 	{}
 };
 

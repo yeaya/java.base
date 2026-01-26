@@ -31,9 +31,9 @@ $FieldInfo _HashSpread_FieldInfo_[] = {
 };
 
 $MethodInfo _HashSpread_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(HashSpread::*)()>(&HashSpread::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&HashSpread::main)), "java.lang.Exception"},
-	{"randomIPv6Adress", "()Ljava/net/InetAddress;", nullptr, $STATIC, $method(static_cast<$InetAddress*(*)()>(&HashSpread::randomIPv6Adress))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(HashSpread, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HashSpread, main, void, $StringArray*), "java.lang.Exception"},
+	{"randomIPv6Adress", "()Ljava/net/InetAddress;", nullptr, $STATIC, $staticMethod(HashSpread, randomIPv6Adress, $InetAddress*)},
 	{}
 };
 

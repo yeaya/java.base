@@ -65,15 +65,15 @@ $FieldInfo _Striped64_FieldInfo_[] = {
 };
 
 $MethodInfo _Striped64_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Striped64::*)()>(&Striped64::init$))},
-	{"advanceProbe", "(I)I", nullptr, $STATIC | $FINAL, $method(static_cast<int32_t(*)(int32_t)>(&Striped64::advanceProbe))},
-	{"apply", "(Ljava/util/function/DoubleBinaryOperator;JD)J", nullptr, $PRIVATE | $STATIC, $method(static_cast<int64_t(*)($DoubleBinaryOperator*,int64_t,double)>(&Striped64::apply))},
-	{"casBase", "(JJ)Z", nullptr, $FINAL, $method(static_cast<bool(Striped64::*)(int64_t,int64_t)>(&Striped64::casBase))},
-	{"casCellsBusy", "()Z", nullptr, $FINAL, $method(static_cast<bool(Striped64::*)()>(&Striped64::casCellsBusy))},
-	{"doubleAccumulate", "(DLjava/util/function/DoubleBinaryOperator;ZI)V", nullptr, $FINAL, $method(static_cast<void(Striped64::*)(double,$DoubleBinaryOperator*,bool,int32_t)>(&Striped64::doubleAccumulate))},
-	{"getAndSetBase", "(J)J", nullptr, $FINAL, $method(static_cast<int64_t(Striped64::*)(int64_t)>(&Striped64::getAndSetBase))},
-	{"getProbe", "()I", nullptr, $STATIC | $FINAL, $method(static_cast<int32_t(*)()>(&Striped64::getProbe))},
-	{"longAccumulate", "(JLjava/util/function/LongBinaryOperator;ZI)V", nullptr, $FINAL, $method(static_cast<void(Striped64::*)(int64_t,$LongBinaryOperator*,bool,int32_t)>(&Striped64::longAccumulate))},
+	{"<init>", "()V", nullptr, 0, $method(Striped64, init$, void)},
+	{"advanceProbe", "(I)I", nullptr, $STATIC | $FINAL, $staticMethod(Striped64, advanceProbe, int32_t, int32_t)},
+	{"apply", "(Ljava/util/function/DoubleBinaryOperator;JD)J", nullptr, $PRIVATE | $STATIC, $staticMethod(Striped64, apply, int64_t, $DoubleBinaryOperator*, int64_t, double)},
+	{"casBase", "(JJ)Z", nullptr, $FINAL, $method(Striped64, casBase, bool, int64_t, int64_t)},
+	{"casCellsBusy", "()Z", nullptr, $FINAL, $method(Striped64, casCellsBusy, bool)},
+	{"doubleAccumulate", "(DLjava/util/function/DoubleBinaryOperator;ZI)V", nullptr, $FINAL, $method(Striped64, doubleAccumulate, void, double, $DoubleBinaryOperator*, bool, int32_t)},
+	{"getAndSetBase", "(J)J", nullptr, $FINAL, $method(Striped64, getAndSetBase, int64_t, int64_t)},
+	{"getProbe", "()I", nullptr, $STATIC | $FINAL, $staticMethod(Striped64, getProbe, int32_t)},
+	{"longAccumulate", "(JLjava/util/function/LongBinaryOperator;ZI)V", nullptr, $FINAL, $method(Striped64, longAccumulate, void, int64_t, $LongBinaryOperator*, bool, int32_t)},
 	{}
 };
 

@@ -65,10 +65,13 @@ using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
 using $HashSet = ::java::util::HashSet;
 using $Iterator = ::java::util::Iterator;
+using $LinkedList = ::java::util::LinkedList;
+using $List = ::java::util::List;
 using $Set = ::java::util::Set;
 using $GetBooleanAction = ::sun::security::action::GetBooleanAction;
 using $PKIX$BuilderParams = ::sun::security::provider::certpath::PKIX$BuilderParams;
 using $PolicyChecker = ::sun::security::provider::certpath::PolicyChecker;
+using $State = ::sun::security::provider::certpath::State;
 using $Debug = ::sun::security::util::Debug;
 using $GeneralName = ::sun::security::x509::GeneralName;
 using $GeneralNameInterface = ::sun::security::x509::GeneralNameInterface;
@@ -95,17 +98,17 @@ $FieldInfo _Builder_FieldInfo_[] = {
 };
 
 $MethodInfo _Builder_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/provider/certpath/PKIX$BuilderParams;)V", nullptr, 0, $method(static_cast<void(Builder::*)($PKIX$BuilderParams*)>(&Builder::init$))},
-	{"addCertToPath", "(Ljava/security/cert/X509Certificate;Ljava/util/LinkedList;)V", "(Ljava/security/cert/X509Certificate;Ljava/util/LinkedList<Ljava/security/cert/X509Certificate;>;)V", $ABSTRACT},
-	{"addMatchingCerts", "(Ljava/security/cert/X509CertSelector;Ljava/util/Collection;Ljava/util/Collection;Z)Z", "(Ljava/security/cert/X509CertSelector;Ljava/util/Collection<Ljava/security/cert/CertStore;>;Ljava/util/Collection<Ljava/security/cert/X509Certificate;>;Z)Z", 0},
-	{"distance", "(Lsun/security/x509/GeneralNameInterface;Lsun/security/x509/GeneralNameInterface;I)I", nullptr, $STATIC, $method(static_cast<int32_t(*)($GeneralNameInterface*,$GeneralNameInterface*,int32_t)>(&Builder::distance))},
-	{"getMatchingCerts", "(Lsun/security/provider/certpath/State;Ljava/util/List;)Ljava/util/Collection;", "(Lsun/security/provider/certpath/State;Ljava/util/List<Ljava/security/cert/CertStore;>;)Ljava/util/Collection<Ljava/security/cert/X509Certificate;>;", $ABSTRACT, nullptr, "java.security.cert.CertStoreException,java.security.cert.CertificateException,java.io.IOException"},
-	{"getMatchingPolicies", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", 0},
-	{"hops", "(Lsun/security/x509/GeneralNameInterface;Lsun/security/x509/GeneralNameInterface;I)I", nullptr, $STATIC, $method(static_cast<int32_t(*)($GeneralNameInterface*,$GeneralNameInterface*,int32_t)>(&Builder::hops))},
-	{"isPathCompleted", "(Ljava/security/cert/X509Certificate;)Z", nullptr, $ABSTRACT},
-	{"removeFinalCertFromPath", "(Ljava/util/LinkedList;)V", "(Ljava/util/LinkedList<Ljava/security/cert/X509Certificate;>;)V", $ABSTRACT},
-	{"targetDistance", "(Lsun/security/x509/NameConstraintsExtension;Ljava/security/cert/X509Certificate;Lsun/security/x509/GeneralNameInterface;)I", nullptr, $STATIC, $method(static_cast<int32_t(*)($NameConstraintsExtension*,$X509Certificate*,$GeneralNameInterface*)>(&Builder::targetDistance)), "java.io.IOException"},
-	{"verifyCert", "(Ljava/security/cert/X509Certificate;Lsun/security/provider/certpath/State;Ljava/util/List;)V", "(Ljava/security/cert/X509Certificate;Lsun/security/provider/certpath/State;Ljava/util/List<Ljava/security/cert/X509Certificate;>;)V", $ABSTRACT, nullptr, "java.security.GeneralSecurityException"},
+	{"<init>", "(Lsun/security/provider/certpath/PKIX$BuilderParams;)V", nullptr, 0, $method(Builder, init$, void, $PKIX$BuilderParams*)},
+	{"addCertToPath", "(Ljava/security/cert/X509Certificate;Ljava/util/LinkedList;)V", "(Ljava/security/cert/X509Certificate;Ljava/util/LinkedList<Ljava/security/cert/X509Certificate;>;)V", $ABSTRACT, $virtualMethod(Builder, addCertToPath, void, $X509Certificate*, $LinkedList*)},
+	{"addMatchingCerts", "(Ljava/security/cert/X509CertSelector;Ljava/util/Collection;Ljava/util/Collection;Z)Z", "(Ljava/security/cert/X509CertSelector;Ljava/util/Collection<Ljava/security/cert/CertStore;>;Ljava/util/Collection<Ljava/security/cert/X509Certificate;>;Z)Z", 0, $virtualMethod(Builder, addMatchingCerts, bool, $X509CertSelector*, $Collection*, $Collection*, bool)},
+	{"distance", "(Lsun/security/x509/GeneralNameInterface;Lsun/security/x509/GeneralNameInterface;I)I", nullptr, $STATIC, $staticMethod(Builder, distance, int32_t, $GeneralNameInterface*, $GeneralNameInterface*, int32_t)},
+	{"getMatchingCerts", "(Lsun/security/provider/certpath/State;Ljava/util/List;)Ljava/util/Collection;", "(Lsun/security/provider/certpath/State;Ljava/util/List<Ljava/security/cert/CertStore;>;)Ljava/util/Collection<Ljava/security/cert/X509Certificate;>;", $ABSTRACT, $virtualMethod(Builder, getMatchingCerts, $Collection*, $State*, $List*), "java.security.cert.CertStoreException,java.security.cert.CertificateException,java.io.IOException"},
+	{"getMatchingPolicies", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", 0, $virtualMethod(Builder, getMatchingPolicies, $Set*)},
+	{"hops", "(Lsun/security/x509/GeneralNameInterface;Lsun/security/x509/GeneralNameInterface;I)I", nullptr, $STATIC, $staticMethod(Builder, hops, int32_t, $GeneralNameInterface*, $GeneralNameInterface*, int32_t)},
+	{"isPathCompleted", "(Ljava/security/cert/X509Certificate;)Z", nullptr, $ABSTRACT, $virtualMethod(Builder, isPathCompleted, bool, $X509Certificate*)},
+	{"removeFinalCertFromPath", "(Ljava/util/LinkedList;)V", "(Ljava/util/LinkedList<Ljava/security/cert/X509Certificate;>;)V", $ABSTRACT, $virtualMethod(Builder, removeFinalCertFromPath, void, $LinkedList*)},
+	{"targetDistance", "(Lsun/security/x509/NameConstraintsExtension;Ljava/security/cert/X509Certificate;Lsun/security/x509/GeneralNameInterface;)I", nullptr, $STATIC, $staticMethod(Builder, targetDistance, int32_t, $NameConstraintsExtension*, $X509Certificate*, $GeneralNameInterface*), "java.io.IOException"},
+	{"verifyCert", "(Ljava/security/cert/X509Certificate;Lsun/security/provider/certpath/State;Ljava/util/List;)V", "(Ljava/security/cert/X509Certificate;Lsun/security/provider/certpath/State;Ljava/util/List<Ljava/security/cert/X509Certificate;>;)V", $ABSTRACT, $virtualMethod(Builder, verifyCert, void, $X509Certificate*, $State*, $List*), "java.security.GeneralSecurityException"},
 	{}
 };
 

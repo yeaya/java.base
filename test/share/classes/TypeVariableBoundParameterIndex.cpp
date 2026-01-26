@@ -24,8 +24,8 @@ using $AnnotatedType = ::java::lang::reflect::AnnotatedType;
 using $TypeVariable = ::java::lang::reflect::TypeVariable;
 
 $MethodInfo _TypeVariableBoundParameterIndex_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TypeVariableBoundParameterIndex::*)()>(&TypeVariableBoundParameterIndex::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&TypeVariableBoundParameterIndex::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TypeVariableBoundParameterIndex, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TypeVariableBoundParameterIndex, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

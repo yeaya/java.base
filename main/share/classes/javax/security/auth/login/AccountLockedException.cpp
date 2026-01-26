@@ -19,8 +19,8 @@ $FieldInfo _AccountLockedException_FieldInfo_[] = {
 };
 
 $MethodInfo _AccountLockedException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(AccountLockedException::*)()>(&AccountLockedException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(AccountLockedException::*)($String*)>(&AccountLockedException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(AccountLockedException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(AccountLockedException, init$, void, $String*)},
 	{}
 };
 

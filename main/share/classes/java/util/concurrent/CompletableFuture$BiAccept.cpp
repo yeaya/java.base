@@ -26,8 +26,8 @@ $FieldInfo _CompletableFuture$BiAccept_FieldInfo_[] = {
 };
 
 $MethodInfo _CompletableFuture$BiAccept_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/Executor;Ljava/util/concurrent/CompletableFuture;Ljava/util/concurrent/CompletableFuture;Ljava/util/concurrent/CompletableFuture;Ljava/util/function/BiConsumer;)V", "(Ljava/util/concurrent/Executor;Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;Ljava/util/concurrent/CompletableFuture<TT;>;Ljava/util/concurrent/CompletableFuture<TU;>;Ljava/util/function/BiConsumer<-TT;-TU;>;)V", 0, $method(static_cast<void(CompletableFuture$BiAccept::*)($Executor*,$CompletableFuture*,$CompletableFuture*,$CompletableFuture*,$BiConsumer*)>(&CompletableFuture$BiAccept::init$))},
-	{"tryFire", "(I)Ljava/util/concurrent/CompletableFuture;", "(I)Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $FINAL},
+	{"<init>", "(Ljava/util/concurrent/Executor;Ljava/util/concurrent/CompletableFuture;Ljava/util/concurrent/CompletableFuture;Ljava/util/concurrent/CompletableFuture;Ljava/util/function/BiConsumer;)V", "(Ljava/util/concurrent/Executor;Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;Ljava/util/concurrent/CompletableFuture<TT;>;Ljava/util/concurrent/CompletableFuture<TU;>;Ljava/util/function/BiConsumer<-TT;-TU;>;)V", 0, $method(CompletableFuture$BiAccept, init$, void, $Executor*, $CompletableFuture*, $CompletableFuture*, $CompletableFuture*, $BiConsumer*)},
+	{"tryFire", "(I)Ljava/util/concurrent/CompletableFuture;", "(I)Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $FINAL, $virtualMethod(CompletableFuture$BiAccept, tryFire, $CompletableFuture*, int32_t)},
 	{}
 };
 

@@ -13,8 +13,8 @@ namespace jdk {
 			namespace impl {
 
 $MethodInfo _UBiDiProps$IsAcceptable_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(UBiDiProps$IsAcceptable::*)()>(&UBiDiProps$IsAcceptable::init$))},
-	{"isDataVersionAcceptable", "([B)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(UBiDiProps$IsAcceptable, init$, void)},
+	{"isDataVersionAcceptable", "([B)Z", nullptr, $PUBLIC, $virtualMethod(UBiDiProps$IsAcceptable, isDataVersionAcceptable, bool, $bytes*)},
 	{}
 };
 

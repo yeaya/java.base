@@ -69,8 +69,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo SwitchBootstraps$$Lambda$verifyLabel::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SwitchBootstraps$$Lambda$verifyLabel::*)()>(&SwitchBootstraps$$Lambda$verifyLabel::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SwitchBootstraps$$Lambda$verifyLabel, init$, void)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(SwitchBootstraps$$Lambda$verifyLabel, accept, void, Object$*)},
 	{}
 };
 $ClassInfo SwitchBootstraps$$Lambda$verifyLabel::classInfo$ = {
@@ -112,8 +112,8 @@ $FieldInfo SwitchBootstraps$$Lambda$lambda$enumSwitch$0$1::fieldInfos[3] = {
 	{}
 };
 $MethodInfo SwitchBootstraps$$Lambda$lambda$enumSwitch$0$1::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/Class;)V", nullptr, $PUBLIC, $method(static_cast<void(SwitchBootstraps$$Lambda$lambda$enumSwitch$0$1::*)($MethodHandles$Lookup*,$Class*)>(&SwitchBootstraps$$Lambda$lambda$enumSwitch$0$1::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/Class;)V", nullptr, $PUBLIC, $method(SwitchBootstraps$$Lambda$lambda$enumSwitch$0$1, init$, void, $MethodHandles$Lookup*, $Class*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SwitchBootstraps$$Lambda$lambda$enumSwitch$0$1, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo SwitchBootstraps$$Lambda$lambda$enumSwitch$0$1::classInfo$ = {
@@ -142,14 +142,14 @@ $FieldInfo _SwitchBootstraps_FieldInfo_[] = {
 };
 
 $MethodInfo _SwitchBootstraps_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(SwitchBootstraps::*)()>(&SwitchBootstraps::init$))},
-	{"convertEnumConstants", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/Class;Ljava/lang/Object;)Ljava/lang/Object;", "<E:Ljava/lang/Enum<TE;>;>(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/Class<*>;Ljava/lang/Object;)Ljava/lang/Object;", $PRIVATE | $STATIC, $method(static_cast<$Object*(*)($MethodHandles$Lookup*,$Class*,Object$*)>(&SwitchBootstraps::convertEnumConstants))},
-	{"doEnumSwitch", "(Ljava/lang/Enum;I[Ljava/lang/Object;)I", "(Ljava/lang/Enum<*>;I[Ljava/lang/Object;)I", $PRIVATE | $STATIC, $method(static_cast<int32_t(*)($Enum*,int32_t,$ObjectArray*)>(&SwitchBootstraps::doEnumSwitch))},
-	{"doTypeSwitch", "(Ljava/lang/Object;I[Ljava/lang/Object;)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)(Object$*,int32_t,$ObjectArray*)>(&SwitchBootstraps::doTypeSwitch))},
-	{"enumSwitch", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;[Ljava/lang/Object;)Ljava/lang/invoke/CallSite;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<$CallSite*(*)($MethodHandles$Lookup*,$String*,$MethodType*,$ObjectArray*)>(&SwitchBootstraps::enumSwitch))},
-	{"lambda$enumSwitch$0", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/Class;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Object*(*)($MethodHandles$Lookup*,$Class*,Object$*)>(&SwitchBootstraps::lambda$enumSwitch$0))},
-	{"typeSwitch", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;[Ljava/lang/Object;)Ljava/lang/invoke/CallSite;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<$CallSite*(*)($MethodHandles$Lookup*,$String*,$MethodType*,$ObjectArray*)>(&SwitchBootstraps::typeSwitch))},
-	{"verifyLabel", "(Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)(Object$*)>(&SwitchBootstraps::verifyLabel))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(SwitchBootstraps, init$, void)},
+	{"convertEnumConstants", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/Class;Ljava/lang/Object;)Ljava/lang/Object;", "<E:Ljava/lang/Enum<TE;>;>(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/Class<*>;Ljava/lang/Object;)Ljava/lang/Object;", $PRIVATE | $STATIC, $staticMethod(SwitchBootstraps, convertEnumConstants, $Object*, $MethodHandles$Lookup*, $Class*, Object$*)},
+	{"doEnumSwitch", "(Ljava/lang/Enum;I[Ljava/lang/Object;)I", "(Ljava/lang/Enum<*>;I[Ljava/lang/Object;)I", $PRIVATE | $STATIC, $staticMethod(SwitchBootstraps, doEnumSwitch, int32_t, $Enum*, int32_t, $ObjectArray*)},
+	{"doTypeSwitch", "(Ljava/lang/Object;I[Ljava/lang/Object;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(SwitchBootstraps, doTypeSwitch, int32_t, Object$*, int32_t, $ObjectArray*)},
+	{"enumSwitch", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;[Ljava/lang/Object;)Ljava/lang/invoke/CallSite;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(SwitchBootstraps, enumSwitch, $CallSite*, $MethodHandles$Lookup*, $String*, $MethodType*, $ObjectArray*)},
+	{"lambda$enumSwitch$0", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/Class;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SwitchBootstraps, lambda$enumSwitch$0, $Object*, $MethodHandles$Lookup*, $Class*, Object$*)},
+	{"typeSwitch", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;[Ljava/lang/Object;)Ljava/lang/invoke/CallSite;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(SwitchBootstraps, typeSwitch, $CallSite*, $MethodHandles$Lookup*, $String*, $MethodType*, $ObjectArray*)},
+	{"verifyLabel", "(Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(SwitchBootstraps, verifyLabel, void, Object$*)},
 	{}
 };
 

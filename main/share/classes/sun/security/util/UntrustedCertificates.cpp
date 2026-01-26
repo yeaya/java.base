@@ -39,8 +39,8 @@ $FieldInfo _UntrustedCertificates_FieldInfo_[] = {
 };
 
 $MethodInfo _UntrustedCertificates_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(UntrustedCertificates::*)()>(&UntrustedCertificates::init$))},
-	{"isUntrusted", "(Ljava/security/cert/X509Certificate;)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)($X509Certificate*)>(&UntrustedCertificates::isUntrusted))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(UntrustedCertificates, init$, void)},
+	{"isUntrusted", "(Ljava/security/cert/X509Certificate;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(UntrustedCertificates, isUntrusted, bool, $X509Certificate*)},
 	{}
 };
 

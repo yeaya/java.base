@@ -19,11 +19,11 @@ $FieldInfo _RecursiveTask_FieldInfo_[] = {
 };
 
 $MethodInfo _RecursiveTask_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(RecursiveTask::*)()>(&RecursiveTask::init$))},
-	{"compute", "()Ljava/lang/Object;", "()TV;", $PROTECTED | $ABSTRACT},
-	{"exec", "()Z", nullptr, $PROTECTED | $FINAL},
-	{"getRawResult", "()Ljava/lang/Object;", "()TV;", $PUBLIC | $FINAL},
-	{"setRawResult", "(Ljava/lang/Object;)V", "(TV;)V", $PROTECTED | $FINAL},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(RecursiveTask, init$, void)},
+	{"compute", "()Ljava/lang/Object;", "()TV;", $PROTECTED | $ABSTRACT, $virtualMethod(RecursiveTask, compute, $Object*)},
+	{"exec", "()Z", nullptr, $PROTECTED | $FINAL, $virtualMethod(RecursiveTask, exec, bool)},
+	{"getRawResult", "()Ljava/lang/Object;", "()TV;", $PUBLIC | $FINAL, $virtualMethod(RecursiveTask, getRawResult, $Object*)},
+	{"setRawResult", "(Ljava/lang/Object;)V", "(TV;)V", $PROTECTED | $FINAL, $virtualMethod(RecursiveTask, setRawResult, void, Object$*)},
 	{}
 };
 

@@ -20,13 +20,13 @@ namespace sun {
 		namespace fs {
 
 $MethodInfo _LinuxNativeDispatcher_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(LinuxNativeDispatcher::*)()>(&LinuxNativeDispatcher::init$))},
-	{"endmntent", "(J)V", nullptr, $STATIC | $NATIVE, $method(static_cast<void(*)(int64_t)>(&LinuxNativeDispatcher::endmntent)), "sun.nio.fs.UnixException"},
-	{"getmntent", "(JLsun/nio/fs/UnixMountEntry;I)I", nullptr, $STATIC, $method(static_cast<int32_t(*)(int64_t,$UnixMountEntry*,int32_t)>(&LinuxNativeDispatcher::getmntent)), "sun.nio.fs.UnixException"},
-	{"getmntent0", "(JLsun/nio/fs/UnixMountEntry;JI)I", nullptr, $STATIC | $NATIVE, $method(static_cast<int32_t(*)(int64_t,$UnixMountEntry*,int64_t,int32_t)>(&LinuxNativeDispatcher::getmntent0)), "sun.nio.fs.UnixException"},
-	{"init", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $method(static_cast<void(*)()>(&LinuxNativeDispatcher::init))},
-	{"setmntent", "([B[B)J", nullptr, $STATIC, $method(static_cast<int64_t(*)($bytes*,$bytes*)>(&LinuxNativeDispatcher::setmntent)), "sun.nio.fs.UnixException"},
-	{"setmntent0", "(JJ)J", nullptr, $PRIVATE | $STATIC | $NATIVE, $method(static_cast<int64_t(*)(int64_t,int64_t)>(&LinuxNativeDispatcher::setmntent0)), "sun.nio.fs.UnixException"},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(LinuxNativeDispatcher, init$, void)},
+	{"endmntent", "(J)V", nullptr, $STATIC | $NATIVE, $staticMethod(LinuxNativeDispatcher, endmntent, void, int64_t), "sun.nio.fs.UnixException"},
+	{"getmntent", "(JLsun/nio/fs/UnixMountEntry;I)I", nullptr, $STATIC, $staticMethod(LinuxNativeDispatcher, getmntent, int32_t, int64_t, $UnixMountEntry*, int32_t), "sun.nio.fs.UnixException"},
+	{"getmntent0", "(JLsun/nio/fs/UnixMountEntry;JI)I", nullptr, $STATIC | $NATIVE, $staticMethod(LinuxNativeDispatcher, getmntent0, int32_t, int64_t, $UnixMountEntry*, int64_t, int32_t), "sun.nio.fs.UnixException"},
+	{"init", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(LinuxNativeDispatcher, init, void)},
+	{"setmntent", "([B[B)J", nullptr, $STATIC, $staticMethod(LinuxNativeDispatcher, setmntent, int64_t, $bytes*, $bytes*), "sun.nio.fs.UnixException"},
+	{"setmntent0", "(JJ)J", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(LinuxNativeDispatcher, setmntent0, int64_t, int64_t, int64_t), "sun.nio.fs.UnixException"},
 	{}
 };
 

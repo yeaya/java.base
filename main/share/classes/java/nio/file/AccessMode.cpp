@@ -26,10 +26,10 @@ $FieldInfo _AccessMode_FieldInfo_[] = {
 };
 
 $MethodInfo _AccessMode_MethodInfo_[] = {
-	{"$values", "()[Ljava/nio/file/AccessMode;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$AccessModeArray*(*)()>(&AccessMode::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(AccessMode::*)($String*,int32_t)>(&AccessMode::init$))},
-	{"valueOf", "(Ljava/lang/String;)Ljava/nio/file/AccessMode;", nullptr, $PUBLIC | $STATIC, $method(static_cast<AccessMode*(*)($String*)>(&AccessMode::valueOf))},
-	{"values", "()[Ljava/nio/file/AccessMode;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$AccessModeArray*(*)()>(&AccessMode::values))},
+	{"$values", "()[Ljava/nio/file/AccessMode;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AccessMode, $values, $AccessModeArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(AccessMode, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Ljava/nio/file/AccessMode;", nullptr, $PUBLIC | $STATIC, $staticMethod(AccessMode, valueOf, AccessMode*, $String*)},
+	{"values", "()[Ljava/nio/file/AccessMode;", nullptr, $PUBLIC | $STATIC, $staticMethod(AccessMode, values, $AccessModeArray*)},
 	{}
 };
 

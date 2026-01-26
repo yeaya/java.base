@@ -65,19 +65,19 @@ $FieldInfo _CtrDrbg_FieldInfo_[] = {
 };
 
 $MethodInfo _CtrDrbg_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/SecureRandomParameters;)V", nullptr, $PUBLIC, $method(static_cast<void(CtrDrbg::*)($SecureRandomParameters*)>(&CtrDrbg::init$))},
-	{"addOne", "([BI)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($bytes*,int32_t)>(&CtrDrbg::addOne))},
-	{"alg2strength", "(Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)($String*)>(&CtrDrbg::alg2strength))},
-	{"bcc", "([B[[B)[B", nullptr, $PRIVATE | $TRANSIENT, $method(static_cast<$bytes*(CtrDrbg::*)($bytes*,$byteArray2*)>(&CtrDrbg::bcc))},
-	{"chooseAlgorithmAndStrength", "()V", nullptr, $PROTECTED},
-	{"df", "([B)[B", nullptr, $PRIVATE, $method(static_cast<$bytes*(CtrDrbg::*)($bytes*)>(&CtrDrbg::df))},
-	{"generateAlgorithm", "([B[B)V", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"initEngine", "()V", nullptr, $PROTECTED},
-	{"instantiateAlgorithm", "([B)V", nullptr, $PROTECTED},
-	{"reseedAlgorithm", "([B[B)V", nullptr, $PROTECTED | $SYNCHRONIZED},
-	{"status", "()V", nullptr, $PRIVATE, $method(static_cast<void(CtrDrbg::*)()>(&CtrDrbg::status))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"update", "([B)V", nullptr, $PRIVATE, $method(static_cast<void(CtrDrbg::*)($bytes*)>(&CtrDrbg::update))},
+	{"<init>", "(Ljava/security/SecureRandomParameters;)V", nullptr, $PUBLIC, $method(CtrDrbg, init$, void, $SecureRandomParameters*)},
+	{"addOne", "([BI)V", nullptr, $PRIVATE | $STATIC, $staticMethod(CtrDrbg, addOne, void, $bytes*, int32_t)},
+	{"alg2strength", "(Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(CtrDrbg, alg2strength, int32_t, $String*)},
+	{"bcc", "([B[[B)[B", nullptr, $PRIVATE | $TRANSIENT, $method(CtrDrbg, bcc, $bytes*, $bytes*, $byteArray2*)},
+	{"chooseAlgorithmAndStrength", "()V", nullptr, $PROTECTED, $virtualMethod(CtrDrbg, chooseAlgorithmAndStrength, void)},
+	{"df", "([B)[B", nullptr, $PRIVATE, $method(CtrDrbg, df, $bytes*, $bytes*)},
+	{"generateAlgorithm", "([B[B)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CtrDrbg, generateAlgorithm, void, $bytes*, $bytes*)},
+	{"initEngine", "()V", nullptr, $PROTECTED, $virtualMethod(CtrDrbg, initEngine, void)},
+	{"instantiateAlgorithm", "([B)V", nullptr, $PROTECTED, $virtualMethod(CtrDrbg, instantiateAlgorithm, void, $bytes*)},
+	{"reseedAlgorithm", "([B[B)V", nullptr, $PROTECTED | $SYNCHRONIZED, $virtualMethod(CtrDrbg, reseedAlgorithm, void, $bytes*, $bytes*)},
+	{"status", "()V", nullptr, $PRIVATE, $method(CtrDrbg, status, void)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CtrDrbg, toString, $String*)},
+	{"update", "([B)V", nullptr, $PRIVATE, $method(CtrDrbg, update, void, $bytes*)},
 	{}
 };
 

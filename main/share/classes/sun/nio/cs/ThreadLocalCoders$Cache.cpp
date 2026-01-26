@@ -21,11 +21,11 @@ $FieldInfo _ThreadLocalCoders$Cache_FieldInfo_[] = {
 };
 
 $MethodInfo _ThreadLocalCoders$Cache_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, 0, $method(static_cast<void(ThreadLocalCoders$Cache::*)(int32_t)>(&ThreadLocalCoders$Cache::init$))},
-	{"create", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $ABSTRACT},
-	{"forName", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, 0},
-	{"hasName", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $ABSTRACT},
-	{"moveToFront", "([Ljava/lang/Object;I)V", nullptr, $PRIVATE, $method(static_cast<void(ThreadLocalCoders$Cache::*)($ObjectArray*,int32_t)>(&ThreadLocalCoders$Cache::moveToFront))},
+	{"<init>", "(I)V", nullptr, 0, $method(ThreadLocalCoders$Cache, init$, void, int32_t)},
+	{"create", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $ABSTRACT, $virtualMethod(ThreadLocalCoders$Cache, create, $Object*, Object$*)},
+	{"forName", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, 0, $virtualMethod(ThreadLocalCoders$Cache, forName, $Object*, Object$*)},
+	{"hasName", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $ABSTRACT, $virtualMethod(ThreadLocalCoders$Cache, hasName, bool, Object$*, Object$*)},
+	{"moveToFront", "([Ljava/lang/Object;I)V", nullptr, $PRIVATE, $method(ThreadLocalCoders$Cache, moveToFront, void, $ObjectArray*, int32_t)},
 	{}
 };
 

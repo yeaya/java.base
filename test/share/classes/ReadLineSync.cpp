@@ -43,9 +43,9 @@ $FieldInfo _ReadLineSync_FieldInfo_[] = {
 };
 
 $MethodInfo _ReadLineSync_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ReadLineSync::*)()>(&ReadLineSync::init$))},
-	{"createFile", "(Ljava/io/File;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($File*)>(&ReadLineSync::createFile)), "java.io.IOException"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&ReadLineSync::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ReadLineSync, init$, void)},
+	{"createFile", "(Ljava/io/File;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ReadLineSync, createFile, void, $File*), "java.io.IOException"},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ReadLineSync, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

@@ -6,13 +6,14 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $ScopedMemoryAccess$Scope = ::jdk::internal::misc::ScopedMemoryAccess$Scope;
 
 namespace jdk {
 	namespace internal {
 		namespace misc {
 
 $MethodInfo _ScopedMemoryAccess$Scope$Handle_MethodInfo_[] = {
-	{"scope", "()Ljdk/internal/misc/ScopedMemoryAccess$Scope;", nullptr, $PUBLIC | $ABSTRACT},
+	{"scope", "()Ljdk/internal/misc/ScopedMemoryAccess$Scope;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ScopedMemoryAccess$Scope$Handle, scope, $ScopedMemoryAccess$Scope*)},
 	{}
 };
 

@@ -26,13 +26,13 @@ $FieldInfo _StampedLock$WriteLockView_FieldInfo_[] = {
 };
 
 $MethodInfo _StampedLock$WriteLockView_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/locks/StampedLock;)V", nullptr, 0, $method(static_cast<void(StampedLock$WriteLockView::*)($StampedLock*)>(&StampedLock$WriteLockView::init$))},
-	{"lock", "()V", nullptr, $PUBLIC},
-	{"lockInterruptibly", "()V", nullptr, $PUBLIC, nullptr, "java.lang.InterruptedException"},
-	{"newCondition", "()Ljava/util/concurrent/locks/Condition;", nullptr, $PUBLIC},
-	{"tryLock", "()Z", nullptr, $PUBLIC},
-	{"tryLock", "(JLjava/util/concurrent/TimeUnit;)Z", nullptr, $PUBLIC, nullptr, "java.lang.InterruptedException"},
-	{"unlock", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/concurrent/locks/StampedLock;)V", nullptr, 0, $method(StampedLock$WriteLockView, init$, void, $StampedLock*)},
+	{"lock", "()V", nullptr, $PUBLIC, $virtualMethod(StampedLock$WriteLockView, lock, void)},
+	{"lockInterruptibly", "()V", nullptr, $PUBLIC, $virtualMethod(StampedLock$WriteLockView, lockInterruptibly, void), "java.lang.InterruptedException"},
+	{"newCondition", "()Ljava/util/concurrent/locks/Condition;", nullptr, $PUBLIC, $virtualMethod(StampedLock$WriteLockView, newCondition, $Condition*)},
+	{"tryLock", "()Z", nullptr, $PUBLIC, $virtualMethod(StampedLock$WriteLockView, tryLock, bool)},
+	{"tryLock", "(JLjava/util/concurrent/TimeUnit;)Z", nullptr, $PUBLIC, $virtualMethod(StampedLock$WriteLockView, tryLock, bool, int64_t, $TimeUnit*), "java.lang.InterruptedException"},
+	{"unlock", "()V", nullptr, $PUBLIC, $virtualMethod(StampedLock$WriteLockView, unlock, void)},
 	{}
 };
 

@@ -4,19 +4,22 @@
 #include <java/net/NetworkInterface.h>
 #include <jcpp.h>
 
+using $InetAddressArray = $Array<::java::net::InetAddress>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $InetAddress = ::java::net::InetAddress;
+using $NetworkInterface = ::java::net::NetworkInterface;
 
 namespace java {
 	namespace net {
 
 $MethodInfo _InetAddressImpl_MethodInfo_[] = {
-	{"anyLocalAddress", "()Ljava/net/InetAddress;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getHostByAddr", "([B)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.net.UnknownHostException"},
-	{"getLocalHostName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.net.UnknownHostException"},
-	{"isReachable", "(Ljava/net/InetAddress;ILjava/net/NetworkInterface;I)Z", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"lookupAllHostAddr", "(Ljava/lang/String;)[Ljava/net/InetAddress;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.net.UnknownHostException"},
-	{"loopbackAddress", "()Ljava/net/InetAddress;", nullptr, $PUBLIC | $ABSTRACT},
+	{"anyLocalAddress", "()Ljava/net/InetAddress;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(InetAddressImpl, anyLocalAddress, $InetAddress*)},
+	{"getHostByAddr", "([B)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(InetAddressImpl, getHostByAddr, $String*, $bytes*), "java.net.UnknownHostException"},
+	{"getLocalHostName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(InetAddressImpl, getLocalHostName, $String*), "java.net.UnknownHostException"},
+	{"isReachable", "(Ljava/net/InetAddress;ILjava/net/NetworkInterface;I)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(InetAddressImpl, isReachable, bool, $InetAddress*, int32_t, $NetworkInterface*, int32_t), "java.io.IOException"},
+	{"lookupAllHostAddr", "(Ljava/lang/String;)[Ljava/net/InetAddress;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(InetAddressImpl, lookupAllHostAddr, $InetAddressArray*, $String*), "java.net.UnknownHostException"},
+	{"loopbackAddress", "()Ljava/net/InetAddress;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(InetAddressImpl, loopbackAddress, $InetAddress*)},
 	{}
 };
 

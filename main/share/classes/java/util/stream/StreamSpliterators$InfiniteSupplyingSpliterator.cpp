@@ -22,9 +22,9 @@ $FieldInfo _StreamSpliterators$InfiniteSupplyingSpliterator_FieldInfo_[] = {
 };
 
 $MethodInfo _StreamSpliterators$InfiniteSupplyingSpliterator_MethodInfo_[] = {
-	{"<init>", "(J)V", nullptr, $PROTECTED, $method(static_cast<void(StreamSpliterators$InfiniteSupplyingSpliterator::*)(int64_t)>(&StreamSpliterators$InfiniteSupplyingSpliterator::init$))},
-	{"characteristics", "()I", nullptr, $PUBLIC},
-	{"estimateSize", "()J", nullptr, $PUBLIC},
+	{"<init>", "(J)V", nullptr, $PROTECTED, $method(StreamSpliterators$InfiniteSupplyingSpliterator, init$, void, int64_t)},
+	{"characteristics", "()I", nullptr, $PUBLIC, $virtualMethod(StreamSpliterators$InfiniteSupplyingSpliterator, characteristics, int32_t)},
+	{"estimateSize", "()J", nullptr, $PUBLIC, $virtualMethod(StreamSpliterators$InfiniteSupplyingSpliterator, estimateSize, int64_t)},
 	{}
 };
 

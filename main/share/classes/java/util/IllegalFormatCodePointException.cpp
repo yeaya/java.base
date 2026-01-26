@@ -19,9 +19,9 @@ $FieldInfo _IllegalFormatCodePointException_FieldInfo_[] = {
 };
 
 $MethodInfo _IllegalFormatCodePointException_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(static_cast<void(IllegalFormatCodePointException::*)(int32_t)>(&IllegalFormatCodePointException::init$))},
-	{"getCodePoint", "()I", nullptr, $PUBLIC},
-	{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(I)V", nullptr, $PUBLIC, $method(IllegalFormatCodePointException, init$, void, int32_t)},
+	{"getCodePoint", "()I", nullptr, $PUBLIC, $virtualMethod(IllegalFormatCodePointException, getCodePoint, int32_t)},
+	{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IllegalFormatCodePointException, getMessage, $String*)},
 	{}
 };
 

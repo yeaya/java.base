@@ -29,14 +29,14 @@ $FieldInfo _ArchivedModuleGraph_FieldInfo_[] = {
 };
 
 $MethodInfo _ArchivedModuleGraph_MethodInfo_[] = {
-	{"<init>", "(ZZLjava/lang/module/ModuleFinder;Ljava/lang/module/Configuration;Ljava/util/function/Function;)V", "(ZZLjava/lang/module/ModuleFinder;Ljava/lang/module/Configuration;Ljava/util/function/Function<Ljava/lang/String;Ljava/lang/ClassLoader;>;)V", $PRIVATE, $method(static_cast<void(ArchivedModuleGraph::*)(bool,bool,$ModuleFinder*,$Configuration*,$Function*)>(&ArchivedModuleGraph::init$))},
-	{"archive", "(ZZLjava/lang/module/ModuleFinder;Ljava/lang/module/Configuration;Ljava/util/function/Function;)V", "(ZZLjava/lang/module/ModuleFinder;Ljava/lang/module/Configuration;Ljava/util/function/Function<Ljava/lang/String;Ljava/lang/ClassLoader;>;)V", $STATIC, $method(static_cast<void(*)(bool,bool,$ModuleFinder*,$Configuration*,$Function*)>(&ArchivedModuleGraph::archive))},
-	{"classLoaderFunction", "()Ljava/util/function/Function;", "()Ljava/util/function/Function<Ljava/lang/String;Ljava/lang/ClassLoader;>;", 0},
-	{"configuration", "()Ljava/lang/module/Configuration;", nullptr, 0},
-	{"finder", "()Ljava/lang/module/ModuleFinder;", nullptr, 0},
-	{"get", "(Ljava/lang/String;)Ljdk/internal/module/ArchivedModuleGraph;", nullptr, $STATIC, $method(static_cast<ArchivedModuleGraph*(*)($String*)>(&ArchivedModuleGraph::get))},
-	{"hasIncubatorModules", "()Z", nullptr, 0},
-	{"hasSplitPackages", "()Z", nullptr, 0},
+	{"<init>", "(ZZLjava/lang/module/ModuleFinder;Ljava/lang/module/Configuration;Ljava/util/function/Function;)V", "(ZZLjava/lang/module/ModuleFinder;Ljava/lang/module/Configuration;Ljava/util/function/Function<Ljava/lang/String;Ljava/lang/ClassLoader;>;)V", $PRIVATE, $method(ArchivedModuleGraph, init$, void, bool, bool, $ModuleFinder*, $Configuration*, $Function*)},
+	{"archive", "(ZZLjava/lang/module/ModuleFinder;Ljava/lang/module/Configuration;Ljava/util/function/Function;)V", "(ZZLjava/lang/module/ModuleFinder;Ljava/lang/module/Configuration;Ljava/util/function/Function<Ljava/lang/String;Ljava/lang/ClassLoader;>;)V", $STATIC, $staticMethod(ArchivedModuleGraph, archive, void, bool, bool, $ModuleFinder*, $Configuration*, $Function*)},
+	{"classLoaderFunction", "()Ljava/util/function/Function;", "()Ljava/util/function/Function<Ljava/lang/String;Ljava/lang/ClassLoader;>;", 0, $virtualMethod(ArchivedModuleGraph, classLoaderFunction, $Function*)},
+	{"configuration", "()Ljava/lang/module/Configuration;", nullptr, 0, $virtualMethod(ArchivedModuleGraph, configuration, $Configuration*)},
+	{"finder", "()Ljava/lang/module/ModuleFinder;", nullptr, 0, $virtualMethod(ArchivedModuleGraph, finder, $ModuleFinder*)},
+	{"get", "(Ljava/lang/String;)Ljdk/internal/module/ArchivedModuleGraph;", nullptr, $STATIC, $staticMethod(ArchivedModuleGraph, get, ArchivedModuleGraph*, $String*)},
+	{"hasIncubatorModules", "()Z", nullptr, 0, $virtualMethod(ArchivedModuleGraph, hasIncubatorModules, bool)},
+	{"hasSplitPackages", "()Z", nullptr, 0, $virtualMethod(ArchivedModuleGraph, hasSplitPackages, bool)},
 	{}
 };
 

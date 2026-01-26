@@ -36,8 +36,8 @@ $FieldInfo _BootstrapMethodInvoker$PullAdapter_FieldInfo_[] = {
 };
 
 $MethodInfo _BootstrapMethodInvoker$PullAdapter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(BootstrapMethodInvoker$PullAdapter::*)()>(&BootstrapMethodInvoker$PullAdapter::init$))},
-	{"pullFromBootstrapMethod", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/invoke/BootstrapCallInfo;)Ljava/lang/Object;", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/invoke/BootstrapCallInfo<*>;)Ljava/lang/Object;", $STATIC, $method(static_cast<$Object*(*)($MethodHandle*,$MethodHandles$Lookup*,$BootstrapCallInfo*)>(&BootstrapMethodInvoker$PullAdapter::pullFromBootstrapMethod)), "java.lang.Throwable"},
+	{"<init>", "()V", nullptr, 0, $method(BootstrapMethodInvoker$PullAdapter, init$, void)},
+	{"pullFromBootstrapMethod", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/invoke/BootstrapCallInfo;)Ljava/lang/Object;", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/invoke/BootstrapCallInfo<*>;)Ljava/lang/Object;", $STATIC, $staticMethod(BootstrapMethodInvoker$PullAdapter, pullFromBootstrapMethod, $Object*, $MethodHandle*, $MethodHandles$Lookup*, $BootstrapCallInfo*), "java.lang.Throwable"},
 	{}
 };
 

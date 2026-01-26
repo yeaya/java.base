@@ -28,12 +28,12 @@ $FieldInfo _CertStatusExtension$CertStatusRequestType_FieldInfo_[] = {
 };
 
 $MethodInfo _CertStatusExtension$CertStatusRequestType_MethodInfo_[] = {
-	{"$values", "()[Lsun/security/ssl/CertStatusExtension$CertStatusRequestType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$CertStatusExtension$CertStatusRequestTypeArray*(*)()>(&CertStatusExtension$CertStatusRequestType::$values))},
-	{"<init>", "(Ljava/lang/String;IBLjava/lang/String;)V", "(BLjava/lang/String;)V", $PRIVATE, $method(static_cast<void(CertStatusExtension$CertStatusRequestType::*)($String*,int32_t,int8_t,$String*)>(&CertStatusExtension$CertStatusRequestType::init$))},
-	{"nameOf", "(B)Ljava/lang/String;", nullptr, $STATIC, $method(static_cast<$String*(*)(int8_t)>(&CertStatusExtension$CertStatusRequestType::nameOf))},
-	{"valueOf", "(Ljava/lang/String;)Lsun/security/ssl/CertStatusExtension$CertStatusRequestType;", nullptr, $PUBLIC | $STATIC, $method(static_cast<CertStatusExtension$CertStatusRequestType*(*)($String*)>(&CertStatusExtension$CertStatusRequestType::valueOf))},
-	{"valueOf", "(B)Lsun/security/ssl/CertStatusExtension$CertStatusRequestType;", nullptr, $STATIC, $method(static_cast<CertStatusExtension$CertStatusRequestType*(*)(int8_t)>(&CertStatusExtension$CertStatusRequestType::valueOf))},
-	{"values", "()[Lsun/security/ssl/CertStatusExtension$CertStatusRequestType;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$CertStatusExtension$CertStatusRequestTypeArray*(*)()>(&CertStatusExtension$CertStatusRequestType::values))},
+	{"$values", "()[Lsun/security/ssl/CertStatusExtension$CertStatusRequestType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CertStatusExtension$CertStatusRequestType, $values, $CertStatusExtension$CertStatusRequestTypeArray*)},
+	{"<init>", "(Ljava/lang/String;IBLjava/lang/String;)V", "(BLjava/lang/String;)V", $PRIVATE, $method(CertStatusExtension$CertStatusRequestType, init$, void, $String*, int32_t, int8_t, $String*)},
+	{"nameOf", "(B)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(CertStatusExtension$CertStatusRequestType, nameOf, $String*, int8_t)},
+	{"valueOf", "(Ljava/lang/String;)Lsun/security/ssl/CertStatusExtension$CertStatusRequestType;", nullptr, $PUBLIC | $STATIC, $staticMethod(CertStatusExtension$CertStatusRequestType, valueOf, CertStatusExtension$CertStatusRequestType*, $String*)},
+	{"valueOf", "(B)Lsun/security/ssl/CertStatusExtension$CertStatusRequestType;", nullptr, $STATIC, $staticMethod(CertStatusExtension$CertStatusRequestType, valueOf, CertStatusExtension$CertStatusRequestType*, int8_t)},
+	{"values", "()[Lsun/security/ssl/CertStatusExtension$CertStatusRequestType;", nullptr, $PUBLIC | $STATIC, $staticMethod(CertStatusExtension$CertStatusRequestType, values, $CertStatusExtension$CertStatusRequestTypeArray*)},
 	{}
 };
 

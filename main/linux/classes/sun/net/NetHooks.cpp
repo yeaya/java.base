@@ -24,9 +24,9 @@ $FieldInfo _NetHooks_FieldInfo_[] = {
 };
 
 $MethodInfo _NetHooks_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(NetHooks::*)()>(&NetHooks::init$))},
-	{"beforeTcpBind", "(Ljava/io/FileDescriptor;Ljava/net/InetAddress;I)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($FileDescriptor*,$InetAddress*,int32_t)>(&NetHooks::beforeTcpBind)), "java.io.IOException"},
-	{"beforeTcpConnect", "(Ljava/io/FileDescriptor;Ljava/net/InetAddress;I)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($FileDescriptor*,$InetAddress*,int32_t)>(&NetHooks::beforeTcpConnect)), "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(NetHooks, init$, void)},
+	{"beforeTcpBind", "(Ljava/io/FileDescriptor;Ljava/net/InetAddress;I)V", nullptr, $PUBLIC | $STATIC, $staticMethod(NetHooks, beforeTcpBind, void, $FileDescriptor*, $InetAddress*, int32_t), "java.io.IOException"},
+	{"beforeTcpConnect", "(Ljava/io/FileDescriptor;Ljava/net/InetAddress;I)V", nullptr, $PUBLIC | $STATIC, $staticMethod(NetHooks, beforeTcpConnect, void, $FileDescriptor*, $InetAddress*, int32_t), "java.io.IOException"},
 	{}
 };
 

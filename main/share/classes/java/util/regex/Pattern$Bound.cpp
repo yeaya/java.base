@@ -41,10 +41,10 @@ $FieldInfo _Pattern$Bound_FieldInfo_[] = {
 };
 
 $MethodInfo _Pattern$Bound_MethodInfo_[] = {
-	{"<init>", "(IZ)V", nullptr, 0, $method(static_cast<void(Pattern$Bound::*)(int32_t,bool)>(&Pattern$Bound::init$))},
-	{"check", "(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)I", nullptr, 0, $method(static_cast<int32_t(Pattern$Bound::*)($Matcher*,int32_t,$CharSequence*)>(&Pattern$Bound::check))},
-	{"isWord", "(I)Z", nullptr, 0, $method(static_cast<bool(Pattern$Bound::*)(int32_t)>(&Pattern$Bound::isWord))},
-	{"match", "(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z", nullptr, 0},
+	{"<init>", "(IZ)V", nullptr, 0, $method(Pattern$Bound, init$, void, int32_t, bool)},
+	{"check", "(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)I", nullptr, 0, $method(Pattern$Bound, check, int32_t, $Matcher*, int32_t, $CharSequence*)},
+	{"isWord", "(I)Z", nullptr, 0, $method(Pattern$Bound, isWord, bool, int32_t)},
+	{"match", "(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z", nullptr, 0, $virtualMethod(Pattern$Bound, match, bool, $Matcher*, int32_t, $CharSequence*)},
 	{}
 };
 

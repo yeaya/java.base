@@ -41,8 +41,8 @@ namespace sun {
 		namespace ssl {
 
 $MethodInfo _MaxFragExtension$SHMaxFragmentLengthUpdate_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(MaxFragExtension$SHMaxFragmentLengthUpdate::*)()>(&MaxFragExtension$SHMaxFragmentLengthUpdate::init$))},
-	{"consume", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(MaxFragExtension$SHMaxFragmentLengthUpdate, init$, void)},
+	{"consume", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)V", nullptr, $PUBLIC, $virtualMethod(MaxFragExtension$SHMaxFragmentLengthUpdate, consume, void, $ConnectionContext*, $SSLHandshake$HandshakeMessage*), "java.io.IOException"},
 	{}
 };
 

@@ -54,17 +54,17 @@ $FieldInfo _ModuleNode_FieldInfo_[] = {
 };
 
 $MethodInfo _ModuleNode_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(ModuleNode::*)($String*,int32_t,$String*)>(&ModuleNode::init$))},
-	{"<init>", "(ILjava/lang/String;ILjava/lang/String;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;)V", "(ILjava/lang/String;ILjava/lang/String;Ljava/util/List<Ljdk/internal/org/objectweb/asm/tree/ModuleRequireNode;>;Ljava/util/List<Ljdk/internal/org/objectweb/asm/tree/ModuleExportNode;>;Ljava/util/List<Ljdk/internal/org/objectweb/asm/tree/ModuleOpenNode;>;Ljava/util/List<Ljava/lang/String;>;Ljava/util/List<Ljdk/internal/org/objectweb/asm/tree/ModuleProvideNode;>;)V", $PUBLIC, $method(static_cast<void(ModuleNode::*)(int32_t,$String*,int32_t,$String*,$List*,$List*,$List*,$List*,$List*)>(&ModuleNode::init$))},
-	{"accept", "(Ljdk/internal/org/objectweb/asm/ClassVisitor;)V", nullptr, $PUBLIC},
-	{"visitEnd", "()V", nullptr, $PUBLIC},
-	{"visitExport", "(Ljava/lang/String;I[Ljava/lang/String;)V", nullptr, $PUBLIC | $TRANSIENT},
-	{"visitMainClass", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"visitOpen", "(Ljava/lang/String;I[Ljava/lang/String;)V", nullptr, $PUBLIC | $TRANSIENT},
-	{"visitPackage", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"visitProvide", "(Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $PUBLIC | $TRANSIENT},
-	{"visitRequire", "(Ljava/lang/String;ILjava/lang/String;)V", nullptr, $PUBLIC},
-	{"visitUse", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", nullptr, $PUBLIC, $method(ModuleNode, init$, void, $String*, int32_t, $String*)},
+	{"<init>", "(ILjava/lang/String;ILjava/lang/String;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;)V", "(ILjava/lang/String;ILjava/lang/String;Ljava/util/List<Ljdk/internal/org/objectweb/asm/tree/ModuleRequireNode;>;Ljava/util/List<Ljdk/internal/org/objectweb/asm/tree/ModuleExportNode;>;Ljava/util/List<Ljdk/internal/org/objectweb/asm/tree/ModuleOpenNode;>;Ljava/util/List<Ljava/lang/String;>;Ljava/util/List<Ljdk/internal/org/objectweb/asm/tree/ModuleProvideNode;>;)V", $PUBLIC, $method(ModuleNode, init$, void, int32_t, $String*, int32_t, $String*, $List*, $List*, $List*, $List*, $List*)},
+	{"accept", "(Ljdk/internal/org/objectweb/asm/ClassVisitor;)V", nullptr, $PUBLIC, $virtualMethod(ModuleNode, accept, void, $ClassVisitor*)},
+	{"visitEnd", "()V", nullptr, $PUBLIC, $virtualMethod(ModuleNode, visitEnd, void)},
+	{"visitExport", "(Ljava/lang/String;I[Ljava/lang/String;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(ModuleNode, visitExport, void, $String*, int32_t, $StringArray*)},
+	{"visitMainClass", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ModuleNode, visitMainClass, void, $String*)},
+	{"visitOpen", "(Ljava/lang/String;I[Ljava/lang/String;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(ModuleNode, visitOpen, void, $String*, int32_t, $StringArray*)},
+	{"visitPackage", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ModuleNode, visitPackage, void, $String*)},
+	{"visitProvide", "(Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(ModuleNode, visitProvide, void, $String*, $StringArray*)},
+	{"visitRequire", "(Ljava/lang/String;ILjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ModuleNode, visitRequire, void, $String*, int32_t, $String*)},
+	{"visitUse", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ModuleNode, visitUse, void, $String*)},
 	{}
 };
 

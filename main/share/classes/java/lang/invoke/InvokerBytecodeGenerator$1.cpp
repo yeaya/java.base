@@ -34,8 +34,8 @@ $FieldInfo _InvokerBytecodeGenerator$1_FieldInfo_[] = {
 };
 
 $MethodInfo _InvokerBytecodeGenerator$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;[B)V", nullptr, 0, $method(static_cast<void(InvokerBytecodeGenerator$1::*)($String*,$bytes*)>(&InvokerBytecodeGenerator$1::init$))},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;[B)V", nullptr, 0, $method(InvokerBytecodeGenerator$1, init$, void, $String*, $bytes*)},
+	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(InvokerBytecodeGenerator$1, run, $Object*)},
 	{}
 };
 

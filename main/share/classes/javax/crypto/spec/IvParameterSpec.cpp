@@ -19,9 +19,9 @@ $FieldInfo _IvParameterSpec_FieldInfo_[] = {
 };
 
 $MethodInfo _IvParameterSpec_MethodInfo_[] = {
-	{"<init>", "([B)V", nullptr, $PUBLIC, $method(static_cast<void(IvParameterSpec::*)($bytes*)>(&IvParameterSpec::init$))},
-	{"<init>", "([BII)V", nullptr, $PUBLIC, $method(static_cast<void(IvParameterSpec::*)($bytes*,int32_t,int32_t)>(&IvParameterSpec::init$))},
-	{"getIV", "()[B", nullptr, $PUBLIC},
+	{"<init>", "([B)V", nullptr, $PUBLIC, $method(IvParameterSpec, init$, void, $bytes*)},
+	{"<init>", "([BII)V", nullptr, $PUBLIC, $method(IvParameterSpec, init$, void, $bytes*, int32_t, int32_t)},
+	{"getIV", "()[B", nullptr, $PUBLIC, $virtualMethod(IvParameterSpec, getIV, $bytes*)},
 	{}
 };
 

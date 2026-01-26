@@ -69,17 +69,17 @@ $FieldInfo _ICUBinary_FieldInfo_[] = {
 };
 
 $MethodInfo _ICUBinary_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ICUBinary::*)()>(&ICUBinary::init$))},
-	{"getBytes", "(Ljava/nio/ByteBuffer;II)[B", nullptr, $PUBLIC | $STATIC, $method(static_cast<$bytes*(*)($ByteBuffer*,int32_t,int32_t)>(&ICUBinary::getBytes))},
-	{"getChars", "(Ljava/nio/ByteBuffer;II)[C", nullptr, $PUBLIC | $STATIC, $method(static_cast<$chars*(*)($ByteBuffer*,int32_t,int32_t)>(&ICUBinary::getChars))},
-	{"getInts", "(Ljava/nio/ByteBuffer;II)[I", nullptr, $PUBLIC | $STATIC, $method(static_cast<$ints*(*)($ByteBuffer*,int32_t,int32_t)>(&ICUBinary::getInts))},
-	{"getRequiredData", "(Ljava/lang/String;)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$ByteBuffer*(*)($String*)>(&ICUBinary::getRequiredData))},
-	{"getString", "(Ljava/nio/ByteBuffer;II)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)($ByteBuffer*,int32_t,int32_t)>(&ICUBinary::getString))},
-	{"getVersionInfoFromCompactInt", "(I)Ljdk/internal/icu/util/VersionInfo;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$VersionInfo*(*)(int32_t)>(&ICUBinary::getVersionInfoFromCompactInt))},
-	{"readHeader", "(Ljava/io/InputStream;[BLjdk/internal/icu/impl/ICUBinary$Authenticate;)[B", nullptr, $PUBLIC | $STATIC | $FINAL, $method(static_cast<$bytes*(*)($InputStream*,$bytes*,$ICUBinary$Authenticate*)>(&ICUBinary::readHeader)), "java.io.IOException"},
-	{"readHeader", "(Ljava/nio/ByteBuffer;ILjdk/internal/icu/impl/ICUBinary$Authenticate;)I", nullptr, $PUBLIC | $STATIC, $method(static_cast<int32_t(*)($ByteBuffer*,int32_t,$ICUBinary$Authenticate*)>(&ICUBinary::readHeader)), "java.io.IOException"},
-	{"readHeaderAndDataVersion", "(Ljava/nio/ByteBuffer;ILjdk/internal/icu/impl/ICUBinary$Authenticate;)Ljdk/internal/icu/util/VersionInfo;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$VersionInfo*(*)($ByteBuffer*,int32_t,$ICUBinary$Authenticate*)>(&ICUBinary::readHeaderAndDataVersion)), "java.io.IOException"},
-	{"skipBytes", "(Ljava/nio/ByteBuffer;I)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($ByteBuffer*,int32_t)>(&ICUBinary::skipBytes))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ICUBinary, init$, void)},
+	{"getBytes", "(Ljava/nio/ByteBuffer;II)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(ICUBinary, getBytes, $bytes*, $ByteBuffer*, int32_t, int32_t)},
+	{"getChars", "(Ljava/nio/ByteBuffer;II)[C", nullptr, $PUBLIC | $STATIC, $staticMethod(ICUBinary, getChars, $chars*, $ByteBuffer*, int32_t, int32_t)},
+	{"getInts", "(Ljava/nio/ByteBuffer;II)[I", nullptr, $PUBLIC | $STATIC, $staticMethod(ICUBinary, getInts, $ints*, $ByteBuffer*, int32_t, int32_t)},
+	{"getRequiredData", "(Ljava/lang/String;)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC | $STATIC, $staticMethod(ICUBinary, getRequiredData, $ByteBuffer*, $String*)},
+	{"getString", "(Ljava/nio/ByteBuffer;II)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(ICUBinary, getString, $String*, $ByteBuffer*, int32_t, int32_t)},
+	{"getVersionInfoFromCompactInt", "(I)Ljdk/internal/icu/util/VersionInfo;", nullptr, $PUBLIC | $STATIC, $staticMethod(ICUBinary, getVersionInfoFromCompactInt, $VersionInfo*, int32_t)},
+	{"readHeader", "(Ljava/io/InputStream;[BLjdk/internal/icu/impl/ICUBinary$Authenticate;)[B", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(ICUBinary, readHeader, $bytes*, $InputStream*, $bytes*, $ICUBinary$Authenticate*), "java.io.IOException"},
+	{"readHeader", "(Ljava/nio/ByteBuffer;ILjdk/internal/icu/impl/ICUBinary$Authenticate;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(ICUBinary, readHeader, int32_t, $ByteBuffer*, int32_t, $ICUBinary$Authenticate*), "java.io.IOException"},
+	{"readHeaderAndDataVersion", "(Ljava/nio/ByteBuffer;ILjdk/internal/icu/impl/ICUBinary$Authenticate;)Ljdk/internal/icu/util/VersionInfo;", nullptr, $PUBLIC | $STATIC, $staticMethod(ICUBinary, readHeaderAndDataVersion, $VersionInfo*, $ByteBuffer*, int32_t, $ICUBinary$Authenticate*), "java.io.IOException"},
+	{"skipBytes", "(Ljava/nio/ByteBuffer;I)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ICUBinary, skipBytes, void, $ByteBuffer*, int32_t)},
 	{}
 };
 

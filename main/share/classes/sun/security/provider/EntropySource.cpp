@@ -10,7 +10,7 @@ namespace sun {
 		namespace provider {
 
 $MethodInfo _EntropySource_MethodInfo_[] = {
-	{"getEntropy", "(IIIZ)[B", nullptr, $PUBLIC | $ABSTRACT},
+	{"getEntropy", "(IIIZ)[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(EntropySource, getEntropy, $bytes*, int32_t, int32_t, int32_t, bool)},
 	{}
 };
 

@@ -28,13 +28,13 @@ $FieldInfo _LDAPCertStoreParameters_FieldInfo_[] = {
 };
 
 $MethodInfo _LDAPCertStoreParameters_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(static_cast<void(LDAPCertStoreParameters::*)($String*,int32_t)>(&LDAPCertStoreParameters::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(LDAPCertStoreParameters::*)($String*)>(&LDAPCertStoreParameters::init$))},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(LDAPCertStoreParameters::*)()>(&LDAPCertStoreParameters::init$))},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"getPort", "()I", nullptr, $PUBLIC},
-	{"getServerName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(LDAPCertStoreParameters, init$, void, $String*, int32_t)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(LDAPCertStoreParameters, init$, void, $String*)},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(LDAPCertStoreParameters, init$, void)},
+	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LDAPCertStoreParameters, clone, $Object*)},
+	{"getPort", "()I", nullptr, $PUBLIC, $virtualMethod(LDAPCertStoreParameters, getPort, int32_t)},
+	{"getServerName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LDAPCertStoreParameters, getServerName, $String*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LDAPCertStoreParameters, toString, $String*)},
 	{}
 };
 

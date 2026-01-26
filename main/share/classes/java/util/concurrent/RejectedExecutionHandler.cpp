@@ -6,13 +6,15 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Runnable = ::java::lang::Runnable;
+using $ThreadPoolExecutor = ::java::util::concurrent::ThreadPoolExecutor;
 
 namespace java {
 	namespace util {
 		namespace concurrent {
 
 $MethodInfo _RejectedExecutionHandler_MethodInfo_[] = {
-	{"rejectedExecution", "(Ljava/lang/Runnable;Ljava/util/concurrent/ThreadPoolExecutor;)V", nullptr, $PUBLIC | $ABSTRACT},
+	{"rejectedExecution", "(Ljava/lang/Runnable;Ljava/util/concurrent/ThreadPoolExecutor;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RejectedExecutionHandler, rejectedExecution, void, $Runnable*, $ThreadPoolExecutor*)},
 	{}
 };
 

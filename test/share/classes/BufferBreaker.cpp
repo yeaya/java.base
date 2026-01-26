@@ -17,12 +17,12 @@ $FieldInfo _BufferBreaker_FieldInfo_[] = {
 };
 
 $MethodInfo _BufferBreaker_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(BufferBreaker::*)()>(&BufferBreaker::init$))},
-	{"available", "()I", nullptr, $PUBLIC},
-	{"read", "()I", nullptr, $PUBLIC},
-	{"read", "([B)I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"read", "([BII)I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"skip", "(J)J", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(BufferBreaker, init$, void)},
+	{"available", "()I", nullptr, $PUBLIC, $virtualMethod(BufferBreaker, available, int32_t)},
+	{"read", "()I", nullptr, $PUBLIC, $virtualMethod(BufferBreaker, read, int32_t)},
+	{"read", "([B)I", nullptr, $PUBLIC, $virtualMethod(BufferBreaker, read, int32_t, $bytes*), "java.io.IOException"},
+	{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(BufferBreaker, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
+	{"skip", "(J)J", nullptr, $PUBLIC, $virtualMethod(BufferBreaker, skip, int64_t, int64_t)},
 	{}
 };
 

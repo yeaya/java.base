@@ -33,8 +33,8 @@ using $OpenOption = ::java::nio::file::OpenOption;
 using $StandardOpenOption = ::java::nio::file::StandardOpenOption;
 
 $MethodInfo _FileLockConstructor_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(FileLockConstructor::*)()>(&FileLockConstructor::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&FileLockConstructor::main)), "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(FileLockConstructor, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(FileLockConstructor, main, void, $StringArray*), "java.io.IOException"},
 	{}
 };
 

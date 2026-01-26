@@ -34,8 +34,8 @@ $FieldInfo _ForkJoinTask$Aux_FieldInfo_[] = {
 };
 
 $MethodInfo _ForkJoinTask$Aux_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Thread;Ljava/lang/Throwable;)V", nullptr, 0, $method(static_cast<void(ForkJoinTask$Aux::*)($Thread*,$Throwable*)>(&ForkJoinTask$Aux::init$))},
-	{"casNext", "(Ljava/util/concurrent/ForkJoinTask$Aux;Ljava/util/concurrent/ForkJoinTask$Aux;)Z", nullptr, $FINAL, $method(static_cast<bool(ForkJoinTask$Aux::*)(ForkJoinTask$Aux*,ForkJoinTask$Aux*)>(&ForkJoinTask$Aux::casNext))},
+	{"<init>", "(Ljava/lang/Thread;Ljava/lang/Throwable;)V", nullptr, 0, $method(ForkJoinTask$Aux, init$, void, $Thread*, $Throwable*)},
+	{"casNext", "(Ljava/util/concurrent/ForkJoinTask$Aux;Ljava/util/concurrent/ForkJoinTask$Aux;)Z", nullptr, $FINAL, $method(ForkJoinTask$Aux, casNext, bool, ForkJoinTask$Aux*, ForkJoinTask$Aux*)},
 	{}
 };
 

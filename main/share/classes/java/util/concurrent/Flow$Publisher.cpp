@@ -8,6 +8,7 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Flow$Subscriber = ::java::util::concurrent::Flow$Subscriber;
 
 namespace java {
 	namespace util {
@@ -19,7 +20,7 @@ $CompoundAttribute _Flow$Publisher_Annotations_[] = {
 };
 
 $MethodInfo _Flow$Publisher_MethodInfo_[] = {
-	{"subscribe", "(Ljava/util/concurrent/Flow$Subscriber;)V", "(Ljava/util/concurrent/Flow$Subscriber<-TT;>;)V", $PUBLIC | $ABSTRACT},
+	{"subscribe", "(Ljava/util/concurrent/Flow$Subscriber;)V", "(Ljava/util/concurrent/Flow$Subscriber<-TT;>;)V", $PUBLIC | $ABSTRACT, $virtualMethod(Flow$Publisher, subscribe, void, $Flow$Subscriber*)},
 	{}
 };
 

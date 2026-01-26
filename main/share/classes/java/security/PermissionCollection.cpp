@@ -36,14 +36,14 @@ $FieldInfo _PermissionCollection_FieldInfo_[] = {
 };
 
 $MethodInfo _PermissionCollection_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PermissionCollection::*)()>(&PermissionCollection::init$))},
-	{"add", "(Ljava/security/Permission;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"elements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/security/Permission;>;", $PUBLIC | $ABSTRACT},
-	{"elementsAsStream", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljava/security/Permission;>;", $PUBLIC},
-	{"implies", "(Ljava/security/Permission;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"isReadOnly", "()Z", nullptr, $PUBLIC},
-	{"setReadOnly", "()V", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PermissionCollection, init$, void)},
+	{"add", "(Ljava/security/Permission;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PermissionCollection, add, void, $Permission*)},
+	{"elements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/security/Permission;>;", $PUBLIC | $ABSTRACT, $virtualMethod(PermissionCollection, elements, $Enumeration*)},
+	{"elementsAsStream", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljava/security/Permission;>;", $PUBLIC, $virtualMethod(PermissionCollection, elementsAsStream, $Stream*)},
+	{"implies", "(Ljava/security/Permission;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PermissionCollection, implies, bool, $Permission*)},
+	{"isReadOnly", "()Z", nullptr, $PUBLIC, $virtualMethod(PermissionCollection, isReadOnly, bool)},
+	{"setReadOnly", "()V", nullptr, $PUBLIC, $virtualMethod(PermissionCollection, setReadOnly, void)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PermissionCollection, toString, $String*)},
 	{}
 };
 

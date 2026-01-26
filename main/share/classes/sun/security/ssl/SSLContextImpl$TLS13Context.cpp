@@ -32,9 +32,9 @@ $FieldInfo _SSLContextImpl$TLS13Context_FieldInfo_[] = {
 };
 
 $MethodInfo _SSLContextImpl$TLS13Context_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SSLContextImpl$TLS13Context::*)()>(&SSLContextImpl$TLS13Context::init$))},
-	{"getClientDefaultCipherSuites", "()Ljava/util/List;", "()Ljava/util/List<Lsun/security/ssl/CipherSuite;>;", 0},
-	{"getClientDefaultProtocolVersions", "()Ljava/util/List;", "()Ljava/util/List<Lsun/security/ssl/ProtocolVersion;>;", 0},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SSLContextImpl$TLS13Context, init$, void)},
+	{"getClientDefaultCipherSuites", "()Ljava/util/List;", "()Ljava/util/List<Lsun/security/ssl/CipherSuite;>;", 0, $virtualMethod(SSLContextImpl$TLS13Context, getClientDefaultCipherSuites, $List*)},
+	{"getClientDefaultProtocolVersions", "()Ljava/util/List;", "()Ljava/util/List<Lsun/security/ssl/ProtocolVersion;>;", 0, $virtualMethod(SSLContextImpl$TLS13Context, getClientDefaultProtocolVersions, $List*)},
 	{}
 };
 

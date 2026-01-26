@@ -357,7 +357,7 @@ public:
 	static void unlock(const Object0* obj);
 };
 
-#ifdef WIN32
+#ifdef _WIN32
 struct RTTICompleteObjectLocator {
 	int32_t signature;
 	int32_t offset;

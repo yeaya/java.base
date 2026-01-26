@@ -27,14 +27,14 @@ $FieldInfo _SSLEngineResult_FieldInfo_[] = {
 };
 
 $MethodInfo _SSLEngineResult_MethodInfo_[] = {
-	{"<init>", "(Ljavax/net/ssl/SSLEngineResult$Status;Ljavax/net/ssl/SSLEngineResult$HandshakeStatus;II)V", nullptr, $PUBLIC, $method(static_cast<void(SSLEngineResult::*)($SSLEngineResult$Status*,$SSLEngineResult$HandshakeStatus*,int32_t,int32_t)>(&SSLEngineResult::init$))},
-	{"<init>", "(Ljavax/net/ssl/SSLEngineResult$Status;Ljavax/net/ssl/SSLEngineResult$HandshakeStatus;IIJ)V", nullptr, $PUBLIC, $method(static_cast<void(SSLEngineResult::*)($SSLEngineResult$Status*,$SSLEngineResult$HandshakeStatus*,int32_t,int32_t,int64_t)>(&SSLEngineResult::init$))},
-	{"bytesConsumed", "()I", nullptr, $PUBLIC | $FINAL, $method(static_cast<int32_t(SSLEngineResult::*)()>(&SSLEngineResult::bytesConsumed))},
-	{"bytesProduced", "()I", nullptr, $PUBLIC | $FINAL, $method(static_cast<int32_t(SSLEngineResult::*)()>(&SSLEngineResult::bytesProduced))},
-	{"getHandshakeStatus", "()Ljavax/net/ssl/SSLEngineResult$HandshakeStatus;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$SSLEngineResult$HandshakeStatus*(SSLEngineResult::*)()>(&SSLEngineResult::getHandshakeStatus))},
-	{"getStatus", "()Ljavax/net/ssl/SSLEngineResult$Status;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$SSLEngineResult$Status*(SSLEngineResult::*)()>(&SSLEngineResult::getStatus))},
-	{"sequenceNumber", "()J", nullptr, $PUBLIC | $FINAL, $method(static_cast<int64_t(SSLEngineResult::*)()>(&SSLEngineResult::sequenceNumber))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljavax/net/ssl/SSLEngineResult$Status;Ljavax/net/ssl/SSLEngineResult$HandshakeStatus;II)V", nullptr, $PUBLIC, $method(SSLEngineResult, init$, void, $SSLEngineResult$Status*, $SSLEngineResult$HandshakeStatus*, int32_t, int32_t)},
+	{"<init>", "(Ljavax/net/ssl/SSLEngineResult$Status;Ljavax/net/ssl/SSLEngineResult$HandshakeStatus;IIJ)V", nullptr, $PUBLIC, $method(SSLEngineResult, init$, void, $SSLEngineResult$Status*, $SSLEngineResult$HandshakeStatus*, int32_t, int32_t, int64_t)},
+	{"bytesConsumed", "()I", nullptr, $PUBLIC | $FINAL, $method(SSLEngineResult, bytesConsumed, int32_t)},
+	{"bytesProduced", "()I", nullptr, $PUBLIC | $FINAL, $method(SSLEngineResult, bytesProduced, int32_t)},
+	{"getHandshakeStatus", "()Ljavax/net/ssl/SSLEngineResult$HandshakeStatus;", nullptr, $PUBLIC | $FINAL, $method(SSLEngineResult, getHandshakeStatus, $SSLEngineResult$HandshakeStatus*)},
+	{"getStatus", "()Ljavax/net/ssl/SSLEngineResult$Status;", nullptr, $PUBLIC | $FINAL, $method(SSLEngineResult, getStatus, $SSLEngineResult$Status*)},
+	{"sequenceNumber", "()J", nullptr, $PUBLIC | $FINAL, $method(SSLEngineResult, sequenceNumber, int64_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SSLEngineResult, toString, $String*)},
 	{}
 };
 

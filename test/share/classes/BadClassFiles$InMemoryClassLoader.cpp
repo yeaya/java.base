@@ -10,8 +10,8 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _BadClassFiles$InMemoryClassLoader_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(BadClassFiles$InMemoryClassLoader::*)()>(&BadClassFiles$InMemoryClassLoader::init$))},
-	{"defineClass", "(Ljava/lang/String;[B)Ljava/lang/Class;", "(Ljava/lang/String;[B)Ljava/lang/Class<*>;", $PUBLIC},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(BadClassFiles$InMemoryClassLoader, init$, void)},
+	{"defineClass", "(Ljava/lang/String;[B)Ljava/lang/Class;", "(Ljava/lang/String;[B)Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(BadClassFiles$InMemoryClassLoader, defineClass, $Class*, $String*, $bytes*)},
 	{}
 };
 

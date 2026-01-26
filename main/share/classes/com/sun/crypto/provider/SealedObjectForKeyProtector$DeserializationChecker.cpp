@@ -54,8 +54,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo SealedObjectForKeyProtector$DeserializationChecker$$Lambda$lambda$static$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SealedObjectForKeyProtector$DeserializationChecker$$Lambda$lambda$static$0::*)()>(&SealedObjectForKeyProtector$DeserializationChecker$$Lambda$lambda$static$0::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SealedObjectForKeyProtector$DeserializationChecker$$Lambda$lambda$static$0, init$, void)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SealedObjectForKeyProtector$DeserializationChecker$$Lambda$lambda$static$0, run, $Object*)},
 	{}
 };
 $ClassInfo SealedObjectForKeyProtector$DeserializationChecker$$Lambda$lambda$static$0::classInfo$ = {
@@ -79,9 +79,9 @@ $FieldInfo _SealedObjectForKeyProtector$DeserializationChecker_FieldInfo_[] = {
 };
 
 $MethodInfo _SealedObjectForKeyProtector$DeserializationChecker_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PRIVATE, $method(static_cast<void(SealedObjectForKeyProtector$DeserializationChecker::*)(int32_t)>(&SealedObjectForKeyProtector$DeserializationChecker::init$))},
-	{"checkInput", "(Ljava/io/ObjectInputFilter$FilterInfo;)Ljava/io/ObjectInputFilter$Status;", nullptr, $PUBLIC},
-	{"lambda$static$0", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$String*(*)()>(&SealedObjectForKeyProtector$DeserializationChecker::lambda$static$0))},
+	{"<init>", "(I)V", nullptr, $PRIVATE, $method(SealedObjectForKeyProtector$DeserializationChecker, init$, void, int32_t)},
+	{"checkInput", "(Ljava/io/ObjectInputFilter$FilterInfo;)Ljava/io/ObjectInputFilter$Status;", nullptr, $PUBLIC, $virtualMethod(SealedObjectForKeyProtector$DeserializationChecker, checkInput, $ObjectInputFilter$Status*, $ObjectInputFilter$FilterInfo*)},
+	{"lambda$static$0", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SealedObjectForKeyProtector$DeserializationChecker, lambda$static$0, $String*)},
 	{}
 };
 

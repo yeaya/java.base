@@ -26,8 +26,8 @@ $FieldInfo _GetCallerClassTest$1_FieldInfo_[] = {
 };
 
 $MethodInfo _GetCallerClassTest$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/PermissionCollection;)V", nullptr, 0, $method(static_cast<void(GetCallerClassTest$1::*)($PermissionCollection*)>(&GetCallerClassTest$1::init$))},
-	{"implies", "(Ljava/security/ProtectionDomain;Ljava/security/Permission;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/security/PermissionCollection;)V", nullptr, 0, $method(GetCallerClassTest$1, init$, void, $PermissionCollection*)},
+	{"implies", "(Ljava/security/ProtectionDomain;Ljava/security/Permission;)Z", nullptr, $PUBLIC, $virtualMethod(GetCallerClassTest$1, implies, bool, $ProtectionDomain*, $Permission*)},
 	{}
 };
 

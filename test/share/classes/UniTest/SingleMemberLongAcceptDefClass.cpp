@@ -14,7 +14,7 @@ $CompoundAttribute _SingleMemberLongAcceptDefClass_Annotations_[] = {
 };
 
 $MethodInfo _SingleMemberLongAcceptDefClass_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(SingleMemberLongAcceptDefClass::*)()>(&SingleMemberLongAcceptDefClass::init$))},
+	{"<init>", "()V", nullptr, 0, $method(SingleMemberLongAcceptDefClass, init$, void)},
 	{}
 };
 

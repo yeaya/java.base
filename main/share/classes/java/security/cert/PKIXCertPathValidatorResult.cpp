@@ -32,12 +32,12 @@ $FieldInfo _PKIXCertPathValidatorResult_FieldInfo_[] = {
 };
 
 $MethodInfo _PKIXCertPathValidatorResult_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/cert/TrustAnchor;Ljava/security/cert/PolicyNode;Ljava/security/PublicKey;)V", nullptr, $PUBLIC, $method(static_cast<void(PKIXCertPathValidatorResult::*)($TrustAnchor*,$PolicyNode*,$PublicKey*)>(&PKIXCertPathValidatorResult::init$))},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"getPolicyTree", "()Ljava/security/cert/PolicyNode;", nullptr, $PUBLIC},
-	{"getPublicKey", "()Ljava/security/PublicKey;", nullptr, $PUBLIC},
-	{"getTrustAnchor", "()Ljava/security/cert/TrustAnchor;", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/security/cert/TrustAnchor;Ljava/security/cert/PolicyNode;Ljava/security/PublicKey;)V", nullptr, $PUBLIC, $method(PKIXCertPathValidatorResult, init$, void, $TrustAnchor*, $PolicyNode*, $PublicKey*)},
+	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PKIXCertPathValidatorResult, clone, $Object*)},
+	{"getPolicyTree", "()Ljava/security/cert/PolicyNode;", nullptr, $PUBLIC, $virtualMethod(PKIXCertPathValidatorResult, getPolicyTree, $PolicyNode*)},
+	{"getPublicKey", "()Ljava/security/PublicKey;", nullptr, $PUBLIC, $virtualMethod(PKIXCertPathValidatorResult, getPublicKey, $PublicKey*)},
+	{"getTrustAnchor", "()Ljava/security/cert/TrustAnchor;", nullptr, $PUBLIC, $virtualMethod(PKIXCertPathValidatorResult, getTrustAnchor, $TrustAnchor*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PKIXCertPathValidatorResult, toString, $String*)},
 	{}
 };
 

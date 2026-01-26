@@ -17,7 +17,7 @@ namespace sun {
 		namespace rsa {
 
 $MethodInfo _RSAKeyFactory$Legacy_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(RSAKeyFactory$Legacy::*)()>(&RSAKeyFactory$Legacy::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(RSAKeyFactory$Legacy, init$, void)},
 	{}
 };
 

@@ -43,18 +43,18 @@ $FieldInfo _SSLLogger_FieldInfo_[] = {
 };
 
 $MethodInfo _SSLLogger_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SSLLogger::*)()>(&SSLLogger::init$))},
-	{"fine", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<void(*)($String*,$ObjectArray*)>(&SSLLogger::fine))},
-	{"finer", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<void(*)($String*,$ObjectArray*)>(&SSLLogger::finer))},
-	{"finest", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<void(*)($String*,$ObjectArray*)>(&SSLLogger::finest))},
-	{"hasOption", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($String*)>(&SSLLogger::hasOption))},
-	{"help", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&SSLLogger::help))},
-	{"info", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<void(*)($String*,$ObjectArray*)>(&SSLLogger::info))},
-	{"isOn", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)($String*)>(&SSLLogger::isOn))},
-	{"log", "(Ljava/lang/System$Logger$Level;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $TRANSIENT, $method(static_cast<void(*)($System$Logger$Level*,$String*,$ObjectArray*)>(&SSLLogger::log))},
-	{"severe", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<void(*)($String*,$ObjectArray*)>(&SSLLogger::severe))},
-	{"toString", "([Ljava/lang/Object;)Ljava/lang/String;", nullptr, $STATIC | $TRANSIENT, $method(static_cast<$String*(*)($ObjectArray*)>(&SSLLogger::toString))},
-	{"warning", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<void(*)($String*,$ObjectArray*)>(&SSLLogger::warning))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SSLLogger, init$, void)},
+	{"fine", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(SSLLogger, fine, void, $String*, $ObjectArray*)},
+	{"finer", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(SSLLogger, finer, void, $String*, $ObjectArray*)},
+	{"finest", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(SSLLogger, finest, void, $String*, $ObjectArray*)},
+	{"hasOption", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(SSLLogger, hasOption, bool, $String*)},
+	{"help", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(SSLLogger, help, void)},
+	{"info", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(SSLLogger, info, void, $String*, $ObjectArray*)},
+	{"isOn", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(SSLLogger, isOn, bool, $String*)},
+	{"log", "(Ljava/lang/System$Logger$Level;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $TRANSIENT, $staticMethod(SSLLogger, log, void, $System$Logger$Level*, $String*, $ObjectArray*)},
+	{"severe", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(SSLLogger, severe, void, $String*, $ObjectArray*)},
+	{"toString", "([Ljava/lang/Object;)Ljava/lang/String;", nullptr, $STATIC | $TRANSIENT, $staticMethod(SSLLogger, toString, $String*, $ObjectArray*)},
+	{"warning", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(SSLLogger, warning, void, $String*, $ObjectArray*)},
 	{}
 };
 

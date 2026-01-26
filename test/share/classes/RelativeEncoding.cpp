@@ -13,8 +13,8 @@ using $URI = ::java::net::URI;
 using $URISyntaxException = ::java::net::URISyntaxException;
 
 $MethodInfo _RelativeEncoding_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(RelativeEncoding::*)()>(&RelativeEncoding::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&RelativeEncoding::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(RelativeEncoding, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(RelativeEncoding, main, void, $StringArray*)},
 	{}
 };
 

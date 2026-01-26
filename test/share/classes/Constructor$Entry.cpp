@@ -16,7 +16,7 @@ $FieldInfo _Constructor$Entry_FieldInfo_[] = {
 };
 
 $MethodInfo _Constructor$Entry_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(Constructor$Entry::*)($String*,$String*,$String*)>(&Constructor$Entry::init$))},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(Constructor$Entry, init$, void, $String*, $String*, $String*)},
 	{}
 };
 

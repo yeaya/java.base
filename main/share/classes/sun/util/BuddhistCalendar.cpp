@@ -38,22 +38,22 @@ $FieldInfo _BuddhistCalendar_FieldInfo_[] = {
 };
 
 $MethodInfo _BuddhistCalendar_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(BuddhistCalendar::*)()>(&BuddhistCalendar::init$))},
-	{"<init>", "(Ljava/util/TimeZone;)V", nullptr, $PUBLIC, $method(static_cast<void(BuddhistCalendar::*)($TimeZone*)>(&BuddhistCalendar::init$))},
-	{"<init>", "(Ljava/util/Locale;)V", nullptr, $PUBLIC, $method(static_cast<void(BuddhistCalendar::*)($Locale*)>(&BuddhistCalendar::init$))},
-	{"<init>", "(Ljava/util/TimeZone;Ljava/util/Locale;)V", nullptr, $PUBLIC, $method(static_cast<void(BuddhistCalendar::*)($TimeZone*,$Locale*)>(&BuddhistCalendar::init$))},
-	{"add", "(II)V", nullptr, $PUBLIC},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"get", "(I)I", nullptr, $PUBLIC},
-	{"getActualMaximum", "(I)I", nullptr, $PUBLIC},
-	{"getCalendarType", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getDisplayName", "(IILjava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getDisplayNames", "(IILjava/util/Locale;)Ljava/util/Map;", "(IILjava/util/Locale;)Ljava/util/Map<Ljava/lang/String;Ljava/lang/Integer;>;", $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(BuddhistCalendar::*)($ObjectInputStream*)>(&BuddhistCalendar::readObject)), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"roll", "(II)V", nullptr, $PUBLIC},
-	{"set", "(II)V", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(BuddhistCalendar, init$, void)},
+	{"<init>", "(Ljava/util/TimeZone;)V", nullptr, $PUBLIC, $method(BuddhistCalendar, init$, void, $TimeZone*)},
+	{"<init>", "(Ljava/util/Locale;)V", nullptr, $PUBLIC, $method(BuddhistCalendar, init$, void, $Locale*)},
+	{"<init>", "(Ljava/util/TimeZone;Ljava/util/Locale;)V", nullptr, $PUBLIC, $method(BuddhistCalendar, init$, void, $TimeZone*, $Locale*)},
+	{"add", "(II)V", nullptr, $PUBLIC, $virtualMethod(BuddhistCalendar, add, void, int32_t, int32_t)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(BuddhistCalendar, equals, bool, Object$*)},
+	{"get", "(I)I", nullptr, $PUBLIC, $virtualMethod(BuddhistCalendar, get, int32_t, int32_t)},
+	{"getActualMaximum", "(I)I", nullptr, $PUBLIC, $virtualMethod(BuddhistCalendar, getActualMaximum, int32_t, int32_t)},
+	{"getCalendarType", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BuddhistCalendar, getCalendarType, $String*)},
+	{"getDisplayName", "(IILjava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BuddhistCalendar, getDisplayName, $String*, int32_t, int32_t, $Locale*)},
+	{"getDisplayNames", "(IILjava/util/Locale;)Ljava/util/Map;", "(IILjava/util/Locale;)Ljava/util/Map<Ljava/lang/String;Ljava/lang/Integer;>;", $PUBLIC, $virtualMethod(BuddhistCalendar, getDisplayNames, $Map*, int32_t, int32_t, $Locale*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(BuddhistCalendar, hashCode, int32_t)},
+	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(BuddhistCalendar, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+	{"roll", "(II)V", nullptr, $PUBLIC, $virtualMethod(BuddhistCalendar, roll, void, int32_t, int32_t)},
+	{"set", "(II)V", nullptr, $PUBLIC, $virtualMethod(BuddhistCalendar, set, void, int32_t, int32_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BuddhistCalendar, toString, $String*)},
 	{}
 };
 

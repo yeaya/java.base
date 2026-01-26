@@ -64,11 +64,11 @@ $FieldInfo _Identity_FieldInfo_[] = {
 };
 
 $MethodInfo _Identity_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Identity::*)()>(&Identity::init$))},
-	{"createThreadFactory", "(I)Ljava/util/concurrent/ThreadFactory;", nullptr, $STATIC | $FINAL, $method(static_cast<$ThreadFactory*(*)(int32_t)>(&Identity::createThreadFactory))},
-	{"fail", "(Ljava/lang/String;)V", nullptr, $STATIC, $method(static_cast<void(*)($String*)>(&Identity::fail))},
-	{"getBuffer", "()Ljava/nio/ByteBuffer;", nullptr, $STATIC, $method(static_cast<$ByteBuffer*(*)()>(&Identity::getBuffer))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Identity::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Identity, init$, void)},
+	{"createThreadFactory", "(I)Ljava/util/concurrent/ThreadFactory;", nullptr, $STATIC | $FINAL, $staticMethod(Identity, createThreadFactory, $ThreadFactory*, int32_t)},
+	{"fail", "(Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(Identity, fail, void, $String*)},
+	{"getBuffer", "()Ljava/nio/ByteBuffer;", nullptr, $STATIC, $staticMethod(Identity, getBuffer, $ByteBuffer*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Identity, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

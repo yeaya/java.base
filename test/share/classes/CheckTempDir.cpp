@@ -8,8 +8,8 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 
 $MethodInfo _CheckTempDir_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CheckTempDir::*)()>(&CheckTempDir::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&CheckTempDir::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CheckTempDir, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(CheckTempDir, main, void, $StringArray*)},
 	{}
 };
 

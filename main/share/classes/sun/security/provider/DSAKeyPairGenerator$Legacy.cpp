@@ -35,12 +35,12 @@ $MethodInfo _DSAKeyPairGenerator$Legacy_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DSAKeyPairGenerator$Legacy::*)()>(&DSAKeyPairGenerator$Legacy::init$))},
-	{"generateKeyPair", "()Ljava/security/KeyPair;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"initialize", "(IZLjava/security/SecureRandom;)V", nullptr, $PUBLIC, nullptr, "java.security.InvalidParameterException"},
-	{"initialize", "(Ljava/security/interfaces/DSAParams;Ljava/security/SecureRandom;)V", nullptr, $PUBLIC, nullptr, "java.security.InvalidParameterException"},
-	{"initialize", "(Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, nullptr, "java.security.InvalidAlgorithmParameterException"},
-	{"initialize", "(ILjava/security/SecureRandom;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DSAKeyPairGenerator$Legacy, init$, void)},
+	{"generateKeyPair", "()Ljava/security/KeyPair;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DSAKeyPairGenerator$Legacy, generateKeyPair, $KeyPair*)},
+	{"initialize", "(IZLjava/security/SecureRandom;)V", nullptr, $PUBLIC, $virtualMethod(DSAKeyPairGenerator$Legacy, initialize, void, int32_t, bool, $SecureRandom*), "java.security.InvalidParameterException"},
+	{"initialize", "(Ljava/security/interfaces/DSAParams;Ljava/security/SecureRandom;)V", nullptr, $PUBLIC, $virtualMethod(DSAKeyPairGenerator$Legacy, initialize, void, $DSAParams*, $SecureRandom*), "java.security.InvalidParameterException"},
+	{"initialize", "(Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DSAKeyPairGenerator$Legacy, initialize, void, $AlgorithmParameterSpec*, $SecureRandom*), "java.security.InvalidAlgorithmParameterException"},
+	{"initialize", "(ILjava/security/SecureRandom;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DSAKeyPairGenerator$Legacy, initialize, void, int32_t, $SecureRandom*)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

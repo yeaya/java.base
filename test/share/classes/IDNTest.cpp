@@ -12,8 +12,8 @@ using $Socket = ::java::net::Socket;
 using $UnknownHostException = ::java::net::UnknownHostException;
 
 $MethodInfo _IDNTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(IDNTest::*)()>(&IDNTest::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&IDNTest::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(IDNTest, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(IDNTest, main, void, $StringArray*)},
 	{}
 };
 

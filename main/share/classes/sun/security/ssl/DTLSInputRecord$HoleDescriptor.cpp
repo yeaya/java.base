@@ -19,7 +19,7 @@ $FieldInfo _DTLSInputRecord$HoleDescriptor_FieldInfo_[] = {
 };
 
 $MethodInfo _DTLSInputRecord$HoleDescriptor_MethodInfo_[] = {
-	{"<init>", "(II)V", nullptr, 0, $method(static_cast<void(DTLSInputRecord$HoleDescriptor::*)(int32_t,int32_t)>(&DTLSInputRecord$HoleDescriptor::init$))},
+	{"<init>", "(II)V", nullptr, 0, $method(DTLSInputRecord$HoleDescriptor, init$, void, int32_t, int32_t)},
 	{}
 };
 

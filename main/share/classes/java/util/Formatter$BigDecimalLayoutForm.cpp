@@ -25,10 +25,10 @@ $FieldInfo _Formatter$BigDecimalLayoutForm_FieldInfo_[] = {
 };
 
 $MethodInfo _Formatter$BigDecimalLayoutForm_MethodInfo_[] = {
-	{"$values", "()[Ljava/util/Formatter$BigDecimalLayoutForm;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Formatter$BigDecimalLayoutFormArray*(*)()>(&Formatter$BigDecimalLayoutForm::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(Formatter$BigDecimalLayoutForm::*)($String*,int32_t)>(&Formatter$BigDecimalLayoutForm::init$))},
-	{"valueOf", "(Ljava/lang/String;)Ljava/util/Formatter$BigDecimalLayoutForm;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Formatter$BigDecimalLayoutForm*(*)($String*)>(&Formatter$BigDecimalLayoutForm::valueOf))},
-	{"values", "()[Ljava/util/Formatter$BigDecimalLayoutForm;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Formatter$BigDecimalLayoutFormArray*(*)()>(&Formatter$BigDecimalLayoutForm::values))},
+	{"$values", "()[Ljava/util/Formatter$BigDecimalLayoutForm;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Formatter$BigDecimalLayoutForm, $values, $Formatter$BigDecimalLayoutFormArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Formatter$BigDecimalLayoutForm, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Ljava/util/Formatter$BigDecimalLayoutForm;", nullptr, $PUBLIC | $STATIC, $staticMethod(Formatter$BigDecimalLayoutForm, valueOf, Formatter$BigDecimalLayoutForm*, $String*)},
+	{"values", "()[Ljava/util/Formatter$BigDecimalLayoutForm;", nullptr, $PUBLIC | $STATIC, $staticMethod(Formatter$BigDecimalLayoutForm, values, $Formatter$BigDecimalLayoutFormArray*)},
 	{}
 };
 

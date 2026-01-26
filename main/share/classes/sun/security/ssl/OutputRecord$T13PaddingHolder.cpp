@@ -18,7 +18,7 @@ $FieldInfo _OutputRecord$T13PaddingHolder_FieldInfo_[] = {
 };
 
 $MethodInfo _OutputRecord$T13PaddingHolder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(OutputRecord$T13PaddingHolder::*)()>(&OutputRecord$T13PaddingHolder::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(OutputRecord$T13PaddingHolder, init$, void)},
 	{}
 };
 

@@ -49,8 +49,8 @@ $FieldInfo _ProcessImpl$2_FieldInfo_[] = {
 };
 
 $MethodInfo _ProcessImpl$2_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/ProcessImpl;[JZ)V", "()V", 0, $method(static_cast<void(ProcessImpl$2::*)($ProcessImpl*,$longs*,bool)>(&ProcessImpl$2::init$))},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/ProcessImpl;[JZ)V", "()V", 0, $method(ProcessImpl$2, init$, void, $ProcessImpl*, $longs*, bool)},
+	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(ProcessImpl$2, run, $Object*)},
 	{}
 };
 

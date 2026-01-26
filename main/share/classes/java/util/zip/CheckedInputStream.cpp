@@ -22,11 +22,11 @@ $FieldInfo _CheckedInputStream_FieldInfo_[] = {
 };
 
 $MethodInfo _CheckedInputStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/InputStream;Ljava/util/zip/Checksum;)V", nullptr, $PUBLIC, $method(static_cast<void(CheckedInputStream::*)($InputStream*,$Checksum*)>(&CheckedInputStream::init$))},
-	{"getChecksum", "()Ljava/util/zip/Checksum;", nullptr, $PUBLIC},
-	{"read", "()I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"read", "([BII)I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"skip", "(J)J", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljava/io/InputStream;Ljava/util/zip/Checksum;)V", nullptr, $PUBLIC, $method(CheckedInputStream, init$, void, $InputStream*, $Checksum*)},
+	{"getChecksum", "()Ljava/util/zip/Checksum;", nullptr, $PUBLIC, $virtualMethod(CheckedInputStream, getChecksum, $Checksum*)},
+	{"read", "()I", nullptr, $PUBLIC, $virtualMethod(CheckedInputStream, read, int32_t), "java.io.IOException"},
+	{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(CheckedInputStream, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
+	{"skip", "(J)J", nullptr, $PUBLIC, $virtualMethod(CheckedInputStream, skip, int64_t, int64_t), "java.io.IOException"},
 	{}
 };
 

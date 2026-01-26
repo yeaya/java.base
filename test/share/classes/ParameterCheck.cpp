@@ -31,10 +31,10 @@ $FieldInfo _ParameterCheck_FieldInfo_[] = {
 };
 
 $MethodInfo _ParameterCheck_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ParameterCheck::*)()>(&ParameterCheck::init$))},
-	{"doTest", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($String*)>(&ParameterCheck::doTest)), "java.lang.Exception"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&ParameterCheck::main)), "java.lang.Exception"},
-	{"printErr", "(Ljava/lang/String;IILjava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($String*,int32_t,int32_t,$String*)>(&ParameterCheck::printErr))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ParameterCheck, init$, void)},
+	{"doTest", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ParameterCheck, doTest, void, $String*), "java.lang.Exception"},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ParameterCheck, main, void, $StringArray*), "java.lang.Exception"},
+	{"printErr", "(Ljava/lang/String;IILjava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ParameterCheck, printErr, void, $String*, int32_t, int32_t, $String*)},
 	{}
 };
 

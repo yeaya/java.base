@@ -46,8 +46,8 @@ $FieldInfo IntUnaryOperator$$Lambda$lambda$compose$0::fieldInfos[3] = {
 	{}
 };
 $MethodInfo IntUnaryOperator$$Lambda$lambda$compose$0::methodInfos[3] = {
-	{"<init>", "(Ljava/util/function/IntUnaryOperator;Ljava/util/function/IntUnaryOperator;)V", nullptr, $PUBLIC, $method(static_cast<void(IntUnaryOperator$$Lambda$lambda$compose$0::*)(IntUnaryOperator*,IntUnaryOperator*)>(&IntUnaryOperator$$Lambda$lambda$compose$0::init$))},
-	{"applyAsInt", "(I)I", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/function/IntUnaryOperator;Ljava/util/function/IntUnaryOperator;)V", nullptr, $PUBLIC, $method(IntUnaryOperator$$Lambda$lambda$compose$0, init$, void, IntUnaryOperator*, IntUnaryOperator*)},
+	{"applyAsInt", "(I)I", nullptr, $PUBLIC, $virtualMethod(IntUnaryOperator$$Lambda$lambda$compose$0, applyAsInt, int32_t, int32_t)},
 	{}
 };
 $ClassInfo IntUnaryOperator$$Lambda$lambda$compose$0::classInfo$ = {
@@ -89,8 +89,8 @@ $FieldInfo IntUnaryOperator$$Lambda$lambda$andThen$1$1::fieldInfos[3] = {
 	{}
 };
 $MethodInfo IntUnaryOperator$$Lambda$lambda$andThen$1$1::methodInfos[3] = {
-	{"<init>", "(Ljava/util/function/IntUnaryOperator;Ljava/util/function/IntUnaryOperator;)V", nullptr, $PUBLIC, $method(static_cast<void(IntUnaryOperator$$Lambda$lambda$andThen$1$1::*)(IntUnaryOperator*,IntUnaryOperator*)>(&IntUnaryOperator$$Lambda$lambda$andThen$1$1::init$))},
-	{"applyAsInt", "(I)I", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/function/IntUnaryOperator;Ljava/util/function/IntUnaryOperator;)V", nullptr, $PUBLIC, $method(IntUnaryOperator$$Lambda$lambda$andThen$1$1, init$, void, IntUnaryOperator*, IntUnaryOperator*)},
+	{"applyAsInt", "(I)I", nullptr, $PUBLIC, $virtualMethod(IntUnaryOperator$$Lambda$lambda$andThen$1$1, applyAsInt, int32_t, int32_t)},
 	{}
 };
 $ClassInfo IntUnaryOperator$$Lambda$lambda$andThen$1$1::classInfo$ = {
@@ -122,8 +122,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo IntUnaryOperator$$Lambda$lambda$identity$2$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(IntUnaryOperator$$Lambda$lambda$identity$2$2::*)()>(&IntUnaryOperator$$Lambda$lambda$identity$2$2::init$))},
-	{"applyAsInt", "(I)I", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(IntUnaryOperator$$Lambda$lambda$identity$2$2, init$, void)},
+	{"applyAsInt", "(I)I", nullptr, $PUBLIC, $virtualMethod(IntUnaryOperator$$Lambda$lambda$identity$2$2, applyAsInt, int32_t, int32_t)},
 	{}
 };
 $ClassInfo IntUnaryOperator$$Lambda$lambda$identity$2$2::classInfo$ = {
@@ -146,13 +146,13 @@ $CompoundAttribute _IntUnaryOperator_Annotations_[] = {
 };
 
 $MethodInfo _IntUnaryOperator_MethodInfo_[] = {
-	{"andThen", "(Ljava/util/function/IntUnaryOperator;)Ljava/util/function/IntUnaryOperator;", nullptr, $PUBLIC},
-	{"applyAsInt", "(I)I", nullptr, $PUBLIC | $ABSTRACT},
-	{"compose", "(Ljava/util/function/IntUnaryOperator;)Ljava/util/function/IntUnaryOperator;", nullptr, $PUBLIC},
-	{"identity", "()Ljava/util/function/IntUnaryOperator;", nullptr, $PUBLIC | $STATIC, $method(static_cast<IntUnaryOperator*(*)()>(&IntUnaryOperator::identity))},
-	{"lambda$andThen$1", "(Ljava/util/function/IntUnaryOperator;I)I", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<int32_t(IntUnaryOperator::*)(IntUnaryOperator*,int32_t)>(&IntUnaryOperator::lambda$andThen$1))},
-	{"lambda$compose$0", "(Ljava/util/function/IntUnaryOperator;I)I", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<int32_t(IntUnaryOperator::*)(IntUnaryOperator*,int32_t)>(&IntUnaryOperator::lambda$compose$0))},
-	{"lambda$identity$2", "(I)I", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<int32_t(*)(int32_t)>(&IntUnaryOperator::lambda$identity$2))},
+	{"andThen", "(Ljava/util/function/IntUnaryOperator;)Ljava/util/function/IntUnaryOperator;", nullptr, $PUBLIC, $virtualMethod(IntUnaryOperator, andThen, IntUnaryOperator*, IntUnaryOperator*)},
+	{"applyAsInt", "(I)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(IntUnaryOperator, applyAsInt, int32_t, int32_t)},
+	{"compose", "(Ljava/util/function/IntUnaryOperator;)Ljava/util/function/IntUnaryOperator;", nullptr, $PUBLIC, $virtualMethod(IntUnaryOperator, compose, IntUnaryOperator*, IntUnaryOperator*)},
+	{"identity", "()Ljava/util/function/IntUnaryOperator;", nullptr, $PUBLIC | $STATIC, $staticMethod(IntUnaryOperator, identity, IntUnaryOperator*)},
+	{"lambda$andThen$1", "(Ljava/util/function/IntUnaryOperator;I)I", nullptr, $PRIVATE | $SYNTHETIC, $method(IntUnaryOperator, lambda$andThen$1, int32_t, IntUnaryOperator*, int32_t)},
+	{"lambda$compose$0", "(Ljava/util/function/IntUnaryOperator;I)I", nullptr, $PRIVATE | $SYNTHETIC, $method(IntUnaryOperator, lambda$compose$0, int32_t, IntUnaryOperator*, int32_t)},
+	{"lambda$identity$2", "(I)I", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(IntUnaryOperator, lambda$identity$2, int32_t, int32_t)},
 	{}
 };
 

@@ -27,9 +27,9 @@ namespace sun {
 		namespace fs {
 
 $MethodInfo _Reflect_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(Reflect::*)()>(&Reflect::init$))},
-	{"lookupField", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/reflect/Field;", nullptr, $STATIC, $method(static_cast<$Field*(*)($String*,$String*)>(&Reflect::lookupField))},
-	{"setAccessible", "(Ljava/lang/reflect/AccessibleObject;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($AccessibleObject*)>(&Reflect::setAccessible))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(Reflect, init$, void)},
+	{"lookupField", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/reflect/Field;", nullptr, $STATIC, $staticMethod(Reflect, lookupField, $Field*, $String*, $String*)},
+	{"setAccessible", "(Ljava/lang/reflect/AccessibleObject;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Reflect, setAccessible, void, $AccessibleObject*)},
 	{}
 };
 

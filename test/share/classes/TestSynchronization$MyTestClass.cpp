@@ -8,10 +8,10 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _TestSynchronization$MyTestClass_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(TestSynchronization$MyTestClass::*)($String*)>(&TestSynchronization$MyTestClass::init$))},
-	{"should_fail", "()V", nullptr, $PUBLIC},
-	{"should_pass", "()V", nullptr, $PUBLIC},
-	{"sync_shouldnt_be_tested", "()V", nullptr, $PUBLIC | $SYNCHRONIZED},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(TestSynchronization$MyTestClass, init$, void, $String*)},
+	{"should_fail", "()V", nullptr, $PUBLIC, $virtualMethod(TestSynchronization$MyTestClass, should_fail, void)},
+	{"should_pass", "()V", nullptr, $PUBLIC, $virtualMethod(TestSynchronization$MyTestClass, should_pass, void)},
+	{"sync_shouldnt_be_tested", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(TestSynchronization$MyTestClass, sync_shouldnt_be_tested, void)},
 	{}
 };
 

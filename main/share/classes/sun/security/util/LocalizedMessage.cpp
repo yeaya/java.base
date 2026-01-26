@@ -30,11 +30,11 @@ $FieldInfo _LocalizedMessage_FieldInfo_[] = {
 };
 
 $MethodInfo _LocalizedMessage_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(LocalizedMessage::*)($String*)>(&LocalizedMessage::init$))},
-	{"formatLocalized", "([Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC | $TRANSIENT},
-	{"formatNonlocalized", "([Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC | $TRANSIENT},
-	{"getLocalized", "(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<$String*(*)($String*,$ObjectArray*)>(&LocalizedMessage::getLocalized))},
-	{"getNonlocalized", "(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<$String*(*)($String*,$ObjectArray*)>(&LocalizedMessage::getNonlocalized))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(LocalizedMessage, init$, void, $String*)},
+	{"formatLocalized", "([Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(LocalizedMessage, formatLocalized, $String*, $ObjectArray*)},
+	{"formatNonlocalized", "([Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(LocalizedMessage, formatNonlocalized, $String*, $ObjectArray*)},
+	{"getLocalized", "(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(LocalizedMessage, getLocalized, $String*, $String*, $ObjectArray*)},
+	{"getNonlocalized", "(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(LocalizedMessage, getNonlocalized, $String*, $String*, $ObjectArray*)},
 	{}
 };
 

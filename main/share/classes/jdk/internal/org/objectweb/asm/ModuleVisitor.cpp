@@ -31,16 +31,16 @@ $FieldInfo _ModuleVisitor_FieldInfo_[] = {
 };
 
 $MethodInfo _ModuleVisitor_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(static_cast<void(ModuleVisitor::*)(int32_t)>(&ModuleVisitor::init$))},
-	{"<init>", "(ILjdk/internal/org/objectweb/asm/ModuleVisitor;)V", nullptr, $PUBLIC, $method(static_cast<void(ModuleVisitor::*)(int32_t,ModuleVisitor*)>(&ModuleVisitor::init$))},
-	{"visitEnd", "()V", nullptr, $PUBLIC},
-	{"visitExport", "(Ljava/lang/String;I[Ljava/lang/String;)V", nullptr, $PUBLIC | $TRANSIENT},
-	{"visitMainClass", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"visitOpen", "(Ljava/lang/String;I[Ljava/lang/String;)V", nullptr, $PUBLIC | $TRANSIENT},
-	{"visitPackage", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"visitProvide", "(Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $PUBLIC | $TRANSIENT},
-	{"visitRequire", "(Ljava/lang/String;ILjava/lang/String;)V", nullptr, $PUBLIC},
-	{"visitUse", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
+	{"<init>", "(I)V", nullptr, $PUBLIC, $method(ModuleVisitor, init$, void, int32_t)},
+	{"<init>", "(ILjdk/internal/org/objectweb/asm/ModuleVisitor;)V", nullptr, $PUBLIC, $method(ModuleVisitor, init$, void, int32_t, ModuleVisitor*)},
+	{"visitEnd", "()V", nullptr, $PUBLIC, $virtualMethod(ModuleVisitor, visitEnd, void)},
+	{"visitExport", "(Ljava/lang/String;I[Ljava/lang/String;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(ModuleVisitor, visitExport, void, $String*, int32_t, $StringArray*)},
+	{"visitMainClass", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ModuleVisitor, visitMainClass, void, $String*)},
+	{"visitOpen", "(Ljava/lang/String;I[Ljava/lang/String;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(ModuleVisitor, visitOpen, void, $String*, int32_t, $StringArray*)},
+	{"visitPackage", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ModuleVisitor, visitPackage, void, $String*)},
+	{"visitProvide", "(Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(ModuleVisitor, visitProvide, void, $String*, $StringArray*)},
+	{"visitRequire", "(Ljava/lang/String;ILjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ModuleVisitor, visitRequire, void, $String*, int32_t, $String*)},
+	{"visitUse", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ModuleVisitor, visitUse, void, $String*)},
 	{}
 };
 

@@ -37,15 +37,15 @@ using $MathContext = ::java::math::MathContext;
 using $RoundingMode = ::java::math::RoundingMode;
 
 $MethodInfo _DivideTests_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DivideTests::*)()>(&DivideTests::init$))},
-	{"anotherDivide", "(Ljava/math/BigDecimal;Ljava/math/BigDecimal;)Ljava/math/BigDecimal;", nullptr, 0},
-	{"divideByOneTests", "()I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)()>(&DivideTests::divideByOneTests))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&DivideTests::main))},
-	{"nonTerminating", "()I", nullptr, $PUBLIC | $STATIC, $method(static_cast<int32_t(*)()>(&DivideTests::nonTerminating))},
-	{"powersOf2and5", "()I", nullptr, $PUBLIC | $STATIC, $method(static_cast<int32_t(*)()>(&DivideTests::powersOf2and5))},
-	{"properScaleTests", "()I", nullptr, $PUBLIC | $STATIC, $method(static_cast<int32_t(*)()>(&DivideTests::properScaleTests))},
-	{"scaledRoundedDivideTests", "()I", nullptr, $PUBLIC | $STATIC, $method(static_cast<int32_t(*)()>(&DivideTests::scaledRoundedDivideTests))},
-	{"trailingZeroTests", "()I", nullptr, $PUBLIC | $STATIC, $method(static_cast<int32_t(*)()>(&DivideTests::trailingZeroTests))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DivideTests, init$, void)},
+	{"anotherDivide", "(Ljava/math/BigDecimal;Ljava/math/BigDecimal;)Ljava/math/BigDecimal;", nullptr, 0, $virtualMethod(DivideTests, anotherDivide, $BigDecimal*, $BigDecimal*, $BigDecimal*)},
+	{"divideByOneTests", "()I", nullptr, $PRIVATE | $STATIC, $staticMethod(DivideTests, divideByOneTests, int32_t)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(DivideTests, main, void, $StringArray*)},
+	{"nonTerminating", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(DivideTests, nonTerminating, int32_t)},
+	{"powersOf2and5", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(DivideTests, powersOf2and5, int32_t)},
+	{"properScaleTests", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(DivideTests, properScaleTests, int32_t)},
+	{"scaledRoundedDivideTests", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(DivideTests, scaledRoundedDivideTests, int32_t)},
+	{"trailingZeroTests", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(DivideTests, trailingZeroTests, int32_t)},
 	{}
 };
 

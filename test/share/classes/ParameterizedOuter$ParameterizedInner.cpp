@@ -15,7 +15,7 @@ $FieldInfo _ParameterizedOuter$ParameterizedInner_FieldInfo_[] = {
 };
 
 $MethodInfo _ParameterizedOuter$ParameterizedInner_MethodInfo_[] = {
-	{"<init>", "(LParameterizedOuter;)V", nullptr, 0, $method(static_cast<void(ParameterizedOuter$ParameterizedInner::*)($ParameterizedOuter*)>(&ParameterizedOuter$ParameterizedInner::init$))},
+	{"<init>", "(LParameterizedOuter;)V", nullptr, 0, $method(ParameterizedOuter$ParameterizedInner, init$, void, $ParameterizedOuter*)},
 	{}
 };
 

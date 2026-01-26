@@ -26,10 +26,10 @@ $FieldInfo _Version_FieldInfo_[] = {
 };
 
 $MethodInfo _Version_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/security/ntlm/Version;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$VersionArray*(*)()>(&Version::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(Version::*)($String*,int32_t)>(&Version::init$))},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/security/ntlm/Version;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Version*(*)($String*)>(&Version::valueOf))},
-	{"values", "()[Lcom/sun/security/ntlm/Version;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$VersionArray*(*)()>(&Version::values))},
+	{"$values", "()[Lcom/sun/security/ntlm/Version;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Version, $values, $VersionArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Version, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Lcom/sun/security/ntlm/Version;", nullptr, $PUBLIC | $STATIC, $staticMethod(Version, valueOf, Version*, $String*)},
+	{"values", "()[Lcom/sun/security/ntlm/Version;", nullptr, $PUBLIC | $STATIC, $staticMethod(Version, values, $VersionArray*)},
 	{}
 };
 

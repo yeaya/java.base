@@ -10,8 +10,8 @@ namespace java {
 	namespace util {
 
 $MethodInfo _Spliterator$OfPrimitive_MethodInfo_[] = {
-	{"forEachRemaining", "(Ljava/lang/Object;)V", "(TT_CONS;)V", $PUBLIC},
-	{"tryAdvance", "(Ljava/lang/Object;)Z", "(TT_CONS;)Z", $PUBLIC | $ABSTRACT},
+	{"forEachRemaining", "(Ljava/lang/Object;)V", "(TT_CONS;)V", $PUBLIC, $virtualMethod(Spliterator$OfPrimitive, forEachRemaining, void, Object$*)},
+	{"tryAdvance", "(Ljava/lang/Object;)Z", "(TT_CONS;)Z", $PUBLIC | $ABSTRACT, $virtualMethod(Spliterator$OfPrimitive, tryAdvance, bool, Object$*)},
 	{"trySplit", "()Ljava/util/Spliterator;", nullptr, $PUBLIC | $ABSTRACT},
 	{}
 };

@@ -60,22 +60,22 @@ $FieldInfo _SSLSessionContextImpl_FieldInfo_[] = {
 };
 
 $MethodInfo _SSLSessionContextImpl_MethodInfo_[] = {
-	{"<init>", "(Z)V", nullptr, 0, $method(static_cast<void(SSLSessionContextImpl::*)(bool)>(&SSLSessionContextImpl::init$))},
-	{"get", "([B)Lsun/security/ssl/SSLSessionImpl;", nullptr, 0, $method(static_cast<$SSLSessionImpl*(SSLSessionContextImpl::*)($bytes*)>(&SSLSessionContextImpl::get))},
-	{"get", "(Ljava/lang/String;I)Lsun/security/ssl/SSLSessionImpl;", nullptr, 0, $method(static_cast<$SSLSessionImpl*(SSLSessionContextImpl::*)($String*,int32_t)>(&SSLSessionContextImpl::get))},
-	{"getDefaults", "(Z)I", nullptr, $PRIVATE, $method(static_cast<int32_t(SSLSessionContextImpl::*)(bool)>(&SSLSessionContextImpl::getDefaults))},
-	{"getIds", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<[B>;", $PUBLIC},
-	{"getKey", "(Ljava/lang/String;I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($String*,int32_t)>(&SSLSessionContextImpl::getKey))},
-	{"getSession", "([B)Ljavax/net/ssl/SSLSession;", nullptr, $PUBLIC},
-	{"getSessionCacheSize", "()I", nullptr, $PUBLIC},
-	{"getSessionTimeout", "()I", nullptr, $PUBLIC},
-	{"isTimedout", "(Ljavax/net/ssl/SSLSession;)Z", nullptr, $PRIVATE, $method(static_cast<bool(SSLSessionContextImpl::*)($SSLSession*)>(&SSLSessionContextImpl::isTimedout))},
-	{"pull", "([B)Lsun/security/ssl/SSLSessionImpl;", nullptr, 0, $method(static_cast<$SSLSessionImpl*(SSLSessionContextImpl::*)($bytes*)>(&SSLSessionContextImpl::pull))},
-	{"put", "(Lsun/security/ssl/SSLSessionImpl;)V", nullptr, 0, $method(static_cast<void(SSLSessionContextImpl::*)($SSLSessionImpl*)>(&SSLSessionContextImpl::put))},
-	{"remove", "(Lsun/security/ssl/SessionId;)V", nullptr, 0, $method(static_cast<void(SSLSessionContextImpl::*)($SessionId*)>(&SSLSessionContextImpl::remove))},
-	{"setSessionCacheSize", "(I)V", nullptr, $PUBLIC, nullptr, "java.lang.IllegalArgumentException"},
-	{"setSessionTimeout", "(I)V", nullptr, $PUBLIC, nullptr, "java.lang.IllegalArgumentException"},
-	{"statelessEnabled", "()Z", nullptr, 0, $method(static_cast<bool(SSLSessionContextImpl::*)()>(&SSLSessionContextImpl::statelessEnabled))},
+	{"<init>", "(Z)V", nullptr, 0, $method(SSLSessionContextImpl, init$, void, bool)},
+	{"get", "([B)Lsun/security/ssl/SSLSessionImpl;", nullptr, 0, $method(SSLSessionContextImpl, get, $SSLSessionImpl*, $bytes*)},
+	{"get", "(Ljava/lang/String;I)Lsun/security/ssl/SSLSessionImpl;", nullptr, 0, $method(SSLSessionContextImpl, get, $SSLSessionImpl*, $String*, int32_t)},
+	{"getDefaults", "(Z)I", nullptr, $PRIVATE, $method(SSLSessionContextImpl, getDefaults, int32_t, bool)},
+	{"getIds", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<[B>;", $PUBLIC, $virtualMethod(SSLSessionContextImpl, getIds, $Enumeration*)},
+	{"getKey", "(Ljava/lang/String;I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(SSLSessionContextImpl, getKey, $String*, $String*, int32_t)},
+	{"getSession", "([B)Ljavax/net/ssl/SSLSession;", nullptr, $PUBLIC, $virtualMethod(SSLSessionContextImpl, getSession, $SSLSession*, $bytes*)},
+	{"getSessionCacheSize", "()I", nullptr, $PUBLIC, $virtualMethod(SSLSessionContextImpl, getSessionCacheSize, int32_t)},
+	{"getSessionTimeout", "()I", nullptr, $PUBLIC, $virtualMethod(SSLSessionContextImpl, getSessionTimeout, int32_t)},
+	{"isTimedout", "(Ljavax/net/ssl/SSLSession;)Z", nullptr, $PRIVATE, $method(SSLSessionContextImpl, isTimedout, bool, $SSLSession*)},
+	{"pull", "([B)Lsun/security/ssl/SSLSessionImpl;", nullptr, 0, $method(SSLSessionContextImpl, pull, $SSLSessionImpl*, $bytes*)},
+	{"put", "(Lsun/security/ssl/SSLSessionImpl;)V", nullptr, 0, $method(SSLSessionContextImpl, put, void, $SSLSessionImpl*)},
+	{"remove", "(Lsun/security/ssl/SessionId;)V", nullptr, 0, $method(SSLSessionContextImpl, remove, void, $SessionId*)},
+	{"setSessionCacheSize", "(I)V", nullptr, $PUBLIC, $virtualMethod(SSLSessionContextImpl, setSessionCacheSize, void, int32_t), "java.lang.IllegalArgumentException"},
+	{"setSessionTimeout", "(I)V", nullptr, $PUBLIC, $virtualMethod(SSLSessionContextImpl, setSessionTimeout, void, int32_t), "java.lang.IllegalArgumentException"},
+	{"statelessEnabled", "()Z", nullptr, 0, $method(SSLSessionContextImpl, statelessEnabled, bool)},
 	{}
 };
 

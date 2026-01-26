@@ -31,14 +31,14 @@ $FieldInfo _VerifyType_FieldInfo_[] = {
 };
 
 $MethodInfo _VerifyType_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(VerifyType::*)()>(&VerifyType::init$))},
-	{"canPassUnchecked", "(Ljava/lang/Class;Ljava/lang/Class;)I", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)I", $PUBLIC | $STATIC, $method(static_cast<int32_t(*)($Class*,$Class*)>(&VerifyType::canPassUnchecked))},
-	{"isNullConversion", "(Ljava/lang/Class;Ljava/lang/Class;Z)Z", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;Z)Z", $PUBLIC | $STATIC, $method(static_cast<bool(*)($Class*,$Class*,bool)>(&VerifyType::isNullConversion))},
-	{"isNullConversion", "(Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Z)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)($MethodType*,$MethodType*,bool)>(&VerifyType::isNullConversion))},
-	{"isNullReferenceConversion", "(Ljava/lang/Class;Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)Z", $PUBLIC | $STATIC, $method(static_cast<bool(*)($Class*,$Class*)>(&VerifyType::isNullReferenceConversion))},
-	{"isNullType", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PUBLIC | $STATIC, $method(static_cast<bool(*)($Class*)>(&VerifyType::isNullType))},
-	{"isSpreadArgType", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PUBLIC | $STATIC, $method(static_cast<bool(*)($Class*)>(&VerifyType::isSpreadArgType))},
-	{"spreadArgElementType", "(Ljava/lang/Class;I)Ljava/lang/Class;", "(Ljava/lang/Class<*>;I)Ljava/lang/Class<*>;", $PUBLIC | $STATIC, $method(static_cast<$Class*(*)($Class*,int32_t)>(&VerifyType::spreadArgElementType))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(VerifyType, init$, void)},
+	{"canPassUnchecked", "(Ljava/lang/Class;Ljava/lang/Class;)I", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)I", $PUBLIC | $STATIC, $staticMethod(VerifyType, canPassUnchecked, int32_t, $Class*, $Class*)},
+	{"isNullConversion", "(Ljava/lang/Class;Ljava/lang/Class;Z)Z", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;Z)Z", $PUBLIC | $STATIC, $staticMethod(VerifyType, isNullConversion, bool, $Class*, $Class*, bool)},
+	{"isNullConversion", "(Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Z)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(VerifyType, isNullConversion, bool, $MethodType*, $MethodType*, bool)},
+	{"isNullReferenceConversion", "(Ljava/lang/Class;Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)Z", $PUBLIC | $STATIC, $staticMethod(VerifyType, isNullReferenceConversion, bool, $Class*, $Class*)},
+	{"isNullType", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PUBLIC | $STATIC, $staticMethod(VerifyType, isNullType, bool, $Class*)},
+	{"isSpreadArgType", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PUBLIC | $STATIC, $staticMethod(VerifyType, isSpreadArgType, bool, $Class*)},
+	{"spreadArgElementType", "(Ljava/lang/Class;I)Ljava/lang/Class;", "(Ljava/lang/Class<*>;I)Ljava/lang/Class<*>;", $PUBLIC | $STATIC, $staticMethod(VerifyType, spreadArgElementType, $Class*, $Class*, int32_t)},
 	{}
 };
 

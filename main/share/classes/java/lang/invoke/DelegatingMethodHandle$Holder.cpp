@@ -19,7 +19,7 @@ $FieldInfo _DelegatingMethodHandle$Holder_FieldInfo_[] = {
 };
 
 $MethodInfo _DelegatingMethodHandle$Holder_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/invoke/DelegatingMethodHandle;)V", nullptr, 0, $method(static_cast<void(DelegatingMethodHandle$Holder::*)($DelegatingMethodHandle*)>(&DelegatingMethodHandle$Holder::init$))},
+	{"<init>", "(Ljava/lang/invoke/DelegatingMethodHandle;)V", nullptr, 0, $method(DelegatingMethodHandle$Holder, init$, void, $DelegatingMethodHandle*)},
 	{}
 };
 

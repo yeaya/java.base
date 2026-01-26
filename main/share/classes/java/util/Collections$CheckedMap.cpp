@@ -74,8 +74,8 @@ $FieldInfo Collections$CheckedMap$$Lambda$lambda$typeCheck$0::fieldInfos[3] = {
 	{}
 };
 $MethodInfo Collections$CheckedMap$$Lambda$lambda$typeCheck$0::methodInfos[3] = {
-	{"<init>", "(Ljava/util/Collections$CheckedMap;Ljava/util/function/BiFunction;)V", nullptr, $PUBLIC, $method(static_cast<void(Collections$CheckedMap$$Lambda$lambda$typeCheck$0::*)(Collections$CheckedMap*,$BiFunction*)>(&Collections$CheckedMap$$Lambda$lambda$typeCheck$0::init$))},
-	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/Collections$CheckedMap;Ljava/util/function/BiFunction;)V", nullptr, $PUBLIC, $method(Collections$CheckedMap$$Lambda$lambda$typeCheck$0, init$, void, Collections$CheckedMap*, $BiFunction*)},
+	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Collections$CheckedMap$$Lambda$lambda$typeCheck$0, apply, $Object*, Object$*, Object$*)},
 	{}
 };
 $ClassInfo Collections$CheckedMap$$Lambda$lambda$typeCheck$0::classInfo$ = {
@@ -117,8 +117,8 @@ $FieldInfo Collections$CheckedMap$$Lambda$lambda$computeIfAbsent$1$1::fieldInfos
 	{}
 };
 $MethodInfo Collections$CheckedMap$$Lambda$lambda$computeIfAbsent$1$1::methodInfos[3] = {
-	{"<init>", "(Ljava/util/Collections$CheckedMap;Ljava/util/function/Function;)V", nullptr, $PUBLIC, $method(static_cast<void(Collections$CheckedMap$$Lambda$lambda$computeIfAbsent$1$1::*)(Collections$CheckedMap*,$Function*)>(&Collections$CheckedMap$$Lambda$lambda$computeIfAbsent$1$1::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/Collections$CheckedMap;Ljava/util/function/Function;)V", nullptr, $PUBLIC, $method(Collections$CheckedMap$$Lambda$lambda$computeIfAbsent$1$1, init$, void, Collections$CheckedMap*, $Function*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Collections$CheckedMap$$Lambda$lambda$computeIfAbsent$1$1, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Collections$CheckedMap$$Lambda$lambda$computeIfAbsent$1$1::classInfo$ = {
@@ -160,8 +160,8 @@ $FieldInfo Collections$CheckedMap$$Lambda$lambda$merge$2$2::fieldInfos[3] = {
 	{}
 };
 $MethodInfo Collections$CheckedMap$$Lambda$lambda$merge$2$2::methodInfos[3] = {
-	{"<init>", "(Ljava/util/Collections$CheckedMap;Ljava/util/function/BiFunction;)V", nullptr, $PUBLIC, $method(static_cast<void(Collections$CheckedMap$$Lambda$lambda$merge$2$2::*)(Collections$CheckedMap*,$BiFunction*)>(&Collections$CheckedMap$$Lambda$lambda$merge$2$2::init$))},
-	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/Collections$CheckedMap;Ljava/util/function/BiFunction;)V", nullptr, $PUBLIC, $method(Collections$CheckedMap$$Lambda$lambda$merge$2$2, init$, void, Collections$CheckedMap*, $BiFunction*)},
+	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Collections$CheckedMap$$Lambda$lambda$merge$2$2, apply, $Object*, Object$*, Object$*)},
 	{}
 };
 $ClassInfo Collections$CheckedMap$$Lambda$lambda$merge$2$2::classInfo$ = {
@@ -190,39 +190,39 @@ $FieldInfo _Collections$CheckedMap_FieldInfo_[] = {
 $MethodInfo _Collections$CheckedMap_MethodInfo_[] = {
 	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(Ljava/util/Map;Ljava/lang/Class;Ljava/lang/Class;)V", "(Ljava/util/Map<TK;TV;>;Ljava/lang/Class<TK;>;Ljava/lang/Class<TV;>;)V", 0, $method(static_cast<void(Collections$CheckedMap::*)($Map*,$Class*,$Class*)>(&Collections$CheckedMap::init$))},
-	{"badKeyMsg", "(Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(Collections$CheckedMap::*)(Object$*)>(&Collections$CheckedMap::badKeyMsg))},
-	{"badValueMsg", "(Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(Collections$CheckedMap::*)(Object$*)>(&Collections$CheckedMap::badValueMsg))},
-	{"clear", "()V", nullptr, $PUBLIC},
-	{"compute", "(Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;", "(TK;Ljava/util/function/BiFunction<-TK;-TV;+TV;>;)TV;", $PUBLIC},
-	{"computeIfAbsent", "(Ljava/lang/Object;Ljava/util/function/Function;)Ljava/lang/Object;", "(TK;Ljava/util/function/Function<-TK;+TV;>;)TV;", $PUBLIC},
-	{"computeIfPresent", "(Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;", "(TK;Ljava/util/function/BiFunction<-TK;-TV;+TV;>;)TV;", $PUBLIC},
-	{"containsKey", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"containsValue", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"entrySet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/util/Map$Entry<TK;TV;>;>;", $PUBLIC},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"forEach", "(Ljava/util/function/BiConsumer;)V", "(Ljava/util/function/BiConsumer<-TK;-TV;>;)V", $PUBLIC},
-	{"get", "(Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/lang/Object;)TV;", $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"isEmpty", "()Z", nullptr, $PUBLIC},
-	{"keySet", "()Ljava/util/Set;", "()Ljava/util/Set<TK;>;", $PUBLIC},
-	{"lambda$computeIfAbsent$1", "(Ljava/util/function/Function;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$Object*(Collections$CheckedMap::*)($Function*,Object$*)>(&Collections$CheckedMap::lambda$computeIfAbsent$1))},
-	{"lambda$merge$2", "(Ljava/util/function/BiFunction;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$Object*(Collections$CheckedMap::*)($BiFunction*,Object$*,Object$*)>(&Collections$CheckedMap::lambda$merge$2))},
-	{"lambda$typeCheck$0", "(Ljava/util/function/BiFunction;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$Object*(Collections$CheckedMap::*)($BiFunction*,Object$*,Object$*)>(&Collections$CheckedMap::lambda$typeCheck$0))},
-	{"merge", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;", "(TK;TV;Ljava/util/function/BiFunction<-TV;-TV;+TV;>;)TV;", $PUBLIC},
-	{"put", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", "(TK;TV;)TV;", $PUBLIC},
-	{"putAll", "(Ljava/util/Map;)V", "(Ljava/util/Map<+TK;+TV;>;)V", $PUBLIC},
-	{"putIfAbsent", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", "(TK;TV;)TV;", $PUBLIC},
-	{"remove", "(Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/lang/Object;)TV;", $PUBLIC},
-	{"remove", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"replace", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Z", "(TK;TV;TV;)Z", $PUBLIC},
-	{"replace", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", "(TK;TV;)TV;", $PUBLIC},
-	{"replaceAll", "(Ljava/util/function/BiFunction;)V", "(Ljava/util/function/BiFunction<-TK;-TV;+TV;>;)V", $PUBLIC},
-	{"size", "()I", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"typeCheck", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(static_cast<void(Collections$CheckedMap::*)(Object$*,Object$*)>(&Collections$CheckedMap::typeCheck))},
-	{"typeCheck", "(Ljava/util/function/BiFunction;)Ljava/util/function/BiFunction;", "(Ljava/util/function/BiFunction<-TK;-TV;+TV;>;)Ljava/util/function/BiFunction<-TK;-TV;+TV;>;", $PRIVATE, $method(static_cast<$BiFunction*(Collections$CheckedMap::*)($BiFunction*)>(&Collections$CheckedMap::typeCheck))},
-	{"values", "()Ljava/util/Collection;", "()Ljava/util/Collection<TV;>;", $PUBLIC},
+	{"<init>", "(Ljava/util/Map;Ljava/lang/Class;Ljava/lang/Class;)V", "(Ljava/util/Map<TK;TV;>;Ljava/lang/Class<TK;>;Ljava/lang/Class<TV;>;)V", 0, $method(Collections$CheckedMap, init$, void, $Map*, $Class*, $Class*)},
+	{"badKeyMsg", "(Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PRIVATE, $method(Collections$CheckedMap, badKeyMsg, $String*, Object$*)},
+	{"badValueMsg", "(Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PRIVATE, $method(Collections$CheckedMap, badValueMsg, $String*, Object$*)},
+	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(Collections$CheckedMap, clear, void)},
+	{"compute", "(Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;", "(TK;Ljava/util/function/BiFunction<-TK;-TV;+TV;>;)TV;", $PUBLIC, $virtualMethod(Collections$CheckedMap, compute, $Object*, Object$*, $BiFunction*)},
+	{"computeIfAbsent", "(Ljava/lang/Object;Ljava/util/function/Function;)Ljava/lang/Object;", "(TK;Ljava/util/function/Function<-TK;+TV;>;)TV;", $PUBLIC, $virtualMethod(Collections$CheckedMap, computeIfAbsent, $Object*, Object$*, $Function*)},
+	{"computeIfPresent", "(Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;", "(TK;Ljava/util/function/BiFunction<-TK;-TV;+TV;>;)TV;", $PUBLIC, $virtualMethod(Collections$CheckedMap, computeIfPresent, $Object*, Object$*, $BiFunction*)},
+	{"containsKey", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Collections$CheckedMap, containsKey, bool, Object$*)},
+	{"containsValue", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Collections$CheckedMap, containsValue, bool, Object$*)},
+	{"entrySet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/util/Map$Entry<TK;TV;>;>;", $PUBLIC, $virtualMethod(Collections$CheckedMap, entrySet, $Set*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Collections$CheckedMap, equals, bool, Object$*)},
+	{"forEach", "(Ljava/util/function/BiConsumer;)V", "(Ljava/util/function/BiConsumer<-TK;-TV;>;)V", $PUBLIC, $virtualMethod(Collections$CheckedMap, forEach, void, $BiConsumer*)},
+	{"get", "(Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/lang/Object;)TV;", $PUBLIC, $virtualMethod(Collections$CheckedMap, get, $Object*, Object$*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Collections$CheckedMap, hashCode, int32_t)},
+	{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(Collections$CheckedMap, isEmpty, bool)},
+	{"keySet", "()Ljava/util/Set;", "()Ljava/util/Set<TK;>;", $PUBLIC, $virtualMethod(Collections$CheckedMap, keySet, $Set*)},
+	{"lambda$computeIfAbsent$1", "(Ljava/util/function/Function;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $SYNTHETIC, $method(Collections$CheckedMap, lambda$computeIfAbsent$1, $Object*, $Function*, Object$*)},
+	{"lambda$merge$2", "(Ljava/util/function/BiFunction;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $SYNTHETIC, $method(Collections$CheckedMap, lambda$merge$2, $Object*, $BiFunction*, Object$*, Object$*)},
+	{"lambda$typeCheck$0", "(Ljava/util/function/BiFunction;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $SYNTHETIC, $method(Collections$CheckedMap, lambda$typeCheck$0, $Object*, $BiFunction*, Object$*, Object$*)},
+	{"merge", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;", "(TK;TV;Ljava/util/function/BiFunction<-TV;-TV;+TV;>;)TV;", $PUBLIC, $virtualMethod(Collections$CheckedMap, merge, $Object*, Object$*, Object$*, $BiFunction*)},
+	{"put", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", "(TK;TV;)TV;", $PUBLIC, $virtualMethod(Collections$CheckedMap, put, $Object*, Object$*, Object$*)},
+	{"putAll", "(Ljava/util/Map;)V", "(Ljava/util/Map<+TK;+TV;>;)V", $PUBLIC, $virtualMethod(Collections$CheckedMap, putAll, void, $Map*)},
+	{"putIfAbsent", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", "(TK;TV;)TV;", $PUBLIC, $virtualMethod(Collections$CheckedMap, putIfAbsent, $Object*, Object$*, Object$*)},
+	{"remove", "(Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/lang/Object;)TV;", $PUBLIC, $virtualMethod(Collections$CheckedMap, remove, $Object*, Object$*)},
+	{"remove", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Collections$CheckedMap, remove, bool, Object$*, Object$*)},
+	{"replace", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Z", "(TK;TV;TV;)Z", $PUBLIC, $virtualMethod(Collections$CheckedMap, replace, bool, Object$*, Object$*, Object$*)},
+	{"replace", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", "(TK;TV;)TV;", $PUBLIC, $virtualMethod(Collections$CheckedMap, replace, $Object*, Object$*, Object$*)},
+	{"replaceAll", "(Ljava/util/function/BiFunction;)V", "(Ljava/util/function/BiFunction<-TK;-TV;+TV;>;)V", $PUBLIC, $virtualMethod(Collections$CheckedMap, replaceAll, void, $BiFunction*)},
+	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(Collections$CheckedMap, size, int32_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Collections$CheckedMap, toString, $String*)},
+	{"typeCheck", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(Collections$CheckedMap, typeCheck, void, Object$*, Object$*)},
+	{"typeCheck", "(Ljava/util/function/BiFunction;)Ljava/util/function/BiFunction;", "(Ljava/util/function/BiFunction<-TK;-TV;+TV;>;)Ljava/util/function/BiFunction<-TK;-TV;+TV;>;", $PRIVATE, $method(Collections$CheckedMap, typeCheck, $BiFunction*, $BiFunction*)},
+	{"values", "()Ljava/util/Collection;", "()Ljava/util/Collection<TV;>;", $PUBLIC, $virtualMethod(Collections$CheckedMap, values, $Collection*)},
 	{}
 };
 

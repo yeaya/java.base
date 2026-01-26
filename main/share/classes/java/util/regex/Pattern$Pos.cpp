@@ -24,8 +24,8 @@ $FieldInfo _Pattern$Pos_FieldInfo_[] = {
 };
 
 $MethodInfo _Pattern$Pos_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/regex/Pattern$Node;)V", nullptr, 0, $method(static_cast<void(Pattern$Pos::*)($Pattern$Node*)>(&Pattern$Pos::init$))},
-	{"match", "(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z", nullptr, 0},
+	{"<init>", "(Ljava/util/regex/Pattern$Node;)V", nullptr, 0, $method(Pattern$Pos, init$, void, $Pattern$Node*)},
+	{"match", "(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z", nullptr, 0, $virtualMethod(Pattern$Pos, match, bool, $Matcher*, int32_t, $CharSequence*)},
 	{}
 };
 

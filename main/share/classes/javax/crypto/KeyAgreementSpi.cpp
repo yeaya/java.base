@@ -1,5 +1,6 @@
 #include <javax/crypto/KeyAgreementSpi.h>
 
+#include <java/security/Key.h>
 #include <java/security/SecureRandom.h>
 #include <java/security/spec/AlgorithmParameterSpec.h>
 #include <javax/crypto/SecretKey.h>
@@ -7,18 +8,22 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Key = ::java::security::Key;
+using $SecureRandom = ::java::security::SecureRandom;
+using $AlgorithmParameterSpec = ::java::security::spec::AlgorithmParameterSpec;
+using $SecretKey = ::javax::crypto::SecretKey;
 
 namespace javax {
 	namespace crypto {
 
 $MethodInfo _KeyAgreementSpi_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(KeyAgreementSpi::*)()>(&KeyAgreementSpi::init$))},
-	{"engineDoPhase", "(Ljava/security/Key;Z)Ljava/security/Key;", nullptr, $PROTECTED | $ABSTRACT, nullptr, "java.security.InvalidKeyException,java.lang.IllegalStateException"},
-	{"engineGenerateSecret", "()[B", nullptr, $PROTECTED | $ABSTRACT, nullptr, "java.lang.IllegalStateException"},
-	{"engineGenerateSecret", "([BI)I", nullptr, $PROTECTED | $ABSTRACT, nullptr, "java.lang.IllegalStateException,javax.crypto.ShortBufferException"},
-	{"engineGenerateSecret", "(Ljava/lang/String;)Ljavax/crypto/SecretKey;", nullptr, $PROTECTED | $ABSTRACT, nullptr, "java.lang.IllegalStateException,java.security.NoSuchAlgorithmException,java.security.InvalidKeyException"},
-	{"engineInit", "(Ljava/security/Key;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED | $ABSTRACT, nullptr, "java.security.InvalidKeyException"},
-	{"engineInit", "(Ljava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED | $ABSTRACT, nullptr, "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(KeyAgreementSpi, init$, void)},
+	{"engineDoPhase", "(Ljava/security/Key;Z)Ljava/security/Key;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(KeyAgreementSpi, engineDoPhase, $Key*, $Key*, bool), "java.security.InvalidKeyException,java.lang.IllegalStateException"},
+	{"engineGenerateSecret", "()[B", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(KeyAgreementSpi, engineGenerateSecret, $bytes*), "java.lang.IllegalStateException"},
+	{"engineGenerateSecret", "([BI)I", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(KeyAgreementSpi, engineGenerateSecret, int32_t, $bytes*, int32_t), "java.lang.IllegalStateException,javax.crypto.ShortBufferException"},
+	{"engineGenerateSecret", "(Ljava/lang/String;)Ljavax/crypto/SecretKey;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(KeyAgreementSpi, engineGenerateSecret, $SecretKey*, $String*), "java.lang.IllegalStateException,java.security.NoSuchAlgorithmException,java.security.InvalidKeyException"},
+	{"engineInit", "(Ljava/security/Key;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(KeyAgreementSpi, engineInit, void, $Key*, $SecureRandom*), "java.security.InvalidKeyException"},
+	{"engineInit", "(Ljava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(KeyAgreementSpi, engineInit, void, $Key*, $AlgorithmParameterSpec*, $SecureRandom*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
 	{}
 };
 

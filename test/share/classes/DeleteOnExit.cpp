@@ -29,8 +29,8 @@ $FieldInfo _DeleteOnExit_FieldInfo_[] = {
 };
 
 $MethodInfo _DeleteOnExit_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DeleteOnExit::*)()>(&DeleteOnExit::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&DeleteOnExit::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DeleteOnExit, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(DeleteOnExit, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

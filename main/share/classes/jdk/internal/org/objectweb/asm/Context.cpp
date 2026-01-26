@@ -39,7 +39,7 @@ $FieldInfo _Context_FieldInfo_[] = {
 };
 
 $MethodInfo _Context_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Context::*)()>(&Context::init$))},
+	{"<init>", "()V", nullptr, 0, $method(Context, init$, void)},
 	{}
 };
 

@@ -17,8 +17,8 @@ $FieldInfo _TestSynchronization$TestFailedException_FieldInfo_[] = {
 };
 
 $MethodInfo _TestSynchronization$TestFailedException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/reflect/Method;)V", nullptr, $PUBLIC, $method(static_cast<void(TestSynchronization$TestFailedException::*)($Method*)>(&TestSynchronization$TestFailedException::init$))},
-	{"getMethod", "()Ljava/lang/reflect/Method;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/reflect/Method;)V", nullptr, $PUBLIC, $method(TestSynchronization$TestFailedException, init$, void, $Method*)},
+	{"getMethod", "()Ljava/lang/reflect/Method;", nullptr, $PUBLIC, $virtualMethod(TestSynchronization$TestFailedException, getMethod, $Method*)},
 	{}
 };
 

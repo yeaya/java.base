@@ -35,9 +35,9 @@ $FieldInfo _ForkJoinWorkerThread$InnocuousForkJoinWorkerThread_FieldInfo_[] = {
 };
 
 $MethodInfo _ForkJoinWorkerThread$InnocuousForkJoinWorkerThread_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/ForkJoinPool;)V", nullptr, 0, $method(static_cast<void(ForkJoinWorkerThread$InnocuousForkJoinWorkerThread::*)($ForkJoinPool*)>(&ForkJoinWorkerThread$InnocuousForkJoinWorkerThread::init$))},
-	{"setContextClassLoader", "(Ljava/lang/ClassLoader;)V", nullptr, $PUBLIC},
-	{"setUncaughtExceptionHandler", "(Ljava/lang/Thread$UncaughtExceptionHandler;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/concurrent/ForkJoinPool;)V", nullptr, 0, $method(ForkJoinWorkerThread$InnocuousForkJoinWorkerThread, init$, void, $ForkJoinPool*)},
+	{"setContextClassLoader", "(Ljava/lang/ClassLoader;)V", nullptr, $PUBLIC, $virtualMethod(ForkJoinWorkerThread$InnocuousForkJoinWorkerThread, setContextClassLoader, void, $ClassLoader*)},
+	{"setUncaughtExceptionHandler", "(Ljava/lang/Thread$UncaughtExceptionHandler;)V", nullptr, $PUBLIC, $virtualMethod(ForkJoinWorkerThread$InnocuousForkJoinWorkerThread, setUncaughtExceptionHandler, void, $Thread$UncaughtExceptionHandler*)},
 	{}
 };
 

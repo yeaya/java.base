@@ -138,8 +138,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo AnnotationInvocationHandler$$Lambda$toSourceString::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(AnnotationInvocationHandler$$Lambda$toSourceString::*)()>(&AnnotationInvocationHandler$$Lambda$toSourceString::init$))},
-	{"apply", "(D)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(AnnotationInvocationHandler$$Lambda$toSourceString, init$, void)},
+	{"apply", "(D)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AnnotationInvocationHandler$$Lambda$toSourceString, apply, $Object*, double)},
 	{}
 };
 $ClassInfo AnnotationInvocationHandler$$Lambda$toSourceString::classInfo$ = {
@@ -171,8 +171,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo AnnotationInvocationHandler$$Lambda$valueOf$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(AnnotationInvocationHandler$$Lambda$valueOf$1::*)()>(&AnnotationInvocationHandler$$Lambda$valueOf$1::init$))},
-	{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(AnnotationInvocationHandler$$Lambda$valueOf$1, init$, void)},
+	{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AnnotationInvocationHandler$$Lambda$valueOf$1, apply, $Object*, int32_t)},
 	{}
 };
 $ClassInfo AnnotationInvocationHandler$$Lambda$valueOf$1::classInfo$ = {
@@ -204,8 +204,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo AnnotationInvocationHandler$$Lambda$toSourceString$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(AnnotationInvocationHandler$$Lambda$toSourceString$2::*)()>(&AnnotationInvocationHandler$$Lambda$toSourceString$2::init$))},
-	{"apply", "(J)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(AnnotationInvocationHandler$$Lambda$toSourceString$2, init$, void)},
+	{"apply", "(J)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AnnotationInvocationHandler$$Lambda$toSourceString$2, apply, $Object*, int64_t)},
 	{}
 };
 $ClassInfo AnnotationInvocationHandler$$Lambda$toSourceString$2::classInfo$ = {
@@ -237,8 +237,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo AnnotationInvocationHandler$$Lambda$toSourceString$3::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(AnnotationInvocationHandler$$Lambda$toSourceString$3::*)()>(&AnnotationInvocationHandler$$Lambda$toSourceString$3::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(AnnotationInvocationHandler$$Lambda$toSourceString$3, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AnnotationInvocationHandler$$Lambda$toSourceString$3, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo AnnotationInvocationHandler$$Lambda$toSourceString$3::classInfo$ = {
@@ -270,8 +270,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo AnnotationInvocationHandler$$Lambda$toSourceString$4::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(AnnotationInvocationHandler$$Lambda$toSourceString$4::*)()>(&AnnotationInvocationHandler$$Lambda$toSourceString$4::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(AnnotationInvocationHandler$$Lambda$toSourceString$4, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AnnotationInvocationHandler$$Lambda$toSourceString$4, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo AnnotationInvocationHandler$$Lambda$toSourceString$4::classInfo$ = {
@@ -303,8 +303,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo AnnotationInvocationHandler$$Lambda$toString$5::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(AnnotationInvocationHandler$$Lambda$toString$5::*)()>(&AnnotationInvocationHandler$$Lambda$toString$5::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(AnnotationInvocationHandler$$Lambda$toString$5, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AnnotationInvocationHandler$$Lambda$toString$5, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo AnnotationInvocationHandler$$Lambda$toString$5::classInfo$ = {
@@ -335,36 +335,36 @@ $MethodInfo _AnnotationInvocationHandler_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/lang/Class;Ljava/util/Map;)V", "(Ljava/lang/Class<+Ljava/lang/annotation/Annotation;>;Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;)V", 0, $method(static_cast<void(AnnotationInvocationHandler::*)($Class*,$Map*)>(&AnnotationInvocationHandler::init$))},
-	{"asOneOfUs", "(Ljava/lang/Object;)Lsun/reflect/annotation/AnnotationInvocationHandler;", nullptr, $PRIVATE, $method(static_cast<AnnotationInvocationHandler*(AnnotationInvocationHandler::*)(Object$*)>(&AnnotationInvocationHandler::asOneOfUs))},
-	{"cloneArray", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE, $method(static_cast<$Object*(AnnotationInvocationHandler::*)(Object$*)>(&AnnotationInvocationHandler::cloneArray))},
-	{"computeMemberMethods", "()[Ljava/lang/reflect/Method;", nullptr, $PRIVATE, $method(static_cast<$MethodArray*(AnnotationInvocationHandler::*)()>(&AnnotationInvocationHandler::computeMemberMethods))},
-	{"convert", "([B)Ljava/util/stream/Stream;", "([B)Ljava/util/stream/Stream<Ljava/lang/String;>;", $PRIVATE | $STATIC, $method(static_cast<$Stream*(*)($bytes*)>(&AnnotationInvocationHandler::convert))},
-	{"convert", "([C)Ljava/util/stream/Stream;", "([C)Ljava/util/stream/Stream<Ljava/lang/String;>;", $PRIVATE | $STATIC, $method(static_cast<$Stream*(*)($chars*)>(&AnnotationInvocationHandler::convert))},
-	{"convert", "([F)Ljava/util/stream/Stream;", "([F)Ljava/util/stream/Stream<Ljava/lang/String;>;", $PRIVATE | $STATIC, $method(static_cast<$Stream*(*)($floats*)>(&AnnotationInvocationHandler::convert))},
-	{"convert", "([S)Ljava/util/stream/Stream;", "([S)Ljava/util/stream/Stream<Ljava/lang/String;>;", $PRIVATE | $STATIC, $method(static_cast<$Stream*(*)($shorts*)>(&AnnotationInvocationHandler::convert))},
-	{"convert", "([Z)Ljava/util/stream/Stream;", "([Z)Ljava/util/stream/Stream<Ljava/lang/String;>;", $PRIVATE | $STATIC, $method(static_cast<$Stream*(*)($booleans*)>(&AnnotationInvocationHandler::convert))},
-	{"equalsImpl", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Boolean;", nullptr, $PRIVATE, $method(static_cast<$Boolean*(AnnotationInvocationHandler::*)(Object$*,Object$*)>(&AnnotationInvocationHandler::equalsImpl))},
-	{"getMemberMethods", "()[Ljava/lang/reflect/Method;", nullptr, $PRIVATE, $method(static_cast<$MethodArray*(AnnotationInvocationHandler::*)()>(&AnnotationInvocationHandler::getMemberMethods))},
-	{"hashCodeImpl", "()I", nullptr, $PRIVATE, $method(static_cast<int32_t(AnnotationInvocationHandler::*)()>(&AnnotationInvocationHandler::hashCodeImpl))},
-	{"invoke", "(Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"isPrintableAscii", "(C)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)(char16_t)>(&AnnotationInvocationHandler::isPrintableAscii))},
-	{"memberValueEquals", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)(Object$*,Object$*)>(&AnnotationInvocationHandler::memberValueEquals))},
-	{"memberValueHashCode", "(Ljava/lang/Object;)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)(Object$*)>(&AnnotationInvocationHandler::memberValueHashCode))},
-	{"memberValueToString", "(Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)(Object$*)>(&AnnotationInvocationHandler::memberValueToString))},
-	{"quote", "(C)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)(char16_t)>(&AnnotationInvocationHandler::quote))},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(AnnotationInvocationHandler::*)($ObjectInputStream*)>(&AnnotationInvocationHandler::readObject)), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"stringStreamToString", "(Ljava/util/stream/Stream;)Ljava/lang/String;", "(Ljava/util/stream/Stream<Ljava/lang/String;>;)Ljava/lang/String;", $PRIVATE | $STATIC, $method(static_cast<$String*(*)($Stream*)>(&AnnotationInvocationHandler::stringStreamToString))},
-	{"toSourceString", "(Ljava/lang/Class;)Ljava/lang/String;", "(Ljava/lang/Class<*>;)Ljava/lang/String;", $PRIVATE | $STATIC, $method(static_cast<$String*(*)($Class*)>(&AnnotationInvocationHandler::toSourceString))},
-	{"toSourceString", "(F)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)(float)>(&AnnotationInvocationHandler::toSourceString))},
-	{"toSourceString", "(D)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)(double)>(&AnnotationInvocationHandler::toSourceString))},
-	{"toSourceString", "(C)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)(char16_t)>(&AnnotationInvocationHandler::toSourceString))},
-	{"toSourceString", "(B)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)(int8_t)>(&AnnotationInvocationHandler::toSourceString))},
-	{"toSourceString", "(J)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)(int64_t)>(&AnnotationInvocationHandler::toSourceString))},
-	{"toSourceString", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($String*)>(&AnnotationInvocationHandler::toSourceString))},
+	{"<init>", "(Ljava/lang/Class;Ljava/util/Map;)V", "(Ljava/lang/Class<+Ljava/lang/annotation/Annotation;>;Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;)V", 0, $method(AnnotationInvocationHandler, init$, void, $Class*, $Map*)},
+	{"asOneOfUs", "(Ljava/lang/Object;)Lsun/reflect/annotation/AnnotationInvocationHandler;", nullptr, $PRIVATE, $method(AnnotationInvocationHandler, asOneOfUs, AnnotationInvocationHandler*, Object$*)},
+	{"cloneArray", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE, $method(AnnotationInvocationHandler, cloneArray, $Object*, Object$*)},
+	{"computeMemberMethods", "()[Ljava/lang/reflect/Method;", nullptr, $PRIVATE, $method(AnnotationInvocationHandler, computeMemberMethods, $MethodArray*)},
+	{"convert", "([B)Ljava/util/stream/Stream;", "([B)Ljava/util/stream/Stream<Ljava/lang/String;>;", $PRIVATE | $STATIC, $staticMethod(AnnotationInvocationHandler, convert, $Stream*, $bytes*)},
+	{"convert", "([C)Ljava/util/stream/Stream;", "([C)Ljava/util/stream/Stream<Ljava/lang/String;>;", $PRIVATE | $STATIC, $staticMethod(AnnotationInvocationHandler, convert, $Stream*, $chars*)},
+	{"convert", "([F)Ljava/util/stream/Stream;", "([F)Ljava/util/stream/Stream<Ljava/lang/String;>;", $PRIVATE | $STATIC, $staticMethod(AnnotationInvocationHandler, convert, $Stream*, $floats*)},
+	{"convert", "([S)Ljava/util/stream/Stream;", "([S)Ljava/util/stream/Stream<Ljava/lang/String;>;", $PRIVATE | $STATIC, $staticMethod(AnnotationInvocationHandler, convert, $Stream*, $shorts*)},
+	{"convert", "([Z)Ljava/util/stream/Stream;", "([Z)Ljava/util/stream/Stream<Ljava/lang/String;>;", $PRIVATE | $STATIC, $staticMethod(AnnotationInvocationHandler, convert, $Stream*, $booleans*)},
+	{"equalsImpl", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Boolean;", nullptr, $PRIVATE, $method(AnnotationInvocationHandler, equalsImpl, $Boolean*, Object$*, Object$*)},
+	{"getMemberMethods", "()[Ljava/lang/reflect/Method;", nullptr, $PRIVATE, $method(AnnotationInvocationHandler, getMemberMethods, $MethodArray*)},
+	{"hashCodeImpl", "()I", nullptr, $PRIVATE, $method(AnnotationInvocationHandler, hashCodeImpl, int32_t)},
+	{"invoke", "(Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AnnotationInvocationHandler, invoke, $Object*, Object$*, $Method*, $ObjectArray*)},
+	{"isPrintableAscii", "(C)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(AnnotationInvocationHandler, isPrintableAscii, bool, char16_t)},
+	{"memberValueEquals", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(AnnotationInvocationHandler, memberValueEquals, bool, Object$*, Object$*)},
+	{"memberValueHashCode", "(Ljava/lang/Object;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(AnnotationInvocationHandler, memberValueHashCode, int32_t, Object$*)},
+	{"memberValueToString", "(Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(AnnotationInvocationHandler, memberValueToString, $String*, Object$*)},
+	{"quote", "(C)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(AnnotationInvocationHandler, quote, $String*, char16_t)},
+	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(AnnotationInvocationHandler, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+	{"stringStreamToString", "(Ljava/util/stream/Stream;)Ljava/lang/String;", "(Ljava/util/stream/Stream<Ljava/lang/String;>;)Ljava/lang/String;", $PRIVATE | $STATIC, $staticMethod(AnnotationInvocationHandler, stringStreamToString, $String*, $Stream*)},
+	{"toSourceString", "(Ljava/lang/Class;)Ljava/lang/String;", "(Ljava/lang/Class<*>;)Ljava/lang/String;", $PRIVATE | $STATIC, $staticMethod(AnnotationInvocationHandler, toSourceString, $String*, $Class*)},
+	{"toSourceString", "(F)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(AnnotationInvocationHandler, toSourceString, $String*, float)},
+	{"toSourceString", "(D)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(AnnotationInvocationHandler, toSourceString, $String*, double)},
+	{"toSourceString", "(C)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(AnnotationInvocationHandler, toSourceString, $String*, char16_t)},
+	{"toSourceString", "(B)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(AnnotationInvocationHandler, toSourceString, $String*, int8_t)},
+	{"toSourceString", "(J)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(AnnotationInvocationHandler, toSourceString, $String*, int64_t)},
+	{"toSourceString", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(AnnotationInvocationHandler, toSourceString, $String*, $String*)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"toStringImpl", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(AnnotationInvocationHandler::*)()>(&AnnotationInvocationHandler::toStringImpl))},
-	{"validateAnnotationMethods", "([Ljava/lang/reflect/Method;)V", nullptr, $PRIVATE, $method(static_cast<void(AnnotationInvocationHandler::*)($MethodArray*)>(&AnnotationInvocationHandler::validateAnnotationMethods))},
+	{"toStringImpl", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(AnnotationInvocationHandler, toStringImpl, $String*)},
+	{"validateAnnotationMethods", "([Ljava/lang/reflect/Method;)V", nullptr, $PRIVATE, $method(AnnotationInvocationHandler, validateAnnotationMethods, void, $MethodArray*)},
 	{}
 };
 

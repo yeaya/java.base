@@ -29,7 +29,7 @@ $FieldInfo _ChangeCipherSpec_FieldInfo_[] = {
 };
 
 $MethodInfo _ChangeCipherSpec_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ChangeCipherSpec::*)()>(&ChangeCipherSpec::init$))},
+	{"<init>", "()V", nullptr, 0, $method(ChangeCipherSpec, init$, void)},
 	{}
 };
 

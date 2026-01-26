@@ -29,9 +29,9 @@ $CompoundAttribute _SuperC_MethodAnnotations_foo2[] = {
 };
 
 $MethodInfo _SuperC_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(SuperC::*)()>(&SuperC::init$))},
-	{"bar", "()V", nullptr, $PUBLIC, nullptr, nullptr, nullptr, _SuperC_MethodAnnotations_bar1},
-	{"foo", "()V", nullptr, $PUBLIC | $ABSTRACT, nullptr, nullptr, nullptr, _SuperC_MethodAnnotations_foo2},
+	{"<init>", "()V", nullptr, 0, $method(SuperC, init$, void)},
+	{"bar", "()V", nullptr, $PUBLIC, $virtualMethod(SuperC, bar, void), nullptr, nullptr, _SuperC_MethodAnnotations_bar1},
+	{"foo", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SuperC, foo, void), nullptr, nullptr, _SuperC_MethodAnnotations_foo2},
 	{}
 };
 

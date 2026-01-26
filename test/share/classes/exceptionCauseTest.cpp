@@ -9,8 +9,8 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $TypeNotPresentException = ::java::lang::TypeNotPresentException;
 
 $MethodInfo _exceptionCauseTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(exceptionCauseTest::*)()>(&exceptionCauseTest::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&exceptionCauseTest::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(exceptionCauseTest, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(exceptionCauseTest, main, void, $StringArray*)},
 	{}
 };
 

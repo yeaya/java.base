@@ -26,10 +26,10 @@ $FieldInfo _ProcessEnvironment$StringKeySet$1_FieldInfo_[] = {
 };
 
 $MethodInfo _ProcessEnvironment$StringKeySet$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/ProcessEnvironment$StringKeySet;)V", nullptr, 0, $method(static_cast<void(ProcessEnvironment$StringKeySet$1::*)($ProcessEnvironment$StringKeySet*)>(&ProcessEnvironment$StringKeySet$1::init$))},
-	{"hasNext", "()Z", nullptr, $PUBLIC},
-	{"next", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"remove", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/ProcessEnvironment$StringKeySet;)V", nullptr, 0, $method(ProcessEnvironment$StringKeySet$1, init$, void, $ProcessEnvironment$StringKeySet*)},
+	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(ProcessEnvironment$StringKeySet$1, hasNext, bool)},
+	{"next", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ProcessEnvironment$StringKeySet$1, next, $Object*)},
+	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(ProcessEnvironment$StringKeySet$1, remove, void)},
 	{}
 };
 

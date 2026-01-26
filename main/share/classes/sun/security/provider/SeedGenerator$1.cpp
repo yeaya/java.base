@@ -41,8 +41,8 @@ $FieldInfo _SeedGenerator$1_FieldInfo_[] = {
 };
 
 $MethodInfo _SeedGenerator$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/MessageDigest;)V", nullptr, 0, $method(static_cast<void(SeedGenerator$1::*)($MessageDigest*)>(&SeedGenerator$1::init$))},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/security/MessageDigest;)V", nullptr, 0, $method(SeedGenerator$1, init$, void, $MessageDigest*)},
+	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(SeedGenerator$1, run, $Object*)},
 	{}
 };
 

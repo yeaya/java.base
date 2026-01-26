@@ -34,11 +34,11 @@ $FieldInfo _DoubleStream$2_FieldInfo_[] = {
 };
 
 $MethodInfo _DoubleStream$2_MethodInfo_[] = {
-	{"<init>", "(JILjava/util/function/DoubleUnaryOperator;DLjava/util/function/DoublePredicate;)V", nullptr, 0, $method(static_cast<void(DoubleStream$2::*)(int64_t,int32_t,$DoubleUnaryOperator*,double,$DoublePredicate*)>(&DoubleStream$2::init$))},
-	{"forEachRemaining", "(Ljava/util/function/DoubleConsumer;)V", nullptr, $PUBLIC},
-	{"forEachRemaining", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"tryAdvance", "(Ljava/util/function/DoubleConsumer;)Z", nullptr, $PUBLIC},
-	{"tryAdvance", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "(JILjava/util/function/DoubleUnaryOperator;DLjava/util/function/DoublePredicate;)V", nullptr, 0, $method(DoubleStream$2, init$, void, int64_t, int32_t, $DoubleUnaryOperator*, double, $DoublePredicate*)},
+	{"forEachRemaining", "(Ljava/util/function/DoubleConsumer;)V", nullptr, $PUBLIC, $virtualMethod(DoubleStream$2, forEachRemaining, void, $DoubleConsumer*)},
+	{"forEachRemaining", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DoubleStream$2, forEachRemaining, void, Object$*)},
+	{"tryAdvance", "(Ljava/util/function/DoubleConsumer;)Z", nullptr, $PUBLIC, $virtualMethod(DoubleStream$2, tryAdvance, bool, $DoubleConsumer*)},
+	{"tryAdvance", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DoubleStream$2, tryAdvance, bool, Object$*)},
 	{}
 };
 

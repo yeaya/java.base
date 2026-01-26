@@ -17,8 +17,8 @@ $FieldInfo _Spliterators$AbstractIntSpliterator$HoldingIntConsumer_FieldInfo_[] 
 };
 
 $MethodInfo _Spliterators$AbstractIntSpliterator$HoldingIntConsumer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Spliterators$AbstractIntSpliterator$HoldingIntConsumer::*)()>(&Spliterators$AbstractIntSpliterator$HoldingIntConsumer::init$))},
-	{"accept", "(I)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(Spliterators$AbstractIntSpliterator$HoldingIntConsumer, init$, void)},
+	{"accept", "(I)V", nullptr, $PUBLIC, $virtualMethod(Spliterators$AbstractIntSpliterator$HoldingIntConsumer, accept, void, int32_t)},
 	{}
 };
 

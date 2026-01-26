@@ -15,8 +15,8 @@ namespace java {
 	namespace net {
 
 $MethodInfo _URL$3_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(URL$3::*)()>(&URL$3::init$))},
-	{"getHandler", "(Ljava/net/URL;)Ljava/net/URLStreamHandler;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(URL$3, init$, void)},
+	{"getHandler", "(Ljava/net/URL;)Ljava/net/URLStreamHandler;", nullptr, $PUBLIC, $virtualMethod(URL$3, getHandler, $URLStreamHandler*, $URL*)},
 	{}
 };
 

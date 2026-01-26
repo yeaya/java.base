@@ -27,10 +27,10 @@ $FieldInfo _TimerTask_FieldInfo_[] = {
 };
 
 $MethodInfo _TimerTask_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(TimerTask::*)()>(&TimerTask::init$))},
-	{"cancel", "()Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(TimerTask, init$, void)},
+	{"cancel", "()Z", nullptr, $PUBLIC, $virtualMethod(TimerTask, cancel, bool)},
 	{"run", "()V", nullptr, $PUBLIC | $ABSTRACT},
-	{"scheduledExecutionTime", "()J", nullptr, $PUBLIC},
+	{"scheduledExecutionTime", "()J", nullptr, $PUBLIC, $virtualMethod(TimerTask, scheduledExecutionTime, int64_t)},
 	{}
 };
 

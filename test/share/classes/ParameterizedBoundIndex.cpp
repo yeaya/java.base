@@ -54,8 +54,8 @@ using $ArrayList = ::java::util::ArrayList;
 using $List = ::java::util::List;
 
 $MethodInfo _ParameterizedBoundIndex_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ParameterizedBoundIndex::*)()>(&ParameterizedBoundIndex::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&ParameterizedBoundIndex::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ParameterizedBoundIndex, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ParameterizedBoundIndex, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

@@ -79,18 +79,18 @@ $FieldInfo _Label_FieldInfo_[] = {
 };
 
 $MethodInfo _Label_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Label::*)()>(&Label::init$))},
-	{"accept", "(Ljdk/internal/org/objectweb/asm/MethodVisitor;Z)V", nullptr, $FINAL, $method(static_cast<void(Label::*)($MethodVisitor*,bool)>(&Label::accept))},
-	{"addForwardReference", "(III)V", nullptr, $PRIVATE, $method(static_cast<void(Label::*)(int32_t,int32_t,int32_t)>(&Label::addForwardReference))},
-	{"addLineNumber", "(I)V", nullptr, $FINAL, $method(static_cast<void(Label::*)(int32_t)>(&Label::addLineNumber))},
-	{"addSubroutineRetSuccessors", "(Ljdk/internal/org/objectweb/asm/Label;)V", nullptr, $FINAL, $method(static_cast<void(Label::*)(Label*)>(&Label::addSubroutineRetSuccessors))},
-	{"getCanonicalInstance", "()Ljdk/internal/org/objectweb/asm/Label;", nullptr, $FINAL, $method(static_cast<Label*(Label::*)()>(&Label::getCanonicalInstance))},
-	{"getOffset", "()I", nullptr, $PUBLIC},
-	{"markSubroutine", "(S)V", nullptr, $FINAL, $method(static_cast<void(Label::*)(int16_t)>(&Label::markSubroutine))},
-	{"pushSuccessors", "(Ljdk/internal/org/objectweb/asm/Label;)Ljdk/internal/org/objectweb/asm/Label;", nullptr, $PRIVATE, $method(static_cast<Label*(Label::*)(Label*)>(&Label::pushSuccessors))},
-	{"put", "(Ljdk/internal/org/objectweb/asm/ByteVector;IZ)V", nullptr, $FINAL, $method(static_cast<void(Label::*)($ByteVector*,int32_t,bool)>(&Label::put))},
-	{"resolve", "([BI)Z", nullptr, $FINAL, $method(static_cast<bool(Label::*)($bytes*,int32_t)>(&Label::resolve))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Label, init$, void)},
+	{"accept", "(Ljdk/internal/org/objectweb/asm/MethodVisitor;Z)V", nullptr, $FINAL, $method(Label, accept, void, $MethodVisitor*, bool)},
+	{"addForwardReference", "(III)V", nullptr, $PRIVATE, $method(Label, addForwardReference, void, int32_t, int32_t, int32_t)},
+	{"addLineNumber", "(I)V", nullptr, $FINAL, $method(Label, addLineNumber, void, int32_t)},
+	{"addSubroutineRetSuccessors", "(Ljdk/internal/org/objectweb/asm/Label;)V", nullptr, $FINAL, $method(Label, addSubroutineRetSuccessors, void, Label*)},
+	{"getCanonicalInstance", "()Ljdk/internal/org/objectweb/asm/Label;", nullptr, $FINAL, $method(Label, getCanonicalInstance, Label*)},
+	{"getOffset", "()I", nullptr, $PUBLIC, $virtualMethod(Label, getOffset, int32_t)},
+	{"markSubroutine", "(S)V", nullptr, $FINAL, $method(Label, markSubroutine, void, int16_t)},
+	{"pushSuccessors", "(Ljdk/internal/org/objectweb/asm/Label;)Ljdk/internal/org/objectweb/asm/Label;", nullptr, $PRIVATE, $method(Label, pushSuccessors, Label*, Label*)},
+	{"put", "(Ljdk/internal/org/objectweb/asm/ByteVector;IZ)V", nullptr, $FINAL, $method(Label, put, void, $ByteVector*, int32_t, bool)},
+	{"resolve", "([BI)Z", nullptr, $FINAL, $method(Label, resolve, bool, $bytes*, int32_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Label, toString, $String*)},
 	{}
 };
 

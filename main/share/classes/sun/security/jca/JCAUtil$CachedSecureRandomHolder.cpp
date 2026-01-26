@@ -20,7 +20,7 @@ $FieldInfo _JCAUtil$CachedSecureRandomHolder_FieldInfo_[] = {
 };
 
 $MethodInfo _JCAUtil$CachedSecureRandomHolder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(JCAUtil$CachedSecureRandomHolder::*)()>(&JCAUtil$CachedSecureRandomHolder::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(JCAUtil$CachedSecureRandomHolder, init$, void)},
 	{}
 };
 

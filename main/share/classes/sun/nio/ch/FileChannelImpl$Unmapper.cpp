@@ -43,14 +43,14 @@ $MethodInfo _FileChannelImpl$Unmapper_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(JJJLjava/io/FileDescriptor;I)V", nullptr, $PRIVATE, $method(static_cast<void(FileChannelImpl$Unmapper::*)(int64_t,int64_t,int64_t,$FileDescriptor*,int32_t)>(&FileChannelImpl$Unmapper::init$))},
-	{"address", "()J", nullptr, $PUBLIC},
-	{"decrementStats", "()V", nullptr, $PROTECTED | $ABSTRACT},
-	{"fileDescriptor", "()Ljava/io/FileDescriptor;", nullptr, $PUBLIC},
-	{"incrementStats", "()V", nullptr, $PROTECTED | $ABSTRACT},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(JJJLjava/io/FileDescriptor;I)V", nullptr, $PRIVATE, $method(FileChannelImpl$Unmapper, init$, void, int64_t, int64_t, int64_t, $FileDescriptor*, int32_t)},
+	{"address", "()J", nullptr, $PUBLIC, $virtualMethod(FileChannelImpl$Unmapper, address, int64_t)},
+	{"decrementStats", "()V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(FileChannelImpl$Unmapper, decrementStats, void)},
+	{"fileDescriptor", "()Ljava/io/FileDescriptor;", nullptr, $PUBLIC, $virtualMethod(FileChannelImpl$Unmapper, fileDescriptor, $FileDescriptor*)},
+	{"incrementStats", "()V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(FileChannelImpl$Unmapper, incrementStats, void)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(FileChannelImpl$Unmapper, run, void)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"unmap", "()V", nullptr, $PUBLIC},
+	{"unmap", "()V", nullptr, $PUBLIC, $virtualMethod(FileChannelImpl$Unmapper, unmap, void)},
 	{}
 };
 

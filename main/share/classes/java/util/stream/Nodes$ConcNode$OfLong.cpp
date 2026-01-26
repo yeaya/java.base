@@ -50,9 +50,9 @@ $MethodInfo _Nodes$ConcNode$OfLong_MethodInfo_[] = {
 	{"*getChildCount", "()I", nullptr, $PUBLIC},
 	{"*getShape", "()Ljava/util/stream/StreamShape;", nullptr, $PUBLIC | $ABSTRACT},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/util/stream/Node$OfLong;Ljava/util/stream/Node$OfLong;)V", nullptr, 0, $method(static_cast<void(Nodes$ConcNode$OfLong::*)($Node$OfLong*,$Node$OfLong*)>(&Nodes$ConcNode$OfLong::init$))},
+	{"<init>", "(Ljava/util/stream/Node$OfLong;Ljava/util/stream/Node$OfLong;)V", nullptr, 0, $method(Nodes$ConcNode$OfLong, init$, void, $Node$OfLong*, $Node$OfLong*)},
 	{"*newArray", "(I)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
-	{"spliterator", "()Ljava/util/Spliterator$OfLong;", nullptr, $PUBLIC},
+	{"spliterator", "()Ljava/util/Spliterator$OfLong;", nullptr, $PUBLIC, $virtualMethod(Nodes$ConcNode$OfLong, spliterator, $Spliterator*)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{"*truncate", "(JJLjava/util/function/IntFunction;)Ljava/util/stream/Node;", nullptr, $PUBLIC | $ABSTRACT},
 	{}

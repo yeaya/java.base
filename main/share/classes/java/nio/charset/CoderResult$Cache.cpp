@@ -28,7 +28,7 @@ $FieldInfo _CoderResult$Cache_FieldInfo_[] = {
 };
 
 $MethodInfo _CoderResult$Cache_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(CoderResult$Cache::*)()>(&CoderResult$Cache::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(CoderResult$Cache, init$, void)},
 	{}
 };
 

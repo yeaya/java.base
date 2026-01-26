@@ -58,15 +58,15 @@ $FieldInfo _Port_FieldInfo_[] = {
 };
 
 $MethodInfo _Port_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/channels/spi/AsynchronousChannelProvider;Lsun/nio/ch/ThreadPool;)V", nullptr, 0, $method(static_cast<void(Port::*)($AsynchronousChannelProvider*,$ThreadPool*)>(&Port::init$))},
-	{"attachForeignChannel", "(Ljava/nio/channels/Channel;Ljava/io/FileDescriptor;)Ljava/lang/Object;", nullptr, $FINAL},
-	{"closeAllChannels", "()V", nullptr, $FINAL},
-	{"detachForeignChannel", "(Ljava/lang/Object;)V", nullptr, $FINAL},
-	{"isEmpty", "()Z", nullptr, $FINAL},
-	{"preUnregister", "(I)V", nullptr, $PROTECTED},
-	{"register", "(ILsun/nio/ch/Port$PollableChannel;)V", nullptr, $FINAL, $method(static_cast<void(Port::*)(int32_t,$Port$PollableChannel*)>(&Port::register$))},
-	{"startPoll", "(II)V", nullptr, $ABSTRACT},
-	{"unregister", "(I)V", nullptr, $FINAL, $method(static_cast<void(Port::*)(int32_t)>(&Port::unregister))},
+	{"<init>", "(Ljava/nio/channels/spi/AsynchronousChannelProvider;Lsun/nio/ch/ThreadPool;)V", nullptr, 0, $method(Port, init$, void, $AsynchronousChannelProvider*, $ThreadPool*)},
+	{"attachForeignChannel", "(Ljava/nio/channels/Channel;Ljava/io/FileDescriptor;)Ljava/lang/Object;", nullptr, $FINAL, $virtualMethod(Port, attachForeignChannel, $Object*, $Channel*, $FileDescriptor*)},
+	{"closeAllChannels", "()V", nullptr, $FINAL, $virtualMethod(Port, closeAllChannels, void)},
+	{"detachForeignChannel", "(Ljava/lang/Object;)V", nullptr, $FINAL, $virtualMethod(Port, detachForeignChannel, void, Object$*)},
+	{"isEmpty", "()Z", nullptr, $FINAL, $virtualMethod(Port, isEmpty, bool)},
+	{"preUnregister", "(I)V", nullptr, $PROTECTED, $virtualMethod(Port, preUnregister, void, int32_t)},
+	{"register", "(ILsun/nio/ch/Port$PollableChannel;)V", nullptr, $FINAL, $method(Port, register$, void, int32_t, $Port$PollableChannel*)},
+	{"startPoll", "(II)V", nullptr, $ABSTRACT, $virtualMethod(Port, startPoll, void, int32_t, int32_t)},
+	{"unregister", "(I)V", nullptr, $FINAL, $method(Port, unregister, void, int32_t)},
 	{}
 };
 

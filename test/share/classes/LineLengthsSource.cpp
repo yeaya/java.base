@@ -26,12 +26,12 @@ $FieldInfo _LineLengthsSource_FieldInfo_[] = {
 };
 
 $MethodInfo _LineLengthsSource_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/OutputStream;Ljava/io/BufferedWriter;Ljava/io/PrintWriter;)V", nullptr, $PUBLIC, $method(static_cast<void(LineLengthsSource::*)($OutputStream*,$BufferedWriter*,$PrintWriter*)>(&LineLengthsSource::init$)), "java.io.IOException"},
-	{"flush", "()V", nullptr, $PRIVATE, $method(static_cast<void(LineLengthsSource::*)()>(&LineLengthsSource::flush)), "java.io.IOException"},
-	{"go", "(I)V", nullptr, $PRIVATE, $method(static_cast<void(LineLengthsSource::*)(int32_t)>(&LineLengthsSource::go)), "java.io.IOException"},
-	{"run", "()V", nullptr, $PUBLIC},
-	{"termName", "(I)Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(LineLengthsSource::*)(int32_t)>(&LineLengthsSource::termName))},
-	{"termString", "(I)Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(LineLengthsSource::*)(int32_t)>(&LineLengthsSource::termString))},
+	{"<init>", "(Ljava/io/OutputStream;Ljava/io/BufferedWriter;Ljava/io/PrintWriter;)V", nullptr, $PUBLIC, $method(LineLengthsSource, init$, void, $OutputStream*, $BufferedWriter*, $PrintWriter*), "java.io.IOException"},
+	{"flush", "()V", nullptr, $PRIVATE, $method(LineLengthsSource, flush, void), "java.io.IOException"},
+	{"go", "(I)V", nullptr, $PRIVATE, $method(LineLengthsSource, go, void, int32_t), "java.io.IOException"},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(LineLengthsSource, run, void)},
+	{"termName", "(I)Ljava/lang/String;", nullptr, $PRIVATE, $method(LineLengthsSource, termName, $String*, int32_t)},
+	{"termString", "(I)Ljava/lang/String;", nullptr, $PRIVATE, $method(LineLengthsSource, termString, $String*, int32_t)},
 	{}
 };
 

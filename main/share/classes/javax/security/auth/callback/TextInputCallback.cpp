@@ -27,12 +27,12 @@ $MethodInfo _TextInputCallback_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(TextInputCallback::*)($String*)>(&TextInputCallback::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(TextInputCallback::*)($String*,$String*)>(&TextInputCallback::init$))},
-	{"getDefaultText", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getPrompt", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getText", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"setText", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(TextInputCallback, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(TextInputCallback, init$, void, $String*, $String*)},
+	{"getDefaultText", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TextInputCallback, getDefaultText, $String*)},
+	{"getPrompt", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TextInputCallback, getPrompt, $String*)},
+	{"getText", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TextInputCallback, getText, $String*)},
+	{"setText", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(TextInputCallback, setText, void, $String*)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

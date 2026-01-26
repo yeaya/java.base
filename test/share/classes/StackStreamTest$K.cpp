@@ -10,19 +10,19 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _StackStreamTest$K_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(StackStreamTest$K::*)()>(&StackStreamTest$K::init$))},
-	{"k", "()V", nullptr, 0},
-	{"k1", "()V", nullptr, 0},
-	{"k10", "()V", nullptr, 0},
-	{"k2", "()V", nullptr, 0},
-	{"k20", "()V", nullptr, 0},
-	{"k3", "()V", nullptr, 0},
-	{"k4", "()V", nullptr, 0},
-	{"k5", "()V", nullptr, 0},
-	{"k6", "()V", nullptr, 0},
-	{"k7", "()V", nullptr, 0},
-	{"k8", "()V", nullptr, 0},
-	{"k9", "()V", nullptr, 0},
+	{"<init>", "()V", nullptr, 0, $method(StackStreamTest$K, init$, void)},
+	{"k", "()V", nullptr, 0, $virtualMethod(StackStreamTest$K, k, void)},
+	{"k1", "()V", nullptr, 0, $virtualMethod(StackStreamTest$K, k1, void)},
+	{"k10", "()V", nullptr, 0, $virtualMethod(StackStreamTest$K, k10, void)},
+	{"k2", "()V", nullptr, 0, $virtualMethod(StackStreamTest$K, k2, void)},
+	{"k20", "()V", nullptr, 0, $virtualMethod(StackStreamTest$K, k20, void)},
+	{"k3", "()V", nullptr, 0, $virtualMethod(StackStreamTest$K, k3, void)},
+	{"k4", "()V", nullptr, 0, $virtualMethod(StackStreamTest$K, k4, void)},
+	{"k5", "()V", nullptr, 0, $virtualMethod(StackStreamTest$K, k5, void)},
+	{"k6", "()V", nullptr, 0, $virtualMethod(StackStreamTest$K, k6, void)},
+	{"k7", "()V", nullptr, 0, $virtualMethod(StackStreamTest$K, k7, void)},
+	{"k8", "()V", nullptr, 0, $virtualMethod(StackStreamTest$K, k8, void)},
+	{"k9", "()V", nullptr, 0, $virtualMethod(StackStreamTest$K, k9, void)},
 	{}
 };
 

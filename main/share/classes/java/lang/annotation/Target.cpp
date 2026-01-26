@@ -3,6 +3,7 @@
 #include <java/lang/annotation/ElementType.h>
 #include <jcpp.h>
 
+using $ElementTypeArray = $Array<::java::lang::annotation::ElementType>;
 using $Attribute = ::java::lang::Attribute;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
@@ -36,7 +37,7 @@ $CompoundAttribute _Target_Annotations_[] = {
 };
 
 $MethodInfo _Target_MethodInfo_[] = {
-	{"value", "()[Ljava/lang/annotation/ElementType;", nullptr, $PUBLIC | $ABSTRACT},
+	{"value", "()[Ljava/lang/annotation/ElementType;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Target, value, $ElementTypeArray*)},
 	{}
 };
 

@@ -42,9 +42,9 @@ $FieldInfo _WindowsWatchService_FieldInfo_[] = {
 };
 
 $MethodInfo _WindowsWatchService_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/fs/WindowsFileSystem;)V", nullptr, 0, $method(static_cast<void(WindowsWatchService::*)($WindowsFileSystem*)>(&WindowsWatchService::init$)), "java.io.IOException"},
-	{"implClose", "()V", nullptr, 0, nullptr, "java.io.IOException"},
-	{"register", "(Ljava/nio/file/Path;[Ljava/nio/file/WatchEvent$Kind;[Ljava/nio/file/WatchEvent$Modifier;)Ljava/nio/file/WatchKey;", "(Ljava/nio/file/Path;[Ljava/nio/file/WatchEvent$Kind<*>;[Ljava/nio/file/WatchEvent$Modifier;)Ljava/nio/file/WatchKey;", $TRANSIENT, nullptr, "java.io.IOException"},
+	{"<init>", "(Lsun/nio/fs/WindowsFileSystem;)V", nullptr, 0, $method(WindowsWatchService, init$, void, $WindowsFileSystem*), "java.io.IOException"},
+	{"implClose", "()V", nullptr, 0, $virtualMethod(WindowsWatchService, implClose, void), "java.io.IOException"},
+	{"register", "(Ljava/nio/file/Path;[Ljava/nio/file/WatchEvent$Kind;[Ljava/nio/file/WatchEvent$Modifier;)Ljava/nio/file/WatchKey;", "(Ljava/nio/file/Path;[Ljava/nio/file/WatchEvent$Kind<*>;[Ljava/nio/file/WatchEvent$Modifier;)Ljava/nio/file/WatchKey;", $TRANSIENT, $virtualMethod(WindowsWatchService, register$, $WatchKey*, $Path*, $WatchEvent$KindArray*, $WatchEvent$ModifierArray*), "java.io.IOException"},
 	{}
 };
 

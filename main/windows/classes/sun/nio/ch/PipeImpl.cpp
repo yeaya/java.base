@@ -72,11 +72,11 @@ $FieldInfo _PipeImpl_FieldInfo_[] = {
 };
 
 $MethodInfo _PipeImpl_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/channels/spi/SelectorProvider;)V", nullptr, 0, $method(static_cast<void(PipeImpl::*)($SelectorProvider*)>(&PipeImpl::init$)), "java.io.IOException"},
-	{"<init>", "(Ljava/nio/channels/spi/SelectorProvider;Z)V", nullptr, 0, $method(static_cast<void(PipeImpl::*)($SelectorProvider*,bool)>(&PipeImpl::init$)), "java.io.IOException"},
-	{"createListener", "()Ljava/nio/channels/ServerSocketChannel;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$ServerSocketChannel*(*)()>(&PipeImpl::createListener)), "java.io.IOException"},
-	{"sink", "()Lsun/nio/ch/SinkChannelImpl;", nullptr, $PUBLIC},
-	{"source", "()Lsun/nio/ch/SourceChannelImpl;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/nio/channels/spi/SelectorProvider;)V", nullptr, 0, $method(PipeImpl, init$, void, $SelectorProvider*), "java.io.IOException"},
+	{"<init>", "(Ljava/nio/channels/spi/SelectorProvider;Z)V", nullptr, 0, $method(PipeImpl, init$, void, $SelectorProvider*, bool), "java.io.IOException"},
+	{"createListener", "()Ljava/nio/channels/ServerSocketChannel;", nullptr, $PRIVATE | $STATIC, $staticMethod(PipeImpl, createListener, $ServerSocketChannel*), "java.io.IOException"},
+	{"sink", "()Lsun/nio/ch/SinkChannelImpl;", nullptr, $PUBLIC, $virtualMethod(PipeImpl, sink, $Pipe$SinkChannel*)},
+	{"source", "()Lsun/nio/ch/SourceChannelImpl;", nullptr, $PUBLIC, $virtualMethod(PipeImpl, source, $Pipe$SourceChannel*)},
 	{}
 };
 

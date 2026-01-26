@@ -52,12 +52,12 @@ $FieldInfo _SSLEngineOutputRecord$HandshakeFragment_FieldInfo_[] = {
 };
 
 $MethodInfo _SSLEngineOutputRecord$HandshakeFragment_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/ssl/SSLEngineOutputRecord;)V", nullptr, 0, $method(static_cast<void(SSLEngineOutputRecord$HandshakeFragment::*)($SSLEngineOutputRecord*)>(&SSLEngineOutputRecord$HandshakeFragment::init$))},
-	{"acquireCiphertext", "(Ljava/nio/ByteBuffer;)Lsun/security/ssl/Ciphertext;", nullptr, 0, $method(static_cast<$Ciphertext*(SSLEngineOutputRecord$HandshakeFragment::*)($ByteBuffer*)>(&SSLEngineOutputRecord$HandshakeFragment::acquireCiphertext)), "java.io.IOException"},
-	{"isEmpty", "()Z", nullptr, 0, $method(static_cast<bool(SSLEngineOutputRecord$HandshakeFragment::*)()>(&SSLEngineOutputRecord$HandshakeFragment::isEmpty))},
-	{"queueUpAlert", "(BB)V", nullptr, 0, $method(static_cast<void(SSLEngineOutputRecord$HandshakeFragment::*)(int8_t,int8_t)>(&SSLEngineOutputRecord$HandshakeFragment::queueUpAlert))},
-	{"queueUpChangeCipherSpec", "()V", nullptr, 0, $method(static_cast<void(SSLEngineOutputRecord$HandshakeFragment::*)()>(&SSLEngineOutputRecord$HandshakeFragment::queueUpChangeCipherSpec))},
-	{"queueUpFragment", "([BII)V", nullptr, 0, $method(static_cast<void(SSLEngineOutputRecord$HandshakeFragment::*)($bytes*,int32_t,int32_t)>(&SSLEngineOutputRecord$HandshakeFragment::queueUpFragment)), "java.io.IOException"},
+	{"<init>", "(Lsun/security/ssl/SSLEngineOutputRecord;)V", nullptr, 0, $method(SSLEngineOutputRecord$HandshakeFragment, init$, void, $SSLEngineOutputRecord*)},
+	{"acquireCiphertext", "(Ljava/nio/ByteBuffer;)Lsun/security/ssl/Ciphertext;", nullptr, 0, $method(SSLEngineOutputRecord$HandshakeFragment, acquireCiphertext, $Ciphertext*, $ByteBuffer*), "java.io.IOException"},
+	{"isEmpty", "()Z", nullptr, 0, $method(SSLEngineOutputRecord$HandshakeFragment, isEmpty, bool)},
+	{"queueUpAlert", "(BB)V", nullptr, 0, $method(SSLEngineOutputRecord$HandshakeFragment, queueUpAlert, void, int8_t, int8_t)},
+	{"queueUpChangeCipherSpec", "()V", nullptr, 0, $method(SSLEngineOutputRecord$HandshakeFragment, queueUpChangeCipherSpec, void)},
+	{"queueUpFragment", "([BII)V", nullptr, 0, $method(SSLEngineOutputRecord$HandshakeFragment, queueUpFragment, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
 	{}
 };
 

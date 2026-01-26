@@ -48,9 +48,9 @@ $FieldInfo _DeleteOnExitHook_FieldInfo_[] = {
 };
 
 $MethodInfo _DeleteOnExitHook_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(DeleteOnExitHook::*)()>(&DeleteOnExitHook::init$))},
-	{"add", "(Ljava/lang/String;)V", nullptr, $STATIC | $SYNCHRONIZED, $method(static_cast<void(*)($String*)>(&DeleteOnExitHook::add))},
-	{"runHooks", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&DeleteOnExitHook::runHooks))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(DeleteOnExitHook, init$, void)},
+	{"add", "(Ljava/lang/String;)V", nullptr, $STATIC | $SYNCHRONIZED, $staticMethod(DeleteOnExitHook, add, void, $String*)},
+	{"runHooks", "()V", nullptr, $STATIC, $staticMethod(DeleteOnExitHook, runHooks, void)},
 	{}
 };
 

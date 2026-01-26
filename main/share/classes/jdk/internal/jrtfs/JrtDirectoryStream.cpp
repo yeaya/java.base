@@ -39,9 +39,9 @@ $FieldInfo _JrtDirectoryStream_FieldInfo_[] = {
 };
 
 $MethodInfo _JrtDirectoryStream_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/jrtfs/JrtPath;Ljava/nio/file/DirectoryStream$Filter;)V", "(Ljdk/internal/jrtfs/JrtPath;Ljava/nio/file/DirectoryStream$Filter<-Ljava/nio/file/Path;>;)V", 0, $method(static_cast<void(JrtDirectoryStream::*)($JrtPath*,$DirectoryStream$Filter*)>(&JrtDirectoryStream::init$)), "java.io.IOException"},
-	{"close", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, nullptr, "java.io.IOException"},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/nio/file/Path;>;", $PUBLIC | $SYNCHRONIZED},
+	{"<init>", "(Ljdk/internal/jrtfs/JrtPath;Ljava/nio/file/DirectoryStream$Filter;)V", "(Ljdk/internal/jrtfs/JrtPath;Ljava/nio/file/DirectoryStream$Filter<-Ljava/nio/file/Path;>;)V", 0, $method(JrtDirectoryStream, init$, void, $JrtPath*, $DirectoryStream$Filter*), "java.io.IOException"},
+	{"close", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(JrtDirectoryStream, close, void), "java.io.IOException"},
+	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/nio/file/Path;>;", $PUBLIC | $SYNCHRONIZED, $virtualMethod(JrtDirectoryStream, iterator, $Iterator*)},
 	{}
 };
 

@@ -41,10 +41,10 @@ $FieldInfo _DHKeyExchange$DHECredentials_FieldInfo_[] = {
 };
 
 $MethodInfo _DHKeyExchange$DHECredentials_MethodInfo_[] = {
-	{"<init>", "(Ljavax/crypto/interfaces/DHPublicKey;Lsun/security/ssl/NamedGroup;)V", nullptr, 0, $method(static_cast<void(DHKeyExchange$DHECredentials::*)($DHPublicKey*,$NamedGroup*)>(&DHKeyExchange$DHECredentials::init$))},
-	{"getNamedGroup", "()Lsun/security/ssl/NamedGroup;", nullptr, $PUBLIC},
-	{"getPublicKey", "()Ljava/security/PublicKey;", nullptr, $PUBLIC},
-	{"valueOf", "(Lsun/security/ssl/NamedGroup;[B)Lsun/security/ssl/DHKeyExchange$DHECredentials;", nullptr, $STATIC, $method(static_cast<DHKeyExchange$DHECredentials*(*)($NamedGroup*,$bytes*)>(&DHKeyExchange$DHECredentials::valueOf)), "java.io.IOException,java.security.GeneralSecurityException"},
+	{"<init>", "(Ljavax/crypto/interfaces/DHPublicKey;Lsun/security/ssl/NamedGroup;)V", nullptr, 0, $method(DHKeyExchange$DHECredentials, init$, void, $DHPublicKey*, $NamedGroup*)},
+	{"getNamedGroup", "()Lsun/security/ssl/NamedGroup;", nullptr, $PUBLIC, $virtualMethod(DHKeyExchange$DHECredentials, getNamedGroup, $NamedGroup*)},
+	{"getPublicKey", "()Ljava/security/PublicKey;", nullptr, $PUBLIC, $virtualMethod(DHKeyExchange$DHECredentials, getPublicKey, $PublicKey*)},
+	{"valueOf", "(Lsun/security/ssl/NamedGroup;[B)Lsun/security/ssl/DHKeyExchange$DHECredentials;", nullptr, $STATIC, $staticMethod(DHKeyExchange$DHECredentials, valueOf, DHKeyExchange$DHECredentials*, $NamedGroup*, $bytes*), "java.io.IOException,java.security.GeneralSecurityException"},
 	{}
 };
 

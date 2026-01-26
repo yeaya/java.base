@@ -22,7 +22,7 @@ $MethodInfo _WindowsUserPrincipals$Group_MethodInfo_[] = {
 	{"*getName", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{"*hashCode", "()I", nullptr, $PUBLIC},
 	{"*implies", "(Ljavax/security/auth/Subject;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", nullptr, 0, $method(static_cast<void(WindowsUserPrincipals$Group::*)($String*,int32_t,$String*)>(&WindowsUserPrincipals$Group::init$))},
+	{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", nullptr, 0, $method(WindowsUserPrincipals$Group, init$, void, $String*, int32_t, $String*)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

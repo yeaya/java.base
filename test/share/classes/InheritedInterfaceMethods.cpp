@@ -12,8 +12,8 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $Method = ::java::lang::reflect::Method;
 
 $MethodInfo _InheritedInterfaceMethods_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(InheritedInterfaceMethods::*)()>(&InheritedInterfaceMethods::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&InheritedInterfaceMethods::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(InheritedInterfaceMethods, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(InheritedInterfaceMethods, main, void, $StringArray*)},
 	{}
 };
 

@@ -42,14 +42,14 @@ $FieldInfo _ServiceLoader$ProviderImpl_FieldInfo_[] = {
 };
 
 $MethodInfo _ServiceLoader$ProviderImpl_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/reflect/Method;Ljava/security/AccessControlContext;)V", "(Ljava/lang/Class<TS;>;Ljava/lang/Class<+TS;>;Ljava/lang/reflect/Method;Ljava/security/AccessControlContext;)V", 0, $method(static_cast<void(ServiceLoader$ProviderImpl::*)($Class*,$Class*,$Method*,$AccessControlContext*)>(&ServiceLoader$ProviderImpl::init$))},
-	{"<init>", "(Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/reflect/Constructor;Ljava/security/AccessControlContext;)V", "(Ljava/lang/Class<TS;>;Ljava/lang/Class<+TS;>;Ljava/lang/reflect/Constructor<+TS;>;Ljava/security/AccessControlContext;)V", 0, $method(static_cast<void(ServiceLoader$ProviderImpl::*)($Class*,$Class*,$Constructor*,$AccessControlContext*)>(&ServiceLoader$ProviderImpl::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"get", "()Ljava/lang/Object;", "()TS;", $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"invokeFactoryMethod", "()Ljava/lang/Object;", "()TS;", $PRIVATE, $method(static_cast<$Object*(ServiceLoader$ProviderImpl::*)()>(&ServiceLoader$ProviderImpl::invokeFactoryMethod))},
-	{"newInstance", "()Ljava/lang/Object;", "()TS;", $PRIVATE, $method(static_cast<$Object*(ServiceLoader$ProviderImpl::*)()>(&ServiceLoader$ProviderImpl::newInstance))},
-	{"type", "()Ljava/lang/Class;", "()Ljava/lang/Class<+TS;>;", $PUBLIC},
+	{"<init>", "(Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/reflect/Method;Ljava/security/AccessControlContext;)V", "(Ljava/lang/Class<TS;>;Ljava/lang/Class<+TS;>;Ljava/lang/reflect/Method;Ljava/security/AccessControlContext;)V", 0, $method(ServiceLoader$ProviderImpl, init$, void, $Class*, $Class*, $Method*, $AccessControlContext*)},
+	{"<init>", "(Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/reflect/Constructor;Ljava/security/AccessControlContext;)V", "(Ljava/lang/Class<TS;>;Ljava/lang/Class<+TS;>;Ljava/lang/reflect/Constructor<+TS;>;Ljava/security/AccessControlContext;)V", 0, $method(ServiceLoader$ProviderImpl, init$, void, $Class*, $Class*, $Constructor*, $AccessControlContext*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ServiceLoader$ProviderImpl, equals, bool, Object$*)},
+	{"get", "()Ljava/lang/Object;", "()TS;", $PUBLIC, $virtualMethod(ServiceLoader$ProviderImpl, get, $Object*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ServiceLoader$ProviderImpl, hashCode, int32_t)},
+	{"invokeFactoryMethod", "()Ljava/lang/Object;", "()TS;", $PRIVATE, $method(ServiceLoader$ProviderImpl, invokeFactoryMethod, $Object*)},
+	{"newInstance", "()Ljava/lang/Object;", "()TS;", $PRIVATE, $method(ServiceLoader$ProviderImpl, newInstance, $Object*)},
+	{"type", "()Ljava/lang/Class;", "()Ljava/lang/Class<+TS;>;", $PUBLIC, $virtualMethod(ServiceLoader$ProviderImpl, type, $Class*)},
 	{}
 };
 

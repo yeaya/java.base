@@ -5,12 +5,13 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $URLStreamHandler = ::java::net::URLStreamHandler;
 
 namespace java {
 	namespace net {
 
 $MethodInfo _URLStreamHandlerFactory_MethodInfo_[] = {
-	{"createURLStreamHandler", "(Ljava/lang/String;)Ljava/net/URLStreamHandler;", nullptr, $PUBLIC | $ABSTRACT},
+	{"createURLStreamHandler", "(Ljava/lang/String;)Ljava/net/URLStreamHandler;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(URLStreamHandlerFactory, createURLStreamHandler, $URLStreamHandler*, $String*)},
 	{}
 };
 

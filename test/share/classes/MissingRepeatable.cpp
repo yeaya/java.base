@@ -24,7 +24,7 @@ $CompoundAttribute _MissingRepeatable_Annotations_[] = {
 };
 
 $MethodInfo _MissingRepeatable_MethodInfo_[] = {
-	{"value", "()I", nullptr, $PUBLIC | $ABSTRACT},
+	{"value", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MissingRepeatable, value, int32_t)},
 	{}
 };
 

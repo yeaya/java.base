@@ -26,9 +26,9 @@ $FieldInfo _Pattern$BackRef_FieldInfo_[] = {
 };
 
 $MethodInfo _Pattern$BackRef_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, 0, $method(static_cast<void(Pattern$BackRef::*)(int32_t)>(&Pattern$BackRef::init$))},
-	{"match", "(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z", nullptr, 0},
-	{"study", "(Ljava/util/regex/Pattern$TreeInfo;)Z", nullptr, 0},
+	{"<init>", "(I)V", nullptr, 0, $method(Pattern$BackRef, init$, void, int32_t)},
+	{"match", "(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z", nullptr, 0, $virtualMethod(Pattern$BackRef, match, bool, $Matcher*, int32_t, $CharSequence*)},
+	{"study", "(Ljava/util/regex/Pattern$TreeInfo;)Z", nullptr, 0, $virtualMethod(Pattern$BackRef, study, bool, $Pattern$TreeInfo*)},
 	{}
 };
 

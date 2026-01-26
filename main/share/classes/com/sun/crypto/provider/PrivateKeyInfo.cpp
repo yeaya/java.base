@@ -34,9 +34,9 @@ $FieldInfo _PrivateKeyInfo_FieldInfo_[] = {
 };
 
 $MethodInfo _PrivateKeyInfo_MethodInfo_[] = {
-	{"<init>", "([B)V", nullptr, 0, $method(static_cast<void(PrivateKeyInfo::*)($bytes*)>(&PrivateKeyInfo::init$)), "java.io.IOException"},
-	{"clear", "()V", nullptr, $PUBLIC, $method(static_cast<void(PrivateKeyInfo::*)()>(&PrivateKeyInfo::clear))},
-	{"getAlgorithm", "()Lsun/security/x509/AlgorithmId;", nullptr, 0, $method(static_cast<$AlgorithmId*(PrivateKeyInfo::*)()>(&PrivateKeyInfo::getAlgorithm))},
+	{"<init>", "([B)V", nullptr, 0, $method(PrivateKeyInfo, init$, void, $bytes*), "java.io.IOException"},
+	{"clear", "()V", nullptr, $PUBLIC, $method(PrivateKeyInfo, clear, void)},
+	{"getAlgorithm", "()Lsun/security/x509/AlgorithmId;", nullptr, 0, $method(PrivateKeyInfo, getAlgorithm, $AlgorithmId*)},
 	{}
 };
 

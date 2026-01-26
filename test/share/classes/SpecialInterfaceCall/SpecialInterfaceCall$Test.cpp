@@ -10,7 +10,7 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace SpecialInterfaceCall {
 
 $MethodInfo _SpecialInterfaceCall$Test_MethodInfo_[] = {
-	{"run", "()V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.lang.Throwable"},
+	{"run", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SpecialInterfaceCall$Test, run, void), "java.lang.Throwable"},
 	{}
 };
 

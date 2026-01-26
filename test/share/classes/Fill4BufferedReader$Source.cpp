@@ -17,10 +17,10 @@ $FieldInfo _Fill4BufferedReader$Source_FieldInfo_[] = {
 };
 
 $MethodInfo _Fill4BufferedReader$Source_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, 0, $method(static_cast<void(Fill4BufferedReader$Source::*)(int32_t)>(&Fill4BufferedReader$Source::init$))},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"read", "([CII)I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"ready", "()Z", nullptr, $PUBLIC},
+	{"<init>", "(I)V", nullptr, 0, $method(Fill4BufferedReader$Source, init$, void, int32_t)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(Fill4BufferedReader$Source, close, void), "java.io.IOException"},
+	{"read", "([CII)I", nullptr, $PUBLIC, $virtualMethod(Fill4BufferedReader$Source, read, int32_t, $chars*, int32_t, int32_t), "java.io.IOException"},
+	{"ready", "()Z", nullptr, $PUBLIC, $virtualMethod(Fill4BufferedReader$Source, ready, bool)},
 	{}
 };
 

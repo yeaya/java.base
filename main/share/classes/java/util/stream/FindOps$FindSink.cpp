@@ -19,9 +19,9 @@ $FieldInfo _FindOps$FindSink_FieldInfo_[] = {
 };
 
 $MethodInfo _FindOps$FindSink_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(FindOps$FindSink::*)()>(&FindOps$FindSink::init$))},
-	{"accept", "(Ljava/lang/Object;)V", "(TT;)V", $PUBLIC},
-	{"cancellationRequested", "()Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(FindOps$FindSink, init$, void)},
+	{"accept", "(Ljava/lang/Object;)V", "(TT;)V", $PUBLIC, $virtualMethod(FindOps$FindSink, accept, void, Object$*)},
+	{"cancellationRequested", "()Z", nullptr, $PUBLIC, $virtualMethod(FindOps$FindSink, cancellationRequested, bool)},
 	{}
 };
 

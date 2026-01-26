@@ -23,10 +23,10 @@ $FieldInfo _HeaderParser$ParserIterator_FieldInfo_[] = {
 };
 
 $MethodInfo _HeaderParser$ParserIterator_MethodInfo_[] = {
-	{"<init>", "(Lsun/net/www/HeaderParser;Z)V", nullptr, 0, $method(static_cast<void(HeaderParser$ParserIterator::*)($HeaderParser*,bool)>(&HeaderParser$ParserIterator::init$))},
-	{"hasNext", "()Z", nullptr, $PUBLIC},
-	{"next", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"remove", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/net/www/HeaderParser;Z)V", nullptr, 0, $method(HeaderParser$ParserIterator, init$, void, $HeaderParser*, bool)},
+	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(HeaderParser$ParserIterator, hasNext, bool)},
+	{"next", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HeaderParser$ParserIterator, next, $Object*)},
+	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(HeaderParser$ParserIterator, remove, void)},
 	{}
 };
 

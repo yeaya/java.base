@@ -22,8 +22,8 @@ $FieldInfo _QuoteTest_FieldInfo_[] = {
 };
 
 $MethodInfo _QuoteTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(QuoteTest::*)()>(&QuoteTest::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&QuoteTest::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(QuoteTest, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(QuoteTest, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

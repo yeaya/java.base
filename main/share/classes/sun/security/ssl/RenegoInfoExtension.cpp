@@ -45,7 +45,7 @@ $FieldInfo _RenegoInfoExtension_FieldInfo_[] = {
 };
 
 $MethodInfo _RenegoInfoExtension_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(RenegoInfoExtension::*)()>(&RenegoInfoExtension::init$))},
+	{"<init>", "()V", nullptr, 0, $method(RenegoInfoExtension, init$, void)},
 	{}
 };
 

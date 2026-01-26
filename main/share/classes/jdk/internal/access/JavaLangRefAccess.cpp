@@ -10,8 +10,8 @@ namespace jdk {
 		namespace access {
 
 $MethodInfo _JavaLangRefAccess_MethodInfo_[] = {
-	{"runFinalization", "()V", nullptr, $PUBLIC | $ABSTRACT},
-	{"waitForReferenceProcessing", "()Z", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.lang.InterruptedException"},
+	{"runFinalization", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JavaLangRefAccess, runFinalization, void)},
+	{"waitForReferenceProcessing", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JavaLangRefAccess, waitForReferenceProcessing, bool), "java.lang.InterruptedException"},
 	{}
 };
 

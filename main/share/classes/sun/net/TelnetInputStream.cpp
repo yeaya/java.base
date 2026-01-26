@@ -23,11 +23,11 @@ $FieldInfo _TelnetInputStream_FieldInfo_[] = {
 };
 
 $MethodInfo _TelnetInputStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/InputStream;Z)V", nullptr, $PUBLIC, $method(static_cast<void(TelnetInputStream::*)($InputStream*,bool)>(&TelnetInputStream::init$))},
-	{"read", "()I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"read", "([B)I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"read", "([BII)I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"setStickyCRLF", "(Z)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/io/InputStream;Z)V", nullptr, $PUBLIC, $method(TelnetInputStream, init$, void, $InputStream*, bool)},
+	{"read", "()I", nullptr, $PUBLIC, $virtualMethod(TelnetInputStream, read, int32_t), "java.io.IOException"},
+	{"read", "([B)I", nullptr, $PUBLIC, $virtualMethod(TelnetInputStream, read, int32_t, $bytes*), "java.io.IOException"},
+	{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(TelnetInputStream, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
+	{"setStickyCRLF", "(Z)V", nullptr, $PUBLIC, $virtualMethod(TelnetInputStream, setStickyCRLF, void, bool)},
 	{}
 };
 

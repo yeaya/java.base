@@ -26,14 +26,14 @@ $FieldInfo _EnumMap$EntryIterator$Entry_FieldInfo_[] = {
 };
 
 $MethodInfo _EnumMap$EntryIterator$Entry_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/EnumMap$EntryIterator;I)V", nullptr, $PRIVATE, $method(static_cast<void(EnumMap$EntryIterator$Entry::*)($EnumMap$EntryIterator*,int32_t)>(&EnumMap$EntryIterator$Entry::init$))},
-	{"checkIndexForEntryUse", "()V", nullptr, $PRIVATE, $method(static_cast<void(EnumMap$EntryIterator$Entry::*)()>(&EnumMap$EntryIterator$Entry::checkIndexForEntryUse))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getKey", "()Ljava/lang/Enum;", "()TK;", $PUBLIC},
-	{"getValue", "()Ljava/lang/Object;", "()TV;", $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"setValue", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TV;)TV;", $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/EnumMap$EntryIterator;I)V", nullptr, $PRIVATE, $method(EnumMap$EntryIterator$Entry, init$, void, $EnumMap$EntryIterator*, int32_t)},
+	{"checkIndexForEntryUse", "()V", nullptr, $PRIVATE, $method(EnumMap$EntryIterator$Entry, checkIndexForEntryUse, void)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(EnumMap$EntryIterator$Entry, equals, bool, Object$*)},
+	{"getKey", "()Ljava/lang/Enum;", "()TK;", $PUBLIC, $virtualMethod(EnumMap$EntryIterator$Entry, getKey, $Object*)},
+	{"getValue", "()Ljava/lang/Object;", "()TV;", $PUBLIC, $virtualMethod(EnumMap$EntryIterator$Entry, getValue, $Object*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(EnumMap$EntryIterator$Entry, hashCode, int32_t)},
+	{"setValue", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TV;)TV;", $PUBLIC, $virtualMethod(EnumMap$EntryIterator$Entry, setValue, $Object*, Object$*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(EnumMap$EntryIterator$Entry, toString, $String*)},
 	{}
 };
 

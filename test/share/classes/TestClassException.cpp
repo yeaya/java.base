@@ -30,8 +30,8 @@ $TypeAnnotation _TestClassException_MethodTypeAnnotations_foo1[] = {
 };
 
 $MethodInfo _TestClassException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(TestClassException::*)()>(&TestClassException::init$))},
-	{"foo", "()Ljava/lang/Object;", nullptr, $PUBLIC, nullptr, "java.lang.RuntimeException,java.lang.NullPointerException,java.lang.ArrayIndexOutOfBoundsException", nullptr, nullptr, _TestClassException_MethodTypeAnnotations_foo1},
+	{"<init>", "()V", nullptr, 0, $method(TestClassException, init$, void)},
+	{"foo", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TestClassException, foo, $Object*), "java.lang.RuntimeException,java.lang.NullPointerException,java.lang.ArrayIndexOutOfBoundsException", nullptr, nullptr, _TestClassException_MethodTypeAnnotations_foo1},
 	{}
 };
 

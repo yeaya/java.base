@@ -24,9 +24,9 @@ using $AccessControlException = ::java::security::AccessControlException;
 using $Permission = ::java::security::Permission;
 
 $MethodInfo _SimpleProxy_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SimpleProxy::*)()>(&SimpleProxy::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&SimpleProxy::main)), "java.lang.Exception"},
-	{"makeProxy", "(Ljava/lang/ClassLoader;Ljava/lang/Class;)V", "(Ljava/lang/ClassLoader;Ljava/lang/Class<*>;)V", $PRIVATE | $STATIC, $method(static_cast<void(*)($ClassLoader*,$Class*)>(&SimpleProxy::makeProxy))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SimpleProxy, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SimpleProxy, main, void, $StringArray*), "java.lang.Exception"},
+	{"makeProxy", "(Ljava/lang/ClassLoader;Ljava/lang/Class;)V", "(Ljava/lang/ClassLoader;Ljava/lang/Class<*>;)V", $PRIVATE | $STATIC, $staticMethod(SimpleProxy, makeProxy, void, $ClassLoader*, $Class*)},
 	{}
 };
 

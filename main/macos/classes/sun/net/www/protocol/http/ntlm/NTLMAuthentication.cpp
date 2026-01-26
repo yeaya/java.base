@@ -77,19 +77,19 @@ $FieldInfo _NTLMAuthentication_FieldInfo_[] = {
 };
 
 $MethodInfo _NTLMAuthentication_MethodInfo_[] = {
-	{"<init>", "(ZLjava/net/URL;Ljava/net/PasswordAuthentication;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(NTLMAuthentication::*)(bool,$URL*,$PasswordAuthentication*,$String*)>(&NTLMAuthentication::init$))},
-	{"<init>", "(ZLjava/lang/String;ILjava/net/PasswordAuthentication;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(NTLMAuthentication::*)(bool,$String*,int32_t,$PasswordAuthentication*,$String*)>(&NTLMAuthentication::init$))},
-	{"buildType1Msg", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(NTLMAuthentication::*)()>(&NTLMAuthentication::buildType1Msg))},
-	{"buildType3Msg", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(NTLMAuthentication::*)($String*)>(&NTLMAuthentication::buildType3Msg)), "java.security.GeneralSecurityException,java.io.IOException"},
-	{"getHeaderValue", "(Ljava/net/URL;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"init", "(Ljava/net/PasswordAuthentication;)V", nullptr, $PRIVATE, $method(static_cast<void(NTLMAuthentication::*)($PasswordAuthentication*)>(&NTLMAuthentication::init))},
-	{"init0", "()V", nullptr, $PRIVATE, $method(static_cast<void(NTLMAuthentication::*)()>(&NTLMAuthentication::init0))},
-	{"isAuthorizationStale", "(Ljava/lang/String;)Z", nullptr, $PUBLIC},
-	{"isTrustedSite", "(Ljava/net/URL;)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)($URL*)>(&NTLMAuthentication::isTrustedSite))},
-	{"setHeaders", "(Lsun/net/www/protocol/http/HttpURLConnection;Lsun/net/www/HeaderParser;Ljava/lang/String;)Z", nullptr, $PUBLIC},
-	{"supportsPreemptiveAuthorization", "()Z", nullptr, $PUBLIC},
-	{"supportsTransparentAuth", "()Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)()>(&NTLMAuthentication::supportsTransparentAuth))},
-	{"useAuthCache", "()Z", nullptr, $PROTECTED},
+	{"<init>", "(ZLjava/net/URL;Ljava/net/PasswordAuthentication;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NTLMAuthentication, init$, void, bool, $URL*, $PasswordAuthentication*, $String*)},
+	{"<init>", "(ZLjava/lang/String;ILjava/net/PasswordAuthentication;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NTLMAuthentication, init$, void, bool, $String*, int32_t, $PasswordAuthentication*, $String*)},
+	{"buildType1Msg", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(NTLMAuthentication, buildType1Msg, $String*)},
+	{"buildType3Msg", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(NTLMAuthentication, buildType3Msg, $String*, $String*), "java.security.GeneralSecurityException,java.io.IOException"},
+	{"getHeaderValue", "(Ljava/net/URL;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NTLMAuthentication, getHeaderValue, $String*, $URL*, $String*)},
+	{"init", "(Ljava/net/PasswordAuthentication;)V", nullptr, $PRIVATE, $method(NTLMAuthentication, init, void, $PasswordAuthentication*)},
+	{"init0", "()V", nullptr, $PRIVATE, $method(NTLMAuthentication, init0, void)},
+	{"isAuthorizationStale", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(NTLMAuthentication, isAuthorizationStale, bool, $String*)},
+	{"isTrustedSite", "(Ljava/net/URL;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(NTLMAuthentication, isTrustedSite, bool, $URL*)},
+	{"setHeaders", "(Lsun/net/www/protocol/http/HttpURLConnection;Lsun/net/www/HeaderParser;Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(NTLMAuthentication, setHeaders, bool, $HttpURLConnection*, $HeaderParser*, $String*)},
+	{"supportsPreemptiveAuthorization", "()Z", nullptr, $PUBLIC, $virtualMethod(NTLMAuthentication, supportsPreemptiveAuthorization, bool)},
+	{"supportsTransparentAuth", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(NTLMAuthentication, supportsTransparentAuth, bool)},
+	{"useAuthCache", "()Z", nullptr, $PROTECTED, $virtualMethod(NTLMAuthentication, useAuthCache, bool)},
 	{}
 };
 

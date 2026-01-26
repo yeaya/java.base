@@ -22,7 +22,7 @@ namespace com {
 			namespace provider {
 
 $MethodInfo _KeyWrapCipher$AES256_KW_PKCS5Padding_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(KeyWrapCipher$AES256_KW_PKCS5Padding::*)()>(&KeyWrapCipher$AES256_KW_PKCS5Padding::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(KeyWrapCipher$AES256_KW_PKCS5Padding, init$, void)},
 	{}
 };
 

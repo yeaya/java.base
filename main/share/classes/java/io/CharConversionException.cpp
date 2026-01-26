@@ -17,8 +17,8 @@ $FieldInfo _CharConversionException_FieldInfo_[] = {
 };
 
 $MethodInfo _CharConversionException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CharConversionException::*)()>(&CharConversionException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(CharConversionException::*)($String*)>(&CharConversionException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CharConversionException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(CharConversionException, init$, void, $String*)},
 	{}
 };
 

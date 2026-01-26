@@ -37,14 +37,14 @@ $FieldInfo _GCMParameters_FieldInfo_[] = {
 };
 
 $MethodInfo _GCMParameters_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(GCMParameters::*)()>(&GCMParameters::init$))},
-	{"engineGetEncoded", "()[B", nullptr, $PROTECTED, nullptr, "java.io.IOException"},
-	{"engineGetEncoded", "(Ljava/lang/String;)[B", nullptr, $PROTECTED, nullptr, "java.io.IOException"},
-	{"engineGetParameterSpec", "(Ljava/lang/Class;)Ljava/security/spec/AlgorithmParameterSpec;", "<T::Ljava/security/spec/AlgorithmParameterSpec;>(Ljava/lang/Class<TT;>;)TT;", $PROTECTED, nullptr, "java.security.spec.InvalidParameterSpecException"},
-	{"engineInit", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PROTECTED, nullptr, "java.security.spec.InvalidParameterSpecException"},
-	{"engineInit", "([B)V", nullptr, $PROTECTED, nullptr, "java.io.IOException"},
-	{"engineInit", "([BLjava/lang/String;)V", nullptr, $PROTECTED, nullptr, "java.io.IOException"},
-	{"engineToString", "()Ljava/lang/String;", nullptr, $PROTECTED},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(GCMParameters, init$, void)},
+	{"engineGetEncoded", "()[B", nullptr, $PROTECTED, $virtualMethod(GCMParameters, engineGetEncoded, $bytes*), "java.io.IOException"},
+	{"engineGetEncoded", "(Ljava/lang/String;)[B", nullptr, $PROTECTED, $virtualMethod(GCMParameters, engineGetEncoded, $bytes*, $String*), "java.io.IOException"},
+	{"engineGetParameterSpec", "(Ljava/lang/Class;)Ljava/security/spec/AlgorithmParameterSpec;", "<T::Ljava/security/spec/AlgorithmParameterSpec;>(Ljava/lang/Class<TT;>;)TT;", $PROTECTED, $virtualMethod(GCMParameters, engineGetParameterSpec, $AlgorithmParameterSpec*, $Class*), "java.security.spec.InvalidParameterSpecException"},
+	{"engineInit", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PROTECTED, $virtualMethod(GCMParameters, engineInit, void, $AlgorithmParameterSpec*), "java.security.spec.InvalidParameterSpecException"},
+	{"engineInit", "([B)V", nullptr, $PROTECTED, $virtualMethod(GCMParameters, engineInit, void, $bytes*), "java.io.IOException"},
+	{"engineInit", "([BLjava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(GCMParameters, engineInit, void, $bytes*, $String*), "java.io.IOException"},
+	{"engineToString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(GCMParameters, engineToString, $String*)},
 	{}
 };
 

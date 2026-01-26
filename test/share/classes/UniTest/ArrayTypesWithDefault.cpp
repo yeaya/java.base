@@ -4,6 +4,8 @@
 #include <UniTest/Stooge.h>
 #include <jcpp.h>
 
+using $PointArray = $Array<::UniTest::Point>;
+using $StoogeArray = $Array<::UniTest::Stooge>;
 using $Attribute = ::java::lang::Attribute;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
@@ -141,18 +143,18 @@ $Attribute _ArrayTypesWithDefault_DefaultValue_str11 = {
 };
 
 $MethodInfo _ArrayTypesWithDefault_MethodInfo_[] = {
-	{"a", "()[LUniTest/Point;", nullptr, $PUBLIC | $ABSTRACT, nullptr, nullptr, &_ArrayTypesWithDefault_DefaultValue_a0},
-	{"b", "()[B", nullptr, $PUBLIC | $ABSTRACT, nullptr, nullptr, &_ArrayTypesWithDefault_DefaultValue_b1},
-	{"bool", "()[Z", nullptr, $PUBLIC | $ABSTRACT, nullptr, nullptr, &_ArrayTypesWithDefault_DefaultValue_bool$2},
-	{"c", "()[C", nullptr, $PUBLIC | $ABSTRACT, nullptr, nullptr, &_ArrayTypesWithDefault_DefaultValue_c3},
-	{"cls", "()[Ljava/lang/Class;", nullptr, $PUBLIC | $ABSTRACT, nullptr, nullptr, &_ArrayTypesWithDefault_DefaultValue_cls4},
-	{"d", "()[D", nullptr, $PUBLIC | $ABSTRACT, nullptr, nullptr, &_ArrayTypesWithDefault_DefaultValue_d5},
-	{"e", "()[LUniTest/Stooge;", nullptr, $PUBLIC | $ABSTRACT, nullptr, nullptr, &_ArrayTypesWithDefault_DefaultValue_e6},
-	{"f", "()[F", nullptr, $PUBLIC | $ABSTRACT, nullptr, nullptr, &_ArrayTypesWithDefault_DefaultValue_f7},
-	{"i", "()[I", nullptr, $PUBLIC | $ABSTRACT, nullptr, nullptr, &_ArrayTypesWithDefault_DefaultValue_i8},
-	{"l", "()[J", nullptr, $PUBLIC | $ABSTRACT, nullptr, nullptr, &_ArrayTypesWithDefault_DefaultValue_l9},
-	{"s", "()[S", nullptr, $PUBLIC | $ABSTRACT, nullptr, nullptr, &_ArrayTypesWithDefault_DefaultValue_s10},
-	{"str", "()[Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, nullptr, nullptr, &_ArrayTypesWithDefault_DefaultValue_str11},
+	{"a", "()[LUniTest/Point;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ArrayTypesWithDefault, a, $PointArray*), nullptr, &_ArrayTypesWithDefault_DefaultValue_a0},
+	{"b", "()[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ArrayTypesWithDefault, b, $bytes*), nullptr, &_ArrayTypesWithDefault_DefaultValue_b1},
+	{"bool", "()[Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ArrayTypesWithDefault, bool$, $booleans*), nullptr, &_ArrayTypesWithDefault_DefaultValue_bool$2},
+	{"c", "()[C", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ArrayTypesWithDefault, c, $chars*), nullptr, &_ArrayTypesWithDefault_DefaultValue_c3},
+	{"cls", "()[Ljava/lang/Class;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ArrayTypesWithDefault, cls, $ClassArray*), nullptr, &_ArrayTypesWithDefault_DefaultValue_cls4},
+	{"d", "()[D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ArrayTypesWithDefault, d, $doubles*), nullptr, &_ArrayTypesWithDefault_DefaultValue_d5},
+	{"e", "()[LUniTest/Stooge;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ArrayTypesWithDefault, e, $StoogeArray*), nullptr, &_ArrayTypesWithDefault_DefaultValue_e6},
+	{"f", "()[F", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ArrayTypesWithDefault, f, $floats*), nullptr, &_ArrayTypesWithDefault_DefaultValue_f7},
+	{"i", "()[I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ArrayTypesWithDefault, i, $ints*), nullptr, &_ArrayTypesWithDefault_DefaultValue_i8},
+	{"l", "()[J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ArrayTypesWithDefault, l, $longs*), nullptr, &_ArrayTypesWithDefault_DefaultValue_l9},
+	{"s", "()[S", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ArrayTypesWithDefault, s, $shorts*), nullptr, &_ArrayTypesWithDefault_DefaultValue_s10},
+	{"str", "()[Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ArrayTypesWithDefault, str, $StringArray*), nullptr, &_ArrayTypesWithDefault_DefaultValue_str11},
 	{}
 };
 

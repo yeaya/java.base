@@ -34,16 +34,16 @@ $FieldInfo _IntegerPolynomialP256_FieldInfo_[] = {
 };
 
 $MethodInfo _IntegerPolynomialP256_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(IntegerPolynomialP256::*)()>(&IntegerPolynomialP256::init$))},
-	{"carryReduce", "([JJJJJJJJJJJJJJJJJJJJ)V", nullptr, $PRIVATE, $method(static_cast<void(IntegerPolynomialP256::*)($longs*,int64_t,int64_t,int64_t,int64_t,int64_t,int64_t,int64_t,int64_t,int64_t,int64_t,int64_t,int64_t,int64_t,int64_t,int64_t,int64_t,int64_t,int64_t,int64_t)>(&IntegerPolynomialP256::carryReduce))},
-	{"carryReduce", "([JJJJJJJJJJJ)V", nullptr, $PRIVATE, $method(static_cast<void(IntegerPolynomialP256::*)($longs*,int64_t,int64_t,int64_t,int64_t,int64_t,int64_t,int64_t,int64_t,int64_t,int64_t)>(&IntegerPolynomialP256::carryReduce))},
-	{"carryReduce0", "([JJJJJJJJJJJJJJJJJJJJJ)V", nullptr, 0},
-	{"evaluateModulus", "()Ljava/math/BigInteger;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$BigInteger*(*)()>(&IntegerPolynomialP256::evaluateModulus))},
-	{"finalCarryReduceLast", "([J)V", nullptr, $PROTECTED},
-	{"mult", "([J[J[J)V", nullptr, $PROTECTED},
-	{"reduce", "([J)V", nullptr, $PROTECTED},
-	{"reduceIn", "([JJI)V", nullptr, $PROTECTED},
-	{"square", "([J[J)V", nullptr, $PROTECTED},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(IntegerPolynomialP256, init$, void)},
+	{"carryReduce", "([JJJJJJJJJJJJJJJJJJJJ)V", nullptr, $PRIVATE, $method(IntegerPolynomialP256, carryReduce, void, $longs*, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t)},
+	{"carryReduce", "([JJJJJJJJJJJ)V", nullptr, $PRIVATE, $method(IntegerPolynomialP256, carryReduce, void, $longs*, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t)},
+	{"carryReduce0", "([JJJJJJJJJJJJJJJJJJJJJ)V", nullptr, 0, $virtualMethod(IntegerPolynomialP256, carryReduce0, void, $longs*, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t)},
+	{"evaluateModulus", "()Ljava/math/BigInteger;", nullptr, $PRIVATE | $STATIC, $staticMethod(IntegerPolynomialP256, evaluateModulus, $BigInteger*)},
+	{"finalCarryReduceLast", "([J)V", nullptr, $PROTECTED, $virtualMethod(IntegerPolynomialP256, finalCarryReduceLast, void, $longs*)},
+	{"mult", "([J[J[J)V", nullptr, $PROTECTED, $virtualMethod(IntegerPolynomialP256, mult, void, $longs*, $longs*, $longs*)},
+	{"reduce", "([J)V", nullptr, $PROTECTED, $virtualMethod(IntegerPolynomialP256, reduce, void, $longs*)},
+	{"reduceIn", "([JJI)V", nullptr, $PROTECTED, $virtualMethod(IntegerPolynomialP256, reduceIn, void, $longs*, int64_t, int32_t)},
+	{"square", "([J[J)V", nullptr, $PROTECTED, $virtualMethod(IntegerPolynomialP256, square, void, $longs*, $longs*)},
 	{}
 };
 

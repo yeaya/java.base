@@ -15,12 +15,12 @@ namespace sun {
 		namespace provider {
 
 $MethodInfo _SHAKE256_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(static_cast<void(SHAKE256::*)(int32_t)>(&SHAKE256::init$))},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, nullptr, "java.lang.CloneNotSupportedException"},
-	{"digest", "()[B", nullptr, $PUBLIC, $method(static_cast<$bytes*(SHAKE256::*)()>(&SHAKE256::digest))},
-	{"reset", "()V", nullptr, $PUBLIC, $method(static_cast<void(SHAKE256::*)()>(&SHAKE256::reset))},
-	{"update", "(B)V", nullptr, $PUBLIC, $method(static_cast<void(SHAKE256::*)(int8_t)>(&SHAKE256::update))},
-	{"update", "([BII)V", nullptr, $PUBLIC, $method(static_cast<void(SHAKE256::*)($bytes*,int32_t,int32_t)>(&SHAKE256::update))},
+	{"<init>", "(I)V", nullptr, $PUBLIC, $method(SHAKE256, init$, void, int32_t)},
+	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(SHAKE256, clone, $Object*), "java.lang.CloneNotSupportedException"},
+	{"digest", "()[B", nullptr, $PUBLIC, $method(SHAKE256, digest, $bytes*)},
+	{"reset", "()V", nullptr, $PUBLIC, $method(SHAKE256, reset, void)},
+	{"update", "(B)V", nullptr, $PUBLIC, $method(SHAKE256, update, void, int8_t)},
+	{"update", "([BII)V", nullptr, $PUBLIC, $method(SHAKE256, update, void, $bytes*, int32_t, int32_t)},
 	{}
 };
 

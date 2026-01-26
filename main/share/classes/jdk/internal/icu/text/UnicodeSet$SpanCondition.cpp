@@ -29,10 +29,10 @@ $FieldInfo _UnicodeSet$SpanCondition_FieldInfo_[] = {
 };
 
 $MethodInfo _UnicodeSet$SpanCondition_MethodInfo_[] = {
-	{"$values", "()[Ljdk/internal/icu/text/UnicodeSet$SpanCondition;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$UnicodeSet$SpanConditionArray*(*)()>(&UnicodeSet$SpanCondition::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(UnicodeSet$SpanCondition::*)($String*,int32_t)>(&UnicodeSet$SpanCondition::init$))},
-	{"valueOf", "(Ljava/lang/String;)Ljdk/internal/icu/text/UnicodeSet$SpanCondition;", nullptr, $PUBLIC | $STATIC, $method(static_cast<UnicodeSet$SpanCondition*(*)($String*)>(&UnicodeSet$SpanCondition::valueOf))},
-	{"values", "()[Ljdk/internal/icu/text/UnicodeSet$SpanCondition;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$UnicodeSet$SpanConditionArray*(*)()>(&UnicodeSet$SpanCondition::values))},
+	{"$values", "()[Ljdk/internal/icu/text/UnicodeSet$SpanCondition;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(UnicodeSet$SpanCondition, $values, $UnicodeSet$SpanConditionArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(UnicodeSet$SpanCondition, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Ljdk/internal/icu/text/UnicodeSet$SpanCondition;", nullptr, $PUBLIC | $STATIC, $staticMethod(UnicodeSet$SpanCondition, valueOf, UnicodeSet$SpanCondition*, $String*)},
+	{"values", "()[Ljdk/internal/icu/text/UnicodeSet$SpanCondition;", nullptr, $PUBLIC | $STATIC, $staticMethod(UnicodeSet$SpanCondition, values, $UnicodeSet$SpanConditionArray*)},
 	{}
 };
 

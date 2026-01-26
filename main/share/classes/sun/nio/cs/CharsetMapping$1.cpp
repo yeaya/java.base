@@ -22,8 +22,8 @@ $FieldInfo _CharsetMapping$1_FieldInfo_[] = {
 };
 
 $MethodInfo _CharsetMapping$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/InputStream;)V", nullptr, 0, $method(static_cast<void(CharsetMapping$1::*)($InputStream*)>(&CharsetMapping$1::init$))},
-	{"run", "()Lsun/nio/cs/CharsetMapping;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/io/InputStream;)V", nullptr, 0, $method(CharsetMapping$1, init$, void, $InputStream*)},
+	{"run", "()Lsun/nio/cs/CharsetMapping;", nullptr, $PUBLIC, $virtualMethod(CharsetMapping$1, run, $Object*)},
 	{}
 };
 

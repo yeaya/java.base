@@ -17,8 +17,8 @@ $FieldInfo _NetPermission_FieldInfo_[] = {
 };
 
 $MethodInfo _NetPermission_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(NetPermission::*)($String*)>(&NetPermission::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(NetPermission::*)($String*,$String*)>(&NetPermission::init$))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NetPermission, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NetPermission, init$, void, $String*, $String*)},
 	{}
 };
 

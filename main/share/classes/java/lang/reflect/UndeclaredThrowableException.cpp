@@ -34,11 +34,11 @@ $FieldInfo _UndeclaredThrowableException_FieldInfo_[] = {
 };
 
 $MethodInfo _UndeclaredThrowableException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(UndeclaredThrowableException::*)($Throwable*)>(&UndeclaredThrowableException::init$))},
-	{"<init>", "(Ljava/lang/Throwable;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(UndeclaredThrowableException::*)($Throwable*,$String*)>(&UndeclaredThrowableException::init$))},
-	{"getUndeclaredThrowable", "()Ljava/lang/Throwable;", nullptr, $PUBLIC},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(UndeclaredThrowableException::*)($ObjectInputStream*)>(&UndeclaredThrowableException::readObject)), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(UndeclaredThrowableException::*)($ObjectOutputStream*)>(&UndeclaredThrowableException::writeObject)), "java.io.IOException"},
+	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(UndeclaredThrowableException, init$, void, $Throwable*)},
+	{"<init>", "(Ljava/lang/Throwable;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(UndeclaredThrowableException, init$, void, $Throwable*, $String*)},
+	{"getUndeclaredThrowable", "()Ljava/lang/Throwable;", nullptr, $PUBLIC, $virtualMethod(UndeclaredThrowableException, getUndeclaredThrowable, $Throwable*)},
+	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(UndeclaredThrowableException, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(UndeclaredThrowableException, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
 	{}
 };
 

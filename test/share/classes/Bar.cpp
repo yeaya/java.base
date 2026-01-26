@@ -13,7 +13,7 @@ $FieldInfo _Bar_FieldInfo_[] = {
 };
 
 $MethodInfo _Bar_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Bar::*)()>(&Bar::init$))},
+	{"<init>", "()V", nullptr, 0, $method(Bar, init$, void)},
 	{}
 };
 

@@ -17,7 +17,7 @@ $FieldInfo _NonInheritableContainee$Sample_FieldInfo_[] = {
 };
 
 $MethodInfo _NonInheritableContainee$Sample_MethodInfo_[] = {
-	{"<init>", "(LNonInheritableContainee;)V", nullptr, 0, $method(static_cast<void(NonInheritableContainee$Sample::*)($NonInheritableContainee*)>(&NonInheritableContainee$Sample::init$))},
+	{"<init>", "(LNonInheritableContainee;)V", nullptr, 0, $method(NonInheritableContainee$Sample, init$, void, $NonInheritableContainee*)},
 	{}
 };
 

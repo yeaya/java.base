@@ -18,9 +18,9 @@ $FieldInfo _LocaleSyntaxException_FieldInfo_[] = {
 };
 
 $MethodInfo _LocaleSyntaxException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(LocaleSyntaxException::*)($String*)>(&LocaleSyntaxException::init$))},
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(static_cast<void(LocaleSyntaxException::*)($String*,int32_t)>(&LocaleSyntaxException::init$))},
-	{"getErrorIndex", "()I", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(LocaleSyntaxException, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(LocaleSyntaxException, init$, void, $String*, int32_t)},
+	{"getErrorIndex", "()I", nullptr, $PUBLIC, $virtualMethod(LocaleSyntaxException, getErrorIndex, int32_t)},
 	{}
 };
 

@@ -44,16 +44,16 @@ namespace sun {
 		namespace ch {
 
 $MethodInfo _SelectorProviderImpl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SelectorProviderImpl::*)()>(&SelectorProviderImpl::init$))},
-	{"openDatagramChannel", "()Ljava/nio/channels/DatagramChannel;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"openDatagramChannel", "(Ljava/net/ProtocolFamily;)Ljava/nio/channels/DatagramChannel;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"openPipe", "()Ljava/nio/channels/Pipe;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SelectorProviderImpl, init$, void)},
+	{"openDatagramChannel", "()Ljava/nio/channels/DatagramChannel;", nullptr, $PUBLIC, $virtualMethod(SelectorProviderImpl, openDatagramChannel, $DatagramChannel*), "java.io.IOException"},
+	{"openDatagramChannel", "(Ljava/net/ProtocolFamily;)Ljava/nio/channels/DatagramChannel;", nullptr, $PUBLIC, $virtualMethod(SelectorProviderImpl, openDatagramChannel, $DatagramChannel*, $ProtocolFamily*), "java.io.IOException"},
+	{"openPipe", "()Ljava/nio/channels/Pipe;", nullptr, $PUBLIC, $virtualMethod(SelectorProviderImpl, openPipe, $Pipe*), "java.io.IOException"},
 	{"openSelector", "()Ljava/nio/channels/spi/AbstractSelector;", nullptr, $PUBLIC | $ABSTRACT},
-	{"openServerSocketChannel", "()Ljava/nio/channels/ServerSocketChannel;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"openServerSocketChannel", "(Ljava/net/ProtocolFamily;)Ljava/nio/channels/ServerSocketChannel;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"openSocketChannel", "()Ljava/nio/channels/SocketChannel;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"openSocketChannel", "(Ljava/net/ProtocolFamily;)Ljava/nio/channels/SocketChannel;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"openUninterruptibleDatagramChannel", "()Ljava/nio/channels/DatagramChannel;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"openServerSocketChannel", "()Ljava/nio/channels/ServerSocketChannel;", nullptr, $PUBLIC, $virtualMethod(SelectorProviderImpl, openServerSocketChannel, $ServerSocketChannel*), "java.io.IOException"},
+	{"openServerSocketChannel", "(Ljava/net/ProtocolFamily;)Ljava/nio/channels/ServerSocketChannel;", nullptr, $PUBLIC, $virtualMethod(SelectorProviderImpl, openServerSocketChannel, $ServerSocketChannel*, $ProtocolFamily*), "java.io.IOException"},
+	{"openSocketChannel", "()Ljava/nio/channels/SocketChannel;", nullptr, $PUBLIC, $virtualMethod(SelectorProviderImpl, openSocketChannel, $SocketChannel*), "java.io.IOException"},
+	{"openSocketChannel", "(Ljava/net/ProtocolFamily;)Ljava/nio/channels/SocketChannel;", nullptr, $PUBLIC, $virtualMethod(SelectorProviderImpl, openSocketChannel, $SocketChannel*, $ProtocolFamily*), "java.io.IOException"},
+	{"openUninterruptibleDatagramChannel", "()Ljava/nio/channels/DatagramChannel;", nullptr, $PUBLIC, $virtualMethod(SelectorProviderImpl, openUninterruptibleDatagramChannel, $DatagramChannel*), "java.io.IOException"},
 	{}
 };
 

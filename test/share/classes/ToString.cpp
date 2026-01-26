@@ -32,8 +32,8 @@ $FieldInfo _ToString_FieldInfo_[] = {
 };
 
 $MethodInfo _ToString_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ToString::*)()>(&ToString::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&ToString::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ToString, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ToString, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

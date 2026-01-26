@@ -23,9 +23,9 @@ $FieldInfo _ChaCha20ParameterSpec_FieldInfo_[] = {
 };
 
 $MethodInfo _ChaCha20ParameterSpec_MethodInfo_[] = {
-	{"<init>", "([BI)V", nullptr, $PUBLIC, $method(static_cast<void(ChaCha20ParameterSpec::*)($bytes*,int32_t)>(&ChaCha20ParameterSpec::init$))},
-	{"getCounter", "()I", nullptr, $PUBLIC, $method(static_cast<int32_t(ChaCha20ParameterSpec::*)()>(&ChaCha20ParameterSpec::getCounter))},
-	{"getNonce", "()[B", nullptr, $PUBLIC, $method(static_cast<$bytes*(ChaCha20ParameterSpec::*)()>(&ChaCha20ParameterSpec::getNonce))},
+	{"<init>", "([BI)V", nullptr, $PUBLIC, $method(ChaCha20ParameterSpec, init$, void, $bytes*, int32_t)},
+	{"getCounter", "()I", nullptr, $PUBLIC, $method(ChaCha20ParameterSpec, getCounter, int32_t)},
+	{"getNonce", "()[B", nullptr, $PUBLIC, $method(ChaCha20ParameterSpec, getNonce, $bytes*)},
 	{}
 };
 

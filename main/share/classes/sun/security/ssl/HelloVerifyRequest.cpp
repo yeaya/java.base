@@ -26,7 +26,7 @@ $FieldInfo _HelloVerifyRequest_FieldInfo_[] = {
 };
 
 $MethodInfo _HelloVerifyRequest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(HelloVerifyRequest::*)()>(&HelloVerifyRequest::init$))},
+	{"<init>", "()V", nullptr, 0, $method(HelloVerifyRequest, init$, void)},
 	{}
 };
 

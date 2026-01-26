@@ -32,13 +32,13 @@ $FieldInfo _PriorityQueue$PriorityQueueSpliterator_FieldInfo_[] = {
 };
 
 $MethodInfo _PriorityQueue$PriorityQueueSpliterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/PriorityQueue;III)V", nullptr, 0, $method(static_cast<void(PriorityQueue$PriorityQueueSpliterator::*)($PriorityQueue*,int32_t,int32_t,int32_t)>(&PriorityQueue$PriorityQueueSpliterator::init$))},
-	{"characteristics", "()I", nullptr, $PUBLIC},
-	{"estimateSize", "()J", nullptr, $PUBLIC},
-	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC},
-	{"getFence", "()I", nullptr, $PRIVATE, $method(static_cast<int32_t(PriorityQueue$PriorityQueueSpliterator::*)()>(&PriorityQueue$PriorityQueueSpliterator::getFence))},
-	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-TE;>;)Z", $PUBLIC},
-	{"trySplit", "()Ljava/util/PriorityQueue$PriorityQueueSpliterator;", "()Ljava/util/PriorityQueue<TE;>.PriorityQueueSpliterator;", $PUBLIC},
+	{"<init>", "(Ljava/util/PriorityQueue;III)V", nullptr, 0, $method(PriorityQueue$PriorityQueueSpliterator, init$, void, $PriorityQueue*, int32_t, int32_t, int32_t)},
+	{"characteristics", "()I", nullptr, $PUBLIC, $virtualMethod(PriorityQueue$PriorityQueueSpliterator, characteristics, int32_t)},
+	{"estimateSize", "()J", nullptr, $PUBLIC, $virtualMethod(PriorityQueue$PriorityQueueSpliterator, estimateSize, int64_t)},
+	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC, $virtualMethod(PriorityQueue$PriorityQueueSpliterator, forEachRemaining, void, $Consumer*)},
+	{"getFence", "()I", nullptr, $PRIVATE, $method(PriorityQueue$PriorityQueueSpliterator, getFence, int32_t)},
+	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-TE;>;)Z", $PUBLIC, $virtualMethod(PriorityQueue$PriorityQueueSpliterator, tryAdvance, bool, $Consumer*)},
+	{"trySplit", "()Ljava/util/PriorityQueue$PriorityQueueSpliterator;", "()Ljava/util/PriorityQueue<TE;>.PriorityQueueSpliterator;", $PUBLIC, $virtualMethod(PriorityQueue$PriorityQueueSpliterator, trySplit, PriorityQueue$PriorityQueueSpliterator*)},
 	{}
 };
 

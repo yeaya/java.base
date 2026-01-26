@@ -69,8 +69,8 @@ $FieldInfo _Symbol_FieldInfo_[] = {
 };
 
 $MethodInfo _Symbol_MethodInfo_[] = {
-	{"<init>", "(IILjava/lang/String;Ljava/lang/String;Ljava/lang/String;J)V", nullptr, 0, $method(static_cast<void(Symbol::*)(int32_t,int32_t,$String*,$String*,$String*,int64_t)>(&Symbol::init$))},
-	{"getArgumentsAndReturnSizes", "()I", nullptr, 0},
+	{"<init>", "(IILjava/lang/String;Ljava/lang/String;Ljava/lang/String;J)V", nullptr, 0, $method(Symbol, init$, void, int32_t, int32_t, $String*, $String*, $String*, int64_t)},
+	{"getArgumentsAndReturnSizes", "()I", nullptr, 0, $virtualMethod(Symbol, getArgumentsAndReturnSizes, int32_t)},
 	{}
 };
 

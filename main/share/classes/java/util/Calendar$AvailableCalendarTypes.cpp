@@ -27,7 +27,7 @@ $FieldInfo _Calendar$AvailableCalendarTypes_FieldInfo_[] = {
 };
 
 $MethodInfo _Calendar$AvailableCalendarTypes_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(Calendar$AvailableCalendarTypes::*)()>(&Calendar$AvailableCalendarTypes::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(Calendar$AvailableCalendarTypes, init$, void)},
 	{}
 };
 

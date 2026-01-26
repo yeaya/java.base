@@ -10,9 +10,9 @@ using $StackOverflowError = ::java::lang::StackOverflowError;
 using $Selector = ::java::nio::channels::Selector;
 
 $MethodInfo _StackOverflowTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(StackOverflowTest::*)()>(&StackOverflowTest::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&StackOverflowTest::main)), "java.lang.Exception"},
-	{"recursiveSelect", "(Ljava/nio/channels/Selector;)V", nullptr, $STATIC, $method(static_cast<void(*)($Selector*)>(&StackOverflowTest::recursiveSelect)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(StackOverflowTest, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StackOverflowTest, main, void, $StringArray*), "java.lang.Exception"},
+	{"recursiveSelect", "(Ljava/nio/channels/Selector;)V", nullptr, $STATIC, $staticMethod(StackOverflowTest, recursiveSelect, void, $Selector*), "java.lang.Exception"},
 	{}
 };
 

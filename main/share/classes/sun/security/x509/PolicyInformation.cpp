@@ -56,19 +56,19 @@ $FieldInfo _PolicyInformation_FieldInfo_[] = {
 };
 
 $MethodInfo _PolicyInformation_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/x509/CertificatePolicyId;Ljava/util/Set;)V", "(Lsun/security/x509/CertificatePolicyId;Ljava/util/Set<Ljava/security/cert/PolicyQualifierInfo;>;)V", $PUBLIC, $method(static_cast<void(PolicyInformation::*)($CertificatePolicyId*,$Set*)>(&PolicyInformation::init$)), "java.io.IOException"},
-	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(static_cast<void(PolicyInformation::*)($DerValue*)>(&PolicyInformation::init$)), "java.io.IOException"},
-	{"delete", "(Ljava/lang/String;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"encode", "(Lsun/security/util/DerOutputStream;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"get", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"getElements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getPolicyIdentifier", "()Lsun/security/x509/CertificatePolicyId;", nullptr, $PUBLIC},
-	{"getPolicyQualifiers", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/security/cert/PolicyQualifierInfo;>;", $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"set", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/security/x509/CertificatePolicyId;Ljava/util/Set;)V", "(Lsun/security/x509/CertificatePolicyId;Ljava/util/Set<Ljava/security/cert/PolicyQualifierInfo;>;)V", $PUBLIC, $method(PolicyInformation, init$, void, $CertificatePolicyId*, $Set*), "java.io.IOException"},
+	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(PolicyInformation, init$, void, $DerValue*), "java.io.IOException"},
+	{"delete", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(PolicyInformation, delete$, void, $String*), "java.io.IOException"},
+	{"encode", "(Lsun/security/util/DerOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(PolicyInformation, encode, void, $DerOutputStream*), "java.io.IOException"},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(PolicyInformation, equals, bool, Object$*)},
+	{"get", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PolicyInformation, get, $Object*, $String*), "java.io.IOException"},
+	{"getElements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(PolicyInformation, getElements, $Enumeration*)},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PolicyInformation, getName, $String*)},
+	{"getPolicyIdentifier", "()Lsun/security/x509/CertificatePolicyId;", nullptr, $PUBLIC, $virtualMethod(PolicyInformation, getPolicyIdentifier, $CertificatePolicyId*)},
+	{"getPolicyQualifiers", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/security/cert/PolicyQualifierInfo;>;", $PUBLIC, $virtualMethod(PolicyInformation, getPolicyQualifiers, $Set*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(PolicyInformation, hashCode, int32_t)},
+	{"set", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(PolicyInformation, set, void, $String*, Object$*), "java.io.IOException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PolicyInformation, toString, $String*)},
 	{}
 };
 

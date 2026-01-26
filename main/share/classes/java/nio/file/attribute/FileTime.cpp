@@ -77,22 +77,22 @@ $FieldInfo _FileTime_FieldInfo_[] = {
 };
 
 $MethodInfo _FileTime_MethodInfo_[] = {
-	{"<init>", "(JLjava/util/concurrent/TimeUnit;Ljava/time/Instant;)V", nullptr, $PRIVATE, $method(static_cast<void(FileTime::*)(int64_t,$TimeUnit*,$Instant*)>(&FileTime::init$))},
-	{"append", "(Ljava/lang/StringBuilder;II)Ljava/lang/StringBuilder;", nullptr, $PRIVATE, $method(static_cast<$StringBuilder*(FileTime::*)($StringBuilder*,int32_t,int32_t)>(&FileTime::append))},
-	{"compareTo", "(Ljava/nio/file/attribute/FileTime;)I", nullptr, $PUBLIC, $method(static_cast<int32_t(FileTime::*)(FileTime*)>(&FileTime::compareTo))},
-	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"from", "(JLjava/util/concurrent/TimeUnit;)Ljava/nio/file/attribute/FileTime;", nullptr, $PUBLIC | $STATIC, $method(static_cast<FileTime*(*)(int64_t,$TimeUnit*)>(&FileTime::from))},
-	{"from", "(Ljava/time/Instant;)Ljava/nio/file/attribute/FileTime;", nullptr, $PUBLIC | $STATIC, $method(static_cast<FileTime*(*)($Instant*)>(&FileTime::from))},
-	{"fromMillis", "(J)Ljava/nio/file/attribute/FileTime;", nullptr, $PUBLIC | $STATIC, $method(static_cast<FileTime*(*)(int64_t)>(&FileTime::fromMillis))},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"scale", "(JJJ)J", nullptr, $PRIVATE | $STATIC, $method(static_cast<int64_t(*)(int64_t,int64_t,int64_t)>(&FileTime::scale))},
-	{"to", "(Ljava/util/concurrent/TimeUnit;)J", nullptr, $PUBLIC, $method(static_cast<int64_t(FileTime::*)($TimeUnit*)>(&FileTime::to))},
-	{"toDays", "()J", nullptr, $PRIVATE, $method(static_cast<int64_t(FileTime::*)()>(&FileTime::toDays))},
-	{"toExcessNanos", "(J)J", nullptr, $PRIVATE, $method(static_cast<int64_t(FileTime::*)(int64_t)>(&FileTime::toExcessNanos))},
-	{"toInstant", "()Ljava/time/Instant;", nullptr, $PUBLIC, $method(static_cast<$Instant*(FileTime::*)()>(&FileTime::toInstant))},
-	{"toMillis", "()J", nullptr, $PUBLIC, $method(static_cast<int64_t(FileTime::*)()>(&FileTime::toMillis))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(JLjava/util/concurrent/TimeUnit;Ljava/time/Instant;)V", nullptr, $PRIVATE, $method(FileTime, init$, void, int64_t, $TimeUnit*, $Instant*)},
+	{"append", "(Ljava/lang/StringBuilder;II)Ljava/lang/StringBuilder;", nullptr, $PRIVATE, $method(FileTime, append, $StringBuilder*, $StringBuilder*, int32_t, int32_t)},
+	{"compareTo", "(Ljava/nio/file/attribute/FileTime;)I", nullptr, $PUBLIC, $method(FileTime, compareTo, int32_t, FileTime*)},
+	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(FileTime, compareTo, int32_t, Object$*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(FileTime, equals, bool, Object$*)},
+	{"from", "(JLjava/util/concurrent/TimeUnit;)Ljava/nio/file/attribute/FileTime;", nullptr, $PUBLIC | $STATIC, $staticMethod(FileTime, from, FileTime*, int64_t, $TimeUnit*)},
+	{"from", "(Ljava/time/Instant;)Ljava/nio/file/attribute/FileTime;", nullptr, $PUBLIC | $STATIC, $staticMethod(FileTime, from, FileTime*, $Instant*)},
+	{"fromMillis", "(J)Ljava/nio/file/attribute/FileTime;", nullptr, $PUBLIC | $STATIC, $staticMethod(FileTime, fromMillis, FileTime*, int64_t)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(FileTime, hashCode, int32_t)},
+	{"scale", "(JJJ)J", nullptr, $PRIVATE | $STATIC, $staticMethod(FileTime, scale, int64_t, int64_t, int64_t, int64_t)},
+	{"to", "(Ljava/util/concurrent/TimeUnit;)J", nullptr, $PUBLIC, $method(FileTime, to, int64_t, $TimeUnit*)},
+	{"toDays", "()J", nullptr, $PRIVATE, $method(FileTime, toDays, int64_t)},
+	{"toExcessNanos", "(J)J", nullptr, $PRIVATE, $method(FileTime, toExcessNanos, int64_t, int64_t)},
+	{"toInstant", "()Ljava/time/Instant;", nullptr, $PUBLIC, $method(FileTime, toInstant, $Instant*)},
+	{"toMillis", "()J", nullptr, $PUBLIC, $method(FileTime, toMillis, int64_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FileTime, toString, $String*)},
 	{}
 };
 

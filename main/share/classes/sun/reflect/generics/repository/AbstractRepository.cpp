@@ -24,11 +24,11 @@ $FieldInfo _AbstractRepository_FieldInfo_[] = {
 };
 
 $MethodInfo _AbstractRepository_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Lsun/reflect/generics/factory/GenericsFactory;)V", nullptr, $PROTECTED, $method(static_cast<void(AbstractRepository::*)($String*,$GenericsFactory*)>(&AbstractRepository::init$))},
-	{"getFactory", "()Lsun/reflect/generics/factory/GenericsFactory;", nullptr, $PRIVATE, $method(static_cast<$GenericsFactory*(AbstractRepository::*)()>(&AbstractRepository::getFactory))},
-	{"getReifier", "()Lsun/reflect/generics/visitor/Reifier;", nullptr, $PROTECTED},
-	{"getTree", "()Lsun/reflect/generics/tree/Tree;", "()TT;", $PROTECTED},
-	{"parse", "(Ljava/lang/String;)Lsun/reflect/generics/tree/Tree;", "(Ljava/lang/String;)TT;", $PROTECTED | $ABSTRACT},
+	{"<init>", "(Ljava/lang/String;Lsun/reflect/generics/factory/GenericsFactory;)V", nullptr, $PROTECTED, $method(AbstractRepository, init$, void, $String*, $GenericsFactory*)},
+	{"getFactory", "()Lsun/reflect/generics/factory/GenericsFactory;", nullptr, $PRIVATE, $method(AbstractRepository, getFactory, $GenericsFactory*)},
+	{"getReifier", "()Lsun/reflect/generics/visitor/Reifier;", nullptr, $PROTECTED, $virtualMethod(AbstractRepository, getReifier, $Reifier*)},
+	{"getTree", "()Lsun/reflect/generics/tree/Tree;", "()TT;", $PROTECTED, $virtualMethod(AbstractRepository, getTree, $Tree*)},
+	{"parse", "(Ljava/lang/String;)Lsun/reflect/generics/tree/Tree;", "(Ljava/lang/String;)TT;", $PROTECTED | $ABSTRACT, $virtualMethod(AbstractRepository, parse, $Tree*, $String*)},
 	{}
 };
 

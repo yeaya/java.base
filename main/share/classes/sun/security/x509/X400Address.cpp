@@ -27,13 +27,13 @@ $FieldInfo _X400Address_FieldInfo_[] = {
 };
 
 $MethodInfo _X400Address_MethodInfo_[] = {
-	{"<init>", "([B)V", nullptr, $PUBLIC, $method(static_cast<void(X400Address::*)($bytes*)>(&X400Address::init$))},
-	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(static_cast<void(X400Address::*)($DerValue*)>(&X400Address::init$)), "java.io.IOException"},
-	{"constrains", "(Lsun/security/x509/GeneralNameInterface;)I", nullptr, $PUBLIC, nullptr, "java.lang.UnsupportedOperationException"},
-	{"encode", "(Lsun/security/util/DerOutputStream;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"getType", "()I", nullptr, $PUBLIC},
-	{"subtreeDepth", "()I", nullptr, $PUBLIC, nullptr, "java.lang.UnsupportedOperationException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "([B)V", nullptr, $PUBLIC, $method(X400Address, init$, void, $bytes*)},
+	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(X400Address, init$, void, $DerValue*), "java.io.IOException"},
+	{"constrains", "(Lsun/security/x509/GeneralNameInterface;)I", nullptr, $PUBLIC, $virtualMethod(X400Address, constrains, int32_t, $GeneralNameInterface*), "java.lang.UnsupportedOperationException"},
+	{"encode", "(Lsun/security/util/DerOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(X400Address, encode, void, $DerOutputStream*), "java.io.IOException"},
+	{"getType", "()I", nullptr, $PUBLIC, $virtualMethod(X400Address, getType, int32_t)},
+	{"subtreeDepth", "()I", nullptr, $PUBLIC, $virtualMethod(X400Address, subtreeDepth, int32_t), "java.lang.UnsupportedOperationException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(X400Address, toString, $String*)},
 	{}
 };
 

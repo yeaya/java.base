@@ -5,12 +5,13 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $CharBuffer = ::java::nio::CharBuffer;
 
 namespace java {
 	namespace lang {
 
 $MethodInfo _Readable_MethodInfo_[] = {
-	{"read", "(Ljava/nio/CharBuffer;)I", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
+	{"read", "(Ljava/nio/CharBuffer;)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Readable, read, int32_t, $CharBuffer*), "java.io.IOException"},
 	{}
 };
 

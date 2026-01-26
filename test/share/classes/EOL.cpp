@@ -16,8 +16,8 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 
 $MethodInfo _EOL_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(EOL::*)()>(&EOL::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&EOL::main)), "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(EOL, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(EOL, main, void, $StringArray*), "java.io.IOException"},
 	{}
 };
 

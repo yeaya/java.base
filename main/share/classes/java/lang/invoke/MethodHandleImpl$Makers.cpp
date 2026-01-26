@@ -34,7 +34,7 @@ $FieldInfo _MethodHandleImpl$Makers_FieldInfo_[] = {
 };
 
 $MethodInfo _MethodHandleImpl$Makers_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(MethodHandleImpl$Makers::*)()>(&MethodHandleImpl$Makers::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(MethodHandleImpl$Makers, init$, void)},
 	{}
 };
 

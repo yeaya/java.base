@@ -17,8 +17,8 @@ using $ServerSocket = ::java::net::ServerSocket;
 using $SocketTimeoutException = ::java::net::SocketTimeoutException;
 
 $MethodInfo _AnotherSelectFdsLimit$WorkerThread_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(AnotherSelectFdsLimit$WorkerThread::*)()>(&AnotherSelectFdsLimit$WorkerThread::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(AnotherSelectFdsLimit$WorkerThread, init$, void)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(AnotherSelectFdsLimit$WorkerThread, run, void)},
 	{}
 };
 

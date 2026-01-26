@@ -50,11 +50,11 @@ $FieldInfo _LambdaMetafactory_FieldInfo_[] = {
 };
 
 $MethodInfo _LambdaMetafactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(LambdaMetafactory::*)()>(&LambdaMetafactory::init$))},
-	{"altMetafactory", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;[Ljava/lang/Object;)Ljava/lang/invoke/CallSite;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<$CallSite*(*)($MethodHandles$Lookup*,$String*,$MethodType*,$ObjectArray*)>(&LambdaMetafactory::altMetafactory)), "java.lang.invoke.LambdaConversionException"},
-	{"extractArg", "([Ljava/lang/Object;ILjava/lang/Class;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>([Ljava/lang/Object;ILjava/lang/Class<TT;>;)TT;", $PRIVATE | $STATIC, $method(static_cast<$Object*(*)($ObjectArray*,int32_t,$Class*)>(&LambdaMetafactory::extractArg))},
-	{"extractArgs", "([Ljava/lang/Object;ILjava/lang/Class;I)[Ljava/lang/Object;", "<T:Ljava/lang/Object;>([Ljava/lang/Object;ILjava/lang/Class<TT;>;I)[TT;", $PRIVATE | $STATIC, $method(static_cast<$ObjectArray*(*)($ObjectArray*,int32_t,$Class*,int32_t)>(&LambdaMetafactory::extractArgs))},
-	{"metafactory", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/CallSite;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$CallSite*(*)($MethodHandles$Lookup*,$String*,$MethodType*,$MethodType*,$MethodHandle*,$MethodType*)>(&LambdaMetafactory::metafactory)), "java.lang.invoke.LambdaConversionException"},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(LambdaMetafactory, init$, void)},
+	{"altMetafactory", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;[Ljava/lang/Object;)Ljava/lang/invoke/CallSite;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(LambdaMetafactory, altMetafactory, $CallSite*, $MethodHandles$Lookup*, $String*, $MethodType*, $ObjectArray*), "java.lang.invoke.LambdaConversionException"},
+	{"extractArg", "([Ljava/lang/Object;ILjava/lang/Class;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>([Ljava/lang/Object;ILjava/lang/Class<TT;>;)TT;", $PRIVATE | $STATIC, $staticMethod(LambdaMetafactory, extractArg, $Object*, $ObjectArray*, int32_t, $Class*)},
+	{"extractArgs", "([Ljava/lang/Object;ILjava/lang/Class;I)[Ljava/lang/Object;", "<T:Ljava/lang/Object;>([Ljava/lang/Object;ILjava/lang/Class<TT;>;I)[TT;", $PRIVATE | $STATIC, $staticMethod(LambdaMetafactory, extractArgs, $ObjectArray*, $ObjectArray*, int32_t, $Class*, int32_t)},
+	{"metafactory", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/CallSite;", nullptr, $PUBLIC | $STATIC, $staticMethod(LambdaMetafactory, metafactory, $CallSite*, $MethodHandles$Lookup*, $String*, $MethodType*, $MethodType*, $MethodHandle*, $MethodType*), "java.lang.invoke.LambdaConversionException"},
 	{}
 };
 

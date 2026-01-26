@@ -39,10 +39,10 @@ $FieldInfo _URLDecoder_FieldInfo_[] = {
 };
 
 $MethodInfo _URLDecoder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(URLDecoder::*)()>(&URLDecoder::init$))},
-	{"decode", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $DEPRECATED, $method(static_cast<$String*(*)($String*)>(&URLDecoder::decode)), nullptr, nullptr, _URLDecoder_MethodAnnotations_decode1},
-	{"decode", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)($String*,$String*)>(&URLDecoder::decode)), "java.io.UnsupportedEncodingException"},
-	{"decode", "(Ljava/lang/String;Ljava/nio/charset/Charset;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)($String*,$Charset*)>(&URLDecoder::decode))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(URLDecoder, init$, void)},
+	{"decode", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $DEPRECATED, $staticMethod(URLDecoder, decode, $String*, $String*), nullptr, nullptr, _URLDecoder_MethodAnnotations_decode1},
+	{"decode", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(URLDecoder, decode, $String*, $String*, $String*), "java.io.UnsupportedEncodingException"},
+	{"decode", "(Ljava/lang/String;Ljava/nio/charset/Charset;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(URLDecoder, decode, $String*, $String*, $Charset*)},
 	{}
 };
 

@@ -38,11 +38,11 @@ $FieldInfo _PreSharedKeyExtension$PartialClientHelloMessage_FieldInfo_[] = {
 };
 
 $MethodInfo _PreSharedKeyExtension$PartialClientHelloMessage_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/ssl/HandshakeContext;Lsun/security/ssl/ClientHello$ClientHelloMessage;Lsun/security/ssl/PreSharedKeyExtension$CHPreSharedKeySpec;)V", nullptr, 0, $method(static_cast<void(PreSharedKeyExtension$PartialClientHelloMessage::*)($HandshakeContext*,$ClientHello$ClientHelloMessage*,$PreSharedKeyExtension$CHPreSharedKeySpec*)>(&PreSharedKeyExtension$PartialClientHelloMessage::init$))},
-	{"handshakeType", "()Lsun/security/ssl/SSLHandshake;", nullptr, 0},
-	{"messageLength", "()I", nullptr, 0},
-	{"pskTotalLength", "()I", nullptr, $PRIVATE, $method(static_cast<int32_t(PreSharedKeyExtension$PartialClientHelloMessage::*)()>(&PreSharedKeyExtension$PartialClientHelloMessage::pskTotalLength))},
-	{"send", "(Lsun/security/ssl/HandshakeOutStream;)V", nullptr, 0, nullptr, "java.io.IOException"},
+	{"<init>", "(Lsun/security/ssl/HandshakeContext;Lsun/security/ssl/ClientHello$ClientHelloMessage;Lsun/security/ssl/PreSharedKeyExtension$CHPreSharedKeySpec;)V", nullptr, 0, $method(PreSharedKeyExtension$PartialClientHelloMessage, init$, void, $HandshakeContext*, $ClientHello$ClientHelloMessage*, $PreSharedKeyExtension$CHPreSharedKeySpec*)},
+	{"handshakeType", "()Lsun/security/ssl/SSLHandshake;", nullptr, 0, $virtualMethod(PreSharedKeyExtension$PartialClientHelloMessage, handshakeType, $SSLHandshake*)},
+	{"messageLength", "()I", nullptr, 0, $virtualMethod(PreSharedKeyExtension$PartialClientHelloMessage, messageLength, int32_t)},
+	{"pskTotalLength", "()I", nullptr, $PRIVATE, $method(PreSharedKeyExtension$PartialClientHelloMessage, pskTotalLength, int32_t)},
+	{"send", "(Lsun/security/ssl/HandshakeOutStream;)V", nullptr, 0, $virtualMethod(PreSharedKeyExtension$PartialClientHelloMessage, send, void, $HandshakeOutStream*), "java.io.IOException"},
 	{}
 };
 

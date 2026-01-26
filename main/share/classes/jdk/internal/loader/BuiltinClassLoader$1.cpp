@@ -34,10 +34,10 @@ $FieldInfo _BuiltinClassLoader$1_FieldInfo_[] = {
 };
 
 $MethodInfo _BuiltinClassLoader$1_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/loader/BuiltinClassLoader;Ljava/util/List;Ljava/util/Enumeration;)V", nullptr, 0, $method(static_cast<void(BuiltinClassLoader$1::*)($BuiltinClassLoader*,$List*,$Enumeration*)>(&BuiltinClassLoader$1::init$))},
-	{"hasMoreElements", "()Z", nullptr, $PUBLIC},
-	{"hasNext", "()Z", nullptr, $PRIVATE, $method(static_cast<bool(BuiltinClassLoader$1::*)()>(&BuiltinClassLoader$1::hasNext))},
-	{"nextElement", "()Ljava/net/URL;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/loader/BuiltinClassLoader;Ljava/util/List;Ljava/util/Enumeration;)V", nullptr, 0, $method(BuiltinClassLoader$1, init$, void, $BuiltinClassLoader*, $List*, $Enumeration*)},
+	{"hasMoreElements", "()Z", nullptr, $PUBLIC, $virtualMethod(BuiltinClassLoader$1, hasMoreElements, bool)},
+	{"hasNext", "()Z", nullptr, $PRIVATE, $method(BuiltinClassLoader$1, hasNext, bool)},
+	{"nextElement", "()Ljava/net/URL;", nullptr, $PUBLIC, $virtualMethod(BuiltinClassLoader$1, nextElement, $Object*)},
 	{}
 };
 

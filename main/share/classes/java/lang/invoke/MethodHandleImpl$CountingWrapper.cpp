@@ -58,11 +58,11 @@ $FieldInfo _MethodHandleImpl$CountingWrapper_FieldInfo_[] = {
 };
 
 $MethodInfo _MethodHandleImpl$CountingWrapper_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/LambdaForm;Ljava/util/function/Function;Ljava/util/function/Function;I)V", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/LambdaForm;Ljava/util/function/Function<Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/LambdaForm;>;Ljava/util/function/Function<Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/LambdaForm;>;I)V", $PRIVATE, $method(static_cast<void(MethodHandleImpl$CountingWrapper::*)($MethodHandle*,$LambdaForm*,$Function*,$Function*,int32_t)>(&MethodHandleImpl$CountingWrapper::init$))},
-	{"asTypeUncached", "(Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC},
-	{"countDown", "()Z", nullptr, 0},
-	{"getTarget", "()Ljava/lang/invoke/MethodHandle;", nullptr, $PROTECTED, nullptr, nullptr, nullptr, _MethodHandleImpl$CountingWrapper_MethodAnnotations_getTarget3},
-	{"maybeStopCounting", "(Ljava/lang/Object;)V", nullptr, $STATIC, $method(static_cast<void(*)(Object$*)>(&MethodHandleImpl$CountingWrapper::maybeStopCounting)), nullptr, nullptr, _MethodHandleImpl$CountingWrapper_MethodAnnotations_maybeStopCounting4},
+	{"<init>", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/LambdaForm;Ljava/util/function/Function;Ljava/util/function/Function;I)V", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/LambdaForm;Ljava/util/function/Function<Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/LambdaForm;>;Ljava/util/function/Function<Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/LambdaForm;>;I)V", $PRIVATE, $method(MethodHandleImpl$CountingWrapper, init$, void, $MethodHandle*, $LambdaForm*, $Function*, $Function*, int32_t)},
+	{"asTypeUncached", "(Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC, $virtualMethod(MethodHandleImpl$CountingWrapper, asTypeUncached, $MethodHandle*, $MethodType*)},
+	{"countDown", "()Z", nullptr, 0, $virtualMethod(MethodHandleImpl$CountingWrapper, countDown, bool)},
+	{"getTarget", "()Ljava/lang/invoke/MethodHandle;", nullptr, $PROTECTED, $virtualMethod(MethodHandleImpl$CountingWrapper, getTarget, $MethodHandle*), nullptr, nullptr, _MethodHandleImpl$CountingWrapper_MethodAnnotations_getTarget3},
+	{"maybeStopCounting", "(Ljava/lang/Object;)V", nullptr, $STATIC, $staticMethod(MethodHandleImpl$CountingWrapper, maybeStopCounting, void, Object$*), nullptr, nullptr, _MethodHandleImpl$CountingWrapper_MethodAnnotations_maybeStopCounting4},
 	{}
 };
 

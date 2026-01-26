@@ -48,9 +48,9 @@ $FieldInfo _RenegoInfoExtension$RenegotiationInfoSpec_FieldInfo_[] = {
 };
 
 $MethodInfo _RenegoInfoExtension$RenegotiationInfoSpec_MethodInfo_[] = {
-	{"<init>", "([B)V", nullptr, $PRIVATE, $method(static_cast<void(RenegoInfoExtension$RenegotiationInfoSpec::*)($bytes*)>(&RenegoInfoExtension$RenegotiationInfoSpec::init$))},
-	{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE, $method(static_cast<void(RenegoInfoExtension$RenegotiationInfoSpec::*)($HandshakeContext*,$ByteBuffer*)>(&RenegoInfoExtension$RenegotiationInfoSpec::init$)), "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "([B)V", nullptr, $PRIVATE, $method(RenegoInfoExtension$RenegotiationInfoSpec, init$, void, $bytes*)},
+	{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE, $method(RenegoInfoExtension$RenegotiationInfoSpec, init$, void, $HandshakeContext*, $ByteBuffer*), "java.io.IOException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RenegoInfoExtension$RenegotiationInfoSpec, toString, $String*)},
 	{}
 };
 

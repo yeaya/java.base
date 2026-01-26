@@ -28,16 +28,16 @@ $FieldInfo _BasicPermission_FieldInfo_[] = {
 };
 
 $MethodInfo _BasicPermission_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(BasicPermission::*)($String*)>(&BasicPermission::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(BasicPermission::*)($String*,$String*)>(&BasicPermission::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getActions", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getCanonicalName", "()Ljava/lang/String;", nullptr, $FINAL, $method(static_cast<$String*(BasicPermission::*)()>(&BasicPermission::getCanonicalName))},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"implies", "(Ljava/security/Permission;)Z", nullptr, $PUBLIC},
-	{"init", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(static_cast<void(BasicPermission::*)($String*)>(&BasicPermission::init))},
-	{"newPermissionCollection", "()Ljava/security/PermissionCollection;", nullptr, $PUBLIC},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(BasicPermission::*)($ObjectInputStream*)>(&BasicPermission::readObject)), "java.io.IOException,java.lang.ClassNotFoundException"},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(BasicPermission, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(BasicPermission, init$, void, $String*, $String*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(BasicPermission, equals, bool, Object$*)},
+	{"getActions", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BasicPermission, getActions, $String*)},
+	{"getCanonicalName", "()Ljava/lang/String;", nullptr, $FINAL, $method(BasicPermission, getCanonicalName, $String*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(BasicPermission, hashCode, int32_t)},
+	{"implies", "(Ljava/security/Permission;)Z", nullptr, $PUBLIC, $virtualMethod(BasicPermission, implies, bool, $Permission*)},
+	{"init", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(BasicPermission, init, void, $String*)},
+	{"newPermissionCollection", "()Ljava/security/PermissionCollection;", nullptr, $PUBLIC, $virtualMethod(BasicPermission, newPermissionCollection, $PermissionCollection*)},
+	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(BasicPermission, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
 	{}
 };
 

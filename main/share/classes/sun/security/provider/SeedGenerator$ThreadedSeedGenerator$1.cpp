@@ -28,8 +28,8 @@ $FieldInfo _SeedGenerator$ThreadedSeedGenerator$1_FieldInfo_[] = {
 };
 
 $MethodInfo _SeedGenerator$ThreadedSeedGenerator$1_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/provider/SeedGenerator$ThreadedSeedGenerator;[Ljava/lang/ThreadGroup;)V", nullptr, 0, $method(static_cast<void(SeedGenerator$ThreadedSeedGenerator$1::*)($SeedGenerator$ThreadedSeedGenerator*,$ThreadGroupArray*)>(&SeedGenerator$ThreadedSeedGenerator$1::init$))},
-	{"run", "()Ljava/lang/Thread;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/security/provider/SeedGenerator$ThreadedSeedGenerator;[Ljava/lang/ThreadGroup;)V", nullptr, 0, $method(SeedGenerator$ThreadedSeedGenerator$1, init$, void, $SeedGenerator$ThreadedSeedGenerator*, $ThreadGroupArray*)},
+	{"run", "()Ljava/lang/Thread;", nullptr, $PUBLIC, $virtualMethod(SeedGenerator$ThreadedSeedGenerator$1, run, $Object*)},
 	{}
 };
 

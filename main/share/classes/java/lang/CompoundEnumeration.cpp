@@ -21,10 +21,10 @@ $FieldInfo _CompoundEnumeration_FieldInfo_[] = {
 };
 
 $MethodInfo _CompoundEnumeration_MethodInfo_[] = {
-	{"<init>", "([Ljava/util/Enumeration;)V", "([Ljava/util/Enumeration<TE;>;)V", $PUBLIC, $method(static_cast<void(CompoundEnumeration::*)($EnumerationArray*)>(&CompoundEnumeration::init$))},
-	{"hasMoreElements", "()Z", nullptr, $PUBLIC},
-	{"next", "()Z", nullptr, $PRIVATE, $method(static_cast<bool(CompoundEnumeration::*)()>(&CompoundEnumeration::next))},
-	{"nextElement", "()Ljava/lang/Object;", "()TE;", $PUBLIC},
+	{"<init>", "([Ljava/util/Enumeration;)V", "([Ljava/util/Enumeration<TE;>;)V", $PUBLIC, $method(CompoundEnumeration, init$, void, $EnumerationArray*)},
+	{"hasMoreElements", "()Z", nullptr, $PUBLIC, $virtualMethod(CompoundEnumeration, hasMoreElements, bool)},
+	{"next", "()Z", nullptr, $PRIVATE, $method(CompoundEnumeration, next, bool)},
+	{"nextElement", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(CompoundEnumeration, nextElement, $Object*)},
 	{}
 };
 

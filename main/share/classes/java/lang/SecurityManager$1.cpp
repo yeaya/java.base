@@ -21,8 +21,8 @@ $FieldInfo _SecurityManager$1_FieldInfo_[] = {
 };
 
 $MethodInfo _SecurityManager$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/SecurityManager;)V", nullptr, 0, $method(static_cast<void(SecurityManager$1::*)($SecurityManager*)>(&SecurityManager$1::init$))},
-	{"run", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/SecurityManager;)V", nullptr, 0, $method(SecurityManager$1, init$, void, $SecurityManager*)},
+	{"run", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SecurityManager$1, run, $Object*)},
 	{}
 };
 

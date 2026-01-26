@@ -32,7 +32,7 @@ $FieldInfo _Big5_Solaris$Holder_FieldInfo_[] = {
 };
 
 $MethodInfo _Big5_Solaris$Holder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(Big5_Solaris$Holder::*)()>(&Big5_Solaris$Holder::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(Big5_Solaris$Holder, init$, void)},
 	{}
 };
 

@@ -43,7 +43,7 @@ $FieldInfo _CookieExtension_FieldInfo_[] = {
 };
 
 $MethodInfo _CookieExtension_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CookieExtension::*)()>(&CookieExtension::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CookieExtension, init$, void)},
 	{}
 };
 

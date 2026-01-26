@@ -12,14 +12,17 @@
 
 #undef MILLISECONDS
 
+using $ByteBufferArray = $Array<::java::nio::ByteBuffer>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $SocketAddress = ::java::net::SocketAddress;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $AsynchronousByteChannel = ::java::nio::channels::AsynchronousByteChannel;
 using $AsynchronousChannelGroup = ::java::nio::channels::AsynchronousChannelGroup;
 using $CompletionHandler = ::java::nio::channels::CompletionHandler;
 using $AsynchronousChannelProvider = ::java::nio::channels::spi::AsynchronousChannelProvider;
+using $Future = ::java::util::concurrent::Future;
 using $TimeUnit = ::java::util::concurrent::TimeUnit;
 
 namespace java {
@@ -39,26 +42,26 @@ $MethodInfo _AsynchronousSocketChannel_MethodInfo_[] = {
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"getLocalAddress", "()Ljava/net/SocketAddress;", nullptr, $PUBLIC | $ABSTRACT},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/nio/channels/spi/AsynchronousChannelProvider;)V", nullptr, $PROTECTED, $method(static_cast<void(AsynchronousSocketChannel::*)($AsynchronousChannelProvider*)>(&AsynchronousSocketChannel::init$))},
-	{"connect", "(Ljava/net/SocketAddress;Ljava/lang/Object;Ljava/nio/channels/CompletionHandler;)V", "<A:Ljava/lang/Object;>(Ljava/net/SocketAddress;TA;Ljava/nio/channels/CompletionHandler<Ljava/lang/Void;-TA;>;)V", $PUBLIC | $ABSTRACT},
-	{"connect", "(Ljava/net/SocketAddress;)Ljava/util/concurrent/Future;", "(Ljava/net/SocketAddress;)Ljava/util/concurrent/Future<Ljava/lang/Void;>;", $PUBLIC | $ABSTRACT},
-	{"getRemoteAddress", "()Ljava/net/SocketAddress;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljava/nio/channels/spi/AsynchronousChannelProvider;)V", nullptr, $PROTECTED, $method(AsynchronousSocketChannel, init$, void, $AsynchronousChannelProvider*)},
+	{"connect", "(Ljava/net/SocketAddress;Ljava/lang/Object;Ljava/nio/channels/CompletionHandler;)V", "<A:Ljava/lang/Object;>(Ljava/net/SocketAddress;TA;Ljava/nio/channels/CompletionHandler<Ljava/lang/Void;-TA;>;)V", $PUBLIC | $ABSTRACT, $virtualMethod(AsynchronousSocketChannel, connect, void, $SocketAddress*, Object$*, $CompletionHandler*)},
+	{"connect", "(Ljava/net/SocketAddress;)Ljava/util/concurrent/Future;", "(Ljava/net/SocketAddress;)Ljava/util/concurrent/Future<Ljava/lang/Void;>;", $PUBLIC | $ABSTRACT, $virtualMethod(AsynchronousSocketChannel, connect, $Future*, $SocketAddress*)},
+	{"getRemoteAddress", "()Ljava/net/SocketAddress;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AsynchronousSocketChannel, getRemoteAddress, $SocketAddress*), "java.io.IOException"},
 	{"*isOpen", "()Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"open", "(Ljava/nio/channels/AsynchronousChannelGroup;)Ljava/nio/channels/AsynchronousSocketChannel;", nullptr, $PUBLIC | $STATIC, $method(static_cast<AsynchronousSocketChannel*(*)($AsynchronousChannelGroup*)>(&AsynchronousSocketChannel::open)), "java.io.IOException"},
-	{"open", "()Ljava/nio/channels/AsynchronousSocketChannel;", nullptr, $PUBLIC | $STATIC, $method(static_cast<AsynchronousSocketChannel*(*)()>(&AsynchronousSocketChannel::open)), "java.io.IOException"},
-	{"provider", "()Ljava/nio/channels/spi/AsynchronousChannelProvider;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$AsynchronousChannelProvider*(AsynchronousSocketChannel::*)()>(&AsynchronousSocketChannel::provider))},
+	{"open", "(Ljava/nio/channels/AsynchronousChannelGroup;)Ljava/nio/channels/AsynchronousSocketChannel;", nullptr, $PUBLIC | $STATIC, $staticMethod(AsynchronousSocketChannel, open, AsynchronousSocketChannel*, $AsynchronousChannelGroup*), "java.io.IOException"},
+	{"open", "()Ljava/nio/channels/AsynchronousSocketChannel;", nullptr, $PUBLIC | $STATIC, $staticMethod(AsynchronousSocketChannel, open, AsynchronousSocketChannel*), "java.io.IOException"},
+	{"provider", "()Ljava/nio/channels/spi/AsynchronousChannelProvider;", nullptr, $PUBLIC | $FINAL, $method(AsynchronousSocketChannel, provider, $AsynchronousChannelProvider*)},
 	{"read", "(Ljava/nio/ByteBuffer;)Ljava/util/concurrent/Future;", nullptr, $PUBLIC | $ABSTRACT},
-	{"read", "(Ljava/nio/ByteBuffer;JLjava/util/concurrent/TimeUnit;Ljava/lang/Object;Ljava/nio/channels/CompletionHandler;)V", "<A:Ljava/lang/Object;>(Ljava/nio/ByteBuffer;JLjava/util/concurrent/TimeUnit;TA;Ljava/nio/channels/CompletionHandler<Ljava/lang/Integer;-TA;>;)V", $PUBLIC | $ABSTRACT},
-	{"read", "(Ljava/nio/ByteBuffer;Ljava/lang/Object;Ljava/nio/channels/CompletionHandler;)V", "<A:Ljava/lang/Object;>(Ljava/nio/ByteBuffer;TA;Ljava/nio/channels/CompletionHandler<Ljava/lang/Integer;-TA;>;)V", $PUBLIC | $FINAL},
-	{"read", "([Ljava/nio/ByteBuffer;IIJLjava/util/concurrent/TimeUnit;Ljava/lang/Object;Ljava/nio/channels/CompletionHandler;)V", "<A:Ljava/lang/Object;>([Ljava/nio/ByteBuffer;IIJLjava/util/concurrent/TimeUnit;TA;Ljava/nio/channels/CompletionHandler<Ljava/lang/Long;-TA;>;)V", $PUBLIC | $ABSTRACT},
+	{"read", "(Ljava/nio/ByteBuffer;JLjava/util/concurrent/TimeUnit;Ljava/lang/Object;Ljava/nio/channels/CompletionHandler;)V", "<A:Ljava/lang/Object;>(Ljava/nio/ByteBuffer;JLjava/util/concurrent/TimeUnit;TA;Ljava/nio/channels/CompletionHandler<Ljava/lang/Integer;-TA;>;)V", $PUBLIC | $ABSTRACT, $virtualMethod(AsynchronousSocketChannel, read, void, $ByteBuffer*, int64_t, $TimeUnit*, Object$*, $CompletionHandler*)},
+	{"read", "(Ljava/nio/ByteBuffer;Ljava/lang/Object;Ljava/nio/channels/CompletionHandler;)V", "<A:Ljava/lang/Object;>(Ljava/nio/ByteBuffer;TA;Ljava/nio/channels/CompletionHandler<Ljava/lang/Integer;-TA;>;)V", $PUBLIC | $FINAL, $virtualMethod(AsynchronousSocketChannel, read, void, $ByteBuffer*, Object$*, $CompletionHandler*)},
+	{"read", "([Ljava/nio/ByteBuffer;IIJLjava/util/concurrent/TimeUnit;Ljava/lang/Object;Ljava/nio/channels/CompletionHandler;)V", "<A:Ljava/lang/Object;>([Ljava/nio/ByteBuffer;IIJLjava/util/concurrent/TimeUnit;TA;Ljava/nio/channels/CompletionHandler<Ljava/lang/Long;-TA;>;)V", $PUBLIC | $ABSTRACT, $virtualMethod(AsynchronousSocketChannel, read, void, $ByteBufferArray*, int32_t, int32_t, int64_t, $TimeUnit*, Object$*, $CompletionHandler*)},
 	{"setOption", "(Ljava/net/SocketOption;Ljava/lang/Object;)Ljava/nio/channels/NetworkChannel;", nullptr, $PUBLIC | $ABSTRACT},
-	{"shutdownInput", "()Ljava/nio/channels/AsynchronousSocketChannel;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"shutdownOutput", "()Ljava/nio/channels/AsynchronousSocketChannel;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
+	{"shutdownInput", "()Ljava/nio/channels/AsynchronousSocketChannel;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AsynchronousSocketChannel, shutdownInput, AsynchronousSocketChannel*), "java.io.IOException"},
+	{"shutdownOutput", "()Ljava/nio/channels/AsynchronousSocketChannel;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AsynchronousSocketChannel, shutdownOutput, AsynchronousSocketChannel*), "java.io.IOException"},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{"write", "(Ljava/nio/ByteBuffer;)Ljava/util/concurrent/Future;", nullptr, $PUBLIC | $ABSTRACT},
-	{"write", "(Ljava/nio/ByteBuffer;JLjava/util/concurrent/TimeUnit;Ljava/lang/Object;Ljava/nio/channels/CompletionHandler;)V", "<A:Ljava/lang/Object;>(Ljava/nio/ByteBuffer;JLjava/util/concurrent/TimeUnit;TA;Ljava/nio/channels/CompletionHandler<Ljava/lang/Integer;-TA;>;)V", $PUBLIC | $ABSTRACT},
-	{"write", "(Ljava/nio/ByteBuffer;Ljava/lang/Object;Ljava/nio/channels/CompletionHandler;)V", "<A:Ljava/lang/Object;>(Ljava/nio/ByteBuffer;TA;Ljava/nio/channels/CompletionHandler<Ljava/lang/Integer;-TA;>;)V", $PUBLIC | $FINAL},
-	{"write", "([Ljava/nio/ByteBuffer;IIJLjava/util/concurrent/TimeUnit;Ljava/lang/Object;Ljava/nio/channels/CompletionHandler;)V", "<A:Ljava/lang/Object;>([Ljava/nio/ByteBuffer;IIJLjava/util/concurrent/TimeUnit;TA;Ljava/nio/channels/CompletionHandler<Ljava/lang/Long;-TA;>;)V", $PUBLIC | $ABSTRACT},
+	{"write", "(Ljava/nio/ByteBuffer;JLjava/util/concurrent/TimeUnit;Ljava/lang/Object;Ljava/nio/channels/CompletionHandler;)V", "<A:Ljava/lang/Object;>(Ljava/nio/ByteBuffer;JLjava/util/concurrent/TimeUnit;TA;Ljava/nio/channels/CompletionHandler<Ljava/lang/Integer;-TA;>;)V", $PUBLIC | $ABSTRACT, $virtualMethod(AsynchronousSocketChannel, write, void, $ByteBuffer*, int64_t, $TimeUnit*, Object$*, $CompletionHandler*)},
+	{"write", "(Ljava/nio/ByteBuffer;Ljava/lang/Object;Ljava/nio/channels/CompletionHandler;)V", "<A:Ljava/lang/Object;>(Ljava/nio/ByteBuffer;TA;Ljava/nio/channels/CompletionHandler<Ljava/lang/Integer;-TA;>;)V", $PUBLIC | $FINAL, $virtualMethod(AsynchronousSocketChannel, write, void, $ByteBuffer*, Object$*, $CompletionHandler*)},
+	{"write", "([Ljava/nio/ByteBuffer;IIJLjava/util/concurrent/TimeUnit;Ljava/lang/Object;Ljava/nio/channels/CompletionHandler;)V", "<A:Ljava/lang/Object;>([Ljava/nio/ByteBuffer;IIJLjava/util/concurrent/TimeUnit;TA;Ljava/nio/channels/CompletionHandler<Ljava/lang/Long;-TA;>;)V", $PUBLIC | $ABSTRACT, $virtualMethod(AsynchronousSocketChannel, write, void, $ByteBufferArray*, int32_t, int32_t, int64_t, $TimeUnit*, Object$*, $CompletionHandler*)},
 	{}
 };
 

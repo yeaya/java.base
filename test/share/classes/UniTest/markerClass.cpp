@@ -14,7 +14,7 @@ $CompoundAttribute _markerClass_Annotations_[] = {
 };
 
 $MethodInfo _markerClass_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(markerClass::*)()>(&markerClass::init$))},
+	{"<init>", "()V", nullptr, 0, $method(markerClass, init$, void)},
 	{}
 };
 

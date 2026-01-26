@@ -12,7 +12,7 @@ namespace java {
 		namespace stream {
 
 $MethodInfo _ReduceOps$AccumulatingSink_MethodInfo_[] = {
-	{"combine", "(Ljava/util/stream/ReduceOps$AccumulatingSink;)V", "(TK;)V", $PUBLIC | $ABSTRACT},
+	{"combine", "(Ljava/util/stream/ReduceOps$AccumulatingSink;)V", "(TK;)V", $PUBLIC | $ABSTRACT, $virtualMethod(ReduceOps$AccumulatingSink, combine, void, ReduceOps$AccumulatingSink*)},
 	{}
 };
 

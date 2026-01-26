@@ -17,8 +17,8 @@ $FieldInfo _FileSystemNotFoundException_FieldInfo_[] = {
 };
 
 $MethodInfo _FileSystemNotFoundException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(FileSystemNotFoundException::*)()>(&FileSystemNotFoundException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(FileSystemNotFoundException::*)($String*)>(&FileSystemNotFoundException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(FileSystemNotFoundException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(FileSystemNotFoundException, init$, void, $String*)},
 	{}
 };
 

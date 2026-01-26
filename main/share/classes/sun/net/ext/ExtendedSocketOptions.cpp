@@ -16,6 +16,7 @@
 #undef SOCK_DGRAM
 #undef SOCK_STREAM
 
+using $FileDescriptor = ::java::io::FileDescriptor;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassNotFoundException = ::java::lang::ClassNotFoundException;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -49,22 +50,22 @@ $FieldInfo _ExtendedSocketOptions_FieldInfo_[] = {
 };
 
 $MethodInfo _ExtendedSocketOptions_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Set;)V", "(Ljava/util/Set<Ljava/net/SocketOption<*>;>;)V", $PROTECTED, $method(static_cast<void(ExtendedSocketOptions::*)($Set*)>(&ExtendedSocketOptions::init$))},
-	{"clientSocketOptions", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/net/SocketOption<*>;>;", $PUBLIC | $STATIC, $method(static_cast<$Set*(*)()>(&ExtendedSocketOptions::clientSocketOptions))},
-	{"datagramSocketOptions", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/net/SocketOption<*>;>;", $PUBLIC | $STATIC, $method(static_cast<$Set*(*)()>(&ExtendedSocketOptions::datagramSocketOptions))},
-	{"getInstance", "()Lsun/net/ext/ExtendedSocketOptions;", nullptr, $PUBLIC | $STATIC, $method(static_cast<ExtendedSocketOptions*(*)()>(&ExtendedSocketOptions::getInstance))},
-	{"getOption", "(Ljava/io/FileDescriptor;Ljava/net/SocketOption;)Ljava/lang/Object;", "(Ljava/io/FileDescriptor;Ljava/net/SocketOption<*>;)Ljava/lang/Object;", $PUBLIC | $ABSTRACT, nullptr, "java.net.SocketException"},
-	{"isDatagramOption", "(Ljava/net/SocketOption;)Z", "(Ljava/net/SocketOption<*>;)Z", $PRIVATE | $STATIC, $method(static_cast<bool(*)($SocketOption*)>(&ExtendedSocketOptions::isDatagramOption))},
-	{"isOptionSupported", "(Ljava/net/SocketOption;)Z", "(Ljava/net/SocketOption<*>;)Z", $PUBLIC | $FINAL, $method(static_cast<bool(ExtendedSocketOptions::*)($SocketOption*)>(&ExtendedSocketOptions::isOptionSupported))},
-	{"isStreamOption", "(Ljava/net/SocketOption;Z)Z", "(Ljava/net/SocketOption<*>;Z)Z", $PRIVATE | $STATIC, $method(static_cast<bool(*)($SocketOption*,bool)>(&ExtendedSocketOptions::isStreamOption))},
-	{"isUnixDomainOption", "(Ljava/net/SocketOption;)Z", "(Ljava/net/SocketOption<*>;)Z", $PRIVATE | $STATIC, $method(static_cast<bool(*)($SocketOption*)>(&ExtendedSocketOptions::isUnixDomainOption))},
-	{"options", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/net/SocketOption<*>;>;", $PUBLIC | $FINAL, $method(static_cast<$Set*(ExtendedSocketOptions::*)()>(&ExtendedSocketOptions::options))},
-	{"options0", "(SZ)Ljava/util/Set;", "(SZ)Ljava/util/Set<Ljava/net/SocketOption<*>;>;", $PRIVATE, $method(static_cast<$Set*(ExtendedSocketOptions::*)(int16_t,bool)>(&ExtendedSocketOptions::options0))},
-	{"register", "(Lsun/net/ext/ExtendedSocketOptions;)V", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $method(static_cast<void(*)(ExtendedSocketOptions*)>(&ExtendedSocketOptions::register$))},
-	{"serverSocketOptions", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/net/SocketOption<*>;>;", $PUBLIC | $STATIC, $method(static_cast<$Set*(*)()>(&ExtendedSocketOptions::serverSocketOptions))},
-	{"setOption", "(Ljava/io/FileDescriptor;Ljava/net/SocketOption;Ljava/lang/Object;)V", "(Ljava/io/FileDescriptor;Ljava/net/SocketOption<*>;Ljava/lang/Object;)V", $PUBLIC | $ABSTRACT, nullptr, "java.net.SocketException"},
-	{"unixDomainClientOptions", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/net/SocketOption<*>;>;", $PRIVATE | $FINAL, $method(static_cast<$Set*(ExtendedSocketOptions::*)()>(&ExtendedSocketOptions::unixDomainClientOptions))},
-	{"unixDomainSocketOptions", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/net/SocketOption<*>;>;", $PUBLIC | $STATIC, $method(static_cast<$Set*(*)()>(&ExtendedSocketOptions::unixDomainSocketOptions))},
+	{"<init>", "(Ljava/util/Set;)V", "(Ljava/util/Set<Ljava/net/SocketOption<*>;>;)V", $PROTECTED, $method(ExtendedSocketOptions, init$, void, $Set*)},
+	{"clientSocketOptions", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/net/SocketOption<*>;>;", $PUBLIC | $STATIC, $staticMethod(ExtendedSocketOptions, clientSocketOptions, $Set*)},
+	{"datagramSocketOptions", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/net/SocketOption<*>;>;", $PUBLIC | $STATIC, $staticMethod(ExtendedSocketOptions, datagramSocketOptions, $Set*)},
+	{"getInstance", "()Lsun/net/ext/ExtendedSocketOptions;", nullptr, $PUBLIC | $STATIC, $staticMethod(ExtendedSocketOptions, getInstance, ExtendedSocketOptions*)},
+	{"getOption", "(Ljava/io/FileDescriptor;Ljava/net/SocketOption;)Ljava/lang/Object;", "(Ljava/io/FileDescriptor;Ljava/net/SocketOption<*>;)Ljava/lang/Object;", $PUBLIC | $ABSTRACT, $virtualMethod(ExtendedSocketOptions, getOption, $Object*, $FileDescriptor*, $SocketOption*), "java.net.SocketException"},
+	{"isDatagramOption", "(Ljava/net/SocketOption;)Z", "(Ljava/net/SocketOption<*>;)Z", $PRIVATE | $STATIC, $staticMethod(ExtendedSocketOptions, isDatagramOption, bool, $SocketOption*)},
+	{"isOptionSupported", "(Ljava/net/SocketOption;)Z", "(Ljava/net/SocketOption<*>;)Z", $PUBLIC | $FINAL, $method(ExtendedSocketOptions, isOptionSupported, bool, $SocketOption*)},
+	{"isStreamOption", "(Ljava/net/SocketOption;Z)Z", "(Ljava/net/SocketOption<*>;Z)Z", $PRIVATE | $STATIC, $staticMethod(ExtendedSocketOptions, isStreamOption, bool, $SocketOption*, bool)},
+	{"isUnixDomainOption", "(Ljava/net/SocketOption;)Z", "(Ljava/net/SocketOption<*>;)Z", $PRIVATE | $STATIC, $staticMethod(ExtendedSocketOptions, isUnixDomainOption, bool, $SocketOption*)},
+	{"options", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/net/SocketOption<*>;>;", $PUBLIC | $FINAL, $method(ExtendedSocketOptions, options, $Set*)},
+	{"options0", "(SZ)Ljava/util/Set;", "(SZ)Ljava/util/Set<Ljava/net/SocketOption<*>;>;", $PRIVATE, $method(ExtendedSocketOptions, options0, $Set*, int16_t, bool)},
+	{"register", "(Lsun/net/ext/ExtendedSocketOptions;)V", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(ExtendedSocketOptions, register$, void, ExtendedSocketOptions*)},
+	{"serverSocketOptions", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/net/SocketOption<*>;>;", $PUBLIC | $STATIC, $staticMethod(ExtendedSocketOptions, serverSocketOptions, $Set*)},
+	{"setOption", "(Ljava/io/FileDescriptor;Ljava/net/SocketOption;Ljava/lang/Object;)V", "(Ljava/io/FileDescriptor;Ljava/net/SocketOption<*>;Ljava/lang/Object;)V", $PUBLIC | $ABSTRACT, $virtualMethod(ExtendedSocketOptions, setOption, void, $FileDescriptor*, $SocketOption*, Object$*), "java.net.SocketException"},
+	{"unixDomainClientOptions", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/net/SocketOption<*>;>;", $PRIVATE | $FINAL, $method(ExtendedSocketOptions, unixDomainClientOptions, $Set*)},
+	{"unixDomainSocketOptions", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/net/SocketOption<*>;>;", $PUBLIC | $STATIC, $staticMethod(ExtendedSocketOptions, unixDomainSocketOptions, $Set*)},
 	{}
 };
 

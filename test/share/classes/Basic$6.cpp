@@ -27,11 +27,11 @@ $FieldInfo _Basic$6_FieldInfo_[] = {
 };
 
 $MethodInfo _Basic$6_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/ByteBuffer;Ljava/nio/channels/AsynchronousFileChannel;Ljava/util/concurrent/CountDownLatch;)V", "()V", 0, $method(static_cast<void(Basic$6::*)($ByteBuffer*,$AsynchronousFileChannel*,$CountDownLatch*)>(&Basic$6::init$))},
-	{"completed", "(Ljava/lang/Integer;Ljava/lang/Long;)V", nullptr, $PUBLIC},
-	{"completed", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"failed", "(Ljava/lang/Throwable;Ljava/lang/Long;)V", nullptr, $PUBLIC},
-	{"failed", "(Ljava/lang/Throwable;Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "(Ljava/nio/ByteBuffer;Ljava/nio/channels/AsynchronousFileChannel;Ljava/util/concurrent/CountDownLatch;)V", "()V", 0, $method(Basic$6, init$, void, $ByteBuffer*, $AsynchronousFileChannel*, $CountDownLatch*)},
+	{"completed", "(Ljava/lang/Integer;Ljava/lang/Long;)V", nullptr, $PUBLIC, $virtualMethod(Basic$6, completed, void, $Integer*, $Long*)},
+	{"completed", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Basic$6, completed, void, Object$*, Object$*)},
+	{"failed", "(Ljava/lang/Throwable;Ljava/lang/Long;)V", nullptr, $PUBLIC, $virtualMethod(Basic$6, failed, void, $Throwable*, $Long*)},
+	{"failed", "(Ljava/lang/Throwable;Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Basic$6, failed, void, $Throwable*, Object$*)},
 	{}
 };
 

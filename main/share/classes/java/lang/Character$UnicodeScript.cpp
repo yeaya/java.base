@@ -348,12 +348,12 @@ $FieldInfo _Character$UnicodeScript_FieldInfo_[] = {
 };
 
 $MethodInfo _Character$UnicodeScript_MethodInfo_[] = {
-	{"$values", "()[Ljava/lang/Character$UnicodeScript;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Character$UnicodeScriptArray*(*)()>(&Character$UnicodeScript::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(Character$UnicodeScript::*)($String*,int32_t)>(&Character$UnicodeScript::init$))},
-	{"forName", "(Ljava/lang/String;)Ljava/lang/Character$UnicodeScript;", nullptr, $PUBLIC | $STATIC | $FINAL, $method(static_cast<Character$UnicodeScript*(*)($String*)>(&Character$UnicodeScript::forName))},
-	{"of", "(I)Ljava/lang/Character$UnicodeScript;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Character$UnicodeScript*(*)(int32_t)>(&Character$UnicodeScript::of))},
-	{"valueOf", "(Ljava/lang/String;)Ljava/lang/Character$UnicodeScript;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Character$UnicodeScript*(*)($String*)>(&Character$UnicodeScript::valueOf))},
-	{"values", "()[Ljava/lang/Character$UnicodeScript;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Character$UnicodeScriptArray*(*)()>(&Character$UnicodeScript::values))},
+	{"$values", "()[Ljava/lang/Character$UnicodeScript;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Character$UnicodeScript, $values, $Character$UnicodeScriptArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Character$UnicodeScript, init$, void, $String*, int32_t)},
+	{"forName", "(Ljava/lang/String;)Ljava/lang/Character$UnicodeScript;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(Character$UnicodeScript, forName, Character$UnicodeScript*, $String*)},
+	{"of", "(I)Ljava/lang/Character$UnicodeScript;", nullptr, $PUBLIC | $STATIC, $staticMethod(Character$UnicodeScript, of, Character$UnicodeScript*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Ljava/lang/Character$UnicodeScript;", nullptr, $PUBLIC | $STATIC, $staticMethod(Character$UnicodeScript, valueOf, Character$UnicodeScript*, $String*)},
+	{"values", "()[Ljava/lang/Character$UnicodeScript;", nullptr, $PUBLIC | $STATIC, $staticMethod(Character$UnicodeScript, values, $Character$UnicodeScriptArray*)},
 	{}
 };
 

@@ -32,18 +32,18 @@ $FieldInfo _HandshakeOutStream_FieldInfo_[] = {
 };
 
 $MethodInfo _HandshakeOutStream_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/ssl/OutputRecord;)V", nullptr, 0, $method(static_cast<void(HandshakeOutStream::*)($OutputRecord*)>(&HandshakeOutStream::init$))},
-	{"checkOverflow", "(II)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)(int32_t,int32_t)>(&HandshakeOutStream::checkOverflow))},
-	{"complete", "()V", nullptr, 0, nullptr, "java.io.IOException"},
-	{"flush", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"putBytes16", "([B)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"putBytes24", "([B)V", nullptr, 0, nullptr, "java.io.IOException"},
-	{"putBytes8", "([B)V", nullptr, 0, nullptr, "java.io.IOException"},
-	{"putInt16", "(I)V", nullptr, 0, nullptr, "java.io.IOException"},
-	{"putInt24", "(I)V", nullptr, 0, nullptr, "java.io.IOException"},
-	{"putInt32", "(I)V", nullptr, 0, nullptr, "java.io.IOException"},
-	{"putInt8", "(I)V", nullptr, 0, nullptr, "java.io.IOException"},
-	{"write", "([BII)V", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/security/ssl/OutputRecord;)V", nullptr, 0, $method(HandshakeOutStream, init$, void, $OutputRecord*)},
+	{"checkOverflow", "(II)V", nullptr, $PRIVATE | $STATIC, $staticMethod(HandshakeOutStream, checkOverflow, void, int32_t, int32_t)},
+	{"complete", "()V", nullptr, 0, $virtualMethod(HandshakeOutStream, complete, void), "java.io.IOException"},
+	{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(HandshakeOutStream, flush, void), "java.io.IOException"},
+	{"putBytes16", "([B)V", nullptr, $PUBLIC, $virtualMethod(HandshakeOutStream, putBytes16, void, $bytes*), "java.io.IOException"},
+	{"putBytes24", "([B)V", nullptr, 0, $virtualMethod(HandshakeOutStream, putBytes24, void, $bytes*), "java.io.IOException"},
+	{"putBytes8", "([B)V", nullptr, 0, $virtualMethod(HandshakeOutStream, putBytes8, void, $bytes*), "java.io.IOException"},
+	{"putInt16", "(I)V", nullptr, 0, $virtualMethod(HandshakeOutStream, putInt16, void, int32_t), "java.io.IOException"},
+	{"putInt24", "(I)V", nullptr, 0, $virtualMethod(HandshakeOutStream, putInt24, void, int32_t), "java.io.IOException"},
+	{"putInt32", "(I)V", nullptr, 0, $virtualMethod(HandshakeOutStream, putInt32, void, int32_t), "java.io.IOException"},
+	{"putInt8", "(I)V", nullptr, 0, $virtualMethod(HandshakeOutStream, putInt8, void, int32_t), "java.io.IOException"},
+	{"write", "([BII)V", nullptr, $PUBLIC, $virtualMethod(HandshakeOutStream, write, void, $bytes*, int32_t, int32_t)},
 	{}
 };
 

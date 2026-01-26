@@ -58,19 +58,19 @@ $FieldInfo _HijrahEra_FieldInfo_[] = {
 };
 
 $MethodInfo _HijrahEra_MethodInfo_[] = {
-	{"$values", "()[Ljava/time/chrono/HijrahEra;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$HijrahEraArray*(*)()>(&HijrahEra::$values))},
+	{"$values", "()[Ljava/time/chrono/HijrahEra;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HijrahEra, $values, $HijrahEraArray*)},
 	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
 	{"*finalize", "()V", nullptr, $PROTECTED | $FINAL},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(HijrahEra::*)($String*,int32_t)>(&HijrahEra::init$))},
-	{"getDisplayName", "(Ljava/time/format/TextStyle;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getValue", "()I", nullptr, $PUBLIC},
-	{"of", "(I)Ljava/time/chrono/HijrahEra;", nullptr, $PUBLIC | $STATIC, $method(static_cast<HijrahEra*(*)(int32_t)>(&HijrahEra::of))},
-	{"range", "(Ljava/time/temporal/TemporalField;)Ljava/time/temporal/ValueRange;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(HijrahEra, init$, void, $String*, int32_t)},
+	{"getDisplayName", "(Ljava/time/format/TextStyle;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HijrahEra, getDisplayName, $String*, $TextStyle*, $Locale*)},
+	{"getValue", "()I", nullptr, $PUBLIC, $virtualMethod(HijrahEra, getValue, int32_t)},
+	{"of", "(I)Ljava/time/chrono/HijrahEra;", nullptr, $PUBLIC | $STATIC, $staticMethod(HijrahEra, of, HijrahEra*, int32_t)},
+	{"range", "(Ljava/time/temporal/TemporalField;)Ljava/time/temporal/ValueRange;", nullptr, $PUBLIC, $virtualMethod(HijrahEra, range, $ValueRange*, $TemporalField*)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"valueOf", "(Ljava/lang/String;)Ljava/time/chrono/HijrahEra;", nullptr, $PUBLIC | $STATIC, $method(static_cast<HijrahEra*(*)($String*)>(&HijrahEra::valueOf))},
-	{"values", "()[Ljava/time/chrono/HijrahEra;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$HijrahEraArray*(*)()>(&HijrahEra::values))},
+	{"valueOf", "(Ljava/lang/String;)Ljava/time/chrono/HijrahEra;", nullptr, $PUBLIC | $STATIC, $staticMethod(HijrahEra, valueOf, HijrahEra*, $String*)},
+	{"values", "()[Ljava/time/chrono/HijrahEra;", nullptr, $PUBLIC | $STATIC, $staticMethod(HijrahEra, values, $HijrahEraArray*)},
 	{}
 };
 

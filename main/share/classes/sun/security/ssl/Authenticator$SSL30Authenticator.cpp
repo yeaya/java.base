@@ -22,8 +22,8 @@ $FieldInfo _Authenticator$SSL30Authenticator_FieldInfo_[] = {
 };
 
 $MethodInfo _Authenticator$SSL30Authenticator_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(Authenticator$SSL30Authenticator::*)()>(&Authenticator$SSL30Authenticator::init$))},
-	{"acquireAuthenticationBytes", "(BI[B)[B", nullptr, 0},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(Authenticator$SSL30Authenticator, init$, void)},
+	{"acquireAuthenticationBytes", "(BI[B)[B", nullptr, 0, $virtualMethod(Authenticator$SSL30Authenticator, acquireAuthenticationBytes, $bytes*, int8_t, int32_t, $bytes*)},
 	{}
 };
 

@@ -5,17 +5,19 @@
 #include <sun/net/NetHooks.h>
 #include <jcpp.h>
 
+using $FileDescriptor = ::java::io::FileDescriptor;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $InetAddress = ::java::net::InetAddress;
 
 namespace sun {
 	namespace net {
 
 $MethodInfo _NetHooks$Provider_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(NetHooks$Provider::*)()>(&NetHooks$Provider::init$))},
-	{"implBeforeTcpBind", "(Ljava/io/FileDescriptor;Ljava/net/InetAddress;I)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"implBeforeTcpConnect", "(Ljava/io/FileDescriptor;Ljava/net/InetAddress;I)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(NetHooks$Provider, init$, void)},
+	{"implBeforeTcpBind", "(Ljava/io/FileDescriptor;Ljava/net/InetAddress;I)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NetHooks$Provider, implBeforeTcpBind, void, $FileDescriptor*, $InetAddress*, int32_t), "java.io.IOException"},
+	{"implBeforeTcpConnect", "(Ljava/io/FileDescriptor;Ljava/net/InetAddress;I)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NetHooks$Provider, implBeforeTcpConnect, void, $FileDescriptor*, $InetAddress*, int32_t), "java.io.IOException"},
 	{}
 };
 

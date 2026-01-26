@@ -8,7 +8,7 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _InheritedMethodTest$StringFactory_MethodInfo_[] = {
-	{"get", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
+	{"get", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(InheritedMethodTest$StringFactory, get, $String*)},
 	{}
 };
 

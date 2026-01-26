@@ -31,20 +31,20 @@ $FieldInfo _PolicyParser$PrincipalEntry_FieldInfo_[] = {
 };
 
 $MethodInfo _PolicyParser$PrincipalEntry_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(PolicyParser$PrincipalEntry::*)($String*,$String*)>(&PolicyParser$PrincipalEntry::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getDisplayClass", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getDisplayName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getDisplayName", "(Z)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getPrincipalClass", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getPrincipalName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"isReplaceName", "()Z", nullptr, 0},
-	{"isWildcardClass", "()Z", nullptr, 0},
-	{"isWildcardName", "()Z", nullptr, 0},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"write", "(Ljava/io/PrintWriter;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(PolicyParser$PrincipalEntry, init$, void, $String*, $String*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(PolicyParser$PrincipalEntry, equals, bool, Object$*)},
+	{"getDisplayClass", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PolicyParser$PrincipalEntry, getDisplayClass, $String*)},
+	{"getDisplayName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PolicyParser$PrincipalEntry, getDisplayName, $String*)},
+	{"getDisplayName", "(Z)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PolicyParser$PrincipalEntry, getDisplayName, $String*, bool)},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PolicyParser$PrincipalEntry, getName, $String*)},
+	{"getPrincipalClass", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PolicyParser$PrincipalEntry, getPrincipalClass, $String*)},
+	{"getPrincipalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PolicyParser$PrincipalEntry, getPrincipalName, $String*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(PolicyParser$PrincipalEntry, hashCode, int32_t)},
+	{"isReplaceName", "()Z", nullptr, 0, $virtualMethod(PolicyParser$PrincipalEntry, isReplaceName, bool)},
+	{"isWildcardClass", "()Z", nullptr, 0, $virtualMethod(PolicyParser$PrincipalEntry, isWildcardClass, bool)},
+	{"isWildcardName", "()Z", nullptr, 0, $virtualMethod(PolicyParser$PrincipalEntry, isWildcardName, bool)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PolicyParser$PrincipalEntry, toString, $String*)},
+	{"write", "(Ljava/io/PrintWriter;)V", nullptr, $PUBLIC, $virtualMethod(PolicyParser$PrincipalEntry, write, void, $PrintWriter*)},
 	{}
 };
 

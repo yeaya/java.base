@@ -19,9 +19,9 @@ $FieldInfo _FloatSignature_FieldInfo_[] = {
 };
 
 $MethodInfo _FloatSignature_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(FloatSignature::*)()>(&FloatSignature::init$))},
-	{"accept", "(Lsun/reflect/generics/visitor/TypeTreeVisitor;)V", "(Lsun/reflect/generics/visitor/TypeTreeVisitor<*>;)V", $PUBLIC},
-	{"make", "()Lsun/reflect/generics/tree/FloatSignature;", nullptr, $PUBLIC | $STATIC, $method(static_cast<FloatSignature*(*)()>(&FloatSignature::make))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(FloatSignature, init$, void)},
+	{"accept", "(Lsun/reflect/generics/visitor/TypeTreeVisitor;)V", "(Lsun/reflect/generics/visitor/TypeTreeVisitor<*>;)V", $PUBLIC, $virtualMethod(FloatSignature, accept, void, $TypeTreeVisitor*)},
+	{"make", "()Lsun/reflect/generics/tree/FloatSignature;", nullptr, $PUBLIC | $STATIC, $staticMethod(FloatSignature, make, FloatSignature*)},
 	{}
 };
 

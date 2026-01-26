@@ -47,13 +47,13 @@ $FieldInfo _Sharing_FieldInfo_[] = {
 };
 
 $MethodInfo _Sharing_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Sharing::*)()>(&Sharing::init$))},
-	{"MultiThreadedFD", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&Sharing::MultiThreadedFD)), "java.lang.Exception"},
-	{"TestCloseAll", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&Sharing::TestCloseAll)), "java.lang.Exception"},
-	{"TestFinalizer", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&Sharing::TestFinalizer)), "java.lang.Exception"},
-	{"TestIsValid", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&Sharing::TestIsValid)), "java.lang.Exception"},
-	{"TestMultipleFD", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&Sharing::TestMultipleFD)), "java.lang.Exception"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Sharing::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Sharing, init$, void)},
+	{"MultiThreadedFD", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(Sharing, MultiThreadedFD, void), "java.lang.Exception"},
+	{"TestCloseAll", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(Sharing, TestCloseAll, void), "java.lang.Exception"},
+	{"TestFinalizer", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(Sharing, TestFinalizer, void), "java.lang.Exception"},
+	{"TestIsValid", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(Sharing, TestIsValid, void), "java.lang.Exception"},
+	{"TestMultipleFD", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(Sharing, TestMultipleFD, void), "java.lang.Exception"},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Sharing, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

@@ -9,7 +9,7 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace comSA {
 
 $MethodInfo _SupBob_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SupBob::*)()>(&SupBob::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SupBob, init$, void)},
 	{}
 };
 

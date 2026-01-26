@@ -58,12 +58,12 @@ $FieldInfo _StateTestService_FieldInfo_[] = {
 };
 
 $MethodInfo _StateTestService_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(StateTestService::*)()>(&StateTestService::init$))},
-	{"check", "(Z)V", nullptr, $STATIC, $method(static_cast<void(*)(bool)>(&StateTestService::check))},
-	{"initLogFile", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&StateTestService::initLogFile))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&StateTestService::main)), "java.io.IOException"},
-	{"println", "(Ljava/lang/String;)V", nullptr, $STATIC, $method(static_cast<void(*)($String*)>(&StateTestService::println))},
-	{"reply", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($String*)>(&StateTestService::reply)), "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(StateTestService, init$, void)},
+	{"check", "(Z)V", nullptr, $STATIC, $staticMethod(StateTestService, check, void, bool)},
+	{"initLogFile", "()V", nullptr, $STATIC, $staticMethod(StateTestService, initLogFile, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StateTestService, main, void, $StringArray*), "java.io.IOException"},
+	{"println", "(Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(StateTestService, println, void, $String*)},
+	{"reply", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(StateTestService, reply, void, $String*), "java.io.IOException"},
 	{}
 };
 

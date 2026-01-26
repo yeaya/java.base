@@ -22,7 +22,7 @@ $FieldInfo _JceKeyStore$TrustedCertEntry_FieldInfo_[] = {
 };
 
 $MethodInfo _JceKeyStore$TrustedCertEntry_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(JceKeyStore$TrustedCertEntry::*)()>(&JceKeyStore$TrustedCertEntry::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(JceKeyStore$TrustedCertEntry, init$, void)},
 	{}
 };
 

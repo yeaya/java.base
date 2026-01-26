@@ -29,10 +29,10 @@ $FieldInfo _CodePointMap$RangeIterator_FieldInfo_[] = {
 };
 
 $MethodInfo _CodePointMap$RangeIterator_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/icu/util/CodePointMap;)V", nullptr, $PRIVATE, $method(static_cast<void(CodePointMap$RangeIterator::*)($CodePointMap*)>(&CodePointMap$RangeIterator::init$))},
-	{"hasNext", "()Z", nullptr, $PUBLIC},
-	{"next", "()Ljdk/internal/icu/util/CodePointMap$Range;", nullptr, $PUBLIC},
-	{"remove", "()V", nullptr, $PUBLIC | $FINAL},
+	{"<init>", "(Ljdk/internal/icu/util/CodePointMap;)V", nullptr, $PRIVATE, $method(CodePointMap$RangeIterator, init$, void, $CodePointMap*)},
+	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(CodePointMap$RangeIterator, hasNext, bool)},
+	{"next", "()Ljdk/internal/icu/util/CodePointMap$Range;", nullptr, $PUBLIC, $virtualMethod(CodePointMap$RangeIterator, next, $Object*)},
+	{"remove", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(CodePointMap$RangeIterator, remove, void)},
 	{}
 };
 

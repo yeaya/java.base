@@ -33,6 +33,7 @@ using $ProcessBuilder$Redirect$3 = ::java::lang::ProcessBuilder$Redirect$3;
 using $ProcessBuilder$Redirect$4 = ::java::lang::ProcessBuilder$Redirect$4;
 using $ProcessBuilder$Redirect$5 = ::java::lang::ProcessBuilder$Redirect$5;
 using $ProcessBuilder$Redirect$6 = ::java::lang::ProcessBuilder$Redirect$6;
+using $ProcessBuilder$Redirect$Type = ::java::lang::ProcessBuilder$Redirect$Type;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
 using $GetPropertyAction = ::sun::security::action::GetPropertyAction;
 
@@ -49,15 +50,15 @@ $FieldInfo _ProcessBuilder$Redirect_FieldInfo_[] = {
 };
 
 $MethodInfo _ProcessBuilder$Redirect_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(ProcessBuilder$Redirect::*)()>(&ProcessBuilder$Redirect::init$))},
-	{"append", "()Z", nullptr, 0},
-	{"appendTo", "(Ljava/io/File;)Ljava/lang/ProcessBuilder$Redirect;", nullptr, $PUBLIC | $STATIC, $method(static_cast<ProcessBuilder$Redirect*(*)($File*)>(&ProcessBuilder$Redirect::appendTo))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"file", "()Ljava/io/File;", nullptr, $PUBLIC},
-	{"from", "(Ljava/io/File;)Ljava/lang/ProcessBuilder$Redirect;", nullptr, $PUBLIC | $STATIC, $method(static_cast<ProcessBuilder$Redirect*(*)($File*)>(&ProcessBuilder$Redirect::from))},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"to", "(Ljava/io/File;)Ljava/lang/ProcessBuilder$Redirect;", nullptr, $PUBLIC | $STATIC, $method(static_cast<ProcessBuilder$Redirect*(*)($File*)>(&ProcessBuilder$Redirect::to))},
-	{"type", "()Ljava/lang/ProcessBuilder$Redirect$Type;", nullptr, $PUBLIC | $ABSTRACT},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(ProcessBuilder$Redirect, init$, void)},
+	{"append", "()Z", nullptr, 0, $virtualMethod(ProcessBuilder$Redirect, append, bool)},
+	{"appendTo", "(Ljava/io/File;)Ljava/lang/ProcessBuilder$Redirect;", nullptr, $PUBLIC | $STATIC, $staticMethod(ProcessBuilder$Redirect, appendTo, ProcessBuilder$Redirect*, $File*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ProcessBuilder$Redirect, equals, bool, Object$*)},
+	{"file", "()Ljava/io/File;", nullptr, $PUBLIC, $virtualMethod(ProcessBuilder$Redirect, file, $File*)},
+	{"from", "(Ljava/io/File;)Ljava/lang/ProcessBuilder$Redirect;", nullptr, $PUBLIC | $STATIC, $staticMethod(ProcessBuilder$Redirect, from, ProcessBuilder$Redirect*, $File*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ProcessBuilder$Redirect, hashCode, int32_t)},
+	{"to", "(Ljava/io/File;)Ljava/lang/ProcessBuilder$Redirect;", nullptr, $PUBLIC | $STATIC, $staticMethod(ProcessBuilder$Redirect, to, ProcessBuilder$Redirect*, $File*)},
+	{"type", "()Ljava/lang/ProcessBuilder$Redirect$Type;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ProcessBuilder$Redirect, type, $ProcessBuilder$Redirect$Type*)},
 	{}
 };
 

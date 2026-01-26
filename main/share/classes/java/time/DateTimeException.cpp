@@ -16,8 +16,8 @@ $FieldInfo _DateTimeException_FieldInfo_[] = {
 };
 
 $MethodInfo _DateTimeException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(DateTimeException::*)($String*)>(&DateTimeException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(DateTimeException::*)($String*,$Throwable*)>(&DateTimeException::init$))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(DateTimeException, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(DateTimeException, init$, void, $String*, $Throwable*)},
 	{}
 };
 

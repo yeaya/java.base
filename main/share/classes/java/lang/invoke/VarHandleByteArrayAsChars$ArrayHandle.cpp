@@ -69,8 +69,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo VarHandleByteArrayAsChars$ArrayHandle$$Lambda$ArrayIndexOutOfBoundsException::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(VarHandleByteArrayAsChars$ArrayHandle$$Lambda$ArrayIndexOutOfBoundsException::*)()>(&VarHandleByteArrayAsChars$ArrayHandle$$Lambda$ArrayIndexOutOfBoundsException::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(VarHandleByteArrayAsChars$ArrayHandle$$Lambda$ArrayIndexOutOfBoundsException, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(VarHandleByteArrayAsChars$ArrayHandle$$Lambda$ArrayIndexOutOfBoundsException, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo VarHandleByteArrayAsChars$ArrayHandle$$Lambda$ArrayIndexOutOfBoundsException::classInfo$ = {
@@ -144,21 +144,21 @@ $FieldInfo _VarHandleByteArrayAsChars$ArrayHandle_FieldInfo_[] = {
 };
 
 $MethodInfo _VarHandleByteArrayAsChars$ArrayHandle_MethodInfo_[] = {
-	{"<init>", "(Z)V", nullptr, 0, $method(static_cast<void(VarHandleByteArrayAsChars$ArrayHandle::*)(bool)>(&VarHandleByteArrayAsChars$ArrayHandle::init$))},
-	{"<init>", "(ZZ)V", nullptr, $PRIVATE, $method(static_cast<void(VarHandleByteArrayAsChars$ArrayHandle::*)(bool,bool)>(&VarHandleByteArrayAsChars$ArrayHandle::init$))},
-	{"accessModeTypeUncached", "(Ljava/lang/invoke/VarHandle$AccessType;)Ljava/lang/invoke/MethodType;", nullptr, $FINAL},
-	{"address", "([BI)J", nullptr, $STATIC, $method(static_cast<int64_t(*)($bytes*,int32_t)>(&VarHandleByteArrayAsChars$ArrayHandle::address)), nullptr, nullptr, _VarHandleByteArrayAsChars$ArrayHandle_MethodAnnotations_address3},
-	{"get", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;I)C", nullptr, $STATIC, $method(static_cast<char16_t(*)($VarHandle*,Object$*,int32_t)>(&VarHandleByteArrayAsChars$ArrayHandle::get)), nullptr, nullptr, _VarHandleByteArrayAsChars$ArrayHandle_MethodAnnotations_get4},
-	{"getAcquire", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;I)C", nullptr, $STATIC, $method(static_cast<char16_t(*)($VarHandle*,Object$*,int32_t)>(&VarHandleByteArrayAsChars$ArrayHandle::getAcquire)), nullptr, nullptr, _VarHandleByteArrayAsChars$ArrayHandle_MethodAnnotations_getAcquire5},
-	{"getOpaque", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;I)C", nullptr, $STATIC, $method(static_cast<char16_t(*)($VarHandle*,Object$*,int32_t)>(&VarHandleByteArrayAsChars$ArrayHandle::getOpaque)), nullptr, nullptr, _VarHandleByteArrayAsChars$ArrayHandle_MethodAnnotations_getOpaque6},
-	{"getVolatile", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;I)C", nullptr, $STATIC, $method(static_cast<char16_t(*)($VarHandle*,Object$*,int32_t)>(&VarHandleByteArrayAsChars$ArrayHandle::getVolatile)), nullptr, nullptr, _VarHandleByteArrayAsChars$ArrayHandle_MethodAnnotations_getVolatile7},
-	{"index", "([BI)I", nullptr, $STATIC, $method(static_cast<int32_t(*)($bytes*,int32_t)>(&VarHandleByteArrayAsChars$ArrayHandle::index)), nullptr, nullptr, _VarHandleByteArrayAsChars$ArrayHandle_MethodAnnotations_index8},
-	{"set", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;IC)V", nullptr, $STATIC, $method(static_cast<void(*)($VarHandle*,Object$*,int32_t,char16_t)>(&VarHandleByteArrayAsChars$ArrayHandle::set)), nullptr, nullptr, _VarHandleByteArrayAsChars$ArrayHandle_MethodAnnotations_set9},
-	{"setOpaque", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;IC)V", nullptr, $STATIC, $method(static_cast<void(*)($VarHandle*,Object$*,int32_t,char16_t)>(&VarHandleByteArrayAsChars$ArrayHandle::setOpaque)), nullptr, nullptr, _VarHandleByteArrayAsChars$ArrayHandle_MethodAnnotations_setOpaque10},
-	{"setRelease", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;IC)V", nullptr, $STATIC, $method(static_cast<void(*)($VarHandle*,Object$*,int32_t,char16_t)>(&VarHandleByteArrayAsChars$ArrayHandle::setRelease)), nullptr, nullptr, _VarHandleByteArrayAsChars$ArrayHandle_MethodAnnotations_setRelease11},
-	{"setVolatile", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;IC)V", nullptr, $STATIC, $method(static_cast<void(*)($VarHandle*,Object$*,int32_t,char16_t)>(&VarHandleByteArrayAsChars$ArrayHandle::setVolatile)), nullptr, nullptr, _VarHandleByteArrayAsChars$ArrayHandle_MethodAnnotations_setVolatile12},
-	{"withInvokeBehavior", "()Ljava/lang/invoke/VarHandleByteArrayAsChars$ArrayHandle;", nullptr, $PUBLIC},
-	{"withInvokeExactBehavior", "()Ljava/lang/invoke/VarHandleByteArrayAsChars$ArrayHandle;", nullptr, $PUBLIC},
+	{"<init>", "(Z)V", nullptr, 0, $method(VarHandleByteArrayAsChars$ArrayHandle, init$, void, bool)},
+	{"<init>", "(ZZ)V", nullptr, $PRIVATE, $method(VarHandleByteArrayAsChars$ArrayHandle, init$, void, bool, bool)},
+	{"accessModeTypeUncached", "(Ljava/lang/invoke/VarHandle$AccessType;)Ljava/lang/invoke/MethodType;", nullptr, $FINAL, $virtualMethod(VarHandleByteArrayAsChars$ArrayHandle, accessModeTypeUncached, $MethodType*, $VarHandle$AccessType*)},
+	{"address", "([BI)J", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsChars$ArrayHandle, address, int64_t, $bytes*, int32_t), nullptr, nullptr, _VarHandleByteArrayAsChars$ArrayHandle_MethodAnnotations_address3},
+	{"get", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;I)C", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsChars$ArrayHandle, get, char16_t, $VarHandle*, Object$*, int32_t), nullptr, nullptr, _VarHandleByteArrayAsChars$ArrayHandle_MethodAnnotations_get4},
+	{"getAcquire", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;I)C", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsChars$ArrayHandle, getAcquire, char16_t, $VarHandle*, Object$*, int32_t), nullptr, nullptr, _VarHandleByteArrayAsChars$ArrayHandle_MethodAnnotations_getAcquire5},
+	{"getOpaque", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;I)C", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsChars$ArrayHandle, getOpaque, char16_t, $VarHandle*, Object$*, int32_t), nullptr, nullptr, _VarHandleByteArrayAsChars$ArrayHandle_MethodAnnotations_getOpaque6},
+	{"getVolatile", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;I)C", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsChars$ArrayHandle, getVolatile, char16_t, $VarHandle*, Object$*, int32_t), nullptr, nullptr, _VarHandleByteArrayAsChars$ArrayHandle_MethodAnnotations_getVolatile7},
+	{"index", "([BI)I", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsChars$ArrayHandle, index, int32_t, $bytes*, int32_t), nullptr, nullptr, _VarHandleByteArrayAsChars$ArrayHandle_MethodAnnotations_index8},
+	{"set", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;IC)V", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsChars$ArrayHandle, set, void, $VarHandle*, Object$*, int32_t, char16_t), nullptr, nullptr, _VarHandleByteArrayAsChars$ArrayHandle_MethodAnnotations_set9},
+	{"setOpaque", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;IC)V", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsChars$ArrayHandle, setOpaque, void, $VarHandle*, Object$*, int32_t, char16_t), nullptr, nullptr, _VarHandleByteArrayAsChars$ArrayHandle_MethodAnnotations_setOpaque10},
+	{"setRelease", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;IC)V", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsChars$ArrayHandle, setRelease, void, $VarHandle*, Object$*, int32_t, char16_t), nullptr, nullptr, _VarHandleByteArrayAsChars$ArrayHandle_MethodAnnotations_setRelease11},
+	{"setVolatile", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;IC)V", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsChars$ArrayHandle, setVolatile, void, $VarHandle*, Object$*, int32_t, char16_t), nullptr, nullptr, _VarHandleByteArrayAsChars$ArrayHandle_MethodAnnotations_setVolatile12},
+	{"withInvokeBehavior", "()Ljava/lang/invoke/VarHandleByteArrayAsChars$ArrayHandle;", nullptr, $PUBLIC, $virtualMethod(VarHandleByteArrayAsChars$ArrayHandle, withInvokeBehavior, VarHandleByteArrayAsChars$ArrayHandle*)},
+	{"withInvokeExactBehavior", "()Ljava/lang/invoke/VarHandleByteArrayAsChars$ArrayHandle;", nullptr, $PUBLIC, $virtualMethod(VarHandleByteArrayAsChars$ArrayHandle, withInvokeExactBehavior, VarHandleByteArrayAsChars$ArrayHandle*)},
 	{}
 };
 

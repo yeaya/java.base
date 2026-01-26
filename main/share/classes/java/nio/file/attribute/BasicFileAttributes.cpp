@@ -5,6 +5,7 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $FileTime = ::java::nio::file::attribute::FileTime;
 
 namespace java {
 	namespace nio {
@@ -12,15 +13,15 @@ namespace java {
 			namespace attribute {
 
 $MethodInfo _BasicFileAttributes_MethodInfo_[] = {
-	{"creationTime", "()Ljava/nio/file/attribute/FileTime;", nullptr, $PUBLIC | $ABSTRACT},
-	{"fileKey", "()Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
-	{"isDirectory", "()Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"isOther", "()Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"isRegularFile", "()Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"isSymbolicLink", "()Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"lastAccessTime", "()Ljava/nio/file/attribute/FileTime;", nullptr, $PUBLIC | $ABSTRACT},
-	{"lastModifiedTime", "()Ljava/nio/file/attribute/FileTime;", nullptr, $PUBLIC | $ABSTRACT},
-	{"size", "()J", nullptr, $PUBLIC | $ABSTRACT},
+	{"creationTime", "()Ljava/nio/file/attribute/FileTime;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(BasicFileAttributes, creationTime, $FileTime*)},
+	{"fileKey", "()Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(BasicFileAttributes, fileKey, $Object*)},
+	{"isDirectory", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(BasicFileAttributes, isDirectory, bool)},
+	{"isOther", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(BasicFileAttributes, isOther, bool)},
+	{"isRegularFile", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(BasicFileAttributes, isRegularFile, bool)},
+	{"isSymbolicLink", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(BasicFileAttributes, isSymbolicLink, bool)},
+	{"lastAccessTime", "()Ljava/nio/file/attribute/FileTime;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(BasicFileAttributes, lastAccessTime, $FileTime*)},
+	{"lastModifiedTime", "()Ljava/nio/file/attribute/FileTime;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(BasicFileAttributes, lastModifiedTime, $FileTime*)},
+	{"size", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(BasicFileAttributes, size, int64_t)},
 	{}
 };
 

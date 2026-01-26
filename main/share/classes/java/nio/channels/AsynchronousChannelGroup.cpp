@@ -12,6 +12,7 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $AsynchronousChannelProvider = ::java::nio::channels::spi::AsynchronousChannelProvider;
 using $ExecutorService = ::java::util::concurrent::ExecutorService;
 using $ThreadFactory = ::java::util::concurrent::ThreadFactory;
+using $TimeUnit = ::java::util::concurrent::TimeUnit;
 
 namespace java {
 	namespace nio {
@@ -23,16 +24,16 @@ $FieldInfo _AsynchronousChannelGroup_FieldInfo_[] = {
 };
 
 $MethodInfo _AsynchronousChannelGroup_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/channels/spi/AsynchronousChannelProvider;)V", nullptr, $PROTECTED, $method(static_cast<void(AsynchronousChannelGroup::*)($AsynchronousChannelProvider*)>(&AsynchronousChannelGroup::init$))},
-	{"awaitTermination", "(JLjava/util/concurrent/TimeUnit;)Z", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.lang.InterruptedException"},
-	{"isShutdown", "()Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"isTerminated", "()Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"provider", "()Ljava/nio/channels/spi/AsynchronousChannelProvider;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$AsynchronousChannelProvider*(AsynchronousChannelGroup::*)()>(&AsynchronousChannelGroup::provider))},
-	{"shutdown", "()V", nullptr, $PUBLIC | $ABSTRACT},
-	{"shutdownNow", "()V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"withCachedThreadPool", "(Ljava/util/concurrent/ExecutorService;I)Ljava/nio/channels/AsynchronousChannelGroup;", nullptr, $PUBLIC | $STATIC, $method(static_cast<AsynchronousChannelGroup*(*)($ExecutorService*,int32_t)>(&AsynchronousChannelGroup::withCachedThreadPool)), "java.io.IOException"},
-	{"withFixedThreadPool", "(ILjava/util/concurrent/ThreadFactory;)Ljava/nio/channels/AsynchronousChannelGroup;", nullptr, $PUBLIC | $STATIC, $method(static_cast<AsynchronousChannelGroup*(*)(int32_t,$ThreadFactory*)>(&AsynchronousChannelGroup::withFixedThreadPool)), "java.io.IOException"},
-	{"withThreadPool", "(Ljava/util/concurrent/ExecutorService;)Ljava/nio/channels/AsynchronousChannelGroup;", nullptr, $PUBLIC | $STATIC, $method(static_cast<AsynchronousChannelGroup*(*)($ExecutorService*)>(&AsynchronousChannelGroup::withThreadPool)), "java.io.IOException"},
+	{"<init>", "(Ljava/nio/channels/spi/AsynchronousChannelProvider;)V", nullptr, $PROTECTED, $method(AsynchronousChannelGroup, init$, void, $AsynchronousChannelProvider*)},
+	{"awaitTermination", "(JLjava/util/concurrent/TimeUnit;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AsynchronousChannelGroup, awaitTermination, bool, int64_t, $TimeUnit*), "java.lang.InterruptedException"},
+	{"isShutdown", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AsynchronousChannelGroup, isShutdown, bool)},
+	{"isTerminated", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AsynchronousChannelGroup, isTerminated, bool)},
+	{"provider", "()Ljava/nio/channels/spi/AsynchronousChannelProvider;", nullptr, $PUBLIC | $FINAL, $method(AsynchronousChannelGroup, provider, $AsynchronousChannelProvider*)},
+	{"shutdown", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AsynchronousChannelGroup, shutdown, void)},
+	{"shutdownNow", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AsynchronousChannelGroup, shutdownNow, void), "java.io.IOException"},
+	{"withCachedThreadPool", "(Ljava/util/concurrent/ExecutorService;I)Ljava/nio/channels/AsynchronousChannelGroup;", nullptr, $PUBLIC | $STATIC, $staticMethod(AsynchronousChannelGroup, withCachedThreadPool, AsynchronousChannelGroup*, $ExecutorService*, int32_t), "java.io.IOException"},
+	{"withFixedThreadPool", "(ILjava/util/concurrent/ThreadFactory;)Ljava/nio/channels/AsynchronousChannelGroup;", nullptr, $PUBLIC | $STATIC, $staticMethod(AsynchronousChannelGroup, withFixedThreadPool, AsynchronousChannelGroup*, int32_t, $ThreadFactory*), "java.io.IOException"},
+	{"withThreadPool", "(Ljava/util/concurrent/ExecutorService;)Ljava/nio/channels/AsynchronousChannelGroup;", nullptr, $PUBLIC | $STATIC, $staticMethod(AsynchronousChannelGroup, withThreadPool, AsynchronousChannelGroup*, $ExecutorService*), "java.io.IOException"},
 	{}
 };
 

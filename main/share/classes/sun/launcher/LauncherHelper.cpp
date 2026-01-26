@@ -205,8 +205,8 @@ $FieldInfo LauncherHelper$$Lambda$lambda$getMainClassFromJar$0::fieldInfos[2] = 
 	{}
 };
 $MethodInfo LauncherHelper$$Lambda$lambda$getMainClassFromJar$0::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(LauncherHelper$$Lambda$lambda$getMainClassFromJar$0::*)($String*)>(&LauncherHelper$$Lambda$lambda$getMainClassFromJar$0::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(LauncherHelper$$Lambda$lambda$getMainClassFromJar$0, init$, void, $String*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(LauncherHelper$$Lambda$lambda$getMainClassFromJar$0, accept, void, Object$*)},
 	{}
 };
 $ClassInfo LauncherHelper$$Lambda$lambda$getMainClassFromJar$0::classInfo$ = {
@@ -245,8 +245,8 @@ $FieldInfo LauncherHelper$$Lambda$lambda$addExportsOrOpens$1$1::fieldInfos[2] = 
 	{}
 };
 $MethodInfo LauncherHelper$$Lambda$lambda$addExportsOrOpens$1$1::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(LauncherHelper$$Lambda$lambda$addExportsOrOpens$1$1::*)($String*)>(&LauncherHelper$$Lambda$lambda$addExportsOrOpens$1$1::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(LauncherHelper$$Lambda$lambda$addExportsOrOpens$1$1, init$, void, $String*)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(LauncherHelper$$Lambda$lambda$addExportsOrOpens$1$1, test, bool, Object$*)},
 	{}
 };
 $ClassInfo LauncherHelper$$Lambda$lambda$addExportsOrOpens$1$1::classInfo$ = {
@@ -288,8 +288,8 @@ $FieldInfo LauncherHelper$$Lambda$lambda$addExportsOrOpens$2$2::fieldInfos[3] = 
 	{}
 };
 $MethodInfo LauncherHelper$$Lambda$lambda$addExportsOrOpens$2$2::methodInfos[3] = {
-	{"<init>", "(ZLjava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(LauncherHelper$$Lambda$lambda$addExportsOrOpens$2$2::*)(bool,$String*)>(&LauncherHelper$$Lambda$lambda$addExportsOrOpens$2$2::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(ZLjava/lang/String;)V", nullptr, $PUBLIC, $method(LauncherHelper$$Lambda$lambda$addExportsOrOpens$2$2, init$, void, bool, $String*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(LauncherHelper$$Lambda$lambda$addExportsOrOpens$2$2, accept, void, Object$*)},
 	{}
 };
 $ClassInfo LauncherHelper$$Lambda$lambda$addExportsOrOpens$2$2::classInfo$ = {
@@ -321,8 +321,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo LauncherHelper$$Lambda$showModule$3::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(LauncherHelper$$Lambda$showModule$3::*)()>(&LauncherHelper$$Lambda$showModule$3::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(LauncherHelper$$Lambda$showModule$3, init$, void)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(LauncherHelper$$Lambda$showModule$3, accept, void, Object$*)},
 	{}
 };
 $ClassInfo LauncherHelper$$Lambda$showModule$3::classInfo$ = {
@@ -354,8 +354,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo LauncherHelper$$Lambda$reference$4::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(LauncherHelper$$Lambda$reference$4::*)()>(&LauncherHelper$$Lambda$reference$4::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(LauncherHelper$$Lambda$reference$4, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LauncherHelper$$Lambda$reference$4, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo LauncherHelper$$Lambda$reference$4::classInfo$ = {
@@ -387,8 +387,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo LauncherHelper$$Lambda$lambda$describeModule$3$5::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(LauncherHelper$$Lambda$lambda$describeModule$3$5::*)()>(&LauncherHelper$$Lambda$lambda$describeModule$3$5::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(LauncherHelper$$Lambda$lambda$describeModule$3$5, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(LauncherHelper$$Lambda$lambda$describeModule$3$5, test, bool, Object$*)},
 	{}
 };
 $ClassInfo LauncherHelper$$Lambda$lambda$describeModule$3$5::classInfo$ = {
@@ -420,8 +420,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo LauncherHelper$$Lambda$source$6::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(LauncherHelper$$Lambda$source$6::*)()>(&LauncherHelper$$Lambda$source$6::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(LauncherHelper$$Lambda$source$6, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LauncherHelper$$Lambda$source$6, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo LauncherHelper$$Lambda$source$6::classInfo$ = {
@@ -453,8 +453,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo LauncherHelper$$Lambda$lambda$describeModule$4$7::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(LauncherHelper$$Lambda$lambda$describeModule$4$7::*)()>(&LauncherHelper$$Lambda$lambda$describeModule$4$7::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(LauncherHelper$$Lambda$lambda$describeModule$4$7, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LauncherHelper$$Lambda$lambda$describeModule$4$7, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo LauncherHelper$$Lambda$lambda$describeModule$4$7::classInfo$ = {
@@ -486,8 +486,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo LauncherHelper$$Lambda$lambda$describeModule$5$8::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(LauncherHelper$$Lambda$lambda$describeModule$5$8::*)()>(&LauncherHelper$$Lambda$lambda$describeModule$5$8::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(LauncherHelper$$Lambda$lambda$describeModule$5$8, init$, void)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(LauncherHelper$$Lambda$lambda$describeModule$5$8, accept, void, Object$*)},
 	{}
 };
 $ClassInfo LauncherHelper$$Lambda$lambda$describeModule$5$8::classInfo$ = {
@@ -519,8 +519,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo LauncherHelper$$Lambda$descriptor$9::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(LauncherHelper$$Lambda$descriptor$9::*)()>(&LauncherHelper$$Lambda$descriptor$9::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(LauncherHelper$$Lambda$descriptor$9, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LauncherHelper$$Lambda$descriptor$9, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo LauncherHelper$$Lambda$descriptor$9::classInfo$ = {
@@ -552,8 +552,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo LauncherHelper$$Lambda$isAutomatic$10::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(LauncherHelper$$Lambda$isAutomatic$10::*)()>(&LauncherHelper$$Lambda$isAutomatic$10::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(LauncherHelper$$Lambda$isAutomatic$10, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(LauncherHelper$$Lambda$isAutomatic$10, test, bool, Object$*)},
 	{}
 };
 $ClassInfo LauncherHelper$$Lambda$isAutomatic$10::classInfo$ = {
@@ -585,8 +585,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo LauncherHelper$$Lambda$lambda$describeModule$6$11::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(LauncherHelper$$Lambda$lambda$describeModule$6$11::*)()>(&LauncherHelper$$Lambda$lambda$describeModule$6$11::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(LauncherHelper$$Lambda$lambda$describeModule$6$11, init$, void)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(LauncherHelper$$Lambda$lambda$describeModule$6$11, accept, void, Object$*)},
 	{}
 };
 $ClassInfo LauncherHelper$$Lambda$lambda$describeModule$6$11::classInfo$ = {
@@ -625,8 +625,8 @@ $FieldInfo LauncherHelper$$Lambda$remove$12::fieldInfos[2] = {
 	{}
 };
 $MethodInfo LauncherHelper$$Lambda$remove$12::methodInfos[3] = {
-	{"<init>", "(Ljava/util/Set;)V", nullptr, $PUBLIC, $method(static_cast<void(LauncherHelper$$Lambda$remove$12::*)($Set*)>(&LauncherHelper$$Lambda$remove$12::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/Set;)V", nullptr, $PUBLIC, $method(LauncherHelper$$Lambda$remove$12, init$, void, $Set*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(LauncherHelper$$Lambda$remove$12, accept, void, Object$*)},
 	{}
 };
 $ClassInfo LauncherHelper$$Lambda$remove$12::classInfo$ = {
@@ -658,8 +658,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo LauncherHelper$$Lambda$source$13::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(LauncherHelper$$Lambda$source$13::*)()>(&LauncherHelper$$Lambda$source$13::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(LauncherHelper$$Lambda$source$13, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LauncherHelper$$Lambda$source$13, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo LauncherHelper$$Lambda$source$13::classInfo$ = {
@@ -691,8 +691,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo LauncherHelper$$Lambda$lambda$describeModule$7$14::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(LauncherHelper$$Lambda$lambda$describeModule$7$14::*)()>(&LauncherHelper$$Lambda$lambda$describeModule$7$14::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(LauncherHelper$$Lambda$lambda$describeModule$7$14, init$, void)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(LauncherHelper$$Lambda$lambda$describeModule$7$14, accept, void, Object$*)},
 	{}
 };
 $ClassInfo LauncherHelper$$Lambda$lambda$describeModule$7$14::classInfo$ = {
@@ -724,8 +724,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo LauncherHelper$$Lambda$lambda$showModule$8$15::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(LauncherHelper$$Lambda$lambda$showModule$8$15::*)()>(&LauncherHelper$$Lambda$lambda$showModule$8$15::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(LauncherHelper$$Lambda$lambda$showModule$8$15, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(LauncherHelper$$Lambda$lambda$showModule$8$15, test, bool, Object$*)},
 	{}
 };
 $ClassInfo LauncherHelper$$Lambda$lambda$showModule$8$15::classInfo$ = {
@@ -757,8 +757,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo LauncherHelper$$Lambda$lambda$showModule$9$16::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(LauncherHelper$$Lambda$lambda$showModule$9$16::*)()>(&LauncherHelper$$Lambda$lambda$showModule$9$16::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(LauncherHelper$$Lambda$lambda$showModule$9$16, init$, void)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(LauncherHelper$$Lambda$lambda$showModule$9$16, accept, void, Object$*)},
 	{}
 };
 $ClassInfo LauncherHelper$$Lambda$lambda$showModule$9$16::classInfo$ = {
@@ -790,8 +790,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo LauncherHelper$$Lambda$lambda$toStringStream$10$17::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(LauncherHelper$$Lambda$lambda$toStringStream$10$17::*)()>(&LauncherHelper$$Lambda$lambda$toStringStream$10$17::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(LauncherHelper$$Lambda$lambda$toStringStream$10$17, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LauncherHelper$$Lambda$lambda$toStringStream$10$17, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo LauncherHelper$$Lambda$lambda$toStringStream$10$17::classInfo$ = {
@@ -838,55 +838,55 @@ $FieldInfo _LauncherHelper_FieldInfo_[] = {
 };
 
 $MethodInfo _LauncherHelper_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(LauncherHelper::*)()>(&LauncherHelper::init$))},
-	{"abort", "(Ljava/lang/Throwable;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $STATIC | $TRANSIENT, $method(static_cast<void(*)($Throwable*,$String*,$ObjectArray*)>(&LauncherHelper::abort))},
-	{"addExportsOrOpens", "(Ljava/lang/String;Z)V", nullptr, $STATIC, $method(static_cast<void(*)($String*,bool)>(&LauncherHelper::addExportsOrOpens))},
-	{"appendVmSelectMessage", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $STATIC, $method(static_cast<void(*)($String*,$String*)>(&LauncherHelper::appendVmSelectMessage))},
-	{"appendVmSynonymMessage", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $STATIC, $method(static_cast<void(*)($String*,$String*)>(&LauncherHelper::appendVmSynonymMessage))},
-	{"checkAndLoadMain", "(ZILjava/lang/String;)Ljava/lang/Class;", "(ZILjava/lang/String;)Ljava/lang/Class<*>;", $PUBLIC | $STATIC, $method(static_cast<$Class*(*)(bool,int32_t,$String*)>(&LauncherHelper::checkAndLoadMain))},
-	{"describeModule", "(Ljava/lang/String;)V", nullptr, $STATIC, $method(static_cast<void(*)($String*)>(&LauncherHelper::describeModule))},
-	{"doesExtendFXApplication", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PRIVATE | $STATIC, $method(static_cast<bool(*)($Class*)>(&LauncherHelper::doesExtendFXApplication))},
-	{"expandArgs", "([Ljava/lang/String;)[Ljava/lang/String;", nullptr, $STATIC, $method(static_cast<$StringArray*(*)($StringArray*)>(&LauncherHelper::expandArgs))},
-	{"expandArgs", "(Ljava/util/List;)[Ljava/lang/String;", "(Ljava/util/List<Lsun/launcher/LauncherHelper$StdArg;>;)[Ljava/lang/String;", $STATIC, $method(static_cast<$StringArray*(*)($List*)>(&LauncherHelper::expandArgs))},
-	{"formatCpuVal", "(JLjava/lang/String;J)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)(int64_t,$String*,int64_t)>(&LauncherHelper::formatCpuVal))},
-	{"formatLimitString", "(JLjava/lang/String;J)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)(int64_t,$String*,int64_t)>(&LauncherHelper::formatLimitString))},
-	{"getApplicationClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC | $STATIC, $method(static_cast<$Class*(*)()>(&LauncherHelper::getApplicationClass))},
-	{"getLocalizedMessage", "(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $TRANSIENT, $method(static_cast<$String*(*)($String*,$ObjectArray*)>(&LauncherHelper::getLocalizedMessage))},
-	{"getMainClassFromJar", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $method(static_cast<$String*(*)($String*)>(&LauncherHelper::getMainClassFromJar))},
-	{"initHelpMessage", "(Ljava/lang/String;)V", nullptr, $STATIC, $method(static_cast<void(*)($String*)>(&LauncherHelper::initHelpMessage))},
-	{"initOutput", "(Z)V", nullptr, $STATIC, $method(static_cast<void(*)(bool)>(&LauncherHelper::initOutput))},
-	{"initOutput", "(Ljava/io/PrintStream;)V", nullptr, $STATIC, $method(static_cast<void(*)($PrintStream*)>(&LauncherHelper::initOutput))},
-	{"isJrt", "(Ljava/lang/module/ModuleReference;)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($ModuleReference*)>(&LauncherHelper::isJrt))},
-	{"isJrt", "(Ljava/net/URI;)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($URI*)>(&LauncherHelper::isJrt))},
-	{"isPath", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($String*)>(&LauncherHelper::isPath))},
-	{"lambda$addExportsOrOpens$1", "(Ljava/lang/String;Ljava/lang/Module;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($String*,$Module*)>(&LauncherHelper::lambda$addExportsOrOpens$1))},
-	{"lambda$addExportsOrOpens$2", "(ZLjava/lang/String;Ljava/lang/Module;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)(bool,$String*,$Module*)>(&LauncherHelper::lambda$addExportsOrOpens$2))},
-	{"lambda$describeModule$3", "(Ljava/lang/module/ModuleDescriptor$Exports;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($ModuleDescriptor$Exports*)>(&LauncherHelper::lambda$describeModule$3))},
-	{"lambda$describeModule$4", "(Ljava/lang/module/ModuleDescriptor$Exports;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$String*(*)($ModuleDescriptor$Exports*)>(&LauncherHelper::lambda$describeModule$4))},
-	{"lambda$describeModule$5", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($String*)>(&LauncherHelper::lambda$describeModule$5))},
-	{"lambda$describeModule$6", "(Ljava/lang/module/ModuleDescriptor;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($ModuleDescriptor*)>(&LauncherHelper::lambda$describeModule$6))},
-	{"lambda$describeModule$7", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($String*)>(&LauncherHelper::lambda$describeModule$7))},
-	{"lambda$getMainClassFromJar$0", "(Ljava/lang/String;Ljava/lang/Module;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($String*,$Module*)>(&LauncherHelper::lambda$getMainClassFromJar$0))},
-	{"lambda$showModule$8", "(Ljava/net/URI;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($URI*)>(&LauncherHelper::lambda$showModule$8))},
-	{"lambda$showModule$9", "(Ljava/net/URI;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($URI*)>(&LauncherHelper::lambda$showModule$9))},
-	{"lambda$toStringStream$10", "(Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$String*(*)(Object$*)>(&LauncherHelper::lambda$toStringStream$10))},
-	{"listModules", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&LauncherHelper::listModules))},
-	{"loadMainClass", "(ILjava/lang/String;)Ljava/lang/Class;", "(ILjava/lang/String;)Ljava/lang/Class<*>;", $PRIVATE | $STATIC, $method(static_cast<$Class*(*)(int32_t,$String*)>(&LauncherHelper::loadMainClass))},
-	{"loadModuleMainClass", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $PRIVATE | $STATIC, $method(static_cast<$Class*(*)($String*)>(&LauncherHelper::loadModuleMainClass))},
-	{"makePlatformString", "(Z[B)Ljava/lang/String;", nullptr, $STATIC, $method(static_cast<$String*(*)(bool,$bytes*)>(&LauncherHelper::makePlatformString))},
-	{"printHelpMessage", "(Z)V", nullptr, $STATIC, $method(static_cast<void(*)(bool)>(&LauncherHelper::printHelpMessage))},
-	{"printLocale", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&LauncherHelper::printLocale))},
-	{"printLocales", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&LauncherHelper::printLocales))},
-	{"printProperties", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&LauncherHelper::printProperties))},
-	{"printPropertyValue", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($String*,$String*)>(&LauncherHelper::printPropertyValue))},
-	{"printSystemMetrics", "()V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)()>(&LauncherHelper::printSystemMetrics))},
-	{"printVmSettings", "(JJJ)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)(int64_t,int64_t,int64_t)>(&LauncherHelper::printVmSettings))},
-	{"printXUsageMessage", "(Z)V", nullptr, $STATIC, $method(static_cast<void(*)(bool)>(&LauncherHelper::printXUsageMessage))},
-	{"showModule", "(Ljava/lang/module/ModuleReference;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($ModuleReference*)>(&LauncherHelper::showModule))},
-	{"showResolvedModules", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&LauncherHelper::showResolvedModules))},
-	{"showSettings", "(ZLjava/lang/String;JJJ)V", nullptr, $STATIC, $method(static_cast<void(*)(bool,$String*,int64_t,int64_t,int64_t)>(&LauncherHelper::showSettings))},
-	{"toStringStream", "(Ljava/util/Set;)Ljava/util/stream/Stream;", "<T:Ljava/lang/Object;>(Ljava/util/Set<TT;>;)Ljava/util/stream/Stream<Ljava/lang/String;>;", $PRIVATE | $STATIC, $method(static_cast<$Stream*(*)($Set*)>(&LauncherHelper::toStringStream))},
-	{"validateMainClass", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $STATIC, $method(static_cast<void(*)($Class*)>(&LauncherHelper::validateMainClass))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(LauncherHelper, init$, void)},
+	{"abort", "(Ljava/lang/Throwable;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $STATIC | $TRANSIENT, $staticMethod(LauncherHelper, abort, void, $Throwable*, $String*, $ObjectArray*)},
+	{"addExportsOrOpens", "(Ljava/lang/String;Z)V", nullptr, $STATIC, $staticMethod(LauncherHelper, addExportsOrOpens, void, $String*, bool)},
+	{"appendVmSelectMessage", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(LauncherHelper, appendVmSelectMessage, void, $String*, $String*)},
+	{"appendVmSynonymMessage", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(LauncherHelper, appendVmSynonymMessage, void, $String*, $String*)},
+	{"checkAndLoadMain", "(ZILjava/lang/String;)Ljava/lang/Class;", "(ZILjava/lang/String;)Ljava/lang/Class<*>;", $PUBLIC | $STATIC, $staticMethod(LauncherHelper, checkAndLoadMain, $Class*, bool, int32_t, $String*)},
+	{"describeModule", "(Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(LauncherHelper, describeModule, void, $String*)},
+	{"doesExtendFXApplication", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PRIVATE | $STATIC, $staticMethod(LauncherHelper, doesExtendFXApplication, bool, $Class*)},
+	{"expandArgs", "([Ljava/lang/String;)[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(LauncherHelper, expandArgs, $StringArray*, $StringArray*)},
+	{"expandArgs", "(Ljava/util/List;)[Ljava/lang/String;", "(Ljava/util/List<Lsun/launcher/LauncherHelper$StdArg;>;)[Ljava/lang/String;", $STATIC, $staticMethod(LauncherHelper, expandArgs, $StringArray*, $List*)},
+	{"formatCpuVal", "(JLjava/lang/String;J)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(LauncherHelper, formatCpuVal, $String*, int64_t, $String*, int64_t)},
+	{"formatLimitString", "(JLjava/lang/String;J)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(LauncherHelper, formatLimitString, $String*, int64_t, $String*, int64_t)},
+	{"getApplicationClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC | $STATIC, $staticMethod(LauncherHelper, getApplicationClass, $Class*)},
+	{"getLocalizedMessage", "(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $TRANSIENT, $staticMethod(LauncherHelper, getLocalizedMessage, $String*, $String*, $ObjectArray*)},
+	{"getMainClassFromJar", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(LauncherHelper, getMainClassFromJar, $String*, $String*)},
+	{"initHelpMessage", "(Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(LauncherHelper, initHelpMessage, void, $String*)},
+	{"initOutput", "(Z)V", nullptr, $STATIC, $staticMethod(LauncherHelper, initOutput, void, bool)},
+	{"initOutput", "(Ljava/io/PrintStream;)V", nullptr, $STATIC, $staticMethod(LauncherHelper, initOutput, void, $PrintStream*)},
+	{"isJrt", "(Ljava/lang/module/ModuleReference;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(LauncherHelper, isJrt, bool, $ModuleReference*)},
+	{"isJrt", "(Ljava/net/URI;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(LauncherHelper, isJrt, bool, $URI*)},
+	{"isPath", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(LauncherHelper, isPath, bool, $String*)},
+	{"lambda$addExportsOrOpens$1", "(Ljava/lang/String;Ljava/lang/Module;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LauncherHelper, lambda$addExportsOrOpens$1, bool, $String*, $Module*)},
+	{"lambda$addExportsOrOpens$2", "(ZLjava/lang/String;Ljava/lang/Module;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LauncherHelper, lambda$addExportsOrOpens$2, void, bool, $String*, $Module*)},
+	{"lambda$describeModule$3", "(Ljava/lang/module/ModuleDescriptor$Exports;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LauncherHelper, lambda$describeModule$3, bool, $ModuleDescriptor$Exports*)},
+	{"lambda$describeModule$4", "(Ljava/lang/module/ModuleDescriptor$Exports;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LauncherHelper, lambda$describeModule$4, $String*, $ModuleDescriptor$Exports*)},
+	{"lambda$describeModule$5", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LauncherHelper, lambda$describeModule$5, void, $String*)},
+	{"lambda$describeModule$6", "(Ljava/lang/module/ModuleDescriptor;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LauncherHelper, lambda$describeModule$6, void, $ModuleDescriptor*)},
+	{"lambda$describeModule$7", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LauncherHelper, lambda$describeModule$7, void, $String*)},
+	{"lambda$getMainClassFromJar$0", "(Ljava/lang/String;Ljava/lang/Module;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LauncherHelper, lambda$getMainClassFromJar$0, void, $String*, $Module*)},
+	{"lambda$showModule$8", "(Ljava/net/URI;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LauncherHelper, lambda$showModule$8, bool, $URI*)},
+	{"lambda$showModule$9", "(Ljava/net/URI;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LauncherHelper, lambda$showModule$9, void, $URI*)},
+	{"lambda$toStringStream$10", "(Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LauncherHelper, lambda$toStringStream$10, $String*, Object$*)},
+	{"listModules", "()V", nullptr, $STATIC, $staticMethod(LauncherHelper, listModules, void)},
+	{"loadMainClass", "(ILjava/lang/String;)Ljava/lang/Class;", "(ILjava/lang/String;)Ljava/lang/Class<*>;", $PRIVATE | $STATIC, $staticMethod(LauncherHelper, loadMainClass, $Class*, int32_t, $String*)},
+	{"loadModuleMainClass", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $PRIVATE | $STATIC, $staticMethod(LauncherHelper, loadModuleMainClass, $Class*, $String*)},
+	{"makePlatformString", "(Z[B)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(LauncherHelper, makePlatformString, $String*, bool, $bytes*)},
+	{"printHelpMessage", "(Z)V", nullptr, $STATIC, $staticMethod(LauncherHelper, printHelpMessage, void, bool)},
+	{"printLocale", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(LauncherHelper, printLocale, void)},
+	{"printLocales", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(LauncherHelper, printLocales, void)},
+	{"printProperties", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(LauncherHelper, printProperties, void)},
+	{"printPropertyValue", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(LauncherHelper, printPropertyValue, void, $String*, $String*)},
+	{"printSystemMetrics", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(LauncherHelper, printSystemMetrics, void)},
+	{"printVmSettings", "(JJJ)V", nullptr, $PRIVATE | $STATIC, $staticMethod(LauncherHelper, printVmSettings, void, int64_t, int64_t, int64_t)},
+	{"printXUsageMessage", "(Z)V", nullptr, $STATIC, $staticMethod(LauncherHelper, printXUsageMessage, void, bool)},
+	{"showModule", "(Ljava/lang/module/ModuleReference;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(LauncherHelper, showModule, void, $ModuleReference*)},
+	{"showResolvedModules", "()V", nullptr, $STATIC, $staticMethod(LauncherHelper, showResolvedModules, void)},
+	{"showSettings", "(ZLjava/lang/String;JJJ)V", nullptr, $STATIC, $staticMethod(LauncherHelper, showSettings, void, bool, $String*, int64_t, int64_t, int64_t)},
+	{"toStringStream", "(Ljava/util/Set;)Ljava/util/stream/Stream;", "<T:Ljava/lang/Object;>(Ljava/util/Set<TT;>;)Ljava/util/stream/Stream<Ljava/lang/String;>;", $PRIVATE | $STATIC, $staticMethod(LauncherHelper, toStringStream, $Stream*, $Set*)},
+	{"validateMainClass", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $STATIC, $staticMethod(LauncherHelper, validateMainClass, void, $Class*)},
 	{}
 };
 

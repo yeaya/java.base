@@ -19,9 +19,9 @@ $FieldInfo _TestObj_FieldInfo_[] = {
 };
 
 $MethodInfo _TestObj_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/io/PrintWriter;)V", nullptr, 0, $method(static_cast<void(TestObj::*)($String*,$PrintWriter*)>(&TestObj::init$))},
-	{"test", "()V", nullptr, $SYNCHRONIZED},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED},
+	{"<init>", "(Ljava/lang/String;Ljava/io/PrintWriter;)V", nullptr, 0, $method(TestObj, init$, void, $String*, $PrintWriter*)},
+	{"test", "()V", nullptr, $SYNCHRONIZED, $virtualMethod(TestObj, test, void)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(TestObj, toString, $String*)},
 	{}
 };
 

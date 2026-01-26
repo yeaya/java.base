@@ -54,14 +54,14 @@ $FieldInfo _AtomicLongFieldUpdater$LockedUpdater_FieldInfo_[] = {
 };
 
 $MethodInfo _AtomicLongFieldUpdater$LockedUpdater_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/Class;)V", "(Ljava/lang/Class<TT;>;Ljava/lang/String;Ljava/lang/Class<*>;)V", 0, $method(static_cast<void(AtomicLongFieldUpdater$LockedUpdater::*)($Class*,$String*,$Class*)>(&AtomicLongFieldUpdater$LockedUpdater::init$))},
-	{"accessCheck", "(Ljava/lang/Object;)V", "(TT;)V", $PRIVATE | $FINAL, $method(static_cast<void(AtomicLongFieldUpdater$LockedUpdater::*)(Object$*)>(&AtomicLongFieldUpdater$LockedUpdater::accessCheck))},
-	{"accessCheckException", "(Ljava/lang/Object;)Ljava/lang/RuntimeException;", "(TT;)Ljava/lang/RuntimeException;", $PRIVATE | $FINAL, $method(static_cast<$RuntimeException*(AtomicLongFieldUpdater$LockedUpdater::*)(Object$*)>(&AtomicLongFieldUpdater$LockedUpdater::accessCheckException))},
-	{"compareAndSet", "(Ljava/lang/Object;JJ)Z", "(TT;JJ)Z", $PUBLIC | $FINAL},
-	{"get", "(Ljava/lang/Object;)J", "(TT;)J", $PUBLIC | $FINAL},
-	{"lazySet", "(Ljava/lang/Object;J)V", "(TT;J)V", $PUBLIC | $FINAL},
-	{"set", "(Ljava/lang/Object;J)V", "(TT;J)V", $PUBLIC | $FINAL},
-	{"weakCompareAndSet", "(Ljava/lang/Object;JJ)Z", "(TT;JJ)Z", $PUBLIC | $FINAL},
+	{"<init>", "(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/Class;)V", "(Ljava/lang/Class<TT;>;Ljava/lang/String;Ljava/lang/Class<*>;)V", 0, $method(AtomicLongFieldUpdater$LockedUpdater, init$, void, $Class*, $String*, $Class*)},
+	{"accessCheck", "(Ljava/lang/Object;)V", "(TT;)V", $PRIVATE | $FINAL, $method(AtomicLongFieldUpdater$LockedUpdater, accessCheck, void, Object$*)},
+	{"accessCheckException", "(Ljava/lang/Object;)Ljava/lang/RuntimeException;", "(TT;)Ljava/lang/RuntimeException;", $PRIVATE | $FINAL, $method(AtomicLongFieldUpdater$LockedUpdater, accessCheckException, $RuntimeException*, Object$*)},
+	{"compareAndSet", "(Ljava/lang/Object;JJ)Z", "(TT;JJ)Z", $PUBLIC | $FINAL, $virtualMethod(AtomicLongFieldUpdater$LockedUpdater, compareAndSet, bool, Object$*, int64_t, int64_t)},
+	{"get", "(Ljava/lang/Object;)J", "(TT;)J", $PUBLIC | $FINAL, $virtualMethod(AtomicLongFieldUpdater$LockedUpdater, get, int64_t, Object$*)},
+	{"lazySet", "(Ljava/lang/Object;J)V", "(TT;J)V", $PUBLIC | $FINAL, $virtualMethod(AtomicLongFieldUpdater$LockedUpdater, lazySet, void, Object$*, int64_t)},
+	{"set", "(Ljava/lang/Object;J)V", "(TT;J)V", $PUBLIC | $FINAL, $virtualMethod(AtomicLongFieldUpdater$LockedUpdater, set, void, Object$*, int64_t)},
+	{"weakCompareAndSet", "(Ljava/lang/Object;JJ)Z", "(TT;JJ)Z", $PUBLIC | $FINAL, $virtualMethod(AtomicLongFieldUpdater$LockedUpdater, weakCompareAndSet, bool, Object$*, int64_t, int64_t)},
 	{}
 };
 

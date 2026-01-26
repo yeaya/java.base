@@ -23,8 +23,8 @@ $FieldInfo _SSLContextImpl$DefaultManagersHolder$1_FieldInfo_[] = {
 };
 
 $MethodInfo _SSLContextImpl$DefaultManagersHolder$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Map;)V", "()V", 0, $method(static_cast<void(SSLContextImpl$DefaultManagersHolder$1::*)($Map*)>(&SSLContextImpl$DefaultManagersHolder$1::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, nullptr, "java.lang.Exception"},
+	{"<init>", "(Ljava/util/Map;)V", "()V", 0, $method(SSLContextImpl$DefaultManagersHolder$1, init$, void, $Map*)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SSLContextImpl$DefaultManagersHolder$1, run, $Object*), "java.lang.Exception"},
 	{}
 };
 

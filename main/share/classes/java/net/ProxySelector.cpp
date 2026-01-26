@@ -5,6 +5,7 @@
 #include <java/net/InetSocketAddress.h>
 #include <java/net/NetPermission.h>
 #include <java/net/ProxySelector$StaticProxySelector.h>
+#include <java/net/SocketAddress.h>
 #include <java/net/URI.h>
 #include <java/security/BasicPermission.h>
 #include <java/security/Permission.h>
@@ -15,6 +16,7 @@
 #undef GET_PROXYSELECTOR_PERMISSION
 #undef SET_PROXYSELECTOR_PERMISSION
 
+using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -23,8 +25,11 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $SecurityManager = ::java::lang::SecurityManager;
 using $InetSocketAddress = ::java::net::InetSocketAddress;
 using $ProxySelector$StaticProxySelector = ::java::net::ProxySelector$StaticProxySelector;
+using $SocketAddress = ::java::net::SocketAddress;
+using $URI = ::java::net::URI;
 using $BasicPermission = ::java::security::BasicPermission;
 using $Permission = ::java::security::Permission;
+using $List = ::java::util::List;
 using $SecurityConstants = ::sun::security::util::SecurityConstants;
 
 namespace java {
@@ -36,12 +41,12 @@ $FieldInfo _ProxySelector_FieldInfo_[] = {
 };
 
 $MethodInfo _ProxySelector_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ProxySelector::*)()>(&ProxySelector::init$))},
-	{"connectFailed", "(Ljava/net/URI;Ljava/net/SocketAddress;Ljava/io/IOException;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"getDefault", "()Ljava/net/ProxySelector;", nullptr, $PUBLIC | $STATIC, $method(static_cast<ProxySelector*(*)()>(&ProxySelector::getDefault))},
-	{"of", "(Ljava/net/InetSocketAddress;)Ljava/net/ProxySelector;", nullptr, $PUBLIC | $STATIC, $method(static_cast<ProxySelector*(*)($InetSocketAddress*)>(&ProxySelector::of))},
-	{"select", "(Ljava/net/URI;)Ljava/util/List;", "(Ljava/net/URI;)Ljava/util/List<Ljava/net/Proxy;>;", $PUBLIC | $ABSTRACT},
-	{"setDefault", "(Ljava/net/ProxySelector;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)(ProxySelector*)>(&ProxySelector::setDefault))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ProxySelector, init$, void)},
+	{"connectFailed", "(Ljava/net/URI;Ljava/net/SocketAddress;Ljava/io/IOException;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ProxySelector, connectFailed, void, $URI*, $SocketAddress*, $IOException*)},
+	{"getDefault", "()Ljava/net/ProxySelector;", nullptr, $PUBLIC | $STATIC, $staticMethod(ProxySelector, getDefault, ProxySelector*)},
+	{"of", "(Ljava/net/InetSocketAddress;)Ljava/net/ProxySelector;", nullptr, $PUBLIC | $STATIC, $staticMethod(ProxySelector, of, ProxySelector*, $InetSocketAddress*)},
+	{"select", "(Ljava/net/URI;)Ljava/util/List;", "(Ljava/net/URI;)Ljava/util/List<Ljava/net/Proxy;>;", $PUBLIC | $ABSTRACT, $virtualMethod(ProxySelector, select, $List*, $URI*)},
+	{"setDefault", "(Ljava/net/ProxySelector;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ProxySelector, setDefault, void, ProxySelector*)},
 	{}
 };
 

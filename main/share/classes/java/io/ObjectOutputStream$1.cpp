@@ -26,8 +26,8 @@ $FieldInfo _ObjectOutputStream$1_FieldInfo_[] = {
 };
 
 $MethodInfo _ObjectOutputStream$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Class;)V", nullptr, 0, $method(static_cast<void(ObjectOutputStream$1::*)($Class*)>(&ObjectOutputStream$1::init$))},
-	{"run", "()Ljava/lang/Boolean;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Class;)V", nullptr, 0, $method(ObjectOutputStream$1, init$, void, $Class*)},
+	{"run", "()Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(ObjectOutputStream$1, run, $Object*)},
 	{}
 };
 

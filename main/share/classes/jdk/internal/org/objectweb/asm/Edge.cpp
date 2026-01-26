@@ -27,7 +27,7 @@ $FieldInfo _Edge_FieldInfo_[] = {
 };
 
 $MethodInfo _Edge_MethodInfo_[] = {
-	{"<init>", "(ILjdk/internal/org/objectweb/asm/Label;Ljdk/internal/org/objectweb/asm/Edge;)V", nullptr, 0, $method(static_cast<void(Edge::*)(int32_t,$Label*,Edge*)>(&Edge::init$))},
+	{"<init>", "(ILjdk/internal/org/objectweb/asm/Label;Ljdk/internal/org/objectweb/asm/Edge;)V", nullptr, 0, $method(Edge, init$, void, int32_t, $Label*, Edge*)},
 	{}
 };
 

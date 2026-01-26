@@ -75,14 +75,14 @@ $FieldInfo _SubjectCodeSource_FieldInfo_[] = {
 };
 
 $MethodInfo _SubjectCodeSource_MethodInfo_[] = {
-	{"<init>", "(Ljavax/security/auth/Subject;Ljava/util/LinkedList;Ljava/net/URL;[Ljava/security/cert/Certificate;)V", "(Ljavax/security/auth/Subject;Ljava/util/LinkedList<Lsun/security/provider/PolicyParser$PrincipalEntry;>;Ljava/net/URL;[Ljava/security/cert/Certificate;)V", 0, $method(static_cast<void(SubjectCodeSource::*)($Subject*,$LinkedList*,$URL*,$CertificateArray*)>(&SubjectCodeSource::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getPrincipals", "()Ljava/util/LinkedList;", "()Ljava/util/LinkedList<Lsun/security/provider/PolicyParser$PrincipalEntry;>;", 0},
-	{"getSubject", "()Ljavax/security/auth/Subject;", nullptr, 0},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"implies", "(Ljava/security/CodeSource;)Z", nullptr, $PUBLIC},
-	{"subjectListImpliesPrincipalEntry", "(Ljava/util/LinkedList;Lsun/security/provider/PolicyParser$PrincipalEntry;)Z", "(Ljava/util/LinkedList<Lsun/security/provider/PolicyParser$PrincipalEntry;>;Lsun/security/provider/PolicyParser$PrincipalEntry;)Z", $PRIVATE, $method(static_cast<bool(SubjectCodeSource::*)($LinkedList*,$PolicyParser$PrincipalEntry*)>(&SubjectCodeSource::subjectListImpliesPrincipalEntry))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljavax/security/auth/Subject;Ljava/util/LinkedList;Ljava/net/URL;[Ljava/security/cert/Certificate;)V", "(Ljavax/security/auth/Subject;Ljava/util/LinkedList<Lsun/security/provider/PolicyParser$PrincipalEntry;>;Ljava/net/URL;[Ljava/security/cert/Certificate;)V", 0, $method(SubjectCodeSource, init$, void, $Subject*, $LinkedList*, $URL*, $CertificateArray*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(SubjectCodeSource, equals, bool, Object$*)},
+	{"getPrincipals", "()Ljava/util/LinkedList;", "()Ljava/util/LinkedList<Lsun/security/provider/PolicyParser$PrincipalEntry;>;", 0, $virtualMethod(SubjectCodeSource, getPrincipals, $LinkedList*)},
+	{"getSubject", "()Ljavax/security/auth/Subject;", nullptr, 0, $virtualMethod(SubjectCodeSource, getSubject, $Subject*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(SubjectCodeSource, hashCode, int32_t)},
+	{"implies", "(Ljava/security/CodeSource;)Z", nullptr, $PUBLIC, $virtualMethod(SubjectCodeSource, implies, bool, $CodeSource*)},
+	{"subjectListImpliesPrincipalEntry", "(Ljava/util/LinkedList;Lsun/security/provider/PolicyParser$PrincipalEntry;)Z", "(Ljava/util/LinkedList<Lsun/security/provider/PolicyParser$PrincipalEntry;>;Lsun/security/provider/PolicyParser$PrincipalEntry;)Z", $PRIVATE, $method(SubjectCodeSource, subjectListImpliesPrincipalEntry, bool, $LinkedList*, $PolicyParser$PrincipalEntry*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SubjectCodeSource, toString, $String*)},
 	{}
 };
 

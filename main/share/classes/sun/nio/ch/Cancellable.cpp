@@ -5,13 +5,14 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $PendingFuture = ::sun::nio::ch::PendingFuture;
 
 namespace sun {
 	namespace nio {
 		namespace ch {
 
 $MethodInfo _Cancellable_MethodInfo_[] = {
-	{"onCancel", "(Lsun/nio/ch/PendingFuture;)V", "(Lsun/nio/ch/PendingFuture<**>;)V", $PUBLIC | $ABSTRACT},
+	{"onCancel", "(Lsun/nio/ch/PendingFuture;)V", "(Lsun/nio/ch/PendingFuture<**>;)V", $PUBLIC | $ABSTRACT, $virtualMethod(Cancellable, onCancel, void, $PendingFuture*)},
 	{}
 };
 

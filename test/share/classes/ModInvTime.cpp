@@ -13,9 +13,9 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $BigInteger = ::java::math::BigInteger;
 
 $MethodInfo _ModInvTime_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ModInvTime::*)()>(&ModInvTime::init$))},
-	{"check", "(Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($BigInteger*,$BigInteger*,$BigInteger*)>(&ModInvTime::check))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&ModInvTime::main)), "java.lang.InterruptedException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ModInvTime, init$, void)},
+	{"check", "(Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ModInvTime, check, void, $BigInteger*, $BigInteger*, $BigInteger*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ModInvTime, main, void, $StringArray*), "java.lang.InterruptedException"},
 	{}
 };
 

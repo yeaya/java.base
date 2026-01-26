@@ -22,13 +22,13 @@ $FieldInfo _DigestOutputStream_FieldInfo_[] = {
 };
 
 $MethodInfo _DigestOutputStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/OutputStream;Ljava/security/MessageDigest;)V", nullptr, $PUBLIC, $method(static_cast<void(DigestOutputStream::*)($OutputStream*,$MessageDigest*)>(&DigestOutputStream::init$))},
-	{"getMessageDigest", "()Ljava/security/MessageDigest;", nullptr, $PUBLIC},
-	{"on", "(Z)V", nullptr, $PUBLIC},
-	{"setMessageDigest", "(Ljava/security/MessageDigest;)V", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"write", "(I)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"write", "([BII)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljava/io/OutputStream;Ljava/security/MessageDigest;)V", nullptr, $PUBLIC, $method(DigestOutputStream, init$, void, $OutputStream*, $MessageDigest*)},
+	{"getMessageDigest", "()Ljava/security/MessageDigest;", nullptr, $PUBLIC, $virtualMethod(DigestOutputStream, getMessageDigest, $MessageDigest*)},
+	{"on", "(Z)V", nullptr, $PUBLIC, $virtualMethod(DigestOutputStream, on, void, bool)},
+	{"setMessageDigest", "(Ljava/security/MessageDigest;)V", nullptr, $PUBLIC, $virtualMethod(DigestOutputStream, setMessageDigest, void, $MessageDigest*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DigestOutputStream, toString, $String*)},
+	{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(DigestOutputStream, write, void, int32_t), "java.io.IOException"},
+	{"write", "([BII)V", nullptr, $PUBLIC, $virtualMethod(DigestOutputStream, write, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
 	{}
 };
 

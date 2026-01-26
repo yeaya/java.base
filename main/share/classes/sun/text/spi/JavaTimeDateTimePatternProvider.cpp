@@ -6,6 +6,7 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Locale = ::java::util::Locale;
 using $LocaleServiceProvider = ::java::util::spi::LocaleServiceProvider;
 
 namespace sun {
@@ -13,8 +14,8 @@ namespace sun {
 		namespace spi {
 
 $MethodInfo _JavaTimeDateTimePatternProvider_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(JavaTimeDateTimePatternProvider::*)()>(&JavaTimeDateTimePatternProvider::init$))},
-	{"getJavaTimeDateTimePattern", "(IILjava/lang/String;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(JavaTimeDateTimePatternProvider, init$, void)},
+	{"getJavaTimeDateTimePattern", "(IILjava/lang/String;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JavaTimeDateTimePatternProvider, getJavaTimeDateTimePattern, $String*, int32_t, int32_t, $String*, $Locale*)},
 	{}
 };
 

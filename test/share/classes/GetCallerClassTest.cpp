@@ -97,8 +97,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo GetCallerClassTest$$Lambda$start::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(GetCallerClassTest$$Lambda$start::*)()>(&GetCallerClassTest$$Lambda$start::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(GetCallerClassTest$$Lambda$start, init$, void)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(GetCallerClassTest$$Lambda$start, accept, void, Object$*)},
 	{}
 };
 $ClassInfo GetCallerClassTest$$Lambda$start::classInfo$ = {
@@ -130,8 +130,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo GetCallerClassTest$$Lambda$lambda$test$0$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(GetCallerClassTest$$Lambda$lambda$test$0$1::*)()>(&GetCallerClassTest$$Lambda$lambda$test$0$1::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(GetCallerClassTest$$Lambda$lambda$test$0$1, init$, void)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(GetCallerClassTest$$Lambda$lambda$test$0$1, accept, void, Object$*)},
 	{}
 };
 $ClassInfo GetCallerClassTest$$Lambda$lambda$test$0$1::classInfo$ = {
@@ -156,15 +156,15 @@ $FieldInfo _GetCallerClassTest_FieldInfo_[] = {
 };
 
 $MethodInfo _GetCallerClassTest_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/StackWalker;Z)V", nullptr, $PUBLIC, $method(static_cast<void(GetCallerClassTest::*)($StackWalker*,bool)>(&GetCallerClassTest::init$))},
-	{"assertEquals", "(Ljava/lang/Class;Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)V", $PUBLIC | $STATIC, $method(static_cast<void(*)($Class*,$Class*)>(&GetCallerClassTest::assertEquals))},
-	{"causeIsUOE", "(Ljava/lang/Throwable;)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)($Throwable*)>(&GetCallerClassTest::causeIsUOE))},
-	{"lambda$test$0", "(Ljava/lang/Thread;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($Thread*)>(&GetCallerClassTest::lambda$test$0))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<void(*)($StringArray*)>(&GetCallerClassTest::main)), "java.lang.Exception"},
-	{"methodHandleGetCallerClass", "(Ljava/lang/StackWalker;Ljava/lang/Class;Z)V", "(Ljava/lang/StackWalker;Ljava/lang/Class<*>;Z)V", $PUBLIC | $STATIC, $method(static_cast<void(*)($StackWalker*,$Class*,bool)>(&GetCallerClassTest::methodHandleGetCallerClass))},
-	{"reflectiveGetCallerClass", "(Ljava/lang/StackWalker;Ljava/lang/Class;Z)V", "(Ljava/lang/StackWalker;Ljava/lang/Class<*>;Z)V", $PUBLIC | $STATIC, $method(static_cast<void(*)($StackWalker*,$Class*,bool)>(&GetCallerClassTest::reflectiveGetCallerClass))},
-	{"staticGetCallerClass", "(Ljava/lang/StackWalker;Ljava/lang/Class;Z)V", "(Ljava/lang/StackWalker;Ljava/lang/Class<*>;Z)V", $PUBLIC | $STATIC, $method(static_cast<void(*)($StackWalker*,$Class*,bool)>(&GetCallerClassTest::staticGetCallerClass))},
-	{"test", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/StackWalker;Z)V", nullptr, $PUBLIC, $method(GetCallerClassTest, init$, void, $StackWalker*, bool)},
+	{"assertEquals", "(Ljava/lang/Class;Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)V", $PUBLIC | $STATIC, $staticMethod(GetCallerClassTest, assertEquals, void, $Class*, $Class*)},
+	{"causeIsUOE", "(Ljava/lang/Throwable;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(GetCallerClassTest, causeIsUOE, bool, $Throwable*)},
+	{"lambda$test$0", "(Ljava/lang/Thread;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(GetCallerClassTest, lambda$test$0, void, $Thread*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(GetCallerClassTest, main, void, $StringArray*), "java.lang.Exception"},
+	{"methodHandleGetCallerClass", "(Ljava/lang/StackWalker;Ljava/lang/Class;Z)V", "(Ljava/lang/StackWalker;Ljava/lang/Class<*>;Z)V", $PUBLIC | $STATIC, $staticMethod(GetCallerClassTest, methodHandleGetCallerClass, void, $StackWalker*, $Class*, bool)},
+	{"reflectiveGetCallerClass", "(Ljava/lang/StackWalker;Ljava/lang/Class;Z)V", "(Ljava/lang/StackWalker;Ljava/lang/Class<*>;Z)V", $PUBLIC | $STATIC, $staticMethod(GetCallerClassTest, reflectiveGetCallerClass, void, $StackWalker*, $Class*, bool)},
+	{"staticGetCallerClass", "(Ljava/lang/StackWalker;Ljava/lang/Class;Z)V", "(Ljava/lang/StackWalker;Ljava/lang/Class<*>;Z)V", $PUBLIC | $STATIC, $staticMethod(GetCallerClassTest, staticGetCallerClass, void, $StackWalker*, $Class*, bool)},
+	{"test", "()V", nullptr, $PUBLIC, $virtualMethod(GetCallerClassTest, test, void)},
 	{}
 };
 

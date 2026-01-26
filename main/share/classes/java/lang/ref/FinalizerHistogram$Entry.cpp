@@ -19,9 +19,9 @@ $FieldInfo _FinalizerHistogram$Entry_FieldInfo_[] = {
 };
 
 $MethodInfo _FinalizerHistogram$Entry_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(FinalizerHistogram$Entry::*)($String*)>(&FinalizerHistogram$Entry::init$))},
-	{"getInstanceCount", "()I", nullptr, 0, $method(static_cast<int32_t(FinalizerHistogram$Entry::*)()>(&FinalizerHistogram$Entry::getInstanceCount))},
-	{"increment", "()V", nullptr, 0, $method(static_cast<void(FinalizerHistogram$Entry::*)()>(&FinalizerHistogram$Entry::increment))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(FinalizerHistogram$Entry, init$, void, $String*)},
+	{"getInstanceCount", "()I", nullptr, 0, $method(FinalizerHistogram$Entry, getInstanceCount, int32_t)},
+	{"increment", "()V", nullptr, 0, $method(FinalizerHistogram$Entry, increment, void)},
 	{}
 };
 

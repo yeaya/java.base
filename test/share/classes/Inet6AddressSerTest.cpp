@@ -17,8 +17,8 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $Inet6Address = ::java::net::Inet6Address;
 
 $MethodInfo _Inet6AddressSerTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Inet6AddressSerTest::*)()>(&Inet6AddressSerTest::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Inet6AddressSerTest::main)), "java.io.IOException,java.lang.ClassNotFoundException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Inet6AddressSerTest, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Inet6AddressSerTest, main, void, $StringArray*), "java.io.IOException,java.lang.ClassNotFoundException"},
 	{}
 };
 

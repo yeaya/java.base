@@ -13,9 +13,9 @@ namespace com {
 			namespace provider {
 
 $MethodInfo _ChaCha20Cipher$ChaChaEngine_MethodInfo_[] = {
-	{"doFinal", "([BII[BI)I", nullptr, $PUBLIC | $ABSTRACT, nullptr, "javax.crypto.ShortBufferException,javax.crypto.AEADBadTagException,java.security.KeyException"},
-	{"doUpdate", "([BII[BI)I", nullptr, $PUBLIC | $ABSTRACT, nullptr, "javax.crypto.ShortBufferException,java.security.KeyException"},
-	{"getOutputSize", "(IZ)I", nullptr, $PUBLIC | $ABSTRACT},
+	{"doFinal", "([BII[BI)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ChaCha20Cipher$ChaChaEngine, doFinal, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t), "javax.crypto.ShortBufferException,javax.crypto.AEADBadTagException,java.security.KeyException"},
+	{"doUpdate", "([BII[BI)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ChaCha20Cipher$ChaChaEngine, doUpdate, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t), "javax.crypto.ShortBufferException,java.security.KeyException"},
+	{"getOutputSize", "(IZ)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ChaCha20Cipher$ChaChaEngine, getOutputSize, int32_t, int32_t, bool)},
 	{}
 };
 

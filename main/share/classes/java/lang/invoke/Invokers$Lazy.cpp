@@ -34,7 +34,7 @@ $FieldInfo _Invokers$Lazy_FieldInfo_[] = {
 };
 
 $MethodInfo _Invokers$Lazy_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(Invokers$Lazy::*)()>(&Invokers$Lazy::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(Invokers$Lazy, init$, void)},
 	{}
 };
 

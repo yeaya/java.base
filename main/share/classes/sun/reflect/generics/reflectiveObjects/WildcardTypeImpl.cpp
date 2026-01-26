@@ -40,13 +40,13 @@ $FieldInfo _WildcardTypeImpl_FieldInfo_[] = {
 $MethodInfo _WildcardTypeImpl_MethodInfo_[] = {
 	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "([Lsun/reflect/generics/tree/FieldTypeSignature;[Lsun/reflect/generics/tree/FieldTypeSignature;Lsun/reflect/generics/factory/GenericsFactory;)V", nullptr, $PRIVATE, $method(static_cast<void(WildcardTypeImpl::*)($FieldTypeSignatureArray*,$FieldTypeSignatureArray*,$GenericsFactory*)>(&WildcardTypeImpl::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getLowerBounds", "()[Ljava/lang/reflect/Type;", nullptr, $PUBLIC},
-	{"getUpperBounds", "()[Ljava/lang/reflect/Type;", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"make", "([Lsun/reflect/generics/tree/FieldTypeSignature;[Lsun/reflect/generics/tree/FieldTypeSignature;Lsun/reflect/generics/factory/GenericsFactory;)Lsun/reflect/generics/reflectiveObjects/WildcardTypeImpl;", nullptr, $PUBLIC | $STATIC, $method(static_cast<WildcardTypeImpl*(*)($FieldTypeSignatureArray*,$FieldTypeSignatureArray*,$GenericsFactory*)>(&WildcardTypeImpl::make))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "([Lsun/reflect/generics/tree/FieldTypeSignature;[Lsun/reflect/generics/tree/FieldTypeSignature;Lsun/reflect/generics/factory/GenericsFactory;)V", nullptr, $PRIVATE, $method(WildcardTypeImpl, init$, void, $FieldTypeSignatureArray*, $FieldTypeSignatureArray*, $GenericsFactory*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(WildcardTypeImpl, equals, bool, Object$*)},
+	{"getLowerBounds", "()[Ljava/lang/reflect/Type;", nullptr, $PUBLIC, $virtualMethod(WildcardTypeImpl, getLowerBounds, $TypeArray*)},
+	{"getUpperBounds", "()[Ljava/lang/reflect/Type;", nullptr, $PUBLIC, $virtualMethod(WildcardTypeImpl, getUpperBounds, $TypeArray*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(WildcardTypeImpl, hashCode, int32_t)},
+	{"make", "([Lsun/reflect/generics/tree/FieldTypeSignature;[Lsun/reflect/generics/tree/FieldTypeSignature;Lsun/reflect/generics/factory/GenericsFactory;)Lsun/reflect/generics/reflectiveObjects/WildcardTypeImpl;", nullptr, $PUBLIC | $STATIC, $staticMethod(WildcardTypeImpl, make, WildcardTypeImpl*, $FieldTypeSignatureArray*, $FieldTypeSignatureArray*, $GenericsFactory*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(WildcardTypeImpl, toString, $String*)},
 	{}
 };
 

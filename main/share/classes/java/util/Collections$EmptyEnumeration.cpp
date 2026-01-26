@@ -24,10 +24,10 @@ $FieldInfo _Collections$EmptyEnumeration_FieldInfo_[] = {
 };
 
 $MethodInfo _Collections$EmptyEnumeration_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(Collections$EmptyEnumeration::*)()>(&Collections$EmptyEnumeration::init$))},
-	{"asIterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TE;>;", $PUBLIC},
-	{"hasMoreElements", "()Z", nullptr, $PUBLIC},
-	{"nextElement", "()Ljava/lang/Object;", "()TE;", $PUBLIC},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(Collections$EmptyEnumeration, init$, void)},
+	{"asIterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TE;>;", $PUBLIC, $virtualMethod(Collections$EmptyEnumeration, asIterator, $Iterator*)},
+	{"hasMoreElements", "()Z", nullptr, $PUBLIC, $virtualMethod(Collections$EmptyEnumeration, hasMoreElements, bool)},
+	{"nextElement", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(Collections$EmptyEnumeration, nextElement, $Object*)},
 	{}
 };
 

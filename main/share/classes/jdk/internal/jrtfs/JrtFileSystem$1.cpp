@@ -33,15 +33,15 @@ $FieldInfo _JrtFileSystem$1_FieldInfo_[] = {
 };
 
 $MethodInfo _JrtFileSystem$1_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/jrtfs/JrtFileSystem;Ljava/nio/channels/ReadableByteChannel;J)V", "()V", 0, $method(static_cast<void(JrtFileSystem$1::*)($JrtFileSystem*,$ReadableByteChannel*,int64_t)>(&JrtFileSystem$1::init$))},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"isOpen", "()Z", nullptr, $PUBLIC},
-	{"position", "()J", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"position", "(J)Ljava/nio/channels/SeekableByteChannel;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"read", "(Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"size", "()J", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"truncate", "(J)Ljava/nio/channels/SeekableByteChannel;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"write", "(Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljdk/internal/jrtfs/JrtFileSystem;Ljava/nio/channels/ReadableByteChannel;J)V", "()V", 0, $method(JrtFileSystem$1, init$, void, $JrtFileSystem*, $ReadableByteChannel*, int64_t)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(JrtFileSystem$1, close, void), "java.io.IOException"},
+	{"isOpen", "()Z", nullptr, $PUBLIC, $virtualMethod(JrtFileSystem$1, isOpen, bool)},
+	{"position", "()J", nullptr, $PUBLIC, $virtualMethod(JrtFileSystem$1, position, int64_t), "java.io.IOException"},
+	{"position", "(J)Ljava/nio/channels/SeekableByteChannel;", nullptr, $PUBLIC, $virtualMethod(JrtFileSystem$1, position, $SeekableByteChannel*, int64_t), "java.io.IOException"},
+	{"read", "(Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC, $virtualMethod(JrtFileSystem$1, read, int32_t, $ByteBuffer*), "java.io.IOException"},
+	{"size", "()J", nullptr, $PUBLIC, $virtualMethod(JrtFileSystem$1, size, int64_t), "java.io.IOException"},
+	{"truncate", "(J)Ljava/nio/channels/SeekableByteChannel;", nullptr, $PUBLIC, $virtualMethod(JrtFileSystem$1, truncate, $SeekableByteChannel*, int64_t), "java.io.IOException"},
+	{"write", "(Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC, $virtualMethod(JrtFileSystem$1, write, int32_t, $ByteBuffer*), "java.io.IOException"},
 	{}
 };
 

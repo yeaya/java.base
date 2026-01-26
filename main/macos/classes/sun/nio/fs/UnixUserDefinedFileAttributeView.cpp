@@ -84,8 +84,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo UnixUserDefinedFileAttributeView$$Lambda$lambda$list$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(UnixUserDefinedFileAttributeView$$Lambda$lambda$list$0::*)()>(&UnixUserDefinedFileAttributeView$$Lambda$lambda$list$0::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(UnixUserDefinedFileAttributeView$$Lambda$lambda$list$0, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(UnixUserDefinedFileAttributeView$$Lambda$lambda$list$0, test, bool, Object$*)},
 	{}
 };
 $ClassInfo UnixUserDefinedFileAttributeView$$Lambda$lambda$list$0::classInfo$ = {
@@ -117,8 +117,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo UnixUserDefinedFileAttributeView$$Lambda$lambda$list$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(UnixUserDefinedFileAttributeView$$Lambda$lambda$list$1$1::*)()>(&UnixUserDefinedFileAttributeView$$Lambda$lambda$list$1$1::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(UnixUserDefinedFileAttributeView$$Lambda$lambda$list$1$1, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(UnixUserDefinedFileAttributeView$$Lambda$lambda$list$1$1, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo UnixUserDefinedFileAttributeView$$Lambda$lambda$list$1$1::classInfo$ = {
@@ -147,22 +147,22 @@ $FieldInfo _UnixUserDefinedFileAttributeView_FieldInfo_[] = {
 };
 
 $MethodInfo _UnixUserDefinedFileAttributeView_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/fs/UnixPath;Z)V", nullptr, 0, $method(static_cast<void(UnixUserDefinedFileAttributeView::*)($UnixPath*,bool)>(&UnixUserDefinedFileAttributeView::init$))},
-	{"asList", "(JI)Ljava/util/List;", "(JI)Ljava/util/List<Ljava/lang/String;>;", $PRIVATE | $STATIC, $method(static_cast<$List*(*)(int64_t,int32_t)>(&UnixUserDefinedFileAttributeView::asList))},
-	{"copyExtendedAttribute", "(I[BI)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)(int32_t,$bytes*,int32_t)>(&UnixUserDefinedFileAttributeView::copyExtendedAttribute)), "sun.nio.fs.UnixException"},
-	{"copyExtendedAttributes", "(II)V", nullptr, $STATIC, $method(static_cast<void(*)(int32_t,int32_t)>(&UnixUserDefinedFileAttributeView::copyExtendedAttributes))},
-	{"delete", "(Ljava/lang/String;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"lambda$list$0", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($String*)>(&UnixUserDefinedFileAttributeView::lambda$list$0))},
-	{"lambda$list$1", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$String*(*)($String*)>(&UnixUserDefinedFileAttributeView::lambda$list$1))},
-	{"list", "(II)Ljava/util/List;", "(II)Ljava/util/List<Ljava/lang/String;>;", $PRIVATE | $STATIC, $method(static_cast<$List*(*)(int32_t,int32_t)>(&UnixUserDefinedFileAttributeView::list)), "sun.nio.fs.UnixException"},
-	{"list", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PUBLIC, nullptr, "java.io.IOException"},
-	{"maxNameLength", "()I", nullptr, $PROTECTED | $ABSTRACT},
-	{"nameAsBytes", "(Lsun/nio/fs/UnixPath;Ljava/lang/String;)[B", nullptr, $PRIVATE, $method(static_cast<$bytes*(UnixUserDefinedFileAttributeView::*)($UnixPath*,$String*)>(&UnixUserDefinedFileAttributeView::nameAsBytes)), "java.io.IOException"},
-	{"read", "(Ljava/lang/String;Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"read", "(Ljava/lang/String;JI)I", nullptr, $PRIVATE, $method(static_cast<int32_t(UnixUserDefinedFileAttributeView::*)($String*,int64_t,int32_t)>(&UnixUserDefinedFileAttributeView::read)), "java.io.IOException"},
-	{"size", "(Ljava/lang/String;)I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"write", "(Ljava/lang/String;Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"write", "(Ljava/lang/String;JI)V", nullptr, $PRIVATE, $method(static_cast<void(UnixUserDefinedFileAttributeView::*)($String*,int64_t,int32_t)>(&UnixUserDefinedFileAttributeView::write)), "java.io.IOException"},
+	{"<init>", "(Lsun/nio/fs/UnixPath;Z)V", nullptr, 0, $method(UnixUserDefinedFileAttributeView, init$, void, $UnixPath*, bool)},
+	{"asList", "(JI)Ljava/util/List;", "(JI)Ljava/util/List<Ljava/lang/String;>;", $PRIVATE | $STATIC, $staticMethod(UnixUserDefinedFileAttributeView, asList, $List*, int64_t, int32_t)},
+	{"copyExtendedAttribute", "(I[BI)V", nullptr, $PRIVATE | $STATIC, $staticMethod(UnixUserDefinedFileAttributeView, copyExtendedAttribute, void, int32_t, $bytes*, int32_t), "sun.nio.fs.UnixException"},
+	{"copyExtendedAttributes", "(II)V", nullptr, $STATIC, $staticMethod(UnixUserDefinedFileAttributeView, copyExtendedAttributes, void, int32_t, int32_t)},
+	{"delete", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(UnixUserDefinedFileAttributeView, delete$, void, $String*), "java.io.IOException"},
+	{"lambda$list$0", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(UnixUserDefinedFileAttributeView, lambda$list$0, bool, $String*)},
+	{"lambda$list$1", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(UnixUserDefinedFileAttributeView, lambda$list$1, $String*, $String*)},
+	{"list", "(II)Ljava/util/List;", "(II)Ljava/util/List<Ljava/lang/String;>;", $PRIVATE | $STATIC, $staticMethod(UnixUserDefinedFileAttributeView, list, $List*, int32_t, int32_t), "sun.nio.fs.UnixException"},
+	{"list", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(UnixUserDefinedFileAttributeView, list, $List*), "java.io.IOException"},
+	{"maxNameLength", "()I", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(UnixUserDefinedFileAttributeView, maxNameLength, int32_t)},
+	{"nameAsBytes", "(Lsun/nio/fs/UnixPath;Ljava/lang/String;)[B", nullptr, $PRIVATE, $method(UnixUserDefinedFileAttributeView, nameAsBytes, $bytes*, $UnixPath*, $String*), "java.io.IOException"},
+	{"read", "(Ljava/lang/String;Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC, $virtualMethod(UnixUserDefinedFileAttributeView, read, int32_t, $String*, $ByteBuffer*), "java.io.IOException"},
+	{"read", "(Ljava/lang/String;JI)I", nullptr, $PRIVATE, $method(UnixUserDefinedFileAttributeView, read, int32_t, $String*, int64_t, int32_t), "java.io.IOException"},
+	{"size", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(UnixUserDefinedFileAttributeView, size, int32_t, $String*), "java.io.IOException"},
+	{"write", "(Ljava/lang/String;Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC, $virtualMethod(UnixUserDefinedFileAttributeView, write, int32_t, $String*, $ByteBuffer*), "java.io.IOException"},
+	{"write", "(Ljava/lang/String;JI)V", nullptr, $PRIVATE, $method(UnixUserDefinedFileAttributeView, write, void, $String*, int64_t, int32_t), "java.io.IOException"},
 	{}
 };
 

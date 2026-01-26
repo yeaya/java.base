@@ -35,8 +35,8 @@ $FieldInfo _PKCS12KeyStore$CertEntry_FieldInfo_[] = {
 };
 
 $MethodInfo _PKCS12KeyStore$CertEntry_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/cert/X509Certificate;[BLjava/lang/String;)V", nullptr, 0, $method(static_cast<void(PKCS12KeyStore$CertEntry::*)($X509Certificate*,$bytes*,$String*)>(&PKCS12KeyStore$CertEntry::init$))},
-	{"<init>", "(Ljava/security/cert/X509Certificate;[BLjava/lang/String;[Lsun/security/util/ObjectIdentifier;Ljava/util/Set;)V", "(Ljava/security/cert/X509Certificate;[BLjava/lang/String;[Lsun/security/util/ObjectIdentifier;Ljava/util/Set<+Ljava/security/KeyStore$Entry$Attribute;>;)V", 0, $method(static_cast<void(PKCS12KeyStore$CertEntry::*)($X509Certificate*,$bytes*,$String*,$ObjectIdentifierArray*,$Set*)>(&PKCS12KeyStore$CertEntry::init$))},
+	{"<init>", "(Ljava/security/cert/X509Certificate;[BLjava/lang/String;)V", nullptr, 0, $method(PKCS12KeyStore$CertEntry, init$, void, $X509Certificate*, $bytes*, $String*)},
+	{"<init>", "(Ljava/security/cert/X509Certificate;[BLjava/lang/String;[Lsun/security/util/ObjectIdentifier;Ljava/util/Set;)V", "(Ljava/security/cert/X509Certificate;[BLjava/lang/String;[Lsun/security/util/ObjectIdentifier;Ljava/util/Set<+Ljava/security/KeyStore$Entry$Attribute;>;)V", 0, $method(PKCS12KeyStore$CertEntry, init$, void, $X509Certificate*, $bytes*, $String*, $ObjectIdentifierArray*, $Set*)},
 	{}
 };
 

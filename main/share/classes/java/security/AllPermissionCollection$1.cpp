@@ -25,9 +25,9 @@ $FieldInfo _AllPermissionCollection$1_FieldInfo_[] = {
 };
 
 $MethodInfo _AllPermissionCollection$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/AllPermissionCollection;)V", nullptr, 0, $method(static_cast<void(AllPermissionCollection$1::*)($AllPermissionCollection*)>(&AllPermissionCollection$1::init$))},
-	{"hasMoreElements", "()Z", nullptr, $PUBLIC},
-	{"nextElement", "()Ljava/security/Permission;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/security/AllPermissionCollection;)V", nullptr, 0, $method(AllPermissionCollection$1, init$, void, $AllPermissionCollection*)},
+	{"hasMoreElements", "()Z", nullptr, $PUBLIC, $virtualMethod(AllPermissionCollection$1, hasMoreElements, bool)},
+	{"nextElement", "()Ljava/security/Permission;", nullptr, $PUBLIC, $virtualMethod(AllPermissionCollection$1, nextElement, $Object*)},
 	{}
 };
 

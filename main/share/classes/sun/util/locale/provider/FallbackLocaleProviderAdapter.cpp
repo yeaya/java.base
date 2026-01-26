@@ -35,11 +35,11 @@ $FieldInfo _FallbackLocaleProviderAdapter_FieldInfo_[] = {
 };
 
 $MethodInfo _FallbackLocaleProviderAdapter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(FallbackLocaleProviderAdapter::*)()>(&FallbackLocaleProviderAdapter::init$))},
-	{"createLanguageTagSet", "(Ljava/lang/String;)Ljava/util/Set;", "(Ljava/lang/String;)Ljava/util/Set<Ljava/lang/String;>;", $PROTECTED},
-	{"getAdapterType", "()Lsun/util/locale/provider/LocaleProviderAdapter$Type;", nullptr, $PUBLIC},
-	{"getLocaleResources", "(Ljava/util/Locale;)Lsun/util/locale/provider/LocaleResources;", nullptr, $PUBLIC},
-	{"isSupportedProviderLocale", "(Ljava/util/Locale;Ljava/util/Set;)Z", "(Ljava/util/Locale;Ljava/util/Set<Ljava/lang/String;>;)Z", $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(FallbackLocaleProviderAdapter, init$, void)},
+	{"createLanguageTagSet", "(Ljava/lang/String;)Ljava/util/Set;", "(Ljava/lang/String;)Ljava/util/Set<Ljava/lang/String;>;", $PROTECTED, $virtualMethod(FallbackLocaleProviderAdapter, createLanguageTagSet, $Set*, $String*)},
+	{"getAdapterType", "()Lsun/util/locale/provider/LocaleProviderAdapter$Type;", nullptr, $PUBLIC, $virtualMethod(FallbackLocaleProviderAdapter, getAdapterType, $LocaleProviderAdapter$Type*)},
+	{"getLocaleResources", "(Ljava/util/Locale;)Lsun/util/locale/provider/LocaleResources;", nullptr, $PUBLIC, $virtualMethod(FallbackLocaleProviderAdapter, getLocaleResources, $LocaleResources*, $Locale*)},
+	{"isSupportedProviderLocale", "(Ljava/util/Locale;Ljava/util/Set;)Z", "(Ljava/util/Locale;Ljava/util/Set<Ljava/lang/String;>;)Z", $PUBLIC, $virtualMethod(FallbackLocaleProviderAdapter, isSupportedProviderLocale, bool, $Locale*, $Set*)},
 	{}
 };
 

@@ -53,8 +53,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo DynamicConstantDesc$CanonicalMapHolder$$Lambda$canonicalizePrimitiveClass::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DynamicConstantDesc$CanonicalMapHolder$$Lambda$canonicalizePrimitiveClass::*)()>(&DynamicConstantDesc$CanonicalMapHolder$$Lambda$canonicalizePrimitiveClass::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DynamicConstantDesc$CanonicalMapHolder$$Lambda$canonicalizePrimitiveClass, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DynamicConstantDesc$CanonicalMapHolder$$Lambda$canonicalizePrimitiveClass, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo DynamicConstantDesc$CanonicalMapHolder$$Lambda$canonicalizePrimitiveClass::classInfo$ = {
@@ -86,8 +86,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo DynamicConstantDesc$CanonicalMapHolder$$Lambda$canonicalizeEnum$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DynamicConstantDesc$CanonicalMapHolder$$Lambda$canonicalizeEnum$1::*)()>(&DynamicConstantDesc$CanonicalMapHolder$$Lambda$canonicalizeEnum$1::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DynamicConstantDesc$CanonicalMapHolder$$Lambda$canonicalizeEnum$1, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DynamicConstantDesc$CanonicalMapHolder$$Lambda$canonicalizeEnum$1, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo DynamicConstantDesc$CanonicalMapHolder$$Lambda$canonicalizeEnum$1::classInfo$ = {
@@ -119,8 +119,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo DynamicConstantDesc$CanonicalMapHolder$$Lambda$canonicalizeNull$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DynamicConstantDesc$CanonicalMapHolder$$Lambda$canonicalizeNull$2::*)()>(&DynamicConstantDesc$CanonicalMapHolder$$Lambda$canonicalizeNull$2::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DynamicConstantDesc$CanonicalMapHolder$$Lambda$canonicalizeNull$2, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DynamicConstantDesc$CanonicalMapHolder$$Lambda$canonicalizeNull$2, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo DynamicConstantDesc$CanonicalMapHolder$$Lambda$canonicalizeNull$2::classInfo$ = {
@@ -152,8 +152,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo DynamicConstantDesc$CanonicalMapHolder$$Lambda$canonicalizeStaticFieldVarHandle$3::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DynamicConstantDesc$CanonicalMapHolder$$Lambda$canonicalizeStaticFieldVarHandle$3::*)()>(&DynamicConstantDesc$CanonicalMapHolder$$Lambda$canonicalizeStaticFieldVarHandle$3::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DynamicConstantDesc$CanonicalMapHolder$$Lambda$canonicalizeStaticFieldVarHandle$3, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DynamicConstantDesc$CanonicalMapHolder$$Lambda$canonicalizeStaticFieldVarHandle$3, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo DynamicConstantDesc$CanonicalMapHolder$$Lambda$canonicalizeStaticFieldVarHandle$3::classInfo$ = {
@@ -185,8 +185,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo DynamicConstantDesc$CanonicalMapHolder$$Lambda$canonicalizeFieldVarHandle$4::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DynamicConstantDesc$CanonicalMapHolder$$Lambda$canonicalizeFieldVarHandle$4::*)()>(&DynamicConstantDesc$CanonicalMapHolder$$Lambda$canonicalizeFieldVarHandle$4::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DynamicConstantDesc$CanonicalMapHolder$$Lambda$canonicalizeFieldVarHandle$4, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DynamicConstantDesc$CanonicalMapHolder$$Lambda$canonicalizeFieldVarHandle$4, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo DynamicConstantDesc$CanonicalMapHolder$$Lambda$canonicalizeFieldVarHandle$4::classInfo$ = {
@@ -218,8 +218,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo DynamicConstantDesc$CanonicalMapHolder$$Lambda$canonicalizeArrayVarHandle$5::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DynamicConstantDesc$CanonicalMapHolder$$Lambda$canonicalizeArrayVarHandle$5::*)()>(&DynamicConstantDesc$CanonicalMapHolder$$Lambda$canonicalizeArrayVarHandle$5::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DynamicConstantDesc$CanonicalMapHolder$$Lambda$canonicalizeArrayVarHandle$5, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DynamicConstantDesc$CanonicalMapHolder$$Lambda$canonicalizeArrayVarHandle$5, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo DynamicConstantDesc$CanonicalMapHolder$$Lambda$canonicalizeArrayVarHandle$5::classInfo$ = {
@@ -242,7 +242,7 @@ $FieldInfo _DynamicConstantDesc$CanonicalMapHolder_FieldInfo_[] = {
 };
 
 $MethodInfo _DynamicConstantDesc$CanonicalMapHolder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(DynamicConstantDesc$CanonicalMapHolder::*)()>(&DynamicConstantDesc$CanonicalMapHolder::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(DynamicConstantDesc$CanonicalMapHolder, init$, void)},
 	{}
 };
 

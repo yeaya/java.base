@@ -31,7 +31,7 @@ $FieldInfo _JulianFields_FieldInfo_[] = {
 };
 
 $MethodInfo _JulianFields_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(JulianFields::*)()>(&JulianFields::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(JulianFields, init$, void)},
 	{}
 };
 

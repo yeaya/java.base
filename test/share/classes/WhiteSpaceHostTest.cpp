@@ -13,8 +13,8 @@ using $UnknownHostException = ::java::net::UnknownHostException;
 using $StringTokenizer = ::java::util::StringTokenizer;
 
 $MethodInfo _WhiteSpaceHostTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(WhiteSpaceHostTest::*)()>(&WhiteSpaceHostTest::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&WhiteSpaceHostTest::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(WhiteSpaceHostTest, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(WhiteSpaceHostTest, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

@@ -81,8 +81,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo BootstrapLogger$BootstrapExecutors$$Lambda$lambda$awaitPendingTasks$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(BootstrapLogger$BootstrapExecutors$$Lambda$lambda$awaitPendingTasks$0::*)()>(&BootstrapLogger$BootstrapExecutors$$Lambda$lambda$awaitPendingTasks$0::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(BootstrapLogger$BootstrapExecutors$$Lambda$lambda$awaitPendingTasks$0, init$, void)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(BootstrapLogger$BootstrapExecutors$$Lambda$lambda$awaitPendingTasks$0, run, void)},
 	{}
 };
 $ClassInfo BootstrapLogger$BootstrapExecutors$$Lambda$lambda$awaitPendingTasks$0::classInfo$ = {
@@ -108,16 +108,16 @@ $FieldInfo _BootstrapLogger$BootstrapExecutors_FieldInfo_[] = {
 };
 
 $MethodInfo _BootstrapLogger$BootstrapExecutors_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(BootstrapLogger$BootstrapExecutors::*)()>(&BootstrapLogger$BootstrapExecutors::init$))},
-	{"awaitPendingTasks", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&BootstrapLogger$BootstrapExecutors::awaitPendingTasks))},
-	{"enqueue", "(Ljdk/internal/logger/BootstrapLogger$LogEvent;)V", nullptr, $STATIC, $method(static_cast<void(*)($BootstrapLogger$LogEvent*)>(&BootstrapLogger$BootstrapExecutors::enqueue))},
-	{"flush", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&BootstrapLogger$BootstrapExecutors::flush))},
-	{"getExecutor", "()Ljava/util/concurrent/ExecutorService;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$ExecutorService*(*)()>(&BootstrapLogger$BootstrapExecutors::getExecutor))},
-	{"isAlive", "()Z", nullptr, $STATIC, $method(static_cast<bool(*)()>(&BootstrapLogger$BootstrapExecutors::isAlive))},
-	{"join", "(Ljava/lang/Runnable;)V", nullptr, $STATIC, $method(static_cast<void(*)($Runnable*)>(&BootstrapLogger$BootstrapExecutors::join))},
-	{"lambda$awaitPendingTasks$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)()>(&BootstrapLogger$BootstrapExecutors::lambda$awaitPendingTasks$0))},
-	{"newThread", "(Ljava/lang/Runnable;)Ljava/lang/Thread;", nullptr, $PUBLIC},
-	{"submit", "(Ljava/lang/Runnable;)V", nullptr, $STATIC, $method(static_cast<void(*)($Runnable*)>(&BootstrapLogger$BootstrapExecutors::submit))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(BootstrapLogger$BootstrapExecutors, init$, void)},
+	{"awaitPendingTasks", "()V", nullptr, $STATIC, $staticMethod(BootstrapLogger$BootstrapExecutors, awaitPendingTasks, void)},
+	{"enqueue", "(Ljdk/internal/logger/BootstrapLogger$LogEvent;)V", nullptr, $STATIC, $staticMethod(BootstrapLogger$BootstrapExecutors, enqueue, void, $BootstrapLogger$LogEvent*)},
+	{"flush", "()V", nullptr, $STATIC, $staticMethod(BootstrapLogger$BootstrapExecutors, flush, void)},
+	{"getExecutor", "()Ljava/util/concurrent/ExecutorService;", nullptr, $PRIVATE | $STATIC, $staticMethod(BootstrapLogger$BootstrapExecutors, getExecutor, $ExecutorService*)},
+	{"isAlive", "()Z", nullptr, $STATIC, $staticMethod(BootstrapLogger$BootstrapExecutors, isAlive, bool)},
+	{"join", "(Ljava/lang/Runnable;)V", nullptr, $STATIC, $staticMethod(BootstrapLogger$BootstrapExecutors, join, void, $Runnable*)},
+	{"lambda$awaitPendingTasks$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(BootstrapLogger$BootstrapExecutors, lambda$awaitPendingTasks$0, void)},
+	{"newThread", "(Ljava/lang/Runnable;)Ljava/lang/Thread;", nullptr, $PUBLIC, $virtualMethod(BootstrapLogger$BootstrapExecutors, newThread, $Thread*, $Runnable*)},
+	{"submit", "(Ljava/lang/Runnable;)V", nullptr, $STATIC, $staticMethod(BootstrapLogger$BootstrapExecutors, submit, void, $Runnable*)},
 	{}
 };
 

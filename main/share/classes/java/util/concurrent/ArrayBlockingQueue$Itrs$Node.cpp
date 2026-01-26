@@ -24,7 +24,7 @@ $FieldInfo _ArrayBlockingQueue$Itrs$Node_FieldInfo_[] = {
 };
 
 $MethodInfo _ArrayBlockingQueue$Itrs$Node_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/ArrayBlockingQueue$Itrs;Ljava/util/concurrent/ArrayBlockingQueue$Itr;Ljava/util/concurrent/ArrayBlockingQueue$Itrs$Node;)V", "(Ljava/util/concurrent/ArrayBlockingQueue<TE;>.Itr;Ljava/util/concurrent/ArrayBlockingQueue<TE;>.Itrs.Node;)V", 0, $method(static_cast<void(ArrayBlockingQueue$Itrs$Node::*)($ArrayBlockingQueue$Itrs*,$ArrayBlockingQueue$Itr*,ArrayBlockingQueue$Itrs$Node*)>(&ArrayBlockingQueue$Itrs$Node::init$))},
+	{"<init>", "(Ljava/util/concurrent/ArrayBlockingQueue$Itrs;Ljava/util/concurrent/ArrayBlockingQueue$Itr;Ljava/util/concurrent/ArrayBlockingQueue$Itrs$Node;)V", "(Ljava/util/concurrent/ArrayBlockingQueue<TE;>.Itr;Ljava/util/concurrent/ArrayBlockingQueue<TE;>.Itrs.Node;)V", 0, $method(ArrayBlockingQueue$Itrs$Node, init$, void, $ArrayBlockingQueue$Itrs*, $ArrayBlockingQueue$Itr*, ArrayBlockingQueue$Itrs$Node*)},
 	{}
 };
 

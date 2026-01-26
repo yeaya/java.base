@@ -22,7 +22,7 @@ $FieldInfo _JRELocaleProviderAdapter$AvailableJRELocales_FieldInfo_[] = {
 };
 
 $MethodInfo _JRELocaleProviderAdapter$AvailableJRELocales_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(JRELocaleProviderAdapter$AvailableJRELocales::*)()>(&JRELocaleProviderAdapter$AvailableJRELocales::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(JRELocaleProviderAdapter$AvailableJRELocales, init$, void)},
 	{}
 };
 

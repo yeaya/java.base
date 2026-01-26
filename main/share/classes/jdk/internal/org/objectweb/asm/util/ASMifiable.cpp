@@ -6,6 +6,8 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $StringBuffer = ::java::lang::StringBuffer;
+using $Map = ::java::util::Map;
 
 namespace jdk {
 	namespace internal {
@@ -15,7 +17,7 @@ namespace jdk {
 					namespace util {
 
 $MethodInfo _ASMifiable_MethodInfo_[] = {
-	{"asmify", "(Ljava/lang/StringBuffer;Ljava/lang/String;Ljava/util/Map;)V", "(Ljava/lang/StringBuffer;Ljava/lang/String;Ljava/util/Map<Ljdk/internal/org/objectweb/asm/Label;Ljava/lang/String;>;)V", $PUBLIC | $ABSTRACT},
+	{"asmify", "(Ljava/lang/StringBuffer;Ljava/lang/String;Ljava/util/Map;)V", "(Ljava/lang/StringBuffer;Ljava/lang/String;Ljava/util/Map<Ljdk/internal/org/objectweb/asm/Label;Ljava/lang/String;>;)V", $PUBLIC | $ABSTRACT, $virtualMethod(ASMifiable, asmify, void, $StringBuffer*, $String*, $Map*)},
 	{}
 };
 

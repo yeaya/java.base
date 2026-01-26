@@ -16,9 +16,9 @@ $FieldInfo _PasswordAuthentication_FieldInfo_[] = {
 };
 
 $MethodInfo _PasswordAuthentication_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;[C)V", nullptr, $PUBLIC, $method(static_cast<void(PasswordAuthentication::*)($String*,$chars*)>(&PasswordAuthentication::init$))},
-	{"getPassword", "()[C", nullptr, $PUBLIC, $method(static_cast<$chars*(PasswordAuthentication::*)()>(&PasswordAuthentication::getPassword))},
-	{"getUserName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(static_cast<$String*(PasswordAuthentication::*)()>(&PasswordAuthentication::getUserName))},
+	{"<init>", "(Ljava/lang/String;[C)V", nullptr, $PUBLIC, $method(PasswordAuthentication, init$, void, $String*, $chars*)},
+	{"getPassword", "()[C", nullptr, $PUBLIC, $method(PasswordAuthentication, getPassword, $chars*)},
+	{"getUserName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(PasswordAuthentication, getUserName, $String*)},
 	{}
 };
 

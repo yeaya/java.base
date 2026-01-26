@@ -22,9 +22,9 @@ $FieldInfo _Streams$StreamGetter_FieldInfo_[] = {
 };
 
 $MethodInfo _Streams$StreamGetter_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/Socket;)V", nullptr, 0, $method(static_cast<void(Streams$StreamGetter::*)($Socket*)>(&Streams$StreamGetter::init$))},
-	{"getStream", "()V", nullptr, $ABSTRACT, nullptr, "java.io.IOException"},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/net/Socket;)V", nullptr, 0, $method(Streams$StreamGetter, init$, void, $Socket*)},
+	{"getStream", "()V", nullptr, $ABSTRACT, $virtualMethod(Streams$StreamGetter, getStream, void), "java.io.IOException"},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Streams$StreamGetter, run, void)},
 	{}
 };
 

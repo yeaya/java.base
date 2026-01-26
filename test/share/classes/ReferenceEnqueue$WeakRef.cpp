@@ -23,8 +23,8 @@ $FieldInfo _ReferenceEnqueue$WeakRef_FieldInfo_[] = {
 };
 
 $MethodInfo _ReferenceEnqueue$WeakRef_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ReferenceEnqueue$WeakRef::*)()>(&ReferenceEnqueue$WeakRef::init$))},
-	{"run", "()V", nullptr, 0, nullptr, "java.lang.InterruptedException"},
+	{"<init>", "()V", nullptr, 0, $method(ReferenceEnqueue$WeakRef, init$, void)},
+	{"run", "()V", nullptr, 0, $virtualMethod(ReferenceEnqueue$WeakRef, run, void), "java.lang.InterruptedException"},
 	{}
 };
 

@@ -34,13 +34,13 @@ $FieldInfo _Vector$VectorSpliterator_FieldInfo_[] = {
 };
 
 $MethodInfo _Vector$VectorSpliterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Vector;[Ljava/lang/Object;III)V", nullptr, 0, $method(static_cast<void(Vector$VectorSpliterator::*)($Vector*,$ObjectArray*,int32_t,int32_t,int32_t)>(&Vector$VectorSpliterator::init$))},
-	{"characteristics", "()I", nullptr, $PUBLIC},
-	{"estimateSize", "()J", nullptr, $PUBLIC},
-	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC},
-	{"getFence", "()I", nullptr, $PRIVATE, $method(static_cast<int32_t(Vector$VectorSpliterator::*)()>(&Vector$VectorSpliterator::getFence))},
-	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-TE;>;)Z", $PUBLIC},
-	{"trySplit", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TE;>;", $PUBLIC},
+	{"<init>", "(Ljava/util/Vector;[Ljava/lang/Object;III)V", nullptr, 0, $method(Vector$VectorSpliterator, init$, void, $Vector*, $ObjectArray*, int32_t, int32_t, int32_t)},
+	{"characteristics", "()I", nullptr, $PUBLIC, $virtualMethod(Vector$VectorSpliterator, characteristics, int32_t)},
+	{"estimateSize", "()J", nullptr, $PUBLIC, $virtualMethod(Vector$VectorSpliterator, estimateSize, int64_t)},
+	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC, $virtualMethod(Vector$VectorSpliterator, forEachRemaining, void, $Consumer*)},
+	{"getFence", "()I", nullptr, $PRIVATE, $method(Vector$VectorSpliterator, getFence, int32_t)},
+	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-TE;>;)Z", $PUBLIC, $virtualMethod(Vector$VectorSpliterator, tryAdvance, bool, $Consumer*)},
+	{"trySplit", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TE;>;", $PUBLIC, $virtualMethod(Vector$VectorSpliterator, trySplit, $Spliterator*)},
 	{}
 };
 

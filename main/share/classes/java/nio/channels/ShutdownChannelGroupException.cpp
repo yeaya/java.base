@@ -18,7 +18,7 @@ $FieldInfo _ShutdownChannelGroupException_FieldInfo_[] = {
 };
 
 $MethodInfo _ShutdownChannelGroupException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ShutdownChannelGroupException::*)()>(&ShutdownChannelGroupException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ShutdownChannelGroupException, init$, void)},
 	{}
 };
 

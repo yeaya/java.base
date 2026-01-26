@@ -13,7 +13,7 @@ namespace jdk {
 			namespace decompressor {
 
 $MethodInfo _ResourceDecompressor$StringsProvider_MethodInfo_[] = {
-	{"getString", "(I)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
+	{"getString", "(I)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ResourceDecompressor$StringsProvider, getString, $String*, int32_t)},
 	{}
 };
 

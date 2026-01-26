@@ -57,10 +57,10 @@ $FieldInfo _WindowsChannelFactory_FieldInfo_[] = {
 };
 
 $MethodInfo _WindowsChannelFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(WindowsChannelFactory::*)()>(&WindowsChannelFactory::init$))},
-	{"newAsynchronousFileChannel", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/Set;JLsun/nio/ch/ThreadPool;)Ljava/nio/channels/AsynchronousFileChannel;", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/Set<+Ljava/nio/file/OpenOption;>;JLsun/nio/ch/ThreadPool;)Ljava/nio/channels/AsynchronousFileChannel;", $STATIC, $method(static_cast<$AsynchronousFileChannel*(*)($String*,$String*,$Set*,int64_t,$ThreadPool*)>(&WindowsChannelFactory::newAsynchronousFileChannel)), "java.io.IOException"},
-	{"newFileChannel", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/Set;J)Ljava/nio/channels/FileChannel;", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/Set<+Ljava/nio/file/OpenOption;>;J)Ljava/nio/channels/FileChannel;", $STATIC, $method(static_cast<$FileChannel*(*)($String*,$String*,$Set*,int64_t)>(&WindowsChannelFactory::newFileChannel)), "sun.nio.fs.WindowsException"},
-	{"open", "(Ljava/lang/String;Ljava/lang/String;Lsun/nio/fs/WindowsChannelFactory$Flags;J)Ljava/io/FileDescriptor;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$FileDescriptor*(*)($String*,$String*,$WindowsChannelFactory$Flags*,int64_t)>(&WindowsChannelFactory::open)), "sun.nio.fs.WindowsException"},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(WindowsChannelFactory, init$, void)},
+	{"newAsynchronousFileChannel", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/Set;JLsun/nio/ch/ThreadPool;)Ljava/nio/channels/AsynchronousFileChannel;", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/Set<+Ljava/nio/file/OpenOption;>;JLsun/nio/ch/ThreadPool;)Ljava/nio/channels/AsynchronousFileChannel;", $STATIC, $staticMethod(WindowsChannelFactory, newAsynchronousFileChannel, $AsynchronousFileChannel*, $String*, $String*, $Set*, int64_t, $ThreadPool*), "java.io.IOException"},
+	{"newFileChannel", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/Set;J)Ljava/nio/channels/FileChannel;", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/Set<+Ljava/nio/file/OpenOption;>;J)Ljava/nio/channels/FileChannel;", $STATIC, $staticMethod(WindowsChannelFactory, newFileChannel, $FileChannel*, $String*, $String*, $Set*, int64_t), "sun.nio.fs.WindowsException"},
+	{"open", "(Ljava/lang/String;Ljava/lang/String;Lsun/nio/fs/WindowsChannelFactory$Flags;J)Ljava/io/FileDescriptor;", nullptr, $PRIVATE | $STATIC, $staticMethod(WindowsChannelFactory, open, $FileDescriptor*, $String*, $String*, $WindowsChannelFactory$Flags*, int64_t), "sun.nio.fs.WindowsException"},
 	{}
 };
 

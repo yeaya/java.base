@@ -46,13 +46,13 @@ $FieldInfo _URLClassPath$Loader_FieldInfo_[] = {
 };
 
 $MethodInfo _URLClassPath$Loader_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/URL;)V", nullptr, 0, $method(static_cast<void(URLClassPath$Loader::*)($URL*)>(&URLClassPath$Loader::init$))},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"findResource", "(Ljava/lang/String;Z)Ljava/net/URL;", nullptr, 0},
-	{"getBaseURL", "()Ljava/net/URL;", nullptr, 0},
-	{"getClassPath", "()[Ljava/net/URL;", nullptr, 0, nullptr, "java.io.IOException"},
-	{"getResource", "(Ljava/lang/String;Z)Ljdk/internal/loader/Resource;", nullptr, 0},
-	{"getResource", "(Ljava/lang/String;)Ljdk/internal/loader/Resource;", nullptr, 0},
+	{"<init>", "(Ljava/net/URL;)V", nullptr, 0, $method(URLClassPath$Loader, init$, void, $URL*)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(URLClassPath$Loader, close, void), "java.io.IOException"},
+	{"findResource", "(Ljava/lang/String;Z)Ljava/net/URL;", nullptr, 0, $virtualMethod(URLClassPath$Loader, findResource, $URL*, $String*, bool)},
+	{"getBaseURL", "()Ljava/net/URL;", nullptr, 0, $virtualMethod(URLClassPath$Loader, getBaseURL, $URL*)},
+	{"getClassPath", "()[Ljava/net/URL;", nullptr, 0, $virtualMethod(URLClassPath$Loader, getClassPath, $URLArray*), "java.io.IOException"},
+	{"getResource", "(Ljava/lang/String;Z)Ljdk/internal/loader/Resource;", nullptr, 0, $virtualMethod(URLClassPath$Loader, getResource, $Resource*, $String*, bool)},
+	{"getResource", "(Ljava/lang/String;)Ljdk/internal/loader/Resource;", nullptr, 0, $virtualMethod(URLClassPath$Loader, getResource, $Resource*, $String*)},
 	{}
 };
 

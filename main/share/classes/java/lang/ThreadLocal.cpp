@@ -34,19 +34,19 @@ $FieldInfo _ThreadLocal_FieldInfo_[] = {
 };
 
 $MethodInfo _ThreadLocal_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ThreadLocal::*)()>(&ThreadLocal::init$))},
-	{"childValue", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TT;)TT;", 0},
-	{"createInheritedMap", "(Ljava/lang/ThreadLocal$ThreadLocalMap;)Ljava/lang/ThreadLocal$ThreadLocalMap;", nullptr, $STATIC, $method(static_cast<$ThreadLocal$ThreadLocalMap*(*)($ThreadLocal$ThreadLocalMap*)>(&ThreadLocal::createInheritedMap))},
-	{"createMap", "(Ljava/lang/Thread;Ljava/lang/Object;)V", "(Ljava/lang/Thread;TT;)V", 0},
-	{"get", "()Ljava/lang/Object;", "()TT;", $PUBLIC},
-	{"getMap", "(Ljava/lang/Thread;)Ljava/lang/ThreadLocal$ThreadLocalMap;", nullptr, 0},
-	{"initialValue", "()Ljava/lang/Object;", "()TT;", $PROTECTED},
-	{"isPresent", "()Z", nullptr, 0},
-	{"nextHashCode", "()I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)()>(&ThreadLocal::nextHashCode))},
-	{"remove", "()V", nullptr, $PUBLIC},
-	{"set", "(Ljava/lang/Object;)V", "(TT;)V", $PUBLIC},
-	{"setInitialValue", "()Ljava/lang/Object;", "()TT;", $PRIVATE, $method(static_cast<$Object*(ThreadLocal::*)()>(&ThreadLocal::setInitialValue))},
-	{"withInitial", "(Ljava/util/function/Supplier;)Ljava/lang/ThreadLocal;", "<S:Ljava/lang/Object;>(Ljava/util/function/Supplier<+TS;>;)Ljava/lang/ThreadLocal<TS;>;", $PUBLIC | $STATIC, $method(static_cast<ThreadLocal*(*)($Supplier*)>(&ThreadLocal::withInitial))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ThreadLocal, init$, void)},
+	{"childValue", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TT;)TT;", 0, $virtualMethod(ThreadLocal, childValue, $Object*, Object$*)},
+	{"createInheritedMap", "(Ljava/lang/ThreadLocal$ThreadLocalMap;)Ljava/lang/ThreadLocal$ThreadLocalMap;", nullptr, $STATIC, $staticMethod(ThreadLocal, createInheritedMap, $ThreadLocal$ThreadLocalMap*, $ThreadLocal$ThreadLocalMap*)},
+	{"createMap", "(Ljava/lang/Thread;Ljava/lang/Object;)V", "(Ljava/lang/Thread;TT;)V", 0, $virtualMethod(ThreadLocal, createMap, void, $Thread*, Object$*)},
+	{"get", "()Ljava/lang/Object;", "()TT;", $PUBLIC, $virtualMethod(ThreadLocal, get, $Object*)},
+	{"getMap", "(Ljava/lang/Thread;)Ljava/lang/ThreadLocal$ThreadLocalMap;", nullptr, 0, $virtualMethod(ThreadLocal, getMap, $ThreadLocal$ThreadLocalMap*, $Thread*)},
+	{"initialValue", "()Ljava/lang/Object;", "()TT;", $PROTECTED, $virtualMethod(ThreadLocal, initialValue, $Object*)},
+	{"isPresent", "()Z", nullptr, 0, $virtualMethod(ThreadLocal, isPresent, bool)},
+	{"nextHashCode", "()I", nullptr, $PRIVATE | $STATIC, $staticMethod(ThreadLocal, nextHashCode, int32_t)},
+	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(ThreadLocal, remove, void)},
+	{"set", "(Ljava/lang/Object;)V", "(TT;)V", $PUBLIC, $virtualMethod(ThreadLocal, set, void, Object$*)},
+	{"setInitialValue", "()Ljava/lang/Object;", "()TT;", $PRIVATE, $method(ThreadLocal, setInitialValue, $Object*)},
+	{"withInitial", "(Ljava/util/function/Supplier;)Ljava/lang/ThreadLocal;", "<S:Ljava/lang/Object;>(Ljava/util/function/Supplier<+TS;>;)Ljava/lang/ThreadLocal<TS;>;", $PUBLIC | $STATIC, $staticMethod(ThreadLocal, withInitial, ThreadLocal*, $Supplier*)},
 	{}
 };
 

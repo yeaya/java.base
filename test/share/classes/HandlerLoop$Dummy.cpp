@@ -8,7 +8,7 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _HandlerLoop$Dummy_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(HandlerLoop$Dummy::*)()>(&HandlerLoop$Dummy::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(HandlerLoop$Dummy, init$, void)},
 	{}
 };
 

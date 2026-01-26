@@ -13,8 +13,8 @@ namespace sun {
 		namespace resources {
 
 $MethodInfo _launcher_ko_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(launcher_ko::*)()>(&launcher_ko::init$))},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(launcher_ko, init$, void)},
+	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(launcher_ko, getContents, $ObjectArray2*)},
 	{}
 };
 

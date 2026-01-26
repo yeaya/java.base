@@ -32,18 +32,18 @@ $FieldInfo _DoubleAdder_FieldInfo_[] = {
 };
 
 $MethodInfo _DoubleAdder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DoubleAdder::*)()>(&DoubleAdder::init$))},
-	{"add", "(D)V", nullptr, $PUBLIC},
-	{"doubleValue", "()D", nullptr, $PUBLIC},
-	{"floatValue", "()F", nullptr, $PUBLIC},
-	{"intValue", "()I", nullptr, $PUBLIC},
-	{"longValue", "()J", nullptr, $PUBLIC},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(DoubleAdder::*)($ObjectInputStream*)>(&DoubleAdder::readObject)), "java.io.InvalidObjectException"},
-	{"reset", "()V", nullptr, $PUBLIC},
-	{"sum", "()D", nullptr, $PUBLIC},
-	{"sumThenReset", "()D", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"writeReplace", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(static_cast<$Object*(DoubleAdder::*)()>(&DoubleAdder::writeReplace))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DoubleAdder, init$, void)},
+	{"add", "(D)V", nullptr, $PUBLIC, $virtualMethod(DoubleAdder, add, void, double)},
+	{"doubleValue", "()D", nullptr, $PUBLIC, $virtualMethod(DoubleAdder, doubleValue, double)},
+	{"floatValue", "()F", nullptr, $PUBLIC, $virtualMethod(DoubleAdder, floatValue, float)},
+	{"intValue", "()I", nullptr, $PUBLIC, $virtualMethod(DoubleAdder, intValue, int32_t)},
+	{"longValue", "()J", nullptr, $PUBLIC, $virtualMethod(DoubleAdder, longValue, int64_t)},
+	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(DoubleAdder, readObject, void, $ObjectInputStream*), "java.io.InvalidObjectException"},
+	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(DoubleAdder, reset, void)},
+	{"sum", "()D", nullptr, $PUBLIC, $virtualMethod(DoubleAdder, sum, double)},
+	{"sumThenReset", "()D", nullptr, $PUBLIC, $virtualMethod(DoubleAdder, sumThenReset, double)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DoubleAdder, toString, $String*)},
+	{"writeReplace", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(DoubleAdder, writeReplace, $Object*)},
 	{}
 };
 

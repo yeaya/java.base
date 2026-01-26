@@ -30,12 +30,12 @@ $FieldInfo _SSLTrafficKeyDerivation$KeySchedule_FieldInfo_[] = {
 };
 
 $MethodInfo _SSLTrafficKeyDerivation$KeySchedule_MethodInfo_[] = {
-	{"$values", "()[Lsun/security/ssl/SSLTrafficKeyDerivation$KeySchedule;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$SSLTrafficKeyDerivation$KeyScheduleArray*(*)()>(&SSLTrafficKeyDerivation$KeySchedule::$values))},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;Z)V", "(Ljava/lang/String;Z)V", $PRIVATE, $method(static_cast<void(SSLTrafficKeyDerivation$KeySchedule::*)($String*,int32_t,$String*,bool)>(&SSLTrafficKeyDerivation$KeySchedule::init$))},
-	{"getAlgorithm", "(Lsun/security/ssl/CipherSuite;Ljava/lang/String;)Ljava/lang/String;", nullptr, 0, $method(static_cast<$String*(SSLTrafficKeyDerivation$KeySchedule::*)($CipherSuite*,$String*)>(&SSLTrafficKeyDerivation$KeySchedule::getAlgorithm))},
-	{"getKeyLength", "(Lsun/security/ssl/CipherSuite;)I", nullptr, 0, $method(static_cast<int32_t(SSLTrafficKeyDerivation$KeySchedule::*)($CipherSuite*)>(&SSLTrafficKeyDerivation$KeySchedule::getKeyLength))},
-	{"valueOf", "(Ljava/lang/String;)Lsun/security/ssl/SSLTrafficKeyDerivation$KeySchedule;", nullptr, $PUBLIC | $STATIC, $method(static_cast<SSLTrafficKeyDerivation$KeySchedule*(*)($String*)>(&SSLTrafficKeyDerivation$KeySchedule::valueOf))},
-	{"values", "()[Lsun/security/ssl/SSLTrafficKeyDerivation$KeySchedule;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$SSLTrafficKeyDerivation$KeyScheduleArray*(*)()>(&SSLTrafficKeyDerivation$KeySchedule::values))},
+	{"$values", "()[Lsun/security/ssl/SSLTrafficKeyDerivation$KeySchedule;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SSLTrafficKeyDerivation$KeySchedule, $values, $SSLTrafficKeyDerivation$KeyScheduleArray*)},
+	{"<init>", "(Ljava/lang/String;ILjava/lang/String;Z)V", "(Ljava/lang/String;Z)V", $PRIVATE, $method(SSLTrafficKeyDerivation$KeySchedule, init$, void, $String*, int32_t, $String*, bool)},
+	{"getAlgorithm", "(Lsun/security/ssl/CipherSuite;Ljava/lang/String;)Ljava/lang/String;", nullptr, 0, $method(SSLTrafficKeyDerivation$KeySchedule, getAlgorithm, $String*, $CipherSuite*, $String*)},
+	{"getKeyLength", "(Lsun/security/ssl/CipherSuite;)I", nullptr, 0, $method(SSLTrafficKeyDerivation$KeySchedule, getKeyLength, int32_t, $CipherSuite*)},
+	{"valueOf", "(Ljava/lang/String;)Lsun/security/ssl/SSLTrafficKeyDerivation$KeySchedule;", nullptr, $PUBLIC | $STATIC, $staticMethod(SSLTrafficKeyDerivation$KeySchedule, valueOf, SSLTrafficKeyDerivation$KeySchedule*, $String*)},
+	{"values", "()[Lsun/security/ssl/SSLTrafficKeyDerivation$KeySchedule;", nullptr, $PUBLIC | $STATIC, $staticMethod(SSLTrafficKeyDerivation$KeySchedule, values, $SSLTrafficKeyDerivation$KeyScheduleArray*)},
 	{}
 };
 

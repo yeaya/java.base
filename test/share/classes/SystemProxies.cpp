@@ -26,9 +26,9 @@ $FieldInfo _SystemProxies_FieldInfo_[] = {
 };
 
 $MethodInfo _SystemProxies_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SystemProxies::*)()>(&SystemProxies::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&SystemProxies::main))},
-	{"printProxies", "(Ljava/lang/String;)V", nullptr, $STATIC, $method(static_cast<void(*)($String*)>(&SystemProxies::printProxies))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SystemProxies, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SystemProxies, main, void, $StringArray*)},
+	{"printProxies", "(Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(SystemProxies, printProxies, void, $String*)},
 	{}
 };
 

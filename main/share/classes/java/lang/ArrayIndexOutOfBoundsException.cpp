@@ -17,9 +17,9 @@ $FieldInfo _ArrayIndexOutOfBoundsException_FieldInfo_[] = {
 };
 
 $MethodInfo _ArrayIndexOutOfBoundsException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ArrayIndexOutOfBoundsException::*)()>(&ArrayIndexOutOfBoundsException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(ArrayIndexOutOfBoundsException::*)($String*)>(&ArrayIndexOutOfBoundsException::init$))},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(static_cast<void(ArrayIndexOutOfBoundsException::*)(int32_t)>(&ArrayIndexOutOfBoundsException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ArrayIndexOutOfBoundsException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ArrayIndexOutOfBoundsException, init$, void, $String*)},
+	{"<init>", "(I)V", nullptr, $PUBLIC, $method(ArrayIndexOutOfBoundsException, init$, void, int32_t)},
 	{}
 };
 

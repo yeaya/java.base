@@ -34,8 +34,8 @@ $FieldInfo _URLConnection$2_FieldInfo_[] = {
 };
 
 $MethodInfo _URLConnection$2_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/URLConnection;Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(URLConnection$2::*)($URLConnection*,$String*)>(&URLConnection$2::init$))},
-	{"run", "()Ljava/net/ContentHandler;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/net/URLConnection;Ljava/lang/String;)V", nullptr, 0, $method(URLConnection$2, init$, void, $URLConnection*, $String*)},
+	{"run", "()Ljava/net/ContentHandler;", nullptr, $PUBLIC, $virtualMethod(URLConnection$2, run, $Object*)},
 	{}
 };
 

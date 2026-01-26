@@ -20,11 +20,11 @@ $FieldInfo _IntHashSet_FieldInfo_[] = {
 };
 
 $MethodInfo _IntHashSet_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(IntHashSet::*)()>(&IntHashSet::init$))},
-	{"add", "(I)V", nullptr, $PUBLIC},
-	{"clear", "()V", nullptr, $PUBLIC},
-	{"contains", "(I)Z", nullptr, $PUBLIC},
-	{"expand", "()V", nullptr, $PRIVATE, $method(static_cast<void(IntHashSet::*)()>(&IntHashSet::expand))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(IntHashSet, init$, void)},
+	{"add", "(I)V", nullptr, $PUBLIC, $virtualMethod(IntHashSet, add, void, int32_t)},
+	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(IntHashSet, clear, void)},
+	{"contains", "(I)Z", nullptr, $PUBLIC, $virtualMethod(IntHashSet, contains, bool, int32_t)},
+	{"expand", "()V", nullptr, $PRIVATE, $method(IntHashSet, expand, void)},
 	{}
 };
 

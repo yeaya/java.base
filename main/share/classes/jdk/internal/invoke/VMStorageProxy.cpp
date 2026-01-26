@@ -10,8 +10,8 @@ namespace jdk {
 		namespace invoke {
 
 $MethodInfo _VMStorageProxy_MethodInfo_[] = {
-	{"index", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"type", "()I", nullptr, $PUBLIC | $ABSTRACT},
+	{"index", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(VMStorageProxy, index, int32_t)},
+	{"type", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(VMStorageProxy, type, int32_t)},
 	{}
 };
 

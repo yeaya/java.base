@@ -25,9 +25,9 @@ $FieldInfo _Pattern$BitClass_FieldInfo_[] = {
 };
 
 $MethodInfo _Pattern$BitClass_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Pattern$BitClass::*)()>(&Pattern$BitClass::init$))},
-	{"add", "(II)Ljava/util/regex/Pattern$BitClass;", nullptr, 0, $method(static_cast<Pattern$BitClass*(Pattern$BitClass::*)(int32_t,int32_t)>(&Pattern$BitClass::add))},
-	{"is", "(I)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(Pattern$BitClass, init$, void)},
+	{"add", "(II)Ljava/util/regex/Pattern$BitClass;", nullptr, 0, $method(Pattern$BitClass, add, Pattern$BitClass*, int32_t, int32_t)},
+	{"is", "(I)Z", nullptr, $PUBLIC, $virtualMethod(Pattern$BitClass, is, bool, int32_t)},
 	{}
 };
 

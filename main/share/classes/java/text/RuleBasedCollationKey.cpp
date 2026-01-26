@@ -23,12 +23,12 @@ $FieldInfo _RuleBasedCollationKey_FieldInfo_[] = {
 };
 
 $MethodInfo _RuleBasedCollationKey_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(RuleBasedCollationKey::*)($String*,$String*)>(&RuleBasedCollationKey::init$))},
-	{"compareTo", "(Ljava/text/CollationKey;)I", nullptr, $PUBLIC},
-	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"toByteArray", "()[B", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(RuleBasedCollationKey, init$, void, $String*, $String*)},
+	{"compareTo", "(Ljava/text/CollationKey;)I", nullptr, $PUBLIC, $virtualMethod(RuleBasedCollationKey, compareTo, int32_t, $CollationKey*)},
+	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(RuleBasedCollationKey, compareTo, int32_t, Object$*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(RuleBasedCollationKey, equals, bool, Object$*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(RuleBasedCollationKey, hashCode, int32_t)},
+	{"toByteArray", "()[B", nullptr, $PUBLIC, $virtualMethod(RuleBasedCollationKey, toByteArray, $bytes*)},
 	{}
 };
 

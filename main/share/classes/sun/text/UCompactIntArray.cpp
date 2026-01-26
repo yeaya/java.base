@@ -44,14 +44,14 @@ $FieldInfo _UCompactIntArray_FieldInfo_[] = {
 };
 
 $MethodInfo _UCompactIntArray_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(UCompactIntArray::*)()>(&UCompactIntArray::init$))},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(static_cast<void(UCompactIntArray::*)(int32_t)>(&UCompactIntArray::init$))},
-	{"compact", "()V", nullptr, $PUBLIC, $method(static_cast<void(UCompactIntArray::*)()>(&UCompactIntArray::compact))},
-	{"elementAt", "(I)I", nullptr, $PUBLIC, $method(static_cast<int32_t(UCompactIntArray::*)(int32_t)>(&UCompactIntArray::elementAt))},
-	{"expand", "()V", nullptr, $PRIVATE, $method(static_cast<void(UCompactIntArray::*)()>(&UCompactIntArray::expand))},
-	{"getKSize", "()I", nullptr, $PUBLIC, $method(static_cast<int32_t(UCompactIntArray::*)()>(&UCompactIntArray::getKSize))},
-	{"initPlane", "(I)V", nullptr, $PRIVATE, $method(static_cast<void(UCompactIntArray::*)(int32_t)>(&UCompactIntArray::initPlane))},
-	{"setElementAt", "(II)V", nullptr, $PUBLIC, $method(static_cast<void(UCompactIntArray::*)(int32_t,int32_t)>(&UCompactIntArray::setElementAt))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(UCompactIntArray, init$, void)},
+	{"<init>", "(I)V", nullptr, $PUBLIC, $method(UCompactIntArray, init$, void, int32_t)},
+	{"compact", "()V", nullptr, $PUBLIC, $method(UCompactIntArray, compact, void)},
+	{"elementAt", "(I)I", nullptr, $PUBLIC, $method(UCompactIntArray, elementAt, int32_t, int32_t)},
+	{"expand", "()V", nullptr, $PRIVATE, $method(UCompactIntArray, expand, void)},
+	{"getKSize", "()I", nullptr, $PUBLIC, $method(UCompactIntArray, getKSize, int32_t)},
+	{"initPlane", "(I)V", nullptr, $PRIVATE, $method(UCompactIntArray, initPlane, void, int32_t)},
+	{"setElementAt", "(II)V", nullptr, $PUBLIC, $method(UCompactIntArray, setElementAt, void, int32_t, int32_t)},
 	{}
 };
 

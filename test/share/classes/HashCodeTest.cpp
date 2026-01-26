@@ -35,8 +35,8 @@ using $Map = ::java::util::Map;
 using $Set = ::java::util::Set;
 
 $MethodInfo _HashCodeTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(HashCodeTest::*)()>(&HashCodeTest::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&HashCodeTest::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(HashCodeTest, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HashCodeTest, main, void, $StringArray*)},
 	{}
 };
 

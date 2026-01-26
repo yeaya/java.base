@@ -12,8 +12,8 @@ using $Annotation = ::java::lang::annotation::Annotation;
 using $IncompleteAnnotationException = ::java::lang::annotation::IncompleteAnnotationException;
 
 $MethodInfo _TestIncompleteAnnotationExceptionNPE_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TestIncompleteAnnotationExceptionNPE::*)()>(&TestIncompleteAnnotationExceptionNPE::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<void(*)($StringArray*)>(&TestIncompleteAnnotationExceptionNPE::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TestIncompleteAnnotationExceptionNPE, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(TestIncompleteAnnotationExceptionNPE, main, void, $StringArray*)},
 	{}
 };
 

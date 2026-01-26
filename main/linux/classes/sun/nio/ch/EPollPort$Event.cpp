@@ -21,9 +21,9 @@ $FieldInfo _EPollPort$Event_FieldInfo_[] = {
 };
 
 $MethodInfo _EPollPort$Event_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/ch/Port$PollableChannel;I)V", nullptr, 0, $method(static_cast<void(EPollPort$Event::*)($Port$PollableChannel*,int32_t)>(&EPollPort$Event::init$))},
-	{"channel", "()Lsun/nio/ch/Port$PollableChannel;", nullptr, 0},
-	{"events", "()I", nullptr, 0},
+	{"<init>", "(Lsun/nio/ch/Port$PollableChannel;I)V", nullptr, 0, $method(EPollPort$Event, init$, void, $Port$PollableChannel*, int32_t)},
+	{"channel", "()Lsun/nio/ch/Port$PollableChannel;", nullptr, 0, $virtualMethod(EPollPort$Event, channel, $Port$PollableChannel*)},
+	{"events", "()I", nullptr, 0, $virtualMethod(EPollPort$Event, events, int32_t)},
 	{}
 };
 

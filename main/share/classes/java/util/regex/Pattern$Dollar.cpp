@@ -26,9 +26,9 @@ $FieldInfo _Pattern$Dollar_FieldInfo_[] = {
 };
 
 $MethodInfo _Pattern$Dollar_MethodInfo_[] = {
-	{"<init>", "(Z)V", nullptr, 0, $method(static_cast<void(Pattern$Dollar::*)(bool)>(&Pattern$Dollar::init$))},
-	{"match", "(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z", nullptr, 0},
-	{"study", "(Ljava/util/regex/Pattern$TreeInfo;)Z", nullptr, 0},
+	{"<init>", "(Z)V", nullptr, 0, $method(Pattern$Dollar, init$, void, bool)},
+	{"match", "(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z", nullptr, 0, $virtualMethod(Pattern$Dollar, match, bool, $Matcher*, int32_t, $CharSequence*)},
+	{"study", "(Ljava/util/regex/Pattern$TreeInfo;)Z", nullptr, 0, $virtualMethod(Pattern$Dollar, study, bool, $Pattern$TreeInfo*)},
 	{}
 };
 

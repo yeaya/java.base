@@ -9,7 +9,7 @@ namespace java {
 	namespace io {
 
 $MethodInfo _ObjectInputValidation_MethodInfo_[] = {
-	{"validateObject", "()V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.InvalidObjectException"},
+	{"validateObject", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ObjectInputValidation, validateObject, void), "java.io.InvalidObjectException"},
 	{}
 };
 

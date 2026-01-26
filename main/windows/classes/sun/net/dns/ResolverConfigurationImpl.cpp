@@ -47,16 +47,16 @@ $FieldInfo _ResolverConfigurationImpl_FieldInfo_[] = {
 };
 
 $MethodInfo _ResolverConfigurationImpl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ResolverConfigurationImpl::*)()>(&ResolverConfigurationImpl::init$))},
-	{"addressesToList", "(Ljava/lang/String;)Ljava/util/ArrayList;", "(Ljava/lang/String;)Ljava/util/ArrayList<Ljava/lang/String;>;", $PRIVATE, $method(static_cast<$ArrayList*(ResolverConfigurationImpl::*)($String*)>(&ResolverConfigurationImpl::addressesToList))},
-	{"init0", "()V", nullptr, $STATIC | $NATIVE, $method(static_cast<void(*)()>(&ResolverConfigurationImpl::init0))},
-	{"loadConfig", "()V", nullptr, $PRIVATE, $method(static_cast<void(ResolverConfigurationImpl::*)()>(&ResolverConfigurationImpl::loadConfig))},
-	{"loadDNSconfig0", "()V", nullptr, $STATIC | $NATIVE, $method(static_cast<void(*)()>(&ResolverConfigurationImpl::loadDNSconfig0))},
-	{"nameservers", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PUBLIC},
-	{"notifyAddrChange0", "()I", nullptr, $STATIC | $NATIVE, $method(static_cast<int32_t(*)()>(&ResolverConfigurationImpl::notifyAddrChange0))},
-	{"options", "()Lsun/net/dns/ResolverConfiguration$Options;", nullptr, $PUBLIC},
-	{"searchlist", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PUBLIC},
-	{"stringToList", "(Ljava/lang/String;)Ljava/util/ArrayList;", "(Ljava/lang/String;)Ljava/util/ArrayList<Ljava/lang/String;>;", $PRIVATE, $method(static_cast<$ArrayList*(ResolverConfigurationImpl::*)($String*)>(&ResolverConfigurationImpl::stringToList))},
+	{"<init>", "()V", nullptr, 0, $method(ResolverConfigurationImpl, init$, void)},
+	{"addressesToList", "(Ljava/lang/String;)Ljava/util/ArrayList;", "(Ljava/lang/String;)Ljava/util/ArrayList<Ljava/lang/String;>;", $PRIVATE, $method(ResolverConfigurationImpl, addressesToList, $ArrayList*, $String*)},
+	{"init0", "()V", nullptr, $STATIC | $NATIVE, $staticMethod(ResolverConfigurationImpl, init0, void)},
+	{"loadConfig", "()V", nullptr, $PRIVATE, $method(ResolverConfigurationImpl, loadConfig, void)},
+	{"loadDNSconfig0", "()V", nullptr, $STATIC | $NATIVE, $staticMethod(ResolverConfigurationImpl, loadDNSconfig0, void)},
+	{"nameservers", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(ResolverConfigurationImpl, nameservers, $List*)},
+	{"notifyAddrChange0", "()I", nullptr, $STATIC | $NATIVE, $staticMethod(ResolverConfigurationImpl, notifyAddrChange0, int32_t)},
+	{"options", "()Lsun/net/dns/ResolverConfiguration$Options;", nullptr, $PUBLIC, $virtualMethod(ResolverConfigurationImpl, options, $ResolverConfiguration$Options*)},
+	{"searchlist", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(ResolverConfigurationImpl, searchlist, $List*)},
+	{"stringToList", "(Ljava/lang/String;)Ljava/util/ArrayList;", "(Ljava/lang/String;)Ljava/util/ArrayList<Ljava/lang/String;>;", $PRIVATE, $method(ResolverConfigurationImpl, stringToList, $ArrayList*, $String*)},
 	{}
 };
 

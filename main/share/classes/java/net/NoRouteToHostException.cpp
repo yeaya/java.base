@@ -17,8 +17,8 @@ $FieldInfo _NoRouteToHostException_FieldInfo_[] = {
 };
 
 $MethodInfo _NoRouteToHostException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(NoRouteToHostException::*)($String*)>(&NoRouteToHostException::init$))},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(NoRouteToHostException::*)()>(&NoRouteToHostException::init$))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NoRouteToHostException, init$, void, $String*)},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(NoRouteToHostException, init$, void)},
 	{}
 };
 

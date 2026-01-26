@@ -16,8 +16,8 @@ $FieldInfo _Test8076596$1_FieldInfo_[] = {
 };
 
 $MethodInfo _Test8076596$1_MethodInfo_[] = {
-	{"<init>", "(LTest8076596;)V", nullptr, 0, $method(static_cast<void(Test8076596$1::*)($Test8076596*)>(&Test8076596$1::init$))},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC},
+	{"<init>", "(LTest8076596;)V", nullptr, 0, $method(Test8076596$1, init$, void, $Test8076596*)},
+	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(Test8076596$1, run, $Object*)},
 	{}
 };
 

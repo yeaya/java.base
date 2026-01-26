@@ -10,7 +10,7 @@ namespace sun {
 		namespace cs {
 
 $MethodInfo _HistoricallyNamedCharset_MethodInfo_[] = {
-	{"historicalName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
+	{"historicalName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HistoricallyNamedCharset, historicalName, $String*)},
 	{}
 };
 

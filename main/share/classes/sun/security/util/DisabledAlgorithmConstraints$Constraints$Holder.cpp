@@ -22,7 +22,7 @@ $FieldInfo _DisabledAlgorithmConstraints$Constraints$Holder_FieldInfo_[] = {
 };
 
 $MethodInfo _DisabledAlgorithmConstraints$Constraints$Holder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(DisabledAlgorithmConstraints$Constraints$Holder::*)()>(&DisabledAlgorithmConstraints$Constraints$Holder::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(DisabledAlgorithmConstraints$Constraints$Holder, init$, void)},
 	{}
 };
 

@@ -33,15 +33,15 @@ $FieldInfo _RSAMultiPrimePrivateCrtKeySpec_FieldInfo_[] = {
 };
 
 $MethodInfo _RSAMultiPrimePrivateCrtKeySpec_MethodInfo_[] = {
-	{"<init>", "(Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;[Ljava/security/spec/RSAOtherPrimeInfo;)V", nullptr, $PUBLIC, $method(static_cast<void(RSAMultiPrimePrivateCrtKeySpec::*)($BigInteger*,$BigInteger*,$BigInteger*,$BigInteger*,$BigInteger*,$BigInteger*,$BigInteger*,$BigInteger*,$RSAOtherPrimeInfoArray*)>(&RSAMultiPrimePrivateCrtKeySpec::init$))},
-	{"<init>", "(Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;[Ljava/security/spec/RSAOtherPrimeInfo;Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PUBLIC, $method(static_cast<void(RSAMultiPrimePrivateCrtKeySpec::*)($BigInteger*,$BigInteger*,$BigInteger*,$BigInteger*,$BigInteger*,$BigInteger*,$BigInteger*,$BigInteger*,$RSAOtherPrimeInfoArray*,$AlgorithmParameterSpec*)>(&RSAMultiPrimePrivateCrtKeySpec::init$))},
-	{"getCrtCoefficient", "()Ljava/math/BigInteger;", nullptr, $PUBLIC},
-	{"getOtherPrimeInfo", "()[Ljava/security/spec/RSAOtherPrimeInfo;", nullptr, $PUBLIC},
-	{"getPrimeExponentP", "()Ljava/math/BigInteger;", nullptr, $PUBLIC},
-	{"getPrimeExponentQ", "()Ljava/math/BigInteger;", nullptr, $PUBLIC},
-	{"getPrimeP", "()Ljava/math/BigInteger;", nullptr, $PUBLIC},
-	{"getPrimeQ", "()Ljava/math/BigInteger;", nullptr, $PUBLIC},
-	{"getPublicExponent", "()Ljava/math/BigInteger;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;[Ljava/security/spec/RSAOtherPrimeInfo;)V", nullptr, $PUBLIC, $method(RSAMultiPrimePrivateCrtKeySpec, init$, void, $BigInteger*, $BigInteger*, $BigInteger*, $BigInteger*, $BigInteger*, $BigInteger*, $BigInteger*, $BigInteger*, $RSAOtherPrimeInfoArray*)},
+	{"<init>", "(Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;[Ljava/security/spec/RSAOtherPrimeInfo;Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PUBLIC, $method(RSAMultiPrimePrivateCrtKeySpec, init$, void, $BigInteger*, $BigInteger*, $BigInteger*, $BigInteger*, $BigInteger*, $BigInteger*, $BigInteger*, $BigInteger*, $RSAOtherPrimeInfoArray*, $AlgorithmParameterSpec*)},
+	{"getCrtCoefficient", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(RSAMultiPrimePrivateCrtKeySpec, getCrtCoefficient, $BigInteger*)},
+	{"getOtherPrimeInfo", "()[Ljava/security/spec/RSAOtherPrimeInfo;", nullptr, $PUBLIC, $virtualMethod(RSAMultiPrimePrivateCrtKeySpec, getOtherPrimeInfo, $RSAOtherPrimeInfoArray*)},
+	{"getPrimeExponentP", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(RSAMultiPrimePrivateCrtKeySpec, getPrimeExponentP, $BigInteger*)},
+	{"getPrimeExponentQ", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(RSAMultiPrimePrivateCrtKeySpec, getPrimeExponentQ, $BigInteger*)},
+	{"getPrimeP", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(RSAMultiPrimePrivateCrtKeySpec, getPrimeP, $BigInteger*)},
+	{"getPrimeQ", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(RSAMultiPrimePrivateCrtKeySpec, getPrimeQ, $BigInteger*)},
+	{"getPublicExponent", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(RSAMultiPrimePrivateCrtKeySpec, getPublicExponent, $BigInteger*)},
 	{}
 };
 

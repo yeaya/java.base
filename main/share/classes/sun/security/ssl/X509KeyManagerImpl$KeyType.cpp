@@ -32,8 +32,8 @@ $FieldInfo _X509KeyManagerImpl$KeyType_FieldInfo_[] = {
 };
 
 $MethodInfo _X509KeyManagerImpl$KeyType_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(X509KeyManagerImpl$KeyType::*)($String*)>(&X509KeyManagerImpl$KeyType::init$))},
-	{"matches", "([Ljava/security/cert/Certificate;)Z", nullptr, 0},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(X509KeyManagerImpl$KeyType, init$, void, $String*)},
+	{"matches", "([Ljava/security/cert/Certificate;)Z", nullptr, 0, $virtualMethod(X509KeyManagerImpl$KeyType, matches, bool, $CertificateArray*)},
 	{}
 };
 

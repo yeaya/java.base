@@ -50,16 +50,16 @@ $FieldInfo _PKCS12Attribute_FieldInfo_[] = {
 };
 
 $MethodInfo _PKCS12Attribute_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(PKCS12Attribute::*)($String*,$String*)>(&PKCS12Attribute::init$))},
-	{"<init>", "([B)V", nullptr, $PUBLIC, $method(static_cast<void(PKCS12Attribute::*)($bytes*)>(&PKCS12Attribute::init$))},
-	{"encode", "(Lsun/security/util/ObjectIdentifier;[Ljava/lang/String;)[B", nullptr, $PRIVATE, $method(static_cast<$bytes*(PKCS12Attribute::*)($ObjectIdentifier*,$StringArray*)>(&PKCS12Attribute::encode)), "java.io.IOException"},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getEncoded", "()[B", nullptr, $PUBLIC, $method(static_cast<$bytes*(PKCS12Attribute::*)()>(&PKCS12Attribute::getEncoded))},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getValue", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"parse", "([B)V", nullptr, $PRIVATE, $method(static_cast<void(PKCS12Attribute::*)($bytes*)>(&PKCS12Attribute::parse)), "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(PKCS12Attribute, init$, void, $String*, $String*)},
+	{"<init>", "([B)V", nullptr, $PUBLIC, $method(PKCS12Attribute, init$, void, $bytes*)},
+	{"encode", "(Lsun/security/util/ObjectIdentifier;[Ljava/lang/String;)[B", nullptr, $PRIVATE, $method(PKCS12Attribute, encode, $bytes*, $ObjectIdentifier*, $StringArray*), "java.io.IOException"},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(PKCS12Attribute, equals, bool, Object$*)},
+	{"getEncoded", "()[B", nullptr, $PUBLIC, $method(PKCS12Attribute, getEncoded, $bytes*)},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PKCS12Attribute, getName, $String*)},
+	{"getValue", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PKCS12Attribute, getValue, $String*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(PKCS12Attribute, hashCode, int32_t)},
+	{"parse", "([B)V", nullptr, $PRIVATE, $method(PKCS12Attribute, parse, void, $bytes*), "java.io.IOException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PKCS12Attribute, toString, $String*)},
 	{}
 };
 

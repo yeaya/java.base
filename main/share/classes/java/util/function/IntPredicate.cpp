@@ -46,8 +46,8 @@ $FieldInfo IntPredicate$$Lambda$lambda$and$0::fieldInfos[3] = {
 	{}
 };
 $MethodInfo IntPredicate$$Lambda$lambda$and$0::methodInfos[3] = {
-	{"<init>", "(Ljava/util/function/IntPredicate;Ljava/util/function/IntPredicate;)V", nullptr, $PUBLIC, $method(static_cast<void(IntPredicate$$Lambda$lambda$and$0::*)(IntPredicate*,IntPredicate*)>(&IntPredicate$$Lambda$lambda$and$0::init$))},
-	{"test", "(I)Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/function/IntPredicate;Ljava/util/function/IntPredicate;)V", nullptr, $PUBLIC, $method(IntPredicate$$Lambda$lambda$and$0, init$, void, IntPredicate*, IntPredicate*)},
+	{"test", "(I)Z", nullptr, $PUBLIC, $virtualMethod(IntPredicate$$Lambda$lambda$and$0, test, bool, int32_t)},
 	{}
 };
 $ClassInfo IntPredicate$$Lambda$lambda$and$0::classInfo$ = {
@@ -86,8 +86,8 @@ $FieldInfo IntPredicate$$Lambda$lambda$negate$1$1::fieldInfos[2] = {
 	{}
 };
 $MethodInfo IntPredicate$$Lambda$lambda$negate$1$1::methodInfos[3] = {
-	{"<init>", "(Ljava/util/function/IntPredicate;)V", nullptr, $PUBLIC, $method(static_cast<void(IntPredicate$$Lambda$lambda$negate$1$1::*)(IntPredicate*)>(&IntPredicate$$Lambda$lambda$negate$1$1::init$))},
-	{"test", "(I)Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/function/IntPredicate;)V", nullptr, $PUBLIC, $method(IntPredicate$$Lambda$lambda$negate$1$1, init$, void, IntPredicate*)},
+	{"test", "(I)Z", nullptr, $PUBLIC, $virtualMethod(IntPredicate$$Lambda$lambda$negate$1$1, test, bool, int32_t)},
 	{}
 };
 $ClassInfo IntPredicate$$Lambda$lambda$negate$1$1::classInfo$ = {
@@ -129,8 +129,8 @@ $FieldInfo IntPredicate$$Lambda$lambda$or$2$2::fieldInfos[3] = {
 	{}
 };
 $MethodInfo IntPredicate$$Lambda$lambda$or$2$2::methodInfos[3] = {
-	{"<init>", "(Ljava/util/function/IntPredicate;Ljava/util/function/IntPredicate;)V", nullptr, $PUBLIC, $method(static_cast<void(IntPredicate$$Lambda$lambda$or$2$2::*)(IntPredicate*,IntPredicate*)>(&IntPredicate$$Lambda$lambda$or$2$2::init$))},
-	{"test", "(I)Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/function/IntPredicate;Ljava/util/function/IntPredicate;)V", nullptr, $PUBLIC, $method(IntPredicate$$Lambda$lambda$or$2$2, init$, void, IntPredicate*, IntPredicate*)},
+	{"test", "(I)Z", nullptr, $PUBLIC, $virtualMethod(IntPredicate$$Lambda$lambda$or$2$2, test, bool, int32_t)},
 	{}
 };
 $ClassInfo IntPredicate$$Lambda$lambda$or$2$2::classInfo$ = {
@@ -153,13 +153,13 @@ $CompoundAttribute _IntPredicate_Annotations_[] = {
 };
 
 $MethodInfo _IntPredicate_MethodInfo_[] = {
-	{"and", "(Ljava/util/function/IntPredicate;)Ljava/util/function/IntPredicate;", nullptr, $PUBLIC},
-	{"lambda$and$0", "(Ljava/util/function/IntPredicate;I)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<bool(IntPredicate::*)(IntPredicate*,int32_t)>(&IntPredicate::lambda$and$0))},
-	{"lambda$negate$1", "(I)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<bool(IntPredicate::*)(int32_t)>(&IntPredicate::lambda$negate$1))},
-	{"lambda$or$2", "(Ljava/util/function/IntPredicate;I)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<bool(IntPredicate::*)(IntPredicate*,int32_t)>(&IntPredicate::lambda$or$2))},
-	{"negate", "()Ljava/util/function/IntPredicate;", nullptr, $PUBLIC},
-	{"or", "(Ljava/util/function/IntPredicate;)Ljava/util/function/IntPredicate;", nullptr, $PUBLIC},
-	{"test", "(I)Z", nullptr, $PUBLIC | $ABSTRACT},
+	{"and", "(Ljava/util/function/IntPredicate;)Ljava/util/function/IntPredicate;", nullptr, $PUBLIC, $virtualMethod(IntPredicate, and$, IntPredicate*, IntPredicate*)},
+	{"lambda$and$0", "(Ljava/util/function/IntPredicate;I)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(IntPredicate, lambda$and$0, bool, IntPredicate*, int32_t)},
+	{"lambda$negate$1", "(I)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(IntPredicate, lambda$negate$1, bool, int32_t)},
+	{"lambda$or$2", "(Ljava/util/function/IntPredicate;I)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(IntPredicate, lambda$or$2, bool, IntPredicate*, int32_t)},
+	{"negate", "()Ljava/util/function/IntPredicate;", nullptr, $PUBLIC, $virtualMethod(IntPredicate, negate, IntPredicate*)},
+	{"or", "(Ljava/util/function/IntPredicate;)Ljava/util/function/IntPredicate;", nullptr, $PUBLIC, $virtualMethod(IntPredicate, or$, IntPredicate*, IntPredicate*)},
+	{"test", "(I)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(IntPredicate, test, bool, int32_t)},
 	{}
 };
 

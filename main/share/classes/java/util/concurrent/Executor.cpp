@@ -5,13 +5,14 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Runnable = ::java::lang::Runnable;
 
 namespace java {
 	namespace util {
 		namespace concurrent {
 
 $MethodInfo _Executor_MethodInfo_[] = {
-	{"execute", "(Ljava/lang/Runnable;)V", nullptr, $PUBLIC | $ABSTRACT},
+	{"execute", "(Ljava/lang/Runnable;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Executor, execute, void, $Runnable*)},
 	{}
 };
 

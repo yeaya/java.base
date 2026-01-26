@@ -20,9 +20,9 @@ using $Arrays = ::java::util::Arrays;
 using $Objects = ::java::util::Objects;
 
 $MethodInfo _GetAnnotatedNestedSuperclass_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(GetAnnotatedNestedSuperclass::*)()>(&GetAnnotatedNestedSuperclass::init$))},
-	{"assertEquals", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)(Object$*,Object$*)>(&GetAnnotatedNestedSuperclass::assertEquals))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&GetAnnotatedNestedSuperclass::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(GetAnnotatedNestedSuperclass, init$, void)},
+	{"assertEquals", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(GetAnnotatedNestedSuperclass, assertEquals, void, Object$*, Object$*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(GetAnnotatedNestedSuperclass, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

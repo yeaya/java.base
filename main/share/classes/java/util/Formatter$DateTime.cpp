@@ -79,8 +79,8 @@ $FieldInfo _Formatter$DateTime_FieldInfo_[] = {
 };
 
 $MethodInfo _Formatter$DateTime_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(Formatter$DateTime::*)()>(&Formatter$DateTime::init$))},
-	{"isValid", "(C)Z", nullptr, $STATIC, $method(static_cast<bool(*)(char16_t)>(&Formatter$DateTime::isValid))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(Formatter$DateTime, init$, void)},
+	{"isValid", "(C)Z", nullptr, $STATIC, $staticMethod(Formatter$DateTime, isValid, bool, char16_t)},
 	{}
 };
 

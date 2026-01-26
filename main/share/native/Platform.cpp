@@ -41,7 +41,7 @@
 
 #include "ffi.h"
 
-#ifdef WIN32
+#ifdef _WIN32
 #include <windows.h>
 #include <winuser.h>
 #endif
@@ -55,6 +55,9 @@ using $ArrayList = ::java::util::ArrayList;
 using $MethodArray = $Array<::java::lang::reflect::Method>;
 using $Modifier = ::java::lang::reflect::Modifier;
 
+namespace java {
+	namespace lang {
+
 void Platform::init() {
 	OS::init();
 	Arguments::initSystemProperties();
@@ -62,7 +65,7 @@ void Platform::init() {
 	Arguments::initVersionSpecificProperties();
 	OS::init2();
 	StackWalk::init();
-#ifdef WIN32
+#ifdef _WIN32
 	SetProcessDpiAwarenessContext(DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2);
 #endif
 }
@@ -281,6 +284,10 @@ const char* Platform::getExecutionFilePath(char* buf, int bufLen) {
 
 void* Platform::loadLibrary(const char* filename, char* ebuf, int ebuflen) {
 	return OS::loadLibrary(filename, ebuf, ebuflen);
+}
+
+void Platform::unloadLibrary(void* lib) {
+	OS::unloadLibrary(lib);
 }
 
 bool Platform::getLibraryWithAddress(void* addr, char* buf, int buflen) {
@@ -561,7 +568,7 @@ bool Platform::setVirtualInvokeAddress(::java::lang::reflect::Method* method) {
 	return false;
 }
 
-#ifdef WIN32
+#ifdef _WIN32
 struct RTTIEx {
 	void* opt;
 	RTTICompleteObjectLocator col;
@@ -998,7 +1005,7 @@ $Value Platform::invokeJni(bool special, ::java::lang::reflect::Method* method, 
 	return ret;
 }
 
-$Object* $of($Value var, Class* type) {
+$Object* of($Value var, Class* type) {
 	if (type->isPrimitive()) {
 		if (type == Byte::TYPE) {
 			return $of(var.byteValue());
@@ -1027,12 +1034,12 @@ $Object* $of($Value var, Class* type) {
 
 $Object* Platform::invoke($Method* method, Object$* obj, $Value* argv) {
 	$Value ret = invokev(false, method, obj, argv);
-	return $of(ret, method->getReturnType());
+	return of(ret, method->getReturnType());
 }
 
 $Object* Platform::invokeSpecial($Method* method, Object$* obj, $Value* argv) {
 	$Value ret = invokev(true, method, obj, argv);
-	return $of(ret, method->getReturnType());
+	return of(ret, method->getReturnType());
 }
 
 void Platform::initInstance($Constructor* constructor, Object$* obj, $Value* argv) {
@@ -1303,3 +1310,6 @@ bool Platform::isGlobalRef(Object$* ref) {
 	ObjectHead* oh = toOh(obj0);
 	return oh->isGlobalRef();
 }
+
+	} // namespace lang
+} // namespace java

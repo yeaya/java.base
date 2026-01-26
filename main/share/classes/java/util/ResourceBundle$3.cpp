@@ -25,8 +25,8 @@ $FieldInfo _ResourceBundle$3_FieldInfo_[] = {
 };
 
 $MethodInfo _ResourceBundle$3_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/ClassLoader;)V", nullptr, 0, $method(static_cast<void(ResourceBundle$3::*)($String*,$ClassLoader*)>(&ResourceBundle$3::init$))},
-	{"run", "()Ljava/lang/Class;", "()Ljava/lang/Class<Ljava/util/spi/ResourceBundleProvider;>;", $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/ClassLoader;)V", nullptr, 0, $method(ResourceBundle$3, init$, void, $String*, $ClassLoader*)},
+	{"run", "()Ljava/lang/Class;", "()Ljava/lang/Class<Ljava/util/spi/ResourceBundleProvider;>;", $PUBLIC, $virtualMethod(ResourceBundle$3, run, $Object*)},
 	{}
 };
 

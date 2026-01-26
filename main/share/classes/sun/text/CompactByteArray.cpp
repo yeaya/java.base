@@ -41,22 +41,22 @@ $FieldInfo _CompactByteArray_FieldInfo_[] = {
 };
 
 $MethodInfo _CompactByteArray_MethodInfo_[] = {
-	{"<init>", "(B)V", nullptr, $PUBLIC, $method(static_cast<void(CompactByteArray::*)(int8_t)>(&CompactByteArray::init$))},
-	{"<init>", "([S[B)V", nullptr, $PUBLIC, $method(static_cast<void(CompactByteArray::*)($shorts*,$bytes*)>(&CompactByteArray::init$))},
-	{"arrayRegionMatches", "([BI[BII)Z", nullptr, $STATIC | $FINAL, $method(static_cast<bool(*)($bytes*,int32_t,$bytes*,int32_t,int32_t)>(&CompactByteArray::arrayRegionMatches))},
-	{"blockTouched", "(I)Z", nullptr, $PRIVATE | $FINAL, $method(static_cast<bool(CompactByteArray::*)(int32_t)>(&CompactByteArray::blockTouched))},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"compact", "()V", nullptr, $PUBLIC, $method(static_cast<void(CompactByteArray::*)()>(&CompactByteArray::compact))},
-	{"elementAt", "(C)B", nullptr, $PUBLIC, $method(static_cast<int8_t(CompactByteArray::*)(char16_t)>(&CompactByteArray::elementAt))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"expand", "()V", nullptr, $PRIVATE, $method(static_cast<void(CompactByteArray::*)()>(&CompactByteArray::expand))},
-	{"getArray", "()[B", nullptr, $PRIVATE, $method(static_cast<$bytes*(CompactByteArray::*)()>(&CompactByteArray::getArray))},
-	{"getIndexArray", "()[S", nullptr, $PUBLIC, $method(static_cast<$shorts*(CompactByteArray::*)()>(&CompactByteArray::getIndexArray))},
-	{"getStringArray", "()[B", nullptr, $PUBLIC, $method(static_cast<$bytes*(CompactByteArray::*)()>(&CompactByteArray::getStringArray))},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"setElementAt", "(CB)V", nullptr, $PUBLIC, $method(static_cast<void(CompactByteArray::*)(char16_t,int8_t)>(&CompactByteArray::setElementAt))},
-	{"setElementAt", "(CCB)V", nullptr, $PUBLIC, $method(static_cast<void(CompactByteArray::*)(char16_t,char16_t,int8_t)>(&CompactByteArray::setElementAt))},
-	{"touchBlock", "(II)V", nullptr, $PRIVATE | $FINAL, $method(static_cast<void(CompactByteArray::*)(int32_t,int32_t)>(&CompactByteArray::touchBlock))},
+	{"<init>", "(B)V", nullptr, $PUBLIC, $method(CompactByteArray, init$, void, int8_t)},
+	{"<init>", "([S[B)V", nullptr, $PUBLIC, $method(CompactByteArray, init$, void, $shorts*, $bytes*)},
+	{"arrayRegionMatches", "([BI[BII)Z", nullptr, $STATIC | $FINAL, $staticMethod(CompactByteArray, arrayRegionMatches, bool, $bytes*, int32_t, $bytes*, int32_t, int32_t)},
+	{"blockTouched", "(I)Z", nullptr, $PRIVATE | $FINAL, $method(CompactByteArray, blockTouched, bool, int32_t)},
+	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(CompactByteArray, clone, $Object*)},
+	{"compact", "()V", nullptr, $PUBLIC, $method(CompactByteArray, compact, void)},
+	{"elementAt", "(C)B", nullptr, $PUBLIC, $method(CompactByteArray, elementAt, int8_t, char16_t)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(CompactByteArray, equals, bool, Object$*)},
+	{"expand", "()V", nullptr, $PRIVATE, $method(CompactByteArray, expand, void)},
+	{"getArray", "()[B", nullptr, $PRIVATE, $method(CompactByteArray, getArray, $bytes*)},
+	{"getIndexArray", "()[S", nullptr, $PUBLIC, $method(CompactByteArray, getIndexArray, $shorts*)},
+	{"getStringArray", "()[B", nullptr, $PUBLIC, $method(CompactByteArray, getStringArray, $bytes*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(CompactByteArray, hashCode, int32_t)},
+	{"setElementAt", "(CB)V", nullptr, $PUBLIC, $method(CompactByteArray, setElementAt, void, char16_t, int8_t)},
+	{"setElementAt", "(CCB)V", nullptr, $PUBLIC, $method(CompactByteArray, setElementAt, void, char16_t, char16_t, int8_t)},
+	{"touchBlock", "(II)V", nullptr, $PRIVATE | $FINAL, $method(CompactByteArray, touchBlock, void, int32_t, int32_t)},
 	{}
 };
 

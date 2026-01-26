@@ -20,10 +20,10 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _Inet6AddressSerTest$PayloadTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Inet6AddressSerTest$PayloadTest::*)()>(&Inet6AddressSerTest$PayloadTest::init$))},
-	{"deserialize", "([B)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$Object*(*)($bytes*)>(&Inet6AddressSerTest$PayloadTest::deserialize)), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"serialize", "(Ljava/lang/String;)[B", nullptr, $PRIVATE | $STATIC, $method(static_cast<$bytes*(*)($String*)>(&Inet6AddressSerTest$PayloadTest::serialize)), "java.io.IOException"},
-	{"test", "(Ljava/lang/String;)V", nullptr, 0, nullptr, "java.io.IOException,java.lang.ClassNotFoundException"},
+	{"<init>", "()V", nullptr, 0, $method(Inet6AddressSerTest$PayloadTest, init$, void)},
+	{"deserialize", "([B)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC, $staticMethod(Inet6AddressSerTest$PayloadTest, deserialize, $Object*, $bytes*), "java.io.IOException,java.lang.ClassNotFoundException"},
+	{"serialize", "(Ljava/lang/String;)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(Inet6AddressSerTest$PayloadTest, serialize, $bytes*, $String*), "java.io.IOException"},
+	{"test", "(Ljava/lang/String;)V", nullptr, 0, $virtualMethod(Inet6AddressSerTest$PayloadTest, test, void, $String*), "java.io.IOException,java.lang.ClassNotFoundException"},
 	{}
 };
 

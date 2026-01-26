@@ -17,10 +17,10 @@ $FieldInfo _ExecutionException_FieldInfo_[] = {
 };
 
 $MethodInfo _ExecutionException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(ExecutionException::*)()>(&ExecutionException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $method(static_cast<void(ExecutionException::*)($String*)>(&ExecutionException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(ExecutionException::*)($String*,$Throwable*)>(&ExecutionException::init$))},
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(ExecutionException::*)($Throwable*)>(&ExecutionException::init$))},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(ExecutionException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $method(ExecutionException, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(ExecutionException, init$, void, $String*, $Throwable*)},
+	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(ExecutionException, init$, void, $Throwable*)},
 	{}
 };
 

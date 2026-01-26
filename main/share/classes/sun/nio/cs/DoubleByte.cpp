@@ -21,7 +21,7 @@ $FieldInfo _DoubleByte_FieldInfo_[] = {
 };
 
 $MethodInfo _DoubleByte_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DoubleByte::*)()>(&DoubleByte::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DoubleByte, init$, void)},
 	{}
 };
 

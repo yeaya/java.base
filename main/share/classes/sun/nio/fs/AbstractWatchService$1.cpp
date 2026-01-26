@@ -25,9 +25,9 @@ $FieldInfo _AbstractWatchService$1_FieldInfo_[] = {
 };
 
 $MethodInfo _AbstractWatchService$1_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/fs/AbstractWatchService;Ljava/nio/file/Path;Lsun/nio/fs/AbstractWatchService;)V", nullptr, 0, $method(static_cast<void(AbstractWatchService$1::*)($AbstractWatchService*,$Path*,$AbstractWatchService*)>(&AbstractWatchService$1::init$))},
-	{"cancel", "()V", nullptr, $PUBLIC},
-	{"isValid", "()Z", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/nio/fs/AbstractWatchService;Ljava/nio/file/Path;Lsun/nio/fs/AbstractWatchService;)V", nullptr, 0, $method(AbstractWatchService$1, init$, void, $AbstractWatchService*, $Path*, $AbstractWatchService*)},
+	{"cancel", "()V", nullptr, $PUBLIC, $virtualMethod(AbstractWatchService$1, cancel, void)},
+	{"isValid", "()Z", nullptr, $PUBLIC, $virtualMethod(AbstractWatchService$1, isValid, bool)},
 	{}
 };
 

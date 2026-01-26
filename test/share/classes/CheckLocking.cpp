@@ -26,10 +26,10 @@ $FieldInfo _CheckLocking_FieldInfo_[] = {
 };
 
 $MethodInfo _CheckLocking_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CheckLocking::*)()>(&CheckLocking::init$))},
-	{"doSelect", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&CheckLocking::doSelect)), "java.lang.Exception"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&CheckLocking::main)), "java.lang.Exception"},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CheckLocking, init$, void)},
+	{"doSelect", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(CheckLocking, doSelect, void), "java.lang.Exception"},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(CheckLocking, main, void, $StringArray*), "java.lang.Exception"},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(CheckLocking, run, void)},
 	{}
 };
 

@@ -14,9 +14,9 @@ namespace java {
 	namespace io {
 
 $MethodInfo _ObjectStreamClass$4_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ObjectStreamClass$4::*)()>(&ObjectStreamClass$4::init$))},
-	{"compare", "(Ljava/io/ObjectStreamClass$MemberSignature;Ljava/io/ObjectStreamClass$MemberSignature;)I", nullptr, $PUBLIC},
-	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "()V", nullptr, 0, $method(ObjectStreamClass$4, init$, void)},
+	{"compare", "(Ljava/io/ObjectStreamClass$MemberSignature;Ljava/io/ObjectStreamClass$MemberSignature;)I", nullptr, $PUBLIC, $virtualMethod(ObjectStreamClass$4, compare, int32_t, $ObjectStreamClass$MemberSignature*, $ObjectStreamClass$MemberSignature*)},
+	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ObjectStreamClass$4, compare, int32_t, Object$*, Object$*)},
 	{}
 };
 

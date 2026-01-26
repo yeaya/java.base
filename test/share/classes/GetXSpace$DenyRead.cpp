@@ -18,8 +18,8 @@ $FieldInfo _GetXSpace$DenyRead_FieldInfo_[] = {
 };
 
 $MethodInfo _GetXSpace$DenyRead_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(GetXSpace$DenyRead::*)()>(&GetXSpace$DenyRead::init$))},
-	{"checkRead", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(GetXSpace$DenyRead, init$, void)},
+	{"checkRead", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(GetXSpace$DenyRead, checkRead, void, $String*)},
 	{}
 };
 

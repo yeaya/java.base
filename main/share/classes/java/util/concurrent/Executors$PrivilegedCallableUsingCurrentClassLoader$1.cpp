@@ -24,8 +24,8 @@ $FieldInfo _Executors$PrivilegedCallableUsingCurrentClassLoader$1_FieldInfo_[] =
 };
 
 $MethodInfo _Executors$PrivilegedCallableUsingCurrentClassLoader$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/Executors$PrivilegedCallableUsingCurrentClassLoader;)V", nullptr, 0, $method(static_cast<void(Executors$PrivilegedCallableUsingCurrentClassLoader$1::*)($Executors$PrivilegedCallableUsingCurrentClassLoader*)>(&Executors$PrivilegedCallableUsingCurrentClassLoader$1::init$))},
-	{"run", "()Ljava/lang/Object;", "()TT;", $PUBLIC, nullptr, "java.lang.Exception"},
+	{"<init>", "(Ljava/util/concurrent/Executors$PrivilegedCallableUsingCurrentClassLoader;)V", nullptr, 0, $method(Executors$PrivilegedCallableUsingCurrentClassLoader$1, init$, void, $Executors$PrivilegedCallableUsingCurrentClassLoader*)},
+	{"run", "()Ljava/lang/Object;", "()TT;", $PUBLIC, $virtualMethod(Executors$PrivilegedCallableUsingCurrentClassLoader$1, run, $Object*), "java.lang.Exception"},
 	{}
 };
 

@@ -31,7 +31,7 @@ $FieldInfo _SSLKeyExchange$SSLKeyExDHERSAOrPSS_FieldInfo_[] = {
 };
 
 $MethodInfo _SSLKeyExchange$SSLKeyExDHERSAOrPSS_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(SSLKeyExchange$SSLKeyExDHERSAOrPSS::*)()>(&SSLKeyExchange$SSLKeyExDHERSAOrPSS::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(SSLKeyExchange$SSLKeyExDHERSAOrPSS, init$, void)},
 	{}
 };
 

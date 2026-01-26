@@ -7,6 +7,9 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Runnable = ::java::lang::Runnable;
+using $Iterator = ::java::util::Iterator;
+using $Spliterator = ::java::util::Spliterator;
 
 namespace java {
 	namespace util {
@@ -14,13 +17,13 @@ namespace java {
 
 $MethodInfo _BaseStream_MethodInfo_[] = {
 	{"close", "()V", nullptr, $PUBLIC | $ABSTRACT},
-	{"isParallel", "()Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TT;>;", $PUBLIC | $ABSTRACT},
-	{"onClose", "(Ljava/lang/Runnable;)Ljava/util/stream/BaseStream;", "(Ljava/lang/Runnable;)TS;", $PUBLIC | $ABSTRACT},
-	{"parallel", "()Ljava/util/stream/BaseStream;", "()TS;", $PUBLIC | $ABSTRACT},
-	{"sequential", "()Ljava/util/stream/BaseStream;", "()TS;", $PUBLIC | $ABSTRACT},
-	{"spliterator", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TT;>;", $PUBLIC | $ABSTRACT},
-	{"unordered", "()Ljava/util/stream/BaseStream;", "()TS;", $PUBLIC | $ABSTRACT},
+	{"isParallel", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(BaseStream, isParallel, bool)},
+	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TT;>;", $PUBLIC | $ABSTRACT, $virtualMethod(BaseStream, iterator, $Iterator*)},
+	{"onClose", "(Ljava/lang/Runnable;)Ljava/util/stream/BaseStream;", "(Ljava/lang/Runnable;)TS;", $PUBLIC | $ABSTRACT, $virtualMethod(BaseStream, onClose, BaseStream*, $Runnable*)},
+	{"parallel", "()Ljava/util/stream/BaseStream;", "()TS;", $PUBLIC | $ABSTRACT, $virtualMethod(BaseStream, parallel, BaseStream*)},
+	{"sequential", "()Ljava/util/stream/BaseStream;", "()TS;", $PUBLIC | $ABSTRACT, $virtualMethod(BaseStream, sequential, BaseStream*)},
+	{"spliterator", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TT;>;", $PUBLIC | $ABSTRACT, $virtualMethod(BaseStream, spliterator, $Spliterator*)},
+	{"unordered", "()Ljava/util/stream/BaseStream;", "()TS;", $PUBLIC | $ABSTRACT, $virtualMethod(BaseStream, unordered, BaseStream*)},
 	{}
 };
 

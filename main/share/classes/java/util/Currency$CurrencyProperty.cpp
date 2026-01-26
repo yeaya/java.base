@@ -70,8 +70,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Currency$CurrencyProperty$$Lambda$lambda$getValidEntry$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Currency$CurrencyProperty$$Lambda$lambda$getValidEntry$0::*)()>(&Currency$CurrencyProperty$$Lambda$lambda$getValidEntry$0::init$))},
-	{"applyAsInt", "(I)I", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Currency$CurrencyProperty$$Lambda$lambda$getValidEntry$0, init$, void)},
+	{"applyAsInt", "(I)I", nullptr, $PUBLIC, $virtualMethod(Currency$CurrencyProperty$$Lambda$lambda$getValidEntry$0, applyAsInt, int32_t, int32_t)},
 	{}
 };
 $ClassInfo Currency$CurrencyProperty$$Lambda$lambda$getValidEntry$0::classInfo$ = {
@@ -113,8 +113,8 @@ $FieldInfo Currency$CurrencyProperty$$Lambda$lambda$containsInconsistentInstance
 	{}
 };
 $MethodInfo Currency$CurrencyProperty$$Lambda$lambda$containsInconsistentInstances$1$1::methodInfos[3] = {
-	{"<init>", "(II)V", nullptr, $PUBLIC, $method(static_cast<void(Currency$CurrencyProperty$$Lambda$lambda$containsInconsistentInstances$1$1::*)(int32_t,int32_t)>(&Currency$CurrencyProperty$$Lambda$lambda$containsInconsistentInstances$1$1::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "(II)V", nullptr, $PUBLIC, $method(Currency$CurrencyProperty$$Lambda$lambda$containsInconsistentInstances$1$1, init$, void, int32_t, int32_t)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Currency$CurrencyProperty$$Lambda$lambda$containsInconsistentInstances$1$1, test, bool, Object$*)},
 	{}
 };
 $ClassInfo Currency$CurrencyProperty$$Lambda$lambda$containsInconsistentInstances$1$1::classInfo$ = {
@@ -141,14 +141,14 @@ $FieldInfo _Currency$CurrencyProperty_FieldInfo_[] = {
 };
 
 $MethodInfo _Currency$CurrencyProperty_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;IILjava/lang/String;)V", nullptr, $PRIVATE, $method(static_cast<void(Currency$CurrencyProperty::*)($String*,$String*,int32_t,int32_t,$String*)>(&Currency$CurrencyProperty::init$))},
-	{"containsInconsistentInstances", "(Ljava/util/List;)Z", "(Ljava/util/List<Ljava/util/Currency$CurrencyProperty;>;)Z", $PRIVATE | $STATIC, $method(static_cast<bool(*)($List*)>(&Currency$CurrencyProperty::containsInconsistentInstances))},
-	{"getValidEntry", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/regex/Pattern;)Ljava/util/Optional;", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/regex/Pattern;)Ljava/util/Optional<Ljava/util/Currency$CurrencyProperty;>;", $PRIVATE | $STATIC, $method(static_cast<$Optional*(*)($String*,$String*,$Pattern*)>(&Currency$CurrencyProperty::getValidEntry))},
-	{"info", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($String*,$Throwable*)>(&Currency$CurrencyProperty::info))},
-	{"isPastCutoverDate", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($String*)>(&Currency$CurrencyProperty::isPastCutoverDate)), "java.text.ParseException"},
-	{"lambda$containsInconsistentInstances$1", "(IILjava/util/Currency$CurrencyProperty;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)(int32_t,int32_t,Currency$CurrencyProperty*)>(&Currency$CurrencyProperty::lambda$containsInconsistentInstances$1))},
-	{"lambda$getValidEntry$0", "(I)I", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<int32_t(*)(int32_t)>(&Currency$CurrencyProperty::lambda$getValidEntry$0))},
-	{"parseProperty", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/regex/Pattern;)Ljava/util/Currency$CurrencyProperty;", nullptr, $PRIVATE | $STATIC, $method(static_cast<Currency$CurrencyProperty*(*)($String*,$String*,$Pattern*)>(&Currency$CurrencyProperty::parseProperty))},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;IILjava/lang/String;)V", nullptr, $PRIVATE, $method(Currency$CurrencyProperty, init$, void, $String*, $String*, int32_t, int32_t, $String*)},
+	{"containsInconsistentInstances", "(Ljava/util/List;)Z", "(Ljava/util/List<Ljava/util/Currency$CurrencyProperty;>;)Z", $PRIVATE | $STATIC, $staticMethod(Currency$CurrencyProperty, containsInconsistentInstances, bool, $List*)},
+	{"getValidEntry", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/regex/Pattern;)Ljava/util/Optional;", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/regex/Pattern;)Ljava/util/Optional<Ljava/util/Currency$CurrencyProperty;>;", $PRIVATE | $STATIC, $staticMethod(Currency$CurrencyProperty, getValidEntry, $Optional*, $String*, $String*, $Pattern*)},
+	{"info", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Currency$CurrencyProperty, info, void, $String*, $Throwable*)},
+	{"isPastCutoverDate", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Currency$CurrencyProperty, isPastCutoverDate, bool, $String*), "java.text.ParseException"},
+	{"lambda$containsInconsistentInstances$1", "(IILjava/util/Currency$CurrencyProperty;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Currency$CurrencyProperty, lambda$containsInconsistentInstances$1, bool, int32_t, int32_t, Currency$CurrencyProperty*)},
+	{"lambda$getValidEntry$0", "(I)I", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Currency$CurrencyProperty, lambda$getValidEntry$0, int32_t, int32_t)},
+	{"parseProperty", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/regex/Pattern;)Ljava/util/Currency$CurrencyProperty;", nullptr, $PRIVATE | $STATIC, $staticMethod(Currency$CurrencyProperty, parseProperty, Currency$CurrencyProperty*, $String*, $String*, $Pattern*)},
 	{}
 };
 

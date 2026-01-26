@@ -17,8 +17,8 @@ $FieldInfo _NoClassDefFoundError_FieldInfo_[] = {
 };
 
 $MethodInfo _NoClassDefFoundError_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(NoClassDefFoundError::*)()>(&NoClassDefFoundError::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(NoClassDefFoundError::*)($String*)>(&NoClassDefFoundError::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(NoClassDefFoundError, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NoClassDefFoundError, init$, void, $String*)},
 	{}
 };
 

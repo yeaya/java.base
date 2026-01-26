@@ -16,10 +16,10 @@ $FieldInfo _ProviderException_FieldInfo_[] = {
 };
 
 $MethodInfo _ProviderException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ProviderException::*)()>(&ProviderException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(ProviderException::*)($String*)>(&ProviderException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(ProviderException::*)($String*,$Throwable*)>(&ProviderException::init$))},
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(ProviderException::*)($Throwable*)>(&ProviderException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ProviderException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ProviderException, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(ProviderException, init$, void, $String*, $Throwable*)},
+	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(ProviderException, init$, void, $Throwable*)},
 	{}
 };
 

@@ -64,8 +64,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo MembershipRegistry$$Lambda$invalidate::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(MembershipRegistry$$Lambda$invalidate::*)()>(&MembershipRegistry$$Lambda$invalidate::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(MembershipRegistry$$Lambda$invalidate, init$, void)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(MembershipRegistry$$Lambda$invalidate, accept, void, Object$*)},
 	{}
 };
 $ClassInfo MembershipRegistry$$Lambda$invalidate::classInfo$ = {
@@ -88,12 +88,12 @@ $FieldInfo _MembershipRegistry_FieldInfo_[] = {
 };
 
 $MethodInfo _MembershipRegistry_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(MembershipRegistry::*)()>(&MembershipRegistry::init$))},
-	{"add", "(Lsun/nio/ch/MembershipKeyImpl;)V", nullptr, 0},
-	{"checkMembership", "(Ljava/net/InetAddress;Ljava/net/NetworkInterface;Ljava/net/InetAddress;)Ljava/nio/channels/MembershipKey;", nullptr, 0},
-	{"forEach", "(Lsun/nio/ch/MembershipRegistry$ThrowingConsumer;)V", "<X:Ljava/lang/Throwable;>(Lsun/nio/ch/MembershipRegistry$ThrowingConsumer<Lsun/nio/ch/MembershipKeyImpl;TX;>;)V^TX;", 0, nullptr, "java.lang.Throwable"},
-	{"invalidateAll", "()V", nullptr, 0},
-	{"remove", "(Lsun/nio/ch/MembershipKeyImpl;)V", nullptr, 0},
+	{"<init>", "()V", nullptr, 0, $method(MembershipRegistry, init$, void)},
+	{"add", "(Lsun/nio/ch/MembershipKeyImpl;)V", nullptr, 0, $virtualMethod(MembershipRegistry, add, void, $MembershipKeyImpl*)},
+	{"checkMembership", "(Ljava/net/InetAddress;Ljava/net/NetworkInterface;Ljava/net/InetAddress;)Ljava/nio/channels/MembershipKey;", nullptr, 0, $virtualMethod(MembershipRegistry, checkMembership, $MembershipKey*, $InetAddress*, $NetworkInterface*, $InetAddress*)},
+	{"forEach", "(Lsun/nio/ch/MembershipRegistry$ThrowingConsumer;)V", "<X:Ljava/lang/Throwable;>(Lsun/nio/ch/MembershipRegistry$ThrowingConsumer<Lsun/nio/ch/MembershipKeyImpl;TX;>;)V^TX;", 0, $virtualMethod(MembershipRegistry, forEach, void, $MembershipRegistry$ThrowingConsumer*), "java.lang.Throwable"},
+	{"invalidateAll", "()V", nullptr, 0, $virtualMethod(MembershipRegistry, invalidateAll, void)},
+	{"remove", "(Lsun/nio/ch/MembershipKeyImpl;)V", nullptr, 0, $virtualMethod(MembershipRegistry, remove, void, $MembershipKeyImpl*)},
 	{}
 };
 

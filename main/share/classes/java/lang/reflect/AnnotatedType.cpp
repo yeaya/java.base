@@ -5,17 +5,18 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Type = ::java::lang::reflect::Type;
 
 namespace java {
 	namespace lang {
 		namespace reflect {
 
 $MethodInfo _AnnotatedType_MethodInfo_[] = {
-	{"getAnnotatedOwnerType", "()Ljava/lang/reflect/AnnotatedType;", nullptr, $PUBLIC},
+	{"getAnnotatedOwnerType", "()Ljava/lang/reflect/AnnotatedType;", nullptr, $PUBLIC, $virtualMethod(AnnotatedType, getAnnotatedOwnerType, AnnotatedType*)},
 	{"getAnnotation", "(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC | $ABSTRACT},
 	{"getAnnotations", "()[Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC | $ABSTRACT},
 	{"getDeclaredAnnotations", "()[Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getType", "()Ljava/lang/reflect/Type;", nullptr, $PUBLIC | $ABSTRACT},
+	{"getType", "()Ljava/lang/reflect/Type;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AnnotatedType, getType, $Type*)},
 	{}
 };
 

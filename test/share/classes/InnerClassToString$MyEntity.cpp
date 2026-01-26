@@ -17,8 +17,8 @@ $FieldInfo _InnerClassToString$MyEntity_FieldInfo_[] = {
 };
 
 $MethodInfo _InnerClassToString$MyEntity_MethodInfo_[] = {
-	{"<init>", "(LInnerClassToString;Ljava/util/Set;)V", "(Ljava/util/Set<*>;)V", $PUBLIC, $method(static_cast<void(InnerClassToString$MyEntity::*)($InnerClassToString*,$Set*)>(&InnerClassToString$MyEntity::init$))},
-	{"<init>", "(LInnerClassToString;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(InnerClassToString$MyEntity::*)($InnerClassToString*,$String*)>(&InnerClassToString$MyEntity::init$))},
+	{"<init>", "(LInnerClassToString;Ljava/util/Set;)V", "(Ljava/util/Set<*>;)V", $PUBLIC, $method(InnerClassToString$MyEntity, init$, void, $InnerClassToString*, $Set*)},
+	{"<init>", "(LInnerClassToString;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InnerClassToString$MyEntity, init$, void, $InnerClassToString*, $String*)},
 	{}
 };
 

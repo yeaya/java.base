@@ -28,8 +28,8 @@ namespace apple {
 	namespace security {
 
 $MethodInfo _AppleProvider$ProviderService_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/Provider;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(AppleProvider$ProviderService::*)($Provider*,$String*,$String*,$String*)>(&AppleProvider$ProviderService::init$))},
-	{"newInstance", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, nullptr, "java.security.NoSuchAlgorithmException"},
+	{"<init>", "(Ljava/security/Provider;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(AppleProvider$ProviderService, init$, void, $Provider*, $String*, $String*, $String*)},
+	{"newInstance", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AppleProvider$ProviderService, newInstance, $Object*, Object$*), "java.security.NoSuchAlgorithmException"},
 	{}
 };
 

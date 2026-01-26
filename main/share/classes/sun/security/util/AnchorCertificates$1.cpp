@@ -43,8 +43,8 @@ namespace sun {
 		namespace util {
 
 $MethodInfo _AnchorCertificates$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(AnchorCertificates$1::*)()>(&AnchorCertificates$1::init$))},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(AnchorCertificates$1, init$, void)},
+	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(AnchorCertificates$1, run, $Object*)},
 	{}
 };
 

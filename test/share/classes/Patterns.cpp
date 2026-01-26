@@ -20,10 +20,10 @@ $FieldInfo _Patterns_FieldInfo_[] = {
 };
 
 $MethodInfo _Patterns_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Patterns::*)()>(&Patterns::init$))},
-	{"ckn", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $STATIC, $method(static_cast<void(*)($String*,$String*)>(&Patterns::ckn)), "java.lang.Exception"},
-	{"cky", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $STATIC, $method(static_cast<void(*)($String*,$String*)>(&Patterns::cky)), "java.lang.Exception"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Patterns::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Patterns, init$, void)},
+	{"ckn", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(Patterns, ckn, void, $String*, $String*), "java.lang.Exception"},
+	{"cky", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(Patterns, cky, void, $String*, $String*), "java.lang.Exception"},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Patterns, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

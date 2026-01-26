@@ -22,10 +22,10 @@ $FieldInfo _SignatureReader_FieldInfo_[] = {
 };
 
 $MethodInfo _SignatureReader_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(SignatureReader::*)($String*)>(&SignatureReader::init$))},
-	{"accept", "(Ljdk/internal/org/objectweb/asm/signature/SignatureVisitor;)V", nullptr, $PUBLIC},
-	{"acceptType", "(Ljdk/internal/org/objectweb/asm/signature/SignatureVisitor;)V", nullptr, $PUBLIC},
-	{"parseType", "(Ljava/lang/String;ILjdk/internal/org/objectweb/asm/signature/SignatureVisitor;)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)($String*,int32_t,$SignatureVisitor*)>(&SignatureReader::parseType))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SignatureReader, init$, void, $String*)},
+	{"accept", "(Ljdk/internal/org/objectweb/asm/signature/SignatureVisitor;)V", nullptr, $PUBLIC, $virtualMethod(SignatureReader, accept, void, $SignatureVisitor*)},
+	{"acceptType", "(Ljdk/internal/org/objectweb/asm/signature/SignatureVisitor;)V", nullptr, $PUBLIC, $virtualMethod(SignatureReader, acceptType, void, $SignatureVisitor*)},
+	{"parseType", "(Ljava/lang/String;ILjdk/internal/org/objectweb/asm/signature/SignatureVisitor;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(SignatureReader, parseType, int32_t, $String*, int32_t, $SignatureVisitor*)},
 	{}
 };
 

@@ -96,12 +96,12 @@ $FieldInfo _VarHandle$AccessMode_FieldInfo_[] = {
 };
 
 $MethodInfo _VarHandle$AccessMode_MethodInfo_[] = {
-	{"$values", "()[Ljava/lang/invoke/VarHandle$AccessMode;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$VarHandle$AccessModeArray*(*)()>(&VarHandle$AccessMode::$values))},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;Ljava/lang/invoke/VarHandle$AccessType;)V", "(Ljava/lang/String;Ljava/lang/invoke/VarHandle$AccessType;)V", $PRIVATE, $method(static_cast<void(VarHandle$AccessMode::*)($String*,int32_t,$String*,$VarHandle$AccessType*)>(&VarHandle$AccessMode::init$))},
-	{"methodName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(static_cast<$String*(VarHandle$AccessMode::*)()>(&VarHandle$AccessMode::methodName))},
-	{"valueFromMethodName", "(Ljava/lang/String;)Ljava/lang/invoke/VarHandle$AccessMode;", nullptr, $PUBLIC | $STATIC, $method(static_cast<VarHandle$AccessMode*(*)($String*)>(&VarHandle$AccessMode::valueFromMethodName))},
-	{"valueOf", "(Ljava/lang/String;)Ljava/lang/invoke/VarHandle$AccessMode;", nullptr, $PUBLIC | $STATIC, $method(static_cast<VarHandle$AccessMode*(*)($String*)>(&VarHandle$AccessMode::valueOf))},
-	{"values", "()[Ljava/lang/invoke/VarHandle$AccessMode;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$VarHandle$AccessModeArray*(*)()>(&VarHandle$AccessMode::values))},
+	{"$values", "()[Ljava/lang/invoke/VarHandle$AccessMode;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(VarHandle$AccessMode, $values, $VarHandle$AccessModeArray*)},
+	{"<init>", "(Ljava/lang/String;ILjava/lang/String;Ljava/lang/invoke/VarHandle$AccessType;)V", "(Ljava/lang/String;Ljava/lang/invoke/VarHandle$AccessType;)V", $PRIVATE, $method(VarHandle$AccessMode, init$, void, $String*, int32_t, $String*, $VarHandle$AccessType*)},
+	{"methodName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(VarHandle$AccessMode, methodName, $String*)},
+	{"valueFromMethodName", "(Ljava/lang/String;)Ljava/lang/invoke/VarHandle$AccessMode;", nullptr, $PUBLIC | $STATIC, $staticMethod(VarHandle$AccessMode, valueFromMethodName, VarHandle$AccessMode*, $String*)},
+	{"valueOf", "(Ljava/lang/String;)Ljava/lang/invoke/VarHandle$AccessMode;", nullptr, $PUBLIC | $STATIC, $staticMethod(VarHandle$AccessMode, valueOf, VarHandle$AccessMode*, $String*)},
+	{"values", "()[Ljava/lang/invoke/VarHandle$AccessMode;", nullptr, $PUBLIC | $STATIC, $staticMethod(VarHandle$AccessMode, values, $VarHandle$AccessModeArray*)},
 	{}
 };
 

@@ -135,8 +135,8 @@ $FieldInfo Currency$$Lambda$lambda$getValidCurrencyData$0::fieldInfos[3] = {
 	{}
 };
 $MethodInfo Currency$$Lambda$lambda$getValidCurrencyData$0::methodInfos[3] = {
-	{"<init>", "(Ljava/util/Properties;Ljava/util/regex/Pattern;)V", nullptr, $PUBLIC, $method(static_cast<void(Currency$$Lambda$lambda$getValidCurrencyData$0::*)($Properties*,$Pattern*)>(&Currency$$Lambda$lambda$getValidCurrencyData$0::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/Properties;Ljava/util/regex/Pattern;)V", nullptr, $PUBLIC, $method(Currency$$Lambda$lambda$getValidCurrencyData$0, init$, void, $Properties*, $Pattern*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Currency$$Lambda$lambda$getValidCurrencyData$0, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Currency$$Lambda$lambda$getValidCurrencyData$0::classInfo$ = {
@@ -168,8 +168,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Currency$$Lambda$lambda$getValidCurrencyData$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Currency$$Lambda$lambda$getValidCurrencyData$1$1::*)()>(&Currency$$Lambda$lambda$getValidCurrencyData$1$1::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Currency$$Lambda$lambda$getValidCurrencyData$1$1, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Currency$$Lambda$lambda$getValidCurrencyData$1$1, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Currency$$Lambda$lambda$getValidCurrencyData$1$1::classInfo$ = {
@@ -201,8 +201,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Currency$$Lambda$lambda$getValidCurrencyData$2$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Currency$$Lambda$lambda$getValidCurrencyData$2$2::*)()>(&Currency$$Lambda$lambda$getValidCurrencyData$2$2::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Currency$$Lambda$lambda$getValidCurrencyData$2$2, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Currency$$Lambda$lambda$getValidCurrencyData$2$2, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Currency$$Lambda$lambda$getValidCurrencyData$2$2::classInfo$ = {
@@ -241,8 +241,8 @@ $FieldInfo Currency$$Lambda$lambda$getValidCurrencyData$4$3::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Currency$$Lambda$lambda$getValidCurrencyData$4$3::methodInfos[3] = {
-	{"<init>", "(Ljava/util/List;)V", nullptr, $PUBLIC, $method(static_cast<void(Currency$$Lambda$lambda$getValidCurrencyData$4$3::*)($List*)>(&Currency$$Lambda$lambda$getValidCurrencyData$4$3::init$))},
-	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/List;)V", nullptr, $PUBLIC, $method(Currency$$Lambda$lambda$getValidCurrencyData$4$3, init$, void, $List*)},
+	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Currency$$Lambda$lambda$getValidCurrencyData$4$3, accept, void, Object$*, Object$*)},
 	{}
 };
 $ClassInfo Currency$$Lambda$lambda$getValidCurrencyData$4$3::classInfo$ = {
@@ -274,8 +274,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Currency$$Lambda$lambda$getValidCurrencyData$3$4::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Currency$$Lambda$lambda$getValidCurrencyData$3$4::*)()>(&Currency$$Lambda$lambda$getValidCurrencyData$3$4::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Currency$$Lambda$lambda$getValidCurrencyData$3$4, init$, void)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Currency$$Lambda$lambda$getValidCurrencyData$3$4, accept, void, Object$*)},
 	{}
 };
 $ClassInfo Currency$$Lambda$lambda$getValidCurrencyData$3$4::classInfo$ = {
@@ -326,34 +326,34 @@ $FieldInfo _Currency_FieldInfo_[] = {
 };
 
 $MethodInfo _Currency_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;II)V", nullptr, $PRIVATE, $method(static_cast<void(Currency::*)($String*,int32_t,int32_t)>(&Currency::init$))},
-	{"getAvailableCurrencies", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/util/Currency;>;", $PUBLIC | $STATIC, $method(static_cast<$Set*(*)()>(&Currency::getAvailableCurrencies))},
-	{"getCurrencyCode", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(static_cast<$String*(Currency::*)()>(&Currency::getCurrencyCode))},
-	{"getDefaultFractionDigits", "()I", nullptr, $PUBLIC, $method(static_cast<int32_t(Currency::*)()>(&Currency::getDefaultFractionDigits))},
-	{"getDisplayName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(static_cast<$String*(Currency::*)()>(&Currency::getDisplayName))},
-	{"getDisplayName", "(Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $method(static_cast<$String*(Currency::*)($Locale*)>(&Currency::getDisplayName))},
-	{"getInstance", "(Ljava/lang/String;)Ljava/util/Currency;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Currency*(*)($String*)>(&Currency::getInstance))},
-	{"getInstance", "(Ljava/lang/String;II)Ljava/util/Currency;", nullptr, $PRIVATE | $STATIC, $method(static_cast<Currency*(*)($String*,int32_t,int32_t)>(&Currency::getInstance))},
-	{"getInstance", "(Ljava/util/Locale;)Ljava/util/Currency;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Currency*(*)($Locale*)>(&Currency::getInstance))},
-	{"getMainTableEntry", "(CC)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)(char16_t,char16_t)>(&Currency::getMainTableEntry))},
-	{"getNumericCode", "()I", nullptr, $PUBLIC, $method(static_cast<int32_t(Currency::*)()>(&Currency::getNumericCode))},
-	{"getNumericCodeAsString", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(static_cast<$String*(Currency::*)()>(&Currency::getNumericCodeAsString))},
-	{"getSymbol", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(static_cast<$String*(Currency::*)()>(&Currency::getSymbol))},
-	{"getSymbol", "(Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $method(static_cast<$String*(Currency::*)($Locale*)>(&Currency::getSymbol))},
-	{"getValidCurrencyData", "(Ljava/util/Properties;Ljava/util/regex/Pattern;)Ljava/util/List;", "(Ljava/util/Properties;Ljava/util/regex/Pattern;)Ljava/util/List<Ljava/util/Currency$CurrencyProperty;>;", $PRIVATE | $STATIC, $method(static_cast<$List*(*)($Properties*,$Pattern*)>(&Currency::getValidCurrencyData))},
-	{"lambda$getValidCurrencyData$0", "(Ljava/util/Properties;Ljava/util/regex/Pattern;Ljava/lang/String;)Ljava/util/Optional;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Optional*(*)($Properties*,$Pattern*,$String*)>(&Currency::lambda$getValidCurrencyData$0))},
-	{"lambda$getValidCurrencyData$1", "(Ljava/util/Optional;)Ljava/util/stream/Stream;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Stream*(*)($Optional*)>(&Currency::lambda$getValidCurrencyData$1))},
-	{"lambda$getValidCurrencyData$2", "(Ljava/util/Currency$CurrencyProperty;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$String*(*)($Currency$CurrencyProperty*)>(&Currency::lambda$getValidCurrencyData$2))},
-	{"lambda$getValidCurrencyData$3", "(Ljava/util/Currency$CurrencyProperty;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($Currency$CurrencyProperty*)>(&Currency::lambda$getValidCurrencyData$3))},
-	{"lambda$getValidCurrencyData$4", "(Ljava/util/List;Ljava/lang/String;Ljava/util/List;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($List*,$String*,$List*)>(&Currency::lambda$getValidCurrencyData$4))},
-	{"readIntArray", "(Ljava/io/DataInputStream;I)[I", nullptr, $PRIVATE | $STATIC, $method(static_cast<$ints*(*)($DataInputStream*,int32_t)>(&Currency::readIntArray)), "java.io.IOException"},
-	{"readOtherCurrencies", "(Ljava/io/DataInputStream;I)Ljava/util/List;", "(Ljava/io/DataInputStream;I)Ljava/util/List<Ljava/util/Currency$OtherCurrencyEntry;>;", $PRIVATE | $STATIC, $method(static_cast<$List*(*)($DataInputStream*,int32_t)>(&Currency::readOtherCurrencies)), "java.io.IOException"},
-	{"readResolve", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(static_cast<$Object*(Currency::*)()>(&Currency::readResolve))},
-	{"readSpecialCases", "(Ljava/io/DataInputStream;I)Ljava/util/List;", "(Ljava/io/DataInputStream;I)Ljava/util/List<Ljava/util/Currency$SpecialCaseEntry;>;", $PRIVATE | $STATIC, $method(static_cast<$List*(*)($DataInputStream*,int32_t)>(&Currency::readSpecialCases)), "java.io.IOException"},
-	{"replaceCurrencyData", "(Ljava/util/Currency$CurrencyProperty;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($Currency$CurrencyProperty*)>(&Currency::replaceCurrencyData))},
-	{"setMainTableEntry", "(CCI)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)(char16_t,char16_t,int32_t)>(&Currency::setMainTableEntry))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"updateMainTableEntry", "(Ljava/lang/String;II)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($String*,int32_t,int32_t)>(&Currency::updateMainTableEntry))},
+	{"<init>", "(Ljava/lang/String;II)V", nullptr, $PRIVATE, $method(Currency, init$, void, $String*, int32_t, int32_t)},
+	{"getAvailableCurrencies", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/util/Currency;>;", $PUBLIC | $STATIC, $staticMethod(Currency, getAvailableCurrencies, $Set*)},
+	{"getCurrencyCode", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(Currency, getCurrencyCode, $String*)},
+	{"getDefaultFractionDigits", "()I", nullptr, $PUBLIC, $method(Currency, getDefaultFractionDigits, int32_t)},
+	{"getDisplayName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(Currency, getDisplayName, $String*)},
+	{"getDisplayName", "(Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $method(Currency, getDisplayName, $String*, $Locale*)},
+	{"getInstance", "(Ljava/lang/String;)Ljava/util/Currency;", nullptr, $PUBLIC | $STATIC, $staticMethod(Currency, getInstance, Currency*, $String*)},
+	{"getInstance", "(Ljava/lang/String;II)Ljava/util/Currency;", nullptr, $PRIVATE | $STATIC, $staticMethod(Currency, getInstance, Currency*, $String*, int32_t, int32_t)},
+	{"getInstance", "(Ljava/util/Locale;)Ljava/util/Currency;", nullptr, $PUBLIC | $STATIC, $staticMethod(Currency, getInstance, Currency*, $Locale*)},
+	{"getMainTableEntry", "(CC)I", nullptr, $PRIVATE | $STATIC, $staticMethod(Currency, getMainTableEntry, int32_t, char16_t, char16_t)},
+	{"getNumericCode", "()I", nullptr, $PUBLIC, $method(Currency, getNumericCode, int32_t)},
+	{"getNumericCodeAsString", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(Currency, getNumericCodeAsString, $String*)},
+	{"getSymbol", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(Currency, getSymbol, $String*)},
+	{"getSymbol", "(Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $method(Currency, getSymbol, $String*, $Locale*)},
+	{"getValidCurrencyData", "(Ljava/util/Properties;Ljava/util/regex/Pattern;)Ljava/util/List;", "(Ljava/util/Properties;Ljava/util/regex/Pattern;)Ljava/util/List<Ljava/util/Currency$CurrencyProperty;>;", $PRIVATE | $STATIC, $staticMethod(Currency, getValidCurrencyData, $List*, $Properties*, $Pattern*)},
+	{"lambda$getValidCurrencyData$0", "(Ljava/util/Properties;Ljava/util/regex/Pattern;Ljava/lang/String;)Ljava/util/Optional;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Currency, lambda$getValidCurrencyData$0, $Optional*, $Properties*, $Pattern*, $String*)},
+	{"lambda$getValidCurrencyData$1", "(Ljava/util/Optional;)Ljava/util/stream/Stream;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Currency, lambda$getValidCurrencyData$1, $Stream*, $Optional*)},
+	{"lambda$getValidCurrencyData$2", "(Ljava/util/Currency$CurrencyProperty;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Currency, lambda$getValidCurrencyData$2, $String*, $Currency$CurrencyProperty*)},
+	{"lambda$getValidCurrencyData$3", "(Ljava/util/Currency$CurrencyProperty;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Currency, lambda$getValidCurrencyData$3, void, $Currency$CurrencyProperty*)},
+	{"lambda$getValidCurrencyData$4", "(Ljava/util/List;Ljava/lang/String;Ljava/util/List;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Currency, lambda$getValidCurrencyData$4, void, $List*, $String*, $List*)},
+	{"readIntArray", "(Ljava/io/DataInputStream;I)[I", nullptr, $PRIVATE | $STATIC, $staticMethod(Currency, readIntArray, $ints*, $DataInputStream*, int32_t), "java.io.IOException"},
+	{"readOtherCurrencies", "(Ljava/io/DataInputStream;I)Ljava/util/List;", "(Ljava/io/DataInputStream;I)Ljava/util/List<Ljava/util/Currency$OtherCurrencyEntry;>;", $PRIVATE | $STATIC, $staticMethod(Currency, readOtherCurrencies, $List*, $DataInputStream*, int32_t), "java.io.IOException"},
+	{"readResolve", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(Currency, readResolve, $Object*)},
+	{"readSpecialCases", "(Ljava/io/DataInputStream;I)Ljava/util/List;", "(Ljava/io/DataInputStream;I)Ljava/util/List<Ljava/util/Currency$SpecialCaseEntry;>;", $PRIVATE | $STATIC, $staticMethod(Currency, readSpecialCases, $List*, $DataInputStream*, int32_t), "java.io.IOException"},
+	{"replaceCurrencyData", "(Ljava/util/Currency$CurrencyProperty;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Currency, replaceCurrencyData, void, $Currency$CurrencyProperty*)},
+	{"setMainTableEntry", "(CCI)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Currency, setMainTableEntry, void, char16_t, char16_t, int32_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Currency, toString, $String*)},
+	{"updateMainTableEntry", "(Ljava/lang/String;II)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Currency, updateMainTableEntry, void, $String*, int32_t, int32_t)},
 	{}
 };
 

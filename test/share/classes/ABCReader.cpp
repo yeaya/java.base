@@ -16,10 +16,10 @@ $FieldInfo _ABCReader_FieldInfo_[] = {
 };
 
 $MethodInfo _ABCReader_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, 0, $method(static_cast<void(ABCReader::*)(int32_t)>(&ABCReader::init$))},
-	{"close", "()V", nullptr, $PUBLIC},
-	{"read", "()I", nullptr, $PUBLIC},
-	{"read", "([CII)I", nullptr, $PUBLIC},
+	{"<init>", "(I)V", nullptr, 0, $method(ABCReader, init$, void, int32_t)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(ABCReader, close, void)},
+	{"read", "()I", nullptr, $PUBLIC, $virtualMethod(ABCReader, read, int32_t)},
+	{"read", "([CII)I", nullptr, $PUBLIC, $virtualMethod(ABCReader, read, int32_t, $chars*, int32_t, int32_t)},
 	{}
 };
 

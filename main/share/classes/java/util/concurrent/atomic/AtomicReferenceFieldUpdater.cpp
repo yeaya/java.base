@@ -26,18 +26,18 @@ $CompoundAttribute _AtomicReferenceFieldUpdater_MethodAnnotations_newUpdater8[] 
 };
 
 $MethodInfo _AtomicReferenceFieldUpdater_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(AtomicReferenceFieldUpdater::*)()>(&AtomicReferenceFieldUpdater::init$))},
-	{"accumulateAndGet", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/util/function/BinaryOperator;)Ljava/lang/Object;", "(TT;TV;Ljava/util/function/BinaryOperator<TV;>;)TV;", $PUBLIC | $FINAL, $method(static_cast<$Object*(AtomicReferenceFieldUpdater::*)(Object$*,Object$*,$BinaryOperator*)>(&AtomicReferenceFieldUpdater::accumulateAndGet))},
-	{"compareAndSet", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Z", "(TT;TV;TV;)Z", $PUBLIC | $ABSTRACT},
-	{"get", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TT;)TV;", $PUBLIC | $ABSTRACT},
-	{"getAndAccumulate", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/util/function/BinaryOperator;)Ljava/lang/Object;", "(TT;TV;Ljava/util/function/BinaryOperator<TV;>;)TV;", $PUBLIC | $FINAL, $method(static_cast<$Object*(AtomicReferenceFieldUpdater::*)(Object$*,Object$*,$BinaryOperator*)>(&AtomicReferenceFieldUpdater::getAndAccumulate))},
-	{"getAndSet", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", "(TT;TV;)TV;", $PUBLIC},
-	{"getAndUpdate", "(Ljava/lang/Object;Ljava/util/function/UnaryOperator;)Ljava/lang/Object;", "(TT;Ljava/util/function/UnaryOperator<TV;>;)TV;", $PUBLIC | $FINAL, $method(static_cast<$Object*(AtomicReferenceFieldUpdater::*)(Object$*,$UnaryOperator*)>(&AtomicReferenceFieldUpdater::getAndUpdate))},
-	{"lazySet", "(Ljava/lang/Object;Ljava/lang/Object;)V", "(TT;TV;)V", $PUBLIC | $ABSTRACT},
-	{"newUpdater", "(Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/String;)Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;", "<U:Ljava/lang/Object;W:Ljava/lang/Object;>(Ljava/lang/Class<TU;>;Ljava/lang/Class<TW;>;Ljava/lang/String;)Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater<TU;TW;>;", $PUBLIC | $STATIC, $method(static_cast<AtomicReferenceFieldUpdater*(*)($Class*,$Class*,$String*)>(&AtomicReferenceFieldUpdater::newUpdater)), nullptr, nullptr, _AtomicReferenceFieldUpdater_MethodAnnotations_newUpdater8},
-	{"set", "(Ljava/lang/Object;Ljava/lang/Object;)V", "(TT;TV;)V", $PUBLIC | $ABSTRACT},
-	{"updateAndGet", "(Ljava/lang/Object;Ljava/util/function/UnaryOperator;)Ljava/lang/Object;", "(TT;Ljava/util/function/UnaryOperator<TV;>;)TV;", $PUBLIC | $FINAL, $method(static_cast<$Object*(AtomicReferenceFieldUpdater::*)(Object$*,$UnaryOperator*)>(&AtomicReferenceFieldUpdater::updateAndGet))},
-	{"weakCompareAndSet", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Z", "(TT;TV;TV;)Z", $PUBLIC | $ABSTRACT},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(AtomicReferenceFieldUpdater, init$, void)},
+	{"accumulateAndGet", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/util/function/BinaryOperator;)Ljava/lang/Object;", "(TT;TV;Ljava/util/function/BinaryOperator<TV;>;)TV;", $PUBLIC | $FINAL, $method(AtomicReferenceFieldUpdater, accumulateAndGet, $Object*, Object$*, Object$*, $BinaryOperator*)},
+	{"compareAndSet", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Z", "(TT;TV;TV;)Z", $PUBLIC | $ABSTRACT, $virtualMethod(AtomicReferenceFieldUpdater, compareAndSet, bool, Object$*, Object$*, Object$*)},
+	{"get", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TT;)TV;", $PUBLIC | $ABSTRACT, $virtualMethod(AtomicReferenceFieldUpdater, get, $Object*, Object$*)},
+	{"getAndAccumulate", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/util/function/BinaryOperator;)Ljava/lang/Object;", "(TT;TV;Ljava/util/function/BinaryOperator<TV;>;)TV;", $PUBLIC | $FINAL, $method(AtomicReferenceFieldUpdater, getAndAccumulate, $Object*, Object$*, Object$*, $BinaryOperator*)},
+	{"getAndSet", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", "(TT;TV;)TV;", $PUBLIC, $virtualMethod(AtomicReferenceFieldUpdater, getAndSet, $Object*, Object$*, Object$*)},
+	{"getAndUpdate", "(Ljava/lang/Object;Ljava/util/function/UnaryOperator;)Ljava/lang/Object;", "(TT;Ljava/util/function/UnaryOperator<TV;>;)TV;", $PUBLIC | $FINAL, $method(AtomicReferenceFieldUpdater, getAndUpdate, $Object*, Object$*, $UnaryOperator*)},
+	{"lazySet", "(Ljava/lang/Object;Ljava/lang/Object;)V", "(TT;TV;)V", $PUBLIC | $ABSTRACT, $virtualMethod(AtomicReferenceFieldUpdater, lazySet, void, Object$*, Object$*)},
+	{"newUpdater", "(Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/String;)Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;", "<U:Ljava/lang/Object;W:Ljava/lang/Object;>(Ljava/lang/Class<TU;>;Ljava/lang/Class<TW;>;Ljava/lang/String;)Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater<TU;TW;>;", $PUBLIC | $STATIC, $staticMethod(AtomicReferenceFieldUpdater, newUpdater, AtomicReferenceFieldUpdater*, $Class*, $Class*, $String*), nullptr, nullptr, _AtomicReferenceFieldUpdater_MethodAnnotations_newUpdater8},
+	{"set", "(Ljava/lang/Object;Ljava/lang/Object;)V", "(TT;TV;)V", $PUBLIC | $ABSTRACT, $virtualMethod(AtomicReferenceFieldUpdater, set, void, Object$*, Object$*)},
+	{"updateAndGet", "(Ljava/lang/Object;Ljava/util/function/UnaryOperator;)Ljava/lang/Object;", "(TT;Ljava/util/function/UnaryOperator<TV;>;)TV;", $PUBLIC | $FINAL, $method(AtomicReferenceFieldUpdater, updateAndGet, $Object*, Object$*, $UnaryOperator*)},
+	{"weakCompareAndSet", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Z", "(TT;TV;TV;)Z", $PUBLIC | $ABSTRACT, $virtualMethod(AtomicReferenceFieldUpdater, weakCompareAndSet, bool, Object$*, Object$*, Object$*)},
 	{}
 };
 

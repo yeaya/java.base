@@ -26,7 +26,7 @@ $FieldInfo _PCK$DecodeHolder_FieldInfo_[] = {
 };
 
 $MethodInfo _PCK$DecodeHolder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(PCK$DecodeHolder::*)()>(&PCK$DecodeHolder::init$))},
+	{"<init>", "()V", nullptr, 0, $method(PCK$DecodeHolder, init$, void)},
 	{}
 };
 

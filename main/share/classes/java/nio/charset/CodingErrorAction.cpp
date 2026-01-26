@@ -23,8 +23,8 @@ $FieldInfo _CodingErrorAction_FieldInfo_[] = {
 };
 
 $MethodInfo _CodingErrorAction_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(static_cast<void(CodingErrorAction::*)($String*)>(&CodingErrorAction::init$))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(CodingErrorAction, init$, void, $String*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CodingErrorAction, toString, $String*)},
 	{}
 };
 

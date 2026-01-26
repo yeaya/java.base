@@ -53,8 +53,8 @@ $FieldInfo Collections$CheckedMap$CheckedEntrySet$1$$Lambda$lambda$forEachRemain
 	{}
 };
 $MethodInfo Collections$CheckedMap$CheckedEntrySet$1$$Lambda$lambda$forEachRemaining$0::methodInfos[3] = {
-	{"<init>", "(Ljava/util/Collections$CheckedMap$CheckedEntrySet$1;Ljava/util/function/Consumer;)V", nullptr, $PUBLIC, $method(static_cast<void(Collections$CheckedMap$CheckedEntrySet$1$$Lambda$lambda$forEachRemaining$0::*)(Collections$CheckedMap$CheckedEntrySet$1*,$Consumer*)>(&Collections$CheckedMap$CheckedEntrySet$1$$Lambda$lambda$forEachRemaining$0::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/Collections$CheckedMap$CheckedEntrySet$1;Ljava/util/function/Consumer;)V", nullptr, $PUBLIC, $method(Collections$CheckedMap$CheckedEntrySet$1$$Lambda$lambda$forEachRemaining$0, init$, void, Collections$CheckedMap$CheckedEntrySet$1*, $Consumer*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Collections$CheckedMap$CheckedEntrySet$1$$Lambda$lambda$forEachRemaining$0, accept, void, Object$*)},
 	{}
 };
 $ClassInfo Collections$CheckedMap$CheckedEntrySet$1$$Lambda$lambda$forEachRemaining$0::classInfo$ = {
@@ -78,12 +78,12 @@ $FieldInfo _Collections$CheckedMap$CheckedEntrySet$1_FieldInfo_[] = {
 };
 
 $MethodInfo _Collections$CheckedMap$CheckedEntrySet$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Collections$CheckedMap$CheckedEntrySet;Ljava/util/Iterator;)V", "()V", 0, $method(static_cast<void(Collections$CheckedMap$CheckedEntrySet$1::*)($Collections$CheckedMap$CheckedEntrySet*,$Iterator*)>(&Collections$CheckedMap$CheckedEntrySet$1::init$))},
-	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-Ljava/util/Map$Entry<TK;TV;>;>;)V", $PUBLIC},
-	{"hasNext", "()Z", nullptr, $PUBLIC},
-	{"lambda$forEachRemaining$0", "(Ljava/util/function/Consumer;Ljava/util/Map$Entry;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(Collections$CheckedMap$CheckedEntrySet$1::*)($Consumer*,$Map$Entry*)>(&Collections$CheckedMap$CheckedEntrySet$1::lambda$forEachRemaining$0))},
-	{"next", "()Ljava/util/Map$Entry;", "()Ljava/util/Map$Entry<TK;TV;>;", $PUBLIC},
-	{"remove", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/Collections$CheckedMap$CheckedEntrySet;Ljava/util/Iterator;)V", "()V", 0, $method(Collections$CheckedMap$CheckedEntrySet$1, init$, void, $Collections$CheckedMap$CheckedEntrySet*, $Iterator*)},
+	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-Ljava/util/Map$Entry<TK;TV;>;>;)V", $PUBLIC, $virtualMethod(Collections$CheckedMap$CheckedEntrySet$1, forEachRemaining, void, $Consumer*)},
+	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(Collections$CheckedMap$CheckedEntrySet$1, hasNext, bool)},
+	{"lambda$forEachRemaining$0", "(Ljava/util/function/Consumer;Ljava/util/Map$Entry;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Collections$CheckedMap$CheckedEntrySet$1, lambda$forEachRemaining$0, void, $Consumer*, $Map$Entry*)},
+	{"next", "()Ljava/util/Map$Entry;", "()Ljava/util/Map$Entry<TK;TV;>;", $PUBLIC, $virtualMethod(Collections$CheckedMap$CheckedEntrySet$1, next, $Object*)},
+	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(Collections$CheckedMap$CheckedEntrySet$1, remove, void)},
 	{}
 };
 

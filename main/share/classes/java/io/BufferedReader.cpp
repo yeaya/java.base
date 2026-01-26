@@ -53,22 +53,22 @@ $FieldInfo _BufferedReader_FieldInfo_[] = {
 };
 
 $MethodInfo _BufferedReader_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/Reader;I)V", nullptr, $PUBLIC, $method(static_cast<void(BufferedReader::*)($Reader*,int32_t)>(&BufferedReader::init$))},
-	{"<init>", "(Ljava/io/Reader;)V", nullptr, $PUBLIC, $method(static_cast<void(BufferedReader::*)($Reader*)>(&BufferedReader::init$))},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"ensureOpen", "()V", nullptr, $PRIVATE, $method(static_cast<void(BufferedReader::*)()>(&BufferedReader::ensureOpen)), "java.io.IOException"},
-	{"fill", "()V", nullptr, $PRIVATE, $method(static_cast<void(BufferedReader::*)()>(&BufferedReader::fill)), "java.io.IOException"},
-	{"lines", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljava/lang/String;>;", $PUBLIC},
-	{"mark", "(I)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"markSupported", "()Z", nullptr, $PUBLIC},
-	{"read", "()I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"read", "([CII)I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"read1", "([CII)I", nullptr, $PRIVATE, $method(static_cast<int32_t(BufferedReader::*)($chars*,int32_t,int32_t)>(&BufferedReader::read1)), "java.io.IOException"},
-	{"readLine", "(Z[Z)Ljava/lang/String;", nullptr, 0, nullptr, "java.io.IOException"},
-	{"readLine", "()Ljava/lang/String;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"ready", "()Z", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"reset", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"skip", "(J)J", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljava/io/Reader;I)V", nullptr, $PUBLIC, $method(BufferedReader, init$, void, $Reader*, int32_t)},
+	{"<init>", "(Ljava/io/Reader;)V", nullptr, $PUBLIC, $method(BufferedReader, init$, void, $Reader*)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(BufferedReader, close, void), "java.io.IOException"},
+	{"ensureOpen", "()V", nullptr, $PRIVATE, $method(BufferedReader, ensureOpen, void), "java.io.IOException"},
+	{"fill", "()V", nullptr, $PRIVATE, $method(BufferedReader, fill, void), "java.io.IOException"},
+	{"lines", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(BufferedReader, lines, $Stream*)},
+	{"mark", "(I)V", nullptr, $PUBLIC, $virtualMethod(BufferedReader, mark, void, int32_t), "java.io.IOException"},
+	{"markSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(BufferedReader, markSupported, bool)},
+	{"read", "()I", nullptr, $PUBLIC, $virtualMethod(BufferedReader, read, int32_t), "java.io.IOException"},
+	{"read", "([CII)I", nullptr, $PUBLIC, $virtualMethod(BufferedReader, read, int32_t, $chars*, int32_t, int32_t), "java.io.IOException"},
+	{"read1", "([CII)I", nullptr, $PRIVATE, $method(BufferedReader, read1, int32_t, $chars*, int32_t, int32_t), "java.io.IOException"},
+	{"readLine", "(Z[Z)Ljava/lang/String;", nullptr, 0, $virtualMethod(BufferedReader, readLine, $String*, bool, $booleans*), "java.io.IOException"},
+	{"readLine", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BufferedReader, readLine, $String*), "java.io.IOException"},
+	{"ready", "()Z", nullptr, $PUBLIC, $virtualMethod(BufferedReader, ready, bool), "java.io.IOException"},
+	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(BufferedReader, reset, void), "java.io.IOException"},
+	{"skip", "(J)J", nullptr, $PUBLIC, $virtualMethod(BufferedReader, skip, int64_t, int64_t), "java.io.IOException"},
 	{}
 };
 

@@ -22,8 +22,8 @@ $FieldInfo _Streams$1_FieldInfo_[] = {
 };
 
 $MethodInfo _Streams$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Runnable;Ljava/lang/Runnable;)V", "()V", 0, $method(static_cast<void(Streams$1::*)($Runnable*,$Runnable*)>(&Streams$1::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Runnable;Ljava/lang/Runnable;)V", "()V", 0, $method(Streams$1, init$, void, $Runnable*, $Runnable*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Streams$1, run, void)},
 	{}
 };
 

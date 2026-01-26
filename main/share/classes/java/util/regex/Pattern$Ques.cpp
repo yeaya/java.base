@@ -33,9 +33,9 @@ $FieldInfo _Pattern$Ques_FieldInfo_[] = {
 };
 
 $MethodInfo _Pattern$Ques_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/regex/Pattern$Node;Ljava/util/regex/Pattern$Qtype;)V", nullptr, 0, $method(static_cast<void(Pattern$Ques::*)($Pattern$Node*,$Pattern$Qtype*)>(&Pattern$Ques::init$))},
-	{"match", "(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z", nullptr, 0},
-	{"study", "(Ljava/util/regex/Pattern$TreeInfo;)Z", nullptr, 0},
+	{"<init>", "(Ljava/util/regex/Pattern$Node;Ljava/util/regex/Pattern$Qtype;)V", nullptr, 0, $method(Pattern$Ques, init$, void, $Pattern$Node*, $Pattern$Qtype*)},
+	{"match", "(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z", nullptr, 0, $virtualMethod(Pattern$Ques, match, bool, $Matcher*, int32_t, $CharSequence*)},
+	{"study", "(Ljava/util/regex/Pattern$TreeInfo;)Z", nullptr, 0, $virtualMethod(Pattern$Ques, study, bool, $Pattern$TreeInfo*)},
 	{}
 };
 

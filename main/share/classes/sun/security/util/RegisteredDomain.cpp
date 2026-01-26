@@ -10,16 +10,17 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Optional = ::java::util::Optional;
 using $DomainName = ::sun::security::util::DomainName;
+using $RegisteredDomain$Type = ::sun::security::util::RegisteredDomain$Type;
 
 namespace sun {
 	namespace security {
 		namespace util {
 
 $MethodInfo _RegisteredDomain_MethodInfo_[] = {
-	{"from", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Lsun/security/util/RegisteredDomain;>;", $PUBLIC | $STATIC, $method(static_cast<$Optional*(*)($String*)>(&RegisteredDomain::from))},
-	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"publicSuffix", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"type", "()Lsun/security/util/RegisteredDomain$Type;", nullptr, $PUBLIC | $ABSTRACT},
+	{"from", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Lsun/security/util/RegisteredDomain;>;", $PUBLIC | $STATIC, $staticMethod(RegisteredDomain, from, $Optional*, $String*)},
+	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RegisteredDomain, name, $String*)},
+	{"publicSuffix", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RegisteredDomain, publicSuffix, $String*)},
+	{"type", "()Lsun/security/util/RegisteredDomain$Type;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RegisteredDomain, type, $RegisteredDomain$Type*)},
 	{}
 };
 

@@ -30,7 +30,7 @@ $FieldInfo _LocaleServiceProviderPool$AllAvailableLocales_FieldInfo_[] = {
 };
 
 $MethodInfo _LocaleServiceProviderPool$AllAvailableLocales_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(LocaleServiceProviderPool$AllAvailableLocales::*)()>(&LocaleServiceProviderPool$AllAvailableLocales::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(LocaleServiceProviderPool$AllAvailableLocales, init$, void)},
 	{}
 };
 

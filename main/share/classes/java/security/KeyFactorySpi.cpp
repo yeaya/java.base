@@ -1,5 +1,6 @@
 #include <java/security/KeyFactorySpi.h>
 
+#include <java/security/Key.h>
 #include <java/security/PrivateKey.h>
 #include <java/security/PublicKey.h>
 #include <java/security/spec/KeySpec.h>
@@ -7,16 +8,20 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Key = ::java::security::Key;
+using $PrivateKey = ::java::security::PrivateKey;
+using $PublicKey = ::java::security::PublicKey;
+using $KeySpec = ::java::security::spec::KeySpec;
 
 namespace java {
 	namespace security {
 
 $MethodInfo _KeyFactorySpi_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(KeyFactorySpi::*)()>(&KeyFactorySpi::init$))},
-	{"engineGeneratePrivate", "(Ljava/security/spec/KeySpec;)Ljava/security/PrivateKey;", nullptr, $PROTECTED | $ABSTRACT, nullptr, "java.security.spec.InvalidKeySpecException"},
-	{"engineGeneratePublic", "(Ljava/security/spec/KeySpec;)Ljava/security/PublicKey;", nullptr, $PROTECTED | $ABSTRACT, nullptr, "java.security.spec.InvalidKeySpecException"},
-	{"engineGetKeySpec", "(Ljava/security/Key;Ljava/lang/Class;)Ljava/security/spec/KeySpec;", "<T::Ljava/security/spec/KeySpec;>(Ljava/security/Key;Ljava/lang/Class<TT;>;)TT;", $PROTECTED | $ABSTRACT, nullptr, "java.security.spec.InvalidKeySpecException"},
-	{"engineTranslateKey", "(Ljava/security/Key;)Ljava/security/Key;", nullptr, $PROTECTED | $ABSTRACT, nullptr, "java.security.InvalidKeyException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(KeyFactorySpi, init$, void)},
+	{"engineGeneratePrivate", "(Ljava/security/spec/KeySpec;)Ljava/security/PrivateKey;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(KeyFactorySpi, engineGeneratePrivate, $PrivateKey*, $KeySpec*), "java.security.spec.InvalidKeySpecException"},
+	{"engineGeneratePublic", "(Ljava/security/spec/KeySpec;)Ljava/security/PublicKey;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(KeyFactorySpi, engineGeneratePublic, $PublicKey*, $KeySpec*), "java.security.spec.InvalidKeySpecException"},
+	{"engineGetKeySpec", "(Ljava/security/Key;Ljava/lang/Class;)Ljava/security/spec/KeySpec;", "<T::Ljava/security/spec/KeySpec;>(Ljava/security/Key;Ljava/lang/Class<TT;>;)TT;", $PROTECTED | $ABSTRACT, $virtualMethod(KeyFactorySpi, engineGetKeySpec, $KeySpec*, $Key*, $Class*), "java.security.spec.InvalidKeySpecException"},
+	{"engineTranslateKey", "(Ljava/security/Key;)Ljava/security/Key;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(KeyFactorySpi, engineTranslateKey, $Key*, $Key*), "java.security.InvalidKeyException"},
 	{}
 };
 

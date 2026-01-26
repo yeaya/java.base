@@ -33,8 +33,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo TestAnnotation$$Lambda$lambda$static$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TestAnnotation$$Lambda$lambda$static$0::*)()>(&TestAnnotation$$Lambda$lambda$static$0::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TestAnnotation$$Lambda$lambda$static$0, init$, void)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestAnnotation$$Lambda$lambda$static$0, run, void)},
 	{}
 };
 $ClassInfo TestAnnotation$$Lambda$lambda$static$0::classInfo$ = {
@@ -67,7 +67,7 @@ $FieldInfo _TestAnnotation_FieldInfo_[] = {
 };
 
 $MethodInfo _TestAnnotation_MethodInfo_[] = {
-	{"lambda$static$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)()>(&TestAnnotation::lambda$static$0))},
+	{"lambda$static$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestAnnotation, lambda$static$0, void)},
 	{}
 };
 

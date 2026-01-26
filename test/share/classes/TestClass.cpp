@@ -6,8 +6,8 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _TestClass_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TestClass::*)()>(&TestClass::init$))},
-	{"foo", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)()>(&TestClass::foo))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TestClass, init$, void)},
+	{"foo", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(TestClass, foo, $String*)},
 	{}
 };
 

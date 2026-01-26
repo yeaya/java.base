@@ -23,9 +23,9 @@ using $Runtime = ::java::lang::Runtime;
 using $RuntimeException = ::java::lang::RuntimeException;
 
 $MethodInfo _ExecWithLotsOfArgs_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ExecWithLotsOfArgs::*)()>(&ExecWithLotsOfArgs::init$))},
-	{"failed", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($String*)>(&ExecWithLotsOfArgs::failed))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&ExecWithLotsOfArgs::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ExecWithLotsOfArgs, init$, void)},
+	{"failed", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ExecWithLotsOfArgs, failed, void, $String*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ExecWithLotsOfArgs, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

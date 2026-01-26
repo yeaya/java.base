@@ -32,14 +32,14 @@ $FieldInfo _Clock$OffsetClock_FieldInfo_[] = {
 $MethodInfo _Clock$OffsetClock_MethodInfo_[] = {
 	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(Ljava/time/Clock;Ljava/time/Duration;)V", nullptr, 0, $method(static_cast<void(Clock$OffsetClock::*)($Clock*,$Duration*)>(&Clock$OffsetClock::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getZone", "()Ljava/time/ZoneId;", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"instant", "()Ljava/time/Instant;", nullptr, $PUBLIC},
-	{"millis", "()J", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"withZone", "(Ljava/time/ZoneId;)Ljava/time/Clock;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/time/Clock;Ljava/time/Duration;)V", nullptr, 0, $method(Clock$OffsetClock, init$, void, $Clock*, $Duration*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Clock$OffsetClock, equals, bool, Object$*)},
+	{"getZone", "()Ljava/time/ZoneId;", nullptr, $PUBLIC, $virtualMethod(Clock$OffsetClock, getZone, $ZoneId*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Clock$OffsetClock, hashCode, int32_t)},
+	{"instant", "()Ljava/time/Instant;", nullptr, $PUBLIC, $virtualMethod(Clock$OffsetClock, instant, $Instant*)},
+	{"millis", "()J", nullptr, $PUBLIC, $virtualMethod(Clock$OffsetClock, millis, int64_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Clock$OffsetClock, toString, $String*)},
+	{"withZone", "(Ljava/time/ZoneId;)Ljava/time/Clock;", nullptr, $PUBLIC, $virtualMethod(Clock$OffsetClock, withZone, $Clock*, $ZoneId*)},
 	{}
 };
 

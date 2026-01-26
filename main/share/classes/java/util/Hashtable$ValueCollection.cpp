@@ -22,11 +22,11 @@ $FieldInfo _Hashtable$ValueCollection_FieldInfo_[] = {
 };
 
 $MethodInfo _Hashtable$ValueCollection_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Hashtable;)V", nullptr, $PRIVATE, $method(static_cast<void(Hashtable$ValueCollection::*)($Hashtable*)>(&Hashtable$ValueCollection::init$))},
-	{"clear", "()V", nullptr, $PUBLIC},
-	{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TV;>;", $PUBLIC},
-	{"size", "()I", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/Hashtable;)V", nullptr, $PRIVATE, $method(Hashtable$ValueCollection, init$, void, $Hashtable*)},
+	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(Hashtable$ValueCollection, clear, void)},
+	{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Hashtable$ValueCollection, contains, bool, Object$*)},
+	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TV;>;", $PUBLIC, $virtualMethod(Hashtable$ValueCollection, iterator, $Iterator*)},
+	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(Hashtable$ValueCollection, size, int32_t)},
 	{}
 };
 

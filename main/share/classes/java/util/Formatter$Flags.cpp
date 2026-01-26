@@ -42,16 +42,16 @@ $FieldInfo _Formatter$Flags_FieldInfo_[] = {
 };
 
 $MethodInfo _Formatter$Flags_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PRIVATE, $method(static_cast<void(Formatter$Flags::*)(int32_t)>(&Formatter$Flags::init$))},
-	{"add", "(Ljava/util/Formatter$Flags;)Ljava/util/Formatter$Flags;", nullptr, $PRIVATE, $method(static_cast<Formatter$Flags*(Formatter$Flags::*)(Formatter$Flags*)>(&Formatter$Flags::add))},
-	{"contains", "(Ljava/util/Formatter$Flags;)Z", nullptr, $PUBLIC},
-	{"dup", "()Ljava/util/Formatter$Flags;", nullptr, $PUBLIC},
-	{"parse", "(Ljava/lang/String;II)Ljava/util/Formatter$Flags;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Formatter$Flags*(*)($String*,int32_t,int32_t)>(&Formatter$Flags::parse))},
-	{"parse", "(C)Ljava/util/Formatter$Flags;", nullptr, $PRIVATE | $STATIC, $method(static_cast<Formatter$Flags*(*)(char16_t)>(&Formatter$Flags::parse))},
-	{"remove", "(Ljava/util/Formatter$Flags;)Ljava/util/Formatter$Flags;", nullptr, $PUBLIC},
-	{"toString", "(Ljava/util/Formatter$Flags;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)(Formatter$Flags*)>(&Formatter$Flags::toString))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"valueOf", "()I", nullptr, $PUBLIC},
+	{"<init>", "(I)V", nullptr, $PRIVATE, $method(Formatter$Flags, init$, void, int32_t)},
+	{"add", "(Ljava/util/Formatter$Flags;)Ljava/util/Formatter$Flags;", nullptr, $PRIVATE, $method(Formatter$Flags, add, Formatter$Flags*, Formatter$Flags*)},
+	{"contains", "(Ljava/util/Formatter$Flags;)Z", nullptr, $PUBLIC, $virtualMethod(Formatter$Flags, contains, bool, Formatter$Flags*)},
+	{"dup", "()Ljava/util/Formatter$Flags;", nullptr, $PUBLIC, $virtualMethod(Formatter$Flags, dup, Formatter$Flags*)},
+	{"parse", "(Ljava/lang/String;II)Ljava/util/Formatter$Flags;", nullptr, $PUBLIC | $STATIC, $staticMethod(Formatter$Flags, parse, Formatter$Flags*, $String*, int32_t, int32_t)},
+	{"parse", "(C)Ljava/util/Formatter$Flags;", nullptr, $PRIVATE | $STATIC, $staticMethod(Formatter$Flags, parse, Formatter$Flags*, char16_t)},
+	{"remove", "(Ljava/util/Formatter$Flags;)Ljava/util/Formatter$Flags;", nullptr, $PUBLIC, $virtualMethod(Formatter$Flags, remove, Formatter$Flags*, Formatter$Flags*)},
+	{"toString", "(Ljava/util/Formatter$Flags;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Formatter$Flags, toString, $String*, Formatter$Flags*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Formatter$Flags, toString, $String*)},
+	{"valueOf", "()I", nullptr, $PUBLIC, $virtualMethod(Formatter$Flags, valueOf, int32_t)},
 	{}
 };
 

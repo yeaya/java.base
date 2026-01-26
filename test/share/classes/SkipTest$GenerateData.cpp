@@ -17,8 +17,8 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _SkipTest$GenerateData_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(SkipTest$GenerateData::*)()>(&SkipTest$GenerateData::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&SkipTest$GenerateData::main))},
+	{"<init>", "()V", nullptr, 0, $method(SkipTest$GenerateData, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SkipTest$GenerateData, main, void, $StringArray*)},
 	{}
 };
 

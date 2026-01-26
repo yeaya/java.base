@@ -45,9 +45,9 @@ $FieldInfo _PolicyUtil_FieldInfo_[] = {
 };
 
 $MethodInfo _PolicyUtil_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PolicyUtil::*)()>(&PolicyUtil::init$))},
-	{"getInputStream", "(Ljava/net/URL;)Ljava/io/InputStream;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$InputStream*(*)($URL*)>(&PolicyUtil::getInputStream)), "java.io.IOException"},
-	{"getKeyStore", "(Ljava/net/URL;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lsun/security/util/Debug;)Ljava/security/KeyStore;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$KeyStore*(*)($URL*,$String*,$String*,$String*,$String*,$Debug*)>(&PolicyUtil::getKeyStore)), "java.security.KeyStoreException,java.net.MalformedURLException,java.io.IOException,java.security.NoSuchProviderException,java.security.NoSuchAlgorithmException,java.security.cert.CertificateException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PolicyUtil, init$, void)},
+	{"getInputStream", "(Ljava/net/URL;)Ljava/io/InputStream;", nullptr, $PUBLIC | $STATIC, $staticMethod(PolicyUtil, getInputStream, $InputStream*, $URL*), "java.io.IOException"},
+	{"getKeyStore", "(Ljava/net/URL;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lsun/security/util/Debug;)Ljava/security/KeyStore;", nullptr, $PUBLIC | $STATIC, $staticMethod(PolicyUtil, getKeyStore, $KeyStore*, $URL*, $String*, $String*, $String*, $String*, $Debug*), "java.security.KeyStoreException,java.net.MalformedURLException,java.io.IOException,java.security.NoSuchProviderException,java.security.NoSuchAlgorithmException,java.security.cert.CertificateException"},
 	{}
 };
 

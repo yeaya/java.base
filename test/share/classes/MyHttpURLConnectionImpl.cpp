@@ -10,10 +10,10 @@ using $HttpURLConnection = ::java::net::HttpURLConnection;
 using $URL = ::java::net::URL;
 
 $MethodInfo _MyHttpURLConnectionImpl_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/URL;)V", nullptr, 0, $method(static_cast<void(MyHttpURLConnectionImpl::*)($URL*)>(&MyHttpURLConnectionImpl::init$))},
-	{"connect", "()V", nullptr, $PUBLIC},
-	{"disconnect", "()V", nullptr, $PUBLIC},
-	{"usingProxy", "()Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/net/URL;)V", nullptr, 0, $method(MyHttpURLConnectionImpl, init$, void, $URL*)},
+	{"connect", "()V", nullptr, $PUBLIC, $virtualMethod(MyHttpURLConnectionImpl, connect, void)},
+	{"disconnect", "()V", nullptr, $PUBLIC, $virtualMethod(MyHttpURLConnectionImpl, disconnect, void)},
+	{"usingProxy", "()Z", nullptr, $PUBLIC, $virtualMethod(MyHttpURLConnectionImpl, usingProxy, bool)},
 	{}
 };
 

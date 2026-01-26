@@ -21,9 +21,9 @@ $FieldInfo _SocketInheritance$IOHandler_FieldInfo_[] = {
 };
 
 $MethodInfo _SocketInheritance$IOHandler_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/InputStream;)V", nullptr, 0, $method(static_cast<void(SocketInheritance$IOHandler::*)($InputStream*)>(&SocketInheritance$IOHandler::init$))},
-	{"handle", "(Ljava/io/InputStream;)V", nullptr, $STATIC, $method(static_cast<void(*)($InputStream*)>(&SocketInheritance$IOHandler::handle))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/io/InputStream;)V", nullptr, 0, $method(SocketInheritance$IOHandler, init$, void, $InputStream*)},
+	{"handle", "(Ljava/io/InputStream;)V", nullptr, $STATIC, $staticMethod(SocketInheritance$IOHandler, handle, void, $InputStream*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(SocketInheritance$IOHandler, run, void)},
 	{}
 };
 

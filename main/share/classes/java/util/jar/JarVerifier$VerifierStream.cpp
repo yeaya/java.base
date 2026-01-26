@@ -34,12 +34,12 @@ $FieldInfo _JarVerifier$VerifierStream_FieldInfo_[] = {
 };
 
 $MethodInfo _JarVerifier$VerifierStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/jar/Manifest;Ljava/util/jar/JarEntry;Ljava/io/InputStream;Ljava/util/jar/JarVerifier;)V", nullptr, 0, $method(static_cast<void(JarVerifier$VerifierStream::*)($Manifest*,$JarEntry*,$InputStream*,$JarVerifier*)>(&JarVerifier$VerifierStream::init$)), "java.io.IOException"},
-	{"available", "()I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"ensureOpen", "()V", nullptr, $PRIVATE, $method(static_cast<void(JarVerifier$VerifierStream::*)()>(&JarVerifier$VerifierStream::ensureOpen)), "java.io.IOException"},
-	{"read", "()I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"read", "([BII)I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljava/util/jar/Manifest;Ljava/util/jar/JarEntry;Ljava/io/InputStream;Ljava/util/jar/JarVerifier;)V", nullptr, 0, $method(JarVerifier$VerifierStream, init$, void, $Manifest*, $JarEntry*, $InputStream*, $JarVerifier*), "java.io.IOException"},
+	{"available", "()I", nullptr, $PUBLIC, $virtualMethod(JarVerifier$VerifierStream, available, int32_t), "java.io.IOException"},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(JarVerifier$VerifierStream, close, void), "java.io.IOException"},
+	{"ensureOpen", "()V", nullptr, $PRIVATE, $method(JarVerifier$VerifierStream, ensureOpen, void), "java.io.IOException"},
+	{"read", "()I", nullptr, $PUBLIC, $virtualMethod(JarVerifier$VerifierStream, read, int32_t), "java.io.IOException"},
+	{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(JarVerifier$VerifierStream, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
 	{}
 };
 

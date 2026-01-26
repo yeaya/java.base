@@ -21,8 +21,8 @@ $FieldInfo _Executors$2_FieldInfo_[] = {
 };
 
 $MethodInfo _Executors$2_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/PrivilegedExceptionAction;)V", "()V", 0, $method(static_cast<void(Executors$2::*)($PrivilegedExceptionAction*)>(&Executors$2::init$))},
-	{"call", "()Ljava/lang/Object;", nullptr, $PUBLIC, nullptr, "java.lang.Exception"},
+	{"<init>", "(Ljava/security/PrivilegedExceptionAction;)V", "()V", 0, $method(Executors$2, init$, void, $PrivilegedExceptionAction*)},
+	{"call", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Executors$2, call, $Object*), "java.lang.Exception"},
 	{}
 };
 

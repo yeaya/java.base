@@ -61,20 +61,20 @@ $FieldInfo _NulFile_FieldInfo_[] = {
 };
 
 $MethodInfo _NulFile_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(NulFile::*)()>(&NulFile::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&NulFile::main))},
-	{"test", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($String*)>(&NulFile::test))},
-	{"test", "(Ljava/io/File;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($File*)>(&NulFile::test))},
-	{"test", "(Ljava/io/File;Z)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($File*,bool)>(&NulFile::test))},
-	{"testCreateTempFile", "(Ljava/lang/String;Ljava/lang/String;Ljava/io/File;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($String*,$String*,$File*)>(&NulFile::testCreateTempFile))},
-	{"testFile", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&NulFile::testFile))},
-	{"testFileInUnix", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&NulFile::testFileInUnix))},
-	{"testFileInWindows", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&NulFile::testFileInWindows))},
-	{"testFileInputStream", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($String*)>(&NulFile::testFileInputStream))},
-	{"testFileOutputStream", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($String*)>(&NulFile::testFileOutputStream))},
-	{"testRandomAccessFile", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($String*)>(&NulFile::testRandomAccessFile))},
-	{"testSerialization", "(Ljava/io/File;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($File*)>(&NulFile::testSerialization))},
-	{"testTempFile", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&NulFile::testTempFile))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(NulFile, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(NulFile, main, void, $StringArray*)},
+	{"test", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(NulFile, test, void, $String*)},
+	{"test", "(Ljava/io/File;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(NulFile, test, void, $File*)},
+	{"test", "(Ljava/io/File;Z)V", nullptr, $PRIVATE | $STATIC, $staticMethod(NulFile, test, void, $File*, bool)},
+	{"testCreateTempFile", "(Ljava/lang/String;Ljava/lang/String;Ljava/io/File;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(NulFile, testCreateTempFile, void, $String*, $String*, $File*)},
+	{"testFile", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(NulFile, testFile, void)},
+	{"testFileInUnix", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(NulFile, testFileInUnix, void)},
+	{"testFileInWindows", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(NulFile, testFileInWindows, void)},
+	{"testFileInputStream", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(NulFile, testFileInputStream, void, $String*)},
+	{"testFileOutputStream", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(NulFile, testFileOutputStream, void, $String*)},
+	{"testRandomAccessFile", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(NulFile, testRandomAccessFile, void, $String*)},
+	{"testSerialization", "(Ljava/io/File;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(NulFile, testSerialization, void, $File*)},
+	{"testTempFile", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(NulFile, testTempFile, void)},
 	{}
 };
 

@@ -43,11 +43,11 @@ $FieldInfo _UnicodeDecoder_FieldInfo_[] = {
 };
 
 $MethodInfo _UnicodeDecoder_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/charset/Charset;I)V", nullptr, $PUBLIC, $method(static_cast<void(UnicodeDecoder::*)($Charset*,int32_t)>(&UnicodeDecoder::init$))},
-	{"<init>", "(Ljava/nio/charset/Charset;II)V", nullptr, $PUBLIC, $method(static_cast<void(UnicodeDecoder::*)($Charset*,int32_t,int32_t)>(&UnicodeDecoder::init$))},
-	{"decode", "(II)C", nullptr, $PRIVATE, $method(static_cast<char16_t(UnicodeDecoder::*)(int32_t,int32_t)>(&UnicodeDecoder::decode))},
-	{"decodeLoop", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED},
-	{"implReset", "()V", nullptr, $PROTECTED},
+	{"<init>", "(Ljava/nio/charset/Charset;I)V", nullptr, $PUBLIC, $method(UnicodeDecoder, init$, void, $Charset*, int32_t)},
+	{"<init>", "(Ljava/nio/charset/Charset;II)V", nullptr, $PUBLIC, $method(UnicodeDecoder, init$, void, $Charset*, int32_t, int32_t)},
+	{"decode", "(II)C", nullptr, $PRIVATE, $method(UnicodeDecoder, decode, char16_t, int32_t, int32_t)},
+	{"decodeLoop", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED, $virtualMethod(UnicodeDecoder, decodeLoop, $CoderResult*, $ByteBuffer*, $CharBuffer*)},
+	{"implReset", "()V", nullptr, $PROTECTED, $virtualMethod(UnicodeDecoder, implReset, void)},
 	{}
 };
 

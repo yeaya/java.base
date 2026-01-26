@@ -55,15 +55,15 @@ $FieldInfo _MailToURLConnection_FieldInfo_[] = {
 };
 
 $MethodInfo _MailToURLConnection_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/URL;)V", nullptr, 0, $method(static_cast<void(MailToURLConnection::*)($URL*)>(&MailToURLConnection::init$))},
-	{"connect", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"getConnectTimeout", "()I", nullptr, $PUBLIC},
-	{"getFromAddress", "()Ljava/lang/String;", nullptr, 0},
-	{"getOutputStream", "()Ljava/io/OutputStream;", nullptr, $PUBLIC | $SYNCHRONIZED, nullptr, "java.io.IOException"},
-	{"getPermission", "()Ljava/security/Permission;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"getReadTimeout", "()I", nullptr, $PUBLIC},
-	{"setConnectTimeout", "(I)V", nullptr, $PUBLIC},
-	{"setReadTimeout", "(I)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/net/URL;)V", nullptr, 0, $method(MailToURLConnection, init$, void, $URL*)},
+	{"connect", "()V", nullptr, $PUBLIC, $virtualMethod(MailToURLConnection, connect, void), "java.io.IOException"},
+	{"getConnectTimeout", "()I", nullptr, $PUBLIC, $virtualMethod(MailToURLConnection, getConnectTimeout, int32_t)},
+	{"getFromAddress", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(MailToURLConnection, getFromAddress, $String*)},
+	{"getOutputStream", "()Ljava/io/OutputStream;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MailToURLConnection, getOutputStream, $OutputStream*), "java.io.IOException"},
+	{"getPermission", "()Ljava/security/Permission;", nullptr, $PUBLIC, $virtualMethod(MailToURLConnection, getPermission, $Permission*), "java.io.IOException"},
+	{"getReadTimeout", "()I", nullptr, $PUBLIC, $virtualMethod(MailToURLConnection, getReadTimeout, int32_t)},
+	{"setConnectTimeout", "(I)V", nullptr, $PUBLIC, $virtualMethod(MailToURLConnection, setConnectTimeout, void, int32_t)},
+	{"setReadTimeout", "(I)V", nullptr, $PUBLIC, $virtualMethod(MailToURLConnection, setReadTimeout, void, int32_t)},
 	{}
 };
 

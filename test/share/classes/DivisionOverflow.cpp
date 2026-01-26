@@ -16,8 +16,8 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $BigInteger = ::java::math::BigInteger;
 
 $MethodInfo _DivisionOverflow_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DivisionOverflow::*)()>(&DivisionOverflow::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&DivisionOverflow::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DivisionOverflow, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(DivisionOverflow, main, void, $StringArray*)},
 	{}
 };
 

@@ -21,9 +21,9 @@ $FieldInfo _MultipleNumberScriptTest_FieldInfo_[] = {
 };
 
 $MethodInfo _MultipleNumberScriptTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(MultipleNumberScriptTest::*)()>(&MultipleNumberScriptTest::init$))},
-	{"checkResult", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $STATIC, $method(static_cast<bool(*)($String*,$String*)>(&MultipleNumberScriptTest::checkResult))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&MultipleNumberScriptTest::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(MultipleNumberScriptTest, init$, void)},
+	{"checkResult", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $STATIC, $staticMethod(MultipleNumberScriptTest, checkResult, bool, $String*, $String*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(MultipleNumberScriptTest, main, void, $StringArray*)},
 	{}
 };
 

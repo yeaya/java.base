@@ -49,15 +49,15 @@ $FieldInfo _Base64$Decoder_FieldInfo_[] = {
 };
 
 $MethodInfo _Base64$Decoder_MethodInfo_[] = {
-	{"<init>", "(ZZ)V", nullptr, $PRIVATE, $method(static_cast<void(Base64$Decoder::*)(bool,bool)>(&Base64$Decoder::init$))},
-	{"decode", "([B)[B", nullptr, $PUBLIC},
-	{"decode", "(Ljava/lang/String;)[B", nullptr, $PUBLIC},
-	{"decode", "([B[B)I", nullptr, $PUBLIC},
-	{"decode", "(Ljava/nio/ByteBuffer;)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC},
-	{"decode0", "([BII[B)I", nullptr, $PRIVATE, $method(static_cast<int32_t(Base64$Decoder::*)($bytes*,int32_t,int32_t,$bytes*)>(&Base64$Decoder::decode0))},
-	{"decodeBlock", "([BII[BIZ)I", nullptr, $PRIVATE, $method(static_cast<int32_t(Base64$Decoder::*)($bytes*,int32_t,int32_t,$bytes*,int32_t,bool)>(&Base64$Decoder::decodeBlock)), nullptr, nullptr, _Base64$Decoder_MethodAnnotations_decodeBlock6},
-	{"decodedOutLength", "([BII)I", nullptr, $PRIVATE, $method(static_cast<int32_t(Base64$Decoder::*)($bytes*,int32_t,int32_t)>(&Base64$Decoder::decodedOutLength))},
-	{"wrap", "(Ljava/io/InputStream;)Ljava/io/InputStream;", nullptr, $PUBLIC},
+	{"<init>", "(ZZ)V", nullptr, $PRIVATE, $method(Base64$Decoder, init$, void, bool, bool)},
+	{"decode", "([B)[B", nullptr, $PUBLIC, $virtualMethod(Base64$Decoder, decode, $bytes*, $bytes*)},
+	{"decode", "(Ljava/lang/String;)[B", nullptr, $PUBLIC, $virtualMethod(Base64$Decoder, decode, $bytes*, $String*)},
+	{"decode", "([B[B)I", nullptr, $PUBLIC, $virtualMethod(Base64$Decoder, decode, int32_t, $bytes*, $bytes*)},
+	{"decode", "(Ljava/nio/ByteBuffer;)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $virtualMethod(Base64$Decoder, decode, $ByteBuffer*, $ByteBuffer*)},
+	{"decode0", "([BII[B)I", nullptr, $PRIVATE, $method(Base64$Decoder, decode0, int32_t, $bytes*, int32_t, int32_t, $bytes*)},
+	{"decodeBlock", "([BII[BIZ)I", nullptr, $PRIVATE, $method(Base64$Decoder, decodeBlock, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t, bool), nullptr, nullptr, _Base64$Decoder_MethodAnnotations_decodeBlock6},
+	{"decodedOutLength", "([BII)I", nullptr, $PRIVATE, $method(Base64$Decoder, decodedOutLength, int32_t, $bytes*, int32_t, int32_t)},
+	{"wrap", "(Ljava/io/InputStream;)Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(Base64$Decoder, wrap, $InputStream*, $InputStream*)},
 	{}
 };
 

@@ -23,7 +23,7 @@ $FieldInfo _MS932$EncodeHolder_FieldInfo_[] = {
 };
 
 $MethodInfo _MS932$EncodeHolder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(MS932$EncodeHolder::*)()>(&MS932$EncodeHolder::init$))},
+	{"<init>", "()V", nullptr, 0, $method(MS932$EncodeHolder, init$, void)},
 	{}
 };
 

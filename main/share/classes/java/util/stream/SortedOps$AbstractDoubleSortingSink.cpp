@@ -22,8 +22,8 @@ $FieldInfo _SortedOps$AbstractDoubleSortingSink_FieldInfo_[] = {
 };
 
 $MethodInfo _SortedOps$AbstractDoubleSortingSink_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/stream/Sink;)V", "(Ljava/util/stream/Sink<-Ljava/lang/Double;>;)V", 0, $method(static_cast<void(SortedOps$AbstractDoubleSortingSink::*)($Sink*)>(&SortedOps$AbstractDoubleSortingSink::init$))},
-	{"cancellationRequested", "()Z", nullptr, $PUBLIC | $FINAL},
+	{"<init>", "(Ljava/util/stream/Sink;)V", "(Ljava/util/stream/Sink<-Ljava/lang/Double;>;)V", 0, $method(SortedOps$AbstractDoubleSortingSink, init$, void, $Sink*)},
+	{"cancellationRequested", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(SortedOps$AbstractDoubleSortingSink, cancellationRequested, bool)},
 	{}
 };
 

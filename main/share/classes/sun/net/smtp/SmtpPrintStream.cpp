@@ -25,11 +25,11 @@ $FieldInfo _SmtpPrintStream_FieldInfo_[] = {
 };
 
 $MethodInfo _SmtpPrintStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/OutputStream;Lsun/net/smtp/SmtpClient;)V", nullptr, 0, $method(static_cast<void(SmtpPrintStream::*)($OutputStream*,$SmtpClient*)>(&SmtpPrintStream::init$)), "java.io.UnsupportedEncodingException"},
-	{"close", "()V", nullptr, $PUBLIC},
-	{"print", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"write", "(I)V", nullptr, $PUBLIC},
-	{"write", "([BII)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/io/OutputStream;Lsun/net/smtp/SmtpClient;)V", nullptr, 0, $method(SmtpPrintStream, init$, void, $OutputStream*, $SmtpClient*), "java.io.UnsupportedEncodingException"},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(SmtpPrintStream, close, void)},
+	{"print", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SmtpPrintStream, print, void, $String*)},
+	{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(SmtpPrintStream, write, void, int32_t)},
+	{"write", "([BII)V", nullptr, $PUBLIC, $virtualMethod(SmtpPrintStream, write, void, $bytes*, int32_t, int32_t)},
 	{}
 };
 

@@ -14,9 +14,9 @@ using $Exception = ::java::lang::Exception;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _ListNull_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ListNull::*)()>(&ListNull::init$))},
-	{"go", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $STATIC, $method(static_cast<void(*)($String*,$ObjectArray*)>(&ListNull::go)), "java.lang.Exception"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&ListNull::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ListNull, init$, void)},
+	{"go", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $STATIC, $staticMethod(ListNull, go, void, $String*, $ObjectArray*), "java.lang.Exception"},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ListNull, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

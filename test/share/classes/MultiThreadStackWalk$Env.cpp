@@ -73,8 +73,8 @@ $FieldInfo MultiThreadStackWalk$Env$$Lambda$lambda$consume$0::fieldInfos[2] = {
 	{}
 };
 $MethodInfo MultiThreadStackWalk$Env$$Lambda$lambda$consume$0::methodInfos[3] = {
-	{"<init>", "(LMultiThreadStackWalk$Env;)V", nullptr, $PUBLIC, $method(static_cast<void(MultiThreadStackWalk$Env$$Lambda$lambda$consume$0::*)(MultiThreadStackWalk$Env*)>(&MultiThreadStackWalk$Env$$Lambda$lambda$consume$0::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(LMultiThreadStackWalk$Env;)V", nullptr, $PUBLIC, $method(MultiThreadStackWalk$Env$$Lambda$lambda$consume$0, init$, void, MultiThreadStackWalk$Env*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(MultiThreadStackWalk$Env$$Lambda$lambda$consume$0, accept, void, Object$*)},
 	{}
 };
 $ClassInfo MultiThreadStackWalk$Env$$Lambda$lambda$consume$0::classInfo$ = {
@@ -103,10 +103,10 @@ $FieldInfo _MultiThreadStackWalk$Env_FieldInfo_[] = {
 };
 
 $MethodInfo _MultiThreadStackWalk$Env_MethodInfo_[] = {
-	{"<init>", "(JJLjava/util/concurrent/atomic/AtomicBoolean;)V", nullptr, $PUBLIC, $method(static_cast<void(MultiThreadStackWalk$Env::*)(int64_t,int64_t,$AtomicBoolean*)>(&MultiThreadStackWalk$Env::init$))},
-	{"<init>", "(LMultiThreadStackWalk$Env;J)V", nullptr, $PRIVATE, $method(static_cast<void(MultiThreadStackWalk$Env::*)(MultiThreadStackWalk$Env*,int64_t)>(&MultiThreadStackWalk$Env::init$))},
-	{"consume", "(Ljava/lang/StackWalker$StackFrame;)V", nullptr, $PUBLIC},
-	{"lambda$consume$0", "(Ljava/lang/StackWalker$StackFrame;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(MultiThreadStackWalk$Env::*)($StackWalker$StackFrame*)>(&MultiThreadStackWalk$Env::lambda$consume$0))},
+	{"<init>", "(JJLjava/util/concurrent/atomic/AtomicBoolean;)V", nullptr, $PUBLIC, $method(MultiThreadStackWalk$Env, init$, void, int64_t, int64_t, $AtomicBoolean*)},
+	{"<init>", "(LMultiThreadStackWalk$Env;J)V", nullptr, $PRIVATE, $method(MultiThreadStackWalk$Env, init$, void, MultiThreadStackWalk$Env*, int64_t)},
+	{"consume", "(Ljava/lang/StackWalker$StackFrame;)V", nullptr, $PUBLIC, $virtualMethod(MultiThreadStackWalk$Env, consume, void, $StackWalker$StackFrame*)},
+	{"lambda$consume$0", "(Ljava/lang/StackWalker$StackFrame;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(MultiThreadStackWalk$Env, lambda$consume$0, void, $StackWalker$StackFrame*)},
 	{}
 };
 

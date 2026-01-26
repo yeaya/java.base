@@ -11,7 +11,7 @@ namespace java {
 	namespace lang {
 
 $MethodInfo _ClassValue$Identity_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ClassValue$Identity::*)()>(&ClassValue$Identity::init$))},
+	{"<init>", "()V", nullptr, 0, $method(ClassValue$Identity, init$, void)},
 	{}
 };
 

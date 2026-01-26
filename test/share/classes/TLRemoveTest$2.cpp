@@ -24,8 +24,8 @@ $FieldInfo _TLRemoveTest$2_FieldInfo_[] = {
 };
 
 $MethodInfo _TLRemoveTest$2_MethodInfo_[] = {
-	{"<init>", "(I[I[I[I[Ljava/lang/Throwable;)V", nullptr, 0, $method(static_cast<void(TLRemoveTest$2::*)(int32_t,$ints*,$ints*,$ints*,$ThrowableArray*)>(&TLRemoveTest$2::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(I[I[I[I[Ljava/lang/Throwable;)V", nullptr, 0, $method(TLRemoveTest$2, init$, void, int32_t, $ints*, $ints*, $ints*, $ThrowableArray*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TLRemoveTest$2, run, void)},
 	{}
 };
 

@@ -11,8 +11,8 @@ using $Path = ::java::nio::file::Path;
 using $FileTypeDetector = ::java::nio::file::spi::FileTypeDetector;
 
 $MethodInfo _SimpleFileTypeDetector_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SimpleFileTypeDetector::*)()>(&SimpleFileTypeDetector::init$))},
-	{"probeContentType", "(Ljava/nio/file/Path;)Ljava/lang/String;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SimpleFileTypeDetector, init$, void)},
+	{"probeContentType", "(Ljava/nio/file/Path;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SimpleFileTypeDetector, probeContentType, $String*, $Path*), "java.io.IOException"},
 	{}
 };
 

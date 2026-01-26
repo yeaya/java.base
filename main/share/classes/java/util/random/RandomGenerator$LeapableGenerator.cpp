@@ -53,8 +53,8 @@ $FieldInfo RandomGenerator$LeapableGenerator$$Lambda$copyAndLeap::fieldInfos[2] 
 	{}
 };
 $MethodInfo RandomGenerator$LeapableGenerator$$Lambda$copyAndLeap::methodInfos[3] = {
-	{"<init>", "(Ljava/util/random/RandomGenerator$LeapableGenerator;)V", nullptr, $PUBLIC, $method(static_cast<void(RandomGenerator$LeapableGenerator$$Lambda$copyAndLeap::*)(RandomGenerator$LeapableGenerator*)>(&RandomGenerator$LeapableGenerator$$Lambda$copyAndLeap::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/random/RandomGenerator$LeapableGenerator;)V", nullptr, $PUBLIC, $method(RandomGenerator$LeapableGenerator$$Lambda$copyAndLeap, init$, void, RandomGenerator$LeapableGenerator*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(RandomGenerator$LeapableGenerator$$Lambda$copyAndLeap, get, $Object*)},
 	{}
 };
 $ClassInfo RandomGenerator$LeapableGenerator$$Lambda$copyAndLeap::classInfo$ = {
@@ -73,12 +73,12 @@ $Class* RandomGenerator$LeapableGenerator$$Lambda$copyAndLeap::class$ = nullptr;
 
 $MethodInfo _RandomGenerator$LeapableGenerator_MethodInfo_[] = {
 	{"copy", "()Ljava/util/random/RandomGenerator$LeapableGenerator;", nullptr, $PUBLIC | $ABSTRACT},
-	{"copyAndLeap", "()Ljava/util/random/RandomGenerator$JumpableGenerator;", nullptr, $PUBLIC},
-	{"leap", "()V", nullptr, $PUBLIC | $ABSTRACT},
-	{"leapDistance", "()D", nullptr, $PUBLIC | $ABSTRACT},
-	{"leaps", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljava/util/random/RandomGenerator$JumpableGenerator;>;", $PUBLIC},
-	{"leaps", "(J)Ljava/util/stream/Stream;", "(J)Ljava/util/stream/Stream<Ljava/util/random/RandomGenerator$JumpableGenerator;>;", $PUBLIC},
-	{"of", "(Ljava/lang/String;)Ljava/util/random/RandomGenerator$LeapableGenerator;", nullptr, $PUBLIC | $STATIC, $method(static_cast<RandomGenerator$LeapableGenerator*(*)($String*)>(&RandomGenerator$LeapableGenerator::of))},
+	{"copyAndLeap", "()Ljava/util/random/RandomGenerator$JumpableGenerator;", nullptr, $PUBLIC, $virtualMethod(RandomGenerator$LeapableGenerator, copyAndLeap, $RandomGenerator$JumpableGenerator*)},
+	{"leap", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RandomGenerator$LeapableGenerator, leap, void)},
+	{"leapDistance", "()D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RandomGenerator$LeapableGenerator, leapDistance, double)},
+	{"leaps", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljava/util/random/RandomGenerator$JumpableGenerator;>;", $PUBLIC, $virtualMethod(RandomGenerator$LeapableGenerator, leaps, $Stream*)},
+	{"leaps", "(J)Ljava/util/stream/Stream;", "(J)Ljava/util/stream/Stream<Ljava/util/random/RandomGenerator$JumpableGenerator;>;", $PUBLIC, $virtualMethod(RandomGenerator$LeapableGenerator, leaps, $Stream*, int64_t)},
+	{"of", "(Ljava/lang/String;)Ljava/util/random/RandomGenerator$LeapableGenerator;", nullptr, $PUBLIC | $STATIC, $staticMethod(RandomGenerator$LeapableGenerator, of, RandomGenerator$LeapableGenerator*, $String*)},
 	{}
 };
 

@@ -42,19 +42,19 @@ $FieldInfo _ResponderId_FieldInfo_[] = {
 };
 
 $MethodInfo _ResponderId_MethodInfo_[] = {
-	{"<init>", "(Ljavax/security/auth/x500/X500Principal;)V", nullptr, $PUBLIC, $method(static_cast<void(ResponderId::*)($X500Principal*)>(&ResponderId::init$)), "java.io.IOException"},
-	{"<init>", "(Ljava/security/PublicKey;)V", nullptr, $PUBLIC, $method(static_cast<void(ResponderId::*)($PublicKey*)>(&ResponderId::init$)), "java.io.IOException"},
-	{"<init>", "([B)V", nullptr, $PUBLIC, $method(static_cast<void(ResponderId::*)($bytes*)>(&ResponderId::init$)), "java.io.IOException"},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getEncoded", "()[B", nullptr, $PUBLIC, $method(static_cast<$bytes*(ResponderId::*)()>(&ResponderId::getEncoded))},
-	{"getKeyIdentifier", "()Lsun/security/x509/KeyIdentifier;", nullptr, $PUBLIC, $method(static_cast<$KeyIdentifier*(ResponderId::*)()>(&ResponderId::getKeyIdentifier))},
-	{"getResponderName", "()Ljavax/security/auth/x500/X500Principal;", nullptr, $PUBLIC, $method(static_cast<$X500Principal*(ResponderId::*)()>(&ResponderId::getResponderName))},
-	{"getType", "()Lsun/security/provider/certpath/ResponderId$Type;", nullptr, $PUBLIC, $method(static_cast<$ResponderId$Type*(ResponderId::*)()>(&ResponderId::getType))},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"keyIdToBytes", "()[B", nullptr, $PRIVATE, $method(static_cast<$bytes*(ResponderId::*)()>(&ResponderId::keyIdToBytes)), "java.io.IOException"},
-	{"length", "()I", nullptr, $PUBLIC, $method(static_cast<int32_t(ResponderId::*)()>(&ResponderId::length))},
-	{"principalToBytes", "()[B", nullptr, $PRIVATE, $method(static_cast<$bytes*(ResponderId::*)()>(&ResponderId::principalToBytes)), "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljavax/security/auth/x500/X500Principal;)V", nullptr, $PUBLIC, $method(ResponderId, init$, void, $X500Principal*), "java.io.IOException"},
+	{"<init>", "(Ljava/security/PublicKey;)V", nullptr, $PUBLIC, $method(ResponderId, init$, void, $PublicKey*), "java.io.IOException"},
+	{"<init>", "([B)V", nullptr, $PUBLIC, $method(ResponderId, init$, void, $bytes*), "java.io.IOException"},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ResponderId, equals, bool, Object$*)},
+	{"getEncoded", "()[B", nullptr, $PUBLIC, $method(ResponderId, getEncoded, $bytes*)},
+	{"getKeyIdentifier", "()Lsun/security/x509/KeyIdentifier;", nullptr, $PUBLIC, $method(ResponderId, getKeyIdentifier, $KeyIdentifier*)},
+	{"getResponderName", "()Ljavax/security/auth/x500/X500Principal;", nullptr, $PUBLIC, $method(ResponderId, getResponderName, $X500Principal*)},
+	{"getType", "()Lsun/security/provider/certpath/ResponderId$Type;", nullptr, $PUBLIC, $method(ResponderId, getType, $ResponderId$Type*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ResponderId, hashCode, int32_t)},
+	{"keyIdToBytes", "()[B", nullptr, $PRIVATE, $method(ResponderId, keyIdToBytes, $bytes*), "java.io.IOException"},
+	{"length", "()I", nullptr, $PUBLIC, $method(ResponderId, length, int32_t)},
+	{"principalToBytes", "()[B", nullptr, $PRIVATE, $method(ResponderId, principalToBytes, $bytes*), "java.io.IOException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ResponderId, toString, $String*)},
 	{}
 };
 

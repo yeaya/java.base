@@ -135,8 +135,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo PKIXCertPathValidator$$Lambda$hashCode::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PKIXCertPathValidator$$Lambda$hashCode::*)()>(&PKIXCertPathValidator$$Lambda$hashCode::init$))},
-	{"applyAsInt", "(Ljava/lang/Object;)I", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PKIXCertPathValidator$$Lambda$hashCode, init$, void)},
+	{"applyAsInt", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(PKIXCertPathValidator$$Lambda$hashCode, applyAsInt, int32_t, Object$*)},
 	{}
 };
 $ClassInfo PKIXCertPathValidator$$Lambda$hashCode::classInfo$ = {
@@ -160,11 +160,11 @@ $FieldInfo _PKIXCertPathValidator_FieldInfo_[] = {
 };
 
 $MethodInfo _PKIXCertPathValidator_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PKIXCertPathValidator::*)()>(&PKIXCertPathValidator::init$))},
-	{"engineGetRevocationChecker", "()Ljava/security/cert/CertPathChecker;", nullptr, $PUBLIC},
-	{"engineValidate", "(Ljava/security/cert/CertPath;Ljava/security/cert/CertPathParameters;)Ljava/security/cert/CertPathValidatorResult;", nullptr, $PUBLIC, nullptr, "java.security.cert.CertPathValidatorException,java.security.InvalidAlgorithmParameterException"},
-	{"validate", "(Lsun/security/provider/certpath/PKIX$ValidatorParams;)Ljava/security/cert/PKIXCertPathValidatorResult;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$PKIXCertPathValidatorResult*(*)($PKIX$ValidatorParams*)>(&PKIXCertPathValidator::validate)), "java.security.cert.CertPathValidatorException"},
-	{"validate", "(Ljava/security/cert/TrustAnchor;Lsun/security/provider/certpath/PKIX$ValidatorParams;)Ljava/security/cert/PKIXCertPathValidatorResult;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$PKIXCertPathValidatorResult*(*)($TrustAnchor*,$PKIX$ValidatorParams*)>(&PKIXCertPathValidator::validate)), "java.security.cert.CertPathValidatorException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PKIXCertPathValidator, init$, void)},
+	{"engineGetRevocationChecker", "()Ljava/security/cert/CertPathChecker;", nullptr, $PUBLIC, $virtualMethod(PKIXCertPathValidator, engineGetRevocationChecker, $CertPathChecker*)},
+	{"engineValidate", "(Ljava/security/cert/CertPath;Ljava/security/cert/CertPathParameters;)Ljava/security/cert/CertPathValidatorResult;", nullptr, $PUBLIC, $virtualMethod(PKIXCertPathValidator, engineValidate, $CertPathValidatorResult*, $CertPath*, $CertPathParameters*), "java.security.cert.CertPathValidatorException,java.security.InvalidAlgorithmParameterException"},
+	{"validate", "(Lsun/security/provider/certpath/PKIX$ValidatorParams;)Ljava/security/cert/PKIXCertPathValidatorResult;", nullptr, $PRIVATE | $STATIC, $staticMethod(PKIXCertPathValidator, validate, $PKIXCertPathValidatorResult*, $PKIX$ValidatorParams*), "java.security.cert.CertPathValidatorException"},
+	{"validate", "(Ljava/security/cert/TrustAnchor;Lsun/security/provider/certpath/PKIX$ValidatorParams;)Ljava/security/cert/PKIXCertPathValidatorResult;", nullptr, $PRIVATE | $STATIC, $staticMethod(PKIXCertPathValidator, validate, $PKIXCertPathValidatorResult*, $TrustAnchor*, $PKIX$ValidatorParams*), "java.security.cert.CertPathValidatorException"},
 	{}
 };
 

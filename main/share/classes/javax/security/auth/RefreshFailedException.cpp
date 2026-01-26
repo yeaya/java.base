@@ -17,8 +17,8 @@ $FieldInfo _RefreshFailedException_FieldInfo_[] = {
 };
 
 $MethodInfo _RefreshFailedException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(RefreshFailedException::*)()>(&RefreshFailedException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(RefreshFailedException::*)($String*)>(&RefreshFailedException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(RefreshFailedException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(RefreshFailedException, init$, void, $String*)},
 	{}
 };
 

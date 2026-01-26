@@ -51,20 +51,20 @@ $FieldInfo _Perf_FieldInfo_[] = {
 };
 
 $MethodInfo _Perf_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(Perf::*)()>(&Perf::init$))},
-	{"attach", "(ILjava/lang/String;)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $method(static_cast<$ByteBuffer*(Perf::*)(int32_t,$String*)>(&Perf::attach)), "java.lang.IllegalArgumentException,java.io.IOException"},
-	{"attach", "(Ljava/lang/String;ILjava/lang/String;)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $method(static_cast<$ByteBuffer*(Perf::*)($String*,int32_t,$String*)>(&Perf::attach)), "java.lang.IllegalArgumentException,java.io.IOException"},
-	{"attach", "(Ljava/lang/String;II)Ljava/nio/ByteBuffer;", nullptr, $PRIVATE | $NATIVE, $method(static_cast<$ByteBuffer*(Perf::*)($String*,int32_t,int32_t)>(&Perf::attach)), "java.lang.IllegalArgumentException,java.io.IOException"},
-	{"attachImpl", "(Ljava/lang/String;II)Ljava/nio/ByteBuffer;", nullptr, $PRIVATE, $method(static_cast<$ByteBuffer*(Perf::*)($String*,int32_t,int32_t)>(&Perf::attachImpl)), "java.lang.IllegalArgumentException,java.io.IOException"},
-	{"createByteArray", "(Ljava/lang/String;II[BI)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC | $NATIVE, $method(static_cast<$ByteBuffer*(Perf::*)($String*,int32_t,int32_t,$bytes*,int32_t)>(&Perf::createByteArray))},
-	{"createLong", "(Ljava/lang/String;IIJ)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC | $NATIVE, $method(static_cast<$ByteBuffer*(Perf::*)($String*,int32_t,int32_t,int64_t)>(&Perf::createLong))},
-	{"createString", "(Ljava/lang/String;IILjava/lang/String;I)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $method(static_cast<$ByteBuffer*(Perf::*)($String*,int32_t,int32_t,$String*,int32_t)>(&Perf::createString))},
-	{"createString", "(Ljava/lang/String;IILjava/lang/String;)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $method(static_cast<$ByteBuffer*(Perf::*)($String*,int32_t,int32_t,$String*)>(&Perf::createString))},
-	{"detach", "(Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE | $NATIVE, $method(static_cast<void(Perf::*)($ByteBuffer*)>(&Perf::detach))},
-	{"getPerf", "()Ljdk/internal/perf/Perf;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Perf*(*)()>(&Perf::getPerf))},
-	{"highResCounter", "()J", nullptr, $PUBLIC | $NATIVE, $method(static_cast<int64_t(Perf::*)()>(&Perf::highResCounter))},
-	{"highResFrequency", "()J", nullptr, $PUBLIC | $NATIVE, $method(static_cast<int64_t(Perf::*)()>(&Perf::highResFrequency))},
-	{"registerNatives", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $method(static_cast<void(*)()>(&Perf::registerNatives))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(Perf, init$, void)},
+	{"attach", "(ILjava/lang/String;)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $method(Perf, attach, $ByteBuffer*, int32_t, $String*), "java.lang.IllegalArgumentException,java.io.IOException"},
+	{"attach", "(Ljava/lang/String;ILjava/lang/String;)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $method(Perf, attach, $ByteBuffer*, $String*, int32_t, $String*), "java.lang.IllegalArgumentException,java.io.IOException"},
+	{"attach", "(Ljava/lang/String;II)Ljava/nio/ByteBuffer;", nullptr, $PRIVATE | $NATIVE, $method(Perf, attach, $ByteBuffer*, $String*, int32_t, int32_t), "java.lang.IllegalArgumentException,java.io.IOException"},
+	{"attachImpl", "(Ljava/lang/String;II)Ljava/nio/ByteBuffer;", nullptr, $PRIVATE, $method(Perf, attachImpl, $ByteBuffer*, $String*, int32_t, int32_t), "java.lang.IllegalArgumentException,java.io.IOException"},
+	{"createByteArray", "(Ljava/lang/String;II[BI)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC | $NATIVE, $method(Perf, createByteArray, $ByteBuffer*, $String*, int32_t, int32_t, $bytes*, int32_t)},
+	{"createLong", "(Ljava/lang/String;IIJ)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC | $NATIVE, $method(Perf, createLong, $ByteBuffer*, $String*, int32_t, int32_t, int64_t)},
+	{"createString", "(Ljava/lang/String;IILjava/lang/String;I)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $method(Perf, createString, $ByteBuffer*, $String*, int32_t, int32_t, $String*, int32_t)},
+	{"createString", "(Ljava/lang/String;IILjava/lang/String;)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $method(Perf, createString, $ByteBuffer*, $String*, int32_t, int32_t, $String*)},
+	{"detach", "(Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE | $NATIVE, $method(Perf, detach, void, $ByteBuffer*)},
+	{"getPerf", "()Ljdk/internal/perf/Perf;", nullptr, $PUBLIC | $STATIC, $staticMethod(Perf, getPerf, Perf*)},
+	{"highResCounter", "()J", nullptr, $PUBLIC | $NATIVE, $method(Perf, highResCounter, int64_t)},
+	{"highResFrequency", "()J", nullptr, $PUBLIC | $NATIVE, $method(Perf, highResFrequency, int64_t)},
+	{"registerNatives", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Perf, registerNatives, void)},
 	{}
 };
 

@@ -61,8 +61,8 @@ $FieldInfo _CloseDuringWrite_FieldInfo_[] = {
 };
 
 $MethodInfo _CloseDuringWrite_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CloseDuringWrite::*)()>(&CloseDuringWrite::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&CloseDuringWrite::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CloseDuringWrite, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(CloseDuringWrite, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

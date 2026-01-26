@@ -9,8 +9,8 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _NullThreadName$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(NullThreadName$1::*)()>(&NullThreadName$1::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(NullThreadName$1, init$, void)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(NullThreadName$1, run, void)},
 	{}
 };
 

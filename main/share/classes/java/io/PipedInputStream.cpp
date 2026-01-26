@@ -46,21 +46,21 @@ $FieldInfo _PipedInputStream_FieldInfo_[] = {
 };
 
 $MethodInfo _PipedInputStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/PipedOutputStream;)V", nullptr, $PUBLIC, $method(static_cast<void(PipedInputStream::*)($PipedOutputStream*)>(&PipedInputStream::init$)), "java.io.IOException"},
-	{"<init>", "(Ljava/io/PipedOutputStream;I)V", nullptr, $PUBLIC, $method(static_cast<void(PipedInputStream::*)($PipedOutputStream*,int32_t)>(&PipedInputStream::init$)), "java.io.IOException"},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PipedInputStream::*)()>(&PipedInputStream::init$))},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(static_cast<void(PipedInputStream::*)(int32_t)>(&PipedInputStream::init$))},
-	{"available", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, nullptr, "java.io.IOException"},
-	{"awaitSpace", "()V", nullptr, $PRIVATE, $method(static_cast<void(PipedInputStream::*)()>(&PipedInputStream::awaitSpace)), "java.io.IOException"},
-	{"checkStateForReceive", "()V", nullptr, $PRIVATE, $method(static_cast<void(PipedInputStream::*)()>(&PipedInputStream::checkStateForReceive)), "java.io.IOException"},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"connect", "(Ljava/io/PipedOutputStream;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"initPipe", "(I)V", nullptr, $PRIVATE, $method(static_cast<void(PipedInputStream::*)(int32_t)>(&PipedInputStream::initPipe))},
-	{"read", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, nullptr, "java.io.IOException"},
-	{"read", "([BII)I", nullptr, $PUBLIC | $SYNCHRONIZED, nullptr, "java.io.IOException"},
-	{"receive", "(I)V", nullptr, $PROTECTED | $SYNCHRONIZED, nullptr, "java.io.IOException"},
-	{"receive", "([BII)V", nullptr, $SYNCHRONIZED, nullptr, "java.io.IOException"},
-	{"receivedLast", "()V", nullptr, $SYNCHRONIZED},
+	{"<init>", "(Ljava/io/PipedOutputStream;)V", nullptr, $PUBLIC, $method(PipedInputStream, init$, void, $PipedOutputStream*), "java.io.IOException"},
+	{"<init>", "(Ljava/io/PipedOutputStream;I)V", nullptr, $PUBLIC, $method(PipedInputStream, init$, void, $PipedOutputStream*, int32_t), "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PipedInputStream, init$, void)},
+	{"<init>", "(I)V", nullptr, $PUBLIC, $method(PipedInputStream, init$, void, int32_t)},
+	{"available", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(PipedInputStream, available, int32_t), "java.io.IOException"},
+	{"awaitSpace", "()V", nullptr, $PRIVATE, $method(PipedInputStream, awaitSpace, void), "java.io.IOException"},
+	{"checkStateForReceive", "()V", nullptr, $PRIVATE, $method(PipedInputStream, checkStateForReceive, void), "java.io.IOException"},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(PipedInputStream, close, void), "java.io.IOException"},
+	{"connect", "(Ljava/io/PipedOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(PipedInputStream, connect, void, $PipedOutputStream*), "java.io.IOException"},
+	{"initPipe", "(I)V", nullptr, $PRIVATE, $method(PipedInputStream, initPipe, void, int32_t)},
+	{"read", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(PipedInputStream, read, int32_t), "java.io.IOException"},
+	{"read", "([BII)I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(PipedInputStream, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
+	{"receive", "(I)V", nullptr, $PROTECTED | $SYNCHRONIZED, $virtualMethod(PipedInputStream, receive, void, int32_t), "java.io.IOException"},
+	{"receive", "([BII)V", nullptr, $SYNCHRONIZED, $virtualMethod(PipedInputStream, receive, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
+	{"receivedLast", "()V", nullptr, $SYNCHRONIZED, $virtualMethod(PipedInputStream, receivedLast, void)},
 	{}
 };
 

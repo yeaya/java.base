@@ -27,13 +27,13 @@ namespace java {
 		namespace stream {
 
 $MethodInfo _ReferencePipeline$Head_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/function/Supplier;IZ)V", "(Ljava/util/function/Supplier<+Ljava/util/Spliterator<*>;>;IZ)V", 0, $method(static_cast<void(ReferencePipeline$Head::*)($Supplier*,int32_t,bool)>(&ReferencePipeline$Head::init$))},
-	{"<init>", "(Ljava/util/Spliterator;IZ)V", "(Ljava/util/Spliterator<*>;IZ)V", 0, $method(static_cast<void(ReferencePipeline$Head::*)($Spliterator*,int32_t,bool)>(&ReferencePipeline$Head::init$))},
-	{"forEach", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE_OUT;>;)V", $PUBLIC},
-	{"forEachOrdered", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE_OUT;>;)V", $PUBLIC},
-	{"opIsStateful", "()Z", nullptr, $FINAL},
-	{"opWrapSink", "(ILjava/util/stream/Sink;)Ljava/util/stream/Sink;", "(ILjava/util/stream/Sink<TE_OUT;>;)Ljava/util/stream/Sink<TE_IN;>;", $FINAL},
-	{"unordered", "()Ljava/util/stream/BaseStream;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "(Ljava/util/function/Supplier;IZ)V", "(Ljava/util/function/Supplier<+Ljava/util/Spliterator<*>;>;IZ)V", 0, $method(ReferencePipeline$Head, init$, void, $Supplier*, int32_t, bool)},
+	{"<init>", "(Ljava/util/Spliterator;IZ)V", "(Ljava/util/Spliterator<*>;IZ)V", 0, $method(ReferencePipeline$Head, init$, void, $Spliterator*, int32_t, bool)},
+	{"forEach", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE_OUT;>;)V", $PUBLIC, $virtualMethod(ReferencePipeline$Head, forEach, void, $Consumer*)},
+	{"forEachOrdered", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE_OUT;>;)V", $PUBLIC, $virtualMethod(ReferencePipeline$Head, forEachOrdered, void, $Consumer*)},
+	{"opIsStateful", "()Z", nullptr, $FINAL, $virtualMethod(ReferencePipeline$Head, opIsStateful, bool)},
+	{"opWrapSink", "(ILjava/util/stream/Sink;)Ljava/util/stream/Sink;", "(ILjava/util/stream/Sink<TE_OUT;>;)Ljava/util/stream/Sink<TE_IN;>;", $FINAL, $virtualMethod(ReferencePipeline$Head, opWrapSink, $Sink*, int32_t, $Sink*)},
+	{"unordered", "()Ljava/util/stream/BaseStream;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ReferencePipeline$Head, unordered, $BaseStream*)},
 	{}
 };
 

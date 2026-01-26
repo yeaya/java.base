@@ -22,8 +22,8 @@ $FieldInfo _PipeImpl$Initializer$1_FieldInfo_[] = {
 };
 
 $MethodInfo _PipeImpl$Initializer$1_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/ch/PipeImpl$Initializer;Ljava/lang/Runnable;)V", nullptr, 0, $method(static_cast<void(PipeImpl$Initializer$1::*)($PipeImpl$Initializer*,$Runnable*)>(&PipeImpl$Initializer$1::init$))},
-	{"interrupt", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/nio/ch/PipeImpl$Initializer;Ljava/lang/Runnable;)V", nullptr, 0, $method(PipeImpl$Initializer$1, init$, void, $PipeImpl$Initializer*, $Runnable*)},
+	{"interrupt", "()V", nullptr, $PUBLIC, $virtualMethod(PipeImpl$Initializer$1, interrupt, void)},
 	{}
 };
 

@@ -23,10 +23,10 @@ namespace sun {
 			namespace scope {
 
 $MethodInfo _MethodScope_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/reflect/Method;)V", nullptr, $PRIVATE, $method(static_cast<void(MethodScope::*)($Method*)>(&MethodScope::init$))},
-	{"computeEnclosingScope", "()Lsun/reflect/generics/scope/Scope;", nullptr, $PROTECTED},
-	{"getEnclosingClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PRIVATE, $method(static_cast<$Class*(MethodScope::*)()>(&MethodScope::getEnclosingClass))},
-	{"make", "(Ljava/lang/reflect/Method;)Lsun/reflect/generics/scope/MethodScope;", nullptr, $PUBLIC | $STATIC, $method(static_cast<MethodScope*(*)($Method*)>(&MethodScope::make))},
+	{"<init>", "(Ljava/lang/reflect/Method;)V", nullptr, $PRIVATE, $method(MethodScope, init$, void, $Method*)},
+	{"computeEnclosingScope", "()Lsun/reflect/generics/scope/Scope;", nullptr, $PROTECTED, $virtualMethod(MethodScope, computeEnclosingScope, $Scope*)},
+	{"getEnclosingClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PRIVATE, $method(MethodScope, getEnclosingClass, $Class*)},
+	{"make", "(Ljava/lang/reflect/Method;)Lsun/reflect/generics/scope/MethodScope;", nullptr, $PUBLIC | $STATIC, $staticMethod(MethodScope, make, MethodScope*, $Method*)},
 	{}
 };
 

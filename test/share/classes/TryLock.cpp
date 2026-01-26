@@ -23,11 +23,11 @@ using $NonReadableChannelException = ::java::nio::channels::NonReadableChannelEx
 using $NonWritableChannelException = ::java::nio::channels::NonWritableChannelException;
 
 $MethodInfo _TryLock_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TryLock::*)()>(&TryLock::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&TryLock::main)), "java.lang.Exception"},
-	{"test1", "(ZZ)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)(bool,bool)>(&TryLock::test1)), "java.lang.Exception"},
-	{"test2", "(ZZ)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)(bool,bool)>(&TryLock::test2)), "java.lang.Exception"},
-	{"test3", "(ZZ)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)(bool,bool)>(&TryLock::test3)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TryLock, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TryLock, main, void, $StringArray*), "java.lang.Exception"},
+	{"test1", "(ZZ)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TryLock, test1, void, bool, bool), "java.lang.Exception"},
+	{"test2", "(ZZ)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TryLock, test2, void, bool, bool), "java.lang.Exception"},
+	{"test3", "(ZZ)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TryLock, test3, void, bool, bool), "java.lang.Exception"},
 	{}
 };
 

@@ -47,11 +47,11 @@ $FieldInfo _XDHKeyExchange$XDHEPossession_FieldInfo_[] = {
 };
 
 $MethodInfo _XDHKeyExchange$XDHEPossession_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/ssl/NamedGroup;Ljava/security/SecureRandom;)V", nullptr, 0, $method(static_cast<void(XDHKeyExchange$XDHEPossession::*)($NamedGroup*,$SecureRandom*)>(&XDHKeyExchange$XDHEPossession::init$))},
-	{"encode", "()[B", nullptr, $PUBLIC},
-	{"getNamedGroup", "()Lsun/security/ssl/NamedGroup;", nullptr, $PUBLIC},
-	{"getPrivateKey", "()Ljava/security/PrivateKey;", nullptr, $PUBLIC},
-	{"getPublicKey", "()Ljava/security/PublicKey;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/security/ssl/NamedGroup;Ljava/security/SecureRandom;)V", nullptr, 0, $method(XDHKeyExchange$XDHEPossession, init$, void, $NamedGroup*, $SecureRandom*)},
+	{"encode", "()[B", nullptr, $PUBLIC, $virtualMethod(XDHKeyExchange$XDHEPossession, encode, $bytes*)},
+	{"getNamedGroup", "()Lsun/security/ssl/NamedGroup;", nullptr, $PUBLIC, $virtualMethod(XDHKeyExchange$XDHEPossession, getNamedGroup, $NamedGroup*)},
+	{"getPrivateKey", "()Ljava/security/PrivateKey;", nullptr, $PUBLIC, $virtualMethod(XDHKeyExchange$XDHEPossession, getPrivateKey, $PrivateKey*)},
+	{"getPublicKey", "()Ljava/security/PublicKey;", nullptr, $PUBLIC, $virtualMethod(XDHKeyExchange$XDHEPossession, getPublicKey, $PublicKey*)},
 	{}
 };
 

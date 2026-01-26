@@ -29,16 +29,16 @@ $FieldInfo _StringLatin1$LinesSpliterator_FieldInfo_[] = {
 };
 
 $MethodInfo _StringLatin1$LinesSpliterator_MethodInfo_[] = {
-	{"<init>", "([BII)V", nullptr, $PRIVATE, $method(static_cast<void(StringLatin1$LinesSpliterator::*)($bytes*,int32_t,int32_t)>(&StringLatin1$LinesSpliterator::init$))},
-	{"characteristics", "()I", nullptr, $PUBLIC},
-	{"estimateSize", "()J", nullptr, $PUBLIC},
-	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-Ljava/lang/String;>;)V", $PUBLIC},
-	{"indexOfLineSeparator", "(I)I", nullptr, $PRIVATE, $method(static_cast<int32_t(StringLatin1$LinesSpliterator::*)(int32_t)>(&StringLatin1$LinesSpliterator::indexOfLineSeparator))},
-	{"next", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(StringLatin1$LinesSpliterator::*)()>(&StringLatin1$LinesSpliterator::next))},
-	{"skipLineSeparator", "(I)I", nullptr, $PRIVATE, $method(static_cast<int32_t(StringLatin1$LinesSpliterator::*)(int32_t)>(&StringLatin1$LinesSpliterator::skipLineSeparator))},
-	{"spliterator", "([B)Ljava/lang/StringLatin1$LinesSpliterator;", nullptr, $STATIC, $method(static_cast<StringLatin1$LinesSpliterator*(*)($bytes*)>(&StringLatin1$LinesSpliterator::spliterator))},
-	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-Ljava/lang/String;>;)Z", $PUBLIC},
-	{"trySplit", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<Ljava/lang/String;>;", $PUBLIC},
+	{"<init>", "([BII)V", nullptr, $PRIVATE, $method(StringLatin1$LinesSpliterator, init$, void, $bytes*, int32_t, int32_t)},
+	{"characteristics", "()I", nullptr, $PUBLIC, $virtualMethod(StringLatin1$LinesSpliterator, characteristics, int32_t)},
+	{"estimateSize", "()J", nullptr, $PUBLIC, $virtualMethod(StringLatin1$LinesSpliterator, estimateSize, int64_t)},
+	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-Ljava/lang/String;>;)V", $PUBLIC, $virtualMethod(StringLatin1$LinesSpliterator, forEachRemaining, void, $Consumer*)},
+	{"indexOfLineSeparator", "(I)I", nullptr, $PRIVATE, $method(StringLatin1$LinesSpliterator, indexOfLineSeparator, int32_t, int32_t)},
+	{"next", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(StringLatin1$LinesSpliterator, next, $String*)},
+	{"skipLineSeparator", "(I)I", nullptr, $PRIVATE, $method(StringLatin1$LinesSpliterator, skipLineSeparator, int32_t, int32_t)},
+	{"spliterator", "([B)Ljava/lang/StringLatin1$LinesSpliterator;", nullptr, $STATIC, $staticMethod(StringLatin1$LinesSpliterator, spliterator, StringLatin1$LinesSpliterator*, $bytes*)},
+	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-Ljava/lang/String;>;)Z", $PUBLIC, $virtualMethod(StringLatin1$LinesSpliterator, tryAdvance, bool, $Consumer*)},
+	{"trySplit", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(StringLatin1$LinesSpliterator, trySplit, $Spliterator*)},
 	{}
 };
 

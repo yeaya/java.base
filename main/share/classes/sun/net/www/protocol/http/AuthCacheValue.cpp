@@ -11,8 +11,11 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $PasswordAuthentication = ::java::net::PasswordAuthentication;
 using $AuthCache = ::sun::net::www::protocol::http::AuthCache;
 using $AuthCacheImpl = ::sun::net::www::protocol::http::AuthCacheImpl;
+using $AuthCacheValue$Type = ::sun::net::www::protocol::http::AuthCacheValue$Type;
+using $AuthScheme = ::sun::net::www::protocol::http::AuthScheme;
 
 namespace sun {
 	namespace net {
@@ -27,16 +30,16 @@ $FieldInfo _AuthCacheValue_FieldInfo_[] = {
 };
 
 $MethodInfo _AuthCacheValue_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(AuthCacheValue::*)()>(&AuthCacheValue::init$))},
-	{"credentials", "()Ljava/net/PasswordAuthentication;", nullptr, $ABSTRACT},
-	{"getAuthScheme", "()Lsun/net/www/protocol/http/AuthScheme;", nullptr, $ABSTRACT},
-	{"getAuthType", "()Lsun/net/www/protocol/http/AuthCacheValue$Type;", nullptr, $ABSTRACT},
-	{"getHost", "()Ljava/lang/String;", nullptr, $ABSTRACT},
-	{"getPath", "()Ljava/lang/String;", nullptr, $ABSTRACT},
-	{"getPort", "()I", nullptr, $ABSTRACT},
-	{"getProtocolScheme", "()Ljava/lang/String;", nullptr, $ABSTRACT},
-	{"getRealm", "()Ljava/lang/String;", nullptr, $ABSTRACT},
-	{"setAuthCache", "(Lsun/net/www/protocol/http/AuthCache;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($AuthCache*)>(&AuthCacheValue::setAuthCache))},
+	{"<init>", "()V", nullptr, 0, $method(AuthCacheValue, init$, void)},
+	{"credentials", "()Ljava/net/PasswordAuthentication;", nullptr, $ABSTRACT, $virtualMethod(AuthCacheValue, credentials, $PasswordAuthentication*)},
+	{"getAuthScheme", "()Lsun/net/www/protocol/http/AuthScheme;", nullptr, $ABSTRACT, $virtualMethod(AuthCacheValue, getAuthScheme, $AuthScheme*)},
+	{"getAuthType", "()Lsun/net/www/protocol/http/AuthCacheValue$Type;", nullptr, $ABSTRACT, $virtualMethod(AuthCacheValue, getAuthType, $AuthCacheValue$Type*)},
+	{"getHost", "()Ljava/lang/String;", nullptr, $ABSTRACT, $virtualMethod(AuthCacheValue, getHost, $String*)},
+	{"getPath", "()Ljava/lang/String;", nullptr, $ABSTRACT, $virtualMethod(AuthCacheValue, getPath, $String*)},
+	{"getPort", "()I", nullptr, $ABSTRACT, $virtualMethod(AuthCacheValue, getPort, int32_t)},
+	{"getProtocolScheme", "()Ljava/lang/String;", nullptr, $ABSTRACT, $virtualMethod(AuthCacheValue, getProtocolScheme, $String*)},
+	{"getRealm", "()Ljava/lang/String;", nullptr, $ABSTRACT, $virtualMethod(AuthCacheValue, getRealm, $String*)},
+	{"setAuthCache", "(Lsun/net/www/protocol/http/AuthCache;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(AuthCacheValue, setAuthCache, void, $AuthCache*)},
 	{}
 };
 

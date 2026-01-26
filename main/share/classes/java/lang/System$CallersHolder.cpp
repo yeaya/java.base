@@ -24,7 +24,7 @@ $FieldInfo _System$CallersHolder_FieldInfo_[] = {
 };
 
 $MethodInfo _System$CallersHolder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(System$CallersHolder::*)()>(&System$CallersHolder::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(System$CallersHolder, init$, void)},
 	{}
 };
 

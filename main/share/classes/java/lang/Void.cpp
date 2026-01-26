@@ -17,7 +17,7 @@ $FieldInfo _Void_FieldInfo_[] = {
 };
 
 $MethodInfo _Void_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(Void::*)()>(&Void::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(Void, init$, void)},
 	{}
 };
 

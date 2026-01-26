@@ -18,8 +18,8 @@ $FieldInfo _DecodeNonEncoded_FieldInfo_[] = {
 };
 
 $MethodInfo _DecodeNonEncoded_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DecodeNonEncoded::*)()>(&DecodeNonEncoded::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&DecodeNonEncoded::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DecodeNonEncoded, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(DecodeNonEncoded, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

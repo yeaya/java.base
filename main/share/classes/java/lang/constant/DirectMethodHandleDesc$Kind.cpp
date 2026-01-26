@@ -63,15 +63,15 @@ $FieldInfo _DirectMethodHandleDesc$Kind_FieldInfo_[] = {
 };
 
 $MethodInfo _DirectMethodHandleDesc$Kind_MethodInfo_[] = {
-	{"$values", "()[Ljava/lang/constant/DirectMethodHandleDesc$Kind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$DirectMethodHandleDesc$KindArray*(*)()>(&DirectMethodHandleDesc$Kind::$values))},
-	{"<init>", "(Ljava/lang/String;II)V", "(I)V", $PRIVATE, $method(static_cast<void(DirectMethodHandleDesc$Kind::*)($String*,int32_t,int32_t)>(&DirectMethodHandleDesc$Kind::init$))},
-	{"<init>", "(Ljava/lang/String;IIZ)V", "(IZ)V", $PRIVATE, $method(static_cast<void(DirectMethodHandleDesc$Kind::*)($String*,int32_t,int32_t,bool)>(&DirectMethodHandleDesc$Kind::init$))},
-	{"isVirtualMethod", "()Z", nullptr, 0, $method(static_cast<bool(DirectMethodHandleDesc$Kind::*)()>(&DirectMethodHandleDesc$Kind::isVirtualMethod))},
-	{"tableIndex", "(IZ)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)(int32_t,bool)>(&DirectMethodHandleDesc$Kind::tableIndex))},
-	{"valueOf", "(Ljava/lang/String;)Ljava/lang/constant/DirectMethodHandleDesc$Kind;", nullptr, $PUBLIC | $STATIC, $method(static_cast<DirectMethodHandleDesc$Kind*(*)($String*)>(&DirectMethodHandleDesc$Kind::valueOf))},
-	{"valueOf", "(I)Ljava/lang/constant/DirectMethodHandleDesc$Kind;", nullptr, $PUBLIC | $STATIC, $method(static_cast<DirectMethodHandleDesc$Kind*(*)(int32_t)>(&DirectMethodHandleDesc$Kind::valueOf))},
-	{"valueOf", "(IZ)Ljava/lang/constant/DirectMethodHandleDesc$Kind;", nullptr, $PUBLIC | $STATIC, $method(static_cast<DirectMethodHandleDesc$Kind*(*)(int32_t,bool)>(&DirectMethodHandleDesc$Kind::valueOf))},
-	{"values", "()[Ljava/lang/constant/DirectMethodHandleDesc$Kind;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$DirectMethodHandleDesc$KindArray*(*)()>(&DirectMethodHandleDesc$Kind::values))},
+	{"$values", "()[Ljava/lang/constant/DirectMethodHandleDesc$Kind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DirectMethodHandleDesc$Kind, $values, $DirectMethodHandleDesc$KindArray*)},
+	{"<init>", "(Ljava/lang/String;II)V", "(I)V", $PRIVATE, $method(DirectMethodHandleDesc$Kind, init$, void, $String*, int32_t, int32_t)},
+	{"<init>", "(Ljava/lang/String;IIZ)V", "(IZ)V", $PRIVATE, $method(DirectMethodHandleDesc$Kind, init$, void, $String*, int32_t, int32_t, bool)},
+	{"isVirtualMethod", "()Z", nullptr, 0, $method(DirectMethodHandleDesc$Kind, isVirtualMethod, bool)},
+	{"tableIndex", "(IZ)I", nullptr, $PRIVATE | $STATIC, $staticMethod(DirectMethodHandleDesc$Kind, tableIndex, int32_t, int32_t, bool)},
+	{"valueOf", "(Ljava/lang/String;)Ljava/lang/constant/DirectMethodHandleDesc$Kind;", nullptr, $PUBLIC | $STATIC, $staticMethod(DirectMethodHandleDesc$Kind, valueOf, DirectMethodHandleDesc$Kind*, $String*)},
+	{"valueOf", "(I)Ljava/lang/constant/DirectMethodHandleDesc$Kind;", nullptr, $PUBLIC | $STATIC, $staticMethod(DirectMethodHandleDesc$Kind, valueOf, DirectMethodHandleDesc$Kind*, int32_t)},
+	{"valueOf", "(IZ)Ljava/lang/constant/DirectMethodHandleDesc$Kind;", nullptr, $PUBLIC | $STATIC, $staticMethod(DirectMethodHandleDesc$Kind, valueOf, DirectMethodHandleDesc$Kind*, int32_t, bool)},
+	{"values", "()[Ljava/lang/constant/DirectMethodHandleDesc$Kind;", nullptr, $PUBLIC | $STATIC, $staticMethod(DirectMethodHandleDesc$Kind, values, $DirectMethodHandleDesc$KindArray*)},
 	{}
 };
 

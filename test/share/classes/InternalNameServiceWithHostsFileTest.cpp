@@ -12,10 +12,10 @@ using $InetAddress = ::java::net::InetAddress;
 using $Arrays = ::java::util::Arrays;
 
 $MethodInfo _InternalNameServiceWithHostsFileTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(InternalNameServiceWithHostsFileTest::*)()>(&InternalNameServiceWithHostsFileTest::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&InternalNameServiceWithHostsFileTest::main)), "java.lang.Exception"},
-	{"testHostsMapping", "([BLjava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($bytes*,$String*)>(&InternalNameServiceWithHostsFileTest::testHostsMapping)), "java.net.UnknownHostException"},
-	{"testReverseLookup", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($String*,$String*)>(&InternalNameServiceWithHostsFileTest::testReverseLookup)), "java.net.UnknownHostException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(InternalNameServiceWithHostsFileTest, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(InternalNameServiceWithHostsFileTest, main, void, $StringArray*), "java.lang.Exception"},
+	{"testHostsMapping", "([BLjava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(InternalNameServiceWithHostsFileTest, testHostsMapping, void, $bytes*, $String*), "java.net.UnknownHostException"},
+	{"testReverseLookup", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(InternalNameServiceWithHostsFileTest, testReverseLookup, void, $String*, $String*), "java.net.UnknownHostException"},
 	{}
 };
 

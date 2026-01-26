@@ -29,10 +29,10 @@ $FieldInfo _ServiceLoader$3_FieldInfo_[] = {
 };
 
 $MethodInfo _ServiceLoader$3_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/ServiceLoader;)V", nullptr, 0, $method(static_cast<void(ServiceLoader$3::*)($ServiceLoader*)>(&ServiceLoader$3::init$))},
-	{"checkReloadCount", "()V", nullptr, $PRIVATE, $method(static_cast<void(ServiceLoader$3::*)()>(&ServiceLoader$3::checkReloadCount))},
-	{"hasNext", "()Z", nullptr, $PUBLIC},
-	{"next", "()Ljava/lang/Object;", "()TS;", $PUBLIC},
+	{"<init>", "(Ljava/util/ServiceLoader;)V", nullptr, 0, $method(ServiceLoader$3, init$, void, $ServiceLoader*)},
+	{"checkReloadCount", "()V", nullptr, $PRIVATE, $method(ServiceLoader$3, checkReloadCount, void)},
+	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(ServiceLoader$3, hasNext, bool)},
+	{"next", "()Ljava/lang/Object;", "()TS;", $PUBLIC, $virtualMethod(ServiceLoader$3, next, $Object*)},
 	{}
 };
 

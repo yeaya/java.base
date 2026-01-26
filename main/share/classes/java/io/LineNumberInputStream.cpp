@@ -35,15 +35,15 @@ $FieldInfo _LineNumberInputStream_FieldInfo_[] = {
 };
 
 $MethodInfo _LineNumberInputStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(static_cast<void(LineNumberInputStream::*)($InputStream*)>(&LineNumberInputStream::init$))},
-	{"available", "()I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"getLineNumber", "()I", nullptr, $PUBLIC},
-	{"mark", "(I)V", nullptr, $PUBLIC},
-	{"read", "()I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"read", "([BII)I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"reset", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"setLineNumber", "(I)V", nullptr, $PUBLIC},
-	{"skip", "(J)J", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(LineNumberInputStream, init$, void, $InputStream*)},
+	{"available", "()I", nullptr, $PUBLIC, $virtualMethod(LineNumberInputStream, available, int32_t), "java.io.IOException"},
+	{"getLineNumber", "()I", nullptr, $PUBLIC, $virtualMethod(LineNumberInputStream, getLineNumber, int32_t)},
+	{"mark", "(I)V", nullptr, $PUBLIC, $virtualMethod(LineNumberInputStream, mark, void, int32_t)},
+	{"read", "()I", nullptr, $PUBLIC, $virtualMethod(LineNumberInputStream, read, int32_t), "java.io.IOException"},
+	{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(LineNumberInputStream, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
+	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(LineNumberInputStream, reset, void), "java.io.IOException"},
+	{"setLineNumber", "(I)V", nullptr, $PUBLIC, $virtualMethod(LineNumberInputStream, setLineNumber, void, int32_t)},
+	{"skip", "(J)J", nullptr, $PUBLIC, $virtualMethod(LineNumberInputStream, skip, int64_t, int64_t), "java.io.IOException"},
 	{}
 };
 

@@ -11,8 +11,8 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $BigInteger = ::java::math::BigInteger;
 
 $MethodInfo _ModPowPowersof2$ModTester_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ModPowPowersof2$ModTester::*)()>(&ModPowPowersof2$ModTester::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&ModPowPowersof2$ModTester::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ModPowPowersof2$ModTester, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ModPowPowersof2$ModTester, main, void, $StringArray*)},
 	{}
 };
 

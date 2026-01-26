@@ -26,14 +26,14 @@ namespace java {
 		namespace stream {
 
 $MethodInfo _Node$OfPrimitive_MethodInfo_[] = {
-	{"asArray", "(Ljava/util/function/IntFunction;)[Ljava/lang/Object;", "(Ljava/util/function/IntFunction<[TT;>;)[TT;", $PUBLIC},
-	{"asPrimitiveArray", "()Ljava/lang/Object;", "()TT_ARR;", $PUBLIC | $ABSTRACT},
-	{"copyInto", "(Ljava/lang/Object;I)V", "(TT_ARR;I)V", $PUBLIC | $ABSTRACT},
-	{"forEach", "(Ljava/lang/Object;)V", "(TT_CONS;)V", $PUBLIC | $ABSTRACT},
-	{"getChild", "(I)Ljava/util/stream/Node$OfPrimitive;", "(I)TT_NODE;", $PUBLIC},
-	{"newArray", "(I)Ljava/lang/Object;", "(I)TT_ARR;", $PUBLIC | $ABSTRACT},
+	{"asArray", "(Ljava/util/function/IntFunction;)[Ljava/lang/Object;", "(Ljava/util/function/IntFunction<[TT;>;)[TT;", $PUBLIC, $virtualMethod(Node$OfPrimitive, asArray, $ObjectArray*, $IntFunction*)},
+	{"asPrimitiveArray", "()Ljava/lang/Object;", "()TT_ARR;", $PUBLIC | $ABSTRACT, $virtualMethod(Node$OfPrimitive, asPrimitiveArray, $Object*)},
+	{"copyInto", "(Ljava/lang/Object;I)V", "(TT_ARR;I)V", $PUBLIC | $ABSTRACT, $virtualMethod(Node$OfPrimitive, copyInto, void, Object$*, int32_t)},
+	{"forEach", "(Ljava/lang/Object;)V", "(TT_CONS;)V", $PUBLIC | $ABSTRACT, $virtualMethod(Node$OfPrimitive, forEach, void, Object$*)},
+	{"getChild", "(I)Ljava/util/stream/Node$OfPrimitive;", "(I)TT_NODE;", $PUBLIC, $virtualMethod(Node$OfPrimitive, getChild, $Node*, int32_t)},
+	{"newArray", "(I)Ljava/lang/Object;", "(I)TT_ARR;", $PUBLIC | $ABSTRACT, $virtualMethod(Node$OfPrimitive, newArray, $Object*, int32_t)},
 	{"spliterator", "()Ljava/util/Spliterator;", nullptr, $PUBLIC | $ABSTRACT},
-	{"truncate", "(JJLjava/util/function/IntFunction;)Ljava/util/stream/Node$OfPrimitive;", "(JJLjava/util/function/IntFunction<[TT;>;)TT_NODE;", $PUBLIC | $ABSTRACT},
+	{"truncate", "(JJLjava/util/function/IntFunction;)Ljava/util/stream/Node$OfPrimitive;", "(JJLjava/util/function/IntFunction<[TT;>;)TT_NODE;", $PUBLIC | $ABSTRACT, $virtualMethod(Node$OfPrimitive, truncate, $Node*, int64_t, int64_t, $IntFunction*)},
 	{}
 };
 

@@ -27,11 +27,11 @@ $FieldInfo _OpenStream_FieldInfo_[] = {
 };
 
 $MethodInfo _OpenStream_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(OpenStream::*)()>(&OpenStream::init$))},
-	{"checkThrows", "(Ljava/lang/String;)V", nullptr, $STATIC, $method(static_cast<void(*)($String*)>(&OpenStream::checkThrows)), "java.io.IOException"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&OpenStream::main)), "java.io.IOException"},
-	{"testHttp", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&OpenStream::testHttp)), "java.io.IOException"},
-	{"testUnc", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&OpenStream::testUnc)), "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(OpenStream, init$, void)},
+	{"checkThrows", "(Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(OpenStream, checkThrows, void, $String*), "java.io.IOException"},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(OpenStream, main, void, $StringArray*), "java.io.IOException"},
+	{"testHttp", "()V", nullptr, $STATIC, $staticMethod(OpenStream, testHttp, void), "java.io.IOException"},
+	{"testUnc", "()V", nullptr, $STATIC, $staticMethod(OpenStream, testUnc, void), "java.io.IOException"},
 	{}
 };
 

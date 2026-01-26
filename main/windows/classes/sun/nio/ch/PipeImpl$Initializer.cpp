@@ -38,8 +38,8 @@ $FieldInfo _PipeImpl$Initializer_FieldInfo_[] = {
 };
 
 $MethodInfo _PipeImpl$Initializer_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/channels/spi/SelectorProvider;)V", nullptr, $PRIVATE, $method(static_cast<void(PipeImpl$Initializer::*)($SelectorProvider*)>(&PipeImpl$Initializer::init$))},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljava/nio/channels/spi/SelectorProvider;)V", nullptr, $PRIVATE, $method(PipeImpl$Initializer, init$, void, $SelectorProvider*)},
+	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(PipeImpl$Initializer, run, $Object*), "java.io.IOException"},
 	{}
 };
 

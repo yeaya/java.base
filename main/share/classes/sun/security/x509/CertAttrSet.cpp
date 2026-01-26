@@ -4,20 +4,22 @@
 #include <java/util/Enumeration.h>
 #include <jcpp.h>
 
+using $OutputStream = ::java::io::OutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Enumeration = ::java::util::Enumeration;
 
 namespace sun {
 	namespace security {
 		namespace x509 {
 
 $MethodInfo _CertAttrSet_MethodInfo_[] = {
-	{"delete", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.security.cert.CertificateException,java.io.IOException"},
-	{"encode", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.security.cert.CertificateException,java.io.IOException"},
-	{"get", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.security.cert.CertificateException,java.io.IOException"},
-	{"getElements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<TT;>;", $PUBLIC | $ABSTRACT},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"set", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.security.cert.CertificateException,java.io.IOException"},
+	{"delete", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CertAttrSet, delete$, void, $String*), "java.security.cert.CertificateException,java.io.IOException"},
+	{"encode", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CertAttrSet, encode, void, $OutputStream*), "java.security.cert.CertificateException,java.io.IOException"},
+	{"get", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CertAttrSet, get, $Object*, $String*), "java.security.cert.CertificateException,java.io.IOException"},
+	{"getElements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<TT;>;", $PUBLIC | $ABSTRACT, $virtualMethod(CertAttrSet, getElements, $Enumeration*)},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CertAttrSet, getName, $String*)},
+	{"set", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CertAttrSet, set, void, $String*, Object$*), "java.security.cert.CertificateException,java.io.IOException"},
 	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
 	{}
 };

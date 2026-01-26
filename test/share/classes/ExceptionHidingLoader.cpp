@@ -11,9 +11,9 @@ using $Exception = ::java::lang::Exception;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _ExceptionHidingLoader_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ExceptionHidingLoader::*)()>(&ExceptionHidingLoader::init$))},
-	{"findClass", "(Ljava/lang/String;)Ljava/lang/Class;", nullptr, $PROTECTED, nullptr, "java.lang.ClassNotFoundException"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&ExceptionHidingLoader::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ExceptionHidingLoader, init$, void)},
+	{"findClass", "(Ljava/lang/String;)Ljava/lang/Class;", nullptr, $PROTECTED, $virtualMethod(ExceptionHidingLoader, findClass, $Class*, $String*), "java.lang.ClassNotFoundException"},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ExceptionHidingLoader, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

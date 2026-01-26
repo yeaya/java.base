@@ -32,10 +32,10 @@ $FieldInfo _DeltaCRLIndicatorExtension_FieldInfo_[] = {
 };
 
 $MethodInfo _DeltaCRLIndicatorExtension_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(static_cast<void(DeltaCRLIndicatorExtension::*)(int32_t)>(&DeltaCRLIndicatorExtension::init$)), "java.io.IOException"},
-	{"<init>", "(Ljava/math/BigInteger;)V", nullptr, $PUBLIC, $method(static_cast<void(DeltaCRLIndicatorExtension::*)($BigInteger*)>(&DeltaCRLIndicatorExtension::init$)), "java.io.IOException"},
-	{"<init>", "(Ljava/lang/Boolean;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(static_cast<void(DeltaCRLIndicatorExtension::*)($Boolean*,Object$*)>(&DeltaCRLIndicatorExtension::init$)), "java.io.IOException"},
-	{"encode", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(I)V", nullptr, $PUBLIC, $method(DeltaCRLIndicatorExtension, init$, void, int32_t), "java.io.IOException"},
+	{"<init>", "(Ljava/math/BigInteger;)V", nullptr, $PUBLIC, $method(DeltaCRLIndicatorExtension, init$, void, $BigInteger*), "java.io.IOException"},
+	{"<init>", "(Ljava/lang/Boolean;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(DeltaCRLIndicatorExtension, init$, void, $Boolean*, Object$*), "java.io.IOException"},
+	{"encode", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(DeltaCRLIndicatorExtension, encode, void, $OutputStream*), "java.io.IOException"},
 	{}
 };
 

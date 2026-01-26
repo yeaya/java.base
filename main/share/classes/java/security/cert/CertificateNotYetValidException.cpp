@@ -18,8 +18,8 @@ $FieldInfo _CertificateNotYetValidException_FieldInfo_[] = {
 };
 
 $MethodInfo _CertificateNotYetValidException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CertificateNotYetValidException::*)()>(&CertificateNotYetValidException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(CertificateNotYetValidException::*)($String*)>(&CertificateNotYetValidException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CertificateNotYetValidException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(CertificateNotYetValidException, init$, void, $String*)},
 	{}
 };
 

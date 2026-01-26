@@ -25,10 +25,10 @@ $MethodInfo _Pipe$SinkChannel_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/nio/channels/spi/SelectorProvider;)V", nullptr, $PROTECTED, $method(static_cast<void(Pipe$SinkChannel::*)($SelectorProvider*)>(&Pipe$SinkChannel::init$))},
+	{"<init>", "(Ljava/nio/channels/spi/SelectorProvider;)V", nullptr, $PROTECTED, $method(Pipe$SinkChannel, init$, void, $SelectorProvider*)},
 	{"*isOpen", "()Z", nullptr, $PUBLIC | $FINAL},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"validOps", "()I", nullptr, $PUBLIC | $FINAL},
+	{"validOps", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(Pipe$SinkChannel, validOps, int32_t)},
 	{}
 };
 

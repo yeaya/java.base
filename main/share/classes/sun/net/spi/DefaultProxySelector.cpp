@@ -87,8 +87,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo DefaultProxySelector$$Lambda$unmodifiableList::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DefaultProxySelector$$Lambda$unmodifiableList::*)()>(&DefaultProxySelector$$Lambda$unmodifiableList::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DefaultProxySelector$$Lambda$unmodifiableList, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DefaultProxySelector$$Lambda$unmodifiableList, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo DefaultProxySelector$$Lambda$unmodifiableList::classInfo$ = {
@@ -114,16 +114,16 @@ $FieldInfo _DefaultProxySelector_FieldInfo_[] = {
 };
 
 $MethodInfo _DefaultProxySelector_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DefaultProxySelector::*)()>(&DefaultProxySelector::init$))},
-	{"connectFailed", "(Ljava/net/URI;Ljava/net/SocketAddress;Ljava/io/IOException;)V", nullptr, $PUBLIC},
-	{"defaultPort", "(Ljava/lang/String;)I", nullptr, $PRIVATE, $method(static_cast<int32_t(DefaultProxySelector::*)($String*)>(&DefaultProxySelector::defaultPort))},
-	{"disjunctToRegex", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $method(static_cast<$String*(*)($String*)>(&DefaultProxySelector::disjunctToRegex))},
-	{"getSystemProxies", "(Ljava/lang/String;Ljava/lang/String;)[Ljava/net/Proxy;", nullptr, $PRIVATE | $SYNCHRONIZED | $NATIVE, $method(static_cast<$ProxyArray*(DefaultProxySelector::*)($String*,$String*)>(&DefaultProxySelector::getSystemProxies))},
-	{"init", "()Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $method(static_cast<bool(*)()>(&DefaultProxySelector::init))},
-	{"select", "(Ljava/net/URI;)Ljava/util/List;", "(Ljava/net/URI;)Ljava/util/List<Ljava/net/Proxy;>;", $PUBLIC},
-	{"shouldNotUseProxyFor", "(Ljava/util/regex/Pattern;Ljava/lang/String;)Z", nullptr, $STATIC, $method(static_cast<bool(*)($Pattern*,$String*)>(&DefaultProxySelector::shouldNotUseProxyFor))},
-	{"socksProxyVersion", "()I", nullptr, $PUBLIC | $STATIC, $method(static_cast<int32_t(*)()>(&DefaultProxySelector::socksProxyVersion))},
-	{"toPattern", "(Ljava/lang/String;)Ljava/util/regex/Pattern;", nullptr, $STATIC, $method(static_cast<$Pattern*(*)($String*)>(&DefaultProxySelector::toPattern))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DefaultProxySelector, init$, void)},
+	{"connectFailed", "(Ljava/net/URI;Ljava/net/SocketAddress;Ljava/io/IOException;)V", nullptr, $PUBLIC, $virtualMethod(DefaultProxySelector, connectFailed, void, $URI*, $SocketAddress*, $IOException*)},
+	{"defaultPort", "(Ljava/lang/String;)I", nullptr, $PRIVATE, $method(DefaultProxySelector, defaultPort, int32_t, $String*)},
+	{"disjunctToRegex", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(DefaultProxySelector, disjunctToRegex, $String*, $String*)},
+	{"getSystemProxies", "(Ljava/lang/String;Ljava/lang/String;)[Ljava/net/Proxy;", nullptr, $PRIVATE | $SYNCHRONIZED | $NATIVE, $method(DefaultProxySelector, getSystemProxies, $ProxyArray*, $String*, $String*)},
+	{"init", "()Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(DefaultProxySelector, init, bool)},
+	{"select", "(Ljava/net/URI;)Ljava/util/List;", "(Ljava/net/URI;)Ljava/util/List<Ljava/net/Proxy;>;", $PUBLIC, $virtualMethod(DefaultProxySelector, select, $List*, $URI*)},
+	{"shouldNotUseProxyFor", "(Ljava/util/regex/Pattern;Ljava/lang/String;)Z", nullptr, $STATIC, $staticMethod(DefaultProxySelector, shouldNotUseProxyFor, bool, $Pattern*, $String*)},
+	{"socksProxyVersion", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(DefaultProxySelector, socksProxyVersion, int32_t)},
+	{"toPattern", "(Ljava/lang/String;)Ljava/util/regex/Pattern;", nullptr, $STATIC, $staticMethod(DefaultProxySelector, toPattern, $Pattern*, $String*)},
 	{}
 };
 

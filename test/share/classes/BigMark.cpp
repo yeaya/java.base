@@ -22,8 +22,8 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $OutOfMemoryError = ::java::lang::OutOfMemoryError;
 
 $MethodInfo _BigMark_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(BigMark::*)()>(&BigMark::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&BigMark::main)), "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(BigMark, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(BigMark, main, void, $StringArray*), "java.io.IOException"},
 	{}
 };
 

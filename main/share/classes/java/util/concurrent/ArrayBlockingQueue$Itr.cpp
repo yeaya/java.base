@@ -45,21 +45,21 @@ $FieldInfo _ArrayBlockingQueue$Itr_FieldInfo_[] = {
 };
 
 $MethodInfo _ArrayBlockingQueue$Itr_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/ArrayBlockingQueue;)V", nullptr, 0, $method(static_cast<void(ArrayBlockingQueue$Itr::*)($ArrayBlockingQueue*)>(&ArrayBlockingQueue$Itr::init$))},
-	{"detach", "()V", nullptr, $PRIVATE, $method(static_cast<void(ArrayBlockingQueue$Itr::*)()>(&ArrayBlockingQueue$Itr::detach))},
-	{"distance", "(III)I", nullptr, $PRIVATE, $method(static_cast<int32_t(ArrayBlockingQueue$Itr::*)(int32_t,int32_t,int32_t)>(&ArrayBlockingQueue$Itr::distance))},
-	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC},
-	{"hasNext", "()Z", nullptr, $PUBLIC},
-	{"incCursor", "(I)I", nullptr, $PRIVATE, $method(static_cast<int32_t(ArrayBlockingQueue$Itr::*)(int32_t)>(&ArrayBlockingQueue$Itr::incCursor))},
-	{"incorporateDequeues", "()V", nullptr, $PRIVATE, $method(static_cast<void(ArrayBlockingQueue$Itr::*)()>(&ArrayBlockingQueue$Itr::incorporateDequeues))},
-	{"invalidated", "(IIJI)Z", nullptr, $PRIVATE, $method(static_cast<bool(ArrayBlockingQueue$Itr::*)(int32_t,int32_t,int64_t,int32_t)>(&ArrayBlockingQueue$Itr::invalidated))},
-	{"isDetached", "()Z", nullptr, 0},
-	{"next", "()Ljava/lang/Object;", "()TE;", $PUBLIC},
-	{"noNext", "()V", nullptr, $PRIVATE, $method(static_cast<void(ArrayBlockingQueue$Itr::*)()>(&ArrayBlockingQueue$Itr::noNext))},
-	{"remove", "()V", nullptr, $PUBLIC},
-	{"removedAt", "(I)Z", nullptr, 0},
-	{"shutdown", "()V", nullptr, 0},
-	{"takeIndexWrapped", "()Z", nullptr, 0},
+	{"<init>", "(Ljava/util/concurrent/ArrayBlockingQueue;)V", nullptr, 0, $method(ArrayBlockingQueue$Itr, init$, void, $ArrayBlockingQueue*)},
+	{"detach", "()V", nullptr, $PRIVATE, $method(ArrayBlockingQueue$Itr, detach, void)},
+	{"distance", "(III)I", nullptr, $PRIVATE, $method(ArrayBlockingQueue$Itr, distance, int32_t, int32_t, int32_t, int32_t)},
+	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC, $virtualMethod(ArrayBlockingQueue$Itr, forEachRemaining, void, $Consumer*)},
+	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(ArrayBlockingQueue$Itr, hasNext, bool)},
+	{"incCursor", "(I)I", nullptr, $PRIVATE, $method(ArrayBlockingQueue$Itr, incCursor, int32_t, int32_t)},
+	{"incorporateDequeues", "()V", nullptr, $PRIVATE, $method(ArrayBlockingQueue$Itr, incorporateDequeues, void)},
+	{"invalidated", "(IIJI)Z", nullptr, $PRIVATE, $method(ArrayBlockingQueue$Itr, invalidated, bool, int32_t, int32_t, int64_t, int32_t)},
+	{"isDetached", "()Z", nullptr, 0, $virtualMethod(ArrayBlockingQueue$Itr, isDetached, bool)},
+	{"next", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(ArrayBlockingQueue$Itr, next, $Object*)},
+	{"noNext", "()V", nullptr, $PRIVATE, $method(ArrayBlockingQueue$Itr, noNext, void)},
+	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(ArrayBlockingQueue$Itr, remove, void)},
+	{"removedAt", "(I)Z", nullptr, 0, $virtualMethod(ArrayBlockingQueue$Itr, removedAt, bool, int32_t)},
+	{"shutdown", "()V", nullptr, 0, $virtualMethod(ArrayBlockingQueue$Itr, shutdown, void)},
+	{"takeIndexWrapped", "()Z", nullptr, 0, $virtualMethod(ArrayBlockingQueue$Itr, takeIndexWrapped, bool)},
 	{}
 };
 

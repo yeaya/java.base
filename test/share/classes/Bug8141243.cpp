@@ -31,8 +31,8 @@ using $Locale = ::java::util::Locale;
 using $TimeZone = ::java::util::TimeZone;
 
 $MethodInfo _Bug8141243_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Bug8141243::*)()>(&Bug8141243::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Bug8141243::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Bug8141243, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Bug8141243, main, void, $StringArray*)},
 	{}
 };
 

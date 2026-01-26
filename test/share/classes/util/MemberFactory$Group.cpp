@@ -84,11 +84,11 @@ $FieldInfo _MemberFactory$Group_FieldInfo_[] = {
 };
 
 $MethodInfo _MemberFactory$Group_MethodInfo_[] = {
-	{"$values", "()[Lutil/MemberFactory$Group;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$MemberFactory$GroupArray*(*)()>(&MemberFactory$Group::$values))},
-	{"<init>", "(Ljava/lang/String;I[Lutil/MemberFactory;)V", "([Lutil/MemberFactory;)V", $PRIVATE | $TRANSIENT, $method(static_cast<void(MemberFactory$Group::*)($String*,int32_t,$MemberFactoryArray*)>(&MemberFactory$Group::init$))},
-	{"asSet", "([Lutil/MemberFactory$Group;)Ljava/util/EnumSet;", "([Lutil/MemberFactory$Group;)Ljava/util/EnumSet<Lutil/MemberFactory$Group;>;", $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<$EnumSet*(*)($MemberFactory$GroupArray*)>(&MemberFactory$Group::asSet))},
-	{"valueOf", "(Ljava/lang/String;)Lutil/MemberFactory$Group;", nullptr, $PUBLIC | $STATIC, $method(static_cast<MemberFactory$Group*(*)($String*)>(&MemberFactory$Group::valueOf))},
-	{"values", "()[Lutil/MemberFactory$Group;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$MemberFactory$GroupArray*(*)()>(&MemberFactory$Group::values))},
+	{"$values", "()[Lutil/MemberFactory$Group;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MemberFactory$Group, $values, $MemberFactory$GroupArray*)},
+	{"<init>", "(Ljava/lang/String;I[Lutil/MemberFactory;)V", "([Lutil/MemberFactory;)V", $PRIVATE | $TRANSIENT, $method(MemberFactory$Group, init$, void, $String*, int32_t, $MemberFactoryArray*)},
+	{"asSet", "([Lutil/MemberFactory$Group;)Ljava/util/EnumSet;", "([Lutil/MemberFactory$Group;)Ljava/util/EnumSet<Lutil/MemberFactory$Group;>;", $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(MemberFactory$Group, asSet, $EnumSet*, $MemberFactory$GroupArray*)},
+	{"valueOf", "(Ljava/lang/String;)Lutil/MemberFactory$Group;", nullptr, $PUBLIC | $STATIC, $staticMethod(MemberFactory$Group, valueOf, MemberFactory$Group*, $String*)},
+	{"values", "()[Lutil/MemberFactory$Group;", nullptr, $PUBLIC | $STATIC, $staticMethod(MemberFactory$Group, values, $MemberFactory$GroupArray*)},
 	{}
 };
 

@@ -27,16 +27,16 @@ $FieldInfo _IntSummaryStatistics_FieldInfo_[] = {
 };
 
 $MethodInfo _IntSummaryStatistics_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(IntSummaryStatistics::*)()>(&IntSummaryStatistics::init$))},
-	{"<init>", "(JIIJ)V", nullptr, $PUBLIC, $method(static_cast<void(IntSummaryStatistics::*)(int64_t,int32_t,int32_t,int64_t)>(&IntSummaryStatistics::init$)), "java.lang.IllegalArgumentException"},
-	{"accept", "(I)V", nullptr, $PUBLIC},
-	{"combine", "(Ljava/util/IntSummaryStatistics;)V", nullptr, $PUBLIC},
-	{"getAverage", "()D", nullptr, $PUBLIC | $FINAL, $method(static_cast<double(IntSummaryStatistics::*)()>(&IntSummaryStatistics::getAverage))},
-	{"getCount", "()J", nullptr, $PUBLIC | $FINAL, $method(static_cast<int64_t(IntSummaryStatistics::*)()>(&IntSummaryStatistics::getCount))},
-	{"getMax", "()I", nullptr, $PUBLIC | $FINAL, $method(static_cast<int32_t(IntSummaryStatistics::*)()>(&IntSummaryStatistics::getMax))},
-	{"getMin", "()I", nullptr, $PUBLIC | $FINAL, $method(static_cast<int32_t(IntSummaryStatistics::*)()>(&IntSummaryStatistics::getMin))},
-	{"getSum", "()J", nullptr, $PUBLIC | $FINAL, $method(static_cast<int64_t(IntSummaryStatistics::*)()>(&IntSummaryStatistics::getSum))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(IntSummaryStatistics, init$, void)},
+	{"<init>", "(JIIJ)V", nullptr, $PUBLIC, $method(IntSummaryStatistics, init$, void, int64_t, int32_t, int32_t, int64_t), "java.lang.IllegalArgumentException"},
+	{"accept", "(I)V", nullptr, $PUBLIC, $virtualMethod(IntSummaryStatistics, accept, void, int32_t)},
+	{"combine", "(Ljava/util/IntSummaryStatistics;)V", nullptr, $PUBLIC, $virtualMethod(IntSummaryStatistics, combine, void, IntSummaryStatistics*)},
+	{"getAverage", "()D", nullptr, $PUBLIC | $FINAL, $method(IntSummaryStatistics, getAverage, double)},
+	{"getCount", "()J", nullptr, $PUBLIC | $FINAL, $method(IntSummaryStatistics, getCount, int64_t)},
+	{"getMax", "()I", nullptr, $PUBLIC | $FINAL, $method(IntSummaryStatistics, getMax, int32_t)},
+	{"getMin", "()I", nullptr, $PUBLIC | $FINAL, $method(IntSummaryStatistics, getMin, int32_t)},
+	{"getSum", "()J", nullptr, $PUBLIC | $FINAL, $method(IntSummaryStatistics, getSum, int64_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IntSummaryStatistics, toString, $String*)},
 	{}
 };
 

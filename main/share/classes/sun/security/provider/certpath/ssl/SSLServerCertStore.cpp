@@ -91,11 +91,11 @@ $FieldInfo _SSLServerCertStore_FieldInfo_[] = {
 };
 
 $MethodInfo _SSLServerCertStore_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/URI;)V", nullptr, 0, $method(static_cast<void(SSLServerCertStore::*)($URI*)>(&SSLServerCertStore::init$)), "java.security.InvalidAlgorithmParameterException"},
-	{"engineGetCRLs", "(Ljava/security/cert/CRLSelector;)Ljava/util/Collection;", "(Ljava/security/cert/CRLSelector;)Ljava/util/Collection<Ljava/security/cert/X509CRL;>;", $PUBLIC, nullptr, "java.security.cert.CertStoreException"},
-	{"engineGetCertificates", "(Ljava/security/cert/CertSelector;)Ljava/util/Collection;", "(Ljava/security/cert/CertSelector;)Ljava/util/Collection<Ljava/security/cert/X509Certificate;>;", $PUBLIC, nullptr, "java.security.cert.CertStoreException"},
-	{"getInstance", "(Ljava/net/URI;)Ljava/security/cert/CertStore;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$CertStore*(*)($URI*)>(&SSLServerCertStore::getInstance)), "java.security.InvalidAlgorithmParameterException"},
-	{"getMatchingCerts", "(Ljava/util/List;Ljava/security/cert/CertSelector;)Ljava/util/List;", "(Ljava/util/List<Ljava/security/cert/X509Certificate;>;Ljava/security/cert/CertSelector;)Ljava/util/List<Ljava/security/cert/X509Certificate;>;", $PRIVATE | $STATIC, $method(static_cast<$List*(*)($List*,$CertSelector*)>(&SSLServerCertStore::getMatchingCerts))},
+	{"<init>", "(Ljava/net/URI;)V", nullptr, 0, $method(SSLServerCertStore, init$, void, $URI*), "java.security.InvalidAlgorithmParameterException"},
+	{"engineGetCRLs", "(Ljava/security/cert/CRLSelector;)Ljava/util/Collection;", "(Ljava/security/cert/CRLSelector;)Ljava/util/Collection<Ljava/security/cert/X509CRL;>;", $PUBLIC, $virtualMethod(SSLServerCertStore, engineGetCRLs, $Collection*, $CRLSelector*), "java.security.cert.CertStoreException"},
+	{"engineGetCertificates", "(Ljava/security/cert/CertSelector;)Ljava/util/Collection;", "(Ljava/security/cert/CertSelector;)Ljava/util/Collection<Ljava/security/cert/X509Certificate;>;", $PUBLIC, $virtualMethod(SSLServerCertStore, engineGetCertificates, $Collection*, $CertSelector*), "java.security.cert.CertStoreException"},
+	{"getInstance", "(Ljava/net/URI;)Ljava/security/cert/CertStore;", nullptr, $PUBLIC | $STATIC, $staticMethod(SSLServerCertStore, getInstance, $CertStore*, $URI*), "java.security.InvalidAlgorithmParameterException"},
+	{"getMatchingCerts", "(Ljava/util/List;Ljava/security/cert/CertSelector;)Ljava/util/List;", "(Ljava/util/List<Ljava/security/cert/X509Certificate;>;Ljava/security/cert/CertSelector;)Ljava/util/List<Ljava/security/cert/X509Certificate;>;", $PRIVATE | $STATIC, $staticMethod(SSLServerCertStore, getMatchingCerts, $List*, $List*, $CertSelector*)},
 	{}
 };
 

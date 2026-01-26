@@ -32,12 +32,12 @@ namespace sun {
 		namespace ssl {
 
 $MethodInfo _SessionTicketExtension$KeyState_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(SessionTicketExtension$KeyState::*)()>(&SessionTicketExtension$KeyState::init$))},
-	{"cleanup", "(Lsun/security/ssl/HandshakeContext;)V", nullptr, $STATIC, $method(static_cast<void(*)($HandshakeContext*)>(&SessionTicketExtension$KeyState::cleanup))},
-	{"getCurrentKey", "(Lsun/security/ssl/HandshakeContext;)Lsun/security/ssl/SessionTicketExtension$StatelessKey;", nullptr, $STATIC, $method(static_cast<$SessionTicketExtension$StatelessKey*(*)($HandshakeContext*)>(&SessionTicketExtension$KeyState::getCurrentKey))},
-	{"getKey", "(Lsun/security/ssl/HandshakeContext;I)Lsun/security/ssl/SessionTicketExtension$StatelessKey;", nullptr, $STATIC, $method(static_cast<$SessionTicketExtension$StatelessKey*(*)($HandshakeContext*,int32_t)>(&SessionTicketExtension$KeyState::getKey))},
-	{"getSessionTimeout", "(Lsun/security/ssl/HandshakeContext;)I", nullptr, $STATIC, $method(static_cast<int32_t(*)($HandshakeContext*)>(&SessionTicketExtension$KeyState::getSessionTimeout))},
-	{"nextKey", "(Lsun/security/ssl/HandshakeContext;)Lsun/security/ssl/SessionTicketExtension$StatelessKey;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$SessionTicketExtension$StatelessKey*(*)($HandshakeContext*)>(&SessionTicketExtension$KeyState::nextKey))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(SessionTicketExtension$KeyState, init$, void)},
+	{"cleanup", "(Lsun/security/ssl/HandshakeContext;)V", nullptr, $STATIC, $staticMethod(SessionTicketExtension$KeyState, cleanup, void, $HandshakeContext*)},
+	{"getCurrentKey", "(Lsun/security/ssl/HandshakeContext;)Lsun/security/ssl/SessionTicketExtension$StatelessKey;", nullptr, $STATIC, $staticMethod(SessionTicketExtension$KeyState, getCurrentKey, $SessionTicketExtension$StatelessKey*, $HandshakeContext*)},
+	{"getKey", "(Lsun/security/ssl/HandshakeContext;I)Lsun/security/ssl/SessionTicketExtension$StatelessKey;", nullptr, $STATIC, $staticMethod(SessionTicketExtension$KeyState, getKey, $SessionTicketExtension$StatelessKey*, $HandshakeContext*, int32_t)},
+	{"getSessionTimeout", "(Lsun/security/ssl/HandshakeContext;)I", nullptr, $STATIC, $staticMethod(SessionTicketExtension$KeyState, getSessionTimeout, int32_t, $HandshakeContext*)},
+	{"nextKey", "(Lsun/security/ssl/HandshakeContext;)Lsun/security/ssl/SessionTicketExtension$StatelessKey;", nullptr, $PRIVATE | $STATIC, $staticMethod(SessionTicketExtension$KeyState, nextKey, $SessionTicketExtension$StatelessKey*, $HandshakeContext*)},
 	{}
 };
 

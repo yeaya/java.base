@@ -32,9 +32,9 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Arrays = ::java::util::Arrays;
 
 $MethodInfo _ExternalizableBlockData_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ExternalizableBlockData::*)()>(&ExternalizableBlockData::init$))},
-	{"getFileBytes", "(Ljava/io/File;)[B", nullptr, $STATIC, $method(static_cast<$bytes*(*)($File*)>(&ExternalizableBlockData::getFileBytes)), "java.io.IOException"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&ExternalizableBlockData::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ExternalizableBlockData, init$, void)},
+	{"getFileBytes", "(Ljava/io/File;)[B", nullptr, $STATIC, $staticMethod(ExternalizableBlockData, getFileBytes, $bytes*, $File*), "java.io.IOException"},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ExternalizableBlockData, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

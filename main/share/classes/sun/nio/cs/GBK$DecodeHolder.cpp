@@ -26,7 +26,7 @@ $FieldInfo _GBK$DecodeHolder_FieldInfo_[] = {
 };
 
 $MethodInfo _GBK$DecodeHolder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(GBK$DecodeHolder::*)()>(&GBK$DecodeHolder::init$))},
+	{"<init>", "()V", nullptr, 0, $method(GBK$DecodeHolder, init$, void)},
 	{}
 };
 

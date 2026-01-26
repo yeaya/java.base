@@ -27,7 +27,7 @@ $FieldInfo _DHKeyExchange_FieldInfo_[] = {
 };
 
 $MethodInfo _DHKeyExchange_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(DHKeyExchange::*)()>(&DHKeyExchange::init$))},
+	{"<init>", "()V", nullptr, 0, $method(DHKeyExchange, init$, void)},
 	{}
 };
 

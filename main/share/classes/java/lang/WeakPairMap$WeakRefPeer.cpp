@@ -10,6 +10,7 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $WeakPairMap$Pair$Weak = ::java::lang::WeakPairMap$Pair$Weak;
 using $ReferenceQueue = ::java::lang::ref::ReferenceQueue;
 using $WeakReference = ::java::lang::ref::WeakReference;
 using $Objects = ::java::util::Objects;
@@ -18,8 +19,8 @@ namespace java {
 	namespace lang {
 
 $MethodInfo _WeakPairMap$WeakRefPeer_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;Ljava/lang/ref/ReferenceQueue;)V", "(TK;Ljava/lang/ref/ReferenceQueue<Ljava/lang/Object;>;)V", 0, $method(static_cast<void(WeakPairMap$WeakRefPeer::*)(Object$*,$ReferenceQueue*)>(&WeakPairMap$WeakRefPeer::init$))},
-	{"weakPair", "()Ljava/lang/WeakPairMap$Pair$Weak;", "()Ljava/lang/WeakPairMap$Pair$Weak<**>;", $ABSTRACT},
+	{"<init>", "(Ljava/lang/Object;Ljava/lang/ref/ReferenceQueue;)V", "(TK;Ljava/lang/ref/ReferenceQueue<Ljava/lang/Object;>;)V", 0, $method(WeakPairMap$WeakRefPeer, init$, void, Object$*, $ReferenceQueue*)},
+	{"weakPair", "()Ljava/lang/WeakPairMap$Pair$Weak;", "()Ljava/lang/WeakPairMap$Pair$Weak<**>;", $ABSTRACT, $virtualMethod(WeakPairMap$WeakRefPeer, weakPair, $WeakPairMap$Pair$Weak*)},
 	{}
 };
 

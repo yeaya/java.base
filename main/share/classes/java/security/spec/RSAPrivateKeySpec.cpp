@@ -22,11 +22,11 @@ $FieldInfo _RSAPrivateKeySpec_FieldInfo_[] = {
 };
 
 $MethodInfo _RSAPrivateKeySpec_MethodInfo_[] = {
-	{"<init>", "(Ljava/math/BigInteger;Ljava/math/BigInteger;)V", nullptr, $PUBLIC, $method(static_cast<void(RSAPrivateKeySpec::*)($BigInteger*,$BigInteger*)>(&RSAPrivateKeySpec::init$))},
-	{"<init>", "(Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PUBLIC, $method(static_cast<void(RSAPrivateKeySpec::*)($BigInteger*,$BigInteger*,$AlgorithmParameterSpec*)>(&RSAPrivateKeySpec::init$))},
-	{"getModulus", "()Ljava/math/BigInteger;", nullptr, $PUBLIC},
-	{"getParams", "()Ljava/security/spec/AlgorithmParameterSpec;", nullptr, $PUBLIC},
-	{"getPrivateExponent", "()Ljava/math/BigInteger;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/math/BigInteger;Ljava/math/BigInteger;)V", nullptr, $PUBLIC, $method(RSAPrivateKeySpec, init$, void, $BigInteger*, $BigInteger*)},
+	{"<init>", "(Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PUBLIC, $method(RSAPrivateKeySpec, init$, void, $BigInteger*, $BigInteger*, $AlgorithmParameterSpec*)},
+	{"getModulus", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(RSAPrivateKeySpec, getModulus, $BigInteger*)},
+	{"getParams", "()Ljava/security/spec/AlgorithmParameterSpec;", nullptr, $PUBLIC, $virtualMethod(RSAPrivateKeySpec, getParams, $AlgorithmParameterSpec*)},
+	{"getPrivateExponent", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(RSAPrivateKeySpec, getPrivateExponent, $BigInteger*)},
 	{}
 };
 

@@ -16,8 +16,8 @@ $FieldInfo _TooManyListenersException_FieldInfo_[] = {
 };
 
 $MethodInfo _TooManyListenersException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TooManyListenersException::*)()>(&TooManyListenersException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(TooManyListenersException::*)($String*)>(&TooManyListenersException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TooManyListenersException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(TooManyListenersException, init$, void, $String*)},
 	{}
 };
 

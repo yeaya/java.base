@@ -49,12 +49,12 @@ $FieldInfo _MultiThreadStackWalk_FieldInfo_[] = {
 };
 
 $MethodInfo _MultiThreadStackWalk_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(MultiThreadStackWalk::*)()>(&MultiThreadStackWalk::init$))},
-	{"checkTest", "(LMultiThreadStackWalk$Env;LMultiThreadStackWalk$Test;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($MultiThreadStackWalk$Env*,$MultiThreadStackWalk$Test*)>(&MultiThreadStackWalk::checkTest))},
-	{"classForName", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $STATIC, $method(static_cast<$Class*(*)($String*)>(&MultiThreadStackWalk::classForName))},
-	{"isStreamPipeline", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PRIVATE | $STATIC, $method(static_cast<bool(*)($Class*)>(&MultiThreadStackWalk::isStreamPipeline))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&MultiThreadStackWalk::main)), "java.lang.Throwable"},
-	{"runTest", "(LMultiThreadStackWalk$Test;II)LMultiThreadStackWalk$Env;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$MultiThreadStackWalk$Env*(*)($MultiThreadStackWalk$Test*,int32_t,int32_t)>(&MultiThreadStackWalk::runTest))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(MultiThreadStackWalk, init$, void)},
+	{"checkTest", "(LMultiThreadStackWalk$Env;LMultiThreadStackWalk$Test;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(MultiThreadStackWalk, checkTest, void, $MultiThreadStackWalk$Env*, $MultiThreadStackWalk$Test*)},
+	{"classForName", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $STATIC, $staticMethod(MultiThreadStackWalk, classForName, $Class*, $String*)},
+	{"isStreamPipeline", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PRIVATE | $STATIC, $staticMethod(MultiThreadStackWalk, isStreamPipeline, bool, $Class*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(MultiThreadStackWalk, main, void, $StringArray*), "java.lang.Throwable"},
+	{"runTest", "(LMultiThreadStackWalk$Test;II)LMultiThreadStackWalk$Env;", nullptr, $PUBLIC | $STATIC, $staticMethod(MultiThreadStackWalk, runTest, $MultiThreadStackWalk$Env*, $MultiThreadStackWalk$Test*, int32_t, int32_t)},
 	{}
 };
 

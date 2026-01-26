@@ -19,8 +19,8 @@ $CompoundAttribute _TestType2_MethodAnnotations_bar1[] = {
 };
 
 $MethodInfo _TestType2_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(TestType2::*)()>(&TestType2::init$))},
-	{"bar", "()V", nullptr, 0, nullptr, nullptr, nullptr, _TestType2_MethodAnnotations_bar1},
+	{"<init>", "()V", nullptr, 0, $method(TestType2, init$, void)},
+	{"bar", "()V", nullptr, 0, $virtualMethod(TestType2, bar, void), nullptr, nullptr, _TestType2_MethodAnnotations_bar1},
 	{}
 };
 

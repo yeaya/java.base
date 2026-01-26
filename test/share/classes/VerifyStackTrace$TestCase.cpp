@@ -7,11 +7,12 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $StackWalker = ::java::lang::StackWalker;
 
 $MethodInfo _VerifyStackTrace$TestCase_MethodInfo_[] = {
-	{"description", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"expected", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"walker", "()Ljava/lang/StackWalker;", nullptr, $PUBLIC | $ABSTRACT},
+	{"description", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(VerifyStackTrace$TestCase, description, $String*)},
+	{"expected", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(VerifyStackTrace$TestCase, expected, $String*)},
+	{"walker", "()Ljava/lang/StackWalker;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(VerifyStackTrace$TestCase, walker, $StackWalker*)},
 	{}
 };
 

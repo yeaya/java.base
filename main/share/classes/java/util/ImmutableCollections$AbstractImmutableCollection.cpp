@@ -25,14 +25,14 @@ $CompoundAttribute _ImmutableCollections$AbstractImmutableCollection_Annotations
 };
 
 $MethodInfo _ImmutableCollections$AbstractImmutableCollection_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ImmutableCollections$AbstractImmutableCollection::*)()>(&ImmutableCollections$AbstractImmutableCollection::init$))},
-	{"add", "(Ljava/lang/Object;)Z", "(TE;)Z", $PUBLIC},
-	{"addAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<+TE;>;)Z", $PUBLIC},
-	{"clear", "()V", nullptr, $PUBLIC},
-	{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"removeAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC},
-	{"removeIf", "(Ljava/util/function/Predicate;)Z", "(Ljava/util/function/Predicate<-TE;>;)Z", $PUBLIC},
-	{"retainAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(ImmutableCollections$AbstractImmutableCollection, init$, void)},
+	{"add", "(Ljava/lang/Object;)Z", "(TE;)Z", $PUBLIC, $virtualMethod(ImmutableCollections$AbstractImmutableCollection, add, bool, Object$*)},
+	{"addAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<+TE;>;)Z", $PUBLIC, $virtualMethod(ImmutableCollections$AbstractImmutableCollection, addAll, bool, $Collection*)},
+	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(ImmutableCollections$AbstractImmutableCollection, clear, void)},
+	{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ImmutableCollections$AbstractImmutableCollection, remove, bool, Object$*)},
+	{"removeAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC, $virtualMethod(ImmutableCollections$AbstractImmutableCollection, removeAll, bool, $Collection*)},
+	{"removeIf", "(Ljava/util/function/Predicate;)Z", "(Ljava/util/function/Predicate<-TE;>;)Z", $PUBLIC, $virtualMethod(ImmutableCollections$AbstractImmutableCollection, removeIf, bool, $Predicate*)},
+	{"retainAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC, $virtualMethod(ImmutableCollections$AbstractImmutableCollection, retainAll, bool, $Collection*)},
 	{}
 };
 

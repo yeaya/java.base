@@ -39,14 +39,14 @@ $FieldInfo _SSLContextImpl$AbstractTLSContext_FieldInfo_[] = {
 };
 
 $MethodInfo _SSLContextImpl$AbstractTLSContext_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(SSLContextImpl$AbstractTLSContext::*)()>(&SSLContextImpl$AbstractTLSContext::init$))},
-	{"createSSLEngineImpl", "()Ljavax/net/ssl/SSLEngine;", nullptr, 0},
-	{"createSSLEngineImpl", "(Ljava/lang/String;I)Ljavax/net/ssl/SSLEngine;", nullptr, 0},
-	{"getServerDefaultCipherSuites", "()Ljava/util/List;", "()Ljava/util/List<Lsun/security/ssl/CipherSuite;>;", 0},
-	{"getServerDefaultProtocolVersions", "()Ljava/util/List;", "()Ljava/util/List<Lsun/security/ssl/ProtocolVersion;>;", 0},
-	{"getSupportedCipherSuites", "()Ljava/util/List;", "()Ljava/util/List<Lsun/security/ssl/CipherSuite;>;", 0},
-	{"getSupportedProtocolVersions", "()Ljava/util/List;", "()Ljava/util/List<Lsun/security/ssl/ProtocolVersion;>;", 0},
-	{"isDTLS", "()Z", nullptr, 0},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(SSLContextImpl$AbstractTLSContext, init$, void)},
+	{"createSSLEngineImpl", "()Ljavax/net/ssl/SSLEngine;", nullptr, 0, $virtualMethod(SSLContextImpl$AbstractTLSContext, createSSLEngineImpl, $SSLEngine*)},
+	{"createSSLEngineImpl", "(Ljava/lang/String;I)Ljavax/net/ssl/SSLEngine;", nullptr, 0, $virtualMethod(SSLContextImpl$AbstractTLSContext, createSSLEngineImpl, $SSLEngine*, $String*, int32_t)},
+	{"getServerDefaultCipherSuites", "()Ljava/util/List;", "()Ljava/util/List<Lsun/security/ssl/CipherSuite;>;", 0, $virtualMethod(SSLContextImpl$AbstractTLSContext, getServerDefaultCipherSuites, $List*)},
+	{"getServerDefaultProtocolVersions", "()Ljava/util/List;", "()Ljava/util/List<Lsun/security/ssl/ProtocolVersion;>;", 0, $virtualMethod(SSLContextImpl$AbstractTLSContext, getServerDefaultProtocolVersions, $List*)},
+	{"getSupportedCipherSuites", "()Ljava/util/List;", "()Ljava/util/List<Lsun/security/ssl/CipherSuite;>;", 0, $virtualMethod(SSLContextImpl$AbstractTLSContext, getSupportedCipherSuites, $List*)},
+	{"getSupportedProtocolVersions", "()Ljava/util/List;", "()Ljava/util/List<Lsun/security/ssl/ProtocolVersion;>;", 0, $virtualMethod(SSLContextImpl$AbstractTLSContext, getSupportedProtocolVersions, $List*)},
+	{"isDTLS", "()Z", nullptr, 0, $virtualMethod(SSLContextImpl$AbstractTLSContext, isDTLS, bool)},
 	{}
 };
 

@@ -46,9 +46,9 @@ $FieldInfo _Position_FieldInfo_[] = {
 };
 
 $MethodInfo _Position_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Position::*)()>(&Position::init$))},
-	{"initTestFile", "(Ljava/nio/file/Path;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($Path*)>(&Position::initTestFile)), "java.io.IOException"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Position::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Position, init$, void)},
+	{"initTestFile", "(Ljava/nio/file/Path;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Position, initTestFile, void, $Path*), "java.io.IOException"},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Position, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

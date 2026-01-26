@@ -22,7 +22,7 @@ $FieldInfo _JavaKeyStore$KeyEntry_FieldInfo_[] = {
 };
 
 $MethodInfo _JavaKeyStore$KeyEntry_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(JavaKeyStore$KeyEntry::*)()>(&JavaKeyStore$KeyEntry::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(JavaKeyStore$KeyEntry, init$, void)},
 	{}
 };
 

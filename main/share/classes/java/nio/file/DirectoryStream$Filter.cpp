@@ -18,7 +18,7 @@ $CompoundAttribute _DirectoryStream$Filter_Annotations_[] = {
 };
 
 $MethodInfo _DirectoryStream$Filter_MethodInfo_[] = {
-	{"accept", "(Ljava/lang/Object;)Z", "(TT;)Z", $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
+	{"accept", "(Ljava/lang/Object;)Z", "(TT;)Z", $PUBLIC | $ABSTRACT, $virtualMethod(DirectoryStream$Filter, accept, bool, Object$*), "java.io.IOException"},
 	{}
 };
 

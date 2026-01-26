@@ -26,11 +26,11 @@ $FieldInfo _CleanerImpl$PhantomCleanableRef_FieldInfo_[] = {
 };
 
 $MethodInfo _CleanerImpl$PhantomCleanableRef_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;Ljava/lang/ref/Cleaner;Ljava/lang/Runnable;)V", nullptr, $PUBLIC, $method(static_cast<void(CleanerImpl$PhantomCleanableRef::*)(Object$*,$Cleaner*,$Runnable*)>(&CleanerImpl$PhantomCleanableRef::init$))},
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(CleanerImpl$PhantomCleanableRef::*)()>(&CleanerImpl$PhantomCleanableRef::init$))},
-	{"clear", "()V", nullptr, $PUBLIC},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"performCleanup", "()V", nullptr, $PROTECTED},
+	{"<init>", "(Ljava/lang/Object;Ljava/lang/ref/Cleaner;Ljava/lang/Runnable;)V", nullptr, $PUBLIC, $method(CleanerImpl$PhantomCleanableRef, init$, void, Object$*, $Cleaner*, $Runnable*)},
+	{"<init>", "()V", nullptr, 0, $method(CleanerImpl$PhantomCleanableRef, init$, void)},
+	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(CleanerImpl$PhantomCleanableRef, clear, void)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(CleanerImpl$PhantomCleanableRef, get, $Object*)},
+	{"performCleanup", "()V", nullptr, $PROTECTED, $virtualMethod(CleanerImpl$PhantomCleanableRef, performCleanup, void)},
 	{}
 };
 

@@ -68,22 +68,22 @@ $FieldInfo _SimpleVerifier_FieldInfo_[] = {
 };
 
 $MethodInfo _SimpleVerifier_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SimpleVerifier::*)()>(&SimpleVerifier::init$))},
-	{"<init>", "(Ljdk/internal/org/objectweb/asm/Type;Ljdk/internal/org/objectweb/asm/Type;Z)V", nullptr, $PUBLIC, $method(static_cast<void(SimpleVerifier::*)($Type*,$Type*,bool)>(&SimpleVerifier::init$))},
-	{"<init>", "(Ljdk/internal/org/objectweb/asm/Type;Ljdk/internal/org/objectweb/asm/Type;Ljava/util/List;Z)V", "(Ljdk/internal/org/objectweb/asm/Type;Ljdk/internal/org/objectweb/asm/Type;Ljava/util/List<Ljdk/internal/org/objectweb/asm/Type;>;Z)V", $PUBLIC, $method(static_cast<void(SimpleVerifier::*)($Type*,$Type*,$List*,bool)>(&SimpleVerifier::init$))},
-	{"<init>", "(ILjdk/internal/org/objectweb/asm/Type;Ljdk/internal/org/objectweb/asm/Type;Ljava/util/List;Z)V", "(ILjdk/internal/org/objectweb/asm/Type;Ljdk/internal/org/objectweb/asm/Type;Ljava/util/List<Ljdk/internal/org/objectweb/asm/Type;>;Z)V", $PROTECTED, $method(static_cast<void(SimpleVerifier::*)(int32_t,$Type*,$Type*,$List*,bool)>(&SimpleVerifier::init$))},
-	{"getClass", "(Ljdk/internal/org/objectweb/asm/Type;)Ljava/lang/Class;", "(Ljdk/internal/org/objectweb/asm/Type;)Ljava/lang/Class<*>;", $PROTECTED},
-	{"getElementValue", "(Ljdk/internal/org/objectweb/asm/tree/analysis/BasicValue;)Ljdk/internal/org/objectweb/asm/tree/analysis/BasicValue;", nullptr, $PROTECTED, nullptr, "jdk.internal.org.objectweb.asm.tree.analysis.AnalyzerException"},
-	{"getSuperClass", "(Ljdk/internal/org/objectweb/asm/Type;)Ljdk/internal/org/objectweb/asm/Type;", nullptr, $PROTECTED},
-	{"isArrayValue", "(Ljdk/internal/org/objectweb/asm/tree/analysis/BasicValue;)Z", nullptr, $PROTECTED},
-	{"isAssignableFrom", "(Ljdk/internal/org/objectweb/asm/Type;Ljdk/internal/org/objectweb/asm/Type;)Z", nullptr, $PROTECTED},
-	{"isInterface", "(Ljdk/internal/org/objectweb/asm/Type;)Z", nullptr, $PROTECTED},
-	{"isSubTypeOf", "(Ljdk/internal/org/objectweb/asm/tree/analysis/BasicValue;Ljdk/internal/org/objectweb/asm/tree/analysis/BasicValue;)Z", nullptr, $PROTECTED},
-	{"merge", "(Ljdk/internal/org/objectweb/asm/tree/analysis/BasicValue;Ljdk/internal/org/objectweb/asm/tree/analysis/BasicValue;)Ljdk/internal/org/objectweb/asm/tree/analysis/BasicValue;", nullptr, $PUBLIC},
-	{"merge", "(Ljdk/internal/org/objectweb/asm/tree/analysis/Value;Ljdk/internal/org/objectweb/asm/tree/analysis/Value;)Ljdk/internal/org/objectweb/asm/tree/analysis/Value;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"newArrayValue", "(Ljdk/internal/org/objectweb/asm/Type;I)Ljdk/internal/org/objectweb/asm/tree/analysis/BasicValue;", nullptr, $PRIVATE, $method(static_cast<$BasicValue*(SimpleVerifier::*)($Type*,int32_t)>(&SimpleVerifier::newArrayValue))},
-	{"newValue", "(Ljdk/internal/org/objectweb/asm/Type;)Ljdk/internal/org/objectweb/asm/tree/analysis/BasicValue;", nullptr, $PUBLIC},
-	{"setClassLoader", "(Ljava/lang/ClassLoader;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SimpleVerifier, init$, void)},
+	{"<init>", "(Ljdk/internal/org/objectweb/asm/Type;Ljdk/internal/org/objectweb/asm/Type;Z)V", nullptr, $PUBLIC, $method(SimpleVerifier, init$, void, $Type*, $Type*, bool)},
+	{"<init>", "(Ljdk/internal/org/objectweb/asm/Type;Ljdk/internal/org/objectweb/asm/Type;Ljava/util/List;Z)V", "(Ljdk/internal/org/objectweb/asm/Type;Ljdk/internal/org/objectweb/asm/Type;Ljava/util/List<Ljdk/internal/org/objectweb/asm/Type;>;Z)V", $PUBLIC, $method(SimpleVerifier, init$, void, $Type*, $Type*, $List*, bool)},
+	{"<init>", "(ILjdk/internal/org/objectweb/asm/Type;Ljdk/internal/org/objectweb/asm/Type;Ljava/util/List;Z)V", "(ILjdk/internal/org/objectweb/asm/Type;Ljdk/internal/org/objectweb/asm/Type;Ljava/util/List<Ljdk/internal/org/objectweb/asm/Type;>;Z)V", $PROTECTED, $method(SimpleVerifier, init$, void, int32_t, $Type*, $Type*, $List*, bool)},
+	{"getClass", "(Ljdk/internal/org/objectweb/asm/Type;)Ljava/lang/Class;", "(Ljdk/internal/org/objectweb/asm/Type;)Ljava/lang/Class<*>;", $PROTECTED, $virtualMethod(SimpleVerifier, getClass, $Class*, $Type*)},
+	{"getElementValue", "(Ljdk/internal/org/objectweb/asm/tree/analysis/BasicValue;)Ljdk/internal/org/objectweb/asm/tree/analysis/BasicValue;", nullptr, $PROTECTED, $virtualMethod(SimpleVerifier, getElementValue, $BasicValue*, $BasicValue*), "jdk.internal.org.objectweb.asm.tree.analysis.AnalyzerException"},
+	{"getSuperClass", "(Ljdk/internal/org/objectweb/asm/Type;)Ljdk/internal/org/objectweb/asm/Type;", nullptr, $PROTECTED, $virtualMethod(SimpleVerifier, getSuperClass, $Type*, $Type*)},
+	{"isArrayValue", "(Ljdk/internal/org/objectweb/asm/tree/analysis/BasicValue;)Z", nullptr, $PROTECTED, $virtualMethod(SimpleVerifier, isArrayValue, bool, $BasicValue*)},
+	{"isAssignableFrom", "(Ljdk/internal/org/objectweb/asm/Type;Ljdk/internal/org/objectweb/asm/Type;)Z", nullptr, $PROTECTED, $virtualMethod(SimpleVerifier, isAssignableFrom, bool, $Type*, $Type*)},
+	{"isInterface", "(Ljdk/internal/org/objectweb/asm/Type;)Z", nullptr, $PROTECTED, $virtualMethod(SimpleVerifier, isInterface, bool, $Type*)},
+	{"isSubTypeOf", "(Ljdk/internal/org/objectweb/asm/tree/analysis/BasicValue;Ljdk/internal/org/objectweb/asm/tree/analysis/BasicValue;)Z", nullptr, $PROTECTED, $virtualMethod(SimpleVerifier, isSubTypeOf, bool, $BasicValue*, $BasicValue*)},
+	{"merge", "(Ljdk/internal/org/objectweb/asm/tree/analysis/BasicValue;Ljdk/internal/org/objectweb/asm/tree/analysis/BasicValue;)Ljdk/internal/org/objectweb/asm/tree/analysis/BasicValue;", nullptr, $PUBLIC, $virtualMethod(SimpleVerifier, merge, $BasicValue*, $BasicValue*, $BasicValue*)},
+	{"merge", "(Ljdk/internal/org/objectweb/asm/tree/analysis/Value;Ljdk/internal/org/objectweb/asm/tree/analysis/Value;)Ljdk/internal/org/objectweb/asm/tree/analysis/Value;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(SimpleVerifier, merge, $1Value*, $1Value*, $1Value*)},
+	{"newArrayValue", "(Ljdk/internal/org/objectweb/asm/Type;I)Ljdk/internal/org/objectweb/asm/tree/analysis/BasicValue;", nullptr, $PRIVATE, $method(SimpleVerifier, newArrayValue, $BasicValue*, $Type*, int32_t)},
+	{"newValue", "(Ljdk/internal/org/objectweb/asm/Type;)Ljdk/internal/org/objectweb/asm/tree/analysis/BasicValue;", nullptr, $PUBLIC, $virtualMethod(SimpleVerifier, newValue, $1Value*, $Type*)},
+	{"setClassLoader", "(Ljava/lang/ClassLoader;)V", nullptr, $PUBLIC, $virtualMethod(SimpleVerifier, setClassLoader, void, $ClassLoader*)},
 	{}
 };
 

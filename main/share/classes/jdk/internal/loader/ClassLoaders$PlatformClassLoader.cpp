@@ -22,7 +22,7 @@ namespace jdk {
 		namespace loader {
 
 $MethodInfo _ClassLoaders$PlatformClassLoader_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/loader/ClassLoaders$BootClassLoader;)V", nullptr, 0, $method(static_cast<void(ClassLoaders$PlatformClassLoader::*)($ClassLoaders$BootClassLoader*)>(&ClassLoaders$PlatformClassLoader::init$))},
+	{"<init>", "(Ljdk/internal/loader/ClassLoaders$BootClassLoader;)V", nullptr, 0, $method(ClassLoaders$PlatformClassLoader, init$, void, $ClassLoaders$BootClassLoader*)},
 	{}
 };
 

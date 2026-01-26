@@ -25,8 +25,8 @@ $FieldInfo _CompletableFuture$UniExceptionally_FieldInfo_[] = {
 };
 
 $MethodInfo _CompletableFuture$UniExceptionally_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/Executor;Ljava/util/concurrent/CompletableFuture;Ljava/util/concurrent/CompletableFuture;Ljava/util/function/Function;)V", "(Ljava/util/concurrent/Executor;Ljava/util/concurrent/CompletableFuture<TT;>;Ljava/util/concurrent/CompletableFuture<TT;>;Ljava/util/function/Function<-Ljava/lang/Throwable;+TT;>;)V", 0, $method(static_cast<void(CompletableFuture$UniExceptionally::*)($Executor*,$CompletableFuture*,$CompletableFuture*,$Function*)>(&CompletableFuture$UniExceptionally::init$))},
-	{"tryFire", "(I)Ljava/util/concurrent/CompletableFuture;", "(I)Ljava/util/concurrent/CompletableFuture<TT;>;", $FINAL},
+	{"<init>", "(Ljava/util/concurrent/Executor;Ljava/util/concurrent/CompletableFuture;Ljava/util/concurrent/CompletableFuture;Ljava/util/function/Function;)V", "(Ljava/util/concurrent/Executor;Ljava/util/concurrent/CompletableFuture<TT;>;Ljava/util/concurrent/CompletableFuture<TT;>;Ljava/util/function/Function<-Ljava/lang/Throwable;+TT;>;)V", 0, $method(CompletableFuture$UniExceptionally, init$, void, $Executor*, $CompletableFuture*, $CompletableFuture*, $Function*)},
+	{"tryFire", "(I)Ljava/util/concurrent/CompletableFuture;", "(I)Ljava/util/concurrent/CompletableFuture<TT;>;", $FINAL, $virtualMethod(CompletableFuture$UniExceptionally, tryFire, $CompletableFuture*, int32_t)},
 	{}
 };
 

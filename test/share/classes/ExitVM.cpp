@@ -16,8 +16,8 @@ using $Permission = ::java::security::Permission;
 using $PermissionCollection = ::java::security::PermissionCollection;
 
 $MethodInfo _ExitVM_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ExitVM::*)()>(&ExitVM::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&ExitVM::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ExitVM, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ExitVM, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

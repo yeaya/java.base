@@ -15,8 +15,8 @@ using $URLConnection = ::java::net::URLConnection;
 using $URLStreamHandler = ::java::net::URLStreamHandler;
 
 $MethodInfo _NonOverridableHandlerFactory$NonOverridableHandler_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(NonOverridableHandlerFactory$NonOverridableHandler::*)()>(&NonOverridableHandlerFactory$NonOverridableHandler::init$))},
-	{"openConnection", "(Ljava/net/URL;)Ljava/net/URLConnection;", nullptr, $PROTECTED, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(NonOverridableHandlerFactory$NonOverridableHandler, init$, void)},
+	{"openConnection", "(Ljava/net/URL;)Ljava/net/URLConnection;", nullptr, $PROTECTED, $virtualMethod(NonOverridableHandlerFactory$NonOverridableHandler, openConnection, $URLConnection*, $URL*), "java.io.IOException"},
 	{}
 };
 

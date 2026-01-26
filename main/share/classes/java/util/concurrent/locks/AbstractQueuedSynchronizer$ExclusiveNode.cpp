@@ -15,7 +15,7 @@ namespace java {
 			namespace locks {
 
 $MethodInfo _AbstractQueuedSynchronizer$ExclusiveNode_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(AbstractQueuedSynchronizer$ExclusiveNode::*)()>(&AbstractQueuedSynchronizer$ExclusiveNode::init$))},
+	{"<init>", "()V", nullptr, 0, $method(AbstractQueuedSynchronizer$ExclusiveNode, init$, void)},
 	{}
 };
 

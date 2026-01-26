@@ -18,8 +18,8 @@ $FieldInfo _WindowsNativeDispatcher$AclInformation_FieldInfo_[] = {
 };
 
 $MethodInfo _WindowsNativeDispatcher$AclInformation_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(WindowsNativeDispatcher$AclInformation::*)()>(&WindowsNativeDispatcher$AclInformation::init$))},
-	{"aceCount", "()I", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(WindowsNativeDispatcher$AclInformation, init$, void)},
+	{"aceCount", "()I", nullptr, $PUBLIC, $virtualMethod(WindowsNativeDispatcher$AclInformation, aceCount, int32_t)},
 	{}
 };
 

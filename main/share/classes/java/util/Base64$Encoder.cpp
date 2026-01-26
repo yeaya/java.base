@@ -54,16 +54,16 @@ $FieldInfo _Base64$Encoder_FieldInfo_[] = {
 };
 
 $MethodInfo _Base64$Encoder_MethodInfo_[] = {
-	{"<init>", "(Z[BIZ)V", nullptr, $PRIVATE, $method(static_cast<void(Base64$Encoder::*)(bool,$bytes*,int32_t,bool)>(&Base64$Encoder::init$))},
-	{"encode", "([B)[B", nullptr, $PUBLIC},
-	{"encode", "([B[B)I", nullptr, $PUBLIC},
-	{"encode", "(Ljava/nio/ByteBuffer;)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC},
-	{"encode0", "([BII[B)I", nullptr, $PRIVATE, $method(static_cast<int32_t(Base64$Encoder::*)($bytes*,int32_t,int32_t,$bytes*)>(&Base64$Encoder::encode0))},
-	{"encodeBlock", "([BII[BIZ)V", nullptr, $PRIVATE, $method(static_cast<void(Base64$Encoder::*)($bytes*,int32_t,int32_t,$bytes*,int32_t,bool)>(&Base64$Encoder::encodeBlock)), nullptr, nullptr, _Base64$Encoder_MethodAnnotations_encodeBlock5},
-	{"encodeToString", "([B)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"encodedOutLength", "(IZ)I", nullptr, $PRIVATE | $FINAL, $method(static_cast<int32_t(Base64$Encoder::*)(int32_t,bool)>(&Base64$Encoder::encodedOutLength))},
-	{"withoutPadding", "()Ljava/util/Base64$Encoder;", nullptr, $PUBLIC},
-	{"wrap", "(Ljava/io/OutputStream;)Ljava/io/OutputStream;", nullptr, $PUBLIC},
+	{"<init>", "(Z[BIZ)V", nullptr, $PRIVATE, $method(Base64$Encoder, init$, void, bool, $bytes*, int32_t, bool)},
+	{"encode", "([B)[B", nullptr, $PUBLIC, $virtualMethod(Base64$Encoder, encode, $bytes*, $bytes*)},
+	{"encode", "([B[B)I", nullptr, $PUBLIC, $virtualMethod(Base64$Encoder, encode, int32_t, $bytes*, $bytes*)},
+	{"encode", "(Ljava/nio/ByteBuffer;)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $virtualMethod(Base64$Encoder, encode, $ByteBuffer*, $ByteBuffer*)},
+	{"encode0", "([BII[B)I", nullptr, $PRIVATE, $method(Base64$Encoder, encode0, int32_t, $bytes*, int32_t, int32_t, $bytes*)},
+	{"encodeBlock", "([BII[BIZ)V", nullptr, $PRIVATE, $method(Base64$Encoder, encodeBlock, void, $bytes*, int32_t, int32_t, $bytes*, int32_t, bool), nullptr, nullptr, _Base64$Encoder_MethodAnnotations_encodeBlock5},
+	{"encodeToString", "([B)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Base64$Encoder, encodeToString, $String*, $bytes*)},
+	{"encodedOutLength", "(IZ)I", nullptr, $PRIVATE | $FINAL, $method(Base64$Encoder, encodedOutLength, int32_t, int32_t, bool)},
+	{"withoutPadding", "()Ljava/util/Base64$Encoder;", nullptr, $PUBLIC, $virtualMethod(Base64$Encoder, withoutPadding, Base64$Encoder*)},
+	{"wrap", "(Ljava/io/OutputStream;)Ljava/io/OutputStream;", nullptr, $PUBLIC, $virtualMethod(Base64$Encoder, wrap, $OutputStream*, $OutputStream*)},
 	{}
 };
 

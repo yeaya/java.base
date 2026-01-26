@@ -12,8 +12,8 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $CountDownLatch = ::java::util::concurrent::CountDownLatch;
 
 $MethodInfo _NullThreadName$GoodThread_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(NullThreadName$GoodThread::*)()>(&NullThreadName$GoodThread::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(NullThreadName$GoodThread, init$, void)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(NullThreadName$GoodThread, run, void)},
 	{}
 };
 

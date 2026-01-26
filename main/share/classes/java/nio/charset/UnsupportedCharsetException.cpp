@@ -18,8 +18,8 @@ $FieldInfo _UnsupportedCharsetException_FieldInfo_[] = {
 };
 
 $MethodInfo _UnsupportedCharsetException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(UnsupportedCharsetException::*)($String*)>(&UnsupportedCharsetException::init$))},
-	{"getCharsetName", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(UnsupportedCharsetException, init$, void, $String*)},
+	{"getCharsetName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UnsupportedCharsetException, getCharsetName, $String*)},
 	{}
 };
 

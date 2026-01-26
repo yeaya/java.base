@@ -28,15 +28,15 @@ using $List = ::java::util::List;
 using $Set = ::java::util::Set;
 
 $MethodInfo _CheckPermission$LoggingSecurityManager_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(CheckPermission$LoggingSecurityManager::*)()>(&CheckPermission$LoggingSecurityManager::init$))},
-	{"checkDelete", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"checkExec", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"checkFileOperation", "(LCheckPermission$FileOperation;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(static_cast<void(CheckPermission$LoggingSecurityManager::*)($CheckPermission$FileOperation*,$String*)>(&CheckPermission$LoggingSecurityManager::checkFileOperation))},
-	{"checkPermission", "(Ljava/security/Permission;)V", nullptr, $PUBLIC},
-	{"checkPropertyAccess", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"checkRead", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"checkWrite", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"install", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&CheckPermission$LoggingSecurityManager::install))},
+	{"<init>", "()V", nullptr, 0, $method(CheckPermission$LoggingSecurityManager, init$, void)},
+	{"checkDelete", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CheckPermission$LoggingSecurityManager, checkDelete, void, $String*)},
+	{"checkExec", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CheckPermission$LoggingSecurityManager, checkExec, void, $String*)},
+	{"checkFileOperation", "(LCheckPermission$FileOperation;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(CheckPermission$LoggingSecurityManager, checkFileOperation, void, $CheckPermission$FileOperation*, $String*)},
+	{"checkPermission", "(Ljava/security/Permission;)V", nullptr, $PUBLIC, $virtualMethod(CheckPermission$LoggingSecurityManager, checkPermission, void, $Permission*)},
+	{"checkPropertyAccess", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CheckPermission$LoggingSecurityManager, checkPropertyAccess, void, $String*)},
+	{"checkRead", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CheckPermission$LoggingSecurityManager, checkRead, void, $String*)},
+	{"checkWrite", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CheckPermission$LoggingSecurityManager, checkWrite, void, $String*)},
+	{"install", "()V", nullptr, $STATIC, $staticMethod(CheckPermission$LoggingSecurityManager, install, void)},
 	{}
 };
 

@@ -13,7 +13,7 @@ namespace java {
 	namespace net {
 
 $MethodInfo _DatagramSocket$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(DatagramSocket$1::*)()>(&DatagramSocket$1::init$))},
+	{"<init>", "()V", nullptr, 0, $method(DatagramSocket$1, init$, void)},
 	{}
 };
 

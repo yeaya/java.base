@@ -22,8 +22,8 @@ $FieldInfo _HttpConnectSocketImpl$2_FieldInfo_[] = {
 };
 
 $MethodInfo _HttpConnectSocketImpl$2_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/HttpConnectSocketImpl;Ljava/lang/String;I)V", nullptr, 0, $method(static_cast<void(HttpConnectSocketImpl$2::*)($HttpConnectSocketImpl*,$String*,int32_t)>(&HttpConnectSocketImpl$2::init$))},
-	{"run", "()Ljava/net/Socket;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljava/net/HttpConnectSocketImpl;Ljava/lang/String;I)V", nullptr, 0, $method(HttpConnectSocketImpl$2, init$, void, $HttpConnectSocketImpl*, $String*, int32_t)},
+	{"run", "()Ljava/net/Socket;", nullptr, $PUBLIC, $virtualMethod(HttpConnectSocketImpl$2, run, $Object*), "java.io.IOException"},
 	{}
 };
 

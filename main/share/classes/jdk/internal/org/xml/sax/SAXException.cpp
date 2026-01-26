@@ -35,17 +35,17 @@ $FieldInfo _SAXException_FieldInfo_[] = {
 };
 
 $MethodInfo _SAXException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SAXException::*)()>(&SAXException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(SAXException::*)($String*)>(&SAXException::init$))},
-	{"<init>", "(Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(static_cast<void(SAXException::*)($Exception*)>(&SAXException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(static_cast<void(SAXException::*)($String*,$Exception*)>(&SAXException::init$))},
-	{"getCause", "()Ljava/lang/Throwable;", nullptr, $PUBLIC},
-	{"getException", "()Ljava/lang/Exception;", nullptr, $PUBLIC},
-	{"getExceptionInternal", "()Ljava/lang/Exception;", nullptr, $PRIVATE, $method(static_cast<$Exception*(SAXException::*)()>(&SAXException::getExceptionInternal))},
-	{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(SAXException::*)($ObjectInputStream*)>(&SAXException::readObject)), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(SAXException::*)($ObjectOutputStream*)>(&SAXException::writeObject)), "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SAXException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SAXException, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(SAXException, init$, void, $Exception*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(SAXException, init$, void, $String*, $Exception*)},
+	{"getCause", "()Ljava/lang/Throwable;", nullptr, $PUBLIC, $virtualMethod(SAXException, getCause, $Throwable*)},
+	{"getException", "()Ljava/lang/Exception;", nullptr, $PUBLIC, $virtualMethod(SAXException, getException, $Exception*)},
+	{"getExceptionInternal", "()Ljava/lang/Exception;", nullptr, $PRIVATE, $method(SAXException, getExceptionInternal, $Exception*)},
+	{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SAXException, getMessage, $String*)},
+	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(SAXException, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SAXException, toString, $String*)},
+	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(SAXException, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
 	{}
 };
 

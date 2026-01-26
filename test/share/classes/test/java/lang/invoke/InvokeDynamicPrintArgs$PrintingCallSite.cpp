@@ -47,10 +47,10 @@ $FieldInfo _InvokeDynamicPrintArgs$PrintingCallSite_FieldInfo_[] = {
 };
 
 $MethodInfo _InvokeDynamicPrintArgs$PrintingCallSite_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;[Ljava/lang/Object;)V", nullptr, $TRANSIENT, $method(static_cast<void(InvokeDynamicPrintArgs$PrintingCallSite::*)($MethodHandles$Lookup*,$String*,$MethodType*,$ObjectArray*)>(&InvokeDynamicPrintArgs$PrintingCallSite::init$)), "java.lang.Throwable"},
-	{"MH_createTarget", "()Ljava/lang/invoke/MethodHandle;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$MethodHandle*(*)()>(&InvokeDynamicPrintArgs$PrintingCallSite::MH_createTarget)), "java.lang.ReflectiveOperationException"},
-	{"createTarget", "()Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC},
-	{"runTarget", "([Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $TRANSIENT},
+	{"<init>", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;[Ljava/lang/Object;)V", nullptr, $TRANSIENT, $method(InvokeDynamicPrintArgs$PrintingCallSite, init$, void, $MethodHandles$Lookup*, $String*, $MethodType*, $ObjectArray*), "java.lang.Throwable"},
+	{"MH_createTarget", "()Ljava/lang/invoke/MethodHandle;", nullptr, $PRIVATE | $STATIC, $staticMethod(InvokeDynamicPrintArgs$PrintingCallSite, MH_createTarget, $MethodHandle*), "java.lang.ReflectiveOperationException"},
+	{"createTarget", "()Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC, $virtualMethod(InvokeDynamicPrintArgs$PrintingCallSite, createTarget, $MethodHandle*)},
+	{"runTarget", "([Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(InvokeDynamicPrintArgs$PrintingCallSite, runTarget, $Object*, $ObjectArray*)},
 	{}
 };
 

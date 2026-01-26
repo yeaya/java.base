@@ -12,10 +12,10 @@ namespace jdk {
 		namespace misc {
 
 $MethodInfo _VM$BufferPool_MethodInfo_[] = {
-	{"getCount", "()J", nullptr, $PUBLIC | $ABSTRACT},
-	{"getMemoryUsed", "()J", nullptr, $PUBLIC | $ABSTRACT},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getTotalCapacity", "()J", nullptr, $PUBLIC | $ABSTRACT},
+	{"getCount", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(VM$BufferPool, getCount, int64_t)},
+	{"getMemoryUsed", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(VM$BufferPool, getMemoryUsed, int64_t)},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(VM$BufferPool, getName, $String*)},
+	{"getTotalCapacity", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(VM$BufferPool, getTotalCapacity, int64_t)},
 	{}
 };
 

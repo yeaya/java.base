@@ -28,12 +28,12 @@ $FieldInfo _StringBufferInputStream_FieldInfo_[] = {
 };
 
 $MethodInfo _StringBufferInputStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(StringBufferInputStream::*)($String*)>(&StringBufferInputStream::init$))},
-	{"available", "()I", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"read", "()I", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"read", "([BII)I", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"reset", "()V", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"skip", "(J)J", nullptr, $PUBLIC | $SYNCHRONIZED},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(StringBufferInputStream, init$, void, $String*)},
+	{"available", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StringBufferInputStream, available, int32_t)},
+	{"read", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StringBufferInputStream, read, int32_t)},
+	{"read", "([BII)I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StringBufferInputStream, read, int32_t, $bytes*, int32_t, int32_t)},
+	{"reset", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StringBufferInputStream, reset, void)},
+	{"skip", "(J)J", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StringBufferInputStream, skip, int64_t, int64_t)},
 	{}
 };
 

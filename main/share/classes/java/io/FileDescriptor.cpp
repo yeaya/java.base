@@ -48,21 +48,21 @@ $FieldInfo _FileDescriptor_FieldInfo_[] = {
 };
 
 $MethodInfo _FileDescriptor_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(FileDescriptor::*)()>(&FileDescriptor::init$))},
-	{"<init>", "(I)V", nullptr, $PRIVATE, $method(static_cast<void(FileDescriptor::*)(int32_t)>(&FileDescriptor::init$))},
-	{"attach", "(Ljava/io/Closeable;)V", nullptr, $SYNCHRONIZED, $method(static_cast<void(FileDescriptor::*)($Closeable*)>(&FileDescriptor::attach))},
-	{"close", "()V", nullptr, $SYNCHRONIZED, $method(static_cast<void(FileDescriptor::*)()>(&FileDescriptor::close)), "java.io.IOException"},
-	{"close0", "()V", nullptr, $PRIVATE | $NATIVE, $method(static_cast<void(FileDescriptor::*)()>(&FileDescriptor::close0)), "java.io.IOException"},
-	{"closeAll", "(Ljava/io/Closeable;)V", nullptr, $SYNCHRONIZED, $method(static_cast<void(FileDescriptor::*)($Closeable*)>(&FileDescriptor::closeAll)), "java.io.IOException"},
-	{"getAppend", "(I)Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $method(static_cast<bool(*)(int32_t)>(&FileDescriptor::getAppend))},
-	{"getHandle", "(I)J", nullptr, $PRIVATE | $STATIC | $NATIVE, $method(static_cast<int64_t(*)(int32_t)>(&FileDescriptor::getHandle))},
-	{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $method(static_cast<void(*)()>(&FileDescriptor::initIDs))},
-	{"registerCleanup", "(Ljdk/internal/ref/PhantomCleanable;)V", "(Ljdk/internal/ref/PhantomCleanable<Ljava/io/FileDescriptor;>;)V", $SYNCHRONIZED, $method(static_cast<void(FileDescriptor::*)($PhantomCleanable*)>(&FileDescriptor::registerCleanup))},
-	{"set", "(I)V", nullptr, $SYNCHRONIZED, $method(static_cast<void(FileDescriptor::*)(int32_t)>(&FileDescriptor::set))},
-	{"setHandle", "(J)V", nullptr, 0, $method(static_cast<void(FileDescriptor::*)(int64_t)>(&FileDescriptor::setHandle))},
-	{"sync", "()V", nullptr, $PUBLIC | $NATIVE, $method(static_cast<void(FileDescriptor::*)()>(&FileDescriptor::sync)), "java.io.SyncFailedException"},
-	{"unregisterCleanup", "()V", nullptr, $SYNCHRONIZED, $method(static_cast<void(FileDescriptor::*)()>(&FileDescriptor::unregisterCleanup))},
-	{"valid", "()Z", nullptr, $PUBLIC, $method(static_cast<bool(FileDescriptor::*)()>(&FileDescriptor::valid))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(FileDescriptor, init$, void)},
+	{"<init>", "(I)V", nullptr, $PRIVATE, $method(FileDescriptor, init$, void, int32_t)},
+	{"attach", "(Ljava/io/Closeable;)V", nullptr, $SYNCHRONIZED, $method(FileDescriptor, attach, void, $Closeable*)},
+	{"close", "()V", nullptr, $SYNCHRONIZED, $method(FileDescriptor, close, void), "java.io.IOException"},
+	{"close0", "()V", nullptr, $PRIVATE | $NATIVE, $method(FileDescriptor, close0, void), "java.io.IOException"},
+	{"closeAll", "(Ljava/io/Closeable;)V", nullptr, $SYNCHRONIZED, $method(FileDescriptor, closeAll, void, $Closeable*), "java.io.IOException"},
+	{"getAppend", "(I)Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(FileDescriptor, getAppend, bool, int32_t)},
+	{"getHandle", "(I)J", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(FileDescriptor, getHandle, int64_t, int32_t)},
+	{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(FileDescriptor, initIDs, void)},
+	{"registerCleanup", "(Ljdk/internal/ref/PhantomCleanable;)V", "(Ljdk/internal/ref/PhantomCleanable<Ljava/io/FileDescriptor;>;)V", $SYNCHRONIZED, $method(FileDescriptor, registerCleanup, void, $PhantomCleanable*)},
+	{"set", "(I)V", nullptr, $SYNCHRONIZED, $method(FileDescriptor, set, void, int32_t)},
+	{"setHandle", "(J)V", nullptr, 0, $method(FileDescriptor, setHandle, void, int64_t)},
+	{"sync", "()V", nullptr, $PUBLIC | $NATIVE, $method(FileDescriptor, sync, void), "java.io.SyncFailedException"},
+	{"unregisterCleanup", "()V", nullptr, $SYNCHRONIZED, $method(FileDescriptor, unregisterCleanup, void)},
+	{"valid", "()Z", nullptr, $PUBLIC, $method(FileDescriptor, valid, bool)},
 	{}
 };
 

@@ -24,8 +24,8 @@ $FieldInfo _HttpClient$1_FieldInfo_[] = {
 };
 
 $MethodInfo _HttpClient$1_MethodInfo_[] = {
-	{"<init>", "(Lsun/net/www/http/HttpClient;Ljava/net/InetSocketAddress;)V", nullptr, 0, $method(static_cast<void(HttpClient$1::*)($HttpClient*,$InetSocketAddress*)>(&HttpClient$1::init$))},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Lsun/net/www/http/HttpClient;Ljava/net/InetSocketAddress;)V", nullptr, 0, $method(HttpClient$1, init$, void, $HttpClient*, $InetSocketAddress*)},
+	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(HttpClient$1, run, $Object*), "java.io.IOException"},
 	{}
 };
 

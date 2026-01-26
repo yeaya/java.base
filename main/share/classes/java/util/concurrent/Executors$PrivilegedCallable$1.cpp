@@ -22,8 +22,8 @@ $FieldInfo _Executors$PrivilegedCallable$1_FieldInfo_[] = {
 };
 
 $MethodInfo _Executors$PrivilegedCallable$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/Executors$PrivilegedCallable;)V", nullptr, 0, $method(static_cast<void(Executors$PrivilegedCallable$1::*)($Executors$PrivilegedCallable*)>(&Executors$PrivilegedCallable$1::init$))},
-	{"run", "()Ljava/lang/Object;", "()TT;", $PUBLIC, nullptr, "java.lang.Exception"},
+	{"<init>", "(Ljava/util/concurrent/Executors$PrivilegedCallable;)V", nullptr, 0, $method(Executors$PrivilegedCallable$1, init$, void, $Executors$PrivilegedCallable*)},
+	{"run", "()Ljava/lang/Object;", "()TT;", $PUBLIC, $virtualMethod(Executors$PrivilegedCallable$1, run, $Object*), "java.lang.Exception"},
 	{}
 };
 

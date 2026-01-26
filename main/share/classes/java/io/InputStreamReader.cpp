@@ -28,16 +28,16 @@ $FieldInfo _InputStreamReader_FieldInfo_[] = {
 };
 
 $MethodInfo _InputStreamReader_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(static_cast<void(InputStreamReader::*)($InputStream*)>(&InputStreamReader::init$))},
-	{"<init>", "(Ljava/io/InputStream;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(InputStreamReader::*)($InputStream*,$String*)>(&InputStreamReader::init$)), "java.io.UnsupportedEncodingException"},
-	{"<init>", "(Ljava/io/InputStream;Ljava/nio/charset/Charset;)V", nullptr, $PUBLIC, $method(static_cast<void(InputStreamReader::*)($InputStream*,$Charset*)>(&InputStreamReader::init$))},
-	{"<init>", "(Ljava/io/InputStream;Ljava/nio/charset/CharsetDecoder;)V", nullptr, $PUBLIC, $method(static_cast<void(InputStreamReader::*)($InputStream*,$CharsetDecoder*)>(&InputStreamReader::init$))},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"getEncoding", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"read", "(Ljava/nio/CharBuffer;)I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"read", "()I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"read", "([CII)I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"ready", "()Z", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(InputStreamReader, init$, void, $InputStream*)},
+	{"<init>", "(Ljava/io/InputStream;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InputStreamReader, init$, void, $InputStream*, $String*), "java.io.UnsupportedEncodingException"},
+	{"<init>", "(Ljava/io/InputStream;Ljava/nio/charset/Charset;)V", nullptr, $PUBLIC, $method(InputStreamReader, init$, void, $InputStream*, $Charset*)},
+	{"<init>", "(Ljava/io/InputStream;Ljava/nio/charset/CharsetDecoder;)V", nullptr, $PUBLIC, $method(InputStreamReader, init$, void, $InputStream*, $CharsetDecoder*)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(InputStreamReader, close, void), "java.io.IOException"},
+	{"getEncoding", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(InputStreamReader, getEncoding, $String*)},
+	{"read", "(Ljava/nio/CharBuffer;)I", nullptr, $PUBLIC, $virtualMethod(InputStreamReader, read, int32_t, $CharBuffer*), "java.io.IOException"},
+	{"read", "()I", nullptr, $PUBLIC, $virtualMethod(InputStreamReader, read, int32_t), "java.io.IOException"},
+	{"read", "([CII)I", nullptr, $PUBLIC, $virtualMethod(InputStreamReader, read, int32_t, $chars*, int32_t, int32_t), "java.io.IOException"},
+	{"ready", "()Z", nullptr, $PUBLIC, $virtualMethod(InputStreamReader, ready, bool), "java.io.IOException"},
 	{}
 };
 

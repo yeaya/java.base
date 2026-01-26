@@ -30,11 +30,11 @@ using $Map$Entry = ::java::util::Map$Entry;
 using $Set = ::java::util::Set;
 
 $MethodInfo _LongValueExactTests_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(LongValueExactTests::*)()>(&LongValueExactTests::init$))},
-	{"longValueExactExceptional", "()I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)()>(&LongValueExactTests::longValueExactExceptional))},
-	{"longValueExactSuccessful", "()I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)()>(&LongValueExactTests::longValueExactSuccessful))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<void(*)($StringArray*)>(&LongValueExactTests::main))},
-	{"simpleLongValueExact", "(Ljava/math/BigDecimal;)J", nullptr, $PRIVATE | $STATIC, $method(static_cast<int64_t(*)($BigDecimal*)>(&LongValueExactTests::simpleLongValueExact))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(LongValueExactTests, init$, void)},
+	{"longValueExactExceptional", "()I", nullptr, $PRIVATE | $STATIC, $staticMethod(LongValueExactTests, longValueExactExceptional, int32_t)},
+	{"longValueExactSuccessful", "()I", nullptr, $PRIVATE | $STATIC, $staticMethod(LongValueExactTests, longValueExactSuccessful, int32_t)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(LongValueExactTests, main, void, $StringArray*)},
+	{"simpleLongValueExact", "(Ljava/math/BigDecimal;)J", nullptr, $PRIVATE | $STATIC, $staticMethod(LongValueExactTests, simpleLongValueExact, int64_t, $BigDecimal*)},
 	{}
 };
 

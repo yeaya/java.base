@@ -18,9 +18,9 @@ using $Enumeration = ::java::util::Enumeration;
 using $Iterator = ::java::util::Iterator;
 
 $MethodInfo _SubNetworkInterfaceTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SubNetworkInterfaceTest::*)()>(&SubNetworkInterfaceTest::init$))},
-	{"doReverseLookup", "(Ljava/net/NetworkInterface;)V", nullptr, $STATIC, $method(static_cast<void(*)($NetworkInterface*)>(&SubNetworkInterfaceTest::doReverseLookup)), "java.net.SocketException,java.net.UnknownHostException"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&SubNetworkInterfaceTest::main)), "java.net.SocketException,java.net.UnknownHostException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SubNetworkInterfaceTest, init$, void)},
+	{"doReverseLookup", "(Ljava/net/NetworkInterface;)V", nullptr, $STATIC, $staticMethod(SubNetworkInterfaceTest, doReverseLookup, void, $NetworkInterface*), "java.net.SocketException,java.net.UnknownHostException"},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SubNetworkInterfaceTest, main, void, $StringArray*), "java.net.SocketException,java.net.UnknownHostException"},
 	{}
 };
 

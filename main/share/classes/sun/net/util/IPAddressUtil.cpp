@@ -89,8 +89,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo IPAddressUtil$$Lambda$lambda$toScopedAddress$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(IPAddressUtil$$Lambda$lambda$toScopedAddress$0::*)()>(&IPAddressUtil$$Lambda$lambda$toScopedAddress$0::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(IPAddressUtil$$Lambda$lambda$toScopedAddress$0, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(IPAddressUtil$$Lambda$lambda$toScopedAddress$0, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo IPAddressUtil$$Lambda$lambda$toScopedAddress$0::classInfo$ = {
@@ -129,8 +129,8 @@ $FieldInfo IPAddressUtil$$Lambda$lambda$findScopedAddress$2$1::fieldInfos[2] = {
 	{}
 };
 $MethodInfo IPAddressUtil$$Lambda$lambda$findScopedAddress$2$1::methodInfos[3] = {
-	{"<init>", "(Ljava/net/InetAddress;)V", nullptr, $PUBLIC, $method(static_cast<void(IPAddressUtil$$Lambda$lambda$findScopedAddress$2$1::*)($InetAddress*)>(&IPAddressUtil$$Lambda$lambda$findScopedAddress$2$1::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/net/InetAddress;)V", nullptr, $PUBLIC, $method(IPAddressUtil$$Lambda$lambda$findScopedAddress$2$1, init$, void, $InetAddress*)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(IPAddressUtil$$Lambda$lambda$findScopedAddress$2$1, run, $Object*)},
 	{}
 };
 $ClassInfo IPAddressUtil$$Lambda$lambda$findScopedAddress$2$1::classInfo$ = {
@@ -162,8 +162,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo IPAddressUtil$$Lambda$inetAddresses$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(IPAddressUtil$$Lambda$inetAddresses$2::*)()>(&IPAddressUtil$$Lambda$inetAddresses$2::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(IPAddressUtil$$Lambda$inetAddresses$2, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(IPAddressUtil$$Lambda$inetAddresses$2, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo IPAddressUtil$$Lambda$inetAddresses$2::classInfo$ = {
@@ -202,8 +202,8 @@ $FieldInfo IPAddressUtil$$Lambda$lambda$findScopedAddress$1$3::fieldInfos[2] = {
 	{}
 };
 $MethodInfo IPAddressUtil$$Lambda$lambda$findScopedAddress$1$3::methodInfos[3] = {
-	{"<init>", "(Ljava/net/InetAddress;)V", nullptr, $PUBLIC, $method(static_cast<void(IPAddressUtil$$Lambda$lambda$findScopedAddress$1$3::*)($InetAddress*)>(&IPAddressUtil$$Lambda$lambda$findScopedAddress$1$3::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/net/InetAddress;)V", nullptr, $PUBLIC, $method(IPAddressUtil$$Lambda$lambda$findScopedAddress$1$3, init$, void, $InetAddress*)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(IPAddressUtil$$Lambda$lambda$findScopedAddress$1$3, test, bool, Object$*)},
 	{}
 };
 $ClassInfo IPAddressUtil$$Lambda$lambda$findScopedAddress$1$3::classInfo$ = {
@@ -246,29 +246,29 @@ $FieldInfo _IPAddressUtil_FieldInfo_[] = {
 };
 
 $MethodInfo _IPAddressUtil_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(IPAddressUtil::*)()>(&IPAddressUtil::init$))},
-	{"checkAuth", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($String*)>(&IPAddressUtil::checkAuth))},
-	{"checkAuthority", "(Ljava/net/URL;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)($URL*)>(&IPAddressUtil::checkAuthority))},
-	{"checkExternalForm", "(Ljava/net/URL;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)($URL*)>(&IPAddressUtil::checkExternalForm))},
-	{"checkHost", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($String*)>(&IPAddressUtil::checkHost))},
-	{"checkHostString", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)($String*)>(&IPAddressUtil::checkHostString))},
-	{"checkUserInfo", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($String*)>(&IPAddressUtil::checkUserInfo))},
-	{"convertFromIPv4MappedAddress", "([B)[B", nullptr, $PUBLIC | $STATIC, $method(static_cast<$bytes*(*)($bytes*)>(&IPAddressUtil::convertFromIPv4MappedAddress))},
-	{"describeChar", "(C)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)(char16_t)>(&IPAddressUtil::describeChar))},
-	{"findScopedAddress", "(Ljava/net/InetAddress;)Ljava/net/InetAddress;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$InetAddress*(*)($InetAddress*)>(&IPAddressUtil::findScopedAddress))},
-	{"isIPv4LiteralAddress", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)($String*)>(&IPAddressUtil::isIPv4LiteralAddress))},
-	{"isIPv4MappedAddress", "([B)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($bytes*)>(&IPAddressUtil::isIPv4MappedAddress))},
-	{"isIPv6LiteralAddress", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)($String*)>(&IPAddressUtil::isIPv6LiteralAddress))},
-	{"lambda$findScopedAddress$1", "(Ljava/net/InetAddress;Ljava/net/InetAddress;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($InetAddress*,$InetAddress*)>(&IPAddressUtil::lambda$findScopedAddress$1))},
-	{"lambda$findScopedAddress$2", "(Ljava/net/InetAddress;)Ljava/util/List;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$List*(*)($InetAddress*)>(&IPAddressUtil::lambda$findScopedAddress$2)), "java.lang.Exception"},
-	{"lambda$toScopedAddress$0", "(Ljava/net/InetAddress;)Ljava/net/InetAddress;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$InetAddress*(*)($InetAddress*)>(&IPAddressUtil::lambda$toScopedAddress$0))},
-	{"match", "(CJJ)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)(char16_t,int64_t,int64_t)>(&IPAddressUtil::match))},
-	{"scan", "(Ljava/lang/String;JJ)I", nullptr, $PUBLIC | $STATIC, $method(static_cast<int32_t(*)($String*,int64_t,int64_t)>(&IPAddressUtil::scan))},
-	{"scan", "(Ljava/lang/String;JJ[C)I", nullptr, $PUBLIC | $STATIC, $method(static_cast<int32_t(*)($String*,int64_t,int64_t,$chars*)>(&IPAddressUtil::scan))},
-	{"textToNumericFormatV4", "(Ljava/lang/String;)[B", nullptr, $PUBLIC | $STATIC, $method(static_cast<$bytes*(*)($String*)>(&IPAddressUtil::textToNumericFormatV4))},
-	{"textToNumericFormatV6", "(Ljava/lang/String;)[B", nullptr, $PUBLIC | $STATIC, $method(static_cast<$bytes*(*)($String*)>(&IPAddressUtil::textToNumericFormatV6))},
-	{"toScopedAddress", "(Ljava/net/InetAddress;)Ljava/net/InetAddress;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$InetAddress*(*)($InetAddress*)>(&IPAddressUtil::toScopedAddress)), "java.net.SocketException"},
-	{"toScopedAddress", "(Ljava/net/InetSocketAddress;)Ljava/net/InetSocketAddress;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$InetSocketAddress*(*)($InetSocketAddress*)>(&IPAddressUtil::toScopedAddress)), "java.net.SocketException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(IPAddressUtil, init$, void)},
+	{"checkAuth", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(IPAddressUtil, checkAuth, $String*, $String*)},
+	{"checkAuthority", "(Ljava/net/URL;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(IPAddressUtil, checkAuthority, $String*, $URL*)},
+	{"checkExternalForm", "(Ljava/net/URL;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(IPAddressUtil, checkExternalForm, $String*, $URL*)},
+	{"checkHost", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(IPAddressUtil, checkHost, $String*, $String*)},
+	{"checkHostString", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(IPAddressUtil, checkHostString, $String*, $String*)},
+	{"checkUserInfo", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(IPAddressUtil, checkUserInfo, $String*, $String*)},
+	{"convertFromIPv4MappedAddress", "([B)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(IPAddressUtil, convertFromIPv4MappedAddress, $bytes*, $bytes*)},
+	{"describeChar", "(C)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(IPAddressUtil, describeChar, $String*, char16_t)},
+	{"findScopedAddress", "(Ljava/net/InetAddress;)Ljava/net/InetAddress;", nullptr, $PRIVATE | $STATIC, $staticMethod(IPAddressUtil, findScopedAddress, $InetAddress*, $InetAddress*)},
+	{"isIPv4LiteralAddress", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(IPAddressUtil, isIPv4LiteralAddress, bool, $String*)},
+	{"isIPv4MappedAddress", "([B)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(IPAddressUtil, isIPv4MappedAddress, bool, $bytes*)},
+	{"isIPv6LiteralAddress", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(IPAddressUtil, isIPv6LiteralAddress, bool, $String*)},
+	{"lambda$findScopedAddress$1", "(Ljava/net/InetAddress;Ljava/net/InetAddress;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(IPAddressUtil, lambda$findScopedAddress$1, bool, $InetAddress*, $InetAddress*)},
+	{"lambda$findScopedAddress$2", "(Ljava/net/InetAddress;)Ljava/util/List;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(IPAddressUtil, lambda$findScopedAddress$2, $List*, $InetAddress*), "java.lang.Exception"},
+	{"lambda$toScopedAddress$0", "(Ljava/net/InetAddress;)Ljava/net/InetAddress;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(IPAddressUtil, lambda$toScopedAddress$0, $InetAddress*, $InetAddress*)},
+	{"match", "(CJJ)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(IPAddressUtil, match, bool, char16_t, int64_t, int64_t)},
+	{"scan", "(Ljava/lang/String;JJ)I", nullptr, $PUBLIC | $STATIC, $staticMethod(IPAddressUtil, scan, int32_t, $String*, int64_t, int64_t)},
+	{"scan", "(Ljava/lang/String;JJ[C)I", nullptr, $PUBLIC | $STATIC, $staticMethod(IPAddressUtil, scan, int32_t, $String*, int64_t, int64_t, $chars*)},
+	{"textToNumericFormatV4", "(Ljava/lang/String;)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(IPAddressUtil, textToNumericFormatV4, $bytes*, $String*)},
+	{"textToNumericFormatV6", "(Ljava/lang/String;)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(IPAddressUtil, textToNumericFormatV6, $bytes*, $String*)},
+	{"toScopedAddress", "(Ljava/net/InetAddress;)Ljava/net/InetAddress;", nullptr, $PUBLIC | $STATIC, $staticMethod(IPAddressUtil, toScopedAddress, $InetAddress*, $InetAddress*), "java.net.SocketException"},
+	{"toScopedAddress", "(Ljava/net/InetSocketAddress;)Ljava/net/InetSocketAddress;", nullptr, $PUBLIC | $STATIC, $staticMethod(IPAddressUtil, toScopedAddress, $InetSocketAddress*, $InetSocketAddress*), "java.net.SocketException"},
 	{}
 };
 

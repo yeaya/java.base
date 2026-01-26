@@ -16,7 +16,7 @@ $FieldInfo _ResolveFrom$Inner_FieldInfo_[] = {
 };
 
 $MethodInfo _ResolveFrom$Inner_MethodInfo_[] = {
-	{"<init>", "(LResolveFrom;)V", nullptr, $PRIVATE, $method(static_cast<void(ResolveFrom$Inner::*)($ResolveFrom*)>(&ResolveFrom$Inner::init$))},
+	{"<init>", "(LResolveFrom;)V", nullptr, $PRIVATE, $method(ResolveFrom$Inner, init$, void, $ResolveFrom*)},
 	{}
 };
 

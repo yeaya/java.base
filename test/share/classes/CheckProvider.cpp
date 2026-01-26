@@ -9,8 +9,8 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $AsynchronousChannelProvider = ::java::nio::channels::spi::AsynchronousChannelProvider;
 
 $MethodInfo _CheckProvider_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CheckProvider::*)()>(&CheckProvider::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&CheckProvider::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CheckProvider, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(CheckProvider, main, void, $StringArray*)},
 	{}
 };
 

@@ -17,9 +17,9 @@ $FieldInfo _Cons$F_FieldInfo_[] = {
 };
 
 $MethodInfo _Cons$F_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(Cons$F::*)($String*)>(&Cons$F::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(Cons$F::*)($String*,$String*)>(&Cons$F::init$))},
-	{"<init>", "(LCons$F;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(Cons$F::*)(Cons$F*,$String*)>(&Cons$F::init$))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Cons$F, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Cons$F, init$, void, $String*, $String*)},
+	{"<init>", "(LCons$F;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Cons$F, init$, void, Cons$F*, $String*)},
 	{}
 };
 

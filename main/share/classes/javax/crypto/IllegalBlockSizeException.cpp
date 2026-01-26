@@ -17,8 +17,8 @@ $FieldInfo _IllegalBlockSizeException_FieldInfo_[] = {
 };
 
 $MethodInfo _IllegalBlockSizeException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(IllegalBlockSizeException::*)()>(&IllegalBlockSizeException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(IllegalBlockSizeException::*)($String*)>(&IllegalBlockSizeException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(IllegalBlockSizeException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(IllegalBlockSizeException, init$, void, $String*)},
 	{}
 };
 

@@ -18,13 +18,13 @@ namespace sun {
 		namespace fs {
 
 $MethodInfo _BsdNativeDispatcher_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(BsdNativeDispatcher::*)()>(&BsdNativeDispatcher::init$))},
-	{"endfsstat", "(J)V", nullptr, $STATIC | $NATIVE, $method(static_cast<void(*)(int64_t)>(&BsdNativeDispatcher::endfsstat)), "sun.nio.fs.UnixException"},
-	{"fsstatEntry", "(JLsun/nio/fs/UnixMountEntry;)I", nullptr, $STATIC | $NATIVE, $method(static_cast<int32_t(*)(int64_t,$UnixMountEntry*)>(&BsdNativeDispatcher::fsstatEntry)), "sun.nio.fs.UnixException"},
-	{"getfsstat", "()J", nullptr, $STATIC | $NATIVE, $method(static_cast<int64_t(*)()>(&BsdNativeDispatcher::getfsstat)), "sun.nio.fs.UnixException"},
-	{"getmntonname", "(Lsun/nio/fs/UnixPath;)[B", nullptr, $STATIC, $method(static_cast<$bytes*(*)($UnixPath*)>(&BsdNativeDispatcher::getmntonname)), "sun.nio.fs.UnixException"},
-	{"getmntonname0", "(J)[B", nullptr, $STATIC | $NATIVE, $method(static_cast<$bytes*(*)(int64_t)>(&BsdNativeDispatcher::getmntonname0)), "sun.nio.fs.UnixException"},
-	{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $method(static_cast<void(*)()>(&BsdNativeDispatcher::initIDs))},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(BsdNativeDispatcher, init$, void)},
+	{"endfsstat", "(J)V", nullptr, $STATIC | $NATIVE, $staticMethod(BsdNativeDispatcher, endfsstat, void, int64_t), "sun.nio.fs.UnixException"},
+	{"fsstatEntry", "(JLsun/nio/fs/UnixMountEntry;)I", nullptr, $STATIC | $NATIVE, $staticMethod(BsdNativeDispatcher, fsstatEntry, int32_t, int64_t, $UnixMountEntry*), "sun.nio.fs.UnixException"},
+	{"getfsstat", "()J", nullptr, $STATIC | $NATIVE, $staticMethod(BsdNativeDispatcher, getfsstat, int64_t), "sun.nio.fs.UnixException"},
+	{"getmntonname", "(Lsun/nio/fs/UnixPath;)[B", nullptr, $STATIC, $staticMethod(BsdNativeDispatcher, getmntonname, $bytes*, $UnixPath*), "sun.nio.fs.UnixException"},
+	{"getmntonname0", "(J)[B", nullptr, $STATIC | $NATIVE, $staticMethod(BsdNativeDispatcher, getmntonname0, $bytes*, int64_t), "sun.nio.fs.UnixException"},
+	{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(BsdNativeDispatcher, initIDs, void)},
 	{}
 };
 

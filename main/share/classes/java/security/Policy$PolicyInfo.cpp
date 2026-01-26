@@ -19,7 +19,7 @@ $FieldInfo _Policy$PolicyInfo_FieldInfo_[] = {
 };
 
 $MethodInfo _Policy$PolicyInfo_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/Policy;Z)V", nullptr, 0, $method(static_cast<void(Policy$PolicyInfo::*)($Policy*,bool)>(&Policy$PolicyInfo::init$))},
+	{"<init>", "(Ljava/security/Policy;Z)V", nullptr, 0, $method(Policy$PolicyInfo, init$, void, $Policy*, bool)},
 	{}
 };
 

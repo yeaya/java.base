@@ -8,7 +8,7 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace e2 {
 
 $MethodInfo _E3_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(E3::*)()>(&E3::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(E3, init$, void)},
 	{}
 };
 

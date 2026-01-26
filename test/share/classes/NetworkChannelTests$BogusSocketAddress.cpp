@@ -10,7 +10,7 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $SocketAddress = ::java::net::SocketAddress;
 
 $MethodInfo _NetworkChannelTests$BogusSocketAddress_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(NetworkChannelTests$BogusSocketAddress::*)()>(&NetworkChannelTests$BogusSocketAddress::init$))},
+	{"<init>", "()V", nullptr, 0, $method(NetworkChannelTests$BogusSocketAddress, init$, void)},
 	{}
 };
 

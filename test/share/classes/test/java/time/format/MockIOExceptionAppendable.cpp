@@ -17,10 +17,10 @@ namespace test {
 			namespace format {
 
 $MethodInfo _MockIOExceptionAppendable_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(MockIOExceptionAppendable::*)()>(&MockIOExceptionAppendable::init$))},
-	{"append", "(Ljava/lang/CharSequence;)Ljava/lang/Appendable;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"append", "(C)Ljava/lang/Appendable;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"append", "(Ljava/lang/CharSequence;II)Ljava/lang/Appendable;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(MockIOExceptionAppendable, init$, void)},
+	{"append", "(Ljava/lang/CharSequence;)Ljava/lang/Appendable;", nullptr, $PUBLIC, $virtualMethod(MockIOExceptionAppendable, append, $Appendable*, $CharSequence*), "java.io.IOException"},
+	{"append", "(C)Ljava/lang/Appendable;", nullptr, $PUBLIC, $virtualMethod(MockIOExceptionAppendable, append, $Appendable*, char16_t), "java.io.IOException"},
+	{"append", "(Ljava/lang/CharSequence;II)Ljava/lang/Appendable;", nullptr, $PUBLIC, $virtualMethod(MockIOExceptionAppendable, append, $Appendable*, $CharSequence*, int32_t, int32_t), "java.io.IOException"},
 	{}
 };
 

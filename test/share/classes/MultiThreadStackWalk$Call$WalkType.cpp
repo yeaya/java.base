@@ -21,10 +21,10 @@ $FieldInfo _MultiThreadStackWalk$Call$WalkType_FieldInfo_[] = {
 };
 
 $MethodInfo _MultiThreadStackWalk$Call$WalkType_MethodInfo_[] = {
-	{"$values", "()[LMultiThreadStackWalk$Call$WalkType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$MultiThreadStackWalk$Call$WalkTypeArray*(*)()>(&MultiThreadStackWalk$Call$WalkType::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(MultiThreadStackWalk$Call$WalkType::*)($String*,int32_t)>(&MultiThreadStackWalk$Call$WalkType::init$))},
-	{"valueOf", "(Ljava/lang/String;)LMultiThreadStackWalk$Call$WalkType;", nullptr, $PUBLIC | $STATIC, $method(static_cast<MultiThreadStackWalk$Call$WalkType*(*)($String*)>(&MultiThreadStackWalk$Call$WalkType::valueOf))},
-	{"values", "()[LMultiThreadStackWalk$Call$WalkType;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$MultiThreadStackWalk$Call$WalkTypeArray*(*)()>(&MultiThreadStackWalk$Call$WalkType::values))},
+	{"$values", "()[LMultiThreadStackWalk$Call$WalkType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MultiThreadStackWalk$Call$WalkType, $values, $MultiThreadStackWalk$Call$WalkTypeArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(MultiThreadStackWalk$Call$WalkType, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)LMultiThreadStackWalk$Call$WalkType;", nullptr, $PUBLIC | $STATIC, $staticMethod(MultiThreadStackWalk$Call$WalkType, valueOf, MultiThreadStackWalk$Call$WalkType*, $String*)},
+	{"values", "()[LMultiThreadStackWalk$Call$WalkType;", nullptr, $PUBLIC | $STATIC, $staticMethod(MultiThreadStackWalk$Call$WalkType, values, $MultiThreadStackWalk$Call$WalkTypeArray*)},
 	{}
 };
 

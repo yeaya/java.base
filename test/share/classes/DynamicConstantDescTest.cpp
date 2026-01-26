@@ -30,8 +30,8 @@ using $Executors = ::java::util::concurrent::Executors;
 using $Future = ::java::util::concurrent::Future;
 
 $MethodInfo _DynamicConstantDescTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DynamicConstantDescTest::*)()>(&DynamicConstantDescTest::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&DynamicConstantDescTest::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DynamicConstantDescTest, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(DynamicConstantDescTest, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

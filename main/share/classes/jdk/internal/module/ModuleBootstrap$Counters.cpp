@@ -43,10 +43,10 @@ $FieldInfo _ModuleBootstrap$Counters_FieldInfo_[] = {
 };
 
 $MethodInfo _ModuleBootstrap$Counters_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ModuleBootstrap$Counters::*)()>(&ModuleBootstrap$Counters::init$))},
-	{"add", "(Ljava/lang/String;)V", nullptr, $STATIC, $method(static_cast<void(*)($String*)>(&ModuleBootstrap$Counters::add))},
-	{"publish", "(Ljava/lang/String;)V", nullptr, $STATIC, $method(static_cast<void(*)($String*)>(&ModuleBootstrap$Counters::publish))},
-	{"start", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&ModuleBootstrap$Counters::start))},
+	{"<init>", "()V", nullptr, 0, $method(ModuleBootstrap$Counters, init$, void)},
+	{"add", "(Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(ModuleBootstrap$Counters, add, void, $String*)},
+	{"publish", "(Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(ModuleBootstrap$Counters, publish, void, $String*)},
+	{"start", "()V", nullptr, $STATIC, $staticMethod(ModuleBootstrap$Counters, start, void)},
 	{}
 };
 

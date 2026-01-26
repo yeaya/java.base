@@ -19,8 +19,8 @@ $FieldInfo _ArraysParallelSortHelpers$EmptyCompleter_FieldInfo_[] = {
 };
 
 $MethodInfo _ArraysParallelSortHelpers$EmptyCompleter_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/CountedCompleter;)V", "(Ljava/util/concurrent/CountedCompleter<*>;)V", 0, $method(static_cast<void(ArraysParallelSortHelpers$EmptyCompleter::*)($CountedCompleter*)>(&ArraysParallelSortHelpers$EmptyCompleter::init$))},
-	{"compute", "()V", nullptr, $PUBLIC | $FINAL},
+	{"<init>", "(Ljava/util/concurrent/CountedCompleter;)V", "(Ljava/util/concurrent/CountedCompleter<*>;)V", 0, $method(ArraysParallelSortHelpers$EmptyCompleter, init$, void, $CountedCompleter*)},
+	{"compute", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(ArraysParallelSortHelpers$EmptyCompleter, compute, void)},
 	{}
 };
 

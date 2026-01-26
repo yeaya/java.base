@@ -39,7 +39,7 @@ $CompoundAttribute _Ann_Annotations_[] = {
 };
 
 $MethodInfo _Ann_MethodInfo_[] = {
-	{"value", "()I", nullptr, $PUBLIC | $ABSTRACT},
+	{"value", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Ann, value, int32_t)},
 	{}
 };
 

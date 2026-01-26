@@ -20,12 +20,12 @@ $FieldInfo _URISyntaxException_FieldInfo_[] = {
 };
 
 $MethodInfo _URISyntaxException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(static_cast<void(URISyntaxException::*)($String*,$String*,int32_t)>(&URISyntaxException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(URISyntaxException::*)($String*,$String*)>(&URISyntaxException::init$))},
-	{"getIndex", "()I", nullptr, $PUBLIC},
-	{"getInput", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getReason", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(URISyntaxException, init$, void, $String*, $String*, int32_t)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(URISyntaxException, init$, void, $String*, $String*)},
+	{"getIndex", "()I", nullptr, $PUBLIC, $virtualMethod(URISyntaxException, getIndex, int32_t)},
+	{"getInput", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(URISyntaxException, getInput, $String*)},
+	{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(URISyntaxException, getMessage, $String*)},
+	{"getReason", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(URISyntaxException, getReason, $String*)},
 	{}
 };
 

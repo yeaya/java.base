@@ -12,8 +12,8 @@ $FieldInfo _TestedInterface_FieldInfo_[] = {
 };
 
 $MethodInfo _TestedInterface_MethodInfo_[] = {
-	{"bar", "()V", nullptr, $PUBLIC | $ABSTRACT},
-	{"foo", "()V", nullptr, $PUBLIC | $ABSTRACT},
+	{"bar", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TestedInterface, bar, void)},
+	{"foo", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TestedInterface, foo, void)},
 	{}
 };
 

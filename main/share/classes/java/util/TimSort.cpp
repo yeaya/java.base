@@ -41,21 +41,21 @@ $FieldInfo _TimSort_FieldInfo_[] = {
 };
 
 $MethodInfo _TimSort_MethodInfo_[] = {
-	{"<init>", "([Ljava/lang/Object;Ljava/util/Comparator;[Ljava/lang/Object;II)V", "([TT;Ljava/util/Comparator<-TT;>;[TT;II)V", $PRIVATE, $method(static_cast<void(TimSort::*)($ObjectArray*,$Comparator*,$ObjectArray*,int32_t,int32_t)>(&TimSort::init$))},
-	{"binarySort", "([Ljava/lang/Object;IIILjava/util/Comparator;)V", "<T:Ljava/lang/Object;>([TT;IIILjava/util/Comparator<-TT;>;)V", $PRIVATE | $STATIC, $method(static_cast<void(*)($ObjectArray*,int32_t,int32_t,int32_t,$Comparator*)>(&TimSort::binarySort))},
-	{"countRunAndMakeAscending", "([Ljava/lang/Object;IILjava/util/Comparator;)I", "<T:Ljava/lang/Object;>([TT;IILjava/util/Comparator<-TT;>;)I", $PRIVATE | $STATIC, $method(static_cast<int32_t(*)($ObjectArray*,int32_t,int32_t,$Comparator*)>(&TimSort::countRunAndMakeAscending))},
-	{"ensureCapacity", "(I)[Ljava/lang/Object;", "(I)[TT;", $PRIVATE, $method(static_cast<$ObjectArray*(TimSort::*)(int32_t)>(&TimSort::ensureCapacity))},
-	{"gallopLeft", "(Ljava/lang/Object;[Ljava/lang/Object;IIILjava/util/Comparator;)I", "<T:Ljava/lang/Object;>(TT;[TT;IIILjava/util/Comparator<-TT;>;)I", $PRIVATE | $STATIC, $method(static_cast<int32_t(*)(Object$*,$ObjectArray*,int32_t,int32_t,int32_t,$Comparator*)>(&TimSort::gallopLeft))},
-	{"gallopRight", "(Ljava/lang/Object;[Ljava/lang/Object;IIILjava/util/Comparator;)I", "<T:Ljava/lang/Object;>(TT;[TT;IIILjava/util/Comparator<-TT;>;)I", $PRIVATE | $STATIC, $method(static_cast<int32_t(*)(Object$*,$ObjectArray*,int32_t,int32_t,int32_t,$Comparator*)>(&TimSort::gallopRight))},
-	{"mergeAt", "(I)V", nullptr, $PRIVATE, $method(static_cast<void(TimSort::*)(int32_t)>(&TimSort::mergeAt))},
-	{"mergeCollapse", "()V", nullptr, $PRIVATE, $method(static_cast<void(TimSort::*)()>(&TimSort::mergeCollapse))},
-	{"mergeForceCollapse", "()V", nullptr, $PRIVATE, $method(static_cast<void(TimSort::*)()>(&TimSort::mergeForceCollapse))},
-	{"mergeHi", "(IIII)V", nullptr, $PRIVATE, $method(static_cast<void(TimSort::*)(int32_t,int32_t,int32_t,int32_t)>(&TimSort::mergeHi))},
-	{"mergeLo", "(IIII)V", nullptr, $PRIVATE, $method(static_cast<void(TimSort::*)(int32_t,int32_t,int32_t,int32_t)>(&TimSort::mergeLo))},
-	{"minRunLength", "(I)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)(int32_t)>(&TimSort::minRunLength))},
-	{"pushRun", "(II)V", nullptr, $PRIVATE, $method(static_cast<void(TimSort::*)(int32_t,int32_t)>(&TimSort::pushRun))},
-	{"reverseRange", "([Ljava/lang/Object;II)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($ObjectArray*,int32_t,int32_t)>(&TimSort::reverseRange))},
-	{"sort", "([Ljava/lang/Object;IILjava/util/Comparator;[Ljava/lang/Object;II)V", "<T:Ljava/lang/Object;>([TT;IILjava/util/Comparator<-TT;>;[TT;II)V", $STATIC, $method(static_cast<void(*)($ObjectArray*,int32_t,int32_t,$Comparator*,$ObjectArray*,int32_t,int32_t)>(&TimSort::sort))},
+	{"<init>", "([Ljava/lang/Object;Ljava/util/Comparator;[Ljava/lang/Object;II)V", "([TT;Ljava/util/Comparator<-TT;>;[TT;II)V", $PRIVATE, $method(TimSort, init$, void, $ObjectArray*, $Comparator*, $ObjectArray*, int32_t, int32_t)},
+	{"binarySort", "([Ljava/lang/Object;IIILjava/util/Comparator;)V", "<T:Ljava/lang/Object;>([TT;IIILjava/util/Comparator<-TT;>;)V", $PRIVATE | $STATIC, $staticMethod(TimSort, binarySort, void, $ObjectArray*, int32_t, int32_t, int32_t, $Comparator*)},
+	{"countRunAndMakeAscending", "([Ljava/lang/Object;IILjava/util/Comparator;)I", "<T:Ljava/lang/Object;>([TT;IILjava/util/Comparator<-TT;>;)I", $PRIVATE | $STATIC, $staticMethod(TimSort, countRunAndMakeAscending, int32_t, $ObjectArray*, int32_t, int32_t, $Comparator*)},
+	{"ensureCapacity", "(I)[Ljava/lang/Object;", "(I)[TT;", $PRIVATE, $method(TimSort, ensureCapacity, $ObjectArray*, int32_t)},
+	{"gallopLeft", "(Ljava/lang/Object;[Ljava/lang/Object;IIILjava/util/Comparator;)I", "<T:Ljava/lang/Object;>(TT;[TT;IIILjava/util/Comparator<-TT;>;)I", $PRIVATE | $STATIC, $staticMethod(TimSort, gallopLeft, int32_t, Object$*, $ObjectArray*, int32_t, int32_t, int32_t, $Comparator*)},
+	{"gallopRight", "(Ljava/lang/Object;[Ljava/lang/Object;IIILjava/util/Comparator;)I", "<T:Ljava/lang/Object;>(TT;[TT;IIILjava/util/Comparator<-TT;>;)I", $PRIVATE | $STATIC, $staticMethod(TimSort, gallopRight, int32_t, Object$*, $ObjectArray*, int32_t, int32_t, int32_t, $Comparator*)},
+	{"mergeAt", "(I)V", nullptr, $PRIVATE, $method(TimSort, mergeAt, void, int32_t)},
+	{"mergeCollapse", "()V", nullptr, $PRIVATE, $method(TimSort, mergeCollapse, void)},
+	{"mergeForceCollapse", "()V", nullptr, $PRIVATE, $method(TimSort, mergeForceCollapse, void)},
+	{"mergeHi", "(IIII)V", nullptr, $PRIVATE, $method(TimSort, mergeHi, void, int32_t, int32_t, int32_t, int32_t)},
+	{"mergeLo", "(IIII)V", nullptr, $PRIVATE, $method(TimSort, mergeLo, void, int32_t, int32_t, int32_t, int32_t)},
+	{"minRunLength", "(I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(TimSort, minRunLength, int32_t, int32_t)},
+	{"pushRun", "(II)V", nullptr, $PRIVATE, $method(TimSort, pushRun, void, int32_t, int32_t)},
+	{"reverseRange", "([Ljava/lang/Object;II)V", nullptr, $PRIVATE | $STATIC, $staticMethod(TimSort, reverseRange, void, $ObjectArray*, int32_t, int32_t)},
+	{"sort", "([Ljava/lang/Object;IILjava/util/Comparator;[Ljava/lang/Object;II)V", "<T:Ljava/lang/Object;>([TT;IILjava/util/Comparator<-TT;>;[TT;II)V", $STATIC, $staticMethod(TimSort, sort, void, $ObjectArray*, int32_t, int32_t, $Comparator*, $ObjectArray*, int32_t, int32_t)},
 	{}
 };
 

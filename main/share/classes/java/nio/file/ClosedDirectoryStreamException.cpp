@@ -18,7 +18,7 @@ $FieldInfo _ClosedDirectoryStreamException_FieldInfo_[] = {
 };
 
 $MethodInfo _ClosedDirectoryStreamException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ClosedDirectoryStreamException::*)()>(&ClosedDirectoryStreamException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ClosedDirectoryStreamException, init$, void)},
 	{}
 };
 

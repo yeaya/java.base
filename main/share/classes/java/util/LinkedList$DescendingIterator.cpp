@@ -21,10 +21,10 @@ $FieldInfo _LinkedList$DescendingIterator_FieldInfo_[] = {
 };
 
 $MethodInfo _LinkedList$DescendingIterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/LinkedList;)V", nullptr, $PRIVATE, $method(static_cast<void(LinkedList$DescendingIterator::*)($LinkedList*)>(&LinkedList$DescendingIterator::init$))},
-	{"hasNext", "()Z", nullptr, $PUBLIC},
-	{"next", "()Ljava/lang/Object;", "()TE;", $PUBLIC},
-	{"remove", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/LinkedList;)V", nullptr, $PRIVATE, $method(LinkedList$DescendingIterator, init$, void, $LinkedList*)},
+	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(LinkedList$DescendingIterator, hasNext, bool)},
+	{"next", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(LinkedList$DescendingIterator, next, $Object*)},
+	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(LinkedList$DescendingIterator, remove, void)},
 	{}
 };
 

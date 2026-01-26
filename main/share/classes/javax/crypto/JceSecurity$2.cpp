@@ -26,8 +26,8 @@ $FieldInfo _JceSecurity$2_FieldInfo_[] = {
 };
 
 $MethodInfo _JceSecurity$2_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Class;)V", nullptr, 0, $method(static_cast<void(JceSecurity$2::*)($Class*)>(&JceSecurity$2::init$))},
-	{"run", "()Ljava/net/URL;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Class;)V", nullptr, 0, $method(JceSecurity$2, init$, void, $Class*)},
+	{"run", "()Ljava/net/URL;", nullptr, $PUBLIC, $virtualMethod(JceSecurity$2, run, $Object*)},
 	{}
 };
 

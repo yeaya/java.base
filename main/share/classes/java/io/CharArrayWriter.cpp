@@ -27,21 +27,21 @@ $FieldInfo _CharArrayWriter_FieldInfo_[] = {
 };
 
 $MethodInfo _CharArrayWriter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CharArrayWriter::*)()>(&CharArrayWriter::init$))},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(static_cast<void(CharArrayWriter::*)(int32_t)>(&CharArrayWriter::init$))},
-	{"append", "(Ljava/lang/CharSequence;)Ljava/io/CharArrayWriter;", nullptr, $PUBLIC},
-	{"append", "(Ljava/lang/CharSequence;II)Ljava/io/CharArrayWriter;", nullptr, $PUBLIC},
-	{"append", "(C)Ljava/io/CharArrayWriter;", nullptr, $PUBLIC},
-	{"close", "()V", nullptr, $PUBLIC},
-	{"flush", "()V", nullptr, $PUBLIC},
-	{"reset", "()V", nullptr, $PUBLIC},
-	{"size", "()I", nullptr, $PUBLIC},
-	{"toCharArray", "()[C", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"write", "(I)V", nullptr, $PUBLIC},
-	{"write", "([CII)V", nullptr, $PUBLIC},
-	{"write", "(Ljava/lang/String;II)V", nullptr, $PUBLIC},
-	{"writeTo", "(Ljava/io/Writer;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CharArrayWriter, init$, void)},
+	{"<init>", "(I)V", nullptr, $PUBLIC, $method(CharArrayWriter, init$, void, int32_t)},
+	{"append", "(Ljava/lang/CharSequence;)Ljava/io/CharArrayWriter;", nullptr, $PUBLIC, $virtualMethod(CharArrayWriter, append, CharArrayWriter*, $CharSequence*)},
+	{"append", "(Ljava/lang/CharSequence;II)Ljava/io/CharArrayWriter;", nullptr, $PUBLIC, $virtualMethod(CharArrayWriter, append, CharArrayWriter*, $CharSequence*, int32_t, int32_t)},
+	{"append", "(C)Ljava/io/CharArrayWriter;", nullptr, $PUBLIC, $virtualMethod(CharArrayWriter, append, CharArrayWriter*, char16_t)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(CharArrayWriter, close, void)},
+	{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(CharArrayWriter, flush, void)},
+	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(CharArrayWriter, reset, void)},
+	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(CharArrayWriter, size, int32_t)},
+	{"toCharArray", "()[C", nullptr, $PUBLIC, $virtualMethod(CharArrayWriter, toCharArray, $chars*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CharArrayWriter, toString, $String*)},
+	{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(CharArrayWriter, write, void, int32_t)},
+	{"write", "([CII)V", nullptr, $PUBLIC, $virtualMethod(CharArrayWriter, write, void, $chars*, int32_t, int32_t)},
+	{"write", "(Ljava/lang/String;II)V", nullptr, $PUBLIC, $virtualMethod(CharArrayWriter, write, void, $String*, int32_t, int32_t)},
+	{"writeTo", "(Ljava/io/Writer;)V", nullptr, $PUBLIC, $virtualMethod(CharArrayWriter, writeTo, void, $Writer*), "java.io.IOException"},
 	{}
 };
 

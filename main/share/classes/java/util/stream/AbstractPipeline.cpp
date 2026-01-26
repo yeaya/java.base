@@ -89,8 +89,8 @@ $FieldInfo AbstractPipeline$$Lambda$lambda$spliterator$0::fieldInfos[2] = {
 	{}
 };
 $MethodInfo AbstractPipeline$$Lambda$lambda$spliterator$0::methodInfos[3] = {
-	{"<init>", "(Ljava/util/stream/AbstractPipeline;)V", nullptr, $PUBLIC, $method(static_cast<void(AbstractPipeline$$Lambda$lambda$spliterator$0::*)(AbstractPipeline*)>(&AbstractPipeline$$Lambda$lambda$spliterator$0::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/stream/AbstractPipeline;)V", nullptr, $PUBLIC, $method(AbstractPipeline$$Lambda$lambda$spliterator$0, init$, void, AbstractPipeline*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AbstractPipeline$$Lambda$lambda$spliterator$0, get, $Object*)},
 	{}
 };
 $ClassInfo AbstractPipeline$$Lambda$lambda$spliterator$0::classInfo$ = {
@@ -129,8 +129,8 @@ $FieldInfo AbstractPipeline$$Lambda$lambda$wrapSpliterator$1$1::fieldInfos[2] = 
 	{}
 };
 $MethodInfo AbstractPipeline$$Lambda$lambda$wrapSpliterator$1$1::methodInfos[3] = {
-	{"<init>", "(Ljava/util/Spliterator;)V", nullptr, $PUBLIC, $method(static_cast<void(AbstractPipeline$$Lambda$lambda$wrapSpliterator$1$1::*)($Spliterator*)>(&AbstractPipeline$$Lambda$lambda$wrapSpliterator$1$1::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/Spliterator;)V", nullptr, $PUBLIC, $method(AbstractPipeline$$Lambda$lambda$wrapSpliterator$1$1, init$, void, $Spliterator*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AbstractPipeline$$Lambda$lambda$wrapSpliterator$1$1, get, $Object*)},
 	{}
 };
 $ClassInfo AbstractPipeline$$Lambda$lambda$wrapSpliterator$1$1::classInfo$ = {
@@ -162,8 +162,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo AbstractPipeline$$Lambda$lambda$opEvaluateParallelLazy$2$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(AbstractPipeline$$Lambda$lambda$opEvaluateParallelLazy$2$2::*)()>(&AbstractPipeline$$Lambda$lambda$opEvaluateParallelLazy$2$2::init$))},
-	{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(AbstractPipeline$$Lambda$lambda$opEvaluateParallelLazy$2$2, init$, void)},
+	{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AbstractPipeline$$Lambda$lambda$opEvaluateParallelLazy$2$2, apply, $Object*, int32_t)},
 	{}
 };
 $ClassInfo AbstractPipeline$$Lambda$lambda$opEvaluateParallelLazy$2$2::classInfo$ = {
@@ -204,45 +204,45 @@ $MethodInfo _AbstractPipeline_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/util/function/Supplier;IZ)V", "(Ljava/util/function/Supplier<+Ljava/util/Spliterator<*>;>;IZ)V", 0, $method(static_cast<void(AbstractPipeline::*)($Supplier*,int32_t,bool)>(&AbstractPipeline::init$))},
-	{"<init>", "(Ljava/util/Spliterator;IZ)V", "(Ljava/util/Spliterator<*>;IZ)V", 0, $method(static_cast<void(AbstractPipeline::*)($Spliterator*,int32_t,bool)>(&AbstractPipeline::init$))},
-	{"<init>", "(Ljava/util/stream/AbstractPipeline;I)V", "(Ljava/util/stream/AbstractPipeline<*TE_IN;*>;I)V", 0, $method(static_cast<void(AbstractPipeline::*)(AbstractPipeline*,int32_t)>(&AbstractPipeline::init$))},
-	{"close", "()V", nullptr, $PUBLIC},
-	{"copyInto", "(Ljava/util/stream/Sink;Ljava/util/Spliterator;)V", "<P_IN:Ljava/lang/Object;>(Ljava/util/stream/Sink<TP_IN;>;Ljava/util/Spliterator<TP_IN;>;)V", $FINAL},
-	{"copyIntoWithCancel", "(Ljava/util/stream/Sink;Ljava/util/Spliterator;)Z", "<P_IN:Ljava/lang/Object;>(Ljava/util/stream/Sink<TP_IN;>;Ljava/util/Spliterator<TP_IN;>;)Z", $FINAL},
-	{"evaluate", "(Ljava/util/stream/TerminalOp;)Ljava/lang/Object;", "<R:Ljava/lang/Object;>(Ljava/util/stream/TerminalOp<TE_OUT;TR;>;)TR;", $FINAL, $method(static_cast<$Object*(AbstractPipeline::*)($TerminalOp*)>(&AbstractPipeline::evaluate))},
-	{"evaluate", "(Ljava/util/Spliterator;ZLjava/util/function/IntFunction;)Ljava/util/stream/Node;", "<P_IN:Ljava/lang/Object;>(Ljava/util/Spliterator<TP_IN;>;ZLjava/util/function/IntFunction<[TE_OUT;>;)Ljava/util/stream/Node<TE_OUT;>;", $FINAL},
-	{"evaluateToArrayNode", "(Ljava/util/function/IntFunction;)Ljava/util/stream/Node;", "(Ljava/util/function/IntFunction<[TE_OUT;>;)Ljava/util/stream/Node<TE_OUT;>;", $FINAL, $method(static_cast<$Node*(AbstractPipeline::*)($IntFunction*)>(&AbstractPipeline::evaluateToArrayNode))},
-	{"evaluateToNode", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;ZLjava/util/function/IntFunction;)Ljava/util/stream/Node;", "<P_IN:Ljava/lang/Object;>(Ljava/util/stream/PipelineHelper<TE_OUT;>;Ljava/util/Spliterator<TP_IN;>;ZLjava/util/function/IntFunction<[TE_OUT;>;)Ljava/util/stream/Node<TE_OUT;>;", $ABSTRACT},
-	{"exactOutputSize", "(J)J", nullptr, 0},
-	{"exactOutputSizeIfKnown", "(Ljava/util/Spliterator;)J", "<P_IN:Ljava/lang/Object;>(Ljava/util/Spliterator<TP_IN;>;)J", $FINAL},
-	{"forEachWithCancel", "(Ljava/util/Spliterator;Ljava/util/stream/Sink;)Z", "(Ljava/util/Spliterator<TE_OUT;>;Ljava/util/stream/Sink<TE_OUT;>;)Z", $ABSTRACT},
-	{"getOutputShape", "()Ljava/util/stream/StreamShape;", nullptr, $ABSTRACT},
-	{"getSourceShape", "()Ljava/util/stream/StreamShape;", nullptr, $FINAL},
-	{"getStreamAndOpFlags", "()I", nullptr, $FINAL},
-	{"getStreamFlags", "()I", nullptr, $FINAL, $method(static_cast<int32_t(AbstractPipeline::*)()>(&AbstractPipeline::getStreamFlags))},
-	{"isOrdered", "()Z", nullptr, $FINAL, $method(static_cast<bool(AbstractPipeline::*)()>(&AbstractPipeline::isOrdered))},
-	{"isParallel", "()Z", nullptr, $PUBLIC | $FINAL},
-	{"lambda$opEvaluateParallelLazy$2", "(I)[Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$ObjectArray*(*)(int32_t)>(&AbstractPipeline::lambda$opEvaluateParallelLazy$2))},
-	{"lambda$spliterator$0", "()Ljava/util/Spliterator;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$Spliterator*(AbstractPipeline::*)()>(&AbstractPipeline::lambda$spliterator$0))},
-	{"lambda$wrapSpliterator$1", "(Ljava/util/Spliterator;)Ljava/util/Spliterator;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Spliterator*(*)($Spliterator*)>(&AbstractPipeline::lambda$wrapSpliterator$1))},
-	{"lazySpliterator", "(Ljava/util/function/Supplier;)Ljava/util/Spliterator;", "(Ljava/util/function/Supplier<+Ljava/util/Spliterator<TE_OUT;>;>;)Ljava/util/Spliterator<TE_OUT;>;", $ABSTRACT},
+	{"<init>", "(Ljava/util/function/Supplier;IZ)V", "(Ljava/util/function/Supplier<+Ljava/util/Spliterator<*>;>;IZ)V", 0, $method(AbstractPipeline, init$, void, $Supplier*, int32_t, bool)},
+	{"<init>", "(Ljava/util/Spliterator;IZ)V", "(Ljava/util/Spliterator<*>;IZ)V", 0, $method(AbstractPipeline, init$, void, $Spliterator*, int32_t, bool)},
+	{"<init>", "(Ljava/util/stream/AbstractPipeline;I)V", "(Ljava/util/stream/AbstractPipeline<*TE_IN;*>;I)V", 0, $method(AbstractPipeline, init$, void, AbstractPipeline*, int32_t)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(AbstractPipeline, close, void)},
+	{"copyInto", "(Ljava/util/stream/Sink;Ljava/util/Spliterator;)V", "<P_IN:Ljava/lang/Object;>(Ljava/util/stream/Sink<TP_IN;>;Ljava/util/Spliterator<TP_IN;>;)V", $FINAL, $virtualMethod(AbstractPipeline, copyInto, void, $Sink*, $Spliterator*)},
+	{"copyIntoWithCancel", "(Ljava/util/stream/Sink;Ljava/util/Spliterator;)Z", "<P_IN:Ljava/lang/Object;>(Ljava/util/stream/Sink<TP_IN;>;Ljava/util/Spliterator<TP_IN;>;)Z", $FINAL, $virtualMethod(AbstractPipeline, copyIntoWithCancel, bool, $Sink*, $Spliterator*)},
+	{"evaluate", "(Ljava/util/stream/TerminalOp;)Ljava/lang/Object;", "<R:Ljava/lang/Object;>(Ljava/util/stream/TerminalOp<TE_OUT;TR;>;)TR;", $FINAL, $method(AbstractPipeline, evaluate, $Object*, $TerminalOp*)},
+	{"evaluate", "(Ljava/util/Spliterator;ZLjava/util/function/IntFunction;)Ljava/util/stream/Node;", "<P_IN:Ljava/lang/Object;>(Ljava/util/Spliterator<TP_IN;>;ZLjava/util/function/IntFunction<[TE_OUT;>;)Ljava/util/stream/Node<TE_OUT;>;", $FINAL, $virtualMethod(AbstractPipeline, evaluate, $Node*, $Spliterator*, bool, $IntFunction*)},
+	{"evaluateToArrayNode", "(Ljava/util/function/IntFunction;)Ljava/util/stream/Node;", "(Ljava/util/function/IntFunction<[TE_OUT;>;)Ljava/util/stream/Node<TE_OUT;>;", $FINAL, $method(AbstractPipeline, evaluateToArrayNode, $Node*, $IntFunction*)},
+	{"evaluateToNode", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;ZLjava/util/function/IntFunction;)Ljava/util/stream/Node;", "<P_IN:Ljava/lang/Object;>(Ljava/util/stream/PipelineHelper<TE_OUT;>;Ljava/util/Spliterator<TP_IN;>;ZLjava/util/function/IntFunction<[TE_OUT;>;)Ljava/util/stream/Node<TE_OUT;>;", $ABSTRACT, $virtualMethod(AbstractPipeline, evaluateToNode, $Node*, $PipelineHelper*, $Spliterator*, bool, $IntFunction*)},
+	{"exactOutputSize", "(J)J", nullptr, 0, $virtualMethod(AbstractPipeline, exactOutputSize, int64_t, int64_t)},
+	{"exactOutputSizeIfKnown", "(Ljava/util/Spliterator;)J", "<P_IN:Ljava/lang/Object;>(Ljava/util/Spliterator<TP_IN;>;)J", $FINAL, $virtualMethod(AbstractPipeline, exactOutputSizeIfKnown, int64_t, $Spliterator*)},
+	{"forEachWithCancel", "(Ljava/util/Spliterator;Ljava/util/stream/Sink;)Z", "(Ljava/util/Spliterator<TE_OUT;>;Ljava/util/stream/Sink<TE_OUT;>;)Z", $ABSTRACT, $virtualMethod(AbstractPipeline, forEachWithCancel, bool, $Spliterator*, $Sink*)},
+	{"getOutputShape", "()Ljava/util/stream/StreamShape;", nullptr, $ABSTRACT, $virtualMethod(AbstractPipeline, getOutputShape, $StreamShape*)},
+	{"getSourceShape", "()Ljava/util/stream/StreamShape;", nullptr, $FINAL, $virtualMethod(AbstractPipeline, getSourceShape, $StreamShape*)},
+	{"getStreamAndOpFlags", "()I", nullptr, $FINAL, $virtualMethod(AbstractPipeline, getStreamAndOpFlags, int32_t)},
+	{"getStreamFlags", "()I", nullptr, $FINAL, $method(AbstractPipeline, getStreamFlags, int32_t)},
+	{"isOrdered", "()Z", nullptr, $FINAL, $method(AbstractPipeline, isOrdered, bool)},
+	{"isParallel", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractPipeline, isParallel, bool)},
+	{"lambda$opEvaluateParallelLazy$2", "(I)[Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AbstractPipeline, lambda$opEvaluateParallelLazy$2, $ObjectArray*, int32_t)},
+	{"lambda$spliterator$0", "()Ljava/util/Spliterator;", nullptr, $PRIVATE | $SYNTHETIC, $method(AbstractPipeline, lambda$spliterator$0, $Spliterator*)},
+	{"lambda$wrapSpliterator$1", "(Ljava/util/Spliterator;)Ljava/util/Spliterator;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AbstractPipeline, lambda$wrapSpliterator$1, $Spliterator*, $Spliterator*)},
+	{"lazySpliterator", "(Ljava/util/function/Supplier;)Ljava/util/Spliterator;", "(Ljava/util/function/Supplier<+Ljava/util/Spliterator<TE_OUT;>;>;)Ljava/util/Spliterator<TE_OUT;>;", $ABSTRACT, $virtualMethod(AbstractPipeline, lazySpliterator, $Spliterator*, $Supplier*)},
 	{"makeNodeBuilder", "(JLjava/util/function/IntFunction;)Ljava/util/stream/Node$Builder;", nullptr, $ABSTRACT},
-	{"onClose", "(Ljava/lang/Runnable;)Ljava/util/stream/BaseStream;", "(Ljava/lang/Runnable;)TS;", $PUBLIC},
-	{"opEvaluateParallel", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;Ljava/util/function/IntFunction;)Ljava/util/stream/Node;", "<P_IN:Ljava/lang/Object;>(Ljava/util/stream/PipelineHelper<TE_OUT;>;Ljava/util/Spliterator<TP_IN;>;Ljava/util/function/IntFunction<[TE_OUT;>;)Ljava/util/stream/Node<TE_OUT;>;", 0},
-	{"opEvaluateParallelLazy", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;)Ljava/util/Spliterator;", "<P_IN:Ljava/lang/Object;>(Ljava/util/stream/PipelineHelper<TE_OUT;>;Ljava/util/Spliterator<TP_IN;>;)Ljava/util/Spliterator<TE_OUT;>;", 0},
-	{"opIsStateful", "()Z", nullptr, $ABSTRACT},
-	{"opWrapSink", "(ILjava/util/stream/Sink;)Ljava/util/stream/Sink;", "(ILjava/util/stream/Sink<TE_OUT;>;)Ljava/util/stream/Sink<TE_IN;>;", $ABSTRACT},
-	{"parallel", "()Ljava/util/stream/BaseStream;", "()TS;", $PUBLIC | $FINAL},
-	{"sequential", "()Ljava/util/stream/BaseStream;", "()TS;", $PUBLIC | $FINAL},
-	{"sourceSpliterator", "(I)Ljava/util/Spliterator;", "(I)Ljava/util/Spliterator<*>;", $PRIVATE, $method(static_cast<$Spliterator*(AbstractPipeline::*)(int32_t)>(&AbstractPipeline::sourceSpliterator))},
-	{"sourceStageSpliterator", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TE_OUT;>;", $FINAL, $method(static_cast<$Spliterator*(AbstractPipeline::*)()>(&AbstractPipeline::sourceStageSpliterator))},
-	{"spliterator", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TE_OUT;>;", $PUBLIC},
+	{"onClose", "(Ljava/lang/Runnable;)Ljava/util/stream/BaseStream;", "(Ljava/lang/Runnable;)TS;", $PUBLIC, $virtualMethod(AbstractPipeline, onClose, $BaseStream*, $Runnable*)},
+	{"opEvaluateParallel", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;Ljava/util/function/IntFunction;)Ljava/util/stream/Node;", "<P_IN:Ljava/lang/Object;>(Ljava/util/stream/PipelineHelper<TE_OUT;>;Ljava/util/Spliterator<TP_IN;>;Ljava/util/function/IntFunction<[TE_OUT;>;)Ljava/util/stream/Node<TE_OUT;>;", 0, $virtualMethod(AbstractPipeline, opEvaluateParallel, $Node*, $PipelineHelper*, $Spliterator*, $IntFunction*)},
+	{"opEvaluateParallelLazy", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;)Ljava/util/Spliterator;", "<P_IN:Ljava/lang/Object;>(Ljava/util/stream/PipelineHelper<TE_OUT;>;Ljava/util/Spliterator<TP_IN;>;)Ljava/util/Spliterator<TE_OUT;>;", 0, $virtualMethod(AbstractPipeline, opEvaluateParallelLazy, $Spliterator*, $PipelineHelper*, $Spliterator*)},
+	{"opIsStateful", "()Z", nullptr, $ABSTRACT, $virtualMethod(AbstractPipeline, opIsStateful, bool)},
+	{"opWrapSink", "(ILjava/util/stream/Sink;)Ljava/util/stream/Sink;", "(ILjava/util/stream/Sink<TE_OUT;>;)Ljava/util/stream/Sink<TE_IN;>;", $ABSTRACT, $virtualMethod(AbstractPipeline, opWrapSink, $Sink*, int32_t, $Sink*)},
+	{"parallel", "()Ljava/util/stream/BaseStream;", "()TS;", $PUBLIC | $FINAL, $virtualMethod(AbstractPipeline, parallel, $BaseStream*)},
+	{"sequential", "()Ljava/util/stream/BaseStream;", "()TS;", $PUBLIC | $FINAL, $virtualMethod(AbstractPipeline, sequential, $BaseStream*)},
+	{"sourceSpliterator", "(I)Ljava/util/Spliterator;", "(I)Ljava/util/Spliterator<*>;", $PRIVATE, $method(AbstractPipeline, sourceSpliterator, $Spliterator*, int32_t)},
+	{"sourceStageSpliterator", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TE_OUT;>;", $FINAL, $method(AbstractPipeline, sourceStageSpliterator, $Spliterator*)},
+	{"spliterator", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TE_OUT;>;", $PUBLIC, $virtualMethod(AbstractPipeline, spliterator, $Spliterator*)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"wrap", "(Ljava/util/stream/PipelineHelper;Ljava/util/function/Supplier;Z)Ljava/util/Spliterator;", "<P_IN:Ljava/lang/Object;>(Ljava/util/stream/PipelineHelper<TE_OUT;>;Ljava/util/function/Supplier<Ljava/util/Spliterator<TP_IN;>;>;Z)Ljava/util/Spliterator<TE_OUT;>;", $ABSTRACT},
-	{"wrapAndCopyInto", "(Ljava/util/stream/Sink;Ljava/util/Spliterator;)Ljava/util/stream/Sink;", "<P_IN:Ljava/lang/Object;S::Ljava/util/stream/Sink<TE_OUT;>;>(TS;Ljava/util/Spliterator<TP_IN;>;)TS;", $FINAL},
-	{"wrapSink", "(Ljava/util/stream/Sink;)Ljava/util/stream/Sink;", "<P_IN:Ljava/lang/Object;>(Ljava/util/stream/Sink<TE_OUT;>;)Ljava/util/stream/Sink<TP_IN;>;", $FINAL},
-	{"wrapSpliterator", "(Ljava/util/Spliterator;)Ljava/util/Spliterator;", "<P_IN:Ljava/lang/Object;>(Ljava/util/Spliterator<TP_IN;>;)Ljava/util/Spliterator<TE_OUT;>;", $FINAL},
+	{"wrap", "(Ljava/util/stream/PipelineHelper;Ljava/util/function/Supplier;Z)Ljava/util/Spliterator;", "<P_IN:Ljava/lang/Object;>(Ljava/util/stream/PipelineHelper<TE_OUT;>;Ljava/util/function/Supplier<Ljava/util/Spliterator<TP_IN;>;>;Z)Ljava/util/Spliterator<TE_OUT;>;", $ABSTRACT, $virtualMethod(AbstractPipeline, wrap, $Spliterator*, $PipelineHelper*, $Supplier*, bool)},
+	{"wrapAndCopyInto", "(Ljava/util/stream/Sink;Ljava/util/Spliterator;)Ljava/util/stream/Sink;", "<P_IN:Ljava/lang/Object;S::Ljava/util/stream/Sink<TE_OUT;>;>(TS;Ljava/util/Spliterator<TP_IN;>;)TS;", $FINAL, $virtualMethod(AbstractPipeline, wrapAndCopyInto, $Sink*, $Sink*, $Spliterator*)},
+	{"wrapSink", "(Ljava/util/stream/Sink;)Ljava/util/stream/Sink;", "<P_IN:Ljava/lang/Object;>(Ljava/util/stream/Sink<TE_OUT;>;)Ljava/util/stream/Sink<TP_IN;>;", $FINAL, $virtualMethod(AbstractPipeline, wrapSink, $Sink*, $Sink*)},
+	{"wrapSpliterator", "(Ljava/util/Spliterator;)Ljava/util/Spliterator;", "<P_IN:Ljava/lang/Object;>(Ljava/util/Spliterator<TP_IN;>;)Ljava/util/Spliterator<TE_OUT;>;", $FINAL, $virtualMethod(AbstractPipeline, wrapSpliterator, $Spliterator*, $Spliterator*)},
 	{}
 };
 

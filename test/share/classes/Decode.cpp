@@ -14,10 +14,10 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $Short = ::java::lang::Short;
 
 $MethodInfo _Decode_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Decode::*)()>(&Decode::init$))},
-	{"check", "(Ljava/lang/String;S)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($String*,int16_t)>(&Decode::check))},
-	{"checkFailure", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($String*,$String*)>(&Decode::checkFailure))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Decode::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Decode, init$, void)},
+	{"check", "(Ljava/lang/String;S)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Decode, check, void, $String*, int16_t)},
+	{"checkFailure", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Decode, checkFailure, void, $String*, $String*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Decode, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

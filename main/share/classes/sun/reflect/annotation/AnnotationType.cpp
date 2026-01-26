@@ -67,15 +67,15 @@ $FieldInfo _AnnotationType_FieldInfo_[] = {
 };
 
 $MethodInfo _AnnotationType_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<+Ljava/lang/annotation/Annotation;>;)V", $PRIVATE, $method(static_cast<void(AnnotationType::*)($Class*)>(&AnnotationType::init$))},
-	{"getInstance", "(Ljava/lang/Class;)Lsun/reflect/annotation/AnnotationType;", "(Ljava/lang/Class<+Ljava/lang/annotation/Annotation;>;)Lsun/reflect/annotation/AnnotationType;", $PUBLIC | $STATIC, $method(static_cast<AnnotationType*(*)($Class*)>(&AnnotationType::getInstance))},
-	{"invocationHandlerReturnType", "(Ljava/lang/Class;)Ljava/lang/Class;", "(Ljava/lang/Class<*>;)Ljava/lang/Class<*>;", $PUBLIC | $STATIC, $method(static_cast<$Class*(*)($Class*)>(&AnnotationType::invocationHandlerReturnType))},
-	{"isInherited", "()Z", nullptr, $PUBLIC},
-	{"memberDefaults", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;", $PUBLIC},
-	{"memberTypes", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/Class<*>;>;", $PUBLIC},
-	{"members", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/reflect/Method;>;", $PUBLIC},
-	{"retention", "()Ljava/lang/annotation/RetentionPolicy;", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<+Ljava/lang/annotation/Annotation;>;)V", $PRIVATE, $method(AnnotationType, init$, void, $Class*)},
+	{"getInstance", "(Ljava/lang/Class;)Lsun/reflect/annotation/AnnotationType;", "(Ljava/lang/Class<+Ljava/lang/annotation/Annotation;>;)Lsun/reflect/annotation/AnnotationType;", $PUBLIC | $STATIC, $staticMethod(AnnotationType, getInstance, AnnotationType*, $Class*)},
+	{"invocationHandlerReturnType", "(Ljava/lang/Class;)Ljava/lang/Class;", "(Ljava/lang/Class<*>;)Ljava/lang/Class<*>;", $PUBLIC | $STATIC, $staticMethod(AnnotationType, invocationHandlerReturnType, $Class*, $Class*)},
+	{"isInherited", "()Z", nullptr, $PUBLIC, $virtualMethod(AnnotationType, isInherited, bool)},
+	{"memberDefaults", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;", $PUBLIC, $virtualMethod(AnnotationType, memberDefaults, $Map*)},
+	{"memberTypes", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/Class<*>;>;", $PUBLIC, $virtualMethod(AnnotationType, memberTypes, $Map*)},
+	{"members", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/reflect/Method;>;", $PUBLIC, $virtualMethod(AnnotationType, members, $Map*)},
+	{"retention", "()Ljava/lang/annotation/RetentionPolicy;", nullptr, $PUBLIC, $virtualMethod(AnnotationType, retention, $RetentionPolicy*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AnnotationType, toString, $String*)},
 	{}
 };
 

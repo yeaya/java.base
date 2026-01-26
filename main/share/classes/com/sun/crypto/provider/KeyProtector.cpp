@@ -114,12 +114,12 @@ $FieldInfo _KeyProtector_FieldInfo_[] = {
 };
 
 $MethodInfo _KeyProtector_MethodInfo_[] = {
-	{"<init>", "([C)V", nullptr, 0, $method(static_cast<void(KeyProtector::*)($chars*)>(&KeyProtector::init$))},
-	{"protect", "(Ljava/security/PrivateKey;)[B", nullptr, 0, $method(static_cast<$bytes*(KeyProtector::*)($PrivateKey*)>(&KeyProtector::protect)), "java.lang.Exception"},
-	{"recover", "(Lcom/sun/crypto/provider/EncryptedPrivateKeyInfo;)Ljava/security/Key;", nullptr, 0, $method(static_cast<$Key*(KeyProtector::*)($EncryptedPrivateKeyInfo*)>(&KeyProtector::recover)), "java.security.UnrecoverableKeyException,java.security.NoSuchAlgorithmException"},
-	{"recover", "([B)[B", nullptr, $PRIVATE, $method(static_cast<$bytes*(KeyProtector::*)($bytes*)>(&KeyProtector::recover)), "java.security.UnrecoverableKeyException,java.security.NoSuchAlgorithmException"},
-	{"seal", "(Ljava/security/Key;)Ljavax/crypto/SealedObject;", nullptr, 0, $method(static_cast<$SealedObject*(KeyProtector::*)($Key*)>(&KeyProtector::seal)), "java.lang.Exception"},
-	{"unseal", "(Ljavax/crypto/SealedObject;I)Ljava/security/Key;", nullptr, 0, $method(static_cast<$Key*(KeyProtector::*)($SealedObject*,int32_t)>(&KeyProtector::unseal)), "java.security.NoSuchAlgorithmException,java.security.UnrecoverableKeyException"},
+	{"<init>", "([C)V", nullptr, 0, $method(KeyProtector, init$, void, $chars*)},
+	{"protect", "(Ljava/security/PrivateKey;)[B", nullptr, 0, $method(KeyProtector, protect, $bytes*, $PrivateKey*), "java.lang.Exception"},
+	{"recover", "(Lcom/sun/crypto/provider/EncryptedPrivateKeyInfo;)Ljava/security/Key;", nullptr, 0, $method(KeyProtector, recover, $Key*, $EncryptedPrivateKeyInfo*), "java.security.UnrecoverableKeyException,java.security.NoSuchAlgorithmException"},
+	{"recover", "([B)[B", nullptr, $PRIVATE, $method(KeyProtector, recover, $bytes*, $bytes*), "java.security.UnrecoverableKeyException,java.security.NoSuchAlgorithmException"},
+	{"seal", "(Ljava/security/Key;)Ljavax/crypto/SealedObject;", nullptr, 0, $method(KeyProtector, seal, $SealedObject*, $Key*), "java.lang.Exception"},
+	{"unseal", "(Ljavax/crypto/SealedObject;I)Ljava/security/Key;", nullptr, 0, $method(KeyProtector, unseal, $Key*, $SealedObject*, int32_t), "java.security.NoSuchAlgorithmException,java.security.UnrecoverableKeyException"},
 	{}
 };
 

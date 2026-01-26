@@ -21,12 +21,12 @@ $FieldInfo _Bug5047314_FieldInfo_[] = {
 };
 
 $MethodInfo _Bug5047314_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Bug5047314::*)()>(&Bug5047314::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Bug5047314::main))},
-	{"testLao1", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&Bug5047314::testLao1))},
-	{"testLao2", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&Bug5047314::testLao2))},
-	{"testThai1", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&Bug5047314::testThai1))},
-	{"testThai2", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&Bug5047314::testThai2))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Bug5047314, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Bug5047314, main, void, $StringArray*)},
+	{"testLao1", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(Bug5047314, testLao1, void)},
+	{"testLao2", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(Bug5047314, testLao2, void)},
+	{"testThai1", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(Bug5047314, testThai1, void)},
+	{"testThai2", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(Bug5047314, testThai2, void)},
 	{}
 };
 

@@ -12,9 +12,9 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _IsParallelCapable$TestCL_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(IsParallelCapable$TestCL::*)()>(&IsParallelCapable$TestCL::init$))},
-	{"expectCapable", "()Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"findClass", "(Ljava/lang/String;)Ljava/lang/Class;", nullptr, $PUBLIC, nullptr, "java.lang.ClassNotFoundException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(IsParallelCapable$TestCL, init$, void)},
+	{"expectCapable", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(IsParallelCapable$TestCL, expectCapable, bool)},
+	{"findClass", "(Ljava/lang/String;)Ljava/lang/Class;", nullptr, $PUBLIC, $virtualMethod(IsParallelCapable$TestCL, findClass, $Class*, $String*), "java.lang.ClassNotFoundException"},
 	{}
 };
 

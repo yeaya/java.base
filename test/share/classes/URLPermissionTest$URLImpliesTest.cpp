@@ -22,8 +22,8 @@ $FieldInfo _URLPermissionTest$URLImpliesTest_FieldInfo_[] = {
 };
 
 $MethodInfo _URLPermissionTest$URLImpliesTest_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, 0, $method(static_cast<void(URLPermissionTest$URLImpliesTest::*)($String*,$String*,bool)>(&URLPermissionTest$URLImpliesTest::init$))},
-	{"execute", "()Z", nullptr, 0},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, 0, $method(URLPermissionTest$URLImpliesTest, init$, void, $String*, $String*, bool)},
+	{"execute", "()Z", nullptr, 0, $virtualMethod(URLPermissionTest$URLImpliesTest, execute, bool)},
 	{}
 };
 

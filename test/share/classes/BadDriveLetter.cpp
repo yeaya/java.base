@@ -9,8 +9,8 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _BadDriveLetter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(BadDriveLetter::*)()>(&BadDriveLetter::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&BadDriveLetter::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(BadDriveLetter, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(BadDriveLetter, main, void, $StringArray*)},
 	{}
 };
 

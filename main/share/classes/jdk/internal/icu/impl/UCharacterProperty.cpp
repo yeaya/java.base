@@ -212,20 +212,20 @@ $FieldInfo _UCharacterProperty_FieldInfo_[] = {
 };
 
 $MethodInfo _UCharacterProperty_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(UCharacterProperty::*)()>(&UCharacterProperty::init$)), "java.io.IOException"},
-	{"digit", "(I)I", nullptr, $PUBLIC, $method(static_cast<int32_t(UCharacterProperty::*)(int32_t)>(&UCharacterProperty::digit))},
-	{"getAdditional", "(II)I", nullptr, $PUBLIC, $method(static_cast<int32_t(UCharacterProperty::*)(int32_t,int32_t)>(&UCharacterProperty::getAdditional))},
-	{"getAge", "(I)Ljdk/internal/icu/util/VersionInfo;", nullptr, $PUBLIC, $method(static_cast<$VersionInfo*(UCharacterProperty::*)(int32_t)>(&UCharacterProperty::getAge))},
-	{"getEuropeanDigit", "(I)I", nullptr, $PUBLIC | $STATIC, $method(static_cast<int32_t(*)(int32_t)>(&UCharacterProperty::getEuropeanDigit))},
-	{"getIntPropertyValue", "(II)I", nullptr, $PUBLIC, $method(static_cast<int32_t(UCharacterProperty::*)(int32_t,int32_t)>(&UCharacterProperty::getIntPropertyValue))},
-	{"getMask", "(I)I", nullptr, $PUBLIC | $STATIC | $FINAL, $method(static_cast<int32_t(*)(int32_t)>(&UCharacterProperty::getMask))},
-	{"getNumericTypeValue", "(I)I", nullptr, $PRIVATE | $STATIC | $FINAL, $method(static_cast<int32_t(*)(int32_t)>(&UCharacterProperty::getNumericTypeValue))},
-	{"getProperty", "(I)I", nullptr, $PUBLIC | $FINAL, $method(static_cast<int32_t(UCharacterProperty::*)(int32_t)>(&UCharacterProperty::getProperty))},
-	{"getRawSupplementary", "(CC)I", nullptr, $PUBLIC | $STATIC, $method(static_cast<int32_t(*)(char16_t,char16_t)>(&UCharacterProperty::getRawSupplementary))},
-	{"getType", "(I)I", nullptr, $PUBLIC, $method(static_cast<int32_t(UCharacterProperty::*)(int32_t)>(&UCharacterProperty::getType))},
-	{"mergeScriptCodeOrIndex", "(I)I", nullptr, $PUBLIC | $STATIC | $FINAL, $method(static_cast<int32_t(*)(int32_t)>(&UCharacterProperty::mergeScriptCodeOrIndex))},
-	{"ntvGetType", "(I)I", nullptr, $PRIVATE | $STATIC | $FINAL, $method(static_cast<int32_t(*)(int32_t)>(&UCharacterProperty::ntvGetType))},
-	{"upropsvec_addPropertyStarts", "(Ljdk/internal/icu/text/UnicodeSet;)V", nullptr, $PUBLIC, $method(static_cast<void(UCharacterProperty::*)($UnicodeSet*)>(&UCharacterProperty::upropsvec_addPropertyStarts))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(UCharacterProperty, init$, void), "java.io.IOException"},
+	{"digit", "(I)I", nullptr, $PUBLIC, $method(UCharacterProperty, digit, int32_t, int32_t)},
+	{"getAdditional", "(II)I", nullptr, $PUBLIC, $method(UCharacterProperty, getAdditional, int32_t, int32_t, int32_t)},
+	{"getAge", "(I)Ljdk/internal/icu/util/VersionInfo;", nullptr, $PUBLIC, $method(UCharacterProperty, getAge, $VersionInfo*, int32_t)},
+	{"getEuropeanDigit", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(UCharacterProperty, getEuropeanDigit, int32_t, int32_t)},
+	{"getIntPropertyValue", "(II)I", nullptr, $PUBLIC, $method(UCharacterProperty, getIntPropertyValue, int32_t, int32_t, int32_t)},
+	{"getMask", "(I)I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(UCharacterProperty, getMask, int32_t, int32_t)},
+	{"getNumericTypeValue", "(I)I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(UCharacterProperty, getNumericTypeValue, int32_t, int32_t)},
+	{"getProperty", "(I)I", nullptr, $PUBLIC | $FINAL, $method(UCharacterProperty, getProperty, int32_t, int32_t)},
+	{"getRawSupplementary", "(CC)I", nullptr, $PUBLIC | $STATIC, $staticMethod(UCharacterProperty, getRawSupplementary, int32_t, char16_t, char16_t)},
+	{"getType", "(I)I", nullptr, $PUBLIC, $method(UCharacterProperty, getType, int32_t, int32_t)},
+	{"mergeScriptCodeOrIndex", "(I)I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(UCharacterProperty, mergeScriptCodeOrIndex, int32_t, int32_t)},
+	{"ntvGetType", "(I)I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(UCharacterProperty, ntvGetType, int32_t, int32_t)},
+	{"upropsvec_addPropertyStarts", "(Ljdk/internal/icu/text/UnicodeSet;)V", nullptr, $PUBLIC, $method(UCharacterProperty, upropsvec_addPropertyStarts, void, $UnicodeSet*)},
 	{}
 };
 

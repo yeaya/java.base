@@ -33,12 +33,12 @@ $FieldInfo _ArrayList$Itr_FieldInfo_[] = {
 };
 
 $MethodInfo _ArrayList$Itr_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/ArrayList;)V", nullptr, 0, $method(static_cast<void(ArrayList$Itr::*)($ArrayList*)>(&ArrayList$Itr::init$))},
-	{"checkForComodification", "()V", nullptr, $FINAL, $method(static_cast<void(ArrayList$Itr::*)()>(&ArrayList$Itr::checkForComodification))},
-	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC},
-	{"hasNext", "()Z", nullptr, $PUBLIC},
-	{"next", "()Ljava/lang/Object;", "()TE;", $PUBLIC},
-	{"remove", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/ArrayList;)V", nullptr, 0, $method(ArrayList$Itr, init$, void, $ArrayList*)},
+	{"checkForComodification", "()V", nullptr, $FINAL, $method(ArrayList$Itr, checkForComodification, void)},
+	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC, $virtualMethod(ArrayList$Itr, forEachRemaining, void, $Consumer*)},
+	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(ArrayList$Itr, hasNext, bool)},
+	{"next", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(ArrayList$Itr, next, $Object*)},
+	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(ArrayList$Itr, remove, void)},
 	{}
 };
 

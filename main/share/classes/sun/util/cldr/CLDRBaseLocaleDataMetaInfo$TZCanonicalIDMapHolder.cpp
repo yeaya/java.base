@@ -24,7 +24,7 @@ $FieldInfo _CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder_FieldInfo_[] = {
 };
 
 $MethodInfo _CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::*)()>(&CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder, init$, void)},
 	{}
 };
 

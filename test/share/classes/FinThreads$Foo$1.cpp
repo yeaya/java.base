@@ -16,8 +16,8 @@ $FieldInfo _FinThreads$Foo$1_FieldInfo_[] = {
 };
 
 $MethodInfo _FinThreads$Foo$1_MethodInfo_[] = {
-	{"<init>", "(Z)V", "()V", 0, $method(static_cast<void(FinThreads$Foo$1::*)(bool)>(&FinThreads$Foo$1::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Z)V", "()V", 0, $method(FinThreads$Foo$1, init$, void, bool)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(FinThreads$Foo$1, run, void)},
 	{}
 };
 

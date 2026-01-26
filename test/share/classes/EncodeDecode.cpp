@@ -10,8 +10,8 @@ using $URLDecoder = ::java::net::URLDecoder;
 using $URLEncoder = ::java::net::URLEncoder;
 
 $MethodInfo _EncodeDecode_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(EncodeDecode::*)()>(&EncodeDecode::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&EncodeDecode::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(EncodeDecode, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(EncodeDecode, main, void, $StringArray*)},
 	{}
 };
 

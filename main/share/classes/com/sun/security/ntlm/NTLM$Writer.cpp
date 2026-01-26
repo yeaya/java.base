@@ -31,13 +31,13 @@ $FieldInfo _NTLM$Writer_FieldInfo_[] = {
 };
 
 $MethodInfo _NTLM$Writer_MethodInfo_[] = {
-	{"<init>", "(II)V", nullptr, 0, $method(static_cast<void(NTLM$Writer::*)(int32_t,int32_t)>(&NTLM$Writer::init$))},
-	{"getBytes", "()[B", nullptr, 0},
-	{"writeBytes", "(I[B)V", nullptr, 0},
-	{"writeInt", "(II)V", nullptr, 0},
-	{"writeSecurityBuffer", "(I[B)V", nullptr, 0},
-	{"writeSecurityBuffer", "(ILjava/lang/String;Z)V", nullptr, 0},
-	{"writeShort", "(II)V", nullptr, 0},
+	{"<init>", "(II)V", nullptr, 0, $method(NTLM$Writer, init$, void, int32_t, int32_t)},
+	{"getBytes", "()[B", nullptr, 0, $virtualMethod(NTLM$Writer, getBytes, $bytes*)},
+	{"writeBytes", "(I[B)V", nullptr, 0, $virtualMethod(NTLM$Writer, writeBytes, void, int32_t, $bytes*)},
+	{"writeInt", "(II)V", nullptr, 0, $virtualMethod(NTLM$Writer, writeInt, void, int32_t, int32_t)},
+	{"writeSecurityBuffer", "(I[B)V", nullptr, 0, $virtualMethod(NTLM$Writer, writeSecurityBuffer, void, int32_t, $bytes*)},
+	{"writeSecurityBuffer", "(ILjava/lang/String;Z)V", nullptr, 0, $virtualMethod(NTLM$Writer, writeSecurityBuffer, void, int32_t, $String*, bool)},
+	{"writeShort", "(II)V", nullptr, 0, $virtualMethod(NTLM$Writer, writeShort, void, int32_t, int32_t)},
 	{}
 };
 

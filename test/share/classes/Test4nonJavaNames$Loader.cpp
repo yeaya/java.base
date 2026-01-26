@@ -13,8 +13,8 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _Test4nonJavaNames$Loader_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Test4nonJavaNames$Loader::*)()>(&Test4nonJavaNames$Loader::init$))},
-	{"findClass", "(Ljava/lang/String;)Ljava/lang/Class;", nullptr, $PROTECTED, nullptr, "java.lang.ClassNotFoundException"},
+	{"<init>", "()V", nullptr, 0, $method(Test4nonJavaNames$Loader, init$, void)},
+	{"findClass", "(Ljava/lang/String;)Ljava/lang/Class;", nullptr, $PROTECTED, $virtualMethod(Test4nonJavaNames$Loader, findClass, $Class*, $String*), "java.lang.ClassNotFoundException"},
 	{}
 };
 

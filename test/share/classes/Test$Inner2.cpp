@@ -17,8 +17,8 @@ $FieldInfo _Test$Inner2_FieldInfo_[] = {
 };
 
 $MethodInfo _Test$Inner2_MethodInfo_[] = {
-	{"<init>", "(LTest;)V", nullptr, 0, $method(static_cast<void(Test$Inner2::*)($Test*)>(&Test$Inner2::init$))},
-	{"foo2", "(Ljava/util/List;)Ljava/util/List;", "(Ljava/util/List<+TV;>;)Ljava/util/List<*>;", 0},
+	{"<init>", "(LTest;)V", nullptr, 0, $method(Test$Inner2, init$, void, $Test*)},
+	{"foo2", "(Ljava/util/List;)Ljava/util/List;", "(Ljava/util/List<+TV;>;)Ljava/util/List<*>;", 0, $virtualMethod(Test$Inner2, foo2, $List*, $List*)},
 	{}
 };
 

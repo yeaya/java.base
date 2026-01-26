@@ -21,8 +21,8 @@ using $AnnotatedType = ::java::lang::reflect::AnnotatedType;
 using $Method = ::java::lang::reflect::Method;
 
 $MethodInfo _TestReceiverTypeOwner_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TestReceiverTypeOwner::*)()>(&TestReceiverTypeOwner::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&TestReceiverTypeOwner::main)), "java.lang.NoSuchMethodException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TestReceiverTypeOwner, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TestReceiverTypeOwner, main, void, $StringArray*), "java.lang.NoSuchMethodException"},
 	{}
 };
 

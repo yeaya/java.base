@@ -20,7 +20,7 @@ $FieldInfo _Reflect$ReflectionError_FieldInfo_[] = {
 };
 
 $MethodInfo _Reflect$ReflectionError_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, 0, $method(static_cast<void(Reflect$ReflectionError::*)($Throwable*)>(&Reflect$ReflectionError::init$))},
+	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, 0, $method(Reflect$ReflectionError, init$, void, $Throwable*)},
 	{}
 };
 

@@ -48,8 +48,8 @@ $FieldInfo Pattern$BmpCharPredicate$$Lambda$lambda$and$0::fieldInfos[3] = {
 	{}
 };
 $MethodInfo Pattern$BmpCharPredicate$$Lambda$lambda$and$0::methodInfos[3] = {
-	{"<init>", "(Ljava/util/regex/Pattern$BmpCharPredicate;Ljava/util/regex/Pattern$CharPredicate;)V", nullptr, $PUBLIC, $method(static_cast<void(Pattern$BmpCharPredicate$$Lambda$lambda$and$0::*)(Pattern$BmpCharPredicate*,$Pattern$CharPredicate*)>(&Pattern$BmpCharPredicate$$Lambda$lambda$and$0::init$))},
-	{"is", "(I)Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/regex/Pattern$BmpCharPredicate;Ljava/util/regex/Pattern$CharPredicate;)V", nullptr, $PUBLIC, $method(Pattern$BmpCharPredicate$$Lambda$lambda$and$0, init$, void, Pattern$BmpCharPredicate*, $Pattern$CharPredicate*)},
+	{"is", "(I)Z", nullptr, $PUBLIC, $virtualMethod(Pattern$BmpCharPredicate$$Lambda$lambda$and$0, is, bool, int32_t)},
 	{}
 };
 $ClassInfo Pattern$BmpCharPredicate$$Lambda$lambda$and$0::classInfo$ = {
@@ -91,8 +91,8 @@ $FieldInfo Pattern$BmpCharPredicate$$Lambda$lambda$union$2$1::fieldInfos[3] = {
 	{}
 };
 $MethodInfo Pattern$BmpCharPredicate$$Lambda$lambda$union$2$1::methodInfos[3] = {
-	{"<init>", "(Ljava/util/regex/Pattern$BmpCharPredicate;Ljava/util/regex/Pattern$CharPredicate;)V", nullptr, $PUBLIC, $method(static_cast<void(Pattern$BmpCharPredicate$$Lambda$lambda$union$2$1::*)(Pattern$BmpCharPredicate*,$Pattern$CharPredicate*)>(&Pattern$BmpCharPredicate$$Lambda$lambda$union$2$1::init$))},
-	{"is", "(I)Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/regex/Pattern$BmpCharPredicate;Ljava/util/regex/Pattern$CharPredicate;)V", nullptr, $PUBLIC, $method(Pattern$BmpCharPredicate$$Lambda$lambda$union$2$1, init$, void, Pattern$BmpCharPredicate*, $Pattern$CharPredicate*)},
+	{"is", "(I)Z", nullptr, $PUBLIC, $virtualMethod(Pattern$BmpCharPredicate$$Lambda$lambda$union$2$1, is, bool, int32_t)},
 	{}
 };
 $ClassInfo Pattern$BmpCharPredicate$$Lambda$lambda$union$2$1::classInfo$ = {
@@ -131,8 +131,8 @@ $FieldInfo Pattern$BmpCharPredicate$$Lambda$lambda$union$4$2::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Pattern$BmpCharPredicate$$Lambda$lambda$union$4$2::methodInfos[3] = {
-	{"<init>", "([Ljava/util/regex/Pattern$CharPredicate;)V", nullptr, $PUBLIC, $method(static_cast<void(Pattern$BmpCharPredicate$$Lambda$lambda$union$4$2::*)($Pattern$CharPredicateArray*)>(&Pattern$BmpCharPredicate$$Lambda$lambda$union$4$2::init$))},
-	{"is", "(I)Z", nullptr, $PUBLIC},
+	{"<init>", "([Ljava/util/regex/Pattern$CharPredicate;)V", nullptr, $PUBLIC, $method(Pattern$BmpCharPredicate$$Lambda$lambda$union$4$2, init$, void, $Pattern$CharPredicateArray*)},
+	{"is", "(I)Z", nullptr, $PUBLIC, $virtualMethod(Pattern$BmpCharPredicate$$Lambda$lambda$union$4$2, is, bool, int32_t)},
 	{}
 };
 $ClassInfo Pattern$BmpCharPredicate$$Lambda$lambda$union$4$2::classInfo$ = {
@@ -150,12 +150,12 @@ $Class* Pattern$BmpCharPredicate$$Lambda$lambda$union$4$2::load$($String* name, 
 $Class* Pattern$BmpCharPredicate$$Lambda$lambda$union$4$2::class$ = nullptr;
 
 $MethodInfo _Pattern$BmpCharPredicate_MethodInfo_[] = {
-	{"and", "(Ljava/util/regex/Pattern$CharPredicate;)Ljava/util/regex/Pattern$CharPredicate;", nullptr, $PUBLIC},
-	{"lambda$and$0", "(Ljava/util/regex/Pattern$CharPredicate;I)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<bool(Pattern$BmpCharPredicate::*)($Pattern$CharPredicate*,int32_t)>(&Pattern$BmpCharPredicate::lambda$and$0))},
-	{"lambda$union$2", "(Ljava/util/regex/Pattern$CharPredicate;I)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<bool(Pattern$BmpCharPredicate::*)($Pattern$CharPredicate*,int32_t)>(&Pattern$BmpCharPredicate::lambda$union$2))},
-	{"lambda$union$4", "([Ljava/util/regex/Pattern$CharPredicate;I)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($Pattern$CharPredicateArray*,int32_t)>(&Pattern$BmpCharPredicate::lambda$union$4))},
-	{"union", "(Ljava/util/regex/Pattern$CharPredicate;)Ljava/util/regex/Pattern$CharPredicate;", nullptr, $PUBLIC},
-	{"union", "([Ljava/util/regex/Pattern$CharPredicate;)Ljava/util/regex/Pattern$CharPredicate;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<$Pattern$CharPredicate*(*)($Pattern$CharPredicateArray*)>(&Pattern$BmpCharPredicate::union$))},
+	{"and", "(Ljava/util/regex/Pattern$CharPredicate;)Ljava/util/regex/Pattern$CharPredicate;", nullptr, $PUBLIC, $virtualMethod(Pattern$BmpCharPredicate, and$, $Pattern$CharPredicate*, $Pattern$CharPredicate*)},
+	{"lambda$and$0", "(Ljava/util/regex/Pattern$CharPredicate;I)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(Pattern$BmpCharPredicate, lambda$and$0, bool, $Pattern$CharPredicate*, int32_t)},
+	{"lambda$union$2", "(Ljava/util/regex/Pattern$CharPredicate;I)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(Pattern$BmpCharPredicate, lambda$union$2, bool, $Pattern$CharPredicate*, int32_t)},
+	{"lambda$union$4", "([Ljava/util/regex/Pattern$CharPredicate;I)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Pattern$BmpCharPredicate, lambda$union$4, bool, $Pattern$CharPredicateArray*, int32_t)},
+	{"union", "(Ljava/util/regex/Pattern$CharPredicate;)Ljava/util/regex/Pattern$CharPredicate;", nullptr, $PUBLIC, $virtualMethod(Pattern$BmpCharPredicate, union$, $Pattern$CharPredicate*, $Pattern$CharPredicate*)},
+	{"union", "([Ljava/util/regex/Pattern$CharPredicate;)Ljava/util/regex/Pattern$CharPredicate;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(Pattern$BmpCharPredicate, union$, $Pattern$CharPredicate*, $Pattern$CharPredicateArray*)},
 	{}
 };
 

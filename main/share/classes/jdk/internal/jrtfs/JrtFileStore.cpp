@@ -33,17 +33,17 @@ $FieldInfo _JrtFileStore_FieldInfo_[] = {
 };
 
 $MethodInfo _JrtFileStore_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/jrtfs/JrtPath;)V", nullptr, 0, $method(static_cast<void(JrtFileStore::*)($JrtPath*)>(&JrtFileStore::init$))},
-	{"getAttribute", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"getFileStoreAttributeView", "(Ljava/lang/Class;)Ljava/nio/file/attribute/FileStoreAttributeView;", "<V::Ljava/nio/file/attribute/FileStoreAttributeView;>(Ljava/lang/Class<TV;>;)TV;", $PUBLIC},
-	{"getTotalSpace", "()J", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"getUnallocatedSpace", "()J", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"getUsableSpace", "()J", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"isReadOnly", "()Z", nullptr, $PUBLIC},
-	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"supportsFileAttributeView", "(Ljava/lang/String;)Z", nullptr, $PUBLIC},
-	{"supportsFileAttributeView", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<+Ljava/nio/file/attribute/FileAttributeView;>;)Z", $PUBLIC},
-	{"type", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/jrtfs/JrtPath;)V", nullptr, 0, $method(JrtFileStore, init$, void, $JrtPath*)},
+	{"getAttribute", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JrtFileStore, getAttribute, $Object*, $String*), "java.io.IOException"},
+	{"getFileStoreAttributeView", "(Ljava/lang/Class;)Ljava/nio/file/attribute/FileStoreAttributeView;", "<V::Ljava/nio/file/attribute/FileStoreAttributeView;>(Ljava/lang/Class<TV;>;)TV;", $PUBLIC, $virtualMethod(JrtFileStore, getFileStoreAttributeView, $FileStoreAttributeView*, $Class*)},
+	{"getTotalSpace", "()J", nullptr, $PUBLIC, $virtualMethod(JrtFileStore, getTotalSpace, int64_t), "java.io.IOException"},
+	{"getUnallocatedSpace", "()J", nullptr, $PUBLIC, $virtualMethod(JrtFileStore, getUnallocatedSpace, int64_t), "java.io.IOException"},
+	{"getUsableSpace", "()J", nullptr, $PUBLIC, $virtualMethod(JrtFileStore, getUsableSpace, int64_t), "java.io.IOException"},
+	{"isReadOnly", "()Z", nullptr, $PUBLIC, $virtualMethod(JrtFileStore, isReadOnly, bool)},
+	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JrtFileStore, name, $String*)},
+	{"supportsFileAttributeView", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(JrtFileStore, supportsFileAttributeView, bool, $String*)},
+	{"supportsFileAttributeView", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<+Ljava/nio/file/attribute/FileAttributeView;>;)Z", $PUBLIC, $virtualMethod(JrtFileStore, supportsFileAttributeView, bool, $Class*)},
+	{"type", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JrtFileStore, type, $String*)},
 	{}
 };
 

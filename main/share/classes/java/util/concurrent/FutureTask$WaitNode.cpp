@@ -19,7 +19,7 @@ $FieldInfo _FutureTask$WaitNode_FieldInfo_[] = {
 };
 
 $MethodInfo _FutureTask$WaitNode_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(FutureTask$WaitNode::*)()>(&FutureTask$WaitNode::init$))},
+	{"<init>", "()V", nullptr, 0, $method(FutureTask$WaitNode, init$, void)},
 	{}
 };
 

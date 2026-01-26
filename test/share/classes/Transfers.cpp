@@ -56,18 +56,18 @@ $FieldInfo _Transfers_FieldInfo_[] = {
 };
 
 $MethodInfo _Transfers_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Transfers::*)()>(&Transfers::init$))},
-	{"checkBytes", "(Ljava/nio/channels/FileChannel;II[B)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($FileChannel*,int32_t,int32_t,$bytes*)>(&Transfers::checkBytes)), "java.io.IOException"},
-	{"checkRandomBytes", "(Ljava/nio/channels/FileChannel;IIJ)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($FileChannel*,int32_t,int32_t,int64_t)>(&Transfers::checkRandomBytes)), "java.io.IOException"},
-	{"checkZeroBytes", "(Ljava/nio/channels/FileChannel;II)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($FileChannel*,int32_t,int32_t)>(&Transfers::checkZeroBytes)), "java.io.IOException"},
-	{"dump", "(Ljava/nio/channels/FileChannel;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($FileChannel*)>(&Transfers::dump)), "java.io.IOException"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Transfers::main)), "java.lang.Exception"},
-	{"show", "(Ljava/lang/String;Ljava/lang/String;II)V", nullptr, $STATIC, $method(static_cast<void(*)($String*,$String*,int32_t,int32_t)>(&Transfers::show))},
-	{"testFrom", "(JLTransfers$Source;Ljava/nio/channels/FileChannel;II)V", nullptr, $STATIC, $method(static_cast<void(*)(int64_t,$Transfers$Source*,$FileChannel*,int32_t,int32_t)>(&Transfers::testFrom)), "java.io.IOException"},
-	{"testTo", "(JLjava/nio/channels/FileChannel;IILTransfers$Target;)V", nullptr, $STATIC, $method(static_cast<void(*)(int64_t,$FileChannel*,int32_t,int32_t,$Transfers$Target*)>(&Transfers::testTo)), "java.io.IOException"},
-	{"writeBytes", "([BLjava/nio/channels/FileChannel;II)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($bytes*,$FileChannel*,int32_t,int32_t)>(&Transfers::writeBytes)), "java.io.IOException"},
-	{"writeRandomBytes", "(JLjava/nio/channels/FileChannel;II)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)(int64_t,$FileChannel*,int32_t,int32_t)>(&Transfers::writeRandomBytes)), "java.io.IOException"},
-	{"writeZeroBytes", "(Ljava/nio/channels/FileChannel;II)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($FileChannel*,int32_t,int32_t)>(&Transfers::writeZeroBytes)), "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Transfers, init$, void)},
+	{"checkBytes", "(Ljava/nio/channels/FileChannel;II[B)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Transfers, checkBytes, void, $FileChannel*, int32_t, int32_t, $bytes*), "java.io.IOException"},
+	{"checkRandomBytes", "(Ljava/nio/channels/FileChannel;IIJ)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Transfers, checkRandomBytes, void, $FileChannel*, int32_t, int32_t, int64_t), "java.io.IOException"},
+	{"checkZeroBytes", "(Ljava/nio/channels/FileChannel;II)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Transfers, checkZeroBytes, void, $FileChannel*, int32_t, int32_t), "java.io.IOException"},
+	{"dump", "(Ljava/nio/channels/FileChannel;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Transfers, dump, void, $FileChannel*), "java.io.IOException"},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Transfers, main, void, $StringArray*), "java.lang.Exception"},
+	{"show", "(Ljava/lang/String;Ljava/lang/String;II)V", nullptr, $STATIC, $staticMethod(Transfers, show, void, $String*, $String*, int32_t, int32_t)},
+	{"testFrom", "(JLTransfers$Source;Ljava/nio/channels/FileChannel;II)V", nullptr, $STATIC, $staticMethod(Transfers, testFrom, void, int64_t, $Transfers$Source*, $FileChannel*, int32_t, int32_t), "java.io.IOException"},
+	{"testTo", "(JLjava/nio/channels/FileChannel;IILTransfers$Target;)V", nullptr, $STATIC, $staticMethod(Transfers, testTo, void, int64_t, $FileChannel*, int32_t, int32_t, $Transfers$Target*), "java.io.IOException"},
+	{"writeBytes", "([BLjava/nio/channels/FileChannel;II)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Transfers, writeBytes, void, $bytes*, $FileChannel*, int32_t, int32_t), "java.io.IOException"},
+	{"writeRandomBytes", "(JLjava/nio/channels/FileChannel;II)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Transfers, writeRandomBytes, void, int64_t, $FileChannel*, int32_t, int32_t), "java.io.IOException"},
+	{"writeZeroBytes", "(Ljava/nio/channels/FileChannel;II)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Transfers, writeZeroBytes, void, $FileChannel*, int32_t, int32_t), "java.io.IOException"},
 	{}
 };
 

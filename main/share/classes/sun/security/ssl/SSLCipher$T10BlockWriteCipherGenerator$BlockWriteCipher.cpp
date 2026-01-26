@@ -51,13 +51,13 @@ $FieldInfo _SSLCipher$T10BlockWriteCipherGenerator$BlockWriteCipher_FieldInfo_[]
 };
 
 $MethodInfo _SSLCipher$T10BlockWriteCipherGenerator$BlockWriteCipher_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/ssl/Authenticator;Lsun/security/ssl/ProtocolVersion;Ljava/lang/String;Ljava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, 0, $method(static_cast<void(SSLCipher$T10BlockWriteCipherGenerator$BlockWriteCipher::*)($Authenticator*,$ProtocolVersion*,$String*,$Key*,$AlgorithmParameterSpec*,$SecureRandom*)>(&SSLCipher$T10BlockWriteCipherGenerator$BlockWriteCipher::init$)), "java.security.GeneralSecurityException"},
-	{"calculateFragmentSize", "(II)I", nullptr, 0},
-	{"calculatePacketSize", "(II)I", nullptr, 0},
-	{"dispose", "()V", nullptr, 0},
-	{"encrypt", "(BLjava/nio/ByteBuffer;)I", nullptr, $PUBLIC},
-	{"getExplicitNonceSize", "()I", nullptr, 0},
-	{"isCBCMode", "()Z", nullptr, 0},
+	{"<init>", "(Lsun/security/ssl/Authenticator;Lsun/security/ssl/ProtocolVersion;Ljava/lang/String;Ljava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, 0, $method(SSLCipher$T10BlockWriteCipherGenerator$BlockWriteCipher, init$, void, $Authenticator*, $ProtocolVersion*, $String*, $Key*, $AlgorithmParameterSpec*, $SecureRandom*), "java.security.GeneralSecurityException"},
+	{"calculateFragmentSize", "(II)I", nullptr, 0, $virtualMethod(SSLCipher$T10BlockWriteCipherGenerator$BlockWriteCipher, calculateFragmentSize, int32_t, int32_t, int32_t)},
+	{"calculatePacketSize", "(II)I", nullptr, 0, $virtualMethod(SSLCipher$T10BlockWriteCipherGenerator$BlockWriteCipher, calculatePacketSize, int32_t, int32_t, int32_t)},
+	{"dispose", "()V", nullptr, 0, $virtualMethod(SSLCipher$T10BlockWriteCipherGenerator$BlockWriteCipher, dispose, void)},
+	{"encrypt", "(BLjava/nio/ByteBuffer;)I", nullptr, $PUBLIC, $virtualMethod(SSLCipher$T10BlockWriteCipherGenerator$BlockWriteCipher, encrypt, int32_t, int8_t, $ByteBuffer*)},
+	{"getExplicitNonceSize", "()I", nullptr, 0, $virtualMethod(SSLCipher$T10BlockWriteCipherGenerator$BlockWriteCipher, getExplicitNonceSize, int32_t)},
+	{"isCBCMode", "()Z", nullptr, 0, $virtualMethod(SSLCipher$T10BlockWriteCipherGenerator$BlockWriteCipher, isCBCMode, bool)},
 	{}
 };
 

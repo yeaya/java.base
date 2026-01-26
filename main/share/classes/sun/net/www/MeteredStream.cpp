@@ -37,21 +37,21 @@ $FieldInfo _MeteredStream_FieldInfo_[] = {
 };
 
 $MethodInfo _MeteredStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/InputStream;Lsun/net/ProgressSource;J)V", nullptr, $PUBLIC, $method(static_cast<void(MeteredStream::*)($InputStream*,$ProgressSource*,int64_t)>(&MeteredStream::init$))},
-	{"available", "()I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"finalize", "()V", nullptr, $PROTECTED, nullptr, "java.lang.Throwable"},
-	{"isLockHeldByCurrentThread", "()Z", nullptr, $PUBLIC | $FINAL, $method(static_cast<bool(MeteredStream::*)()>(&MeteredStream::isLockHeldByCurrentThread))},
-	{"isMarked", "()Z", nullptr, $PRIVATE, $method(static_cast<bool(MeteredStream::*)()>(&MeteredStream::isMarked))},
-	{"justRead", "(J)V", nullptr, $PRIVATE | $FINAL, $method(static_cast<void(MeteredStream::*)(int64_t)>(&MeteredStream::justRead)), "java.io.IOException"},
-	{"lock", "()V", nullptr, $PUBLIC | $FINAL, $method(static_cast<void(MeteredStream::*)()>(&MeteredStream::lock))},
-	{"mark", "(I)V", nullptr, $PUBLIC},
-	{"markSupported", "()Z", nullptr, $PUBLIC},
-	{"read", "()I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"read", "([BII)I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"reset", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"skip", "(J)J", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"unlock", "()V", nullptr, $PUBLIC | $FINAL, $method(static_cast<void(MeteredStream::*)()>(&MeteredStream::unlock))},
+	{"<init>", "(Ljava/io/InputStream;Lsun/net/ProgressSource;J)V", nullptr, $PUBLIC, $method(MeteredStream, init$, void, $InputStream*, $ProgressSource*, int64_t)},
+	{"available", "()I", nullptr, $PUBLIC, $virtualMethod(MeteredStream, available, int32_t), "java.io.IOException"},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(MeteredStream, close, void), "java.io.IOException"},
+	{"finalize", "()V", nullptr, $PROTECTED, $virtualMethod(MeteredStream, finalize, void), "java.lang.Throwable"},
+	{"isLockHeldByCurrentThread", "()Z", nullptr, $PUBLIC | $FINAL, $method(MeteredStream, isLockHeldByCurrentThread, bool)},
+	{"isMarked", "()Z", nullptr, $PRIVATE, $method(MeteredStream, isMarked, bool)},
+	{"justRead", "(J)V", nullptr, $PRIVATE | $FINAL, $method(MeteredStream, justRead, void, int64_t), "java.io.IOException"},
+	{"lock", "()V", nullptr, $PUBLIC | $FINAL, $method(MeteredStream, lock, void)},
+	{"mark", "(I)V", nullptr, $PUBLIC, $virtualMethod(MeteredStream, mark, void, int32_t)},
+	{"markSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(MeteredStream, markSupported, bool)},
+	{"read", "()I", nullptr, $PUBLIC, $virtualMethod(MeteredStream, read, int32_t), "java.io.IOException"},
+	{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(MeteredStream, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
+	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(MeteredStream, reset, void), "java.io.IOException"},
+	{"skip", "(J)J", nullptr, $PUBLIC, $virtualMethod(MeteredStream, skip, int64_t, int64_t), "java.io.IOException"},
+	{"unlock", "()V", nullptr, $PUBLIC | $FINAL, $method(MeteredStream, unlock, void)},
 	{}
 };
 

@@ -21,7 +21,7 @@ $FieldInfo _DisabledAlgorithmConstraints$CertPathHolder_FieldInfo_[] = {
 };
 
 $MethodInfo _DisabledAlgorithmConstraints$CertPathHolder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(DisabledAlgorithmConstraints$CertPathHolder::*)()>(&DisabledAlgorithmConstraints$CertPathHolder::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(DisabledAlgorithmConstraints$CertPathHolder, init$, void)},
 	{}
 };
 

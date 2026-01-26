@@ -32,8 +32,8 @@ $FieldInfo _AsynchronousChannelGroupImpl$4_FieldInfo_[] = {
 };
 
 $MethodInfo _AsynchronousChannelGroupImpl$4_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/ch/AsynchronousChannelGroupImpl;Ljava/lang/Runnable;Ljava/security/AccessControlContext;)V", "()V", 0, $method(static_cast<void(AsynchronousChannelGroupImpl$4::*)($AsynchronousChannelGroupImpl*,$Runnable*,$AccessControlContext*)>(&AsynchronousChannelGroupImpl$4::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/nio/ch/AsynchronousChannelGroupImpl;Ljava/lang/Runnable;Ljava/security/AccessControlContext;)V", "()V", 0, $method(AsynchronousChannelGroupImpl$4, init$, void, $AsynchronousChannelGroupImpl*, $Runnable*, $AccessControlContext*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(AsynchronousChannelGroupImpl$4, run, void)},
 	{}
 };
 

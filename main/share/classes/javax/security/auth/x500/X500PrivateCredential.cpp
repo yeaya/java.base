@@ -24,13 +24,13 @@ $FieldInfo _X500PrivateCredential_FieldInfo_[] = {
 };
 
 $MethodInfo _X500PrivateCredential_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/cert/X509Certificate;Ljava/security/PrivateKey;)V", nullptr, $PUBLIC, $method(static_cast<void(X500PrivateCredential::*)($X509Certificate*,$PrivateKey*)>(&X500PrivateCredential::init$))},
-	{"<init>", "(Ljava/security/cert/X509Certificate;Ljava/security/PrivateKey;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(X500PrivateCredential::*)($X509Certificate*,$PrivateKey*,$String*)>(&X500PrivateCredential::init$))},
-	{"destroy", "()V", nullptr, $PUBLIC},
-	{"getAlias", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(static_cast<$String*(X500PrivateCredential::*)()>(&X500PrivateCredential::getAlias))},
-	{"getCertificate", "()Ljava/security/cert/X509Certificate;", nullptr, $PUBLIC, $method(static_cast<$X509Certificate*(X500PrivateCredential::*)()>(&X500PrivateCredential::getCertificate))},
-	{"getPrivateKey", "()Ljava/security/PrivateKey;", nullptr, $PUBLIC, $method(static_cast<$PrivateKey*(X500PrivateCredential::*)()>(&X500PrivateCredential::getPrivateKey))},
-	{"isDestroyed", "()Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/security/cert/X509Certificate;Ljava/security/PrivateKey;)V", nullptr, $PUBLIC, $method(X500PrivateCredential, init$, void, $X509Certificate*, $PrivateKey*)},
+	{"<init>", "(Ljava/security/cert/X509Certificate;Ljava/security/PrivateKey;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(X500PrivateCredential, init$, void, $X509Certificate*, $PrivateKey*, $String*)},
+	{"destroy", "()V", nullptr, $PUBLIC, $virtualMethod(X500PrivateCredential, destroy, void)},
+	{"getAlias", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(X500PrivateCredential, getAlias, $String*)},
+	{"getCertificate", "()Ljava/security/cert/X509Certificate;", nullptr, $PUBLIC, $method(X500PrivateCredential, getCertificate, $X509Certificate*)},
+	{"getPrivateKey", "()Ljava/security/PrivateKey;", nullptr, $PUBLIC, $method(X500PrivateCredential, getPrivateKey, $PrivateKey*)},
+	{"isDestroyed", "()Z", nullptr, $PUBLIC, $virtualMethod(X500PrivateCredential, isDestroyed, bool)},
 	{}
 };
 

@@ -14,8 +14,8 @@ using $InetAddress = ::java::net::InetAddress;
 using $NetworkInterface = ::java::net::NetworkInterface;
 
 $MethodInfo _IsReachableViaLoopbackTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(IsReachableViaLoopbackTest::*)()>(&IsReachableViaLoopbackTest::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&IsReachableViaLoopbackTest::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(IsReachableViaLoopbackTest, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(IsReachableViaLoopbackTest, main, void, $StringArray*)},
 	{}
 };
 

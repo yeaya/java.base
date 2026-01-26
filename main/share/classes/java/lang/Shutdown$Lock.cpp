@@ -11,7 +11,7 @@ namespace java {
 	namespace lang {
 
 $MethodInfo _Shutdown$Lock_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(Shutdown$Lock::*)()>(&Shutdown$Lock::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(Shutdown$Lock, init$, void)},
 	{}
 };
 

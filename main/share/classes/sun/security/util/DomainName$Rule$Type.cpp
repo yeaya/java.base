@@ -31,10 +31,10 @@ $FieldInfo _DomainName$Rule$Type_FieldInfo_[] = {
 };
 
 $MethodInfo _DomainName$Rule$Type_MethodInfo_[] = {
-	{"$values", "()[Lsun/security/util/DomainName$Rule$Type;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$DomainName$Rule$TypeArray*(*)()>(&DomainName$Rule$Type::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(DomainName$Rule$Type::*)($String*,int32_t)>(&DomainName$Rule$Type::init$))},
-	{"valueOf", "(Ljava/lang/String;)Lsun/security/util/DomainName$Rule$Type;", nullptr, $PUBLIC | $STATIC, $method(static_cast<DomainName$Rule$Type*(*)($String*)>(&DomainName$Rule$Type::valueOf))},
-	{"values", "()[Lsun/security/util/DomainName$Rule$Type;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$DomainName$Rule$TypeArray*(*)()>(&DomainName$Rule$Type::values))},
+	{"$values", "()[Lsun/security/util/DomainName$Rule$Type;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DomainName$Rule$Type, $values, $DomainName$Rule$TypeArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(DomainName$Rule$Type, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Lsun/security/util/DomainName$Rule$Type;", nullptr, $PUBLIC | $STATIC, $staticMethod(DomainName$Rule$Type, valueOf, DomainName$Rule$Type*, $String*)},
+	{"values", "()[Lsun/security/util/DomainName$Rule$Type;", nullptr, $PUBLIC | $STATIC, $staticMethod(DomainName$Rule$Type, values, $DomainName$Rule$TypeArray*)},
 	{}
 };
 

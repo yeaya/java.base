@@ -79,19 +79,19 @@ $FieldInfo _FileChannelLinesSpliterator_FieldInfo_[] = {
 };
 
 $MethodInfo _FileChannelLinesSpliterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/channels/FileChannel;Ljava/nio/charset/Charset;II)V", nullptr, 0, $method(static_cast<void(FileChannelLinesSpliterator::*)($FileChannel*,$Charset*,int32_t,int32_t)>(&FileChannelLinesSpliterator::init$))},
-	{"<init>", "(Ljava/nio/channels/FileChannel;Ljava/nio/charset/Charset;IILjava/nio/ByteBuffer;Ljava/util/concurrent/atomic/AtomicInteger;)V", nullptr, $PRIVATE, $method(static_cast<void(FileChannelLinesSpliterator::*)($FileChannel*,$Charset*,int32_t,int32_t,$ByteBuffer*,$AtomicInteger*)>(&FileChannelLinesSpliterator::init$))},
-	{"characteristics", "()I", nullptr, $PUBLIC},
-	{"close", "()V", nullptr, 0, $method(static_cast<void(FileChannelLinesSpliterator::*)()>(&FileChannelLinesSpliterator::close))},
-	{"estimateSize", "()J", nullptr, $PUBLIC},
-	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-Ljava/lang/String;>;)V", $PUBLIC},
-	{"getBufferedReader", "()Ljava/io/BufferedReader;", nullptr, $PRIVATE, $method(static_cast<$BufferedReader*(FileChannelLinesSpliterator::*)()>(&FileChannelLinesSpliterator::getBufferedReader))},
-	{"getExactSizeIfKnown", "()J", nullptr, $PUBLIC},
-	{"getMappedByteBuffer", "()Ljava/nio/ByteBuffer;", nullptr, $PRIVATE, $method(static_cast<$ByteBuffer*(FileChannelLinesSpliterator::*)()>(&FileChannelLinesSpliterator::getMappedByteBuffer))},
-	{"readLine", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(FileChannelLinesSpliterator::*)()>(&FileChannelLinesSpliterator::readLine))},
-	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-Ljava/lang/String;>;)Z", $PUBLIC},
-	{"trySplit", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<Ljava/lang/String;>;", $PUBLIC},
-	{"unmap", "()V", nullptr, $PRIVATE, $method(static_cast<void(FileChannelLinesSpliterator::*)()>(&FileChannelLinesSpliterator::unmap))},
+	{"<init>", "(Ljava/nio/channels/FileChannel;Ljava/nio/charset/Charset;II)V", nullptr, 0, $method(FileChannelLinesSpliterator, init$, void, $FileChannel*, $Charset*, int32_t, int32_t)},
+	{"<init>", "(Ljava/nio/channels/FileChannel;Ljava/nio/charset/Charset;IILjava/nio/ByteBuffer;Ljava/util/concurrent/atomic/AtomicInteger;)V", nullptr, $PRIVATE, $method(FileChannelLinesSpliterator, init$, void, $FileChannel*, $Charset*, int32_t, int32_t, $ByteBuffer*, $AtomicInteger*)},
+	{"characteristics", "()I", nullptr, $PUBLIC, $virtualMethod(FileChannelLinesSpliterator, characteristics, int32_t)},
+	{"close", "()V", nullptr, 0, $method(FileChannelLinesSpliterator, close, void)},
+	{"estimateSize", "()J", nullptr, $PUBLIC, $virtualMethod(FileChannelLinesSpliterator, estimateSize, int64_t)},
+	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-Ljava/lang/String;>;)V", $PUBLIC, $virtualMethod(FileChannelLinesSpliterator, forEachRemaining, void, $Consumer*)},
+	{"getBufferedReader", "()Ljava/io/BufferedReader;", nullptr, $PRIVATE, $method(FileChannelLinesSpliterator, getBufferedReader, $BufferedReader*)},
+	{"getExactSizeIfKnown", "()J", nullptr, $PUBLIC, $virtualMethod(FileChannelLinesSpliterator, getExactSizeIfKnown, int64_t)},
+	{"getMappedByteBuffer", "()Ljava/nio/ByteBuffer;", nullptr, $PRIVATE, $method(FileChannelLinesSpliterator, getMappedByteBuffer, $ByteBuffer*)},
+	{"readLine", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(FileChannelLinesSpliterator, readLine, $String*)},
+	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-Ljava/lang/String;>;)Z", $PUBLIC, $virtualMethod(FileChannelLinesSpliterator, tryAdvance, bool, $Consumer*)},
+	{"trySplit", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(FileChannelLinesSpliterator, trySplit, $Spliterator*)},
+	{"unmap", "()V", nullptr, $PRIVATE, $method(FileChannelLinesSpliterator, unmap, void)},
 	{}
 };
 

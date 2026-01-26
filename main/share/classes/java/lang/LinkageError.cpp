@@ -17,9 +17,9 @@ $FieldInfo _LinkageError_FieldInfo_[] = {
 };
 
 $MethodInfo _LinkageError_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(LinkageError::*)()>(&LinkageError::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(LinkageError::*)($String*)>(&LinkageError::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(LinkageError::*)($String*,$Throwable*)>(&LinkageError::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(LinkageError, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(LinkageError, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(LinkageError, init$, void, $String*, $Throwable*)},
 	{}
 };
 

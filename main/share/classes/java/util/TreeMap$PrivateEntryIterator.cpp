@@ -29,11 +29,11 @@ $FieldInfo _TreeMap$PrivateEntryIterator_FieldInfo_[] = {
 };
 
 $MethodInfo _TreeMap$PrivateEntryIterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/TreeMap;Ljava/util/TreeMap$Entry;)V", "(Ljava/util/TreeMap$Entry<TK;TV;>;)V", 0, $method(static_cast<void(TreeMap$PrivateEntryIterator::*)($TreeMap*,$TreeMap$Entry*)>(&TreeMap$PrivateEntryIterator::init$))},
-	{"hasNext", "()Z", nullptr, $PUBLIC | $FINAL},
-	{"nextEntry", "()Ljava/util/TreeMap$Entry;", "()Ljava/util/TreeMap$Entry<TK;TV;>;", $FINAL, $method(static_cast<$TreeMap$Entry*(TreeMap$PrivateEntryIterator::*)()>(&TreeMap$PrivateEntryIterator::nextEntry))},
-	{"prevEntry", "()Ljava/util/TreeMap$Entry;", "()Ljava/util/TreeMap$Entry<TK;TV;>;", $FINAL, $method(static_cast<$TreeMap$Entry*(TreeMap$PrivateEntryIterator::*)()>(&TreeMap$PrivateEntryIterator::prevEntry))},
-	{"remove", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/TreeMap;Ljava/util/TreeMap$Entry;)V", "(Ljava/util/TreeMap$Entry<TK;TV;>;)V", 0, $method(TreeMap$PrivateEntryIterator, init$, void, $TreeMap*, $TreeMap$Entry*)},
+	{"hasNext", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(TreeMap$PrivateEntryIterator, hasNext, bool)},
+	{"nextEntry", "()Ljava/util/TreeMap$Entry;", "()Ljava/util/TreeMap$Entry<TK;TV;>;", $FINAL, $method(TreeMap$PrivateEntryIterator, nextEntry, $TreeMap$Entry*)},
+	{"prevEntry", "()Ljava/util/TreeMap$Entry;", "()Ljava/util/TreeMap$Entry<TK;TV;>;", $FINAL, $method(TreeMap$PrivateEntryIterator, prevEntry, $TreeMap$Entry*)},
+	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(TreeMap$PrivateEntryIterator, remove, void)},
 	{}
 };
 

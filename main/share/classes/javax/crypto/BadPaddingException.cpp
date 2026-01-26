@@ -17,8 +17,8 @@ $FieldInfo _BadPaddingException_FieldInfo_[] = {
 };
 
 $MethodInfo _BadPaddingException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(BadPaddingException::*)()>(&BadPaddingException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(BadPaddingException::*)($String*)>(&BadPaddingException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(BadPaddingException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(BadPaddingException, init$, void, $String*)},
 	{}
 };
 

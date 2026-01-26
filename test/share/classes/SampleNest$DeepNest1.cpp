@@ -8,7 +8,7 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _SampleNest$DeepNest1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(SampleNest$DeepNest1::*)()>(&SampleNest$DeepNest1::init$))},
+	{"<init>", "()V", nullptr, 0, $method(SampleNest$DeepNest1, init$, void)},
 	{}
 };
 

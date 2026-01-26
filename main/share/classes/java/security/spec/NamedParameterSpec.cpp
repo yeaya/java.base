@@ -22,8 +22,8 @@ $FieldInfo _NamedParameterSpec_FieldInfo_[] = {
 };
 
 $MethodInfo _NamedParameterSpec_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(NamedParameterSpec::*)($String*)>(&NamedParameterSpec::init$))},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NamedParameterSpec, init$, void, $String*)},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NamedParameterSpec, getName, $String*)},
 	{}
 };
 

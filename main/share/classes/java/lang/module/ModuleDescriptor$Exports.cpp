@@ -28,17 +28,17 @@ $FieldInfo _ModuleDescriptor$Exports_FieldInfo_[] = {
 };
 
 $MethodInfo _ModuleDescriptor$Exports_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Set;Ljava/lang/String;Ljava/util/Set;)V", "(Ljava/util/Set<Ljava/lang/module/ModuleDescriptor$Exports$Modifier;>;Ljava/lang/String;Ljava/util/Set<Ljava/lang/String;>;)V", $PRIVATE, $method(static_cast<void(ModuleDescriptor$Exports::*)($Set*,$String*,$Set*)>(&ModuleDescriptor$Exports::init$))},
-	{"<init>", "(Ljava/util/Set;Ljava/lang/String;Ljava/util/Set;Z)V", "(Ljava/util/Set<Ljava/lang/module/ModuleDescriptor$Exports$Modifier;>;Ljava/lang/String;Ljava/util/Set<Ljava/lang/String;>;Z)V", $PRIVATE, $method(static_cast<void(ModuleDescriptor$Exports::*)($Set*,$String*,$Set*,bool)>(&ModuleDescriptor$Exports::init$))},
-	{"compareTo", "(Ljava/lang/module/ModuleDescriptor$Exports;)I", nullptr, $PUBLIC, $method(static_cast<int32_t(ModuleDescriptor$Exports::*)(ModuleDescriptor$Exports*)>(&ModuleDescriptor$Exports::compareTo))},
-	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"isQualified", "()Z", nullptr, $PUBLIC, $method(static_cast<bool(ModuleDescriptor$Exports::*)()>(&ModuleDescriptor$Exports::isQualified))},
-	{"modifiers", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/module/ModuleDescriptor$Exports$Modifier;>;", $PUBLIC, $method(static_cast<$Set*(ModuleDescriptor$Exports::*)()>(&ModuleDescriptor$Exports::modifiers))},
-	{"source", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(static_cast<$String*(ModuleDescriptor$Exports::*)()>(&ModuleDescriptor$Exports::source))},
-	{"targets", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $method(static_cast<$Set*(ModuleDescriptor$Exports::*)()>(&ModuleDescriptor$Exports::targets))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/Set;Ljava/lang/String;Ljava/util/Set;)V", "(Ljava/util/Set<Ljava/lang/module/ModuleDescriptor$Exports$Modifier;>;Ljava/lang/String;Ljava/util/Set<Ljava/lang/String;>;)V", $PRIVATE, $method(ModuleDescriptor$Exports, init$, void, $Set*, $String*, $Set*)},
+	{"<init>", "(Ljava/util/Set;Ljava/lang/String;Ljava/util/Set;Z)V", "(Ljava/util/Set<Ljava/lang/module/ModuleDescriptor$Exports$Modifier;>;Ljava/lang/String;Ljava/util/Set<Ljava/lang/String;>;Z)V", $PRIVATE, $method(ModuleDescriptor$Exports, init$, void, $Set*, $String*, $Set*, bool)},
+	{"compareTo", "(Ljava/lang/module/ModuleDescriptor$Exports;)I", nullptr, $PUBLIC, $method(ModuleDescriptor$Exports, compareTo, int32_t, ModuleDescriptor$Exports*)},
+	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ModuleDescriptor$Exports, compareTo, int32_t, Object$*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ModuleDescriptor$Exports, equals, bool, Object$*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ModuleDescriptor$Exports, hashCode, int32_t)},
+	{"isQualified", "()Z", nullptr, $PUBLIC, $method(ModuleDescriptor$Exports, isQualified, bool)},
+	{"modifiers", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/module/ModuleDescriptor$Exports$Modifier;>;", $PUBLIC, $method(ModuleDescriptor$Exports, modifiers, $Set*)},
+	{"source", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(ModuleDescriptor$Exports, source, $String*)},
+	{"targets", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $method(ModuleDescriptor$Exports, targets, $Set*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ModuleDescriptor$Exports, toString, $String*)},
 	{}
 };
 

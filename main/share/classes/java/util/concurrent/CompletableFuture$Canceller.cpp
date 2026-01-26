@@ -20,9 +20,9 @@ $FieldInfo _CompletableFuture$Canceller_FieldInfo_[] = {
 };
 
 $MethodInfo _CompletableFuture$Canceller_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/Future;)V", "(Ljava/util/concurrent/Future<*>;)V", 0, $method(static_cast<void(CompletableFuture$Canceller::*)($Future*)>(&CompletableFuture$Canceller::init$))},
-	{"accept", "(Ljava/lang/Object;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(CompletableFuture$Canceller::*)(Object$*,$Throwable*)>(&CompletableFuture$Canceller::accept))},
-	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "(Ljava/util/concurrent/Future;)V", "(Ljava/util/concurrent/Future<*>;)V", 0, $method(CompletableFuture$Canceller, init$, void, $Future*)},
+	{"accept", "(Ljava/lang/Object;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(CompletableFuture$Canceller, accept, void, Object$*, $Throwable*)},
+	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(CompletableFuture$Canceller, accept, void, Object$*, Object$*)},
 	{}
 };
 

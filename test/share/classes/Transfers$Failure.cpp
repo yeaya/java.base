@@ -10,8 +10,8 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 
 $MethodInfo _Transfers$Failure_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Exception;)V", nullptr, 0, $method(static_cast<void(Transfers$Failure::*)($Exception*)>(&Transfers$Failure::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(Transfers$Failure::*)($String*)>(&Transfers$Failure::init$))},
+	{"<init>", "(Ljava/lang/Exception;)V", nullptr, 0, $method(Transfers$Failure, init$, void, $Exception*)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(Transfers$Failure, init$, void, $String*)},
 	{}
 };
 

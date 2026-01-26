@@ -70,12 +70,12 @@ $FieldInfo _ClassLoaders_FieldInfo_[] = {
 };
 
 $MethodInfo _ClassLoaders_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(ClassLoaders::*)()>(&ClassLoaders::init$))},
-	{"appClassLoader", "()Ljava/lang/ClassLoader;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$ClassLoader*(*)()>(&ClassLoaders::appClassLoader))},
-	{"bootLoader", "()Ljdk/internal/loader/BuiltinClassLoader;", nullptr, $STATIC, $method(static_cast<$BuiltinClassLoader*(*)()>(&ClassLoaders::bootLoader))},
-	{"platformClassLoader", "()Ljava/lang/ClassLoader;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$ClassLoader*(*)()>(&ClassLoaders::platformClassLoader))},
-	{"setArchivedServicesCatalog", "(Ljava/lang/ClassLoader;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($ClassLoader*)>(&ClassLoaders::setArchivedServicesCatalog))},
-	{"toFileURL", "(Ljava/lang/String;)Ljava/net/URL;", nullptr, $PRIVATE | $STATIC | $DEPRECATED, $method(static_cast<$URL*(*)($String*)>(&ClassLoaders::toFileURL)), nullptr, nullptr, _ClassLoaders_MethodAnnotations_toFileURL5},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(ClassLoaders, init$, void)},
+	{"appClassLoader", "()Ljava/lang/ClassLoader;", nullptr, $PUBLIC | $STATIC, $staticMethod(ClassLoaders, appClassLoader, $ClassLoader*)},
+	{"bootLoader", "()Ljdk/internal/loader/BuiltinClassLoader;", nullptr, $STATIC, $staticMethod(ClassLoaders, bootLoader, $BuiltinClassLoader*)},
+	{"platformClassLoader", "()Ljava/lang/ClassLoader;", nullptr, $PUBLIC | $STATIC, $staticMethod(ClassLoaders, platformClassLoader, $ClassLoader*)},
+	{"setArchivedServicesCatalog", "(Ljava/lang/ClassLoader;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ClassLoaders, setArchivedServicesCatalog, void, $ClassLoader*)},
+	{"toFileURL", "(Ljava/lang/String;)Ljava/net/URL;", nullptr, $PRIVATE | $STATIC | $DEPRECATED, $staticMethod(ClassLoaders, toFileURL, $URL*, $String*), nullptr, nullptr, _ClassLoaders_MethodAnnotations_toFileURL5},
 	{}
 };
 

@@ -82,18 +82,18 @@ $FieldInfo _ProtectionDomain_FieldInfo_[] = {
 };
 
 $MethodInfo _ProtectionDomain_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/CodeSource;Ljava/security/PermissionCollection;)V", nullptr, $PUBLIC, $method(static_cast<void(ProtectionDomain::*)($CodeSource*,$PermissionCollection*)>(&ProtectionDomain::init$))},
-	{"<init>", "(Ljava/security/CodeSource;Ljava/security/PermissionCollection;Ljava/lang/ClassLoader;[Ljava/security/Principal;)V", nullptr, $PUBLIC, $method(static_cast<void(ProtectionDomain::*)($CodeSource*,$PermissionCollection*,$ClassLoader*,$PrincipalArray*)>(&ProtectionDomain::init$))},
-	{"getClassLoader", "()Ljava/lang/ClassLoader;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$ClassLoader*(ProtectionDomain::*)()>(&ProtectionDomain::getClassLoader))},
-	{"getCodeSource", "()Ljava/security/CodeSource;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$CodeSource*(ProtectionDomain::*)()>(&ProtectionDomain::getCodeSource))},
-	{"getPermissions", "()Ljava/security/PermissionCollection;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$PermissionCollection*(ProtectionDomain::*)()>(&ProtectionDomain::getPermissions))},
-	{"getPrincipals", "()[Ljava/security/Principal;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$PrincipalArray*(ProtectionDomain::*)()>(&ProtectionDomain::getPrincipals))},
-	{"implies", "(Ljava/security/Permission;)Z", nullptr, $PUBLIC},
-	{"impliesWithAltFilePerm", "(Ljava/security/Permission;)Z", nullptr, 0},
-	{"mergePermissions", "()Ljava/security/PermissionCollection;", nullptr, $PRIVATE, $method(static_cast<$PermissionCollection*(ProtectionDomain::*)()>(&ProtectionDomain::mergePermissions))},
-	{"seeAllp", "()Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)()>(&ProtectionDomain::seeAllp))},
-	{"staticPermissionsOnly", "()Z", nullptr, $PUBLIC | $FINAL, $method(static_cast<bool(ProtectionDomain::*)()>(&ProtectionDomain::staticPermissionsOnly))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/security/CodeSource;Ljava/security/PermissionCollection;)V", nullptr, $PUBLIC, $method(ProtectionDomain, init$, void, $CodeSource*, $PermissionCollection*)},
+	{"<init>", "(Ljava/security/CodeSource;Ljava/security/PermissionCollection;Ljava/lang/ClassLoader;[Ljava/security/Principal;)V", nullptr, $PUBLIC, $method(ProtectionDomain, init$, void, $CodeSource*, $PermissionCollection*, $ClassLoader*, $PrincipalArray*)},
+	{"getClassLoader", "()Ljava/lang/ClassLoader;", nullptr, $PUBLIC | $FINAL, $method(ProtectionDomain, getClassLoader, $ClassLoader*)},
+	{"getCodeSource", "()Ljava/security/CodeSource;", nullptr, $PUBLIC | $FINAL, $method(ProtectionDomain, getCodeSource, $CodeSource*)},
+	{"getPermissions", "()Ljava/security/PermissionCollection;", nullptr, $PUBLIC | $FINAL, $method(ProtectionDomain, getPermissions, $PermissionCollection*)},
+	{"getPrincipals", "()[Ljava/security/Principal;", nullptr, $PUBLIC | $FINAL, $method(ProtectionDomain, getPrincipals, $PrincipalArray*)},
+	{"implies", "(Ljava/security/Permission;)Z", nullptr, $PUBLIC, $virtualMethod(ProtectionDomain, implies, bool, $Permission*)},
+	{"impliesWithAltFilePerm", "(Ljava/security/Permission;)Z", nullptr, 0, $virtualMethod(ProtectionDomain, impliesWithAltFilePerm, bool, $Permission*)},
+	{"mergePermissions", "()Ljava/security/PermissionCollection;", nullptr, $PRIVATE, $method(ProtectionDomain, mergePermissions, $PermissionCollection*)},
+	{"seeAllp", "()Z", nullptr, $PRIVATE | $STATIC, $staticMethod(ProtectionDomain, seeAllp, bool)},
+	{"staticPermissionsOnly", "()Z", nullptr, $PUBLIC | $FINAL, $method(ProtectionDomain, staticPermissionsOnly, bool)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ProtectionDomain, toString, $String*)},
 	{}
 };
 

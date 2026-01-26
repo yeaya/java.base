@@ -13,8 +13,8 @@ namespace java {
 	namespace net {
 
 $MethodInfo _URI$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(URI$1::*)()>(&URI$1::init$))},
-	{"create", "(Ljava/lang/String;Ljava/lang/String;)Ljava/net/URI;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(URI$1, init$, void)},
+	{"create", "(Ljava/lang/String;Ljava/lang/String;)Ljava/net/URI;", nullptr, $PUBLIC, $virtualMethod(URI$1, create, $URI*, $String*, $String*)},
 	{}
 };
 

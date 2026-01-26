@@ -53,22 +53,22 @@ $FieldInfo _IsoFields$Unit_FieldInfo_[] = {
 };
 
 $MethodInfo _IsoFields$Unit_MethodInfo_[] = {
-	{"$values", "()[Ljava/time/temporal/IsoFields$Unit;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$IsoFields$UnitArray*(*)()>(&IsoFields$Unit::$values))},
+	{"$values", "()[Ljava/time/temporal/IsoFields$Unit;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(IsoFields$Unit, $values, $IsoFields$UnitArray*)},
 	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
 	{"*finalize", "()V", nullptr, $PROTECTED | $FINAL},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;Ljava/time/Duration;)V", "(Ljava/lang/String;Ljava/time/Duration;)V", $PRIVATE, $method(static_cast<void(IsoFields$Unit::*)($String*,int32_t,$String*,$Duration*)>(&IsoFields$Unit::init$))},
-	{"addTo", "(Ljava/time/temporal/Temporal;J)Ljava/time/temporal/Temporal;", "<R::Ljava/time/temporal/Temporal;>(TR;J)TR;", $PUBLIC},
-	{"between", "(Ljava/time/temporal/Temporal;Ljava/time/temporal/Temporal;)J", nullptr, $PUBLIC},
-	{"getDuration", "()Ljava/time/Duration;", nullptr, $PUBLIC},
-	{"isDateBased", "()Z", nullptr, $PUBLIC},
-	{"isDurationEstimated", "()Z", nullptr, $PUBLIC},
-	{"isSupportedBy", "(Ljava/time/temporal/Temporal;)Z", nullptr, $PUBLIC},
-	{"isTimeBased", "()Z", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"valueOf", "(Ljava/lang/String;)Ljava/time/temporal/IsoFields$Unit;", nullptr, $PUBLIC | $STATIC, $method(static_cast<IsoFields$Unit*(*)($String*)>(&IsoFields$Unit::valueOf))},
-	{"values", "()[Ljava/time/temporal/IsoFields$Unit;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$IsoFields$UnitArray*(*)()>(&IsoFields$Unit::values))},
+	{"<init>", "(Ljava/lang/String;ILjava/lang/String;Ljava/time/Duration;)V", "(Ljava/lang/String;Ljava/time/Duration;)V", $PRIVATE, $method(IsoFields$Unit, init$, void, $String*, int32_t, $String*, $Duration*)},
+	{"addTo", "(Ljava/time/temporal/Temporal;J)Ljava/time/temporal/Temporal;", "<R::Ljava/time/temporal/Temporal;>(TR;J)TR;", $PUBLIC, $virtualMethod(IsoFields$Unit, addTo, $Temporal*, $Temporal*, int64_t)},
+	{"between", "(Ljava/time/temporal/Temporal;Ljava/time/temporal/Temporal;)J", nullptr, $PUBLIC, $virtualMethod(IsoFields$Unit, between, int64_t, $Temporal*, $Temporal*)},
+	{"getDuration", "()Ljava/time/Duration;", nullptr, $PUBLIC, $virtualMethod(IsoFields$Unit, getDuration, $Duration*)},
+	{"isDateBased", "()Z", nullptr, $PUBLIC, $virtualMethod(IsoFields$Unit, isDateBased, bool)},
+	{"isDurationEstimated", "()Z", nullptr, $PUBLIC, $virtualMethod(IsoFields$Unit, isDurationEstimated, bool)},
+	{"isSupportedBy", "(Ljava/time/temporal/Temporal;)Z", nullptr, $PUBLIC, $virtualMethod(IsoFields$Unit, isSupportedBy, bool, $Temporal*)},
+	{"isTimeBased", "()Z", nullptr, $PUBLIC, $virtualMethod(IsoFields$Unit, isTimeBased, bool)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IsoFields$Unit, toString, $String*)},
+	{"valueOf", "(Ljava/lang/String;)Ljava/time/temporal/IsoFields$Unit;", nullptr, $PUBLIC | $STATIC, $staticMethod(IsoFields$Unit, valueOf, IsoFields$Unit*, $String*)},
+	{"values", "()[Ljava/time/temporal/IsoFields$Unit;", nullptr, $PUBLIC | $STATIC, $staticMethod(IsoFields$Unit, values, $IsoFields$UnitArray*)},
 	{}
 };
 

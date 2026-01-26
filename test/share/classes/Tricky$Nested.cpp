@@ -15,7 +15,7 @@ $FieldInfo _Tricky$Nested_FieldInfo_[] = {
 };
 
 $MethodInfo _Tricky$Nested_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Tricky$Nested::*)()>(&Tricky$Nested::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Tricky$Nested, init$, void)},
 	{}
 };
 

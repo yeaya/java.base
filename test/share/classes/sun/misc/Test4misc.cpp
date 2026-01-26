@@ -21,7 +21,7 @@ $FieldInfo _Test4misc_FieldInfo_[] = {
 };
 
 $MethodInfo _Test4misc_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Test4misc::*)()>(&Test4misc::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Test4misc, init$, void)},
 	{}
 };
 

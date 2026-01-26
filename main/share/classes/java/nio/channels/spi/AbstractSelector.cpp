@@ -60,17 +60,17 @@ $FieldInfo _AbstractSelector_FieldInfo_[] = {
 };
 
 $MethodInfo _AbstractSelector_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/channels/spi/SelectorProvider;)V", nullptr, $PROTECTED, $method(static_cast<void(AbstractSelector::*)($SelectorProvider*)>(&AbstractSelector::init$))},
-	{"begin", "()V", nullptr, $PROTECTED | $FINAL, $method(static_cast<void(AbstractSelector::*)()>(&AbstractSelector::begin))},
-	{"cancel", "(Ljava/nio/channels/SelectionKey;)V", nullptr, 0},
-	{"cancelledKeys", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/nio/channels/SelectionKey;>;", $PROTECTED | $FINAL, $method(static_cast<$Set*(AbstractSelector::*)()>(&AbstractSelector::cancelledKeys))},
-	{"close", "()V", nullptr, $PUBLIC | $FINAL, nullptr, "java.io.IOException"},
-	{"deregister", "(Ljava/nio/channels/spi/AbstractSelectionKey;)V", nullptr, $PROTECTED | $FINAL, $method(static_cast<void(AbstractSelector::*)($AbstractSelectionKey*)>(&AbstractSelector::deregister))},
-	{"end", "()V", nullptr, $PROTECTED | $FINAL, $method(static_cast<void(AbstractSelector::*)()>(&AbstractSelector::end))},
-	{"implCloseSelector", "()V", nullptr, $PROTECTED | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"isOpen", "()Z", nullptr, $PUBLIC | $FINAL},
-	{"provider", "()Ljava/nio/channels/spi/SelectorProvider;", nullptr, $PUBLIC | $FINAL},
-	{"register", "(Ljava/nio/channels/spi/AbstractSelectableChannel;ILjava/lang/Object;)Ljava/nio/channels/SelectionKey;", nullptr, $PROTECTED | $ABSTRACT},
+	{"<init>", "(Ljava/nio/channels/spi/SelectorProvider;)V", nullptr, $PROTECTED, $method(AbstractSelector, init$, void, $SelectorProvider*)},
+	{"begin", "()V", nullptr, $PROTECTED | $FINAL, $method(AbstractSelector, begin, void)},
+	{"cancel", "(Ljava/nio/channels/SelectionKey;)V", nullptr, 0, $virtualMethod(AbstractSelector, cancel, void, $SelectionKey*)},
+	{"cancelledKeys", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/nio/channels/SelectionKey;>;", $PROTECTED | $FINAL, $method(AbstractSelector, cancelledKeys, $Set*)},
+	{"close", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractSelector, close, void), "java.io.IOException"},
+	{"deregister", "(Ljava/nio/channels/spi/AbstractSelectionKey;)V", nullptr, $PROTECTED | $FINAL, $method(AbstractSelector, deregister, void, $AbstractSelectionKey*)},
+	{"end", "()V", nullptr, $PROTECTED | $FINAL, $method(AbstractSelector, end, void)},
+	{"implCloseSelector", "()V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(AbstractSelector, implCloseSelector, void), "java.io.IOException"},
+	{"isOpen", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractSelector, isOpen, bool)},
+	{"provider", "()Ljava/nio/channels/spi/SelectorProvider;", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractSelector, provider, $SelectorProvider*)},
+	{"register", "(Ljava/nio/channels/spi/AbstractSelectableChannel;ILjava/lang/Object;)Ljava/nio/channels/SelectionKey;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(AbstractSelector, register$, $SelectionKey*, $AbstractSelectableChannel*, int32_t, Object$*)},
 	{}
 };
 

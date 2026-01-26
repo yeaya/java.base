@@ -51,15 +51,15 @@ $FieldInfo _PSSParameters_FieldInfo_[] = {
 };
 
 $MethodInfo _PSSParameters_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PSSParameters::*)()>(&PSSParameters::init$))},
-	{"engineGetEncoded", "()[B", nullptr, $PROTECTED, nullptr, "java.io.IOException"},
-	{"engineGetEncoded", "(Ljava/lang/String;)[B", nullptr, $PROTECTED, nullptr, "java.io.IOException"},
-	{"engineGetParameterSpec", "(Ljava/lang/Class;)Ljava/security/spec/AlgorithmParameterSpec;", "<T::Ljava/security/spec/AlgorithmParameterSpec;>(Ljava/lang/Class<TT;>;)TT;", $PROTECTED, nullptr, "java.security.spec.InvalidParameterSpecException"},
-	{"engineInit", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PROTECTED, nullptr, "java.security.spec.InvalidParameterSpecException"},
-	{"engineInit", "([B)V", nullptr, $PROTECTED, nullptr, "java.io.IOException"},
-	{"engineInit", "([BLjava/lang/String;)V", nullptr, $PROTECTED, nullptr, "java.io.IOException"},
-	{"engineToString", "()Ljava/lang/String;", nullptr, $PROTECTED},
-	{"getEncoded", "(Ljava/security/spec/PSSParameterSpec;)[B", nullptr, $PUBLIC | $STATIC, $method(static_cast<$bytes*(*)($PSSParameterSpec*)>(&PSSParameters::getEncoded)), "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PSSParameters, init$, void)},
+	{"engineGetEncoded", "()[B", nullptr, $PROTECTED, $virtualMethod(PSSParameters, engineGetEncoded, $bytes*), "java.io.IOException"},
+	{"engineGetEncoded", "(Ljava/lang/String;)[B", nullptr, $PROTECTED, $virtualMethod(PSSParameters, engineGetEncoded, $bytes*, $String*), "java.io.IOException"},
+	{"engineGetParameterSpec", "(Ljava/lang/Class;)Ljava/security/spec/AlgorithmParameterSpec;", "<T::Ljava/security/spec/AlgorithmParameterSpec;>(Ljava/lang/Class<TT;>;)TT;", $PROTECTED, $virtualMethod(PSSParameters, engineGetParameterSpec, $AlgorithmParameterSpec*, $Class*), "java.security.spec.InvalidParameterSpecException"},
+	{"engineInit", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PROTECTED, $virtualMethod(PSSParameters, engineInit, void, $AlgorithmParameterSpec*), "java.security.spec.InvalidParameterSpecException"},
+	{"engineInit", "([B)V", nullptr, $PROTECTED, $virtualMethod(PSSParameters, engineInit, void, $bytes*), "java.io.IOException"},
+	{"engineInit", "([BLjava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(PSSParameters, engineInit, void, $bytes*, $String*), "java.io.IOException"},
+	{"engineToString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(PSSParameters, engineToString, $String*)},
+	{"getEncoded", "(Ljava/security/spec/PSSParameterSpec;)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(PSSParameters, getEncoded, $bytes*, $PSSParameterSpec*), "java.io.IOException"},
 	{}
 };
 

@@ -31,9 +31,9 @@ $MethodInfo _PKIXCertPathBuilderResult_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/security/cert/CertPath;Ljava/security/cert/TrustAnchor;Ljava/security/cert/PolicyNode;Ljava/security/PublicKey;)V", nullptr, $PUBLIC, $method(static_cast<void(PKIXCertPathBuilderResult::*)($CertPath*,$TrustAnchor*,$PolicyNode*,$PublicKey*)>(&PKIXCertPathBuilderResult::init$))},
-	{"getCertPath", "()Ljava/security/cert/CertPath;", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/security/cert/CertPath;Ljava/security/cert/TrustAnchor;Ljava/security/cert/PolicyNode;Ljava/security/PublicKey;)V", nullptr, $PUBLIC, $method(PKIXCertPathBuilderResult, init$, void, $CertPath*, $TrustAnchor*, $PolicyNode*, $PublicKey*)},
+	{"getCertPath", "()Ljava/security/cert/CertPath;", nullptr, $PUBLIC, $virtualMethod(PKIXCertPathBuilderResult, getCertPath, $CertPath*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PKIXCertPathBuilderResult, toString, $String*)},
 	{}
 };
 

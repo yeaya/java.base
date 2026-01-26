@@ -18,8 +18,8 @@ $FieldInfo _RacyRegister$1_FieldInfo_[] = {
 };
 
 $MethodInfo _RacyRegister$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/channels/SocketChannel;)V", "()V", 0, $method(static_cast<void(RacyRegister$1::*)($SocketChannel*)>(&RacyRegister$1::init$))},
-	{"call", "()Ljava/lang/Void;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljava/nio/channels/SocketChannel;)V", "()V", 0, $method(RacyRegister$1, init$, void, $SocketChannel*)},
+	{"call", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(RacyRegister$1, call, $Object*), "java.io.IOException"},
 	{}
 };
 

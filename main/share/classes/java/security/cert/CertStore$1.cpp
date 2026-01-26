@@ -15,8 +15,8 @@ namespace java {
 		namespace cert {
 
 $MethodInfo _CertStore$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(CertStore$1::*)()>(&CertStore$1::init$))},
-	{"run", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(CertStore$1, init$, void)},
+	{"run", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CertStore$1, run, $Object*)},
 	{}
 };
 

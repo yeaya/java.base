@@ -46,8 +46,8 @@ $FieldInfo DoublePredicate$$Lambda$lambda$and$0::fieldInfos[3] = {
 	{}
 };
 $MethodInfo DoublePredicate$$Lambda$lambda$and$0::methodInfos[3] = {
-	{"<init>", "(Ljava/util/function/DoublePredicate;Ljava/util/function/DoublePredicate;)V", nullptr, $PUBLIC, $method(static_cast<void(DoublePredicate$$Lambda$lambda$and$0::*)(DoublePredicate*,DoublePredicate*)>(&DoublePredicate$$Lambda$lambda$and$0::init$))},
-	{"test", "(D)Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/function/DoublePredicate;Ljava/util/function/DoublePredicate;)V", nullptr, $PUBLIC, $method(DoublePredicate$$Lambda$lambda$and$0, init$, void, DoublePredicate*, DoublePredicate*)},
+	{"test", "(D)Z", nullptr, $PUBLIC, $virtualMethod(DoublePredicate$$Lambda$lambda$and$0, test, bool, double)},
 	{}
 };
 $ClassInfo DoublePredicate$$Lambda$lambda$and$0::classInfo$ = {
@@ -86,8 +86,8 @@ $FieldInfo DoublePredicate$$Lambda$lambda$negate$1$1::fieldInfos[2] = {
 	{}
 };
 $MethodInfo DoublePredicate$$Lambda$lambda$negate$1$1::methodInfos[3] = {
-	{"<init>", "(Ljava/util/function/DoublePredicate;)V", nullptr, $PUBLIC, $method(static_cast<void(DoublePredicate$$Lambda$lambda$negate$1$1::*)(DoublePredicate*)>(&DoublePredicate$$Lambda$lambda$negate$1$1::init$))},
-	{"test", "(D)Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/function/DoublePredicate;)V", nullptr, $PUBLIC, $method(DoublePredicate$$Lambda$lambda$negate$1$1, init$, void, DoublePredicate*)},
+	{"test", "(D)Z", nullptr, $PUBLIC, $virtualMethod(DoublePredicate$$Lambda$lambda$negate$1$1, test, bool, double)},
 	{}
 };
 $ClassInfo DoublePredicate$$Lambda$lambda$negate$1$1::classInfo$ = {
@@ -129,8 +129,8 @@ $FieldInfo DoublePredicate$$Lambda$lambda$or$2$2::fieldInfos[3] = {
 	{}
 };
 $MethodInfo DoublePredicate$$Lambda$lambda$or$2$2::methodInfos[3] = {
-	{"<init>", "(Ljava/util/function/DoublePredicate;Ljava/util/function/DoublePredicate;)V", nullptr, $PUBLIC, $method(static_cast<void(DoublePredicate$$Lambda$lambda$or$2$2::*)(DoublePredicate*,DoublePredicate*)>(&DoublePredicate$$Lambda$lambda$or$2$2::init$))},
-	{"test", "(D)Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/function/DoublePredicate;Ljava/util/function/DoublePredicate;)V", nullptr, $PUBLIC, $method(DoublePredicate$$Lambda$lambda$or$2$2, init$, void, DoublePredicate*, DoublePredicate*)},
+	{"test", "(D)Z", nullptr, $PUBLIC, $virtualMethod(DoublePredicate$$Lambda$lambda$or$2$2, test, bool, double)},
 	{}
 };
 $ClassInfo DoublePredicate$$Lambda$lambda$or$2$2::classInfo$ = {
@@ -153,13 +153,13 @@ $CompoundAttribute _DoublePredicate_Annotations_[] = {
 };
 
 $MethodInfo _DoublePredicate_MethodInfo_[] = {
-	{"and", "(Ljava/util/function/DoublePredicate;)Ljava/util/function/DoublePredicate;", nullptr, $PUBLIC},
-	{"lambda$and$0", "(Ljava/util/function/DoublePredicate;D)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<bool(DoublePredicate::*)(DoublePredicate*,double)>(&DoublePredicate::lambda$and$0))},
-	{"lambda$negate$1", "(D)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<bool(DoublePredicate::*)(double)>(&DoublePredicate::lambda$negate$1))},
-	{"lambda$or$2", "(Ljava/util/function/DoublePredicate;D)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<bool(DoublePredicate::*)(DoublePredicate*,double)>(&DoublePredicate::lambda$or$2))},
-	{"negate", "()Ljava/util/function/DoublePredicate;", nullptr, $PUBLIC},
-	{"or", "(Ljava/util/function/DoublePredicate;)Ljava/util/function/DoublePredicate;", nullptr, $PUBLIC},
-	{"test", "(D)Z", nullptr, $PUBLIC | $ABSTRACT},
+	{"and", "(Ljava/util/function/DoublePredicate;)Ljava/util/function/DoublePredicate;", nullptr, $PUBLIC, $virtualMethod(DoublePredicate, and$, DoublePredicate*, DoublePredicate*)},
+	{"lambda$and$0", "(Ljava/util/function/DoublePredicate;D)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(DoublePredicate, lambda$and$0, bool, DoublePredicate*, double)},
+	{"lambda$negate$1", "(D)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(DoublePredicate, lambda$negate$1, bool, double)},
+	{"lambda$or$2", "(Ljava/util/function/DoublePredicate;D)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(DoublePredicate, lambda$or$2, bool, DoublePredicate*, double)},
+	{"negate", "()Ljava/util/function/DoublePredicate;", nullptr, $PUBLIC, $virtualMethod(DoublePredicate, negate, DoublePredicate*)},
+	{"or", "(Ljava/util/function/DoublePredicate;)Ljava/util/function/DoublePredicate;", nullptr, $PUBLIC, $virtualMethod(DoublePredicate, or$, DoublePredicate*, DoublePredicate*)},
+	{"test", "(D)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DoublePredicate, test, bool, double)},
 	{}
 };
 

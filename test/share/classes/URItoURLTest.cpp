@@ -15,9 +15,9 @@ using $URI = ::java::net::URI;
 using $URL = ::java::net::URL;
 
 $MethodInfo _URItoURLTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(URItoURLTest::*)()>(&URItoURLTest::init$))},
-	{"equalsComponents", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $STATIC, $method(static_cast<bool(*)($String*,$String*,$String*)>(&URItoURLTest::equalsComponents))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&URItoURLTest::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(URItoURLTest, init$, void)},
+	{"equalsComponents", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $STATIC, $staticMethod(URItoURLTest, equalsComponents, bool, $String*, $String*, $String*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(URItoURLTest, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

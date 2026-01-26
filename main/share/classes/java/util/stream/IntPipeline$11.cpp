@@ -37,8 +37,8 @@ $FieldInfo _IntPipeline$11_FieldInfo_[] = {
 };
 
 $MethodInfo _IntPipeline$11_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/stream/IntPipeline;Ljava/util/stream/AbstractPipeline;Ljava/util/stream/StreamShape;ILjava/util/function/IntConsumer;)V", nullptr, 0, $method(static_cast<void(IntPipeline$11::*)($IntPipeline*,$AbstractPipeline*,$StreamShape*,int32_t,$IntConsumer*)>(&IntPipeline$11::init$))},
-	{"opWrapSink", "(ILjava/util/stream/Sink;)Ljava/util/stream/Sink;", "(ILjava/util/stream/Sink<Ljava/lang/Integer;>;)Ljava/util/stream/Sink<Ljava/lang/Integer;>;", 0},
+	{"<init>", "(Ljava/util/stream/IntPipeline;Ljava/util/stream/AbstractPipeline;Ljava/util/stream/StreamShape;ILjava/util/function/IntConsumer;)V", nullptr, 0, $method(IntPipeline$11, init$, void, $IntPipeline*, $AbstractPipeline*, $StreamShape*, int32_t, $IntConsumer*)},
+	{"opWrapSink", "(ILjava/util/stream/Sink;)Ljava/util/stream/Sink;", "(ILjava/util/stream/Sink<Ljava/lang/Integer;>;)Ljava/util/stream/Sink<Ljava/lang/Integer;>;", 0, $virtualMethod(IntPipeline$11, opWrapSink, $Sink*, int32_t, $Sink*)},
 	{}
 };
 

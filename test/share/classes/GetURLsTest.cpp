@@ -24,10 +24,10 @@ $FieldInfo _GetURLsTest_FieldInfo_[] = {
 };
 
 $MethodInfo _GetURLsTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(GetURLsTest::*)()>(&GetURLsTest::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&GetURLsTest::main)), "java.lang.Exception"},
-	{"p", "(Ljava/lang/String;[Ljava/net/URL;)V", nullptr, $STATIC, $method(static_cast<void(*)($String*,$URLArray*)>(&GetURLsTest::p))},
-	{"p", "(Ljava/lang/String;)V", nullptr, $STATIC, $method(static_cast<void(*)($String*)>(&GetURLsTest::p))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(GetURLsTest, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(GetURLsTest, main, void, $StringArray*), "java.lang.Exception"},
+	{"p", "(Ljava/lang/String;[Ljava/net/URL;)V", nullptr, $STATIC, $staticMethod(GetURLsTest, p, void, $String*, $URLArray*)},
+	{"p", "(Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(GetURLsTest, p, void, $String*)},
 	{}
 };
 

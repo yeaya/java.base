@@ -31,14 +31,14 @@ $FieldInfo _Nodes$ArrayNode_FieldInfo_[] = {
 };
 
 $MethodInfo _Nodes$ArrayNode_MethodInfo_[] = {
-	{"<init>", "(JLjava/util/function/IntFunction;)V", "(JLjava/util/function/IntFunction<[TT;>;)V", 0, $method(static_cast<void(Nodes$ArrayNode::*)(int64_t,$IntFunction*)>(&Nodes$ArrayNode::init$))},
-	{"<init>", "([Ljava/lang/Object;)V", "([TT;)V", 0, $method(static_cast<void(Nodes$ArrayNode::*)($ObjectArray*)>(&Nodes$ArrayNode::init$))},
-	{"asArray", "(Ljava/util/function/IntFunction;)[Ljava/lang/Object;", "(Ljava/util/function/IntFunction<[TT;>;)[TT;", $PUBLIC},
-	{"copyInto", "([Ljava/lang/Object;I)V", "([TT;I)V", $PUBLIC},
-	{"count", "()J", nullptr, $PUBLIC},
-	{"forEach", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TT;>;)V", $PUBLIC},
-	{"spliterator", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TT;>;", $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(JLjava/util/function/IntFunction;)V", "(JLjava/util/function/IntFunction<[TT;>;)V", 0, $method(Nodes$ArrayNode, init$, void, int64_t, $IntFunction*)},
+	{"<init>", "([Ljava/lang/Object;)V", "([TT;)V", 0, $method(Nodes$ArrayNode, init$, void, $ObjectArray*)},
+	{"asArray", "(Ljava/util/function/IntFunction;)[Ljava/lang/Object;", "(Ljava/util/function/IntFunction<[TT;>;)[TT;", $PUBLIC, $virtualMethod(Nodes$ArrayNode, asArray, $ObjectArray*, $IntFunction*)},
+	{"copyInto", "([Ljava/lang/Object;I)V", "([TT;I)V", $PUBLIC, $virtualMethod(Nodes$ArrayNode, copyInto, void, $ObjectArray*, int32_t)},
+	{"count", "()J", nullptr, $PUBLIC, $virtualMethod(Nodes$ArrayNode, count, int64_t)},
+	{"forEach", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TT;>;)V", $PUBLIC, $virtualMethod(Nodes$ArrayNode, forEach, void, $Consumer*)},
+	{"spliterator", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TT;>;", $PUBLIC, $virtualMethod(Nodes$ArrayNode, spliterator, $Spliterator*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Nodes$ArrayNode, toString, $String*)},
 	{}
 };
 

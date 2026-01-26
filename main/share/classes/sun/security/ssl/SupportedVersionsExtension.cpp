@@ -50,7 +50,7 @@ $FieldInfo _SupportedVersionsExtension_FieldInfo_[] = {
 };
 
 $MethodInfo _SupportedVersionsExtension_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(SupportedVersionsExtension::*)()>(&SupportedVersionsExtension::init$))},
+	{"<init>", "()V", nullptr, 0, $method(SupportedVersionsExtension, init$, void)},
 	{}
 };
 

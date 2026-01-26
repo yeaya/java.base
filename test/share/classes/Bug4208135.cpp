@@ -30,9 +30,9 @@ $FieldInfo _Bug4208135_FieldInfo_[] = {
 };
 
 $MethodInfo _Bug4208135_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Bug4208135::*)()>(&Bug4208135::init$))},
-	{"checkFormat", "(Ljava/lang/Number;Ljava/lang/String;)V", nullptr, $STATIC, $method(static_cast<void(*)($Number*,$String*)>(&Bug4208135::checkFormat))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Bug4208135::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Bug4208135, init$, void)},
+	{"checkFormat", "(Ljava/lang/Number;Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(Bug4208135, checkFormat, void, $Number*, $String*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Bug4208135, main, void, $StringArray*)},
 	{}
 };
 

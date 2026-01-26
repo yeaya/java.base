@@ -35,18 +35,18 @@ $FieldInfo _GeneralNames_FieldInfo_[] = {
 };
 
 $MethodInfo _GeneralNames_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(static_cast<void(GeneralNames::*)($DerValue*)>(&GeneralNames::init$)), "java.io.IOException"},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(GeneralNames::*)()>(&GeneralNames::init$))},
-	{"add", "(Lsun/security/x509/GeneralName;)Lsun/security/x509/GeneralNames;", nullptr, $PUBLIC},
-	{"encode", "(Lsun/security/util/DerOutputStream;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"get", "(I)Lsun/security/x509/GeneralName;", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"isEmpty", "()Z", nullptr, $PUBLIC},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Lsun/security/x509/GeneralName;>;", $PUBLIC},
-	{"names", "()Ljava/util/List;", "()Ljava/util/List<Lsun/security/x509/GeneralName;>;", $PUBLIC},
-	{"size", "()I", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(GeneralNames, init$, void, $DerValue*), "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(GeneralNames, init$, void)},
+	{"add", "(Lsun/security/x509/GeneralName;)Lsun/security/x509/GeneralNames;", nullptr, $PUBLIC, $virtualMethod(GeneralNames, add, GeneralNames*, $GeneralName*)},
+	{"encode", "(Lsun/security/util/DerOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(GeneralNames, encode, void, $DerOutputStream*), "java.io.IOException"},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(GeneralNames, equals, bool, Object$*)},
+	{"get", "(I)Lsun/security/x509/GeneralName;", nullptr, $PUBLIC, $virtualMethod(GeneralNames, get, $GeneralName*, int32_t)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(GeneralNames, hashCode, int32_t)},
+	{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(GeneralNames, isEmpty, bool)},
+	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Lsun/security/x509/GeneralName;>;", $PUBLIC, $virtualMethod(GeneralNames, iterator, $Iterator*)},
+	{"names", "()Ljava/util/List;", "()Ljava/util/List<Lsun/security/x509/GeneralName;>;", $PUBLIC, $virtualMethod(GeneralNames, names, $List*)},
+	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(GeneralNames, size, int32_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(GeneralNames, toString, $String*)},
 	{}
 };
 

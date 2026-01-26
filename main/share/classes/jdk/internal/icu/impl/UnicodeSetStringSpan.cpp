@@ -67,22 +67,22 @@ $FieldInfo _UnicodeSetStringSpan_FieldInfo_[] = {
 };
 
 $MethodInfo _UnicodeSetStringSpan_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/icu/text/UnicodeSet;Ljava/util/ArrayList;I)V", "(Ljdk/internal/icu/text/UnicodeSet;Ljava/util/ArrayList<Ljava/lang/String;>;I)V", $PUBLIC, $method(static_cast<void(UnicodeSetStringSpan::*)($UnicodeSet*,$ArrayList*,int32_t)>(&UnicodeSetStringSpan::init$))},
-	{"addToSpanNotSet", "(I)V", nullptr, $PRIVATE, $method(static_cast<void(UnicodeSetStringSpan::*)(int32_t)>(&UnicodeSetStringSpan::addToSpanNotSet))},
-	{"contains", "(I)Z", nullptr, $PUBLIC},
-	{"makeSpanLengthByte", "(I)S", nullptr, $STATIC, $method(static_cast<int16_t(*)(int32_t)>(&UnicodeSetStringSpan::makeSpanLengthByte))},
-	{"matches16", "(Ljava/lang/CharSequence;ILjava/lang/String;I)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($CharSequence*,int32_t,$String*,int32_t)>(&UnicodeSetStringSpan::matches16))},
-	{"matches16CPB", "(Ljava/lang/CharSequence;IILjava/lang/String;I)Z", nullptr, $STATIC, $method(static_cast<bool(*)($CharSequence*,int32_t,int32_t,$String*,int32_t)>(&UnicodeSetStringSpan::matches16CPB))},
-	{"needsStringSpanUTF16", "()Z", nullptr, $PUBLIC},
-	{"span", "(Ljava/lang/CharSequence;ILjdk/internal/icu/text/UnicodeSet$SpanCondition;)I", nullptr, $PUBLIC},
-	{"spanAndCount", "(Ljava/lang/CharSequence;ILjdk/internal/icu/text/UnicodeSet$SpanCondition;Ljdk/internal/icu/util/OutputInt;)I", nullptr, $PUBLIC},
-	{"spanBack", "(Ljava/lang/CharSequence;ILjdk/internal/icu/text/UnicodeSet$SpanCondition;)I", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"spanContainedAndCount", "(Ljava/lang/CharSequence;ILjdk/internal/icu/util/OutputInt;)I", nullptr, $PRIVATE | $SYNCHRONIZED, $method(static_cast<int32_t(UnicodeSetStringSpan::*)($CharSequence*,int32_t,$OutputInt*)>(&UnicodeSetStringSpan::spanContainedAndCount))},
-	{"spanNot", "(Ljava/lang/CharSequence;ILjdk/internal/icu/util/OutputInt;)I", nullptr, $PRIVATE, $method(static_cast<int32_t(UnicodeSetStringSpan::*)($CharSequence*,int32_t,$OutputInt*)>(&UnicodeSetStringSpan::spanNot))},
-	{"spanNotBack", "(Ljava/lang/CharSequence;I)I", nullptr, $PRIVATE, $method(static_cast<int32_t(UnicodeSetStringSpan::*)($CharSequence*,int32_t)>(&UnicodeSetStringSpan::spanNotBack))},
-	{"spanOne", "(Ljdk/internal/icu/text/UnicodeSet;Ljava/lang/CharSequence;II)I", nullptr, $STATIC, $method(static_cast<int32_t(*)($UnicodeSet*,$CharSequence*,int32_t,int32_t)>(&UnicodeSetStringSpan::spanOne))},
-	{"spanOneBack", "(Ljdk/internal/icu/text/UnicodeSet;Ljava/lang/CharSequence;I)I", nullptr, $STATIC, $method(static_cast<int32_t(*)($UnicodeSet*,$CharSequence*,int32_t)>(&UnicodeSetStringSpan::spanOneBack))},
-	{"spanWithStrings", "(Ljava/lang/CharSequence;IILjdk/internal/icu/text/UnicodeSet$SpanCondition;)I", nullptr, $PRIVATE | $SYNCHRONIZED, $method(static_cast<int32_t(UnicodeSetStringSpan::*)($CharSequence*,int32_t,int32_t,$UnicodeSet$SpanCondition*)>(&UnicodeSetStringSpan::spanWithStrings))},
+	{"<init>", "(Ljdk/internal/icu/text/UnicodeSet;Ljava/util/ArrayList;I)V", "(Ljdk/internal/icu/text/UnicodeSet;Ljava/util/ArrayList<Ljava/lang/String;>;I)V", $PUBLIC, $method(UnicodeSetStringSpan, init$, void, $UnicodeSet*, $ArrayList*, int32_t)},
+	{"addToSpanNotSet", "(I)V", nullptr, $PRIVATE, $method(UnicodeSetStringSpan, addToSpanNotSet, void, int32_t)},
+	{"contains", "(I)Z", nullptr, $PUBLIC, $virtualMethod(UnicodeSetStringSpan, contains, bool, int32_t)},
+	{"makeSpanLengthByte", "(I)S", nullptr, $STATIC, $staticMethod(UnicodeSetStringSpan, makeSpanLengthByte, int16_t, int32_t)},
+	{"matches16", "(Ljava/lang/CharSequence;ILjava/lang/String;I)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(UnicodeSetStringSpan, matches16, bool, $CharSequence*, int32_t, $String*, int32_t)},
+	{"matches16CPB", "(Ljava/lang/CharSequence;IILjava/lang/String;I)Z", nullptr, $STATIC, $staticMethod(UnicodeSetStringSpan, matches16CPB, bool, $CharSequence*, int32_t, int32_t, $String*, int32_t)},
+	{"needsStringSpanUTF16", "()Z", nullptr, $PUBLIC, $virtualMethod(UnicodeSetStringSpan, needsStringSpanUTF16, bool)},
+	{"span", "(Ljava/lang/CharSequence;ILjdk/internal/icu/text/UnicodeSet$SpanCondition;)I", nullptr, $PUBLIC, $virtualMethod(UnicodeSetStringSpan, span, int32_t, $CharSequence*, int32_t, $UnicodeSet$SpanCondition*)},
+	{"spanAndCount", "(Ljava/lang/CharSequence;ILjdk/internal/icu/text/UnicodeSet$SpanCondition;Ljdk/internal/icu/util/OutputInt;)I", nullptr, $PUBLIC, $virtualMethod(UnicodeSetStringSpan, spanAndCount, int32_t, $CharSequence*, int32_t, $UnicodeSet$SpanCondition*, $OutputInt*)},
+	{"spanBack", "(Ljava/lang/CharSequence;ILjdk/internal/icu/text/UnicodeSet$SpanCondition;)I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(UnicodeSetStringSpan, spanBack, int32_t, $CharSequence*, int32_t, $UnicodeSet$SpanCondition*)},
+	{"spanContainedAndCount", "(Ljava/lang/CharSequence;ILjdk/internal/icu/util/OutputInt;)I", nullptr, $PRIVATE | $SYNCHRONIZED, $method(UnicodeSetStringSpan, spanContainedAndCount, int32_t, $CharSequence*, int32_t, $OutputInt*)},
+	{"spanNot", "(Ljava/lang/CharSequence;ILjdk/internal/icu/util/OutputInt;)I", nullptr, $PRIVATE, $method(UnicodeSetStringSpan, spanNot, int32_t, $CharSequence*, int32_t, $OutputInt*)},
+	{"spanNotBack", "(Ljava/lang/CharSequence;I)I", nullptr, $PRIVATE, $method(UnicodeSetStringSpan, spanNotBack, int32_t, $CharSequence*, int32_t)},
+	{"spanOne", "(Ljdk/internal/icu/text/UnicodeSet;Ljava/lang/CharSequence;II)I", nullptr, $STATIC, $staticMethod(UnicodeSetStringSpan, spanOne, int32_t, $UnicodeSet*, $CharSequence*, int32_t, int32_t)},
+	{"spanOneBack", "(Ljdk/internal/icu/text/UnicodeSet;Ljava/lang/CharSequence;I)I", nullptr, $STATIC, $staticMethod(UnicodeSetStringSpan, spanOneBack, int32_t, $UnicodeSet*, $CharSequence*, int32_t)},
+	{"spanWithStrings", "(Ljava/lang/CharSequence;IILjdk/internal/icu/text/UnicodeSet$SpanCondition;)I", nullptr, $PRIVATE | $SYNCHRONIZED, $method(UnicodeSetStringSpan, spanWithStrings, int32_t, $CharSequence*, int32_t, int32_t, $UnicodeSet$SpanCondition*)},
 	{}
 };
 

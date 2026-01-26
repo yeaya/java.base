@@ -34,14 +34,14 @@ $FieldInfo _ModulePatcher$PatchedModuleReader$1_FieldInfo_[] = {
 };
 
 $MethodInfo _ModulePatcher$PatchedModuleReader$1_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/module/ModulePatcher$PatchedModuleReader;Ljava/nio/ByteBuffer;)V", nullptr, 0, $method(static_cast<void(ModulePatcher$PatchedModuleReader$1::*)($ModulePatcher$PatchedModuleReader*,$ByteBuffer*)>(&ModulePatcher$PatchedModuleReader$1::init$))},
-	{"getByteBuffer", "()Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"getCodeSourceURL", "()Ljava/net/URL;", nullptr, $PUBLIC},
-	{"getContentLength", "()I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"getInputStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getURL", "()Ljava/net/URL;", nullptr, $PUBLIC},
-	{"shouldNotGetHere", "(Ljava/lang/Class;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/lang/Class<TT;>;)TT;", $PRIVATE, $method(static_cast<$Object*(ModulePatcher$PatchedModuleReader$1::*)($Class*)>(&ModulePatcher$PatchedModuleReader$1::shouldNotGetHere))},
+	{"<init>", "(Ljdk/internal/module/ModulePatcher$PatchedModuleReader;Ljava/nio/ByteBuffer;)V", nullptr, 0, $method(ModulePatcher$PatchedModuleReader$1, init$, void, $ModulePatcher$PatchedModuleReader*, $ByteBuffer*)},
+	{"getByteBuffer", "()Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $virtualMethod(ModulePatcher$PatchedModuleReader$1, getByteBuffer, $ByteBuffer*), "java.io.IOException"},
+	{"getCodeSourceURL", "()Ljava/net/URL;", nullptr, $PUBLIC, $virtualMethod(ModulePatcher$PatchedModuleReader$1, getCodeSourceURL, $URL*)},
+	{"getContentLength", "()I", nullptr, $PUBLIC, $virtualMethod(ModulePatcher$PatchedModuleReader$1, getContentLength, int32_t), "java.io.IOException"},
+	{"getInputStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(ModulePatcher$PatchedModuleReader$1, getInputStream, $InputStream*), "java.io.IOException"},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ModulePatcher$PatchedModuleReader$1, getName, $String*)},
+	{"getURL", "()Ljava/net/URL;", nullptr, $PUBLIC, $virtualMethod(ModulePatcher$PatchedModuleReader$1, getURL, $URL*)},
+	{"shouldNotGetHere", "(Ljava/lang/Class;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/lang/Class<TT;>;)TT;", $PRIVATE, $method(ModulePatcher$PatchedModuleReader$1, shouldNotGetHere, $Object*, $Class*)},
 	{}
 };
 

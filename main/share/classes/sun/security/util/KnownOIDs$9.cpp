@@ -14,8 +14,8 @@ namespace sun {
 		namespace util {
 
 $MethodInfo _KnownOIDs$9_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $PRIVATE | $TRANSIENT, $method(static_cast<void(KnownOIDs$9::*)($String*,int32_t,$String*,$String*,$StringArray*)>(&KnownOIDs$9::init$))},
-	{"registerNames", "()Z", nullptr, 0},
+	{"<init>", "(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $PRIVATE | $TRANSIENT, $method(KnownOIDs$9, init$, void, $String*, int32_t, $String*, $String*, $StringArray*)},
+	{"registerNames", "()Z", nullptr, 0, $virtualMethod(KnownOIDs$9, registerNames, bool)},
 	{}
 };
 

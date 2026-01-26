@@ -18,8 +18,8 @@ using $URLConnection = ::java::net::URLConnection;
 using $UnknownHostException = ::java::net::UnknownHostException;
 
 $MethodInfo _OpenConnection_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(OpenConnection::*)()>(&OpenConnection::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&OpenConnection::main)), "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(OpenConnection, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(OpenConnection, main, void, $StringArray*), "java.io.IOException"},
 	{}
 };
 

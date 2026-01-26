@@ -52,8 +52,8 @@ $FieldInfo PrimitiveIterator$OfDouble$$Lambda$accept::fieldInfos[2] = {
 	{}
 };
 $MethodInfo PrimitiveIterator$OfDouble$$Lambda$accept::methodInfos[3] = {
-	{"<init>", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC, $method(static_cast<void(PrimitiveIterator$OfDouble$$Lambda$accept::*)($Consumer*)>(&PrimitiveIterator$OfDouble$$Lambda$accept::init$))},
-	{"accept", "(D)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC, $method(PrimitiveIterator$OfDouble$$Lambda$accept, init$, void, $Consumer*)},
+	{"accept", "(D)V", nullptr, $PUBLIC, $virtualMethod(PrimitiveIterator$OfDouble$$Lambda$accept, accept, void, double)},
 	{}
 };
 $ClassInfo PrimitiveIterator$OfDouble$$Lambda$accept::classInfo$ = {
@@ -71,11 +71,11 @@ $Class* PrimitiveIterator$OfDouble$$Lambda$accept::load$($String* name, bool ini
 $Class* PrimitiveIterator$OfDouble$$Lambda$accept::class$ = nullptr;
 
 $MethodInfo _PrimitiveIterator$OfDouble_MethodInfo_[] = {
-	{"forEachRemaining", "(Ljava/util/function/DoubleConsumer;)V", nullptr, $PUBLIC},
-	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-Ljava/lang/Double;>;)V", $PUBLIC},
-	{"forEachRemaining", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"next", "()Ljava/lang/Double;", nullptr, $PUBLIC},
-	{"nextDouble", "()D", nullptr, $PUBLIC | $ABSTRACT},
+	{"forEachRemaining", "(Ljava/util/function/DoubleConsumer;)V", nullptr, $PUBLIC, $virtualMethod(PrimitiveIterator$OfDouble, forEachRemaining, void, $DoubleConsumer*)},
+	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-Ljava/lang/Double;>;)V", $PUBLIC, $virtualMethod(PrimitiveIterator$OfDouble, forEachRemaining, void, $Consumer*)},
+	{"forEachRemaining", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(PrimitiveIterator$OfDouble, forEachRemaining, void, Object$*)},
+	{"next", "()Ljava/lang/Double;", nullptr, $PUBLIC, $virtualMethod(PrimitiveIterator$OfDouble, next, $Object*)},
+	{"nextDouble", "()D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PrimitiveIterator$OfDouble, nextDouble, double)},
 	{}
 };
 

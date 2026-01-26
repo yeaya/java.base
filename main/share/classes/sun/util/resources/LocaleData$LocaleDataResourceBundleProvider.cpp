@@ -20,9 +20,9 @@ namespace sun {
 		namespace resources {
 
 $MethodInfo _LocaleData$LocaleDataResourceBundleProvider_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(LocaleData$LocaleDataResourceBundleProvider::*)()>(&LocaleData$LocaleDataResourceBundleProvider::init$))},
-	{"toBundleName", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PROTECTED},
-	{"toOtherBundleName", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PROTECTED},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(LocaleData$LocaleDataResourceBundleProvider, init$, void)},
+	{"toBundleName", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(LocaleData$LocaleDataResourceBundleProvider, toBundleName, $String*, $String*, $Locale*)},
+	{"toOtherBundleName", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(LocaleData$LocaleDataResourceBundleProvider, toOtherBundleName, $String*, $String*, $String*, $Locale*)},
 	{}
 };
 

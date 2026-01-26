@@ -17,9 +17,9 @@ namespace java {
 	namespace lang {
 
 $MethodInfo _ProcessBuilder$Redirect$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ProcessBuilder$Redirect$1::*)()>(&ProcessBuilder$Redirect$1::init$))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"type", "()Ljava/lang/ProcessBuilder$Redirect$Type;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(ProcessBuilder$Redirect$1, init$, void)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ProcessBuilder$Redirect$1, toString, $String*)},
+	{"type", "()Ljava/lang/ProcessBuilder$Redirect$Type;", nullptr, $PUBLIC, $virtualMethod(ProcessBuilder$Redirect$1, type, $ProcessBuilder$Redirect$Type*)},
 	{}
 };
 

@@ -12,6 +12,8 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
 using $Provider = ::java::security::Provider;
+using $Subject = ::javax::security::auth::Subject;
+using $CallbackHandler = ::javax::security::auth::callback::CallbackHandler;
 
 namespace java {
 	namespace security {
@@ -32,11 +34,11 @@ $FieldInfo _AuthProvider_FieldInfo_[] = {
 };
 
 $MethodInfo _AuthProvider_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;DLjava/lang/String;)V", nullptr, $PROTECTED | $DEPRECATED, $method(static_cast<void(AuthProvider::*)($String*,double,$String*)>(&AuthProvider::init$)), nullptr, nullptr, _AuthProvider_MethodAnnotations_init$0},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PROTECTED, $method(static_cast<void(AuthProvider::*)($String*,$String*,$String*)>(&AuthProvider::init$))},
-	{"login", "(Ljavax/security/auth/Subject;Ljavax/security/auth/callback/CallbackHandler;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "javax.security.auth.login.LoginException"},
-	{"logout", "()V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "javax.security.auth.login.LoginException"},
-	{"setCallbackHandler", "(Ljavax/security/auth/callback/CallbackHandler;)V", nullptr, $PUBLIC | $ABSTRACT},
+	{"<init>", "(Ljava/lang/String;DLjava/lang/String;)V", nullptr, $PROTECTED | $DEPRECATED, $method(AuthProvider, init$, void, $String*, double, $String*), nullptr, nullptr, _AuthProvider_MethodAnnotations_init$0},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PROTECTED, $method(AuthProvider, init$, void, $String*, $String*, $String*)},
+	{"login", "(Ljavax/security/auth/Subject;Ljavax/security/auth/callback/CallbackHandler;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AuthProvider, login, void, $Subject*, $CallbackHandler*), "javax.security.auth.login.LoginException"},
+	{"logout", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AuthProvider, logout, void), "javax.security.auth.login.LoginException"},
+	{"setCallbackHandler", "(Ljavax/security/auth/callback/CallbackHandler;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AuthProvider, setCallbackHandler, void, $CallbackHandler*)},
 	{}
 };
 

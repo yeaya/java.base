@@ -8,7 +8,7 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _LambdaConstructorMethodHandleUnbox$IntFunction_MethodInfo_[] = {
-	{"m", "(Ljava/lang/Object;)I", "(TX;)I", $PUBLIC | $ABSTRACT},
+	{"m", "(Ljava/lang/Object;)I", "(TX;)I", $PUBLIC | $ABSTRACT, $virtualMethod(LambdaConstructorMethodHandleUnbox$IntFunction, m, int32_t, Object$*)},
 	{}
 };
 

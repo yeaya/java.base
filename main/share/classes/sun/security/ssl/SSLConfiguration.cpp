@@ -120,20 +120,20 @@ $FieldInfo _SSLConfiguration_FieldInfo_[] = {
 };
 
 $MethodInfo _SSLConfiguration_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/ssl/SSLContextImpl;Z)V", nullptr, 0, $method(static_cast<void(SSLConfiguration::*)($SSLContextImpl*,bool)>(&SSLConfiguration::init$))},
-	{"addHandshakeCompletedListener", "(Ljavax/net/ssl/HandshakeCompletedListener;)V", nullptr, 0, $method(static_cast<void(SSLConfiguration::*)($HandshakeCompletedListener*)>(&SSLConfiguration::addHandshakeCompletedListener))},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"getCustomizedSignatureScheme", "(Ljava/lang/String;)Ljava/util/List;", "(Ljava/lang/String;)Ljava/util/List<Lsun/security/ssl/SignatureScheme;>;", $PRIVATE | $STATIC, $method(static_cast<$List*(*)($String*)>(&SSLConfiguration::getCustomizedSignatureScheme))},
-	{"getEnabledExtensions", "(Lsun/security/ssl/SSLHandshake;)[Lsun/security/ssl/SSLExtension;", nullptr, 0, $method(static_cast<$SSLExtensionArray*(SSLConfiguration::*)($SSLHandshake*)>(&SSLConfiguration::getEnabledExtensions))},
-	{"getEnabledExtensions", "(Lsun/security/ssl/SSLHandshake;Lsun/security/ssl/ProtocolVersion;)[Lsun/security/ssl/SSLExtension;", nullptr, 0, $method(static_cast<$SSLExtensionArray*(SSLConfiguration::*)($SSLHandshake*,$ProtocolVersion*)>(&SSLConfiguration::getEnabledExtensions))},
-	{"getEnabledExtensions", "(Lsun/security/ssl/SSLHandshake;Ljava/util/List;)[Lsun/security/ssl/SSLExtension;", "(Lsun/security/ssl/SSLHandshake;Ljava/util/List<Lsun/security/ssl/ProtocolVersion;>;)[Lsun/security/ssl/SSLExtension;", 0, $method(static_cast<$SSLExtensionArray*(SSLConfiguration::*)($SSLHandshake*,$List*)>(&SSLConfiguration::getEnabledExtensions))},
-	{"getExclusiveExtensions", "(Lsun/security/ssl/SSLHandshake;Ljava/util/List;)[Lsun/security/ssl/SSLExtension;", "(Lsun/security/ssl/SSLHandshake;Ljava/util/List<Lsun/security/ssl/SSLExtension;>;)[Lsun/security/ssl/SSLExtension;", 0, $method(static_cast<$SSLExtensionArray*(SSLConfiguration::*)($SSLHandshake*,$List*)>(&SSLConfiguration::getExclusiveExtensions))},
-	{"getSSLParameters", "()Ljavax/net/ssl/SSLParameters;", nullptr, 0, $method(static_cast<$SSLParameters*(SSLConfiguration::*)()>(&SSLConfiguration::getSSLParameters))},
-	{"isAvailable", "(Lsun/security/ssl/SSLExtension;)Z", nullptr, 0, $method(static_cast<bool(SSLConfiguration::*)($SSLExtension*)>(&SSLConfiguration::isAvailable))},
-	{"isAvailable", "(Lsun/security/ssl/SSLExtension;Lsun/security/ssl/ProtocolVersion;)Z", nullptr, 0, $method(static_cast<bool(SSLConfiguration::*)($SSLExtension*,$ProtocolVersion*)>(&SSLConfiguration::isAvailable))},
-	{"removeHandshakeCompletedListener", "(Ljavax/net/ssl/HandshakeCompletedListener;)V", nullptr, 0, $method(static_cast<void(SSLConfiguration::*)($HandshakeCompletedListener*)>(&SSLConfiguration::removeHandshakeCompletedListener))},
-	{"setSSLParameters", "(Ljavax/net/ssl/SSLParameters;)V", nullptr, 0, $method(static_cast<void(SSLConfiguration::*)($SSLParameters*)>(&SSLConfiguration::setSSLParameters))},
-	{"toggleClientMode", "()V", nullptr, 0, $method(static_cast<void(SSLConfiguration::*)()>(&SSLConfiguration::toggleClientMode))},
+	{"<init>", "(Lsun/security/ssl/SSLContextImpl;Z)V", nullptr, 0, $method(SSLConfiguration, init$, void, $SSLContextImpl*, bool)},
+	{"addHandshakeCompletedListener", "(Ljavax/net/ssl/HandshakeCompletedListener;)V", nullptr, 0, $method(SSLConfiguration, addHandshakeCompletedListener, void, $HandshakeCompletedListener*)},
+	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SSLConfiguration, clone, $Object*)},
+	{"getCustomizedSignatureScheme", "(Ljava/lang/String;)Ljava/util/List;", "(Ljava/lang/String;)Ljava/util/List<Lsun/security/ssl/SignatureScheme;>;", $PRIVATE | $STATIC, $staticMethod(SSLConfiguration, getCustomizedSignatureScheme, $List*, $String*)},
+	{"getEnabledExtensions", "(Lsun/security/ssl/SSLHandshake;)[Lsun/security/ssl/SSLExtension;", nullptr, 0, $method(SSLConfiguration, getEnabledExtensions, $SSLExtensionArray*, $SSLHandshake*)},
+	{"getEnabledExtensions", "(Lsun/security/ssl/SSLHandshake;Lsun/security/ssl/ProtocolVersion;)[Lsun/security/ssl/SSLExtension;", nullptr, 0, $method(SSLConfiguration, getEnabledExtensions, $SSLExtensionArray*, $SSLHandshake*, $ProtocolVersion*)},
+	{"getEnabledExtensions", "(Lsun/security/ssl/SSLHandshake;Ljava/util/List;)[Lsun/security/ssl/SSLExtension;", "(Lsun/security/ssl/SSLHandshake;Ljava/util/List<Lsun/security/ssl/ProtocolVersion;>;)[Lsun/security/ssl/SSLExtension;", 0, $method(SSLConfiguration, getEnabledExtensions, $SSLExtensionArray*, $SSLHandshake*, $List*)},
+	{"getExclusiveExtensions", "(Lsun/security/ssl/SSLHandshake;Ljava/util/List;)[Lsun/security/ssl/SSLExtension;", "(Lsun/security/ssl/SSLHandshake;Ljava/util/List<Lsun/security/ssl/SSLExtension;>;)[Lsun/security/ssl/SSLExtension;", 0, $method(SSLConfiguration, getExclusiveExtensions, $SSLExtensionArray*, $SSLHandshake*, $List*)},
+	{"getSSLParameters", "()Ljavax/net/ssl/SSLParameters;", nullptr, 0, $method(SSLConfiguration, getSSLParameters, $SSLParameters*)},
+	{"isAvailable", "(Lsun/security/ssl/SSLExtension;)Z", nullptr, 0, $method(SSLConfiguration, isAvailable, bool, $SSLExtension*)},
+	{"isAvailable", "(Lsun/security/ssl/SSLExtension;Lsun/security/ssl/ProtocolVersion;)Z", nullptr, 0, $method(SSLConfiguration, isAvailable, bool, $SSLExtension*, $ProtocolVersion*)},
+	{"removeHandshakeCompletedListener", "(Ljavax/net/ssl/HandshakeCompletedListener;)V", nullptr, 0, $method(SSLConfiguration, removeHandshakeCompletedListener, void, $HandshakeCompletedListener*)},
+	{"setSSLParameters", "(Ljavax/net/ssl/SSLParameters;)V", nullptr, 0, $method(SSLConfiguration, setSSLParameters, void, $SSLParameters*)},
+	{"toggleClientMode", "()V", nullptr, 0, $method(SSLConfiguration, toggleClientMode, void)},
 	{}
 };
 

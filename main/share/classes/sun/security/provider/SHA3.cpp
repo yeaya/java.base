@@ -46,21 +46,21 @@ $FieldInfo _SHA3_FieldInfo_[] = {
 };
 
 $MethodInfo _SHA3_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;IBI)V", nullptr, 0, $method(static_cast<void(SHA3::*)($String*,int32_t,int8_t,int32_t)>(&SHA3::init$))},
-	{"bytes2Lanes", "([B[J)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($bytes*,$longs*)>(&SHA3::bytes2Lanes))},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, nullptr, "java.lang.CloneNotSupportedException"},
-	{"implCompress", "([BI)V", nullptr, 0},
-	{"implCompress0", "([BI)V", nullptr, $PRIVATE, $method(static_cast<void(SHA3::*)($bytes*,int32_t)>(&SHA3::implCompress0)), nullptr, nullptr, _SHA3_MethodAnnotations_implCompress04},
-	{"implCompressCheck", "([BI)V", nullptr, $PRIVATE, $method(static_cast<void(SHA3::*)($bytes*,int32_t)>(&SHA3::implCompressCheck))},
-	{"implDigest", "([BI)V", nullptr, 0},
-	{"implReset", "()V", nullptr, 0},
-	{"keccak", "()V", nullptr, $PRIVATE, $method(static_cast<void(SHA3::*)()>(&SHA3::keccak))},
-	{"lanes2Bytes", "([J[B)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($longs*,$bytes*)>(&SHA3::lanes2Bytes))},
-	{"setPaddingBytes", "(B[BI)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)(int8_t,$bytes*,int32_t)>(&SHA3::setPaddingBytes))},
-	{"smChi", "([J)[J", nullptr, $PRIVATE | $STATIC, $method(static_cast<$longs*(*)($longs*)>(&SHA3::smChi))},
-	{"smIota", "([JI)[J", nullptr, $PRIVATE | $STATIC, $method(static_cast<$longs*(*)($longs*,int32_t)>(&SHA3::smIota))},
-	{"smPiRho", "([J)[J", nullptr, $PRIVATE | $STATIC, $method(static_cast<$longs*(*)($longs*)>(&SHA3::smPiRho))},
-	{"smTheta", "([J)[J", nullptr, $PRIVATE | $STATIC, $method(static_cast<$longs*(*)($longs*)>(&SHA3::smTheta))},
+	{"<init>", "(Ljava/lang/String;IBI)V", nullptr, 0, $method(SHA3, init$, void, $String*, int32_t, int8_t, int32_t)},
+	{"bytes2Lanes", "([B[J)V", nullptr, $PRIVATE | $STATIC, $staticMethod(SHA3, bytes2Lanes, void, $bytes*, $longs*)},
+	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SHA3, clone, $Object*), "java.lang.CloneNotSupportedException"},
+	{"implCompress", "([BI)V", nullptr, 0, $virtualMethod(SHA3, implCompress, void, $bytes*, int32_t)},
+	{"implCompress0", "([BI)V", nullptr, $PRIVATE, $method(SHA3, implCompress0, void, $bytes*, int32_t), nullptr, nullptr, _SHA3_MethodAnnotations_implCompress04},
+	{"implCompressCheck", "([BI)V", nullptr, $PRIVATE, $method(SHA3, implCompressCheck, void, $bytes*, int32_t)},
+	{"implDigest", "([BI)V", nullptr, 0, $virtualMethod(SHA3, implDigest, void, $bytes*, int32_t)},
+	{"implReset", "()V", nullptr, 0, $virtualMethod(SHA3, implReset, void)},
+	{"keccak", "()V", nullptr, $PRIVATE, $method(SHA3, keccak, void)},
+	{"lanes2Bytes", "([J[B)V", nullptr, $PRIVATE | $STATIC, $staticMethod(SHA3, lanes2Bytes, void, $longs*, $bytes*)},
+	{"setPaddingBytes", "(B[BI)I", nullptr, $PRIVATE | $STATIC, $staticMethod(SHA3, setPaddingBytes, int32_t, int8_t, $bytes*, int32_t)},
+	{"smChi", "([J)[J", nullptr, $PRIVATE | $STATIC, $staticMethod(SHA3, smChi, $longs*, $longs*)},
+	{"smIota", "([JI)[J", nullptr, $PRIVATE | $STATIC, $staticMethod(SHA3, smIota, $longs*, $longs*, int32_t)},
+	{"smPiRho", "([J)[J", nullptr, $PRIVATE | $STATIC, $staticMethod(SHA3, smPiRho, $longs*, $longs*)},
+	{"smTheta", "([J)[J", nullptr, $PRIVATE | $STATIC, $staticMethod(SHA3, smTheta, $longs*, $longs*)},
 	{}
 };
 

@@ -13,8 +13,8 @@ namespace java {
 	namespace security {
 
 $MethodInfo _Security$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Security$1::*)()>(&Security$1::init$))},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(Security$1, init$, void)},
+	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(Security$1, run, $Object*)},
 	{}
 };
 

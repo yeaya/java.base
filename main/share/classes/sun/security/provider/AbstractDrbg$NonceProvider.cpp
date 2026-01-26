@@ -18,8 +18,8 @@ $FieldInfo _AbstractDrbg$NonceProvider_FieldInfo_[] = {
 };
 
 $MethodInfo _AbstractDrbg$NonceProvider_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(AbstractDrbg$NonceProvider::*)()>(&AbstractDrbg$NonceProvider::init$))},
-	{"next", "()[B", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $method(static_cast<$bytes*(*)()>(&AbstractDrbg$NonceProvider::next))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(AbstractDrbg$NonceProvider, init$, void)},
+	{"next", "()[B", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(AbstractDrbg$NonceProvider, next, $bytes*)},
 	{}
 };
 

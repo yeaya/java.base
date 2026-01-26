@@ -24,10 +24,10 @@ $FieldInfo _ReaderUTF8_FieldInfo_[] = {
 };
 
 $MethodInfo _ReaderUTF8_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(static_cast<void(ReaderUTF8::*)($InputStream*)>(&ReaderUTF8::init$))},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"read", "([CII)I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"read", "()I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(ReaderUTF8, init$, void, $InputStream*)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(ReaderUTF8, close, void), "java.io.IOException"},
+	{"read", "([CII)I", nullptr, $PUBLIC, $virtualMethod(ReaderUTF8, read, int32_t, $chars*, int32_t, int32_t), "java.io.IOException"},
+	{"read", "()I", nullptr, $PUBLIC, $virtualMethod(ReaderUTF8, read, int32_t), "java.io.IOException"},
 	{}
 };
 

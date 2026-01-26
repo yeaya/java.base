@@ -14,8 +14,8 @@ namespace sun {
 		namespace ch {
 
 $MethodInfo _AllocatedNativeObject_MethodInfo_[] = {
-	{"<init>", "(IZ)V", nullptr, 0, $method(static_cast<void(AllocatedNativeObject::*)(int32_t,bool)>(&AllocatedNativeObject::init$))},
-	{"free", "()V", nullptr, $SYNCHRONIZED},
+	{"<init>", "(IZ)V", nullptr, 0, $method(AllocatedNativeObject, init$, void, int32_t, bool)},
+	{"free", "()V", nullptr, $SYNCHRONIZED, $virtualMethod(AllocatedNativeObject, free, void)},
 	{}
 };
 

@@ -15,10 +15,10 @@ namespace sun {
 		namespace util {
 
 $MethodInfo _Event_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(Event::*)()>(&Event::init$))},
-	{"clearReportListener", "(Lsun/security/util/Event$ReporterCategory;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($Event$ReporterCategory*)>(&Event::clearReportListener))},
-	{"report", "(Lsun/security/util/Event$ReporterCategory;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<void(*)($Event$ReporterCategory*,$String*,$ObjectArray*)>(&Event::report))},
-	{"setReportListener", "(Lsun/security/util/Event$ReporterCategory;Lsun/security/util/Event$Reporter;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($Event$ReporterCategory*,$Event$Reporter*)>(&Event::setReportListener))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(Event, init$, void)},
+	{"clearReportListener", "(Lsun/security/util/Event$ReporterCategory;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Event, clearReportListener, void, $Event$ReporterCategory*)},
+	{"report", "(Lsun/security/util/Event$ReporterCategory;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(Event, report, void, $Event$ReporterCategory*, $String*, $ObjectArray*)},
+	{"setReportListener", "(Lsun/security/util/Event$ReporterCategory;Lsun/security/util/Event$Reporter;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Event, setReportListener, void, $Event$ReporterCategory*, $Event$Reporter*)},
 	{}
 };
 

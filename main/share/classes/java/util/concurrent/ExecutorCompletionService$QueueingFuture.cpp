@@ -29,8 +29,8 @@ $FieldInfo _ExecutorCompletionService$QueueingFuture_FieldInfo_[] = {
 };
 
 $MethodInfo _ExecutorCompletionService$QueueingFuture_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/RunnableFuture;Ljava/util/concurrent/BlockingQueue;)V", "(Ljava/util/concurrent/RunnableFuture<TV;>;Ljava/util/concurrent/BlockingQueue<Ljava/util/concurrent/Future<TV;>;>;)V", 0, $method(static_cast<void(ExecutorCompletionService$QueueingFuture::*)($RunnableFuture*,$BlockingQueue*)>(&ExecutorCompletionService$QueueingFuture::init$))},
-	{"done", "()V", nullptr, $PROTECTED},
+	{"<init>", "(Ljava/util/concurrent/RunnableFuture;Ljava/util/concurrent/BlockingQueue;)V", "(Ljava/util/concurrent/RunnableFuture<TV;>;Ljava/util/concurrent/BlockingQueue<Ljava/util/concurrent/Future<TV;>;>;)V", 0, $method(ExecutorCompletionService$QueueingFuture, init$, void, $RunnableFuture*, $BlockingQueue*)},
+	{"done", "()V", nullptr, $PROTECTED, $virtualMethod(ExecutorCompletionService$QueueingFuture, done, void)},
 	{}
 };
 

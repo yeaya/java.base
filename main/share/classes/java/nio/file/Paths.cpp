@@ -14,9 +14,9 @@ namespace java {
 		namespace file {
 
 $MethodInfo _Paths_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(Paths::*)()>(&Paths::init$))},
-	{"get", "(Ljava/lang/String;[Ljava/lang/String;)Ljava/nio/file/Path;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<$Path*(*)($String*,$StringArray*)>(&Paths::get))},
-	{"get", "(Ljava/net/URI;)Ljava/nio/file/Path;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Path*(*)($URI*)>(&Paths::get))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(Paths, init$, void)},
+	{"get", "(Ljava/lang/String;[Ljava/lang/String;)Ljava/nio/file/Path;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(Paths, get, $Path*, $String*, $StringArray*)},
+	{"get", "(Ljava/net/URI;)Ljava/nio/file/Path;", nullptr, $PUBLIC | $STATIC, $staticMethod(Paths, get, $Path*, $URI*)},
 	{}
 };
 

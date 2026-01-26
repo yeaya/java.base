@@ -36,10 +36,10 @@ $FieldInfo _InvokeDynamicPrintArgs$TestPolicy_FieldInfo_[] = {
 };
 
 $MethodInfo _InvokeDynamicPrintArgs$TestPolicy_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(InvokeDynamicPrintArgs$TestPolicy::*)()>(&InvokeDynamicPrintArgs$TestPolicy::init$))},
-	{"getPermissions", "(Ljava/security/ProtectionDomain;)Ljava/security/PermissionCollection;", nullptr, $PUBLIC},
-	{"getPermissions", "(Ljava/security/CodeSource;)Ljava/security/PermissionCollection;", nullptr, $PUBLIC},
-	{"implies", "(Ljava/security/ProtectionDomain;Ljava/security/Permission;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(InvokeDynamicPrintArgs$TestPolicy, init$, void)},
+	{"getPermissions", "(Ljava/security/ProtectionDomain;)Ljava/security/PermissionCollection;", nullptr, $PUBLIC, $virtualMethod(InvokeDynamicPrintArgs$TestPolicy, getPermissions, $PermissionCollection*, $ProtectionDomain*)},
+	{"getPermissions", "(Ljava/security/CodeSource;)Ljava/security/PermissionCollection;", nullptr, $PUBLIC, $virtualMethod(InvokeDynamicPrintArgs$TestPolicy, getPermissions, $PermissionCollection*, $CodeSource*)},
+	{"implies", "(Ljava/security/ProtectionDomain;Ljava/security/Permission;)Z", nullptr, $PUBLIC, $virtualMethod(InvokeDynamicPrintArgs$TestPolicy, implies, bool, $ProtectionDomain*, $Permission*)},
 	{}
 };
 

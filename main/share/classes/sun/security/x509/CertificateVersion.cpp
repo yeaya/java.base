@@ -44,21 +44,21 @@ $FieldInfo _CertificateVersion_FieldInfo_[] = {
 };
 
 $MethodInfo _CertificateVersion_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CertificateVersion::*)()>(&CertificateVersion::init$))},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(static_cast<void(CertificateVersion::*)(int32_t)>(&CertificateVersion::init$)), "java.io.IOException"},
-	{"<init>", "(Lsun/security/util/DerInputStream;)V", nullptr, $PUBLIC, $method(static_cast<void(CertificateVersion::*)($DerInputStream*)>(&CertificateVersion::init$)), "java.io.IOException"},
-	{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(static_cast<void(CertificateVersion::*)($InputStream*)>(&CertificateVersion::init$)), "java.io.IOException"},
-	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(static_cast<void(CertificateVersion::*)($DerValue*)>(&CertificateVersion::init$)), "java.io.IOException"},
-	{"compare", "(I)I", nullptr, $PUBLIC},
-	{"construct", "(Lsun/security/util/DerValue;)V", nullptr, $PRIVATE, $method(static_cast<void(CertificateVersion::*)($DerValue*)>(&CertificateVersion::construct)), "java.io.IOException"},
-	{"delete", "(Ljava/lang/String;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"encode", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"get", "(Ljava/lang/String;)Ljava/lang/Integer;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"getElements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getVersion", "()I", nullptr, $PRIVATE, $method(static_cast<int32_t(CertificateVersion::*)()>(&CertificateVersion::getVersion))},
-	{"set", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CertificateVersion, init$, void)},
+	{"<init>", "(I)V", nullptr, $PUBLIC, $method(CertificateVersion, init$, void, int32_t), "java.io.IOException"},
+	{"<init>", "(Lsun/security/util/DerInputStream;)V", nullptr, $PUBLIC, $method(CertificateVersion, init$, void, $DerInputStream*), "java.io.IOException"},
+	{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(CertificateVersion, init$, void, $InputStream*), "java.io.IOException"},
+	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(CertificateVersion, init$, void, $DerValue*), "java.io.IOException"},
+	{"compare", "(I)I", nullptr, $PUBLIC, $virtualMethod(CertificateVersion, compare, int32_t, int32_t)},
+	{"construct", "(Lsun/security/util/DerValue;)V", nullptr, $PRIVATE, $method(CertificateVersion, construct, void, $DerValue*), "java.io.IOException"},
+	{"delete", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CertificateVersion, delete$, void, $String*), "java.io.IOException"},
+	{"encode", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(CertificateVersion, encode, void, $OutputStream*), "java.io.IOException"},
+	{"get", "(Ljava/lang/String;)Ljava/lang/Integer;", nullptr, $PUBLIC, $virtualMethod(CertificateVersion, get, $Object*, $String*), "java.io.IOException"},
+	{"getElements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(CertificateVersion, getElements, $Enumeration*)},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CertificateVersion, getName, $String*)},
+	{"getVersion", "()I", nullptr, $PRIVATE, $method(CertificateVersion, getVersion, int32_t)},
+	{"set", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(CertificateVersion, set, void, $String*, Object$*), "java.io.IOException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CertificateVersion, toString, $String*)},
 	{}
 };
 

@@ -21,8 +21,8 @@ namespace sun {
 		namespace ssl {
 
 $MethodInfo _Finished$S30VerifyDataGenerator_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(Finished$S30VerifyDataGenerator::*)()>(&Finished$S30VerifyDataGenerator::init$))},
-	{"createVerifyData", "(Lsun/security/ssl/HandshakeContext;Z)[B", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(Finished$S30VerifyDataGenerator, init$, void)},
+	{"createVerifyData", "(Lsun/security/ssl/HandshakeContext;Z)[B", nullptr, $PUBLIC, $virtualMethod(Finished$S30VerifyDataGenerator, createVerifyData, $bytes*, $HandshakeContext*, bool), "java.io.IOException"},
 	{}
 };
 

@@ -16,6 +16,7 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Collection = ::java::util::Collection;
+using $Comparator = ::java::util::Comparator;
 using $Set = ::java::util::Set;
 using $SortedSet$1 = ::java::util::SortedSet$1;
 using $Spliterator = ::java::util::Spliterator;
@@ -25,13 +26,13 @@ namespace java {
 	namespace util {
 
 $MethodInfo _SortedSet_MethodInfo_[] = {
-	{"comparator", "()Ljava/util/Comparator;", "()Ljava/util/Comparator<-TE;>;", $PUBLIC | $ABSTRACT},
-	{"first", "()Ljava/lang/Object;", "()TE;", $PUBLIC | $ABSTRACT},
-	{"headSet", "(Ljava/lang/Object;)Ljava/util/SortedSet;", "(TE;)Ljava/util/SortedSet<TE;>;", $PUBLIC | $ABSTRACT},
-	{"last", "()Ljava/lang/Object;", "()TE;", $PUBLIC | $ABSTRACT},
-	{"spliterator", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TE;>;", $PUBLIC},
-	{"subSet", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/SortedSet;", "(TE;TE;)Ljava/util/SortedSet<TE;>;", $PUBLIC | $ABSTRACT},
-	{"tailSet", "(Ljava/lang/Object;)Ljava/util/SortedSet;", "(TE;)Ljava/util/SortedSet<TE;>;", $PUBLIC | $ABSTRACT},
+	{"comparator", "()Ljava/util/Comparator;", "()Ljava/util/Comparator<-TE;>;", $PUBLIC | $ABSTRACT, $virtualMethod(SortedSet, comparator, $Comparator*)},
+	{"first", "()Ljava/lang/Object;", "()TE;", $PUBLIC | $ABSTRACT, $virtualMethod(SortedSet, first, $Object*)},
+	{"headSet", "(Ljava/lang/Object;)Ljava/util/SortedSet;", "(TE;)Ljava/util/SortedSet<TE;>;", $PUBLIC | $ABSTRACT, $virtualMethod(SortedSet, headSet, SortedSet*, Object$*)},
+	{"last", "()Ljava/lang/Object;", "()TE;", $PUBLIC | $ABSTRACT, $virtualMethod(SortedSet, last, $Object*)},
+	{"spliterator", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TE;>;", $PUBLIC, $virtualMethod(SortedSet, spliterator, $Spliterator*)},
+	{"subSet", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/SortedSet;", "(TE;TE;)Ljava/util/SortedSet<TE;>;", $PUBLIC | $ABSTRACT, $virtualMethod(SortedSet, subSet, SortedSet*, Object$*, Object$*)},
+	{"tailSet", "(Ljava/lang/Object;)Ljava/util/SortedSet;", "(TE;)Ljava/util/SortedSet<TE;>;", $PUBLIC | $ABSTRACT, $virtualMethod(SortedSet, tailSet, SortedSet*, Object$*)},
 	{}
 };
 

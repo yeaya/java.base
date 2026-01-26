@@ -18,7 +18,7 @@ $CompoundAttribute _UCharacterEnums_Annotations_[] = {
 };
 
 $MethodInfo _UCharacterEnums_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(UCharacterEnums::*)()>(&UCharacterEnums::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(UCharacterEnums, init$, void)},
 	{}
 };
 

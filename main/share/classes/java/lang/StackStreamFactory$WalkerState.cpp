@@ -27,10 +27,10 @@ $FieldInfo _StackStreamFactory$WalkerState_FieldInfo_[] = {
 };
 
 $MethodInfo _StackStreamFactory$WalkerState_MethodInfo_[] = {
-	{"$values", "()[Ljava/lang/StackStreamFactory$WalkerState;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$StackStreamFactory$WalkerStateArray*(*)()>(&StackStreamFactory$WalkerState::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(StackStreamFactory$WalkerState::*)($String*,int32_t)>(&StackStreamFactory$WalkerState::init$))},
-	{"valueOf", "(Ljava/lang/String;)Ljava/lang/StackStreamFactory$WalkerState;", nullptr, $PUBLIC | $STATIC, $method(static_cast<StackStreamFactory$WalkerState*(*)($String*)>(&StackStreamFactory$WalkerState::valueOf))},
-	{"values", "()[Ljava/lang/StackStreamFactory$WalkerState;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$StackStreamFactory$WalkerStateArray*(*)()>(&StackStreamFactory$WalkerState::values))},
+	{"$values", "()[Ljava/lang/StackStreamFactory$WalkerState;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StackStreamFactory$WalkerState, $values, $StackStreamFactory$WalkerStateArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(StackStreamFactory$WalkerState, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Ljava/lang/StackStreamFactory$WalkerState;", nullptr, $PUBLIC | $STATIC, $staticMethod(StackStreamFactory$WalkerState, valueOf, StackStreamFactory$WalkerState*, $String*)},
+	{"values", "()[Ljava/lang/StackStreamFactory$WalkerState;", nullptr, $PUBLIC | $STATIC, $staticMethod(StackStreamFactory$WalkerState, values, $StackStreamFactory$WalkerStateArray*)},
 	{}
 };
 

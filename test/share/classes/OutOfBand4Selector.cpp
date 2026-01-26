@@ -39,9 +39,9 @@ using $Iterator = ::java::util::Iterator;
 using $Set = ::java::util::Set;
 
 $MethodInfo _OutOfBand4Selector_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(OutOfBand4Selector::*)()>(&OutOfBand4Selector::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&OutOfBand4Selector::main)), "java.lang.Exception"},
-	{"test", "(Ljava/net/Socket;ZIILjava/nio/channels/Selector;)V", nullptr, $STATIC, $method(static_cast<void(*)($Socket*,bool,int32_t,int32_t,$Selector*)>(&OutOfBand4Selector::test)), "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(OutOfBand4Selector, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(OutOfBand4Selector, main, void, $StringArray*), "java.lang.Exception"},
+	{"test", "(Ljava/net/Socket;ZIILjava/nio/channels/Selector;)V", nullptr, $STATIC, $staticMethod(OutOfBand4Selector, test, void, $Socket*, bool, int32_t, int32_t, $Selector*), "java.io.IOException"},
 	{}
 };
 

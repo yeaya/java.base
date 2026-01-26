@@ -76,8 +76,8 @@ $FieldInfo GenerateJLIClassesHelper$HolderClassBuilder$$Lambda$lambda$build$0::f
 	{}
 };
 $MethodInfo GenerateJLIClassesHelper$HolderClassBuilder$$Lambda$lambda$build$0::methodInfos[3] = {
-	{"<init>", "(Ljava/util/Map;)V", nullptr, $PUBLIC, $method(static_cast<void(GenerateJLIClassesHelper$HolderClassBuilder$$Lambda$lambda$build$0::*)($Map*)>(&GenerateJLIClassesHelper$HolderClassBuilder$$Lambda$lambda$build$0::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/Map;)V", nullptr, $PUBLIC, $method(GenerateJLIClassesHelper$HolderClassBuilder$$Lambda$lambda$build$0, init$, void, $Map*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(GenerateJLIClassesHelper$HolderClassBuilder$$Lambda$lambda$build$0, accept, void, Object$*)},
 	{}
 };
 $ClassInfo GenerateJLIClassesHelper$HolderClassBuilder$$Lambda$lambda$build$0::classInfo$ = {
@@ -104,18 +104,18 @@ $FieldInfo _GenerateJLIClassesHelper$HolderClassBuilder_FieldInfo_[] = {
 };
 
 $MethodInfo _GenerateJLIClassesHelper$HolderClassBuilder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(GenerateJLIClassesHelper$HolderClassBuilder::*)()>(&GenerateJLIClassesHelper$HolderClassBuilder::init$))},
-	{"addCallSiteType", "(Ljava/lang/String;)Ljava/lang/invoke/GenerateJLIClassesHelper$HolderClassBuilder;", nullptr, 0},
-	{"addDMHMethodType", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(static_cast<void(GenerateJLIClassesHelper$HolderClassBuilder::*)($String*,$String*)>(&GenerateJLIClassesHelper$HolderClassBuilder::addDMHMethodType))},
-	{"addInvokerType", "(Ljava/lang/String;)Ljava/lang/invoke/GenerateJLIClassesHelper$HolderClassBuilder;", nullptr, 0},
-	{"addSpeciesType", "(Ljava/lang/String;)Ljava/lang/invoke/GenerateJLIClassesHelper$HolderClassBuilder;", nullptr, 0},
-	{"asMethodType", "(Ljava/lang/String;)Ljava/lang/invoke/MethodType;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$MethodType*(*)($String*)>(&GenerateJLIClassesHelper$HolderClassBuilder::asMethodType))},
-	{"build", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;[B>;", 0},
-	{"expandSignature", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($String*)>(&GenerateJLIClassesHelper$HolderClassBuilder::expandSignature))},
-	{"lambda$build$0", "(Ljava/util/Map;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($Map*,$String*)>(&GenerateJLIClassesHelper$HolderClassBuilder::lambda$build$0))},
-	{"requireBasicType", "(C)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)(char16_t)>(&GenerateJLIClassesHelper$HolderClassBuilder::requireBasicType))},
-	{"simpleType", "(C)Ljava/lang/Class;", "(C)Ljava/lang/Class<*>;", $PRIVATE | $STATIC, $method(static_cast<$Class*(*)(char16_t)>(&GenerateJLIClassesHelper$HolderClassBuilder::simpleType))},
-	{"validateMethodType", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($String*)>(&GenerateJLIClassesHelper$HolderClassBuilder::validateMethodType))},
+	{"<init>", "()V", nullptr, 0, $method(GenerateJLIClassesHelper$HolderClassBuilder, init$, void)},
+	{"addCallSiteType", "(Ljava/lang/String;)Ljava/lang/invoke/GenerateJLIClassesHelper$HolderClassBuilder;", nullptr, 0, $virtualMethod(GenerateJLIClassesHelper$HolderClassBuilder, addCallSiteType, GenerateJLIClassesHelper$HolderClassBuilder*, $String*)},
+	{"addDMHMethodType", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(GenerateJLIClassesHelper$HolderClassBuilder, addDMHMethodType, void, $String*, $String*)},
+	{"addInvokerType", "(Ljava/lang/String;)Ljava/lang/invoke/GenerateJLIClassesHelper$HolderClassBuilder;", nullptr, 0, $virtualMethod(GenerateJLIClassesHelper$HolderClassBuilder, addInvokerType, GenerateJLIClassesHelper$HolderClassBuilder*, $String*)},
+	{"addSpeciesType", "(Ljava/lang/String;)Ljava/lang/invoke/GenerateJLIClassesHelper$HolderClassBuilder;", nullptr, 0, $virtualMethod(GenerateJLIClassesHelper$HolderClassBuilder, addSpeciesType, GenerateJLIClassesHelper$HolderClassBuilder*, $String*)},
+	{"asMethodType", "(Ljava/lang/String;)Ljava/lang/invoke/MethodType;", nullptr, $PRIVATE | $STATIC, $staticMethod(GenerateJLIClassesHelper$HolderClassBuilder, asMethodType, $MethodType*, $String*)},
+	{"build", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;[B>;", 0, $virtualMethod(GenerateJLIClassesHelper$HolderClassBuilder, build, $Map*)},
+	{"expandSignature", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(GenerateJLIClassesHelper$HolderClassBuilder, expandSignature, $String*, $String*)},
+	{"lambda$build$0", "(Ljava/util/Map;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(GenerateJLIClassesHelper$HolderClassBuilder, lambda$build$0, void, $Map*, $String*)},
+	{"requireBasicType", "(C)V", nullptr, $PRIVATE | $STATIC, $staticMethod(GenerateJLIClassesHelper$HolderClassBuilder, requireBasicType, void, char16_t)},
+	{"simpleType", "(C)Ljava/lang/Class;", "(C)Ljava/lang/Class<*>;", $PRIVATE | $STATIC, $staticMethod(GenerateJLIClassesHelper$HolderClassBuilder, simpleType, $Class*, char16_t)},
+	{"validateMethodType", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(GenerateJLIClassesHelper$HolderClassBuilder, validateMethodType, void, $String*)},
 	{}
 };
 

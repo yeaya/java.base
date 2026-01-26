@@ -19,7 +19,7 @@ $FieldInfo _Security$ProviderProperty_FieldInfo_[] = {
 };
 
 $MethodInfo _Security$ProviderProperty_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(Security$ProviderProperty::*)()>(&Security$ProviderProperty::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(Security$ProviderProperty, init$, void)},
 	{}
 };
 

@@ -41,21 +41,21 @@ $FieldInfo _TlsKeyMaterialParameterSpec_FieldInfo_[] = {
 };
 
 $MethodInfo _TlsKeyMaterialParameterSpec_MethodInfo_[] = {
-	{"<init>", "(Ljavax/crypto/SecretKey;II[B[BLjava/lang/String;IIIILjava/lang/String;II)V", nullptr, $PUBLIC, $method(static_cast<void(TlsKeyMaterialParameterSpec::*)($SecretKey*,int32_t,int32_t,$bytes*,$bytes*,$String*,int32_t,int32_t,int32_t,int32_t,$String*,int32_t,int32_t)>(&TlsKeyMaterialParameterSpec::init$))},
-	{"checkSign", "(I)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)(int32_t)>(&TlsKeyMaterialParameterSpec::checkSign))},
-	{"getCipherAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getCipherKeyLength", "()I", nullptr, $PUBLIC},
-	{"getClientRandom", "()[B", nullptr, $PUBLIC},
-	{"getExpandedCipherKeyLength", "()I", nullptr, $PUBLIC},
-	{"getIvLength", "()I", nullptr, $PUBLIC},
-	{"getMacKeyLength", "()I", nullptr, $PUBLIC},
-	{"getMajorVersion", "()I", nullptr, $PUBLIC},
-	{"getMasterSecret", "()Ljavax/crypto/SecretKey;", nullptr, $PUBLIC},
-	{"getMinorVersion", "()I", nullptr, $PUBLIC},
-	{"getPRFBlockSize", "()I", nullptr, $PUBLIC},
-	{"getPRFHashAlg", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getPRFHashLength", "()I", nullptr, $PUBLIC},
-	{"getServerRandom", "()[B", nullptr, $PUBLIC},
+	{"<init>", "(Ljavax/crypto/SecretKey;II[B[BLjava/lang/String;IIIILjava/lang/String;II)V", nullptr, $PUBLIC, $method(TlsKeyMaterialParameterSpec, init$, void, $SecretKey*, int32_t, int32_t, $bytes*, $bytes*, $String*, int32_t, int32_t, int32_t, int32_t, $String*, int32_t, int32_t)},
+	{"checkSign", "(I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(TlsKeyMaterialParameterSpec, checkSign, int32_t, int32_t)},
+	{"getCipherAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TlsKeyMaterialParameterSpec, getCipherAlgorithm, $String*)},
+	{"getCipherKeyLength", "()I", nullptr, $PUBLIC, $virtualMethod(TlsKeyMaterialParameterSpec, getCipherKeyLength, int32_t)},
+	{"getClientRandom", "()[B", nullptr, $PUBLIC, $virtualMethod(TlsKeyMaterialParameterSpec, getClientRandom, $bytes*)},
+	{"getExpandedCipherKeyLength", "()I", nullptr, $PUBLIC, $virtualMethod(TlsKeyMaterialParameterSpec, getExpandedCipherKeyLength, int32_t)},
+	{"getIvLength", "()I", nullptr, $PUBLIC, $virtualMethod(TlsKeyMaterialParameterSpec, getIvLength, int32_t)},
+	{"getMacKeyLength", "()I", nullptr, $PUBLIC, $virtualMethod(TlsKeyMaterialParameterSpec, getMacKeyLength, int32_t)},
+	{"getMajorVersion", "()I", nullptr, $PUBLIC, $virtualMethod(TlsKeyMaterialParameterSpec, getMajorVersion, int32_t)},
+	{"getMasterSecret", "()Ljavax/crypto/SecretKey;", nullptr, $PUBLIC, $virtualMethod(TlsKeyMaterialParameterSpec, getMasterSecret, $SecretKey*)},
+	{"getMinorVersion", "()I", nullptr, $PUBLIC, $virtualMethod(TlsKeyMaterialParameterSpec, getMinorVersion, int32_t)},
+	{"getPRFBlockSize", "()I", nullptr, $PUBLIC, $virtualMethod(TlsKeyMaterialParameterSpec, getPRFBlockSize, int32_t)},
+	{"getPRFHashAlg", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TlsKeyMaterialParameterSpec, getPRFHashAlg, $String*)},
+	{"getPRFHashLength", "()I", nullptr, $PUBLIC, $virtualMethod(TlsKeyMaterialParameterSpec, getPRFHashLength, int32_t)},
+	{"getServerRandom", "()[B", nullptr, $PUBLIC, $virtualMethod(TlsKeyMaterialParameterSpec, getServerRandom, $bytes*)},
 	{}
 };
 

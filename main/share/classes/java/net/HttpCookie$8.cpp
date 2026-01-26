@@ -13,8 +13,8 @@ namespace java {
 	namespace net {
 
 $MethodInfo _HttpCookie$8_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(HttpCookie$8::*)()>(&HttpCookie$8::init$))},
-	{"assign", "(Ljava/net/HttpCookie;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(HttpCookie$8, init$, void)},
+	{"assign", "(Ljava/net/HttpCookie;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(HttpCookie$8, assign, void, $HttpCookie*, $String*, $String*)},
 	{}
 };
 

@@ -23,7 +23,7 @@ $FieldInfo _RSAKeyExchange$EphemeralRSAPossession_FieldInfo_[] = {
 };
 
 $MethodInfo _RSAKeyExchange$EphemeralRSAPossession_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/PrivateKey;Ljava/security/interfaces/RSAPublicKey;)V", nullptr, 0, $method(static_cast<void(RSAKeyExchange$EphemeralRSAPossession::*)($PrivateKey*,$RSAPublicKey*)>(&RSAKeyExchange$EphemeralRSAPossession::init$))},
+	{"<init>", "(Ljava/security/PrivateKey;Ljava/security/interfaces/RSAPublicKey;)V", nullptr, 0, $method(RSAKeyExchange$EphemeralRSAPossession, init$, void, $PrivateKey*, $RSAPublicKey*)},
 	{}
 };
 

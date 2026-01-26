@@ -34,13 +34,13 @@ $FieldInfo _OCSPNonceExtension_FieldInfo_[] = {
 };
 
 $MethodInfo _OCSPNonceExtension_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(static_cast<void(OCSPNonceExtension::*)(int32_t)>(&OCSPNonceExtension::init$)), "java.io.IOException"},
-	{"<init>", "(ZI)V", nullptr, $PUBLIC, $method(static_cast<void(OCSPNonceExtension::*)(bool,int32_t)>(&OCSPNonceExtension::init$)), "java.io.IOException"},
-	{"<init>", "([B)V", nullptr, $PUBLIC, $method(static_cast<void(OCSPNonceExtension::*)($bytes*)>(&OCSPNonceExtension::init$)), "java.io.IOException"},
-	{"<init>", "(Z[B)V", nullptr, $PUBLIC, $method(static_cast<void(OCSPNonceExtension::*)(bool,$bytes*)>(&OCSPNonceExtension::init$)), "java.io.IOException"},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(static_cast<$String*(OCSPNonceExtension::*)()>(&OCSPNonceExtension::getName))},
-	{"getNonceValue", "()[B", nullptr, $PUBLIC, $method(static_cast<$bytes*(OCSPNonceExtension::*)()>(&OCSPNonceExtension::getNonceValue))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(I)V", nullptr, $PUBLIC, $method(OCSPNonceExtension, init$, void, int32_t), "java.io.IOException"},
+	{"<init>", "(ZI)V", nullptr, $PUBLIC, $method(OCSPNonceExtension, init$, void, bool, int32_t), "java.io.IOException"},
+	{"<init>", "([B)V", nullptr, $PUBLIC, $method(OCSPNonceExtension, init$, void, $bytes*), "java.io.IOException"},
+	{"<init>", "(Z[B)V", nullptr, $PUBLIC, $method(OCSPNonceExtension, init$, void, bool, $bytes*), "java.io.IOException"},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(OCSPNonceExtension, getName, $String*)},
+	{"getNonceValue", "()[B", nullptr, $PUBLIC, $method(OCSPNonceExtension, getNonceValue, $bytes*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(OCSPNonceExtension, toString, $String*)},
 	{}
 };
 

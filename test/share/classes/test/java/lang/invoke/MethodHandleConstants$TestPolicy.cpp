@@ -36,10 +36,10 @@ $FieldInfo _MethodHandleConstants$TestPolicy_FieldInfo_[] = {
 };
 
 $MethodInfo _MethodHandleConstants$TestPolicy_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(MethodHandleConstants$TestPolicy::*)()>(&MethodHandleConstants$TestPolicy::init$))},
-	{"getPermissions", "(Ljava/security/ProtectionDomain;)Ljava/security/PermissionCollection;", nullptr, $PUBLIC},
-	{"getPermissions", "(Ljava/security/CodeSource;)Ljava/security/PermissionCollection;", nullptr, $PUBLIC},
-	{"implies", "(Ljava/security/ProtectionDomain;Ljava/security/Permission;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(MethodHandleConstants$TestPolicy, init$, void)},
+	{"getPermissions", "(Ljava/security/ProtectionDomain;)Ljava/security/PermissionCollection;", nullptr, $PUBLIC, $virtualMethod(MethodHandleConstants$TestPolicy, getPermissions, $PermissionCollection*, $ProtectionDomain*)},
+	{"getPermissions", "(Ljava/security/CodeSource;)Ljava/security/PermissionCollection;", nullptr, $PUBLIC, $virtualMethod(MethodHandleConstants$TestPolicy, getPermissions, $PermissionCollection*, $CodeSource*)},
+	{"implies", "(Ljava/security/ProtectionDomain;Ljava/security/Permission;)Z", nullptr, $PUBLIC, $virtualMethod(MethodHandleConstants$TestPolicy, implies, bool, $ProtectionDomain*, $Permission*)},
 	{}
 };
 

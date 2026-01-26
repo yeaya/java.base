@@ -12,19 +12,19 @@ namespace sun {
 		namespace calendar {
 
 $MethodInfo _CalendarUtils_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CalendarUtils::*)()>(&CalendarUtils::init$))},
-	{"amod", "(II)I", nullptr, $PUBLIC | $STATIC | $FINAL, $method(static_cast<int32_t(*)(int32_t,int32_t)>(&CalendarUtils::amod))},
-	{"amod", "(JJ)J", nullptr, $PUBLIC | $STATIC | $FINAL, $method(static_cast<int64_t(*)(int64_t,int64_t)>(&CalendarUtils::amod))},
-	{"floorDivide", "(JJ)J", nullptr, $PUBLIC | $STATIC | $FINAL, $method(static_cast<int64_t(*)(int64_t,int64_t)>(&CalendarUtils::floorDivide))},
-	{"floorDivide", "(II)I", nullptr, $PUBLIC | $STATIC | $FINAL, $method(static_cast<int32_t(*)(int32_t,int32_t)>(&CalendarUtils::floorDivide))},
-	{"floorDivide", "(II[I)I", nullptr, $PUBLIC | $STATIC | $FINAL, $method(static_cast<int32_t(*)(int32_t,int32_t,$ints*)>(&CalendarUtils::floorDivide))},
-	{"floorDivide", "(JI[I)I", nullptr, $PUBLIC | $STATIC | $FINAL, $method(static_cast<int32_t(*)(int64_t,int32_t,$ints*)>(&CalendarUtils::floorDivide))},
-	{"isGregorianLeapYear", "(I)Z", nullptr, $PUBLIC | $STATIC | $FINAL, $method(static_cast<bool(*)(int32_t)>(&CalendarUtils::isGregorianLeapYear))},
-	{"isJulianLeapYear", "(I)Z", nullptr, $PUBLIC | $STATIC | $FINAL, $method(static_cast<bool(*)(int32_t)>(&CalendarUtils::isJulianLeapYear))},
-	{"mod", "(JJ)J", nullptr, $PUBLIC | $STATIC | $FINAL, $method(static_cast<int64_t(*)(int64_t,int64_t)>(&CalendarUtils::mod))},
-	{"mod", "(II)I", nullptr, $PUBLIC | $STATIC | $FINAL, $method(static_cast<int32_t(*)(int32_t,int32_t)>(&CalendarUtils::mod))},
-	{"sprintf0d", "(Ljava/lang/StringBuilder;II)Ljava/lang/StringBuilder;", nullptr, $PUBLIC | $STATIC | $FINAL, $method(static_cast<$StringBuilder*(*)($StringBuilder*,int32_t,int32_t)>(&CalendarUtils::sprintf0d))},
-	{"sprintf0d", "(Ljava/lang/StringBuffer;II)Ljava/lang/StringBuffer;", nullptr, $PUBLIC | $STATIC | $FINAL, $method(static_cast<$StringBuffer*(*)($StringBuffer*,int32_t,int32_t)>(&CalendarUtils::sprintf0d))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CalendarUtils, init$, void)},
+	{"amod", "(II)I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(CalendarUtils, amod, int32_t, int32_t, int32_t)},
+	{"amod", "(JJ)J", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(CalendarUtils, amod, int64_t, int64_t, int64_t)},
+	{"floorDivide", "(JJ)J", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(CalendarUtils, floorDivide, int64_t, int64_t, int64_t)},
+	{"floorDivide", "(II)I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(CalendarUtils, floorDivide, int32_t, int32_t, int32_t)},
+	{"floorDivide", "(II[I)I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(CalendarUtils, floorDivide, int32_t, int32_t, int32_t, $ints*)},
+	{"floorDivide", "(JI[I)I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(CalendarUtils, floorDivide, int32_t, int64_t, int32_t, $ints*)},
+	{"isGregorianLeapYear", "(I)Z", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(CalendarUtils, isGregorianLeapYear, bool, int32_t)},
+	{"isJulianLeapYear", "(I)Z", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(CalendarUtils, isJulianLeapYear, bool, int32_t)},
+	{"mod", "(JJ)J", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(CalendarUtils, mod, int64_t, int64_t, int64_t)},
+	{"mod", "(II)I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(CalendarUtils, mod, int32_t, int32_t, int32_t)},
+	{"sprintf0d", "(Ljava/lang/StringBuilder;II)Ljava/lang/StringBuilder;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(CalendarUtils, sprintf0d, $StringBuilder*, $StringBuilder*, int32_t, int32_t)},
+	{"sprintf0d", "(Ljava/lang/StringBuffer;II)Ljava/lang/StringBuffer;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(CalendarUtils, sprintf0d, $StringBuffer*, $StringBuffer*, int32_t, int32_t)},
 	{}
 };
 

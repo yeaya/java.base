@@ -27,15 +27,15 @@ $FieldInfo _MessageDigestSpi_FieldInfo_[] = {
 };
 
 $MethodInfo _MessageDigestSpi_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(MessageDigestSpi::*)()>(&MessageDigestSpi::init$))},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, nullptr, "java.lang.CloneNotSupportedException"},
-	{"engineDigest", "()[B", nullptr, $PROTECTED | $ABSTRACT},
-	{"engineDigest", "([BII)I", nullptr, $PROTECTED, nullptr, "java.security.DigestException"},
-	{"engineGetDigestLength", "()I", nullptr, $PROTECTED},
-	{"engineReset", "()V", nullptr, $PROTECTED | $ABSTRACT},
-	{"engineUpdate", "(B)V", nullptr, $PROTECTED | $ABSTRACT},
-	{"engineUpdate", "([BII)V", nullptr, $PROTECTED | $ABSTRACT},
-	{"engineUpdate", "(Ljava/nio/ByteBuffer;)V", nullptr, $PROTECTED},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(MessageDigestSpi, init$, void)},
+	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MessageDigestSpi, clone, $Object*), "java.lang.CloneNotSupportedException"},
+	{"engineDigest", "()[B", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(MessageDigestSpi, engineDigest, $bytes*)},
+	{"engineDigest", "([BII)I", nullptr, $PROTECTED, $virtualMethod(MessageDigestSpi, engineDigest, int32_t, $bytes*, int32_t, int32_t), "java.security.DigestException"},
+	{"engineGetDigestLength", "()I", nullptr, $PROTECTED, $virtualMethod(MessageDigestSpi, engineGetDigestLength, int32_t)},
+	{"engineReset", "()V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(MessageDigestSpi, engineReset, void)},
+	{"engineUpdate", "(B)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(MessageDigestSpi, engineUpdate, void, int8_t)},
+	{"engineUpdate", "([BII)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(MessageDigestSpi, engineUpdate, void, $bytes*, int32_t, int32_t)},
+	{"engineUpdate", "(Ljava/nio/ByteBuffer;)V", nullptr, $PROTECTED, $virtualMethod(MessageDigestSpi, engineUpdate, void, $ByteBuffer*)},
 	{}
 };
 

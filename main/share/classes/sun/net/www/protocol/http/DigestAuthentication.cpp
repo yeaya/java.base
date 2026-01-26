@@ -76,18 +76,18 @@ $FieldInfo _DigestAuthentication_FieldInfo_[] = {
 };
 
 $MethodInfo _DigestAuthentication_MethodInfo_[] = {
-	{"<init>", "(ZLjava/net/URL;Ljava/lang/String;Ljava/lang/String;Ljava/net/PasswordAuthentication;Lsun/net/www/protocol/http/DigestAuthentication$Parameters;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(DigestAuthentication::*)(bool,$URL*,$String*,$String*,$PasswordAuthentication*,$DigestAuthentication$Parameters*,$String*)>(&DigestAuthentication::init$))},
-	{"<init>", "(ZLjava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/net/PasswordAuthentication;Lsun/net/www/protocol/http/DigestAuthentication$Parameters;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(DigestAuthentication::*)(bool,$String*,int32_t,$String*,$String*,$PasswordAuthentication*,$DigestAuthentication$Parameters*,$String*)>(&DigestAuthentication::init$))},
-	{"checkResponse", "(Ljava/lang/String;Ljava/lang/String;Ljava/net/URL;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"checkResponse", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"computeDigest", "(ZLjava/lang/String;[CLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(DigestAuthentication::*)(bool,$String*,$chars*,$String*,$String*,$String*,$String*,$String*,$String*)>(&DigestAuthentication::computeDigest)), "java.security.NoSuchAlgorithmException"},
-	{"encode", "(Ljava/lang/String;[CLjava/security/MessageDigest;)Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(DigestAuthentication::*)($String*,$chars*,$MessageDigest*)>(&DigestAuthentication::encode))},
-	{"getHeaderValue", "(Ljava/net/URL;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getHeaderValue", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, 0},
-	{"getHeaderValueImpl", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(DigestAuthentication::*)($String*,$String*)>(&DigestAuthentication::getHeaderValueImpl))},
-	{"isAuthorizationStale", "(Ljava/lang/String;)Z", nullptr, $PUBLIC},
-	{"setHeaders", "(Lsun/net/www/protocol/http/HttpURLConnection;Lsun/net/www/HeaderParser;Ljava/lang/String;)Z", nullptr, $PUBLIC},
-	{"supportsPreemptiveAuthorization", "()Z", nullptr, $PUBLIC},
+	{"<init>", "(ZLjava/net/URL;Ljava/lang/String;Ljava/lang/String;Ljava/net/PasswordAuthentication;Lsun/net/www/protocol/http/DigestAuthentication$Parameters;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(DigestAuthentication, init$, void, bool, $URL*, $String*, $String*, $PasswordAuthentication*, $DigestAuthentication$Parameters*, $String*)},
+	{"<init>", "(ZLjava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/net/PasswordAuthentication;Lsun/net/www/protocol/http/DigestAuthentication$Parameters;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(DigestAuthentication, init$, void, bool, $String*, int32_t, $String*, $String*, $PasswordAuthentication*, $DigestAuthentication$Parameters*, $String*)},
+	{"checkResponse", "(Ljava/lang/String;Ljava/lang/String;Ljava/net/URL;)V", nullptr, $PUBLIC, $virtualMethod(DigestAuthentication, checkResponse, void, $String*, $String*, $URL*), "java.io.IOException"},
+	{"checkResponse", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DigestAuthentication, checkResponse, void, $String*, $String*, $String*), "java.io.IOException"},
+	{"computeDigest", "(ZLjava/lang/String;[CLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(DigestAuthentication, computeDigest, $String*, bool, $String*, $chars*, $String*, $String*, $String*, $String*, $String*, $String*), "java.security.NoSuchAlgorithmException"},
+	{"encode", "(Ljava/lang/String;[CLjava/security/MessageDigest;)Ljava/lang/String;", nullptr, $PRIVATE, $method(DigestAuthentication, encode, $String*, $String*, $chars*, $MessageDigest*)},
+	{"getHeaderValue", "(Ljava/net/URL;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DigestAuthentication, getHeaderValue, $String*, $URL*, $String*)},
+	{"getHeaderValue", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, 0, $virtualMethod(DigestAuthentication, getHeaderValue, $String*, $String*, $String*)},
+	{"getHeaderValueImpl", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(DigestAuthentication, getHeaderValueImpl, $String*, $String*, $String*)},
+	{"isAuthorizationStale", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(DigestAuthentication, isAuthorizationStale, bool, $String*)},
+	{"setHeaders", "(Lsun/net/www/protocol/http/HttpURLConnection;Lsun/net/www/HeaderParser;Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(DigestAuthentication, setHeaders, bool, $HttpURLConnection*, $HeaderParser*, $String*)},
+	{"supportsPreemptiveAuthorization", "()Z", nullptr, $PUBLIC, $virtualMethod(DigestAuthentication, supportsPreemptiveAuthorization, bool)},
 	{}
 };
 

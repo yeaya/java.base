@@ -12,9 +12,9 @@ using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _IntegerMinValue_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(IntegerMinValue::*)()>(&IntegerMinValue::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&IntegerMinValue::main))},
-	{"test", "()V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(IntegerMinValue, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(IntegerMinValue, main, void, $StringArray*)},
+	{"test", "()V", nullptr, $PUBLIC, $virtualMethod(IntegerMinValue, test, void)},
 	{}
 };
 

@@ -17,10 +17,10 @@ $FieldInfo _AppendStringBuffer_FieldInfo_[] = {
 };
 
 $MethodInfo _AppendStringBuffer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(AppendStringBuffer::*)()>(&AppendStringBuffer::init$))},
-	{"generateTestBuffer", "(II)Ljava/lang/StringBuffer;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$StringBuffer*(*)(int32_t,int32_t)>(&AppendStringBuffer::generateTestBuffer))},
-	{"getRandomIndex", "(II)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)(int32_t,int32_t)>(&AppendStringBuffer::getRandomIndex))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&AppendStringBuffer::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(AppendStringBuffer, init$, void)},
+	{"generateTestBuffer", "(II)Ljava/lang/StringBuffer;", nullptr, $PRIVATE | $STATIC, $staticMethod(AppendStringBuffer, generateTestBuffer, $StringBuffer*, int32_t, int32_t)},
+	{"getRandomIndex", "(II)I", nullptr, $PRIVATE | $STATIC, $staticMethod(AppendStringBuffer, getRandomIndex, int32_t, int32_t, int32_t)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(AppendStringBuffer, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

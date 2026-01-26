@@ -19,8 +19,8 @@ $FieldInfo _SystemModuleFinders$3_FieldInfo_[] = {
 };
 
 $MethodInfo _SystemModuleFinders$3_MethodInfo_[] = {
-	{"<init>", "([B)V", "()V", 0, $method(static_cast<void(SystemModuleFinders$3::*)($bytes*)>(&SystemModuleFinders$3::init$))},
-	{"generate", "(Ljava/lang/String;)[B", nullptr, $PUBLIC},
+	{"<init>", "([B)V", "()V", 0, $method(SystemModuleFinders$3, init$, void, $bytes*)},
+	{"generate", "(Ljava/lang/String;)[B", nullptr, $PUBLIC, $virtualMethod(SystemModuleFinders$3, generate, $bytes*, $String*)},
 	{}
 };
 

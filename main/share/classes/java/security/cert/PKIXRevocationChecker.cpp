@@ -55,19 +55,19 @@ $FieldInfo _PKIXRevocationChecker_FieldInfo_[] = {
 };
 
 $MethodInfo _PKIXRevocationChecker_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(PKIXRevocationChecker::*)()>(&PKIXRevocationChecker::init$))},
-	{"clone", "()Ljava/security/cert/PKIXRevocationChecker;", nullptr, $PUBLIC},
-	{"getOcspExtensions", "()Ljava/util/List;", "()Ljava/util/List<Ljava/security/cert/Extension;>;", $PUBLIC},
-	{"getOcspResponder", "()Ljava/net/URI;", nullptr, $PUBLIC},
-	{"getOcspResponderCert", "()Ljava/security/cert/X509Certificate;", nullptr, $PUBLIC},
-	{"getOcspResponses", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/security/cert/X509Certificate;[B>;", $PUBLIC},
-	{"getOptions", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/security/cert/PKIXRevocationChecker$Option;>;", $PUBLIC},
-	{"getSoftFailExceptions", "()Ljava/util/List;", "()Ljava/util/List<Ljava/security/cert/CertPathValidatorException;>;", $PUBLIC | $ABSTRACT},
-	{"setOcspExtensions", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/security/cert/Extension;>;)V", $PUBLIC},
-	{"setOcspResponder", "(Ljava/net/URI;)V", nullptr, $PUBLIC},
-	{"setOcspResponderCert", "(Ljava/security/cert/X509Certificate;)V", nullptr, $PUBLIC},
-	{"setOcspResponses", "(Ljava/util/Map;)V", "(Ljava/util/Map<Ljava/security/cert/X509Certificate;[B>;)V", $PUBLIC},
-	{"setOptions", "(Ljava/util/Set;)V", "(Ljava/util/Set<Ljava/security/cert/PKIXRevocationChecker$Option;>;)V", $PUBLIC},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(PKIXRevocationChecker, init$, void)},
+	{"clone", "()Ljava/security/cert/PKIXRevocationChecker;", nullptr, $PUBLIC, $virtualMethod(PKIXRevocationChecker, clone, $Object*)},
+	{"getOcspExtensions", "()Ljava/util/List;", "()Ljava/util/List<Ljava/security/cert/Extension;>;", $PUBLIC, $virtualMethod(PKIXRevocationChecker, getOcspExtensions, $List*)},
+	{"getOcspResponder", "()Ljava/net/URI;", nullptr, $PUBLIC, $virtualMethod(PKIXRevocationChecker, getOcspResponder, $URI*)},
+	{"getOcspResponderCert", "()Ljava/security/cert/X509Certificate;", nullptr, $PUBLIC, $virtualMethod(PKIXRevocationChecker, getOcspResponderCert, $X509Certificate*)},
+	{"getOcspResponses", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/security/cert/X509Certificate;[B>;", $PUBLIC, $virtualMethod(PKIXRevocationChecker, getOcspResponses, $Map*)},
+	{"getOptions", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/security/cert/PKIXRevocationChecker$Option;>;", $PUBLIC, $virtualMethod(PKIXRevocationChecker, getOptions, $Set*)},
+	{"getSoftFailExceptions", "()Ljava/util/List;", "()Ljava/util/List<Ljava/security/cert/CertPathValidatorException;>;", $PUBLIC | $ABSTRACT, $virtualMethod(PKIXRevocationChecker, getSoftFailExceptions, $List*)},
+	{"setOcspExtensions", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/security/cert/Extension;>;)V", $PUBLIC, $virtualMethod(PKIXRevocationChecker, setOcspExtensions, void, $List*)},
+	{"setOcspResponder", "(Ljava/net/URI;)V", nullptr, $PUBLIC, $virtualMethod(PKIXRevocationChecker, setOcspResponder, void, $URI*)},
+	{"setOcspResponderCert", "(Ljava/security/cert/X509Certificate;)V", nullptr, $PUBLIC, $virtualMethod(PKIXRevocationChecker, setOcspResponderCert, void, $X509Certificate*)},
+	{"setOcspResponses", "(Ljava/util/Map;)V", "(Ljava/util/Map<Ljava/security/cert/X509Certificate;[B>;)V", $PUBLIC, $virtualMethod(PKIXRevocationChecker, setOcspResponses, void, $Map*)},
+	{"setOptions", "(Ljava/util/Set;)V", "(Ljava/util/Set<Ljava/security/cert/PKIXRevocationChecker$Option;>;)V", $PUBLIC, $virtualMethod(PKIXRevocationChecker, setOptions, void, $Set*)},
 	{}
 };
 

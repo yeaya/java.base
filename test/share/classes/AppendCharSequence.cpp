@@ -31,15 +31,15 @@ $FieldInfo _AppendCharSequence_FieldInfo_[] = {
 };
 
 $MethodInfo _AppendCharSequence_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(AppendCharSequence::*)()>(&AppendCharSequence::init$))},
-	{"bash", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&AppendCharSequence::bash)), "java.lang.Exception"},
-	{"checkConstructor", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&AppendCharSequence::checkConstructor)), "java.lang.Exception"},
-	{"checkNegativeLenCharSeq", "(I)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)(int32_t)>(&AppendCharSequence::checkNegativeLenCharSeq))},
-	{"checkNulls", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&AppendCharSequence::checkNulls)), "java.lang.Exception"},
-	{"checkOffsets", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&AppendCharSequence::checkOffsets)), "java.lang.Exception"},
-	{"generateTestBuffer", "(II)Ljava/lang/StringBuffer;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$StringBuffer*(*)(int32_t,int32_t)>(&AppendCharSequence::generateTestBuffer))},
-	{"getRandomIndex", "(II)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)(int32_t,int32_t)>(&AppendCharSequence::getRandomIndex))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&AppendCharSequence::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(AppendCharSequence, init$, void)},
+	{"bash", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(AppendCharSequence, bash, void), "java.lang.Exception"},
+	{"checkConstructor", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(AppendCharSequence, checkConstructor, void), "java.lang.Exception"},
+	{"checkNegativeLenCharSeq", "(I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(AppendCharSequence, checkNegativeLenCharSeq, void, int32_t)},
+	{"checkNulls", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(AppendCharSequence, checkNulls, void), "java.lang.Exception"},
+	{"checkOffsets", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(AppendCharSequence, checkOffsets, void), "java.lang.Exception"},
+	{"generateTestBuffer", "(II)Ljava/lang/StringBuffer;", nullptr, $PRIVATE | $STATIC, $staticMethod(AppendCharSequence, generateTestBuffer, $StringBuffer*, int32_t, int32_t)},
+	{"getRandomIndex", "(II)I", nullptr, $PRIVATE | $STATIC, $staticMethod(AppendCharSequence, getRandomIndex, int32_t, int32_t, int32_t)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(AppendCharSequence, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

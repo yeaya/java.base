@@ -21,8 +21,8 @@ $FieldInfo _SHA5$SHA512_256_FieldInfo_[] = {
 };
 
 $MethodInfo _SHA5$SHA512_256_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SHA5$SHA512_256::*)()>(&SHA5$SHA512_256::init$))},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, nullptr, "java.lang.CloneNotSupportedException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SHA5$SHA512_256, init$, void)},
+	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(SHA5$SHA512_256, clone, $Object*), "java.lang.CloneNotSupportedException"},
 	{}
 };
 

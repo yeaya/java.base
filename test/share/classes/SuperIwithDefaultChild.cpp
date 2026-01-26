@@ -18,8 +18,8 @@ $CompoundAttribute _SuperIwithDefaultChild_MethodAnnotations_foo1[] = {
 };
 
 $MethodInfo _SuperIwithDefaultChild_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(SuperIwithDefaultChild::*)()>(&SuperIwithDefaultChild::init$))},
-	{"foo", "()V", nullptr, $PUBLIC, nullptr, nullptr, nullptr, _SuperIwithDefaultChild_MethodAnnotations_foo1},
+	{"<init>", "()V", nullptr, 0, $method(SuperIwithDefaultChild, init$, void)},
+	{"foo", "()V", nullptr, $PUBLIC, $virtualMethod(SuperIwithDefaultChild, foo, void), nullptr, nullptr, _SuperIwithDefaultChild_MethodAnnotations_foo1},
 	{}
 };
 

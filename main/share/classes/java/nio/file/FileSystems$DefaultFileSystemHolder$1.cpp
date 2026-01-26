@@ -15,8 +15,8 @@ namespace java {
 		namespace file {
 
 $MethodInfo _FileSystems$DefaultFileSystemHolder$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(FileSystems$DefaultFileSystemHolder$1::*)()>(&FileSystems$DefaultFileSystemHolder$1::init$))},
-	{"run", "()Ljava/nio/file/spi/FileSystemProvider;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(FileSystems$DefaultFileSystemHolder$1, init$, void)},
+	{"run", "()Ljava/nio/file/spi/FileSystemProvider;", nullptr, $PUBLIC, $virtualMethod(FileSystems$DefaultFileSystemHolder$1, run, $Object*)},
 	{}
 };
 

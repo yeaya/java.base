@@ -24,9 +24,9 @@ $FieldInfo _PosixFilePermissions$1_FieldInfo_[] = {
 };
 
 $MethodInfo _PosixFilePermissions$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Set;)V", nullptr, 0, $method(static_cast<void(PosixFilePermissions$1::*)($Set*)>(&PosixFilePermissions$1::init$))},
-	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"value", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/nio/file/attribute/PosixFilePermission;>;", $PUBLIC},
+	{"<init>", "(Ljava/util/Set;)V", nullptr, 0, $method(PosixFilePermissions$1, init$, void, $Set*)},
+	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PosixFilePermissions$1, name, $String*)},
+	{"value", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/nio/file/attribute/PosixFilePermission;>;", $PUBLIC, $virtualMethod(PosixFilePermissions$1, value, $Object*)},
 	{}
 };
 

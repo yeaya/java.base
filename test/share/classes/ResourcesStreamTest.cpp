@@ -61,8 +61,8 @@ $FieldInfo ResourcesStreamTest$$Lambda$println::fieldInfos[2] = {
 	{}
 };
 $MethodInfo ResourcesStreamTest$$Lambda$println::methodInfos[3] = {
-	{"<init>", "(Ljava/io/PrintStream;)V", nullptr, $PUBLIC, $method(static_cast<void(ResourcesStreamTest$$Lambda$println::*)($PrintStream*)>(&ResourcesStreamTest$$Lambda$println::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/io/PrintStream;)V", nullptr, $PUBLIC, $method(ResourcesStreamTest$$Lambda$println, init$, void, $PrintStream*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ResourcesStreamTest$$Lambda$println, accept, void, Object$*)},
 	{}
 };
 $ClassInfo ResourcesStreamTest$$Lambda$println::classInfo$ = {
@@ -94,8 +94,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ResourcesStreamTest$$Lambda$lambda$testFailure$0$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ResourcesStreamTest$$Lambda$lambda$testFailure$0$1::*)()>(&ResourcesStreamTest$$Lambda$lambda$testFailure$0$1::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ResourcesStreamTest$$Lambda$lambda$testFailure$0$1, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ResourcesStreamTest$$Lambda$lambda$testFailure$0$1, test, bool, Object$*)},
 	{}
 };
 $ClassInfo ResourcesStreamTest$$Lambda$lambda$testFailure$0$1::classInfo$ = {
@@ -127,8 +127,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ResourcesStreamTest$$Lambda$lambda$testFailure$1$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ResourcesStreamTest$$Lambda$lambda$testFailure$1$2::*)()>(&ResourcesStreamTest$$Lambda$lambda$testFailure$1$2::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ResourcesStreamTest$$Lambda$lambda$testFailure$1$2, init$, void)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ResourcesStreamTest$$Lambda$lambda$testFailure$1$2, get, $Object*)},
 	{}
 };
 $ClassInfo ResourcesStreamTest$$Lambda$lambda$testFailure$1$2::classInfo$ = {
@@ -146,12 +146,12 @@ $Class* ResourcesStreamTest$$Lambda$lambda$testFailure$1$2::load$($String* name,
 $Class* ResourcesStreamTest$$Lambda$lambda$testFailure$1$2::class$ = nullptr;
 
 $MethodInfo _ResourcesStreamTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ResourcesStreamTest::*)()>(&ResourcesStreamTest::init$))},
-	{"lambda$testFailure$0", "(Ljava/net/URL;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($URL*)>(&ResourcesStreamTest::lambda$testFailure$0))},
-	{"lambda$testFailure$1", "()Ljava/lang/Exception;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Exception*(*)()>(&ResourcesStreamTest::lambda$testFailure$1))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&ResourcesStreamTest::main)), "java.lang.Exception"},
-	{"testFailure", "()V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)()>(&ResourcesStreamTest::testFailure)), "java.lang.Exception"},
-	{"testSuccess", "()V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)()>(&ResourcesStreamTest::testSuccess)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ResourcesStreamTest, init$, void)},
+	{"lambda$testFailure$0", "(Ljava/net/URL;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ResourcesStreamTest, lambda$testFailure$0, bool, $URL*)},
+	{"lambda$testFailure$1", "()Ljava/lang/Exception;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ResourcesStreamTest, lambda$testFailure$1, $Exception*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ResourcesStreamTest, main, void, $StringArray*), "java.lang.Exception"},
+	{"testFailure", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(ResourcesStreamTest, testFailure, void), "java.lang.Exception"},
+	{"testSuccess", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(ResourcesStreamTest, testSuccess, void), "java.lang.Exception"},
 	{}
 };
 

@@ -32,8 +32,11 @@ using $NamedAttribute = ::java::lang::NamedAttribute;
 using $NoSuchMethodException = ::java::lang::NoSuchMethodException;
 using $Constructor = ::java::lang::reflect::Constructor;
 using $InvocationTargetException = ::java::lang::reflect::InvocationTargetException;
+using $BigInteger = ::java::math::BigInteger;
 using $AccessController = ::java::security::AccessController;
+using $Principal = ::java::security::Principal;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
+using $Date = ::java::util::Date;
 using $Certificate = ::javax::security::cert::Certificate;
 using $CertificateException = ::javax::security::cert::CertificateException;
 using $X509Certificate$1 = ::javax::security::cert::X509Certificate$1;
@@ -60,21 +63,21 @@ $FieldInfo _X509Certificate_FieldInfo_[] = {
 };
 
 $MethodInfo _X509Certificate_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(X509Certificate::*)()>(&X509Certificate::init$))},
-	{"checkValidity", "()V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "javax.security.cert.CertificateExpiredException,javax.security.cert.CertificateNotYetValidException"},
-	{"checkValidity", "(Ljava/util/Date;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "javax.security.cert.CertificateExpiredException,javax.security.cert.CertificateNotYetValidException"},
-	{"getInst", "(Ljava/lang/Object;)Ljavax/security/cert/X509Certificate;", nullptr, $PRIVATE | $STATIC | $FINAL, $method(static_cast<X509Certificate*(*)(Object$*)>(&X509Certificate::getInst)), "javax.security.cert.CertificateException"},
-	{"getInstance", "(Ljava/io/InputStream;)Ljavax/security/cert/X509Certificate;", nullptr, $PUBLIC | $STATIC | $FINAL, $method(static_cast<X509Certificate*(*)($InputStream*)>(&X509Certificate::getInstance)), "javax.security.cert.CertificateException"},
-	{"getInstance", "([B)Ljavax/security/cert/X509Certificate;", nullptr, $PUBLIC | $STATIC | $FINAL, $method(static_cast<X509Certificate*(*)($bytes*)>(&X509Certificate::getInstance)), "javax.security.cert.CertificateException"},
-	{"getIssuerDN", "()Ljava/security/Principal;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getNotAfter", "()Ljava/util/Date;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getNotBefore", "()Ljava/util/Date;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getSerialNumber", "()Ljava/math/BigInteger;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getSigAlgName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getSigAlgOID", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getSigAlgParams", "()[B", nullptr, $PUBLIC | $ABSTRACT},
-	{"getSubjectDN", "()Ljava/security/Principal;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getVersion", "()I", nullptr, $PUBLIC | $ABSTRACT},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(X509Certificate, init$, void)},
+	{"checkValidity", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(X509Certificate, checkValidity, void), "javax.security.cert.CertificateExpiredException,javax.security.cert.CertificateNotYetValidException"},
+	{"checkValidity", "(Ljava/util/Date;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(X509Certificate, checkValidity, void, $Date*), "javax.security.cert.CertificateExpiredException,javax.security.cert.CertificateNotYetValidException"},
+	{"getInst", "(Ljava/lang/Object;)Ljavax/security/cert/X509Certificate;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(X509Certificate, getInst, X509Certificate*, Object$*), "javax.security.cert.CertificateException"},
+	{"getInstance", "(Ljava/io/InputStream;)Ljavax/security/cert/X509Certificate;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(X509Certificate, getInstance, X509Certificate*, $InputStream*), "javax.security.cert.CertificateException"},
+	{"getInstance", "([B)Ljavax/security/cert/X509Certificate;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(X509Certificate, getInstance, X509Certificate*, $bytes*), "javax.security.cert.CertificateException"},
+	{"getIssuerDN", "()Ljava/security/Principal;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(X509Certificate, getIssuerDN, $Principal*)},
+	{"getNotAfter", "()Ljava/util/Date;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(X509Certificate, getNotAfter, $Date*)},
+	{"getNotBefore", "()Ljava/util/Date;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(X509Certificate, getNotBefore, $Date*)},
+	{"getSerialNumber", "()Ljava/math/BigInteger;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(X509Certificate, getSerialNumber, $BigInteger*)},
+	{"getSigAlgName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(X509Certificate, getSigAlgName, $String*)},
+	{"getSigAlgOID", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(X509Certificate, getSigAlgOID, $String*)},
+	{"getSigAlgParams", "()[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(X509Certificate, getSigAlgParams, $bytes*)},
+	{"getSubjectDN", "()Ljava/security/Principal;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(X509Certificate, getSubjectDN, $Principal*)},
+	{"getVersion", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(X509Certificate, getVersion, int32_t)},
 	{}
 };
 

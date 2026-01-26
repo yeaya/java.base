@@ -50,15 +50,15 @@ $FieldInfo _SSLSocketImpl$AppInputStream_FieldInfo_[] = {
 };
 
 $MethodInfo _SSLSocketImpl$AppInputStream_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/ssl/SSLSocketImpl;)V", nullptr, 0, $method(static_cast<void(SSLSocketImpl$AppInputStream::*)($SSLSocketImpl*)>(&SSLSocketImpl$AppInputStream::init$))},
-	{"available", "()I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"checkEOF", "()Z", nullptr, $PRIVATE, $method(static_cast<bool(SSLSocketImpl$AppInputStream::*)()>(&SSLSocketImpl$AppInputStream::checkEOF)), "java.io.IOException"},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"deplete", "()V", nullptr, $PRIVATE, $method(static_cast<void(SSLSocketImpl$AppInputStream::*)()>(&SSLSocketImpl$AppInputStream::deplete))},
-	{"read", "()I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"read", "([BII)I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"readLockedDeplete", "()V", nullptr, $PRIVATE, $method(static_cast<void(SSLSocketImpl$AppInputStream::*)()>(&SSLSocketImpl$AppInputStream::readLockedDeplete))},
-	{"skip", "(J)J", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Lsun/security/ssl/SSLSocketImpl;)V", nullptr, 0, $method(SSLSocketImpl$AppInputStream, init$, void, $SSLSocketImpl*)},
+	{"available", "()I", nullptr, $PUBLIC, $virtualMethod(SSLSocketImpl$AppInputStream, available, int32_t), "java.io.IOException"},
+	{"checkEOF", "()Z", nullptr, $PRIVATE, $method(SSLSocketImpl$AppInputStream, checkEOF, bool), "java.io.IOException"},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(SSLSocketImpl$AppInputStream, close, void), "java.io.IOException"},
+	{"deplete", "()V", nullptr, $PRIVATE, $method(SSLSocketImpl$AppInputStream, deplete, void)},
+	{"read", "()I", nullptr, $PUBLIC, $virtualMethod(SSLSocketImpl$AppInputStream, read, int32_t), "java.io.IOException"},
+	{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(SSLSocketImpl$AppInputStream, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
+	{"readLockedDeplete", "()V", nullptr, $PRIVATE, $method(SSLSocketImpl$AppInputStream, readLockedDeplete, void)},
+	{"skip", "(J)J", nullptr, $PUBLIC, $virtualMethod(SSLSocketImpl$AppInputStream, skip, int64_t, int64_t), "java.io.IOException"},
 	{}
 };
 

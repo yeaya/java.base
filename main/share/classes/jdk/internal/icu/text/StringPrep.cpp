@@ -117,14 +117,14 @@ $FieldInfo _StringPrep_FieldInfo_[] = {
 };
 
 $MethodInfo _StringPrep_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(static_cast<void(StringPrep::*)($InputStream*)>(&StringPrep::init$)), "java.io.IOException"},
-	{"getCodePointValue", "(I)C", nullptr, $PRIVATE, $method(static_cast<char16_t(StringPrep::*)(int32_t)>(&StringPrep::getCodePointValue))},
-	{"getValues", "(CLjdk/internal/icu/text/StringPrep$Values;)V", nullptr, $PRIVATE | $STATIC | $FINAL, $method(static_cast<void(*)(char16_t,$StringPrep$Values*)>(&StringPrep::getValues))},
-	{"getVersionInfo", "(I)Ljdk/internal/icu/util/VersionInfo;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$VersionInfo*(*)(int32_t)>(&StringPrep::getVersionInfo))},
-	{"getVersionInfo", "([B)Ljdk/internal/icu/util/VersionInfo;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$VersionInfo*(*)($bytes*)>(&StringPrep::getVersionInfo))},
-	{"map", "(Ljdk/internal/icu/text/UCharacterIterator;I)Ljava/lang/StringBuffer;", nullptr, $PRIVATE, $method(static_cast<$StringBuffer*(StringPrep::*)($UCharacterIterator*,int32_t)>(&StringPrep::map)), "java.text.ParseException"},
-	{"normalize", "(Ljava/lang/StringBuffer;)Ljava/lang/StringBuffer;", nullptr, $PRIVATE, $method(static_cast<$StringBuffer*(StringPrep::*)($StringBuffer*)>(&StringPrep::normalize))},
-	{"prepare", "(Ljdk/internal/icu/text/UCharacterIterator;I)Ljava/lang/StringBuffer;", nullptr, $PUBLIC, $method(static_cast<$StringBuffer*(StringPrep::*)($UCharacterIterator*,int32_t)>(&StringPrep::prepare)), "java.text.ParseException"},
+	{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(StringPrep, init$, void, $InputStream*), "java.io.IOException"},
+	{"getCodePointValue", "(I)C", nullptr, $PRIVATE, $method(StringPrep, getCodePointValue, char16_t, int32_t)},
+	{"getValues", "(CLjdk/internal/icu/text/StringPrep$Values;)V", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(StringPrep, getValues, void, char16_t, $StringPrep$Values*)},
+	{"getVersionInfo", "(I)Ljdk/internal/icu/util/VersionInfo;", nullptr, $PRIVATE | $STATIC, $staticMethod(StringPrep, getVersionInfo, $VersionInfo*, int32_t)},
+	{"getVersionInfo", "([B)Ljdk/internal/icu/util/VersionInfo;", nullptr, $PRIVATE | $STATIC, $staticMethod(StringPrep, getVersionInfo, $VersionInfo*, $bytes*)},
+	{"map", "(Ljdk/internal/icu/text/UCharacterIterator;I)Ljava/lang/StringBuffer;", nullptr, $PRIVATE, $method(StringPrep, map, $StringBuffer*, $UCharacterIterator*, int32_t), "java.text.ParseException"},
+	{"normalize", "(Ljava/lang/StringBuffer;)Ljava/lang/StringBuffer;", nullptr, $PRIVATE, $method(StringPrep, normalize, $StringBuffer*, $StringBuffer*)},
+	{"prepare", "(Ljdk/internal/icu/text/UCharacterIterator;I)Ljava/lang/StringBuffer;", nullptr, $PUBLIC, $method(StringPrep, prepare, $StringBuffer*, $UCharacterIterator*, int32_t), "java.text.ParseException"},
 	{}
 };
 

@@ -28,7 +28,7 @@ $FieldInfo _EUC_TWMapping_FieldInfo_[] = {
 };
 
 $MethodInfo _EUC_TWMapping_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(EUC_TWMapping::*)()>(&EUC_TWMapping::init$))},
+	{"<init>", "()V", nullptr, 0, $method(EUC_TWMapping, init$, void)},
 	{}
 };
 

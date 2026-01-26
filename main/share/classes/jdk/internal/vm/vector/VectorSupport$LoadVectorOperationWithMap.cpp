@@ -8,6 +8,8 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $VectorSupport$Vector = ::jdk::internal::vm::vector::VectorSupport$Vector;
+using $VectorSupport$VectorSpecies = ::jdk::internal::vm::vector::VectorSupport$VectorSpecies;
 
 namespace jdk {
 	namespace internal {
@@ -15,7 +17,7 @@ namespace jdk {
 			namespace vector {
 
 $MethodInfo _VectorSupport$LoadVectorOperationWithMap_MethodInfo_[] = {
-	{"loadWithMap", "(Ljava/lang/Object;I[IILjdk/internal/vm/vector/VectorSupport$VectorSpecies;)Ljdk/internal/vm/vector/VectorSupport$Vector;", "(TC;I[IITS;)TV;", $PUBLIC | $ABSTRACT},
+	{"loadWithMap", "(Ljava/lang/Object;I[IILjdk/internal/vm/vector/VectorSupport$VectorSpecies;)Ljdk/internal/vm/vector/VectorSupport$Vector;", "(TC;I[IITS;)TV;", $PUBLIC | $ABSTRACT, $virtualMethod(VectorSupport$LoadVectorOperationWithMap, loadWithMap, $VectorSupport$Vector*, Object$*, int32_t, $ints*, int32_t, $VectorSupport$VectorSpecies*)},
 	{}
 };
 

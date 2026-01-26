@@ -36,11 +36,11 @@ $FieldInfo _StackStreamFactory$StackFrameTraverser$StackFrameBuffer_FieldInfo_[]
 };
 
 $MethodInfo _StackStreamFactory$StackFrameTraverser$StackFrameBuffer_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/StackStreamFactory$StackFrameTraverser;I)V", nullptr, 0, $method(static_cast<void(StackStreamFactory$StackFrameTraverser$StackFrameBuffer::*)($StackStreamFactory$StackFrameTraverser*,int32_t)>(&StackStreamFactory$StackFrameTraverser$StackFrameBuffer::init$))},
-	{"at", "(I)Ljava/lang/Class;", "(I)Ljava/lang/Class<*>;", $FINAL},
-	{"frames", "()[Ljava/lang/StackFrameInfo;", nullptr, 0},
-	{"nextStackFrame", "()Ljava/lang/StackFrameInfo;", nullptr, 0},
-	{"resize", "(II)V", nullptr, 0},
+	{"<init>", "(Ljava/lang/StackStreamFactory$StackFrameTraverser;I)V", nullptr, 0, $method(StackStreamFactory$StackFrameTraverser$StackFrameBuffer, init$, void, $StackStreamFactory$StackFrameTraverser*, int32_t)},
+	{"at", "(I)Ljava/lang/Class;", "(I)Ljava/lang/Class<*>;", $FINAL, $virtualMethod(StackStreamFactory$StackFrameTraverser$StackFrameBuffer, at, $Class*, int32_t)},
+	{"frames", "()[Ljava/lang/StackFrameInfo;", nullptr, 0, $virtualMethod(StackStreamFactory$StackFrameTraverser$StackFrameBuffer, frames, $ObjectArray*)},
+	{"nextStackFrame", "()Ljava/lang/StackFrameInfo;", nullptr, 0, $virtualMethod(StackStreamFactory$StackFrameTraverser$StackFrameBuffer, nextStackFrame, $Object*)},
+	{"resize", "(II)V", nullptr, 0, $virtualMethod(StackStreamFactory$StackFrameTraverser$StackFrameBuffer, resize, void, int32_t, int32_t)},
 	{}
 };
 

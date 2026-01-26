@@ -23,8 +23,8 @@ $FieldInfo _ProviderConfig$ProviderLoader$1_FieldInfo_[] = {
 };
 
 $MethodInfo _ProviderConfig$ProviderLoader$1_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/jca/ProviderConfig$ProviderLoader;Ljava/lang/Class;)V", "()V", 0, $method(static_cast<void(ProviderConfig$ProviderLoader$1::*)($ProviderConfig$ProviderLoader*,$Class*)>(&ProviderConfig$ProviderLoader$1::init$))},
-	{"run", "()Ljava/security/Provider;", nullptr, $PUBLIC, nullptr, "java.lang.Exception"},
+	{"<init>", "(Lsun/security/jca/ProviderConfig$ProviderLoader;Ljava/lang/Class;)V", "()V", 0, $method(ProviderConfig$ProviderLoader$1, init$, void, $ProviderConfig$ProviderLoader*, $Class*)},
+	{"run", "()Ljava/security/Provider;", nullptr, $PUBLIC, $virtualMethod(ProviderConfig$ProviderLoader$1, run, $Object*), "java.lang.Exception"},
 	{}
 };
 

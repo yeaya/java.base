@@ -15,7 +15,7 @@ $FieldInfo _Outer$Inner_FieldInfo_[] = {
 };
 
 $MethodInfo _Outer$Inner_MethodInfo_[] = {
-	{"<init>", "(LOuter;)V", nullptr, 0, $method(static_cast<void(Outer$Inner::*)($Outer*)>(&Outer$Inner::init$))},
+	{"<init>", "(LOuter;)V", nullptr, 0, $method(Outer$Inner, init$, void, $Outer*)},
 	{}
 };
 

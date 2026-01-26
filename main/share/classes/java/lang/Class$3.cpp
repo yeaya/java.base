@@ -20,8 +20,8 @@ $FieldInfo _Class$3_FieldInfo_[] = {
 };
 
 $MethodInfo _Class$3_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Class;Ljava/lang/reflect/Method;)V", nullptr, 0, $method(static_cast<void(Class$3::*)($Class*,$Method*)>(&Class$3::init$))},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Class;Ljava/lang/reflect/Method;)V", nullptr, 0, $method(Class$3, init$, void, $Class*, $Method*)},
+	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(Class$3, run, $Object*)},
 	{}
 };
 

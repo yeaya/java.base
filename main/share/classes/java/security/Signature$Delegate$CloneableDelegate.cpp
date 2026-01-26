@@ -18,7 +18,7 @@ $MethodInfo _Signature$Delegate$CloneableDelegate_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/security/SignatureSpi;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(static_cast<void(Signature$Delegate$CloneableDelegate::*)($SignatureSpi*,$String*)>(&Signature$Delegate$CloneableDelegate::init$))},
+	{"<init>", "(Ljava/security/SignatureSpi;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(Signature$Delegate$CloneableDelegate, init$, void, $SignatureSpi*, $String*)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

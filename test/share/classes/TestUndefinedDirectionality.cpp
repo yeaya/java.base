@@ -12,8 +12,8 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 
 $MethodInfo _TestUndefinedDirectionality_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TestUndefinedDirectionality::*)()>(&TestUndefinedDirectionality::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&TestUndefinedDirectionality::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TestUndefinedDirectionality, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TestUndefinedDirectionality, main, void, $StringArray*)},
 	{}
 };
 

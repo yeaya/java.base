@@ -28,8 +28,8 @@ $FieldInfo _BigDecimal$LongOverflow_FieldInfo_[] = {
 };
 
 $MethodInfo _BigDecimal$LongOverflow_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(BigDecimal$LongOverflow::*)()>(&BigDecimal$LongOverflow::init$))},
-	{"check", "(Ljava/math/BigDecimal;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($BigDecimal*)>(&BigDecimal$LongOverflow::check))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(BigDecimal$LongOverflow, init$, void)},
+	{"check", "(Ljava/math/BigDecimal;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(BigDecimal$LongOverflow, check, void, $BigDecimal*)},
 	{}
 };
 

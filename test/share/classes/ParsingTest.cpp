@@ -20,14 +20,14 @@ using $NumberFormatException = ::java::lang::NumberFormatException;
 using $RuntimeException = ::java::lang::RuntimeException;
 
 $MethodInfo _ParsingTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ParsingTest::*)()>(&ParsingTest::init$))},
-	{"check", "(JLjava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)(int64_t,$String*)>(&ParsingTest::check))},
-	{"check", "(JLjava/lang/String;III)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)(int64_t,$String*,int32_t,int32_t,int32_t)>(&ParsingTest::check))},
-	{"checkFailure", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($String*)>(&ParsingTest::checkFailure))},
-	{"checkIndexOutOfBoundsException", "(Ljava/lang/String;III)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($String*,int32_t,int32_t,int32_t)>(&ParsingTest::checkIndexOutOfBoundsException))},
-	{"checkNull", "(III)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)(int32_t,int32_t,int32_t)>(&ParsingTest::checkNull))},
-	{"checkNumberFormatException", "(Ljava/lang/String;III)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($String*,int32_t,int32_t,int32_t)>(&ParsingTest::checkNumberFormatException))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<void(*)($StringArray*)>(&ParsingTest::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ParsingTest, init$, void)},
+	{"check", "(JLjava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ParsingTest, check, void, int64_t, $String*)},
+	{"check", "(JLjava/lang/String;III)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ParsingTest, check, void, int64_t, $String*, int32_t, int32_t, int32_t)},
+	{"checkFailure", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ParsingTest, checkFailure, void, $String*)},
+	{"checkIndexOutOfBoundsException", "(Ljava/lang/String;III)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ParsingTest, checkIndexOutOfBoundsException, void, $String*, int32_t, int32_t, int32_t)},
+	{"checkNull", "(III)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ParsingTest, checkNull, void, int32_t, int32_t, int32_t)},
+	{"checkNumberFormatException", "(Ljava/lang/String;III)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ParsingTest, checkNumberFormatException, void, $String*, int32_t, int32_t, int32_t)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(ParsingTest, main, void, $StringArray*)},
 	{}
 };
 

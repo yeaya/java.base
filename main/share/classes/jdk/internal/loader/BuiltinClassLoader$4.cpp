@@ -28,8 +28,8 @@ $FieldInfo _BuiltinClassLoader$4_FieldInfo_[] = {
 };
 
 $MethodInfo _BuiltinClassLoader$4_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/loader/BuiltinClassLoader;Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(BuiltinClassLoader$4::*)($BuiltinClassLoader*,$String*,$String*)>(&BuiltinClassLoader$4::init$))},
-	{"run", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC},
+	{"<init>", "(Ljdk/internal/loader/BuiltinClassLoader;Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(BuiltinClassLoader$4, init$, void, $BuiltinClassLoader*, $String*, $String*)},
+	{"run", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(BuiltinClassLoader$4, run, $Object*)},
 	{}
 };
 

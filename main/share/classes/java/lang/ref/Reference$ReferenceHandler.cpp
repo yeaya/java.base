@@ -29,9 +29,9 @@ namespace java {
 		namespace ref {
 
 $MethodInfo _Reference$ReferenceHandler_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/ThreadGroup;Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(Reference$ReferenceHandler::*)($ThreadGroup*,$String*)>(&Reference$ReferenceHandler::init$))},
-	{"ensureClassInitialized", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $PRIVATE | $STATIC, $method(static_cast<void(*)($Class*)>(&Reference$ReferenceHandler::ensureClassInitialized))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/ThreadGroup;Ljava/lang/String;)V", nullptr, 0, $method(Reference$ReferenceHandler, init$, void, $ThreadGroup*, $String*)},
+	{"ensureClassInitialized", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $PRIVATE | $STATIC, $staticMethod(Reference$ReferenceHandler, ensureClassInitialized, void, $Class*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Reference$ReferenceHandler, run, void)},
 	{}
 };
 

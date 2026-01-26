@@ -30,10 +30,10 @@ $FieldInfo _URLClassPath$1_FieldInfo_[] = {
 };
 
 $MethodInfo _URLClassPath$1_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/loader/URLClassPath;Ljava/lang/String;Z)V", nullptr, 0, $method(static_cast<void(URLClassPath$1::*)($URLClassPath*,$String*,bool)>(&URLClassPath$1::init$))},
-	{"hasMoreElements", "()Z", nullptr, $PUBLIC},
-	{"next", "()Z", nullptr, $PRIVATE, $method(static_cast<bool(URLClassPath$1::*)()>(&URLClassPath$1::next))},
-	{"nextElement", "()Ljava/net/URL;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/loader/URLClassPath;Ljava/lang/String;Z)V", nullptr, 0, $method(URLClassPath$1, init$, void, $URLClassPath*, $String*, bool)},
+	{"hasMoreElements", "()Z", nullptr, $PUBLIC, $virtualMethod(URLClassPath$1, hasMoreElements, bool)},
+	{"next", "()Z", nullptr, $PRIVATE, $method(URLClassPath$1, next, bool)},
+	{"nextElement", "()Ljava/net/URL;", nullptr, $PUBLIC, $virtualMethod(URLClassPath$1, nextElement, $Object*)},
 	{}
 };
 

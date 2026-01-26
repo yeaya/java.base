@@ -20,8 +20,8 @@ namespace sun {
 		namespace ssl {
 
 $MethodInfo _SignatureAlgorithmsExtension$SignatureSchemesStringizer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(SignatureAlgorithmsExtension$SignatureSchemesStringizer::*)()>(&SignatureAlgorithmsExtension$SignatureSchemesStringizer::init$))},
-	{"toString", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(SignatureAlgorithmsExtension$SignatureSchemesStringizer, init$, void)},
+	{"toString", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SignatureAlgorithmsExtension$SignatureSchemesStringizer, toString, $String*, $HandshakeContext*, $ByteBuffer*)},
 	{}
 };
 

@@ -24,8 +24,8 @@ $FieldInfo _UnixFileSystem$2_FieldInfo_[] = {
 };
 
 $MethodInfo _UnixFileSystem$2_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/fs/UnixFileSystem;)V", nullptr, 0, $method(static_cast<void(UnixFileSystem$2::*)($UnixFileSystem*)>(&UnixFileSystem$2::init$))},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/nio/file/FileStore;>;", $PUBLIC},
+	{"<init>", "(Lsun/nio/fs/UnixFileSystem;)V", nullptr, 0, $method(UnixFileSystem$2, init$, void, $UnixFileSystem*)},
+	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/nio/file/FileStore;>;", $PUBLIC, $virtualMethod(UnixFileSystem$2, iterator, $Iterator*)},
 	{}
 };
 

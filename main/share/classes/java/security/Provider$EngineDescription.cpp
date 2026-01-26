@@ -20,8 +20,8 @@ $FieldInfo _Provider$EngineDescription_FieldInfo_[] = {
 };
 
 $MethodInfo _Provider$EngineDescription_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;ZLjava/lang/String;)V", nullptr, 0, $method(static_cast<void(Provider$EngineDescription::*)($String*,bool,$String*)>(&Provider$EngineDescription::init$))},
-	{"getConstructorParameterClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", 0, nullptr, "java.lang.ClassNotFoundException"},
+	{"<init>", "(Ljava/lang/String;ZLjava/lang/String;)V", nullptr, 0, $method(Provider$EngineDescription, init$, void, $String*, bool, $String*)},
+	{"getConstructorParameterClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", 0, $virtualMethod(Provider$EngineDescription, getConstructorParameterClass, $Class*), "java.lang.ClassNotFoundException"},
 	{}
 };
 

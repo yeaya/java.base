@@ -24,9 +24,9 @@ namespace sun {
 		namespace ch {
 
 $MethodInfo _KQueueSelectorProvider_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(KQueueSelectorProvider::*)()>(&KQueueSelectorProvider::init$))},
-	{"inheritedChannel", "()Ljava/nio/channels/Channel;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"openSelector", "()Ljava/nio/channels/spi/AbstractSelector;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(KQueueSelectorProvider, init$, void)},
+	{"inheritedChannel", "()Ljava/nio/channels/Channel;", nullptr, $PUBLIC, $virtualMethod(KQueueSelectorProvider, inheritedChannel, $Channel*), "java.io.IOException"},
+	{"openSelector", "()Ljava/nio/channels/spi/AbstractSelector;", nullptr, $PUBLIC, $virtualMethod(KQueueSelectorProvider, openSelector, $AbstractSelector*), "java.io.IOException"},
 	{}
 };
 

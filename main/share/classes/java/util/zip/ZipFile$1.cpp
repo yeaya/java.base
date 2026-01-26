@@ -26,17 +26,17 @@ namespace java {
 		namespace zip {
 
 $MethodInfo _ZipFile$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ZipFile$1::*)()>(&ZipFile$1::init$))},
-	{"entries", "(Ljava/util/zip/ZipFile;)Ljava/util/Enumeration;", "(Ljava/util/zip/ZipFile;)Ljava/util/Enumeration<Ljava/util/jar/JarEntry;>;", $PUBLIC},
-	{"entryNameStream", "(Ljava/util/zip/ZipFile;)Ljava/util/stream/Stream;", "(Ljava/util/zip/ZipFile;)Ljava/util/stream/Stream<Ljava/lang/String;>;", $PUBLIC},
-	{"getExtraAttributes", "(Ljava/util/zip/ZipEntry;)I", nullptr, $PUBLIC},
-	{"getManifestAndSignatureRelatedFiles", "(Ljava/util/jar/JarFile;)Ljava/util/List;", "(Ljava/util/jar/JarFile;)Ljava/util/List<Ljava/lang/String;>;", $PUBLIC},
-	{"getManifestName", "(Ljava/util/jar/JarFile;Z)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getManifestNum", "(Ljava/util/jar/JarFile;)I", nullptr, $PUBLIC},
-	{"getMetaInfVersions", "(Ljava/util/jar/JarFile;)[I", nullptr, $PUBLIC},
-	{"setExtraAttributes", "(Ljava/util/zip/ZipEntry;I)V", nullptr, $PUBLIC},
-	{"startsWithLocHeader", "(Ljava/util/zip/ZipFile;)Z", nullptr, $PUBLIC},
-	{"stream", "(Ljava/util/zip/ZipFile;)Ljava/util/stream/Stream;", "(Ljava/util/zip/ZipFile;)Ljava/util/stream/Stream<Ljava/util/jar/JarEntry;>;", $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(ZipFile$1, init$, void)},
+	{"entries", "(Ljava/util/zip/ZipFile;)Ljava/util/Enumeration;", "(Ljava/util/zip/ZipFile;)Ljava/util/Enumeration<Ljava/util/jar/JarEntry;>;", $PUBLIC, $virtualMethod(ZipFile$1, entries, $Enumeration*, $ZipFile*)},
+	{"entryNameStream", "(Ljava/util/zip/ZipFile;)Ljava/util/stream/Stream;", "(Ljava/util/zip/ZipFile;)Ljava/util/stream/Stream<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(ZipFile$1, entryNameStream, $Stream*, $ZipFile*)},
+	{"getExtraAttributes", "(Ljava/util/zip/ZipEntry;)I", nullptr, $PUBLIC, $virtualMethod(ZipFile$1, getExtraAttributes, int32_t, $ZipEntry*)},
+	{"getManifestAndSignatureRelatedFiles", "(Ljava/util/jar/JarFile;)Ljava/util/List;", "(Ljava/util/jar/JarFile;)Ljava/util/List<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(ZipFile$1, getManifestAndSignatureRelatedFiles, $List*, $JarFile*)},
+	{"getManifestName", "(Ljava/util/jar/JarFile;Z)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ZipFile$1, getManifestName, $String*, $JarFile*, bool)},
+	{"getManifestNum", "(Ljava/util/jar/JarFile;)I", nullptr, $PUBLIC, $virtualMethod(ZipFile$1, getManifestNum, int32_t, $JarFile*)},
+	{"getMetaInfVersions", "(Ljava/util/jar/JarFile;)[I", nullptr, $PUBLIC, $virtualMethod(ZipFile$1, getMetaInfVersions, $ints*, $JarFile*)},
+	{"setExtraAttributes", "(Ljava/util/zip/ZipEntry;I)V", nullptr, $PUBLIC, $virtualMethod(ZipFile$1, setExtraAttributes, void, $ZipEntry*, int32_t)},
+	{"startsWithLocHeader", "(Ljava/util/zip/ZipFile;)Z", nullptr, $PUBLIC, $virtualMethod(ZipFile$1, startsWithLocHeader, bool, $ZipFile*)},
+	{"stream", "(Ljava/util/zip/ZipFile;)Ljava/util/stream/Stream;", "(Ljava/util/zip/ZipFile;)Ljava/util/stream/Stream<Ljava/util/jar/JarEntry;>;", $PUBLIC, $virtualMethod(ZipFile$1, stream, $Stream*, $ZipFile*)},
 	{}
 };
 

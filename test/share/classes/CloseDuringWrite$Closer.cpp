@@ -16,8 +16,8 @@ $FieldInfo _CloseDuringWrite$Closer_FieldInfo_[] = {
 };
 
 $MethodInfo _CloseDuringWrite$Closer_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/Closeable;)V", nullptr, 0, $method(static_cast<void(CloseDuringWrite$Closer::*)($Closeable*)>(&CloseDuringWrite$Closer::init$))},
-	{"call", "()Ljava/lang/Void;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljava/io/Closeable;)V", nullptr, 0, $method(CloseDuringWrite$Closer, init$, void, $Closeable*)},
+	{"call", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(CloseDuringWrite$Closer, call, $Object*), "java.io.IOException"},
 	{}
 };
 

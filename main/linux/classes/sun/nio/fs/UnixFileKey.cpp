@@ -18,10 +18,10 @@ $FieldInfo _UnixFileKey_FieldInfo_[] = {
 };
 
 $MethodInfo _UnixFileKey_MethodInfo_[] = {
-	{"<init>", "(JJ)V", nullptr, 0, $method(static_cast<void(UnixFileKey::*)(int64_t,int64_t)>(&UnixFileKey::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(JJ)V", nullptr, 0, $method(UnixFileKey, init$, void, int64_t, int64_t)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(UnixFileKey, equals, bool, Object$*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(UnixFileKey, hashCode, int32_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UnixFileKey, toString, $String*)},
 	{}
 };
 

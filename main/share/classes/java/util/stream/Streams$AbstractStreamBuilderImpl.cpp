@@ -25,10 +25,10 @@ $FieldInfo _Streams$AbstractStreamBuilderImpl_FieldInfo_[] = {
 };
 
 $MethodInfo _Streams$AbstractStreamBuilderImpl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(Streams$AbstractStreamBuilderImpl::*)()>(&Streams$AbstractStreamBuilderImpl::init$))},
-	{"characteristics", "()I", nullptr, $PUBLIC},
-	{"estimateSize", "()J", nullptr, $PUBLIC},
-	{"trySplit", "()Ljava/util/Spliterator;", "()TS;", $PUBLIC},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(Streams$AbstractStreamBuilderImpl, init$, void)},
+	{"characteristics", "()I", nullptr, $PUBLIC, $virtualMethod(Streams$AbstractStreamBuilderImpl, characteristics, int32_t)},
+	{"estimateSize", "()J", nullptr, $PUBLIC, $virtualMethod(Streams$AbstractStreamBuilderImpl, estimateSize, int64_t)},
+	{"trySplit", "()Ljava/util/Spliterator;", "()TS;", $PUBLIC, $virtualMethod(Streams$AbstractStreamBuilderImpl, trySplit, $Spliterator*)},
 	{}
 };
 

@@ -29,10 +29,10 @@ $FieldInfo _CodePointTrie$ValueWidth_FieldInfo_[] = {
 };
 
 $MethodInfo _CodePointTrie$ValueWidth_MethodInfo_[] = {
-	{"$values", "()[Ljdk/internal/icu/util/CodePointTrie$ValueWidth;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$CodePointTrie$ValueWidthArray*(*)()>(&CodePointTrie$ValueWidth::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(CodePointTrie$ValueWidth::*)($String*,int32_t)>(&CodePointTrie$ValueWidth::init$))},
-	{"valueOf", "(Ljava/lang/String;)Ljdk/internal/icu/util/CodePointTrie$ValueWidth;", nullptr, $PUBLIC | $STATIC, $method(static_cast<CodePointTrie$ValueWidth*(*)($String*)>(&CodePointTrie$ValueWidth::valueOf))},
-	{"values", "()[Ljdk/internal/icu/util/CodePointTrie$ValueWidth;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$CodePointTrie$ValueWidthArray*(*)()>(&CodePointTrie$ValueWidth::values))},
+	{"$values", "()[Ljdk/internal/icu/util/CodePointTrie$ValueWidth;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CodePointTrie$ValueWidth, $values, $CodePointTrie$ValueWidthArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(CodePointTrie$ValueWidth, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Ljdk/internal/icu/util/CodePointTrie$ValueWidth;", nullptr, $PUBLIC | $STATIC, $staticMethod(CodePointTrie$ValueWidth, valueOf, CodePointTrie$ValueWidth*, $String*)},
+	{"values", "()[Ljdk/internal/icu/util/CodePointTrie$ValueWidth;", nullptr, $PUBLIC | $STATIC, $staticMethod(CodePointTrie$ValueWidth, values, $CodePointTrie$ValueWidthArray*)},
 	{}
 };
 

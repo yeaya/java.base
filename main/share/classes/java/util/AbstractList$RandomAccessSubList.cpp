@@ -20,9 +20,9 @@ $MethodInfo _AbstractList$RandomAccessSubList_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "(Ljava/util/AbstractList;II)V", "(Ljava/util/AbstractList<TE;>;II)V", 0, $method(static_cast<void(AbstractList$RandomAccessSubList::*)($AbstractList*,int32_t,int32_t)>(&AbstractList$RandomAccessSubList::init$))},
-	{"<init>", "(Ljava/util/AbstractList$RandomAccessSubList;II)V", "(Ljava/util/AbstractList$RandomAccessSubList<TE;>;II)V", 0, $method(static_cast<void(AbstractList$RandomAccessSubList::*)(AbstractList$RandomAccessSubList*,int32_t,int32_t)>(&AbstractList$RandomAccessSubList::init$))},
-	{"subList", "(II)Ljava/util/List;", "(II)Ljava/util/List<TE;>;", $PUBLIC},
+	{"<init>", "(Ljava/util/AbstractList;II)V", "(Ljava/util/AbstractList<TE;>;II)V", 0, $method(AbstractList$RandomAccessSubList, init$, void, $AbstractList*, int32_t, int32_t)},
+	{"<init>", "(Ljava/util/AbstractList$RandomAccessSubList;II)V", "(Ljava/util/AbstractList$RandomAccessSubList<TE;>;II)V", 0, $method(AbstractList$RandomAccessSubList, init$, void, AbstractList$RandomAccessSubList*, int32_t, int32_t)},
+	{"subList", "(II)Ljava/util/List;", "(II)Ljava/util/List<TE;>;", $PUBLIC, $virtualMethod(AbstractList$RandomAccessSubList, subList, $List*, int32_t, int32_t)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

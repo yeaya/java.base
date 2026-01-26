@@ -24,7 +24,7 @@ $FieldInfo _PerfCounter$CoreCounters_FieldInfo_[] = {
 };
 
 $MethodInfo _PerfCounter$CoreCounters_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(PerfCounter$CoreCounters::*)()>(&PerfCounter$CoreCounters::init$))},
+	{"<init>", "()V", nullptr, 0, $method(PerfCounter$CoreCounters, init$, void)},
 	{}
 };
 

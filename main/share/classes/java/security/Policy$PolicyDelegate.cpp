@@ -35,14 +35,14 @@ $FieldInfo _Policy$PolicyDelegate_FieldInfo_[] = {
 };
 
 $MethodInfo _Policy$PolicyDelegate_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/PolicySpi;Ljava/security/Provider;Ljava/lang/String;Ljava/security/Policy$Parameters;)V", nullptr, $PRIVATE, $method(static_cast<void(Policy$PolicyDelegate::*)($PolicySpi*,$Provider*,$String*,$Policy$Parameters*)>(&Policy$PolicyDelegate::init$))},
-	{"getParameters", "()Ljava/security/Policy$Parameters;", nullptr, $PUBLIC},
-	{"getPermissions", "(Ljava/security/CodeSource;)Ljava/security/PermissionCollection;", nullptr, $PUBLIC},
-	{"getPermissions", "(Ljava/security/ProtectionDomain;)Ljava/security/PermissionCollection;", nullptr, $PUBLIC},
-	{"getProvider", "()Ljava/security/Provider;", nullptr, $PUBLIC},
-	{"getType", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"implies", "(Ljava/security/ProtectionDomain;Ljava/security/Permission;)Z", nullptr, $PUBLIC},
-	{"refresh", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/security/PolicySpi;Ljava/security/Provider;Ljava/lang/String;Ljava/security/Policy$Parameters;)V", nullptr, $PRIVATE, $method(Policy$PolicyDelegate, init$, void, $PolicySpi*, $Provider*, $String*, $Policy$Parameters*)},
+	{"getParameters", "()Ljava/security/Policy$Parameters;", nullptr, $PUBLIC, $virtualMethod(Policy$PolicyDelegate, getParameters, $Policy$Parameters*)},
+	{"getPermissions", "(Ljava/security/CodeSource;)Ljava/security/PermissionCollection;", nullptr, $PUBLIC, $virtualMethod(Policy$PolicyDelegate, getPermissions, $PermissionCollection*, $CodeSource*)},
+	{"getPermissions", "(Ljava/security/ProtectionDomain;)Ljava/security/PermissionCollection;", nullptr, $PUBLIC, $virtualMethod(Policy$PolicyDelegate, getPermissions, $PermissionCollection*, $ProtectionDomain*)},
+	{"getProvider", "()Ljava/security/Provider;", nullptr, $PUBLIC, $virtualMethod(Policy$PolicyDelegate, getProvider, $Provider*)},
+	{"getType", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Policy$PolicyDelegate, getType, $String*)},
+	{"implies", "(Ljava/security/ProtectionDomain;Ljava/security/Permission;)Z", nullptr, $PUBLIC, $virtualMethod(Policy$PolicyDelegate, implies, bool, $ProtectionDomain*, $Permission*)},
+	{"refresh", "()V", nullptr, $PUBLIC, $virtualMethod(Policy$PolicyDelegate, refresh, void)},
 	{}
 };
 

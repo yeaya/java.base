@@ -17,8 +17,8 @@ $FieldInfo _NotActiveException_FieldInfo_[] = {
 };
 
 $MethodInfo _NotActiveException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(NotActiveException::*)($String*)>(&NotActiveException::init$))},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(NotActiveException::*)()>(&NotActiveException::init$))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NotActiveException, init$, void, $String*)},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(NotActiveException, init$, void)},
 	{}
 };
 

@@ -41,20 +41,20 @@ $FieldInfo _BufferedInputStream_FieldInfo_[] = {
 };
 
 $MethodInfo _BufferedInputStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(static_cast<void(BufferedInputStream::*)($InputStream*)>(&BufferedInputStream::init$))},
-	{"<init>", "(Ljava/io/InputStream;I)V", nullptr, $PUBLIC, $method(static_cast<void(BufferedInputStream::*)($InputStream*,int32_t)>(&BufferedInputStream::init$))},
-	{"available", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, nullptr, "java.io.IOException"},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"fill", "()V", nullptr, $PRIVATE, $method(static_cast<void(BufferedInputStream::*)()>(&BufferedInputStream::fill)), "java.io.IOException"},
-	{"getBufIfOpen", "()[B", nullptr, $PRIVATE, $method(static_cast<$bytes*(BufferedInputStream::*)()>(&BufferedInputStream::getBufIfOpen)), "java.io.IOException"},
-	{"getInIfOpen", "()Ljava/io/InputStream;", nullptr, $PRIVATE, $method(static_cast<$InputStream*(BufferedInputStream::*)()>(&BufferedInputStream::getInIfOpen)), "java.io.IOException"},
-	{"mark", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"markSupported", "()Z", nullptr, $PUBLIC},
-	{"read", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, nullptr, "java.io.IOException"},
-	{"read", "([BII)I", nullptr, $PUBLIC | $SYNCHRONIZED, nullptr, "java.io.IOException"},
-	{"read1", "([BII)I", nullptr, $PRIVATE, $method(static_cast<int32_t(BufferedInputStream::*)($bytes*,int32_t,int32_t)>(&BufferedInputStream::read1)), "java.io.IOException"},
-	{"reset", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, nullptr, "java.io.IOException"},
-	{"skip", "(J)J", nullptr, $PUBLIC | $SYNCHRONIZED, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(BufferedInputStream, init$, void, $InputStream*)},
+	{"<init>", "(Ljava/io/InputStream;I)V", nullptr, $PUBLIC, $method(BufferedInputStream, init$, void, $InputStream*, int32_t)},
+	{"available", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(BufferedInputStream, available, int32_t), "java.io.IOException"},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(BufferedInputStream, close, void), "java.io.IOException"},
+	{"fill", "()V", nullptr, $PRIVATE, $method(BufferedInputStream, fill, void), "java.io.IOException"},
+	{"getBufIfOpen", "()[B", nullptr, $PRIVATE, $method(BufferedInputStream, getBufIfOpen, $bytes*), "java.io.IOException"},
+	{"getInIfOpen", "()Ljava/io/InputStream;", nullptr, $PRIVATE, $method(BufferedInputStream, getInIfOpen, $InputStream*), "java.io.IOException"},
+	{"mark", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(BufferedInputStream, mark, void, int32_t)},
+	{"markSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(BufferedInputStream, markSupported, bool)},
+	{"read", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(BufferedInputStream, read, int32_t), "java.io.IOException"},
+	{"read", "([BII)I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(BufferedInputStream, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
+	{"read1", "([BII)I", nullptr, $PRIVATE, $method(BufferedInputStream, read1, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
+	{"reset", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(BufferedInputStream, reset, void), "java.io.IOException"},
+	{"skip", "(J)J", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(BufferedInputStream, skip, int64_t, int64_t), "java.io.IOException"},
 	{}
 };
 

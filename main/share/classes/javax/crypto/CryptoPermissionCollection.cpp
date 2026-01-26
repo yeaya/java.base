@@ -28,10 +28,10 @@ $FieldInfo _CryptoPermissionCollection_FieldInfo_[] = {
 };
 
 $MethodInfo _CryptoPermissionCollection_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(CryptoPermissionCollection::*)()>(&CryptoPermissionCollection::init$))},
-	{"add", "(Ljava/security/Permission;)V", nullptr, $PUBLIC},
-	{"elements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/security/Permission;>;", $PUBLIC},
-	{"implies", "(Ljava/security/Permission;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(CryptoPermissionCollection, init$, void)},
+	{"add", "(Ljava/security/Permission;)V", nullptr, $PUBLIC, $virtualMethod(CryptoPermissionCollection, add, void, $Permission*)},
+	{"elements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/security/Permission;>;", $PUBLIC, $virtualMethod(CryptoPermissionCollection, elements, $Enumeration*)},
+	{"implies", "(Ljava/security/Permission;)Z", nullptr, $PUBLIC, $virtualMethod(CryptoPermissionCollection, implies, bool, $Permission*)},
 	{}
 };
 

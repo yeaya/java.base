@@ -13,6 +13,8 @@
 
 #undef CLOSE_KEY
 
+using $WatchEvent$KindArray = $Array<::java::nio::file::WatchEvent$Kind>;
+using $WatchEvent$ModifierArray = $Array<::java::nio::file::WatchEvent$Modifier>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -38,18 +40,18 @@ $FieldInfo _AbstractWatchService_FieldInfo_[] = {
 };
 
 $MethodInfo _AbstractWatchService_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(AbstractWatchService::*)()>(&AbstractWatchService::init$))},
-	{"checkKey", "(Ljava/nio/file/WatchKey;)V", nullptr, $PRIVATE, $method(static_cast<void(AbstractWatchService::*)($WatchKey*)>(&AbstractWatchService::checkKey))},
-	{"checkOpen", "()V", nullptr, $PRIVATE, $method(static_cast<void(AbstractWatchService::*)()>(&AbstractWatchService::checkOpen))},
-	{"close", "()V", nullptr, $PUBLIC | $FINAL, nullptr, "java.io.IOException"},
-	{"closeLock", "()Ljava/lang/Object;", nullptr, $FINAL, $method(static_cast<$Object*(AbstractWatchService::*)()>(&AbstractWatchService::closeLock))},
-	{"enqueueKey", "(Ljava/nio/file/WatchKey;)V", nullptr, $FINAL, $method(static_cast<void(AbstractWatchService::*)($WatchKey*)>(&AbstractWatchService::enqueueKey))},
-	{"implClose", "()V", nullptr, $ABSTRACT, nullptr, "java.io.IOException"},
-	{"isOpen", "()Z", nullptr, $FINAL, $method(static_cast<bool(AbstractWatchService::*)()>(&AbstractWatchService::isOpen))},
-	{"poll", "()Ljava/nio/file/WatchKey;", nullptr, $PUBLIC | $FINAL},
-	{"poll", "(JLjava/util/concurrent/TimeUnit;)Ljava/nio/file/WatchKey;", nullptr, $PUBLIC | $FINAL, nullptr, "java.lang.InterruptedException"},
-	{"register", "(Ljava/nio/file/Path;[Ljava/nio/file/WatchEvent$Kind;[Ljava/nio/file/WatchEvent$Modifier;)Ljava/nio/file/WatchKey;", "(Ljava/nio/file/Path;[Ljava/nio/file/WatchEvent$Kind<*>;[Ljava/nio/file/WatchEvent$Modifier;)Ljava/nio/file/WatchKey;", $TRANSIENT | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"take", "()Ljava/nio/file/WatchKey;", nullptr, $PUBLIC | $FINAL, nullptr, "java.lang.InterruptedException"},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(AbstractWatchService, init$, void)},
+	{"checkKey", "(Ljava/nio/file/WatchKey;)V", nullptr, $PRIVATE, $method(AbstractWatchService, checkKey, void, $WatchKey*)},
+	{"checkOpen", "()V", nullptr, $PRIVATE, $method(AbstractWatchService, checkOpen, void)},
+	{"close", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractWatchService, close, void), "java.io.IOException"},
+	{"closeLock", "()Ljava/lang/Object;", nullptr, $FINAL, $method(AbstractWatchService, closeLock, $Object*)},
+	{"enqueueKey", "(Ljava/nio/file/WatchKey;)V", nullptr, $FINAL, $method(AbstractWatchService, enqueueKey, void, $WatchKey*)},
+	{"implClose", "()V", nullptr, $ABSTRACT, $virtualMethod(AbstractWatchService, implClose, void), "java.io.IOException"},
+	{"isOpen", "()Z", nullptr, $FINAL, $method(AbstractWatchService, isOpen, bool)},
+	{"poll", "()Ljava/nio/file/WatchKey;", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractWatchService, poll, $WatchKey*)},
+	{"poll", "(JLjava/util/concurrent/TimeUnit;)Ljava/nio/file/WatchKey;", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractWatchService, poll, $WatchKey*, int64_t, $TimeUnit*), "java.lang.InterruptedException"},
+	{"register", "(Ljava/nio/file/Path;[Ljava/nio/file/WatchEvent$Kind;[Ljava/nio/file/WatchEvent$Modifier;)Ljava/nio/file/WatchKey;", "(Ljava/nio/file/Path;[Ljava/nio/file/WatchEvent$Kind<*>;[Ljava/nio/file/WatchEvent$Modifier;)Ljava/nio/file/WatchKey;", $TRANSIENT | $ABSTRACT, $virtualMethod(AbstractWatchService, register$, $WatchKey*, $Path*, $WatchEvent$KindArray*, $WatchEvent$ModifierArray*), "java.io.IOException"},
+	{"take", "()Ljava/nio/file/WatchKey;", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractWatchService, take, $WatchKey*), "java.lang.InterruptedException"},
 	{}
 };
 

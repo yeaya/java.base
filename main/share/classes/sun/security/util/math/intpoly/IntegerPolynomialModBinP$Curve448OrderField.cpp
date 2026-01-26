@@ -20,8 +20,8 @@ namespace sun {
 				namespace intpoly {
 
 $MethodInfo _IntegerPolynomialModBinP$Curve448OrderField_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(IntegerPolynomialModBinP$Curve448OrderField::*)()>(&IntegerPolynomialModBinP$Curve448OrderField::init$))},
-	{"getElement", "([BIIB)Lsun/security/util/math/ImmutableIntegerModuloP;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(IntegerPolynomialModBinP$Curve448OrderField, init$, void)},
+	{"getElement", "([BIIB)Lsun/security/util/math/ImmutableIntegerModuloP;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(IntegerPolynomialModBinP$Curve448OrderField, getElement, $ImmutableIntegerModuloP*, $bytes*, int32_t, int32_t, int8_t)},
 	{}
 };
 

@@ -41,13 +41,13 @@ $FieldInfo _Cipher$Transform_FieldInfo_[] = {
 };
 
 $MethodInfo _Cipher$Transform_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(Cipher$Transform::*)($String*,$String*,$String*,$String*)>(&Cipher$Transform::init$))},
-	{"matches", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($String*,$String*)>(&Cipher$Transform::matches))},
-	{"setModePadding", "(Ljavax/crypto/CipherSpi;)V", nullptr, 0, nullptr, "java.security.NoSuchAlgorithmException,javax.crypto.NoSuchPaddingException"},
-	{"supports", "(Ljava/security/Provider$Service;Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)($Provider$Service*,$String*,$String*)>(&Cipher$Transform::supports))},
-	{"supportsMode", "(Ljava/security/Provider$Service;)I", nullptr, 0},
-	{"supportsModePadding", "(Ljava/security/Provider$Service;)I", nullptr, 0},
-	{"supportsPadding", "(Ljava/security/Provider$Service;)I", nullptr, 0},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(Cipher$Transform, init$, void, $String*, $String*, $String*, $String*)},
+	{"matches", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Cipher$Transform, matches, bool, $String*, $String*)},
+	{"setModePadding", "(Ljavax/crypto/CipherSpi;)V", nullptr, 0, $virtualMethod(Cipher$Transform, setModePadding, void, $CipherSpi*), "java.security.NoSuchAlgorithmException,javax.crypto.NoSuchPaddingException"},
+	{"supports", "(Ljava/security/Provider$Service;Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(Cipher$Transform, supports, int32_t, $Provider$Service*, $String*, $String*)},
+	{"supportsMode", "(Ljava/security/Provider$Service;)I", nullptr, 0, $virtualMethod(Cipher$Transform, supportsMode, int32_t, $Provider$Service*)},
+	{"supportsModePadding", "(Ljava/security/Provider$Service;)I", nullptr, 0, $virtualMethod(Cipher$Transform, supportsModePadding, int32_t, $Provider$Service*)},
+	{"supportsPadding", "(Ljava/security/Provider$Service;)I", nullptr, 0, $virtualMethod(Cipher$Transform, supportsPadding, int32_t, $Provider$Service*)},
 	{}
 };
 

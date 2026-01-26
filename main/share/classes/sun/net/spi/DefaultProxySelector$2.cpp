@@ -15,8 +15,8 @@ namespace sun {
 		namespace spi {
 
 $MethodInfo _DefaultProxySelector$2_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(DefaultProxySelector$2::*)()>(&DefaultProxySelector$2::init$))},
-	{"run", "()Ljava/lang/Integer;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(DefaultProxySelector$2, init$, void)},
+	{"run", "()Ljava/lang/Integer;", nullptr, $PUBLIC, $virtualMethod(DefaultProxySelector$2, run, $Object*)},
 	{}
 };
 

@@ -1,8 +1,10 @@
 #include <java/io/ObjectOutputStream$PutField.h>
 
+#include <java/io/ObjectOutput.h>
 #include <java/io/ObjectOutputStream.h>
 #include <jcpp.h>
 
+using $ObjectOutput = ::java::io::ObjectOutput;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -17,17 +19,17 @@ $CompoundAttribute _ObjectOutputStream$PutField_MethodAnnotations_write10[] = {
 };
 
 $MethodInfo _ObjectOutputStream$PutField_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ObjectOutputStream$PutField::*)()>(&ObjectOutputStream$PutField::init$))},
-	{"put", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"put", "(Ljava/lang/String;B)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"put", "(Ljava/lang/String;C)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"put", "(Ljava/lang/String;S)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"put", "(Ljava/lang/String;I)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"put", "(Ljava/lang/String;J)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"put", "(Ljava/lang/String;F)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"put", "(Ljava/lang/String;D)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"put", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"write", "(Ljava/io/ObjectOutput;)V", nullptr, $PUBLIC | $ABSTRACT | $DEPRECATED, nullptr, "java.io.IOException", nullptr, _ObjectOutputStream$PutField_MethodAnnotations_write10},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ObjectOutputStream$PutField, init$, void)},
+	{"put", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ObjectOutputStream$PutField, put, void, $String*, bool)},
+	{"put", "(Ljava/lang/String;B)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ObjectOutputStream$PutField, put, void, $String*, int8_t)},
+	{"put", "(Ljava/lang/String;C)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ObjectOutputStream$PutField, put, void, $String*, char16_t)},
+	{"put", "(Ljava/lang/String;S)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ObjectOutputStream$PutField, put, void, $String*, int16_t)},
+	{"put", "(Ljava/lang/String;I)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ObjectOutputStream$PutField, put, void, $String*, int32_t)},
+	{"put", "(Ljava/lang/String;J)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ObjectOutputStream$PutField, put, void, $String*, int64_t)},
+	{"put", "(Ljava/lang/String;F)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ObjectOutputStream$PutField, put, void, $String*, float)},
+	{"put", "(Ljava/lang/String;D)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ObjectOutputStream$PutField, put, void, $String*, double)},
+	{"put", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ObjectOutputStream$PutField, put, void, $String*, Object$*)},
+	{"write", "(Ljava/io/ObjectOutput;)V", nullptr, $PUBLIC | $ABSTRACT | $DEPRECATED, $virtualMethod(ObjectOutputStream$PutField, write, void, $ObjectOutput*), "java.io.IOException", nullptr, _ObjectOutputStream$PutField_MethodAnnotations_write10},
 	{}
 };
 

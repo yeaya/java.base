@@ -44,11 +44,11 @@ $FieldInfo _UnixFileSystem$FileStoreIterator_FieldInfo_[] = {
 };
 
 $MethodInfo _UnixFileSystem$FileStoreIterator_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/fs/UnixFileSystem;)V", nullptr, 0, $method(static_cast<void(UnixFileSystem$FileStoreIterator::*)($UnixFileSystem*)>(&UnixFileSystem$FileStoreIterator::init$))},
-	{"hasNext", "()Z", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"next", "()Ljava/nio/file/FileStore;", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"readNext", "()Ljava/nio/file/FileStore;", nullptr, $PRIVATE, $method(static_cast<$FileStore*(UnixFileSystem$FileStoreIterator::*)()>(&UnixFileSystem$FileStoreIterator::readNext))},
-	{"remove", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/nio/fs/UnixFileSystem;)V", nullptr, 0, $method(UnixFileSystem$FileStoreIterator, init$, void, $UnixFileSystem*)},
+	{"hasNext", "()Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(UnixFileSystem$FileStoreIterator, hasNext, bool)},
+	{"next", "()Ljava/nio/file/FileStore;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(UnixFileSystem$FileStoreIterator, next, $Object*)},
+	{"readNext", "()Ljava/nio/file/FileStore;", nullptr, $PRIVATE, $method(UnixFileSystem$FileStoreIterator, readNext, $FileStore*)},
+	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(UnixFileSystem$FileStoreIterator, remove, void)},
 	{}
 };
 

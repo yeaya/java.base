@@ -75,10 +75,10 @@ $FieldInfo _DateFormat$Field_FieldInfo_[] = {
 };
 
 $MethodInfo _DateFormat$Field_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PROTECTED, $method(static_cast<void(DateFormat$Field::*)($String*,int32_t)>(&DateFormat$Field::init$))},
-	{"getCalendarField", "()I", nullptr, $PUBLIC},
-	{"ofCalendarField", "(I)Ljava/text/DateFormat$Field;", nullptr, $PUBLIC | $STATIC, $method(static_cast<DateFormat$Field*(*)(int32_t)>(&DateFormat$Field::ofCalendarField))},
-	{"readResolve", "()Ljava/lang/Object;", nullptr, $PROTECTED, nullptr, "java.io.InvalidObjectException"},
+	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PROTECTED, $method(DateFormat$Field, init$, void, $String*, int32_t)},
+	{"getCalendarField", "()I", nullptr, $PUBLIC, $virtualMethod(DateFormat$Field, getCalendarField, int32_t)},
+	{"ofCalendarField", "(I)Ljava/text/DateFormat$Field;", nullptr, $PUBLIC | $STATIC, $staticMethod(DateFormat$Field, ofCalendarField, DateFormat$Field*, int32_t)},
+	{"readResolve", "()Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(DateFormat$Field, readResolve, $Object*), "java.io.InvalidObjectException"},
 	{}
 };
 

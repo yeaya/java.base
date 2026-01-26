@@ -31,17 +31,17 @@ $FieldInfo _Handler_FieldInfo_[] = {
 };
 
 $MethodInfo _Handler_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Handler::*)()>(&Handler::init$))},
-	{"canonicalizeString", "(Ljava/lang/String;I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($String*,int32_t)>(&Handler::canonicalizeString))},
-	{"checkNestedProtocol", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"doCanonicalize", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($String*)>(&Handler::doCanonicalize))},
-	{"hashCode", "(Ljava/net/URL;)I", nullptr, $PROTECTED},
-	{"indexOfBangSlash", "(Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)($String*)>(&Handler::indexOfBangSlash))},
-	{"openConnection", "(Ljava/net/URL;)Ljava/net/URLConnection;", nullptr, $PROTECTED, nullptr, "java.io.IOException"},
-	{"parseAbsoluteSpec", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(Handler::*)($String*)>(&Handler::parseAbsoluteSpec))},
-	{"parseContextSpec", "(Ljava/net/URL;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(Handler::*)($URL*,$String*)>(&Handler::parseContextSpec))},
-	{"parseURL", "(Ljava/net/URL;Ljava/lang/String;II)V", nullptr, $PROTECTED},
-	{"sameFile", "(Ljava/net/URL;Ljava/net/URL;)Z", nullptr, $PROTECTED},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Handler, init$, void)},
+	{"canonicalizeString", "(Ljava/lang/String;I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Handler, canonicalizeString, $String*, $String*, int32_t)},
+	{"checkNestedProtocol", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Handler, checkNestedProtocol, $String*, $String*)},
+	{"doCanonicalize", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Handler, doCanonicalize, $String*, $String*)},
+	{"hashCode", "(Ljava/net/URL;)I", nullptr, $PROTECTED, $virtualMethod(Handler, hashCode, int32_t, $URL*)},
+	{"indexOfBangSlash", "(Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(Handler, indexOfBangSlash, int32_t, $String*)},
+	{"openConnection", "(Ljava/net/URL;)Ljava/net/URLConnection;", nullptr, $PROTECTED, $virtualMethod(Handler, openConnection, $URLConnection*, $URL*), "java.io.IOException"},
+	{"parseAbsoluteSpec", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(Handler, parseAbsoluteSpec, $String*, $String*)},
+	{"parseContextSpec", "(Ljava/net/URL;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(Handler, parseContextSpec, $String*, $URL*, $String*)},
+	{"parseURL", "(Ljava/net/URL;Ljava/lang/String;II)V", nullptr, $PROTECTED, $virtualMethod(Handler, parseURL, void, $URL*, $String*, int32_t, int32_t)},
+	{"sameFile", "(Ljava/net/URL;Ljava/net/URL;)Z", nullptr, $PROTECTED, $virtualMethod(Handler, sameFile, bool, $URL*, $URL*)},
 	{}
 };
 

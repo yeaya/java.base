@@ -34,20 +34,20 @@ $FieldInfo _Locale$Builder_FieldInfo_[] = {
 };
 
 $MethodInfo _Locale$Builder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Locale$Builder::*)()>(&Locale$Builder::init$))},
-	{"addUnicodeLocaleAttribute", "(Ljava/lang/String;)Ljava/util/Locale$Builder;", nullptr, $PUBLIC, $method(static_cast<Locale$Builder*(Locale$Builder::*)($String*)>(&Locale$Builder::addUnicodeLocaleAttribute))},
-	{"build", "()Ljava/util/Locale;", nullptr, $PUBLIC, $method(static_cast<$Locale*(Locale$Builder::*)()>(&Locale$Builder::build))},
-	{"clear", "()Ljava/util/Locale$Builder;", nullptr, $PUBLIC, $method(static_cast<Locale$Builder*(Locale$Builder::*)()>(&Locale$Builder::clear))},
-	{"clearExtensions", "()Ljava/util/Locale$Builder;", nullptr, $PUBLIC, $method(static_cast<Locale$Builder*(Locale$Builder::*)()>(&Locale$Builder::clearExtensions))},
-	{"removeUnicodeLocaleAttribute", "(Ljava/lang/String;)Ljava/util/Locale$Builder;", nullptr, $PUBLIC, $method(static_cast<Locale$Builder*(Locale$Builder::*)($String*)>(&Locale$Builder::removeUnicodeLocaleAttribute))},
-	{"setExtension", "(CLjava/lang/String;)Ljava/util/Locale$Builder;", nullptr, $PUBLIC, $method(static_cast<Locale$Builder*(Locale$Builder::*)(char16_t,$String*)>(&Locale$Builder::setExtension))},
-	{"setLanguage", "(Ljava/lang/String;)Ljava/util/Locale$Builder;", nullptr, $PUBLIC, $method(static_cast<Locale$Builder*(Locale$Builder::*)($String*)>(&Locale$Builder::setLanguage))},
-	{"setLanguageTag", "(Ljava/lang/String;)Ljava/util/Locale$Builder;", nullptr, $PUBLIC, $method(static_cast<Locale$Builder*(Locale$Builder::*)($String*)>(&Locale$Builder::setLanguageTag))},
-	{"setLocale", "(Ljava/util/Locale;)Ljava/util/Locale$Builder;", nullptr, $PUBLIC, $method(static_cast<Locale$Builder*(Locale$Builder::*)($Locale*)>(&Locale$Builder::setLocale))},
-	{"setRegion", "(Ljava/lang/String;)Ljava/util/Locale$Builder;", nullptr, $PUBLIC, $method(static_cast<Locale$Builder*(Locale$Builder::*)($String*)>(&Locale$Builder::setRegion))},
-	{"setScript", "(Ljava/lang/String;)Ljava/util/Locale$Builder;", nullptr, $PUBLIC, $method(static_cast<Locale$Builder*(Locale$Builder::*)($String*)>(&Locale$Builder::setScript))},
-	{"setUnicodeLocaleKeyword", "(Ljava/lang/String;Ljava/lang/String;)Ljava/util/Locale$Builder;", nullptr, $PUBLIC, $method(static_cast<Locale$Builder*(Locale$Builder::*)($String*,$String*)>(&Locale$Builder::setUnicodeLocaleKeyword))},
-	{"setVariant", "(Ljava/lang/String;)Ljava/util/Locale$Builder;", nullptr, $PUBLIC, $method(static_cast<Locale$Builder*(Locale$Builder::*)($String*)>(&Locale$Builder::setVariant))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Locale$Builder, init$, void)},
+	{"addUnicodeLocaleAttribute", "(Ljava/lang/String;)Ljava/util/Locale$Builder;", nullptr, $PUBLIC, $method(Locale$Builder, addUnicodeLocaleAttribute, Locale$Builder*, $String*)},
+	{"build", "()Ljava/util/Locale;", nullptr, $PUBLIC, $method(Locale$Builder, build, $Locale*)},
+	{"clear", "()Ljava/util/Locale$Builder;", nullptr, $PUBLIC, $method(Locale$Builder, clear, Locale$Builder*)},
+	{"clearExtensions", "()Ljava/util/Locale$Builder;", nullptr, $PUBLIC, $method(Locale$Builder, clearExtensions, Locale$Builder*)},
+	{"removeUnicodeLocaleAttribute", "(Ljava/lang/String;)Ljava/util/Locale$Builder;", nullptr, $PUBLIC, $method(Locale$Builder, removeUnicodeLocaleAttribute, Locale$Builder*, $String*)},
+	{"setExtension", "(CLjava/lang/String;)Ljava/util/Locale$Builder;", nullptr, $PUBLIC, $method(Locale$Builder, setExtension, Locale$Builder*, char16_t, $String*)},
+	{"setLanguage", "(Ljava/lang/String;)Ljava/util/Locale$Builder;", nullptr, $PUBLIC, $method(Locale$Builder, setLanguage, Locale$Builder*, $String*)},
+	{"setLanguageTag", "(Ljava/lang/String;)Ljava/util/Locale$Builder;", nullptr, $PUBLIC, $method(Locale$Builder, setLanguageTag, Locale$Builder*, $String*)},
+	{"setLocale", "(Ljava/util/Locale;)Ljava/util/Locale$Builder;", nullptr, $PUBLIC, $method(Locale$Builder, setLocale, Locale$Builder*, $Locale*)},
+	{"setRegion", "(Ljava/lang/String;)Ljava/util/Locale$Builder;", nullptr, $PUBLIC, $method(Locale$Builder, setRegion, Locale$Builder*, $String*)},
+	{"setScript", "(Ljava/lang/String;)Ljava/util/Locale$Builder;", nullptr, $PUBLIC, $method(Locale$Builder, setScript, Locale$Builder*, $String*)},
+	{"setUnicodeLocaleKeyword", "(Ljava/lang/String;Ljava/lang/String;)Ljava/util/Locale$Builder;", nullptr, $PUBLIC, $method(Locale$Builder, setUnicodeLocaleKeyword, Locale$Builder*, $String*, $String*)},
+	{"setVariant", "(Ljava/lang/String;)Ljava/util/Locale$Builder;", nullptr, $PUBLIC, $method(Locale$Builder, setVariant, Locale$Builder*, $String*)},
 	{}
 };
 

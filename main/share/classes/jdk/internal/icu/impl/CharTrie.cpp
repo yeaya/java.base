@@ -36,11 +36,11 @@ $FieldInfo _CharTrie_FieldInfo_[] = {
 };
 
 $MethodInfo _CharTrie_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/InputStream;Ljdk/internal/icu/impl/Trie$DataManipulate;)V", nullptr, $PUBLIC, $method(static_cast<void(CharTrie::*)($InputStream*,$Trie$DataManipulate*)>(&CharTrie::init$)), "java.io.IOException"},
-	{"getCodePointValue", "(I)C", nullptr, $PUBLIC | $FINAL, $method(static_cast<char16_t(CharTrie::*)(int32_t)>(&CharTrie::getCodePointValue))},
-	{"getLeadValue", "(C)C", nullptr, $PUBLIC | $FINAL, $method(static_cast<char16_t(CharTrie::*)(char16_t)>(&CharTrie::getLeadValue))},
-	{"getSurrogateOffset", "(CC)I", nullptr, $PROTECTED | $FINAL},
-	{"unserialize", "(Ljava/io/InputStream;)V", nullptr, $PROTECTED | $FINAL, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljava/io/InputStream;Ljdk/internal/icu/impl/Trie$DataManipulate;)V", nullptr, $PUBLIC, $method(CharTrie, init$, void, $InputStream*, $Trie$DataManipulate*), "java.io.IOException"},
+	{"getCodePointValue", "(I)C", nullptr, $PUBLIC | $FINAL, $method(CharTrie, getCodePointValue, char16_t, int32_t)},
+	{"getLeadValue", "(C)C", nullptr, $PUBLIC | $FINAL, $method(CharTrie, getLeadValue, char16_t, char16_t)},
+	{"getSurrogateOffset", "(CC)I", nullptr, $PROTECTED | $FINAL, $virtualMethod(CharTrie, getSurrogateOffset, int32_t, char16_t, char16_t)},
+	{"unserialize", "(Ljava/io/InputStream;)V", nullptr, $PROTECTED | $FINAL, $virtualMethod(CharTrie, unserialize, void, $InputStream*), "java.io.IOException"},
 	{}
 };
 

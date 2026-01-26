@@ -3,6 +3,7 @@
 #include <repeatingAnnotations/Ann.h>
 #include <jcpp.h>
 
+using $AnnArray = $Array<::repeatingAnnotations::Ann>;
 using $Attribute = ::java::lang::Attribute;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
@@ -34,7 +35,7 @@ $CompoundAttribute _AnnCont_Annotations_[] = {
 };
 
 $MethodInfo _AnnCont_MethodInfo_[] = {
-	{"value", "()[LrepeatingAnnotations/Ann;", nullptr, $PUBLIC | $ABSTRACT},
+	{"value", "()[LrepeatingAnnotations/Ann;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AnnCont, value, $AnnArray*)},
 	{}
 };
 

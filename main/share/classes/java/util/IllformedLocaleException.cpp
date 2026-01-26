@@ -17,10 +17,10 @@ $FieldInfo _IllformedLocaleException_FieldInfo_[] = {
 };
 
 $MethodInfo _IllformedLocaleException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(IllformedLocaleException::*)()>(&IllformedLocaleException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(IllformedLocaleException::*)($String*)>(&IllformedLocaleException::init$))},
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(static_cast<void(IllformedLocaleException::*)($String*,int32_t)>(&IllformedLocaleException::init$))},
-	{"getErrorIndex", "()I", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(IllformedLocaleException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(IllformedLocaleException, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(IllformedLocaleException, init$, void, $String*, int32_t)},
+	{"getErrorIndex", "()I", nullptr, $PUBLIC, $virtualMethod(IllformedLocaleException, getErrorIndex, int32_t)},
 	{}
 };
 

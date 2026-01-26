@@ -20,7 +20,7 @@ $FieldInfo _SynchronousQueue$FifoWaitQueue_FieldInfo_[] = {
 };
 
 $MethodInfo _SynchronousQueue$FifoWaitQueue_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(SynchronousQueue$FifoWaitQueue::*)()>(&SynchronousQueue$FifoWaitQueue::init$))},
+	{"<init>", "()V", nullptr, 0, $method(SynchronousQueue$FifoWaitQueue, init$, void)},
 	{}
 };
 

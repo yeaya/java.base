@@ -34,19 +34,19 @@ $FieldInfo _Curve25519OrderField_FieldInfo_[] = {
 };
 
 $MethodInfo _Curve25519OrderField_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Curve25519OrderField::*)()>(&Curve25519OrderField::init$))},
-	{"carryReduce", "([JJJJJJJJJJJJJJJJJJJJ)V", nullptr, $PRIVATE, $method(static_cast<void(Curve25519OrderField::*)($longs*,int64_t,int64_t,int64_t,int64_t,int64_t,int64_t,int64_t,int64_t,int64_t,int64_t,int64_t,int64_t,int64_t,int64_t,int64_t,int64_t,int64_t,int64_t,int64_t)>(&Curve25519OrderField::carryReduce))},
-	{"carryReduce", "([JJJJJJJJJJJ)V", nullptr, $PRIVATE, $method(static_cast<void(Curve25519OrderField::*)($longs*,int64_t,int64_t,int64_t,int64_t,int64_t,int64_t,int64_t,int64_t,int64_t,int64_t)>(&Curve25519OrderField::carryReduce))},
-	{"carryReduce0", "([JJJJJJJJJJJJJJJJJJJJJ)V", nullptr, 0},
-	{"carryReduce0", "([JJJJJJJJJJJJ)V", nullptr, 0},
-	{"carryReduce1", "([JJJJJJJJJJJJJJJJJJJJJ)V", nullptr, 0},
-	{"carryReduce2", "([JJJJJJJJJJJJJJJJJJJJJ)V", nullptr, 0},
-	{"evaluateModulus", "()Ljava/math/BigInteger;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$BigInteger*(*)()>(&Curve25519OrderField::evaluateModulus))},
-	{"finalCarryReduceLast", "([J)V", nullptr, $PROTECTED},
-	{"mult", "([J[J[J)V", nullptr, $PROTECTED},
-	{"reduce", "([J)V", nullptr, $PROTECTED},
-	{"reduceIn", "([JJI)V", nullptr, $PROTECTED},
-	{"square", "([J[J)V", nullptr, $PROTECTED},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Curve25519OrderField, init$, void)},
+	{"carryReduce", "([JJJJJJJJJJJJJJJJJJJJ)V", nullptr, $PRIVATE, $method(Curve25519OrderField, carryReduce, void, $longs*, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t)},
+	{"carryReduce", "([JJJJJJJJJJJ)V", nullptr, $PRIVATE, $method(Curve25519OrderField, carryReduce, void, $longs*, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t)},
+	{"carryReduce0", "([JJJJJJJJJJJJJJJJJJJJJ)V", nullptr, 0, $virtualMethod(Curve25519OrderField, carryReduce0, void, $longs*, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t)},
+	{"carryReduce0", "([JJJJJJJJJJJJ)V", nullptr, 0, $virtualMethod(Curve25519OrderField, carryReduce0, void, $longs*, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t)},
+	{"carryReduce1", "([JJJJJJJJJJJJJJJJJJJJJ)V", nullptr, 0, $virtualMethod(Curve25519OrderField, carryReduce1, void, $longs*, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t)},
+	{"carryReduce2", "([JJJJJJJJJJJJJJJJJJJJJ)V", nullptr, 0, $virtualMethod(Curve25519OrderField, carryReduce2, void, $longs*, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t)},
+	{"evaluateModulus", "()Ljava/math/BigInteger;", nullptr, $PRIVATE | $STATIC, $staticMethod(Curve25519OrderField, evaluateModulus, $BigInteger*)},
+	{"finalCarryReduceLast", "([J)V", nullptr, $PROTECTED, $virtualMethod(Curve25519OrderField, finalCarryReduceLast, void, $longs*)},
+	{"mult", "([J[J[J)V", nullptr, $PROTECTED, $virtualMethod(Curve25519OrderField, mult, void, $longs*, $longs*, $longs*)},
+	{"reduce", "([J)V", nullptr, $PROTECTED, $virtualMethod(Curve25519OrderField, reduce, void, $longs*)},
+	{"reduceIn", "([JJI)V", nullptr, $PROTECTED, $virtualMethod(Curve25519OrderField, reduceIn, void, $longs*, int64_t, int32_t)},
+	{"square", "([J[J)V", nullptr, $PROTECTED, $virtualMethod(Curve25519OrderField, square, void, $longs*, $longs*)},
 	{}
 };
 

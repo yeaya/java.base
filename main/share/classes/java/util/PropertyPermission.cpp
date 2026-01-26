@@ -45,19 +45,19 @@ $FieldInfo _PropertyPermission_FieldInfo_[] = {
 };
 
 $MethodInfo _PropertyPermission_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(PropertyPermission::*)($String*,$String*)>(&PropertyPermission::init$))},
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, 0, $method(static_cast<void(PropertyPermission::*)($String*,int32_t)>(&PropertyPermission::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getActions", "(I)Ljava/lang/String;", nullptr, $STATIC, $method(static_cast<$String*(*)(int32_t)>(&PropertyPermission::getActions))},
-	{"getActions", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getMask", "(Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)($String*)>(&PropertyPermission::getMask))},
-	{"getMask", "()I", nullptr, 0, $method(static_cast<int32_t(PropertyPermission::*)()>(&PropertyPermission::getMask))},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"implies", "(Ljava/security/Permission;)Z", nullptr, $PUBLIC},
-	{"init", "(I)V", nullptr, $PRIVATE, $method(static_cast<void(PropertyPermission::*)(int32_t)>(&PropertyPermission::init))},
-	{"newPermissionCollection", "()Ljava/security/PermissionCollection;", nullptr, $PUBLIC},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(static_cast<void(PropertyPermission::*)($ObjectInputStream*)>(&PropertyPermission::readObject)), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(static_cast<void(PropertyPermission::*)($ObjectOutputStream*)>(&PropertyPermission::writeObject)), "java.io.IOException"},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(PropertyPermission, init$, void, $String*, $String*)},
+	{"<init>", "(Ljava/lang/String;I)V", nullptr, 0, $method(PropertyPermission, init$, void, $String*, int32_t)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(PropertyPermission, equals, bool, Object$*)},
+	{"getActions", "(I)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(PropertyPermission, getActions, $String*, int32_t)},
+	{"getActions", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PropertyPermission, getActions, $String*)},
+	{"getMask", "(Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(PropertyPermission, getMask, int32_t, $String*)},
+	{"getMask", "()I", nullptr, 0, $method(PropertyPermission, getMask, int32_t)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(PropertyPermission, hashCode, int32_t)},
+	{"implies", "(Ljava/security/Permission;)Z", nullptr, $PUBLIC, $virtualMethod(PropertyPermission, implies, bool, $Permission*)},
+	{"init", "(I)V", nullptr, $PRIVATE, $method(PropertyPermission, init, void, int32_t)},
+	{"newPermissionCollection", "()Ljava/security/PermissionCollection;", nullptr, $PUBLIC, $virtualMethod(PropertyPermission, newPermissionCollection, $PermissionCollection*)},
+	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(PropertyPermission, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(PropertyPermission, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
 	{}
 };
 

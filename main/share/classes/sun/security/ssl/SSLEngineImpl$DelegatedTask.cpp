@@ -42,8 +42,8 @@ $FieldInfo _SSLEngineImpl$DelegatedTask_FieldInfo_[] = {
 };
 
 $MethodInfo _SSLEngineImpl$DelegatedTask_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/ssl/SSLEngineImpl;)V", nullptr, 0, $method(static_cast<void(SSLEngineImpl$DelegatedTask::*)($SSLEngineImpl*)>(&SSLEngineImpl$DelegatedTask::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/security/ssl/SSLEngineImpl;)V", nullptr, 0, $method(SSLEngineImpl$DelegatedTask, init$, void, $SSLEngineImpl*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(SSLEngineImpl$DelegatedTask, run, void)},
 	{}
 };
 

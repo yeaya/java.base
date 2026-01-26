@@ -20,8 +20,8 @@ $FieldInfo _Basic4ThreadLocal_FieldInfo_[] = {
 };
 
 $MethodInfo _Basic4ThreadLocal_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Basic4ThreadLocal::*)()>(&Basic4ThreadLocal::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Basic4ThreadLocal::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Basic4ThreadLocal, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Basic4ThreadLocal, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

@@ -26,8 +26,8 @@ $FieldInfo _URLClassPath$JarLoader$3_FieldInfo_[] = {
 };
 
 $MethodInfo _URLClassPath$JarLoader$3_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/loader/URLClassPath$JarLoader;Ljava/net/URL;)V", nullptr, 0, $method(static_cast<void(URLClassPath$JarLoader$3::*)($URLClassPath$JarLoader*,$URL*)>(&URLClassPath$JarLoader$3::init$))},
-	{"run", "()Ljdk/internal/loader/URLClassPath$JarLoader;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljdk/internal/loader/URLClassPath$JarLoader;Ljava/net/URL;)V", nullptr, 0, $method(URLClassPath$JarLoader$3, init$, void, $URLClassPath$JarLoader*, $URL*)},
+	{"run", "()Ljdk/internal/loader/URLClassPath$JarLoader;", nullptr, $PUBLIC, $virtualMethod(URLClassPath$JarLoader$3, run, $Object*), "java.io.IOException"},
 	{}
 };
 

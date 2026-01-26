@@ -61,8 +61,8 @@ $FieldInfo AbstractDrbg$SeederHolder$$Lambda$lambda$static$0::fieldInfos[2] = {
 	{}
 };
 $MethodInfo AbstractDrbg$SeederHolder$$Lambda$lambda$static$0::methodInfos[3] = {
-	{"<init>", "(Lsun/security/provider/HashDrbg;)V", nullptr, $PUBLIC, $method(static_cast<void(AbstractDrbg$SeederHolder$$Lambda$lambda$static$0::*)($HashDrbg*)>(&AbstractDrbg$SeederHolder$$Lambda$lambda$static$0::init$))},
-	{"getEntropy", "(IIIZ)[B", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/security/provider/HashDrbg;)V", nullptr, $PUBLIC, $method(AbstractDrbg$SeederHolder$$Lambda$lambda$static$0, init$, void, $HashDrbg*)},
+	{"getEntropy", "(IIIZ)[B", nullptr, $PUBLIC, $virtualMethod(AbstractDrbg$SeederHolder$$Lambda$lambda$static$0, getEntropy, $bytes*, int32_t, int32_t, int32_t, bool)},
 	{}
 };
 $ClassInfo AbstractDrbg$SeederHolder$$Lambda$lambda$static$0::classInfo$ = {
@@ -86,8 +86,8 @@ $FieldInfo _AbstractDrbg$SeederHolder_FieldInfo_[] = {
 };
 
 $MethodInfo _AbstractDrbg$SeederHolder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(AbstractDrbg$SeederHolder::*)()>(&AbstractDrbg$SeederHolder::init$))},
-	{"lambda$static$0", "(Lsun/security/provider/HashDrbg;IIIZ)[B", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$bytes*(*)($HashDrbg*,int32_t,int32_t,int32_t,bool)>(&AbstractDrbg$SeederHolder::lambda$static$0))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(AbstractDrbg$SeederHolder, init$, void)},
+	{"lambda$static$0", "(Lsun/security/provider/HashDrbg;IIIZ)[B", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AbstractDrbg$SeederHolder, lambda$static$0, $bytes*, $HashDrbg*, int32_t, int32_t, int32_t, bool)},
 	{}
 };
 

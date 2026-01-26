@@ -11,7 +11,7 @@ namespace p2 {
 	namespace internal {
 
 $MethodInfo _X_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(X::*)()>(&X::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(X, init$, void)},
 	{}
 };
 

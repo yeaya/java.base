@@ -34,9 +34,9 @@ $FieldInfo _Stream$2_FieldInfo_[] = {
 };
 
 $MethodInfo _Stream$2_MethodInfo_[] = {
-	{"<init>", "(JILjava/util/function/UnaryOperator;Ljava/lang/Object;Ljava/util/function/Predicate;)V", nullptr, 0, $method(static_cast<void(Stream$2::*)(int64_t,int32_t,$UnaryOperator*,Object$*,$Predicate*)>(&Stream$2::init$))},
-	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TT;>;)V", $PUBLIC},
-	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-TT;>;)Z", $PUBLIC},
+	{"<init>", "(JILjava/util/function/UnaryOperator;Ljava/lang/Object;Ljava/util/function/Predicate;)V", nullptr, 0, $method(Stream$2, init$, void, int64_t, int32_t, $UnaryOperator*, Object$*, $Predicate*)},
+	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TT;>;)V", $PUBLIC, $virtualMethod(Stream$2, forEachRemaining, void, $Consumer*)},
+	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-TT;>;)Z", $PUBLIC, $virtualMethod(Stream$2, tryAdvance, bool, $Consumer*)},
 	{}
 };
 

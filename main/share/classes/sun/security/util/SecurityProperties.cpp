@@ -49,8 +49,8 @@ $FieldInfo SecurityProperties$$Lambda$lambda$privilegedGetOverridable$0::fieldIn
 	{}
 };
 $MethodInfo SecurityProperties$$Lambda$lambda$privilegedGetOverridable$0::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(SecurityProperties$$Lambda$lambda$privilegedGetOverridable$0::*)($String*)>(&SecurityProperties$$Lambda$lambda$privilegedGetOverridable$0::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SecurityProperties$$Lambda$lambda$privilegedGetOverridable$0, init$, void, $String*)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SecurityProperties$$Lambda$lambda$privilegedGetOverridable$0, run, $Object*)},
 	{}
 };
 $ClassInfo SecurityProperties$$Lambda$lambda$privilegedGetOverridable$0::classInfo$ = {
@@ -73,11 +73,11 @@ $FieldInfo _SecurityProperties_FieldInfo_[] = {
 };
 
 $MethodInfo _SecurityProperties_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SecurityProperties::*)()>(&SecurityProperties::init$))},
-	{"getOverridableProperty", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($String*)>(&SecurityProperties::getOverridableProperty))},
-	{"includedInExceptions", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)($String*)>(&SecurityProperties::includedInExceptions))},
-	{"lambda$privilegedGetOverridable$0", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$String*(*)($String*)>(&SecurityProperties::lambda$privilegedGetOverridable$0))},
-	{"privilegedGetOverridable", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)($String*)>(&SecurityProperties::privilegedGetOverridable))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SecurityProperties, init$, void)},
+	{"getOverridableProperty", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(SecurityProperties, getOverridableProperty, $String*, $String*)},
+	{"includedInExceptions", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(SecurityProperties, includedInExceptions, bool, $String*)},
+	{"lambda$privilegedGetOverridable$0", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SecurityProperties, lambda$privilegedGetOverridable$0, $String*, $String*)},
+	{"privilegedGetOverridable", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(SecurityProperties, privilegedGetOverridable, $String*, $String*)},
 	{}
 };
 

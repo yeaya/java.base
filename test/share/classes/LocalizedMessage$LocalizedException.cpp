@@ -14,8 +14,8 @@ $FieldInfo _LocalizedMessage$LocalizedException_FieldInfo_[] = {
 };
 
 $MethodInfo _LocalizedMessage$LocalizedException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(LocalizedMessage$LocalizedException::*)()>(&LocalizedMessage$LocalizedException::init$))},
-	{"getLocalizedMessage", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(LocalizedMessage$LocalizedException, init$, void)},
+	{"getLocalizedMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LocalizedMessage$LocalizedException, getLocalizedMessage, $String*)},
 	{}
 };
 

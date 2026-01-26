@@ -4,6 +4,7 @@
 #include <WithoutParameters.h>
 #include <jcpp.h>
 
+using $WithoutParameters$ParameterizedInfoArray = $Array<WithoutParameters$ParameterizedInfo>;
 using $Attribute = ::java::lang::Attribute;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
@@ -58,10 +59,10 @@ $Attribute _WithoutParameters$ExpectedParameterInfo_DefaultValue_parameterizedTy
 };
 
 $MethodInfo _WithoutParameters$ExpectedParameterInfo_MethodInfo_[] = {
-	{"isVarArgs", "()Z", nullptr, $PUBLIC | $ABSTRACT, nullptr, nullptr, &_WithoutParameters$ExpectedParameterInfo_DefaultValue_isVarArgs0},
-	{"parameterCount", "()I", nullptr, $PUBLIC | $ABSTRACT, nullptr, nullptr, &_WithoutParameters$ExpectedParameterInfo_DefaultValue_parameterCount1},
-	{"parameterTypes", "()[Ljava/lang/Class;", "()[Ljava/lang/Class<*>;", $PUBLIC | $ABSTRACT, nullptr, nullptr, &_WithoutParameters$ExpectedParameterInfo_DefaultValue_parameterTypes2},
-	{"parameterizedTypes", "()[LWithoutParameters$ParameterizedInfo;", nullptr, $PUBLIC | $ABSTRACT, nullptr, nullptr, &_WithoutParameters$ExpectedParameterInfo_DefaultValue_parameterizedTypes3},
+	{"isVarArgs", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(WithoutParameters$ExpectedParameterInfo, isVarArgs, bool), nullptr, &_WithoutParameters$ExpectedParameterInfo_DefaultValue_isVarArgs0},
+	{"parameterCount", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(WithoutParameters$ExpectedParameterInfo, parameterCount, int32_t), nullptr, &_WithoutParameters$ExpectedParameterInfo_DefaultValue_parameterCount1},
+	{"parameterTypes", "()[Ljava/lang/Class;", "()[Ljava/lang/Class<*>;", $PUBLIC | $ABSTRACT, $virtualMethod(WithoutParameters$ExpectedParameterInfo, parameterTypes, $ClassArray*), nullptr, &_WithoutParameters$ExpectedParameterInfo_DefaultValue_parameterTypes2},
+	{"parameterizedTypes", "()[LWithoutParameters$ParameterizedInfo;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(WithoutParameters$ExpectedParameterInfo, parameterizedTypes, $WithoutParameters$ParameterizedInfoArray*), nullptr, &_WithoutParameters$ExpectedParameterInfo_DefaultValue_parameterizedTypes3},
 	{}
 };
 

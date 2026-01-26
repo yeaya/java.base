@@ -6,7 +6,7 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _Test4ProtectedMemberDifferentPackage_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Test4ProtectedMemberDifferentPackage::*)()>(&Test4ProtectedMemberDifferentPackage::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Test4ProtectedMemberDifferentPackage, init$, void)},
 	{}
 };
 

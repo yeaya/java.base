@@ -8,7 +8,7 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _InheritedMethodTest$C_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(InheritedMethodTest$C::*)()>(&InheritedMethodTest$C::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(InheritedMethodTest$C, init$, void)},
 	{}
 };
 

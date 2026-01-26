@@ -27,10 +27,10 @@ $FieldInfo _KeyRep$Type_FieldInfo_[] = {
 };
 
 $MethodInfo _KeyRep$Type_MethodInfo_[] = {
-	{"$values", "()[Ljava/security/KeyRep$Type;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$KeyRep$TypeArray*(*)()>(&KeyRep$Type::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(KeyRep$Type::*)($String*,int32_t)>(&KeyRep$Type::init$))},
-	{"valueOf", "(Ljava/lang/String;)Ljava/security/KeyRep$Type;", nullptr, $PUBLIC | $STATIC, $method(static_cast<KeyRep$Type*(*)($String*)>(&KeyRep$Type::valueOf))},
-	{"values", "()[Ljava/security/KeyRep$Type;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$KeyRep$TypeArray*(*)()>(&KeyRep$Type::values))},
+	{"$values", "()[Ljava/security/KeyRep$Type;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(KeyRep$Type, $values, $KeyRep$TypeArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(KeyRep$Type, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Ljava/security/KeyRep$Type;", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyRep$Type, valueOf, KeyRep$Type*, $String*)},
+	{"values", "()[Ljava/security/KeyRep$Type;", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyRep$Type, values, $KeyRep$TypeArray*)},
 	{}
 };
 

@@ -37,12 +37,12 @@ $FieldInfo _CodePointMap_FieldInfo_[] = {
 };
 
 $MethodInfo _CodePointMap_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(CodePointMap::*)()>(&CodePointMap::init$))},
-	{"get", "(I)I", nullptr, $PUBLIC | $ABSTRACT},
-	{"getRange", "(ILjdk/internal/icu/util/CodePointMap$ValueFilter;Ljdk/internal/icu/util/CodePointMap$Range;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"getRange", "(ILjdk/internal/icu/util/CodePointMap$RangeOption;ILjdk/internal/icu/util/CodePointMap$ValueFilter;Ljdk/internal/icu/util/CodePointMap$Range;)Z", nullptr, $PUBLIC},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljdk/internal/icu/util/CodePointMap$Range;>;", $PUBLIC},
-	{"stringIterator", "(Ljava/lang/CharSequence;I)Ljdk/internal/icu/util/CodePointMap$StringIterator;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(CodePointMap, init$, void)},
+	{"get", "(I)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CodePointMap, get, int32_t, int32_t)},
+	{"getRange", "(ILjdk/internal/icu/util/CodePointMap$ValueFilter;Ljdk/internal/icu/util/CodePointMap$Range;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CodePointMap, getRange, bool, int32_t, $CodePointMap$ValueFilter*, $CodePointMap$Range*)},
+	{"getRange", "(ILjdk/internal/icu/util/CodePointMap$RangeOption;ILjdk/internal/icu/util/CodePointMap$ValueFilter;Ljdk/internal/icu/util/CodePointMap$Range;)Z", nullptr, $PUBLIC, $virtualMethod(CodePointMap, getRange, bool, int32_t, $CodePointMap$RangeOption*, int32_t, $CodePointMap$ValueFilter*, $CodePointMap$Range*)},
+	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljdk/internal/icu/util/CodePointMap$Range;>;", $PUBLIC, $virtualMethod(CodePointMap, iterator, $Iterator*)},
+	{"stringIterator", "(Ljava/lang/CharSequence;I)Ljdk/internal/icu/util/CodePointMap$StringIterator;", nullptr, $PUBLIC, $virtualMethod(CodePointMap, stringIterator, $CodePointMap$StringIterator*, $CharSequence*, int32_t)},
 	{}
 };
 

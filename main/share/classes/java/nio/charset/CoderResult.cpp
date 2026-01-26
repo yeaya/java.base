@@ -64,8 +64,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo CoderResult$$Lambda$lambda$malformedForLength$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CoderResult$$Lambda$lambda$malformedForLength$0::*)()>(&CoderResult$$Lambda$lambda$malformedForLength$0::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CoderResult$$Lambda$lambda$malformedForLength$0, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(CoderResult$$Lambda$lambda$malformedForLength$0, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo CoderResult$$Lambda$lambda$malformedForLength$0::classInfo$ = {
@@ -97,8 +97,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo CoderResult$$Lambda$lambda$unmappableForLength$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CoderResult$$Lambda$lambda$unmappableForLength$1$1::*)()>(&CoderResult$$Lambda$lambda$unmappableForLength$1$1::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CoderResult$$Lambda$lambda$unmappableForLength$1$1, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(CoderResult$$Lambda$lambda$unmappableForLength$1$1, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo CoderResult$$Lambda$lambda$unmappableForLength$1$1::classInfo$ = {
@@ -133,19 +133,19 @@ $FieldInfo _CoderResult_FieldInfo_[] = {
 };
 
 $MethodInfo _CoderResult_MethodInfo_[] = {
-	{"<init>", "(II)V", nullptr, $PRIVATE, $method(static_cast<void(CoderResult::*)(int32_t,int32_t)>(&CoderResult::init$))},
-	{"isError", "()Z", nullptr, $PUBLIC},
-	{"isMalformed", "()Z", nullptr, $PUBLIC},
-	{"isOverflow", "()Z", nullptr, $PUBLIC},
-	{"isUnderflow", "()Z", nullptr, $PUBLIC},
-	{"isUnmappable", "()Z", nullptr, $PUBLIC},
-	{"lambda$malformedForLength$0", "(Ljava/lang/Integer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<CoderResult*(*)($Integer*)>(&CoderResult::lambda$malformedForLength$0))},
-	{"lambda$unmappableForLength$1", "(Ljava/lang/Integer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<CoderResult*(*)($Integer*)>(&CoderResult::lambda$unmappableForLength$1))},
-	{"length", "()I", nullptr, $PUBLIC},
-	{"malformedForLength", "(I)Ljava/nio/charset/CoderResult;", nullptr, $PUBLIC | $STATIC, $method(static_cast<CoderResult*(*)(int32_t)>(&CoderResult::malformedForLength))},
-	{"throwException", "()V", nullptr, $PUBLIC, nullptr, "java.nio.charset.CharacterCodingException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"unmappableForLength", "(I)Ljava/nio/charset/CoderResult;", nullptr, $PUBLIC | $STATIC, $method(static_cast<CoderResult*(*)(int32_t)>(&CoderResult::unmappableForLength))},
+	{"<init>", "(II)V", nullptr, $PRIVATE, $method(CoderResult, init$, void, int32_t, int32_t)},
+	{"isError", "()Z", nullptr, $PUBLIC, $virtualMethod(CoderResult, isError, bool)},
+	{"isMalformed", "()Z", nullptr, $PUBLIC, $virtualMethod(CoderResult, isMalformed, bool)},
+	{"isOverflow", "()Z", nullptr, $PUBLIC, $virtualMethod(CoderResult, isOverflow, bool)},
+	{"isUnderflow", "()Z", nullptr, $PUBLIC, $virtualMethod(CoderResult, isUnderflow, bool)},
+	{"isUnmappable", "()Z", nullptr, $PUBLIC, $virtualMethod(CoderResult, isUnmappable, bool)},
+	{"lambda$malformedForLength$0", "(Ljava/lang/Integer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CoderResult, lambda$malformedForLength$0, CoderResult*, $Integer*)},
+	{"lambda$unmappableForLength$1", "(Ljava/lang/Integer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CoderResult, lambda$unmappableForLength$1, CoderResult*, $Integer*)},
+	{"length", "()I", nullptr, $PUBLIC, $virtualMethod(CoderResult, length, int32_t)},
+	{"malformedForLength", "(I)Ljava/nio/charset/CoderResult;", nullptr, $PUBLIC | $STATIC, $staticMethod(CoderResult, malformedForLength, CoderResult*, int32_t)},
+	{"throwException", "()V", nullptr, $PUBLIC, $virtualMethod(CoderResult, throwException, void), "java.nio.charset.CharacterCodingException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CoderResult, toString, $String*)},
+	{"unmappableForLength", "(I)Ljava/nio/charset/CoderResult;", nullptr, $PUBLIC | $STATIC, $staticMethod(CoderResult, unmappableForLength, CoderResult*, int32_t)},
 	{}
 };
 

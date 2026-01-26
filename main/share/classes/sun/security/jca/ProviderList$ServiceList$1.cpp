@@ -27,10 +27,10 @@ $FieldInfo _ProviderList$ServiceList$1_FieldInfo_[] = {
 };
 
 $MethodInfo _ProviderList$ServiceList$1_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/jca/ProviderList$ServiceList;)V", nullptr, 0, $method(static_cast<void(ProviderList$ServiceList$1::*)($ProviderList$ServiceList*)>(&ProviderList$ServiceList$1::init$))},
-	{"hasNext", "()Z", nullptr, $PUBLIC},
-	{"next", "()Ljava/security/Provider$Service;", nullptr, $PUBLIC},
-	{"remove", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/security/jca/ProviderList$ServiceList;)V", nullptr, 0, $method(ProviderList$ServiceList$1, init$, void, $ProviderList$ServiceList*)},
+	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(ProviderList$ServiceList$1, hasNext, bool)},
+	{"next", "()Ljava/security/Provider$Service;", nullptr, $PUBLIC, $virtualMethod(ProviderList$ServiceList$1, next, $Object*)},
+	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(ProviderList$ServiceList$1, remove, void)},
 	{}
 };
 

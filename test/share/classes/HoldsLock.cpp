@@ -17,9 +17,9 @@ $FieldInfo _HoldsLock_FieldInfo_[] = {
 };
 
 $MethodInfo _HoldsLock_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(HoldsLock::*)()>(&HoldsLock::init$))},
-	{"checkLock", "(Z)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)(bool)>(&HoldsLock::checkLock))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&HoldsLock::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(HoldsLock, init$, void)},
+	{"checkLock", "(Z)V", nullptr, $PRIVATE | $STATIC, $staticMethod(HoldsLock, checkLock, void, bool)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HoldsLock, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

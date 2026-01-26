@@ -20,8 +20,8 @@ using $FileChannel$MapMode = ::java::nio::channels::FileChannel$MapMode;
 using $Random = ::java::util::Random;
 
 $MethodInfo _ZeroMap_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ZeroMap::*)()>(&ZeroMap::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&ZeroMap::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ZeroMap, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ZeroMap, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

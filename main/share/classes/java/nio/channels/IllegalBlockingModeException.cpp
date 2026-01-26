@@ -18,7 +18,7 @@ $FieldInfo _IllegalBlockingModeException_FieldInfo_[] = {
 };
 
 $MethodInfo _IllegalBlockingModeException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(IllegalBlockingModeException::*)()>(&IllegalBlockingModeException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(IllegalBlockingModeException, init$, void)},
 	{}
 };
 

@@ -21,7 +21,7 @@ $FieldInfo _ThreadLocal$ThreadLocalMap$Entry_FieldInfo_[] = {
 };
 
 $MethodInfo _ThreadLocal$ThreadLocalMap$Entry_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/ThreadLocal;Ljava/lang/Object;)V", "(Ljava/lang/ThreadLocal<*>;Ljava/lang/Object;)V", 0, $method(static_cast<void(ThreadLocal$ThreadLocalMap$Entry::*)($ThreadLocal*,Object$*)>(&ThreadLocal$ThreadLocalMap$Entry::init$))},
+	{"<init>", "(Ljava/lang/ThreadLocal;Ljava/lang/Object;)V", "(Ljava/lang/ThreadLocal<*>;Ljava/lang/Object;)V", 0, $method(ThreadLocal$ThreadLocalMap$Entry, init$, void, $ThreadLocal*, Object$*)},
 	{}
 };
 

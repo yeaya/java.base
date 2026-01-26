@@ -22,8 +22,8 @@ namespace com {
 			namespace text {
 
 $MethodInfo _Plain2_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Plain2::*)()>(&Plain2::init$))},
-	{"getContent", "(Ljava/net/URLConnection;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Plain2, init$, void)},
+	{"getContent", "(Ljava/net/URLConnection;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Plain2, getContent, $Object*, $URLConnection*)},
 	{}
 };
 

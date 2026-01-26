@@ -74,12 +74,12 @@ $FieldInfo _SubjectDomainCombiner_FieldInfo_[] = {
 };
 
 $MethodInfo _SubjectDomainCombiner_MethodInfo_[] = {
-	{"<init>", "(Ljavax/security/auth/Subject;)V", nullptr, $PUBLIC, $method(static_cast<void(SubjectDomainCombiner::*)($Subject*)>(&SubjectDomainCombiner::init$))},
-	{"combine", "([Ljava/security/ProtectionDomain;[Ljava/security/ProtectionDomain;)[Ljava/security/ProtectionDomain;", nullptr, $PUBLIC},
-	{"getSubject", "()Ljavax/security/auth/Subject;", nullptr, $PUBLIC},
-	{"optimize", "([Ljava/security/ProtectionDomain;)[Ljava/security/ProtectionDomain;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$ProtectionDomainArray*(*)($ProtectionDomainArray*)>(&SubjectDomainCombiner::optimize))},
-	{"printDomain", "(Ljava/security/ProtectionDomain;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($ProtectionDomain*)>(&SubjectDomainCombiner::printDomain))},
-	{"printInputDomains", "([Ljava/security/ProtectionDomain;[Ljava/security/ProtectionDomain;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($ProtectionDomainArray*,$ProtectionDomainArray*)>(&SubjectDomainCombiner::printInputDomains))},
+	{"<init>", "(Ljavax/security/auth/Subject;)V", nullptr, $PUBLIC, $method(SubjectDomainCombiner, init$, void, $Subject*)},
+	{"combine", "([Ljava/security/ProtectionDomain;[Ljava/security/ProtectionDomain;)[Ljava/security/ProtectionDomain;", nullptr, $PUBLIC, $virtualMethod(SubjectDomainCombiner, combine, $ProtectionDomainArray*, $ProtectionDomainArray*, $ProtectionDomainArray*)},
+	{"getSubject", "()Ljavax/security/auth/Subject;", nullptr, $PUBLIC, $virtualMethod(SubjectDomainCombiner, getSubject, $Subject*)},
+	{"optimize", "([Ljava/security/ProtectionDomain;)[Ljava/security/ProtectionDomain;", nullptr, $PRIVATE | $STATIC, $staticMethod(SubjectDomainCombiner, optimize, $ProtectionDomainArray*, $ProtectionDomainArray*)},
+	{"printDomain", "(Ljava/security/ProtectionDomain;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(SubjectDomainCombiner, printDomain, $String*, $ProtectionDomain*)},
+	{"printInputDomains", "([Ljava/security/ProtectionDomain;[Ljava/security/ProtectionDomain;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(SubjectDomainCombiner, printInputDomains, void, $ProtectionDomainArray*, $ProtectionDomainArray*)},
 	{}
 };
 

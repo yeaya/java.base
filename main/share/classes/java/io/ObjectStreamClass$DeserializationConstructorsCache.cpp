@@ -35,9 +35,9 @@ $FieldInfo _ObjectStreamClass$DeserializationConstructorsCache_FieldInfo_[] = {
 };
 
 $MethodInfo _ObjectStreamClass$DeserializationConstructorsCache_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ObjectStreamClass$DeserializationConstructorsCache::*)()>(&ObjectStreamClass$DeserializationConstructorsCache::init$))},
-	{"get", "([Ljava/io/ObjectStreamField;)Ljava/lang/invoke/MethodHandle;", nullptr, 0, $method(static_cast<$MethodHandle*(ObjectStreamClass$DeserializationConstructorsCache::*)($ObjectStreamFieldArray*)>(&ObjectStreamClass$DeserializationConstructorsCache::get))},
-	{"putIfAbsentAndGet", "([Ljava/io/ObjectStreamField;Ljava/lang/invoke/MethodHandle;)Ljava/lang/invoke/MethodHandle;", nullptr, $SYNCHRONIZED, $method(static_cast<$MethodHandle*(ObjectStreamClass$DeserializationConstructorsCache::*)($ObjectStreamFieldArray*,$MethodHandle*)>(&ObjectStreamClass$DeserializationConstructorsCache::putIfAbsentAndGet))},
+	{"<init>", "()V", nullptr, 0, $method(ObjectStreamClass$DeserializationConstructorsCache, init$, void)},
+	{"get", "([Ljava/io/ObjectStreamField;)Ljava/lang/invoke/MethodHandle;", nullptr, 0, $method(ObjectStreamClass$DeserializationConstructorsCache, get, $MethodHandle*, $ObjectStreamFieldArray*)},
+	{"putIfAbsentAndGet", "([Ljava/io/ObjectStreamField;Ljava/lang/invoke/MethodHandle;)Ljava/lang/invoke/MethodHandle;", nullptr, $SYNCHRONIZED, $method(ObjectStreamClass$DeserializationConstructorsCache, putIfAbsentAndGet, $MethodHandle*, $ObjectStreamFieldArray*, $MethodHandle*)},
 	{}
 };
 

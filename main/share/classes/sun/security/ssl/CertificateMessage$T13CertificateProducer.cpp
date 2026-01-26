@@ -88,11 +88,11 @@ namespace sun {
 		namespace ssl {
 
 $MethodInfo _CertificateMessage$T13CertificateProducer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(CertificateMessage$T13CertificateProducer::*)()>(&CertificateMessage$T13CertificateProducer::init$))},
-	{"choosePossession", "(Lsun/security/ssl/HandshakeContext;Lsun/security/ssl/ClientHello$ClientHelloMessage;)Lsun/security/ssl/SSLPossession;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$SSLPossession*(*)($HandshakeContext*,$ClientHello$ClientHelloMessage*)>(&CertificateMessage$T13CertificateProducer::choosePossession)), "java.io.IOException"},
-	{"onProduceCertificate", "(Lsun/security/ssl/ServerHandshakeContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)[B", nullptr, $PRIVATE, $method(static_cast<$bytes*(CertificateMessage$T13CertificateProducer::*)($ServerHandshakeContext*,$SSLHandshake$HandshakeMessage*)>(&CertificateMessage$T13CertificateProducer::onProduceCertificate)), "java.io.IOException"},
-	{"onProduceCertificate", "(Lsun/security/ssl/ClientHandshakeContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)[B", nullptr, $PRIVATE, $method(static_cast<$bytes*(CertificateMessage$T13CertificateProducer::*)($ClientHandshakeContext*,$SSLHandshake$HandshakeMessage*)>(&CertificateMessage$T13CertificateProducer::onProduceCertificate)), "java.io.IOException"},
-	{"produce", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)[B", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(CertificateMessage$T13CertificateProducer, init$, void)},
+	{"choosePossession", "(Lsun/security/ssl/HandshakeContext;Lsun/security/ssl/ClientHello$ClientHelloMessage;)Lsun/security/ssl/SSLPossession;", nullptr, $PRIVATE | $STATIC, $staticMethod(CertificateMessage$T13CertificateProducer, choosePossession, $SSLPossession*, $HandshakeContext*, $ClientHello$ClientHelloMessage*), "java.io.IOException"},
+	{"onProduceCertificate", "(Lsun/security/ssl/ServerHandshakeContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)[B", nullptr, $PRIVATE, $method(CertificateMessage$T13CertificateProducer, onProduceCertificate, $bytes*, $ServerHandshakeContext*, $SSLHandshake$HandshakeMessage*), "java.io.IOException"},
+	{"onProduceCertificate", "(Lsun/security/ssl/ClientHandshakeContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)[B", nullptr, $PRIVATE, $method(CertificateMessage$T13CertificateProducer, onProduceCertificate, $bytes*, $ClientHandshakeContext*, $SSLHandshake$HandshakeMessage*), "java.io.IOException"},
+	{"produce", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)[B", nullptr, $PUBLIC, $virtualMethod(CertificateMessage$T13CertificateProducer, produce, $bytes*, $ConnectionContext*, $SSLHandshake$HandshakeMessage*), "java.io.IOException"},
 	{}
 };
 

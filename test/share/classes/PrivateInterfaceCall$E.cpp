@@ -10,8 +10,8 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _PrivateInterfaceCall$E_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(PrivateInterfaceCall$E::*)()>(&PrivateInterfaceCall$E::init$))},
-	{"priv_m", "()V", nullptr, $PRIVATE, $method(static_cast<void(PrivateInterfaceCall$E::*)()>(&PrivateInterfaceCall$E::priv_m))},
+	{"<init>", "()V", nullptr, 0, $method(PrivateInterfaceCall$E, init$, void)},
+	{"priv_m", "()V", nullptr, $PRIVATE, $method(PrivateInterfaceCall$E, priv_m, void)},
 	{}
 };
 

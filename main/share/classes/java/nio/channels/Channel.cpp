@@ -11,7 +11,7 @@ namespace java {
 
 $MethodInfo _Channel_MethodInfo_[] = {
 	{"close", "()V", nullptr, $PUBLIC | $ABSTRACT},
-	{"isOpen", "()Z", nullptr, $PUBLIC | $ABSTRACT},
+	{"isOpen", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Channel, isOpen, bool)},
 	{}
 };
 

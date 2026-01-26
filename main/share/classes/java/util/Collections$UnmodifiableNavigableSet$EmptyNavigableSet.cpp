@@ -24,8 +24,8 @@ $FieldInfo _Collections$UnmodifiableNavigableSet$EmptyNavigableSet_FieldInfo_[] 
 };
 
 $MethodInfo _Collections$UnmodifiableNavigableSet$EmptyNavigableSet_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Collections$UnmodifiableNavigableSet$EmptyNavigableSet::*)()>(&Collections$UnmodifiableNavigableSet$EmptyNavigableSet::init$))},
-	{"readResolve", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(static_cast<$Object*(Collections$UnmodifiableNavigableSet$EmptyNavigableSet::*)()>(&Collections$UnmodifiableNavigableSet$EmptyNavigableSet::readResolve))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Collections$UnmodifiableNavigableSet$EmptyNavigableSet, init$, void)},
+	{"readResolve", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(Collections$UnmodifiableNavigableSet$EmptyNavigableSet, readResolve, $Object*)},
 	{}
 };
 

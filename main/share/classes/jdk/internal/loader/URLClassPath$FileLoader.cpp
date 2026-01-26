@@ -32,9 +32,9 @@ $FieldInfo _URLClassPath$FileLoader_FieldInfo_[] = {
 };
 
 $MethodInfo _URLClassPath$FileLoader_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/URL;)V", nullptr, $PRIVATE, $method(static_cast<void(URLClassPath$FileLoader::*)($URL*)>(&URLClassPath$FileLoader::init$)), "java.io.IOException"},
-	{"findResource", "(Ljava/lang/String;Z)Ljava/net/URL;", nullptr, 0},
-	{"getResource", "(Ljava/lang/String;Z)Ljdk/internal/loader/Resource;", nullptr, 0},
+	{"<init>", "(Ljava/net/URL;)V", nullptr, $PRIVATE, $method(URLClassPath$FileLoader, init$, void, $URL*), "java.io.IOException"},
+	{"findResource", "(Ljava/lang/String;Z)Ljava/net/URL;", nullptr, 0, $virtualMethod(URLClassPath$FileLoader, findResource, $URL*, $String*, bool)},
+	{"getResource", "(Ljava/lang/String;Z)Ljdk/internal/loader/Resource;", nullptr, 0, $virtualMethod(URLClassPath$FileLoader, getResource, $Resource*, $String*, bool)},
 	{}
 };
 

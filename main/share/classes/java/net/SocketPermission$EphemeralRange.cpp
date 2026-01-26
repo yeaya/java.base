@@ -19,7 +19,7 @@ $FieldInfo _SocketPermission$EphemeralRange_FieldInfo_[] = {
 };
 
 $MethodInfo _SocketPermission$EphemeralRange_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(SocketPermission$EphemeralRange::*)()>(&SocketPermission$EphemeralRange::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(SocketPermission$EphemeralRange, init$, void)},
 	{}
 };
 

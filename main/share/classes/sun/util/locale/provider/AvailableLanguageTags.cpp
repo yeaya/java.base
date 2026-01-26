@@ -5,6 +5,7 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Set = ::java::util::Set;
 
 namespace sun {
 	namespace util {
@@ -12,7 +13,7 @@ namespace sun {
 			namespace provider {
 
 $MethodInfo _AvailableLanguageTags_MethodInfo_[] = {
-	{"getAvailableLanguageTags", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC | $ABSTRACT},
+	{"getAvailableLanguageTags", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC | $ABSTRACT, $virtualMethod(AvailableLanguageTags, getAvailableLanguageTags, $Set*)},
 	{}
 };
 

@@ -42,13 +42,13 @@ $FieldInfo _ParameterCache_FieldInfo_[] = {
 };
 
 $MethodInfo _ParameterCache_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(ParameterCache::*)()>(&ParameterCache::init$))},
-	{"getCachedDHParameterSpec", "(I)Ljavax/crypto/spec/DHParameterSpec;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$DHParameterSpec*(*)(int32_t)>(&ParameterCache::getCachedDHParameterSpec))},
-	{"getCachedDSAParameterSpec", "(II)Ljava/security/spec/DSAParameterSpec;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$DSAParameterSpec*(*)(int32_t,int32_t)>(&ParameterCache::getCachedDSAParameterSpec))},
-	{"getDHParameterSpec", "(ILjava/security/SecureRandom;)Ljavax/crypto/spec/DHParameterSpec;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$DHParameterSpec*(*)(int32_t,$SecureRandom*)>(&ParameterCache::getDHParameterSpec)), "java.security.NoSuchAlgorithmException,java.security.spec.InvalidParameterSpecException"},
-	{"getDSAParameterSpec", "(ILjava/security/SecureRandom;)Ljava/security/spec/DSAParameterSpec;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$DSAParameterSpec*(*)(int32_t,$SecureRandom*)>(&ParameterCache::getDSAParameterSpec)), "java.security.NoSuchAlgorithmException,java.security.spec.InvalidParameterSpecException,java.security.InvalidAlgorithmParameterException"},
-	{"getDSAParameterSpec", "(IILjava/security/SecureRandom;)Ljava/security/spec/DSAParameterSpec;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$DSAParameterSpec*(*)(int32_t,int32_t,$SecureRandom*)>(&ParameterCache::getDSAParameterSpec)), "java.security.NoSuchAlgorithmException,java.security.spec.InvalidParameterSpecException,java.security.InvalidAlgorithmParameterException"},
-	{"getNewDSAParameterSpec", "(IILjava/security/SecureRandom;)Ljava/security/spec/DSAParameterSpec;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$DSAParameterSpec*(*)(int32_t,int32_t,$SecureRandom*)>(&ParameterCache::getNewDSAParameterSpec)), "java.security.NoSuchAlgorithmException,java.security.spec.InvalidParameterSpecException,java.security.InvalidAlgorithmParameterException"},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(ParameterCache, init$, void)},
+	{"getCachedDHParameterSpec", "(I)Ljavax/crypto/spec/DHParameterSpec;", nullptr, $PUBLIC | $STATIC, $staticMethod(ParameterCache, getCachedDHParameterSpec, $DHParameterSpec*, int32_t)},
+	{"getCachedDSAParameterSpec", "(II)Ljava/security/spec/DSAParameterSpec;", nullptr, $PUBLIC | $STATIC, $staticMethod(ParameterCache, getCachedDSAParameterSpec, $DSAParameterSpec*, int32_t, int32_t)},
+	{"getDHParameterSpec", "(ILjava/security/SecureRandom;)Ljavax/crypto/spec/DHParameterSpec;", nullptr, $PUBLIC | $STATIC, $staticMethod(ParameterCache, getDHParameterSpec, $DHParameterSpec*, int32_t, $SecureRandom*), "java.security.NoSuchAlgorithmException,java.security.spec.InvalidParameterSpecException"},
+	{"getDSAParameterSpec", "(ILjava/security/SecureRandom;)Ljava/security/spec/DSAParameterSpec;", nullptr, $PUBLIC | $STATIC, $staticMethod(ParameterCache, getDSAParameterSpec, $DSAParameterSpec*, int32_t, $SecureRandom*), "java.security.NoSuchAlgorithmException,java.security.spec.InvalidParameterSpecException,java.security.InvalidAlgorithmParameterException"},
+	{"getDSAParameterSpec", "(IILjava/security/SecureRandom;)Ljava/security/spec/DSAParameterSpec;", nullptr, $PUBLIC | $STATIC, $staticMethod(ParameterCache, getDSAParameterSpec, $DSAParameterSpec*, int32_t, int32_t, $SecureRandom*), "java.security.NoSuchAlgorithmException,java.security.spec.InvalidParameterSpecException,java.security.InvalidAlgorithmParameterException"},
+	{"getNewDSAParameterSpec", "(IILjava/security/SecureRandom;)Ljava/security/spec/DSAParameterSpec;", nullptr, $PUBLIC | $STATIC, $staticMethod(ParameterCache, getNewDSAParameterSpec, $DSAParameterSpec*, int32_t, int32_t, $SecureRandom*), "java.security.NoSuchAlgorithmException,java.security.spec.InvalidParameterSpecException,java.security.InvalidAlgorithmParameterException"},
 	{}
 };
 

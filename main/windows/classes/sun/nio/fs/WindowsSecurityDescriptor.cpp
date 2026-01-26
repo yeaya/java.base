@@ -115,15 +115,15 @@ $FieldInfo _WindowsSecurityDescriptor_FieldInfo_[] = {
 };
 
 $MethodInfo _WindowsSecurityDescriptor_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(WindowsSecurityDescriptor::*)()>(&WindowsSecurityDescriptor::init$))},
-	{"<init>", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/file/attribute/AclEntry;>;)V", $PRIVATE, $method(static_cast<void(WindowsSecurityDescriptor::*)($List*)>(&WindowsSecurityDescriptor::init$)), "java.io.IOException"},
-	{"address", "()J", nullptr, 0},
-	{"create", "(Ljava/util/List;)Lsun/nio/fs/WindowsSecurityDescriptor;", "(Ljava/util/List<Ljava/nio/file/attribute/AclEntry;>;)Lsun/nio/fs/WindowsSecurityDescriptor;", $STATIC, $method(static_cast<WindowsSecurityDescriptor*(*)($List*)>(&WindowsSecurityDescriptor::create)), "java.io.IOException"},
-	{"decode", "(J)Ljava/nio/file/attribute/AclEntry;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$AclEntry*(*)(int64_t)>(&WindowsSecurityDescriptor::decode)), "java.io.IOException"},
-	{"encode", "(Ljava/nio/file/attribute/AclEntry;JJ)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($AclEntry*,int64_t,int64_t)>(&WindowsSecurityDescriptor::encode)), "sun.nio.fs.WindowsException"},
-	{"fromAttribute", "([Ljava/nio/file/attribute/FileAttribute;)Lsun/nio/fs/WindowsSecurityDescriptor;", "([Ljava/nio/file/attribute/FileAttribute<*>;)Lsun/nio/fs/WindowsSecurityDescriptor;", $STATIC | $TRANSIENT, $method(static_cast<WindowsSecurityDescriptor*(*)($FileAttributeArray*)>(&WindowsSecurityDescriptor::fromAttribute)), "java.io.IOException"},
-	{"getAcl", "(J)Ljava/util/List;", "(J)Ljava/util/List<Ljava/nio/file/attribute/AclEntry;>;", $STATIC, $method(static_cast<$List*(*)(int64_t)>(&WindowsSecurityDescriptor::getAcl)), "java.io.IOException"},
-	{"release", "()V", nullptr, 0},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(WindowsSecurityDescriptor, init$, void)},
+	{"<init>", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/file/attribute/AclEntry;>;)V", $PRIVATE, $method(WindowsSecurityDescriptor, init$, void, $List*), "java.io.IOException"},
+	{"address", "()J", nullptr, 0, $virtualMethod(WindowsSecurityDescriptor, address, int64_t)},
+	{"create", "(Ljava/util/List;)Lsun/nio/fs/WindowsSecurityDescriptor;", "(Ljava/util/List<Ljava/nio/file/attribute/AclEntry;>;)Lsun/nio/fs/WindowsSecurityDescriptor;", $STATIC, $staticMethod(WindowsSecurityDescriptor, create, WindowsSecurityDescriptor*, $List*), "java.io.IOException"},
+	{"decode", "(J)Ljava/nio/file/attribute/AclEntry;", nullptr, $PRIVATE | $STATIC, $staticMethod(WindowsSecurityDescriptor, decode, $AclEntry*, int64_t), "java.io.IOException"},
+	{"encode", "(Ljava/nio/file/attribute/AclEntry;JJ)V", nullptr, $PRIVATE | $STATIC, $staticMethod(WindowsSecurityDescriptor, encode, void, $AclEntry*, int64_t, int64_t), "sun.nio.fs.WindowsException"},
+	{"fromAttribute", "([Ljava/nio/file/attribute/FileAttribute;)Lsun/nio/fs/WindowsSecurityDescriptor;", "([Ljava/nio/file/attribute/FileAttribute<*>;)Lsun/nio/fs/WindowsSecurityDescriptor;", $STATIC | $TRANSIENT, $staticMethod(WindowsSecurityDescriptor, fromAttribute, WindowsSecurityDescriptor*, $FileAttributeArray*), "java.io.IOException"},
+	{"getAcl", "(J)Ljava/util/List;", "(J)Ljava/util/List<Ljava/nio/file/attribute/AclEntry;>;", $STATIC, $staticMethod(WindowsSecurityDescriptor, getAcl, $List*, int64_t), "java.io.IOException"},
+	{"release", "()V", nullptr, 0, $virtualMethod(WindowsSecurityDescriptor, release, void)},
 	{}
 };
 

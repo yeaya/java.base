@@ -23,9 +23,9 @@ $FieldInfo _EdECPublicKeySpec_FieldInfo_[] = {
 };
 
 $MethodInfo _EdECPublicKeySpec_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/spec/NamedParameterSpec;Ljava/security/spec/EdECPoint;)V", nullptr, $PUBLIC, $method(static_cast<void(EdECPublicKeySpec::*)($NamedParameterSpec*,$EdECPoint*)>(&EdECPublicKeySpec::init$))},
-	{"getParams", "()Ljava/security/spec/NamedParameterSpec;", nullptr, $PUBLIC, $method(static_cast<$NamedParameterSpec*(EdECPublicKeySpec::*)()>(&EdECPublicKeySpec::getParams))},
-	{"getPoint", "()Ljava/security/spec/EdECPoint;", nullptr, $PUBLIC, $method(static_cast<$EdECPoint*(EdECPublicKeySpec::*)()>(&EdECPublicKeySpec::getPoint))},
+	{"<init>", "(Ljava/security/spec/NamedParameterSpec;Ljava/security/spec/EdECPoint;)V", nullptr, $PUBLIC, $method(EdECPublicKeySpec, init$, void, $NamedParameterSpec*, $EdECPoint*)},
+	{"getParams", "()Ljava/security/spec/NamedParameterSpec;", nullptr, $PUBLIC, $method(EdECPublicKeySpec, getParams, $NamedParameterSpec*)},
+	{"getPoint", "()Ljava/security/spec/EdECPoint;", nullptr, $PUBLIC, $method(EdECPublicKeySpec, getPoint, $EdECPoint*)},
 	{}
 };
 

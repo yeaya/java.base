@@ -8,7 +8,7 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _I2B_MethodInfo_[] = {
-	{"bar", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TE3;)TE1;^TE2;", $PUBLIC | $ABSTRACT, nullptr, "java.lang.Throwable"},
+	{"bar", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TE3;)TE1;^TE2;", $PUBLIC | $ABSTRACT, $virtualMethod(I2B, bar, $Object*, Object$*), "java.lang.Throwable"},
 	{}
 };
 

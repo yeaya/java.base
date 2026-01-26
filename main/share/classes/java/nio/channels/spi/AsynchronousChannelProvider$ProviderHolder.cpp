@@ -46,10 +46,10 @@ $FieldInfo _AsynchronousChannelProvider$ProviderHolder_FieldInfo_[] = {
 };
 
 $MethodInfo _AsynchronousChannelProvider$ProviderHolder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(AsynchronousChannelProvider$ProviderHolder::*)()>(&AsynchronousChannelProvider$ProviderHolder::init$))},
-	{"load", "()Ljava/nio/channels/spi/AsynchronousChannelProvider;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$AsynchronousChannelProvider*(*)()>(&AsynchronousChannelProvider$ProviderHolder::load))},
-	{"loadProviderAsService", "()Ljava/nio/channels/spi/AsynchronousChannelProvider;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$AsynchronousChannelProvider*(*)()>(&AsynchronousChannelProvider$ProviderHolder::loadProviderAsService))},
-	{"loadProviderFromProperty", "()Ljava/nio/channels/spi/AsynchronousChannelProvider;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$AsynchronousChannelProvider*(*)()>(&AsynchronousChannelProvider$ProviderHolder::loadProviderFromProperty))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(AsynchronousChannelProvider$ProviderHolder, init$, void)},
+	{"load", "()Ljava/nio/channels/spi/AsynchronousChannelProvider;", nullptr, $PRIVATE | $STATIC, $staticMethod(AsynchronousChannelProvider$ProviderHolder, load, $AsynchronousChannelProvider*)},
+	{"loadProviderAsService", "()Ljava/nio/channels/spi/AsynchronousChannelProvider;", nullptr, $PRIVATE | $STATIC, $staticMethod(AsynchronousChannelProvider$ProviderHolder, loadProviderAsService, $AsynchronousChannelProvider*)},
+	{"loadProviderFromProperty", "()Ljava/nio/channels/spi/AsynchronousChannelProvider;", nullptr, $PRIVATE | $STATIC, $staticMethod(AsynchronousChannelProvider$ProviderHolder, loadProviderFromProperty, $AsynchronousChannelProvider*)},
 	{}
 };
 

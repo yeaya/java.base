@@ -76,9 +76,9 @@ namespace sun {
 		namespace ssl {
 
 $MethodInfo _CertificateRequest$T12CertificateRequestConsumer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(CertificateRequest$T12CertificateRequestConsumer::*)()>(&CertificateRequest$T12CertificateRequestConsumer::init$))},
-	{"choosePossession", "(Lsun/security/ssl/HandshakeContext;)Lsun/security/ssl/SSLPossession;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$SSLPossession*(*)($HandshakeContext*)>(&CertificateRequest$T12CertificateRequestConsumer::choosePossession)), "java.io.IOException"},
-	{"consume", "(Lsun/security/ssl/ConnectionContext;Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(CertificateRequest$T12CertificateRequestConsumer, init$, void)},
+	{"choosePossession", "(Lsun/security/ssl/HandshakeContext;)Lsun/security/ssl/SSLPossession;", nullptr, $PRIVATE | $STATIC, $staticMethod(CertificateRequest$T12CertificateRequestConsumer, choosePossession, $SSLPossession*, $HandshakeContext*), "java.io.IOException"},
+	{"consume", "(Lsun/security/ssl/ConnectionContext;Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(CertificateRequest$T12CertificateRequestConsumer, consume, void, $ConnectionContext*, $ByteBuffer*), "java.io.IOException"},
 	{}
 };
 

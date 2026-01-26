@@ -22,9 +22,9 @@ namespace sun {
 		namespace fs {
 
 $MethodInfo _RegistryFileTypeDetector_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(RegistryFileTypeDetector::*)()>(&RegistryFileTypeDetector::init$))},
-	{"implProbeContentType", "(Ljava/nio/file/Path;)Ljava/lang/String;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"queryStringValue", "(JJ)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $NATIVE, $method(static_cast<$String*(*)(int64_t,int64_t)>(&RegistryFileTypeDetector::queryStringValue))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(RegistryFileTypeDetector, init$, void)},
+	{"implProbeContentType", "(Ljava/nio/file/Path;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RegistryFileTypeDetector, implProbeContentType, $String*, $Path*), "java.io.IOException"},
+	{"queryStringValue", "(JJ)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(RegistryFileTypeDetector, queryStringValue, $String*, int64_t, int64_t)},
 	{}
 };
 

@@ -18,7 +18,7 @@ namespace com {
 			namespace provider {
 
 $MethodInfo _GaloisCounterMode$AES192_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(GaloisCounterMode$AES192::*)()>(&GaloisCounterMode$AES192::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(GaloisCounterMode$AES192, init$, void)},
 	{}
 };
 

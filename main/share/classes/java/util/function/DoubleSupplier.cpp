@@ -16,7 +16,7 @@ $CompoundAttribute _DoubleSupplier_Annotations_[] = {
 };
 
 $MethodInfo _DoubleSupplier_MethodInfo_[] = {
-	{"getAsDouble", "()D", nullptr, $PUBLIC | $ABSTRACT},
+	{"getAsDouble", "()D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DoubleSupplier, getAsDouble, double)},
 	{}
 };
 

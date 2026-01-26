@@ -9,7 +9,7 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _Sanity$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Sanity$1::*)()>(&Sanity$1::init$))},
+	{"<init>", "()V", nullptr, 0, $method(Sanity$1, init$, void)},
 	{}
 };
 

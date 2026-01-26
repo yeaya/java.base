@@ -8,13 +8,15 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $StringBuffer = ::java::lang::StringBuffer;
+using $Format$Field = ::java::text::Format$Field;
 
 namespace java {
 	namespace text {
 
 $MethodInfo _Format$FieldDelegate_MethodInfo_[] = {
-	{"formatted", "(Ljava/text/Format$Field;Ljava/lang/Object;IILjava/lang/StringBuffer;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"formatted", "(ILjava/text/Format$Field;Ljava/lang/Object;IILjava/lang/StringBuffer;)V", nullptr, $PUBLIC | $ABSTRACT},
+	{"formatted", "(Ljava/text/Format$Field;Ljava/lang/Object;IILjava/lang/StringBuffer;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Format$FieldDelegate, formatted, void, $Format$Field*, Object$*, int32_t, int32_t, $StringBuffer*)},
+	{"formatted", "(ILjava/text/Format$Field;Ljava/lang/Object;IILjava/lang/StringBuffer;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Format$FieldDelegate, formatted, void, int32_t, $Format$Field*, Object$*, int32_t, int32_t, $StringBuffer*)},
 	{}
 };
 

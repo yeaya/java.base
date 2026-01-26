@@ -18,7 +18,7 @@ $FieldInfo _HKSCS_XPMapping_FieldInfo_[] = {
 };
 
 $MethodInfo _HKSCS_XPMapping_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(HKSCS_XPMapping::*)()>(&HKSCS_XPMapping::init$))},
+	{"<init>", "()V", nullptr, 0, $method(HKSCS_XPMapping, init$, void)},
 	{}
 };
 

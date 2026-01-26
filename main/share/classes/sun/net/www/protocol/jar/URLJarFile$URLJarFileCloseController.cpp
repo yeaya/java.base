@@ -1,11 +1,13 @@
 #include <sun/net/www/protocol/jar/URLJarFile$URLJarFileCloseController.h>
 
+#include <java/util/jar/JarFile.h>
 #include <sun/net/www/protocol/jar/URLJarFile.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $JarFile = ::java::util::jar::JarFile;
 
 namespace sun {
 	namespace net {
@@ -14,7 +16,7 @@ namespace sun {
 				namespace jar {
 
 $MethodInfo _URLJarFile$URLJarFileCloseController_MethodInfo_[] = {
-	{"close", "(Ljava/util/jar/JarFile;)V", nullptr, $PUBLIC | $ABSTRACT},
+	{"close", "(Ljava/util/jar/JarFile;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(URLJarFile$URLJarFileCloseController, close, void, $JarFile*)},
 	{}
 };
 

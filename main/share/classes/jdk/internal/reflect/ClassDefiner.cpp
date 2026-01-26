@@ -33,8 +33,8 @@ $FieldInfo _ClassDefiner_FieldInfo_[] = {
 };
 
 $MethodInfo _ClassDefiner_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ClassDefiner::*)()>(&ClassDefiner::init$))},
-	{"defineClass", "(Ljava/lang/String;[BIILjava/lang/ClassLoader;)Ljava/lang/Class;", "(Ljava/lang/String;[BIILjava/lang/ClassLoader;)Ljava/lang/Class<*>;", $STATIC, $method(static_cast<$Class*(*)($String*,$bytes*,int32_t,int32_t,$ClassLoader*)>(&ClassDefiner::defineClass))},
+	{"<init>", "()V", nullptr, 0, $method(ClassDefiner, init$, void)},
+	{"defineClass", "(Ljava/lang/String;[BIILjava/lang/ClassLoader;)Ljava/lang/Class;", "(Ljava/lang/String;[BIILjava/lang/ClassLoader;)Ljava/lang/Class<*>;", $STATIC, $staticMethod(ClassDefiner, defineClass, $Class*, $String*, $bytes*, int32_t, int32_t, $ClassLoader*)},
 	{}
 };
 

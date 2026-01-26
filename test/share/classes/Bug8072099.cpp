@@ -23,9 +23,9 @@ $FieldInfo _Bug8072099_FieldInfo_[] = {
 };
 
 $MethodInfo _Bug8072099_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Bug8072099::*)()>(&Bug8072099::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Bug8072099::main))},
-	{"parseDateTimeInput", "(Ljava/text/SimpleDateFormat;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($SimpleDateFormat*,$String*)>(&Bug8072099::parseDateTimeInput))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Bug8072099, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Bug8072099, main, void, $StringArray*)},
+	{"parseDateTimeInput", "(Ljava/text/SimpleDateFormat;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Bug8072099, parseDateTimeInput, void, $SimpleDateFormat*, $String*)},
 	{}
 };
 

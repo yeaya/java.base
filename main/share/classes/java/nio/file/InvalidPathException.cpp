@@ -20,12 +20,12 @@ $FieldInfo _InvalidPathException_FieldInfo_[] = {
 };
 
 $MethodInfo _InvalidPathException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(static_cast<void(InvalidPathException::*)($String*,$String*,int32_t)>(&InvalidPathException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(InvalidPathException::*)($String*,$String*)>(&InvalidPathException::init$))},
-	{"getIndex", "()I", nullptr, $PUBLIC},
-	{"getInput", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getReason", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(InvalidPathException, init$, void, $String*, $String*, int32_t)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InvalidPathException, init$, void, $String*, $String*)},
+	{"getIndex", "()I", nullptr, $PUBLIC, $virtualMethod(InvalidPathException, getIndex, int32_t)},
+	{"getInput", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(InvalidPathException, getInput, $String*)},
+	{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(InvalidPathException, getMessage, $String*)},
+	{"getReason", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(InvalidPathException, getReason, $String*)},
 	{}
 };
 

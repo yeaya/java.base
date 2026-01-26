@@ -20,7 +20,7 @@ $CompoundAttribute _SingleMemberDoubleClass_Annotations_[] = {
 };
 
 $MethodInfo _SingleMemberDoubleClass_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(SingleMemberDoubleClass::*)()>(&SingleMemberDoubleClass::init$))},
+	{"<init>", "()V", nullptr, 0, $method(SingleMemberDoubleClass, init$, void)},
 	{}
 };
 

@@ -32,7 +32,7 @@ $CompoundAttribute _TestConstructorParameterAnnotations$MarkerAnnotation_Annotat
 };
 
 $MethodInfo _TestConstructorParameterAnnotations$MarkerAnnotation_MethodInfo_[] = {
-	{"value", "()I", nullptr, $PUBLIC | $ABSTRACT},
+	{"value", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TestConstructorParameterAnnotations$MarkerAnnotation, value, int32_t)},
 	{}
 };
 

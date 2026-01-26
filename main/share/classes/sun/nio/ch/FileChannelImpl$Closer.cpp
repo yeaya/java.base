@@ -27,8 +27,8 @@ $FieldInfo _FileChannelImpl$Closer_FieldInfo_[] = {
 };
 
 $MethodInfo _FileChannelImpl$Closer_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/FileDescriptor;)V", nullptr, 0, $method(static_cast<void(FileChannelImpl$Closer::*)($FileDescriptor*)>(&FileChannelImpl$Closer::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/io/FileDescriptor;)V", nullptr, 0, $method(FileChannelImpl$Closer, init$, void, $FileDescriptor*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(FileChannelImpl$Closer, run, void)},
 	{}
 };
 

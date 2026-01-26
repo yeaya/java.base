@@ -37,18 +37,18 @@ $FieldInfo _ArrayList$SubList$1_FieldInfo_[] = {
 };
 
 $MethodInfo _ArrayList$SubList$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/ArrayList$SubList;I)V", "()V", 0, $method(static_cast<void(ArrayList$SubList$1::*)($ArrayList$SubList*,int32_t)>(&ArrayList$SubList$1::init$))},
-	{"add", "(Ljava/lang/Object;)V", "(TE;)V", $PUBLIC},
-	{"checkForComodification", "()V", nullptr, $FINAL, $method(static_cast<void(ArrayList$SubList$1::*)()>(&ArrayList$SubList$1::checkForComodification))},
-	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC},
-	{"hasNext", "()Z", nullptr, $PUBLIC},
-	{"hasPrevious", "()Z", nullptr, $PUBLIC},
-	{"next", "()Ljava/lang/Object;", "()TE;", $PUBLIC},
-	{"nextIndex", "()I", nullptr, $PUBLIC},
-	{"previous", "()Ljava/lang/Object;", "()TE;", $PUBLIC},
-	{"previousIndex", "()I", nullptr, $PUBLIC},
-	{"remove", "()V", nullptr, $PUBLIC},
-	{"set", "(Ljava/lang/Object;)V", "(TE;)V", $PUBLIC},
+	{"<init>", "(Ljava/util/ArrayList$SubList;I)V", "()V", 0, $method(ArrayList$SubList$1, init$, void, $ArrayList$SubList*, int32_t)},
+	{"add", "(Ljava/lang/Object;)V", "(TE;)V", $PUBLIC, $virtualMethod(ArrayList$SubList$1, add, void, Object$*)},
+	{"checkForComodification", "()V", nullptr, $FINAL, $method(ArrayList$SubList$1, checkForComodification, void)},
+	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC, $virtualMethod(ArrayList$SubList$1, forEachRemaining, void, $Consumer*)},
+	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(ArrayList$SubList$1, hasNext, bool)},
+	{"hasPrevious", "()Z", nullptr, $PUBLIC, $virtualMethod(ArrayList$SubList$1, hasPrevious, bool)},
+	{"next", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(ArrayList$SubList$1, next, $Object*)},
+	{"nextIndex", "()I", nullptr, $PUBLIC, $virtualMethod(ArrayList$SubList$1, nextIndex, int32_t)},
+	{"previous", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(ArrayList$SubList$1, previous, $Object*)},
+	{"previousIndex", "()I", nullptr, $PUBLIC, $virtualMethod(ArrayList$SubList$1, previousIndex, int32_t)},
+	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(ArrayList$SubList$1, remove, void)},
+	{"set", "(Ljava/lang/Object;)V", "(TE;)V", $PUBLIC, $virtualMethod(ArrayList$SubList$1, set, void, Object$*)},
 	{}
 };
 

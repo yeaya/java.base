@@ -32,7 +32,7 @@ $CompoundAttribute _TestConstructorParameterAnnotations$StaticNestedClass0_Annot
 };
 
 $MethodInfo _TestConstructorParameterAnnotations$StaticNestedClass0_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TestConstructorParameterAnnotations$StaticNestedClass0::*)()>(&TestConstructorParameterAnnotations$StaticNestedClass0::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TestConstructorParameterAnnotations$StaticNestedClass0, init$, void)},
 	{}
 };
 

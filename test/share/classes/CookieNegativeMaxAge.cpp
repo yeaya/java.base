@@ -14,8 +14,8 @@ using $HttpCookie = ::java::net::HttpCookie;
 using $List = ::java::util::List;
 
 $MethodInfo _CookieNegativeMaxAge_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CookieNegativeMaxAge::*)()>(&CookieNegativeMaxAge::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<void(*)($StringArray*)>(&CookieNegativeMaxAge::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CookieNegativeMaxAge, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(CookieNegativeMaxAge, main, void, $StringArray*)},
 	{}
 };
 

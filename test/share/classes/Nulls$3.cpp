@@ -11,7 +11,7 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $SimpleFileVisitor = ::java::nio::file::SimpleFileVisitor;
 
 $MethodInfo _Nulls$3_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Nulls$3::*)()>(&Nulls$3::init$))},
+	{"<init>", "()V", nullptr, 0, $method(Nulls$3, init$, void)},
 	{}
 };
 

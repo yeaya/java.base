@@ -39,8 +39,8 @@ $FieldInfo _DefaultLoggerFinder$SharedLoggers_FieldInfo_[] = {
 };
 
 $MethodInfo _DefaultLoggerFinder$SharedLoggers_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(DefaultLoggerFinder$SharedLoggers::*)()>(&DefaultLoggerFinder$SharedLoggers::init$))},
-	{"get", "(Ljava/util/function/Function;Ljava/lang/String;)Ljava/lang/System$Logger;", "(Ljava/util/function/Function<Ljava/lang/String;Ljava/lang/System$Logger;>;Ljava/lang/String;)Ljava/lang/System$Logger;", $SYNCHRONIZED, $method(static_cast<$System$Logger*(DefaultLoggerFinder$SharedLoggers::*)($Function*,$String*)>(&DefaultLoggerFinder$SharedLoggers::get))},
+	{"<init>", "()V", nullptr, 0, $method(DefaultLoggerFinder$SharedLoggers, init$, void)},
+	{"get", "(Ljava/util/function/Function;Ljava/lang/String;)Ljava/lang/System$Logger;", "(Ljava/util/function/Function<Ljava/lang/String;Ljava/lang/System$Logger;>;Ljava/lang/String;)Ljava/lang/System$Logger;", $SYNCHRONIZED, $method(DefaultLoggerFinder$SharedLoggers, get, $System$Logger*, $Function*, $String*)},
 	{}
 };
 

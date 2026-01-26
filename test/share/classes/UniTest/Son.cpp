@@ -16,7 +16,7 @@ $CompoundAttribute _Son_Annotations_[] = {
 };
 
 $MethodInfo _Son_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Son::*)()>(&Son::init$))},
+	{"<init>", "()V", nullptr, 0, $method(Son, init$, void)},
 	{}
 };
 

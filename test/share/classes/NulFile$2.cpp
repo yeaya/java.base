@@ -11,8 +11,8 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _NulFile$2_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(NulFile$2::*)()>(&NulFile$2::init$))},
-	{"accept", "(Ljava/io/File;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(NulFile$2, init$, void)},
+	{"accept", "(Ljava/io/File;)Z", nullptr, $PUBLIC, $virtualMethod(NulFile$2, accept, bool, $File*)},
 	{}
 };
 

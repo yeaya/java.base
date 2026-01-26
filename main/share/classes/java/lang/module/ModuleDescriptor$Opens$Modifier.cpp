@@ -27,10 +27,10 @@ $FieldInfo _ModuleDescriptor$Opens$Modifier_FieldInfo_[] = {
 };
 
 $MethodInfo _ModuleDescriptor$Opens$Modifier_MethodInfo_[] = {
-	{"$values", "()[Ljava/lang/module/ModuleDescriptor$Opens$Modifier;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$ModuleDescriptor$Opens$ModifierArray*(*)()>(&ModuleDescriptor$Opens$Modifier::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(ModuleDescriptor$Opens$Modifier::*)($String*,int32_t)>(&ModuleDescriptor$Opens$Modifier::init$))},
-	{"valueOf", "(Ljava/lang/String;)Ljava/lang/module/ModuleDescriptor$Opens$Modifier;", nullptr, $PUBLIC | $STATIC, $method(static_cast<ModuleDescriptor$Opens$Modifier*(*)($String*)>(&ModuleDescriptor$Opens$Modifier::valueOf))},
-	{"values", "()[Ljava/lang/module/ModuleDescriptor$Opens$Modifier;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$ModuleDescriptor$Opens$ModifierArray*(*)()>(&ModuleDescriptor$Opens$Modifier::values))},
+	{"$values", "()[Ljava/lang/module/ModuleDescriptor$Opens$Modifier;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ModuleDescriptor$Opens$Modifier, $values, $ModuleDescriptor$Opens$ModifierArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(ModuleDescriptor$Opens$Modifier, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Ljava/lang/module/ModuleDescriptor$Opens$Modifier;", nullptr, $PUBLIC | $STATIC, $staticMethod(ModuleDescriptor$Opens$Modifier, valueOf, ModuleDescriptor$Opens$Modifier*, $String*)},
+	{"values", "()[Ljava/lang/module/ModuleDescriptor$Opens$Modifier;", nullptr, $PUBLIC | $STATIC, $staticMethod(ModuleDescriptor$Opens$Modifier, values, $ModuleDescriptor$Opens$ModifierArray*)},
 	{}
 };
 

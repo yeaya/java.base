@@ -13,7 +13,7 @@ namespace sun {
 		namespace provider {
 
 $MethodInfo _NativeSeedGenerator_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(NativeSeedGenerator::*)($String*)>(&NativeSeedGenerator::init$)), "java.io.IOException"},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(NativeSeedGenerator, init$, void, $String*), "java.io.IOException"},
 	{}
 };
 

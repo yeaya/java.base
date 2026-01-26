@@ -7,6 +7,7 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Cloneable = ::java::lang::Cloneable;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Certificate = ::java::security::cert::Certificate;
 
 namespace java {
 	namespace security {
@@ -14,7 +15,7 @@ namespace java {
 
 $MethodInfo _CertSelector_MethodInfo_[] = {
 	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
-	{"match", "(Ljava/security/cert/Certificate;)Z", nullptr, $PUBLIC | $ABSTRACT},
+	{"match", "(Ljava/security/cert/Certificate;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CertSelector, match, bool, $Certificate*)},
 	{}
 };
 

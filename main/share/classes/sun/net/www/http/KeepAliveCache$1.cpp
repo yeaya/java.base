@@ -28,8 +28,8 @@ $FieldInfo _KeepAliveCache$1_FieldInfo_[] = {
 };
 
 $MethodInfo _KeepAliveCache$1_MethodInfo_[] = {
-	{"<init>", "(Lsun/net/www/http/KeepAliveCache;Lsun/net/www/http/KeepAliveCache;)V", nullptr, 0, $method(static_cast<void(KeepAliveCache$1::*)($KeepAliveCache*,$KeepAliveCache*)>(&KeepAliveCache$1::init$))},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/net/www/http/KeepAliveCache;Lsun/net/www/http/KeepAliveCache;)V", nullptr, 0, $method(KeepAliveCache$1, init$, void, $KeepAliveCache*, $KeepAliveCache*)},
+	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(KeepAliveCache$1, run, $Object*)},
 	{}
 };
 

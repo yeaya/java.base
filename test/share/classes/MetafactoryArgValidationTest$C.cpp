@@ -33,19 +33,19 @@ $FieldInfo _MetafactoryArgValidationTest$C_FieldInfo_[] = {
 };
 
 $MethodInfo _MetafactoryArgValidationTest$C_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(MetafactoryArgValidationTest$C::*)()>(&MetafactoryArgValidationTest$C::init$))},
-	{"getFieldMH", "()Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$MethodHandle*(*)()>(&MetafactoryArgValidationTest$C::getFieldMH))},
-	{"getStaticMH", "()Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$MethodHandle*(*)()>(&MetafactoryArgValidationTest$C::getStaticMH))},
-	{"im", "()V", nullptr, $PUBLIC},
-	{"invokeInterfaceMH", "()Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$MethodHandle*(*)()>(&MetafactoryArgValidationTest$C::invokeInterfaceMH))},
-	{"invokeSpecialMH", "()Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$MethodHandle*(*)()>(&MetafactoryArgValidationTest$C::invokeSpecialMH))},
-	{"invokeStaticMH", "()Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$MethodHandle*(*)()>(&MetafactoryArgValidationTest$C::invokeStaticMH))},
-	{"invokeVirtualMH", "()Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$MethodHandle*(*)()>(&MetafactoryArgValidationTest$C::invokeVirtualMH))},
-	{"newInvokeSpecialMH", "()Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$MethodHandle*(*)()>(&MetafactoryArgValidationTest$C::newInvokeSpecialMH))},
-	{"putFieldMH", "()Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$MethodHandle*(*)()>(&MetafactoryArgValidationTest$C::putFieldMH))},
-	{"putStaticMH", "()Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$MethodHandle*(*)()>(&MetafactoryArgValidationTest$C::putStaticMH))},
-	{"run", "()V", nullptr, $PUBLIC},
-	{"sm", "()V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)()>(&MetafactoryArgValidationTest$C::sm))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(MetafactoryArgValidationTest$C, init$, void)},
+	{"getFieldMH", "()Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetafactoryArgValidationTest$C, getFieldMH, $MethodHandle*)},
+	{"getStaticMH", "()Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetafactoryArgValidationTest$C, getStaticMH, $MethodHandle*)},
+	{"im", "()V", nullptr, $PUBLIC, $virtualMethod(MetafactoryArgValidationTest$C, im, void)},
+	{"invokeInterfaceMH", "()Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetafactoryArgValidationTest$C, invokeInterfaceMH, $MethodHandle*)},
+	{"invokeSpecialMH", "()Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetafactoryArgValidationTest$C, invokeSpecialMH, $MethodHandle*)},
+	{"invokeStaticMH", "()Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetafactoryArgValidationTest$C, invokeStaticMH, $MethodHandle*)},
+	{"invokeVirtualMH", "()Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetafactoryArgValidationTest$C, invokeVirtualMH, $MethodHandle*)},
+	{"newInvokeSpecialMH", "()Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetafactoryArgValidationTest$C, newInvokeSpecialMH, $MethodHandle*)},
+	{"putFieldMH", "()Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetafactoryArgValidationTest$C, putFieldMH, $MethodHandle*)},
+	{"putStaticMH", "()Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetafactoryArgValidationTest$C, putStaticMH, $MethodHandle*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(MetafactoryArgValidationTest$C, run, void)},
+	{"sm", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(MetafactoryArgValidationTest$C, sm, void)},
 	{}
 };
 

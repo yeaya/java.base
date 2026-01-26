@@ -16,9 +16,9 @@ namespace java {
 		namespace ref {
 
 $MethodInfo _Reference$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Reference$1::*)()>(&Reference$1::init$))},
-	{"runFinalization", "()V", nullptr, $PUBLIC},
-	{"waitForReferenceProcessing", "()Z", nullptr, $PUBLIC, nullptr, "java.lang.InterruptedException"},
+	{"<init>", "()V", nullptr, 0, $method(Reference$1, init$, void)},
+	{"runFinalization", "()V", nullptr, $PUBLIC, $virtualMethod(Reference$1, runFinalization, void)},
+	{"waitForReferenceProcessing", "()Z", nullptr, $PUBLIC, $virtualMethod(Reference$1, waitForReferenceProcessing, bool), "java.lang.InterruptedException"},
 	{}
 };
 

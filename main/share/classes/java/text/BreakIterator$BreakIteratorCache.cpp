@@ -21,9 +21,9 @@ $FieldInfo _BreakIterator$BreakIteratorCache_FieldInfo_[] = {
 };
 
 $MethodInfo _BreakIterator$BreakIteratorCache_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Locale;Ljava/text/BreakIterator;)V", nullptr, 0, $method(static_cast<void(BreakIterator$BreakIteratorCache::*)($Locale*,$BreakIterator*)>(&BreakIterator$BreakIteratorCache::init$))},
-	{"createBreakInstance", "()Ljava/text/BreakIterator;", nullptr, 0, $method(static_cast<$BreakIterator*(BreakIterator$BreakIteratorCache::*)()>(&BreakIterator$BreakIteratorCache::createBreakInstance))},
-	{"getLocale", "()Ljava/util/Locale;", nullptr, 0, $method(static_cast<$Locale*(BreakIterator$BreakIteratorCache::*)()>(&BreakIterator$BreakIteratorCache::getLocale))},
+	{"<init>", "(Ljava/util/Locale;Ljava/text/BreakIterator;)V", nullptr, 0, $method(BreakIterator$BreakIteratorCache, init$, void, $Locale*, $BreakIterator*)},
+	{"createBreakInstance", "()Ljava/text/BreakIterator;", nullptr, 0, $method(BreakIterator$BreakIteratorCache, createBreakInstance, $BreakIterator*)},
+	{"getLocale", "()Ljava/util/Locale;", nullptr, 0, $method(BreakIterator$BreakIteratorCache, getLocale, $Locale*)},
 	{}
 };
 

@@ -18,9 +18,9 @@ $FieldInfo _StreamDrainer_FieldInfo_[] = {
 };
 
 $MethodInfo _StreamDrainer_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(static_cast<void(StreamDrainer::*)($InputStream*)>(&StreamDrainer::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(StreamDrainer, init$, void, $InputStream*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(StreamDrainer, run, void)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StreamDrainer, toString, $String*)},
 	{}
 };
 

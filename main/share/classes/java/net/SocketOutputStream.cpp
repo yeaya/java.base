@@ -31,15 +31,15 @@ $FieldInfo _SocketOutputStream_FieldInfo_[] = {
 };
 
 $MethodInfo _SocketOutputStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/AbstractPlainSocketImpl;)V", nullptr, 0, $method(static_cast<void(SocketOutputStream::*)($AbstractPlainSocketImpl*)>(&SocketOutputStream::init$)), "java.io.IOException"},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"getChannel", "()Ljava/nio/channels/FileChannel;", nullptr, $PUBLIC | $FINAL},
-	{"init", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $method(static_cast<void(*)()>(&SocketOutputStream::init))},
-	{"socketWrite", "([BII)V", nullptr, $PRIVATE, $method(static_cast<void(SocketOutputStream::*)($bytes*,int32_t,int32_t)>(&SocketOutputStream::socketWrite)), "java.io.IOException"},
-	{"socketWrite0", "(Ljava/io/FileDescriptor;[BII)V", nullptr, $PRIVATE | $NATIVE, $method(static_cast<void(SocketOutputStream::*)($FileDescriptor*,$bytes*,int32_t,int32_t)>(&SocketOutputStream::socketWrite0)), "java.io.IOException"},
-	{"write", "(I)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"write", "([B)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"write", "([BII)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljava/net/AbstractPlainSocketImpl;)V", nullptr, 0, $method(SocketOutputStream, init$, void, $AbstractPlainSocketImpl*), "java.io.IOException"},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(SocketOutputStream, close, void), "java.io.IOException"},
+	{"getChannel", "()Ljava/nio/channels/FileChannel;", nullptr, $PUBLIC | $FINAL, $virtualMethod(SocketOutputStream, getChannel, $FileChannel*)},
+	{"init", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(SocketOutputStream, init, void)},
+	{"socketWrite", "([BII)V", nullptr, $PRIVATE, $method(SocketOutputStream, socketWrite, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
+	{"socketWrite0", "(Ljava/io/FileDescriptor;[BII)V", nullptr, $PRIVATE | $NATIVE, $method(SocketOutputStream, socketWrite0, void, $FileDescriptor*, $bytes*, int32_t, int32_t), "java.io.IOException"},
+	{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(SocketOutputStream, write, void, int32_t), "java.io.IOException"},
+	{"write", "([B)V", nullptr, $PUBLIC, $virtualMethod(SocketOutputStream, write, void, $bytes*), "java.io.IOException"},
+	{"write", "([BII)V", nullptr, $PUBLIC, $virtualMethod(SocketOutputStream, write, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
 	{}
 };
 

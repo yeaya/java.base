@@ -22,9 +22,9 @@ $FieldInfo _KeepAliveKey_FieldInfo_[] = {
 };
 
 $MethodInfo _KeepAliveKey_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/URL;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(static_cast<void(KeepAliveKey::*)($URL*,Object$*)>(&KeepAliveKey::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/net/URL;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(KeepAliveKey, init$, void, $URL*, Object$*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(KeepAliveKey, equals, bool, Object$*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(KeepAliveKey, hashCode, int32_t)},
 	{}
 };
 

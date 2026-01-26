@@ -21,10 +21,10 @@ $FieldInfo _TestHelpers$TestInterface_FieldInfo_[] = {
 };
 
 $MethodInfo _TestHelpers$TestInterface_MethodInfo_[] = {
-	{"m", "(I)I", nullptr, $PUBLIC},
-	{"pm", "(I)I", nullptr, $PRIVATE, $method(static_cast<int32_t(TestHelpers$TestInterface::*)(int32_t)>(&TestHelpers$TestInterface::pm))},
-	{"psm", "(I)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)(int32_t)>(&TestHelpers$TestInterface::psm))},
-	{"sm", "(I)I", nullptr, $PUBLIC | $STATIC, $method(static_cast<int32_t(*)(int32_t)>(&TestHelpers$TestInterface::sm))},
+	{"m", "(I)I", nullptr, $PUBLIC, $virtualMethod(TestHelpers$TestInterface, m, int32_t, int32_t)},
+	{"pm", "(I)I", nullptr, $PRIVATE, $method(TestHelpers$TestInterface, pm, int32_t, int32_t)},
+	{"psm", "(I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(TestHelpers$TestInterface, psm, int32_t, int32_t)},
+	{"sm", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(TestHelpers$TestInterface, sm, int32_t, int32_t)},
 	{}
 };
 

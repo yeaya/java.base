@@ -18,7 +18,7 @@ $CompoundAttribute _ExpectedIsDefault_Annotations_[] = {
 };
 
 $MethodInfo _ExpectedIsDefault_MethodInfo_[] = {
-	{"value", "()Z", nullptr, $PUBLIC | $ABSTRACT},
+	{"value", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ExpectedIsDefault, value, bool)},
 	{}
 };
 

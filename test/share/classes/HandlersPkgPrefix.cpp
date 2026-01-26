@@ -46,8 +46,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo HandlersPkgPrefix$$Lambda$lambda$static$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(HandlersPkgPrefix$$Lambda$lambda$static$0::*)()>(&HandlersPkgPrefix$$Lambda$lambda$static$0::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(HandlersPkgPrefix$$Lambda$lambda$static$0, init$, void)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(HandlersPkgPrefix$$Lambda$lambda$static$0, accept, void, Object$*)},
 	{}
 };
 $ClassInfo HandlersPkgPrefix$$Lambda$lambda$static$0::classInfo$ = {
@@ -79,8 +79,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo HandlersPkgPrefix$$Lambda$lambda$static$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(HandlersPkgPrefix$$Lambda$lambda$static$1$1::*)()>(&HandlersPkgPrefix$$Lambda$lambda$static$1$1::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(HandlersPkgPrefix$$Lambda$lambda$static$1$1, init$, void)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(HandlersPkgPrefix$$Lambda$lambda$static$1$1, accept, void, Object$*)},
 	{}
 };
 $ClassInfo HandlersPkgPrefix$$Lambda$lambda$static$1$1::classInfo$ = {
@@ -104,11 +104,11 @@ $FieldInfo _HandlersPkgPrefix_FieldInfo_[] = {
 };
 
 $MethodInfo _HandlersPkgPrefix_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(HandlersPkgPrefix::*)()>(&HandlersPkgPrefix::init$))},
-	{"lambda$static$0", "(LHandlersPkgPrefix$Result;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($HandlersPkgPrefix$Result*)>(&HandlersPkgPrefix::lambda$static$0))},
-	{"lambda$static$1", "(LHandlersPkgPrefix$Result;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($HandlersPkgPrefix$Result*)>(&HandlersPkgPrefix::lambda$static$1))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&HandlersPkgPrefix::main))},
-	{"withPrefix", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/function/Consumer;)V", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/function/Consumer<LHandlersPkgPrefix$Result;>;)V", $STATIC, $method(static_cast<void(*)($String*,$String*,$Consumer*)>(&HandlersPkgPrefix::withPrefix))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(HandlersPkgPrefix, init$, void)},
+	{"lambda$static$0", "(LHandlersPkgPrefix$Result;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HandlersPkgPrefix, lambda$static$0, void, $HandlersPkgPrefix$Result*)},
+	{"lambda$static$1", "(LHandlersPkgPrefix$Result;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HandlersPkgPrefix, lambda$static$1, void, $HandlersPkgPrefix$Result*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HandlersPkgPrefix, main, void, $StringArray*)},
+	{"withPrefix", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/function/Consumer;)V", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/function/Consumer<LHandlersPkgPrefix$Result;>;)V", $STATIC, $staticMethod(HandlersPkgPrefix, withPrefix, void, $String*, $String*, $Consumer*)},
 	{}
 };
 

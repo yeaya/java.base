@@ -19,9 +19,9 @@ $FieldInfo _Process$1_FieldInfo_[] = {
 };
 
 $MethodInfo _Process$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Process;)V", nullptr, 0, $method(static_cast<void(Process$1::*)($Process*)>(&Process$1::init$))},
-	{"block", "()Z", nullptr, $PUBLIC, nullptr, "java.lang.InterruptedException"},
-	{"isReleasable", "()Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Process;)V", nullptr, 0, $method(Process$1, init$, void, $Process*)},
+	{"block", "()Z", nullptr, $PUBLIC, $virtualMethod(Process$1, block, bool), "java.lang.InterruptedException"},
+	{"isReleasable", "()Z", nullptr, $PUBLIC, $virtualMethod(Process$1, isReleasable, bool)},
 	{}
 };
 

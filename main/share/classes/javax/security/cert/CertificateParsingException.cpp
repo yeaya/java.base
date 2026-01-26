@@ -31,8 +31,8 @@ $FieldInfo _CertificateParsingException_FieldInfo_[] = {
 };
 
 $MethodInfo _CertificateParsingException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CertificateParsingException::*)()>(&CertificateParsingException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(CertificateParsingException::*)($String*)>(&CertificateParsingException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CertificateParsingException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(CertificateParsingException, init$, void, $String*)},
 	{}
 };
 

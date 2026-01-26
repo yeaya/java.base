@@ -26,8 +26,8 @@ $FieldInfo _FtpURLConnection$FtpOutputStream_FieldInfo_[] = {
 };
 
 $MethodInfo _FtpURLConnection$FtpOutputStream_MethodInfo_[] = {
-	{"<init>", "(Lsun/net/ftp/FtpClient;Ljava/io/OutputStream;)V", nullptr, 0, $method(static_cast<void(FtpURLConnection$FtpOutputStream::*)($FtpClient*,$OutputStream*)>(&FtpURLConnection$FtpOutputStream::init$))},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Lsun/net/ftp/FtpClient;Ljava/io/OutputStream;)V", nullptr, 0, $method(FtpURLConnection$FtpOutputStream, init$, void, $FtpClient*, $OutputStream*)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(FtpURLConnection$FtpOutputStream, close, void), "java.io.IOException"},
 	{}
 };
 

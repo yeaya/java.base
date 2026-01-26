@@ -26,11 +26,11 @@ $FieldInfo _Attribute$Set_FieldInfo_[] = {
 };
 
 $MethodInfo _Attribute$Set_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Attribute$Set::*)()>(&Attribute$Set::init$))},
-	{"add", "(Ljdk/internal/org/objectweb/asm/Attribute;)V", nullptr, $PRIVATE, $method(static_cast<void(Attribute$Set::*)($Attribute*)>(&Attribute$Set::add))},
-	{"addAttributes", "(Ljdk/internal/org/objectweb/asm/Attribute;)V", nullptr, 0, $method(static_cast<void(Attribute$Set::*)($Attribute*)>(&Attribute$Set::addAttributes))},
-	{"contains", "(Ljdk/internal/org/objectweb/asm/Attribute;)Z", nullptr, $PRIVATE, $method(static_cast<bool(Attribute$Set::*)($Attribute*)>(&Attribute$Set::contains))},
-	{"toArray", "()[Ljdk/internal/org/objectweb/asm/Attribute;", nullptr, 0, $method(static_cast<$AttributeArray*(Attribute$Set::*)()>(&Attribute$Set::toArray))},
+	{"<init>", "()V", nullptr, 0, $method(Attribute$Set, init$, void)},
+	{"add", "(Ljdk/internal/org/objectweb/asm/Attribute;)V", nullptr, $PRIVATE, $method(Attribute$Set, add, void, $Attribute*)},
+	{"addAttributes", "(Ljdk/internal/org/objectweb/asm/Attribute;)V", nullptr, 0, $method(Attribute$Set, addAttributes, void, $Attribute*)},
+	{"contains", "(Ljdk/internal/org/objectweb/asm/Attribute;)Z", nullptr, $PRIVATE, $method(Attribute$Set, contains, bool, $Attribute*)},
+	{"toArray", "()[Ljdk/internal/org/objectweb/asm/Attribute;", nullptr, 0, $method(Attribute$Set, toArray, $AttributeArray*)},
 	{}
 };
 

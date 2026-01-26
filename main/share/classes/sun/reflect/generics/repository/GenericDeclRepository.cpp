@@ -36,9 +36,9 @@ $FieldInfo _GenericDeclRepository_FieldInfo_[] = {
 };
 
 $MethodInfo _GenericDeclRepository_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Lsun/reflect/generics/factory/GenericsFactory;)V", nullptr, $PROTECTED, $method(static_cast<void(GenericDeclRepository::*)($String*,$GenericsFactory*)>(&GenericDeclRepository::init$))},
-	{"computeTypeParameters", "()[Ljava/lang/reflect/TypeVariable;", "()[Ljava/lang/reflect/TypeVariable<*>;", $PRIVATE, $method(static_cast<$TypeVariableArray*(GenericDeclRepository::*)()>(&GenericDeclRepository::computeTypeParameters))},
-	{"getTypeParameters", "()[Ljava/lang/reflect/TypeVariable;", "()[Ljava/lang/reflect/TypeVariable<*>;", $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Lsun/reflect/generics/factory/GenericsFactory;)V", nullptr, $PROTECTED, $method(GenericDeclRepository, init$, void, $String*, $GenericsFactory*)},
+	{"computeTypeParameters", "()[Ljava/lang/reflect/TypeVariable;", "()[Ljava/lang/reflect/TypeVariable<*>;", $PRIVATE, $method(GenericDeclRepository, computeTypeParameters, $TypeVariableArray*)},
+	{"getTypeParameters", "()[Ljava/lang/reflect/TypeVariable;", "()[Ljava/lang/reflect/TypeVariable<*>;", $PUBLIC, $virtualMethod(GenericDeclRepository, getTypeParameters, $TypeVariableArray*)},
 	{}
 };
 

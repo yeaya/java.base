@@ -53,23 +53,23 @@ $FieldInfo _IsoFields$Field_FieldInfo_[] = {
 };
 
 $MethodInfo _IsoFields$Field_MethodInfo_[] = {
-	{"$values", "()[Ljava/time/temporal/IsoFields$Field;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$IsoFields$FieldArray*(*)()>(&IsoFields$Field::$values))},
+	{"$values", "()[Ljava/time/temporal/IsoFields$Field;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(IsoFields$Field, $values, $IsoFields$FieldArray*)},
 	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
 	{"*finalize", "()V", nullptr, $PROTECTED | $FINAL},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(IsoFields$Field::*)($String*,int32_t)>(&IsoFields$Field::init$))},
-	{"ensureIso", "(Ljava/time/temporal/TemporalAccessor;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($TemporalAccessor*)>(&IsoFields$Field::ensureIso))},
-	{"getWeek", "(Ljava/time/LocalDate;)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)($LocalDate*)>(&IsoFields$Field::getWeek))},
-	{"getWeekBasedYear", "(Ljava/time/LocalDate;)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)($LocalDate*)>(&IsoFields$Field::getWeekBasedYear))},
-	{"getWeekRange", "(Ljava/time/LocalDate;)Ljava/time/temporal/ValueRange;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$ValueRange*(*)($LocalDate*)>(&IsoFields$Field::getWeekRange))},
-	{"getWeekRange", "(I)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)(int32_t)>(&IsoFields$Field::getWeekRange))},
-	{"isDateBased", "()Z", nullptr, $PUBLIC},
-	{"isTimeBased", "()Z", nullptr, $PUBLIC},
-	{"rangeRefinedBy", "(Ljava/time/temporal/TemporalAccessor;)Ljava/time/temporal/ValueRange;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(IsoFields$Field, init$, void, $String*, int32_t)},
+	{"ensureIso", "(Ljava/time/temporal/TemporalAccessor;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(IsoFields$Field, ensureIso, void, $TemporalAccessor*)},
+	{"getWeek", "(Ljava/time/LocalDate;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(IsoFields$Field, getWeek, int32_t, $LocalDate*)},
+	{"getWeekBasedYear", "(Ljava/time/LocalDate;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(IsoFields$Field, getWeekBasedYear, int32_t, $LocalDate*)},
+	{"getWeekRange", "(Ljava/time/LocalDate;)Ljava/time/temporal/ValueRange;", nullptr, $PRIVATE | $STATIC, $staticMethod(IsoFields$Field, getWeekRange, $ValueRange*, $LocalDate*)},
+	{"getWeekRange", "(I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(IsoFields$Field, getWeekRange, int32_t, int32_t)},
+	{"isDateBased", "()Z", nullptr, $PUBLIC, $virtualMethod(IsoFields$Field, isDateBased, bool)},
+	{"isTimeBased", "()Z", nullptr, $PUBLIC, $virtualMethod(IsoFields$Field, isTimeBased, bool)},
+	{"rangeRefinedBy", "(Ljava/time/temporal/TemporalAccessor;)Ljava/time/temporal/ValueRange;", nullptr, $PUBLIC, $virtualMethod(IsoFields$Field, rangeRefinedBy, $ValueRange*, $TemporalAccessor*)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"valueOf", "(Ljava/lang/String;)Ljava/time/temporal/IsoFields$Field;", nullptr, $PUBLIC | $STATIC, $method(static_cast<IsoFields$Field*(*)($String*)>(&IsoFields$Field::valueOf))},
-	{"values", "()[Ljava/time/temporal/IsoFields$Field;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$IsoFields$FieldArray*(*)()>(&IsoFields$Field::values))},
+	{"valueOf", "(Ljava/lang/String;)Ljava/time/temporal/IsoFields$Field;", nullptr, $PUBLIC | $STATIC, $staticMethod(IsoFields$Field, valueOf, IsoFields$Field*, $String*)},
+	{"values", "()[Ljava/time/temporal/IsoFields$Field;", nullptr, $PUBLIC | $STATIC, $staticMethod(IsoFields$Field, values, $IsoFields$FieldArray*)},
 	{}
 };
 

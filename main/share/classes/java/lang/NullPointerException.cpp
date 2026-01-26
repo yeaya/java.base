@@ -18,11 +18,11 @@ $FieldInfo _NullPointerException_FieldInfo_[] = {
 };
 
 $MethodInfo _NullPointerException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(NullPointerException::*)()>(&NullPointerException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(NullPointerException::*)($String*)>(&NullPointerException::init$))},
-	{"fillInStackTrace", "()Ljava/lang/Throwable;", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"getExtendedNPEMessage", "()Ljava/lang/String;", nullptr, $PRIVATE | $NATIVE, $method(static_cast<$String*(NullPointerException::*)()>(&NullPointerException::getExtendedNPEMessage))},
-	{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(NullPointerException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NullPointerException, init$, void, $String*)},
+	{"fillInStackTrace", "()Ljava/lang/Throwable;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(NullPointerException, fillInStackTrace, $Throwable*)},
+	{"getExtendedNPEMessage", "()Ljava/lang/String;", nullptr, $PRIVATE | $NATIVE, $method(NullPointerException, getExtendedNPEMessage, $String*)},
+	{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NullPointerException, getMessage, $String*)},
 	{}
 };
 

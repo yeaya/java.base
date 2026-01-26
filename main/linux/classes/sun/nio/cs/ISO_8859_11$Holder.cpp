@@ -23,7 +23,7 @@ $FieldInfo _ISO_8859_11$Holder_FieldInfo_[] = {
 };
 
 $MethodInfo _ISO_8859_11$Holder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(ISO_8859_11$Holder::*)()>(&ISO_8859_11$Holder::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(ISO_8859_11$Holder, init$, void)},
 	{}
 };
 

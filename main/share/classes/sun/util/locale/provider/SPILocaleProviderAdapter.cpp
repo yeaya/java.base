@@ -31,9 +31,9 @@ namespace sun {
 			namespace provider {
 
 $MethodInfo _SPILocaleProviderAdapter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SPILocaleProviderAdapter::*)()>(&SPILocaleProviderAdapter::init$))},
-	{"findInstalledProvider", "(Ljava/lang/Class;)Ljava/util/spi/LocaleServiceProvider;", "<P:Ljava/util/spi/LocaleServiceProvider;>(Ljava/lang/Class<TP;>;)TP;", $PROTECTED},
-	{"getAdapterType", "()Lsun/util/locale/provider/LocaleProviderAdapter$Type;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SPILocaleProviderAdapter, init$, void)},
+	{"findInstalledProvider", "(Ljava/lang/Class;)Ljava/util/spi/LocaleServiceProvider;", "<P:Ljava/util/spi/LocaleServiceProvider;>(Ljava/lang/Class<TP;>;)TP;", $PROTECTED, $virtualMethod(SPILocaleProviderAdapter, findInstalledProvider, $LocaleServiceProvider*, $Class*)},
+	{"getAdapterType", "()Lsun/util/locale/provider/LocaleProviderAdapter$Type;", nullptr, $PUBLIC, $virtualMethod(SPILocaleProviderAdapter, getAdapterType, $LocaleProviderAdapter$Type*)},
 	{}
 };
 

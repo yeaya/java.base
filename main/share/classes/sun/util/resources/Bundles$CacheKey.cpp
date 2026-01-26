@@ -39,20 +39,20 @@ $FieldInfo _Bundles$CacheKey_FieldInfo_[] = {
 };
 
 $MethodInfo _Bundles$CacheKey_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/util/Locale;)V", nullptr, 0, $method(static_cast<void(Bundles$CacheKey::*)($String*,$Locale*)>(&Bundles$CacheKey::init$))},
-	{"calculateHashCode", "()V", nullptr, $PRIVATE, $method(static_cast<void(Bundles$CacheKey::*)()>(&Bundles$CacheKey::calculateHashCode))},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getCause", "()Ljava/lang/Throwable;", nullptr, $PRIVATE, $method(static_cast<$Throwable*(Bundles$CacheKey::*)()>(&Bundles$CacheKey::getCause))},
-	{"getLocale", "()Ljava/util/Locale;", nullptr, 0},
-	{"getName", "()Ljava/lang/String;", nullptr, 0},
-	{"getProviders", "()Ljava/util/ServiceLoader;", "()Ljava/util/ServiceLoader<Ljava/util/spi/ResourceBundleProvider;>;", 0},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"setCause", "(Ljava/lang/Throwable;)V", nullptr, $PRIVATE, $method(static_cast<void(Bundles$CacheKey::*)($Throwable*)>(&Bundles$CacheKey::setCause))},
-	{"setLocale", "(Ljava/util/Locale;)Lsun/util/resources/Bundles$CacheKey;", nullptr, 0},
-	{"setName", "(Ljava/lang/String;)Lsun/util/resources/Bundles$CacheKey;", nullptr, 0},
-	{"setProviders", "(Ljava/util/ServiceLoader;)V", "(Ljava/util/ServiceLoader<Ljava/util/spi/ResourceBundleProvider;>;)V", 0},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Ljava/util/Locale;)V", nullptr, 0, $method(Bundles$CacheKey, init$, void, $String*, $Locale*)},
+	{"calculateHashCode", "()V", nullptr, $PRIVATE, $method(Bundles$CacheKey, calculateHashCode, void)},
+	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Bundles$CacheKey, clone, $Object*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Bundles$CacheKey, equals, bool, Object$*)},
+	{"getCause", "()Ljava/lang/Throwable;", nullptr, $PRIVATE, $method(Bundles$CacheKey, getCause, $Throwable*)},
+	{"getLocale", "()Ljava/util/Locale;", nullptr, 0, $virtualMethod(Bundles$CacheKey, getLocale, $Locale*)},
+	{"getName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(Bundles$CacheKey, getName, $String*)},
+	{"getProviders", "()Ljava/util/ServiceLoader;", "()Ljava/util/ServiceLoader<Ljava/util/spi/ResourceBundleProvider;>;", 0, $virtualMethod(Bundles$CacheKey, getProviders, $ServiceLoader*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Bundles$CacheKey, hashCode, int32_t)},
+	{"setCause", "(Ljava/lang/Throwable;)V", nullptr, $PRIVATE, $method(Bundles$CacheKey, setCause, void, $Throwable*)},
+	{"setLocale", "(Ljava/util/Locale;)Lsun/util/resources/Bundles$CacheKey;", nullptr, 0, $virtualMethod(Bundles$CacheKey, setLocale, Bundles$CacheKey*, $Locale*)},
+	{"setName", "(Ljava/lang/String;)Lsun/util/resources/Bundles$CacheKey;", nullptr, 0, $virtualMethod(Bundles$CacheKey, setName, Bundles$CacheKey*, $String*)},
+	{"setProviders", "(Ljava/util/ServiceLoader;)V", "(Ljava/util/ServiceLoader<Ljava/util/spi/ResourceBundleProvider;>;)V", 0, $virtualMethod(Bundles$CacheKey, setProviders, void, $ServiceLoader*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Bundles$CacheKey, toString, $String*)},
 	{}
 };
 

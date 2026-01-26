@@ -21,8 +21,8 @@ $FieldInfo _DieBeforeComplete$4_FieldInfo_[] = {
 };
 
 $MethodInfo _DieBeforeComplete$4_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/atomic/AtomicReference;LDieBeforeComplete$Task;)V", "()V", 0, $method(static_cast<void(DieBeforeComplete$4::*)($AtomicReference*,$DieBeforeComplete$Task*)>(&DieBeforeComplete$4::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/concurrent/atomic/AtomicReference;LDieBeforeComplete$Task;)V", "()V", 0, $method(DieBeforeComplete$4, init$, void, $AtomicReference*, $DieBeforeComplete$Task*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(DieBeforeComplete$4, run, void)},
 	{}
 };
 

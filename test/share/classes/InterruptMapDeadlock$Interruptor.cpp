@@ -20,8 +20,8 @@ $FieldInfo _InterruptMapDeadlock$Interruptor_FieldInfo_[] = {
 };
 
 $MethodInfo _InterruptMapDeadlock$Interruptor_MethodInfo_[] = {
-	{"<init>", "([LInterruptMapDeadlock$Mapper;Ljava/util/concurrent/Semaphore;)V", nullptr, 0, $method(static_cast<void(InterruptMapDeadlock$Interruptor::*)($InterruptMapDeadlock$MapperArray*,$Semaphore*)>(&InterruptMapDeadlock$Interruptor::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "([LInterruptMapDeadlock$Mapper;Ljava/util/concurrent/Semaphore;)V", nullptr, 0, $method(InterruptMapDeadlock$Interruptor, init$, void, $InterruptMapDeadlock$MapperArray*, $Semaphore*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(InterruptMapDeadlock$Interruptor, run, void)},
 	{}
 };
 

@@ -18,8 +18,8 @@ using $SimpleDateFormat = ::java::text::SimpleDateFormat;
 using $Locale = ::java::util::Locale;
 
 $MethodInfo _bug6317072_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(bug6317072::*)()>(&bug6317072::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&bug6317072::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(bug6317072, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug6317072, main, void, $StringArray*)},
 	{}
 };
 

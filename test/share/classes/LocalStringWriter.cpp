@@ -18,12 +18,12 @@ $FieldInfo _LocalStringWriter_FieldInfo_[] = {
 };
 
 $MethodInfo _LocalStringWriter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(LocalStringWriter::*)()>(&LocalStringWriter::init$))},
-	{"close", "()V", nullptr, $PUBLIC},
-	{"flush", "()V", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"write", "([CII)V", nullptr, $PUBLIC},
-	{"write", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(LocalStringWriter, init$, void)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(LocalStringWriter, close, void)},
+	{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(LocalStringWriter, flush, void)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LocalStringWriter, toString, $String*)},
+	{"write", "([CII)V", nullptr, $PUBLIC, $virtualMethod(LocalStringWriter, write, void, $chars*, int32_t, int32_t)},
+	{"write", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(LocalStringWriter, write, void, $String*)},
 	{}
 };
 

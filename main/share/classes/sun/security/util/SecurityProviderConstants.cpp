@@ -64,10 +64,10 @@ $FieldInfo _SecurityProviderConstants_FieldInfo_[] = {
 };
 
 $MethodInfo _SecurityProviderConstants_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(SecurityProviderConstants::*)()>(&SecurityProviderConstants::init$))},
-	{"getAliases", "(Ljava/lang/String;)Ljava/util/List;", "(Ljava/lang/String;)Ljava/util/List<Ljava/lang/String;>;", $PUBLIC | $STATIC, $method(static_cast<$List*(*)($String*)>(&SecurityProviderConstants::getAliases))},
-	{"getDefDSASubprimeSize", "(I)I", nullptr, $PUBLIC | $STATIC | $FINAL, $method(static_cast<int32_t(*)(int32_t)>(&SecurityProviderConstants::getDefDSASubprimeSize))},
-	{"store", "(Ljava/lang/String;Lsun/security/util/KnownOIDs;[Ljava/lang/String;)Ljava/util/List;", "(Ljava/lang/String;Lsun/security/util/KnownOIDs;[Ljava/lang/String;)Ljava/util/List<Ljava/lang/String;>;", $PRIVATE | $STATIC | $TRANSIENT, $method(static_cast<$List*(*)($String*,$KnownOIDs*,$StringArray*)>(&SecurityProviderConstants::store))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(SecurityProviderConstants, init$, void)},
+	{"getAliases", "(Ljava/lang/String;)Ljava/util/List;", "(Ljava/lang/String;)Ljava/util/List<Ljava/lang/String;>;", $PUBLIC | $STATIC, $staticMethod(SecurityProviderConstants, getAliases, $List*, $String*)},
+	{"getDefDSASubprimeSize", "(I)I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(SecurityProviderConstants, getDefDSASubprimeSize, int32_t, int32_t)},
+	{"store", "(Ljava/lang/String;Lsun/security/util/KnownOIDs;[Ljava/lang/String;)Ljava/util/List;", "(Ljava/lang/String;Lsun/security/util/KnownOIDs;[Ljava/lang/String;)Ljava/util/List<Ljava/lang/String;>;", $PRIVATE | $STATIC | $TRANSIENT, $staticMethod(SecurityProviderConstants, store, $List*, $String*, $KnownOIDs*, $StringArray*)},
 	{}
 };
 

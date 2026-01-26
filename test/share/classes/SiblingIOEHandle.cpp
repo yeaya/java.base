@@ -56,14 +56,14 @@ $FieldInfo _SiblingIOEHandle_FieldInfo_[] = {
 };
 
 $MethodInfo _SiblingIOEHandle_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SiblingIOEHandle::*)()>(&SiblingIOEHandle::init$))},
-	{"getCommandArray", "(Ljava/lang/String;)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$StringArray*(*)($String*)>(&SiblingIOEHandle::getCommandArray))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&SiblingIOEHandle::main))},
-	{"performA", "(Z)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)(bool)>(&SiblingIOEHandle::performA))},
-	{"performB", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&SiblingIOEHandle::performB))},
-	{"performC", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&SiblingIOEHandle::performC))},
-	{"waitAbit", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&SiblingIOEHandle::waitAbit))},
-	{"waitBarrier", "(Ljava/util/concurrent/CyclicBarrier;)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($CyclicBarrier*)>(&SiblingIOEHandle::waitBarrier))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SiblingIOEHandle, init$, void)},
+	{"getCommandArray", "(Ljava/lang/String;)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(SiblingIOEHandle, getCommandArray, $StringArray*, $String*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SiblingIOEHandle, main, void, $StringArray*)},
+	{"performA", "(Z)V", nullptr, $PRIVATE | $STATIC, $staticMethod(SiblingIOEHandle, performA, void, bool)},
+	{"performB", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(SiblingIOEHandle, performB, void)},
+	{"performC", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(SiblingIOEHandle, performC, void)},
+	{"waitAbit", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(SiblingIOEHandle, waitAbit, void)},
+	{"waitBarrier", "(Ljava/util/concurrent/CyclicBarrier;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(SiblingIOEHandle, waitBarrier, bool, $CyclicBarrier*)},
 	{}
 };
 

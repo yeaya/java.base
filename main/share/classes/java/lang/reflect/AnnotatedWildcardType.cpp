@@ -3,17 +3,19 @@
 #include <java/lang/reflect/AnnotatedType.h>
 #include <jcpp.h>
 
+using $AnnotatedTypeArray = $Array<::java::lang::reflect::AnnotatedType>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $AnnotatedType = ::java::lang::reflect::AnnotatedType;
 
 namespace java {
 	namespace lang {
 		namespace reflect {
 
 $MethodInfo _AnnotatedWildcardType_MethodInfo_[] = {
-	{"getAnnotatedLowerBounds", "()[Ljava/lang/reflect/AnnotatedType;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getAnnotatedOwnerType", "()Ljava/lang/reflect/AnnotatedType;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getAnnotatedUpperBounds", "()[Ljava/lang/reflect/AnnotatedType;", nullptr, $PUBLIC | $ABSTRACT},
+	{"getAnnotatedLowerBounds", "()[Ljava/lang/reflect/AnnotatedType;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AnnotatedWildcardType, getAnnotatedLowerBounds, $AnnotatedTypeArray*)},
+	{"getAnnotatedOwnerType", "()Ljava/lang/reflect/AnnotatedType;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AnnotatedWildcardType, getAnnotatedOwnerType, $AnnotatedType*)},
+	{"getAnnotatedUpperBounds", "()[Ljava/lang/reflect/AnnotatedType;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AnnotatedWildcardType, getAnnotatedUpperBounds, $AnnotatedTypeArray*)},
 	{}
 };
 

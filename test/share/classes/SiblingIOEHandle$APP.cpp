@@ -24,10 +24,10 @@ $FieldInfo _SiblingIOEHandle$APP_FieldInfo_[] = {
 };
 
 $MethodInfo _SiblingIOEHandle$APP_MethodInfo_[] = {
-	{"$values", "()[LSiblingIOEHandle$APP;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$SiblingIOEHandle$APPArray*(*)()>(&SiblingIOEHandle$APP::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(SiblingIOEHandle$APP::*)($String*,int32_t)>(&SiblingIOEHandle$APP::init$))},
-	{"valueOf", "(Ljava/lang/String;)LSiblingIOEHandle$APP;", nullptr, $PUBLIC | $STATIC, $method(static_cast<SiblingIOEHandle$APP*(*)($String*)>(&SiblingIOEHandle$APP::valueOf))},
-	{"values", "()[LSiblingIOEHandle$APP;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$SiblingIOEHandle$APPArray*(*)()>(&SiblingIOEHandle$APP::values))},
+	{"$values", "()[LSiblingIOEHandle$APP;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SiblingIOEHandle$APP, $values, $SiblingIOEHandle$APPArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(SiblingIOEHandle$APP, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)LSiblingIOEHandle$APP;", nullptr, $PUBLIC | $STATIC, $staticMethod(SiblingIOEHandle$APP, valueOf, SiblingIOEHandle$APP*, $String*)},
+	{"values", "()[LSiblingIOEHandle$APP;", nullptr, $PUBLIC | $STATIC, $staticMethod(SiblingIOEHandle$APP, values, $SiblingIOEHandle$APPArray*)},
 	{}
 };
 

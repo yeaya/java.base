@@ -47,7 +47,7 @@ $CompoundAttribute _D3_Annotations_[] = {
 };
 
 $MethodInfo _D3_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(D3::*)()>(&D3::init$))},
+	{"<init>", "()V", nullptr, 0, $method(D3, init$, void)},
 	{}
 };
 

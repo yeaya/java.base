@@ -101,9 +101,8 @@
 #include "core/Arguments.h"
 #include <string.h>
 
-#ifdef WIN32
+#ifdef _WIN32
 #include <Windows.h>
-//#include <Processenv.h>
 #endif
 
 using namespace ::java::lang;
@@ -145,8 +144,6 @@ volatile $LaunchDoMainFunction launchDoMainFunction = nullptr;
 
 bool Machine::inited = false;
 void* defaultProcessHandle = nullptr;
-Class** Machine::pendingClasses = nullptr;
-int32_t Machine::pendingClassesCount = 0;
 Object0* Machine::lockObject = nullptr;
 HashMap* Machine::registerClasses = nullptr;
 Class* Machine::voidClass = nullptr;
@@ -167,6 +164,52 @@ RuntimeModuleFinder* runtimeModuleFinder = nullptr;
 #define JAVA_BASE_LIB_NAME "java.base"
 #define JAVA_BASE_MODULE_NAME "java.base"
 
+#define PENDING_CLASSES_INITIAL_CAPACITY 128
+Class** pendingClasses = nullptr;
+int32_t pendingClassesCount = 0;
+int32_t pendingClassesLast = 0;
+void addPendingClass(Class* clazz) {
+	if (pendingClasses == nullptr) {
+		pendingClassesCount = PENDING_CLASSES_INITIAL_CAPACITY;
+		pendingClasses = new Class* [pendingClassesCount];
+	}
+	if (pendingClassesLast >= pendingClassesCount) {
+		pendingClassesCount += 128;
+		Class** newPendingClasses = new Class* [pendingClassesCount];
+		for (int32_t i = 0; i < pendingClassesLast; i++) {
+			newPendingClasses[i] = pendingClasses[i];
+		}
+		delete[] pendingClasses;
+		pendingClasses = newPendingClasses;
+	}
+	pendingClasses[pendingClassesLast++] = clazz;
+}
+
+void deletePendingClasses() {
+	if (pendingClasses != nullptr) {
+		delete[] pendingClasses;
+		pendingClasses = nullptr;
+	}
+	pendingClassesCount = 0;
+	pendingClassesLast = 0;
+}
+
+Class* getPendingClass(const char* name) {
+	if (name != nullptr) {
+		for (int32_t i = 0; i < pendingClassesLast; i++) {
+			Class* clazz = pendingClasses[i];
+			if (clazz != nullptr && clazz->classInfo != nullptr && strcmp(clazz->classInfo->name, name) == 0) {
+				return clazz;
+			}
+		}
+		if (strcmp(name, "java.lang.Object") == 0) {
+			return Object::class$;
+		}
+		return nullptr;
+	}
+	return nullptr;
+}
+
 class LibItem : public Library {
 public:
 	LibItem(Library* library) {
@@ -181,7 +224,9 @@ public:
 		options = library->options;
 	}
 	void* handle = nullptr;
-	bool inited = false;
+	bool preloaded = false;
+	bool preinited = false;
+	bool optionsProcessed = false;
 	LibItem* next = nullptr;
 };
 
@@ -190,7 +235,6 @@ static LibItem* rootLibItem = nullptr;
 LibItem* findLibByName(const char* name) {
 	LibItem* libItem = rootLibItem;
 	while (libItem != nullptr) {
-	//	ModuleInfo* mi = libItem->moduleInfo;
 		if (strcmp(libItem->name, name) == 0) {
 			break;
 		}
@@ -438,20 +482,18 @@ const char* getModuleByClassName(String* name) {
 	return nullptr;
 }
 
-Class* Machine::getPendingClass(const char* name) {
-	if (name != nullptr) {
-		for (int32_t i = 0; i < pendingClassesCount; i++) {
-			Class* clazz = pendingClasses[i];
-			if (clazz != nullptr && clazz->classInfo != nullptr && strcmp(clazz->classInfo->name, name) == 0) {
-				return clazz;
-			}
-		}
-		if (strcmp(name, "java.lang.Object") == 0) {
-			return Object::class$;
-		}
-		return nullptr;
+void preloadLib(LibItem* lib) {
+	if (!lib->preloaded) {
+		lib->eventAction(JCPP_LIB_EVENT_TYPE_PRELOAD_CLASS, nullptr);
+		lib->preloaded = true;
 	}
-	return nullptr;
+}
+
+void preinitLib(LibItem* lib) {
+	if (!lib->preinited) {
+		lib->eventAction(JCPP_LIB_EVENT_TYPE_PREINIT_CLASS, nullptr);
+		lib->preinited = true;
+	}
 }
 
 void Machine::init1() {
@@ -470,9 +512,6 @@ void Machine::init1() {
 		}
 	}
 
-	if (pendingClasses == nullptr) {
-		pendingClasses = new Class* [65535];
-	}
 	String::COMPACT_STRINGS = true;
 
 	ObjectManagerInternal::init();
@@ -511,11 +550,7 @@ void Machine::init1() {
 	$assignStatic(Double::TYPE, doubleClass);
 	$assignStatic(Character::TYPE, charClass);
 
-	// baseLib->eventAction($PRELOAD);
-	PreloadClassEvent preloadClassEvent;
-	preloadClassEvent.preload = true;
-	preloadClassEvent.preinit = false;
-	baseLib->eventAction(JCPP_LIB_EVENT_TYPE_PRELOAD_CLASS, &preloadClassEvent);
+	preloadLib(baseLib);
 
 	// array class init
 	ObjectArray::load$(nullptr, true);
@@ -594,8 +629,11 @@ void createNumberedModuleProperty(String* prefix, String* value) {
 }
 
 void processLibOptions(LibItem* lib) {
+	if (lib->optionsProcessed) {
+		return;
+	}
 	const char** options = lib->options;
-	while (*options != nullptr) {
+	while (options != nullptr && *options != nullptr) {
 		const char* option = *options;
 		options++;
 		if (strcmp(option, "--add-exports") == 0) {
@@ -615,6 +653,7 @@ void processLibOptions(LibItem* lib) {
 			}
 		}
 	}
+	lib->optionsProcessed = true;
 }
 
 String* getExecutionDir() {
@@ -663,20 +702,48 @@ String* makeLogFilePath(String* logFileName) {
 	return $str({ exeDir, File::separator, logFileName });
 }
 
+void appendClassPathIn(StringBuilder* sb, String* dir) {
+	$var(File, f, $new(File, dir));
+	if (f->exists() && f->isDirectory()) {
+		$var($Array<File>, files, f->listFiles());
+		if (files != nullptr) {
+			for (int32_t i = 0; i < files->length; i++) {
+				$var(File, file, $fcast<File>(files->get(i)));
+				if (file->isFile()) {
+					$var(String, name, file->getName());
+					if (name->endsWith(".jar"_s)) {
+						if (sb->length() > 0) {
+							sb->append(File::pathSeparator);
+						}
+						sb->append($(file->getCanonicalPath()));
+					}
+				}
+			}
+		}
+	}
+}
+
+void updateClassPath() {
+	$var(StringBuilder, sb, $new(StringBuilder));
+	$var(String, prop, System::getProperty("java.class.path"_s));
+	if (prop != nullptr && !prop->isEmpty()) {
+		sb->append(prop);
+	}
+	$var(String, exeDir, getExecutionDir());
+	appendClassPathIn(sb, exeDir);
+	appendClassPathIn(sb, $$str({ exeDir, "/../lib"_s }));
+	//sb->append(File::pathSeparator)->append("."_s);
+	if (sb->length() > 0) {
+		System::setProperty("java.class.path"_s, sb->toString());
+	}
+}
+
 void Machine::init2() {
 	LibItem* lib = rootLibItem;
 	while (lib != nullptr) {
-		if (lib->options != nullptr) {
-			processLibOptions(lib);
-		}
+		processLibOptions(lib);
 		lib = lib->next;
 	}
-	
-	// use UTF-8 as default charset
-	//System::getProperties()->put("file.encoding"_s, "UTF-8"_s);
-
-	//processEnv();
-
 	$var(File, f, findConfFile("jcpp.conf"_s));
 	if (f != nullptr && f->exists() && f->isFile() && f->canRead()) {
 		$var(FileInputStream, fis, $new<FileInputStream>(f));
@@ -736,16 +803,7 @@ void Machine::init2() {
 
 	System::getProperties()->putIfAbsent("java.security.manager"_s, "allow"_s);
 
-	$var(String, prop, System::getProperty("java.class.path"_s));
-	if (prop == nullptr || prop->isEmpty()) {
-		$var(String, classPath, "."_s);
-		$var(String, exeDir, getExecutionDir());
-		$var(File, libDir, $new<File>($$str({ exeDir, "/../lib"_s })));
-		if (libDir->exists()) {
-			$assign(classPath, $$str({ classPath, File::pathSeparator, $(libDir->getCanonicalPath()), File::separator, "*"_s }));
-		}
-		System::setProperty("java.class.path"_s, classPath);
-	}
+	updateClassPath();
 
 	$init(SunEntries);
 	if (SunEntries::seedSource == nullptr || SunEntries::seedSource->isEmpty()) {
@@ -753,6 +811,56 @@ void Machine::init2() {
 	}
 
 	$init(Reference);
+}
+
+void addLib(String* path) {
+	char err[1024];
+	if (path->endsWith(".so"_s) || path->endsWith(".dll"_s) || path->endsWith(".dylib"_s)) {
+		void* libHandle = Platform::loadLibrary(path->c_str(), err, sizeof(err));
+		if (libHandle != nullptr) {
+			void* entry = Platform::findLibraryEntry(libHandle, "JCPP_OnLoad");
+			if (entry != nullptr) {
+				typedef Library* (*JCPP_OnLoad_Function)();
+				JCPP_OnLoad_Function onLoad = (JCPP_OnLoad_Function)entry;
+				onLoad();
+			} else {
+				Platform::unloadLibrary(libHandle);
+			}
+		}
+	}
+}
+
+void addLibs(String* path) {
+	$var(File, f, $new<File>(path));
+	if (f->exists()) {
+		if (f->isFile()) {
+			addLib(path);
+		} else if (f->isDirectory()) {
+			$var($Array<File>, files, f->listFiles());
+			if (files != nullptr) {
+				for (int32_t j = 0; j < files->length; j++) {
+					$var(File, file, $fcast<File>(files->get(j)));
+					if (file->isFile()) {
+						addLib($(file->getCanonicalPath()));
+					}
+				}
+			}
+		}
+	}
+}
+
+void addLibs() {
+	$var(String, prop, System::getProperty("java.class.path"_s));
+	if (prop != nullptr && !prop->isEmpty()) {
+		$var($StringArray, paths, prop->split(File::pathSeparator));
+		for (int32_t i = 0; i < paths->length; i++) {
+			$var(String, path, $fcast<String>(paths->get(i)));
+			addLibs(path);
+		}
+	}
+	$var(String, exeDir, getExecutionDir());
+	addLibs(exeDir);
+	addLibs($$str({ exeDir, "/../lib"_s }));
 }
 
 void Machine::init3() {
@@ -763,47 +871,38 @@ void Machine::init3() {
 	$init(ConcurrentHashMap$ForwardingNode);
 
 	LibItem* baseLib = findLibByName(JAVA_BASE_LIB_NAME);
-	// baseLib->initLibrary($PREINIT);
-	PreloadClassEvent preloadClassEvent;
-	preloadClassEvent.preload = false;
-	preloadClassEvent.preinit = true;
-	baseLib->eventAction(JCPP_LIB_EVENT_TYPE_PRELOAD_CLASS, &preloadClassEvent);
+	preinitLib(baseLib);
+
+	addLibs();
 
 	$var(URLClassPath, ucp, $new<URLClassPath>(nullptr, false));
 	LibItem* lib = rootLibItem;
 	while (lib != nullptr) {
-		if (lib->moduleInfo != nullptr) {
-		}
 		$var(String, uris, String::valueOf({"jrt:/"_s, $cstr(lib->name), "/"_s}));
 		$var(URI, uri, URI::create(uris));
 		$var(URL, url, uri->toURL());
 		ucp->addURL(url);
 		lib = lib->next;
 	}
+	ucp->addFile($(getExecutionDir()));
 	ClassLoaders::BOOT_LOADER->setClassPath(ucp);
 
 	$set(Module::ALL_UNNAMED_MODULE, loader, ClassLoader::scl);
 	Module* javabase = $fcast<Module>(ModuleLayer::boot()->findModule($cstr(JAVA_BASE_MODULE_NAME))->get());
 	$assignStatic(JAVA_BASE_MODULE, javabase);
-	for (int32_t i = 0; i < pendingClassesCount; i++) {
+	for (int32_t i = 0; i < pendingClassesLast; i++) {
 		$set(pendingClasses[i], module, JAVA_BASE_MODULE);
 	}
-	delete[] pendingClasses;
-	pendingClasses = nullptr;
-	pendingClassesCount = 0;
+	deletePendingClasses();
+
 	inited = true;
 	ObjectManagerInternal::init3();
 
-	baseLib->inited = true;
 	lib = rootLibItem;
 	while (lib != nullptr) {
-		if (lib != baseLib) {
-			// lib->initLibrary($PRELOAD | $PREINIT);
-			PreloadClassEvent preloadClassEvent;
-			preloadClassEvent.preload = true;
-			preloadClassEvent.preinit = true;
-			lib->eventAction(JCPP_LIB_EVENT_TYPE_PRELOAD_CLASS, &preloadClassEvent);
-		}
+		preloadLib(lib);
+		preinitLib(lib);
+		processLibOptions(lib);
 		lib = lib->next;
 	}
 
@@ -975,11 +1074,9 @@ String* Machine::getSystemClassPath() {
 		sb->append(cp);
 	}
 	return sb->toString();
-	//return "C:\\Users\\yeaya\\jcpp\\repository\\java.sql\\17.35\\java.sql-17.35.jar;C:\\Users\\yeaya\\jcpp\\repository\\java.base\\17.35\\java.base-17.35-windows.jar"_s;
 }
 
-extern "C"
-int needLaunchDoMain() {
+extern "C" int needLaunchDoMain() {
 	if (launchDoMainFunction != nullptr) {
 		return 1;
 	} else {
@@ -987,8 +1084,7 @@ int needLaunchDoMain() {
 	}
 }
 
-extern "C"
-int launchDoMain(int argc, char** argv) {
+extern "C" int launchDoMain(int argc, char** argv) {
 	int ret = 1;
 	if (launchDoMainFunction != nullptr) {
 		try {
@@ -1103,14 +1199,6 @@ void* Machine::findLibraryEntry(void* handle, const char* name, bool force) {
 	return nullptr;
 }
 
-void Machine::notifyThreadStart() {
-	LibItem* lib = rootLibItem;
-	while (lib != nullptr) {
-		lib->eventAction(JCPP_LIB_EVENT_TYPE_THREAD_START, nullptr);
-		lib = lib->next;
-	}
-}
-
 ModuleFinder* Machine::getSystemModuleFinder() {
 	if (runtimeModuleFinder == nullptr) {
 		$assignStatic(runtimeModuleFinder, $new<RuntimeModuleFinder>());
@@ -1142,8 +1230,7 @@ Class* Machine::createPrimitiveClass(const char* name) {
 void Machine::initPrimitiveClass(Class* clazz, const char* name) {
 	$set(clazz, name, $cstr(name));
 	clazz->state = Class::CLASS_STATE_INITIALIZED;
-	pendingClasses[pendingClassesCount] = clazz;
-	pendingClassesCount++;
+	addPendingClass(clazz);
 }
 
 Class* Machine::getPrimitiveClass(String* name) {
@@ -1177,30 +1264,15 @@ Class* Machine::getPrimitiveClass(String* name) {
 	return nullptr;
 }
 
-Class* Machine::forName0(String* name, bool initialize, ClassLoader* loader, Class* caller) {
+Class* Machine::tryLoadClass(String* name, bool initialize, ClassLoader* loader) {
 	if ($nullcheck(name)->isEmpty()) {
-		$throwNew(ClassNotFoundException, name);
+		return nullptr;
 	}
 	Class* clazz = nullptr;
 	if (name->charAt(0) == u'[') {
-		clazz = loadClassInternal(name, nullptr);
+		clazz = loadClassInternal(name, loader);
 		initialize = false;
 	} else {
-		/*
-		if (inited && loader != nullptr) {
-			//	_assign(clazz, findBootstrapClass(nullptr, name));
-			clazz = loader->loadClass(name, initialize);
-		} else {
-			if (inited && ClassLoader::scl != nullptr) {
-				clazz = $loadVolatile(ClassLoader::scl)->loadClass(name, initialize);
-			} else {
-				clazz = findBootstrapClass(nullptr, name);
-			}
-			//	return _Machine::instance()->findBootstrapClass(name);
-		//	_assign(clazz, ClassLoader::getSystemClassLoader().is<ClassLoader>()->loadClass(name, initialize));
-		}
-		*/
-
 		if (inited && loader == nullptr) {
 			loader = ClassLoader::scl;
 		}
@@ -1213,24 +1285,17 @@ Class* Machine::forName0(String* name, bool initialize, ClassLoader* loader, Cla
 			clazz = findBootstrapClass(nullptr, name);
 		}
 	}
-
-	if (clazz == nullptr) {
-	//	clazz = findBootstrapClass(nullptr, name);
-		$throwNew(ClassNotFoundException, name);
-	}
-	if (initialize) {
+	if (clazz != nullptr && initialize) {
 		clazz->ensureClassInitialized();
 	}
-	//if (clazz != nullptr && clazz->classLoader == nullptr) {
-	//	if (loader != nullptr) {
-	//		_assign(clazz->classLoader, loader);
-	//	} else {
-	//		if (ClassLoader::scl != nullptr) {
-	//			_assign(clazz->classLoader, ClassLoader::scl);
-	//		}
-	//	}
-	//}
+	return clazz;
+}
 
+Class* Machine::forName0(String* name, bool initialize, ClassLoader* loader, Class* caller) {
+	Class* clazz = tryLoadClass(name, initialize, loader);
+	if (clazz == nullptr) {
+		$throwNew(ClassNotFoundException, name);
+	}
 	return clazz;
 }
 
@@ -1320,7 +1385,6 @@ URL* Machine::findResource($String* name) {
 $bytes* Machine::findResource($String* libName, $String* name) {
 	$nullcheck(libName);
 	$nullcheck(name);
-
 	LibItem* lib = rootLibItem;
 	while (lib != nullptr) {
 		if (libName->equals(lib->name)) {
@@ -1460,7 +1524,6 @@ void saveClassToFile(String* name, $bytes* b, int32_t off, int32_t len, ByteCode
 
 Class* Machine::defineClass1(ClassLoader* loader, String* name, $bytes* b, int32_t off, int32_t len, ProtectionDomain* pd, String* source) {
 	$var(String, newName, name->replace('/', '.'));
-
 	$var(ByteCodeClass, byteCodeClass, ByteCodeClass::create(b, off, len));
 	saveClassToFile(newName, b, off, len, byteCodeClass);
 
@@ -1576,8 +1639,7 @@ Class* Machine::loadClass(String* name, bool initialize, Class** pClazz, int64_t
 					$set(clazz, module, Module::ALL_UNNAMED_MODULE);
 				}
 			} else {
-				pendingClasses[pendingClassesCount] = clazz;
-				pendingClassesCount++;
+				addPendingClass(clazz);
 			}
 
 			if (inited) {
@@ -1603,8 +1665,6 @@ Class* Machine::loadClass(String* name, bool initialize, Class** pClazz, int64_t
 }
 
 Class* Machine::loadClass(Class** pClazz, int64_t arrayBaseSize, int32_t mark, ClassInfo* classInfo) {
-	//printf("loadClass %s\n", classInfo->name);
-
 	if (*pClazz != nullptr && (*pClazz)->state == Class::CLASS_STATE_INITIALIZED) {
 		return *pClazz;
 	}
@@ -1652,8 +1712,7 @@ Class* Machine::loadClass(Class** pClazz, int64_t arrayBaseSize, int32_t mark, C
 			if (JAVA_BASE_MODULE != nullptr) {
 				$set(clazz, module, JAVA_BASE_MODULE);
 			} else {
-				pendingClasses[pendingClassesCount] = clazz;
-				pendingClassesCount++;
+				addPendingClass(clazz);
 			}
 			*pClazz = clazz;
 		}
@@ -1663,7 +1722,6 @@ Class* Machine::loadClass(Class** pClazz, int64_t arrayBaseSize, int32_t mark, C
 
 Class* Machine::loadClass(String* name, int64_t size, int32_t mark, bool isBaseOfObject) {
 	$nullcheck(name);
-
 	$ObjectMonitorGuardAllowNull omg(lockObject);
 	if (simpleClasses == nullptr) {
 		$assignStatic(simpleClasses, $new<HashMap>());
@@ -1703,8 +1761,7 @@ Class* Machine::createSubObjectArrayClass(String* name, Class* componentType) {
 		if (JAVA_BASE_MODULE != nullptr) {
 			$set(arrayType, module, JAVA_BASE_MODULE);
 		} else {
-			pendingClasses[pendingClassesCount] = arrayType;
-			pendingClassesCount++;
+			addPendingClass(arrayType);
 		}
 		return arrayType;
 	}
@@ -1738,7 +1795,7 @@ bool Machine::isLambdaMethod(String* name) {
 }
 
 Class* Machine::loadClassInternal(String* name, ClassLoader* loader) {
-	Class * primitiveClass = getPrimitiveClass(name);
+	Class* primitiveClass = getPrimitiveClass(name);
 	if (primitiveClass != nullptr) {
 		return primitiveClass;
 	}
@@ -1754,7 +1811,6 @@ Class* Machine::loadClassInternal(String* name, ClassLoader* loader) {
 			clazz = classEntry->loader(name, 0);
 		}
 	}
-
 	if (clazz == nullptr && isLambdaClass(name)) {
 		$var(String, holder, getLambdaHoder(name));
 		ClassEntry* classEntry = getClassEntry(holder);
@@ -1848,7 +1904,7 @@ Class* Machine::loadArrayClassInternal(String* name, ClassLoader* loader) {
 	if (arrayComponentType->charAt(0) == 'L' && arrayComponentType->charAt(arrayComponentType->length() - 1) == ';') {
 		$assign(arrayComponentType, arrayComponentType->substring(1, arrayComponentType->length() - 1));
 	}
-	$var(Class, arrayComponentTypeClazz, loadClassInternal(arrayComponentType, loader));
+	Class* arrayComponentTypeClazz = tryLoadClass(arrayComponentType, false, loader);
 
 	// TODO
 	if (arrayComponentTypeClazz == nullptr) {

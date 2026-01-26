@@ -138,8 +138,8 @@ $FieldInfo ZipFile$$Lambda$lambda$stream$0::fieldInfos[2] = {
 	{}
 };
 $MethodInfo ZipFile$$Lambda$lambda$stream$0::methodInfos[3] = {
-	{"<init>", "(Ljava/util/zip/ZipFile;)V", nullptr, $PUBLIC, $method(static_cast<void(ZipFile$$Lambda$lambda$stream$0::*)(ZipFile*)>(&ZipFile$$Lambda$lambda$stream$0::init$))},
-	{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/zip/ZipFile;)V", nullptr, $PUBLIC, $method(ZipFile$$Lambda$lambda$stream$0, init$, void, ZipFile*)},
+	{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ZipFile$$Lambda$lambda$stream$0, apply, $Object*, int32_t)},
 	{}
 };
 $ClassInfo ZipFile$$Lambda$lambda$stream$0::classInfo$ = {
@@ -178,8 +178,8 @@ $FieldInfo ZipFile$$Lambda$getEntryName$1::fieldInfos[2] = {
 	{}
 };
 $MethodInfo ZipFile$$Lambda$getEntryName$1::methodInfos[3] = {
-	{"<init>", "(Ljava/util/zip/ZipFile;)V", nullptr, $PUBLIC, $method(static_cast<void(ZipFile$$Lambda$getEntryName$1::*)(ZipFile*)>(&ZipFile$$Lambda$getEntryName$1::init$))},
-	{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/zip/ZipFile;)V", nullptr, $PUBLIC, $method(ZipFile$$Lambda$getEntryName$1, init$, void, ZipFile*)},
+	{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ZipFile$$Lambda$getEntryName$1, apply, $Object*, int32_t)},
 	{}
 };
 $ClassInfo ZipFile$$Lambda$getEntryName$1::classInfo$ = {
@@ -218,8 +218,8 @@ $FieldInfo ZipFile$$Lambda$lambda$jarStream$1$2::fieldInfos[2] = {
 	{}
 };
 $MethodInfo ZipFile$$Lambda$lambda$jarStream$1$2::methodInfos[3] = {
-	{"<init>", "(Ljava/util/zip/ZipFile;)V", nullptr, $PUBLIC, $method(static_cast<void(ZipFile$$Lambda$lambda$jarStream$1$2::*)(ZipFile*)>(&ZipFile$$Lambda$lambda$jarStream$1$2::init$))},
-	{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/zip/ZipFile;)V", nullptr, $PUBLIC, $method(ZipFile$$Lambda$lambda$jarStream$1$2, init$, void, ZipFile*)},
+	{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ZipFile$$Lambda$lambda$jarStream$1$2, apply, $Object*, int32_t)},
 	{}
 };
 $ClassInfo ZipFile$$Lambda$lambda$jarStream$1$2::classInfo$ = {
@@ -260,33 +260,33 @@ $MethodInfo _ZipFile_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(ZipFile::*)($String*)>(&ZipFile::init$)), "java.io.IOException"},
-	{"<init>", "(Ljava/io/File;I)V", nullptr, $PUBLIC, $method(static_cast<void(ZipFile::*)($File*,int32_t)>(&ZipFile::init$)), "java.io.IOException"},
-	{"<init>", "(Ljava/io/File;)V", nullptr, $PUBLIC, $method(static_cast<void(ZipFile::*)($File*)>(&ZipFile::init$)), "java.util.zip.ZipException,java.io.IOException"},
-	{"<init>", "(Ljava/io/File;ILjava/nio/charset/Charset;)V", nullptr, $PUBLIC, $method(static_cast<void(ZipFile::*)($File*,int32_t,$Charset*)>(&ZipFile::init$)), "java.io.IOException"},
-	{"<init>", "(Ljava/lang/String;Ljava/nio/charset/Charset;)V", nullptr, $PUBLIC, $method(static_cast<void(ZipFile::*)($String*,$Charset*)>(&ZipFile::init$)), "java.io.IOException"},
-	{"<init>", "(Ljava/io/File;Ljava/nio/charset/Charset;)V", nullptr, $PUBLIC, $method(static_cast<void(ZipFile::*)($File*,$Charset*)>(&ZipFile::init$)), "java.io.IOException"},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"ensureOpen", "()V", nullptr, $PRIVATE, $method(static_cast<void(ZipFile::*)()>(&ZipFile::ensureOpen))},
-	{"ensureOpenOrZipException", "()V", nullptr, $PRIVATE, $method(static_cast<void(ZipFile::*)()>(&ZipFile::ensureOpenOrZipException)), "java.io.IOException"},
-	{"entries", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<+Ljava/util/zip/ZipEntry;>;", $PUBLIC},
-	{"entryNameStream", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljava/lang/String;>;", $PRIVATE, $method(static_cast<$Stream*(ZipFile::*)()>(&ZipFile::entryNameStream))},
-	{"getComment", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getEntry", "(Ljava/lang/String;)Ljava/util/zip/ZipEntry;", nullptr, $PUBLIC},
-	{"getEntryName", "(I)Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(ZipFile::*)(int32_t)>(&ZipFile::getEntryName))},
-	{"getInputStream", "(Ljava/util/zip/ZipEntry;)Ljava/io/InputStream;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"getManifestAndSignatureRelatedFiles", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PRIVATE, $method(static_cast<$List*(ZipFile::*)()>(&ZipFile::getManifestAndSignatureRelatedFiles))},
-	{"getManifestName", "(Z)Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(ZipFile::*)(bool)>(&ZipFile::getManifestName))},
-	{"getManifestNum", "()I", nullptr, $PRIVATE, $method(static_cast<int32_t(ZipFile::*)()>(&ZipFile::getManifestNum))},
-	{"getMetaInfVersions", "()[I", nullptr, $PRIVATE, $method(static_cast<$ints*(ZipFile::*)()>(&ZipFile::getMetaInfVersions))},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getZipEntry", "(Ljava/lang/String;I)Ljava/util/zip/ZipEntry;", nullptr, $PRIVATE, $method(static_cast<$ZipEntry*(ZipFile::*)($String*,int32_t)>(&ZipFile::getZipEntry))},
-	{"jarEntries", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/util/jar/JarEntry;>;", $PRIVATE, $method(static_cast<$Enumeration*(ZipFile::*)()>(&ZipFile::jarEntries))},
-	{"jarStream", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljava/util/jar/JarEntry;>;", $PRIVATE, $method(static_cast<$Stream*(ZipFile::*)()>(&ZipFile::jarStream))},
-	{"lambda$jarStream$1", "(I)Ljava/util/jar/JarEntry;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$JarEntry*(ZipFile::*)(int32_t)>(&ZipFile::lambda$jarStream$1))},
-	{"lambda$stream$0", "(I)Ljava/util/zip/ZipEntry;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$ZipEntry*(ZipFile::*)(int32_t)>(&ZipFile::lambda$stream$0))},
-	{"size", "()I", nullptr, $PUBLIC},
-	{"stream", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<+Ljava/util/zip/ZipEntry;>;", $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ZipFile, init$, void, $String*), "java.io.IOException"},
+	{"<init>", "(Ljava/io/File;I)V", nullptr, $PUBLIC, $method(ZipFile, init$, void, $File*, int32_t), "java.io.IOException"},
+	{"<init>", "(Ljava/io/File;)V", nullptr, $PUBLIC, $method(ZipFile, init$, void, $File*), "java.util.zip.ZipException,java.io.IOException"},
+	{"<init>", "(Ljava/io/File;ILjava/nio/charset/Charset;)V", nullptr, $PUBLIC, $method(ZipFile, init$, void, $File*, int32_t, $Charset*), "java.io.IOException"},
+	{"<init>", "(Ljava/lang/String;Ljava/nio/charset/Charset;)V", nullptr, $PUBLIC, $method(ZipFile, init$, void, $String*, $Charset*), "java.io.IOException"},
+	{"<init>", "(Ljava/io/File;Ljava/nio/charset/Charset;)V", nullptr, $PUBLIC, $method(ZipFile, init$, void, $File*, $Charset*), "java.io.IOException"},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(ZipFile, close, void), "java.io.IOException"},
+	{"ensureOpen", "()V", nullptr, $PRIVATE, $method(ZipFile, ensureOpen, void)},
+	{"ensureOpenOrZipException", "()V", nullptr, $PRIVATE, $method(ZipFile, ensureOpenOrZipException, void), "java.io.IOException"},
+	{"entries", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<+Ljava/util/zip/ZipEntry;>;", $PUBLIC, $virtualMethod(ZipFile, entries, $Enumeration*)},
+	{"entryNameStream", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljava/lang/String;>;", $PRIVATE, $method(ZipFile, entryNameStream, $Stream*)},
+	{"getComment", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ZipFile, getComment, $String*)},
+	{"getEntry", "(Ljava/lang/String;)Ljava/util/zip/ZipEntry;", nullptr, $PUBLIC, $virtualMethod(ZipFile, getEntry, $ZipEntry*, $String*)},
+	{"getEntryName", "(I)Ljava/lang/String;", nullptr, $PRIVATE, $method(ZipFile, getEntryName, $String*, int32_t)},
+	{"getInputStream", "(Ljava/util/zip/ZipEntry;)Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(ZipFile, getInputStream, $InputStream*, $ZipEntry*), "java.io.IOException"},
+	{"getManifestAndSignatureRelatedFiles", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PRIVATE, $method(ZipFile, getManifestAndSignatureRelatedFiles, $List*)},
+	{"getManifestName", "(Z)Ljava/lang/String;", nullptr, $PRIVATE, $method(ZipFile, getManifestName, $String*, bool)},
+	{"getManifestNum", "()I", nullptr, $PRIVATE, $method(ZipFile, getManifestNum, int32_t)},
+	{"getMetaInfVersions", "()[I", nullptr, $PRIVATE, $method(ZipFile, getMetaInfVersions, $ints*)},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ZipFile, getName, $String*)},
+	{"getZipEntry", "(Ljava/lang/String;I)Ljava/util/zip/ZipEntry;", nullptr, $PRIVATE, $method(ZipFile, getZipEntry, $ZipEntry*, $String*, int32_t)},
+	{"jarEntries", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/util/jar/JarEntry;>;", $PRIVATE, $method(ZipFile, jarEntries, $Enumeration*)},
+	{"jarStream", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljava/util/jar/JarEntry;>;", $PRIVATE, $method(ZipFile, jarStream, $Stream*)},
+	{"lambda$jarStream$1", "(I)Ljava/util/jar/JarEntry;", nullptr, $PRIVATE | $SYNTHETIC, $method(ZipFile, lambda$jarStream$1, $JarEntry*, int32_t)},
+	{"lambda$stream$0", "(I)Ljava/util/zip/ZipEntry;", nullptr, $PRIVATE | $SYNTHETIC, $method(ZipFile, lambda$stream$0, $ZipEntry*, int32_t)},
+	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(ZipFile, size, int32_t)},
+	{"stream", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<+Ljava/util/zip/ZipEntry;>;", $PUBLIC, $virtualMethod(ZipFile, stream, $Stream*)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

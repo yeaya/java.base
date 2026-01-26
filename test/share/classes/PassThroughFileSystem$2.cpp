@@ -21,8 +21,8 @@ $FieldInfo _PassThroughFileSystem$2_FieldInfo_[] = {
 };
 
 $MethodInfo _PassThroughFileSystem$2_MethodInfo_[] = {
-	{"<init>", "(LPassThroughFileSystem;Ljava/nio/file/PathMatcher;)V", "()V", 0, $method(static_cast<void(PassThroughFileSystem$2::*)($PassThroughFileSystem*,$PathMatcher*)>(&PassThroughFileSystem$2::init$))},
-	{"matches", "(Ljava/nio/file/Path;)Z", nullptr, $PUBLIC},
+	{"<init>", "(LPassThroughFileSystem;Ljava/nio/file/PathMatcher;)V", "()V", 0, $method(PassThroughFileSystem$2, init$, void, $PassThroughFileSystem*, $PathMatcher*)},
+	{"matches", "(Ljava/nio/file/Path;)Z", nullptr, $PUBLIC, $virtualMethod(PassThroughFileSystem$2, matches, bool, $Path*)},
 	{}
 };
 

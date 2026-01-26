@@ -26,11 +26,11 @@ namespace java {
 		namespace temporal {
 
 $MethodInfo _TemporalAccessor_MethodInfo_[] = {
-	{"get", "(Ljava/time/temporal/TemporalField;)I", nullptr, $PUBLIC},
-	{"getLong", "(Ljava/time/temporal/TemporalField;)J", nullptr, $PUBLIC | $ABSTRACT},
-	{"isSupported", "(Ljava/time/temporal/TemporalField;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"query", "(Ljava/time/temporal/TemporalQuery;)Ljava/lang/Object;", "<R:Ljava/lang/Object;>(Ljava/time/temporal/TemporalQuery<TR;>;)TR;", $PUBLIC},
-	{"range", "(Ljava/time/temporal/TemporalField;)Ljava/time/temporal/ValueRange;", nullptr, $PUBLIC},
+	{"get", "(Ljava/time/temporal/TemporalField;)I", nullptr, $PUBLIC, $virtualMethod(TemporalAccessor, get, int32_t, $TemporalField*)},
+	{"getLong", "(Ljava/time/temporal/TemporalField;)J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TemporalAccessor, getLong, int64_t, $TemporalField*)},
+	{"isSupported", "(Ljava/time/temporal/TemporalField;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TemporalAccessor, isSupported, bool, $TemporalField*)},
+	{"query", "(Ljava/time/temporal/TemporalQuery;)Ljava/lang/Object;", "<R:Ljava/lang/Object;>(Ljava/time/temporal/TemporalQuery<TR;>;)TR;", $PUBLIC, $virtualMethod(TemporalAccessor, query, $Object*, $TemporalQuery*)},
+	{"range", "(Ljava/time/temporal/TemporalField;)Ljava/time/temporal/ValueRange;", nullptr, $PUBLIC, $virtualMethod(TemporalAccessor, range, $ValueRange*, $TemporalField*)},
 	{}
 };
 

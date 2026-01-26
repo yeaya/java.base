@@ -20,9 +20,9 @@ namespace jdk {
 		namespace jimage {
 
 $MethodInfo _ImageReaderFactory$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ImageReaderFactory$1::*)()>(&ImageReaderFactory$1::init$))},
-	{"apply", "(Ljava/nio/file/Path;)Ljdk/internal/jimage/ImageReader;", nullptr, $PUBLIC},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "()V", nullptr, 0, $method(ImageReaderFactory$1, init$, void)},
+	{"apply", "(Ljava/nio/file/Path;)Ljdk/internal/jimage/ImageReader;", nullptr, $PUBLIC, $virtualMethod(ImageReaderFactory$1, apply, $ImageReader*, $Path*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ImageReaderFactory$1, apply, $Object*, Object$*)},
 	{}
 };
 

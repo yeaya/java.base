@@ -37,9 +37,9 @@ $FieldInfo _CalendarDataUtility$CalendarFieldValueNamesMapGetter_FieldInfo_[] = 
 };
 
 $MethodInfo _CalendarDataUtility$CalendarFieldValueNamesMapGetter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(CalendarDataUtility$CalendarFieldValueNamesMapGetter::*)()>(&CalendarDataUtility$CalendarFieldValueNamesMapGetter::init$))},
-	{"getObject", "(Ljava/util/spi/CalendarNameProvider;Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/util/Map;", "(Ljava/util/spi/CalendarNameProvider;Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/util/Map<Ljava/lang/String;Ljava/lang/Integer;>;", $PUBLIC | $TRANSIENT},
-	{"getObject", "(Ljava/util/spi/LocaleServiceProvider;Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(CalendarDataUtility$CalendarFieldValueNamesMapGetter, init$, void)},
+	{"getObject", "(Ljava/util/spi/CalendarNameProvider;Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/util/Map;", "(Ljava/util/spi/CalendarNameProvider;Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/util/Map<Ljava/lang/String;Ljava/lang/Integer;>;", $PUBLIC | $TRANSIENT, $virtualMethod(CalendarDataUtility$CalendarFieldValueNamesMapGetter, getObject, $Map*, $CalendarNameProvider*, $Locale*, $String*, $ObjectArray*)},
+	{"getObject", "(Ljava/util/spi/LocaleServiceProvider;Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(CalendarDataUtility$CalendarFieldValueNamesMapGetter, getObject, $Object*, $LocaleServiceProvider*, $Locale*, $String*, $ObjectArray*)},
 	{}
 };
 

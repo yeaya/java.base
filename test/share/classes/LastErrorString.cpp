@@ -66,9 +66,9 @@ $FieldInfo _LastErrorString_FieldInfo_[] = {
 };
 
 $MethodInfo _LastErrorString_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(LastErrorString::*)()>(&LastErrorString::init$))},
-	{"go", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&LastErrorString::go)), "java.lang.Exception"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&LastErrorString::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(LastErrorString, init$, void)},
+	{"go", "()V", nullptr, $STATIC, $staticMethod(LastErrorString, go, void), "java.lang.Exception"},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(LastErrorString, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

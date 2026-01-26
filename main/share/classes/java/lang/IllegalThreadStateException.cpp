@@ -16,8 +16,8 @@ $FieldInfo _IllegalThreadStateException_FieldInfo_[] = {
 };
 
 $MethodInfo _IllegalThreadStateException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(IllegalThreadStateException::*)()>(&IllegalThreadStateException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(IllegalThreadStateException::*)($String*)>(&IllegalThreadStateException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(IllegalThreadStateException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(IllegalThreadStateException, init$, void, $String*)},
 	{}
 };
 

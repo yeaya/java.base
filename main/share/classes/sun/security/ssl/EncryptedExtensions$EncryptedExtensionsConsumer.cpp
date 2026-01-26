@@ -38,8 +38,8 @@ namespace sun {
 		namespace ssl {
 
 $MethodInfo _EncryptedExtensions$EncryptedExtensionsConsumer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(EncryptedExtensions$EncryptedExtensionsConsumer::*)()>(&EncryptedExtensions$EncryptedExtensionsConsumer::init$))},
-	{"consume", "(Lsun/security/ssl/ConnectionContext;Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(EncryptedExtensions$EncryptedExtensionsConsumer, init$, void)},
+	{"consume", "(Lsun/security/ssl/ConnectionContext;Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(EncryptedExtensions$EncryptedExtensionsConsumer, consume, void, $ConnectionContext*, $ByteBuffer*), "java.io.IOException"},
 	{}
 };
 

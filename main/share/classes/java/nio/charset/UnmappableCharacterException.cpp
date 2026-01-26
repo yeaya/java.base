@@ -19,9 +19,9 @@ $FieldInfo _UnmappableCharacterException_FieldInfo_[] = {
 };
 
 $MethodInfo _UnmappableCharacterException_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(static_cast<void(UnmappableCharacterException::*)(int32_t)>(&UnmappableCharacterException::init$))},
-	{"getInputLength", "()I", nullptr, $PUBLIC},
-	{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(I)V", nullptr, $PUBLIC, $method(UnmappableCharacterException, init$, void, int32_t)},
+	{"getInputLength", "()I", nullptr, $PUBLIC, $virtualMethod(UnmappableCharacterException, getInputLength, int32_t)},
+	{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UnmappableCharacterException, getMessage, $String*)},
 	{}
 };
 

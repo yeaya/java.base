@@ -49,6 +49,9 @@ union jvalue;
 
 class ObjectMonitor;
 
+namespace java {
+	namespace lang {
+
 class Platform {
 public:
 	static void init();
@@ -101,6 +104,7 @@ public:
 	static void* getDefaultProcessHandle();
 	static const char* getExecutionFilePath(char* buf, int bufLen);
 	static void* loadLibrary(const char* filename, char* ebuf, int ebuflen);
+	static void unloadLibrary(void* lib);
 	static bool getLibraryWithAddress(void* addr, char* buf, int buflen);
 	static void* findLibraryEntry(void* handle, const char* name);
 	static size_t getLastErrorDesc(char* buf, size_t len);
@@ -136,5 +140,8 @@ public:
 	static bool isGlobalRef(Object$* ref);
 
 };
+
+	} // namespace lang
+} // namespace java
 
 #endif // _Platform_h_

@@ -11,8 +11,8 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 
 $MethodInfo _RegAfterPreClose$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(RegAfterPreClose$1::*)()>(&RegAfterPreClose$1::init$))},
-	{"newThread", "(Ljava/lang/Runnable;)Ljava/lang/Thread;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(RegAfterPreClose$1, init$, void)},
+	{"newThread", "(Ljava/lang/Runnable;)Ljava/lang/Thread;", nullptr, $PUBLIC, $virtualMethod(RegAfterPreClose$1, newThread, $Thread*, $Runnable*)},
 	{}
 };
 

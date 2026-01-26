@@ -58,11 +58,11 @@ $TypeAnnotation _Params_MethodTypeAnnotations_onlyAnnotated3[] = {
 };
 
 $MethodInfo _Params_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Params::*)()>(&Params::init$))},
-	{"mixed", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, nullptr, nullptr, nullptr, nullptr, _Params_MethodTypeAnnotations_mixed1},
-	{"noParams", "()V", nullptr, $PUBLIC},
-	{"onlyAnnotated", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, nullptr, nullptr, nullptr, nullptr, _Params_MethodTypeAnnotations_onlyAnnotated3},
-	{"unAnnotated", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(Params, init$, void)},
+	{"mixed", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Params, mixed, void, $String*, $String*, $String*), nullptr, nullptr, nullptr, _Params_MethodTypeAnnotations_mixed1},
+	{"noParams", "()V", nullptr, $PUBLIC, $virtualMethod(Params, noParams, void)},
+	{"onlyAnnotated", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Params, onlyAnnotated, void, $String*, $String*, $String*), nullptr, nullptr, nullptr, _Params_MethodTypeAnnotations_onlyAnnotated3},
+	{"unAnnotated", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Params, unAnnotated, void, $String*, $String*, $String*)},
 	{}
 };
 

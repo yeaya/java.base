@@ -19,8 +19,8 @@ $FieldInfo _UnixDomainSocketAddress$Ser_FieldInfo_[] = {
 };
 
 $MethodInfo _UnixDomainSocketAddress$Ser_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(UnixDomainSocketAddress$Ser::*)($String*)>(&UnixDomainSocketAddress$Ser::init$))},
-	{"readResolve", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(static_cast<$Object*(UnixDomainSocketAddress$Ser::*)()>(&UnixDomainSocketAddress$Ser::readResolve))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(UnixDomainSocketAddress$Ser, init$, void, $String*)},
+	{"readResolve", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(UnixDomainSocketAddress$Ser, readResolve, $Object*)},
 	{}
 };
 

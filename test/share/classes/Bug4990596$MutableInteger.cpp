@@ -16,12 +16,12 @@ $FieldInfo _Bug4990596$MutableInteger_FieldInfo_[] = {
 };
 
 $MethodInfo _Bug4990596$MutableInteger_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Bug4990596$MutableInteger::*)()>(&Bug4990596$MutableInteger::init$))},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(static_cast<void(Bug4990596$MutableInteger::*)(int32_t)>(&Bug4990596$MutableInteger::init$))},
-	{"doubleValue", "()D", nullptr, $PUBLIC},
-	{"floatValue", "()F", nullptr, $PUBLIC},
-	{"intValue", "()I", nullptr, $PUBLIC},
-	{"longValue", "()J", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Bug4990596$MutableInteger, init$, void)},
+	{"<init>", "(I)V", nullptr, $PUBLIC, $method(Bug4990596$MutableInteger, init$, void, int32_t)},
+	{"doubleValue", "()D", nullptr, $PUBLIC, $virtualMethod(Bug4990596$MutableInteger, doubleValue, double)},
+	{"floatValue", "()F", nullptr, $PUBLIC, $virtualMethod(Bug4990596$MutableInteger, floatValue, float)},
+	{"intValue", "()I", nullptr, $PUBLIC, $virtualMethod(Bug4990596$MutableInteger, intValue, int32_t)},
+	{"longValue", "()J", nullptr, $PUBLIC, $virtualMethod(Bug4990596$MutableInteger, longValue, int64_t)},
 	{}
 };
 

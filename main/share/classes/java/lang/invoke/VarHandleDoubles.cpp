@@ -11,7 +11,7 @@ namespace java {
 		namespace invoke {
 
 $MethodInfo _VarHandleDoubles_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(VarHandleDoubles::*)()>(&VarHandleDoubles::init$))},
+	{"<init>", "()V", nullptr, 0, $method(VarHandleDoubles, init$, void)},
 	{}
 };
 

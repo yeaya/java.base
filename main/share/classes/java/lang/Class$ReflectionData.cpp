@@ -38,7 +38,7 @@ $FieldInfo _Class$ReflectionData_FieldInfo_[] = {
 };
 
 $MethodInfo _Class$ReflectionData_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, 0, $method(static_cast<void(Class$ReflectionData::*)(int32_t)>(&Class$ReflectionData::init$))},
+	{"<init>", "(I)V", nullptr, 0, $method(Class$ReflectionData, init$, void, int32_t)},
 	{}
 };
 

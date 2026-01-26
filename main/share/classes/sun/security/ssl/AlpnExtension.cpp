@@ -64,8 +64,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo AlpnExtension$$Lambda$lambda$static$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(AlpnExtension$$Lambda$lambda$static$0::*)()>(&AlpnExtension$$Lambda$lambda$static$0::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(AlpnExtension$$Lambda$lambda$static$0, init$, void)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AlpnExtension$$Lambda$lambda$static$0, run, $Object*)},
 	{}
 };
 $ClassInfo AlpnExtension$$Lambda$lambda$static$0::classInfo$ = {
@@ -98,8 +98,8 @@ $FieldInfo _AlpnExtension_FieldInfo_[] = {
 };
 
 $MethodInfo _AlpnExtension_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(AlpnExtension::*)()>(&AlpnExtension::init$))},
-	{"lambda$static$0", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$String*(*)()>(&AlpnExtension::lambda$static$0))},
+	{"<init>", "()V", nullptr, 0, $method(AlpnExtension, init$, void)},
+	{"lambda$static$0", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AlpnExtension, lambda$static$0, $String*)},
 	{}
 };
 

@@ -33,11 +33,11 @@ $FieldInfo _LinkedHashSet_FieldInfo_[] = {
 };
 
 $MethodInfo _LinkedHashSet_MethodInfo_[] = {
-	{"<init>", "(IF)V", nullptr, $PUBLIC, $method(static_cast<void(LinkedHashSet::*)(int32_t,float)>(&LinkedHashSet::init$))},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(static_cast<void(LinkedHashSet::*)(int32_t)>(&LinkedHashSet::init$))},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(LinkedHashSet::*)()>(&LinkedHashSet::init$))},
-	{"<init>", "(Ljava/util/Collection;)V", "(Ljava/util/Collection<+TE;>;)V", $PUBLIC, $method(static_cast<void(LinkedHashSet::*)($Collection*)>(&LinkedHashSet::init$))},
-	{"spliterator", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TE;>;", $PUBLIC},
+	{"<init>", "(IF)V", nullptr, $PUBLIC, $method(LinkedHashSet, init$, void, int32_t, float)},
+	{"<init>", "(I)V", nullptr, $PUBLIC, $method(LinkedHashSet, init$, void, int32_t)},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(LinkedHashSet, init$, void)},
+	{"<init>", "(Ljava/util/Collection;)V", "(Ljava/util/Collection<+TE;>;)V", $PUBLIC, $method(LinkedHashSet, init$, void, $Collection*)},
+	{"spliterator", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TE;>;", $PUBLIC, $virtualMethod(LinkedHashSet, spliterator, $Spliterator*)},
 	{}
 };
 

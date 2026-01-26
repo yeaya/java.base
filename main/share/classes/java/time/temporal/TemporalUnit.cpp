@@ -12,6 +12,7 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
+using $Duration = ::java::time::Duration;
 using $LocalTime = ::java::time::LocalTime;
 using $ChronoLocalDate = ::java::time::chrono::ChronoLocalDate;
 using $ChronoLocalDateTime = ::java::time::chrono::ChronoLocalDateTime;
@@ -24,13 +25,13 @@ namespace java {
 		namespace temporal {
 
 $MethodInfo _TemporalUnit_MethodInfo_[] = {
-	{"addTo", "(Ljava/time/temporal/Temporal;J)Ljava/time/temporal/Temporal;", "<R::Ljava/time/temporal/Temporal;>(TR;J)TR;", $PUBLIC | $ABSTRACT},
-	{"between", "(Ljava/time/temporal/Temporal;Ljava/time/temporal/Temporal;)J", nullptr, $PUBLIC | $ABSTRACT},
-	{"getDuration", "()Ljava/time/Duration;", nullptr, $PUBLIC | $ABSTRACT},
-	{"isDateBased", "()Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"isDurationEstimated", "()Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"isSupportedBy", "(Ljava/time/temporal/Temporal;)Z", nullptr, $PUBLIC},
-	{"isTimeBased", "()Z", nullptr, $PUBLIC | $ABSTRACT},
+	{"addTo", "(Ljava/time/temporal/Temporal;J)Ljava/time/temporal/Temporal;", "<R::Ljava/time/temporal/Temporal;>(TR;J)TR;", $PUBLIC | $ABSTRACT, $virtualMethod(TemporalUnit, addTo, $Temporal*, $Temporal*, int64_t)},
+	{"between", "(Ljava/time/temporal/Temporal;Ljava/time/temporal/Temporal;)J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TemporalUnit, between, int64_t, $Temporal*, $Temporal*)},
+	{"getDuration", "()Ljava/time/Duration;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TemporalUnit, getDuration, $Duration*)},
+	{"isDateBased", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TemporalUnit, isDateBased, bool)},
+	{"isDurationEstimated", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TemporalUnit, isDurationEstimated, bool)},
+	{"isSupportedBy", "(Ljava/time/temporal/Temporal;)Z", nullptr, $PUBLIC, $virtualMethod(TemporalUnit, isSupportedBy, bool, $Temporal*)},
+	{"isTimeBased", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TemporalUnit, isTimeBased, bool)},
 	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
 	{}
 };

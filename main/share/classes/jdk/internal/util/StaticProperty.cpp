@@ -40,19 +40,19 @@ $FieldInfo _StaticProperty_FieldInfo_[] = {
 };
 
 $MethodInfo _StaticProperty_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(StaticProperty::*)()>(&StaticProperty::init$))},
-	{"getProperty", "(Ljava/util/Properties;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($Properties*,$String*)>(&StaticProperty::getProperty))},
-	{"getProperty", "(Ljava/util/Properties;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($Properties*,$String*,$String*)>(&StaticProperty::getProperty))},
-	{"javaHome", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)()>(&StaticProperty::javaHome))},
-	{"javaIoTmpDir", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)()>(&StaticProperty::javaIoTmpDir))},
-	{"javaLibraryPath", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)()>(&StaticProperty::javaLibraryPath))},
-	{"jdkSerialFilter", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)()>(&StaticProperty::jdkSerialFilter))},
-	{"jdkSerialFilterFactory", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)()>(&StaticProperty::jdkSerialFilterFactory))},
-	{"nativeEncoding", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)()>(&StaticProperty::nativeEncoding))},
-	{"sunBootLibraryPath", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)()>(&StaticProperty::sunBootLibraryPath))},
-	{"userDir", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)()>(&StaticProperty::userDir))},
-	{"userHome", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)()>(&StaticProperty::userHome))},
-	{"userName", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)()>(&StaticProperty::userName))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(StaticProperty, init$, void)},
+	{"getProperty", "(Ljava/util/Properties;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(StaticProperty, getProperty, $String*, $Properties*, $String*)},
+	{"getProperty", "(Ljava/util/Properties;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(StaticProperty, getProperty, $String*, $Properties*, $String*, $String*)},
+	{"javaHome", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(StaticProperty, javaHome, $String*)},
+	{"javaIoTmpDir", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(StaticProperty, javaIoTmpDir, $String*)},
+	{"javaLibraryPath", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(StaticProperty, javaLibraryPath, $String*)},
+	{"jdkSerialFilter", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(StaticProperty, jdkSerialFilter, $String*)},
+	{"jdkSerialFilterFactory", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(StaticProperty, jdkSerialFilterFactory, $String*)},
+	{"nativeEncoding", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(StaticProperty, nativeEncoding, $String*)},
+	{"sunBootLibraryPath", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(StaticProperty, sunBootLibraryPath, $String*)},
+	{"userDir", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(StaticProperty, userDir, $String*)},
+	{"userHome", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(StaticProperty, userHome, $String*)},
+	{"userName", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(StaticProperty, userName, $String*)},
 	{}
 };
 

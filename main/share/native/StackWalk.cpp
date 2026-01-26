@@ -51,7 +51,7 @@
 #include <java/lang/CompoundAttribute.h>
 #include <java/lang/StackTraceElement.h>
 #include <java/lang/invoke/MethodHandle.h>
-
+#include <java/lang/interpreter/ByteCodeInterpreter.h>
 #include <jcpp.h>
 #include <java/lang/SpinLock.h>
 #include <java/lang/Logger.h>
@@ -60,6 +60,7 @@
 using namespace ::java::lang;
 using namespace ::java::lang::invoke;
 using namespace ::java::lang::reflect;
+using namespace ::java::lang::interpreter;
 
 #define MAX_STACK_DEPTH 128
 #define MAX_CLASS_NAME_LENGTH 512
@@ -287,7 +288,7 @@ bool parameterTypeEquals(Class* ptype, const char* type2) {
 			return strcmp(type2, "int") == 0;
 		}
 		if (ptype == Long::TYPE) {
-#ifdef WIN32
+#ifdef _WIN32
 			return strcmp(type2, "__int64") == 0;
 #else
 			// linux_x86_64 long
@@ -418,7 +419,7 @@ Method* getMethodFromCppMethodFullNameAndParameters(const char* classNameChars, 
 
 	Class* clazz = nullptr;
 	try {
-		clazz = Machine::forName0(className, false, $Thread::currentThread()->contextClassLoader, nullptr);
+		clazz = Machine::tryLoadClass(className, false, $Thread::currentThread()->contextClassLoader);
 	} catch (ClassNotFoundException& e) {
 	}
 
@@ -868,7 +869,7 @@ int32_t StackWalk::fetchNextBatch(Object$* stackStream, int64_t mode, int64_t ma
 	$var(String, className, String::valueOf(className_));
 	Class* clazz = nullptr;
 	try {
-		clazz = Machine::forName0(className, false, $Thread::currentThread()->contextClassLoader, nullptr);
+		clazz = Machine::tryLoadClass(className, false, $Thread::currentThread()->contextClassLoader);
 	} catch (ClassNotFoundException&) {
 	}
 	return clazz;
@@ -1012,20 +1013,84 @@ void StackWalk::printStackTrace(FILE* out) {
 
 // thread_local bool fillInStackTraceing = false;
 void StackWalk::fillInStackTrace(Throwable* throwable) {
-	address stack[MAX_STACK_DEPTH];
+	//address stack[MAX_STACK_DEPTH];
 	if (throwable != nullptr) {
-		throwable->depth = OS::getBackTrace(stack, $lengthOf(stack), 2);
-		$set(throwable, stack$, ($longs*)ObjectManager::newArrayOrNull(Long::TYPE, throwable->depth));
+		$set(throwable, stack$, ($longs*)ObjectManager::newArrayOrNull(Long::TYPE, MAX_STACK_DEPTH));
 		if (throwable->stack$ != nullptr) {
-			throwable->stack$->setRegion(0, throwable->depth, (int64_t*)stack);
+			throwable->depth = OS::getBackTrace((address*)throwable->stack$->begin(), throwable->stack$->length, 2);
+			//throwable->stack$->setRegion(0, throwable->depth, (int64_t*)stack);
+			if (ByteCodeInterpreter::existsStackTraceElement()) {
+				$set(throwable, byteCodeStackTrace$, ($Array<StackTraceElement>*)ObjectManager::newArrayOrNull(StackTraceElement::class$, MAX_STACK_DEPTH));
+				if (throwable->byteCodeStackTrace$ != nullptr) {
+					ByteCodeInterpreter::initStackTraceElements(throwable->byteCodeStackTrace$);
+				}
+			}
 		} else {
 			throwable->depth = 0;
 		}
 	}
 }
 
-void changeArrayLength($Array<StackTraceElement>* elements, int32_t value) {
-	((int32_t&)(const int32_t&)elements->length) += value;
+bool isInFunctions(const char* fn, char** functions, int32_t functionsLength) {
+	for (int i = 0; i < functionsLength; i++) {
+		if (strcmp(fn, functions[i]) == 0) {
+			return true;
+		}
+	}
+	return false;
+}
+
+bool isSkipCFunction(const char* fn) {
+	static char* skipCFunction[] = {
+		"ffi_call_win64",
+		"ffi_call",
+		"ffi_closure_win64_inner",
+		"ffi_closure_win64",
+	};
+	return isInFunctions(fn, skipCFunction, $lengthOf(skipCFunction));
+}
+
+bool isSkipJavaLangCFunction(const char* fn) {
+	static char* skipJavaLangCFunction[] = {
+		"memberFunction16",
+	};
+	return isInFunctions(fn, skipJavaLangCFunction, $lengthOf(skipJavaLangCFunction));
+}
+
+bool isSkipJavaLangClassFunction(const char* fn) {
+	static char* functions[] = {
+		"invoke",
+		"initInstance",
+		"invokev"
+	};
+	return isInFunctions(fn, functions, $lengthOf(functions));
+}
+
+// java.lang.reflect.Method
+bool isSkipReflectMethodFunction(const char* fn) {
+	static char* functions[] = {
+		"invoke",
+		"invokev"
+	};
+	return isInFunctions(fn, functions, $lengthOf(functions));
+}
+
+// java.lang.reflect.Constructor
+bool isSkipReflectConstructorFunction(const char* fn) {
+	static char* functions[] = {
+		"initInstance",
+	};
+	return isInFunctions(fn, functions, $lengthOf(functions));
+}
+
+bool isInSkipClasses(const char* clazz) {
+	static char* skipClasses[] = {
+		"jdk::internal::reflect::NativeMethodAccessorImpl",
+		"jdk::internal::reflect::DelegatingMethodAccessorImpl",
+		"java::lang::interpreter",
+		"java::lang::Platform"
+	};
+	return isInFunctions(clazz, skipClasses, $lengthOf(skipClasses));
 }
 
 void StackWalk::initStackTraceElements($Array<StackTraceElement>* elements, Throwable* x) {
@@ -1036,76 +1101,138 @@ void StackWalk::initStackTraceElements($Array<StackTraceElement>* elements, Thro
 	char cppMethodName[MAX_METHOD_NAME_LENGTH];
 	char parameterTypes[MAX_PARAMETER_TYPE_LENGTH];
 	int32_t elementsIndex = 0;
-	bool skipAfterMain = false;
+	int32_t byteCodeInterpreterIndex = 0;
 	int32_t depth = Math::min(x->depth, x->stack$->length);
 	int64_t* stack = x->stack$->begin();
+	ClassLoader* contextClassLoader = $Thread::currentThread()->contextClassLoader;
 	for (int32_t i = 0; i < depth; i++) {
+		if (elementsIndex >= elements->length) {
+			break;
+		}
 		address addr = (address)stack[i];
-		if (addr == nullptr || skipAfterMain) {
-			changeArrayLength(elements, -1);
+		if (addr == nullptr) {
 			continue;
 		}
 		try {
 			char buf[1024];
 			bool ret = addressToFunctionName(addr, buf, sizeof(buf));
 			if (!ret) {
-				changeArrayLength(elements, -1);
 				continue;
 			}
 			// printf("%s\n", buf);
 
 			if (strstr(buf, "$new<") != nullptr) {
-				changeArrayLength(elements, -1);
 				continue;
 			}
 			parseFunctionName(buf, cppClassName, sizeof(cppClassName), cppMethodName, sizeof(cppMethodName), parameterTypes, sizeof(parameterTypes));
 
 			if (strcmp(cppClassName, "") == 0) {
-				if (strcmp(cppMethodName, "main") == 0) {
-					skipAfterMain = true;
-				} else if (strcmp(cppMethodName, "jni_ThrowNew") == 0 // ref jni.cpp
+				if (strcmp(cppMethodName, "jni_ThrowNew") == 0 // ref jni.cpp
 					|| strcmp(cppMethodName, "JNU_ThrowByName") == 0 // jni_util.c
 					|| strcmp(cppMethodName, "JNU_ThrowByNameWithLastError") == 0 // jni_util.c
 					|| strcmp(cppMethodName, "JNU_ThrowByNameWithMessageAndLastError") == 0 // jni_util.c
 					|| strcmp(cppMethodName, "NET_ThrowNew") == 0 // net_util_md.c
 					) {
-					changeArrayLength(elements, -elementsIndex - 1);
 					elementsIndex = 0;
+					continue;
+				} else if (isSkipCFunction(cppMethodName)) {
 					continue;
 				}
 			} else if (strcmp(cppClassName, "java::lang::Throwable") == 0) {
 				if (strcmp(cppMethodName, "fillInStackTrace") == 0) {
-					changeArrayLength(elements, -elementsIndex - 1);
 					elementsIndex = 0;
 					continue;
 				}
 			} else if (strcmp(cppClassName, "java::lang::NullPointerException") == 0) {
 				if (strcmp(cppMethodName, "fillInStackTrace") == 0
 					|| strcmp(cppMethodName, "throwNew$") == 0) {
-					changeArrayLength(elements, -elementsIndex - 1);
 					elementsIndex = 0;
 					continue;
 				}
+			} else if (strcmp(cppClassName, "java::lang") == 0) {
+				if (isSkipJavaLangCFunction(cppMethodName)) {
+					continue;
+				}
+			} else if (strcmp(cppClassName, "java::lang::Class") == 0) {
+				if (isSkipJavaLangClassFunction(cppMethodName)) {
+					continue;
+				}
+			} else if (strcmp(cppClassName, "java::lang::reflect::Method") == 0) {
+				if (isSkipReflectMethodFunction(cppMethodName)) {
+					continue;
+				}
+			} else if (strcmp(cppClassName, "java::lang::reflect::Constructor") == 0) {
+				if (isSkipReflectConstructorFunction(cppMethodName)) {
+					continue;
+				}
+			} else if (strcmp(cppClassName, "java::lang::interpreter::ByteCodeInterpreter") == 0) {
+				if (strcmp(cppMethodName, "executeInstruction") == 0) {
+					if (x->byteCodeStackTrace$ != nullptr) {
+						int32_t byteCodeInterpreterIndex0 = 0;
+						int32_t stackTraceIndex = 0;
+						for (int32_t stackTraceIndex = 0; stackTraceIndex < x->byteCodeStackTrace$->length; stackTraceIndex++) {
+							StackTraceElement* ste = x->byteCodeStackTrace$->get(stackTraceIndex);
+							if (ste == nullptr) {
+								byteCodeInterpreterIndex0++;
+								continue;
+							}
+							if (byteCodeInterpreterIndex == byteCodeInterpreterIndex0) {
+								elements->set(elementsIndex++, ste);
+								if (elementsIndex >= elements->length) {
+									break;
+								}
+							}
+							if (byteCodeInterpreterIndex < byteCodeInterpreterIndex0) {
+								break;
+							}
+						}
+					}
+					byteCodeInterpreterIndex++;
+					continue;
+				} else {
+					continue;
+				}
+			} else if (isInSkipClasses(cppClassName)) {
+				continue;
 			}
 			$var(String, className, $str(cppClassName));
 			$assign(className, className->replace("::"_s, "."_s));
-			Class* clazz = Object::class$;
+			Class* clazz = nullptr;
 			try {
-				clazz = Machine::forName0(className, false, $Thread::currentThread()->contextClassLoader, nullptr);
+				clazz = Machine::tryLoadClass(className, false, contextClassLoader);
 			} catch (ClassNotFoundException& e) {
 			}
+			if (clazz == nullptr) {
+				clazz = Object::class$;
+			}
 			if ($hasFlag(clazz->mark, $THROWABLE) && strcmp(cppMethodName, "init$") == 0) {
-				changeArrayLength(elements, -1);
 				continue;
 			}
 			$var(String, methodName, $str(cppMethodName));
-			$var(StackTraceElement, ste, $new<StackTraceElement>(className, methodName, ""_s, -1));
+			$var(StackTraceElement, ste, elements->get(elementsIndex));
+			if (ste == nullptr) {
+				$assign(ste, $new(StackTraceElement, className, methodName, ""_s, -1));
+				elements->set(elementsIndex, ste);
+			} else {
+				$set(ste, declaringClass, className);
+				$set(ste, methodName, methodName);
+				$set(ste, fileName, ""_s);
+				ste->lineNumber = -1;
+			}
 			$set(ste, declaringClassObject, clazz);
-			elements->set(elementsIndex++, ste);
+
+			elementsIndex++;
+			if (strcmp(cppClassName, "") == 0) {
+				if (strcmp(cppMethodName, "main") == 0) {
+					break;
+				}
+			}
 		} catch (...) {
-			changeArrayLength(elements, -1);
 			continue;
 		}
+	}
+	if (elementsIndex < elements->length) {
+		((int32_t&)(const int32_t&)elements->length) = elementsIndex;
 	}
 	x->depth = elements->length;
 }

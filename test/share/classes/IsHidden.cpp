@@ -25,13 +25,13 @@ $FieldInfo _IsHidden_FieldInfo_[] = {
 };
 
 $MethodInfo _IsHidden_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(IsHidden::*)()>(&IsHidden::init$))},
-	{"checkHidden", "(Ljava/io/File;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($File*)>(&IsHidden::checkHidden))},
-	{"ck", "(Ljava/lang/String;Z)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($String*,bool)>(&IsHidden::ck)), "java.lang.Exception"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&IsHidden::main)), "java.lang.Exception"},
-	{"setHidden", "(Ljava/io/File;Z)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($File*,bool)>(&IsHidden::setHidden)), "java.io.IOException"},
-	{"testUnix", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&IsHidden::testUnix)), "java.lang.Exception"},
-	{"testWin32", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&IsHidden::testWin32)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(IsHidden, init$, void)},
+	{"checkHidden", "(Ljava/io/File;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(IsHidden, checkHidden, void, $File*)},
+	{"ck", "(Ljava/lang/String;Z)V", nullptr, $PRIVATE | $STATIC, $staticMethod(IsHidden, ck, void, $String*, bool), "java.lang.Exception"},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(IsHidden, main, void, $StringArray*), "java.lang.Exception"},
+	{"setHidden", "(Ljava/io/File;Z)V", nullptr, $PRIVATE | $STATIC, $staticMethod(IsHidden, setHidden, void, $File*, bool), "java.io.IOException"},
+	{"testUnix", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(IsHidden, testUnix, void), "java.lang.Exception"},
+	{"testWin32", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(IsHidden, testWin32, void), "java.lang.Exception"},
 	{}
 };
 

@@ -38,6 +38,8 @@ using $BasicPermission = ::java::security::BasicPermission;
 using $Permission = ::java::security::Permission;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $List = ::java::util::List;
+using $Optional = ::java::util::Optional;
+using $Set = ::java::util::Set;
 using $ModulePath = ::jdk::internal::module::ModulePath;
 using $SystemModuleFinders = ::jdk::internal::module::SystemModuleFinders;
 
@@ -60,8 +62,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ModuleFinder$$Lambda$ofSystem::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ModuleFinder$$Lambda$ofSystem::*)()>(&ModuleFinder$$Lambda$ofSystem::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ModuleFinder$$Lambda$ofSystem, init$, void)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ModuleFinder$$Lambda$ofSystem, run, $Object*)},
 	{}
 };
 $ClassInfo ModuleFinder$$Lambda$ofSystem::classInfo$ = {
@@ -79,11 +81,11 @@ $Class* ModuleFinder$$Lambda$ofSystem::load$($String* name, bool initialize) {
 $Class* ModuleFinder$$Lambda$ofSystem::class$ = nullptr;
 
 $MethodInfo _ModuleFinder_MethodInfo_[] = {
-	{"compose", "([Ljava/lang/module/ModuleFinder;)Ljava/lang/module/ModuleFinder;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<ModuleFinder*(*)($ModuleFinderArray*)>(&ModuleFinder::compose))},
-	{"find", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/lang/module/ModuleReference;>;", $PUBLIC | $ABSTRACT},
-	{"findAll", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/module/ModuleReference;>;", $PUBLIC | $ABSTRACT},
-	{"of", "([Ljava/nio/file/Path;)Ljava/lang/module/ModuleFinder;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<ModuleFinder*(*)($PathArray*)>(&ModuleFinder::of))},
-	{"ofSystem", "()Ljava/lang/module/ModuleFinder;", nullptr, $PUBLIC | $STATIC, $method(static_cast<ModuleFinder*(*)()>(&ModuleFinder::ofSystem))},
+	{"compose", "([Ljava/lang/module/ModuleFinder;)Ljava/lang/module/ModuleFinder;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(ModuleFinder, compose, ModuleFinder*, $ModuleFinderArray*)},
+	{"find", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/lang/module/ModuleReference;>;", $PUBLIC | $ABSTRACT, $virtualMethod(ModuleFinder, find, $Optional*, $String*)},
+	{"findAll", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/module/ModuleReference;>;", $PUBLIC | $ABSTRACT, $virtualMethod(ModuleFinder, findAll, $Set*)},
+	{"of", "([Ljava/nio/file/Path;)Ljava/lang/module/ModuleFinder;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(ModuleFinder, of, ModuleFinder*, $PathArray*)},
+	{"ofSystem", "()Ljava/lang/module/ModuleFinder;", nullptr, $PUBLIC | $STATIC, $staticMethod(ModuleFinder, ofSystem, ModuleFinder*)},
 	{}
 };
 

@@ -110,21 +110,21 @@ $FieldInfo _MethodTypeForm_FieldInfo_[] = {
 };
 
 $MethodInfo _MethodTypeForm_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/invoke/MethodType;)V", nullptr, $PROTECTED, $method(static_cast<void(MethodTypeForm::*)($MethodType*)>(&MethodTypeForm::init$))},
-	{"basicType", "()Ljava/lang/invoke/MethodType;", nullptr, $PUBLIC, $method(static_cast<$MethodType*(MethodTypeForm::*)()>(&MethodTypeForm::basicType))},
-	{"cachedLambdaForm", "(I)Ljava/lang/invoke/LambdaForm;", nullptr, $PUBLIC, $method(static_cast<$LambdaForm*(MethodTypeForm::*)(int32_t)>(&MethodTypeForm::cachedLambdaForm))},
-	{"cachedMethodHandle", "(I)Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC, $method(static_cast<$MethodHandle*(MethodTypeForm::*)(int32_t)>(&MethodTypeForm::cachedMethodHandle))},
-	{"canonicalize", "(Ljava/lang/invoke/MethodType;I)Ljava/lang/invoke/MethodType;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$MethodType*(*)($MethodType*,int32_t)>(&MethodTypeForm::canonicalize))},
-	{"canonicalize", "(Ljava/lang/Class;I)Ljava/lang/Class;", "(Ljava/lang/Class<*>;I)Ljava/lang/Class<*>;", $STATIC, $method(static_cast<$Class*(*)($Class*,int32_t)>(&MethodTypeForm::canonicalize))},
-	{"canonicalizeAll", "([Ljava/lang/Class;I)[Ljava/lang/Class;", "([Ljava/lang/Class<*>;I)[Ljava/lang/Class<*>;", $STATIC, $method(static_cast<$ClassArray*(*)($ClassArray*,int32_t)>(&MethodTypeForm::canonicalizeAll))},
-	{"erasedType", "()Ljava/lang/invoke/MethodType;", nullptr, $PUBLIC, $method(static_cast<$MethodType*(MethodTypeForm::*)()>(&MethodTypeForm::erasedType))},
-	{"findForm", "(Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/MethodTypeForm;", nullptr, $STATIC, $method(static_cast<MethodTypeForm*(*)($MethodType*)>(&MethodTypeForm::findForm))},
-	{"hasPrimitives", "()Z", nullptr, $PUBLIC, $method(static_cast<bool(MethodTypeForm::*)()>(&MethodTypeForm::hasPrimitives))},
-	{"parameterCount", "()I", nullptr, $PUBLIC, $method(static_cast<int32_t(MethodTypeForm::*)()>(&MethodTypeForm::parameterCount))},
-	{"parameterSlotCount", "()I", nullptr, $PUBLIC, $method(static_cast<int32_t(MethodTypeForm::*)()>(&MethodTypeForm::parameterSlotCount))},
-	{"setCachedLambdaForm", "(ILjava/lang/invoke/LambdaForm;)Ljava/lang/invoke/LambdaForm;", nullptr, $PUBLIC | $SYNCHRONIZED, $method(static_cast<$LambdaForm*(MethodTypeForm::*)(int32_t,$LambdaForm*)>(&MethodTypeForm::setCachedLambdaForm))},
-	{"setCachedMethodHandle", "(ILjava/lang/invoke/MethodHandle;)Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC | $SYNCHRONIZED, $method(static_cast<$MethodHandle*(MethodTypeForm::*)(int32_t,$MethodHandle*)>(&MethodTypeForm::setCachedMethodHandle))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/invoke/MethodType;)V", nullptr, $PROTECTED, $method(MethodTypeForm, init$, void, $MethodType*)},
+	{"basicType", "()Ljava/lang/invoke/MethodType;", nullptr, $PUBLIC, $method(MethodTypeForm, basicType, $MethodType*)},
+	{"cachedLambdaForm", "(I)Ljava/lang/invoke/LambdaForm;", nullptr, $PUBLIC, $method(MethodTypeForm, cachedLambdaForm, $LambdaForm*, int32_t)},
+	{"cachedMethodHandle", "(I)Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC, $method(MethodTypeForm, cachedMethodHandle, $MethodHandle*, int32_t)},
+	{"canonicalize", "(Ljava/lang/invoke/MethodType;I)Ljava/lang/invoke/MethodType;", nullptr, $PUBLIC | $STATIC, $staticMethod(MethodTypeForm, canonicalize, $MethodType*, $MethodType*, int32_t)},
+	{"canonicalize", "(Ljava/lang/Class;I)Ljava/lang/Class;", "(Ljava/lang/Class<*>;I)Ljava/lang/Class<*>;", $STATIC, $staticMethod(MethodTypeForm, canonicalize, $Class*, $Class*, int32_t)},
+	{"canonicalizeAll", "([Ljava/lang/Class;I)[Ljava/lang/Class;", "([Ljava/lang/Class<*>;I)[Ljava/lang/Class<*>;", $STATIC, $staticMethod(MethodTypeForm, canonicalizeAll, $ClassArray*, $ClassArray*, int32_t)},
+	{"erasedType", "()Ljava/lang/invoke/MethodType;", nullptr, $PUBLIC, $method(MethodTypeForm, erasedType, $MethodType*)},
+	{"findForm", "(Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/MethodTypeForm;", nullptr, $STATIC, $staticMethod(MethodTypeForm, findForm, MethodTypeForm*, $MethodType*)},
+	{"hasPrimitives", "()Z", nullptr, $PUBLIC, $method(MethodTypeForm, hasPrimitives, bool)},
+	{"parameterCount", "()I", nullptr, $PUBLIC, $method(MethodTypeForm, parameterCount, int32_t)},
+	{"parameterSlotCount", "()I", nullptr, $PUBLIC, $method(MethodTypeForm, parameterSlotCount, int32_t)},
+	{"setCachedLambdaForm", "(ILjava/lang/invoke/LambdaForm;)Ljava/lang/invoke/LambdaForm;", nullptr, $PUBLIC | $SYNCHRONIZED, $method(MethodTypeForm, setCachedLambdaForm, $LambdaForm*, int32_t, $LambdaForm*)},
+	{"setCachedMethodHandle", "(ILjava/lang/invoke/MethodHandle;)Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC | $SYNCHRONIZED, $method(MethodTypeForm, setCachedMethodHandle, $MethodHandle*, int32_t, $MethodHandle*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MethodTypeForm, toString, $String*)},
 	{}
 };
 

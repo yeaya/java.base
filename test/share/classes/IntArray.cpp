@@ -18,7 +18,7 @@ $CompoundAttribute _IntArray_Annotations_[] = {
 };
 
 $MethodInfo _IntArray_MethodInfo_[] = {
-	{"value", "()[I", nullptr, $PUBLIC | $ABSTRACT},
+	{"value", "()[I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(IntArray, value, $ints*)},
 	{}
 };
 

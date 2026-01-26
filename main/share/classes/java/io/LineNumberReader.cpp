@@ -37,16 +37,16 @@ $FieldInfo _LineNumberReader_FieldInfo_[] = {
 };
 
 $MethodInfo _LineNumberReader_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/Reader;)V", nullptr, $PUBLIC, $method(static_cast<void(LineNumberReader::*)($Reader*)>(&LineNumberReader::init$))},
-	{"<init>", "(Ljava/io/Reader;I)V", nullptr, $PUBLIC, $method(static_cast<void(LineNumberReader::*)($Reader*,int32_t)>(&LineNumberReader::init$))},
-	{"getLineNumber", "()I", nullptr, $PUBLIC},
-	{"mark", "(I)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"read", "()I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"read", "([CII)I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"readLine", "()Ljava/lang/String;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"reset", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"setLineNumber", "(I)V", nullptr, $PUBLIC},
-	{"skip", "(J)J", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljava/io/Reader;)V", nullptr, $PUBLIC, $method(LineNumberReader, init$, void, $Reader*)},
+	{"<init>", "(Ljava/io/Reader;I)V", nullptr, $PUBLIC, $method(LineNumberReader, init$, void, $Reader*, int32_t)},
+	{"getLineNumber", "()I", nullptr, $PUBLIC, $virtualMethod(LineNumberReader, getLineNumber, int32_t)},
+	{"mark", "(I)V", nullptr, $PUBLIC, $virtualMethod(LineNumberReader, mark, void, int32_t), "java.io.IOException"},
+	{"read", "()I", nullptr, $PUBLIC, $virtualMethod(LineNumberReader, read, int32_t), "java.io.IOException"},
+	{"read", "([CII)I", nullptr, $PUBLIC, $virtualMethod(LineNumberReader, read, int32_t, $chars*, int32_t, int32_t), "java.io.IOException"},
+	{"readLine", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LineNumberReader, readLine, $String*), "java.io.IOException"},
+	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(LineNumberReader, reset, void), "java.io.IOException"},
+	{"setLineNumber", "(I)V", nullptr, $PUBLIC, $virtualMethod(LineNumberReader, setLineNumber, void, int32_t)},
+	{"skip", "(J)J", nullptr, $PUBLIC, $virtualMethod(LineNumberReader, skip, int64_t, int64_t), "java.io.IOException"},
 	{}
 };
 

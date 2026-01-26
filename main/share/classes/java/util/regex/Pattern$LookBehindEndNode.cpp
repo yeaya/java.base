@@ -26,8 +26,8 @@ $FieldInfo _Pattern$LookBehindEndNode_FieldInfo_[] = {
 };
 
 $MethodInfo _Pattern$LookBehindEndNode_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(Pattern$LookBehindEndNode::*)()>(&Pattern$LookBehindEndNode::init$))},
-	{"match", "(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z", nullptr, 0},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(Pattern$LookBehindEndNode, init$, void)},
+	{"match", "(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z", nullptr, 0, $virtualMethod(Pattern$LookBehindEndNode, match, bool, $Matcher*, int32_t, $CharSequence*)},
 	{}
 };
 

@@ -33,10 +33,10 @@ $FieldInfo _PublicMethods$Key_FieldInfo_[] = {
 };
 
 $MethodInfo _PublicMethods$Key_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/reflect/Method;)V", nullptr, 0, $method(static_cast<void(PublicMethods$Key::*)($Method*)>(&PublicMethods$Key::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"matches", "(Ljava/lang/reflect/Method;Ljava/lang/String;[Ljava/lang/Class;)Z", "(Ljava/lang/reflect/Method;Ljava/lang/String;[Ljava/lang/Class<*>;)Z", $STATIC, $method(static_cast<bool(*)($Method*,$String*,$ClassArray*)>(&PublicMethods$Key::matches))},
+	{"<init>", "(Ljava/lang/reflect/Method;)V", nullptr, 0, $method(PublicMethods$Key, init$, void, $Method*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(PublicMethods$Key, equals, bool, Object$*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(PublicMethods$Key, hashCode, int32_t)},
+	{"matches", "(Ljava/lang/reflect/Method;Ljava/lang/String;[Ljava/lang/Class;)Z", "(Ljava/lang/reflect/Method;Ljava/lang/String;[Ljava/lang/Class<*>;)Z", $STATIC, $staticMethod(PublicMethods$Key, matches, bool, $Method*, $String*, $ClassArray*)},
 	{}
 };
 

@@ -15,8 +15,8 @@ using $ServerSocket = ::java::net::ServerSocket;
 using $SocketImpl = ::java::net::SocketImpl;
 
 $MethodInfo _NullConstructor_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(NullConstructor::*)()>(&NullConstructor::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&NullConstructor::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(NullConstructor, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(NullConstructor, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

@@ -30,8 +30,8 @@ namespace jdk {
 		namespace logger {
 
 $MethodInfo _BootstrapLogger$DetectBackend$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(BootstrapLogger$DetectBackend$1::*)()>(&BootstrapLogger$DetectBackend$1::init$))},
-	{"run", "()Ljdk/internal/logger/BootstrapLogger$LoggingBackend;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(BootstrapLogger$DetectBackend$1, init$, void)},
+	{"run", "()Ljdk/internal/logger/BootstrapLogger$LoggingBackend;", nullptr, $PUBLIC, $virtualMethod(BootstrapLogger$DetectBackend$1, run, $Object*)},
 	{}
 };
 

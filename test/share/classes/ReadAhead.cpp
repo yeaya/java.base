@@ -19,11 +19,11 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _ReadAhead_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ReadAhead::*)()>(&ReadAhead::init$))},
-	{"fail", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($String*)>(&ReadAhead::fail)), "java.lang.Exception"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&ReadAhead::main)), "java.lang.Exception"},
-	{"test", "(Ljava/io/StreamTokenizer;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($StreamTokenizer*)>(&ReadAhead::test)), "java.lang.Exception"},
-	{"test", "(LReadAhead$StreamTokenizerMaker;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($ReadAhead$StreamTokenizerMaker*)>(&ReadAhead::test)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ReadAhead, init$, void)},
+	{"fail", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ReadAhead, fail, void, $String*), "java.lang.Exception"},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ReadAhead, main, void, $StringArray*), "java.lang.Exception"},
+	{"test", "(Ljava/io/StreamTokenizer;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ReadAhead, test, void, $StreamTokenizer*), "java.lang.Exception"},
+	{"test", "(LReadAhead$StreamTokenizerMaker;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ReadAhead, test, void, $ReadAhead$StreamTokenizerMaker*), "java.lang.Exception"},
 	{}
 };
 

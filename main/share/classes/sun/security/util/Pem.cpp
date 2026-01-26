@@ -22,8 +22,8 @@ namespace sun {
 		namespace util {
 
 $MethodInfo _Pem_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Pem::*)()>(&Pem::init$))},
-	{"decode", "(Ljava/lang/String;)[B", nullptr, $PUBLIC | $STATIC, $method(static_cast<$bytes*(*)($String*)>(&Pem::decode)), "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Pem, init$, void)},
+	{"decode", "(Ljava/lang/String;)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(Pem, decode, $bytes*, $String*), "java.io.IOException"},
 	{}
 };
 

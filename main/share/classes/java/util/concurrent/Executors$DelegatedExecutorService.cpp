@@ -35,20 +35,20 @@ $FieldInfo _Executors$DelegatedExecutorService_FieldInfo_[] = {
 };
 
 $MethodInfo _Executors$DelegatedExecutorService_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/ExecutorService;)V", nullptr, 0, $method(static_cast<void(Executors$DelegatedExecutorService::*)($ExecutorService*)>(&Executors$DelegatedExecutorService::init$))},
-	{"awaitTermination", "(JLjava/util/concurrent/TimeUnit;)Z", nullptr, $PUBLIC, nullptr, "java.lang.InterruptedException"},
-	{"execute", "(Ljava/lang/Runnable;)V", nullptr, $PUBLIC},
-	{"invokeAll", "(Ljava/util/Collection;)Ljava/util/List;", "<T:Ljava/lang/Object;>(Ljava/util/Collection<+Ljava/util/concurrent/Callable<TT;>;>;)Ljava/util/List<Ljava/util/concurrent/Future<TT;>;>;", $PUBLIC, nullptr, "java.lang.InterruptedException"},
-	{"invokeAll", "(Ljava/util/Collection;JLjava/util/concurrent/TimeUnit;)Ljava/util/List;", "<T:Ljava/lang/Object;>(Ljava/util/Collection<+Ljava/util/concurrent/Callable<TT;>;>;JLjava/util/concurrent/TimeUnit;)Ljava/util/List<Ljava/util/concurrent/Future<TT;>;>;", $PUBLIC, nullptr, "java.lang.InterruptedException"},
-	{"invokeAny", "(Ljava/util/Collection;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/util/Collection<+Ljava/util/concurrent/Callable<TT;>;>;)TT;", $PUBLIC, nullptr, "java.lang.InterruptedException,java.util.concurrent.ExecutionException"},
-	{"invokeAny", "(Ljava/util/Collection;JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/util/Collection<+Ljava/util/concurrent/Callable<TT;>;>;JLjava/util/concurrent/TimeUnit;)TT;", $PUBLIC, nullptr, "java.lang.InterruptedException,java.util.concurrent.ExecutionException,java.util.concurrent.TimeoutException"},
-	{"isShutdown", "()Z", nullptr, $PUBLIC},
-	{"isTerminated", "()Z", nullptr, $PUBLIC},
-	{"shutdown", "()V", nullptr, $PUBLIC},
-	{"shutdownNow", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/Runnable;>;", $PUBLIC},
-	{"submit", "(Ljava/lang/Runnable;)Ljava/util/concurrent/Future;", "(Ljava/lang/Runnable;)Ljava/util/concurrent/Future<*>;", $PUBLIC},
-	{"submit", "(Ljava/util/concurrent/Callable;)Ljava/util/concurrent/Future;", "<T:Ljava/lang/Object;>(Ljava/util/concurrent/Callable<TT;>;)Ljava/util/concurrent/Future<TT;>;", $PUBLIC},
-	{"submit", "(Ljava/lang/Runnable;Ljava/lang/Object;)Ljava/util/concurrent/Future;", "<T:Ljava/lang/Object;>(Ljava/lang/Runnable;TT;)Ljava/util/concurrent/Future<TT;>;", $PUBLIC},
+	{"<init>", "(Ljava/util/concurrent/ExecutorService;)V", nullptr, 0, $method(Executors$DelegatedExecutorService, init$, void, $ExecutorService*)},
+	{"awaitTermination", "(JLjava/util/concurrent/TimeUnit;)Z", nullptr, $PUBLIC, $virtualMethod(Executors$DelegatedExecutorService, awaitTermination, bool, int64_t, $TimeUnit*), "java.lang.InterruptedException"},
+	{"execute", "(Ljava/lang/Runnable;)V", nullptr, $PUBLIC, $virtualMethod(Executors$DelegatedExecutorService, execute, void, $Runnable*)},
+	{"invokeAll", "(Ljava/util/Collection;)Ljava/util/List;", "<T:Ljava/lang/Object;>(Ljava/util/Collection<+Ljava/util/concurrent/Callable<TT;>;>;)Ljava/util/List<Ljava/util/concurrent/Future<TT;>;>;", $PUBLIC, $virtualMethod(Executors$DelegatedExecutorService, invokeAll, $List*, $Collection*), "java.lang.InterruptedException"},
+	{"invokeAll", "(Ljava/util/Collection;JLjava/util/concurrent/TimeUnit;)Ljava/util/List;", "<T:Ljava/lang/Object;>(Ljava/util/Collection<+Ljava/util/concurrent/Callable<TT;>;>;JLjava/util/concurrent/TimeUnit;)Ljava/util/List<Ljava/util/concurrent/Future<TT;>;>;", $PUBLIC, $virtualMethod(Executors$DelegatedExecutorService, invokeAll, $List*, $Collection*, int64_t, $TimeUnit*), "java.lang.InterruptedException"},
+	{"invokeAny", "(Ljava/util/Collection;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/util/Collection<+Ljava/util/concurrent/Callable<TT;>;>;)TT;", $PUBLIC, $virtualMethod(Executors$DelegatedExecutorService, invokeAny, $Object*, $Collection*), "java.lang.InterruptedException,java.util.concurrent.ExecutionException"},
+	{"invokeAny", "(Ljava/util/Collection;JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/util/Collection<+Ljava/util/concurrent/Callable<TT;>;>;JLjava/util/concurrent/TimeUnit;)TT;", $PUBLIC, $virtualMethod(Executors$DelegatedExecutorService, invokeAny, $Object*, $Collection*, int64_t, $TimeUnit*), "java.lang.InterruptedException,java.util.concurrent.ExecutionException,java.util.concurrent.TimeoutException"},
+	{"isShutdown", "()Z", nullptr, $PUBLIC, $virtualMethod(Executors$DelegatedExecutorService, isShutdown, bool)},
+	{"isTerminated", "()Z", nullptr, $PUBLIC, $virtualMethod(Executors$DelegatedExecutorService, isTerminated, bool)},
+	{"shutdown", "()V", nullptr, $PUBLIC, $virtualMethod(Executors$DelegatedExecutorService, shutdown, void)},
+	{"shutdownNow", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/Runnable;>;", $PUBLIC, $virtualMethod(Executors$DelegatedExecutorService, shutdownNow, $List*)},
+	{"submit", "(Ljava/lang/Runnable;)Ljava/util/concurrent/Future;", "(Ljava/lang/Runnable;)Ljava/util/concurrent/Future<*>;", $PUBLIC, $virtualMethod(Executors$DelegatedExecutorService, submit, $Future*, $Runnable*)},
+	{"submit", "(Ljava/util/concurrent/Callable;)Ljava/util/concurrent/Future;", "<T:Ljava/lang/Object;>(Ljava/util/concurrent/Callable<TT;>;)Ljava/util/concurrent/Future<TT;>;", $PUBLIC, $virtualMethod(Executors$DelegatedExecutorService, submit, $Future*, $Callable*)},
+	{"submit", "(Ljava/lang/Runnable;Ljava/lang/Object;)Ljava/util/concurrent/Future;", "<T:Ljava/lang/Object;>(Ljava/lang/Runnable;TT;)Ljava/util/concurrent/Future<TT;>;", $PUBLIC, $virtualMethod(Executors$DelegatedExecutorService, submit, $Future*, $Runnable*, Object$*)},
 	{}
 };
 

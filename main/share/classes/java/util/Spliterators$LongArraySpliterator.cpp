@@ -35,16 +35,16 @@ $FieldInfo _Spliterators$LongArraySpliterator_FieldInfo_[] = {
 };
 
 $MethodInfo _Spliterators$LongArraySpliterator_MethodInfo_[] = {
-	{"<init>", "([JI)V", nullptr, $PUBLIC, $method(static_cast<void(Spliterators$LongArraySpliterator::*)($longs*,int32_t)>(&Spliterators$LongArraySpliterator::init$))},
-	{"<init>", "([JIII)V", nullptr, $PUBLIC, $method(static_cast<void(Spliterators$LongArraySpliterator::*)($longs*,int32_t,int32_t,int32_t)>(&Spliterators$LongArraySpliterator::init$))},
-	{"characteristics", "()I", nullptr, $PUBLIC},
-	{"estimateSize", "()J", nullptr, $PUBLIC},
-	{"forEachRemaining", "(Ljava/util/function/LongConsumer;)V", nullptr, $PUBLIC},
-	{"forEachRemaining", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"getComparator", "()Ljava/util/Comparator;", "()Ljava/util/Comparator<-Ljava/lang/Long;>;", $PUBLIC},
-	{"tryAdvance", "(Ljava/util/function/LongConsumer;)Z", nullptr, $PUBLIC},
-	{"tryAdvance", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"trySplit", "()Ljava/util/Spliterator$OfLong;", nullptr, $PUBLIC},
+	{"<init>", "([JI)V", nullptr, $PUBLIC, $method(Spliterators$LongArraySpliterator, init$, void, $longs*, int32_t)},
+	{"<init>", "([JIII)V", nullptr, $PUBLIC, $method(Spliterators$LongArraySpliterator, init$, void, $longs*, int32_t, int32_t, int32_t)},
+	{"characteristics", "()I", nullptr, $PUBLIC, $virtualMethod(Spliterators$LongArraySpliterator, characteristics, int32_t)},
+	{"estimateSize", "()J", nullptr, $PUBLIC, $virtualMethod(Spliterators$LongArraySpliterator, estimateSize, int64_t)},
+	{"forEachRemaining", "(Ljava/util/function/LongConsumer;)V", nullptr, $PUBLIC, $virtualMethod(Spliterators$LongArraySpliterator, forEachRemaining, void, $LongConsumer*)},
+	{"forEachRemaining", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Spliterators$LongArraySpliterator, forEachRemaining, void, Object$*)},
+	{"getComparator", "()Ljava/util/Comparator;", "()Ljava/util/Comparator<-Ljava/lang/Long;>;", $PUBLIC, $virtualMethod(Spliterators$LongArraySpliterator, getComparator, $Comparator*)},
+	{"tryAdvance", "(Ljava/util/function/LongConsumer;)Z", nullptr, $PUBLIC, $virtualMethod(Spliterators$LongArraySpliterator, tryAdvance, bool, $LongConsumer*)},
+	{"tryAdvance", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Spliterators$LongArraySpliterator, tryAdvance, bool, Object$*)},
+	{"trySplit", "()Ljava/util/Spliterator$OfLong;", nullptr, $PUBLIC, $virtualMethod(Spliterators$LongArraySpliterator, trySplit, $Spliterator$OfLong*)},
 	{}
 };
 

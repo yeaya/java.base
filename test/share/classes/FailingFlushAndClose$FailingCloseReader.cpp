@@ -19,9 +19,9 @@ $FieldInfo _FailingFlushAndClose$FailingCloseReader_FieldInfo_[] = {
 };
 
 $MethodInfo _FailingFlushAndClose$FailingCloseReader_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(FailingFlushAndClose$FailingCloseReader::*)()>(&FailingFlushAndClose$FailingCloseReader::init$))},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"read", "([CII)I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, 0, $method(FailingFlushAndClose$FailingCloseReader, init$, void)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(FailingFlushAndClose$FailingCloseReader, close, void), "java.io.IOException"},
+	{"read", "([CII)I", nullptr, $PUBLIC, $virtualMethod(FailingFlushAndClose$FailingCloseReader, read, int32_t, $chars*, int32_t, int32_t), "java.io.IOException"},
 	{}
 };
 

@@ -26,7 +26,7 @@ $FieldInfo _BidiBase$BracketData_FieldInfo_[] = {
 };
 
 $MethodInfo _BidiBase$BracketData_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(BidiBase$BracketData::*)()>(&BidiBase$BracketData::init$))},
+	{"<init>", "()V", nullptr, 0, $method(BidiBase$BracketData, init$, void)},
 	{}
 };
 

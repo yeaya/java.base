@@ -32,8 +32,8 @@ $FieldInfo _SSLContextImpl$CustomizedSSLProtocols_FieldInfo_[] = {
 };
 
 $MethodInfo _SSLContextImpl$CustomizedSSLProtocols_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(SSLContextImpl$CustomizedSSLProtocols::*)()>(&SSLContextImpl$CustomizedSSLProtocols::init$))},
-	{"populate", "(Ljava/lang/String;Ljava/util/ArrayList;)V", "(Ljava/lang/String;Ljava/util/ArrayList<Lsun/security/ssl/ProtocolVersion;>;)V", $PRIVATE | $STATIC, $method(static_cast<void(*)($String*,$ArrayList*)>(&SSLContextImpl$CustomizedSSLProtocols::populate))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(SSLContextImpl$CustomizedSSLProtocols, init$, void)},
+	{"populate", "(Ljava/lang/String;Ljava/util/ArrayList;)V", "(Ljava/lang/String;Ljava/util/ArrayList<Lsun/security/ssl/ProtocolVersion;>;)V", $PRIVATE | $STATIC, $staticMethod(SSLContextImpl$CustomizedSSLProtocols, populate, void, $String*, $ArrayList*)},
 	{}
 };
 

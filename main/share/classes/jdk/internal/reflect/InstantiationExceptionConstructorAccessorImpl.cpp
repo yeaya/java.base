@@ -20,8 +20,8 @@ $FieldInfo _InstantiationExceptionConstructorAccessorImpl_FieldInfo_[] = {
 };
 
 $MethodInfo _InstantiationExceptionConstructorAccessorImpl_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(InstantiationExceptionConstructorAccessorImpl::*)($String*)>(&InstantiationExceptionConstructorAccessorImpl::init$))},
-	{"newInstance", "([Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, nullptr, "java.lang.InstantiationException,java.lang.IllegalArgumentException,java.lang.reflect.InvocationTargetException"},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(InstantiationExceptionConstructorAccessorImpl, init$, void, $String*)},
+	{"newInstance", "([Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(InstantiationExceptionConstructorAccessorImpl, newInstance, $Object*, $ObjectArray*), "java.lang.InstantiationException,java.lang.IllegalArgumentException,java.lang.reflect.InvocationTargetException"},
 	{}
 };
 

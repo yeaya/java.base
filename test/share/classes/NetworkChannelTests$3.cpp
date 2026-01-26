@@ -15,8 +15,8 @@ using $MulticastChannel = ::java::nio::channels::MulticastChannel;
 using $NetworkChannel = ::java::nio::channels::NetworkChannel;
 
 $MethodInfo _NetworkChannelTests$3_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(NetworkChannelTests$3::*)()>(&NetworkChannelTests$3::init$))},
-	{"open", "()Ljava/nio/channels/NetworkChannel;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, 0, $method(NetworkChannelTests$3, init$, void)},
+	{"open", "()Ljava/nio/channels/NetworkChannel;", nullptr, $PUBLIC, $virtualMethod(NetworkChannelTests$3, open, $NetworkChannel*), "java.io.IOException"},
 	{}
 };
 

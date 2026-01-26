@@ -16,7 +16,7 @@ $FieldInfo _InetAddressContainer_FieldInfo_[] = {
 };
 
 $MethodInfo _InetAddressContainer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(InetAddressContainer::*)()>(&InetAddressContainer::init$))},
+	{"<init>", "()V", nullptr, 0, $method(InetAddressContainer, init$, void)},
 	{}
 };
 

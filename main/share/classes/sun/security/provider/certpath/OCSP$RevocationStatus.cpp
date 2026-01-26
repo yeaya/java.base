@@ -10,6 +10,10 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $CRLReason = ::java::security::cert::CRLReason;
+using $Date = ::java::util::Date;
+using $Map = ::java::util::Map;
+using $OCSP$RevocationStatus$CertStatus = ::sun::security::provider::certpath::OCSP$RevocationStatus$CertStatus;
 
 namespace sun {
 	namespace security {
@@ -17,10 +21,10 @@ namespace sun {
 			namespace certpath {
 
 $MethodInfo _OCSP$RevocationStatus_MethodInfo_[] = {
-	{"getCertStatus", "()Lsun/security/provider/certpath/OCSP$RevocationStatus$CertStatus;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getRevocationReason", "()Ljava/security/cert/CRLReason;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getRevocationTime", "()Ljava/util/Date;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getSingleExtensions", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/security/cert/Extension;>;", $PUBLIC | $ABSTRACT},
+	{"getCertStatus", "()Lsun/security/provider/certpath/OCSP$RevocationStatus$CertStatus;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(OCSP$RevocationStatus, getCertStatus, $OCSP$RevocationStatus$CertStatus*)},
+	{"getRevocationReason", "()Ljava/security/cert/CRLReason;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(OCSP$RevocationStatus, getRevocationReason, $CRLReason*)},
+	{"getRevocationTime", "()Ljava/util/Date;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(OCSP$RevocationStatus, getRevocationTime, $Date*)},
+	{"getSingleExtensions", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/security/cert/Extension;>;", $PUBLIC | $ABSTRACT, $virtualMethod(OCSP$RevocationStatus, getSingleExtensions, $Map*)},
 	{}
 };
 

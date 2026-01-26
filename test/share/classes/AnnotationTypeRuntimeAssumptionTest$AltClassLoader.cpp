@@ -17,9 +17,9 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _AnnotationTypeRuntimeAssumptionTest$AltClassLoader_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/ClassLoader;)V", nullptr, 0, $method(static_cast<void(AnnotationTypeRuntimeAssumptionTest$AltClassLoader::*)($ClassLoader*)>(&AnnotationTypeRuntimeAssumptionTest$AltClassLoader::init$))},
-	{"findClass", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $PROTECTED, nullptr, "java.lang.ClassNotFoundException"},
-	{"loadClass", "(Ljava/lang/String;Z)Ljava/lang/Class;", "(Ljava/lang/String;Z)Ljava/lang/Class<*>;", $PROTECTED, nullptr, "java.lang.ClassNotFoundException"},
+	{"<init>", "(Ljava/lang/ClassLoader;)V", nullptr, 0, $method(AnnotationTypeRuntimeAssumptionTest$AltClassLoader, init$, void, $ClassLoader*)},
+	{"findClass", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $PROTECTED, $virtualMethod(AnnotationTypeRuntimeAssumptionTest$AltClassLoader, findClass, $Class*, $String*), "java.lang.ClassNotFoundException"},
+	{"loadClass", "(Ljava/lang/String;Z)Ljava/lang/Class;", "(Ljava/lang/String;Z)Ljava/lang/Class<*>;", $PROTECTED, $virtualMethod(AnnotationTypeRuntimeAssumptionTest$AltClassLoader, loadClass, $Class*, $String*, bool), "java.lang.ClassNotFoundException"},
 	{}
 };
 

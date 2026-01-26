@@ -11,10 +11,10 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 
 $MethodInfo _ReadOffset$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ReadOffset$1::*)()>(&ReadOffset$1::init$))},
-	{"close", "()V", nullptr, $PUBLIC},
-	{"isOpen", "()Z", nullptr, $PUBLIC},
-	{"read", "(Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(ReadOffset$1, init$, void)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(ReadOffset$1, close, void)},
+	{"isOpen", "()Z", nullptr, $PUBLIC, $virtualMethod(ReadOffset$1, isOpen, bool)},
+	{"read", "(Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC, $virtualMethod(ReadOffset$1, read, int32_t, $ByteBuffer*)},
 	{}
 };
 

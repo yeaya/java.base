@@ -43,16 +43,16 @@ $FieldInfo _ZoneRegion_FieldInfo_[] = {
 };
 
 $MethodInfo _ZoneRegion_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/time/zone/ZoneRules;)V", nullptr, 0, $method(static_cast<void(ZoneRegion::*)($String*,$ZoneRules*)>(&ZoneRegion::init$))},
-	{"checkName", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($String*)>(&ZoneRegion::checkName))},
-	{"getId", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getRules", "()Ljava/time/zone/ZoneRules;", nullptr, $PUBLIC},
-	{"ofId", "(Ljava/lang/String;Z)Ljava/time/ZoneRegion;", nullptr, $STATIC, $method(static_cast<ZoneRegion*(*)($String*,bool)>(&ZoneRegion::ofId))},
-	{"readExternal", "(Ljava/io/DataInput;)Ljava/time/ZoneId;", nullptr, $STATIC, $method(static_cast<$ZoneId*(*)($DataInput*)>(&ZoneRegion::readExternal)), "java.io.IOException"},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(ZoneRegion::*)($ObjectInputStream*)>(&ZoneRegion::readObject)), "java.io.InvalidObjectException"},
-	{"write", "(Ljava/io/DataOutput;)V", nullptr, 0, nullptr, "java.io.IOException"},
-	{"writeExternal", "(Ljava/io/DataOutput;)V", nullptr, 0, $method(static_cast<void(ZoneRegion::*)($DataOutput*)>(&ZoneRegion::writeExternal)), "java.io.IOException"},
-	{"writeReplace", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(static_cast<$Object*(ZoneRegion::*)()>(&ZoneRegion::writeReplace))},
+	{"<init>", "(Ljava/lang/String;Ljava/time/zone/ZoneRules;)V", nullptr, 0, $method(ZoneRegion, init$, void, $String*, $ZoneRules*)},
+	{"checkName", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ZoneRegion, checkName, void, $String*)},
+	{"getId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ZoneRegion, getId, $String*)},
+	{"getRules", "()Ljava/time/zone/ZoneRules;", nullptr, $PUBLIC, $virtualMethod(ZoneRegion, getRules, $ZoneRules*)},
+	{"ofId", "(Ljava/lang/String;Z)Ljava/time/ZoneRegion;", nullptr, $STATIC, $staticMethod(ZoneRegion, ofId, ZoneRegion*, $String*, bool)},
+	{"readExternal", "(Ljava/io/DataInput;)Ljava/time/ZoneId;", nullptr, $STATIC, $staticMethod(ZoneRegion, readExternal, $ZoneId*, $DataInput*), "java.io.IOException"},
+	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(ZoneRegion, readObject, void, $ObjectInputStream*), "java.io.InvalidObjectException"},
+	{"write", "(Ljava/io/DataOutput;)V", nullptr, 0, $virtualMethod(ZoneRegion, write, void, $DataOutput*), "java.io.IOException"},
+	{"writeExternal", "(Ljava/io/DataOutput;)V", nullptr, 0, $method(ZoneRegion, writeExternal, void, $DataOutput*), "java.io.IOException"},
+	{"writeReplace", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(ZoneRegion, writeReplace, $Object*)},
 	{}
 };
 

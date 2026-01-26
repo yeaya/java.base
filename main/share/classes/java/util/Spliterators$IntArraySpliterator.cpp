@@ -35,16 +35,16 @@ $FieldInfo _Spliterators$IntArraySpliterator_FieldInfo_[] = {
 };
 
 $MethodInfo _Spliterators$IntArraySpliterator_MethodInfo_[] = {
-	{"<init>", "([II)V", nullptr, $PUBLIC, $method(static_cast<void(Spliterators$IntArraySpliterator::*)($ints*,int32_t)>(&Spliterators$IntArraySpliterator::init$))},
-	{"<init>", "([IIII)V", nullptr, $PUBLIC, $method(static_cast<void(Spliterators$IntArraySpliterator::*)($ints*,int32_t,int32_t,int32_t)>(&Spliterators$IntArraySpliterator::init$))},
-	{"characteristics", "()I", nullptr, $PUBLIC},
-	{"estimateSize", "()J", nullptr, $PUBLIC},
-	{"forEachRemaining", "(Ljava/util/function/IntConsumer;)V", nullptr, $PUBLIC},
-	{"forEachRemaining", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"getComparator", "()Ljava/util/Comparator;", "()Ljava/util/Comparator<-Ljava/lang/Integer;>;", $PUBLIC},
-	{"tryAdvance", "(Ljava/util/function/IntConsumer;)Z", nullptr, $PUBLIC},
-	{"tryAdvance", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"trySplit", "()Ljava/util/Spliterator$OfInt;", nullptr, $PUBLIC},
+	{"<init>", "([II)V", nullptr, $PUBLIC, $method(Spliterators$IntArraySpliterator, init$, void, $ints*, int32_t)},
+	{"<init>", "([IIII)V", nullptr, $PUBLIC, $method(Spliterators$IntArraySpliterator, init$, void, $ints*, int32_t, int32_t, int32_t)},
+	{"characteristics", "()I", nullptr, $PUBLIC, $virtualMethod(Spliterators$IntArraySpliterator, characteristics, int32_t)},
+	{"estimateSize", "()J", nullptr, $PUBLIC, $virtualMethod(Spliterators$IntArraySpliterator, estimateSize, int64_t)},
+	{"forEachRemaining", "(Ljava/util/function/IntConsumer;)V", nullptr, $PUBLIC, $virtualMethod(Spliterators$IntArraySpliterator, forEachRemaining, void, $IntConsumer*)},
+	{"forEachRemaining", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Spliterators$IntArraySpliterator, forEachRemaining, void, Object$*)},
+	{"getComparator", "()Ljava/util/Comparator;", "()Ljava/util/Comparator<-Ljava/lang/Integer;>;", $PUBLIC, $virtualMethod(Spliterators$IntArraySpliterator, getComparator, $Comparator*)},
+	{"tryAdvance", "(Ljava/util/function/IntConsumer;)Z", nullptr, $PUBLIC, $virtualMethod(Spliterators$IntArraySpliterator, tryAdvance, bool, $IntConsumer*)},
+	{"tryAdvance", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Spliterators$IntArraySpliterator, tryAdvance, bool, Object$*)},
+	{"trySplit", "()Ljava/util/Spliterator$OfInt;", nullptr, $PUBLIC, $virtualMethod(Spliterators$IntArraySpliterator, trySplit, $Spliterator$OfInt*)},
 	{}
 };
 

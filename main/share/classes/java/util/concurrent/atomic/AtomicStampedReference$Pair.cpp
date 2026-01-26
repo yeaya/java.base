@@ -20,8 +20,8 @@ $FieldInfo _AtomicStampedReference$Pair_FieldInfo_[] = {
 };
 
 $MethodInfo _AtomicStampedReference$Pair_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;I)V", "(TT;I)V", $PRIVATE, $method(static_cast<void(AtomicStampedReference$Pair::*)(Object$*,int32_t)>(&AtomicStampedReference$Pair::init$))},
-	{"of", "(Ljava/lang/Object;I)Ljava/util/concurrent/atomic/AtomicStampedReference$Pair;", "<T:Ljava/lang/Object;>(TT;I)Ljava/util/concurrent/atomic/AtomicStampedReference$Pair<TT;>;", $STATIC, $method(static_cast<AtomicStampedReference$Pair*(*)(Object$*,int32_t)>(&AtomicStampedReference$Pair::of))},
+	{"<init>", "(Ljava/lang/Object;I)V", "(TT;I)V", $PRIVATE, $method(AtomicStampedReference$Pair, init$, void, Object$*, int32_t)},
+	{"of", "(Ljava/lang/Object;I)Ljava/util/concurrent/atomic/AtomicStampedReference$Pair;", "<T:Ljava/lang/Object;>(TT;I)Ljava/util/concurrent/atomic/AtomicStampedReference$Pair<TT;>;", $STATIC, $staticMethod(AtomicStampedReference$Pair, of, AtomicStampedReference$Pair*, Object$*, int32_t)},
 	{}
 };
 

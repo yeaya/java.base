@@ -21,10 +21,10 @@ $FieldInfo _Constructors_FieldInfo_[] = {
 };
 
 $MethodInfo _Constructors_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Constructors::*)()>(&Constructors::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Constructors::main)), "java.lang.Exception"},
-	{"run", "()V", nullptr, $PUBLIC},
-	{"testPipe", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&Constructors::testPipe)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Constructors, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Constructors, main, void, $StringArray*), "java.lang.Exception"},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Constructors, run, void)},
+	{"testPipe", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(Constructors, testPipe, void), "java.lang.Exception"},
 	{}
 };
 

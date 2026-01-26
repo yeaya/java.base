@@ -70,18 +70,18 @@ $FieldInfo _ZoneRulesProvider_FieldInfo_[] = {
 };
 
 $MethodInfo _ZoneRulesProvider_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(ZoneRulesProvider::*)()>(&ZoneRulesProvider::init$))},
-	{"getAvailableZoneIds", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC | $STATIC, $method(static_cast<$Set*(*)()>(&ZoneRulesProvider::getAvailableZoneIds))},
-	{"getProvider", "(Ljava/lang/String;)Ljava/time/zone/ZoneRulesProvider;", nullptr, $PRIVATE | $STATIC, $method(static_cast<ZoneRulesProvider*(*)($String*)>(&ZoneRulesProvider::getProvider))},
-	{"getRules", "(Ljava/lang/String;Z)Ljava/time/zone/ZoneRules;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$ZoneRules*(*)($String*,bool)>(&ZoneRulesProvider::getRules))},
-	{"getVersions", "(Ljava/lang/String;)Ljava/util/NavigableMap;", "(Ljava/lang/String;)Ljava/util/NavigableMap<Ljava/lang/String;Ljava/time/zone/ZoneRules;>;", $PUBLIC | $STATIC, $method(static_cast<$NavigableMap*(*)($String*)>(&ZoneRulesProvider::getVersions))},
-	{"provideRefresh", "()Z", nullptr, $PROTECTED},
-	{"provideRules", "(Ljava/lang/String;Z)Ljava/time/zone/ZoneRules;", nullptr, $PROTECTED | $ABSTRACT},
-	{"provideVersions", "(Ljava/lang/String;)Ljava/util/NavigableMap;", "(Ljava/lang/String;)Ljava/util/NavigableMap<Ljava/lang/String;Ljava/time/zone/ZoneRules;>;", $PROTECTED | $ABSTRACT},
-	{"provideZoneIds", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PROTECTED | $ABSTRACT},
-	{"refresh", "()Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)()>(&ZoneRulesProvider::refresh))},
-	{"registerProvider", "(Ljava/time/zone/ZoneRulesProvider;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)(ZoneRulesProvider*)>(&ZoneRulesProvider::registerProvider))},
-	{"registerProvider0", "(Ljava/time/zone/ZoneRulesProvider;)V", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $method(static_cast<void(*)(ZoneRulesProvider*)>(&ZoneRulesProvider::registerProvider0))},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(ZoneRulesProvider, init$, void)},
+	{"getAvailableZoneIds", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC | $STATIC, $staticMethod(ZoneRulesProvider, getAvailableZoneIds, $Set*)},
+	{"getProvider", "(Ljava/lang/String;)Ljava/time/zone/ZoneRulesProvider;", nullptr, $PRIVATE | $STATIC, $staticMethod(ZoneRulesProvider, getProvider, ZoneRulesProvider*, $String*)},
+	{"getRules", "(Ljava/lang/String;Z)Ljava/time/zone/ZoneRules;", nullptr, $PUBLIC | $STATIC, $staticMethod(ZoneRulesProvider, getRules, $ZoneRules*, $String*, bool)},
+	{"getVersions", "(Ljava/lang/String;)Ljava/util/NavigableMap;", "(Ljava/lang/String;)Ljava/util/NavigableMap<Ljava/lang/String;Ljava/time/zone/ZoneRules;>;", $PUBLIC | $STATIC, $staticMethod(ZoneRulesProvider, getVersions, $NavigableMap*, $String*)},
+	{"provideRefresh", "()Z", nullptr, $PROTECTED, $virtualMethod(ZoneRulesProvider, provideRefresh, bool)},
+	{"provideRules", "(Ljava/lang/String;Z)Ljava/time/zone/ZoneRules;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(ZoneRulesProvider, provideRules, $ZoneRules*, $String*, bool)},
+	{"provideVersions", "(Ljava/lang/String;)Ljava/util/NavigableMap;", "(Ljava/lang/String;)Ljava/util/NavigableMap<Ljava/lang/String;Ljava/time/zone/ZoneRules;>;", $PROTECTED | $ABSTRACT, $virtualMethod(ZoneRulesProvider, provideVersions, $NavigableMap*, $String*)},
+	{"provideZoneIds", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PROTECTED | $ABSTRACT, $virtualMethod(ZoneRulesProvider, provideZoneIds, $Set*)},
+	{"refresh", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(ZoneRulesProvider, refresh, bool)},
+	{"registerProvider", "(Ljava/time/zone/ZoneRulesProvider;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ZoneRulesProvider, registerProvider, void, ZoneRulesProvider*)},
+	{"registerProvider0", "(Ljava/time/zone/ZoneRulesProvider;)V", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(ZoneRulesProvider, registerProvider0, void, ZoneRulesProvider*)},
 	{}
 };
 

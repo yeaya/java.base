@@ -16,8 +16,8 @@ namespace jdk {
 		namespace jimage {
 
 $MethodInfo _ImageBufferCache$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ImageBufferCache$1::*)()>(&ImageBufferCache$1::init$))},
-	{"initialValue", "()[Ljava/util/Map$Entry;", "()[Ljava/util/Map$Entry<Ljava/lang/ref/WeakReference<Ljava/nio/ByteBuffer;>;Ljava/lang/Integer;>;", $PROTECTED},
+	{"<init>", "()V", nullptr, 0, $method(ImageBufferCache$1, init$, void)},
+	{"initialValue", "()[Ljava/util/Map$Entry;", "()[Ljava/util/Map$Entry<Ljava/lang/ref/WeakReference<Ljava/nio/ByteBuffer;>;Ljava/lang/Integer;>;", $PROTECTED, $virtualMethod(ImageBufferCache$1, initialValue, $Object*)},
 	{}
 };
 

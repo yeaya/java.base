@@ -32,8 +32,8 @@ $FieldInfo _ClientHandshakeContext_FieldInfo_[] = {
 };
 
 $MethodInfo _ClientHandshakeContext_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/ssl/SSLContextImpl;Lsun/security/ssl/TransportContext;)V", nullptr, 0, $method(static_cast<void(ClientHandshakeContext::*)($SSLContextImpl*,$TransportContext*)>(&ClientHandshakeContext::init$)), "java.io.IOException"},
-	{"kickstart", "()V", nullptr, 0, nullptr, "java.io.IOException"},
+	{"<init>", "(Lsun/security/ssl/SSLContextImpl;Lsun/security/ssl/TransportContext;)V", nullptr, 0, $method(ClientHandshakeContext, init$, void, $SSLContextImpl*, $TransportContext*), "java.io.IOException"},
+	{"kickstart", "()V", nullptr, 0, $virtualMethod(ClientHandshakeContext, kickstart, void), "java.io.IOException"},
 	{}
 };
 

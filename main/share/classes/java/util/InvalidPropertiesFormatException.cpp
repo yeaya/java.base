@@ -23,10 +23,10 @@ $FieldInfo _InvalidPropertiesFormatException_FieldInfo_[] = {
 };
 
 $MethodInfo _InvalidPropertiesFormatException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(InvalidPropertiesFormatException::*)($Throwable*)>(&InvalidPropertiesFormatException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(InvalidPropertiesFormatException::*)($String*)>(&InvalidPropertiesFormatException::init$))},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(InvalidPropertiesFormatException::*)($ObjectInputStream*)>(&InvalidPropertiesFormatException::readObject)), "java.io.NotSerializableException"},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(InvalidPropertiesFormatException::*)($ObjectOutputStream*)>(&InvalidPropertiesFormatException::writeObject)), "java.io.NotSerializableException"},
+	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(InvalidPropertiesFormatException, init$, void, $Throwable*)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InvalidPropertiesFormatException, init$, void, $String*)},
+	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(InvalidPropertiesFormatException, readObject, void, $ObjectInputStream*), "java.io.NotSerializableException"},
+	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(InvalidPropertiesFormatException, writeObject, void, $ObjectOutputStream*), "java.io.NotSerializableException"},
 	{}
 };
 

@@ -32,12 +32,12 @@ $MethodInfo _WeakHashMap$KeySpliterator_MethodInfo_[] = {
 	{"*estimateSize", "()J", nullptr, $PUBLIC | $FINAL},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/util/WeakHashMap;IIII)V", "(Ljava/util/WeakHashMap<TK;TV;>;IIII)V", 0, $method(static_cast<void(WeakHashMap$KeySpliterator::*)($WeakHashMap*,int32_t,int32_t,int32_t,int32_t)>(&WeakHashMap$KeySpliterator::init$))},
-	{"characteristics", "()I", nullptr, $PUBLIC},
-	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TK;>;)V", $PUBLIC},
+	{"<init>", "(Ljava/util/WeakHashMap;IIII)V", "(Ljava/util/WeakHashMap<TK;TV;>;IIII)V", 0, $method(WeakHashMap$KeySpliterator, init$, void, $WeakHashMap*, int32_t, int32_t, int32_t, int32_t)},
+	{"characteristics", "()I", nullptr, $PUBLIC, $virtualMethod(WeakHashMap$KeySpliterator, characteristics, int32_t)},
+	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TK;>;)V", $PUBLIC, $virtualMethod(WeakHashMap$KeySpliterator, forEachRemaining, void, $Consumer*)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-TK;>;)Z", $PUBLIC},
-	{"trySplit", "()Ljava/util/WeakHashMap$KeySpliterator;", "()Ljava/util/WeakHashMap$KeySpliterator<TK;TV;>;", $PUBLIC},
+	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-TK;>;)Z", $PUBLIC, $virtualMethod(WeakHashMap$KeySpliterator, tryAdvance, bool, $Consumer*)},
+	{"trySplit", "()Ljava/util/WeakHashMap$KeySpliterator;", "()Ljava/util/WeakHashMap$KeySpliterator<TK;TV;>;", $PUBLIC, $virtualMethod(WeakHashMap$KeySpliterator, trySplit, $Spliterator*)},
 	{}
 };
 

@@ -27,11 +27,11 @@ $FieldInfo _CodePointTrie$Data8_FieldInfo_[] = {
 };
 
 $MethodInfo _CodePointTrie$Data8_MethodInfo_[] = {
-	{"<init>", "([B)V", nullptr, 0, $method(static_cast<void(CodePointTrie$Data8::*)($bytes*)>(&CodePointTrie$Data8::init$))},
-	{"getDataLength", "()I", nullptr, 0},
-	{"getFromIndex", "(I)I", nullptr, 0},
-	{"getValueWidth", "()Ljdk/internal/icu/util/CodePointTrie$ValueWidth;", nullptr, 0},
-	{"write", "(Ljava/io/DataOutputStream;)I", nullptr, 0, nullptr, "java.io.IOException"},
+	{"<init>", "([B)V", nullptr, 0, $method(CodePointTrie$Data8, init$, void, $bytes*)},
+	{"getDataLength", "()I", nullptr, 0, $virtualMethod(CodePointTrie$Data8, getDataLength, int32_t)},
+	{"getFromIndex", "(I)I", nullptr, 0, $virtualMethod(CodePointTrie$Data8, getFromIndex, int32_t, int32_t)},
+	{"getValueWidth", "()Ljdk/internal/icu/util/CodePointTrie$ValueWidth;", nullptr, 0, $virtualMethod(CodePointTrie$Data8, getValueWidth, $CodePointTrie$ValueWidth*)},
+	{"write", "(Ljava/io/DataOutputStream;)I", nullptr, 0, $virtualMethod(CodePointTrie$Data8, write, int32_t, $DataOutputStream*), "java.io.IOException"},
 	{}
 };
 

@@ -52,11 +52,13 @@ using $Objects = ::java::util::Objects;
 using $Condition = ::java::util::concurrent::locks::Condition;
 using $ReentrantLock = ::java::util::concurrent::locks::ReentrantLock;
 using $Function = ::java::util::function::Function;
+using $HeaderParser = ::sun::net::www::HeaderParser;
 using $AuthCache = ::sun::net::www::protocol::http::AuthCache;
 using $AuthCacheValue = ::sun::net::www::protocol::http::AuthCacheValue;
 using $AuthCacheValue$Type = ::sun::net::www::protocol::http::AuthCacheValue$Type;
 using $AuthScheme = ::sun::net::www::protocol::http::AuthScheme;
 using $AuthenticatorKeys = ::sun::net::www::protocol::http::AuthenticatorKeys;
+using $HttpURLConnection = ::sun::net::www::protocol::http::HttpURLConnection;
 using $GetBooleanAction = ::sun::security::action::GetBooleanAction;
 
 namespace sun {
@@ -80,8 +82,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo AuthenticationInfo$$Lambda$getCachedServerAuth::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(AuthenticationInfo$$Lambda$getCachedServerAuth::*)()>(&AuthenticationInfo$$Lambda$getCachedServerAuth::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(AuthenticationInfo$$Lambda$getCachedServerAuth, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AuthenticationInfo$$Lambda$getCachedServerAuth, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo AuthenticationInfo$$Lambda$getCachedServerAuth::classInfo$ = {
@@ -113,8 +115,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo AuthenticationInfo$$Lambda$getCachedProxyAuth$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(AuthenticationInfo$$Lambda$getCachedProxyAuth$1::*)()>(&AuthenticationInfo$$Lambda$getCachedProxyAuth$1::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(AuthenticationInfo$$Lambda$getCachedProxyAuth$1, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AuthenticationInfo$$Lambda$getCachedProxyAuth$1, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo AuthenticationInfo$$Lambda$getCachedProxyAuth$1::classInfo$ = {
@@ -158,43 +160,43 @@ $MethodInfo _AuthenticationInfo_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(CLsun/net/www/protocol/http/AuthScheme;Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(AuthenticationInfo::*)(char16_t,$AuthScheme*,$String*,int32_t,$String*,$String*)>(&AuthenticationInfo::init$))},
-	{"<init>", "(CLsun/net/www/protocol/http/AuthScheme;Ljava/net/URL;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(AuthenticationInfo::*)(char16_t,$AuthScheme*,$URL*,$String*,$String*)>(&AuthenticationInfo::init$))},
-	{"addToCache", "()V", nullptr, 0},
-	{"cacheKey", "(Z)Ljava/lang/String;", nullptr, 0},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"credentials", "()Ljava/net/PasswordAuthentication;", nullptr, $PUBLIC},
-	{"endAuthRequest", "(Ljava/lang/String;)V", nullptr, $STATIC, $method(static_cast<void(*)($String*)>(&AuthenticationInfo::endAuthRequest))},
-	{"getAuth", "(Ljava/lang/String;Ljava/net/URL;)Lsun/net/www/protocol/http/AuthenticationInfo;", nullptr, $STATIC, $method(static_cast<AuthenticationInfo*(*)($String*,$URL*)>(&AuthenticationInfo::getAuth))},
-	{"getAuthScheme", "()Lsun/net/www/protocol/http/AuthScheme;", nullptr, 0},
-	{"getAuthType", "()Lsun/net/www/protocol/http/AuthCacheValue$Type;", nullptr, $PUBLIC},
-	{"getAuthenticatorKey", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$String*(AuthenticationInfo::*)()>(&AuthenticationInfo::getAuthenticatorKey))},
-	{"getCachedProxyAuth", "(Ljava/lang/String;)Lsun/net/www/protocol/http/AuthenticationInfo;", nullptr, $PRIVATE | $STATIC, $method(static_cast<AuthenticationInfo*(*)($String*)>(&AuthenticationInfo::getCachedProxyAuth))},
-	{"getCachedServerAuth", "(Ljava/lang/String;)Lsun/net/www/protocol/http/AuthenticationInfo;", nullptr, $PRIVATE | $STATIC, $method(static_cast<AuthenticationInfo*(*)($String*)>(&AuthenticationInfo::getCachedServerAuth))},
-	{"getHeaderName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getHeaderValue", "(Ljava/net/URL;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getHost", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getPath", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getPort", "()I", nullptr, $PUBLIC},
-	{"getProtocolScheme", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getProxyAuth", "(Ljava/lang/String;ILjava/lang/String;)Lsun/net/www/protocol/http/AuthenticationInfo;", nullptr, $STATIC, $method(static_cast<AuthenticationInfo*(*)($String*,int32_t,$String*)>(&AuthenticationInfo::getProxyAuth))},
-	{"getProxyAuth", "(Ljava/lang/String;)Lsun/net/www/protocol/http/AuthenticationInfo;", nullptr, $STATIC, $method(static_cast<AuthenticationInfo*(*)($String*)>(&AuthenticationInfo::getProxyAuth))},
-	{"getProxyAuthKey", "(Ljava/lang/String;ILjava/lang/String;Lsun/net/www/protocol/http/AuthScheme;Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $method(static_cast<$String*(*)($String*,int32_t,$String*,$AuthScheme*,$String*)>(&AuthenticationInfo::getProxyAuthKey))},
-	{"getRealm", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getServerAuth", "(Ljava/net/URL;Ljava/lang/String;)Lsun/net/www/protocol/http/AuthenticationInfo;", nullptr, $STATIC, $method(static_cast<AuthenticationInfo*(*)($URL*,$String*)>(&AuthenticationInfo::getServerAuth))},
-	{"getServerAuth", "(Ljava/lang/String;)Lsun/net/www/protocol/http/AuthenticationInfo;", nullptr, $STATIC, $method(static_cast<AuthenticationInfo*(*)($String*)>(&AuthenticationInfo::getServerAuth))},
-	{"getServerAuthKey", "(Ljava/net/URL;Ljava/lang/String;Lsun/net/www/protocol/http/AuthScheme;Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $method(static_cast<$String*(*)($URL*,$String*,$AuthScheme*,$String*)>(&AuthenticationInfo::getServerAuthKey))},
-	{"isAuthorizationStale", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(static_cast<void(AuthenticationInfo::*)($ObjectInputStream*)>(&AuthenticationInfo::readObject)), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"reducePath", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $method(static_cast<$String*(*)($String*)>(&AuthenticationInfo::reducePath))},
-	{"removeFromCache", "()V", nullptr, 0},
-	{"requestAuthentication", "(Ljava/lang/String;Ljava/util/function/Function;)Lsun/net/www/protocol/http/AuthenticationInfo;", "(Ljava/lang/String;Ljava/util/function/Function<Ljava/lang/String;Lsun/net/www/protocol/http/AuthenticationInfo;>;)Lsun/net/www/protocol/http/AuthenticationInfo;", $PRIVATE | $STATIC, $method(static_cast<AuthenticationInfo*(*)($String*,$Function*)>(&AuthenticationInfo::requestAuthentication))},
-	{"requestCompleted", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($String*)>(&AuthenticationInfo::requestCompleted))},
-	{"setHeaders", "(Lsun/net/www/protocol/http/HttpURLConnection;Lsun/net/www/HeaderParser;Ljava/lang/String;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"supportsPreemptiveAuthorization", "()Z", nullptr, $PUBLIC | $ABSTRACT},
+	{"<init>", "(CLsun/net/www/protocol/http/AuthScheme;Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(AuthenticationInfo, init$, void, char16_t, $AuthScheme*, $String*, int32_t, $String*, $String*)},
+	{"<init>", "(CLsun/net/www/protocol/http/AuthScheme;Ljava/net/URL;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(AuthenticationInfo, init$, void, char16_t, $AuthScheme*, $URL*, $String*, $String*)},
+	{"addToCache", "()V", nullptr, 0, $virtualMethod(AuthenticationInfo, addToCache, void)},
+	{"cacheKey", "(Z)Ljava/lang/String;", nullptr, 0, $virtualMethod(AuthenticationInfo, cacheKey, $String*, bool)},
+	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AuthenticationInfo, clone, $Object*)},
+	{"credentials", "()Ljava/net/PasswordAuthentication;", nullptr, $PUBLIC, $virtualMethod(AuthenticationInfo, credentials, $PasswordAuthentication*)},
+	{"endAuthRequest", "(Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(AuthenticationInfo, endAuthRequest, void, $String*)},
+	{"getAuth", "(Ljava/lang/String;Ljava/net/URL;)Lsun/net/www/protocol/http/AuthenticationInfo;", nullptr, $STATIC, $staticMethod(AuthenticationInfo, getAuth, AuthenticationInfo*, $String*, $URL*)},
+	{"getAuthScheme", "()Lsun/net/www/protocol/http/AuthScheme;", nullptr, 0, $virtualMethod(AuthenticationInfo, getAuthScheme, $AuthScheme*)},
+	{"getAuthType", "()Lsun/net/www/protocol/http/AuthCacheValue$Type;", nullptr, $PUBLIC, $virtualMethod(AuthenticationInfo, getAuthType, $AuthCacheValue$Type*)},
+	{"getAuthenticatorKey", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(AuthenticationInfo, getAuthenticatorKey, $String*)},
+	{"getCachedProxyAuth", "(Ljava/lang/String;)Lsun/net/www/protocol/http/AuthenticationInfo;", nullptr, $PRIVATE | $STATIC, $staticMethod(AuthenticationInfo, getCachedProxyAuth, AuthenticationInfo*, $String*)},
+	{"getCachedServerAuth", "(Ljava/lang/String;)Lsun/net/www/protocol/http/AuthenticationInfo;", nullptr, $PRIVATE | $STATIC, $staticMethod(AuthenticationInfo, getCachedServerAuth, AuthenticationInfo*, $String*)},
+	{"getHeaderName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AuthenticationInfo, getHeaderName, $String*)},
+	{"getHeaderValue", "(Ljava/net/URL;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AuthenticationInfo, getHeaderValue, $String*, $URL*, $String*)},
+	{"getHost", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AuthenticationInfo, getHost, $String*)},
+	{"getPath", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AuthenticationInfo, getPath, $String*)},
+	{"getPort", "()I", nullptr, $PUBLIC, $virtualMethod(AuthenticationInfo, getPort, int32_t)},
+	{"getProtocolScheme", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AuthenticationInfo, getProtocolScheme, $String*)},
+	{"getProxyAuth", "(Ljava/lang/String;ILjava/lang/String;)Lsun/net/www/protocol/http/AuthenticationInfo;", nullptr, $STATIC, $staticMethod(AuthenticationInfo, getProxyAuth, AuthenticationInfo*, $String*, int32_t, $String*)},
+	{"getProxyAuth", "(Ljava/lang/String;)Lsun/net/www/protocol/http/AuthenticationInfo;", nullptr, $STATIC, $staticMethod(AuthenticationInfo, getProxyAuth, AuthenticationInfo*, $String*)},
+	{"getProxyAuthKey", "(Ljava/lang/String;ILjava/lang/String;Lsun/net/www/protocol/http/AuthScheme;Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(AuthenticationInfo, getProxyAuthKey, $String*, $String*, int32_t, $String*, $AuthScheme*, $String*)},
+	{"getRealm", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AuthenticationInfo, getRealm, $String*)},
+	{"getServerAuth", "(Ljava/net/URL;Ljava/lang/String;)Lsun/net/www/protocol/http/AuthenticationInfo;", nullptr, $STATIC, $staticMethod(AuthenticationInfo, getServerAuth, AuthenticationInfo*, $URL*, $String*)},
+	{"getServerAuth", "(Ljava/lang/String;)Lsun/net/www/protocol/http/AuthenticationInfo;", nullptr, $STATIC, $staticMethod(AuthenticationInfo, getServerAuth, AuthenticationInfo*, $String*)},
+	{"getServerAuthKey", "(Ljava/net/URL;Ljava/lang/String;Lsun/net/www/protocol/http/AuthScheme;Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(AuthenticationInfo, getServerAuthKey, $String*, $URL*, $String*, $AuthScheme*, $String*)},
+	{"isAuthorizationStale", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AuthenticationInfo, isAuthorizationStale, bool, $String*)},
+	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(AuthenticationInfo, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+	{"reducePath", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(AuthenticationInfo, reducePath, $String*, $String*)},
+	{"removeFromCache", "()V", nullptr, 0, $virtualMethod(AuthenticationInfo, removeFromCache, void)},
+	{"requestAuthentication", "(Ljava/lang/String;Ljava/util/function/Function;)Lsun/net/www/protocol/http/AuthenticationInfo;", "(Ljava/lang/String;Ljava/util/function/Function<Ljava/lang/String;Lsun/net/www/protocol/http/AuthenticationInfo;>;)Lsun/net/www/protocol/http/AuthenticationInfo;", $PRIVATE | $STATIC, $staticMethod(AuthenticationInfo, requestAuthentication, AuthenticationInfo*, $String*, $Function*)},
+	{"requestCompleted", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(AuthenticationInfo, requestCompleted, void, $String*)},
+	{"setHeaders", "(Lsun/net/www/protocol/http/HttpURLConnection;Lsun/net/www/HeaderParser;Ljava/lang/String;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AuthenticationInfo, setHeaders, bool, $HttpURLConnection*, $HeaderParser*, $String*)},
+	{"supportsPreemptiveAuthorization", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AuthenticationInfo, supportsPreemptiveAuthorization, bool)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"useAuthCache", "()Z", nullptr, $PROTECTED},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(static_cast<void(AuthenticationInfo::*)($ObjectOutputStream*)>(&AuthenticationInfo::writeObject)), "java.io.IOException"},
+	{"useAuthCache", "()Z", nullptr, $PROTECTED, $virtualMethod(AuthenticationInfo, useAuthCache, bool)},
+	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(AuthenticationInfo, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
 	{}
 };
 

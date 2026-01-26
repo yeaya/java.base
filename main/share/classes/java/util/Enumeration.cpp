@@ -14,9 +14,9 @@ namespace java {
 	namespace util {
 
 $MethodInfo _Enumeration_MethodInfo_[] = {
-	{"asIterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TE;>;", $PUBLIC},
-	{"hasMoreElements", "()Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"nextElement", "()Ljava/lang/Object;", "()TE;", $PUBLIC | $ABSTRACT},
+	{"asIterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TE;>;", $PUBLIC, $virtualMethod(Enumeration, asIterator, $Iterator*)},
+	{"hasMoreElements", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Enumeration, hasMoreElements, bool)},
+	{"nextElement", "()Ljava/lang/Object;", "()TE;", $PUBLIC | $ABSTRACT, $virtualMethod(Enumeration, nextElement, $Object*)},
 	{}
 };
 

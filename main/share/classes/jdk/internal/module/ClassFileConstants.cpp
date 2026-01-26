@@ -52,7 +52,7 @@ $FieldInfo _ClassFileConstants_FieldInfo_[] = {
 };
 
 $MethodInfo _ClassFileConstants_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(ClassFileConstants::*)()>(&ClassFileConstants::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(ClassFileConstants, init$, void)},
 	{}
 };
 

@@ -39,8 +39,8 @@ $FieldInfo _FileInputStreamPool_FieldInfo_[] = {
 };
 
 $MethodInfo _FileInputStreamPool_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(FileInputStreamPool::*)()>(&FileInputStreamPool::init$))},
-	{"getInputStream", "(Ljava/io/File;)Ljava/io/InputStream;", nullptr, $STATIC, $method(static_cast<$InputStream*(*)($File*)>(&FileInputStreamPool::getInputStream)), "java.io.IOException"},
+	{"<init>", "()V", nullptr, 0, $method(FileInputStreamPool, init$, void)},
+	{"getInputStream", "(Ljava/io/File;)Ljava/io/InputStream;", nullptr, $STATIC, $staticMethod(FileInputStreamPool, getInputStream, $InputStream*, $File*), "java.io.IOException"},
 	{}
 };
 

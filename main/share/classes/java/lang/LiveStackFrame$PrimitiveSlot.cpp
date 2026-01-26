@@ -13,10 +13,10 @@ namespace java {
 	namespace lang {
 
 $MethodInfo _LiveStackFrame$PrimitiveSlot_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(LiveStackFrame$PrimitiveSlot::*)()>(&LiveStackFrame$PrimitiveSlot::init$))},
-	{"intValue", "()I", nullptr, $PUBLIC},
-	{"longValue", "()J", nullptr, $PUBLIC},
-	{"size", "()I", nullptr, $PUBLIC | $ABSTRACT},
+	{"<init>", "()V", nullptr, 0, $method(LiveStackFrame$PrimitiveSlot, init$, void)},
+	{"intValue", "()I", nullptr, $PUBLIC, $virtualMethod(LiveStackFrame$PrimitiveSlot, intValue, int32_t)},
+	{"longValue", "()J", nullptr, $PUBLIC, $virtualMethod(LiveStackFrame$PrimitiveSlot, longValue, int64_t)},
+	{"size", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LiveStackFrame$PrimitiveSlot, size, int32_t)},
 	{}
 };
 

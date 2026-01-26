@@ -7,6 +7,8 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $DateFormat = ::java::text::DateFormat;
+using $Locale = ::java::util::Locale;
 using $LocaleServiceProvider = ::java::util::spi::LocaleServiceProvider;
 
 namespace java {
@@ -14,10 +16,10 @@ namespace java {
 		namespace spi {
 
 $MethodInfo _DateFormatProvider_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(DateFormatProvider::*)()>(&DateFormatProvider::init$))},
-	{"getDateInstance", "(ILjava/util/Locale;)Ljava/text/DateFormat;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getDateTimeInstance", "(IILjava/util/Locale;)Ljava/text/DateFormat;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getTimeInstance", "(ILjava/util/Locale;)Ljava/text/DateFormat;", nullptr, $PUBLIC | $ABSTRACT},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(DateFormatProvider, init$, void)},
+	{"getDateInstance", "(ILjava/util/Locale;)Ljava/text/DateFormat;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DateFormatProvider, getDateInstance, $DateFormat*, int32_t, $Locale*)},
+	{"getDateTimeInstance", "(IILjava/util/Locale;)Ljava/text/DateFormat;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DateFormatProvider, getDateTimeInstance, $DateFormat*, int32_t, int32_t, $Locale*)},
+	{"getTimeInstance", "(ILjava/util/Locale;)Ljava/text/DateFormat;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DateFormatProvider, getTimeInstance, $DateFormat*, int32_t, $Locale*)},
 	{}
 };
 

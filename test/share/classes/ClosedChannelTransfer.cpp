@@ -29,10 +29,10 @@ using $ReadableByteChannel = ::java::nio::channels::ReadableByteChannel;
 using $WritableByteChannel = ::java::nio::channels::WritableByteChannel;
 
 $MethodInfo _ClosedChannelTransfer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ClosedChannelTransfer::*)()>(&ClosedChannelTransfer::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&ClosedChannelTransfer::main)), "java.lang.Exception"},
-	{"test1", "(Ljava/nio/channels/FileChannel;)V", nullptr, $STATIC, $method(static_cast<void(*)($FileChannel*)>(&ClosedChannelTransfer::test1)), "java.lang.Exception"},
-	{"test2", "(Ljava/nio/channels/FileChannel;)V", nullptr, $STATIC, $method(static_cast<void(*)($FileChannel*)>(&ClosedChannelTransfer::test2)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ClosedChannelTransfer, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ClosedChannelTransfer, main, void, $StringArray*), "java.lang.Exception"},
+	{"test1", "(Ljava/nio/channels/FileChannel;)V", nullptr, $STATIC, $staticMethod(ClosedChannelTransfer, test1, void, $FileChannel*), "java.lang.Exception"},
+	{"test2", "(Ljava/nio/channels/FileChannel;)V", nullptr, $STATIC, $staticMethod(ClosedChannelTransfer, test2, void, $FileChannel*), "java.lang.Exception"},
 	{}
 };
 

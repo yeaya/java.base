@@ -25,8 +25,8 @@ using $Proxy = ::java::lang::reflect::Proxy;
 using $Observer = ::java::util::Observer;
 
 $MethodInfo _ProxyClashTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ProxyClashTest::*)()>(&ProxyClashTest::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&ProxyClashTest::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ProxyClashTest, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ProxyClashTest, main, void, $StringArray*)},
 	{}
 };
 

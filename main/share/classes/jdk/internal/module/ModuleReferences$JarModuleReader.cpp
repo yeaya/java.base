@@ -71,8 +71,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ModuleReferences$JarModuleReader$$Lambda$getName::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ModuleReferences$JarModuleReader$$Lambda$getName::*)()>(&ModuleReferences$JarModuleReader$$Lambda$getName::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ModuleReferences$JarModuleReader$$Lambda$getName, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ModuleReferences$JarModuleReader$$Lambda$getName, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo ModuleReferences$JarModuleReader$$Lambda$getName::classInfo$ = {
@@ -96,13 +96,13 @@ $FieldInfo _ModuleReferences$JarModuleReader_FieldInfo_[] = {
 };
 
 $MethodInfo _ModuleReferences$JarModuleReader_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/file/Path;Ljava/net/URI;)V", nullptr, 0, $method(static_cast<void(ModuleReferences$JarModuleReader::*)($Path*,$URI*)>(&ModuleReferences$JarModuleReader::init$))},
-	{"getEntry", "(Ljava/lang/String;)Ljava/util/jar/JarEntry;", nullptr, $PRIVATE, $method(static_cast<$JarEntry*(ModuleReferences$JarModuleReader::*)($String*)>(&ModuleReferences$JarModuleReader::getEntry))},
-	{"implClose", "()V", nullptr, 0, nullptr, "java.io.IOException"},
-	{"implFind", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/net/URI;>;", 0, nullptr, "java.io.IOException"},
-	{"implList", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljava/lang/String;>;", 0, nullptr, "java.io.IOException"},
-	{"implOpen", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/io/InputStream;>;", 0, nullptr, "java.io.IOException"},
-	{"newJarFile", "(Ljava/nio/file/Path;)Ljava/util/jar/JarFile;", nullptr, $STATIC, $method(static_cast<$JarFile*(*)($Path*)>(&ModuleReferences$JarModuleReader::newJarFile))},
+	{"<init>", "(Ljava/nio/file/Path;Ljava/net/URI;)V", nullptr, 0, $method(ModuleReferences$JarModuleReader, init$, void, $Path*, $URI*)},
+	{"getEntry", "(Ljava/lang/String;)Ljava/util/jar/JarEntry;", nullptr, $PRIVATE, $method(ModuleReferences$JarModuleReader, getEntry, $JarEntry*, $String*)},
+	{"implClose", "()V", nullptr, 0, $virtualMethod(ModuleReferences$JarModuleReader, implClose, void), "java.io.IOException"},
+	{"implFind", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/net/URI;>;", 0, $virtualMethod(ModuleReferences$JarModuleReader, implFind, $Optional*, $String*), "java.io.IOException"},
+	{"implList", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljava/lang/String;>;", 0, $virtualMethod(ModuleReferences$JarModuleReader, implList, $Stream*), "java.io.IOException"},
+	{"implOpen", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/io/InputStream;>;", 0, $virtualMethod(ModuleReferences$JarModuleReader, implOpen, $Optional*, $String*), "java.io.IOException"},
+	{"newJarFile", "(Ljava/nio/file/Path;)Ljava/util/jar/JarFile;", nullptr, $STATIC, $staticMethod(ModuleReferences$JarModuleReader, newJarFile, $JarFile*, $Path*)},
 	{}
 };
 

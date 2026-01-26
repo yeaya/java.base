@@ -50,12 +50,12 @@ $FieldInfo _Finalizer_FieldInfo_[] = {
 };
 
 $MethodInfo _Finalizer_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(static_cast<void(Finalizer::*)(Object$*)>(&Finalizer::init$))},
-	{"forkSecondaryFinalizer", "(Ljava/lang/Runnable;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($Runnable*)>(&Finalizer::forkSecondaryFinalizer))},
-	{"getQueue", "()Ljava/lang/ref/ReferenceQueue;", "()Ljava/lang/ref/ReferenceQueue<Ljava/lang/Object;>;", $STATIC, $method(static_cast<$ReferenceQueue*(*)()>(&Finalizer::getQueue))},
-	{"register", "(Ljava/lang/Object;)V", nullptr, $STATIC, $method(static_cast<void(*)(Object$*)>(&Finalizer::register$))},
-	{"runFinalization", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&Finalizer::runFinalization))},
-	{"runFinalizer", "(Ljdk/internal/access/JavaLangAccess;)V", nullptr, $PRIVATE, $method(static_cast<void(Finalizer::*)($JavaLangAccess*)>(&Finalizer::runFinalizer))},
+	{"<init>", "(Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(Finalizer, init$, void, Object$*)},
+	{"forkSecondaryFinalizer", "(Ljava/lang/Runnable;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Finalizer, forkSecondaryFinalizer, void, $Runnable*)},
+	{"getQueue", "()Ljava/lang/ref/ReferenceQueue;", "()Ljava/lang/ref/ReferenceQueue<Ljava/lang/Object;>;", $STATIC, $staticMethod(Finalizer, getQueue, $ReferenceQueue*)},
+	{"register", "(Ljava/lang/Object;)V", nullptr, $STATIC, $staticMethod(Finalizer, register$, void, Object$*)},
+	{"runFinalization", "()V", nullptr, $STATIC, $staticMethod(Finalizer, runFinalization, void)},
+	{"runFinalizer", "(Ljdk/internal/access/JavaLangAccess;)V", nullptr, $PRIVATE, $method(Finalizer, runFinalizer, void, $JavaLangAccess*)},
 	{}
 };
 

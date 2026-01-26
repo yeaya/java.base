@@ -33,8 +33,8 @@ $FieldInfo _SSLServerSocketFactory$DefaultFactoryHolder_FieldInfo_[] = {
 };
 
 $MethodInfo _SSLServerSocketFactory$DefaultFactoryHolder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(SSLServerSocketFactory$DefaultFactoryHolder::*)()>(&SSLServerSocketFactory$DefaultFactoryHolder::init$))},
-	{"log", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($String*)>(&SSLServerSocketFactory$DefaultFactoryHolder::log))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(SSLServerSocketFactory$DefaultFactoryHolder, init$, void)},
+	{"log", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(SSLServerSocketFactory$DefaultFactoryHolder, log, void, $String*)},
 	{}
 };
 

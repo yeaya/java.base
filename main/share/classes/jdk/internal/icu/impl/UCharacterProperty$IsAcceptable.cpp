@@ -13,8 +13,8 @@ namespace jdk {
 			namespace impl {
 
 $MethodInfo _UCharacterProperty$IsAcceptable_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(UCharacterProperty$IsAcceptable::*)()>(&UCharacterProperty$IsAcceptable::init$))},
-	{"isDataVersionAcceptable", "([B)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(UCharacterProperty$IsAcceptable, init$, void)},
+	{"isDataVersionAcceptable", "([B)Z", nullptr, $PUBLIC, $virtualMethod(UCharacterProperty$IsAcceptable, isDataVersionAcceptable, bool, $bytes*)},
 	{}
 };
 

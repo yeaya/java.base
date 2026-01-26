@@ -22,8 +22,8 @@ $FieldInfo _GetDefinedPackage$TestClassLoader_FieldInfo_[] = {
 };
 
 $MethodInfo _GetDefinedPackage$TestClassLoader_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(GetDefinedPackage$TestClassLoader::*)()>(&GetDefinedPackage$TestClassLoader::init$))},
-	{"definePackage", "(Ljava/lang/String;)Ljava/lang/Package;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(GetDefinedPackage$TestClassLoader, init$, void)},
+	{"definePackage", "(Ljava/lang/String;)Ljava/lang/Package;", nullptr, $PUBLIC, $virtualMethod(GetDefinedPackage$TestClassLoader, definePackage, $Package*, $String*)},
 	{}
 };
 

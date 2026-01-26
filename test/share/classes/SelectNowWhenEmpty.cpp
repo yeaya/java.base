@@ -11,8 +11,8 @@ using $Selector = ::java::nio::channels::Selector;
 using $SelectorProvider = ::java::nio::channels::spi::SelectorProvider;
 
 $MethodInfo _SelectNowWhenEmpty_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SelectNowWhenEmpty::*)()>(&SelectNowWhenEmpty::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&SelectNowWhenEmpty::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SelectNowWhenEmpty, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SelectNowWhenEmpty, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

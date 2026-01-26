@@ -88,8 +88,8 @@ $FieldInfo ConcurrentLinkedQueue$$Lambda$lambda$removeAll$0::fieldInfos[2] = {
 	{}
 };
 $MethodInfo ConcurrentLinkedQueue$$Lambda$lambda$removeAll$0::methodInfos[3] = {
-	{"<init>", "(Ljava/util/Collection;)V", nullptr, $PUBLIC, $method(static_cast<void(ConcurrentLinkedQueue$$Lambda$lambda$removeAll$0::*)($Collection*)>(&ConcurrentLinkedQueue$$Lambda$lambda$removeAll$0::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/Collection;)V", nullptr, $PUBLIC, $method(ConcurrentLinkedQueue$$Lambda$lambda$removeAll$0, init$, void, $Collection*)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ConcurrentLinkedQueue$$Lambda$lambda$removeAll$0, test, bool, Object$*)},
 	{}
 };
 $ClassInfo ConcurrentLinkedQueue$$Lambda$lambda$removeAll$0::classInfo$ = {
@@ -128,8 +128,8 @@ $FieldInfo ConcurrentLinkedQueue$$Lambda$lambda$retainAll$1$1::fieldInfos[2] = {
 	{}
 };
 $MethodInfo ConcurrentLinkedQueue$$Lambda$lambda$retainAll$1$1::methodInfos[3] = {
-	{"<init>", "(Ljava/util/Collection;)V", nullptr, $PUBLIC, $method(static_cast<void(ConcurrentLinkedQueue$$Lambda$lambda$retainAll$1$1::*)($Collection*)>(&ConcurrentLinkedQueue$$Lambda$lambda$retainAll$1$1::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/Collection;)V", nullptr, $PUBLIC, $method(ConcurrentLinkedQueue$$Lambda$lambda$retainAll$1$1, init$, void, $Collection*)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ConcurrentLinkedQueue$$Lambda$lambda$retainAll$1$1, test, bool, Object$*)},
 	{}
 };
 $ClassInfo ConcurrentLinkedQueue$$Lambda$lambda$retainAll$1$1::classInfo$ = {
@@ -161,8 +161,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ConcurrentLinkedQueue$$Lambda$lambda$clear$2$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ConcurrentLinkedQueue$$Lambda$lambda$clear$2$2::*)()>(&ConcurrentLinkedQueue$$Lambda$lambda$clear$2$2::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ConcurrentLinkedQueue$$Lambda$lambda$clear$2$2, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ConcurrentLinkedQueue$$Lambda$lambda$clear$2$2, test, bool, Object$*)},
 	{}
 };
 $ClassInfo ConcurrentLinkedQueue$$Lambda$lambda$clear$2$2::classInfo$ = {
@@ -196,40 +196,40 @@ $MethodInfo _ConcurrentLinkedQueue_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ConcurrentLinkedQueue::*)()>(&ConcurrentLinkedQueue::init$))},
-	{"<init>", "(Ljava/util/Collection;)V", "(Ljava/util/Collection<+TE;>;)V", $PUBLIC, $method(static_cast<void(ConcurrentLinkedQueue::*)($Collection*)>(&ConcurrentLinkedQueue::init$))},
-	{"add", "(Ljava/lang/Object;)Z", "(TE;)Z", $PUBLIC},
-	{"addAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<+TE;>;)Z", $PUBLIC},
-	{"bulkRemove", "(Ljava/util/function/Predicate;)Z", "(Ljava/util/function/Predicate<-TE;>;)Z", $PRIVATE, $method(static_cast<bool(ConcurrentLinkedQueue::*)($Predicate*)>(&ConcurrentLinkedQueue::bulkRemove))},
-	{"clear", "()V", nullptr, $PUBLIC},
-	{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"first", "()Ljava/util/concurrent/ConcurrentLinkedQueue$Node;", "()Ljava/util/concurrent/ConcurrentLinkedQueue$Node<TE;>;", 0},
-	{"forEach", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC},
-	{"forEachFrom", "(Ljava/util/function/Consumer;Ljava/util/concurrent/ConcurrentLinkedQueue$Node;)V", "(Ljava/util/function/Consumer<-TE;>;Ljava/util/concurrent/ConcurrentLinkedQueue$Node<TE;>;)V", 0},
-	{"isEmpty", "()Z", nullptr, $PUBLIC},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TE;>;", $PUBLIC},
-	{"lambda$clear$2", "(Ljava/lang/Object;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)(Object$*)>(&ConcurrentLinkedQueue::lambda$clear$2))},
-	{"lambda$removeAll$0", "(Ljava/util/Collection;Ljava/lang/Object;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($Collection*,Object$*)>(&ConcurrentLinkedQueue::lambda$removeAll$0))},
-	{"lambda$retainAll$1", "(Ljava/util/Collection;Ljava/lang/Object;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($Collection*,Object$*)>(&ConcurrentLinkedQueue::lambda$retainAll$1))},
-	{"offer", "(Ljava/lang/Object;)Z", "(TE;)Z", $PUBLIC},
-	{"peek", "()Ljava/lang/Object;", "()TE;", $PUBLIC},
-	{"poll", "()Ljava/lang/Object;", "()TE;", $PUBLIC},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(ConcurrentLinkedQueue::*)($ObjectInputStream*)>(&ConcurrentLinkedQueue::readObject)), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"removeAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC},
-	{"removeIf", "(Ljava/util/function/Predicate;)Z", "(Ljava/util/function/Predicate<-TE;>;)Z", $PUBLIC},
-	{"retainAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC},
-	{"size", "()I", nullptr, $PUBLIC},
-	{"skipDeadNodes", "(Ljava/util/concurrent/ConcurrentLinkedQueue$Node;Ljava/util/concurrent/ConcurrentLinkedQueue$Node;Ljava/util/concurrent/ConcurrentLinkedQueue$Node;Ljava/util/concurrent/ConcurrentLinkedQueue$Node;)Ljava/util/concurrent/ConcurrentLinkedQueue$Node;", "(Ljava/util/concurrent/ConcurrentLinkedQueue$Node<TE;>;Ljava/util/concurrent/ConcurrentLinkedQueue$Node<TE;>;Ljava/util/concurrent/ConcurrentLinkedQueue$Node<TE;>;Ljava/util/concurrent/ConcurrentLinkedQueue$Node<TE;>;)Ljava/util/concurrent/ConcurrentLinkedQueue$Node<TE;>;", $PRIVATE, $method(static_cast<$ConcurrentLinkedQueue$Node*(ConcurrentLinkedQueue::*)($ConcurrentLinkedQueue$Node*,$ConcurrentLinkedQueue$Node*,$ConcurrentLinkedQueue$Node*,$ConcurrentLinkedQueue$Node*)>(&ConcurrentLinkedQueue::skipDeadNodes))},
-	{"spliterator", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TE;>;", $PUBLIC},
-	{"succ", "(Ljava/util/concurrent/ConcurrentLinkedQueue$Node;)Ljava/util/concurrent/ConcurrentLinkedQueue$Node;", "(Ljava/util/concurrent/ConcurrentLinkedQueue$Node<TE;>;)Ljava/util/concurrent/ConcurrentLinkedQueue$Node<TE;>;", $FINAL, $method(static_cast<$ConcurrentLinkedQueue$Node*(ConcurrentLinkedQueue::*)($ConcurrentLinkedQueue$Node*)>(&ConcurrentLinkedQueue::succ))},
-	{"toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", "<T:Ljava/lang/Object;>([TT;)[TT;", $PUBLIC},
-	{"toArrayInternal", "([Ljava/lang/Object;)[Ljava/lang/Object;", nullptr, $PRIVATE, $method(static_cast<$ObjectArray*(ConcurrentLinkedQueue::*)($ObjectArray*)>(&ConcurrentLinkedQueue::toArrayInternal))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"tryCasSuccessor", "(Ljava/util/concurrent/ConcurrentLinkedQueue$Node;Ljava/util/concurrent/ConcurrentLinkedQueue$Node;Ljava/util/concurrent/ConcurrentLinkedQueue$Node;)Z", "(Ljava/util/concurrent/ConcurrentLinkedQueue$Node<TE;>;Ljava/util/concurrent/ConcurrentLinkedQueue$Node<TE;>;Ljava/util/concurrent/ConcurrentLinkedQueue$Node<TE;>;)Z", $PRIVATE, $method(static_cast<bool(ConcurrentLinkedQueue::*)($ConcurrentLinkedQueue$Node*,$ConcurrentLinkedQueue$Node*,$ConcurrentLinkedQueue$Node*)>(&ConcurrentLinkedQueue::tryCasSuccessor))},
-	{"updateHead", "(Ljava/util/concurrent/ConcurrentLinkedQueue$Node;Ljava/util/concurrent/ConcurrentLinkedQueue$Node;)V", "(Ljava/util/concurrent/ConcurrentLinkedQueue$Node<TE;>;Ljava/util/concurrent/ConcurrentLinkedQueue$Node<TE;>;)V", $FINAL, $method(static_cast<void(ConcurrentLinkedQueue::*)($ConcurrentLinkedQueue$Node*,$ConcurrentLinkedQueue$Node*)>(&ConcurrentLinkedQueue::updateHead))},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(ConcurrentLinkedQueue::*)($ObjectOutputStream*)>(&ConcurrentLinkedQueue::writeObject)), "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ConcurrentLinkedQueue, init$, void)},
+	{"<init>", "(Ljava/util/Collection;)V", "(Ljava/util/Collection<+TE;>;)V", $PUBLIC, $method(ConcurrentLinkedQueue, init$, void, $Collection*)},
+	{"add", "(Ljava/lang/Object;)Z", "(TE;)Z", $PUBLIC, $virtualMethod(ConcurrentLinkedQueue, add, bool, Object$*)},
+	{"addAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<+TE;>;)Z", $PUBLIC, $virtualMethod(ConcurrentLinkedQueue, addAll, bool, $Collection*)},
+	{"bulkRemove", "(Ljava/util/function/Predicate;)Z", "(Ljava/util/function/Predicate<-TE;>;)Z", $PRIVATE, $method(ConcurrentLinkedQueue, bulkRemove, bool, $Predicate*)},
+	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(ConcurrentLinkedQueue, clear, void)},
+	{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ConcurrentLinkedQueue, contains, bool, Object$*)},
+	{"first", "()Ljava/util/concurrent/ConcurrentLinkedQueue$Node;", "()Ljava/util/concurrent/ConcurrentLinkedQueue$Node<TE;>;", 0, $virtualMethod(ConcurrentLinkedQueue, first, $ConcurrentLinkedQueue$Node*)},
+	{"forEach", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC, $virtualMethod(ConcurrentLinkedQueue, forEach, void, $Consumer*)},
+	{"forEachFrom", "(Ljava/util/function/Consumer;Ljava/util/concurrent/ConcurrentLinkedQueue$Node;)V", "(Ljava/util/function/Consumer<-TE;>;Ljava/util/concurrent/ConcurrentLinkedQueue$Node<TE;>;)V", 0, $virtualMethod(ConcurrentLinkedQueue, forEachFrom, void, $Consumer*, $ConcurrentLinkedQueue$Node*)},
+	{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(ConcurrentLinkedQueue, isEmpty, bool)},
+	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TE;>;", $PUBLIC, $virtualMethod(ConcurrentLinkedQueue, iterator, $Iterator*)},
+	{"lambda$clear$2", "(Ljava/lang/Object;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ConcurrentLinkedQueue, lambda$clear$2, bool, Object$*)},
+	{"lambda$removeAll$0", "(Ljava/util/Collection;Ljava/lang/Object;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ConcurrentLinkedQueue, lambda$removeAll$0, bool, $Collection*, Object$*)},
+	{"lambda$retainAll$1", "(Ljava/util/Collection;Ljava/lang/Object;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ConcurrentLinkedQueue, lambda$retainAll$1, bool, $Collection*, Object$*)},
+	{"offer", "(Ljava/lang/Object;)Z", "(TE;)Z", $PUBLIC, $virtualMethod(ConcurrentLinkedQueue, offer, bool, Object$*)},
+	{"peek", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(ConcurrentLinkedQueue, peek, $Object*)},
+	{"poll", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(ConcurrentLinkedQueue, poll, $Object*)},
+	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(ConcurrentLinkedQueue, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+	{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ConcurrentLinkedQueue, remove, bool, Object$*)},
+	{"removeAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC, $virtualMethod(ConcurrentLinkedQueue, removeAll, bool, $Collection*)},
+	{"removeIf", "(Ljava/util/function/Predicate;)Z", "(Ljava/util/function/Predicate<-TE;>;)Z", $PUBLIC, $virtualMethod(ConcurrentLinkedQueue, removeIf, bool, $Predicate*)},
+	{"retainAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC, $virtualMethod(ConcurrentLinkedQueue, retainAll, bool, $Collection*)},
+	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(ConcurrentLinkedQueue, size, int32_t)},
+	{"skipDeadNodes", "(Ljava/util/concurrent/ConcurrentLinkedQueue$Node;Ljava/util/concurrent/ConcurrentLinkedQueue$Node;Ljava/util/concurrent/ConcurrentLinkedQueue$Node;Ljava/util/concurrent/ConcurrentLinkedQueue$Node;)Ljava/util/concurrent/ConcurrentLinkedQueue$Node;", "(Ljava/util/concurrent/ConcurrentLinkedQueue$Node<TE;>;Ljava/util/concurrent/ConcurrentLinkedQueue$Node<TE;>;Ljava/util/concurrent/ConcurrentLinkedQueue$Node<TE;>;Ljava/util/concurrent/ConcurrentLinkedQueue$Node<TE;>;)Ljava/util/concurrent/ConcurrentLinkedQueue$Node<TE;>;", $PRIVATE, $method(ConcurrentLinkedQueue, skipDeadNodes, $ConcurrentLinkedQueue$Node*, $ConcurrentLinkedQueue$Node*, $ConcurrentLinkedQueue$Node*, $ConcurrentLinkedQueue$Node*, $ConcurrentLinkedQueue$Node*)},
+	{"spliterator", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TE;>;", $PUBLIC, $virtualMethod(ConcurrentLinkedQueue, spliterator, $Spliterator*)},
+	{"succ", "(Ljava/util/concurrent/ConcurrentLinkedQueue$Node;)Ljava/util/concurrent/ConcurrentLinkedQueue$Node;", "(Ljava/util/concurrent/ConcurrentLinkedQueue$Node<TE;>;)Ljava/util/concurrent/ConcurrentLinkedQueue$Node<TE;>;", $FINAL, $method(ConcurrentLinkedQueue, succ, $ConcurrentLinkedQueue$Node*, $ConcurrentLinkedQueue$Node*)},
+	{"toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ConcurrentLinkedQueue, toArray, $ObjectArray*)},
+	{"toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", "<T:Ljava/lang/Object;>([TT;)[TT;", $PUBLIC, $virtualMethod(ConcurrentLinkedQueue, toArray, $ObjectArray*, $ObjectArray*)},
+	{"toArrayInternal", "([Ljava/lang/Object;)[Ljava/lang/Object;", nullptr, $PRIVATE, $method(ConcurrentLinkedQueue, toArrayInternal, $ObjectArray*, $ObjectArray*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ConcurrentLinkedQueue, toString, $String*)},
+	{"tryCasSuccessor", "(Ljava/util/concurrent/ConcurrentLinkedQueue$Node;Ljava/util/concurrent/ConcurrentLinkedQueue$Node;Ljava/util/concurrent/ConcurrentLinkedQueue$Node;)Z", "(Ljava/util/concurrent/ConcurrentLinkedQueue$Node<TE;>;Ljava/util/concurrent/ConcurrentLinkedQueue$Node<TE;>;Ljava/util/concurrent/ConcurrentLinkedQueue$Node<TE;>;)Z", $PRIVATE, $method(ConcurrentLinkedQueue, tryCasSuccessor, bool, $ConcurrentLinkedQueue$Node*, $ConcurrentLinkedQueue$Node*, $ConcurrentLinkedQueue$Node*)},
+	{"updateHead", "(Ljava/util/concurrent/ConcurrentLinkedQueue$Node;Ljava/util/concurrent/ConcurrentLinkedQueue$Node;)V", "(Ljava/util/concurrent/ConcurrentLinkedQueue$Node<TE;>;Ljava/util/concurrent/ConcurrentLinkedQueue$Node<TE;>;)V", $FINAL, $method(ConcurrentLinkedQueue, updateHead, void, $ConcurrentLinkedQueue$Node*, $ConcurrentLinkedQueue$Node*)},
+	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(ConcurrentLinkedQueue, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
 	{}
 };
 

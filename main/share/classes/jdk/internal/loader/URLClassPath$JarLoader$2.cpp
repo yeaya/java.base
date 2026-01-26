@@ -45,15 +45,15 @@ $FieldInfo _URLClassPath$JarLoader$2_FieldInfo_[] = {
 };
 
 $MethodInfo _URLClassPath$JarLoader$2_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/loader/URLClassPath$JarLoader;Ljava/lang/String;Ljava/net/URL;Ljava/util/jar/JarEntry;)V", nullptr, 0, $method(static_cast<void(URLClassPath$JarLoader$2::*)($URLClassPath$JarLoader*,$String*,$URL*,$JarEntry*)>(&URLClassPath$JarLoader$2::init$))},
-	{"getCertificates", "()[Ljava/security/cert/Certificate;", nullptr, $PUBLIC},
-	{"getCodeSigners", "()[Ljava/security/CodeSigner;", nullptr, $PUBLIC},
-	{"getCodeSourceURL", "()Ljava/net/URL;", nullptr, $PUBLIC},
-	{"getContentLength", "()I", nullptr, $PUBLIC},
-	{"getInputStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"getManifest", "()Ljava/util/jar/Manifest;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getURL", "()Ljava/net/URL;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/loader/URLClassPath$JarLoader;Ljava/lang/String;Ljava/net/URL;Ljava/util/jar/JarEntry;)V", nullptr, 0, $method(URLClassPath$JarLoader$2, init$, void, $URLClassPath$JarLoader*, $String*, $URL*, $JarEntry*)},
+	{"getCertificates", "()[Ljava/security/cert/Certificate;", nullptr, $PUBLIC, $virtualMethod(URLClassPath$JarLoader$2, getCertificates, $CertificateArray*)},
+	{"getCodeSigners", "()[Ljava/security/CodeSigner;", nullptr, $PUBLIC, $virtualMethod(URLClassPath$JarLoader$2, getCodeSigners, $CodeSignerArray*)},
+	{"getCodeSourceURL", "()Ljava/net/URL;", nullptr, $PUBLIC, $virtualMethod(URLClassPath$JarLoader$2, getCodeSourceURL, $URL*)},
+	{"getContentLength", "()I", nullptr, $PUBLIC, $virtualMethod(URLClassPath$JarLoader$2, getContentLength, int32_t)},
+	{"getInputStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(URLClassPath$JarLoader$2, getInputStream, $InputStream*), "java.io.IOException"},
+	{"getManifest", "()Ljava/util/jar/Manifest;", nullptr, $PUBLIC, $virtualMethod(URLClassPath$JarLoader$2, getManifest, $Manifest*), "java.io.IOException"},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(URLClassPath$JarLoader$2, getName, $String*)},
+	{"getURL", "()Ljava/net/URL;", nullptr, $PUBLIC, $virtualMethod(URLClassPath$JarLoader$2, getURL, $URL*)},
 	{}
 };
 

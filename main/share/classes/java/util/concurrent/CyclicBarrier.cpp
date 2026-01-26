@@ -42,17 +42,17 @@ $FieldInfo _CyclicBarrier_FieldInfo_[] = {
 };
 
 $MethodInfo _CyclicBarrier_MethodInfo_[] = {
-	{"<init>", "(ILjava/lang/Runnable;)V", nullptr, $PUBLIC, $method(static_cast<void(CyclicBarrier::*)(int32_t,$Runnable*)>(&CyclicBarrier::init$))},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(static_cast<void(CyclicBarrier::*)(int32_t)>(&CyclicBarrier::init$))},
-	{"await", "()I", nullptr, $PUBLIC, nullptr, "java.lang.InterruptedException,java.util.concurrent.BrokenBarrierException"},
-	{"await", "(JLjava/util/concurrent/TimeUnit;)I", nullptr, $PUBLIC, nullptr, "java.lang.InterruptedException,java.util.concurrent.BrokenBarrierException,java.util.concurrent.TimeoutException"},
-	{"breakBarrier", "()V", nullptr, $PRIVATE, $method(static_cast<void(CyclicBarrier::*)()>(&CyclicBarrier::breakBarrier))},
-	{"dowait", "(ZJ)I", nullptr, $PRIVATE, $method(static_cast<int32_t(CyclicBarrier::*)(bool,int64_t)>(&CyclicBarrier::dowait)), "java.lang.InterruptedException,java.util.concurrent.BrokenBarrierException,java.util.concurrent.TimeoutException"},
-	{"getNumberWaiting", "()I", nullptr, $PUBLIC},
-	{"getParties", "()I", nullptr, $PUBLIC},
-	{"isBroken", "()Z", nullptr, $PUBLIC},
-	{"nextGeneration", "()V", nullptr, $PRIVATE, $method(static_cast<void(CyclicBarrier::*)()>(&CyclicBarrier::nextGeneration))},
-	{"reset", "()V", nullptr, $PUBLIC},
+	{"<init>", "(ILjava/lang/Runnable;)V", nullptr, $PUBLIC, $method(CyclicBarrier, init$, void, int32_t, $Runnable*)},
+	{"<init>", "(I)V", nullptr, $PUBLIC, $method(CyclicBarrier, init$, void, int32_t)},
+	{"await", "()I", nullptr, $PUBLIC, $virtualMethod(CyclicBarrier, await, int32_t), "java.lang.InterruptedException,java.util.concurrent.BrokenBarrierException"},
+	{"await", "(JLjava/util/concurrent/TimeUnit;)I", nullptr, $PUBLIC, $virtualMethod(CyclicBarrier, await, int32_t, int64_t, $TimeUnit*), "java.lang.InterruptedException,java.util.concurrent.BrokenBarrierException,java.util.concurrent.TimeoutException"},
+	{"breakBarrier", "()V", nullptr, $PRIVATE, $method(CyclicBarrier, breakBarrier, void)},
+	{"dowait", "(ZJ)I", nullptr, $PRIVATE, $method(CyclicBarrier, dowait, int32_t, bool, int64_t), "java.lang.InterruptedException,java.util.concurrent.BrokenBarrierException,java.util.concurrent.TimeoutException"},
+	{"getNumberWaiting", "()I", nullptr, $PUBLIC, $virtualMethod(CyclicBarrier, getNumberWaiting, int32_t)},
+	{"getParties", "()I", nullptr, $PUBLIC, $virtualMethod(CyclicBarrier, getParties, int32_t)},
+	{"isBroken", "()Z", nullptr, $PUBLIC, $virtualMethod(CyclicBarrier, isBroken, bool)},
+	{"nextGeneration", "()V", nullptr, $PRIVATE, $method(CyclicBarrier, nextGeneration, void)},
+	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(CyclicBarrier, reset, void)},
 	{}
 };
 

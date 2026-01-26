@@ -58,19 +58,19 @@ $FieldInfo _X509Authentication_FieldInfo_[] = {
 };
 
 $MethodInfo _X509Authentication_MethodInfo_[] = {
-	{"$values", "()[Lsun/security/ssl/X509Authentication;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$X509AuthenticationArray*(*)()>(&X509Authentication::$values))},
+	{"$values", "()[Lsun/security/ssl/X509Authentication;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(X509Authentication, $values, $X509AuthenticationArray*)},
 	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
 	{"*finalize", "()V", nullptr, $PROTECTED | $FINAL},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;Lsun/security/ssl/SSLPossessionGenerator;)V", "(Ljava/lang/String;Lsun/security/ssl/SSLPossessionGenerator;)V", $PRIVATE, $method(static_cast<void(X509Authentication::*)($String*,int32_t,$String*,$SSLPossessionGenerator*)>(&X509Authentication::init$))},
-	{"createPossession", "(Lsun/security/ssl/HandshakeContext;)Lsun/security/ssl/SSLPossession;", nullptr, $PUBLIC},
-	{"getHandshakeProducers", "(Lsun/security/ssl/HandshakeContext;)[Ljava/util/Map$Entry;", "(Lsun/security/ssl/HandshakeContext;)[Ljava/util/Map$Entry<Ljava/lang/Byte;Lsun/security/ssl/HandshakeProducer;>;", $PUBLIC},
-	{"getRelatedHandshakers", "(Lsun/security/ssl/HandshakeContext;)[Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;ILjava/lang/String;Lsun/security/ssl/SSLPossessionGenerator;)V", "(Ljava/lang/String;Lsun/security/ssl/SSLPossessionGenerator;)V", $PRIVATE, $method(X509Authentication, init$, void, $String*, int32_t, $String*, $SSLPossessionGenerator*)},
+	{"createPossession", "(Lsun/security/ssl/HandshakeContext;)Lsun/security/ssl/SSLPossession;", nullptr, $PUBLIC, $virtualMethod(X509Authentication, createPossession, $SSLPossession*, $HandshakeContext*)},
+	{"getHandshakeProducers", "(Lsun/security/ssl/HandshakeContext;)[Ljava/util/Map$Entry;", "(Lsun/security/ssl/HandshakeContext;)[Ljava/util/Map$Entry<Ljava/lang/Byte;Lsun/security/ssl/HandshakeProducer;>;", $PUBLIC, $virtualMethod(X509Authentication, getHandshakeProducers, $Map$EntryArray*, $HandshakeContext*)},
+	{"getRelatedHandshakers", "(Lsun/security/ssl/HandshakeContext;)[Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC, $virtualMethod(X509Authentication, getRelatedHandshakers, $SSLHandshakeArray*, $HandshakeContext*)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"valueOf", "(Ljava/lang/String;)Lsun/security/ssl/X509Authentication;", nullptr, $PUBLIC | $STATIC, $method(static_cast<X509Authentication*(*)($String*)>(&X509Authentication::valueOf))},
-	{"valueOf", "(Lsun/security/ssl/SignatureScheme;)Lsun/security/ssl/X509Authentication;", nullptr, $STATIC, $method(static_cast<X509Authentication*(*)($SignatureScheme*)>(&X509Authentication::valueOf))},
-	{"values", "()[Lsun/security/ssl/X509Authentication;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$X509AuthenticationArray*(*)()>(&X509Authentication::values))},
+	{"valueOf", "(Ljava/lang/String;)Lsun/security/ssl/X509Authentication;", nullptr, $PUBLIC | $STATIC, $staticMethod(X509Authentication, valueOf, X509Authentication*, $String*)},
+	{"valueOf", "(Lsun/security/ssl/SignatureScheme;)Lsun/security/ssl/X509Authentication;", nullptr, $STATIC, $staticMethod(X509Authentication, valueOf, X509Authentication*, $SignatureScheme*)},
+	{"values", "()[Lsun/security/ssl/X509Authentication;", nullptr, $PUBLIC | $STATIC, $staticMethod(X509Authentication, values, $X509AuthenticationArray*)},
 	{}
 };
 

@@ -13,8 +13,8 @@ namespace javax {
 	namespace crypto {
 
 $MethodInfo _JceSecurity$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(JceSecurity$1::*)()>(&JceSecurity$1::init$))},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, nullptr, "java.lang.Exception"},
+	{"<init>", "()V", nullptr, 0, $method(JceSecurity$1, init$, void)},
+	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(JceSecurity$1, run, $Object*), "java.lang.Exception"},
 	{}
 };
 

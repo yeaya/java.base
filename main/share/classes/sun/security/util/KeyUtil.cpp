@@ -66,17 +66,17 @@ namespace sun {
 		namespace util {
 
 $MethodInfo _KeyUtil_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(KeyUtil::*)()>(&KeyUtil::init$))},
-	{"checkTlsPreMasterSecretKey", "(IILjava/security/SecureRandom;[BZ)[B", nullptr, $PUBLIC | $STATIC, $method(static_cast<$bytes*(*)(int32_t,int32_t,$SecureRandom*,$bytes*,bool)>(&KeyUtil::checkTlsPreMasterSecretKey))},
-	{"getKeySize", "(Ljava/security/Key;)I", nullptr, $PUBLIC | $STATIC | $FINAL, $method(static_cast<int32_t(*)($Key*)>(&KeyUtil::getKeySize))},
-	{"getKeySize", "(Ljava/security/AlgorithmParameters;)I", nullptr, $PUBLIC | $STATIC | $FINAL, $method(static_cast<int32_t(*)($AlgorithmParameters*)>(&KeyUtil::getKeySize))},
-	{"isOracleJCEProvider", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC | $FINAL, $method(static_cast<bool(*)($String*)>(&KeyUtil::isOracleJCEProvider))},
-	{"trimZeroes", "([B)[B", nullptr, $PUBLIC | $STATIC, $method(static_cast<$bytes*(*)($bytes*)>(&KeyUtil::trimZeroes))},
-	{"validate", "(Ljava/security/Key;)V", nullptr, $PUBLIC | $STATIC | $FINAL, $method(static_cast<void(*)($Key*)>(&KeyUtil::validate)), "java.security.InvalidKeyException"},
-	{"validate", "(Ljava/security/spec/KeySpec;)V", nullptr, $PUBLIC | $STATIC | $FINAL, $method(static_cast<void(*)($KeySpec*)>(&KeyUtil::validate)), "java.security.InvalidKeyException"},
-	{"validateDHPublicKey", "(Ljavax/crypto/interfaces/DHPublicKey;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($DHPublicKey*)>(&KeyUtil::validateDHPublicKey)), "java.security.InvalidKeyException"},
-	{"validateDHPublicKey", "(Ljavax/crypto/spec/DHPublicKeySpec;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($DHPublicKeySpec*)>(&KeyUtil::validateDHPublicKey)), "java.security.InvalidKeyException"},
-	{"validateDHPublicKey", "(Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($BigInteger*,$BigInteger*,$BigInteger*)>(&KeyUtil::validateDHPublicKey)), "java.security.InvalidKeyException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(KeyUtil, init$, void)},
+	{"checkTlsPreMasterSecretKey", "(IILjava/security/SecureRandom;[BZ)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyUtil, checkTlsPreMasterSecretKey, $bytes*, int32_t, int32_t, $SecureRandom*, $bytes*, bool)},
+	{"getKeySize", "(Ljava/security/Key;)I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(KeyUtil, getKeySize, int32_t, $Key*)},
+	{"getKeySize", "(Ljava/security/AlgorithmParameters;)I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(KeyUtil, getKeySize, int32_t, $AlgorithmParameters*)},
+	{"isOracleJCEProvider", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(KeyUtil, isOracleJCEProvider, bool, $String*)},
+	{"trimZeroes", "([B)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyUtil, trimZeroes, $bytes*, $bytes*)},
+	{"validate", "(Ljava/security/Key;)V", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(KeyUtil, validate, void, $Key*), "java.security.InvalidKeyException"},
+	{"validate", "(Ljava/security/spec/KeySpec;)V", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(KeyUtil, validate, void, $KeySpec*), "java.security.InvalidKeyException"},
+	{"validateDHPublicKey", "(Ljavax/crypto/interfaces/DHPublicKey;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(KeyUtil, validateDHPublicKey, void, $DHPublicKey*), "java.security.InvalidKeyException"},
+	{"validateDHPublicKey", "(Ljavax/crypto/spec/DHPublicKeySpec;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(KeyUtil, validateDHPublicKey, void, $DHPublicKeySpec*), "java.security.InvalidKeyException"},
+	{"validateDHPublicKey", "(Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(KeyUtil, validateDHPublicKey, void, $BigInteger*, $BigInteger*, $BigInteger*), "java.security.InvalidKeyException"},
 	{}
 };
 

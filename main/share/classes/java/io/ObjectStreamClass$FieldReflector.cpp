@@ -49,14 +49,14 @@ $FieldInfo _ObjectStreamClass$FieldReflector_FieldInfo_[] = {
 };
 
 $MethodInfo _ObjectStreamClass$FieldReflector_MethodInfo_[] = {
-	{"<init>", "([Ljava/io/ObjectStreamField;)V", nullptr, 0, $method(static_cast<void(ObjectStreamClass$FieldReflector::*)($ObjectStreamFieldArray*)>(&ObjectStreamClass$FieldReflector::init$))},
-	{"checkObjectFieldValueTypes", "(Ljava/lang/Object;[Ljava/lang/Object;)V", nullptr, 0},
-	{"getFields", "()[Ljava/io/ObjectStreamField;", nullptr, 0},
-	{"getObjFieldValues", "(Ljava/lang/Object;[Ljava/lang/Object;)V", nullptr, 0},
-	{"getPrimFieldValues", "(Ljava/lang/Object;[B)V", nullptr, 0},
-	{"setObjFieldValues", "(Ljava/lang/Object;[Ljava/lang/Object;)V", nullptr, 0},
-	{"setObjFieldValues", "(Ljava/lang/Object;[Ljava/lang/Object;Z)V", nullptr, $PRIVATE, $method(static_cast<void(ObjectStreamClass$FieldReflector::*)(Object$*,$ObjectArray*,bool)>(&ObjectStreamClass$FieldReflector::setObjFieldValues))},
-	{"setPrimFieldValues", "(Ljava/lang/Object;[B)V", nullptr, 0},
+	{"<init>", "([Ljava/io/ObjectStreamField;)V", nullptr, 0, $method(ObjectStreamClass$FieldReflector, init$, void, $ObjectStreamFieldArray*)},
+	{"checkObjectFieldValueTypes", "(Ljava/lang/Object;[Ljava/lang/Object;)V", nullptr, 0, $virtualMethod(ObjectStreamClass$FieldReflector, checkObjectFieldValueTypes, void, Object$*, $ObjectArray*)},
+	{"getFields", "()[Ljava/io/ObjectStreamField;", nullptr, 0, $virtualMethod(ObjectStreamClass$FieldReflector, getFields, $ObjectStreamFieldArray*)},
+	{"getObjFieldValues", "(Ljava/lang/Object;[Ljava/lang/Object;)V", nullptr, 0, $virtualMethod(ObjectStreamClass$FieldReflector, getObjFieldValues, void, Object$*, $ObjectArray*)},
+	{"getPrimFieldValues", "(Ljava/lang/Object;[B)V", nullptr, 0, $virtualMethod(ObjectStreamClass$FieldReflector, getPrimFieldValues, void, Object$*, $bytes*)},
+	{"setObjFieldValues", "(Ljava/lang/Object;[Ljava/lang/Object;)V", nullptr, 0, $virtualMethod(ObjectStreamClass$FieldReflector, setObjFieldValues, void, Object$*, $ObjectArray*)},
+	{"setObjFieldValues", "(Ljava/lang/Object;[Ljava/lang/Object;Z)V", nullptr, $PRIVATE, $method(ObjectStreamClass$FieldReflector, setObjFieldValues, void, Object$*, $ObjectArray*, bool)},
+	{"setPrimFieldValues", "(Ljava/lang/Object;[B)V", nullptr, 0, $virtualMethod(ObjectStreamClass$FieldReflector, setPrimFieldValues, void, Object$*, $bytes*)},
 	{}
 };
 

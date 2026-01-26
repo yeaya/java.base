@@ -46,13 +46,13 @@ $FieldInfo _ModulePatcher$ExplodedResourceFinder$1_FieldInfo_[] = {
 };
 
 $MethodInfo _ModulePatcher$ExplodedResourceFinder$1_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/module/ModulePatcher$ExplodedResourceFinder;Ljava/lang/String;Ljava/nio/file/Path;Ljava/nio/file/Path;)V", nullptr, 0, $method(static_cast<void(ModulePatcher$ExplodedResourceFinder$1::*)($ModulePatcher$ExplodedResourceFinder*,$String*,$Path*,$Path*)>(&ModulePatcher$ExplodedResourceFinder$1::init$))},
-	{"getByteBuffer", "()Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"getCodeSourceURL", "()Ljava/net/URL;", nullptr, $PUBLIC},
-	{"getContentLength", "()I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"getInputStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getURL", "()Ljava/net/URL;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/module/ModulePatcher$ExplodedResourceFinder;Ljava/lang/String;Ljava/nio/file/Path;Ljava/nio/file/Path;)V", nullptr, 0, $method(ModulePatcher$ExplodedResourceFinder$1, init$, void, $ModulePatcher$ExplodedResourceFinder*, $String*, $Path*, $Path*)},
+	{"getByteBuffer", "()Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $virtualMethod(ModulePatcher$ExplodedResourceFinder$1, getByteBuffer, $ByteBuffer*), "java.io.IOException"},
+	{"getCodeSourceURL", "()Ljava/net/URL;", nullptr, $PUBLIC, $virtualMethod(ModulePatcher$ExplodedResourceFinder$1, getCodeSourceURL, $URL*)},
+	{"getContentLength", "()I", nullptr, $PUBLIC, $virtualMethod(ModulePatcher$ExplodedResourceFinder$1, getContentLength, int32_t), "java.io.IOException"},
+	{"getInputStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(ModulePatcher$ExplodedResourceFinder$1, getInputStream, $InputStream*), "java.io.IOException"},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ModulePatcher$ExplodedResourceFinder$1, getName, $String*)},
+	{"getURL", "()Ljava/net/URL;", nullptr, $PUBLIC, $virtualMethod(ModulePatcher$ExplodedResourceFinder$1, getURL, $URL*)},
 	{}
 };
 

@@ -66,7 +66,7 @@ $FieldInfo _PredefinedDHParameterSpecs_FieldInfo_[] = {
 };
 
 $MethodInfo _PredefinedDHParameterSpecs_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(PredefinedDHParameterSpecs::*)()>(&PredefinedDHParameterSpecs::init$))},
+	{"<init>", "()V", nullptr, 0, $method(PredefinedDHParameterSpecs, init$, void)},
 	{}
 };
 

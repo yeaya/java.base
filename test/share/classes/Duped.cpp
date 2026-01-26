@@ -32,8 +32,8 @@ $FieldInfo _Duped_FieldInfo_[] = {
 };
 
 $MethodInfo _Duped_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Duped::*)()>(&Duped::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Duped::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Duped, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Duped, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

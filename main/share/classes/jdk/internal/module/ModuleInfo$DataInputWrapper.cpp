@@ -31,22 +31,22 @@ $FieldInfo _ModuleInfo$DataInputWrapper_FieldInfo_[] = {
 };
 
 $MethodInfo _ModuleInfo$DataInputWrapper_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/ByteBuffer;)V", nullptr, 0, $method(static_cast<void(ModuleInfo$DataInputWrapper::*)($ByteBuffer*)>(&ModuleInfo$DataInputWrapper::init$))},
-	{"readBoolean", "()Z", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"readByte", "()B", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"readChar", "()C", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"readDouble", "()D", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"readFloat", "()F", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"readFully", "([B)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"readFully", "([BII)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"readInt", "()I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"readLine", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"readLong", "()J", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"readShort", "()S", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"readUTF", "()Ljava/lang/String;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"readUnsignedByte", "()I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"readUnsignedShort", "()I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"skipBytes", "(I)I", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/nio/ByteBuffer;)V", nullptr, 0, $method(ModuleInfo$DataInputWrapper, init$, void, $ByteBuffer*)},
+	{"readBoolean", "()Z", nullptr, $PUBLIC, $virtualMethod(ModuleInfo$DataInputWrapper, readBoolean, bool), "java.io.IOException"},
+	{"readByte", "()B", nullptr, $PUBLIC, $virtualMethod(ModuleInfo$DataInputWrapper, readByte, int8_t), "java.io.IOException"},
+	{"readChar", "()C", nullptr, $PUBLIC, $virtualMethod(ModuleInfo$DataInputWrapper, readChar, char16_t), "java.io.IOException"},
+	{"readDouble", "()D", nullptr, $PUBLIC, $virtualMethod(ModuleInfo$DataInputWrapper, readDouble, double), "java.io.IOException"},
+	{"readFloat", "()F", nullptr, $PUBLIC, $virtualMethod(ModuleInfo$DataInputWrapper, readFloat, float), "java.io.IOException"},
+	{"readFully", "([B)V", nullptr, $PUBLIC, $virtualMethod(ModuleInfo$DataInputWrapper, readFully, void, $bytes*), "java.io.IOException"},
+	{"readFully", "([BII)V", nullptr, $PUBLIC, $virtualMethod(ModuleInfo$DataInputWrapper, readFully, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
+	{"readInt", "()I", nullptr, $PUBLIC, $virtualMethod(ModuleInfo$DataInputWrapper, readInt, int32_t), "java.io.IOException"},
+	{"readLine", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ModuleInfo$DataInputWrapper, readLine, $String*)},
+	{"readLong", "()J", nullptr, $PUBLIC, $virtualMethod(ModuleInfo$DataInputWrapper, readLong, int64_t), "java.io.IOException"},
+	{"readShort", "()S", nullptr, $PUBLIC, $virtualMethod(ModuleInfo$DataInputWrapper, readShort, int16_t), "java.io.IOException"},
+	{"readUTF", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ModuleInfo$DataInputWrapper, readUTF, $String*), "java.io.IOException"},
+	{"readUnsignedByte", "()I", nullptr, $PUBLIC, $virtualMethod(ModuleInfo$DataInputWrapper, readUnsignedByte, int32_t), "java.io.IOException"},
+	{"readUnsignedShort", "()I", nullptr, $PUBLIC, $virtualMethod(ModuleInfo$DataInputWrapper, readUnsignedShort, int32_t), "java.io.IOException"},
+	{"skipBytes", "(I)I", nullptr, $PUBLIC, $virtualMethod(ModuleInfo$DataInputWrapper, skipBytes, int32_t, int32_t)},
 	{}
 };
 

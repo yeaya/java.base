@@ -42,15 +42,15 @@ $FieldInfo _LinkedHashMap$LinkedValues_FieldInfo_[] = {
 };
 
 $MethodInfo _LinkedHashMap$LinkedValues_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/LinkedHashMap;)V", nullptr, 0, $method(static_cast<void(LinkedHashMap$LinkedValues::*)($LinkedHashMap*)>(&LinkedHashMap$LinkedValues::init$))},
-	{"clear", "()V", nullptr, $PUBLIC | $FINAL},
-	{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
-	{"forEach", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TV;>;)V", $PUBLIC | $FINAL},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TV;>;", $PUBLIC | $FINAL},
-	{"size", "()I", nullptr, $PUBLIC | $FINAL},
-	{"spliterator", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TV;>;", $PUBLIC | $FINAL},
-	{"toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", "<T:Ljava/lang/Object;>([TT;)[TT;", $PUBLIC},
+	{"<init>", "(Ljava/util/LinkedHashMap;)V", nullptr, 0, $method(LinkedHashMap$LinkedValues, init$, void, $LinkedHashMap*)},
+	{"clear", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(LinkedHashMap$LinkedValues, clear, void)},
+	{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(LinkedHashMap$LinkedValues, contains, bool, Object$*)},
+	{"forEach", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TV;>;)V", $PUBLIC | $FINAL, $virtualMethod(LinkedHashMap$LinkedValues, forEach, void, $Consumer*)},
+	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TV;>;", $PUBLIC | $FINAL, $virtualMethod(LinkedHashMap$LinkedValues, iterator, $Iterator*)},
+	{"size", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(LinkedHashMap$LinkedValues, size, int32_t)},
+	{"spliterator", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TV;>;", $PUBLIC | $FINAL, $virtualMethod(LinkedHashMap$LinkedValues, spliterator, $Spliterator*)},
+	{"toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LinkedHashMap$LinkedValues, toArray, $ObjectArray*)},
+	{"toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", "<T:Ljava/lang/Object;>([TT;)[TT;", $PUBLIC, $virtualMethod(LinkedHashMap$LinkedValues, toArray, $ObjectArray*, $ObjectArray*)},
 	{}
 };
 

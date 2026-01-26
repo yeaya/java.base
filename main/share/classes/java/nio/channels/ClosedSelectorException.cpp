@@ -18,7 +18,7 @@ $FieldInfo _ClosedSelectorException_FieldInfo_[] = {
 };
 
 $MethodInfo _ClosedSelectorException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ClosedSelectorException::*)()>(&ClosedSelectorException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ClosedSelectorException, init$, void)},
 	{}
 };
 

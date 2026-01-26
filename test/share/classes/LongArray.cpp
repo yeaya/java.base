@@ -18,7 +18,7 @@ $CompoundAttribute _LongArray_Annotations_[] = {
 };
 
 $MethodInfo _LongArray_MethodInfo_[] = {
-	{"value", "()[J", nullptr, $PUBLIC | $ABSTRACT},
+	{"value", "()[J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LongArray, value, $longs*)},
 	{}
 };
 

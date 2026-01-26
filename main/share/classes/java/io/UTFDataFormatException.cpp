@@ -17,8 +17,8 @@ $FieldInfo _UTFDataFormatException_FieldInfo_[] = {
 };
 
 $MethodInfo _UTFDataFormatException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(UTFDataFormatException::*)()>(&UTFDataFormatException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(UTFDataFormatException::*)($String*)>(&UTFDataFormatException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(UTFDataFormatException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(UTFDataFormatException, init$, void, $String*)},
 	{}
 };
 

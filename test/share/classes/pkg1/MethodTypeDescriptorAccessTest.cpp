@@ -23,11 +23,11 @@ using $MethodType = ::java::lang::invoke::MethodType;
 namespace pkg1 {
 
 $MethodInfo _MethodTypeDescriptorAccessTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(MethodTypeDescriptorAccessTest::*)()>(&MethodTypeDescriptorAccessTest::init$))},
-	{"checkInvalidAccess", "(Ljava/lang/constant/MethodTypeDesc;Ljava/lang/invoke/MethodHandles$Lookup;)V", nullptr, $PRIVATE, $method(static_cast<void(MethodTypeDescriptorAccessTest::*)($MethodTypeDesc*,$MethodHandles$Lookup*)>(&MethodTypeDescriptorAccessTest::checkInvalidAccess))},
-	{"checkValidAccess", "(Ljava/lang/constant/MethodTypeDesc;Ljava/lang/invoke/MethodHandles$Lookup;)V", nullptr, $PRIVATE, $method(static_cast<void(MethodTypeDescriptorAccessTest::*)($MethodTypeDesc*,$MethodHandles$Lookup*)>(&MethodTypeDescriptorAccessTest::checkValidAccess))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<void(*)($StringArray*)>(&MethodTypeDescriptorAccessTest::main)), "java.lang.Throwable"},
-	{"test", "()V", nullptr, 0},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(MethodTypeDescriptorAccessTest, init$, void)},
+	{"checkInvalidAccess", "(Ljava/lang/constant/MethodTypeDesc;Ljava/lang/invoke/MethodHandles$Lookup;)V", nullptr, $PRIVATE, $method(MethodTypeDescriptorAccessTest, checkInvalidAccess, void, $MethodTypeDesc*, $MethodHandles$Lookup*)},
+	{"checkValidAccess", "(Ljava/lang/constant/MethodTypeDesc;Ljava/lang/invoke/MethodHandles$Lookup;)V", nullptr, $PRIVATE, $method(MethodTypeDescriptorAccessTest, checkValidAccess, void, $MethodTypeDesc*, $MethodHandles$Lookup*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(MethodTypeDescriptorAccessTest, main, void, $StringArray*), "java.lang.Throwable"},
+	{"test", "()V", nullptr, 0, $virtualMethod(MethodTypeDescriptorAccessTest, test, void)},
 	{}
 };
 

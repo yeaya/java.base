@@ -54,18 +54,18 @@ $FieldInfo _InMemoryCookieStore_FieldInfo_[] = {
 };
 
 $MethodInfo _InMemoryCookieStore_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(InMemoryCookieStore::*)()>(&InMemoryCookieStore::init$))},
-	{"add", "(Ljava/net/URI;Ljava/net/HttpCookie;)V", nullptr, $PUBLIC},
-	{"addIndex", "(Ljava/util/Map;Ljava/lang/Object;Ljava/net/HttpCookie;)V", "<T:Ljava/lang/Object;>(Ljava/util/Map<TT;Ljava/util/List<Ljava/net/HttpCookie;>;>;TT;Ljava/net/HttpCookie;)V", $PRIVATE, $method(static_cast<void(InMemoryCookieStore::*)($Map*,Object$*,$HttpCookie*)>(&InMemoryCookieStore::addIndex))},
-	{"get", "(Ljava/net/URI;)Ljava/util/List;", "(Ljava/net/URI;)Ljava/util/List<Ljava/net/HttpCookie;>;", $PUBLIC},
-	{"getCookies", "()Ljava/util/List;", "()Ljava/util/List<Ljava/net/HttpCookie;>;", $PUBLIC},
-	{"getEffectiveURI", "(Ljava/net/URI;)Ljava/net/URI;", nullptr, $PRIVATE, $method(static_cast<$URI*(InMemoryCookieStore::*)($URI*)>(&InMemoryCookieStore::getEffectiveURI))},
-	{"getInternal1", "(Ljava/util/List;Ljava/util/Map;Ljava/lang/String;Z)V", "(Ljava/util/List<Ljava/net/HttpCookie;>;Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/net/HttpCookie;>;>;Ljava/lang/String;Z)V", $PRIVATE, $method(static_cast<void(InMemoryCookieStore::*)($List*,$Map*,$String*,bool)>(&InMemoryCookieStore::getInternal1))},
-	{"getInternal2", "(Ljava/util/List;Ljava/util/Map;Ljava/lang/Comparable;Z)V", "<T:Ljava/lang/Object;>(Ljava/util/List<Ljava/net/HttpCookie;>;Ljava/util/Map<TT;Ljava/util/List<Ljava/net/HttpCookie;>;>;Ljava/lang/Comparable<TT;>;Z)V", $PRIVATE, $method(static_cast<void(InMemoryCookieStore::*)($List*,$Map*,$Comparable*,bool)>(&InMemoryCookieStore::getInternal2))},
-	{"getURIs", "()Ljava/util/List;", "()Ljava/util/List<Ljava/net/URI;>;", $PUBLIC},
-	{"netscapeDomainMatches", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(static_cast<bool(InMemoryCookieStore::*)($String*,$String*)>(&InMemoryCookieStore::netscapeDomainMatches))},
-	{"remove", "(Ljava/net/URI;Ljava/net/HttpCookie;)Z", nullptr, $PUBLIC},
-	{"removeAll", "()Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(InMemoryCookieStore, init$, void)},
+	{"add", "(Ljava/net/URI;Ljava/net/HttpCookie;)V", nullptr, $PUBLIC, $virtualMethod(InMemoryCookieStore, add, void, $URI*, $HttpCookie*)},
+	{"addIndex", "(Ljava/util/Map;Ljava/lang/Object;Ljava/net/HttpCookie;)V", "<T:Ljava/lang/Object;>(Ljava/util/Map<TT;Ljava/util/List<Ljava/net/HttpCookie;>;>;TT;Ljava/net/HttpCookie;)V", $PRIVATE, $method(InMemoryCookieStore, addIndex, void, $Map*, Object$*, $HttpCookie*)},
+	{"get", "(Ljava/net/URI;)Ljava/util/List;", "(Ljava/net/URI;)Ljava/util/List<Ljava/net/HttpCookie;>;", $PUBLIC, $virtualMethod(InMemoryCookieStore, get, $List*, $URI*)},
+	{"getCookies", "()Ljava/util/List;", "()Ljava/util/List<Ljava/net/HttpCookie;>;", $PUBLIC, $virtualMethod(InMemoryCookieStore, getCookies, $List*)},
+	{"getEffectiveURI", "(Ljava/net/URI;)Ljava/net/URI;", nullptr, $PRIVATE, $method(InMemoryCookieStore, getEffectiveURI, $URI*, $URI*)},
+	{"getInternal1", "(Ljava/util/List;Ljava/util/Map;Ljava/lang/String;Z)V", "(Ljava/util/List<Ljava/net/HttpCookie;>;Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/net/HttpCookie;>;>;Ljava/lang/String;Z)V", $PRIVATE, $method(InMemoryCookieStore, getInternal1, void, $List*, $Map*, $String*, bool)},
+	{"getInternal2", "(Ljava/util/List;Ljava/util/Map;Ljava/lang/Comparable;Z)V", "<T:Ljava/lang/Object;>(Ljava/util/List<Ljava/net/HttpCookie;>;Ljava/util/Map<TT;Ljava/util/List<Ljava/net/HttpCookie;>;>;Ljava/lang/Comparable<TT;>;Z)V", $PRIVATE, $method(InMemoryCookieStore, getInternal2, void, $List*, $Map*, $Comparable*, bool)},
+	{"getURIs", "()Ljava/util/List;", "()Ljava/util/List<Ljava/net/URI;>;", $PUBLIC, $virtualMethod(InMemoryCookieStore, getURIs, $List*)},
+	{"netscapeDomainMatches", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(InMemoryCookieStore, netscapeDomainMatches, bool, $String*, $String*)},
+	{"remove", "(Ljava/net/URI;Ljava/net/HttpCookie;)Z", nullptr, $PUBLIC, $virtualMethod(InMemoryCookieStore, remove, bool, $URI*, $HttpCookie*)},
+	{"removeAll", "()Z", nullptr, $PUBLIC, $virtualMethod(InMemoryCookieStore, removeAll, bool)},
 	{}
 };
 

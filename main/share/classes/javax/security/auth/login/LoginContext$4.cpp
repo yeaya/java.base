@@ -22,8 +22,8 @@ $FieldInfo _LoginContext$4_FieldInfo_[] = {
 };
 
 $MethodInfo _LoginContext$4_MethodInfo_[] = {
-	{"<init>", "(Ljavax/security/auth/login/LoginContext;Ljava/lang/String;)V", "()V", 0, $method(static_cast<void(LoginContext$4::*)($LoginContext*,$String*)>(&LoginContext$4::init$))},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, nullptr, "javax.security.auth.login.LoginException"},
+	{"<init>", "(Ljavax/security/auth/login/LoginContext;Ljava/lang/String;)V", "()V", 0, $method(LoginContext$4, init$, void, $LoginContext*, $String*)},
+	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(LoginContext$4, run, $Object*), "javax.security.auth.login.LoginException"},
 	{}
 };
 

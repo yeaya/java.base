@@ -27,8 +27,8 @@ namespace java {
 		namespace file {
 
 $MethodInfo _Files$FileTypeDetectors$2_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Files$FileTypeDetectors$2::*)()>(&Files$FileTypeDetectors$2::init$))},
-	{"run", "()Ljava/util/List;", "()Ljava/util/List<Ljava/nio/file/spi/FileTypeDetector;>;", $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(Files$FileTypeDetectors$2, init$, void)},
+	{"run", "()Ljava/util/List;", "()Ljava/util/List<Ljava/nio/file/spi/FileTypeDetector;>;", $PUBLIC, $virtualMethod(Files$FileTypeDetectors$2, run, $Object*)},
 	{}
 };
 

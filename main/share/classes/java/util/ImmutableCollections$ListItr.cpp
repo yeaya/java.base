@@ -44,17 +44,17 @@ $FieldInfo _ImmutableCollections$ListItr_FieldInfo_[] = {
 };
 
 $MethodInfo _ImmutableCollections$ListItr_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/List;I)V", "(Ljava/util/List<TE;>;I)V", 0, $method(static_cast<void(ImmutableCollections$ListItr::*)($List*,int32_t)>(&ImmutableCollections$ListItr::init$))},
-	{"<init>", "(Ljava/util/List;II)V", "(Ljava/util/List<TE;>;II)V", 0, $method(static_cast<void(ImmutableCollections$ListItr::*)($List*,int32_t,int32_t)>(&ImmutableCollections$ListItr::init$))},
-	{"add", "(Ljava/lang/Object;)V", "(TE;)V", $PUBLIC},
-	{"hasNext", "()Z", nullptr, $PUBLIC},
-	{"hasPrevious", "()Z", nullptr, $PUBLIC},
-	{"next", "()Ljava/lang/Object;", "()TE;", $PUBLIC},
-	{"nextIndex", "()I", nullptr, $PUBLIC},
-	{"previous", "()Ljava/lang/Object;", "()TE;", $PUBLIC},
-	{"previousIndex", "()I", nullptr, $PUBLIC},
-	{"remove", "()V", nullptr, $PUBLIC},
-	{"set", "(Ljava/lang/Object;)V", "(TE;)V", $PUBLIC},
+	{"<init>", "(Ljava/util/List;I)V", "(Ljava/util/List<TE;>;I)V", 0, $method(ImmutableCollections$ListItr, init$, void, $List*, int32_t)},
+	{"<init>", "(Ljava/util/List;II)V", "(Ljava/util/List<TE;>;II)V", 0, $method(ImmutableCollections$ListItr, init$, void, $List*, int32_t, int32_t)},
+	{"add", "(Ljava/lang/Object;)V", "(TE;)V", $PUBLIC, $virtualMethod(ImmutableCollections$ListItr, add, void, Object$*)},
+	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(ImmutableCollections$ListItr, hasNext, bool)},
+	{"hasPrevious", "()Z", nullptr, $PUBLIC, $virtualMethod(ImmutableCollections$ListItr, hasPrevious, bool)},
+	{"next", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(ImmutableCollections$ListItr, next, $Object*)},
+	{"nextIndex", "()I", nullptr, $PUBLIC, $virtualMethod(ImmutableCollections$ListItr, nextIndex, int32_t)},
+	{"previous", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(ImmutableCollections$ListItr, previous, $Object*)},
+	{"previousIndex", "()I", nullptr, $PUBLIC, $virtualMethod(ImmutableCollections$ListItr, previousIndex, int32_t)},
+	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(ImmutableCollections$ListItr, remove, void)},
+	{"set", "(Ljava/lang/Object;)V", "(TE;)V", $PUBLIC, $virtualMethod(ImmutableCollections$ListItr, set, void, Object$*)},
 	{}
 };
 

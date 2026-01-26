@@ -30,13 +30,13 @@ $FieldInfo _AbstractFileTypeDetector_FieldInfo_[] = {
 };
 
 $MethodInfo _AbstractFileTypeDetector_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(AbstractFileTypeDetector::*)()>(&AbstractFileTypeDetector::init$))},
-	{"getExtension", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PROTECTED | $FINAL, $method(static_cast<$String*(AbstractFileTypeDetector::*)($String*)>(&AbstractFileTypeDetector::getExtension))},
-	{"implProbeContentType", "(Ljava/nio/file/Path;)Ljava/lang/String;", nullptr, $PROTECTED | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"isTokenChar", "(C)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)(char16_t)>(&AbstractFileTypeDetector::isTokenChar))},
-	{"isValidToken", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($String*)>(&AbstractFileTypeDetector::isValidToken))},
-	{"parse", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($String*)>(&AbstractFileTypeDetector::parse))},
-	{"probeContentType", "(Ljava/nio/file/Path;)Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(AbstractFileTypeDetector, init$, void)},
+	{"getExtension", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PROTECTED | $FINAL, $method(AbstractFileTypeDetector, getExtension, $String*, $String*)},
+	{"implProbeContentType", "(Ljava/nio/file/Path;)Ljava/lang/String;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(AbstractFileTypeDetector, implProbeContentType, $String*, $Path*), "java.io.IOException"},
+	{"isTokenChar", "(C)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(AbstractFileTypeDetector, isTokenChar, bool, char16_t)},
+	{"isValidToken", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(AbstractFileTypeDetector, isValidToken, bool, $String*)},
+	{"parse", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(AbstractFileTypeDetector, parse, $String*, $String*)},
+	{"probeContentType", "(Ljava/nio/file/Path;)Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractFileTypeDetector, probeContentType, $String*, $Path*), "java.io.IOException"},
 	{}
 };
 

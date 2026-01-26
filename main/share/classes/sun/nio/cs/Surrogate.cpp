@@ -37,14 +37,14 @@ $FieldInfo _Surrogate_FieldInfo_[] = {
 };
 
 $MethodInfo _Surrogate_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(Surrogate::*)()>(&Surrogate::init$))},
-	{"high", "(I)C", nullptr, $PUBLIC | $STATIC, $method(static_cast<char16_t(*)(int32_t)>(&Surrogate::high))},
-	{"is", "(I)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)(int32_t)>(&Surrogate::is))},
-	{"isHigh", "(I)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)(int32_t)>(&Surrogate::isHigh))},
-	{"isLow", "(I)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)(int32_t)>(&Surrogate::isLow))},
-	{"low", "(I)C", nullptr, $PUBLIC | $STATIC, $method(static_cast<char16_t(*)(int32_t)>(&Surrogate::low))},
-	{"neededFor", "(I)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)(int32_t)>(&Surrogate::neededFor))},
-	{"toUCS4", "(CC)I", nullptr, $PUBLIC | $STATIC, $method(static_cast<int32_t(*)(char16_t,char16_t)>(&Surrogate::toUCS4))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(Surrogate, init$, void)},
+	{"high", "(I)C", nullptr, $PUBLIC | $STATIC, $staticMethod(Surrogate, high, char16_t, int32_t)},
+	{"is", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Surrogate, is, bool, int32_t)},
+	{"isHigh", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Surrogate, isHigh, bool, int32_t)},
+	{"isLow", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Surrogate, isLow, bool, int32_t)},
+	{"low", "(I)C", nullptr, $PUBLIC | $STATIC, $staticMethod(Surrogate, low, char16_t, int32_t)},
+	{"neededFor", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Surrogate, neededFor, bool, int32_t)},
+	{"toUCS4", "(CC)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Surrogate, toUCS4, int32_t, char16_t, char16_t)},
 	{}
 };
 

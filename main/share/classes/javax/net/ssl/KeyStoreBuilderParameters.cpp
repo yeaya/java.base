@@ -31,9 +31,9 @@ $FieldInfo _KeyStoreBuilderParameters_FieldInfo_[] = {
 };
 
 $MethodInfo _KeyStoreBuilderParameters_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/KeyStore$Builder;)V", nullptr, $PUBLIC, $method(static_cast<void(KeyStoreBuilderParameters::*)($KeyStore$Builder*)>(&KeyStoreBuilderParameters::init$))},
-	{"<init>", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/security/KeyStore$Builder;>;)V", $PUBLIC, $method(static_cast<void(KeyStoreBuilderParameters::*)($List*)>(&KeyStoreBuilderParameters::init$))},
-	{"getParameters", "()Ljava/util/List;", "()Ljava/util/List<Ljava/security/KeyStore$Builder;>;", $PUBLIC},
+	{"<init>", "(Ljava/security/KeyStore$Builder;)V", nullptr, $PUBLIC, $method(KeyStoreBuilderParameters, init$, void, $KeyStore$Builder*)},
+	{"<init>", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/security/KeyStore$Builder;>;)V", $PUBLIC, $method(KeyStoreBuilderParameters, init$, void, $List*)},
+	{"getParameters", "()Ljava/util/List;", "()Ljava/util/List<Ljava/security/KeyStore$Builder;>;", $PUBLIC, $virtualMethod(KeyStoreBuilderParameters, getParameters, $List*)},
 	{}
 };
 

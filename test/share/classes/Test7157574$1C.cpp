@@ -13,14 +13,14 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 
 $MethodInfo _Test7157574$1C_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Test7157574$1C::*)()>(&Test7157574$1C::init$))},
-	{"ig", "()V", nullptr, $PRIVATE, $method(static_cast<void(Test7157574$1C::*)()>(&Test7157574$1C::ig))},
-	{"ig1", "()V", nullptr, $PUBLIC},
-	{"ig2", "()V", nullptr, $PUBLIC},
-	{"ig3", "()V", nullptr, $PUBLIC},
-	{"ig4", "()V", nullptr, $PUBLIC},
-	{"m1", "()V", nullptr, $PUBLIC},
-	{"m2", "()V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(Test7157574$1C, init$, void)},
+	{"ig", "()V", nullptr, $PRIVATE, $method(Test7157574$1C, ig, void)},
+	{"ig1", "()V", nullptr, $PUBLIC, $virtualMethod(Test7157574$1C, ig1, void)},
+	{"ig2", "()V", nullptr, $PUBLIC, $virtualMethod(Test7157574$1C, ig2, void)},
+	{"ig3", "()V", nullptr, $PUBLIC, $virtualMethod(Test7157574$1C, ig3, void)},
+	{"ig4", "()V", nullptr, $PUBLIC, $virtualMethod(Test7157574$1C, ig4, void)},
+	{"m1", "()V", nullptr, $PUBLIC, $virtualMethod(Test7157574$1C, m1, void)},
+	{"m2", "()V", nullptr, $PUBLIC, $virtualMethod(Test7157574$1C, m2, void)},
 	{}
 };
 

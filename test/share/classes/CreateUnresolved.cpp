@@ -9,8 +9,8 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $InetSocketAddress = ::java::net::InetSocketAddress;
 
 $MethodInfo _CreateUnresolved_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CreateUnresolved::*)()>(&CreateUnresolved::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&CreateUnresolved::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CreateUnresolved, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(CreateUnresolved, main, void, $StringArray*)},
 	{}
 };
 

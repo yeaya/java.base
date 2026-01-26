@@ -15,8 +15,8 @@ using $NoSuchMethodException = ::java::lang::NoSuchMethodException;
 using $Method = ::java::lang::reflect::Method;
 
 $MethodInfo _StaticInterfaceMethodInWayOfDefault$TestTask_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(StaticInterfaceMethodInWayOfDefault$TestTask::*)()>(&StaticInterfaceMethodInWayOfDefault$TestTask::init$))},
-	{"call", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(StaticInterfaceMethodInWayOfDefault$TestTask, init$, void)},
+	{"call", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StaticInterfaceMethodInWayOfDefault$TestTask, call, $Object*)},
 	{}
 };
 

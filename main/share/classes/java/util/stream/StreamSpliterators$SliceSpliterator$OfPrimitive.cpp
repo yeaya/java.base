@@ -27,13 +27,13 @@ $MethodInfo _StreamSpliterators$SliceSpliterator$OfPrimitive_MethodInfo_[] = {
 	{"*estimateSize", "()J", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/util/Spliterator$OfPrimitive;JJ)V", "(TT_SPLITR;JJ)V", 0, $method(static_cast<void(StreamSpliterators$SliceSpliterator$OfPrimitive::*)($Spliterator$OfPrimitive*,int64_t,int64_t)>(&StreamSpliterators$SliceSpliterator$OfPrimitive::init$))},
-	{"<init>", "(Ljava/util/Spliterator$OfPrimitive;JJJJ)V", "(TT_SPLITR;JJJJ)V", $PRIVATE, $method(static_cast<void(StreamSpliterators$SliceSpliterator$OfPrimitive::*)($Spliterator$OfPrimitive*,int64_t,int64_t,int64_t,int64_t)>(&StreamSpliterators$SliceSpliterator$OfPrimitive::init$))},
-	{"emptyConsumer", "()Ljava/lang/Object;", "()TT_CONS;", $PROTECTED | $ABSTRACT},
-	{"forEachRemaining", "(Ljava/lang/Object;)V", "(TT_CONS;)V", $PUBLIC},
+	{"<init>", "(Ljava/util/Spliterator$OfPrimitive;JJ)V", "(TT_SPLITR;JJ)V", 0, $method(StreamSpliterators$SliceSpliterator$OfPrimitive, init$, void, $Spliterator$OfPrimitive*, int64_t, int64_t)},
+	{"<init>", "(Ljava/util/Spliterator$OfPrimitive;JJJJ)V", "(TT_SPLITR;JJJJ)V", $PRIVATE, $method(StreamSpliterators$SliceSpliterator$OfPrimitive, init$, void, $Spliterator$OfPrimitive*, int64_t, int64_t, int64_t, int64_t)},
+	{"emptyConsumer", "()Ljava/lang/Object;", "()TT_CONS;", $PROTECTED | $ABSTRACT, $virtualMethod(StreamSpliterators$SliceSpliterator$OfPrimitive, emptyConsumer, $Object*)},
+	{"forEachRemaining", "(Ljava/lang/Object;)V", "(TT_CONS;)V", $PUBLIC, $virtualMethod(StreamSpliterators$SliceSpliterator$OfPrimitive, forEachRemaining, void, Object$*)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"tryAdvance", "(Ljava/lang/Object;)Z", "(TT_CONS;)Z", $PUBLIC},
-	{"trySplit", "()Ljava/util/Spliterator$OfPrimitive;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"tryAdvance", "(Ljava/lang/Object;)Z", "(TT_CONS;)Z", $PUBLIC, $virtualMethod(StreamSpliterators$SliceSpliterator$OfPrimitive, tryAdvance, bool, Object$*)},
+	{"trySplit", "()Ljava/util/Spliterator$OfPrimitive;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(StreamSpliterators$SliceSpliterator$OfPrimitive, trySplit, $Spliterator*)},
 	{}
 };
 

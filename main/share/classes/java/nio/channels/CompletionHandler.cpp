@@ -10,8 +10,8 @@ namespace java {
 		namespace channels {
 
 $MethodInfo _CompletionHandler_MethodInfo_[] = {
-	{"completed", "(Ljava/lang/Object;Ljava/lang/Object;)V", "(TV;TA;)V", $PUBLIC | $ABSTRACT},
-	{"failed", "(Ljava/lang/Throwable;Ljava/lang/Object;)V", "(Ljava/lang/Throwable;TA;)V", $PUBLIC | $ABSTRACT},
+	{"completed", "(Ljava/lang/Object;Ljava/lang/Object;)V", "(TV;TA;)V", $PUBLIC | $ABSTRACT, $virtualMethod(CompletionHandler, completed, void, Object$*, Object$*)},
+	{"failed", "(Ljava/lang/Throwable;Ljava/lang/Object;)V", "(Ljava/lang/Throwable;TA;)V", $PUBLIC | $ABSTRACT, $virtualMethod(CompletionHandler, failed, void, $Throwable*, Object$*)},
 	{}
 };
 

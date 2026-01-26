@@ -27,15 +27,15 @@ $FieldInfo _ModuleDescriptor$Provides_FieldInfo_[] = {
 };
 
 $MethodInfo _ModuleDescriptor$Provides_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/util/List;)V", "(Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;)V", $PRIVATE, $method(static_cast<void(ModuleDescriptor$Provides::*)($String*,$List*)>(&ModuleDescriptor$Provides::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/util/List;Z)V", "(Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;Z)V", $PRIVATE, $method(static_cast<void(ModuleDescriptor$Provides::*)($String*,$List*,bool)>(&ModuleDescriptor$Provides::init$))},
-	{"compareTo", "(Ljava/lang/module/ModuleDescriptor$Provides;)I", nullptr, $PUBLIC, $method(static_cast<int32_t(ModuleDescriptor$Provides::*)(ModuleDescriptor$Provides*)>(&ModuleDescriptor$Provides::compareTo))},
-	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"providers", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PUBLIC, $method(static_cast<$List*(ModuleDescriptor$Provides::*)()>(&ModuleDescriptor$Provides::providers))},
-	{"service", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(static_cast<$String*(ModuleDescriptor$Provides::*)()>(&ModuleDescriptor$Provides::service))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Ljava/util/List;)V", "(Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;)V", $PRIVATE, $method(ModuleDescriptor$Provides, init$, void, $String*, $List*)},
+	{"<init>", "(Ljava/lang/String;Ljava/util/List;Z)V", "(Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;Z)V", $PRIVATE, $method(ModuleDescriptor$Provides, init$, void, $String*, $List*, bool)},
+	{"compareTo", "(Ljava/lang/module/ModuleDescriptor$Provides;)I", nullptr, $PUBLIC, $method(ModuleDescriptor$Provides, compareTo, int32_t, ModuleDescriptor$Provides*)},
+	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ModuleDescriptor$Provides, compareTo, int32_t, Object$*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ModuleDescriptor$Provides, equals, bool, Object$*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ModuleDescriptor$Provides, hashCode, int32_t)},
+	{"providers", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PUBLIC, $method(ModuleDescriptor$Provides, providers, $List*)},
+	{"service", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(ModuleDescriptor$Provides, service, $String*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ModuleDescriptor$Provides, toString, $String*)},
 	{}
 };
 

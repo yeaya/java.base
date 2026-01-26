@@ -35,14 +35,14 @@ $FieldInfo _BMPSet_FieldInfo_[] = {
 };
 
 $MethodInfo _BMPSet_MethodInfo_[] = {
-	{"<init>", "([II)V", nullptr, $PUBLIC, $method(static_cast<void(BMPSet::*)($ints*,int32_t)>(&BMPSet::init$))},
-	{"contains", "(I)Z", nullptr, $PUBLIC, $method(static_cast<bool(BMPSet::*)(int32_t)>(&BMPSet::contains))},
-	{"containsSlow", "(III)Z", nullptr, $PRIVATE | $FINAL, $method(static_cast<bool(BMPSet::*)(int32_t,int32_t,int32_t)>(&BMPSet::containsSlow))},
-	{"findCodePoint", "(III)I", nullptr, $PRIVATE, $method(static_cast<int32_t(BMPSet::*)(int32_t,int32_t,int32_t)>(&BMPSet::findCodePoint))},
-	{"initBits", "()V", nullptr, $PRIVATE, $method(static_cast<void(BMPSet::*)()>(&BMPSet::initBits))},
-	{"set32x64Bits", "([III)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($ints*,int32_t,int32_t)>(&BMPSet::set32x64Bits))},
-	{"span", "(Ljava/lang/CharSequence;ILjdk/internal/icu/text/UnicodeSet$SpanCondition;Ljdk/internal/icu/util/OutputInt;)I", nullptr, $PUBLIC | $FINAL, $method(static_cast<int32_t(BMPSet::*)($CharSequence*,int32_t,$UnicodeSet$SpanCondition*,$OutputInt*)>(&BMPSet::span))},
-	{"spanBack", "(Ljava/lang/CharSequence;ILjdk/internal/icu/text/UnicodeSet$SpanCondition;)I", nullptr, $PUBLIC | $FINAL, $method(static_cast<int32_t(BMPSet::*)($CharSequence*,int32_t,$UnicodeSet$SpanCondition*)>(&BMPSet::spanBack))},
+	{"<init>", "([II)V", nullptr, $PUBLIC, $method(BMPSet, init$, void, $ints*, int32_t)},
+	{"contains", "(I)Z", nullptr, $PUBLIC, $method(BMPSet, contains, bool, int32_t)},
+	{"containsSlow", "(III)Z", nullptr, $PRIVATE | $FINAL, $method(BMPSet, containsSlow, bool, int32_t, int32_t, int32_t)},
+	{"findCodePoint", "(III)I", nullptr, $PRIVATE, $method(BMPSet, findCodePoint, int32_t, int32_t, int32_t, int32_t)},
+	{"initBits", "()V", nullptr, $PRIVATE, $method(BMPSet, initBits, void)},
+	{"set32x64Bits", "([III)V", nullptr, $PRIVATE | $STATIC, $staticMethod(BMPSet, set32x64Bits, void, $ints*, int32_t, int32_t)},
+	{"span", "(Ljava/lang/CharSequence;ILjdk/internal/icu/text/UnicodeSet$SpanCondition;Ljdk/internal/icu/util/OutputInt;)I", nullptr, $PUBLIC | $FINAL, $method(BMPSet, span, int32_t, $CharSequence*, int32_t, $UnicodeSet$SpanCondition*, $OutputInt*)},
+	{"spanBack", "(Ljava/lang/CharSequence;ILjdk/internal/icu/text/UnicodeSet$SpanCondition;)I", nullptr, $PUBLIC | $FINAL, $method(BMPSet, spanBack, int32_t, $CharSequence*, int32_t, $UnicodeSet$SpanCondition*)},
 	{}
 };
 

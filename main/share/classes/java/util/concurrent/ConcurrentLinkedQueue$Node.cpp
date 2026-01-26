@@ -25,10 +25,10 @@ $FieldInfo _ConcurrentLinkedQueue$Node_FieldInfo_[] = {
 };
 
 $MethodInfo _ConcurrentLinkedQueue$Node_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;)V", "(TE;)V", 0, $method(static_cast<void(ConcurrentLinkedQueue$Node::*)(Object$*)>(&ConcurrentLinkedQueue$Node::init$))},
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ConcurrentLinkedQueue$Node::*)()>(&ConcurrentLinkedQueue$Node::init$))},
-	{"appendRelaxed", "(Ljava/util/concurrent/ConcurrentLinkedQueue$Node;)V", "(Ljava/util/concurrent/ConcurrentLinkedQueue$Node<TE;>;)V", 0, $method(static_cast<void(ConcurrentLinkedQueue$Node::*)(ConcurrentLinkedQueue$Node*)>(&ConcurrentLinkedQueue$Node::appendRelaxed))},
-	{"casItem", "(Ljava/lang/Object;Ljava/lang/Object;)Z", "(TE;TE;)Z", 0, $method(static_cast<bool(ConcurrentLinkedQueue$Node::*)(Object$*,Object$*)>(&ConcurrentLinkedQueue$Node::casItem))},
+	{"<init>", "(Ljava/lang/Object;)V", "(TE;)V", 0, $method(ConcurrentLinkedQueue$Node, init$, void, Object$*)},
+	{"<init>", "()V", nullptr, 0, $method(ConcurrentLinkedQueue$Node, init$, void)},
+	{"appendRelaxed", "(Ljava/util/concurrent/ConcurrentLinkedQueue$Node;)V", "(Ljava/util/concurrent/ConcurrentLinkedQueue$Node<TE;>;)V", 0, $method(ConcurrentLinkedQueue$Node, appendRelaxed, void, ConcurrentLinkedQueue$Node*)},
+	{"casItem", "(Ljava/lang/Object;Ljava/lang/Object;)Z", "(TE;TE;)Z", 0, $method(ConcurrentLinkedQueue$Node, casItem, bool, Object$*, Object$*)},
 	{}
 };
 

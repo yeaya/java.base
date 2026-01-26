@@ -15,8 +15,8 @@ using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 
 $MethodInfo _ResolveProxyClass_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ResolveProxyClass::*)()>(&ResolveProxyClass::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&ResolveProxyClass::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ResolveProxyClass, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ResolveProxyClass, main, void, $StringArray*)},
 	{}
 };
 

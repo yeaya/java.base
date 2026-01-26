@@ -57,6 +57,9 @@
 #undef TRUNCATE_EXISTING
 #undef WRITE
 
+using $AccessModeArray = $Array<::java::nio::file::AccessMode>;
+using $CopyOptionArray = $Array<::java::nio::file::CopyOption>;
+using $LinkOptionArray = $Array<::java::nio::file::LinkOption>;
 using $OpenOptionArray = $Array<::java::nio::file::OpenOption>;
 using $FileAttributeArray = $Array<::java::nio::file::attribute::FileAttribute>;
 using $InputStream = ::java::io::InputStream;
@@ -72,12 +75,17 @@ using $RuntimePermission = ::java::lang::RuntimePermission;
 using $SecurityManager = ::java::lang::SecurityManager;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
 using $Void = ::java::lang::Void;
+using $URI = ::java::net::URI;
 using $AsynchronousFileChannel = ::java::nio::channels::AsynchronousFileChannel;
 using $ByteChannel = ::java::nio::channels::ByteChannel;
 using $Channels = ::java::nio::channels::Channels;
 using $FileChannel = ::java::nio::channels::FileChannel;
 using $ReadableByteChannel = ::java::nio::channels::ReadableByteChannel;
+using $SeekableByteChannel = ::java::nio::channels::SeekableByteChannel;
 using $WritableByteChannel = ::java::nio::channels::WritableByteChannel;
+using $DirectoryStream = ::java::nio::file::DirectoryStream;
+using $DirectoryStream$Filter = ::java::nio::file::DirectoryStream$Filter;
+using $FileStore = ::java::nio::file::FileStore;
 using $FileSystem = ::java::nio::file::FileSystem;
 using $FileSystems = ::java::nio::file::FileSystems;
 using $Files = ::java::nio::file::Files;
@@ -85,6 +93,8 @@ using $NoSuchFileException = ::java::nio::file::NoSuchFileException;
 using $OpenOption = ::java::nio::file::OpenOption;
 using $Path = ::java::nio::file::Path;
 using $StandardOpenOption = ::java::nio::file::StandardOpenOption;
+using $BasicFileAttributes = ::java::nio::file::attribute::BasicFileAttributes;
+using $FileAttributeView = ::java::nio::file::attribute::FileAttributeView;
 using $FileSystemProvider$1 = ::java::nio::file::spi::FileSystemProvider$1;
 using $AccessController = ::java::security::AccessController;
 using $BasicPermission = ::java::security::BasicPermission;
@@ -117,38 +127,38 @@ $FieldInfo _FileSystemProvider_FieldInfo_[] = {
 };
 
 $MethodInfo _FileSystemProvider_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Void;)V", nullptr, $PRIVATE, $method(static_cast<void(FileSystemProvider::*)($Void*)>(&FileSystemProvider::init$))},
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(FileSystemProvider::*)()>(&FileSystemProvider::init$))},
-	{"checkAccess", "(Ljava/nio/file/Path;[Ljava/nio/file/AccessMode;)V", nullptr, $PUBLIC | $TRANSIENT | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"checkPermission", "()Ljava/lang/Void;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$Void*(*)()>(&FileSystemProvider::checkPermission))},
-	{"copy", "(Ljava/nio/file/Path;Ljava/nio/file/Path;[Ljava/nio/file/CopyOption;)V", nullptr, $PUBLIC | $TRANSIENT | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"createDirectory", "(Ljava/nio/file/Path;[Ljava/nio/file/attribute/FileAttribute;)V", "(Ljava/nio/file/Path;[Ljava/nio/file/attribute/FileAttribute<*>;)V", $PUBLIC | $TRANSIENT | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"createLink", "(Ljava/nio/file/Path;Ljava/nio/file/Path;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"createSymbolicLink", "(Ljava/nio/file/Path;Ljava/nio/file/Path;[Ljava/nio/file/attribute/FileAttribute;)V", "(Ljava/nio/file/Path;Ljava/nio/file/Path;[Ljava/nio/file/attribute/FileAttribute<*>;)V", $PUBLIC | $TRANSIENT, nullptr, "java.io.IOException"},
-	{"delete", "(Ljava/nio/file/Path;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"deleteIfExists", "(Ljava/nio/file/Path;)Z", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"getFileAttributeView", "(Ljava/nio/file/Path;Ljava/lang/Class;[Ljava/nio/file/LinkOption;)Ljava/nio/file/attribute/FileAttributeView;", "<V::Ljava/nio/file/attribute/FileAttributeView;>(Ljava/nio/file/Path;Ljava/lang/Class<TV;>;[Ljava/nio/file/LinkOption;)TV;", $PUBLIC | $TRANSIENT | $ABSTRACT},
-	{"getFileStore", "(Ljava/nio/file/Path;)Ljava/nio/file/FileStore;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"getFileSystem", "(Ljava/net/URI;)Ljava/nio/file/FileSystem;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getPath", "(Ljava/net/URI;)Ljava/nio/file/Path;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getScheme", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"installedProviders", "()Ljava/util/List;", "()Ljava/util/List<Ljava/nio/file/spi/FileSystemProvider;>;", $PUBLIC | $STATIC, $method(static_cast<$List*(*)()>(&FileSystemProvider::installedProviders))},
-	{"isHidden", "(Ljava/nio/file/Path;)Z", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"isSameFile", "(Ljava/nio/file/Path;Ljava/nio/file/Path;)Z", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"loadInstalledProviders", "()Ljava/util/List;", "()Ljava/util/List<Ljava/nio/file/spi/FileSystemProvider;>;", $PRIVATE | $STATIC, $method(static_cast<$List*(*)()>(&FileSystemProvider::loadInstalledProviders))},
-	{"move", "(Ljava/nio/file/Path;Ljava/nio/file/Path;[Ljava/nio/file/CopyOption;)V", nullptr, $PUBLIC | $TRANSIENT | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"newAsynchronousFileChannel", "(Ljava/nio/file/Path;Ljava/util/Set;Ljava/util/concurrent/ExecutorService;[Ljava/nio/file/attribute/FileAttribute;)Ljava/nio/channels/AsynchronousFileChannel;", "(Ljava/nio/file/Path;Ljava/util/Set<+Ljava/nio/file/OpenOption;>;Ljava/util/concurrent/ExecutorService;[Ljava/nio/file/attribute/FileAttribute<*>;)Ljava/nio/channels/AsynchronousFileChannel;", $PUBLIC | $TRANSIENT, nullptr, "java.io.IOException"},
-	{"newByteChannel", "(Ljava/nio/file/Path;Ljava/util/Set;[Ljava/nio/file/attribute/FileAttribute;)Ljava/nio/channels/SeekableByteChannel;", "(Ljava/nio/file/Path;Ljava/util/Set<+Ljava/nio/file/OpenOption;>;[Ljava/nio/file/attribute/FileAttribute<*>;)Ljava/nio/channels/SeekableByteChannel;", $PUBLIC | $TRANSIENT | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"newDirectoryStream", "(Ljava/nio/file/Path;Ljava/nio/file/DirectoryStream$Filter;)Ljava/nio/file/DirectoryStream;", "(Ljava/nio/file/Path;Ljava/nio/file/DirectoryStream$Filter<-Ljava/nio/file/Path;>;)Ljava/nio/file/DirectoryStream<Ljava/nio/file/Path;>;", $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"newFileChannel", "(Ljava/nio/file/Path;Ljava/util/Set;[Ljava/nio/file/attribute/FileAttribute;)Ljava/nio/channels/FileChannel;", "(Ljava/nio/file/Path;Ljava/util/Set<+Ljava/nio/file/OpenOption;>;[Ljava/nio/file/attribute/FileAttribute<*>;)Ljava/nio/channels/FileChannel;", $PUBLIC | $TRANSIENT, nullptr, "java.io.IOException"},
-	{"newFileSystem", "(Ljava/net/URI;Ljava/util/Map;)Ljava/nio/file/FileSystem;", "(Ljava/net/URI;Ljava/util/Map<Ljava/lang/String;*>;)Ljava/nio/file/FileSystem;", $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"newFileSystem", "(Ljava/nio/file/Path;Ljava/util/Map;)Ljava/nio/file/FileSystem;", "(Ljava/nio/file/Path;Ljava/util/Map<Ljava/lang/String;*>;)Ljava/nio/file/FileSystem;", $PUBLIC, nullptr, "java.io.IOException"},
-	{"newInputStream", "(Ljava/nio/file/Path;[Ljava/nio/file/OpenOption;)Ljava/io/InputStream;", nullptr, $PUBLIC | $TRANSIENT, nullptr, "java.io.IOException"},
-	{"newOutputStream", "(Ljava/nio/file/Path;[Ljava/nio/file/OpenOption;)Ljava/io/OutputStream;", nullptr, $PUBLIC | $TRANSIENT, nullptr, "java.io.IOException"},
-	{"readAttributes", "(Ljava/nio/file/Path;Ljava/lang/Class;[Ljava/nio/file/LinkOption;)Ljava/nio/file/attribute/BasicFileAttributes;", "<A::Ljava/nio/file/attribute/BasicFileAttributes;>(Ljava/nio/file/Path;Ljava/lang/Class<TA;>;[Ljava/nio/file/LinkOption;)TA;", $PUBLIC | $TRANSIENT | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"readAttributes", "(Ljava/nio/file/Path;Ljava/lang/String;[Ljava/nio/file/LinkOption;)Ljava/util/Map;", "(Ljava/nio/file/Path;Ljava/lang/String;[Ljava/nio/file/LinkOption;)Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;", $PUBLIC | $TRANSIENT | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"readSymbolicLink", "(Ljava/nio/file/Path;)Ljava/nio/file/Path;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"setAttribute", "(Ljava/nio/file/Path;Ljava/lang/String;Ljava/lang/Object;[Ljava/nio/file/LinkOption;)V", nullptr, $PUBLIC | $TRANSIENT | $ABSTRACT, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljava/lang/Void;)V", nullptr, $PRIVATE, $method(FileSystemProvider, init$, void, $Void*)},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(FileSystemProvider, init$, void)},
+	{"checkAccess", "(Ljava/nio/file/Path;[Ljava/nio/file/AccessMode;)V", nullptr, $PUBLIC | $TRANSIENT | $ABSTRACT, $virtualMethod(FileSystemProvider, checkAccess, void, $Path*, $AccessModeArray*), "java.io.IOException"},
+	{"checkPermission", "()Ljava/lang/Void;", nullptr, $PRIVATE | $STATIC, $staticMethod(FileSystemProvider, checkPermission, $Void*)},
+	{"copy", "(Ljava/nio/file/Path;Ljava/nio/file/Path;[Ljava/nio/file/CopyOption;)V", nullptr, $PUBLIC | $TRANSIENT | $ABSTRACT, $virtualMethod(FileSystemProvider, copy, void, $Path*, $Path*, $CopyOptionArray*), "java.io.IOException"},
+	{"createDirectory", "(Ljava/nio/file/Path;[Ljava/nio/file/attribute/FileAttribute;)V", "(Ljava/nio/file/Path;[Ljava/nio/file/attribute/FileAttribute<*>;)V", $PUBLIC | $TRANSIENT | $ABSTRACT, $virtualMethod(FileSystemProvider, createDirectory, void, $Path*, $FileAttributeArray*), "java.io.IOException"},
+	{"createLink", "(Ljava/nio/file/Path;Ljava/nio/file/Path;)V", nullptr, $PUBLIC, $virtualMethod(FileSystemProvider, createLink, void, $Path*, $Path*), "java.io.IOException"},
+	{"createSymbolicLink", "(Ljava/nio/file/Path;Ljava/nio/file/Path;[Ljava/nio/file/attribute/FileAttribute;)V", "(Ljava/nio/file/Path;Ljava/nio/file/Path;[Ljava/nio/file/attribute/FileAttribute<*>;)V", $PUBLIC | $TRANSIENT, $virtualMethod(FileSystemProvider, createSymbolicLink, void, $Path*, $Path*, $FileAttributeArray*), "java.io.IOException"},
+	{"delete", "(Ljava/nio/file/Path;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FileSystemProvider, delete$, void, $Path*), "java.io.IOException"},
+	{"deleteIfExists", "(Ljava/nio/file/Path;)Z", nullptr, $PUBLIC, $virtualMethod(FileSystemProvider, deleteIfExists, bool, $Path*), "java.io.IOException"},
+	{"getFileAttributeView", "(Ljava/nio/file/Path;Ljava/lang/Class;[Ljava/nio/file/LinkOption;)Ljava/nio/file/attribute/FileAttributeView;", "<V::Ljava/nio/file/attribute/FileAttributeView;>(Ljava/nio/file/Path;Ljava/lang/Class<TV;>;[Ljava/nio/file/LinkOption;)TV;", $PUBLIC | $TRANSIENT | $ABSTRACT, $virtualMethod(FileSystemProvider, getFileAttributeView, $FileAttributeView*, $Path*, $Class*, $LinkOptionArray*)},
+	{"getFileStore", "(Ljava/nio/file/Path;)Ljava/nio/file/FileStore;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FileSystemProvider, getFileStore, $FileStore*, $Path*), "java.io.IOException"},
+	{"getFileSystem", "(Ljava/net/URI;)Ljava/nio/file/FileSystem;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FileSystemProvider, getFileSystem, $FileSystem*, $URI*)},
+	{"getPath", "(Ljava/net/URI;)Ljava/nio/file/Path;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FileSystemProvider, getPath, $Path*, $URI*)},
+	{"getScheme", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FileSystemProvider, getScheme, $String*)},
+	{"installedProviders", "()Ljava/util/List;", "()Ljava/util/List<Ljava/nio/file/spi/FileSystemProvider;>;", $PUBLIC | $STATIC, $staticMethod(FileSystemProvider, installedProviders, $List*)},
+	{"isHidden", "(Ljava/nio/file/Path;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FileSystemProvider, isHidden, bool, $Path*), "java.io.IOException"},
+	{"isSameFile", "(Ljava/nio/file/Path;Ljava/nio/file/Path;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FileSystemProvider, isSameFile, bool, $Path*, $Path*), "java.io.IOException"},
+	{"loadInstalledProviders", "()Ljava/util/List;", "()Ljava/util/List<Ljava/nio/file/spi/FileSystemProvider;>;", $PRIVATE | $STATIC, $staticMethod(FileSystemProvider, loadInstalledProviders, $List*)},
+	{"move", "(Ljava/nio/file/Path;Ljava/nio/file/Path;[Ljava/nio/file/CopyOption;)V", nullptr, $PUBLIC | $TRANSIENT | $ABSTRACT, $virtualMethod(FileSystemProvider, move, void, $Path*, $Path*, $CopyOptionArray*), "java.io.IOException"},
+	{"newAsynchronousFileChannel", "(Ljava/nio/file/Path;Ljava/util/Set;Ljava/util/concurrent/ExecutorService;[Ljava/nio/file/attribute/FileAttribute;)Ljava/nio/channels/AsynchronousFileChannel;", "(Ljava/nio/file/Path;Ljava/util/Set<+Ljava/nio/file/OpenOption;>;Ljava/util/concurrent/ExecutorService;[Ljava/nio/file/attribute/FileAttribute<*>;)Ljava/nio/channels/AsynchronousFileChannel;", $PUBLIC | $TRANSIENT, $virtualMethod(FileSystemProvider, newAsynchronousFileChannel, $AsynchronousFileChannel*, $Path*, $Set*, $ExecutorService*, $FileAttributeArray*), "java.io.IOException"},
+	{"newByteChannel", "(Ljava/nio/file/Path;Ljava/util/Set;[Ljava/nio/file/attribute/FileAttribute;)Ljava/nio/channels/SeekableByteChannel;", "(Ljava/nio/file/Path;Ljava/util/Set<+Ljava/nio/file/OpenOption;>;[Ljava/nio/file/attribute/FileAttribute<*>;)Ljava/nio/channels/SeekableByteChannel;", $PUBLIC | $TRANSIENT | $ABSTRACT, $virtualMethod(FileSystemProvider, newByteChannel, $SeekableByteChannel*, $Path*, $Set*, $FileAttributeArray*), "java.io.IOException"},
+	{"newDirectoryStream", "(Ljava/nio/file/Path;Ljava/nio/file/DirectoryStream$Filter;)Ljava/nio/file/DirectoryStream;", "(Ljava/nio/file/Path;Ljava/nio/file/DirectoryStream$Filter<-Ljava/nio/file/Path;>;)Ljava/nio/file/DirectoryStream<Ljava/nio/file/Path;>;", $PUBLIC | $ABSTRACT, $virtualMethod(FileSystemProvider, newDirectoryStream, $DirectoryStream*, $Path*, $DirectoryStream$Filter*), "java.io.IOException"},
+	{"newFileChannel", "(Ljava/nio/file/Path;Ljava/util/Set;[Ljava/nio/file/attribute/FileAttribute;)Ljava/nio/channels/FileChannel;", "(Ljava/nio/file/Path;Ljava/util/Set<+Ljava/nio/file/OpenOption;>;[Ljava/nio/file/attribute/FileAttribute<*>;)Ljava/nio/channels/FileChannel;", $PUBLIC | $TRANSIENT, $virtualMethod(FileSystemProvider, newFileChannel, $FileChannel*, $Path*, $Set*, $FileAttributeArray*), "java.io.IOException"},
+	{"newFileSystem", "(Ljava/net/URI;Ljava/util/Map;)Ljava/nio/file/FileSystem;", "(Ljava/net/URI;Ljava/util/Map<Ljava/lang/String;*>;)Ljava/nio/file/FileSystem;", $PUBLIC | $ABSTRACT, $virtualMethod(FileSystemProvider, newFileSystem, $FileSystem*, $URI*, $Map*), "java.io.IOException"},
+	{"newFileSystem", "(Ljava/nio/file/Path;Ljava/util/Map;)Ljava/nio/file/FileSystem;", "(Ljava/nio/file/Path;Ljava/util/Map<Ljava/lang/String;*>;)Ljava/nio/file/FileSystem;", $PUBLIC, $virtualMethod(FileSystemProvider, newFileSystem, $FileSystem*, $Path*, $Map*), "java.io.IOException"},
+	{"newInputStream", "(Ljava/nio/file/Path;[Ljava/nio/file/OpenOption;)Ljava/io/InputStream;", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(FileSystemProvider, newInputStream, $InputStream*, $Path*, $OpenOptionArray*), "java.io.IOException"},
+	{"newOutputStream", "(Ljava/nio/file/Path;[Ljava/nio/file/OpenOption;)Ljava/io/OutputStream;", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(FileSystemProvider, newOutputStream, $OutputStream*, $Path*, $OpenOptionArray*), "java.io.IOException"},
+	{"readAttributes", "(Ljava/nio/file/Path;Ljava/lang/Class;[Ljava/nio/file/LinkOption;)Ljava/nio/file/attribute/BasicFileAttributes;", "<A::Ljava/nio/file/attribute/BasicFileAttributes;>(Ljava/nio/file/Path;Ljava/lang/Class<TA;>;[Ljava/nio/file/LinkOption;)TA;", $PUBLIC | $TRANSIENT | $ABSTRACT, $virtualMethod(FileSystemProvider, readAttributes, $BasicFileAttributes*, $Path*, $Class*, $LinkOptionArray*), "java.io.IOException"},
+	{"readAttributes", "(Ljava/nio/file/Path;Ljava/lang/String;[Ljava/nio/file/LinkOption;)Ljava/util/Map;", "(Ljava/nio/file/Path;Ljava/lang/String;[Ljava/nio/file/LinkOption;)Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;", $PUBLIC | $TRANSIENT | $ABSTRACT, $virtualMethod(FileSystemProvider, readAttributes, $Map*, $Path*, $String*, $LinkOptionArray*), "java.io.IOException"},
+	{"readSymbolicLink", "(Ljava/nio/file/Path;)Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(FileSystemProvider, readSymbolicLink, $Path*, $Path*), "java.io.IOException"},
+	{"setAttribute", "(Ljava/nio/file/Path;Ljava/lang/String;Ljava/lang/Object;[Ljava/nio/file/LinkOption;)V", nullptr, $PUBLIC | $TRANSIENT | $ABSTRACT, $virtualMethod(FileSystemProvider, setAttribute, void, $Path*, $String*, Object$*, $LinkOptionArray*), "java.io.IOException"},
 	{}
 };
 

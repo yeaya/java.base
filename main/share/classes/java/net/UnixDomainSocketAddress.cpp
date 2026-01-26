@@ -33,16 +33,16 @@ $FieldInfo _UnixDomainSocketAddress_FieldInfo_[] = {
 };
 
 $MethodInfo _UnixDomainSocketAddress_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/file/Path;)V", nullptr, $PRIVATE, $method(static_cast<void(UnixDomainSocketAddress::*)($Path*)>(&UnixDomainSocketAddress::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getPath", "()Ljava/nio/file/Path;", nullptr, $PUBLIC, $method(static_cast<$Path*(UnixDomainSocketAddress::*)()>(&UnixDomainSocketAddress::getPath))},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"of", "(Ljava/lang/String;)Ljava/net/UnixDomainSocketAddress;", nullptr, $PUBLIC | $STATIC, $method(static_cast<UnixDomainSocketAddress*(*)($String*)>(&UnixDomainSocketAddress::of))},
-	{"of", "(Ljava/nio/file/Path;)Ljava/net/UnixDomainSocketAddress;", nullptr, $PUBLIC | $STATIC, $method(static_cast<UnixDomainSocketAddress*(*)($Path*)>(&UnixDomainSocketAddress::of))},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(UnixDomainSocketAddress::*)($ObjectInputStream*)>(&UnixDomainSocketAddress::readObject)), "java.io.InvalidObjectException"},
-	{"readObjectNoData", "()V", nullptr, $PRIVATE, $method(static_cast<void(UnixDomainSocketAddress::*)()>(&UnixDomainSocketAddress::readObjectNoData)), "java.io.InvalidObjectException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"writeReplace", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(static_cast<$Object*(UnixDomainSocketAddress::*)()>(&UnixDomainSocketAddress::writeReplace)), "java.io.ObjectStreamException"},
+	{"<init>", "(Ljava/nio/file/Path;)V", nullptr, $PRIVATE, $method(UnixDomainSocketAddress, init$, void, $Path*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(UnixDomainSocketAddress, equals, bool, Object$*)},
+	{"getPath", "()Ljava/nio/file/Path;", nullptr, $PUBLIC, $method(UnixDomainSocketAddress, getPath, $Path*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(UnixDomainSocketAddress, hashCode, int32_t)},
+	{"of", "(Ljava/lang/String;)Ljava/net/UnixDomainSocketAddress;", nullptr, $PUBLIC | $STATIC, $staticMethod(UnixDomainSocketAddress, of, UnixDomainSocketAddress*, $String*)},
+	{"of", "(Ljava/nio/file/Path;)Ljava/net/UnixDomainSocketAddress;", nullptr, $PUBLIC | $STATIC, $staticMethod(UnixDomainSocketAddress, of, UnixDomainSocketAddress*, $Path*)},
+	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(UnixDomainSocketAddress, readObject, void, $ObjectInputStream*), "java.io.InvalidObjectException"},
+	{"readObjectNoData", "()V", nullptr, $PRIVATE, $method(UnixDomainSocketAddress, readObjectNoData, void), "java.io.InvalidObjectException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UnixDomainSocketAddress, toString, $String*)},
+	{"writeReplace", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(UnixDomainSocketAddress, writeReplace, $Object*), "java.io.ObjectStreamException"},
 	{}
 };
 

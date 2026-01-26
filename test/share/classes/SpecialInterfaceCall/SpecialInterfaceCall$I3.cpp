@@ -13,7 +13,7 @@ using $MethodHandle = ::java::lang::invoke::MethodHandle;
 namespace SpecialInterfaceCall {
 
 $MethodInfo _SpecialInterfaceCall$I3_MethodInfo_[] = {
-	{"invokeSpecialMH", "(LSpecialInterfaceCall/SpecialInterfaceCall$I3;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)(SpecialInterfaceCall$I3*)>(&SpecialInterfaceCall$I3::invokeSpecialMH)), "java.lang.Throwable"},
+	{"invokeSpecialMH", "(LSpecialInterfaceCall/SpecialInterfaceCall$I3;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SpecialInterfaceCall$I3, invokeSpecialMH, void, SpecialInterfaceCall$I3*), "java.lang.Throwable"},
 	{}
 };
 

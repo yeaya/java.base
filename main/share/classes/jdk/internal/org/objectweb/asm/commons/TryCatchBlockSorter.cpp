@@ -34,9 +34,9 @@ namespace jdk {
 					namespace commons {
 
 $MethodInfo _TryCatchBlockSorter_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/org/objectweb/asm/MethodVisitor;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(TryCatchBlockSorter::*)($MethodVisitor*,int32_t,$String*,$String*,$String*,$StringArray*)>(&TryCatchBlockSorter::init$))},
-	{"<init>", "(ILjdk/internal/org/objectweb/asm/MethodVisitor;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $PROTECTED, $method(static_cast<void(TryCatchBlockSorter::*)(int32_t,$MethodVisitor*,int32_t,$String*,$String*,$String*,$StringArray*)>(&TryCatchBlockSorter::init$))},
-	{"visitEnd", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/org/objectweb/asm/MethodVisitor;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $PUBLIC, $method(TryCatchBlockSorter, init$, void, $MethodVisitor*, int32_t, $String*, $String*, $String*, $StringArray*)},
+	{"<init>", "(ILjdk/internal/org/objectweb/asm/MethodVisitor;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $PROTECTED, $method(TryCatchBlockSorter, init$, void, int32_t, $MethodVisitor*, int32_t, $String*, $String*, $String*, $StringArray*)},
+	{"visitEnd", "()V", nullptr, $PUBLIC, $virtualMethod(TryCatchBlockSorter, visitEnd, void)},
 	{}
 };
 

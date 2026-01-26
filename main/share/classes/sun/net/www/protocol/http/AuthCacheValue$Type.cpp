@@ -25,10 +25,10 @@ $FieldInfo _AuthCacheValue$Type_FieldInfo_[] = {
 };
 
 $MethodInfo _AuthCacheValue$Type_MethodInfo_[] = {
-	{"$values", "()[Lsun/net/www/protocol/http/AuthCacheValue$Type;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$AuthCacheValue$TypeArray*(*)()>(&AuthCacheValue$Type::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(AuthCacheValue$Type::*)($String*,int32_t)>(&AuthCacheValue$Type::init$))},
-	{"valueOf", "(Ljava/lang/String;)Lsun/net/www/protocol/http/AuthCacheValue$Type;", nullptr, $PUBLIC | $STATIC, $method(static_cast<AuthCacheValue$Type*(*)($String*)>(&AuthCacheValue$Type::valueOf))},
-	{"values", "()[Lsun/net/www/protocol/http/AuthCacheValue$Type;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$AuthCacheValue$TypeArray*(*)()>(&AuthCacheValue$Type::values))},
+	{"$values", "()[Lsun/net/www/protocol/http/AuthCacheValue$Type;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AuthCacheValue$Type, $values, $AuthCacheValue$TypeArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(AuthCacheValue$Type, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Lsun/net/www/protocol/http/AuthCacheValue$Type;", nullptr, $PUBLIC | $STATIC, $staticMethod(AuthCacheValue$Type, valueOf, AuthCacheValue$Type*, $String*)},
+	{"values", "()[Lsun/net/www/protocol/http/AuthCacheValue$Type;", nullptr, $PUBLIC | $STATIC, $staticMethod(AuthCacheValue$Type, values, $AuthCacheValue$TypeArray*)},
 	{}
 };
 

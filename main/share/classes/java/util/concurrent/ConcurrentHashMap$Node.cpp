@@ -27,15 +27,15 @@ $FieldInfo _ConcurrentHashMap$Node_FieldInfo_[] = {
 };
 
 $MethodInfo _ConcurrentHashMap$Node_MethodInfo_[] = {
-	{"<init>", "(ILjava/lang/Object;Ljava/lang/Object;)V", "(ITK;TV;)V", 0, $method(static_cast<void(ConcurrentHashMap$Node::*)(int32_t,Object$*,Object$*)>(&ConcurrentHashMap$Node::init$))},
-	{"<init>", "(ILjava/lang/Object;Ljava/lang/Object;Ljava/util/concurrent/ConcurrentHashMap$Node;)V", "(ITK;TV;Ljava/util/concurrent/ConcurrentHashMap$Node<TK;TV;>;)V", 0, $method(static_cast<void(ConcurrentHashMap$Node::*)(int32_t,Object$*,Object$*,ConcurrentHashMap$Node*)>(&ConcurrentHashMap$Node::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
-	{"find", "(ILjava/lang/Object;)Ljava/util/concurrent/ConcurrentHashMap$Node;", "(ILjava/lang/Object;)Ljava/util/concurrent/ConcurrentHashMap$Node<TK;TV;>;", 0},
-	{"getKey", "()Ljava/lang/Object;", "()TK;", $PUBLIC | $FINAL},
-	{"getValue", "()Ljava/lang/Object;", "()TV;", $PUBLIC | $FINAL},
-	{"hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"setValue", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TV;)TV;", $PUBLIC | $FINAL},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL},
+	{"<init>", "(ILjava/lang/Object;Ljava/lang/Object;)V", "(ITK;TV;)V", 0, $method(ConcurrentHashMap$Node, init$, void, int32_t, Object$*, Object$*)},
+	{"<init>", "(ILjava/lang/Object;Ljava/lang/Object;Ljava/util/concurrent/ConcurrentHashMap$Node;)V", "(ITK;TV;Ljava/util/concurrent/ConcurrentHashMap$Node<TK;TV;>;)V", 0, $method(ConcurrentHashMap$Node, init$, void, int32_t, Object$*, Object$*, ConcurrentHashMap$Node*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(ConcurrentHashMap$Node, equals, bool, Object$*)},
+	{"find", "(ILjava/lang/Object;)Ljava/util/concurrent/ConcurrentHashMap$Node;", "(ILjava/lang/Object;)Ljava/util/concurrent/ConcurrentHashMap$Node<TK;TV;>;", 0, $virtualMethod(ConcurrentHashMap$Node, find, ConcurrentHashMap$Node*, int32_t, Object$*)},
+	{"getKey", "()Ljava/lang/Object;", "()TK;", $PUBLIC | $FINAL, $virtualMethod(ConcurrentHashMap$Node, getKey, $Object*)},
+	{"getValue", "()Ljava/lang/Object;", "()TV;", $PUBLIC | $FINAL, $virtualMethod(ConcurrentHashMap$Node, getValue, $Object*)},
+	{"hashCode", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(ConcurrentHashMap$Node, hashCode, int32_t)},
+	{"setValue", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TV;)TV;", $PUBLIC | $FINAL, $virtualMethod(ConcurrentHashMap$Node, setValue, $Object*, Object$*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(ConcurrentHashMap$Node, toString, $String*)},
 	{}
 };
 

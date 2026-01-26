@@ -32,12 +32,12 @@ $FieldInfo _SmallSet_FieldInfo_[] = {
 };
 
 $MethodInfo _SmallSet_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(SmallSet::*)()>(&SmallSet::init$))},
-	{"<init>", "(Ljava/lang/Object;)V", "(TT;)V", 0, $method(static_cast<void(SmallSet::*)(Object$*)>(&SmallSet::init$))},
-	{"<init>", "(Ljava/lang/Object;Ljava/lang/Object;)V", "(TT;TT;)V", $PRIVATE, $method(static_cast<void(SmallSet::*)(Object$*,Object$*)>(&SmallSet::init$))},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TT;>;", $PUBLIC},
-	{"size", "()I", nullptr, $PUBLIC},
-	{"union", "(Ljdk/internal/org/objectweb/asm/tree/analysis/SmallSet;)Ljava/util/Set;", "(Ljdk/internal/org/objectweb/asm/tree/analysis/SmallSet<TT;>;)Ljava/util/Set<TT;>;", 0, $method(static_cast<$Set*(SmallSet::*)(SmallSet*)>(&SmallSet::union$))},
+	{"<init>", "()V", nullptr, 0, $method(SmallSet, init$, void)},
+	{"<init>", "(Ljava/lang/Object;)V", "(TT;)V", 0, $method(SmallSet, init$, void, Object$*)},
+	{"<init>", "(Ljava/lang/Object;Ljava/lang/Object;)V", "(TT;TT;)V", $PRIVATE, $method(SmallSet, init$, void, Object$*, Object$*)},
+	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TT;>;", $PUBLIC, $virtualMethod(SmallSet, iterator, $Iterator*)},
+	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(SmallSet, size, int32_t)},
+	{"union", "(Ljdk/internal/org/objectweb/asm/tree/analysis/SmallSet;)Ljava/util/Set;", "(Ljdk/internal/org/objectweb/asm/tree/analysis/SmallSet<TT;>;)Ljava/util/Set<TT;>;", 0, $method(SmallSet, union$, $Set*, SmallSet*)},
 	{}
 };
 

@@ -23,8 +23,8 @@ $FieldInfo _LoginContext$2_FieldInfo_[] = {
 };
 
 $MethodInfo _LoginContext$2_MethodInfo_[] = {
-	{"<init>", "(Ljavax/security/auth/login/LoginContext;)V", nullptr, 0, $method(static_cast<void(LoginContext$2::*)($LoginContext*)>(&LoginContext$2::init$))},
-	{"run", "()Ljava/lang/ClassLoader;", nullptr, $PUBLIC},
+	{"<init>", "(Ljavax/security/auth/login/LoginContext;)V", nullptr, 0, $method(LoginContext$2, init$, void, $LoginContext*)},
+	{"run", "()Ljava/lang/ClassLoader;", nullptr, $PUBLIC, $virtualMethod(LoginContext$2, run, $Object*)},
 	{}
 };
 

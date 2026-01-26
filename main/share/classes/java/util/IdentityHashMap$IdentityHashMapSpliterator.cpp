@@ -22,9 +22,9 @@ $FieldInfo _IdentityHashMap$IdentityHashMapSpliterator_FieldInfo_[] = {
 };
 
 $MethodInfo _IdentityHashMap$IdentityHashMapSpliterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/IdentityHashMap;IIII)V", "(Ljava/util/IdentityHashMap<TK;TV;>;IIII)V", 0, $method(static_cast<void(IdentityHashMap$IdentityHashMapSpliterator::*)($IdentityHashMap*,int32_t,int32_t,int32_t,int32_t)>(&IdentityHashMap$IdentityHashMapSpliterator::init$))},
-	{"estimateSize", "()J", nullptr, $PUBLIC | $FINAL, $method(static_cast<int64_t(IdentityHashMap$IdentityHashMapSpliterator::*)()>(&IdentityHashMap$IdentityHashMapSpliterator::estimateSize))},
-	{"getFence", "()I", nullptr, $FINAL, $method(static_cast<int32_t(IdentityHashMap$IdentityHashMapSpliterator::*)()>(&IdentityHashMap$IdentityHashMapSpliterator::getFence))},
+	{"<init>", "(Ljava/util/IdentityHashMap;IIII)V", "(Ljava/util/IdentityHashMap<TK;TV;>;IIII)V", 0, $method(IdentityHashMap$IdentityHashMapSpliterator, init$, void, $IdentityHashMap*, int32_t, int32_t, int32_t, int32_t)},
+	{"estimateSize", "()J", nullptr, $PUBLIC | $FINAL, $method(IdentityHashMap$IdentityHashMapSpliterator, estimateSize, int64_t)},
+	{"getFence", "()I", nullptr, $FINAL, $method(IdentityHashMap$IdentityHashMapSpliterator, getFence, int32_t)},
 	{}
 };
 

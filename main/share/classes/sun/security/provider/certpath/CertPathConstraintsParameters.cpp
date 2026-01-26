@@ -39,15 +39,15 @@ $FieldInfo _CertPathConstraintsParameters_FieldInfo_[] = {
 };
 
 $MethodInfo _CertPathConstraintsParameters_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/cert/X509Certificate;Ljava/lang/String;Ljava/security/cert/TrustAnchor;Ljava/util/Date;)V", nullptr, $PUBLIC, $method(static_cast<void(CertPathConstraintsParameters::*)($X509Certificate*,$String*,$TrustAnchor*,$Date*)>(&CertPathConstraintsParameters::init$))},
-	{"<init>", "(Ljava/security/Key;Ljava/lang/String;Ljava/security/cert/TrustAnchor;)V", nullptr, $PUBLIC, $method(static_cast<void(CertPathConstraintsParameters::*)($Key*,$String*,$TrustAnchor*)>(&CertPathConstraintsParameters::init$))},
-	{"<init>", "(Ljava/security/Key;Ljava/lang/String;Ljava/security/cert/TrustAnchor;Ljava/util/Date;Ljava/security/cert/X509Certificate;)V", nullptr, $PRIVATE, $method(static_cast<void(CertPathConstraintsParameters::*)($Key*,$String*,$TrustAnchor*,$Date*,$X509Certificate*)>(&CertPathConstraintsParameters::init$))},
-	{"anchorIsJdkCA", "()Z", nullptr, $PUBLIC},
-	{"extendedExceptionMsg", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getDate", "()Ljava/util/Date;", nullptr, $PUBLIC},
-	{"getKeys", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/security/Key;>;", $PUBLIC},
-	{"getVariant", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/security/cert/X509Certificate;Ljava/lang/String;Ljava/security/cert/TrustAnchor;Ljava/util/Date;)V", nullptr, $PUBLIC, $method(CertPathConstraintsParameters, init$, void, $X509Certificate*, $String*, $TrustAnchor*, $Date*)},
+	{"<init>", "(Ljava/security/Key;Ljava/lang/String;Ljava/security/cert/TrustAnchor;)V", nullptr, $PUBLIC, $method(CertPathConstraintsParameters, init$, void, $Key*, $String*, $TrustAnchor*)},
+	{"<init>", "(Ljava/security/Key;Ljava/lang/String;Ljava/security/cert/TrustAnchor;Ljava/util/Date;Ljava/security/cert/X509Certificate;)V", nullptr, $PRIVATE, $method(CertPathConstraintsParameters, init$, void, $Key*, $String*, $TrustAnchor*, $Date*, $X509Certificate*)},
+	{"anchorIsJdkCA", "()Z", nullptr, $PUBLIC, $virtualMethod(CertPathConstraintsParameters, anchorIsJdkCA, bool)},
+	{"extendedExceptionMsg", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CertPathConstraintsParameters, extendedExceptionMsg, $String*)},
+	{"getDate", "()Ljava/util/Date;", nullptr, $PUBLIC, $virtualMethod(CertPathConstraintsParameters, getDate, $Date*)},
+	{"getKeys", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/security/Key;>;", $PUBLIC, $virtualMethod(CertPathConstraintsParameters, getKeys, $Set*)},
+	{"getVariant", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CertPathConstraintsParameters, getVariant, $String*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CertPathConstraintsParameters, toString, $String*)},
 	{}
 };
 

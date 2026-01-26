@@ -25,8 +25,8 @@ $FieldInfo _SocksSocketImpl$2_FieldInfo_[] = {
 };
 
 $MethodInfo _SocksSocketImpl$2_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/SocksSocketImpl;Ljava/net/InetAddress;)V", nullptr, 0, $method(static_cast<void(SocksSocketImpl$2::*)($SocksSocketImpl*,$InetAddress*)>(&SocksSocketImpl$2::init$))},
-	{"run", "()Ljava/net/PasswordAuthentication;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/net/SocksSocketImpl;Ljava/net/InetAddress;)V", nullptr, 0, $method(SocksSocketImpl$2, init$, void, $SocksSocketImpl*, $InetAddress*)},
+	{"run", "()Ljava/net/PasswordAuthentication;", nullptr, $PUBLIC, $virtualMethod(SocksSocketImpl$2, run, $Object*)},
 	{}
 };
 

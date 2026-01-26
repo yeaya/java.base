@@ -30,10 +30,10 @@ $FieldInfo _ReferenceClone_FieldInfo_[] = {
 };
 
 $MethodInfo _ReferenceClone_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ReferenceClone::*)()>(&ReferenceClone::init$))},
-	{"assertCloneNotSupported", "(LReferenceClone$CloneableRef;)V", nullptr, $PRIVATE, $method(static_cast<void(ReferenceClone::*)($ReferenceClone$CloneableRef*)>(&ReferenceClone::assertCloneNotSupported))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<void(*)($StringArray*)>(&ReferenceClone::main))},
-	{"test", "()V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ReferenceClone, init$, void)},
+	{"assertCloneNotSupported", "(LReferenceClone$CloneableRef;)V", nullptr, $PRIVATE, $method(ReferenceClone, assertCloneNotSupported, void, $ReferenceClone$CloneableRef*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(ReferenceClone, main, void, $StringArray*)},
+	{"test", "()V", nullptr, $PUBLIC, $virtualMethod(ReferenceClone, test, void)},
 	{}
 };
 

@@ -10,9 +10,9 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 
 $MethodInfo _SkipBytes_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SkipBytes::*)()>(&SkipBytes::init$))},
-	{"doTest", "(Ljava/io/RandomAccessFile;II)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($RandomAccessFile*,int32_t,int32_t)>(&SkipBytes::doTest)), "java.lang.Exception"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&SkipBytes::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SkipBytes, init$, void)},
+	{"doTest", "(Ljava/io/RandomAccessFile;II)V", nullptr, $PRIVATE | $STATIC, $staticMethod(SkipBytes, doTest, void, $RandomAccessFile*, int32_t, int32_t), "java.lang.Exception"},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SkipBytes, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

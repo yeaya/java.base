@@ -50,15 +50,15 @@ $FieldInfo _CharacterName_FieldInfo_[] = {
 };
 
 $MethodInfo _CharacterName_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(CharacterName::*)()>(&CharacterName::init$))},
-	{"addCp", "(IIII)I", nullptr, $PRIVATE, $method(static_cast<int32_t(CharacterName::*)(int32_t,int32_t,int32_t,int32_t)>(&CharacterName::addCp))},
-	{"getCodePoint", "(Ljava/lang/String;)I", nullptr, $PUBLIC},
-	{"getCp", "(I)I", nullptr, $PRIVATE, $method(static_cast<int32_t(CharacterName::*)(int32_t)>(&CharacterName::getCp))},
-	{"getCpHash", "(I)I", nullptr, $PRIVATE, $method(static_cast<int32_t(CharacterName::*)(int32_t)>(&CharacterName::getCpHash))},
-	{"getCpNext", "(I)I", nullptr, $PRIVATE, $method(static_cast<int32_t(CharacterName::*)(int32_t)>(&CharacterName::getCpNext))},
-	{"getInstance", "()Ljava/lang/CharacterName;", nullptr, $PUBLIC | $STATIC, $method(static_cast<CharacterName*(*)()>(&CharacterName::getInstance))},
-	{"getName", "(I)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"hashN", "([BII)I", nullptr, $PRIVATE | $STATIC | $FINAL, $method(static_cast<int32_t(*)($bytes*,int32_t,int32_t)>(&CharacterName::hashN))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(CharacterName, init$, void)},
+	{"addCp", "(IIII)I", nullptr, $PRIVATE, $method(CharacterName, addCp, int32_t, int32_t, int32_t, int32_t, int32_t)},
+	{"getCodePoint", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(CharacterName, getCodePoint, int32_t, $String*)},
+	{"getCp", "(I)I", nullptr, $PRIVATE, $method(CharacterName, getCp, int32_t, int32_t)},
+	{"getCpHash", "(I)I", nullptr, $PRIVATE, $method(CharacterName, getCpHash, int32_t, int32_t)},
+	{"getCpNext", "(I)I", nullptr, $PRIVATE, $method(CharacterName, getCpNext, int32_t, int32_t)},
+	{"getInstance", "()Ljava/lang/CharacterName;", nullptr, $PUBLIC | $STATIC, $staticMethod(CharacterName, getInstance, CharacterName*)},
+	{"getName", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CharacterName, getName, $String*, int32_t)},
+	{"hashN", "([BII)I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(CharacterName, hashN, int32_t, $bytes*, int32_t, int32_t)},
 	{}
 };
 

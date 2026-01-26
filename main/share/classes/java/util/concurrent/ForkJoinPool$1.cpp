@@ -14,8 +14,8 @@ namespace java {
 		namespace concurrent {
 
 $MethodInfo _ForkJoinPool$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ForkJoinPool$1::*)()>(&ForkJoinPool$1::init$))},
-	{"run", "()Ljava/util/concurrent/ForkJoinPool;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(ForkJoinPool$1, init$, void)},
+	{"run", "()Ljava/util/concurrent/ForkJoinPool;", nullptr, $PUBLIC, $virtualMethod(ForkJoinPool$1, run, $Object*)},
 	{}
 };
 

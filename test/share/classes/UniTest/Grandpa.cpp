@@ -15,7 +15,7 @@ $CompoundAttribute _Grandpa_Annotations_[] = {
 };
 
 $MethodInfo _Grandpa_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Grandpa::*)()>(&Grandpa::init$))},
+	{"<init>", "()V", nullptr, 0, $method(Grandpa, init$, void)},
 	{}
 };
 

@@ -3,6 +3,7 @@
 #include <sun/reflect/generics/tree/FormalTypeParameter.h>
 #include <jcpp.h>
 
+using $FormalTypeParameterArray = $Array<::sun::reflect::generics::tree::FormalTypeParameter>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
@@ -12,7 +13,7 @@ namespace sun {
 			namespace tree {
 
 $MethodInfo _Signature_MethodInfo_[] = {
-	{"getFormalTypeParameters", "()[Lsun/reflect/generics/tree/FormalTypeParameter;", nullptr, $PUBLIC | $ABSTRACT},
+	{"getFormalTypeParameters", "()[Lsun/reflect/generics/tree/FormalTypeParameter;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Signature, getFormalTypeParameters, $FormalTypeParameterArray*)},
 	{}
 };
 

@@ -21,8 +21,8 @@ $FieldInfo _Arrays$NaturalOrder_FieldInfo_[] = {
 };
 
 $MethodInfo _Arrays$NaturalOrder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Arrays$NaturalOrder::*)()>(&Arrays$NaturalOrder::init$))},
-	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(Arrays$NaturalOrder, init$, void)},
+	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(Arrays$NaturalOrder, compare, int32_t, Object$*, Object$*)},
 	{}
 };
 

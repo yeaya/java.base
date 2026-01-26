@@ -17,7 +17,7 @@ $FieldInfo _InvalidObjectException_FieldInfo_[] = {
 };
 
 $MethodInfo _InvalidObjectException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(InvalidObjectException::*)($String*)>(&InvalidObjectException::init$))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InvalidObjectException, init$, void, $String*)},
 	{}
 };
 

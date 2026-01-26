@@ -29,18 +29,18 @@ $FieldInfo _CharArrayReader_FieldInfo_[] = {
 };
 
 $MethodInfo _CharArrayReader_MethodInfo_[] = {
-	{"<init>", "([C)V", nullptr, $PUBLIC, $method(static_cast<void(CharArrayReader::*)($chars*)>(&CharArrayReader::init$))},
-	{"<init>", "([CII)V", nullptr, $PUBLIC, $method(static_cast<void(CharArrayReader::*)($chars*,int32_t,int32_t)>(&CharArrayReader::init$))},
-	{"close", "()V", nullptr, $PUBLIC},
-	{"ensureOpen", "()V", nullptr, $PRIVATE, $method(static_cast<void(CharArrayReader::*)()>(&CharArrayReader::ensureOpen)), "java.io.IOException"},
-	{"mark", "(I)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"markSupported", "()Z", nullptr, $PUBLIC},
-	{"read", "()I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"read", "([CII)I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"read", "(Ljava/nio/CharBuffer;)I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"ready", "()Z", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"reset", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"skip", "(J)J", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "([C)V", nullptr, $PUBLIC, $method(CharArrayReader, init$, void, $chars*)},
+	{"<init>", "([CII)V", nullptr, $PUBLIC, $method(CharArrayReader, init$, void, $chars*, int32_t, int32_t)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(CharArrayReader, close, void)},
+	{"ensureOpen", "()V", nullptr, $PRIVATE, $method(CharArrayReader, ensureOpen, void), "java.io.IOException"},
+	{"mark", "(I)V", nullptr, $PUBLIC, $virtualMethod(CharArrayReader, mark, void, int32_t), "java.io.IOException"},
+	{"markSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(CharArrayReader, markSupported, bool)},
+	{"read", "()I", nullptr, $PUBLIC, $virtualMethod(CharArrayReader, read, int32_t), "java.io.IOException"},
+	{"read", "([CII)I", nullptr, $PUBLIC, $virtualMethod(CharArrayReader, read, int32_t, $chars*, int32_t, int32_t), "java.io.IOException"},
+	{"read", "(Ljava/nio/CharBuffer;)I", nullptr, $PUBLIC, $virtualMethod(CharArrayReader, read, int32_t, $CharBuffer*), "java.io.IOException"},
+	{"ready", "()Z", nullptr, $PUBLIC, $virtualMethod(CharArrayReader, ready, bool), "java.io.IOException"},
+	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(CharArrayReader, reset, void), "java.io.IOException"},
+	{"skip", "(J)J", nullptr, $PUBLIC, $virtualMethod(CharArrayReader, skip, int64_t, int64_t), "java.io.IOException"},
 	{}
 };
 

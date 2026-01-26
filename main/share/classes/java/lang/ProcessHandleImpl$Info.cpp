@@ -35,17 +35,17 @@ $FieldInfo _ProcessHandleImpl$Info_FieldInfo_[] = {
 };
 
 $MethodInfo _ProcessHandleImpl$Info_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ProcessHandleImpl$Info::*)()>(&ProcessHandleImpl$Info::init$))},
-	{"arguments", "()Ljava/util/Optional;", "()Ljava/util/Optional<[Ljava/lang/String;>;", $PUBLIC},
-	{"command", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/lang/String;>;", $PUBLIC},
-	{"commandLine", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/lang/String;>;", $PUBLIC},
-	{"info", "(JJ)Ljava/lang/ProcessHandle$Info;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$ProcessHandle$Info*(*)(int64_t,int64_t)>(&ProcessHandleImpl$Info::info))},
-	{"info0", "(J)V", nullptr, $PRIVATE | $NATIVE, $method(static_cast<void(ProcessHandleImpl$Info::*)(int64_t)>(&ProcessHandleImpl$Info::info0))},
-	{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $method(static_cast<void(*)()>(&ProcessHandleImpl$Info::initIDs))},
-	{"startInstant", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/time/Instant;>;", $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"totalCpuDuration", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/time/Duration;>;", $PUBLIC},
-	{"user", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/lang/String;>;", $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(ProcessHandleImpl$Info, init$, void)},
+	{"arguments", "()Ljava/util/Optional;", "()Ljava/util/Optional<[Ljava/lang/String;>;", $PUBLIC, $virtualMethod(ProcessHandleImpl$Info, arguments, $Optional*)},
+	{"command", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(ProcessHandleImpl$Info, command, $Optional*)},
+	{"commandLine", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(ProcessHandleImpl$Info, commandLine, $Optional*)},
+	{"info", "(JJ)Ljava/lang/ProcessHandle$Info;", nullptr, $PUBLIC | $STATIC, $staticMethod(ProcessHandleImpl$Info, info, $ProcessHandle$Info*, int64_t, int64_t)},
+	{"info0", "(J)V", nullptr, $PRIVATE | $NATIVE, $method(ProcessHandleImpl$Info, info0, void, int64_t)},
+	{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(ProcessHandleImpl$Info, initIDs, void)},
+	{"startInstant", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/time/Instant;>;", $PUBLIC, $virtualMethod(ProcessHandleImpl$Info, startInstant, $Optional*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ProcessHandleImpl$Info, toString, $String*)},
+	{"totalCpuDuration", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/time/Duration;>;", $PUBLIC, $virtualMethod(ProcessHandleImpl$Info, totalCpuDuration, $Optional*)},
+	{"user", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(ProcessHandleImpl$Info, user, $Optional*)},
 	{}
 };
 

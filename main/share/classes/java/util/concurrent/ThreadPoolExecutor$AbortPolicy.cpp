@@ -17,8 +17,8 @@ namespace java {
 		namespace concurrent {
 
 $MethodInfo _ThreadPoolExecutor$AbortPolicy_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ThreadPoolExecutor$AbortPolicy::*)()>(&ThreadPoolExecutor$AbortPolicy::init$))},
-	{"rejectedExecution", "(Ljava/lang/Runnable;Ljava/util/concurrent/ThreadPoolExecutor;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ThreadPoolExecutor$AbortPolicy, init$, void)},
+	{"rejectedExecution", "(Ljava/lang/Runnable;Ljava/util/concurrent/ThreadPoolExecutor;)V", nullptr, $PUBLIC, $virtualMethod(ThreadPoolExecutor$AbortPolicy, rejectedExecution, void, $Runnable*, $ThreadPoolExecutor*)},
 	{}
 };
 

@@ -21,8 +21,8 @@ using $Runtime = ::java::lang::Runtime;
 using $RuntimeException = ::java::lang::RuntimeException;
 
 $MethodInfo _ModPowPowersof2_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ModPowPowersof2::*)()>(&ModPowPowersof2::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&ModPowPowersof2::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ModPowPowersof2, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ModPowPowersof2, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

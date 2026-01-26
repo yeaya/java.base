@@ -23,8 +23,8 @@ $FieldInfo _SendDatagramToBadAddress$Server_FieldInfo_[] = {
 };
 
 $MethodInfo _SendDatagramToBadAddress$Server_MethodInfo_[] = {
-	{"<init>", "(LSendDatagramToBadAddress;Ljava/net/DatagramSocket;)V", nullptr, $PUBLIC, $method(static_cast<void(SendDatagramToBadAddress$Server::*)($SendDatagramToBadAddress*,$DatagramSocket*)>(&SendDatagramToBadAddress$Server::init$))},
-	{"receive", "(IZ)V", nullptr, $PUBLIC, nullptr, "java.lang.Exception"},
+	{"<init>", "(LSendDatagramToBadAddress;Ljava/net/DatagramSocket;)V", nullptr, $PUBLIC, $method(SendDatagramToBadAddress$Server, init$, void, $SendDatagramToBadAddress*, $DatagramSocket*)},
+	{"receive", "(IZ)V", nullptr, $PUBLIC, $virtualMethod(SendDatagramToBadAddress$Server, receive, void, int32_t, bool), "java.lang.Exception"},
 	{}
 };
 

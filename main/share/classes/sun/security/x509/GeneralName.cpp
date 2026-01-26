@@ -58,15 +58,15 @@ $FieldInfo _GeneralName_FieldInfo_[] = {
 };
 
 $MethodInfo _GeneralName_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/x509/GeneralNameInterface;)V", nullptr, $PUBLIC, $method(static_cast<void(GeneralName::*)($GeneralNameInterface*)>(&GeneralName::init$))},
-	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(static_cast<void(GeneralName::*)($DerValue*)>(&GeneralName::init$)), "java.io.IOException"},
-	{"<init>", "(Lsun/security/util/DerValue;Z)V", nullptr, $PUBLIC, $method(static_cast<void(GeneralName::*)($DerValue*,bool)>(&GeneralName::init$)), "java.io.IOException"},
-	{"encode", "(Lsun/security/util/DerOutputStream;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getName", "()Lsun/security/x509/GeneralNameInterface;", nullptr, $PUBLIC},
-	{"getType", "()I", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/security/x509/GeneralNameInterface;)V", nullptr, $PUBLIC, $method(GeneralName, init$, void, $GeneralNameInterface*)},
+	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(GeneralName, init$, void, $DerValue*), "java.io.IOException"},
+	{"<init>", "(Lsun/security/util/DerValue;Z)V", nullptr, $PUBLIC, $method(GeneralName, init$, void, $DerValue*, bool), "java.io.IOException"},
+	{"encode", "(Lsun/security/util/DerOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(GeneralName, encode, void, $DerOutputStream*), "java.io.IOException"},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(GeneralName, equals, bool, Object$*)},
+	{"getName", "()Lsun/security/x509/GeneralNameInterface;", nullptr, $PUBLIC, $virtualMethod(GeneralName, getName, $GeneralNameInterface*)},
+	{"getType", "()I", nullptr, $PUBLIC, $virtualMethod(GeneralName, getType, int32_t)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(GeneralName, hashCode, int32_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(GeneralName, toString, $String*)},
 	{}
 };
 

@@ -20,11 +20,11 @@ $FieldInfo _Pair_FieldInfo_[] = {
 };
 
 $MethodInfo _Pair_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;Ljava/lang/Object;)V", "(TA;TB;)V", $PUBLIC, $method(static_cast<void(Pair::*)(Object$*,Object$*)>(&Pair::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"of", "(Ljava/lang/Object;Ljava/lang/Object;)Lsun/security/tools/keytool/Pair;", "<A:Ljava/lang/Object;B:Ljava/lang/Object;>(TA;TB;)Lsun/security/tools/keytool/Pair<TA;TB;>;", $PUBLIC | $STATIC, $method(static_cast<Pair*(*)(Object$*,Object$*)>(&Pair::of))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Object;Ljava/lang/Object;)V", "(TA;TB;)V", $PUBLIC, $method(Pair, init$, void, Object$*, Object$*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Pair, equals, bool, Object$*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Pair, hashCode, int32_t)},
+	{"of", "(Ljava/lang/Object;Ljava/lang/Object;)Lsun/security/tools/keytool/Pair;", "<A:Ljava/lang/Object;B:Ljava/lang/Object;>(TA;TB;)Lsun/security/tools/keytool/Pair<TA;TB;>;", $PUBLIC | $STATIC, $staticMethod(Pair, of, Pair*, Object$*, Object$*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Pair, toString, $String*)},
 	{}
 };
 

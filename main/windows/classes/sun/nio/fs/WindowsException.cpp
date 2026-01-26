@@ -34,17 +34,17 @@ $FieldInfo _WindowsException_FieldInfo_[] = {
 };
 
 $MethodInfo _WindowsException_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, 0, $method(static_cast<void(WindowsException::*)(int32_t)>(&WindowsException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(WindowsException::*)($String*)>(&WindowsException::init$))},
-	{"asIOException", "(Lsun/nio/fs/WindowsPath;)Ljava/io/IOException;", nullptr, 0},
-	{"errorString", "()Ljava/lang/String;", nullptr, 0},
-	{"fillInStackTrace", "()Ljava/lang/Throwable;", nullptr, $PUBLIC},
-	{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"lastError", "()I", nullptr, 0},
-	{"rethrowAsIOException", "(Ljava/lang/String;)V", nullptr, 0, nullptr, "java.io.IOException"},
-	{"rethrowAsIOException", "(Lsun/nio/fs/WindowsPath;Lsun/nio/fs/WindowsPath;)V", nullptr, 0, nullptr, "java.io.IOException"},
-	{"rethrowAsIOException", "(Lsun/nio/fs/WindowsPath;)V", nullptr, 0, nullptr, "java.io.IOException"},
-	{"translateToIOException", "(Ljava/lang/String;Ljava/lang/String;)Ljava/io/IOException;", nullptr, $PRIVATE, $method(static_cast<$IOException*(WindowsException::*)($String*,$String*)>(&WindowsException::translateToIOException))},
+	{"<init>", "(I)V", nullptr, 0, $method(WindowsException, init$, void, int32_t)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(WindowsException, init$, void, $String*)},
+	{"asIOException", "(Lsun/nio/fs/WindowsPath;)Ljava/io/IOException;", nullptr, 0, $virtualMethod(WindowsException, asIOException, $IOException*, $WindowsPath*)},
+	{"errorString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(WindowsException, errorString, $String*)},
+	{"fillInStackTrace", "()Ljava/lang/Throwable;", nullptr, $PUBLIC, $virtualMethod(WindowsException, fillInStackTrace, $Throwable*)},
+	{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(WindowsException, getMessage, $String*)},
+	{"lastError", "()I", nullptr, 0, $virtualMethod(WindowsException, lastError, int32_t)},
+	{"rethrowAsIOException", "(Ljava/lang/String;)V", nullptr, 0, $virtualMethod(WindowsException, rethrowAsIOException, void, $String*), "java.io.IOException"},
+	{"rethrowAsIOException", "(Lsun/nio/fs/WindowsPath;Lsun/nio/fs/WindowsPath;)V", nullptr, 0, $virtualMethod(WindowsException, rethrowAsIOException, void, $WindowsPath*, $WindowsPath*), "java.io.IOException"},
+	{"rethrowAsIOException", "(Lsun/nio/fs/WindowsPath;)V", nullptr, 0, $virtualMethod(WindowsException, rethrowAsIOException, void, $WindowsPath*), "java.io.IOException"},
+	{"translateToIOException", "(Ljava/lang/String;Ljava/lang/String;)Ljava/io/IOException;", nullptr, $PRIVATE, $method(WindowsException, translateToIOException, $IOException*, $String*, $String*)},
 	{}
 };
 

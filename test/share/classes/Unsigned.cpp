@@ -43,18 +43,18 @@ $FieldInfo _Unsigned_FieldInfo_[] = {
 };
 
 $MethodInfo _Unsigned_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Unsigned::*)()>(&Unsigned::init$))},
-	{"compUnsigned", "(JJ)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)(int64_t,int64_t)>(&Unsigned::compUnsigned))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<void(*)($StringArray*)>(&Unsigned::main))},
-	{"testByteToUnsignedLong", "()I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)()>(&Unsigned::testByteToUnsignedLong))},
-	{"testDivideAndRemainder", "()I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)()>(&Unsigned::testDivideAndRemainder))},
-	{"testParseUnsignedLong", "()I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)()>(&Unsigned::testParseUnsignedLong))},
-	{"testRoundtrip", "()I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)()>(&Unsigned::testRoundtrip))},
-	{"testShortToUnsignedLong", "()I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)()>(&Unsigned::testShortToUnsignedLong))},
-	{"testToStringUnsigned", "()I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)()>(&Unsigned::testToStringUnsigned))},
-	{"testUnsignedCompare", "()I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)()>(&Unsigned::testUnsignedCompare))},
-	{"testUnsignedOverflow", "(Ljava/lang/String;IZ)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)($String*,int32_t,bool)>(&Unsigned::testUnsignedOverflow))},
-	{"toUnsignedBigInt", "(J)Ljava/math/BigInteger;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$BigInteger*(*)(int64_t)>(&Unsigned::toUnsignedBigInt))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Unsigned, init$, void)},
+	{"compUnsigned", "(JJ)I", nullptr, $PRIVATE | $STATIC, $staticMethod(Unsigned, compUnsigned, int32_t, int64_t, int64_t)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(Unsigned, main, void, $StringArray*)},
+	{"testByteToUnsignedLong", "()I", nullptr, $PRIVATE | $STATIC, $staticMethod(Unsigned, testByteToUnsignedLong, int32_t)},
+	{"testDivideAndRemainder", "()I", nullptr, $PRIVATE | $STATIC, $staticMethod(Unsigned, testDivideAndRemainder, int32_t)},
+	{"testParseUnsignedLong", "()I", nullptr, $PRIVATE | $STATIC, $staticMethod(Unsigned, testParseUnsignedLong, int32_t)},
+	{"testRoundtrip", "()I", nullptr, $PRIVATE | $STATIC, $staticMethod(Unsigned, testRoundtrip, int32_t)},
+	{"testShortToUnsignedLong", "()I", nullptr, $PRIVATE | $STATIC, $staticMethod(Unsigned, testShortToUnsignedLong, int32_t)},
+	{"testToStringUnsigned", "()I", nullptr, $PRIVATE | $STATIC, $staticMethod(Unsigned, testToStringUnsigned, int32_t)},
+	{"testUnsignedCompare", "()I", nullptr, $PRIVATE | $STATIC, $staticMethod(Unsigned, testUnsignedCompare, int32_t)},
+	{"testUnsignedOverflow", "(Ljava/lang/String;IZ)I", nullptr, $PRIVATE | $STATIC, $staticMethod(Unsigned, testUnsignedOverflow, int32_t, $String*, int32_t, bool)},
+	{"toUnsignedBigInt", "(J)Ljava/math/BigInteger;", nullptr, $PRIVATE | $STATIC, $staticMethod(Unsigned, toUnsignedBigInt, $BigInteger*, int64_t)},
 	{}
 };
 

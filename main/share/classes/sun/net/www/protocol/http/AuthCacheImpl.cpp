@@ -29,11 +29,11 @@ $FieldInfo _AuthCacheImpl_FieldInfo_[] = {
 };
 
 $MethodInfo _AuthCacheImpl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(AuthCacheImpl::*)()>(&AuthCacheImpl::init$))},
-	{"get", "(Ljava/lang/String;Ljava/lang/String;)Lsun/net/www/protocol/http/AuthCacheValue;", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"put", "(Ljava/lang/String;Lsun/net/www/protocol/http/AuthCacheValue;)V", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"remove", "(Ljava/lang/String;Lsun/net/www/protocol/http/AuthCacheValue;)V", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"setMap", "(Ljava/util/HashMap;)V", "(Ljava/util/HashMap<Ljava/lang/String;Ljava/util/LinkedList<Lsun/net/www/protocol/http/AuthCacheValue;>;>;)V", $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(AuthCacheImpl, init$, void)},
+	{"get", "(Ljava/lang/String;Ljava/lang/String;)Lsun/net/www/protocol/http/AuthCacheValue;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(AuthCacheImpl, get, $AuthCacheValue*, $String*, $String*)},
+	{"put", "(Ljava/lang/String;Lsun/net/www/protocol/http/AuthCacheValue;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(AuthCacheImpl, put, void, $String*, $AuthCacheValue*)},
+	{"remove", "(Ljava/lang/String;Lsun/net/www/protocol/http/AuthCacheValue;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(AuthCacheImpl, remove, void, $String*, $AuthCacheValue*)},
+	{"setMap", "(Ljava/util/HashMap;)V", "(Ljava/util/HashMap<Ljava/lang/String;Ljava/util/LinkedList<Lsun/net/www/protocol/http/AuthCacheValue;>;>;)V", $PUBLIC, $virtualMethod(AuthCacheImpl, setMap, void, $HashMap*)},
 	{}
 };
 

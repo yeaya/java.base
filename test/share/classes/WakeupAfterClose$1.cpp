@@ -22,8 +22,8 @@ $FieldInfo _WakeupAfterClose$1_FieldInfo_[] = {
 };
 
 $MethodInfo _WakeupAfterClose$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/channels/Selector;)V", "()V", 0, $method(static_cast<void(WakeupAfterClose$1::*)($Selector*)>(&WakeupAfterClose$1::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/nio/channels/Selector;)V", "()V", 0, $method(WakeupAfterClose$1, init$, void, $Selector*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(WakeupAfterClose$1, run, void)},
 	{}
 };
 

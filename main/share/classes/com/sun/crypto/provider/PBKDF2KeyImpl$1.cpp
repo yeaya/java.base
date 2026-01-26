@@ -35,12 +35,12 @@ $FieldInfo _PBKDF2KeyImpl$1_FieldInfo_[] = {
 };
 
 $MethodInfo _PBKDF2KeyImpl$1_MethodInfo_[] = {
-	{"<init>", "(Ljavax/crypto/Mac;[B)V", "()V", 0, $method(static_cast<void(PBKDF2KeyImpl$1::*)($Mac*,$bytes*)>(&PBKDF2KeyImpl$1::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getEncoded", "()[B", nullptr, $PUBLIC},
-	{"getFormat", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
+	{"<init>", "(Ljavax/crypto/Mac;[B)V", "()V", 0, $method(PBKDF2KeyImpl$1, init$, void, $Mac*, $bytes*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(PBKDF2KeyImpl$1, equals, bool, Object$*)},
+	{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PBKDF2KeyImpl$1, getAlgorithm, $String*)},
+	{"getEncoded", "()[B", nullptr, $PUBLIC, $virtualMethod(PBKDF2KeyImpl$1, getEncoded, $bytes*)},
+	{"getFormat", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PBKDF2KeyImpl$1, getFormat, $String*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(PBKDF2KeyImpl$1, hashCode, int32_t)},
 	{}
 };
 

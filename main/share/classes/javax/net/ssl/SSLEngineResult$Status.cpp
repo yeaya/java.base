@@ -30,10 +30,10 @@ $FieldInfo _SSLEngineResult$Status_FieldInfo_[] = {
 };
 
 $MethodInfo _SSLEngineResult$Status_MethodInfo_[] = {
-	{"$values", "()[Ljavax/net/ssl/SSLEngineResult$Status;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$SSLEngineResult$StatusArray*(*)()>(&SSLEngineResult$Status::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(SSLEngineResult$Status::*)($String*,int32_t)>(&SSLEngineResult$Status::init$))},
-	{"valueOf", "(Ljava/lang/String;)Ljavax/net/ssl/SSLEngineResult$Status;", nullptr, $PUBLIC | $STATIC, $method(static_cast<SSLEngineResult$Status*(*)($String*)>(&SSLEngineResult$Status::valueOf))},
-	{"values", "()[Ljavax/net/ssl/SSLEngineResult$Status;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$SSLEngineResult$StatusArray*(*)()>(&SSLEngineResult$Status::values))},
+	{"$values", "()[Ljavax/net/ssl/SSLEngineResult$Status;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SSLEngineResult$Status, $values, $SSLEngineResult$StatusArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(SSLEngineResult$Status, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Ljavax/net/ssl/SSLEngineResult$Status;", nullptr, $PUBLIC | $STATIC, $staticMethod(SSLEngineResult$Status, valueOf, SSLEngineResult$Status*, $String*)},
+	{"values", "()[Ljavax/net/ssl/SSLEngineResult$Status;", nullptr, $PUBLIC | $STATIC, $staticMethod(SSLEngineResult$Status, values, $SSLEngineResult$StatusArray*)},
 	{}
 };
 

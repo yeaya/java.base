@@ -21,10 +21,10 @@ $FieldInfo _Exceptions4ReflectPermission_FieldInfo_[] = {
 };
 
 $MethodInfo _Exceptions4ReflectPermission_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Exceptions4ReflectPermission::*)()>(&Exceptions4ReflectPermission::init$))},
-	{"fail", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $STATIC, $method(static_cast<void(*)($String*,$Throwable*)>(&Exceptions4ReflectPermission::fail))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Exceptions4ReflectPermission::main))},
-	{"pass", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&Exceptions4ReflectPermission::pass))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Exceptions4ReflectPermission, init$, void)},
+	{"fail", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $STATIC, $staticMethod(Exceptions4ReflectPermission, fail, void, $String*, $Throwable*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Exceptions4ReflectPermission, main, void, $StringArray*)},
+	{"pass", "()V", nullptr, $STATIC, $staticMethod(Exceptions4ReflectPermission, pass, void)},
 	{}
 };
 

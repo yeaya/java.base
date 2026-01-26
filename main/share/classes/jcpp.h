@@ -393,6 +393,15 @@ inline T* $alloc() {
 	$load(T);
 	return new(::java::lang::ObjectManager::alloc(T::class$, sizeof(T))) T();
 }
+template<typename T, $enable_if($is_base_of(::java::lang::Object, T) && !$is_base_of(::java::lang::BaseArray, T))>
+inline T* $allocOrNull() {
+	$load(T);
+	::java::lang::Object* obj = ::java::lang::ObjectManager::allocOrNull(T::class$, sizeof(T));
+	if (obj != nullptr) {
+		return new(obj) T();
+	}
+	return nullptr;
+}
 
 template<typename T, $enable_if($is_base_of(::java::lang::Object, T) && !$is_base_of(::java::lang::BaseArray, T))>
 inline T* $allocStatic() {
@@ -426,8 +435,16 @@ inline T* $new(Types... _Args) {
 
 template<typename T, $enable_if(::std::is_class_v<T> && !$is_base_of(::java::lang::Object, T))>
 inline $Objectx<T>* $alloc() {
-	$var($Objectx<T>, inst, new(::java::lang::ObjectManager::alloc(typeid(T).name(), (int64_t)sizeof($Objectx<T>), $getMark(T), false)) $Objectx<T>());
+	$Objectx<T>* inst = new(::java::lang::ObjectManager::alloc(typeid(T).name(), (int64_t)sizeof($Objectx<T>), $getMark(T), false)) $Objectx<T>();
 	return inst;
+}
+template<typename T, $enable_if(::std::is_class_v<T> && !$is_base_of(::java::lang::Object, T))>
+inline $Objectx<T>* $allocOrNull() {
+	::java::lang::Object* obj = ::java::lang::ObjectManager::allocOrNull(typeid(T).name(), (int64_t)sizeof($Objectx<T>), $getMark(T), false);
+	if (obj != nullptr) {
+		return new(obj) $Objectx<T>();
+	}
+	return nullptr;
 }
 
 template<typename T, $enable_if(::std::is_class_v<T> && !$is_base_of(::java::lang::Object, T)), typename... Types>
@@ -442,6 +459,14 @@ template<typename T, $enable_if(!::std::is_class_v<T>)>
 inline $Objectv<T>* $alloc() {
 	$var($Objectv<T>, inst, new(::java::lang::ObjectManager::alloc(typeid(T).name(), (int64_t)sizeof($Objectv<T>), $getMark(T), false)) $Objectv<T>());
 	return inst;
+}
+template<typename T, $enable_if(!::std::is_class_v<T>)>
+inline $Objectv<T>* $allocOrNull() {
+	::java::lang::Object* obj = ::java::lang::ObjectManager::allocOrNull(typeid(T).name(), (int64_t)sizeof($Objectv<T>), $getMark(T), false);
+	if (obj != nullptr) {
+		return new(obj) $Objectv<T>();
+	}
+	return nullptr;
 }
 
 template<typename T, $enable_if(!::std::is_class_v<T>)>
@@ -672,6 +697,8 @@ inline T* $new(T& ex) {
 
 #define $alloc(x) $alloc<x>()
 #define $$alloc(x) $ref($alloc<x>())
+#define $allocOrNull(x) $allocOrNull<x>()
+#define $$allocOrNull(x) $ref($allocOrNull<x>())
 #define $new(x, ...) $new<x>(__VA_ARGS__)
 #define $$new(x, ...) $ref($new<x>(__VA_ARGS__))
 

@@ -20,8 +20,8 @@ using $InetAddress = ::java::net::InetAddress;
 using $SocketTimeoutException = ::java::net::SocketTimeoutException;
 
 $MethodInfo _CheckDiscard_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(CheckDiscard::*)()>(&CheckDiscard::init$)), "java.lang.Exception"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&CheckDiscard::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, 0, $method(CheckDiscard, init$, void), "java.lang.Exception"},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(CheckDiscard, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

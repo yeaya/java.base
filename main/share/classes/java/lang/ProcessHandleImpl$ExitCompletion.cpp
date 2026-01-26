@@ -19,7 +19,7 @@ $FieldInfo _ProcessHandleImpl$ExitCompletion_FieldInfo_[] = {
 };
 
 $MethodInfo _ProcessHandleImpl$ExitCompletion_MethodInfo_[] = {
-	{"<init>", "(Z)V", nullptr, 0, $method(static_cast<void(ProcessHandleImpl$ExitCompletion::*)(bool)>(&ProcessHandleImpl$ExitCompletion::init$))},
+	{"<init>", "(Z)V", nullptr, 0, $method(ProcessHandleImpl$ExitCompletion, init$, void, bool)},
 	{}
 };
 

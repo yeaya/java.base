@@ -39,13 +39,13 @@ $MethodInfo _StreamSpliterators$DelegatingSpliterator$OfDouble_MethodInfo_[] = {
 	{"*getExactSizeIfKnown", "()J", nullptr, $PUBLIC},
 	{"*hasCharacteristics", "(I)Z", nullptr, $PUBLIC | $ABSTRACT},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/util/function/Supplier;)V", "(Ljava/util/function/Supplier<Ljava/util/Spliterator$OfDouble;>;)V", 0, $method(static_cast<void(StreamSpliterators$DelegatingSpliterator$OfDouble::*)($Supplier*)>(&StreamSpliterators$DelegatingSpliterator$OfDouble::init$))},
-	{"forEachRemaining", "(Ljava/util/function/DoubleConsumer;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $method(static_cast<void(StreamSpliterators$DelegatingSpliterator$OfDouble::*)($DoubleConsumer*)>(&StreamSpliterators$DelegatingSpliterator$OfDouble::forEachRemaining))},
+	{"<init>", "(Ljava/util/function/Supplier;)V", "(Ljava/util/function/Supplier<Ljava/util/Spliterator$OfDouble;>;)V", 0, $method(StreamSpliterators$DelegatingSpliterator$OfDouble, init$, void, $Supplier*)},
+	{"forEachRemaining", "(Ljava/util/function/DoubleConsumer;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $method(StreamSpliterators$DelegatingSpliterator$OfDouble, forEachRemaining, void, $DoubleConsumer*)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{"*tryAdvance", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*tryAdvance", "(Ljava/util/function/Consumer;)Z", nullptr, $PUBLIC},
-	{"tryAdvance", "(Ljava/util/function/DoubleConsumer;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $method(static_cast<bool(StreamSpliterators$DelegatingSpliterator$OfDouble::*)($DoubleConsumer*)>(&StreamSpliterators$DelegatingSpliterator$OfDouble::tryAdvance))},
-	{"trySplit", "()Ljava/util/Spliterator$OfDouble;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"tryAdvance", "(Ljava/util/function/DoubleConsumer;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $method(StreamSpliterators$DelegatingSpliterator$OfDouble, tryAdvance, bool, $DoubleConsumer*)},
+	{"trySplit", "()Ljava/util/Spliterator$OfDouble;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(StreamSpliterators$DelegatingSpliterator$OfDouble, trySplit, $Spliterator*)},
 	{}
 };
 

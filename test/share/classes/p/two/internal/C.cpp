@@ -12,7 +12,7 @@ namespace p {
 		namespace internal {
 
 $MethodInfo _C_MethodInfo_[] = {
-	{"m", "()I", nullptr, $PUBLIC},
+	{"m", "()I", nullptr, $PUBLIC, $virtualMethod(C, m, int32_t)},
 	{}
 };
 

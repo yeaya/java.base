@@ -30,9 +30,9 @@ $FieldInfo _LongStream$1_FieldInfo_[] = {
 };
 
 $MethodInfo _LongStream$1_MethodInfo_[] = {
-	{"<init>", "(JILjava/util/function/LongUnaryOperator;J)V", nullptr, 0, $method(static_cast<void(LongStream$1::*)(int64_t,int32_t,$LongUnaryOperator*,int64_t)>(&LongStream$1::init$))},
-	{"tryAdvance", "(Ljava/util/function/LongConsumer;)Z", nullptr, $PUBLIC},
-	{"tryAdvance", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "(JILjava/util/function/LongUnaryOperator;J)V", nullptr, 0, $method(LongStream$1, init$, void, int64_t, int32_t, $LongUnaryOperator*, int64_t)},
+	{"tryAdvance", "(Ljava/util/function/LongConsumer;)Z", nullptr, $PUBLIC, $virtualMethod(LongStream$1, tryAdvance, bool, $LongConsumer*)},
+	{"tryAdvance", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(LongStream$1, tryAdvance, bool, Object$*)},
 	{}
 };
 

@@ -22,10 +22,10 @@ $FieldInfo _DynamicConstantDescTest$MyEnum_FieldInfo_[] = {
 };
 
 $MethodInfo _DynamicConstantDescTest$MyEnum_MethodInfo_[] = {
-	{"$values", "()[LDynamicConstantDescTest$MyEnum;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$DynamicConstantDescTest$MyEnumArray*(*)()>(&DynamicConstantDescTest$MyEnum::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(DynamicConstantDescTest$MyEnum::*)($String*,int32_t)>(&DynamicConstantDescTest$MyEnum::init$))},
-	{"valueOf", "(Ljava/lang/String;)LDynamicConstantDescTest$MyEnum;", nullptr, $PUBLIC | $STATIC, $method(static_cast<DynamicConstantDescTest$MyEnum*(*)($String*)>(&DynamicConstantDescTest$MyEnum::valueOf))},
-	{"values", "()[LDynamicConstantDescTest$MyEnum;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$DynamicConstantDescTest$MyEnumArray*(*)()>(&DynamicConstantDescTest$MyEnum::values))},
+	{"$values", "()[LDynamicConstantDescTest$MyEnum;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DynamicConstantDescTest$MyEnum, $values, $DynamicConstantDescTest$MyEnumArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(DynamicConstantDescTest$MyEnum, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)LDynamicConstantDescTest$MyEnum;", nullptr, $PUBLIC | $STATIC, $staticMethod(DynamicConstantDescTest$MyEnum, valueOf, DynamicConstantDescTest$MyEnum*, $String*)},
+	{"values", "()[LDynamicConstantDescTest$MyEnum;", nullptr, $PUBLIC | $STATIC, $staticMethod(DynamicConstantDescTest$MyEnum, values, $DynamicConstantDescTest$MyEnumArray*)},
 	{}
 };
 

@@ -30,9 +30,9 @@ $FieldInfo _MemberFactory$Kind$2_FieldInfo_[] = {
 };
 
 $MethodInfo _MemberFactory$Kind$2_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(static_cast<void(MemberFactory$Kind$2::*)($String*,int32_t)>(&MemberFactory$Kind$2::init$))},
-	{"apply", "(Ljava/lang/Class;Lutil/MemberFactory;)Ljava/lang/reflect/AccessibleObject;", "(Ljava/lang/Class<*>;Lutil/MemberFactory;)Ljava/lang/reflect/AccessibleObject;", $PUBLIC, $method(static_cast<$AccessibleObject*(MemberFactory$Kind$2::*)($Class*,$MemberFactory*)>(&MemberFactory$Kind$2::apply))},
-	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(MemberFactory$Kind$2, init$, void, $String*, int32_t)},
+	{"apply", "(Ljava/lang/Class;Lutil/MemberFactory;)Ljava/lang/reflect/AccessibleObject;", "(Ljava/lang/Class<*>;Lutil/MemberFactory;)Ljava/lang/reflect/AccessibleObject;", $PUBLIC, $method(MemberFactory$Kind$2, apply, $AccessibleObject*, $Class*, $MemberFactory*)},
+	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(MemberFactory$Kind$2, apply, $Object*, Object$*, Object$*)},
 	{}
 };
 

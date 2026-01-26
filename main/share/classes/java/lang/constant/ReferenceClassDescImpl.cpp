@@ -26,12 +26,12 @@ $FieldInfo _ReferenceClassDescImpl_FieldInfo_[] = {
 };
 
 $MethodInfo _ReferenceClassDescImpl_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(ReferenceClassDescImpl::*)($String*)>(&ReferenceClassDescImpl::init$))},
-	{"descriptorString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"resolveConstantDesc", "(Ljava/lang/invoke/MethodHandles$Lookup;)Ljava/lang/Class;", "(Ljava/lang/invoke/MethodHandles$Lookup;)Ljava/lang/Class<*>;", $PUBLIC, nullptr, "java.lang.ReflectiveOperationException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(ReferenceClassDescImpl, init$, void, $String*)},
+	{"descriptorString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ReferenceClassDescImpl, descriptorString, $String*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ReferenceClassDescImpl, equals, bool, Object$*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ReferenceClassDescImpl, hashCode, int32_t)},
+	{"resolveConstantDesc", "(Ljava/lang/invoke/MethodHandles$Lookup;)Ljava/lang/Class;", "(Ljava/lang/invoke/MethodHandles$Lookup;)Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(ReferenceClassDescImpl, resolveConstantDesc, $Object*, $MethodHandles$Lookup*), "java.lang.ReflectiveOperationException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ReferenceClassDescImpl, toString, $String*)},
 	{}
 };
 

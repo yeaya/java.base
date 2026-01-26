@@ -11,21 +11,21 @@ namespace java {
 	namespace io {
 
 $MethodInfo _Bits_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Bits::*)()>(&Bits::init$))},
-	{"getBoolean", "([BI)Z", nullptr, $STATIC, $method(static_cast<bool(*)($bytes*,int32_t)>(&Bits::getBoolean))},
-	{"getChar", "([BI)C", nullptr, $STATIC, $method(static_cast<char16_t(*)($bytes*,int32_t)>(&Bits::getChar))},
-	{"getDouble", "([BI)D", nullptr, $STATIC, $method(static_cast<double(*)($bytes*,int32_t)>(&Bits::getDouble))},
-	{"getFloat", "([BI)F", nullptr, $STATIC, $method(static_cast<float(*)($bytes*,int32_t)>(&Bits::getFloat))},
-	{"getInt", "([BI)I", nullptr, $STATIC, $method(static_cast<int32_t(*)($bytes*,int32_t)>(&Bits::getInt))},
-	{"getLong", "([BI)J", nullptr, $STATIC, $method(static_cast<int64_t(*)($bytes*,int32_t)>(&Bits::getLong))},
-	{"getShort", "([BI)S", nullptr, $STATIC, $method(static_cast<int16_t(*)($bytes*,int32_t)>(&Bits::getShort))},
-	{"putBoolean", "([BIZ)V", nullptr, $STATIC, $method(static_cast<void(*)($bytes*,int32_t,bool)>(&Bits::putBoolean))},
-	{"putChar", "([BIC)V", nullptr, $STATIC, $method(static_cast<void(*)($bytes*,int32_t,char16_t)>(&Bits::putChar))},
-	{"putDouble", "([BID)V", nullptr, $STATIC, $method(static_cast<void(*)($bytes*,int32_t,double)>(&Bits::putDouble))},
-	{"putFloat", "([BIF)V", nullptr, $STATIC, $method(static_cast<void(*)($bytes*,int32_t,float)>(&Bits::putFloat))},
-	{"putInt", "([BII)V", nullptr, $STATIC, $method(static_cast<void(*)($bytes*,int32_t,int32_t)>(&Bits::putInt))},
-	{"putLong", "([BIJ)V", nullptr, $STATIC, $method(static_cast<void(*)($bytes*,int32_t,int64_t)>(&Bits::putLong))},
-	{"putShort", "([BIS)V", nullptr, $STATIC, $method(static_cast<void(*)($bytes*,int32_t,int16_t)>(&Bits::putShort))},
+	{"<init>", "()V", nullptr, 0, $method(Bits, init$, void)},
+	{"getBoolean", "([BI)Z", nullptr, $STATIC, $staticMethod(Bits, getBoolean, bool, $bytes*, int32_t)},
+	{"getChar", "([BI)C", nullptr, $STATIC, $staticMethod(Bits, getChar, char16_t, $bytes*, int32_t)},
+	{"getDouble", "([BI)D", nullptr, $STATIC, $staticMethod(Bits, getDouble, double, $bytes*, int32_t)},
+	{"getFloat", "([BI)F", nullptr, $STATIC, $staticMethod(Bits, getFloat, float, $bytes*, int32_t)},
+	{"getInt", "([BI)I", nullptr, $STATIC, $staticMethod(Bits, getInt, int32_t, $bytes*, int32_t)},
+	{"getLong", "([BI)J", nullptr, $STATIC, $staticMethod(Bits, getLong, int64_t, $bytes*, int32_t)},
+	{"getShort", "([BI)S", nullptr, $STATIC, $staticMethod(Bits, getShort, int16_t, $bytes*, int32_t)},
+	{"putBoolean", "([BIZ)V", nullptr, $STATIC, $staticMethod(Bits, putBoolean, void, $bytes*, int32_t, bool)},
+	{"putChar", "([BIC)V", nullptr, $STATIC, $staticMethod(Bits, putChar, void, $bytes*, int32_t, char16_t)},
+	{"putDouble", "([BID)V", nullptr, $STATIC, $staticMethod(Bits, putDouble, void, $bytes*, int32_t, double)},
+	{"putFloat", "([BIF)V", nullptr, $STATIC, $staticMethod(Bits, putFloat, void, $bytes*, int32_t, float)},
+	{"putInt", "([BII)V", nullptr, $STATIC, $staticMethod(Bits, putInt, void, $bytes*, int32_t, int32_t)},
+	{"putLong", "([BIJ)V", nullptr, $STATIC, $staticMethod(Bits, putLong, void, $bytes*, int32_t, int64_t)},
+	{"putShort", "([BIS)V", nullptr, $STATIC, $staticMethod(Bits, putShort, void, $bytes*, int32_t, int16_t)},
 	{}
 };
 

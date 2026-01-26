@@ -3,6 +3,7 @@
 #include <java/io/FilePermission.h>
 #include <jcpp.h>
 
+using $FilePermission = ::java::io::FilePermission;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
@@ -11,8 +12,8 @@ namespace jdk {
 		namespace access {
 
 $MethodInfo _JavaIOFilePermissionAccess_MethodInfo_[] = {
-	{"newPermPlusAltPath", "(Ljava/io/FilePermission;)Ljava/io/FilePermission;", nullptr, $PUBLIC | $ABSTRACT},
-	{"newPermUsingAltPath", "(Ljava/io/FilePermission;)Ljava/io/FilePermission;", nullptr, $PUBLIC | $ABSTRACT},
+	{"newPermPlusAltPath", "(Ljava/io/FilePermission;)Ljava/io/FilePermission;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JavaIOFilePermissionAccess, newPermPlusAltPath, $FilePermission*, $FilePermission*)},
+	{"newPermUsingAltPath", "(Ljava/io/FilePermission;)Ljava/io/FilePermission;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JavaIOFilePermissionAccess, newPermUsingAltPath, $FilePermission*, $FilePermission*)},
 	{}
 };
 

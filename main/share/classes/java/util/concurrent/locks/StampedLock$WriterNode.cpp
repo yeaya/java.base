@@ -15,7 +15,7 @@ namespace java {
 			namespace locks {
 
 $MethodInfo _StampedLock$WriterNode_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(StampedLock$WriterNode::*)()>(&StampedLock$WriterNode::init$))},
+	{"<init>", "()V", nullptr, 0, $method(StampedLock$WriterNode, init$, void)},
 	{}
 };
 

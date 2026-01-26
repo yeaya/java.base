@@ -30,8 +30,8 @@ $FieldInfo _BootstrapLogger$BootstrapExecutors$1_FieldInfo_[] = {
 };
 
 $MethodInfo _BootstrapLogger$BootstrapExecutors$1_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/logger/BootstrapLogger$BootstrapExecutors;Ljava/util/concurrent/ExecutorService;Ljava/lang/Runnable;)V", "()V", 0, $method(static_cast<void(BootstrapLogger$BootstrapExecutors$1::*)($BootstrapLogger$BootstrapExecutors*,$ExecutorService*,$Runnable*)>(&BootstrapLogger$BootstrapExecutors$1::init$))},
-	{"run", "()Ljava/lang/Thread;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/logger/BootstrapLogger$BootstrapExecutors;Ljava/util/concurrent/ExecutorService;Ljava/lang/Runnable;)V", "()V", 0, $method(BootstrapLogger$BootstrapExecutors$1, init$, void, $BootstrapLogger$BootstrapExecutors*, $ExecutorService*, $Runnable*)},
+	{"run", "()Ljava/lang/Thread;", nullptr, $PUBLIC, $virtualMethod(BootstrapLogger$BootstrapExecutors$1, run, $Object*)},
 	{}
 };
 

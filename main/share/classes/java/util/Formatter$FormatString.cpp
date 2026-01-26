@@ -7,13 +7,14 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Locale = ::java::util::Locale;
 
 namespace java {
 	namespace util {
 
 $MethodInfo _Formatter$FormatString_MethodInfo_[] = {
-	{"index", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"print", "(Ljava/lang/Object;Ljava/util/Locale;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
+	{"index", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Formatter$FormatString, index, int32_t)},
+	{"print", "(Ljava/lang/Object;Ljava/util/Locale;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Formatter$FormatString, print, void, Object$*, $Locale*), "java.io.IOException"},
 	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
 	{}
 };

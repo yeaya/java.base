@@ -85,7 +85,7 @@ $CompoundAttribute _TestClass1SuperB_Annotations_[] = {
 };
 
 $MethodInfo _TestClass1SuperB_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(TestClass1SuperB::*)()>(&TestClass1SuperB::init$))},
+	{"<init>", "()V", nullptr, 0, $method(TestClass1SuperB, init$, void)},
 	{}
 };
 

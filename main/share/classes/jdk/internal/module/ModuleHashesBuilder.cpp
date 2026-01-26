@@ -92,8 +92,8 @@ $FieldInfo ModuleHashesBuilder$$Lambda$lambda$computeHashes$0::fieldInfos[3] = {
 	{}
 };
 $MethodInfo ModuleHashesBuilder$$Lambda$lambda$computeHashes$0::methodInfos[3] = {
-	{"<init>", "(Ljava/util/Set;Ljava/util/Set;)V", nullptr, $PUBLIC, $method(static_cast<void(ModuleHashesBuilder$$Lambda$lambda$computeHashes$0::*)($Set*,$Set*)>(&ModuleHashesBuilder$$Lambda$lambda$computeHashes$0::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/Set;Ljava/util/Set;)V", nullptr, $PUBLIC, $method(ModuleHashesBuilder$$Lambda$lambda$computeHashes$0, init$, void, $Set*, $Set*)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ModuleHashesBuilder$$Lambda$lambda$computeHashes$0, test, bool, Object$*)},
 	{}
 };
 $ClassInfo ModuleHashesBuilder$$Lambda$lambda$computeHashes$0::classInfo$ = {
@@ -141,8 +141,8 @@ $FieldInfo ModuleHashesBuilder$$Lambda$lambda$computeHashes$3$1::fieldInfos[5] =
 	{}
 };
 $MethodInfo ModuleHashesBuilder$$Lambda$lambda$computeHashes$3$1::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/module/ModuleHashesBuilder;Ljdk/internal/module/ModuleHashesBuilder$Graph;Ljava/util/Set;Ljava/util/Map;)V", nullptr, $PUBLIC, $method(static_cast<void(ModuleHashesBuilder$$Lambda$lambda$computeHashes$3$1::*)(ModuleHashesBuilder*,$ModuleHashesBuilder$Graph*,$Set*,$Map*)>(&ModuleHashesBuilder$$Lambda$lambda$computeHashes$3$1::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/module/ModuleHashesBuilder;Ljdk/internal/module/ModuleHashesBuilder$Graph;Ljava/util/Set;Ljava/util/Map;)V", nullptr, $PUBLIC, $method(ModuleHashesBuilder$$Lambda$lambda$computeHashes$3$1, init$, void, ModuleHashesBuilder*, $ModuleHashesBuilder$Graph*, $Set*, $Map*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ModuleHashesBuilder$$Lambda$lambda$computeHashes$3$1, accept, void, Object$*)},
 	{}
 };
 $ClassInfo ModuleHashesBuilder$$Lambda$lambda$computeHashes$3$1::classInfo$ = {
@@ -184,8 +184,8 @@ $FieldInfo ModuleHashesBuilder$$Lambda$lambda$computeHashes$1$2::fieldInfos[3] =
 	{}
 };
 $MethodInfo ModuleHashesBuilder$$Lambda$lambda$computeHashes$1$2::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/module/ModuleHashesBuilder;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(ModuleHashesBuilder$$Lambda$lambda$computeHashes$1$2::*)(ModuleHashesBuilder*,$String*)>(&ModuleHashesBuilder$$Lambda$lambda$computeHashes$1$2::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/module/ModuleHashesBuilder;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ModuleHashesBuilder$$Lambda$lambda$computeHashes$1$2, init$, void, ModuleHashesBuilder*, $String*)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ModuleHashesBuilder$$Lambda$lambda$computeHashes$1$2, test, bool, Object$*)},
 	{}
 };
 $ClassInfo ModuleHashesBuilder$$Lambda$lambda$computeHashes$1$2::classInfo$ = {
@@ -224,8 +224,8 @@ $FieldInfo ModuleHashesBuilder$$Lambda$lambda$computeHashes$2$3::fieldInfos[2] =
 	{}
 };
 $MethodInfo ModuleHashesBuilder$$Lambda$lambda$computeHashes$2$3::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/module/ModuleHashesBuilder;)V", nullptr, $PUBLIC, $method(static_cast<void(ModuleHashesBuilder$$Lambda$lambda$computeHashes$2$3::*)(ModuleHashesBuilder*)>(&ModuleHashesBuilder$$Lambda$lambda$computeHashes$2$3::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/module/ModuleHashesBuilder;)V", nullptr, $PUBLIC, $method(ModuleHashesBuilder$$Lambda$lambda$computeHashes$2$3, init$, void, ModuleHashesBuilder*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ModuleHashesBuilder$$Lambda$lambda$computeHashes$2$3, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo ModuleHashesBuilder$$Lambda$lambda$computeHashes$2$3::classInfo$ = {
@@ -257,8 +257,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ModuleHashesBuilder$$Lambda$reference$4::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ModuleHashesBuilder$$Lambda$reference$4::*)()>(&ModuleHashesBuilder$$Lambda$reference$4::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ModuleHashesBuilder$$Lambda$reference$4, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ModuleHashesBuilder$$Lambda$reference$4, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo ModuleHashesBuilder$$Lambda$reference$4::classInfo$ = {
@@ -290,8 +290,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ModuleHashesBuilder$$Lambda$InternalError$5::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ModuleHashesBuilder$$Lambda$InternalError$5::*)()>(&ModuleHashesBuilder$$Lambda$InternalError$5::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ModuleHashesBuilder$$Lambda$InternalError$5, init$, void)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ModuleHashesBuilder$$Lambda$InternalError$5, get, $Object*)},
 	{}
 };
 $ClassInfo ModuleHashesBuilder$$Lambda$InternalError$5::classInfo$ = {
@@ -315,12 +315,12 @@ $FieldInfo _ModuleHashesBuilder_FieldInfo_[] = {
 };
 
 $MethodInfo _ModuleHashesBuilder_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/module/Configuration;Ljava/util/Set;)V", "(Ljava/lang/module/Configuration;Ljava/util/Set<Ljava/lang/String;>;)V", $PUBLIC, $method(static_cast<void(ModuleHashesBuilder::*)($Configuration*,$Set*)>(&ModuleHashesBuilder::init$))},
-	{"computeHashes", "(Ljava/util/Set;)Ljava/util/Map;", "(Ljava/util/Set<Ljava/lang/String;>;)Ljava/util/Map<Ljava/lang/String;Ljdk/internal/module/ModuleHashes;>;", $PUBLIC},
-	{"lambda$computeHashes$0", "(Ljava/util/Set;Ljava/util/Set;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($Set*,$Set*,$String*)>(&ModuleHashesBuilder::lambda$computeHashes$0))},
-	{"lambda$computeHashes$1", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<bool(ModuleHashesBuilder::*)($String*,$String*)>(&ModuleHashesBuilder::lambda$computeHashes$1))},
-	{"lambda$computeHashes$2", "(Ljava/lang/String;)Ljava/lang/module/ResolvedModule;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$ResolvedModule*(ModuleHashesBuilder::*)($String*)>(&ModuleHashesBuilder::lambda$computeHashes$2))},
-	{"lambda$computeHashes$3", "(Ljdk/internal/module/ModuleHashesBuilder$Graph;Ljava/util/Set;Ljava/util/Map;Ljava/lang/String;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(ModuleHashesBuilder::*)($ModuleHashesBuilder$Graph*,$Set*,$Map*,$String*)>(&ModuleHashesBuilder::lambda$computeHashes$3))},
+	{"<init>", "(Ljava/lang/module/Configuration;Ljava/util/Set;)V", "(Ljava/lang/module/Configuration;Ljava/util/Set<Ljava/lang/String;>;)V", $PUBLIC, $method(ModuleHashesBuilder, init$, void, $Configuration*, $Set*)},
+	{"computeHashes", "(Ljava/util/Set;)Ljava/util/Map;", "(Ljava/util/Set<Ljava/lang/String;>;)Ljava/util/Map<Ljava/lang/String;Ljdk/internal/module/ModuleHashes;>;", $PUBLIC, $virtualMethod(ModuleHashesBuilder, computeHashes, $Map*, $Set*)},
+	{"lambda$computeHashes$0", "(Ljava/util/Set;Ljava/util/Set;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ModuleHashesBuilder, lambda$computeHashes$0, bool, $Set*, $Set*, $String*)},
+	{"lambda$computeHashes$1", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(ModuleHashesBuilder, lambda$computeHashes$1, bool, $String*, $String*)},
+	{"lambda$computeHashes$2", "(Ljava/lang/String;)Ljava/lang/module/ResolvedModule;", nullptr, $PRIVATE | $SYNTHETIC, $method(ModuleHashesBuilder, lambda$computeHashes$2, $ResolvedModule*, $String*)},
+	{"lambda$computeHashes$3", "(Ljdk/internal/module/ModuleHashesBuilder$Graph;Ljava/util/Set;Ljava/util/Map;Ljava/lang/String;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(ModuleHashesBuilder, lambda$computeHashes$3, void, $ModuleHashesBuilder$Graph*, $Set*, $Map*, $String*)},
 	{}
 };
 

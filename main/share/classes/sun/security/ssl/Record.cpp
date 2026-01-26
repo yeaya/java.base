@@ -34,21 +34,21 @@ $FieldInfo _Record_FieldInfo_[] = {
 };
 
 $MethodInfo _Record_MethodInfo_[] = {
-	{"getBytes16", "(Ljava/nio/ByteBuffer;)[B", nullptr, $PUBLIC | $STATIC, $method(static_cast<$bytes*(*)($ByteBuffer*)>(&Record::getBytes16)), "java.io.IOException"},
-	{"getBytes24", "(Ljava/nio/ByteBuffer;)[B", nullptr, $PUBLIC | $STATIC, $method(static_cast<$bytes*(*)($ByteBuffer*)>(&Record::getBytes24)), "java.io.IOException"},
-	{"getBytes8", "(Ljava/nio/ByteBuffer;)[B", nullptr, $PUBLIC | $STATIC, $method(static_cast<$bytes*(*)($ByteBuffer*)>(&Record::getBytes8)), "java.io.IOException"},
-	{"getInt16", "(Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC | $STATIC, $method(static_cast<int32_t(*)($ByteBuffer*)>(&Record::getInt16)), "java.io.IOException"},
-	{"getInt24", "(Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC | $STATIC, $method(static_cast<int32_t(*)($ByteBuffer*)>(&Record::getInt24)), "java.io.IOException"},
-	{"getInt32", "(Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC | $STATIC, $method(static_cast<int32_t(*)($ByteBuffer*)>(&Record::getInt32)), "java.io.IOException"},
-	{"getInt8", "(Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC | $STATIC, $method(static_cast<int32_t(*)($ByteBuffer*)>(&Record::getInt8)), "java.io.IOException"},
-	{"putBytes16", "(Ljava/nio/ByteBuffer;[B)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($ByteBuffer*,$bytes*)>(&Record::putBytes16)), "java.io.IOException"},
-	{"putBytes24", "(Ljava/nio/ByteBuffer;[B)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($ByteBuffer*,$bytes*)>(&Record::putBytes24)), "java.io.IOException"},
-	{"putBytes8", "(Ljava/nio/ByteBuffer;[B)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($ByteBuffer*,$bytes*)>(&Record::putBytes8)), "java.io.IOException"},
-	{"putInt16", "(Ljava/nio/ByteBuffer;I)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($ByteBuffer*,int32_t)>(&Record::putInt16)), "java.io.IOException"},
-	{"putInt24", "(Ljava/nio/ByteBuffer;I)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($ByteBuffer*,int32_t)>(&Record::putInt24)), "java.io.IOException"},
-	{"putInt32", "(Ljava/nio/ByteBuffer;I)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($ByteBuffer*,int32_t)>(&Record::putInt32)), "java.io.IOException"},
-	{"putInt8", "(Ljava/nio/ByteBuffer;I)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($ByteBuffer*,int32_t)>(&Record::putInt8)), "java.io.IOException"},
-	{"verifyLength", "(Ljava/nio/ByteBuffer;I)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($ByteBuffer*,int32_t)>(&Record::verifyLength)), "javax.net.ssl.SSLException"},
+	{"getBytes16", "(Ljava/nio/ByteBuffer;)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(Record, getBytes16, $bytes*, $ByteBuffer*), "java.io.IOException"},
+	{"getBytes24", "(Ljava/nio/ByteBuffer;)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(Record, getBytes24, $bytes*, $ByteBuffer*), "java.io.IOException"},
+	{"getBytes8", "(Ljava/nio/ByteBuffer;)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(Record, getBytes8, $bytes*, $ByteBuffer*), "java.io.IOException"},
+	{"getInt16", "(Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Record, getInt16, int32_t, $ByteBuffer*), "java.io.IOException"},
+	{"getInt24", "(Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Record, getInt24, int32_t, $ByteBuffer*), "java.io.IOException"},
+	{"getInt32", "(Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Record, getInt32, int32_t, $ByteBuffer*), "java.io.IOException"},
+	{"getInt8", "(Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Record, getInt8, int32_t, $ByteBuffer*), "java.io.IOException"},
+	{"putBytes16", "(Ljava/nio/ByteBuffer;[B)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Record, putBytes16, void, $ByteBuffer*, $bytes*), "java.io.IOException"},
+	{"putBytes24", "(Ljava/nio/ByteBuffer;[B)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Record, putBytes24, void, $ByteBuffer*, $bytes*), "java.io.IOException"},
+	{"putBytes8", "(Ljava/nio/ByteBuffer;[B)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Record, putBytes8, void, $ByteBuffer*, $bytes*), "java.io.IOException"},
+	{"putInt16", "(Ljava/nio/ByteBuffer;I)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Record, putInt16, void, $ByteBuffer*, int32_t), "java.io.IOException"},
+	{"putInt24", "(Ljava/nio/ByteBuffer;I)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Record, putInt24, void, $ByteBuffer*, int32_t), "java.io.IOException"},
+	{"putInt32", "(Ljava/nio/ByteBuffer;I)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Record, putInt32, void, $ByteBuffer*, int32_t), "java.io.IOException"},
+	{"putInt8", "(Ljava/nio/ByteBuffer;I)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Record, putInt8, void, $ByteBuffer*, int32_t), "java.io.IOException"},
+	{"verifyLength", "(Ljava/nio/ByteBuffer;I)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Record, verifyLength, void, $ByteBuffer*, int32_t), "javax.net.ssl.SSLException"},
 	{}
 };
 

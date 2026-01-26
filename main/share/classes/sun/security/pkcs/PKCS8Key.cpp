@@ -74,20 +74,20 @@ $FieldInfo _PKCS8Key_FieldInfo_[] = {
 };
 
 $MethodInfo _PKCS8Key_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(PKCS8Key::*)()>(&PKCS8Key::init$))},
-	{"<init>", "([B)V", nullptr, $PROTECTED, $method(static_cast<void(PKCS8Key::*)($bytes*)>(&PKCS8Key::init$)), "java.security.InvalidKeyException"},
-	{"clear", "()V", nullptr, $PUBLIC},
-	{"decode", "(Ljava/io/InputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(PKCS8Key::*)($InputStream*)>(&PKCS8Key::decode)), "java.security.InvalidKeyException"},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getAlgorithmId", "()Lsun/security/x509/AlgorithmId;", nullptr, $PUBLIC},
-	{"getEncoded", "()[B", nullptr, $PUBLIC},
-	{"getEncodedInternal", "()[B", nullptr, $PRIVATE | $SYNCHRONIZED, $method(static_cast<$bytes*(PKCS8Key::*)()>(&PKCS8Key::getEncodedInternal))},
-	{"getFormat", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"parseKey", "([B)Ljava/security/PrivateKey;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$PrivateKey*(*)($bytes*)>(&PKCS8Key::parseKey)), "java.io.IOException"},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(PKCS8Key::*)($ObjectInputStream*)>(&PKCS8Key::readObject)), "java.io.IOException"},
-	{"writeReplace", "()Ljava/lang/Object;", nullptr, $PROTECTED, nullptr, "java.io.ObjectStreamException"},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(PKCS8Key, init$, void)},
+	{"<init>", "([B)V", nullptr, $PROTECTED, $method(PKCS8Key, init$, void, $bytes*), "java.security.InvalidKeyException"},
+	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(PKCS8Key, clear, void)},
+	{"decode", "(Ljava/io/InputStream;)V", nullptr, $PRIVATE, $method(PKCS8Key, decode, void, $InputStream*), "java.security.InvalidKeyException"},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(PKCS8Key, equals, bool, Object$*)},
+	{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PKCS8Key, getAlgorithm, $String*)},
+	{"getAlgorithmId", "()Lsun/security/x509/AlgorithmId;", nullptr, $PUBLIC, $virtualMethod(PKCS8Key, getAlgorithmId, $AlgorithmId*)},
+	{"getEncoded", "()[B", nullptr, $PUBLIC, $virtualMethod(PKCS8Key, getEncoded, $bytes*)},
+	{"getEncodedInternal", "()[B", nullptr, $PRIVATE | $SYNCHRONIZED, $method(PKCS8Key, getEncodedInternal, $bytes*)},
+	{"getFormat", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PKCS8Key, getFormat, $String*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(PKCS8Key, hashCode, int32_t)},
+	{"parseKey", "([B)Ljava/security/PrivateKey;", nullptr, $PUBLIC | $STATIC, $staticMethod(PKCS8Key, parseKey, $PrivateKey*, $bytes*), "java.io.IOException"},
+	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(PKCS8Key, readObject, void, $ObjectInputStream*), "java.io.IOException"},
+	{"writeReplace", "()Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(PKCS8Key, writeReplace, $Object*), "java.io.ObjectStreamException"},
 	{}
 };
 

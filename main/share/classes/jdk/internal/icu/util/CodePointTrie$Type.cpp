@@ -27,10 +27,10 @@ $FieldInfo _CodePointTrie$Type_FieldInfo_[] = {
 };
 
 $MethodInfo _CodePointTrie$Type_MethodInfo_[] = {
-	{"$values", "()[Ljdk/internal/icu/util/CodePointTrie$Type;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$CodePointTrie$TypeArray*(*)()>(&CodePointTrie$Type::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(CodePointTrie$Type::*)($String*,int32_t)>(&CodePointTrie$Type::init$))},
-	{"valueOf", "(Ljava/lang/String;)Ljdk/internal/icu/util/CodePointTrie$Type;", nullptr, $PUBLIC | $STATIC, $method(static_cast<CodePointTrie$Type*(*)($String*)>(&CodePointTrie$Type::valueOf))},
-	{"values", "()[Ljdk/internal/icu/util/CodePointTrie$Type;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$CodePointTrie$TypeArray*(*)()>(&CodePointTrie$Type::values))},
+	{"$values", "()[Ljdk/internal/icu/util/CodePointTrie$Type;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CodePointTrie$Type, $values, $CodePointTrie$TypeArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(CodePointTrie$Type, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Ljdk/internal/icu/util/CodePointTrie$Type;", nullptr, $PUBLIC | $STATIC, $staticMethod(CodePointTrie$Type, valueOf, CodePointTrie$Type*, $String*)},
+	{"values", "()[Ljdk/internal/icu/util/CodePointTrie$Type;", nullptr, $PUBLIC | $STATIC, $staticMethod(CodePointTrie$Type, values, $CodePointTrie$TypeArray*)},
 	{}
 };
 

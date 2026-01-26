@@ -10,7 +10,7 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _ExtendedFileOutputStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/File;)V", nullptr, 0, $method(static_cast<void(ExtendedFileOutputStream::*)($File*)>(&ExtendedFileOutputStream::init$)), "java.io.FileNotFoundException"},
+	{"<init>", "(Ljava/io/File;)V", nullptr, 0, $method(ExtendedFileOutputStream, init$, void, $File*), "java.io.FileNotFoundException"},
 	{}
 };
 

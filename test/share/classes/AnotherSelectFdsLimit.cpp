@@ -29,8 +29,8 @@ $FieldInfo _AnotherSelectFdsLimit_FieldInfo_[] = {
 };
 
 $MethodInfo _AnotherSelectFdsLimit_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(AnotherSelectFdsLimit::*)()>(&AnotherSelectFdsLimit::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&AnotherSelectFdsLimit::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(AnotherSelectFdsLimit, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(AnotherSelectFdsLimit, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

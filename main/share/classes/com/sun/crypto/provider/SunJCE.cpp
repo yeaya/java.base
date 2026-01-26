@@ -54,13 +54,13 @@ $FieldInfo _SunJCE_FieldInfo_[] = {
 };
 
 $MethodInfo _SunJCE_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SunJCE::*)()>(&SunJCE::init$))},
-	{"getInstance", "()Lcom/sun/crypto/provider/SunJCE;", nullptr, $STATIC, $method(static_cast<SunJCE*(*)()>(&SunJCE::getInstance))},
-	{"getRandom", "()Ljava/security/SecureRandom;", nullptr, $STATIC, $method(static_cast<$SecureRandom*(*)()>(&SunJCE::getRandom))},
-	{"ps", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(static_cast<void(SunJCE::*)($String*,$String*,$String*)>(&SunJCE::ps))},
-	{"ps", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/util/HashMap;)V", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/String;>;)V", $PRIVATE, $method(static_cast<void(SunJCE::*)($String*,$String*,$String*,$List*,$HashMap*)>(&SunJCE::ps))},
-	{"psA", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/HashMap;)V", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/String;>;)V", $PRIVATE, $method(static_cast<void(SunJCE::*)($String*,$String*,$String*,$HashMap*)>(&SunJCE::psA))},
-	{"putEntries", "()V", nullptr, 0, $method(static_cast<void(SunJCE::*)()>(&SunJCE::putEntries))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SunJCE, init$, void)},
+	{"getInstance", "()Lcom/sun/crypto/provider/SunJCE;", nullptr, $STATIC, $staticMethod(SunJCE, getInstance, SunJCE*)},
+	{"getRandom", "()Ljava/security/SecureRandom;", nullptr, $STATIC, $staticMethod(SunJCE, getRandom, $SecureRandom*)},
+	{"ps", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(SunJCE, ps, void, $String*, $String*, $String*)},
+	{"ps", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/util/HashMap;)V", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/String;>;)V", $PRIVATE, $method(SunJCE, ps, void, $String*, $String*, $String*, $List*, $HashMap*)},
+	{"psA", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/HashMap;)V", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/String;>;)V", $PRIVATE, $method(SunJCE, psA, void, $String*, $String*, $String*, $HashMap*)},
+	{"putEntries", "()V", nullptr, 0, $method(SunJCE, putEntries, void)},
 	{}
 };
 

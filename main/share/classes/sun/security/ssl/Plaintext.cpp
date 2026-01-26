@@ -29,9 +29,9 @@ $FieldInfo _Plaintext_FieldInfo_[] = {
 };
 
 $MethodInfo _Plaintext_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(Plaintext::*)()>(&Plaintext::init$))},
-	{"<init>", "(BBBIJLjava/nio/ByteBuffer;)V", nullptr, 0, $method(static_cast<void(Plaintext::*)(int8_t,int8_t,int8_t,int32_t,int64_t,$ByteBuffer*)>(&Plaintext::init$))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(Plaintext, init$, void)},
+	{"<init>", "(BBBIJLjava/nio/ByteBuffer;)V", nullptr, 0, $method(Plaintext, init$, void, int8_t, int8_t, int8_t, int32_t, int64_t, $ByteBuffer*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Plaintext, toString, $String*)},
 	{}
 };
 

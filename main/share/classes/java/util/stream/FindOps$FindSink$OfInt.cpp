@@ -56,8 +56,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo FindOps$FindSink$OfInt$$Lambda$isPresent::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(FindOps$FindSink$OfInt$$Lambda$isPresent::*)()>(&FindOps$FindSink$OfInt$$Lambda$isPresent::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(FindOps$FindSink$OfInt$$Lambda$isPresent, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(FindOps$FindSink$OfInt$$Lambda$isPresent, test, bool, Object$*)},
 	{}
 };
 $ClassInfo FindOps$FindSink$OfInt$$Lambda$isPresent::classInfo$ = {
@@ -89,8 +89,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo FindOps$FindSink$OfInt$$Lambda$OfInt$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(FindOps$FindSink$OfInt$$Lambda$OfInt$1::*)()>(&FindOps$FindSink$OfInt$$Lambda$OfInt$1::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(FindOps$FindSink$OfInt$$Lambda$OfInt$1, init$, void)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(FindOps$FindSink$OfInt$$Lambda$OfInt$1, get, $Object*)},
 	{}
 };
 $ClassInfo FindOps$FindSink$OfInt$$Lambda$OfInt$1::classInfo$ = {
@@ -125,10 +125,10 @@ $MethodInfo _FindOps$FindSink$OfInt_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(FindOps$FindSink$OfInt::*)()>(&FindOps$FindSink$OfInt::init$))},
-	{"accept", "(I)V", nullptr, $PUBLIC},
-	{"accept", "(Ljava/lang/Integer;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"get", "()Ljava/util/OptionalInt;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(FindOps$FindSink$OfInt, init$, void)},
+	{"accept", "(I)V", nullptr, $PUBLIC, $virtualMethod(FindOps$FindSink$OfInt, accept, void, int32_t)},
+	{"accept", "(Ljava/lang/Integer;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(FindOps$FindSink$OfInt, accept, void, $Integer*)},
+	{"get", "()Ljava/util/OptionalInt;", nullptr, $PUBLIC, $virtualMethod(FindOps$FindSink$OfInt, get, $Object*)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

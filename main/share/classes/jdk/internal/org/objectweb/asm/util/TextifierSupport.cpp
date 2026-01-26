@@ -5,6 +5,7 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Map = ::java::util::Map;
 
 namespace jdk {
 	namespace internal {
@@ -14,7 +15,7 @@ namespace jdk {
 					namespace util {
 
 $MethodInfo _TextifierSupport_MethodInfo_[] = {
-	{"textify", "(Ljava/lang/StringBuilder;Ljava/util/Map;)V", "(Ljava/lang/StringBuilder;Ljava/util/Map<Ljdk/internal/org/objectweb/asm/Label;Ljava/lang/String;>;)V", $PUBLIC | $ABSTRACT},
+	{"textify", "(Ljava/lang/StringBuilder;Ljava/util/Map;)V", "(Ljava/lang/StringBuilder;Ljava/util/Map<Ljdk/internal/org/objectweb/asm/Label;Ljava/lang/String;>;)V", $PUBLIC | $ABSTRACT, $virtualMethod(TextifierSupport, textify, void, $StringBuilder*, $Map*)},
 	{}
 };
 

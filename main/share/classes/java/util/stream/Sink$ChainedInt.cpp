@@ -21,10 +21,10 @@ $FieldInfo _Sink$ChainedInt_FieldInfo_[] = {
 };
 
 $MethodInfo _Sink$ChainedInt_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/stream/Sink;)V", "(Ljava/util/stream/Sink<-TE_OUT;>;)V", $PUBLIC, $method(static_cast<void(Sink$ChainedInt::*)($Sink*)>(&Sink$ChainedInt::init$))},
-	{"begin", "(J)V", nullptr, $PUBLIC},
-	{"cancellationRequested", "()Z", nullptr, $PUBLIC},
-	{"end", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/stream/Sink;)V", "(Ljava/util/stream/Sink<-TE_OUT;>;)V", $PUBLIC, $method(Sink$ChainedInt, init$, void, $Sink*)},
+	{"begin", "(J)V", nullptr, $PUBLIC, $virtualMethod(Sink$ChainedInt, begin, void, int64_t)},
+	{"cancellationRequested", "()Z", nullptr, $PUBLIC, $virtualMethod(Sink$ChainedInt, cancellationRequested, bool)},
+	{"end", "()V", nullptr, $PUBLIC, $virtualMethod(Sink$ChainedInt, end, void)},
 	{}
 };
 

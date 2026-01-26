@@ -65,17 +65,17 @@ $FieldInfo _DTLSOutputRecord$DTLSFragmenter_FieldInfo_[] = {
 };
 
 $MethodInfo _DTLSOutputRecord$DTLSFragmenter_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/ssl/DTLSOutputRecord;)V", nullptr, $PRIVATE, $method(static_cast<void(DTLSOutputRecord$DTLSFragmenter::*)($DTLSOutputRecord*)>(&DTLSOutputRecord$DTLSFragmenter::init$))},
-	{"acquireCiphertext", "(Ljava/nio/ByteBuffer;)Lsun/security/ssl/Ciphertext;", nullptr, 0, $method(static_cast<$Ciphertext*(DTLSOutputRecord$DTLSFragmenter::*)($ByteBuffer*)>(&DTLSOutputRecord$DTLSFragmenter::acquireCiphertext)), "java.io.IOException"},
-	{"handshakeHashing", "(Lsun/security/ssl/DTLSOutputRecord$HandshakeMemo;[B)V", nullptr, $PRIVATE, $method(static_cast<void(DTLSOutputRecord$DTLSFragmenter::*)($DTLSOutputRecord$HandshakeMemo*,$bytes*)>(&DTLSOutputRecord$DTLSFragmenter::handshakeHashing))},
-	{"hasAlert", "()Z", nullptr, 0, $method(static_cast<bool(DTLSOutputRecord$DTLSFragmenter::*)()>(&DTLSOutputRecord$DTLSFragmenter::hasAlert))},
-	{"isEmpty", "()Z", nullptr, 0, $method(static_cast<bool(DTLSOutputRecord$DTLSFragmenter::*)()>(&DTLSOutputRecord$DTLSFragmenter::isEmpty))},
-	{"isRetransmittable", "()Z", nullptr, 0, $method(static_cast<bool(DTLSOutputRecord$DTLSFragmenter::*)()>(&DTLSOutputRecord$DTLSFragmenter::isRetransmittable))},
-	{"queueUpAlert", "(BB)V", nullptr, 0, $method(static_cast<void(DTLSOutputRecord$DTLSFragmenter::*)(int8_t,int8_t)>(&DTLSOutputRecord$DTLSFragmenter::queueUpAlert)), "java.io.IOException"},
-	{"queueUpChangeCipherSpec", "()V", nullptr, 0, $method(static_cast<void(DTLSOutputRecord$DTLSFragmenter::*)()>(&DTLSOutputRecord$DTLSFragmenter::queueUpChangeCipherSpec))},
-	{"queueUpHandshake", "([BII)V", nullptr, 0, $method(static_cast<void(DTLSOutputRecord$DTLSFragmenter::*)($bytes*,int32_t,int32_t)>(&DTLSOutputRecord$DTLSFragmenter::queueUpHandshake)), "java.io.IOException"},
-	{"setRetransmission", "()V", nullptr, $PRIVATE, $method(static_cast<void(DTLSOutputRecord$DTLSFragmenter::*)()>(&DTLSOutputRecord$DTLSFragmenter::setRetransmission))},
-	{"shrinkPacketSize", "()V", nullptr, $PRIVATE, $method(static_cast<void(DTLSOutputRecord$DTLSFragmenter::*)()>(&DTLSOutputRecord$DTLSFragmenter::shrinkPacketSize))},
+	{"<init>", "(Lsun/security/ssl/DTLSOutputRecord;)V", nullptr, $PRIVATE, $method(DTLSOutputRecord$DTLSFragmenter, init$, void, $DTLSOutputRecord*)},
+	{"acquireCiphertext", "(Ljava/nio/ByteBuffer;)Lsun/security/ssl/Ciphertext;", nullptr, 0, $method(DTLSOutputRecord$DTLSFragmenter, acquireCiphertext, $Ciphertext*, $ByteBuffer*), "java.io.IOException"},
+	{"handshakeHashing", "(Lsun/security/ssl/DTLSOutputRecord$HandshakeMemo;[B)V", nullptr, $PRIVATE, $method(DTLSOutputRecord$DTLSFragmenter, handshakeHashing, void, $DTLSOutputRecord$HandshakeMemo*, $bytes*)},
+	{"hasAlert", "()Z", nullptr, 0, $method(DTLSOutputRecord$DTLSFragmenter, hasAlert, bool)},
+	{"isEmpty", "()Z", nullptr, 0, $method(DTLSOutputRecord$DTLSFragmenter, isEmpty, bool)},
+	{"isRetransmittable", "()Z", nullptr, 0, $method(DTLSOutputRecord$DTLSFragmenter, isRetransmittable, bool)},
+	{"queueUpAlert", "(BB)V", nullptr, 0, $method(DTLSOutputRecord$DTLSFragmenter, queueUpAlert, void, int8_t, int8_t), "java.io.IOException"},
+	{"queueUpChangeCipherSpec", "()V", nullptr, 0, $method(DTLSOutputRecord$DTLSFragmenter, queueUpChangeCipherSpec, void)},
+	{"queueUpHandshake", "([BII)V", nullptr, 0, $method(DTLSOutputRecord$DTLSFragmenter, queueUpHandshake, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
+	{"setRetransmission", "()V", nullptr, $PRIVATE, $method(DTLSOutputRecord$DTLSFragmenter, setRetransmission, void)},
+	{"shrinkPacketSize", "()V", nullptr, $PRIVATE, $method(DTLSOutputRecord$DTLSFragmenter, shrinkPacketSize, void)},
 	{}
 };
 

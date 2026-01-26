@@ -57,9 +57,9 @@ $CompoundAttribute _TestInterface1_MethodAnnotations_quux2[] = {
 };
 
 $MethodInfo _TestInterface1_MethodInfo_[] = {
-	{"bar", "()Ljava/lang/Object;", "<A:Ljava/lang/Object;>()TA;", $PUBLIC, nullptr, nullptr, nullptr, _TestInterface1_MethodAnnotations_bar0},
-	{"foo", "()V", nullptr, $PUBLIC, nullptr, nullptr, nullptr, _TestInterface1_MethodAnnotations_foo1},
-	{"quux", "()D", nullptr, $PUBLIC, nullptr, nullptr, nullptr, _TestInterface1_MethodAnnotations_quux2},
+	{"bar", "()Ljava/lang/Object;", "<A:Ljava/lang/Object;>()TA;", $PUBLIC, $virtualMethod(TestInterface1, bar, $Object*), nullptr, nullptr, _TestInterface1_MethodAnnotations_bar0},
+	{"foo", "()V", nullptr, $PUBLIC, $virtualMethod(TestInterface1, foo, void), nullptr, nullptr, _TestInterface1_MethodAnnotations_foo1},
+	{"quux", "()D", nullptr, $PUBLIC, $virtualMethod(TestInterface1, quux, double), nullptr, nullptr, _TestInterface1_MethodAnnotations_quux2},
 	{}
 };
 

@@ -17,8 +17,8 @@ $FieldInfo _Spliterators$AbstractDoubleSpliterator$HoldingDoubleConsumer_FieldIn
 };
 
 $MethodInfo _Spliterators$AbstractDoubleSpliterator$HoldingDoubleConsumer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Spliterators$AbstractDoubleSpliterator$HoldingDoubleConsumer::*)()>(&Spliterators$AbstractDoubleSpliterator$HoldingDoubleConsumer::init$))},
-	{"accept", "(D)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(Spliterators$AbstractDoubleSpliterator$HoldingDoubleConsumer, init$, void)},
+	{"accept", "(D)V", nullptr, $PUBLIC, $virtualMethod(Spliterators$AbstractDoubleSpliterator$HoldingDoubleConsumer, accept, void, double)},
 	{}
 };
 

@@ -15,7 +15,7 @@ $FieldInfo _Sanity$Base_FieldInfo_[] = {
 };
 
 $MethodInfo _Sanity$Base_MethodInfo_[] = {
-	{"<init>", "(LSanity;)V", nullptr, $PUBLIC, $method(static_cast<void(Sanity$Base::*)($Sanity*)>(&Sanity$Base::init$))},
+	{"<init>", "(LSanity;)V", nullptr, $PUBLIC, $method(Sanity$Base, init$, void, $Sanity*)},
 	{}
 };
 

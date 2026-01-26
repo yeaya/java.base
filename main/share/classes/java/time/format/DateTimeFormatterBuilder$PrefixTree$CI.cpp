@@ -17,10 +17,10 @@ namespace java {
 		namespace format {
 
 $MethodInfo _DateTimeFormatterBuilder$PrefixTree$CI_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/time/format/DateTimeFormatterBuilder$PrefixTree;)V", nullptr, $PRIVATE, $method(static_cast<void(DateTimeFormatterBuilder$PrefixTree$CI::*)($String*,$String*,$DateTimeFormatterBuilder$PrefixTree*)>(&DateTimeFormatterBuilder$PrefixTree$CI::init$))},
-	{"isEqual", "(CC)Z", nullptr, $PROTECTED},
-	{"newNode", "(Ljava/lang/String;Ljava/lang/String;Ljava/time/format/DateTimeFormatterBuilder$PrefixTree;)Ljava/time/format/DateTimeFormatterBuilder$PrefixTree$CI;", nullptr, $PROTECTED},
-	{"prefixOf", "(Ljava/lang/CharSequence;II)Z", nullptr, $PROTECTED},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/time/format/DateTimeFormatterBuilder$PrefixTree;)V", nullptr, $PRIVATE, $method(DateTimeFormatterBuilder$PrefixTree$CI, init$, void, $String*, $String*, $DateTimeFormatterBuilder$PrefixTree*)},
+	{"isEqual", "(CC)Z", nullptr, $PROTECTED, $virtualMethod(DateTimeFormatterBuilder$PrefixTree$CI, isEqual, bool, char16_t, char16_t)},
+	{"newNode", "(Ljava/lang/String;Ljava/lang/String;Ljava/time/format/DateTimeFormatterBuilder$PrefixTree;)Ljava/time/format/DateTimeFormatterBuilder$PrefixTree$CI;", nullptr, $PROTECTED, $virtualMethod(DateTimeFormatterBuilder$PrefixTree$CI, newNode, DateTimeFormatterBuilder$PrefixTree$CI*, $String*, $String*, $DateTimeFormatterBuilder$PrefixTree*)},
+	{"prefixOf", "(Ljava/lang/CharSequence;II)Z", nullptr, $PROTECTED, $virtualMethod(DateTimeFormatterBuilder$PrefixTree$CI, prefixOf, bool, $CharSequence*, int32_t, int32_t)},
 	{}
 };
 

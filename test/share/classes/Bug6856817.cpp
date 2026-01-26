@@ -38,10 +38,10 @@ $FieldInfo _Bug6856817_FieldInfo_[] = {
 };
 
 $MethodInfo _Bug6856817_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Bug6856817::*)()>(&Bug6856817::init$))},
-	{"checkFileContent", "(Ljava/nio/CharBuffer;Ljava/io/File;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($CharBuffer*,$File*,$String*)>(&Bug6856817::checkFileContent))},
-	{"isEqual", "(II)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)(int32_t,int32_t)>(&Bug6856817::isEqual))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Bug6856817::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Bug6856817, init$, void)},
+	{"checkFileContent", "(Ljava/nio/CharBuffer;Ljava/io/File;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Bug6856817, checkFileContent, void, $CharBuffer*, $File*, $String*)},
+	{"isEqual", "(II)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Bug6856817, isEqual, bool, int32_t, int32_t)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Bug6856817, main, void, $StringArray*)},
 	{}
 };
 

@@ -68,16 +68,16 @@ $FieldInfo _ModuleInfoExtender_FieldInfo_[] = {
 };
 
 $MethodInfo _ModuleInfoExtender_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(ModuleInfoExtender::*)($InputStream*)>(&ModuleInfoExtender::init$))},
-	{"hashes", "(Ljdk/internal/module/ModuleHashes;)Ljdk/internal/module/ModuleInfoExtender;", nullptr, $PUBLIC, $method(static_cast<ModuleInfoExtender*(ModuleInfoExtender::*)($ModuleHashes*)>(&ModuleInfoExtender::hashes))},
-	{"mainClass", "(Ljava/lang/String;)Ljdk/internal/module/ModuleInfoExtender;", nullptr, $PUBLIC, $method(static_cast<ModuleInfoExtender*(ModuleInfoExtender::*)($String*)>(&ModuleInfoExtender::mainClass))},
-	{"moduleResolution", "(Ljdk/internal/module/ModuleResolution;)Ljdk/internal/module/ModuleInfoExtender;", nullptr, $PUBLIC, $method(static_cast<ModuleInfoExtender*(ModuleInfoExtender::*)($ModuleResolution*)>(&ModuleInfoExtender::moduleResolution))},
-	{"newExtender", "(Ljava/io/InputStream;)Ljdk/internal/module/ModuleInfoExtender;", nullptr, $PUBLIC | $STATIC, $method(static_cast<ModuleInfoExtender*(*)($InputStream*)>(&ModuleInfoExtender::newExtender))},
-	{"packages", "(Ljava/util/Set;)Ljdk/internal/module/ModuleInfoExtender;", "(Ljava/util/Set<Ljava/lang/String;>;)Ljdk/internal/module/ModuleInfoExtender;", $PUBLIC, $method(static_cast<ModuleInfoExtender*(ModuleInfoExtender::*)($Set*)>(&ModuleInfoExtender::packages))},
-	{"targetPlatform", "(Ljava/lang/String;)Ljdk/internal/module/ModuleInfoExtender;", nullptr, $PUBLIC, $method(static_cast<ModuleInfoExtender*(ModuleInfoExtender::*)($String*)>(&ModuleInfoExtender::targetPlatform))},
-	{"toByteArray", "()[B", nullptr, $PUBLIC, $method(static_cast<$bytes*(ModuleInfoExtender::*)()>(&ModuleInfoExtender::toByteArray)), "java.io.IOException"},
-	{"version", "(Ljava/lang/module/ModuleDescriptor$Version;)Ljdk/internal/module/ModuleInfoExtender;", nullptr, $PUBLIC, $method(static_cast<ModuleInfoExtender*(ModuleInfoExtender::*)($ModuleDescriptor$Version*)>(&ModuleInfoExtender::version))},
-	{"write", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $method(static_cast<void(ModuleInfoExtender::*)($OutputStream*)>(&ModuleInfoExtender::write)), "java.io.IOException"},
+	{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PRIVATE, $method(ModuleInfoExtender, init$, void, $InputStream*)},
+	{"hashes", "(Ljdk/internal/module/ModuleHashes;)Ljdk/internal/module/ModuleInfoExtender;", nullptr, $PUBLIC, $method(ModuleInfoExtender, hashes, ModuleInfoExtender*, $ModuleHashes*)},
+	{"mainClass", "(Ljava/lang/String;)Ljdk/internal/module/ModuleInfoExtender;", nullptr, $PUBLIC, $method(ModuleInfoExtender, mainClass, ModuleInfoExtender*, $String*)},
+	{"moduleResolution", "(Ljdk/internal/module/ModuleResolution;)Ljdk/internal/module/ModuleInfoExtender;", nullptr, $PUBLIC, $method(ModuleInfoExtender, moduleResolution, ModuleInfoExtender*, $ModuleResolution*)},
+	{"newExtender", "(Ljava/io/InputStream;)Ljdk/internal/module/ModuleInfoExtender;", nullptr, $PUBLIC | $STATIC, $staticMethod(ModuleInfoExtender, newExtender, ModuleInfoExtender*, $InputStream*)},
+	{"packages", "(Ljava/util/Set;)Ljdk/internal/module/ModuleInfoExtender;", "(Ljava/util/Set<Ljava/lang/String;>;)Ljdk/internal/module/ModuleInfoExtender;", $PUBLIC, $method(ModuleInfoExtender, packages, ModuleInfoExtender*, $Set*)},
+	{"targetPlatform", "(Ljava/lang/String;)Ljdk/internal/module/ModuleInfoExtender;", nullptr, $PUBLIC, $method(ModuleInfoExtender, targetPlatform, ModuleInfoExtender*, $String*)},
+	{"toByteArray", "()[B", nullptr, $PUBLIC, $method(ModuleInfoExtender, toByteArray, $bytes*), "java.io.IOException"},
+	{"version", "(Ljava/lang/module/ModuleDescriptor$Version;)Ljdk/internal/module/ModuleInfoExtender;", nullptr, $PUBLIC, $method(ModuleInfoExtender, version, ModuleInfoExtender*, $ModuleDescriptor$Version*)},
+	{"write", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $method(ModuleInfoExtender, write, void, $OutputStream*), "java.io.IOException"},
 	{}
 };
 

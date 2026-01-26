@@ -12,8 +12,8 @@ using $URL = ::java::net::URL;
 using $URLConnection = ::java::net::URLConnection;
 
 $MethodInfo _RequestPropertyValues$DummyURLConnection_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/URL;)V", nullptr, 0, $method(static_cast<void(RequestPropertyValues$DummyURLConnection::*)($URL*)>(&RequestPropertyValues$DummyURLConnection::init$))},
-	{"connect", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/net/URL;)V", nullptr, 0, $method(RequestPropertyValues$DummyURLConnection, init$, void, $URL*)},
+	{"connect", "()V", nullptr, $PUBLIC, $virtualMethod(RequestPropertyValues$DummyURLConnection, connect, void)},
 	{}
 };
 

@@ -40,9 +40,9 @@ $FieldInfo _SSLBasicKeyDerivation_FieldInfo_[] = {
 };
 
 $MethodInfo _SSLBasicKeyDerivation_MethodInfo_[] = {
-	{"<init>", "(Ljavax/crypto/SecretKey;Ljava/lang/String;[B[BI)V", nullptr, 0, $method(static_cast<void(SSLBasicKeyDerivation::*)($SecretKey*,$String*,$bytes*,$bytes*,int32_t)>(&SSLBasicKeyDerivation::init$))},
-	{"createHkdfInfo", "([B[BI)[B", nullptr, $PRIVATE | $STATIC, $method(static_cast<$bytes*(*)($bytes*,$bytes*,int32_t)>(&SSLBasicKeyDerivation::createHkdfInfo))},
-	{"deriveKey", "(Ljava/lang/String;Ljava/security/spec/AlgorithmParameterSpec;)Ljavax/crypto/SecretKey;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljavax/crypto/SecretKey;Ljava/lang/String;[B[BI)V", nullptr, 0, $method(SSLBasicKeyDerivation, init$, void, $SecretKey*, $String*, $bytes*, $bytes*, int32_t)},
+	{"createHkdfInfo", "([B[BI)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(SSLBasicKeyDerivation, createHkdfInfo, $bytes*, $bytes*, $bytes*, int32_t)},
+	{"deriveKey", "(Ljava/lang/String;Ljava/security/spec/AlgorithmParameterSpec;)Ljavax/crypto/SecretKey;", nullptr, $PUBLIC, $virtualMethod(SSLBasicKeyDerivation, deriveKey, $SecretKey*, $String*, $AlgorithmParameterSpec*), "java.io.IOException"},
 	{}
 };
 

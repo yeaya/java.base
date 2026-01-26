@@ -23,8 +23,8 @@ $FieldInfo _ShortWrite$Reader_FieldInfo_[] = {
 };
 
 $MethodInfo _ShortWrite$Reader_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/channels/SocketChannel;I)V", nullptr, 0, $method(static_cast<void(ShortWrite$Reader::*)($SocketChannel*,int32_t)>(&ShortWrite$Reader::init$))},
-	{"call", "()Ljava/lang/Long;", nullptr, $PUBLIC, nullptr, "java.lang.Exception"},
+	{"<init>", "(Ljava/nio/channels/SocketChannel;I)V", nullptr, 0, $method(ShortWrite$Reader, init$, void, $SocketChannel*, int32_t)},
+	{"call", "()Ljava/lang/Long;", nullptr, $PUBLIC, $virtualMethod(ShortWrite$Reader, call, $Object*), "java.lang.Exception"},
 	{}
 };
 

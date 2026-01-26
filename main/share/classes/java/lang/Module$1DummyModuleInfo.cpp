@@ -19,7 +19,7 @@ $FieldInfo _Module$1DummyModuleInfo_FieldInfo_[] = {
 };
 
 $MethodInfo _Module$1DummyModuleInfo_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Module;)V", nullptr, 0, $method(static_cast<void(Module$1DummyModuleInfo::*)($Module*)>(&Module$1DummyModuleInfo::init$))},
+	{"<init>", "(Ljava/lang/Module;)V", nullptr, 0, $method(Module$1DummyModuleInfo, init$, void, $Module*)},
 	{}
 };
 

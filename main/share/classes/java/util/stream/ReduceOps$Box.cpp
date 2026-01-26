@@ -18,8 +18,8 @@ $FieldInfo _ReduceOps$Box_FieldInfo_[] = {
 };
 
 $MethodInfo _ReduceOps$Box_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ReduceOps$Box::*)()>(&ReduceOps$Box::init$))},
-	{"get", "()Ljava/lang/Object;", "()TU;", $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(ReduceOps$Box, init$, void)},
+	{"get", "()Ljava/lang/Object;", "()TU;", $PUBLIC, $virtualMethod(ReduceOps$Box, get, $Object*)},
 	{}
 };
 

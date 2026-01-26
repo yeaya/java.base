@@ -26,7 +26,7 @@ $CompoundAttribute _SingleMemberLongArrOvrdDefClass_Annotations_[] = {
 };
 
 $MethodInfo _SingleMemberLongArrOvrdDefClass_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(SingleMemberLongArrOvrdDefClass::*)()>(&SingleMemberLongArrOvrdDefClass::init$))},
+	{"<init>", "()V", nullptr, 0, $method(SingleMemberLongArrOvrdDefClass, init$, void)},
 	{}
 };
 

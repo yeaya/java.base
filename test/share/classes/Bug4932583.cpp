@@ -8,8 +8,8 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $BreakIterator = ::java::text::BreakIterator;
 
 $MethodInfo _Bug4932583_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Bug4932583::*)()>(&Bug4932583::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Bug4932583::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Bug4932583, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Bug4932583, main, void, $StringArray*)},
 	{}
 };
 

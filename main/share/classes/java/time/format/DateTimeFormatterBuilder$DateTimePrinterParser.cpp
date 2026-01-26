@@ -6,17 +6,20 @@
 #include <java/time/format/DateTimePrintContext.h>
 #include <jcpp.h>
 
+using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $DateTimeParseContext = ::java::time::format::DateTimeParseContext;
+using $DateTimePrintContext = ::java::time::format::DateTimePrintContext;
 
 namespace java {
 	namespace time {
 		namespace format {
 
 $MethodInfo _DateTimeFormatterBuilder$DateTimePrinterParser_MethodInfo_[] = {
-	{"format", "(Ljava/time/format/DateTimePrintContext;Ljava/lang/StringBuilder;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"parse", "(Ljava/time/format/DateTimeParseContext;Ljava/lang/CharSequence;I)I", nullptr, $PUBLIC | $ABSTRACT},
+	{"format", "(Ljava/time/format/DateTimePrintContext;Ljava/lang/StringBuilder;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DateTimeFormatterBuilder$DateTimePrinterParser, format, bool, $DateTimePrintContext*, $StringBuilder*)},
+	{"parse", "(Ljava/time/format/DateTimeParseContext;Ljava/lang/CharSequence;I)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DateTimeFormatterBuilder$DateTimePrinterParser, parse, int32_t, $DateTimeParseContext*, $CharSequence*, int32_t)},
 	{}
 };
 

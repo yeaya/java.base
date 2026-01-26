@@ -205,8 +205,8 @@ $FieldInfo IntPipeline$$Lambda$accept::fieldInfos[2] = {
 	{}
 };
 $MethodInfo IntPipeline$$Lambda$accept::methodInfos[3] = {
-	{"<init>", "(Ljava/util/stream/Sink;)V", nullptr, $PUBLIC, $method(static_cast<void(IntPipeline$$Lambda$accept::*)($Sink*)>(&IntPipeline$$Lambda$accept::init$))},
-	{"accept", "(I)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/stream/Sink;)V", nullptr, $PUBLIC, $method(IntPipeline$$Lambda$accept, init$, void, $Sink*)},
+	{"accept", "(I)V", nullptr, $PUBLIC, $virtualMethod(IntPipeline$$Lambda$accept, accept, void, int32_t)},
 	{}
 };
 $ClassInfo IntPipeline$$Lambda$accept::classInfo$ = {
@@ -238,8 +238,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo IntPipeline$$Lambda$valueOf$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(IntPipeline$$Lambda$valueOf$1::*)()>(&IntPipeline$$Lambda$valueOf$1::init$))},
-	{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(IntPipeline$$Lambda$valueOf$1, init$, void)},
+	{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(IntPipeline$$Lambda$valueOf$1, apply, $Object*, int32_t)},
 	{}
 };
 $ClassInfo IntPipeline$$Lambda$valueOf$1::classInfo$ = {
@@ -271,8 +271,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo IntPipeline$$Lambda$lambda$distinct$0$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(IntPipeline$$Lambda$lambda$distinct$0$2::*)()>(&IntPipeline$$Lambda$lambda$distinct$0$2::init$))},
-	{"applyAsInt", "(Ljava/lang/Object;)I", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(IntPipeline$$Lambda$lambda$distinct$0$2, init$, void)},
+	{"applyAsInt", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(IntPipeline$$Lambda$lambda$distinct$0$2, applyAsInt, int32_t, Object$*)},
 	{}
 };
 $ClassInfo IntPipeline$$Lambda$lambda$distinct$0$2::classInfo$ = {
@@ -304,8 +304,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo IntPipeline$$Lambda$sum$3::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(IntPipeline$$Lambda$sum$3::*)()>(&IntPipeline$$Lambda$sum$3::init$))},
-	{"applyAsInt", "(II)I", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(IntPipeline$$Lambda$sum$3, init$, void)},
+	{"applyAsInt", "(II)I", nullptr, $PUBLIC, $virtualMethod(IntPipeline$$Lambda$sum$3, applyAsInt, int32_t, int32_t, int32_t)},
 	{}
 };
 $ClassInfo IntPipeline$$Lambda$sum$3::classInfo$ = {
@@ -337,8 +337,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo IntPipeline$$Lambda$min$4::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(IntPipeline$$Lambda$min$4::*)()>(&IntPipeline$$Lambda$min$4::init$))},
-	{"applyAsInt", "(II)I", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(IntPipeline$$Lambda$min$4, init$, void)},
+	{"applyAsInt", "(II)I", nullptr, $PUBLIC, $virtualMethod(IntPipeline$$Lambda$min$4, applyAsInt, int32_t, int32_t, int32_t)},
 	{}
 };
 $ClassInfo IntPipeline$$Lambda$min$4::classInfo$ = {
@@ -370,8 +370,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo IntPipeline$$Lambda$max$5::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(IntPipeline$$Lambda$max$5::*)()>(&IntPipeline$$Lambda$max$5::init$))},
-	{"applyAsInt", "(II)I", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(IntPipeline$$Lambda$max$5, init$, void)},
+	{"applyAsInt", "(II)I", nullptr, $PUBLIC, $virtualMethod(IntPipeline$$Lambda$max$5, applyAsInt, int32_t, int32_t, int32_t)},
 	{}
 };
 $ClassInfo IntPipeline$$Lambda$max$5::classInfo$ = {
@@ -403,8 +403,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo IntPipeline$$Lambda$lambda$average$1$6::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(IntPipeline$$Lambda$lambda$average$1$6::*)()>(&IntPipeline$$Lambda$lambda$average$1$6::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(IntPipeline$$Lambda$lambda$average$1$6, init$, void)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(IntPipeline$$Lambda$lambda$average$1$6, get, $Object*)},
 	{}
 };
 $ClassInfo IntPipeline$$Lambda$lambda$average$1$6::classInfo$ = {
@@ -436,8 +436,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo IntPipeline$$Lambda$lambda$average$2$7::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(IntPipeline$$Lambda$lambda$average$2$7::*)()>(&IntPipeline$$Lambda$lambda$average$2$7::init$))},
-	{"accept", "(Ljava/lang/Object;I)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(IntPipeline$$Lambda$lambda$average$2$7, init$, void)},
+	{"accept", "(Ljava/lang/Object;I)V", nullptr, $PUBLIC, $virtualMethod(IntPipeline$$Lambda$lambda$average$2$7, accept, void, Object$*, int32_t)},
 	{}
 };
 $ClassInfo IntPipeline$$Lambda$lambda$average$2$7::classInfo$ = {
@@ -469,8 +469,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo IntPipeline$$Lambda$lambda$average$3$8::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(IntPipeline$$Lambda$lambda$average$3$8::*)()>(&IntPipeline$$Lambda$lambda$average$3$8::init$))},
-	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(IntPipeline$$Lambda$lambda$average$3$8, init$, void)},
+	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(IntPipeline$$Lambda$lambda$average$3$8, accept, void, Object$*, Object$*)},
 	{}
 };
 $ClassInfo IntPipeline$$Lambda$lambda$average$3$8::classInfo$ = {
@@ -502,8 +502,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo IntPipeline$$Lambda$IntSummaryStatistics$9::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(IntPipeline$$Lambda$IntSummaryStatistics$9::*)()>(&IntPipeline$$Lambda$IntSummaryStatistics$9::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(IntPipeline$$Lambda$IntSummaryStatistics$9, init$, void)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(IntPipeline$$Lambda$IntSummaryStatistics$9, get, $Object*)},
 	{}
 };
 $ClassInfo IntPipeline$$Lambda$IntSummaryStatistics$9::classInfo$ = {
@@ -535,8 +535,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo IntPipeline$$Lambda$accept$10::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(IntPipeline$$Lambda$accept$10::*)()>(&IntPipeline$$Lambda$accept$10::init$))},
-	{"accept", "(Ljava/lang/Object;I)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(IntPipeline$$Lambda$accept$10, init$, void)},
+	{"accept", "(Ljava/lang/Object;I)V", nullptr, $PUBLIC, $virtualMethod(IntPipeline$$Lambda$accept$10, accept, void, Object$*, int32_t)},
 	{}
 };
 $ClassInfo IntPipeline$$Lambda$accept$10::classInfo$ = {
@@ -568,8 +568,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo IntPipeline$$Lambda$combine$11::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(IntPipeline$$Lambda$combine$11::*)()>(&IntPipeline$$Lambda$combine$11::init$))},
-	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(IntPipeline$$Lambda$combine$11, init$, void)},
+	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(IntPipeline$$Lambda$combine$11, accept, void, Object$*, Object$*)},
 	{}
 };
 $ClassInfo IntPipeline$$Lambda$combine$11::classInfo$ = {
@@ -608,8 +608,8 @@ $FieldInfo IntPipeline$$Lambda$lambda$collect$4$12::fieldInfos[2] = {
 	{}
 };
 $MethodInfo IntPipeline$$Lambda$lambda$collect$4$12::methodInfos[3] = {
-	{"<init>", "(Ljava/util/function/BiConsumer;)V", nullptr, $PUBLIC, $method(static_cast<void(IntPipeline$$Lambda$lambda$collect$4$12::*)($BiConsumer*)>(&IntPipeline$$Lambda$lambda$collect$4$12::init$))},
-	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/function/BiConsumer;)V", nullptr, $PUBLIC, $method(IntPipeline$$Lambda$lambda$collect$4$12, init$, void, $BiConsumer*)},
+	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(IntPipeline$$Lambda$lambda$collect$4$12, apply, $Object*, Object$*, Object$*)},
 	{}
 };
 $ClassInfo IntPipeline$$Lambda$lambda$collect$4$12::classInfo$ = {
@@ -641,8 +641,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo IntPipeline$$Lambda$lambda$toArray$5$13::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(IntPipeline$$Lambda$lambda$toArray$5$13::*)()>(&IntPipeline$$Lambda$lambda$toArray$5$13::init$))},
-	{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(IntPipeline$$Lambda$lambda$toArray$5$13, init$, void)},
+	{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(IntPipeline$$Lambda$lambda$toArray$5$13, apply, $Object*, int32_t)},
 	{}
 };
 $ClassInfo IntPipeline$$Lambda$lambda$toArray$5$13::classInfo$ = {
@@ -665,66 +665,66 @@ $MethodInfo _IntPipeline_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/util/function/Supplier;IZ)V", "(Ljava/util/function/Supplier<+Ljava/util/Spliterator<Ljava/lang/Integer;>;>;IZ)V", 0, $method(static_cast<void(IntPipeline::*)($Supplier*,int32_t,bool)>(&IntPipeline::init$))},
-	{"<init>", "(Ljava/util/Spliterator;IZ)V", "(Ljava/util/Spliterator<Ljava/lang/Integer;>;IZ)V", 0, $method(static_cast<void(IntPipeline::*)($Spliterator*,int32_t,bool)>(&IntPipeline::init$))},
-	{"<init>", "(Ljava/util/stream/AbstractPipeline;I)V", "(Ljava/util/stream/AbstractPipeline<*TE_IN;*>;I)V", 0, $method(static_cast<void(IntPipeline::*)($AbstractPipeline*,int32_t)>(&IntPipeline::init$))},
-	{"adapt", "(Ljava/util/stream/Sink;)Ljava/util/function/IntConsumer;", "(Ljava/util/stream/Sink<Ljava/lang/Integer;>;)Ljava/util/function/IntConsumer;", $PRIVATE | $STATIC, $method(static_cast<$IntConsumer*(*)($Sink*)>(&IntPipeline::adapt))},
-	{"adapt", "(Ljava/util/Spliterator;)Ljava/util/Spliterator$OfInt;", "(Ljava/util/Spliterator<Ljava/lang/Integer;>;)Ljava/util/Spliterator$OfInt;", $PRIVATE | $STATIC, $method(static_cast<$Spliterator$OfInt*(*)($Spliterator*)>(&IntPipeline::adapt))},
-	{"allMatch", "(Ljava/util/function/IntPredicate;)Z", nullptr, $PUBLIC | $FINAL, $method(static_cast<bool(IntPipeline::*)($IntPredicate*)>(&IntPipeline::allMatch))},
-	{"anyMatch", "(Ljava/util/function/IntPredicate;)Z", nullptr, $PUBLIC | $FINAL, $method(static_cast<bool(IntPipeline::*)($IntPredicate*)>(&IntPipeline::anyMatch))},
-	{"asDoubleStream", "()Ljava/util/stream/DoubleStream;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$DoubleStream*(IntPipeline::*)()>(&IntPipeline::asDoubleStream))},
-	{"asLongStream", "()Ljava/util/stream/LongStream;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$LongStream*(IntPipeline::*)()>(&IntPipeline::asLongStream))},
-	{"average", "()Ljava/util/OptionalDouble;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$OptionalDouble*(IntPipeline::*)()>(&IntPipeline::average))},
-	{"boxed", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljava/lang/Integer;>;", $PUBLIC | $FINAL, $method(static_cast<$Stream*(IntPipeline::*)()>(&IntPipeline::boxed))},
-	{"collect", "(Ljava/util/function/Supplier;Ljava/util/function/ObjIntConsumer;Ljava/util/function/BiConsumer;)Ljava/lang/Object;", "<R:Ljava/lang/Object;>(Ljava/util/function/Supplier<TR;>;Ljava/util/function/ObjIntConsumer<TR;>;Ljava/util/function/BiConsumer<TR;TR;>;)TR;", $PUBLIC | $FINAL, $method(static_cast<$Object*(IntPipeline::*)($Supplier*,$ObjIntConsumer*,$BiConsumer*)>(&IntPipeline::collect))},
-	{"count", "()J", nullptr, $PUBLIC | $FINAL, $method(static_cast<int64_t(IntPipeline::*)()>(&IntPipeline::count))},
-	{"distinct", "()Ljava/util/stream/IntStream;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$IntStream*(IntPipeline::*)()>(&IntPipeline::distinct))},
-	{"dropWhile", "(Ljava/util/function/IntPredicate;)Ljava/util/stream/IntStream;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$IntStream*(IntPipeline::*)($IntPredicate*)>(&IntPipeline::dropWhile))},
-	{"evaluateToNode", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;ZLjava/util/function/IntFunction;)Ljava/util/stream/Node;", "<P_IN:Ljava/lang/Object;>(Ljava/util/stream/PipelineHelper<Ljava/lang/Integer;>;Ljava/util/Spliterator<TP_IN;>;ZLjava/util/function/IntFunction<[Ljava/lang/Integer;>;)Ljava/util/stream/Node<Ljava/lang/Integer;>;", $FINAL},
-	{"filter", "(Ljava/util/function/IntPredicate;)Ljava/util/stream/IntStream;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$IntStream*(IntPipeline::*)($IntPredicate*)>(&IntPipeline::filter))},
-	{"findAny", "()Ljava/util/OptionalInt;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$OptionalInt*(IntPipeline::*)()>(&IntPipeline::findAny))},
-	{"findFirst", "()Ljava/util/OptionalInt;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$OptionalInt*(IntPipeline::*)()>(&IntPipeline::findFirst))},
-	{"flatMap", "(Ljava/util/function/IntFunction;)Ljava/util/stream/IntStream;", "(Ljava/util/function/IntFunction<+Ljava/util/stream/IntStream;>;)Ljava/util/stream/IntStream;", $PUBLIC | $FINAL, $method(static_cast<$IntStream*(IntPipeline::*)($IntFunction*)>(&IntPipeline::flatMap))},
-	{"forEach", "(Ljava/util/function/IntConsumer;)V", nullptr, $PUBLIC},
-	{"forEachOrdered", "(Ljava/util/function/IntConsumer;)V", nullptr, $PUBLIC},
-	{"forEachWithCancel", "(Ljava/util/Spliterator;Ljava/util/stream/Sink;)Z", "(Ljava/util/Spliterator<Ljava/lang/Integer;>;Ljava/util/stream/Sink<Ljava/lang/Integer;>;)Z", $FINAL},
-	{"getOutputShape", "()Ljava/util/stream/StreamShape;", nullptr, $FINAL},
+	{"<init>", "(Ljava/util/function/Supplier;IZ)V", "(Ljava/util/function/Supplier<+Ljava/util/Spliterator<Ljava/lang/Integer;>;>;IZ)V", 0, $method(IntPipeline, init$, void, $Supplier*, int32_t, bool)},
+	{"<init>", "(Ljava/util/Spliterator;IZ)V", "(Ljava/util/Spliterator<Ljava/lang/Integer;>;IZ)V", 0, $method(IntPipeline, init$, void, $Spliterator*, int32_t, bool)},
+	{"<init>", "(Ljava/util/stream/AbstractPipeline;I)V", "(Ljava/util/stream/AbstractPipeline<*TE_IN;*>;I)V", 0, $method(IntPipeline, init$, void, $AbstractPipeline*, int32_t)},
+	{"adapt", "(Ljava/util/stream/Sink;)Ljava/util/function/IntConsumer;", "(Ljava/util/stream/Sink<Ljava/lang/Integer;>;)Ljava/util/function/IntConsumer;", $PRIVATE | $STATIC, $staticMethod(IntPipeline, adapt, $IntConsumer*, $Sink*)},
+	{"adapt", "(Ljava/util/Spliterator;)Ljava/util/Spliterator$OfInt;", "(Ljava/util/Spliterator<Ljava/lang/Integer;>;)Ljava/util/Spliterator$OfInt;", $PRIVATE | $STATIC, $staticMethod(IntPipeline, adapt, $Spliterator$OfInt*, $Spliterator*)},
+	{"allMatch", "(Ljava/util/function/IntPredicate;)Z", nullptr, $PUBLIC | $FINAL, $method(IntPipeline, allMatch, bool, $IntPredicate*)},
+	{"anyMatch", "(Ljava/util/function/IntPredicate;)Z", nullptr, $PUBLIC | $FINAL, $method(IntPipeline, anyMatch, bool, $IntPredicate*)},
+	{"asDoubleStream", "()Ljava/util/stream/DoubleStream;", nullptr, $PUBLIC | $FINAL, $method(IntPipeline, asDoubleStream, $DoubleStream*)},
+	{"asLongStream", "()Ljava/util/stream/LongStream;", nullptr, $PUBLIC | $FINAL, $method(IntPipeline, asLongStream, $LongStream*)},
+	{"average", "()Ljava/util/OptionalDouble;", nullptr, $PUBLIC | $FINAL, $method(IntPipeline, average, $OptionalDouble*)},
+	{"boxed", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljava/lang/Integer;>;", $PUBLIC | $FINAL, $method(IntPipeline, boxed, $Stream*)},
+	{"collect", "(Ljava/util/function/Supplier;Ljava/util/function/ObjIntConsumer;Ljava/util/function/BiConsumer;)Ljava/lang/Object;", "<R:Ljava/lang/Object;>(Ljava/util/function/Supplier<TR;>;Ljava/util/function/ObjIntConsumer<TR;>;Ljava/util/function/BiConsumer<TR;TR;>;)TR;", $PUBLIC | $FINAL, $method(IntPipeline, collect, $Object*, $Supplier*, $ObjIntConsumer*, $BiConsumer*)},
+	{"count", "()J", nullptr, $PUBLIC | $FINAL, $method(IntPipeline, count, int64_t)},
+	{"distinct", "()Ljava/util/stream/IntStream;", nullptr, $PUBLIC | $FINAL, $method(IntPipeline, distinct, $IntStream*)},
+	{"dropWhile", "(Ljava/util/function/IntPredicate;)Ljava/util/stream/IntStream;", nullptr, $PUBLIC | $FINAL, $method(IntPipeline, dropWhile, $IntStream*, $IntPredicate*)},
+	{"evaluateToNode", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;ZLjava/util/function/IntFunction;)Ljava/util/stream/Node;", "<P_IN:Ljava/lang/Object;>(Ljava/util/stream/PipelineHelper<Ljava/lang/Integer;>;Ljava/util/Spliterator<TP_IN;>;ZLjava/util/function/IntFunction<[Ljava/lang/Integer;>;)Ljava/util/stream/Node<Ljava/lang/Integer;>;", $FINAL, $virtualMethod(IntPipeline, evaluateToNode, $Node*, $PipelineHelper*, $Spliterator*, bool, $IntFunction*)},
+	{"filter", "(Ljava/util/function/IntPredicate;)Ljava/util/stream/IntStream;", nullptr, $PUBLIC | $FINAL, $method(IntPipeline, filter, $IntStream*, $IntPredicate*)},
+	{"findAny", "()Ljava/util/OptionalInt;", nullptr, $PUBLIC | $FINAL, $method(IntPipeline, findAny, $OptionalInt*)},
+	{"findFirst", "()Ljava/util/OptionalInt;", nullptr, $PUBLIC | $FINAL, $method(IntPipeline, findFirst, $OptionalInt*)},
+	{"flatMap", "(Ljava/util/function/IntFunction;)Ljava/util/stream/IntStream;", "(Ljava/util/function/IntFunction<+Ljava/util/stream/IntStream;>;)Ljava/util/stream/IntStream;", $PUBLIC | $FINAL, $method(IntPipeline, flatMap, $IntStream*, $IntFunction*)},
+	{"forEach", "(Ljava/util/function/IntConsumer;)V", nullptr, $PUBLIC, $virtualMethod(IntPipeline, forEach, void, $IntConsumer*)},
+	{"forEachOrdered", "(Ljava/util/function/IntConsumer;)V", nullptr, $PUBLIC, $virtualMethod(IntPipeline, forEachOrdered, void, $IntConsumer*)},
+	{"forEachWithCancel", "(Ljava/util/Spliterator;Ljava/util/stream/Sink;)Z", "(Ljava/util/Spliterator<Ljava/lang/Integer;>;Ljava/util/stream/Sink<Ljava/lang/Integer;>;)Z", $FINAL, $virtualMethod(IntPipeline, forEachWithCancel, bool, $Spliterator*, $Sink*)},
+	{"getOutputShape", "()Ljava/util/stream/StreamShape;", nullptr, $FINAL, $virtualMethod(IntPipeline, getOutputShape, $StreamShape*)},
 	{"*isParallel", "()Z", nullptr, $PUBLIC | $FINAL},
-	{"iterator", "()Ljava/util/PrimitiveIterator$OfInt;", nullptr, $PUBLIC | $FINAL},
-	{"lambda$average$1", "()[J", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$longs*(*)()>(&IntPipeline::lambda$average$1))},
-	{"lambda$average$2", "([JI)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($longs*,int32_t)>(&IntPipeline::lambda$average$2))},
-	{"lambda$average$3", "([J[J)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($longs*,$longs*)>(&IntPipeline::lambda$average$3))},
-	{"lambda$collect$4", "(Ljava/util/function/BiConsumer;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Object*(*)($BiConsumer*,Object$*,Object$*)>(&IntPipeline::lambda$collect$4))},
-	{"lambda$distinct$0", "(Ljava/lang/Integer;)I", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<int32_t(*)($Integer*)>(&IntPipeline::lambda$distinct$0))},
-	{"lambda$toArray$5", "(I)[Ljava/lang/Integer;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$IntegerArray*(*)(int32_t)>(&IntPipeline::lambda$toArray$5))},
-	{"lazySpliterator", "(Ljava/util/function/Supplier;)Ljava/util/Spliterator$OfInt;", "(Ljava/util/function/Supplier<+Ljava/util/Spliterator<Ljava/lang/Integer;>;>;)Ljava/util/Spliterator$OfInt;", $FINAL},
-	{"limit", "(J)Ljava/util/stream/IntStream;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$IntStream*(IntPipeline::*)(int64_t)>(&IntPipeline::limit))},
-	{"makeNodeBuilder", "(JLjava/util/function/IntFunction;)Ljava/util/stream/Node$Builder;", "(JLjava/util/function/IntFunction<[Ljava/lang/Integer;>;)Ljava/util/stream/Node$Builder<Ljava/lang/Integer;>;", $FINAL},
-	{"map", "(Ljava/util/function/IntUnaryOperator;)Ljava/util/stream/IntStream;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$IntStream*(IntPipeline::*)($IntUnaryOperator*)>(&IntPipeline::map))},
-	{"mapMulti", "(Ljava/util/stream/IntStream$IntMapMultiConsumer;)Ljava/util/stream/IntStream;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$IntStream*(IntPipeline::*)($IntStream$IntMapMultiConsumer*)>(&IntPipeline::mapMulti))},
-	{"mapToDouble", "(Ljava/util/function/IntToDoubleFunction;)Ljava/util/stream/DoubleStream;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$DoubleStream*(IntPipeline::*)($IntToDoubleFunction*)>(&IntPipeline::mapToDouble))},
-	{"mapToLong", "(Ljava/util/function/IntToLongFunction;)Ljava/util/stream/LongStream;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$LongStream*(IntPipeline::*)($IntToLongFunction*)>(&IntPipeline::mapToLong))},
-	{"mapToObj", "(Ljava/util/function/IntFunction;I)Ljava/util/stream/Stream;", "<U:Ljava/lang/Object;>(Ljava/util/function/IntFunction<+TU;>;I)Ljava/util/stream/Stream<TU;>;", $PRIVATE, $method(static_cast<$Stream*(IntPipeline::*)($IntFunction*,int32_t)>(&IntPipeline::mapToObj))},
-	{"mapToObj", "(Ljava/util/function/IntFunction;)Ljava/util/stream/Stream;", "<U:Ljava/lang/Object;>(Ljava/util/function/IntFunction<+TU;>;)Ljava/util/stream/Stream<TU;>;", $PUBLIC | $FINAL, $method(static_cast<$Stream*(IntPipeline::*)($IntFunction*)>(&IntPipeline::mapToObj))},
-	{"max", "()Ljava/util/OptionalInt;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$OptionalInt*(IntPipeline::*)()>(&IntPipeline::max))},
-	{"min", "()Ljava/util/OptionalInt;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$OptionalInt*(IntPipeline::*)()>(&IntPipeline::min))},
-	{"noneMatch", "(Ljava/util/function/IntPredicate;)Z", nullptr, $PUBLIC | $FINAL, $method(static_cast<bool(IntPipeline::*)($IntPredicate*)>(&IntPipeline::noneMatch))},
+	{"iterator", "()Ljava/util/PrimitiveIterator$OfInt;", nullptr, $PUBLIC | $FINAL, $virtualMethod(IntPipeline, iterator, $Iterator*)},
+	{"lambda$average$1", "()[J", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(IntPipeline, lambda$average$1, $longs*)},
+	{"lambda$average$2", "([JI)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(IntPipeline, lambda$average$2, void, $longs*, int32_t)},
+	{"lambda$average$3", "([J[J)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(IntPipeline, lambda$average$3, void, $longs*, $longs*)},
+	{"lambda$collect$4", "(Ljava/util/function/BiConsumer;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(IntPipeline, lambda$collect$4, $Object*, $BiConsumer*, Object$*, Object$*)},
+	{"lambda$distinct$0", "(Ljava/lang/Integer;)I", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(IntPipeline, lambda$distinct$0, int32_t, $Integer*)},
+	{"lambda$toArray$5", "(I)[Ljava/lang/Integer;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(IntPipeline, lambda$toArray$5, $IntegerArray*, int32_t)},
+	{"lazySpliterator", "(Ljava/util/function/Supplier;)Ljava/util/Spliterator$OfInt;", "(Ljava/util/function/Supplier<+Ljava/util/Spliterator<Ljava/lang/Integer;>;>;)Ljava/util/Spliterator$OfInt;", $FINAL, $virtualMethod(IntPipeline, lazySpliterator, $Spliterator*, $Supplier*)},
+	{"limit", "(J)Ljava/util/stream/IntStream;", nullptr, $PUBLIC | $FINAL, $method(IntPipeline, limit, $IntStream*, int64_t)},
+	{"makeNodeBuilder", "(JLjava/util/function/IntFunction;)Ljava/util/stream/Node$Builder;", "(JLjava/util/function/IntFunction<[Ljava/lang/Integer;>;)Ljava/util/stream/Node$Builder<Ljava/lang/Integer;>;", $FINAL, $virtualMethod(IntPipeline, makeNodeBuilder, $Node$Builder*, int64_t, $IntFunction*)},
+	{"map", "(Ljava/util/function/IntUnaryOperator;)Ljava/util/stream/IntStream;", nullptr, $PUBLIC | $FINAL, $method(IntPipeline, map, $IntStream*, $IntUnaryOperator*)},
+	{"mapMulti", "(Ljava/util/stream/IntStream$IntMapMultiConsumer;)Ljava/util/stream/IntStream;", nullptr, $PUBLIC | $FINAL, $method(IntPipeline, mapMulti, $IntStream*, $IntStream$IntMapMultiConsumer*)},
+	{"mapToDouble", "(Ljava/util/function/IntToDoubleFunction;)Ljava/util/stream/DoubleStream;", nullptr, $PUBLIC | $FINAL, $method(IntPipeline, mapToDouble, $DoubleStream*, $IntToDoubleFunction*)},
+	{"mapToLong", "(Ljava/util/function/IntToLongFunction;)Ljava/util/stream/LongStream;", nullptr, $PUBLIC | $FINAL, $method(IntPipeline, mapToLong, $LongStream*, $IntToLongFunction*)},
+	{"mapToObj", "(Ljava/util/function/IntFunction;I)Ljava/util/stream/Stream;", "<U:Ljava/lang/Object;>(Ljava/util/function/IntFunction<+TU;>;I)Ljava/util/stream/Stream<TU;>;", $PRIVATE, $method(IntPipeline, mapToObj, $Stream*, $IntFunction*, int32_t)},
+	{"mapToObj", "(Ljava/util/function/IntFunction;)Ljava/util/stream/Stream;", "<U:Ljava/lang/Object;>(Ljava/util/function/IntFunction<+TU;>;)Ljava/util/stream/Stream<TU;>;", $PUBLIC | $FINAL, $method(IntPipeline, mapToObj, $Stream*, $IntFunction*)},
+	{"max", "()Ljava/util/OptionalInt;", nullptr, $PUBLIC | $FINAL, $method(IntPipeline, max, $OptionalInt*)},
+	{"min", "()Ljava/util/OptionalInt;", nullptr, $PUBLIC | $FINAL, $method(IntPipeline, min, $OptionalInt*)},
+	{"noneMatch", "(Ljava/util/function/IntPredicate;)Z", nullptr, $PUBLIC | $FINAL, $method(IntPipeline, noneMatch, bool, $IntPredicate*)},
 	{"*onClose", "(Ljava/lang/Runnable;)Ljava/util/stream/BaseStream;", nullptr, $PUBLIC},
-	{"parallel", "()Ljava/util/stream/IntStream;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"peek", "(Ljava/util/function/IntConsumer;)Ljava/util/stream/IntStream;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$IntStream*(IntPipeline::*)($IntConsumer*)>(&IntPipeline::peek))},
-	{"reduce", "(ILjava/util/function/IntBinaryOperator;)I", nullptr, $PUBLIC | $FINAL, $method(static_cast<int32_t(IntPipeline::*)(int32_t,$IntBinaryOperator*)>(&IntPipeline::reduce))},
-	{"reduce", "(Ljava/util/function/IntBinaryOperator;)Ljava/util/OptionalInt;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$OptionalInt*(IntPipeline::*)($IntBinaryOperator*)>(&IntPipeline::reduce))},
-	{"sequential", "()Ljava/util/stream/IntStream;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"skip", "(J)Ljava/util/stream/IntStream;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$IntStream*(IntPipeline::*)(int64_t)>(&IntPipeline::skip))},
-	{"sorted", "()Ljava/util/stream/IntStream;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$IntStream*(IntPipeline::*)()>(&IntPipeline::sorted))},
-	{"spliterator", "()Ljava/util/Spliterator$OfInt;", nullptr, $PUBLIC | $FINAL},
-	{"sum", "()I", nullptr, $PUBLIC | $FINAL, $method(static_cast<int32_t(IntPipeline::*)()>(&IntPipeline::sum))},
-	{"summaryStatistics", "()Ljava/util/IntSummaryStatistics;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$IntSummaryStatistics*(IntPipeline::*)()>(&IntPipeline::summaryStatistics))},
-	{"takeWhile", "(Ljava/util/function/IntPredicate;)Ljava/util/stream/IntStream;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$IntStream*(IntPipeline::*)($IntPredicate*)>(&IntPipeline::takeWhile))},
-	{"toArray", "()[I", nullptr, $PUBLIC | $FINAL, $method(static_cast<$ints*(IntPipeline::*)()>(&IntPipeline::toArray))},
+	{"parallel", "()Ljava/util/stream/IntStream;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(IntPipeline, parallel, $BaseStream*)},
+	{"peek", "(Ljava/util/function/IntConsumer;)Ljava/util/stream/IntStream;", nullptr, $PUBLIC | $FINAL, $method(IntPipeline, peek, $IntStream*, $IntConsumer*)},
+	{"reduce", "(ILjava/util/function/IntBinaryOperator;)I", nullptr, $PUBLIC | $FINAL, $method(IntPipeline, reduce, int32_t, int32_t, $IntBinaryOperator*)},
+	{"reduce", "(Ljava/util/function/IntBinaryOperator;)Ljava/util/OptionalInt;", nullptr, $PUBLIC | $FINAL, $method(IntPipeline, reduce, $OptionalInt*, $IntBinaryOperator*)},
+	{"sequential", "()Ljava/util/stream/IntStream;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(IntPipeline, sequential, $BaseStream*)},
+	{"skip", "(J)Ljava/util/stream/IntStream;", nullptr, $PUBLIC | $FINAL, $method(IntPipeline, skip, $IntStream*, int64_t)},
+	{"sorted", "()Ljava/util/stream/IntStream;", nullptr, $PUBLIC | $FINAL, $method(IntPipeline, sorted, $IntStream*)},
+	{"spliterator", "()Ljava/util/Spliterator$OfInt;", nullptr, $PUBLIC | $FINAL, $virtualMethod(IntPipeline, spliterator, $Spliterator*)},
+	{"sum", "()I", nullptr, $PUBLIC | $FINAL, $method(IntPipeline, sum, int32_t)},
+	{"summaryStatistics", "()Ljava/util/IntSummaryStatistics;", nullptr, $PUBLIC | $FINAL, $method(IntPipeline, summaryStatistics, $IntSummaryStatistics*)},
+	{"takeWhile", "(Ljava/util/function/IntPredicate;)Ljava/util/stream/IntStream;", nullptr, $PUBLIC | $FINAL, $method(IntPipeline, takeWhile, $IntStream*, $IntPredicate*)},
+	{"toArray", "()[I", nullptr, $PUBLIC | $FINAL, $method(IntPipeline, toArray, $ints*)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"unordered", "()Ljava/util/stream/IntStream;", nullptr, $PUBLIC},
-	{"wrap", "(Ljava/util/stream/PipelineHelper;Ljava/util/function/Supplier;Z)Ljava/util/Spliterator;", "<P_IN:Ljava/lang/Object;>(Ljava/util/stream/PipelineHelper<Ljava/lang/Integer;>;Ljava/util/function/Supplier<Ljava/util/Spliterator<TP_IN;>;>;Z)Ljava/util/Spliterator<Ljava/lang/Integer;>;", $FINAL},
+	{"unordered", "()Ljava/util/stream/IntStream;", nullptr, $PUBLIC, $virtualMethod(IntPipeline, unordered, $BaseStream*)},
+	{"wrap", "(Ljava/util/stream/PipelineHelper;Ljava/util/function/Supplier;Z)Ljava/util/Spliterator;", "<P_IN:Ljava/lang/Object;>(Ljava/util/stream/PipelineHelper<Ljava/lang/Integer;>;Ljava/util/function/Supplier<Ljava/util/Spliterator<TP_IN;>;>;Z)Ljava/util/Spliterator<Ljava/lang/Integer;>;", $FINAL, $virtualMethod(IntPipeline, wrap, $Spliterator*, $PipelineHelper*, $Supplier*, bool)},
 	{}
 };
 

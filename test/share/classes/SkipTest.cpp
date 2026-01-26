@@ -29,8 +29,8 @@ $FieldInfo _SkipTest_FieldInfo_[] = {
 };
 
 $MethodInfo _SkipTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SkipTest::*)()>(&SkipTest::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&SkipTest::main)), "java.lang.Throwable"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SkipTest, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SkipTest, main, void, $StringArray*), "java.lang.Throwable"},
 	{}
 };
 

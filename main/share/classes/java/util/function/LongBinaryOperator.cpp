@@ -16,7 +16,7 @@ $CompoundAttribute _LongBinaryOperator_Annotations_[] = {
 };
 
 $MethodInfo _LongBinaryOperator_MethodInfo_[] = {
-	{"applyAsLong", "(JJ)J", nullptr, $PUBLIC | $ABSTRACT},
+	{"applyAsLong", "(JJ)J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LongBinaryOperator, applyAsLong, int64_t, int64_t, int64_t)},
 	{}
 };
 

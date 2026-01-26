@@ -16,8 +16,8 @@ $FieldInfo _ECKeySizeParameterSpec_FieldInfo_[] = {
 };
 
 $MethodInfo _ECKeySizeParameterSpec_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(static_cast<void(ECKeySizeParameterSpec::*)(int32_t)>(&ECKeySizeParameterSpec::init$))},
-	{"getKeySize", "()I", nullptr, $PUBLIC},
+	{"<init>", "(I)V", nullptr, $PUBLIC, $method(ECKeySizeParameterSpec, init$, void, int32_t)},
+	{"getKeySize", "()I", nullptr, $PUBLIC, $virtualMethod(ECKeySizeParameterSpec, getKeySize, int32_t)},
 	{}
 };
 

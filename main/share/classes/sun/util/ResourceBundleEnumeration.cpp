@@ -26,9 +26,9 @@ $FieldInfo _ResourceBundleEnumeration_FieldInfo_[] = {
 };
 
 $MethodInfo _ResourceBundleEnumeration_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Set;Ljava/util/Enumeration;)V", "(Ljava/util/Set<Ljava/lang/String;>;Ljava/util/Enumeration<Ljava/lang/String;>;)V", $PUBLIC, $method(static_cast<void(ResourceBundleEnumeration::*)($Set*,$Enumeration*)>(&ResourceBundleEnumeration::init$))},
-	{"hasMoreElements", "()Z", nullptr, $PUBLIC},
-	{"nextElement", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/Set;Ljava/util/Enumeration;)V", "(Ljava/util/Set<Ljava/lang/String;>;Ljava/util/Enumeration<Ljava/lang/String;>;)V", $PUBLIC, $method(ResourceBundleEnumeration, init$, void, $Set*, $Enumeration*)},
+	{"hasMoreElements", "()Z", nullptr, $PUBLIC, $virtualMethod(ResourceBundleEnumeration, hasMoreElements, bool)},
+	{"nextElement", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ResourceBundleEnumeration, nextElement, $Object*)},
 	{}
 };
 

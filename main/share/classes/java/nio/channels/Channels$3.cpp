@@ -40,10 +40,10 @@ $FieldInfo _Channels$3_FieldInfo_[] = {
 };
 
 $MethodInfo _Channels$3_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/channels/AsynchronousByteChannel;)V", nullptr, 0, $method(static_cast<void(Channels$3::*)($AsynchronousByteChannel*)>(&Channels$3::init$))},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"write", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, nullptr, "java.io.IOException"},
-	{"write", "([BII)V", nullptr, $PUBLIC | $SYNCHRONIZED, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljava/nio/channels/AsynchronousByteChannel;)V", nullptr, 0, $method(Channels$3, init$, void, $AsynchronousByteChannel*)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(Channels$3, close, void), "java.io.IOException"},
+	{"write", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Channels$3, write, void, int32_t), "java.io.IOException"},
+	{"write", "([BII)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Channels$3, write, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
 	{}
 };
 

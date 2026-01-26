@@ -39,10 +39,10 @@ $FieldInfo _Collectors$1PairBox_FieldInfo_[] = {
 };
 
 $MethodInfo _Collectors$1PairBox_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/function/Supplier;Ljava/util/function/Supplier;Ljava/util/function/BiConsumer;Ljava/util/function/BiConsumer;Ljava/util/function/BinaryOperator;Ljava/util/function/BinaryOperator;Ljava/util/function/Function;Ljava/util/function/Function;Ljava/util/function/BiFunction;)V", "()V", 0, $method(static_cast<void(Collectors$1PairBox::*)($Supplier*,$Supplier*,$BiConsumer*,$BiConsumer*,$BinaryOperator*,$BinaryOperator*,$Function*,$Function*,$BiFunction*)>(&Collectors$1PairBox::init$))},
-	{"add", "(Ljava/lang/Object;)V", "(TT;)V", 0},
-	{"combine", "(Ljava/util/stream/Collectors$1PairBox;)Ljava/util/stream/Collectors$1PairBox;", nullptr, 0},
-	{"get", "()Ljava/lang/Object;", "()TR;", 0},
+	{"<init>", "(Ljava/util/function/Supplier;Ljava/util/function/Supplier;Ljava/util/function/BiConsumer;Ljava/util/function/BiConsumer;Ljava/util/function/BinaryOperator;Ljava/util/function/BinaryOperator;Ljava/util/function/Function;Ljava/util/function/Function;Ljava/util/function/BiFunction;)V", "()V", 0, $method(Collectors$1PairBox, init$, void, $Supplier*, $Supplier*, $BiConsumer*, $BiConsumer*, $BinaryOperator*, $BinaryOperator*, $Function*, $Function*, $BiFunction*)},
+	{"add", "(Ljava/lang/Object;)V", "(TT;)V", 0, $virtualMethod(Collectors$1PairBox, add, void, Object$*)},
+	{"combine", "(Ljava/util/stream/Collectors$1PairBox;)Ljava/util/stream/Collectors$1PairBox;", nullptr, 0, $virtualMethod(Collectors$1PairBox, combine, Collectors$1PairBox*, Collectors$1PairBox*)},
+	{"get", "()Ljava/lang/Object;", "()TR;", 0, $virtualMethod(Collectors$1PairBox, get, $Object*)},
 	{}
 };
 

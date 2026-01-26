@@ -13,7 +13,7 @@ namespace jdk {
 			namespace impl {
 
 $MethodInfo _ICUBinary$Authenticate_MethodInfo_[] = {
-	{"isDataVersionAcceptable", "([B)Z", nullptr, $PUBLIC | $ABSTRACT},
+	{"isDataVersionAcceptable", "([B)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ICUBinary$Authenticate, isDataVersionAcceptable, bool, $bytes*)},
 	{}
 };
 

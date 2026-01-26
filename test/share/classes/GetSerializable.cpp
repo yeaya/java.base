@@ -3,11 +3,13 @@
 #include <java/io/Serializable.h>
 #include <jcpp.h>
 
+using $doubleArray3 = $Array<double, 3>;
+using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _GetSerializable_MethodInfo_[] = {
-	{"get", "([[[D)Ljava/io/Serializable;", nullptr, $PUBLIC | $ABSTRACT},
+	{"get", "([[[D)Ljava/io/Serializable;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GetSerializable, get, $Serializable*, $doubleArray3*)},
 	{}
 };
 

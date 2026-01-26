@@ -27,10 +27,10 @@ $FieldInfo _ObjectInputFilter$Status_FieldInfo_[] = {
 };
 
 $MethodInfo _ObjectInputFilter$Status_MethodInfo_[] = {
-	{"$values", "()[Ljava/io/ObjectInputFilter$Status;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$ObjectInputFilter$StatusArray*(*)()>(&ObjectInputFilter$Status::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(ObjectInputFilter$Status::*)($String*,int32_t)>(&ObjectInputFilter$Status::init$))},
-	{"valueOf", "(Ljava/lang/String;)Ljava/io/ObjectInputFilter$Status;", nullptr, $PUBLIC | $STATIC, $method(static_cast<ObjectInputFilter$Status*(*)($String*)>(&ObjectInputFilter$Status::valueOf))},
-	{"values", "()[Ljava/io/ObjectInputFilter$Status;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$ObjectInputFilter$StatusArray*(*)()>(&ObjectInputFilter$Status::values))},
+	{"$values", "()[Ljava/io/ObjectInputFilter$Status;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ObjectInputFilter$Status, $values, $ObjectInputFilter$StatusArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(ObjectInputFilter$Status, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Ljava/io/ObjectInputFilter$Status;", nullptr, $PUBLIC | $STATIC, $staticMethod(ObjectInputFilter$Status, valueOf, ObjectInputFilter$Status*, $String*)},
+	{"values", "()[Ljava/io/ObjectInputFilter$Status;", nullptr, $PUBLIC | $STATIC, $staticMethod(ObjectInputFilter$Status, values, $ObjectInputFilter$StatusArray*)},
 	{}
 };
 

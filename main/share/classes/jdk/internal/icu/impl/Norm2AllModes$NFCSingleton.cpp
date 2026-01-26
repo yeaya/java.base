@@ -23,7 +23,7 @@ $FieldInfo _Norm2AllModes$NFCSingleton_FieldInfo_[] = {
 };
 
 $MethodInfo _Norm2AllModes$NFCSingleton_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(Norm2AllModes$NFCSingleton::*)()>(&Norm2AllModes$NFCSingleton::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(Norm2AllModes$NFCSingleton, init$, void)},
 	{}
 };
 

@@ -14,7 +14,7 @@ $CompoundAttribute _scalarTypesAcceptDefaultClass_Annotations_[] = {
 };
 
 $MethodInfo _scalarTypesAcceptDefaultClass_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(scalarTypesAcceptDefaultClass::*)()>(&scalarTypesAcceptDefaultClass::init$))},
+	{"<init>", "()V", nullptr, 0, $method(scalarTypesAcceptDefaultClass, init$, void)},
 	{}
 };
 

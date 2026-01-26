@@ -20,9 +20,9 @@ using $AnnotatedElement = ::java::lang::reflect::AnnotatedElement;
 using $GenericDeclaration = ::java::lang::reflect::GenericDeclaration;
 
 $MethodInfo _OrderUnitTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(OrderUnitTest::*)()>(&OrderUnitTest::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&OrderUnitTest::main))},
-	{"testOrder", "(Ljava/lang/reflect/AnnotatedElement;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($AnnotatedElement*)>(&OrderUnitTest::testOrder))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(OrderUnitTest, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(OrderUnitTest, main, void, $StringArray*)},
+	{"testOrder", "(Ljava/lang/reflect/AnnotatedElement;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(OrderUnitTest, testOrder, void, $AnnotatedElement*)},
 	{}
 };
 

@@ -12,9 +12,9 @@ namespace jdk {
 		namespace loader {
 
 $MethodInfo _ClassLoaderHelper_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(ClassLoaderHelper::*)()>(&ClassLoaderHelper::init$))},
-	{"mapAlternativeName", "(Ljava/io/File;)Ljava/io/File;", nullptr, $STATIC, $method(static_cast<$File*(*)($File*)>(&ClassLoaderHelper::mapAlternativeName))},
-	{"parsePath", "(Ljava/lang/String;)[Ljava/lang/String;", nullptr, $STATIC, $method(static_cast<$StringArray*(*)($String*)>(&ClassLoaderHelper::parsePath))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(ClassLoaderHelper, init$, void)},
+	{"mapAlternativeName", "(Ljava/io/File;)Ljava/io/File;", nullptr, $STATIC, $staticMethod(ClassLoaderHelper, mapAlternativeName, $File*, $File*)},
+	{"parsePath", "(Ljava/lang/String;)[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(ClassLoaderHelper, parsePath, $StringArray*, $String*)},
 	{}
 };
 

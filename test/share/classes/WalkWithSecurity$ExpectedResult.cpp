@@ -24,10 +24,10 @@ $FieldInfo _WalkWithSecurity$ExpectedResult_FieldInfo_[] = {
 };
 
 $MethodInfo _WalkWithSecurity$ExpectedResult_MethodInfo_[] = {
-	{"$values", "()[LWalkWithSecurity$ExpectedResult;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$WalkWithSecurity$ExpectedResultArray*(*)()>(&WalkWithSecurity$ExpectedResult::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(WalkWithSecurity$ExpectedResult::*)($String*,int32_t)>(&WalkWithSecurity$ExpectedResult::init$))},
-	{"valueOf", "(Ljava/lang/String;)LWalkWithSecurity$ExpectedResult;", nullptr, $PUBLIC | $STATIC, $method(static_cast<WalkWithSecurity$ExpectedResult*(*)($String*)>(&WalkWithSecurity$ExpectedResult::valueOf))},
-	{"values", "()[LWalkWithSecurity$ExpectedResult;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$WalkWithSecurity$ExpectedResultArray*(*)()>(&WalkWithSecurity$ExpectedResult::values))},
+	{"$values", "()[LWalkWithSecurity$ExpectedResult;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(WalkWithSecurity$ExpectedResult, $values, $WalkWithSecurity$ExpectedResultArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(WalkWithSecurity$ExpectedResult, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)LWalkWithSecurity$ExpectedResult;", nullptr, $PUBLIC | $STATIC, $staticMethod(WalkWithSecurity$ExpectedResult, valueOf, WalkWithSecurity$ExpectedResult*, $String*)},
+	{"values", "()[LWalkWithSecurity$ExpectedResult;", nullptr, $PUBLIC | $STATIC, $staticMethod(WalkWithSecurity$ExpectedResult, values, $WalkWithSecurity$ExpectedResultArray*)},
 	{}
 };
 

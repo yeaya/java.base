@@ -25,8 +25,8 @@ $FieldInfo _SubjectDomainCombiner$1_FieldInfo_[] = {
 };
 
 $MethodInfo _SubjectDomainCombiner$1_MethodInfo_[] = {
-	{"<init>", "(Ljavax/security/auth/SubjectDomainCombiner;Ljavax/security/auth/Subject;)V", "()V", 0, $method(static_cast<void(SubjectDomainCombiner$1::*)($SubjectDomainCombiner*,$Subject*)>(&SubjectDomainCombiner$1::init$))},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC},
+	{"<init>", "(Ljavax/security/auth/SubjectDomainCombiner;Ljavax/security/auth/Subject;)V", "()V", 0, $method(SubjectDomainCombiner$1, init$, void, $SubjectDomainCombiner*, $Subject*)},
+	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(SubjectDomainCombiner$1, run, $Object*)},
 	{}
 };
 

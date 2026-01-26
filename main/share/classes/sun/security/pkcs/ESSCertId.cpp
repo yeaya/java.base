@@ -29,8 +29,8 @@ $FieldInfo _ESSCertId_FieldInfo_[] = {
 };
 
 $MethodInfo _ESSCertId_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, 0, $method(static_cast<void(ESSCertId::*)($DerValue*)>(&ESSCertId::init$)), "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, 0, $method(ESSCertId, init$, void, $DerValue*), "java.io.IOException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ESSCertId, toString, $String*)},
 	{}
 };
 

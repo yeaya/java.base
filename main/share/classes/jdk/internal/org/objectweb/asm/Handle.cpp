@@ -32,16 +32,16 @@ $FieldInfo _Handle_FieldInfo_[] = {
 };
 
 $MethodInfo _Handle_MethodInfo_[] = {
-	{"<init>", "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $DEPRECATED, $method(static_cast<void(Handle::*)(int32_t,$String*,$String*,$String*)>(&Handle::init$)), nullptr, nullptr, _Handle_MethodAnnotations_init$0},
-	{"<init>", "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(static_cast<void(Handle::*)(int32_t,$String*,$String*,$String*,bool)>(&Handle::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getDesc", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(static_cast<$String*(Handle::*)()>(&Handle::getDesc))},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(static_cast<$String*(Handle::*)()>(&Handle::getName))},
-	{"getOwner", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(static_cast<$String*(Handle::*)()>(&Handle::getOwner))},
-	{"getTag", "()I", nullptr, $PUBLIC, $method(static_cast<int32_t(Handle::*)()>(&Handle::getTag))},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"isInterface", "()Z", nullptr, $PUBLIC, $method(static_cast<bool(Handle::*)()>(&Handle::isInterface))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $DEPRECATED, $method(Handle, init$, void, int32_t, $String*, $String*, $String*), nullptr, nullptr, _Handle_MethodAnnotations_init$0},
+	{"<init>", "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(Handle, init$, void, int32_t, $String*, $String*, $String*, bool)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Handle, equals, bool, Object$*)},
+	{"getDesc", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(Handle, getDesc, $String*)},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(Handle, getName, $String*)},
+	{"getOwner", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(Handle, getOwner, $String*)},
+	{"getTag", "()I", nullptr, $PUBLIC, $method(Handle, getTag, int32_t)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Handle, hashCode, int32_t)},
+	{"isInterface", "()Z", nullptr, $PUBLIC, $method(Handle, isInterface, bool)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Handle, toString, $String*)},
 	{}
 };
 

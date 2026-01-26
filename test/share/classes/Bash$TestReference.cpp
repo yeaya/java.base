@@ -17,7 +17,7 @@ $FieldInfo _Bash$TestReference_FieldInfo_[] = {
 };
 
 $MethodInfo _Bash$TestReference_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(static_cast<void(Bash$TestReference::*)(Object$*)>(&Bash$TestReference::init$))},
+	{"<init>", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(Bash$TestReference, init$, void, Object$*)},
 	{}
 };
 

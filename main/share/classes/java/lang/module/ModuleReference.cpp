@@ -11,6 +11,7 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ModuleDescriptor = ::java::lang::module::ModuleDescriptor;
+using $ModuleReader = ::java::lang::module::ModuleReader;
 using $URI = ::java::net::URI;
 using $Objects = ::java::util::Objects;
 using $Optional = ::java::util::Optional;
@@ -26,10 +27,10 @@ $FieldInfo _ModuleReference_FieldInfo_[] = {
 };
 
 $MethodInfo _ModuleReference_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/module/ModuleDescriptor;Ljava/net/URI;)V", nullptr, $PROTECTED, $method(static_cast<void(ModuleReference::*)($ModuleDescriptor*,$URI*)>(&ModuleReference::init$))},
-	{"descriptor", "()Ljava/lang/module/ModuleDescriptor;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$ModuleDescriptor*(ModuleReference::*)()>(&ModuleReference::descriptor))},
-	{"location", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/net/URI;>;", $PUBLIC | $FINAL, $method(static_cast<$Optional*(ModuleReference::*)()>(&ModuleReference::location))},
-	{"open", "()Ljava/lang/module/ModuleReader;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljava/lang/module/ModuleDescriptor;Ljava/net/URI;)V", nullptr, $PROTECTED, $method(ModuleReference, init$, void, $ModuleDescriptor*, $URI*)},
+	{"descriptor", "()Ljava/lang/module/ModuleDescriptor;", nullptr, $PUBLIC | $FINAL, $method(ModuleReference, descriptor, $ModuleDescriptor*)},
+	{"location", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/net/URI;>;", $PUBLIC | $FINAL, $method(ModuleReference, location, $Optional*)},
+	{"open", "()Ljava/lang/module/ModuleReader;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ModuleReference, open, $ModuleReader*), "java.io.IOException"},
 	{}
 };
 

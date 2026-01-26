@@ -22,9 +22,9 @@ namespace sun {
 		namespace misc {
 
 $MethodInfo _Trampoline_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Trampoline::*)()>(&Trampoline::init$))},
-	{"ensureInvocableMethod", "(Ljava/lang/reflect/Method;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($Method*)>(&Trampoline::ensureInvocableMethod)), "java.lang.reflect.InvocationTargetException"},
-	{"invoke", "(Ljava/lang/reflect/Method;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$Object*(*)($Method*,Object$*,$ObjectArray*)>(&Trampoline::invoke)), "java.lang.reflect.InvocationTargetException,java.lang.IllegalAccessException"},
+	{"<init>", "()V", nullptr, 0, $method(Trampoline, init$, void)},
+	{"ensureInvocableMethod", "(Ljava/lang/reflect/Method;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Trampoline, ensureInvocableMethod, void, $Method*), "java.lang.reflect.InvocationTargetException"},
+	{"invoke", "(Ljava/lang/reflect/Method;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC, $staticMethod(Trampoline, invoke, $Object*, $Method*, Object$*, $ObjectArray*), "java.lang.reflect.InvocationTargetException,java.lang.IllegalAccessException"},
 	{}
 };
 

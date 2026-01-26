@@ -22,13 +22,13 @@ using $List = ::java::util::List;
 namespace indify {
 
 $MethodInfo _Indify$Outer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Indify$Outer::*)()>(&Indify$Outer::init$))},
-	{"attrs", "()Ljava/util/List;", "()Ljava/util/List<Lindify/Indify$Attr;>;", $PUBLIC | $ABSTRACT},
-	{"findAttr", "(Ljava/lang/String;)Lindify/Indify$Attr;", nullptr, $PUBLIC},
-	{"findAttr", "(I)Lindify/Indify$Attr;", nullptr, $PUBLIC},
-	{"inners", "()Ljava/util/List;", "()Ljava/util/List<+Lindify/Indify$Inner;>;", $PUBLIC | $ABSTRACT},
-	{"linkInners", "()V", nullptr, $PROTECTED},
-	{"outer", "(Ljava/lang/Class;)Lindify/Indify$Outer;", "<T:Lindify/Indify$Outer;>(Ljava/lang/Class<TT;>;)TT;", $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Indify$Outer, init$, void)},
+	{"attrs", "()Ljava/util/List;", "()Ljava/util/List<Lindify/Indify$Attr;>;", $PUBLIC | $ABSTRACT, $virtualMethod(Indify$Outer, attrs, $List*)},
+	{"findAttr", "(Ljava/lang/String;)Lindify/Indify$Attr;", nullptr, $PUBLIC, $virtualMethod(Indify$Outer, findAttr, $Indify$Attr*, $String*)},
+	{"findAttr", "(I)Lindify/Indify$Attr;", nullptr, $PUBLIC, $virtualMethod(Indify$Outer, findAttr, $Indify$Attr*, int32_t)},
+	{"inners", "()Ljava/util/List;", "()Ljava/util/List<+Lindify/Indify$Inner;>;", $PUBLIC | $ABSTRACT, $virtualMethod(Indify$Outer, inners, $List*)},
+	{"linkInners", "()V", nullptr, $PROTECTED, $virtualMethod(Indify$Outer, linkInners, void)},
+	{"outer", "(Ljava/lang/Class;)Lindify/Indify$Outer;", "<T:Lindify/Indify$Outer;>(Ljava/lang/Class<TT;>;)TT;", $PUBLIC, $virtualMethod(Indify$Outer, outer, Indify$Outer*, $Class*)},
 	{}
 };
 

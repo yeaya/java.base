@@ -51,16 +51,16 @@ using $Matcher = ::java::util::regex::Matcher;
 using $Pattern = ::java::util::regex::Pattern;
 
 $MethodInfo _SwapMicroBenchmark_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SwapMicroBenchmark::*)()>(&SwapMicroBenchmark::init$))},
-	{"collectAllGarbage", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&SwapMicroBenchmark::collectAllGarbage))},
-	{"deoptimize", "(I)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)(int32_t)>(&SwapMicroBenchmark::deoptimize))},
-	{"filter", "(Ljava/util/regex/Pattern;[LSwapMicroBenchmark$Job;)[LSwapMicroBenchmark$Job;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$SwapMicroBenchmark$JobArray*(*)($Pattern*,$SwapMicroBenchmark$JobArray*)>(&SwapMicroBenchmark::filter))},
-	{"intArg", "([Ljava/lang/String;Ljava/lang/String;I)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)($StringArray*,$String*,int32_t)>(&SwapMicroBenchmark::intArg))},
-	{"keywordValue", "([Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($StringArray*,$String*)>(&SwapMicroBenchmark::keywordValue))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&SwapMicroBenchmark::main)), "java.lang.Throwable"},
-	{"patternArg", "([Ljava/lang/String;Ljava/lang/String;)Ljava/util/regex/Pattern;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$Pattern*(*)($StringArray*,$String*)>(&SwapMicroBenchmark::patternArg))},
-	{"time", "([LSwapMicroBenchmark$Job;)V", nullptr, $PRIVATE | $STATIC | $TRANSIENT, $method(static_cast<void(*)($SwapMicroBenchmark$JobArray*)>(&SwapMicroBenchmark::time)), "java.lang.Throwable"},
-	{"time0", "([LSwapMicroBenchmark$Job;)[J", nullptr, $PRIVATE | $STATIC | $TRANSIENT, $method(static_cast<$longs*(*)($SwapMicroBenchmark$JobArray*)>(&SwapMicroBenchmark::time0)), "java.lang.Throwable"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SwapMicroBenchmark, init$, void)},
+	{"collectAllGarbage", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(SwapMicroBenchmark, collectAllGarbage, void)},
+	{"deoptimize", "(I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(SwapMicroBenchmark, deoptimize, void, int32_t)},
+	{"filter", "(Ljava/util/regex/Pattern;[LSwapMicroBenchmark$Job;)[LSwapMicroBenchmark$Job;", nullptr, $PRIVATE | $STATIC, $staticMethod(SwapMicroBenchmark, filter, $SwapMicroBenchmark$JobArray*, $Pattern*, $SwapMicroBenchmark$JobArray*)},
+	{"intArg", "([Ljava/lang/String;Ljava/lang/String;I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(SwapMicroBenchmark, intArg, int32_t, $StringArray*, $String*, int32_t)},
+	{"keywordValue", "([Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(SwapMicroBenchmark, keywordValue, $String*, $StringArray*, $String*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SwapMicroBenchmark, main, void, $StringArray*), "java.lang.Throwable"},
+	{"patternArg", "([Ljava/lang/String;Ljava/lang/String;)Ljava/util/regex/Pattern;", nullptr, $PRIVATE | $STATIC, $staticMethod(SwapMicroBenchmark, patternArg, $Pattern*, $StringArray*, $String*)},
+	{"time", "([LSwapMicroBenchmark$Job;)V", nullptr, $PRIVATE | $STATIC | $TRANSIENT, $staticMethod(SwapMicroBenchmark, time, void, $SwapMicroBenchmark$JobArray*), "java.lang.Throwable"},
+	{"time0", "([LSwapMicroBenchmark$Job;)[J", nullptr, $PRIVATE | $STATIC | $TRANSIENT, $staticMethod(SwapMicroBenchmark, time0, $longs*, $SwapMicroBenchmark$JobArray*), "java.lang.Throwable"},
 	{}
 };
 

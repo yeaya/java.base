@@ -14,9 +14,9 @@ namespace sun {
 				namespace http {
 
 $MethodInfo _EmptyInputStream_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(EmptyInputStream::*)()>(&EmptyInputStream::init$))},
-	{"available", "()I", nullptr, $PUBLIC},
-	{"read", "()I", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(EmptyInputStream, init$, void)},
+	{"available", "()I", nullptr, $PUBLIC, $virtualMethod(EmptyInputStream, available, int32_t)},
+	{"read", "()I", nullptr, $PUBLIC, $virtualMethod(EmptyInputStream, read, int32_t)},
 	{}
 };
 

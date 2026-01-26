@@ -42,8 +42,8 @@ $FieldInfo _Basic2_FieldInfo_[] = {
 };
 
 $MethodInfo _Basic2_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Basic2::*)()>(&Basic2::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Basic2::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Basic2, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Basic2, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

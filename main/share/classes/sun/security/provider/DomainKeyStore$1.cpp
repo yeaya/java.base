@@ -37,9 +37,9 @@ $FieldInfo _DomainKeyStore$1_FieldInfo_[] = {
 };
 
 $MethodInfo _DomainKeyStore$1_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/provider/DomainKeyStore;Ljava/util/Iterator;)V", "()V", 0, $method(static_cast<void(DomainKeyStore$1::*)($DomainKeyStore*,$Iterator*)>(&DomainKeyStore$1::init$))},
-	{"hasMoreElements", "()Z", nullptr, $PUBLIC},
-	{"nextElement", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/security/provider/DomainKeyStore;Ljava/util/Iterator;)V", "()V", 0, $method(DomainKeyStore$1, init$, void, $DomainKeyStore*, $Iterator*)},
+	{"hasMoreElements", "()Z", nullptr, $PUBLIC, $virtualMethod(DomainKeyStore$1, hasMoreElements, bool)},
+	{"nextElement", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DomainKeyStore$1, nextElement, $Object*)},
 	{}
 };
 

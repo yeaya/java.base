@@ -22,9 +22,9 @@ $FieldInfo _Vector$1_FieldInfo_[] = {
 };
 
 $MethodInfo _Vector$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Vector;)V", nullptr, 0, $method(static_cast<void(Vector$1::*)($Vector*)>(&Vector$1::init$))},
-	{"hasMoreElements", "()Z", nullptr, $PUBLIC},
-	{"nextElement", "()Ljava/lang/Object;", "()TE;", $PUBLIC},
+	{"<init>", "(Ljava/util/Vector;)V", nullptr, 0, $method(Vector$1, init$, void, $Vector*)},
+	{"hasMoreElements", "()Z", nullptr, $PUBLIC, $virtualMethod(Vector$1, hasMoreElements, bool)},
+	{"nextElement", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(Vector$1, nextElement, $Object*)},
 	{}
 };
 

@@ -36,9 +36,9 @@ $FieldInfo _DTLSInputRecord$HandshakeFlight_FieldInfo_[] = {
 };
 
 $MethodInfo _DTLSInputRecord$HandshakeFlight_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(DTLSInputRecord$HandshakeFlight::*)()>(&DTLSInputRecord$HandshakeFlight::init$))},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"isRetransmitOf", "(Lsun/security/ssl/DTLSInputRecord$HandshakeFlight;)Z", nullptr, 0, $method(static_cast<bool(DTLSInputRecord$HandshakeFlight::*)(DTLSInputRecord$HandshakeFlight*)>(&DTLSInputRecord$HandshakeFlight::isRetransmitOf))},
+	{"<init>", "()V", nullptr, 0, $method(DTLSInputRecord$HandshakeFlight, init$, void)},
+	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DTLSInputRecord$HandshakeFlight, clone, $Object*)},
+	{"isRetransmitOf", "(Lsun/security/ssl/DTLSInputRecord$HandshakeFlight;)Z", nullptr, 0, $method(DTLSInputRecord$HandshakeFlight, isRetransmitOf, bool, DTLSInputRecord$HandshakeFlight*)},
 	{}
 };
 

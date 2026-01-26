@@ -79,8 +79,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo DRBG$$Lambda$lambda$new$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DRBG$$Lambda$lambda$new$0::*)()>(&DRBG$$Lambda$lambda$new$0::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DRBG$$Lambda$lambda$new$0, init$, void)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DRBG$$Lambda$lambda$new$0, run, $Object*)},
 	{}
 };
 $ClassInfo DRBG$$Lambda$lambda$new$0::classInfo$ = {
@@ -106,18 +106,18 @@ $FieldInfo _DRBG_FieldInfo_[] = {
 };
 
 $MethodInfo _DRBG_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/SecureRandomParameters;)V", nullptr, $PUBLIC, $method(static_cast<void(DRBG::*)($SecureRandomParameters*)>(&DRBG::init$))},
-	{"checkTwice", "(ZLjava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)(bool,$String*)>(&DRBG::checkTwice))},
-	{"createImpl", "()V", nullptr, $PRIVATE, $method(static_cast<void(DRBG::*)()>(&DRBG::createImpl))},
-	{"engineGenerateSeed", "(I)[B", nullptr, $PROTECTED},
-	{"engineGetParameters", "()Ljava/security/SecureRandomParameters;", nullptr, $PROTECTED},
-	{"engineNextBytes", "([B)V", nullptr, $PROTECTED},
-	{"engineNextBytes", "([BLjava/security/SecureRandomParameters;)V", nullptr, $PROTECTED},
-	{"engineReseed", "(Ljava/security/SecureRandomParameters;)V", nullptr, $PROTECTED},
-	{"engineSetSeed", "([B)V", nullptr, $PROTECTED},
-	{"lambda$new$0", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$String*(*)()>(&DRBG::lambda$new$0))},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(DRBG::*)($ObjectInputStream*)>(&DRBG::readObject)), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/security/SecureRandomParameters;)V", nullptr, $PUBLIC, $method(DRBG, init$, void, $SecureRandomParameters*)},
+	{"checkTwice", "(ZLjava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(DRBG, checkTwice, void, bool, $String*)},
+	{"createImpl", "()V", nullptr, $PRIVATE, $method(DRBG, createImpl, void)},
+	{"engineGenerateSeed", "(I)[B", nullptr, $PROTECTED, $virtualMethod(DRBG, engineGenerateSeed, $bytes*, int32_t)},
+	{"engineGetParameters", "()Ljava/security/SecureRandomParameters;", nullptr, $PROTECTED, $virtualMethod(DRBG, engineGetParameters, $SecureRandomParameters*)},
+	{"engineNextBytes", "([B)V", nullptr, $PROTECTED, $virtualMethod(DRBG, engineNextBytes, void, $bytes*)},
+	{"engineNextBytes", "([BLjava/security/SecureRandomParameters;)V", nullptr, $PROTECTED, $virtualMethod(DRBG, engineNextBytes, void, $bytes*, $SecureRandomParameters*)},
+	{"engineReseed", "(Ljava/security/SecureRandomParameters;)V", nullptr, $PROTECTED, $virtualMethod(DRBG, engineReseed, void, $SecureRandomParameters*)},
+	{"engineSetSeed", "([B)V", nullptr, $PROTECTED, $virtualMethod(DRBG, engineSetSeed, void, $bytes*)},
+	{"lambda$new$0", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DRBG, lambda$new$0, $String*)},
+	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(DRBG, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DRBG, toString, $String*)},
 	{}
 };
 

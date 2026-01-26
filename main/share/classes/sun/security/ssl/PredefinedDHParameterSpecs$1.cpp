@@ -15,8 +15,8 @@ namespace sun {
 		namespace ssl {
 
 $MethodInfo _PredefinedDHParameterSpecs$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(PredefinedDHParameterSpecs$1::*)()>(&PredefinedDHParameterSpecs$1::init$))},
-	{"run", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(PredefinedDHParameterSpecs$1, init$, void)},
+	{"run", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PredefinedDHParameterSpecs$1, run, $Object*)},
 	{}
 };
 

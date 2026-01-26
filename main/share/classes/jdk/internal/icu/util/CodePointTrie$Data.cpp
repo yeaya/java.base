@@ -5,9 +5,11 @@
 #include <jdk/internal/icu/util/CodePointTrie.h>
 #include <jcpp.h>
 
+using $DataOutputStream = ::java::io::DataOutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $CodePointTrie$ValueWidth = ::jdk::internal::icu::util::CodePointTrie$ValueWidth;
 
 namespace jdk {
 	namespace internal {
@@ -15,11 +17,11 @@ namespace jdk {
 			namespace util {
 
 $MethodInfo _CodePointTrie$Data_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(CodePointTrie$Data::*)()>(&CodePointTrie$Data::init$))},
-	{"getDataLength", "()I", nullptr, $ABSTRACT},
-	{"getFromIndex", "(I)I", nullptr, $ABSTRACT},
-	{"getValueWidth", "()Ljdk/internal/icu/util/CodePointTrie$ValueWidth;", nullptr, $ABSTRACT},
-	{"write", "(Ljava/io/DataOutputStream;)I", nullptr, $ABSTRACT, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(CodePointTrie$Data, init$, void)},
+	{"getDataLength", "()I", nullptr, $ABSTRACT, $virtualMethod(CodePointTrie$Data, getDataLength, int32_t)},
+	{"getFromIndex", "(I)I", nullptr, $ABSTRACT, $virtualMethod(CodePointTrie$Data, getFromIndex, int32_t, int32_t)},
+	{"getValueWidth", "()Ljdk/internal/icu/util/CodePointTrie$ValueWidth;", nullptr, $ABSTRACT, $virtualMethod(CodePointTrie$Data, getValueWidth, $CodePointTrie$ValueWidth*)},
+	{"write", "(Ljava/io/DataOutputStream;)I", nullptr, $ABSTRACT, $virtualMethod(CodePointTrie$Data, write, int32_t, $DataOutputStream*), "java.io.IOException"},
 	{}
 };
 

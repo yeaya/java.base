@@ -58,8 +58,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo DatagramSocketAdaptor$NetworkInterfaces$$Lambda$lambda$static$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DatagramSocketAdaptor$NetworkInterfaces$$Lambda$lambda$static$0::*)()>(&DatagramSocketAdaptor$NetworkInterfaces$$Lambda$lambda$static$0::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DatagramSocketAdaptor$NetworkInterfaces$$Lambda$lambda$static$0, init$, void)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DatagramSocketAdaptor$NetworkInterfaces$$Lambda$lambda$static$0, run, $Object*)},
 	{}
 };
 $ClassInfo DatagramSocketAdaptor$NetworkInterfaces$$Lambda$lambda$static$0::classInfo$ = {
@@ -83,10 +83,10 @@ $FieldInfo _DatagramSocketAdaptor$NetworkInterfaces_FieldInfo_[] = {
 };
 
 $MethodInfo _DatagramSocketAdaptor$NetworkInterfaces_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(DatagramSocketAdaptor$NetworkInterfaces::*)()>(&DatagramSocketAdaptor$NetworkInterfaces::init$))},
-	{"getDefault", "()Ljava/net/NetworkInterface;", nullptr, $STATIC, $method(static_cast<$NetworkInterface*(*)()>(&DatagramSocketAdaptor$NetworkInterfaces::getDefault))},
-	{"lambda$static$0", "()Ljava/lang/invoke/MethodHandles$Lookup;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$MethodHandles$Lookup*(*)()>(&DatagramSocketAdaptor$NetworkInterfaces::lambda$static$0)), "java.lang.Exception"},
-	{"newNetworkInterface", "(Ljava/lang/String;I[Ljava/net/InetAddress;)Ljava/net/NetworkInterface;", nullptr, $STATIC, $method(static_cast<$NetworkInterface*(*)($String*,int32_t,$InetAddressArray*)>(&DatagramSocketAdaptor$NetworkInterfaces::newNetworkInterface))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(DatagramSocketAdaptor$NetworkInterfaces, init$, void)},
+	{"getDefault", "()Ljava/net/NetworkInterface;", nullptr, $STATIC, $staticMethod(DatagramSocketAdaptor$NetworkInterfaces, getDefault, $NetworkInterface*)},
+	{"lambda$static$0", "()Ljava/lang/invoke/MethodHandles$Lookup;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DatagramSocketAdaptor$NetworkInterfaces, lambda$static$0, $MethodHandles$Lookup*), "java.lang.Exception"},
+	{"newNetworkInterface", "(Ljava/lang/String;I[Ljava/net/InetAddress;)Ljava/net/NetworkInterface;", nullptr, $STATIC, $staticMethod(DatagramSocketAdaptor$NetworkInterfaces, newNetworkInterface, $NetworkInterface*, $String*, int32_t, $InetAddressArray*)},
 	{}
 };
 

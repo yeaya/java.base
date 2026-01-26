@@ -86,17 +86,17 @@ $FieldInfo _BasicChecker_FieldInfo_[] = {
 };
 
 $MethodInfo _BasicChecker_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/cert/TrustAnchor;Ljava/util/Date;Ljava/lang/String;Z)V", nullptr, 0, $method(static_cast<void(BasicChecker::*)($TrustAnchor*,$Date*,$String*,bool)>(&BasicChecker::init$))},
-	{"check", "(Ljava/security/cert/Certificate;Ljava/util/Collection;)V", "(Ljava/security/cert/Certificate;Ljava/util/Collection<Ljava/lang/String;>;)V", $PUBLIC, nullptr, "java.security.cert.CertPathValidatorException"},
-	{"getPublicKey", "()Ljava/security/PublicKey;", nullptr, 0},
-	{"getSupportedExtensions", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC},
-	{"init", "(Z)V", nullptr, $PUBLIC, nullptr, "java.security.cert.CertPathValidatorException"},
-	{"isForwardCheckingSupported", "()Z", nullptr, $PUBLIC},
-	{"makeInheritedParamsKey", "(Ljava/security/PublicKey;Ljava/security/PublicKey;)Ljava/security/PublicKey;", nullptr, $STATIC, $method(static_cast<$PublicKey*(*)($PublicKey*,$PublicKey*)>(&BasicChecker::makeInheritedParamsKey)), "java.security.cert.CertPathValidatorException"},
-	{"updateState", "(Ljava/security/cert/X509Certificate;)V", nullptr, $PRIVATE, $method(static_cast<void(BasicChecker::*)($X509Certificate*)>(&BasicChecker::updateState)), "java.security.cert.CertPathValidatorException"},
-	{"verifyNameChaining", "(Ljava/security/cert/X509Certificate;)V", nullptr, $PRIVATE, $method(static_cast<void(BasicChecker::*)($X509Certificate*)>(&BasicChecker::verifyNameChaining)), "java.security.cert.CertPathValidatorException"},
-	{"verifySignature", "(Ljava/security/cert/X509Certificate;)V", nullptr, $PRIVATE, $method(static_cast<void(BasicChecker::*)($X509Certificate*)>(&BasicChecker::verifySignature)), "java.security.cert.CertPathValidatorException"},
-	{"verifyValidity", "(Ljava/security/cert/X509Certificate;)V", nullptr, $PRIVATE, $method(static_cast<void(BasicChecker::*)($X509Certificate*)>(&BasicChecker::verifyValidity)), "java.security.cert.CertPathValidatorException"},
+	{"<init>", "(Ljava/security/cert/TrustAnchor;Ljava/util/Date;Ljava/lang/String;Z)V", nullptr, 0, $method(BasicChecker, init$, void, $TrustAnchor*, $Date*, $String*, bool)},
+	{"check", "(Ljava/security/cert/Certificate;Ljava/util/Collection;)V", "(Ljava/security/cert/Certificate;Ljava/util/Collection<Ljava/lang/String;>;)V", $PUBLIC, $virtualMethod(BasicChecker, check, void, $Certificate*, $Collection*), "java.security.cert.CertPathValidatorException"},
+	{"getPublicKey", "()Ljava/security/PublicKey;", nullptr, 0, $virtualMethod(BasicChecker, getPublicKey, $PublicKey*)},
+	{"getSupportedExtensions", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(BasicChecker, getSupportedExtensions, $Set*)},
+	{"init", "(Z)V", nullptr, $PUBLIC, $virtualMethod(BasicChecker, init, void, bool), "java.security.cert.CertPathValidatorException"},
+	{"isForwardCheckingSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(BasicChecker, isForwardCheckingSupported, bool)},
+	{"makeInheritedParamsKey", "(Ljava/security/PublicKey;Ljava/security/PublicKey;)Ljava/security/PublicKey;", nullptr, $STATIC, $staticMethod(BasicChecker, makeInheritedParamsKey, $PublicKey*, $PublicKey*, $PublicKey*), "java.security.cert.CertPathValidatorException"},
+	{"updateState", "(Ljava/security/cert/X509Certificate;)V", nullptr, $PRIVATE, $method(BasicChecker, updateState, void, $X509Certificate*), "java.security.cert.CertPathValidatorException"},
+	{"verifyNameChaining", "(Ljava/security/cert/X509Certificate;)V", nullptr, $PRIVATE, $method(BasicChecker, verifyNameChaining, void, $X509Certificate*), "java.security.cert.CertPathValidatorException"},
+	{"verifySignature", "(Ljava/security/cert/X509Certificate;)V", nullptr, $PRIVATE, $method(BasicChecker, verifySignature, void, $X509Certificate*), "java.security.cert.CertPathValidatorException"},
+	{"verifyValidity", "(Ljava/security/cert/X509Certificate;)V", nullptr, $PRIVATE, $method(BasicChecker, verifyValidity, void, $X509Certificate*), "java.security.cert.CertPathValidatorException"},
 	{}
 };
 

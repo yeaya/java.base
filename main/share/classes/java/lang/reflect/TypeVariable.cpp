@@ -5,8 +5,11 @@
 #include <java/lang/reflect/Type.h>
 #include <jcpp.h>
 
+using $AnnotatedTypeArray = $Array<::java::lang::reflect::AnnotatedType>;
+using $TypeArray = $Array<::java::lang::reflect::Type>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $GenericDeclaration = ::java::lang::reflect::GenericDeclaration;
 using $Type = ::java::lang::reflect::Type;
 
 namespace java {
@@ -17,10 +20,10 @@ $MethodInfo _TypeVariable_MethodInfo_[] = {
 	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"getAnnotatedBounds", "()[Ljava/lang/reflect/AnnotatedType;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getBounds", "()[Ljava/lang/reflect/Type;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getGenericDeclaration", "()Ljava/lang/reflect/GenericDeclaration;", "()TD;", $PUBLIC | $ABSTRACT},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
+	{"getAnnotatedBounds", "()[Ljava/lang/reflect/AnnotatedType;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TypeVariable, getAnnotatedBounds, $AnnotatedTypeArray*)},
+	{"getBounds", "()[Ljava/lang/reflect/Type;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TypeVariable, getBounds, $TypeArray*)},
+	{"getGenericDeclaration", "()Ljava/lang/reflect/GenericDeclaration;", "()TD;", $PUBLIC | $ABSTRACT, $virtualMethod(TypeVariable, getGenericDeclaration, $GenericDeclaration*)},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TypeVariable, getName, $String*)},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}

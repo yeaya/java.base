@@ -3,6 +3,7 @@
 #include <AssociatedDirectOnSuperClass.h>
 #include <jcpp.h>
 
+using $AssociatedDirectOnSuperClassArray = $Array<AssociatedDirectOnSuperClass>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -19,7 +20,7 @@ $CompoundAttribute _AssociatedDirectOnSuperClassContainer_Annotations_[] = {
 };
 
 $MethodInfo _AssociatedDirectOnSuperClassContainer_MethodInfo_[] = {
-	{"value", "()[LAssociatedDirectOnSuperClass;", nullptr, $PUBLIC | $ABSTRACT},
+	{"value", "()[LAssociatedDirectOnSuperClass;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AssociatedDirectOnSuperClassContainer, value, $AssociatedDirectOnSuperClassArray*)},
 	{}
 };
 

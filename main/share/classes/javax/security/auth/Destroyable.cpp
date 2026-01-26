@@ -12,8 +12,8 @@ namespace javax {
 		namespace auth {
 
 $MethodInfo _Destroyable_MethodInfo_[] = {
-	{"destroy", "()V", nullptr, $PUBLIC, nullptr, "javax.security.auth.DestroyFailedException"},
-	{"isDestroyed", "()Z", nullptr, $PUBLIC},
+	{"destroy", "()V", nullptr, $PUBLIC, $virtualMethod(Destroyable, destroy, void), "javax.security.auth.DestroyFailedException"},
+	{"isDestroyed", "()Z", nullptr, $PUBLIC, $virtualMethod(Destroyable, isDestroyed, bool)},
 	{}
 };
 

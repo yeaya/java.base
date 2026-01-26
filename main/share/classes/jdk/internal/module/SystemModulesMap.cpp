@@ -12,11 +12,11 @@ namespace jdk {
 		namespace module {
 
 $MethodInfo _SystemModulesMap_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(SystemModulesMap::*)()>(&SystemModulesMap::init$))},
-	{"allSystemModules", "()Ljdk/internal/module/SystemModules;", nullptr, $STATIC, $method(static_cast<$SystemModules*(*)()>(&SystemModulesMap::allSystemModules))},
-	{"classNames", "()[Ljava/lang/String;", nullptr, $STATIC, $method(static_cast<$StringArray*(*)()>(&SystemModulesMap::classNames))},
-	{"defaultSystemModules", "()Ljdk/internal/module/SystemModules;", nullptr, $STATIC, $method(static_cast<$SystemModules*(*)()>(&SystemModulesMap::defaultSystemModules))},
-	{"moduleNames", "()[Ljava/lang/String;", nullptr, $STATIC, $method(static_cast<$StringArray*(*)()>(&SystemModulesMap::moduleNames))},
+	{"<init>", "()V", nullptr, 0, $method(SystemModulesMap, init$, void)},
+	{"allSystemModules", "()Ljdk/internal/module/SystemModules;", nullptr, $STATIC, $staticMethod(SystemModulesMap, allSystemModules, $SystemModules*)},
+	{"classNames", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(SystemModulesMap, classNames, $StringArray*)},
+	{"defaultSystemModules", "()Ljdk/internal/module/SystemModules;", nullptr, $STATIC, $staticMethod(SystemModulesMap, defaultSystemModules, $SystemModules*)},
+	{"moduleNames", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(SystemModulesMap, moduleNames, $StringArray*)},
 	{}
 };
 

@@ -43,21 +43,21 @@ $FieldInfo _ProcessEnvironment$StringEnvironment_FieldInfo_[] = {
 };
 
 $MethodInfo _ProcessEnvironment$StringEnvironment_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Map;)V", "(Ljava/util/Map<Ljava/lang/ProcessEnvironment$Variable;Ljava/lang/ProcessEnvironment$Value;>;)V", $PUBLIC, $method(static_cast<void(ProcessEnvironment$StringEnvironment::*)($Map*)>(&ProcessEnvironment$StringEnvironment::init$))},
-	{"clear", "()V", nullptr, $PUBLIC},
-	{"containsKey", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"containsValue", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"entrySet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/String;>;>;", $PUBLIC},
-	{"get", "(Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"isEmpty", "()Z", nullptr, $PUBLIC},
-	{"keySet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC},
-	{"put", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"put", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"remove", "(Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"size", "()I", nullptr, $PUBLIC},
-	{"toEnvironmentBlock", "([I)[B", nullptr, $PUBLIC},
-	{"toString", "(Ljava/lang/ProcessEnvironment$Value;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($ProcessEnvironment$Value*)>(&ProcessEnvironment$StringEnvironment::toString))},
-	{"values", "()Ljava/util/Collection;", "()Ljava/util/Collection<Ljava/lang/String;>;", $PUBLIC},
+	{"<init>", "(Ljava/util/Map;)V", "(Ljava/util/Map<Ljava/lang/ProcessEnvironment$Variable;Ljava/lang/ProcessEnvironment$Value;>;)V", $PUBLIC, $method(ProcessEnvironment$StringEnvironment, init$, void, $Map*)},
+	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(ProcessEnvironment$StringEnvironment, clear, void)},
+	{"containsKey", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ProcessEnvironment$StringEnvironment, containsKey, bool, Object$*)},
+	{"containsValue", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ProcessEnvironment$StringEnvironment, containsValue, bool, Object$*)},
+	{"entrySet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/String;>;>;", $PUBLIC, $virtualMethod(ProcessEnvironment$StringEnvironment, entrySet, $Set*)},
+	{"get", "(Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ProcessEnvironment$StringEnvironment, get, $Object*, Object$*)},
+	{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(ProcessEnvironment$StringEnvironment, isEmpty, bool)},
+	{"keySet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(ProcessEnvironment$StringEnvironment, keySet, $Set*)},
+	{"put", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ProcessEnvironment$StringEnvironment, put, $String*, $String*, $String*)},
+	{"put", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ProcessEnvironment$StringEnvironment, put, $Object*, Object$*, Object$*)},
+	{"remove", "(Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ProcessEnvironment$StringEnvironment, remove, $Object*, Object$*)},
+	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(ProcessEnvironment$StringEnvironment, size, int32_t)},
+	{"toEnvironmentBlock", "([I)[B", nullptr, $PUBLIC, $virtualMethod(ProcessEnvironment$StringEnvironment, toEnvironmentBlock, $bytes*, $ints*)},
+	{"toString", "(Ljava/lang/ProcessEnvironment$Value;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(ProcessEnvironment$StringEnvironment, toString, $String*, $ProcessEnvironment$Value*)},
+	{"values", "()Ljava/util/Collection;", "()Ljava/util/Collection<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(ProcessEnvironment$StringEnvironment, values, $Collection*)},
 	{}
 };
 

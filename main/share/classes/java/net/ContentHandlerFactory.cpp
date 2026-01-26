@@ -5,12 +5,13 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $ContentHandler = ::java::net::ContentHandler;
 
 namespace java {
 	namespace net {
 
 $MethodInfo _ContentHandlerFactory_MethodInfo_[] = {
-	{"createContentHandler", "(Ljava/lang/String;)Ljava/net/ContentHandler;", nullptr, $PUBLIC | $ABSTRACT},
+	{"createContentHandler", "(Ljava/lang/String;)Ljava/net/ContentHandler;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ContentHandlerFactory, createContentHandler, $ContentHandler*, $String*)},
 	{}
 };
 

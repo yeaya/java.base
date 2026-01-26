@@ -16,7 +16,7 @@ $CompoundAttribute _IntBinaryOperator_Annotations_[] = {
 };
 
 $MethodInfo _IntBinaryOperator_MethodInfo_[] = {
-	{"applyAsInt", "(II)I", nullptr, $PUBLIC | $ABSTRACT},
+	{"applyAsInt", "(II)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(IntBinaryOperator, applyAsInt, int32_t, int32_t, int32_t)},
 	{}
 };
 

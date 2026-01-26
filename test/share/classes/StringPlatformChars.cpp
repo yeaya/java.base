@@ -23,11 +23,11 @@ $FieldInfo _StringPlatformChars_FieldInfo_[] = {
 };
 
 $MethodInfo _StringPlatformChars_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(StringPlatformChars::*)()>(&StringPlatformChars::init$))},
-	{"getBytes", "(Ljava/lang/String;)[B", nullptr, $STATIC | $NATIVE, $method(static_cast<$bytes*(*)($String*)>(&StringPlatformChars::getBytes))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<void(*)($StringArray*)>(&StringPlatformChars::main)), "java.lang.Exception"},
-	{"newString", "([B)Ljava/lang/String;", nullptr, $STATIC | $NATIVE, $method(static_cast<$String*(*)($bytes*)>(&StringPlatformChars::newString))},
-	{"testString", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($String*)>(&StringPlatformChars::testString)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(StringPlatformChars, init$, void)},
+	{"getBytes", "(Ljava/lang/String;)[B", nullptr, $STATIC | $NATIVE, $staticMethod(StringPlatformChars, getBytes, $bytes*, $String*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(StringPlatformChars, main, void, $StringArray*), "java.lang.Exception"},
+	{"newString", "([B)Ljava/lang/String;", nullptr, $STATIC | $NATIVE, $staticMethod(StringPlatformChars, newString, $String*, $bytes*)},
+	{"testString", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(StringPlatformChars, testString, void, $String*), "java.lang.Exception"},
 	{}
 };
 

@@ -17,9 +17,9 @@ $FieldInfo _DHGenParameterSpec_FieldInfo_[] = {
 };
 
 $MethodInfo _DHGenParameterSpec_MethodInfo_[] = {
-	{"<init>", "(II)V", nullptr, $PUBLIC, $method(static_cast<void(DHGenParameterSpec::*)(int32_t,int32_t)>(&DHGenParameterSpec::init$))},
-	{"getExponentSize", "()I", nullptr, $PUBLIC},
-	{"getPrimeSize", "()I", nullptr, $PUBLIC},
+	{"<init>", "(II)V", nullptr, $PUBLIC, $method(DHGenParameterSpec, init$, void, int32_t, int32_t)},
+	{"getExponentSize", "()I", nullptr, $PUBLIC, $virtualMethod(DHGenParameterSpec, getExponentSize, int32_t)},
+	{"getPrimeSize", "()I", nullptr, $PUBLIC, $virtualMethod(DHGenParameterSpec, getPrimeSize, int32_t)},
 	{}
 };
 

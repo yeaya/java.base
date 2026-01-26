@@ -28,10 +28,10 @@ $FieldInfo _SliceOps$1$1_FieldInfo_[] = {
 };
 
 $MethodInfo _SliceOps$1$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/stream/SliceOps$1;Ljava/util/stream/Sink;)V", nullptr, 0, $method(static_cast<void(SliceOps$1$1::*)($SliceOps$1*,$Sink*)>(&SliceOps$1$1::init$))},
-	{"accept", "(Ljava/lang/Object;)V", "(TT;)V", $PUBLIC},
-	{"begin", "(J)V", nullptr, $PUBLIC},
-	{"cancellationRequested", "()Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/stream/SliceOps$1;Ljava/util/stream/Sink;)V", nullptr, 0, $method(SliceOps$1$1, init$, void, $SliceOps$1*, $Sink*)},
+	{"accept", "(Ljava/lang/Object;)V", "(TT;)V", $PUBLIC, $virtualMethod(SliceOps$1$1, accept, void, Object$*)},
+	{"begin", "(J)V", nullptr, $PUBLIC, $virtualMethod(SliceOps$1$1, begin, void, int64_t)},
+	{"cancellationRequested", "()Z", nullptr, $PUBLIC, $virtualMethod(SliceOps$1$1, cancellationRequested, bool)},
 	{}
 };
 

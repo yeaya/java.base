@@ -19,8 +19,8 @@ $FieldInfo _AuthResources_it_FieldInfo_[] = {
 };
 
 $MethodInfo _AuthResources_it_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(AuthResources_it::*)()>(&AuthResources_it::init$))},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(AuthResources_it, init$, void)},
+	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AuthResources_it, getContents, $ObjectArray2*)},
 	{}
 };
 

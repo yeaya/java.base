@@ -23,8 +23,8 @@ $FieldInfo _ClassSpecializer$Factory$1_FieldInfo_[] = {
 };
 
 $MethodInfo _ClassSpecializer$Factory$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/invoke/ClassSpecializer$Factory;)V", nullptr, 0, $method(static_cast<void(ClassSpecializer$Factory$1::*)($ClassSpecializer$Factory*)>(&ClassSpecializer$Factory$1::init$))},
-	{"run", "()Ljava/security/ProtectionDomain;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/invoke/ClassSpecializer$Factory;)V", nullptr, 0, $method(ClassSpecializer$Factory$1, init$, void, $ClassSpecializer$Factory*)},
+	{"run", "()Ljava/security/ProtectionDomain;", nullptr, $PUBLIC, $virtualMethod(ClassSpecializer$Factory$1, run, $Object*)},
 	{}
 };
 

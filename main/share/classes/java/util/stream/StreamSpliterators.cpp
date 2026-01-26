@@ -11,7 +11,7 @@ namespace java {
 		namespace stream {
 
 $MethodInfo _StreamSpliterators_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(StreamSpliterators::*)()>(&StreamSpliterators::init$))},
+	{"<init>", "()V", nullptr, 0, $method(StreamSpliterators, init$, void)},
 	{}
 };
 

@@ -24,9 +24,9 @@ $MethodInfo _Combo1_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Combo1::*)()>(&Combo1::init$))},
+	{"<init>", "()V", nullptr, 0, $method(Combo1, init$, void)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"wombat", "()V", nullptr, $PUBLIC, nullptr, nullptr, nullptr, _Combo1_MethodAnnotations_wombat1},
+	{"wombat", "()V", nullptr, $PUBLIC, $virtualMethod(Combo1, wombat, void), nullptr, nullptr, _Combo1_MethodAnnotations_wombat1},
 	{}
 };
 

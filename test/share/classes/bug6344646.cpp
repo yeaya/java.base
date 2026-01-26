@@ -11,8 +11,8 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $Locale = ::java::util::Locale;
 
 $MethodInfo _bug6344646_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(bug6344646::*)()>(&bug6344646::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&bug6344646::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(bug6344646, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug6344646, main, void, $StringArray*)},
 	{}
 };
 

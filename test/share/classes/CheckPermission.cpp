@@ -59,17 +59,17 @@ $FieldInfo _CheckPermission_FieldInfo_[] = {
 };
 
 $MethodInfo _CheckPermission_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CheckPermission::*)()>(&CheckPermission::init$))},
-	{"assertCheckOperation", "(Ljava/io/File;Ljava/util/Set;)V", "(Ljava/io/File;Ljava/util/Set<LCheckPermission$FileOperation;>;)V", $STATIC, $method(static_cast<void(*)($File*,$Set*)>(&CheckPermission::assertCheckOperation))},
-	{"assertCheckPermission", "(Ljava/lang/Class;Ljava/lang/String;)V", "(Ljava/lang/Class<+Ljava/security/Permission;>;Ljava/lang/String;)V", $STATIC, $method(static_cast<void(*)($Class*,$String*)>(&CheckPermission::assertCheckPermission))},
-	{"assertCheckPropertyAccess", "(Ljava/lang/String;)V", nullptr, $STATIC, $method(static_cast<void(*)($String*)>(&CheckPermission::assertCheckPropertyAccess))},
-	{"assertChecked", "(Ljava/io/File;Ljava/util/List;)V", "(Ljava/io/File;Ljava/util/List<Ljava/lang/String;>;)V", $STATIC, $method(static_cast<void(*)($File*,$List*)>(&CheckPermission::assertChecked))},
-	{"assertNotCheckOperation", "(Ljava/io/File;Ljava/util/Set;)V", "(Ljava/io/File;Ljava/util/Set<LCheckPermission$FileOperation;>;)V", $STATIC, $method(static_cast<void(*)($File*,$Set*)>(&CheckPermission::assertNotCheckOperation))},
-	{"assertNotChecked", "(Ljava/io/File;Ljava/util/List;)V", "(Ljava/io/File;Ljava/util/List<Ljava/lang/String;>;)V", $STATIC, $method(static_cast<void(*)($File*,$List*)>(&CheckPermission::assertNotChecked))},
-	{"assertOnlyCheckOperation", "(Ljava/io/File;Ljava/util/EnumSet;)V", "(Ljava/io/File;Ljava/util/EnumSet<LCheckPermission$FileOperation;>;)V", $STATIC, $method(static_cast<void(*)($File*,$EnumSet*)>(&CheckPermission::assertOnlyCheckOperation))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&CheckPermission::main)), "java.io.IOException"},
-	{"prepare", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&CheckPermission::prepare))},
-	{"setup", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&CheckPermission::setup))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CheckPermission, init$, void)},
+	{"assertCheckOperation", "(Ljava/io/File;Ljava/util/Set;)V", "(Ljava/io/File;Ljava/util/Set<LCheckPermission$FileOperation;>;)V", $STATIC, $staticMethod(CheckPermission, assertCheckOperation, void, $File*, $Set*)},
+	{"assertCheckPermission", "(Ljava/lang/Class;Ljava/lang/String;)V", "(Ljava/lang/Class<+Ljava/security/Permission;>;Ljava/lang/String;)V", $STATIC, $staticMethod(CheckPermission, assertCheckPermission, void, $Class*, $String*)},
+	{"assertCheckPropertyAccess", "(Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(CheckPermission, assertCheckPropertyAccess, void, $String*)},
+	{"assertChecked", "(Ljava/io/File;Ljava/util/List;)V", "(Ljava/io/File;Ljava/util/List<Ljava/lang/String;>;)V", $STATIC, $staticMethod(CheckPermission, assertChecked, void, $File*, $List*)},
+	{"assertNotCheckOperation", "(Ljava/io/File;Ljava/util/Set;)V", "(Ljava/io/File;Ljava/util/Set<LCheckPermission$FileOperation;>;)V", $STATIC, $staticMethod(CheckPermission, assertNotCheckOperation, void, $File*, $Set*)},
+	{"assertNotChecked", "(Ljava/io/File;Ljava/util/List;)V", "(Ljava/io/File;Ljava/util/List<Ljava/lang/String;>;)V", $STATIC, $staticMethod(CheckPermission, assertNotChecked, void, $File*, $List*)},
+	{"assertOnlyCheckOperation", "(Ljava/io/File;Ljava/util/EnumSet;)V", "(Ljava/io/File;Ljava/util/EnumSet<LCheckPermission$FileOperation;>;)V", $STATIC, $staticMethod(CheckPermission, assertOnlyCheckOperation, void, $File*, $EnumSet*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(CheckPermission, main, void, $StringArray*), "java.io.IOException"},
+	{"prepare", "()V", nullptr, $STATIC, $staticMethod(CheckPermission, prepare, void)},
+	{"setup", "()V", nullptr, $STATIC, $staticMethod(CheckPermission, setup, void)},
 	{}
 };
 

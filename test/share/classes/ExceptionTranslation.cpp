@@ -19,8 +19,8 @@ using $UnknownHostException = ::java::net::UnknownHostException;
 using $SocketChannel = ::java::nio::channels::SocketChannel;
 
 $MethodInfo _ExceptionTranslation_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ExceptionTranslation::*)()>(&ExceptionTranslation::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&ExceptionTranslation::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ExceptionTranslation, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ExceptionTranslation, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

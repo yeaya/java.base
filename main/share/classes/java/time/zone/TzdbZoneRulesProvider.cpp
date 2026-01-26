@@ -71,12 +71,12 @@ $FieldInfo _TzdbZoneRulesProvider_FieldInfo_[] = {
 };
 
 $MethodInfo _TzdbZoneRulesProvider_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TzdbZoneRulesProvider::*)()>(&TzdbZoneRulesProvider::init$))},
-	{"load", "(Ljava/io/DataInputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(TzdbZoneRulesProvider::*)($DataInputStream*)>(&TzdbZoneRulesProvider::load)), "java.lang.Exception"},
-	{"provideRules", "(Ljava/lang/String;Z)Ljava/time/zone/ZoneRules;", nullptr, $PROTECTED},
-	{"provideVersions", "(Ljava/lang/String;)Ljava/util/NavigableMap;", "(Ljava/lang/String;)Ljava/util/NavigableMap<Ljava/lang/String;Ljava/time/zone/ZoneRules;>;", $PROTECTED},
-	{"provideZoneIds", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PROTECTED},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TzdbZoneRulesProvider, init$, void)},
+	{"load", "(Ljava/io/DataInputStream;)V", nullptr, $PRIVATE, $method(TzdbZoneRulesProvider, load, void, $DataInputStream*), "java.lang.Exception"},
+	{"provideRules", "(Ljava/lang/String;Z)Ljava/time/zone/ZoneRules;", nullptr, $PROTECTED, $virtualMethod(TzdbZoneRulesProvider, provideRules, $ZoneRules*, $String*, bool)},
+	{"provideVersions", "(Ljava/lang/String;)Ljava/util/NavigableMap;", "(Ljava/lang/String;)Ljava/util/NavigableMap<Ljava/lang/String;Ljava/time/zone/ZoneRules;>;", $PROTECTED, $virtualMethod(TzdbZoneRulesProvider, provideVersions, $NavigableMap*, $String*)},
+	{"provideZoneIds", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PROTECTED, $virtualMethod(TzdbZoneRulesProvider, provideZoneIds, $Set*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TzdbZoneRulesProvider, toString, $String*)},
 	{}
 };
 

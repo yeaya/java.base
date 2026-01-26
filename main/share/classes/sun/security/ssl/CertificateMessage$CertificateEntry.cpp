@@ -40,9 +40,9 @@ $FieldInfo _CertificateMessage$CertificateEntry_FieldInfo_[] = {
 };
 
 $MethodInfo _CertificateMessage$CertificateEntry_MethodInfo_[] = {
-	{"<init>", "([BLsun/security/ssl/SSLExtensions;)V", nullptr, 0, $method(static_cast<void(CertificateMessage$CertificateEntry::*)($bytes*,$SSLExtensions*)>(&CertificateMessage$CertificateEntry::init$))},
-	{"getEncodedSize", "()I", nullptr, $PRIVATE, $method(static_cast<int32_t(CertificateMessage$CertificateEntry::*)()>(&CertificateMessage$CertificateEntry::getEncodedSize))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "([BLsun/security/ssl/SSLExtensions;)V", nullptr, 0, $method(CertificateMessage$CertificateEntry, init$, void, $bytes*, $SSLExtensions*)},
+	{"getEncodedSize", "()I", nullptr, $PRIVATE, $method(CertificateMessage$CertificateEntry, getEncodedSize, int32_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CertificateMessage$CertificateEntry, toString, $String*)},
 	{}
 };
 

@@ -8,7 +8,7 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _PipelineTest$Fun_MethodInfo_[] = {
-	{"f", "()V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.lang.Throwable"},
+	{"f", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PipelineTest$Fun, f, void), "java.lang.Throwable"},
 	{}
 };
 

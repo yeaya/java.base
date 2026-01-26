@@ -59,20 +59,20 @@ $FieldInfo _EncryptedPrivateKeyInfo_FieldInfo_[] = {
 };
 
 $MethodInfo _EncryptedPrivateKeyInfo_MethodInfo_[] = {
-	{"<init>", "([B)V", nullptr, $PUBLIC, $method(static_cast<void(EncryptedPrivateKeyInfo::*)($bytes*)>(&EncryptedPrivateKeyInfo::init$)), "java.io.IOException"},
-	{"<init>", "(Ljava/lang/String;[B)V", nullptr, $PUBLIC, $method(static_cast<void(EncryptedPrivateKeyInfo::*)($String*,$bytes*)>(&EncryptedPrivateKeyInfo::init$)), "java.security.NoSuchAlgorithmException"},
-	{"<init>", "(Ljava/security/AlgorithmParameters;[B)V", nullptr, $PUBLIC, $method(static_cast<void(EncryptedPrivateKeyInfo::*)($AlgorithmParameters*,$bytes*)>(&EncryptedPrivateKeyInfo::init$)), "java.security.NoSuchAlgorithmException"},
-	{"checkPKCS8Encoding", "([B)V", nullptr, $PRIVATE, $method(static_cast<void(EncryptedPrivateKeyInfo::*)($bytes*)>(&EncryptedPrivateKeyInfo::checkPKCS8Encoding)), "java.io.IOException"},
-	{"checkTag", "(Lsun/security/util/DerValue;BLjava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($DerValue*,int8_t,$String*)>(&EncryptedPrivateKeyInfo::checkTag)), "java.io.IOException"},
-	{"getAlgName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getAlgParameters", "()Ljava/security/AlgorithmParameters;", nullptr, $PUBLIC},
-	{"getEncoded", "()[B", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"getEncryptedData", "()[B", nullptr, $PUBLIC},
-	{"getKeySpec", "(Ljavax/crypto/Cipher;)Ljava/security/spec/PKCS8EncodedKeySpec;", nullptr, $PUBLIC, nullptr, "java.security.spec.InvalidKeySpecException"},
-	{"getKeySpec", "(Ljava/security/Key;)Ljava/security/spec/PKCS8EncodedKeySpec;", nullptr, $PUBLIC, nullptr, "java.security.NoSuchAlgorithmException,java.security.InvalidKeyException"},
-	{"getKeySpec", "(Ljava/security/Key;Ljava/lang/String;)Ljava/security/spec/PKCS8EncodedKeySpec;", nullptr, $PUBLIC, nullptr, "java.security.NoSuchProviderException,java.security.NoSuchAlgorithmException,java.security.InvalidKeyException"},
-	{"getKeySpec", "(Ljava/security/Key;Ljava/security/Provider;)Ljava/security/spec/PKCS8EncodedKeySpec;", nullptr, $PUBLIC, nullptr, "java.security.NoSuchAlgorithmException,java.security.InvalidKeyException"},
-	{"getKeySpecImpl", "(Ljava/security/Key;Ljava/security/Provider;)Ljava/security/spec/PKCS8EncodedKeySpec;", nullptr, $PRIVATE, $method(static_cast<$PKCS8EncodedKeySpec*(EncryptedPrivateKeyInfo::*)($Key*,$Provider*)>(&EncryptedPrivateKeyInfo::getKeySpecImpl)), "java.security.NoSuchAlgorithmException,java.security.InvalidKeyException"},
+	{"<init>", "([B)V", nullptr, $PUBLIC, $method(EncryptedPrivateKeyInfo, init$, void, $bytes*), "java.io.IOException"},
+	{"<init>", "(Ljava/lang/String;[B)V", nullptr, $PUBLIC, $method(EncryptedPrivateKeyInfo, init$, void, $String*, $bytes*), "java.security.NoSuchAlgorithmException"},
+	{"<init>", "(Ljava/security/AlgorithmParameters;[B)V", nullptr, $PUBLIC, $method(EncryptedPrivateKeyInfo, init$, void, $AlgorithmParameters*, $bytes*), "java.security.NoSuchAlgorithmException"},
+	{"checkPKCS8Encoding", "([B)V", nullptr, $PRIVATE, $method(EncryptedPrivateKeyInfo, checkPKCS8Encoding, void, $bytes*), "java.io.IOException"},
+	{"checkTag", "(Lsun/security/util/DerValue;BLjava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(EncryptedPrivateKeyInfo, checkTag, void, $DerValue*, int8_t, $String*), "java.io.IOException"},
+	{"getAlgName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(EncryptedPrivateKeyInfo, getAlgName, $String*)},
+	{"getAlgParameters", "()Ljava/security/AlgorithmParameters;", nullptr, $PUBLIC, $virtualMethod(EncryptedPrivateKeyInfo, getAlgParameters, $AlgorithmParameters*)},
+	{"getEncoded", "()[B", nullptr, $PUBLIC, $virtualMethod(EncryptedPrivateKeyInfo, getEncoded, $bytes*), "java.io.IOException"},
+	{"getEncryptedData", "()[B", nullptr, $PUBLIC, $virtualMethod(EncryptedPrivateKeyInfo, getEncryptedData, $bytes*)},
+	{"getKeySpec", "(Ljavax/crypto/Cipher;)Ljava/security/spec/PKCS8EncodedKeySpec;", nullptr, $PUBLIC, $virtualMethod(EncryptedPrivateKeyInfo, getKeySpec, $PKCS8EncodedKeySpec*, $Cipher*), "java.security.spec.InvalidKeySpecException"},
+	{"getKeySpec", "(Ljava/security/Key;)Ljava/security/spec/PKCS8EncodedKeySpec;", nullptr, $PUBLIC, $virtualMethod(EncryptedPrivateKeyInfo, getKeySpec, $PKCS8EncodedKeySpec*, $Key*), "java.security.NoSuchAlgorithmException,java.security.InvalidKeyException"},
+	{"getKeySpec", "(Ljava/security/Key;Ljava/lang/String;)Ljava/security/spec/PKCS8EncodedKeySpec;", nullptr, $PUBLIC, $virtualMethod(EncryptedPrivateKeyInfo, getKeySpec, $PKCS8EncodedKeySpec*, $Key*, $String*), "java.security.NoSuchProviderException,java.security.NoSuchAlgorithmException,java.security.InvalidKeyException"},
+	{"getKeySpec", "(Ljava/security/Key;Ljava/security/Provider;)Ljava/security/spec/PKCS8EncodedKeySpec;", nullptr, $PUBLIC, $virtualMethod(EncryptedPrivateKeyInfo, getKeySpec, $PKCS8EncodedKeySpec*, $Key*, $Provider*), "java.security.NoSuchAlgorithmException,java.security.InvalidKeyException"},
+	{"getKeySpecImpl", "(Ljava/security/Key;Ljava/security/Provider;)Ljava/security/spec/PKCS8EncodedKeySpec;", nullptr, $PRIVATE, $method(EncryptedPrivateKeyInfo, getKeySpecImpl, $PKCS8EncodedKeySpec*, $Key*, $Provider*), "java.security.NoSuchAlgorithmException,java.security.InvalidKeyException"},
 	{}
 };
 

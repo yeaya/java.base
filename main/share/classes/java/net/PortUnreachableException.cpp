@@ -17,8 +17,8 @@ $FieldInfo _PortUnreachableException_FieldInfo_[] = {
 };
 
 $MethodInfo _PortUnreachableException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(PortUnreachableException::*)($String*)>(&PortUnreachableException::init$))},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PortUnreachableException::*)()>(&PortUnreachableException::init$))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(PortUnreachableException, init$, void, $String*)},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PortUnreachableException, init$, void)},
 	{}
 };
 

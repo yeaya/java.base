@@ -32,15 +32,15 @@ $FieldInfo _CharBufferSpliterator_FieldInfo_[] = {
 };
 
 $MethodInfo _CharBufferSpliterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/CharBuffer;)V", nullptr, 0, $method(static_cast<void(CharBufferSpliterator::*)($CharBuffer*)>(&CharBufferSpliterator::init$))},
-	{"<init>", "(Ljava/nio/CharBuffer;II)V", nullptr, 0, $method(static_cast<void(CharBufferSpliterator::*)($CharBuffer*,int32_t,int32_t)>(&CharBufferSpliterator::init$))},
-	{"characteristics", "()I", nullptr, $PUBLIC},
-	{"estimateSize", "()J", nullptr, $PUBLIC},
-	{"forEachRemaining", "(Ljava/util/function/IntConsumer;)V", nullptr, $PUBLIC},
-	{"forEachRemaining", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"tryAdvance", "(Ljava/util/function/IntConsumer;)Z", nullptr, $PUBLIC},
-	{"tryAdvance", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"trySplit", "()Ljava/util/Spliterator$OfInt;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/nio/CharBuffer;)V", nullptr, 0, $method(CharBufferSpliterator, init$, void, $CharBuffer*)},
+	{"<init>", "(Ljava/nio/CharBuffer;II)V", nullptr, 0, $method(CharBufferSpliterator, init$, void, $CharBuffer*, int32_t, int32_t)},
+	{"characteristics", "()I", nullptr, $PUBLIC, $virtualMethod(CharBufferSpliterator, characteristics, int32_t)},
+	{"estimateSize", "()J", nullptr, $PUBLIC, $virtualMethod(CharBufferSpliterator, estimateSize, int64_t)},
+	{"forEachRemaining", "(Ljava/util/function/IntConsumer;)V", nullptr, $PUBLIC, $virtualMethod(CharBufferSpliterator, forEachRemaining, void, $IntConsumer*)},
+	{"forEachRemaining", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(CharBufferSpliterator, forEachRemaining, void, Object$*)},
+	{"tryAdvance", "(Ljava/util/function/IntConsumer;)Z", nullptr, $PUBLIC, $virtualMethod(CharBufferSpliterator, tryAdvance, bool, $IntConsumer*)},
+	{"tryAdvance", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(CharBufferSpliterator, tryAdvance, bool, Object$*)},
+	{"trySplit", "()Ljava/util/Spliterator$OfInt;", nullptr, $PUBLIC, $virtualMethod(CharBufferSpliterator, trySplit, $Spliterator$OfInt*)},
 	{}
 };
 

@@ -118,14 +118,14 @@ $FieldInfo _DHServerKeyExchange$DHServerKeyExchangeMessage_FieldInfo_[] = {
 };
 
 $MethodInfo _DHServerKeyExchange$DHServerKeyExchangeMessage_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/ssl/HandshakeContext;)V", nullptr, 0, $method(static_cast<void(DHServerKeyExchange$DHServerKeyExchangeMessage::*)($HandshakeContext*)>(&DHServerKeyExchange$DHServerKeyExchangeMessage::init$)), "java.io.IOException"},
-	{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)V", nullptr, 0, $method(static_cast<void(DHServerKeyExchange$DHServerKeyExchangeMessage::*)($HandshakeContext*,$ByteBuffer*)>(&DHServerKeyExchange$DHServerKeyExchangeMessage::init$)), "java.io.IOException"},
-	{"getSignature", "(Ljava/lang/String;Ljava/security/Key;)Ljava/security/Signature;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$Signature*(*)($String*,$Key*)>(&DHServerKeyExchange$DHServerKeyExchangeMessage::getSignature)), "java.security.NoSuchAlgorithmException,java.security.InvalidKeyException"},
-	{"handshakeType", "()Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC},
-	{"messageLength", "()I", nullptr, $PUBLIC},
-	{"send", "(Lsun/security/ssl/HandshakeOutStream;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"updateSignature", "(Ljava/security/Signature;[B[B)V", nullptr, $PRIVATE, $method(static_cast<void(DHServerKeyExchange$DHServerKeyExchangeMessage::*)($Signature*,$bytes*,$bytes*)>(&DHServerKeyExchange$DHServerKeyExchangeMessage::updateSignature)), "java.security.SignatureException"},
+	{"<init>", "(Lsun/security/ssl/HandshakeContext;)V", nullptr, 0, $method(DHServerKeyExchange$DHServerKeyExchangeMessage, init$, void, $HandshakeContext*), "java.io.IOException"},
+	{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)V", nullptr, 0, $method(DHServerKeyExchange$DHServerKeyExchangeMessage, init$, void, $HandshakeContext*, $ByteBuffer*), "java.io.IOException"},
+	{"getSignature", "(Ljava/lang/String;Ljava/security/Key;)Ljava/security/Signature;", nullptr, $PRIVATE | $STATIC, $staticMethod(DHServerKeyExchange$DHServerKeyExchangeMessage, getSignature, $Signature*, $String*, $Key*), "java.security.NoSuchAlgorithmException,java.security.InvalidKeyException"},
+	{"handshakeType", "()Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC, $virtualMethod(DHServerKeyExchange$DHServerKeyExchangeMessage, handshakeType, $SSLHandshake*)},
+	{"messageLength", "()I", nullptr, $PUBLIC, $virtualMethod(DHServerKeyExchange$DHServerKeyExchangeMessage, messageLength, int32_t)},
+	{"send", "(Lsun/security/ssl/HandshakeOutStream;)V", nullptr, $PUBLIC, $virtualMethod(DHServerKeyExchange$DHServerKeyExchangeMessage, send, void, $HandshakeOutStream*), "java.io.IOException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DHServerKeyExchange$DHServerKeyExchangeMessage, toString, $String*)},
+	{"updateSignature", "(Ljava/security/Signature;[B[B)V", nullptr, $PRIVATE, $method(DHServerKeyExchange$DHServerKeyExchangeMessage, updateSignature, void, $Signature*, $bytes*, $bytes*), "java.security.SignatureException"},
 	{}
 };
 

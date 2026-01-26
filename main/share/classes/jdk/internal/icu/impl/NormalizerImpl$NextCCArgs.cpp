@@ -23,7 +23,7 @@ $FieldInfo _NormalizerImpl$NextCCArgs_FieldInfo_[] = {
 };
 
 $MethodInfo _NormalizerImpl$NextCCArgs_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(NormalizerImpl$NextCCArgs::*)()>(&NormalizerImpl$NextCCArgs::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(NormalizerImpl$NextCCArgs, init$, void)},
 	{}
 };
 

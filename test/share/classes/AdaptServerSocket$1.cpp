@@ -31,8 +31,8 @@ $FieldInfo _AdaptServerSocket$1_FieldInfo_[] = {
 };
 
 $MethodInfo _AdaptServerSocket$1_MethodInfo_[] = {
-	{"<init>", "(II)V", nullptr, 0, $method(static_cast<void(AdaptServerSocket$1::*)(int32_t,int32_t)>(&AdaptServerSocket$1::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(II)V", nullptr, 0, $method(AdaptServerSocket$1, init$, void, int32_t, int32_t)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(AdaptServerSocket$1, run, void)},
 	{}
 };
 

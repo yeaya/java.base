@@ -30,7 +30,7 @@ $Attribute _SingleMemberShortArrayDef_DefaultValue_value0 = {
 };
 
 $MethodInfo _SingleMemberShortArrayDef_MethodInfo_[] = {
-	{"value", "()[S", nullptr, $PUBLIC | $ABSTRACT, nullptr, nullptr, &_SingleMemberShortArrayDef_DefaultValue_value0},
+	{"value", "()[S", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SingleMemberShortArrayDef, value, $shorts*), nullptr, &_SingleMemberShortArrayDef_DefaultValue_value0},
 	{}
 };
 

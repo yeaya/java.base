@@ -30,9 +30,9 @@ $FieldInfo _Module$ArchivedData_FieldInfo_[] = {
 };
 
 $MethodInfo _Module$ArchivedData_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(Module$ArchivedData::*)()>(&Module$ArchivedData::init$))},
-	{"archive", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&Module$ArchivedData::archive))},
-	{"get", "()Ljava/lang/Module$ArchivedData;", nullptr, $STATIC, $method(static_cast<Module$ArchivedData*(*)()>(&Module$ArchivedData::get))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(Module$ArchivedData, init$, void)},
+	{"archive", "()V", nullptr, $STATIC, $staticMethod(Module$ArchivedData, archive, void)},
+	{"get", "()Ljava/lang/Module$ArchivedData;", nullptr, $STATIC, $staticMethod(Module$ArchivedData, get, Module$ArchivedData*)},
 	{}
 };
 

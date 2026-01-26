@@ -22,7 +22,7 @@ $FieldInfo _UCharacterProperty$BiDiIntProperty_FieldInfo_[] = {
 };
 
 $MethodInfo _UCharacterProperty$BiDiIntProperty_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/icu/impl/UCharacterProperty;)V", nullptr, 0, $method(static_cast<void(UCharacterProperty$BiDiIntProperty::*)($UCharacterProperty*)>(&UCharacterProperty$BiDiIntProperty::init$))},
+	{"<init>", "(Ljdk/internal/icu/impl/UCharacterProperty;)V", nullptr, 0, $method(UCharacterProperty$BiDiIntProperty, init$, void, $UCharacterProperty*)},
 	{}
 };
 

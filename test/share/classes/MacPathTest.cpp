@@ -24,13 +24,13 @@ using $Normalizer = ::java::text::Normalizer;
 using $Normalizer$Form = ::java::text::Normalizer$Form;
 
 $MethodInfo _MacPathTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(MacPathTest::*)()>(&MacPathTest::init$))},
-	{"equal", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)(Object$*,Object$*)>(&MacPathTest::equal))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&MacPathTest::main)), "java.lang.Throwable"},
-	{"match", "(Ljava/io/File;Ljava/io/File;)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($File*,$File*)>(&MacPathTest::match))},
-	{"open_read", "(Ljava/lang/String;Ljava/io/File;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($String*,$File*)>(&MacPathTest::open_read)), "java.lang.Throwable"},
-	{"removeAll", "(Ljava/io/File;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($File*)>(&MacPathTest::removeAll)), "java.lang.Throwable"},
-	{"test", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($String*,$String*,$String*)>(&MacPathTest::test)), "java.lang.Throwable"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(MacPathTest, init$, void)},
+	{"equal", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(MacPathTest, equal, bool, Object$*, Object$*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(MacPathTest, main, void, $StringArray*), "java.lang.Throwable"},
+	{"match", "(Ljava/io/File;Ljava/io/File;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(MacPathTest, match, bool, $File*, $File*)},
+	{"open_read", "(Ljava/lang/String;Ljava/io/File;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(MacPathTest, open_read, void, $String*, $File*), "java.lang.Throwable"},
+	{"removeAll", "(Ljava/io/File;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(MacPathTest, removeAll, void, $File*), "java.lang.Throwable"},
+	{"test", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(MacPathTest, test, void, $String*, $String*, $String*), "java.lang.Throwable"},
 	{}
 };
 

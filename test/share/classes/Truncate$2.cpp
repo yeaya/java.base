@@ -17,8 +17,8 @@ $FieldInfo _Truncate$2_FieldInfo_[] = {
 };
 
 $MethodInfo _Truncate$2_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/MappedByteBuffer;)V", "()V", 0, $method(static_cast<void(Truncate$2::*)($MappedByteBuffer*)>(&Truncate$2::init$))},
-	{"call", "()Ljava/lang/Void;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljava/nio/MappedByteBuffer;)V", "()V", 0, $method(Truncate$2, init$, void, $MappedByteBuffer*)},
+	{"call", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(Truncate$2, call, $Object*), "java.io.IOException"},
 	{}
 };
 

@@ -19,7 +19,7 @@ $FieldInfo _SecureClassLoader$DebugHolder_FieldInfo_[] = {
 };
 
 $MethodInfo _SecureClassLoader$DebugHolder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(SecureClassLoader$DebugHolder::*)()>(&SecureClassLoader$DebugHolder::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(SecureClassLoader$DebugHolder, init$, void)},
 	{}
 };
 

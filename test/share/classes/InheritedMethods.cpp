@@ -16,8 +16,8 @@ using $Collection = ::java::util::Collection;
 using $List = ::java::util::List;
 
 $MethodInfo _InheritedMethods_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(InheritedMethods::*)()>(&InheritedMethods::init$)), "java.lang.Exception"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&InheritedMethods::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, 0, $method(InheritedMethods, init$, void), "java.lang.Exception"},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(InheritedMethods, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

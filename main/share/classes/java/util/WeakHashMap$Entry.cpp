@@ -31,13 +31,13 @@ $FieldInfo _WeakHashMap$Entry_FieldInfo_[] = {
 $MethodInfo _WeakHashMap$Entry_MethodInfo_[] = {
 	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/ref/ReferenceQueue;ILjava/util/WeakHashMap$Entry;)V", "(Ljava/lang/Object;TV;Ljava/lang/ref/ReferenceQueue<Ljava/lang/Object;>;ILjava/util/WeakHashMap$Entry<TK;TV;>;)V", 0, $method(static_cast<void(WeakHashMap$Entry::*)(Object$*,Object$*,$ReferenceQueue*,int32_t,WeakHashMap$Entry*)>(&WeakHashMap$Entry::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getKey", "()Ljava/lang/Object;", "()TK;", $PUBLIC},
-	{"getValue", "()Ljava/lang/Object;", "()TV;", $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"setValue", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TV;)TV;", $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/ref/ReferenceQueue;ILjava/util/WeakHashMap$Entry;)V", "(Ljava/lang/Object;TV;Ljava/lang/ref/ReferenceQueue<Ljava/lang/Object;>;ILjava/util/WeakHashMap$Entry<TK;TV;>;)V", 0, $method(WeakHashMap$Entry, init$, void, Object$*, Object$*, $ReferenceQueue*, int32_t, WeakHashMap$Entry*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(WeakHashMap$Entry, equals, bool, Object$*)},
+	{"getKey", "()Ljava/lang/Object;", "()TK;", $PUBLIC, $virtualMethod(WeakHashMap$Entry, getKey, $Object*)},
+	{"getValue", "()Ljava/lang/Object;", "()TV;", $PUBLIC, $virtualMethod(WeakHashMap$Entry, getValue, $Object*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(WeakHashMap$Entry, hashCode, int32_t)},
+	{"setValue", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TV;)TV;", $PUBLIC, $virtualMethod(WeakHashMap$Entry, setValue, $Object*, Object$*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(WeakHashMap$Entry, toString, $String*)},
 	{}
 };
 

@@ -14,7 +14,7 @@ namespace sun {
 		namespace ssl {
 
 $MethodInfo _ServerNameExtension$CHServerNamesSpec$UnknownServerName_MethodInfo_[] = {
-	{"<init>", "(I[B)V", nullptr, 0, $method(static_cast<void(ServerNameExtension$CHServerNamesSpec$UnknownServerName::*)(int32_t,$bytes*)>(&ServerNameExtension$CHServerNamesSpec$UnknownServerName::init$))},
+	{"<init>", "(I[B)V", nullptr, 0, $method(ServerNameExtension$CHServerNamesSpec$UnknownServerName, init$, void, int32_t, $bytes*)},
 	{}
 };
 

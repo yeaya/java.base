@@ -14,10 +14,10 @@ using $GregorianCalendar = ::java::util::GregorianCalendar;
 using $Locale = ::java::util::Locale;
 
 $MethodInfo _TestUtils_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TestUtils::*)()>(&TestUtils::init$))},
-	{"hasSpecialVariant", "(Ljava/util/Locale;)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)($Locale*)>(&TestUtils::hasSpecialVariant))},
-	{"usesAsciiDigits", "(Ljava/util/Locale;)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)($Locale*)>(&TestUtils::usesAsciiDigits))},
-	{"usesGregorianCalendar", "(Ljava/util/Locale;)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)($Locale*)>(&TestUtils::usesGregorianCalendar))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TestUtils, init$, void)},
+	{"hasSpecialVariant", "(Ljava/util/Locale;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(TestUtils, hasSpecialVariant, bool, $Locale*)},
+	{"usesAsciiDigits", "(Ljava/util/Locale;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(TestUtils, usesAsciiDigits, bool, $Locale*)},
+	{"usesGregorianCalendar", "(Ljava/util/Locale;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(TestUtils, usesGregorianCalendar, bool, $Locale*)},
 	{}
 };
 

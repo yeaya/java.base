@@ -13,7 +13,7 @@ namespace jdk {
 			namespace impl {
 
 $MethodInfo _Trie$DataManipulate_MethodInfo_[] = {
-	{"getFoldingOffset", "(I)I", nullptr, $PUBLIC | $ABSTRACT},
+	{"getFoldingOffset", "(I)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Trie$DataManipulate, getFoldingOffset, int32_t, int32_t)},
 	{}
 };
 

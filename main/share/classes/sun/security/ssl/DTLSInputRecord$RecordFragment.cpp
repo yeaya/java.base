@@ -34,11 +34,11 @@ $FieldInfo _DTLSInputRecord$RecordFragment_FieldInfo_[] = {
 };
 
 $MethodInfo _DTLSInputRecord$RecordFragment_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/ByteBuffer;BBB[BIJZ)V", nullptr, 0, $method(static_cast<void(DTLSInputRecord$RecordFragment::*)($ByteBuffer*,int8_t,int8_t,int8_t,$bytes*,int32_t,int64_t,bool)>(&DTLSInputRecord$RecordFragment::init$))},
-	{"<init>", "([BBBB[BIJZ)V", nullptr, 0, $method(static_cast<void(DTLSInputRecord$RecordFragment::*)($bytes*,int8_t,int8_t,int8_t,$bytes*,int32_t,int64_t,bool)>(&DTLSInputRecord$RecordFragment::init$))},
-	{"compareTo", "(Lsun/security/ssl/DTLSInputRecord$RecordFragment;)I", nullptr, $PUBLIC},
-	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"compareToSequence", "(IJ)I", nullptr, 0},
+	{"<init>", "(Ljava/nio/ByteBuffer;BBB[BIJZ)V", nullptr, 0, $method(DTLSInputRecord$RecordFragment, init$, void, $ByteBuffer*, int8_t, int8_t, int8_t, $bytes*, int32_t, int64_t, bool)},
+	{"<init>", "([BBBB[BIJZ)V", nullptr, 0, $method(DTLSInputRecord$RecordFragment, init$, void, $bytes*, int8_t, int8_t, int8_t, $bytes*, int32_t, int64_t, bool)},
+	{"compareTo", "(Lsun/security/ssl/DTLSInputRecord$RecordFragment;)I", nullptr, $PUBLIC, $virtualMethod(DTLSInputRecord$RecordFragment, compareTo, int32_t, DTLSInputRecord$RecordFragment*)},
+	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DTLSInputRecord$RecordFragment, compareTo, int32_t, Object$*)},
+	{"compareToSequence", "(IJ)I", nullptr, 0, $virtualMethod(DTLSInputRecord$RecordFragment, compareToSequence, int32_t, int32_t, int64_t)},
 	{}
 };
 

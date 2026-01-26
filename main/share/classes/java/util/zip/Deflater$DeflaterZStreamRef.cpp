@@ -28,10 +28,10 @@ $FieldInfo _Deflater$DeflaterZStreamRef_FieldInfo_[] = {
 };
 
 $MethodInfo _Deflater$DeflaterZStreamRef_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/zip/Deflater;J)V", nullptr, $PRIVATE, $method(static_cast<void(Deflater$DeflaterZStreamRef::*)($Deflater*,int64_t)>(&Deflater$DeflaterZStreamRef::init$))},
-	{"address", "()J", nullptr, 0},
-	{"clean", "()V", nullptr, 0},
-	{"run", "()V", nullptr, $PUBLIC | $SYNCHRONIZED},
+	{"<init>", "(Ljava/util/zip/Deflater;J)V", nullptr, $PRIVATE, $method(Deflater$DeflaterZStreamRef, init$, void, $Deflater*, int64_t)},
+	{"address", "()J", nullptr, 0, $virtualMethod(Deflater$DeflaterZStreamRef, address, int64_t)},
+	{"clean", "()V", nullptr, 0, $virtualMethod(Deflater$DeflaterZStreamRef, clean, void)},
+	{"run", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Deflater$DeflaterZStreamRef, run, void)},
 	{}
 };
 

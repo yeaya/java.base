@@ -22,12 +22,12 @@ using $Short = ::java::lang::Short;
 using $BigInteger = ::java::math::BigInteger;
 
 $MethodInfo _TestValueExact_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TestValueExact::*)()>(&TestValueExact::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<void(*)($StringArray*)>(&TestValueExact::main))},
-	{"testByteValueExact", "()I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)()>(&TestValueExact::testByteValueExact))},
-	{"testIntValueExact", "()I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)()>(&TestValueExact::testIntValueExact))},
-	{"testLongValueExact", "()I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)()>(&TestValueExact::testLongValueExact))},
-	{"testShortValueExact", "()I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)()>(&TestValueExact::testShortValueExact))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TestValueExact, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(TestValueExact, main, void, $StringArray*)},
+	{"testByteValueExact", "()I", nullptr, $PRIVATE | $STATIC, $staticMethod(TestValueExact, testByteValueExact, int32_t)},
+	{"testIntValueExact", "()I", nullptr, $PRIVATE | $STATIC, $staticMethod(TestValueExact, testIntValueExact, int32_t)},
+	{"testLongValueExact", "()I", nullptr, $PRIVATE | $STATIC, $staticMethod(TestValueExact, testLongValueExact, int32_t)},
+	{"testShortValueExact", "()I", nullptr, $PRIVATE | $STATIC, $staticMethod(TestValueExact, testShortValueExact, int32_t)},
 	{}
 };
 

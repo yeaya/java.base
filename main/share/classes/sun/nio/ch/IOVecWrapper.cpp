@@ -52,17 +52,17 @@ $FieldInfo _IOVecWrapper_FieldInfo_[] = {
 };
 
 $MethodInfo _IOVecWrapper_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PRIVATE, $method(static_cast<void(IOVecWrapper::*)(int32_t)>(&IOVecWrapper::init$))},
-	{"clearRefs", "(I)V", nullptr, 0},
-	{"get", "(I)Lsun/nio/ch/IOVecWrapper;", nullptr, $STATIC, $method(static_cast<IOVecWrapper*(*)(int32_t)>(&IOVecWrapper::get))},
-	{"getBuffer", "(I)Ljava/nio/ByteBuffer;", nullptr, 0},
-	{"getPosition", "(I)I", nullptr, 0},
-	{"getRemaining", "(I)I", nullptr, 0},
-	{"getShadow", "(I)Ljava/nio/ByteBuffer;", nullptr, 0},
-	{"putBase", "(IJ)V", nullptr, 0},
-	{"putLen", "(IJ)V", nullptr, 0},
-	{"setBuffer", "(ILjava/nio/ByteBuffer;II)V", nullptr, 0},
-	{"setShadow", "(ILjava/nio/ByteBuffer;)V", nullptr, 0},
+	{"<init>", "(I)V", nullptr, $PRIVATE, $method(IOVecWrapper, init$, void, int32_t)},
+	{"clearRefs", "(I)V", nullptr, 0, $virtualMethod(IOVecWrapper, clearRefs, void, int32_t)},
+	{"get", "(I)Lsun/nio/ch/IOVecWrapper;", nullptr, $STATIC, $staticMethod(IOVecWrapper, get, IOVecWrapper*, int32_t)},
+	{"getBuffer", "(I)Ljava/nio/ByteBuffer;", nullptr, 0, $virtualMethod(IOVecWrapper, getBuffer, $ByteBuffer*, int32_t)},
+	{"getPosition", "(I)I", nullptr, 0, $virtualMethod(IOVecWrapper, getPosition, int32_t, int32_t)},
+	{"getRemaining", "(I)I", nullptr, 0, $virtualMethod(IOVecWrapper, getRemaining, int32_t, int32_t)},
+	{"getShadow", "(I)Ljava/nio/ByteBuffer;", nullptr, 0, $virtualMethod(IOVecWrapper, getShadow, $ByteBuffer*, int32_t)},
+	{"putBase", "(IJ)V", nullptr, 0, $virtualMethod(IOVecWrapper, putBase, void, int32_t, int64_t)},
+	{"putLen", "(IJ)V", nullptr, 0, $virtualMethod(IOVecWrapper, putLen, void, int32_t, int64_t)},
+	{"setBuffer", "(ILjava/nio/ByteBuffer;II)V", nullptr, 0, $virtualMethod(IOVecWrapper, setBuffer, void, int32_t, $ByteBuffer*, int32_t, int32_t)},
+	{"setShadow", "(ILjava/nio/ByteBuffer;)V", nullptr, 0, $virtualMethod(IOVecWrapper, setShadow, void, int32_t, $ByteBuffer*)},
 	{}
 };
 

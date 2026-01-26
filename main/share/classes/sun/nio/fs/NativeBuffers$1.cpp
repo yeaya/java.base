@@ -18,9 +18,9 @@ namespace sun {
 		namespace fs {
 
 $MethodInfo _NativeBuffers$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(NativeBuffers$1::*)()>(&NativeBuffers$1::init$))},
-	{"threadTerminated", "([Lsun/nio/fs/NativeBuffer;)V", nullptr, $PROTECTED},
-	{"threadTerminated", "(Ljava/lang/Object;)V", nullptr, $PROTECTED | $VOLATILE | $SYNTHETIC},
+	{"<init>", "()V", nullptr, 0, $method(NativeBuffers$1, init$, void)},
+	{"threadTerminated", "([Lsun/nio/fs/NativeBuffer;)V", nullptr, $PROTECTED, $virtualMethod(NativeBuffers$1, threadTerminated, void, $NativeBufferArray*)},
+	{"threadTerminated", "(Ljava/lang/Object;)V", nullptr, $PROTECTED | $VOLATILE | $SYNTHETIC, $virtualMethod(NativeBuffers$1, threadTerminated, void, Object$*)},
 	{}
 };
 

@@ -29,11 +29,11 @@ using $Runtime = ::java::lang::Runtime;
 using $RuntimeException = ::java::lang::RuntimeException;
 
 $MethodInfo _DeleteOnExitNPE_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DeleteOnExitNPE::*)()>(&DeleteOnExitNPE::init$))},
-	{"doTest", "()V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)()>(&DeleteOnExitNPE::doTest))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&DeleteOnExitNPE::main)), "java.lang.Exception"},
-	{"run", "()V", nullptr, $PUBLIC},
-	{"runTest", "()V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)()>(&DeleteOnExitNPE::runTest)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DeleteOnExitNPE, init$, void)},
+	{"doTest", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(DeleteOnExitNPE, doTest, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(DeleteOnExitNPE, main, void, $StringArray*), "java.lang.Exception"},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(DeleteOnExitNPE, run, void)},
+	{"runTest", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(DeleteOnExitNPE, runTest, void), "java.lang.Exception"},
 	{}
 };
 

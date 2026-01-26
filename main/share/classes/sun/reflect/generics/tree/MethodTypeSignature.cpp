@@ -30,13 +30,13 @@ $FieldInfo _MethodTypeSignature_FieldInfo_[] = {
 };
 
 $MethodInfo _MethodTypeSignature_MethodInfo_[] = {
-	{"<init>", "([Lsun/reflect/generics/tree/FormalTypeParameter;[Lsun/reflect/generics/tree/TypeSignature;Lsun/reflect/generics/tree/ReturnType;[Lsun/reflect/generics/tree/FieldTypeSignature;)V", nullptr, $PRIVATE, $method(static_cast<void(MethodTypeSignature::*)($FormalTypeParameterArray*,$TypeSignatureArray*,$ReturnType*,$FieldTypeSignatureArray*)>(&MethodTypeSignature::init$))},
-	{"accept", "(Lsun/reflect/generics/visitor/Visitor;)V", "(Lsun/reflect/generics/visitor/Visitor<*>;)V", $PUBLIC},
-	{"getExceptionTypes", "()[Lsun/reflect/generics/tree/FieldTypeSignature;", nullptr, $PUBLIC},
-	{"getFormalTypeParameters", "()[Lsun/reflect/generics/tree/FormalTypeParameter;", nullptr, $PUBLIC},
-	{"getParameterTypes", "()[Lsun/reflect/generics/tree/TypeSignature;", nullptr, $PUBLIC},
-	{"getReturnType", "()Lsun/reflect/generics/tree/ReturnType;", nullptr, $PUBLIC},
-	{"make", "([Lsun/reflect/generics/tree/FormalTypeParameter;[Lsun/reflect/generics/tree/TypeSignature;Lsun/reflect/generics/tree/ReturnType;[Lsun/reflect/generics/tree/FieldTypeSignature;)Lsun/reflect/generics/tree/MethodTypeSignature;", nullptr, $PUBLIC | $STATIC, $method(static_cast<MethodTypeSignature*(*)($FormalTypeParameterArray*,$TypeSignatureArray*,$ReturnType*,$FieldTypeSignatureArray*)>(&MethodTypeSignature::make))},
+	{"<init>", "([Lsun/reflect/generics/tree/FormalTypeParameter;[Lsun/reflect/generics/tree/TypeSignature;Lsun/reflect/generics/tree/ReturnType;[Lsun/reflect/generics/tree/FieldTypeSignature;)V", nullptr, $PRIVATE, $method(MethodTypeSignature, init$, void, $FormalTypeParameterArray*, $TypeSignatureArray*, $ReturnType*, $FieldTypeSignatureArray*)},
+	{"accept", "(Lsun/reflect/generics/visitor/Visitor;)V", "(Lsun/reflect/generics/visitor/Visitor<*>;)V", $PUBLIC, $virtualMethod(MethodTypeSignature, accept, void, $Visitor*)},
+	{"getExceptionTypes", "()[Lsun/reflect/generics/tree/FieldTypeSignature;", nullptr, $PUBLIC, $virtualMethod(MethodTypeSignature, getExceptionTypes, $FieldTypeSignatureArray*)},
+	{"getFormalTypeParameters", "()[Lsun/reflect/generics/tree/FormalTypeParameter;", nullptr, $PUBLIC, $virtualMethod(MethodTypeSignature, getFormalTypeParameters, $FormalTypeParameterArray*)},
+	{"getParameterTypes", "()[Lsun/reflect/generics/tree/TypeSignature;", nullptr, $PUBLIC, $virtualMethod(MethodTypeSignature, getParameterTypes, $TypeSignatureArray*)},
+	{"getReturnType", "()Lsun/reflect/generics/tree/ReturnType;", nullptr, $PUBLIC, $virtualMethod(MethodTypeSignature, getReturnType, $ReturnType*)},
+	{"make", "([Lsun/reflect/generics/tree/FormalTypeParameter;[Lsun/reflect/generics/tree/TypeSignature;Lsun/reflect/generics/tree/ReturnType;[Lsun/reflect/generics/tree/FieldTypeSignature;)Lsun/reflect/generics/tree/MethodTypeSignature;", nullptr, $PUBLIC | $STATIC, $staticMethod(MethodTypeSignature, make, MethodTypeSignature*, $FormalTypeParameterArray*, $TypeSignatureArray*, $ReturnType*, $FieldTypeSignatureArray*)},
 	{}
 };
 

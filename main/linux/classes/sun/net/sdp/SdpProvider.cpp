@@ -75,13 +75,13 @@ $FieldInfo _SdpProvider_FieldInfo_[] = {
 };
 
 $MethodInfo _SdpProvider_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SdpProvider::*)()>(&SdpProvider::init$))},
-	{"convertTcpToSdpIfMatch", "(Ljava/io/FileDescriptor;Lsun/net/sdp/SdpProvider$Action;Ljava/net/InetAddress;I)V", nullptr, $PRIVATE, $method(static_cast<void(SdpProvider::*)($FileDescriptor*,$SdpProvider$Action*,$InetAddress*,int32_t)>(&SdpProvider::convertTcpToSdpIfMatch)), "java.io.IOException"},
-	{"fail", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $TRANSIENT, $method(static_cast<void(*)($String*,$ObjectArray*)>(&SdpProvider::fail))},
-	{"implBeforeTcpBind", "(Ljava/io/FileDescriptor;Ljava/net/InetAddress;I)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"implBeforeTcpConnect", "(Ljava/io/FileDescriptor;Ljava/net/InetAddress;I)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"loadRulesFromFile", "(Ljava/lang/String;)Ljava/util/List;", "(Ljava/lang/String;)Ljava/util/List<Lsun/net/sdp/SdpProvider$Rule;>;", $PRIVATE | $STATIC, $method(static_cast<$List*(*)($String*)>(&SdpProvider::loadRulesFromFile)), "java.io.IOException"},
-	{"parsePortRange", "(Ljava/lang/String;)[I", nullptr, $PRIVATE | $STATIC, $method(static_cast<$ints*(*)($String*)>(&SdpProvider::parsePortRange))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SdpProvider, init$, void)},
+	{"convertTcpToSdpIfMatch", "(Ljava/io/FileDescriptor;Lsun/net/sdp/SdpProvider$Action;Ljava/net/InetAddress;I)V", nullptr, $PRIVATE, $method(SdpProvider, convertTcpToSdpIfMatch, void, $FileDescriptor*, $SdpProvider$Action*, $InetAddress*, int32_t), "java.io.IOException"},
+	{"fail", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $TRANSIENT, $staticMethod(SdpProvider, fail, void, $String*, $ObjectArray*)},
+	{"implBeforeTcpBind", "(Ljava/io/FileDescriptor;Ljava/net/InetAddress;I)V", nullptr, $PUBLIC, $virtualMethod(SdpProvider, implBeforeTcpBind, void, $FileDescriptor*, $InetAddress*, int32_t), "java.io.IOException"},
+	{"implBeforeTcpConnect", "(Ljava/io/FileDescriptor;Ljava/net/InetAddress;I)V", nullptr, $PUBLIC, $virtualMethod(SdpProvider, implBeforeTcpConnect, void, $FileDescriptor*, $InetAddress*, int32_t), "java.io.IOException"},
+	{"loadRulesFromFile", "(Ljava/lang/String;)Ljava/util/List;", "(Ljava/lang/String;)Ljava/util/List<Lsun/net/sdp/SdpProvider$Rule;>;", $PRIVATE | $STATIC, $staticMethod(SdpProvider, loadRulesFromFile, $List*, $String*), "java.io.IOException"},
+	{"parsePortRange", "(Ljava/lang/String;)[I", nullptr, $PRIVATE | $STATIC, $staticMethod(SdpProvider, parsePortRange, $ints*, $String*)},
 	{}
 };
 

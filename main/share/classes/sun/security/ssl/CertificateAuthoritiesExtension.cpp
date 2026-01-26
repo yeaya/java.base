@@ -37,7 +37,7 @@ $FieldInfo _CertificateAuthoritiesExtension_FieldInfo_[] = {
 };
 
 $MethodInfo _CertificateAuthoritiesExtension_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(CertificateAuthoritiesExtension::*)()>(&CertificateAuthoritiesExtension::init$))},
+	{"<init>", "()V", nullptr, 0, $method(CertificateAuthoritiesExtension, init$, void)},
 	{}
 };
 

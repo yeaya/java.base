@@ -12,7 +12,7 @@ namespace java {
 		namespace stream {
 
 $MethodInfo _WhileOps$DropWhileSink_MethodInfo_[] = {
-	{"getDropCount", "()J", nullptr, $PUBLIC | $ABSTRACT},
+	{"getDropCount", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(WhileOps$DropWhileSink, getDropCount, int64_t)},
 	{}
 };
 

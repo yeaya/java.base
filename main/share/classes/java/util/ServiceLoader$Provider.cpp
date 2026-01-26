@@ -12,7 +12,7 @@ namespace java {
 
 $MethodInfo _ServiceLoader$Provider_MethodInfo_[] = {
 	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
-	{"type", "()Ljava/lang/Class;", "()Ljava/lang/Class<+TS;>;", $PUBLIC | $ABSTRACT},
+	{"type", "()Ljava/lang/Class;", "()Ljava/lang/Class<+TS;>;", $PUBLIC | $ABSTRACT, $virtualMethod(ServiceLoader$Provider, type, $Class*)},
 	{}
 };
 

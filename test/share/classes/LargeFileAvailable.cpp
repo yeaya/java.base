@@ -38,10 +38,10 @@ using $StandardOpenOption = ::java::nio::file::StandardOpenOption;
 using $TimeUnit = ::java::util::concurrent::TimeUnit;
 
 $MethodInfo _LargeFileAvailable_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(LargeFileAvailable::*)()>(&LargeFileAvailable::init$))},
-	{"createLargeFile", "(JLjava/io/File;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)(int64_t,$File*)>(&LargeFileAvailable::createLargeFile)), "java.lang.Exception"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&LargeFileAvailable::main)), "java.lang.Exception"},
-	{"skipBytes", "(Ljava/io/InputStream;JJ)J", nullptr, $PRIVATE | $STATIC, $method(static_cast<int64_t(*)($InputStream*,int64_t,int64_t)>(&LargeFileAvailable::skipBytes)), "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(LargeFileAvailable, init$, void)},
+	{"createLargeFile", "(JLjava/io/File;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(LargeFileAvailable, createLargeFile, void, int64_t, $File*), "java.lang.Exception"},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(LargeFileAvailable, main, void, $StringArray*), "java.lang.Exception"},
+	{"skipBytes", "(Ljava/io/InputStream;JJ)J", nullptr, $PRIVATE | $STATIC, $staticMethod(LargeFileAvailable, skipBytes, int64_t, $InputStream*, int64_t, int64_t), "java.io.IOException"},
 	{}
 };
 

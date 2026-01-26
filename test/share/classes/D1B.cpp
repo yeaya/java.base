@@ -47,10 +47,10 @@ $MethodInfo _D1B_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(D1B::*)()>(&D1B::init$))},
-	{"baz", "()V", nullptr, $PUBLIC, nullptr, nullptr, nullptr, _D1B_MethodAnnotations_baz1},
-	{"foo", "()V", nullptr, $PUBLIC, nullptr, nullptr, nullptr, _D1B_MethodAnnotations_foo2},
-	{"quux", "()V", nullptr, $PUBLIC, nullptr, nullptr, nullptr, _D1B_MethodAnnotations_quux3},
+	{"<init>", "()V", nullptr, 0, $method(D1B, init$, void)},
+	{"baz", "()V", nullptr, $PUBLIC, $virtualMethod(D1B, baz, void), nullptr, nullptr, _D1B_MethodAnnotations_baz1},
+	{"foo", "()V", nullptr, $PUBLIC, $virtualMethod(D1B, foo, void), nullptr, nullptr, _D1B_MethodAnnotations_foo2},
+	{"quux", "()V", nullptr, $PUBLIC, $virtualMethod(D1B, quux, void), nullptr, nullptr, _D1B_MethodAnnotations_quux3},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

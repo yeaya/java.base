@@ -26,8 +26,8 @@ $FieldInfo _StatusResponseManager$1_FieldInfo_[] = {
 };
 
 $MethodInfo _StatusResponseManager$1_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/ssl/StatusResponseManager;)V", nullptr, 0, $method(static_cast<void(StatusResponseManager$1::*)($StatusResponseManager*)>(&StatusResponseManager$1::init$))},
-	{"newThread", "(Ljava/lang/Runnable;)Ljava/lang/Thread;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/security/ssl/StatusResponseManager;)V", nullptr, 0, $method(StatusResponseManager$1, init$, void, $StatusResponseManager*)},
+	{"newThread", "(Ljava/lang/Runnable;)Ljava/lang/Thread;", nullptr, $PUBLIC, $virtualMethod(StatusResponseManager$1, newThread, $Thread*, $Runnable*)},
 	{}
 };
 

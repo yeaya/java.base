@@ -21,10 +21,10 @@ $FieldInfo _PassThroughFileSystem$PassThroughPath$1_FieldInfo_[] = {
 };
 
 $MethodInfo _PassThroughFileSystem$PassThroughPath$1_MethodInfo_[] = {
-	{"<init>", "(LPassThroughFileSystem$PassThroughPath;Ljava/util/Iterator;)V", "()V", 0, $method(static_cast<void(PassThroughFileSystem$PassThroughPath$1::*)($PassThroughFileSystem$PassThroughPath*,$Iterator*)>(&PassThroughFileSystem$PassThroughPath$1::init$))},
-	{"hasNext", "()Z", nullptr, $PUBLIC},
-	{"next", "()Ljava/nio/file/Path;", nullptr, $PUBLIC},
-	{"remove", "()V", nullptr, $PUBLIC},
+	{"<init>", "(LPassThroughFileSystem$PassThroughPath;Ljava/util/Iterator;)V", "()V", 0, $method(PassThroughFileSystem$PassThroughPath$1, init$, void, $PassThroughFileSystem$PassThroughPath*, $Iterator*)},
+	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(PassThroughFileSystem$PassThroughPath$1, hasNext, bool)},
+	{"next", "()Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(PassThroughFileSystem$PassThroughPath$1, next, $Object*)},
+	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(PassThroughFileSystem$PassThroughPath$1, remove, void)},
 	{}
 };
 

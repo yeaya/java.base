@@ -59,17 +59,17 @@ $FieldInfo _SocksServer$ClientHandler_FieldInfo_[] = {
 };
 
 $MethodInfo _SocksServer$ClientHandler_MethodInfo_[] = {
-	{"<init>", "(LSocksServer;Ljava/net/Socket;)V", nullptr, 0, $method(static_cast<void(SocksServer$ClientHandler::*)($SocksServer*,$Socket*)>(&SocksServer$ClientHandler::init$)), "java.io.IOException"},
-	{"doBind", "(Ljava/net/InetSocketAddress;)V", nullptr, $PRIVATE, $method(static_cast<void(SocksServer$ClientHandler::*)($InetSocketAddress*)>(&SocksServer$ClientHandler::doBind)), "java.io.IOException"},
-	{"doConnect", "(Ljava/net/InetSocketAddress;)V", nullptr, $PRIVATE, $method(static_cast<void(SocksServer$ClientHandler::*)($InetSocketAddress*)>(&SocksServer$ClientHandler::doConnect)), "java.io.IOException"},
-	{"getRequest", "()V", nullptr, $PRIVATE, $method(static_cast<void(SocksServer$ClientHandler::*)()>(&SocksServer$ClientHandler::getRequest)), "java.io.IOException"},
-	{"getRequestV4", "()V", nullptr, $PRIVATE, $method(static_cast<void(SocksServer$ClientHandler::*)()>(&SocksServer$ClientHandler::getRequestV4)), "java.io.IOException"},
-	{"negociate", "()V", nullptr, $PRIVATE, $method(static_cast<void(SocksServer$ClientHandler::*)()>(&SocksServer$ClientHandler::negociate)), "java.io.IOException"},
-	{"purge", "()V", nullptr, $PRIVATE, $method(static_cast<void(SocksServer$ClientHandler::*)()>(&SocksServer$ClientHandler::purge)), "java.io.IOException"},
-	{"readBuf", "(Ljava/io/InputStream;[B)V", nullptr, $PRIVATE, $method(static_cast<void(SocksServer$ClientHandler::*)($InputStream*,$bytes*)>(&SocksServer$ClientHandler::readBuf)), "java.io.IOException"},
-	{"run", "()V", nullptr, $PUBLIC},
-	{"sendError", "(I)V", nullptr, $PRIVATE, $method(static_cast<void(SocksServer$ClientHandler::*)(int32_t)>(&SocksServer$ClientHandler::sendError))},
-	{"userPassAuth", "()Z", nullptr, $PRIVATE, $method(static_cast<bool(SocksServer$ClientHandler::*)()>(&SocksServer$ClientHandler::userPassAuth)), "java.io.IOException"},
+	{"<init>", "(LSocksServer;Ljava/net/Socket;)V", nullptr, 0, $method(SocksServer$ClientHandler, init$, void, $SocksServer*, $Socket*), "java.io.IOException"},
+	{"doBind", "(Ljava/net/InetSocketAddress;)V", nullptr, $PRIVATE, $method(SocksServer$ClientHandler, doBind, void, $InetSocketAddress*), "java.io.IOException"},
+	{"doConnect", "(Ljava/net/InetSocketAddress;)V", nullptr, $PRIVATE, $method(SocksServer$ClientHandler, doConnect, void, $InetSocketAddress*), "java.io.IOException"},
+	{"getRequest", "()V", nullptr, $PRIVATE, $method(SocksServer$ClientHandler, getRequest, void), "java.io.IOException"},
+	{"getRequestV4", "()V", nullptr, $PRIVATE, $method(SocksServer$ClientHandler, getRequestV4, void), "java.io.IOException"},
+	{"negociate", "()V", nullptr, $PRIVATE, $method(SocksServer$ClientHandler, negociate, void), "java.io.IOException"},
+	{"purge", "()V", nullptr, $PRIVATE, $method(SocksServer$ClientHandler, purge, void), "java.io.IOException"},
+	{"readBuf", "(Ljava/io/InputStream;[B)V", nullptr, $PRIVATE, $method(SocksServer$ClientHandler, readBuf, void, $InputStream*, $bytes*), "java.io.IOException"},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(SocksServer$ClientHandler, run, void)},
+	{"sendError", "(I)V", nullptr, $PRIVATE, $method(SocksServer$ClientHandler, sendError, void, int32_t)},
+	{"userPassAuth", "()Z", nullptr, $PRIVATE, $method(SocksServer$ClientHandler, userPassAuth, bool), "java.io.IOException"},
 	{}
 };
 

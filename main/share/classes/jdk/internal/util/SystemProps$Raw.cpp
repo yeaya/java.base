@@ -62,11 +62,11 @@ $FieldInfo _SystemProps$Raw_FieldInfo_[] = {
 };
 
 $MethodInfo _SystemProps$Raw_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(SystemProps$Raw::*)()>(&SystemProps$Raw::init$))},
-	{"cmdProperties", "()Ljava/util/HashMap;", "()Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE, $method(static_cast<$HashMap*(SystemProps$Raw::*)()>(&SystemProps$Raw::cmdProperties))},
-	{"platformProperties", "()[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $NATIVE, $method(static_cast<$StringArray*(*)()>(&SystemProps$Raw::platformProperties))},
-	{"propDefault", "(I)Ljava/lang/String;", nullptr, 0},
-	{"vmProperties", "()[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $NATIVE, $method(static_cast<$StringArray*(*)()>(&SystemProps$Raw::vmProperties))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(SystemProps$Raw, init$, void)},
+	{"cmdProperties", "()Ljava/util/HashMap;", "()Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE, $method(SystemProps$Raw, cmdProperties, $HashMap*)},
+	{"platformProperties", "()[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(SystemProps$Raw, platformProperties, $StringArray*)},
+	{"propDefault", "(I)Ljava/lang/String;", nullptr, 0, $virtualMethod(SystemProps$Raw, propDefault, $String*, int32_t)},
+	{"vmProperties", "()[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(SystemProps$Raw, vmProperties, $StringArray*)},
 	{}
 };
 

@@ -33,11 +33,11 @@ namespace java {
 		namespace stream {
 
 $MethodInfo _ForEachOps_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(ForEachOps::*)()>(&ForEachOps::init$))},
-	{"makeDouble", "(Ljava/util/function/DoubleConsumer;Z)Ljava/util/stream/TerminalOp;", "(Ljava/util/function/DoubleConsumer;Z)Ljava/util/stream/TerminalOp<Ljava/lang/Double;Ljava/lang/Void;>;", $PUBLIC | $STATIC, $method(static_cast<$TerminalOp*(*)($DoubleConsumer*,bool)>(&ForEachOps::makeDouble))},
-	{"makeInt", "(Ljava/util/function/IntConsumer;Z)Ljava/util/stream/TerminalOp;", "(Ljava/util/function/IntConsumer;Z)Ljava/util/stream/TerminalOp<Ljava/lang/Integer;Ljava/lang/Void;>;", $PUBLIC | $STATIC, $method(static_cast<$TerminalOp*(*)($IntConsumer*,bool)>(&ForEachOps::makeInt))},
-	{"makeLong", "(Ljava/util/function/LongConsumer;Z)Ljava/util/stream/TerminalOp;", "(Ljava/util/function/LongConsumer;Z)Ljava/util/stream/TerminalOp<Ljava/lang/Long;Ljava/lang/Void;>;", $PUBLIC | $STATIC, $method(static_cast<$TerminalOp*(*)($LongConsumer*,bool)>(&ForEachOps::makeLong))},
-	{"makeRef", "(Ljava/util/function/Consumer;Z)Ljava/util/stream/TerminalOp;", "<T:Ljava/lang/Object;>(Ljava/util/function/Consumer<-TT;>;Z)Ljava/util/stream/TerminalOp<TT;Ljava/lang/Void;>;", $PUBLIC | $STATIC, $method(static_cast<$TerminalOp*(*)($Consumer*,bool)>(&ForEachOps::makeRef))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(ForEachOps, init$, void)},
+	{"makeDouble", "(Ljava/util/function/DoubleConsumer;Z)Ljava/util/stream/TerminalOp;", "(Ljava/util/function/DoubleConsumer;Z)Ljava/util/stream/TerminalOp<Ljava/lang/Double;Ljava/lang/Void;>;", $PUBLIC | $STATIC, $staticMethod(ForEachOps, makeDouble, $TerminalOp*, $DoubleConsumer*, bool)},
+	{"makeInt", "(Ljava/util/function/IntConsumer;Z)Ljava/util/stream/TerminalOp;", "(Ljava/util/function/IntConsumer;Z)Ljava/util/stream/TerminalOp<Ljava/lang/Integer;Ljava/lang/Void;>;", $PUBLIC | $STATIC, $staticMethod(ForEachOps, makeInt, $TerminalOp*, $IntConsumer*, bool)},
+	{"makeLong", "(Ljava/util/function/LongConsumer;Z)Ljava/util/stream/TerminalOp;", "(Ljava/util/function/LongConsumer;Z)Ljava/util/stream/TerminalOp<Ljava/lang/Long;Ljava/lang/Void;>;", $PUBLIC | $STATIC, $staticMethod(ForEachOps, makeLong, $TerminalOp*, $LongConsumer*, bool)},
+	{"makeRef", "(Ljava/util/function/Consumer;Z)Ljava/util/stream/TerminalOp;", "<T:Ljava/lang/Object;>(Ljava/util/function/Consumer<-TT;>;Z)Ljava/util/stream/TerminalOp<TT;Ljava/lang/Void;>;", $PUBLIC | $STATIC, $staticMethod(ForEachOps, makeRef, $TerminalOp*, $Consumer*, bool)},
 	{}
 };
 

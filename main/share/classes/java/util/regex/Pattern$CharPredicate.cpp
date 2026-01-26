@@ -46,8 +46,8 @@ $FieldInfo Pattern$CharPredicate$$Lambda$lambda$and$0::fieldInfos[3] = {
 	{}
 };
 $MethodInfo Pattern$CharPredicate$$Lambda$lambda$and$0::methodInfos[3] = {
-	{"<init>", "(Ljava/util/regex/Pattern$CharPredicate;Ljava/util/regex/Pattern$CharPredicate;)V", nullptr, $PUBLIC, $method(static_cast<void(Pattern$CharPredicate$$Lambda$lambda$and$0::*)(Pattern$CharPredicate*,Pattern$CharPredicate*)>(&Pattern$CharPredicate$$Lambda$lambda$and$0::init$))},
-	{"is", "(I)Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/regex/Pattern$CharPredicate;Ljava/util/regex/Pattern$CharPredicate;)V", nullptr, $PUBLIC, $method(Pattern$CharPredicate$$Lambda$lambda$and$0, init$, void, Pattern$CharPredicate*, Pattern$CharPredicate*)},
+	{"is", "(I)Z", nullptr, $PUBLIC, $virtualMethod(Pattern$CharPredicate$$Lambda$lambda$and$0, is, bool, int32_t)},
 	{}
 };
 $ClassInfo Pattern$CharPredicate$$Lambda$lambda$and$0::classInfo$ = {
@@ -89,8 +89,8 @@ $FieldInfo Pattern$CharPredicate$$Lambda$lambda$union$1$1::fieldInfos[3] = {
 	{}
 };
 $MethodInfo Pattern$CharPredicate$$Lambda$lambda$union$1$1::methodInfos[3] = {
-	{"<init>", "(Ljava/util/regex/Pattern$CharPredicate;Ljava/util/regex/Pattern$CharPredicate;)V", nullptr, $PUBLIC, $method(static_cast<void(Pattern$CharPredicate$$Lambda$lambda$union$1$1::*)(Pattern$CharPredicate*,Pattern$CharPredicate*)>(&Pattern$CharPredicate$$Lambda$lambda$union$1$1::init$))},
-	{"is", "(I)Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/regex/Pattern$CharPredicate;Ljava/util/regex/Pattern$CharPredicate;)V", nullptr, $PUBLIC, $method(Pattern$CharPredicate$$Lambda$lambda$union$1$1, init$, void, Pattern$CharPredicate*, Pattern$CharPredicate*)},
+	{"is", "(I)Z", nullptr, $PUBLIC, $virtualMethod(Pattern$CharPredicate$$Lambda$lambda$union$1$1, is, bool, int32_t)},
 	{}
 };
 $ClassInfo Pattern$CharPredicate$$Lambda$lambda$union$1$1::classInfo$ = {
@@ -135,8 +135,8 @@ $FieldInfo Pattern$CharPredicate$$Lambda$lambda$union$2$2::fieldInfos[4] = {
 	{}
 };
 $MethodInfo Pattern$CharPredicate$$Lambda$lambda$union$2$2::methodInfos[3] = {
-	{"<init>", "(Ljava/util/regex/Pattern$CharPredicate;Ljava/util/regex/Pattern$CharPredicate;Ljava/util/regex/Pattern$CharPredicate;)V", nullptr, $PUBLIC, $method(static_cast<void(Pattern$CharPredicate$$Lambda$lambda$union$2$2::*)(Pattern$CharPredicate*,Pattern$CharPredicate*,Pattern$CharPredicate*)>(&Pattern$CharPredicate$$Lambda$lambda$union$2$2::init$))},
-	{"is", "(I)Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/regex/Pattern$CharPredicate;Ljava/util/regex/Pattern$CharPredicate;Ljava/util/regex/Pattern$CharPredicate;)V", nullptr, $PUBLIC, $method(Pattern$CharPredicate$$Lambda$lambda$union$2$2, init$, void, Pattern$CharPredicate*, Pattern$CharPredicate*, Pattern$CharPredicate*)},
+	{"is", "(I)Z", nullptr, $PUBLIC, $virtualMethod(Pattern$CharPredicate$$Lambda$lambda$union$2$2, is, bool, int32_t)},
 	{}
 };
 $ClassInfo Pattern$CharPredicate$$Lambda$lambda$union$2$2::classInfo$ = {
@@ -175,8 +175,8 @@ $FieldInfo Pattern$CharPredicate$$Lambda$lambda$negate$3$3::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Pattern$CharPredicate$$Lambda$lambda$negate$3$3::methodInfos[3] = {
-	{"<init>", "(Ljava/util/regex/Pattern$CharPredicate;)V", nullptr, $PUBLIC, $method(static_cast<void(Pattern$CharPredicate$$Lambda$lambda$negate$3$3::*)(Pattern$CharPredicate*)>(&Pattern$CharPredicate$$Lambda$lambda$negate$3$3::init$))},
-	{"is", "(I)Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/regex/Pattern$CharPredicate;)V", nullptr, $PUBLIC, $method(Pattern$CharPredicate$$Lambda$lambda$negate$3$3, init$, void, Pattern$CharPredicate*)},
+	{"is", "(I)Z", nullptr, $PUBLIC, $virtualMethod(Pattern$CharPredicate$$Lambda$lambda$negate$3$3, is, bool, int32_t)},
 	{}
 };
 $ClassInfo Pattern$CharPredicate$$Lambda$lambda$negate$3$3::classInfo$ = {
@@ -199,15 +199,15 @@ $CompoundAttribute _Pattern$CharPredicate_Annotations_[] = {
 };
 
 $MethodInfo _Pattern$CharPredicate_MethodInfo_[] = {
-	{"and", "(Ljava/util/regex/Pattern$CharPredicate;)Ljava/util/regex/Pattern$CharPredicate;", nullptr, $PUBLIC},
-	{"is", "(I)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"lambda$and$0", "(Ljava/util/regex/Pattern$CharPredicate;I)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<bool(Pattern$CharPredicate::*)(Pattern$CharPredicate*,int32_t)>(&Pattern$CharPredicate::lambda$and$0))},
-	{"lambda$negate$3", "(I)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<bool(Pattern$CharPredicate::*)(int32_t)>(&Pattern$CharPredicate::lambda$negate$3))},
-	{"lambda$union$1", "(Ljava/util/regex/Pattern$CharPredicate;I)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<bool(Pattern$CharPredicate::*)(Pattern$CharPredicate*,int32_t)>(&Pattern$CharPredicate::lambda$union$1))},
-	{"lambda$union$2", "(Ljava/util/regex/Pattern$CharPredicate;Ljava/util/regex/Pattern$CharPredicate;I)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<bool(Pattern$CharPredicate::*)(Pattern$CharPredicate*,Pattern$CharPredicate*,int32_t)>(&Pattern$CharPredicate::lambda$union$2))},
-	{"negate", "()Ljava/util/regex/Pattern$CharPredicate;", nullptr, $PUBLIC},
-	{"union", "(Ljava/util/regex/Pattern$CharPredicate;)Ljava/util/regex/Pattern$CharPredicate;", nullptr, $PUBLIC},
-	{"union", "(Ljava/util/regex/Pattern$CharPredicate;Ljava/util/regex/Pattern$CharPredicate;)Ljava/util/regex/Pattern$CharPredicate;", nullptr, $PUBLIC},
+	{"and", "(Ljava/util/regex/Pattern$CharPredicate;)Ljava/util/regex/Pattern$CharPredicate;", nullptr, $PUBLIC, $virtualMethod(Pattern$CharPredicate, and$, Pattern$CharPredicate*, Pattern$CharPredicate*)},
+	{"is", "(I)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Pattern$CharPredicate, is, bool, int32_t)},
+	{"lambda$and$0", "(Ljava/util/regex/Pattern$CharPredicate;I)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(Pattern$CharPredicate, lambda$and$0, bool, Pattern$CharPredicate*, int32_t)},
+	{"lambda$negate$3", "(I)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(Pattern$CharPredicate, lambda$negate$3, bool, int32_t)},
+	{"lambda$union$1", "(Ljava/util/regex/Pattern$CharPredicate;I)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(Pattern$CharPredicate, lambda$union$1, bool, Pattern$CharPredicate*, int32_t)},
+	{"lambda$union$2", "(Ljava/util/regex/Pattern$CharPredicate;Ljava/util/regex/Pattern$CharPredicate;I)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(Pattern$CharPredicate, lambda$union$2, bool, Pattern$CharPredicate*, Pattern$CharPredicate*, int32_t)},
+	{"negate", "()Ljava/util/regex/Pattern$CharPredicate;", nullptr, $PUBLIC, $virtualMethod(Pattern$CharPredicate, negate, Pattern$CharPredicate*)},
+	{"union", "(Ljava/util/regex/Pattern$CharPredicate;)Ljava/util/regex/Pattern$CharPredicate;", nullptr, $PUBLIC, $virtualMethod(Pattern$CharPredicate, union$, Pattern$CharPredicate*, Pattern$CharPredicate*)},
+	{"union", "(Ljava/util/regex/Pattern$CharPredicate;Ljava/util/regex/Pattern$CharPredicate;)Ljava/util/regex/Pattern$CharPredicate;", nullptr, $PUBLIC, $virtualMethod(Pattern$CharPredicate, union$, Pattern$CharPredicate*, Pattern$CharPredicate*, Pattern$CharPredicate*)},
 	{}
 };
 

@@ -13,8 +13,8 @@ namespace jdk {
 			namespace impl {
 
 $MethodInfo _NormalizerImpl$IsAcceptable_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(NormalizerImpl$IsAcceptable::*)()>(&NormalizerImpl$IsAcceptable::init$))},
-	{"isDataVersionAcceptable", "([B)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(NormalizerImpl$IsAcceptable, init$, void)},
+	{"isDataVersionAcceptable", "([B)Z", nullptr, $PUBLIC, $virtualMethod(NormalizerImpl$IsAcceptable, isDataVersionAcceptable, bool, $bytes*)},
 	{}
 };
 

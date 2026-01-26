@@ -36,22 +36,22 @@ $FieldInfo _ProgressSource_FieldInfo_[] = {
 };
 
 $MethodInfo _ProgressSource_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/URL;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(ProgressSource::*)($URL*,$String*)>(&ProgressSource::init$))},
-	{"<init>", "(Ljava/net/URL;Ljava/lang/String;J)V", nullptr, $PUBLIC, $method(static_cast<void(ProgressSource::*)($URL*,$String*,int64_t)>(&ProgressSource::init$))},
-	{"beginTracking", "()V", nullptr, $PUBLIC},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, nullptr, "java.lang.CloneNotSupportedException"},
-	{"close", "()V", nullptr, $PUBLIC},
-	{"connected", "()Z", nullptr, $PUBLIC},
-	{"finishTracking", "()V", nullptr, $PUBLIC},
-	{"getContentType", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getExpected", "()J", nullptr, $PUBLIC},
-	{"getMethod", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getProgress", "()J", nullptr, $PUBLIC},
-	{"getState", "()Lsun/net/ProgressSource$State;", nullptr, $PUBLIC},
-	{"getURL", "()Ljava/net/URL;", nullptr, $PUBLIC},
-	{"setContentType", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"updateProgress", "(JJ)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/net/URL;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ProgressSource, init$, void, $URL*, $String*)},
+	{"<init>", "(Ljava/net/URL;Ljava/lang/String;J)V", nullptr, $PUBLIC, $method(ProgressSource, init$, void, $URL*, $String*, int64_t)},
+	{"beginTracking", "()V", nullptr, $PUBLIC, $virtualMethod(ProgressSource, beginTracking, void)},
+	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ProgressSource, clone, $Object*), "java.lang.CloneNotSupportedException"},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(ProgressSource, close, void)},
+	{"connected", "()Z", nullptr, $PUBLIC, $virtualMethod(ProgressSource, connected, bool)},
+	{"finishTracking", "()V", nullptr, $PUBLIC, $virtualMethod(ProgressSource, finishTracking, void)},
+	{"getContentType", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ProgressSource, getContentType, $String*)},
+	{"getExpected", "()J", nullptr, $PUBLIC, $virtualMethod(ProgressSource, getExpected, int64_t)},
+	{"getMethod", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ProgressSource, getMethod, $String*)},
+	{"getProgress", "()J", nullptr, $PUBLIC, $virtualMethod(ProgressSource, getProgress, int64_t)},
+	{"getState", "()Lsun/net/ProgressSource$State;", nullptr, $PUBLIC, $virtualMethod(ProgressSource, getState, $ProgressSource$State*)},
+	{"getURL", "()Ljava/net/URL;", nullptr, $PUBLIC, $virtualMethod(ProgressSource, getURL, $URL*)},
+	{"setContentType", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ProgressSource, setContentType, void, $String*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ProgressSource, toString, $String*)},
+	{"updateProgress", "(JJ)V", nullptr, $PUBLIC, $virtualMethod(ProgressSource, updateProgress, void, int64_t, int64_t)},
 	{}
 };
 

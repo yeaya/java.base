@@ -31,8 +31,8 @@ $FieldInfo _BsdFileSystem$SupportedFileFileAttributeViewsHolder_FieldInfo_[] = {
 };
 
 $MethodInfo _BsdFileSystem$SupportedFileFileAttributeViewsHolder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(BsdFileSystem$SupportedFileFileAttributeViewsHolder::*)()>(&BsdFileSystem$SupportedFileFileAttributeViewsHolder::init$))},
-	{"supportedFileAttributeViews", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE | $STATIC, $method(static_cast<$Set*(*)()>(&BsdFileSystem$SupportedFileFileAttributeViewsHolder::supportedFileAttributeViews))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(BsdFileSystem$SupportedFileFileAttributeViewsHolder, init$, void)},
+	{"supportedFileAttributeViews", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE | $STATIC, $staticMethod(BsdFileSystem$SupportedFileFileAttributeViewsHolder, supportedFileAttributeViews, $Set*)},
 	{}
 };
 

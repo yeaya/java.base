@@ -30,7 +30,7 @@ $CompoundAttribute _ParamAnno2_Annotations_[] = {
 };
 
 $MethodInfo _ParamAnno2_MethodInfo_[] = {
-	{"value", "()I", nullptr, $PUBLIC | $ABSTRACT},
+	{"value", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ParamAnno2, value, int32_t)},
 	{}
 };
 

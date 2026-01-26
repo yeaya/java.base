@@ -5,13 +5,14 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Optional = ::java::util::Optional;
 
 namespace java {
 	namespace lang {
 		namespace constant {
 
 $MethodInfo _Constable_MethodInfo_[] = {
-	{"describeConstable", "()Ljava/util/Optional;", "()Ljava/util/Optional<+Ljava/lang/constant/ConstantDesc;>;", $PUBLIC | $ABSTRACT},
+	{"describeConstable", "()Ljava/util/Optional;", "()Ljava/util/Optional<+Ljava/lang/constant/ConstantDesc;>;", $PUBLIC | $ABSTRACT, $virtualMethod(Constable, describeConstable, $Optional*)},
 	{}
 };
 

@@ -56,14 +56,14 @@ $FieldInfo _SNIHostName_FieldInfo_[] = {
 };
 
 $MethodInfo _SNIHostName_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(SNIHostName::*)($String*)>(&SNIHostName::init$))},
-	{"<init>", "([B)V", nullptr, $PUBLIC, $method(static_cast<void(SNIHostName::*)($bytes*)>(&SNIHostName::init$))},
-	{"checkHostName", "()V", nullptr, $PRIVATE, $method(static_cast<void(SNIHostName::*)()>(&SNIHostName::checkHostName))},
-	{"createSNIMatcher", "(Ljava/lang/String;)Ljavax/net/ssl/SNIMatcher;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$SNIMatcher*(*)($String*)>(&SNIHostName::createSNIMatcher))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getAsciiName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(static_cast<$String*(SNIHostName::*)()>(&SNIHostName::getAsciiName))},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SNIHostName, init$, void, $String*)},
+	{"<init>", "([B)V", nullptr, $PUBLIC, $method(SNIHostName, init$, void, $bytes*)},
+	{"checkHostName", "()V", nullptr, $PRIVATE, $method(SNIHostName, checkHostName, void)},
+	{"createSNIMatcher", "(Ljava/lang/String;)Ljavax/net/ssl/SNIMatcher;", nullptr, $PUBLIC | $STATIC, $staticMethod(SNIHostName, createSNIMatcher, $SNIMatcher*, $String*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(SNIHostName, equals, bool, Object$*)},
+	{"getAsciiName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(SNIHostName, getAsciiName, $String*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(SNIHostName, hashCode, int32_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SNIHostName, toString, $String*)},
 	{}
 };
 

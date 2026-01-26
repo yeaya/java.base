@@ -20,10 +20,10 @@ namespace sun {
 		namespace fs {
 
 $MethodInfo _MacOSXFileSystem_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/fs/UnixFileSystemProvider;Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(MacOSXFileSystem::*)($UnixFileSystemProvider*,$String*)>(&MacOSXFileSystem::init$))},
-	{"compilePathMatchPattern", "(Ljava/lang/String;)Ljava/util/regex/Pattern;", nullptr, 0},
-	{"normalizeJavaPath", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, 0},
-	{"normalizeNativePath", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, 0},
+	{"<init>", "(Lsun/nio/fs/UnixFileSystemProvider;Ljava/lang/String;)V", nullptr, 0, $method(MacOSXFileSystem, init$, void, $UnixFileSystemProvider*, $String*)},
+	{"compilePathMatchPattern", "(Ljava/lang/String;)Ljava/util/regex/Pattern;", nullptr, 0, $virtualMethod(MacOSXFileSystem, compilePathMatchPattern, $Pattern*, $String*)},
+	{"normalizeJavaPath", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, 0, $virtualMethod(MacOSXFileSystem, normalizeJavaPath, $String*, $String*)},
+	{"normalizeNativePath", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, 0, $virtualMethod(MacOSXFileSystem, normalizeNativePath, $String*, $String*)},
 	{}
 };
 

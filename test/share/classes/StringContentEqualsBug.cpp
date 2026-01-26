@@ -16,8 +16,8 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $StringBuffer = ::java::lang::StringBuffer;
 
 $MethodInfo _StringContentEqualsBug_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(StringContentEqualsBug::*)()>(&StringContentEqualsBug::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&StringContentEqualsBug::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(StringContentEqualsBug, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StringContentEqualsBug, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

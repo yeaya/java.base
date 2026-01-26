@@ -52,19 +52,19 @@ $FieldInfo _JarFileFactory_FieldInfo_[] = {
 };
 
 $MethodInfo _JarFileFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(JarFileFactory::*)()>(&JarFileFactory::init$))},
-	{"cacheIfAbsent", "(Ljava/net/URL;Ljava/util/jar/JarFile;)Z", nullptr, 0},
-	{"close", "(Ljava/util/jar/JarFile;)V", nullptr, $PUBLIC},
-	{"closeIfNotCached", "(Ljava/net/URL;Ljava/util/jar/JarFile;)Z", nullptr, 0, nullptr, "java.io.IOException"},
-	{"get", "(Ljava/net/URL;)Ljava/util/jar/JarFile;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"get", "(Ljava/net/URL;Z)Ljava/util/jar/JarFile;", nullptr, 0, nullptr, "java.io.IOException"},
-	{"getCachedJarFile", "(Ljava/net/URL;)Ljava/util/jar/JarFile;", nullptr, $PRIVATE, $method(static_cast<$JarFile*(JarFileFactory::*)($URL*)>(&JarFileFactory::getCachedJarFile))},
-	{"getConnection", "(Ljava/util/jar/JarFile;)Ljava/net/URLConnection;", nullptr, 0, nullptr, "java.io.IOException"},
-	{"getInstance", "()Lsun/net/www/protocol/jar/JarFileFactory;", nullptr, $PUBLIC | $STATIC, $method(static_cast<JarFileFactory*(*)()>(&JarFileFactory::getInstance))},
-	{"getOrCreate", "(Ljava/net/URL;Z)Ljava/util/jar/JarFile;", nullptr, 0, nullptr, "java.io.IOException"},
-	{"getPermission", "(Ljava/util/jar/JarFile;)Ljava/security/Permission;", nullptr, $PRIVATE, $method(static_cast<$Permission*(JarFileFactory::*)($JarFile*)>(&JarFileFactory::getPermission))},
-	{"urlFor", "(Ljava/net/URL;)Ljava/net/URL;", nullptr, $PRIVATE, $method(static_cast<$URL*(JarFileFactory::*)($URL*)>(&JarFileFactory::urlFor)), "java.io.IOException"},
-	{"urlKey", "(Ljava/net/URL;)Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(JarFileFactory::*)($URL*)>(&JarFileFactory::urlKey))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(JarFileFactory, init$, void)},
+	{"cacheIfAbsent", "(Ljava/net/URL;Ljava/util/jar/JarFile;)Z", nullptr, 0, $virtualMethod(JarFileFactory, cacheIfAbsent, bool, $URL*, $JarFile*)},
+	{"close", "(Ljava/util/jar/JarFile;)V", nullptr, $PUBLIC, $virtualMethod(JarFileFactory, close, void, $JarFile*)},
+	{"closeIfNotCached", "(Ljava/net/URL;Ljava/util/jar/JarFile;)Z", nullptr, 0, $virtualMethod(JarFileFactory, closeIfNotCached, bool, $URL*, $JarFile*), "java.io.IOException"},
+	{"get", "(Ljava/net/URL;)Ljava/util/jar/JarFile;", nullptr, $PUBLIC, $virtualMethod(JarFileFactory, get, $JarFile*, $URL*), "java.io.IOException"},
+	{"get", "(Ljava/net/URL;Z)Ljava/util/jar/JarFile;", nullptr, 0, $virtualMethod(JarFileFactory, get, $JarFile*, $URL*, bool), "java.io.IOException"},
+	{"getCachedJarFile", "(Ljava/net/URL;)Ljava/util/jar/JarFile;", nullptr, $PRIVATE, $method(JarFileFactory, getCachedJarFile, $JarFile*, $URL*)},
+	{"getConnection", "(Ljava/util/jar/JarFile;)Ljava/net/URLConnection;", nullptr, 0, $virtualMethod(JarFileFactory, getConnection, $URLConnection*, $JarFile*), "java.io.IOException"},
+	{"getInstance", "()Lsun/net/www/protocol/jar/JarFileFactory;", nullptr, $PUBLIC | $STATIC, $staticMethod(JarFileFactory, getInstance, JarFileFactory*)},
+	{"getOrCreate", "(Ljava/net/URL;Z)Ljava/util/jar/JarFile;", nullptr, 0, $virtualMethod(JarFileFactory, getOrCreate, $JarFile*, $URL*, bool), "java.io.IOException"},
+	{"getPermission", "(Ljava/util/jar/JarFile;)Ljava/security/Permission;", nullptr, $PRIVATE, $method(JarFileFactory, getPermission, $Permission*, $JarFile*)},
+	{"urlFor", "(Ljava/net/URL;)Ljava/net/URL;", nullptr, $PRIVATE, $method(JarFileFactory, urlFor, $URL*, $URL*), "java.io.IOException"},
+	{"urlKey", "(Ljava/net/URL;)Ljava/lang/String;", nullptr, $PRIVATE, $method(JarFileFactory, urlKey, $String*, $URL*)},
 	{}
 };
 

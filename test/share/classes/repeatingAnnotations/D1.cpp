@@ -45,7 +45,7 @@ $CompoundAttribute _D1_Annotations_[] = {
 };
 
 $MethodInfo _D1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(D1::*)()>(&D1::init$))},
+	{"<init>", "()V", nullptr, 0, $method(D1, init$, void)},
 	{}
 };
 

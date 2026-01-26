@@ -55,15 +55,15 @@ $FieldInfo _GetAnnotatedReceiverType_FieldInfo_[] = {
 };
 
 $MethodInfo _GetAnnotatedReceiverType_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(GetAnnotatedReceiverType::*)()>(&GetAnnotatedReceiverType::init$))},
-	{"checkAnnotatedReceiverType", "(Ljava/lang/reflect/Executable;ZLjava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($Executable*,bool,$String*)>(&GetAnnotatedReceiverType::checkAnnotatedReceiverType))},
-	{"checkEmptyAT", "(Ljava/lang/reflect/Executable;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($Executable*,$String*)>(&GetAnnotatedReceiverType::checkEmptyAT))},
-	{"checkNull", "(Ljava/lang/reflect/Executable;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($Executable*,$String*)>(&GetAnnotatedReceiverType::checkNull))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&GetAnnotatedReceiverType::main)), "java.lang.NoSuchMethodException"},
-	{"method", "()V", nullptr, $PUBLIC},
-	{"method0", "()V", nullptr, $PUBLIC},
-	{"method4", "()V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)()>(&GetAnnotatedReceiverType::method4))},
-	{"recursiveCheckAnnotatedOwnerTypes", "(Ljava/lang/reflect/AnnotatedType;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($AnnotatedType*)>(&GetAnnotatedReceiverType::recursiveCheckAnnotatedOwnerTypes))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(GetAnnotatedReceiverType, init$, void)},
+	{"checkAnnotatedReceiverType", "(Ljava/lang/reflect/Executable;ZLjava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(GetAnnotatedReceiverType, checkAnnotatedReceiverType, void, $Executable*, bool, $String*)},
+	{"checkEmptyAT", "(Ljava/lang/reflect/Executable;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(GetAnnotatedReceiverType, checkEmptyAT, void, $Executable*, $String*)},
+	{"checkNull", "(Ljava/lang/reflect/Executable;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(GetAnnotatedReceiverType, checkNull, void, $Executable*, $String*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(GetAnnotatedReceiverType, main, void, $StringArray*), "java.lang.NoSuchMethodException"},
+	{"method", "()V", nullptr, $PUBLIC, $virtualMethod(GetAnnotatedReceiverType, method, void)},
+	{"method0", "()V", nullptr, $PUBLIC, $virtualMethod(GetAnnotatedReceiverType, method0, void)},
+	{"method4", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(GetAnnotatedReceiverType, method4, void)},
+	{"recursiveCheckAnnotatedOwnerTypes", "(Ljava/lang/reflect/AnnotatedType;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(GetAnnotatedReceiverType, recursiveCheckAnnotatedOwnerTypes, void, $AnnotatedType*)},
 	{}
 };
 

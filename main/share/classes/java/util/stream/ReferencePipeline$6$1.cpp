@@ -26,8 +26,8 @@ $FieldInfo _ReferencePipeline$6$1_FieldInfo_[] = {
 };
 
 $MethodInfo _ReferencePipeline$6$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/stream/ReferencePipeline$6;Ljava/util/stream/Sink;)V", nullptr, 0, $method(static_cast<void(ReferencePipeline$6$1::*)($ReferencePipeline$6*,$Sink*)>(&ReferencePipeline$6$1::init$))},
-	{"accept", "(Ljava/lang/Object;)V", "(TP_OUT;)V", $PUBLIC},
+	{"<init>", "(Ljava/util/stream/ReferencePipeline$6;Ljava/util/stream/Sink;)V", nullptr, 0, $method(ReferencePipeline$6$1, init$, void, $ReferencePipeline$6*, $Sink*)},
+	{"accept", "(Ljava/lang/Object;)V", "(TP_OUT;)V", $PUBLIC, $virtualMethod(ReferencePipeline$6$1, accept, void, Object$*)},
 	{}
 };
 

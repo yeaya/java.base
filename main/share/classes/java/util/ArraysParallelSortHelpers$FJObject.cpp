@@ -11,7 +11,7 @@ namespace java {
 	namespace util {
 
 $MethodInfo _ArraysParallelSortHelpers$FJObject_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ArraysParallelSortHelpers$FJObject::*)()>(&ArraysParallelSortHelpers$FJObject::init$))},
+	{"<init>", "()V", nullptr, 0, $method(ArraysParallelSortHelpers$FJObject, init$, void)},
 	{}
 };
 

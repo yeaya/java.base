@@ -39,10 +39,10 @@ $FieldInfo _CheckMethodAdapter$Method_FieldInfo_[] = {
 };
 
 $MethodInfo _CheckMethodAdapter$Method_MethodInfo_[] = {
-	{"$values", "()[Ljdk/internal/org/objectweb/asm/util/CheckMethodAdapter$Method;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$CheckMethodAdapter$MethodArray*(*)()>(&CheckMethodAdapter$Method::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(CheckMethodAdapter$Method::*)($String*,int32_t)>(&CheckMethodAdapter$Method::init$))},
-	{"valueOf", "(Ljava/lang/String;)Ljdk/internal/org/objectweb/asm/util/CheckMethodAdapter$Method;", nullptr, $PUBLIC | $STATIC, $method(static_cast<CheckMethodAdapter$Method*(*)($String*)>(&CheckMethodAdapter$Method::valueOf))},
-	{"values", "()[Ljdk/internal/org/objectweb/asm/util/CheckMethodAdapter$Method;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$CheckMethodAdapter$MethodArray*(*)()>(&CheckMethodAdapter$Method::values))},
+	{"$values", "()[Ljdk/internal/org/objectweb/asm/util/CheckMethodAdapter$Method;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CheckMethodAdapter$Method, $values, $CheckMethodAdapter$MethodArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(CheckMethodAdapter$Method, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Ljdk/internal/org/objectweb/asm/util/CheckMethodAdapter$Method;", nullptr, $PUBLIC | $STATIC, $staticMethod(CheckMethodAdapter$Method, valueOf, CheckMethodAdapter$Method*, $String*)},
+	{"values", "()[Ljdk/internal/org/objectweb/asm/util/CheckMethodAdapter$Method;", nullptr, $PUBLIC | $STATIC, $staticMethod(CheckMethodAdapter$Method, values, $CheckMethodAdapter$MethodArray*)},
 	{}
 };
 

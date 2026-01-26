@@ -88,10 +88,10 @@ namespace sun {
 		namespace ssl {
 
 $MethodInfo _Finished$T13FinishedProducer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(Finished$T13FinishedProducer::*)()>(&Finished$T13FinishedProducer::init$))},
-	{"onProduceFinished", "(Lsun/security/ssl/ClientHandshakeContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)[B", nullptr, $PRIVATE, $method(static_cast<$bytes*(Finished$T13FinishedProducer::*)($ClientHandshakeContext*,$SSLHandshake$HandshakeMessage*)>(&Finished$T13FinishedProducer::onProduceFinished)), "java.io.IOException"},
-	{"onProduceFinished", "(Lsun/security/ssl/ServerHandshakeContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)[B", nullptr, $PRIVATE, $method(static_cast<$bytes*(Finished$T13FinishedProducer::*)($ServerHandshakeContext*,$SSLHandshake$HandshakeMessage*)>(&Finished$T13FinishedProducer::onProduceFinished)), "java.io.IOException"},
-	{"produce", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)[B", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(Finished$T13FinishedProducer, init$, void)},
+	{"onProduceFinished", "(Lsun/security/ssl/ClientHandshakeContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)[B", nullptr, $PRIVATE, $method(Finished$T13FinishedProducer, onProduceFinished, $bytes*, $ClientHandshakeContext*, $SSLHandshake$HandshakeMessage*), "java.io.IOException"},
+	{"onProduceFinished", "(Lsun/security/ssl/ServerHandshakeContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)[B", nullptr, $PRIVATE, $method(Finished$T13FinishedProducer, onProduceFinished, $bytes*, $ServerHandshakeContext*, $SSLHandshake$HandshakeMessage*), "java.io.IOException"},
+	{"produce", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)[B", nullptr, $PUBLIC, $virtualMethod(Finished$T13FinishedProducer, produce, $bytes*, $ConnectionContext*, $SSLHandshake$HandshakeMessage*), "java.io.IOException"},
 	{}
 };
 

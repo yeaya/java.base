@@ -22,8 +22,8 @@ $FieldInfo _FtpClient$1_FieldInfo_[] = {
 };
 
 $MethodInfo _FtpClient$1_MethodInfo_[] = {
-	{"<init>", "([Ljava/lang/String;[I)V", "()V", 0, $method(static_cast<void(FtpClient$1::*)($StringArray*,$ints*)>(&FtpClient$1::init$))},
-	{"run", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "([Ljava/lang/String;[I)V", "()V", 0, $method(FtpClient$1, init$, void, $StringArray*, $ints*)},
+	{"run", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FtpClient$1, run, $Object*)},
 	{}
 };
 

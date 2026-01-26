@@ -33,8 +33,8 @@ $FieldInfo _NTLMException_FieldInfo_[] = {
 };
 
 $MethodInfo _NTLMException_MethodInfo_[] = {
-	{"<init>", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(NTLMException::*)(int32_t,$String*)>(&NTLMException::init$))},
-	{"errorCode", "()I", nullptr, $PUBLIC, $method(static_cast<int32_t(NTLMException::*)()>(&NTLMException::errorCode))},
+	{"<init>", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $method(NTLMException, init$, void, int32_t, $String*)},
+	{"errorCode", "()I", nullptr, $PUBLIC, $method(NTLMException, errorCode, int32_t)},
 	{}
 };
 

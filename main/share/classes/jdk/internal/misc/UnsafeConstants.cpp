@@ -3,6 +3,7 @@
 #include <jcpp.h>
 
 #include "Platform.h"
+using ::java::lang::Platform;
 
 #undef ADDRESS_SIZE0
 #undef BIG_ENDIAN
@@ -28,7 +29,7 @@ $FieldInfo _UnsafeConstants_FieldInfo_[] = {
 };
 
 $MethodInfo _UnsafeConstants_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(UnsafeConstants::*)()>(&UnsafeConstants::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(UnsafeConstants, init$, void)},
 	{}
 };
 

@@ -39,8 +39,8 @@ $FieldInfo _UnixAsynchronousSocketChannelImpl$2_FieldInfo_[] = {
 };
 
 $MethodInfo _UnixAsynchronousSocketChannelImpl$2_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/ch/UnixAsynchronousSocketChannelImpl;)V", nullptr, 0, $method(static_cast<void(UnixAsynchronousSocketChannelImpl$2::*)($UnixAsynchronousSocketChannelImpl*)>(&UnixAsynchronousSocketChannelImpl$2::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/nio/ch/UnixAsynchronousSocketChannelImpl;)V", nullptr, 0, $method(UnixAsynchronousSocketChannelImpl$2, init$, void, $UnixAsynchronousSocketChannelImpl*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(UnixAsynchronousSocketChannelImpl$2, run, void)},
 	{}
 };
 

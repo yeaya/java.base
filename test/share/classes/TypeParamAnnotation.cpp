@@ -21,13 +21,13 @@ using $Method = ::java::lang::reflect::Method;
 using $TypeVariable = ::java::lang::reflect::TypeVariable;
 
 $MethodInfo _TypeParamAnnotation_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TypeParamAnnotation::*)()>(&TypeParamAnnotation::init$))},
-	{"check", "(Z)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)(bool)>(&TypeParamAnnotation::check))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&TypeParamAnnotation::main)), "java.lang.Exception"},
-	{"testGetAnno", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&TypeParamAnnotation::testGetAnno))},
-	{"testGetAnnos", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&TypeParamAnnotation::testGetAnnos)), "java.lang.Exception"},
-	{"testOnClass", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&TypeParamAnnotation::testOnClass))},
-	{"testOnMethod", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&TypeParamAnnotation::testOnMethod)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TypeParamAnnotation, init$, void)},
+	{"check", "(Z)V", nullptr, $PRIVATE | $STATIC, $staticMethod(TypeParamAnnotation, check, void, bool)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TypeParamAnnotation, main, void, $StringArray*), "java.lang.Exception"},
+	{"testGetAnno", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(TypeParamAnnotation, testGetAnno, void)},
+	{"testGetAnnos", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(TypeParamAnnotation, testGetAnnos, void), "java.lang.Exception"},
+	{"testOnClass", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(TypeParamAnnotation, testOnClass, void)},
+	{"testOnMethod", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(TypeParamAnnotation, testOnMethod, void), "java.lang.Exception"},
 	{}
 };
 

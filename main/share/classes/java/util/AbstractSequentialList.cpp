@@ -21,14 +21,14 @@ namespace java {
 	namespace util {
 
 $MethodInfo _AbstractSequentialList_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(AbstractSequentialList::*)()>(&AbstractSequentialList::init$))},
-	{"add", "(ILjava/lang/Object;)V", "(ITE;)V", $PUBLIC},
-	{"addAll", "(ILjava/util/Collection;)Z", "(ILjava/util/Collection<+TE;>;)Z", $PUBLIC},
-	{"get", "(I)Ljava/lang/Object;", "(I)TE;", $PUBLIC},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TE;>;", $PUBLIC},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(AbstractSequentialList, init$, void)},
+	{"add", "(ILjava/lang/Object;)V", "(ITE;)V", $PUBLIC, $virtualMethod(AbstractSequentialList, add, void, int32_t, Object$*)},
+	{"addAll", "(ILjava/util/Collection;)Z", "(ILjava/util/Collection<+TE;>;)Z", $PUBLIC, $virtualMethod(AbstractSequentialList, addAll, bool, int32_t, $Collection*)},
+	{"get", "(I)Ljava/lang/Object;", "(I)TE;", $PUBLIC, $virtualMethod(AbstractSequentialList, get, $Object*, int32_t)},
+	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TE;>;", $PUBLIC, $virtualMethod(AbstractSequentialList, iterator, $Iterator*)},
 	{"listIterator", "(I)Ljava/util/ListIterator;", nullptr, $PUBLIC | $ABSTRACT},
-	{"remove", "(I)Ljava/lang/Object;", "(I)TE;", $PUBLIC},
-	{"set", "(ILjava/lang/Object;)Ljava/lang/Object;", "(ITE;)TE;", $PUBLIC},
+	{"remove", "(I)Ljava/lang/Object;", "(I)TE;", $PUBLIC, $virtualMethod(AbstractSequentialList, remove, $Object*, int32_t)},
+	{"set", "(ILjava/lang/Object;)Ljava/lang/Object;", "(ITE;)TE;", $PUBLIC, $virtualMethod(AbstractSequentialList, set, $Object*, int32_t, Object$*)},
 	{}
 };
 

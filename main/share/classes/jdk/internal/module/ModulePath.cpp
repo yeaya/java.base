@@ -209,8 +209,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ModulePath$$Lambda$lambda$jmodPackages$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ModulePath$$Lambda$lambda$jmodPackages$0::*)()>(&ModulePath$$Lambda$lambda$jmodPackages$0::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ModulePath$$Lambda$lambda$jmodPackages$0, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ModulePath$$Lambda$lambda$jmodPackages$0, test, bool, Object$*)},
 	{}
 };
 $ClassInfo ModulePath$$Lambda$lambda$jmodPackages$0::classInfo$ = {
@@ -242,8 +242,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ModulePath$$Lambda$name$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ModulePath$$Lambda$name$1::*)()>(&ModulePath$$Lambda$name$1::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ModulePath$$Lambda$name$1, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ModulePath$$Lambda$name$1, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo ModulePath$$Lambda$name$1::classInfo$ = {
@@ -282,8 +282,8 @@ $FieldInfo ModulePath$$Lambda$toPackageName$2::fieldInfos[2] = {
 	{}
 };
 $MethodInfo ModulePath$$Lambda$toPackageName$2::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/module/ModulePath;)V", nullptr, $PUBLIC, $method(static_cast<void(ModulePath$$Lambda$toPackageName$2::*)(ModulePath*)>(&ModulePath$$Lambda$toPackageName$2::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/module/ModulePath;)V", nullptr, $PUBLIC, $method(ModulePath$$Lambda$toPackageName$2, init$, void, ModulePath*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ModulePath$$Lambda$toPackageName$2, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo ModulePath$$Lambda$toPackageName$2::classInfo$ = {
@@ -315,8 +315,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ModulePath$$Lambda$stream$3::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ModulePath$$Lambda$stream$3::*)()>(&ModulePath$$Lambda$stream$3::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ModulePath$$Lambda$stream$3, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ModulePath$$Lambda$stream$3, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo ModulePath$$Lambda$stream$3::classInfo$ = {
@@ -358,8 +358,8 @@ $FieldInfo ModulePath$$Lambda$lambda$readJMod$1$4::fieldInfos[3] = {
 	{}
 };
 $MethodInfo ModulePath$$Lambda$lambda$readJMod$1$4::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/module/ModulePath;Ljdk/internal/jmod/JmodFile;)V", nullptr, $PUBLIC, $method(static_cast<void(ModulePath$$Lambda$lambda$readJMod$1$4::*)(ModulePath*,$JmodFile*)>(&ModulePath$$Lambda$lambda$readJMod$1$4::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/module/ModulePath;Ljdk/internal/jmod/JmodFile;)V", nullptr, $PUBLIC, $method(ModulePath$$Lambda$lambda$readJMod$1$4, init$, void, ModulePath*, $JmodFile*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ModulePath$$Lambda$lambda$readJMod$1$4, get, $Object*)},
 	{}
 };
 $ClassInfo ModulePath$$Lambda$lambda$readJMod$1$4::classInfo$ = {
@@ -391,8 +391,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ModulePath$$Lambda$lambda$deriveModuleDescriptor$2$5::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ModulePath$$Lambda$lambda$deriveModuleDescriptor$2$5::*)()>(&ModulePath$$Lambda$lambda$deriveModuleDescriptor$2$5::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ModulePath$$Lambda$lambda$deriveModuleDescriptor$2$5, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ModulePath$$Lambda$lambda$deriveModuleDescriptor$2$5, test, bool, Object$*)},
 	{}
 };
 $ClassInfo ModulePath$$Lambda$lambda$deriveModuleDescriptor$2$5::classInfo$ = {
@@ -424,8 +424,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ModulePath$$Lambda$getName$6::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ModulePath$$Lambda$getName$6::*)()>(&ModulePath$$Lambda$getName$6::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ModulePath$$Lambda$getName$6, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ModulePath$$Lambda$getName$6, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo ModulePath$$Lambda$getName$6::classInfo$ = {
@@ -457,8 +457,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ModulePath$$Lambda$lambda$deriveModuleDescriptor$3$7::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ModulePath$$Lambda$lambda$deriveModuleDescriptor$3$7::*)()>(&ModulePath$$Lambda$lambda$deriveModuleDescriptor$3$7::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ModulePath$$Lambda$lambda$deriveModuleDescriptor$3$7, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ModulePath$$Lambda$lambda$deriveModuleDescriptor$3$7, test, bool, Object$*)},
 	{}
 };
 $ClassInfo ModulePath$$Lambda$lambda$deriveModuleDescriptor$3$7::classInfo$ = {
@@ -490,8 +490,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ModulePath$$Lambda$lambda$deriveModuleDescriptor$4$8::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ModulePath$$Lambda$lambda$deriveModuleDescriptor$4$8::*)()>(&ModulePath$$Lambda$lambda$deriveModuleDescriptor$4$8::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ModulePath$$Lambda$lambda$deriveModuleDescriptor$4$8, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ModulePath$$Lambda$lambda$deriveModuleDescriptor$4$8, test, bool, Object$*)},
 	{}
 };
 $ClassInfo ModulePath$$Lambda$lambda$deriveModuleDescriptor$4$8::classInfo$ = {
@@ -530,8 +530,8 @@ $FieldInfo ModulePath$$Lambda$toServiceName$9::fieldInfos[2] = {
 	{}
 };
 $MethodInfo ModulePath$$Lambda$toServiceName$9::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/module/ModulePath;)V", nullptr, $PUBLIC, $method(static_cast<void(ModulePath$$Lambda$toServiceName$9::*)(ModulePath*)>(&ModulePath$$Lambda$toServiceName$9::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/module/ModulePath;)V", nullptr, $PUBLIC, $method(ModulePath$$Lambda$toServiceName$9, init$, void, ModulePath*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ModulePath$$Lambda$toServiceName$9, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo ModulePath$$Lambda$toServiceName$9::classInfo$ = {
@@ -573,8 +573,8 @@ $FieldInfo ModulePath$$Lambda$lambda$readJar$6$10::fieldInfos[3] = {
 	{}
 };
 $MethodInfo ModulePath$$Lambda$lambda$readJar$6$10::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/module/ModulePath;Ljava/util/jar/JarFile;)V", nullptr, $PUBLIC, $method(static_cast<void(ModulePath$$Lambda$lambda$readJar$6$10::*)(ModulePath*,$JarFile*)>(&ModulePath$$Lambda$lambda$readJar$6$10::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/module/ModulePath;Ljava/util/jar/JarFile;)V", nullptr, $PUBLIC, $method(ModulePath$$Lambda$lambda$readJar$6$10, init$, void, ModulePath*, $JarFile*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ModulePath$$Lambda$lambda$readJar$6$10, get, $Object*)},
 	{}
 };
 $ClassInfo ModulePath$$Lambda$lambda$readJar$6$10::classInfo$ = {
@@ -613,8 +613,8 @@ $FieldInfo ModulePath$$Lambda$lambda$explodedPackages$7$11::fieldInfos[2] = {
 	{}
 };
 $MethodInfo ModulePath$$Lambda$lambda$explodedPackages$7$11::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/module/ModulePath;)V", nullptr, $PUBLIC, $method(static_cast<void(ModulePath$$Lambda$lambda$explodedPackages$7$11::*)(ModulePath*)>(&ModulePath$$Lambda$lambda$explodedPackages$7$11::init$))},
-	{"test", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/module/ModulePath;)V", nullptr, $PUBLIC, $method(ModulePath$$Lambda$lambda$explodedPackages$7$11, init$, void, ModulePath*)},
+	{"test", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ModulePath$$Lambda$lambda$explodedPackages$7$11, test, bool, Object$*, Object$*)},
 	{}
 };
 $ClassInfo ModulePath$$Lambda$lambda$explodedPackages$7$11::classInfo$ = {
@@ -653,8 +653,8 @@ $FieldInfo ModulePath$$Lambda$lambda$explodedPackages$8$12::fieldInfos[2] = {
 	{}
 };
 $MethodInfo ModulePath$$Lambda$lambda$explodedPackages$8$12::methodInfos[3] = {
-	{"<init>", "(Ljava/nio/file/Path;)V", nullptr, $PUBLIC, $method(static_cast<void(ModulePath$$Lambda$lambda$explodedPackages$8$12::*)($Path*)>(&ModulePath$$Lambda$lambda$explodedPackages$8$12::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/nio/file/Path;)V", nullptr, $PUBLIC, $method(ModulePath$$Lambda$lambda$explodedPackages$8$12, init$, void, $Path*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ModulePath$$Lambda$lambda$explodedPackages$8$12, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo ModulePath$$Lambda$lambda$explodedPackages$8$12::classInfo$ = {
@@ -693,8 +693,8 @@ $FieldInfo ModulePath$$Lambda$toPackageName$13::fieldInfos[2] = {
 	{}
 };
 $MethodInfo ModulePath$$Lambda$toPackageName$13::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/module/ModulePath;)V", nullptr, $PUBLIC, $method(static_cast<void(ModulePath$$Lambda$toPackageName$13::*)(ModulePath*)>(&ModulePath$$Lambda$toPackageName$13::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/module/ModulePath;)V", nullptr, $PUBLIC, $method(ModulePath$$Lambda$toPackageName$13, init$, void, ModulePath*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ModulePath$$Lambda$toPackageName$13, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo ModulePath$$Lambda$toPackageName$13::classInfo$ = {
@@ -736,8 +736,8 @@ $FieldInfo ModulePath$$Lambda$lambda$readExplodedModule$9$14::fieldInfos[3] = {
 	{}
 };
 $MethodInfo ModulePath$$Lambda$lambda$readExplodedModule$9$14::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/module/ModulePath;Ljava/nio/file/Path;)V", nullptr, $PUBLIC, $method(static_cast<void(ModulePath$$Lambda$lambda$readExplodedModule$9$14::*)(ModulePath*,$Path*)>(&ModulePath$$Lambda$lambda$readExplodedModule$9$14::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/module/ModulePath;Ljava/nio/file/Path;)V", nullptr, $PUBLIC, $method(ModulePath$$Lambda$lambda$readExplodedModule$9$14, init$, void, ModulePath*, $Path*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ModulePath$$Lambda$lambda$readExplodedModule$9$14, get, $Object*)},
 	{}
 };
 $ClassInfo ModulePath$$Lambda$lambda$readExplodedModule$9$14::classInfo$ = {
@@ -771,42 +771,42 @@ $FieldInfo _ModulePath_FieldInfo_[] = {
 };
 
 $MethodInfo _ModulePath_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Runtime$Version;ZLjdk/internal/module/ModulePatcher;[Ljava/nio/file/Path;)V", nullptr, $PRIVATE | $TRANSIENT, $method(static_cast<void(ModulePath::*)($Runtime$Version*,bool,$ModulePatcher*,$PathArray*)>(&ModulePath::init$))},
-	{"cleanModuleName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($String*)>(&ModulePath::cleanModuleName))},
-	{"deriveModuleDescriptor", "(Ljava/util/jar/JarFile;)Ljava/lang/module/ModuleDescriptor;", nullptr, $PRIVATE, $method(static_cast<$ModuleDescriptor*(ModulePath::*)($JarFile*)>(&ModulePath::deriveModuleDescriptor)), "java.io.IOException"},
-	{"explodedPackages", "(Ljava/nio/file/Path;)Ljava/util/Set;", "(Ljava/nio/file/Path;)Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE, $method(static_cast<$Set*(ModulePath::*)($Path*)>(&ModulePath::explodedPackages))},
-	{"fileName", "(Ljava/lang/module/ModuleReference;)Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(ModulePath::*)($ModuleReference*)>(&ModulePath::fileName))},
-	{"find", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/lang/module/ModuleReference;>;", $PUBLIC},
-	{"findAll", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/module/ModuleReference;>;", $PUBLIC},
-	{"hasNextEntry", "()Z", nullptr, $PRIVATE, $method(static_cast<bool(ModulePath::*)()>(&ModulePath::hasNextEntry))},
-	{"isDefaultFileSystem", "(Ljava/nio/file/Path;)Z", nullptr, $PRIVATE, $method(static_cast<bool(ModulePath::*)($Path*)>(&ModulePath::isDefaultFileSystem))},
-	{"isHidden", "(Ljava/nio/file/Path;)Z", nullptr, $PRIVATE, $method(static_cast<bool(ModulePath::*)($Path*)>(&ModulePath::isHidden))},
-	{"jarPackages", "(Ljava/util/jar/JarFile;)Ljava/util/Set;", "(Ljava/util/jar/JarFile;)Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE, $method(static_cast<$Set*(ModulePath::*)($JarFile*)>(&ModulePath::jarPackages))},
-	{"jmodPackages", "(Ljdk/internal/jmod/JmodFile;)Ljava/util/Set;", "(Ljdk/internal/jmod/JmodFile;)Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE, $method(static_cast<$Set*(ModulePath::*)($JmodFile*)>(&ModulePath::jmodPackages))},
-	{"lambda$deriveModuleDescriptor$2", "(Ljava/util/jar/JarEntry;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($JarEntry*)>(&ModulePath::lambda$deriveModuleDescriptor$2))},
-	{"lambda$deriveModuleDescriptor$3", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($String*)>(&ModulePath::lambda$deriveModuleDescriptor$3))},
-	{"lambda$deriveModuleDescriptor$4", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($String*)>(&ModulePath::lambda$deriveModuleDescriptor$4))},
-	{"lambda$explodedPackages$7", "(Ljava/nio/file/Path;Ljava/nio/file/attribute/BasicFileAttributes;)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<bool(ModulePath::*)($Path*,$BasicFileAttributes*)>(&ModulePath::lambda$explodedPackages$7))},
-	{"lambda$explodedPackages$8", "(Ljava/nio/file/Path;Ljava/nio/file/Path;)Ljava/nio/file/Path;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Path*(*)($Path*,$Path*)>(&ModulePath::lambda$explodedPackages$8))},
-	{"lambda$jmodPackages$0", "(Ljdk/internal/jmod/JmodFile$Entry;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($JmodFile$Entry*)>(&ModulePath::lambda$jmodPackages$0))},
-	{"lambda$readExplodedModule$9", "(Ljava/nio/file/Path;)Ljava/util/Set;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$Set*(ModulePath::*)($Path*)>(&ModulePath::lambda$readExplodedModule$9))},
-	{"lambda$readJMod$1", "(Ljdk/internal/jmod/JmodFile;)Ljava/util/Set;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$Set*(ModulePath::*)($JmodFile*)>(&ModulePath::lambda$readJMod$1))},
-	{"lambda$readJar$6", "(Ljava/util/jar/JarFile;)Ljava/util/Set;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$Set*(ModulePath::*)($JarFile*)>(&ModulePath::lambda$readJar$6))},
-	{"nextLine", "(Ljava/io/BufferedReader;)Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(ModulePath::*)($BufferedReader*)>(&ModulePath::nextLine)), "java.io.IOException"},
-	{"of", "(Ljdk/internal/module/ModulePatcher;[Ljava/nio/file/Path;)Ljava/lang/module/ModuleFinder;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<$ModuleFinder*(*)($ModulePatcher*,$PathArray*)>(&ModulePath::of))},
-	{"of", "([Ljava/nio/file/Path;)Ljava/lang/module/ModuleFinder;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<$ModuleFinder*(*)($PathArray*)>(&ModulePath::of))},
-	{"of", "(Ljava/lang/Runtime$Version;Z[Ljava/nio/file/Path;)Ljava/lang/module/ModuleFinder;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<$ModuleFinder*(*)($Runtime$Version*,bool,$PathArray*)>(&ModulePath::of))},
-	{"packageName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($String*)>(&ModulePath::packageName))},
-	{"readExplodedModule", "(Ljava/nio/file/Path;)Ljava/lang/module/ModuleReference;", nullptr, $PRIVATE, $method(static_cast<$ModuleReference*(ModulePath::*)($Path*)>(&ModulePath::readExplodedModule)), "java.io.IOException"},
-	{"readJMod", "(Ljava/nio/file/Path;)Ljava/lang/module/ModuleReference;", nullptr, $PRIVATE, $method(static_cast<$ModuleReference*(ModulePath::*)($Path*)>(&ModulePath::readJMod)), "java.io.IOException"},
-	{"readJar", "(Ljava/nio/file/Path;)Ljava/lang/module/ModuleReference;", nullptr, $PRIVATE, $method(static_cast<$ModuleReference*(ModulePath::*)($Path*)>(&ModulePath::readJar)), "java.io.IOException"},
-	{"readModule", "(Ljava/nio/file/Path;Ljava/nio/file/attribute/BasicFileAttributes;)Ljava/lang/module/ModuleReference;", nullptr, $PRIVATE, $method(static_cast<$ModuleReference*(ModulePath::*)($Path*,$BasicFileAttributes*)>(&ModulePath::readModule)), "java.io.IOException"},
-	{"scan", "(Ljava/nio/file/Path;)Ljava/util/Map;", "(Ljava/nio/file/Path;)Ljava/util/Map<Ljava/lang/String;Ljava/lang/module/ModuleReference;>;", $PRIVATE, $method(static_cast<$Map*(ModulePath::*)($Path*)>(&ModulePath::scan))},
-	{"scanDirectory", "(Ljava/nio/file/Path;)Ljava/util/Map;", "(Ljava/nio/file/Path;)Ljava/util/Map<Ljava/lang/String;Ljava/lang/module/ModuleReference;>;", $PRIVATE, $method(static_cast<$Map*(ModulePath::*)($Path*)>(&ModulePath::scanDirectory)), "java.io.IOException"},
-	{"scanNextEntry", "()V", nullptr, $PRIVATE, $method(static_cast<void(ModulePath::*)()>(&ModulePath::scanNextEntry))},
-	{"toPackageName", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/lang/String;>;", $PRIVATE, $method(static_cast<$Optional*(ModulePath::*)($String*)>(&ModulePath::toPackageName))},
-	{"toPackageName", "(Ljava/nio/file/Path;)Ljava/util/Optional;", "(Ljava/nio/file/Path;)Ljava/util/Optional<Ljava/lang/String;>;", $PRIVATE, $method(static_cast<$Optional*(ModulePath::*)($Path*)>(&ModulePath::toPackageName))},
-	{"toServiceName", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/lang/String;>;", $PRIVATE, $method(static_cast<$Optional*(ModulePath::*)($String*)>(&ModulePath::toServiceName))},
+	{"<init>", "(Ljava/lang/Runtime$Version;ZLjdk/internal/module/ModulePatcher;[Ljava/nio/file/Path;)V", nullptr, $PRIVATE | $TRANSIENT, $method(ModulePath, init$, void, $Runtime$Version*, bool, $ModulePatcher*, $PathArray*)},
+	{"cleanModuleName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(ModulePath, cleanModuleName, $String*, $String*)},
+	{"deriveModuleDescriptor", "(Ljava/util/jar/JarFile;)Ljava/lang/module/ModuleDescriptor;", nullptr, $PRIVATE, $method(ModulePath, deriveModuleDescriptor, $ModuleDescriptor*, $JarFile*), "java.io.IOException"},
+	{"explodedPackages", "(Ljava/nio/file/Path;)Ljava/util/Set;", "(Ljava/nio/file/Path;)Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE, $method(ModulePath, explodedPackages, $Set*, $Path*)},
+	{"fileName", "(Ljava/lang/module/ModuleReference;)Ljava/lang/String;", nullptr, $PRIVATE, $method(ModulePath, fileName, $String*, $ModuleReference*)},
+	{"find", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/lang/module/ModuleReference;>;", $PUBLIC, $virtualMethod(ModulePath, find, $Optional*, $String*)},
+	{"findAll", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/module/ModuleReference;>;", $PUBLIC, $virtualMethod(ModulePath, findAll, $Set*)},
+	{"hasNextEntry", "()Z", nullptr, $PRIVATE, $method(ModulePath, hasNextEntry, bool)},
+	{"isDefaultFileSystem", "(Ljava/nio/file/Path;)Z", nullptr, $PRIVATE, $method(ModulePath, isDefaultFileSystem, bool, $Path*)},
+	{"isHidden", "(Ljava/nio/file/Path;)Z", nullptr, $PRIVATE, $method(ModulePath, isHidden, bool, $Path*)},
+	{"jarPackages", "(Ljava/util/jar/JarFile;)Ljava/util/Set;", "(Ljava/util/jar/JarFile;)Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE, $method(ModulePath, jarPackages, $Set*, $JarFile*)},
+	{"jmodPackages", "(Ljdk/internal/jmod/JmodFile;)Ljava/util/Set;", "(Ljdk/internal/jmod/JmodFile;)Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE, $method(ModulePath, jmodPackages, $Set*, $JmodFile*)},
+	{"lambda$deriveModuleDescriptor$2", "(Ljava/util/jar/JarEntry;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ModulePath, lambda$deriveModuleDescriptor$2, bool, $JarEntry*)},
+	{"lambda$deriveModuleDescriptor$3", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ModulePath, lambda$deriveModuleDescriptor$3, bool, $String*)},
+	{"lambda$deriveModuleDescriptor$4", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ModulePath, lambda$deriveModuleDescriptor$4, bool, $String*)},
+	{"lambda$explodedPackages$7", "(Ljava/nio/file/Path;Ljava/nio/file/attribute/BasicFileAttributes;)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(ModulePath, lambda$explodedPackages$7, bool, $Path*, $BasicFileAttributes*)},
+	{"lambda$explodedPackages$8", "(Ljava/nio/file/Path;Ljava/nio/file/Path;)Ljava/nio/file/Path;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ModulePath, lambda$explodedPackages$8, $Path*, $Path*, $Path*)},
+	{"lambda$jmodPackages$0", "(Ljdk/internal/jmod/JmodFile$Entry;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ModulePath, lambda$jmodPackages$0, bool, $JmodFile$Entry*)},
+	{"lambda$readExplodedModule$9", "(Ljava/nio/file/Path;)Ljava/util/Set;", nullptr, $PRIVATE | $SYNTHETIC, $method(ModulePath, lambda$readExplodedModule$9, $Set*, $Path*)},
+	{"lambda$readJMod$1", "(Ljdk/internal/jmod/JmodFile;)Ljava/util/Set;", nullptr, $PRIVATE | $SYNTHETIC, $method(ModulePath, lambda$readJMod$1, $Set*, $JmodFile*)},
+	{"lambda$readJar$6", "(Ljava/util/jar/JarFile;)Ljava/util/Set;", nullptr, $PRIVATE | $SYNTHETIC, $method(ModulePath, lambda$readJar$6, $Set*, $JarFile*)},
+	{"nextLine", "(Ljava/io/BufferedReader;)Ljava/lang/String;", nullptr, $PRIVATE, $method(ModulePath, nextLine, $String*, $BufferedReader*), "java.io.IOException"},
+	{"of", "(Ljdk/internal/module/ModulePatcher;[Ljava/nio/file/Path;)Ljava/lang/module/ModuleFinder;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(ModulePath, of, $ModuleFinder*, $ModulePatcher*, $PathArray*)},
+	{"of", "([Ljava/nio/file/Path;)Ljava/lang/module/ModuleFinder;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(ModulePath, of, $ModuleFinder*, $PathArray*)},
+	{"of", "(Ljava/lang/Runtime$Version;Z[Ljava/nio/file/Path;)Ljava/lang/module/ModuleFinder;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(ModulePath, of, $ModuleFinder*, $Runtime$Version*, bool, $PathArray*)},
+	{"packageName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(ModulePath, packageName, $String*, $String*)},
+	{"readExplodedModule", "(Ljava/nio/file/Path;)Ljava/lang/module/ModuleReference;", nullptr, $PRIVATE, $method(ModulePath, readExplodedModule, $ModuleReference*, $Path*), "java.io.IOException"},
+	{"readJMod", "(Ljava/nio/file/Path;)Ljava/lang/module/ModuleReference;", nullptr, $PRIVATE, $method(ModulePath, readJMod, $ModuleReference*, $Path*), "java.io.IOException"},
+	{"readJar", "(Ljava/nio/file/Path;)Ljava/lang/module/ModuleReference;", nullptr, $PRIVATE, $method(ModulePath, readJar, $ModuleReference*, $Path*), "java.io.IOException"},
+	{"readModule", "(Ljava/nio/file/Path;Ljava/nio/file/attribute/BasicFileAttributes;)Ljava/lang/module/ModuleReference;", nullptr, $PRIVATE, $method(ModulePath, readModule, $ModuleReference*, $Path*, $BasicFileAttributes*), "java.io.IOException"},
+	{"scan", "(Ljava/nio/file/Path;)Ljava/util/Map;", "(Ljava/nio/file/Path;)Ljava/util/Map<Ljava/lang/String;Ljava/lang/module/ModuleReference;>;", $PRIVATE, $method(ModulePath, scan, $Map*, $Path*)},
+	{"scanDirectory", "(Ljava/nio/file/Path;)Ljava/util/Map;", "(Ljava/nio/file/Path;)Ljava/util/Map<Ljava/lang/String;Ljava/lang/module/ModuleReference;>;", $PRIVATE, $method(ModulePath, scanDirectory, $Map*, $Path*), "java.io.IOException"},
+	{"scanNextEntry", "()V", nullptr, $PRIVATE, $method(ModulePath, scanNextEntry, void)},
+	{"toPackageName", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/lang/String;>;", $PRIVATE, $method(ModulePath, toPackageName, $Optional*, $String*)},
+	{"toPackageName", "(Ljava/nio/file/Path;)Ljava/util/Optional;", "(Ljava/nio/file/Path;)Ljava/util/Optional<Ljava/lang/String;>;", $PRIVATE, $method(ModulePath, toPackageName, $Optional*, $Path*)},
+	{"toServiceName", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/lang/String;>;", $PRIVATE, $method(ModulePath, toServiceName, $Optional*, $String*)},
 	{}
 };
 

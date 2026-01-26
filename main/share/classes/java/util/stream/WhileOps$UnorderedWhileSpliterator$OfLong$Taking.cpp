@@ -26,13 +26,13 @@ namespace java {
 		namespace stream {
 
 $MethodInfo _WhileOps$UnorderedWhileSpliterator$OfLong$Taking_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Spliterator$OfLong;ZLjava/util/function/LongPredicate;)V", nullptr, 0, $method(static_cast<void(WhileOps$UnorderedWhileSpliterator$OfLong$Taking::*)($Spliterator$OfLong*,bool,$LongPredicate*)>(&WhileOps$UnorderedWhileSpliterator$OfLong$Taking::init$))},
-	{"<init>", "(Ljava/util/Spliterator$OfLong;Ljava/util/stream/WhileOps$UnorderedWhileSpliterator$OfLong;)V", nullptr, 0, $method(static_cast<void(WhileOps$UnorderedWhileSpliterator$OfLong$Taking::*)($Spliterator$OfLong*,$WhileOps$UnorderedWhileSpliterator$OfLong*)>(&WhileOps$UnorderedWhileSpliterator$OfLong$Taking::init$))},
-	{"makeSpliterator", "(Ljava/util/Spliterator$OfLong;)Ljava/util/Spliterator$OfLong;", nullptr, 0, $method(static_cast<$Spliterator$OfLong*(WhileOps$UnorderedWhileSpliterator$OfLong$Taking::*)($Spliterator$OfLong*)>(&WhileOps$UnorderedWhileSpliterator$OfLong$Taking::makeSpliterator))},
-	{"makeSpliterator", "(Ljava/util/Spliterator;)Ljava/util/Spliterator;", nullptr, $VOLATILE | $SYNTHETIC},
-	{"tryAdvance", "(Ljava/util/function/LongConsumer;)Z", nullptr, $PUBLIC},
-	{"tryAdvance", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"trySplit", "()Ljava/util/Spliterator$OfLong;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/Spliterator$OfLong;ZLjava/util/function/LongPredicate;)V", nullptr, 0, $method(WhileOps$UnorderedWhileSpliterator$OfLong$Taking, init$, void, $Spliterator$OfLong*, bool, $LongPredicate*)},
+	{"<init>", "(Ljava/util/Spliterator$OfLong;Ljava/util/stream/WhileOps$UnorderedWhileSpliterator$OfLong;)V", nullptr, 0, $method(WhileOps$UnorderedWhileSpliterator$OfLong$Taking, init$, void, $Spliterator$OfLong*, $WhileOps$UnorderedWhileSpliterator$OfLong*)},
+	{"makeSpliterator", "(Ljava/util/Spliterator$OfLong;)Ljava/util/Spliterator$OfLong;", nullptr, 0, $method(WhileOps$UnorderedWhileSpliterator$OfLong$Taking, makeSpliterator, $Spliterator$OfLong*, $Spliterator$OfLong*)},
+	{"makeSpliterator", "(Ljava/util/Spliterator;)Ljava/util/Spliterator;", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(WhileOps$UnorderedWhileSpliterator$OfLong$Taking, makeSpliterator, $Spliterator*, $Spliterator*)},
+	{"tryAdvance", "(Ljava/util/function/LongConsumer;)Z", nullptr, $PUBLIC, $virtualMethod(WhileOps$UnorderedWhileSpliterator$OfLong$Taking, tryAdvance, bool, $LongConsumer*)},
+	{"tryAdvance", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(WhileOps$UnorderedWhileSpliterator$OfLong$Taking, tryAdvance, bool, Object$*)},
+	{"trySplit", "()Ljava/util/Spliterator$OfLong;", nullptr, $PUBLIC, $virtualMethod(WhileOps$UnorderedWhileSpliterator$OfLong$Taking, trySplit, $Spliterator*)},
 	{}
 };
 

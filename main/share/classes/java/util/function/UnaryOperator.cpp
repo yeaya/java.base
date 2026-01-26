@@ -33,8 +33,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo UnaryOperator$$Lambda$lambda$identity$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(UnaryOperator$$Lambda$lambda$identity$0::*)()>(&UnaryOperator$$Lambda$lambda$identity$0::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(UnaryOperator$$Lambda$lambda$identity$0, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(UnaryOperator$$Lambda$lambda$identity$0, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo UnaryOperator$$Lambda$lambda$identity$0::classInfo$ = {
@@ -57,8 +57,8 @@ $CompoundAttribute _UnaryOperator_Annotations_[] = {
 };
 
 $MethodInfo _UnaryOperator_MethodInfo_[] = {
-	{"identity", "()Ljava/util/function/UnaryOperator;", "<T:Ljava/lang/Object;>()Ljava/util/function/UnaryOperator<TT;>;", $PUBLIC | $STATIC, $method(static_cast<UnaryOperator*(*)()>(&UnaryOperator::identity))},
-	{"lambda$identity$0", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Object*(*)(Object$*)>(&UnaryOperator::lambda$identity$0))},
+	{"identity", "()Ljava/util/function/UnaryOperator;", "<T:Ljava/lang/Object;>()Ljava/util/function/UnaryOperator<TT;>;", $PUBLIC | $STATIC, $staticMethod(UnaryOperator, identity, UnaryOperator*)},
+	{"lambda$identity$0", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(UnaryOperator, lambda$identity$0, $Object*, Object$*)},
 	{}
 };
 

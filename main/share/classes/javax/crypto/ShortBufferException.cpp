@@ -17,8 +17,8 @@ $FieldInfo _ShortBufferException_FieldInfo_[] = {
 };
 
 $MethodInfo _ShortBufferException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ShortBufferException::*)()>(&ShortBufferException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(ShortBufferException::*)($String*)>(&ShortBufferException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ShortBufferException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ShortBufferException, init$, void, $String*)},
 	{}
 };
 

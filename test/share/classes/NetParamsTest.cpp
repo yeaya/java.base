@@ -18,9 +18,9 @@ using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
 
 $MethodInfo _NetParamsTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(NetParamsTest::*)()>(&NetParamsTest::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&NetParamsTest::main)), "java.lang.Exception"},
-	{"printIF", "(Ljava/net/NetworkInterface;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($NetworkInterface*)>(&NetParamsTest::printIF)), "java.net.SocketException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(NetParamsTest, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(NetParamsTest, main, void, $StringArray*), "java.lang.Exception"},
+	{"printIF", "(Ljava/net/NetworkInterface;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(NetParamsTest, printIF, void, $NetworkInterface*), "java.net.SocketException"},
 	{}
 };
 

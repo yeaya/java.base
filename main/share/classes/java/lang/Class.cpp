@@ -305,8 +305,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Class$$Lambda$typeVarBounds::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Class$$Lambda$typeVarBounds::*)()>(&Class$$Lambda$typeVarBounds::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Class$$Lambda$typeVarBounds, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Class$$Lambda$typeVarBounds, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Class$$Lambda$typeVarBounds::classInfo$ = {
@@ -338,8 +338,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Class$$Lambda$getTypeName$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Class$$Lambda$getTypeName$1::*)()>(&Class$$Lambda$getTypeName$1::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Class$$Lambda$getTypeName$1, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Class$$Lambda$getTypeName$1, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Class$$Lambda$getTypeName$1::classInfo$ = {
@@ -378,8 +378,8 @@ $FieldInfo Class$$Lambda$getClassLoader$2::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Class$$Lambda$getClassLoader$2::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/Module;)V", nullptr, $PUBLIC, $method(static_cast<void(Class$$Lambda$getClassLoader$2::*)($Module*)>(&Class$$Lambda$getClassLoader$2::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Module;)V", nullptr, $PUBLIC, $method(Class$$Lambda$getClassLoader$2, init$, void, $Module*)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Class$$Lambda$getClassLoader$2, run, $Object*)},
 	{}
 };
 $ClassInfo Class$$Lambda$getClassLoader$2::classInfo$ = {
@@ -411,8 +411,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Class$$Lambda$lambda$methodToString$0$3::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Class$$Lambda$lambda$methodToString$0$3::*)()>(&Class$$Lambda$lambda$methodToString$0$3::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Class$$Lambda$lambda$methodToString$0$3, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Class$$Lambda$lambda$methodToString$0$3, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Class$$Lambda$lambda$methodToString$0$3::classInfo$ = {
@@ -451,8 +451,8 @@ $FieldInfo Class$$Lambda$lambda$getPermittedSubclasses$1$4::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Class$$Lambda$lambda$getPermittedSubclasses$1$4::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/Class;)V", nullptr, $PUBLIC, $method(static_cast<void(Class$$Lambda$lambda$getPermittedSubclasses$1$4::*)(Class*)>(&Class$$Lambda$lambda$getPermittedSubclasses$1$4::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Class;)V", nullptr, $PUBLIC, $method(Class$$Lambda$lambda$getPermittedSubclasses$1$4, init$, void, Class*)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Class$$Lambda$lambda$getPermittedSubclasses$1$4, test, bool, Object$*)},
 	{}
 };
 $ClassInfo Class$$Lambda$lambda$getPermittedSubclasses$1$4::classInfo$ = {
@@ -491,8 +491,8 @@ $FieldInfo Class$$Lambda$isDirectSubType$5::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Class$$Lambda$isDirectSubType$5::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/Class;)V", nullptr, $PUBLIC, $method(static_cast<void(Class$$Lambda$isDirectSubType$5::*)(Class*)>(&Class$$Lambda$isDirectSubType$5::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Class;)V", nullptr, $PUBLIC, $method(Class$$Lambda$isDirectSubType$5, init$, void, Class*)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Class$$Lambda$isDirectSubType$5, test, bool, Object$*)},
 	{}
 };
 $ClassInfo Class$$Lambda$isDirectSubType$5::classInfo$ = {
@@ -524,8 +524,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Class$$Lambda$lambda$getPermittedSubclasses$2$6::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Class$$Lambda$lambda$getPermittedSubclasses$2$6::*)()>(&Class$$Lambda$lambda$getPermittedSubclasses$2$6::init$))},
-	{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Class$$Lambda$lambda$getPermittedSubclasses$2$6, init$, void)},
+	{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Class$$Lambda$lambda$getPermittedSubclasses$2$6, apply, $Object*, int32_t)},
 	{}
 };
 $ClassInfo Class$$Lambda$lambda$getPermittedSubclasses$2$6::classInfo$ = {
@@ -776,165 +776,165 @@ $MethodInfo _Class_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/lang/ClassLoader;Ljava/lang/Class;)V", "(Ljava/lang/ClassLoader;Ljava/lang/Class<*>;)V", $PRIVATE, $method(static_cast<void(Class::*)($ClassLoader*,Class*)>(&Class::init$))},
-	{"addAll", "(Ljava/util/Collection;[Ljava/lang/reflect/Field;)V", "(Ljava/util/Collection<Ljava/lang/reflect/Field;>;[Ljava/lang/reflect/Field;)V", $PRIVATE | $STATIC, $method(static_cast<void(*)($Collection*,$FieldArray*)>(&Class::addAll))},
-	{"annotationData", "()Ljava/lang/Class$AnnotationData;", nullptr, $PRIVATE, $method(static_cast<$Class$AnnotationData*(Class::*)()>(&Class::annotationData))},
-	{"arrayContentsEq", "([Ljava/lang/Object;[Ljava/lang/Object;)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($ObjectArray*,$ObjectArray*)>(&Class::arrayContentsEq))},
-	{"arrayType", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC},
-	{"asSubclass", "(Ljava/lang/Class;)Ljava/lang/Class;", "<U:Ljava/lang/Object;>(Ljava/lang/Class<TU;>;)Ljava/lang/Class<+TU;>;", $PUBLIC, $method(static_cast<Class*(Class::*)(Class*)>(&Class::asSubclass))},
-	{"cannotCastMsg", "(Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(Class::*)(Object$*)>(&Class::cannotCastMsg))},
-	{"casAnnotationType", "(Lsun/reflect/annotation/AnnotationType;Lsun/reflect/annotation/AnnotationType;)Z", nullptr, 0, $method(static_cast<bool(Class::*)($AnnotationType*,$AnnotationType*)>(&Class::casAnnotationType))},
-	{"cast", "(Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/lang/Object;)TT;", $PUBLIC, $method(static_cast<$Object*(Class::*)(Object$*)>(&Class::cast)), nullptr, nullptr, _Class_MethodAnnotations_cast8},
-	{"checkMemberAccess", "(Ljava/lang/SecurityManager;ILjava/lang/Class;Z)V", "(Ljava/lang/SecurityManager;ILjava/lang/Class<*>;Z)V", $PRIVATE, $method(static_cast<void(Class::*)($SecurityManager*,int32_t,Class*,bool)>(&Class::checkMemberAccess))},
-	{"checkPackageAccess", "(Ljava/lang/SecurityManager;Ljava/lang/ClassLoader;Z)V", nullptr, $PRIVATE, $method(static_cast<void(Class::*)($SecurityManager*,$ClassLoader*,bool)>(&Class::checkPackageAccess))},
-	{"checkPackageAccessForPermittedSubclasses", "(Ljava/lang/SecurityManager;Ljava/lang/ClassLoader;[Ljava/lang/Class;)V", "(Ljava/lang/SecurityManager;Ljava/lang/ClassLoader;[Ljava/lang/Class<*>;)V", $PRIVATE | $STATIC, $method(static_cast<void(*)($SecurityManager*,$ClassLoader*,$ClassArray*)>(&Class::checkPackageAccessForPermittedSubclasses))},
-	{"componentType", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC},
-	{"copyConstructors", "([Ljava/lang/reflect/Constructor;)[Ljava/lang/reflect/Constructor;", "<U:Ljava/lang/Object;>([Ljava/lang/reflect/Constructor<TU;>;)[Ljava/lang/reflect/Constructor<TU;>;", $PRIVATE | $STATIC, $method(static_cast<$ConstructorArray*(*)($ConstructorArray*)>(&Class::copyConstructors))},
-	{"copyFields", "([Ljava/lang/reflect/Field;)[Ljava/lang/reflect/Field;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$FieldArray*(*)($FieldArray*)>(&Class::copyFields))},
-	{"copyMethods", "([Ljava/lang/reflect/Method;)[Ljava/lang/reflect/Method;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$MethodArray*(*)($MethodArray*)>(&Class::copyMethods))},
-	{"createAnnotationData", "(I)Ljava/lang/Class$AnnotationData;", nullptr, $PRIVATE, $method(static_cast<$Class$AnnotationData*(Class::*)(int32_t)>(&Class::createAnnotationData))},
-	{"describeConstable", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/lang/constant/ClassDesc;>;", $PUBLIC},
-	{"descriptorString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"desiredAssertionStatus", "()Z", nullptr, $PUBLIC, $method(static_cast<bool(Class::*)()>(&Class::desiredAssertionStatus))},
-	{"desiredAssertionStatus0", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PRIVATE | $STATIC | $NATIVE, $method(static_cast<bool(*)(Class*)>(&Class::desiredAssertionStatus0))},
-	{"elementType", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PRIVATE, $method(static_cast<Class*(Class::*)()>(&Class::elementType))},
-	{"enumConstantDirectory", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;TT;>;", 0, $method(static_cast<$Map*(Class::*)()>(&Class::enumConstantDirectory))},
-	{"forName", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $PUBLIC | $STATIC, $method(static_cast<Class*(*)($String*)>(&Class::forName)), "java.lang.ClassNotFoundException", nullptr, _Class_MethodAnnotations_forName23},
-	{"forName", "(Ljava/lang/String;ZLjava/lang/ClassLoader;)Ljava/lang/Class;", "(Ljava/lang/String;ZLjava/lang/ClassLoader;)Ljava/lang/Class<*>;", $PUBLIC | $STATIC, $method(static_cast<Class*(*)($String*,bool,$ClassLoader*)>(&Class::forName)), "java.lang.ClassNotFoundException", nullptr, _Class_MethodAnnotations_forName24},
-	{"forName", "(Ljava/lang/Module;Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/Module;Ljava/lang/String;)Ljava/lang/Class<*>;", $PUBLIC | $STATIC, $method(static_cast<Class*(*)($Module*,$String*)>(&Class::forName)), nullptr, nullptr, _Class_MethodAnnotations_forName25},
-	{"forName0", "(Ljava/lang/String;ZLjava/lang/ClassLoader;Ljava/lang/Class;)Ljava/lang/Class;", "(Ljava/lang/String;ZLjava/lang/ClassLoader;Ljava/lang/Class<*>;)Ljava/lang/Class<*>;", $PRIVATE | $STATIC | $NATIVE, $method(static_cast<Class*(*)($String*,bool,$ClassLoader*,Class*)>(&Class::forName0)), "java.lang.ClassNotFoundException"},
-	{"getAnnotatedInterfaces", "()[Ljava/lang/reflect/AnnotatedType;", nullptr, $PUBLIC, $method(static_cast<$AnnotatedTypeArray*(Class::*)()>(&Class::getAnnotatedInterfaces))},
-	{"getAnnotatedSuperclass", "()Ljava/lang/reflect/AnnotatedType;", nullptr, $PUBLIC, $method(static_cast<$AnnotatedType*(Class::*)()>(&Class::getAnnotatedSuperclass))},
-	{"getAnnotation", "(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;", "<A::Ljava/lang/annotation/Annotation;>(Ljava/lang/Class<TA;>;)TA;", $PUBLIC},
-	{"getAnnotationType", "()Lsun/reflect/annotation/AnnotationType;", nullptr, 0, $method(static_cast<$AnnotationType*(Class::*)()>(&Class::getAnnotationType))},
-	{"getAnnotations", "()[Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC},
-	{"getAnnotationsByType", "(Ljava/lang/Class;)[Ljava/lang/annotation/Annotation;", "<A::Ljava/lang/annotation/Annotation;>(Ljava/lang/Class<TA;>;)[TA;", $PUBLIC},
-	{"getCanonicalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(static_cast<$String*(Class::*)()>(&Class::getCanonicalName))},
-	{"getCanonicalName0", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(Class::*)()>(&Class::getCanonicalName0))},
-	{"getClassData", "()Ljava/lang/Object;", nullptr, 0, $method(static_cast<$Object*(Class::*)()>(&Class::getClassData))},
-	{"getClassLoader", "()Ljava/lang/ClassLoader;", nullptr, $PUBLIC, $method(static_cast<$ClassLoader*(Class::*)()>(&Class::getClassLoader)), nullptr, nullptr, _Class_MethodAnnotations_getClassLoader36},
-	{"getClassLoader0", "()Ljava/lang/ClassLoader;", nullptr, 0, $method(static_cast<$ClassLoader*(Class::*)()>(&Class::getClassLoader0))},
-	{"getClasses", "()[Ljava/lang/Class;", "()[Ljava/lang/Class<*>;", $PUBLIC, $method(static_cast<$ClassArray*(Class::*)()>(&Class::getClasses)), nullptr, nullptr, _Class_MethodAnnotations_getClasses38},
-	{"getComponentType", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC, $method(static_cast<Class*(Class::*)()>(&Class::getComponentType))},
-	{"getConstantPool", "()Ljdk/internal/reflect/ConstantPool;", nullptr, $NATIVE, $method(static_cast<$ConstantPool*(Class::*)()>(&Class::getConstantPool))},
-	{"getConstructor", "([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;", "([Ljava/lang/Class<*>;)Ljava/lang/reflect/Constructor<TT;>;", $PUBLIC | $TRANSIENT, $method(static_cast<$Constructor*(Class::*)($ClassArray*)>(&Class::getConstructor)), "java.lang.NoSuchMethodException,java.lang.SecurityException", nullptr, _Class_MethodAnnotations_getConstructor41},
-	{"getConstructor0", "([Ljava/lang/Class;I)Ljava/lang/reflect/Constructor;", "([Ljava/lang/Class<*>;I)Ljava/lang/reflect/Constructor<TT;>;", $PRIVATE, $method(static_cast<$Constructor*(Class::*)($ClassArray*,int32_t)>(&Class::getConstructor0)), "java.lang.NoSuchMethodException"},
-	{"getConstructors", "()[Ljava/lang/reflect/Constructor;", "()[Ljava/lang/reflect/Constructor<*>;", $PUBLIC, $method(static_cast<$ConstructorArray*(Class::*)()>(&Class::getConstructors)), "java.lang.SecurityException", nullptr, _Class_MethodAnnotations_getConstructors43},
-	{"getDeclaredAnnotation", "(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;", "<A::Ljava/lang/annotation/Annotation;>(Ljava/lang/Class<TA;>;)TA;", $PUBLIC},
-	{"getDeclaredAnnotationMap", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/Class<+Ljava/lang/annotation/Annotation;>;Ljava/lang/annotation/Annotation;>;", 0, $method(static_cast<$Map*(Class::*)()>(&Class::getDeclaredAnnotationMap))},
-	{"getDeclaredAnnotations", "()[Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC},
-	{"getDeclaredAnnotationsByType", "(Ljava/lang/Class;)[Ljava/lang/annotation/Annotation;", "<A::Ljava/lang/annotation/Annotation;>(Ljava/lang/Class<TA;>;)[TA;", $PUBLIC},
-	{"getDeclaredClasses", "()[Ljava/lang/Class;", "()[Ljava/lang/Class<*>;", $PUBLIC, $method(static_cast<$ClassArray*(Class::*)()>(&Class::getDeclaredClasses)), "java.lang.SecurityException", nullptr, _Class_MethodAnnotations_getDeclaredClasses48},
-	{"getDeclaredClasses0", "()[Ljava/lang/Class;", "()[Ljava/lang/Class<*>;", $PRIVATE | $NATIVE, $method(static_cast<$ClassArray*(Class::*)()>(&Class::getDeclaredClasses0))},
-	{"getDeclaredConstructor", "([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;", "([Ljava/lang/Class<*>;)Ljava/lang/reflect/Constructor<TT;>;", $PUBLIC | $TRANSIENT, $method(static_cast<$Constructor*(Class::*)($ClassArray*)>(&Class::getDeclaredConstructor)), "java.lang.NoSuchMethodException,java.lang.SecurityException", nullptr, _Class_MethodAnnotations_getDeclaredConstructor50},
-	{"getDeclaredConstructors", "()[Ljava/lang/reflect/Constructor;", "()[Ljava/lang/reflect/Constructor<*>;", $PUBLIC, $method(static_cast<$ConstructorArray*(Class::*)()>(&Class::getDeclaredConstructors)), "java.lang.SecurityException", nullptr, _Class_MethodAnnotations_getDeclaredConstructors51},
-	{"getDeclaredConstructors0", "(Z)[Ljava/lang/reflect/Constructor;", "(Z)[Ljava/lang/reflect/Constructor<TT;>;", $PRIVATE | $NATIVE, $method(static_cast<$ConstructorArray*(Class::*)(bool)>(&Class::getDeclaredConstructors0))},
-	{"getDeclaredField", "(Ljava/lang/String;)Ljava/lang/reflect/Field;", nullptr, $PUBLIC, $method(static_cast<$Field*(Class::*)($String*)>(&Class::getDeclaredField)), "java.lang.NoSuchFieldException,java.lang.SecurityException", nullptr, _Class_MethodAnnotations_getDeclaredField53},
-	{"getDeclaredFields", "()[Ljava/lang/reflect/Field;", nullptr, $PUBLIC, $method(static_cast<$FieldArray*(Class::*)()>(&Class::getDeclaredFields)), "java.lang.SecurityException", nullptr, _Class_MethodAnnotations_getDeclaredFields54},
-	{"getDeclaredFields0", "(Z)[Ljava/lang/reflect/Field;", nullptr, $PRIVATE | $NATIVE, $method(static_cast<$FieldArray*(Class::*)(bool)>(&Class::getDeclaredFields0))},
-	{"getDeclaredMethod", "(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;", "(Ljava/lang/String;[Ljava/lang/Class<*>;)Ljava/lang/reflect/Method;", $PUBLIC | $TRANSIENT, $method(static_cast<$Method*(Class::*)($String*,$ClassArray*)>(&Class::getDeclaredMethod)), "java.lang.NoSuchMethodException,java.lang.SecurityException", nullptr, _Class_MethodAnnotations_getDeclaredMethod56},
-	{"getDeclaredMethods", "()[Ljava/lang/reflect/Method;", nullptr, $PUBLIC, $method(static_cast<$MethodArray*(Class::*)()>(&Class::getDeclaredMethods)), "java.lang.SecurityException", nullptr, _Class_MethodAnnotations_getDeclaredMethods57},
-	{"getDeclaredMethods0", "(Z)[Ljava/lang/reflect/Method;", nullptr, $PRIVATE | $NATIVE, $method(static_cast<$MethodArray*(Class::*)(bool)>(&Class::getDeclaredMethods0))},
-	{"getDeclaredPublicMethods", "(Ljava/lang/String;[Ljava/lang/Class;)Ljava/util/List;", "(Ljava/lang/String;[Ljava/lang/Class<*>;)Ljava/util/List<Ljava/lang/reflect/Method;>;", $TRANSIENT, $method(static_cast<$List*(Class::*)($String*,$ClassArray*)>(&Class::getDeclaredPublicMethods))},
-	{"getDeclaringClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC, $method(static_cast<Class*(Class::*)()>(&Class::getDeclaringClass)), "java.lang.SecurityException", nullptr, _Class_MethodAnnotations_getDeclaringClass60},
-	{"getDeclaringClass0", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PRIVATE | $NATIVE, $method(static_cast<Class*(Class::*)()>(&Class::getDeclaringClass0))},
-	{"getEnclosingClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC, $method(static_cast<Class*(Class::*)()>(&Class::getEnclosingClass)), "java.lang.SecurityException", nullptr, _Class_MethodAnnotations_getEnclosingClass62},
-	{"getEnclosingConstructor", "()Ljava/lang/reflect/Constructor;", "()Ljava/lang/reflect/Constructor<*>;", $PUBLIC, $method(static_cast<$Constructor*(Class::*)()>(&Class::getEnclosingConstructor)), "java.lang.SecurityException", nullptr, _Class_MethodAnnotations_getEnclosingConstructor63},
-	{"getEnclosingMethod", "()Ljava/lang/reflect/Method;", nullptr, $PUBLIC, $method(static_cast<$Method*(Class::*)()>(&Class::getEnclosingMethod)), "java.lang.SecurityException", nullptr, _Class_MethodAnnotations_getEnclosingMethod64},
-	{"getEnclosingMethod0", "()[Ljava/lang/Object;", nullptr, $PRIVATE | $NATIVE, $method(static_cast<$ObjectArray*(Class::*)()>(&Class::getEnclosingMethod0))},
-	{"getEnclosingMethodInfo", "()Ljava/lang/Class$EnclosingMethodInfo;", nullptr, $PRIVATE, $method(static_cast<$Class$EnclosingMethodInfo*(Class::*)()>(&Class::getEnclosingMethodInfo))},
-	{"getEnumConstants", "()[Ljava/lang/Object;", "()[TT;", $PUBLIC, $method(static_cast<$ObjectArray*(Class::*)()>(&Class::getEnumConstants))},
-	{"getEnumConstantsShared", "()[Ljava/lang/Object;", "()[TT;", 0, $method(static_cast<$ObjectArray*(Class::*)()>(&Class::getEnumConstantsShared))},
-	{"getExecutableTypeAnnotationBytes", "(Ljava/lang/reflect/Executable;)[B", nullptr, $STATIC, $method(static_cast<$bytes*(*)($Executable*)>(&Class::getExecutableTypeAnnotationBytes))},
-	{"getFactory", "()Lsun/reflect/generics/factory/GenericsFactory;", nullptr, $PRIVATE, $method(static_cast<$GenericsFactory*(Class::*)()>(&Class::getFactory))},
-	{"getField", "(Ljava/lang/String;)Ljava/lang/reflect/Field;", nullptr, $PUBLIC, $method(static_cast<$Field*(Class::*)($String*)>(&Class::getField)), "java.lang.NoSuchFieldException,java.lang.SecurityException", nullptr, _Class_MethodAnnotations_getField71},
-	{"getField0", "(Ljava/lang/String;)Ljava/lang/reflect/Field;", nullptr, $PRIVATE, $method(static_cast<$Field*(Class::*)($String*)>(&Class::getField0))},
-	{"getFields", "()[Ljava/lang/reflect/Field;", nullptr, $PUBLIC, $method(static_cast<$FieldArray*(Class::*)()>(&Class::getFields)), "java.lang.SecurityException", nullptr, _Class_MethodAnnotations_getFields73},
-	{"getGenericInfo", "()Lsun/reflect/generics/repository/ClassRepository;", nullptr, $PRIVATE, $method(static_cast<$ClassRepository*(Class::*)()>(&Class::getGenericInfo))},
-	{"getGenericInterfaces", "()[Ljava/lang/reflect/Type;", nullptr, $PUBLIC, $method(static_cast<$TypeArray*(Class::*)()>(&Class::getGenericInterfaces))},
-	{"getGenericSignature0", "()Ljava/lang/String;", nullptr, $PRIVATE | $NATIVE, $method(static_cast<$String*(Class::*)()>(&Class::getGenericSignature0))},
-	{"getGenericSuperclass", "()Ljava/lang/reflect/Type;", nullptr, $PUBLIC, $method(static_cast<$Type*(Class::*)()>(&Class::getGenericSuperclass))},
-	{"getInterfaces", "()[Ljava/lang/Class;", "()[Ljava/lang/Class<*>;", $PUBLIC, $method(static_cast<$ClassArray*(Class::*)()>(&Class::getInterfaces))},
-	{"getInterfaces", "(Z)[Ljava/lang/Class;", "(Z)[Ljava/lang/Class<*>;", $PRIVATE, $method(static_cast<$ClassArray*(Class::*)(bool)>(&Class::getInterfaces))},
-	{"getInterfaces0", "()[Ljava/lang/Class;", "()[Ljava/lang/Class<*>;", $PRIVATE | $NATIVE, $method(static_cast<$ClassArray*(Class::*)()>(&Class::getInterfaces0))},
-	{"getMethod", "(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;", "(Ljava/lang/String;[Ljava/lang/Class<*>;)Ljava/lang/reflect/Method;", $PUBLIC | $TRANSIENT, $method(static_cast<$Method*(Class::*)($String*,$ClassArray*)>(&Class::getMethod)), "java.lang.NoSuchMethodException,java.lang.SecurityException", nullptr, _Class_MethodAnnotations_getMethod81},
-	{"getMethod0", "(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;", "(Ljava/lang/String;[Ljava/lang/Class<*>;)Ljava/lang/reflect/Method;", $PRIVATE, $method(static_cast<$Method*(Class::*)($String*,$ClassArray*)>(&Class::getMethod0))},
-	{"getMethods", "()[Ljava/lang/reflect/Method;", nullptr, $PUBLIC, $method(static_cast<$MethodArray*(Class::*)()>(&Class::getMethods)), "java.lang.SecurityException", nullptr, _Class_MethodAnnotations_getMethods83},
-	{"getMethodsRecursive", "(Ljava/lang/String;[Ljava/lang/Class;Z)Ljava/lang/PublicMethods$MethodList;", "(Ljava/lang/String;[Ljava/lang/Class<*>;Z)Ljava/lang/PublicMethods$MethodList;", $PRIVATE, $method(static_cast<$PublicMethods$MethodList*(Class::*)($String*,$ClassArray*,bool)>(&Class::getMethodsRecursive))},
-	{"getModifiers", "()I", nullptr, $PUBLIC | $NATIVE, $method(static_cast<int32_t(Class::*)()>(&Class::getModifiers)), nullptr, nullptr, _Class_MethodAnnotations_getModifiers85},
-	{"getModule", "()Ljava/lang/Module;", nullptr, $PUBLIC, $method(static_cast<$Module*(Class::*)()>(&Class::getModule))},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(static_cast<$String*(Class::*)()>(&Class::getName))},
-	{"getNestHost", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC, $method(static_cast<Class*(Class::*)()>(&Class::getNestHost)), nullptr, nullptr, _Class_MethodAnnotations_getNestHost88},
-	{"getNestHost0", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PRIVATE | $NATIVE, $method(static_cast<Class*(Class::*)()>(&Class::getNestHost0))},
-	{"getNestMembers", "()[Ljava/lang/Class;", "()[Ljava/lang/Class<*>;", $PUBLIC, $method(static_cast<$ClassArray*(Class::*)()>(&Class::getNestMembers)), nullptr, nullptr, _Class_MethodAnnotations_getNestMembers90},
-	{"getNestMembers0", "()[Ljava/lang/Class;", "()[Ljava/lang/Class<*>;", $PRIVATE | $NATIVE, $method(static_cast<$ClassArray*(Class::*)()>(&Class::getNestMembers0))},
-	{"getPackage", "()Ljava/lang/Package;", nullptr, $PUBLIC, $method(static_cast<$Package*(Class::*)()>(&Class::getPackage))},
-	{"getPackageName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(static_cast<$String*(Class::*)()>(&Class::getPackageName))},
-	{"getPermittedSubclasses", "()[Ljava/lang/Class;", "()[Ljava/lang/Class<*>;", $PUBLIC, $method(static_cast<$ClassArray*(Class::*)()>(&Class::getPermittedSubclasses)), nullptr, nullptr, _Class_MethodAnnotations_getPermittedSubclasses94},
-	{"getPermittedSubclasses0", "()[Ljava/lang/Class;", "()[Ljava/lang/Class<*>;", $PRIVATE | $NATIVE, $method(static_cast<$ClassArray*(Class::*)()>(&Class::getPermittedSubclasses0))},
-	{"getPrimitiveClass", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $STATIC | $NATIVE, $method(static_cast<Class*(*)($String*)>(&Class::getPrimitiveClass))},
-	{"getProtectionDomain", "()Ljava/security/ProtectionDomain;", nullptr, $PUBLIC, $method(static_cast<$ProtectionDomain*(Class::*)()>(&Class::getProtectionDomain))},
-	{"getProtectionDomain0", "()Ljava/security/ProtectionDomain;", nullptr, $PRIVATE | $NATIVE, $method(static_cast<$ProtectionDomain*(Class::*)()>(&Class::getProtectionDomain0))},
-	{"getRawAnnotations", "()[B", nullptr, $NATIVE, $method(static_cast<$bytes*(Class::*)()>(&Class::getRawAnnotations))},
-	{"getRawTypeAnnotations", "()[B", nullptr, $NATIVE, $method(static_cast<$bytes*(Class::*)()>(&Class::getRawTypeAnnotations))},
-	{"getRecordComponents", "()[Ljava/lang/reflect/RecordComponent;", nullptr, $PUBLIC, $method(static_cast<$RecordComponentArray*(Class::*)()>(&Class::getRecordComponents)), nullptr, nullptr, _Class_MethodAnnotations_getRecordComponents101},
-	{"getRecordComponents0", "()[Ljava/lang/reflect/RecordComponent;", nullptr, $PRIVATE | $NATIVE, $method(static_cast<$RecordComponentArray*(Class::*)()>(&Class::getRecordComponents0))},
-	{"getReflectionFactory", "()Ljdk/internal/reflect/ReflectionFactory;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$ReflectionFactory*(*)()>(&Class::getReflectionFactory))},
-	{"getResource", "(Ljava/lang/String;)Ljava/net/URL;", nullptr, $PUBLIC, $method(static_cast<$URL*(Class::*)($String*)>(&Class::getResource)), nullptr, nullptr, _Class_MethodAnnotations_getResource104},
-	{"getResourceAsStream", "(Ljava/lang/String;)Ljava/io/InputStream;", nullptr, $PUBLIC, $method(static_cast<$InputStream*(Class::*)($String*)>(&Class::getResourceAsStream)), nullptr, nullptr, _Class_MethodAnnotations_getResourceAsStream105},
-	{"getSigners", "()[Ljava/lang/Object;", nullptr, $PUBLIC | $NATIVE, $method(static_cast<$ObjectArray*(Class::*)()>(&Class::getSigners))},
-	{"getSimpleBinaryName", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(Class::*)()>(&Class::getSimpleBinaryName))},
-	{"getSimpleBinaryName0", "()Ljava/lang/String;", nullptr, $PRIVATE | $NATIVE, $method(static_cast<$String*(Class::*)()>(&Class::getSimpleBinaryName0))},
-	{"getSimpleName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(static_cast<$String*(Class::*)()>(&Class::getSimpleName))},
-	{"getSimpleName0", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(Class::*)()>(&Class::getSimpleName0))},
-	{"getSuperclass", "()Ljava/lang/Class;", "()Ljava/lang/Class<-TT;>;", $PUBLIC | $NATIVE, $method(static_cast<Class*(Class::*)()>(&Class::getSuperclass)), nullptr, nullptr, _Class_MethodAnnotations_getSuperclass111},
-	{"getTypeName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getTypeParameters", "()[Ljava/lang/reflect/TypeVariable;", "()[Ljava/lang/reflect/TypeVariable<Ljava/lang/Class<TT;>;>;", $PUBLIC},
-	{"hasEnclosingMethodInfo", "()Z", nullptr, $PRIVATE, $method(static_cast<bool(Class::*)()>(&Class::hasEnclosingMethodInfo))},
-	{"initClassName", "()Ljava/lang/String;", nullptr, $PRIVATE | $NATIVE, $method(static_cast<$String*(Class::*)()>(&Class::initClassName))},
-	{"isAnnotation", "()Z", nullptr, $PUBLIC, $method(static_cast<bool(Class::*)()>(&Class::isAnnotation))},
-	{"isAnnotationPresent", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<+Ljava/lang/annotation/Annotation;>;)Z", $PUBLIC},
-	{"isAnonymousClass", "()Z", nullptr, $PUBLIC, $method(static_cast<bool(Class::*)()>(&Class::isAnonymousClass))},
-	{"isArray", "()Z", nullptr, $PUBLIC | $NATIVE, nullptr, nullptr, nullptr, _Class_MethodAnnotations_isArray119},
-	{"isAssignableFrom", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PUBLIC | $NATIVE, $method(static_cast<bool(Class::*)(Class*)>(&Class::isAssignableFrom)), nullptr, nullptr, _Class_MethodAnnotations_isAssignableFrom120},
-	{"isDirectSubType", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PRIVATE, $method(static_cast<bool(Class::*)(Class*)>(&Class::isDirectSubType))},
-	{"isEnum", "()Z", nullptr, $PUBLIC, $method(static_cast<bool(Class::*)()>(&Class::isEnum))},
-	{"isHidden", "()Z", nullptr, $PUBLIC | $NATIVE, $method(static_cast<bool(Class::*)()>(&Class::isHidden)), nullptr, nullptr, _Class_MethodAnnotations_isHidden123},
-	{"isInstance", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $NATIVE, $method(static_cast<bool(Class::*)(Object$*)>(&Class::isInstance)), nullptr, nullptr, _Class_MethodAnnotations_isInstance124},
-	{"isInterface", "()Z", nullptr, $PUBLIC | $NATIVE, $method(static_cast<bool(Class::*)()>(&Class::isInterface)), nullptr, nullptr, _Class_MethodAnnotations_isInterface125},
-	{"isLocalClass", "()Z", nullptr, $PUBLIC, $method(static_cast<bool(Class::*)()>(&Class::isLocalClass))},
-	{"isLocalOrAnonymousClass", "()Z", nullptr, $PRIVATE, $method(static_cast<bool(Class::*)()>(&Class::isLocalOrAnonymousClass))},
-	{"isMemberClass", "()Z", nullptr, $PUBLIC, $method(static_cast<bool(Class::*)()>(&Class::isMemberClass))},
-	{"isNestmateOf", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PUBLIC, $method(static_cast<bool(Class::*)(Class*)>(&Class::isNestmateOf))},
-	{"isOpenToCaller", "(Ljava/lang/String;Ljava/lang/Class;)Z", "(Ljava/lang/String;Ljava/lang/Class<*>;)Z", $PRIVATE, $method(static_cast<bool(Class::*)($String*,Class*)>(&Class::isOpenToCaller))},
-	{"isPrimitive", "()Z", nullptr, $PUBLIC | $NATIVE, nullptr, nullptr, nullptr, _Class_MethodAnnotations_isPrimitive131},
-	{"isRecord", "()Z", nullptr, $PUBLIC, $method(static_cast<bool(Class::*)()>(&Class::isRecord))},
-	{"isRecord0", "()Z", nullptr, $PRIVATE | $NATIVE, $method(static_cast<bool(Class::*)()>(&Class::isRecord0))},
-	{"isSealed", "()Z", nullptr, $PUBLIC, $method(static_cast<bool(Class::*)()>(&Class::isSealed))},
-	{"isSynthetic", "()Z", nullptr, $PUBLIC, $method(static_cast<bool(Class::*)()>(&Class::isSynthetic))},
-	{"isTopLevelClass", "()Z", nullptr, $PRIVATE, $method(static_cast<bool(Class::*)()>(&Class::isTopLevelClass))},
-	{"lambda$getPermittedSubclasses$1", "(Ljava/lang/Class;)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<bool(Class::*)(Class*)>(&Class::lambda$getPermittedSubclasses$1))},
-	{"lambda$getPermittedSubclasses$2", "(I)[Ljava/lang/Class;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$ClassArray*(*)(int32_t)>(&Class::lambda$getPermittedSubclasses$2))},
-	{"lambda$methodToString$0", "(Ljava/lang/Class;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$String*(*)(Class*)>(&Class::lambda$methodToString$0))},
-	{"methodToString", "(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/String;", "(Ljava/lang/String;[Ljava/lang/Class<*>;)Ljava/lang/String;", $PRIVATE, $method(static_cast<$String*(Class::*)($String*,$ClassArray*)>(&Class::methodToString))},
-	{"newInstance", "()Ljava/lang/Object;", "()TT;", $PUBLIC | $DEPRECATED, $method(static_cast<$Object*(Class::*)()>(&Class::newInstance)), "java.lang.InstantiationException,java.lang.IllegalAccessException", nullptr, _Class_MethodAnnotations_newInstance141},
-	{"newReflectionData", "(Ljava/lang/ref/SoftReference;I)Ljava/lang/Class$ReflectionData;", "(Ljava/lang/ref/SoftReference<Ljava/lang/Class$ReflectionData<TT;>;>;I)Ljava/lang/Class$ReflectionData<TT;>;", $PRIVATE, $method(static_cast<$Class$ReflectionData*(Class::*)($SoftReference*,int32_t)>(&Class::newReflectionData))},
-	{"privateGetDeclaredConstructors", "(Z)[Ljava/lang/reflect/Constructor;", "(Z)[Ljava/lang/reflect/Constructor<TT;>;", $PRIVATE, $method(static_cast<$ConstructorArray*(Class::*)(bool)>(&Class::privateGetDeclaredConstructors))},
-	{"privateGetDeclaredFields", "(Z)[Ljava/lang/reflect/Field;", nullptr, $PRIVATE, $method(static_cast<$FieldArray*(Class::*)(bool)>(&Class::privateGetDeclaredFields))},
-	{"privateGetDeclaredMethods", "(Z)[Ljava/lang/reflect/Method;", nullptr, $PRIVATE, $method(static_cast<$MethodArray*(Class::*)(bool)>(&Class::privateGetDeclaredMethods))},
-	{"privateGetPublicFields", "()[Ljava/lang/reflect/Field;", nullptr, $PRIVATE, $method(static_cast<$FieldArray*(Class::*)()>(&Class::privateGetPublicFields))},
-	{"privateGetPublicMethods", "()[Ljava/lang/reflect/Method;", nullptr, $PRIVATE, $method(static_cast<$MethodArray*(Class::*)()>(&Class::privateGetPublicMethods))},
-	{"protectionDomain", "()Ljava/security/ProtectionDomain;", nullptr, 0, $method(static_cast<$ProtectionDomain*(Class::*)()>(&Class::protectionDomain))},
-	{"reflectionData", "()Ljava/lang/Class$ReflectionData;", "()Ljava/lang/Class$ReflectionData<TT;>;", $PRIVATE, $method(static_cast<$Class$ReflectionData*(Class::*)()>(&Class::reflectionData))},
-	{"registerNatives", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $method(static_cast<void(*)()>(&Class::registerNatives))},
-	{"resolveName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(Class::*)($String*)>(&Class::resolveName))},
-	{"searchFields", "([Ljava/lang/reflect/Field;Ljava/lang/String;)Ljava/lang/reflect/Field;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$Field*(*)($FieldArray*,$String*)>(&Class::searchFields))},
-	{"searchMethods", "([Ljava/lang/reflect/Method;Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;", "([Ljava/lang/reflect/Method;Ljava/lang/String;[Ljava/lang/Class<*>;)Ljava/lang/reflect/Method;", $PRIVATE | $STATIC, $method(static_cast<$Method*(*)($MethodArray*,$String*,$ClassArray*)>(&Class::searchMethods))},
-	{"setSigners", "([Ljava/lang/Object;)V", nullptr, $NATIVE, $method(static_cast<void(Class::*)($ObjectArray*)>(&Class::setSigners))},
-	{"toClass", "(Ljava/lang/reflect/Type;)Ljava/lang/Class;", "(Ljava/lang/reflect/Type;)Ljava/lang/Class<*>;", $PRIVATE | $STATIC, $method(static_cast<Class*(*)($Type*)>(&Class::toClass))},
-	{"toGenericString", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(static_cast<$String*(Class::*)()>(&Class::toGenericString))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"typeVarBounds", "(Ljava/lang/reflect/TypeVariable;)Ljava/lang/String;", "(Ljava/lang/reflect/TypeVariable<*>;)Ljava/lang/String;", $STATIC, $method(static_cast<$String*(*)($TypeVariable*)>(&Class::typeVarBounds))},
+	{"<init>", "(Ljava/lang/ClassLoader;Ljava/lang/Class;)V", "(Ljava/lang/ClassLoader;Ljava/lang/Class<*>;)V", $PRIVATE, $method(Class, init$, void, $ClassLoader*, Class*)},
+	{"addAll", "(Ljava/util/Collection;[Ljava/lang/reflect/Field;)V", "(Ljava/util/Collection<Ljava/lang/reflect/Field;>;[Ljava/lang/reflect/Field;)V", $PRIVATE | $STATIC, $staticMethod(Class, addAll, void, $Collection*, $FieldArray*)},
+	{"annotationData", "()Ljava/lang/Class$AnnotationData;", nullptr, $PRIVATE, $method(Class, annotationData, $Class$AnnotationData*)},
+	{"arrayContentsEq", "([Ljava/lang/Object;[Ljava/lang/Object;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Class, arrayContentsEq, bool, $ObjectArray*, $ObjectArray*)},
+	{"arrayType", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(Class, arrayType, $TypeDescriptor$OfField*)},
+	{"asSubclass", "(Ljava/lang/Class;)Ljava/lang/Class;", "<U:Ljava/lang/Object;>(Ljava/lang/Class<TU;>;)Ljava/lang/Class<+TU;>;", $PUBLIC, $method(Class, asSubclass, Class*, Class*)},
+	{"cannotCastMsg", "(Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PRIVATE, $method(Class, cannotCastMsg, $String*, Object$*)},
+	{"casAnnotationType", "(Lsun/reflect/annotation/AnnotationType;Lsun/reflect/annotation/AnnotationType;)Z", nullptr, 0, $method(Class, casAnnotationType, bool, $AnnotationType*, $AnnotationType*)},
+	{"cast", "(Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/lang/Object;)TT;", $PUBLIC, $method(Class, cast, $Object*, Object$*), nullptr, nullptr, _Class_MethodAnnotations_cast8},
+	{"checkMemberAccess", "(Ljava/lang/SecurityManager;ILjava/lang/Class;Z)V", "(Ljava/lang/SecurityManager;ILjava/lang/Class<*>;Z)V", $PRIVATE, $method(Class, checkMemberAccess, void, $SecurityManager*, int32_t, Class*, bool)},
+	{"checkPackageAccess", "(Ljava/lang/SecurityManager;Ljava/lang/ClassLoader;Z)V", nullptr, $PRIVATE, $method(Class, checkPackageAccess, void, $SecurityManager*, $ClassLoader*, bool)},
+	{"checkPackageAccessForPermittedSubclasses", "(Ljava/lang/SecurityManager;Ljava/lang/ClassLoader;[Ljava/lang/Class;)V", "(Ljava/lang/SecurityManager;Ljava/lang/ClassLoader;[Ljava/lang/Class<*>;)V", $PRIVATE | $STATIC, $staticMethod(Class, checkPackageAccessForPermittedSubclasses, void, $SecurityManager*, $ClassLoader*, $ClassArray*)},
+	{"componentType", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(Class, componentType, $TypeDescriptor$OfField*)},
+	{"copyConstructors", "([Ljava/lang/reflect/Constructor;)[Ljava/lang/reflect/Constructor;", "<U:Ljava/lang/Object;>([Ljava/lang/reflect/Constructor<TU;>;)[Ljava/lang/reflect/Constructor<TU;>;", $PRIVATE | $STATIC, $staticMethod(Class, copyConstructors, $ConstructorArray*, $ConstructorArray*)},
+	{"copyFields", "([Ljava/lang/reflect/Field;)[Ljava/lang/reflect/Field;", nullptr, $PRIVATE | $STATIC, $staticMethod(Class, copyFields, $FieldArray*, $FieldArray*)},
+	{"copyMethods", "([Ljava/lang/reflect/Method;)[Ljava/lang/reflect/Method;", nullptr, $PRIVATE | $STATIC, $staticMethod(Class, copyMethods, $MethodArray*, $MethodArray*)},
+	{"createAnnotationData", "(I)Ljava/lang/Class$AnnotationData;", nullptr, $PRIVATE, $method(Class, createAnnotationData, $Class$AnnotationData*, int32_t)},
+	{"describeConstable", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/lang/constant/ClassDesc;>;", $PUBLIC, $virtualMethod(Class, describeConstable, $Optional*)},
+	{"descriptorString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Class, descriptorString, $String*)},
+	{"desiredAssertionStatus", "()Z", nullptr, $PUBLIC, $method(Class, desiredAssertionStatus, bool)},
+	{"desiredAssertionStatus0", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PRIVATE | $STATIC | $NATIVE, $staticMethod(Class, desiredAssertionStatus0, bool, Class*)},
+	{"elementType", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PRIVATE, $method(Class, elementType, Class*)},
+	{"enumConstantDirectory", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;TT;>;", 0, $method(Class, enumConstantDirectory, $Map*)},
+	{"forName", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $PUBLIC | $STATIC, $staticMethod(Class, forName, Class*, $String*), "java.lang.ClassNotFoundException", nullptr, _Class_MethodAnnotations_forName23},
+	{"forName", "(Ljava/lang/String;ZLjava/lang/ClassLoader;)Ljava/lang/Class;", "(Ljava/lang/String;ZLjava/lang/ClassLoader;)Ljava/lang/Class<*>;", $PUBLIC | $STATIC, $staticMethod(Class, forName, Class*, $String*, bool, $ClassLoader*), "java.lang.ClassNotFoundException", nullptr, _Class_MethodAnnotations_forName24},
+	{"forName", "(Ljava/lang/Module;Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/Module;Ljava/lang/String;)Ljava/lang/Class<*>;", $PUBLIC | $STATIC, $staticMethod(Class, forName, Class*, $Module*, $String*), nullptr, nullptr, _Class_MethodAnnotations_forName25},
+	{"forName0", "(Ljava/lang/String;ZLjava/lang/ClassLoader;Ljava/lang/Class;)Ljava/lang/Class;", "(Ljava/lang/String;ZLjava/lang/ClassLoader;Ljava/lang/Class<*>;)Ljava/lang/Class<*>;", $PRIVATE | $STATIC | $NATIVE, $staticMethod(Class, forName0, Class*, $String*, bool, $ClassLoader*, Class*), "java.lang.ClassNotFoundException"},
+	{"getAnnotatedInterfaces", "()[Ljava/lang/reflect/AnnotatedType;", nullptr, $PUBLIC, $method(Class, getAnnotatedInterfaces, $AnnotatedTypeArray*)},
+	{"getAnnotatedSuperclass", "()Ljava/lang/reflect/AnnotatedType;", nullptr, $PUBLIC, $method(Class, getAnnotatedSuperclass, $AnnotatedType*)},
+	{"getAnnotation", "(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;", "<A::Ljava/lang/annotation/Annotation;>(Ljava/lang/Class<TA;>;)TA;", $PUBLIC, $virtualMethod(Class, getAnnotation, $Annotation*, Class*)},
+	{"getAnnotationType", "()Lsun/reflect/annotation/AnnotationType;", nullptr, 0, $method(Class, getAnnotationType, $AnnotationType*)},
+	{"getAnnotations", "()[Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC, $virtualMethod(Class, getAnnotations, $AnnotationArray*)},
+	{"getAnnotationsByType", "(Ljava/lang/Class;)[Ljava/lang/annotation/Annotation;", "<A::Ljava/lang/annotation/Annotation;>(Ljava/lang/Class<TA;>;)[TA;", $PUBLIC, $virtualMethod(Class, getAnnotationsByType, $AnnotationArray*, Class*)},
+	{"getCanonicalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(Class, getCanonicalName, $String*)},
+	{"getCanonicalName0", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(Class, getCanonicalName0, $String*)},
+	{"getClassData", "()Ljava/lang/Object;", nullptr, 0, $method(Class, getClassData, $Object*)},
+	{"getClassLoader", "()Ljava/lang/ClassLoader;", nullptr, $PUBLIC, $method(Class, getClassLoader, $ClassLoader*), nullptr, nullptr, _Class_MethodAnnotations_getClassLoader36},
+	{"getClassLoader0", "()Ljava/lang/ClassLoader;", nullptr, 0, $method(Class, getClassLoader0, $ClassLoader*)},
+	{"getClasses", "()[Ljava/lang/Class;", "()[Ljava/lang/Class<*>;", $PUBLIC, $method(Class, getClasses, $ClassArray*), nullptr, nullptr, _Class_MethodAnnotations_getClasses38},
+	{"getComponentType", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC, $method(Class, getComponentType, Class*)},
+	{"getConstantPool", "()Ljdk/internal/reflect/ConstantPool;", nullptr, $NATIVE, $method(Class, getConstantPool, $ConstantPool*)},
+	{"getConstructor", "([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;", "([Ljava/lang/Class<*>;)Ljava/lang/reflect/Constructor<TT;>;", $PUBLIC | $TRANSIENT, $method(Class, getConstructor, $Constructor*, $ClassArray*), "java.lang.NoSuchMethodException,java.lang.SecurityException", nullptr, _Class_MethodAnnotations_getConstructor41},
+	{"getConstructor0", "([Ljava/lang/Class;I)Ljava/lang/reflect/Constructor;", "([Ljava/lang/Class<*>;I)Ljava/lang/reflect/Constructor<TT;>;", $PRIVATE, $method(Class, getConstructor0, $Constructor*, $ClassArray*, int32_t), "java.lang.NoSuchMethodException"},
+	{"getConstructors", "()[Ljava/lang/reflect/Constructor;", "()[Ljava/lang/reflect/Constructor<*>;", $PUBLIC, $method(Class, getConstructors, $ConstructorArray*), "java.lang.SecurityException", nullptr, _Class_MethodAnnotations_getConstructors43},
+	{"getDeclaredAnnotation", "(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;", "<A::Ljava/lang/annotation/Annotation;>(Ljava/lang/Class<TA;>;)TA;", $PUBLIC, $virtualMethod(Class, getDeclaredAnnotation, $Annotation*, Class*)},
+	{"getDeclaredAnnotationMap", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/Class<+Ljava/lang/annotation/Annotation;>;Ljava/lang/annotation/Annotation;>;", 0, $method(Class, getDeclaredAnnotationMap, $Map*)},
+	{"getDeclaredAnnotations", "()[Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC, $virtualMethod(Class, getDeclaredAnnotations, $AnnotationArray*)},
+	{"getDeclaredAnnotationsByType", "(Ljava/lang/Class;)[Ljava/lang/annotation/Annotation;", "<A::Ljava/lang/annotation/Annotation;>(Ljava/lang/Class<TA;>;)[TA;", $PUBLIC, $virtualMethod(Class, getDeclaredAnnotationsByType, $AnnotationArray*, Class*)},
+	{"getDeclaredClasses", "()[Ljava/lang/Class;", "()[Ljava/lang/Class<*>;", $PUBLIC, $method(Class, getDeclaredClasses, $ClassArray*), "java.lang.SecurityException", nullptr, _Class_MethodAnnotations_getDeclaredClasses48},
+	{"getDeclaredClasses0", "()[Ljava/lang/Class;", "()[Ljava/lang/Class<*>;", $PRIVATE | $NATIVE, $method(Class, getDeclaredClasses0, $ClassArray*)},
+	{"getDeclaredConstructor", "([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;", "([Ljava/lang/Class<*>;)Ljava/lang/reflect/Constructor<TT;>;", $PUBLIC | $TRANSIENT, $method(Class, getDeclaredConstructor, $Constructor*, $ClassArray*), "java.lang.NoSuchMethodException,java.lang.SecurityException", nullptr, _Class_MethodAnnotations_getDeclaredConstructor50},
+	{"getDeclaredConstructors", "()[Ljava/lang/reflect/Constructor;", "()[Ljava/lang/reflect/Constructor<*>;", $PUBLIC, $method(Class, getDeclaredConstructors, $ConstructorArray*), "java.lang.SecurityException", nullptr, _Class_MethodAnnotations_getDeclaredConstructors51},
+	{"getDeclaredConstructors0", "(Z)[Ljava/lang/reflect/Constructor;", "(Z)[Ljava/lang/reflect/Constructor<TT;>;", $PRIVATE | $NATIVE, $method(Class, getDeclaredConstructors0, $ConstructorArray*, bool)},
+	{"getDeclaredField", "(Ljava/lang/String;)Ljava/lang/reflect/Field;", nullptr, $PUBLIC, $method(Class, getDeclaredField, $Field*, $String*), "java.lang.NoSuchFieldException,java.lang.SecurityException", nullptr, _Class_MethodAnnotations_getDeclaredField53},
+	{"getDeclaredFields", "()[Ljava/lang/reflect/Field;", nullptr, $PUBLIC, $method(Class, getDeclaredFields, $FieldArray*), "java.lang.SecurityException", nullptr, _Class_MethodAnnotations_getDeclaredFields54},
+	{"getDeclaredFields0", "(Z)[Ljava/lang/reflect/Field;", nullptr, $PRIVATE | $NATIVE, $method(Class, getDeclaredFields0, $FieldArray*, bool)},
+	{"getDeclaredMethod", "(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;", "(Ljava/lang/String;[Ljava/lang/Class<*>;)Ljava/lang/reflect/Method;", $PUBLIC | $TRANSIENT, $method(Class, getDeclaredMethod, $Method*, $String*, $ClassArray*), "java.lang.NoSuchMethodException,java.lang.SecurityException", nullptr, _Class_MethodAnnotations_getDeclaredMethod56},
+	{"getDeclaredMethods", "()[Ljava/lang/reflect/Method;", nullptr, $PUBLIC, $method(Class, getDeclaredMethods, $MethodArray*), "java.lang.SecurityException", nullptr, _Class_MethodAnnotations_getDeclaredMethods57},
+	{"getDeclaredMethods0", "(Z)[Ljava/lang/reflect/Method;", nullptr, $PRIVATE | $NATIVE, $method(Class, getDeclaredMethods0, $MethodArray*, bool)},
+	{"getDeclaredPublicMethods", "(Ljava/lang/String;[Ljava/lang/Class;)Ljava/util/List;", "(Ljava/lang/String;[Ljava/lang/Class<*>;)Ljava/util/List<Ljava/lang/reflect/Method;>;", $TRANSIENT, $method(Class, getDeclaredPublicMethods, $List*, $String*, $ClassArray*)},
+	{"getDeclaringClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC, $method(Class, getDeclaringClass, Class*), "java.lang.SecurityException", nullptr, _Class_MethodAnnotations_getDeclaringClass60},
+	{"getDeclaringClass0", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PRIVATE | $NATIVE, $method(Class, getDeclaringClass0, Class*)},
+	{"getEnclosingClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC, $method(Class, getEnclosingClass, Class*), "java.lang.SecurityException", nullptr, _Class_MethodAnnotations_getEnclosingClass62},
+	{"getEnclosingConstructor", "()Ljava/lang/reflect/Constructor;", "()Ljava/lang/reflect/Constructor<*>;", $PUBLIC, $method(Class, getEnclosingConstructor, $Constructor*), "java.lang.SecurityException", nullptr, _Class_MethodAnnotations_getEnclosingConstructor63},
+	{"getEnclosingMethod", "()Ljava/lang/reflect/Method;", nullptr, $PUBLIC, $method(Class, getEnclosingMethod, $Method*), "java.lang.SecurityException", nullptr, _Class_MethodAnnotations_getEnclosingMethod64},
+	{"getEnclosingMethod0", "()[Ljava/lang/Object;", nullptr, $PRIVATE | $NATIVE, $method(Class, getEnclosingMethod0, $ObjectArray*)},
+	{"getEnclosingMethodInfo", "()Ljava/lang/Class$EnclosingMethodInfo;", nullptr, $PRIVATE, $method(Class, getEnclosingMethodInfo, $Class$EnclosingMethodInfo*)},
+	{"getEnumConstants", "()[Ljava/lang/Object;", "()[TT;", $PUBLIC, $method(Class, getEnumConstants, $ObjectArray*)},
+	{"getEnumConstantsShared", "()[Ljava/lang/Object;", "()[TT;", 0, $method(Class, getEnumConstantsShared, $ObjectArray*)},
+	{"getExecutableTypeAnnotationBytes", "(Ljava/lang/reflect/Executable;)[B", nullptr, $STATIC, $staticMethod(Class, getExecutableTypeAnnotationBytes, $bytes*, $Executable*)},
+	{"getFactory", "()Lsun/reflect/generics/factory/GenericsFactory;", nullptr, $PRIVATE, $method(Class, getFactory, $GenericsFactory*)},
+	{"getField", "(Ljava/lang/String;)Ljava/lang/reflect/Field;", nullptr, $PUBLIC, $method(Class, getField, $Field*, $String*), "java.lang.NoSuchFieldException,java.lang.SecurityException", nullptr, _Class_MethodAnnotations_getField71},
+	{"getField0", "(Ljava/lang/String;)Ljava/lang/reflect/Field;", nullptr, $PRIVATE, $method(Class, getField0, $Field*, $String*)},
+	{"getFields", "()[Ljava/lang/reflect/Field;", nullptr, $PUBLIC, $method(Class, getFields, $FieldArray*), "java.lang.SecurityException", nullptr, _Class_MethodAnnotations_getFields73},
+	{"getGenericInfo", "()Lsun/reflect/generics/repository/ClassRepository;", nullptr, $PRIVATE, $method(Class, getGenericInfo, $ClassRepository*)},
+	{"getGenericInterfaces", "()[Ljava/lang/reflect/Type;", nullptr, $PUBLIC, $method(Class, getGenericInterfaces, $TypeArray*)},
+	{"getGenericSignature0", "()Ljava/lang/String;", nullptr, $PRIVATE | $NATIVE, $method(Class, getGenericSignature0, $String*)},
+	{"getGenericSuperclass", "()Ljava/lang/reflect/Type;", nullptr, $PUBLIC, $method(Class, getGenericSuperclass, $Type*)},
+	{"getInterfaces", "()[Ljava/lang/Class;", "()[Ljava/lang/Class<*>;", $PUBLIC, $method(Class, getInterfaces, $ClassArray*)},
+	{"getInterfaces", "(Z)[Ljava/lang/Class;", "(Z)[Ljava/lang/Class<*>;", $PRIVATE, $method(Class, getInterfaces, $ClassArray*, bool)},
+	{"getInterfaces0", "()[Ljava/lang/Class;", "()[Ljava/lang/Class<*>;", $PRIVATE | $NATIVE, $method(Class, getInterfaces0, $ClassArray*)},
+	{"getMethod", "(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;", "(Ljava/lang/String;[Ljava/lang/Class<*>;)Ljava/lang/reflect/Method;", $PUBLIC | $TRANSIENT, $method(Class, getMethod, $Method*, $String*, $ClassArray*), "java.lang.NoSuchMethodException,java.lang.SecurityException", nullptr, _Class_MethodAnnotations_getMethod81},
+	{"getMethod0", "(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;", "(Ljava/lang/String;[Ljava/lang/Class<*>;)Ljava/lang/reflect/Method;", $PRIVATE, $method(Class, getMethod0, $Method*, $String*, $ClassArray*)},
+	{"getMethods", "()[Ljava/lang/reflect/Method;", nullptr, $PUBLIC, $method(Class, getMethods, $MethodArray*), "java.lang.SecurityException", nullptr, _Class_MethodAnnotations_getMethods83},
+	{"getMethodsRecursive", "(Ljava/lang/String;[Ljava/lang/Class;Z)Ljava/lang/PublicMethods$MethodList;", "(Ljava/lang/String;[Ljava/lang/Class<*>;Z)Ljava/lang/PublicMethods$MethodList;", $PRIVATE, $method(Class, getMethodsRecursive, $PublicMethods$MethodList*, $String*, $ClassArray*, bool)},
+	{"getModifiers", "()I", nullptr, $PUBLIC | $NATIVE, $method(Class, getModifiers, int32_t), nullptr, nullptr, _Class_MethodAnnotations_getModifiers85},
+	{"getModule", "()Ljava/lang/Module;", nullptr, $PUBLIC, $method(Class, getModule, $Module*)},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(Class, getName, $String*)},
+	{"getNestHost", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC, $method(Class, getNestHost, Class*), nullptr, nullptr, _Class_MethodAnnotations_getNestHost88},
+	{"getNestHost0", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PRIVATE | $NATIVE, $method(Class, getNestHost0, Class*)},
+	{"getNestMembers", "()[Ljava/lang/Class;", "()[Ljava/lang/Class<*>;", $PUBLIC, $method(Class, getNestMembers, $ClassArray*), nullptr, nullptr, _Class_MethodAnnotations_getNestMembers90},
+	{"getNestMembers0", "()[Ljava/lang/Class;", "()[Ljava/lang/Class<*>;", $PRIVATE | $NATIVE, $method(Class, getNestMembers0, $ClassArray*)},
+	{"getPackage", "()Ljava/lang/Package;", nullptr, $PUBLIC, $method(Class, getPackage, $Package*)},
+	{"getPackageName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(Class, getPackageName, $String*)},
+	{"getPermittedSubclasses", "()[Ljava/lang/Class;", "()[Ljava/lang/Class<*>;", $PUBLIC, $method(Class, getPermittedSubclasses, $ClassArray*), nullptr, nullptr, _Class_MethodAnnotations_getPermittedSubclasses94},
+	{"getPermittedSubclasses0", "()[Ljava/lang/Class;", "()[Ljava/lang/Class<*>;", $PRIVATE | $NATIVE, $method(Class, getPermittedSubclasses0, $ClassArray*)},
+	{"getPrimitiveClass", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $STATIC | $NATIVE, $staticMethod(Class, getPrimitiveClass, Class*, $String*)},
+	{"getProtectionDomain", "()Ljava/security/ProtectionDomain;", nullptr, $PUBLIC, $method(Class, getProtectionDomain, $ProtectionDomain*)},
+	{"getProtectionDomain0", "()Ljava/security/ProtectionDomain;", nullptr, $PRIVATE | $NATIVE, $method(Class, getProtectionDomain0, $ProtectionDomain*)},
+	{"getRawAnnotations", "()[B", nullptr, $NATIVE, $method(Class, getRawAnnotations, $bytes*)},
+	{"getRawTypeAnnotations", "()[B", nullptr, $NATIVE, $method(Class, getRawTypeAnnotations, $bytes*)},
+	{"getRecordComponents", "()[Ljava/lang/reflect/RecordComponent;", nullptr, $PUBLIC, $method(Class, getRecordComponents, $RecordComponentArray*), nullptr, nullptr, _Class_MethodAnnotations_getRecordComponents101},
+	{"getRecordComponents0", "()[Ljava/lang/reflect/RecordComponent;", nullptr, $PRIVATE | $NATIVE, $method(Class, getRecordComponents0, $RecordComponentArray*)},
+	{"getReflectionFactory", "()Ljdk/internal/reflect/ReflectionFactory;", nullptr, $PRIVATE | $STATIC, $staticMethod(Class, getReflectionFactory, $ReflectionFactory*)},
+	{"getResource", "(Ljava/lang/String;)Ljava/net/URL;", nullptr, $PUBLIC, $method(Class, getResource, $URL*, $String*), nullptr, nullptr, _Class_MethodAnnotations_getResource104},
+	{"getResourceAsStream", "(Ljava/lang/String;)Ljava/io/InputStream;", nullptr, $PUBLIC, $method(Class, getResourceAsStream, $InputStream*, $String*), nullptr, nullptr, _Class_MethodAnnotations_getResourceAsStream105},
+	{"getSigners", "()[Ljava/lang/Object;", nullptr, $PUBLIC | $NATIVE, $method(Class, getSigners, $ObjectArray*)},
+	{"getSimpleBinaryName", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(Class, getSimpleBinaryName, $String*)},
+	{"getSimpleBinaryName0", "()Ljava/lang/String;", nullptr, $PRIVATE | $NATIVE, $method(Class, getSimpleBinaryName0, $String*)},
+	{"getSimpleName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(Class, getSimpleName, $String*)},
+	{"getSimpleName0", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(Class, getSimpleName0, $String*)},
+	{"getSuperclass", "()Ljava/lang/Class;", "()Ljava/lang/Class<-TT;>;", $PUBLIC | $NATIVE, $method(Class, getSuperclass, Class*), nullptr, nullptr, _Class_MethodAnnotations_getSuperclass111},
+	{"getTypeName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Class, getTypeName, $String*)},
+	{"getTypeParameters", "()[Ljava/lang/reflect/TypeVariable;", "()[Ljava/lang/reflect/TypeVariable<Ljava/lang/Class<TT;>;>;", $PUBLIC, $virtualMethod(Class, getTypeParameters, $TypeVariableArray*)},
+	{"hasEnclosingMethodInfo", "()Z", nullptr, $PRIVATE, $method(Class, hasEnclosingMethodInfo, bool)},
+	{"initClassName", "()Ljava/lang/String;", nullptr, $PRIVATE | $NATIVE, $method(Class, initClassName, $String*)},
+	{"isAnnotation", "()Z", nullptr, $PUBLIC, $method(Class, isAnnotation, bool)},
+	{"isAnnotationPresent", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<+Ljava/lang/annotation/Annotation;>;)Z", $PUBLIC, $virtualMethod(Class, isAnnotationPresent, bool, Class*)},
+	{"isAnonymousClass", "()Z", nullptr, $PUBLIC, $method(Class, isAnonymousClass, bool)},
+	{"isArray", "()Z", nullptr, $PUBLIC | $NATIVE, $virtualMethod(Class, isArray, bool), nullptr, nullptr, _Class_MethodAnnotations_isArray119},
+	{"isAssignableFrom", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PUBLIC | $NATIVE, $method(Class, isAssignableFrom, bool, Class*), nullptr, nullptr, _Class_MethodAnnotations_isAssignableFrom120},
+	{"isDirectSubType", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PRIVATE, $method(Class, isDirectSubType, bool, Class*)},
+	{"isEnum", "()Z", nullptr, $PUBLIC, $method(Class, isEnum, bool)},
+	{"isHidden", "()Z", nullptr, $PUBLIC | $NATIVE, $method(Class, isHidden, bool), nullptr, nullptr, _Class_MethodAnnotations_isHidden123},
+	{"isInstance", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $NATIVE, $method(Class, isInstance, bool, Object$*), nullptr, nullptr, _Class_MethodAnnotations_isInstance124},
+	{"isInterface", "()Z", nullptr, $PUBLIC | $NATIVE, $method(Class, isInterface, bool), nullptr, nullptr, _Class_MethodAnnotations_isInterface125},
+	{"isLocalClass", "()Z", nullptr, $PUBLIC, $method(Class, isLocalClass, bool)},
+	{"isLocalOrAnonymousClass", "()Z", nullptr, $PRIVATE, $method(Class, isLocalOrAnonymousClass, bool)},
+	{"isMemberClass", "()Z", nullptr, $PUBLIC, $method(Class, isMemberClass, bool)},
+	{"isNestmateOf", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PUBLIC, $method(Class, isNestmateOf, bool, Class*)},
+	{"isOpenToCaller", "(Ljava/lang/String;Ljava/lang/Class;)Z", "(Ljava/lang/String;Ljava/lang/Class<*>;)Z", $PRIVATE, $method(Class, isOpenToCaller, bool, $String*, Class*)},
+	{"isPrimitive", "()Z", nullptr, $PUBLIC | $NATIVE, $virtualMethod(Class, isPrimitive, bool), nullptr, nullptr, _Class_MethodAnnotations_isPrimitive131},
+	{"isRecord", "()Z", nullptr, $PUBLIC, $method(Class, isRecord, bool)},
+	{"isRecord0", "()Z", nullptr, $PRIVATE | $NATIVE, $method(Class, isRecord0, bool)},
+	{"isSealed", "()Z", nullptr, $PUBLIC, $method(Class, isSealed, bool)},
+	{"isSynthetic", "()Z", nullptr, $PUBLIC, $method(Class, isSynthetic, bool)},
+	{"isTopLevelClass", "()Z", nullptr, $PRIVATE, $method(Class, isTopLevelClass, bool)},
+	{"lambda$getPermittedSubclasses$1", "(Ljava/lang/Class;)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(Class, lambda$getPermittedSubclasses$1, bool, Class*)},
+	{"lambda$getPermittedSubclasses$2", "(I)[Ljava/lang/Class;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Class, lambda$getPermittedSubclasses$2, $ClassArray*, int32_t)},
+	{"lambda$methodToString$0", "(Ljava/lang/Class;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Class, lambda$methodToString$0, $String*, Class*)},
+	{"methodToString", "(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/String;", "(Ljava/lang/String;[Ljava/lang/Class<*>;)Ljava/lang/String;", $PRIVATE, $method(Class, methodToString, $String*, $String*, $ClassArray*)},
+	{"newInstance", "()Ljava/lang/Object;", "()TT;", $PUBLIC | $DEPRECATED, $method(Class, newInstance, $Object*), "java.lang.InstantiationException,java.lang.IllegalAccessException", nullptr, _Class_MethodAnnotations_newInstance141},
+	{"newReflectionData", "(Ljava/lang/ref/SoftReference;I)Ljava/lang/Class$ReflectionData;", "(Ljava/lang/ref/SoftReference<Ljava/lang/Class$ReflectionData<TT;>;>;I)Ljava/lang/Class$ReflectionData<TT;>;", $PRIVATE, $method(Class, newReflectionData, $Class$ReflectionData*, $SoftReference*, int32_t)},
+	{"privateGetDeclaredConstructors", "(Z)[Ljava/lang/reflect/Constructor;", "(Z)[Ljava/lang/reflect/Constructor<TT;>;", $PRIVATE, $method(Class, privateGetDeclaredConstructors, $ConstructorArray*, bool)},
+	{"privateGetDeclaredFields", "(Z)[Ljava/lang/reflect/Field;", nullptr, $PRIVATE, $method(Class, privateGetDeclaredFields, $FieldArray*, bool)},
+	{"privateGetDeclaredMethods", "(Z)[Ljava/lang/reflect/Method;", nullptr, $PRIVATE, $method(Class, privateGetDeclaredMethods, $MethodArray*, bool)},
+	{"privateGetPublicFields", "()[Ljava/lang/reflect/Field;", nullptr, $PRIVATE, $method(Class, privateGetPublicFields, $FieldArray*)},
+	{"privateGetPublicMethods", "()[Ljava/lang/reflect/Method;", nullptr, $PRIVATE, $method(Class, privateGetPublicMethods, $MethodArray*)},
+	{"protectionDomain", "()Ljava/security/ProtectionDomain;", nullptr, 0, $method(Class, protectionDomain, $ProtectionDomain*)},
+	{"reflectionData", "()Ljava/lang/Class$ReflectionData;", "()Ljava/lang/Class$ReflectionData<TT;>;", $PRIVATE, $method(Class, reflectionData, $Class$ReflectionData*)},
+	{"registerNatives", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Class, registerNatives, void)},
+	{"resolveName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(Class, resolveName, $String*, $String*)},
+	{"searchFields", "([Ljava/lang/reflect/Field;Ljava/lang/String;)Ljava/lang/reflect/Field;", nullptr, $PRIVATE | $STATIC, $staticMethod(Class, searchFields, $Field*, $FieldArray*, $String*)},
+	{"searchMethods", "([Ljava/lang/reflect/Method;Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;", "([Ljava/lang/reflect/Method;Ljava/lang/String;[Ljava/lang/Class<*>;)Ljava/lang/reflect/Method;", $PRIVATE | $STATIC, $staticMethod(Class, searchMethods, $Method*, $MethodArray*, $String*, $ClassArray*)},
+	{"setSigners", "([Ljava/lang/Object;)V", nullptr, $NATIVE, $method(Class, setSigners, void, $ObjectArray*)},
+	{"toClass", "(Ljava/lang/reflect/Type;)Ljava/lang/Class;", "(Ljava/lang/reflect/Type;)Ljava/lang/Class<*>;", $PRIVATE | $STATIC, $staticMethod(Class, toClass, Class*, $Type*)},
+	{"toGenericString", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(Class, toGenericString, $String*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Class, toString, $String*)},
+	{"typeVarBounds", "(Ljava/lang/reflect/TypeVariable;)Ljava/lang/String;", "(Ljava/lang/reflect/TypeVariable<*>;)Ljava/lang/String;", $STATIC, $staticMethod(Class, typeVarBounds, $String*, $TypeVariable*)},
 	{}
 };
 
@@ -3428,7 +3428,7 @@ int32_t Class::calcBaseSize() {
 				}
 			}
 		} else {
-#ifdef WIN32
+#ifdef _WIN32
 			baseSize = superClass->getSize();
 #else
 			if (superClass->classInfo != nullptr && superClass->classInfo->fields != nullptr) {
@@ -3571,7 +3571,7 @@ $StringArray* Class::parseMethodDescriptor(String* descriptor) {
 }
 
 Class* Class::forName(const char* name) {
-	return Machine::forName0($cstr(name), false, this->classLoader, nullptr);
+	return Machine::forName0($$str(name), false, this->classLoader, nullptr);
 }
 
 Class* Class::forDescriptor(const char* descriptor) {
@@ -3778,6 +3778,9 @@ $Method* Class::getMethodsRecursiveEx(String* name, $ClassArray* parameterTypes,
 			if ((includeStatic || !$Modifier::isStatic(method->getModifiers())) && method->name->equals(name)) {
 				bool match = true;
 				if (method->isVarArgs()) {
+					if (parameterTypesLen < method->parameterTypes->length - 1) {
+						continue;
+					}
 					int32_t j = 0;
 					for (; j < method->parameterTypes->length - 1; j++) {
 						Class* class1 = (Class*)parameterTypes->get(j);
@@ -4045,7 +4048,10 @@ bool Class::isCloneable() {
 }
 
 Object* Class::allocateInstance() {
-	return allocateInstanceFunction(this);
+	if (allocateInstanceFunction != nullptr) {
+		return allocateInstanceFunction(this);
+	}
+	$throwNew($ReflectiveOperationException);
 }
 
 #define MAX_VAR_UNION_LENGTH 16
@@ -4539,8 +4545,12 @@ void Class::loadClass(String* name, bool initialize, Class** pClass, int64_t siz
 	Machine::loadClass(name, initialize, pClass, size, mark, classInfo, nullptr, allocateInstanceFunction, nullptr, nullptr, nullptr);
 }
 
-void Class::loadClass(Class** pClass, int64_t arrayBaseSize, int32_t mark, ClassInfo* classInfo) {
-	Machine::loadClass(pClass, arrayBaseSize, mark, classInfo);
+void Class::loadClass(String* name, bool initialize, Class** pClass, int64_t size, int32_t mark, ClassInfo* classInfo) {
+	Machine::loadClass(name, initialize, pClass, size, mark, classInfo, nullptr, nullptr, nullptr, nullptr, nullptr);
+}
+
+void Class::loadClass(String* name, bool initialize, Class** pClass, int64_t size, int32_t mark) {
+	Machine::loadClass(name, initialize, pClass, size, mark, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr);
 }
 
 void Class::registerClass(Class* clazz, const char* name) {

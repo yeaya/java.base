@@ -26,12 +26,12 @@ $FieldInfo _AbstractConstantGroup$AsIterator_FieldInfo_[] = {
 };
 
 $MethodInfo _AbstractConstantGroup$AsIterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/invoke/ConstantGroup;IIZLjava/lang/Object;)V", nullptr, $PRIVATE, $method(static_cast<void(AbstractConstantGroup$AsIterator::*)($ConstantGroup*,int32_t,int32_t,bool,Object$*)>(&AbstractConstantGroup$AsIterator::init$))},
-	{"<init>", "(Ljava/lang/invoke/ConstantGroup;II)V", nullptr, 0, $method(static_cast<void(AbstractConstantGroup$AsIterator::*)($ConstantGroup*,int32_t,int32_t)>(&AbstractConstantGroup$AsIterator::init$))},
-	{"<init>", "(Ljava/lang/invoke/ConstantGroup;IILjava/lang/Object;)V", nullptr, 0, $method(static_cast<void(AbstractConstantGroup$AsIterator::*)($ConstantGroup*,int32_t,int32_t,Object$*)>(&AbstractConstantGroup$AsIterator::init$))},
-	{"bumpIndex", "()I", nullptr, $PRIVATE, $method(static_cast<int32_t(AbstractConstantGroup$AsIterator::*)()>(&AbstractConstantGroup$AsIterator::bumpIndex))},
-	{"hasNext", "()Z", nullptr, $PUBLIC},
-	{"next", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/invoke/ConstantGroup;IIZLjava/lang/Object;)V", nullptr, $PRIVATE, $method(AbstractConstantGroup$AsIterator, init$, void, $ConstantGroup*, int32_t, int32_t, bool, Object$*)},
+	{"<init>", "(Ljava/lang/invoke/ConstantGroup;II)V", nullptr, 0, $method(AbstractConstantGroup$AsIterator, init$, void, $ConstantGroup*, int32_t, int32_t)},
+	{"<init>", "(Ljava/lang/invoke/ConstantGroup;IILjava/lang/Object;)V", nullptr, 0, $method(AbstractConstantGroup$AsIterator, init$, void, $ConstantGroup*, int32_t, int32_t, Object$*)},
+	{"bumpIndex", "()I", nullptr, $PRIVATE, $method(AbstractConstantGroup$AsIterator, bumpIndex, int32_t)},
+	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(AbstractConstantGroup$AsIterator, hasNext, bool)},
+	{"next", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AbstractConstantGroup$AsIterator, next, $Object*)},
 	{}
 };
 

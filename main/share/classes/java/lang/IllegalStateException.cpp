@@ -16,10 +16,10 @@ $FieldInfo _IllegalStateException_FieldInfo_[] = {
 };
 
 $MethodInfo _IllegalStateException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(IllegalStateException::*)()>(&IllegalStateException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(IllegalStateException::*)($String*)>(&IllegalStateException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(IllegalStateException::*)($String*,$Throwable*)>(&IllegalStateException::init$))},
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(IllegalStateException::*)($Throwable*)>(&IllegalStateException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(IllegalStateException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(IllegalStateException, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(IllegalStateException, init$, void, $String*, $Throwable*)},
+	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(IllegalStateException, init$, void, $Throwable*)},
 	{}
 };
 

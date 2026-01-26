@@ -20,7 +20,7 @@ $CompoundAttribute _TestType2$nestedTestType2_MethodAnnotations_nestedBar0[] = {
 };
 
 $MethodInfo _TestType2$nestedTestType2_MethodInfo_[] = {
-	{"nestedBar", "()V", nullptr, $PUBLIC, nullptr, nullptr, nullptr, _TestType2$nestedTestType2_MethodAnnotations_nestedBar0},
+	{"nestedBar", "()V", nullptr, $PUBLIC, $virtualMethod(TestType2$nestedTestType2, nestedBar, void), nullptr, nullptr, _TestType2$nestedTestType2_MethodAnnotations_nestedBar0},
 	{}
 };
 

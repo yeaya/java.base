@@ -30,8 +30,8 @@ $FieldInfo _ForkJoinPool$DefaultCommonPoolForkJoinWorkerThreadFactory$1_FieldInf
 };
 
 $MethodInfo _ForkJoinPool$DefaultCommonPoolForkJoinWorkerThreadFactory$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/ForkJoinPool$DefaultCommonPoolForkJoinWorkerThreadFactory;Ljava/util/concurrent/ForkJoinPool;)V", nullptr, 0, $method(static_cast<void(ForkJoinPool$DefaultCommonPoolForkJoinWorkerThreadFactory$1::*)($ForkJoinPool$DefaultCommonPoolForkJoinWorkerThreadFactory*,$ForkJoinPool*)>(&ForkJoinPool$DefaultCommonPoolForkJoinWorkerThreadFactory$1::init$))},
-	{"run", "()Ljava/util/concurrent/ForkJoinWorkerThread;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/concurrent/ForkJoinPool$DefaultCommonPoolForkJoinWorkerThreadFactory;Ljava/util/concurrent/ForkJoinPool;)V", nullptr, 0, $method(ForkJoinPool$DefaultCommonPoolForkJoinWorkerThreadFactory$1, init$, void, $ForkJoinPool$DefaultCommonPoolForkJoinWorkerThreadFactory*, $ForkJoinPool*)},
+	{"run", "()Ljava/util/concurrent/ForkJoinWorkerThread;", nullptr, $PUBLIC, $virtualMethod(ForkJoinPool$DefaultCommonPoolForkJoinWorkerThreadFactory$1, run, $Object*)},
 	{}
 };
 

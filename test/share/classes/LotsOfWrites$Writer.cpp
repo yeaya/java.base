@@ -45,17 +45,17 @@ $FieldInfo _LotsOfWrites$Writer_FieldInfo_[] = {
 };
 
 $MethodInfo _LotsOfWrites$Writer_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/File;JLjava/util/concurrent/CountDownLatch;)V", nullptr, 0, $method(static_cast<void(LotsOfWrites$Writer::*)($File*,int64_t,$CountDownLatch*)>(&LotsOfWrites$Writer::init$)), "java.io.IOException"},
-	{"completed", "(Ljava/lang/Integer;Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC},
-	{"completed", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"done", "()V", nullptr, $PRIVATE, $method(static_cast<void(LotsOfWrites$Writer::*)()>(&LotsOfWrites$Writer::done))},
-	{"failed", "(Ljava/lang/Throwable;Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC},
-	{"failed", "(Ljava/lang/Throwable;Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"file", "()Ljava/io/File;", nullptr, 0},
-	{"genNextBuffer", "()Ljava/nio/ByteBuffer;", nullptr, $PRIVATE, $method(static_cast<$ByteBuffer*(LotsOfWrites$Writer::*)()>(&LotsOfWrites$Writer::genNextBuffer))},
-	{"size", "()J", nullptr, 0},
-	{"start", "()V", nullptr, 0},
-	{"updatePosition", "(J)J", nullptr, $PRIVATE, $method(static_cast<int64_t(LotsOfWrites$Writer::*)(int64_t)>(&LotsOfWrites$Writer::updatePosition))},
+	{"<init>", "(Ljava/io/File;JLjava/util/concurrent/CountDownLatch;)V", nullptr, 0, $method(LotsOfWrites$Writer, init$, void, $File*, int64_t, $CountDownLatch*), "java.io.IOException"},
+	{"completed", "(Ljava/lang/Integer;Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(LotsOfWrites$Writer, completed, void, $Integer*, $ByteBuffer*)},
+	{"completed", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(LotsOfWrites$Writer, completed, void, Object$*, Object$*)},
+	{"done", "()V", nullptr, $PRIVATE, $method(LotsOfWrites$Writer, done, void)},
+	{"failed", "(Ljava/lang/Throwable;Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(LotsOfWrites$Writer, failed, void, $Throwable*, $ByteBuffer*)},
+	{"failed", "(Ljava/lang/Throwable;Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(LotsOfWrites$Writer, failed, void, $Throwable*, Object$*)},
+	{"file", "()Ljava/io/File;", nullptr, 0, $virtualMethod(LotsOfWrites$Writer, file, $File*)},
+	{"genNextBuffer", "()Ljava/nio/ByteBuffer;", nullptr, $PRIVATE, $method(LotsOfWrites$Writer, genNextBuffer, $ByteBuffer*)},
+	{"size", "()J", nullptr, 0, $virtualMethod(LotsOfWrites$Writer, size, int64_t)},
+	{"start", "()V", nullptr, 0, $virtualMethod(LotsOfWrites$Writer, start, void)},
+	{"updatePosition", "(J)J", nullptr, $PRIVATE, $method(LotsOfWrites$Writer, updatePosition, int64_t, int64_t)},
 	{}
 };
 

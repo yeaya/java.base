@@ -32,14 +32,14 @@ $FieldInfo _HttpURLConnection$ErrorStream_FieldInfo_[] = {
 };
 
 $MethodInfo _HttpURLConnection$ErrorStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE, $method(static_cast<void(HttpURLConnection$ErrorStream::*)($ByteBuffer*)>(&HttpURLConnection$ErrorStream::init$))},
-	{"<init>", "(Ljava/nio/ByteBuffer;Ljava/io/InputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(HttpURLConnection$ErrorStream::*)($ByteBuffer*,$InputStream*)>(&HttpURLConnection$ErrorStream::init$))},
-	{"available", "()I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"getErrorStream", "(Ljava/io/InputStream;JLsun/net/www/http/HttpClient;)Ljava/io/InputStream;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$InputStream*(*)($InputStream*,int64_t,$HttpClient*)>(&HttpURLConnection$ErrorStream::getErrorStream))},
-	{"read", "()I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"read", "([B)I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"read", "([BII)I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE, $method(HttpURLConnection$ErrorStream, init$, void, $ByteBuffer*)},
+	{"<init>", "(Ljava/nio/ByteBuffer;Ljava/io/InputStream;)V", nullptr, $PRIVATE, $method(HttpURLConnection$ErrorStream, init$, void, $ByteBuffer*, $InputStream*)},
+	{"available", "()I", nullptr, $PUBLIC, $virtualMethod(HttpURLConnection$ErrorStream, available, int32_t), "java.io.IOException"},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(HttpURLConnection$ErrorStream, close, void), "java.io.IOException"},
+	{"getErrorStream", "(Ljava/io/InputStream;JLsun/net/www/http/HttpClient;)Ljava/io/InputStream;", nullptr, $PUBLIC | $STATIC, $staticMethod(HttpURLConnection$ErrorStream, getErrorStream, $InputStream*, $InputStream*, int64_t, $HttpClient*)},
+	{"read", "()I", nullptr, $PUBLIC, $virtualMethod(HttpURLConnection$ErrorStream, read, int32_t), "java.io.IOException"},
+	{"read", "([B)I", nullptr, $PUBLIC, $virtualMethod(HttpURLConnection$ErrorStream, read, int32_t, $bytes*), "java.io.IOException"},
+	{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(HttpURLConnection$ErrorStream, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
 	{}
 };
 

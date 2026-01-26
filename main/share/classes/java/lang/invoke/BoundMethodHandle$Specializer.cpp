@@ -66,11 +66,11 @@ $FieldInfo _BoundMethodHandle$Specializer_FieldInfo_[] = {
 };
 
 $MethodInfo _BoundMethodHandle$Specializer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(BoundMethodHandle$Specializer::*)()>(&BoundMethodHandle$Specializer::init$))},
-	{"makeFactory", "()Ljava/lang/invoke/BoundMethodHandle$Specializer$Factory;", nullptr, $PROTECTED},
-	{"newSpeciesData", "(Ljava/lang/String;)Ljava/lang/invoke/BoundMethodHandle$SpeciesData;", nullptr, $PROTECTED, $method(static_cast<$BoundMethodHandle$SpeciesData*(BoundMethodHandle$Specializer::*)($String*)>(&BoundMethodHandle$Specializer::newSpeciesData))},
-	{"newSpeciesData", "(Ljava/lang/Object;)Ljava/lang/invoke/ClassSpecializer$SpeciesData;", nullptr, $PROTECTED | $VOLATILE | $SYNTHETIC},
-	{"topSpeciesKey", "()Ljava/lang/String;", nullptr, $PROTECTED},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(BoundMethodHandle$Specializer, init$, void)},
+	{"makeFactory", "()Ljava/lang/invoke/BoundMethodHandle$Specializer$Factory;", nullptr, $PROTECTED, $virtualMethod(BoundMethodHandle$Specializer, makeFactory, $ClassSpecializer$Factory*)},
+	{"newSpeciesData", "(Ljava/lang/String;)Ljava/lang/invoke/BoundMethodHandle$SpeciesData;", nullptr, $PROTECTED, $method(BoundMethodHandle$Specializer, newSpeciesData, $BoundMethodHandle$SpeciesData*, $String*)},
+	{"newSpeciesData", "(Ljava/lang/Object;)Ljava/lang/invoke/ClassSpecializer$SpeciesData;", nullptr, $PROTECTED | $VOLATILE | $SYNTHETIC, $virtualMethod(BoundMethodHandle$Specializer, newSpeciesData, $ClassSpecializer$SpeciesData*, Object$*)},
+	{"topSpeciesKey", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(BoundMethodHandle$Specializer, topSpeciesKey, $Object*)},
 	{}
 };
 

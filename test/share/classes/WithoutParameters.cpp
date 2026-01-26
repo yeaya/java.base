@@ -42,14 +42,14 @@ $FieldInfo _WithoutParameters_FieldInfo_[] = {
 };
 
 $MethodInfo _WithoutParameters_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(WithoutParameters::*)()>(&WithoutParameters::init$))},
-	{"abortIfTrue", "(ZLjava/lang/String;)V", nullptr, $PRIVATE, $method(static_cast<void(WithoutParameters::*)(bool,$String*)>(&WithoutParameters::abortIfTrue))},
-	{"checkForErrors", "()V", nullptr, $PRIVATE, $method(static_cast<void(WithoutParameters::*)()>(&WithoutParameters::checkForErrors))},
-	{"errorIfTrue", "(ZLjava/lang/String;)V", nullptr, $PRIVATE, $method(static_cast<void(WithoutParameters::*)(bool,$String*)>(&WithoutParameters::errorIfTrue))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&WithoutParameters::main)), "java.lang.Exception"},
-	{"runTest", "(Ljava/lang/reflect/Executable;)V", nullptr, 0, nullptr, "java.lang.Exception"},
-	{"runTests", "([Ljava/lang/reflect/Method;)V", nullptr, 0, nullptr, "java.lang.Exception"},
-	{"runTests", "([Ljava/lang/reflect/Constructor;)V", nullptr, 0, nullptr, "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(WithoutParameters, init$, void)},
+	{"abortIfTrue", "(ZLjava/lang/String;)V", nullptr, $PRIVATE, $method(WithoutParameters, abortIfTrue, void, bool, $String*)},
+	{"checkForErrors", "()V", nullptr, $PRIVATE, $method(WithoutParameters, checkForErrors, void)},
+	{"errorIfTrue", "(ZLjava/lang/String;)V", nullptr, $PRIVATE, $method(WithoutParameters, errorIfTrue, void, bool, $String*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(WithoutParameters, main, void, $StringArray*), "java.lang.Exception"},
+	{"runTest", "(Ljava/lang/reflect/Executable;)V", nullptr, 0, $virtualMethod(WithoutParameters, runTest, void, $Executable*), "java.lang.Exception"},
+	{"runTests", "([Ljava/lang/reflect/Method;)V", nullptr, 0, $virtualMethod(WithoutParameters, runTests, void, $MethodArray*), "java.lang.Exception"},
+	{"runTests", "([Ljava/lang/reflect/Constructor;)V", nullptr, 0, $virtualMethod(WithoutParameters, runTests, void, $ConstructorArray*), "java.lang.Exception"},
 	{}
 };
 

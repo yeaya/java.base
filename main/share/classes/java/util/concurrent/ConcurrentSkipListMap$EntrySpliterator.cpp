@@ -63,8 +63,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ConcurrentSkipListMap$EntrySpliterator$$Lambda$lambda$getComparator$d5a01062$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ConcurrentSkipListMap$EntrySpliterator$$Lambda$lambda$getComparator$d5a01062$1::*)()>(&ConcurrentSkipListMap$EntrySpliterator$$Lambda$lambda$getComparator$d5a01062$1::init$))},
-	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ConcurrentSkipListMap$EntrySpliterator$$Lambda$lambda$getComparator$d5a01062$1, init$, void)},
+	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(ConcurrentSkipListMap$EntrySpliterator$$Lambda$lambda$getComparator$d5a01062$1, compare, int32_t, Object$*, Object$*)},
 	{}
 };
 $ClassInfo ConcurrentSkipListMap$EntrySpliterator$$Lambda$lambda$getComparator$d5a01062$1::classInfo$ = {
@@ -82,20 +82,20 @@ $Class* ConcurrentSkipListMap$EntrySpliterator$$Lambda$lambda$getComparator$d5a0
 $Class* ConcurrentSkipListMap$EntrySpliterator$$Lambda$lambda$getComparator$d5a01062$1::class$ = nullptr;
 
 $MethodInfo _ConcurrentSkipListMap$EntrySpliterator_MethodInfo_[] = {
-	{"$deserializeLambda$", "(Ljava/lang/invoke/SerializedLambda;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Object*(*)($SerializedLambda*)>(&ConcurrentSkipListMap$EntrySpliterator::$deserializeLambda$))},
+	{"$deserializeLambda$", "(Ljava/lang/invoke/SerializedLambda;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ConcurrentSkipListMap$EntrySpliterator, $deserializeLambda$, $Object*, $SerializedLambda*)},
 	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*estimateSize", "()J", nullptr, $PUBLIC | $FINAL},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/util/Comparator;Ljava/util/concurrent/ConcurrentSkipListMap$Index;Ljava/util/concurrent/ConcurrentSkipListMap$Node;Ljava/lang/Object;J)V", "(Ljava/util/Comparator<-TK;>;Ljava/util/concurrent/ConcurrentSkipListMap$Index<TK;TV;>;Ljava/util/concurrent/ConcurrentSkipListMap$Node<TK;TV;>;TK;J)V", 0, $method(static_cast<void(ConcurrentSkipListMap$EntrySpliterator::*)($Comparator*,$ConcurrentSkipListMap$Index*,$ConcurrentSkipListMap$Node*,Object$*,int64_t)>(&ConcurrentSkipListMap$EntrySpliterator::init$))},
-	{"characteristics", "()I", nullptr, $PUBLIC},
-	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-Ljava/util/Map$Entry<TK;TV;>;>;)V", $PUBLIC},
-	{"getComparator", "()Ljava/util/Comparator;", "()Ljava/util/Comparator<Ljava/util/Map$Entry<TK;TV;>;>;", $PUBLIC | $FINAL},
-	{"lambda$getComparator$d5a01062$1", "(Ljava/util/Map$Entry;Ljava/util/Map$Entry;)I", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<int32_t(*)($Map$Entry*,$Map$Entry*)>(&ConcurrentSkipListMap$EntrySpliterator::lambda$getComparator$d5a01062$1))},
+	{"<init>", "(Ljava/util/Comparator;Ljava/util/concurrent/ConcurrentSkipListMap$Index;Ljava/util/concurrent/ConcurrentSkipListMap$Node;Ljava/lang/Object;J)V", "(Ljava/util/Comparator<-TK;>;Ljava/util/concurrent/ConcurrentSkipListMap$Index<TK;TV;>;Ljava/util/concurrent/ConcurrentSkipListMap$Node<TK;TV;>;TK;J)V", 0, $method(ConcurrentSkipListMap$EntrySpliterator, init$, void, $Comparator*, $ConcurrentSkipListMap$Index*, $ConcurrentSkipListMap$Node*, Object$*, int64_t)},
+	{"characteristics", "()I", nullptr, $PUBLIC, $virtualMethod(ConcurrentSkipListMap$EntrySpliterator, characteristics, int32_t)},
+	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-Ljava/util/Map$Entry<TK;TV;>;>;)V", $PUBLIC, $virtualMethod(ConcurrentSkipListMap$EntrySpliterator, forEachRemaining, void, $Consumer*)},
+	{"getComparator", "()Ljava/util/Comparator;", "()Ljava/util/Comparator<Ljava/util/Map$Entry<TK;TV;>;>;", $PUBLIC | $FINAL, $virtualMethod(ConcurrentSkipListMap$EntrySpliterator, getComparator, $Comparator*)},
+	{"lambda$getComparator$d5a01062$1", "(Ljava/util/Map$Entry;Ljava/util/Map$Entry;)I", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ConcurrentSkipListMap$EntrySpliterator, lambda$getComparator$d5a01062$1, int32_t, $Map$Entry*, $Map$Entry*)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-Ljava/util/Map$Entry<TK;TV;>;>;)Z", $PUBLIC},
-	{"trySplit", "()Ljava/util/concurrent/ConcurrentSkipListMap$EntrySpliterator;", "()Ljava/util/concurrent/ConcurrentSkipListMap$EntrySpliterator<TK;TV;>;", $PUBLIC},
+	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-Ljava/util/Map$Entry<TK;TV;>;>;)Z", $PUBLIC, $virtualMethod(ConcurrentSkipListMap$EntrySpliterator, tryAdvance, bool, $Consumer*)},
+	{"trySplit", "()Ljava/util/concurrent/ConcurrentSkipListMap$EntrySpliterator;", "()Ljava/util/concurrent/ConcurrentSkipListMap$EntrySpliterator<TK;TV;>;", $PUBLIC, $virtualMethod(ConcurrentSkipListMap$EntrySpliterator, trySplit, $Spliterator*)},
 	{}
 };
 

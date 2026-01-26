@@ -16,7 +16,7 @@ $FieldInfo _EnclosingConstructorWithSecurityManager$Inner_FieldInfo_[] = {
 };
 
 $MethodInfo _EnclosingConstructorWithSecurityManager$Inner_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(EnclosingConstructorWithSecurityManager$Inner::*)()>(&EnclosingConstructorWithSecurityManager$Inner::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(EnclosingConstructorWithSecurityManager$Inner, init$, void)},
 	{}
 };
 

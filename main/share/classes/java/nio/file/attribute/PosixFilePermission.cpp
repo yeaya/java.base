@@ -39,10 +39,10 @@ $FieldInfo _PosixFilePermission_FieldInfo_[] = {
 };
 
 $MethodInfo _PosixFilePermission_MethodInfo_[] = {
-	{"$values", "()[Ljava/nio/file/attribute/PosixFilePermission;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$PosixFilePermissionArray*(*)()>(&PosixFilePermission::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(PosixFilePermission::*)($String*,int32_t)>(&PosixFilePermission::init$))},
-	{"valueOf", "(Ljava/lang/String;)Ljava/nio/file/attribute/PosixFilePermission;", nullptr, $PUBLIC | $STATIC, $method(static_cast<PosixFilePermission*(*)($String*)>(&PosixFilePermission::valueOf))},
-	{"values", "()[Ljava/nio/file/attribute/PosixFilePermission;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$PosixFilePermissionArray*(*)()>(&PosixFilePermission::values))},
+	{"$values", "()[Ljava/nio/file/attribute/PosixFilePermission;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(PosixFilePermission, $values, $PosixFilePermissionArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(PosixFilePermission, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Ljava/nio/file/attribute/PosixFilePermission;", nullptr, $PUBLIC | $STATIC, $staticMethod(PosixFilePermission, valueOf, PosixFilePermission*, $String*)},
+	{"values", "()[Ljava/nio/file/attribute/PosixFilePermission;", nullptr, $PUBLIC | $STATIC, $staticMethod(PosixFilePermission, values, $PosixFilePermissionArray*)},
 	{}
 };
 

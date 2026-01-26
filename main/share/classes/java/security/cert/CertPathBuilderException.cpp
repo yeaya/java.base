@@ -18,10 +18,10 @@ $FieldInfo _CertPathBuilderException_FieldInfo_[] = {
 };
 
 $MethodInfo _CertPathBuilderException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CertPathBuilderException::*)()>(&CertPathBuilderException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(CertPathBuilderException::*)($String*)>(&CertPathBuilderException::init$))},
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(CertPathBuilderException::*)($Throwable*)>(&CertPathBuilderException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(CertPathBuilderException::*)($String*,$Throwable*)>(&CertPathBuilderException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CertPathBuilderException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(CertPathBuilderException, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(CertPathBuilderException, init$, void, $Throwable*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(CertPathBuilderException, init$, void, $String*, $Throwable*)},
 	{}
 };
 

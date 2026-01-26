@@ -70,10 +70,10 @@ $FieldInfo _SSLCipher$T12GcmReadCipherGenerator$GcmReadCipher_FieldInfo_[] = {
 };
 
 $MethodInfo _SSLCipher$T12GcmReadCipherGenerator$GcmReadCipher_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/ssl/Authenticator;Lsun/security/ssl/ProtocolVersion;Lsun/security/ssl/SSLCipher;Ljava/lang/String;Ljava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, 0, $method(static_cast<void(SSLCipher$T12GcmReadCipherGenerator$GcmReadCipher::*)($Authenticator*,$ProtocolVersion*,$SSLCipher*,$String*,$Key*,$AlgorithmParameterSpec*,$SecureRandom*)>(&SSLCipher$T12GcmReadCipherGenerator$GcmReadCipher::init$)), "java.security.GeneralSecurityException"},
-	{"decrypt", "(BLjava/nio/ByteBuffer;[B)Lsun/security/ssl/Plaintext;", nullptr, $PUBLIC, nullptr, "java.security.GeneralSecurityException"},
-	{"dispose", "()V", nullptr, 0},
-	{"estimateFragmentSize", "(II)I", nullptr, 0},
+	{"<init>", "(Lsun/security/ssl/Authenticator;Lsun/security/ssl/ProtocolVersion;Lsun/security/ssl/SSLCipher;Ljava/lang/String;Ljava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, 0, $method(SSLCipher$T12GcmReadCipherGenerator$GcmReadCipher, init$, void, $Authenticator*, $ProtocolVersion*, $SSLCipher*, $String*, $Key*, $AlgorithmParameterSpec*, $SecureRandom*), "java.security.GeneralSecurityException"},
+	{"decrypt", "(BLjava/nio/ByteBuffer;[B)Lsun/security/ssl/Plaintext;", nullptr, $PUBLIC, $virtualMethod(SSLCipher$T12GcmReadCipherGenerator$GcmReadCipher, decrypt, $Plaintext*, int8_t, $ByteBuffer*, $bytes*), "java.security.GeneralSecurityException"},
+	{"dispose", "()V", nullptr, 0, $virtualMethod(SSLCipher$T12GcmReadCipherGenerator$GcmReadCipher, dispose, void)},
+	{"estimateFragmentSize", "(II)I", nullptr, 0, $virtualMethod(SSLCipher$T12GcmReadCipherGenerator$GcmReadCipher, estimateFragmentSize, int32_t, int32_t, int32_t)},
 	{}
 };
 

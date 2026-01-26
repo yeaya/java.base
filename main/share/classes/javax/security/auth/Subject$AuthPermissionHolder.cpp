@@ -34,7 +34,7 @@ $FieldInfo _Subject$AuthPermissionHolder_FieldInfo_[] = {
 };
 
 $MethodInfo _Subject$AuthPermissionHolder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Subject$AuthPermissionHolder::*)()>(&Subject$AuthPermissionHolder::init$))},
+	{"<init>", "()V", nullptr, 0, $method(Subject$AuthPermissionHolder, init$, void)},
 	{}
 };
 

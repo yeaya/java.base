@@ -13,7 +13,7 @@ namespace jdk {
 			namespace text {
 
 $MethodInfo _UnicodeSet$Filter_MethodInfo_[] = {
-	{"contains", "(I)Z", nullptr, $PUBLIC | $ABSTRACT},
+	{"contains", "(I)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(UnicodeSet$Filter, contains, bool, int32_t)},
 	{}
 };
 

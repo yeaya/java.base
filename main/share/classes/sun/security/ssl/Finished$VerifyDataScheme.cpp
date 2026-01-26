@@ -50,12 +50,12 @@ $FieldInfo _Finished$VerifyDataScheme_FieldInfo_[] = {
 };
 
 $MethodInfo _Finished$VerifyDataScheme_MethodInfo_[] = {
-	{"$values", "()[Lsun/security/ssl/Finished$VerifyDataScheme;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Finished$VerifyDataSchemeArray*(*)()>(&Finished$VerifyDataScheme::$values))},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;Lsun/security/ssl/Finished$VerifyDataGenerator;)V", "(Ljava/lang/String;Lsun/security/ssl/Finished$VerifyDataGenerator;)V", $PRIVATE, $method(static_cast<void(Finished$VerifyDataScheme::*)($String*,int32_t,$String*,$Finished$VerifyDataGenerator*)>(&Finished$VerifyDataScheme::init$))},
-	{"createVerifyData", "(Lsun/security/ssl/HandshakeContext;Z)[B", nullptr, $PUBLIC, $method(static_cast<$bytes*(Finished$VerifyDataScheme::*)($HandshakeContext*,bool)>(&Finished$VerifyDataScheme::createVerifyData)), "java.io.IOException"},
-	{"valueOf", "(Ljava/lang/String;)Lsun/security/ssl/Finished$VerifyDataScheme;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Finished$VerifyDataScheme*(*)($String*)>(&Finished$VerifyDataScheme::valueOf))},
-	{"valueOf", "(Lsun/security/ssl/ProtocolVersion;)Lsun/security/ssl/Finished$VerifyDataScheme;", nullptr, $STATIC, $method(static_cast<Finished$VerifyDataScheme*(*)($ProtocolVersion*)>(&Finished$VerifyDataScheme::valueOf))},
-	{"values", "()[Lsun/security/ssl/Finished$VerifyDataScheme;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Finished$VerifyDataSchemeArray*(*)()>(&Finished$VerifyDataScheme::values))},
+	{"$values", "()[Lsun/security/ssl/Finished$VerifyDataScheme;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Finished$VerifyDataScheme, $values, $Finished$VerifyDataSchemeArray*)},
+	{"<init>", "(Ljava/lang/String;ILjava/lang/String;Lsun/security/ssl/Finished$VerifyDataGenerator;)V", "(Ljava/lang/String;Lsun/security/ssl/Finished$VerifyDataGenerator;)V", $PRIVATE, $method(Finished$VerifyDataScheme, init$, void, $String*, int32_t, $String*, $Finished$VerifyDataGenerator*)},
+	{"createVerifyData", "(Lsun/security/ssl/HandshakeContext;Z)[B", nullptr, $PUBLIC, $method(Finished$VerifyDataScheme, createVerifyData, $bytes*, $HandshakeContext*, bool), "java.io.IOException"},
+	{"valueOf", "(Ljava/lang/String;)Lsun/security/ssl/Finished$VerifyDataScheme;", nullptr, $PUBLIC | $STATIC, $staticMethod(Finished$VerifyDataScheme, valueOf, Finished$VerifyDataScheme*, $String*)},
+	{"valueOf", "(Lsun/security/ssl/ProtocolVersion;)Lsun/security/ssl/Finished$VerifyDataScheme;", nullptr, $STATIC, $staticMethod(Finished$VerifyDataScheme, valueOf, Finished$VerifyDataScheme*, $ProtocolVersion*)},
+	{"values", "()[Lsun/security/ssl/Finished$VerifyDataScheme;", nullptr, $PUBLIC | $STATIC, $staticMethod(Finished$VerifyDataScheme, values, $Finished$VerifyDataSchemeArray*)},
 	{}
 };
 

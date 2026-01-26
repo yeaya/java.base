@@ -46,19 +46,19 @@ $FieldInfo _SmtpClient_FieldInfo_[] = {
 };
 
 $MethodInfo _SmtpClient_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(SmtpClient::*)($String*)>(&SmtpClient::init$)), "java.io.IOException"},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SmtpClient::*)()>(&SmtpClient::init$)), "java.io.IOException"},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(static_cast<void(SmtpClient::*)(int32_t)>(&SmtpClient::init$)), "java.io.IOException"},
-	{"closeMessage", "()V", nullptr, 0, nullptr, "java.io.IOException"},
-	{"closeServer", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"from", "(Ljava/lang/String;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"getEncoding", "()Ljava/lang/String;", nullptr, 0},
-	{"getMailHost", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"issueCommand", "(Ljava/lang/String;I)V", nullptr, 0, nullptr, "java.io.IOException"},
-	{"openServer", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(static_cast<void(SmtpClient::*)($String*)>(&SmtpClient::openServer)), "java.io.IOException"},
-	{"startMessage", "()Ljava/io/PrintStream;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"to", "(Ljava/lang/String;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"toCanonical", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(static_cast<void(SmtpClient::*)($String*)>(&SmtpClient::toCanonical)), "java.io.IOException"},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SmtpClient, init$, void, $String*), "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SmtpClient, init$, void), "java.io.IOException"},
+	{"<init>", "(I)V", nullptr, $PUBLIC, $method(SmtpClient, init$, void, int32_t), "java.io.IOException"},
+	{"closeMessage", "()V", nullptr, 0, $virtualMethod(SmtpClient, closeMessage, void), "java.io.IOException"},
+	{"closeServer", "()V", nullptr, $PUBLIC, $virtualMethod(SmtpClient, closeServer, void), "java.io.IOException"},
+	{"from", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SmtpClient, from, void, $String*), "java.io.IOException"},
+	{"getEncoding", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(SmtpClient, getEncoding, $String*)},
+	{"getMailHost", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SmtpClient, getMailHost, $String*)},
+	{"issueCommand", "(Ljava/lang/String;I)V", nullptr, 0, $virtualMethod(SmtpClient, issueCommand, void, $String*, int32_t), "java.io.IOException"},
+	{"openServer", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(SmtpClient, openServer, void, $String*), "java.io.IOException"},
+	{"startMessage", "()Ljava/io/PrintStream;", nullptr, $PUBLIC, $virtualMethod(SmtpClient, startMessage, $PrintStream*), "java.io.IOException"},
+	{"to", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SmtpClient, to, void, $String*), "java.io.IOException"},
+	{"toCanonical", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(SmtpClient, toCanonical, void, $String*), "java.io.IOException"},
 	{}
 };
 

@@ -46,18 +46,18 @@ $FieldInfo _HKSCS$Encoder_FieldInfo_[] = {
 };
 
 $MethodInfo _HKSCS$Encoder_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/charset/Charset;Lsun/nio/cs/DoubleByte$Encoder;[[C[[C)V", nullptr, $PROTECTED, $method(static_cast<void(HKSCS$Encoder::*)($Charset*,$DoubleByte$Encoder*,$charArray2*,$charArray2*)>(&HKSCS$Encoder::init$))},
-	{"canEncode", "(C)Z", nullptr, $PUBLIC},
-	{"encode", "([CII[B)I", nullptr, $PUBLIC},
-	{"encodeArrayLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED},
-	{"encodeBig5", "(C)I", nullptr, $PUBLIC},
-	{"encodeBufferLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED},
-	{"encodeChar", "(C)I", nullptr, $PUBLIC},
-	{"encodeFromUTF16", "([BII[B)I", nullptr, $PUBLIC},
-	{"encodeLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED},
-	{"encodeSupp", "(I)I", nullptr, $PUBLIC},
-	{"implReplaceWith", "([B)V", nullptr, $PROTECTED},
-	{"initc2b", "([[C[Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($charArray2*,$StringArray*,$String*)>(&HKSCS$Encoder::initc2b))},
+	{"<init>", "(Ljava/nio/charset/Charset;Lsun/nio/cs/DoubleByte$Encoder;[[C[[C)V", nullptr, $PROTECTED, $method(HKSCS$Encoder, init$, void, $Charset*, $DoubleByte$Encoder*, $charArray2*, $charArray2*)},
+	{"canEncode", "(C)Z", nullptr, $PUBLIC, $virtualMethod(HKSCS$Encoder, canEncode, bool, char16_t)},
+	{"encode", "([CII[B)I", nullptr, $PUBLIC, $virtualMethod(HKSCS$Encoder, encode, int32_t, $chars*, int32_t, int32_t, $bytes*)},
+	{"encodeArrayLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED, $virtualMethod(HKSCS$Encoder, encodeArrayLoop, $CoderResult*, $CharBuffer*, $ByteBuffer*)},
+	{"encodeBig5", "(C)I", nullptr, $PUBLIC, $virtualMethod(HKSCS$Encoder, encodeBig5, int32_t, char16_t)},
+	{"encodeBufferLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED, $virtualMethod(HKSCS$Encoder, encodeBufferLoop, $CoderResult*, $CharBuffer*, $ByteBuffer*)},
+	{"encodeChar", "(C)I", nullptr, $PUBLIC, $virtualMethod(HKSCS$Encoder, encodeChar, int32_t, char16_t)},
+	{"encodeFromUTF16", "([BII[B)I", nullptr, $PUBLIC, $virtualMethod(HKSCS$Encoder, encodeFromUTF16, int32_t, $bytes*, int32_t, int32_t, $bytes*)},
+	{"encodeLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED, $virtualMethod(HKSCS$Encoder, encodeLoop, $CoderResult*, $CharBuffer*, $ByteBuffer*)},
+	{"encodeSupp", "(I)I", nullptr, $PUBLIC, $virtualMethod(HKSCS$Encoder, encodeSupp, int32_t, int32_t)},
+	{"implReplaceWith", "([B)V", nullptr, $PROTECTED, $virtualMethod(HKSCS$Encoder, implReplaceWith, void, $bytes*)},
+	{"initc2b", "([[C[Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HKSCS$Encoder, initc2b, void, $charArray2*, $StringArray*, $String*)},
 	{}
 };
 

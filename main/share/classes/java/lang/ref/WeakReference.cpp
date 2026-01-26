@@ -14,8 +14,8 @@ namespace java {
 		namespace ref {
 
 $MethodInfo _WeakReference_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;)V", "(TT;)V", $PUBLIC, $method(static_cast<void(WeakReference::*)(Object$*)>(&WeakReference::init$))},
-	{"<init>", "(Ljava/lang/Object;Ljava/lang/ref/ReferenceQueue;)V", "(TT;Ljava/lang/ref/ReferenceQueue<-TT;>;)V", $PUBLIC, $method(static_cast<void(WeakReference::*)(Object$*,$ReferenceQueue*)>(&WeakReference::init$))},
+	{"<init>", "(Ljava/lang/Object;)V", "(TT;)V", $PUBLIC, $method(WeakReference, init$, void, Object$*)},
+	{"<init>", "(Ljava/lang/Object;Ljava/lang/ref/ReferenceQueue;)V", "(TT;Ljava/lang/ref/ReferenceQueue<-TT;>;)V", $PUBLIC, $method(WeakReference, init$, void, Object$*, $ReferenceQueue*)},
 	{}
 };
 

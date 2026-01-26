@@ -17,10 +17,10 @@ $FieldInfo _KeyManagementException_FieldInfo_[] = {
 };
 
 $MethodInfo _KeyManagementException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(KeyManagementException::*)()>(&KeyManagementException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(KeyManagementException::*)($String*)>(&KeyManagementException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(KeyManagementException::*)($String*,$Throwable*)>(&KeyManagementException::init$))},
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(KeyManagementException::*)($Throwable*)>(&KeyManagementException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(KeyManagementException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(KeyManagementException, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(KeyManagementException, init$, void, $String*, $Throwable*)},
+	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(KeyManagementException, init$, void, $Throwable*)},
 	{}
 };
 

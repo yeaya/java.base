@@ -18,7 +18,7 @@ $CompoundAttribute _MembershipRegistry$ThrowingConsumer_Annotations_[] = {
 };
 
 $MethodInfo _MembershipRegistry$ThrowingConsumer_MethodInfo_[] = {
-	{"accept", "(Ljava/lang/Object;)V", "(TT;)V^TX;", $PUBLIC | $ABSTRACT, nullptr, "java.lang.Throwable"},
+	{"accept", "(Ljava/lang/Object;)V", "(TT;)V^TX;", $PUBLIC | $ABSTRACT, $virtualMethod(MembershipRegistry$ThrowingConsumer, accept, void, Object$*), "java.lang.Throwable"},
 	{}
 };
 

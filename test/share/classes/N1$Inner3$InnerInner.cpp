@@ -20,12 +20,12 @@ $FieldInfo _N1$Inner3$InnerInner_FieldInfo_[] = {
 };
 
 $MethodInfo _N1$Inner3$InnerInner_MethodInfo_[] = {
-	{"<init>", "(LN1$Inner3;)V", nullptr, $PUBLIC, $method(static_cast<void(N1$Inner3$InnerInner::*)($N1$Inner3*)>(&N1$Inner3$InnerInner::init$))},
-	{"bam", "(LN1;)LN1;", "(LN1<TT1;TX2;>;)LN1<**>;", 0},
-	{"bar", "(Ljava/lang/Object;[Ljava/lang/Object;Ljava/lang/Object;)[Ljava/lang/Object;", "<X3:Ljava/lang/Object;>(TX1;[TX3;TT1;)[TX3;", 0},
-	{"baz", "(LN1;)LN1;", "(LN1<TX1;TX2;>;)LN1<TX1;TX2;>;", 0},
-	{"boom", "(LN1;)LN1;", "(LN1<TT1;TX2;>;)LN1<+TT1;*>;", 0},
-	{"foo", "(Ljava/lang/Object;)V", "(TX3;)V", 0},
+	{"<init>", "(LN1$Inner3;)V", nullptr, $PUBLIC, $method(N1$Inner3$InnerInner, init$, void, $N1$Inner3*)},
+	{"bam", "(LN1;)LN1;", "(LN1<TT1;TX2;>;)LN1<**>;", 0, $virtualMethod(N1$Inner3$InnerInner, bam, $N1*, $N1*)},
+	{"bar", "(Ljava/lang/Object;[Ljava/lang/Object;Ljava/lang/Object;)[Ljava/lang/Object;", "<X3:Ljava/lang/Object;>(TX1;[TX3;TT1;)[TX3;", 0, $virtualMethod(N1$Inner3$InnerInner, bar, $ObjectArray*, Object$*, $ObjectArray*, Object$*)},
+	{"baz", "(LN1;)LN1;", "(LN1<TX1;TX2;>;)LN1<TX1;TX2;>;", 0, $virtualMethod(N1$Inner3$InnerInner, baz, $N1*, $N1*)},
+	{"boom", "(LN1;)LN1;", "(LN1<TT1;TX2;>;)LN1<+TT1;*>;", 0, $virtualMethod(N1$Inner3$InnerInner, boom, $N1*, $N1*)},
+	{"foo", "(Ljava/lang/Object;)V", "(TX3;)V", 0, $virtualMethod(N1$Inner3$InnerInner, foo, void, Object$*)},
 	{}
 };
 

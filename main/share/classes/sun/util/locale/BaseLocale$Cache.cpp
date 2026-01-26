@@ -25,11 +25,11 @@ $FieldInfo _BaseLocale$Cache_FieldInfo_[] = {
 };
 
 $MethodInfo _BaseLocale$Cache_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(BaseLocale$Cache::*)()>(&BaseLocale$Cache::init$))},
-	{"createObject", "(Lsun/util/locale/BaseLocale$Key;)Lsun/util/locale/BaseLocale;", nullptr, $PROTECTED},
-	{"createObject", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PROTECTED | $VOLATILE | $SYNTHETIC},
-	{"normalizeKey", "(Lsun/util/locale/BaseLocale$Key;)Lsun/util/locale/BaseLocale$Key;", nullptr, $PROTECTED},
-	{"normalizeKey", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PROTECTED | $VOLATILE | $SYNTHETIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(BaseLocale$Cache, init$, void)},
+	{"createObject", "(Lsun/util/locale/BaseLocale$Key;)Lsun/util/locale/BaseLocale;", nullptr, $PROTECTED, $virtualMethod(BaseLocale$Cache, createObject, $BaseLocale*, $BaseLocale$Key*)},
+	{"createObject", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PROTECTED | $VOLATILE | $SYNTHETIC, $virtualMethod(BaseLocale$Cache, createObject, $Object*, Object$*)},
+	{"normalizeKey", "(Lsun/util/locale/BaseLocale$Key;)Lsun/util/locale/BaseLocale$Key;", nullptr, $PROTECTED, $virtualMethod(BaseLocale$Cache, normalizeKey, $BaseLocale$Key*, $BaseLocale$Key*)},
+	{"normalizeKey", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PROTECTED | $VOLATILE | $SYNTHETIC, $virtualMethod(BaseLocale$Cache, normalizeKey, $Object*, Object$*)},
 	{}
 };
 

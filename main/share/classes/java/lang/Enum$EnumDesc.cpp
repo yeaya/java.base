@@ -28,10 +28,10 @@ namespace java {
 	namespace lang {
 
 $MethodInfo _Enum$EnumDesc_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/constant/ClassDesc;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(static_cast<void(Enum$EnumDesc::*)($ClassDesc*,$String*)>(&Enum$EnumDesc::init$))},
-	{"of", "(Ljava/lang/constant/ClassDesc;Ljava/lang/String;)Ljava/lang/Enum$EnumDesc;", "<E:Ljava/lang/Enum<TE;>;>(Ljava/lang/constant/ClassDesc;Ljava/lang/String;)Ljava/lang/Enum$EnumDesc<TE;>;", $PUBLIC | $STATIC, $method(static_cast<Enum$EnumDesc*(*)($ClassDesc*,$String*)>(&Enum$EnumDesc::of))},
-	{"resolveConstantDesc", "(Ljava/lang/invoke/MethodHandles$Lookup;)Ljava/lang/Enum;", "(Ljava/lang/invoke/MethodHandles$Lookup;)TE;", $PUBLIC, nullptr, "java.lang.ReflectiveOperationException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/constant/ClassDesc;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(Enum$EnumDesc, init$, void, $ClassDesc*, $String*)},
+	{"of", "(Ljava/lang/constant/ClassDesc;Ljava/lang/String;)Ljava/lang/Enum$EnumDesc;", "<E:Ljava/lang/Enum<TE;>;>(Ljava/lang/constant/ClassDesc;Ljava/lang/String;)Ljava/lang/Enum$EnumDesc<TE;>;", $PUBLIC | $STATIC, $staticMethod(Enum$EnumDesc, of, Enum$EnumDesc*, $ClassDesc*, $String*)},
+	{"resolveConstantDesc", "(Ljava/lang/invoke/MethodHandles$Lookup;)Ljava/lang/Enum;", "(Ljava/lang/invoke/MethodHandles$Lookup;)TE;", $PUBLIC, $virtualMethod(Enum$EnumDesc, resolveConstantDesc, $Object*, $MethodHandles$Lookup*), "java.lang.ReflectiveOperationException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Enum$EnumDesc, toString, $String*)},
 	{}
 };
 

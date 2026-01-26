@@ -28,10 +28,10 @@ $FieldInfo _ProcessEnvironment$CheckedEntrySet$1_FieldInfo_[] = {
 };
 
 $MethodInfo _ProcessEnvironment$CheckedEntrySet$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/ProcessEnvironment$CheckedEntrySet;)V", nullptr, 0, $method(static_cast<void(ProcessEnvironment$CheckedEntrySet$1::*)($ProcessEnvironment$CheckedEntrySet*)>(&ProcessEnvironment$CheckedEntrySet$1::init$))},
-	{"hasNext", "()Z", nullptr, $PUBLIC},
-	{"next", "()Ljava/util/Map$Entry;", "()Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/String;>;", $PUBLIC},
-	{"remove", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/ProcessEnvironment$CheckedEntrySet;)V", nullptr, 0, $method(ProcessEnvironment$CheckedEntrySet$1, init$, void, $ProcessEnvironment$CheckedEntrySet*)},
+	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(ProcessEnvironment$CheckedEntrySet$1, hasNext, bool)},
+	{"next", "()Ljava/util/Map$Entry;", "()Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/String;>;", $PUBLIC, $virtualMethod(ProcessEnvironment$CheckedEntrySet$1, next, $Object*)},
+	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(ProcessEnvironment$CheckedEntrySet$1, remove, void)},
 	{}
 };
 

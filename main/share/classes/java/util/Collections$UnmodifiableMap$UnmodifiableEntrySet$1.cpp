@@ -33,11 +33,11 @@ $FieldInfo _Collections$UnmodifiableMap$UnmodifiableEntrySet$1_FieldInfo_[] = {
 };
 
 $MethodInfo _Collections$UnmodifiableMap$UnmodifiableEntrySet$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Collections$UnmodifiableMap$UnmodifiableEntrySet;)V", nullptr, 0, $method(static_cast<void(Collections$UnmodifiableMap$UnmodifiableEntrySet$1::*)($Collections$UnmodifiableMap$UnmodifiableEntrySet*)>(&Collections$UnmodifiableMap$UnmodifiableEntrySet$1::init$))},
-	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-Ljava/util/Map$Entry<TK;TV;>;>;)V", $PUBLIC},
-	{"hasNext", "()Z", nullptr, $PUBLIC},
-	{"next", "()Ljava/util/Map$Entry;", "()Ljava/util/Map$Entry<TK;TV;>;", $PUBLIC},
-	{"remove", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/Collections$UnmodifiableMap$UnmodifiableEntrySet;)V", nullptr, 0, $method(Collections$UnmodifiableMap$UnmodifiableEntrySet$1, init$, void, $Collections$UnmodifiableMap$UnmodifiableEntrySet*)},
+	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-Ljava/util/Map$Entry<TK;TV;>;>;)V", $PUBLIC, $virtualMethod(Collections$UnmodifiableMap$UnmodifiableEntrySet$1, forEachRemaining, void, $Consumer*)},
+	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(Collections$UnmodifiableMap$UnmodifiableEntrySet$1, hasNext, bool)},
+	{"next", "()Ljava/util/Map$Entry;", "()Ljava/util/Map$Entry<TK;TV;>;", $PUBLIC, $virtualMethod(Collections$UnmodifiableMap$UnmodifiableEntrySet$1, next, $Object*)},
+	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(Collections$UnmodifiableMap$UnmodifiableEntrySet$1, remove, void)},
 	{}
 };
 

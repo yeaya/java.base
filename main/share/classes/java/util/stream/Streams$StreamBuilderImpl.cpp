@@ -41,14 +41,14 @@ $MethodInfo _Streams$StreamBuilderImpl_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Streams$StreamBuilderImpl::*)()>(&Streams$StreamBuilderImpl::init$))},
-	{"<init>", "(Ljava/lang/Object;)V", "(TT;)V", 0, $method(static_cast<void(Streams$StreamBuilderImpl::*)(Object$*)>(&Streams$StreamBuilderImpl::init$))},
-	{"accept", "(Ljava/lang/Object;)V", "(TT;)V", $PUBLIC},
-	{"add", "(Ljava/lang/Object;)Ljava/util/stream/Stream$Builder;", "(TT;)Ljava/util/stream/Stream$Builder<TT;>;", $PUBLIC},
-	{"build", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<TT;>;", $PUBLIC},
-	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TT;>;)V", $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(Streams$StreamBuilderImpl, init$, void)},
+	{"<init>", "(Ljava/lang/Object;)V", "(TT;)V", 0, $method(Streams$StreamBuilderImpl, init$, void, Object$*)},
+	{"accept", "(Ljava/lang/Object;)V", "(TT;)V", $PUBLIC, $virtualMethod(Streams$StreamBuilderImpl, accept, void, Object$*)},
+	{"add", "(Ljava/lang/Object;)Ljava/util/stream/Stream$Builder;", "(TT;)Ljava/util/stream/Stream$Builder<TT;>;", $PUBLIC, $virtualMethod(Streams$StreamBuilderImpl, add, $Stream$Builder*, Object$*)},
+	{"build", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<TT;>;", $PUBLIC, $virtualMethod(Streams$StreamBuilderImpl, build, $Stream*)},
+	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TT;>;)V", $PUBLIC, $virtualMethod(Streams$StreamBuilderImpl, forEachRemaining, void, $Consumer*)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-TT;>;)Z", $PUBLIC},
+	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-TT;>;)Z", $PUBLIC, $virtualMethod(Streams$StreamBuilderImpl, tryAdvance, bool, $Consumer*)},
 	{}
 };
 

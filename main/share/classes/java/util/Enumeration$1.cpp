@@ -19,9 +19,9 @@ $FieldInfo _Enumeration$1_FieldInfo_[] = {
 };
 
 $MethodInfo _Enumeration$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Enumeration;)V", nullptr, 0, $method(static_cast<void(Enumeration$1::*)($Enumeration*)>(&Enumeration$1::init$))},
-	{"hasNext", "()Z", nullptr, $PUBLIC},
-	{"next", "()Ljava/lang/Object;", "()TE;", $PUBLIC},
+	{"<init>", "(Ljava/util/Enumeration;)V", nullptr, 0, $method(Enumeration$1, init$, void, $Enumeration*)},
+	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(Enumeration$1, hasNext, bool)},
+	{"next", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(Enumeration$1, next, $Object*)},
 	{}
 };
 

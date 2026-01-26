@@ -90,13 +90,13 @@ $FieldInfo _Attributes$Name_FieldInfo_[] = {
 };
 
 $MethodInfo _Attributes$Name_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(Attributes$Name::*)($String*)>(&Attributes$Name::init$))},
-	{"addName", "(Ljava/util/Map;Ljava/util/jar/Attributes$Name;)V", "(Ljava/util/Map<Ljava/lang/String;Ljava/util/jar/Attributes$Name;>;Ljava/util/jar/Attributes$Name;)V", $PRIVATE | $STATIC, $method(static_cast<void(*)($Map*,Attributes$Name*)>(&Attributes$Name::addName))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"hash", "(Ljava/lang/String;)I", nullptr, $PRIVATE | $FINAL, $method(static_cast<int32_t(Attributes$Name::*)($String*)>(&Attributes$Name::hash))},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"of", "(Ljava/lang/String;)Ljava/util/jar/Attributes$Name;", nullptr, $STATIC | $FINAL, $method(static_cast<Attributes$Name*(*)($String*)>(&Attributes$Name::of))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Attributes$Name, init$, void, $String*)},
+	{"addName", "(Ljava/util/Map;Ljava/util/jar/Attributes$Name;)V", "(Ljava/util/Map<Ljava/lang/String;Ljava/util/jar/Attributes$Name;>;Ljava/util/jar/Attributes$Name;)V", $PRIVATE | $STATIC, $staticMethod(Attributes$Name, addName, void, $Map*, Attributes$Name*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Attributes$Name, equals, bool, Object$*)},
+	{"hash", "(Ljava/lang/String;)I", nullptr, $PRIVATE | $FINAL, $method(Attributes$Name, hash, int32_t, $String*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Attributes$Name, hashCode, int32_t)},
+	{"of", "(Ljava/lang/String;)Ljava/util/jar/Attributes$Name;", nullptr, $STATIC | $FINAL, $staticMethod(Attributes$Name, of, Attributes$Name*, $String*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Attributes$Name, toString, $String*)},
 	{}
 };
 

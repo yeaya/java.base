@@ -89,17 +89,17 @@ $FieldInfo _SimpleAsynchronousFileChannelImpl_FieldInfo_[] = {
 };
 
 $MethodInfo _SimpleAsynchronousFileChannelImpl_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/FileDescriptor;ZZLjava/util/concurrent/ExecutorService;)V", nullptr, 0, $method(static_cast<void(SimpleAsynchronousFileChannelImpl::*)($FileDescriptor*,bool,bool,$ExecutorService*)>(&SimpleAsynchronousFileChannelImpl::init$))},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"force", "(Z)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"implLock", "(JJZLjava/lang/Object;Ljava/nio/channels/CompletionHandler;)Ljava/util/concurrent/Future;", "<A:Ljava/lang/Object;>(JJZTA;Ljava/nio/channels/CompletionHandler<Ljava/nio/channels/FileLock;-TA;>;)Ljava/util/concurrent/Future<Ljava/nio/channels/FileLock;>;", 0},
-	{"implRead", "(Ljava/nio/ByteBuffer;JLjava/lang/Object;Ljava/nio/channels/CompletionHandler;)Ljava/util/concurrent/Future;", "<A:Ljava/lang/Object;>(Ljava/nio/ByteBuffer;JTA;Ljava/nio/channels/CompletionHandler<Ljava/lang/Integer;-TA;>;)Ljava/util/concurrent/Future<Ljava/lang/Integer;>;", 0},
-	{"implRelease", "(Lsun/nio/ch/FileLockImpl;)V", nullptr, $PROTECTED, nullptr, "java.io.IOException"},
-	{"implWrite", "(Ljava/nio/ByteBuffer;JLjava/lang/Object;Ljava/nio/channels/CompletionHandler;)Ljava/util/concurrent/Future;", "<A:Ljava/lang/Object;>(Ljava/nio/ByteBuffer;JTA;Ljava/nio/channels/CompletionHandler<Ljava/lang/Integer;-TA;>;)Ljava/util/concurrent/Future<Ljava/lang/Integer;>;", 0},
-	{"open", "(Ljava/io/FileDescriptor;ZZLsun/nio/ch/ThreadPool;)Ljava/nio/channels/AsynchronousFileChannel;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$AsynchronousFileChannel*(*)($FileDescriptor*,bool,bool,$ThreadPool*)>(&SimpleAsynchronousFileChannelImpl::open))},
-	{"size", "()J", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"truncate", "(J)Ljava/nio/channels/AsynchronousFileChannel;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"tryLock", "(JJZ)Ljava/nio/channels/FileLock;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljava/io/FileDescriptor;ZZLjava/util/concurrent/ExecutorService;)V", nullptr, 0, $method(SimpleAsynchronousFileChannelImpl, init$, void, $FileDescriptor*, bool, bool, $ExecutorService*)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(SimpleAsynchronousFileChannelImpl, close, void), "java.io.IOException"},
+	{"force", "(Z)V", nullptr, $PUBLIC, $virtualMethod(SimpleAsynchronousFileChannelImpl, force, void, bool), "java.io.IOException"},
+	{"implLock", "(JJZLjava/lang/Object;Ljava/nio/channels/CompletionHandler;)Ljava/util/concurrent/Future;", "<A:Ljava/lang/Object;>(JJZTA;Ljava/nio/channels/CompletionHandler<Ljava/nio/channels/FileLock;-TA;>;)Ljava/util/concurrent/Future<Ljava/nio/channels/FileLock;>;", 0, $virtualMethod(SimpleAsynchronousFileChannelImpl, implLock, $Future*, int64_t, int64_t, bool, Object$*, $CompletionHandler*)},
+	{"implRead", "(Ljava/nio/ByteBuffer;JLjava/lang/Object;Ljava/nio/channels/CompletionHandler;)Ljava/util/concurrent/Future;", "<A:Ljava/lang/Object;>(Ljava/nio/ByteBuffer;JTA;Ljava/nio/channels/CompletionHandler<Ljava/lang/Integer;-TA;>;)Ljava/util/concurrent/Future<Ljava/lang/Integer;>;", 0, $virtualMethod(SimpleAsynchronousFileChannelImpl, implRead, $Future*, $ByteBuffer*, int64_t, Object$*, $CompletionHandler*)},
+	{"implRelease", "(Lsun/nio/ch/FileLockImpl;)V", nullptr, $PROTECTED, $virtualMethod(SimpleAsynchronousFileChannelImpl, implRelease, void, $FileLockImpl*), "java.io.IOException"},
+	{"implWrite", "(Ljava/nio/ByteBuffer;JLjava/lang/Object;Ljava/nio/channels/CompletionHandler;)Ljava/util/concurrent/Future;", "<A:Ljava/lang/Object;>(Ljava/nio/ByteBuffer;JTA;Ljava/nio/channels/CompletionHandler<Ljava/lang/Integer;-TA;>;)Ljava/util/concurrent/Future<Ljava/lang/Integer;>;", 0, $virtualMethod(SimpleAsynchronousFileChannelImpl, implWrite, $Future*, $ByteBuffer*, int64_t, Object$*, $CompletionHandler*)},
+	{"open", "(Ljava/io/FileDescriptor;ZZLsun/nio/ch/ThreadPool;)Ljava/nio/channels/AsynchronousFileChannel;", nullptr, $PUBLIC | $STATIC, $staticMethod(SimpleAsynchronousFileChannelImpl, open, $AsynchronousFileChannel*, $FileDescriptor*, bool, bool, $ThreadPool*)},
+	{"size", "()J", nullptr, $PUBLIC, $virtualMethod(SimpleAsynchronousFileChannelImpl, size, int64_t), "java.io.IOException"},
+	{"truncate", "(J)Ljava/nio/channels/AsynchronousFileChannel;", nullptr, $PUBLIC, $virtualMethod(SimpleAsynchronousFileChannelImpl, truncate, $AsynchronousFileChannel*, int64_t), "java.io.IOException"},
+	{"tryLock", "(JJZ)Ljava/nio/channels/FileLock;", nullptr, $PUBLIC, $virtualMethod(SimpleAsynchronousFileChannelImpl, tryLock, $FileLock*, int64_t, int64_t, bool), "java.io.IOException"},
 	{}
 };
 

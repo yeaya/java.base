@@ -27,9 +27,9 @@ namespace sun {
 			namespace scope {
 
 $MethodInfo _ClassScope_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $PRIVATE, $method(static_cast<void(ClassScope::*)($Class*)>(&ClassScope::init$))},
-	{"computeEnclosingScope", "()Lsun/reflect/generics/scope/Scope;", nullptr, $PROTECTED},
-	{"make", "(Ljava/lang/Class;)Lsun/reflect/generics/scope/ClassScope;", "(Ljava/lang/Class<*>;)Lsun/reflect/generics/scope/ClassScope;", $PUBLIC | $STATIC, $method(static_cast<ClassScope*(*)($Class*)>(&ClassScope::make))},
+	{"<init>", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $PRIVATE, $method(ClassScope, init$, void, $Class*)},
+	{"computeEnclosingScope", "()Lsun/reflect/generics/scope/Scope;", nullptr, $PROTECTED, $virtualMethod(ClassScope, computeEnclosingScope, $Scope*)},
+	{"make", "(Ljava/lang/Class;)Lsun/reflect/generics/scope/ClassScope;", "(Ljava/lang/Class<*>;)Lsun/reflect/generics/scope/ClassScope;", $PUBLIC | $STATIC, $staticMethod(ClassScope, make, ClassScope*, $Class*)},
 	{}
 };
 

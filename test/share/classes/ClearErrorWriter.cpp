@@ -20,8 +20,8 @@ using $Exception = ::java::lang::Exception;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _ClearErrorWriter_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/Writer;Z)V", nullptr, $PUBLIC, $method(static_cast<void(ClearErrorWriter::*)($Writer*,bool)>(&ClearErrorWriter::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&ClearErrorWriter::main)), "java.lang.Exception"},
+	{"<init>", "(Ljava/io/Writer;Z)V", nullptr, $PUBLIC, $method(ClearErrorWriter, init$, void, $Writer*, bool)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ClearErrorWriter, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

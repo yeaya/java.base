@@ -14,8 +14,8 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $AtomicInteger = ::java::util::concurrent::atomic::AtomicInteger;
 
 $MethodInfo _FinalizeOverride$PublicFinalize_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, 0, $method(static_cast<void(FinalizeOverride$PublicFinalize::*)(int32_t)>(&FinalizeOverride$PublicFinalize::init$))},
-	{"finalize", "()V", nullptr, $PUBLIC},
+	{"<init>", "(I)V", nullptr, 0, $method(FinalizeOverride$PublicFinalize, init$, void, int32_t)},
+	{"finalize", "()V", nullptr, $PUBLIC, $virtualMethod(FinalizeOverride$PublicFinalize, finalize, void)},
 	{}
 };
 

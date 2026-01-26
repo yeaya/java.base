@@ -17,8 +17,8 @@ using $ArrayList = ::java::util::ArrayList;
 using $List = ::java::util::List;
 
 $MethodInfo _textToNumericFormat_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(textToNumericFormat::*)()>(&textToNumericFormat::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&textToNumericFormat::main)), "java.net.UnknownHostException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(textToNumericFormat, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(textToNumericFormat, main, void, $StringArray*), "java.net.UnknownHostException"},
 	{}
 };
 

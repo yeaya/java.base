@@ -8,6 +8,7 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Authenticator = ::java::net::Authenticator;
 
 namespace sun {
 	namespace net {
@@ -21,7 +22,7 @@ $CompoundAttribute _AuthenticatorKeys$AuthenticatorKeyAccess_Annotations_[] = {
 };
 
 $MethodInfo _AuthenticatorKeys$AuthenticatorKeyAccess_MethodInfo_[] = {
-	{"getKey", "(Ljava/net/Authenticator;)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
+	{"getKey", "(Ljava/net/Authenticator;)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AuthenticatorKeys$AuthenticatorKeyAccess, getKey, $String*, $Authenticator*)},
 	{}
 };
 

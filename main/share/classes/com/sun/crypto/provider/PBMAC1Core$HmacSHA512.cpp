@@ -15,8 +15,8 @@ namespace com {
 			namespace provider {
 
 $MethodInfo _PBMAC1Core$HmacSHA512_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PBMAC1Core$HmacSHA512::*)()>(&PBMAC1Core$HmacSHA512::init$)), "java.security.NoSuchAlgorithmException"},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, nullptr, "java.lang.CloneNotSupportedException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PBMAC1Core$HmacSHA512, init$, void), "java.security.NoSuchAlgorithmException"},
+	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(PBMAC1Core$HmacSHA512, clone, $Object*), "java.lang.CloneNotSupportedException"},
 	{}
 };
 

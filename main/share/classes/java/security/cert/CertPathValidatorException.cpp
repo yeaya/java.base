@@ -40,16 +40,16 @@ $FieldInfo _CertPathValidatorException_FieldInfo_[] = {
 };
 
 $MethodInfo _CertPathValidatorException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CertPathValidatorException::*)()>(&CertPathValidatorException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(CertPathValidatorException::*)($String*)>(&CertPathValidatorException::init$))},
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(CertPathValidatorException::*)($Throwable*)>(&CertPathValidatorException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(CertPathValidatorException::*)($String*,$Throwable*)>(&CertPathValidatorException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;Ljava/security/cert/CertPath;I)V", nullptr, $PUBLIC, $method(static_cast<void(CertPathValidatorException::*)($String*,$Throwable*,$CertPath*,int32_t)>(&CertPathValidatorException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;Ljava/security/cert/CertPath;ILjava/security/cert/CertPathValidatorException$Reason;)V", nullptr, $PUBLIC, $method(static_cast<void(CertPathValidatorException::*)($String*,$Throwable*,$CertPath*,int32_t,$CertPathValidatorException$Reason*)>(&CertPathValidatorException::init$))},
-	{"getCertPath", "()Ljava/security/cert/CertPath;", nullptr, $PUBLIC},
-	{"getIndex", "()I", nullptr, $PUBLIC},
-	{"getReason", "()Ljava/security/cert/CertPathValidatorException$Reason;", nullptr, $PUBLIC},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(CertPathValidatorException::*)($ObjectInputStream*)>(&CertPathValidatorException::readObject)), "java.lang.ClassNotFoundException,java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CertPathValidatorException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(CertPathValidatorException, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(CertPathValidatorException, init$, void, $Throwable*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(CertPathValidatorException, init$, void, $String*, $Throwable*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;Ljava/security/cert/CertPath;I)V", nullptr, $PUBLIC, $method(CertPathValidatorException, init$, void, $String*, $Throwable*, $CertPath*, int32_t)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;Ljava/security/cert/CertPath;ILjava/security/cert/CertPathValidatorException$Reason;)V", nullptr, $PUBLIC, $method(CertPathValidatorException, init$, void, $String*, $Throwable*, $CertPath*, int32_t, $CertPathValidatorException$Reason*)},
+	{"getCertPath", "()Ljava/security/cert/CertPath;", nullptr, $PUBLIC, $virtualMethod(CertPathValidatorException, getCertPath, $CertPath*)},
+	{"getIndex", "()I", nullptr, $PUBLIC, $virtualMethod(CertPathValidatorException, getIndex, int32_t)},
+	{"getReason", "()Ljava/security/cert/CertPathValidatorException$Reason;", nullptr, $PUBLIC, $virtualMethod(CertPathValidatorException, getReason, $CertPathValidatorException$Reason*)},
+	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(CertPathValidatorException, readObject, void, $ObjectInputStream*), "java.lang.ClassNotFoundException,java.io.IOException"},
 	{}
 };
 

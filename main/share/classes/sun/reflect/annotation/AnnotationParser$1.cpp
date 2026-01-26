@@ -32,8 +32,8 @@ $FieldInfo _AnnotationParser$1_FieldInfo_[] = {
 };
 
 $MethodInfo _AnnotationParser$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Class;Ljava/util/Map;)V", "()V", 0, $method(static_cast<void(AnnotationParser$1::*)($Class*,$Map*)>(&AnnotationParser$1::init$))},
-	{"run", "()Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Class;Ljava/util/Map;)V", "()V", 0, $method(AnnotationParser$1, init$, void, $Class*, $Map*)},
+	{"run", "()Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC, $virtualMethod(AnnotationParser$1, run, $Object*)},
 	{}
 };
 

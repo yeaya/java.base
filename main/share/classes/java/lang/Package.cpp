@@ -78,8 +78,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Package$$Lambda$lambda$getPackages$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Package$$Lambda$lambda$getPackages$0::*)()>(&Package$$Lambda$lambda$getPackages$0::init$))},
-	{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Package$$Lambda$lambda$getPackages$0, init$, void)},
+	{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Package$$Lambda$lambda$getPackages$0, apply, $Object*, int32_t)},
 	{}
 };
 $ClassInfo Package$$Lambda$lambda$getPackages$0::classInfo$ = {
@@ -118,8 +118,8 @@ $FieldInfo Package$$Lambda$getClassLoader$1::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Package$$Lambda$getClassLoader$1::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/Module;)V", nullptr, $PUBLIC, $method(static_cast<void(Package$$Lambda$getClassLoader$1::*)($Module*)>(&Package$$Lambda$getClassLoader$1::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Module;)V", nullptr, $PUBLIC, $method(Package$$Lambda$getClassLoader$1, init$, void, $Module*)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Package$$Lambda$getClassLoader$1, run, $Object*)},
 	{}
 };
 $ClassInfo Package$$Lambda$getClassLoader$1::classInfo$ = {
@@ -162,31 +162,31 @@ $MethodInfo _Package_MethodInfo_[] = {
 	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/net/URL;Ljava/lang/ClassLoader;)V", nullptr, 0, $method(static_cast<void(Package::*)($String*,$String*,$String*,$String*,$String*,$String*,$String*,$URL*,$ClassLoader*)>(&Package::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Module;)V", nullptr, 0, $method(static_cast<void(Package::*)($String*,$Module*)>(&Package::init$))},
-	{"getAnnotation", "(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;", "<A::Ljava/lang/annotation/Annotation;>(Ljava/lang/Class<TA;>;)TA;", $PUBLIC},
-	{"getAnnotations", "()[Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC},
-	{"getAnnotationsByType", "(Ljava/lang/Class;)[Ljava/lang/annotation/Annotation;", "<A::Ljava/lang/annotation/Annotation;>(Ljava/lang/Class<TA;>;)[TA;", $PUBLIC},
-	{"getDeclaredAnnotation", "(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;", "<A::Ljava/lang/annotation/Annotation;>(Ljava/lang/Class<TA;>;)TA;", $PUBLIC},
-	{"getDeclaredAnnotations", "()[Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC},
-	{"getDeclaredAnnotationsByType", "(Ljava/lang/Class;)[Ljava/lang/annotation/Annotation;", "<A::Ljava/lang/annotation/Annotation;>(Ljava/lang/Class<TA;>;)[TA;", $PUBLIC},
-	{"getImplementationTitle", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getImplementationVendor", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getImplementationVersion", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getPackage", "(Ljava/lang/String;)Ljava/lang/Package;", nullptr, $PUBLIC | $STATIC | $DEPRECATED, $method(static_cast<Package*(*)($String*)>(&Package::getPackage)), nullptr, nullptr, _Package_MethodAnnotations_getPackage12},
-	{"getPackageInfo", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PRIVATE, $method(static_cast<$Class*(Package::*)()>(&Package::getPackageInfo))},
-	{"getPackages", "()[Ljava/lang/Package;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$PackageArray*(*)()>(&Package::getPackages)), nullptr, nullptr, _Package_MethodAnnotations_getPackages14},
-	{"getSpecificationTitle", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getSpecificationVendor", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getSpecificationVersion", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"isAnnotationPresent", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<+Ljava/lang/annotation/Annotation;>;)Z", $PUBLIC},
-	{"isCompatibleWith", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, nullptr, "java.lang.NumberFormatException"},
-	{"isSealed", "()Z", nullptr, $PUBLIC},
-	{"isSealed", "(Ljava/net/URL;)Z", nullptr, $PUBLIC},
-	{"lambda$getPackages$0", "(I)[Ljava/lang/Package;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$PackageArray*(*)(int32_t)>(&Package::lambda$getPackages$0))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/net/URL;Ljava/lang/ClassLoader;)V", nullptr, 0, $method(Package, init$, void, $String*, $String*, $String*, $String*, $String*, $String*, $String*, $URL*, $ClassLoader*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Module;)V", nullptr, 0, $method(Package, init$, void, $String*, $Module*)},
+	{"getAnnotation", "(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;", "<A::Ljava/lang/annotation/Annotation;>(Ljava/lang/Class<TA;>;)TA;", $PUBLIC, $virtualMethod(Package, getAnnotation, $Annotation*, $Class*)},
+	{"getAnnotations", "()[Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC, $virtualMethod(Package, getAnnotations, $AnnotationArray*)},
+	{"getAnnotationsByType", "(Ljava/lang/Class;)[Ljava/lang/annotation/Annotation;", "<A::Ljava/lang/annotation/Annotation;>(Ljava/lang/Class<TA;>;)[TA;", $PUBLIC, $virtualMethod(Package, getAnnotationsByType, $AnnotationArray*, $Class*)},
+	{"getDeclaredAnnotation", "(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;", "<A::Ljava/lang/annotation/Annotation;>(Ljava/lang/Class<TA;>;)TA;", $PUBLIC, $virtualMethod(Package, getDeclaredAnnotation, $Annotation*, $Class*)},
+	{"getDeclaredAnnotations", "()[Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC, $virtualMethod(Package, getDeclaredAnnotations, $AnnotationArray*)},
+	{"getDeclaredAnnotationsByType", "(Ljava/lang/Class;)[Ljava/lang/annotation/Annotation;", "<A::Ljava/lang/annotation/Annotation;>(Ljava/lang/Class<TA;>;)[TA;", $PUBLIC, $virtualMethod(Package, getDeclaredAnnotationsByType, $AnnotationArray*, $Class*)},
+	{"getImplementationTitle", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Package, getImplementationTitle, $String*)},
+	{"getImplementationVendor", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Package, getImplementationVendor, $String*)},
+	{"getImplementationVersion", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Package, getImplementationVersion, $String*)},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Package, getName, $String*)},
+	{"getPackage", "(Ljava/lang/String;)Ljava/lang/Package;", nullptr, $PUBLIC | $STATIC | $DEPRECATED, $staticMethod(Package, getPackage, Package*, $String*), nullptr, nullptr, _Package_MethodAnnotations_getPackage12},
+	{"getPackageInfo", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PRIVATE, $method(Package, getPackageInfo, $Class*)},
+	{"getPackages", "()[Ljava/lang/Package;", nullptr, $PUBLIC | $STATIC, $staticMethod(Package, getPackages, $PackageArray*), nullptr, nullptr, _Package_MethodAnnotations_getPackages14},
+	{"getSpecificationTitle", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Package, getSpecificationTitle, $String*)},
+	{"getSpecificationVendor", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Package, getSpecificationVendor, $String*)},
+	{"getSpecificationVersion", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Package, getSpecificationVersion, $String*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Package, hashCode, int32_t)},
+	{"isAnnotationPresent", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<+Ljava/lang/annotation/Annotation;>;)Z", $PUBLIC, $virtualMethod(Package, isAnnotationPresent, bool, $Class*)},
+	{"isCompatibleWith", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(Package, isCompatibleWith, bool, $String*), "java.lang.NumberFormatException"},
+	{"isSealed", "()Z", nullptr, $PUBLIC, $virtualMethod(Package, isSealed, bool)},
+	{"isSealed", "(Ljava/net/URL;)Z", nullptr, $PUBLIC, $virtualMethod(Package, isSealed, bool, $URL*)},
+	{"lambda$getPackages$0", "(I)[Ljava/lang/Package;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Package, lambda$getPackages$0, $PackageArray*, int32_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Package, toString, $String*)},
 	{}
 };
 

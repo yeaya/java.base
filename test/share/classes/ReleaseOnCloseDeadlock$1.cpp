@@ -19,8 +19,8 @@ $FieldInfo _ReleaseOnCloseDeadlock$1_FieldInfo_[] = {
 };
 
 $MethodInfo _ReleaseOnCloseDeadlock$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/channels/Channel;)V", "()V", 0, $method(static_cast<void(ReleaseOnCloseDeadlock$1::*)($Channel*)>(&ReleaseOnCloseDeadlock$1::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/nio/channels/Channel;)V", "()V", 0, $method(ReleaseOnCloseDeadlock$1, init$, void, $Channel*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ReleaseOnCloseDeadlock$1, run, void)},
 	{}
 };
 

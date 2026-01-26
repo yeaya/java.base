@@ -22,9 +22,9 @@ namespace sun {
 		namespace ext {
 
 $MethodInfo _ExtendedSocketOptions$NoExtendedSocketOptions_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ExtendedSocketOptions$NoExtendedSocketOptions::*)()>(&ExtendedSocketOptions$NoExtendedSocketOptions::init$))},
-	{"getOption", "(Ljava/io/FileDescriptor;Ljava/net/SocketOption;)Ljava/lang/Object;", "(Ljava/io/FileDescriptor;Ljava/net/SocketOption<*>;)Ljava/lang/Object;", $PUBLIC, nullptr, "java.net.SocketException"},
-	{"setOption", "(Ljava/io/FileDescriptor;Ljava/net/SocketOption;Ljava/lang/Object;)V", "(Ljava/io/FileDescriptor;Ljava/net/SocketOption<*>;Ljava/lang/Object;)V", $PUBLIC, nullptr, "java.net.SocketException"},
+	{"<init>", "()V", nullptr, 0, $method(ExtendedSocketOptions$NoExtendedSocketOptions, init$, void)},
+	{"getOption", "(Ljava/io/FileDescriptor;Ljava/net/SocketOption;)Ljava/lang/Object;", "(Ljava/io/FileDescriptor;Ljava/net/SocketOption<*>;)Ljava/lang/Object;", $PUBLIC, $virtualMethod(ExtendedSocketOptions$NoExtendedSocketOptions, getOption, $Object*, $FileDescriptor*, $SocketOption*), "java.net.SocketException"},
+	{"setOption", "(Ljava/io/FileDescriptor;Ljava/net/SocketOption;Ljava/lang/Object;)V", "(Ljava/io/FileDescriptor;Ljava/net/SocketOption<*>;Ljava/lang/Object;)V", $PUBLIC, $virtualMethod(ExtendedSocketOptions$NoExtendedSocketOptions, setOption, void, $FileDescriptor*, $SocketOption*, Object$*), "java.net.SocketException"},
 	{}
 };
 

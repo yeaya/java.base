@@ -20,7 +20,7 @@ $FieldInfo _CharsetMapping$Entry_FieldInfo_[] = {
 };
 
 $MethodInfo _CharsetMapping$Entry_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CharsetMapping$Entry::*)()>(&CharsetMapping$Entry::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CharsetMapping$Entry, init$, void)},
 	{}
 };
 

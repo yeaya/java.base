@@ -83,19 +83,19 @@ $FieldInfo _CertAndKeyGen_FieldInfo_[] = {
 };
 
 $MethodInfo _CertAndKeyGen_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(CertAndKeyGen::*)($String*,$String*)>(&CertAndKeyGen::init$)), "java.security.NoSuchAlgorithmException"},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(CertAndKeyGen::*)($String*,$String*,$String*)>(&CertAndKeyGen::init$)), "java.security.NoSuchAlgorithmException,java.security.NoSuchProviderException"},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/security/PrivateKey;Lsun/security/x509/X500Name;)V", nullptr, $PUBLIC, $method(static_cast<void(CertAndKeyGen::*)($String*,$String*,$String*,$PrivateKey*,$X500Name*)>(&CertAndKeyGen::init$)), "java.security.NoSuchAlgorithmException,java.security.NoSuchProviderException"},
-	{"generate", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(CertAndKeyGen::*)($String*)>(&CertAndKeyGen::generate))},
-	{"generate", "(I)V", nullptr, $PUBLIC, $method(static_cast<void(CertAndKeyGen::*)(int32_t)>(&CertAndKeyGen::generate))},
-	{"generateInternal", "()V", nullptr, $PRIVATE, $method(static_cast<void(CertAndKeyGen::*)()>(&CertAndKeyGen::generateInternal))},
-	{"getPrivateKey", "()Ljava/security/PrivateKey;", nullptr, $PUBLIC, $method(static_cast<$PrivateKey*(CertAndKeyGen::*)()>(&CertAndKeyGen::getPrivateKey))},
-	{"getPublicKey", "()Lsun/security/x509/X509Key;", nullptr, $PUBLIC, $method(static_cast<$X509Key*(CertAndKeyGen::*)()>(&CertAndKeyGen::getPublicKey))},
-	{"getPublicKeyAnyway", "()Ljava/security/PublicKey;", nullptr, $PUBLIC, $method(static_cast<$PublicKey*(CertAndKeyGen::*)()>(&CertAndKeyGen::getPublicKeyAnyway))},
-	{"getSelfCertificate", "(Lsun/security/x509/X500Name;Ljava/util/Date;J)Ljava/security/cert/X509Certificate;", nullptr, $PUBLIC, $method(static_cast<$X509Certificate*(CertAndKeyGen::*)($X500Name*,$Date*,int64_t)>(&CertAndKeyGen::getSelfCertificate)), "java.security.cert.CertificateException,java.security.InvalidKeyException,java.security.SignatureException,java.security.NoSuchAlgorithmException,java.security.NoSuchProviderException"},
-	{"getSelfCertificate", "(Lsun/security/x509/X500Name;Ljava/util/Date;JLsun/security/x509/CertificateExtensions;)Ljava/security/cert/X509Certificate;", nullptr, $PUBLIC, $method(static_cast<$X509Certificate*(CertAndKeyGen::*)($X500Name*,$Date*,int64_t,$CertificateExtensions*)>(&CertAndKeyGen::getSelfCertificate)), "java.security.cert.CertificateException,java.security.InvalidKeyException,java.security.SignatureException,java.security.NoSuchAlgorithmException,java.security.NoSuchProviderException"},
-	{"getSelfCertificate", "(Lsun/security/x509/X500Name;J)Ljava/security/cert/X509Certificate;", nullptr, $PUBLIC, $method(static_cast<$X509Certificate*(CertAndKeyGen::*)($X500Name*,int64_t)>(&CertAndKeyGen::getSelfCertificate)), "java.security.cert.CertificateException,java.security.InvalidKeyException,java.security.SignatureException,java.security.NoSuchAlgorithmException,java.security.NoSuchProviderException"},
-	{"setRandom", "(Ljava/security/SecureRandom;)V", nullptr, $PUBLIC, $method(static_cast<void(CertAndKeyGen::*)($SecureRandom*)>(&CertAndKeyGen::setRandom))},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(CertAndKeyGen, init$, void, $String*, $String*), "java.security.NoSuchAlgorithmException"},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(CertAndKeyGen, init$, void, $String*, $String*, $String*), "java.security.NoSuchAlgorithmException,java.security.NoSuchProviderException"},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/security/PrivateKey;Lsun/security/x509/X500Name;)V", nullptr, $PUBLIC, $method(CertAndKeyGen, init$, void, $String*, $String*, $String*, $PrivateKey*, $X500Name*), "java.security.NoSuchAlgorithmException,java.security.NoSuchProviderException"},
+	{"generate", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(CertAndKeyGen, generate, void, $String*)},
+	{"generate", "(I)V", nullptr, $PUBLIC, $method(CertAndKeyGen, generate, void, int32_t)},
+	{"generateInternal", "()V", nullptr, $PRIVATE, $method(CertAndKeyGen, generateInternal, void)},
+	{"getPrivateKey", "()Ljava/security/PrivateKey;", nullptr, $PUBLIC, $method(CertAndKeyGen, getPrivateKey, $PrivateKey*)},
+	{"getPublicKey", "()Lsun/security/x509/X509Key;", nullptr, $PUBLIC, $method(CertAndKeyGen, getPublicKey, $X509Key*)},
+	{"getPublicKeyAnyway", "()Ljava/security/PublicKey;", nullptr, $PUBLIC, $method(CertAndKeyGen, getPublicKeyAnyway, $PublicKey*)},
+	{"getSelfCertificate", "(Lsun/security/x509/X500Name;Ljava/util/Date;J)Ljava/security/cert/X509Certificate;", nullptr, $PUBLIC, $method(CertAndKeyGen, getSelfCertificate, $X509Certificate*, $X500Name*, $Date*, int64_t), "java.security.cert.CertificateException,java.security.InvalidKeyException,java.security.SignatureException,java.security.NoSuchAlgorithmException,java.security.NoSuchProviderException"},
+	{"getSelfCertificate", "(Lsun/security/x509/X500Name;Ljava/util/Date;JLsun/security/x509/CertificateExtensions;)Ljava/security/cert/X509Certificate;", nullptr, $PUBLIC, $method(CertAndKeyGen, getSelfCertificate, $X509Certificate*, $X500Name*, $Date*, int64_t, $CertificateExtensions*), "java.security.cert.CertificateException,java.security.InvalidKeyException,java.security.SignatureException,java.security.NoSuchAlgorithmException,java.security.NoSuchProviderException"},
+	{"getSelfCertificate", "(Lsun/security/x509/X500Name;J)Ljava/security/cert/X509Certificate;", nullptr, $PUBLIC, $method(CertAndKeyGen, getSelfCertificate, $X509Certificate*, $X500Name*, int64_t), "java.security.cert.CertificateException,java.security.InvalidKeyException,java.security.SignatureException,java.security.NoSuchAlgorithmException,java.security.NoSuchProviderException"},
+	{"setRandom", "(Ljava/security/SecureRandom;)V", nullptr, $PUBLIC, $method(CertAndKeyGen, setRandom, void, $SecureRandom*)},
 	{}
 };
 

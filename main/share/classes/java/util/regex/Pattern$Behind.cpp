@@ -28,8 +28,8 @@ $FieldInfo _Pattern$Behind_FieldInfo_[] = {
 };
 
 $MethodInfo _Pattern$Behind_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/regex/Pattern$Node;II)V", nullptr, 0, $method(static_cast<void(Pattern$Behind::*)($Pattern$Node*,int32_t,int32_t)>(&Pattern$Behind::init$))},
-	{"match", "(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z", nullptr, 0},
+	{"<init>", "(Ljava/util/regex/Pattern$Node;II)V", nullptr, 0, $method(Pattern$Behind, init$, void, $Pattern$Node*, int32_t, int32_t)},
+	{"match", "(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z", nullptr, 0, $virtualMethod(Pattern$Behind, match, bool, $Matcher*, int32_t, $CharSequence*)},
 	{}
 };
 

@@ -71,18 +71,18 @@ $FieldInfo _ConstantUtils_FieldInfo_[] = {
 };
 
 $MethodInfo _ConstantUtils_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ConstantUtils::*)()>(&ConstantUtils::init$))},
-	{"arrayDepth", "(Ljava/lang/String;)I", nullptr, $STATIC, $method(static_cast<int32_t(*)($String*)>(&ConstantUtils::arrayDepth))},
-	{"binaryToInternal", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $method(static_cast<$String*(*)($String*)>(&ConstantUtils::binaryToInternal))},
-	{"dropFirstAndLastChar", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $method(static_cast<$String*(*)($String*)>(&ConstantUtils::dropFirstAndLastChar))},
-	{"dropLastChar", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $method(static_cast<$String*(*)($String*)>(&ConstantUtils::dropLastChar))},
-	{"internalToBinary", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $method(static_cast<$String*(*)($String*)>(&ConstantUtils::internalToBinary))},
-	{"parseMethodDescriptor", "(Ljava/lang/String;)Ljava/util/List;", "(Ljava/lang/String;)Ljava/util/List<Ljava/lang/String;>;", $STATIC, $method(static_cast<$List*(*)($String*)>(&ConstantUtils::parseMethodDescriptor))},
-	{"skipOverFieldSignature", "(Ljava/lang/String;IIZ)I", nullptr, $STATIC, $method(static_cast<int32_t(*)($String*,int32_t,int32_t,bool)>(&ConstantUtils::skipOverFieldSignature))},
-	{"validateBinaryClassName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $method(static_cast<$String*(*)($String*)>(&ConstantUtils::validateBinaryClassName))},
-	{"validateClassOrInterface", "(Ljava/lang/constant/ClassDesc;)V", nullptr, $STATIC, $method(static_cast<void(*)($ClassDesc*)>(&ConstantUtils::validateClassOrInterface))},
-	{"validateMemberName", "(Ljava/lang/String;Z)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)($String*,bool)>(&ConstantUtils::validateMemberName))},
-	{"verifyUnqualifiedClassName", "(Ljava/lang/String;)Z", nullptr, $STATIC, $method(static_cast<bool(*)($String*)>(&ConstantUtils::verifyUnqualifiedClassName))},
+	{"<init>", "()V", nullptr, 0, $method(ConstantUtils, init$, void)},
+	{"arrayDepth", "(Ljava/lang/String;)I", nullptr, $STATIC, $staticMethod(ConstantUtils, arrayDepth, int32_t, $String*)},
+	{"binaryToInternal", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(ConstantUtils, binaryToInternal, $String*, $String*)},
+	{"dropFirstAndLastChar", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(ConstantUtils, dropFirstAndLastChar, $String*, $String*)},
+	{"dropLastChar", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(ConstantUtils, dropLastChar, $String*, $String*)},
+	{"internalToBinary", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(ConstantUtils, internalToBinary, $String*, $String*)},
+	{"parseMethodDescriptor", "(Ljava/lang/String;)Ljava/util/List;", "(Ljava/lang/String;)Ljava/util/List<Ljava/lang/String;>;", $STATIC, $staticMethod(ConstantUtils, parseMethodDescriptor, $List*, $String*)},
+	{"skipOverFieldSignature", "(Ljava/lang/String;IIZ)I", nullptr, $STATIC, $staticMethod(ConstantUtils, skipOverFieldSignature, int32_t, $String*, int32_t, int32_t, bool)},
+	{"validateBinaryClassName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(ConstantUtils, validateBinaryClassName, $String*, $String*)},
+	{"validateClassOrInterface", "(Ljava/lang/constant/ClassDesc;)V", nullptr, $STATIC, $staticMethod(ConstantUtils, validateClassOrInterface, void, $ClassDesc*)},
+	{"validateMemberName", "(Ljava/lang/String;Z)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(ConstantUtils, validateMemberName, $String*, $String*, bool)},
+	{"verifyUnqualifiedClassName", "(Ljava/lang/String;)Z", nullptr, $STATIC, $staticMethod(ConstantUtils, verifyUnqualifiedClassName, bool, $String*)},
 	{}
 };
 

@@ -38,19 +38,19 @@ $FieldInfo _Indify$Constant_FieldInfo_[] = {
 };
 
 $MethodInfo _Indify$Constant_MethodInfo_[] = {
-	{"<init>", "(IBLjava/lang/Object;)V", "(IBTT;)V", $PUBLIC, $method(static_cast<void(Indify$Constant::*)(int32_t,int8_t,Object$*)>(&Indify$Constant::init$))},
-	{"checkTag", "(B)Lindify/Indify$Constant;", nullptr, $PUBLIC},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"equals", "(Lindify/Indify$Constant;)Z", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"itemAsComparable", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"itemIndex", "()Ljava/lang/Short;", nullptr, $PUBLIC},
-	{"itemIndexes", "()[Ljava/lang/Short;", nullptr, $PUBLIC},
-	{"itemString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"readFrom", "(Ljava/io/DataInputStream;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"tagName", "(B)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)(int8_t)>(&Indify$Constant::tagName))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"writeTo", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(IBLjava/lang/Object;)V", "(IBTT;)V", $PUBLIC, $method(Indify$Constant, init$, void, int32_t, int8_t, Object$*)},
+	{"checkTag", "(B)Lindify/Indify$Constant;", nullptr, $PUBLIC, $virtualMethod(Indify$Constant, checkTag, Indify$Constant*, int8_t)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Indify$Constant, equals, bool, Object$*)},
+	{"equals", "(Lindify/Indify$Constant;)Z", nullptr, $PUBLIC, $virtualMethod(Indify$Constant, equals, bool, Indify$Constant*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Indify$Constant, hashCode, int32_t)},
+	{"itemAsComparable", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Indify$Constant, itemAsComparable, $Object*)},
+	{"itemIndex", "()Ljava/lang/Short;", nullptr, $PUBLIC, $virtualMethod(Indify$Constant, itemIndex, $Short*)},
+	{"itemIndexes", "()[Ljava/lang/Short;", nullptr, $PUBLIC, $virtualMethod(Indify$Constant, itemIndexes, $ShortArray*)},
+	{"itemString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Indify$Constant, itemString, $String*)},
+	{"readFrom", "(Ljava/io/DataInputStream;)V", nullptr, $PUBLIC, $virtualMethod(Indify$Constant, readFrom, void, $DataInputStream*), "java.io.IOException"},
+	{"tagName", "(B)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Indify$Constant, tagName, $String*, int8_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Indify$Constant, toString, $String*)},
+	{"writeTo", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(Indify$Constant, writeTo, void, $DataOutputStream*), "java.io.IOException"},
 	{}
 };
 

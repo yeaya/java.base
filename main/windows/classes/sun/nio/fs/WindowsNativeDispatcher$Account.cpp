@@ -20,10 +20,10 @@ $FieldInfo _WindowsNativeDispatcher$Account_FieldInfo_[] = {
 };
 
 $MethodInfo _WindowsNativeDispatcher$Account_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(WindowsNativeDispatcher$Account::*)()>(&WindowsNativeDispatcher$Account::init$))},
-	{"domain", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"use", "()I", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(WindowsNativeDispatcher$Account, init$, void)},
+	{"domain", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(WindowsNativeDispatcher$Account, domain, $String*)},
+	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(WindowsNativeDispatcher$Account, name, $String*)},
+	{"use", "()I", nullptr, $PUBLIC, $virtualMethod(WindowsNativeDispatcher$Account, use, int32_t)},
 	{}
 };
 

@@ -37,8 +37,8 @@ $FieldInfo _AbstractClassLoaderValue$Memoizer_FieldInfo_[] = {
 };
 
 $MethodInfo _AbstractClassLoaderValue$Memoizer_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/ClassLoader;Ljdk/internal/loader/AbstractClassLoaderValue;Ljava/util/function/BiFunction;)V", "(Ljava/lang/ClassLoader;TCLV;Ljava/util/function/BiFunction<-Ljava/lang/ClassLoader;-TCLV;+TV;>;)V", 0, $method(static_cast<void(AbstractClassLoaderValue$Memoizer::*)($ClassLoader*,$AbstractClassLoaderValue*,$BiFunction*)>(&AbstractClassLoaderValue$Memoizer::init$))},
-	{"get", "()Ljava/lang/Object;", "()TV;", $PUBLIC, nullptr, "jdk.internal.loader.AbstractClassLoaderValue$Memoizer$RecursiveInvocationException"},
+	{"<init>", "(Ljava/lang/ClassLoader;Ljdk/internal/loader/AbstractClassLoaderValue;Ljava/util/function/BiFunction;)V", "(Ljava/lang/ClassLoader;TCLV;Ljava/util/function/BiFunction<-Ljava/lang/ClassLoader;-TCLV;+TV;>;)V", 0, $method(AbstractClassLoaderValue$Memoizer, init$, void, $ClassLoader*, $AbstractClassLoaderValue*, $BiFunction*)},
+	{"get", "()Ljava/lang/Object;", "()TV;", $PUBLIC, $virtualMethod(AbstractClassLoaderValue$Memoizer, get, $Object*), "jdk.internal.loader.AbstractClassLoaderValue$Memoizer$RecursiveInvocationException"},
 	{}
 };
 

@@ -73,11 +73,11 @@ $FieldInfo _Exchanger_FieldInfo_[] = {
 };
 
 $MethodInfo _Exchanger_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Exchanger::*)()>(&Exchanger::init$))},
-	{"arenaExchange", "(Ljava/lang/Object;ZJ)Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $method(static_cast<$Object*(Exchanger::*)(Object$*,bool,int64_t)>(&Exchanger::arenaExchange))},
-	{"exchange", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TV;)TV;", $PUBLIC, nullptr, "java.lang.InterruptedException"},
-	{"exchange", "(Ljava/lang/Object;JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;", "(TV;JLjava/util/concurrent/TimeUnit;)TV;", $PUBLIC, nullptr, "java.lang.InterruptedException,java.util.concurrent.TimeoutException"},
-	{"slotExchange", "(Ljava/lang/Object;ZJ)Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $method(static_cast<$Object*(Exchanger::*)(Object$*,bool,int64_t)>(&Exchanger::slotExchange))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Exchanger, init$, void)},
+	{"arenaExchange", "(Ljava/lang/Object;ZJ)Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $method(Exchanger, arenaExchange, $Object*, Object$*, bool, int64_t)},
+	{"exchange", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TV;)TV;", $PUBLIC, $virtualMethod(Exchanger, exchange, $Object*, Object$*), "java.lang.InterruptedException"},
+	{"exchange", "(Ljava/lang/Object;JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;", "(TV;JLjava/util/concurrent/TimeUnit;)TV;", $PUBLIC, $virtualMethod(Exchanger, exchange, $Object*, Object$*, int64_t, $TimeUnit*), "java.lang.InterruptedException,java.util.concurrent.TimeoutException"},
+	{"slotExchange", "(Ljava/lang/Object;ZJ)Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $method(Exchanger, slotExchange, $Object*, Object$*, bool, int64_t)},
 	{}
 };
 

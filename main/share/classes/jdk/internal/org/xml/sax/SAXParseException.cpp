@@ -27,16 +27,16 @@ $FieldInfo _SAXParseException_FieldInfo_[] = {
 };
 
 $MethodInfo _SAXParseException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljdk/internal/org/xml/sax/Locator;)V", nullptr, $PUBLIC, $method(static_cast<void(SAXParseException::*)($String*,$Locator*)>(&SAXParseException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljdk/internal/org/xml/sax/Locator;Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(static_cast<void(SAXParseException::*)($String*,$Locator*,$Exception*)>(&SAXParseException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;II)V", nullptr, $PUBLIC, $method(static_cast<void(SAXParseException::*)($String*,$String*,$String*,int32_t,int32_t)>(&SAXParseException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;IILjava/lang/Exception;)V", nullptr, $PUBLIC, $method(static_cast<void(SAXParseException::*)($String*,$String*,$String*,int32_t,int32_t,$Exception*)>(&SAXParseException::init$))},
-	{"getColumnNumber", "()I", nullptr, $PUBLIC},
-	{"getLineNumber", "()I", nullptr, $PUBLIC},
-	{"getPublicId", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getSystemId", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"init", "(Ljava/lang/String;Ljava/lang/String;II)V", nullptr, $PRIVATE, $method(static_cast<void(SAXParseException::*)($String*,$String*,int32_t,int32_t)>(&SAXParseException::init))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Ljdk/internal/org/xml/sax/Locator;)V", nullptr, $PUBLIC, $method(SAXParseException, init$, void, $String*, $Locator*)},
+	{"<init>", "(Ljava/lang/String;Ljdk/internal/org/xml/sax/Locator;Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(SAXParseException, init$, void, $String*, $Locator*, $Exception*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;II)V", nullptr, $PUBLIC, $method(SAXParseException, init$, void, $String*, $String*, $String*, int32_t, int32_t)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;IILjava/lang/Exception;)V", nullptr, $PUBLIC, $method(SAXParseException, init$, void, $String*, $String*, $String*, int32_t, int32_t, $Exception*)},
+	{"getColumnNumber", "()I", nullptr, $PUBLIC, $virtualMethod(SAXParseException, getColumnNumber, int32_t)},
+	{"getLineNumber", "()I", nullptr, $PUBLIC, $virtualMethod(SAXParseException, getLineNumber, int32_t)},
+	{"getPublicId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SAXParseException, getPublicId, $String*)},
+	{"getSystemId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SAXParseException, getSystemId, $String*)},
+	{"init", "(Ljava/lang/String;Ljava/lang/String;II)V", nullptr, $PRIVATE, $method(SAXParseException, init, void, $String*, $String*, int32_t, int32_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SAXParseException, toString, $String*)},
 	{}
 };
 

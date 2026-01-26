@@ -43,14 +43,14 @@ $FieldInfo _SecretKeySpec_FieldInfo_[] = {
 $MethodInfo _SecretKeySpec_MethodInfo_[] = {
 	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "([BLjava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(SecretKeySpec::*)($bytes*,$String*)>(&SecretKeySpec::init$))},
-	{"<init>", "([BIILjava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(SecretKeySpec::*)($bytes*,int32_t,int32_t,$String*)>(&SecretKeySpec::init$))},
-	{"clear", "()V", nullptr, 0},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getEncoded", "()[B", nullptr, $PUBLIC},
-	{"getFormat", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
+	{"<init>", "([BLjava/lang/String;)V", nullptr, $PUBLIC, $method(SecretKeySpec, init$, void, $bytes*, $String*)},
+	{"<init>", "([BIILjava/lang/String;)V", nullptr, $PUBLIC, $method(SecretKeySpec, init$, void, $bytes*, int32_t, int32_t, $String*)},
+	{"clear", "()V", nullptr, 0, $virtualMethod(SecretKeySpec, clear, void)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(SecretKeySpec, equals, bool, Object$*)},
+	{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SecretKeySpec, getAlgorithm, $String*)},
+	{"getEncoded", "()[B", nullptr, $PUBLIC, $virtualMethod(SecretKeySpec, getEncoded, $bytes*)},
+	{"getFormat", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SecretKeySpec, getFormat, $String*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(SecretKeySpec, hashCode, int32_t)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

@@ -19,7 +19,7 @@ $FieldInfo _NetscapeCertTypeExtension$MapEntry_FieldInfo_[] = {
 };
 
 $MethodInfo _NetscapeCertTypeExtension$MapEntry_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, 0, $method(static_cast<void(NetscapeCertTypeExtension$MapEntry::*)($String*,int32_t)>(&NetscapeCertTypeExtension$MapEntry::init$))},
+	{"<init>", "(Ljava/lang/String;I)V", nullptr, 0, $method(NetscapeCertTypeExtension$MapEntry, init$, void, $String*, int32_t)},
 	{}
 };
 

@@ -56,13 +56,13 @@ $FieldInfo _NonPublicProxyClass_FieldInfo_[] = {
 };
 
 $MethodInfo _NonPublicProxyClass_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/ClassLoader;[Ljava/lang/Class;)V", "(Ljava/lang/ClassLoader;[Ljava/lang/Class<*>;)V", $PUBLIC | $TRANSIENT, $method(static_cast<void(NonPublicProxyClass::*)($ClassLoader*,$ClassArray*)>(&NonPublicProxyClass::init$))},
-	{"hasAccess", "()Z", nullptr, $PRIVATE, $method(static_cast<bool(NonPublicProxyClass::*)()>(&NonPublicProxyClass::hasAccess))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&NonPublicProxyClass::main)), "java.lang.Exception"},
-	{"newInstanceFromConstructor", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $PRIVATE, $method(static_cast<void(NonPublicProxyClass::*)($Class*)>(&NonPublicProxyClass::newInstanceFromConstructor)), "java.lang.Exception"},
-	{"newInvocationHandler", "()Ljava/lang/reflect/InvocationHandler;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$InvocationHandler*(*)()>(&NonPublicProxyClass::newInvocationHandler))},
-	{"newProxyInstance", "()V", nullptr, $PRIVATE, $method(static_cast<void(NonPublicProxyClass::*)()>(&NonPublicProxyClass::newProxyInstance))},
-	{"run", "()V", nullptr, $PUBLIC, nullptr, "java.lang.Exception"},
+	{"<init>", "(Ljava/lang/ClassLoader;[Ljava/lang/Class;)V", "(Ljava/lang/ClassLoader;[Ljava/lang/Class<*>;)V", $PUBLIC | $TRANSIENT, $method(NonPublicProxyClass, init$, void, $ClassLoader*, $ClassArray*)},
+	{"hasAccess", "()Z", nullptr, $PRIVATE, $method(NonPublicProxyClass, hasAccess, bool)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(NonPublicProxyClass, main, void, $StringArray*), "java.lang.Exception"},
+	{"newInstanceFromConstructor", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $PRIVATE, $method(NonPublicProxyClass, newInstanceFromConstructor, void, $Class*), "java.lang.Exception"},
+	{"newInvocationHandler", "()Ljava/lang/reflect/InvocationHandler;", nullptr, $PRIVATE | $STATIC, $staticMethod(NonPublicProxyClass, newInvocationHandler, $InvocationHandler*)},
+	{"newProxyInstance", "()V", nullptr, $PRIVATE, $method(NonPublicProxyClass, newProxyInstance, void)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(NonPublicProxyClass, run, void), "java.lang.Exception"},
 	{}
 };
 

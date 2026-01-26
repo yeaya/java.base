@@ -44,13 +44,13 @@ $FieldInfo _CheckFieldAdapter_FieldInfo_[] = {
 };
 
 $MethodInfo _CheckFieldAdapter_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/org/objectweb/asm/FieldVisitor;)V", nullptr, $PUBLIC, $method(static_cast<void(CheckFieldAdapter::*)($FieldVisitor*)>(&CheckFieldAdapter::init$))},
-	{"<init>", "(ILjdk/internal/org/objectweb/asm/FieldVisitor;)V", nullptr, $PROTECTED, $method(static_cast<void(CheckFieldAdapter::*)(int32_t,$FieldVisitor*)>(&CheckFieldAdapter::init$))},
-	{"checkVisitEndNotCalled", "()V", nullptr, $PRIVATE, $method(static_cast<void(CheckFieldAdapter::*)()>(&CheckFieldAdapter::checkVisitEndNotCalled))},
-	{"visitAnnotation", "(Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC},
-	{"visitAttribute", "(Ljdk/internal/org/objectweb/asm/Attribute;)V", nullptr, $PUBLIC},
-	{"visitEnd", "()V", nullptr, $PUBLIC},
-	{"visitTypeAnnotation", "(ILjdk/internal/org/objectweb/asm/TypePath;Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/org/objectweb/asm/FieldVisitor;)V", nullptr, $PUBLIC, $method(CheckFieldAdapter, init$, void, $FieldVisitor*)},
+	{"<init>", "(ILjdk/internal/org/objectweb/asm/FieldVisitor;)V", nullptr, $PROTECTED, $method(CheckFieldAdapter, init$, void, int32_t, $FieldVisitor*)},
+	{"checkVisitEndNotCalled", "()V", nullptr, $PRIVATE, $method(CheckFieldAdapter, checkVisitEndNotCalled, void)},
+	{"visitAnnotation", "(Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(CheckFieldAdapter, visitAnnotation, $AnnotationVisitor*, $String*, bool)},
+	{"visitAttribute", "(Ljdk/internal/org/objectweb/asm/Attribute;)V", nullptr, $PUBLIC, $virtualMethod(CheckFieldAdapter, visitAttribute, void, $Attribute*)},
+	{"visitEnd", "()V", nullptr, $PUBLIC, $virtualMethod(CheckFieldAdapter, visitEnd, void)},
+	{"visitTypeAnnotation", "(ILjdk/internal/org/objectweb/asm/TypePath;Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(CheckFieldAdapter, visitTypeAnnotation, $AnnotationVisitor*, int32_t, $TypePath*, $String*, bool)},
 	{}
 };
 

@@ -61,8 +61,8 @@ $FieldInfo Nodes$CollectorTask$OfRef$$Lambda$lambda$new$0::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Nodes$CollectorTask$OfRef$$Lambda$lambda$new$0::methodInfos[3] = {
-	{"<init>", "(Ljava/util/function/IntFunction;)V", nullptr, $PUBLIC, $method(static_cast<void(Nodes$CollectorTask$OfRef$$Lambda$lambda$new$0::*)($IntFunction*)>(&Nodes$CollectorTask$OfRef$$Lambda$lambda$new$0::init$))},
-	{"apply", "(J)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/function/IntFunction;)V", nullptr, $PUBLIC, $method(Nodes$CollectorTask$OfRef$$Lambda$lambda$new$0, init$, void, $IntFunction*)},
+	{"apply", "(J)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Nodes$CollectorTask$OfRef$$Lambda$lambda$new$0, apply, $Object*, int64_t)},
 	{}
 };
 $ClassInfo Nodes$CollectorTask$OfRef$$Lambda$lambda$new$0::classInfo$ = {
@@ -94,8 +94,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Nodes$CollectorTask$OfRef$$Lambda$ConcNode$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Nodes$CollectorTask$OfRef$$Lambda$ConcNode$1::*)()>(&Nodes$CollectorTask$OfRef$$Lambda$ConcNode$1::init$))},
-	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Nodes$CollectorTask$OfRef$$Lambda$ConcNode$1, init$, void)},
+	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Nodes$CollectorTask$OfRef$$Lambda$ConcNode$1, apply, $Object*, Object$*, Object$*)},
 	{}
 };
 $ClassInfo Nodes$CollectorTask$OfRef$$Lambda$ConcNode$1::classInfo$ = {
@@ -113,10 +113,10 @@ $Class* Nodes$CollectorTask$OfRef$$Lambda$ConcNode$1::load$($String* name, bool 
 $Class* Nodes$CollectorTask$OfRef$$Lambda$ConcNode$1::class$ = nullptr;
 
 $MethodInfo _Nodes$CollectorTask$OfRef_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/stream/PipelineHelper;Ljava/util/function/IntFunction;Ljava/util/Spliterator;)V", "(Ljava/util/stream/PipelineHelper<TP_OUT;>;Ljava/util/function/IntFunction<[TP_OUT;>;Ljava/util/Spliterator<TP_IN;>;)V", 0, $method(static_cast<void(Nodes$CollectorTask$OfRef::*)($PipelineHelper*,$IntFunction*,$Spliterator*)>(&Nodes$CollectorTask$OfRef::init$))},
-	{"doLeaf", "()Ljava/lang/Object;", nullptr, $PROTECTED | $VOLATILE | $SYNTHETIC},
-	{"lambda$new$0", "(Ljava/util/function/IntFunction;J)Ljava/util/stream/Node$Builder;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Node$Builder*(*)($IntFunction*,int64_t)>(&Nodes$CollectorTask$OfRef::lambda$new$0))},
-	{"makeChild", "(Ljava/util/Spliterator;)Ljava/util/stream/AbstractTask;", nullptr, $PROTECTED | $VOLATILE | $SYNTHETIC},
+	{"<init>", "(Ljava/util/stream/PipelineHelper;Ljava/util/function/IntFunction;Ljava/util/Spliterator;)V", "(Ljava/util/stream/PipelineHelper<TP_OUT;>;Ljava/util/function/IntFunction<[TP_OUT;>;Ljava/util/Spliterator<TP_IN;>;)V", 0, $method(Nodes$CollectorTask$OfRef, init$, void, $PipelineHelper*, $IntFunction*, $Spliterator*)},
+	{"doLeaf", "()Ljava/lang/Object;", nullptr, $PROTECTED | $VOLATILE | $SYNTHETIC, $virtualMethod(Nodes$CollectorTask$OfRef, doLeaf, $Object*)},
+	{"lambda$new$0", "(Ljava/util/function/IntFunction;J)Ljava/util/stream/Node$Builder;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Nodes$CollectorTask$OfRef, lambda$new$0, $Node$Builder*, $IntFunction*, int64_t)},
+	{"makeChild", "(Ljava/util/Spliterator;)Ljava/util/stream/AbstractTask;", nullptr, $PROTECTED | $VOLATILE | $SYNTHETIC, $virtualMethod(Nodes$CollectorTask$OfRef, makeChild, $Nodes$CollectorTask*, $Spliterator*)},
 	{}
 };
 

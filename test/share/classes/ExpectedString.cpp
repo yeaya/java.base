@@ -18,7 +18,7 @@ $CompoundAttribute _ExpectedString_Annotations_[] = {
 };
 
 $MethodInfo _ExpectedString_MethodInfo_[] = {
-	{"value", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
+	{"value", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ExpectedString, value, $String*)},
 	{}
 };
 

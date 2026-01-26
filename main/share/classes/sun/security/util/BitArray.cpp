@@ -33,22 +33,22 @@ $FieldInfo _BitArray_FieldInfo_[] = {
 };
 
 $MethodInfo _BitArray_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(static_cast<void(BitArray::*)(int32_t)>(&BitArray::init$)), "java.lang.IllegalArgumentException"},
-	{"<init>", "(I[B)V", nullptr, $PUBLIC, $method(static_cast<void(BitArray::*)(int32_t,$bytes*)>(&BitArray::init$)), "java.lang.IllegalArgumentException"},
-	{"<init>", "([Z)V", nullptr, $PUBLIC, $method(static_cast<void(BitArray::*)($booleans*)>(&BitArray::init$))},
-	{"<init>", "(Lsun/security/util/BitArray;)V", nullptr, $PRIVATE, $method(static_cast<void(BitArray::*)(BitArray*)>(&BitArray::init$))},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"get", "(I)Z", nullptr, $PUBLIC, nullptr, "java.lang.ArrayIndexOutOfBoundsException"},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"length", "()I", nullptr, $PUBLIC},
-	{"position", "(I)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)(int32_t)>(&BitArray::position))},
-	{"set", "(IZ)V", nullptr, $PUBLIC, nullptr, "java.lang.ArrayIndexOutOfBoundsException"},
-	{"subscript", "(I)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)(int32_t)>(&BitArray::subscript))},
-	{"toBooleanArray", "()[Z", nullptr, $PUBLIC},
-	{"toByteArray", "()[B", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"truncate", "()Lsun/security/util/BitArray;", nullptr, $PUBLIC},
+	{"<init>", "(I)V", nullptr, $PUBLIC, $method(BitArray, init$, void, int32_t), "java.lang.IllegalArgumentException"},
+	{"<init>", "(I[B)V", nullptr, $PUBLIC, $method(BitArray, init$, void, int32_t, $bytes*), "java.lang.IllegalArgumentException"},
+	{"<init>", "([Z)V", nullptr, $PUBLIC, $method(BitArray, init$, void, $booleans*)},
+	{"<init>", "(Lsun/security/util/BitArray;)V", nullptr, $PRIVATE, $method(BitArray, init$, void, BitArray*)},
+	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(BitArray, clone, $Object*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(BitArray, equals, bool, Object$*)},
+	{"get", "(I)Z", nullptr, $PUBLIC, $virtualMethod(BitArray, get, bool, int32_t), "java.lang.ArrayIndexOutOfBoundsException"},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(BitArray, hashCode, int32_t)},
+	{"length", "()I", nullptr, $PUBLIC, $virtualMethod(BitArray, length, int32_t)},
+	{"position", "(I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(BitArray, position, int32_t, int32_t)},
+	{"set", "(IZ)V", nullptr, $PUBLIC, $virtualMethod(BitArray, set, void, int32_t, bool), "java.lang.ArrayIndexOutOfBoundsException"},
+	{"subscript", "(I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(BitArray, subscript, int32_t, int32_t)},
+	{"toBooleanArray", "()[Z", nullptr, $PUBLIC, $virtualMethod(BitArray, toBooleanArray, $booleans*)},
+	{"toByteArray", "()[B", nullptr, $PUBLIC, $virtualMethod(BitArray, toByteArray, $bytes*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BitArray, toString, $String*)},
+	{"truncate", "()Lsun/security/util/BitArray;", nullptr, $PUBLIC, $virtualMethod(BitArray, truncate, BitArray*)},
 	{}
 };
 

@@ -33,12 +33,12 @@ $FieldInfo _InternalNameServiceTest_FieldInfo_[] = {
 };
 
 $MethodInfo _InternalNameServiceTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(InternalNameServiceTest::*)()>(&InternalNameServiceTest::init$))},
-	{"addMappingToHostsFile", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($String*,$String*,$String*,bool)>(&InternalNameServiceTest::addMappingToHostsFile)), "java.lang.Exception"},
-	{"addrToString", "([B)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($bytes*)>(&InternalNameServiceTest::addrToString))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&InternalNameServiceTest::main)), "java.lang.Exception"},
-	{"testHostToIPAddressMappings", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($String*)>(&InternalNameServiceTest::testHostToIPAddressMappings)), "java.lang.Exception,java.net.UnknownHostException"},
-	{"testIpAddressToHostNameMappings", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($String*)>(&InternalNameServiceTest::testIpAddressToHostNameMappings)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(InternalNameServiceTest, init$, void)},
+	{"addMappingToHostsFile", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, $PRIVATE | $STATIC, $staticMethod(InternalNameServiceTest, addMappingToHostsFile, void, $String*, $String*, $String*, bool), "java.lang.Exception"},
+	{"addrToString", "([B)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(InternalNameServiceTest, addrToString, $String*, $bytes*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(InternalNameServiceTest, main, void, $StringArray*), "java.lang.Exception"},
+	{"testHostToIPAddressMappings", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(InternalNameServiceTest, testHostToIPAddressMappings, void, $String*), "java.lang.Exception,java.net.UnknownHostException"},
+	{"testIpAddressToHostNameMappings", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(InternalNameServiceTest, testIpAddressToHostNameMappings, void, $String*), "java.lang.Exception"},
 	{}
 };
 

@@ -56,18 +56,18 @@ $FieldInfo _ThaiBuddhistEra_FieldInfo_[] = {
 };
 
 $MethodInfo _ThaiBuddhistEra_MethodInfo_[] = {
-	{"$values", "()[Ljava/time/chrono/ThaiBuddhistEra;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$ThaiBuddhistEraArray*(*)()>(&ThaiBuddhistEra::$values))},
+	{"$values", "()[Ljava/time/chrono/ThaiBuddhistEra;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ThaiBuddhistEra, $values, $ThaiBuddhistEraArray*)},
 	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
 	{"*finalize", "()V", nullptr, $PROTECTED | $FINAL},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(ThaiBuddhistEra::*)($String*,int32_t)>(&ThaiBuddhistEra::init$))},
-	{"getDisplayName", "(Ljava/time/format/TextStyle;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getValue", "()I", nullptr, $PUBLIC},
-	{"of", "(I)Ljava/time/chrono/ThaiBuddhistEra;", nullptr, $PUBLIC | $STATIC, $method(static_cast<ThaiBuddhistEra*(*)(int32_t)>(&ThaiBuddhistEra::of))},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(ThaiBuddhistEra, init$, void, $String*, int32_t)},
+	{"getDisplayName", "(Ljava/time/format/TextStyle;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ThaiBuddhistEra, getDisplayName, $String*, $TextStyle*, $Locale*)},
+	{"getValue", "()I", nullptr, $PUBLIC, $virtualMethod(ThaiBuddhistEra, getValue, int32_t)},
+	{"of", "(I)Ljava/time/chrono/ThaiBuddhistEra;", nullptr, $PUBLIC | $STATIC, $staticMethod(ThaiBuddhistEra, of, ThaiBuddhistEra*, int32_t)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"valueOf", "(Ljava/lang/String;)Ljava/time/chrono/ThaiBuddhistEra;", nullptr, $PUBLIC | $STATIC, $method(static_cast<ThaiBuddhistEra*(*)($String*)>(&ThaiBuddhistEra::valueOf))},
-	{"values", "()[Ljava/time/chrono/ThaiBuddhistEra;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$ThaiBuddhistEraArray*(*)()>(&ThaiBuddhistEra::values))},
+	{"valueOf", "(Ljava/lang/String;)Ljava/time/chrono/ThaiBuddhistEra;", nullptr, $PUBLIC | $STATIC, $staticMethod(ThaiBuddhistEra, valueOf, ThaiBuddhistEra*, $String*)},
+	{"values", "()[Ljava/time/chrono/ThaiBuddhistEra;", nullptr, $PUBLIC | $STATIC, $staticMethod(ThaiBuddhistEra, values, $ThaiBuddhistEraArray*)},
 	{}
 };
 

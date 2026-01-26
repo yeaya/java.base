@@ -19,8 +19,8 @@ $FieldInfo _Resources_zh_HK_FieldInfo_[] = {
 };
 
 $MethodInfo _Resources_zh_HK_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Resources_zh_HK::*)()>(&Resources_zh_HK::init$))},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Resources_zh_HK, init$, void)},
+	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Resources_zh_HK, getContents, $ObjectArray2*)},
 	{}
 };
 

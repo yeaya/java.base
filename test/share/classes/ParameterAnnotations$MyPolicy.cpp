@@ -20,8 +20,8 @@ $FieldInfo _ParameterAnnotations$MyPolicy_FieldInfo_[] = {
 };
 
 $MethodInfo _ParameterAnnotations$MyPolicy_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/Policy;)V", nullptr, 0, $method(static_cast<void(ParameterAnnotations$MyPolicy::*)($Policy*)>(&ParameterAnnotations$MyPolicy::init$))},
-	{"implies", "(Ljava/security/ProtectionDomain;Ljava/security/Permission;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/security/Policy;)V", nullptr, 0, $method(ParameterAnnotations$MyPolicy, init$, void, $Policy*)},
+	{"implies", "(Ljava/security/ProtectionDomain;Ljava/security/Permission;)Z", nullptr, $PUBLIC, $virtualMethod(ParameterAnnotations$MyPolicy, implies, bool, $ProtectionDomain*, $Permission*)},
 	{}
 };
 

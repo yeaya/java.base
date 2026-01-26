@@ -30,8 +30,8 @@ $FieldInfo _ITLRemoveTest_FieldInfo_[] = {
 };
 
 $MethodInfo _ITLRemoveTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ITLRemoveTest::*)()>(&ITLRemoveTest::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&ITLRemoveTest::main)), "java.lang.Throwable"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ITLRemoveTest, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ITLRemoveTest, main, void, $StringArray*), "java.lang.Throwable"},
 	{}
 };
 

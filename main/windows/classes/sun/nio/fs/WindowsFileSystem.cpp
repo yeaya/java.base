@@ -108,21 +108,21 @@ $FieldInfo _WindowsFileSystem_FieldInfo_[] = {
 };
 
 $MethodInfo _WindowsFileSystem_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/fs/WindowsFileSystemProvider;Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(WindowsFileSystem::*)($WindowsFileSystemProvider*,$String*)>(&WindowsFileSystem::init$))},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"defaultDirectory", "()Ljava/lang/String;", nullptr, 0},
-	{"defaultRoot", "()Ljava/lang/String;", nullptr, 0},
-	{"getFileStores", "()Ljava/lang/Iterable;", "()Ljava/lang/Iterable<Ljava/nio/file/FileStore;>;", $PUBLIC},
-	{"getPath", "(Ljava/lang/String;[Ljava/lang/String;)Ljava/nio/file/Path;", nullptr, $PUBLIC | $FINAL | $TRANSIENT},
-	{"getPathMatcher", "(Ljava/lang/String;)Ljava/nio/file/PathMatcher;", nullptr, $PUBLIC},
-	{"getRootDirectories", "()Ljava/lang/Iterable;", "()Ljava/lang/Iterable<Ljava/nio/file/Path;>;", $PUBLIC},
-	{"getSeparator", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getUserPrincipalLookupService", "()Ljava/nio/file/attribute/UserPrincipalLookupService;", nullptr, $PUBLIC},
-	{"isOpen", "()Z", nullptr, $PUBLIC},
-	{"isReadOnly", "()Z", nullptr, $PUBLIC},
-	{"newWatchService", "()Ljava/nio/file/WatchService;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"provider", "()Ljava/nio/file/spi/FileSystemProvider;", nullptr, $PUBLIC},
-	{"supportedFileAttributeViews", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC},
+	{"<init>", "(Lsun/nio/fs/WindowsFileSystemProvider;Ljava/lang/String;)V", nullptr, 0, $method(WindowsFileSystem, init$, void, $WindowsFileSystemProvider*, $String*)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(WindowsFileSystem, close, void), "java.io.IOException"},
+	{"defaultDirectory", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(WindowsFileSystem, defaultDirectory, $String*)},
+	{"defaultRoot", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(WindowsFileSystem, defaultRoot, $String*)},
+	{"getFileStores", "()Ljava/lang/Iterable;", "()Ljava/lang/Iterable<Ljava/nio/file/FileStore;>;", $PUBLIC, $virtualMethod(WindowsFileSystem, getFileStores, $Iterable*)},
+	{"getPath", "(Ljava/lang/String;[Ljava/lang/String;)Ljava/nio/file/Path;", nullptr, $PUBLIC | $FINAL | $TRANSIENT, $virtualMethod(WindowsFileSystem, getPath, $Path*, $String*, $StringArray*)},
+	{"getPathMatcher", "(Ljava/lang/String;)Ljava/nio/file/PathMatcher;", nullptr, $PUBLIC, $virtualMethod(WindowsFileSystem, getPathMatcher, $PathMatcher*, $String*)},
+	{"getRootDirectories", "()Ljava/lang/Iterable;", "()Ljava/lang/Iterable<Ljava/nio/file/Path;>;", $PUBLIC, $virtualMethod(WindowsFileSystem, getRootDirectories, $Iterable*)},
+	{"getSeparator", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(WindowsFileSystem, getSeparator, $String*)},
+	{"getUserPrincipalLookupService", "()Ljava/nio/file/attribute/UserPrincipalLookupService;", nullptr, $PUBLIC, $virtualMethod(WindowsFileSystem, getUserPrincipalLookupService, $UserPrincipalLookupService*)},
+	{"isOpen", "()Z", nullptr, $PUBLIC, $virtualMethod(WindowsFileSystem, isOpen, bool)},
+	{"isReadOnly", "()Z", nullptr, $PUBLIC, $virtualMethod(WindowsFileSystem, isReadOnly, bool)},
+	{"newWatchService", "()Ljava/nio/file/WatchService;", nullptr, $PUBLIC, $virtualMethod(WindowsFileSystem, newWatchService, $WatchService*), "java.io.IOException"},
+	{"provider", "()Ljava/nio/file/spi/FileSystemProvider;", nullptr, $PUBLIC, $virtualMethod(WindowsFileSystem, provider, $FileSystemProvider*)},
+	{"supportedFileAttributeViews", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(WindowsFileSystem, supportedFileAttributeViews, $Set*)},
 	{}
 };
 

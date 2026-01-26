@@ -25,11 +25,11 @@ $FieldInfo _AbstractPoller$Request_FieldInfo_[] = {
 };
 
 $MethodInfo _AbstractPoller$Request_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/fs/AbstractPoller$RequestType;[Ljava/lang/Object;)V", nullptr, $TRANSIENT, $method(static_cast<void(AbstractPoller$Request::*)($AbstractPoller$RequestType*,$ObjectArray*)>(&AbstractPoller$Request::init$))},
-	{"awaitResult", "()Ljava/lang/Object;", nullptr, 0},
-	{"parameters", "()[Ljava/lang/Object;", nullptr, 0},
-	{"release", "(Ljava/lang/Object;)V", nullptr, 0},
-	{"type", "()Lsun/nio/fs/AbstractPoller$RequestType;", nullptr, 0},
+	{"<init>", "(Lsun/nio/fs/AbstractPoller$RequestType;[Ljava/lang/Object;)V", nullptr, $TRANSIENT, $method(AbstractPoller$Request, init$, void, $AbstractPoller$RequestType*, $ObjectArray*)},
+	{"awaitResult", "()Ljava/lang/Object;", nullptr, 0, $virtualMethod(AbstractPoller$Request, awaitResult, $Object*)},
+	{"parameters", "()[Ljava/lang/Object;", nullptr, 0, $virtualMethod(AbstractPoller$Request, parameters, $ObjectArray*)},
+	{"release", "(Ljava/lang/Object;)V", nullptr, 0, $virtualMethod(AbstractPoller$Request, release, void, Object$*)},
+	{"type", "()Lsun/nio/fs/AbstractPoller$RequestType;", nullptr, 0, $virtualMethod(AbstractPoller$Request, type, $AbstractPoller$RequestType*)},
 	{}
 };
 

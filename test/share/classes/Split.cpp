@@ -19,8 +19,8 @@ using $Pattern = ::java::util::regex::Pattern;
 using $PatternSyntaxException = ::java::util::regex::PatternSyntaxException;
 
 $MethodInfo _Split_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Split::*)()>(&Split::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Split::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Split, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Split, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

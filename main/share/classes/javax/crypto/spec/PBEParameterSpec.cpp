@@ -20,11 +20,11 @@ $FieldInfo _PBEParameterSpec_FieldInfo_[] = {
 };
 
 $MethodInfo _PBEParameterSpec_MethodInfo_[] = {
-	{"<init>", "([BI)V", nullptr, $PUBLIC, $method(static_cast<void(PBEParameterSpec::*)($bytes*,int32_t)>(&PBEParameterSpec::init$))},
-	{"<init>", "([BILjava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PUBLIC, $method(static_cast<void(PBEParameterSpec::*)($bytes*,int32_t,$AlgorithmParameterSpec*)>(&PBEParameterSpec::init$))},
-	{"getIterationCount", "()I", nullptr, $PUBLIC},
-	{"getParameterSpec", "()Ljava/security/spec/AlgorithmParameterSpec;", nullptr, $PUBLIC},
-	{"getSalt", "()[B", nullptr, $PUBLIC},
+	{"<init>", "([BI)V", nullptr, $PUBLIC, $method(PBEParameterSpec, init$, void, $bytes*, int32_t)},
+	{"<init>", "([BILjava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PUBLIC, $method(PBEParameterSpec, init$, void, $bytes*, int32_t, $AlgorithmParameterSpec*)},
+	{"getIterationCount", "()I", nullptr, $PUBLIC, $virtualMethod(PBEParameterSpec, getIterationCount, int32_t)},
+	{"getParameterSpec", "()Ljava/security/spec/AlgorithmParameterSpec;", nullptr, $PUBLIC, $virtualMethod(PBEParameterSpec, getParameterSpec, $AlgorithmParameterSpec*)},
+	{"getSalt", "()[B", nullptr, $PUBLIC, $virtualMethod(PBEParameterSpec, getSalt, $bytes*)},
 	{}
 };
 

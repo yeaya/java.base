@@ -25,8 +25,8 @@ using $List = ::java::util::List;
 using $Locale = ::java::util::Locale;
 
 $MethodInfo _Bug7104012_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Bug7104012::*)()>(&Bug7104012::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Bug7104012::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Bug7104012, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Bug7104012, main, void, $StringArray*)},
 	{}
 };
 

@@ -18,8 +18,8 @@ $FieldInfo _AuthPermission_FieldInfo_[] = {
 };
 
 $MethodInfo _AuthPermission_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(AuthPermission::*)($String*)>(&AuthPermission::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(AuthPermission::*)($String*,$String*)>(&AuthPermission::init$))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(AuthPermission, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(AuthPermission, init$, void, $String*, $String*)},
 	{}
 };
 

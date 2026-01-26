@@ -14,10 +14,10 @@ namespace java {
 	namespace io {
 
 $MethodInfo _ObjectInputFilter$Config$BuiltinFilterFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(ObjectInputFilter$Config$BuiltinFilterFactory::*)()>(&ObjectInputFilter$Config$BuiltinFilterFactory::init$))},
-	{"apply", "(Ljava/io/ObjectInputFilter;Ljava/io/ObjectInputFilter;)Ljava/io/ObjectInputFilter;", nullptr, $PUBLIC, $method(static_cast<$ObjectInputFilter*(ObjectInputFilter$Config$BuiltinFilterFactory::*)($ObjectInputFilter*,$ObjectInputFilter*)>(&ObjectInputFilter$Config$BuiltinFilterFactory::apply))},
-	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(ObjectInputFilter$Config$BuiltinFilterFactory, init$, void)},
+	{"apply", "(Ljava/io/ObjectInputFilter;Ljava/io/ObjectInputFilter;)Ljava/io/ObjectInputFilter;", nullptr, $PUBLIC, $method(ObjectInputFilter$Config$BuiltinFilterFactory, apply, $ObjectInputFilter*, $ObjectInputFilter*, $ObjectInputFilter*)},
+	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ObjectInputFilter$Config$BuiltinFilterFactory, apply, $Object*, Object$*, Object$*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ObjectInputFilter$Config$BuiltinFilterFactory, toString, $String*)},
 	{}
 };
 

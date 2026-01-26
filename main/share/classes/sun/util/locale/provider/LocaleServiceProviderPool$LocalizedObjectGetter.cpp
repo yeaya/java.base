@@ -8,6 +8,8 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Locale = ::java::util::Locale;
+using $LocaleServiceProvider = ::java::util::spi::LocaleServiceProvider;
 
 namespace sun {
 	namespace util {
@@ -15,7 +17,7 @@ namespace sun {
 			namespace provider {
 
 $MethodInfo _LocaleServiceProviderPool$LocalizedObjectGetter_MethodInfo_[] = {
-	{"getObject", "(Ljava/util/spi/LocaleServiceProvider;Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/Object;", "(TP;Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)TS;", $PUBLIC | $TRANSIENT | $ABSTRACT},
+	{"getObject", "(Ljava/util/spi/LocaleServiceProvider;Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/Object;", "(TP;Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)TS;", $PUBLIC | $TRANSIENT | $ABSTRACT, $virtualMethod(LocaleServiceProviderPool$LocalizedObjectGetter, getObject, $Object*, $LocaleServiceProvider*, $Locale*, $String*, $ObjectArray*)},
 	{}
 };
 

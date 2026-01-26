@@ -15,8 +15,8 @@ using $InetAddress = ::java::net::InetAddress;
 using $SocketException = ::java::net::SocketException;
 
 $MethodInfo _ReportSocketClosed_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ReportSocketClosed::*)()>(&ReportSocketClosed::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&ReportSocketClosed::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ReportSocketClosed, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ReportSocketClosed, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

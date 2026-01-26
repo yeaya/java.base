@@ -18,9 +18,9 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $Arrays = ::java::util::Arrays;
 
 $MethodInfo _WriteBytes_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(WriteBytes::*)()>(&WriteBytes::init$))},
-	{"assertTrue", "(ZLjava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)(bool,$String*)>(&WriteBytes::assertTrue))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&WriteBytes::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(WriteBytes, init$, void)},
+	{"assertTrue", "(ZLjava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(WriteBytes, assertTrue, void, bool, $String*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(WriteBytes, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

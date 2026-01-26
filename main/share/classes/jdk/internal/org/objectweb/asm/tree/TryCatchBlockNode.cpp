@@ -36,9 +36,9 @@ $FieldInfo _TryCatchBlockNode_FieldInfo_[] = {
 };
 
 $MethodInfo _TryCatchBlockNode_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/org/objectweb/asm/tree/LabelNode;Ljdk/internal/org/objectweb/asm/tree/LabelNode;Ljdk/internal/org/objectweb/asm/tree/LabelNode;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(TryCatchBlockNode::*)($LabelNode*,$LabelNode*,$LabelNode*,$String*)>(&TryCatchBlockNode::init$))},
-	{"accept", "(Ljdk/internal/org/objectweb/asm/MethodVisitor;)V", nullptr, $PUBLIC},
-	{"updateIndex", "(I)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/org/objectweb/asm/tree/LabelNode;Ljdk/internal/org/objectweb/asm/tree/LabelNode;Ljdk/internal/org/objectweb/asm/tree/LabelNode;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(TryCatchBlockNode, init$, void, $LabelNode*, $LabelNode*, $LabelNode*, $String*)},
+	{"accept", "(Ljdk/internal/org/objectweb/asm/MethodVisitor;)V", nullptr, $PUBLIC, $virtualMethod(TryCatchBlockNode, accept, void, $MethodVisitor*)},
+	{"updateIndex", "(I)V", nullptr, $PUBLIC, $virtualMethod(TryCatchBlockNode, updateIndex, void, int32_t)},
 	{}
 };
 

@@ -23,8 +23,8 @@ $FieldInfo _InnerClassLambdaMetafactory$2_FieldInfo_[] = {
 };
 
 $MethodInfo _InnerClassLambdaMetafactory$2_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/invoke/InnerClassLambdaMetafactory;[B)V", nullptr, 0, $method(static_cast<void(InnerClassLambdaMetafactory$2::*)($InnerClassLambdaMetafactory*,$bytes*)>(&InnerClassLambdaMetafactory$2::init$))},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/invoke/InnerClassLambdaMetafactory;[B)V", nullptr, 0, $method(InnerClassLambdaMetafactory$2, init$, void, $InnerClassLambdaMetafactory*, $bytes*)},
+	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(InnerClassLambdaMetafactory$2, run, $Object*)},
 	{}
 };
 

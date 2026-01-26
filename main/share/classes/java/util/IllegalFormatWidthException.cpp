@@ -19,9 +19,9 @@ $FieldInfo _IllegalFormatWidthException_FieldInfo_[] = {
 };
 
 $MethodInfo _IllegalFormatWidthException_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(static_cast<void(IllegalFormatWidthException::*)(int32_t)>(&IllegalFormatWidthException::init$))},
-	{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getWidth", "()I", nullptr, $PUBLIC},
+	{"<init>", "(I)V", nullptr, $PUBLIC, $method(IllegalFormatWidthException, init$, void, int32_t)},
+	{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IllegalFormatWidthException, getMessage, $String*)},
+	{"getWidth", "()I", nullptr, $PUBLIC, $virtualMethod(IllegalFormatWidthException, getWidth, int32_t)},
 	{}
 };
 

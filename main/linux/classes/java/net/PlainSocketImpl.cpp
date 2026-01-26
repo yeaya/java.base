@@ -28,21 +28,21 @@ namespace java {
 	namespace net {
 
 $MethodInfo _PlainSocketImpl_MethodInfo_[] = {
-	{"<init>", "(Z)V", nullptr, 0, $method(static_cast<void(PlainSocketImpl::*)(bool)>(&PlainSocketImpl::init$))},
-	{"initProto", "()V", nullptr, $STATIC | $NATIVE, $method(static_cast<void(*)()>(&PlainSocketImpl::initProto))},
-	{"socketAccept", "(Ljava/net/SocketImpl;)V", nullptr, $NATIVE, nullptr, "java.io.IOException"},
-	{"socketAvailable", "()I", nullptr, $NATIVE, nullptr, "java.io.IOException"},
-	{"socketBind", "(Ljava/net/InetAddress;I)V", nullptr, $NATIVE, nullptr, "java.io.IOException"},
-	{"socketClose0", "(Z)V", nullptr, $NATIVE, nullptr, "java.io.IOException"},
-	{"socketConnect", "(Ljava/net/InetAddress;II)V", nullptr, $NATIVE, nullptr, "java.io.IOException"},
-	{"socketCreate", "(Z)V", nullptr, 0, nullptr, "java.io.IOException"},
-	{"socketCreate", "(ZZ)V", nullptr, $NATIVE, nullptr, "java.io.IOException"},
-	{"socketGetOption", "(ILjava/lang/Object;)I", nullptr, $NATIVE, nullptr, "java.net.SocketException"},
-	{"socketListen", "(I)V", nullptr, $NATIVE, nullptr, "java.io.IOException"},
-	{"socketSendUrgentData", "(I)V", nullptr, $NATIVE, nullptr, "java.io.IOException"},
-	{"socketSetOption", "(IZLjava/lang/Object;)V", nullptr, $PROTECTED, nullptr, "java.net.SocketException"},
-	{"socketSetOption0", "(IZLjava/lang/Object;)V", nullptr, $NATIVE, nullptr, "java.net.SocketException"},
-	{"socketShutdown", "(I)V", nullptr, $NATIVE, nullptr, "java.io.IOException"},
+	{"<init>", "(Z)V", nullptr, 0, $method(PlainSocketImpl, init$, void, bool)},
+	{"initProto", "()V", nullptr, $STATIC | $NATIVE, $staticMethod(PlainSocketImpl, initProto, void)},
+	{"socketAccept", "(Ljava/net/SocketImpl;)V", nullptr, $NATIVE, $virtualMethod(PlainSocketImpl, socketAccept, void, $SocketImpl*), "java.io.IOException"},
+	{"socketAvailable", "()I", nullptr, $NATIVE, $virtualMethod(PlainSocketImpl, socketAvailable, int32_t), "java.io.IOException"},
+	{"socketBind", "(Ljava/net/InetAddress;I)V", nullptr, $NATIVE, $virtualMethod(PlainSocketImpl, socketBind, void, $InetAddress*, int32_t), "java.io.IOException"},
+	{"socketClose0", "(Z)V", nullptr, $NATIVE, $virtualMethod(PlainSocketImpl, socketClose0, void, bool), "java.io.IOException"},
+	{"socketConnect", "(Ljava/net/InetAddress;II)V", nullptr, $NATIVE, $virtualMethod(PlainSocketImpl, socketConnect, void, $InetAddress*, int32_t, int32_t), "java.io.IOException"},
+	{"socketCreate", "(Z)V", nullptr, 0, $virtualMethod(PlainSocketImpl, socketCreate, void, bool), "java.io.IOException"},
+	{"socketCreate", "(ZZ)V", nullptr, $NATIVE, $virtualMethod(PlainSocketImpl, socketCreate, void, bool, bool), "java.io.IOException"},
+	{"socketGetOption", "(ILjava/lang/Object;)I", nullptr, $NATIVE, $virtualMethod(PlainSocketImpl, socketGetOption, int32_t, int32_t, Object$*), "java.net.SocketException"},
+	{"socketListen", "(I)V", nullptr, $NATIVE, $virtualMethod(PlainSocketImpl, socketListen, void, int32_t), "java.io.IOException"},
+	{"socketSendUrgentData", "(I)V", nullptr, $NATIVE, $virtualMethod(PlainSocketImpl, socketSendUrgentData, void, int32_t), "java.io.IOException"},
+	{"socketSetOption", "(IZLjava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(PlainSocketImpl, socketSetOption, void, int32_t, bool, Object$*), "java.net.SocketException"},
+	{"socketSetOption0", "(IZLjava/lang/Object;)V", nullptr, $NATIVE, $virtualMethod(PlainSocketImpl, socketSetOption0, void, int32_t, bool, Object$*), "java.net.SocketException"},
+	{"socketShutdown", "(I)V", nullptr, $NATIVE, $virtualMethod(PlainSocketImpl, socketShutdown, void, int32_t), "java.io.IOException"},
 	{}
 };
 

@@ -54,8 +54,8 @@ $FieldInfo Destroy$$Lambda$destroy::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Destroy$$Lambda$destroy::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/ThreadGroup;)V", nullptr, $PUBLIC, $method(static_cast<void(Destroy$$Lambda$destroy::*)($ThreadGroup*)>(&Destroy$$Lambda$destroy::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/ThreadGroup;)V", nullptr, $PUBLIC, $method(Destroy$$Lambda$destroy, init$, void, $ThreadGroup*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Destroy$$Lambda$destroy, run, void)},
 	{}
 };
 $ClassInfo Destroy$$Lambda$destroy::classInfo$ = {
@@ -73,9 +73,9 @@ $Class* Destroy$$Lambda$destroy::load$($String* name, bool initialize) {
 $Class* Destroy$$Lambda$destroy::class$ = nullptr;
 
 $MethodInfo _Destroy_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Destroy::*)()>(&Destroy::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Destroy::main)), "java.lang.Exception"},
-	{"testDestroyChild", "()V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)()>(&Destroy::testDestroyChild)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Destroy, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Destroy, main, void, $StringArray*), "java.lang.Exception"},
+	{"testDestroyChild", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(Destroy, testDestroyChild, void), "java.lang.Exception"},
 	{}
 };
 

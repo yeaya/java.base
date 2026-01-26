@@ -89,8 +89,8 @@ $FieldInfo DomainName$Rules$$Lambda$lambda$getRules$0::fieldInfos[2] = {
 	{}
 };
 $MethodInfo DomainName$Rules$$Lambda$lambda$getRules$0::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(DomainName$Rules$$Lambda$lambda$getRules$0::*)($String*)>(&DomainName$Rules$$Lambda$lambda$getRules$0::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(DomainName$Rules$$Lambda$lambda$getRules$0, init$, void, $String*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DomainName$Rules$$Lambda$lambda$getRules$0, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo DomainName$Rules$$Lambda$lambda$getRules$0::classInfo$ = {
@@ -114,15 +114,15 @@ $FieldInfo _DomainName$Rules_FieldInfo_[] = {
 };
 
 $MethodInfo _DomainName$Rules_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(DomainName$Rules::*)($InputStream*)>(&DomainName$Rules::init$)), "java.io.IOException"},
-	{"createRules", "(Ljava/lang/String;)Lsun/security/util/DomainName$Rules;", nullptr, $PRIVATE | $STATIC, $method(static_cast<DomainName$Rules*(*)($String*)>(&DomainName$Rules::createRules))},
-	{"getPubSuffixStream", "()Ljava/io/InputStream;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$InputStream*(*)()>(&DomainName$Rules::getPubSuffixStream))},
-	{"getRuleSet", "(I)Lsun/security/util/DomainName$Rules$RuleSet;", nullptr, $PRIVATE, $method(static_cast<$DomainName$Rules$RuleSet*(DomainName$Rules::*)(int32_t)>(&DomainName$Rules::getRuleSet))},
-	{"getRules", "(Ljava/lang/String;)Lsun/security/util/DomainName$Rules;", nullptr, $STATIC, $method(static_cast<DomainName$Rules*(*)($String*)>(&DomainName$Rules::getRules))},
-	{"getRules", "(Ljava/lang/String;Ljava/util/zip/ZipInputStream;)Lsun/security/util/DomainName$Rules;", nullptr, $PRIVATE | $STATIC, $method(static_cast<DomainName$Rules*(*)($String*,$ZipInputStream*)>(&DomainName$Rules::getRules)), "java.io.IOException"},
-	{"getTopLevelDomain", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($String*)>(&DomainName$Rules::getTopLevelDomain))},
-	{"lambda$getRules$0", "(Ljava/lang/String;Ljava/lang/String;)Lsun/security/util/DomainName$Rules;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<DomainName$Rules*(*)($String*,$String*)>(&DomainName$Rules::lambda$getRules$0))},
-	{"match", "(Ljava/lang/String;)Lsun/security/util/DomainName$Match;", nullptr, 0},
+	{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PRIVATE, $method(DomainName$Rules, init$, void, $InputStream*), "java.io.IOException"},
+	{"createRules", "(Ljava/lang/String;)Lsun/security/util/DomainName$Rules;", nullptr, $PRIVATE | $STATIC, $staticMethod(DomainName$Rules, createRules, DomainName$Rules*, $String*)},
+	{"getPubSuffixStream", "()Ljava/io/InputStream;", nullptr, $PRIVATE | $STATIC, $staticMethod(DomainName$Rules, getPubSuffixStream, $InputStream*)},
+	{"getRuleSet", "(I)Lsun/security/util/DomainName$Rules$RuleSet;", nullptr, $PRIVATE, $method(DomainName$Rules, getRuleSet, $DomainName$Rules$RuleSet*, int32_t)},
+	{"getRules", "(Ljava/lang/String;)Lsun/security/util/DomainName$Rules;", nullptr, $STATIC, $staticMethod(DomainName$Rules, getRules, DomainName$Rules*, $String*)},
+	{"getRules", "(Ljava/lang/String;Ljava/util/zip/ZipInputStream;)Lsun/security/util/DomainName$Rules;", nullptr, $PRIVATE | $STATIC, $staticMethod(DomainName$Rules, getRules, DomainName$Rules*, $String*, $ZipInputStream*), "java.io.IOException"},
+	{"getTopLevelDomain", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(DomainName$Rules, getTopLevelDomain, $String*, $String*)},
+	{"lambda$getRules$0", "(Ljava/lang/String;Ljava/lang/String;)Lsun/security/util/DomainName$Rules;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DomainName$Rules, lambda$getRules$0, DomainName$Rules*, $String*, $String*)},
+	{"match", "(Ljava/lang/String;)Lsun/security/util/DomainName$Match;", nullptr, 0, $virtualMethod(DomainName$Rules, match, $DomainName$Match*, $String*)},
 	{}
 };
 

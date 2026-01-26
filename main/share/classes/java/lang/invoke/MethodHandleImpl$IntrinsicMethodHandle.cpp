@@ -31,14 +31,14 @@ $FieldInfo _MethodHandleImpl$IntrinsicMethodHandle_FieldInfo_[] = {
 };
 
 $MethodInfo _MethodHandleImpl$IntrinsicMethodHandle_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandleImpl$Intrinsic;)V", nullptr, 0, $method(static_cast<void(MethodHandleImpl$IntrinsicMethodHandle::*)($MethodHandle*,$MethodHandleImpl$Intrinsic*)>(&MethodHandleImpl$IntrinsicMethodHandle::init$))},
-	{"<init>", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandleImpl$Intrinsic;Ljava/lang/Object;)V", nullptr, 0, $method(static_cast<void(MethodHandleImpl$IntrinsicMethodHandle::*)($MethodHandle*,$MethodHandleImpl$Intrinsic*,Object$*)>(&MethodHandleImpl$IntrinsicMethodHandle::init$))},
-	{"asCollector", "(Ljava/lang/Class;I)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<*>;I)Ljava/lang/invoke/MethodHandle;", $PUBLIC},
-	{"asTypeUncached", "(Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC},
-	{"getTarget", "()Ljava/lang/invoke/MethodHandle;", nullptr, $PROTECTED},
-	{"internalProperties", "()Ljava/lang/String;", nullptr, 0},
-	{"intrinsicData", "()Ljava/lang/Object;", nullptr, 0},
-	{"intrinsicName", "()Ljava/lang/invoke/MethodHandleImpl$Intrinsic;", nullptr, 0},
+	{"<init>", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandleImpl$Intrinsic;)V", nullptr, 0, $method(MethodHandleImpl$IntrinsicMethodHandle, init$, void, $MethodHandle*, $MethodHandleImpl$Intrinsic*)},
+	{"<init>", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandleImpl$Intrinsic;Ljava/lang/Object;)V", nullptr, 0, $method(MethodHandleImpl$IntrinsicMethodHandle, init$, void, $MethodHandle*, $MethodHandleImpl$Intrinsic*, Object$*)},
+	{"asCollector", "(Ljava/lang/Class;I)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<*>;I)Ljava/lang/invoke/MethodHandle;", $PUBLIC, $virtualMethod(MethodHandleImpl$IntrinsicMethodHandle, asCollector, $MethodHandle*, $Class*, int32_t)},
+	{"asTypeUncached", "(Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC, $virtualMethod(MethodHandleImpl$IntrinsicMethodHandle, asTypeUncached, $MethodHandle*, $MethodType*)},
+	{"getTarget", "()Ljava/lang/invoke/MethodHandle;", nullptr, $PROTECTED, $virtualMethod(MethodHandleImpl$IntrinsicMethodHandle, getTarget, $MethodHandle*)},
+	{"internalProperties", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(MethodHandleImpl$IntrinsicMethodHandle, internalProperties, $Object*)},
+	{"intrinsicData", "()Ljava/lang/Object;", nullptr, 0, $virtualMethod(MethodHandleImpl$IntrinsicMethodHandle, intrinsicData, $Object*)},
+	{"intrinsicName", "()Ljava/lang/invoke/MethodHandleImpl$Intrinsic;", nullptr, 0, $virtualMethod(MethodHandleImpl$IntrinsicMethodHandle, intrinsicName, $MethodHandleImpl$Intrinsic*)},
 	{}
 };
 

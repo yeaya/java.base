@@ -22,7 +22,7 @@ $FieldInfo _UCharacterProperty$CombiningClassIntProperty_FieldInfo_[] = {
 };
 
 $MethodInfo _UCharacterProperty$CombiningClassIntProperty_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/icu/impl/UCharacterProperty;I)V", nullptr, 0, $method(static_cast<void(UCharacterProperty$CombiningClassIntProperty::*)($UCharacterProperty*,int32_t)>(&UCharacterProperty$CombiningClassIntProperty::init$))},
+	{"<init>", "(Ljdk/internal/icu/impl/UCharacterProperty;I)V", nullptr, 0, $method(UCharacterProperty$CombiningClassIntProperty, init$, void, $UCharacterProperty*, int32_t)},
 	{}
 };
 

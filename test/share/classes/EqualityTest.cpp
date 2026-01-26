@@ -23,9 +23,9 @@ $CompoundAttribute _EqualityTest_Annotations_[] = {
 };
 
 $MethodInfo _EqualityTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(EqualityTest::*)()>(&EqualityTest::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<void(*)($StringArray*)>(&EqualityTest::main)), "java.lang.Exception"},
-	{"testEquality", "(Ljava/lang/Object;Ljava/lang/Object;Z)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)(Object$*,Object$*,bool)>(&EqualityTest::testEquality))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(EqualityTest, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(EqualityTest, main, void, $StringArray*), "java.lang.Exception"},
+	{"testEquality", "(Ljava/lang/Object;Ljava/lang/Object;Z)V", nullptr, $PRIVATE | $STATIC, $staticMethod(EqualityTest, testEquality, void, Object$*, Object$*, bool)},
 	{}
 };
 

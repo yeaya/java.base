@@ -18,10 +18,10 @@ $FieldInfo _CertificateEncodingException_FieldInfo_[] = {
 };
 
 $MethodInfo _CertificateEncodingException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CertificateEncodingException::*)()>(&CertificateEncodingException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(CertificateEncodingException::*)($String*)>(&CertificateEncodingException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(CertificateEncodingException::*)($String*,$Throwable*)>(&CertificateEncodingException::init$))},
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(CertificateEncodingException::*)($Throwable*)>(&CertificateEncodingException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CertificateEncodingException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(CertificateEncodingException, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(CertificateEncodingException, init$, void, $String*, $Throwable*)},
+	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(CertificateEncodingException, init$, void, $Throwable*)},
 	{}
 };
 

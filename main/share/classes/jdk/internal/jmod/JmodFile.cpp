@@ -63,8 +63,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo JmodFile$$Lambda$Entry::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(JmodFile$$Lambda$Entry::*)()>(&JmodFile$$Lambda$Entry::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(JmodFile$$Lambda$Entry, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JmodFile$$Lambda$Entry, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo JmodFile$$Lambda$Entry::classInfo$ = {
@@ -91,14 +91,14 @@ $FieldInfo _JmodFile_FieldInfo_[] = {
 };
 
 $MethodInfo _JmodFile_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/file/Path;)V", nullptr, $PUBLIC, $method(static_cast<void(JmodFile::*)($Path*)>(&JmodFile::init$)), "java.io.IOException"},
-	{"checkMagic", "(Ljava/nio/file/Path;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($Path*)>(&JmodFile::checkMagic)), "java.io.IOException"},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"getEntry", "(Ljdk/internal/jmod/JmodFile$Section;Ljava/lang/String;)Ljdk/internal/jmod/JmodFile$Entry;", nullptr, $PUBLIC},
-	{"getInputStream", "(Ljdk/internal/jmod/JmodFile$Section;Ljava/lang/String;)Ljava/io/InputStream;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"getInputStream", "(Ljdk/internal/jmod/JmodFile$Entry;)Ljava/io/InputStream;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"stream", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljdk/internal/jmod/JmodFile$Entry;>;", $PUBLIC},
-	{"writeMagicNumber", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($OutputStream*)>(&JmodFile::writeMagicNumber)), "java.io.IOException"},
+	{"<init>", "(Ljava/nio/file/Path;)V", nullptr, $PUBLIC, $method(JmodFile, init$, void, $Path*), "java.io.IOException"},
+	{"checkMagic", "(Ljava/nio/file/Path;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(JmodFile, checkMagic, void, $Path*), "java.io.IOException"},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(JmodFile, close, void), "java.io.IOException"},
+	{"getEntry", "(Ljdk/internal/jmod/JmodFile$Section;Ljava/lang/String;)Ljdk/internal/jmod/JmodFile$Entry;", nullptr, $PUBLIC, $virtualMethod(JmodFile, getEntry, $JmodFile$Entry*, $JmodFile$Section*, $String*)},
+	{"getInputStream", "(Ljdk/internal/jmod/JmodFile$Section;Ljava/lang/String;)Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(JmodFile, getInputStream, $InputStream*, $JmodFile$Section*, $String*), "java.io.IOException"},
+	{"getInputStream", "(Ljdk/internal/jmod/JmodFile$Entry;)Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(JmodFile, getInputStream, $InputStream*, $JmodFile$Entry*), "java.io.IOException"},
+	{"stream", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljdk/internal/jmod/JmodFile$Entry;>;", $PUBLIC, $virtualMethod(JmodFile, stream, $Stream*)},
+	{"writeMagicNumber", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(JmodFile, writeMagicNumber, void, $OutputStream*), "java.io.IOException"},
 	{}
 };
 

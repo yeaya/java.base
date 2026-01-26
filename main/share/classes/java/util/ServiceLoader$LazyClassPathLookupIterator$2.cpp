@@ -20,8 +20,8 @@ $FieldInfo _ServiceLoader$LazyClassPathLookupIterator$2_FieldInfo_[] = {
 };
 
 $MethodInfo _ServiceLoader$LazyClassPathLookupIterator$2_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/ServiceLoader$LazyClassPathLookupIterator;)V", nullptr, 0, $method(static_cast<void(ServiceLoader$LazyClassPathLookupIterator$2::*)($ServiceLoader$LazyClassPathLookupIterator*)>(&ServiceLoader$LazyClassPathLookupIterator$2::init$))},
-	{"run", "()Ljava/util/ServiceLoader$Provider;", "()Ljava/util/ServiceLoader$Provider<TT;>;", $PUBLIC},
+	{"<init>", "(Ljava/util/ServiceLoader$LazyClassPathLookupIterator;)V", nullptr, 0, $method(ServiceLoader$LazyClassPathLookupIterator$2, init$, void, $ServiceLoader$LazyClassPathLookupIterator*)},
+	{"run", "()Ljava/util/ServiceLoader$Provider;", "()Ljava/util/ServiceLoader$Provider<TT;>;", $PUBLIC, $virtualMethod(ServiceLoader$LazyClassPathLookupIterator$2, run, $Object*)},
 	{}
 };
 

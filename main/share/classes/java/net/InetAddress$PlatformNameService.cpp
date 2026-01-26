@@ -15,9 +15,9 @@ namespace java {
 	namespace net {
 
 $MethodInfo _InetAddress$PlatformNameService_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(InetAddress$PlatformNameService::*)()>(&InetAddress$PlatformNameService::init$))},
-	{"getHostByAddr", "([B)Ljava/lang/String;", nullptr, $PUBLIC, nullptr, "java.net.UnknownHostException"},
-	{"lookupAllHostAddr", "(Ljava/lang/String;)[Ljava/net/InetAddress;", nullptr, $PUBLIC, nullptr, "java.net.UnknownHostException"},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(InetAddress$PlatformNameService, init$, void)},
+	{"getHostByAddr", "([B)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(InetAddress$PlatformNameService, getHostByAddr, $String*, $bytes*), "java.net.UnknownHostException"},
+	{"lookupAllHostAddr", "(Ljava/lang/String;)[Ljava/net/InetAddress;", nullptr, $PUBLIC, $virtualMethod(InetAddress$PlatformNameService, lookupAllHostAddr, $InetAddressArray*, $String*), "java.net.UnknownHostException"},
 	{}
 };
 

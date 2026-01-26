@@ -22,10 +22,10 @@ $FieldInfo _Declared_FieldInfo_[] = {
 };
 
 $MethodInfo _Declared_MethodInfo_[] = {
-	{"$values", "()[Lhelper/Declared;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$DeclaredArray*(*)()>(&Declared::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(Declared::*)($String*,int32_t)>(&Declared::init$))},
-	{"valueOf", "(Ljava/lang/String;)Lhelper/Declared;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Declared*(*)($String*)>(&Declared::valueOf))},
-	{"values", "()[Lhelper/Declared;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$DeclaredArray*(*)()>(&Declared::values))},
+	{"$values", "()[Lhelper/Declared;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Declared, $values, $DeclaredArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Declared, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Lhelper/Declared;", nullptr, $PUBLIC | $STATIC, $staticMethod(Declared, valueOf, Declared*, $String*)},
+	{"values", "()[Lhelper/Declared;", nullptr, $PUBLIC | $STATIC, $staticMethod(Declared, values, $DeclaredArray*)},
 	{}
 };
 

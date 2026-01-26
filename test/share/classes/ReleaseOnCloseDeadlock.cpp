@@ -55,10 +55,10 @@ $FieldInfo _ReleaseOnCloseDeadlock_FieldInfo_[] = {
 };
 
 $MethodInfo _ReleaseOnCloseDeadlock_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ReleaseOnCloseDeadlock::*)()>(&ReleaseOnCloseDeadlock::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&ReleaseOnCloseDeadlock::main)), "java.io.IOException"},
-	{"test", "(Ljava/nio/file/Path;)V", nullptr, $STATIC, $method(static_cast<void(*)($Path*)>(&ReleaseOnCloseDeadlock::test)), "java.io.IOException"},
-	{"tryToDeadlock", "(Ljava/nio/channels/Channel;[Ljava/nio/channels/FileLock;)V", nullptr, $STATIC, $method(static_cast<void(*)($Channel*,$FileLockArray*)>(&ReleaseOnCloseDeadlock::tryToDeadlock)), "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ReleaseOnCloseDeadlock, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ReleaseOnCloseDeadlock, main, void, $StringArray*), "java.io.IOException"},
+	{"test", "(Ljava/nio/file/Path;)V", nullptr, $STATIC, $staticMethod(ReleaseOnCloseDeadlock, test, void, $Path*), "java.io.IOException"},
+	{"tryToDeadlock", "(Ljava/nio/channels/Channel;[Ljava/nio/channels/FileLock;)V", nullptr, $STATIC, $staticMethod(ReleaseOnCloseDeadlock, tryToDeadlock, void, $Channel*, $FileLockArray*), "java.io.IOException"},
 	{}
 };
 

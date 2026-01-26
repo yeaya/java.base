@@ -49,8 +49,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo AbsTests$$Lambda$abs::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(AbsTests$$Lambda$abs::*)()>(&AbsTests$$Lambda$abs::init$))},
-	{"applyAsInt", "(I)I", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(AbsTests$$Lambda$abs, init$, void)},
+	{"applyAsInt", "(I)I", nullptr, $PUBLIC, $virtualMethod(AbsTests$$Lambda$abs, applyAsInt, int32_t, int32_t)},
 	{}
 };
 $ClassInfo AbsTests$$Lambda$abs::classInfo$ = {
@@ -82,8 +82,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo AbsTests$$Lambda$absExact$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(AbsTests$$Lambda$absExact$1::*)()>(&AbsTests$$Lambda$absExact$1::init$))},
-	{"applyAsInt", "(I)I", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(AbsTests$$Lambda$absExact$1, init$, void)},
+	{"applyAsInt", "(I)I", nullptr, $PUBLIC, $virtualMethod(AbsTests$$Lambda$absExact$1, applyAsInt, int32_t, int32_t)},
 	{}
 };
 $ClassInfo AbsTests$$Lambda$absExact$1::classInfo$ = {
@@ -115,8 +115,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo AbsTests$$Lambda$abs$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(AbsTests$$Lambda$abs$2::*)()>(&AbsTests$$Lambda$abs$2::init$))},
-	{"applyAsLong", "(J)J", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(AbsTests$$Lambda$abs$2, init$, void)},
+	{"applyAsLong", "(J)J", nullptr, $PUBLIC, $virtualMethod(AbsTests$$Lambda$abs$2, applyAsLong, int64_t, int64_t)},
 	{}
 };
 $ClassInfo AbsTests$$Lambda$abs$2::classInfo$ = {
@@ -148,8 +148,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo AbsTests$$Lambda$absExact$3::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(AbsTests$$Lambda$absExact$3::*)()>(&AbsTests$$Lambda$absExact$3::init$))},
-	{"applyAsLong", "(J)J", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(AbsTests$$Lambda$absExact$3, init$, void)},
+	{"applyAsLong", "(J)J", nullptr, $PUBLIC, $virtualMethod(AbsTests$$Lambda$absExact$3, applyAsLong, int64_t, int64_t)},
 	{}
 };
 $ClassInfo AbsTests$$Lambda$absExact$3::classInfo$ = {
@@ -172,14 +172,14 @@ $FieldInfo _AbsTests_FieldInfo_[] = {
 };
 
 $MethodInfo _AbsTests_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(AbsTests::*)()>(&AbsTests::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<void(*)($StringArray*)>(&AbsTests::main))},
-	{"testInRangeIntAbs", "()I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)()>(&AbsTests::testInRangeIntAbs))},
-	{"testInRangeLongAbs", "()J", nullptr, $PRIVATE | $STATIC, $method(static_cast<int64_t(*)()>(&AbsTests::testInRangeLongAbs))},
-	{"testIntAbs", "(Ljava/util/function/IntUnaryOperator;II)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)($IntUnaryOperator*,int32_t,int32_t)>(&AbsTests::testIntAbs))},
-	{"testIntMinValue", "()I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)()>(&AbsTests::testIntMinValue))},
-	{"testLongAbs", "(Ljava/util/function/LongUnaryOperator;JJ)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)($LongUnaryOperator*,int64_t,int64_t)>(&AbsTests::testLongAbs))},
-	{"testLongMinValue", "()I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)()>(&AbsTests::testLongMinValue))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(AbsTests, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(AbsTests, main, void, $StringArray*)},
+	{"testInRangeIntAbs", "()I", nullptr, $PRIVATE | $STATIC, $staticMethod(AbsTests, testInRangeIntAbs, int32_t)},
+	{"testInRangeLongAbs", "()J", nullptr, $PRIVATE | $STATIC, $staticMethod(AbsTests, testInRangeLongAbs, int64_t)},
+	{"testIntAbs", "(Ljava/util/function/IntUnaryOperator;II)I", nullptr, $PRIVATE | $STATIC, $staticMethod(AbsTests, testIntAbs, int32_t, $IntUnaryOperator*, int32_t, int32_t)},
+	{"testIntMinValue", "()I", nullptr, $PRIVATE | $STATIC, $staticMethod(AbsTests, testIntMinValue, int32_t)},
+	{"testLongAbs", "(Ljava/util/function/LongUnaryOperator;JJ)I", nullptr, $PRIVATE | $STATIC, $staticMethod(AbsTests, testLongAbs, int32_t, $LongUnaryOperator*, int64_t, int64_t)},
+	{"testLongMinValue", "()I", nullptr, $PRIVATE | $STATIC, $staticMethod(AbsTests, testLongMinValue, int32_t)},
 	{}
 };
 

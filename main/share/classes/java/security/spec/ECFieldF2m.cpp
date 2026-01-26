@@ -25,15 +25,15 @@ $FieldInfo _ECFieldF2m_FieldInfo_[] = {
 };
 
 $MethodInfo _ECFieldF2m_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(static_cast<void(ECFieldF2m::*)(int32_t)>(&ECFieldF2m::init$))},
-	{"<init>", "(ILjava/math/BigInteger;)V", nullptr, $PUBLIC, $method(static_cast<void(ECFieldF2m::*)(int32_t,$BigInteger*)>(&ECFieldF2m::init$))},
-	{"<init>", "(I[I)V", nullptr, $PUBLIC, $method(static_cast<void(ECFieldF2m::*)(int32_t,$ints*)>(&ECFieldF2m::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getFieldSize", "()I", nullptr, $PUBLIC},
-	{"getM", "()I", nullptr, $PUBLIC},
-	{"getMidTermsOfReductionPolynomial", "()[I", nullptr, $PUBLIC},
-	{"getReductionPolynomial", "()Ljava/math/BigInteger;", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
+	{"<init>", "(I)V", nullptr, $PUBLIC, $method(ECFieldF2m, init$, void, int32_t)},
+	{"<init>", "(ILjava/math/BigInteger;)V", nullptr, $PUBLIC, $method(ECFieldF2m, init$, void, int32_t, $BigInteger*)},
+	{"<init>", "(I[I)V", nullptr, $PUBLIC, $method(ECFieldF2m, init$, void, int32_t, $ints*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ECFieldF2m, equals, bool, Object$*)},
+	{"getFieldSize", "()I", nullptr, $PUBLIC, $virtualMethod(ECFieldF2m, getFieldSize, int32_t)},
+	{"getM", "()I", nullptr, $PUBLIC, $virtualMethod(ECFieldF2m, getM, int32_t)},
+	{"getMidTermsOfReductionPolynomial", "()[I", nullptr, $PUBLIC, $virtualMethod(ECFieldF2m, getMidTermsOfReductionPolynomial, $ints*)},
+	{"getReductionPolynomial", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(ECFieldF2m, getReductionPolynomial, $BigInteger*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ECFieldF2m, hashCode, int32_t)},
 	{}
 };
 

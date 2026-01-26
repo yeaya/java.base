@@ -53,13 +53,13 @@ using $HashSet = ::java::util::HashSet;
 using $Set = ::java::util::Set;
 
 $MethodInfo _KeySets_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(KeySets::*)()>(&KeySets::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&KeySets::main)), "java.lang.Exception"},
-	{"reg", "(Ljava/nio/channels/Selector;)Ljava/nio/channels/SelectionKey;", nullptr, $STATIC, $method(static_cast<$SelectionKey*(*)($Selector*)>(&KeySets::reg)), "java.io.IOException"},
-	{"testClose", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&KeySets::testClose)), "java.lang.Exception"},
-	{"testMutability", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&KeySets::testMutability)), "java.lang.Exception"},
-	{"testNoAddition", "(Ljava/util/Set;)V", nullptr, $STATIC, $method(static_cast<void(*)($Set*)>(&KeySets::testNoAddition)), "java.lang.Exception"},
-	{"testNoRemoval", "(Ljava/util/Set;LKeySets$Adder;)V", nullptr, $STATIC, $method(static_cast<void(*)($Set*,$KeySets$Adder*)>(&KeySets::testNoRemoval)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(KeySets, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(KeySets, main, void, $StringArray*), "java.lang.Exception"},
+	{"reg", "(Ljava/nio/channels/Selector;)Ljava/nio/channels/SelectionKey;", nullptr, $STATIC, $staticMethod(KeySets, reg, $SelectionKey*, $Selector*), "java.io.IOException"},
+	{"testClose", "()V", nullptr, $STATIC, $staticMethod(KeySets, testClose, void), "java.lang.Exception"},
+	{"testMutability", "()V", nullptr, $STATIC, $staticMethod(KeySets, testMutability, void), "java.lang.Exception"},
+	{"testNoAddition", "(Ljava/util/Set;)V", nullptr, $STATIC, $staticMethod(KeySets, testNoAddition, void, $Set*), "java.lang.Exception"},
+	{"testNoRemoval", "(Ljava/util/Set;LKeySets$Adder;)V", nullptr, $STATIC, $staticMethod(KeySets, testNoRemoval, void, $Set*, $KeySets$Adder*), "java.lang.Exception"},
 	{}
 };
 

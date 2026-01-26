@@ -21,8 +21,8 @@ $FieldInfo _LastErrorString$ReadOnlyRAFTest_FieldInfo_[] = {
 };
 
 $MethodInfo _LastErrorString$ReadOnlyRAFTest_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(LastErrorString$ReadOnlyRAFTest::*)($String*)>(&LastErrorString$ReadOnlyRAFTest::init$))},
-	{"go", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(LastErrorString$ReadOnlyRAFTest, init$, void, $String*)},
+	{"go", "()V", nullptr, $PUBLIC, $virtualMethod(LastErrorString$ReadOnlyRAFTest, go, void), "java.io.IOException"},
 	{}
 };
 

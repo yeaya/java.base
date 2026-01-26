@@ -37,9 +37,9 @@ $FieldInfo _BasicTest_FieldInfo_[] = {
 };
 
 $MethodInfo _BasicTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(BasicTest::*)()>(&BasicTest::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&BasicTest::main)), "java.lang.Throwable"},
-	{"test", "(Ljava/lang/invoke/MethodType;)V", nullptr, $STATIC, $method(static_cast<void(*)($MethodType*)>(&BasicTest::test)), "java.lang.invoke.StringConcatException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(BasicTest, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicTest, main, void, $StringArray*), "java.lang.Throwable"},
+	{"test", "(Ljava/lang/invoke/MethodType;)V", nullptr, $STATIC, $staticMethod(BasicTest, test, void, $MethodType*), "java.lang.invoke.StringConcatException"},
 	{}
 };
 

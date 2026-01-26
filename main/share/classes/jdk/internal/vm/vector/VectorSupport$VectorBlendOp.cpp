@@ -8,6 +8,8 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $VectorSupport$Vector = ::jdk::internal::vm::vector::VectorSupport$Vector;
+using $VectorSupport$VectorMask = ::jdk::internal::vm::vector::VectorSupport$VectorMask;
 
 namespace jdk {
 	namespace internal {
@@ -15,7 +17,7 @@ namespace jdk {
 			namespace vector {
 
 $MethodInfo _VectorSupport$VectorBlendOp_MethodInfo_[] = {
-	{"apply", "(Ljdk/internal/vm/vector/VectorSupport$Vector;Ljdk/internal/vm/vector/VectorSupport$Vector;Ljdk/internal/vm/vector/VectorSupport$VectorMask;)Ljdk/internal/vm/vector/VectorSupport$Vector;", "(TV;TV;TM;)TV;", $PUBLIC | $ABSTRACT},
+	{"apply", "(Ljdk/internal/vm/vector/VectorSupport$Vector;Ljdk/internal/vm/vector/VectorSupport$Vector;Ljdk/internal/vm/vector/VectorSupport$VectorMask;)Ljdk/internal/vm/vector/VectorSupport$Vector;", "(TV;TV;TM;)TV;", $PUBLIC | $ABSTRACT, $virtualMethod(VectorSupport$VectorBlendOp, apply, $VectorSupport$Vector*, $VectorSupport$Vector*, $VectorSupport$Vector*, $VectorSupport$VectorMask*)},
 	{}
 };
 

@@ -47,10 +47,10 @@ $FieldInfo _PskKeyExchangeModesExtension$PskKeyExchangeModesSpec_FieldInfo_[] = 
 };
 
 $MethodInfo _PskKeyExchangeModesExtension$PskKeyExchangeModesSpec_MethodInfo_[] = {
-	{"<init>", "([B)V", nullptr, 0, $method(static_cast<void(PskKeyExchangeModesExtension$PskKeyExchangeModesSpec::*)($bytes*)>(&PskKeyExchangeModesExtension$PskKeyExchangeModesSpec::init$))},
-	{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)V", nullptr, 0, $method(static_cast<void(PskKeyExchangeModesExtension$PskKeyExchangeModesSpec::*)($HandshakeContext*,$ByteBuffer*)>(&PskKeyExchangeModesExtension$PskKeyExchangeModesSpec::init$)), "java.io.IOException"},
-	{"contains", "(Lsun/security/ssl/PskKeyExchangeModesExtension$PskKeyExchangeMode;)Z", nullptr, 0, $method(static_cast<bool(PskKeyExchangeModesExtension$PskKeyExchangeModesSpec::*)($PskKeyExchangeModesExtension$PskKeyExchangeMode*)>(&PskKeyExchangeModesExtension$PskKeyExchangeModesSpec::contains))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "([B)V", nullptr, 0, $method(PskKeyExchangeModesExtension$PskKeyExchangeModesSpec, init$, void, $bytes*)},
+	{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)V", nullptr, 0, $method(PskKeyExchangeModesExtension$PskKeyExchangeModesSpec, init$, void, $HandshakeContext*, $ByteBuffer*), "java.io.IOException"},
+	{"contains", "(Lsun/security/ssl/PskKeyExchangeModesExtension$PskKeyExchangeMode;)Z", nullptr, 0, $method(PskKeyExchangeModesExtension$PskKeyExchangeModesSpec, contains, bool, $PskKeyExchangeModesExtension$PskKeyExchangeMode*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PskKeyExchangeModesExtension$PskKeyExchangeModesSpec, toString, $String*)},
 	{}
 };
 

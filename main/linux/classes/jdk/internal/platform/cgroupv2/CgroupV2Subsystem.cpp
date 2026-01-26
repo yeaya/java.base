@@ -83,8 +83,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo CgroupV2Subsystem$$Lambda$convertStringToLong::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CgroupV2Subsystem$$Lambda$convertStringToLong::*)()>(&CgroupV2Subsystem$$Lambda$convertStringToLong::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CgroupV2Subsystem$$Lambda$convertStringToLong, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(CgroupV2Subsystem$$Lambda$convertStringToLong, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo CgroupV2Subsystem$$Lambda$convertStringToLong::classInfo$ = {
@@ -116,8 +116,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo CgroupV2Subsystem$$Lambda$lineToRandWIOs$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CgroupV2Subsystem$$Lambda$lineToRandWIOs$1::*)()>(&CgroupV2Subsystem$$Lambda$lineToRandWIOs$1::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CgroupV2Subsystem$$Lambda$lineToRandWIOs$1, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(CgroupV2Subsystem$$Lambda$lineToRandWIOs$1, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo CgroupV2Subsystem$$Lambda$lineToRandWIOs$1::classInfo$ = {
@@ -149,8 +149,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo CgroupV2Subsystem$$Lambda$lineToRBytesAndWBytesIO$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CgroupV2Subsystem$$Lambda$lineToRBytesAndWBytesIO$2::*)()>(&CgroupV2Subsystem$$Lambda$lineToRBytesAndWBytesIO$2::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CgroupV2Subsystem$$Lambda$lineToRBytesAndWBytesIO$2, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(CgroupV2Subsystem$$Lambda$lineToRBytesAndWBytesIO$2, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo CgroupV2Subsystem$$Lambda$lineToRBytesAndWBytesIO$2::classInfo$ = {
@@ -182,8 +182,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo CgroupV2Subsystem$$Lambda$lambda$sumTokensIOStat$0$3::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CgroupV2Subsystem$$Lambda$lambda$sumTokensIOStat$0$3::*)()>(&CgroupV2Subsystem$$Lambda$lambda$sumTokensIOStat$0$3::init$))},
-	{"applyAsLong", "(Ljava/lang/Object;)J", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CgroupV2Subsystem$$Lambda$lambda$sumTokensIOStat$0$3, init$, void)},
+	{"applyAsLong", "(Ljava/lang/Object;)J", nullptr, $PUBLIC, $virtualMethod(CgroupV2Subsystem$$Lambda$lambda$sumTokensIOStat$0$3, applyAsLong, int64_t, Object$*)},
 	{}
 };
 $ClassInfo CgroupV2Subsystem$$Lambda$lambda$sumTokensIOStat$0$3::classInfo$ = {
@@ -215,46 +215,46 @@ $FieldInfo _CgroupV2Subsystem_FieldInfo_[] = {
 };
 
 $MethodInfo _CgroupV2Subsystem_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/platform/CgroupSubsystemController;)V", nullptr, $PRIVATE, $method(static_cast<void(CgroupV2Subsystem::*)($CgroupSubsystemController*)>(&CgroupV2Subsystem::init$))},
-	{"getBlkIOServiceCount", "()J", nullptr, $PUBLIC},
-	{"getBlkIOServiced", "()J", nullptr, $PUBLIC},
-	{"getCpuNumPeriods", "()J", nullptr, $PUBLIC},
-	{"getCpuNumThrottled", "()J", nullptr, $PUBLIC},
-	{"getCpuPeriod", "()J", nullptr, $PUBLIC},
-	{"getCpuQuota", "()J", nullptr, $PUBLIC},
-	{"getCpuSet", "(Ljava/lang/String;)[I", nullptr, $PRIVATE, $method(static_cast<$ints*(CgroupV2Subsystem::*)($String*)>(&CgroupV2Subsystem::getCpuSet))},
-	{"getCpuSetCpus", "()[I", nullptr, $PUBLIC},
-	{"getCpuSetMems", "()[I", nullptr, $PUBLIC},
-	{"getCpuShares", "()J", nullptr, $PUBLIC},
-	{"getCpuSystemUsage", "()J", nullptr, $PUBLIC},
-	{"getCpuThrottledTime", "()J", nullptr, $PUBLIC},
-	{"getCpuUsage", "()J", nullptr, $PUBLIC},
-	{"getCpuUserUsage", "()J", nullptr, $PUBLIC},
-	{"getEffectiveCpuCount", "()J", nullptr, $PUBLIC},
-	{"getEffectiveCpuSetCpus", "()[I", nullptr, $PUBLIC},
-	{"getEffectiveCpuSetMems", "()[I", nullptr, $PUBLIC},
-	{"getFromCpuMax", "(I)J", nullptr, $PRIVATE, $method(static_cast<int64_t(CgroupV2Subsystem::*)(int32_t)>(&CgroupV2Subsystem::getFromCpuMax))},
-	{"getInstance", "(Ljdk/internal/platform/CgroupInfo;)Ljdk/internal/platform/CgroupSubsystem;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$CgroupSubsystem*(*)($CgroupInfo*)>(&CgroupV2Subsystem::getInstance))},
-	{"getLongVal", "(Ljava/lang/String;J)J", nullptr, $PRIVATE, $method(static_cast<int64_t(CgroupV2Subsystem::*)($String*,int64_t)>(&CgroupV2Subsystem::getLongVal))},
-	{"getLongVal", "(Ljava/lang/String;)J", nullptr, $PRIVATE, $method(static_cast<int64_t(CgroupV2Subsystem::*)($String*)>(&CgroupV2Subsystem::getLongVal))},
-	{"getMemoryAndSwapLimit", "()J", nullptr, $PUBLIC},
-	{"getMemoryAndSwapUsage", "()J", nullptr, $PUBLIC},
-	{"getMemoryFailCount", "()J", nullptr, $PUBLIC},
-	{"getMemoryLimit", "()J", nullptr, $PUBLIC},
-	{"getMemorySoftLimit", "()J", nullptr, $PUBLIC},
-	{"getMemoryUsage", "()J", nullptr, $PUBLIC},
-	{"getPerCpuUsage", "()[J", nullptr, $PUBLIC},
-	{"getProvider", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getRWBytesIOMatchTokenNames", "()[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$StringArray*(*)()>(&CgroupV2Subsystem::getRWBytesIOMatchTokenNames))},
-	{"getRWIOMatchTokenNames", "()[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$StringArray*(*)()>(&CgroupV2Subsystem::getRWIOMatchTokenNames))},
-	{"getTcpMemoryUsage", "()J", nullptr, $PUBLIC},
-	{"ioStatLineToLong", "(Ljava/lang/String;[Ljava/lang/String;)Ljava/lang/Long;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$Long*(*)($String*,$StringArray*)>(&CgroupV2Subsystem::ioStatLineToLong))},
-	{"lambda$sumTokensIOStat$0", "(Ljava/lang/Long;)J", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<int64_t(*)($Long*)>(&CgroupV2Subsystem::lambda$sumTokensIOStat$0))},
-	{"limitFromString", "(Ljava/lang/String;)J", nullptr, $PRIVATE, $method(static_cast<int64_t(CgroupV2Subsystem::*)($String*)>(&CgroupV2Subsystem::limitFromString))},
-	{"lineToRBytesAndWBytesIO", "(Ljava/lang/String;)Ljava/lang/Long;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Long*(*)($String*)>(&CgroupV2Subsystem::lineToRBytesAndWBytesIO))},
-	{"lineToRandWIOs", "(Ljava/lang/String;)Ljava/lang/Long;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Long*(*)($String*)>(&CgroupV2Subsystem::lineToRandWIOs))},
-	{"longOrZero", "(Ljava/lang/String;)J", nullptr, $PRIVATE | $STATIC, $method(static_cast<int64_t(*)($String*)>(&CgroupV2Subsystem::longOrZero))},
-	{"sumTokensIOStat", "(Ljava/util/function/Function;)J", "(Ljava/util/function/Function<Ljava/lang/String;Ljava/lang/Long;>;)J", $PRIVATE, $method(static_cast<int64_t(CgroupV2Subsystem::*)($Function*)>(&CgroupV2Subsystem::sumTokensIOStat))},
+	{"<init>", "(Ljdk/internal/platform/CgroupSubsystemController;)V", nullptr, $PRIVATE, $method(CgroupV2Subsystem, init$, void, $CgroupSubsystemController*)},
+	{"getBlkIOServiceCount", "()J", nullptr, $PUBLIC, $virtualMethod(CgroupV2Subsystem, getBlkIOServiceCount, int64_t)},
+	{"getBlkIOServiced", "()J", nullptr, $PUBLIC, $virtualMethod(CgroupV2Subsystem, getBlkIOServiced, int64_t)},
+	{"getCpuNumPeriods", "()J", nullptr, $PUBLIC, $virtualMethod(CgroupV2Subsystem, getCpuNumPeriods, int64_t)},
+	{"getCpuNumThrottled", "()J", nullptr, $PUBLIC, $virtualMethod(CgroupV2Subsystem, getCpuNumThrottled, int64_t)},
+	{"getCpuPeriod", "()J", nullptr, $PUBLIC, $virtualMethod(CgroupV2Subsystem, getCpuPeriod, int64_t)},
+	{"getCpuQuota", "()J", nullptr, $PUBLIC, $virtualMethod(CgroupV2Subsystem, getCpuQuota, int64_t)},
+	{"getCpuSet", "(Ljava/lang/String;)[I", nullptr, $PRIVATE, $method(CgroupV2Subsystem, getCpuSet, $ints*, $String*)},
+	{"getCpuSetCpus", "()[I", nullptr, $PUBLIC, $virtualMethod(CgroupV2Subsystem, getCpuSetCpus, $ints*)},
+	{"getCpuSetMems", "()[I", nullptr, $PUBLIC, $virtualMethod(CgroupV2Subsystem, getCpuSetMems, $ints*)},
+	{"getCpuShares", "()J", nullptr, $PUBLIC, $virtualMethod(CgroupV2Subsystem, getCpuShares, int64_t)},
+	{"getCpuSystemUsage", "()J", nullptr, $PUBLIC, $virtualMethod(CgroupV2Subsystem, getCpuSystemUsage, int64_t)},
+	{"getCpuThrottledTime", "()J", nullptr, $PUBLIC, $virtualMethod(CgroupV2Subsystem, getCpuThrottledTime, int64_t)},
+	{"getCpuUsage", "()J", nullptr, $PUBLIC, $virtualMethod(CgroupV2Subsystem, getCpuUsage, int64_t)},
+	{"getCpuUserUsage", "()J", nullptr, $PUBLIC, $virtualMethod(CgroupV2Subsystem, getCpuUserUsage, int64_t)},
+	{"getEffectiveCpuCount", "()J", nullptr, $PUBLIC, $virtualMethod(CgroupV2Subsystem, getEffectiveCpuCount, int64_t)},
+	{"getEffectiveCpuSetCpus", "()[I", nullptr, $PUBLIC, $virtualMethod(CgroupV2Subsystem, getEffectiveCpuSetCpus, $ints*)},
+	{"getEffectiveCpuSetMems", "()[I", nullptr, $PUBLIC, $virtualMethod(CgroupV2Subsystem, getEffectiveCpuSetMems, $ints*)},
+	{"getFromCpuMax", "(I)J", nullptr, $PRIVATE, $method(CgroupV2Subsystem, getFromCpuMax, int64_t, int32_t)},
+	{"getInstance", "(Ljdk/internal/platform/CgroupInfo;)Ljdk/internal/platform/CgroupSubsystem;", nullptr, $PUBLIC | $STATIC, $staticMethod(CgroupV2Subsystem, getInstance, $CgroupSubsystem*, $CgroupInfo*)},
+	{"getLongVal", "(Ljava/lang/String;J)J", nullptr, $PRIVATE, $method(CgroupV2Subsystem, getLongVal, int64_t, $String*, int64_t)},
+	{"getLongVal", "(Ljava/lang/String;)J", nullptr, $PRIVATE, $method(CgroupV2Subsystem, getLongVal, int64_t, $String*)},
+	{"getMemoryAndSwapLimit", "()J", nullptr, $PUBLIC, $virtualMethod(CgroupV2Subsystem, getMemoryAndSwapLimit, int64_t)},
+	{"getMemoryAndSwapUsage", "()J", nullptr, $PUBLIC, $virtualMethod(CgroupV2Subsystem, getMemoryAndSwapUsage, int64_t)},
+	{"getMemoryFailCount", "()J", nullptr, $PUBLIC, $virtualMethod(CgroupV2Subsystem, getMemoryFailCount, int64_t)},
+	{"getMemoryLimit", "()J", nullptr, $PUBLIC, $virtualMethod(CgroupV2Subsystem, getMemoryLimit, int64_t)},
+	{"getMemorySoftLimit", "()J", nullptr, $PUBLIC, $virtualMethod(CgroupV2Subsystem, getMemorySoftLimit, int64_t)},
+	{"getMemoryUsage", "()J", nullptr, $PUBLIC, $virtualMethod(CgroupV2Subsystem, getMemoryUsage, int64_t)},
+	{"getPerCpuUsage", "()[J", nullptr, $PUBLIC, $virtualMethod(CgroupV2Subsystem, getPerCpuUsage, $longs*)},
+	{"getProvider", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CgroupV2Subsystem, getProvider, $String*)},
+	{"getRWBytesIOMatchTokenNames", "()[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(CgroupV2Subsystem, getRWBytesIOMatchTokenNames, $StringArray*)},
+	{"getRWIOMatchTokenNames", "()[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(CgroupV2Subsystem, getRWIOMatchTokenNames, $StringArray*)},
+	{"getTcpMemoryUsage", "()J", nullptr, $PUBLIC, $virtualMethod(CgroupV2Subsystem, getTcpMemoryUsage, int64_t)},
+	{"ioStatLineToLong", "(Ljava/lang/String;[Ljava/lang/String;)Ljava/lang/Long;", nullptr, $PRIVATE | $STATIC, $staticMethod(CgroupV2Subsystem, ioStatLineToLong, $Long*, $String*, $StringArray*)},
+	{"lambda$sumTokensIOStat$0", "(Ljava/lang/Long;)J", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CgroupV2Subsystem, lambda$sumTokensIOStat$0, int64_t, $Long*)},
+	{"limitFromString", "(Ljava/lang/String;)J", nullptr, $PRIVATE, $method(CgroupV2Subsystem, limitFromString, int64_t, $String*)},
+	{"lineToRBytesAndWBytesIO", "(Ljava/lang/String;)Ljava/lang/Long;", nullptr, $PUBLIC | $STATIC, $staticMethod(CgroupV2Subsystem, lineToRBytesAndWBytesIO, $Long*, $String*)},
+	{"lineToRandWIOs", "(Ljava/lang/String;)Ljava/lang/Long;", nullptr, $PUBLIC | $STATIC, $staticMethod(CgroupV2Subsystem, lineToRandWIOs, $Long*, $String*)},
+	{"longOrZero", "(Ljava/lang/String;)J", nullptr, $PRIVATE | $STATIC, $staticMethod(CgroupV2Subsystem, longOrZero, int64_t, $String*)},
+	{"sumTokensIOStat", "(Ljava/util/function/Function;)J", "(Ljava/util/function/Function<Ljava/lang/String;Ljava/lang/Long;>;)J", $PRIVATE, $method(CgroupV2Subsystem, sumTokensIOStat, int64_t, $Function*)},
 	{}
 };
 

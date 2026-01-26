@@ -24,11 +24,11 @@ $FieldInfo _MethodTooLargeException_FieldInfo_[] = {
 };
 
 $MethodInfo _MethodTooLargeException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(static_cast<void(MethodTooLargeException::*)($String*,$String*,$String*,int32_t)>(&MethodTooLargeException::init$))},
-	{"getClassName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(static_cast<$String*(MethodTooLargeException::*)()>(&MethodTooLargeException::getClassName))},
-	{"getCodeSize", "()I", nullptr, $PUBLIC, $method(static_cast<int32_t(MethodTooLargeException::*)()>(&MethodTooLargeException::getCodeSize))},
-	{"getDescriptor", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(static_cast<$String*(MethodTooLargeException::*)()>(&MethodTooLargeException::getDescriptor))},
-	{"getMethodName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(static_cast<$String*(MethodTooLargeException::*)()>(&MethodTooLargeException::getMethodName))},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(MethodTooLargeException, init$, void, $String*, $String*, $String*, int32_t)},
+	{"getClassName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(MethodTooLargeException, getClassName, $String*)},
+	{"getCodeSize", "()I", nullptr, $PUBLIC, $method(MethodTooLargeException, getCodeSize, int32_t)},
+	{"getDescriptor", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(MethodTooLargeException, getDescriptor, $String*)},
+	{"getMethodName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(MethodTooLargeException, getMethodName, $String*)},
 	{}
 };
 

@@ -84,20 +84,20 @@ $FieldInfo _MethodUtil_FieldInfo_[] = {
 };
 
 $MethodInfo _MethodUtil_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(MethodUtil::*)()>(&MethodUtil::init$))},
-	{"addMethod", "(Ljava/util/Map;Ljava/lang/reflect/Method;)V", "(Ljava/util/Map<Lsun/reflect/misc/MethodUtil$Signature;Ljava/lang/reflect/Method;>;Ljava/lang/reflect/Method;)V", $PRIVATE | $STATIC, $method(static_cast<void(*)($Map*,$Method*)>(&MethodUtil::addMethod))},
-	{"defineClass", "(Ljava/lang/String;[B)Ljava/lang/Class;", "(Ljava/lang/String;[B)Ljava/lang/Class<*>;", $PRIVATE, $method(static_cast<$Class*(MethodUtil::*)($String*,$bytes*)>(&MethodUtil::defineClass)), "java.io.IOException"},
-	{"findClass", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $PROTECTED, nullptr, "java.lang.ClassNotFoundException"},
-	{"getInterfaceMethods", "(Ljava/lang/Class;Ljava/util/Map;)V", "(Ljava/lang/Class<*>;Ljava/util/Map<Lsun/reflect/misc/MethodUtil$Signature;Ljava/lang/reflect/Method;>;)V", $PRIVATE | $STATIC, $method(static_cast<void(*)($Class*,$Map*)>(&MethodUtil::getInterfaceMethods))},
-	{"getInternalPublicMethods", "(Ljava/lang/Class;Ljava/util/Map;)Z", "(Ljava/lang/Class<*>;Ljava/util/Map<Lsun/reflect/misc/MethodUtil$Signature;Ljava/lang/reflect/Method;>;)Z", $PRIVATE | $STATIC, $method(static_cast<bool(*)($Class*,$Map*)>(&MethodUtil::getInternalPublicMethods))},
-	{"getMethod", "(Ljava/lang/Class;Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;", "(Ljava/lang/Class<*>;Ljava/lang/String;[Ljava/lang/Class<*>;)Ljava/lang/reflect/Method;", $PUBLIC | $STATIC, $method(static_cast<$Method*(*)($Class*,$String*,$ClassArray*)>(&MethodUtil::getMethod)), "java.lang.NoSuchMethodException"},
-	{"getMethods", "(Ljava/lang/Class;)[Ljava/lang/reflect/Method;", "(Ljava/lang/Class<*>;)[Ljava/lang/reflect/Method;", $PUBLIC | $STATIC, $method(static_cast<$MethodArray*(*)($Class*)>(&MethodUtil::getMethods))},
-	{"getPermissions", "(Ljava/security/CodeSource;)Ljava/security/PermissionCollection;", nullptr, $PROTECTED},
-	{"getPublicMethods", "(Ljava/lang/Class;)[Ljava/lang/reflect/Method;", "(Ljava/lang/Class<*>;)[Ljava/lang/reflect/Method;", $PUBLIC | $STATIC, $method(static_cast<$MethodArray*(*)($Class*)>(&MethodUtil::getPublicMethods))},
-	{"getTrampoline", "()Ljava/lang/reflect/Method;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$Method*(*)()>(&MethodUtil::getTrampoline))},
-	{"getTrampolineClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PRIVATE | $STATIC, $method(static_cast<$Class*(*)()>(&MethodUtil::getTrampolineClass))},
-	{"invoke", "(Ljava/lang/reflect/Method;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Object*(*)($Method*,Object$*,$ObjectArray*)>(&MethodUtil::invoke)), "java.lang.reflect.InvocationTargetException,java.lang.IllegalAccessException"},
-	{"loadClass", "(Ljava/lang/String;Z)Ljava/lang/Class;", "(Ljava/lang/String;Z)Ljava/lang/Class<*>;", $PROTECTED | $SYNCHRONIZED, nullptr, "java.lang.ClassNotFoundException"},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(MethodUtil, init$, void)},
+	{"addMethod", "(Ljava/util/Map;Ljava/lang/reflect/Method;)V", "(Ljava/util/Map<Lsun/reflect/misc/MethodUtil$Signature;Ljava/lang/reflect/Method;>;Ljava/lang/reflect/Method;)V", $PRIVATE | $STATIC, $staticMethod(MethodUtil, addMethod, void, $Map*, $Method*)},
+	{"defineClass", "(Ljava/lang/String;[B)Ljava/lang/Class;", "(Ljava/lang/String;[B)Ljava/lang/Class<*>;", $PRIVATE, $method(MethodUtil, defineClass, $Class*, $String*, $bytes*), "java.io.IOException"},
+	{"findClass", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $PROTECTED, $virtualMethod(MethodUtil, findClass, $Class*, $String*), "java.lang.ClassNotFoundException"},
+	{"getInterfaceMethods", "(Ljava/lang/Class;Ljava/util/Map;)V", "(Ljava/lang/Class<*>;Ljava/util/Map<Lsun/reflect/misc/MethodUtil$Signature;Ljava/lang/reflect/Method;>;)V", $PRIVATE | $STATIC, $staticMethod(MethodUtil, getInterfaceMethods, void, $Class*, $Map*)},
+	{"getInternalPublicMethods", "(Ljava/lang/Class;Ljava/util/Map;)Z", "(Ljava/lang/Class<*>;Ljava/util/Map<Lsun/reflect/misc/MethodUtil$Signature;Ljava/lang/reflect/Method;>;)Z", $PRIVATE | $STATIC, $staticMethod(MethodUtil, getInternalPublicMethods, bool, $Class*, $Map*)},
+	{"getMethod", "(Ljava/lang/Class;Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;", "(Ljava/lang/Class<*>;Ljava/lang/String;[Ljava/lang/Class<*>;)Ljava/lang/reflect/Method;", $PUBLIC | $STATIC, $staticMethod(MethodUtil, getMethod, $Method*, $Class*, $String*, $ClassArray*), "java.lang.NoSuchMethodException"},
+	{"getMethods", "(Ljava/lang/Class;)[Ljava/lang/reflect/Method;", "(Ljava/lang/Class<*>;)[Ljava/lang/reflect/Method;", $PUBLIC | $STATIC, $staticMethod(MethodUtil, getMethods, $MethodArray*, $Class*)},
+	{"getPermissions", "(Ljava/security/CodeSource;)Ljava/security/PermissionCollection;", nullptr, $PROTECTED, $virtualMethod(MethodUtil, getPermissions, $PermissionCollection*, $CodeSource*)},
+	{"getPublicMethods", "(Ljava/lang/Class;)[Ljava/lang/reflect/Method;", "(Ljava/lang/Class<*>;)[Ljava/lang/reflect/Method;", $PUBLIC | $STATIC, $staticMethod(MethodUtil, getPublicMethods, $MethodArray*, $Class*)},
+	{"getTrampoline", "()Ljava/lang/reflect/Method;", nullptr, $PRIVATE | $STATIC, $staticMethod(MethodUtil, getTrampoline, $Method*)},
+	{"getTrampolineClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PRIVATE | $STATIC, $staticMethod(MethodUtil, getTrampolineClass, $Class*)},
+	{"invoke", "(Ljava/lang/reflect/Method;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC, $staticMethod(MethodUtil, invoke, $Object*, $Method*, Object$*, $ObjectArray*), "java.lang.reflect.InvocationTargetException,java.lang.IllegalAccessException"},
+	{"loadClass", "(Ljava/lang/String;Z)Ljava/lang/Class;", "(Ljava/lang/String;Z)Ljava/lang/Class<*>;", $PROTECTED | $SYNCHRONIZED, $virtualMethod(MethodUtil, loadClass, $Class*, $String*, bool), "java.lang.ClassNotFoundException"},
 	{}
 };
 

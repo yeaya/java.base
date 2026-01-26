@@ -21,7 +21,7 @@ $FieldInfo _SecureRandom$SeederHolder_FieldInfo_[] = {
 };
 
 $MethodInfo _SecureRandom$SeederHolder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(SecureRandom$SeederHolder::*)()>(&SecureRandom$SeederHolder::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(SecureRandom$SeederHolder, init$, void)},
 	{}
 };
 

@@ -36,14 +36,14 @@ $FieldInfo _Shutdown_FieldInfo_[] = {
 };
 
 $MethodInfo _Shutdown_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Shutdown::*)()>(&Shutdown::init$))},
-	{"add", "(IZLjava/lang/Runnable;)V", nullptr, $STATIC, $method(static_cast<void(*)(int32_t,bool,$Runnable*)>(&Shutdown::add))},
-	{"beforeHalt", "()V", nullptr, $STATIC | $NATIVE, $method(static_cast<void(*)()>(&Shutdown::beforeHalt))},
-	{"exit", "(I)V", nullptr, $STATIC, $method(static_cast<void(*)(int32_t)>(&Shutdown::exit))},
-	{"halt", "(I)V", nullptr, $STATIC, $method(static_cast<void(*)(int32_t)>(&Shutdown::halt))},
-	{"halt0", "(I)V", nullptr, $STATIC | $NATIVE, $method(static_cast<void(*)(int32_t)>(&Shutdown::halt0))},
-	{"runHooks", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&Shutdown::runHooks))},
-	{"shutdown", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&Shutdown::shutdown))},
+	{"<init>", "()V", nullptr, 0, $method(Shutdown, init$, void)},
+	{"add", "(IZLjava/lang/Runnable;)V", nullptr, $STATIC, $staticMethod(Shutdown, add, void, int32_t, bool, $Runnable*)},
+	{"beforeHalt", "()V", nullptr, $STATIC | $NATIVE, $staticMethod(Shutdown, beforeHalt, void)},
+	{"exit", "(I)V", nullptr, $STATIC, $staticMethod(Shutdown, exit, void, int32_t)},
+	{"halt", "(I)V", nullptr, $STATIC, $staticMethod(Shutdown, halt, void, int32_t)},
+	{"halt0", "(I)V", nullptr, $STATIC | $NATIVE, $staticMethod(Shutdown, halt0, void, int32_t)},
+	{"runHooks", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(Shutdown, runHooks, void)},
+	{"shutdown", "()V", nullptr, $STATIC, $staticMethod(Shutdown, shutdown, void)},
 	{}
 };
 

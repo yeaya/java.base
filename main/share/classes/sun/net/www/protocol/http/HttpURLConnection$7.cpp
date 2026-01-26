@@ -24,8 +24,8 @@ $FieldInfo _HttpURLConnection$7_FieldInfo_[] = {
 };
 
 $MethodInfo _HttpURLConnection$7_MethodInfo_[] = {
-	{"<init>", "(Lsun/net/www/protocol/http/HttpURLConnection;)V", nullptr, 0, $method(static_cast<void(HttpURLConnection$7::*)($HttpURLConnection*)>(&HttpURLConnection$7::init$))},
-	{"run", "()Ljava/net/ProxySelector;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/net/www/protocol/http/HttpURLConnection;)V", nullptr, 0, $method(HttpURLConnection$7, init$, void, $HttpURLConnection*)},
+	{"run", "()Ljava/net/ProxySelector;", nullptr, $PUBLIC, $virtualMethod(HttpURLConnection$7, run, $Object*)},
 	{}
 };
 

@@ -9,7 +9,7 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _ClassAttributesTest$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ClassAttributesTest$1::*)()>(&ClassAttributesTest$1::init$))},
+	{"<init>", "()V", nullptr, 0, $method(ClassAttributesTest$1, init$, void)},
 	{}
 };
 

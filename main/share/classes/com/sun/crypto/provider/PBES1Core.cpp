@@ -87,22 +87,22 @@ $FieldInfo _PBES1Core_FieldInfo_[] = {
 };
 
 $MethodInfo _PBES1Core_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(PBES1Core::*)($String*)>(&PBES1Core::init$)), "java.security.NoSuchAlgorithmException,javax.crypto.NoSuchPaddingException"},
-	{"deriveCipherKey", "([B)[B", nullptr, $PRIVATE, $method(static_cast<$bytes*(PBES1Core::*)($bytes*)>(&PBES1Core::deriveCipherKey))},
-	{"doFinal", "([BII)[B", nullptr, 0, $method(static_cast<$bytes*(PBES1Core::*)($bytes*,int32_t,int32_t)>(&PBES1Core::doFinal)), "javax.crypto.IllegalBlockSizeException,javax.crypto.BadPaddingException"},
-	{"doFinal", "([BII[BI)I", nullptr, 0, $method(static_cast<int32_t(PBES1Core::*)($bytes*,int32_t,int32_t,$bytes*,int32_t)>(&PBES1Core::doFinal)), "javax.crypto.ShortBufferException,javax.crypto.IllegalBlockSizeException,javax.crypto.BadPaddingException"},
-	{"getBlockSize", "()I", nullptr, 0, $method(static_cast<int32_t(PBES1Core::*)()>(&PBES1Core::getBlockSize))},
-	{"getIV", "()[B", nullptr, 0, $method(static_cast<$bytes*(PBES1Core::*)()>(&PBES1Core::getIV))},
-	{"getOutputSize", "(I)I", nullptr, 0, $method(static_cast<int32_t(PBES1Core::*)(int32_t)>(&PBES1Core::getOutputSize))},
-	{"getParameters", "()Ljava/security/AlgorithmParameters;", nullptr, 0, $method(static_cast<$AlgorithmParameters*(PBES1Core::*)()>(&PBES1Core::getParameters))},
-	{"init", "(ILjava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, 0, $method(static_cast<void(PBES1Core::*)(int32_t,$Key*,$AlgorithmParameterSpec*,$SecureRandom*)>(&PBES1Core::init)), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
-	{"init", "(ILjava/security/Key;Ljava/security/AlgorithmParameters;Ljava/security/SecureRandom;)V", nullptr, 0, $method(static_cast<void(PBES1Core::*)(int32_t,$Key*,$AlgorithmParameters*,$SecureRandom*)>(&PBES1Core::init)), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
-	{"setMode", "(Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(PBES1Core::*)($String*)>(&PBES1Core::setMode)), "java.security.NoSuchAlgorithmException"},
-	{"setPadding", "(Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(PBES1Core::*)($String*)>(&PBES1Core::setPadding)), "javax.crypto.NoSuchPaddingException"},
-	{"unwrap", "([BLjava/lang/String;I)Ljava/security/Key;", nullptr, 0, $method(static_cast<$Key*(PBES1Core::*)($bytes*,$String*,int32_t)>(&PBES1Core::unwrap)), "java.security.InvalidKeyException,java.security.NoSuchAlgorithmException"},
-	{"update", "([BII)[B", nullptr, 0, $method(static_cast<$bytes*(PBES1Core::*)($bytes*,int32_t,int32_t)>(&PBES1Core::update))},
-	{"update", "([BII[BI)I", nullptr, 0, $method(static_cast<int32_t(PBES1Core::*)($bytes*,int32_t,int32_t,$bytes*,int32_t)>(&PBES1Core::update)), "javax.crypto.ShortBufferException"},
-	{"wrap", "(Ljava/security/Key;)[B", nullptr, 0, $method(static_cast<$bytes*(PBES1Core::*)($Key*)>(&PBES1Core::wrap)), "javax.crypto.IllegalBlockSizeException,java.security.InvalidKeyException"},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(PBES1Core, init$, void, $String*), "java.security.NoSuchAlgorithmException,javax.crypto.NoSuchPaddingException"},
+	{"deriveCipherKey", "([B)[B", nullptr, $PRIVATE, $method(PBES1Core, deriveCipherKey, $bytes*, $bytes*)},
+	{"doFinal", "([BII)[B", nullptr, 0, $method(PBES1Core, doFinal, $bytes*, $bytes*, int32_t, int32_t), "javax.crypto.IllegalBlockSizeException,javax.crypto.BadPaddingException"},
+	{"doFinal", "([BII[BI)I", nullptr, 0, $method(PBES1Core, doFinal, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t), "javax.crypto.ShortBufferException,javax.crypto.IllegalBlockSizeException,javax.crypto.BadPaddingException"},
+	{"getBlockSize", "()I", nullptr, 0, $method(PBES1Core, getBlockSize, int32_t)},
+	{"getIV", "()[B", nullptr, 0, $method(PBES1Core, getIV, $bytes*)},
+	{"getOutputSize", "(I)I", nullptr, 0, $method(PBES1Core, getOutputSize, int32_t, int32_t)},
+	{"getParameters", "()Ljava/security/AlgorithmParameters;", nullptr, 0, $method(PBES1Core, getParameters, $AlgorithmParameters*)},
+	{"init", "(ILjava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, 0, $method(PBES1Core, init, void, int32_t, $Key*, $AlgorithmParameterSpec*, $SecureRandom*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
+	{"init", "(ILjava/security/Key;Ljava/security/AlgorithmParameters;Ljava/security/SecureRandom;)V", nullptr, 0, $method(PBES1Core, init, void, int32_t, $Key*, $AlgorithmParameters*, $SecureRandom*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
+	{"setMode", "(Ljava/lang/String;)V", nullptr, 0, $method(PBES1Core, setMode, void, $String*), "java.security.NoSuchAlgorithmException"},
+	{"setPadding", "(Ljava/lang/String;)V", nullptr, 0, $method(PBES1Core, setPadding, void, $String*), "javax.crypto.NoSuchPaddingException"},
+	{"unwrap", "([BLjava/lang/String;I)Ljava/security/Key;", nullptr, 0, $method(PBES1Core, unwrap, $Key*, $bytes*, $String*, int32_t), "java.security.InvalidKeyException,java.security.NoSuchAlgorithmException"},
+	{"update", "([BII)[B", nullptr, 0, $method(PBES1Core, update, $bytes*, $bytes*, int32_t, int32_t)},
+	{"update", "([BII[BI)I", nullptr, 0, $method(PBES1Core, update, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t), "javax.crypto.ShortBufferException"},
+	{"wrap", "(Ljava/security/Key;)[B", nullptr, 0, $method(PBES1Core, wrap, $bytes*, $Key*), "javax.crypto.IllegalBlockSizeException,java.security.InvalidKeyException"},
 	{}
 };
 

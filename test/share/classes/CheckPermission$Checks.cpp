@@ -36,11 +36,11 @@ $FieldInfo _CheckPermission$Checks_FieldInfo_[] = {
 };
 
 $MethodInfo _CheckPermission$Checks_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(CheckPermission$Checks::*)()>(&CheckPermission$Checks::init$))},
-	{"addFileOperation", "(LCheckPermission$FileOperation;Ljava/lang/String;)V", nullptr, 0},
-	{"fileOperationChecked", "(LCheckPermission$FileOperation;)Ljava/util/List;", "(LCheckPermission$FileOperation;)Ljava/util/List<Ljava/lang/String;>;", 0},
-	{"permissionsChecked", "()Ljava/util/List;", "()Ljava/util/List<Ljava/security/Permission;>;", 0},
-	{"propertiesChecked", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", 0},
+	{"<init>", "()V", nullptr, 0, $method(CheckPermission$Checks, init$, void)},
+	{"addFileOperation", "(LCheckPermission$FileOperation;Ljava/lang/String;)V", nullptr, 0, $virtualMethod(CheckPermission$Checks, addFileOperation, void, $CheckPermission$FileOperation*, $String*)},
+	{"fileOperationChecked", "(LCheckPermission$FileOperation;)Ljava/util/List;", "(LCheckPermission$FileOperation;)Ljava/util/List<Ljava/lang/String;>;", 0, $virtualMethod(CheckPermission$Checks, fileOperationChecked, $List*, $CheckPermission$FileOperation*)},
+	{"permissionsChecked", "()Ljava/util/List;", "()Ljava/util/List<Ljava/security/Permission;>;", 0, $virtualMethod(CheckPermission$Checks, permissionsChecked, $List*)},
+	{"propertiesChecked", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", 0, $virtualMethod(CheckPermission$Checks, propertiesChecked, $Set*)},
 	{}
 };
 

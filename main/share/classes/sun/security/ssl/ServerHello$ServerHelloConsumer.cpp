@@ -65,10 +65,10 @@ namespace sun {
 		namespace ssl {
 
 $MethodInfo _ServerHello$ServerHelloConsumer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(ServerHello$ServerHelloConsumer::*)()>(&ServerHello$ServerHelloConsumer::init$))},
-	{"consume", "(Lsun/security/ssl/ConnectionContext;Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"onHelloRetryRequest", "(Lsun/security/ssl/ClientHandshakeContext;Lsun/security/ssl/ServerHello$ServerHelloMessage;)V", nullptr, $PRIVATE, $method(static_cast<void(ServerHello$ServerHelloConsumer::*)($ClientHandshakeContext*,$ServerHello$ServerHelloMessage*)>(&ServerHello$ServerHelloConsumer::onHelloRetryRequest)), "java.io.IOException"},
-	{"onServerHello", "(Lsun/security/ssl/ClientHandshakeContext;Lsun/security/ssl/ServerHello$ServerHelloMessage;)V", nullptr, $PRIVATE, $method(static_cast<void(ServerHello$ServerHelloConsumer::*)($ClientHandshakeContext*,$ServerHello$ServerHelloMessage*)>(&ServerHello$ServerHelloConsumer::onServerHello)), "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(ServerHello$ServerHelloConsumer, init$, void)},
+	{"consume", "(Lsun/security/ssl/ConnectionContext;Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(ServerHello$ServerHelloConsumer, consume, void, $ConnectionContext*, $ByteBuffer*), "java.io.IOException"},
+	{"onHelloRetryRequest", "(Lsun/security/ssl/ClientHandshakeContext;Lsun/security/ssl/ServerHello$ServerHelloMessage;)V", nullptr, $PRIVATE, $method(ServerHello$ServerHelloConsumer, onHelloRetryRequest, void, $ClientHandshakeContext*, $ServerHello$ServerHelloMessage*), "java.io.IOException"},
+	{"onServerHello", "(Lsun/security/ssl/ClientHandshakeContext;Lsun/security/ssl/ServerHello$ServerHelloMessage;)V", nullptr, $PRIVATE, $method(ServerHello$ServerHelloConsumer, onServerHello, void, $ClientHandshakeContext*, $ServerHello$ServerHelloMessage*), "java.io.IOException"},
 	{}
 };
 

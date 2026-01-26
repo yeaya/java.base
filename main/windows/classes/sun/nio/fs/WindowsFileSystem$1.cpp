@@ -24,8 +24,8 @@ $FieldInfo _WindowsFileSystem$1_FieldInfo_[] = {
 };
 
 $MethodInfo _WindowsFileSystem$1_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/fs/WindowsFileSystem;)V", nullptr, 0, $method(static_cast<void(WindowsFileSystem$1::*)($WindowsFileSystem*)>(&WindowsFileSystem$1::init$))},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/nio/file/FileStore;>;", $PUBLIC},
+	{"<init>", "(Lsun/nio/fs/WindowsFileSystem;)V", nullptr, 0, $method(WindowsFileSystem$1, init$, void, $WindowsFileSystem*)},
+	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/nio/file/FileStore;>;", $PUBLIC, $virtualMethod(WindowsFileSystem$1, iterator, $Iterator*)},
 	{}
 };
 

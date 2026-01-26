@@ -53,10 +53,10 @@ $FieldInfo _KAKeyDerivation_FieldInfo_[] = {
 };
 
 $MethodInfo _KAKeyDerivation_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Lsun/security/ssl/HandshakeContext;Ljava/security/PrivateKey;Ljava/security/PublicKey;)V", nullptr, 0, $method(static_cast<void(KAKeyDerivation::*)($String*,$HandshakeContext*,$PrivateKey*,$PublicKey*)>(&KAKeyDerivation::init$))},
-	{"deriveKey", "(Ljava/lang/String;Ljava/security/spec/AlgorithmParameterSpec;)Ljavax/crypto/SecretKey;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"t12DeriveKey", "(Ljava/lang/String;Ljava/security/spec/AlgorithmParameterSpec;)Ljavax/crypto/SecretKey;", nullptr, $PRIVATE, $method(static_cast<$SecretKey*(KAKeyDerivation::*)($String*,$AlgorithmParameterSpec*)>(&KAKeyDerivation::t12DeriveKey)), "java.io.IOException"},
-	{"t13DeriveKey", "(Ljava/lang/String;Ljava/security/spec/AlgorithmParameterSpec;)Ljavax/crypto/SecretKey;", nullptr, $PRIVATE, $method(static_cast<$SecretKey*(KAKeyDerivation::*)($String*,$AlgorithmParameterSpec*)>(&KAKeyDerivation::t13DeriveKey)), "java.io.IOException"},
+	{"<init>", "(Ljava/lang/String;Lsun/security/ssl/HandshakeContext;Ljava/security/PrivateKey;Ljava/security/PublicKey;)V", nullptr, 0, $method(KAKeyDerivation, init$, void, $String*, $HandshakeContext*, $PrivateKey*, $PublicKey*)},
+	{"deriveKey", "(Ljava/lang/String;Ljava/security/spec/AlgorithmParameterSpec;)Ljavax/crypto/SecretKey;", nullptr, $PUBLIC, $virtualMethod(KAKeyDerivation, deriveKey, $SecretKey*, $String*, $AlgorithmParameterSpec*), "java.io.IOException"},
+	{"t12DeriveKey", "(Ljava/lang/String;Ljava/security/spec/AlgorithmParameterSpec;)Ljavax/crypto/SecretKey;", nullptr, $PRIVATE, $method(KAKeyDerivation, t12DeriveKey, $SecretKey*, $String*, $AlgorithmParameterSpec*), "java.io.IOException"},
+	{"t13DeriveKey", "(Ljava/lang/String;Ljava/security/spec/AlgorithmParameterSpec;)Ljavax/crypto/SecretKey;", nullptr, $PRIVATE, $method(KAKeyDerivation, t13DeriveKey, $SecretKey*, $String*, $AlgorithmParameterSpec*), "java.io.IOException"},
 	{}
 };
 

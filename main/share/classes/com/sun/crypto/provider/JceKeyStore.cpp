@@ -147,8 +147,8 @@ $FieldInfo JceKeyStore$$Lambda$lambda$engineLoad$0::fieldInfos[3] = {
 	{}
 };
 $MethodInfo JceKeyStore$$Lambda$lambda$engineLoad$0::methodInfos[3] = {
-	{"<init>", "(Ljava/io/ObjectInputStream;I)V", nullptr, $PUBLIC, $method(static_cast<void(JceKeyStore$$Lambda$lambda$engineLoad$0::*)($ObjectInputStream*,int32_t)>(&JceKeyStore$$Lambda$lambda$engineLoad$0::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/io/ObjectInputStream;I)V", nullptr, $PUBLIC, $method(JceKeyStore$$Lambda$lambda$engineLoad$0, init$, void, $ObjectInputStream*, int32_t)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JceKeyStore$$Lambda$lambda$engineLoad$0, run, $Object*)},
 	{}
 };
 $ClassInfo JceKeyStore$$Lambda$lambda$engineLoad$0::classInfo$ = {
@@ -176,26 +176,26 @@ $FieldInfo _JceKeyStore_FieldInfo_[] = {
 };
 
 $MethodInfo _JceKeyStore_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(JceKeyStore::*)()>(&JceKeyStore::init$))},
-	{"engineAliases", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC},
-	{"engineContainsAlias", "(Ljava/lang/String;)Z", nullptr, $PUBLIC},
-	{"engineDeleteEntry", "(Ljava/lang/String;)V", nullptr, $PUBLIC, nullptr, "java.security.KeyStoreException"},
-	{"engineGetCertificate", "(Ljava/lang/String;)Ljava/security/cert/Certificate;", nullptr, $PUBLIC},
-	{"engineGetCertificateAlias", "(Ljava/security/cert/Certificate;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"engineGetCertificateChain", "(Ljava/lang/String;)[Ljava/security/cert/Certificate;", nullptr, $PUBLIC},
-	{"engineGetCreationDate", "(Ljava/lang/String;)Ljava/util/Date;", nullptr, $PUBLIC},
-	{"engineGetKey", "(Ljava/lang/String;[C)Ljava/security/Key;", nullptr, $PUBLIC, nullptr, "java.security.NoSuchAlgorithmException,java.security.UnrecoverableKeyException"},
-	{"engineIsCertificateEntry", "(Ljava/lang/String;)Z", nullptr, $PUBLIC},
-	{"engineIsKeyEntry", "(Ljava/lang/String;)Z", nullptr, $PUBLIC},
-	{"engineLoad", "(Ljava/io/InputStream;[C)V", nullptr, $PUBLIC, nullptr, "java.io.IOException,java.security.NoSuchAlgorithmException,java.security.cert.CertificateException"},
-	{"engineProbe", "(Ljava/io/InputStream;)Z", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"engineSetCertificateEntry", "(Ljava/lang/String;Ljava/security/cert/Certificate;)V", nullptr, $PUBLIC, nullptr, "java.security.KeyStoreException"},
-	{"engineSetKeyEntry", "(Ljava/lang/String;Ljava/security/Key;[C[Ljava/security/cert/Certificate;)V", nullptr, $PUBLIC, nullptr, "java.security.KeyStoreException"},
-	{"engineSetKeyEntry", "(Ljava/lang/String;[B[Ljava/security/cert/Certificate;)V", nullptr, $PUBLIC, nullptr, "java.security.KeyStoreException"},
-	{"engineSize", "()I", nullptr, $PUBLIC},
-	{"engineStore", "(Ljava/io/OutputStream;[C)V", nullptr, $PUBLIC, nullptr, "java.io.IOException,java.security.NoSuchAlgorithmException,java.security.cert.CertificateException"},
-	{"getPreKeyedHash", "([C)Ljava/security/MessageDigest;", nullptr, $PRIVATE, $method(static_cast<$MessageDigest*(JceKeyStore::*)($chars*)>(&JceKeyStore::getPreKeyedHash)), "java.security.NoSuchAlgorithmException"},
-	{"lambda$engineLoad$0", "(Ljava/io/ObjectInputStream;I)Ljava/lang/Void;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Void*(*)($ObjectInputStream*,int32_t)>(&JceKeyStore::lambda$engineLoad$0))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(JceKeyStore, init$, void)},
+	{"engineAliases", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(JceKeyStore, engineAliases, $Enumeration*)},
+	{"engineContainsAlias", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(JceKeyStore, engineContainsAlias, bool, $String*)},
+	{"engineDeleteEntry", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(JceKeyStore, engineDeleteEntry, void, $String*), "java.security.KeyStoreException"},
+	{"engineGetCertificate", "(Ljava/lang/String;)Ljava/security/cert/Certificate;", nullptr, $PUBLIC, $virtualMethod(JceKeyStore, engineGetCertificate, $Certificate*, $String*)},
+	{"engineGetCertificateAlias", "(Ljava/security/cert/Certificate;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JceKeyStore, engineGetCertificateAlias, $String*, $Certificate*)},
+	{"engineGetCertificateChain", "(Ljava/lang/String;)[Ljava/security/cert/Certificate;", nullptr, $PUBLIC, $virtualMethod(JceKeyStore, engineGetCertificateChain, $CertificateArray*, $String*)},
+	{"engineGetCreationDate", "(Ljava/lang/String;)Ljava/util/Date;", nullptr, $PUBLIC, $virtualMethod(JceKeyStore, engineGetCreationDate, $Date*, $String*)},
+	{"engineGetKey", "(Ljava/lang/String;[C)Ljava/security/Key;", nullptr, $PUBLIC, $virtualMethod(JceKeyStore, engineGetKey, $Key*, $String*, $chars*), "java.security.NoSuchAlgorithmException,java.security.UnrecoverableKeyException"},
+	{"engineIsCertificateEntry", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(JceKeyStore, engineIsCertificateEntry, bool, $String*)},
+	{"engineIsKeyEntry", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(JceKeyStore, engineIsKeyEntry, bool, $String*)},
+	{"engineLoad", "(Ljava/io/InputStream;[C)V", nullptr, $PUBLIC, $virtualMethod(JceKeyStore, engineLoad, void, $InputStream*, $chars*), "java.io.IOException,java.security.NoSuchAlgorithmException,java.security.cert.CertificateException"},
+	{"engineProbe", "(Ljava/io/InputStream;)Z", nullptr, $PUBLIC, $virtualMethod(JceKeyStore, engineProbe, bool, $InputStream*), "java.io.IOException"},
+	{"engineSetCertificateEntry", "(Ljava/lang/String;Ljava/security/cert/Certificate;)V", nullptr, $PUBLIC, $virtualMethod(JceKeyStore, engineSetCertificateEntry, void, $String*, $Certificate*), "java.security.KeyStoreException"},
+	{"engineSetKeyEntry", "(Ljava/lang/String;Ljava/security/Key;[C[Ljava/security/cert/Certificate;)V", nullptr, $PUBLIC, $virtualMethod(JceKeyStore, engineSetKeyEntry, void, $String*, $Key*, $chars*, $CertificateArray*), "java.security.KeyStoreException"},
+	{"engineSetKeyEntry", "(Ljava/lang/String;[B[Ljava/security/cert/Certificate;)V", nullptr, $PUBLIC, $virtualMethod(JceKeyStore, engineSetKeyEntry, void, $String*, $bytes*, $CertificateArray*), "java.security.KeyStoreException"},
+	{"engineSize", "()I", nullptr, $PUBLIC, $virtualMethod(JceKeyStore, engineSize, int32_t)},
+	{"engineStore", "(Ljava/io/OutputStream;[C)V", nullptr, $PUBLIC, $virtualMethod(JceKeyStore, engineStore, void, $OutputStream*, $chars*), "java.io.IOException,java.security.NoSuchAlgorithmException,java.security.cert.CertificateException"},
+	{"getPreKeyedHash", "([C)Ljava/security/MessageDigest;", nullptr, $PRIVATE, $method(JceKeyStore, getPreKeyedHash, $MessageDigest*, $chars*), "java.security.NoSuchAlgorithmException"},
+	{"lambda$engineLoad$0", "(Ljava/io/ObjectInputStream;I)Ljava/lang/Void;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JceKeyStore, lambda$engineLoad$0, $Void*, $ObjectInputStream*, int32_t)},
 	{}
 };
 

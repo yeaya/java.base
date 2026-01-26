@@ -22,7 +22,7 @@ $FieldInfo _WindowsFileSystem$LookupService_FieldInfo_[] = {
 };
 
 $MethodInfo _WindowsFileSystem$LookupService_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(WindowsFileSystem$LookupService::*)()>(&WindowsFileSystem$LookupService::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(WindowsFileSystem$LookupService, init$, void)},
 	{}
 };
 

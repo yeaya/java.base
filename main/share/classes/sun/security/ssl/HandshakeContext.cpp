@@ -186,22 +186,22 @@ $FieldInfo _HandshakeContext_FieldInfo_[] = {
 };
 
 $MethodInfo _HandshakeContext_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/ssl/SSLContextImpl;Lsun/security/ssl/TransportContext;)V", nullptr, $PROTECTED, $method(static_cast<void(HandshakeContext::*)($SSLContextImpl*,$TransportContext*)>(&HandshakeContext::init$)), "java.io.IOException"},
-	{"<init>", "(Lsun/security/ssl/TransportContext;)V", nullptr, $PROTECTED, $method(static_cast<void(HandshakeContext::*)($TransportContext*)>(&HandshakeContext::init$))},
-	{"dispatch", "(BLsun/security/ssl/Plaintext;)V", nullptr, 0, nullptr, "java.io.IOException"},
-	{"dispatch", "(BLjava/nio/ByteBuffer;)V", nullptr, 0, nullptr, "java.io.IOException"},
-	{"getActiveCipherSuites", "(Ljava/util/List;Ljava/util/List;Ljava/security/AlgorithmConstraints;)Ljava/util/List;", "(Ljava/util/List<Lsun/security/ssl/ProtocolVersion;>;Ljava/util/List<Lsun/security/ssl/CipherSuite;>;Ljava/security/AlgorithmConstraints;)Ljava/util/List<Lsun/security/ssl/CipherSuite;>;", $PRIVATE | $STATIC, $method(static_cast<$List*(*)($List*,$List*,$AlgorithmConstraints*)>(&HandshakeContext::getActiveCipherSuites))},
-	{"getActiveProtocols", "(Ljava/util/List;Ljava/util/List;Ljava/security/AlgorithmConstraints;)Ljava/util/List;", "(Ljava/util/List<Lsun/security/ssl/ProtocolVersion;>;Ljava/util/List<Lsun/security/ssl/CipherSuite;>;Ljava/security/AlgorithmConstraints;)Ljava/util/List<Lsun/security/ssl/ProtocolVersion;>;", $PRIVATE | $STATIC, $method(static_cast<$List*(*)($List*,$List*,$AlgorithmConstraints*)>(&HandshakeContext::getActiveProtocols))},
-	{"getHandshakeType", "(Lsun/security/ssl/TransportContext;Lsun/security/ssl/Plaintext;)B", nullptr, $STATIC, $method(static_cast<int8_t(*)($TransportContext*,$Plaintext*)>(&HandshakeContext::getHandshakeType)), "java.io.IOException"},
-	{"getRequestedServerNames", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/net/ssl/SNIServerName;>;", 0},
-	{"initialize", "()V", nullptr, $PRIVATE, $method(static_cast<void(HandshakeContext::*)()>(&HandshakeContext::initialize))},
-	{"isActivatable", "(Lsun/security/ssl/CipherSuite;Ljava/security/AlgorithmConstraints;Ljava/util/Map;)Z", "(Lsun/security/ssl/CipherSuite;Ljava/security/AlgorithmConstraints;Ljava/util/Map<Lsun/security/ssl/NamedGroup$NamedGroupSpec;Ljava/lang/Boolean;>;)Z", $PRIVATE | $STATIC, $method(static_cast<bool(*)($CipherSuite*,$AlgorithmConstraints*,$Map*)>(&HandshakeContext::isActivatable))},
-	{"isNegotiable", "(Lsun/security/ssl/CipherSuite;)Z", nullptr, 0},
-	{"isNegotiable", "(Ljava/util/List;Lsun/security/ssl/CipherSuite;)Z", "(Ljava/util/List<Lsun/security/ssl/CipherSuite;>;Lsun/security/ssl/CipherSuite;)Z", $STATIC | $FINAL, $method(static_cast<bool(*)($List*,$CipherSuite*)>(&HandshakeContext::isNegotiable))},
-	{"isNegotiable", "(Ljava/util/List;Lsun/security/ssl/ProtocolVersion;Lsun/security/ssl/CipherSuite;)Z", "(Ljava/util/List<Lsun/security/ssl/CipherSuite;>;Lsun/security/ssl/ProtocolVersion;Lsun/security/ssl/CipherSuite;)Z", $STATIC | $FINAL, $method(static_cast<bool(*)($List*,$ProtocolVersion*,$CipherSuite*)>(&HandshakeContext::isNegotiable))},
-	{"isNegotiable", "(Lsun/security/ssl/ProtocolVersion;)Z", nullptr, 0},
-	{"kickstart", "()V", nullptr, $ABSTRACT, nullptr, "java.io.IOException"},
-	{"setVersion", "(Lsun/security/ssl/ProtocolVersion;)V", nullptr, 0},
+	{"<init>", "(Lsun/security/ssl/SSLContextImpl;Lsun/security/ssl/TransportContext;)V", nullptr, $PROTECTED, $method(HandshakeContext, init$, void, $SSLContextImpl*, $TransportContext*), "java.io.IOException"},
+	{"<init>", "(Lsun/security/ssl/TransportContext;)V", nullptr, $PROTECTED, $method(HandshakeContext, init$, void, $TransportContext*)},
+	{"dispatch", "(BLsun/security/ssl/Plaintext;)V", nullptr, 0, $virtualMethod(HandshakeContext, dispatch, void, int8_t, $Plaintext*), "java.io.IOException"},
+	{"dispatch", "(BLjava/nio/ByteBuffer;)V", nullptr, 0, $virtualMethod(HandshakeContext, dispatch, void, int8_t, $ByteBuffer*), "java.io.IOException"},
+	{"getActiveCipherSuites", "(Ljava/util/List;Ljava/util/List;Ljava/security/AlgorithmConstraints;)Ljava/util/List;", "(Ljava/util/List<Lsun/security/ssl/ProtocolVersion;>;Ljava/util/List<Lsun/security/ssl/CipherSuite;>;Ljava/security/AlgorithmConstraints;)Ljava/util/List<Lsun/security/ssl/CipherSuite;>;", $PRIVATE | $STATIC, $staticMethod(HandshakeContext, getActiveCipherSuites, $List*, $List*, $List*, $AlgorithmConstraints*)},
+	{"getActiveProtocols", "(Ljava/util/List;Ljava/util/List;Ljava/security/AlgorithmConstraints;)Ljava/util/List;", "(Ljava/util/List<Lsun/security/ssl/ProtocolVersion;>;Ljava/util/List<Lsun/security/ssl/CipherSuite;>;Ljava/security/AlgorithmConstraints;)Ljava/util/List<Lsun/security/ssl/ProtocolVersion;>;", $PRIVATE | $STATIC, $staticMethod(HandshakeContext, getActiveProtocols, $List*, $List*, $List*, $AlgorithmConstraints*)},
+	{"getHandshakeType", "(Lsun/security/ssl/TransportContext;Lsun/security/ssl/Plaintext;)B", nullptr, $STATIC, $staticMethod(HandshakeContext, getHandshakeType, int8_t, $TransportContext*, $Plaintext*), "java.io.IOException"},
+	{"getRequestedServerNames", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/net/ssl/SNIServerName;>;", 0, $virtualMethod(HandshakeContext, getRequestedServerNames, $List*)},
+	{"initialize", "()V", nullptr, $PRIVATE, $method(HandshakeContext, initialize, void)},
+	{"isActivatable", "(Lsun/security/ssl/CipherSuite;Ljava/security/AlgorithmConstraints;Ljava/util/Map;)Z", "(Lsun/security/ssl/CipherSuite;Ljava/security/AlgorithmConstraints;Ljava/util/Map<Lsun/security/ssl/NamedGroup$NamedGroupSpec;Ljava/lang/Boolean;>;)Z", $PRIVATE | $STATIC, $staticMethod(HandshakeContext, isActivatable, bool, $CipherSuite*, $AlgorithmConstraints*, $Map*)},
+	{"isNegotiable", "(Lsun/security/ssl/CipherSuite;)Z", nullptr, 0, $virtualMethod(HandshakeContext, isNegotiable, bool, $CipherSuite*)},
+	{"isNegotiable", "(Ljava/util/List;Lsun/security/ssl/CipherSuite;)Z", "(Ljava/util/List<Lsun/security/ssl/CipherSuite;>;Lsun/security/ssl/CipherSuite;)Z", $STATIC | $FINAL, $staticMethod(HandshakeContext, isNegotiable, bool, $List*, $CipherSuite*)},
+	{"isNegotiable", "(Ljava/util/List;Lsun/security/ssl/ProtocolVersion;Lsun/security/ssl/CipherSuite;)Z", "(Ljava/util/List<Lsun/security/ssl/CipherSuite;>;Lsun/security/ssl/ProtocolVersion;Lsun/security/ssl/CipherSuite;)Z", $STATIC | $FINAL, $staticMethod(HandshakeContext, isNegotiable, bool, $List*, $ProtocolVersion*, $CipherSuite*)},
+	{"isNegotiable", "(Lsun/security/ssl/ProtocolVersion;)Z", nullptr, 0, $virtualMethod(HandshakeContext, isNegotiable, bool, $ProtocolVersion*)},
+	{"kickstart", "()V", nullptr, $ABSTRACT, $virtualMethod(HandshakeContext, kickstart, void), "java.io.IOException"},
+	{"setVersion", "(Lsun/security/ssl/ProtocolVersion;)V", nullptr, 0, $virtualMethod(HandshakeContext, setVersion, void, $ProtocolVersion*)},
 	{}
 };
 

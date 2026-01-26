@@ -17,7 +17,7 @@ namespace java {
 	namespace util {
 
 $MethodInfo _ImmutableCollections$Access_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ImmutableCollections$Access::*)()>(&ImmutableCollections$Access::init$))},
+	{"<init>", "()V", nullptr, 0, $method(ImmutableCollections$Access, init$, void)},
 	{}
 };
 

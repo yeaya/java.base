@@ -29,8 +29,8 @@ $FieldInfo _UNCFileURLConnection_FieldInfo_[] = {
 };
 
 $MethodInfo _UNCFileURLConnection_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/URL;Ljava/io/File;Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(UNCFileURLConnection::*)($URL*,$File*,$String*)>(&UNCFileURLConnection::init$))},
-	{"getPermission", "()Ljava/security/Permission;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/net/URL;Ljava/io/File;Ljava/lang/String;)V", nullptr, 0, $method(UNCFileURLConnection, init$, void, $URL*, $File*, $String*)},
+	{"getPermission", "()Ljava/security/Permission;", nullptr, $PUBLIC, $virtualMethod(UNCFileURLConnection, getPermission, $Permission*)},
 	{}
 };
 

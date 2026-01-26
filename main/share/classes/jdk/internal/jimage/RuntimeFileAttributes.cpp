@@ -12,16 +12,16 @@ namespace jdk {
 		namespace jimage {
 
 $MethodInfo _RuntimeFileAttributes_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(RuntimeFileAttributes::*)()>(&RuntimeFileAttributes::init$))},
-	{"creationTime", "()Ljava/nio/file/attribute/FileTime;", nullptr, $PUBLIC},
-	{"fileKey", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"isDirectory", "()Z", nullptr, $PUBLIC},
-	{"isOther", "()Z", nullptr, $PUBLIC},
-	{"isRegularFile", "()Z", nullptr, $PUBLIC},
-	{"isSymbolicLink", "()Z", nullptr, $PUBLIC},
-	{"lastAccessTime", "()Ljava/nio/file/attribute/FileTime;", nullptr, $PUBLIC},
-	{"lastModifiedTime", "()Ljava/nio/file/attribute/FileTime;", nullptr, $PUBLIC},
-	{"size", "()J", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(RuntimeFileAttributes, init$, void)},
+	{"creationTime", "()Ljava/nio/file/attribute/FileTime;", nullptr, $PUBLIC, $virtualMethod(RuntimeFileAttributes, creationTime, $FileTime*)},
+	{"fileKey", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(RuntimeFileAttributes, fileKey, $Object*)},
+	{"isDirectory", "()Z", nullptr, $PUBLIC, $virtualMethod(RuntimeFileAttributes, isDirectory, bool)},
+	{"isOther", "()Z", nullptr, $PUBLIC, $virtualMethod(RuntimeFileAttributes, isOther, bool)},
+	{"isRegularFile", "()Z", nullptr, $PUBLIC, $virtualMethod(RuntimeFileAttributes, isRegularFile, bool)},
+	{"isSymbolicLink", "()Z", nullptr, $PUBLIC, $virtualMethod(RuntimeFileAttributes, isSymbolicLink, bool)},
+	{"lastAccessTime", "()Ljava/nio/file/attribute/FileTime;", nullptr, $PUBLIC, $virtualMethod(RuntimeFileAttributes, lastAccessTime, $FileTime*)},
+	{"lastModifiedTime", "()Ljava/nio/file/attribute/FileTime;", nullptr, $PUBLIC, $virtualMethod(RuntimeFileAttributes, lastModifiedTime, $FileTime*)},
+	{"size", "()J", nullptr, $PUBLIC, $virtualMethod(RuntimeFileAttributes, size, int64_t)},
 	{}
 };
 

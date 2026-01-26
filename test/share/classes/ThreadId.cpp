@@ -21,8 +21,8 @@ $FieldInfo _ThreadId_FieldInfo_[] = {
 };
 
 $MethodInfo _ThreadId_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ThreadId::*)()>(&ThreadId::init$))},
-	{"get", "()I", nullptr, $PUBLIC | $STATIC, $method(static_cast<int32_t(*)()>(&ThreadId::get))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ThreadId, init$, void)},
+	{"get", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(ThreadId, get, int32_t)},
 	{}
 };
 

@@ -34,18 +34,18 @@ $FieldInfo _FileLock_FieldInfo_[] = {
 };
 
 $MethodInfo _FileLock_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/channels/FileChannel;JJZ)V", nullptr, $PROTECTED, $method(static_cast<void(FileLock::*)($FileChannel*,int64_t,int64_t,bool)>(&FileLock::init$))},
-	{"<init>", "(Ljava/nio/channels/AsynchronousFileChannel;JJZ)V", nullptr, $PROTECTED, $method(static_cast<void(FileLock::*)($AsynchronousFileChannel*,int64_t,int64_t,bool)>(&FileLock::init$))},
-	{"acquiredBy", "()Ljava/nio/channels/Channel;", nullptr, $PUBLIC},
-	{"channel", "()Ljava/nio/channels/FileChannel;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$FileChannel*(FileLock::*)()>(&FileLock::channel))},
-	{"close", "()V", nullptr, $PUBLIC | $FINAL, nullptr, "java.io.IOException"},
-	{"isShared", "()Z", nullptr, $PUBLIC | $FINAL, $method(static_cast<bool(FileLock::*)()>(&FileLock::isShared))},
-	{"isValid", "()Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"overlaps", "(JJ)Z", nullptr, $PUBLIC | $FINAL, $method(static_cast<bool(FileLock::*)(int64_t,int64_t)>(&FileLock::overlaps))},
-	{"position", "()J", nullptr, $PUBLIC | $FINAL, $method(static_cast<int64_t(FileLock::*)()>(&FileLock::position))},
-	{"release", "()V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"size", "()J", nullptr, $PUBLIC | $FINAL, $method(static_cast<int64_t(FileLock::*)()>(&FileLock::size))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL},
+	{"<init>", "(Ljava/nio/channels/FileChannel;JJZ)V", nullptr, $PROTECTED, $method(FileLock, init$, void, $FileChannel*, int64_t, int64_t, bool)},
+	{"<init>", "(Ljava/nio/channels/AsynchronousFileChannel;JJZ)V", nullptr, $PROTECTED, $method(FileLock, init$, void, $AsynchronousFileChannel*, int64_t, int64_t, bool)},
+	{"acquiredBy", "()Ljava/nio/channels/Channel;", nullptr, $PUBLIC, $virtualMethod(FileLock, acquiredBy, $Channel*)},
+	{"channel", "()Ljava/nio/channels/FileChannel;", nullptr, $PUBLIC | $FINAL, $method(FileLock, channel, $FileChannel*)},
+	{"close", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(FileLock, close, void), "java.io.IOException"},
+	{"isShared", "()Z", nullptr, $PUBLIC | $FINAL, $method(FileLock, isShared, bool)},
+	{"isValid", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FileLock, isValid, bool)},
+	{"overlaps", "(JJ)Z", nullptr, $PUBLIC | $FINAL, $method(FileLock, overlaps, bool, int64_t, int64_t)},
+	{"position", "()J", nullptr, $PUBLIC | $FINAL, $method(FileLock, position, int64_t)},
+	{"release", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FileLock, release, void), "java.io.IOException"},
+	{"size", "()J", nullptr, $PUBLIC | $FINAL, $method(FileLock, size, int64_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(FileLock, toString, $String*)},
 	{}
 };
 

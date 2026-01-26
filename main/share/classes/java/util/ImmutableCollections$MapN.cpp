@@ -57,17 +57,17 @@ $FieldInfo _ImmutableCollections$MapN_FieldInfo_[] = {
 };
 
 $MethodInfo _ImmutableCollections$MapN_MethodInfo_[] = {
-	{"<init>", "([Ljava/lang/Object;)V", nullptr, $TRANSIENT, $method(static_cast<void(ImmutableCollections$MapN::*)($ObjectArray*)>(&ImmutableCollections$MapN::init$))},
-	{"containsKey", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"containsValue", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"entrySet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/util/Map$Entry<TK;TV;>;>;", $PUBLIC},
-	{"get", "(Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/lang/Object;)TV;", $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"isEmpty", "()Z", nullptr, $PUBLIC},
-	{"probe", "(Ljava/lang/Object;)I", nullptr, $PRIVATE, $method(static_cast<int32_t(ImmutableCollections$MapN::*)(Object$*)>(&ImmutableCollections$MapN::probe))},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(ImmutableCollections$MapN::*)($ObjectInputStream*)>(&ImmutableCollections$MapN::readObject)), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"size", "()I", nullptr, $PUBLIC},
-	{"writeReplace", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(static_cast<$Object*(ImmutableCollections$MapN::*)()>(&ImmutableCollections$MapN::writeReplace))},
+	{"<init>", "([Ljava/lang/Object;)V", nullptr, $TRANSIENT, $method(ImmutableCollections$MapN, init$, void, $ObjectArray*)},
+	{"containsKey", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ImmutableCollections$MapN, containsKey, bool, Object$*)},
+	{"containsValue", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ImmutableCollections$MapN, containsValue, bool, Object$*)},
+	{"entrySet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/util/Map$Entry<TK;TV;>;>;", $PUBLIC, $virtualMethod(ImmutableCollections$MapN, entrySet, $Set*)},
+	{"get", "(Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/lang/Object;)TV;", $PUBLIC, $virtualMethod(ImmutableCollections$MapN, get, $Object*, Object$*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ImmutableCollections$MapN, hashCode, int32_t)},
+	{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(ImmutableCollections$MapN, isEmpty, bool)},
+	{"probe", "(Ljava/lang/Object;)I", nullptr, $PRIVATE, $method(ImmutableCollections$MapN, probe, int32_t, Object$*)},
+	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(ImmutableCollections$MapN, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(ImmutableCollections$MapN, size, int32_t)},
+	{"writeReplace", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(ImmutableCollections$MapN, writeReplace, $Object*)},
 	{}
 };
 

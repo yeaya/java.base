@@ -16,7 +16,7 @@ $CompoundAttribute _LongToDoubleFunction_Annotations_[] = {
 };
 
 $MethodInfo _LongToDoubleFunction_MethodInfo_[] = {
-	{"applyAsDouble", "(J)D", nullptr, $PUBLIC | $ABSTRACT},
+	{"applyAsDouble", "(J)D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LongToDoubleFunction, applyAsDouble, double, int64_t)},
 	{}
 };
 

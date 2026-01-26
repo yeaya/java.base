@@ -133,24 +133,24 @@ $FieldInfo _SSLHandshake_FieldInfo_[] = {
 };
 
 $MethodInfo _SSLHandshake_MethodInfo_[] = {
-	{"$values", "()[Lsun/security/ssl/SSLHandshake;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$SSLHandshakeArray*(*)()>(&SSLHandshake::$values))},
+	{"$values", "()[Lsun/security/ssl/SSLHandshake;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SSLHandshake, $values, $SSLHandshakeArray*)},
 	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
 	{"*finalize", "()V", nullptr, $PROTECTED | $FINAL},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"<init>", "(Ljava/lang/String;IBLjava/lang/String;)V", "(BLjava/lang/String;)V", $PRIVATE, $method(static_cast<void(SSLHandshake::*)($String*,int32_t,int8_t,$String*)>(&SSLHandshake::init$))},
-	{"<init>", "(Ljava/lang/String;IBLjava/lang/String;[Ljava/util/Map$Entry;[Ljava/util/Map$Entry;)V", "(BLjava/lang/String;[Ljava/util/Map$Entry<Lsun/security/ssl/SSLConsumer;[Lsun/security/ssl/ProtocolVersion;>;[Ljava/util/Map$Entry<Lsun/security/ssl/HandshakeProducer;[Lsun/security/ssl/ProtocolVersion;>;)V", $PRIVATE, $method(static_cast<void(SSLHandshake::*)($String*,int32_t,int8_t,$String*,$Map$EntryArray*,$Map$EntryArray*)>(&SSLHandshake::init$))},
-	{"<init>", "(Ljava/lang/String;IBLjava/lang/String;[Ljava/util/Map$Entry;[Ljava/util/Map$Entry;[Ljava/util/Map$Entry;)V", "(BLjava/lang/String;[Ljava/util/Map$Entry<Lsun/security/ssl/SSLConsumer;[Lsun/security/ssl/ProtocolVersion;>;[Ljava/util/Map$Entry<Lsun/security/ssl/HandshakeProducer;[Lsun/security/ssl/ProtocolVersion;>;[Ljava/util/Map$Entry<Lsun/security/ssl/HandshakeAbsence;[Lsun/security/ssl/ProtocolVersion;>;)V", $PRIVATE, $method(static_cast<void(SSLHandshake::*)($String*,int32_t,int8_t,$String*,$Map$EntryArray*,$Map$EntryArray*,$Map$EntryArray*)>(&SSLHandshake::init$))},
-	{"consume", "(Lsun/security/ssl/ConnectionContext;Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"getHandshakeConsumer", "(Lsun/security/ssl/ConnectionContext;)Lsun/security/ssl/SSLConsumer;", nullptr, $PRIVATE, $method(static_cast<$SSLConsumer*(SSLHandshake::*)($ConnectionContext*)>(&SSLHandshake::getHandshakeConsumer))},
-	{"getHandshakeProducer", "(Lsun/security/ssl/ConnectionContext;)Lsun/security/ssl/HandshakeProducer;", nullptr, $PRIVATE, $method(static_cast<$HandshakeProducer*(SSLHandshake::*)($ConnectionContext*)>(&SSLHandshake::getHandshakeProducer))},
-	{"isKnown", "(B)Z", nullptr, $STATIC, $method(static_cast<bool(*)(int8_t)>(&SSLHandshake::isKnown))},
-	{"kickstart", "(Lsun/security/ssl/HandshakeContext;)V", nullptr, $STATIC | $FINAL, $method(static_cast<void(*)($HandshakeContext*)>(&SSLHandshake::kickstart)), "java.io.IOException"},
-	{"nameOf", "(B)Ljava/lang/String;", nullptr, $STATIC, $method(static_cast<$String*(*)(int8_t)>(&SSLHandshake::nameOf))},
-	{"produce", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)[B", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"valueOf", "(Ljava/lang/String;)Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC | $STATIC, $method(static_cast<SSLHandshake*(*)($String*)>(&SSLHandshake::valueOf))},
-	{"values", "()[Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$SSLHandshakeArray*(*)()>(&SSLHandshake::values))},
+	{"<init>", "(Ljava/lang/String;IBLjava/lang/String;)V", "(BLjava/lang/String;)V", $PRIVATE, $method(SSLHandshake, init$, void, $String*, int32_t, int8_t, $String*)},
+	{"<init>", "(Ljava/lang/String;IBLjava/lang/String;[Ljava/util/Map$Entry;[Ljava/util/Map$Entry;)V", "(BLjava/lang/String;[Ljava/util/Map$Entry<Lsun/security/ssl/SSLConsumer;[Lsun/security/ssl/ProtocolVersion;>;[Ljava/util/Map$Entry<Lsun/security/ssl/HandshakeProducer;[Lsun/security/ssl/ProtocolVersion;>;)V", $PRIVATE, $method(SSLHandshake, init$, void, $String*, int32_t, int8_t, $String*, $Map$EntryArray*, $Map$EntryArray*)},
+	{"<init>", "(Ljava/lang/String;IBLjava/lang/String;[Ljava/util/Map$Entry;[Ljava/util/Map$Entry;[Ljava/util/Map$Entry;)V", "(BLjava/lang/String;[Ljava/util/Map$Entry<Lsun/security/ssl/SSLConsumer;[Lsun/security/ssl/ProtocolVersion;>;[Ljava/util/Map$Entry<Lsun/security/ssl/HandshakeProducer;[Lsun/security/ssl/ProtocolVersion;>;[Ljava/util/Map$Entry<Lsun/security/ssl/HandshakeAbsence;[Lsun/security/ssl/ProtocolVersion;>;)V", $PRIVATE, $method(SSLHandshake, init$, void, $String*, int32_t, int8_t, $String*, $Map$EntryArray*, $Map$EntryArray*, $Map$EntryArray*)},
+	{"consume", "(Lsun/security/ssl/ConnectionContext;Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(SSLHandshake, consume, void, $ConnectionContext*, $ByteBuffer*), "java.io.IOException"},
+	{"getHandshakeConsumer", "(Lsun/security/ssl/ConnectionContext;)Lsun/security/ssl/SSLConsumer;", nullptr, $PRIVATE, $method(SSLHandshake, getHandshakeConsumer, $SSLConsumer*, $ConnectionContext*)},
+	{"getHandshakeProducer", "(Lsun/security/ssl/ConnectionContext;)Lsun/security/ssl/HandshakeProducer;", nullptr, $PRIVATE, $method(SSLHandshake, getHandshakeProducer, $HandshakeProducer*, $ConnectionContext*)},
+	{"isKnown", "(B)Z", nullptr, $STATIC, $staticMethod(SSLHandshake, isKnown, bool, int8_t)},
+	{"kickstart", "(Lsun/security/ssl/HandshakeContext;)V", nullptr, $STATIC | $FINAL, $staticMethod(SSLHandshake, kickstart, void, $HandshakeContext*), "java.io.IOException"},
+	{"nameOf", "(B)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(SSLHandshake, nameOf, $String*, int8_t)},
+	{"produce", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)[B", nullptr, $PUBLIC, $virtualMethod(SSLHandshake, produce, $bytes*, $ConnectionContext*, $SSLHandshake$HandshakeMessage*), "java.io.IOException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SSLHandshake, toString, $String*)},
+	{"valueOf", "(Ljava/lang/String;)Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC | $STATIC, $staticMethod(SSLHandshake, valueOf, SSLHandshake*, $String*)},
+	{"values", "()[Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC | $STATIC, $staticMethod(SSLHandshake, values, $SSLHandshakeArray*)},
 	{}
 };
 

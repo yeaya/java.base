@@ -48,15 +48,15 @@ $FieldInfo _ISO_8859_1$Encoder_FieldInfo_[] = {
 };
 
 $MethodInfo _ISO_8859_1$Encoder_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PRIVATE, $method(static_cast<void(ISO_8859_1$Encoder::*)($Charset*)>(&ISO_8859_1$Encoder::init$))},
-	{"canEncode", "(C)Z", nullptr, $PUBLIC},
-	{"encodeArrayLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(static_cast<$CoderResult*(ISO_8859_1$Encoder::*)($CharBuffer*,$ByteBuffer*)>(&ISO_8859_1$Encoder::encodeArrayLoop))},
-	{"encodeBufferLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(static_cast<$CoderResult*(ISO_8859_1$Encoder::*)($CharBuffer*,$ByteBuffer*)>(&ISO_8859_1$Encoder::encodeBufferLoop))},
-	{"encodeISOArray", "([CI[BII)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)($chars*,int32_t,$bytes*,int32_t,int32_t)>(&ISO_8859_1$Encoder::encodeISOArray))},
-	{"encodeISOArrayCheck", "([CI[BII)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($chars*,int32_t,$bytes*,int32_t,int32_t)>(&ISO_8859_1$Encoder::encodeISOArrayCheck))},
-	{"encodeLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED},
-	{"implEncodeISOArray", "([CI[BII)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)($chars*,int32_t,$bytes*,int32_t,int32_t)>(&ISO_8859_1$Encoder::implEncodeISOArray)), nullptr, nullptr, _ISO_8859_1$Encoder_MethodAnnotations_implEncodeISOArray7},
-	{"isLegalReplacement", "([B)Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PRIVATE, $method(ISO_8859_1$Encoder, init$, void, $Charset*)},
+	{"canEncode", "(C)Z", nullptr, $PUBLIC, $virtualMethod(ISO_8859_1$Encoder, canEncode, bool, char16_t)},
+	{"encodeArrayLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(ISO_8859_1$Encoder, encodeArrayLoop, $CoderResult*, $CharBuffer*, $ByteBuffer*)},
+	{"encodeBufferLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(ISO_8859_1$Encoder, encodeBufferLoop, $CoderResult*, $CharBuffer*, $ByteBuffer*)},
+	{"encodeISOArray", "([CI[BII)I", nullptr, $PRIVATE | $STATIC, $staticMethod(ISO_8859_1$Encoder, encodeISOArray, int32_t, $chars*, int32_t, $bytes*, int32_t, int32_t)},
+	{"encodeISOArrayCheck", "([CI[BII)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ISO_8859_1$Encoder, encodeISOArrayCheck, void, $chars*, int32_t, $bytes*, int32_t, int32_t)},
+	{"encodeLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED, $virtualMethod(ISO_8859_1$Encoder, encodeLoop, $CoderResult*, $CharBuffer*, $ByteBuffer*)},
+	{"implEncodeISOArray", "([CI[BII)I", nullptr, $PRIVATE | $STATIC, $staticMethod(ISO_8859_1$Encoder, implEncodeISOArray, int32_t, $chars*, int32_t, $bytes*, int32_t, int32_t), nullptr, nullptr, _ISO_8859_1$Encoder_MethodAnnotations_implEncodeISOArray7},
+	{"isLegalReplacement", "([B)Z", nullptr, $PUBLIC, $virtualMethod(ISO_8859_1$Encoder, isLegalReplacement, bool, $bytes*)},
 	{}
 };
 

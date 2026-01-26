@@ -56,16 +56,16 @@ $FieldInfo _ContentInfo_FieldInfo_[] = {
 };
 
 $MethodInfo _ContentInfo_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/util/ObjectIdentifier;Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(static_cast<void(ContentInfo::*)($ObjectIdentifier*,$DerValue*)>(&ContentInfo::init$))},
-	{"<init>", "([B)V", nullptr, $PUBLIC, $method(static_cast<void(ContentInfo::*)($bytes*)>(&ContentInfo::init$))},
-	{"<init>", "(Lsun/security/util/DerInputStream;)V", nullptr, $PUBLIC, $method(static_cast<void(ContentInfo::*)($DerInputStream*)>(&ContentInfo::init$)), "java.io.IOException,sun.security.pkcs.ParsingException"},
-	{"<init>", "(Lsun/security/util/DerInputStream;Z)V", nullptr, $PUBLIC, $method(static_cast<void(ContentInfo::*)($DerInputStream*,bool)>(&ContentInfo::init$)), "java.io.IOException,sun.security.pkcs.ParsingException"},
-	{"encode", "(Lsun/security/util/DerOutputStream;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"getContent", "()Lsun/security/util/DerValue;", nullptr, $PUBLIC},
-	{"getContentBytes", "()[B", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"getContentType", "()Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC},
-	{"getData", "()[B", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/security/util/ObjectIdentifier;Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(ContentInfo, init$, void, $ObjectIdentifier*, $DerValue*)},
+	{"<init>", "([B)V", nullptr, $PUBLIC, $method(ContentInfo, init$, void, $bytes*)},
+	{"<init>", "(Lsun/security/util/DerInputStream;)V", nullptr, $PUBLIC, $method(ContentInfo, init$, void, $DerInputStream*), "java.io.IOException,sun.security.pkcs.ParsingException"},
+	{"<init>", "(Lsun/security/util/DerInputStream;Z)V", nullptr, $PUBLIC, $method(ContentInfo, init$, void, $DerInputStream*, bool), "java.io.IOException,sun.security.pkcs.ParsingException"},
+	{"encode", "(Lsun/security/util/DerOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(ContentInfo, encode, void, $DerOutputStream*), "java.io.IOException"},
+	{"getContent", "()Lsun/security/util/DerValue;", nullptr, $PUBLIC, $virtualMethod(ContentInfo, getContent, $DerValue*)},
+	{"getContentBytes", "()[B", nullptr, $PUBLIC, $virtualMethod(ContentInfo, getContentBytes, $bytes*), "java.io.IOException"},
+	{"getContentType", "()Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC, $virtualMethod(ContentInfo, getContentType, $ObjectIdentifier*)},
+	{"getData", "()[B", nullptr, $PUBLIC, $virtualMethod(ContentInfo, getData, $bytes*), "java.io.IOException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ContentInfo, toString, $String*)},
 	{}
 };
 

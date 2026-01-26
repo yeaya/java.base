@@ -21,11 +21,11 @@ $FieldInfo _WindowsNativeDispatcher$DiskFreeSpace_FieldInfo_[] = {
 };
 
 $MethodInfo _WindowsNativeDispatcher$DiskFreeSpace_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(WindowsNativeDispatcher$DiskFreeSpace::*)()>(&WindowsNativeDispatcher$DiskFreeSpace::init$))},
-	{"bytesPerSector", "()J", nullptr, $PUBLIC},
-	{"freeBytesAvailable", "()J", nullptr, $PUBLIC},
-	{"totalNumberOfBytes", "()J", nullptr, $PUBLIC},
-	{"totalNumberOfFreeBytes", "()J", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(WindowsNativeDispatcher$DiskFreeSpace, init$, void)},
+	{"bytesPerSector", "()J", nullptr, $PUBLIC, $virtualMethod(WindowsNativeDispatcher$DiskFreeSpace, bytesPerSector, int64_t)},
+	{"freeBytesAvailable", "()J", nullptr, $PUBLIC, $virtualMethod(WindowsNativeDispatcher$DiskFreeSpace, freeBytesAvailable, int64_t)},
+	{"totalNumberOfBytes", "()J", nullptr, $PUBLIC, $virtualMethod(WindowsNativeDispatcher$DiskFreeSpace, totalNumberOfBytes, int64_t)},
+	{"totalNumberOfFreeBytes", "()J", nullptr, $PUBLIC, $virtualMethod(WindowsNativeDispatcher$DiskFreeSpace, totalNumberOfFreeBytes, int64_t)},
 	{}
 };
 

@@ -12,7 +12,7 @@ namespace java {
 		namespace spec {
 
 $MethodInfo _ECGenParameterSpec_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(ECGenParameterSpec::*)($String*)>(&ECGenParameterSpec::init$))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ECGenParameterSpec, init$, void, $String*)},
 	{}
 };
 

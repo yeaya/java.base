@@ -61,8 +61,8 @@ $FieldInfo _WindowsChannelFactory$Flags_FieldInfo_[] = {
 };
 
 $MethodInfo _WindowsChannelFactory$Flags_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(WindowsChannelFactory$Flags::*)()>(&WindowsChannelFactory$Flags::init$))},
-	{"toFlags", "(Ljava/util/Set;)Lsun/nio/fs/WindowsChannelFactory$Flags;", "(Ljava/util/Set<+Ljava/nio/file/OpenOption;>;)Lsun/nio/fs/WindowsChannelFactory$Flags;", $STATIC, $method(static_cast<WindowsChannelFactory$Flags*(*)($Set*)>(&WindowsChannelFactory$Flags::toFlags))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(WindowsChannelFactory$Flags, init$, void)},
+	{"toFlags", "(Ljava/util/Set;)Lsun/nio/fs/WindowsChannelFactory$Flags;", "(Ljava/util/Set<+Ljava/nio/file/OpenOption;>;)Lsun/nio/fs/WindowsChannelFactory$Flags;", $STATIC, $staticMethod(WindowsChannelFactory$Flags, toFlags, WindowsChannelFactory$Flags*, $Set*)},
 	{}
 };
 

@@ -15,8 +15,8 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $BigInteger = ::java::math::BigInteger;
 
 $MethodInfo _ExtremeShiftingTests_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ExtremeShiftingTests::*)()>(&ExtremeShiftingTests::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<void(*)($StringArray*)>(&ExtremeShiftingTests::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ExtremeShiftingTests, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(ExtremeShiftingTests, main, void, $StringArray*)},
 	{}
 };
 

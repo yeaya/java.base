@@ -48,8 +48,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo StreamSpliterators$SliceSpliterator$OfDouble$$Lambda$lambda$emptyConsumer$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(StreamSpliterators$SliceSpliterator$OfDouble$$Lambda$lambda$emptyConsumer$0::*)()>(&StreamSpliterators$SliceSpliterator$OfDouble$$Lambda$lambda$emptyConsumer$0::init$))},
-	{"accept", "(D)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(StreamSpliterators$SliceSpliterator$OfDouble$$Lambda$lambda$emptyConsumer$0, init$, void)},
+	{"accept", "(D)V", nullptr, $PUBLIC, $virtualMethod(StreamSpliterators$SliceSpliterator$OfDouble$$Lambda$lambda$emptyConsumer$0, accept, void, double)},
 	{}
 };
 $ClassInfo StreamSpliterators$SliceSpliterator$OfDouble$$Lambda$lambda$emptyConsumer$0::classInfo$ = {
@@ -78,18 +78,18 @@ $MethodInfo _StreamSpliterators$SliceSpliterator$OfDouble_MethodInfo_[] = {
 	{"*getExactSizeIfKnown", "()J", nullptr, $PUBLIC | $ABSTRACT},
 	{"*hasCharacteristics", "(I)Z", nullptr, $PUBLIC | $ABSTRACT},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/util/Spliterator$OfDouble;JJ)V", nullptr, 0, $method(static_cast<void(StreamSpliterators$SliceSpliterator$OfDouble::*)($Spliterator$OfDouble*,int64_t,int64_t)>(&StreamSpliterators$SliceSpliterator$OfDouble::init$))},
-	{"<init>", "(Ljava/util/Spliterator$OfDouble;JJJJ)V", nullptr, 0, $method(static_cast<void(StreamSpliterators$SliceSpliterator$OfDouble::*)($Spliterator$OfDouble*,int64_t,int64_t,int64_t,int64_t)>(&StreamSpliterators$SliceSpliterator$OfDouble::init$))},
-	{"emptyConsumer", "()Ljava/util/function/DoubleConsumer;", nullptr, $PROTECTED},
-	{"forEachRemaining", "(Ljava/util/function/DoubleConsumer;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $method(static_cast<void(StreamSpliterators$SliceSpliterator$OfDouble::*)($DoubleConsumer*)>(&StreamSpliterators$SliceSpliterator$OfDouble::forEachRemaining))},
-	{"lambda$emptyConsumer$0", "(D)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)(double)>(&StreamSpliterators$SliceSpliterator$OfDouble::lambda$emptyConsumer$0))},
-	{"makeSpliterator", "(Ljava/util/Spliterator$OfDouble;JJJJ)Ljava/util/Spliterator$OfDouble;", nullptr, $PROTECTED, $method(static_cast<$Spliterator$OfDouble*(StreamSpliterators$SliceSpliterator$OfDouble::*)($Spliterator$OfDouble*,int64_t,int64_t,int64_t,int64_t)>(&StreamSpliterators$SliceSpliterator$OfDouble::makeSpliterator))},
-	{"makeSpliterator", "(Ljava/util/Spliterator;JJJJ)Ljava/util/Spliterator;", nullptr, $PROTECTED | $VOLATILE | $SYNTHETIC},
+	{"<init>", "(Ljava/util/Spliterator$OfDouble;JJ)V", nullptr, 0, $method(StreamSpliterators$SliceSpliterator$OfDouble, init$, void, $Spliterator$OfDouble*, int64_t, int64_t)},
+	{"<init>", "(Ljava/util/Spliterator$OfDouble;JJJJ)V", nullptr, 0, $method(StreamSpliterators$SliceSpliterator$OfDouble, init$, void, $Spliterator$OfDouble*, int64_t, int64_t, int64_t, int64_t)},
+	{"emptyConsumer", "()Ljava/util/function/DoubleConsumer;", nullptr, $PROTECTED, $virtualMethod(StreamSpliterators$SliceSpliterator$OfDouble, emptyConsumer, $Object*)},
+	{"forEachRemaining", "(Ljava/util/function/DoubleConsumer;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $method(StreamSpliterators$SliceSpliterator$OfDouble, forEachRemaining, void, $DoubleConsumer*)},
+	{"lambda$emptyConsumer$0", "(D)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StreamSpliterators$SliceSpliterator$OfDouble, lambda$emptyConsumer$0, void, double)},
+	{"makeSpliterator", "(Ljava/util/Spliterator$OfDouble;JJJJ)Ljava/util/Spliterator$OfDouble;", nullptr, $PROTECTED, $method(StreamSpliterators$SliceSpliterator$OfDouble, makeSpliterator, $Spliterator$OfDouble*, $Spliterator$OfDouble*, int64_t, int64_t, int64_t, int64_t)},
+	{"makeSpliterator", "(Ljava/util/Spliterator;JJJJ)Ljava/util/Spliterator;", nullptr, $PROTECTED | $VOLATILE | $SYNTHETIC, $virtualMethod(StreamSpliterators$SliceSpliterator$OfDouble, makeSpliterator, $Spliterator*, $Spliterator*, int64_t, int64_t, int64_t, int64_t)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{"*tryAdvance", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*tryAdvance", "(Ljava/util/function/Consumer;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"tryAdvance", "(Ljava/util/function/DoubleConsumer;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $method(static_cast<bool(StreamSpliterators$SliceSpliterator$OfDouble::*)($DoubleConsumer*)>(&StreamSpliterators$SliceSpliterator$OfDouble::tryAdvance))},
-	{"trySplit", "()Ljava/util/Spliterator$OfDouble;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"tryAdvance", "(Ljava/util/function/DoubleConsumer;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $method(StreamSpliterators$SliceSpliterator$OfDouble, tryAdvance, bool, $DoubleConsumer*)},
+	{"trySplit", "()Ljava/util/Spliterator$OfDouble;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(StreamSpliterators$SliceSpliterator$OfDouble, trySplit, $Spliterator*)},
 	{}
 };
 

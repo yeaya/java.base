@@ -23,8 +23,8 @@ namespace jdk {
 		namespace misc {
 
 $MethodInfo _TerminatingThreadLocal$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(TerminatingThreadLocal$1::*)()>(&TerminatingThreadLocal$1::init$))},
-	{"initialValue", "()Ljava/util/Collection;", "()Ljava/util/Collection<Ljdk/internal/misc/TerminatingThreadLocal<*>;>;", $PROTECTED},
+	{"<init>", "()V", nullptr, 0, $method(TerminatingThreadLocal$1, init$, void)},
+	{"initialValue", "()Ljava/util/Collection;", "()Ljava/util/Collection<Ljdk/internal/misc/TerminatingThreadLocal<*>;>;", $PROTECTED, $virtualMethod(TerminatingThreadLocal$1, initialValue, $Object*)},
 	{}
 };
 

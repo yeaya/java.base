@@ -8,7 +8,7 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _GetAnnotatedInterfaces$Clz_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(GetAnnotatedInterfaces$Clz::*)()>(&GetAnnotatedInterfaces$Clz::init$))},
+	{"<init>", "()V", nullptr, 0, $method(GetAnnotatedInterfaces$Clz, init$, void)},
 	{}
 };
 

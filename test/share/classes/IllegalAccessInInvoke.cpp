@@ -16,8 +16,8 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $Method = ::java::lang::reflect::Method;
 
 $MethodInfo _IllegalAccessInInvoke_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(IllegalAccessInInvoke::*)()>(&IllegalAccessInInvoke::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&IllegalAccessInInvoke::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(IllegalAccessInInvoke, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(IllegalAccessInInvoke, main, void, $StringArray*)},
 	{}
 };
 

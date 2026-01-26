@@ -30,7 +30,7 @@ $CompoundAttribute _scalarTypesOverrideDefaultClass_Annotations_[] = {
 };
 
 $MethodInfo _scalarTypesOverrideDefaultClass_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(scalarTypesOverrideDefaultClass::*)()>(&scalarTypesOverrideDefaultClass::init$))},
+	{"<init>", "()V", nullptr, 0, $method(scalarTypesOverrideDefaultClass, init$, void)},
 	{}
 };
 

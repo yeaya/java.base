@@ -17,8 +17,8 @@ $FieldInfo _TypeCheckMicroBenchmark$1_FieldInfo_[] = {
 };
 
 $MethodInfo _TypeCheckMicroBenchmark$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/CountDownLatch;)V", nullptr, 0, $method(static_cast<void(TypeCheckMicroBenchmark$1::*)($CountDownLatch*)>(&TypeCheckMicroBenchmark$1::init$))},
-	{"finalize", "()V", nullptr, $PROTECTED},
+	{"<init>", "(Ljava/util/concurrent/CountDownLatch;)V", nullptr, 0, $method(TypeCheckMicroBenchmark$1, init$, void, $CountDownLatch*)},
+	{"finalize", "()V", nullptr, $PROTECTED, $virtualMethod(TypeCheckMicroBenchmark$1, finalize, void)},
 	{}
 };
 

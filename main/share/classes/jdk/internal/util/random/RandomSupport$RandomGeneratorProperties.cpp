@@ -65,14 +65,14 @@ $Attribute _RandomSupport$RandomGeneratorProperties_DefaultValue_k6 = {
 };
 
 $MethodInfo _RandomSupport$RandomGeneratorProperties_MethodInfo_[] = {
-	{"equidistribution", "()I", nullptr, $PUBLIC | $ABSTRACT, nullptr, nullptr, &_RandomSupport$RandomGeneratorProperties_DefaultValue_equidistribution0},
-	{"group", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, nullptr, nullptr, &_RandomSupport$RandomGeneratorProperties_DefaultValue_group1},
-	{"i", "()I", nullptr, $PUBLIC | $ABSTRACT, nullptr, nullptr, &_RandomSupport$RandomGeneratorProperties_DefaultValue_i2},
-	{"isHardware", "()Z", nullptr, $PUBLIC | $ABSTRACT, nullptr, nullptr, &_RandomSupport$RandomGeneratorProperties_DefaultValue_isHardware3},
-	{"isStochastic", "()Z", nullptr, $PUBLIC | $ABSTRACT, nullptr, nullptr, &_RandomSupport$RandomGeneratorProperties_DefaultValue_isStochastic4},
-	{"j", "()I", nullptr, $PUBLIC | $ABSTRACT, nullptr, nullptr, &_RandomSupport$RandomGeneratorProperties_DefaultValue_j5},
-	{"k", "()I", nullptr, $PUBLIC | $ABSTRACT, nullptr, nullptr, &_RandomSupport$RandomGeneratorProperties_DefaultValue_k6},
-	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
+	{"equidistribution", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RandomSupport$RandomGeneratorProperties, equidistribution, int32_t), nullptr, &_RandomSupport$RandomGeneratorProperties_DefaultValue_equidistribution0},
+	{"group", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RandomSupport$RandomGeneratorProperties, group, $String*), nullptr, &_RandomSupport$RandomGeneratorProperties_DefaultValue_group1},
+	{"i", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RandomSupport$RandomGeneratorProperties, i, int32_t), nullptr, &_RandomSupport$RandomGeneratorProperties_DefaultValue_i2},
+	{"isHardware", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RandomSupport$RandomGeneratorProperties, isHardware, bool), nullptr, &_RandomSupport$RandomGeneratorProperties_DefaultValue_isHardware3},
+	{"isStochastic", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RandomSupport$RandomGeneratorProperties, isStochastic, bool), nullptr, &_RandomSupport$RandomGeneratorProperties_DefaultValue_isStochastic4},
+	{"j", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RandomSupport$RandomGeneratorProperties, j, int32_t), nullptr, &_RandomSupport$RandomGeneratorProperties_DefaultValue_j5},
+	{"k", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RandomSupport$RandomGeneratorProperties, k, int32_t), nullptr, &_RandomSupport$RandomGeneratorProperties_DefaultValue_k6},
+	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RandomSupport$RandomGeneratorProperties, name, $String*)},
 	{}
 };
 

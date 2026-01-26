@@ -20,7 +20,7 @@ $FieldInfo _Test7087570$TestMethodData_FieldInfo_[] = {
 };
 
 $MethodInfo _Test7087570$TestMethodData_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/Class;I)V", "(Ljava/lang/Class<*>;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/Class<*>;I)V", $PUBLIC, $method(static_cast<void(Test7087570$TestMethodData::*)($Class*,$String*,$MethodType*,$Class*,int32_t)>(&Test7087570$TestMethodData::init$))},
+	{"<init>", "(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/Class;I)V", "(Ljava/lang/Class<*>;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/Class<*>;I)V", $PUBLIC, $method(Test7087570$TestMethodData, init$, void, $Class*, $String*, $MethodType*, $Class*, int32_t)},
 	{}
 };
 

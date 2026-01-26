@@ -6,13 +6,15 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
+using $SSLPossession = ::sun::security::ssl::SSLPossession;
 
 namespace sun {
 	namespace security {
 		namespace ssl {
 
 $MethodInfo _SSLPossessionGenerator_MethodInfo_[] = {
-	{"createPossession", "(Lsun/security/ssl/HandshakeContext;)Lsun/security/ssl/SSLPossession;", nullptr, $PUBLIC | $ABSTRACT},
+	{"createPossession", "(Lsun/security/ssl/HandshakeContext;)Lsun/security/ssl/SSLPossession;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SSLPossessionGenerator, createPossession, $SSLPossession*, $HandshakeContext*)},
 	{}
 };
 

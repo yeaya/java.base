@@ -16,9 +16,9 @@ namespace java {
 		namespace spi {
 
 $MethodInfo _TimeZoneNameProvider_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(TimeZoneNameProvider::*)()>(&TimeZoneNameProvider::init$))},
-	{"getDisplayName", "(Ljava/lang/String;ZILjava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getGenericDisplayName", "(Ljava/lang/String;ILjava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(TimeZoneNameProvider, init$, void)},
+	{"getDisplayName", "(Ljava/lang/String;ZILjava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TimeZoneNameProvider, getDisplayName, $String*, $String*, bool, int32_t, $Locale*)},
+	{"getGenericDisplayName", "(Ljava/lang/String;ILjava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TimeZoneNameProvider, getGenericDisplayName, $String*, $String*, int32_t, $Locale*)},
 	{}
 };
 

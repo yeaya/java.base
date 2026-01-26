@@ -14,7 +14,7 @@ namespace sun {
 		namespace pkcs12 {
 
 $MethodInfo _PKCS12KeyStore$KeyEntry_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(PKCS12KeyStore$KeyEntry::*)()>(&PKCS12KeyStore$KeyEntry::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(PKCS12KeyStore$KeyEntry, init$, void)},
 	{}
 };
 

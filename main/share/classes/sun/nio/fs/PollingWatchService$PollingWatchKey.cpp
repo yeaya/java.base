@@ -78,14 +78,14 @@ $FieldInfo _PollingWatchService$PollingWatchKey_FieldInfo_[] = {
 };
 
 $MethodInfo _PollingWatchService$PollingWatchKey_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/fs/PollingWatchService;Ljava/nio/file/Path;Lsun/nio/fs/PollingWatchService;Ljava/lang/Object;)V", nullptr, 0, $method(static_cast<void(PollingWatchService$PollingWatchKey::*)($PollingWatchService*,$Path*,$PollingWatchService*,Object$*)>(&PollingWatchService$PollingWatchKey::init$)), "java.io.IOException"},
-	{"cancel", "()V", nullptr, $PUBLIC},
-	{"disable", "()V", nullptr, 0},
-	{"enable", "(Ljava/util/Set;J)V", "(Ljava/util/Set<+Ljava/nio/file/WatchEvent$Kind<*>;>;J)V", 0},
-	{"fileKey", "()Ljava/lang/Object;", nullptr, 0},
-	{"invalidate", "()V", nullptr, 0},
-	{"isValid", "()Z", nullptr, $PUBLIC},
-	{"poll", "()V", nullptr, $SYNCHRONIZED},
+	{"<init>", "(Lsun/nio/fs/PollingWatchService;Ljava/nio/file/Path;Lsun/nio/fs/PollingWatchService;Ljava/lang/Object;)V", nullptr, 0, $method(PollingWatchService$PollingWatchKey, init$, void, $PollingWatchService*, $Path*, $PollingWatchService*, Object$*), "java.io.IOException"},
+	{"cancel", "()V", nullptr, $PUBLIC, $virtualMethod(PollingWatchService$PollingWatchKey, cancel, void)},
+	{"disable", "()V", nullptr, 0, $virtualMethod(PollingWatchService$PollingWatchKey, disable, void)},
+	{"enable", "(Ljava/util/Set;J)V", "(Ljava/util/Set<+Ljava/nio/file/WatchEvent$Kind<*>;>;J)V", 0, $virtualMethod(PollingWatchService$PollingWatchKey, enable, void, $Set*, int64_t)},
+	{"fileKey", "()Ljava/lang/Object;", nullptr, 0, $virtualMethod(PollingWatchService$PollingWatchKey, fileKey, $Object*)},
+	{"invalidate", "()V", nullptr, 0, $virtualMethod(PollingWatchService$PollingWatchKey, invalidate, void)},
+	{"isValid", "()Z", nullptr, $PUBLIC, $virtualMethod(PollingWatchService$PollingWatchKey, isValid, bool)},
+	{"poll", "()V", nullptr, $SYNCHRONIZED, $virtualMethod(PollingWatchService$PollingWatchKey, poll, void)},
 	{}
 };
 

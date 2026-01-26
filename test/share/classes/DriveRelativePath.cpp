@@ -10,9 +10,9 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 
 $MethodInfo _DriveRelativePath_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DriveRelativePath::*)()>(&DriveRelativePath::init$))},
-	{"fail", "(Ljava/lang/String;)V", nullptr, $STATIC, $method(static_cast<void(*)($String*)>(&DriveRelativePath::fail))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&DriveRelativePath::main)), "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DriveRelativePath, init$, void)},
+	{"fail", "(Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(DriveRelativePath, fail, void, $String*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(DriveRelativePath, main, void, $StringArray*), "java.io.IOException"},
 	{}
 };
 

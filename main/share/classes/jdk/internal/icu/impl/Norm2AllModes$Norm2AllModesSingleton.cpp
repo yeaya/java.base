@@ -29,7 +29,7 @@ $FieldInfo _Norm2AllModes$Norm2AllModesSingleton_FieldInfo_[] = {
 };
 
 $MethodInfo _Norm2AllModes$Norm2AllModesSingleton_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(static_cast<void(Norm2AllModes$Norm2AllModesSingleton::*)($String*)>(&Norm2AllModes$Norm2AllModesSingleton::init$))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(Norm2AllModes$Norm2AllModesSingleton, init$, void, $String*)},
 	{}
 };
 

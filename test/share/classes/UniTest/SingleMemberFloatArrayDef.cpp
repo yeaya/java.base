@@ -30,7 +30,7 @@ $Attribute _SingleMemberFloatArrayDef_DefaultValue_value0 = {
 };
 
 $MethodInfo _SingleMemberFloatArrayDef_MethodInfo_[] = {
-	{"value", "()[F", nullptr, $PUBLIC | $ABSTRACT, nullptr, nullptr, &_SingleMemberFloatArrayDef_DefaultValue_value0},
+	{"value", "()[F", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SingleMemberFloatArrayDef, value, $floats*), nullptr, &_SingleMemberFloatArrayDef_DefaultValue_value0},
 	{}
 };
 

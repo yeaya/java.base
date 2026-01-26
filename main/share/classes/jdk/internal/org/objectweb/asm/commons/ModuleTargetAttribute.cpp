@@ -29,10 +29,10 @@ $FieldInfo _ModuleTargetAttribute_FieldInfo_[] = {
 };
 
 $MethodInfo _ModuleTargetAttribute_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(ModuleTargetAttribute::*)($String*)>(&ModuleTargetAttribute::init$))},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ModuleTargetAttribute::*)()>(&ModuleTargetAttribute::init$))},
-	{"read", "(Ljdk/internal/org/objectweb/asm/ClassReader;II[CI[Ljdk/internal/org/objectweb/asm/Label;)Ljdk/internal/org/objectweb/asm/Attribute;", nullptr, $PROTECTED},
-	{"write", "(Ljdk/internal/org/objectweb/asm/ClassWriter;[BIII)Ljdk/internal/org/objectweb/asm/ByteVector;", nullptr, $PROTECTED},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ModuleTargetAttribute, init$, void, $String*)},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ModuleTargetAttribute, init$, void)},
+	{"read", "(Ljdk/internal/org/objectweb/asm/ClassReader;II[CI[Ljdk/internal/org/objectweb/asm/Label;)Ljdk/internal/org/objectweb/asm/Attribute;", nullptr, $PROTECTED, $virtualMethod(ModuleTargetAttribute, read, $Attribute*, $ClassReader*, int32_t, int32_t, $chars*, int32_t, $LabelArray*)},
+	{"write", "(Ljdk/internal/org/objectweb/asm/ClassWriter;[BIII)Ljdk/internal/org/objectweb/asm/ByteVector;", nullptr, $PROTECTED, $virtualMethod(ModuleTargetAttribute, write, $ByteVector*, $ClassWriter*, $bytes*, int32_t, int32_t, int32_t)},
 	{}
 };
 

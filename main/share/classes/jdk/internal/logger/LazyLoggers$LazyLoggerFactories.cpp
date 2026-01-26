@@ -23,8 +23,8 @@ $FieldInfo _LazyLoggers$LazyLoggerFactories_FieldInfo_[] = {
 };
 
 $MethodInfo _LazyLoggers$LazyLoggerFactories_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/function/BiFunction;)V", "(Ljava/util/function/BiFunction<Ljava/lang/String;Ljava/lang/Module;TL;>;)V", $PUBLIC, $method(static_cast<void(LazyLoggers$LazyLoggerFactories::*)($BiFunction*)>(&LazyLoggers$LazyLoggerFactories::init$))},
-	{"<init>", "(Ljava/util/function/BiFunction;Ljava/lang/Void;)V", "(Ljava/util/function/BiFunction<Ljava/lang/String;Ljava/lang/Module;TL;>;Ljava/lang/Void;)V", $PRIVATE, $method(static_cast<void(LazyLoggers$LazyLoggerFactories::*)($BiFunction*,$Void*)>(&LazyLoggers$LazyLoggerFactories::init$))},
+	{"<init>", "(Ljava/util/function/BiFunction;)V", "(Ljava/util/function/BiFunction<Ljava/lang/String;Ljava/lang/Module;TL;>;)V", $PUBLIC, $method(LazyLoggers$LazyLoggerFactories, init$, void, $BiFunction*)},
+	{"<init>", "(Ljava/util/function/BiFunction;Ljava/lang/Void;)V", "(Ljava/util/function/BiFunction<Ljava/lang/String;Ljava/lang/Module;TL;>;Ljava/lang/Void;)V", $PRIVATE, $method(LazyLoggers$LazyLoggerFactories, init$, void, $BiFunction*, $Void*)},
 	{}
 };
 

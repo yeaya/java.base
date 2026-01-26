@@ -44,21 +44,21 @@ $FieldInfo _ClassValue_FieldInfo_[] = {
 };
 
 $MethodInfo _ClassValue_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(ClassValue::*)()>(&ClassValue::init$))},
-	{"bumpVersion", "()V", nullptr, 0},
-	{"castEntry", "(Ljava/lang/ClassValue$Entry;)Ljava/lang/ClassValue$Entry;", "(Ljava/lang/ClassValue$Entry<*>;)Ljava/lang/ClassValue$Entry<TT;>;", 0},
-	{"computeValue", "(Ljava/lang/Class;)Ljava/lang/Object;", "(Ljava/lang/Class<*>;)TT;", $PROTECTED | $ABSTRACT},
-	{"get", "(Ljava/lang/Class;)Ljava/lang/Object;", "(Ljava/lang/Class<*>;)TT;", $PUBLIC},
-	{"getCacheCarefully", "(Ljava/lang/Class;)[Ljava/lang/ClassValue$Entry;", "(Ljava/lang/Class<*>;)[Ljava/lang/ClassValue$Entry<*>;", $PRIVATE | $STATIC, $method(static_cast<$ClassValue$EntryArray*(*)($Class*)>(&ClassValue::getCacheCarefully))},
-	{"getFromBackup", "([Ljava/lang/ClassValue$Entry;Ljava/lang/Class;)Ljava/lang/Object;", "([Ljava/lang/ClassValue$Entry<*>;Ljava/lang/Class<*>;)TT;", $PRIVATE, $method(static_cast<$Object*(ClassValue::*)($ClassValue$EntryArray*,$Class*)>(&ClassValue::getFromBackup))},
-	{"getFromHashMap", "(Ljava/lang/Class;)Ljava/lang/Object;", "(Ljava/lang/Class<*>;)TT;", $PRIVATE, $method(static_cast<$Object*(ClassValue::*)($Class*)>(&ClassValue::getFromHashMap))},
-	{"getMap", "(Ljava/lang/Class;)Ljava/lang/ClassValue$ClassValueMap;", "(Ljava/lang/Class<*>;)Ljava/lang/ClassValue$ClassValueMap;", $PRIVATE | $STATIC, $method(static_cast<$ClassValue$ClassValueMap*(*)($Class*)>(&ClassValue::getMap))},
-	{"initializeMap", "(Ljava/lang/Class;)Ljava/lang/ClassValue$ClassValueMap;", "(Ljava/lang/Class<*>;)Ljava/lang/ClassValue$ClassValueMap;", $PRIVATE | $STATIC, $method(static_cast<$ClassValue$ClassValueMap*(*)($Class*)>(&ClassValue::initializeMap))},
-	{"makeEntry", "(Ljava/lang/ClassValue$Version;Ljava/lang/Object;)Ljava/lang/ClassValue$Entry;", "<T:Ljava/lang/Object;>(Ljava/lang/ClassValue$Version<TT;>;TT;)Ljava/lang/ClassValue$Entry<TT;>;", $STATIC, $method(static_cast<$ClassValue$Entry*(*)($ClassValue$Version*,Object$*)>(&ClassValue::makeEntry))},
-	{"match", "(Ljava/lang/ClassValue$Entry;)Z", "(Ljava/lang/ClassValue$Entry<*>;)Z", 0},
-	{"put", "(Ljava/lang/Class;Ljava/lang/Object;)V", "(Ljava/lang/Class<*>;TT;)V", 0},
-	{"remove", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $PUBLIC},
-	{"version", "()Ljava/lang/ClassValue$Version;", "()Ljava/lang/ClassValue$Version<TT;>;", 0},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(ClassValue, init$, void)},
+	{"bumpVersion", "()V", nullptr, 0, $virtualMethod(ClassValue, bumpVersion, void)},
+	{"castEntry", "(Ljava/lang/ClassValue$Entry;)Ljava/lang/ClassValue$Entry;", "(Ljava/lang/ClassValue$Entry<*>;)Ljava/lang/ClassValue$Entry<TT;>;", 0, $virtualMethod(ClassValue, castEntry, $ClassValue$Entry*, $ClassValue$Entry*)},
+	{"computeValue", "(Ljava/lang/Class;)Ljava/lang/Object;", "(Ljava/lang/Class<*>;)TT;", $PROTECTED | $ABSTRACT, $virtualMethod(ClassValue, computeValue, $Object*, $Class*)},
+	{"get", "(Ljava/lang/Class;)Ljava/lang/Object;", "(Ljava/lang/Class<*>;)TT;", $PUBLIC, $virtualMethod(ClassValue, get, $Object*, $Class*)},
+	{"getCacheCarefully", "(Ljava/lang/Class;)[Ljava/lang/ClassValue$Entry;", "(Ljava/lang/Class<*>;)[Ljava/lang/ClassValue$Entry<*>;", $PRIVATE | $STATIC, $staticMethod(ClassValue, getCacheCarefully, $ClassValue$EntryArray*, $Class*)},
+	{"getFromBackup", "([Ljava/lang/ClassValue$Entry;Ljava/lang/Class;)Ljava/lang/Object;", "([Ljava/lang/ClassValue$Entry<*>;Ljava/lang/Class<*>;)TT;", $PRIVATE, $method(ClassValue, getFromBackup, $Object*, $ClassValue$EntryArray*, $Class*)},
+	{"getFromHashMap", "(Ljava/lang/Class;)Ljava/lang/Object;", "(Ljava/lang/Class<*>;)TT;", $PRIVATE, $method(ClassValue, getFromHashMap, $Object*, $Class*)},
+	{"getMap", "(Ljava/lang/Class;)Ljava/lang/ClassValue$ClassValueMap;", "(Ljava/lang/Class<*>;)Ljava/lang/ClassValue$ClassValueMap;", $PRIVATE | $STATIC, $staticMethod(ClassValue, getMap, $ClassValue$ClassValueMap*, $Class*)},
+	{"initializeMap", "(Ljava/lang/Class;)Ljava/lang/ClassValue$ClassValueMap;", "(Ljava/lang/Class<*>;)Ljava/lang/ClassValue$ClassValueMap;", $PRIVATE | $STATIC, $staticMethod(ClassValue, initializeMap, $ClassValue$ClassValueMap*, $Class*)},
+	{"makeEntry", "(Ljava/lang/ClassValue$Version;Ljava/lang/Object;)Ljava/lang/ClassValue$Entry;", "<T:Ljava/lang/Object;>(Ljava/lang/ClassValue$Version<TT;>;TT;)Ljava/lang/ClassValue$Entry<TT;>;", $STATIC, $staticMethod(ClassValue, makeEntry, $ClassValue$Entry*, $ClassValue$Version*, Object$*)},
+	{"match", "(Ljava/lang/ClassValue$Entry;)Z", "(Ljava/lang/ClassValue$Entry<*>;)Z", 0, $virtualMethod(ClassValue, match, bool, $ClassValue$Entry*)},
+	{"put", "(Ljava/lang/Class;Ljava/lang/Object;)V", "(Ljava/lang/Class<*>;TT;)V", 0, $virtualMethod(ClassValue, put, void, $Class*, Object$*)},
+	{"remove", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $PUBLIC, $virtualMethod(ClassValue, remove, void, $Class*)},
+	{"version", "()Ljava/lang/ClassValue$Version;", "()Ljava/lang/ClassValue$Version<TT;>;", 0, $virtualMethod(ClassValue, version, $ClassValue$Version*)},
 	{}
 };
 

@@ -23,10 +23,10 @@ namespace sun {
 			namespace scope {
 
 $MethodInfo _ConstructorScope_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/reflect/Constructor;)V", "(Ljava/lang/reflect/Constructor<*>;)V", $PRIVATE, $method(static_cast<void(ConstructorScope::*)($Constructor*)>(&ConstructorScope::init$))},
-	{"computeEnclosingScope", "()Lsun/reflect/generics/scope/Scope;", nullptr, $PROTECTED},
-	{"getEnclosingClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PRIVATE, $method(static_cast<$Class*(ConstructorScope::*)()>(&ConstructorScope::getEnclosingClass))},
-	{"make", "(Ljava/lang/reflect/Constructor;)Lsun/reflect/generics/scope/ConstructorScope;", "(Ljava/lang/reflect/Constructor<*>;)Lsun/reflect/generics/scope/ConstructorScope;", $PUBLIC | $STATIC, $method(static_cast<ConstructorScope*(*)($Constructor*)>(&ConstructorScope::make))},
+	{"<init>", "(Ljava/lang/reflect/Constructor;)V", "(Ljava/lang/reflect/Constructor<*>;)V", $PRIVATE, $method(ConstructorScope, init$, void, $Constructor*)},
+	{"computeEnclosingScope", "()Lsun/reflect/generics/scope/Scope;", nullptr, $PROTECTED, $virtualMethod(ConstructorScope, computeEnclosingScope, $Scope*)},
+	{"getEnclosingClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PRIVATE, $method(ConstructorScope, getEnclosingClass, $Class*)},
+	{"make", "(Ljava/lang/reflect/Constructor;)Lsun/reflect/generics/scope/ConstructorScope;", "(Ljava/lang/reflect/Constructor<*>;)Lsun/reflect/generics/scope/ConstructorScope;", $PUBLIC | $STATIC, $staticMethod(ConstructorScope, make, ConstructorScope*, $Constructor*)},
 	{}
 };
 

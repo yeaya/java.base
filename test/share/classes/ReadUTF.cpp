@@ -39,9 +39,9 @@ $FieldInfo _ReadUTF_FieldInfo_[] = {
 };
 
 $MethodInfo _ReadUTF_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ReadUTF::*)()>(&ReadUTF::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $FINAL, $method(static_cast<void(*)($StringArray*)>(&ReadUTF::main)), "java.lang.Exception"},
-	{"writeAndReadAString", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&ReadUTF::writeAndReadAString)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ReadUTF, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(ReadUTF, main, void, $StringArray*), "java.lang.Exception"},
+	{"writeAndReadAString", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(ReadUTF, writeAndReadAString, void), "java.lang.Exception"},
 	{}
 };
 

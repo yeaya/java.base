@@ -14,8 +14,8 @@ namespace jdk {
 		namespace math {
 
 $MethodInfo _FormattedFloatingDecimal$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(FormattedFloatingDecimal$1::*)()>(&FormattedFloatingDecimal$1::init$))},
-	{"initialValue", "()Ljava/lang/Object;", nullptr, $PROTECTED},
+	{"<init>", "()V", nullptr, 0, $method(FormattedFloatingDecimal$1, init$, void)},
+	{"initialValue", "()Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(FormattedFloatingDecimal$1, initialValue, $Object*)},
 	{}
 };
 

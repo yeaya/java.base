@@ -17,7 +17,7 @@ $FieldInfo _UnsupportedAddressTypeException_FieldInfo_[] = {
 };
 
 $MethodInfo _UnsupportedAddressTypeException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(UnsupportedAddressTypeException::*)()>(&UnsupportedAddressTypeException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(UnsupportedAddressTypeException, init$, void)},
 	{}
 };
 

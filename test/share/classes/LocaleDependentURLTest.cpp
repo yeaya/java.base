@@ -11,8 +11,8 @@ using $URL = ::java::net::URL;
 using $Locale = ::java::util::Locale;
 
 $MethodInfo _LocaleDependentURLTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(LocaleDependentURLTest::*)()>(&LocaleDependentURLTest::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&LocaleDependentURLTest::main)), "java.net.MalformedURLException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(LocaleDependentURLTest, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(LocaleDependentURLTest, main, void, $StringArray*), "java.net.MalformedURLException"},
 	{}
 };
 

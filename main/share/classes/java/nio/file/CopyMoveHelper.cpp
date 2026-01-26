@@ -48,10 +48,10 @@ namespace java {
 		namespace file {
 
 $MethodInfo _CopyMoveHelper_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(CopyMoveHelper::*)()>(&CopyMoveHelper::init$))},
-	{"convertMoveToCopyOptions", "([Ljava/nio/file/CopyOption;)[Ljava/nio/file/CopyOption;", nullptr, $PRIVATE | $STATIC | $TRANSIENT, $method(static_cast<$CopyOptionArray*(*)($CopyOptionArray*)>(&CopyMoveHelper::convertMoveToCopyOptions)), "java.nio.file.AtomicMoveNotSupportedException"},
-	{"copyToForeignTarget", "(Ljava/nio/file/Path;Ljava/nio/file/Path;[Ljava/nio/file/CopyOption;)V", nullptr, $STATIC | $TRANSIENT, $method(static_cast<void(*)($Path*,$Path*,$CopyOptionArray*)>(&CopyMoveHelper::copyToForeignTarget)), "java.io.IOException"},
-	{"moveToForeignTarget", "(Ljava/nio/file/Path;Ljava/nio/file/Path;[Ljava/nio/file/CopyOption;)V", nullptr, $STATIC | $TRANSIENT, $method(static_cast<void(*)($Path*,$Path*,$CopyOptionArray*)>(&CopyMoveHelper::moveToForeignTarget)), "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(CopyMoveHelper, init$, void)},
+	{"convertMoveToCopyOptions", "([Ljava/nio/file/CopyOption;)[Ljava/nio/file/CopyOption;", nullptr, $PRIVATE | $STATIC | $TRANSIENT, $staticMethod(CopyMoveHelper, convertMoveToCopyOptions, $CopyOptionArray*, $CopyOptionArray*), "java.nio.file.AtomicMoveNotSupportedException"},
+	{"copyToForeignTarget", "(Ljava/nio/file/Path;Ljava/nio/file/Path;[Ljava/nio/file/CopyOption;)V", nullptr, $STATIC | $TRANSIENT, $staticMethod(CopyMoveHelper, copyToForeignTarget, void, $Path*, $Path*, $CopyOptionArray*), "java.io.IOException"},
+	{"moveToForeignTarget", "(Ljava/nio/file/Path;Ljava/nio/file/Path;[Ljava/nio/file/CopyOption;)V", nullptr, $STATIC | $TRANSIENT, $staticMethod(CopyMoveHelper, moveToForeignTarget, void, $Path*, $Path*, $CopyOptionArray*), "java.io.IOException"},
 	{}
 };
 

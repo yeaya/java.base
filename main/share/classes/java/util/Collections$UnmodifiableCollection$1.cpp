@@ -28,11 +28,11 @@ $FieldInfo _Collections$UnmodifiableCollection$1_FieldInfo_[] = {
 };
 
 $MethodInfo _Collections$UnmodifiableCollection$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Collections$UnmodifiableCollection;)V", nullptr, 0, $method(static_cast<void(Collections$UnmodifiableCollection$1::*)($Collections$UnmodifiableCollection*)>(&Collections$UnmodifiableCollection$1::init$))},
-	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC},
-	{"hasNext", "()Z", nullptr, $PUBLIC},
-	{"next", "()Ljava/lang/Object;", "()TE;", $PUBLIC},
-	{"remove", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/Collections$UnmodifiableCollection;)V", nullptr, 0, $method(Collections$UnmodifiableCollection$1, init$, void, $Collections$UnmodifiableCollection*)},
+	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC, $virtualMethod(Collections$UnmodifiableCollection$1, forEachRemaining, void, $Consumer*)},
+	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(Collections$UnmodifiableCollection$1, hasNext, bool)},
+	{"next", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(Collections$UnmodifiableCollection$1, next, $Object*)},
+	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(Collections$UnmodifiableCollection$1, remove, void)},
 	{}
 };
 

@@ -34,15 +34,15 @@ $FieldInfo _AtomicMarkableReference_FieldInfo_[] = {
 };
 
 $MethodInfo _AtomicMarkableReference_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;Z)V", "(TV;Z)V", $PUBLIC, $method(static_cast<void(AtomicMarkableReference::*)(Object$*,bool)>(&AtomicMarkableReference::init$))},
-	{"attemptMark", "(Ljava/lang/Object;Z)Z", "(TV;Z)Z", $PUBLIC},
-	{"casPair", "(Ljava/util/concurrent/atomic/AtomicMarkableReference$Pair;Ljava/util/concurrent/atomic/AtomicMarkableReference$Pair;)Z", "(Ljava/util/concurrent/atomic/AtomicMarkableReference$Pair<TV;>;Ljava/util/concurrent/atomic/AtomicMarkableReference$Pair<TV;>;)Z", $PRIVATE, $method(static_cast<bool(AtomicMarkableReference::*)($AtomicMarkableReference$Pair*,$AtomicMarkableReference$Pair*)>(&AtomicMarkableReference::casPair))},
-	{"compareAndSet", "(Ljava/lang/Object;Ljava/lang/Object;ZZ)Z", "(TV;TV;ZZ)Z", $PUBLIC},
-	{"get", "([Z)Ljava/lang/Object;", "([Z)TV;", $PUBLIC},
-	{"getReference", "()Ljava/lang/Object;", "()TV;", $PUBLIC},
-	{"isMarked", "()Z", nullptr, $PUBLIC},
-	{"set", "(Ljava/lang/Object;Z)V", "(TV;Z)V", $PUBLIC},
-	{"weakCompareAndSet", "(Ljava/lang/Object;Ljava/lang/Object;ZZ)Z", "(TV;TV;ZZ)Z", $PUBLIC},
+	{"<init>", "(Ljava/lang/Object;Z)V", "(TV;Z)V", $PUBLIC, $method(AtomicMarkableReference, init$, void, Object$*, bool)},
+	{"attemptMark", "(Ljava/lang/Object;Z)Z", "(TV;Z)Z", $PUBLIC, $virtualMethod(AtomicMarkableReference, attemptMark, bool, Object$*, bool)},
+	{"casPair", "(Ljava/util/concurrent/atomic/AtomicMarkableReference$Pair;Ljava/util/concurrent/atomic/AtomicMarkableReference$Pair;)Z", "(Ljava/util/concurrent/atomic/AtomicMarkableReference$Pair<TV;>;Ljava/util/concurrent/atomic/AtomicMarkableReference$Pair<TV;>;)Z", $PRIVATE, $method(AtomicMarkableReference, casPair, bool, $AtomicMarkableReference$Pair*, $AtomicMarkableReference$Pair*)},
+	{"compareAndSet", "(Ljava/lang/Object;Ljava/lang/Object;ZZ)Z", "(TV;TV;ZZ)Z", $PUBLIC, $virtualMethod(AtomicMarkableReference, compareAndSet, bool, Object$*, Object$*, bool, bool)},
+	{"get", "([Z)Ljava/lang/Object;", "([Z)TV;", $PUBLIC, $virtualMethod(AtomicMarkableReference, get, $Object*, $booleans*)},
+	{"getReference", "()Ljava/lang/Object;", "()TV;", $PUBLIC, $virtualMethod(AtomicMarkableReference, getReference, $Object*)},
+	{"isMarked", "()Z", nullptr, $PUBLIC, $virtualMethod(AtomicMarkableReference, isMarked, bool)},
+	{"set", "(Ljava/lang/Object;Z)V", "(TV;Z)V", $PUBLIC, $virtualMethod(AtomicMarkableReference, set, void, Object$*, bool)},
+	{"weakCompareAndSet", "(Ljava/lang/Object;Ljava/lang/Object;ZZ)Z", "(TV;TV;ZZ)Z", $PUBLIC, $virtualMethod(AtomicMarkableReference, weakCompareAndSet, bool, Object$*, Object$*, bool, bool)},
 	{}
 };
 

@@ -3,6 +3,7 @@
 #include <java/lang/CharSequence.h>
 #include <jcpp.h>
 
+using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
@@ -10,7 +11,7 @@ namespace jcpp {
 	namespace test {
 
 $MethodInfo _TestASIF_MethodInfo_[] = {
-	{"get", "()Ljava/lang/CharSequence;", nullptr, $PUBLIC | $ABSTRACT},
+	{"get", "()Ljava/lang/CharSequence;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TestASIF, get, $CharSequence*)},
 	{}
 };
 

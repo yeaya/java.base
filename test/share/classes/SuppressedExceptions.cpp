@@ -34,14 +34,14 @@ $FieldInfo _SuppressedExceptions_FieldInfo_[] = {
 };
 
 $MethodInfo _SuppressedExceptions_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SuppressedExceptions::*)()>(&SuppressedExceptions::init$))},
-	{"basicSupressionTest", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&SuppressedExceptions::basicSupressionTest))},
-	{"initCausePlumbing", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&SuppressedExceptions::initCausePlumbing))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<void(*)($StringArray*)>(&SuppressedExceptions::main)), "java.lang.Exception"},
-	{"noModification", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&SuppressedExceptions::noModification))},
-	{"noSelfSuppression", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&SuppressedExceptions::noSelfSuppression))},
-	{"selfReference", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&SuppressedExceptions::selfReference))},
-	{"serializationTest", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&SuppressedExceptions::serializationTest)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SuppressedExceptions, init$, void)},
+	{"basicSupressionTest", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(SuppressedExceptions, basicSupressionTest, void)},
+	{"initCausePlumbing", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(SuppressedExceptions, initCausePlumbing, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(SuppressedExceptions, main, void, $StringArray*), "java.lang.Exception"},
+	{"noModification", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(SuppressedExceptions, noModification, void)},
+	{"noSelfSuppression", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(SuppressedExceptions, noSelfSuppression, void)},
+	{"selfReference", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(SuppressedExceptions, selfReference, void)},
+	{"serializationTest", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(SuppressedExceptions, serializationTest, void), "java.lang.Exception"},
 	{}
 };
 

@@ -74,15 +74,15 @@ $FieldInfo _NativeMethodHandle_FieldInfo_[] = {
 };
 
 $MethodInfo _NativeMethodHandle_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/invoke/MethodType;Ljava/lang/invoke/LambdaForm;Ljava/lang/invoke/MethodHandle;Ljdk/internal/invoke/NativeEntryPoint;)V", nullptr, $PRIVATE, $method(static_cast<void(NativeMethodHandle::*)($MethodType*,$LambdaForm*,$MethodHandle*,$NativeEntryPoint*)>(&NativeMethodHandle::init$))},
-	{"allTypesPrimitive", "(Ljava/lang/invoke/MethodType;)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($MethodType*)>(&NativeMethodHandle::allTypesPrimitive))},
-	{"copyWith", "(Ljava/lang/invoke/MethodType;Ljava/lang/invoke/LambdaForm;)Ljava/lang/invoke/MethodHandle;", nullptr, $FINAL},
-	{"internalFallback", "(Ljava/lang/Object;)Ljava/lang/invoke/MethodHandle;", nullptr, $STATIC, $method(static_cast<$MethodHandle*(*)(Object$*)>(&NativeMethodHandle::internalFallback)), nullptr, nullptr, _NativeMethodHandle_MethodAnnotations_internalFallback3},
-	{"internalNativeEntryPoint", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $STATIC, $method(static_cast<$Object*(*)(Object$*)>(&NativeMethodHandle::internalNativeEntryPoint)), nullptr, nullptr, _NativeMethodHandle_MethodAnnotations_internalNativeEntryPoint4},
-	{"make", "(Ljdk/internal/invoke/NativeEntryPoint;Ljava/lang/invoke/MethodHandle;)Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$MethodHandle*(*)($NativeEntryPoint*,$MethodHandle*)>(&NativeMethodHandle::make))},
-	{"makePreparedLambdaForm", "(Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/LambdaForm;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$LambdaForm*(*)($MethodType*)>(&NativeMethodHandle::makePreparedLambdaForm))},
-	{"preparedLambdaForm", "(Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/LambdaForm;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$LambdaForm*(*)($MethodType*)>(&NativeMethodHandle::preparedLambdaForm))},
-	{"rebind", "()Ljava/lang/invoke/BoundMethodHandle;", nullptr, 0},
+	{"<init>", "(Ljava/lang/invoke/MethodType;Ljava/lang/invoke/LambdaForm;Ljava/lang/invoke/MethodHandle;Ljdk/internal/invoke/NativeEntryPoint;)V", nullptr, $PRIVATE, $method(NativeMethodHandle, init$, void, $MethodType*, $LambdaForm*, $MethodHandle*, $NativeEntryPoint*)},
+	{"allTypesPrimitive", "(Ljava/lang/invoke/MethodType;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(NativeMethodHandle, allTypesPrimitive, bool, $MethodType*)},
+	{"copyWith", "(Ljava/lang/invoke/MethodType;Ljava/lang/invoke/LambdaForm;)Ljava/lang/invoke/MethodHandle;", nullptr, $FINAL, $virtualMethod(NativeMethodHandle, copyWith, $MethodHandle*, $MethodType*, $LambdaForm*)},
+	{"internalFallback", "(Ljava/lang/Object;)Ljava/lang/invoke/MethodHandle;", nullptr, $STATIC, $staticMethod(NativeMethodHandle, internalFallback, $MethodHandle*, Object$*), nullptr, nullptr, _NativeMethodHandle_MethodAnnotations_internalFallback3},
+	{"internalNativeEntryPoint", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $STATIC, $staticMethod(NativeMethodHandle, internalNativeEntryPoint, $Object*, Object$*), nullptr, nullptr, _NativeMethodHandle_MethodAnnotations_internalNativeEntryPoint4},
+	{"make", "(Ljdk/internal/invoke/NativeEntryPoint;Ljava/lang/invoke/MethodHandle;)Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC | $STATIC, $staticMethod(NativeMethodHandle, make, $MethodHandle*, $NativeEntryPoint*, $MethodHandle*)},
+	{"makePreparedLambdaForm", "(Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/LambdaForm;", nullptr, $PRIVATE | $STATIC, $staticMethod(NativeMethodHandle, makePreparedLambdaForm, $LambdaForm*, $MethodType*)},
+	{"preparedLambdaForm", "(Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/LambdaForm;", nullptr, $PRIVATE | $STATIC, $staticMethod(NativeMethodHandle, preparedLambdaForm, $LambdaForm*, $MethodType*)},
+	{"rebind", "()Ljava/lang/invoke/BoundMethodHandle;", nullptr, 0, $virtualMethod(NativeMethodHandle, rebind, $BoundMethodHandle*)},
 	{}
 };
 

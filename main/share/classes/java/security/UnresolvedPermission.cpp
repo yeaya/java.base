@@ -76,20 +76,20 @@ $FieldInfo _UnresolvedPermission_FieldInfo_[] = {
 };
 
 $MethodInfo _UnresolvedPermission_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/security/cert/Certificate;)V", nullptr, $PUBLIC, $method(static_cast<void(UnresolvedPermission::*)($String*,$String*,$String*,$CertificateArray*)>(&UnresolvedPermission::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getActions", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getUnresolvedActions", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(static_cast<$String*(UnresolvedPermission::*)()>(&UnresolvedPermission::getUnresolvedActions))},
-	{"getUnresolvedCerts", "()[Ljava/security/cert/Certificate;", nullptr, $PUBLIC, $method(static_cast<$CertificateArray*(UnresolvedPermission::*)()>(&UnresolvedPermission::getUnresolvedCerts))},
-	{"getUnresolvedName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(static_cast<$String*(UnresolvedPermission::*)()>(&UnresolvedPermission::getUnresolvedName))},
-	{"getUnresolvedType", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(static_cast<$String*(UnresolvedPermission::*)()>(&UnresolvedPermission::getUnresolvedType))},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"implies", "(Ljava/security/Permission;)Z", nullptr, $PUBLIC},
-	{"newPermissionCollection", "()Ljava/security/PermissionCollection;", nullptr, $PUBLIC},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(UnresolvedPermission::*)($ObjectInputStream*)>(&UnresolvedPermission::readObject)), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"resolve", "(Ljava/security/Permission;[Ljava/security/cert/Certificate;)Ljava/security/Permission;", nullptr, 0, $method(static_cast<$Permission*(UnresolvedPermission::*)($Permission*,$CertificateArray*)>(&UnresolvedPermission::resolve))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(UnresolvedPermission::*)($ObjectOutputStream*)>(&UnresolvedPermission::writeObject)), "java.io.IOException"},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/security/cert/Certificate;)V", nullptr, $PUBLIC, $method(UnresolvedPermission, init$, void, $String*, $String*, $String*, $CertificateArray*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(UnresolvedPermission, equals, bool, Object$*)},
+	{"getActions", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UnresolvedPermission, getActions, $String*)},
+	{"getUnresolvedActions", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(UnresolvedPermission, getUnresolvedActions, $String*)},
+	{"getUnresolvedCerts", "()[Ljava/security/cert/Certificate;", nullptr, $PUBLIC, $method(UnresolvedPermission, getUnresolvedCerts, $CertificateArray*)},
+	{"getUnresolvedName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(UnresolvedPermission, getUnresolvedName, $String*)},
+	{"getUnresolvedType", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(UnresolvedPermission, getUnresolvedType, $String*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(UnresolvedPermission, hashCode, int32_t)},
+	{"implies", "(Ljava/security/Permission;)Z", nullptr, $PUBLIC, $virtualMethod(UnresolvedPermission, implies, bool, $Permission*)},
+	{"newPermissionCollection", "()Ljava/security/PermissionCollection;", nullptr, $PUBLIC, $virtualMethod(UnresolvedPermission, newPermissionCollection, $PermissionCollection*)},
+	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(UnresolvedPermission, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+	{"resolve", "(Ljava/security/Permission;[Ljava/security/cert/Certificate;)Ljava/security/Permission;", nullptr, 0, $method(UnresolvedPermission, resolve, $Permission*, $Permission*, $CertificateArray*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UnresolvedPermission, toString, $String*)},
+	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(UnresolvedPermission, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
 	{}
 };
 

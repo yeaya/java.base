@@ -26,7 +26,7 @@ $FieldInfo _ServerHelloDone_FieldInfo_[] = {
 };
 
 $MethodInfo _ServerHelloDone_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ServerHelloDone::*)()>(&ServerHelloDone::init$))},
+	{"<init>", "()V", nullptr, 0, $method(ServerHelloDone, init$, void)},
 	{}
 };
 

@@ -46,20 +46,20 @@ $FieldInfo _DateTimeFormatterBuilder$OffsetIdPrinterParser_FieldInfo_[] = {
 };
 
 $MethodInfo _DateTimeFormatterBuilder$OffsetIdPrinterParser_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(DateTimeFormatterBuilder$OffsetIdPrinterParser::*)($String*,$String*)>(&DateTimeFormatterBuilder$OffsetIdPrinterParser::init$))},
-	{"checkPattern", "(Ljava/lang/String;)I", nullptr, $PRIVATE, $method(static_cast<int32_t(DateTimeFormatterBuilder$OffsetIdPrinterParser::*)($String*)>(&DateTimeFormatterBuilder$OffsetIdPrinterParser::checkPattern))},
-	{"format", "(Ljava/time/format/DateTimePrintContext;Ljava/lang/StringBuilder;)Z", nullptr, $PUBLIC},
-	{"formatZeroPad", "(ZILjava/lang/StringBuilder;)V", nullptr, $PRIVATE, $method(static_cast<void(DateTimeFormatterBuilder$OffsetIdPrinterParser::*)(bool,int32_t,$StringBuilder*)>(&DateTimeFormatterBuilder$OffsetIdPrinterParser::formatZeroPad))},
-	{"isColon", "()Z", nullptr, $PRIVATE, $method(static_cast<bool(DateTimeFormatterBuilder$OffsetIdPrinterParser::*)()>(&DateTimeFormatterBuilder$OffsetIdPrinterParser::isColon))},
-	{"isPaddedHour", "()Z", nullptr, $PRIVATE, $method(static_cast<bool(DateTimeFormatterBuilder$OffsetIdPrinterParser::*)()>(&DateTimeFormatterBuilder$OffsetIdPrinterParser::isPaddedHour))},
-	{"parse", "(Ljava/time/format/DateTimeParseContext;Ljava/lang/CharSequence;I)I", nullptr, $PUBLIC},
-	{"parseDigits", "(Ljava/lang/CharSequence;ZI[I)Z", nullptr, $PRIVATE, $method(static_cast<bool(DateTimeFormatterBuilder$OffsetIdPrinterParser::*)($CharSequence*,bool,int32_t,$ints*)>(&DateTimeFormatterBuilder$OffsetIdPrinterParser::parseDigits))},
-	{"parseHour", "(Ljava/lang/CharSequence;Z[I)V", nullptr, $PRIVATE, $method(static_cast<void(DateTimeFormatterBuilder$OffsetIdPrinterParser::*)($CharSequence*,bool,$ints*)>(&DateTimeFormatterBuilder$OffsetIdPrinterParser::parseHour))},
-	{"parseMinute", "(Ljava/lang/CharSequence;ZZ[I)V", nullptr, $PRIVATE, $method(static_cast<void(DateTimeFormatterBuilder$OffsetIdPrinterParser::*)($CharSequence*,bool,bool,$ints*)>(&DateTimeFormatterBuilder$OffsetIdPrinterParser::parseMinute))},
-	{"parseOptionalMinuteSecond", "(Ljava/lang/CharSequence;Z[I)V", nullptr, $PRIVATE, $method(static_cast<void(DateTimeFormatterBuilder$OffsetIdPrinterParser::*)($CharSequence*,bool,$ints*)>(&DateTimeFormatterBuilder$OffsetIdPrinterParser::parseOptionalMinuteSecond))},
-	{"parseSecond", "(Ljava/lang/CharSequence;ZZ[I)V", nullptr, $PRIVATE, $method(static_cast<void(DateTimeFormatterBuilder$OffsetIdPrinterParser::*)($CharSequence*,bool,bool,$ints*)>(&DateTimeFormatterBuilder$OffsetIdPrinterParser::parseSecond))},
-	{"parseVariableWidthDigits", "(Ljava/lang/CharSequence;II[I)V", nullptr, $PRIVATE, $method(static_cast<void(DateTimeFormatterBuilder$OffsetIdPrinterParser::*)($CharSequence*,int32_t,int32_t,$ints*)>(&DateTimeFormatterBuilder$OffsetIdPrinterParser::parseVariableWidthDigits))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(DateTimeFormatterBuilder$OffsetIdPrinterParser, init$, void, $String*, $String*)},
+	{"checkPattern", "(Ljava/lang/String;)I", nullptr, $PRIVATE, $method(DateTimeFormatterBuilder$OffsetIdPrinterParser, checkPattern, int32_t, $String*)},
+	{"format", "(Ljava/time/format/DateTimePrintContext;Ljava/lang/StringBuilder;)Z", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$OffsetIdPrinterParser, format, bool, $DateTimePrintContext*, $StringBuilder*)},
+	{"formatZeroPad", "(ZILjava/lang/StringBuilder;)V", nullptr, $PRIVATE, $method(DateTimeFormatterBuilder$OffsetIdPrinterParser, formatZeroPad, void, bool, int32_t, $StringBuilder*)},
+	{"isColon", "()Z", nullptr, $PRIVATE, $method(DateTimeFormatterBuilder$OffsetIdPrinterParser, isColon, bool)},
+	{"isPaddedHour", "()Z", nullptr, $PRIVATE, $method(DateTimeFormatterBuilder$OffsetIdPrinterParser, isPaddedHour, bool)},
+	{"parse", "(Ljava/time/format/DateTimeParseContext;Ljava/lang/CharSequence;I)I", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$OffsetIdPrinterParser, parse, int32_t, $DateTimeParseContext*, $CharSequence*, int32_t)},
+	{"parseDigits", "(Ljava/lang/CharSequence;ZI[I)Z", nullptr, $PRIVATE, $method(DateTimeFormatterBuilder$OffsetIdPrinterParser, parseDigits, bool, $CharSequence*, bool, int32_t, $ints*)},
+	{"parseHour", "(Ljava/lang/CharSequence;Z[I)V", nullptr, $PRIVATE, $method(DateTimeFormatterBuilder$OffsetIdPrinterParser, parseHour, void, $CharSequence*, bool, $ints*)},
+	{"parseMinute", "(Ljava/lang/CharSequence;ZZ[I)V", nullptr, $PRIVATE, $method(DateTimeFormatterBuilder$OffsetIdPrinterParser, parseMinute, void, $CharSequence*, bool, bool, $ints*)},
+	{"parseOptionalMinuteSecond", "(Ljava/lang/CharSequence;Z[I)V", nullptr, $PRIVATE, $method(DateTimeFormatterBuilder$OffsetIdPrinterParser, parseOptionalMinuteSecond, void, $CharSequence*, bool, $ints*)},
+	{"parseSecond", "(Ljava/lang/CharSequence;ZZ[I)V", nullptr, $PRIVATE, $method(DateTimeFormatterBuilder$OffsetIdPrinterParser, parseSecond, void, $CharSequence*, bool, bool, $ints*)},
+	{"parseVariableWidthDigits", "(Ljava/lang/CharSequence;II[I)V", nullptr, $PRIVATE, $method(DateTimeFormatterBuilder$OffsetIdPrinterParser, parseVariableWidthDigits, void, $CharSequence*, int32_t, int32_t, $ints*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$OffsetIdPrinterParser, toString, $String*)},
 	{}
 };
 

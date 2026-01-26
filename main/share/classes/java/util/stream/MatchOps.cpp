@@ -79,8 +79,8 @@ $FieldInfo MatchOps$$Lambda$lambda$makeRef$0::fieldInfos[3] = {
 	{}
 };
 $MethodInfo MatchOps$$Lambda$lambda$makeRef$0::methodInfos[3] = {
-	{"<init>", "(Ljava/util/stream/MatchOps$MatchKind;Ljava/util/function/Predicate;)V", nullptr, $PUBLIC, $method(static_cast<void(MatchOps$$Lambda$lambda$makeRef$0::*)($MatchOps$MatchKind*,$Predicate*)>(&MatchOps$$Lambda$lambda$makeRef$0::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/stream/MatchOps$MatchKind;Ljava/util/function/Predicate;)V", nullptr, $PUBLIC, $method(MatchOps$$Lambda$lambda$makeRef$0, init$, void, $MatchOps$MatchKind*, $Predicate*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MatchOps$$Lambda$lambda$makeRef$0, get, $Object*)},
 	{}
 };
 $ClassInfo MatchOps$$Lambda$lambda$makeRef$0::classInfo$ = {
@@ -122,8 +122,8 @@ $FieldInfo MatchOps$$Lambda$lambda$makeInt$1$1::fieldInfos[3] = {
 	{}
 };
 $MethodInfo MatchOps$$Lambda$lambda$makeInt$1$1::methodInfos[3] = {
-	{"<init>", "(Ljava/util/stream/MatchOps$MatchKind;Ljava/util/function/IntPredicate;)V", nullptr, $PUBLIC, $method(static_cast<void(MatchOps$$Lambda$lambda$makeInt$1$1::*)($MatchOps$MatchKind*,$IntPredicate*)>(&MatchOps$$Lambda$lambda$makeInt$1$1::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/stream/MatchOps$MatchKind;Ljava/util/function/IntPredicate;)V", nullptr, $PUBLIC, $method(MatchOps$$Lambda$lambda$makeInt$1$1, init$, void, $MatchOps$MatchKind*, $IntPredicate*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MatchOps$$Lambda$lambda$makeInt$1$1, get, $Object*)},
 	{}
 };
 $ClassInfo MatchOps$$Lambda$lambda$makeInt$1$1::classInfo$ = {
@@ -165,8 +165,8 @@ $FieldInfo MatchOps$$Lambda$lambda$makeLong$2$2::fieldInfos[3] = {
 	{}
 };
 $MethodInfo MatchOps$$Lambda$lambda$makeLong$2$2::methodInfos[3] = {
-	{"<init>", "(Ljava/util/stream/MatchOps$MatchKind;Ljava/util/function/LongPredicate;)V", nullptr, $PUBLIC, $method(static_cast<void(MatchOps$$Lambda$lambda$makeLong$2$2::*)($MatchOps$MatchKind*,$LongPredicate*)>(&MatchOps$$Lambda$lambda$makeLong$2$2::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/stream/MatchOps$MatchKind;Ljava/util/function/LongPredicate;)V", nullptr, $PUBLIC, $method(MatchOps$$Lambda$lambda$makeLong$2$2, init$, void, $MatchOps$MatchKind*, $LongPredicate*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MatchOps$$Lambda$lambda$makeLong$2$2, get, $Object*)},
 	{}
 };
 $ClassInfo MatchOps$$Lambda$lambda$makeLong$2$2::classInfo$ = {
@@ -208,8 +208,8 @@ $FieldInfo MatchOps$$Lambda$lambda$makeDouble$3$3::fieldInfos[3] = {
 	{}
 };
 $MethodInfo MatchOps$$Lambda$lambda$makeDouble$3$3::methodInfos[3] = {
-	{"<init>", "(Ljava/util/stream/MatchOps$MatchKind;Ljava/util/function/DoublePredicate;)V", nullptr, $PUBLIC, $method(static_cast<void(MatchOps$$Lambda$lambda$makeDouble$3$3::*)($MatchOps$MatchKind*,$DoublePredicate*)>(&MatchOps$$Lambda$lambda$makeDouble$3$3::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/stream/MatchOps$MatchKind;Ljava/util/function/DoublePredicate;)V", nullptr, $PUBLIC, $method(MatchOps$$Lambda$lambda$makeDouble$3$3, init$, void, $MatchOps$MatchKind*, $DoublePredicate*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MatchOps$$Lambda$lambda$makeDouble$3$3, get, $Object*)},
 	{}
 };
 $ClassInfo MatchOps$$Lambda$lambda$makeDouble$3$3::classInfo$ = {
@@ -227,15 +227,15 @@ $Class* MatchOps$$Lambda$lambda$makeDouble$3$3::load$($String* name, bool initia
 $Class* MatchOps$$Lambda$lambda$makeDouble$3$3::class$ = nullptr;
 
 $MethodInfo _MatchOps_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(MatchOps::*)()>(&MatchOps::init$))},
-	{"lambda$makeDouble$3", "(Ljava/util/stream/MatchOps$MatchKind;Ljava/util/function/DoublePredicate;)Ljava/util/stream/MatchOps$BooleanTerminalSink;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$MatchOps$BooleanTerminalSink*(*)($MatchOps$MatchKind*,$DoublePredicate*)>(&MatchOps::lambda$makeDouble$3))},
-	{"lambda$makeInt$1", "(Ljava/util/stream/MatchOps$MatchKind;Ljava/util/function/IntPredicate;)Ljava/util/stream/MatchOps$BooleanTerminalSink;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$MatchOps$BooleanTerminalSink*(*)($MatchOps$MatchKind*,$IntPredicate*)>(&MatchOps::lambda$makeInt$1))},
-	{"lambda$makeLong$2", "(Ljava/util/stream/MatchOps$MatchKind;Ljava/util/function/LongPredicate;)Ljava/util/stream/MatchOps$BooleanTerminalSink;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$MatchOps$BooleanTerminalSink*(*)($MatchOps$MatchKind*,$LongPredicate*)>(&MatchOps::lambda$makeLong$2))},
-	{"lambda$makeRef$0", "(Ljava/util/stream/MatchOps$MatchKind;Ljava/util/function/Predicate;)Ljava/util/stream/MatchOps$BooleanTerminalSink;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$MatchOps$BooleanTerminalSink*(*)($MatchOps$MatchKind*,$Predicate*)>(&MatchOps::lambda$makeRef$0))},
-	{"makeDouble", "(Ljava/util/function/DoublePredicate;Ljava/util/stream/MatchOps$MatchKind;)Ljava/util/stream/TerminalOp;", "(Ljava/util/function/DoublePredicate;Ljava/util/stream/MatchOps$MatchKind;)Ljava/util/stream/TerminalOp<Ljava/lang/Double;Ljava/lang/Boolean;>;", $PUBLIC | $STATIC, $method(static_cast<$TerminalOp*(*)($DoublePredicate*,$MatchOps$MatchKind*)>(&MatchOps::makeDouble))},
-	{"makeInt", "(Ljava/util/function/IntPredicate;Ljava/util/stream/MatchOps$MatchKind;)Ljava/util/stream/TerminalOp;", "(Ljava/util/function/IntPredicate;Ljava/util/stream/MatchOps$MatchKind;)Ljava/util/stream/TerminalOp<Ljava/lang/Integer;Ljava/lang/Boolean;>;", $PUBLIC | $STATIC, $method(static_cast<$TerminalOp*(*)($IntPredicate*,$MatchOps$MatchKind*)>(&MatchOps::makeInt))},
-	{"makeLong", "(Ljava/util/function/LongPredicate;Ljava/util/stream/MatchOps$MatchKind;)Ljava/util/stream/TerminalOp;", "(Ljava/util/function/LongPredicate;Ljava/util/stream/MatchOps$MatchKind;)Ljava/util/stream/TerminalOp<Ljava/lang/Long;Ljava/lang/Boolean;>;", $PUBLIC | $STATIC, $method(static_cast<$TerminalOp*(*)($LongPredicate*,$MatchOps$MatchKind*)>(&MatchOps::makeLong))},
-	{"makeRef", "(Ljava/util/function/Predicate;Ljava/util/stream/MatchOps$MatchKind;)Ljava/util/stream/TerminalOp;", "<T:Ljava/lang/Object;>(Ljava/util/function/Predicate<-TT;>;Ljava/util/stream/MatchOps$MatchKind;)Ljava/util/stream/TerminalOp<TT;Ljava/lang/Boolean;>;", $PUBLIC | $STATIC, $method(static_cast<$TerminalOp*(*)($Predicate*,$MatchOps$MatchKind*)>(&MatchOps::makeRef))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(MatchOps, init$, void)},
+	{"lambda$makeDouble$3", "(Ljava/util/stream/MatchOps$MatchKind;Ljava/util/function/DoublePredicate;)Ljava/util/stream/MatchOps$BooleanTerminalSink;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MatchOps, lambda$makeDouble$3, $MatchOps$BooleanTerminalSink*, $MatchOps$MatchKind*, $DoublePredicate*)},
+	{"lambda$makeInt$1", "(Ljava/util/stream/MatchOps$MatchKind;Ljava/util/function/IntPredicate;)Ljava/util/stream/MatchOps$BooleanTerminalSink;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MatchOps, lambda$makeInt$1, $MatchOps$BooleanTerminalSink*, $MatchOps$MatchKind*, $IntPredicate*)},
+	{"lambda$makeLong$2", "(Ljava/util/stream/MatchOps$MatchKind;Ljava/util/function/LongPredicate;)Ljava/util/stream/MatchOps$BooleanTerminalSink;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MatchOps, lambda$makeLong$2, $MatchOps$BooleanTerminalSink*, $MatchOps$MatchKind*, $LongPredicate*)},
+	{"lambda$makeRef$0", "(Ljava/util/stream/MatchOps$MatchKind;Ljava/util/function/Predicate;)Ljava/util/stream/MatchOps$BooleanTerminalSink;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MatchOps, lambda$makeRef$0, $MatchOps$BooleanTerminalSink*, $MatchOps$MatchKind*, $Predicate*)},
+	{"makeDouble", "(Ljava/util/function/DoublePredicate;Ljava/util/stream/MatchOps$MatchKind;)Ljava/util/stream/TerminalOp;", "(Ljava/util/function/DoublePredicate;Ljava/util/stream/MatchOps$MatchKind;)Ljava/util/stream/TerminalOp<Ljava/lang/Double;Ljava/lang/Boolean;>;", $PUBLIC | $STATIC, $staticMethod(MatchOps, makeDouble, $TerminalOp*, $DoublePredicate*, $MatchOps$MatchKind*)},
+	{"makeInt", "(Ljava/util/function/IntPredicate;Ljava/util/stream/MatchOps$MatchKind;)Ljava/util/stream/TerminalOp;", "(Ljava/util/function/IntPredicate;Ljava/util/stream/MatchOps$MatchKind;)Ljava/util/stream/TerminalOp<Ljava/lang/Integer;Ljava/lang/Boolean;>;", $PUBLIC | $STATIC, $staticMethod(MatchOps, makeInt, $TerminalOp*, $IntPredicate*, $MatchOps$MatchKind*)},
+	{"makeLong", "(Ljava/util/function/LongPredicate;Ljava/util/stream/MatchOps$MatchKind;)Ljava/util/stream/TerminalOp;", "(Ljava/util/function/LongPredicate;Ljava/util/stream/MatchOps$MatchKind;)Ljava/util/stream/TerminalOp<Ljava/lang/Long;Ljava/lang/Boolean;>;", $PUBLIC | $STATIC, $staticMethod(MatchOps, makeLong, $TerminalOp*, $LongPredicate*, $MatchOps$MatchKind*)},
+	{"makeRef", "(Ljava/util/function/Predicate;Ljava/util/stream/MatchOps$MatchKind;)Ljava/util/stream/TerminalOp;", "<T:Ljava/lang/Object;>(Ljava/util/function/Predicate<-TT;>;Ljava/util/stream/MatchOps$MatchKind;)Ljava/util/stream/TerminalOp<TT;Ljava/lang/Boolean;>;", $PUBLIC | $STATIC, $staticMethod(MatchOps, makeRef, $TerminalOp*, $Predicate*, $MatchOps$MatchKind*)},
 	{}
 };
 

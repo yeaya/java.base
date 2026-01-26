@@ -17,8 +17,8 @@ $FieldInfo _MalformedParameterizedTypeException_FieldInfo_[] = {
 };
 
 $MethodInfo _MalformedParameterizedTypeException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(MalformedParameterizedTypeException::*)()>(&MalformedParameterizedTypeException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(MalformedParameterizedTypeException::*)($String*)>(&MalformedParameterizedTypeException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(MalformedParameterizedTypeException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(MalformedParameterizedTypeException, init$, void, $String*)},
 	{}
 };
 

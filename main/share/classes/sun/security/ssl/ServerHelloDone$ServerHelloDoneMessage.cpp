@@ -30,12 +30,12 @@ namespace sun {
 		namespace ssl {
 
 $MethodInfo _ServerHelloDone$ServerHelloDoneMessage_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/ssl/HandshakeContext;)V", nullptr, 0, $method(static_cast<void(ServerHelloDone$ServerHelloDoneMessage::*)($HandshakeContext*)>(&ServerHelloDone$ServerHelloDoneMessage::init$))},
-	{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)V", nullptr, 0, $method(static_cast<void(ServerHelloDone$ServerHelloDoneMessage::*)($HandshakeContext*,$ByteBuffer*)>(&ServerHelloDone$ServerHelloDoneMessage::init$)), "java.io.IOException"},
-	{"handshakeType", "()Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC},
-	{"messageLength", "()I", nullptr, $PUBLIC},
-	{"send", "(Lsun/security/ssl/HandshakeOutStream;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/security/ssl/HandshakeContext;)V", nullptr, 0, $method(ServerHelloDone$ServerHelloDoneMessage, init$, void, $HandshakeContext*)},
+	{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)V", nullptr, 0, $method(ServerHelloDone$ServerHelloDoneMessage, init$, void, $HandshakeContext*, $ByteBuffer*), "java.io.IOException"},
+	{"handshakeType", "()Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC, $virtualMethod(ServerHelloDone$ServerHelloDoneMessage, handshakeType, $SSLHandshake*)},
+	{"messageLength", "()I", nullptr, $PUBLIC, $virtualMethod(ServerHelloDone$ServerHelloDoneMessage, messageLength, int32_t)},
+	{"send", "(Lsun/security/ssl/HandshakeOutStream;)V", nullptr, $PUBLIC, $virtualMethod(ServerHelloDone$ServerHelloDoneMessage, send, void, $HandshakeOutStream*), "java.io.IOException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ServerHelloDone$ServerHelloDoneMessage, toString, $String*)},
 	{}
 };
 

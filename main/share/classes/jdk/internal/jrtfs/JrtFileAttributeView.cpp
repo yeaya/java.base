@@ -53,15 +53,15 @@ $FieldInfo _JrtFileAttributeView_FieldInfo_[] = {
 };
 
 $MethodInfo _JrtFileAttributeView_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/jrtfs/JrtPath;Z[Ljava/nio/file/LinkOption;)V", nullptr, $PRIVATE | $TRANSIENT, $method(static_cast<void(JrtFileAttributeView::*)($JrtPath*,bool,$LinkOptionArray*)>(&JrtFileAttributeView::init$))},
-	{"attribute", "(Ljdk/internal/jrtfs/JrtFileAttributeView$AttrID;Ljdk/internal/jrtfs/JrtFileAttributes;Z)Ljava/lang/Object;", nullptr, $STATIC, $method(static_cast<$Object*(*)($JrtFileAttributeView$AttrID*,$JrtFileAttributes*,bool)>(&JrtFileAttributeView::attribute))},
-	{"get", "(Ljdk/internal/jrtfs/JrtPath;Ljava/lang/Class;[Ljava/nio/file/LinkOption;)Ljava/nio/file/attribute/FileAttributeView;", "<V::Ljava/nio/file/attribute/FileAttributeView;>(Ljdk/internal/jrtfs/JrtPath;Ljava/lang/Class<TV;>;[Ljava/nio/file/LinkOption;)TV;", $STATIC | $TRANSIENT, $method(static_cast<$FileAttributeView*(*)($JrtPath*,$Class*,$LinkOptionArray*)>(&JrtFileAttributeView::get))},
-	{"get", "(Ljdk/internal/jrtfs/JrtPath;Ljava/lang/String;[Ljava/nio/file/LinkOption;)Ljdk/internal/jrtfs/JrtFileAttributeView;", nullptr, $STATIC | $TRANSIENT, $method(static_cast<JrtFileAttributeView*(*)($JrtPath*,$String*,$LinkOptionArray*)>(&JrtFileAttributeView::get))},
-	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"readAttributes", "()Ljdk/internal/jrtfs/JrtFileAttributes;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"readAttributes", "(Ljdk/internal/jrtfs/JrtPath;Ljava/lang/String;[Ljava/nio/file/LinkOption;)Ljava/util/Map;", "(Ljdk/internal/jrtfs/JrtPath;Ljava/lang/String;[Ljava/nio/file/LinkOption;)Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;", $STATIC | $TRANSIENT, $method(static_cast<$Map*(*)($JrtPath*,$String*,$LinkOptionArray*)>(&JrtFileAttributeView::readAttributes)), "java.io.IOException"},
-	{"setAttribute", "(Ljdk/internal/jrtfs/JrtPath;Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $STATIC, $method(static_cast<void(*)($JrtPath*,$String*,Object$*)>(&JrtFileAttributeView::setAttribute)), "java.io.IOException"},
-	{"setTimes", "(Ljava/nio/file/attribute/FileTime;Ljava/nio/file/attribute/FileTime;Ljava/nio/file/attribute/FileTime;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljdk/internal/jrtfs/JrtPath;Z[Ljava/nio/file/LinkOption;)V", nullptr, $PRIVATE | $TRANSIENT, $method(JrtFileAttributeView, init$, void, $JrtPath*, bool, $LinkOptionArray*)},
+	{"attribute", "(Ljdk/internal/jrtfs/JrtFileAttributeView$AttrID;Ljdk/internal/jrtfs/JrtFileAttributes;Z)Ljava/lang/Object;", nullptr, $STATIC, $staticMethod(JrtFileAttributeView, attribute, $Object*, $JrtFileAttributeView$AttrID*, $JrtFileAttributes*, bool)},
+	{"get", "(Ljdk/internal/jrtfs/JrtPath;Ljava/lang/Class;[Ljava/nio/file/LinkOption;)Ljava/nio/file/attribute/FileAttributeView;", "<V::Ljava/nio/file/attribute/FileAttributeView;>(Ljdk/internal/jrtfs/JrtPath;Ljava/lang/Class<TV;>;[Ljava/nio/file/LinkOption;)TV;", $STATIC | $TRANSIENT, $staticMethod(JrtFileAttributeView, get, $FileAttributeView*, $JrtPath*, $Class*, $LinkOptionArray*)},
+	{"get", "(Ljdk/internal/jrtfs/JrtPath;Ljava/lang/String;[Ljava/nio/file/LinkOption;)Ljdk/internal/jrtfs/JrtFileAttributeView;", nullptr, $STATIC | $TRANSIENT, $staticMethod(JrtFileAttributeView, get, JrtFileAttributeView*, $JrtPath*, $String*, $LinkOptionArray*)},
+	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JrtFileAttributeView, name, $String*)},
+	{"readAttributes", "()Ljdk/internal/jrtfs/JrtFileAttributes;", nullptr, $PUBLIC, $virtualMethod(JrtFileAttributeView, readAttributes, $BasicFileAttributes*), "java.io.IOException"},
+	{"readAttributes", "(Ljdk/internal/jrtfs/JrtPath;Ljava/lang/String;[Ljava/nio/file/LinkOption;)Ljava/util/Map;", "(Ljdk/internal/jrtfs/JrtPath;Ljava/lang/String;[Ljava/nio/file/LinkOption;)Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;", $STATIC | $TRANSIENT, $staticMethod(JrtFileAttributeView, readAttributes, $Map*, $JrtPath*, $String*, $LinkOptionArray*), "java.io.IOException"},
+	{"setAttribute", "(Ljdk/internal/jrtfs/JrtPath;Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $STATIC, $staticMethod(JrtFileAttributeView, setAttribute, void, $JrtPath*, $String*, Object$*), "java.io.IOException"},
+	{"setTimes", "(Ljava/nio/file/attribute/FileTime;Ljava/nio/file/attribute/FileTime;Ljava/nio/file/attribute/FileTime;)V", nullptr, $PUBLIC, $virtualMethod(JrtFileAttributeView, setTimes, void, $FileTime*, $FileTime*, $FileTime*), "java.io.IOException"},
 	{}
 };
 

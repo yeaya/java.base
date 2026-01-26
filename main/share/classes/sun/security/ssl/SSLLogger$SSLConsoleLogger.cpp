@@ -38,11 +38,11 @@ $FieldInfo _SSLLogger$SSLConsoleLogger_FieldInfo_[] = {
 };
 
 $MethodInfo _SSLLogger$SSLConsoleLogger_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(SSLLogger$SSLConsoleLogger::*)($String*,$String*)>(&SSLLogger$SSLConsoleLogger::init$))},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"isLoggable", "(Ljava/lang/System$Logger$Level;)Z", nullptr, $PUBLIC},
-	{"log", "(Ljava/lang/System$Logger$Level;Ljava/util/ResourceBundle;Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC},
-	{"log", "(Ljava/lang/System$Logger$Level;Ljava/util/ResourceBundle;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $TRANSIENT},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(SSLLogger$SSLConsoleLogger, init$, void, $String*, $String*)},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SSLLogger$SSLConsoleLogger, getName, $String*)},
+	{"isLoggable", "(Ljava/lang/System$Logger$Level;)Z", nullptr, $PUBLIC, $virtualMethod(SSLLogger$SSLConsoleLogger, isLoggable, bool, $System$Logger$Level*)},
+	{"log", "(Ljava/lang/System$Logger$Level;Ljava/util/ResourceBundle;Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(SSLLogger$SSLConsoleLogger, log, void, $System$Logger$Level*, $ResourceBundle*, $String*, $Throwable*)},
+	{"log", "(Ljava/lang/System$Logger$Level;Ljava/util/ResourceBundle;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(SSLLogger$SSLConsoleLogger, log, void, $System$Logger$Level*, $ResourceBundle*, $String*, $ObjectArray*)},
 	{}
 };
 

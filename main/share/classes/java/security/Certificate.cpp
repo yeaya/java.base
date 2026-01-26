@@ -6,10 +6,14 @@
 #include <java/security/PublicKey.h>
 #include <jcpp.h>
 
+using $InputStream = ::java::io::InputStream;
+using $OutputStream = ::java::io::OutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
+using $Principal = ::java::security::Principal;
+using $PublicKey = ::java::security::PublicKey;
 
 namespace java {
 	namespace security {
@@ -26,13 +30,13 @@ $CompoundAttribute _Certificate_Annotations_[] = {
 };
 
 $MethodInfo _Certificate_MethodInfo_[] = {
-	{"decode", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.security.KeyException,java.io.IOException"},
-	{"encode", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.security.KeyException,java.io.IOException"},
-	{"getFormat", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getGuarantor", "()Ljava/security/Principal;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getPrincipal", "()Ljava/security/Principal;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getPublicKey", "()Ljava/security/PublicKey;", nullptr, $PUBLIC | $ABSTRACT},
-	{"toString", "(Z)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
+	{"decode", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Certificate, decode, void, $InputStream*), "java.security.KeyException,java.io.IOException"},
+	{"encode", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Certificate, encode, void, $OutputStream*), "java.security.KeyException,java.io.IOException"},
+	{"getFormat", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Certificate, getFormat, $String*)},
+	{"getGuarantor", "()Ljava/security/Principal;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Certificate, getGuarantor, $Principal*)},
+	{"getPrincipal", "()Ljava/security/Principal;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Certificate, getPrincipal, $Principal*)},
+	{"getPublicKey", "()Ljava/security/PublicKey;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Certificate, getPublicKey, $PublicKey*)},
+	{"toString", "(Z)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Certificate, toString, $String*, bool)},
 	{}
 };
 

@@ -61,21 +61,21 @@ $FieldInfo _WeekFields_FieldInfo_[] = {
 };
 
 $MethodInfo _WeekFields_MethodInfo_[] = {
-	{"<init>", "(Ljava/time/DayOfWeek;I)V", nullptr, $PRIVATE, $method(static_cast<void(WeekFields::*)($DayOfWeek*,int32_t)>(&WeekFields::init$))},
-	{"dayOfWeek", "()Ljava/time/temporal/TemporalField;", nullptr, $PUBLIC, $method(static_cast<$TemporalField*(WeekFields::*)()>(&WeekFields::dayOfWeek))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getFirstDayOfWeek", "()Ljava/time/DayOfWeek;", nullptr, $PUBLIC, $method(static_cast<$DayOfWeek*(WeekFields::*)()>(&WeekFields::getFirstDayOfWeek))},
-	{"getMinimalDaysInFirstWeek", "()I", nullptr, $PUBLIC, $method(static_cast<int32_t(WeekFields::*)()>(&WeekFields::getMinimalDaysInFirstWeek))},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"of", "(Ljava/util/Locale;)Ljava/time/temporal/WeekFields;", nullptr, $PUBLIC | $STATIC, $method(static_cast<WeekFields*(*)($Locale*)>(&WeekFields::of))},
-	{"of", "(Ljava/time/DayOfWeek;I)Ljava/time/temporal/WeekFields;", nullptr, $PUBLIC | $STATIC, $method(static_cast<WeekFields*(*)($DayOfWeek*,int32_t)>(&WeekFields::of))},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(WeekFields::*)($ObjectInputStream*)>(&WeekFields::readObject)), "java.io.IOException,java.lang.ClassNotFoundException,java.io.InvalidObjectException"},
-	{"readResolve", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(static_cast<$Object*(WeekFields::*)()>(&WeekFields::readResolve)), "java.io.InvalidObjectException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"weekBasedYear", "()Ljava/time/temporal/TemporalField;", nullptr, $PUBLIC, $method(static_cast<$TemporalField*(WeekFields::*)()>(&WeekFields::weekBasedYear))},
-	{"weekOfMonth", "()Ljava/time/temporal/TemporalField;", nullptr, $PUBLIC, $method(static_cast<$TemporalField*(WeekFields::*)()>(&WeekFields::weekOfMonth))},
-	{"weekOfWeekBasedYear", "()Ljava/time/temporal/TemporalField;", nullptr, $PUBLIC, $method(static_cast<$TemporalField*(WeekFields::*)()>(&WeekFields::weekOfWeekBasedYear))},
-	{"weekOfYear", "()Ljava/time/temporal/TemporalField;", nullptr, $PUBLIC, $method(static_cast<$TemporalField*(WeekFields::*)()>(&WeekFields::weekOfYear))},
+	{"<init>", "(Ljava/time/DayOfWeek;I)V", nullptr, $PRIVATE, $method(WeekFields, init$, void, $DayOfWeek*, int32_t)},
+	{"dayOfWeek", "()Ljava/time/temporal/TemporalField;", nullptr, $PUBLIC, $method(WeekFields, dayOfWeek, $TemporalField*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(WeekFields, equals, bool, Object$*)},
+	{"getFirstDayOfWeek", "()Ljava/time/DayOfWeek;", nullptr, $PUBLIC, $method(WeekFields, getFirstDayOfWeek, $DayOfWeek*)},
+	{"getMinimalDaysInFirstWeek", "()I", nullptr, $PUBLIC, $method(WeekFields, getMinimalDaysInFirstWeek, int32_t)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(WeekFields, hashCode, int32_t)},
+	{"of", "(Ljava/util/Locale;)Ljava/time/temporal/WeekFields;", nullptr, $PUBLIC | $STATIC, $staticMethod(WeekFields, of, WeekFields*, $Locale*)},
+	{"of", "(Ljava/time/DayOfWeek;I)Ljava/time/temporal/WeekFields;", nullptr, $PUBLIC | $STATIC, $staticMethod(WeekFields, of, WeekFields*, $DayOfWeek*, int32_t)},
+	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(WeekFields, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException,java.io.InvalidObjectException"},
+	{"readResolve", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(WeekFields, readResolve, $Object*), "java.io.InvalidObjectException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(WeekFields, toString, $String*)},
+	{"weekBasedYear", "()Ljava/time/temporal/TemporalField;", nullptr, $PUBLIC, $method(WeekFields, weekBasedYear, $TemporalField*)},
+	{"weekOfMonth", "()Ljava/time/temporal/TemporalField;", nullptr, $PUBLIC, $method(WeekFields, weekOfMonth, $TemporalField*)},
+	{"weekOfWeekBasedYear", "()Ljava/time/temporal/TemporalField;", nullptr, $PUBLIC, $method(WeekFields, weekOfWeekBasedYear, $TemporalField*)},
+	{"weekOfYear", "()Ljava/time/temporal/TemporalField;", nullptr, $PUBLIC, $method(WeekFields, weekOfYear, $TemporalField*)},
 	{}
 };
 

@@ -16,8 +16,8 @@ namespace java {
 		namespace reflect {
 
 $MethodInfo _Proxy$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Proxy$1::*)()>(&Proxy$1::init$))},
-	{"computeValue", "(Ljava/lang/Class;)Ljava/util/concurrent/ConcurrentHashMap;", "(Ljava/lang/Class<*>;)Ljava/util/concurrent/ConcurrentHashMap<Ljava/lang/reflect/Method;Ljava/lang/invoke/MethodHandle;>;", $PROTECTED},
+	{"<init>", "()V", nullptr, 0, $method(Proxy$1, init$, void)},
+	{"computeValue", "(Ljava/lang/Class;)Ljava/util/concurrent/ConcurrentHashMap;", "(Ljava/lang/Class<*>;)Ljava/util/concurrent/ConcurrentHashMap<Ljava/lang/reflect/Method;Ljava/lang/invoke/MethodHandle;>;", $PROTECTED, $virtualMethod(Proxy$1, computeValue, $Object*, $Class*)},
 	{}
 };
 

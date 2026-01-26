@@ -41,17 +41,17 @@ $FieldInfo _ParseDouble_FieldInfo_[] = {
 };
 
 $MethodInfo _ParseDouble_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ParseDouble::*)()>(&ParseDouble::init$))},
-	{"check", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($String*)>(&ParseDouble::check))},
-	{"check", "(Ljava/lang/String;D)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($String*,double)>(&ParseDouble::check))},
-	{"fail", "(Ljava/lang/String;D)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($String*,double)>(&ParseDouble::fail))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&ParseDouble::main)), "java.lang.Exception"},
-	{"rudimentaryTest", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&ParseDouble::rudimentaryTest))},
-	{"testParsing", "([Ljava/lang/String;Z)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($StringArray*,bool)>(&ParseDouble::testParsing))},
-	{"testPowers", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&ParseDouble::testPowers))},
-	{"testRegex", "([Ljava/lang/String;Z)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($StringArray*,bool)>(&ParseDouble::testRegex))},
-	{"testStrictness", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&ParseDouble::testStrictness))},
-	{"testSubnormalPowers", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&ParseDouble::testSubnormalPowers))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ParseDouble, init$, void)},
+	{"check", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ParseDouble, check, void, $String*)},
+	{"check", "(Ljava/lang/String;D)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ParseDouble, check, void, $String*, double)},
+	{"fail", "(Ljava/lang/String;D)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ParseDouble, fail, void, $String*, double)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ParseDouble, main, void, $StringArray*), "java.lang.Exception"},
+	{"rudimentaryTest", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(ParseDouble, rudimentaryTest, void)},
+	{"testParsing", "([Ljava/lang/String;Z)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ParseDouble, testParsing, void, $StringArray*, bool)},
+	{"testPowers", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(ParseDouble, testPowers, void)},
+	{"testRegex", "([Ljava/lang/String;Z)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ParseDouble, testRegex, void, $StringArray*, bool)},
+	{"testStrictness", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(ParseDouble, testStrictness, void)},
+	{"testSubnormalPowers", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(ParseDouble, testSubnormalPowers, void)},
 	{}
 };
 

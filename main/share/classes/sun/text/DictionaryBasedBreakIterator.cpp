@@ -36,17 +36,17 @@ $FieldInfo _DictionaryBasedBreakIterator_FieldInfo_[] = {
 };
 
 $MethodInfo _DictionaryBasedBreakIterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;[BLjava/lang/String;[B)V", nullptr, $PUBLIC, $method(static_cast<void(DictionaryBasedBreakIterator::*)($String*,$bytes*,$String*,$bytes*)>(&DictionaryBasedBreakIterator::init$))},
-	{"divideUpDictionaryRange", "(II)V", nullptr, $PRIVATE, $method(static_cast<void(DictionaryBasedBreakIterator::*)(int32_t,int32_t)>(&DictionaryBasedBreakIterator::divideUpDictionaryRange))},
-	{"first", "()I", nullptr, $PUBLIC},
-	{"following", "(I)I", nullptr, $PUBLIC},
-	{"handleNext", "()I", nullptr, $PROTECTED},
-	{"last", "()I", nullptr, $PUBLIC},
-	{"lookupCategory", "(I)I", nullptr, $PROTECTED},
-	{"preceding", "(I)I", nullptr, $PUBLIC},
-	{"prepareCategoryFlags", "([B)V", nullptr, $PRIVATE, $method(static_cast<void(DictionaryBasedBreakIterator::*)($bytes*)>(&DictionaryBasedBreakIterator::prepareCategoryFlags))},
-	{"previous", "()I", nullptr, $PUBLIC},
-	{"setText", "(Ljava/text/CharacterIterator;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;[BLjava/lang/String;[B)V", nullptr, $PUBLIC, $method(DictionaryBasedBreakIterator, init$, void, $String*, $bytes*, $String*, $bytes*)},
+	{"divideUpDictionaryRange", "(II)V", nullptr, $PRIVATE, $method(DictionaryBasedBreakIterator, divideUpDictionaryRange, void, int32_t, int32_t)},
+	{"first", "()I", nullptr, $PUBLIC, $virtualMethod(DictionaryBasedBreakIterator, first, int32_t)},
+	{"following", "(I)I", nullptr, $PUBLIC, $virtualMethod(DictionaryBasedBreakIterator, following, int32_t, int32_t)},
+	{"handleNext", "()I", nullptr, $PROTECTED, $virtualMethod(DictionaryBasedBreakIterator, handleNext, int32_t)},
+	{"last", "()I", nullptr, $PUBLIC, $virtualMethod(DictionaryBasedBreakIterator, last, int32_t)},
+	{"lookupCategory", "(I)I", nullptr, $PROTECTED, $virtualMethod(DictionaryBasedBreakIterator, lookupCategory, int32_t, int32_t)},
+	{"preceding", "(I)I", nullptr, $PUBLIC, $virtualMethod(DictionaryBasedBreakIterator, preceding, int32_t, int32_t)},
+	{"prepareCategoryFlags", "([B)V", nullptr, $PRIVATE, $method(DictionaryBasedBreakIterator, prepareCategoryFlags, void, $bytes*)},
+	{"previous", "()I", nullptr, $PUBLIC, $virtualMethod(DictionaryBasedBreakIterator, previous, int32_t)},
+	{"setText", "(Ljava/text/CharacterIterator;)V", nullptr, $PUBLIC, $virtualMethod(DictionaryBasedBreakIterator, setText, void, $CharacterIterator*)},
 	{}
 };
 

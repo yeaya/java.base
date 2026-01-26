@@ -30,10 +30,10 @@ $FieldInfo _LoggerFinderLoader$ErrorPolicy_FieldInfo_[] = {
 };
 
 $MethodInfo _LoggerFinderLoader$ErrorPolicy_MethodInfo_[] = {
-	{"$values", "()[Ljdk/internal/logger/LoggerFinderLoader$ErrorPolicy;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$LoggerFinderLoader$ErrorPolicyArray*(*)()>(&LoggerFinderLoader$ErrorPolicy::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(LoggerFinderLoader$ErrorPolicy::*)($String*,int32_t)>(&LoggerFinderLoader$ErrorPolicy::init$))},
-	{"valueOf", "(Ljava/lang/String;)Ljdk/internal/logger/LoggerFinderLoader$ErrorPolicy;", nullptr, $PUBLIC | $STATIC, $method(static_cast<LoggerFinderLoader$ErrorPolicy*(*)($String*)>(&LoggerFinderLoader$ErrorPolicy::valueOf))},
-	{"values", "()[Ljdk/internal/logger/LoggerFinderLoader$ErrorPolicy;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$LoggerFinderLoader$ErrorPolicyArray*(*)()>(&LoggerFinderLoader$ErrorPolicy::values))},
+	{"$values", "()[Ljdk/internal/logger/LoggerFinderLoader$ErrorPolicy;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LoggerFinderLoader$ErrorPolicy, $values, $LoggerFinderLoader$ErrorPolicyArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(LoggerFinderLoader$ErrorPolicy, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Ljdk/internal/logger/LoggerFinderLoader$ErrorPolicy;", nullptr, $PUBLIC | $STATIC, $staticMethod(LoggerFinderLoader$ErrorPolicy, valueOf, LoggerFinderLoader$ErrorPolicy*, $String*)},
+	{"values", "()[Ljdk/internal/logger/LoggerFinderLoader$ErrorPolicy;", nullptr, $PUBLIC | $STATIC, $staticMethod(LoggerFinderLoader$ErrorPolicy, values, $LoggerFinderLoader$ErrorPolicyArray*)},
 	{}
 };
 

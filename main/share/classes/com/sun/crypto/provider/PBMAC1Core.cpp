@@ -65,9 +65,9 @@ $FieldInfo _PBMAC1Core_FieldInfo_[] = {
 };
 
 $MethodInfo _PBMAC1Core_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;I)V", nullptr, 0, $method(static_cast<void(PBMAC1Core::*)($String*,$String*,int32_t)>(&PBMAC1Core::init$)), "java.security.NoSuchAlgorithmException"},
-	{"engineInit", "(Ljava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PROTECTED, nullptr, "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
-	{"getKDFImpl", "(Ljava/lang/String;)Lcom/sun/crypto/provider/PBKDF2Core;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$PBKDF2Core*(*)($String*)>(&PBMAC1Core::getKDFImpl))},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;I)V", nullptr, 0, $method(PBMAC1Core, init$, void, $String*, $String*, int32_t), "java.security.NoSuchAlgorithmException"},
+	{"engineInit", "(Ljava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PROTECTED, $virtualMethod(PBMAC1Core, engineInit, void, $Key*, $AlgorithmParameterSpec*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
+	{"getKDFImpl", "(Ljava/lang/String;)Lcom/sun/crypto/provider/PBKDF2Core;", nullptr, $PRIVATE | $STATIC, $staticMethod(PBMAC1Core, getKDFImpl, $PBKDF2Core*, $String*)},
 	{}
 };
 

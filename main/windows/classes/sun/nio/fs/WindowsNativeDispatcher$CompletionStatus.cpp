@@ -20,10 +20,10 @@ $FieldInfo _WindowsNativeDispatcher$CompletionStatus_FieldInfo_[] = {
 };
 
 $MethodInfo _WindowsNativeDispatcher$CompletionStatus_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(WindowsNativeDispatcher$CompletionStatus::*)()>(&WindowsNativeDispatcher$CompletionStatus::init$))},
-	{"bytesTransferred", "()I", nullptr, 0},
-	{"completionKey", "()J", nullptr, 0},
-	{"error", "()I", nullptr, 0},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(WindowsNativeDispatcher$CompletionStatus, init$, void)},
+	{"bytesTransferred", "()I", nullptr, 0, $virtualMethod(WindowsNativeDispatcher$CompletionStatus, bytesTransferred, int32_t)},
+	{"completionKey", "()J", nullptr, 0, $virtualMethod(WindowsNativeDispatcher$CompletionStatus, completionKey, int64_t)},
+	{"error", "()I", nullptr, 0, $virtualMethod(WindowsNativeDispatcher$CompletionStatus, error, int32_t)},
 	{}
 };
 

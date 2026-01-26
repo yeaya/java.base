@@ -103,15 +103,15 @@ $MethodInfo _SSLKeyExchange_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/util/List;Lsun/security/ssl/SSLKeyAgreement;)V", "(Ljava/util/List<Lsun/security/ssl/X509Authentication;>;Lsun/security/ssl/SSLKeyAgreement;)V", 0, $method(static_cast<void(SSLKeyExchange::*)($List*,$SSLKeyAgreement*)>(&SSLKeyExchange::init$))},
-	{"createKeyDerivation", "(Lsun/security/ssl/HandshakeContext;)Lsun/security/ssl/SSLKeyDerivation;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"createPossessions", "(Lsun/security/ssl/HandshakeContext;)[Lsun/security/ssl/SSLPossession;", nullptr, 0, $method(static_cast<$SSLPossessionArray*(SSLKeyExchange::*)($HandshakeContext*)>(&SSLKeyExchange::createPossessions))},
-	{"getHandshakeConsumers", "(Lsun/security/ssl/HandshakeContext;)[Ljava/util/Map$Entry;", "(Lsun/security/ssl/HandshakeContext;)[Ljava/util/Map$Entry<Ljava/lang/Byte;Lsun/security/ssl/SSLConsumer;>;", $PUBLIC},
-	{"getHandshakeProducers", "(Lsun/security/ssl/HandshakeContext;)[Ljava/util/Map$Entry;", "(Lsun/security/ssl/HandshakeContext;)[Ljava/util/Map$Entry<Ljava/lang/Byte;Lsun/security/ssl/HandshakeProducer;>;", $PUBLIC},
-	{"getRelatedHandshakers", "(Lsun/security/ssl/HandshakeContext;)[Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/List;Lsun/security/ssl/SSLKeyAgreement;)V", "(Ljava/util/List<Lsun/security/ssl/X509Authentication;>;Lsun/security/ssl/SSLKeyAgreement;)V", 0, $method(SSLKeyExchange, init$, void, $List*, $SSLKeyAgreement*)},
+	{"createKeyDerivation", "(Lsun/security/ssl/HandshakeContext;)Lsun/security/ssl/SSLKeyDerivation;", nullptr, $PUBLIC, $virtualMethod(SSLKeyExchange, createKeyDerivation, $SSLKeyDerivation*, $HandshakeContext*), "java.io.IOException"},
+	{"createPossessions", "(Lsun/security/ssl/HandshakeContext;)[Lsun/security/ssl/SSLPossession;", nullptr, 0, $method(SSLKeyExchange, createPossessions, $SSLPossessionArray*, $HandshakeContext*)},
+	{"getHandshakeConsumers", "(Lsun/security/ssl/HandshakeContext;)[Ljava/util/Map$Entry;", "(Lsun/security/ssl/HandshakeContext;)[Ljava/util/Map$Entry<Ljava/lang/Byte;Lsun/security/ssl/SSLConsumer;>;", $PUBLIC, $virtualMethod(SSLKeyExchange, getHandshakeConsumers, $Map$EntryArray*, $HandshakeContext*)},
+	{"getHandshakeProducers", "(Lsun/security/ssl/HandshakeContext;)[Ljava/util/Map$Entry;", "(Lsun/security/ssl/HandshakeContext;)[Ljava/util/Map$Entry<Ljava/lang/Byte;Lsun/security/ssl/HandshakeProducer;>;", $PUBLIC, $virtualMethod(SSLKeyExchange, getHandshakeProducers, $Map$EntryArray*, $HandshakeContext*)},
+	{"getRelatedHandshakers", "(Lsun/security/ssl/HandshakeContext;)[Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC, $virtualMethod(SSLKeyExchange, getRelatedHandshakers, $SSLHandshakeArray*, $HandshakeContext*)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"valueOf", "(Lsun/security/ssl/CipherSuite$KeyExchange;Lsun/security/ssl/ProtocolVersion;)Lsun/security/ssl/SSLKeyExchange;", nullptr, $STATIC, $method(static_cast<SSLKeyExchange*(*)($CipherSuite$KeyExchange*,$ProtocolVersion*)>(&SSLKeyExchange::valueOf))},
-	{"valueOf", "(Lsun/security/ssl/NamedGroup;)Lsun/security/ssl/SSLKeyExchange;", nullptr, $STATIC, $method(static_cast<SSLKeyExchange*(*)($NamedGroup*)>(&SSLKeyExchange::valueOf))},
+	{"valueOf", "(Lsun/security/ssl/CipherSuite$KeyExchange;Lsun/security/ssl/ProtocolVersion;)Lsun/security/ssl/SSLKeyExchange;", nullptr, $STATIC, $staticMethod(SSLKeyExchange, valueOf, SSLKeyExchange*, $CipherSuite$KeyExchange*, $ProtocolVersion*)},
+	{"valueOf", "(Lsun/security/ssl/NamedGroup;)Lsun/security/ssl/SSLKeyExchange;", nullptr, $STATIC, $staticMethod(SSLKeyExchange, valueOf, SSLKeyExchange*, $NamedGroup*)},
 	{}
 };
 

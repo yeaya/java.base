@@ -400,7 +400,8 @@ public:
 	static void loadClass(String* name, bool initialize, Class** pClass, int64_t size, int32_t mark, ClassInfo* classInfo, $InitClassFunction initClassFunction, $AllocateInstanceFunction allocateInstanceFunction);
 	static void loadClass(String* name, bool initialize, Class** pClass, int64_t size, int32_t mark, ClassInfo* classInfo, $InitClassFunction initClassFunction);
 	static void loadClass(String* name, bool initialize, Class** pClass, int64_t size, int32_t mark, ClassInfo* classInfo, $AllocateInstanceFunction allocateInstanceFunction);
-	static void loadClass(Class** pClass, int64_t arrayBaseSize, int32_t mark, ClassInfo* classInfo);
+	static void loadClass(String* name, bool initialize, Class** pClass, int64_t size, int32_t mark, ClassInfo* classInfo);
+	static void loadClass(String* name, bool initialize, Class** pClass, int64_t size, int32_t mark);
 	static void registerClass(Class* clazz, const char* name);
 	static void registerClass(Class* clazz, const char* name, const char* simpleBinaryName);
 	static void ensureBaseClassInitialized(Class* clazz);
@@ -441,6 +442,7 @@ public:
 	bool primitive = false;
 	bool hidden = false;
 	bool constantPoolInited = false;
+	bool byteCodeClass = false;
 	int32_t arrayIndexScale = 0;
 	int32_t arrayIndexScaleShift = 0;
 	int32_t size = 0;

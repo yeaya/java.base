@@ -3,6 +3,7 @@
 #include <java/io/FileDescriptor.h>
 #include <jcpp.h>
 
+using $FileDescriptor = ::java::io::FileDescriptor;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
@@ -12,10 +13,10 @@ namespace jdk {
 			namespace foreign {
 
 $MethodInfo _UnmapperProxy_MethodInfo_[] = {
-	{"address", "()J", nullptr, $PUBLIC | $ABSTRACT},
-	{"fileDescriptor", "()Ljava/io/FileDescriptor;", nullptr, $PUBLIC | $ABSTRACT},
-	{"isSync", "()Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"unmap", "()V", nullptr, $PUBLIC | $ABSTRACT},
+	{"address", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(UnmapperProxy, address, int64_t)},
+	{"fileDescriptor", "()Ljava/io/FileDescriptor;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(UnmapperProxy, fileDescriptor, $FileDescriptor*)},
+	{"isSync", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(UnmapperProxy, isSync, bool)},
+	{"unmap", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(UnmapperProxy, unmap, void)},
 	{}
 };
 

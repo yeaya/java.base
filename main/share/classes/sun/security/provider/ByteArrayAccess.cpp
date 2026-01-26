@@ -20,18 +20,18 @@ namespace sun {
 		namespace provider {
 
 $MethodInfo _ByteArrayAccess_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(ByteArrayAccess::*)()>(&ByteArrayAccess::init$))},
-	{"b2iBig", "([BI[III)V", nullptr, $STATIC, $method(static_cast<void(*)($bytes*,int32_t,$ints*,int32_t,int32_t)>(&ByteArrayAccess::b2iBig))},
-	{"b2iBig64", "([BI[I)V", nullptr, $STATIC, $method(static_cast<void(*)($bytes*,int32_t,$ints*)>(&ByteArrayAccess::b2iBig64))},
-	{"b2lBig", "([BI[JII)V", nullptr, $STATIC, $method(static_cast<void(*)($bytes*,int32_t,$longs*,int32_t,int32_t)>(&ByteArrayAccess::b2lBig))},
-	{"b2lBig128", "([BI[J)V", nullptr, $STATIC, $method(static_cast<void(*)($bytes*,int32_t,$longs*)>(&ByteArrayAccess::b2lBig128))},
-	{"b2lLittle", "([BI[JII)V", nullptr, $STATIC, $method(static_cast<void(*)($bytes*,int32_t,$longs*,int32_t,int32_t)>(&ByteArrayAccess::b2lLittle))},
-	{"i2bBig", "([II[BII)V", nullptr, $STATIC, $method(static_cast<void(*)($ints*,int32_t,$bytes*,int32_t,int32_t)>(&ByteArrayAccess::i2bBig))},
-	{"i2bBig4", "(I[BI)V", nullptr, $STATIC, $method(static_cast<void(*)(int32_t,$bytes*,int32_t)>(&ByteArrayAccess::i2bBig4))},
-	{"i2bLittle", "([II[BII)V", nullptr, $STATIC, $method(static_cast<void(*)($ints*,int32_t,$bytes*,int32_t,int32_t)>(&ByteArrayAccess::i2bLittle))},
-	{"i2bLittle4", "(I[BI)V", nullptr, $STATIC, $method(static_cast<void(*)(int32_t,$bytes*,int32_t)>(&ByteArrayAccess::i2bLittle4))},
-	{"l2bBig", "([JI[BII)V", nullptr, $STATIC, $method(static_cast<void(*)($longs*,int32_t,$bytes*,int32_t,int32_t)>(&ByteArrayAccess::l2bBig))},
-	{"l2bLittle", "([JI[BII)V", nullptr, $STATIC, $method(static_cast<void(*)($longs*,int32_t,$bytes*,int32_t,int32_t)>(&ByteArrayAccess::l2bLittle))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(ByteArrayAccess, init$, void)},
+	{"b2iBig", "([BI[III)V", nullptr, $STATIC, $staticMethod(ByteArrayAccess, b2iBig, void, $bytes*, int32_t, $ints*, int32_t, int32_t)},
+	{"b2iBig64", "([BI[I)V", nullptr, $STATIC, $staticMethod(ByteArrayAccess, b2iBig64, void, $bytes*, int32_t, $ints*)},
+	{"b2lBig", "([BI[JII)V", nullptr, $STATIC, $staticMethod(ByteArrayAccess, b2lBig, void, $bytes*, int32_t, $longs*, int32_t, int32_t)},
+	{"b2lBig128", "([BI[J)V", nullptr, $STATIC, $staticMethod(ByteArrayAccess, b2lBig128, void, $bytes*, int32_t, $longs*)},
+	{"b2lLittle", "([BI[JII)V", nullptr, $STATIC, $staticMethod(ByteArrayAccess, b2lLittle, void, $bytes*, int32_t, $longs*, int32_t, int32_t)},
+	{"i2bBig", "([II[BII)V", nullptr, $STATIC, $staticMethod(ByteArrayAccess, i2bBig, void, $ints*, int32_t, $bytes*, int32_t, int32_t)},
+	{"i2bBig4", "(I[BI)V", nullptr, $STATIC, $staticMethod(ByteArrayAccess, i2bBig4, void, int32_t, $bytes*, int32_t)},
+	{"i2bLittle", "([II[BII)V", nullptr, $STATIC, $staticMethod(ByteArrayAccess, i2bLittle, void, $ints*, int32_t, $bytes*, int32_t, int32_t)},
+	{"i2bLittle4", "(I[BI)V", nullptr, $STATIC, $staticMethod(ByteArrayAccess, i2bLittle4, void, int32_t, $bytes*, int32_t)},
+	{"l2bBig", "([JI[BII)V", nullptr, $STATIC, $staticMethod(ByteArrayAccess, l2bBig, void, $longs*, int32_t, $bytes*, int32_t, int32_t)},
+	{"l2bLittle", "([JI[BII)V", nullptr, $STATIC, $staticMethod(ByteArrayAccess, l2bLittle, void, $longs*, int32_t, $bytes*, int32_t, int32_t)},
 	{}
 };
 

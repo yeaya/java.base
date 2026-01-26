@@ -62,22 +62,22 @@ $FieldInfo _ChronoUnit_FieldInfo_[] = {
 };
 
 $MethodInfo _ChronoUnit_MethodInfo_[] = {
-	{"$values", "()[Ljava/time/temporal/ChronoUnit;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$ChronoUnitArray*(*)()>(&ChronoUnit::$values))},
+	{"$values", "()[Ljava/time/temporal/ChronoUnit;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ChronoUnit, $values, $ChronoUnitArray*)},
 	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
 	{"*finalize", "()V", nullptr, $PROTECTED | $FINAL},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;Ljava/time/Duration;)V", "(Ljava/lang/String;Ljava/time/Duration;)V", $PRIVATE, $method(static_cast<void(ChronoUnit::*)($String*,int32_t,$String*,$Duration*)>(&ChronoUnit::init$))},
-	{"addTo", "(Ljava/time/temporal/Temporal;J)Ljava/time/temporal/Temporal;", "<R::Ljava/time/temporal/Temporal;>(TR;J)TR;", $PUBLIC},
-	{"between", "(Ljava/time/temporal/Temporal;Ljava/time/temporal/Temporal;)J", nullptr, $PUBLIC},
-	{"getDuration", "()Ljava/time/Duration;", nullptr, $PUBLIC},
-	{"isDateBased", "()Z", nullptr, $PUBLIC},
-	{"isDurationEstimated", "()Z", nullptr, $PUBLIC},
-	{"isSupportedBy", "(Ljava/time/temporal/Temporal;)Z", nullptr, $PUBLIC},
-	{"isTimeBased", "()Z", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"valueOf", "(Ljava/lang/String;)Ljava/time/temporal/ChronoUnit;", nullptr, $PUBLIC | $STATIC, $method(static_cast<ChronoUnit*(*)($String*)>(&ChronoUnit::valueOf))},
-	{"values", "()[Ljava/time/temporal/ChronoUnit;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$ChronoUnitArray*(*)()>(&ChronoUnit::values))},
+	{"<init>", "(Ljava/lang/String;ILjava/lang/String;Ljava/time/Duration;)V", "(Ljava/lang/String;Ljava/time/Duration;)V", $PRIVATE, $method(ChronoUnit, init$, void, $String*, int32_t, $String*, $Duration*)},
+	{"addTo", "(Ljava/time/temporal/Temporal;J)Ljava/time/temporal/Temporal;", "<R::Ljava/time/temporal/Temporal;>(TR;J)TR;", $PUBLIC, $virtualMethod(ChronoUnit, addTo, $Temporal*, $Temporal*, int64_t)},
+	{"between", "(Ljava/time/temporal/Temporal;Ljava/time/temporal/Temporal;)J", nullptr, $PUBLIC, $virtualMethod(ChronoUnit, between, int64_t, $Temporal*, $Temporal*)},
+	{"getDuration", "()Ljava/time/Duration;", nullptr, $PUBLIC, $virtualMethod(ChronoUnit, getDuration, $Duration*)},
+	{"isDateBased", "()Z", nullptr, $PUBLIC, $virtualMethod(ChronoUnit, isDateBased, bool)},
+	{"isDurationEstimated", "()Z", nullptr, $PUBLIC, $virtualMethod(ChronoUnit, isDurationEstimated, bool)},
+	{"isSupportedBy", "(Ljava/time/temporal/Temporal;)Z", nullptr, $PUBLIC, $virtualMethod(ChronoUnit, isSupportedBy, bool, $Temporal*)},
+	{"isTimeBased", "()Z", nullptr, $PUBLIC, $virtualMethod(ChronoUnit, isTimeBased, bool)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ChronoUnit, toString, $String*)},
+	{"valueOf", "(Ljava/lang/String;)Ljava/time/temporal/ChronoUnit;", nullptr, $PUBLIC | $STATIC, $staticMethod(ChronoUnit, valueOf, ChronoUnit*, $String*)},
+	{"values", "()[Ljava/time/temporal/ChronoUnit;", nullptr, $PUBLIC | $STATIC, $staticMethod(ChronoUnit, values, $ChronoUnitArray*)},
 	{}
 };
 

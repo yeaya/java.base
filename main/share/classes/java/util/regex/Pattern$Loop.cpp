@@ -33,10 +33,10 @@ $FieldInfo _Pattern$Loop_FieldInfo_[] = {
 };
 
 $MethodInfo _Pattern$Loop_MethodInfo_[] = {
-	{"<init>", "(II)V", nullptr, 0, $method(static_cast<void(Pattern$Loop::*)(int32_t,int32_t)>(&Pattern$Loop::init$))},
-	{"match", "(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z", nullptr, 0},
-	{"matchInit", "(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z", nullptr, 0},
-	{"study", "(Ljava/util/regex/Pattern$TreeInfo;)Z", nullptr, 0},
+	{"<init>", "(II)V", nullptr, 0, $method(Pattern$Loop, init$, void, int32_t, int32_t)},
+	{"match", "(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z", nullptr, 0, $virtualMethod(Pattern$Loop, match, bool, $Matcher*, int32_t, $CharSequence*)},
+	{"matchInit", "(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z", nullptr, 0, $virtualMethod(Pattern$Loop, matchInit, bool, $Matcher*, int32_t, $CharSequence*)},
+	{"study", "(Ljava/util/regex/Pattern$TreeInfo;)Z", nullptr, 0, $virtualMethod(Pattern$Loop, study, bool, $Pattern$TreeInfo*)},
 	{}
 };
 

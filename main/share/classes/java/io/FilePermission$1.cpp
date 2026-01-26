@@ -15,9 +15,9 @@ namespace java {
 	namespace io {
 
 $MethodInfo _FilePermission$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(FilePermission$1::*)()>(&FilePermission$1::init$))},
-	{"newPermPlusAltPath", "(Ljava/io/FilePermission;)Ljava/io/FilePermission;", nullptr, $PUBLIC},
-	{"newPermUsingAltPath", "(Ljava/io/FilePermission;)Ljava/io/FilePermission;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(FilePermission$1, init$, void)},
+	{"newPermPlusAltPath", "(Ljava/io/FilePermission;)Ljava/io/FilePermission;", nullptr, $PUBLIC, $virtualMethod(FilePermission$1, newPermPlusAltPath, $FilePermission*, $FilePermission*)},
+	{"newPermUsingAltPath", "(Ljava/io/FilePermission;)Ljava/io/FilePermission;", nullptr, $PUBLIC, $virtualMethod(FilePermission$1, newPermUsingAltPath, $FilePermission*, $FilePermission*)},
 	{}
 };
 

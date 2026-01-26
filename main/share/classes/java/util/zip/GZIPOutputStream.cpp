@@ -34,16 +34,16 @@ $FieldInfo _GZIPOutputStream_FieldInfo_[] = {
 };
 
 $MethodInfo _GZIPOutputStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/OutputStream;I)V", nullptr, $PUBLIC, $method(static_cast<void(GZIPOutputStream::*)($OutputStream*,int32_t)>(&GZIPOutputStream::init$)), "java.io.IOException"},
-	{"<init>", "(Ljava/io/OutputStream;IZ)V", nullptr, $PUBLIC, $method(static_cast<void(GZIPOutputStream::*)($OutputStream*,int32_t,bool)>(&GZIPOutputStream::init$)), "java.io.IOException"},
-	{"<init>", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $method(static_cast<void(GZIPOutputStream::*)($OutputStream*)>(&GZIPOutputStream::init$)), "java.io.IOException"},
-	{"<init>", "(Ljava/io/OutputStream;Z)V", nullptr, $PUBLIC, $method(static_cast<void(GZIPOutputStream::*)($OutputStream*,bool)>(&GZIPOutputStream::init$)), "java.io.IOException"},
-	{"finish", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"write", "([BII)V", nullptr, $PUBLIC | $SYNCHRONIZED, nullptr, "java.io.IOException"},
-	{"writeHeader", "()V", nullptr, $PRIVATE, $method(static_cast<void(GZIPOutputStream::*)()>(&GZIPOutputStream::writeHeader)), "java.io.IOException"},
-	{"writeInt", "(I[BI)V", nullptr, $PRIVATE, $method(static_cast<void(GZIPOutputStream::*)(int32_t,$bytes*,int32_t)>(&GZIPOutputStream::writeInt)), "java.io.IOException"},
-	{"writeShort", "(I[BI)V", nullptr, $PRIVATE, $method(static_cast<void(GZIPOutputStream::*)(int32_t,$bytes*,int32_t)>(&GZIPOutputStream::writeShort)), "java.io.IOException"},
-	{"writeTrailer", "([BI)V", nullptr, $PRIVATE, $method(static_cast<void(GZIPOutputStream::*)($bytes*,int32_t)>(&GZIPOutputStream::writeTrailer)), "java.io.IOException"},
+	{"<init>", "(Ljava/io/OutputStream;I)V", nullptr, $PUBLIC, $method(GZIPOutputStream, init$, void, $OutputStream*, int32_t), "java.io.IOException"},
+	{"<init>", "(Ljava/io/OutputStream;IZ)V", nullptr, $PUBLIC, $method(GZIPOutputStream, init$, void, $OutputStream*, int32_t, bool), "java.io.IOException"},
+	{"<init>", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $method(GZIPOutputStream, init$, void, $OutputStream*), "java.io.IOException"},
+	{"<init>", "(Ljava/io/OutputStream;Z)V", nullptr, $PUBLIC, $method(GZIPOutputStream, init$, void, $OutputStream*, bool), "java.io.IOException"},
+	{"finish", "()V", nullptr, $PUBLIC, $virtualMethod(GZIPOutputStream, finish, void), "java.io.IOException"},
+	{"write", "([BII)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(GZIPOutputStream, write, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
+	{"writeHeader", "()V", nullptr, $PRIVATE, $method(GZIPOutputStream, writeHeader, void), "java.io.IOException"},
+	{"writeInt", "(I[BI)V", nullptr, $PRIVATE, $method(GZIPOutputStream, writeInt, void, int32_t, $bytes*, int32_t), "java.io.IOException"},
+	{"writeShort", "(I[BI)V", nullptr, $PRIVATE, $method(GZIPOutputStream, writeShort, void, int32_t, $bytes*, int32_t), "java.io.IOException"},
+	{"writeTrailer", "([BI)V", nullptr, $PRIVATE, $method(GZIPOutputStream, writeTrailer, void, $bytes*, int32_t), "java.io.IOException"},
 	{}
 };
 

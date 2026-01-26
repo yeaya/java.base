@@ -38,15 +38,15 @@ $FieldInfo _ZipFile$ZipFileInputStream_FieldInfo_[] = {
 };
 
 $MethodInfo _ZipFile$ZipFileInputStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/zip/ZipFile;[BI)V", nullptr, 0, $method(static_cast<void(ZipFile$ZipFileInputStream::*)($ZipFile*,$bytes*,int32_t)>(&ZipFile$ZipFileInputStream::init$))},
-	{"available", "()I", nullptr, $PUBLIC},
-	{"checkZIP64", "([BI)V", nullptr, $PRIVATE, $method(static_cast<void(ZipFile$ZipFileInputStream::*)($bytes*,int32_t)>(&ZipFile$ZipFileInputStream::checkZIP64))},
-	{"close", "()V", nullptr, $PUBLIC},
-	{"initDataOffset", "()J", nullptr, $PRIVATE, $method(static_cast<int64_t(ZipFile$ZipFileInputStream::*)()>(&ZipFile$ZipFileInputStream::initDataOffset)), "java.io.IOException"},
-	{"read", "([BII)I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"read", "()I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"size", "()J", nullptr, $PUBLIC},
-	{"skip", "(J)J", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljava/util/zip/ZipFile;[BI)V", nullptr, 0, $method(ZipFile$ZipFileInputStream, init$, void, $ZipFile*, $bytes*, int32_t)},
+	{"available", "()I", nullptr, $PUBLIC, $virtualMethod(ZipFile$ZipFileInputStream, available, int32_t)},
+	{"checkZIP64", "([BI)V", nullptr, $PRIVATE, $method(ZipFile$ZipFileInputStream, checkZIP64, void, $bytes*, int32_t)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(ZipFile$ZipFileInputStream, close, void)},
+	{"initDataOffset", "()J", nullptr, $PRIVATE, $method(ZipFile$ZipFileInputStream, initDataOffset, int64_t), "java.io.IOException"},
+	{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(ZipFile$ZipFileInputStream, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
+	{"read", "()I", nullptr, $PUBLIC, $virtualMethod(ZipFile$ZipFileInputStream, read, int32_t), "java.io.IOException"},
+	{"size", "()J", nullptr, $PUBLIC, $virtualMethod(ZipFile$ZipFileInputStream, size, int64_t)},
+	{"skip", "(J)J", nullptr, $PUBLIC, $virtualMethod(ZipFile$ZipFileInputStream, skip, int64_t, int64_t), "java.io.IOException"},
 	{}
 };
 

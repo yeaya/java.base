@@ -22,12 +22,12 @@ $FieldInfo _UriImportExport_FieldInfo_[] = {
 };
 
 $MethodInfo _UriImportExport_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(UriImportExport::*)()>(&UriImportExport::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&UriImportExport::main)), "java.lang.Exception"},
-	{"testBadUri", "(Ljava/lang/String;)V", nullptr, $STATIC, $method(static_cast<void(*)($String*)>(&UriImportExport::testBadUri)), "java.lang.Exception"},
-	{"testPath", "(Ljava/lang/String;)V", nullptr, $STATIC, $method(static_cast<void(*)($String*)>(&UriImportExport::testPath))},
-	{"testPath", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $STATIC, $method(static_cast<void(*)($String*,$String*)>(&UriImportExport::testPath))},
-	{"testUri", "(Ljava/lang/String;)V", nullptr, $STATIC, $method(static_cast<void(*)($String*)>(&UriImportExport::testUri)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(UriImportExport, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(UriImportExport, main, void, $StringArray*), "java.lang.Exception"},
+	{"testBadUri", "(Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(UriImportExport, testBadUri, void, $String*), "java.lang.Exception"},
+	{"testPath", "(Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(UriImportExport, testPath, void, $String*)},
+	{"testPath", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(UriImportExport, testPath, void, $String*, $String*)},
+	{"testUri", "(Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(UriImportExport, testUri, void, $String*), "java.lang.Exception"},
 	{}
 };
 

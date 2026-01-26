@@ -16,11 +16,11 @@ namespace java {
 		namespace invoke {
 
 $MethodInfo _VolatileCallSite_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/invoke/MethodType;)V", nullptr, $PUBLIC, $method(static_cast<void(VolatileCallSite::*)($MethodType*)>(&VolatileCallSite::init$))},
-	{"<init>", "(Ljava/lang/invoke/MethodHandle;)V", nullptr, $PUBLIC, $method(static_cast<void(VolatileCallSite::*)($MethodHandle*)>(&VolatileCallSite::init$))},
-	{"dynamicInvoker", "()Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC | $FINAL},
-	{"getTarget", "()Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC | $FINAL},
-	{"setTarget", "(Ljava/lang/invoke/MethodHandle;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/invoke/MethodType;)V", nullptr, $PUBLIC, $method(VolatileCallSite, init$, void, $MethodType*)},
+	{"<init>", "(Ljava/lang/invoke/MethodHandle;)V", nullptr, $PUBLIC, $method(VolatileCallSite, init$, void, $MethodHandle*)},
+	{"dynamicInvoker", "()Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC | $FINAL, $virtualMethod(VolatileCallSite, dynamicInvoker, $MethodHandle*)},
+	{"getTarget", "()Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC | $FINAL, $virtualMethod(VolatileCallSite, getTarget, $MethodHandle*)},
+	{"setTarget", "(Ljava/lang/invoke/MethodHandle;)V", nullptr, $PUBLIC, $virtualMethod(VolatileCallSite, setTarget, void, $MethodHandle*)},
 	{}
 };
 

@@ -10,11 +10,11 @@ namespace java {
 		namespace channels {
 
 $MethodInfo _SeekableByteChannel_MethodInfo_[] = {
-	{"position", "()J", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"position", "(J)Ljava/nio/channels/SeekableByteChannel;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
+	{"position", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SeekableByteChannel, position, int64_t), "java.io.IOException"},
+	{"position", "(J)Ljava/nio/channels/SeekableByteChannel;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SeekableByteChannel, position, SeekableByteChannel*, int64_t), "java.io.IOException"},
 	{"read", "(Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC | $ABSTRACT},
-	{"size", "()J", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"truncate", "(J)Ljava/nio/channels/SeekableByteChannel;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
+	{"size", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SeekableByteChannel, size, int64_t), "java.io.IOException"},
+	{"truncate", "(J)Ljava/nio/channels/SeekableByteChannel;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SeekableByteChannel, truncate, SeekableByteChannel*, int64_t), "java.io.IOException"},
 	{"write", "(Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC | $ABSTRACT},
 	{}
 };

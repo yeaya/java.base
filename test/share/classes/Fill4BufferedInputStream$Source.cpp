@@ -20,11 +20,11 @@ $FieldInfo _Fill4BufferedInputStream$Source_FieldInfo_[] = {
 };
 
 $MethodInfo _Fill4BufferedInputStream$Source_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, 0, $method(static_cast<void(Fill4BufferedInputStream$Source::*)(int32_t)>(&Fill4BufferedInputStream$Source::init$))},
-	{"available", "()I", nullptr, $PUBLIC},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"read", "()I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"read", "([BII)I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(I)V", nullptr, 0, $method(Fill4BufferedInputStream$Source, init$, void, int32_t)},
+	{"available", "()I", nullptr, $PUBLIC, $virtualMethod(Fill4BufferedInputStream$Source, available, int32_t)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(Fill4BufferedInputStream$Source, close, void), "java.io.IOException"},
+	{"read", "()I", nullptr, $PUBLIC, $virtualMethod(Fill4BufferedInputStream$Source, read, int32_t), "java.io.IOException"},
+	{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(Fill4BufferedInputStream$Source, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
 	{}
 };
 

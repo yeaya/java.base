@@ -16,8 +16,8 @@ $FieldInfo _ArithmeticException_FieldInfo_[] = {
 };
 
 $MethodInfo _ArithmeticException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ArithmeticException::*)()>(&ArithmeticException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(ArithmeticException::*)($String*)>(&ArithmeticException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ArithmeticException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ArithmeticException, init$, void, $String*)},
 	{}
 };
 

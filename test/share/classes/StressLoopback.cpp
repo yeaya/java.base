@@ -45,10 +45,10 @@ $FieldInfo _StressLoopback_FieldInfo_[] = {
 };
 
 $MethodInfo _StressLoopback_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(StressLoopback::*)()>(&StressLoopback::init$))},
-	{"closeUnchecked", "(Ljava/nio/channels/Channel;)V", nullptr, $STATIC, $method(static_cast<void(*)($Channel*)>(&StressLoopback::closeUnchecked))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&StressLoopback::main)), "java.lang.Exception"},
-	{"waitUntilClosed", "(Ljava/nio/channels/Channel;)V", nullptr, $STATIC, $method(static_cast<void(*)($Channel*)>(&StressLoopback::waitUntilClosed))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(StressLoopback, init$, void)},
+	{"closeUnchecked", "(Ljava/nio/channels/Channel;)V", nullptr, $STATIC, $staticMethod(StressLoopback, closeUnchecked, void, $Channel*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StressLoopback, main, void, $StringArray*), "java.lang.Exception"},
+	{"waitUntilClosed", "(Ljava/nio/channels/Channel;)V", nullptr, $STATIC, $staticMethod(StressLoopback, waitUntilClosed, void, $Channel*)},
 	{}
 };
 

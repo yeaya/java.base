@@ -56,18 +56,18 @@ $FieldInfo _MinguoEra_FieldInfo_[] = {
 };
 
 $MethodInfo _MinguoEra_MethodInfo_[] = {
-	{"$values", "()[Ljava/time/chrono/MinguoEra;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$MinguoEraArray*(*)()>(&MinguoEra::$values))},
+	{"$values", "()[Ljava/time/chrono/MinguoEra;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MinguoEra, $values, $MinguoEraArray*)},
 	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
 	{"*finalize", "()V", nullptr, $PROTECTED | $FINAL},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(MinguoEra::*)($String*,int32_t)>(&MinguoEra::init$))},
-	{"getDisplayName", "(Ljava/time/format/TextStyle;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getValue", "()I", nullptr, $PUBLIC},
-	{"of", "(I)Ljava/time/chrono/MinguoEra;", nullptr, $PUBLIC | $STATIC, $method(static_cast<MinguoEra*(*)(int32_t)>(&MinguoEra::of))},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(MinguoEra, init$, void, $String*, int32_t)},
+	{"getDisplayName", "(Ljava/time/format/TextStyle;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MinguoEra, getDisplayName, $String*, $TextStyle*, $Locale*)},
+	{"getValue", "()I", nullptr, $PUBLIC, $virtualMethod(MinguoEra, getValue, int32_t)},
+	{"of", "(I)Ljava/time/chrono/MinguoEra;", nullptr, $PUBLIC | $STATIC, $staticMethod(MinguoEra, of, MinguoEra*, int32_t)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"valueOf", "(Ljava/lang/String;)Ljava/time/chrono/MinguoEra;", nullptr, $PUBLIC | $STATIC, $method(static_cast<MinguoEra*(*)($String*)>(&MinguoEra::valueOf))},
-	{"values", "()[Ljava/time/chrono/MinguoEra;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$MinguoEraArray*(*)()>(&MinguoEra::values))},
+	{"valueOf", "(Ljava/lang/String;)Ljava/time/chrono/MinguoEra;", nullptr, $PUBLIC | $STATIC, $staticMethod(MinguoEra, valueOf, MinguoEra*, $String*)},
+	{"values", "()[Ljava/time/chrono/MinguoEra;", nullptr, $PUBLIC | $STATIC, $staticMethod(MinguoEra, values, $MinguoEraArray*)},
 	{}
 };
 

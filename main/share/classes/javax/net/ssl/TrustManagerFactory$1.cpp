@@ -15,8 +15,8 @@ namespace javax {
 		namespace ssl {
 
 $MethodInfo _TrustManagerFactory$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(TrustManagerFactory$1::*)()>(&TrustManagerFactory$1::init$))},
-	{"run", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(TrustManagerFactory$1, init$, void)},
+	{"run", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TrustManagerFactory$1, run, $Object*)},
 	{}
 };
 

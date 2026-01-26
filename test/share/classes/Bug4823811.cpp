@@ -79,21 +79,21 @@ $FieldInfo _Bug4823811_FieldInfo_[] = {
 };
 
 $MethodInfo _Bug4823811_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Bug4823811::*)()>(&Bug4823811::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Bug4823811::main))},
-	{"testDateFormat1", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&Bug4823811::testDateFormat1))},
-	{"testDateFormat2", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&Bug4823811::testDateFormat2))},
-	{"testDateFormat3", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&Bug4823811::testDateFormat3))},
-	{"testDateFormatFormatting", "(Ljava/text/SimpleDateFormat;Ljava/lang/String;Ljava/util/GregorianCalendar;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($SimpleDateFormat*,$String*,$GregorianCalendar*,$String*,$String*)>(&Bug4823811::testDateFormatFormatting))},
-	{"testDateFormatFormattingInLTR", "(Ljava/lang/String;IILjava/text/NumberFormat;Ljava/util/Locale;Z)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($String*,int32_t,int32_t,$NumberFormat*,$Locale*,bool)>(&Bug4823811::testDateFormatFormattingInLTR))},
-	{"testDateFormatFormattingInRTL", "(Ljava/lang/String;IILjava/text/NumberFormat;Ljava/util/Locale;Z)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($String*,int32_t,int32_t,$NumberFormat*,$Locale*,bool)>(&Bug4823811::testDateFormatFormattingInRTL))},
-	{"testDateFormatParsing", "(Ljava/text/SimpleDateFormat;Ljava/lang/String;Ljava/lang/String;Ljava/util/GregorianCalendar;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($SimpleDateFormat*,$String*,$String*,$GregorianCalendar*,$String*)>(&Bug4823811::testDateFormatParsing))},
-	{"testDateFormatParsingInLTR", "(Ljava/lang/String;IILjava/text/NumberFormat;Ljava/util/Locale;Z)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($String*,int32_t,int32_t,$NumberFormat*,$Locale*,bool)>(&Bug4823811::testDateFormatParsingInLTR))},
-	{"testDateFormatParsingInRTL", "(Ljava/lang/String;IILjava/text/NumberFormat;Ljava/util/Locale;Z)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($String*,int32_t,int32_t,$NumberFormat*,$Locale*,bool)>(&Bug4823811::testDateFormatParsingInRTL))},
-	{"testNumberFormat", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&Bug4823811::testNumberFormat))},
-	{"testNumberFormatFormatting", "(Ljava/text/NumberFormat;ILjava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($NumberFormat*,int32_t,$String*,$String*)>(&Bug4823811::testNumberFormatFormatting))},
-	{"testNumberFormatParsing", "(Ljava/text/NumberFormat;Ljava/lang/String;Ljava/lang/Number;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($NumberFormat*,$String*,$Number*,$String*)>(&Bug4823811::testNumberFormatParsing))},
-	{"testNumberFormatParsingCheckException", "(Ljava/text/NumberFormat;Ljava/lang/String;ILjava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($NumberFormat*,$String*,int32_t,$String*)>(&Bug4823811::testNumberFormatParsingCheckException))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Bug4823811, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Bug4823811, main, void, $StringArray*)},
+	{"testDateFormat1", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(Bug4823811, testDateFormat1, void)},
+	{"testDateFormat2", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(Bug4823811, testDateFormat2, void)},
+	{"testDateFormat3", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(Bug4823811, testDateFormat3, void)},
+	{"testDateFormatFormatting", "(Ljava/text/SimpleDateFormat;Ljava/lang/String;Ljava/util/GregorianCalendar;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Bug4823811, testDateFormatFormatting, void, $SimpleDateFormat*, $String*, $GregorianCalendar*, $String*, $String*)},
+	{"testDateFormatFormattingInLTR", "(Ljava/lang/String;IILjava/text/NumberFormat;Ljava/util/Locale;Z)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Bug4823811, testDateFormatFormattingInLTR, void, $String*, int32_t, int32_t, $NumberFormat*, $Locale*, bool)},
+	{"testDateFormatFormattingInRTL", "(Ljava/lang/String;IILjava/text/NumberFormat;Ljava/util/Locale;Z)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Bug4823811, testDateFormatFormattingInRTL, void, $String*, int32_t, int32_t, $NumberFormat*, $Locale*, bool)},
+	{"testDateFormatParsing", "(Ljava/text/SimpleDateFormat;Ljava/lang/String;Ljava/lang/String;Ljava/util/GregorianCalendar;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Bug4823811, testDateFormatParsing, void, $SimpleDateFormat*, $String*, $String*, $GregorianCalendar*, $String*)},
+	{"testDateFormatParsingInLTR", "(Ljava/lang/String;IILjava/text/NumberFormat;Ljava/util/Locale;Z)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Bug4823811, testDateFormatParsingInLTR, void, $String*, int32_t, int32_t, $NumberFormat*, $Locale*, bool)},
+	{"testDateFormatParsingInRTL", "(Ljava/lang/String;IILjava/text/NumberFormat;Ljava/util/Locale;Z)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Bug4823811, testDateFormatParsingInRTL, void, $String*, int32_t, int32_t, $NumberFormat*, $Locale*, bool)},
+	{"testNumberFormat", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(Bug4823811, testNumberFormat, void)},
+	{"testNumberFormatFormatting", "(Ljava/text/NumberFormat;ILjava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Bug4823811, testNumberFormatFormatting, void, $NumberFormat*, int32_t, $String*, $String*)},
+	{"testNumberFormatParsing", "(Ljava/text/NumberFormat;Ljava/lang/String;Ljava/lang/Number;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Bug4823811, testNumberFormatParsing, void, $NumberFormat*, $String*, $Number*, $String*)},
+	{"testNumberFormatParsingCheckException", "(Ljava/text/NumberFormat;Ljava/lang/String;ILjava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Bug4823811, testNumberFormatParsingCheckException, void, $NumberFormat*, $String*, int32_t, $String*)},
 	{}
 };
 

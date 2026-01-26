@@ -352,17 +352,17 @@ $FieldInfo _KnownOIDs_FieldInfo_[] = {
 };
 
 $MethodInfo _KnownOIDs_MethodInfo_[] = {
-	{"$values", "()[Lsun/security/util/KnownOIDs;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$KnownOIDsArray*(*)()>(&KnownOIDs::$values))},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "(Ljava/lang/String;)V", $PRIVATE, $method(static_cast<void(KnownOIDs::*)($String*,int32_t,$String*)>(&KnownOIDs::init$))},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;[Ljava/lang/String;)V", "(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)V", $PRIVATE | $TRANSIENT, $method(static_cast<void(KnownOIDs::*)($String*,int32_t,$String*,$String*,$StringArray*)>(&KnownOIDs::init$))},
-	{"aliases", "()[Ljava/lang/String;", nullptr, $PUBLIC},
-	{"findMatch", "(Ljava/lang/String;)Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC, $method(static_cast<KnownOIDs*(*)($String*)>(&KnownOIDs::findMatch))},
-	{"register", "(Lsun/security/util/KnownOIDs;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)(KnownOIDs*)>(&KnownOIDs::register$))},
-	{"registerNames", "()Z", nullptr, 0},
-	{"stdName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"value", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"valueOf", "(Ljava/lang/String;)Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC, $method(static_cast<KnownOIDs*(*)($String*)>(&KnownOIDs::valueOf))},
-	{"values", "()[Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$KnownOIDsArray*(*)()>(&KnownOIDs::values))},
+	{"$values", "()[Lsun/security/util/KnownOIDs;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(KnownOIDs, $values, $KnownOIDsArray*)},
+	{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "(Ljava/lang/String;)V", $PRIVATE, $method(KnownOIDs, init$, void, $String*, int32_t, $String*)},
+	{"<init>", "(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;[Ljava/lang/String;)V", "(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)V", $PRIVATE | $TRANSIENT, $method(KnownOIDs, init$, void, $String*, int32_t, $String*, $String*, $StringArray*)},
+	{"aliases", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KnownOIDs, aliases, $StringArray*)},
+	{"findMatch", "(Ljava/lang/String;)Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC, $staticMethod(KnownOIDs, findMatch, KnownOIDs*, $String*)},
+	{"register", "(Lsun/security/util/KnownOIDs;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(KnownOIDs, register$, void, KnownOIDs*)},
+	{"registerNames", "()Z", nullptr, 0, $virtualMethod(KnownOIDs, registerNames, bool)},
+	{"stdName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KnownOIDs, stdName, $String*)},
+	{"value", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KnownOIDs, value, $String*)},
+	{"valueOf", "(Ljava/lang/String;)Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC, $staticMethod(KnownOIDs, valueOf, KnownOIDs*, $String*)},
+	{"values", "()[Lsun/security/util/KnownOIDs;", nullptr, $PUBLIC | $STATIC, $staticMethod(KnownOIDs, values, $KnownOIDsArray*)},
 	{}
 };
 

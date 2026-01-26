@@ -26,8 +26,8 @@ $FieldInfo _B6737819_FieldInfo_[] = {
 };
 
 $MethodInfo _B6737819_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(B6737819::*)()>(&B6737819::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&B6737819::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(B6737819, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(B6737819, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

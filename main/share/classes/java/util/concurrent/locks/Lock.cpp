@@ -6,6 +6,8 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $TimeUnit = ::java::util::concurrent::TimeUnit;
+using $Condition = ::java::util::concurrent::locks::Condition;
 
 namespace java {
 	namespace util {
@@ -13,12 +15,12 @@ namespace java {
 			namespace locks {
 
 $MethodInfo _Lock_MethodInfo_[] = {
-	{"lock", "()V", nullptr, $PUBLIC | $ABSTRACT},
-	{"lockInterruptibly", "()V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.lang.InterruptedException"},
-	{"newCondition", "()Ljava/util/concurrent/locks/Condition;", nullptr, $PUBLIC | $ABSTRACT},
-	{"tryLock", "()Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"tryLock", "(JLjava/util/concurrent/TimeUnit;)Z", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.lang.InterruptedException"},
-	{"unlock", "()V", nullptr, $PUBLIC | $ABSTRACT},
+	{"lock", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Lock, lock, void)},
+	{"lockInterruptibly", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Lock, lockInterruptibly, void), "java.lang.InterruptedException"},
+	{"newCondition", "()Ljava/util/concurrent/locks/Condition;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Lock, newCondition, $Condition*)},
+	{"tryLock", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Lock, tryLock, bool)},
+	{"tryLock", "(JLjava/util/concurrent/TimeUnit;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Lock, tryLock, bool, int64_t, $TimeUnit*), "java.lang.InterruptedException"},
+	{"unlock", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Lock, unlock, void)},
 	{}
 };
 

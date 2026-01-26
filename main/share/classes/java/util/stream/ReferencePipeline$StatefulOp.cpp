@@ -36,10 +36,10 @@ $FieldInfo _ReferencePipeline$StatefulOp_FieldInfo_[] = {
 };
 
 $MethodInfo _ReferencePipeline$StatefulOp_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/stream/AbstractPipeline;Ljava/util/stream/StreamShape;I)V", "(Ljava/util/stream/AbstractPipeline<*TE_IN;*>;Ljava/util/stream/StreamShape;I)V", 0, $method(static_cast<void(ReferencePipeline$StatefulOp::*)($AbstractPipeline*,$StreamShape*,int32_t)>(&ReferencePipeline$StatefulOp::init$))},
+	{"<init>", "(Ljava/util/stream/AbstractPipeline;Ljava/util/stream/StreamShape;I)V", "(Ljava/util/stream/AbstractPipeline<*TE_IN;*>;Ljava/util/stream/StreamShape;I)V", 0, $method(ReferencePipeline$StatefulOp, init$, void, $AbstractPipeline*, $StreamShape*, int32_t)},
 	{"opEvaluateParallel", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;Ljava/util/function/IntFunction;)Ljava/util/stream/Node;", nullptr, $ABSTRACT},
-	{"opIsStateful", "()Z", nullptr, $FINAL},
-	{"unordered", "()Ljava/util/stream/BaseStream;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"opIsStateful", "()Z", nullptr, $FINAL, $virtualMethod(ReferencePipeline$StatefulOp, opIsStateful, bool)},
+	{"unordered", "()Ljava/util/stream/BaseStream;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ReferencePipeline$StatefulOp, unordered, $BaseStream*)},
 	{}
 };
 

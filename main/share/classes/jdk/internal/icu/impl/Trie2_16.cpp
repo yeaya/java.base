@@ -29,13 +29,13 @@ namespace jdk {
 			namespace impl {
 
 $MethodInfo _Trie2_16_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Trie2_16::*)()>(&Trie2_16::init$))},
-	{"createFromSerialized", "(Ljava/nio/ByteBuffer;)Ljdk/internal/icu/impl/Trie2_16;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Trie2_16*(*)($ByteBuffer*)>(&Trie2_16::createFromSerialized)), "java.io.IOException"},
-	{"get", "(I)I", nullptr, $PUBLIC | $FINAL},
-	{"getFromU16SingleLead", "(C)I", nullptr, $PUBLIC},
-	{"getSerializedLength", "()I", nullptr, $PUBLIC, $method(static_cast<int32_t(Trie2_16::*)()>(&Trie2_16::getSerializedLength))},
-	{"iterator", "(Ljdk/internal/icu/impl/Trie2$ValueMapper;)Ljava/util/Iterator;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"iterator", "()Ljava/util/Iterator;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "()V", nullptr, 0, $method(Trie2_16, init$, void)},
+	{"createFromSerialized", "(Ljava/nio/ByteBuffer;)Ljdk/internal/icu/impl/Trie2_16;", nullptr, $PUBLIC | $STATIC, $staticMethod(Trie2_16, createFromSerialized, Trie2_16*, $ByteBuffer*), "java.io.IOException"},
+	{"get", "(I)I", nullptr, $PUBLIC | $FINAL, $virtualMethod(Trie2_16, get, int32_t, int32_t)},
+	{"getFromU16SingleLead", "(C)I", nullptr, $PUBLIC, $virtualMethod(Trie2_16, getFromU16SingleLead, int32_t, char16_t)},
+	{"getSerializedLength", "()I", nullptr, $PUBLIC, $method(Trie2_16, getSerializedLength, int32_t)},
+	{"iterator", "(Ljdk/internal/icu/impl/Trie2$ValueMapper;)Ljava/util/Iterator;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Trie2_16, iterator, $Iterator*, $Trie2$ValueMapper*)},
+	{"iterator", "()Ljava/util/Iterator;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Trie2_16, iterator, $Iterator*)},
 	{}
 };
 

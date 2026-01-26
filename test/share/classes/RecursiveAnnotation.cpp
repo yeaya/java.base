@@ -15,8 +15,8 @@ $CompoundAttribute _RecursiveAnnotation_Annotations_[] = {
 };
 
 $MethodInfo _RecursiveAnnotation_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(RecursiveAnnotation::*)()>(&RecursiveAnnotation::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&RecursiveAnnotation::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(RecursiveAnnotation, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(RecursiveAnnotation, main, void, $StringArray*)},
 	{}
 };
 

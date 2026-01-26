@@ -38,10 +38,10 @@ $CompoundAttribute _TestType3_MethodAnnotations_foo3[] = {
 };
 
 $MethodInfo _TestType3_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(TestType3::*)()>(&TestType3::init$))},
-	{"bar", "()V", nullptr, $PUBLIC, nullptr, nullptr, nullptr, _TestType3_MethodAnnotations_bar1},
-	{"bar", "(I)V", nullptr, $PUBLIC, nullptr, nullptr, nullptr, _TestType3_MethodAnnotations_bar2},
-	{"foo", "()V", nullptr, $PUBLIC, nullptr, nullptr, nullptr, _TestType3_MethodAnnotations_foo3},
+	{"<init>", "()V", nullptr, 0, $method(TestType3, init$, void)},
+	{"bar", "()V", nullptr, $PUBLIC, $virtualMethod(TestType3, bar, void), nullptr, nullptr, _TestType3_MethodAnnotations_bar1},
+	{"bar", "(I)V", nullptr, $PUBLIC, $virtualMethod(TestType3, bar, void, int32_t), nullptr, nullptr, _TestType3_MethodAnnotations_bar2},
+	{"foo", "()V", nullptr, $PUBLIC, $virtualMethod(TestType3, foo, void), nullptr, nullptr, _TestType3_MethodAnnotations_foo3},
 	{}
 };
 

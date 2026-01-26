@@ -25,10 +25,10 @@ $FieldInfo _ISO10126Padding_FieldInfo_[] = {
 };
 
 $MethodInfo _ISO10126Padding_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, 0, $method(static_cast<void(ISO10126Padding::*)(int32_t)>(&ISO10126Padding::init$))},
-	{"padLength", "(I)I", nullptr, $PUBLIC},
-	{"padWithLen", "([BII)V", nullptr, $PUBLIC, nullptr, "javax.crypto.ShortBufferException"},
-	{"unpad", "([BII)I", nullptr, $PUBLIC},
+	{"<init>", "(I)V", nullptr, 0, $method(ISO10126Padding, init$, void, int32_t)},
+	{"padLength", "(I)I", nullptr, $PUBLIC, $virtualMethod(ISO10126Padding, padLength, int32_t, int32_t)},
+	{"padWithLen", "([BII)V", nullptr, $PUBLIC, $virtualMethod(ISO10126Padding, padWithLen, void, $bytes*, int32_t, int32_t), "javax.crypto.ShortBufferException"},
+	{"unpad", "([BII)I", nullptr, $PUBLIC, $virtualMethod(ISO10126Padding, unpad, int32_t, $bytes*, int32_t, int32_t)},
 	{}
 };
 

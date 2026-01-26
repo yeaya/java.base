@@ -7,13 +7,14 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $PendingFuture = ::sun::nio::ch::PendingFuture;
 
 namespace sun {
 	namespace nio {
 		namespace ch {
 
 $MethodInfo _Iocp$OverlappedChannel_MethodInfo_[] = {
-	{"getByOverlapped", "(J)Lsun/nio/ch/PendingFuture;", "<V:Ljava/lang/Object;A:Ljava/lang/Object;>(J)Lsun/nio/ch/PendingFuture<TV;TA;>;", $PUBLIC | $ABSTRACT},
+	{"getByOverlapped", "(J)Lsun/nio/ch/PendingFuture;", "<V:Ljava/lang/Object;A:Ljava/lang/Object;>(J)Lsun/nio/ch/PendingFuture<TV;TA;>;", $PUBLIC | $ABSTRACT, $virtualMethod(Iocp$OverlappedChannel, getByOverlapped, $PendingFuture*, int64_t)},
 	{}
 };
 

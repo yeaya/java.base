@@ -36,11 +36,11 @@ $FieldInfo _DisabledAlgorithmConstraints$Constraint$Operator_FieldInfo_[] = {
 };
 
 $MethodInfo _DisabledAlgorithmConstraints$Constraint$Operator_MethodInfo_[] = {
-	{"$values", "()[Lsun/security/util/DisabledAlgorithmConstraints$Constraint$Operator;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$DisabledAlgorithmConstraints$Constraint$OperatorArray*(*)()>(&DisabledAlgorithmConstraints$Constraint$Operator::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(DisabledAlgorithmConstraints$Constraint$Operator::*)($String*,int32_t)>(&DisabledAlgorithmConstraints$Constraint$Operator::init$))},
-	{"of", "(Ljava/lang/String;)Lsun/security/util/DisabledAlgorithmConstraints$Constraint$Operator;", nullptr, $STATIC, $method(static_cast<DisabledAlgorithmConstraints$Constraint$Operator*(*)($String*)>(&DisabledAlgorithmConstraints$Constraint$Operator::of))},
-	{"valueOf", "(Ljava/lang/String;)Lsun/security/util/DisabledAlgorithmConstraints$Constraint$Operator;", nullptr, $PUBLIC | $STATIC, $method(static_cast<DisabledAlgorithmConstraints$Constraint$Operator*(*)($String*)>(&DisabledAlgorithmConstraints$Constraint$Operator::valueOf))},
-	{"values", "()[Lsun/security/util/DisabledAlgorithmConstraints$Constraint$Operator;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$DisabledAlgorithmConstraints$Constraint$OperatorArray*(*)()>(&DisabledAlgorithmConstraints$Constraint$Operator::values))},
+	{"$values", "()[Lsun/security/util/DisabledAlgorithmConstraints$Constraint$Operator;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DisabledAlgorithmConstraints$Constraint$Operator, $values, $DisabledAlgorithmConstraints$Constraint$OperatorArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(DisabledAlgorithmConstraints$Constraint$Operator, init$, void, $String*, int32_t)},
+	{"of", "(Ljava/lang/String;)Lsun/security/util/DisabledAlgorithmConstraints$Constraint$Operator;", nullptr, $STATIC, $staticMethod(DisabledAlgorithmConstraints$Constraint$Operator, of, DisabledAlgorithmConstraints$Constraint$Operator*, $String*)},
+	{"valueOf", "(Ljava/lang/String;)Lsun/security/util/DisabledAlgorithmConstraints$Constraint$Operator;", nullptr, $PUBLIC | $STATIC, $staticMethod(DisabledAlgorithmConstraints$Constraint$Operator, valueOf, DisabledAlgorithmConstraints$Constraint$Operator*, $String*)},
+	{"values", "()[Lsun/security/util/DisabledAlgorithmConstraints$Constraint$Operator;", nullptr, $PUBLIC | $STATIC, $staticMethod(DisabledAlgorithmConstraints$Constraint$Operator, values, $DisabledAlgorithmConstraints$Constraint$OperatorArray*)},
 	{}
 };
 

@@ -27,8 +27,8 @@ $FieldInfo _SwapMicroBenchmark$2_FieldInfo_[] = {
 };
 
 $MethodInfo _SwapMicroBenchmark$2_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/nio/ByteBuffer;I)V", nullptr, 0, $method(static_cast<void(SwapMicroBenchmark$2::*)($String*,$ByteBuffer*,int32_t)>(&SwapMicroBenchmark$2::init$))},
-	{"work", "()V", nullptr, $PUBLIC, nullptr, "java.lang.Throwable"},
+	{"<init>", "(Ljava/lang/String;Ljava/nio/ByteBuffer;I)V", nullptr, 0, $method(SwapMicroBenchmark$2, init$, void, $String*, $ByteBuffer*, int32_t)},
+	{"work", "()V", nullptr, $PUBLIC, $virtualMethod(SwapMicroBenchmark$2, work, void), "java.lang.Throwable"},
 	{}
 };
 

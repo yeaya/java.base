@@ -34,18 +34,18 @@ $FieldInfo _DoubleAccumulator_FieldInfo_[] = {
 };
 
 $MethodInfo _DoubleAccumulator_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/function/DoubleBinaryOperator;D)V", nullptr, $PUBLIC, $method(static_cast<void(DoubleAccumulator::*)($DoubleBinaryOperator*,double)>(&DoubleAccumulator::init$))},
-	{"accumulate", "(D)V", nullptr, $PUBLIC},
-	{"doubleValue", "()D", nullptr, $PUBLIC},
-	{"floatValue", "()F", nullptr, $PUBLIC},
-	{"get", "()D", nullptr, $PUBLIC},
-	{"getThenReset", "()D", nullptr, $PUBLIC},
-	{"intValue", "()I", nullptr, $PUBLIC},
-	{"longValue", "()J", nullptr, $PUBLIC},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(DoubleAccumulator::*)($ObjectInputStream*)>(&DoubleAccumulator::readObject)), "java.io.InvalidObjectException"},
-	{"reset", "()V", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"writeReplace", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(static_cast<$Object*(DoubleAccumulator::*)()>(&DoubleAccumulator::writeReplace))},
+	{"<init>", "(Ljava/util/function/DoubleBinaryOperator;D)V", nullptr, $PUBLIC, $method(DoubleAccumulator, init$, void, $DoubleBinaryOperator*, double)},
+	{"accumulate", "(D)V", nullptr, $PUBLIC, $virtualMethod(DoubleAccumulator, accumulate, void, double)},
+	{"doubleValue", "()D", nullptr, $PUBLIC, $virtualMethod(DoubleAccumulator, doubleValue, double)},
+	{"floatValue", "()F", nullptr, $PUBLIC, $virtualMethod(DoubleAccumulator, floatValue, float)},
+	{"get", "()D", nullptr, $PUBLIC, $virtualMethod(DoubleAccumulator, get, double)},
+	{"getThenReset", "()D", nullptr, $PUBLIC, $virtualMethod(DoubleAccumulator, getThenReset, double)},
+	{"intValue", "()I", nullptr, $PUBLIC, $virtualMethod(DoubleAccumulator, intValue, int32_t)},
+	{"longValue", "()J", nullptr, $PUBLIC, $virtualMethod(DoubleAccumulator, longValue, int64_t)},
+	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(DoubleAccumulator, readObject, void, $ObjectInputStream*), "java.io.InvalidObjectException"},
+	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(DoubleAccumulator, reset, void)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DoubleAccumulator, toString, $String*)},
+	{"writeReplace", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(DoubleAccumulator, writeReplace, $Object*)},
 	{}
 };
 

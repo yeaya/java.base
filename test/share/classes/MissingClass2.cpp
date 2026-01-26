@@ -6,7 +6,7 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _MissingClass2_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(MissingClass2::*)()>(&MissingClass2::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(MissingClass2, init$, void)},
 	{}
 };
 

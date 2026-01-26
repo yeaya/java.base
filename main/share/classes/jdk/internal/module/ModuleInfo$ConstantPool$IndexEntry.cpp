@@ -20,7 +20,7 @@ $FieldInfo _ModuleInfo$ConstantPool$IndexEntry_FieldInfo_[] = {
 };
 
 $MethodInfo _ModuleInfo$ConstantPool$IndexEntry_MethodInfo_[] = {
-	{"<init>", "(II)V", nullptr, 0, $method(static_cast<void(ModuleInfo$ConstantPool$IndexEntry::*)(int32_t,int32_t)>(&ModuleInfo$ConstantPool$IndexEntry::init$))},
+	{"<init>", "(II)V", nullptr, 0, $method(ModuleInfo$ConstantPool$IndexEntry, init$, void, int32_t, int32_t)},
 	{}
 };
 

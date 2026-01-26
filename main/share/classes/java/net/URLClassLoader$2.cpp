@@ -23,8 +23,8 @@ $FieldInfo _URLClassLoader$2_FieldInfo_[] = {
 };
 
 $MethodInfo _URLClassLoader$2_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/URLClassLoader;Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(URLClassLoader$2::*)($URLClassLoader*,$String*)>(&URLClassLoader$2::init$))},
-	{"run", "()Ljava/net/URL;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/net/URLClassLoader;Ljava/lang/String;)V", nullptr, 0, $method(URLClassLoader$2, init$, void, $URLClassLoader*, $String*)},
+	{"run", "()Ljava/net/URL;", nullptr, $PUBLIC, $virtualMethod(URLClassLoader$2, run, $Object*)},
 	{}
 };
 

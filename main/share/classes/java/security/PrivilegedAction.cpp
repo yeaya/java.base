@@ -15,7 +15,7 @@ $CompoundAttribute _PrivilegedAction_Annotations_[] = {
 };
 
 $MethodInfo _PrivilegedAction_MethodInfo_[] = {
-	{"run", "()Ljava/lang/Object;", "()TT;", $PUBLIC | $ABSTRACT},
+	{"run", "()Ljava/lang/Object;", "()TT;", $PUBLIC | $ABSTRACT, $virtualMethod(PrivilegedAction, run, $Object*)},
 	{}
 };
 

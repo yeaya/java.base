@@ -47,10 +47,10 @@ $FieldInfo _ECPointFormatsExtension$ECPointFormatsSpec_FieldInfo_[] = {
 };
 
 $MethodInfo _ECPointFormatsExtension$ECPointFormatsSpec_MethodInfo_[] = {
-	{"<init>", "([B)V", nullptr, 0, $method(static_cast<void(ECPointFormatsExtension$ECPointFormatsSpec::*)($bytes*)>(&ECPointFormatsExtension$ECPointFormatsSpec::init$))},
-	{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE, $method(static_cast<void(ECPointFormatsExtension$ECPointFormatsSpec::*)($HandshakeContext*,$ByteBuffer*)>(&ECPointFormatsExtension$ECPointFormatsSpec::init$)), "java.io.IOException"},
-	{"hasUncompressedFormat", "()Z", nullptr, $PRIVATE, $method(static_cast<bool(ECPointFormatsExtension$ECPointFormatsSpec::*)()>(&ECPointFormatsExtension$ECPointFormatsSpec::hasUncompressedFormat))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "([B)V", nullptr, 0, $method(ECPointFormatsExtension$ECPointFormatsSpec, init$, void, $bytes*)},
+	{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE, $method(ECPointFormatsExtension$ECPointFormatsSpec, init$, void, $HandshakeContext*, $ByteBuffer*), "java.io.IOException"},
+	{"hasUncompressedFormat", "()Z", nullptr, $PRIVATE, $method(ECPointFormatsExtension$ECPointFormatsSpec, hasUncompressedFormat, bool)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ECPointFormatsExtension$ECPointFormatsSpec, toString, $String*)},
 	{}
 };
 

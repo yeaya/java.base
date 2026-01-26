@@ -26,8 +26,8 @@ $FieldInfo _ProviderConfig$1_FieldInfo_[] = {
 };
 
 $MethodInfo _ProviderConfig$1_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/jca/ProviderConfig;)V", nullptr, 0, $method(static_cast<void(ProviderConfig$1::*)($ProviderConfig*)>(&ProviderConfig$1::init$))},
-	{"run", "()Ljava/lang/Boolean;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/security/jca/ProviderConfig;)V", nullptr, 0, $method(ProviderConfig$1, init$, void, $ProviderConfig*)},
+	{"run", "()Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(ProviderConfig$1, run, $Object*)},
 	{}
 };
 

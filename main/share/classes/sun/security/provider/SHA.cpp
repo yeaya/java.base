@@ -40,14 +40,14 @@ $FieldInfo _SHA_FieldInfo_[] = {
 };
 
 $MethodInfo _SHA_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SHA::*)()>(&SHA::init$))},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, nullptr, "java.lang.CloneNotSupportedException"},
-	{"implCompress", "([BI)V", nullptr, 0},
-	{"implCompress0", "([BI)V", nullptr, $PRIVATE, $method(static_cast<void(SHA::*)($bytes*,int32_t)>(&SHA::implCompress0)), nullptr, nullptr, _SHA_MethodAnnotations_implCompress03},
-	{"implCompressCheck", "([BI)V", nullptr, $PRIVATE, $method(static_cast<void(SHA::*)($bytes*,int32_t)>(&SHA::implCompressCheck))},
-	{"implDigest", "([BI)V", nullptr, 0},
-	{"implReset", "()V", nullptr, 0},
-	{"resetHashes", "()V", nullptr, $PRIVATE, $method(static_cast<void(SHA::*)()>(&SHA::resetHashes))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SHA, init$, void)},
+	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SHA, clone, $Object*), "java.lang.CloneNotSupportedException"},
+	{"implCompress", "([BI)V", nullptr, 0, $virtualMethod(SHA, implCompress, void, $bytes*, int32_t)},
+	{"implCompress0", "([BI)V", nullptr, $PRIVATE, $method(SHA, implCompress0, void, $bytes*, int32_t), nullptr, nullptr, _SHA_MethodAnnotations_implCompress03},
+	{"implCompressCheck", "([BI)V", nullptr, $PRIVATE, $method(SHA, implCompressCheck, void, $bytes*, int32_t)},
+	{"implDigest", "([BI)V", nullptr, 0, $virtualMethod(SHA, implDigest, void, $bytes*, int32_t)},
+	{"implReset", "()V", nullptr, 0, $virtualMethod(SHA, implReset, void)},
+	{"resetHashes", "()V", nullptr, $PRIVATE, $method(SHA, resetHashes, void)},
 	{}
 };
 

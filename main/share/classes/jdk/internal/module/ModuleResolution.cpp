@@ -22,20 +22,20 @@ $FieldInfo _ModuleResolution_FieldInfo_[] = {
 };
 
 $MethodInfo _ModuleResolution_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, 0, $method(static_cast<void(ModuleResolution::*)(int32_t)>(&ModuleResolution::init$))},
-	{"doNotResolveByDefault", "()Z", nullptr, $PUBLIC, $method(static_cast<bool(ModuleResolution::*)()>(&ModuleResolution::doNotResolveByDefault))},
-	{"doNotResolveByDefault", "(Ljava/lang/module/ModuleReference;)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)($ModuleReference*)>(&ModuleResolution::doNotResolveByDefault))},
-	{"empty", "()Ljdk/internal/module/ModuleResolution;", nullptr, $PUBLIC | $STATIC, $method(static_cast<ModuleResolution*(*)()>(&ModuleResolution::empty))},
-	{"hasDeprecatedForRemovalWarning", "()Z", nullptr, $PUBLIC, $method(static_cast<bool(ModuleResolution::*)()>(&ModuleResolution::hasDeprecatedForRemovalWarning))},
-	{"hasDeprecatedWarning", "()Z", nullptr, $PUBLIC, $method(static_cast<bool(ModuleResolution::*)()>(&ModuleResolution::hasDeprecatedWarning))},
-	{"hasIncubatingWarning", "()Z", nullptr, $PUBLIC, $method(static_cast<bool(ModuleResolution::*)()>(&ModuleResolution::hasIncubatingWarning))},
-	{"hasIncubatingWarning", "(Ljava/lang/module/ModuleReference;)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)($ModuleReference*)>(&ModuleResolution::hasIncubatingWarning))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"value", "()I", nullptr, $PUBLIC, $method(static_cast<int32_t(ModuleResolution::*)()>(&ModuleResolution::value))},
-	{"withDeprecated", "()Ljdk/internal/module/ModuleResolution;", nullptr, $PUBLIC, $method(static_cast<ModuleResolution*(ModuleResolution::*)()>(&ModuleResolution::withDeprecated))},
-	{"withDeprecatedForRemoval", "()Ljdk/internal/module/ModuleResolution;", nullptr, $PUBLIC, $method(static_cast<ModuleResolution*(ModuleResolution::*)()>(&ModuleResolution::withDeprecatedForRemoval))},
-	{"withDoNotResolveByDefault", "()Ljdk/internal/module/ModuleResolution;", nullptr, $PUBLIC, $method(static_cast<ModuleResolution*(ModuleResolution::*)()>(&ModuleResolution::withDoNotResolveByDefault))},
-	{"withIncubating", "()Ljdk/internal/module/ModuleResolution;", nullptr, $PUBLIC, $method(static_cast<ModuleResolution*(ModuleResolution::*)()>(&ModuleResolution::withIncubating))},
+	{"<init>", "(I)V", nullptr, 0, $method(ModuleResolution, init$, void, int32_t)},
+	{"doNotResolveByDefault", "()Z", nullptr, $PUBLIC, $method(ModuleResolution, doNotResolveByDefault, bool)},
+	{"doNotResolveByDefault", "(Ljava/lang/module/ModuleReference;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(ModuleResolution, doNotResolveByDefault, bool, $ModuleReference*)},
+	{"empty", "()Ljdk/internal/module/ModuleResolution;", nullptr, $PUBLIC | $STATIC, $staticMethod(ModuleResolution, empty, ModuleResolution*)},
+	{"hasDeprecatedForRemovalWarning", "()Z", nullptr, $PUBLIC, $method(ModuleResolution, hasDeprecatedForRemovalWarning, bool)},
+	{"hasDeprecatedWarning", "()Z", nullptr, $PUBLIC, $method(ModuleResolution, hasDeprecatedWarning, bool)},
+	{"hasIncubatingWarning", "()Z", nullptr, $PUBLIC, $method(ModuleResolution, hasIncubatingWarning, bool)},
+	{"hasIncubatingWarning", "(Ljava/lang/module/ModuleReference;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(ModuleResolution, hasIncubatingWarning, bool, $ModuleReference*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ModuleResolution, toString, $String*)},
+	{"value", "()I", nullptr, $PUBLIC, $method(ModuleResolution, value, int32_t)},
+	{"withDeprecated", "()Ljdk/internal/module/ModuleResolution;", nullptr, $PUBLIC, $method(ModuleResolution, withDeprecated, ModuleResolution*)},
+	{"withDeprecatedForRemoval", "()Ljdk/internal/module/ModuleResolution;", nullptr, $PUBLIC, $method(ModuleResolution, withDeprecatedForRemoval, ModuleResolution*)},
+	{"withDoNotResolveByDefault", "()Ljdk/internal/module/ModuleResolution;", nullptr, $PUBLIC, $method(ModuleResolution, withDoNotResolveByDefault, ModuleResolution*)},
+	{"withIncubating", "()Ljdk/internal/module/ModuleResolution;", nullptr, $PUBLIC, $method(ModuleResolution, withIncubating, ModuleResolution*)},
 	{}
 };
 

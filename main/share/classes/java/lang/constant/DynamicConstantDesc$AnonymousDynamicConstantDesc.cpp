@@ -19,7 +19,7 @@ namespace java {
 		namespace constant {
 
 $MethodInfo _DynamicConstantDesc$AnonymousDynamicConstantDesc_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/constant/DirectMethodHandleDesc;Ljava/lang/String;Ljava/lang/constant/ClassDesc;[Ljava/lang/constant/ConstantDesc;)V", nullptr, $TRANSIENT, $method(static_cast<void(DynamicConstantDesc$AnonymousDynamicConstantDesc::*)($DirectMethodHandleDesc*,$String*,$ClassDesc*,$ConstantDescArray*)>(&DynamicConstantDesc$AnonymousDynamicConstantDesc::init$))},
+	{"<init>", "(Ljava/lang/constant/DirectMethodHandleDesc;Ljava/lang/String;Ljava/lang/constant/ClassDesc;[Ljava/lang/constant/ConstantDesc;)V", nullptr, $TRANSIENT, $method(DynamicConstantDesc$AnonymousDynamicConstantDesc, init$, void, $DirectMethodHandleDesc*, $String*, $ClassDesc*, $ConstantDescArray*)},
 	{}
 };
 

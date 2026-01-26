@@ -37,18 +37,18 @@ $FieldInfo _DeflaterInputStream_FieldInfo_[] = {
 };
 
 $MethodInfo _DeflaterInputStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(static_cast<void(DeflaterInputStream::*)($InputStream*)>(&DeflaterInputStream::init$))},
-	{"<init>", "(Ljava/io/InputStream;Ljava/util/zip/Deflater;)V", nullptr, $PUBLIC, $method(static_cast<void(DeflaterInputStream::*)($InputStream*,$Deflater*)>(&DeflaterInputStream::init$))},
-	{"<init>", "(Ljava/io/InputStream;Ljava/util/zip/Deflater;I)V", nullptr, $PUBLIC, $method(static_cast<void(DeflaterInputStream::*)($InputStream*,$Deflater*,int32_t)>(&DeflaterInputStream::init$))},
-	{"available", "()I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"ensureOpen", "()V", nullptr, $PRIVATE, $method(static_cast<void(DeflaterInputStream::*)()>(&DeflaterInputStream::ensureOpen)), "java.io.IOException"},
-	{"mark", "(I)V", nullptr, $PUBLIC},
-	{"markSupported", "()Z", nullptr, $PUBLIC},
-	{"read", "()I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"read", "([BII)I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"reset", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"skip", "(J)J", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(DeflaterInputStream, init$, void, $InputStream*)},
+	{"<init>", "(Ljava/io/InputStream;Ljava/util/zip/Deflater;)V", nullptr, $PUBLIC, $method(DeflaterInputStream, init$, void, $InputStream*, $Deflater*)},
+	{"<init>", "(Ljava/io/InputStream;Ljava/util/zip/Deflater;I)V", nullptr, $PUBLIC, $method(DeflaterInputStream, init$, void, $InputStream*, $Deflater*, int32_t)},
+	{"available", "()I", nullptr, $PUBLIC, $virtualMethod(DeflaterInputStream, available, int32_t), "java.io.IOException"},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(DeflaterInputStream, close, void), "java.io.IOException"},
+	{"ensureOpen", "()V", nullptr, $PRIVATE, $method(DeflaterInputStream, ensureOpen, void), "java.io.IOException"},
+	{"mark", "(I)V", nullptr, $PUBLIC, $virtualMethod(DeflaterInputStream, mark, void, int32_t)},
+	{"markSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(DeflaterInputStream, markSupported, bool)},
+	{"read", "()I", nullptr, $PUBLIC, $virtualMethod(DeflaterInputStream, read, int32_t), "java.io.IOException"},
+	{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(DeflaterInputStream, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
+	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(DeflaterInputStream, reset, void), "java.io.IOException"},
+	{"skip", "(J)J", nullptr, $PUBLIC, $virtualMethod(DeflaterInputStream, skip, int64_t, int64_t), "java.io.IOException"},
 	{}
 };
 

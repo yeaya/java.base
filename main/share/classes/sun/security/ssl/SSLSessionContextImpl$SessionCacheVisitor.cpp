@@ -46,9 +46,9 @@ $FieldInfo _SSLSessionContextImpl$SessionCacheVisitor_FieldInfo_[] = {
 };
 
 $MethodInfo _SSLSessionContextImpl$SessionCacheVisitor_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/ssl/SSLSessionContextImpl;)V", nullptr, $PRIVATE, $method(static_cast<void(SSLSessionContextImpl$SessionCacheVisitor::*)($SSLSessionContextImpl*)>(&SSLSessionContextImpl$SessionCacheVisitor::init$))},
-	{"getSessionIds", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<[B>;", 0, $method(static_cast<$Enumeration*(SSLSessionContextImpl$SessionCacheVisitor::*)()>(&SSLSessionContextImpl$SessionCacheVisitor::getSessionIds))},
-	{"visit", "(Ljava/util/Map;)V", "(Ljava/util/Map<Lsun/security/ssl/SessionId;Lsun/security/ssl/SSLSessionImpl;>;)V", $PUBLIC},
+	{"<init>", "(Lsun/security/ssl/SSLSessionContextImpl;)V", nullptr, $PRIVATE, $method(SSLSessionContextImpl$SessionCacheVisitor, init$, void, $SSLSessionContextImpl*)},
+	{"getSessionIds", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<[B>;", 0, $method(SSLSessionContextImpl$SessionCacheVisitor, getSessionIds, $Enumeration*)},
+	{"visit", "(Ljava/util/Map;)V", "(Ljava/util/Map<Lsun/security/ssl/SessionId;Lsun/security/ssl/SSLSessionImpl;>;)V", $PUBLIC, $virtualMethod(SSLSessionContextImpl$SessionCacheVisitor, visit, void, $Map*)},
 	{}
 };
 

@@ -18,7 +18,7 @@ $FieldInfo _NotImplementedException_FieldInfo_[] = {
 };
 
 $MethodInfo _NotImplementedException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(NotImplementedException::*)()>(&NotImplementedException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(NotImplementedException, init$, void)},
 	{}
 };
 

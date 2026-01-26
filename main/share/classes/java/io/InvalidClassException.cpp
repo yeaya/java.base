@@ -18,9 +18,9 @@ $FieldInfo _InvalidClassException_FieldInfo_[] = {
 };
 
 $MethodInfo _InvalidClassException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(InvalidClassException::*)($String*)>(&InvalidClassException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(InvalidClassException::*)($String*,$String*)>(&InvalidClassException::init$))},
-	{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InvalidClassException, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InvalidClassException, init$, void, $String*, $String*)},
+	{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(InvalidClassException, getMessage, $String*)},
 	{}
 };
 

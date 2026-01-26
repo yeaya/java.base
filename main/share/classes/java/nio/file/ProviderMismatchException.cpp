@@ -17,8 +17,8 @@ $FieldInfo _ProviderMismatchException_FieldInfo_[] = {
 };
 
 $MethodInfo _ProviderMismatchException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ProviderMismatchException::*)()>(&ProviderMismatchException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(ProviderMismatchException::*)($String*)>(&ProviderMismatchException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ProviderMismatchException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ProviderMismatchException, init$, void, $String*)},
 	{}
 };
 

@@ -23,8 +23,8 @@ $FieldInfo _NetMulticastSocket$1_FieldInfo_[] = {
 };
 
 $MethodInfo _NetMulticastSocket$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/DatagramSocketImpl;)V", nullptr, 0, $method(static_cast<void(NetMulticastSocket$1::*)($DatagramSocketImpl*)>(&NetMulticastSocket$1::init$))},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, nullptr, "java.lang.NoSuchMethodException"},
+	{"<init>", "(Ljava/net/DatagramSocketImpl;)V", nullptr, 0, $method(NetMulticastSocket$1, init$, void, $DatagramSocketImpl*)},
+	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(NetMulticastSocket$1, run, $Object*), "java.lang.NoSuchMethodException"},
 	{}
 };
 

@@ -117,7 +117,7 @@ $FieldInfo _AnnotationToStringTest$AnnotationHost_FieldInfo_[] = {
 };
 
 $MethodInfo _AnnotationToStringTest$AnnotationHost_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(AnnotationToStringTest$AnnotationHost::*)()>(&AnnotationToStringTest$AnnotationHost::init$))},
+	{"<init>", "()V", nullptr, 0, $method(AnnotationToStringTest$AnnotationHost, init$, void)},
 	{}
 };
 

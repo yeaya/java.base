@@ -26,7 +26,7 @@ $FieldInfo _ObjectStreamClass$Caches_FieldInfo_[] = {
 };
 
 $MethodInfo _ObjectStreamClass$Caches_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(ObjectStreamClass$Caches::*)()>(&ObjectStreamClass$Caches::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(ObjectStreamClass$Caches, init$, void)},
 	{}
 };
 

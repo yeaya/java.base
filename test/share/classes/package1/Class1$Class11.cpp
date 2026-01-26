@@ -20,8 +20,8 @@ $FieldInfo _Class1$Class11_FieldInfo_[] = {
 };
 
 $MethodInfo _Class1$Class11_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Class1$Class11::*)()>(&Class1$Class11::init$))},
-	{"testAssert", "(Z)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)(bool)>(&Class1$Class11::testAssert))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Class1$Class11, init$, void)},
+	{"testAssert", "(Z)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Class1$Class11, testAssert, void, bool)},
 	{}
 };
 

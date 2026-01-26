@@ -47,15 +47,15 @@ $FieldInfo _Spliterators$IteratorSpliterator_FieldInfo_[] = {
 };
 
 $MethodInfo _Spliterators$IteratorSpliterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Collection;I)V", "(Ljava/util/Collection<+TT;>;I)V", $PUBLIC, $method(static_cast<void(Spliterators$IteratorSpliterator::*)($Collection*,int32_t)>(&Spliterators$IteratorSpliterator::init$))},
-	{"<init>", "(Ljava/util/Iterator;JI)V", "(Ljava/util/Iterator<+TT;>;JI)V", $PUBLIC, $method(static_cast<void(Spliterators$IteratorSpliterator::*)($Iterator*,int64_t,int32_t)>(&Spliterators$IteratorSpliterator::init$))},
-	{"<init>", "(Ljava/util/Iterator;I)V", "(Ljava/util/Iterator<+TT;>;I)V", $PUBLIC, $method(static_cast<void(Spliterators$IteratorSpliterator::*)($Iterator*,int32_t)>(&Spliterators$IteratorSpliterator::init$))},
-	{"characteristics", "()I", nullptr, $PUBLIC},
-	{"estimateSize", "()J", nullptr, $PUBLIC},
-	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TT;>;)V", $PUBLIC},
-	{"getComparator", "()Ljava/util/Comparator;", "()Ljava/util/Comparator<-TT;>;", $PUBLIC},
-	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-TT;>;)Z", $PUBLIC},
-	{"trySplit", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TT;>;", $PUBLIC},
+	{"<init>", "(Ljava/util/Collection;I)V", "(Ljava/util/Collection<+TT;>;I)V", $PUBLIC, $method(Spliterators$IteratorSpliterator, init$, void, $Collection*, int32_t)},
+	{"<init>", "(Ljava/util/Iterator;JI)V", "(Ljava/util/Iterator<+TT;>;JI)V", $PUBLIC, $method(Spliterators$IteratorSpliterator, init$, void, $Iterator*, int64_t, int32_t)},
+	{"<init>", "(Ljava/util/Iterator;I)V", "(Ljava/util/Iterator<+TT;>;I)V", $PUBLIC, $method(Spliterators$IteratorSpliterator, init$, void, $Iterator*, int32_t)},
+	{"characteristics", "()I", nullptr, $PUBLIC, $virtualMethod(Spliterators$IteratorSpliterator, characteristics, int32_t)},
+	{"estimateSize", "()J", nullptr, $PUBLIC, $virtualMethod(Spliterators$IteratorSpliterator, estimateSize, int64_t)},
+	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TT;>;)V", $PUBLIC, $virtualMethod(Spliterators$IteratorSpliterator, forEachRemaining, void, $Consumer*)},
+	{"getComparator", "()Ljava/util/Comparator;", "()Ljava/util/Comparator<-TT;>;", $PUBLIC, $virtualMethod(Spliterators$IteratorSpliterator, getComparator, $Comparator*)},
+	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-TT;>;)Z", $PUBLIC, $virtualMethod(Spliterators$IteratorSpliterator, tryAdvance, bool, $Consumer*)},
+	{"trySplit", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TT;>;", $PUBLIC, $virtualMethod(Spliterators$IteratorSpliterator, trySplit, $Spliterator*)},
 	{}
 };
 

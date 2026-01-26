@@ -18,8 +18,8 @@ $FieldInfo _GenericSignatureFormatError_FieldInfo_[] = {
 };
 
 $MethodInfo _GenericSignatureFormatError_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(GenericSignatureFormatError::*)()>(&GenericSignatureFormatError::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(GenericSignatureFormatError::*)($String*)>(&GenericSignatureFormatError::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(GenericSignatureFormatError, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(GenericSignatureFormatError, init$, void, $String*)},
 	{}
 };
 

@@ -13,8 +13,8 @@ namespace sun {
 		namespace provider {
 
 $MethodInfo _JavaKeyStore$CaseExactJKS_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(JavaKeyStore$CaseExactJKS::*)()>(&JavaKeyStore$CaseExactJKS::init$))},
-	{"convertAlias", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, 0},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(JavaKeyStore$CaseExactJKS, init$, void)},
+	{"convertAlias", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, 0, $virtualMethod(JavaKeyStore$CaseExactJKS, convertAlias, $String*, $String*)},
 	{}
 };
 

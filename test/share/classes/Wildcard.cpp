@@ -11,8 +11,8 @@ using $SocketPermission = ::java::net::SocketPermission;
 using $Permission = ::java::security::Permission;
 
 $MethodInfo _Wildcard_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Wildcard::*)()>(&Wildcard::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Wildcard::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Wildcard, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Wildcard, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

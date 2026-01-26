@@ -24,19 +24,19 @@ $FieldInfo _StringWriter_FieldInfo_[] = {
 };
 
 $MethodInfo _StringWriter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(StringWriter::*)()>(&StringWriter::init$))},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(static_cast<void(StringWriter::*)(int32_t)>(&StringWriter::init$))},
-	{"append", "(Ljava/lang/CharSequence;)Ljava/io/StringWriter;", nullptr, $PUBLIC},
-	{"append", "(Ljava/lang/CharSequence;II)Ljava/io/StringWriter;", nullptr, $PUBLIC},
-	{"append", "(C)Ljava/io/StringWriter;", nullptr, $PUBLIC},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"flush", "()V", nullptr, $PUBLIC},
-	{"getBuffer", "()Ljava/lang/StringBuffer;", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"write", "(I)V", nullptr, $PUBLIC},
-	{"write", "([CII)V", nullptr, $PUBLIC},
-	{"write", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"write", "(Ljava/lang/String;II)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(StringWriter, init$, void)},
+	{"<init>", "(I)V", nullptr, $PUBLIC, $method(StringWriter, init$, void, int32_t)},
+	{"append", "(Ljava/lang/CharSequence;)Ljava/io/StringWriter;", nullptr, $PUBLIC, $virtualMethod(StringWriter, append, StringWriter*, $CharSequence*)},
+	{"append", "(Ljava/lang/CharSequence;II)Ljava/io/StringWriter;", nullptr, $PUBLIC, $virtualMethod(StringWriter, append, StringWriter*, $CharSequence*, int32_t, int32_t)},
+	{"append", "(C)Ljava/io/StringWriter;", nullptr, $PUBLIC, $virtualMethod(StringWriter, append, StringWriter*, char16_t)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(StringWriter, close, void), "java.io.IOException"},
+	{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(StringWriter, flush, void)},
+	{"getBuffer", "()Ljava/lang/StringBuffer;", nullptr, $PUBLIC, $virtualMethod(StringWriter, getBuffer, $StringBuffer*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StringWriter, toString, $String*)},
+	{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(StringWriter, write, void, int32_t)},
+	{"write", "([CII)V", nullptr, $PUBLIC, $virtualMethod(StringWriter, write, void, $chars*, int32_t, int32_t)},
+	{"write", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(StringWriter, write, void, $String*)},
+	{"write", "(Ljava/lang/String;II)V", nullptr, $PUBLIC, $virtualMethod(StringWriter, write, void, $String*, int32_t, int32_t)},
 	{}
 };
 

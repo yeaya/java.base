@@ -33,10 +33,10 @@ $MethodInfo _InetAddress$CachedAddresses_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/lang/String;[Ljava/net/InetAddress;J)V", nullptr, 0, $method(static_cast<void(InetAddress$CachedAddresses::*)($String*,$InetAddressArray*,int64_t)>(&InetAddress$CachedAddresses::init$))},
-	{"compareTo", "(Ljava/net/InetAddress$CachedAddresses;)I", nullptr, $PUBLIC, $method(static_cast<int32_t(InetAddress$CachedAddresses::*)(InetAddress$CachedAddresses*)>(&InetAddress$CachedAddresses::compareTo))},
-	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"get", "()[Ljava/net/InetAddress;", nullptr, $PUBLIC, nullptr, "java.net.UnknownHostException"},
+	{"<init>", "(Ljava/lang/String;[Ljava/net/InetAddress;J)V", nullptr, 0, $method(InetAddress$CachedAddresses, init$, void, $String*, $InetAddressArray*, int64_t)},
+	{"compareTo", "(Ljava/net/InetAddress$CachedAddresses;)I", nullptr, $PUBLIC, $method(InetAddress$CachedAddresses, compareTo, int32_t, InetAddress$CachedAddresses*)},
+	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(InetAddress$CachedAddresses, compareTo, int32_t, Object$*)},
+	{"get", "()[Ljava/net/InetAddress;", nullptr, $PUBLIC, $virtualMethod(InetAddress$CachedAddresses, get, $InetAddressArray*), "java.net.UnknownHostException"},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

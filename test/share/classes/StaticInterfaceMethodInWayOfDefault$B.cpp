@@ -9,7 +9,7 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _StaticInterfaceMethodInWayOfDefault$B_MethodInfo_[] = {
-	{"m", "()V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)()>(&StaticInterfaceMethodInWayOfDefault$B::m))},
+	{"m", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(StaticInterfaceMethodInWayOfDefault$B, m, void)},
 	{}
 };
 

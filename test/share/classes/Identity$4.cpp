@@ -34,11 +34,11 @@ $FieldInfo _Identity$4_FieldInfo_[] = {
 };
 
 $MethodInfo _Identity$4_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/atomic/AtomicInteger;I[Ljava/nio/channels/AsynchronousSocketChannel;)V", "()V", 0, $method(static_cast<void(Identity$4::*)($AtomicInteger*,int32_t,$AsynchronousSocketChannelArray*)>(&Identity$4::init$))},
-	{"completed", "(Ljava/lang/Integer;Ljava/lang/Integer;)V", nullptr, $PUBLIC},
-	{"completed", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"failed", "(Ljava/lang/Throwable;Ljava/lang/Integer;)V", nullptr, $PUBLIC},
-	{"failed", "(Ljava/lang/Throwable;Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "(Ljava/util/concurrent/atomic/AtomicInteger;I[Ljava/nio/channels/AsynchronousSocketChannel;)V", "()V", 0, $method(Identity$4, init$, void, $AtomicInteger*, int32_t, $AsynchronousSocketChannelArray*)},
+	{"completed", "(Ljava/lang/Integer;Ljava/lang/Integer;)V", nullptr, $PUBLIC, $virtualMethod(Identity$4, completed, void, $Integer*, $Integer*)},
+	{"completed", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Identity$4, completed, void, Object$*, Object$*)},
+	{"failed", "(Ljava/lang/Throwable;Ljava/lang/Integer;)V", nullptr, $PUBLIC, $virtualMethod(Identity$4, failed, void, $Throwable*, $Integer*)},
+	{"failed", "(Ljava/lang/Throwable;Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Identity$4, failed, void, $Throwable*, Object$*)},
 	{}
 };
 

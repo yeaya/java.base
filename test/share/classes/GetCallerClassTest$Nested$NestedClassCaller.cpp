@@ -18,8 +18,8 @@ $FieldInfo _GetCallerClassTest$Nested$NestedClassCaller_FieldInfo_[] = {
 };
 
 $MethodInfo _GetCallerClassTest$Nested$NestedClassCaller_MethodInfo_[] = {
-	{"<init>", "(LGetCallerClassTest$Nested;)V", nullptr, 0, $method(static_cast<void(GetCallerClassTest$Nested$NestedClassCaller::*)($GetCallerClassTest$Nested*)>(&GetCallerClassTest$Nested$NestedClassCaller::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(LGetCallerClassTest$Nested;)V", nullptr, 0, $method(GetCallerClassTest$Nested$NestedClassCaller, init$, void, $GetCallerClassTest$Nested*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(GetCallerClassTest$Nested$NestedClassCaller, run, void)},
 	{}
 };
 

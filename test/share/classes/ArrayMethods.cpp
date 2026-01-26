@@ -28,13 +28,13 @@ $FieldInfo _ArrayMethods_FieldInfo_[] = {
 };
 
 $MethodInfo _ArrayMethods_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ArrayMethods::*)()>(&ArrayMethods::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&ArrayMethods::main)), "java.lang.Exception"},
-	{"testGetDeclaredMethod", "()V", nullptr, $PUBLIC},
-	{"testGetDeclaredMethods", "()V", nullptr, $PUBLIC},
-	{"testGetInterfaces", "()V", nullptr, $PUBLIC},
-	{"testGetMethod", "()V", nullptr, $PUBLIC},
-	{"testGetMethods", "()V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ArrayMethods, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ArrayMethods, main, void, $StringArray*), "java.lang.Exception"},
+	{"testGetDeclaredMethod", "()V", nullptr, $PUBLIC, $virtualMethod(ArrayMethods, testGetDeclaredMethod, void)},
+	{"testGetDeclaredMethods", "()V", nullptr, $PUBLIC, $virtualMethod(ArrayMethods, testGetDeclaredMethods, void)},
+	{"testGetInterfaces", "()V", nullptr, $PUBLIC, $virtualMethod(ArrayMethods, testGetInterfaces, void)},
+	{"testGetMethod", "()V", nullptr, $PUBLIC, $virtualMethod(ArrayMethods, testGetMethod, void)},
+	{"testGetMethods", "()V", nullptr, $PUBLIC, $virtualMethod(ArrayMethods, testGetMethods, void)},
 	{}
 };
 

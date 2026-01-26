@@ -8,7 +8,7 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _ForStaticInnerClass$Static_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ForStaticInnerClass$Static::*)()>(&ForStaticInnerClass$Static::init$))},
+	{"<init>", "()V", nullptr, 0, $method(ForStaticInnerClass$Static, init$, void)},
 	{}
 };
 

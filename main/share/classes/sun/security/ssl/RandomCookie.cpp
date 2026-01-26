@@ -34,15 +34,15 @@ $FieldInfo _RandomCookie_FieldInfo_[] = {
 };
 
 $MethodInfo _RandomCookie_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/SecureRandom;)V", nullptr, 0, $method(static_cast<void(RandomCookie::*)($SecureRandom*)>(&RandomCookie::init$))},
-	{"<init>", "(Lsun/security/ssl/HandshakeContext;)V", nullptr, 0, $method(static_cast<void(RandomCookie::*)($HandshakeContext*)>(&RandomCookie::init$))},
-	{"<init>", "(Ljava/nio/ByteBuffer;)V", nullptr, 0, $method(static_cast<void(RandomCookie::*)($ByteBuffer*)>(&RandomCookie::init$)), "java.io.IOException"},
-	{"<init>", "([B)V", nullptr, $PRIVATE, $method(static_cast<void(RandomCookie::*)($bytes*)>(&RandomCookie::init$))},
-	{"isHelloRetryRequest", "()Z", nullptr, 0, $method(static_cast<bool(RandomCookie::*)()>(&RandomCookie::isHelloRetryRequest))},
-	{"isT11Downgrade", "()Z", nullptr, $PRIVATE, $method(static_cast<bool(RandomCookie::*)()>(&RandomCookie::isT11Downgrade))},
-	{"isT12Downgrade", "()Z", nullptr, $PRIVATE, $method(static_cast<bool(RandomCookie::*)()>(&RandomCookie::isT12Downgrade))},
-	{"isVersionDowngrade", "(Lsun/security/ssl/HandshakeContext;)Z", nullptr, 0, $method(static_cast<bool(RandomCookie::*)($HandshakeContext*)>(&RandomCookie::isVersionDowngrade))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/security/SecureRandom;)V", nullptr, 0, $method(RandomCookie, init$, void, $SecureRandom*)},
+	{"<init>", "(Lsun/security/ssl/HandshakeContext;)V", nullptr, 0, $method(RandomCookie, init$, void, $HandshakeContext*)},
+	{"<init>", "(Ljava/nio/ByteBuffer;)V", nullptr, 0, $method(RandomCookie, init$, void, $ByteBuffer*), "java.io.IOException"},
+	{"<init>", "([B)V", nullptr, $PRIVATE, $method(RandomCookie, init$, void, $bytes*)},
+	{"isHelloRetryRequest", "()Z", nullptr, 0, $method(RandomCookie, isHelloRetryRequest, bool)},
+	{"isT11Downgrade", "()Z", nullptr, $PRIVATE, $method(RandomCookie, isT11Downgrade, bool)},
+	{"isT12Downgrade", "()Z", nullptr, $PRIVATE, $method(RandomCookie, isT12Downgrade, bool)},
+	{"isVersionDowngrade", "(Lsun/security/ssl/HandshakeContext;)Z", nullptr, 0, $method(RandomCookie, isVersionDowngrade, bool, $HandshakeContext*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RandomCookie, toString, $String*)},
 	{}
 };
 

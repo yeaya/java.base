@@ -27,9 +27,9 @@ $FieldInfo _ITLConstructor_FieldInfo_[] = {
 };
 
 $MethodInfo _ITLConstructor_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ITLConstructor::*)()>(&ITLConstructor::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&ITLConstructor::main)), "java.lang.Exception"},
-	{"test", "(Z)V", nullptr, $STATIC, $method(static_cast<void(*)(bool)>(&ITLConstructor::test)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ITLConstructor, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ITLConstructor, main, void, $StringArray*), "java.lang.Exception"},
+	{"test", "(Z)V", nullptr, $STATIC, $staticMethod(ITLConstructor, test, void, bool), "java.lang.Exception"},
 	{}
 };
 

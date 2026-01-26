@@ -22,7 +22,7 @@ namespace sun {
 				namespace ssl {
 
 $MethodInfo _SSLServerCertStore$CS_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/cert/CertStoreSpi;Ljava/security/Provider;Ljava/lang/String;Ljava/security/cert/CertStoreParameters;)V", nullptr, $PROTECTED, $method(static_cast<void(SSLServerCertStore$CS::*)($CertStoreSpi*,$Provider*,$String*,$CertStoreParameters*)>(&SSLServerCertStore$CS::init$))},
+	{"<init>", "(Ljava/security/cert/CertStoreSpi;Ljava/security/Provider;Ljava/lang/String;Ljava/security/cert/CertStoreParameters;)V", nullptr, $PROTECTED, $method(SSLServerCertStore$CS, init$, void, $CertStoreSpi*, $Provider*, $String*, $CertStoreParameters*)},
 	{}
 };
 

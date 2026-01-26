@@ -3,6 +3,7 @@
 #include <javax/security/auth/login/AppConfigurationEntry.h>
 #include <jcpp.h>
 
+using $AppConfigurationEntryArray = $Array<::javax::security::auth::login::AppConfigurationEntry>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
@@ -12,9 +13,9 @@ namespace javax {
 			namespace login {
 
 $MethodInfo _ConfigurationSpi_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ConfigurationSpi::*)()>(&ConfigurationSpi::init$))},
-	{"engineGetAppConfigurationEntry", "(Ljava/lang/String;)[Ljavax/security/auth/login/AppConfigurationEntry;", nullptr, $PROTECTED | $ABSTRACT},
-	{"engineRefresh", "()V", nullptr, $PROTECTED},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ConfigurationSpi, init$, void)},
+	{"engineGetAppConfigurationEntry", "(Ljava/lang/String;)[Ljavax/security/auth/login/AppConfigurationEntry;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(ConfigurationSpi, engineGetAppConfigurationEntry, $AppConfigurationEntryArray*, $String*)},
+	{"engineRefresh", "()V", nullptr, $PROTECTED, $virtualMethod(ConfigurationSpi, engineRefresh, void)},
 	{}
 };
 

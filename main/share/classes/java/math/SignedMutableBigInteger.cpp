@@ -19,14 +19,14 @@ $FieldInfo _SignedMutableBigInteger_FieldInfo_[] = {
 };
 
 $MethodInfo _SignedMutableBigInteger_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(SignedMutableBigInteger::*)()>(&SignedMutableBigInteger::init$))},
-	{"<init>", "(I)V", nullptr, 0, $method(static_cast<void(SignedMutableBigInteger::*)(int32_t)>(&SignedMutableBigInteger::init$))},
-	{"<init>", "(Ljava/math/MutableBigInteger;)V", nullptr, 0, $method(static_cast<void(SignedMutableBigInteger::*)($MutableBigInteger*)>(&SignedMutableBigInteger::init$))},
-	{"signedAdd", "(Ljava/math/SignedMutableBigInteger;)V", nullptr, 0},
-	{"signedAdd", "(Ljava/math/MutableBigInteger;)V", nullptr, 0},
-	{"signedSubtract", "(Ljava/math/SignedMutableBigInteger;)V", nullptr, 0},
-	{"signedSubtract", "(Ljava/math/MutableBigInteger;)V", nullptr, 0},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(SignedMutableBigInteger, init$, void)},
+	{"<init>", "(I)V", nullptr, 0, $method(SignedMutableBigInteger, init$, void, int32_t)},
+	{"<init>", "(Ljava/math/MutableBigInteger;)V", nullptr, 0, $method(SignedMutableBigInteger, init$, void, $MutableBigInteger*)},
+	{"signedAdd", "(Ljava/math/SignedMutableBigInteger;)V", nullptr, 0, $virtualMethod(SignedMutableBigInteger, signedAdd, void, SignedMutableBigInteger*)},
+	{"signedAdd", "(Ljava/math/MutableBigInteger;)V", nullptr, 0, $virtualMethod(SignedMutableBigInteger, signedAdd, void, $MutableBigInteger*)},
+	{"signedSubtract", "(Ljava/math/SignedMutableBigInteger;)V", nullptr, 0, $virtualMethod(SignedMutableBigInteger, signedSubtract, void, SignedMutableBigInteger*)},
+	{"signedSubtract", "(Ljava/math/MutableBigInteger;)V", nullptr, 0, $virtualMethod(SignedMutableBigInteger, signedSubtract, void, $MutableBigInteger*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SignedMutableBigInteger, toString, $String*)},
 	{}
 };
 

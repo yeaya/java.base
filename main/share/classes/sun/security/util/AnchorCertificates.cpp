@@ -39,9 +39,9 @@ $FieldInfo _AnchorCertificates_FieldInfo_[] = {
 };
 
 $MethodInfo _AnchorCertificates_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(AnchorCertificates::*)()>(&AnchorCertificates::init$))},
-	{"contains", "(Ljava/security/cert/X509Certificate;)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)($X509Certificate*)>(&AnchorCertificates::contains))},
-	{"issuerOf", "(Ljava/security/cert/X509Certificate;)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)($X509Certificate*)>(&AnchorCertificates::issuerOf))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(AnchorCertificates, init$, void)},
+	{"contains", "(Ljava/security/cert/X509Certificate;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(AnchorCertificates, contains, bool, $X509Certificate*)},
+	{"issuerOf", "(Ljava/security/cert/X509Certificate;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(AnchorCertificates, issuerOf, bool, $X509Certificate*)},
 	{}
 };
 

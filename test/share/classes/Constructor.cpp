@@ -38,9 +38,9 @@ $FieldInfo _Constructor_FieldInfo_[] = {
 };
 
 $MethodInfo _Constructor_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Constructor::*)()>(&Constructor::init$))},
-	{"hasFtp", "()Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)()>(&Constructor::hasFtp))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Constructor::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Constructor, init$, void)},
+	{"hasFtp", "()Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Constructor, hasFtp, bool)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Constructor, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

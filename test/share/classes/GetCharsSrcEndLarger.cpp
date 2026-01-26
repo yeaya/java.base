@@ -11,8 +11,8 @@ using $StringBuffer = ::java::lang::StringBuffer;
 using $StringIndexOutOfBoundsException = ::java::lang::StringIndexOutOfBoundsException;
 
 $MethodInfo _GetCharsSrcEndLarger_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(GetCharsSrcEndLarger::*)()>(&GetCharsSrcEndLarger::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&GetCharsSrcEndLarger::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(GetCharsSrcEndLarger, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(GetCharsSrcEndLarger, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

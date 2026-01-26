@@ -45,7 +45,7 @@ $FieldInfo _ExtendedMasterSecretExtension_FieldInfo_[] = {
 };
 
 $MethodInfo _ExtendedMasterSecretExtension_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ExtendedMasterSecretExtension::*)()>(&ExtendedMasterSecretExtension::init$))},
+	{"<init>", "()V", nullptr, 0, $method(ExtendedMasterSecretExtension, init$, void)},
 	{}
 };
 

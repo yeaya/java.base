@@ -27,11 +27,11 @@ namespace com {
 	namespace app {
 
 $MethodInfo _Utils_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Utils::*)()>(&Utils::init$))},
-	{"assertEquals", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($String*,$String*,$String*)>(&Utils::assertEquals))},
-	{"checkFrame", "(Ljava/lang/String;Ljava/lang/StackWalker$StackFrame;Ljava/lang/StackTraceElement;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($String*,$StackWalker$StackFrame*,$StackTraceElement*)>(&Utils::checkFrame))},
-	{"makeStackFrame", "(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/StackWalker$StackFrame;", "(Ljava/lang/Class<*>;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/StackWalker$StackFrame;", $PUBLIC | $STATIC, $method(static_cast<$StackWalker$StackFrame*(*)($Class*,$String*,$String*)>(&Utils::makeStackFrame))},
-	{"verify", "(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", "(Ljava/lang/Class<*>;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", $PUBLIC | $STATIC, $method(static_cast<void(*)($Class*,$String*,$String*,$String*)>(&Utils::verify))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Utils, init$, void)},
+	{"assertEquals", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Utils, assertEquals, void, $String*, $String*, $String*)},
+	{"checkFrame", "(Ljava/lang/String;Ljava/lang/StackWalker$StackFrame;Ljava/lang/StackTraceElement;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Utils, checkFrame, void, $String*, $StackWalker$StackFrame*, $StackTraceElement*)},
+	{"makeStackFrame", "(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/StackWalker$StackFrame;", "(Ljava/lang/Class<*>;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/StackWalker$StackFrame;", $PUBLIC | $STATIC, $staticMethod(Utils, makeStackFrame, $StackWalker$StackFrame*, $Class*, $String*, $String*)},
+	{"verify", "(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", "(Ljava/lang/Class<*>;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", $PUBLIC | $STATIC, $staticMethod(Utils, verify, void, $Class*, $String*, $String*, $String*)},
 	{}
 };
 

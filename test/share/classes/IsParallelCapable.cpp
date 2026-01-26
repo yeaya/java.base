@@ -56,8 +56,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo IsParallelCapable$$Lambda$testClassLoaderClass::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(IsParallelCapable$$Lambda$testClassLoaderClass::*)()>(&IsParallelCapable$$Lambda$testClassLoaderClass::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(IsParallelCapable$$Lambda$testClassLoaderClass, init$, void)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(IsParallelCapable$$Lambda$testClassLoaderClass, accept, void, Object$*)},
 	{}
 };
 $ClassInfo IsParallelCapable$$Lambda$testClassLoaderClass::classInfo$ = {
@@ -75,9 +75,9 @@ $Class* IsParallelCapable$$Lambda$testClassLoaderClass::load$($String* name, boo
 $Class* IsParallelCapable$$Lambda$testClassLoaderClass::class$ = nullptr;
 
 $MethodInfo _IsParallelCapable_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(IsParallelCapable::*)()>(&IsParallelCapable::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&IsParallelCapable::main)), "java.lang.Exception"},
-	{"testClassLoaderClass", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<+LIsParallelCapable$TestCL;>;)V", $PRIVATE | $STATIC, $method(static_cast<void(*)($Class*)>(&IsParallelCapable::testClassLoaderClass))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(IsParallelCapable, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(IsParallelCapable, main, void, $StringArray*), "java.lang.Exception"},
+	{"testClassLoaderClass", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<+LIsParallelCapable$TestCL;>;)V", $PRIVATE | $STATIC, $staticMethod(IsParallelCapable, testClassLoaderClass, void, $Class*)},
 	{}
 };
 

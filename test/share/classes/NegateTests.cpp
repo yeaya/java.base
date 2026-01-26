@@ -19,12 +19,12 @@ using $MathContext = ::java::math::MathContext;
 using $RoundingMode = ::java::math::RoundingMode;
 
 $MethodInfo _NegateTests_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(NegateTests::*)()>(&NegateTests::init$))},
-	{"absThenRound", "(Ljava/math/BigDecimal;Ljava/math/MathContext;)Ljava/math/BigDecimal;", nullptr, $STATIC, $method(static_cast<$BigDecimal*(*)($BigDecimal*,$MathContext*)>(&NegateTests::absThenRound))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&NegateTests::main))},
-	{"negateTest", "([[Ljava/math/BigDecimal;Ljava/math/MathContext;)I", nullptr, $STATIC, $method(static_cast<int32_t(*)($BigDecimalArray2*,$MathContext*)>(&NegateTests::negateTest))},
-	{"negateTests", "()I", nullptr, $STATIC, $method(static_cast<int32_t(*)()>(&NegateTests::negateTests))},
-	{"negateThenRound", "(Ljava/math/BigDecimal;Ljava/math/MathContext;)Ljava/math/BigDecimal;", nullptr, $STATIC, $method(static_cast<$BigDecimal*(*)($BigDecimal*,$MathContext*)>(&NegateTests::negateThenRound))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(NegateTests, init$, void)},
+	{"absThenRound", "(Ljava/math/BigDecimal;Ljava/math/MathContext;)Ljava/math/BigDecimal;", nullptr, $STATIC, $staticMethod(NegateTests, absThenRound, $BigDecimal*, $BigDecimal*, $MathContext*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(NegateTests, main, void, $StringArray*)},
+	{"negateTest", "([[Ljava/math/BigDecimal;Ljava/math/MathContext;)I", nullptr, $STATIC, $staticMethod(NegateTests, negateTest, int32_t, $BigDecimalArray2*, $MathContext*)},
+	{"negateTests", "()I", nullptr, $STATIC, $staticMethod(NegateTests, negateTests, int32_t)},
+	{"negateThenRound", "(Ljava/math/BigDecimal;Ljava/math/MathContext;)Ljava/math/BigDecimal;", nullptr, $STATIC, $staticMethod(NegateTests, negateThenRound, $BigDecimal*, $BigDecimal*, $MathContext*)},
 	{}
 };
 

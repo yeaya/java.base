@@ -23,10 +23,10 @@ namespace sun {
 		namespace provider {
 
 $MethodInfo _DSAKeyPairGenerator$Current_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DSAKeyPairGenerator$Current::*)()>(&DSAKeyPairGenerator$Current::init$))},
-	{"generateKeyPair", "()Ljava/security/KeyPair;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"initialize", "(Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, nullptr, "java.security.InvalidAlgorithmParameterException"},
-	{"initialize", "(ILjava/security/SecureRandom;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DSAKeyPairGenerator$Current, init$, void)},
+	{"generateKeyPair", "()Ljava/security/KeyPair;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DSAKeyPairGenerator$Current, generateKeyPair, $KeyPair*)},
+	{"initialize", "(Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DSAKeyPairGenerator$Current, initialize, void, $AlgorithmParameterSpec*, $SecureRandom*), "java.security.InvalidAlgorithmParameterException"},
+	{"initialize", "(ILjava/security/SecureRandom;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DSAKeyPairGenerator$Current, initialize, void, int32_t, $SecureRandom*)},
 	{}
 };
 

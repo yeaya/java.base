@@ -16,7 +16,7 @@ $FieldInfo _EmptyStackException_FieldInfo_[] = {
 };
 
 $MethodInfo _EmptyStackException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(EmptyStackException::*)()>(&EmptyStackException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(EmptyStackException, init$, void)},
 	{}
 };
 

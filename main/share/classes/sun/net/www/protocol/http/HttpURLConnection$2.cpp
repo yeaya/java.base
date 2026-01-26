@@ -24,8 +24,8 @@ $FieldInfo _HttpURLConnection$2_FieldInfo_[] = {
 };
 
 $MethodInfo _HttpURLConnection$2_MethodInfo_[] = {
-	{"<init>", "(Lsun/net/www/protocol/http/HttpURLConnection;)V", nullptr, 0, $method(static_cast<void(HttpURLConnection$2::*)($HttpURLConnection*)>(&HttpURLConnection$2::init$))},
-	{"run", "()Ljava/net/CookieHandler;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/net/www/protocol/http/HttpURLConnection;)V", nullptr, 0, $method(HttpURLConnection$2, init$, void, $HttpURLConnection*)},
+	{"run", "()Ljava/net/CookieHandler;", nullptr, $PUBLIC, $virtualMethod(HttpURLConnection$2, run, $Object*)},
 	{}
 };
 

@@ -104,15 +104,15 @@ $CompoundAttribute _TestGenericReturnTypeToString_MethodAnnotations_foo77[] = {
 };
 
 $MethodInfo _TestGenericReturnTypeToString_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TestGenericReturnTypeToString::*)()>(&TestGenericReturnTypeToString::init$))},
-	{"foo1", "()LTestGenericReturnTypeToString$FirstInnerClassGeneric$SecondInnerClassGeneric;", "()LTestGenericReturnTypeToString$FirstInnerClassGeneric<LDummy;>.SecondInnerClassGeneric<LDummy;>;", $PUBLIC, nullptr, nullptr, nullptr, _TestGenericReturnTypeToString_MethodAnnotations_foo11},
-	{"foo2", "()LTestGenericReturnTypeToString$FirstInnerClassGeneric$SecondInnerClass;", "()LTestGenericReturnTypeToString$FirstInnerClassGeneric<LDummy;>.SecondInnerClass;", $PUBLIC, nullptr, nullptr, nullptr, _TestGenericReturnTypeToString_MethodAnnotations_foo22},
-	{"foo3", "()LTestGenericReturnTypeToString$FirstInnerClass$SecondInnerClassGeneric;", "()LTestGenericReturnTypeToString$FirstInnerClass$SecondInnerClassGeneric<LDummy;>;", $PUBLIC, nullptr, nullptr, nullptr, _TestGenericReturnTypeToString_MethodAnnotations_foo33},
-	{"foo4", "()LTestGenericReturnTypeToString$FirstInnerClass$SecondInnerClass;", nullptr, $PUBLIC, nullptr, nullptr, nullptr, _TestGenericReturnTypeToString_MethodAnnotations_foo44},
-	{"foo5", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PUBLIC, nullptr, nullptr, nullptr, _TestGenericReturnTypeToString_MethodAnnotations_foo55},
-	{"foo6", "()LTestGenericReturnTypeToString$FirstInnerClass$Interface;", nullptr, $PUBLIC, nullptr, nullptr, nullptr, _TestGenericReturnTypeToString_MethodAnnotations_foo66},
-	{"foo7", "()LTestGenericReturnTypeToString$FirstInnerClass$InterfaceGeneric;", "()LTestGenericReturnTypeToString$FirstInnerClass$InterfaceGeneric<LDummy;>;", $PUBLIC, nullptr, nullptr, nullptr, _TestGenericReturnTypeToString_MethodAnnotations_foo77},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&TestGenericReturnTypeToString::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TestGenericReturnTypeToString, init$, void)},
+	{"foo1", "()LTestGenericReturnTypeToString$FirstInnerClassGeneric$SecondInnerClassGeneric;", "()LTestGenericReturnTypeToString$FirstInnerClassGeneric<LDummy;>.SecondInnerClassGeneric<LDummy;>;", $PUBLIC, $virtualMethod(TestGenericReturnTypeToString, foo1, $TestGenericReturnTypeToString$FirstInnerClassGeneric$SecondInnerClassGeneric*), nullptr, nullptr, _TestGenericReturnTypeToString_MethodAnnotations_foo11},
+	{"foo2", "()LTestGenericReturnTypeToString$FirstInnerClassGeneric$SecondInnerClass;", "()LTestGenericReturnTypeToString$FirstInnerClassGeneric<LDummy;>.SecondInnerClass;", $PUBLIC, $virtualMethod(TestGenericReturnTypeToString, foo2, $TestGenericReturnTypeToString$FirstInnerClassGeneric$SecondInnerClass*), nullptr, nullptr, _TestGenericReturnTypeToString_MethodAnnotations_foo22},
+	{"foo3", "()LTestGenericReturnTypeToString$FirstInnerClass$SecondInnerClassGeneric;", "()LTestGenericReturnTypeToString$FirstInnerClass$SecondInnerClassGeneric<LDummy;>;", $PUBLIC, $virtualMethod(TestGenericReturnTypeToString, foo3, $TestGenericReturnTypeToString$FirstInnerClass$SecondInnerClassGeneric*), nullptr, nullptr, _TestGenericReturnTypeToString_MethodAnnotations_foo33},
+	{"foo4", "()LTestGenericReturnTypeToString$FirstInnerClass$SecondInnerClass;", nullptr, $PUBLIC, $virtualMethod(TestGenericReturnTypeToString, foo4, $TestGenericReturnTypeToString$FirstInnerClass$SecondInnerClass*), nullptr, nullptr, _TestGenericReturnTypeToString_MethodAnnotations_foo44},
+	{"foo5", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(TestGenericReturnTypeToString, foo5, $List*), nullptr, nullptr, _TestGenericReturnTypeToString_MethodAnnotations_foo55},
+	{"foo6", "()LTestGenericReturnTypeToString$FirstInnerClass$Interface;", nullptr, $PUBLIC, $virtualMethod(TestGenericReturnTypeToString, foo6, $TestGenericReturnTypeToString$FirstInnerClass$Interface*), nullptr, nullptr, _TestGenericReturnTypeToString_MethodAnnotations_foo66},
+	{"foo7", "()LTestGenericReturnTypeToString$FirstInnerClass$InterfaceGeneric;", "()LTestGenericReturnTypeToString$FirstInnerClass$InterfaceGeneric<LDummy;>;", $PUBLIC, $virtualMethod(TestGenericReturnTypeToString, foo7, $TestGenericReturnTypeToString$FirstInnerClass$InterfaceGeneric*), nullptr, nullptr, _TestGenericReturnTypeToString_MethodAnnotations_foo77},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TestGenericReturnTypeToString, main, void, $StringArray*)},
 	{}
 };
 

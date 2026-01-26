@@ -136,8 +136,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Proxy$ProxyBuilder$$Lambda$lambda$trace$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Proxy$ProxyBuilder$$Lambda$lambda$trace$0::*)()>(&Proxy$ProxyBuilder$$Lambda$lambda$trace$0::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Proxy$ProxyBuilder$$Lambda$lambda$trace$0, init$, void)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Proxy$ProxyBuilder$$Lambda$lambda$trace$0, accept, void, Object$*)},
 	{}
 };
 $ClassInfo Proxy$ProxyBuilder$$Lambda$lambda$trace$0::classInfo$ = {
@@ -169,8 +169,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Proxy$ProxyBuilder$$Lambda$lambda$getDynamicModule$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Proxy$ProxyBuilder$$Lambda$lambda$getDynamicModule$1$1::*)()>(&Proxy$ProxyBuilder$$Lambda$lambda$getDynamicModule$1$1::init$))},
-	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Proxy$ProxyBuilder$$Lambda$lambda$getDynamicModule$1$1, init$, void)},
+	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Proxy$ProxyBuilder$$Lambda$lambda$getDynamicModule$1$1, apply, $Object*, Object$*, Object$*)},
 	{}
 };
 $ClassInfo Proxy$ProxyBuilder$$Lambda$lambda$getDynamicModule$1$1::classInfo$ = {
@@ -202,28 +202,28 @@ $FieldInfo _Proxy$ProxyBuilder_FieldInfo_[] = {
 };
 
 $MethodInfo _Proxy$ProxyBuilder_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/ClassLoader;Ljava/util/List;)V", "(Ljava/lang/ClassLoader;Ljava/util/List<Ljava/lang/Class<*>;>;)V", 0, $method(static_cast<void(Proxy$ProxyBuilder::*)($ClassLoader*,$List*)>(&Proxy$ProxyBuilder::init$))},
-	{"<init>", "(Ljava/lang/ClassLoader;Ljava/lang/Class;)V", "(Ljava/lang/ClassLoader;Ljava/lang/Class<*>;)V", 0, $method(static_cast<void(Proxy$ProxyBuilder::*)($ClassLoader*,$Class*)>(&Proxy$ProxyBuilder::init$))},
-	{"addElementType", "(Ljava/util/HashSet;Ljava/lang/Class;)V", "(Ljava/util/HashSet<Ljava/lang/Class<*>;>;Ljava/lang/Class<*>;)V", $PRIVATE | $STATIC, $method(static_cast<void(*)($HashSet*,$Class*)>(&Proxy$ProxyBuilder::addElementType))},
-	{"addElementTypes", "(Ljava/util/HashSet;[Ljava/lang/Class;)V", "(Ljava/util/HashSet<Ljava/lang/Class<*>;>;[Ljava/lang/Class<*>;)V", $PRIVATE | $STATIC | $TRANSIENT, $method(static_cast<void(*)($HashSet*,$ClassArray*)>(&Proxy$ProxyBuilder::addElementTypes))},
-	{"build", "()Ljava/lang/reflect/Constructor;", "()Ljava/lang/reflect/Constructor<*>;", 0, $method(static_cast<$Constructor*(Proxy$ProxyBuilder::*)()>(&Proxy$ProxyBuilder::build))},
-	{"defineProxyClass", "(Ljava/lang/Module;Ljava/util/List;)Ljava/lang/Class;", "(Ljava/lang/Module;Ljava/util/List<Ljava/lang/Class<*>;>;)Ljava/lang/Class<*>;", $PRIVATE | $STATIC, $method(static_cast<$Class*(*)($Module*,$List*)>(&Proxy$ProxyBuilder::defineProxyClass))},
-	{"ensureAccess", "(Ljava/lang/Module;Ljava/lang/Class;)V", "(Ljava/lang/Module;Ljava/lang/Class<*>;)V", $PRIVATE | $STATIC, $method(static_cast<void(*)($Module*,$Class*)>(&Proxy$ProxyBuilder::ensureAccess))},
-	{"ensureVisible", "(Ljava/lang/ClassLoader;Ljava/lang/Class;)V", "(Ljava/lang/ClassLoader;Ljava/lang/Class<*>;)V", $PRIVATE | $STATIC, $method(static_cast<void(*)($ClassLoader*,$Class*)>(&Proxy$ProxyBuilder::ensureVisible))},
-	{"getDynamicModule", "(Ljava/lang/ClassLoader;)Ljava/lang/Module;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$Module*(*)($ClassLoader*)>(&Proxy$ProxyBuilder::getDynamicModule))},
-	{"getElementType", "(Ljava/lang/Class;)Ljava/lang/Class;", "(Ljava/lang/Class<*>;)Ljava/lang/Class<*>;", $PRIVATE | $STATIC, $method(static_cast<$Class*(*)($Class*)>(&Proxy$ProxyBuilder::getElementType))},
-	{"isDebug", "()Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)()>(&Proxy$ProxyBuilder::isDebug))},
-	{"isDebug", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($String*)>(&Proxy$ProxyBuilder::isDebug))},
-	{"isExportedType", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PRIVATE | $STATIC, $method(static_cast<bool(*)($Class*)>(&Proxy$ProxyBuilder::isExportedType))},
-	{"isPackagePrivateType", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PRIVATE | $STATIC, $method(static_cast<bool(*)($Class*)>(&Proxy$ProxyBuilder::isPackagePrivateType))},
-	{"isProxyClass", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $STATIC, $method(static_cast<bool(*)($Class*)>(&Proxy$ProxyBuilder::isProxyClass))},
-	{"lambda$getDynamicModule$1", "(Ljava/lang/ClassLoader;Ljdk/internal/loader/ClassLoaderValue;)Ljava/lang/Module;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Module*(*)($ClassLoader*,$ClassLoaderValue*)>(&Proxy$ProxyBuilder::lambda$getDynamicModule$1))},
-	{"lambda$trace$0", "(Ljava/lang/Class;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($Class*)>(&Proxy$ProxyBuilder::lambda$trace$0))},
-	{"mapToModule", "(Ljava/lang/ClassLoader;Ljava/util/List;Ljava/util/Set;)Ljava/lang/Module;", "(Ljava/lang/ClassLoader;Ljava/util/List<Ljava/lang/Class<*>;>;Ljava/util/Set<Ljava/lang/Class<*>;>;)Ljava/lang/Module;", $PRIVATE | $STATIC, $method(static_cast<$Module*(*)($ClassLoader*,$List*,$Set*)>(&Proxy$ProxyBuilder::mapToModule))},
-	{"referencedTypes", "(Ljava/lang/ClassLoader;Ljava/util/List;)Ljava/util/Set;", "(Ljava/lang/ClassLoader;Ljava/util/List<Ljava/lang/Class<*>;>;)Ljava/util/Set<Ljava/lang/Class<*>;>;", $PRIVATE | $STATIC, $method(static_cast<$Set*(*)($ClassLoader*,$List*)>(&Proxy$ProxyBuilder::referencedTypes))},
-	{"toDetails", "(Ljava/lang/Class;)Ljava/lang/String;", "(Ljava/lang/Class<*>;)Ljava/lang/String;", $PRIVATE | $STATIC, $method(static_cast<$String*(*)($Class*)>(&Proxy$ProxyBuilder::toDetails))},
-	{"trace", "(Ljava/lang/String;Ljava/lang/Module;Ljava/lang/ClassLoader;Ljava/util/List;)V", "(Ljava/lang/String;Ljava/lang/Module;Ljava/lang/ClassLoader;Ljava/util/List<Ljava/lang/Class<*>;>;)V", $STATIC, $method(static_cast<void(*)($String*,$Module*,$ClassLoader*,$List*)>(&Proxy$ProxyBuilder::trace))},
-	{"validateProxyInterfaces", "(Ljava/lang/ClassLoader;Ljava/util/List;Ljava/util/Set;)V", "(Ljava/lang/ClassLoader;Ljava/util/List<Ljava/lang/Class<*>;>;Ljava/util/Set<Ljava/lang/Class<*>;>;)V", $PRIVATE | $STATIC, $method(static_cast<void(*)($ClassLoader*,$List*,$Set*)>(&Proxy$ProxyBuilder::validateProxyInterfaces))},
+	{"<init>", "(Ljava/lang/ClassLoader;Ljava/util/List;)V", "(Ljava/lang/ClassLoader;Ljava/util/List<Ljava/lang/Class<*>;>;)V", 0, $method(Proxy$ProxyBuilder, init$, void, $ClassLoader*, $List*)},
+	{"<init>", "(Ljava/lang/ClassLoader;Ljava/lang/Class;)V", "(Ljava/lang/ClassLoader;Ljava/lang/Class<*>;)V", 0, $method(Proxy$ProxyBuilder, init$, void, $ClassLoader*, $Class*)},
+	{"addElementType", "(Ljava/util/HashSet;Ljava/lang/Class;)V", "(Ljava/util/HashSet<Ljava/lang/Class<*>;>;Ljava/lang/Class<*>;)V", $PRIVATE | $STATIC, $staticMethod(Proxy$ProxyBuilder, addElementType, void, $HashSet*, $Class*)},
+	{"addElementTypes", "(Ljava/util/HashSet;[Ljava/lang/Class;)V", "(Ljava/util/HashSet<Ljava/lang/Class<*>;>;[Ljava/lang/Class<*>;)V", $PRIVATE | $STATIC | $TRANSIENT, $staticMethod(Proxy$ProxyBuilder, addElementTypes, void, $HashSet*, $ClassArray*)},
+	{"build", "()Ljava/lang/reflect/Constructor;", "()Ljava/lang/reflect/Constructor<*>;", 0, $method(Proxy$ProxyBuilder, build, $Constructor*)},
+	{"defineProxyClass", "(Ljava/lang/Module;Ljava/util/List;)Ljava/lang/Class;", "(Ljava/lang/Module;Ljava/util/List<Ljava/lang/Class<*>;>;)Ljava/lang/Class<*>;", $PRIVATE | $STATIC, $staticMethod(Proxy$ProxyBuilder, defineProxyClass, $Class*, $Module*, $List*)},
+	{"ensureAccess", "(Ljava/lang/Module;Ljava/lang/Class;)V", "(Ljava/lang/Module;Ljava/lang/Class<*>;)V", $PRIVATE | $STATIC, $staticMethod(Proxy$ProxyBuilder, ensureAccess, void, $Module*, $Class*)},
+	{"ensureVisible", "(Ljava/lang/ClassLoader;Ljava/lang/Class;)V", "(Ljava/lang/ClassLoader;Ljava/lang/Class<*>;)V", $PRIVATE | $STATIC, $staticMethod(Proxy$ProxyBuilder, ensureVisible, void, $ClassLoader*, $Class*)},
+	{"getDynamicModule", "(Ljava/lang/ClassLoader;)Ljava/lang/Module;", nullptr, $PRIVATE | $STATIC, $staticMethod(Proxy$ProxyBuilder, getDynamicModule, $Module*, $ClassLoader*)},
+	{"getElementType", "(Ljava/lang/Class;)Ljava/lang/Class;", "(Ljava/lang/Class<*>;)Ljava/lang/Class<*>;", $PRIVATE | $STATIC, $staticMethod(Proxy$ProxyBuilder, getElementType, $Class*, $Class*)},
+	{"isDebug", "()Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Proxy$ProxyBuilder, isDebug, bool)},
+	{"isDebug", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Proxy$ProxyBuilder, isDebug, bool, $String*)},
+	{"isExportedType", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PRIVATE | $STATIC, $staticMethod(Proxy$ProxyBuilder, isExportedType, bool, $Class*)},
+	{"isPackagePrivateType", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PRIVATE | $STATIC, $staticMethod(Proxy$ProxyBuilder, isPackagePrivateType, bool, $Class*)},
+	{"isProxyClass", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $STATIC, $staticMethod(Proxy$ProxyBuilder, isProxyClass, bool, $Class*)},
+	{"lambda$getDynamicModule$1", "(Ljava/lang/ClassLoader;Ljdk/internal/loader/ClassLoaderValue;)Ljava/lang/Module;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Proxy$ProxyBuilder, lambda$getDynamicModule$1, $Module*, $ClassLoader*, $ClassLoaderValue*)},
+	{"lambda$trace$0", "(Ljava/lang/Class;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Proxy$ProxyBuilder, lambda$trace$0, void, $Class*)},
+	{"mapToModule", "(Ljava/lang/ClassLoader;Ljava/util/List;Ljava/util/Set;)Ljava/lang/Module;", "(Ljava/lang/ClassLoader;Ljava/util/List<Ljava/lang/Class<*>;>;Ljava/util/Set<Ljava/lang/Class<*>;>;)Ljava/lang/Module;", $PRIVATE | $STATIC, $staticMethod(Proxy$ProxyBuilder, mapToModule, $Module*, $ClassLoader*, $List*, $Set*)},
+	{"referencedTypes", "(Ljava/lang/ClassLoader;Ljava/util/List;)Ljava/util/Set;", "(Ljava/lang/ClassLoader;Ljava/util/List<Ljava/lang/Class<*>;>;)Ljava/util/Set<Ljava/lang/Class<*>;>;", $PRIVATE | $STATIC, $staticMethod(Proxy$ProxyBuilder, referencedTypes, $Set*, $ClassLoader*, $List*)},
+	{"toDetails", "(Ljava/lang/Class;)Ljava/lang/String;", "(Ljava/lang/Class<*>;)Ljava/lang/String;", $PRIVATE | $STATIC, $staticMethod(Proxy$ProxyBuilder, toDetails, $String*, $Class*)},
+	{"trace", "(Ljava/lang/String;Ljava/lang/Module;Ljava/lang/ClassLoader;Ljava/util/List;)V", "(Ljava/lang/String;Ljava/lang/Module;Ljava/lang/ClassLoader;Ljava/util/List<Ljava/lang/Class<*>;>;)V", $STATIC, $staticMethod(Proxy$ProxyBuilder, trace, void, $String*, $Module*, $ClassLoader*, $List*)},
+	{"validateProxyInterfaces", "(Ljava/lang/ClassLoader;Ljava/util/List;Ljava/util/Set;)V", "(Ljava/lang/ClassLoader;Ljava/util/List<Ljava/lang/Class<*>;>;Ljava/util/Set<Ljava/lang/Class<*>;>;)V", $PRIVATE | $STATIC, $staticMethod(Proxy$ProxyBuilder, validateProxyInterfaces, void, $ClassLoader*, $List*, $Set*)},
 	{}
 };
 

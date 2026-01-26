@@ -37,17 +37,17 @@ $FieldInfo _MembershipKeyImpl_FieldInfo_[] = {
 };
 
 $MethodInfo _MembershipKeyImpl_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/channels/MulticastChannel;Ljava/net/InetAddress;Ljava/net/NetworkInterface;Ljava/net/InetAddress;)V", nullptr, $PRIVATE, $method(static_cast<void(MembershipKeyImpl::*)($MulticastChannel*,$InetAddress*,$NetworkInterface*,$InetAddress*)>(&MembershipKeyImpl::init$))},
-	{"block", "(Ljava/net/InetAddress;)Ljava/nio/channels/MembershipKey;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"channel", "()Ljava/nio/channels/MulticastChannel;", nullptr, $PUBLIC},
-	{"drop", "()V", nullptr, $PUBLIC},
-	{"group", "()Ljava/net/InetAddress;", nullptr, $PUBLIC},
-	{"invalidate", "()V", nullptr, 0},
-	{"isValid", "()Z", nullptr, $PUBLIC},
-	{"networkInterface", "()Ljava/net/NetworkInterface;", nullptr, $PUBLIC},
-	{"sourceAddress", "()Ljava/net/InetAddress;", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"unblock", "(Ljava/net/InetAddress;)Ljava/nio/channels/MembershipKey;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/nio/channels/MulticastChannel;Ljava/net/InetAddress;Ljava/net/NetworkInterface;Ljava/net/InetAddress;)V", nullptr, $PRIVATE, $method(MembershipKeyImpl, init$, void, $MulticastChannel*, $InetAddress*, $NetworkInterface*, $InetAddress*)},
+	{"block", "(Ljava/net/InetAddress;)Ljava/nio/channels/MembershipKey;", nullptr, $PUBLIC, $virtualMethod(MembershipKeyImpl, block, $MembershipKey*, $InetAddress*), "java.io.IOException"},
+	{"channel", "()Ljava/nio/channels/MulticastChannel;", nullptr, $PUBLIC, $virtualMethod(MembershipKeyImpl, channel, $MulticastChannel*)},
+	{"drop", "()V", nullptr, $PUBLIC, $virtualMethod(MembershipKeyImpl, drop, void)},
+	{"group", "()Ljava/net/InetAddress;", nullptr, $PUBLIC, $virtualMethod(MembershipKeyImpl, group, $InetAddress*)},
+	{"invalidate", "()V", nullptr, 0, $virtualMethod(MembershipKeyImpl, invalidate, void)},
+	{"isValid", "()Z", nullptr, $PUBLIC, $virtualMethod(MembershipKeyImpl, isValid, bool)},
+	{"networkInterface", "()Ljava/net/NetworkInterface;", nullptr, $PUBLIC, $virtualMethod(MembershipKeyImpl, networkInterface, $NetworkInterface*)},
+	{"sourceAddress", "()Ljava/net/InetAddress;", nullptr, $PUBLIC, $virtualMethod(MembershipKeyImpl, sourceAddress, $InetAddress*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MembershipKeyImpl, toString, $String*)},
+	{"unblock", "(Ljava/net/InetAddress;)Ljava/nio/channels/MembershipKey;", nullptr, $PUBLIC, $virtualMethod(MembershipKeyImpl, unblock, $MembershipKey*, $InetAddress*)},
 	{}
 };
 

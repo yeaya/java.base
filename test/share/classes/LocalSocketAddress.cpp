@@ -26,8 +26,8 @@ using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
 
 $MethodInfo _LocalSocketAddress_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(LocalSocketAddress::*)()>(&LocalSocketAddress::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&LocalSocketAddress::main)), "java.net.SocketException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(LocalSocketAddress, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(LocalSocketAddress, main, void, $StringArray*), "java.net.SocketException"},
 	{}
 };
 

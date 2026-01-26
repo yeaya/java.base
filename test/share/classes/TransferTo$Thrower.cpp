@@ -8,7 +8,7 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _TransferTo$Thrower_MethodInfo_[] = {
-	{"run", "()V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.lang.Throwable"},
+	{"run", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TransferTo$Thrower, run, void), "java.lang.Throwable"},
 	{}
 };
 

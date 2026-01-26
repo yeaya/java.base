@@ -22,8 +22,8 @@ $FieldInfo _NetworkClient$3_FieldInfo_[] = {
 };
 
 $MethodInfo _NetworkClient$3_MethodInfo_[] = {
-	{"<init>", "(Lsun/net/NetworkClient;)V", nullptr, 0, $method(static_cast<void(NetworkClient$3::*)($NetworkClient*)>(&NetworkClient$3::init$))},
-	{"run", "()Ljava/net/InetAddress;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/net/NetworkClient;)V", nullptr, 0, $method(NetworkClient$3, init$, void, $NetworkClient*)},
+	{"run", "()Ljava/net/InetAddress;", nullptr, $PUBLIC, $virtualMethod(NetworkClient$3, run, $Object*)},
 	{}
 };
 

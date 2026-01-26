@@ -26,16 +26,16 @@ $FieldInfo _Indify$Logic$JVMState_FieldInfo_[] = {
 };
 
 $MethodInfo _Indify$Logic$JVMState_MethodInfo_[] = {
-	{"<init>", "(Lindify/Indify$Logic;)V", nullptr, $PRIVATE, $method(static_cast<void(Indify$Logic$JVMState::*)($Indify$Logic*)>(&Indify$Logic$JVMState::init$))},
-	{"args", "(ZLjava/lang/String;)Ljava/util/List;", "(ZLjava/lang/String;)Ljava/util/List<Ljava/lang/Object;>;", 0},
-	{"args", "(I)Ljava/util/List;", "(I)Ljava/util/List<Ljava/lang/Object;>;", 0},
-	{"pop", "()Ljava/lang/Object;", nullptr, 0},
-	{"push", "(Ljava/lang/Object;)V", nullptr, 0},
-	{"push2", "(Ljava/lang/Object;)V", nullptr, 0},
-	{"pushAt", "(ILjava/lang/Object;)V", nullptr, 0},
-	{"sp", "()I", nullptr, 0},
-	{"stackMotion", "(I)Z", nullptr, 0},
-	{"top", "()Ljava/lang/Object;", nullptr, 0},
+	{"<init>", "(Lindify/Indify$Logic;)V", nullptr, $PRIVATE, $method(Indify$Logic$JVMState, init$, void, $Indify$Logic*)},
+	{"args", "(ZLjava/lang/String;)Ljava/util/List;", "(ZLjava/lang/String;)Ljava/util/List<Ljava/lang/Object;>;", 0, $virtualMethod(Indify$Logic$JVMState, args, $List*, bool, $String*)},
+	{"args", "(I)Ljava/util/List;", "(I)Ljava/util/List<Ljava/lang/Object;>;", 0, $virtualMethod(Indify$Logic$JVMState, args, $List*, int32_t)},
+	{"pop", "()Ljava/lang/Object;", nullptr, 0, $virtualMethod(Indify$Logic$JVMState, pop, $Object*)},
+	{"push", "(Ljava/lang/Object;)V", nullptr, 0, $virtualMethod(Indify$Logic$JVMState, push, void, Object$*)},
+	{"push2", "(Ljava/lang/Object;)V", nullptr, 0, $virtualMethod(Indify$Logic$JVMState, push2, void, Object$*)},
+	{"pushAt", "(ILjava/lang/Object;)V", nullptr, 0, $virtualMethod(Indify$Logic$JVMState, pushAt, void, int32_t, Object$*)},
+	{"sp", "()I", nullptr, 0, $virtualMethod(Indify$Logic$JVMState, sp, int32_t)},
+	{"stackMotion", "(I)Z", nullptr, 0, $virtualMethod(Indify$Logic$JVMState, stackMotion, bool, int32_t)},
+	{"top", "()Ljava/lang/Object;", nullptr, 0, $virtualMethod(Indify$Logic$JVMState, top, $Object*)},
 	{}
 };
 

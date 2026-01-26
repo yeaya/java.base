@@ -3,6 +3,7 @@
 #include <java/nio/ByteBuffer.h>
 #include <jcpp.h>
 
+using $ByteBufferArray = $Array<::java::nio::ByteBuffer>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
@@ -11,8 +12,8 @@ namespace java {
 		namespace channels {
 
 $MethodInfo _GatheringByteChannel_MethodInfo_[] = {
-	{"write", "([Ljava/nio/ByteBuffer;II)J", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"write", "([Ljava/nio/ByteBuffer;)J", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
+	{"write", "([Ljava/nio/ByteBuffer;II)J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GatheringByteChannel, write, int64_t, $ByteBufferArray*, int32_t, int32_t), "java.io.IOException"},
+	{"write", "([Ljava/nio/ByteBuffer;)J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GatheringByteChannel, write, int64_t, $ByteBufferArray*), "java.io.IOException"},
 	{}
 };
 

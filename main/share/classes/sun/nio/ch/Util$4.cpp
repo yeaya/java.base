@@ -37,8 +37,8 @@ namespace sun {
 		namespace ch {
 
 $MethodInfo _Util$4_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Util$4::*)()>(&Util$4::init$))},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(Util$4, init$, void)},
+	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(Util$4, run, $Object*)},
 	{}
 };
 

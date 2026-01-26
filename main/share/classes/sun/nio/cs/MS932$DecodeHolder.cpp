@@ -26,7 +26,7 @@ $FieldInfo _MS932$DecodeHolder_FieldInfo_[] = {
 };
 
 $MethodInfo _MS932$DecodeHolder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(MS932$DecodeHolder::*)()>(&MS932$DecodeHolder::init$))},
+	{"<init>", "()V", nullptr, 0, $method(MS932$DecodeHolder, init$, void)},
 	{}
 };
 

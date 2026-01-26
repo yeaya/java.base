@@ -46,14 +46,14 @@ $FieldInfo _LotsOfCancels_FieldInfo_[] = {
 };
 
 $MethodInfo _LotsOfCancels_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(LotsOfCancels::*)()>(&LotsOfCancels::init$))},
-	{"acceptAndAddAll", "(Ljava/nio/channels/Selector;Ljava/nio/channels/ServerSocketChannel;I)Ljava/util/List;", "(Ljava/nio/channels/Selector;Ljava/nio/channels/ServerSocketChannel;I)Ljava/util/List<Ljava/nio/channels/SocketChannel;>;", $STATIC, $method(static_cast<$List*(*)($Selector*,$ServerSocketChannel*,int32_t)>(&LotsOfCancels::acceptAndAddAll)), "java.lang.Exception"},
-	{"closeAll", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/channels/SocketChannel;>;)V", $STATIC, $method(static_cast<void(*)($List*)>(&LotsOfCancels::closeAll)), "java.lang.Exception"},
-	{"durationMillis", "(J)J", nullptr, $STATIC, $method(static_cast<int64_t(*)(int64_t)>(&LotsOfCancels::durationMillis))},
-	{"getLogPrefix", "()Ljava/lang/String;", nullptr, $STATIC, $method(static_cast<$String*(*)()>(&LotsOfCancels::getLogPrefix))},
-	{"log", "(Ljava/lang/String;)V", nullptr, $STATIC, $method(static_cast<void(*)($String*)>(&LotsOfCancels::log))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&LotsOfCancels::main)), "java.lang.Exception"},
-	{"runTest", "(III)V", nullptr, $STATIC, $method(static_cast<void(*)(int32_t,int32_t,int32_t)>(&LotsOfCancels::runTest)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(LotsOfCancels, init$, void)},
+	{"acceptAndAddAll", "(Ljava/nio/channels/Selector;Ljava/nio/channels/ServerSocketChannel;I)Ljava/util/List;", "(Ljava/nio/channels/Selector;Ljava/nio/channels/ServerSocketChannel;I)Ljava/util/List<Ljava/nio/channels/SocketChannel;>;", $STATIC, $staticMethod(LotsOfCancels, acceptAndAddAll, $List*, $Selector*, $ServerSocketChannel*, int32_t), "java.lang.Exception"},
+	{"closeAll", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/channels/SocketChannel;>;)V", $STATIC, $staticMethod(LotsOfCancels, closeAll, void, $List*), "java.lang.Exception"},
+	{"durationMillis", "(J)J", nullptr, $STATIC, $staticMethod(LotsOfCancels, durationMillis, int64_t, int64_t)},
+	{"getLogPrefix", "()Ljava/lang/String;", nullptr, $STATIC, $staticMethod(LotsOfCancels, getLogPrefix, $String*)},
+	{"log", "(Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(LotsOfCancels, log, void, $String*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(LotsOfCancels, main, void, $StringArray*), "java.lang.Exception"},
+	{"runTest", "(III)V", nullptr, $STATIC, $staticMethod(LotsOfCancels, runTest, void, int32_t, int32_t, int32_t), "java.lang.Exception"},
 	{}
 };
 

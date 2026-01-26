@@ -19,9 +19,9 @@ $FieldInfo _CryptoPolicyParser$ParsingException_FieldInfo_[] = {
 };
 
 $MethodInfo _CryptoPolicyParser$ParsingException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(CryptoPolicyParser$ParsingException::*)($String*)>(&CryptoPolicyParser$ParsingException::init$))},
-	{"<init>", "(ILjava/lang/String;)V", nullptr, 0, $method(static_cast<void(CryptoPolicyParser$ParsingException::*)(int32_t,$String*)>(&CryptoPolicyParser$ParsingException::init$))},
-	{"<init>", "(ILjava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(CryptoPolicyParser$ParsingException::*)(int32_t,$String*,$String*)>(&CryptoPolicyParser$ParsingException::init$))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(CryptoPolicyParser$ParsingException, init$, void, $String*)},
+	{"<init>", "(ILjava/lang/String;)V", nullptr, 0, $method(CryptoPolicyParser$ParsingException, init$, void, int32_t, $String*)},
+	{"<init>", "(ILjava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(CryptoPolicyParser$ParsingException, init$, void, int32_t, $String*, $String*)},
 	{}
 };
 

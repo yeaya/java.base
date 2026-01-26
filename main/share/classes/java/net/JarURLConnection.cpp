@@ -35,16 +35,16 @@ $FieldInfo _JarURLConnection_FieldInfo_[] = {
 };
 
 $MethodInfo _JarURLConnection_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/URL;)V", nullptr, $PROTECTED, $method(static_cast<void(JarURLConnection::*)($URL*)>(&JarURLConnection::init$)), "java.net.MalformedURLException"},
-	{"getAttributes", "()Ljava/util/jar/Attributes;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"getCertificates", "()[Ljava/security/cert/Certificate;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"getEntryName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getJarEntry", "()Ljava/util/jar/JarEntry;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"getJarFile", "()Ljava/util/jar/JarFile;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"getJarFileURL", "()Ljava/net/URL;", nullptr, $PUBLIC},
-	{"getMainAttributes", "()Ljava/util/jar/Attributes;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"getManifest", "()Ljava/util/jar/Manifest;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"parseSpecs", "(Ljava/net/URL;)V", nullptr, $PRIVATE, $method(static_cast<void(JarURLConnection::*)($URL*)>(&JarURLConnection::parseSpecs)), "java.net.MalformedURLException"},
+	{"<init>", "(Ljava/net/URL;)V", nullptr, $PROTECTED, $method(JarURLConnection, init$, void, $URL*), "java.net.MalformedURLException"},
+	{"getAttributes", "()Ljava/util/jar/Attributes;", nullptr, $PUBLIC, $virtualMethod(JarURLConnection, getAttributes, $Attributes*), "java.io.IOException"},
+	{"getCertificates", "()[Ljava/security/cert/Certificate;", nullptr, $PUBLIC, $virtualMethod(JarURLConnection, getCertificates, $CertificateArray*), "java.io.IOException"},
+	{"getEntryName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JarURLConnection, getEntryName, $String*)},
+	{"getJarEntry", "()Ljava/util/jar/JarEntry;", nullptr, $PUBLIC, $virtualMethod(JarURLConnection, getJarEntry, $JarEntry*), "java.io.IOException"},
+	{"getJarFile", "()Ljava/util/jar/JarFile;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JarURLConnection, getJarFile, $JarFile*), "java.io.IOException"},
+	{"getJarFileURL", "()Ljava/net/URL;", nullptr, $PUBLIC, $virtualMethod(JarURLConnection, getJarFileURL, $URL*)},
+	{"getMainAttributes", "()Ljava/util/jar/Attributes;", nullptr, $PUBLIC, $virtualMethod(JarURLConnection, getMainAttributes, $Attributes*), "java.io.IOException"},
+	{"getManifest", "()Ljava/util/jar/Manifest;", nullptr, $PUBLIC, $virtualMethod(JarURLConnection, getManifest, $Manifest*), "java.io.IOException"},
+	{"parseSpecs", "(Ljava/net/URL;)V", nullptr, $PRIVATE, $method(JarURLConnection, parseSpecs, void, $URL*), "java.net.MalformedURLException"},
 	{}
 };
 

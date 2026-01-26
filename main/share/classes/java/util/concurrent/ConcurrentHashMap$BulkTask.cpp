@@ -39,10 +39,10 @@ $FieldInfo _ConcurrentHashMap$BulkTask_FieldInfo_[] = {
 };
 
 $MethodInfo _ConcurrentHashMap$BulkTask_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/ConcurrentHashMap$BulkTask;III[Ljava/util/concurrent/ConcurrentHashMap$Node;)V", "(Ljava/util/concurrent/ConcurrentHashMap$BulkTask<TK;TV;*>;III[Ljava/util/concurrent/ConcurrentHashMap$Node<TK;TV;>;)V", 0, $method(static_cast<void(ConcurrentHashMap$BulkTask::*)(ConcurrentHashMap$BulkTask*,int32_t,int32_t,int32_t,$ConcurrentHashMap$NodeArray*)>(&ConcurrentHashMap$BulkTask::init$))},
-	{"advance", "()Ljava/util/concurrent/ConcurrentHashMap$Node;", "()Ljava/util/concurrent/ConcurrentHashMap$Node<TK;TV;>;", $FINAL, $method(static_cast<$ConcurrentHashMap$Node*(ConcurrentHashMap$BulkTask::*)()>(&ConcurrentHashMap$BulkTask::advance))},
-	{"pushState", "([Ljava/util/concurrent/ConcurrentHashMap$Node;II)V", "([Ljava/util/concurrent/ConcurrentHashMap$Node<TK;TV;>;II)V", $PRIVATE, $method(static_cast<void(ConcurrentHashMap$BulkTask::*)($ConcurrentHashMap$NodeArray*,int32_t,int32_t)>(&ConcurrentHashMap$BulkTask::pushState))},
-	{"recoverState", "(I)V", nullptr, $PRIVATE, $method(static_cast<void(ConcurrentHashMap$BulkTask::*)(int32_t)>(&ConcurrentHashMap$BulkTask::recoverState))},
+	{"<init>", "(Ljava/util/concurrent/ConcurrentHashMap$BulkTask;III[Ljava/util/concurrent/ConcurrentHashMap$Node;)V", "(Ljava/util/concurrent/ConcurrentHashMap$BulkTask<TK;TV;*>;III[Ljava/util/concurrent/ConcurrentHashMap$Node<TK;TV;>;)V", 0, $method(ConcurrentHashMap$BulkTask, init$, void, ConcurrentHashMap$BulkTask*, int32_t, int32_t, int32_t, $ConcurrentHashMap$NodeArray*)},
+	{"advance", "()Ljava/util/concurrent/ConcurrentHashMap$Node;", "()Ljava/util/concurrent/ConcurrentHashMap$Node<TK;TV;>;", $FINAL, $method(ConcurrentHashMap$BulkTask, advance, $ConcurrentHashMap$Node*)},
+	{"pushState", "([Ljava/util/concurrent/ConcurrentHashMap$Node;II)V", "([Ljava/util/concurrent/ConcurrentHashMap$Node<TK;TV;>;II)V", $PRIVATE, $method(ConcurrentHashMap$BulkTask, pushState, void, $ConcurrentHashMap$NodeArray*, int32_t, int32_t)},
+	{"recoverState", "(I)V", nullptr, $PRIVATE, $method(ConcurrentHashMap$BulkTask, recoverState, void, int32_t)},
 	{}
 };
 

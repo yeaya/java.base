@@ -34,14 +34,14 @@ $FieldInfo _ArrayDeque$DeqSpliterator_FieldInfo_[] = {
 };
 
 $MethodInfo _ArrayDeque$DeqSpliterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/ArrayDeque;)V", nullptr, 0, $method(static_cast<void(ArrayDeque$DeqSpliterator::*)($ArrayDeque*)>(&ArrayDeque$DeqSpliterator::init$))},
-	{"<init>", "(Ljava/util/ArrayDeque;II)V", nullptr, 0, $method(static_cast<void(ArrayDeque$DeqSpliterator::*)($ArrayDeque*,int32_t,int32_t)>(&ArrayDeque$DeqSpliterator::init$))},
-	{"characteristics", "()I", nullptr, $PUBLIC},
-	{"estimateSize", "()J", nullptr, $PUBLIC},
-	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC},
-	{"getFence", "()I", nullptr, $PRIVATE, $method(static_cast<int32_t(ArrayDeque$DeqSpliterator::*)()>(&ArrayDeque$DeqSpliterator::getFence))},
-	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-TE;>;)Z", $PUBLIC},
-	{"trySplit", "()Ljava/util/ArrayDeque$DeqSpliterator;", "()Ljava/util/ArrayDeque<TE;>.DeqSpliterator;", $PUBLIC},
+	{"<init>", "(Ljava/util/ArrayDeque;)V", nullptr, 0, $method(ArrayDeque$DeqSpliterator, init$, void, $ArrayDeque*)},
+	{"<init>", "(Ljava/util/ArrayDeque;II)V", nullptr, 0, $method(ArrayDeque$DeqSpliterator, init$, void, $ArrayDeque*, int32_t, int32_t)},
+	{"characteristics", "()I", nullptr, $PUBLIC, $virtualMethod(ArrayDeque$DeqSpliterator, characteristics, int32_t)},
+	{"estimateSize", "()J", nullptr, $PUBLIC, $virtualMethod(ArrayDeque$DeqSpliterator, estimateSize, int64_t)},
+	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC, $virtualMethod(ArrayDeque$DeqSpliterator, forEachRemaining, void, $Consumer*)},
+	{"getFence", "()I", nullptr, $PRIVATE, $method(ArrayDeque$DeqSpliterator, getFence, int32_t)},
+	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-TE;>;)Z", $PUBLIC, $virtualMethod(ArrayDeque$DeqSpliterator, tryAdvance, bool, $Consumer*)},
+	{"trySplit", "()Ljava/util/ArrayDeque$DeqSpliterator;", "()Ljava/util/ArrayDeque<TE;>.DeqSpliterator;", $PUBLIC, $virtualMethod(ArrayDeque$DeqSpliterator, trySplit, ArrayDeque$DeqSpliterator*)},
 	{}
 };
 

@@ -45,11 +45,11 @@ $FieldInfo _FileSystemOption_FieldInfo_[] = {
 };
 
 $MethodInfo _FileSystemOption_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/fs/ExtendedOptions$InternalOption;)V", "(Lsun/nio/fs/ExtendedOptions$InternalOption<TT;>;)V", $PRIVATE, $method(static_cast<void(FileSystemOption::*)($ExtendedOptions$InternalOption*)>(&FileSystemOption::init$))},
-	{"register", "(Ljava/nio/file/OpenOption;)V", nullptr, $PUBLIC, $method(static_cast<void(FileSystemOption::*)($OpenOption*)>(&FileSystemOption::register$))},
-	{"register", "(Ljava/nio/file/CopyOption;)V", nullptr, $PUBLIC, $method(static_cast<void(FileSystemOption::*)($CopyOption*)>(&FileSystemOption::register$))},
-	{"register", "(Ljava/nio/file/WatchEvent$Modifier;)V", nullptr, $PUBLIC, $method(static_cast<void(FileSystemOption::*)($WatchEvent$Modifier*)>(&FileSystemOption::register$))},
-	{"register", "(Ljava/nio/file/WatchEvent$Modifier;Ljava/lang/Object;)V", "(Ljava/nio/file/WatchEvent$Modifier;TT;)V", $PUBLIC, $method(static_cast<void(FileSystemOption::*)($WatchEvent$Modifier*,Object$*)>(&FileSystemOption::register$))},
+	{"<init>", "(Lsun/nio/fs/ExtendedOptions$InternalOption;)V", "(Lsun/nio/fs/ExtendedOptions$InternalOption<TT;>;)V", $PRIVATE, $method(FileSystemOption, init$, void, $ExtendedOptions$InternalOption*)},
+	{"register", "(Ljava/nio/file/OpenOption;)V", nullptr, $PUBLIC, $method(FileSystemOption, register$, void, $OpenOption*)},
+	{"register", "(Ljava/nio/file/CopyOption;)V", nullptr, $PUBLIC, $method(FileSystemOption, register$, void, $CopyOption*)},
+	{"register", "(Ljava/nio/file/WatchEvent$Modifier;)V", nullptr, $PUBLIC, $method(FileSystemOption, register$, void, $WatchEvent$Modifier*)},
+	{"register", "(Ljava/nio/file/WatchEvent$Modifier;Ljava/lang/Object;)V", "(Ljava/nio/file/WatchEvent$Modifier;TT;)V", $PUBLIC, $method(FileSystemOption, register$, void, $WatchEvent$Modifier*, Object$*)},
 	{}
 };
 

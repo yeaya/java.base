@@ -8,7 +8,7 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _StaticFieldsOnInterface$X_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(StaticFieldsOnInterface$X::*)()>(&StaticFieldsOnInterface$X::init$))},
+	{"<init>", "()V", nullptr, 0, $method(StaticFieldsOnInterface$X, init$, void)},
 	{}
 };
 

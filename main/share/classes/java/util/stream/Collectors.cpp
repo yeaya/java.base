@@ -144,8 +144,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Collectors$$Lambda$lambda$uniqKeysMapMerger$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Collectors$$Lambda$lambda$uniqKeysMapMerger$0::*)()>(&Collectors$$Lambda$lambda$uniqKeysMapMerger$0::init$))},
-	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Collectors$$Lambda$lambda$uniqKeysMapMerger$0, init$, void)},
+	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Collectors$$Lambda$lambda$uniqKeysMapMerger$0, apply, $Object*, Object$*, Object$*)},
 	{}
 };
 $ClassInfo Collectors$$Lambda$lambda$uniqKeysMapMerger$0::classInfo$ = {
@@ -187,8 +187,8 @@ $FieldInfo Collectors$$Lambda$lambda$uniqKeysMapAccumulator$1$1::fieldInfos[3] =
 	{}
 };
 $MethodInfo Collectors$$Lambda$lambda$uniqKeysMapAccumulator$1$1::methodInfos[3] = {
-	{"<init>", "(Ljava/util/function/Function;Ljava/util/function/Function;)V", nullptr, $PUBLIC, $method(static_cast<void(Collectors$$Lambda$lambda$uniqKeysMapAccumulator$1$1::*)($Function*,$Function*)>(&Collectors$$Lambda$lambda$uniqKeysMapAccumulator$1$1::init$))},
-	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/function/Function;Ljava/util/function/Function;)V", nullptr, $PUBLIC, $method(Collectors$$Lambda$lambda$uniqKeysMapAccumulator$1$1, init$, void, $Function*, $Function*)},
+	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Collectors$$Lambda$lambda$uniqKeysMapAccumulator$1$1, accept, void, Object$*, Object$*)},
 	{}
 };
 $ClassInfo Collectors$$Lambda$lambda$uniqKeysMapAccumulator$1$1::classInfo$ = {
@@ -220,8 +220,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Collectors$$Lambda$lambda$castingIdentity$2$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Collectors$$Lambda$lambda$castingIdentity$2$2::*)()>(&Collectors$$Lambda$lambda$castingIdentity$2$2::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Collectors$$Lambda$lambda$castingIdentity$2$2, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Collectors$$Lambda$lambda$castingIdentity$2$2, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Collectors$$Lambda$lambda$castingIdentity$2$2::classInfo$ = {
@@ -253,8 +253,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Collectors$$Lambda$add$3::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Collectors$$Lambda$add$3::*)()>(&Collectors$$Lambda$add$3::init$))},
-	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Collectors$$Lambda$add$3, init$, void)},
+	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Collectors$$Lambda$add$3, accept, void, Object$*, Object$*)},
 	{}
 };
 $ClassInfo Collectors$$Lambda$add$3::classInfo$ = {
@@ -286,8 +286,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Collectors$$Lambda$lambda$toCollection$3$4::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Collectors$$Lambda$lambda$toCollection$3$4::*)()>(&Collectors$$Lambda$lambda$toCollection$3$4::init$))},
-	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Collectors$$Lambda$lambda$toCollection$3$4, init$, void)},
+	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Collectors$$Lambda$lambda$toCollection$3$4, apply, $Object*, Object$*, Object$*)},
 	{}
 };
 $ClassInfo Collectors$$Lambda$lambda$toCollection$3$4::classInfo$ = {
@@ -319,8 +319,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Collectors$$Lambda$ArrayList$5::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Collectors$$Lambda$ArrayList$5::*)()>(&Collectors$$Lambda$ArrayList$5::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Collectors$$Lambda$ArrayList$5, init$, void)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Collectors$$Lambda$ArrayList$5, get, $Object*)},
 	{}
 };
 $ClassInfo Collectors$$Lambda$ArrayList$5::classInfo$ = {
@@ -352,8 +352,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Collectors$$Lambda$add$6::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Collectors$$Lambda$add$6::*)()>(&Collectors$$Lambda$add$6::init$))},
-	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Collectors$$Lambda$add$6, init$, void)},
+	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Collectors$$Lambda$add$6, accept, void, Object$*, Object$*)},
 	{}
 };
 $ClassInfo Collectors$$Lambda$add$6::classInfo$ = {
@@ -385,8 +385,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Collectors$$Lambda$lambda$toList$4$7::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Collectors$$Lambda$lambda$toList$4$7::*)()>(&Collectors$$Lambda$lambda$toList$4$7::init$))},
-	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Collectors$$Lambda$lambda$toList$4$7, init$, void)},
+	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Collectors$$Lambda$lambda$toList$4$7, apply, $Object*, Object$*, Object$*)},
 	{}
 };
 $ClassInfo Collectors$$Lambda$lambda$toList$4$7::classInfo$ = {
@@ -418,8 +418,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Collectors$$Lambda$lambda$toUnmodifiableList$6$8::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Collectors$$Lambda$lambda$toUnmodifiableList$6$8::*)()>(&Collectors$$Lambda$lambda$toUnmodifiableList$6$8::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Collectors$$Lambda$lambda$toUnmodifiableList$6$8, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Collectors$$Lambda$lambda$toUnmodifiableList$6$8, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Collectors$$Lambda$lambda$toUnmodifiableList$6$8::classInfo$ = {
@@ -451,8 +451,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Collectors$$Lambda$HashSet$9::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Collectors$$Lambda$HashSet$9::*)()>(&Collectors$$Lambda$HashSet$9::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Collectors$$Lambda$HashSet$9, init$, void)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Collectors$$Lambda$HashSet$9, get, $Object*)},
 	{}
 };
 $ClassInfo Collectors$$Lambda$HashSet$9::classInfo$ = {
@@ -484,8 +484,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Collectors$$Lambda$add$10::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Collectors$$Lambda$add$10::*)()>(&Collectors$$Lambda$add$10::init$))},
-	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Collectors$$Lambda$add$10, init$, void)},
+	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Collectors$$Lambda$add$10, accept, void, Object$*, Object$*)},
 	{}
 };
 $ClassInfo Collectors$$Lambda$add$10::classInfo$ = {
@@ -517,8 +517,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Collectors$$Lambda$lambda$toSet$7$11::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Collectors$$Lambda$lambda$toSet$7$11::*)()>(&Collectors$$Lambda$lambda$toSet$7$11::init$))},
-	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Collectors$$Lambda$lambda$toSet$7$11, init$, void)},
+	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Collectors$$Lambda$lambda$toSet$7$11, apply, $Object*, Object$*, Object$*)},
 	{}
 };
 $ClassInfo Collectors$$Lambda$lambda$toSet$7$11::classInfo$ = {
@@ -550,8 +550,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Collectors$$Lambda$lambda$toUnmodifiableSet$9$12::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Collectors$$Lambda$lambda$toUnmodifiableSet$9$12::*)()>(&Collectors$$Lambda$lambda$toUnmodifiableSet$9$12::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Collectors$$Lambda$lambda$toUnmodifiableSet$9$12, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Collectors$$Lambda$lambda$toUnmodifiableSet$9$12, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Collectors$$Lambda$lambda$toUnmodifiableSet$9$12::classInfo$ = {
@@ -583,8 +583,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Collectors$$Lambda$StringBuilder$13::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Collectors$$Lambda$StringBuilder$13::*)()>(&Collectors$$Lambda$StringBuilder$13::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Collectors$$Lambda$StringBuilder$13, init$, void)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Collectors$$Lambda$StringBuilder$13, get, $Object*)},
 	{}
 };
 $ClassInfo Collectors$$Lambda$StringBuilder$13::classInfo$ = {
@@ -616,8 +616,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Collectors$$Lambda$append$14::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Collectors$$Lambda$append$14::*)()>(&Collectors$$Lambda$append$14::init$))},
-	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Collectors$$Lambda$append$14, init$, void)},
+	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Collectors$$Lambda$append$14, accept, void, Object$*, Object$*)},
 	{}
 };
 $ClassInfo Collectors$$Lambda$append$14::classInfo$ = {
@@ -649,8 +649,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Collectors$$Lambda$lambda$joining$10$15::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Collectors$$Lambda$lambda$joining$10$15::*)()>(&Collectors$$Lambda$lambda$joining$10$15::init$))},
-	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Collectors$$Lambda$lambda$joining$10$15, init$, void)},
+	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Collectors$$Lambda$lambda$joining$10$15, apply, $Object*, Object$*, Object$*)},
 	{}
 };
 $ClassInfo Collectors$$Lambda$lambda$joining$10$15::classInfo$ = {
@@ -682,8 +682,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Collectors$$Lambda$toString$16::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Collectors$$Lambda$toString$16::*)()>(&Collectors$$Lambda$toString$16::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Collectors$$Lambda$toString$16, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Collectors$$Lambda$toString$16, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Collectors$$Lambda$toString$16::classInfo$ = {
@@ -728,8 +728,8 @@ $FieldInfo Collectors$$Lambda$lambda$joining$11$17::fieldInfos[4] = {
 	{}
 };
 $MethodInfo Collectors$$Lambda$lambda$joining$11$17::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/CharSequence;Ljava/lang/CharSequence;Ljava/lang/CharSequence;)V", nullptr, $PUBLIC, $method(static_cast<void(Collectors$$Lambda$lambda$joining$11$17::*)($CharSequence*,$CharSequence*,$CharSequence*)>(&Collectors$$Lambda$lambda$joining$11$17::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/CharSequence;Ljava/lang/CharSequence;Ljava/lang/CharSequence;)V", nullptr, $PUBLIC, $method(Collectors$$Lambda$lambda$joining$11$17, init$, void, $CharSequence*, $CharSequence*, $CharSequence*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Collectors$$Lambda$lambda$joining$11$17, get, $Object*)},
 	{}
 };
 $ClassInfo Collectors$$Lambda$lambda$joining$11$17::classInfo$ = {
@@ -761,8 +761,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Collectors$$Lambda$add$18::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Collectors$$Lambda$add$18::*)()>(&Collectors$$Lambda$add$18::init$))},
-	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Collectors$$Lambda$add$18, init$, void)},
+	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Collectors$$Lambda$add$18, accept, void, Object$*, Object$*)},
 	{}
 };
 $ClassInfo Collectors$$Lambda$add$18::classInfo$ = {
@@ -794,8 +794,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Collectors$$Lambda$merge$19::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Collectors$$Lambda$merge$19::*)()>(&Collectors$$Lambda$merge$19::init$))},
-	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Collectors$$Lambda$merge$19, init$, void)},
+	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Collectors$$Lambda$merge$19, apply, $Object*, Object$*, Object$*)},
 	{}
 };
 $ClassInfo Collectors$$Lambda$merge$19::classInfo$ = {
@@ -827,8 +827,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Collectors$$Lambda$toString$20::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Collectors$$Lambda$toString$20::*)()>(&Collectors$$Lambda$toString$20::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Collectors$$Lambda$toString$20, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Collectors$$Lambda$toString$20, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Collectors$$Lambda$toString$20::classInfo$ = {
@@ -867,8 +867,8 @@ $FieldInfo Collectors$$Lambda$lambda$mapMerger$12$21::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Collectors$$Lambda$lambda$mapMerger$12$21::methodInfos[3] = {
-	{"<init>", "(Ljava/util/function/BinaryOperator;)V", nullptr, $PUBLIC, $method(static_cast<void(Collectors$$Lambda$lambda$mapMerger$12$21::*)($BinaryOperator*)>(&Collectors$$Lambda$lambda$mapMerger$12$21::init$))},
-	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/function/BinaryOperator;)V", nullptr, $PUBLIC, $method(Collectors$$Lambda$lambda$mapMerger$12$21, init$, void, $BinaryOperator*)},
+	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Collectors$$Lambda$lambda$mapMerger$12$21, apply, $Object*, Object$*, Object$*)},
 	{}
 };
 $ClassInfo Collectors$$Lambda$lambda$mapMerger$12$21::classInfo$ = {
@@ -910,8 +910,8 @@ $FieldInfo Collectors$$Lambda$lambda$mapping$13$22::fieldInfos[3] = {
 	{}
 };
 $MethodInfo Collectors$$Lambda$lambda$mapping$13$22::methodInfos[3] = {
-	{"<init>", "(Ljava/util/function/BiConsumer;Ljava/util/function/Function;)V", nullptr, $PUBLIC, $method(static_cast<void(Collectors$$Lambda$lambda$mapping$13$22::*)($BiConsumer*,$Function*)>(&Collectors$$Lambda$lambda$mapping$13$22::init$))},
-	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/function/BiConsumer;Ljava/util/function/Function;)V", nullptr, $PUBLIC, $method(Collectors$$Lambda$lambda$mapping$13$22, init$, void, $BiConsumer*, $Function*)},
+	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Collectors$$Lambda$lambda$mapping$13$22, accept, void, Object$*, Object$*)},
 	{}
 };
 $ClassInfo Collectors$$Lambda$lambda$mapping$13$22::classInfo$ = {
@@ -953,8 +953,8 @@ $FieldInfo Collectors$$Lambda$lambda$flatMapping$15$23::fieldInfos[3] = {
 	{}
 };
 $MethodInfo Collectors$$Lambda$lambda$flatMapping$15$23::methodInfos[3] = {
-	{"<init>", "(Ljava/util/function/Function;Ljava/util/function/BiConsumer;)V", nullptr, $PUBLIC, $method(static_cast<void(Collectors$$Lambda$lambda$flatMapping$15$23::*)($Function*,$BiConsumer*)>(&Collectors$$Lambda$lambda$flatMapping$15$23::init$))},
-	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/function/Function;Ljava/util/function/BiConsumer;)V", nullptr, $PUBLIC, $method(Collectors$$Lambda$lambda$flatMapping$15$23, init$, void, $Function*, $BiConsumer*)},
+	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Collectors$$Lambda$lambda$flatMapping$15$23, accept, void, Object$*, Object$*)},
 	{}
 };
 $ClassInfo Collectors$$Lambda$lambda$flatMapping$15$23::classInfo$ = {
@@ -996,8 +996,8 @@ $FieldInfo Collectors$$Lambda$lambda$filtering$16$24::fieldInfos[3] = {
 	{}
 };
 $MethodInfo Collectors$$Lambda$lambda$filtering$16$24::methodInfos[3] = {
-	{"<init>", "(Ljava/util/function/Predicate;Ljava/util/function/BiConsumer;)V", nullptr, $PUBLIC, $method(static_cast<void(Collectors$$Lambda$lambda$filtering$16$24::*)($Predicate*,$BiConsumer*)>(&Collectors$$Lambda$lambda$filtering$16$24::init$))},
-	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/function/Predicate;Ljava/util/function/BiConsumer;)V", nullptr, $PUBLIC, $method(Collectors$$Lambda$lambda$filtering$16$24, init$, void, $Predicate*, $BiConsumer*)},
+	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Collectors$$Lambda$lambda$filtering$16$24, accept, void, Object$*, Object$*)},
 	{}
 };
 $ClassInfo Collectors$$Lambda$lambda$filtering$16$24::classInfo$ = {
@@ -1029,8 +1029,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Collectors$$Lambda$lambda$counting$17$25::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Collectors$$Lambda$lambda$counting$17$25::*)()>(&Collectors$$Lambda$lambda$counting$17$25::init$))},
-	{"applyAsLong", "(Ljava/lang/Object;)J", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Collectors$$Lambda$lambda$counting$17$25, init$, void)},
+	{"applyAsLong", "(Ljava/lang/Object;)J", nullptr, $PUBLIC, $virtualMethod(Collectors$$Lambda$lambda$counting$17$25, applyAsLong, int64_t, Object$*)},
 	{}
 };
 $ClassInfo Collectors$$Lambda$lambda$counting$17$25::classInfo$ = {
@@ -1062,8 +1062,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Collectors$$Lambda$lambda$summingInt$18$26::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Collectors$$Lambda$lambda$summingInt$18$26::*)()>(&Collectors$$Lambda$lambda$summingInt$18$26::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Collectors$$Lambda$lambda$summingInt$18$26, init$, void)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Collectors$$Lambda$lambda$summingInt$18$26, get, $Object*)},
 	{}
 };
 $ClassInfo Collectors$$Lambda$lambda$summingInt$18$26::classInfo$ = {
@@ -1102,8 +1102,8 @@ $FieldInfo Collectors$$Lambda$lambda$summingInt$19$27::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Collectors$$Lambda$lambda$summingInt$19$27::methodInfos[3] = {
-	{"<init>", "(Ljava/util/function/ToIntFunction;)V", nullptr, $PUBLIC, $method(static_cast<void(Collectors$$Lambda$lambda$summingInt$19$27::*)($ToIntFunction*)>(&Collectors$$Lambda$lambda$summingInt$19$27::init$))},
-	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/function/ToIntFunction;)V", nullptr, $PUBLIC, $method(Collectors$$Lambda$lambda$summingInt$19$27, init$, void, $ToIntFunction*)},
+	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Collectors$$Lambda$lambda$summingInt$19$27, accept, void, Object$*, Object$*)},
 	{}
 };
 $ClassInfo Collectors$$Lambda$lambda$summingInt$19$27::classInfo$ = {
@@ -1135,8 +1135,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Collectors$$Lambda$lambda$summingInt$20$28::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Collectors$$Lambda$lambda$summingInt$20$28::*)()>(&Collectors$$Lambda$lambda$summingInt$20$28::init$))},
-	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Collectors$$Lambda$lambda$summingInt$20$28, init$, void)},
+	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Collectors$$Lambda$lambda$summingInt$20$28, apply, $Object*, Object$*, Object$*)},
 	{}
 };
 $ClassInfo Collectors$$Lambda$lambda$summingInt$20$28::classInfo$ = {
@@ -1168,8 +1168,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Collectors$$Lambda$lambda$summingInt$21$29::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Collectors$$Lambda$lambda$summingInt$21$29::*)()>(&Collectors$$Lambda$lambda$summingInt$21$29::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Collectors$$Lambda$lambda$summingInt$21$29, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Collectors$$Lambda$lambda$summingInt$21$29, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Collectors$$Lambda$lambda$summingInt$21$29::classInfo$ = {
@@ -1201,8 +1201,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Collectors$$Lambda$lambda$summingLong$22$30::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Collectors$$Lambda$lambda$summingLong$22$30::*)()>(&Collectors$$Lambda$lambda$summingLong$22$30::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Collectors$$Lambda$lambda$summingLong$22$30, init$, void)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Collectors$$Lambda$lambda$summingLong$22$30, get, $Object*)},
 	{}
 };
 $ClassInfo Collectors$$Lambda$lambda$summingLong$22$30::classInfo$ = {
@@ -1241,8 +1241,8 @@ $FieldInfo Collectors$$Lambda$lambda$summingLong$23$31::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Collectors$$Lambda$lambda$summingLong$23$31::methodInfos[3] = {
-	{"<init>", "(Ljava/util/function/ToLongFunction;)V", nullptr, $PUBLIC, $method(static_cast<void(Collectors$$Lambda$lambda$summingLong$23$31::*)($ToLongFunction*)>(&Collectors$$Lambda$lambda$summingLong$23$31::init$))},
-	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/function/ToLongFunction;)V", nullptr, $PUBLIC, $method(Collectors$$Lambda$lambda$summingLong$23$31, init$, void, $ToLongFunction*)},
+	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Collectors$$Lambda$lambda$summingLong$23$31, accept, void, Object$*, Object$*)},
 	{}
 };
 $ClassInfo Collectors$$Lambda$lambda$summingLong$23$31::classInfo$ = {
@@ -1274,8 +1274,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Collectors$$Lambda$lambda$summingLong$24$32::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Collectors$$Lambda$lambda$summingLong$24$32::*)()>(&Collectors$$Lambda$lambda$summingLong$24$32::init$))},
-	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Collectors$$Lambda$lambda$summingLong$24$32, init$, void)},
+	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Collectors$$Lambda$lambda$summingLong$24$32, apply, $Object*, Object$*, Object$*)},
 	{}
 };
 $ClassInfo Collectors$$Lambda$lambda$summingLong$24$32::classInfo$ = {
@@ -1307,8 +1307,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Collectors$$Lambda$lambda$summingLong$25$33::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Collectors$$Lambda$lambda$summingLong$25$33::*)()>(&Collectors$$Lambda$lambda$summingLong$25$33::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Collectors$$Lambda$lambda$summingLong$25$33, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Collectors$$Lambda$lambda$summingLong$25$33, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Collectors$$Lambda$lambda$summingLong$25$33::classInfo$ = {
@@ -1340,8 +1340,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Collectors$$Lambda$lambda$summingDouble$26$34::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Collectors$$Lambda$lambda$summingDouble$26$34::*)()>(&Collectors$$Lambda$lambda$summingDouble$26$34::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Collectors$$Lambda$lambda$summingDouble$26$34, init$, void)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Collectors$$Lambda$lambda$summingDouble$26$34, get, $Object*)},
 	{}
 };
 $ClassInfo Collectors$$Lambda$lambda$summingDouble$26$34::classInfo$ = {
@@ -1380,8 +1380,8 @@ $FieldInfo Collectors$$Lambda$lambda$summingDouble$27$35::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Collectors$$Lambda$lambda$summingDouble$27$35::methodInfos[3] = {
-	{"<init>", "(Ljava/util/function/ToDoubleFunction;)V", nullptr, $PUBLIC, $method(static_cast<void(Collectors$$Lambda$lambda$summingDouble$27$35::*)($ToDoubleFunction*)>(&Collectors$$Lambda$lambda$summingDouble$27$35::init$))},
-	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/function/ToDoubleFunction;)V", nullptr, $PUBLIC, $method(Collectors$$Lambda$lambda$summingDouble$27$35, init$, void, $ToDoubleFunction*)},
+	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Collectors$$Lambda$lambda$summingDouble$27$35, accept, void, Object$*, Object$*)},
 	{}
 };
 $ClassInfo Collectors$$Lambda$lambda$summingDouble$27$35::classInfo$ = {
@@ -1413,8 +1413,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Collectors$$Lambda$lambda$summingDouble$28$36::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Collectors$$Lambda$lambda$summingDouble$28$36::*)()>(&Collectors$$Lambda$lambda$summingDouble$28$36::init$))},
-	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Collectors$$Lambda$lambda$summingDouble$28$36, init$, void)},
+	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Collectors$$Lambda$lambda$summingDouble$28$36, apply, $Object*, Object$*, Object$*)},
 	{}
 };
 $ClassInfo Collectors$$Lambda$lambda$summingDouble$28$36::classInfo$ = {
@@ -1446,8 +1446,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Collectors$$Lambda$lambda$summingDouble$29$37::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Collectors$$Lambda$lambda$summingDouble$29$37::*)()>(&Collectors$$Lambda$lambda$summingDouble$29$37::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Collectors$$Lambda$lambda$summingDouble$29$37, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Collectors$$Lambda$lambda$summingDouble$29$37, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Collectors$$Lambda$lambda$summingDouble$29$37::classInfo$ = {
@@ -1479,8 +1479,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Collectors$$Lambda$lambda$averagingInt$30$38::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Collectors$$Lambda$lambda$averagingInt$30$38::*)()>(&Collectors$$Lambda$lambda$averagingInt$30$38::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Collectors$$Lambda$lambda$averagingInt$30$38, init$, void)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Collectors$$Lambda$lambda$averagingInt$30$38, get, $Object*)},
 	{}
 };
 $ClassInfo Collectors$$Lambda$lambda$averagingInt$30$38::classInfo$ = {
@@ -1519,8 +1519,8 @@ $FieldInfo Collectors$$Lambda$lambda$averagingInt$31$39::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Collectors$$Lambda$lambda$averagingInt$31$39::methodInfos[3] = {
-	{"<init>", "(Ljava/util/function/ToIntFunction;)V", nullptr, $PUBLIC, $method(static_cast<void(Collectors$$Lambda$lambda$averagingInt$31$39::*)($ToIntFunction*)>(&Collectors$$Lambda$lambda$averagingInt$31$39::init$))},
-	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/function/ToIntFunction;)V", nullptr, $PUBLIC, $method(Collectors$$Lambda$lambda$averagingInt$31$39, init$, void, $ToIntFunction*)},
+	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Collectors$$Lambda$lambda$averagingInt$31$39, accept, void, Object$*, Object$*)},
 	{}
 };
 $ClassInfo Collectors$$Lambda$lambda$averagingInt$31$39::classInfo$ = {
@@ -1552,8 +1552,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Collectors$$Lambda$lambda$averagingInt$32$40::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Collectors$$Lambda$lambda$averagingInt$32$40::*)()>(&Collectors$$Lambda$lambda$averagingInt$32$40::init$))},
-	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Collectors$$Lambda$lambda$averagingInt$32$40, init$, void)},
+	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Collectors$$Lambda$lambda$averagingInt$32$40, apply, $Object*, Object$*, Object$*)},
 	{}
 };
 $ClassInfo Collectors$$Lambda$lambda$averagingInt$32$40::classInfo$ = {
@@ -1585,8 +1585,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Collectors$$Lambda$lambda$averagingInt$33$41::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Collectors$$Lambda$lambda$averagingInt$33$41::*)()>(&Collectors$$Lambda$lambda$averagingInt$33$41::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Collectors$$Lambda$lambda$averagingInt$33$41, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Collectors$$Lambda$lambda$averagingInt$33$41, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Collectors$$Lambda$lambda$averagingInt$33$41::classInfo$ = {
@@ -1625,8 +1625,8 @@ $FieldInfo Collectors$$Lambda$lambda$averagingLong$35$42::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Collectors$$Lambda$lambda$averagingLong$35$42::methodInfos[3] = {
-	{"<init>", "(Ljava/util/function/ToLongFunction;)V", nullptr, $PUBLIC, $method(static_cast<void(Collectors$$Lambda$lambda$averagingLong$35$42::*)($ToLongFunction*)>(&Collectors$$Lambda$lambda$averagingLong$35$42::init$))},
-	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/function/ToLongFunction;)V", nullptr, $PUBLIC, $method(Collectors$$Lambda$lambda$averagingLong$35$42, init$, void, $ToLongFunction*)},
+	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Collectors$$Lambda$lambda$averagingLong$35$42, accept, void, Object$*, Object$*)},
 	{}
 };
 $ClassInfo Collectors$$Lambda$lambda$averagingLong$35$42::classInfo$ = {
@@ -1658,8 +1658,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Collectors$$Lambda$lambda$averagingDouble$38$43::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Collectors$$Lambda$lambda$averagingDouble$38$43::*)()>(&Collectors$$Lambda$lambda$averagingDouble$38$43::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Collectors$$Lambda$lambda$averagingDouble$38$43, init$, void)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Collectors$$Lambda$lambda$averagingDouble$38$43, get, $Object*)},
 	{}
 };
 $ClassInfo Collectors$$Lambda$lambda$averagingDouble$38$43::classInfo$ = {
@@ -1698,8 +1698,8 @@ $FieldInfo Collectors$$Lambda$lambda$averagingDouble$39$44::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Collectors$$Lambda$lambda$averagingDouble$39$44::methodInfos[3] = {
-	{"<init>", "(Ljava/util/function/ToDoubleFunction;)V", nullptr, $PUBLIC, $method(static_cast<void(Collectors$$Lambda$lambda$averagingDouble$39$44::*)($ToDoubleFunction*)>(&Collectors$$Lambda$lambda$averagingDouble$39$44::init$))},
-	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/function/ToDoubleFunction;)V", nullptr, $PUBLIC, $method(Collectors$$Lambda$lambda$averagingDouble$39$44, init$, void, $ToDoubleFunction*)},
+	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Collectors$$Lambda$lambda$averagingDouble$39$44, accept, void, Object$*, Object$*)},
 	{}
 };
 $ClassInfo Collectors$$Lambda$lambda$averagingDouble$39$44::classInfo$ = {
@@ -1731,8 +1731,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Collectors$$Lambda$lambda$averagingDouble$40$45::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Collectors$$Lambda$lambda$averagingDouble$40$45::*)()>(&Collectors$$Lambda$lambda$averagingDouble$40$45::init$))},
-	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Collectors$$Lambda$lambda$averagingDouble$40$45, init$, void)},
+	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Collectors$$Lambda$lambda$averagingDouble$40$45, apply, $Object*, Object$*, Object$*)},
 	{}
 };
 $ClassInfo Collectors$$Lambda$lambda$averagingDouble$40$45::classInfo$ = {
@@ -1764,8 +1764,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Collectors$$Lambda$lambda$averagingDouble$41$46::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Collectors$$Lambda$lambda$averagingDouble$41$46::*)()>(&Collectors$$Lambda$lambda$averagingDouble$41$46::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Collectors$$Lambda$lambda$averagingDouble$41$46, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Collectors$$Lambda$lambda$averagingDouble$41$46, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Collectors$$Lambda$lambda$averagingDouble$41$46::classInfo$ = {
@@ -1804,8 +1804,8 @@ $FieldInfo Collectors$$Lambda$lambda$reducing$42$47::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Collectors$$Lambda$lambda$reducing$42$47::methodInfos[3] = {
-	{"<init>", "(Ljava/util/function/BinaryOperator;)V", nullptr, $PUBLIC, $method(static_cast<void(Collectors$$Lambda$lambda$reducing$42$47::*)($BinaryOperator*)>(&Collectors$$Lambda$lambda$reducing$42$47::init$))},
-	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/function/BinaryOperator;)V", nullptr, $PUBLIC, $method(Collectors$$Lambda$lambda$reducing$42$47, init$, void, $BinaryOperator*)},
+	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Collectors$$Lambda$lambda$reducing$42$47, accept, void, Object$*, Object$*)},
 	{}
 };
 $ClassInfo Collectors$$Lambda$lambda$reducing$42$47::classInfo$ = {
@@ -1844,8 +1844,8 @@ $FieldInfo Collectors$$Lambda$lambda$reducing$43$48::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Collectors$$Lambda$lambda$reducing$43$48::methodInfos[3] = {
-	{"<init>", "(Ljava/util/function/BinaryOperator;)V", nullptr, $PUBLIC, $method(static_cast<void(Collectors$$Lambda$lambda$reducing$43$48::*)($BinaryOperator*)>(&Collectors$$Lambda$lambda$reducing$43$48::init$))},
-	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/function/BinaryOperator;)V", nullptr, $PUBLIC, $method(Collectors$$Lambda$lambda$reducing$43$48, init$, void, $BinaryOperator*)},
+	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Collectors$$Lambda$lambda$reducing$43$48, apply, $Object*, Object$*, Object$*)},
 	{}
 };
 $ClassInfo Collectors$$Lambda$lambda$reducing$43$48::classInfo$ = {
@@ -1877,8 +1877,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Collectors$$Lambda$lambda$reducing$44$49::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Collectors$$Lambda$lambda$reducing$44$49::*)()>(&Collectors$$Lambda$lambda$reducing$44$49::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Collectors$$Lambda$lambda$reducing$44$49, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Collectors$$Lambda$lambda$reducing$44$49, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Collectors$$Lambda$lambda$reducing$44$49::classInfo$ = {
@@ -1917,8 +1917,8 @@ $FieldInfo Collectors$$Lambda$lambda$boxSupplier$45$50::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Collectors$$Lambda$lambda$boxSupplier$45$50::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(static_cast<void(Collectors$$Lambda$lambda$boxSupplier$45$50::*)(Object$*)>(&Collectors$$Lambda$lambda$boxSupplier$45$50::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(Collectors$$Lambda$lambda$boxSupplier$45$50, init$, void, Object$*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Collectors$$Lambda$lambda$boxSupplier$45$50, get, $Object*)},
 	{}
 };
 $ClassInfo Collectors$$Lambda$lambda$boxSupplier$45$50::classInfo$ = {
@@ -1957,8 +1957,8 @@ $FieldInfo Collectors$$Lambda$lambda$reducing$46$51::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Collectors$$Lambda$lambda$reducing$46$51::methodInfos[3] = {
-	{"<init>", "(Ljava/util/function/BinaryOperator;)V", nullptr, $PUBLIC, $method(static_cast<void(Collectors$$Lambda$lambda$reducing$46$51::*)($BinaryOperator*)>(&Collectors$$Lambda$lambda$reducing$46$51::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/function/BinaryOperator;)V", nullptr, $PUBLIC, $method(Collectors$$Lambda$lambda$reducing$46$51, init$, void, $BinaryOperator*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Collectors$$Lambda$lambda$reducing$46$51, get, $Object*)},
 	{}
 };
 $ClassInfo Collectors$$Lambda$lambda$reducing$46$51::classInfo$ = {
@@ -1990,8 +1990,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Collectors$$Lambda$accept$52::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Collectors$$Lambda$accept$52::*)()>(&Collectors$$Lambda$accept$52::init$))},
-	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Collectors$$Lambda$accept$52, init$, void)},
+	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Collectors$$Lambda$accept$52, accept, void, Object$*, Object$*)},
 	{}
 };
 $ClassInfo Collectors$$Lambda$accept$52::classInfo$ = {
@@ -2023,8 +2023,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Collectors$$Lambda$lambda$reducing$47$53::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Collectors$$Lambda$lambda$reducing$47$53::*)()>(&Collectors$$Lambda$lambda$reducing$47$53::init$))},
-	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Collectors$$Lambda$lambda$reducing$47$53, init$, void)},
+	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Collectors$$Lambda$lambda$reducing$47$53, apply, $Object*, Object$*, Object$*)},
 	{}
 };
 $ClassInfo Collectors$$Lambda$lambda$reducing$47$53::classInfo$ = {
@@ -2056,8 +2056,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Collectors$$Lambda$lambda$reducing$48$54::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Collectors$$Lambda$lambda$reducing$48$54::*)()>(&Collectors$$Lambda$lambda$reducing$48$54::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Collectors$$Lambda$lambda$reducing$48$54, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Collectors$$Lambda$lambda$reducing$48$54, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Collectors$$Lambda$lambda$reducing$48$54::classInfo$ = {
@@ -2099,8 +2099,8 @@ $FieldInfo Collectors$$Lambda$lambda$reducing$49$55::fieldInfos[3] = {
 	{}
 };
 $MethodInfo Collectors$$Lambda$lambda$reducing$49$55::methodInfos[3] = {
-	{"<init>", "(Ljava/util/function/BinaryOperator;Ljava/util/function/Function;)V", nullptr, $PUBLIC, $method(static_cast<void(Collectors$$Lambda$lambda$reducing$49$55::*)($BinaryOperator*,$Function*)>(&Collectors$$Lambda$lambda$reducing$49$55::init$))},
-	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/function/BinaryOperator;Ljava/util/function/Function;)V", nullptr, $PUBLIC, $method(Collectors$$Lambda$lambda$reducing$49$55, init$, void, $BinaryOperator*, $Function*)},
+	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Collectors$$Lambda$lambda$reducing$49$55, accept, void, Object$*, Object$*)},
 	{}
 };
 $ClassInfo Collectors$$Lambda$lambda$reducing$49$55::classInfo$ = {
@@ -2132,8 +2132,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Collectors$$Lambda$HashMap$56::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Collectors$$Lambda$HashMap$56::*)()>(&Collectors$$Lambda$HashMap$56::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Collectors$$Lambda$HashMap$56, init$, void)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Collectors$$Lambda$HashMap$56, get, $Object*)},
 	{}
 };
 $ClassInfo Collectors$$Lambda$HashMap$56::classInfo$ = {
@@ -2178,8 +2178,8 @@ $FieldInfo Collectors$$Lambda$lambda$groupingBy$53$57::fieldInfos[4] = {
 	{}
 };
 $MethodInfo Collectors$$Lambda$lambda$groupingBy$53$57::methodInfos[3] = {
-	{"<init>", "(Ljava/util/function/Function;Ljava/util/function/Supplier;Ljava/util/function/BiConsumer;)V", nullptr, $PUBLIC, $method(static_cast<void(Collectors$$Lambda$lambda$groupingBy$53$57::*)($Function*,$Supplier*,$BiConsumer*)>(&Collectors$$Lambda$lambda$groupingBy$53$57::init$))},
-	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/function/Function;Ljava/util/function/Supplier;Ljava/util/function/BiConsumer;)V", nullptr, $PUBLIC, $method(Collectors$$Lambda$lambda$groupingBy$53$57, init$, void, $Function*, $Supplier*, $BiConsumer*)},
+	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Collectors$$Lambda$lambda$groupingBy$53$57, accept, void, Object$*, Object$*)},
 	{}
 };
 $ClassInfo Collectors$$Lambda$lambda$groupingBy$53$57::classInfo$ = {
@@ -2218,8 +2218,8 @@ $FieldInfo Collectors$$Lambda$lambda$groupingBy$55$58::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Collectors$$Lambda$lambda$groupingBy$55$58::methodInfos[3] = {
-	{"<init>", "(Ljava/util/function/Function;)V", nullptr, $PUBLIC, $method(static_cast<void(Collectors$$Lambda$lambda$groupingBy$55$58::*)($Function*)>(&Collectors$$Lambda$lambda$groupingBy$55$58::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/function/Function;)V", nullptr, $PUBLIC, $method(Collectors$$Lambda$lambda$groupingBy$55$58, init$, void, $Function*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Collectors$$Lambda$lambda$groupingBy$55$58, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Collectors$$Lambda$lambda$groupingBy$55$58::classInfo$ = {
@@ -2251,8 +2251,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Collectors$$Lambda$ConcurrentHashMap$59::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Collectors$$Lambda$ConcurrentHashMap$59::*)()>(&Collectors$$Lambda$ConcurrentHashMap$59::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Collectors$$Lambda$ConcurrentHashMap$59, init$, void)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Collectors$$Lambda$ConcurrentHashMap$59, get, $Object*)},
 	{}
 };
 $ClassInfo Collectors$$Lambda$ConcurrentHashMap$59::classInfo$ = {
@@ -2297,8 +2297,8 @@ $FieldInfo Collectors$$Lambda$lambda$groupingByConcurrent$57$60::fieldInfos[4] =
 	{}
 };
 $MethodInfo Collectors$$Lambda$lambda$groupingByConcurrent$57$60::methodInfos[3] = {
-	{"<init>", "(Ljava/util/function/Function;Ljava/util/function/Supplier;Ljava/util/function/BiConsumer;)V", nullptr, $PUBLIC, $method(static_cast<void(Collectors$$Lambda$lambda$groupingByConcurrent$57$60::*)($Function*,$Supplier*,$BiConsumer*)>(&Collectors$$Lambda$lambda$groupingByConcurrent$57$60::init$))},
-	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/function/Function;Ljava/util/function/Supplier;Ljava/util/function/BiConsumer;)V", nullptr, $PUBLIC, $method(Collectors$$Lambda$lambda$groupingByConcurrent$57$60, init$, void, $Function*, $Supplier*, $BiConsumer*)},
+	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Collectors$$Lambda$lambda$groupingByConcurrent$57$60, accept, void, Object$*, Object$*)},
 	{}
 };
 $ClassInfo Collectors$$Lambda$lambda$groupingByConcurrent$57$60::classInfo$ = {
@@ -2343,8 +2343,8 @@ $FieldInfo Collectors$$Lambda$lambda$groupingByConcurrent$59$61::fieldInfos[4] =
 	{}
 };
 $MethodInfo Collectors$$Lambda$lambda$groupingByConcurrent$59$61::methodInfos[3] = {
-	{"<init>", "(Ljava/util/function/Function;Ljava/util/function/Supplier;Ljava/util/function/BiConsumer;)V", nullptr, $PUBLIC, $method(static_cast<void(Collectors$$Lambda$lambda$groupingByConcurrent$59$61::*)($Function*,$Supplier*,$BiConsumer*)>(&Collectors$$Lambda$lambda$groupingByConcurrent$59$61::init$))},
-	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/function/Function;Ljava/util/function/Supplier;Ljava/util/function/BiConsumer;)V", nullptr, $PUBLIC, $method(Collectors$$Lambda$lambda$groupingByConcurrent$59$61, init$, void, $Function*, $Supplier*, $BiConsumer*)},
+	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Collectors$$Lambda$lambda$groupingByConcurrent$59$61, accept, void, Object$*, Object$*)},
 	{}
 };
 $ClassInfo Collectors$$Lambda$lambda$groupingByConcurrent$59$61::classInfo$ = {
@@ -2383,8 +2383,8 @@ $FieldInfo Collectors$$Lambda$lambda$groupingByConcurrent$61$62::fieldInfos[2] =
 	{}
 };
 $MethodInfo Collectors$$Lambda$lambda$groupingByConcurrent$61$62::methodInfos[3] = {
-	{"<init>", "(Ljava/util/function/Function;)V", nullptr, $PUBLIC, $method(static_cast<void(Collectors$$Lambda$lambda$groupingByConcurrent$61$62::*)($Function*)>(&Collectors$$Lambda$lambda$groupingByConcurrent$61$62::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/function/Function;)V", nullptr, $PUBLIC, $method(Collectors$$Lambda$lambda$groupingByConcurrent$61$62, init$, void, $Function*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Collectors$$Lambda$lambda$groupingByConcurrent$61$62, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Collectors$$Lambda$lambda$groupingByConcurrent$61$62::classInfo$ = {
@@ -2426,8 +2426,8 @@ $FieldInfo Collectors$$Lambda$lambda$partitioningBy$62$63::fieldInfos[3] = {
 	{}
 };
 $MethodInfo Collectors$$Lambda$lambda$partitioningBy$62$63::methodInfos[3] = {
-	{"<init>", "(Ljava/util/function/BiConsumer;Ljava/util/function/Predicate;)V", nullptr, $PUBLIC, $method(static_cast<void(Collectors$$Lambda$lambda$partitioningBy$62$63::*)($BiConsumer*,$Predicate*)>(&Collectors$$Lambda$lambda$partitioningBy$62$63::init$))},
-	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/function/BiConsumer;Ljava/util/function/Predicate;)V", nullptr, $PUBLIC, $method(Collectors$$Lambda$lambda$partitioningBy$62$63, init$, void, $BiConsumer*, $Predicate*)},
+	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Collectors$$Lambda$lambda$partitioningBy$62$63, accept, void, Object$*, Object$*)},
 	{}
 };
 $ClassInfo Collectors$$Lambda$lambda$partitioningBy$62$63::classInfo$ = {
@@ -2466,8 +2466,8 @@ $FieldInfo Collectors$$Lambda$lambda$partitioningBy$63$64::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Collectors$$Lambda$lambda$partitioningBy$63$64::methodInfos[3] = {
-	{"<init>", "(Ljava/util/function/BinaryOperator;)V", nullptr, $PUBLIC, $method(static_cast<void(Collectors$$Lambda$lambda$partitioningBy$63$64::*)($BinaryOperator*)>(&Collectors$$Lambda$lambda$partitioningBy$63$64::init$))},
-	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/function/BinaryOperator;)V", nullptr, $PUBLIC, $method(Collectors$$Lambda$lambda$partitioningBy$63$64, init$, void, $BinaryOperator*)},
+	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Collectors$$Lambda$lambda$partitioningBy$63$64, apply, $Object*, Object$*, Object$*)},
 	{}
 };
 $ClassInfo Collectors$$Lambda$lambda$partitioningBy$63$64::classInfo$ = {
@@ -2506,8 +2506,8 @@ $FieldInfo Collectors$$Lambda$lambda$partitioningBy$64$65::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Collectors$$Lambda$lambda$partitioningBy$64$65::methodInfos[3] = {
-	{"<init>", "(Ljava/util/stream/Collector;)V", nullptr, $PUBLIC, $method(static_cast<void(Collectors$$Lambda$lambda$partitioningBy$64$65::*)($Collector*)>(&Collectors$$Lambda$lambda$partitioningBy$64$65::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/stream/Collector;)V", nullptr, $PUBLIC, $method(Collectors$$Lambda$lambda$partitioningBy$64$65, init$, void, $Collector*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Collectors$$Lambda$lambda$partitioningBy$64$65, get, $Object*)},
 	{}
 };
 $ClassInfo Collectors$$Lambda$lambda$partitioningBy$64$65::classInfo$ = {
@@ -2546,8 +2546,8 @@ $FieldInfo Collectors$$Lambda$lambda$partitioningBy$65$66::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Collectors$$Lambda$lambda$partitioningBy$65$66::methodInfos[3] = {
-	{"<init>", "(Ljava/util/stream/Collector;)V", nullptr, $PUBLIC, $method(static_cast<void(Collectors$$Lambda$lambda$partitioningBy$65$66::*)($Collector*)>(&Collectors$$Lambda$lambda$partitioningBy$65$66::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/stream/Collector;)V", nullptr, $PUBLIC, $method(Collectors$$Lambda$lambda$partitioningBy$65$66, init$, void, $Collector*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Collectors$$Lambda$lambda$partitioningBy$65$66, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Collectors$$Lambda$lambda$partitioningBy$65$66::classInfo$ = {
@@ -2579,8 +2579,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Collectors$$Lambda$lambda$toUnmodifiableMap$66$67::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Collectors$$Lambda$lambda$toUnmodifiableMap$66$67::*)()>(&Collectors$$Lambda$lambda$toUnmodifiableMap$66$67::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Collectors$$Lambda$lambda$toUnmodifiableMap$66$67, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Collectors$$Lambda$lambda$toUnmodifiableMap$66$67, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Collectors$$Lambda$lambda$toUnmodifiableMap$66$67::classInfo$ = {
@@ -2612,8 +2612,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Collectors$$Lambda$lambda$toUnmodifiableMap$67$68::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Collectors$$Lambda$lambda$toUnmodifiableMap$67$68::*)()>(&Collectors$$Lambda$lambda$toUnmodifiableMap$67$68::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Collectors$$Lambda$lambda$toUnmodifiableMap$67$68, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Collectors$$Lambda$lambda$toUnmodifiableMap$67$68, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Collectors$$Lambda$lambda$toUnmodifiableMap$67$68::classInfo$ = {
@@ -2658,8 +2658,8 @@ $FieldInfo Collectors$$Lambda$lambda$toMap$68$69::fieldInfos[4] = {
 	{}
 };
 $MethodInfo Collectors$$Lambda$lambda$toMap$68$69::methodInfos[3] = {
-	{"<init>", "(Ljava/util/function/Function;Ljava/util/function/Function;Ljava/util/function/BinaryOperator;)V", nullptr, $PUBLIC, $method(static_cast<void(Collectors$$Lambda$lambda$toMap$68$69::*)($Function*,$Function*,$BinaryOperator*)>(&Collectors$$Lambda$lambda$toMap$68$69::init$))},
-	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/function/Function;Ljava/util/function/Function;Ljava/util/function/BinaryOperator;)V", nullptr, $PUBLIC, $method(Collectors$$Lambda$lambda$toMap$68$69, init$, void, $Function*, $Function*, $BinaryOperator*)},
+	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Collectors$$Lambda$lambda$toMap$68$69, accept, void, Object$*, Object$*)},
 	{}
 };
 $ClassInfo Collectors$$Lambda$lambda$toMap$68$69::classInfo$ = {
@@ -2704,8 +2704,8 @@ $FieldInfo Collectors$$Lambda$lambda$toConcurrentMap$69$70::fieldInfos[4] = {
 	{}
 };
 $MethodInfo Collectors$$Lambda$lambda$toConcurrentMap$69$70::methodInfos[3] = {
-	{"<init>", "(Ljava/util/function/Function;Ljava/util/function/Function;Ljava/util/function/BinaryOperator;)V", nullptr, $PUBLIC, $method(static_cast<void(Collectors$$Lambda$lambda$toConcurrentMap$69$70::*)($Function*,$Function*,$BinaryOperator*)>(&Collectors$$Lambda$lambda$toConcurrentMap$69$70::init$))},
-	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/function/Function;Ljava/util/function/Function;Ljava/util/function/BinaryOperator;)V", nullptr, $PUBLIC, $method(Collectors$$Lambda$lambda$toConcurrentMap$69$70, init$, void, $Function*, $Function*, $BinaryOperator*)},
+	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Collectors$$Lambda$lambda$toConcurrentMap$69$70, accept, void, Object$*, Object$*)},
 	{}
 };
 $ClassInfo Collectors$$Lambda$lambda$toConcurrentMap$69$70::classInfo$ = {
@@ -2737,8 +2737,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Collectors$$Lambda$IntSummaryStatistics$71::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Collectors$$Lambda$IntSummaryStatistics$71::*)()>(&Collectors$$Lambda$IntSummaryStatistics$71::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Collectors$$Lambda$IntSummaryStatistics$71, init$, void)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Collectors$$Lambda$IntSummaryStatistics$71, get, $Object*)},
 	{}
 };
 $ClassInfo Collectors$$Lambda$IntSummaryStatistics$71::classInfo$ = {
@@ -2777,8 +2777,8 @@ $FieldInfo Collectors$$Lambda$lambda$summarizingInt$70$72::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Collectors$$Lambda$lambda$summarizingInt$70$72::methodInfos[3] = {
-	{"<init>", "(Ljava/util/function/ToIntFunction;)V", nullptr, $PUBLIC, $method(static_cast<void(Collectors$$Lambda$lambda$summarizingInt$70$72::*)($ToIntFunction*)>(&Collectors$$Lambda$lambda$summarizingInt$70$72::init$))},
-	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/function/ToIntFunction;)V", nullptr, $PUBLIC, $method(Collectors$$Lambda$lambda$summarizingInt$70$72, init$, void, $ToIntFunction*)},
+	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Collectors$$Lambda$lambda$summarizingInt$70$72, accept, void, Object$*, Object$*)},
 	{}
 };
 $ClassInfo Collectors$$Lambda$lambda$summarizingInt$70$72::classInfo$ = {
@@ -2810,8 +2810,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Collectors$$Lambda$lambda$summarizingInt$71$73::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Collectors$$Lambda$lambda$summarizingInt$71$73::*)()>(&Collectors$$Lambda$lambda$summarizingInt$71$73::init$))},
-	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Collectors$$Lambda$lambda$summarizingInt$71$73, init$, void)},
+	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Collectors$$Lambda$lambda$summarizingInt$71$73, apply, $Object*, Object$*, Object$*)},
 	{}
 };
 $ClassInfo Collectors$$Lambda$lambda$summarizingInt$71$73::classInfo$ = {
@@ -2843,8 +2843,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Collectors$$Lambda$LongSummaryStatistics$74::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Collectors$$Lambda$LongSummaryStatistics$74::*)()>(&Collectors$$Lambda$LongSummaryStatistics$74::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Collectors$$Lambda$LongSummaryStatistics$74, init$, void)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Collectors$$Lambda$LongSummaryStatistics$74, get, $Object*)},
 	{}
 };
 $ClassInfo Collectors$$Lambda$LongSummaryStatistics$74::classInfo$ = {
@@ -2883,8 +2883,8 @@ $FieldInfo Collectors$$Lambda$lambda$summarizingLong$72$75::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Collectors$$Lambda$lambda$summarizingLong$72$75::methodInfos[3] = {
-	{"<init>", "(Ljava/util/function/ToLongFunction;)V", nullptr, $PUBLIC, $method(static_cast<void(Collectors$$Lambda$lambda$summarizingLong$72$75::*)($ToLongFunction*)>(&Collectors$$Lambda$lambda$summarizingLong$72$75::init$))},
-	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/function/ToLongFunction;)V", nullptr, $PUBLIC, $method(Collectors$$Lambda$lambda$summarizingLong$72$75, init$, void, $ToLongFunction*)},
+	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Collectors$$Lambda$lambda$summarizingLong$72$75, accept, void, Object$*, Object$*)},
 	{}
 };
 $ClassInfo Collectors$$Lambda$lambda$summarizingLong$72$75::classInfo$ = {
@@ -2916,8 +2916,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Collectors$$Lambda$lambda$summarizingLong$73$76::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Collectors$$Lambda$lambda$summarizingLong$73$76::*)()>(&Collectors$$Lambda$lambda$summarizingLong$73$76::init$))},
-	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Collectors$$Lambda$lambda$summarizingLong$73$76, init$, void)},
+	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Collectors$$Lambda$lambda$summarizingLong$73$76, apply, $Object*, Object$*, Object$*)},
 	{}
 };
 $ClassInfo Collectors$$Lambda$lambda$summarizingLong$73$76::classInfo$ = {
@@ -2949,8 +2949,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Collectors$$Lambda$DoubleSummaryStatistics$77::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Collectors$$Lambda$DoubleSummaryStatistics$77::*)()>(&Collectors$$Lambda$DoubleSummaryStatistics$77::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Collectors$$Lambda$DoubleSummaryStatistics$77, init$, void)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Collectors$$Lambda$DoubleSummaryStatistics$77, get, $Object*)},
 	{}
 };
 $ClassInfo Collectors$$Lambda$DoubleSummaryStatistics$77::classInfo$ = {
@@ -2989,8 +2989,8 @@ $FieldInfo Collectors$$Lambda$lambda$summarizingDouble$74$78::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Collectors$$Lambda$lambda$summarizingDouble$74$78::methodInfos[3] = {
-	{"<init>", "(Ljava/util/function/ToDoubleFunction;)V", nullptr, $PUBLIC, $method(static_cast<void(Collectors$$Lambda$lambda$summarizingDouble$74$78::*)($ToDoubleFunction*)>(&Collectors$$Lambda$lambda$summarizingDouble$74$78::init$))},
-	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/function/ToDoubleFunction;)V", nullptr, $PUBLIC, $method(Collectors$$Lambda$lambda$summarizingDouble$74$78, init$, void, $ToDoubleFunction*)},
+	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Collectors$$Lambda$lambda$summarizingDouble$74$78, accept, void, Object$*, Object$*)},
 	{}
 };
 $ClassInfo Collectors$$Lambda$lambda$summarizingDouble$74$78::classInfo$ = {
@@ -3022,8 +3022,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Collectors$$Lambda$lambda$summarizingDouble$75$79::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Collectors$$Lambda$lambda$summarizingDouble$75$79::*)()>(&Collectors$$Lambda$lambda$summarizingDouble$75$79::init$))},
-	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Collectors$$Lambda$lambda$summarizingDouble$75$79, init$, void)},
+	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Collectors$$Lambda$lambda$summarizingDouble$75$79, apply, $Object*, Object$*, Object$*)},
 	{}
 };
 $ClassInfo Collectors$$Lambda$lambda$summarizingDouble$75$79::classInfo$ = {
@@ -3086,8 +3086,8 @@ $FieldInfo Collectors$$Lambda$lambda$teeing0$76$80::fieldInfos[10] = {
 	{}
 };
 $MethodInfo Collectors$$Lambda$lambda$teeing0$76$80::methodInfos[3] = {
-	{"<init>", "(Ljava/util/function/Supplier;Ljava/util/function/Supplier;Ljava/util/function/BiConsumer;Ljava/util/function/BiConsumer;Ljava/util/function/BinaryOperator;Ljava/util/function/BinaryOperator;Ljava/util/function/Function;Ljava/util/function/Function;Ljava/util/function/BiFunction;)V", nullptr, $PUBLIC, $method(static_cast<void(Collectors$$Lambda$lambda$teeing0$76$80::*)($Supplier*,$Supplier*,$BiConsumer*,$BiConsumer*,$BinaryOperator*,$BinaryOperator*,$Function*,$Function*,$BiFunction*)>(&Collectors$$Lambda$lambda$teeing0$76$80::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/function/Supplier;Ljava/util/function/Supplier;Ljava/util/function/BiConsumer;Ljava/util/function/BiConsumer;Ljava/util/function/BinaryOperator;Ljava/util/function/BinaryOperator;Ljava/util/function/Function;Ljava/util/function/Function;Ljava/util/function/BiFunction;)V", nullptr, $PUBLIC, $method(Collectors$$Lambda$lambda$teeing0$76$80, init$, void, $Supplier*, $Supplier*, $BiConsumer*, $BiConsumer*, $BinaryOperator*, $BinaryOperator*, $Function*, $Function*, $BiFunction*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Collectors$$Lambda$lambda$teeing0$76$80, get, $Object*)},
 	{}
 };
 $ClassInfo Collectors$$Lambda$lambda$teeing0$76$80::classInfo$ = {
@@ -3119,8 +3119,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Collectors$$Lambda$add$81::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Collectors$$Lambda$add$81::*)()>(&Collectors$$Lambda$add$81::init$))},
-	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Collectors$$Lambda$add$81, init$, void)},
+	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Collectors$$Lambda$add$81, accept, void, Object$*, Object$*)},
 	{}
 };
 $ClassInfo Collectors$$Lambda$add$81::classInfo$ = {
@@ -3152,8 +3152,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Collectors$$Lambda$combine$82::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Collectors$$Lambda$combine$82::*)()>(&Collectors$$Lambda$combine$82::init$))},
-	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Collectors$$Lambda$combine$82, init$, void)},
+	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Collectors$$Lambda$combine$82, apply, $Object*, Object$*, Object$*)},
 	{}
 };
 $ClassInfo Collectors$$Lambda$combine$82::classInfo$ = {
@@ -3185,8 +3185,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Collectors$$Lambda$get$83::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Collectors$$Lambda$get$83::*)()>(&Collectors$$Lambda$get$83::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Collectors$$Lambda$get$83, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Collectors$$Lambda$get$83, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Collectors$$Lambda$get$83::classInfo$ = {
@@ -3225,8 +3225,8 @@ $FieldInfo Collectors$$Lambda$lambda$groupingBy$54$84::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Collectors$$Lambda$lambda$groupingBy$54$84::methodInfos[3] = {
-	{"<init>", "(Ljava/util/function/Function;)V", nullptr, $PUBLIC, $method(static_cast<void(Collectors$$Lambda$lambda$groupingBy$54$84::*)($Function*)>(&Collectors$$Lambda$lambda$groupingBy$54$84::init$))},
-	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/function/Function;)V", nullptr, $PUBLIC, $method(Collectors$$Lambda$lambda$groupingBy$54$84, init$, void, $Function*)},
+	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Collectors$$Lambda$lambda$groupingBy$54$84, apply, $Object*, Object$*, Object$*)},
 	{}
 };
 $ClassInfo Collectors$$Lambda$lambda$groupingBy$54$84::classInfo$ = {
@@ -3265,8 +3265,8 @@ $FieldInfo Collectors$$Lambda$lambda$groupingBy$52$85::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Collectors$$Lambda$lambda$groupingBy$52$85::methodInfos[3] = {
-	{"<init>", "(Ljava/util/function/Supplier;)V", nullptr, $PUBLIC, $method(static_cast<void(Collectors$$Lambda$lambda$groupingBy$52$85::*)($Supplier*)>(&Collectors$$Lambda$lambda$groupingBy$52$85::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/function/Supplier;)V", nullptr, $PUBLIC, $method(Collectors$$Lambda$lambda$groupingBy$52$85, init$, void, $Supplier*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Collectors$$Lambda$lambda$groupingBy$52$85, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Collectors$$Lambda$lambda$groupingBy$52$85::classInfo$ = {
@@ -3308,8 +3308,8 @@ $FieldInfo Collectors$$Lambda$lambda$flatMapping$14$86::fieldInfos[3] = {
 	{}
 };
 $MethodInfo Collectors$$Lambda$lambda$flatMapping$14$86::methodInfos[3] = {
-	{"<init>", "(Ljava/util/function/BiConsumer;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(static_cast<void(Collectors$$Lambda$lambda$flatMapping$14$86::*)($BiConsumer*,Object$*)>(&Collectors$$Lambda$lambda$flatMapping$14$86::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/function/BiConsumer;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(Collectors$$Lambda$lambda$flatMapping$14$86, init$, void, $BiConsumer*, Object$*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Collectors$$Lambda$lambda$flatMapping$14$86, accept, void, Object$*)},
 	{}
 };
 $ClassInfo Collectors$$Lambda$lambda$flatMapping$14$86::classInfo$ = {
@@ -3337,127 +3337,127 @@ $FieldInfo _Collectors_FieldInfo_[] = {
 };
 
 $MethodInfo _Collectors_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(Collectors::*)()>(&Collectors::init$))},
-	{"averagingDouble", "(Ljava/util/function/ToDoubleFunction;)Ljava/util/stream/Collector;", "<T:Ljava/lang/Object;>(Ljava/util/function/ToDoubleFunction<-TT;>;)Ljava/util/stream/Collector<TT;*Ljava/lang/Double;>;", $PUBLIC | $STATIC, $method(static_cast<$Collector*(*)($ToDoubleFunction*)>(&Collectors::averagingDouble))},
-	{"averagingInt", "(Ljava/util/function/ToIntFunction;)Ljava/util/stream/Collector;", "<T:Ljava/lang/Object;>(Ljava/util/function/ToIntFunction<-TT;>;)Ljava/util/stream/Collector<TT;*Ljava/lang/Double;>;", $PUBLIC | $STATIC, $method(static_cast<$Collector*(*)($ToIntFunction*)>(&Collectors::averagingInt))},
-	{"averagingLong", "(Ljava/util/function/ToLongFunction;)Ljava/util/stream/Collector;", "<T:Ljava/lang/Object;>(Ljava/util/function/ToLongFunction<-TT;>;)Ljava/util/stream/Collector<TT;*Ljava/lang/Double;>;", $PUBLIC | $STATIC, $method(static_cast<$Collector*(*)($ToLongFunction*)>(&Collectors::averagingLong))},
-	{"boxSupplier", "(Ljava/lang/Object;)Ljava/util/function/Supplier;", "<T:Ljava/lang/Object;>(TT;)Ljava/util/function/Supplier<[TT;>;", $PRIVATE | $STATIC, $method(static_cast<$Supplier*(*)(Object$*)>(&Collectors::boxSupplier))},
-	{"castingIdentity", "()Ljava/util/function/Function;", "<I:Ljava/lang/Object;R:Ljava/lang/Object;>()Ljava/util/function/Function<TI;TR;>;", $PRIVATE | $STATIC, $method(static_cast<$Function*(*)()>(&Collectors::castingIdentity))},
-	{"collectingAndThen", "(Ljava/util/stream/Collector;Ljava/util/function/Function;)Ljava/util/stream/Collector;", "<T:Ljava/lang/Object;A:Ljava/lang/Object;R:Ljava/lang/Object;RR:Ljava/lang/Object;>(Ljava/util/stream/Collector<TT;TA;TR;>;Ljava/util/function/Function<TR;TRR;>;)Ljava/util/stream/Collector<TT;TA;TRR;>;", $PUBLIC | $STATIC, $method(static_cast<$Collector*(*)($Collector*,$Function*)>(&Collectors::collectingAndThen))},
-	{"computeFinalSum", "([D)D", nullptr, $STATIC, $method(static_cast<double(*)($doubles*)>(&Collectors::computeFinalSum))},
-	{"counting", "()Ljava/util/stream/Collector;", "<T:Ljava/lang/Object;>()Ljava/util/stream/Collector<TT;*Ljava/lang/Long;>;", $PUBLIC | $STATIC, $method(static_cast<$Collector*(*)()>(&Collectors::counting))},
-	{"duplicateKeyException", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/IllegalStateException;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$IllegalStateException*(*)(Object$*,Object$*,Object$*)>(&Collectors::duplicateKeyException))},
-	{"filtering", "(Ljava/util/function/Predicate;Ljava/util/stream/Collector;)Ljava/util/stream/Collector;", "<T:Ljava/lang/Object;A:Ljava/lang/Object;R:Ljava/lang/Object;>(Ljava/util/function/Predicate<-TT;>;Ljava/util/stream/Collector<-TT;TA;TR;>;)Ljava/util/stream/Collector<TT;*TR;>;", $PUBLIC | $STATIC, $method(static_cast<$Collector*(*)($Predicate*,$Collector*)>(&Collectors::filtering))},
-	{"flatMapping", "(Ljava/util/function/Function;Ljava/util/stream/Collector;)Ljava/util/stream/Collector;", "<T:Ljava/lang/Object;U:Ljava/lang/Object;A:Ljava/lang/Object;R:Ljava/lang/Object;>(Ljava/util/function/Function<-TT;+Ljava/util/stream/Stream<+TU;>;>;Ljava/util/stream/Collector<-TU;TA;TR;>;)Ljava/util/stream/Collector<TT;*TR;>;", $PUBLIC | $STATIC, $method(static_cast<$Collector*(*)($Function*,$Collector*)>(&Collectors::flatMapping))},
-	{"groupingBy", "(Ljava/util/function/Function;)Ljava/util/stream/Collector;", "<T:Ljava/lang/Object;K:Ljava/lang/Object;>(Ljava/util/function/Function<-TT;+TK;>;)Ljava/util/stream/Collector<TT;*Ljava/util/Map<TK;Ljava/util/List<TT;>;>;>;", $PUBLIC | $STATIC, $method(static_cast<$Collector*(*)($Function*)>(&Collectors::groupingBy))},
-	{"groupingBy", "(Ljava/util/function/Function;Ljava/util/stream/Collector;)Ljava/util/stream/Collector;", "<T:Ljava/lang/Object;K:Ljava/lang/Object;A:Ljava/lang/Object;D:Ljava/lang/Object;>(Ljava/util/function/Function<-TT;+TK;>;Ljava/util/stream/Collector<-TT;TA;TD;>;)Ljava/util/stream/Collector<TT;*Ljava/util/Map<TK;TD;>;>;", $PUBLIC | $STATIC, $method(static_cast<$Collector*(*)($Function*,$Collector*)>(&Collectors::groupingBy))},
-	{"groupingBy", "(Ljava/util/function/Function;Ljava/util/function/Supplier;Ljava/util/stream/Collector;)Ljava/util/stream/Collector;", "<T:Ljava/lang/Object;K:Ljava/lang/Object;D:Ljava/lang/Object;A:Ljava/lang/Object;M::Ljava/util/Map<TK;TD;>;>(Ljava/util/function/Function<-TT;+TK;>;Ljava/util/function/Supplier<TM;>;Ljava/util/stream/Collector<-TT;TA;TD;>;)Ljava/util/stream/Collector<TT;*TM;>;", $PUBLIC | $STATIC, $method(static_cast<$Collector*(*)($Function*,$Supplier*,$Collector*)>(&Collectors::groupingBy))},
-	{"groupingByConcurrent", "(Ljava/util/function/Function;)Ljava/util/stream/Collector;", "<T:Ljava/lang/Object;K:Ljava/lang/Object;>(Ljava/util/function/Function<-TT;+TK;>;)Ljava/util/stream/Collector<TT;*Ljava/util/concurrent/ConcurrentMap<TK;Ljava/util/List<TT;>;>;>;", $PUBLIC | $STATIC, $method(static_cast<$Collector*(*)($Function*)>(&Collectors::groupingByConcurrent))},
-	{"groupingByConcurrent", "(Ljava/util/function/Function;Ljava/util/stream/Collector;)Ljava/util/stream/Collector;", "<T:Ljava/lang/Object;K:Ljava/lang/Object;A:Ljava/lang/Object;D:Ljava/lang/Object;>(Ljava/util/function/Function<-TT;+TK;>;Ljava/util/stream/Collector<-TT;TA;TD;>;)Ljava/util/stream/Collector<TT;*Ljava/util/concurrent/ConcurrentMap<TK;TD;>;>;", $PUBLIC | $STATIC, $method(static_cast<$Collector*(*)($Function*,$Collector*)>(&Collectors::groupingByConcurrent))},
-	{"groupingByConcurrent", "(Ljava/util/function/Function;Ljava/util/function/Supplier;Ljava/util/stream/Collector;)Ljava/util/stream/Collector;", "<T:Ljava/lang/Object;K:Ljava/lang/Object;A:Ljava/lang/Object;D:Ljava/lang/Object;M::Ljava/util/concurrent/ConcurrentMap<TK;TD;>;>(Ljava/util/function/Function<-TT;+TK;>;Ljava/util/function/Supplier<TM;>;Ljava/util/stream/Collector<-TT;TA;TD;>;)Ljava/util/stream/Collector<TT;*TM;>;", $PUBLIC | $STATIC, $method(static_cast<$Collector*(*)($Function*,$Supplier*,$Collector*)>(&Collectors::groupingByConcurrent))},
-	{"joining", "()Ljava/util/stream/Collector;", "()Ljava/util/stream/Collector<Ljava/lang/CharSequence;*Ljava/lang/String;>;", $PUBLIC | $STATIC, $method(static_cast<$Collector*(*)()>(&Collectors::joining))},
-	{"joining", "(Ljava/lang/CharSequence;)Ljava/util/stream/Collector;", "(Ljava/lang/CharSequence;)Ljava/util/stream/Collector<Ljava/lang/CharSequence;*Ljava/lang/String;>;", $PUBLIC | $STATIC, $method(static_cast<$Collector*(*)($CharSequence*)>(&Collectors::joining))},
-	{"joining", "(Ljava/lang/CharSequence;Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/util/stream/Collector;", "(Ljava/lang/CharSequence;Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/util/stream/Collector<Ljava/lang/CharSequence;*Ljava/lang/String;>;", $PUBLIC | $STATIC, $method(static_cast<$Collector*(*)($CharSequence*,$CharSequence*,$CharSequence*)>(&Collectors::joining))},
-	{"lambda$averagingDouble$38", "()[D", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$doubles*(*)()>(&Collectors::lambda$averagingDouble$38))},
-	{"lambda$averagingDouble$39", "(Ljava/util/function/ToDoubleFunction;[DLjava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($ToDoubleFunction*,$doubles*,Object$*)>(&Collectors::lambda$averagingDouble$39))},
-	{"lambda$averagingDouble$40", "([D[D)[D", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$doubles*(*)($doubles*,$doubles*)>(&Collectors::lambda$averagingDouble$40))},
-	{"lambda$averagingDouble$41", "([D)Ljava/lang/Double;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Double*(*)($doubles*)>(&Collectors::lambda$averagingDouble$41))},
-	{"lambda$averagingInt$30", "()[J", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$longs*(*)()>(&Collectors::lambda$averagingInt$30))},
-	{"lambda$averagingInt$31", "(Ljava/util/function/ToIntFunction;[JLjava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($ToIntFunction*,$longs*,Object$*)>(&Collectors::lambda$averagingInt$31))},
-	{"lambda$averagingInt$32", "([J[J)[J", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$longs*(*)($longs*,$longs*)>(&Collectors::lambda$averagingInt$32))},
-	{"lambda$averagingInt$33", "([J)Ljava/lang/Double;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Double*(*)($longs*)>(&Collectors::lambda$averagingInt$33))},
-	{"lambda$averagingLong$35", "(Ljava/util/function/ToLongFunction;[JLjava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($ToLongFunction*,$longs*,Object$*)>(&Collectors::lambda$averagingLong$35))},
-	{"lambda$boxSupplier$45", "(Ljava/lang/Object;)[Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$ObjectArray*(*)(Object$*)>(&Collectors::lambda$boxSupplier$45))},
-	{"lambda$castingIdentity$2", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Object*(*)(Object$*)>(&Collectors::lambda$castingIdentity$2))},
-	{"lambda$counting$17", "(Ljava/lang/Object;)J", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<int64_t(*)(Object$*)>(&Collectors::lambda$counting$17))},
-	{"lambda$filtering$16", "(Ljava/util/function/Predicate;Ljava/util/function/BiConsumer;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($Predicate*,$BiConsumer*,Object$*,Object$*)>(&Collectors::lambda$filtering$16))},
-	{"lambda$flatMapping$14", "(Ljava/util/function/BiConsumer;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($BiConsumer*,Object$*,Object$*)>(&Collectors::lambda$flatMapping$14))},
-	{"lambda$flatMapping$15", "(Ljava/util/function/Function;Ljava/util/function/BiConsumer;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($Function*,$BiConsumer*,Object$*,Object$*)>(&Collectors::lambda$flatMapping$15))},
-	{"lambda$groupingBy$52", "(Ljava/util/function/Supplier;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Object*(*)($Supplier*,Object$*)>(&Collectors::lambda$groupingBy$52))},
-	{"lambda$groupingBy$53", "(Ljava/util/function/Function;Ljava/util/function/Supplier;Ljava/util/function/BiConsumer;Ljava/util/Map;Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($Function*,$Supplier*,$BiConsumer*,$Map*,Object$*)>(&Collectors::lambda$groupingBy$53))},
-	{"lambda$groupingBy$54", "(Ljava/util/function/Function;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Object*(*)($Function*,Object$*,Object$*)>(&Collectors::lambda$groupingBy$54))},
-	{"lambda$groupingBy$55", "(Ljava/util/function/Function;Ljava/util/Map;)Ljava/util/Map;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Map*(*)($Function*,$Map*)>(&Collectors::lambda$groupingBy$55))},
-	{"lambda$groupingByConcurrent$57", "(Ljava/util/function/Function;Ljava/util/function/Supplier;Ljava/util/function/BiConsumer;Ljava/util/concurrent/ConcurrentMap;Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($Function*,$Supplier*,$BiConsumer*,$ConcurrentMap*,Object$*)>(&Collectors::lambda$groupingByConcurrent$57))},
-	{"lambda$groupingByConcurrent$59", "(Ljava/util/function/Function;Ljava/util/function/Supplier;Ljava/util/function/BiConsumer;Ljava/util/concurrent/ConcurrentMap;Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($Function*,$Supplier*,$BiConsumer*,$ConcurrentMap*,Object$*)>(&Collectors::lambda$groupingByConcurrent$59))},
-	{"lambda$groupingByConcurrent$61", "(Ljava/util/function/Function;Ljava/util/concurrent/ConcurrentMap;)Ljava/util/concurrent/ConcurrentMap;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$ConcurrentMap*(*)($Function*,$ConcurrentMap*)>(&Collectors::lambda$groupingByConcurrent$61))},
-	{"lambda$joining$10", "(Ljava/lang/StringBuilder;Ljava/lang/StringBuilder;)Ljava/lang/StringBuilder;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$StringBuilder*(*)($StringBuilder*,$StringBuilder*)>(&Collectors::lambda$joining$10))},
-	{"lambda$joining$11", "(Ljava/lang/CharSequence;Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/util/StringJoiner;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$StringJoiner*(*)($CharSequence*,$CharSequence*,$CharSequence*)>(&Collectors::lambda$joining$11))},
-	{"lambda$mapMerger$12", "(Ljava/util/function/BinaryOperator;Ljava/util/Map;Ljava/util/Map;)Ljava/util/Map;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Map*(*)($BinaryOperator*,$Map*,$Map*)>(&Collectors::lambda$mapMerger$12))},
-	{"lambda$mapping$13", "(Ljava/util/function/BiConsumer;Ljava/util/function/Function;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($BiConsumer*,$Function*,Object$*,Object$*)>(&Collectors::lambda$mapping$13))},
-	{"lambda$partitioningBy$62", "(Ljava/util/function/BiConsumer;Ljava/util/function/Predicate;Ljava/util/stream/Collectors$Partition;Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($BiConsumer*,$Predicate*,$Collectors$Partition*,Object$*)>(&Collectors::lambda$partitioningBy$62))},
-	{"lambda$partitioningBy$63", "(Ljava/util/function/BinaryOperator;Ljava/util/stream/Collectors$Partition;Ljava/util/stream/Collectors$Partition;)Ljava/util/stream/Collectors$Partition;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Collectors$Partition*(*)($BinaryOperator*,$Collectors$Partition*,$Collectors$Partition*)>(&Collectors::lambda$partitioningBy$63))},
-	{"lambda$partitioningBy$64", "(Ljava/util/stream/Collector;)Ljava/util/stream/Collectors$Partition;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Collectors$Partition*(*)($Collector*)>(&Collectors::lambda$partitioningBy$64))},
-	{"lambda$partitioningBy$65", "(Ljava/util/stream/Collector;Ljava/util/stream/Collectors$Partition;)Ljava/util/Map;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Map*(*)($Collector*,$Collectors$Partition*)>(&Collectors::lambda$partitioningBy$65))},
-	{"lambda$reducing$42", "(Ljava/util/function/BinaryOperator;[Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($BinaryOperator*,$ObjectArray*,Object$*)>(&Collectors::lambda$reducing$42))},
-	{"lambda$reducing$43", "(Ljava/util/function/BinaryOperator;[Ljava/lang/Object;[Ljava/lang/Object;)[Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$ObjectArray*(*)($BinaryOperator*,$ObjectArray*,$ObjectArray*)>(&Collectors::lambda$reducing$43))},
-	{"lambda$reducing$44", "([Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Object*(*)($ObjectArray*)>(&Collectors::lambda$reducing$44))},
-	{"lambda$reducing$46", "(Ljava/util/function/BinaryOperator;)Ljava/util/stream/Collectors$1OptionalBox;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Collectors$1OptionalBox*(*)($BinaryOperator*)>(&Collectors::lambda$reducing$46))},
-	{"lambda$reducing$47", "(Ljava/util/stream/Collectors$1OptionalBox;Ljava/util/stream/Collectors$1OptionalBox;)Ljava/util/stream/Collectors$1OptionalBox;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Collectors$1OptionalBox*(*)($Collectors$1OptionalBox*,$Collectors$1OptionalBox*)>(&Collectors::lambda$reducing$47))},
-	{"lambda$reducing$48", "(Ljava/util/stream/Collectors$1OptionalBox;)Ljava/util/Optional;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Optional*(*)($Collectors$1OptionalBox*)>(&Collectors::lambda$reducing$48))},
-	{"lambda$reducing$49", "(Ljava/util/function/BinaryOperator;Ljava/util/function/Function;[Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($BinaryOperator*,$Function*,$ObjectArray*,Object$*)>(&Collectors::lambda$reducing$49))},
-	{"lambda$summarizingDouble$74", "(Ljava/util/function/ToDoubleFunction;Ljava/util/DoubleSummaryStatistics;Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($ToDoubleFunction*,$DoubleSummaryStatistics*,Object$*)>(&Collectors::lambda$summarizingDouble$74))},
-	{"lambda$summarizingDouble$75", "(Ljava/util/DoubleSummaryStatistics;Ljava/util/DoubleSummaryStatistics;)Ljava/util/DoubleSummaryStatistics;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$DoubleSummaryStatistics*(*)($DoubleSummaryStatistics*,$DoubleSummaryStatistics*)>(&Collectors::lambda$summarizingDouble$75))},
-	{"lambda$summarizingInt$70", "(Ljava/util/function/ToIntFunction;Ljava/util/IntSummaryStatistics;Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($ToIntFunction*,$IntSummaryStatistics*,Object$*)>(&Collectors::lambda$summarizingInt$70))},
-	{"lambda$summarizingInt$71", "(Ljava/util/IntSummaryStatistics;Ljava/util/IntSummaryStatistics;)Ljava/util/IntSummaryStatistics;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$IntSummaryStatistics*(*)($IntSummaryStatistics*,$IntSummaryStatistics*)>(&Collectors::lambda$summarizingInt$71))},
-	{"lambda$summarizingLong$72", "(Ljava/util/function/ToLongFunction;Ljava/util/LongSummaryStatistics;Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($ToLongFunction*,$LongSummaryStatistics*,Object$*)>(&Collectors::lambda$summarizingLong$72))},
-	{"lambda$summarizingLong$73", "(Ljava/util/LongSummaryStatistics;Ljava/util/LongSummaryStatistics;)Ljava/util/LongSummaryStatistics;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$LongSummaryStatistics*(*)($LongSummaryStatistics*,$LongSummaryStatistics*)>(&Collectors::lambda$summarizingLong$73))},
-	{"lambda$summingDouble$26", "()[D", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$doubles*(*)()>(&Collectors::lambda$summingDouble$26))},
-	{"lambda$summingDouble$27", "(Ljava/util/function/ToDoubleFunction;[DLjava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($ToDoubleFunction*,$doubles*,Object$*)>(&Collectors::lambda$summingDouble$27))},
-	{"lambda$summingDouble$28", "([D[D)[D", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$doubles*(*)($doubles*,$doubles*)>(&Collectors::lambda$summingDouble$28))},
-	{"lambda$summingDouble$29", "([D)Ljava/lang/Double;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Double*(*)($doubles*)>(&Collectors::lambda$summingDouble$29))},
-	{"lambda$summingInt$18", "()[I", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$ints*(*)()>(&Collectors::lambda$summingInt$18))},
-	{"lambda$summingInt$19", "(Ljava/util/function/ToIntFunction;[ILjava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($ToIntFunction*,$ints*,Object$*)>(&Collectors::lambda$summingInt$19))},
-	{"lambda$summingInt$20", "([I[I)[I", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$ints*(*)($ints*,$ints*)>(&Collectors::lambda$summingInt$20))},
-	{"lambda$summingInt$21", "([I)Ljava/lang/Integer;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Integer*(*)($ints*)>(&Collectors::lambda$summingInt$21))},
-	{"lambda$summingLong$22", "()[J", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$longs*(*)()>(&Collectors::lambda$summingLong$22))},
-	{"lambda$summingLong$23", "(Ljava/util/function/ToLongFunction;[JLjava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($ToLongFunction*,$longs*,Object$*)>(&Collectors::lambda$summingLong$23))},
-	{"lambda$summingLong$24", "([J[J)[J", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$longs*(*)($longs*,$longs*)>(&Collectors::lambda$summingLong$24))},
-	{"lambda$summingLong$25", "([J)Ljava/lang/Long;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Long*(*)($longs*)>(&Collectors::lambda$summingLong$25))},
-	{"lambda$teeing0$76", "(Ljava/util/function/Supplier;Ljava/util/function/Supplier;Ljava/util/function/BiConsumer;Ljava/util/function/BiConsumer;Ljava/util/function/BinaryOperator;Ljava/util/function/BinaryOperator;Ljava/util/function/Function;Ljava/util/function/Function;Ljava/util/function/BiFunction;)Ljava/util/stream/Collectors$1PairBox;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Collectors$1PairBox*(*)($Supplier*,$Supplier*,$BiConsumer*,$BiConsumer*,$BinaryOperator*,$BinaryOperator*,$Function*,$Function*,$BiFunction*)>(&Collectors::lambda$teeing0$76))},
-	{"lambda$toCollection$3", "(Ljava/util/Collection;Ljava/util/Collection;)Ljava/util/Collection;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Collection*(*)($Collection*,$Collection*)>(&Collectors::lambda$toCollection$3))},
-	{"lambda$toConcurrentMap$69", "(Ljava/util/function/Function;Ljava/util/function/Function;Ljava/util/function/BinaryOperator;Ljava/util/concurrent/ConcurrentMap;Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($Function*,$Function*,$BinaryOperator*,$ConcurrentMap*,Object$*)>(&Collectors::lambda$toConcurrentMap$69))},
-	{"lambda$toList$4", "(Ljava/util/ArrayList;Ljava/util/ArrayList;)Ljava/util/ArrayList;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$ArrayList*(*)($ArrayList*,$ArrayList*)>(&Collectors::lambda$toList$4))},
-	{"lambda$toMap$68", "(Ljava/util/function/Function;Ljava/util/function/Function;Ljava/util/function/BinaryOperator;Ljava/util/Map;Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($Function*,$Function*,$BinaryOperator*,$Map*,Object$*)>(&Collectors::lambda$toMap$68))},
-	{"lambda$toSet$7", "(Ljava/util/HashSet;Ljava/util/HashSet;)Ljava/util/HashSet;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$HashSet*(*)($HashSet*,$HashSet*)>(&Collectors::lambda$toSet$7))},
-	{"lambda$toUnmodifiableList$6", "(Ljava/util/ArrayList;)Ljava/util/List;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$List*(*)($ArrayList*)>(&Collectors::lambda$toUnmodifiableList$6))},
-	{"lambda$toUnmodifiableMap$66", "(Ljava/util/Map;)Ljava/util/Map;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Map*(*)($Map*)>(&Collectors::lambda$toUnmodifiableMap$66))},
-	{"lambda$toUnmodifiableMap$67", "(Ljava/util/HashMap;)Ljava/util/Map;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Map*(*)($HashMap*)>(&Collectors::lambda$toUnmodifiableMap$67))},
-	{"lambda$toUnmodifiableSet$9", "(Ljava/util/HashSet;)Ljava/util/Set;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Set*(*)($HashSet*)>(&Collectors::lambda$toUnmodifiableSet$9))},
-	{"lambda$uniqKeysMapAccumulator$1", "(Ljava/util/function/Function;Ljava/util/function/Function;Ljava/util/Map;Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($Function*,$Function*,$Map*,Object$*)>(&Collectors::lambda$uniqKeysMapAccumulator$1))},
-	{"lambda$uniqKeysMapMerger$0", "(Ljava/util/Map;Ljava/util/Map;)Ljava/util/Map;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Map*(*)($Map*,$Map*)>(&Collectors::lambda$uniqKeysMapMerger$0))},
-	{"mapMerger", "(Ljava/util/function/BinaryOperator;)Ljava/util/function/BinaryOperator;", "<K:Ljava/lang/Object;V:Ljava/lang/Object;M::Ljava/util/Map<TK;TV;>;>(Ljava/util/function/BinaryOperator<TV;>;)Ljava/util/function/BinaryOperator<TM;>;", $PRIVATE | $STATIC, $method(static_cast<$BinaryOperator*(*)($BinaryOperator*)>(&Collectors::mapMerger))},
-	{"mapping", "(Ljava/util/function/Function;Ljava/util/stream/Collector;)Ljava/util/stream/Collector;", "<T:Ljava/lang/Object;U:Ljava/lang/Object;A:Ljava/lang/Object;R:Ljava/lang/Object;>(Ljava/util/function/Function<-TT;+TU;>;Ljava/util/stream/Collector<-TU;TA;TR;>;)Ljava/util/stream/Collector<TT;*TR;>;", $PUBLIC | $STATIC, $method(static_cast<$Collector*(*)($Function*,$Collector*)>(&Collectors::mapping))},
-	{"maxBy", "(Ljava/util/Comparator;)Ljava/util/stream/Collector;", "<T:Ljava/lang/Object;>(Ljava/util/Comparator<-TT;>;)Ljava/util/stream/Collector<TT;*Ljava/util/Optional<TT;>;>;", $PUBLIC | $STATIC, $method(static_cast<$Collector*(*)($Comparator*)>(&Collectors::maxBy))},
-	{"minBy", "(Ljava/util/Comparator;)Ljava/util/stream/Collector;", "<T:Ljava/lang/Object;>(Ljava/util/Comparator<-TT;>;)Ljava/util/stream/Collector<TT;*Ljava/util/Optional<TT;>;>;", $PUBLIC | $STATIC, $method(static_cast<$Collector*(*)($Comparator*)>(&Collectors::minBy))},
-	{"partitioningBy", "(Ljava/util/function/Predicate;)Ljava/util/stream/Collector;", "<T:Ljava/lang/Object;>(Ljava/util/function/Predicate<-TT;>;)Ljava/util/stream/Collector<TT;*Ljava/util/Map<Ljava/lang/Boolean;Ljava/util/List<TT;>;>;>;", $PUBLIC | $STATIC, $method(static_cast<$Collector*(*)($Predicate*)>(&Collectors::partitioningBy))},
-	{"partitioningBy", "(Ljava/util/function/Predicate;Ljava/util/stream/Collector;)Ljava/util/stream/Collector;", "<T:Ljava/lang/Object;D:Ljava/lang/Object;A:Ljava/lang/Object;>(Ljava/util/function/Predicate<-TT;>;Ljava/util/stream/Collector<-TT;TA;TD;>;)Ljava/util/stream/Collector<TT;*Ljava/util/Map<Ljava/lang/Boolean;TD;>;>;", $PUBLIC | $STATIC, $method(static_cast<$Collector*(*)($Predicate*,$Collector*)>(&Collectors::partitioningBy))},
-	{"reducing", "(Ljava/lang/Object;Ljava/util/function/BinaryOperator;)Ljava/util/stream/Collector;", "<T:Ljava/lang/Object;>(TT;Ljava/util/function/BinaryOperator<TT;>;)Ljava/util/stream/Collector<TT;*TT;>;", $PUBLIC | $STATIC, $method(static_cast<$Collector*(*)(Object$*,$BinaryOperator*)>(&Collectors::reducing))},
-	{"reducing", "(Ljava/util/function/BinaryOperator;)Ljava/util/stream/Collector;", "<T:Ljava/lang/Object;>(Ljava/util/function/BinaryOperator<TT;>;)Ljava/util/stream/Collector<TT;*Ljava/util/Optional<TT;>;>;", $PUBLIC | $STATIC, $method(static_cast<$Collector*(*)($BinaryOperator*)>(&Collectors::reducing))},
-	{"reducing", "(Ljava/lang/Object;Ljava/util/function/Function;Ljava/util/function/BinaryOperator;)Ljava/util/stream/Collector;", "<T:Ljava/lang/Object;U:Ljava/lang/Object;>(TU;Ljava/util/function/Function<-TT;+TU;>;Ljava/util/function/BinaryOperator<TU;>;)Ljava/util/stream/Collector<TT;*TU;>;", $PUBLIC | $STATIC, $method(static_cast<$Collector*(*)(Object$*,$Function*,$BinaryOperator*)>(&Collectors::reducing))},
-	{"sumWithCompensation", "([DD)[D", nullptr, $STATIC, $method(static_cast<$doubles*(*)($doubles*,double)>(&Collectors::sumWithCompensation))},
-	{"summarizingDouble", "(Ljava/util/function/ToDoubleFunction;)Ljava/util/stream/Collector;", "<T:Ljava/lang/Object;>(Ljava/util/function/ToDoubleFunction<-TT;>;)Ljava/util/stream/Collector<TT;*Ljava/util/DoubleSummaryStatistics;>;", $PUBLIC | $STATIC, $method(static_cast<$Collector*(*)($ToDoubleFunction*)>(&Collectors::summarizingDouble))},
-	{"summarizingInt", "(Ljava/util/function/ToIntFunction;)Ljava/util/stream/Collector;", "<T:Ljava/lang/Object;>(Ljava/util/function/ToIntFunction<-TT;>;)Ljava/util/stream/Collector<TT;*Ljava/util/IntSummaryStatistics;>;", $PUBLIC | $STATIC, $method(static_cast<$Collector*(*)($ToIntFunction*)>(&Collectors::summarizingInt))},
-	{"summarizingLong", "(Ljava/util/function/ToLongFunction;)Ljava/util/stream/Collector;", "<T:Ljava/lang/Object;>(Ljava/util/function/ToLongFunction<-TT;>;)Ljava/util/stream/Collector<TT;*Ljava/util/LongSummaryStatistics;>;", $PUBLIC | $STATIC, $method(static_cast<$Collector*(*)($ToLongFunction*)>(&Collectors::summarizingLong))},
-	{"summingDouble", "(Ljava/util/function/ToDoubleFunction;)Ljava/util/stream/Collector;", "<T:Ljava/lang/Object;>(Ljava/util/function/ToDoubleFunction<-TT;>;)Ljava/util/stream/Collector<TT;*Ljava/lang/Double;>;", $PUBLIC | $STATIC, $method(static_cast<$Collector*(*)($ToDoubleFunction*)>(&Collectors::summingDouble))},
-	{"summingInt", "(Ljava/util/function/ToIntFunction;)Ljava/util/stream/Collector;", "<T:Ljava/lang/Object;>(Ljava/util/function/ToIntFunction<-TT;>;)Ljava/util/stream/Collector<TT;*Ljava/lang/Integer;>;", $PUBLIC | $STATIC, $method(static_cast<$Collector*(*)($ToIntFunction*)>(&Collectors::summingInt))},
-	{"summingLong", "(Ljava/util/function/ToLongFunction;)Ljava/util/stream/Collector;", "<T:Ljava/lang/Object;>(Ljava/util/function/ToLongFunction<-TT;>;)Ljava/util/stream/Collector<TT;*Ljava/lang/Long;>;", $PUBLIC | $STATIC, $method(static_cast<$Collector*(*)($ToLongFunction*)>(&Collectors::summingLong))},
-	{"teeing", "(Ljava/util/stream/Collector;Ljava/util/stream/Collector;Ljava/util/function/BiFunction;)Ljava/util/stream/Collector;", "<T:Ljava/lang/Object;R1:Ljava/lang/Object;R2:Ljava/lang/Object;R:Ljava/lang/Object;>(Ljava/util/stream/Collector<-TT;*TR1;>;Ljava/util/stream/Collector<-TT;*TR2;>;Ljava/util/function/BiFunction<-TR1;-TR2;TR;>;)Ljava/util/stream/Collector<TT;*TR;>;", $PUBLIC | $STATIC, $method(static_cast<$Collector*(*)($Collector*,$Collector*,$BiFunction*)>(&Collectors::teeing))},
-	{"teeing0", "(Ljava/util/stream/Collector;Ljava/util/stream/Collector;Ljava/util/function/BiFunction;)Ljava/util/stream/Collector;", "<T:Ljava/lang/Object;A1:Ljava/lang/Object;A2:Ljava/lang/Object;R1:Ljava/lang/Object;R2:Ljava/lang/Object;R:Ljava/lang/Object;>(Ljava/util/stream/Collector<-TT;TA1;TR1;>;Ljava/util/stream/Collector<-TT;TA2;TR2;>;Ljava/util/function/BiFunction<-TR1;-TR2;TR;>;)Ljava/util/stream/Collector<TT;*TR;>;", $PRIVATE | $STATIC, $method(static_cast<$Collector*(*)($Collector*,$Collector*,$BiFunction*)>(&Collectors::teeing0))},
-	{"toCollection", "(Ljava/util/function/Supplier;)Ljava/util/stream/Collector;", "<T:Ljava/lang/Object;C::Ljava/util/Collection<TT;>;>(Ljava/util/function/Supplier<TC;>;)Ljava/util/stream/Collector<TT;*TC;>;", $PUBLIC | $STATIC, $method(static_cast<$Collector*(*)($Supplier*)>(&Collectors::toCollection))},
-	{"toConcurrentMap", "(Ljava/util/function/Function;Ljava/util/function/Function;)Ljava/util/stream/Collector;", "<T:Ljava/lang/Object;K:Ljava/lang/Object;U:Ljava/lang/Object;>(Ljava/util/function/Function<-TT;+TK;>;Ljava/util/function/Function<-TT;+TU;>;)Ljava/util/stream/Collector<TT;*Ljava/util/concurrent/ConcurrentMap<TK;TU;>;>;", $PUBLIC | $STATIC, $method(static_cast<$Collector*(*)($Function*,$Function*)>(&Collectors::toConcurrentMap))},
-	{"toConcurrentMap", "(Ljava/util/function/Function;Ljava/util/function/Function;Ljava/util/function/BinaryOperator;)Ljava/util/stream/Collector;", "<T:Ljava/lang/Object;K:Ljava/lang/Object;U:Ljava/lang/Object;>(Ljava/util/function/Function<-TT;+TK;>;Ljava/util/function/Function<-TT;+TU;>;Ljava/util/function/BinaryOperator<TU;>;)Ljava/util/stream/Collector<TT;*Ljava/util/concurrent/ConcurrentMap<TK;TU;>;>;", $PUBLIC | $STATIC, $method(static_cast<$Collector*(*)($Function*,$Function*,$BinaryOperator*)>(&Collectors::toConcurrentMap))},
-	{"toConcurrentMap", "(Ljava/util/function/Function;Ljava/util/function/Function;Ljava/util/function/BinaryOperator;Ljava/util/function/Supplier;)Ljava/util/stream/Collector;", "<T:Ljava/lang/Object;K:Ljava/lang/Object;U:Ljava/lang/Object;M::Ljava/util/concurrent/ConcurrentMap<TK;TU;>;>(Ljava/util/function/Function<-TT;+TK;>;Ljava/util/function/Function<-TT;+TU;>;Ljava/util/function/BinaryOperator<TU;>;Ljava/util/function/Supplier<TM;>;)Ljava/util/stream/Collector<TT;*TM;>;", $PUBLIC | $STATIC, $method(static_cast<$Collector*(*)($Function*,$Function*,$BinaryOperator*,$Supplier*)>(&Collectors::toConcurrentMap))},
-	{"toList", "()Ljava/util/stream/Collector;", "<T:Ljava/lang/Object;>()Ljava/util/stream/Collector<TT;*Ljava/util/List<TT;>;>;", $PUBLIC | $STATIC, $method(static_cast<$Collector*(*)()>(&Collectors::toList))},
-	{"toMap", "(Ljava/util/function/Function;Ljava/util/function/Function;)Ljava/util/stream/Collector;", "<T:Ljava/lang/Object;K:Ljava/lang/Object;U:Ljava/lang/Object;>(Ljava/util/function/Function<-TT;+TK;>;Ljava/util/function/Function<-TT;+TU;>;)Ljava/util/stream/Collector<TT;*Ljava/util/Map<TK;TU;>;>;", $PUBLIC | $STATIC, $method(static_cast<$Collector*(*)($Function*,$Function*)>(&Collectors::toMap))},
-	{"toMap", "(Ljava/util/function/Function;Ljava/util/function/Function;Ljava/util/function/BinaryOperator;)Ljava/util/stream/Collector;", "<T:Ljava/lang/Object;K:Ljava/lang/Object;U:Ljava/lang/Object;>(Ljava/util/function/Function<-TT;+TK;>;Ljava/util/function/Function<-TT;+TU;>;Ljava/util/function/BinaryOperator<TU;>;)Ljava/util/stream/Collector<TT;*Ljava/util/Map<TK;TU;>;>;", $PUBLIC | $STATIC, $method(static_cast<$Collector*(*)($Function*,$Function*,$BinaryOperator*)>(&Collectors::toMap))},
-	{"toMap", "(Ljava/util/function/Function;Ljava/util/function/Function;Ljava/util/function/BinaryOperator;Ljava/util/function/Supplier;)Ljava/util/stream/Collector;", "<T:Ljava/lang/Object;K:Ljava/lang/Object;U:Ljava/lang/Object;M::Ljava/util/Map<TK;TU;>;>(Ljava/util/function/Function<-TT;+TK;>;Ljava/util/function/Function<-TT;+TU;>;Ljava/util/function/BinaryOperator<TU;>;Ljava/util/function/Supplier<TM;>;)Ljava/util/stream/Collector<TT;*TM;>;", $PUBLIC | $STATIC, $method(static_cast<$Collector*(*)($Function*,$Function*,$BinaryOperator*,$Supplier*)>(&Collectors::toMap))},
-	{"toSet", "()Ljava/util/stream/Collector;", "<T:Ljava/lang/Object;>()Ljava/util/stream/Collector<TT;*Ljava/util/Set<TT;>;>;", $PUBLIC | $STATIC, $method(static_cast<$Collector*(*)()>(&Collectors::toSet))},
-	{"toUnmodifiableList", "()Ljava/util/stream/Collector;", "<T:Ljava/lang/Object;>()Ljava/util/stream/Collector<TT;*Ljava/util/List<TT;>;>;", $PUBLIC | $STATIC, $method(static_cast<$Collector*(*)()>(&Collectors::toUnmodifiableList))},
-	{"toUnmodifiableMap", "(Ljava/util/function/Function;Ljava/util/function/Function;)Ljava/util/stream/Collector;", "<T:Ljava/lang/Object;K:Ljava/lang/Object;U:Ljava/lang/Object;>(Ljava/util/function/Function<-TT;+TK;>;Ljava/util/function/Function<-TT;+TU;>;)Ljava/util/stream/Collector<TT;*Ljava/util/Map<TK;TU;>;>;", $PUBLIC | $STATIC, $method(static_cast<$Collector*(*)($Function*,$Function*)>(&Collectors::toUnmodifiableMap))},
-	{"toUnmodifiableMap", "(Ljava/util/function/Function;Ljava/util/function/Function;Ljava/util/function/BinaryOperator;)Ljava/util/stream/Collector;", "<T:Ljava/lang/Object;K:Ljava/lang/Object;U:Ljava/lang/Object;>(Ljava/util/function/Function<-TT;+TK;>;Ljava/util/function/Function<-TT;+TU;>;Ljava/util/function/BinaryOperator<TU;>;)Ljava/util/stream/Collector<TT;*Ljava/util/Map<TK;TU;>;>;", $PUBLIC | $STATIC, $method(static_cast<$Collector*(*)($Function*,$Function*,$BinaryOperator*)>(&Collectors::toUnmodifiableMap))},
-	{"toUnmodifiableSet", "()Ljava/util/stream/Collector;", "<T:Ljava/lang/Object;>()Ljava/util/stream/Collector<TT;*Ljava/util/Set<TT;>;>;", $PUBLIC | $STATIC, $method(static_cast<$Collector*(*)()>(&Collectors::toUnmodifiableSet))},
-	{"uniqKeysMapAccumulator", "(Ljava/util/function/Function;Ljava/util/function/Function;)Ljava/util/function/BiConsumer;", "<T:Ljava/lang/Object;K:Ljava/lang/Object;V:Ljava/lang/Object;>(Ljava/util/function/Function<-TT;+TK;>;Ljava/util/function/Function<-TT;+TV;>;)Ljava/util/function/BiConsumer<Ljava/util/Map<TK;TV;>;TT;>;", $PRIVATE | $STATIC, $method(static_cast<$BiConsumer*(*)($Function*,$Function*)>(&Collectors::uniqKeysMapAccumulator))},
-	{"uniqKeysMapMerger", "()Ljava/util/function/BinaryOperator;", "<K:Ljava/lang/Object;V:Ljava/lang/Object;M::Ljava/util/Map<TK;TV;>;>()Ljava/util/function/BinaryOperator<TM;>;", $PRIVATE | $STATIC, $method(static_cast<$BinaryOperator*(*)()>(&Collectors::uniqKeysMapMerger))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(Collectors, init$, void)},
+	{"averagingDouble", "(Ljava/util/function/ToDoubleFunction;)Ljava/util/stream/Collector;", "<T:Ljava/lang/Object;>(Ljava/util/function/ToDoubleFunction<-TT;>;)Ljava/util/stream/Collector<TT;*Ljava/lang/Double;>;", $PUBLIC | $STATIC, $staticMethod(Collectors, averagingDouble, $Collector*, $ToDoubleFunction*)},
+	{"averagingInt", "(Ljava/util/function/ToIntFunction;)Ljava/util/stream/Collector;", "<T:Ljava/lang/Object;>(Ljava/util/function/ToIntFunction<-TT;>;)Ljava/util/stream/Collector<TT;*Ljava/lang/Double;>;", $PUBLIC | $STATIC, $staticMethod(Collectors, averagingInt, $Collector*, $ToIntFunction*)},
+	{"averagingLong", "(Ljava/util/function/ToLongFunction;)Ljava/util/stream/Collector;", "<T:Ljava/lang/Object;>(Ljava/util/function/ToLongFunction<-TT;>;)Ljava/util/stream/Collector<TT;*Ljava/lang/Double;>;", $PUBLIC | $STATIC, $staticMethod(Collectors, averagingLong, $Collector*, $ToLongFunction*)},
+	{"boxSupplier", "(Ljava/lang/Object;)Ljava/util/function/Supplier;", "<T:Ljava/lang/Object;>(TT;)Ljava/util/function/Supplier<[TT;>;", $PRIVATE | $STATIC, $staticMethod(Collectors, boxSupplier, $Supplier*, Object$*)},
+	{"castingIdentity", "()Ljava/util/function/Function;", "<I:Ljava/lang/Object;R:Ljava/lang/Object;>()Ljava/util/function/Function<TI;TR;>;", $PRIVATE | $STATIC, $staticMethod(Collectors, castingIdentity, $Function*)},
+	{"collectingAndThen", "(Ljava/util/stream/Collector;Ljava/util/function/Function;)Ljava/util/stream/Collector;", "<T:Ljava/lang/Object;A:Ljava/lang/Object;R:Ljava/lang/Object;RR:Ljava/lang/Object;>(Ljava/util/stream/Collector<TT;TA;TR;>;Ljava/util/function/Function<TR;TRR;>;)Ljava/util/stream/Collector<TT;TA;TRR;>;", $PUBLIC | $STATIC, $staticMethod(Collectors, collectingAndThen, $Collector*, $Collector*, $Function*)},
+	{"computeFinalSum", "([D)D", nullptr, $STATIC, $staticMethod(Collectors, computeFinalSum, double, $doubles*)},
+	{"counting", "()Ljava/util/stream/Collector;", "<T:Ljava/lang/Object;>()Ljava/util/stream/Collector<TT;*Ljava/lang/Long;>;", $PUBLIC | $STATIC, $staticMethod(Collectors, counting, $Collector*)},
+	{"duplicateKeyException", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/IllegalStateException;", nullptr, $PRIVATE | $STATIC, $staticMethod(Collectors, duplicateKeyException, $IllegalStateException*, Object$*, Object$*, Object$*)},
+	{"filtering", "(Ljava/util/function/Predicate;Ljava/util/stream/Collector;)Ljava/util/stream/Collector;", "<T:Ljava/lang/Object;A:Ljava/lang/Object;R:Ljava/lang/Object;>(Ljava/util/function/Predicate<-TT;>;Ljava/util/stream/Collector<-TT;TA;TR;>;)Ljava/util/stream/Collector<TT;*TR;>;", $PUBLIC | $STATIC, $staticMethod(Collectors, filtering, $Collector*, $Predicate*, $Collector*)},
+	{"flatMapping", "(Ljava/util/function/Function;Ljava/util/stream/Collector;)Ljava/util/stream/Collector;", "<T:Ljava/lang/Object;U:Ljava/lang/Object;A:Ljava/lang/Object;R:Ljava/lang/Object;>(Ljava/util/function/Function<-TT;+Ljava/util/stream/Stream<+TU;>;>;Ljava/util/stream/Collector<-TU;TA;TR;>;)Ljava/util/stream/Collector<TT;*TR;>;", $PUBLIC | $STATIC, $staticMethod(Collectors, flatMapping, $Collector*, $Function*, $Collector*)},
+	{"groupingBy", "(Ljava/util/function/Function;)Ljava/util/stream/Collector;", "<T:Ljava/lang/Object;K:Ljava/lang/Object;>(Ljava/util/function/Function<-TT;+TK;>;)Ljava/util/stream/Collector<TT;*Ljava/util/Map<TK;Ljava/util/List<TT;>;>;>;", $PUBLIC | $STATIC, $staticMethod(Collectors, groupingBy, $Collector*, $Function*)},
+	{"groupingBy", "(Ljava/util/function/Function;Ljava/util/stream/Collector;)Ljava/util/stream/Collector;", "<T:Ljava/lang/Object;K:Ljava/lang/Object;A:Ljava/lang/Object;D:Ljava/lang/Object;>(Ljava/util/function/Function<-TT;+TK;>;Ljava/util/stream/Collector<-TT;TA;TD;>;)Ljava/util/stream/Collector<TT;*Ljava/util/Map<TK;TD;>;>;", $PUBLIC | $STATIC, $staticMethod(Collectors, groupingBy, $Collector*, $Function*, $Collector*)},
+	{"groupingBy", "(Ljava/util/function/Function;Ljava/util/function/Supplier;Ljava/util/stream/Collector;)Ljava/util/stream/Collector;", "<T:Ljava/lang/Object;K:Ljava/lang/Object;D:Ljava/lang/Object;A:Ljava/lang/Object;M::Ljava/util/Map<TK;TD;>;>(Ljava/util/function/Function<-TT;+TK;>;Ljava/util/function/Supplier<TM;>;Ljava/util/stream/Collector<-TT;TA;TD;>;)Ljava/util/stream/Collector<TT;*TM;>;", $PUBLIC | $STATIC, $staticMethod(Collectors, groupingBy, $Collector*, $Function*, $Supplier*, $Collector*)},
+	{"groupingByConcurrent", "(Ljava/util/function/Function;)Ljava/util/stream/Collector;", "<T:Ljava/lang/Object;K:Ljava/lang/Object;>(Ljava/util/function/Function<-TT;+TK;>;)Ljava/util/stream/Collector<TT;*Ljava/util/concurrent/ConcurrentMap<TK;Ljava/util/List<TT;>;>;>;", $PUBLIC | $STATIC, $staticMethod(Collectors, groupingByConcurrent, $Collector*, $Function*)},
+	{"groupingByConcurrent", "(Ljava/util/function/Function;Ljava/util/stream/Collector;)Ljava/util/stream/Collector;", "<T:Ljava/lang/Object;K:Ljava/lang/Object;A:Ljava/lang/Object;D:Ljava/lang/Object;>(Ljava/util/function/Function<-TT;+TK;>;Ljava/util/stream/Collector<-TT;TA;TD;>;)Ljava/util/stream/Collector<TT;*Ljava/util/concurrent/ConcurrentMap<TK;TD;>;>;", $PUBLIC | $STATIC, $staticMethod(Collectors, groupingByConcurrent, $Collector*, $Function*, $Collector*)},
+	{"groupingByConcurrent", "(Ljava/util/function/Function;Ljava/util/function/Supplier;Ljava/util/stream/Collector;)Ljava/util/stream/Collector;", "<T:Ljava/lang/Object;K:Ljava/lang/Object;A:Ljava/lang/Object;D:Ljava/lang/Object;M::Ljava/util/concurrent/ConcurrentMap<TK;TD;>;>(Ljava/util/function/Function<-TT;+TK;>;Ljava/util/function/Supplier<TM;>;Ljava/util/stream/Collector<-TT;TA;TD;>;)Ljava/util/stream/Collector<TT;*TM;>;", $PUBLIC | $STATIC, $staticMethod(Collectors, groupingByConcurrent, $Collector*, $Function*, $Supplier*, $Collector*)},
+	{"joining", "()Ljava/util/stream/Collector;", "()Ljava/util/stream/Collector<Ljava/lang/CharSequence;*Ljava/lang/String;>;", $PUBLIC | $STATIC, $staticMethod(Collectors, joining, $Collector*)},
+	{"joining", "(Ljava/lang/CharSequence;)Ljava/util/stream/Collector;", "(Ljava/lang/CharSequence;)Ljava/util/stream/Collector<Ljava/lang/CharSequence;*Ljava/lang/String;>;", $PUBLIC | $STATIC, $staticMethod(Collectors, joining, $Collector*, $CharSequence*)},
+	{"joining", "(Ljava/lang/CharSequence;Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/util/stream/Collector;", "(Ljava/lang/CharSequence;Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/util/stream/Collector<Ljava/lang/CharSequence;*Ljava/lang/String;>;", $PUBLIC | $STATIC, $staticMethod(Collectors, joining, $Collector*, $CharSequence*, $CharSequence*, $CharSequence*)},
+	{"lambda$averagingDouble$38", "()[D", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Collectors, lambda$averagingDouble$38, $doubles*)},
+	{"lambda$averagingDouble$39", "(Ljava/util/function/ToDoubleFunction;[DLjava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Collectors, lambda$averagingDouble$39, void, $ToDoubleFunction*, $doubles*, Object$*)},
+	{"lambda$averagingDouble$40", "([D[D)[D", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Collectors, lambda$averagingDouble$40, $doubles*, $doubles*, $doubles*)},
+	{"lambda$averagingDouble$41", "([D)Ljava/lang/Double;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Collectors, lambda$averagingDouble$41, $Double*, $doubles*)},
+	{"lambda$averagingInt$30", "()[J", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Collectors, lambda$averagingInt$30, $longs*)},
+	{"lambda$averagingInt$31", "(Ljava/util/function/ToIntFunction;[JLjava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Collectors, lambda$averagingInt$31, void, $ToIntFunction*, $longs*, Object$*)},
+	{"lambda$averagingInt$32", "([J[J)[J", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Collectors, lambda$averagingInt$32, $longs*, $longs*, $longs*)},
+	{"lambda$averagingInt$33", "([J)Ljava/lang/Double;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Collectors, lambda$averagingInt$33, $Double*, $longs*)},
+	{"lambda$averagingLong$35", "(Ljava/util/function/ToLongFunction;[JLjava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Collectors, lambda$averagingLong$35, void, $ToLongFunction*, $longs*, Object$*)},
+	{"lambda$boxSupplier$45", "(Ljava/lang/Object;)[Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Collectors, lambda$boxSupplier$45, $ObjectArray*, Object$*)},
+	{"lambda$castingIdentity$2", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Collectors, lambda$castingIdentity$2, $Object*, Object$*)},
+	{"lambda$counting$17", "(Ljava/lang/Object;)J", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Collectors, lambda$counting$17, int64_t, Object$*)},
+	{"lambda$filtering$16", "(Ljava/util/function/Predicate;Ljava/util/function/BiConsumer;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Collectors, lambda$filtering$16, void, $Predicate*, $BiConsumer*, Object$*, Object$*)},
+	{"lambda$flatMapping$14", "(Ljava/util/function/BiConsumer;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Collectors, lambda$flatMapping$14, void, $BiConsumer*, Object$*, Object$*)},
+	{"lambda$flatMapping$15", "(Ljava/util/function/Function;Ljava/util/function/BiConsumer;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Collectors, lambda$flatMapping$15, void, $Function*, $BiConsumer*, Object$*, Object$*)},
+	{"lambda$groupingBy$52", "(Ljava/util/function/Supplier;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Collectors, lambda$groupingBy$52, $Object*, $Supplier*, Object$*)},
+	{"lambda$groupingBy$53", "(Ljava/util/function/Function;Ljava/util/function/Supplier;Ljava/util/function/BiConsumer;Ljava/util/Map;Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Collectors, lambda$groupingBy$53, void, $Function*, $Supplier*, $BiConsumer*, $Map*, Object$*)},
+	{"lambda$groupingBy$54", "(Ljava/util/function/Function;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Collectors, lambda$groupingBy$54, $Object*, $Function*, Object$*, Object$*)},
+	{"lambda$groupingBy$55", "(Ljava/util/function/Function;Ljava/util/Map;)Ljava/util/Map;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Collectors, lambda$groupingBy$55, $Map*, $Function*, $Map*)},
+	{"lambda$groupingByConcurrent$57", "(Ljava/util/function/Function;Ljava/util/function/Supplier;Ljava/util/function/BiConsumer;Ljava/util/concurrent/ConcurrentMap;Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Collectors, lambda$groupingByConcurrent$57, void, $Function*, $Supplier*, $BiConsumer*, $ConcurrentMap*, Object$*)},
+	{"lambda$groupingByConcurrent$59", "(Ljava/util/function/Function;Ljava/util/function/Supplier;Ljava/util/function/BiConsumer;Ljava/util/concurrent/ConcurrentMap;Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Collectors, lambda$groupingByConcurrent$59, void, $Function*, $Supplier*, $BiConsumer*, $ConcurrentMap*, Object$*)},
+	{"lambda$groupingByConcurrent$61", "(Ljava/util/function/Function;Ljava/util/concurrent/ConcurrentMap;)Ljava/util/concurrent/ConcurrentMap;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Collectors, lambda$groupingByConcurrent$61, $ConcurrentMap*, $Function*, $ConcurrentMap*)},
+	{"lambda$joining$10", "(Ljava/lang/StringBuilder;Ljava/lang/StringBuilder;)Ljava/lang/StringBuilder;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Collectors, lambda$joining$10, $StringBuilder*, $StringBuilder*, $StringBuilder*)},
+	{"lambda$joining$11", "(Ljava/lang/CharSequence;Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/util/StringJoiner;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Collectors, lambda$joining$11, $StringJoiner*, $CharSequence*, $CharSequence*, $CharSequence*)},
+	{"lambda$mapMerger$12", "(Ljava/util/function/BinaryOperator;Ljava/util/Map;Ljava/util/Map;)Ljava/util/Map;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Collectors, lambda$mapMerger$12, $Map*, $BinaryOperator*, $Map*, $Map*)},
+	{"lambda$mapping$13", "(Ljava/util/function/BiConsumer;Ljava/util/function/Function;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Collectors, lambda$mapping$13, void, $BiConsumer*, $Function*, Object$*, Object$*)},
+	{"lambda$partitioningBy$62", "(Ljava/util/function/BiConsumer;Ljava/util/function/Predicate;Ljava/util/stream/Collectors$Partition;Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Collectors, lambda$partitioningBy$62, void, $BiConsumer*, $Predicate*, $Collectors$Partition*, Object$*)},
+	{"lambda$partitioningBy$63", "(Ljava/util/function/BinaryOperator;Ljava/util/stream/Collectors$Partition;Ljava/util/stream/Collectors$Partition;)Ljava/util/stream/Collectors$Partition;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Collectors, lambda$partitioningBy$63, $Collectors$Partition*, $BinaryOperator*, $Collectors$Partition*, $Collectors$Partition*)},
+	{"lambda$partitioningBy$64", "(Ljava/util/stream/Collector;)Ljava/util/stream/Collectors$Partition;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Collectors, lambda$partitioningBy$64, $Collectors$Partition*, $Collector*)},
+	{"lambda$partitioningBy$65", "(Ljava/util/stream/Collector;Ljava/util/stream/Collectors$Partition;)Ljava/util/Map;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Collectors, lambda$partitioningBy$65, $Map*, $Collector*, $Collectors$Partition*)},
+	{"lambda$reducing$42", "(Ljava/util/function/BinaryOperator;[Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Collectors, lambda$reducing$42, void, $BinaryOperator*, $ObjectArray*, Object$*)},
+	{"lambda$reducing$43", "(Ljava/util/function/BinaryOperator;[Ljava/lang/Object;[Ljava/lang/Object;)[Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Collectors, lambda$reducing$43, $ObjectArray*, $BinaryOperator*, $ObjectArray*, $ObjectArray*)},
+	{"lambda$reducing$44", "([Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Collectors, lambda$reducing$44, $Object*, $ObjectArray*)},
+	{"lambda$reducing$46", "(Ljava/util/function/BinaryOperator;)Ljava/util/stream/Collectors$1OptionalBox;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Collectors, lambda$reducing$46, $Collectors$1OptionalBox*, $BinaryOperator*)},
+	{"lambda$reducing$47", "(Ljava/util/stream/Collectors$1OptionalBox;Ljava/util/stream/Collectors$1OptionalBox;)Ljava/util/stream/Collectors$1OptionalBox;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Collectors, lambda$reducing$47, $Collectors$1OptionalBox*, $Collectors$1OptionalBox*, $Collectors$1OptionalBox*)},
+	{"lambda$reducing$48", "(Ljava/util/stream/Collectors$1OptionalBox;)Ljava/util/Optional;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Collectors, lambda$reducing$48, $Optional*, $Collectors$1OptionalBox*)},
+	{"lambda$reducing$49", "(Ljava/util/function/BinaryOperator;Ljava/util/function/Function;[Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Collectors, lambda$reducing$49, void, $BinaryOperator*, $Function*, $ObjectArray*, Object$*)},
+	{"lambda$summarizingDouble$74", "(Ljava/util/function/ToDoubleFunction;Ljava/util/DoubleSummaryStatistics;Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Collectors, lambda$summarizingDouble$74, void, $ToDoubleFunction*, $DoubleSummaryStatistics*, Object$*)},
+	{"lambda$summarizingDouble$75", "(Ljava/util/DoubleSummaryStatistics;Ljava/util/DoubleSummaryStatistics;)Ljava/util/DoubleSummaryStatistics;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Collectors, lambda$summarizingDouble$75, $DoubleSummaryStatistics*, $DoubleSummaryStatistics*, $DoubleSummaryStatistics*)},
+	{"lambda$summarizingInt$70", "(Ljava/util/function/ToIntFunction;Ljava/util/IntSummaryStatistics;Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Collectors, lambda$summarizingInt$70, void, $ToIntFunction*, $IntSummaryStatistics*, Object$*)},
+	{"lambda$summarizingInt$71", "(Ljava/util/IntSummaryStatistics;Ljava/util/IntSummaryStatistics;)Ljava/util/IntSummaryStatistics;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Collectors, lambda$summarizingInt$71, $IntSummaryStatistics*, $IntSummaryStatistics*, $IntSummaryStatistics*)},
+	{"lambda$summarizingLong$72", "(Ljava/util/function/ToLongFunction;Ljava/util/LongSummaryStatistics;Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Collectors, lambda$summarizingLong$72, void, $ToLongFunction*, $LongSummaryStatistics*, Object$*)},
+	{"lambda$summarizingLong$73", "(Ljava/util/LongSummaryStatistics;Ljava/util/LongSummaryStatistics;)Ljava/util/LongSummaryStatistics;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Collectors, lambda$summarizingLong$73, $LongSummaryStatistics*, $LongSummaryStatistics*, $LongSummaryStatistics*)},
+	{"lambda$summingDouble$26", "()[D", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Collectors, lambda$summingDouble$26, $doubles*)},
+	{"lambda$summingDouble$27", "(Ljava/util/function/ToDoubleFunction;[DLjava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Collectors, lambda$summingDouble$27, void, $ToDoubleFunction*, $doubles*, Object$*)},
+	{"lambda$summingDouble$28", "([D[D)[D", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Collectors, lambda$summingDouble$28, $doubles*, $doubles*, $doubles*)},
+	{"lambda$summingDouble$29", "([D)Ljava/lang/Double;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Collectors, lambda$summingDouble$29, $Double*, $doubles*)},
+	{"lambda$summingInt$18", "()[I", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Collectors, lambda$summingInt$18, $ints*)},
+	{"lambda$summingInt$19", "(Ljava/util/function/ToIntFunction;[ILjava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Collectors, lambda$summingInt$19, void, $ToIntFunction*, $ints*, Object$*)},
+	{"lambda$summingInt$20", "([I[I)[I", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Collectors, lambda$summingInt$20, $ints*, $ints*, $ints*)},
+	{"lambda$summingInt$21", "([I)Ljava/lang/Integer;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Collectors, lambda$summingInt$21, $Integer*, $ints*)},
+	{"lambda$summingLong$22", "()[J", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Collectors, lambda$summingLong$22, $longs*)},
+	{"lambda$summingLong$23", "(Ljava/util/function/ToLongFunction;[JLjava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Collectors, lambda$summingLong$23, void, $ToLongFunction*, $longs*, Object$*)},
+	{"lambda$summingLong$24", "([J[J)[J", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Collectors, lambda$summingLong$24, $longs*, $longs*, $longs*)},
+	{"lambda$summingLong$25", "([J)Ljava/lang/Long;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Collectors, lambda$summingLong$25, $Long*, $longs*)},
+	{"lambda$teeing0$76", "(Ljava/util/function/Supplier;Ljava/util/function/Supplier;Ljava/util/function/BiConsumer;Ljava/util/function/BiConsumer;Ljava/util/function/BinaryOperator;Ljava/util/function/BinaryOperator;Ljava/util/function/Function;Ljava/util/function/Function;Ljava/util/function/BiFunction;)Ljava/util/stream/Collectors$1PairBox;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Collectors, lambda$teeing0$76, $Collectors$1PairBox*, $Supplier*, $Supplier*, $BiConsumer*, $BiConsumer*, $BinaryOperator*, $BinaryOperator*, $Function*, $Function*, $BiFunction*)},
+	{"lambda$toCollection$3", "(Ljava/util/Collection;Ljava/util/Collection;)Ljava/util/Collection;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Collectors, lambda$toCollection$3, $Collection*, $Collection*, $Collection*)},
+	{"lambda$toConcurrentMap$69", "(Ljava/util/function/Function;Ljava/util/function/Function;Ljava/util/function/BinaryOperator;Ljava/util/concurrent/ConcurrentMap;Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Collectors, lambda$toConcurrentMap$69, void, $Function*, $Function*, $BinaryOperator*, $ConcurrentMap*, Object$*)},
+	{"lambda$toList$4", "(Ljava/util/ArrayList;Ljava/util/ArrayList;)Ljava/util/ArrayList;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Collectors, lambda$toList$4, $ArrayList*, $ArrayList*, $ArrayList*)},
+	{"lambda$toMap$68", "(Ljava/util/function/Function;Ljava/util/function/Function;Ljava/util/function/BinaryOperator;Ljava/util/Map;Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Collectors, lambda$toMap$68, void, $Function*, $Function*, $BinaryOperator*, $Map*, Object$*)},
+	{"lambda$toSet$7", "(Ljava/util/HashSet;Ljava/util/HashSet;)Ljava/util/HashSet;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Collectors, lambda$toSet$7, $HashSet*, $HashSet*, $HashSet*)},
+	{"lambda$toUnmodifiableList$6", "(Ljava/util/ArrayList;)Ljava/util/List;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Collectors, lambda$toUnmodifiableList$6, $List*, $ArrayList*)},
+	{"lambda$toUnmodifiableMap$66", "(Ljava/util/Map;)Ljava/util/Map;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Collectors, lambda$toUnmodifiableMap$66, $Map*, $Map*)},
+	{"lambda$toUnmodifiableMap$67", "(Ljava/util/HashMap;)Ljava/util/Map;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Collectors, lambda$toUnmodifiableMap$67, $Map*, $HashMap*)},
+	{"lambda$toUnmodifiableSet$9", "(Ljava/util/HashSet;)Ljava/util/Set;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Collectors, lambda$toUnmodifiableSet$9, $Set*, $HashSet*)},
+	{"lambda$uniqKeysMapAccumulator$1", "(Ljava/util/function/Function;Ljava/util/function/Function;Ljava/util/Map;Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Collectors, lambda$uniqKeysMapAccumulator$1, void, $Function*, $Function*, $Map*, Object$*)},
+	{"lambda$uniqKeysMapMerger$0", "(Ljava/util/Map;Ljava/util/Map;)Ljava/util/Map;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Collectors, lambda$uniqKeysMapMerger$0, $Map*, $Map*, $Map*)},
+	{"mapMerger", "(Ljava/util/function/BinaryOperator;)Ljava/util/function/BinaryOperator;", "<K:Ljava/lang/Object;V:Ljava/lang/Object;M::Ljava/util/Map<TK;TV;>;>(Ljava/util/function/BinaryOperator<TV;>;)Ljava/util/function/BinaryOperator<TM;>;", $PRIVATE | $STATIC, $staticMethod(Collectors, mapMerger, $BinaryOperator*, $BinaryOperator*)},
+	{"mapping", "(Ljava/util/function/Function;Ljava/util/stream/Collector;)Ljava/util/stream/Collector;", "<T:Ljava/lang/Object;U:Ljava/lang/Object;A:Ljava/lang/Object;R:Ljava/lang/Object;>(Ljava/util/function/Function<-TT;+TU;>;Ljava/util/stream/Collector<-TU;TA;TR;>;)Ljava/util/stream/Collector<TT;*TR;>;", $PUBLIC | $STATIC, $staticMethod(Collectors, mapping, $Collector*, $Function*, $Collector*)},
+	{"maxBy", "(Ljava/util/Comparator;)Ljava/util/stream/Collector;", "<T:Ljava/lang/Object;>(Ljava/util/Comparator<-TT;>;)Ljava/util/stream/Collector<TT;*Ljava/util/Optional<TT;>;>;", $PUBLIC | $STATIC, $staticMethod(Collectors, maxBy, $Collector*, $Comparator*)},
+	{"minBy", "(Ljava/util/Comparator;)Ljava/util/stream/Collector;", "<T:Ljava/lang/Object;>(Ljava/util/Comparator<-TT;>;)Ljava/util/stream/Collector<TT;*Ljava/util/Optional<TT;>;>;", $PUBLIC | $STATIC, $staticMethod(Collectors, minBy, $Collector*, $Comparator*)},
+	{"partitioningBy", "(Ljava/util/function/Predicate;)Ljava/util/stream/Collector;", "<T:Ljava/lang/Object;>(Ljava/util/function/Predicate<-TT;>;)Ljava/util/stream/Collector<TT;*Ljava/util/Map<Ljava/lang/Boolean;Ljava/util/List<TT;>;>;>;", $PUBLIC | $STATIC, $staticMethod(Collectors, partitioningBy, $Collector*, $Predicate*)},
+	{"partitioningBy", "(Ljava/util/function/Predicate;Ljava/util/stream/Collector;)Ljava/util/stream/Collector;", "<T:Ljava/lang/Object;D:Ljava/lang/Object;A:Ljava/lang/Object;>(Ljava/util/function/Predicate<-TT;>;Ljava/util/stream/Collector<-TT;TA;TD;>;)Ljava/util/stream/Collector<TT;*Ljava/util/Map<Ljava/lang/Boolean;TD;>;>;", $PUBLIC | $STATIC, $staticMethod(Collectors, partitioningBy, $Collector*, $Predicate*, $Collector*)},
+	{"reducing", "(Ljava/lang/Object;Ljava/util/function/BinaryOperator;)Ljava/util/stream/Collector;", "<T:Ljava/lang/Object;>(TT;Ljava/util/function/BinaryOperator<TT;>;)Ljava/util/stream/Collector<TT;*TT;>;", $PUBLIC | $STATIC, $staticMethod(Collectors, reducing, $Collector*, Object$*, $BinaryOperator*)},
+	{"reducing", "(Ljava/util/function/BinaryOperator;)Ljava/util/stream/Collector;", "<T:Ljava/lang/Object;>(Ljava/util/function/BinaryOperator<TT;>;)Ljava/util/stream/Collector<TT;*Ljava/util/Optional<TT;>;>;", $PUBLIC | $STATIC, $staticMethod(Collectors, reducing, $Collector*, $BinaryOperator*)},
+	{"reducing", "(Ljava/lang/Object;Ljava/util/function/Function;Ljava/util/function/BinaryOperator;)Ljava/util/stream/Collector;", "<T:Ljava/lang/Object;U:Ljava/lang/Object;>(TU;Ljava/util/function/Function<-TT;+TU;>;Ljava/util/function/BinaryOperator<TU;>;)Ljava/util/stream/Collector<TT;*TU;>;", $PUBLIC | $STATIC, $staticMethod(Collectors, reducing, $Collector*, Object$*, $Function*, $BinaryOperator*)},
+	{"sumWithCompensation", "([DD)[D", nullptr, $STATIC, $staticMethod(Collectors, sumWithCompensation, $doubles*, $doubles*, double)},
+	{"summarizingDouble", "(Ljava/util/function/ToDoubleFunction;)Ljava/util/stream/Collector;", "<T:Ljava/lang/Object;>(Ljava/util/function/ToDoubleFunction<-TT;>;)Ljava/util/stream/Collector<TT;*Ljava/util/DoubleSummaryStatistics;>;", $PUBLIC | $STATIC, $staticMethod(Collectors, summarizingDouble, $Collector*, $ToDoubleFunction*)},
+	{"summarizingInt", "(Ljava/util/function/ToIntFunction;)Ljava/util/stream/Collector;", "<T:Ljava/lang/Object;>(Ljava/util/function/ToIntFunction<-TT;>;)Ljava/util/stream/Collector<TT;*Ljava/util/IntSummaryStatistics;>;", $PUBLIC | $STATIC, $staticMethod(Collectors, summarizingInt, $Collector*, $ToIntFunction*)},
+	{"summarizingLong", "(Ljava/util/function/ToLongFunction;)Ljava/util/stream/Collector;", "<T:Ljava/lang/Object;>(Ljava/util/function/ToLongFunction<-TT;>;)Ljava/util/stream/Collector<TT;*Ljava/util/LongSummaryStatistics;>;", $PUBLIC | $STATIC, $staticMethod(Collectors, summarizingLong, $Collector*, $ToLongFunction*)},
+	{"summingDouble", "(Ljava/util/function/ToDoubleFunction;)Ljava/util/stream/Collector;", "<T:Ljava/lang/Object;>(Ljava/util/function/ToDoubleFunction<-TT;>;)Ljava/util/stream/Collector<TT;*Ljava/lang/Double;>;", $PUBLIC | $STATIC, $staticMethod(Collectors, summingDouble, $Collector*, $ToDoubleFunction*)},
+	{"summingInt", "(Ljava/util/function/ToIntFunction;)Ljava/util/stream/Collector;", "<T:Ljava/lang/Object;>(Ljava/util/function/ToIntFunction<-TT;>;)Ljava/util/stream/Collector<TT;*Ljava/lang/Integer;>;", $PUBLIC | $STATIC, $staticMethod(Collectors, summingInt, $Collector*, $ToIntFunction*)},
+	{"summingLong", "(Ljava/util/function/ToLongFunction;)Ljava/util/stream/Collector;", "<T:Ljava/lang/Object;>(Ljava/util/function/ToLongFunction<-TT;>;)Ljava/util/stream/Collector<TT;*Ljava/lang/Long;>;", $PUBLIC | $STATIC, $staticMethod(Collectors, summingLong, $Collector*, $ToLongFunction*)},
+	{"teeing", "(Ljava/util/stream/Collector;Ljava/util/stream/Collector;Ljava/util/function/BiFunction;)Ljava/util/stream/Collector;", "<T:Ljava/lang/Object;R1:Ljava/lang/Object;R2:Ljava/lang/Object;R:Ljava/lang/Object;>(Ljava/util/stream/Collector<-TT;*TR1;>;Ljava/util/stream/Collector<-TT;*TR2;>;Ljava/util/function/BiFunction<-TR1;-TR2;TR;>;)Ljava/util/stream/Collector<TT;*TR;>;", $PUBLIC | $STATIC, $staticMethod(Collectors, teeing, $Collector*, $Collector*, $Collector*, $BiFunction*)},
+	{"teeing0", "(Ljava/util/stream/Collector;Ljava/util/stream/Collector;Ljava/util/function/BiFunction;)Ljava/util/stream/Collector;", "<T:Ljava/lang/Object;A1:Ljava/lang/Object;A2:Ljava/lang/Object;R1:Ljava/lang/Object;R2:Ljava/lang/Object;R:Ljava/lang/Object;>(Ljava/util/stream/Collector<-TT;TA1;TR1;>;Ljava/util/stream/Collector<-TT;TA2;TR2;>;Ljava/util/function/BiFunction<-TR1;-TR2;TR;>;)Ljava/util/stream/Collector<TT;*TR;>;", $PRIVATE | $STATIC, $staticMethod(Collectors, teeing0, $Collector*, $Collector*, $Collector*, $BiFunction*)},
+	{"toCollection", "(Ljava/util/function/Supplier;)Ljava/util/stream/Collector;", "<T:Ljava/lang/Object;C::Ljava/util/Collection<TT;>;>(Ljava/util/function/Supplier<TC;>;)Ljava/util/stream/Collector<TT;*TC;>;", $PUBLIC | $STATIC, $staticMethod(Collectors, toCollection, $Collector*, $Supplier*)},
+	{"toConcurrentMap", "(Ljava/util/function/Function;Ljava/util/function/Function;)Ljava/util/stream/Collector;", "<T:Ljava/lang/Object;K:Ljava/lang/Object;U:Ljava/lang/Object;>(Ljava/util/function/Function<-TT;+TK;>;Ljava/util/function/Function<-TT;+TU;>;)Ljava/util/stream/Collector<TT;*Ljava/util/concurrent/ConcurrentMap<TK;TU;>;>;", $PUBLIC | $STATIC, $staticMethod(Collectors, toConcurrentMap, $Collector*, $Function*, $Function*)},
+	{"toConcurrentMap", "(Ljava/util/function/Function;Ljava/util/function/Function;Ljava/util/function/BinaryOperator;)Ljava/util/stream/Collector;", "<T:Ljava/lang/Object;K:Ljava/lang/Object;U:Ljava/lang/Object;>(Ljava/util/function/Function<-TT;+TK;>;Ljava/util/function/Function<-TT;+TU;>;Ljava/util/function/BinaryOperator<TU;>;)Ljava/util/stream/Collector<TT;*Ljava/util/concurrent/ConcurrentMap<TK;TU;>;>;", $PUBLIC | $STATIC, $staticMethod(Collectors, toConcurrentMap, $Collector*, $Function*, $Function*, $BinaryOperator*)},
+	{"toConcurrentMap", "(Ljava/util/function/Function;Ljava/util/function/Function;Ljava/util/function/BinaryOperator;Ljava/util/function/Supplier;)Ljava/util/stream/Collector;", "<T:Ljava/lang/Object;K:Ljava/lang/Object;U:Ljava/lang/Object;M::Ljava/util/concurrent/ConcurrentMap<TK;TU;>;>(Ljava/util/function/Function<-TT;+TK;>;Ljava/util/function/Function<-TT;+TU;>;Ljava/util/function/BinaryOperator<TU;>;Ljava/util/function/Supplier<TM;>;)Ljava/util/stream/Collector<TT;*TM;>;", $PUBLIC | $STATIC, $staticMethod(Collectors, toConcurrentMap, $Collector*, $Function*, $Function*, $BinaryOperator*, $Supplier*)},
+	{"toList", "()Ljava/util/stream/Collector;", "<T:Ljava/lang/Object;>()Ljava/util/stream/Collector<TT;*Ljava/util/List<TT;>;>;", $PUBLIC | $STATIC, $staticMethod(Collectors, toList, $Collector*)},
+	{"toMap", "(Ljava/util/function/Function;Ljava/util/function/Function;)Ljava/util/stream/Collector;", "<T:Ljava/lang/Object;K:Ljava/lang/Object;U:Ljava/lang/Object;>(Ljava/util/function/Function<-TT;+TK;>;Ljava/util/function/Function<-TT;+TU;>;)Ljava/util/stream/Collector<TT;*Ljava/util/Map<TK;TU;>;>;", $PUBLIC | $STATIC, $staticMethod(Collectors, toMap, $Collector*, $Function*, $Function*)},
+	{"toMap", "(Ljava/util/function/Function;Ljava/util/function/Function;Ljava/util/function/BinaryOperator;)Ljava/util/stream/Collector;", "<T:Ljava/lang/Object;K:Ljava/lang/Object;U:Ljava/lang/Object;>(Ljava/util/function/Function<-TT;+TK;>;Ljava/util/function/Function<-TT;+TU;>;Ljava/util/function/BinaryOperator<TU;>;)Ljava/util/stream/Collector<TT;*Ljava/util/Map<TK;TU;>;>;", $PUBLIC | $STATIC, $staticMethod(Collectors, toMap, $Collector*, $Function*, $Function*, $BinaryOperator*)},
+	{"toMap", "(Ljava/util/function/Function;Ljava/util/function/Function;Ljava/util/function/BinaryOperator;Ljava/util/function/Supplier;)Ljava/util/stream/Collector;", "<T:Ljava/lang/Object;K:Ljava/lang/Object;U:Ljava/lang/Object;M::Ljava/util/Map<TK;TU;>;>(Ljava/util/function/Function<-TT;+TK;>;Ljava/util/function/Function<-TT;+TU;>;Ljava/util/function/BinaryOperator<TU;>;Ljava/util/function/Supplier<TM;>;)Ljava/util/stream/Collector<TT;*TM;>;", $PUBLIC | $STATIC, $staticMethod(Collectors, toMap, $Collector*, $Function*, $Function*, $BinaryOperator*, $Supplier*)},
+	{"toSet", "()Ljava/util/stream/Collector;", "<T:Ljava/lang/Object;>()Ljava/util/stream/Collector<TT;*Ljava/util/Set<TT;>;>;", $PUBLIC | $STATIC, $staticMethod(Collectors, toSet, $Collector*)},
+	{"toUnmodifiableList", "()Ljava/util/stream/Collector;", "<T:Ljava/lang/Object;>()Ljava/util/stream/Collector<TT;*Ljava/util/List<TT;>;>;", $PUBLIC | $STATIC, $staticMethod(Collectors, toUnmodifiableList, $Collector*)},
+	{"toUnmodifiableMap", "(Ljava/util/function/Function;Ljava/util/function/Function;)Ljava/util/stream/Collector;", "<T:Ljava/lang/Object;K:Ljava/lang/Object;U:Ljava/lang/Object;>(Ljava/util/function/Function<-TT;+TK;>;Ljava/util/function/Function<-TT;+TU;>;)Ljava/util/stream/Collector<TT;*Ljava/util/Map<TK;TU;>;>;", $PUBLIC | $STATIC, $staticMethod(Collectors, toUnmodifiableMap, $Collector*, $Function*, $Function*)},
+	{"toUnmodifiableMap", "(Ljava/util/function/Function;Ljava/util/function/Function;Ljava/util/function/BinaryOperator;)Ljava/util/stream/Collector;", "<T:Ljava/lang/Object;K:Ljava/lang/Object;U:Ljava/lang/Object;>(Ljava/util/function/Function<-TT;+TK;>;Ljava/util/function/Function<-TT;+TU;>;Ljava/util/function/BinaryOperator<TU;>;)Ljava/util/stream/Collector<TT;*Ljava/util/Map<TK;TU;>;>;", $PUBLIC | $STATIC, $staticMethod(Collectors, toUnmodifiableMap, $Collector*, $Function*, $Function*, $BinaryOperator*)},
+	{"toUnmodifiableSet", "()Ljava/util/stream/Collector;", "<T:Ljava/lang/Object;>()Ljava/util/stream/Collector<TT;*Ljava/util/Set<TT;>;>;", $PUBLIC | $STATIC, $staticMethod(Collectors, toUnmodifiableSet, $Collector*)},
+	{"uniqKeysMapAccumulator", "(Ljava/util/function/Function;Ljava/util/function/Function;)Ljava/util/function/BiConsumer;", "<T:Ljava/lang/Object;K:Ljava/lang/Object;V:Ljava/lang/Object;>(Ljava/util/function/Function<-TT;+TK;>;Ljava/util/function/Function<-TT;+TV;>;)Ljava/util/function/BiConsumer<Ljava/util/Map<TK;TV;>;TT;>;", $PRIVATE | $STATIC, $staticMethod(Collectors, uniqKeysMapAccumulator, $BiConsumer*, $Function*, $Function*)},
+	{"uniqKeysMapMerger", "()Ljava/util/function/BinaryOperator;", "<K:Ljava/lang/Object;V:Ljava/lang/Object;M::Ljava/util/Map<TK;TV;>;>()Ljava/util/function/BinaryOperator<TM;>;", $PRIVATE | $STATIC, $staticMethod(Collectors, uniqKeysMapMerger, $BinaryOperator*)},
 	{}
 };
 

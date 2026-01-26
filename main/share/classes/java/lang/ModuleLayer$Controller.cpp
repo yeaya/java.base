@@ -21,12 +21,12 @@ $FieldInfo _ModuleLayer$Controller_FieldInfo_[] = {
 };
 
 $MethodInfo _ModuleLayer$Controller_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/ModuleLayer;)V", nullptr, 0, $method(static_cast<void(ModuleLayer$Controller::*)($ModuleLayer*)>(&ModuleLayer$Controller::init$))},
-	{"addExports", "(Ljava/lang/Module;Ljava/lang/String;Ljava/lang/Module;)Ljava/lang/ModuleLayer$Controller;", nullptr, $PUBLIC, $method(static_cast<ModuleLayer$Controller*(ModuleLayer$Controller::*)($Module*,$String*,$Module*)>(&ModuleLayer$Controller::addExports))},
-	{"addOpens", "(Ljava/lang/Module;Ljava/lang/String;Ljava/lang/Module;)Ljava/lang/ModuleLayer$Controller;", nullptr, $PUBLIC, $method(static_cast<ModuleLayer$Controller*(ModuleLayer$Controller::*)($Module*,$String*,$Module*)>(&ModuleLayer$Controller::addOpens))},
-	{"addReads", "(Ljava/lang/Module;Ljava/lang/Module;)Ljava/lang/ModuleLayer$Controller;", nullptr, $PUBLIC, $method(static_cast<ModuleLayer$Controller*(ModuleLayer$Controller::*)($Module*,$Module*)>(&ModuleLayer$Controller::addReads))},
-	{"ensureInLayer", "(Ljava/lang/Module;)V", nullptr, $PRIVATE, $method(static_cast<void(ModuleLayer$Controller::*)($Module*)>(&ModuleLayer$Controller::ensureInLayer))},
-	{"layer", "()Ljava/lang/ModuleLayer;", nullptr, $PUBLIC, $method(static_cast<$ModuleLayer*(ModuleLayer$Controller::*)()>(&ModuleLayer$Controller::layer))},
+	{"<init>", "(Ljava/lang/ModuleLayer;)V", nullptr, 0, $method(ModuleLayer$Controller, init$, void, $ModuleLayer*)},
+	{"addExports", "(Ljava/lang/Module;Ljava/lang/String;Ljava/lang/Module;)Ljava/lang/ModuleLayer$Controller;", nullptr, $PUBLIC, $method(ModuleLayer$Controller, addExports, ModuleLayer$Controller*, $Module*, $String*, $Module*)},
+	{"addOpens", "(Ljava/lang/Module;Ljava/lang/String;Ljava/lang/Module;)Ljava/lang/ModuleLayer$Controller;", nullptr, $PUBLIC, $method(ModuleLayer$Controller, addOpens, ModuleLayer$Controller*, $Module*, $String*, $Module*)},
+	{"addReads", "(Ljava/lang/Module;Ljava/lang/Module;)Ljava/lang/ModuleLayer$Controller;", nullptr, $PUBLIC, $method(ModuleLayer$Controller, addReads, ModuleLayer$Controller*, $Module*, $Module*)},
+	{"ensureInLayer", "(Ljava/lang/Module;)V", nullptr, $PRIVATE, $method(ModuleLayer$Controller, ensureInLayer, void, $Module*)},
+	{"layer", "()Ljava/lang/ModuleLayer;", nullptr, $PUBLIC, $method(ModuleLayer$Controller, layer, $ModuleLayer*)},
 	{}
 };
 

@@ -48,10 +48,10 @@ $FieldInfo _SSLSocketImpl$AppOutputStream_FieldInfo_[] = {
 };
 
 $MethodInfo _SSLSocketImpl$AppOutputStream_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/ssl/SSLSocketImpl;)V", nullptr, $PRIVATE, $method(static_cast<void(SSLSocketImpl$AppOutputStream::*)($SSLSocketImpl*)>(&SSLSocketImpl$AppOutputStream::init$))},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"write", "(I)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"write", "([BII)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Lsun/security/ssl/SSLSocketImpl;)V", nullptr, $PRIVATE, $method(SSLSocketImpl$AppOutputStream, init$, void, $SSLSocketImpl*)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(SSLSocketImpl$AppOutputStream, close, void), "java.io.IOException"},
+	{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(SSLSocketImpl$AppOutputStream, write, void, int32_t), "java.io.IOException"},
+	{"write", "([BII)V", nullptr, $PUBLIC, $virtualMethod(SSLSocketImpl$AppOutputStream, write, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
 	{}
 };
 

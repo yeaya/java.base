@@ -15,8 +15,8 @@ namespace java {
 		namespace runtime {
 
 $MethodInfo _ObjectMethods$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ObjectMethods$1::*)()>(&ObjectMethods$1::init$))},
-	{"run", "()Ljava/lang/ClassLoader;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(ObjectMethods$1, init$, void)},
+	{"run", "()Ljava/lang/ClassLoader;", nullptr, $PUBLIC, $virtualMethod(ObjectMethods$1, run, $Object*)},
 	{}
 };
 

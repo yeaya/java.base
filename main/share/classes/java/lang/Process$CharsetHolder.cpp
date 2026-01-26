@@ -23,8 +23,8 @@ $FieldInfo _Process$CharsetHolder_FieldInfo_[] = {
 };
 
 $MethodInfo _Process$CharsetHolder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(Process$CharsetHolder::*)()>(&Process$CharsetHolder::init$))},
-	{"nativeCharset", "()Ljava/nio/charset/Charset;", nullptr, $STATIC, $method(static_cast<$Charset*(*)()>(&Process$CharsetHolder::nativeCharset))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(Process$CharsetHolder, init$, void)},
+	{"nativeCharset", "()Ljava/nio/charset/Charset;", nullptr, $STATIC, $staticMethod(Process$CharsetHolder, nativeCharset, $Charset*)},
 	{}
 };
 

@@ -4,6 +4,7 @@
 #include <sun/nio/ch/Iocp.h>
 #include <jcpp.h>
 
+using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -13,8 +14,8 @@ namespace sun {
 		namespace ch {
 
 $MethodInfo _Iocp$ResultHandler_MethodInfo_[] = {
-	{"completed", "(IZ)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"failed", "(ILjava/io/IOException;)V", nullptr, $PUBLIC | $ABSTRACT},
+	{"completed", "(IZ)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Iocp$ResultHandler, completed, void, int32_t, bool)},
+	{"failed", "(ILjava/io/IOException;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Iocp$ResultHandler, failed, void, int32_t, $IOException*)},
 	{}
 };
 

@@ -13,8 +13,8 @@ namespace sun {
 		namespace resources {
 
 $MethodInfo _TimeZoneNames_en_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TimeZoneNames_en::*)()>(&TimeZoneNames_en::init$))},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TimeZoneNames_en, init$, void)},
+	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(TimeZoneNames_en, getContents, $ObjectArray2*)},
 	{}
 };
 

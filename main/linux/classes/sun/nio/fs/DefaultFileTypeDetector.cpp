@@ -20,8 +20,8 @@ namespace sun {
 		namespace fs {
 
 $MethodInfo _DefaultFileTypeDetector_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(DefaultFileTypeDetector::*)()>(&DefaultFileTypeDetector::init$))},
-	{"create", "()Ljava/nio/file/spi/FileTypeDetector;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$FileTypeDetector*(*)()>(&DefaultFileTypeDetector::create))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(DefaultFileTypeDetector, init$, void)},
+	{"create", "()Ljava/nio/file/spi/FileTypeDetector;", nullptr, $PUBLIC | $STATIC, $staticMethod(DefaultFileTypeDetector, create, $FileTypeDetector*)},
 	{}
 };
 

@@ -3,6 +3,7 @@
 #include <AssociatedDirectOnSuperClassIndirectOnSubclass.h>
 #include <jcpp.h>
 
+using $AssociatedDirectOnSuperClassIndirectOnSubclassArray = $Array<AssociatedDirectOnSuperClassIndirectOnSubclass>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -19,7 +20,7 @@ $CompoundAttribute _AssociatedDirectOnSuperClassIndirectOnSubclassContainer_Anno
 };
 
 $MethodInfo _AssociatedDirectOnSuperClassIndirectOnSubclassContainer_MethodInfo_[] = {
-	{"value", "()[LAssociatedDirectOnSuperClassIndirectOnSubclass;", nullptr, $PUBLIC | $ABSTRACT},
+	{"value", "()[LAssociatedDirectOnSuperClassIndirectOnSubclass;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AssociatedDirectOnSuperClassIndirectOnSubclassContainer, value, $AssociatedDirectOnSuperClassIndirectOnSubclassArray*)},
 	{}
 };
 

@@ -13,8 +13,8 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $BigDecimal = ::java::math::BigDecimal;
 
 $MethodInfo _StrippingZerosTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(StrippingZerosTest::*)()>(&StrippingZerosTest::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&StrippingZerosTest::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(StrippingZerosTest, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StrippingZerosTest, main, void, $StringArray*)},
 	{}
 };
 

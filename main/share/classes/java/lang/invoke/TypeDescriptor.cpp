@@ -11,7 +11,7 @@ namespace java {
 		namespace invoke {
 
 $MethodInfo _TypeDescriptor_MethodInfo_[] = {
-	{"descriptorString", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
+	{"descriptorString", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TypeDescriptor, descriptorString, $String*)},
 	{}
 };
 

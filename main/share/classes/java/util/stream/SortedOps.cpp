@@ -47,12 +47,12 @@ namespace java {
 		namespace stream {
 
 $MethodInfo _SortedOps_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(SortedOps::*)()>(&SortedOps::init$))},
-	{"makeDouble", "(Ljava/util/stream/AbstractPipeline;)Ljava/util/stream/DoubleStream;", "<T:Ljava/lang/Object;>(Ljava/util/stream/AbstractPipeline<*Ljava/lang/Double;*>;)Ljava/util/stream/DoubleStream;", $STATIC, $method(static_cast<$DoubleStream*(*)($AbstractPipeline*)>(&SortedOps::makeDouble))},
-	{"makeInt", "(Ljava/util/stream/AbstractPipeline;)Ljava/util/stream/IntStream;", "<T:Ljava/lang/Object;>(Ljava/util/stream/AbstractPipeline<*Ljava/lang/Integer;*>;)Ljava/util/stream/IntStream;", $STATIC, $method(static_cast<$IntStream*(*)($AbstractPipeline*)>(&SortedOps::makeInt))},
-	{"makeLong", "(Ljava/util/stream/AbstractPipeline;)Ljava/util/stream/LongStream;", "<T:Ljava/lang/Object;>(Ljava/util/stream/AbstractPipeline<*Ljava/lang/Long;*>;)Ljava/util/stream/LongStream;", $STATIC, $method(static_cast<$LongStream*(*)($AbstractPipeline*)>(&SortedOps::makeLong))},
-	{"makeRef", "(Ljava/util/stream/AbstractPipeline;)Ljava/util/stream/Stream;", "<T:Ljava/lang/Object;>(Ljava/util/stream/AbstractPipeline<*TT;*>;)Ljava/util/stream/Stream<TT;>;", $STATIC, $method(static_cast<$Stream*(*)($AbstractPipeline*)>(&SortedOps::makeRef))},
-	{"makeRef", "(Ljava/util/stream/AbstractPipeline;Ljava/util/Comparator;)Ljava/util/stream/Stream;", "<T:Ljava/lang/Object;>(Ljava/util/stream/AbstractPipeline<*TT;*>;Ljava/util/Comparator<-TT;>;)Ljava/util/stream/Stream<TT;>;", $STATIC, $method(static_cast<$Stream*(*)($AbstractPipeline*,$Comparator*)>(&SortedOps::makeRef))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(SortedOps, init$, void)},
+	{"makeDouble", "(Ljava/util/stream/AbstractPipeline;)Ljava/util/stream/DoubleStream;", "<T:Ljava/lang/Object;>(Ljava/util/stream/AbstractPipeline<*Ljava/lang/Double;*>;)Ljava/util/stream/DoubleStream;", $STATIC, $staticMethod(SortedOps, makeDouble, $DoubleStream*, $AbstractPipeline*)},
+	{"makeInt", "(Ljava/util/stream/AbstractPipeline;)Ljava/util/stream/IntStream;", "<T:Ljava/lang/Object;>(Ljava/util/stream/AbstractPipeline<*Ljava/lang/Integer;*>;)Ljava/util/stream/IntStream;", $STATIC, $staticMethod(SortedOps, makeInt, $IntStream*, $AbstractPipeline*)},
+	{"makeLong", "(Ljava/util/stream/AbstractPipeline;)Ljava/util/stream/LongStream;", "<T:Ljava/lang/Object;>(Ljava/util/stream/AbstractPipeline<*Ljava/lang/Long;*>;)Ljava/util/stream/LongStream;", $STATIC, $staticMethod(SortedOps, makeLong, $LongStream*, $AbstractPipeline*)},
+	{"makeRef", "(Ljava/util/stream/AbstractPipeline;)Ljava/util/stream/Stream;", "<T:Ljava/lang/Object;>(Ljava/util/stream/AbstractPipeline<*TT;*>;)Ljava/util/stream/Stream<TT;>;", $STATIC, $staticMethod(SortedOps, makeRef, $Stream*, $AbstractPipeline*)},
+	{"makeRef", "(Ljava/util/stream/AbstractPipeline;Ljava/util/Comparator;)Ljava/util/stream/Stream;", "<T:Ljava/lang/Object;>(Ljava/util/stream/AbstractPipeline<*TT;*>;Ljava/util/Comparator<-TT;>;)Ljava/util/stream/Stream<TT;>;", $STATIC, $staticMethod(SortedOps, makeRef, $Stream*, $AbstractPipeline*, $Comparator*)},
 	{}
 };
 

@@ -96,14 +96,14 @@ $FieldInfo _ServiceLoader$LazyClassPathLookupIterator_FieldInfo_[] = {
 };
 
 $MethodInfo _ServiceLoader$LazyClassPathLookupIterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/ServiceLoader;)V", nullptr, 0, $method(static_cast<void(ServiceLoader$LazyClassPathLookupIterator::*)($ServiceLoader*)>(&ServiceLoader$LazyClassPathLookupIterator::init$))},
-	{"hasNext", "()Z", nullptr, $PUBLIC},
-	{"hasNextService", "()Z", nullptr, $PRIVATE, $method(static_cast<bool(ServiceLoader$LazyClassPathLookupIterator::*)()>(&ServiceLoader$LazyClassPathLookupIterator::hasNextService))},
-	{"next", "()Ljava/util/ServiceLoader$Provider;", "()Ljava/util/ServiceLoader$Provider<TT;>;", $PUBLIC},
-	{"nextProviderClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PRIVATE, $method(static_cast<$Class*(ServiceLoader$LazyClassPathLookupIterator::*)()>(&ServiceLoader$LazyClassPathLookupIterator::nextProviderClass))},
-	{"nextService", "()Ljava/util/ServiceLoader$Provider;", "()Ljava/util/ServiceLoader$Provider<TT;>;", $PRIVATE, $method(static_cast<$ServiceLoader$Provider*(ServiceLoader$LazyClassPathLookupIterator::*)()>(&ServiceLoader$LazyClassPathLookupIterator::nextService))},
-	{"parse", "(Ljava/net/URL;)Ljava/util/Iterator;", "(Ljava/net/URL;)Ljava/util/Iterator<Ljava/lang/String;>;", $PRIVATE, $method(static_cast<$Iterator*(ServiceLoader$LazyClassPathLookupIterator::*)($URL*)>(&ServiceLoader$LazyClassPathLookupIterator::parse))},
-	{"parseLine", "(Ljava/net/URL;Ljava/io/BufferedReader;ILjava/util/Set;)I", "(Ljava/net/URL;Ljava/io/BufferedReader;ILjava/util/Set<Ljava/lang/String;>;)I", $PRIVATE, $method(static_cast<int32_t(ServiceLoader$LazyClassPathLookupIterator::*)($URL*,$BufferedReader*,int32_t,$Set*)>(&ServiceLoader$LazyClassPathLookupIterator::parseLine)), "java.io.IOException"},
+	{"<init>", "(Ljava/util/ServiceLoader;)V", nullptr, 0, $method(ServiceLoader$LazyClassPathLookupIterator, init$, void, $ServiceLoader*)},
+	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(ServiceLoader$LazyClassPathLookupIterator, hasNext, bool)},
+	{"hasNextService", "()Z", nullptr, $PRIVATE, $method(ServiceLoader$LazyClassPathLookupIterator, hasNextService, bool)},
+	{"next", "()Ljava/util/ServiceLoader$Provider;", "()Ljava/util/ServiceLoader$Provider<TT;>;", $PUBLIC, $virtualMethod(ServiceLoader$LazyClassPathLookupIterator, next, $Object*)},
+	{"nextProviderClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PRIVATE, $method(ServiceLoader$LazyClassPathLookupIterator, nextProviderClass, $Class*)},
+	{"nextService", "()Ljava/util/ServiceLoader$Provider;", "()Ljava/util/ServiceLoader$Provider<TT;>;", $PRIVATE, $method(ServiceLoader$LazyClassPathLookupIterator, nextService, $ServiceLoader$Provider*)},
+	{"parse", "(Ljava/net/URL;)Ljava/util/Iterator;", "(Ljava/net/URL;)Ljava/util/Iterator<Ljava/lang/String;>;", $PRIVATE, $method(ServiceLoader$LazyClassPathLookupIterator, parse, $Iterator*, $URL*)},
+	{"parseLine", "(Ljava/net/URL;Ljava/io/BufferedReader;ILjava/util/Set;)I", "(Ljava/net/URL;Ljava/io/BufferedReader;ILjava/util/Set<Ljava/lang/String;>;)I", $PRIVATE, $method(ServiceLoader$LazyClassPathLookupIterator, parseLine, int32_t, $URL*, $BufferedReader*, int32_t, $Set*), "java.io.IOException"},
 	{}
 };
 

@@ -667,12 +667,12 @@ $FieldInfo _Character$UnicodeBlock_FieldInfo_[] = {
 };
 
 $MethodInfo _Character$UnicodeBlock_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(static_cast<void(Character$UnicodeBlock::*)($String*)>(&Character$UnicodeBlock::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(static_cast<void(Character$UnicodeBlock::*)($String*,$String*)>(&Character$UnicodeBlock::init$))},
-	{"<init>", "(Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $PRIVATE | $TRANSIENT, $method(static_cast<void(Character$UnicodeBlock::*)($String*,$StringArray*)>(&Character$UnicodeBlock::init$))},
-	{"forName", "(Ljava/lang/String;)Ljava/lang/Character$UnicodeBlock;", nullptr, $PUBLIC | $STATIC | $FINAL, $method(static_cast<Character$UnicodeBlock*(*)($String*)>(&Character$UnicodeBlock::forName))},
-	{"of", "(C)Ljava/lang/Character$UnicodeBlock;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Character$UnicodeBlock*(*)(char16_t)>(&Character$UnicodeBlock::of))},
-	{"of", "(I)Ljava/lang/Character$UnicodeBlock;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Character$UnicodeBlock*(*)(int32_t)>(&Character$UnicodeBlock::of))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(Character$UnicodeBlock, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(Character$UnicodeBlock, init$, void, $String*, $String*)},
+	{"<init>", "(Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $PRIVATE | $TRANSIENT, $method(Character$UnicodeBlock, init$, void, $String*, $StringArray*)},
+	{"forName", "(Ljava/lang/String;)Ljava/lang/Character$UnicodeBlock;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(Character$UnicodeBlock, forName, Character$UnicodeBlock*, $String*)},
+	{"of", "(C)Ljava/lang/Character$UnicodeBlock;", nullptr, $PUBLIC | $STATIC, $staticMethod(Character$UnicodeBlock, of, Character$UnicodeBlock*, char16_t)},
+	{"of", "(I)Ljava/lang/Character$UnicodeBlock;", nullptr, $PUBLIC | $STATIC, $staticMethod(Character$UnicodeBlock, of, Character$UnicodeBlock*, int32_t)},
 	{}
 };
 

@@ -5,13 +5,14 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $SecretKeySpec = ::javax::crypto::spec::SecretKeySpec;
 
 namespace jdk {
 	namespace internal {
 		namespace access {
 
 $MethodInfo _JavaxCryptoSpecAccess_MethodInfo_[] = {
-	{"clearSecretKeySpec", "(Ljavax/crypto/spec/SecretKeySpec;)V", nullptr, $PUBLIC | $ABSTRACT},
+	{"clearSecretKeySpec", "(Ljavax/crypto/spec/SecretKeySpec;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JavaxCryptoSpecAccess, clearSecretKeySpec, void, $SecretKeySpec*)},
 	{}
 };
 

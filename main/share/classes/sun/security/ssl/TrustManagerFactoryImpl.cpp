@@ -41,6 +41,7 @@ using $Collection = ::java::util::Collection;
 using $ManagerFactoryParameters = ::javax::net::ssl::ManagerFactoryParameters;
 using $TrustManager = ::javax::net::ssl::TrustManager;
 using $TrustManagerFactorySpi = ::javax::net::ssl::TrustManagerFactorySpi;
+using $X509TrustManager = ::javax::net::ssl::X509TrustManager;
 using $SSLLogger = ::sun::security::ssl::SSLLogger;
 using $TrustManagerFactoryImpl$1 = ::sun::security::ssl::TrustManagerFactoryImpl$1;
 using $TrustStoreManager = ::sun::security::ssl::TrustStoreManager;
@@ -57,13 +58,13 @@ $FieldInfo _TrustManagerFactoryImpl_FieldInfo_[] = {
 };
 
 $MethodInfo _TrustManagerFactoryImpl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(TrustManagerFactoryImpl::*)()>(&TrustManagerFactoryImpl::init$))},
-	{"engineGetTrustManagers", "()[Ljavax/net/ssl/TrustManager;", nullptr, $PROTECTED},
-	{"engineInit", "(Ljava/security/KeyStore;)V", nullptr, $PROTECTED, nullptr, "java.security.KeyStoreException"},
-	{"engineInit", "(Ljavax/net/ssl/ManagerFactoryParameters;)V", nullptr, $PROTECTED, nullptr, "java.security.InvalidAlgorithmParameterException"},
-	{"getFileInputStream", "(Ljava/io/File;)Ljava/io/FileInputStream;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$FileInputStream*(*)($File*)>(&TrustManagerFactoryImpl::getFileInputStream)), "java.lang.Exception"},
-	{"getInstance", "(Ljava/util/Collection;)Ljavax/net/ssl/X509TrustManager;", "(Ljava/util/Collection<Ljava/security/cert/X509Certificate;>;)Ljavax/net/ssl/X509TrustManager;", $ABSTRACT},
-	{"getInstance", "(Ljavax/net/ssl/ManagerFactoryParameters;)Ljavax/net/ssl/X509TrustManager;", nullptr, $ABSTRACT, nullptr, "java.security.InvalidAlgorithmParameterException"},
+	{"<init>", "()V", nullptr, 0, $method(TrustManagerFactoryImpl, init$, void)},
+	{"engineGetTrustManagers", "()[Ljavax/net/ssl/TrustManager;", nullptr, $PROTECTED, $virtualMethod(TrustManagerFactoryImpl, engineGetTrustManagers, $TrustManagerArray*)},
+	{"engineInit", "(Ljava/security/KeyStore;)V", nullptr, $PROTECTED, $virtualMethod(TrustManagerFactoryImpl, engineInit, void, $KeyStore*), "java.security.KeyStoreException"},
+	{"engineInit", "(Ljavax/net/ssl/ManagerFactoryParameters;)V", nullptr, $PROTECTED, $virtualMethod(TrustManagerFactoryImpl, engineInit, void, $ManagerFactoryParameters*), "java.security.InvalidAlgorithmParameterException"},
+	{"getFileInputStream", "(Ljava/io/File;)Ljava/io/FileInputStream;", nullptr, $PRIVATE | $STATIC, $staticMethod(TrustManagerFactoryImpl, getFileInputStream, $FileInputStream*, $File*), "java.lang.Exception"},
+	{"getInstance", "(Ljava/util/Collection;)Ljavax/net/ssl/X509TrustManager;", "(Ljava/util/Collection<Ljava/security/cert/X509Certificate;>;)Ljavax/net/ssl/X509TrustManager;", $ABSTRACT, $virtualMethod(TrustManagerFactoryImpl, getInstance, $X509TrustManager*, $Collection*)},
+	{"getInstance", "(Ljavax/net/ssl/ManagerFactoryParameters;)Ljavax/net/ssl/X509TrustManager;", nullptr, $ABSTRACT, $virtualMethod(TrustManagerFactoryImpl, getInstance, $X509TrustManager*, $ManagerFactoryParameters*), "java.security.InvalidAlgorithmParameterException"},
 	{}
 };
 

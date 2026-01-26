@@ -30,9 +30,9 @@ using $ServerSocketChannel = ::java::nio::channels::ServerSocketChannel;
 using $SocketChannel = ::java::nio::channels::SocketChannel;
 
 $MethodInfo _CloseTimeoutChannel_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CloseTimeoutChannel::*)()>(&CloseTimeoutChannel::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&CloseTimeoutChannel::main)), "java.lang.Exception"},
-	{"read", "(Ljava/net/Socket;Ljava/io/InputStream;)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)($Socket*,$InputStream*)>(&CloseTimeoutChannel::read)), "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CloseTimeoutChannel, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(CloseTimeoutChannel, main, void, $StringArray*), "java.lang.Exception"},
+	{"read", "(Ljava/net/Socket;Ljava/io/InputStream;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(CloseTimeoutChannel, read, int32_t, $Socket*, $InputStream*), "java.io.IOException"},
 	{}
 };
 

@@ -33,11 +33,11 @@ $FieldInfo _NewSessionTicket$NewSessionTicketMessage_FieldInfo_[] = {
 };
 
 $MethodInfo _NewSessionTicket$NewSessionTicketMessage_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/ssl/HandshakeContext;)V", nullptr, 0, $method(static_cast<void(NewSessionTicket$NewSessionTicketMessage::*)($HandshakeContext*)>(&NewSessionTicket$NewSessionTicketMessage::init$))},
-	{"getTicketAgeAdd", "()I", nullptr, 0, nullptr, "java.io.IOException"},
-	{"getTicketNonce", "()[B", nullptr, 0, nullptr, "java.io.IOException"},
-	{"handshakeType", "()Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC},
-	{"isValid", "()Z", nullptr, 0},
+	{"<init>", "(Lsun/security/ssl/HandshakeContext;)V", nullptr, 0, $method(NewSessionTicket$NewSessionTicketMessage, init$, void, $HandshakeContext*)},
+	{"getTicketAgeAdd", "()I", nullptr, 0, $virtualMethod(NewSessionTicket$NewSessionTicketMessage, getTicketAgeAdd, int32_t), "java.io.IOException"},
+	{"getTicketNonce", "()[B", nullptr, 0, $virtualMethod(NewSessionTicket$NewSessionTicketMessage, getTicketNonce, $bytes*), "java.io.IOException"},
+	{"handshakeType", "()Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC, $virtualMethod(NewSessionTicket$NewSessionTicketMessage, handshakeType, $SSLHandshake*)},
+	{"isValid", "()Z", nullptr, 0, $virtualMethod(NewSessionTicket$NewSessionTicketMessage, isValid, bool)},
 	{}
 };
 

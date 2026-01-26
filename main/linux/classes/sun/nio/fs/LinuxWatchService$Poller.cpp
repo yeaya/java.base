@@ -124,14 +124,14 @@ $FieldInfo _LinuxWatchService$Poller_FieldInfo_[] = {
 };
 
 $MethodInfo _LinuxWatchService$Poller_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/fs/UnixFileSystem;Lsun/nio/fs/LinuxWatchService;I[I)V", nullptr, 0, $method(static_cast<void(LinuxWatchService$Poller::*)($UnixFileSystem*,$LinuxWatchService*,int32_t,$ints*)>(&LinuxWatchService$Poller::init$))},
-	{"implCancelKey", "(Ljava/nio/file/WatchKey;)V", nullptr, 0},
-	{"implCloseAll", "()V", nullptr, 0},
-	{"implRegister", "(Ljava/nio/file/Path;Ljava/util/Set;[Ljava/nio/file/WatchEvent$Modifier;)Ljava/lang/Object;", "(Ljava/nio/file/Path;Ljava/util/Set<+Ljava/nio/file/WatchEvent$Kind<*>;>;[Ljava/nio/file/WatchEvent$Modifier;)Ljava/lang/Object;", $TRANSIENT},
-	{"maskToEventKind", "(I)Ljava/nio/file/WatchEvent$Kind;", "(I)Ljava/nio/file/WatchEvent$Kind<*>;", $PRIVATE, $method(static_cast<$WatchEvent$Kind*(LinuxWatchService$Poller::*)(int32_t)>(&LinuxWatchService$Poller::maskToEventKind))},
-	{"processEvent", "(IILsun/nio/fs/UnixPath;)V", nullptr, $PRIVATE, $method(static_cast<void(LinuxWatchService$Poller::*)(int32_t,int32_t,$UnixPath*)>(&LinuxWatchService$Poller::processEvent))},
-	{"run", "()V", nullptr, $PUBLIC},
-	{"wakeup", "()V", nullptr, 0, nullptr, "java.io.IOException"},
+	{"<init>", "(Lsun/nio/fs/UnixFileSystem;Lsun/nio/fs/LinuxWatchService;I[I)V", nullptr, 0, $method(LinuxWatchService$Poller, init$, void, $UnixFileSystem*, $LinuxWatchService*, int32_t, $ints*)},
+	{"implCancelKey", "(Ljava/nio/file/WatchKey;)V", nullptr, 0, $virtualMethod(LinuxWatchService$Poller, implCancelKey, void, $WatchKey*)},
+	{"implCloseAll", "()V", nullptr, 0, $virtualMethod(LinuxWatchService$Poller, implCloseAll, void)},
+	{"implRegister", "(Ljava/nio/file/Path;Ljava/util/Set;[Ljava/nio/file/WatchEvent$Modifier;)Ljava/lang/Object;", "(Ljava/nio/file/Path;Ljava/util/Set<+Ljava/nio/file/WatchEvent$Kind<*>;>;[Ljava/nio/file/WatchEvent$Modifier;)Ljava/lang/Object;", $TRANSIENT, $virtualMethod(LinuxWatchService$Poller, implRegister, $Object*, $Path*, $Set*, $WatchEvent$ModifierArray*)},
+	{"maskToEventKind", "(I)Ljava/nio/file/WatchEvent$Kind;", "(I)Ljava/nio/file/WatchEvent$Kind<*>;", $PRIVATE, $method(LinuxWatchService$Poller, maskToEventKind, $WatchEvent$Kind*, int32_t)},
+	{"processEvent", "(IILsun/nio/fs/UnixPath;)V", nullptr, $PRIVATE, $method(LinuxWatchService$Poller, processEvent, void, int32_t, int32_t, $UnixPath*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(LinuxWatchService$Poller, run, void)},
+	{"wakeup", "()V", nullptr, 0, $virtualMethod(LinuxWatchService$Poller, wakeup, void), "java.io.IOException"},
 	{}
 };
 

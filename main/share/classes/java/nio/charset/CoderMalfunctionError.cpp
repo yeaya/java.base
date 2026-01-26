@@ -19,7 +19,7 @@ $FieldInfo _CoderMalfunctionError_FieldInfo_[] = {
 };
 
 $MethodInfo _CoderMalfunctionError_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(static_cast<void(CoderMalfunctionError::*)($Exception*)>(&CoderMalfunctionError::init$))},
+	{"<init>", "(Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(CoderMalfunctionError, init$, void, $Exception*)},
 	{}
 };
 

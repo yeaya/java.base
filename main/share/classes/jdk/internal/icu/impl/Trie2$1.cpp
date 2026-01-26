@@ -13,8 +13,8 @@ namespace jdk {
 			namespace impl {
 
 $MethodInfo _Trie2$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Trie2$1::*)()>(&Trie2$1::init$))},
-	{"map", "(I)I", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(Trie2$1, init$, void)},
+	{"map", "(I)I", nullptr, $PUBLIC, $virtualMethod(Trie2$1, map, int32_t, int32_t)},
 	{}
 };
 

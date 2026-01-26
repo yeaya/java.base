@@ -5,6 +5,7 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $List = ::java::util::List;
 
 namespace java {
 	namespace nio {
@@ -12,9 +13,9 @@ namespace java {
 			namespace attribute {
 
 $MethodInfo _AclFileAttributeView_MethodInfo_[] = {
-	{"getAcl", "()Ljava/util/List;", "()Ljava/util/List<Ljava/nio/file/attribute/AclEntry;>;", $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
+	{"getAcl", "()Ljava/util/List;", "()Ljava/util/List<Ljava/nio/file/attribute/AclEntry;>;", $PUBLIC | $ABSTRACT, $virtualMethod(AclFileAttributeView, getAcl, $List*), "java.io.IOException"},
 	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"setAcl", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/file/attribute/AclEntry;>;)V", $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
+	{"setAcl", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/file/attribute/AclEntry;>;)V", $PUBLIC | $ABSTRACT, $virtualMethod(AclFileAttributeView, setAcl, void, $List*), "java.io.IOException"},
 	{}
 };
 

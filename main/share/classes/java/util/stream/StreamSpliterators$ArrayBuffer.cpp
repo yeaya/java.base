@@ -18,8 +18,8 @@ $FieldInfo _StreamSpliterators$ArrayBuffer_FieldInfo_[] = {
 };
 
 $MethodInfo _StreamSpliterators$ArrayBuffer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(StreamSpliterators$ArrayBuffer::*)()>(&StreamSpliterators$ArrayBuffer::init$))},
-	{"reset", "()V", nullptr, 0},
+	{"<init>", "()V", nullptr, 0, $method(StreamSpliterators$ArrayBuffer, init$, void)},
+	{"reset", "()V", nullptr, 0, $virtualMethod(StreamSpliterators$ArrayBuffer, reset, void)},
 	{}
 };
 

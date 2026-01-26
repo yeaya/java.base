@@ -61,8 +61,8 @@ $FieldInfo SunJSSE$$Lambda$lambda$registerAlgorithms$0::fieldInfos[2] = {
 	{}
 };
 $MethodInfo SunJSSE$$Lambda$lambda$registerAlgorithms$0::methodInfos[3] = {
-	{"<init>", "(Lsun/security/ssl/SunJSSE;)V", nullptr, $PUBLIC, $method(static_cast<void(SunJSSE$$Lambda$lambda$registerAlgorithms$0::*)(SunJSSE*)>(&SunJSSE$$Lambda$lambda$registerAlgorithms$0::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/security/ssl/SunJSSE;)V", nullptr, $PUBLIC, $method(SunJSSE$$Lambda$lambda$registerAlgorithms$0, init$, void, SunJSSE*)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SunJSSE$$Lambda$lambda$registerAlgorithms$0, run, $Object*)},
 	{}
 };
 $ClassInfo SunJSSE$$Lambda$lambda$registerAlgorithms$0::classInfo$ = {
@@ -86,11 +86,11 @@ $FieldInfo _SunJSSE_FieldInfo_[] = {
 };
 
 $MethodInfo _SunJSSE_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SunJSSE::*)()>(&SunJSSE::init$))},
-	{"doRegister", "()V", nullptr, $PRIVATE, $method(static_cast<void(SunJSSE::*)()>(&SunJSSE::doRegister))},
-	{"lambda$registerAlgorithms$0", "()Ljava/lang/Void;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$Void*(SunJSSE::*)()>(&SunJSSE::lambda$registerAlgorithms$0))},
-	{"ps", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/util/HashMap;)V", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/String;>;)V", $PRIVATE, $method(static_cast<void(SunJSSE::*)($String*,$String*,$String*,$List*,$HashMap*)>(&SunJSSE::ps))},
-	{"registerAlgorithms", "()V", nullptr, $PRIVATE, $method(static_cast<void(SunJSSE::*)()>(&SunJSSE::registerAlgorithms))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SunJSSE, init$, void)},
+	{"doRegister", "()V", nullptr, $PRIVATE, $method(SunJSSE, doRegister, void)},
+	{"lambda$registerAlgorithms$0", "()Ljava/lang/Void;", nullptr, $PRIVATE | $SYNTHETIC, $method(SunJSSE, lambda$registerAlgorithms$0, $Void*)},
+	{"ps", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/util/HashMap;)V", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/String;>;)V", $PRIVATE, $method(SunJSSE, ps, void, $String*, $String*, $String*, $List*, $HashMap*)},
+	{"registerAlgorithms", "()V", nullptr, $PRIVATE, $method(SunJSSE, registerAlgorithms, void)},
 	{}
 };
 

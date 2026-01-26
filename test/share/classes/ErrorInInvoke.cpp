@@ -13,9 +13,9 @@ using $InvocationTargetException = ::java::lang::reflect::InvocationTargetExcept
 using $Method = ::java::lang::reflect::Method;
 
 $MethodInfo _ErrorInInvoke_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ErrorInInvoke::*)()>(&ErrorInInvoke::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&ErrorInInvoke::main))},
-	{"run", "()V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)()>(&ErrorInInvoke::run))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ErrorInInvoke, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ErrorInInvoke, main, void, $StringArray*)},
+	{"run", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(ErrorInInvoke, run, void)},
 	{}
 };
 

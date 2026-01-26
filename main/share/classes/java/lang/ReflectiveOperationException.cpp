@@ -16,10 +16,10 @@ $FieldInfo _ReflectiveOperationException_FieldInfo_[] = {
 };
 
 $MethodInfo _ReflectiveOperationException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ReflectiveOperationException::*)()>(&ReflectiveOperationException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(ReflectiveOperationException::*)($String*)>(&ReflectiveOperationException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(ReflectiveOperationException::*)($String*,$Throwable*)>(&ReflectiveOperationException::init$))},
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(ReflectiveOperationException::*)($Throwable*)>(&ReflectiveOperationException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ReflectiveOperationException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ReflectiveOperationException, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(ReflectiveOperationException, init$, void, $String*, $Throwable*)},
+	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(ReflectiveOperationException, init$, void, $Throwable*)},
 	{}
 };
 

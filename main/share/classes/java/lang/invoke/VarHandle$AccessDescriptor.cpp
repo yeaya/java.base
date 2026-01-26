@@ -27,7 +27,7 @@ $FieldInfo _VarHandle$AccessDescriptor_FieldInfo_[] = {
 };
 
 $MethodInfo _VarHandle$AccessDescriptor_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/invoke/MethodType;II)V", nullptr, $PUBLIC, $method(static_cast<void(VarHandle$AccessDescriptor::*)($MethodType*,int32_t,int32_t)>(&VarHandle$AccessDescriptor::init$))},
+	{"<init>", "(Ljava/lang/invoke/MethodType;II)V", nullptr, $PUBLIC, $method(VarHandle$AccessDescriptor, init$, void, $MethodType*, int32_t, int32_t)},
 	{}
 };
 

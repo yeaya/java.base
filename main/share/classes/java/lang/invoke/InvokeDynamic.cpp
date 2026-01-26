@@ -12,7 +12,7 @@ namespace java {
 		namespace invoke {
 
 $MethodInfo _InvokeDynamic_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(InvokeDynamic::*)()>(&InvokeDynamic::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(InvokeDynamic, init$, void)},
 	{}
 };
 

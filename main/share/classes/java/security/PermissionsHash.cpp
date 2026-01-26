@@ -52,12 +52,12 @@ $FieldInfo _PermissionsHash_FieldInfo_[] = {
 };
 
 $MethodInfo _PermissionsHash_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(PermissionsHash::*)()>(&PermissionsHash::init$))},
-	{"add", "(Ljava/security/Permission;)V", nullptr, $PUBLIC},
-	{"elements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/security/Permission;>;", $PUBLIC},
-	{"implies", "(Ljava/security/Permission;)Z", nullptr, $PUBLIC},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(PermissionsHash::*)($ObjectInputStream*)>(&PermissionsHash::readObject)), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(PermissionsHash::*)($ObjectOutputStream*)>(&PermissionsHash::writeObject)), "java.io.IOException"},
+	{"<init>", "()V", nullptr, 0, $method(PermissionsHash, init$, void)},
+	{"add", "(Ljava/security/Permission;)V", nullptr, $PUBLIC, $virtualMethod(PermissionsHash, add, void, $Permission*)},
+	{"elements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/security/Permission;>;", $PUBLIC, $virtualMethod(PermissionsHash, elements, $Enumeration*)},
+	{"implies", "(Ljava/security/Permission;)Z", nullptr, $PUBLIC, $virtualMethod(PermissionsHash, implies, bool, $Permission*)},
+	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(PermissionsHash, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(PermissionsHash, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
 	{}
 };
 

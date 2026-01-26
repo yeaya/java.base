@@ -22,13 +22,13 @@ using $ServerSocketChannel = ::java::nio::channels::ServerSocketChannel;
 using $SocketChannel = ::java::nio::channels::SocketChannel;
 
 $MethodInfo _Util_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Util::*)()>(&Util::init$))},
-	{"fdVal", "(Ljava/io/FileDescriptor;)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)($FileDescriptor*)>(&Util::fdVal)), "java.lang.Exception"},
-	{"get", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$Object*(*)($String*,$String*,Object$*)>(&Util::get)), "java.lang.Exception"},
-	{"getFD", "(Ljava/nio/channels/SocketChannel;)I", nullptr, $PUBLIC | $STATIC, $method(static_cast<int32_t(*)($SocketChannel*)>(&Util::getFD))},
-	{"getFD", "(Ljava/nio/channels/ServerSocketChannel;)I", nullptr, $PUBLIC | $STATIC, $method(static_cast<int32_t(*)($ServerSocketChannel*)>(&Util::getFD))},
-	{"getFD", "(Ljava/nio/channels/DatagramChannel;)I", nullptr, $PUBLIC | $STATIC, $method(static_cast<int32_t(*)($DatagramChannel*)>(&Util::getFD))},
-	{"javaCommand", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)()>(&Util::javaCommand))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Util, init$, void)},
+	{"fdVal", "(Ljava/io/FileDescriptor;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(Util, fdVal, int32_t, $FileDescriptor*), "java.lang.Exception"},
+	{"get", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC, $staticMethod(Util, get, $Object*, $String*, $String*, Object$*), "java.lang.Exception"},
+	{"getFD", "(Ljava/nio/channels/SocketChannel;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Util, getFD, int32_t, $SocketChannel*)},
+	{"getFD", "(Ljava/nio/channels/ServerSocketChannel;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Util, getFD, int32_t, $ServerSocketChannel*)},
+	{"getFD", "(Ljava/nio/channels/DatagramChannel;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Util, getFD, int32_t, $DatagramChannel*)},
+	{"javaCommand", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Util, javaCommand, $String*)},
 	{}
 };
 

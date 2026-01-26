@@ -50,13 +50,13 @@ $FieldInfo _Truncate_FieldInfo_[] = {
 };
 
 $MethodInfo _Truncate_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Truncate::*)()>(&Truncate::init$))},
-	{"appendTest", "(Ljava/io/File;)V", nullptr, $STATIC, $method(static_cast<void(*)($File*)>(&Truncate::appendTest)), "java.lang.Exception"},
-	{"basicTest", "(Ljava/io/File;)V", nullptr, $STATIC, $method(static_cast<void(*)($File*)>(&Truncate::basicTest)), "java.lang.Exception"},
-	{"checkException", "(Ljava/nio/channels/FileChannel;J[Ljava/lang/Class;)V", "(Ljava/nio/channels/FileChannel;J[Ljava/lang/Class<*>;)V", $PRIVATE | $STATIC | $TRANSIENT, $method(static_cast<void(*)($FileChannel*,int64_t,$ClassArray*)>(&Truncate::checkException)), "java.io.IOException"},
-	{"exceptionTests", "(Ljava/io/File;)V", nullptr, $STATIC, $method(static_cast<void(*)($File*)>(&Truncate::exceptionTests)), "java.lang.Exception"},
-	{"initTestFile", "(Ljava/io/File;J)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($File*,int64_t)>(&Truncate::initTestFile)), "java.lang.Exception"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Truncate::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Truncate, init$, void)},
+	{"appendTest", "(Ljava/io/File;)V", nullptr, $STATIC, $staticMethod(Truncate, appendTest, void, $File*), "java.lang.Exception"},
+	{"basicTest", "(Ljava/io/File;)V", nullptr, $STATIC, $staticMethod(Truncate, basicTest, void, $File*), "java.lang.Exception"},
+	{"checkException", "(Ljava/nio/channels/FileChannel;J[Ljava/lang/Class;)V", "(Ljava/nio/channels/FileChannel;J[Ljava/lang/Class<*>;)V", $PRIVATE | $STATIC | $TRANSIENT, $staticMethod(Truncate, checkException, void, $FileChannel*, int64_t, $ClassArray*), "java.io.IOException"},
+	{"exceptionTests", "(Ljava/io/File;)V", nullptr, $STATIC, $staticMethod(Truncate, exceptionTests, void, $File*), "java.lang.Exception"},
+	{"initTestFile", "(Ljava/io/File;J)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Truncate, initTestFile, void, $File*, int64_t), "java.lang.Exception"},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Truncate, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

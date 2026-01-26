@@ -33,13 +33,13 @@ namespace java {
 		namespace stream {
 
 $MethodInfo _Nodes$ConcNode_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/stream/Node;Ljava/util/stream/Node;)V", "(Ljava/util/stream/Node<TT;>;Ljava/util/stream/Node<TT;>;)V", 0, $method(static_cast<void(Nodes$ConcNode::*)($Node*,$Node*)>(&Nodes$ConcNode::init$))},
-	{"asArray", "(Ljava/util/function/IntFunction;)[Ljava/lang/Object;", "(Ljava/util/function/IntFunction<[TT;>;)[TT;", $PUBLIC},
-	{"copyInto", "([Ljava/lang/Object;I)V", "([TT;I)V", $PUBLIC},
-	{"forEach", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TT;>;)V", $PUBLIC},
-	{"spliterator", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TT;>;", $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"truncate", "(JJLjava/util/function/IntFunction;)Ljava/util/stream/Node;", "(JJLjava/util/function/IntFunction<[TT;>;)Ljava/util/stream/Node<TT;>;", $PUBLIC},
+	{"<init>", "(Ljava/util/stream/Node;Ljava/util/stream/Node;)V", "(Ljava/util/stream/Node<TT;>;Ljava/util/stream/Node<TT;>;)V", 0, $method(Nodes$ConcNode, init$, void, $Node*, $Node*)},
+	{"asArray", "(Ljava/util/function/IntFunction;)[Ljava/lang/Object;", "(Ljava/util/function/IntFunction<[TT;>;)[TT;", $PUBLIC, $virtualMethod(Nodes$ConcNode, asArray, $ObjectArray*, $IntFunction*)},
+	{"copyInto", "([Ljava/lang/Object;I)V", "([TT;I)V", $PUBLIC, $virtualMethod(Nodes$ConcNode, copyInto, void, $ObjectArray*, int32_t)},
+	{"forEach", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TT;>;)V", $PUBLIC, $virtualMethod(Nodes$ConcNode, forEach, void, $Consumer*)},
+	{"spliterator", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TT;>;", $PUBLIC, $virtualMethod(Nodes$ConcNode, spliterator, $Spliterator*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Nodes$ConcNode, toString, $String*)},
+	{"truncate", "(JJLjava/util/function/IntFunction;)Ljava/util/stream/Node;", "(JJLjava/util/function/IntFunction<[TT;>;)Ljava/util/stream/Node<TT;>;", $PUBLIC, $virtualMethod(Nodes$ConcNode, truncate, $Node*, int64_t, int64_t, $IntFunction*)},
 	{}
 };
 

@@ -20,8 +20,8 @@ $FieldInfo _StringPrep$StringPrepTrieImpl_FieldInfo_[] = {
 };
 
 $MethodInfo _StringPrep$StringPrepTrieImpl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(StringPrep$StringPrepTrieImpl::*)()>(&StringPrep$StringPrepTrieImpl::init$))},
-	{"getFoldingOffset", "(I)I", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(StringPrep$StringPrepTrieImpl, init$, void)},
+	{"getFoldingOffset", "(I)I", nullptr, $PUBLIC, $virtualMethod(StringPrep$StringPrepTrieImpl, getFoldingOffset, int32_t, int32_t)},
 	{}
 };
 

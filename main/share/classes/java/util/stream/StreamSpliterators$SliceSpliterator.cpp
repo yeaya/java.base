@@ -32,11 +32,11 @@ $FieldInfo _StreamSpliterators$SliceSpliterator_FieldInfo_[] = {
 };
 
 $MethodInfo _StreamSpliterators$SliceSpliterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Spliterator;JJJJ)V", "(TT_SPLITR;JJJJ)V", 0, $method(static_cast<void(StreamSpliterators$SliceSpliterator::*)($Spliterator*,int64_t,int64_t,int64_t,int64_t)>(&StreamSpliterators$SliceSpliterator::init$))},
-	{"characteristics", "()I", nullptr, $PUBLIC},
-	{"estimateSize", "()J", nullptr, $PUBLIC},
-	{"makeSpliterator", "(Ljava/util/Spliterator;JJJJ)Ljava/util/Spliterator;", "(TT_SPLITR;JJJJ)TT_SPLITR;", $PROTECTED | $ABSTRACT},
-	{"trySplit", "()Ljava/util/Spliterator;", "()TT_SPLITR;", $PUBLIC},
+	{"<init>", "(Ljava/util/Spliterator;JJJJ)V", "(TT_SPLITR;JJJJ)V", 0, $method(StreamSpliterators$SliceSpliterator, init$, void, $Spliterator*, int64_t, int64_t, int64_t, int64_t)},
+	{"characteristics", "()I", nullptr, $PUBLIC, $virtualMethod(StreamSpliterators$SliceSpliterator, characteristics, int32_t)},
+	{"estimateSize", "()J", nullptr, $PUBLIC, $virtualMethod(StreamSpliterators$SliceSpliterator, estimateSize, int64_t)},
+	{"makeSpliterator", "(Ljava/util/Spliterator;JJJJ)Ljava/util/Spliterator;", "(TT_SPLITR;JJJJ)TT_SPLITR;", $PROTECTED | $ABSTRACT, $virtualMethod(StreamSpliterators$SliceSpliterator, makeSpliterator, $Spliterator*, $Spliterator*, int64_t, int64_t, int64_t, int64_t)},
+	{"trySplit", "()Ljava/util/Spliterator;", "()TT_SPLITR;", $PUBLIC, $virtualMethod(StreamSpliterators$SliceSpliterator, trySplit, $Spliterator*)},
 	{}
 };
 

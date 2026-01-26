@@ -15,6 +15,7 @@ using $Integer = ::java::lang::Integer;
 using $Long = ::java::lang::Long;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $ScopedMemoryAccess$Scope = ::jdk::internal::misc::ScopedMemoryAccess$Scope;
 
 namespace jdk {
 	namespace internal {
@@ -22,15 +23,15 @@ namespace jdk {
 			namespace foreign {
 
 $MethodInfo _MemorySegmentProxy_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(MemorySegmentProxy::*)()>(&MemorySegmentProxy::init$))},
-	{"addOffsets", "(JJLjdk/internal/access/foreign/MemorySegmentProxy;)J", nullptr, $PUBLIC | $STATIC, $method(static_cast<int64_t(*)(int64_t,int64_t,MemorySegmentProxy*)>(&MemorySegmentProxy::addOffsets))},
-	{"checkAccess", "(JJZ)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"isSmall", "()Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"multiplyOffsets", "(JJLjdk/internal/access/foreign/MemorySegmentProxy;)J", nullptr, $PUBLIC | $STATIC, $method(static_cast<int64_t(*)(int64_t,int64_t,MemorySegmentProxy*)>(&MemorySegmentProxy::multiplyOffsets))},
-	{"overflowException", "(JJ)Ljava/lang/IndexOutOfBoundsException;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$IndexOutOfBoundsException*(*)(int64_t,int64_t)>(&MemorySegmentProxy::overflowException))},
-	{"scope", "()Ljdk/internal/misc/ScopedMemoryAccess$Scope;", nullptr, $PUBLIC | $ABSTRACT},
-	{"unsafeGetBase", "()Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
-	{"unsafeGetOffset", "()J", nullptr, $PUBLIC | $ABSTRACT},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(MemorySegmentProxy, init$, void)},
+	{"addOffsets", "(JJLjdk/internal/access/foreign/MemorySegmentProxy;)J", nullptr, $PUBLIC | $STATIC, $staticMethod(MemorySegmentProxy, addOffsets, int64_t, int64_t, int64_t, MemorySegmentProxy*)},
+	{"checkAccess", "(JJZ)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MemorySegmentProxy, checkAccess, void, int64_t, int64_t, bool)},
+	{"isSmall", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MemorySegmentProxy, isSmall, bool)},
+	{"multiplyOffsets", "(JJLjdk/internal/access/foreign/MemorySegmentProxy;)J", nullptr, $PUBLIC | $STATIC, $staticMethod(MemorySegmentProxy, multiplyOffsets, int64_t, int64_t, int64_t, MemorySegmentProxy*)},
+	{"overflowException", "(JJ)Ljava/lang/IndexOutOfBoundsException;", nullptr, $PRIVATE | $STATIC, $staticMethod(MemorySegmentProxy, overflowException, $IndexOutOfBoundsException*, int64_t, int64_t)},
+	{"scope", "()Ljdk/internal/misc/ScopedMemoryAccess$Scope;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MemorySegmentProxy, scope, $ScopedMemoryAccess$Scope*)},
+	{"unsafeGetBase", "()Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MemorySegmentProxy, unsafeGetBase, $Object*)},
+	{"unsafeGetOffset", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MemorySegmentProxy, unsafeGetOffset, int64_t)},
 	{}
 };
 

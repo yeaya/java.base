@@ -52,14 +52,14 @@ $FieldInfo _GaloisCounterMode$GCMEncrypt_FieldInfo_[] = {
 };
 
 $MethodInfo _GaloisCounterMode$GCMEncrypt_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/crypto/provider/GaloisCounterMode;Lcom/sun/crypto/provider/SymmetricCipher;)V", nullptr, 0, $method(static_cast<void(GaloisCounterMode$GCMEncrypt::*)($GaloisCounterMode*,$SymmetricCipher*)>(&GaloisCounterMode$GCMEncrypt::init$))},
-	{"cryptBlocks", "(Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;)I", nullptr, 0},
-	{"doFinal", "([BII[BI)I", nullptr, $PUBLIC, nullptr, "javax.crypto.IllegalBlockSizeException,javax.crypto.ShortBufferException"},
-	{"doFinal", "(Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC, nullptr, "javax.crypto.IllegalBlockSizeException,javax.crypto.ShortBufferException"},
-	{"doUpdate", "([BII)[B", nullptr, 0},
-	{"doUpdate", "([BII[BI)I", nullptr, $PUBLIC, nullptr, "javax.crypto.ShortBufferException"},
-	{"doUpdate", "(Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC, nullptr, "javax.crypto.ShortBufferException"},
-	{"getOutputSize", "(IZ)I", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/crypto/provider/GaloisCounterMode;Lcom/sun/crypto/provider/SymmetricCipher;)V", nullptr, 0, $method(GaloisCounterMode$GCMEncrypt, init$, void, $GaloisCounterMode*, $SymmetricCipher*)},
+	{"cryptBlocks", "(Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;)I", nullptr, 0, $virtualMethod(GaloisCounterMode$GCMEncrypt, cryptBlocks, int32_t, $ByteBuffer*, $ByteBuffer*)},
+	{"doFinal", "([BII[BI)I", nullptr, $PUBLIC, $virtualMethod(GaloisCounterMode$GCMEncrypt, doFinal, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t), "javax.crypto.IllegalBlockSizeException,javax.crypto.ShortBufferException"},
+	{"doFinal", "(Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC, $virtualMethod(GaloisCounterMode$GCMEncrypt, doFinal, int32_t, $ByteBuffer*, $ByteBuffer*), "javax.crypto.IllegalBlockSizeException,javax.crypto.ShortBufferException"},
+	{"doUpdate", "([BII)[B", nullptr, 0, $virtualMethod(GaloisCounterMode$GCMEncrypt, doUpdate, $bytes*, $bytes*, int32_t, int32_t)},
+	{"doUpdate", "([BII[BI)I", nullptr, $PUBLIC, $virtualMethod(GaloisCounterMode$GCMEncrypt, doUpdate, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t), "javax.crypto.ShortBufferException"},
+	{"doUpdate", "(Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC, $virtualMethod(GaloisCounterMode$GCMEncrypt, doUpdate, int32_t, $ByteBuffer*, $ByteBuffer*), "javax.crypto.ShortBufferException"},
+	{"getOutputSize", "(IZ)I", nullptr, $PUBLIC, $virtualMethod(GaloisCounterMode$GCMEncrypt, getOutputSize, int32_t, int32_t, bool)},
 	{}
 };
 

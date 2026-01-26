@@ -20,13 +20,13 @@ $FieldInfo _InetAddress$InetAddressHolder_FieldInfo_[] = {
 };
 
 $MethodInfo _InetAddress$InetAddressHolder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(InetAddress$InetAddressHolder::*)()>(&InetAddress$InetAddressHolder::init$))},
-	{"<init>", "(Ljava/lang/String;II)V", nullptr, 0, $method(static_cast<void(InetAddress$InetAddressHolder::*)($String*,int32_t,int32_t)>(&InetAddress$InetAddressHolder::init$))},
-	{"getAddress", "()I", nullptr, 0},
-	{"getFamily", "()I", nullptr, 0},
-	{"getHostName", "()Ljava/lang/String;", nullptr, 0},
-	{"getOriginalHostName", "()Ljava/lang/String;", nullptr, 0},
-	{"init", "(Ljava/lang/String;I)V", nullptr, 0},
+	{"<init>", "()V", nullptr, 0, $method(InetAddress$InetAddressHolder, init$, void)},
+	{"<init>", "(Ljava/lang/String;II)V", nullptr, 0, $method(InetAddress$InetAddressHolder, init$, void, $String*, int32_t, int32_t)},
+	{"getAddress", "()I", nullptr, 0, $virtualMethod(InetAddress$InetAddressHolder, getAddress, int32_t)},
+	{"getFamily", "()I", nullptr, 0, $virtualMethod(InetAddress$InetAddressHolder, getFamily, int32_t)},
+	{"getHostName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(InetAddress$InetAddressHolder, getHostName, $String*)},
+	{"getOriginalHostName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(InetAddress$InetAddressHolder, getOriginalHostName, $String*)},
+	{"init", "(Ljava/lang/String;I)V", nullptr, 0, $virtualMethod(InetAddress$InetAddressHolder, init, void, $String*, int32_t)},
 	{}
 };
 

@@ -20,8 +20,8 @@ $FieldInfo _SAXNotRecognizedException_FieldInfo_[] = {
 };
 
 $MethodInfo _SAXNotRecognizedException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SAXNotRecognizedException::*)()>(&SAXNotRecognizedException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(SAXNotRecognizedException::*)($String*)>(&SAXNotRecognizedException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SAXNotRecognizedException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SAXNotRecognizedException, init$, void, $String*)},
 	{}
 };
 

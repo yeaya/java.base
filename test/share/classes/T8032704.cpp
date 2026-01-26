@@ -34,11 +34,11 @@ $FieldInfo _T8032704_FieldInfo_[] = {
 };
 
 $MethodInfo _T8032704_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(T8032704::*)()>(&T8032704::init$))},
-	{"here", "()V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)()>(&T8032704::here))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&T8032704::main)), "java.lang.Throwable"},
-	{"mf", "(Ljava/lang/invoke/MethodHandles$Lookup;)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($MethodHandles$Lookup*)>(&T8032704::mf))},
-	{"mt", "(Ljava/lang/Class;)Ljava/lang/invoke/MethodType;", "(Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodType;", $PRIVATE | $STATIC, $method(static_cast<$MethodType*(*)($Class*)>(&T8032704::mt))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(T8032704, init$, void)},
+	{"here", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(T8032704, here, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(T8032704, main, void, $StringArray*), "java.lang.Throwable"},
+	{"mf", "(Ljava/lang/invoke/MethodHandles$Lookup;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(T8032704, mf, bool, $MethodHandles$Lookup*)},
+	{"mt", "(Ljava/lang/Class;)Ljava/lang/invoke/MethodType;", "(Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodType;", $PRIVATE | $STATIC, $staticMethod(T8032704, mt, $MethodType*, $Class*)},
 	{}
 };
 

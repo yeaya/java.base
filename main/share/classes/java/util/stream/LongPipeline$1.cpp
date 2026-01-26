@@ -37,8 +37,8 @@ $FieldInfo _LongPipeline$1_FieldInfo_[] = {
 };
 
 $MethodInfo _LongPipeline$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/stream/LongPipeline;Ljava/util/stream/AbstractPipeline;Ljava/util/stream/StreamShape;ILjava/util/function/LongFunction;)V", nullptr, 0, $method(static_cast<void(LongPipeline$1::*)($LongPipeline*,$AbstractPipeline*,$StreamShape*,int32_t,$LongFunction*)>(&LongPipeline$1::init$))},
-	{"opWrapSink", "(ILjava/util/stream/Sink;)Ljava/util/stream/Sink;", "(ILjava/util/stream/Sink<TU;>;)Ljava/util/stream/Sink<Ljava/lang/Long;>;", 0},
+	{"<init>", "(Ljava/util/stream/LongPipeline;Ljava/util/stream/AbstractPipeline;Ljava/util/stream/StreamShape;ILjava/util/function/LongFunction;)V", nullptr, 0, $method(LongPipeline$1, init$, void, $LongPipeline*, $AbstractPipeline*, $StreamShape*, int32_t, $LongFunction*)},
+	{"opWrapSink", "(ILjava/util/stream/Sink;)Ljava/util/stream/Sink;", "(ILjava/util/stream/Sink<TU;>;)Ljava/util/stream/Sink<Ljava/lang/Long;>;", 0, $virtualMethod(LongPipeline$1, opWrapSink, $Sink*, int32_t, $Sink*)},
 	{}
 };
 

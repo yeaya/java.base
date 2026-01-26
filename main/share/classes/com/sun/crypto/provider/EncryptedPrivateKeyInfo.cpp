@@ -30,11 +30,11 @@ $FieldInfo _EncryptedPrivateKeyInfo_FieldInfo_[] = {
 };
 
 $MethodInfo _EncryptedPrivateKeyInfo_MethodInfo_[] = {
-	{"<init>", "([B)V", nullptr, 0, $method(static_cast<void(EncryptedPrivateKeyInfo::*)($bytes*)>(&EncryptedPrivateKeyInfo::init$)), "java.io.IOException"},
-	{"<init>", "(Lsun/security/x509/AlgorithmId;[B)V", nullptr, 0, $method(static_cast<void(EncryptedPrivateKeyInfo::*)($AlgorithmId*,$bytes*)>(&EncryptedPrivateKeyInfo::init$))},
-	{"getAlgorithm", "()Lsun/security/x509/AlgorithmId;", nullptr, 0, $method(static_cast<$AlgorithmId*(EncryptedPrivateKeyInfo::*)()>(&EncryptedPrivateKeyInfo::getAlgorithm))},
-	{"getEncoded", "()[B", nullptr, 0, $method(static_cast<$bytes*(EncryptedPrivateKeyInfo::*)()>(&EncryptedPrivateKeyInfo::getEncoded)), "java.io.IOException"},
-	{"getEncryptedData", "()[B", nullptr, 0, $method(static_cast<$bytes*(EncryptedPrivateKeyInfo::*)()>(&EncryptedPrivateKeyInfo::getEncryptedData))},
+	{"<init>", "([B)V", nullptr, 0, $method(EncryptedPrivateKeyInfo, init$, void, $bytes*), "java.io.IOException"},
+	{"<init>", "(Lsun/security/x509/AlgorithmId;[B)V", nullptr, 0, $method(EncryptedPrivateKeyInfo, init$, void, $AlgorithmId*, $bytes*)},
+	{"getAlgorithm", "()Lsun/security/x509/AlgorithmId;", nullptr, 0, $method(EncryptedPrivateKeyInfo, getAlgorithm, $AlgorithmId*)},
+	{"getEncoded", "()[B", nullptr, 0, $method(EncryptedPrivateKeyInfo, getEncoded, $bytes*), "java.io.IOException"},
+	{"getEncryptedData", "()[B", nullptr, 0, $method(EncryptedPrivateKeyInfo, getEncryptedData, $bytes*)},
 	{}
 };
 

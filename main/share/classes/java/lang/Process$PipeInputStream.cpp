@@ -17,8 +17,8 @@ namespace java {
 	namespace lang {
 
 $MethodInfo _Process$PipeInputStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/FileDescriptor;)V", nullptr, 0, $method(static_cast<void(Process$PipeInputStream::*)($FileDescriptor*)>(&Process$PipeInputStream::init$))},
-	{"skip", "(J)J", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljava/io/FileDescriptor;)V", nullptr, 0, $method(Process$PipeInputStream, init$, void, $FileDescriptor*)},
+	{"skip", "(J)J", nullptr, $PUBLIC, $virtualMethod(Process$PipeInputStream, skip, int64_t, int64_t), "java.io.IOException"},
 	{}
 };
 

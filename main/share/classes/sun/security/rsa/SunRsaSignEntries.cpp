@@ -35,10 +35,10 @@ $FieldInfo _SunRsaSignEntries_FieldInfo_[] = {
 };
 
 $MethodInfo _SunRsaSignEntries_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/Provider;)V", nullptr, $PUBLIC, $method(static_cast<void(SunRsaSignEntries::*)($Provider*)>(&SunRsaSignEntries::init$))},
-	{"add", "(Ljava/security/Provider;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/util/HashMap;)V", "(Ljava/security/Provider;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/String;>;)V", $PRIVATE, $method(static_cast<void(SunRsaSignEntries::*)($Provider*,$String*,$String*,$String*,$List*,$HashMap*)>(&SunRsaSignEntries::add))},
-	{"addA", "(Ljava/security/Provider;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/HashMap;)V", "(Ljava/security/Provider;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/String;>;)V", $PRIVATE, $method(static_cast<void(SunRsaSignEntries::*)($Provider*,$String*,$String*,$String*,$HashMap*)>(&SunRsaSignEntries::addA))},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/security/Provider$Service;>;", $PUBLIC, $method(static_cast<$Iterator*(SunRsaSignEntries::*)()>(&SunRsaSignEntries::iterator))},
+	{"<init>", "(Ljava/security/Provider;)V", nullptr, $PUBLIC, $method(SunRsaSignEntries, init$, void, $Provider*)},
+	{"add", "(Ljava/security/Provider;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/util/HashMap;)V", "(Ljava/security/Provider;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/String;>;)V", $PRIVATE, $method(SunRsaSignEntries, add, void, $Provider*, $String*, $String*, $String*, $List*, $HashMap*)},
+	{"addA", "(Ljava/security/Provider;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/HashMap;)V", "(Ljava/security/Provider;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/String;>;)V", $PRIVATE, $method(SunRsaSignEntries, addA, void, $Provider*, $String*, $String*, $String*, $HashMap*)},
+	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/security/Provider$Service;>;", $PUBLIC, $method(SunRsaSignEntries, iterator, $Iterator*)},
 	{}
 };
 

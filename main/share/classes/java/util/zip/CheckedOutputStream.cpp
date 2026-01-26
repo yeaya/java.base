@@ -22,10 +22,10 @@ $FieldInfo _CheckedOutputStream_FieldInfo_[] = {
 };
 
 $MethodInfo _CheckedOutputStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/OutputStream;Ljava/util/zip/Checksum;)V", nullptr, $PUBLIC, $method(static_cast<void(CheckedOutputStream::*)($OutputStream*,$Checksum*)>(&CheckedOutputStream::init$))},
-	{"getChecksum", "()Ljava/util/zip/Checksum;", nullptr, $PUBLIC},
-	{"write", "(I)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"write", "([BII)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljava/io/OutputStream;Ljava/util/zip/Checksum;)V", nullptr, $PUBLIC, $method(CheckedOutputStream, init$, void, $OutputStream*, $Checksum*)},
+	{"getChecksum", "()Ljava/util/zip/Checksum;", nullptr, $PUBLIC, $virtualMethod(CheckedOutputStream, getChecksum, $Checksum*)},
+	{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(CheckedOutputStream, write, void, int32_t), "java.io.IOException"},
+	{"write", "([BII)V", nullptr, $PUBLIC, $virtualMethod(CheckedOutputStream, write, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
 	{}
 };
 

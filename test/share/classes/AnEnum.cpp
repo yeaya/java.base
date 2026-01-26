@@ -30,10 +30,10 @@ $FieldInfo _AnEnum_FieldInfo_[] = {
 };
 
 $MethodInfo _AnEnum_MethodInfo_[] = {
-	{"$values", "()[LAnEnum;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$AnEnumArray*(*)()>(&AnEnum::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(AnEnum::*)($String*,int32_t)>(&AnEnum::init$))},
-	{"valueOf", "(Ljava/lang/String;)LAnEnum;", nullptr, $PUBLIC | $STATIC, $method(static_cast<AnEnum*(*)($String*)>(&AnEnum::valueOf))},
-	{"values", "()[LAnEnum;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$AnEnumArray*(*)()>(&AnEnum::values))},
+	{"$values", "()[LAnEnum;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AnEnum, $values, $AnEnumArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(AnEnum, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)LAnEnum;", nullptr, $PUBLIC | $STATIC, $staticMethod(AnEnum, valueOf, AnEnum*, $String*)},
+	{"values", "()[LAnEnum;", nullptr, $PUBLIC | $STATIC, $staticMethod(AnEnum, values, $AnEnumArray*)},
 	{}
 };
 

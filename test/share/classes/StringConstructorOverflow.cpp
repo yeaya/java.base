@@ -15,9 +15,9 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $BigInteger = ::java::math::BigInteger;
 
 $MethodInfo _StringConstructorOverflow_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(StringConstructorOverflow::*)()>(&StringConstructorOverflow::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&StringConstructorOverflow::main))},
-	{"makeLongHexString", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)()>(&StringConstructorOverflow::makeLongHexString))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(StringConstructorOverflow, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StringConstructorOverflow, main, void, $StringArray*)},
+	{"makeLongHexString", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(StringConstructorOverflow, makeLongHexString, $String*)},
 	{}
 };
 

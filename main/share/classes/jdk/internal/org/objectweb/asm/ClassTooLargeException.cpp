@@ -22,9 +22,9 @@ $FieldInfo _ClassTooLargeException_FieldInfo_[] = {
 };
 
 $MethodInfo _ClassTooLargeException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(static_cast<void(ClassTooLargeException::*)($String*,int32_t)>(&ClassTooLargeException::init$))},
-	{"getClassName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(static_cast<$String*(ClassTooLargeException::*)()>(&ClassTooLargeException::getClassName))},
-	{"getConstantPoolCount", "()I", nullptr, $PUBLIC, $method(static_cast<int32_t(ClassTooLargeException::*)()>(&ClassTooLargeException::getConstantPoolCount))},
+	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(ClassTooLargeException, init$, void, $String*, int32_t)},
+	{"getClassName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(ClassTooLargeException, getClassName, $String*)},
+	{"getConstantPoolCount", "()I", nullptr, $PUBLIC, $method(ClassTooLargeException, getConstantPoolCount, int32_t)},
 	{}
 };
 

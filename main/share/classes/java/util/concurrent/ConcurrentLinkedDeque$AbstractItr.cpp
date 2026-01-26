@@ -28,13 +28,13 @@ $FieldInfo _ConcurrentLinkedDeque$AbstractItr_FieldInfo_[] = {
 };
 
 $MethodInfo _ConcurrentLinkedDeque$AbstractItr_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/ConcurrentLinkedDeque;)V", nullptr, 0, $method(static_cast<void(ConcurrentLinkedDeque$AbstractItr::*)($ConcurrentLinkedDeque*)>(&ConcurrentLinkedDeque$AbstractItr::init$))},
-	{"advance", "()V", nullptr, $PRIVATE, $method(static_cast<void(ConcurrentLinkedDeque$AbstractItr::*)()>(&ConcurrentLinkedDeque$AbstractItr::advance))},
-	{"hasNext", "()Z", nullptr, $PUBLIC},
-	{"next", "()Ljava/lang/Object;", "()TE;", $PUBLIC},
-	{"nextNode", "(Ljava/util/concurrent/ConcurrentLinkedDeque$Node;)Ljava/util/concurrent/ConcurrentLinkedDeque$Node;", "(Ljava/util/concurrent/ConcurrentLinkedDeque$Node<TE;>;)Ljava/util/concurrent/ConcurrentLinkedDeque$Node<TE;>;", $ABSTRACT},
-	{"remove", "()V", nullptr, $PUBLIC},
-	{"startNode", "()Ljava/util/concurrent/ConcurrentLinkedDeque$Node;", "()Ljava/util/concurrent/ConcurrentLinkedDeque$Node<TE;>;", $ABSTRACT},
+	{"<init>", "(Ljava/util/concurrent/ConcurrentLinkedDeque;)V", nullptr, 0, $method(ConcurrentLinkedDeque$AbstractItr, init$, void, $ConcurrentLinkedDeque*)},
+	{"advance", "()V", nullptr, $PRIVATE, $method(ConcurrentLinkedDeque$AbstractItr, advance, void)},
+	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(ConcurrentLinkedDeque$AbstractItr, hasNext, bool)},
+	{"next", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(ConcurrentLinkedDeque$AbstractItr, next, $Object*)},
+	{"nextNode", "(Ljava/util/concurrent/ConcurrentLinkedDeque$Node;)Ljava/util/concurrent/ConcurrentLinkedDeque$Node;", "(Ljava/util/concurrent/ConcurrentLinkedDeque$Node<TE;>;)Ljava/util/concurrent/ConcurrentLinkedDeque$Node<TE;>;", $ABSTRACT, $virtualMethod(ConcurrentLinkedDeque$AbstractItr, nextNode, $ConcurrentLinkedDeque$Node*, $ConcurrentLinkedDeque$Node*)},
+	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(ConcurrentLinkedDeque$AbstractItr, remove, void)},
+	{"startNode", "()Ljava/util/concurrent/ConcurrentLinkedDeque$Node;", "()Ljava/util/concurrent/ConcurrentLinkedDeque$Node<TE;>;", $ABSTRACT, $virtualMethod(ConcurrentLinkedDeque$AbstractItr, startNode, $ConcurrentLinkedDeque$Node*)},
 	{}
 };
 

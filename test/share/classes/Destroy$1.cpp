@@ -20,8 +20,8 @@ $FieldInfo _Destroy$1_FieldInfo_[] = {
 };
 
 $MethodInfo _Destroy$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/util/concurrent/atomic/AtomicInteger;Ljava/lang/ThreadGroup;)V", nullptr, 0, $method(static_cast<void(Destroy$1::*)($String*,$AtomicInteger*,$ThreadGroup*)>(&Destroy$1::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Ljava/util/concurrent/atomic/AtomicInteger;Ljava/lang/ThreadGroup;)V", nullptr, 0, $method(Destroy$1, init$, void, $String*, $AtomicInteger*, $ThreadGroup*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Destroy$1, run, void)},
 	{}
 };
 

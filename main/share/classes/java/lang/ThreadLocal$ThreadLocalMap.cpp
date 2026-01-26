@@ -27,21 +27,21 @@ $FieldInfo _ThreadLocal$ThreadLocalMap_FieldInfo_[] = {
 };
 
 $MethodInfo _ThreadLocal$ThreadLocalMap_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/ThreadLocal;Ljava/lang/Object;)V", "(Ljava/lang/ThreadLocal<*>;Ljava/lang/Object;)V", 0, $method(static_cast<void(ThreadLocal$ThreadLocalMap::*)($ThreadLocal*,Object$*)>(&ThreadLocal$ThreadLocalMap::init$))},
-	{"<init>", "(Ljava/lang/ThreadLocal$ThreadLocalMap;)V", nullptr, $PRIVATE, $method(static_cast<void(ThreadLocal$ThreadLocalMap::*)(ThreadLocal$ThreadLocalMap*)>(&ThreadLocal$ThreadLocalMap::init$))},
-	{"cleanSomeSlots", "(II)Z", nullptr, $PRIVATE, $method(static_cast<bool(ThreadLocal$ThreadLocalMap::*)(int32_t,int32_t)>(&ThreadLocal$ThreadLocalMap::cleanSomeSlots))},
-	{"expungeStaleEntries", "()V", nullptr, $PRIVATE, $method(static_cast<void(ThreadLocal$ThreadLocalMap::*)()>(&ThreadLocal$ThreadLocalMap::expungeStaleEntries))},
-	{"expungeStaleEntry", "(I)I", nullptr, $PRIVATE, $method(static_cast<int32_t(ThreadLocal$ThreadLocalMap::*)(int32_t)>(&ThreadLocal$ThreadLocalMap::expungeStaleEntry))},
-	{"getEntry", "(Ljava/lang/ThreadLocal;)Ljava/lang/ThreadLocal$ThreadLocalMap$Entry;", "(Ljava/lang/ThreadLocal<*>;)Ljava/lang/ThreadLocal$ThreadLocalMap$Entry;", $PRIVATE, $method(static_cast<$ThreadLocal$ThreadLocalMap$Entry*(ThreadLocal$ThreadLocalMap::*)($ThreadLocal*)>(&ThreadLocal$ThreadLocalMap::getEntry))},
-	{"getEntryAfterMiss", "(Ljava/lang/ThreadLocal;ILjava/lang/ThreadLocal$ThreadLocalMap$Entry;)Ljava/lang/ThreadLocal$ThreadLocalMap$Entry;", "(Ljava/lang/ThreadLocal<*>;ILjava/lang/ThreadLocal$ThreadLocalMap$Entry;)Ljava/lang/ThreadLocal$ThreadLocalMap$Entry;", $PRIVATE, $method(static_cast<$ThreadLocal$ThreadLocalMap$Entry*(ThreadLocal$ThreadLocalMap::*)($ThreadLocal*,int32_t,$ThreadLocal$ThreadLocalMap$Entry*)>(&ThreadLocal$ThreadLocalMap::getEntryAfterMiss))},
-	{"nextIndex", "(II)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)(int32_t,int32_t)>(&ThreadLocal$ThreadLocalMap::nextIndex))},
-	{"prevIndex", "(II)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)(int32_t,int32_t)>(&ThreadLocal$ThreadLocalMap::prevIndex))},
-	{"rehash", "()V", nullptr, $PRIVATE, $method(static_cast<void(ThreadLocal$ThreadLocalMap::*)()>(&ThreadLocal$ThreadLocalMap::rehash))},
-	{"remove", "(Ljava/lang/ThreadLocal;)V", "(Ljava/lang/ThreadLocal<*>;)V", $PRIVATE, $method(static_cast<void(ThreadLocal$ThreadLocalMap::*)($ThreadLocal*)>(&ThreadLocal$ThreadLocalMap::remove))},
-	{"replaceStaleEntry", "(Ljava/lang/ThreadLocal;Ljava/lang/Object;I)V", "(Ljava/lang/ThreadLocal<*>;Ljava/lang/Object;I)V", $PRIVATE, $method(static_cast<void(ThreadLocal$ThreadLocalMap::*)($ThreadLocal*,Object$*,int32_t)>(&ThreadLocal$ThreadLocalMap::replaceStaleEntry))},
-	{"resize", "()V", nullptr, $PRIVATE, $method(static_cast<void(ThreadLocal$ThreadLocalMap::*)()>(&ThreadLocal$ThreadLocalMap::resize))},
-	{"set", "(Ljava/lang/ThreadLocal;Ljava/lang/Object;)V", "(Ljava/lang/ThreadLocal<*>;Ljava/lang/Object;)V", $PRIVATE, $method(static_cast<void(ThreadLocal$ThreadLocalMap::*)($ThreadLocal*,Object$*)>(&ThreadLocal$ThreadLocalMap::set))},
-	{"setThreshold", "(I)V", nullptr, $PRIVATE, $method(static_cast<void(ThreadLocal$ThreadLocalMap::*)(int32_t)>(&ThreadLocal$ThreadLocalMap::setThreshold))},
+	{"<init>", "(Ljava/lang/ThreadLocal;Ljava/lang/Object;)V", "(Ljava/lang/ThreadLocal<*>;Ljava/lang/Object;)V", 0, $method(ThreadLocal$ThreadLocalMap, init$, void, $ThreadLocal*, Object$*)},
+	{"<init>", "(Ljava/lang/ThreadLocal$ThreadLocalMap;)V", nullptr, $PRIVATE, $method(ThreadLocal$ThreadLocalMap, init$, void, ThreadLocal$ThreadLocalMap*)},
+	{"cleanSomeSlots", "(II)Z", nullptr, $PRIVATE, $method(ThreadLocal$ThreadLocalMap, cleanSomeSlots, bool, int32_t, int32_t)},
+	{"expungeStaleEntries", "()V", nullptr, $PRIVATE, $method(ThreadLocal$ThreadLocalMap, expungeStaleEntries, void)},
+	{"expungeStaleEntry", "(I)I", nullptr, $PRIVATE, $method(ThreadLocal$ThreadLocalMap, expungeStaleEntry, int32_t, int32_t)},
+	{"getEntry", "(Ljava/lang/ThreadLocal;)Ljava/lang/ThreadLocal$ThreadLocalMap$Entry;", "(Ljava/lang/ThreadLocal<*>;)Ljava/lang/ThreadLocal$ThreadLocalMap$Entry;", $PRIVATE, $method(ThreadLocal$ThreadLocalMap, getEntry, $ThreadLocal$ThreadLocalMap$Entry*, $ThreadLocal*)},
+	{"getEntryAfterMiss", "(Ljava/lang/ThreadLocal;ILjava/lang/ThreadLocal$ThreadLocalMap$Entry;)Ljava/lang/ThreadLocal$ThreadLocalMap$Entry;", "(Ljava/lang/ThreadLocal<*>;ILjava/lang/ThreadLocal$ThreadLocalMap$Entry;)Ljava/lang/ThreadLocal$ThreadLocalMap$Entry;", $PRIVATE, $method(ThreadLocal$ThreadLocalMap, getEntryAfterMiss, $ThreadLocal$ThreadLocalMap$Entry*, $ThreadLocal*, int32_t, $ThreadLocal$ThreadLocalMap$Entry*)},
+	{"nextIndex", "(II)I", nullptr, $PRIVATE | $STATIC, $staticMethod(ThreadLocal$ThreadLocalMap, nextIndex, int32_t, int32_t, int32_t)},
+	{"prevIndex", "(II)I", nullptr, $PRIVATE | $STATIC, $staticMethod(ThreadLocal$ThreadLocalMap, prevIndex, int32_t, int32_t, int32_t)},
+	{"rehash", "()V", nullptr, $PRIVATE, $method(ThreadLocal$ThreadLocalMap, rehash, void)},
+	{"remove", "(Ljava/lang/ThreadLocal;)V", "(Ljava/lang/ThreadLocal<*>;)V", $PRIVATE, $method(ThreadLocal$ThreadLocalMap, remove, void, $ThreadLocal*)},
+	{"replaceStaleEntry", "(Ljava/lang/ThreadLocal;Ljava/lang/Object;I)V", "(Ljava/lang/ThreadLocal<*>;Ljava/lang/Object;I)V", $PRIVATE, $method(ThreadLocal$ThreadLocalMap, replaceStaleEntry, void, $ThreadLocal*, Object$*, int32_t)},
+	{"resize", "()V", nullptr, $PRIVATE, $method(ThreadLocal$ThreadLocalMap, resize, void)},
+	{"set", "(Ljava/lang/ThreadLocal;Ljava/lang/Object;)V", "(Ljava/lang/ThreadLocal<*>;Ljava/lang/Object;)V", $PRIVATE, $method(ThreadLocal$ThreadLocalMap, set, void, $ThreadLocal*, Object$*)},
+	{"setThreshold", "(I)V", nullptr, $PRIVATE, $method(ThreadLocal$ThreadLocalMap, setThreshold, void, int32_t)},
 	{}
 };
 

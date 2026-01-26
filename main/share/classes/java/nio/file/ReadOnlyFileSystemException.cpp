@@ -18,7 +18,7 @@ $FieldInfo _ReadOnlyFileSystemException_FieldInfo_[] = {
 };
 
 $MethodInfo _ReadOnlyFileSystemException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ReadOnlyFileSystemException::*)()>(&ReadOnlyFileSystemException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ReadOnlyFileSystemException, init$, void)},
 	{}
 };
 

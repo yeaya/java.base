@@ -47,10 +47,10 @@ $CompoundAttribute _Roebling_MethodAnnotations_varArg3[] = {
 };
 
 $MethodInfo _Roebling_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Roebling::*)()>(&Roebling::init$))},
-	{"compareTo", "(LRoebling;)I", nullptr, $PUBLIC, nullptr, nullptr, nullptr, _Roebling_MethodAnnotations_compareTo1},
-	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, nullptr, nullptr, nullptr, _Roebling_MethodAnnotations_compareTo2},
-	{"varArg", "([Ljava/lang/Object;)V", nullptr, $TRANSIENT, nullptr, nullptr, nullptr, _Roebling_MethodAnnotations_varArg3},
+	{"<init>", "()V", nullptr, 0, $method(Roebling, init$, void)},
+	{"compareTo", "(LRoebling;)I", nullptr, $PUBLIC, $virtualMethod(Roebling, compareTo, int32_t, Roebling*), nullptr, nullptr, _Roebling_MethodAnnotations_compareTo1},
+	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Roebling, compareTo, int32_t, Object$*), nullptr, nullptr, _Roebling_MethodAnnotations_compareTo2},
+	{"varArg", "([Ljava/lang/Object;)V", nullptr, $TRANSIENT, $virtualMethod(Roebling, varArg, void, $ObjectArray*), nullptr, nullptr, _Roebling_MethodAnnotations_varArg3},
 	{}
 };
 

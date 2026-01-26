@@ -20,7 +20,7 @@ $FieldInfo _ManifestDigester$Position_FieldInfo_[] = {
 };
 
 $MethodInfo _ManifestDigester$Position_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ManifestDigester$Position::*)()>(&ManifestDigester$Position::init$))},
+	{"<init>", "()V", nullptr, 0, $method(ManifestDigester$Position, init$, void)},
 	{}
 };
 

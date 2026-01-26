@@ -4,16 +4,18 @@
 #include <java/util/Map.h>
 #include <jcpp.h>
 
+using $InputStream = ::java::io::InputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Map = ::java::util::Map;
 
 namespace java {
 	namespace net {
 
 $MethodInfo _CacheResponse_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CacheResponse::*)()>(&CacheResponse::init$))},
-	{"getBody", "()Ljava/io/InputStream;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"getHeaders", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;", $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CacheResponse, init$, void)},
+	{"getBody", "()Ljava/io/InputStream;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CacheResponse, getBody, $InputStream*), "java.io.IOException"},
+	{"getHeaders", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;", $PUBLIC | $ABSTRACT, $virtualMethod(CacheResponse, getHeaders, $Map*), "java.io.IOException"},
 	{}
 };
 

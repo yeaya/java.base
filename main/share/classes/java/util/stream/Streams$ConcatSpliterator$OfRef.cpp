@@ -15,7 +15,7 @@ namespace java {
 		namespace stream {
 
 $MethodInfo _Streams$ConcatSpliterator$OfRef_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Spliterator;Ljava/util/Spliterator;)V", "(Ljava/util/Spliterator<TT;>;Ljava/util/Spliterator<TT;>;)V", 0, $method(static_cast<void(Streams$ConcatSpliterator$OfRef::*)($Spliterator*,$Spliterator*)>(&Streams$ConcatSpliterator$OfRef::init$))},
+	{"<init>", "(Ljava/util/Spliterator;Ljava/util/Spliterator;)V", "(Ljava/util/Spliterator<TT;>;Ljava/util/Spliterator<TT;>;)V", 0, $method(Streams$ConcatSpliterator$OfRef, init$, void, $Spliterator*, $Spliterator*)},
 	{}
 };
 

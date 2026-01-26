@@ -71,15 +71,15 @@ $FieldInfo _DHKeyExchange$DHEPossession_FieldInfo_[] = {
 };
 
 $MethodInfo _DHKeyExchange$DHEPossession_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/ssl/NamedGroup;Ljava/security/SecureRandom;)V", nullptr, 0, $method(static_cast<void(DHKeyExchange$DHEPossession::*)($NamedGroup*,$SecureRandom*)>(&DHKeyExchange$DHEPossession::init$))},
-	{"<init>", "(ILjava/security/SecureRandom;)V", nullptr, 0, $method(static_cast<void(DHKeyExchange$DHEPossession::*)(int32_t,$SecureRandom*)>(&DHKeyExchange$DHEPossession::init$))},
-	{"<init>", "(Lsun/security/ssl/DHKeyExchange$DHECredentials;Ljava/security/SecureRandom;)V", nullptr, 0, $method(static_cast<void(DHKeyExchange$DHEPossession::*)($DHKeyExchange$DHECredentials*,$SecureRandom*)>(&DHKeyExchange$DHEPossession::init$))},
-	{"encode", "()[B", nullptr, $PUBLIC},
-	{"generateDHKeyPair", "(Ljava/security/KeyPairGenerator;)Ljava/security/KeyPair;", nullptr, $PRIVATE, $method(static_cast<$KeyPair*(DHKeyExchange$DHEPossession::*)($KeyPairGenerator*)>(&DHKeyExchange$DHEPossession::generateDHKeyPair)), "java.security.GeneralSecurityException"},
-	{"getDHPublicKeySpec", "(Ljava/security/PublicKey;)Ljavax/crypto/spec/DHPublicKeySpec;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$DHPublicKeySpec*(*)($PublicKey*)>(&DHKeyExchange$DHEPossession::getDHPublicKeySpec))},
-	{"getNamedGroup", "()Lsun/security/ssl/NamedGroup;", nullptr, $PUBLIC},
-	{"getPrivateKey", "()Ljava/security/PrivateKey;", nullptr, $PUBLIC},
-	{"getPublicKey", "()Ljava/security/PublicKey;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/security/ssl/NamedGroup;Ljava/security/SecureRandom;)V", nullptr, 0, $method(DHKeyExchange$DHEPossession, init$, void, $NamedGroup*, $SecureRandom*)},
+	{"<init>", "(ILjava/security/SecureRandom;)V", nullptr, 0, $method(DHKeyExchange$DHEPossession, init$, void, int32_t, $SecureRandom*)},
+	{"<init>", "(Lsun/security/ssl/DHKeyExchange$DHECredentials;Ljava/security/SecureRandom;)V", nullptr, 0, $method(DHKeyExchange$DHEPossession, init$, void, $DHKeyExchange$DHECredentials*, $SecureRandom*)},
+	{"encode", "()[B", nullptr, $PUBLIC, $virtualMethod(DHKeyExchange$DHEPossession, encode, $bytes*)},
+	{"generateDHKeyPair", "(Ljava/security/KeyPairGenerator;)Ljava/security/KeyPair;", nullptr, $PRIVATE, $method(DHKeyExchange$DHEPossession, generateDHKeyPair, $KeyPair*, $KeyPairGenerator*), "java.security.GeneralSecurityException"},
+	{"getDHPublicKeySpec", "(Ljava/security/PublicKey;)Ljavax/crypto/spec/DHPublicKeySpec;", nullptr, $PRIVATE | $STATIC, $staticMethod(DHKeyExchange$DHEPossession, getDHPublicKeySpec, $DHPublicKeySpec*, $PublicKey*)},
+	{"getNamedGroup", "()Lsun/security/ssl/NamedGroup;", nullptr, $PUBLIC, $virtualMethod(DHKeyExchange$DHEPossession, getNamedGroup, $NamedGroup*)},
+	{"getPrivateKey", "()Ljava/security/PrivateKey;", nullptr, $PUBLIC, $virtualMethod(DHKeyExchange$DHEPossession, getPrivateKey, $PrivateKey*)},
+	{"getPublicKey", "()Ljava/security/PublicKey;", nullptr, $PUBLIC, $virtualMethod(DHKeyExchange$DHEPossession, getPublicKey, $PublicKey*)},
 	{}
 };
 

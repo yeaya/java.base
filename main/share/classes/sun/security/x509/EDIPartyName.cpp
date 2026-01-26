@@ -39,18 +39,18 @@ $FieldInfo _EDIPartyName_FieldInfo_[] = {
 };
 
 $MethodInfo _EDIPartyName_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(EDIPartyName::*)($String*,$String*)>(&EDIPartyName::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(EDIPartyName::*)($String*)>(&EDIPartyName::init$))},
-	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(static_cast<void(EDIPartyName::*)($DerValue*)>(&EDIPartyName::init$)), "java.io.IOException"},
-	{"constrains", "(Lsun/security/x509/GeneralNameInterface;)I", nullptr, $PUBLIC, nullptr, "java.lang.UnsupportedOperationException"},
-	{"encode", "(Lsun/security/util/DerOutputStream;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getAssignerName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getPartyName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getType", "()I", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"subtreeDepth", "()I", nullptr, $PUBLIC, nullptr, "java.lang.UnsupportedOperationException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(EDIPartyName, init$, void, $String*, $String*)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(EDIPartyName, init$, void, $String*)},
+	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(EDIPartyName, init$, void, $DerValue*), "java.io.IOException"},
+	{"constrains", "(Lsun/security/x509/GeneralNameInterface;)I", nullptr, $PUBLIC, $virtualMethod(EDIPartyName, constrains, int32_t, $GeneralNameInterface*), "java.lang.UnsupportedOperationException"},
+	{"encode", "(Lsun/security/util/DerOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(EDIPartyName, encode, void, $DerOutputStream*), "java.io.IOException"},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(EDIPartyName, equals, bool, Object$*)},
+	{"getAssignerName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(EDIPartyName, getAssignerName, $String*)},
+	{"getPartyName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(EDIPartyName, getPartyName, $String*)},
+	{"getType", "()I", nullptr, $PUBLIC, $virtualMethod(EDIPartyName, getType, int32_t)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(EDIPartyName, hashCode, int32_t)},
+	{"subtreeDepth", "()I", nullptr, $PUBLIC, $virtualMethod(EDIPartyName, subtreeDepth, int32_t), "java.lang.UnsupportedOperationException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(EDIPartyName, toString, $String*)},
 	{}
 };
 

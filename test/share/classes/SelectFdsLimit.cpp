@@ -30,10 +30,10 @@ $FieldInfo _SelectFdsLimit_FieldInfo_[] = {
 };
 
 $MethodInfo _SelectFdsLimit_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SelectFdsLimit::*)()>(&SelectFdsLimit::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&SelectFdsLimit::main)), "java.io.IOException,java.io.FileNotFoundException"},
-	{"openFiles", "(ILjava/io/File;)V", nullptr, $STATIC, $method(static_cast<void(*)(int32_t,$File*)>(&SelectFdsLimit::openFiles)), "java.io.FileNotFoundException,java.io.IOException"},
-	{"prepareTestEnv", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&SelectFdsLimit::prepareTestEnv)), "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SelectFdsLimit, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SelectFdsLimit, main, void, $StringArray*), "java.io.IOException,java.io.FileNotFoundException"},
+	{"openFiles", "(ILjava/io/File;)V", nullptr, $STATIC, $staticMethod(SelectFdsLimit, openFiles, void, int32_t, $File*), "java.io.FileNotFoundException,java.io.IOException"},
+	{"prepareTestEnv", "()V", nullptr, $STATIC, $staticMethod(SelectFdsLimit, prepareTestEnv, void), "java.io.IOException"},
 	{}
 };
 

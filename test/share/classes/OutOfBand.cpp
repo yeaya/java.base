@@ -45,11 +45,11 @@ $FieldInfo _OutOfBand_FieldInfo_[] = {
 };
 
 $MethodInfo _OutOfBand_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(OutOfBand::*)()>(&OutOfBand::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&OutOfBand::main)), "java.lang.Exception"},
-	{"test1", "(Ljava/nio/channels/SocketChannel;Ljava/nio/channels/SocketChannel;)V", nullptr, $STATIC, $method(static_cast<void(*)($SocketChannel*,$SocketChannel*)>(&OutOfBand::test1)), "java.lang.Exception"},
-	{"test2", "(Ljava/nio/channels/SocketChannel;Ljava/nio/channels/SocketChannel;)V", nullptr, $STATIC, $method(static_cast<void(*)($SocketChannel*,$SocketChannel*)>(&OutOfBand::test2)), "java.lang.Exception"},
-	{"test3", "(Ljava/nio/channels/SocketChannel;Ljava/nio/channels/SocketChannel;)V", nullptr, $STATIC, $method(static_cast<void(*)($SocketChannel*,$SocketChannel*)>(&OutOfBand::test3)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(OutOfBand, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(OutOfBand, main, void, $StringArray*), "java.lang.Exception"},
+	{"test1", "(Ljava/nio/channels/SocketChannel;Ljava/nio/channels/SocketChannel;)V", nullptr, $STATIC, $staticMethod(OutOfBand, test1, void, $SocketChannel*, $SocketChannel*), "java.lang.Exception"},
+	{"test2", "(Ljava/nio/channels/SocketChannel;Ljava/nio/channels/SocketChannel;)V", nullptr, $STATIC, $staticMethod(OutOfBand, test2, void, $SocketChannel*, $SocketChannel*), "java.lang.Exception"},
+	{"test3", "(Ljava/nio/channels/SocketChannel;Ljava/nio/channels/SocketChannel;)V", nullptr, $STATIC, $staticMethod(OutOfBand, test3, void, $SocketChannel*, $SocketChannel*), "java.lang.Exception"},
 	{}
 };
 

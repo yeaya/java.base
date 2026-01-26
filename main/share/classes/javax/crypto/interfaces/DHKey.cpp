@@ -5,13 +5,14 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $DHParameterSpec = ::javax::crypto::spec::DHParameterSpec;
 
 namespace javax {
 	namespace crypto {
 		namespace interfaces {
 
 $MethodInfo _DHKey_MethodInfo_[] = {
-	{"getParams", "()Ljavax/crypto/spec/DHParameterSpec;", nullptr, $PUBLIC | $ABSTRACT},
+	{"getParams", "()Ljavax/crypto/spec/DHParameterSpec;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DHKey, getParams, $DHParameterSpec*)},
 	{}
 };
 

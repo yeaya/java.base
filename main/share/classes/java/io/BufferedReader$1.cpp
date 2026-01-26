@@ -26,9 +26,9 @@ $FieldInfo _BufferedReader$1_FieldInfo_[] = {
 };
 
 $MethodInfo _BufferedReader$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/BufferedReader;)V", nullptr, 0, $method(static_cast<void(BufferedReader$1::*)($BufferedReader*)>(&BufferedReader$1::init$))},
-	{"hasNext", "()Z", nullptr, $PUBLIC},
-	{"next", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/io/BufferedReader;)V", nullptr, 0, $method(BufferedReader$1, init$, void, $BufferedReader*)},
+	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(BufferedReader$1, hasNext, bool)},
+	{"next", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BufferedReader$1, next, $Object*)},
 	{}
 };
 

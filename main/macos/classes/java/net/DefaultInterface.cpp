@@ -55,8 +55,8 @@ $FieldInfo DefaultInterface$$Lambda$getInetAddresses::fieldInfos[2] = {
 	{}
 };
 $MethodInfo DefaultInterface$$Lambda$getInetAddresses::methodInfos[3] = {
-	{"<init>", "(Ljava/net/NetworkInterface;)V", nullptr, $PUBLIC, $method(static_cast<void(DefaultInterface$$Lambda$getInetAddresses::*)($NetworkInterface*)>(&DefaultInterface$$Lambda$getInetAddresses::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/net/NetworkInterface;)V", nullptr, $PUBLIC, $method(DefaultInterface$$Lambda$getInetAddresses, init$, void, $NetworkInterface*)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DefaultInterface$$Lambda$getInetAddresses, run, $Object*)},
 	{}
 };
 $ClassInfo DefaultInterface$$Lambda$getInetAddresses::classInfo$ = {
@@ -79,9 +79,9 @@ $FieldInfo _DefaultInterface_FieldInfo_[] = {
 };
 
 $MethodInfo _DefaultInterface_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(DefaultInterface::*)()>(&DefaultInterface::init$))},
-	{"chooseDefaultInterface", "()Ljava/net/NetworkInterface;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$NetworkInterface*(*)()>(&DefaultInterface::chooseDefaultInterface))},
-	{"getDefault", "()Ljava/net/NetworkInterface;", nullptr, $STATIC, $method(static_cast<$NetworkInterface*(*)()>(&DefaultInterface::getDefault))},
+	{"<init>", "()V", nullptr, 0, $method(DefaultInterface, init$, void)},
+	{"chooseDefaultInterface", "()Ljava/net/NetworkInterface;", nullptr, $PRIVATE | $STATIC, $staticMethod(DefaultInterface, chooseDefaultInterface, $NetworkInterface*)},
+	{"getDefault", "()Ljava/net/NetworkInterface;", nullptr, $STATIC, $staticMethod(DefaultInterface, getDefault, $NetworkInterface*)},
 	{}
 };
 

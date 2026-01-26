@@ -54,10 +54,10 @@ $FieldInfo _SSLCipher$StreamReadCipherGenerator$StreamReadCipher_FieldInfo_[] = 
 };
 
 $MethodInfo _SSLCipher$StreamReadCipherGenerator$StreamReadCipher_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/ssl/Authenticator;Lsun/security/ssl/ProtocolVersion;Ljava/lang/String;Ljava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, 0, $method(static_cast<void(SSLCipher$StreamReadCipherGenerator$StreamReadCipher::*)($Authenticator*,$ProtocolVersion*,$String*,$Key*,$AlgorithmParameterSpec*,$SecureRandom*)>(&SSLCipher$StreamReadCipherGenerator$StreamReadCipher::init$)), "java.security.GeneralSecurityException"},
-	{"decrypt", "(BLjava/nio/ByteBuffer;[B)Lsun/security/ssl/Plaintext;", nullptr, $PUBLIC, nullptr, "java.security.GeneralSecurityException"},
-	{"dispose", "()V", nullptr, 0},
-	{"estimateFragmentSize", "(II)I", nullptr, 0},
+	{"<init>", "(Lsun/security/ssl/Authenticator;Lsun/security/ssl/ProtocolVersion;Ljava/lang/String;Ljava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, 0, $method(SSLCipher$StreamReadCipherGenerator$StreamReadCipher, init$, void, $Authenticator*, $ProtocolVersion*, $String*, $Key*, $AlgorithmParameterSpec*, $SecureRandom*), "java.security.GeneralSecurityException"},
+	{"decrypt", "(BLjava/nio/ByteBuffer;[B)Lsun/security/ssl/Plaintext;", nullptr, $PUBLIC, $virtualMethod(SSLCipher$StreamReadCipherGenerator$StreamReadCipher, decrypt, $Plaintext*, int8_t, $ByteBuffer*, $bytes*), "java.security.GeneralSecurityException"},
+	{"dispose", "()V", nullptr, 0, $virtualMethod(SSLCipher$StreamReadCipherGenerator$StreamReadCipher, dispose, void)},
+	{"estimateFragmentSize", "(II)I", nullptr, 0, $virtualMethod(SSLCipher$StreamReadCipherGenerator$StreamReadCipher, estimateFragmentSize, int32_t, int32_t, int32_t)},
 	{}
 };
 

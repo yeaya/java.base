@@ -19,9 +19,9 @@ $FieldInfo _ShortSignature_FieldInfo_[] = {
 };
 
 $MethodInfo _ShortSignature_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(ShortSignature::*)()>(&ShortSignature::init$))},
-	{"accept", "(Lsun/reflect/generics/visitor/TypeTreeVisitor;)V", "(Lsun/reflect/generics/visitor/TypeTreeVisitor<*>;)V", $PUBLIC},
-	{"make", "()Lsun/reflect/generics/tree/ShortSignature;", nullptr, $PUBLIC | $STATIC, $method(static_cast<ShortSignature*(*)()>(&ShortSignature::make))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(ShortSignature, init$, void)},
+	{"accept", "(Lsun/reflect/generics/visitor/TypeTreeVisitor;)V", "(Lsun/reflect/generics/visitor/TypeTreeVisitor<*>;)V", $PUBLIC, $virtualMethod(ShortSignature, accept, void, $TypeTreeVisitor*)},
+	{"make", "()Lsun/reflect/generics/tree/ShortSignature;", nullptr, $PUBLIC | $STATIC, $staticMethod(ShortSignature, make, ShortSignature*)},
 	{}
 };
 

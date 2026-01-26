@@ -25,9 +25,9 @@ $FieldInfo _Preconditions$1_FieldInfo_[] = {
 };
 
 $MethodInfo _Preconditions$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/function/Function;)V", "()V", 0, $method(static_cast<void(Preconditions$1::*)($Function*)>(&Preconditions$1::init$))},
-	{"apply", "(Ljava/lang/String;Ljava/util/List;)Ljava/lang/RuntimeException;", "(Ljava/lang/String;Ljava/util/List<Ljava/lang/Number;>;)TX;", $PUBLIC},
-	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "(Ljava/util/function/Function;)V", "()V", 0, $method(Preconditions$1, init$, void, $Function*)},
+	{"apply", "(Ljava/lang/String;Ljava/util/List;)Ljava/lang/RuntimeException;", "(Ljava/lang/String;Ljava/util/List<Ljava/lang/Number;>;)TX;", $PUBLIC, $virtualMethod(Preconditions$1, apply, $RuntimeException*, $String*, $List*)},
+	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Preconditions$1, apply, $Object*, Object$*, Object$*)},
 	{}
 };
 

@@ -10,7 +10,7 @@ namespace java {
 	namespace util {
 
 $MethodInfo _ArraysParallelSortHelpers_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ArraysParallelSortHelpers::*)()>(&ArraysParallelSortHelpers::init$))},
+	{"<init>", "()V", nullptr, 0, $method(ArraysParallelSortHelpers, init$, void)},
 	{}
 };
 

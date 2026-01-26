@@ -24,9 +24,9 @@ $FieldInfo _GetXSpace$DenyFSA_FieldInfo_[] = {
 };
 
 $MethodInfo _GetXSpace$DenyFSA_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(GetXSpace$DenyFSA::*)()>(&GetXSpace$DenyFSA::init$))},
-	{"checkPermission", "(Ljava/security/Permission;)V", nullptr, $PUBLIC},
-	{"checkPermission", "(Ljava/security/Permission;Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(GetXSpace$DenyFSA, init$, void)},
+	{"checkPermission", "(Ljava/security/Permission;)V", nullptr, $PUBLIC, $virtualMethod(GetXSpace$DenyFSA, checkPermission, void, $Permission*)},
+	{"checkPermission", "(Ljava/security/Permission;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(GetXSpace$DenyFSA, checkPermission, void, $Permission*, Object$*)},
 	{}
 };
 

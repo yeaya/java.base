@@ -26,8 +26,8 @@ $FieldInfo _ProviderVerifier$1_FieldInfo_[] = {
 };
 
 $MethodInfo _ProviderVerifier$1_MethodInfo_[] = {
-	{"<init>", "(Ljavax/crypto/ProviderVerifier;Ljava/net/URL;)V", "()V", 0, $method(static_cast<void(ProviderVerifier$1::*)($ProviderVerifier*,$URL*)>(&ProviderVerifier$1::init$))},
-	{"run", "()Ljava/util/jar/JarFile;", nullptr, $PUBLIC, nullptr, "java.lang.Exception"},
+	{"<init>", "(Ljavax/crypto/ProviderVerifier;Ljava/net/URL;)V", "()V", 0, $method(ProviderVerifier$1, init$, void, $ProviderVerifier*, $URL*)},
+	{"run", "()Ljava/util/jar/JarFile;", nullptr, $PUBLIC, $virtualMethod(ProviderVerifier$1, run, $Object*), "java.lang.Exception"},
 	{}
 };
 

@@ -78,19 +78,19 @@ $FieldInfo _PKCS10_FieldInfo_[] = {
 };
 
 $MethodInfo _PKCS10_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/PublicKey;)V", nullptr, $PUBLIC, $method(static_cast<void(PKCS10::*)($PublicKey*)>(&PKCS10::init$))},
-	{"<init>", "(Ljava/security/PublicKey;Lsun/security/pkcs10/PKCS10Attributes;)V", nullptr, $PUBLIC, $method(static_cast<void(PKCS10::*)($PublicKey*,$PKCS10Attributes*)>(&PKCS10::init$))},
-	{"<init>", "([B)V", nullptr, $PUBLIC, $method(static_cast<void(PKCS10::*)($bytes*)>(&PKCS10::init$)), "java.io.IOException,java.security.SignatureException,java.security.NoSuchAlgorithmException"},
-	{"encodeAndSign", "(Lsun/security/x509/X500Name;Ljava/security/PrivateKey;Ljava/lang/String;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException,java.security.SignatureException,java.security.NoSuchAlgorithmException,java.security.InvalidKeyException"},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getAttributes", "()Lsun/security/pkcs10/PKCS10Attributes;", nullptr, $PUBLIC},
-	{"getEncoded", "()[B", nullptr, $PUBLIC},
-	{"getSigAlg", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getSubjectName", "()Lsun/security/x509/X500Name;", nullptr, $PUBLIC},
-	{"getSubjectPublicKeyInfo", "()Ljava/security/PublicKey;", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"print", "(Ljava/io/PrintStream;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException,java.security.SignatureException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/security/PublicKey;)V", nullptr, $PUBLIC, $method(PKCS10, init$, void, $PublicKey*)},
+	{"<init>", "(Ljava/security/PublicKey;Lsun/security/pkcs10/PKCS10Attributes;)V", nullptr, $PUBLIC, $method(PKCS10, init$, void, $PublicKey*, $PKCS10Attributes*)},
+	{"<init>", "([B)V", nullptr, $PUBLIC, $method(PKCS10, init$, void, $bytes*), "java.io.IOException,java.security.SignatureException,java.security.NoSuchAlgorithmException"},
+	{"encodeAndSign", "(Lsun/security/x509/X500Name;Ljava/security/PrivateKey;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(PKCS10, encodeAndSign, void, $X500Name*, $PrivateKey*, $String*), "java.io.IOException,java.security.SignatureException,java.security.NoSuchAlgorithmException,java.security.InvalidKeyException"},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(PKCS10, equals, bool, Object$*)},
+	{"getAttributes", "()Lsun/security/pkcs10/PKCS10Attributes;", nullptr, $PUBLIC, $virtualMethod(PKCS10, getAttributes, $PKCS10Attributes*)},
+	{"getEncoded", "()[B", nullptr, $PUBLIC, $virtualMethod(PKCS10, getEncoded, $bytes*)},
+	{"getSigAlg", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PKCS10, getSigAlg, $String*)},
+	{"getSubjectName", "()Lsun/security/x509/X500Name;", nullptr, $PUBLIC, $virtualMethod(PKCS10, getSubjectName, $X500Name*)},
+	{"getSubjectPublicKeyInfo", "()Ljava/security/PublicKey;", nullptr, $PUBLIC, $virtualMethod(PKCS10, getSubjectPublicKeyInfo, $PublicKey*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(PKCS10, hashCode, int32_t)},
+	{"print", "(Ljava/io/PrintStream;)V", nullptr, $PUBLIC, $virtualMethod(PKCS10, print, void, $PrintStream*), "java.io.IOException,java.security.SignatureException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PKCS10, toString, $String*)},
 	{}
 };
 

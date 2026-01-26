@@ -60,7 +60,7 @@ $FieldInfo _KeyShareExtension_FieldInfo_[] = {
 };
 
 $MethodInfo _KeyShareExtension_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(KeyShareExtension::*)()>(&KeyShareExtension::init$))},
+	{"<init>", "()V", nullptr, 0, $method(KeyShareExtension, init$, void)},
 	{}
 };
 

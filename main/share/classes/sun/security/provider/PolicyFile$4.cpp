@@ -41,8 +41,8 @@ $FieldInfo _PolicyFile$4_FieldInfo_[] = {
 };
 
 $MethodInfo _PolicyFile$4_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/provider/PolicyFile;Ljava/lang/String;Lsun/security/provider/PolicyFile$PolicyInfo;Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(PolicyFile$4::*)($PolicyFile*,$String*,$PolicyFile$PolicyInfo*,$String*)>(&PolicyFile$4::init$))},
-	{"run", "()Ljava/lang/Boolean;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/security/provider/PolicyFile;Ljava/lang/String;Lsun/security/provider/PolicyFile$PolicyInfo;Ljava/lang/String;)V", nullptr, 0, $method(PolicyFile$4, init$, void, $PolicyFile*, $String*, $PolicyFile$PolicyInfo*, $String*)},
+	{"run", "()Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(PolicyFile$4, run, $Object*)},
 	{}
 };
 

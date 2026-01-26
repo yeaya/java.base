@@ -31,14 +31,14 @@ $FieldInfo _OCSPResponse$IssuerInfo_FieldInfo_[] = {
 };
 
 $MethodInfo _OCSPResponse$IssuerInfo_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/cert/TrustAnchor;)V", nullptr, 0, $method(static_cast<void(OCSPResponse$IssuerInfo::*)($TrustAnchor*)>(&OCSPResponse$IssuerInfo::init$))},
-	{"<init>", "(Ljava/security/cert/X509Certificate;)V", nullptr, 0, $method(static_cast<void(OCSPResponse$IssuerInfo::*)($X509Certificate*)>(&OCSPResponse$IssuerInfo::init$))},
-	{"<init>", "(Ljava/security/cert/TrustAnchor;Ljava/security/cert/X509Certificate;)V", nullptr, 0, $method(static_cast<void(OCSPResponse$IssuerInfo::*)($TrustAnchor*,$X509Certificate*)>(&OCSPResponse$IssuerInfo::init$))},
-	{"getAnchor", "()Ljava/security/cert/TrustAnchor;", nullptr, 0, $method(static_cast<$TrustAnchor*(OCSPResponse$IssuerInfo::*)()>(&OCSPResponse$IssuerInfo::getAnchor))},
-	{"getCertificate", "()Ljava/security/cert/X509Certificate;", nullptr, 0, $method(static_cast<$X509Certificate*(OCSPResponse$IssuerInfo::*)()>(&OCSPResponse$IssuerInfo::getCertificate))},
-	{"getName", "()Ljavax/security/auth/x500/X500Principal;", nullptr, 0, $method(static_cast<$X500Principal*(OCSPResponse$IssuerInfo::*)()>(&OCSPResponse$IssuerInfo::getName))},
-	{"getPublicKey", "()Ljava/security/PublicKey;", nullptr, 0, $method(static_cast<$PublicKey*(OCSPResponse$IssuerInfo::*)()>(&OCSPResponse$IssuerInfo::getPublicKey))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/security/cert/TrustAnchor;)V", nullptr, 0, $method(OCSPResponse$IssuerInfo, init$, void, $TrustAnchor*)},
+	{"<init>", "(Ljava/security/cert/X509Certificate;)V", nullptr, 0, $method(OCSPResponse$IssuerInfo, init$, void, $X509Certificate*)},
+	{"<init>", "(Ljava/security/cert/TrustAnchor;Ljava/security/cert/X509Certificate;)V", nullptr, 0, $method(OCSPResponse$IssuerInfo, init$, void, $TrustAnchor*, $X509Certificate*)},
+	{"getAnchor", "()Ljava/security/cert/TrustAnchor;", nullptr, 0, $method(OCSPResponse$IssuerInfo, getAnchor, $TrustAnchor*)},
+	{"getCertificate", "()Ljava/security/cert/X509Certificate;", nullptr, 0, $method(OCSPResponse$IssuerInfo, getCertificate, $X509Certificate*)},
+	{"getName", "()Ljavax/security/auth/x500/X500Principal;", nullptr, 0, $method(OCSPResponse$IssuerInfo, getName, $X500Principal*)},
+	{"getPublicKey", "()Ljava/security/PublicKey;", nullptr, 0, $method(OCSPResponse$IssuerInfo, getPublicKey, $PublicKey*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(OCSPResponse$IssuerInfo, toString, $String*)},
 	{}
 };
 

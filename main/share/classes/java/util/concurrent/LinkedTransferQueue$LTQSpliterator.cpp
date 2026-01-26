@@ -42,14 +42,14 @@ $FieldInfo _LinkedTransferQueue$LTQSpliterator_FieldInfo_[] = {
 };
 
 $MethodInfo _LinkedTransferQueue$LTQSpliterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/LinkedTransferQueue;)V", nullptr, 0, $method(static_cast<void(LinkedTransferQueue$LTQSpliterator::*)($LinkedTransferQueue*)>(&LinkedTransferQueue$LTQSpliterator::init$))},
-	{"characteristics", "()I", nullptr, $PUBLIC},
-	{"current", "()Ljava/util/concurrent/LinkedTransferQueue$Node;", nullptr, $PRIVATE, $method(static_cast<$LinkedTransferQueue$Node*(LinkedTransferQueue$LTQSpliterator::*)()>(&LinkedTransferQueue$LTQSpliterator::current))},
-	{"estimateSize", "()J", nullptr, $PUBLIC},
-	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC},
-	{"setCurrent", "(Ljava/util/concurrent/LinkedTransferQueue$Node;)V", nullptr, $PRIVATE, $method(static_cast<void(LinkedTransferQueue$LTQSpliterator::*)($LinkedTransferQueue$Node*)>(&LinkedTransferQueue$LTQSpliterator::setCurrent))},
-	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-TE;>;)Z", $PUBLIC},
-	{"trySplit", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TE;>;", $PUBLIC},
+	{"<init>", "(Ljava/util/concurrent/LinkedTransferQueue;)V", nullptr, 0, $method(LinkedTransferQueue$LTQSpliterator, init$, void, $LinkedTransferQueue*)},
+	{"characteristics", "()I", nullptr, $PUBLIC, $virtualMethod(LinkedTransferQueue$LTQSpliterator, characteristics, int32_t)},
+	{"current", "()Ljava/util/concurrent/LinkedTransferQueue$Node;", nullptr, $PRIVATE, $method(LinkedTransferQueue$LTQSpliterator, current, $LinkedTransferQueue$Node*)},
+	{"estimateSize", "()J", nullptr, $PUBLIC, $virtualMethod(LinkedTransferQueue$LTQSpliterator, estimateSize, int64_t)},
+	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC, $virtualMethod(LinkedTransferQueue$LTQSpliterator, forEachRemaining, void, $Consumer*)},
+	{"setCurrent", "(Ljava/util/concurrent/LinkedTransferQueue$Node;)V", nullptr, $PRIVATE, $method(LinkedTransferQueue$LTQSpliterator, setCurrent, void, $LinkedTransferQueue$Node*)},
+	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-TE;>;)Z", $PUBLIC, $virtualMethod(LinkedTransferQueue$LTQSpliterator, tryAdvance, bool, $Consumer*)},
+	{"trySplit", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TE;>;", $PUBLIC, $virtualMethod(LinkedTransferQueue$LTQSpliterator, trySplit, $Spliterator*)},
 	{}
 };
 

@@ -13,7 +13,7 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $ProcessBuilder = ::java::lang::ProcessBuilder;
 
 $MethodInfo _WindowsTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(WindowsTest::*)()>(&WindowsTest::init$)), "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsTest, init$, void), "java.io.IOException"},
 	{}
 };
 

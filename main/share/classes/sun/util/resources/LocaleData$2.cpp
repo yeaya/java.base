@@ -37,8 +37,8 @@ $FieldInfo _LocaleData$2_FieldInfo_[] = {
 };
 
 $MethodInfo _LocaleData$2_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/util/Locale;)V", nullptr, 0, $method(static_cast<void(LocaleData$2::*)($String*,$Locale*)>(&LocaleData$2::init$))},
-	{"run", "()Lsun/util/resources/OpenListResourceBundle;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Ljava/util/Locale;)V", nullptr, 0, $method(LocaleData$2, init$, void, $String*, $Locale*)},
+	{"run", "()Lsun/util/resources/OpenListResourceBundle;", nullptr, $PUBLIC, $virtualMethod(LocaleData$2, run, $Object*)},
 	{}
 };
 

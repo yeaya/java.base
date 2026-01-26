@@ -25,17 +25,17 @@ $FieldInfo _FloatDoubleValueTests_FieldInfo_[] = {
 };
 
 $MethodInfo _FloatDoubleValueTests_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(FloatDoubleValueTests::*)()>(&FloatDoubleValueTests::init$))},
-	{"checkDouble", "(Ljava/math/BigDecimal;D)V", nullptr, $STATIC, $method(static_cast<void(*)($BigDecimal*,double)>(&FloatDoubleValueTests::checkDouble))},
-	{"checkFloat", "(Ljava/math/BigDecimal;F)V", nullptr, $STATIC, $method(static_cast<void(*)($BigDecimal*,float)>(&FloatDoubleValueTests::checkFloat))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&FloatDoubleValueTests::main)), "java.lang.Exception"},
-	{"testDoubleValue", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&FloatDoubleValueTests::testDoubleValue))},
-	{"testDoubleValue0", "(JLjava/math/BigDecimal;)V", nullptr, $STATIC, $method(static_cast<void(*)(int64_t,$BigDecimal*)>(&FloatDoubleValueTests::testDoubleValue0))},
-	{"testDoubleValue1", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&FloatDoubleValueTests::testDoubleValue1))},
-	{"testFloatDoubleValue", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&FloatDoubleValueTests::testFloatDoubleValue))},
-	{"testFloatValue", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&FloatDoubleValueTests::testFloatValue))},
-	{"testFloatValue0", "(JLjava/math/BigDecimal;)V", nullptr, $STATIC, $method(static_cast<void(*)(int64_t,$BigDecimal*)>(&FloatDoubleValueTests::testFloatValue0))},
-	{"testFloatValue1", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&FloatDoubleValueTests::testFloatValue1))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(FloatDoubleValueTests, init$, void)},
+	{"checkDouble", "(Ljava/math/BigDecimal;D)V", nullptr, $STATIC, $staticMethod(FloatDoubleValueTests, checkDouble, void, $BigDecimal*, double)},
+	{"checkFloat", "(Ljava/math/BigDecimal;F)V", nullptr, $STATIC, $staticMethod(FloatDoubleValueTests, checkFloat, void, $BigDecimal*, float)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(FloatDoubleValueTests, main, void, $StringArray*), "java.lang.Exception"},
+	{"testDoubleValue", "()V", nullptr, $STATIC, $staticMethod(FloatDoubleValueTests, testDoubleValue, void)},
+	{"testDoubleValue0", "(JLjava/math/BigDecimal;)V", nullptr, $STATIC, $staticMethod(FloatDoubleValueTests, testDoubleValue0, void, int64_t, $BigDecimal*)},
+	{"testDoubleValue1", "()V", nullptr, $STATIC, $staticMethod(FloatDoubleValueTests, testDoubleValue1, void)},
+	{"testFloatDoubleValue", "()V", nullptr, $STATIC, $staticMethod(FloatDoubleValueTests, testFloatDoubleValue, void)},
+	{"testFloatValue", "()V", nullptr, $STATIC, $staticMethod(FloatDoubleValueTests, testFloatValue, void)},
+	{"testFloatValue0", "(JLjava/math/BigDecimal;)V", nullptr, $STATIC, $staticMethod(FloatDoubleValueTests, testFloatValue0, void, int64_t, $BigDecimal*)},
+	{"testFloatValue1", "()V", nullptr, $STATIC, $staticMethod(FloatDoubleValueTests, testFloatValue1, void)},
 	{}
 };
 

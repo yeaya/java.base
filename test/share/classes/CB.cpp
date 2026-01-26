@@ -22,8 +22,8 @@ $CompoundAttribute _CB_MethodAnnotations_bar1[] = {
 };
 
 $MethodInfo _CB_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(CB::*)()>(&CB::init$))},
-	{"bar", "()V", nullptr, $PUBLIC, nullptr, nullptr, nullptr, _CB_MethodAnnotations_bar1},
+	{"<init>", "()V", nullptr, 0, $method(CB, init$, void)},
+	{"bar", "()V", nullptr, $PUBLIC, $virtualMethod(CB, bar, void), nullptr, nullptr, _CB_MethodAnnotations_bar1},
 	{}
 };
 

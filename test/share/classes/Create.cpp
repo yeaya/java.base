@@ -17,9 +17,9 @@ $FieldInfo _Create_FieldInfo_[] = {
 };
 
 $MethodInfo _Create_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Create::*)()>(&Create::init$))},
-	{"createFileName", "(I)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)(int32_t)>(&Create::createFileName))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Create::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Create, init$, void)},
+	{"createFileName", "(I)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Create, createFileName, $String*, int32_t)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Create, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

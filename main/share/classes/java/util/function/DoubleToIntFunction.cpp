@@ -16,7 +16,7 @@ $CompoundAttribute _DoubleToIntFunction_Annotations_[] = {
 };
 
 $MethodInfo _DoubleToIntFunction_MethodInfo_[] = {
-	{"applyAsInt", "(D)I", nullptr, $PUBLIC | $ABSTRACT},
+	{"applyAsInt", "(D)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DoubleToIntFunction, applyAsInt, int32_t, double)},
 	{}
 };
 

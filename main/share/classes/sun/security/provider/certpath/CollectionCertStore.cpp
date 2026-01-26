@@ -47,9 +47,9 @@ $FieldInfo _CollectionCertStore_FieldInfo_[] = {
 };
 
 $MethodInfo _CollectionCertStore_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/cert/CertStoreParameters;)V", nullptr, $PUBLIC, $method(static_cast<void(CollectionCertStore::*)($CertStoreParameters*)>(&CollectionCertStore::init$)), "java.security.InvalidAlgorithmParameterException"},
-	{"engineGetCRLs", "(Ljava/security/cert/CRLSelector;)Ljava/util/Collection;", "(Ljava/security/cert/CRLSelector;)Ljava/util/Collection<Ljava/security/cert/CRL;>;", $PUBLIC, nullptr, "java.security.cert.CertStoreException"},
-	{"engineGetCertificates", "(Ljava/security/cert/CertSelector;)Ljava/util/Collection;", "(Ljava/security/cert/CertSelector;)Ljava/util/Collection<Ljava/security/cert/Certificate;>;", $PUBLIC, nullptr, "java.security.cert.CertStoreException"},
+	{"<init>", "(Ljava/security/cert/CertStoreParameters;)V", nullptr, $PUBLIC, $method(CollectionCertStore, init$, void, $CertStoreParameters*), "java.security.InvalidAlgorithmParameterException"},
+	{"engineGetCRLs", "(Ljava/security/cert/CRLSelector;)Ljava/util/Collection;", "(Ljava/security/cert/CRLSelector;)Ljava/util/Collection<Ljava/security/cert/CRL;>;", $PUBLIC, $virtualMethod(CollectionCertStore, engineGetCRLs, $Collection*, $CRLSelector*), "java.security.cert.CertStoreException"},
+	{"engineGetCertificates", "(Ljava/security/cert/CertSelector;)Ljava/util/Collection;", "(Ljava/security/cert/CertSelector;)Ljava/util/Collection<Ljava/security/cert/Certificate;>;", $PUBLIC, $virtualMethod(CollectionCertStore, engineGetCertificates, $Collection*, $CertSelector*), "java.security.cert.CertStoreException"},
 	{}
 };
 

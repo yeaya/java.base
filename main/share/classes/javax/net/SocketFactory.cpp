@@ -13,6 +13,7 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
+using $InetAddress = ::java::net::InetAddress;
 using $Socket = ::java::net::Socket;
 using $SocketException = ::java::net::SocketException;
 using $DefaultSocketFactory = ::javax::net::DefaultSocketFactory;
@@ -26,13 +27,13 @@ $FieldInfo _SocketFactory_FieldInfo_[] = {
 };
 
 $MethodInfo _SocketFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(SocketFactory::*)()>(&SocketFactory::init$))},
-	{"createSocket", "()Ljava/net/Socket;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"createSocket", "(Ljava/lang/String;I)Ljava/net/Socket;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException,java.net.UnknownHostException"},
-	{"createSocket", "(Ljava/lang/String;ILjava/net/InetAddress;I)Ljava/net/Socket;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException,java.net.UnknownHostException"},
-	{"createSocket", "(Ljava/net/InetAddress;I)Ljava/net/Socket;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"createSocket", "(Ljava/net/InetAddress;ILjava/net/InetAddress;I)Ljava/net/Socket;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"getDefault", "()Ljavax/net/SocketFactory;", nullptr, $PUBLIC | $STATIC, $method(static_cast<SocketFactory*(*)()>(&SocketFactory::getDefault))},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(SocketFactory, init$, void)},
+	{"createSocket", "()Ljava/net/Socket;", nullptr, $PUBLIC, $virtualMethod(SocketFactory, createSocket, $Socket*), "java.io.IOException"},
+	{"createSocket", "(Ljava/lang/String;I)Ljava/net/Socket;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SocketFactory, createSocket, $Socket*, $String*, int32_t), "java.io.IOException,java.net.UnknownHostException"},
+	{"createSocket", "(Ljava/lang/String;ILjava/net/InetAddress;I)Ljava/net/Socket;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SocketFactory, createSocket, $Socket*, $String*, int32_t, $InetAddress*, int32_t), "java.io.IOException,java.net.UnknownHostException"},
+	{"createSocket", "(Ljava/net/InetAddress;I)Ljava/net/Socket;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SocketFactory, createSocket, $Socket*, $InetAddress*, int32_t), "java.io.IOException"},
+	{"createSocket", "(Ljava/net/InetAddress;ILjava/net/InetAddress;I)Ljava/net/Socket;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SocketFactory, createSocket, $Socket*, $InetAddress*, int32_t, $InetAddress*, int32_t), "java.io.IOException"},
+	{"getDefault", "()Ljavax/net/SocketFactory;", nullptr, $PUBLIC | $STATIC, $staticMethod(SocketFactory, getDefault, SocketFactory*)},
 	{}
 };
 

@@ -7,10 +7,10 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _Test_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Test::*)()>(&Test::init$))},
-	{"aa", "()I", nullptr, 0},
-	{"aa2", "()I", nullptr, 0},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<void(*)($StringArray*)>(&Test::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Test, init$, void)},
+	{"aa", "()I", nullptr, 0, $virtualMethod(Test, aa, int32_t)},
+	{"aa2", "()I", nullptr, 0, $virtualMethod(Test, aa2, int32_t)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(Test, main, void, $StringArray*)},
 	{}
 };
 

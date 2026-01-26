@@ -31,12 +31,12 @@ $MethodInfo _CompletableFuture$Signaller_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(ZJJ)V", nullptr, 0, $method(static_cast<void(CompletableFuture$Signaller::*)(bool,int64_t,int64_t)>(&CompletableFuture$Signaller::init$))},
-	{"block", "()Z", nullptr, $PUBLIC},
-	{"isLive", "()Z", nullptr, $FINAL},
-	{"isReleasable", "()Z", nullptr, $PUBLIC},
+	{"<init>", "(ZJJ)V", nullptr, 0, $method(CompletableFuture$Signaller, init$, void, bool, int64_t, int64_t)},
+	{"block", "()Z", nullptr, $PUBLIC, $virtualMethod(CompletableFuture$Signaller, block, bool)},
+	{"isLive", "()Z", nullptr, $FINAL, $virtualMethod(CompletableFuture$Signaller, isLive, bool)},
+	{"isReleasable", "()Z", nullptr, $PUBLIC, $virtualMethod(CompletableFuture$Signaller, isReleasable, bool)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"tryFire", "(I)Ljava/util/concurrent/CompletableFuture;", "(I)Ljava/util/concurrent/CompletableFuture<*>;", $FINAL},
+	{"tryFire", "(I)Ljava/util/concurrent/CompletableFuture;", "(I)Ljava/util/concurrent/CompletableFuture<*>;", $FINAL, $virtualMethod(CompletableFuture$Signaller, tryFire, $CompletableFuture*, int32_t)},
 	{}
 };
 

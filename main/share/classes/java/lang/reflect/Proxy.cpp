@@ -131,8 +131,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Proxy$$Lambda$lambda$getProxyConstructor$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Proxy$$Lambda$lambda$getProxyConstructor$0::*)()>(&Proxy$$Lambda$lambda$getProxyConstructor$0::init$))},
-	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Proxy$$Lambda$lambda$getProxyConstructor$0, init$, void)},
+	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Proxy$$Lambda$lambda$getProxyConstructor$0, apply, $Object*, Object$*, Object$*)},
 	{}
 };
 $ClassInfo Proxy$$Lambda$lambda$getProxyConstructor$0::classInfo$ = {
@@ -164,8 +164,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Proxy$$Lambda$lambda$getProxyConstructor$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Proxy$$Lambda$lambda$getProxyConstructor$1$1::*)()>(&Proxy$$Lambda$lambda$getProxyConstructor$1$1::init$))},
-	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Proxy$$Lambda$lambda$getProxyConstructor$1$1, init$, void)},
+	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Proxy$$Lambda$lambda$getProxyConstructor$1$1, apply, $Object*, Object$*, Object$*)},
 	{}
 };
 $ClassInfo Proxy$$Lambda$lambda$getProxyConstructor$1$1::classInfo$ = {
@@ -204,8 +204,8 @@ $FieldInfo Proxy$$Lambda$getClassLoader$2::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Proxy$$Lambda$getClassLoader$2::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/Module;)V", nullptr, $PUBLIC, $method(static_cast<void(Proxy$$Lambda$getClassLoader$2::*)($Module*)>(&Proxy$$Lambda$getClassLoader$2::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Module;)V", nullptr, $PUBLIC, $method(Proxy$$Lambda$getClassLoader$2, init$, void, $Module*)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Proxy$$Lambda$getClassLoader$2, run, $Object*)},
 	{}
 };
 $ClassInfo Proxy$$Lambda$getClassLoader$2::classInfo$ = {
@@ -250,8 +250,8 @@ $FieldInfo Proxy$$Lambda$lambda$defaultMethodHandle$2$3::fieldInfos[4] = {
 	{}
 };
 $MethodInfo Proxy$$Lambda$lambda$defaultMethodHandle$2$3::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;Ljava/lang/Class;)V", nullptr, $PUBLIC, $method(static_cast<void(Proxy$$Lambda$lambda$defaultMethodHandle$2$3::*)($MethodHandle*,$MethodType*,$Class*)>(&Proxy$$Lambda$lambda$defaultMethodHandle$2$3::init$))},
-	{"getAsBoolean", "()Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;Ljava/lang/Class;)V", nullptr, $PUBLIC, $method(Proxy$$Lambda$lambda$defaultMethodHandle$2$3, init$, void, $MethodHandle*, $MethodType*, $Class*)},
+	{"getAsBoolean", "()Z", nullptr, $PUBLIC, $virtualMethod(Proxy$$Lambda$lambda$defaultMethodHandle$2$3, getAsBoolean, bool)},
 	{}
 };
 $ClassInfo Proxy$$Lambda$lambda$defaultMethodHandle$2$3::classInfo$ = {
@@ -297,24 +297,24 @@ $FieldInfo _Proxy_FieldInfo_[] = {
 };
 
 $MethodInfo _Proxy_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(Proxy::*)()>(&Proxy::init$))},
-	{"<init>", "(Ljava/lang/reflect/InvocationHandler;)V", nullptr, $PROTECTED, $method(static_cast<void(Proxy::*)($InvocationHandler*)>(&Proxy::init$))},
-	{"checkNewProxyPermission", "(Ljava/lang/Class;Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)V", $PRIVATE | $STATIC, $method(static_cast<void(*)($Class*,$Class*)>(&Proxy::checkNewProxyPermission))},
-	{"checkProxyAccess", "(Ljava/lang/Class;Ljava/lang/ClassLoader;[Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;Ljava/lang/ClassLoader;[Ljava/lang/Class<*>;)V", $PRIVATE | $STATIC | $TRANSIENT, $method(static_cast<void(*)($Class*,$ClassLoader*,$ClassArray*)>(&Proxy::checkProxyAccess))},
-	{"defaultMethodHandle", "(Ljava/lang/Class;Ljava/lang/reflect/Method;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<+Ljava/lang/reflect/Proxy;>;Ljava/lang/reflect/Method;)Ljava/lang/invoke/MethodHandle;", $STATIC, $method(static_cast<$MethodHandle*(*)($Class*,$Method*)>(&Proxy::defaultMethodHandle))},
-	{"defaultMethodMap", "(Ljava/lang/Class;)Ljava/util/concurrent/ConcurrentHashMap;", "(Ljava/lang/Class<*>;)Ljava/util/concurrent/ConcurrentHashMap<Ljava/lang/reflect/Method;Ljava/lang/invoke/MethodHandle;>;", $PRIVATE | $STATIC, $method(static_cast<$ConcurrentHashMap*(*)($Class*)>(&Proxy::defaultMethodMap))},
-	{"findProxyInterfaceOrElseThrow", "(Ljava/lang/Class;Ljava/lang/reflect/Method;)Ljava/lang/Class;", "(Ljava/lang/Class<*>;Ljava/lang/reflect/Method;)Ljava/lang/Class<*>;", $PRIVATE | $STATIC, $method(static_cast<$Class*(*)($Class*,$Method*)>(&Proxy::findProxyInterfaceOrElseThrow))},
-	{"getInvocationHandler", "(Ljava/lang/Object;)Ljava/lang/reflect/InvocationHandler;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$InvocationHandler*(*)(Object$*)>(&Proxy::getInvocationHandler)), "java.lang.IllegalArgumentException", nullptr, _Proxy_MethodAnnotations_getInvocationHandler7},
-	{"getLoader", "(Ljava/lang/Module;)Ljava/lang/ClassLoader;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$ClassLoader*(*)($Module*)>(&Proxy::getLoader))},
-	{"getProxyClass", "(Ljava/lang/ClassLoader;[Ljava/lang/Class;)Ljava/lang/Class;", "(Ljava/lang/ClassLoader;[Ljava/lang/Class<*>;)Ljava/lang/Class<*>;", $PUBLIC | $STATIC | $TRANSIENT | $DEPRECATED, $method(static_cast<$Class*(*)($ClassLoader*,$ClassArray*)>(&Proxy::getProxyClass)), "java.lang.IllegalArgumentException", nullptr, _Proxy_MethodAnnotations_getProxyClass9},
-	{"getProxyConstructor", "(Ljava/lang/Class;Ljava/lang/ClassLoader;[Ljava/lang/Class;)Ljava/lang/reflect/Constructor;", "(Ljava/lang/Class<*>;Ljava/lang/ClassLoader;[Ljava/lang/Class<*>;)Ljava/lang/reflect/Constructor<*>;", $PRIVATE | $STATIC | $TRANSIENT, $method(static_cast<$Constructor*(*)($Class*,$ClassLoader*,$ClassArray*)>(&Proxy::getProxyConstructor))},
-	{"isProxyClass", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PUBLIC | $STATIC, $method(static_cast<bool(*)($Class*)>(&Proxy::isProxyClass))},
-	{"lambda$defaultMethodHandle$2", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;Ljava/lang/Class;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($MethodHandle*,$MethodType*,$Class*)>(&Proxy::lambda$defaultMethodHandle$2))},
-	{"lambda$getProxyConstructor$0", "(Ljava/lang/ClassLoader;Ljdk/internal/loader/AbstractClassLoaderValue$Sub;)Ljava/lang/reflect/Constructor;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Constructor*(*)($ClassLoader*,$AbstractClassLoaderValue$Sub*)>(&Proxy::lambda$getProxyConstructor$0))},
-	{"lambda$getProxyConstructor$1", "(Ljava/lang/ClassLoader;Ljdk/internal/loader/AbstractClassLoaderValue$Sub;)Ljava/lang/reflect/Constructor;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Constructor*(*)($ClassLoader*,$AbstractClassLoaderValue$Sub*)>(&Proxy::lambda$getProxyConstructor$1))},
-	{"newProxyInstance", "(Ljava/lang/ClassLoader;[Ljava/lang/Class;Ljava/lang/reflect/InvocationHandler;)Ljava/lang/Object;", "(Ljava/lang/ClassLoader;[Ljava/lang/Class<*>;Ljava/lang/reflect/InvocationHandler;)Ljava/lang/Object;", $PUBLIC | $STATIC, $method(static_cast<$Object*(*)($ClassLoader*,$ClassArray*,$InvocationHandler*)>(&Proxy::newProxyInstance)), nullptr, nullptr, _Proxy_MethodAnnotations_newProxyInstance15},
-	{"newProxyInstance", "(Ljava/lang/Class;Ljava/lang/reflect/Constructor;Ljava/lang/reflect/InvocationHandler;)Ljava/lang/Object;", "(Ljava/lang/Class<*>;Ljava/lang/reflect/Constructor<*>;Ljava/lang/reflect/InvocationHandler;)Ljava/lang/Object;", $PRIVATE | $STATIC, $method(static_cast<$Object*(*)($Class*,$Constructor*,$InvocationHandler*)>(&Proxy::newProxyInstance))},
-	{"proxyClassLookup", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/Class;)Ljava/lang/invoke/MethodHandles$Lookup;", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodHandles$Lookup;", $PRIVATE | $STATIC, $method(static_cast<$MethodHandles$Lookup*(*)($MethodHandles$Lookup*,$Class*)>(&Proxy::proxyClassLookup))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(Proxy, init$, void)},
+	{"<init>", "(Ljava/lang/reflect/InvocationHandler;)V", nullptr, $PROTECTED, $method(Proxy, init$, void, $InvocationHandler*)},
+	{"checkNewProxyPermission", "(Ljava/lang/Class;Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)V", $PRIVATE | $STATIC, $staticMethod(Proxy, checkNewProxyPermission, void, $Class*, $Class*)},
+	{"checkProxyAccess", "(Ljava/lang/Class;Ljava/lang/ClassLoader;[Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;Ljava/lang/ClassLoader;[Ljava/lang/Class<*>;)V", $PRIVATE | $STATIC | $TRANSIENT, $staticMethod(Proxy, checkProxyAccess, void, $Class*, $ClassLoader*, $ClassArray*)},
+	{"defaultMethodHandle", "(Ljava/lang/Class;Ljava/lang/reflect/Method;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<+Ljava/lang/reflect/Proxy;>;Ljava/lang/reflect/Method;)Ljava/lang/invoke/MethodHandle;", $STATIC, $staticMethod(Proxy, defaultMethodHandle, $MethodHandle*, $Class*, $Method*)},
+	{"defaultMethodMap", "(Ljava/lang/Class;)Ljava/util/concurrent/ConcurrentHashMap;", "(Ljava/lang/Class<*>;)Ljava/util/concurrent/ConcurrentHashMap<Ljava/lang/reflect/Method;Ljava/lang/invoke/MethodHandle;>;", $PRIVATE | $STATIC, $staticMethod(Proxy, defaultMethodMap, $ConcurrentHashMap*, $Class*)},
+	{"findProxyInterfaceOrElseThrow", "(Ljava/lang/Class;Ljava/lang/reflect/Method;)Ljava/lang/Class;", "(Ljava/lang/Class<*>;Ljava/lang/reflect/Method;)Ljava/lang/Class<*>;", $PRIVATE | $STATIC, $staticMethod(Proxy, findProxyInterfaceOrElseThrow, $Class*, $Class*, $Method*)},
+	{"getInvocationHandler", "(Ljava/lang/Object;)Ljava/lang/reflect/InvocationHandler;", nullptr, $PUBLIC | $STATIC, $staticMethod(Proxy, getInvocationHandler, $InvocationHandler*, Object$*), "java.lang.IllegalArgumentException", nullptr, _Proxy_MethodAnnotations_getInvocationHandler7},
+	{"getLoader", "(Ljava/lang/Module;)Ljava/lang/ClassLoader;", nullptr, $PRIVATE | $STATIC, $staticMethod(Proxy, getLoader, $ClassLoader*, $Module*)},
+	{"getProxyClass", "(Ljava/lang/ClassLoader;[Ljava/lang/Class;)Ljava/lang/Class;", "(Ljava/lang/ClassLoader;[Ljava/lang/Class<*>;)Ljava/lang/Class<*>;", $PUBLIC | $STATIC | $TRANSIENT | $DEPRECATED, $staticMethod(Proxy, getProxyClass, $Class*, $ClassLoader*, $ClassArray*), "java.lang.IllegalArgumentException", nullptr, _Proxy_MethodAnnotations_getProxyClass9},
+	{"getProxyConstructor", "(Ljava/lang/Class;Ljava/lang/ClassLoader;[Ljava/lang/Class;)Ljava/lang/reflect/Constructor;", "(Ljava/lang/Class<*>;Ljava/lang/ClassLoader;[Ljava/lang/Class<*>;)Ljava/lang/reflect/Constructor<*>;", $PRIVATE | $STATIC | $TRANSIENT, $staticMethod(Proxy, getProxyConstructor, $Constructor*, $Class*, $ClassLoader*, $ClassArray*)},
+	{"isProxyClass", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PUBLIC | $STATIC, $staticMethod(Proxy, isProxyClass, bool, $Class*)},
+	{"lambda$defaultMethodHandle$2", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;Ljava/lang/Class;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Proxy, lambda$defaultMethodHandle$2, bool, $MethodHandle*, $MethodType*, $Class*)},
+	{"lambda$getProxyConstructor$0", "(Ljava/lang/ClassLoader;Ljdk/internal/loader/AbstractClassLoaderValue$Sub;)Ljava/lang/reflect/Constructor;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Proxy, lambda$getProxyConstructor$0, $Constructor*, $ClassLoader*, $AbstractClassLoaderValue$Sub*)},
+	{"lambda$getProxyConstructor$1", "(Ljava/lang/ClassLoader;Ljdk/internal/loader/AbstractClassLoaderValue$Sub;)Ljava/lang/reflect/Constructor;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Proxy, lambda$getProxyConstructor$1, $Constructor*, $ClassLoader*, $AbstractClassLoaderValue$Sub*)},
+	{"newProxyInstance", "(Ljava/lang/ClassLoader;[Ljava/lang/Class;Ljava/lang/reflect/InvocationHandler;)Ljava/lang/Object;", "(Ljava/lang/ClassLoader;[Ljava/lang/Class<*>;Ljava/lang/reflect/InvocationHandler;)Ljava/lang/Object;", $PUBLIC | $STATIC, $staticMethod(Proxy, newProxyInstance, $Object*, $ClassLoader*, $ClassArray*, $InvocationHandler*), nullptr, nullptr, _Proxy_MethodAnnotations_newProxyInstance15},
+	{"newProxyInstance", "(Ljava/lang/Class;Ljava/lang/reflect/Constructor;Ljava/lang/reflect/InvocationHandler;)Ljava/lang/Object;", "(Ljava/lang/Class<*>;Ljava/lang/reflect/Constructor<*>;Ljava/lang/reflect/InvocationHandler;)Ljava/lang/Object;", $PRIVATE | $STATIC, $staticMethod(Proxy, newProxyInstance, $Object*, $Class*, $Constructor*, $InvocationHandler*)},
+	{"proxyClassLookup", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/Class;)Ljava/lang/invoke/MethodHandles$Lookup;", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodHandles$Lookup;", $PRIVATE | $STATIC, $staticMethod(Proxy, proxyClassLookup, $MethodHandles$Lookup*, $MethodHandles$Lookup*, $Class*)},
 	{}
 };
 

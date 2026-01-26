@@ -55,14 +55,14 @@ $FieldInfo _FileLockTable_FieldInfo_[] = {
 };
 
 $MethodInfo _FileLockTable_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/channels/Channel;Ljava/io/FileDescriptor;)V", nullptr, 0, $method(static_cast<void(FileLockTable::*)($Channel*,$FileDescriptor*)>(&FileLockTable::init$)), "java.io.IOException"},
-	{"add", "(Ljava/nio/channels/FileLock;)V", nullptr, 0, nullptr, "java.nio.channels.OverlappingFileLockException"},
-	{"checkList", "(Ljava/util/List;JJ)V", "(Ljava/util/List<Lsun/nio/ch/FileLockTable$FileLockReference;>;JJ)V", $PRIVATE, $method(static_cast<void(FileLockTable::*)($List*,int64_t,int64_t)>(&FileLockTable::checkList)), "java.nio.channels.OverlappingFileLockException"},
-	{"remove", "(Ljava/nio/channels/FileLock;)V", nullptr, 0},
-	{"removeAll", "()Ljava/util/List;", "()Ljava/util/List<Ljava/nio/channels/FileLock;>;", 0},
-	{"removeKeyIfEmpty", "(Lsun/nio/ch/FileKey;Ljava/util/List;)V", "(Lsun/nio/ch/FileKey;Ljava/util/List<Lsun/nio/ch/FileLockTable$FileLockReference;>;)V", $PRIVATE, $method(static_cast<void(FileLockTable::*)($FileKey*,$List*)>(&FileLockTable::removeKeyIfEmpty))},
-	{"removeStaleEntries", "()V", nullptr, $PRIVATE, $method(static_cast<void(FileLockTable::*)()>(&FileLockTable::removeStaleEntries))},
-	{"replace", "(Ljava/nio/channels/FileLock;Ljava/nio/channels/FileLock;)V", nullptr, 0},
+	{"<init>", "(Ljava/nio/channels/Channel;Ljava/io/FileDescriptor;)V", nullptr, 0, $method(FileLockTable, init$, void, $Channel*, $FileDescriptor*), "java.io.IOException"},
+	{"add", "(Ljava/nio/channels/FileLock;)V", nullptr, 0, $virtualMethod(FileLockTable, add, void, $FileLock*), "java.nio.channels.OverlappingFileLockException"},
+	{"checkList", "(Ljava/util/List;JJ)V", "(Ljava/util/List<Lsun/nio/ch/FileLockTable$FileLockReference;>;JJ)V", $PRIVATE, $method(FileLockTable, checkList, void, $List*, int64_t, int64_t), "java.nio.channels.OverlappingFileLockException"},
+	{"remove", "(Ljava/nio/channels/FileLock;)V", nullptr, 0, $virtualMethod(FileLockTable, remove, void, $FileLock*)},
+	{"removeAll", "()Ljava/util/List;", "()Ljava/util/List<Ljava/nio/channels/FileLock;>;", 0, $virtualMethod(FileLockTable, removeAll, $List*)},
+	{"removeKeyIfEmpty", "(Lsun/nio/ch/FileKey;Ljava/util/List;)V", "(Lsun/nio/ch/FileKey;Ljava/util/List<Lsun/nio/ch/FileLockTable$FileLockReference;>;)V", $PRIVATE, $method(FileLockTable, removeKeyIfEmpty, void, $FileKey*, $List*)},
+	{"removeStaleEntries", "()V", nullptr, $PRIVATE, $method(FileLockTable, removeStaleEntries, void)},
+	{"replace", "(Ljava/nio/channels/FileLock;Ljava/nio/channels/FileLock;)V", nullptr, 0, $virtualMethod(FileLockTable, replace, void, $FileLock*, $FileLock*)},
 	{}
 };
 

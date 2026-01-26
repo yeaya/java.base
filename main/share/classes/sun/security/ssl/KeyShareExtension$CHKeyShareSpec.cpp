@@ -58,9 +58,9 @@ $FieldInfo _KeyShareExtension$CHKeyShareSpec_FieldInfo_[] = {
 };
 
 $MethodInfo _KeyShareExtension$CHKeyShareSpec_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/List;)V", "(Ljava/util/List<Lsun/security/ssl/KeyShareExtension$KeyShareEntry;>;)V", $PRIVATE, $method(static_cast<void(KeyShareExtension$CHKeyShareSpec::*)($List*)>(&KeyShareExtension$CHKeyShareSpec::init$))},
-	{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE, $method(static_cast<void(KeyShareExtension$CHKeyShareSpec::*)($HandshakeContext*,$ByteBuffer*)>(&KeyShareExtension$CHKeyShareSpec::init$)), "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/List;)V", "(Ljava/util/List<Lsun/security/ssl/KeyShareExtension$KeyShareEntry;>;)V", $PRIVATE, $method(KeyShareExtension$CHKeyShareSpec, init$, void, $List*)},
+	{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE, $method(KeyShareExtension$CHKeyShareSpec, init$, void, $HandshakeContext*, $ByteBuffer*), "java.io.IOException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KeyShareExtension$CHKeyShareSpec, toString, $String*)},
 	{}
 };
 

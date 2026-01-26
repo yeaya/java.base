@@ -26,7 +26,7 @@ $FieldInfo _ClientKeyExchange_FieldInfo_[] = {
 };
 
 $MethodInfo _ClientKeyExchange_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ClientKeyExchange::*)()>(&ClientKeyExchange::init$))},
+	{"<init>", "()V", nullptr, 0, $method(ClientKeyExchange, init$, void)},
 	{}
 };
 

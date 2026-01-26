@@ -33,12 +33,12 @@ $FieldInfo _AbstractSpinedBuffer_FieldInfo_[] = {
 };
 
 $MethodInfo _AbstractSpinedBuffer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(AbstractSpinedBuffer::*)()>(&AbstractSpinedBuffer::init$))},
-	{"<init>", "(I)V", nullptr, $PROTECTED, $method(static_cast<void(AbstractSpinedBuffer::*)(int32_t)>(&AbstractSpinedBuffer::init$))},
-	{"chunkSize", "(I)I", nullptr, $PROTECTED},
-	{"clear", "()V", nullptr, $PUBLIC | $ABSTRACT},
-	{"count", "()J", nullptr, $PUBLIC},
-	{"isEmpty", "()Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(AbstractSpinedBuffer, init$, void)},
+	{"<init>", "(I)V", nullptr, $PROTECTED, $method(AbstractSpinedBuffer, init$, void, int32_t)},
+	{"chunkSize", "(I)I", nullptr, $PROTECTED, $virtualMethod(AbstractSpinedBuffer, chunkSize, int32_t, int32_t)},
+	{"clear", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AbstractSpinedBuffer, clear, void)},
+	{"count", "()J", nullptr, $PUBLIC, $virtualMethod(AbstractSpinedBuffer, count, int64_t)},
+	{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(AbstractSpinedBuffer, isEmpty, bool)},
 	{}
 };
 

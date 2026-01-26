@@ -31,10 +31,10 @@ $FieldInfo _Locale$FilteringMode_FieldInfo_[] = {
 };
 
 $MethodInfo _Locale$FilteringMode_MethodInfo_[] = {
-	{"$values", "()[Ljava/util/Locale$FilteringMode;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Locale$FilteringModeArray*(*)()>(&Locale$FilteringMode::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(Locale$FilteringMode::*)($String*,int32_t)>(&Locale$FilteringMode::init$))},
-	{"valueOf", "(Ljava/lang/String;)Ljava/util/Locale$FilteringMode;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Locale$FilteringMode*(*)($String*)>(&Locale$FilteringMode::valueOf))},
-	{"values", "()[Ljava/util/Locale$FilteringMode;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Locale$FilteringModeArray*(*)()>(&Locale$FilteringMode::values))},
+	{"$values", "()[Ljava/util/Locale$FilteringMode;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Locale$FilteringMode, $values, $Locale$FilteringModeArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Locale$FilteringMode, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Ljava/util/Locale$FilteringMode;", nullptr, $PUBLIC | $STATIC, $staticMethod(Locale$FilteringMode, valueOf, Locale$FilteringMode*, $String*)},
+	{"values", "()[Ljava/util/Locale$FilteringMode;", nullptr, $PUBLIC | $STATIC, $staticMethod(Locale$FilteringMode, values, $Locale$FilteringModeArray*)},
 	{}
 };
 

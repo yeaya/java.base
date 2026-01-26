@@ -16,7 +16,7 @@ $FieldInfo _BufferUnderflowException_FieldInfo_[] = {
 };
 
 $MethodInfo _BufferUnderflowException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(BufferUnderflowException::*)()>(&BufferUnderflowException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(BufferUnderflowException, init$, void)},
 	{}
 };
 

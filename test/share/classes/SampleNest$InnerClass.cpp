@@ -15,7 +15,7 @@ $FieldInfo _SampleNest$InnerClass_FieldInfo_[] = {
 };
 
 $MethodInfo _SampleNest$InnerClass_MethodInfo_[] = {
-	{"<init>", "(LSampleNest;)V", nullptr, 0, $method(static_cast<void(SampleNest$InnerClass::*)($SampleNest*)>(&SampleNest$InnerClass::init$))},
+	{"<init>", "(LSampleNest;)V", nullptr, 0, $method(SampleNest$InnerClass, init$, void, $SampleNest*)},
 	{}
 };
 

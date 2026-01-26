@@ -24,14 +24,14 @@ $FieldInfo _UnixMountEntry_FieldInfo_[] = {
 };
 
 $MethodInfo _UnixMountEntry_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(UnixMountEntry::*)()>(&UnixMountEntry::init$))},
-	{"dev", "()J", nullptr, 0},
-	{"dir", "()[B", nullptr, 0},
-	{"fstype", "()Ljava/lang/String;", nullptr, 0},
-	{"hasOption", "(Ljava/lang/String;)Z", nullptr, 0},
-	{"isIgnored", "()Z", nullptr, 0},
-	{"isReadOnly", "()Z", nullptr, 0},
-	{"name", "()Ljava/lang/String;", nullptr, 0},
+	{"<init>", "()V", nullptr, 0, $method(UnixMountEntry, init$, void)},
+	{"dev", "()J", nullptr, 0, $virtualMethod(UnixMountEntry, dev, int64_t)},
+	{"dir", "()[B", nullptr, 0, $virtualMethod(UnixMountEntry, dir, $bytes*)},
+	{"fstype", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(UnixMountEntry, fstype, $String*)},
+	{"hasOption", "(Ljava/lang/String;)Z", nullptr, 0, $virtualMethod(UnixMountEntry, hasOption, bool, $String*)},
+	{"isIgnored", "()Z", nullptr, 0, $virtualMethod(UnixMountEntry, isIgnored, bool)},
+	{"isReadOnly", "()Z", nullptr, 0, $virtualMethod(UnixMountEntry, isReadOnly, bool)},
+	{"name", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(UnixMountEntry, name, $String*)},
 	{}
 };
 

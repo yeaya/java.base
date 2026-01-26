@@ -26,7 +26,7 @@ $CompoundAttribute _SingleMemberDoubleArrOvrdDefClass_Annotations_[] = {
 };
 
 $MethodInfo _SingleMemberDoubleArrOvrdDefClass_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(SingleMemberDoubleArrOvrdDefClass::*)()>(&SingleMemberDoubleArrOvrdDefClass::init$))},
+	{"<init>", "()V", nullptr, 0, $method(SingleMemberDoubleArrOvrdDefClass, init$, void)},
 	{}
 };
 

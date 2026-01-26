@@ -50,11 +50,11 @@ $FieldInfo _ZipFile$ZipFileInflaterInputStream_FieldInfo_[] = {
 };
 
 $MethodInfo _ZipFile$ZipFileInflaterInputStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/zip/ZipFile;Ljava/util/zip/ZipFile$ZipFileInputStream;Ljava/util/zip/ZipFile$CleanableResource;I)V", nullptr, 0, $method(static_cast<void(ZipFile$ZipFileInflaterInputStream::*)($ZipFile*,$ZipFile$ZipFileInputStream*,$ZipFile$CleanableResource*,int32_t)>(&ZipFile$ZipFileInflaterInputStream::init$))},
-	{"<init>", "(Ljava/util/zip/ZipFile;Ljava/util/zip/ZipFile$ZipFileInputStream;Ljava/util/zip/ZipFile$CleanableResource;Ljava/util/zip/Inflater;I)V", nullptr, $PRIVATE, $method(static_cast<void(ZipFile$ZipFileInflaterInputStream::*)($ZipFile*,$ZipFile$ZipFileInputStream*,$ZipFile$CleanableResource*,$Inflater*,int32_t)>(&ZipFile$ZipFileInflaterInputStream::init$))},
-	{"available", "()I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"fill", "()V", nullptr, $PROTECTED, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljava/util/zip/ZipFile;Ljava/util/zip/ZipFile$ZipFileInputStream;Ljava/util/zip/ZipFile$CleanableResource;I)V", nullptr, 0, $method(ZipFile$ZipFileInflaterInputStream, init$, void, $ZipFile*, $ZipFile$ZipFileInputStream*, $ZipFile$CleanableResource*, int32_t)},
+	{"<init>", "(Ljava/util/zip/ZipFile;Ljava/util/zip/ZipFile$ZipFileInputStream;Ljava/util/zip/ZipFile$CleanableResource;Ljava/util/zip/Inflater;I)V", nullptr, $PRIVATE, $method(ZipFile$ZipFileInflaterInputStream, init$, void, $ZipFile*, $ZipFile$ZipFileInputStream*, $ZipFile$CleanableResource*, $Inflater*, int32_t)},
+	{"available", "()I", nullptr, $PUBLIC, $virtualMethod(ZipFile$ZipFileInflaterInputStream, available, int32_t), "java.io.IOException"},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(ZipFile$ZipFileInflaterInputStream, close, void), "java.io.IOException"},
+	{"fill", "()V", nullptr, $PROTECTED, $virtualMethod(ZipFile$ZipFileInflaterInputStream, fill, void), "java.io.IOException"},
 	{}
 };
 

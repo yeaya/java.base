@@ -29,8 +29,8 @@ $FieldInfo _Invoker$2_FieldInfo_[] = {
 };
 
 $MethodInfo _Invoker$2_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/channels/CompletionHandler;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Throwable;)V", "()V", 0, $method(static_cast<void(Invoker$2::*)($CompletionHandler*,Object$*,Object$*,$Throwable*)>(&Invoker$2::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/nio/channels/CompletionHandler;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Throwable;)V", "()V", 0, $method(Invoker$2, init$, void, $CompletionHandler*, Object$*, Object$*, $Throwable*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Invoker$2, run, void)},
 	{}
 };
 

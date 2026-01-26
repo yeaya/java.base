@@ -67,21 +67,21 @@ $FieldInfo _IntlTest_FieldInfo_[] = {
 };
 
 $MethodInfo _IntlTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(IntlTest::*)()>(&IntlTest::init$))},
-	{"err", "(Ljava/lang/String;)V", nullptr, $PROTECTED},
-	{"errImpl", "(Ljava/lang/String;Z)V", nullptr, $PRIVATE, $method(static_cast<void(IntlTest::*)($String*,bool)>(&IntlTest::errImpl))},
-	{"errln", "(Ljava/lang/String;)V", nullptr, $PROTECTED},
-	{"getErrorCount", "()I", nullptr, $PROTECTED},
-	{"indent", "(I)V", nullptr, $PRIVATE, $method(static_cast<void(IntlTest::*)(int32_t)>(&IntlTest::indent))},
-	{"log", "(Ljava/lang/String;)V", nullptr, $PROTECTED},
-	{"logImpl", "(Ljava/lang/String;Z)V", nullptr, $PRIVATE, $method(static_cast<void(IntlTest::*)($String*,bool)>(&IntlTest::logImpl))},
-	{"logln", "(Ljava/lang/String;)V", nullptr, $PROTECTED},
-	{"logln", "()V", nullptr, $PROTECTED},
-	{"run", "([Ljava/lang/String;)V", nullptr, $PROTECTED, nullptr, "java.lang.Exception"},
-	{"toHexString", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PROTECTED | $STATIC, $method(static_cast<$String*(*)($String*)>(&IntlTest::toHexString))},
-	{"usage", "()V", nullptr, 0},
-	{"writeTestName", "(Ljava/lang/String;)V", nullptr, $PROTECTED},
-	{"writeTestResult", "(I)V", nullptr, $PROTECTED},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(IntlTest, init$, void)},
+	{"err", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(IntlTest, err, void, $String*)},
+	{"errImpl", "(Ljava/lang/String;Z)V", nullptr, $PRIVATE, $method(IntlTest, errImpl, void, $String*, bool)},
+	{"errln", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(IntlTest, errln, void, $String*)},
+	{"getErrorCount", "()I", nullptr, $PROTECTED, $virtualMethod(IntlTest, getErrorCount, int32_t)},
+	{"indent", "(I)V", nullptr, $PRIVATE, $method(IntlTest, indent, void, int32_t)},
+	{"log", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(IntlTest, log, void, $String*)},
+	{"logImpl", "(Ljava/lang/String;Z)V", nullptr, $PRIVATE, $method(IntlTest, logImpl, void, $String*, bool)},
+	{"logln", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(IntlTest, logln, void, $String*)},
+	{"logln", "()V", nullptr, $PROTECTED, $virtualMethod(IntlTest, logln, void)},
+	{"run", "([Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(IntlTest, run, void, $StringArray*), "java.lang.Exception"},
+	{"toHexString", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PROTECTED | $STATIC, $staticMethod(IntlTest, toHexString, $String*, $String*)},
+	{"usage", "()V", nullptr, 0, $virtualMethod(IntlTest, usage, void)},
+	{"writeTestName", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(IntlTest, writeTestName, void, $String*)},
+	{"writeTestResult", "(I)V", nullptr, $PROTECTED, $virtualMethod(IntlTest, writeTestResult, void, int32_t)},
 	{}
 };
 

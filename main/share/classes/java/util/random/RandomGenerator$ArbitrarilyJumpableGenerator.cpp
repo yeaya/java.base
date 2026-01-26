@@ -55,8 +55,8 @@ $FieldInfo RandomGenerator$ArbitrarilyJumpableGenerator$$Lambda$lambda$jumps$0::
 	{}
 };
 $MethodInfo RandomGenerator$ArbitrarilyJumpableGenerator$$Lambda$lambda$jumps$0::methodInfos[3] = {
-	{"<init>", "(Ljava/util/random/RandomGenerator$ArbitrarilyJumpableGenerator;D)V", nullptr, $PUBLIC, $method(static_cast<void(RandomGenerator$ArbitrarilyJumpableGenerator$$Lambda$lambda$jumps$0::*)(RandomGenerator$ArbitrarilyJumpableGenerator*,double)>(&RandomGenerator$ArbitrarilyJumpableGenerator$$Lambda$lambda$jumps$0::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/random/RandomGenerator$ArbitrarilyJumpableGenerator;D)V", nullptr, $PUBLIC, $method(RandomGenerator$ArbitrarilyJumpableGenerator$$Lambda$lambda$jumps$0, init$, void, RandomGenerator$ArbitrarilyJumpableGenerator*, double)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(RandomGenerator$ArbitrarilyJumpableGenerator$$Lambda$lambda$jumps$0, get, $Object*)},
 	{}
 };
 $ClassInfo RandomGenerator$ArbitrarilyJumpableGenerator$$Lambda$lambda$jumps$0::classInfo$ = {
@@ -75,15 +75,15 @@ $Class* RandomGenerator$ArbitrarilyJumpableGenerator$$Lambda$lambda$jumps$0::cla
 
 $MethodInfo _RandomGenerator$ArbitrarilyJumpableGenerator_MethodInfo_[] = {
 	{"copy", "()Ljava/util/random/RandomGenerator$ArbitrarilyJumpableGenerator;", nullptr, $PUBLIC | $ABSTRACT},
-	{"copyAndJump", "(D)Ljava/util/random/RandomGenerator$ArbitrarilyJumpableGenerator;", nullptr, $PUBLIC},
-	{"jump", "(D)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"jump", "()V", nullptr, $PUBLIC},
-	{"jumpPowerOfTwo", "(I)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"jumps", "(D)Ljava/util/stream/Stream;", "(D)Ljava/util/stream/Stream<Ljava/util/random/RandomGenerator$ArbitrarilyJumpableGenerator;>;", $PUBLIC},
-	{"jumps", "(JD)Ljava/util/stream/Stream;", "(JD)Ljava/util/stream/Stream<Ljava/util/random/RandomGenerator$ArbitrarilyJumpableGenerator;>;", $PUBLIC},
-	{"lambda$jumps$0", "(D)Ljava/util/random/RandomGenerator$ArbitrarilyJumpableGenerator;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<RandomGenerator$ArbitrarilyJumpableGenerator*(RandomGenerator$ArbitrarilyJumpableGenerator::*)(double)>(&RandomGenerator$ArbitrarilyJumpableGenerator::lambda$jumps$0))},
-	{"leap", "()V", nullptr, $PUBLIC},
-	{"of", "(Ljava/lang/String;)Ljava/util/random/RandomGenerator$ArbitrarilyJumpableGenerator;", nullptr, $PUBLIC | $STATIC, $method(static_cast<RandomGenerator$ArbitrarilyJumpableGenerator*(*)($String*)>(&RandomGenerator$ArbitrarilyJumpableGenerator::of))},
+	{"copyAndJump", "(D)Ljava/util/random/RandomGenerator$ArbitrarilyJumpableGenerator;", nullptr, $PUBLIC, $virtualMethod(RandomGenerator$ArbitrarilyJumpableGenerator, copyAndJump, RandomGenerator$ArbitrarilyJumpableGenerator*, double)},
+	{"jump", "(D)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RandomGenerator$ArbitrarilyJumpableGenerator, jump, void, double)},
+	{"jump", "()V", nullptr, $PUBLIC, $virtualMethod(RandomGenerator$ArbitrarilyJumpableGenerator, jump, void)},
+	{"jumpPowerOfTwo", "(I)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RandomGenerator$ArbitrarilyJumpableGenerator, jumpPowerOfTwo, void, int32_t)},
+	{"jumps", "(D)Ljava/util/stream/Stream;", "(D)Ljava/util/stream/Stream<Ljava/util/random/RandomGenerator$ArbitrarilyJumpableGenerator;>;", $PUBLIC, $virtualMethod(RandomGenerator$ArbitrarilyJumpableGenerator, jumps, $Stream*, double)},
+	{"jumps", "(JD)Ljava/util/stream/Stream;", "(JD)Ljava/util/stream/Stream<Ljava/util/random/RandomGenerator$ArbitrarilyJumpableGenerator;>;", $PUBLIC, $virtualMethod(RandomGenerator$ArbitrarilyJumpableGenerator, jumps, $Stream*, int64_t, double)},
+	{"lambda$jumps$0", "(D)Ljava/util/random/RandomGenerator$ArbitrarilyJumpableGenerator;", nullptr, $PRIVATE | $SYNTHETIC, $method(RandomGenerator$ArbitrarilyJumpableGenerator, lambda$jumps$0, RandomGenerator$ArbitrarilyJumpableGenerator*, double)},
+	{"leap", "()V", nullptr, $PUBLIC, $virtualMethod(RandomGenerator$ArbitrarilyJumpableGenerator, leap, void)},
+	{"of", "(Ljava/lang/String;)Ljava/util/random/RandomGenerator$ArbitrarilyJumpableGenerator;", nullptr, $PUBLIC | $STATIC, $staticMethod(RandomGenerator$ArbitrarilyJumpableGenerator, of, RandomGenerator$ArbitrarilyJumpableGenerator*, $String*)},
 	{}
 };
 

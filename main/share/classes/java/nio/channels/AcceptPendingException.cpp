@@ -18,7 +18,7 @@ $FieldInfo _AcceptPendingException_FieldInfo_[] = {
 };
 
 $MethodInfo _AcceptPendingException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(AcceptPendingException::*)()>(&AcceptPendingException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(AcceptPendingException, init$, void)},
 	{}
 };
 

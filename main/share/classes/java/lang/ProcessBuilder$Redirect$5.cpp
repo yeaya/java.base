@@ -25,11 +25,11 @@ $FieldInfo _ProcessBuilder$Redirect$5_FieldInfo_[] = {
 };
 
 $MethodInfo _ProcessBuilder$Redirect$5_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/File;)V", nullptr, 0, $method(static_cast<void(ProcessBuilder$Redirect$5::*)($File*)>(&ProcessBuilder$Redirect$5::init$))},
-	{"append", "()Z", nullptr, 0},
-	{"file", "()Ljava/io/File;", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"type", "()Ljava/lang/ProcessBuilder$Redirect$Type;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/io/File;)V", nullptr, 0, $method(ProcessBuilder$Redirect$5, init$, void, $File*)},
+	{"append", "()Z", nullptr, 0, $virtualMethod(ProcessBuilder$Redirect$5, append, bool)},
+	{"file", "()Ljava/io/File;", nullptr, $PUBLIC, $virtualMethod(ProcessBuilder$Redirect$5, file, $File*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ProcessBuilder$Redirect$5, toString, $String*)},
+	{"type", "()Ljava/lang/ProcessBuilder$Redirect$Type;", nullptr, $PUBLIC, $virtualMethod(ProcessBuilder$Redirect$5, type, $ProcessBuilder$Redirect$Type*)},
 	{}
 };
 

@@ -43,16 +43,16 @@ $FieldInfo _HKSCS$Decoder_FieldInfo_[] = {
 };
 
 $MethodInfo _HKSCS$Decoder_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/charset/Charset;Lsun/nio/cs/DoubleByte$Decoder;[[C[[C)V", nullptr, $PROTECTED, $method(static_cast<void(HKSCS$Decoder::*)($Charset*,$DoubleByte$Decoder*,$charArray2*,$charArray2*)>(&HKSCS$Decoder::init$))},
-	{"decode", "([BII[C)I", nullptr, $PUBLIC},
-	{"decodeArrayLoop", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED},
-	{"decodeBig5", "(II)C", nullptr, $PUBLIC},
-	{"decodeBufferLoop", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED},
-	{"decodeDouble", "(II)C", nullptr, $PUBLIC},
-	{"decodeDoubleEx", "(II)C", nullptr, $PUBLIC},
-	{"decodeLoop", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PUBLIC},
-	{"decodeSingle", "(I)C", nullptr, $PUBLIC},
-	{"initb2c", "([[C[Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($charArray2*,$StringArray*)>(&HKSCS$Decoder::initb2c))},
+	{"<init>", "(Ljava/nio/charset/Charset;Lsun/nio/cs/DoubleByte$Decoder;[[C[[C)V", nullptr, $PROTECTED, $method(HKSCS$Decoder, init$, void, $Charset*, $DoubleByte$Decoder*, $charArray2*, $charArray2*)},
+	{"decode", "([BII[C)I", nullptr, $PUBLIC, $virtualMethod(HKSCS$Decoder, decode, int32_t, $bytes*, int32_t, int32_t, $chars*)},
+	{"decodeArrayLoop", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED, $virtualMethod(HKSCS$Decoder, decodeArrayLoop, $CoderResult*, $ByteBuffer*, $CharBuffer*)},
+	{"decodeBig5", "(II)C", nullptr, $PUBLIC, $virtualMethod(HKSCS$Decoder, decodeBig5, char16_t, int32_t, int32_t)},
+	{"decodeBufferLoop", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED, $virtualMethod(HKSCS$Decoder, decodeBufferLoop, $CoderResult*, $ByteBuffer*, $CharBuffer*)},
+	{"decodeDouble", "(II)C", nullptr, $PUBLIC, $virtualMethod(HKSCS$Decoder, decodeDouble, char16_t, int32_t, int32_t)},
+	{"decodeDoubleEx", "(II)C", nullptr, $PUBLIC, $virtualMethod(HKSCS$Decoder, decodeDoubleEx, char16_t, int32_t, int32_t)},
+	{"decodeLoop", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PUBLIC, $virtualMethod(HKSCS$Decoder, decodeLoop, $CoderResult*, $ByteBuffer*, $CharBuffer*)},
+	{"decodeSingle", "(I)C", nullptr, $PUBLIC, $virtualMethod(HKSCS$Decoder, decodeSingle, char16_t, int32_t)},
+	{"initb2c", "([[C[Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HKSCS$Decoder, initb2c, void, $charArray2*, $StringArray*)},
 	{}
 };
 

@@ -37,13 +37,13 @@ $FieldInfo _TypeAnnotation_FieldInfo_[] = {
 };
 
 $MethodInfo _TypeAnnotation_MethodInfo_[] = {
-	{"<init>", "(Lsun/reflect/annotation/TypeAnnotation$TypeAnnotationTargetInfo;Lsun/reflect/annotation/TypeAnnotation$LocationInfo;Ljava/lang/annotation/Annotation;Ljava/lang/reflect/AnnotatedElement;)V", nullptr, $PUBLIC, $method(static_cast<void(TypeAnnotation::*)($TypeAnnotation$TypeAnnotationTargetInfo*,$TypeAnnotation$LocationInfo*,$Annotation*,$AnnotatedElement*)>(&TypeAnnotation::init$))},
-	{"filter", "([Lsun/reflect/annotation/TypeAnnotation;Lsun/reflect/annotation/TypeAnnotation$TypeAnnotationTarget;)Ljava/util/List;", "([Lsun/reflect/annotation/TypeAnnotation;Lsun/reflect/annotation/TypeAnnotation$TypeAnnotationTarget;)Ljava/util/List<Lsun/reflect/annotation/TypeAnnotation;>;", $PUBLIC | $STATIC, $method(static_cast<$List*(*)($TypeAnnotationArray*,$TypeAnnotation$TypeAnnotationTarget*)>(&TypeAnnotation::filter))},
-	{"getAnnotation", "()Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC, $method(static_cast<$Annotation*(TypeAnnotation::*)()>(&TypeAnnotation::getAnnotation))},
-	{"getBaseDeclaration", "()Ljava/lang/reflect/AnnotatedElement;", nullptr, $PUBLIC, $method(static_cast<$AnnotatedElement*(TypeAnnotation::*)()>(&TypeAnnotation::getBaseDeclaration))},
-	{"getLocationInfo", "()Lsun/reflect/annotation/TypeAnnotation$LocationInfo;", nullptr, $PUBLIC, $method(static_cast<$TypeAnnotation$LocationInfo*(TypeAnnotation::*)()>(&TypeAnnotation::getLocationInfo))},
-	{"getTargetInfo", "()Lsun/reflect/annotation/TypeAnnotation$TypeAnnotationTargetInfo;", nullptr, $PUBLIC, $method(static_cast<$TypeAnnotation$TypeAnnotationTargetInfo*(TypeAnnotation::*)()>(&TypeAnnotation::getTargetInfo))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/reflect/annotation/TypeAnnotation$TypeAnnotationTargetInfo;Lsun/reflect/annotation/TypeAnnotation$LocationInfo;Ljava/lang/annotation/Annotation;Ljava/lang/reflect/AnnotatedElement;)V", nullptr, $PUBLIC, $method(TypeAnnotation, init$, void, $TypeAnnotation$TypeAnnotationTargetInfo*, $TypeAnnotation$LocationInfo*, $Annotation*, $AnnotatedElement*)},
+	{"filter", "([Lsun/reflect/annotation/TypeAnnotation;Lsun/reflect/annotation/TypeAnnotation$TypeAnnotationTarget;)Ljava/util/List;", "([Lsun/reflect/annotation/TypeAnnotation;Lsun/reflect/annotation/TypeAnnotation$TypeAnnotationTarget;)Ljava/util/List<Lsun/reflect/annotation/TypeAnnotation;>;", $PUBLIC | $STATIC, $staticMethod(TypeAnnotation, filter, $List*, $TypeAnnotationArray*, $TypeAnnotation$TypeAnnotationTarget*)},
+	{"getAnnotation", "()Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC, $method(TypeAnnotation, getAnnotation, $Annotation*)},
+	{"getBaseDeclaration", "()Ljava/lang/reflect/AnnotatedElement;", nullptr, $PUBLIC, $method(TypeAnnotation, getBaseDeclaration, $AnnotatedElement*)},
+	{"getLocationInfo", "()Lsun/reflect/annotation/TypeAnnotation$LocationInfo;", nullptr, $PUBLIC, $method(TypeAnnotation, getLocationInfo, $TypeAnnotation$LocationInfo*)},
+	{"getTargetInfo", "()Lsun/reflect/annotation/TypeAnnotation$TypeAnnotationTargetInfo;", nullptr, $PUBLIC, $method(TypeAnnotation, getTargetInfo, $TypeAnnotation$TypeAnnotationTargetInfo*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TypeAnnotation, toString, $String*)},
 	{}
 };
 

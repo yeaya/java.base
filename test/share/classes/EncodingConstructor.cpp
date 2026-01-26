@@ -13,8 +13,8 @@ using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _EncodingConstructor_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(EncodingConstructor::*)()>(&EncodingConstructor::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&EncodingConstructor::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(EncodingConstructor, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(EncodingConstructor, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

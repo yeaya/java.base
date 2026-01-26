@@ -23,9 +23,9 @@ $FieldInfo _DontCareFieldPosition$1_FieldInfo_[] = {
 };
 
 $MethodInfo _DontCareFieldPosition$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/text/DontCareFieldPosition;)V", nullptr, 0, $method(static_cast<void(DontCareFieldPosition$1::*)($DontCareFieldPosition*)>(&DontCareFieldPosition$1::init$))},
-	{"formatted", "(Ljava/text/Format$Field;Ljava/lang/Object;IILjava/lang/StringBuffer;)V", nullptr, $PUBLIC},
-	{"formatted", "(ILjava/text/Format$Field;Ljava/lang/Object;IILjava/lang/StringBuffer;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/text/DontCareFieldPosition;)V", nullptr, 0, $method(DontCareFieldPosition$1, init$, void, $DontCareFieldPosition*)},
+	{"formatted", "(Ljava/text/Format$Field;Ljava/lang/Object;IILjava/lang/StringBuffer;)V", nullptr, $PUBLIC, $virtualMethod(DontCareFieldPosition$1, formatted, void, $Format$Field*, Object$*, int32_t, int32_t, $StringBuffer*)},
+	{"formatted", "(ILjava/text/Format$Field;Ljava/lang/Object;IILjava/lang/StringBuffer;)V", nullptr, $PUBLIC, $virtualMethod(DontCareFieldPosition$1, formatted, void, int32_t, $Format$Field*, Object$*, int32_t, int32_t, $StringBuffer*)},
 	{}
 };
 

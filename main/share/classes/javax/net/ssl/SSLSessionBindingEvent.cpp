@@ -21,9 +21,9 @@ $FieldInfo _SSLSessionBindingEvent_FieldInfo_[] = {
 };
 
 $MethodInfo _SSLSessionBindingEvent_MethodInfo_[] = {
-	{"<init>", "(Ljavax/net/ssl/SSLSession;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(SSLSessionBindingEvent::*)($SSLSession*,$String*)>(&SSLSessionBindingEvent::init$))},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getSession", "()Ljavax/net/ssl/SSLSession;", nullptr, $PUBLIC},
+	{"<init>", "(Ljavax/net/ssl/SSLSession;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SSLSessionBindingEvent, init$, void, $SSLSession*, $String*)},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SSLSessionBindingEvent, getName, $String*)},
+	{"getSession", "()Ljavax/net/ssl/SSLSession;", nullptr, $PUBLIC, $virtualMethod(SSLSessionBindingEvent, getSession, $SSLSession*)},
 	{}
 };
 

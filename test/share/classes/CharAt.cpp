@@ -11,8 +11,8 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $CharBuffer = ::java::nio::CharBuffer;
 
 $MethodInfo _CharAt_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CharAt::*)()>(&CharAt::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&CharAt::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CharAt, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(CharAt, main, void, $StringArray*)},
 	{}
 };
 

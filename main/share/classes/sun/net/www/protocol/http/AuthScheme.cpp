@@ -34,10 +34,10 @@ $FieldInfo _AuthScheme_FieldInfo_[] = {
 };
 
 $MethodInfo _AuthScheme_MethodInfo_[] = {
-	{"$values", "()[Lsun/net/www/protocol/http/AuthScheme;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$AuthSchemeArray*(*)()>(&AuthScheme::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(AuthScheme::*)($String*,int32_t)>(&AuthScheme::init$))},
-	{"valueOf", "(Ljava/lang/String;)Lsun/net/www/protocol/http/AuthScheme;", nullptr, $PUBLIC | $STATIC, $method(static_cast<AuthScheme*(*)($String*)>(&AuthScheme::valueOf))},
-	{"values", "()[Lsun/net/www/protocol/http/AuthScheme;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$AuthSchemeArray*(*)()>(&AuthScheme::values))},
+	{"$values", "()[Lsun/net/www/protocol/http/AuthScheme;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AuthScheme, $values, $AuthSchemeArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(AuthScheme, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Lsun/net/www/protocol/http/AuthScheme;", nullptr, $PUBLIC | $STATIC, $staticMethod(AuthScheme, valueOf, AuthScheme*, $String*)},
+	{"values", "()[Lsun/net/www/protocol/http/AuthScheme;", nullptr, $PUBLIC | $STATIC, $staticMethod(AuthScheme, values, $AuthSchemeArray*)},
 	{}
 };
 

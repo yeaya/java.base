@@ -34,10 +34,10 @@ $FieldInfo _DomainName$OtherMatch_FieldInfo_[] = {
 };
 
 $MethodInfo _DomainName$OtherMatch_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/util/DomainName$Rule;ILjava/util/LinkedList;)V", "(Lsun/security/util/DomainName$Rule;ILjava/util/LinkedList<Ljava/lang/String;>;)V", 0, $method(static_cast<void(DomainName$OtherMatch::*)($DomainName$Rule*,int32_t,$LinkedList*)>(&DomainName$OtherMatch::init$))},
-	{"getSuffixes", "(I)Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(DomainName$OtherMatch::*)(int32_t)>(&DomainName$OtherMatch::getSuffixes))},
-	{"registeredDomain", "()Lsun/security/util/RegisteredDomain;", nullptr, $PUBLIC},
-	{"type", "()Lsun/security/util/DomainName$Rule$Type;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/security/util/DomainName$Rule;ILjava/util/LinkedList;)V", "(Lsun/security/util/DomainName$Rule;ILjava/util/LinkedList<Ljava/lang/String;>;)V", 0, $method(DomainName$OtherMatch, init$, void, $DomainName$Rule*, int32_t, $LinkedList*)},
+	{"getSuffixes", "(I)Ljava/lang/String;", nullptr, $PRIVATE, $method(DomainName$OtherMatch, getSuffixes, $String*, int32_t)},
+	{"registeredDomain", "()Lsun/security/util/RegisteredDomain;", nullptr, $PUBLIC, $virtualMethod(DomainName$OtherMatch, registeredDomain, $RegisteredDomain*)},
+	{"type", "()Lsun/security/util/DomainName$Rule$Type;", nullptr, $PUBLIC, $virtualMethod(DomainName$OtherMatch, type, $DomainName$Rule$Type*)},
 	{}
 };
 

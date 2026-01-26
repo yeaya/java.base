@@ -11,9 +11,9 @@ namespace java {
 	namespace util {
 
 $MethodInfo _EnumMap$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(EnumMap$1::*)()>(&EnumMap$1::init$))},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(EnumMap$1, init$, void)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(EnumMap$1, hashCode, int32_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(EnumMap$1, toString, $String*)},
 	{}
 };
 

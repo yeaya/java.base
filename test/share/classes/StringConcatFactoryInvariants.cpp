@@ -76,8 +76,8 @@ $FieldInfo StringConcatFactoryInvariants$$Lambda$lambda$main$0::fieldInfos[3] = 
 	{}
 };
 $MethodInfo StringConcatFactoryInvariants$$Lambda$lambda$main$0::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/invoke/MethodType;)V", nullptr, $PUBLIC, $method(static_cast<void(StringConcatFactoryInvariants$$Lambda$lambda$main$0::*)($String*,$MethodType*)>(&StringConcatFactoryInvariants$$Lambda$lambda$main$0::init$))},
-	{"call", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/invoke/MethodType;)V", nullptr, $PUBLIC, $method(StringConcatFactoryInvariants$$Lambda$lambda$main$0, init$, void, $String*, $MethodType*)},
+	{"call", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(StringConcatFactoryInvariants$$Lambda$lambda$main$0, call, $Object*)},
 	{}
 };
 $ClassInfo StringConcatFactoryInvariants$$Lambda$lambda$main$0::classInfo$ = {
@@ -119,8 +119,8 @@ $FieldInfo StringConcatFactoryInvariants$$Lambda$lambda$main$1$1::fieldInfos[3] 
 	{}
 };
 $MethodInfo StringConcatFactoryInvariants$$Lambda$lambda$main$1$1::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/invoke/MethodType;)V", nullptr, $PUBLIC, $method(static_cast<void(StringConcatFactoryInvariants$$Lambda$lambda$main$1$1::*)($MethodHandles$Lookup*,$MethodType*)>(&StringConcatFactoryInvariants$$Lambda$lambda$main$1$1::init$))},
-	{"call", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/invoke/MethodType;)V", nullptr, $PUBLIC, $method(StringConcatFactoryInvariants$$Lambda$lambda$main$1$1, init$, void, $MethodHandles$Lookup*, $MethodType*)},
+	{"call", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(StringConcatFactoryInvariants$$Lambda$lambda$main$1$1, call, $Object*)},
 	{}
 };
 $ClassInfo StringConcatFactoryInvariants$$Lambda$lambda$main$1$1::classInfo$ = {
@@ -162,8 +162,8 @@ $FieldInfo StringConcatFactoryInvariants$$Lambda$lambda$main$2$2::fieldInfos[3] 
 	{}
 };
 $MethodInfo StringConcatFactoryInvariants$$Lambda$lambda$main$2$2::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(StringConcatFactoryInvariants$$Lambda$lambda$main$2$2::*)($MethodHandles$Lookup*,$String*)>(&StringConcatFactoryInvariants$$Lambda$lambda$main$2$2::init$))},
-	{"call", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(StringConcatFactoryInvariants$$Lambda$lambda$main$2$2, init$, void, $MethodHandles$Lookup*, $String*)},
+	{"call", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(StringConcatFactoryInvariants$$Lambda$lambda$main$2$2, call, $Object*)},
 	{}
 };
 $ClassInfo StringConcatFactoryInvariants$$Lambda$lambda$main$2$2::classInfo$ = {
@@ -211,8 +211,8 @@ $FieldInfo StringConcatFactoryInvariants$$Lambda$lambda$main$3$3::fieldInfos[5] 
 	{}
 };
 $MethodInfo StringConcatFactoryInvariants$$Lambda$lambda$main$3$3::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(static_cast<void(StringConcatFactoryInvariants$$Lambda$lambda$main$3$3::*)($String*,$MethodType*,$String*,$ObjectArray*)>(&StringConcatFactoryInvariants$$Lambda$lambda$main$3$3::init$))},
-	{"call", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(StringConcatFactoryInvariants$$Lambda$lambda$main$3$3, init$, void, $String*, $MethodType*, $String*, $ObjectArray*)},
+	{"call", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(StringConcatFactoryInvariants$$Lambda$lambda$main$3$3, call, $Object*)},
 	{}
 };
 $ClassInfo StringConcatFactoryInvariants$$Lambda$lambda$main$3$3::classInfo$ = {
@@ -260,8 +260,8 @@ $FieldInfo StringConcatFactoryInvariants$$Lambda$lambda$main$4$4::fieldInfos[5] 
 	{}
 };
 $MethodInfo StringConcatFactoryInvariants$$Lambda$lambda$main$4$4::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/invoke/MethodType;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(static_cast<void(StringConcatFactoryInvariants$$Lambda$lambda$main$4$4::*)($MethodHandles$Lookup*,$MethodType*,$String*,$ObjectArray*)>(&StringConcatFactoryInvariants$$Lambda$lambda$main$4$4::init$))},
-	{"call", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/invoke/MethodType;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(StringConcatFactoryInvariants$$Lambda$lambda$main$4$4, init$, void, $MethodHandles$Lookup*, $MethodType*, $String*, $ObjectArray*)},
+	{"call", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(StringConcatFactoryInvariants$$Lambda$lambda$main$4$4, call, $Object*)},
 	{}
 };
 $ClassInfo StringConcatFactoryInvariants$$Lambda$lambda$main$4$4::classInfo$ = {
@@ -309,8 +309,8 @@ $FieldInfo StringConcatFactoryInvariants$$Lambda$lambda$main$5$5::fieldInfos[5] 
 	{}
 };
 $MethodInfo StringConcatFactoryInvariants$$Lambda$lambda$main$5$5::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(static_cast<void(StringConcatFactoryInvariants$$Lambda$lambda$main$5$5::*)($MethodHandles$Lookup*,$String*,$String*,$ObjectArray*)>(&StringConcatFactoryInvariants$$Lambda$lambda$main$5$5::init$))},
-	{"call", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(StringConcatFactoryInvariants$$Lambda$lambda$main$5$5, init$, void, $MethodHandles$Lookup*, $String*, $String*, $ObjectArray*)},
+	{"call", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(StringConcatFactoryInvariants$$Lambda$lambda$main$5$5, call, $Object*)},
 	{}
 };
 $ClassInfo StringConcatFactoryInvariants$$Lambda$lambda$main$5$5::classInfo$ = {
@@ -358,8 +358,8 @@ $FieldInfo StringConcatFactoryInvariants$$Lambda$lambda$main$6$6::fieldInfos[5] 
 	{}
 };
 $MethodInfo StringConcatFactoryInvariants$$Lambda$lambda$main$6$6::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(static_cast<void(StringConcatFactoryInvariants$$Lambda$lambda$main$6$6::*)($MethodHandles$Lookup*,$String*,$MethodType*,$ObjectArray*)>(&StringConcatFactoryInvariants$$Lambda$lambda$main$6$6::init$))},
-	{"call", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(StringConcatFactoryInvariants$$Lambda$lambda$main$6$6, init$, void, $MethodHandles$Lookup*, $String*, $MethodType*, $ObjectArray*)},
+	{"call", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(StringConcatFactoryInvariants$$Lambda$lambda$main$6$6, call, $Object*)},
 	{}
 };
 $ClassInfo StringConcatFactoryInvariants$$Lambda$lambda$main$6$6::classInfo$ = {
@@ -407,8 +407,8 @@ $FieldInfo StringConcatFactoryInvariants$$Lambda$lambda$main$7$7::fieldInfos[5] 
 	{}
 };
 $MethodInfo StringConcatFactoryInvariants$$Lambda$lambda$main$7$7::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(StringConcatFactoryInvariants$$Lambda$lambda$main$7$7::*)($MethodHandles$Lookup*,$String*,$MethodType*,$String*)>(&StringConcatFactoryInvariants$$Lambda$lambda$main$7$7::init$))},
-	{"call", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(StringConcatFactoryInvariants$$Lambda$lambda$main$7$7, init$, void, $MethodHandles$Lookup*, $String*, $MethodType*, $String*)},
+	{"call", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(StringConcatFactoryInvariants$$Lambda$lambda$main$7$7, call, $Object*)},
 	{}
 };
 $ClassInfo StringConcatFactoryInvariants$$Lambda$lambda$main$7$7::classInfo$ = {
@@ -456,8 +456,8 @@ $FieldInfo StringConcatFactoryInvariants$$Lambda$lambda$main$8$8::fieldInfos[5] 
 	{}
 };
 $MethodInfo StringConcatFactoryInvariants$$Lambda$lambda$main$8$8::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(StringConcatFactoryInvariants$$Lambda$lambda$main$8$8::*)($MethodHandles$Lookup*,$String*,$MethodType*,$String*)>(&StringConcatFactoryInvariants$$Lambda$lambda$main$8$8::init$))},
-	{"call", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(StringConcatFactoryInvariants$$Lambda$lambda$main$8$8, init$, void, $MethodHandles$Lookup*, $String*, $MethodType*, $String*)},
+	{"call", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(StringConcatFactoryInvariants$$Lambda$lambda$main$8$8, call, $Object*)},
 	{}
 };
 $ClassInfo StringConcatFactoryInvariants$$Lambda$lambda$main$8$8::classInfo$ = {
@@ -499,8 +499,8 @@ $FieldInfo StringConcatFactoryInvariants$$Lambda$lambda$main$9$9::fieldInfos[3] 
 	{}
 };
 $MethodInfo StringConcatFactoryInvariants$$Lambda$lambda$main$9$9::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(StringConcatFactoryInvariants$$Lambda$lambda$main$9$9::*)($MethodHandles$Lookup*,$String*)>(&StringConcatFactoryInvariants$$Lambda$lambda$main$9$9::init$))},
-	{"call", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(StringConcatFactoryInvariants$$Lambda$lambda$main$9$9, init$, void, $MethodHandles$Lookup*, $String*)},
+	{"call", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(StringConcatFactoryInvariants$$Lambda$lambda$main$9$9, call, $Object*)},
 	{}
 };
 $ClassInfo StringConcatFactoryInvariants$$Lambda$lambda$main$9$9::classInfo$ = {
@@ -542,8 +542,8 @@ $FieldInfo StringConcatFactoryInvariants$$Lambda$lambda$main$10$10::fieldInfos[3
 	{}
 };
 $MethodInfo StringConcatFactoryInvariants$$Lambda$lambda$main$10$10::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(StringConcatFactoryInvariants$$Lambda$lambda$main$10$10::*)($MethodHandles$Lookup*,$String*)>(&StringConcatFactoryInvariants$$Lambda$lambda$main$10$10::init$))},
-	{"call", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(StringConcatFactoryInvariants$$Lambda$lambda$main$10$10, init$, void, $MethodHandles$Lookup*, $String*)},
+	{"call", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(StringConcatFactoryInvariants$$Lambda$lambda$main$10$10, call, $Object*)},
 	{}
 };
 $ClassInfo StringConcatFactoryInvariants$$Lambda$lambda$main$10$10::classInfo$ = {
@@ -585,8 +585,8 @@ $FieldInfo StringConcatFactoryInvariants$$Lambda$lambda$main$11$11::fieldInfos[3
 	{}
 };
 $MethodInfo StringConcatFactoryInvariants$$Lambda$lambda$main$11$11::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(StringConcatFactoryInvariants$$Lambda$lambda$main$11$11::*)($MethodHandles$Lookup*,$String*)>(&StringConcatFactoryInvariants$$Lambda$lambda$main$11$11::init$))},
-	{"call", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(StringConcatFactoryInvariants$$Lambda$lambda$main$11$11, init$, void, $MethodHandles$Lookup*, $String*)},
+	{"call", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(StringConcatFactoryInvariants$$Lambda$lambda$main$11$11, call, $Object*)},
 	{}
 };
 $ClassInfo StringConcatFactoryInvariants$$Lambda$lambda$main$11$11::classInfo$ = {
@@ -628,8 +628,8 @@ $FieldInfo StringConcatFactoryInvariants$$Lambda$lambda$main$12$12::fieldInfos[3
 	{}
 };
 $MethodInfo StringConcatFactoryInvariants$$Lambda$lambda$main$12$12::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(StringConcatFactoryInvariants$$Lambda$lambda$main$12$12::*)($MethodHandles$Lookup*,$String*)>(&StringConcatFactoryInvariants$$Lambda$lambda$main$12$12::init$))},
-	{"call", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(StringConcatFactoryInvariants$$Lambda$lambda$main$12$12, init$, void, $MethodHandles$Lookup*, $String*)},
+	{"call", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(StringConcatFactoryInvariants$$Lambda$lambda$main$12$12, call, $Object*)},
 	{}
 };
 $ClassInfo StringConcatFactoryInvariants$$Lambda$lambda$main$12$12::classInfo$ = {
@@ -671,8 +671,8 @@ $FieldInfo StringConcatFactoryInvariants$$Lambda$lambda$main$13$13::fieldInfos[3
 	{}
 };
 $MethodInfo StringConcatFactoryInvariants$$Lambda$lambda$main$13$13::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(StringConcatFactoryInvariants$$Lambda$lambda$main$13$13::*)($MethodHandles$Lookup*,$String*)>(&StringConcatFactoryInvariants$$Lambda$lambda$main$13$13::init$))},
-	{"call", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(StringConcatFactoryInvariants$$Lambda$lambda$main$13$13, init$, void, $MethodHandles$Lookup*, $String*)},
+	{"call", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(StringConcatFactoryInvariants$$Lambda$lambda$main$13$13, call, $Object*)},
 	{}
 };
 $ClassInfo StringConcatFactoryInvariants$$Lambda$lambda$main$13$13::classInfo$ = {
@@ -714,8 +714,8 @@ $FieldInfo StringConcatFactoryInvariants$$Lambda$lambda$main$14$14::fieldInfos[3
 	{}
 };
 $MethodInfo StringConcatFactoryInvariants$$Lambda$lambda$main$14$14::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(StringConcatFactoryInvariants$$Lambda$lambda$main$14$14::*)($MethodHandles$Lookup*,$String*)>(&StringConcatFactoryInvariants$$Lambda$lambda$main$14$14::init$))},
-	{"call", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(StringConcatFactoryInvariants$$Lambda$lambda$main$14$14, init$, void, $MethodHandles$Lookup*, $String*)},
+	{"call", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(StringConcatFactoryInvariants$$Lambda$lambda$main$14$14, call, $Object*)},
 	{}
 };
 $ClassInfo StringConcatFactoryInvariants$$Lambda$lambda$main$14$14::classInfo$ = {
@@ -763,8 +763,8 @@ $FieldInfo StringConcatFactoryInvariants$$Lambda$lambda$main$15$15::fieldInfos[5
 	{}
 };
 $MethodInfo StringConcatFactoryInvariants$$Lambda$lambda$main$15$15::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(static_cast<void(StringConcatFactoryInvariants$$Lambda$lambda$main$15$15::*)($MethodHandles$Lookup*,$String*,$String*,$ObjectArray*)>(&StringConcatFactoryInvariants$$Lambda$lambda$main$15$15::init$))},
-	{"call", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(StringConcatFactoryInvariants$$Lambda$lambda$main$15$15, init$, void, $MethodHandles$Lookup*, $String*, $String*, $ObjectArray*)},
+	{"call", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(StringConcatFactoryInvariants$$Lambda$lambda$main$15$15, call, $Object*)},
 	{}
 };
 $ClassInfo StringConcatFactoryInvariants$$Lambda$lambda$main$15$15::classInfo$ = {
@@ -812,8 +812,8 @@ $FieldInfo StringConcatFactoryInvariants$$Lambda$lambda$main$16$16::fieldInfos[5
 	{}
 };
 $MethodInfo StringConcatFactoryInvariants$$Lambda$lambda$main$16$16::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(static_cast<void(StringConcatFactoryInvariants$$Lambda$lambda$main$16$16::*)($MethodHandles$Lookup*,$String*,$String*,$ObjectArray*)>(&StringConcatFactoryInvariants$$Lambda$lambda$main$16$16::init$))},
-	{"call", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(StringConcatFactoryInvariants$$Lambda$lambda$main$16$16, init$, void, $MethodHandles$Lookup*, $String*, $String*, $ObjectArray*)},
+	{"call", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(StringConcatFactoryInvariants$$Lambda$lambda$main$16$16, call, $Object*)},
 	{}
 };
 $ClassInfo StringConcatFactoryInvariants$$Lambda$lambda$main$16$16::classInfo$ = {
@@ -861,8 +861,8 @@ $FieldInfo StringConcatFactoryInvariants$$Lambda$lambda$main$17$17::fieldInfos[5
 	{}
 };
 $MethodInfo StringConcatFactoryInvariants$$Lambda$lambda$main$17$17::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(static_cast<void(StringConcatFactoryInvariants$$Lambda$lambda$main$17$17::*)($MethodHandles$Lookup*,$String*,$String*,$ObjectArray*)>(&StringConcatFactoryInvariants$$Lambda$lambda$main$17$17::init$))},
-	{"call", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(StringConcatFactoryInvariants$$Lambda$lambda$main$17$17, init$, void, $MethodHandles$Lookup*, $String*, $String*, $ObjectArray*)},
+	{"call", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(StringConcatFactoryInvariants$$Lambda$lambda$main$17$17, call, $Object*)},
 	{}
 };
 $ClassInfo StringConcatFactoryInvariants$$Lambda$lambda$main$17$17::classInfo$ = {
@@ -910,8 +910,8 @@ $FieldInfo StringConcatFactoryInvariants$$Lambda$lambda$main$18$18::fieldInfos[5
 	{}
 };
 $MethodInfo StringConcatFactoryInvariants$$Lambda$lambda$main$18$18::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(static_cast<void(StringConcatFactoryInvariants$$Lambda$lambda$main$18$18::*)($MethodHandles$Lookup*,$String*,$String*,$ObjectArray*)>(&StringConcatFactoryInvariants$$Lambda$lambda$main$18$18::init$))},
-	{"call", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(StringConcatFactoryInvariants$$Lambda$lambda$main$18$18, init$, void, $MethodHandles$Lookup*, $String*, $String*, $ObjectArray*)},
+	{"call", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(StringConcatFactoryInvariants$$Lambda$lambda$main$18$18, call, $Object*)},
 	{}
 };
 $ClassInfo StringConcatFactoryInvariants$$Lambda$lambda$main$18$18::classInfo$ = {
@@ -959,8 +959,8 @@ $FieldInfo StringConcatFactoryInvariants$$Lambda$lambda$main$19$19::fieldInfos[5
 	{}
 };
 $MethodInfo StringConcatFactoryInvariants$$Lambda$lambda$main$19$19::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(static_cast<void(StringConcatFactoryInvariants$$Lambda$lambda$main$19$19::*)($MethodHandles$Lookup*,$String*,$String*,$ObjectArray*)>(&StringConcatFactoryInvariants$$Lambda$lambda$main$19$19::init$))},
-	{"call", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(StringConcatFactoryInvariants$$Lambda$lambda$main$19$19, init$, void, $MethodHandles$Lookup*, $String*, $String*, $ObjectArray*)},
+	{"call", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(StringConcatFactoryInvariants$$Lambda$lambda$main$19$19, call, $Object*)},
 	{}
 };
 $ClassInfo StringConcatFactoryInvariants$$Lambda$lambda$main$19$19::classInfo$ = {
@@ -1008,8 +1008,8 @@ $FieldInfo StringConcatFactoryInvariants$$Lambda$lambda$main$20$20::fieldInfos[5
 	{}
 };
 $MethodInfo StringConcatFactoryInvariants$$Lambda$lambda$main$20$20::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(static_cast<void(StringConcatFactoryInvariants$$Lambda$lambda$main$20$20::*)($MethodHandles$Lookup*,$String*,$String*,$ObjectArray*)>(&StringConcatFactoryInvariants$$Lambda$lambda$main$20$20::init$))},
-	{"call", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(StringConcatFactoryInvariants$$Lambda$lambda$main$20$20, init$, void, $MethodHandles$Lookup*, $String*, $String*, $ObjectArray*)},
+	{"call", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(StringConcatFactoryInvariants$$Lambda$lambda$main$20$20, call, $Object*)},
 	{}
 };
 $ClassInfo StringConcatFactoryInvariants$$Lambda$lambda$main$20$20::classInfo$ = {
@@ -1054,8 +1054,8 @@ $FieldInfo StringConcatFactoryInvariants$$Lambda$lambda$main$21$21::fieldInfos[4
 	{}
 };
 $MethodInfo StringConcatFactoryInvariants$$Lambda$lambda$main$21$21::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;)V", nullptr, $PUBLIC, $method(static_cast<void(StringConcatFactoryInvariants$$Lambda$lambda$main$21$21::*)($MethodHandles$Lookup*,$String*,$MethodType*)>(&StringConcatFactoryInvariants$$Lambda$lambda$main$21$21::init$))},
-	{"call", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;)V", nullptr, $PUBLIC, $method(StringConcatFactoryInvariants$$Lambda$lambda$main$21$21, init$, void, $MethodHandles$Lookup*, $String*, $MethodType*)},
+	{"call", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(StringConcatFactoryInvariants$$Lambda$lambda$main$21$21, call, $Object*)},
 	{}
 };
 $ClassInfo StringConcatFactoryInvariants$$Lambda$lambda$main$21$21::classInfo$ = {
@@ -1106,8 +1106,8 @@ $FieldInfo StringConcatFactoryInvariants$$Lambda$lambda$main$24$22::fieldInfos[6
 	{}
 };
 $MethodInfo StringConcatFactoryInvariants$$Lambda$lambda$main$24$22::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;[[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(static_cast<void(StringConcatFactoryInvariants$$Lambda$lambda$main$24$22::*)($MethodHandles$Lookup*,$String*,$MethodType*,$String*,$ObjectArray2*)>(&StringConcatFactoryInvariants$$Lambda$lambda$main$24$22::init$))},
-	{"call", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;[[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(StringConcatFactoryInvariants$$Lambda$lambda$main$24$22, init$, void, $MethodHandles$Lookup*, $String*, $MethodType*, $String*, $ObjectArray2*)},
+	{"call", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(StringConcatFactoryInvariants$$Lambda$lambda$main$24$22, call, $Object*)},
 	{}
 };
 $ClassInfo StringConcatFactoryInvariants$$Lambda$lambda$main$24$22::classInfo$ = {
@@ -1155,8 +1155,8 @@ $FieldInfo StringConcatFactoryInvariants$$Lambda$lambda$main$27$23::fieldInfos[5
 	{}
 };
 $MethodInfo StringConcatFactoryInvariants$$Lambda$lambda$main$27$23::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(StringConcatFactoryInvariants$$Lambda$lambda$main$27$23::*)($MethodHandles$Lookup*,$String*,$MethodType*,$String*)>(&StringConcatFactoryInvariants$$Lambda$lambda$main$27$23::init$))},
-	{"call", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(StringConcatFactoryInvariants$$Lambda$lambda$main$27$23, init$, void, $MethodHandles$Lookup*, $String*, $MethodType*, $String*)},
+	{"call", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(StringConcatFactoryInvariants$$Lambda$lambda$main$27$23, call, $Object*)},
 	{}
 };
 $ClassInfo StringConcatFactoryInvariants$$Lambda$lambda$main$27$23::classInfo$ = {
@@ -1204,8 +1204,8 @@ $FieldInfo StringConcatFactoryInvariants$$Lambda$lambda$main$28$24::fieldInfos[5
 	{}
 };
 $MethodInfo StringConcatFactoryInvariants$$Lambda$lambda$main$28$24::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(StringConcatFactoryInvariants$$Lambda$lambda$main$28$24::*)($MethodHandles$Lookup*,$String*,$MethodType*,$String*)>(&StringConcatFactoryInvariants$$Lambda$lambda$main$28$24::init$))},
-	{"call", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(StringConcatFactoryInvariants$$Lambda$lambda$main$28$24, init$, void, $MethodHandles$Lookup*, $String*, $MethodType*, $String*)},
+	{"call", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(StringConcatFactoryInvariants$$Lambda$lambda$main$28$24, call, $Object*)},
 	{}
 };
 $ClassInfo StringConcatFactoryInvariants$$Lambda$lambda$main$28$24::classInfo$ = {
@@ -1253,8 +1253,8 @@ $FieldInfo StringConcatFactoryInvariants$$Lambda$lambda$main$29$25::fieldInfos[5
 	{}
 };
 $MethodInfo StringConcatFactoryInvariants$$Lambda$lambda$main$29$25::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(StringConcatFactoryInvariants$$Lambda$lambda$main$29$25::*)($MethodHandles$Lookup*,$String*,$MethodType*,$String*)>(&StringConcatFactoryInvariants$$Lambda$lambda$main$29$25::init$))},
-	{"call", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(StringConcatFactoryInvariants$$Lambda$lambda$main$29$25, init$, void, $MethodHandles$Lookup*, $String*, $MethodType*, $String*)},
+	{"call", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(StringConcatFactoryInvariants$$Lambda$lambda$main$29$25, call, $Object*)},
 	{}
 };
 $ClassInfo StringConcatFactoryInvariants$$Lambda$lambda$main$29$25::classInfo$ = {
@@ -1302,8 +1302,8 @@ $FieldInfo StringConcatFactoryInvariants$$Lambda$lambda$main$30$26::fieldInfos[5
 	{}
 };
 $MethodInfo StringConcatFactoryInvariants$$Lambda$lambda$main$30$26::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(StringConcatFactoryInvariants$$Lambda$lambda$main$30$26::*)($MethodHandles$Lookup*,$String*,$MethodType*,$String*)>(&StringConcatFactoryInvariants$$Lambda$lambda$main$30$26::init$))},
-	{"call", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(StringConcatFactoryInvariants$$Lambda$lambda$main$30$26, init$, void, $MethodHandles$Lookup*, $String*, $MethodType*, $String*)},
+	{"call", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(StringConcatFactoryInvariants$$Lambda$lambda$main$30$26, call, $Object*)},
 	{}
 };
 $ClassInfo StringConcatFactoryInvariants$$Lambda$lambda$main$30$26::classInfo$ = {
@@ -1345,8 +1345,8 @@ $FieldInfo StringConcatFactoryInvariants$$Lambda$lambda$main$34$27::fieldInfos[3
 	{}
 };
 $MethodInfo StringConcatFactoryInvariants$$Lambda$lambda$main$34$27::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(StringConcatFactoryInvariants$$Lambda$lambda$main$34$27::*)($MethodHandles$Lookup*,$String*)>(&StringConcatFactoryInvariants$$Lambda$lambda$main$34$27::init$))},
-	{"call", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(StringConcatFactoryInvariants$$Lambda$lambda$main$34$27, init$, void, $MethodHandles$Lookup*, $String*)},
+	{"call", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(StringConcatFactoryInvariants$$Lambda$lambda$main$34$27, call, $Object*)},
 	{}
 };
 $ClassInfo StringConcatFactoryInvariants$$Lambda$lambda$main$34$27::classInfo$ = {
@@ -1388,8 +1388,8 @@ $FieldInfo StringConcatFactoryInvariants$$Lambda$lambda$main$35$28::fieldInfos[3
 	{}
 };
 $MethodInfo StringConcatFactoryInvariants$$Lambda$lambda$main$35$28::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(StringConcatFactoryInvariants$$Lambda$lambda$main$35$28::*)($MethodHandles$Lookup*,$String*)>(&StringConcatFactoryInvariants$$Lambda$lambda$main$35$28::init$))},
-	{"call", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(StringConcatFactoryInvariants$$Lambda$lambda$main$35$28, init$, void, $MethodHandles$Lookup*, $String*)},
+	{"call", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(StringConcatFactoryInvariants$$Lambda$lambda$main$35$28, call, $Object*)},
 	{}
 };
 $ClassInfo StringConcatFactoryInvariants$$Lambda$lambda$main$35$28::classInfo$ = {
@@ -1431,8 +1431,8 @@ $FieldInfo StringConcatFactoryInvariants$$Lambda$lambda$main$38$29::fieldInfos[3
 	{}
 };
 $MethodInfo StringConcatFactoryInvariants$$Lambda$lambda$main$38$29::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/invoke/MethodType;)V", nullptr, $PUBLIC, $method(static_cast<void(StringConcatFactoryInvariants$$Lambda$lambda$main$38$29::*)($String*,$MethodType*)>(&StringConcatFactoryInvariants$$Lambda$lambda$main$38$29::init$))},
-	{"call", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/invoke/MethodType;)V", nullptr, $PUBLIC, $method(StringConcatFactoryInvariants$$Lambda$lambda$main$38$29, init$, void, $String*, $MethodType*)},
+	{"call", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(StringConcatFactoryInvariants$$Lambda$lambda$main$38$29, call, $Object*)},
 	{}
 };
 $ClassInfo StringConcatFactoryInvariants$$Lambda$lambda$main$38$29::classInfo$ = {
@@ -1477,8 +1477,8 @@ $FieldInfo StringConcatFactoryInvariants$$Lambda$lambda$main$39$30::fieldInfos[4
 	{}
 };
 $MethodInfo StringConcatFactoryInvariants$$Lambda$lambda$main$39$30::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(StringConcatFactoryInvariants$$Lambda$lambda$main$39$30::*)($String*,$MethodType*,$String*)>(&StringConcatFactoryInvariants$$Lambda$lambda$main$39$30::init$))},
-	{"call", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(StringConcatFactoryInvariants$$Lambda$lambda$main$39$30, init$, void, $String*, $MethodType*, $String*)},
+	{"call", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(StringConcatFactoryInvariants$$Lambda$lambda$main$39$30, call, $Object*)},
 	{}
 };
 $ClassInfo StringConcatFactoryInvariants$$Lambda$lambda$main$39$30::classInfo$ = {
@@ -1502,43 +1502,43 @@ $FieldInfo _StringConcatFactoryInvariants_FieldInfo_[] = {
 };
 
 $MethodInfo _StringConcatFactoryInvariants_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(StringConcatFactoryInvariants::*)()>(&StringConcatFactoryInvariants::init$))},
-	{"fail", "(Ljava/lang/String;Ljava/util/concurrent/Callable;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($String*,$Callable*)>(&StringConcatFactoryInvariants::fail))},
-	{"failNPE", "(Ljava/lang/String;Ljava/util/concurrent/Callable;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($String*,$Callable*)>(&StringConcatFactoryInvariants::failNPE))},
-	{"lambda$main$0", "(Ljava/lang/String;Ljava/lang/invoke/MethodType;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Object*(*)($String*,$MethodType*)>(&StringConcatFactoryInvariants::lambda$main$0)), "java.lang.Exception"},
-	{"lambda$main$1", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/invoke/MethodType;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Object*(*)($MethodHandles$Lookup*,$MethodType*)>(&StringConcatFactoryInvariants::lambda$main$1)), "java.lang.Exception"},
-	{"lambda$main$10", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Object*(*)($MethodHandles$Lookup*,$String*)>(&StringConcatFactoryInvariants::lambda$main$10)), "java.lang.Exception"},
-	{"lambda$main$11", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Object*(*)($MethodHandles$Lookup*,$String*)>(&StringConcatFactoryInvariants::lambda$main$11)), "java.lang.Exception"},
-	{"lambda$main$12", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Object*(*)($MethodHandles$Lookup*,$String*)>(&StringConcatFactoryInvariants::lambda$main$12)), "java.lang.Exception"},
-	{"lambda$main$13", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Object*(*)($MethodHandles$Lookup*,$String*)>(&StringConcatFactoryInvariants::lambda$main$13)), "java.lang.Exception"},
-	{"lambda$main$14", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Object*(*)($MethodHandles$Lookup*,$String*)>(&StringConcatFactoryInvariants::lambda$main$14)), "java.lang.Exception"},
-	{"lambda$main$15", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Object*(*)($MethodHandles$Lookup*,$String*,$String*,$ObjectArray*)>(&StringConcatFactoryInvariants::lambda$main$15)), "java.lang.Exception"},
-	{"lambda$main$16", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Object*(*)($MethodHandles$Lookup*,$String*,$String*,$ObjectArray*)>(&StringConcatFactoryInvariants::lambda$main$16)), "java.lang.Exception"},
-	{"lambda$main$17", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Object*(*)($MethodHandles$Lookup*,$String*,$String*,$ObjectArray*)>(&StringConcatFactoryInvariants::lambda$main$17)), "java.lang.Exception"},
-	{"lambda$main$18", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Object*(*)($MethodHandles$Lookup*,$String*,$String*,$ObjectArray*)>(&StringConcatFactoryInvariants::lambda$main$18)), "java.lang.Exception"},
-	{"lambda$main$19", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Object*(*)($MethodHandles$Lookup*,$String*,$String*,$ObjectArray*)>(&StringConcatFactoryInvariants::lambda$main$19)), "java.lang.Exception"},
-	{"lambda$main$2", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Object*(*)($MethodHandles$Lookup*,$String*)>(&StringConcatFactoryInvariants::lambda$main$2)), "java.lang.Exception"},
-	{"lambda$main$20", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Object*(*)($MethodHandles$Lookup*,$String*,$String*,$ObjectArray*)>(&StringConcatFactoryInvariants::lambda$main$20)), "java.lang.Exception"},
-	{"lambda$main$21", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Object*(*)($MethodHandles$Lookup*,$String*,$MethodType*)>(&StringConcatFactoryInvariants::lambda$main$21)), "java.lang.Exception"},
-	{"lambda$main$24", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;[[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Object*(*)($MethodHandles$Lookup*,$String*,$MethodType*,$String*,$ObjectArray2*)>(&StringConcatFactoryInvariants::lambda$main$24)), "java.lang.Exception"},
-	{"lambda$main$27", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Object*(*)($MethodHandles$Lookup*,$String*,$MethodType*,$String*)>(&StringConcatFactoryInvariants::lambda$main$27)), "java.lang.Exception"},
-	{"lambda$main$28", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Object*(*)($MethodHandles$Lookup*,$String*,$MethodType*,$String*)>(&StringConcatFactoryInvariants::lambda$main$28)), "java.lang.Exception"},
-	{"lambda$main$29", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Object*(*)($MethodHandles$Lookup*,$String*,$MethodType*,$String*)>(&StringConcatFactoryInvariants::lambda$main$29)), "java.lang.Exception"},
-	{"lambda$main$3", "(Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Object*(*)($String*,$MethodType*,$String*,$ObjectArray*)>(&StringConcatFactoryInvariants::lambda$main$3)), "java.lang.Exception"},
-	{"lambda$main$30", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Object*(*)($MethodHandles$Lookup*,$String*,$MethodType*,$String*)>(&StringConcatFactoryInvariants::lambda$main$30)), "java.lang.Exception"},
-	{"lambda$main$34", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Object*(*)($MethodHandles$Lookup*,$String*)>(&StringConcatFactoryInvariants::lambda$main$34)), "java.lang.Exception"},
-	{"lambda$main$35", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Object*(*)($MethodHandles$Lookup*,$String*)>(&StringConcatFactoryInvariants::lambda$main$35)), "java.lang.Exception"},
-	{"lambda$main$38", "(Ljava/lang/String;Ljava/lang/invoke/MethodType;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Object*(*)($String*,$MethodType*)>(&StringConcatFactoryInvariants::lambda$main$38)), "java.lang.Exception"},
-	{"lambda$main$39", "(Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Object*(*)($String*,$MethodType*,$String*)>(&StringConcatFactoryInvariants::lambda$main$39)), "java.lang.Exception"},
-	{"lambda$main$4", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/invoke/MethodType;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Object*(*)($MethodHandles$Lookup*,$MethodType*,$String*,$ObjectArray*)>(&StringConcatFactoryInvariants::lambda$main$4)), "java.lang.Exception"},
-	{"lambda$main$5", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Object*(*)($MethodHandles$Lookup*,$String*,$String*,$ObjectArray*)>(&StringConcatFactoryInvariants::lambda$main$5)), "java.lang.Exception"},
-	{"lambda$main$6", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Object*(*)($MethodHandles$Lookup*,$String*,$MethodType*,$ObjectArray*)>(&StringConcatFactoryInvariants::lambda$main$6)), "java.lang.Exception"},
-	{"lambda$main$7", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Object*(*)($MethodHandles$Lookup*,$String*,$MethodType*,$String*)>(&StringConcatFactoryInvariants::lambda$main$7)), "java.lang.Exception"},
-	{"lambda$main$8", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Object*(*)($MethodHandles$Lookup*,$String*,$MethodType*,$String*)>(&StringConcatFactoryInvariants::lambda$main$8)), "java.lang.Exception"},
-	{"lambda$main$9", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Object*(*)($MethodHandles$Lookup*,$String*)>(&StringConcatFactoryInvariants::lambda$main$9)), "java.lang.Exception"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&StringConcatFactoryInvariants::main)), "java.lang.Throwable"},
-	{"ok", "(Ljava/lang/String;Ljava/util/concurrent/Callable;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($String*,$Callable*)>(&StringConcatFactoryInvariants::ok))},
-	{"test", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($String*,$String*)>(&StringConcatFactoryInvariants::test))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(StringConcatFactoryInvariants, init$, void)},
+	{"fail", "(Ljava/lang/String;Ljava/util/concurrent/Callable;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StringConcatFactoryInvariants, fail, void, $String*, $Callable*)},
+	{"failNPE", "(Ljava/lang/String;Ljava/util/concurrent/Callable;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StringConcatFactoryInvariants, failNPE, void, $String*, $Callable*)},
+	{"lambda$main$0", "(Ljava/lang/String;Ljava/lang/invoke/MethodType;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StringConcatFactoryInvariants, lambda$main$0, $Object*, $String*, $MethodType*), "java.lang.Exception"},
+	{"lambda$main$1", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/invoke/MethodType;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StringConcatFactoryInvariants, lambda$main$1, $Object*, $MethodHandles$Lookup*, $MethodType*), "java.lang.Exception"},
+	{"lambda$main$10", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StringConcatFactoryInvariants, lambda$main$10, $Object*, $MethodHandles$Lookup*, $String*), "java.lang.Exception"},
+	{"lambda$main$11", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StringConcatFactoryInvariants, lambda$main$11, $Object*, $MethodHandles$Lookup*, $String*), "java.lang.Exception"},
+	{"lambda$main$12", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StringConcatFactoryInvariants, lambda$main$12, $Object*, $MethodHandles$Lookup*, $String*), "java.lang.Exception"},
+	{"lambda$main$13", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StringConcatFactoryInvariants, lambda$main$13, $Object*, $MethodHandles$Lookup*, $String*), "java.lang.Exception"},
+	{"lambda$main$14", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StringConcatFactoryInvariants, lambda$main$14, $Object*, $MethodHandles$Lookup*, $String*), "java.lang.Exception"},
+	{"lambda$main$15", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StringConcatFactoryInvariants, lambda$main$15, $Object*, $MethodHandles$Lookup*, $String*, $String*, $ObjectArray*), "java.lang.Exception"},
+	{"lambda$main$16", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StringConcatFactoryInvariants, lambda$main$16, $Object*, $MethodHandles$Lookup*, $String*, $String*, $ObjectArray*), "java.lang.Exception"},
+	{"lambda$main$17", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StringConcatFactoryInvariants, lambda$main$17, $Object*, $MethodHandles$Lookup*, $String*, $String*, $ObjectArray*), "java.lang.Exception"},
+	{"lambda$main$18", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StringConcatFactoryInvariants, lambda$main$18, $Object*, $MethodHandles$Lookup*, $String*, $String*, $ObjectArray*), "java.lang.Exception"},
+	{"lambda$main$19", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StringConcatFactoryInvariants, lambda$main$19, $Object*, $MethodHandles$Lookup*, $String*, $String*, $ObjectArray*), "java.lang.Exception"},
+	{"lambda$main$2", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StringConcatFactoryInvariants, lambda$main$2, $Object*, $MethodHandles$Lookup*, $String*), "java.lang.Exception"},
+	{"lambda$main$20", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StringConcatFactoryInvariants, lambda$main$20, $Object*, $MethodHandles$Lookup*, $String*, $String*, $ObjectArray*), "java.lang.Exception"},
+	{"lambda$main$21", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StringConcatFactoryInvariants, lambda$main$21, $Object*, $MethodHandles$Lookup*, $String*, $MethodType*), "java.lang.Exception"},
+	{"lambda$main$24", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;[[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StringConcatFactoryInvariants, lambda$main$24, $Object*, $MethodHandles$Lookup*, $String*, $MethodType*, $String*, $ObjectArray2*), "java.lang.Exception"},
+	{"lambda$main$27", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StringConcatFactoryInvariants, lambda$main$27, $Object*, $MethodHandles$Lookup*, $String*, $MethodType*, $String*), "java.lang.Exception"},
+	{"lambda$main$28", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StringConcatFactoryInvariants, lambda$main$28, $Object*, $MethodHandles$Lookup*, $String*, $MethodType*, $String*), "java.lang.Exception"},
+	{"lambda$main$29", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StringConcatFactoryInvariants, lambda$main$29, $Object*, $MethodHandles$Lookup*, $String*, $MethodType*, $String*), "java.lang.Exception"},
+	{"lambda$main$3", "(Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StringConcatFactoryInvariants, lambda$main$3, $Object*, $String*, $MethodType*, $String*, $ObjectArray*), "java.lang.Exception"},
+	{"lambda$main$30", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StringConcatFactoryInvariants, lambda$main$30, $Object*, $MethodHandles$Lookup*, $String*, $MethodType*, $String*), "java.lang.Exception"},
+	{"lambda$main$34", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StringConcatFactoryInvariants, lambda$main$34, $Object*, $MethodHandles$Lookup*, $String*), "java.lang.Exception"},
+	{"lambda$main$35", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StringConcatFactoryInvariants, lambda$main$35, $Object*, $MethodHandles$Lookup*, $String*), "java.lang.Exception"},
+	{"lambda$main$38", "(Ljava/lang/String;Ljava/lang/invoke/MethodType;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StringConcatFactoryInvariants, lambda$main$38, $Object*, $String*, $MethodType*), "java.lang.Exception"},
+	{"lambda$main$39", "(Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StringConcatFactoryInvariants, lambda$main$39, $Object*, $String*, $MethodType*, $String*), "java.lang.Exception"},
+	{"lambda$main$4", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/invoke/MethodType;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StringConcatFactoryInvariants, lambda$main$4, $Object*, $MethodHandles$Lookup*, $MethodType*, $String*, $ObjectArray*), "java.lang.Exception"},
+	{"lambda$main$5", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StringConcatFactoryInvariants, lambda$main$5, $Object*, $MethodHandles$Lookup*, $String*, $String*, $ObjectArray*), "java.lang.Exception"},
+	{"lambda$main$6", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StringConcatFactoryInvariants, lambda$main$6, $Object*, $MethodHandles$Lookup*, $String*, $MethodType*, $ObjectArray*), "java.lang.Exception"},
+	{"lambda$main$7", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StringConcatFactoryInvariants, lambda$main$7, $Object*, $MethodHandles$Lookup*, $String*, $MethodType*, $String*), "java.lang.Exception"},
+	{"lambda$main$8", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StringConcatFactoryInvariants, lambda$main$8, $Object*, $MethodHandles$Lookup*, $String*, $MethodType*, $String*), "java.lang.Exception"},
+	{"lambda$main$9", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StringConcatFactoryInvariants, lambda$main$9, $Object*, $MethodHandles$Lookup*, $String*), "java.lang.Exception"},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StringConcatFactoryInvariants, main, void, $StringArray*), "java.lang.Throwable"},
+	{"ok", "(Ljava/lang/String;Ljava/util/concurrent/Callable;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StringConcatFactoryInvariants, ok, void, $String*, $Callable*)},
+	{"test", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StringConcatFactoryInvariants, test, void, $String*, $String*)},
 	{}
 };
 

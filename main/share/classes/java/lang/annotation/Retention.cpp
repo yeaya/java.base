@@ -8,6 +8,7 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
+using $RetentionPolicy = ::java::lang::annotation::RetentionPolicy;
 
 namespace java {
 	namespace lang {
@@ -36,7 +37,7 @@ $CompoundAttribute _Retention_Annotations_[] = {
 };
 
 $MethodInfo _Retention_MethodInfo_[] = {
-	{"value", "()Ljava/lang/annotation/RetentionPolicy;", nullptr, $PUBLIC | $ABSTRACT},
+	{"value", "()Ljava/lang/annotation/RetentionPolicy;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Retention, value, $RetentionPolicy*)},
 	{}
 };
 

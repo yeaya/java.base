@@ -30,12 +30,12 @@ $FieldInfo _DateTimeFormatterBuilder$CompositePrinterParser_FieldInfo_[] = {
 };
 
 $MethodInfo _DateTimeFormatterBuilder$CompositePrinterParser_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/List;Z)V", "(Ljava/util/List<Ljava/time/format/DateTimeFormatterBuilder$DateTimePrinterParser;>;Z)V", 0, $method(static_cast<void(DateTimeFormatterBuilder$CompositePrinterParser::*)($List*,bool)>(&DateTimeFormatterBuilder$CompositePrinterParser::init$))},
-	{"<init>", "([Ljava/time/format/DateTimeFormatterBuilder$DateTimePrinterParser;Z)V", nullptr, 0, $method(static_cast<void(DateTimeFormatterBuilder$CompositePrinterParser::*)($DateTimeFormatterBuilder$DateTimePrinterParserArray*,bool)>(&DateTimeFormatterBuilder$CompositePrinterParser::init$))},
-	{"format", "(Ljava/time/format/DateTimePrintContext;Ljava/lang/StringBuilder;)Z", nullptr, $PUBLIC},
-	{"parse", "(Ljava/time/format/DateTimeParseContext;Ljava/lang/CharSequence;I)I", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"withOptional", "(Z)Ljava/time/format/DateTimeFormatterBuilder$CompositePrinterParser;", nullptr, $PUBLIC, $method(static_cast<DateTimeFormatterBuilder$CompositePrinterParser*(DateTimeFormatterBuilder$CompositePrinterParser::*)(bool)>(&DateTimeFormatterBuilder$CompositePrinterParser::withOptional))},
+	{"<init>", "(Ljava/util/List;Z)V", "(Ljava/util/List<Ljava/time/format/DateTimeFormatterBuilder$DateTimePrinterParser;>;Z)V", 0, $method(DateTimeFormatterBuilder$CompositePrinterParser, init$, void, $List*, bool)},
+	{"<init>", "([Ljava/time/format/DateTimeFormatterBuilder$DateTimePrinterParser;Z)V", nullptr, 0, $method(DateTimeFormatterBuilder$CompositePrinterParser, init$, void, $DateTimeFormatterBuilder$DateTimePrinterParserArray*, bool)},
+	{"format", "(Ljava/time/format/DateTimePrintContext;Ljava/lang/StringBuilder;)Z", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$CompositePrinterParser, format, bool, $DateTimePrintContext*, $StringBuilder*)},
+	{"parse", "(Ljava/time/format/DateTimeParseContext;Ljava/lang/CharSequence;I)I", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$CompositePrinterParser, parse, int32_t, $DateTimeParseContext*, $CharSequence*, int32_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$CompositePrinterParser, toString, $String*)},
+	{"withOptional", "(Z)Ljava/time/format/DateTimeFormatterBuilder$CompositePrinterParser;", nullptr, $PUBLIC, $method(DateTimeFormatterBuilder$CompositePrinterParser, withOptional, DateTimeFormatterBuilder$CompositePrinterParser*, bool)},
 	{}
 };
 

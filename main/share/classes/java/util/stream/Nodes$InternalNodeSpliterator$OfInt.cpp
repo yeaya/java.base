@@ -41,13 +41,13 @@ $MethodInfo _Nodes$InternalNodeSpliterator$OfInt_MethodInfo_[] = {
 	{"*getExactSizeIfKnown", "()J", nullptr, $PUBLIC | $ABSTRACT},
 	{"*hasCharacteristics", "(I)Z", nullptr, $PUBLIC | $ABSTRACT},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/util/stream/Node$OfInt;)V", nullptr, 0, $method(static_cast<void(Nodes$InternalNodeSpliterator$OfInt::*)($Node$OfInt*)>(&Nodes$InternalNodeSpliterator$OfInt::init$))},
-	{"forEachRemaining", "(Ljava/util/function/IntConsumer;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $method(static_cast<void(Nodes$InternalNodeSpliterator$OfInt::*)($IntConsumer*)>(&Nodes$InternalNodeSpliterator$OfInt::forEachRemaining))},
+	{"<init>", "(Ljava/util/stream/Node$OfInt;)V", nullptr, 0, $method(Nodes$InternalNodeSpliterator$OfInt, init$, void, $Node$OfInt*)},
+	{"forEachRemaining", "(Ljava/util/function/IntConsumer;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $method(Nodes$InternalNodeSpliterator$OfInt, forEachRemaining, void, $IntConsumer*)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{"*tryAdvance", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*tryAdvance", "(Ljava/util/function/Consumer;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"tryAdvance", "(Ljava/util/function/IntConsumer;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $method(static_cast<bool(Nodes$InternalNodeSpliterator$OfInt::*)($IntConsumer*)>(&Nodes$InternalNodeSpliterator$OfInt::tryAdvance))},
-	{"trySplit", "()Ljava/util/Spliterator$OfInt;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"tryAdvance", "(Ljava/util/function/IntConsumer;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $method(Nodes$InternalNodeSpliterator$OfInt, tryAdvance, bool, $IntConsumer*)},
+	{"trySplit", "()Ljava/util/Spliterator$OfInt;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Nodes$InternalNodeSpliterator$OfInt, trySplit, $Spliterator*)},
 	{}
 };
 

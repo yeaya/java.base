@@ -27,8 +27,8 @@ $FieldInfo _Collectors$Partition_FieldInfo_[] = {
 };
 
 $MethodInfo _Collectors$Partition_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;Ljava/lang/Object;)V", "(TT;TT;)V", 0, $method(static_cast<void(Collectors$Partition::*)(Object$*,Object$*)>(&Collectors$Partition::init$))},
-	{"entrySet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/util/Map$Entry<Ljava/lang/Boolean;TT;>;>;", $PUBLIC},
+	{"<init>", "(Ljava/lang/Object;Ljava/lang/Object;)V", "(TT;TT;)V", 0, $method(Collectors$Partition, init$, void, Object$*, Object$*)},
+	{"entrySet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/util/Map$Entry<Ljava/lang/Boolean;TT;>;>;", $PUBLIC, $virtualMethod(Collectors$Partition, entrySet, $Set*)},
 	{}
 };
 

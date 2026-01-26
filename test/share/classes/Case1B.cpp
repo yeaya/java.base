@@ -39,7 +39,7 @@ $CompoundAttribute _Case1B_Annotations_[] = {
 };
 
 $MethodInfo _Case1B_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Case1B::*)()>(&Case1B::init$))},
+	{"<init>", "()V", nullptr, 0, $method(Case1B, init$, void)},
 	{}
 };
 

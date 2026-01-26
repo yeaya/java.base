@@ -5,6 +5,7 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $UserPrincipal = ::java::nio::file::attribute::UserPrincipal;
 
 namespace java {
 	namespace nio {
@@ -12,9 +13,9 @@ namespace java {
 			namespace attribute {
 
 $MethodInfo _FileOwnerAttributeView_MethodInfo_[] = {
-	{"getOwner", "()Ljava/nio/file/attribute/UserPrincipal;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
+	{"getOwner", "()Ljava/nio/file/attribute/UserPrincipal;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FileOwnerAttributeView, getOwner, $UserPrincipal*), "java.io.IOException"},
 	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"setOwner", "(Ljava/nio/file/attribute/UserPrincipal;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
+	{"setOwner", "(Ljava/nio/file/attribute/UserPrincipal;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FileOwnerAttributeView, setOwner, void, $UserPrincipal*), "java.io.IOException"},
 	{}
 };
 

@@ -106,7 +106,7 @@ $FieldInfo _SecurityConstants_FieldInfo_[] = {
 };
 
 $MethodInfo _SecurityConstants_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(SecurityConstants::*)()>(&SecurityConstants::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(SecurityConstants, init$, void)},
 	{}
 };
 

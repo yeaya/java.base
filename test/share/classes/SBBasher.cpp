@@ -19,13 +19,13 @@ $FieldInfo _SBBasher_FieldInfo_[] = {
 };
 
 $MethodInfo _SBBasher_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SBBasher::*)()>(&SBBasher::init$))},
-	{"Test1", "(Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(static_cast<bool(SBBasher::*)($String*)>(&SBBasher::Test1))},
-	{"Test2", "(Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(static_cast<bool(SBBasher::*)($String*)>(&SBBasher::Test2))},
-	{"Test3", "(Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(static_cast<bool(SBBasher::*)($String*)>(&SBBasher::Test3))},
-	{"generateTestString", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(SBBasher::*)()>(&SBBasher::generateTestString))},
-	{"getRandomIndex", "(II)I", nullptr, $PRIVATE, $method(static_cast<int32_t(SBBasher::*)(int32_t,int32_t)>(&SBBasher::getRandomIndex))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&SBBasher::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SBBasher, init$, void)},
+	{"Test1", "(Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(SBBasher, Test1, bool, $String*)},
+	{"Test2", "(Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(SBBasher, Test2, bool, $String*)},
+	{"Test3", "(Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(SBBasher, Test3, bool, $String*)},
+	{"generateTestString", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(SBBasher, generateTestString, $String*)},
+	{"getRandomIndex", "(II)I", nullptr, $PRIVATE, $method(SBBasher, getRandomIndex, int32_t, int32_t, int32_t)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SBBasher, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

@@ -15,8 +15,8 @@ using $URL = ::java::net::URL;
 using $URLStreamHandlerFactory = ::java::net::URLStreamHandlerFactory;
 
 $MethodInfo _HandlerLoop_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(HandlerLoop::*)()>(&HandlerLoop::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&HandlerLoop::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(HandlerLoop, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HandlerLoop, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

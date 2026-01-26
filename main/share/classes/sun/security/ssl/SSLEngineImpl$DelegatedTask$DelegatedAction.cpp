@@ -28,8 +28,8 @@ $FieldInfo _SSLEngineImpl$DelegatedTask$DelegatedAction_FieldInfo_[] = {
 };
 
 $MethodInfo _SSLEngineImpl$DelegatedTask$DelegatedAction_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/ssl/HandshakeContext;)V", nullptr, 0, $method(static_cast<void(SSLEngineImpl$DelegatedTask$DelegatedAction::*)($HandshakeContext*)>(&SSLEngineImpl$DelegatedTask$DelegatedAction::init$))},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, nullptr, "java.lang.Exception"},
+	{"<init>", "(Lsun/security/ssl/HandshakeContext;)V", nullptr, 0, $method(SSLEngineImpl$DelegatedTask$DelegatedAction, init$, void, $HandshakeContext*)},
+	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(SSLEngineImpl$DelegatedTask$DelegatedAction, run, $Object*), "java.lang.Exception"},
 	{}
 };
 

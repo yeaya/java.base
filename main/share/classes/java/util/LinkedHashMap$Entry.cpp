@@ -20,7 +20,7 @@ $FieldInfo _LinkedHashMap$Entry_FieldInfo_[] = {
 };
 
 $MethodInfo _LinkedHashMap$Entry_MethodInfo_[] = {
-	{"<init>", "(ILjava/lang/Object;Ljava/lang/Object;Ljava/util/HashMap$Node;)V", "(ITK;TV;Ljava/util/HashMap$Node<TK;TV;>;)V", 0, $method(static_cast<void(LinkedHashMap$Entry::*)(int32_t,Object$*,Object$*,$HashMap$Node*)>(&LinkedHashMap$Entry::init$))},
+	{"<init>", "(ILjava/lang/Object;Ljava/lang/Object;Ljava/util/HashMap$Node;)V", "(ITK;TV;Ljava/util/HashMap$Node<TK;TV;>;)V", 0, $method(LinkedHashMap$Entry, init$, void, int32_t, Object$*, Object$*, $HashMap$Node*)},
 	{}
 };
 

@@ -36,14 +36,14 @@ $FieldInfo _TestC1_FieldInfo_[] = {
 };
 
 $MethodInfo _TestC1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TestC1::*)()>(&TestC1::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&TestC1::main)), "java.lang.Throwable"},
-	{"testConstructor", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&TestC1::testConstructor)), "java.lang.NoSuchMethodException"},
-	{"testFields", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&TestC1::testFields)), "java.lang.NoSuchFieldException"},
-	{"testMethods", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&TestC1::testMethods)), "java.lang.NoSuchMethodException"},
-	{"testSuperInterfaces", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&TestC1::testSuperInterfaces))},
-	{"testSuperclass", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&TestC1::testSuperclass))},
-	{"testTypeParameters", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&TestC1::testTypeParameters))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TestC1, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TestC1, main, void, $StringArray*), "java.lang.Throwable"},
+	{"testConstructor", "()V", nullptr, $STATIC, $staticMethod(TestC1, testConstructor, void), "java.lang.NoSuchMethodException"},
+	{"testFields", "()V", nullptr, $STATIC, $staticMethod(TestC1, testFields, void), "java.lang.NoSuchFieldException"},
+	{"testMethods", "()V", nullptr, $STATIC, $staticMethod(TestC1, testMethods, void), "java.lang.NoSuchMethodException"},
+	{"testSuperInterfaces", "()V", nullptr, $STATIC, $staticMethod(TestC1, testSuperInterfaces, void)},
+	{"testSuperclass", "()V", nullptr, $STATIC, $staticMethod(TestC1, testSuperclass, void)},
+	{"testTypeParameters", "()V", nullptr, $STATIC, $staticMethod(TestC1, testTypeParameters, void)},
 	{}
 };
 

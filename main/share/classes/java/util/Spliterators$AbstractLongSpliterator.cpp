@@ -38,10 +38,10 @@ $FieldInfo _Spliterators$AbstractLongSpliterator_FieldInfo_[] = {
 };
 
 $MethodInfo _Spliterators$AbstractLongSpliterator_MethodInfo_[] = {
-	{"<init>", "(JI)V", nullptr, $PROTECTED, $method(static_cast<void(Spliterators$AbstractLongSpliterator::*)(int64_t,int32_t)>(&Spliterators$AbstractLongSpliterator::init$))},
-	{"characteristics", "()I", nullptr, $PUBLIC},
-	{"estimateSize", "()J", nullptr, $PUBLIC},
-	{"trySplit", "()Ljava/util/Spliterator$OfLong;", nullptr, $PUBLIC},
+	{"<init>", "(JI)V", nullptr, $PROTECTED, $method(Spliterators$AbstractLongSpliterator, init$, void, int64_t, int32_t)},
+	{"characteristics", "()I", nullptr, $PUBLIC, $virtualMethod(Spliterators$AbstractLongSpliterator, characteristics, int32_t)},
+	{"estimateSize", "()J", nullptr, $PUBLIC, $virtualMethod(Spliterators$AbstractLongSpliterator, estimateSize, int64_t)},
+	{"trySplit", "()Ljava/util/Spliterator$OfLong;", nullptr, $PUBLIC, $virtualMethod(Spliterators$AbstractLongSpliterator, trySplit, $Spliterator$OfLong*)},
 	{}
 };
 

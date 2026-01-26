@@ -21,19 +21,19 @@ $FieldInfo _FeedbackCipher_FieldInfo_[] = {
 };
 
 $MethodInfo _FeedbackCipher_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/crypto/provider/SymmetricCipher;)V", nullptr, 0, $method(static_cast<void(FeedbackCipher::*)($SymmetricCipher*)>(&FeedbackCipher::init$))},
-	{"decrypt", "([BII[BI)I", nullptr, $ABSTRACT},
-	{"decryptFinal", "([BII[BI)I", nullptr, 0, nullptr, "javax.crypto.IllegalBlockSizeException,javax.crypto.ShortBufferException"},
-	{"encrypt", "([BII[BI)I", nullptr, $ABSTRACT},
-	{"encryptFinal", "([BII[BI)I", nullptr, 0, nullptr, "javax.crypto.IllegalBlockSizeException,javax.crypto.ShortBufferException"},
-	{"getBlockSize", "()I", nullptr, $FINAL, $method(static_cast<int32_t(FeedbackCipher::*)()>(&FeedbackCipher::getBlockSize))},
-	{"getEmbeddedCipher", "()Lcom/sun/crypto/provider/SymmetricCipher;", nullptr, $FINAL, $method(static_cast<$SymmetricCipher*(FeedbackCipher::*)()>(&FeedbackCipher::getEmbeddedCipher))},
-	{"getFeedback", "()Ljava/lang/String;", nullptr, $ABSTRACT},
-	{"getIV", "()[B", nullptr, $FINAL, $method(static_cast<$bytes*(FeedbackCipher::*)()>(&FeedbackCipher::getIV))},
-	{"init", "(ZLjava/lang/String;[B[B)V", nullptr, $ABSTRACT, nullptr, "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
-	{"reset", "()V", nullptr, $ABSTRACT},
-	{"restore", "()V", nullptr, $ABSTRACT},
-	{"save", "()V", nullptr, $ABSTRACT},
+	{"<init>", "(Lcom/sun/crypto/provider/SymmetricCipher;)V", nullptr, 0, $method(FeedbackCipher, init$, void, $SymmetricCipher*)},
+	{"decrypt", "([BII[BI)I", nullptr, $ABSTRACT, $virtualMethod(FeedbackCipher, decrypt, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t)},
+	{"decryptFinal", "([BII[BI)I", nullptr, 0, $virtualMethod(FeedbackCipher, decryptFinal, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t), "javax.crypto.IllegalBlockSizeException,javax.crypto.ShortBufferException"},
+	{"encrypt", "([BII[BI)I", nullptr, $ABSTRACT, $virtualMethod(FeedbackCipher, encrypt, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t)},
+	{"encryptFinal", "([BII[BI)I", nullptr, 0, $virtualMethod(FeedbackCipher, encryptFinal, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t), "javax.crypto.IllegalBlockSizeException,javax.crypto.ShortBufferException"},
+	{"getBlockSize", "()I", nullptr, $FINAL, $method(FeedbackCipher, getBlockSize, int32_t)},
+	{"getEmbeddedCipher", "()Lcom/sun/crypto/provider/SymmetricCipher;", nullptr, $FINAL, $method(FeedbackCipher, getEmbeddedCipher, $SymmetricCipher*)},
+	{"getFeedback", "()Ljava/lang/String;", nullptr, $ABSTRACT, $virtualMethod(FeedbackCipher, getFeedback, $String*)},
+	{"getIV", "()[B", nullptr, $FINAL, $method(FeedbackCipher, getIV, $bytes*)},
+	{"init", "(ZLjava/lang/String;[B[B)V", nullptr, $ABSTRACT, $virtualMethod(FeedbackCipher, init, void, bool, $String*, $bytes*, $bytes*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
+	{"reset", "()V", nullptr, $ABSTRACT, $virtualMethod(FeedbackCipher, reset, void)},
+	{"restore", "()V", nullptr, $ABSTRACT, $virtualMethod(FeedbackCipher, restore, void)},
+	{"save", "()V", nullptr, $ABSTRACT, $virtualMethod(FeedbackCipher, save, void)},
 	{}
 };
 

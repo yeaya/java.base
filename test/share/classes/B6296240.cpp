@@ -14,8 +14,8 @@ using $UnknownHostException = ::java::net::UnknownHostException;
 using $BitSet = ::java::util::BitSet;
 
 $MethodInfo _B6296240_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(B6296240::*)()>(&B6296240::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&B6296240::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(B6296240, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(B6296240, main, void, $StringArray*)},
 	{}
 };
 

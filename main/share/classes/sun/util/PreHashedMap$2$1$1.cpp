@@ -29,12 +29,12 @@ $FieldInfo _PreHashedMap$2$1$1_FieldInfo_[] = {
 };
 
 $MethodInfo _PreHashedMap$2$1$1_MethodInfo_[] = {
-	{"<init>", "(Lsun/util/PreHashedMap$2$1;)V", nullptr, 0, $method(static_cast<void(PreHashedMap$2$1$1::*)($PreHashedMap$2$1*)>(&PreHashedMap$2$1$1::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getKey", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getValue", "()Ljava/lang/Object;", "()TV;", $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"setValue", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TV;)TV;", $PUBLIC},
+	{"<init>", "(Lsun/util/PreHashedMap$2$1;)V", nullptr, 0, $method(PreHashedMap$2$1$1, init$, void, $PreHashedMap$2$1*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(PreHashedMap$2$1$1, equals, bool, Object$*)},
+	{"getKey", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PreHashedMap$2$1$1, getKey, $Object*)},
+	{"getValue", "()Ljava/lang/Object;", "()TV;", $PUBLIC, $virtualMethod(PreHashedMap$2$1$1, getValue, $Object*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(PreHashedMap$2$1$1, hashCode, int32_t)},
+	{"setValue", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TV;)TV;", $PUBLIC, $virtualMethod(PreHashedMap$2$1$1, setValue, $Object*, Object$*)},
 	{}
 };
 

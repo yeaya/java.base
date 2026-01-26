@@ -17,9 +17,9 @@ using $SoftReference = ::java::lang::ref::SoftReference;
 using $WeakReference = ::java::lang::ref::WeakReference;
 
 $MethodInfo _EnqueueNullRef_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(EnqueueNullRef::*)()>(&EnqueueNullRef::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&EnqueueNullRef::main))},
-	{"test", "(Ljava/lang/ref/ReferenceQueue;Ljava/lang/ref/Reference;)V", nullptr, $STATIC, $method(static_cast<void(*)($ReferenceQueue*,$Reference*)>(&EnqueueNullRef::test))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(EnqueueNullRef, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(EnqueueNullRef, main, void, $StringArray*)},
+	{"test", "(Ljava/lang/ref/ReferenceQueue;Ljava/lang/ref/Reference;)V", nullptr, $STATIC, $staticMethod(EnqueueNullRef, test, void, $ReferenceQueue*, $Reference*)},
 	{}
 };
 

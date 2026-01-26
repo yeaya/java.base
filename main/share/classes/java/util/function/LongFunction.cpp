@@ -16,7 +16,7 @@ $CompoundAttribute _LongFunction_Annotations_[] = {
 };
 
 $MethodInfo _LongFunction_MethodInfo_[] = {
-	{"apply", "(J)Ljava/lang/Object;", "(J)TR;", $PUBLIC | $ABSTRACT},
+	{"apply", "(J)Ljava/lang/Object;", "(J)TR;", $PUBLIC | $ABSTRACT, $virtualMethod(LongFunction, apply, $Object*, int64_t)},
 	{}
 };
 

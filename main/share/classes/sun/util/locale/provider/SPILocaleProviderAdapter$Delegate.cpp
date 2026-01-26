@@ -66,8 +66,8 @@ $FieldInfo SPILocaleProviderAdapter$Delegate$$Lambda$equals::fieldInfos[2] = {
 	{}
 };
 $MethodInfo SPILocaleProviderAdapter$Delegate$$Lambda$equals::methodInfos[3] = {
-	{"<init>", "(Ljava/util/Locale;)V", nullptr, $PUBLIC, $method(static_cast<void(SPILocaleProviderAdapter$Delegate$$Lambda$equals::*)($Locale*)>(&SPILocaleProviderAdapter$Delegate$$Lambda$equals::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/Locale;)V", nullptr, $PUBLIC, $method(SPILocaleProviderAdapter$Delegate$$Lambda$equals, init$, void, $Locale*)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$Delegate$$Lambda$equals, test, bool, Object$*)},
 	{}
 };
 $ClassInfo SPILocaleProviderAdapter$Delegate$$Lambda$equals::classInfo$ = {
@@ -85,11 +85,11 @@ $Class* SPILocaleProviderAdapter$Delegate$$Lambda$equals::load$($String* name, b
 $Class* SPILocaleProviderAdapter$Delegate$$Lambda$equals::class$ = nullptr;
 
 $MethodInfo _SPILocaleProviderAdapter$Delegate_MethodInfo_[] = {
-	{"addImpl", "(Ljava/util/spi/LocaleServiceProvider;)V", "(TP;)V", $PUBLIC},
-	{"getAvailableLocalesDelegate", "()[Ljava/util/Locale;", nullptr, $PUBLIC},
-	{"getDelegateMap", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/util/Locale;TP;>;", $PUBLIC | $ABSTRACT},
-	{"getImpl", "(Ljava/util/Locale;)Ljava/util/spi/LocaleServiceProvider;", "(Ljava/util/Locale;)TP;", $PUBLIC},
-	{"isSupportedLocaleDelegate", "(Ljava/util/Locale;)Z", nullptr, $PUBLIC},
+	{"addImpl", "(Ljava/util/spi/LocaleServiceProvider;)V", "(TP;)V", $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$Delegate, addImpl, void, $LocaleServiceProvider*)},
+	{"getAvailableLocalesDelegate", "()[Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$Delegate, getAvailableLocalesDelegate, $LocaleArray*)},
+	{"getDelegateMap", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/util/Locale;TP;>;", $PUBLIC | $ABSTRACT, $virtualMethod(SPILocaleProviderAdapter$Delegate, getDelegateMap, $Map*)},
+	{"getImpl", "(Ljava/util/Locale;)Ljava/util/spi/LocaleServiceProvider;", "(Ljava/util/Locale;)TP;", $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$Delegate, getImpl, $LocaleServiceProvider*, $Locale*)},
+	{"isSupportedLocaleDelegate", "(Ljava/util/Locale;)Z", nullptr, $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$Delegate, isSupportedLocaleDelegate, bool, $Locale*)},
 	{}
 };
 

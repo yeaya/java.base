@@ -17,10 +17,10 @@ $FieldInfo _VirtualMachineError_FieldInfo_[] = {
 };
 
 $MethodInfo _VirtualMachineError_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(VirtualMachineError::*)()>(&VirtualMachineError::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(VirtualMachineError::*)($String*)>(&VirtualMachineError::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(VirtualMachineError::*)($String*,$Throwable*)>(&VirtualMachineError::init$))},
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(VirtualMachineError::*)($Throwable*)>(&VirtualMachineError::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(VirtualMachineError, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(VirtualMachineError, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(VirtualMachineError, init$, void, $String*, $Throwable*)},
+	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(VirtualMachineError, init$, void, $Throwable*)},
 	{}
 };
 

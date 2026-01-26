@@ -39,8 +39,8 @@ $FieldInfo _VarHandleByteArrayAsChars_FieldInfo_[] = {
 };
 
 $MethodInfo _VarHandleByteArrayAsChars_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(VarHandleByteArrayAsChars::*)()>(&VarHandleByteArrayAsChars::init$))},
-	{"convEndian", "(ZC)C", nullptr, $STATIC, $method(static_cast<char16_t(*)(bool,char16_t)>(&VarHandleByteArrayAsChars::convEndian)), nullptr, nullptr, _VarHandleByteArrayAsChars_MethodAnnotations_convEndian1},
+	{"<init>", "()V", nullptr, 0, $method(VarHandleByteArrayAsChars, init$, void)},
+	{"convEndian", "(ZC)C", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsChars, convEndian, char16_t, bool, char16_t), nullptr, nullptr, _VarHandleByteArrayAsChars_MethodAnnotations_convEndian1},
 	{}
 };
 

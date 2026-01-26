@@ -6,6 +6,7 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $IntStream = ::java::util::stream::IntStream;
 
 namespace java {
 	namespace util {
@@ -13,8 +14,8 @@ namespace java {
 
 $MethodInfo _IntStream$Builder_MethodInfo_[] = {
 	{"accept", "(I)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"add", "(I)Ljava/util/stream/IntStream$Builder;", nullptr, $PUBLIC},
-	{"build", "()Ljava/util/stream/IntStream;", nullptr, $PUBLIC | $ABSTRACT},
+	{"add", "(I)Ljava/util/stream/IntStream$Builder;", nullptr, $PUBLIC, $virtualMethod(IntStream$Builder, add, IntStream$Builder*, int32_t)},
+	{"build", "()Ljava/util/stream/IntStream;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(IntStream$Builder, build, $IntStream*)},
 	{}
 };
 

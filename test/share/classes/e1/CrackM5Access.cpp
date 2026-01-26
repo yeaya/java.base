@@ -10,10 +10,10 @@ using $Module = ::java::lang::Module;
 namespace e1 {
 
 $MethodInfo _CrackM5Access_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CrackM5Access::*)()>(&CrackM5Access::init$))},
-	{"addReads", "(Ljava/lang/Module;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($Module*)>(&CrackM5Access::addReads))},
-	{"packageMethod", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&CrackM5Access::packageMethod))},
-	{"privateMethod", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&CrackM5Access::privateMethod))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CrackM5Access, init$, void)},
+	{"addReads", "(Ljava/lang/Module;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(CrackM5Access, addReads, void, $Module*)},
+	{"packageMethod", "()V", nullptr, $STATIC, $staticMethod(CrackM5Access, packageMethod, void)},
+	{"privateMethod", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(CrackM5Access, privateMethod, void)},
 	{}
 };
 

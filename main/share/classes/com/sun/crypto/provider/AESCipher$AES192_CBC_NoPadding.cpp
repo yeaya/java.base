@@ -15,7 +15,7 @@ namespace com {
 			namespace provider {
 
 $MethodInfo _AESCipher$AES192_CBC_NoPadding_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(AESCipher$AES192_CBC_NoPadding::*)()>(&AESCipher$AES192_CBC_NoPadding::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(AESCipher$AES192_CBC_NoPadding, init$, void)},
 	{}
 };
 

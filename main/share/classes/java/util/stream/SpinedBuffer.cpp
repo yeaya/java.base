@@ -75,8 +75,8 @@ $FieldInfo SpinedBuffer$$Lambda$add::fieldInfos[2] = {
 	{}
 };
 $MethodInfo SpinedBuffer$$Lambda$add::methodInfos[3] = {
-	{"<init>", "(Ljava/util/List;)V", nullptr, $PUBLIC, $method(static_cast<void(SpinedBuffer$$Lambda$add::*)($List*)>(&SpinedBuffer$$Lambda$add::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/List;)V", nullptr, $PUBLIC, $method(SpinedBuffer$$Lambda$add, init$, void, $List*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(SpinedBuffer$$Lambda$add, accept, void, Object$*)},
 	{}
 };
 $ClassInfo SpinedBuffer$$Lambda$add::classInfo$ = {
@@ -105,21 +105,21 @@ $MethodInfo _SpinedBuffer_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(I)V", nullptr, 0, $method(static_cast<void(SpinedBuffer::*)(int32_t)>(&SpinedBuffer::init$))},
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(SpinedBuffer::*)()>(&SpinedBuffer::init$))},
-	{"accept", "(Ljava/lang/Object;)V", "(TE;)V", $PUBLIC},
-	{"asArray", "(Ljava/util/function/IntFunction;)[Ljava/lang/Object;", "(Ljava/util/function/IntFunction<[TE;>;)[TE;", $PUBLIC},
-	{"capacity", "()J", nullptr, $PROTECTED},
-	{"clear", "()V", nullptr, $PUBLIC},
-	{"copyInto", "([Ljava/lang/Object;I)V", "([TE;I)V", $PUBLIC},
-	{"ensureCapacity", "(J)V", nullptr, $PROTECTED | $FINAL, $method(static_cast<void(SpinedBuffer::*)(int64_t)>(&SpinedBuffer::ensureCapacity))},
-	{"forEach", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC},
-	{"get", "(J)Ljava/lang/Object;", "(J)TE;", $PUBLIC},
-	{"increaseCapacity", "()V", nullptr, $PROTECTED},
-	{"inflateSpine", "()V", nullptr, $PRIVATE, $method(static_cast<void(SpinedBuffer::*)()>(&SpinedBuffer::inflateSpine))},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TE;>;", $PUBLIC},
-	{"spliterator", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TE;>;", $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(I)V", nullptr, 0, $method(SpinedBuffer, init$, void, int32_t)},
+	{"<init>", "()V", nullptr, 0, $method(SpinedBuffer, init$, void)},
+	{"accept", "(Ljava/lang/Object;)V", "(TE;)V", $PUBLIC, $virtualMethod(SpinedBuffer, accept, void, Object$*)},
+	{"asArray", "(Ljava/util/function/IntFunction;)[Ljava/lang/Object;", "(Ljava/util/function/IntFunction<[TE;>;)[TE;", $PUBLIC, $virtualMethod(SpinedBuffer, asArray, $ObjectArray*, $IntFunction*)},
+	{"capacity", "()J", nullptr, $PROTECTED, $virtualMethod(SpinedBuffer, capacity, int64_t)},
+	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(SpinedBuffer, clear, void)},
+	{"copyInto", "([Ljava/lang/Object;I)V", "([TE;I)V", $PUBLIC, $virtualMethod(SpinedBuffer, copyInto, void, $ObjectArray*, int32_t)},
+	{"ensureCapacity", "(J)V", nullptr, $PROTECTED | $FINAL, $method(SpinedBuffer, ensureCapacity, void, int64_t)},
+	{"forEach", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC, $virtualMethod(SpinedBuffer, forEach, void, $Consumer*)},
+	{"get", "(J)Ljava/lang/Object;", "(J)TE;", $PUBLIC, $virtualMethod(SpinedBuffer, get, $Object*, int64_t)},
+	{"increaseCapacity", "()V", nullptr, $PROTECTED, $virtualMethod(SpinedBuffer, increaseCapacity, void)},
+	{"inflateSpine", "()V", nullptr, $PRIVATE, $method(SpinedBuffer, inflateSpine, void)},
+	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TE;>;", $PUBLIC, $virtualMethod(SpinedBuffer, iterator, $Iterator*)},
+	{"spliterator", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TE;>;", $PUBLIC, $virtualMethod(SpinedBuffer, spliterator, $Spliterator*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SpinedBuffer, toString, $String*)},
 	{}
 };
 

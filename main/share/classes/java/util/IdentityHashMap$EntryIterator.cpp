@@ -23,9 +23,9 @@ $FieldInfo _IdentityHashMap$EntryIterator_FieldInfo_[] = {
 };
 
 $MethodInfo _IdentityHashMap$EntryIterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/IdentityHashMap;)V", nullptr, $PRIVATE, $method(static_cast<void(IdentityHashMap$EntryIterator::*)($IdentityHashMap*)>(&IdentityHashMap$EntryIterator::init$))},
-	{"next", "()Ljava/util/Map$Entry;", "()Ljava/util/Map$Entry<TK;TV;>;", $PUBLIC},
-	{"remove", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/IdentityHashMap;)V", nullptr, $PRIVATE, $method(IdentityHashMap$EntryIterator, init$, void, $IdentityHashMap*)},
+	{"next", "()Ljava/util/Map$Entry;", "()Ljava/util/Map$Entry<TK;TV;>;", $PUBLIC, $virtualMethod(IdentityHashMap$EntryIterator, next, $Object*)},
+	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(IdentityHashMap$EntryIterator, remove, void)},
 	{}
 };
 

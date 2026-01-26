@@ -3,6 +3,7 @@
 #include <java/lang/reflect/Type.h>
 #include <jcpp.h>
 
+using $TypeArray = $Array<::java::lang::reflect::Type>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
@@ -11,8 +12,8 @@ namespace java {
 		namespace reflect {
 
 $MethodInfo _WildcardType_MethodInfo_[] = {
-	{"getLowerBounds", "()[Ljava/lang/reflect/Type;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getUpperBounds", "()[Ljava/lang/reflect/Type;", nullptr, $PUBLIC | $ABSTRACT},
+	{"getLowerBounds", "()[Ljava/lang/reflect/Type;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(WildcardType, getLowerBounds, $TypeArray*)},
+	{"getUpperBounds", "()[Ljava/lang/reflect/Type;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(WildcardType, getUpperBounds, $TypeArray*)},
 	{}
 };
 

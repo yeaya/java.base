@@ -15,8 +15,8 @@ using $Package = ::java::lang::Package;
 using $RuntimeException = ::java::lang::RuntimeException;
 
 $MethodInfo _GetDefinedPackage_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(GetDefinedPackage::*)()>(&GetDefinedPackage::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<void(*)($StringArray*)>(&GetDefinedPackage::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(GetDefinedPackage, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(GetDefinedPackage, main, void, $StringArray*)},
 	{}
 };
 

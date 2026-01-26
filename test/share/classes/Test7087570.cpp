@@ -64,20 +64,20 @@ $FieldInfo _Test7087570_FieldInfo_[] = {
 };
 
 $MethodInfo _Test7087570_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Test7087570::*)()>(&Test7087570::init$))},
-	{"assertEquals", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)(Object$*,Object$*)>(&Test7087570::assertEquals))},
-	{"assertRefKindEquals", "(II)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)(int32_t,int32_t)>(&Test7087570::assertRefKindEquals))},
-	{"data", "(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/Class;I)LTest7087570$TestMethodData;", "(Ljava/lang/Class<*>;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/Class<*>;I)LTest7087570$TestMethodData;", $PRIVATE | $STATIC, $method(static_cast<$Test7087570$TestMethodData*(*)($Class*,$String*,$MethodType*,$Class*,int32_t)>(&Test7087570::data))},
-	{"doTest", "(Ljava/lang/invoke/MethodHandle;LTest7087570$TestMethodData;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($MethodHandle*,$Test7087570$TestMethodData*)>(&Test7087570::doTest))},
-	{"getterMethodType", "(Ljava/lang/Class;)Ljava/lang/invoke/MethodType;", "(Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodType;", $PRIVATE | $STATIC, $method(static_cast<$MethodType*(*)($Class*)>(&Test7087570::getterMethodType))},
-	{"isInvokeSpecial", "(Ljava/lang/invoke/MethodHandle;)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($MethodHandle*)>(&Test7087570::isInvokeSpecial))},
-	{"lookupFrom", "(LTest7087570$TestMethodData;)Ljava/lang/invoke/MethodHandle;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$MethodHandle*(*)($Test7087570$TestMethodData*)>(&Test7087570::lookupFrom)), "java.lang.NoSuchMethodException,java.lang.NoSuchFieldException,java.lang.IllegalAccessException"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<void(*)($StringArray*)>(&Test7087570::main)), "java.lang.Throwable"},
-	{"noteInvokeSpecial", "(Ljava/lang/invoke/MethodHandle;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($MethodHandle*)>(&Test7087570::noteInvokeSpecial))},
-	{"setterMethodType", "(Ljava/lang/Class;)Ljava/lang/invoke/MethodType;", "(Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodType;", $PRIVATE | $STATIC, $method(static_cast<$MethodType*(*)($Class*)>(&Test7087570::setterMethodType))},
-	{"testWithLookup", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&Test7087570::testWithLookup)), "java.lang.Throwable"},
-	{"testWithUnreflect", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&Test7087570::testWithUnreflect)), "java.lang.Throwable"},
-	{"unreflectFrom", "(LTest7087570$TestMethodData;)Ljava/lang/invoke/MethodHandle;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$MethodHandle*(*)($Test7087570$TestMethodData*)>(&Test7087570::unreflectFrom)), "java.lang.NoSuchMethodException,java.lang.NoSuchFieldException,java.lang.IllegalAccessException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Test7087570, init$, void)},
+	{"assertEquals", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Test7087570, assertEquals, void, Object$*, Object$*)},
+	{"assertRefKindEquals", "(II)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Test7087570, assertRefKindEquals, void, int32_t, int32_t)},
+	{"data", "(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/Class;I)LTest7087570$TestMethodData;", "(Ljava/lang/Class<*>;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/Class<*>;I)LTest7087570$TestMethodData;", $PRIVATE | $STATIC, $staticMethod(Test7087570, data, $Test7087570$TestMethodData*, $Class*, $String*, $MethodType*, $Class*, int32_t)},
+	{"doTest", "(Ljava/lang/invoke/MethodHandle;LTest7087570$TestMethodData;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Test7087570, doTest, void, $MethodHandle*, $Test7087570$TestMethodData*)},
+	{"getterMethodType", "(Ljava/lang/Class;)Ljava/lang/invoke/MethodType;", "(Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodType;", $PRIVATE | $STATIC, $staticMethod(Test7087570, getterMethodType, $MethodType*, $Class*)},
+	{"isInvokeSpecial", "(Ljava/lang/invoke/MethodHandle;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Test7087570, isInvokeSpecial, bool, $MethodHandle*)},
+	{"lookupFrom", "(LTest7087570$TestMethodData;)Ljava/lang/invoke/MethodHandle;", nullptr, $PRIVATE | $STATIC, $staticMethod(Test7087570, lookupFrom, $MethodHandle*, $Test7087570$TestMethodData*), "java.lang.NoSuchMethodException,java.lang.NoSuchFieldException,java.lang.IllegalAccessException"},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(Test7087570, main, void, $StringArray*), "java.lang.Throwable"},
+	{"noteInvokeSpecial", "(Ljava/lang/invoke/MethodHandle;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Test7087570, noteInvokeSpecial, void, $MethodHandle*)},
+	{"setterMethodType", "(Ljava/lang/Class;)Ljava/lang/invoke/MethodType;", "(Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodType;", $PRIVATE | $STATIC, $staticMethod(Test7087570, setterMethodType, $MethodType*, $Class*)},
+	{"testWithLookup", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(Test7087570, testWithLookup, void), "java.lang.Throwable"},
+	{"testWithUnreflect", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(Test7087570, testWithUnreflect, void), "java.lang.Throwable"},
+	{"unreflectFrom", "(LTest7087570$TestMethodData;)Ljava/lang/invoke/MethodHandle;", nullptr, $PRIVATE | $STATIC, $staticMethod(Test7087570, unreflectFrom, $MethodHandle*, $Test7087570$TestMethodData*), "java.lang.NoSuchMethodException,java.lang.NoSuchFieldException,java.lang.IllegalAccessException"},
 	{}
 };
 

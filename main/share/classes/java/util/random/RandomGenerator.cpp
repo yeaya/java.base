@@ -67,8 +67,8 @@ $FieldInfo RandomGenerator$$Lambda$nextDouble::fieldInfos[2] = {
 	{}
 };
 $MethodInfo RandomGenerator$$Lambda$nextDouble::methodInfos[3] = {
-	{"<init>", "(Ljava/util/random/RandomGenerator;)V", nullptr, $PUBLIC, $method(static_cast<void(RandomGenerator$$Lambda$nextDouble::*)(RandomGenerator*)>(&RandomGenerator$$Lambda$nextDouble::init$))},
-	{"getAsDouble", "()D", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/random/RandomGenerator;)V", nullptr, $PUBLIC, $method(RandomGenerator$$Lambda$nextDouble, init$, void, RandomGenerator*)},
+	{"getAsDouble", "()D", nullptr, $PUBLIC, $virtualMethod(RandomGenerator$$Lambda$nextDouble, getAsDouble, double)},
 	{}
 };
 $ClassInfo RandomGenerator$$Lambda$nextDouble::classInfo$ = {
@@ -113,8 +113,8 @@ $FieldInfo RandomGenerator$$Lambda$lambda$doubles$0$1::fieldInfos[4] = {
 	{}
 };
 $MethodInfo RandomGenerator$$Lambda$lambda$doubles$0$1::methodInfos[3] = {
-	{"<init>", "(Ljava/util/random/RandomGenerator;DD)V", nullptr, $PUBLIC, $method(static_cast<void(RandomGenerator$$Lambda$lambda$doubles$0$1::*)(RandomGenerator*,double,double)>(&RandomGenerator$$Lambda$lambda$doubles$0$1::init$))},
-	{"getAsDouble", "()D", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/random/RandomGenerator;DD)V", nullptr, $PUBLIC, $method(RandomGenerator$$Lambda$lambda$doubles$0$1, init$, void, RandomGenerator*, double, double)},
+	{"getAsDouble", "()D", nullptr, $PUBLIC, $virtualMethod(RandomGenerator$$Lambda$lambda$doubles$0$1, getAsDouble, double)},
 	{}
 };
 $ClassInfo RandomGenerator$$Lambda$lambda$doubles$0$1::classInfo$ = {
@@ -153,8 +153,8 @@ $FieldInfo RandomGenerator$$Lambda$nextInt$2::fieldInfos[2] = {
 	{}
 };
 $MethodInfo RandomGenerator$$Lambda$nextInt$2::methodInfos[3] = {
-	{"<init>", "(Ljava/util/random/RandomGenerator;)V", nullptr, $PUBLIC, $method(static_cast<void(RandomGenerator$$Lambda$nextInt$2::*)(RandomGenerator*)>(&RandomGenerator$$Lambda$nextInt$2::init$))},
-	{"getAsInt", "()I", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/random/RandomGenerator;)V", nullptr, $PUBLIC, $method(RandomGenerator$$Lambda$nextInt$2, init$, void, RandomGenerator*)},
+	{"getAsInt", "()I", nullptr, $PUBLIC, $virtualMethod(RandomGenerator$$Lambda$nextInt$2, getAsInt, int32_t)},
 	{}
 };
 $ClassInfo RandomGenerator$$Lambda$nextInt$2::classInfo$ = {
@@ -199,8 +199,8 @@ $FieldInfo RandomGenerator$$Lambda$lambda$ints$1$3::fieldInfos[4] = {
 	{}
 };
 $MethodInfo RandomGenerator$$Lambda$lambda$ints$1$3::methodInfos[3] = {
-	{"<init>", "(Ljava/util/random/RandomGenerator;II)V", nullptr, $PUBLIC, $method(static_cast<void(RandomGenerator$$Lambda$lambda$ints$1$3::*)(RandomGenerator*,int32_t,int32_t)>(&RandomGenerator$$Lambda$lambda$ints$1$3::init$))},
-	{"getAsInt", "()I", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/random/RandomGenerator;II)V", nullptr, $PUBLIC, $method(RandomGenerator$$Lambda$lambda$ints$1$3, init$, void, RandomGenerator*, int32_t, int32_t)},
+	{"getAsInt", "()I", nullptr, $PUBLIC, $virtualMethod(RandomGenerator$$Lambda$lambda$ints$1$3, getAsInt, int32_t)},
 	{}
 };
 $ClassInfo RandomGenerator$$Lambda$lambda$ints$1$3::classInfo$ = {
@@ -239,8 +239,8 @@ $FieldInfo RandomGenerator$$Lambda$nextLong$4::fieldInfos[2] = {
 	{}
 };
 $MethodInfo RandomGenerator$$Lambda$nextLong$4::methodInfos[3] = {
-	{"<init>", "(Ljava/util/random/RandomGenerator;)V", nullptr, $PUBLIC, $method(static_cast<void(RandomGenerator$$Lambda$nextLong$4::*)(RandomGenerator*)>(&RandomGenerator$$Lambda$nextLong$4::init$))},
-	{"getAsLong", "()J", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/random/RandomGenerator;)V", nullptr, $PUBLIC, $method(RandomGenerator$$Lambda$nextLong$4, init$, void, RandomGenerator*)},
+	{"getAsLong", "()J", nullptr, $PUBLIC, $virtualMethod(RandomGenerator$$Lambda$nextLong$4, getAsLong, int64_t)},
 	{}
 };
 $ClassInfo RandomGenerator$$Lambda$nextLong$4::classInfo$ = {
@@ -285,8 +285,8 @@ $FieldInfo RandomGenerator$$Lambda$lambda$longs$2$5::fieldInfos[4] = {
 	{}
 };
 $MethodInfo RandomGenerator$$Lambda$lambda$longs$2$5::methodInfos[3] = {
-	{"<init>", "(Ljava/util/random/RandomGenerator;JJ)V", nullptr, $PUBLIC, $method(static_cast<void(RandomGenerator$$Lambda$lambda$longs$2$5::*)(RandomGenerator*,int64_t,int64_t)>(&RandomGenerator$$Lambda$lambda$longs$2$5::init$))},
-	{"getAsLong", "()J", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/random/RandomGenerator;JJ)V", nullptr, $PUBLIC, $method(RandomGenerator$$Lambda$lambda$longs$2$5, init$, void, RandomGenerator*, int64_t, int64_t)},
+	{"getAsLong", "()J", nullptr, $PUBLIC, $virtualMethod(RandomGenerator$$Lambda$lambda$longs$2$5, getAsLong, int64_t)},
 	{}
 };
 $ClassInfo RandomGenerator$$Lambda$lambda$longs$2$5::classInfo$ = {
@@ -304,41 +304,41 @@ $Class* RandomGenerator$$Lambda$lambda$longs$2$5::load$($String* name, bool init
 $Class* RandomGenerator$$Lambda$lambda$longs$2$5::class$ = nullptr;
 
 $MethodInfo _RandomGenerator_MethodInfo_[] = {
-	{"doubles", "()Ljava/util/stream/DoubleStream;", nullptr, $PUBLIC},
-	{"doubles", "(DD)Ljava/util/stream/DoubleStream;", nullptr, $PUBLIC},
-	{"doubles", "(J)Ljava/util/stream/DoubleStream;", nullptr, $PUBLIC},
-	{"doubles", "(JDD)Ljava/util/stream/DoubleStream;", nullptr, $PUBLIC},
-	{"getDefault", "()Ljava/util/random/RandomGenerator;", nullptr, $PUBLIC | $STATIC, $method(static_cast<RandomGenerator*(*)()>(&RandomGenerator::getDefault))},
-	{"ints", "()Ljava/util/stream/IntStream;", nullptr, $PUBLIC},
-	{"ints", "(II)Ljava/util/stream/IntStream;", nullptr, $PUBLIC},
-	{"ints", "(J)Ljava/util/stream/IntStream;", nullptr, $PUBLIC},
-	{"ints", "(JII)Ljava/util/stream/IntStream;", nullptr, $PUBLIC},
-	{"isDeprecated", "()Z", nullptr, $PUBLIC},
-	{"lambda$doubles$0", "(DD)D", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<double(RandomGenerator::*)(double,double)>(&RandomGenerator::lambda$doubles$0))},
-	{"lambda$ints$1", "(II)I", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<int32_t(RandomGenerator::*)(int32_t,int32_t)>(&RandomGenerator::lambda$ints$1))},
-	{"lambda$longs$2", "(JJ)J", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<int64_t(RandomGenerator::*)(int64_t,int64_t)>(&RandomGenerator::lambda$longs$2))},
-	{"longs", "()Ljava/util/stream/LongStream;", nullptr, $PUBLIC},
-	{"longs", "(JJ)Ljava/util/stream/LongStream;", nullptr, $PUBLIC},
-	{"longs", "(J)Ljava/util/stream/LongStream;", nullptr, $PUBLIC},
-	{"longs", "(JJJ)Ljava/util/stream/LongStream;", nullptr, $PUBLIC},
-	{"nextBoolean", "()Z", nullptr, $PUBLIC},
-	{"nextBytes", "([B)V", nullptr, $PUBLIC},
-	{"nextDouble", "()D", nullptr, $PUBLIC},
-	{"nextDouble", "(D)D", nullptr, $PUBLIC},
-	{"nextDouble", "(DD)D", nullptr, $PUBLIC},
-	{"nextExponential", "()D", nullptr, $PUBLIC},
-	{"nextFloat", "()F", nullptr, $PUBLIC},
-	{"nextFloat", "(F)F", nullptr, $PUBLIC},
-	{"nextFloat", "(FF)F", nullptr, $PUBLIC},
-	{"nextGaussian", "()D", nullptr, $PUBLIC},
-	{"nextGaussian", "(DD)D", nullptr, $PUBLIC},
-	{"nextInt", "()I", nullptr, $PUBLIC},
-	{"nextInt", "(I)I", nullptr, $PUBLIC},
-	{"nextInt", "(II)I", nullptr, $PUBLIC},
-	{"nextLong", "()J", nullptr, $PUBLIC | $ABSTRACT},
-	{"nextLong", "(J)J", nullptr, $PUBLIC},
-	{"nextLong", "(JJ)J", nullptr, $PUBLIC},
-	{"of", "(Ljava/lang/String;)Ljava/util/random/RandomGenerator;", nullptr, $PUBLIC | $STATIC, $method(static_cast<RandomGenerator*(*)($String*)>(&RandomGenerator::of))},
+	{"doubles", "()Ljava/util/stream/DoubleStream;", nullptr, $PUBLIC, $virtualMethod(RandomGenerator, doubles, $DoubleStream*)},
+	{"doubles", "(DD)Ljava/util/stream/DoubleStream;", nullptr, $PUBLIC, $virtualMethod(RandomGenerator, doubles, $DoubleStream*, double, double)},
+	{"doubles", "(J)Ljava/util/stream/DoubleStream;", nullptr, $PUBLIC, $virtualMethod(RandomGenerator, doubles, $DoubleStream*, int64_t)},
+	{"doubles", "(JDD)Ljava/util/stream/DoubleStream;", nullptr, $PUBLIC, $virtualMethod(RandomGenerator, doubles, $DoubleStream*, int64_t, double, double)},
+	{"getDefault", "()Ljava/util/random/RandomGenerator;", nullptr, $PUBLIC | $STATIC, $staticMethod(RandomGenerator, getDefault, RandomGenerator*)},
+	{"ints", "()Ljava/util/stream/IntStream;", nullptr, $PUBLIC, $virtualMethod(RandomGenerator, ints, $IntStream*)},
+	{"ints", "(II)Ljava/util/stream/IntStream;", nullptr, $PUBLIC, $virtualMethod(RandomGenerator, ints, $IntStream*, int32_t, int32_t)},
+	{"ints", "(J)Ljava/util/stream/IntStream;", nullptr, $PUBLIC, $virtualMethod(RandomGenerator, ints, $IntStream*, int64_t)},
+	{"ints", "(JII)Ljava/util/stream/IntStream;", nullptr, $PUBLIC, $virtualMethod(RandomGenerator, ints, $IntStream*, int64_t, int32_t, int32_t)},
+	{"isDeprecated", "()Z", nullptr, $PUBLIC, $virtualMethod(RandomGenerator, isDeprecated, bool)},
+	{"lambda$doubles$0", "(DD)D", nullptr, $PRIVATE | $SYNTHETIC, $method(RandomGenerator, lambda$doubles$0, double, double, double)},
+	{"lambda$ints$1", "(II)I", nullptr, $PRIVATE | $SYNTHETIC, $method(RandomGenerator, lambda$ints$1, int32_t, int32_t, int32_t)},
+	{"lambda$longs$2", "(JJ)J", nullptr, $PRIVATE | $SYNTHETIC, $method(RandomGenerator, lambda$longs$2, int64_t, int64_t, int64_t)},
+	{"longs", "()Ljava/util/stream/LongStream;", nullptr, $PUBLIC, $virtualMethod(RandomGenerator, longs, $LongStream*)},
+	{"longs", "(JJ)Ljava/util/stream/LongStream;", nullptr, $PUBLIC, $virtualMethod(RandomGenerator, longs, $LongStream*, int64_t, int64_t)},
+	{"longs", "(J)Ljava/util/stream/LongStream;", nullptr, $PUBLIC, $virtualMethod(RandomGenerator, longs, $LongStream*, int64_t)},
+	{"longs", "(JJJ)Ljava/util/stream/LongStream;", nullptr, $PUBLIC, $virtualMethod(RandomGenerator, longs, $LongStream*, int64_t, int64_t, int64_t)},
+	{"nextBoolean", "()Z", nullptr, $PUBLIC, $virtualMethod(RandomGenerator, nextBoolean, bool)},
+	{"nextBytes", "([B)V", nullptr, $PUBLIC, $virtualMethod(RandomGenerator, nextBytes, void, $bytes*)},
+	{"nextDouble", "()D", nullptr, $PUBLIC, $virtualMethod(RandomGenerator, nextDouble, double)},
+	{"nextDouble", "(D)D", nullptr, $PUBLIC, $virtualMethod(RandomGenerator, nextDouble, double, double)},
+	{"nextDouble", "(DD)D", nullptr, $PUBLIC, $virtualMethod(RandomGenerator, nextDouble, double, double, double)},
+	{"nextExponential", "()D", nullptr, $PUBLIC, $virtualMethod(RandomGenerator, nextExponential, double)},
+	{"nextFloat", "()F", nullptr, $PUBLIC, $virtualMethod(RandomGenerator, nextFloat, float)},
+	{"nextFloat", "(F)F", nullptr, $PUBLIC, $virtualMethod(RandomGenerator, nextFloat, float, float)},
+	{"nextFloat", "(FF)F", nullptr, $PUBLIC, $virtualMethod(RandomGenerator, nextFloat, float, float, float)},
+	{"nextGaussian", "()D", nullptr, $PUBLIC, $virtualMethod(RandomGenerator, nextGaussian, double)},
+	{"nextGaussian", "(DD)D", nullptr, $PUBLIC, $virtualMethod(RandomGenerator, nextGaussian, double, double, double)},
+	{"nextInt", "()I", nullptr, $PUBLIC, $virtualMethod(RandomGenerator, nextInt, int32_t)},
+	{"nextInt", "(I)I", nullptr, $PUBLIC, $virtualMethod(RandomGenerator, nextInt, int32_t, int32_t)},
+	{"nextInt", "(II)I", nullptr, $PUBLIC, $virtualMethod(RandomGenerator, nextInt, int32_t, int32_t, int32_t)},
+	{"nextLong", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RandomGenerator, nextLong, int64_t)},
+	{"nextLong", "(J)J", nullptr, $PUBLIC, $virtualMethod(RandomGenerator, nextLong, int64_t, int64_t)},
+	{"nextLong", "(JJ)J", nullptr, $PUBLIC, $virtualMethod(RandomGenerator, nextLong, int64_t, int64_t, int64_t)},
+	{"of", "(Ljava/lang/String;)Ljava/util/random/RandomGenerator;", nullptr, $PUBLIC | $STATIC, $staticMethod(RandomGenerator, of, RandomGenerator*, $String*)},
 	{}
 };
 

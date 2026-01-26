@@ -15,8 +15,8 @@ namespace sun {
 		namespace provider {
 
 $MethodInfo _DSA$SHA1withDSA_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DSA$SHA1withDSA::*)()>(&DSA$SHA1withDSA::init$)), "java.security.NoSuchAlgorithmException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DSA$SHA1withDSA, init$, void), "java.security.NoSuchAlgorithmException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DSA$SHA1withDSA, toString, $String*)},
 	{}
 };
 

@@ -57,8 +57,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ManifestDigester$$Lambda$lambda$new$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ManifestDigester$$Lambda$lambda$new$0::*)()>(&ManifestDigester$$Lambda$lambda$new$0::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ManifestDigester$$Lambda$lambda$new$0, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ManifestDigester$$Lambda$lambda$new$0, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo ManifestDigester$$Lambda$lambda$new$0::classInfo$ = {
@@ -84,15 +84,15 @@ $FieldInfo _ManifestDigester_FieldInfo_[] = {
 };
 
 $MethodInfo _ManifestDigester_MethodInfo_[] = {
-	{"<init>", "([B)V", nullptr, $PUBLIC, $method(static_cast<void(ManifestDigester::*)($bytes*)>(&ManifestDigester::init$))},
-	{"findSection", "(ILsun/security/util/ManifestDigester$Position;)Z", nullptr, $PRIVATE, $method(static_cast<bool(ManifestDigester::*)(int32_t,$ManifestDigester$Position*)>(&ManifestDigester::findSection))},
-	{"get", "(Ljava/lang/String;)Lsun/security/util/ManifestDigester$Entry;", nullptr, $PUBLIC},
-	{"get", "(Ljava/lang/String;Z)Lsun/security/util/ManifestDigester$Entry;", nullptr, $PUBLIC},
-	{"getMainAttsEntry", "()Lsun/security/util/ManifestDigester$Entry;", nullptr, $PUBLIC},
-	{"getMainAttsEntry", "(Z)Lsun/security/util/ManifestDigester$Entry;", nullptr, $PUBLIC},
-	{"isNameAttr", "([BI)Z", nullptr, $PRIVATE, $method(static_cast<bool(ManifestDigester::*)($bytes*,int32_t)>(&ManifestDigester::isNameAttr))},
-	{"lambda$new$0", "(Ljava/lang/String;)Lsun/security/util/ManifestDigester$Entry;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$ManifestDigester$Entry*(*)($String*)>(&ManifestDigester::lambda$new$0))},
-	{"manifestDigest", "(Ljava/security/MessageDigest;)[B", nullptr, $PUBLIC},
+	{"<init>", "([B)V", nullptr, $PUBLIC, $method(ManifestDigester, init$, void, $bytes*)},
+	{"findSection", "(ILsun/security/util/ManifestDigester$Position;)Z", nullptr, $PRIVATE, $method(ManifestDigester, findSection, bool, int32_t, $ManifestDigester$Position*)},
+	{"get", "(Ljava/lang/String;)Lsun/security/util/ManifestDigester$Entry;", nullptr, $PUBLIC, $virtualMethod(ManifestDigester, get, $ManifestDigester$Entry*, $String*)},
+	{"get", "(Ljava/lang/String;Z)Lsun/security/util/ManifestDigester$Entry;", nullptr, $PUBLIC, $virtualMethod(ManifestDigester, get, $ManifestDigester$Entry*, $String*, bool)},
+	{"getMainAttsEntry", "()Lsun/security/util/ManifestDigester$Entry;", nullptr, $PUBLIC, $virtualMethod(ManifestDigester, getMainAttsEntry, $ManifestDigester$Entry*)},
+	{"getMainAttsEntry", "(Z)Lsun/security/util/ManifestDigester$Entry;", nullptr, $PUBLIC, $virtualMethod(ManifestDigester, getMainAttsEntry, $ManifestDigester$Entry*, bool)},
+	{"isNameAttr", "([BI)Z", nullptr, $PRIVATE, $method(ManifestDigester, isNameAttr, bool, $bytes*, int32_t)},
+	{"lambda$new$0", "(Ljava/lang/String;)Lsun/security/util/ManifestDigester$Entry;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ManifestDigester, lambda$new$0, $ManifestDigester$Entry*, $String*)},
+	{"manifestDigest", "(Ljava/security/MessageDigest;)[B", nullptr, $PUBLIC, $virtualMethod(ManifestDigester, manifestDigest, $bytes*, $MessageDigest*)},
 	{}
 };
 

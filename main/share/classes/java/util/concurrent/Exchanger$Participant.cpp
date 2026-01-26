@@ -16,8 +16,8 @@ namespace java {
 		namespace concurrent {
 
 $MethodInfo _Exchanger$Participant_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Exchanger$Participant::*)()>(&Exchanger$Participant::init$))},
-	{"initialValue", "()Ljava/util/concurrent/Exchanger$Node;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(Exchanger$Participant, init$, void)},
+	{"initialValue", "()Ljava/util/concurrent/Exchanger$Node;", nullptr, $PUBLIC, $virtualMethod(Exchanger$Participant, initialValue, $Object*)},
 	{}
 };
 

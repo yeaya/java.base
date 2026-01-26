@@ -17,8 +17,8 @@ $FieldInfo _BrokenBarrierException_FieldInfo_[] = {
 };
 
 $MethodInfo _BrokenBarrierException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(BrokenBarrierException::*)()>(&BrokenBarrierException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(BrokenBarrierException::*)($String*)>(&BrokenBarrierException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(BrokenBarrierException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(BrokenBarrierException, init$, void, $String*)},
 	{}
 };
 

@@ -32,8 +32,8 @@ using $Permission = ::java::security::Permission;
 using $Policy = ::java::security::Policy;
 
 $MethodInfo _SecurityManagerClinit_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SecurityManagerClinit::*)()>(&SecurityManagerClinit::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&SecurityManagerClinit::main)), "java.lang.Throwable"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SecurityManagerClinit, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SecurityManagerClinit, main, void, $StringArray*), "java.lang.Throwable"},
 	{}
 };
 

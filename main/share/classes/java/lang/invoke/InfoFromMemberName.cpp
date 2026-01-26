@@ -58,16 +58,16 @@ $FieldInfo _InfoFromMemberName_FieldInfo_[] = {
 };
 
 $MethodInfo _InfoFromMemberName_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/invoke/MemberName;B)V", nullptr, 0, $method(static_cast<void(InfoFromMemberName::*)($MethodHandles$Lookup*,$MemberName*,int8_t)>(&InfoFromMemberName::init$))},
-	{"convertToMemberName", "(BLjava/lang/reflect/Member;)Ljava/lang/invoke/MemberName;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$MemberName*(*)(int8_t,$Member*)>(&InfoFromMemberName::convertToMemberName)), "java.lang.IllegalAccessException"},
-	{"getDeclaringClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC},
-	{"getMethodType", "()Ljava/lang/invoke/MethodType;", nullptr, $PUBLIC},
-	{"getModifiers", "()I", nullptr, $PUBLIC},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getReferenceKind", "()I", nullptr, $PUBLIC},
-	{"reflectAs", "(Ljava/lang/Class;Ljava/lang/invoke/MethodHandles$Lookup;)Ljava/lang/reflect/Member;", "<T::Ljava/lang/reflect/Member;>(Ljava/lang/Class<TT;>;Ljava/lang/invoke/MethodHandles$Lookup;)TT;", $PUBLIC},
-	{"reflectUnchecked", "()Ljava/lang/reflect/Member;", nullptr, $PRIVATE, $method(static_cast<$Member*(InfoFromMemberName::*)()>(&InfoFromMemberName::reflectUnchecked)), "java.lang.ReflectiveOperationException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/invoke/MemberName;B)V", nullptr, 0, $method(InfoFromMemberName, init$, void, $MethodHandles$Lookup*, $MemberName*, int8_t)},
+	{"convertToMemberName", "(BLjava/lang/reflect/Member;)Ljava/lang/invoke/MemberName;", nullptr, $PRIVATE | $STATIC, $staticMethod(InfoFromMemberName, convertToMemberName, $MemberName*, int8_t, $Member*), "java.lang.IllegalAccessException"},
+	{"getDeclaringClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(InfoFromMemberName, getDeclaringClass, $Class*)},
+	{"getMethodType", "()Ljava/lang/invoke/MethodType;", nullptr, $PUBLIC, $virtualMethod(InfoFromMemberName, getMethodType, $MethodType*)},
+	{"getModifiers", "()I", nullptr, $PUBLIC, $virtualMethod(InfoFromMemberName, getModifiers, int32_t)},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(InfoFromMemberName, getName, $String*)},
+	{"getReferenceKind", "()I", nullptr, $PUBLIC, $virtualMethod(InfoFromMemberName, getReferenceKind, int32_t)},
+	{"reflectAs", "(Ljava/lang/Class;Ljava/lang/invoke/MethodHandles$Lookup;)Ljava/lang/reflect/Member;", "<T::Ljava/lang/reflect/Member;>(Ljava/lang/Class<TT;>;Ljava/lang/invoke/MethodHandles$Lookup;)TT;", $PUBLIC, $virtualMethod(InfoFromMemberName, reflectAs, $Member*, $Class*, $MethodHandles$Lookup*)},
+	{"reflectUnchecked", "()Ljava/lang/reflect/Member;", nullptr, $PRIVATE, $method(InfoFromMemberName, reflectUnchecked, $Member*), "java.lang.ReflectiveOperationException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(InfoFromMemberName, toString, $String*)},
 	{}
 };
 

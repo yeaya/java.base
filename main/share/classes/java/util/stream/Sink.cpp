@@ -13,12 +13,12 @@ namespace java {
 		namespace stream {
 
 $MethodInfo _Sink_MethodInfo_[] = {
-	{"accept", "(I)V", nullptr, $PUBLIC},
-	{"accept", "(J)V", nullptr, $PUBLIC},
-	{"accept", "(D)V", nullptr, $PUBLIC},
-	{"begin", "(J)V", nullptr, $PUBLIC},
-	{"cancellationRequested", "()Z", nullptr, $PUBLIC},
-	{"end", "()V", nullptr, $PUBLIC},
+	{"accept", "(I)V", nullptr, $PUBLIC, $virtualMethod(Sink, accept, void, int32_t)},
+	{"accept", "(J)V", nullptr, $PUBLIC, $virtualMethod(Sink, accept, void, int64_t)},
+	{"accept", "(D)V", nullptr, $PUBLIC, $virtualMethod(Sink, accept, void, double)},
+	{"begin", "(J)V", nullptr, $PUBLIC, $virtualMethod(Sink, begin, void, int64_t)},
+	{"cancellationRequested", "()Z", nullptr, $PUBLIC, $virtualMethod(Sink, cancellationRequested, bool)},
+	{"end", "()V", nullptr, $PUBLIC, $virtualMethod(Sink, end, void)},
 	{}
 };
 

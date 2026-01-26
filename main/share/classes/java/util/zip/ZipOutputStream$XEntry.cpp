@@ -21,7 +21,7 @@ $FieldInfo _ZipOutputStream$XEntry_FieldInfo_[] = {
 };
 
 $MethodInfo _ZipOutputStream$XEntry_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/zip/ZipEntry;J)V", nullptr, $PUBLIC, $method(static_cast<void(ZipOutputStream$XEntry::*)($ZipEntry*,int64_t)>(&ZipOutputStream$XEntry::init$))},
+	{"<init>", "(Ljava/util/zip/ZipEntry;J)V", nullptr, $PUBLIC, $method(ZipOutputStream$XEntry, init$, void, $ZipEntry*, int64_t)},
 	{}
 };
 

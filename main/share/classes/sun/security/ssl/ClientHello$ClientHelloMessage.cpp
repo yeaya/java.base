@@ -93,21 +93,21 @@ $FieldInfo _ClientHello$ClientHelloMessage_FieldInfo_[] = {
 };
 
 $MethodInfo _ClientHello$ClientHelloMessage_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/ssl/HandshakeContext;ILsun/security/ssl/SessionId;Ljava/util/List;Ljava/security/SecureRandom;)V", "(Lsun/security/ssl/HandshakeContext;ILsun/security/ssl/SessionId;Ljava/util/List<Lsun/security/ssl/CipherSuite;>;Ljava/security/SecureRandom;)V", 0, $method(static_cast<void(ClientHello$ClientHelloMessage::*)($HandshakeContext*,int32_t,$SessionId*,$List*,$SecureRandom*)>(&ClientHello$ClientHelloMessage::init$))},
-	{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;[Lsun/security/ssl/SSLExtension;)V", nullptr, 0, $method(static_cast<void(ClientHello$ClientHelloMessage::*)($HandshakeContext*,$ByteBuffer*,$SSLExtensionArray*)>(&ClientHello$ClientHelloMessage::init$)), "java.io.IOException"},
-	{"getCipherSuiteIds", "(Ljava/util/List;)[I", "(Ljava/util/List<Lsun/security/ssl/CipherSuite;>;)[I", $PRIVATE | $STATIC, $method(static_cast<$ints*(*)($List*)>(&ClientHello$ClientHelloMessage::getCipherSuiteIds))},
-	{"getCipherSuiteNames", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PRIVATE, $method(static_cast<$List*(ClientHello$ClientHelloMessage::*)()>(&ClientHello$ClientHelloMessage::getCipherSuiteNames))},
-	{"getCipherSuites", "([I)Ljava/util/List;", "([I)Ljava/util/List<Lsun/security/ssl/CipherSuite;>;", $PRIVATE | $STATIC, $method(static_cast<$List*(*)($ints*)>(&ClientHello$ClientHelloMessage::getCipherSuites))},
-	{"getEncodedCipherSuites", "()[B", nullptr, $PRIVATE, $method(static_cast<$bytes*(ClientHello$ClientHelloMessage::*)()>(&ClientHello$ClientHelloMessage::getEncodedCipherSuites))},
-	{"getHeaderBytes", "()[B", nullptr, 0, $method(static_cast<$bytes*(ClientHello$ClientHelloMessage::*)()>(&ClientHello$ClientHelloMessage::getHeaderBytes))},
-	{"getHelloCookieBytes", "()[B", nullptr, 0, $method(static_cast<$bytes*(ClientHello$ClientHelloMessage::*)()>(&ClientHello$ClientHelloMessage::getHelloCookieBytes))},
-	{"handshakeType", "()Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC},
-	{"messageLength", "()I", nullptr, $PUBLIC},
-	{"readPartial", "(Lsun/security/ssl/TransportContext;Ljava/nio/ByteBuffer;)V", nullptr, $STATIC, $method(static_cast<void(*)($TransportContext*,$ByteBuffer*)>(&ClientHello$ClientHelloMessage::readPartial)), "java.io.IOException"},
-	{"send", "(Lsun/security/ssl/HandshakeOutStream;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"sendCore", "(Lsun/security/ssl/HandshakeOutStream;)V", nullptr, 0, $method(static_cast<void(ClientHello$ClientHelloMessage::*)($HandshakeOutStream*)>(&ClientHello$ClientHelloMessage::sendCore)), "java.io.IOException"},
-	{"setHelloCookie", "([B)V", nullptr, 0, $method(static_cast<void(ClientHello$ClientHelloMessage::*)($bytes*)>(&ClientHello$ClientHelloMessage::setHelloCookie))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/security/ssl/HandshakeContext;ILsun/security/ssl/SessionId;Ljava/util/List;Ljava/security/SecureRandom;)V", "(Lsun/security/ssl/HandshakeContext;ILsun/security/ssl/SessionId;Ljava/util/List<Lsun/security/ssl/CipherSuite;>;Ljava/security/SecureRandom;)V", 0, $method(ClientHello$ClientHelloMessage, init$, void, $HandshakeContext*, int32_t, $SessionId*, $List*, $SecureRandom*)},
+	{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;[Lsun/security/ssl/SSLExtension;)V", nullptr, 0, $method(ClientHello$ClientHelloMessage, init$, void, $HandshakeContext*, $ByteBuffer*, $SSLExtensionArray*), "java.io.IOException"},
+	{"getCipherSuiteIds", "(Ljava/util/List;)[I", "(Ljava/util/List<Lsun/security/ssl/CipherSuite;>;)[I", $PRIVATE | $STATIC, $staticMethod(ClientHello$ClientHelloMessage, getCipherSuiteIds, $ints*, $List*)},
+	{"getCipherSuiteNames", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PRIVATE, $method(ClientHello$ClientHelloMessage, getCipherSuiteNames, $List*)},
+	{"getCipherSuites", "([I)Ljava/util/List;", "([I)Ljava/util/List<Lsun/security/ssl/CipherSuite;>;", $PRIVATE | $STATIC, $staticMethod(ClientHello$ClientHelloMessage, getCipherSuites, $List*, $ints*)},
+	{"getEncodedCipherSuites", "()[B", nullptr, $PRIVATE, $method(ClientHello$ClientHelloMessage, getEncodedCipherSuites, $bytes*)},
+	{"getHeaderBytes", "()[B", nullptr, 0, $method(ClientHello$ClientHelloMessage, getHeaderBytes, $bytes*)},
+	{"getHelloCookieBytes", "()[B", nullptr, 0, $method(ClientHello$ClientHelloMessage, getHelloCookieBytes, $bytes*)},
+	{"handshakeType", "()Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC, $virtualMethod(ClientHello$ClientHelloMessage, handshakeType, $SSLHandshake*)},
+	{"messageLength", "()I", nullptr, $PUBLIC, $virtualMethod(ClientHello$ClientHelloMessage, messageLength, int32_t)},
+	{"readPartial", "(Lsun/security/ssl/TransportContext;Ljava/nio/ByteBuffer;)V", nullptr, $STATIC, $staticMethod(ClientHello$ClientHelloMessage, readPartial, void, $TransportContext*, $ByteBuffer*), "java.io.IOException"},
+	{"send", "(Lsun/security/ssl/HandshakeOutStream;)V", nullptr, $PUBLIC, $virtualMethod(ClientHello$ClientHelloMessage, send, void, $HandshakeOutStream*), "java.io.IOException"},
+	{"sendCore", "(Lsun/security/ssl/HandshakeOutStream;)V", nullptr, 0, $method(ClientHello$ClientHelloMessage, sendCore, void, $HandshakeOutStream*), "java.io.IOException"},
+	{"setHelloCookie", "([B)V", nullptr, 0, $method(ClientHello$ClientHelloMessage, setHelloCookie, void, $bytes*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ClientHello$ClientHelloMessage, toString, $String*)},
 	{}
 };
 

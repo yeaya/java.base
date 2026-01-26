@@ -27,8 +27,8 @@ using $FileChannel = ::java::nio::channels::FileChannel;
 using $FileChannel$MapMode = ::java::nio::channels::FileChannel$MapMode;
 
 $MethodInfo _ForceException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ForceException::*)()>(&ForceException::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&ForceException::main)), "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ForceException, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ForceException, main, void, $StringArray*), "java.io.IOException"},
 	{}
 };
 

@@ -33,9 +33,9 @@ $FieldInfo _KWUtil_FieldInfo_[] = {
 };
 
 $MethodInfo _KWUtil_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(KWUtil::*)()>(&KWUtil::init$))},
-	{"W", "([B[BILcom/sun/crypto/provider/SymmetricCipher;)I", nullptr, $STATIC | $FINAL, $method(static_cast<int32_t(*)($bytes*,$bytes*,int32_t,$SymmetricCipher*)>(&KWUtil::W))},
-	{"W_INV", "([BI[BLcom/sun/crypto/provider/SymmetricCipher;)I", nullptr, $STATIC | $FINAL, $method(static_cast<int32_t(*)($bytes*,int32_t,$bytes*,$SymmetricCipher*)>(&KWUtil::W_INV))},
+	{"<init>", "()V", nullptr, 0, $method(KWUtil, init$, void)},
+	{"W", "([B[BILcom/sun/crypto/provider/SymmetricCipher;)I", nullptr, $STATIC | $FINAL, $staticMethod(KWUtil, W, int32_t, $bytes*, $bytes*, int32_t, $SymmetricCipher*)},
+	{"W_INV", "([BI[BLcom/sun/crypto/provider/SymmetricCipher;)I", nullptr, $STATIC | $FINAL, $staticMethod(KWUtil, W_INV, int32_t, $bytes*, int32_t, $bytes*, $SymmetricCipher*)},
 	{}
 };
 

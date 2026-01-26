@@ -36,10 +36,10 @@ $FieldInfo _GetAnnotatedSuperclass_FieldInfo_[] = {
 };
 
 $MethodInfo _GetAnnotatedSuperclass_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(GetAnnotatedSuperclass::*)()>(&GetAnnotatedSuperclass::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&GetAnnotatedSuperclass::main)), "java.lang.Exception"},
-	{"testReturnsEmptyAT", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&GetAnnotatedSuperclass::testReturnsEmptyAT))},
-	{"testReturnsNull", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&GetAnnotatedSuperclass::testReturnsNull))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(GetAnnotatedSuperclass, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(GetAnnotatedSuperclass, main, void, $StringArray*), "java.lang.Exception"},
+	{"testReturnsEmptyAT", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(GetAnnotatedSuperclass, testReturnsEmptyAT, void)},
+	{"testReturnsNull", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(GetAnnotatedSuperclass, testReturnsNull, void)},
 	{}
 };
 

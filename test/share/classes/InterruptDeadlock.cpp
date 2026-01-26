@@ -41,8 +41,8 @@ $FieldInfo _InterruptDeadlock_FieldInfo_[] = {
 };
 
 $MethodInfo _InterruptDeadlock_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(InterruptDeadlock::*)()>(&InterruptDeadlock::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&InterruptDeadlock::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(InterruptDeadlock, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(InterruptDeadlock, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

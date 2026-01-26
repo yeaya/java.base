@@ -22,10 +22,10 @@ $FieldInfo _NullQueue_FieldInfo_[] = {
 };
 
 $MethodInfo _NullQueue_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(NullQueue::*)()>(&NullQueue::init$))},
-	{"findThread", "(Ljava/lang/String;)Ljava/lang/Thread;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$Thread*(*)($String*)>(&NullQueue::findThread))},
-	{"fork", "(Ljava/lang/Runnable;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($Runnable*)>(&NullQueue::fork)), "java.lang.InterruptedException"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&NullQueue::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(NullQueue, init$, void)},
+	{"findThread", "(Ljava/lang/String;)Ljava/lang/Thread;", nullptr, $PRIVATE | $STATIC, $staticMethod(NullQueue, findThread, $Thread*, $String*)},
+	{"fork", "(Ljava/lang/Runnable;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(NullQueue, fork, void, $Runnable*), "java.lang.InterruptedException"},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(NullQueue, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

@@ -26,8 +26,8 @@ $FieldInfo _InnocuousThread$2_FieldInfo_[] = {
 };
 
 $MethodInfo _InnocuousThread$2_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Runnable;I)V", "()V", 0, $method(static_cast<void(InnocuousThread$2::*)($String*,$Runnable*,int32_t)>(&InnocuousThread$2::init$))},
-	{"run", "()Ljava/lang/Thread;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Runnable;I)V", "()V", 0, $method(InnocuousThread$2, init$, void, $String*, $Runnable*, int32_t)},
+	{"run", "()Ljava/lang/Thread;", nullptr, $PUBLIC, $virtualMethod(InnocuousThread$2, run, $Object*)},
 	{}
 };
 

@@ -257,8 +257,8 @@ $FieldInfo Pattern$$Lambda$lambda$normalizeSlice$0::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Pattern$$Lambda$lambda$normalizeSlice$0::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/StringBuilder;)V", nullptr, $PUBLIC, $method(static_cast<void(Pattern$$Lambda$lambda$normalizeSlice$0::*)($StringBuilder*)>(&Pattern$$Lambda$lambda$normalizeSlice$0::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/StringBuilder;)V", nullptr, $PUBLIC, $method(Pattern$$Lambda$lambda$normalizeSlice$0, init$, void, $StringBuilder*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Pattern$$Lambda$lambda$normalizeSlice$0, accept, void, Object$*)},
 	{}
 };
 $ClassInfo Pattern$$Lambda$lambda$normalizeSlice$0::classInfo$ = {
@@ -290,8 +290,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Pattern$$Lambda$lambda$VertWS$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Pattern$$Lambda$lambda$VertWS$1$1::*)()>(&Pattern$$Lambda$lambda$VertWS$1$1::init$))},
-	{"is", "(I)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Pattern$$Lambda$lambda$VertWS$1$1, init$, void)},
+	{"is", "(I)Z", nullptr, $PUBLIC, $virtualMethod(Pattern$$Lambda$lambda$VertWS$1$1, is, bool, int32_t)},
 	{}
 };
 $ClassInfo Pattern$$Lambda$lambda$VertWS$1$1::classInfo$ = {
@@ -323,8 +323,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Pattern$$Lambda$lambda$HorizWS$2$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Pattern$$Lambda$lambda$HorizWS$2$2::*)()>(&Pattern$$Lambda$lambda$HorizWS$2$2::init$))},
-	{"is", "(I)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Pattern$$Lambda$lambda$HorizWS$2$2, init$, void)},
+	{"is", "(I)Z", nullptr, $PUBLIC, $virtualMethod(Pattern$$Lambda$lambda$HorizWS$2$2, is, bool, int32_t)},
 	{}
 };
 $ClassInfo Pattern$$Lambda$lambda$HorizWS$2$2::classInfo$ = {
@@ -356,8 +356,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Pattern$$Lambda$lambda$ALL$3$3::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Pattern$$Lambda$lambda$ALL$3$3::*)()>(&Pattern$$Lambda$lambda$ALL$3$3::init$))},
-	{"is", "(I)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Pattern$$Lambda$lambda$ALL$3$3, init$, void)},
+	{"is", "(I)Z", nullptr, $PUBLIC, $virtualMethod(Pattern$$Lambda$lambda$ALL$3$3, is, bool, int32_t)},
 	{}
 };
 $ClassInfo Pattern$$Lambda$lambda$ALL$3$3::classInfo$ = {
@@ -389,8 +389,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Pattern$$Lambda$lambda$DOT$4$4::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Pattern$$Lambda$lambda$DOT$4$4::*)()>(&Pattern$$Lambda$lambda$DOT$4$4::init$))},
-	{"is", "(I)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Pattern$$Lambda$lambda$DOT$4$4, init$, void)},
+	{"is", "(I)Z", nullptr, $PUBLIC, $virtualMethod(Pattern$$Lambda$lambda$DOT$4$4, is, bool, int32_t)},
 	{}
 };
 $ClassInfo Pattern$$Lambda$lambda$DOT$4$4::classInfo$ = {
@@ -422,8 +422,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Pattern$$Lambda$lambda$UNIXDOT$5$5::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Pattern$$Lambda$lambda$UNIXDOT$5$5::*)()>(&Pattern$$Lambda$lambda$UNIXDOT$5$5::init$))},
-	{"is", "(I)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Pattern$$Lambda$lambda$UNIXDOT$5$5, init$, void)},
+	{"is", "(I)Z", nullptr, $PUBLIC, $virtualMethod(Pattern$$Lambda$lambda$UNIXDOT$5$5, is, bool, int32_t)},
 	{}
 };
 $ClassInfo Pattern$$Lambda$lambda$UNIXDOT$5$5::classInfo$ = {
@@ -462,8 +462,8 @@ $FieldInfo Pattern$$Lambda$lambda$SingleS$6$6::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Pattern$$Lambda$lambda$SingleS$6$6::methodInfos[3] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(static_cast<void(Pattern$$Lambda$lambda$SingleS$6$6::*)(int32_t)>(&Pattern$$Lambda$lambda$SingleS$6$6::init$))},
-	{"is", "(I)Z", nullptr, $PUBLIC},
+	{"<init>", "(I)V", nullptr, $PUBLIC, $method(Pattern$$Lambda$lambda$SingleS$6$6, init$, void, int32_t)},
+	{"is", "(I)Z", nullptr, $PUBLIC, $virtualMethod(Pattern$$Lambda$lambda$SingleS$6$6, is, bool, int32_t)},
 	{}
 };
 $ClassInfo Pattern$$Lambda$lambda$SingleS$6$6::classInfo$ = {
@@ -505,8 +505,8 @@ $FieldInfo Pattern$$Lambda$lambda$SingleI$8$7::fieldInfos[3] = {
 	{}
 };
 $MethodInfo Pattern$$Lambda$lambda$SingleI$8$7::methodInfos[3] = {
-	{"<init>", "(II)V", nullptr, $PUBLIC, $method(static_cast<void(Pattern$$Lambda$lambda$SingleI$8$7::*)(int32_t,int32_t)>(&Pattern$$Lambda$lambda$SingleI$8$7::init$))},
-	{"is", "(I)Z", nullptr, $PUBLIC},
+	{"<init>", "(II)V", nullptr, $PUBLIC, $method(Pattern$$Lambda$lambda$SingleI$8$7, init$, void, int32_t, int32_t)},
+	{"is", "(I)Z", nullptr, $PUBLIC, $virtualMethod(Pattern$$Lambda$lambda$SingleI$8$7, is, bool, int32_t)},
 	{}
 };
 $ClassInfo Pattern$$Lambda$lambda$SingleI$8$7::classInfo$ = {
@@ -545,8 +545,8 @@ $FieldInfo Pattern$$Lambda$lambda$SingleU$9$8::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Pattern$$Lambda$lambda$SingleU$9$8::methodInfos[3] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(static_cast<void(Pattern$$Lambda$lambda$SingleU$9$8::*)(int32_t)>(&Pattern$$Lambda$lambda$SingleU$9$8::init$))},
-	{"is", "(I)Z", nullptr, $PUBLIC},
+	{"<init>", "(I)V", nullptr, $PUBLIC, $method(Pattern$$Lambda$lambda$SingleU$9$8, init$, void, int32_t)},
+	{"is", "(I)Z", nullptr, $PUBLIC, $virtualMethod(Pattern$$Lambda$lambda$SingleU$9$8, is, bool, int32_t)},
 	{}
 };
 $ClassInfo Pattern$$Lambda$lambda$SingleU$9$8::classInfo$ = {
@@ -588,8 +588,8 @@ $FieldInfo Pattern$$Lambda$lambda$Range$10$9::fieldInfos[3] = {
 	{}
 };
 $MethodInfo Pattern$$Lambda$lambda$Range$10$9::methodInfos[3] = {
-	{"<init>", "(II)V", nullptr, $PUBLIC, $method(static_cast<void(Pattern$$Lambda$lambda$Range$10$9::*)(int32_t,int32_t)>(&Pattern$$Lambda$lambda$Range$10$9::init$))},
-	{"is", "(I)Z", nullptr, $PUBLIC},
+	{"<init>", "(II)V", nullptr, $PUBLIC, $method(Pattern$$Lambda$lambda$Range$10$9, init$, void, int32_t, int32_t)},
+	{"is", "(I)Z", nullptr, $PUBLIC, $virtualMethod(Pattern$$Lambda$lambda$Range$10$9, is, bool, int32_t)},
 	{}
 };
 $ClassInfo Pattern$$Lambda$lambda$Range$10$9::classInfo$ = {
@@ -631,8 +631,8 @@ $FieldInfo Pattern$$Lambda$lambda$CIRange$12$10::fieldInfos[3] = {
 	{}
 };
 $MethodInfo Pattern$$Lambda$lambda$CIRange$12$10::methodInfos[3] = {
-	{"<init>", "(II)V", nullptr, $PUBLIC, $method(static_cast<void(Pattern$$Lambda$lambda$CIRange$12$10::*)(int32_t,int32_t)>(&Pattern$$Lambda$lambda$CIRange$12$10::init$))},
-	{"is", "(I)Z", nullptr, $PUBLIC},
+	{"<init>", "(II)V", nullptr, $PUBLIC, $method(Pattern$$Lambda$lambda$CIRange$12$10, init$, void, int32_t, int32_t)},
+	{"is", "(I)Z", nullptr, $PUBLIC, $virtualMethod(Pattern$$Lambda$lambda$CIRange$12$10, is, bool, int32_t)},
 	{}
 };
 $ClassInfo Pattern$$Lambda$lambda$CIRange$12$10::classInfo$ = {
@@ -674,8 +674,8 @@ $FieldInfo Pattern$$Lambda$lambda$CIRangeU$13$11::fieldInfos[3] = {
 	{}
 };
 $MethodInfo Pattern$$Lambda$lambda$CIRangeU$13$11::methodInfos[3] = {
-	{"<init>", "(II)V", nullptr, $PUBLIC, $method(static_cast<void(Pattern$$Lambda$lambda$CIRangeU$13$11::*)(int32_t,int32_t)>(&Pattern$$Lambda$lambda$CIRangeU$13$11::init$))},
-	{"is", "(I)Z", nullptr, $PUBLIC},
+	{"<init>", "(II)V", nullptr, $PUBLIC, $method(Pattern$$Lambda$lambda$CIRangeU$13$11, init$, void, int32_t, int32_t)},
+	{"is", "(I)Z", nullptr, $PUBLIC, $virtualMethod(Pattern$$Lambda$lambda$CIRangeU$13$11, is, bool, int32_t)},
 	{}
 };
 $ClassInfo Pattern$$Lambda$lambda$CIRangeU$13$11::classInfo$ = {
@@ -714,8 +714,8 @@ $FieldInfo Pattern$$Lambda$lambda$asPredicate$14$12::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Pattern$$Lambda$lambda$asPredicate$14$12::methodInfos[3] = {
-	{"<init>", "(Ljava/util/regex/Pattern;)V", nullptr, $PUBLIC, $method(static_cast<void(Pattern$$Lambda$lambda$asPredicate$14$12::*)(Pattern*)>(&Pattern$$Lambda$lambda$asPredicate$14$12::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/regex/Pattern;)V", nullptr, $PUBLIC, $method(Pattern$$Lambda$lambda$asPredicate$14$12, init$, void, Pattern*)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Pattern$$Lambda$lambda$asPredicate$14$12, test, bool, Object$*)},
 	{}
 };
 $ClassInfo Pattern$$Lambda$lambda$asPredicate$14$12::classInfo$ = {
@@ -754,8 +754,8 @@ $FieldInfo Pattern$$Lambda$lambda$asMatchPredicate$15$13::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Pattern$$Lambda$lambda$asMatchPredicate$15$13::methodInfos[3] = {
-	{"<init>", "(Ljava/util/regex/Pattern;)V", nullptr, $PUBLIC, $method(static_cast<void(Pattern$$Lambda$lambda$asMatchPredicate$15$13::*)(Pattern*)>(&Pattern$$Lambda$lambda$asMatchPredicate$15$13::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/regex/Pattern;)V", nullptr, $PUBLIC, $method(Pattern$$Lambda$lambda$asMatchPredicate$15$13, init$, void, Pattern*)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Pattern$$Lambda$lambda$asMatchPredicate$15$13, test, bool, Object$*)},
 	{}
 };
 $ClassInfo Pattern$$Lambda$lambda$asMatchPredicate$15$13::classInfo$ = {
@@ -812,108 +812,108 @@ $FieldInfo _Pattern_FieldInfo_[] = {
 };
 
 $MethodInfo _Pattern_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(static_cast<void(Pattern::*)($String*,int32_t)>(&Pattern::init$))},
-	{"ALL", "()Ljava/util/regex/Pattern$CharPredicate;", nullptr, $STATIC, $method(static_cast<$Pattern$CharPredicate*(*)()>(&Pattern::ALL))},
-	{"CIRange", "(II)Ljava/util/regex/Pattern$CharPredicate;", nullptr, $STATIC, $method(static_cast<$Pattern$CharPredicate*(*)(int32_t,int32_t)>(&Pattern::CIRange))},
-	{"CIRangeU", "(II)Ljava/util/regex/Pattern$CharPredicate;", nullptr, $STATIC, $method(static_cast<$Pattern$CharPredicate*(*)(int32_t,int32_t)>(&Pattern::CIRangeU))},
-	{"DOT", "()Ljava/util/regex/Pattern$CharPredicate;", nullptr, $STATIC, $method(static_cast<$Pattern$CharPredicate*(*)()>(&Pattern::DOT))},
-	{"HorizWS", "()Ljava/util/regex/Pattern$BmpCharPredicate;", nullptr, $STATIC, $method(static_cast<$Pattern$BmpCharPredicate*(*)()>(&Pattern::HorizWS))},
-	{"N", "()I", nullptr, $PRIVATE, $method(static_cast<int32_t(Pattern::*)()>(&Pattern::N))},
-	{"Range", "(II)Ljava/util/regex/Pattern$CharPredicate;", nullptr, $STATIC, $method(static_cast<$Pattern$CharPredicate*(*)(int32_t,int32_t)>(&Pattern::Range))},
-	{"RemoveQEQuoting", "()V", nullptr, $PRIVATE, $method(static_cast<void(Pattern::*)()>(&Pattern::RemoveQEQuoting))},
-	{"Single", "(I)Ljava/util/regex/Pattern$BmpCharPredicate;", nullptr, $STATIC, $method(static_cast<$Pattern$BmpCharPredicate*(*)(int32_t)>(&Pattern::Single))},
-	{"SingleI", "(II)Ljava/util/regex/Pattern$BmpCharPredicate;", nullptr, $STATIC, $method(static_cast<$Pattern$BmpCharPredicate*(*)(int32_t,int32_t)>(&Pattern::SingleI))},
-	{"SingleS", "(I)Ljava/util/regex/Pattern$CharPredicate;", nullptr, $STATIC, $method(static_cast<$Pattern$CharPredicate*(*)(int32_t)>(&Pattern::SingleS))},
-	{"SingleU", "(I)Ljava/util/regex/Pattern$CharPredicate;", nullptr, $STATIC, $method(static_cast<$Pattern$CharPredicate*(*)(int32_t)>(&Pattern::SingleU))},
-	{"UNIXDOT", "()Ljava/util/regex/Pattern$CharPredicate;", nullptr, $STATIC, $method(static_cast<$Pattern$CharPredicate*(*)()>(&Pattern::UNIXDOT))},
-	{"VertWS", "()Ljava/util/regex/Pattern$BmpCharPredicate;", nullptr, $STATIC, $method(static_cast<$Pattern$BmpCharPredicate*(*)()>(&Pattern::VertWS))},
-	{"accept", "(ILjava/lang/String;)V", nullptr, $PRIVATE, $method(static_cast<void(Pattern::*)(int32_t,$String*)>(&Pattern::accept))},
-	{"addFlag", "()V", nullptr, $PRIVATE, $method(static_cast<void(Pattern::*)()>(&Pattern::addFlag))},
-	{"append", "(II)V", nullptr, $PRIVATE, $method(static_cast<void(Pattern::*)(int32_t,int32_t)>(&Pattern::append))},
-	{"asMatchPredicate", "()Ljava/util/function/Predicate;", "()Ljava/util/function/Predicate<Ljava/lang/String;>;", $PUBLIC, $method(static_cast<$Predicate*(Pattern::*)()>(&Pattern::asMatchPredicate))},
-	{"asPredicate", "()Ljava/util/function/Predicate;", "()Ljava/util/function/Predicate<Ljava/lang/String;>;", $PUBLIC, $method(static_cast<$Predicate*(Pattern::*)()>(&Pattern::asPredicate))},
-	{"atom", "()Ljava/util/regex/Pattern$Node;", nullptr, $PRIVATE, $method(static_cast<$Pattern$Node*(Pattern::*)()>(&Pattern::atom))},
-	{"bitsOrSingle", "(Ljava/util/regex/Pattern$BitClass;I)Ljava/util/regex/Pattern$CharPredicate;", nullptr, $PRIVATE, $method(static_cast<$Pattern$CharPredicate*(Pattern::*)($Pattern$BitClass*,int32_t)>(&Pattern::bitsOrSingle))},
-	{"c", "()I", nullptr, $PRIVATE, $method(static_cast<int32_t(Pattern::*)()>(&Pattern::c))},
-	{"clazz", "(Z)Ljava/util/regex/Pattern$CharPredicate;", nullptr, $PRIVATE, $method(static_cast<$Pattern$CharPredicate*(Pattern::*)(bool)>(&Pattern::clazz))},
-	{"closure", "(Ljava/util/regex/Pattern$Node;)Ljava/util/regex/Pattern$Node;", nullptr, $PRIVATE, $method(static_cast<$Pattern$Node*(Pattern::*)($Pattern$Node*)>(&Pattern::closure))},
-	{"compile", "(Ljava/lang/String;)Ljava/util/regex/Pattern;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Pattern*(*)($String*)>(&Pattern::compile))},
-	{"compile", "(Ljava/lang/String;I)Ljava/util/regex/Pattern;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Pattern*(*)($String*,int32_t)>(&Pattern::compile))},
-	{"compile", "()V", nullptr, $PRIVATE, $method(static_cast<void(Pattern::*)()>(&Pattern::compile))},
-	{"composeOneStep", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($String*)>(&Pattern::composeOneStep))},
-	{"countChars", "(Ljava/lang/CharSequence;II)I", nullptr, $PRIVATE | $STATIC | $FINAL, $method(static_cast<int32_t(*)($CharSequence*,int32_t,int32_t)>(&Pattern::countChars))},
-	{"countCodePoints", "(Ljava/lang/CharSequence;)I", nullptr, $PRIVATE | $STATIC | $FINAL, $method(static_cast<int32_t(*)($CharSequence*)>(&Pattern::countCodePoints))},
-	{"createGroup", "(Z)Ljava/util/regex/Pattern$Node;", nullptr, $PRIVATE, $method(static_cast<$Pattern$Node*(Pattern::*)(bool)>(&Pattern::createGroup))},
-	{"curly", "(Ljava/util/regex/Pattern$Node;I)Ljava/util/regex/Pattern$Node;", nullptr, $PRIVATE, $method(static_cast<$Pattern$Node*(Pattern::*)($Pattern$Node*,int32_t)>(&Pattern::curly))},
-	{"cursor", "()I", nullptr, $PRIVATE, $method(static_cast<int32_t(Pattern::*)()>(&Pattern::cursor))},
-	{"error", "(Ljava/lang/String;)Ljava/util/regex/PatternSyntaxException;", nullptr, $PRIVATE, $method(static_cast<$PatternSyntaxException*(Pattern::*)($String*)>(&Pattern::error))},
-	{"escape", "(ZZZ)I", nullptr, $PRIVATE, $method(static_cast<int32_t(Pattern::*)(bool,bool,bool)>(&Pattern::escape))},
-	{"expr", "(Ljava/util/regex/Pattern$Node;)Ljava/util/regex/Pattern$Node;", nullptr, $PRIVATE, $method(static_cast<$Pattern$Node*(Pattern::*)($Pattern$Node*)>(&Pattern::expr))},
-	{"family", "(ZZ)Ljava/util/regex/Pattern$CharPredicate;", nullptr, $PRIVATE, $method(static_cast<$Pattern$CharPredicate*(Pattern::*)(bool,bool)>(&Pattern::family))},
-	{"findSupplementary", "(II)Z", nullptr, $PRIVATE, $method(static_cast<bool(Pattern::*)(int32_t,int32_t)>(&Pattern::findSupplementary))},
-	{"flags", "()I", nullptr, $PUBLIC, $method(static_cast<int32_t(Pattern::*)()>(&Pattern::flags))},
-	{"getClass", "(I)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)(int32_t)>(&Pattern::getClass))},
-	{"group0", "()Ljava/util/regex/Pattern$Node;", nullptr, $PRIVATE, $method(static_cast<$Pattern$Node*(Pattern::*)()>(&Pattern::group0))},
-	{"groupname", "(I)Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(Pattern::*)(int32_t)>(&Pattern::groupname))},
-	{"has", "(I)Z", nullptr, $PRIVATE, $method(static_cast<bool(Pattern::*)(int32_t)>(&Pattern::has))},
-	{"hasBaseCharacter", "(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($Matcher*,int32_t,$CharSequence*)>(&Pattern::hasBaseCharacter))},
-	{"inRange", "(III)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)(int32_t,int32_t,int32_t)>(&Pattern::inRange))},
-	{"isLineSeparator", "(I)Z", nullptr, $PRIVATE, $method(static_cast<bool(Pattern::*)(int32_t)>(&Pattern::isLineSeparator))},
-	{"isSupplementary", "(I)Z", nullptr, $PRIVATE | $STATIC | $FINAL, $method(static_cast<bool(*)(int32_t)>(&Pattern::isSupplementary))},
-	{"lambda$ALL$3", "(I)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)(int32_t)>(&Pattern::lambda$ALL$3))},
-	{"lambda$CIRange$12", "(III)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)(int32_t,int32_t,int32_t)>(&Pattern::lambda$CIRange$12))},
-	{"lambda$CIRangeU$13", "(III)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)(int32_t,int32_t,int32_t)>(&Pattern::lambda$CIRangeU$13))},
-	{"lambda$DOT$4", "(I)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)(int32_t)>(&Pattern::lambda$DOT$4))},
-	{"lambda$HorizWS$2", "(I)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)(int32_t)>(&Pattern::lambda$HorizWS$2))},
-	{"lambda$Range$10", "(III)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)(int32_t,int32_t,int32_t)>(&Pattern::lambda$Range$10))},
-	{"lambda$SingleI$8", "(III)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)(int32_t,int32_t,int32_t)>(&Pattern::lambda$SingleI$8))},
-	{"lambda$SingleS$6", "(II)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)(int32_t,int32_t)>(&Pattern::lambda$SingleS$6))},
-	{"lambda$SingleU$9", "(II)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)(int32_t,int32_t)>(&Pattern::lambda$SingleU$9))},
-	{"lambda$UNIXDOT$5", "(I)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)(int32_t)>(&Pattern::lambda$UNIXDOT$5))},
-	{"lambda$VertWS$1", "(I)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)(int32_t)>(&Pattern::lambda$VertWS$1))},
-	{"lambda$asMatchPredicate$15", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<bool(Pattern::*)($String*)>(&Pattern::lambda$asMatchPredicate$15))},
-	{"lambda$asPredicate$14", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<bool(Pattern::*)($String*)>(&Pattern::lambda$asPredicate$14))},
-	{"lambda$normalizeSlice$0", "(Ljava/lang/StringBuilder;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($StringBuilder*,$String*)>(&Pattern::lambda$normalizeSlice$0))},
-	{"mark", "(I)V", nullptr, $PRIVATE, $method(static_cast<void(Pattern::*)(int32_t)>(&Pattern::mark))},
-	{"matcher", "(Ljava/lang/CharSequence;)Ljava/util/regex/Matcher;", nullptr, $PUBLIC, $method(static_cast<$Matcher*(Pattern::*)($CharSequence*)>(&Pattern::matcher))},
-	{"matches", "(Ljava/lang/String;Ljava/lang/CharSequence;)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)($String*,$CharSequence*)>(&Pattern::matches))},
-	{"namedGroups", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/Integer;>;", 0, $method(static_cast<$Map*(Pattern::*)()>(&Pattern::namedGroups))},
-	{"newCharProperty", "(Ljava/util/regex/Pattern$CharPredicate;)Ljava/util/regex/Pattern$CharProperty;", nullptr, $PRIVATE, $method(static_cast<$Pattern$CharProperty*(Pattern::*)($Pattern$CharPredicate*)>(&Pattern::newCharProperty))},
-	{"newSlice", "([IIZ)Ljava/util/regex/Pattern$Node;", nullptr, $PRIVATE, $method(static_cast<$Pattern$Node*(Pattern::*)($ints*,int32_t,bool)>(&Pattern::newSlice))},
-	{"next", "()I", nullptr, $PRIVATE, $method(static_cast<int32_t(Pattern::*)()>(&Pattern::next))},
-	{"nextEscaped", "()I", nullptr, $PRIVATE, $method(static_cast<int32_t(Pattern::*)()>(&Pattern::nextEscaped))},
-	{"normalize", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($String*)>(&Pattern::normalize))},
-	{"normalizeClazz", "(Ljava/lang/String;IILjava/lang/StringBuilder;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($String*,int32_t,int32_t,$StringBuilder*)>(&Pattern::normalizeClazz))},
-	{"normalizeSlice", "(Ljava/lang/String;IILjava/lang/StringBuilder;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($String*,int32_t,int32_t,$StringBuilder*)>(&Pattern::normalizeSlice))},
-	{"o", "()I", nullptr, $PRIVATE, $method(static_cast<int32_t(Pattern::*)()>(&Pattern::o))},
-	{"parsePastLine", "()I", nullptr, $PRIVATE, $method(static_cast<int32_t(Pattern::*)()>(&Pattern::parsePastLine))},
-	{"parsePastWhitespace", "(I)I", nullptr, $PRIVATE, $method(static_cast<int32_t(Pattern::*)(int32_t)>(&Pattern::parsePastWhitespace))},
-	{"pattern", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(static_cast<$String*(Pattern::*)()>(&Pattern::pattern))},
-	{"peek", "()I", nullptr, $PRIVATE, $method(static_cast<int32_t(Pattern::*)()>(&Pattern::peek))},
-	{"peekPastLine", "()I", nullptr, $PRIVATE, $method(static_cast<int32_t(Pattern::*)()>(&Pattern::peekPastLine))},
-	{"peekPastWhitespace", "(I)I", nullptr, $PRIVATE, $method(static_cast<int32_t(Pattern::*)(int32_t)>(&Pattern::peekPastWhitespace))},
-	{"produceEquivalentAlternation", "(Ljava/lang/String;Ljava/util/Set;)V", "(Ljava/lang/String;Ljava/util/Set<Ljava/lang/String;>;)V", $PRIVATE | $STATIC, $method(static_cast<void(*)($String*,$Set*)>(&Pattern::produceEquivalentAlternation))},
-	{"producePermutations", "(Ljava/lang/String;)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$StringArray*(*)($String*)>(&Pattern::producePermutations))},
-	{"qtype", "()Ljava/util/regex/Pattern$Qtype;", nullptr, $PRIVATE, $method(static_cast<$Pattern$Qtype*(Pattern::*)()>(&Pattern::qtype))},
-	{"quote", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)($String*)>(&Pattern::quote))},
-	{"range", "(Ljava/util/regex/Pattern$BitClass;)Ljava/util/regex/Pattern$CharPredicate;", nullptr, $PRIVATE, $method(static_cast<$Pattern$CharPredicate*(Pattern::*)($Pattern$BitClass*)>(&Pattern::range))},
-	{"read", "()I", nullptr, $PRIVATE, $method(static_cast<int32_t(Pattern::*)()>(&Pattern::read))},
-	{"readEscaped", "()I", nullptr, $PRIVATE, $method(static_cast<int32_t(Pattern::*)()>(&Pattern::readEscaped))},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(Pattern::*)($ObjectInputStream*)>(&Pattern::readObject)), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"ref", "(I)Ljava/util/regex/Pattern$Node;", nullptr, $PRIVATE, $method(static_cast<$Pattern$Node*(Pattern::*)(int32_t)>(&Pattern::ref))},
-	{"sequence", "(Ljava/util/regex/Pattern$Node;)Ljava/util/regex/Pattern$Node;", nullptr, $PRIVATE, $method(static_cast<$Pattern$Node*(Pattern::*)($Pattern$Node*)>(&Pattern::sequence))},
-	{"setcursor", "(I)V", nullptr, $PRIVATE, $method(static_cast<void(Pattern::*)(int32_t)>(&Pattern::setcursor))},
-	{"single", "(I)Ljava/util/regex/Pattern$CharPredicate;", nullptr, $PRIVATE, $method(static_cast<$Pattern$CharPredicate*(Pattern::*)(int32_t)>(&Pattern::single))},
-	{"skip", "()I", nullptr, $PRIVATE, $method(static_cast<int32_t(Pattern::*)()>(&Pattern::skip))},
-	{"split", "(Ljava/lang/CharSequence;I)[Ljava/lang/String;", nullptr, $PUBLIC, $method(static_cast<$StringArray*(Pattern::*)($CharSequence*,int32_t)>(&Pattern::split))},
-	{"split", "(Ljava/lang/CharSequence;)[Ljava/lang/String;", nullptr, $PUBLIC, $method(static_cast<$StringArray*(Pattern::*)($CharSequence*)>(&Pattern::split))},
-	{"splitAsStream", "(Ljava/lang/CharSequence;)Ljava/util/stream/Stream;", "(Ljava/lang/CharSequence;)Ljava/util/stream/Stream<Ljava/lang/String;>;", $PUBLIC, $method(static_cast<$Stream*(Pattern::*)($CharSequence*)>(&Pattern::splitAsStream))},
-	{"subFlag", "()V", nullptr, $PRIVATE, $method(static_cast<void(Pattern::*)()>(&Pattern::subFlag))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"u", "()I", nullptr, $PRIVATE, $method(static_cast<int32_t(Pattern::*)()>(&Pattern::u))},
-	{"unread", "()V", nullptr, $PRIVATE, $method(static_cast<void(Pattern::*)()>(&Pattern::unread))},
-	{"uxxxx", "()I", nullptr, $PRIVATE, $method(static_cast<int32_t(Pattern::*)()>(&Pattern::uxxxx))},
-	{"x", "()I", nullptr, $PRIVATE, $method(static_cast<int32_t(Pattern::*)()>(&Pattern::x))},
+	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(Pattern, init$, void, $String*, int32_t)},
+	{"ALL", "()Ljava/util/regex/Pattern$CharPredicate;", nullptr, $STATIC, $staticMethod(Pattern, ALL, $Pattern$CharPredicate*)},
+	{"CIRange", "(II)Ljava/util/regex/Pattern$CharPredicate;", nullptr, $STATIC, $staticMethod(Pattern, CIRange, $Pattern$CharPredicate*, int32_t, int32_t)},
+	{"CIRangeU", "(II)Ljava/util/regex/Pattern$CharPredicate;", nullptr, $STATIC, $staticMethod(Pattern, CIRangeU, $Pattern$CharPredicate*, int32_t, int32_t)},
+	{"DOT", "()Ljava/util/regex/Pattern$CharPredicate;", nullptr, $STATIC, $staticMethod(Pattern, DOT, $Pattern$CharPredicate*)},
+	{"HorizWS", "()Ljava/util/regex/Pattern$BmpCharPredicate;", nullptr, $STATIC, $staticMethod(Pattern, HorizWS, $Pattern$BmpCharPredicate*)},
+	{"N", "()I", nullptr, $PRIVATE, $method(Pattern, N, int32_t)},
+	{"Range", "(II)Ljava/util/regex/Pattern$CharPredicate;", nullptr, $STATIC, $staticMethod(Pattern, Range, $Pattern$CharPredicate*, int32_t, int32_t)},
+	{"RemoveQEQuoting", "()V", nullptr, $PRIVATE, $method(Pattern, RemoveQEQuoting, void)},
+	{"Single", "(I)Ljava/util/regex/Pattern$BmpCharPredicate;", nullptr, $STATIC, $staticMethod(Pattern, Single, $Pattern$BmpCharPredicate*, int32_t)},
+	{"SingleI", "(II)Ljava/util/regex/Pattern$BmpCharPredicate;", nullptr, $STATIC, $staticMethod(Pattern, SingleI, $Pattern$BmpCharPredicate*, int32_t, int32_t)},
+	{"SingleS", "(I)Ljava/util/regex/Pattern$CharPredicate;", nullptr, $STATIC, $staticMethod(Pattern, SingleS, $Pattern$CharPredicate*, int32_t)},
+	{"SingleU", "(I)Ljava/util/regex/Pattern$CharPredicate;", nullptr, $STATIC, $staticMethod(Pattern, SingleU, $Pattern$CharPredicate*, int32_t)},
+	{"UNIXDOT", "()Ljava/util/regex/Pattern$CharPredicate;", nullptr, $STATIC, $staticMethod(Pattern, UNIXDOT, $Pattern$CharPredicate*)},
+	{"VertWS", "()Ljava/util/regex/Pattern$BmpCharPredicate;", nullptr, $STATIC, $staticMethod(Pattern, VertWS, $Pattern$BmpCharPredicate*)},
+	{"accept", "(ILjava/lang/String;)V", nullptr, $PRIVATE, $method(Pattern, accept, void, int32_t, $String*)},
+	{"addFlag", "()V", nullptr, $PRIVATE, $method(Pattern, addFlag, void)},
+	{"append", "(II)V", nullptr, $PRIVATE, $method(Pattern, append, void, int32_t, int32_t)},
+	{"asMatchPredicate", "()Ljava/util/function/Predicate;", "()Ljava/util/function/Predicate<Ljava/lang/String;>;", $PUBLIC, $method(Pattern, asMatchPredicate, $Predicate*)},
+	{"asPredicate", "()Ljava/util/function/Predicate;", "()Ljava/util/function/Predicate<Ljava/lang/String;>;", $PUBLIC, $method(Pattern, asPredicate, $Predicate*)},
+	{"atom", "()Ljava/util/regex/Pattern$Node;", nullptr, $PRIVATE, $method(Pattern, atom, $Pattern$Node*)},
+	{"bitsOrSingle", "(Ljava/util/regex/Pattern$BitClass;I)Ljava/util/regex/Pattern$CharPredicate;", nullptr, $PRIVATE, $method(Pattern, bitsOrSingle, $Pattern$CharPredicate*, $Pattern$BitClass*, int32_t)},
+	{"c", "()I", nullptr, $PRIVATE, $method(Pattern, c, int32_t)},
+	{"clazz", "(Z)Ljava/util/regex/Pattern$CharPredicate;", nullptr, $PRIVATE, $method(Pattern, clazz, $Pattern$CharPredicate*, bool)},
+	{"closure", "(Ljava/util/regex/Pattern$Node;)Ljava/util/regex/Pattern$Node;", nullptr, $PRIVATE, $method(Pattern, closure, $Pattern$Node*, $Pattern$Node*)},
+	{"compile", "(Ljava/lang/String;)Ljava/util/regex/Pattern;", nullptr, $PUBLIC | $STATIC, $staticMethod(Pattern, compile, Pattern*, $String*)},
+	{"compile", "(Ljava/lang/String;I)Ljava/util/regex/Pattern;", nullptr, $PUBLIC | $STATIC, $staticMethod(Pattern, compile, Pattern*, $String*, int32_t)},
+	{"compile", "()V", nullptr, $PRIVATE, $method(Pattern, compile, void)},
+	{"composeOneStep", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Pattern, composeOneStep, $String*, $String*)},
+	{"countChars", "(Ljava/lang/CharSequence;II)I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(Pattern, countChars, int32_t, $CharSequence*, int32_t, int32_t)},
+	{"countCodePoints", "(Ljava/lang/CharSequence;)I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(Pattern, countCodePoints, int32_t, $CharSequence*)},
+	{"createGroup", "(Z)Ljava/util/regex/Pattern$Node;", nullptr, $PRIVATE, $method(Pattern, createGroup, $Pattern$Node*, bool)},
+	{"curly", "(Ljava/util/regex/Pattern$Node;I)Ljava/util/regex/Pattern$Node;", nullptr, $PRIVATE, $method(Pattern, curly, $Pattern$Node*, $Pattern$Node*, int32_t)},
+	{"cursor", "()I", nullptr, $PRIVATE, $method(Pattern, cursor, int32_t)},
+	{"error", "(Ljava/lang/String;)Ljava/util/regex/PatternSyntaxException;", nullptr, $PRIVATE, $method(Pattern, error, $PatternSyntaxException*, $String*)},
+	{"escape", "(ZZZ)I", nullptr, $PRIVATE, $method(Pattern, escape, int32_t, bool, bool, bool)},
+	{"expr", "(Ljava/util/regex/Pattern$Node;)Ljava/util/regex/Pattern$Node;", nullptr, $PRIVATE, $method(Pattern, expr, $Pattern$Node*, $Pattern$Node*)},
+	{"family", "(ZZ)Ljava/util/regex/Pattern$CharPredicate;", nullptr, $PRIVATE, $method(Pattern, family, $Pattern$CharPredicate*, bool, bool)},
+	{"findSupplementary", "(II)Z", nullptr, $PRIVATE, $method(Pattern, findSupplementary, bool, int32_t, int32_t)},
+	{"flags", "()I", nullptr, $PUBLIC, $method(Pattern, flags, int32_t)},
+	{"getClass", "(I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(Pattern, getClass, int32_t, int32_t)},
+	{"group0", "()Ljava/util/regex/Pattern$Node;", nullptr, $PRIVATE, $method(Pattern, group0, $Pattern$Node*)},
+	{"groupname", "(I)Ljava/lang/String;", nullptr, $PRIVATE, $method(Pattern, groupname, $String*, int32_t)},
+	{"has", "(I)Z", nullptr, $PRIVATE, $method(Pattern, has, bool, int32_t)},
+	{"hasBaseCharacter", "(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Pattern, hasBaseCharacter, bool, $Matcher*, int32_t, $CharSequence*)},
+	{"inRange", "(III)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Pattern, inRange, bool, int32_t, int32_t, int32_t)},
+	{"isLineSeparator", "(I)Z", nullptr, $PRIVATE, $method(Pattern, isLineSeparator, bool, int32_t)},
+	{"isSupplementary", "(I)Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(Pattern, isSupplementary, bool, int32_t)},
+	{"lambda$ALL$3", "(I)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Pattern, lambda$ALL$3, bool, int32_t)},
+	{"lambda$CIRange$12", "(III)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Pattern, lambda$CIRange$12, bool, int32_t, int32_t, int32_t)},
+	{"lambda$CIRangeU$13", "(III)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Pattern, lambda$CIRangeU$13, bool, int32_t, int32_t, int32_t)},
+	{"lambda$DOT$4", "(I)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Pattern, lambda$DOT$4, bool, int32_t)},
+	{"lambda$HorizWS$2", "(I)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Pattern, lambda$HorizWS$2, bool, int32_t)},
+	{"lambda$Range$10", "(III)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Pattern, lambda$Range$10, bool, int32_t, int32_t, int32_t)},
+	{"lambda$SingleI$8", "(III)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Pattern, lambda$SingleI$8, bool, int32_t, int32_t, int32_t)},
+	{"lambda$SingleS$6", "(II)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Pattern, lambda$SingleS$6, bool, int32_t, int32_t)},
+	{"lambda$SingleU$9", "(II)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Pattern, lambda$SingleU$9, bool, int32_t, int32_t)},
+	{"lambda$UNIXDOT$5", "(I)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Pattern, lambda$UNIXDOT$5, bool, int32_t)},
+	{"lambda$VertWS$1", "(I)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Pattern, lambda$VertWS$1, bool, int32_t)},
+	{"lambda$asMatchPredicate$15", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(Pattern, lambda$asMatchPredicate$15, bool, $String*)},
+	{"lambda$asPredicate$14", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(Pattern, lambda$asPredicate$14, bool, $String*)},
+	{"lambda$normalizeSlice$0", "(Ljava/lang/StringBuilder;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Pattern, lambda$normalizeSlice$0, void, $StringBuilder*, $String*)},
+	{"mark", "(I)V", nullptr, $PRIVATE, $method(Pattern, mark, void, int32_t)},
+	{"matcher", "(Ljava/lang/CharSequence;)Ljava/util/regex/Matcher;", nullptr, $PUBLIC, $method(Pattern, matcher, $Matcher*, $CharSequence*)},
+	{"matches", "(Ljava/lang/String;Ljava/lang/CharSequence;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Pattern, matches, bool, $String*, $CharSequence*)},
+	{"namedGroups", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/Integer;>;", 0, $method(Pattern, namedGroups, $Map*)},
+	{"newCharProperty", "(Ljava/util/regex/Pattern$CharPredicate;)Ljava/util/regex/Pattern$CharProperty;", nullptr, $PRIVATE, $method(Pattern, newCharProperty, $Pattern$CharProperty*, $Pattern$CharPredicate*)},
+	{"newSlice", "([IIZ)Ljava/util/regex/Pattern$Node;", nullptr, $PRIVATE, $method(Pattern, newSlice, $Pattern$Node*, $ints*, int32_t, bool)},
+	{"next", "()I", nullptr, $PRIVATE, $method(Pattern, next, int32_t)},
+	{"nextEscaped", "()I", nullptr, $PRIVATE, $method(Pattern, nextEscaped, int32_t)},
+	{"normalize", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Pattern, normalize, $String*, $String*)},
+	{"normalizeClazz", "(Ljava/lang/String;IILjava/lang/StringBuilder;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Pattern, normalizeClazz, void, $String*, int32_t, int32_t, $StringBuilder*)},
+	{"normalizeSlice", "(Ljava/lang/String;IILjava/lang/StringBuilder;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Pattern, normalizeSlice, void, $String*, int32_t, int32_t, $StringBuilder*)},
+	{"o", "()I", nullptr, $PRIVATE, $method(Pattern, o, int32_t)},
+	{"parsePastLine", "()I", nullptr, $PRIVATE, $method(Pattern, parsePastLine, int32_t)},
+	{"parsePastWhitespace", "(I)I", nullptr, $PRIVATE, $method(Pattern, parsePastWhitespace, int32_t, int32_t)},
+	{"pattern", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(Pattern, pattern, $String*)},
+	{"peek", "()I", nullptr, $PRIVATE, $method(Pattern, peek, int32_t)},
+	{"peekPastLine", "()I", nullptr, $PRIVATE, $method(Pattern, peekPastLine, int32_t)},
+	{"peekPastWhitespace", "(I)I", nullptr, $PRIVATE, $method(Pattern, peekPastWhitespace, int32_t, int32_t)},
+	{"produceEquivalentAlternation", "(Ljava/lang/String;Ljava/util/Set;)V", "(Ljava/lang/String;Ljava/util/Set<Ljava/lang/String;>;)V", $PRIVATE | $STATIC, $staticMethod(Pattern, produceEquivalentAlternation, void, $String*, $Set*)},
+	{"producePermutations", "(Ljava/lang/String;)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Pattern, producePermutations, $StringArray*, $String*)},
+	{"qtype", "()Ljava/util/regex/Pattern$Qtype;", nullptr, $PRIVATE, $method(Pattern, qtype, $Pattern$Qtype*)},
+	{"quote", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Pattern, quote, $String*, $String*)},
+	{"range", "(Ljava/util/regex/Pattern$BitClass;)Ljava/util/regex/Pattern$CharPredicate;", nullptr, $PRIVATE, $method(Pattern, range, $Pattern$CharPredicate*, $Pattern$BitClass*)},
+	{"read", "()I", nullptr, $PRIVATE, $method(Pattern, read, int32_t)},
+	{"readEscaped", "()I", nullptr, $PRIVATE, $method(Pattern, readEscaped, int32_t)},
+	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(Pattern, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+	{"ref", "(I)Ljava/util/regex/Pattern$Node;", nullptr, $PRIVATE, $method(Pattern, ref, $Pattern$Node*, int32_t)},
+	{"sequence", "(Ljava/util/regex/Pattern$Node;)Ljava/util/regex/Pattern$Node;", nullptr, $PRIVATE, $method(Pattern, sequence, $Pattern$Node*, $Pattern$Node*)},
+	{"setcursor", "(I)V", nullptr, $PRIVATE, $method(Pattern, setcursor, void, int32_t)},
+	{"single", "(I)Ljava/util/regex/Pattern$CharPredicate;", nullptr, $PRIVATE, $method(Pattern, single, $Pattern$CharPredicate*, int32_t)},
+	{"skip", "()I", nullptr, $PRIVATE, $method(Pattern, skip, int32_t)},
+	{"split", "(Ljava/lang/CharSequence;I)[Ljava/lang/String;", nullptr, $PUBLIC, $method(Pattern, split, $StringArray*, $CharSequence*, int32_t)},
+	{"split", "(Ljava/lang/CharSequence;)[Ljava/lang/String;", nullptr, $PUBLIC, $method(Pattern, split, $StringArray*, $CharSequence*)},
+	{"splitAsStream", "(Ljava/lang/CharSequence;)Ljava/util/stream/Stream;", "(Ljava/lang/CharSequence;)Ljava/util/stream/Stream<Ljava/lang/String;>;", $PUBLIC, $method(Pattern, splitAsStream, $Stream*, $CharSequence*)},
+	{"subFlag", "()V", nullptr, $PRIVATE, $method(Pattern, subFlag, void)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Pattern, toString, $String*)},
+	{"u", "()I", nullptr, $PRIVATE, $method(Pattern, u, int32_t)},
+	{"unread", "()V", nullptr, $PRIVATE, $method(Pattern, unread, void)},
+	{"uxxxx", "()I", nullptr, $PRIVATE, $method(Pattern, uxxxx, int32_t)},
+	{"x", "()I", nullptr, $PRIVATE, $method(Pattern, x, int32_t)},
 	{}
 };
 

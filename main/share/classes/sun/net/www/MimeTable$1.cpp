@@ -16,8 +16,8 @@ namespace sun {
 		namespace www {
 
 $MethodInfo _MimeTable$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(MimeTable$1::*)()>(&MimeTable$1::init$))},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(MimeTable$1, init$, void)},
+	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(MimeTable$1, run, $Object*)},
 	{}
 };
 

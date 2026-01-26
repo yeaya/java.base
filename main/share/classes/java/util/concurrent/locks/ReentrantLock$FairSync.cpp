@@ -25,9 +25,9 @@ $FieldInfo _ReentrantLock$FairSync_FieldInfo_[] = {
 };
 
 $MethodInfo _ReentrantLock$FairSync_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ReentrantLock$FairSync::*)()>(&ReentrantLock$FairSync::init$))},
-	{"initialTryLock", "()Z", nullptr, $FINAL},
-	{"tryAcquire", "(I)Z", nullptr, $PROTECTED | $FINAL},
+	{"<init>", "()V", nullptr, 0, $method(ReentrantLock$FairSync, init$, void)},
+	{"initialTryLock", "()Z", nullptr, $FINAL, $virtualMethod(ReentrantLock$FairSync, initialTryLock, bool)},
+	{"tryAcquire", "(I)Z", nullptr, $PROTECTED | $FINAL, $virtualMethod(ReentrantLock$FairSync, tryAcquire, bool, int32_t)},
 	{}
 };
 

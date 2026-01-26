@@ -54,8 +54,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo SPIProviderTest$$Lambda$testSPIProvider::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SPIProviderTest$$Lambda$testSPIProvider::*)()>(&SPIProviderTest$$Lambda$testSPIProvider::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SPIProviderTest$$Lambda$testSPIProvider, init$, void)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(SPIProviderTest$$Lambda$testSPIProvider, accept, void, Object$*)},
 	{}
 };
 $ClassInfo SPIProviderTest$$Lambda$testSPIProvider::classInfo$ = {
@@ -79,10 +79,10 @@ $FieldInfo _SPIProviderTest_FieldInfo_[] = {
 };
 
 $MethodInfo _SPIProviderTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(SPIProviderTest::*)()>(&SPIProviderTest::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<void(*)($StringArray*)>(&SPIProviderTest::main))},
-	{"testData", "()[[Ljava/lang/Object;", nullptr, 0},
-	{"testSPIProvider", "([Ljava/lang/Object;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<void(*)($ObjectArray*)>(&SPIProviderTest::testSPIProvider))},
+	{"<init>", "()V", nullptr, 0, $method(SPIProviderTest, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(SPIProviderTest, main, void, $StringArray*)},
+	{"testData", "()[[Ljava/lang/Object;", nullptr, 0, $virtualMethod(SPIProviderTest, testData, $ObjectArray2*)},
+	{"testSPIProvider", "([Ljava/lang/Object;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(SPIProviderTest, testSPIProvider, void, $ObjectArray*)},
 	{}
 };
 

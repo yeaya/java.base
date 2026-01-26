@@ -64,12 +64,12 @@ $FieldInfo _DateTimeFormatterBuilder$ZoneIdPrinterParser_FieldInfo_[] = {
 };
 
 $MethodInfo _DateTimeFormatterBuilder$ZoneIdPrinterParser_MethodInfo_[] = {
-	{"<init>", "(Ljava/time/temporal/TemporalQuery;Ljava/lang/String;)V", "(Ljava/time/temporal/TemporalQuery<Ljava/time/ZoneId;>;Ljava/lang/String;)V", 0, $method(static_cast<void(DateTimeFormatterBuilder$ZoneIdPrinterParser::*)($TemporalQuery*,$String*)>(&DateTimeFormatterBuilder$ZoneIdPrinterParser::init$))},
-	{"format", "(Ljava/time/format/DateTimePrintContext;Ljava/lang/StringBuilder;)Z", nullptr, $PUBLIC},
-	{"getTree", "(Ljava/time/format/DateTimeParseContext;)Ljava/time/format/DateTimeFormatterBuilder$PrefixTree;", nullptr, $PROTECTED},
-	{"parse", "(Ljava/time/format/DateTimeParseContext;Ljava/lang/CharSequence;I)I", nullptr, $PUBLIC},
-	{"parseOffsetBased", "(Ljava/time/format/DateTimeParseContext;Ljava/lang/CharSequence;IILjava/time/format/DateTimeFormatterBuilder$OffsetIdPrinterParser;)I", nullptr, $PRIVATE, $method(static_cast<int32_t(DateTimeFormatterBuilder$ZoneIdPrinterParser::*)($DateTimeParseContext*,$CharSequence*,int32_t,int32_t,$DateTimeFormatterBuilder$OffsetIdPrinterParser*)>(&DateTimeFormatterBuilder$ZoneIdPrinterParser::parseOffsetBased))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/time/temporal/TemporalQuery;Ljava/lang/String;)V", "(Ljava/time/temporal/TemporalQuery<Ljava/time/ZoneId;>;Ljava/lang/String;)V", 0, $method(DateTimeFormatterBuilder$ZoneIdPrinterParser, init$, void, $TemporalQuery*, $String*)},
+	{"format", "(Ljava/time/format/DateTimePrintContext;Ljava/lang/StringBuilder;)Z", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$ZoneIdPrinterParser, format, bool, $DateTimePrintContext*, $StringBuilder*)},
+	{"getTree", "(Ljava/time/format/DateTimeParseContext;)Ljava/time/format/DateTimeFormatterBuilder$PrefixTree;", nullptr, $PROTECTED, $virtualMethod(DateTimeFormatterBuilder$ZoneIdPrinterParser, getTree, $DateTimeFormatterBuilder$PrefixTree*, $DateTimeParseContext*)},
+	{"parse", "(Ljava/time/format/DateTimeParseContext;Ljava/lang/CharSequence;I)I", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$ZoneIdPrinterParser, parse, int32_t, $DateTimeParseContext*, $CharSequence*, int32_t)},
+	{"parseOffsetBased", "(Ljava/time/format/DateTimeParseContext;Ljava/lang/CharSequence;IILjava/time/format/DateTimeFormatterBuilder$OffsetIdPrinterParser;)I", nullptr, $PRIVATE, $method(DateTimeFormatterBuilder$ZoneIdPrinterParser, parseOffsetBased, int32_t, $DateTimeParseContext*, $CharSequence*, int32_t, int32_t, $DateTimeFormatterBuilder$OffsetIdPrinterParser*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$ZoneIdPrinterParser, toString, $String*)},
 	{}
 };
 

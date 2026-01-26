@@ -31,10 +31,10 @@ $FieldInfo _UnboundSocketTests_FieldInfo_[] = {
 };
 
 $MethodInfo _UnboundSocketTests_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(UnboundSocketTests::*)()>(&UnboundSocketTests::init$))},
-	{"check", "(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $STATIC, $method(static_cast<void(*)($String*,Object$*,Object$*)>(&UnboundSocketTests::check))},
-	{"checkIsAnyLocalAddress", "(Ljava/lang/String;Ljava/net/InetAddress;)V", nullptr, $STATIC, $method(static_cast<void(*)($String*,$InetAddress*)>(&UnboundSocketTests::checkIsAnyLocalAddress))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&UnboundSocketTests::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(UnboundSocketTests, init$, void)},
+	{"check", "(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $STATIC, $staticMethod(UnboundSocketTests, check, void, $String*, Object$*, Object$*)},
+	{"checkIsAnyLocalAddress", "(Ljava/lang/String;Ljava/net/InetAddress;)V", nullptr, $STATIC, $staticMethod(UnboundSocketTests, checkIsAnyLocalAddress, void, $String*, $InetAddress*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(UnboundSocketTests, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

@@ -25,9 +25,9 @@ $MethodInfo _StreamSpliterators$ArrayBuffer$OfRef_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(I)V", nullptr, 0, $method(static_cast<void(StreamSpliterators$ArrayBuffer$OfRef::*)(int32_t)>(&StreamSpliterators$ArrayBuffer$OfRef::init$))},
-	{"accept", "(Ljava/lang/Object;)V", "(TT;)V", $PUBLIC},
-	{"forEach", "(Ljava/util/function/Consumer;J)V", "(Ljava/util/function/Consumer<-TT;>;J)V", $PUBLIC, $method(static_cast<void(StreamSpliterators$ArrayBuffer$OfRef::*)($Consumer*,int64_t)>(&StreamSpliterators$ArrayBuffer$OfRef::forEach))},
+	{"<init>", "(I)V", nullptr, 0, $method(StreamSpliterators$ArrayBuffer$OfRef, init$, void, int32_t)},
+	{"accept", "(Ljava/lang/Object;)V", "(TT;)V", $PUBLIC, $virtualMethod(StreamSpliterators$ArrayBuffer$OfRef, accept, void, Object$*)},
+	{"forEach", "(Ljava/util/function/Consumer;J)V", "(Ljava/util/function/Consumer<-TT;>;J)V", $PUBLIC, $method(StreamSpliterators$ArrayBuffer$OfRef, forEach, void, $Consumer*, int64_t)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

@@ -28,9 +28,9 @@ $FieldInfo _ClassLoader$ParallelLoaders_FieldInfo_[] = {
 };
 
 $MethodInfo _ClassLoader$ParallelLoaders_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(ClassLoader$ParallelLoaders::*)()>(&ClassLoader$ParallelLoaders::init$))},
-	{"isRegistered", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<+Ljava/lang/ClassLoader;>;)Z", $STATIC, $method(static_cast<bool(*)($Class*)>(&ClassLoader$ParallelLoaders::isRegistered))},
-	{"register", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<+Ljava/lang/ClassLoader;>;)Z", $STATIC, $method(static_cast<bool(*)($Class*)>(&ClassLoader$ParallelLoaders::register$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(ClassLoader$ParallelLoaders, init$, void)},
+	{"isRegistered", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<+Ljava/lang/ClassLoader;>;)Z", $STATIC, $staticMethod(ClassLoader$ParallelLoaders, isRegistered, bool, $Class*)},
+	{"register", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<+Ljava/lang/ClassLoader;>;)Z", $STATIC, $staticMethod(ClassLoader$ParallelLoaders, register$, bool, $Class*)},
 	{}
 };
 

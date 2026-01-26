@@ -46,7 +46,7 @@ $FieldInfo _ServerNameExtension_FieldInfo_[] = {
 };
 
 $MethodInfo _ServerNameExtension_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ServerNameExtension::*)()>(&ServerNameExtension::init$))},
+	{"<init>", "()V", nullptr, 0, $method(ServerNameExtension, init$, void)},
 	{}
 };
 

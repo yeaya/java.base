@@ -57,11 +57,11 @@ $MethodInfo _AbstractBasicFileAttributeView_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(AbstractBasicFileAttributeView::*)()>(&AbstractBasicFileAttributeView::init$))},
-	{"addRequestedBasicAttributes", "(Ljava/nio/file/attribute/BasicFileAttributes;Lsun/nio/fs/AbstractBasicFileAttributeView$AttributesBuilder;)V", nullptr, $FINAL, $method(static_cast<void(AbstractBasicFileAttributeView::*)($BasicFileAttributes*,$AbstractBasicFileAttributeView$AttributesBuilder*)>(&AbstractBasicFileAttributeView::addRequestedBasicAttributes))},
-	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"readAttributes", "([Ljava/lang/String;)Ljava/util/Map;", "([Ljava/lang/String;)Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;", $PUBLIC, nullptr, "java.io.IOException"},
-	{"setAttribute", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(AbstractBasicFileAttributeView, init$, void)},
+	{"addRequestedBasicAttributes", "(Ljava/nio/file/attribute/BasicFileAttributes;Lsun/nio/fs/AbstractBasicFileAttributeView$AttributesBuilder;)V", nullptr, $FINAL, $method(AbstractBasicFileAttributeView, addRequestedBasicAttributes, void, $BasicFileAttributes*, $AbstractBasicFileAttributeView$AttributesBuilder*)},
+	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractBasicFileAttributeView, name, $String*)},
+	{"readAttributes", "([Ljava/lang/String;)Ljava/util/Map;", "([Ljava/lang/String;)Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;", $PUBLIC, $virtualMethod(AbstractBasicFileAttributeView, readAttributes, $Map*, $StringArray*), "java.io.IOException"},
+	{"setAttribute", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(AbstractBasicFileAttributeView, setAttribute, void, $String*, Object$*), "java.io.IOException"},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

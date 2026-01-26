@@ -71,8 +71,8 @@ $FieldInfo LoaderPool$$Lambda$lambda$new$0::fieldInfos[3] = {
 	{}
 };
 $MethodInfo LoaderPool$$Lambda$lambda$new$0::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/module/Configuration;Ljava/util/List;)V", nullptr, $PUBLIC, $method(static_cast<void(LoaderPool$$Lambda$lambda$new$0::*)($Configuration*,$List*)>(&LoaderPool$$Lambda$lambda$new$0::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/module/Configuration;Ljava/util/List;)V", nullptr, $PUBLIC, $method(LoaderPool$$Lambda$lambda$new$0, init$, void, $Configuration*, $List*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(LoaderPool$$Lambda$lambda$new$0, accept, void, Object$*)},
 	{}
 };
 $ClassInfo LoaderPool$$Lambda$lambda$new$0::classInfo$ = {
@@ -96,10 +96,10 @@ $FieldInfo _LoaderPool_FieldInfo_[] = {
 };
 
 $MethodInfo _LoaderPool_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/module/Configuration;Ljava/util/List;Ljava/lang/ClassLoader;)V", "(Ljava/lang/module/Configuration;Ljava/util/List<Ljava/lang/ModuleLayer;>;Ljava/lang/ClassLoader;)V", $PUBLIC, $method(static_cast<void(LoaderPool::*)($Configuration*,$List*,$ClassLoader*)>(&LoaderPool::init$))},
-	{"lambda$new$0", "(Ljava/lang/module/Configuration;Ljava/util/List;Ljdk/internal/loader/Loader;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($Configuration*,$List*,$Loader*)>(&LoaderPool::lambda$new$0))},
-	{"loaderFor", "(Ljava/lang/String;)Ljdk/internal/loader/Loader;", nullptr, $PUBLIC, $method(static_cast<$Loader*(LoaderPool::*)($String*)>(&LoaderPool::loaderFor))},
-	{"loaders", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljdk/internal/loader/Loader;>;", $PUBLIC, $method(static_cast<$Stream*(LoaderPool::*)()>(&LoaderPool::loaders))},
+	{"<init>", "(Ljava/lang/module/Configuration;Ljava/util/List;Ljava/lang/ClassLoader;)V", "(Ljava/lang/module/Configuration;Ljava/util/List<Ljava/lang/ModuleLayer;>;Ljava/lang/ClassLoader;)V", $PUBLIC, $method(LoaderPool, init$, void, $Configuration*, $List*, $ClassLoader*)},
+	{"lambda$new$0", "(Ljava/lang/module/Configuration;Ljava/util/List;Ljdk/internal/loader/Loader;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LoaderPool, lambda$new$0, void, $Configuration*, $List*, $Loader*)},
+	{"loaderFor", "(Ljava/lang/String;)Ljdk/internal/loader/Loader;", nullptr, $PUBLIC, $method(LoaderPool, loaderFor, $Loader*, $String*)},
+	{"loaders", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljdk/internal/loader/Loader;>;", $PUBLIC, $method(LoaderPool, loaders, $Stream*)},
 	{}
 };
 

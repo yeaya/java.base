@@ -22,8 +22,8 @@ using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
 using $MethodType = ::java::lang::invoke::MethodType;
 
 $MethodInfo _PrivateInterfaceCall$I3_MethodInfo_[] = {
-	{"init", "()V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)()>(&PrivateInterfaceCall$I3::init)), "java.lang.Throwable"},
-	{"invokeInterfaceMH", "(LPrivateInterfaceCall$I2;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($PrivateInterfaceCall$I2*)>(&PrivateInterfaceCall$I3::invokeInterfaceMH)), "java.lang.Throwable"},
+	{"init", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(PrivateInterfaceCall$I3, init, void), "java.lang.Throwable"},
+	{"invokeInterfaceMH", "(LPrivateInterfaceCall$I2;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(PrivateInterfaceCall$I3, invokeInterfaceMH, void, $PrivateInterfaceCall$I2*), "java.lang.Throwable"},
 	{}
 };
 

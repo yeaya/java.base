@@ -55,17 +55,17 @@ $FieldInfo _LazyLoggers$LazyLoggerAccessor_FieldInfo_[] = {
 };
 
 $MethodInfo _LazyLoggers$LazyLoggerAccessor_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljdk/internal/logger/LazyLoggers$LazyLoggerFactories;Ljava/lang/Module;)V", "(Ljava/lang/String;Ljdk/internal/logger/LazyLoggers$LazyLoggerFactories<+Ljava/lang/System$Logger;>;Ljava/lang/Module;)V", $PRIVATE, $method(static_cast<void(LazyLoggers$LazyLoggerAccessor::*)($String*,$LazyLoggers$LazyLoggerFactories*,$Module*)>(&LazyLoggers$LazyLoggerAccessor::init$))},
-	{"<init>", "(Ljava/lang/String;Ljdk/internal/logger/LazyLoggers$LazyLoggerFactories;Ljava/lang/Module;Ljava/lang/Void;)V", "(Ljava/lang/String;Ljdk/internal/logger/LazyLoggers$LazyLoggerFactories<+Ljava/lang/System$Logger;>;Ljava/lang/Module;Ljava/lang/Void;)V", $PRIVATE, $method(static_cast<void(LazyLoggers$LazyLoggerAccessor::*)($String*,$LazyLoggers$LazyLoggerFactories*,$Module*,$Void*)>(&LazyLoggers$LazyLoggerAccessor::init$))},
-	{"createLogger", "()Ljava/lang/System$Logger;", nullptr, 0, $method(static_cast<$System$Logger*(LazyLoggers$LazyLoggerAccessor::*)()>(&LazyLoggers$LazyLoggerAccessor::createLogger))},
-	{"getConcreteLogger", "(Ljdk/internal/logger/BootstrapLogger;)Ljava/lang/System$Logger;", nullptr, 0, $method(static_cast<$System$Logger*(LazyLoggers$LazyLoggerAccessor::*)($BootstrapLogger*)>(&LazyLoggers$LazyLoggerAccessor::getConcreteLogger))},
-	{"getConcretePlatformLogger", "(Ljdk/internal/logger/BootstrapLogger;)Lsun/util/logging/PlatformLogger$Bridge;", nullptr, 0, $method(static_cast<$PlatformLogger$Bridge*(LazyLoggers$LazyLoggerAccessor::*)($BootstrapLogger*)>(&LazyLoggers$LazyLoggerAccessor::getConcretePlatformLogger))},
-	{"getLoggerName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"makeAccessor", "(Ljava/lang/String;Ljdk/internal/logger/LazyLoggers$LazyLoggerFactories;Ljava/lang/Module;)Ljdk/internal/logger/LazyLoggers$LazyLoggerAccessor;", "(Ljava/lang/String;Ljdk/internal/logger/LazyLoggers$LazyLoggerFactories<+Ljava/lang/System$Logger;>;Ljava/lang/Module;)Ljdk/internal/logger/LazyLoggers$LazyLoggerAccessor;", $PUBLIC | $STATIC, $method(static_cast<LazyLoggers$LazyLoggerAccessor*(*)($String*,$LazyLoggers$LazyLoggerFactories*,$Module*)>(&LazyLoggers$LazyLoggerAccessor::makeAccessor))},
-	{"platform", "()Lsun/util/logging/PlatformLogger$Bridge;", nullptr, $PUBLIC},
-	{"release", "(Ljdk/internal/logger/SimpleConsoleLogger;Z)V", nullptr, 0, $method(static_cast<void(LazyLoggers$LazyLoggerAccessor::*)($SimpleConsoleLogger*,bool)>(&LazyLoggers$LazyLoggerAccessor::release))},
-	{"setWrappedIfNotSet", "(Ljava/lang/System$Logger;)V", nullptr, $PRIVATE, $method(static_cast<void(LazyLoggers$LazyLoggerAccessor::*)($System$Logger*)>(&LazyLoggers$LazyLoggerAccessor::setWrappedIfNotSet))},
-	{"wrapped", "()Ljava/lang/System$Logger;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Ljdk/internal/logger/LazyLoggers$LazyLoggerFactories;Ljava/lang/Module;)V", "(Ljava/lang/String;Ljdk/internal/logger/LazyLoggers$LazyLoggerFactories<+Ljava/lang/System$Logger;>;Ljava/lang/Module;)V", $PRIVATE, $method(LazyLoggers$LazyLoggerAccessor, init$, void, $String*, $LazyLoggers$LazyLoggerFactories*, $Module*)},
+	{"<init>", "(Ljava/lang/String;Ljdk/internal/logger/LazyLoggers$LazyLoggerFactories;Ljava/lang/Module;Ljava/lang/Void;)V", "(Ljava/lang/String;Ljdk/internal/logger/LazyLoggers$LazyLoggerFactories<+Ljava/lang/System$Logger;>;Ljava/lang/Module;Ljava/lang/Void;)V", $PRIVATE, $method(LazyLoggers$LazyLoggerAccessor, init$, void, $String*, $LazyLoggers$LazyLoggerFactories*, $Module*, $Void*)},
+	{"createLogger", "()Ljava/lang/System$Logger;", nullptr, 0, $method(LazyLoggers$LazyLoggerAccessor, createLogger, $System$Logger*)},
+	{"getConcreteLogger", "(Ljdk/internal/logger/BootstrapLogger;)Ljava/lang/System$Logger;", nullptr, 0, $method(LazyLoggers$LazyLoggerAccessor, getConcreteLogger, $System$Logger*, $BootstrapLogger*)},
+	{"getConcretePlatformLogger", "(Ljdk/internal/logger/BootstrapLogger;)Lsun/util/logging/PlatformLogger$Bridge;", nullptr, 0, $method(LazyLoggers$LazyLoggerAccessor, getConcretePlatformLogger, $PlatformLogger$Bridge*, $BootstrapLogger*)},
+	{"getLoggerName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LazyLoggers$LazyLoggerAccessor, getLoggerName, $String*)},
+	{"makeAccessor", "(Ljava/lang/String;Ljdk/internal/logger/LazyLoggers$LazyLoggerFactories;Ljava/lang/Module;)Ljdk/internal/logger/LazyLoggers$LazyLoggerAccessor;", "(Ljava/lang/String;Ljdk/internal/logger/LazyLoggers$LazyLoggerFactories<+Ljava/lang/System$Logger;>;Ljava/lang/Module;)Ljdk/internal/logger/LazyLoggers$LazyLoggerAccessor;", $PUBLIC | $STATIC, $staticMethod(LazyLoggers$LazyLoggerAccessor, makeAccessor, LazyLoggers$LazyLoggerAccessor*, $String*, $LazyLoggers$LazyLoggerFactories*, $Module*)},
+	{"platform", "()Lsun/util/logging/PlatformLogger$Bridge;", nullptr, $PUBLIC, $virtualMethod(LazyLoggers$LazyLoggerAccessor, platform, $PlatformLogger$Bridge*)},
+	{"release", "(Ljdk/internal/logger/SimpleConsoleLogger;Z)V", nullptr, 0, $method(LazyLoggers$LazyLoggerAccessor, release, void, $SimpleConsoleLogger*, bool)},
+	{"setWrappedIfNotSet", "(Ljava/lang/System$Logger;)V", nullptr, $PRIVATE, $method(LazyLoggers$LazyLoggerAccessor, setWrappedIfNotSet, void, $System$Logger*)},
+	{"wrapped", "()Ljava/lang/System$Logger;", nullptr, $PUBLIC, $virtualMethod(LazyLoggers$LazyLoggerAccessor, wrapped, $System$Logger*)},
 	{}
 };
 

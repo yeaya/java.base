@@ -14,8 +14,8 @@ namespace sun {
 	namespace net {
 
 $MethodInfo _ApplicationProxy_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/Proxy;)V", nullptr, $PRIVATE, $method(static_cast<void(ApplicationProxy::*)($Proxy*)>(&ApplicationProxy::init$))},
-	{"create", "(Ljava/net/Proxy;)Lsun/net/ApplicationProxy;", nullptr, $PUBLIC | $STATIC, $method(static_cast<ApplicationProxy*(*)($Proxy*)>(&ApplicationProxy::create))},
+	{"<init>", "(Ljava/net/Proxy;)V", nullptr, $PRIVATE, $method(ApplicationProxy, init$, void, $Proxy*)},
+	{"create", "(Ljava/net/Proxy;)Lsun/net/ApplicationProxy;", nullptr, $PUBLIC | $STATIC, $staticMethod(ApplicationProxy, create, ApplicationProxy*, $Proxy*)},
 	{}
 };
 

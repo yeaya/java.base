@@ -17,10 +17,10 @@ $FieldInfo _ResolutionException_FieldInfo_[] = {
 };
 
 $MethodInfo _ResolutionException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ResolutionException::*)()>(&ResolutionException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(ResolutionException::*)($String*)>(&ResolutionException::init$))},
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(ResolutionException::*)($Throwable*)>(&ResolutionException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(ResolutionException::*)($String*,$Throwable*)>(&ResolutionException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ResolutionException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ResolutionException, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(ResolutionException, init$, void, $Throwable*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(ResolutionException, init$, void, $String*, $Throwable*)},
 	{}
 };
 

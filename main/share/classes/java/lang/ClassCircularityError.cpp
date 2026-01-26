@@ -17,8 +17,8 @@ $FieldInfo _ClassCircularityError_FieldInfo_[] = {
 };
 
 $MethodInfo _ClassCircularityError_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ClassCircularityError::*)()>(&ClassCircularityError::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(ClassCircularityError::*)($String*)>(&ClassCircularityError::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ClassCircularityError, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ClassCircularityError, init$, void, $String*)},
 	{}
 };
 

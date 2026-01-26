@@ -57,13 +57,13 @@ $FieldInfo _WhileOps$DropWhileTask_FieldInfo_[] = {
 };
 
 $MethodInfo _WhileOps$DropWhileTask_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/stream/AbstractPipeline;Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;Ljava/util/function/IntFunction;)V", "(Ljava/util/stream/AbstractPipeline<TP_OUT;TP_OUT;*>;Ljava/util/stream/PipelineHelper<TP_OUT;>;Ljava/util/Spliterator<TP_IN;>;Ljava/util/function/IntFunction<[TP_OUT;>;)V", 0, $method(static_cast<void(WhileOps$DropWhileTask::*)($AbstractPipeline*,$PipelineHelper*,$Spliterator*,$IntFunction*)>(&WhileOps$DropWhileTask::init$))},
-	{"<init>", "(Ljava/util/stream/WhileOps$DropWhileTask;Ljava/util/Spliterator;)V", "(Ljava/util/stream/WhileOps$DropWhileTask<TP_IN;TP_OUT;>;Ljava/util/Spliterator<TP_IN;>;)V", 0, $method(static_cast<void(WhileOps$DropWhileTask::*)(WhileOps$DropWhileTask*,$Spliterator*)>(&WhileOps$DropWhileTask::init$))},
-	{"doLeaf", "()Ljava/util/stream/Node;", "()Ljava/util/stream/Node<TP_OUT;>;", $PROTECTED | $FINAL},
-	{"doTruncate", "(Ljava/util/stream/Node;)Ljava/util/stream/Node;", "(Ljava/util/stream/Node<TP_OUT;>;)Ljava/util/stream/Node<TP_OUT;>;", $PRIVATE, $method(static_cast<$Node*(WhileOps$DropWhileTask::*)($Node*)>(&WhileOps$DropWhileTask::doTruncate))},
-	{"makeChild", "(Ljava/util/Spliterator;)Ljava/util/stream/WhileOps$DropWhileTask;", "(Ljava/util/Spliterator<TP_IN;>;)Ljava/util/stream/WhileOps$DropWhileTask<TP_IN;TP_OUT;>;", $PROTECTED},
-	{"merge", "()Ljava/util/stream/Node;", "()Ljava/util/stream/Node<TP_OUT;>;", $PRIVATE, $method(static_cast<$Node*(WhileOps$DropWhileTask::*)()>(&WhileOps$DropWhileTask::merge))},
-	{"onCompletion", "(Ljava/util/concurrent/CountedCompleter;)V", "(Ljava/util/concurrent/CountedCompleter<*>;)V", $PUBLIC | $FINAL},
+	{"<init>", "(Ljava/util/stream/AbstractPipeline;Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;Ljava/util/function/IntFunction;)V", "(Ljava/util/stream/AbstractPipeline<TP_OUT;TP_OUT;*>;Ljava/util/stream/PipelineHelper<TP_OUT;>;Ljava/util/Spliterator<TP_IN;>;Ljava/util/function/IntFunction<[TP_OUT;>;)V", 0, $method(WhileOps$DropWhileTask, init$, void, $AbstractPipeline*, $PipelineHelper*, $Spliterator*, $IntFunction*)},
+	{"<init>", "(Ljava/util/stream/WhileOps$DropWhileTask;Ljava/util/Spliterator;)V", "(Ljava/util/stream/WhileOps$DropWhileTask<TP_IN;TP_OUT;>;Ljava/util/Spliterator<TP_IN;>;)V", 0, $method(WhileOps$DropWhileTask, init$, void, WhileOps$DropWhileTask*, $Spliterator*)},
+	{"doLeaf", "()Ljava/util/stream/Node;", "()Ljava/util/stream/Node<TP_OUT;>;", $PROTECTED | $FINAL, $virtualMethod(WhileOps$DropWhileTask, doLeaf, $Object*)},
+	{"doTruncate", "(Ljava/util/stream/Node;)Ljava/util/stream/Node;", "(Ljava/util/stream/Node<TP_OUT;>;)Ljava/util/stream/Node<TP_OUT;>;", $PRIVATE, $method(WhileOps$DropWhileTask, doTruncate, $Node*, $Node*)},
+	{"makeChild", "(Ljava/util/Spliterator;)Ljava/util/stream/WhileOps$DropWhileTask;", "(Ljava/util/Spliterator<TP_IN;>;)Ljava/util/stream/WhileOps$DropWhileTask<TP_IN;TP_OUT;>;", $PROTECTED, $virtualMethod(WhileOps$DropWhileTask, makeChild, WhileOps$DropWhileTask*, $Spliterator*)},
+	{"merge", "()Ljava/util/stream/Node;", "()Ljava/util/stream/Node<TP_OUT;>;", $PRIVATE, $method(WhileOps$DropWhileTask, merge, $Node*)},
+	{"onCompletion", "(Ljava/util/concurrent/CountedCompleter;)V", "(Ljava/util/concurrent/CountedCompleter<*>;)V", $PUBLIC | $FINAL, $virtualMethod(WhileOps$DropWhileTask, onCompletion, void, $CountedCompleter*)},
 	{}
 };
 

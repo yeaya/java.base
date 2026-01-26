@@ -19,8 +19,8 @@ $FieldInfo _LocaleISOData_FieldInfo_[] = {
 };
 
 $MethodInfo _LocaleISOData_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(LocaleISOData::*)()>(&LocaleISOData::init$))},
-	{"computeISO3166_1Alpha3Countries", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $STATIC, $method(static_cast<$Set*(*)()>(&LocaleISOData::computeISO3166_1Alpha3Countries))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(LocaleISOData, init$, void)},
+	{"computeISO3166_1Alpha3Countries", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $STATIC, $staticMethod(LocaleISOData, computeISO3166_1Alpha3Countries, $Set*)},
 	{}
 };
 

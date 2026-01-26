@@ -48,13 +48,13 @@ $FieldInfo _ImageBufferCache_FieldInfo_[] = {
 };
 
 $MethodInfo _ImageBufferCache_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ImageBufferCache::*)()>(&ImageBufferCache::init$))},
-	{"allocateBuffer", "(J)Ljava/nio/ByteBuffer;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$ByteBuffer*(*)(int64_t)>(&ImageBufferCache::allocateBuffer))},
-	{"getBuffer", "(J)Ljava/nio/ByteBuffer;", nullptr, $STATIC, $method(static_cast<$ByteBuffer*(*)(int64_t)>(&ImageBufferCache::getBuffer))},
-	{"getByteBuffer", "(Ljava/util/Map$Entry;)Ljava/nio/ByteBuffer;", "(Ljava/util/Map$Entry<Ljava/lang/ref/WeakReference<Ljava/nio/ByteBuffer;>;Ljava/lang/Integer;>;)Ljava/nio/ByteBuffer;", $PRIVATE | $STATIC, $method(static_cast<$ByteBuffer*(*)($Map$Entry*)>(&ImageBufferCache::getByteBuffer))},
-	{"getCapacity", "(Ljava/util/Map$Entry;)I", "(Ljava/util/Map$Entry<Ljava/lang/ref/WeakReference<Ljava/nio/ByteBuffer;>;Ljava/lang/Integer;>;)I", $PRIVATE | $STATIC, $method(static_cast<int32_t(*)($Map$Entry*)>(&ImageBufferCache::getCapacity))},
-	{"newCacheEntry", "(Ljava/nio/ByteBuffer;)Ljava/util/Map$Entry;", "(Ljava/nio/ByteBuffer;)Ljava/util/Map$Entry<Ljava/lang/ref/WeakReference<Ljava/nio/ByteBuffer;>;Ljava/lang/Integer;>;", $PRIVATE | $STATIC, $method(static_cast<$Map$Entry*(*)($ByteBuffer*)>(&ImageBufferCache::newCacheEntry))},
-	{"releaseBuffer", "(Ljava/nio/ByteBuffer;)V", nullptr, $STATIC, $method(static_cast<void(*)($ByteBuffer*)>(&ImageBufferCache::releaseBuffer))},
+	{"<init>", "()V", nullptr, 0, $method(ImageBufferCache, init$, void)},
+	{"allocateBuffer", "(J)Ljava/nio/ByteBuffer;", nullptr, $PRIVATE | $STATIC, $staticMethod(ImageBufferCache, allocateBuffer, $ByteBuffer*, int64_t)},
+	{"getBuffer", "(J)Ljava/nio/ByteBuffer;", nullptr, $STATIC, $staticMethod(ImageBufferCache, getBuffer, $ByteBuffer*, int64_t)},
+	{"getByteBuffer", "(Ljava/util/Map$Entry;)Ljava/nio/ByteBuffer;", "(Ljava/util/Map$Entry<Ljava/lang/ref/WeakReference<Ljava/nio/ByteBuffer;>;Ljava/lang/Integer;>;)Ljava/nio/ByteBuffer;", $PRIVATE | $STATIC, $staticMethod(ImageBufferCache, getByteBuffer, $ByteBuffer*, $Map$Entry*)},
+	{"getCapacity", "(Ljava/util/Map$Entry;)I", "(Ljava/util/Map$Entry<Ljava/lang/ref/WeakReference<Ljava/nio/ByteBuffer;>;Ljava/lang/Integer;>;)I", $PRIVATE | $STATIC, $staticMethod(ImageBufferCache, getCapacity, int32_t, $Map$Entry*)},
+	{"newCacheEntry", "(Ljava/nio/ByteBuffer;)Ljava/util/Map$Entry;", "(Ljava/nio/ByteBuffer;)Ljava/util/Map$Entry<Ljava/lang/ref/WeakReference<Ljava/nio/ByteBuffer;>;Ljava/lang/Integer;>;", $PRIVATE | $STATIC, $staticMethod(ImageBufferCache, newCacheEntry, $Map$Entry*, $ByteBuffer*)},
+	{"releaseBuffer", "(Ljava/nio/ByteBuffer;)V", nullptr, $STATIC, $staticMethod(ImageBufferCache, releaseBuffer, void, $ByteBuffer*)},
 	{}
 };
 

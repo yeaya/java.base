@@ -48,10 +48,10 @@ $FieldInfo _SupportedGroupsExtension$SupportedGroupsSpec_FieldInfo_[] = {
 };
 
 $MethodInfo _SupportedGroupsExtension$SupportedGroupsSpec_MethodInfo_[] = {
-	{"<init>", "([I)V", nullptr, $PRIVATE, $method(static_cast<void(SupportedGroupsExtension$SupportedGroupsSpec::*)($ints*)>(&SupportedGroupsExtension$SupportedGroupsSpec::init$))},
-	{"<init>", "(Ljava/util/List;)V", "(Ljava/util/List<Lsun/security/ssl/NamedGroup;>;)V", $PRIVATE, $method(static_cast<void(SupportedGroupsExtension$SupportedGroupsSpec::*)($List*)>(&SupportedGroupsExtension$SupportedGroupsSpec::init$))},
-	{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE, $method(static_cast<void(SupportedGroupsExtension$SupportedGroupsSpec::*)($HandshakeContext*,$ByteBuffer*)>(&SupportedGroupsExtension$SupportedGroupsSpec::init$)), "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "([I)V", nullptr, $PRIVATE, $method(SupportedGroupsExtension$SupportedGroupsSpec, init$, void, $ints*)},
+	{"<init>", "(Ljava/util/List;)V", "(Ljava/util/List<Lsun/security/ssl/NamedGroup;>;)V", $PRIVATE, $method(SupportedGroupsExtension$SupportedGroupsSpec, init$, void, $List*)},
+	{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE, $method(SupportedGroupsExtension$SupportedGroupsSpec, init$, void, $HandshakeContext*, $ByteBuffer*), "java.io.IOException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SupportedGroupsExtension$SupportedGroupsSpec, toString, $String*)},
 	{}
 };
 

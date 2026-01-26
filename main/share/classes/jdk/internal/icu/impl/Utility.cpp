@@ -41,12 +41,12 @@ $FieldInfo _Utility_FieldInfo_[] = {
 };
 
 $MethodInfo _Utility_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Utility::*)()>(&Utility::init$))},
-	{"escape", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $method(static_cast<$String*(*)($String*)>(&Utility::escape))},
-	{"escapeUnprintable", "(Ljava/lang/Appendable;I)Z", "<T::Ljava/lang/Appendable;>(TT;I)Z", $PUBLIC | $STATIC, $method(static_cast<bool(*)($Appendable*,int32_t)>(&Utility::escapeUnprintable))},
-	{"hex", "(JI)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)(int64_t,int32_t)>(&Utility::hex))},
-	{"isUnprintable", "(I)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)(int32_t)>(&Utility::isUnprintable))},
-	{"unescapeAt", "(Ljava/lang/String;[I)I", nullptr, $PUBLIC | $STATIC, $method(static_cast<int32_t(*)($String*,$ints*)>(&Utility::unescapeAt))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Utility, init$, void)},
+	{"escape", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(Utility, escape, $String*, $String*)},
+	{"escapeUnprintable", "(Ljava/lang/Appendable;I)Z", "<T::Ljava/lang/Appendable;>(TT;I)Z", $PUBLIC | $STATIC, $staticMethod(Utility, escapeUnprintable, bool, $Appendable*, int32_t)},
+	{"hex", "(JI)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Utility, hex, $String*, int64_t, int32_t)},
+	{"isUnprintable", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Utility, isUnprintable, bool, int32_t)},
+	{"unescapeAt", "(Ljava/lang/String;[I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Utility, unescapeAt, int32_t, $String*, $ints*)},
 	{}
 };
 

@@ -10,8 +10,8 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _IsParallelCapable$NonParaCL_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(IsParallelCapable$NonParaCL::*)()>(&IsParallelCapable$NonParaCL::init$))},
-	{"expectCapable", "()Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(IsParallelCapable$NonParaCL, init$, void)},
+	{"expectCapable", "()Z", nullptr, $PUBLIC, $virtualMethod(IsParallelCapable$NonParaCL, expectCapable, bool)},
 	{}
 };
 

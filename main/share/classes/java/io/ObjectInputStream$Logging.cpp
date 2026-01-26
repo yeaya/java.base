@@ -24,7 +24,7 @@ $FieldInfo _ObjectInputStream$Logging_FieldInfo_[] = {
 };
 
 $MethodInfo _ObjectInputStream$Logging_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(ObjectInputStream$Logging::*)()>(&ObjectInputStream$Logging::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(ObjectInputStream$Logging, init$, void)},
 	{}
 };
 

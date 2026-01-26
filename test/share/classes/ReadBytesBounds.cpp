@@ -31,9 +31,9 @@ $FieldInfo _ReadBytesBounds_FieldInfo_[] = {
 };
 
 $MethodInfo _ReadBytesBounds_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ReadBytesBounds::*)()>(&ReadBytesBounds::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&ReadBytesBounds::main)), "java.lang.Throwable"},
-	{"testRead", "(IIZ)V", nullptr, $STATIC, $method(static_cast<void(*)(int32_t,int32_t,bool)>(&ReadBytesBounds::testRead)), "java.lang.Throwable"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ReadBytesBounds, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ReadBytesBounds, main, void, $StringArray*), "java.lang.Throwable"},
+	{"testRead", "(IIZ)V", nullptr, $STATIC, $staticMethod(ReadBytesBounds, testRead, void, int32_t, int32_t, bool), "java.lang.Throwable"},
 	{}
 };
 

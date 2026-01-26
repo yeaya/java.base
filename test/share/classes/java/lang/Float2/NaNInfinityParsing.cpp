@@ -25,8 +25,8 @@ $FieldInfo _NaNInfinityParsing_FieldInfo_[] = {
 };
 
 $MethodInfo _NaNInfinityParsing_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(NaNInfinityParsing::*)()>(&NaNInfinityParsing::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&NaNInfinityParsing::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(NaNInfinityParsing, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(NaNInfinityParsing, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

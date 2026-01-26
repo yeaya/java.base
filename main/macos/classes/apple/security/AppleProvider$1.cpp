@@ -26,8 +26,8 @@ $FieldInfo _AppleProvider$1_FieldInfo_[] = {
 };
 
 $MethodInfo _AppleProvider$1_MethodInfo_[] = {
-	{"<init>", "(Lapple/security/AppleProvider;Ljava/security/Provider;)V", "()V", 0, $method(static_cast<void(AppleProvider$1::*)($AppleProvider*,$Provider*)>(&AppleProvider$1::init$))},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC},
+	{"<init>", "(Lapple/security/AppleProvider;Ljava/security/Provider;)V", "()V", 0, $method(AppleProvider$1, init$, void, $AppleProvider*, $Provider*)},
+	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(AppleProvider$1, run, $Object*)},
 	{}
 };
 

@@ -53,13 +53,13 @@ $FieldInfo _CodePointMap$StringIterator_FieldInfo_[] = {
 };
 
 $MethodInfo _CodePointMap$StringIterator_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/icu/util/CodePointMap;Ljava/lang/CharSequence;I)V", nullptr, $PROTECTED | $DEPRECATED, $method(static_cast<void(CodePointMap$StringIterator::*)($CodePointMap*,$CharSequence*,int32_t)>(&CodePointMap$StringIterator::init$)), nullptr, nullptr, _CodePointMap$StringIterator_MethodAnnotations_init$0},
-	{"getCodePoint", "()I", nullptr, $PUBLIC | $FINAL, $method(static_cast<int32_t(CodePointMap$StringIterator::*)()>(&CodePointMap$StringIterator::getCodePoint))},
-	{"getIndex", "()I", nullptr, $PUBLIC | $FINAL, $method(static_cast<int32_t(CodePointMap$StringIterator::*)()>(&CodePointMap$StringIterator::getIndex))},
-	{"getValue", "()I", nullptr, $PUBLIC | $FINAL, $method(static_cast<int32_t(CodePointMap$StringIterator::*)()>(&CodePointMap$StringIterator::getValue))},
-	{"next", "()Z", nullptr, $PUBLIC},
-	{"previous", "()Z", nullptr, $PUBLIC},
-	{"reset", "(Ljava/lang/CharSequence;I)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/icu/util/CodePointMap;Ljava/lang/CharSequence;I)V", nullptr, $PROTECTED | $DEPRECATED, $method(CodePointMap$StringIterator, init$, void, $CodePointMap*, $CharSequence*, int32_t), nullptr, nullptr, _CodePointMap$StringIterator_MethodAnnotations_init$0},
+	{"getCodePoint", "()I", nullptr, $PUBLIC | $FINAL, $method(CodePointMap$StringIterator, getCodePoint, int32_t)},
+	{"getIndex", "()I", nullptr, $PUBLIC | $FINAL, $method(CodePointMap$StringIterator, getIndex, int32_t)},
+	{"getValue", "()I", nullptr, $PUBLIC | $FINAL, $method(CodePointMap$StringIterator, getValue, int32_t)},
+	{"next", "()Z", nullptr, $PUBLIC, $virtualMethod(CodePointMap$StringIterator, next, bool)},
+	{"previous", "()Z", nullptr, $PUBLIC, $virtualMethod(CodePointMap$StringIterator, previous, bool)},
+	{"reset", "(Ljava/lang/CharSequence;I)V", nullptr, $PUBLIC, $virtualMethod(CodePointMap$StringIterator, reset, void, $CharSequence*, int32_t)},
 	{}
 };
 

@@ -29,8 +29,8 @@ $FieldInfo _URLClassLoader$1_FieldInfo_[] = {
 };
 
 $MethodInfo _URLClassLoader$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/URLClassLoader;Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(URLClassLoader$1::*)($URLClassLoader*,$String*)>(&URLClassLoader$1::init$))},
-	{"run", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC, nullptr, "java.lang.ClassNotFoundException"},
+	{"<init>", "(Ljava/net/URLClassLoader;Ljava/lang/String;)V", nullptr, 0, $method(URLClassLoader$1, init$, void, $URLClassLoader*, $String*)},
+	{"run", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(URLClassLoader$1, run, $Object*), "java.lang.ClassNotFoundException"},
 	{}
 };
 

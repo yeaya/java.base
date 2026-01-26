@@ -10,7 +10,7 @@ namespace java {
 	namespace util {
 
 $MethodInfo _PrimitiveIterator_MethodInfo_[] = {
-	{"forEachRemaining", "(Ljava/lang/Object;)V", "(TT_CONS;)V", $PUBLIC | $ABSTRACT},
+	{"forEachRemaining", "(Ljava/lang/Object;)V", "(TT_CONS;)V", $PUBLIC | $ABSTRACT, $virtualMethod(PrimitiveIterator, forEachRemaining, void, Object$*)},
 	{}
 };
 

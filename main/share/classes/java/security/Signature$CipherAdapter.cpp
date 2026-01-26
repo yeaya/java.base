@@ -48,16 +48,16 @@ $FieldInfo _Signature$CipherAdapter_FieldInfo_[] = {
 };
 
 $MethodInfo _Signature$CipherAdapter_MethodInfo_[] = {
-	{"<init>", "(Ljavax/crypto/Cipher;)V", nullptr, 0, $method(static_cast<void(Signature$CipherAdapter::*)($Cipher*)>(&Signature$CipherAdapter::init$))},
-	{"engineGetParameter", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PROTECTED, nullptr, "java.security.InvalidParameterException"},
-	{"engineInitSign", "(Ljava/security/PrivateKey;)V", nullptr, $PROTECTED, nullptr, "java.security.InvalidKeyException"},
-	{"engineInitSign", "(Ljava/security/PrivateKey;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, nullptr, "java.security.InvalidKeyException"},
-	{"engineInitVerify", "(Ljava/security/PublicKey;)V", nullptr, $PROTECTED, nullptr, "java.security.InvalidKeyException"},
-	{"engineSetParameter", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PROTECTED, nullptr, "java.security.InvalidParameterException"},
-	{"engineSign", "()[B", nullptr, $PROTECTED, nullptr, "java.security.SignatureException"},
-	{"engineUpdate", "(B)V", nullptr, $PROTECTED, nullptr, "java.security.SignatureException"},
-	{"engineUpdate", "([BII)V", nullptr, $PROTECTED, nullptr, "java.security.SignatureException"},
-	{"engineVerify", "([B)Z", nullptr, $PROTECTED, nullptr, "java.security.SignatureException"},
+	{"<init>", "(Ljavax/crypto/Cipher;)V", nullptr, 0, $method(Signature$CipherAdapter, init$, void, $Cipher*)},
+	{"engineGetParameter", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(Signature$CipherAdapter, engineGetParameter, $Object*, $String*), "java.security.InvalidParameterException"},
+	{"engineInitSign", "(Ljava/security/PrivateKey;)V", nullptr, $PROTECTED, $virtualMethod(Signature$CipherAdapter, engineInitSign, void, $PrivateKey*), "java.security.InvalidKeyException"},
+	{"engineInitSign", "(Ljava/security/PrivateKey;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(Signature$CipherAdapter, engineInitSign, void, $PrivateKey*, $SecureRandom*), "java.security.InvalidKeyException"},
+	{"engineInitVerify", "(Ljava/security/PublicKey;)V", nullptr, $PROTECTED, $virtualMethod(Signature$CipherAdapter, engineInitVerify, void, $PublicKey*), "java.security.InvalidKeyException"},
+	{"engineSetParameter", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(Signature$CipherAdapter, engineSetParameter, void, $String*, Object$*), "java.security.InvalidParameterException"},
+	{"engineSign", "()[B", nullptr, $PROTECTED, $virtualMethod(Signature$CipherAdapter, engineSign, $bytes*), "java.security.SignatureException"},
+	{"engineUpdate", "(B)V", nullptr, $PROTECTED, $virtualMethod(Signature$CipherAdapter, engineUpdate, void, int8_t), "java.security.SignatureException"},
+	{"engineUpdate", "([BII)V", nullptr, $PROTECTED, $virtualMethod(Signature$CipherAdapter, engineUpdate, void, $bytes*, int32_t, int32_t), "java.security.SignatureException"},
+	{"engineVerify", "([B)Z", nullptr, $PROTECTED, $virtualMethod(Signature$CipherAdapter, engineVerify, bool, $bytes*), "java.security.SignatureException"},
 	{}
 };
 

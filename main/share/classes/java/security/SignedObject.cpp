@@ -44,13 +44,13 @@ $FieldInfo _SignedObject_FieldInfo_[] = {
 };
 
 $MethodInfo _SignedObject_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/Serializable;Ljava/security/PrivateKey;Ljava/security/Signature;)V", nullptr, $PUBLIC, $method(static_cast<void(SignedObject::*)($Serializable*,$PrivateKey*,$Signature*)>(&SignedObject::init$)), "java.io.IOException,java.security.InvalidKeyException,java.security.SignatureException"},
-	{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(static_cast<$String*(SignedObject::*)()>(&SignedObject::getAlgorithm))},
-	{"getObject", "()Ljava/lang/Object;", nullptr, $PUBLIC, $method(static_cast<$Object*(SignedObject::*)()>(&SignedObject::getObject)), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"getSignature", "()[B", nullptr, $PUBLIC, $method(static_cast<$bytes*(SignedObject::*)()>(&SignedObject::getSignature))},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(SignedObject::*)($ObjectInputStream*)>(&SignedObject::readObject)), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"sign", "(Ljava/security/PrivateKey;Ljava/security/Signature;)V", nullptr, $PRIVATE, $method(static_cast<void(SignedObject::*)($PrivateKey*,$Signature*)>(&SignedObject::sign)), "java.security.InvalidKeyException,java.security.SignatureException"},
-	{"verify", "(Ljava/security/PublicKey;Ljava/security/Signature;)Z", nullptr, $PUBLIC, $method(static_cast<bool(SignedObject::*)($PublicKey*,$Signature*)>(&SignedObject::verify)), "java.security.InvalidKeyException,java.security.SignatureException"},
+	{"<init>", "(Ljava/io/Serializable;Ljava/security/PrivateKey;Ljava/security/Signature;)V", nullptr, $PUBLIC, $method(SignedObject, init$, void, $Serializable*, $PrivateKey*, $Signature*), "java.io.IOException,java.security.InvalidKeyException,java.security.SignatureException"},
+	{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(SignedObject, getAlgorithm, $String*)},
+	{"getObject", "()Ljava/lang/Object;", nullptr, $PUBLIC, $method(SignedObject, getObject, $Object*), "java.io.IOException,java.lang.ClassNotFoundException"},
+	{"getSignature", "()[B", nullptr, $PUBLIC, $method(SignedObject, getSignature, $bytes*)},
+	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(SignedObject, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+	{"sign", "(Ljava/security/PrivateKey;Ljava/security/Signature;)V", nullptr, $PRIVATE, $method(SignedObject, sign, void, $PrivateKey*, $Signature*), "java.security.InvalidKeyException,java.security.SignatureException"},
+	{"verify", "(Ljava/security/PublicKey;Ljava/security/Signature;)Z", nullptr, $PUBLIC, $method(SignedObject, verify, bool, $PublicKey*, $Signature*), "java.security.InvalidKeyException,java.security.SignatureException"},
 	{}
 };
 

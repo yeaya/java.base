@@ -17,8 +17,8 @@ $FieldInfo _EOFException_FieldInfo_[] = {
 };
 
 $MethodInfo _EOFException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(EOFException::*)()>(&EOFException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(EOFException::*)($String*)>(&EOFException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(EOFException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(EOFException, init$, void, $String*)},
 	{}
 };
 

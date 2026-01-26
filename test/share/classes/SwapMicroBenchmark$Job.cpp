@@ -14,9 +14,9 @@ $FieldInfo _SwapMicroBenchmark$Job_FieldInfo_[] = {
 };
 
 $MethodInfo _SwapMicroBenchmark$Job_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(SwapMicroBenchmark$Job::*)($String*)>(&SwapMicroBenchmark$Job::init$))},
-	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"work", "()V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.lang.Throwable"},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SwapMicroBenchmark$Job, init$, void, $String*)},
+	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SwapMicroBenchmark$Job, name, $String*)},
+	{"work", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SwapMicroBenchmark$Job, work, void), "java.lang.Throwable"},
 	{}
 };
 

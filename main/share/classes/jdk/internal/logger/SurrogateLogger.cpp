@@ -31,12 +31,12 @@ $FieldInfo _SurrogateLogger_FieldInfo_[] = {
 };
 
 $MethodInfo _SurrogateLogger_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(SurrogateLogger::*)($String*)>(&SurrogateLogger::init$))},
-	{"defaultPlatformLevel", "()Lsun/util/logging/PlatformLogger$Level;", nullptr, 0},
-	{"getSimpleFormat", "(Ljava/util/function/Function;)Ljava/lang/String;", "(Ljava/util/function/Function<Ljava/lang/String;Ljava/lang/String;>;)Ljava/lang/String;", $PUBLIC | $STATIC, $method(static_cast<$String*(*)($Function*)>(&SurrogateLogger::getSimpleFormat))},
-	{"getSimpleFormatString", "()Ljava/lang/String;", nullptr, 0},
-	{"isFilteredFrame", "(Ljava/lang/StackWalker$StackFrame;)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)($StackWalker$StackFrame*)>(&SurrogateLogger::isFilteredFrame))},
-	{"makeSurrogateLogger", "(Ljava/lang/String;)Ljdk/internal/logger/SurrogateLogger;", nullptr, $PUBLIC | $STATIC, $method(static_cast<SurrogateLogger*(*)($String*)>(&SurrogateLogger::makeSurrogateLogger))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(SurrogateLogger, init$, void, $String*)},
+	{"defaultPlatformLevel", "()Lsun/util/logging/PlatformLogger$Level;", nullptr, 0, $virtualMethod(SurrogateLogger, defaultPlatformLevel, $PlatformLogger$Level*)},
+	{"getSimpleFormat", "(Ljava/util/function/Function;)Ljava/lang/String;", "(Ljava/util/function/Function<Ljava/lang/String;Ljava/lang/String;>;)Ljava/lang/String;", $PUBLIC | $STATIC, $staticMethod(SurrogateLogger, getSimpleFormat, $String*, $Function*)},
+	{"getSimpleFormatString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(SurrogateLogger, getSimpleFormatString, $String*)},
+	{"isFilteredFrame", "(Ljava/lang/StackWalker$StackFrame;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(SurrogateLogger, isFilteredFrame, bool, $StackWalker$StackFrame*)},
+	{"makeSurrogateLogger", "(Ljava/lang/String;)Ljdk/internal/logger/SurrogateLogger;", nullptr, $PUBLIC | $STATIC, $staticMethod(SurrogateLogger, makeSurrogateLogger, SurrogateLogger*, $String*)},
 	{}
 };
 

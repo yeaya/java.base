@@ -30,10 +30,10 @@ $FieldInfo _SwitchPoint_FieldInfo_[] = {
 };
 
 $MethodInfo _SwitchPoint_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SwitchPoint::*)()>(&SwitchPoint::init$))},
-	{"guardWithTest", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandle;)Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC},
-	{"hasBeenInvalidated", "()Z", nullptr, $PUBLIC},
-	{"invalidateAll", "([Ljava/lang/invoke/SwitchPoint;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($SwitchPointArray*)>(&SwitchPoint::invalidateAll))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SwitchPoint, init$, void)},
+	{"guardWithTest", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandle;)Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC, $virtualMethod(SwitchPoint, guardWithTest, $MethodHandle*, $MethodHandle*, $MethodHandle*)},
+	{"hasBeenInvalidated", "()Z", nullptr, $PUBLIC, $virtualMethod(SwitchPoint, hasBeenInvalidated, bool)},
+	{"invalidateAll", "([Ljava/lang/invoke/SwitchPoint;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SwitchPoint, invalidateAll, void, $SwitchPointArray*)},
 	{}
 };
 

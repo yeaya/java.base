@@ -13,8 +13,8 @@ namespace sun {
 		namespace resources {
 
 $MethodInfo _CurrencyNames_en_US_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CurrencyNames_en_US::*)()>(&CurrencyNames_en_US::init$))},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CurrencyNames_en_US, init$, void)},
+	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(CurrencyNames_en_US, getContents, $ObjectArray2*)},
 	{}
 };
 

@@ -27,10 +27,10 @@ $FieldInfo _MembershipKeyImpl$Type4_FieldInfo_[] = {
 };
 
 $MethodInfo _MembershipKeyImpl$Type4_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/channels/MulticastChannel;Ljava/net/InetAddress;Ljava/net/NetworkInterface;Ljava/net/InetAddress;III)V", nullptr, 0, $method(static_cast<void(MembershipKeyImpl$Type4::*)($MulticastChannel*,$InetAddress*,$NetworkInterface*,$InetAddress*,int32_t,int32_t,int32_t)>(&MembershipKeyImpl$Type4::init$))},
-	{"groupAddress", "()I", nullptr, 0},
-	{"interfaceAddress", "()I", nullptr, 0},
-	{"source", "()I", nullptr, 0},
+	{"<init>", "(Ljava/nio/channels/MulticastChannel;Ljava/net/InetAddress;Ljava/net/NetworkInterface;Ljava/net/InetAddress;III)V", nullptr, 0, $method(MembershipKeyImpl$Type4, init$, void, $MulticastChannel*, $InetAddress*, $NetworkInterface*, $InetAddress*, int32_t, int32_t, int32_t)},
+	{"groupAddress", "()I", nullptr, 0, $virtualMethod(MembershipKeyImpl$Type4, groupAddress, int32_t)},
+	{"interfaceAddress", "()I", nullptr, 0, $virtualMethod(MembershipKeyImpl$Type4, interfaceAddress, int32_t)},
+	{"source", "()I", nullptr, 0, $virtualMethod(MembershipKeyImpl$Type4, source, int32_t)},
 	{}
 };
 

@@ -38,9 +38,9 @@ $MethodInfo _MoreDrbgParameters_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lsun/security/provider/EntropySource;Ljava/lang/String;Ljava/lang/String;[BZLjava/security/DrbgParameters$Instantiation;)V", nullptr, $PUBLIC, $method(static_cast<void(MoreDrbgParameters::*)($EntropySource*,$String*,$String*,$bytes*,bool,$DrbgParameters$Instantiation*)>(&MoreDrbgParameters::init$))},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(MoreDrbgParameters::*)($ObjectInputStream*)>(&MoreDrbgParameters::readObject)), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/security/provider/EntropySource;Ljava/lang/String;Ljava/lang/String;[BZLjava/security/DrbgParameters$Instantiation;)V", nullptr, $PUBLIC, $method(MoreDrbgParameters, init$, void, $EntropySource*, $String*, $String*, $bytes*, bool, $DrbgParameters$Instantiation*)},
+	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(MoreDrbgParameters, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MoreDrbgParameters, toString, $String*)},
 	{}
 };
 

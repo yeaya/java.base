@@ -32,12 +32,12 @@ $FieldInfo _PolicyFile$PolicyEntry_FieldInfo_[] = {
 };
 
 $MethodInfo _PolicyFile$PolicyEntry_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/CodeSource;Ljava/util/List;)V", "(Ljava/security/CodeSource;Ljava/util/List<Lsun/security/provider/PolicyParser$PrincipalEntry;>;)V", 0, $method(static_cast<void(PolicyFile$PolicyEntry::*)($CodeSource*,$List*)>(&PolicyFile$PolicyEntry::init$))},
-	{"<init>", "(Ljava/security/CodeSource;)V", nullptr, 0, $method(static_cast<void(PolicyFile$PolicyEntry::*)($CodeSource*)>(&PolicyFile$PolicyEntry::init$))},
-	{"add", "(Ljava/security/Permission;)V", nullptr, 0},
-	{"getCodeSource", "()Ljava/security/CodeSource;", nullptr, 0},
-	{"getPrincipals", "()Ljava/util/List;", "()Ljava/util/List<Lsun/security/provider/PolicyParser$PrincipalEntry;>;", 0},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/security/CodeSource;Ljava/util/List;)V", "(Ljava/security/CodeSource;Ljava/util/List<Lsun/security/provider/PolicyParser$PrincipalEntry;>;)V", 0, $method(PolicyFile$PolicyEntry, init$, void, $CodeSource*, $List*)},
+	{"<init>", "(Ljava/security/CodeSource;)V", nullptr, 0, $method(PolicyFile$PolicyEntry, init$, void, $CodeSource*)},
+	{"add", "(Ljava/security/Permission;)V", nullptr, 0, $virtualMethod(PolicyFile$PolicyEntry, add, void, $Permission*)},
+	{"getCodeSource", "()Ljava/security/CodeSource;", nullptr, 0, $virtualMethod(PolicyFile$PolicyEntry, getCodeSource, $CodeSource*)},
+	{"getPrincipals", "()Ljava/util/List;", "()Ljava/util/List<Lsun/security/provider/PolicyParser$PrincipalEntry;>;", 0, $virtualMethod(PolicyFile$PolicyEntry, getPrincipals, $List*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PolicyFile$PolicyEntry, toString, $String*)},
 	{}
 };
 

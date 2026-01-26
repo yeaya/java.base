@@ -29,15 +29,15 @@ $FieldInfo _EllipticCurve_FieldInfo_[] = {
 };
 
 $MethodInfo _EllipticCurve_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/spec/ECField;Ljava/math/BigInteger;Ljava/math/BigInteger;)V", nullptr, $PUBLIC, $method(static_cast<void(EllipticCurve::*)($ECField*,$BigInteger*,$BigInteger*)>(&EllipticCurve::init$))},
-	{"<init>", "(Ljava/security/spec/ECField;Ljava/math/BigInteger;Ljava/math/BigInteger;[B)V", nullptr, $PUBLIC, $method(static_cast<void(EllipticCurve::*)($ECField*,$BigInteger*,$BigInteger*,$bytes*)>(&EllipticCurve::init$))},
-	{"checkValidity", "(Ljava/security/spec/ECField;Ljava/math/BigInteger;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($ECField*,$BigInteger*,$String*)>(&EllipticCurve::checkValidity))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getA", "()Ljava/math/BigInteger;", nullptr, $PUBLIC},
-	{"getB", "()Ljava/math/BigInteger;", nullptr, $PUBLIC},
-	{"getField", "()Ljava/security/spec/ECField;", nullptr, $PUBLIC},
-	{"getSeed", "()[B", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/security/spec/ECField;Ljava/math/BigInteger;Ljava/math/BigInteger;)V", nullptr, $PUBLIC, $method(EllipticCurve, init$, void, $ECField*, $BigInteger*, $BigInteger*)},
+	{"<init>", "(Ljava/security/spec/ECField;Ljava/math/BigInteger;Ljava/math/BigInteger;[B)V", nullptr, $PUBLIC, $method(EllipticCurve, init$, void, $ECField*, $BigInteger*, $BigInteger*, $bytes*)},
+	{"checkValidity", "(Ljava/security/spec/ECField;Ljava/math/BigInteger;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(EllipticCurve, checkValidity, void, $ECField*, $BigInteger*, $String*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(EllipticCurve, equals, bool, Object$*)},
+	{"getA", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(EllipticCurve, getA, $BigInteger*)},
+	{"getB", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(EllipticCurve, getB, $BigInteger*)},
+	{"getField", "()Ljava/security/spec/ECField;", nullptr, $PUBLIC, $virtualMethod(EllipticCurve, getField, $ECField*)},
+	{"getSeed", "()[B", nullptr, $PUBLIC, $virtualMethod(EllipticCurve, getSeed, $bytes*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(EllipticCurve, hashCode, int32_t)},
 	{}
 };
 

@@ -33,15 +33,15 @@ $FieldInfo _WhileOps$UnorderedWhileSpliterator_FieldInfo_[] = {
 };
 
 $MethodInfo _WhileOps$UnorderedWhileSpliterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Spliterator;Z)V", "(TT_SPLITR;Z)V", 0, $method(static_cast<void(WhileOps$UnorderedWhileSpliterator::*)($Spliterator*,bool)>(&WhileOps$UnorderedWhileSpliterator::init$))},
-	{"<init>", "(Ljava/util/Spliterator;Ljava/util/stream/WhileOps$UnorderedWhileSpliterator;)V", "(TT_SPLITR;Ljava/util/stream/WhileOps$UnorderedWhileSpliterator<TT;TT_SPLITR;>;)V", 0, $method(static_cast<void(WhileOps$UnorderedWhileSpliterator::*)($Spliterator*,WhileOps$UnorderedWhileSpliterator*)>(&WhileOps$UnorderedWhileSpliterator::init$))},
-	{"characteristics", "()I", nullptr, $PUBLIC},
-	{"checkCancelOnCount", "()Z", nullptr, 0},
-	{"estimateSize", "()J", nullptr, $PUBLIC},
-	{"getComparator", "()Ljava/util/Comparator;", "()Ljava/util/Comparator<-TT;>;", $PUBLIC},
-	{"getExactSizeIfKnown", "()J", nullptr, $PUBLIC},
-	{"makeSpliterator", "(Ljava/util/Spliterator;)Ljava/util/Spliterator;", "(TT_SPLITR;)TT_SPLITR;", $ABSTRACT},
-	{"trySplit", "()Ljava/util/Spliterator;", "()TT_SPLITR;", $PUBLIC},
+	{"<init>", "(Ljava/util/Spliterator;Z)V", "(TT_SPLITR;Z)V", 0, $method(WhileOps$UnorderedWhileSpliterator, init$, void, $Spliterator*, bool)},
+	{"<init>", "(Ljava/util/Spliterator;Ljava/util/stream/WhileOps$UnorderedWhileSpliterator;)V", "(TT_SPLITR;Ljava/util/stream/WhileOps$UnorderedWhileSpliterator<TT;TT_SPLITR;>;)V", 0, $method(WhileOps$UnorderedWhileSpliterator, init$, void, $Spliterator*, WhileOps$UnorderedWhileSpliterator*)},
+	{"characteristics", "()I", nullptr, $PUBLIC, $virtualMethod(WhileOps$UnorderedWhileSpliterator, characteristics, int32_t)},
+	{"checkCancelOnCount", "()Z", nullptr, 0, $virtualMethod(WhileOps$UnorderedWhileSpliterator, checkCancelOnCount, bool)},
+	{"estimateSize", "()J", nullptr, $PUBLIC, $virtualMethod(WhileOps$UnorderedWhileSpliterator, estimateSize, int64_t)},
+	{"getComparator", "()Ljava/util/Comparator;", "()Ljava/util/Comparator<-TT;>;", $PUBLIC, $virtualMethod(WhileOps$UnorderedWhileSpliterator, getComparator, $Comparator*)},
+	{"getExactSizeIfKnown", "()J", nullptr, $PUBLIC, $virtualMethod(WhileOps$UnorderedWhileSpliterator, getExactSizeIfKnown, int64_t)},
+	{"makeSpliterator", "(Ljava/util/Spliterator;)Ljava/util/Spliterator;", "(TT_SPLITR;)TT_SPLITR;", $ABSTRACT, $virtualMethod(WhileOps$UnorderedWhileSpliterator, makeSpliterator, $Spliterator*, $Spliterator*)},
+	{"trySplit", "()Ljava/util/Spliterator;", "()TT_SPLITR;", $PUBLIC, $virtualMethod(WhileOps$UnorderedWhileSpliterator, trySplit, $Spliterator*)},
 	{}
 };
 

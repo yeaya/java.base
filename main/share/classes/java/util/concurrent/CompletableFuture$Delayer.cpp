@@ -30,8 +30,8 @@ $FieldInfo _CompletableFuture$Delayer_FieldInfo_[] = {
 };
 
 $MethodInfo _CompletableFuture$Delayer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(CompletableFuture$Delayer::*)()>(&CompletableFuture$Delayer::init$))},
-	{"delay", "(Ljava/lang/Runnable;JLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/ScheduledFuture;", "(Ljava/lang/Runnable;JLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/ScheduledFuture<*>;", $STATIC, $method(static_cast<$ScheduledFuture*(*)($Runnable*,int64_t,$TimeUnit*)>(&CompletableFuture$Delayer::delay))},
+	{"<init>", "()V", nullptr, 0, $method(CompletableFuture$Delayer, init$, void)},
+	{"delay", "(Ljava/lang/Runnable;JLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/ScheduledFuture;", "(Ljava/lang/Runnable;JLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/ScheduledFuture<*>;", $STATIC, $staticMethod(CompletableFuture$Delayer, delay, $ScheduledFuture*, $Runnable*, int64_t, $TimeUnit*)},
 	{}
 };
 

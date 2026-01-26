@@ -10,7 +10,7 @@ namespace jdk {
 		namespace reflect {
 
 $MethodInfo _MagicAccessorImpl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(MagicAccessorImpl::*)()>(&MagicAccessorImpl::init$))},
+	{"<init>", "()V", nullptr, 0, $method(MagicAccessorImpl, init$, void)},
 	{}
 };
 

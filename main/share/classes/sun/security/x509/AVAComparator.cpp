@@ -22,10 +22,10 @@ $FieldInfo _AVAComparator_FieldInfo_[] = {
 };
 
 $MethodInfo _AVAComparator_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(AVAComparator::*)()>(&AVAComparator::init$))},
-	{"compare", "(Lsun/security/x509/AVA;Lsun/security/x509/AVA;)I", nullptr, $PUBLIC},
-	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"getInstance", "()Ljava/util/Comparator;", "()Ljava/util/Comparator<Lsun/security/x509/AVA;>;", $STATIC, $method(static_cast<$Comparator*(*)()>(&AVAComparator::getInstance))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(AVAComparator, init$, void)},
+	{"compare", "(Lsun/security/x509/AVA;Lsun/security/x509/AVA;)I", nullptr, $PUBLIC, $virtualMethod(AVAComparator, compare, int32_t, $AVA*, $AVA*)},
+	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(AVAComparator, compare, int32_t, Object$*, Object$*)},
+	{"getInstance", "()Ljava/util/Comparator;", "()Ljava/util/Comparator<Lsun/security/x509/AVA;>;", $STATIC, $staticMethod(AVAComparator, getInstance, $Comparator*)},
 	{}
 };
 

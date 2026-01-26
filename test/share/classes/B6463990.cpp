@@ -11,8 +11,8 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $URLDecoder = ::java::net::URLDecoder;
 
 $MethodInfo _B6463990_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(B6463990::*)()>(&B6463990::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&B6463990::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(B6463990, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(B6463990, main, void, $StringArray*)},
 	{}
 };
 

@@ -34,7 +34,7 @@ $FieldInfo _ECPointFormatsExtension_FieldInfo_[] = {
 };
 
 $MethodInfo _ECPointFormatsExtension_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ECPointFormatsExtension::*)()>(&ECPointFormatsExtension::init$))},
+	{"<init>", "()V", nullptr, 0, $method(ECPointFormatsExtension, init$, void)},
 	{}
 };
 

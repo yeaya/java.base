@@ -27,8 +27,8 @@ $FieldInfo _ReuseBuf$ServerThread_FieldInfo_[] = {
 };
 
 $MethodInfo _ReuseBuf$ServerThread_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ReuseBuf$ServerThread::*)()>(&ReuseBuf$ServerThread::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ReuseBuf$ServerThread, init$, void)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ReuseBuf$ServerThread, run, void)},
 	{}
 };
 

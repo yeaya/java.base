@@ -10,7 +10,7 @@ namespace sun {
 		namespace ch {
 
 $MethodInfo _Interruptible_MethodInfo_[] = {
-	{"interrupt", "(Ljava/lang/Thread;)V", nullptr, $PUBLIC | $ABSTRACT},
+	{"interrupt", "(Ljava/lang/Thread;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Interruptible, interrupt, void, $Thread*)},
 	{}
 };
 

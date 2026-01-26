@@ -18,8 +18,8 @@ $FieldInfo _CertificateExpiredException_FieldInfo_[] = {
 };
 
 $MethodInfo _CertificateExpiredException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CertificateExpiredException::*)()>(&CertificateExpiredException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(CertificateExpiredException::*)($String*)>(&CertificateExpiredException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CertificateExpiredException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(CertificateExpiredException, init$, void, $String*)},
 	{}
 };
 

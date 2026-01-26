@@ -37,7 +37,7 @@ $FieldInfo _TempFileHelper$PosixPermissions_FieldInfo_[] = {
 };
 
 $MethodInfo _TempFileHelper$PosixPermissions_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(TempFileHelper$PosixPermissions::*)()>(&TempFileHelper$PosixPermissions::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(TempFileHelper$PosixPermissions, init$, void)},
 	{}
 };
 

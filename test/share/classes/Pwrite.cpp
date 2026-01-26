@@ -42,11 +42,11 @@ $FieldInfo _Pwrite_FieldInfo_[] = {
 };
 
 $MethodInfo _Pwrite_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Pwrite::*)()>(&Pwrite::init$))},
-	{"genericTest", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&Pwrite::genericTest)), "java.lang.Exception"},
-	{"initTestFile", "(Ljava/io/File;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($File*)>(&Pwrite::initTestFile)), "java.lang.Exception"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Pwrite::main)), "java.lang.Exception"},
-	{"testUnwritableChannel", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&Pwrite::testUnwritableChannel)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Pwrite, init$, void)},
+	{"genericTest", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(Pwrite, genericTest, void), "java.lang.Exception"},
+	{"initTestFile", "(Ljava/io/File;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Pwrite, initTestFile, void, $File*), "java.lang.Exception"},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Pwrite, main, void, $StringArray*), "java.lang.Exception"},
+	{"testUnwritableChannel", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(Pwrite, testUnwritableChannel, void), "java.lang.Exception"},
 	{}
 };
 

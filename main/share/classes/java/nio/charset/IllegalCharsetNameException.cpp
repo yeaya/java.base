@@ -18,8 +18,8 @@ $FieldInfo _IllegalCharsetNameException_FieldInfo_[] = {
 };
 
 $MethodInfo _IllegalCharsetNameException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(IllegalCharsetNameException::*)($String*)>(&IllegalCharsetNameException::init$))},
-	{"getCharsetName", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(IllegalCharsetNameException, init$, void, $String*)},
+	{"getCharsetName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IllegalCharsetNameException, getCharsetName, $String*)},
 	{}
 };
 

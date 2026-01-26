@@ -16,9 +16,9 @@ namespace sun {
 		namespace provider {
 
 $MethodInfo _NativeSeedGenerator_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(NativeSeedGenerator::*)($String*)>(&NativeSeedGenerator::init$)), "java.io.IOException"},
-	{"getSeedBytes", "([B)V", nullptr, 0},
-	{"nativeGenerateSeed", "([B)Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $method(static_cast<bool(*)($bytes*)>(&NativeSeedGenerator::nativeGenerateSeed))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(NativeSeedGenerator, init$, void, $String*), "java.io.IOException"},
+	{"getSeedBytes", "([B)V", nullptr, 0, $virtualMethod(NativeSeedGenerator, getSeedBytes, void, $bytes*)},
+	{"nativeGenerateSeed", "([B)Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(NativeSeedGenerator, nativeGenerateSeed, bool, $bytes*)},
 	{}
 };
 

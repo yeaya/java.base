@@ -30,9 +30,9 @@ namespace sun {
 		namespace ssl {
 
 $MethodInfo _SSLContextImpl$DefaultSSLContext_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SSLContextImpl$DefaultSSLContext::*)()>(&SSLContextImpl$DefaultSSLContext::init$)), "java.lang.Exception"},
-	{"engineInit", "([Ljavax/net/ssl/KeyManager;[Ljavax/net/ssl/TrustManager;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, nullptr, "java.security.KeyManagementException"},
-	{"getDefaultImpl", "()Lsun/security/ssl/SSLContextImpl;", nullptr, $STATIC, $method(static_cast<$SSLContextImpl*(*)()>(&SSLContextImpl$DefaultSSLContext::getDefaultImpl)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SSLContextImpl$DefaultSSLContext, init$, void), "java.lang.Exception"},
+	{"engineInit", "([Ljavax/net/ssl/KeyManager;[Ljavax/net/ssl/TrustManager;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(SSLContextImpl$DefaultSSLContext, engineInit, void, $KeyManagerArray*, $TrustManagerArray*, $SecureRandom*), "java.security.KeyManagementException"},
+	{"getDefaultImpl", "()Lsun/security/ssl/SSLContextImpl;", nullptr, $STATIC, $staticMethod(SSLContextImpl$DefaultSSLContext, getDefaultImpl, $SSLContextImpl*), "java.lang.Exception"},
 	{}
 };
 

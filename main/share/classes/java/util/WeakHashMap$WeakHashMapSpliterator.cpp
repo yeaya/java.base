@@ -24,9 +24,9 @@ $FieldInfo _WeakHashMap$WeakHashMapSpliterator_FieldInfo_[] = {
 };
 
 $MethodInfo _WeakHashMap$WeakHashMapSpliterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/WeakHashMap;IIII)V", "(Ljava/util/WeakHashMap<TK;TV;>;IIII)V", 0, $method(static_cast<void(WeakHashMap$WeakHashMapSpliterator::*)($WeakHashMap*,int32_t,int32_t,int32_t,int32_t)>(&WeakHashMap$WeakHashMapSpliterator::init$))},
-	{"estimateSize", "()J", nullptr, $PUBLIC | $FINAL, $method(static_cast<int64_t(WeakHashMap$WeakHashMapSpliterator::*)()>(&WeakHashMap$WeakHashMapSpliterator::estimateSize))},
-	{"getFence", "()I", nullptr, $FINAL, $method(static_cast<int32_t(WeakHashMap$WeakHashMapSpliterator::*)()>(&WeakHashMap$WeakHashMapSpliterator::getFence))},
+	{"<init>", "(Ljava/util/WeakHashMap;IIII)V", "(Ljava/util/WeakHashMap<TK;TV;>;IIII)V", 0, $method(WeakHashMap$WeakHashMapSpliterator, init$, void, $WeakHashMap*, int32_t, int32_t, int32_t, int32_t)},
+	{"estimateSize", "()J", nullptr, $PUBLIC | $FINAL, $method(WeakHashMap$WeakHashMapSpliterator, estimateSize, int64_t)},
+	{"getFence", "()I", nullptr, $FINAL, $method(WeakHashMap$WeakHashMapSpliterator, getFence, int32_t)},
 	{}
 };
 

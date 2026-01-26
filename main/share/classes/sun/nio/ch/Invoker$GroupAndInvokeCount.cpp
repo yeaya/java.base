@@ -21,12 +21,12 @@ $FieldInfo _Invoker$GroupAndInvokeCount_FieldInfo_[] = {
 };
 
 $MethodInfo _Invoker$GroupAndInvokeCount_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/ch/AsynchronousChannelGroupImpl;)V", nullptr, 0, $method(static_cast<void(Invoker$GroupAndInvokeCount::*)($AsynchronousChannelGroupImpl*)>(&Invoker$GroupAndInvokeCount::init$))},
-	{"group", "()Lsun/nio/ch/AsynchronousChannelGroupImpl;", nullptr, 0},
-	{"incrementInvokeCount", "()V", nullptr, 0},
-	{"invokeCount", "()I", nullptr, 0},
-	{"resetInvokeCount", "()V", nullptr, 0},
-	{"setInvokeCount", "(I)V", nullptr, 0},
+	{"<init>", "(Lsun/nio/ch/AsynchronousChannelGroupImpl;)V", nullptr, 0, $method(Invoker$GroupAndInvokeCount, init$, void, $AsynchronousChannelGroupImpl*)},
+	{"group", "()Lsun/nio/ch/AsynchronousChannelGroupImpl;", nullptr, 0, $virtualMethod(Invoker$GroupAndInvokeCount, group, $AsynchronousChannelGroupImpl*)},
+	{"incrementInvokeCount", "()V", nullptr, 0, $virtualMethod(Invoker$GroupAndInvokeCount, incrementInvokeCount, void)},
+	{"invokeCount", "()I", nullptr, 0, $virtualMethod(Invoker$GroupAndInvokeCount, invokeCount, int32_t)},
+	{"resetInvokeCount", "()V", nullptr, 0, $virtualMethod(Invoker$GroupAndInvokeCount, resetInvokeCount, void)},
+	{"setInvokeCount", "(I)V", nullptr, 0, $virtualMethod(Invoker$GroupAndInvokeCount, setInvokeCount, void, int32_t)},
 	{}
 };
 

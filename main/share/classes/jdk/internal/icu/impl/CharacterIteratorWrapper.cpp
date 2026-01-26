@@ -29,15 +29,15 @@ $FieldInfo _CharacterIteratorWrapper_FieldInfo_[] = {
 };
 
 $MethodInfo _CharacterIteratorWrapper_MethodInfo_[] = {
-	{"<init>", "(Ljava/text/CharacterIterator;)V", nullptr, $PUBLIC, $method(static_cast<void(CharacterIteratorWrapper::*)($CharacterIterator*)>(&CharacterIteratorWrapper::init$))},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"current", "()I", nullptr, $PUBLIC},
-	{"getIndex", "()I", nullptr, $PUBLIC},
-	{"getLength", "()I", nullptr, $PUBLIC},
-	{"getText", "([CI)I", nullptr, $PUBLIC},
-	{"next", "()I", nullptr, $PUBLIC},
-	{"previous", "()I", nullptr, $PUBLIC},
-	{"setIndex", "(I)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/text/CharacterIterator;)V", nullptr, $PUBLIC, $method(CharacterIteratorWrapper, init$, void, $CharacterIterator*)},
+	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(CharacterIteratorWrapper, clone, $Object*)},
+	{"current", "()I", nullptr, $PUBLIC, $virtualMethod(CharacterIteratorWrapper, current, int32_t)},
+	{"getIndex", "()I", nullptr, $PUBLIC, $virtualMethod(CharacterIteratorWrapper, getIndex, int32_t)},
+	{"getLength", "()I", nullptr, $PUBLIC, $virtualMethod(CharacterIteratorWrapper, getLength, int32_t)},
+	{"getText", "([CI)I", nullptr, $PUBLIC, $virtualMethod(CharacterIteratorWrapper, getText, int32_t, $chars*, int32_t)},
+	{"next", "()I", nullptr, $PUBLIC, $virtualMethod(CharacterIteratorWrapper, next, int32_t)},
+	{"previous", "()I", nullptr, $PUBLIC, $virtualMethod(CharacterIteratorWrapper, previous, int32_t)},
+	{"setIndex", "(I)V", nullptr, $PUBLIC, $virtualMethod(CharacterIteratorWrapper, setIndex, void, int32_t)},
 	{}
 };
 

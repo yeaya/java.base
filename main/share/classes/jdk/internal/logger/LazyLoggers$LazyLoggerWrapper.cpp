@@ -31,10 +31,10 @@ $FieldInfo _LazyLoggers$LazyLoggerWrapper_FieldInfo_[] = {
 };
 
 $MethodInfo _LazyLoggers$LazyLoggerWrapper_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/logger/LazyLoggers$LazyLoggerAccessor;)V", nullptr, $PUBLIC, $method(static_cast<void(LazyLoggers$LazyLoggerWrapper::*)($LazyLoggers$LazyLoggerAccessor*)>(&LazyLoggers$LazyLoggerWrapper::init$))},
-	{"<init>", "(Ljdk/internal/logger/LazyLoggers$LazyLoggerAccessor;Ljava/lang/Void;)V", nullptr, $PRIVATE, $method(static_cast<void(LazyLoggers$LazyLoggerWrapper::*)($LazyLoggers$LazyLoggerAccessor*,$Void*)>(&LazyLoggers$LazyLoggerWrapper::init$))},
-	{"platformProxy", "()Lsun/util/logging/PlatformLogger$Bridge;", nullptr, 0},
-	{"wrapped", "()Ljava/lang/System$Logger;", nullptr, $FINAL},
+	{"<init>", "(Ljdk/internal/logger/LazyLoggers$LazyLoggerAccessor;)V", nullptr, $PUBLIC, $method(LazyLoggers$LazyLoggerWrapper, init$, void, $LazyLoggers$LazyLoggerAccessor*)},
+	{"<init>", "(Ljdk/internal/logger/LazyLoggers$LazyLoggerAccessor;Ljava/lang/Void;)V", nullptr, $PRIVATE, $method(LazyLoggers$LazyLoggerWrapper, init$, void, $LazyLoggers$LazyLoggerAccessor*, $Void*)},
+	{"platformProxy", "()Lsun/util/logging/PlatformLogger$Bridge;", nullptr, 0, $virtualMethod(LazyLoggers$LazyLoggerWrapper, platformProxy, $PlatformLogger$Bridge*)},
+	{"wrapped", "()Ljava/lang/System$Logger;", nullptr, $FINAL, $virtualMethod(LazyLoggers$LazyLoggerWrapper, wrapped, $System$Logger*)},
 	{}
 };
 

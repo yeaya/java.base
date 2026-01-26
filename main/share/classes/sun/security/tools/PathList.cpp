@@ -22,10 +22,10 @@ namespace sun {
 		namespace tools {
 
 $MethodInfo _PathList_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PathList::*)()>(&PathList::init$))},
-	{"appendPath", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)($String*,$String*)>(&PathList::appendPath))},
-	{"fileToURL", "(Ljava/io/File;)Ljava/net/URL;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$URL*(*)($File*)>(&PathList::fileToURL))},
-	{"pathToURLs", "(Ljava/lang/String;)[Ljava/net/URL;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$URLArray*(*)($String*)>(&PathList::pathToURLs))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PathList, init$, void)},
+	{"appendPath", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(PathList, appendPath, $String*, $String*, $String*)},
+	{"fileToURL", "(Ljava/io/File;)Ljava/net/URL;", nullptr, $PRIVATE | $STATIC, $staticMethod(PathList, fileToURL, $URL*, $File*)},
+	{"pathToURLs", "(Ljava/lang/String;)[Ljava/net/URL;", nullptr, $PUBLIC | $STATIC, $staticMethod(PathList, pathToURLs, $URLArray*, $String*)},
 	{}
 };
 

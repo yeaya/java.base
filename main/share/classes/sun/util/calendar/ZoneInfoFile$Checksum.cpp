@@ -15,9 +15,9 @@ namespace sun {
 		namespace calendar {
 
 $MethodInfo _ZoneInfoFile$Checksum_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(ZoneInfoFile$Checksum::*)()>(&ZoneInfoFile$Checksum::init$))},
-	{"update", "(I)V", nullptr, $PUBLIC},
-	{"update", "(J)V", nullptr, 0},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(ZoneInfoFile$Checksum, init$, void)},
+	{"update", "(I)V", nullptr, $PUBLIC, $virtualMethod(ZoneInfoFile$Checksum, update, void, int32_t)},
+	{"update", "(J)V", nullptr, 0, $virtualMethod(ZoneInfoFile$Checksum, update, void, int64_t)},
 	{}
 };
 

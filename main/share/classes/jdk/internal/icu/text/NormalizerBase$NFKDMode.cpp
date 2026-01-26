@@ -24,8 +24,8 @@ namespace jdk {
 			namespace text {
 
 $MethodInfo _NormalizerBase$NFKDMode_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(NormalizerBase$NFKDMode::*)()>(&NormalizerBase$NFKDMode::init$))},
-	{"getNormalizer2", "(I)Ljdk/internal/icu/text/Normalizer2;", nullptr, $PROTECTED},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(NormalizerBase$NFKDMode, init$, void)},
+	{"getNormalizer2", "(I)Ljdk/internal/icu/text/Normalizer2;", nullptr, $PROTECTED, $virtualMethod(NormalizerBase$NFKDMode, getNormalizer2, $Normalizer2*, int32_t)},
 	{}
 };
 

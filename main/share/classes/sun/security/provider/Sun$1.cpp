@@ -23,8 +23,8 @@ $FieldInfo _Sun$1_FieldInfo_[] = {
 };
 
 $MethodInfo _Sun$1_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/provider/Sun;Ljava/util/Iterator;)V", "()V", 0, $method(static_cast<void(Sun$1::*)($Sun*,$Iterator*)>(&Sun$1::init$))},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/security/provider/Sun;Ljava/util/Iterator;)V", "()V", 0, $method(Sun$1, init$, void, $Sun*, $Iterator*)},
+	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(Sun$1, run, $Object*)},
 	{}
 };
 

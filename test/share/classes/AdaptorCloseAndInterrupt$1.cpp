@@ -22,8 +22,8 @@ $FieldInfo _AdaptorCloseAndInterrupt$1_FieldInfo_[] = {
 };
 
 $MethodInfo _AdaptorCloseAndInterrupt$1_MethodInfo_[] = {
-	{"<init>", "(LAdaptorCloseAndInterrupt;Ljava/nio/channels/spi/AbstractSelectableChannel;)V", "()V", 0, $method(static_cast<void(AdaptorCloseAndInterrupt$1::*)($AdaptorCloseAndInterrupt*,$AbstractSelectableChannel*)>(&AdaptorCloseAndInterrupt$1::init$))},
-	{"call", "()Ljava/lang/Void;", nullptr, $PUBLIC, nullptr, "java.lang.Exception"},
+	{"<init>", "(LAdaptorCloseAndInterrupt;Ljava/nio/channels/spi/AbstractSelectableChannel;)V", "()V", 0, $method(AdaptorCloseAndInterrupt$1, init$, void, $AdaptorCloseAndInterrupt*, $AbstractSelectableChannel*)},
+	{"call", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(AdaptorCloseAndInterrupt$1, call, $Object*), "java.lang.Exception"},
 	{}
 };
 

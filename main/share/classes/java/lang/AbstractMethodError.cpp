@@ -17,8 +17,8 @@ $FieldInfo _AbstractMethodError_FieldInfo_[] = {
 };
 
 $MethodInfo _AbstractMethodError_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(AbstractMethodError::*)()>(&AbstractMethodError::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(AbstractMethodError::*)($String*)>(&AbstractMethodError::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(AbstractMethodError, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(AbstractMethodError, init$, void, $String*)},
 	{}
 };
 

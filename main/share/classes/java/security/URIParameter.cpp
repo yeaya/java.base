@@ -25,8 +25,8 @@ $MethodInfo _URIParameter_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/net/URI;)V", nullptr, $PUBLIC, $method(static_cast<void(URIParameter::*)($URI*)>(&URIParameter::init$))},
-	{"getURI", "()Ljava/net/URI;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/net/URI;)V", nullptr, $PUBLIC, $method(URIParameter, init$, void, $URI*)},
+	{"getURI", "()Ljava/net/URI;", nullptr, $PUBLIC, $virtualMethod(URIParameter, getURI, $URI*)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

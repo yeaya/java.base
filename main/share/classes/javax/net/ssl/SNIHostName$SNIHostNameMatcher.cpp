@@ -39,8 +39,8 @@ $FieldInfo _SNIHostName$SNIHostNameMatcher_FieldInfo_[] = {
 };
 
 $MethodInfo _SNIHostName$SNIHostNameMatcher_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(SNIHostName$SNIHostNameMatcher::*)($String*)>(&SNIHostName$SNIHostNameMatcher::init$))},
-	{"matches", "(Ljavax/net/ssl/SNIServerName;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(SNIHostName$SNIHostNameMatcher, init$, void, $String*)},
+	{"matches", "(Ljavax/net/ssl/SNIServerName;)Z", nullptr, $PUBLIC, $virtualMethod(SNIHostName$SNIHostNameMatcher, matches, bool, $SNIServerName*)},
 	{}
 };
 

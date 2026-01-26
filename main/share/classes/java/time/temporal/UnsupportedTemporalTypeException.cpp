@@ -18,8 +18,8 @@ $FieldInfo _UnsupportedTemporalTypeException_FieldInfo_[] = {
 };
 
 $MethodInfo _UnsupportedTemporalTypeException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(UnsupportedTemporalTypeException::*)($String*)>(&UnsupportedTemporalTypeException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(UnsupportedTemporalTypeException::*)($String*,$Throwable*)>(&UnsupportedTemporalTypeException::init$))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(UnsupportedTemporalTypeException, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(UnsupportedTemporalTypeException, init$, void, $String*, $Throwable*)},
 	{}
 };
 

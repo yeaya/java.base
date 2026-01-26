@@ -23,7 +23,7 @@ $FieldInfo _SJIS$EncodeHolder_FieldInfo_[] = {
 };
 
 $MethodInfo _SJIS$EncodeHolder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(SJIS$EncodeHolder::*)()>(&SJIS$EncodeHolder::init$))},
+	{"<init>", "()V", nullptr, 0, $method(SJIS$EncodeHolder, init$, void)},
 	{}
 };
 

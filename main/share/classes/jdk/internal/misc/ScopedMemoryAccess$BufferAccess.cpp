@@ -56,10 +56,10 @@ $FieldInfo _ScopedMemoryAccess$BufferAccess_FieldInfo_[] = {
 };
 
 $MethodInfo _ScopedMemoryAccess$BufferAccess_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ScopedMemoryAccess$BufferAccess::*)()>(&ScopedMemoryAccess$BufferAccess::init$))},
-	{"bufferAddress", "(Ljava/nio/ByteBuffer;J)J", nullptr, $STATIC, $method(static_cast<int64_t(*)($ByteBuffer*,int64_t)>(&ScopedMemoryAccess$BufferAccess::bufferAddress)), nullptr, nullptr, _ScopedMemoryAccess$BufferAccess_MethodAnnotations_bufferAddress1},
-	{"bufferBase", "(Ljava/nio/ByteBuffer;)Ljava/lang/Object;", nullptr, $STATIC, $method(static_cast<$Object*(*)($ByteBuffer*)>(&ScopedMemoryAccess$BufferAccess::bufferBase)), nullptr, nullptr, _ScopedMemoryAccess$BufferAccess_MethodAnnotations_bufferBase2},
-	{"scope", "(Ljava/nio/ByteBuffer;)Ljdk/internal/misc/ScopedMemoryAccess$Scope;", nullptr, $STATIC, $method(static_cast<$ScopedMemoryAccess$Scope*(*)($ByteBuffer*)>(&ScopedMemoryAccess$BufferAccess::scope)), nullptr, nullptr, _ScopedMemoryAccess$BufferAccess_MethodAnnotations_scope3},
+	{"<init>", "()V", nullptr, 0, $method(ScopedMemoryAccess$BufferAccess, init$, void)},
+	{"bufferAddress", "(Ljava/nio/ByteBuffer;J)J", nullptr, $STATIC, $staticMethod(ScopedMemoryAccess$BufferAccess, bufferAddress, int64_t, $ByteBuffer*, int64_t), nullptr, nullptr, _ScopedMemoryAccess$BufferAccess_MethodAnnotations_bufferAddress1},
+	{"bufferBase", "(Ljava/nio/ByteBuffer;)Ljava/lang/Object;", nullptr, $STATIC, $staticMethod(ScopedMemoryAccess$BufferAccess, bufferBase, $Object*, $ByteBuffer*), nullptr, nullptr, _ScopedMemoryAccess$BufferAccess_MethodAnnotations_bufferBase2},
+	{"scope", "(Ljava/nio/ByteBuffer;)Ljdk/internal/misc/ScopedMemoryAccess$Scope;", nullptr, $STATIC, $staticMethod(ScopedMemoryAccess$BufferAccess, scope, $ScopedMemoryAccess$Scope*, $ByteBuffer*), nullptr, nullptr, _ScopedMemoryAccess$BufferAccess_MethodAnnotations_scope3},
 	{}
 };
 

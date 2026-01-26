@@ -24,9 +24,9 @@ namespace sun {
 		namespace ch {
 
 $MethodInfo _PollSelectorProvider_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PollSelectorProvider::*)()>(&PollSelectorProvider::init$))},
-	{"inheritedChannel", "()Ljava/nio/channels/Channel;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"openSelector", "()Ljava/nio/channels/spi/AbstractSelector;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PollSelectorProvider, init$, void)},
+	{"inheritedChannel", "()Ljava/nio/channels/Channel;", nullptr, $PUBLIC, $virtualMethod(PollSelectorProvider, inheritedChannel, $Channel*), "java.io.IOException"},
+	{"openSelector", "()Ljava/nio/channels/spi/AbstractSelector;", nullptr, $PUBLIC, $virtualMethod(PollSelectorProvider, openSelector, $AbstractSelector*), "java.io.IOException"},
 	{}
 };
 

@@ -26,10 +26,10 @@ $FieldInfo _PermissionsEnumerator_FieldInfo_[] = {
 };
 
 $MethodInfo _PermissionsEnumerator_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Iterator;)V", "(Ljava/util/Iterator<Ljava/security/PermissionCollection;>;)V", 0, $method(static_cast<void(PermissionsEnumerator::*)($Iterator*)>(&PermissionsEnumerator::init$))},
-	{"getNextEnumWithMore", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/security/Permission;>;", $PRIVATE, $method(static_cast<$Enumeration*(PermissionsEnumerator::*)()>(&PermissionsEnumerator::getNextEnumWithMore))},
-	{"hasMoreElements", "()Z", nullptr, $PUBLIC},
-	{"nextElement", "()Ljava/security/Permission;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/Iterator;)V", "(Ljava/util/Iterator<Ljava/security/PermissionCollection;>;)V", 0, $method(PermissionsEnumerator, init$, void, $Iterator*)},
+	{"getNextEnumWithMore", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/security/Permission;>;", $PRIVATE, $method(PermissionsEnumerator, getNextEnumWithMore, $Enumeration*)},
+	{"hasMoreElements", "()Z", nullptr, $PUBLIC, $virtualMethod(PermissionsEnumerator, hasMoreElements, bool)},
+	{"nextElement", "()Ljava/security/Permission;", nullptr, $PUBLIC, $virtualMethod(PermissionsEnumerator, nextElement, $Object*)},
 	{}
 };
 

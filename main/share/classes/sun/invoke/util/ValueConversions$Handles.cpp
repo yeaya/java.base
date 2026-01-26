@@ -44,7 +44,7 @@ $FieldInfo _ValueConversions$Handles_FieldInfo_[] = {
 };
 
 $MethodInfo _ValueConversions$Handles_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(ValueConversions$Handles::*)()>(&ValueConversions$Handles::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(ValueConversions$Handles, init$, void)},
 	{}
 };
 

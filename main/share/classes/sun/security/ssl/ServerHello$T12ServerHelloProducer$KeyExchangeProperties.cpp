@@ -26,7 +26,7 @@ $FieldInfo _ServerHello$T12ServerHelloProducer$KeyExchangeProperties_FieldInfo_[
 };
 
 $MethodInfo _ServerHello$T12ServerHelloProducer$KeyExchangeProperties_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/ssl/CipherSuite;Lsun/security/ssl/SSLKeyExchange;[Lsun/security/ssl/SSLPossession;)V", nullptr, $PRIVATE, $method(static_cast<void(ServerHello$T12ServerHelloProducer$KeyExchangeProperties::*)($CipherSuite*,$SSLKeyExchange*,$SSLPossessionArray*)>(&ServerHello$T12ServerHelloProducer$KeyExchangeProperties::init$))},
+	{"<init>", "(Lsun/security/ssl/CipherSuite;Lsun/security/ssl/SSLKeyExchange;[Lsun/security/ssl/SSLPossession;)V", nullptr, $PRIVATE, $method(ServerHello$T12ServerHelloProducer$KeyExchangeProperties, init$, void, $CipherSuite*, $SSLKeyExchange*, $SSLPossessionArray*)},
 	{}
 };
 

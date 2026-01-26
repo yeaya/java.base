@@ -65,11 +65,11 @@ $FieldInfo _DHKeyPairGenerator_FieldInfo_[] = {
 };
 
 $MethodInfo _DHKeyPairGenerator_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DHKeyPairGenerator::*)()>(&DHKeyPairGenerator::init$))},
-	{"checkKeySize", "(I)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)(int32_t)>(&DHKeyPairGenerator::checkKeySize)), "java.security.InvalidParameterException"},
-	{"generateKeyPair", "()Ljava/security/KeyPair;", nullptr, $PUBLIC},
-	{"initialize", "(ILjava/security/SecureRandom;)V", nullptr, $PUBLIC},
-	{"initialize", "(Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, $PUBLIC, nullptr, "java.security.InvalidAlgorithmParameterException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DHKeyPairGenerator, init$, void)},
+	{"checkKeySize", "(I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(DHKeyPairGenerator, checkKeySize, void, int32_t), "java.security.InvalidParameterException"},
+	{"generateKeyPair", "()Ljava/security/KeyPair;", nullptr, $PUBLIC, $virtualMethod(DHKeyPairGenerator, generateKeyPair, $KeyPair*)},
+	{"initialize", "(ILjava/security/SecureRandom;)V", nullptr, $PUBLIC, $virtualMethod(DHKeyPairGenerator, initialize, void, int32_t, $SecureRandom*)},
+	{"initialize", "(Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, $PUBLIC, $virtualMethod(DHKeyPairGenerator, initialize, void, $AlgorithmParameterSpec*, $SecureRandom*), "java.security.InvalidAlgorithmParameterException"},
 	{}
 };
 

@@ -39,7 +39,7 @@ $FieldInfo _StatusResponseManager$ResponseCacheEntry_FieldInfo_[] = {
 };
 
 $MethodInfo _StatusResponseManager$ResponseCacheEntry_MethodInfo_[] = {
-	{"<init>", "([BLsun/security/provider/certpath/CertId;)V", nullptr, 0, $method(static_cast<void(StatusResponseManager$ResponseCacheEntry::*)($bytes*,$CertId*)>(&StatusResponseManager$ResponseCacheEntry::init$)), "java.io.IOException"},
+	{"<init>", "([BLsun/security/provider/certpath/CertId;)V", nullptr, 0, $method(StatusResponseManager$ResponseCacheEntry, init$, void, $bytes*, $CertId*), "java.io.IOException"},
 	{}
 };
 

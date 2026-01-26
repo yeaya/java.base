@@ -20,12 +20,12 @@ using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
 using $MethodType = ::java::lang::invoke::MethodType;
 
 $MethodInfo _PrivateInterfaceCall$I2_MethodInfo_[] = {
-	{"init", "()V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)()>(&PrivateInterfaceCall$I2::init)), "java.lang.Throwable"},
-	{"invokeDirect", "(LPrivateInterfaceCall$I2;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)(PrivateInterfaceCall$I2*)>(&PrivateInterfaceCall$I2::invokeDirect))},
-	{"invokeInterfaceMH", "(LPrivateInterfaceCall$I2;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)(PrivateInterfaceCall$I2*)>(&PrivateInterfaceCall$I2::invokeInterfaceMH)), "java.lang.Throwable"},
-	{"invokeInterfaceObjectFinalMH", "(LPrivateInterfaceCall$I2;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)(PrivateInterfaceCall$I2*)>(&PrivateInterfaceCall$I2::invokeInterfaceObjectFinalMH)), "java.lang.Throwable"},
-	{"invokeInterfaceObjectMH", "(LPrivateInterfaceCall$I2;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)(PrivateInterfaceCall$I2*)>(&PrivateInterfaceCall$I2::invokeInterfaceObjectMH)), "java.lang.Throwable"},
-	{"priv_m", "()V", nullptr, $PRIVATE, $method(static_cast<void(PrivateInterfaceCall$I2::*)()>(&PrivateInterfaceCall$I2::priv_m))},
+	{"init", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(PrivateInterfaceCall$I2, init, void), "java.lang.Throwable"},
+	{"invokeDirect", "(LPrivateInterfaceCall$I2;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(PrivateInterfaceCall$I2, invokeDirect, void, PrivateInterfaceCall$I2*)},
+	{"invokeInterfaceMH", "(LPrivateInterfaceCall$I2;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(PrivateInterfaceCall$I2, invokeInterfaceMH, void, PrivateInterfaceCall$I2*), "java.lang.Throwable"},
+	{"invokeInterfaceObjectFinalMH", "(LPrivateInterfaceCall$I2;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(PrivateInterfaceCall$I2, invokeInterfaceObjectFinalMH, void, PrivateInterfaceCall$I2*), "java.lang.Throwable"},
+	{"invokeInterfaceObjectMH", "(LPrivateInterfaceCall$I2;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(PrivateInterfaceCall$I2, invokeInterfaceObjectMH, void, PrivateInterfaceCall$I2*), "java.lang.Throwable"},
+	{"priv_m", "()V", nullptr, $PRIVATE, $method(PrivateInterfaceCall$I2, priv_m, void)},
 	{}
 };
 

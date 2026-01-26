@@ -30,16 +30,16 @@ $CompoundAttribute _ElectronicCodeBook_MethodAnnotations_implECBEncrypt5[] = {
 };
 
 $MethodInfo _ElectronicCodeBook_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/crypto/provider/SymmetricCipher;)V", nullptr, 0, $method(static_cast<void(ElectronicCodeBook::*)($SymmetricCipher*)>(&ElectronicCodeBook::init$))},
-	{"decrypt", "([BII[BI)I", nullptr, 0},
-	{"encrypt", "([BII[BI)I", nullptr, 0},
-	{"getFeedback", "()Ljava/lang/String;", nullptr, 0},
-	{"implECBDecrypt", "([BII[BI)I", nullptr, $PRIVATE, $method(static_cast<int32_t(ElectronicCodeBook::*)($bytes*,int32_t,int32_t,$bytes*,int32_t)>(&ElectronicCodeBook::implECBDecrypt)), nullptr, nullptr, _ElectronicCodeBook_MethodAnnotations_implECBDecrypt4},
-	{"implECBEncrypt", "([BII[BI)I", nullptr, $PRIVATE, $method(static_cast<int32_t(ElectronicCodeBook::*)($bytes*,int32_t,int32_t,$bytes*,int32_t)>(&ElectronicCodeBook::implECBEncrypt)), nullptr, nullptr, _ElectronicCodeBook_MethodAnnotations_implECBEncrypt5},
-	{"init", "(ZLjava/lang/String;[B[B)V", nullptr, 0, nullptr, "java.security.InvalidKeyException"},
-	{"reset", "()V", nullptr, 0},
-	{"restore", "()V", nullptr, 0},
-	{"save", "()V", nullptr, 0},
+	{"<init>", "(Lcom/sun/crypto/provider/SymmetricCipher;)V", nullptr, 0, $method(ElectronicCodeBook, init$, void, $SymmetricCipher*)},
+	{"decrypt", "([BII[BI)I", nullptr, 0, $virtualMethod(ElectronicCodeBook, decrypt, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t)},
+	{"encrypt", "([BII[BI)I", nullptr, 0, $virtualMethod(ElectronicCodeBook, encrypt, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t)},
+	{"getFeedback", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(ElectronicCodeBook, getFeedback, $String*)},
+	{"implECBDecrypt", "([BII[BI)I", nullptr, $PRIVATE, $method(ElectronicCodeBook, implECBDecrypt, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t), nullptr, nullptr, _ElectronicCodeBook_MethodAnnotations_implECBDecrypt4},
+	{"implECBEncrypt", "([BII[BI)I", nullptr, $PRIVATE, $method(ElectronicCodeBook, implECBEncrypt, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t), nullptr, nullptr, _ElectronicCodeBook_MethodAnnotations_implECBEncrypt5},
+	{"init", "(ZLjava/lang/String;[B[B)V", nullptr, 0, $virtualMethod(ElectronicCodeBook, init, void, bool, $String*, $bytes*, $bytes*), "java.security.InvalidKeyException"},
+	{"reset", "()V", nullptr, 0, $virtualMethod(ElectronicCodeBook, reset, void)},
+	{"restore", "()V", nullptr, 0, $virtualMethod(ElectronicCodeBook, restore, void)},
+	{"save", "()V", nullptr, 0, $virtualMethod(ElectronicCodeBook, save, void)},
 	{}
 };
 

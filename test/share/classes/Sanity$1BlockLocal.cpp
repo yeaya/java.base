@@ -9,7 +9,7 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _Sanity$1BlockLocal_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Sanity$1BlockLocal::*)()>(&Sanity$1BlockLocal::init$))},
+	{"<init>", "()V", nullptr, 0, $method(Sanity$1BlockLocal, init$, void)},
 	{}
 };
 

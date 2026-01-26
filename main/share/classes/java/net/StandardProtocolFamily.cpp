@@ -25,16 +25,16 @@ $FieldInfo _StandardProtocolFamily_FieldInfo_[] = {
 };
 
 $MethodInfo _StandardProtocolFamily_MethodInfo_[] = {
-	{"$values", "()[Ljava/net/StandardProtocolFamily;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$StandardProtocolFamilyArray*(*)()>(&StandardProtocolFamily::$values))},
+	{"$values", "()[Ljava/net/StandardProtocolFamily;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StandardProtocolFamily, $values, $StandardProtocolFamilyArray*)},
 	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
 	{"*finalize", "()V", nullptr, $PROTECTED | $FINAL},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(StandardProtocolFamily::*)($String*,int32_t)>(&StandardProtocolFamily::init$))},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(StandardProtocolFamily, init$, void, $String*, int32_t)},
 	{"*name", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"valueOf", "(Ljava/lang/String;)Ljava/net/StandardProtocolFamily;", nullptr, $PUBLIC | $STATIC, $method(static_cast<StandardProtocolFamily*(*)($String*)>(&StandardProtocolFamily::valueOf))},
-	{"values", "()[Ljava/net/StandardProtocolFamily;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$StandardProtocolFamilyArray*(*)()>(&StandardProtocolFamily::values))},
+	{"valueOf", "(Ljava/lang/String;)Ljava/net/StandardProtocolFamily;", nullptr, $PUBLIC | $STATIC, $staticMethod(StandardProtocolFamily, valueOf, StandardProtocolFamily*, $String*)},
+	{"values", "()[Ljava/net/StandardProtocolFamily;", nullptr, $PUBLIC | $STATIC, $staticMethod(StandardProtocolFamily, values, $StandardProtocolFamilyArray*)},
 	{}
 };
 

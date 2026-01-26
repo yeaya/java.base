@@ -19,9 +19,9 @@ $FieldInfo _ToURI_FieldInfo_[] = {
 };
 
 $MethodInfo _ToURI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ToURI::*)()>(&ToURI::init$))},
-	{"go", "(Ljava/lang/String;)V", nullptr, $STATIC, $method(static_cast<void(*)($String*)>(&ToURI::go)), "java.lang.Exception"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&ToURI::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ToURI, init$, void)},
+	{"go", "(Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(ToURI, go, void, $String*), "java.lang.Exception"},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ToURI, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

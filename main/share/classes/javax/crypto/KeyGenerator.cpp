@@ -70,22 +70,22 @@ $FieldInfo _KeyGenerator_FieldInfo_[] = {
 };
 
 $MethodInfo _KeyGenerator_MethodInfo_[] = {
-	{"<init>", "(Ljavax/crypto/KeyGeneratorSpi;Ljava/security/Provider;Ljava/lang/String;)V", nullptr, $PROTECTED, $method(static_cast<void(KeyGenerator::*)($KeyGeneratorSpi*,$Provider*,$String*)>(&KeyGenerator::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(static_cast<void(KeyGenerator::*)($String*)>(&KeyGenerator::init$)), "java.security.NoSuchAlgorithmException"},
-	{"disableFailover", "()V", nullptr, 0},
-	{"generateKey", "()Ljavax/crypto/SecretKey;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$SecretKey*(KeyGenerator::*)()>(&KeyGenerator::generateKey))},
-	{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$String*(KeyGenerator::*)()>(&KeyGenerator::getAlgorithm))},
-	{"getInstance", "(Ljava/lang/String;)Ljavax/crypto/KeyGenerator;", nullptr, $PUBLIC | $STATIC | $FINAL, $method(static_cast<KeyGenerator*(*)($String*)>(&KeyGenerator::getInstance)), "java.security.NoSuchAlgorithmException"},
-	{"getInstance", "(Ljava/lang/String;Ljava/lang/String;)Ljavax/crypto/KeyGenerator;", nullptr, $PUBLIC | $STATIC | $FINAL, $method(static_cast<KeyGenerator*(*)($String*,$String*)>(&KeyGenerator::getInstance)), "java.security.NoSuchAlgorithmException,java.security.NoSuchProviderException"},
-	{"getInstance", "(Ljava/lang/String;Ljava/security/Provider;)Ljavax/crypto/KeyGenerator;", nullptr, $PUBLIC | $STATIC | $FINAL, $method(static_cast<KeyGenerator*(*)($String*,$Provider*)>(&KeyGenerator::getInstance)), "java.security.NoSuchAlgorithmException"},
-	{"getProvider", "()Ljava/security/Provider;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$Provider*(KeyGenerator::*)()>(&KeyGenerator::getProvider))},
-	{"getProviderName", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(KeyGenerator::*)()>(&KeyGenerator::getProviderName))},
-	{"init", "(Ljava/security/SecureRandom;)V", nullptr, $PUBLIC | $FINAL, $method(static_cast<void(KeyGenerator::*)($SecureRandom*)>(&KeyGenerator::init))},
-	{"init", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PUBLIC | $FINAL, $method(static_cast<void(KeyGenerator::*)($AlgorithmParameterSpec*)>(&KeyGenerator::init)), "java.security.InvalidAlgorithmParameterException"},
-	{"init", "(Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, $PUBLIC | $FINAL, $method(static_cast<void(KeyGenerator::*)($AlgorithmParameterSpec*,$SecureRandom*)>(&KeyGenerator::init)), "java.security.InvalidAlgorithmParameterException"},
-	{"init", "(I)V", nullptr, $PUBLIC | $FINAL, $method(static_cast<void(KeyGenerator::*)(int32_t)>(&KeyGenerator::init))},
-	{"init", "(ILjava/security/SecureRandom;)V", nullptr, $PUBLIC | $FINAL, $method(static_cast<void(KeyGenerator::*)(int32_t,$SecureRandom*)>(&KeyGenerator::init))},
-	{"nextSpi", "(Ljavax/crypto/KeyGeneratorSpi;Z)Ljavax/crypto/KeyGeneratorSpi;", nullptr, $PRIVATE, $method(static_cast<$KeyGeneratorSpi*(KeyGenerator::*)($KeyGeneratorSpi*,bool)>(&KeyGenerator::nextSpi))},
+	{"<init>", "(Ljavax/crypto/KeyGeneratorSpi;Ljava/security/Provider;Ljava/lang/String;)V", nullptr, $PROTECTED, $method(KeyGenerator, init$, void, $KeyGeneratorSpi*, $Provider*, $String*)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(KeyGenerator, init$, void, $String*), "java.security.NoSuchAlgorithmException"},
+	{"disableFailover", "()V", nullptr, 0, $virtualMethod(KeyGenerator, disableFailover, void)},
+	{"generateKey", "()Ljavax/crypto/SecretKey;", nullptr, $PUBLIC | $FINAL, $method(KeyGenerator, generateKey, $SecretKey*)},
+	{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(KeyGenerator, getAlgorithm, $String*)},
+	{"getInstance", "(Ljava/lang/String;)Ljavax/crypto/KeyGenerator;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(KeyGenerator, getInstance, KeyGenerator*, $String*), "java.security.NoSuchAlgorithmException"},
+	{"getInstance", "(Ljava/lang/String;Ljava/lang/String;)Ljavax/crypto/KeyGenerator;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(KeyGenerator, getInstance, KeyGenerator*, $String*, $String*), "java.security.NoSuchAlgorithmException,java.security.NoSuchProviderException"},
+	{"getInstance", "(Ljava/lang/String;Ljava/security/Provider;)Ljavax/crypto/KeyGenerator;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(KeyGenerator, getInstance, KeyGenerator*, $String*, $Provider*), "java.security.NoSuchAlgorithmException"},
+	{"getProvider", "()Ljava/security/Provider;", nullptr, $PUBLIC | $FINAL, $method(KeyGenerator, getProvider, $Provider*)},
+	{"getProviderName", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(KeyGenerator, getProviderName, $String*)},
+	{"init", "(Ljava/security/SecureRandom;)V", nullptr, $PUBLIC | $FINAL, $method(KeyGenerator, init, void, $SecureRandom*)},
+	{"init", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PUBLIC | $FINAL, $method(KeyGenerator, init, void, $AlgorithmParameterSpec*), "java.security.InvalidAlgorithmParameterException"},
+	{"init", "(Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, $PUBLIC | $FINAL, $method(KeyGenerator, init, void, $AlgorithmParameterSpec*, $SecureRandom*), "java.security.InvalidAlgorithmParameterException"},
+	{"init", "(I)V", nullptr, $PUBLIC | $FINAL, $method(KeyGenerator, init, void, int32_t)},
+	{"init", "(ILjava/security/SecureRandom;)V", nullptr, $PUBLIC | $FINAL, $method(KeyGenerator, init, void, int32_t, $SecureRandom*)},
+	{"nextSpi", "(Ljavax/crypto/KeyGeneratorSpi;Z)Ljavax/crypto/KeyGeneratorSpi;", nullptr, $PRIVATE, $method(KeyGenerator, nextSpi, $KeyGeneratorSpi*, $KeyGeneratorSpi*, bool)},
 	{}
 };
 

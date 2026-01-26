@@ -22,9 +22,9 @@ $FieldInfo _StaticFieldTest_FieldInfo_[] = {
 };
 
 $MethodInfo _StaticFieldTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(StaticFieldTest::*)()>(&StaticFieldTest::init$))},
-	{"getAccessibleField", "(Ljava/lang/String;)Ljava/lang/reflect/Field;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$Field*(*)($String*)>(&StaticFieldTest::getAccessibleField)), "java.lang.NoSuchFieldException"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&StaticFieldTest::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(StaticFieldTest, init$, void)},
+	{"getAccessibleField", "(Ljava/lang/String;)Ljava/lang/reflect/Field;", nullptr, $PRIVATE | $STATIC, $staticMethod(StaticFieldTest, getAccessibleField, $Field*, $String*), "java.lang.NoSuchFieldException"},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StaticFieldTest, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

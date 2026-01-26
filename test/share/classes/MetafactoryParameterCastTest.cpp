@@ -59,18 +59,18 @@ $FieldInfo _MetafactoryParameterCastTest_FieldInfo_[] = {
 };
 
 $MethodInfo _MetafactoryParameterCastTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(MetafactoryParameterCastTest::*)()>(&MetafactoryParameterCastTest::init$))},
-	{"invokeAltMetafactory", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/Class;Ljava/lang/String;[Ljava/lang/Class;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;[Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/CallSite;", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/Class<*>;Ljava/lang/String;[Ljava/lang/Class<*>;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;[Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/CallSite;", $TRANSIENT},
-	{"invokeMetafactory", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/Class;Ljava/lang/String;[Ljava/lang/Class;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/CallSite;", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/Class<*>;Ljava/lang/String;[Ljava/lang/Class<*>;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/CallSite;", 0},
-	{"lastMFParams", "()Ljava/lang/String;", nullptr, 0},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<void(*)($StringArray*)>(&MetafactoryParameterCastTest::main)), "java.lang.Throwable"},
-	{"test", "()V", nullptr, 0, nullptr, "java.lang.Throwable"},
-	{"tryASink", "(Ljava/lang/invoke/CallSite;)V", nullptr, 0, nullptr, "java.lang.Throwable"},
-	{"tryASink", "(LMetafactoryParameterCastTest$ASink;)V", nullptr, 0},
-	{"tryBSink", "(Ljava/lang/invoke/CallSite;)V", nullptr, 0, nullptr, "java.lang.Throwable"},
-	{"tryBSink", "(LMetafactoryParameterCastTest$BSink;)V", nullptr, 0},
-	{"tryCapASink", "(Ljava/lang/invoke/CallSite;)V", nullptr, 0, nullptr, "java.lang.Throwable"},
-	{"tryCapBSink", "(Ljava/lang/invoke/CallSite;)V", nullptr, 0, nullptr, "java.lang.Throwable"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(MetafactoryParameterCastTest, init$, void)},
+	{"invokeAltMetafactory", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/Class;Ljava/lang/String;[Ljava/lang/Class;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;[Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/CallSite;", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/Class<*>;Ljava/lang/String;[Ljava/lang/Class<*>;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;[Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/CallSite;", $TRANSIENT, $virtualMethod(MetafactoryParameterCastTest, invokeAltMetafactory, $CallSite*, $MethodHandle*, $Class*, $String*, $ClassArray*, $MethodType*, $MethodType*, $MethodTypeArray*)},
+	{"invokeMetafactory", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/Class;Ljava/lang/String;[Ljava/lang/Class;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/CallSite;", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/Class<*>;Ljava/lang/String;[Ljava/lang/Class<*>;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/CallSite;", 0, $virtualMethod(MetafactoryParameterCastTest, invokeMetafactory, $CallSite*, $MethodHandle*, $Class*, $String*, $ClassArray*, $MethodType*, $MethodType*)},
+	{"lastMFParams", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(MetafactoryParameterCastTest, lastMFParams, $String*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(MetafactoryParameterCastTest, main, void, $StringArray*), "java.lang.Throwable"},
+	{"test", "()V", nullptr, 0, $virtualMethod(MetafactoryParameterCastTest, test, void), "java.lang.Throwable"},
+	{"tryASink", "(Ljava/lang/invoke/CallSite;)V", nullptr, 0, $virtualMethod(MetafactoryParameterCastTest, tryASink, void, $CallSite*), "java.lang.Throwable"},
+	{"tryASink", "(LMetafactoryParameterCastTest$ASink;)V", nullptr, 0, $virtualMethod(MetafactoryParameterCastTest, tryASink, void, $MetafactoryParameterCastTest$ASink*)},
+	{"tryBSink", "(Ljava/lang/invoke/CallSite;)V", nullptr, 0, $virtualMethod(MetafactoryParameterCastTest, tryBSink, void, $CallSite*), "java.lang.Throwable"},
+	{"tryBSink", "(LMetafactoryParameterCastTest$BSink;)V", nullptr, 0, $virtualMethod(MetafactoryParameterCastTest, tryBSink, void, $MetafactoryParameterCastTest$BSink*)},
+	{"tryCapASink", "(Ljava/lang/invoke/CallSite;)V", nullptr, 0, $virtualMethod(MetafactoryParameterCastTest, tryCapASink, void, $CallSite*), "java.lang.Throwable"},
+	{"tryCapBSink", "(Ljava/lang/invoke/CallSite;)V", nullptr, 0, $virtualMethod(MetafactoryParameterCastTest, tryCapBSink, void, $CallSite*), "java.lang.Throwable"},
 	{}
 };
 

@@ -8,8 +8,8 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _FinalVirtualCallFromInterface$Final_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(FinalVirtualCallFromInterface$Final::*)()>(&FinalVirtualCallFromInterface$Final::init$))},
-	{"fm", "()V", nullptr, $PUBLIC | $FINAL, $method(static_cast<void(FinalVirtualCallFromInterface$Final::*)()>(&FinalVirtualCallFromInterface$Final::fm))},
+	{"<init>", "()V", nullptr, 0, $method(FinalVirtualCallFromInterface$Final, init$, void)},
+	{"fm", "()V", nullptr, $PUBLIC | $FINAL, $method(FinalVirtualCallFromInterface$Final, fm, void)},
 	{}
 };
 

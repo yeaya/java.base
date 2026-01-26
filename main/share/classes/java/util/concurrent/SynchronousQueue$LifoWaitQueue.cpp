@@ -20,7 +20,7 @@ $FieldInfo _SynchronousQueue$LifoWaitQueue_FieldInfo_[] = {
 };
 
 $MethodInfo _SynchronousQueue$LifoWaitQueue_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(SynchronousQueue$LifoWaitQueue::*)()>(&SynchronousQueue$LifoWaitQueue::init$))},
+	{"<init>", "()V", nullptr, 0, $method(SynchronousQueue$LifoWaitQueue, init$, void)},
 	{}
 };
 

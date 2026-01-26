@@ -21,7 +21,7 @@ $FieldInfo _DisabledAlgorithmConstraints$JarHolder_FieldInfo_[] = {
 };
 
 $MethodInfo _DisabledAlgorithmConstraints$JarHolder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(DisabledAlgorithmConstraints$JarHolder::*)()>(&DisabledAlgorithmConstraints$JarHolder::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(DisabledAlgorithmConstraints$JarHolder, init$, void)},
 	{}
 };
 

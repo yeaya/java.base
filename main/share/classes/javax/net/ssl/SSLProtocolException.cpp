@@ -18,7 +18,7 @@ $FieldInfo _SSLProtocolException_FieldInfo_[] = {
 };
 
 $MethodInfo _SSLProtocolException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(SSLProtocolException::*)($String*)>(&SSLProtocolException::init$))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SSLProtocolException, init$, void, $String*)},
 	{}
 };
 

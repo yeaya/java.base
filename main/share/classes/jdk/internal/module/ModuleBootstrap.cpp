@@ -162,8 +162,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ModuleBootstrap$$Lambda$descriptor::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ModuleBootstrap$$Lambda$descriptor::*)()>(&ModuleBootstrap$$Lambda$descriptor::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ModuleBootstrap$$Lambda$descriptor, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ModuleBootstrap$$Lambda$descriptor, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo ModuleBootstrap$$Lambda$descriptor::classInfo$ = {
@@ -195,8 +195,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ModuleBootstrap$$Lambda$name$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ModuleBootstrap$$Lambda$name$1::*)()>(&ModuleBootstrap$$Lambda$name$1::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ModuleBootstrap$$Lambda$name$1, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ModuleBootstrap$$Lambda$name$1, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo ModuleBootstrap$$Lambda$name$1::classInfo$ = {
@@ -235,8 +235,8 @@ $FieldInfo ModuleBootstrap$$Lambda$lambda$boot2$0$2::fieldInfos[2] = {
 	{}
 };
 $MethodInfo ModuleBootstrap$$Lambda$lambda$boot2$0$2::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/module/ModuleFinder;)V", nullptr, $PUBLIC, $method(static_cast<void(ModuleBootstrap$$Lambda$lambda$boot2$0$2::*)($ModuleFinder*)>(&ModuleBootstrap$$Lambda$lambda$boot2$0$2::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/module/ModuleFinder;)V", nullptr, $PUBLIC, $method(ModuleBootstrap$$Lambda$lambda$boot2$0$2, init$, void, $ModuleFinder*)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ModuleBootstrap$$Lambda$lambda$boot2$0$2, test, bool, Object$*)},
 	{}
 };
 $ClassInfo ModuleBootstrap$$Lambda$lambda$boot2$0$2::classInfo$ = {
@@ -275,8 +275,8 @@ $FieldInfo ModuleBootstrap$$Lambda$lambda$boot2$1$3::fieldInfos[2] = {
 	{}
 };
 $MethodInfo ModuleBootstrap$$Lambda$lambda$boot2$1$3::methodInfos[3] = {
-	{"<init>", "(Ljava/util/Set;)V", nullptr, $PUBLIC, $method(static_cast<void(ModuleBootstrap$$Lambda$lambda$boot2$1$3::*)($Set*)>(&ModuleBootstrap$$Lambda$lambda$boot2$1$3::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/Set;)V", nullptr, $PUBLIC, $method(ModuleBootstrap$$Lambda$lambda$boot2$1$3, init$, void, $Set*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ModuleBootstrap$$Lambda$lambda$boot2$1$3, accept, void, Object$*)},
 	{}
 };
 $ClassInfo ModuleBootstrap$$Lambda$lambda$boot2$1$3::classInfo$ = {
@@ -315,8 +315,8 @@ $FieldInfo ModuleBootstrap$$Lambda$lambda$boot2$4$4::fieldInfos[2] = {
 	{}
 };
 $MethodInfo ModuleBootstrap$$Lambda$lambda$boot2$4$4::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/module/Configuration;)V", nullptr, $PUBLIC, $method(static_cast<void(ModuleBootstrap$$Lambda$lambda$boot2$4$4::*)($Configuration*)>(&ModuleBootstrap$$Lambda$lambda$boot2$4$4::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/module/Configuration;)V", nullptr, $PUBLIC, $method(ModuleBootstrap$$Lambda$lambda$boot2$4$4, init$, void, $Configuration*)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ModuleBootstrap$$Lambda$lambda$boot2$4$4, test, bool, Object$*)},
 	{}
 };
 $ClassInfo ModuleBootstrap$$Lambda$lambda$boot2$4$4::classInfo$ = {
@@ -348,8 +348,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ModuleBootstrap$$Lambda$lambda$boot2$5$5::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ModuleBootstrap$$Lambda$lambda$boot2$5$5::*)()>(&ModuleBootstrap$$Lambda$lambda$boot2$5$5::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ModuleBootstrap$$Lambda$lambda$boot2$5$5, init$, void)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ModuleBootstrap$$Lambda$lambda$boot2$5$5, accept, void, Object$*)},
 	{}
 };
 $ClassInfo ModuleBootstrap$$Lambda$lambda$boot2$5$5::classInfo$ = {
@@ -381,8 +381,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ModuleBootstrap$$Lambda$reference$6::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ModuleBootstrap$$Lambda$reference$6::*)()>(&ModuleBootstrap$$Lambda$reference$6::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ModuleBootstrap$$Lambda$reference$6, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ModuleBootstrap$$Lambda$reference$6, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo ModuleBootstrap$$Lambda$reference$6::classInfo$ = {
@@ -421,8 +421,8 @@ $FieldInfo ModuleBootstrap$$Lambda$lambda$limitFinder$6$7::fieldInfos[2] = {
 	{}
 };
 $MethodInfo ModuleBootstrap$$Lambda$lambda$limitFinder$6$7::methodInfos[3] = {
-	{"<init>", "(Ljava/util/Map;)V", nullptr, $PUBLIC, $method(static_cast<void(ModuleBootstrap$$Lambda$lambda$limitFinder$6$7::*)($Map*)>(&ModuleBootstrap$$Lambda$lambda$limitFinder$6$7::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/Map;)V", nullptr, $PUBLIC, $method(ModuleBootstrap$$Lambda$lambda$limitFinder$6$7, init$, void, $Map*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ModuleBootstrap$$Lambda$lambda$limitFinder$6$7, accept, void, Object$*)},
 	{}
 };
 $ClassInfo ModuleBootstrap$$Lambda$lambda$limitFinder$6$7::classInfo$ = {
@@ -461,8 +461,8 @@ $FieldInfo ModuleBootstrap$$Lambda$find$8::fieldInfos[2] = {
 	{}
 };
 $MethodInfo ModuleBootstrap$$Lambda$find$8::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/module/ModuleFinder;)V", nullptr, $PUBLIC, $method(static_cast<void(ModuleBootstrap$$Lambda$find$8::*)($ModuleFinder*)>(&ModuleBootstrap$$Lambda$find$8::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/module/ModuleFinder;)V", nullptr, $PUBLIC, $method(ModuleBootstrap$$Lambda$find$8, init$, void, $ModuleFinder*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ModuleBootstrap$$Lambda$find$8, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo ModuleBootstrap$$Lambda$find$8::classInfo$ = {
@@ -494,8 +494,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ModuleBootstrap$$Lambda$stream$9::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ModuleBootstrap$$Lambda$stream$9::*)()>(&ModuleBootstrap$$Lambda$stream$9::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ModuleBootstrap$$Lambda$stream$9, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ModuleBootstrap$$Lambda$stream$9, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo ModuleBootstrap$$Lambda$stream$9::classInfo$ = {
@@ -534,8 +534,8 @@ $FieldInfo ModuleBootstrap$$Lambda$lambda$limitFinder$7$10::fieldInfos[2] = {
 	{}
 };
 $MethodInfo ModuleBootstrap$$Lambda$lambda$limitFinder$7$10::methodInfos[3] = {
-	{"<init>", "(Ljava/util/Map;)V", nullptr, $PUBLIC, $method(static_cast<void(ModuleBootstrap$$Lambda$lambda$limitFinder$7$10::*)($Map*)>(&ModuleBootstrap$$Lambda$lambda$limitFinder$7$10::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/Map;)V", nullptr, $PUBLIC, $method(ModuleBootstrap$$Lambda$lambda$limitFinder$7$10, init$, void, $Map*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ModuleBootstrap$$Lambda$lambda$limitFinder$7$10, accept, void, Object$*)},
 	{}
 };
 $ClassInfo ModuleBootstrap$$Lambda$lambda$limitFinder$7$10::classInfo$ = {
@@ -567,8 +567,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ModuleBootstrap$$Lambda$lambda$decode$8$11::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ModuleBootstrap$$Lambda$lambda$decode$8$11::*)()>(&ModuleBootstrap$$Lambda$lambda$decode$8$11::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ModuleBootstrap$$Lambda$lambda$decode$8$11, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ModuleBootstrap$$Lambda$lambda$decode$8$11, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo ModuleBootstrap$$Lambda$lambda$decode$8$11::classInfo$ = {
@@ -607,42 +607,42 @@ $FieldInfo _ModuleBootstrap_FieldInfo_[] = {
 };
 
 $MethodInfo _ModuleBootstrap_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(ModuleBootstrap::*)()>(&ModuleBootstrap::init$))},
-	{"addEnableNativeAccess", "(Ljava/lang/ModuleLayer;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($ModuleLayer*)>(&ModuleBootstrap::addEnableNativeAccess))},
-	{"addExtraExportsAndOpens", "(Ljava/lang/ModuleLayer;)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($ModuleLayer*)>(&ModuleBootstrap::addExtraExportsAndOpens))},
-	{"addExtraExportsOrOpens", "(Ljava/lang/ModuleLayer;Ljava/util/Map;Z)V", "(Ljava/lang/ModuleLayer;Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;Z)V", $PRIVATE | $STATIC, $method(static_cast<void(*)($ModuleLayer*,$Map*,bool)>(&ModuleBootstrap::addExtraExportsOrOpens))},
-	{"addExtraReads", "(Ljava/lang/ModuleLayer;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($ModuleLayer*)>(&ModuleBootstrap::addExtraReads))},
-	{"addModules", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE | $STATIC, $method(static_cast<$Set*(*)()>(&ModuleBootstrap::addModules))},
-	{"boot", "()Ljava/lang/ModuleLayer;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$ModuleLayer*(*)()>(&ModuleBootstrap::boot))},
-	{"boot2", "()Ljava/lang/ModuleLayer;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$ModuleLayer*(*)()>(&ModuleBootstrap::boot2))},
-	{"canUseArchivedBootLayer", "()Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)()>(&ModuleBootstrap::canUseArchivedBootLayer))},
-	{"checkIncubatingStatus", "(Ljava/lang/module/Configuration;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($Configuration*)>(&ModuleBootstrap::checkIncubatingStatus))},
-	{"checkSplitPackages", "(Ljava/lang/module/Configuration;Ljava/util/function/Function;)V", "(Ljava/lang/module/Configuration;Ljava/util/function/Function<Ljava/lang/String;Ljava/lang/ClassLoader;>;)V", $PRIVATE | $STATIC, $method(static_cast<void(*)($Configuration*,$Function*)>(&ModuleBootstrap::checkSplitPackages))},
-	{"decode", "(Ljava/lang/String;Ljava/lang/String;Z)Ljava/util/Map;", "(Ljava/lang/String;Ljava/lang/String;Z)Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;", $PRIVATE | $STATIC, $method(static_cast<$Map*(*)($String*,$String*,bool)>(&ModuleBootstrap::decode))},
-	{"decode", "(Ljava/lang/String;)Ljava/util/Map;", "(Ljava/lang/String;)Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;", $PRIVATE | $STATIC, $method(static_cast<$Map*(*)($String*)>(&ModuleBootstrap::decode))},
-	{"decodeEnableNativeAccess", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE | $STATIC, $method(static_cast<$Set*(*)()>(&ModuleBootstrap::decodeEnableNativeAccess))},
-	{"fail", "(Ljava/lang/String;)V", nullptr, $STATIC, $method(static_cast<void(*)($String*)>(&ModuleBootstrap::fail))},
-	{"finderFor", "(Ljava/lang/String;)Ljava/lang/module/ModuleFinder;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$ModuleFinder*(*)($String*)>(&ModuleBootstrap::finderFor))},
-	{"getAndRemoveProperty", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($String*)>(&ModuleBootstrap::getAndRemoveProperty))},
-	{"getProperty", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($String*)>(&ModuleBootstrap::getProperty))},
-	{"initModulePatcher", "()Ljdk/internal/module/ModulePatcher;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$ModulePatcher*(*)()>(&ModuleBootstrap::initModulePatcher))},
-	{"lambda$boot2$0", "(Ljava/lang/module/ModuleFinder;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($ModuleFinder*,$String*)>(&ModuleBootstrap::lambda$boot2$0))},
-	{"lambda$boot2$1", "(Ljava/util/Set;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($Set*,$String*)>(&ModuleBootstrap::lambda$boot2$1))},
-	{"lambda$boot2$4", "(Ljava/lang/module/Configuration;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($Configuration*,$String*)>(&ModuleBootstrap::lambda$boot2$4))},
-	{"lambda$boot2$5", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($String*)>(&ModuleBootstrap::lambda$boot2$5))},
-	{"lambda$decode$8", "(Ljava/lang/String;)Ljava/util/List;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$List*(*)($String*)>(&ModuleBootstrap::lambda$decode$8))},
-	{"lambda$limitFinder$6", "(Ljava/util/Map;Ljava/lang/module/ModuleReference;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($Map*,$ModuleReference*)>(&ModuleBootstrap::lambda$limitFinder$6))},
-	{"lambda$limitFinder$7", "(Ljava/util/Map;Ljava/lang/module/ModuleReference;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($Map*,$ModuleReference*)>(&ModuleBootstrap::lambda$limitFinder$7))},
-	{"limitFinder", "(Ljava/lang/module/ModuleFinder;Ljava/util/Set;Ljava/util/Set;)Ljava/lang/module/ModuleFinder;", "(Ljava/lang/module/ModuleFinder;Ljava/util/Set<Ljava/lang/String;>;Ljava/util/Set<Ljava/lang/String;>;)Ljava/lang/module/ModuleFinder;", $PRIVATE | $STATIC, $method(static_cast<$ModuleFinder*(*)($ModuleFinder*,$Set*,$Set*)>(&ModuleBootstrap::limitFinder))},
-	{"limitModules", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE | $STATIC, $method(static_cast<$Set*(*)()>(&ModuleBootstrap::limitModules))},
-	{"limitedFinder", "()Ljava/lang/module/ModuleFinder;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$ModuleFinder*(*)()>(&ModuleBootstrap::limitedFinder))},
-	{"loadModules", "(Ljava/lang/module/Configuration;Ljava/util/function/Function;)V", "(Ljava/lang/module/Configuration;Ljava/util/function/Function<Ljava/lang/String;Ljava/lang/ClassLoader;>;)V", $PRIVATE | $STATIC, $method(static_cast<void(*)($Configuration*,$Function*)>(&ModuleBootstrap::loadModules))},
-	{"option", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $method(static_cast<$String*(*)($String*)>(&ModuleBootstrap::option))},
-	{"patcher", "()Ljdk/internal/module/ModulePatcher;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$ModulePatcher*(*)()>(&ModuleBootstrap::patcher))},
-	{"unableToParse", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $method(static_cast<$String*(*)($String*,$String*,$String*)>(&ModuleBootstrap::unableToParse))},
-	{"unlimitedFinder", "()Ljava/lang/module/ModuleFinder;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$ModuleFinder*(*)()>(&ModuleBootstrap::unlimitedFinder))},
-	{"warn", "(Ljava/lang/String;)V", nullptr, $STATIC, $method(static_cast<void(*)($String*)>(&ModuleBootstrap::warn))},
-	{"warnUnknownModule", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $STATIC, $method(static_cast<void(*)($String*,$String*)>(&ModuleBootstrap::warnUnknownModule))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(ModuleBootstrap, init$, void)},
+	{"addEnableNativeAccess", "(Ljava/lang/ModuleLayer;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ModuleBootstrap, addEnableNativeAccess, void, $ModuleLayer*)},
+	{"addExtraExportsAndOpens", "(Ljava/lang/ModuleLayer;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(ModuleBootstrap, addExtraExportsAndOpens, bool, $ModuleLayer*)},
+	{"addExtraExportsOrOpens", "(Ljava/lang/ModuleLayer;Ljava/util/Map;Z)V", "(Ljava/lang/ModuleLayer;Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;Z)V", $PRIVATE | $STATIC, $staticMethod(ModuleBootstrap, addExtraExportsOrOpens, void, $ModuleLayer*, $Map*, bool)},
+	{"addExtraReads", "(Ljava/lang/ModuleLayer;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ModuleBootstrap, addExtraReads, void, $ModuleLayer*)},
+	{"addModules", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE | $STATIC, $staticMethod(ModuleBootstrap, addModules, $Set*)},
+	{"boot", "()Ljava/lang/ModuleLayer;", nullptr, $PUBLIC | $STATIC, $staticMethod(ModuleBootstrap, boot, $ModuleLayer*)},
+	{"boot2", "()Ljava/lang/ModuleLayer;", nullptr, $PRIVATE | $STATIC, $staticMethod(ModuleBootstrap, boot2, $ModuleLayer*)},
+	{"canUseArchivedBootLayer", "()Z", nullptr, $PRIVATE | $STATIC, $staticMethod(ModuleBootstrap, canUseArchivedBootLayer, bool)},
+	{"checkIncubatingStatus", "(Ljava/lang/module/Configuration;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ModuleBootstrap, checkIncubatingStatus, void, $Configuration*)},
+	{"checkSplitPackages", "(Ljava/lang/module/Configuration;Ljava/util/function/Function;)V", "(Ljava/lang/module/Configuration;Ljava/util/function/Function<Ljava/lang/String;Ljava/lang/ClassLoader;>;)V", $PRIVATE | $STATIC, $staticMethod(ModuleBootstrap, checkSplitPackages, void, $Configuration*, $Function*)},
+	{"decode", "(Ljava/lang/String;Ljava/lang/String;Z)Ljava/util/Map;", "(Ljava/lang/String;Ljava/lang/String;Z)Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;", $PRIVATE | $STATIC, $staticMethod(ModuleBootstrap, decode, $Map*, $String*, $String*, bool)},
+	{"decode", "(Ljava/lang/String;)Ljava/util/Map;", "(Ljava/lang/String;)Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;", $PRIVATE | $STATIC, $staticMethod(ModuleBootstrap, decode, $Map*, $String*)},
+	{"decodeEnableNativeAccess", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE | $STATIC, $staticMethod(ModuleBootstrap, decodeEnableNativeAccess, $Set*)},
+	{"fail", "(Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(ModuleBootstrap, fail, void, $String*)},
+	{"finderFor", "(Ljava/lang/String;)Ljava/lang/module/ModuleFinder;", nullptr, $PRIVATE | $STATIC, $staticMethod(ModuleBootstrap, finderFor, $ModuleFinder*, $String*)},
+	{"getAndRemoveProperty", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(ModuleBootstrap, getAndRemoveProperty, $String*, $String*)},
+	{"getProperty", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(ModuleBootstrap, getProperty, $String*, $String*)},
+	{"initModulePatcher", "()Ljdk/internal/module/ModulePatcher;", nullptr, $PRIVATE | $STATIC, $staticMethod(ModuleBootstrap, initModulePatcher, $ModulePatcher*)},
+	{"lambda$boot2$0", "(Ljava/lang/module/ModuleFinder;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ModuleBootstrap, lambda$boot2$0, bool, $ModuleFinder*, $String*)},
+	{"lambda$boot2$1", "(Ljava/util/Set;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ModuleBootstrap, lambda$boot2$1, void, $Set*, $String*)},
+	{"lambda$boot2$4", "(Ljava/lang/module/Configuration;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ModuleBootstrap, lambda$boot2$4, bool, $Configuration*, $String*)},
+	{"lambda$boot2$5", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ModuleBootstrap, lambda$boot2$5, void, $String*)},
+	{"lambda$decode$8", "(Ljava/lang/String;)Ljava/util/List;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ModuleBootstrap, lambda$decode$8, $List*, $String*)},
+	{"lambda$limitFinder$6", "(Ljava/util/Map;Ljava/lang/module/ModuleReference;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ModuleBootstrap, lambda$limitFinder$6, void, $Map*, $ModuleReference*)},
+	{"lambda$limitFinder$7", "(Ljava/util/Map;Ljava/lang/module/ModuleReference;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ModuleBootstrap, lambda$limitFinder$7, void, $Map*, $ModuleReference*)},
+	{"limitFinder", "(Ljava/lang/module/ModuleFinder;Ljava/util/Set;Ljava/util/Set;)Ljava/lang/module/ModuleFinder;", "(Ljava/lang/module/ModuleFinder;Ljava/util/Set<Ljava/lang/String;>;Ljava/util/Set<Ljava/lang/String;>;)Ljava/lang/module/ModuleFinder;", $PRIVATE | $STATIC, $staticMethod(ModuleBootstrap, limitFinder, $ModuleFinder*, $ModuleFinder*, $Set*, $Set*)},
+	{"limitModules", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE | $STATIC, $staticMethod(ModuleBootstrap, limitModules, $Set*)},
+	{"limitedFinder", "()Ljava/lang/module/ModuleFinder;", nullptr, $PUBLIC | $STATIC, $staticMethod(ModuleBootstrap, limitedFinder, $ModuleFinder*)},
+	{"loadModules", "(Ljava/lang/module/Configuration;Ljava/util/function/Function;)V", "(Ljava/lang/module/Configuration;Ljava/util/function/Function<Ljava/lang/String;Ljava/lang/ClassLoader;>;)V", $PRIVATE | $STATIC, $staticMethod(ModuleBootstrap, loadModules, void, $Configuration*, $Function*)},
+	{"option", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(ModuleBootstrap, option, $String*, $String*)},
+	{"patcher", "()Ljdk/internal/module/ModulePatcher;", nullptr, $PUBLIC | $STATIC, $staticMethod(ModuleBootstrap, patcher, $ModulePatcher*)},
+	{"unableToParse", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(ModuleBootstrap, unableToParse, $String*, $String*, $String*, $String*)},
+	{"unlimitedFinder", "()Ljava/lang/module/ModuleFinder;", nullptr, $PUBLIC | $STATIC, $staticMethod(ModuleBootstrap, unlimitedFinder, $ModuleFinder*)},
+	{"warn", "(Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(ModuleBootstrap, warn, void, $String*)},
+	{"warnUnknownModule", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(ModuleBootstrap, warnUnknownModule, void, $String*, $String*)},
 	{}
 };
 

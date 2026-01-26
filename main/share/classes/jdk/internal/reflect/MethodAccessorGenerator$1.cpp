@@ -37,8 +37,8 @@ $FieldInfo _MethodAccessorGenerator$1_FieldInfo_[] = {
 };
 
 $MethodInfo _MethodAccessorGenerator$1_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/reflect/MethodAccessorGenerator;Ljava/lang/String;[BLjava/lang/Class;)V", "()V", 0, $method(static_cast<void(MethodAccessorGenerator$1::*)($MethodAccessorGenerator*,$String*,$bytes*,$Class*)>(&MethodAccessorGenerator$1::init$))},
-	{"run", "()Ljdk/internal/reflect/MagicAccessorImpl;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/reflect/MethodAccessorGenerator;Ljava/lang/String;[BLjava/lang/Class;)V", "()V", 0, $method(MethodAccessorGenerator$1, init$, void, $MethodAccessorGenerator*, $String*, $bytes*, $Class*)},
+	{"run", "()Ljdk/internal/reflect/MagicAccessorImpl;", nullptr, $PUBLIC, $virtualMethod(MethodAccessorGenerator$1, run, $Object*)},
 	{}
 };
 

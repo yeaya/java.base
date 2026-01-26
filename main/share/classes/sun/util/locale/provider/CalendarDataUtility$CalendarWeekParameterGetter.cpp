@@ -34,9 +34,9 @@ $FieldInfo _CalendarDataUtility$CalendarWeekParameterGetter_FieldInfo_[] = {
 };
 
 $MethodInfo _CalendarDataUtility$CalendarWeekParameterGetter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(CalendarDataUtility$CalendarWeekParameterGetter::*)()>(&CalendarDataUtility$CalendarWeekParameterGetter::init$))},
-	{"getObject", "(Ljava/util/spi/CalendarDataProvider;Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/Integer;", nullptr, $PUBLIC | $TRANSIENT},
-	{"getObject", "(Ljava/util/spi/LocaleServiceProvider;Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(CalendarDataUtility$CalendarWeekParameterGetter, init$, void)},
+	{"getObject", "(Ljava/util/spi/CalendarDataProvider;Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/Integer;", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(CalendarDataUtility$CalendarWeekParameterGetter, getObject, $Integer*, $CalendarDataProvider*, $Locale*, $String*, $ObjectArray*)},
+	{"getObject", "(Ljava/util/spi/LocaleServiceProvider;Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(CalendarDataUtility$CalendarWeekParameterGetter, getObject, $Object*, $LocaleServiceProvider*, $Locale*, $String*, $ObjectArray*)},
 	{}
 };
 

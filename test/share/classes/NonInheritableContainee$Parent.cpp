@@ -52,7 +52,7 @@ $FieldInfo _NonInheritableContainee$Parent_FieldInfo_[] = {
 };
 
 $MethodInfo _NonInheritableContainee$Parent_MethodInfo_[] = {
-	{"<init>", "(LNonInheritableContainee;)V", nullptr, 0, $method(static_cast<void(NonInheritableContainee$Parent::*)($NonInheritableContainee*)>(&NonInheritableContainee$Parent::init$))},
+	{"<init>", "(LNonInheritableContainee;)V", nullptr, 0, $method(NonInheritableContainee$Parent, init$, void, $NonInheritableContainee*)},
 	{}
 };
 

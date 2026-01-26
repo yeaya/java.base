@@ -11,9 +11,9 @@ namespace jdk {
 			namespace text {
 
 $MethodInfo _Replaceable_MethodInfo_[] = {
-	{"charAt", "(I)C", nullptr, $PUBLIC | $ABSTRACT},
-	{"getChars", "(II[CI)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"length", "()I", nullptr, $PUBLIC | $ABSTRACT},
+	{"charAt", "(I)C", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Replaceable, charAt, char16_t, int32_t)},
+	{"getChars", "(II[CI)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Replaceable, getChars, void, int32_t, int32_t, $chars*, int32_t)},
+	{"length", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Replaceable, length, int32_t)},
 	{}
 };
 

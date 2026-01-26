@@ -91,18 +91,18 @@ $FieldInfo _PropertiesDefaultHandler_FieldInfo_[] = {
 };
 
 $MethodInfo _PropertiesDefaultHandler_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PropertiesDefaultHandler::*)()>(&PropertiesDefaultHandler::init$))},
-	{"characters", "([CII)V", nullptr, $PUBLIC, nullptr, "jdk.internal.org.xml.sax.SAXException"},
-	{"endElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, nullptr, "jdk.internal.org.xml.sax.SAXException"},
-	{"error", "(Ljdk/internal/org/xml/sax/SAXParseException;)V", nullptr, $PUBLIC, nullptr, "jdk.internal.org.xml.sax.SAXException"},
-	{"fatalError", "(Ljdk/internal/org/xml/sax/SAXParseException;)V", nullptr, $PUBLIC, nullptr, "jdk.internal.org.xml.sax.SAXException"},
-	{"load", "(Ljava/util/Properties;Ljava/io/InputStream;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException,java.util.InvalidPropertiesFormatException,java.io.UnsupportedEncodingException"},
-	{"resolveEntity", "(Ljava/lang/String;Ljava/lang/String;)Ljdk/internal/org/xml/sax/InputSource;", nullptr, $PUBLIC, nullptr, "jdk.internal.org.xml.sax.SAXException,java.io.IOException"},
-	{"startDTD", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, nullptr, "jdk.internal.org.xml.sax.SAXException"},
-	{"startElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljdk/internal/org/xml/sax/Attributes;)V", nullptr, $PUBLIC, nullptr, "jdk.internal.org.xml.sax.SAXException"},
-	{"startInternalSub", "()V", nullptr, $PUBLIC, nullptr, "jdk.internal.org.xml.sax.SAXException"},
-	{"store", "(Ljava/util/Properties;Ljava/io/OutputStream;Ljava/lang/String;Ljava/nio/charset/Charset;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"warning", "(Ljdk/internal/org/xml/sax/SAXParseException;)V", nullptr, $PUBLIC, nullptr, "jdk.internal.org.xml.sax.SAXException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PropertiesDefaultHandler, init$, void)},
+	{"characters", "([CII)V", nullptr, $PUBLIC, $virtualMethod(PropertiesDefaultHandler, characters, void, $chars*, int32_t, int32_t), "jdk.internal.org.xml.sax.SAXException"},
+	{"endElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(PropertiesDefaultHandler, endElement, void, $String*, $String*, $String*), "jdk.internal.org.xml.sax.SAXException"},
+	{"error", "(Ljdk/internal/org/xml/sax/SAXParseException;)V", nullptr, $PUBLIC, $virtualMethod(PropertiesDefaultHandler, error, void, $SAXParseException*), "jdk.internal.org.xml.sax.SAXException"},
+	{"fatalError", "(Ljdk/internal/org/xml/sax/SAXParseException;)V", nullptr, $PUBLIC, $virtualMethod(PropertiesDefaultHandler, fatalError, void, $SAXParseException*), "jdk.internal.org.xml.sax.SAXException"},
+	{"load", "(Ljava/util/Properties;Ljava/io/InputStream;)V", nullptr, $PUBLIC, $virtualMethod(PropertiesDefaultHandler, load, void, $Properties*, $InputStream*), "java.io.IOException,java.util.InvalidPropertiesFormatException,java.io.UnsupportedEncodingException"},
+	{"resolveEntity", "(Ljava/lang/String;Ljava/lang/String;)Ljdk/internal/org/xml/sax/InputSource;", nullptr, $PUBLIC, $virtualMethod(PropertiesDefaultHandler, resolveEntity, $InputSource*, $String*, $String*), "jdk.internal.org.xml.sax.SAXException,java.io.IOException"},
+	{"startDTD", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(PropertiesDefaultHandler, startDTD, void, $String*, $String*, $String*), "jdk.internal.org.xml.sax.SAXException"},
+	{"startElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljdk/internal/org/xml/sax/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(PropertiesDefaultHandler, startElement, void, $String*, $String*, $String*, $Attributes*), "jdk.internal.org.xml.sax.SAXException"},
+	{"startInternalSub", "()V", nullptr, $PUBLIC, $virtualMethod(PropertiesDefaultHandler, startInternalSub, void), "jdk.internal.org.xml.sax.SAXException"},
+	{"store", "(Ljava/util/Properties;Ljava/io/OutputStream;Ljava/lang/String;Ljava/nio/charset/Charset;)V", nullptr, $PUBLIC, $virtualMethod(PropertiesDefaultHandler, store, void, $Properties*, $OutputStream*, $String*, $Charset*), "java.io.IOException"},
+	{"warning", "(Ljdk/internal/org/xml/sax/SAXParseException;)V", nullptr, $PUBLIC, $virtualMethod(PropertiesDefaultHandler, warning, void, $SAXParseException*), "jdk.internal.org.xml.sax.SAXException"},
 	{}
 };
 

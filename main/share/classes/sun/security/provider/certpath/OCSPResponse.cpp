@@ -164,17 +164,17 @@ $FieldInfo _OCSPResponse_FieldInfo_[] = {
 };
 
 $MethodInfo _OCSPResponse_MethodInfo_[] = {
-	{"<init>", "([B)V", nullptr, $PUBLIC, $method(static_cast<void(OCSPResponse::*)($bytes*)>(&OCSPResponse::init$)), "java.io.IOException"},
-	{"getCertIds", "()Ljava/util/Set;", "()Ljava/util/Set<Lsun/security/provider/certpath/CertId;>;", $PUBLIC, $method(static_cast<$Set*(OCSPResponse::*)()>(&OCSPResponse::getCertIds))},
-	{"getResponderId", "()Lsun/security/provider/certpath/ResponderId;", nullptr, $PUBLIC, $method(static_cast<$ResponderId*(OCSPResponse::*)()>(&OCSPResponse::getResponderId))},
-	{"getResponseStatus", "()Lsun/security/provider/certpath/OCSPResponse$ResponseStatus;", nullptr, $PUBLIC, $method(static_cast<$OCSPResponse$ResponseStatus*(OCSPResponse::*)()>(&OCSPResponse::getResponseStatus))},
-	{"getSignerCertificate", "()Ljava/security/cert/X509Certificate;", nullptr, 0, $method(static_cast<$X509Certificate*(OCSPResponse::*)()>(&OCSPResponse::getSignerCertificate))},
-	{"getSingleResponse", "(Lsun/security/provider/certpath/CertId;)Lsun/security/provider/certpath/OCSPResponse$SingleResponse;", nullptr, $PUBLIC, $method(static_cast<$OCSPResponse$SingleResponse*(OCSPResponse::*)($CertId*)>(&OCSPResponse::getSingleResponse))},
-	{"initializeClockSkew", "()I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)()>(&OCSPResponse::initializeClockSkew))},
-	{"parseExtensions", "(Lsun/security/util/DerValue;)Ljava/util/Map;", "(Lsun/security/util/DerValue;)Ljava/util/Map<Ljava/lang/String;Ljava/security/cert/Extension;>;", $PRIVATE | $STATIC, $method(static_cast<$Map*(*)($DerValue*)>(&OCSPResponse::parseExtensions)), "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"verify", "(Ljava/util/List;Lsun/security/provider/certpath/OCSPResponse$IssuerInfo;Ljava/security/cert/X509Certificate;Ljava/util/Date;[BLjava/lang/String;)V", "(Ljava/util/List<Lsun/security/provider/certpath/CertId;>;Lsun/security/provider/certpath/OCSPResponse$IssuerInfo;Ljava/security/cert/X509Certificate;Ljava/util/Date;[BLjava/lang/String;)V", 0, $method(static_cast<void(OCSPResponse::*)($List*,$OCSPResponse$IssuerInfo*,$X509Certificate*,$Date*,$bytes*,$String*)>(&OCSPResponse::verify)), "java.security.cert.CertPathValidatorException"},
-	{"verifySignature", "(Ljava/security/cert/X509Certificate;)Z", nullptr, $PRIVATE, $method(static_cast<bool(OCSPResponse::*)($X509Certificate*)>(&OCSPResponse::verifySignature)), "java.security.cert.CertPathValidatorException"},
+	{"<init>", "([B)V", nullptr, $PUBLIC, $method(OCSPResponse, init$, void, $bytes*), "java.io.IOException"},
+	{"getCertIds", "()Ljava/util/Set;", "()Ljava/util/Set<Lsun/security/provider/certpath/CertId;>;", $PUBLIC, $method(OCSPResponse, getCertIds, $Set*)},
+	{"getResponderId", "()Lsun/security/provider/certpath/ResponderId;", nullptr, $PUBLIC, $method(OCSPResponse, getResponderId, $ResponderId*)},
+	{"getResponseStatus", "()Lsun/security/provider/certpath/OCSPResponse$ResponseStatus;", nullptr, $PUBLIC, $method(OCSPResponse, getResponseStatus, $OCSPResponse$ResponseStatus*)},
+	{"getSignerCertificate", "()Ljava/security/cert/X509Certificate;", nullptr, 0, $method(OCSPResponse, getSignerCertificate, $X509Certificate*)},
+	{"getSingleResponse", "(Lsun/security/provider/certpath/CertId;)Lsun/security/provider/certpath/OCSPResponse$SingleResponse;", nullptr, $PUBLIC, $method(OCSPResponse, getSingleResponse, $OCSPResponse$SingleResponse*, $CertId*)},
+	{"initializeClockSkew", "()I", nullptr, $PRIVATE | $STATIC, $staticMethod(OCSPResponse, initializeClockSkew, int32_t)},
+	{"parseExtensions", "(Lsun/security/util/DerValue;)Ljava/util/Map;", "(Lsun/security/util/DerValue;)Ljava/util/Map<Ljava/lang/String;Ljava/security/cert/Extension;>;", $PRIVATE | $STATIC, $staticMethod(OCSPResponse, parseExtensions, $Map*, $DerValue*), "java.io.IOException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(OCSPResponse, toString, $String*)},
+	{"verify", "(Ljava/util/List;Lsun/security/provider/certpath/OCSPResponse$IssuerInfo;Ljava/security/cert/X509Certificate;Ljava/util/Date;[BLjava/lang/String;)V", "(Ljava/util/List<Lsun/security/provider/certpath/CertId;>;Lsun/security/provider/certpath/OCSPResponse$IssuerInfo;Ljava/security/cert/X509Certificate;Ljava/util/Date;[BLjava/lang/String;)V", 0, $method(OCSPResponse, verify, void, $List*, $OCSPResponse$IssuerInfo*, $X509Certificate*, $Date*, $bytes*, $String*), "java.security.cert.CertPathValidatorException"},
+	{"verifySignature", "(Ljava/security/cert/X509Certificate;)Z", nullptr, $PRIVATE, $method(OCSPResponse, verifySignature, bool, $X509Certificate*), "java.security.cert.CertPathValidatorException"},
 	{}
 };
 

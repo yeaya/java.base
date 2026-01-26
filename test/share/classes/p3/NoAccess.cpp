@@ -49,10 +49,10 @@ $FieldInfo _NoAccess_FieldInfo_[] = {
 };
 
 $MethodInfo _NoAccess_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(NoAccess::*)()>(&NoAccess::init$))},
-	{"findClass", "(Ljava/lang/Module;Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/Module;Ljava/lang/String;)Ljava/lang/Class<*>;", $STATIC, $method(static_cast<$Class*(*)($Module*,$String*)>(&NoAccess::findClass))},
-	{"findClass", "(Ljava/lang/Module;Ljava/lang/String;Ljava/security/Permission;)Ljava/lang/Class;", "(Ljava/lang/Module;Ljava/lang/String;Ljava/security/Permission;)Ljava/lang/Class<*>;", $STATIC, $method(static_cast<$Class*(*)($Module*,$String*,$Permission*)>(&NoAccess::findClass))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&NoAccess::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(NoAccess, init$, void)},
+	{"findClass", "(Ljava/lang/Module;Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/Module;Ljava/lang/String;)Ljava/lang/Class<*>;", $STATIC, $staticMethod(NoAccess, findClass, $Class*, $Module*, $String*)},
+	{"findClass", "(Ljava/lang/Module;Ljava/lang/String;Ljava/security/Permission;)Ljava/lang/Class;", "(Ljava/lang/Module;Ljava/lang/String;Ljava/security/Permission;)Ljava/lang/Class<*>;", $STATIC, $staticMethod(NoAccess, findClass, $Class*, $Module*, $String*, $Permission*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(NoAccess, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

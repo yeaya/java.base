@@ -9,7 +9,7 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace anotherpkg {
 
 $MethodInfo _MethodSupplierOuter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(MethodSupplierOuter::*)()>(&MethodSupplierOuter::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(MethodSupplierOuter, init$, void)},
 	{}
 };
 

@@ -20,9 +20,9 @@ $FieldInfo _N1$Inner3_FieldInfo_[] = {
 };
 
 $MethodInfo _N1$Inner3_MethodInfo_[] = {
-	{"<init>", "(LN1;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V", "(TX1;TX2;TX3;TT1;TT2;)V", 0, $method(static_cast<void(N1$Inner3::*)($N1*,Object$*,Object$*,Object$*,Object$*,Object$*)>(&N1$Inner3::init$))},
-	{"<init>", "(LN1;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V", "<T:Ljava/lang/Object;R:Ljava/lang/Object;S:Ljava/lang/Object;>(TT;TR;TS;TX1;)V", 0, $method(static_cast<void(N1$Inner3::*)($N1*,Object$*,Object$*,Object$*,Object$*)>(&N1$Inner3::init$))},
-	{"shazam", "(ZS[I[Ljava/lang/Object;LN1$Inner1;LN1$Inner1;LN1$Inner3$InnerInner;)I", "(ZS[I[Ljava/lang/Object;LN1<TT1;TT2;>.Inner1;LN1<TT1;TT2;>.Inner1;LN1<TT1;TT2;>.Inner3<TX1;TX2;TX3;>.InnerInner<Ljava/lang/String;LN1<TT1;TT2;>.Inner3<Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Object;>;>;)I", 0},
+	{"<init>", "(LN1;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V", "(TX1;TX2;TX3;TT1;TT2;)V", 0, $method(N1$Inner3, init$, void, $N1*, Object$*, Object$*, Object$*, Object$*, Object$*)},
+	{"<init>", "(LN1;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V", "<T:Ljava/lang/Object;R:Ljava/lang/Object;S:Ljava/lang/Object;>(TT;TR;TS;TX1;)V", 0, $method(N1$Inner3, init$, void, $N1*, Object$*, Object$*, Object$*, Object$*)},
+	{"shazam", "(ZS[I[Ljava/lang/Object;LN1$Inner1;LN1$Inner1;LN1$Inner3$InnerInner;)I", "(ZS[I[Ljava/lang/Object;LN1<TT1;TT2;>.Inner1;LN1<TT1;TT2;>.Inner1;LN1<TT1;TT2;>.Inner3<TX1;TX2;TX3;>.InnerInner<Ljava/lang/String;LN1<TT1;TT2;>.Inner3<Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Object;>;>;)I", 0, $virtualMethod(N1$Inner3, shazam, int32_t, bool, int16_t, $ints*, $ObjectArray*, $N1$Inner1*, $N1$Inner1*, $N1$Inner3$InnerInner*)},
 	{}
 };
 

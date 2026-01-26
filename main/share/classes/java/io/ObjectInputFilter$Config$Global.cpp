@@ -73,8 +73,8 @@ $FieldInfo ObjectInputFilter$Config$Global$$Lambda$lambda$new$0::fieldInfos[2] =
 	{}
 };
 $MethodInfo ObjectInputFilter$Config$Global$$Lambda$lambda$new$0::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(ObjectInputFilter$Config$Global$$Lambda$lambda$new$0::*)($String*)>(&ObjectInputFilter$Config$Global$$Lambda$lambda$new$0::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ObjectInputFilter$Config$Global$$Lambda$lambda$new$0, init$, void, $String*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ObjectInputFilter$Config$Global$$Lambda$lambda$new$0, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo ObjectInputFilter$Config$Global$$Lambda$lambda$new$0::classInfo$ = {
@@ -113,8 +113,8 @@ $FieldInfo ObjectInputFilter$Config$Global$$Lambda$lambda$new$1$1::fieldInfos[2]
 	{}
 };
 $MethodInfo ObjectInputFilter$Config$Global$$Lambda$lambda$new$1$1::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(ObjectInputFilter$Config$Global$$Lambda$lambda$new$1$1::*)($String*)>(&ObjectInputFilter$Config$Global$$Lambda$lambda$new$1$1::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ObjectInputFilter$Config$Global$$Lambda$lambda$new$1$1, init$, void, $String*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ObjectInputFilter$Config$Global$$Lambda$lambda$new$1$1, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo ObjectInputFilter$Config$Global$$Lambda$lambda$new$1$1::classInfo$ = {
@@ -153,8 +153,8 @@ $FieldInfo ObjectInputFilter$Config$Global$$Lambda$lambda$new$2$2::fieldInfos[2]
 	{}
 };
 $MethodInfo ObjectInputFilter$Config$Global$$Lambda$lambda$new$2$2::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(ObjectInputFilter$Config$Global$$Lambda$lambda$new$2$2::*)($String*)>(&ObjectInputFilter$Config$Global$$Lambda$lambda$new$2$2::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ObjectInputFilter$Config$Global$$Lambda$lambda$new$2$2, init$, void, $String*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ObjectInputFilter$Config$Global$$Lambda$lambda$new$2$2, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo ObjectInputFilter$Config$Global$$Lambda$lambda$new$2$2::classInfo$ = {
@@ -193,8 +193,8 @@ $FieldInfo ObjectInputFilter$Config$Global$$Lambda$lambda$new$3$3::fieldInfos[2]
 	{}
 };
 $MethodInfo ObjectInputFilter$Config$Global$$Lambda$lambda$new$3$3::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(ObjectInputFilter$Config$Global$$Lambda$lambda$new$3$3::*)($String*)>(&ObjectInputFilter$Config$Global$$Lambda$lambda$new$3$3::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ObjectInputFilter$Config$Global$$Lambda$lambda$new$3$3, init$, void, $String*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ObjectInputFilter$Config$Global$$Lambda$lambda$new$3$3, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo ObjectInputFilter$Config$Global$$Lambda$lambda$new$3$3::classInfo$ = {
@@ -233,8 +233,8 @@ $FieldInfo ObjectInputFilter$Config$Global$$Lambda$lambda$new$6$4::fieldInfos[2]
 	{}
 };
 $MethodInfo ObjectInputFilter$Config$Global$$Lambda$lambda$new$6$4::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(ObjectInputFilter$Config$Global$$Lambda$lambda$new$6$4::*)($String*)>(&ObjectInputFilter$Config$Global$$Lambda$lambda$new$6$4::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ObjectInputFilter$Config$Global$$Lambda$lambda$new$6$4, init$, void, $String*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ObjectInputFilter$Config$Global$$Lambda$lambda$new$6$4, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo ObjectInputFilter$Config$Global$$Lambda$lambda$new$6$4::classInfo$ = {
@@ -273,8 +273,8 @@ $FieldInfo ObjectInputFilter$Config$Global$$Lambda$lambda$new$7$5::fieldInfos[2]
 	{}
 };
 $MethodInfo ObjectInputFilter$Config$Global$$Lambda$lambda$new$7$5::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(ObjectInputFilter$Config$Global$$Lambda$lambda$new$7$5::*)($String*)>(&ObjectInputFilter$Config$Global$$Lambda$lambda$new$7$5::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ObjectInputFilter$Config$Global$$Lambda$lambda$new$7$5, init$, void, $String*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ObjectInputFilter$Config$Global$$Lambda$lambda$new$7$5, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo ObjectInputFilter$Config$Global$$Lambda$lambda$new$7$5::classInfo$ = {
@@ -316,8 +316,8 @@ $FieldInfo ObjectInputFilter$Config$Global$$Lambda$lambda$new$8$6::fieldInfos[3]
 	{}
 };
 $MethodInfo ObjectInputFilter$Config$Global$$Lambda$lambda$new$8$6::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;Ljava/util/function/Function;)V", nullptr, $PUBLIC, $method(static_cast<void(ObjectInputFilter$Config$Global$$Lambda$lambda$new$8$6::*)($String*,$Function*)>(&ObjectInputFilter$Config$Global$$Lambda$lambda$new$8$6::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Ljava/util/function/Function;)V", nullptr, $PUBLIC, $method(ObjectInputFilter$Config$Global$$Lambda$lambda$new$8$6, init$, void, $String*, $Function*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ObjectInputFilter$Config$Global$$Lambda$lambda$new$8$6, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo ObjectInputFilter$Config$Global$$Lambda$lambda$new$8$6::classInfo$ = {
@@ -356,8 +356,8 @@ $FieldInfo ObjectInputFilter$Config$Global$$Lambda$lambda$checkInput$9$7::fieldI
 	{}
 };
 $MethodInfo ObjectInputFilter$Config$Global$$Lambda$lambda$checkInput$9$7::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/Class;)V", nullptr, $PUBLIC, $method(static_cast<void(ObjectInputFilter$Config$Global$$Lambda$lambda$checkInput$9$7::*)($Class*)>(&ObjectInputFilter$Config$Global$$Lambda$lambda$checkInput$9$7::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Class;)V", nullptr, $PUBLIC, $method(ObjectInputFilter$Config$Global$$Lambda$lambda$checkInput$9$7, init$, void, $Class*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ObjectInputFilter$Config$Global$$Lambda$lambda$checkInput$9$7, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo ObjectInputFilter$Config$Global$$Lambda$lambda$checkInput$9$7::classInfo$ = {
@@ -389,8 +389,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ObjectInputFilter$Config$Global$$Lambda$lambda$checkInput$10$8::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ObjectInputFilter$Config$Global$$Lambda$lambda$checkInput$10$8::*)()>(&ObjectInputFilter$Config$Global$$Lambda$lambda$checkInput$10$8::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ObjectInputFilter$Config$Global$$Lambda$lambda$checkInput$10$8, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ObjectInputFilter$Config$Global$$Lambda$lambda$checkInput$10$8, test, bool, Object$*)},
 	{}
 };
 $ClassInfo ObjectInputFilter$Config$Global$$Lambda$lambda$checkInput$10$8::classInfo$ = {
@@ -419,22 +419,22 @@ $FieldInfo _ObjectInputFilter$Config$Global_FieldInfo_[] = {
 };
 
 $MethodInfo _ObjectInputFilter$Config$Global_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Z)V", nullptr, $PRIVATE, $method(static_cast<void(ObjectInputFilter$Config$Global::*)($String*,bool)>(&ObjectInputFilter$Config$Global::init$))},
-	{"checkInput", "(Ljava/io/ObjectInputFilter$FilterInfo;)Ljava/io/ObjectInputFilter$Status;", nullptr, $PUBLIC},
-	{"createFilter", "(Ljava/lang/String;Z)Ljava/io/ObjectInputFilter;", nullptr, $STATIC, $method(static_cast<$ObjectInputFilter*(*)($String*,bool)>(&ObjectInputFilter$Config$Global::createFilter))},
-	{"lambda$checkInput$10", "(Ljava/io/ObjectInputFilter$Status;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($ObjectInputFilter$Status*)>(&ObjectInputFilter$Config$Global::lambda$checkInput$10))},
-	{"lambda$checkInput$9", "(Ljava/lang/Class;Ljava/util/function/Function;)Ljava/io/ObjectInputFilter$Status;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$ObjectInputFilter$Status*(*)($Class*,$Function*)>(&ObjectInputFilter$Config$Global::lambda$checkInput$9))},
-	{"lambda$new$0", "(Ljava/lang/String;Ljava/lang/Class;)Ljava/io/ObjectInputFilter$Status;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$ObjectInputFilter$Status*(*)($String*,$Class*)>(&ObjectInputFilter$Config$Global::lambda$new$0))},
-	{"lambda$new$1", "(Ljava/lang/String;Ljava/lang/Class;)Ljava/io/ObjectInputFilter$Status;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$ObjectInputFilter$Status*(*)($String*,$Class*)>(&ObjectInputFilter$Config$Global::lambda$new$1))},
-	{"lambda$new$2", "(Ljava/lang/String;Ljava/lang/Class;)Ljava/io/ObjectInputFilter$Status;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$ObjectInputFilter$Status*(*)($String*,$Class*)>(&ObjectInputFilter$Config$Global::lambda$new$2))},
-	{"lambda$new$3", "(Ljava/lang/String;Ljava/lang/Class;)Ljava/io/ObjectInputFilter$Status;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$ObjectInputFilter$Status*(*)($String*,$Class*)>(&ObjectInputFilter$Config$Global::lambda$new$3))},
-	{"lambda$new$6", "(Ljava/lang/String;Ljava/lang/Class;)Ljava/io/ObjectInputFilter$Status;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$ObjectInputFilter$Status*(*)($String*,$Class*)>(&ObjectInputFilter$Config$Global::lambda$new$6))},
-	{"lambda$new$7", "(Ljava/lang/String;Ljava/lang/Class;)Ljava/io/ObjectInputFilter$Status;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$ObjectInputFilter$Status*(*)($String*,$Class*)>(&ObjectInputFilter$Config$Global::lambda$new$7))},
-	{"lambda$new$8", "(Ljava/lang/String;Ljava/util/function/Function;Ljava/lang/Class;)Ljava/io/ObjectInputFilter$Status;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$ObjectInputFilter$Status*(*)($String*,$Function*,$Class*)>(&ObjectInputFilter$Config$Global::lambda$new$8))},
-	{"matchesPackage", "(Ljava/lang/Class;Ljava/lang/String;)Z", "(Ljava/lang/Class<*>;Ljava/lang/String;)Z", $PRIVATE | $STATIC, $method(static_cast<bool(*)($Class*,$String*)>(&ObjectInputFilter$Config$Global::matchesPackage))},
-	{"parseLimit", "(Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(static_cast<bool(ObjectInputFilter$Config$Global::*)($String*)>(&ObjectInputFilter$Config$Global::parseLimit))},
-	{"parseValue", "(Ljava/lang/String;)J", nullptr, $PRIVATE | $STATIC, $method(static_cast<int64_t(*)($String*)>(&ObjectInputFilter$Config$Global::parseValue)), "java.lang.IllegalArgumentException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Z)V", nullptr, $PRIVATE, $method(ObjectInputFilter$Config$Global, init$, void, $String*, bool)},
+	{"checkInput", "(Ljava/io/ObjectInputFilter$FilterInfo;)Ljava/io/ObjectInputFilter$Status;", nullptr, $PUBLIC, $virtualMethod(ObjectInputFilter$Config$Global, checkInput, $ObjectInputFilter$Status*, $ObjectInputFilter$FilterInfo*)},
+	{"createFilter", "(Ljava/lang/String;Z)Ljava/io/ObjectInputFilter;", nullptr, $STATIC, $staticMethod(ObjectInputFilter$Config$Global, createFilter, $ObjectInputFilter*, $String*, bool)},
+	{"lambda$checkInput$10", "(Ljava/io/ObjectInputFilter$Status;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ObjectInputFilter$Config$Global, lambda$checkInput$10, bool, $ObjectInputFilter$Status*)},
+	{"lambda$checkInput$9", "(Ljava/lang/Class;Ljava/util/function/Function;)Ljava/io/ObjectInputFilter$Status;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ObjectInputFilter$Config$Global, lambda$checkInput$9, $ObjectInputFilter$Status*, $Class*, $Function*)},
+	{"lambda$new$0", "(Ljava/lang/String;Ljava/lang/Class;)Ljava/io/ObjectInputFilter$Status;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ObjectInputFilter$Config$Global, lambda$new$0, $ObjectInputFilter$Status*, $String*, $Class*)},
+	{"lambda$new$1", "(Ljava/lang/String;Ljava/lang/Class;)Ljava/io/ObjectInputFilter$Status;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ObjectInputFilter$Config$Global, lambda$new$1, $ObjectInputFilter$Status*, $String*, $Class*)},
+	{"lambda$new$2", "(Ljava/lang/String;Ljava/lang/Class;)Ljava/io/ObjectInputFilter$Status;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ObjectInputFilter$Config$Global, lambda$new$2, $ObjectInputFilter$Status*, $String*, $Class*)},
+	{"lambda$new$3", "(Ljava/lang/String;Ljava/lang/Class;)Ljava/io/ObjectInputFilter$Status;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ObjectInputFilter$Config$Global, lambda$new$3, $ObjectInputFilter$Status*, $String*, $Class*)},
+	{"lambda$new$6", "(Ljava/lang/String;Ljava/lang/Class;)Ljava/io/ObjectInputFilter$Status;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ObjectInputFilter$Config$Global, lambda$new$6, $ObjectInputFilter$Status*, $String*, $Class*)},
+	{"lambda$new$7", "(Ljava/lang/String;Ljava/lang/Class;)Ljava/io/ObjectInputFilter$Status;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ObjectInputFilter$Config$Global, lambda$new$7, $ObjectInputFilter$Status*, $String*, $Class*)},
+	{"lambda$new$8", "(Ljava/lang/String;Ljava/util/function/Function;Ljava/lang/Class;)Ljava/io/ObjectInputFilter$Status;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ObjectInputFilter$Config$Global, lambda$new$8, $ObjectInputFilter$Status*, $String*, $Function*, $Class*)},
+	{"matchesPackage", "(Ljava/lang/Class;Ljava/lang/String;)Z", "(Ljava/lang/Class<*>;Ljava/lang/String;)Z", $PRIVATE | $STATIC, $staticMethod(ObjectInputFilter$Config$Global, matchesPackage, bool, $Class*, $String*)},
+	{"parseLimit", "(Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(ObjectInputFilter$Config$Global, parseLimit, bool, $String*)},
+	{"parseValue", "(Ljava/lang/String;)J", nullptr, $PRIVATE | $STATIC, $staticMethod(ObjectInputFilter$Config$Global, parseValue, int64_t, $String*), "java.lang.IllegalArgumentException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ObjectInputFilter$Config$Global, toString, $String*)},
 	{}
 };
 

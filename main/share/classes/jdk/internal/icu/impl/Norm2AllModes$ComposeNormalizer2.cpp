@@ -31,12 +31,12 @@ $FieldInfo _Norm2AllModes$ComposeNormalizer2_FieldInfo_[] = {
 };
 
 $MethodInfo _Norm2AllModes$ComposeNormalizer2_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/icu/impl/NormalizerImpl;Z)V", nullptr, $PUBLIC, $method(static_cast<void(Norm2AllModes$ComposeNormalizer2::*)($NormalizerImpl*,bool)>(&Norm2AllModes$ComposeNormalizer2::init$))},
-	{"hasBoundaryBefore", "(I)Z", nullptr, $PUBLIC},
-	{"isNormalized", "(Ljava/lang/CharSequence;)Z", nullptr, $PUBLIC},
-	{"normalize", "(Ljava/lang/CharSequence;Ljdk/internal/icu/impl/NormalizerImpl$ReorderingBuffer;)V", nullptr, $PROTECTED},
-	{"normalizeAndAppend", "(Ljava/lang/CharSequence;ZLjdk/internal/icu/impl/NormalizerImpl$ReorderingBuffer;)V", nullptr, $PROTECTED},
-	{"spanQuickCheckYes", "(Ljava/lang/CharSequence;)I", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/icu/impl/NormalizerImpl;Z)V", nullptr, $PUBLIC, $method(Norm2AllModes$ComposeNormalizer2, init$, void, $NormalizerImpl*, bool)},
+	{"hasBoundaryBefore", "(I)Z", nullptr, $PUBLIC, $virtualMethod(Norm2AllModes$ComposeNormalizer2, hasBoundaryBefore, bool, int32_t)},
+	{"isNormalized", "(Ljava/lang/CharSequence;)Z", nullptr, $PUBLIC, $virtualMethod(Norm2AllModes$ComposeNormalizer2, isNormalized, bool, $CharSequence*)},
+	{"normalize", "(Ljava/lang/CharSequence;Ljdk/internal/icu/impl/NormalizerImpl$ReorderingBuffer;)V", nullptr, $PROTECTED, $virtualMethod(Norm2AllModes$ComposeNormalizer2, normalize, void, $CharSequence*, $NormalizerImpl$ReorderingBuffer*)},
+	{"normalizeAndAppend", "(Ljava/lang/CharSequence;ZLjdk/internal/icu/impl/NormalizerImpl$ReorderingBuffer;)V", nullptr, $PROTECTED, $virtualMethod(Norm2AllModes$ComposeNormalizer2, normalizeAndAppend, void, $CharSequence*, bool, $NormalizerImpl$ReorderingBuffer*)},
+	{"spanQuickCheckYes", "(Ljava/lang/CharSequence;)I", nullptr, $PUBLIC, $virtualMethod(Norm2AllModes$ComposeNormalizer2, spanQuickCheckYes, int32_t, $CharSequence*)},
 	{}
 };
 

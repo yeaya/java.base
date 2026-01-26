@@ -5,6 +5,7 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Lock = ::java::util::concurrent::locks::Lock;
 
 namespace java {
 	namespace util {
@@ -12,8 +13,8 @@ namespace java {
 			namespace locks {
 
 $MethodInfo _ReadWriteLock_MethodInfo_[] = {
-	{"readLock", "()Ljava/util/concurrent/locks/Lock;", nullptr, $PUBLIC | $ABSTRACT},
-	{"writeLock", "()Ljava/util/concurrent/locks/Lock;", nullptr, $PUBLIC | $ABSTRACT},
+	{"readLock", "()Ljava/util/concurrent/locks/Lock;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ReadWriteLock, readLock, $Lock*)},
+	{"writeLock", "()Ljava/util/concurrent/locks/Lock;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ReadWriteLock, writeLock, $Lock*)},
 	{}
 };
 

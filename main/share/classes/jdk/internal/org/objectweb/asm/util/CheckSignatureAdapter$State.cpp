@@ -43,10 +43,10 @@ $FieldInfo _CheckSignatureAdapter$State_FieldInfo_[] = {
 };
 
 $MethodInfo _CheckSignatureAdapter$State_MethodInfo_[] = {
-	{"$values", "()[Ljdk/internal/org/objectweb/asm/util/CheckSignatureAdapter$State;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$CheckSignatureAdapter$StateArray*(*)()>(&CheckSignatureAdapter$State::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(CheckSignatureAdapter$State::*)($String*,int32_t)>(&CheckSignatureAdapter$State::init$))},
-	{"valueOf", "(Ljava/lang/String;)Ljdk/internal/org/objectweb/asm/util/CheckSignatureAdapter$State;", nullptr, $PUBLIC | $STATIC, $method(static_cast<CheckSignatureAdapter$State*(*)($String*)>(&CheckSignatureAdapter$State::valueOf))},
-	{"values", "()[Ljdk/internal/org/objectweb/asm/util/CheckSignatureAdapter$State;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$CheckSignatureAdapter$StateArray*(*)()>(&CheckSignatureAdapter$State::values))},
+	{"$values", "()[Ljdk/internal/org/objectweb/asm/util/CheckSignatureAdapter$State;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CheckSignatureAdapter$State, $values, $CheckSignatureAdapter$StateArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(CheckSignatureAdapter$State, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Ljdk/internal/org/objectweb/asm/util/CheckSignatureAdapter$State;", nullptr, $PUBLIC | $STATIC, $staticMethod(CheckSignatureAdapter$State, valueOf, CheckSignatureAdapter$State*, $String*)},
+	{"values", "()[Ljdk/internal/org/objectweb/asm/util/CheckSignatureAdapter$State;", nullptr, $PUBLIC | $STATIC, $staticMethod(CheckSignatureAdapter$State, values, $CheckSignatureAdapter$StateArray*)},
 	{}
 };
 

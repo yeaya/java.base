@@ -17,7 +17,7 @@ $FieldInfo _TelnetProtocolException_FieldInfo_[] = {
 };
 
 $MethodInfo _TelnetProtocolException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(TelnetProtocolException::*)($String*)>(&TelnetProtocolException::init$))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(TelnetProtocolException, init$, void, $String*)},
 	{}
 };
 

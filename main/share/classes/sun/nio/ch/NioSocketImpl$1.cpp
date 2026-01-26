@@ -22,11 +22,11 @@ $FieldInfo _NioSocketImpl$1_FieldInfo_[] = {
 };
 
 $MethodInfo _NioSocketImpl$1_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/ch/NioSocketImpl;)V", nullptr, 0, $method(static_cast<void(NioSocketImpl$1::*)($NioSocketImpl*)>(&NioSocketImpl$1::init$))},
-	{"available", "()I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"read", "()I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"read", "([BII)I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Lsun/nio/ch/NioSocketImpl;)V", nullptr, 0, $method(NioSocketImpl$1, init$, void, $NioSocketImpl*)},
+	{"available", "()I", nullptr, $PUBLIC, $virtualMethod(NioSocketImpl$1, available, int32_t), "java.io.IOException"},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(NioSocketImpl$1, close, void), "java.io.IOException"},
+	{"read", "()I", nullptr, $PUBLIC, $virtualMethod(NioSocketImpl$1, read, int32_t), "java.io.IOException"},
+	{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(NioSocketImpl$1, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
 	{}
 };
 

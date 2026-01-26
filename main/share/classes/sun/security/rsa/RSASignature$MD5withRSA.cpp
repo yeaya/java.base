@@ -16,7 +16,7 @@ namespace sun {
 		namespace rsa {
 
 $MethodInfo _RSASignature$MD5withRSA_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(RSASignature$MD5withRSA::*)()>(&RSASignature$MD5withRSA::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(RSASignature$MD5withRSA, init$, void)},
 	{}
 };
 

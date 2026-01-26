@@ -37,14 +37,14 @@ $FieldInfo _AbstractConstantGroup$WithCache_FieldInfo_[] = {
 };
 
 $MethodInfo _AbstractConstantGroup$WithCache_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, 0, $method(static_cast<void(AbstractConstantGroup$WithCache::*)(int32_t)>(&AbstractConstantGroup$WithCache::init$))},
-	{"fillCache", "(I)Ljava/lang/Object;", nullptr, 0},
-	{"get", "(I)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"get", "(ILjava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"initializeCache", "(Ljava/util/List;Ljava/lang/Object;)V", "(Ljava/util/List<Ljava/lang/Object;>;Ljava/lang/Object;)V", 0},
-	{"isPresent", "(I)Z", nullptr, $PUBLIC},
-	{"unwrapNull", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $STATIC, $method(static_cast<$Object*(*)(Object$*)>(&AbstractConstantGroup$WithCache::unwrapNull))},
-	{"wrapNull", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $STATIC, $method(static_cast<$Object*(*)(Object$*)>(&AbstractConstantGroup$WithCache::wrapNull))},
+	{"<init>", "(I)V", nullptr, 0, $method(AbstractConstantGroup$WithCache, init$, void, int32_t)},
+	{"fillCache", "(I)Ljava/lang/Object;", nullptr, 0, $virtualMethod(AbstractConstantGroup$WithCache, fillCache, $Object*, int32_t)},
+	{"get", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AbstractConstantGroup$WithCache, get, $Object*, int32_t)},
+	{"get", "(ILjava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AbstractConstantGroup$WithCache, get, $Object*, int32_t, Object$*)},
+	{"initializeCache", "(Ljava/util/List;Ljava/lang/Object;)V", "(Ljava/util/List<Ljava/lang/Object;>;Ljava/lang/Object;)V", 0, $virtualMethod(AbstractConstantGroup$WithCache, initializeCache, void, $List*, Object$*)},
+	{"isPresent", "(I)Z", nullptr, $PUBLIC, $virtualMethod(AbstractConstantGroup$WithCache, isPresent, bool, int32_t)},
+	{"unwrapNull", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $STATIC, $staticMethod(AbstractConstantGroup$WithCache, unwrapNull, $Object*, Object$*)},
+	{"wrapNull", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $STATIC, $staticMethod(AbstractConstantGroup$WithCache, wrapNull, $Object*, Object$*)},
 	{}
 };
 

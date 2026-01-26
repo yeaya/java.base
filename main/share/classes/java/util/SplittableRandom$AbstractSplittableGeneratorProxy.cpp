@@ -23,10 +23,10 @@ $FieldInfo _SplittableRandom$AbstractSplittableGeneratorProxy_FieldInfo_[] = {
 };
 
 $MethodInfo _SplittableRandom$AbstractSplittableGeneratorProxy_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/SplittableRandom;)V", nullptr, $PRIVATE, $method(static_cast<void(SplittableRandom$AbstractSplittableGeneratorProxy::*)($SplittableRandom*)>(&SplittableRandom$AbstractSplittableGeneratorProxy::init$))},
-	{"nextInt", "()I", nullptr, $PUBLIC},
-	{"nextLong", "()J", nullptr, $PUBLIC},
-	{"split", "(Ljava/util/random/RandomGenerator$SplittableGenerator;)Ljava/util/SplittableRandom;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/SplittableRandom;)V", nullptr, $PRIVATE, $method(SplittableRandom$AbstractSplittableGeneratorProxy, init$, void, $SplittableRandom*)},
+	{"nextInt", "()I", nullptr, $PUBLIC, $virtualMethod(SplittableRandom$AbstractSplittableGeneratorProxy, nextInt, int32_t)},
+	{"nextLong", "()J", nullptr, $PUBLIC, $virtualMethod(SplittableRandom$AbstractSplittableGeneratorProxy, nextLong, int64_t)},
+	{"split", "(Ljava/util/random/RandomGenerator$SplittableGenerator;)Ljava/util/SplittableRandom;", nullptr, $PUBLIC, $virtualMethod(SplittableRandom$AbstractSplittableGeneratorProxy, split, $RandomGenerator$SplittableGenerator*, $RandomGenerator$SplittableGenerator*)},
 	{}
 };
 

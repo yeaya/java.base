@@ -79,8 +79,8 @@ $FieldInfo ProcessImpl$Platform$$Lambda$lambda$launchMechanism$0::fieldInfos[2] 
 	{}
 };
 $MethodInfo ProcessImpl$Platform$$Lambda$lambda$launchMechanism$0::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/ProcessImpl$Platform;)V", nullptr, $PUBLIC, $method(static_cast<void(ProcessImpl$Platform$$Lambda$lambda$launchMechanism$0::*)(ProcessImpl$Platform*)>(&ProcessImpl$Platform$$Lambda$lambda$launchMechanism$0::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/ProcessImpl$Platform;)V", nullptr, $PUBLIC, $method(ProcessImpl$Platform$$Lambda$lambda$launchMechanism$0, init$, void, ProcessImpl$Platform*)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ProcessImpl$Platform$$Lambda$lambda$launchMechanism$0, run, $Object*)},
 	{}
 };
 $ClassInfo ProcessImpl$Platform$$Lambda$lambda$launchMechanism$0::classInfo$ = {
@@ -108,13 +108,13 @@ $FieldInfo _ProcessImpl$Platform_FieldInfo_[] = {
 };
 
 $MethodInfo _ProcessImpl$Platform_MethodInfo_[] = {
-	{"$values", "()[Ljava/lang/ProcessImpl$Platform;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$ProcessImpl$PlatformArray*(*)()>(&ProcessImpl$Platform::$values))},
-	{"<init>", "(Ljava/lang/String;I[Ljava/lang/ProcessImpl$LaunchMechanism;)V", "([Ljava/lang/ProcessImpl$LaunchMechanism;)V", $PRIVATE | $TRANSIENT, $method(static_cast<void(ProcessImpl$Platform::*)($String*,int32_t,$ProcessImpl$LaunchMechanismArray*)>(&ProcessImpl$Platform::init$))},
-	{"get", "()Ljava/lang/ProcessImpl$Platform;", nullptr, $STATIC, $method(static_cast<ProcessImpl$Platform*(*)()>(&ProcessImpl$Platform::get))},
-	{"lambda$launchMechanism$0", "()Ljava/lang/ProcessImpl$LaunchMechanism;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$ProcessImpl$LaunchMechanism*(ProcessImpl$Platform::*)()>(&ProcessImpl$Platform::lambda$launchMechanism$0))},
-	{"launchMechanism", "()Ljava/lang/ProcessImpl$LaunchMechanism;", nullptr, 0, $method(static_cast<$ProcessImpl$LaunchMechanism*(ProcessImpl$Platform::*)()>(&ProcessImpl$Platform::launchMechanism))},
-	{"valueOf", "(Ljava/lang/String;)Ljava/lang/ProcessImpl$Platform;", nullptr, $PUBLIC | $STATIC, $method(static_cast<ProcessImpl$Platform*(*)($String*)>(&ProcessImpl$Platform::valueOf))},
-	{"values", "()[Ljava/lang/ProcessImpl$Platform;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$ProcessImpl$PlatformArray*(*)()>(&ProcessImpl$Platform::values))},
+	{"$values", "()[Ljava/lang/ProcessImpl$Platform;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ProcessImpl$Platform, $values, $ProcessImpl$PlatformArray*)},
+	{"<init>", "(Ljava/lang/String;I[Ljava/lang/ProcessImpl$LaunchMechanism;)V", "([Ljava/lang/ProcessImpl$LaunchMechanism;)V", $PRIVATE | $TRANSIENT, $method(ProcessImpl$Platform, init$, void, $String*, int32_t, $ProcessImpl$LaunchMechanismArray*)},
+	{"get", "()Ljava/lang/ProcessImpl$Platform;", nullptr, $STATIC, $staticMethod(ProcessImpl$Platform, get, ProcessImpl$Platform*)},
+	{"lambda$launchMechanism$0", "()Ljava/lang/ProcessImpl$LaunchMechanism;", nullptr, $PRIVATE | $SYNTHETIC, $method(ProcessImpl$Platform, lambda$launchMechanism$0, $ProcessImpl$LaunchMechanism*)},
+	{"launchMechanism", "()Ljava/lang/ProcessImpl$LaunchMechanism;", nullptr, 0, $method(ProcessImpl$Platform, launchMechanism, $ProcessImpl$LaunchMechanism*)},
+	{"valueOf", "(Ljava/lang/String;)Ljava/lang/ProcessImpl$Platform;", nullptr, $PUBLIC | $STATIC, $staticMethod(ProcessImpl$Platform, valueOf, ProcessImpl$Platform*, $String*)},
+	{"values", "()[Ljava/lang/ProcessImpl$Platform;", nullptr, $PUBLIC | $STATIC, $staticMethod(ProcessImpl$Platform, values, $ProcessImpl$PlatformArray*)},
 	{}
 };
 

@@ -28,8 +28,8 @@ $FieldInfo _ReuseBuf_FieldInfo_[] = {
 };
 
 $MethodInfo _ReuseBuf_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ReuseBuf::*)()>(&ReuseBuf::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&ReuseBuf::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ReuseBuf, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ReuseBuf, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

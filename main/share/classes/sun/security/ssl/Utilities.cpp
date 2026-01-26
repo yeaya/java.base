@@ -57,18 +57,18 @@ $FieldInfo _Utilities_FieldInfo_[] = {
 };
 
 $MethodInfo _Utilities_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Utilities::*)()>(&Utilities::init$))},
-	{"addToSNIServerNameList", "(Ljava/util/List;Ljava/lang/String;)Ljava/util/List;", "(Ljava/util/List<Ljavax/net/ssl/SNIServerName;>;Ljava/lang/String;)Ljava/util/List<Ljavax/net/ssl/SNIServerName;>;", $STATIC, $method(static_cast<$List*(*)($List*,$String*)>(&Utilities::addToSNIServerNameList))},
-	{"byte16HexString", "(I)Ljava/lang/String;", nullptr, $STATIC, $method(static_cast<$String*(*)(int32_t)>(&Utilities::byte16HexString))},
-	{"getBooleanProperty", "(Ljava/lang/String;Z)Z", nullptr, $STATIC, $method(static_cast<bool(*)($String*,bool)>(&Utilities::getBooleanProperty))},
-	{"indent", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $method(static_cast<$String*(*)($String*)>(&Utilities::indent))},
-	{"indent", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $method(static_cast<$String*(*)($String*,$String*)>(&Utilities::indent))},
-	{"rawToSNIHostName", "(Ljava/lang/String;)Ljavax/net/ssl/SNIHostName;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$SNIHostName*(*)($String*)>(&Utilities::rawToSNIHostName))},
-	{"reverseBytes", "([B)V", nullptr, $STATIC, $method(static_cast<void(*)($bytes*)>(&Utilities::reverseBytes))},
-	{"swap", "([BII)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($bytes*,int32_t,int32_t)>(&Utilities::swap))},
-	{"toByteArray", "(Ljava/math/BigInteger;)[B", nullptr, $STATIC, $method(static_cast<$bytes*(*)($BigInteger*)>(&Utilities::toByteArray))},
-	{"toHexString", "([B)Ljava/lang/String;", nullptr, $STATIC, $method(static_cast<$String*(*)($bytes*)>(&Utilities::toHexString))},
-	{"toHexString", "(J)Ljava/lang/String;", nullptr, $STATIC, $method(static_cast<$String*(*)(int64_t)>(&Utilities::toHexString))},
+	{"<init>", "()V", nullptr, 0, $method(Utilities, init$, void)},
+	{"addToSNIServerNameList", "(Ljava/util/List;Ljava/lang/String;)Ljava/util/List;", "(Ljava/util/List<Ljavax/net/ssl/SNIServerName;>;Ljava/lang/String;)Ljava/util/List<Ljavax/net/ssl/SNIServerName;>;", $STATIC, $staticMethod(Utilities, addToSNIServerNameList, $List*, $List*, $String*)},
+	{"byte16HexString", "(I)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(Utilities, byte16HexString, $String*, int32_t)},
+	{"getBooleanProperty", "(Ljava/lang/String;Z)Z", nullptr, $STATIC, $staticMethod(Utilities, getBooleanProperty, bool, $String*, bool)},
+	{"indent", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(Utilities, indent, $String*, $String*)},
+	{"indent", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(Utilities, indent, $String*, $String*, $String*)},
+	{"rawToSNIHostName", "(Ljava/lang/String;)Ljavax/net/ssl/SNIHostName;", nullptr, $PRIVATE | $STATIC, $staticMethod(Utilities, rawToSNIHostName, $SNIHostName*, $String*)},
+	{"reverseBytes", "([B)V", nullptr, $STATIC, $staticMethod(Utilities, reverseBytes, void, $bytes*)},
+	{"swap", "([BII)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Utilities, swap, void, $bytes*, int32_t, int32_t)},
+	{"toByteArray", "(Ljava/math/BigInteger;)[B", nullptr, $STATIC, $staticMethod(Utilities, toByteArray, $bytes*, $BigInteger*)},
+	{"toHexString", "([B)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(Utilities, toHexString, $String*, $bytes*)},
+	{"toHexString", "(J)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(Utilities, toHexString, $String*, int64_t)},
 	{}
 };
 

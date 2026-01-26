@@ -27,8 +27,8 @@ $FieldInfo _FinalizerHistogramTest_FieldInfo_[] = {
 };
 
 $MethodInfo _FinalizerHistogramTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(FinalizerHistogramTest::*)()>(&FinalizerHistogramTest::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&FinalizerHistogramTest::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(FinalizerHistogramTest, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(FinalizerHistogramTest, main, void, $StringArray*)},
 	{}
 };
 

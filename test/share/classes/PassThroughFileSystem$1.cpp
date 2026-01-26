@@ -23,8 +23,8 @@ $FieldInfo _PassThroughFileSystem$1_FieldInfo_[] = {
 };
 
 $MethodInfo _PassThroughFileSystem$1_MethodInfo_[] = {
-	{"<init>", "(LPassThroughFileSystem;Ljava/lang/Iterable;)V", "()V", 0, $method(static_cast<void(PassThroughFileSystem$1::*)($PassThroughFileSystem*,$Iterable*)>(&PassThroughFileSystem$1::init$))},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/nio/file/Path;>;", $PUBLIC},
+	{"<init>", "(LPassThroughFileSystem;Ljava/lang/Iterable;)V", "()V", 0, $method(PassThroughFileSystem$1, init$, void, $PassThroughFileSystem*, $Iterable*)},
+	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/nio/file/Path;>;", $PUBLIC, $virtualMethod(PassThroughFileSystem$1, iterator, $Iterator*)},
 	{}
 };
 

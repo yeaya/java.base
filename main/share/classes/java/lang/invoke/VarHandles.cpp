@@ -289,8 +289,8 @@ $FieldInfo VarHandles$$Lambda$lambda$filterValue$0::fieldInfos[4] = {
 	{}
 };
 $MethodInfo VarHandles$$Lambda$lambda$filterValue$0::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandle;Ljava/util/List;)V", nullptr, $PUBLIC, $method(static_cast<void(VarHandles$$Lambda$lambda$filterValue$0::*)($MethodHandle*,$MethodHandle*,$List*)>(&VarHandles$$Lambda$lambda$filterValue$0::init$))},
-	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandle;Ljava/util/List;)V", nullptr, $PUBLIC, $method(VarHandles$$Lambda$lambda$filterValue$0, init$, void, $MethodHandle*, $MethodHandle*, $List*)},
+	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(VarHandles$$Lambda$lambda$filterValue$0, apply, $Object*, Object$*, Object$*)},
 	{}
 };
 $ClassInfo VarHandles$$Lambda$lambda$filterValue$0::classInfo$ = {
@@ -332,8 +332,8 @@ $FieldInfo VarHandles$$Lambda$lambda$filterCoordinates$1$1::fieldInfos[3] = {
 	{}
 };
 $MethodInfo VarHandles$$Lambda$lambda$filterCoordinates$1$1::methodInfos[3] = {
-	{"<init>", "(I[Ljava/lang/invoke/MethodHandle;)V", nullptr, $PUBLIC, $method(static_cast<void(VarHandles$$Lambda$lambda$filterCoordinates$1$1::*)(int32_t,$MethodHandleArray*)>(&VarHandles$$Lambda$lambda$filterCoordinates$1$1::init$))},
-	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(I[Ljava/lang/invoke/MethodHandle;)V", nullptr, $PUBLIC, $method(VarHandles$$Lambda$lambda$filterCoordinates$1$1, init$, void, int32_t, $MethodHandleArray*)},
+	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(VarHandles$$Lambda$lambda$filterCoordinates$1$1, apply, $Object*, Object$*, Object$*)},
 	{}
 };
 $ClassInfo VarHandles$$Lambda$lambda$filterCoordinates$1$1::classInfo$ = {
@@ -375,8 +375,8 @@ $FieldInfo VarHandles$$Lambda$lambda$insertCoordinates$2$2::fieldInfos[3] = {
 	{}
 };
 $MethodInfo VarHandles$$Lambda$lambda$insertCoordinates$2$2::methodInfos[3] = {
-	{"<init>", "(I[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(static_cast<void(VarHandles$$Lambda$lambda$insertCoordinates$2$2::*)(int32_t,$ObjectArray*)>(&VarHandles$$Lambda$lambda$insertCoordinates$2$2::init$))},
-	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(I[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(VarHandles$$Lambda$lambda$insertCoordinates$2$2, init$, void, int32_t, $ObjectArray*)},
+	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(VarHandles$$Lambda$lambda$insertCoordinates$2$2, apply, $Object*, Object$*, Object$*)},
 	{}
 };
 $ClassInfo VarHandles$$Lambda$lambda$insertCoordinates$2$2::classInfo$ = {
@@ -421,8 +421,8 @@ $FieldInfo VarHandles$$Lambda$lambda$permuteCoordinates$3$3::fieldInfos[4] = {
 	{}
 };
 $MethodInfo VarHandles$$Lambda$lambda$permuteCoordinates$3$3::methodInfos[3] = {
-	{"<init>", "(Ljava/util/List;Ljava/util/List;[I)V", nullptr, $PUBLIC, $method(static_cast<void(VarHandles$$Lambda$lambda$permuteCoordinates$3$3::*)($List*,$List*,$ints*)>(&VarHandles$$Lambda$lambda$permuteCoordinates$3$3::init$))},
-	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/List;Ljava/util/List;[I)V", nullptr, $PUBLIC, $method(VarHandles$$Lambda$lambda$permuteCoordinates$3$3, init$, void, $List*, $List*, $ints*)},
+	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(VarHandles$$Lambda$lambda$permuteCoordinates$3$3, apply, $Object*, Object$*, Object$*)},
 	{}
 };
 $ClassInfo VarHandles$$Lambda$lambda$permuteCoordinates$3$3::classInfo$ = {
@@ -464,8 +464,8 @@ $FieldInfo VarHandles$$Lambda$lambda$collectCoordinates$4$4::fieldInfos[3] = {
 	{}
 };
 $MethodInfo VarHandles$$Lambda$lambda$collectCoordinates$4$4::methodInfos[3] = {
-	{"<init>", "(ILjava/lang/invoke/MethodHandle;)V", nullptr, $PUBLIC, $method(static_cast<void(VarHandles$$Lambda$lambda$collectCoordinates$4$4::*)(int32_t,$MethodHandle*)>(&VarHandles$$Lambda$lambda$collectCoordinates$4$4::init$))},
-	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(ILjava/lang/invoke/MethodHandle;)V", nullptr, $PUBLIC, $method(VarHandles$$Lambda$lambda$collectCoordinates$4$4, init$, void, int32_t, $MethodHandle*)},
+	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(VarHandles$$Lambda$lambda$collectCoordinates$4$4, apply, $Object*, Object$*, Object$*)},
 	{}
 };
 $ClassInfo VarHandles$$Lambda$lambda$collectCoordinates$4$4::classInfo$ = {
@@ -507,8 +507,8 @@ $FieldInfo VarHandles$$Lambda$lambda$dropCoordinates$5$5::fieldInfos[3] = {
 	{}
 };
 $MethodInfo VarHandles$$Lambda$lambda$dropCoordinates$5$5::methodInfos[3] = {
-	{"<init>", "(I[Ljava/lang/Class;)V", nullptr, $PUBLIC, $method(static_cast<void(VarHandles$$Lambda$lambda$dropCoordinates$5$5::*)(int32_t,$ClassArray*)>(&VarHandles$$Lambda$lambda$dropCoordinates$5$5::init$))},
-	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(I[Ljava/lang/Class;)V", nullptr, $PUBLIC, $method(VarHandles$$Lambda$lambda$dropCoordinates$5$5, init$, void, int32_t, $ClassArray*)},
+	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(VarHandles$$Lambda$lambda$dropCoordinates$5$5, apply, $Object*, Object$*, Object$*)},
 	{}
 };
 $ClassInfo VarHandles$$Lambda$lambda$dropCoordinates$5$5::classInfo$ = {
@@ -540,8 +540,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo VarHandles$$Lambda$isCheckedException$6::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(VarHandles$$Lambda$isCheckedException$6::*)()>(&VarHandles$$Lambda$isCheckedException$6::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(VarHandles$$Lambda$isCheckedException$6, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(VarHandles$$Lambda$isCheckedException$6, test, bool, Object$*)},
 	{}
 };
 $ClassInfo VarHandles$$Lambda$isCheckedException$6::classInfo$ = {
@@ -565,33 +565,33 @@ $FieldInfo _VarHandles_FieldInfo_[] = {
 };
 
 $MethodInfo _VarHandles_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(VarHandles::*)()>(&VarHandles::init$))},
-	{"byteArrayViewHandle", "(Ljava/lang/Class;Z)Ljava/lang/invoke/VarHandle;", "(Ljava/lang/Class<*>;Z)Ljava/lang/invoke/VarHandle;", $STATIC, $method(static_cast<$VarHandle*(*)($Class*,bool)>(&VarHandles::byteArrayViewHandle))},
-	{"collectCoordinates", "(Ljava/lang/invoke/VarHandle;ILjava/lang/invoke/MethodHandle;)Ljava/lang/invoke/VarHandle;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$VarHandle*(*)($VarHandle*,int32_t,$MethodHandle*)>(&VarHandles::collectCoordinates))},
-	{"dropCoordinates", "(Ljava/lang/invoke/VarHandle;I[Ljava/lang/Class;)Ljava/lang/invoke/VarHandle;", "(Ljava/lang/invoke/VarHandle;I[Ljava/lang/Class<*>;)Ljava/lang/invoke/VarHandle;", $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<$VarHandle*(*)($VarHandle*,int32_t,$ClassArray*)>(&VarHandles::dropCoordinates))},
-	{"filterCoordinates", "(Ljava/lang/invoke/VarHandle;I[Ljava/lang/invoke/MethodHandle;)Ljava/lang/invoke/VarHandle;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<$VarHandle*(*)($VarHandle*,int32_t,$MethodHandleArray*)>(&VarHandles::filterCoordinates))},
-	{"filterValue", "(Ljava/lang/invoke/VarHandle;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandle;)Ljava/lang/invoke/VarHandle;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$VarHandle*(*)($VarHandle*,$MethodHandle*,$MethodHandle*)>(&VarHandles::filterValue))},
-	{"getFieldFromReceiverAndOffset", "(Ljava/lang/Class;JLjava/lang/Class;)Ljava/lang/reflect/Field;", "(Ljava/lang/Class<*>;JLjava/lang/Class<*>;)Ljava/lang/reflect/Field;", $STATIC, $method(static_cast<$Field*(*)($Class*,int64_t,$Class*)>(&VarHandles::getFieldFromReceiverAndOffset))},
-	{"getStaticFieldFromBaseAndOffset", "(Ljava/lang/Object;JLjava/lang/Class;)Ljava/lang/reflect/Field;", "(Ljava/lang/Object;JLjava/lang/Class<*>;)Ljava/lang/reflect/Field;", $STATIC, $method(static_cast<$Field*(*)(Object$*,int64_t,$Class*)>(&VarHandles::getStaticFieldFromBaseAndOffset))},
-	{"insertCoordinates", "(Ljava/lang/invoke/VarHandle;I[Ljava/lang/Object;)Ljava/lang/invoke/VarHandle;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<$VarHandle*(*)($VarHandle*,int32_t,$ObjectArray*)>(&VarHandles::insertCoordinates))},
-	{"isCheckedException", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PRIVATE | $STATIC, $method(static_cast<bool(*)($Class*)>(&VarHandles::isCheckedException))},
-	{"joinDuplicateArgs", "(Ljava/lang/invoke/MethodHandle;III)Ljava/lang/invoke/MethodHandle;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$MethodHandle*(*)($MethodHandle*,int32_t,int32_t,int32_t)>(&VarHandles::joinDuplicateArgs))},
-	{"lambda$collectCoordinates$4", "(ILjava/lang/invoke/MethodHandle;Ljava/lang/invoke/VarHandle$AccessMode;Ljava/lang/invoke/MethodHandle;)Ljava/lang/invoke/MethodHandle;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$MethodHandle*(*)(int32_t,$MethodHandle*,$VarHandle$AccessMode*,$MethodHandle*)>(&VarHandles::lambda$collectCoordinates$4))},
-	{"lambda$dropCoordinates$5", "(I[Ljava/lang/Class;Ljava/lang/invoke/VarHandle$AccessMode;Ljava/lang/invoke/MethodHandle;)Ljava/lang/invoke/MethodHandle;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$MethodHandle*(*)(int32_t,$ClassArray*,$VarHandle$AccessMode*,$MethodHandle*)>(&VarHandles::lambda$dropCoordinates$5))},
-	{"lambda$filterCoordinates$1", "(I[Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/VarHandle$AccessMode;Ljava/lang/invoke/MethodHandle;)Ljava/lang/invoke/MethodHandle;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$MethodHandle*(*)(int32_t,$MethodHandleArray*,$VarHandle$AccessMode*,$MethodHandle*)>(&VarHandles::lambda$filterCoordinates$1))},
-	{"lambda$filterValue$0", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandle;Ljava/util/List;Ljava/lang/invoke/VarHandle$AccessMode;Ljava/lang/invoke/MethodHandle;)Ljava/lang/invoke/MethodHandle;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$MethodHandle*(*)($MethodHandle*,$MethodHandle*,$List*,$VarHandle$AccessMode*,$MethodHandle*)>(&VarHandles::lambda$filterValue$0))},
-	{"lambda$insertCoordinates$2", "(I[Ljava/lang/Object;Ljava/lang/invoke/VarHandle$AccessMode;Ljava/lang/invoke/MethodHandle;)Ljava/lang/invoke/MethodHandle;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$MethodHandle*(*)(int32_t,$ObjectArray*,$VarHandle$AccessMode*,$MethodHandle*)>(&VarHandles::lambda$insertCoordinates$2))},
-	{"lambda$permuteCoordinates$3", "(Ljava/util/List;Ljava/util/List;[ILjava/lang/invoke/VarHandle$AccessMode;Ljava/lang/invoke/MethodHandle;)Ljava/lang/invoke/MethodHandle;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$MethodHandle*(*)($List*,$List*,$ints*,$VarHandle$AccessMode*,$MethodHandle*)>(&VarHandles::lambda$permuteCoordinates$3))},
-	{"makeArrayElementHandle", "(Ljava/lang/Class;)Ljava/lang/invoke/VarHandle;", "(Ljava/lang/Class<*>;)Ljava/lang/invoke/VarHandle;", $STATIC, $method(static_cast<$VarHandle*(*)($Class*)>(&VarHandles::makeArrayElementHandle))},
-	{"makeByteBufferViewHandle", "(Ljava/lang/Class;Z)Ljava/lang/invoke/VarHandle;", "(Ljava/lang/Class<*>;Z)Ljava/lang/invoke/VarHandle;", $STATIC, $method(static_cast<$VarHandle*(*)($Class*,bool)>(&VarHandles::makeByteBufferViewHandle))},
-	{"makeFieldHandle", "(Ljava/lang/invoke/MemberName;Ljava/lang/Class;Ljava/lang/Class;Z)Ljava/lang/invoke/VarHandle;", "(Ljava/lang/invoke/MemberName;Ljava/lang/Class<*>;Ljava/lang/Class<*>;Z)Ljava/lang/invoke/VarHandle;", $STATIC, $method(static_cast<$VarHandle*(*)($MemberName*,$Class*,$Class*,bool)>(&VarHandles::makeFieldHandle))},
-	{"makeMemoryAddressViewHandle", "(Ljava/lang/Class;ZJLjava/nio/ByteOrder;)Ljava/lang/invoke/VarHandle;", "(Ljava/lang/Class<*>;ZJLjava/nio/ByteOrder;)Ljava/lang/invoke/VarHandle;", $STATIC, $method(static_cast<$VarHandle*(*)($Class*,bool,int64_t,$ByteOrder*)>(&VarHandles::makeMemoryAddressViewHandle))},
-	{"maybeAdapt", "(Ljava/lang/invoke/VarHandle;)Ljava/lang/invoke/VarHandle;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$VarHandle*(*)($VarHandle*)>(&VarHandles::maybeAdapt))},
-	{"methodTypeFor", "(Ljava/lang/invoke/VarHandle$AccessType;Ljava/lang/invoke/MethodType;Ljava/util/List;Ljava/util/List;)Ljava/lang/invoke/MethodType;", "(Ljava/lang/invoke/VarHandle$AccessType;Ljava/lang/invoke/MethodType;Ljava/util/List<Ljava/lang/Class<*>;>;Ljava/util/List<Ljava/lang/Class<*>;>;)Ljava/lang/invoke/MethodType;", $PRIVATE | $STATIC, $method(static_cast<$MethodType*(*)($VarHandle$AccessType*,$MethodType*,$List*,$List*)>(&VarHandles::methodTypeFor))},
-	{"noCheckedExceptions", "(Ljava/lang/invoke/MethodHandle;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($MethodHandle*)>(&VarHandles::noCheckedExceptions))},
-	{"numTrailingArgs", "(Ljava/lang/invoke/VarHandle$AccessType;)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)($VarHandle$AccessType*)>(&VarHandles::numTrailingArgs))},
-	{"permuteCoordinates", "(Ljava/lang/invoke/VarHandle;Ljava/util/List;[I)Ljava/lang/invoke/VarHandle;", "(Ljava/lang/invoke/VarHandle;Ljava/util/List<Ljava/lang/Class<*>;>;[I)Ljava/lang/invoke/VarHandle;", $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<$VarHandle*(*)($VarHandle*,$List*,$ints*)>(&VarHandles::permuteCoordinates))},
-	{"reorderArrayFor", "(Ljava/lang/invoke/VarHandle$AccessType;Ljava/util/List;[I)[I", "(Ljava/lang/invoke/VarHandle$AccessType;Ljava/util/List<Ljava/lang/Class<*>;>;[I)[I", $PRIVATE | $STATIC, $method(static_cast<$ints*(*)($VarHandle$AccessType*,$List*,$ints*)>(&VarHandles::reorderArrayFor))},
+	{"<init>", "()V", nullptr, 0, $method(VarHandles, init$, void)},
+	{"byteArrayViewHandle", "(Ljava/lang/Class;Z)Ljava/lang/invoke/VarHandle;", "(Ljava/lang/Class<*>;Z)Ljava/lang/invoke/VarHandle;", $STATIC, $staticMethod(VarHandles, byteArrayViewHandle, $VarHandle*, $Class*, bool)},
+	{"collectCoordinates", "(Ljava/lang/invoke/VarHandle;ILjava/lang/invoke/MethodHandle;)Ljava/lang/invoke/VarHandle;", nullptr, $PUBLIC | $STATIC, $staticMethod(VarHandles, collectCoordinates, $VarHandle*, $VarHandle*, int32_t, $MethodHandle*)},
+	{"dropCoordinates", "(Ljava/lang/invoke/VarHandle;I[Ljava/lang/Class;)Ljava/lang/invoke/VarHandle;", "(Ljava/lang/invoke/VarHandle;I[Ljava/lang/Class<*>;)Ljava/lang/invoke/VarHandle;", $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(VarHandles, dropCoordinates, $VarHandle*, $VarHandle*, int32_t, $ClassArray*)},
+	{"filterCoordinates", "(Ljava/lang/invoke/VarHandle;I[Ljava/lang/invoke/MethodHandle;)Ljava/lang/invoke/VarHandle;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(VarHandles, filterCoordinates, $VarHandle*, $VarHandle*, int32_t, $MethodHandleArray*)},
+	{"filterValue", "(Ljava/lang/invoke/VarHandle;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandle;)Ljava/lang/invoke/VarHandle;", nullptr, $PUBLIC | $STATIC, $staticMethod(VarHandles, filterValue, $VarHandle*, $VarHandle*, $MethodHandle*, $MethodHandle*)},
+	{"getFieldFromReceiverAndOffset", "(Ljava/lang/Class;JLjava/lang/Class;)Ljava/lang/reflect/Field;", "(Ljava/lang/Class<*>;JLjava/lang/Class<*>;)Ljava/lang/reflect/Field;", $STATIC, $staticMethod(VarHandles, getFieldFromReceiverAndOffset, $Field*, $Class*, int64_t, $Class*)},
+	{"getStaticFieldFromBaseAndOffset", "(Ljava/lang/Object;JLjava/lang/Class;)Ljava/lang/reflect/Field;", "(Ljava/lang/Object;JLjava/lang/Class<*>;)Ljava/lang/reflect/Field;", $STATIC, $staticMethod(VarHandles, getStaticFieldFromBaseAndOffset, $Field*, Object$*, int64_t, $Class*)},
+	{"insertCoordinates", "(Ljava/lang/invoke/VarHandle;I[Ljava/lang/Object;)Ljava/lang/invoke/VarHandle;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(VarHandles, insertCoordinates, $VarHandle*, $VarHandle*, int32_t, $ObjectArray*)},
+	{"isCheckedException", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PRIVATE | $STATIC, $staticMethod(VarHandles, isCheckedException, bool, $Class*)},
+	{"joinDuplicateArgs", "(Ljava/lang/invoke/MethodHandle;III)Ljava/lang/invoke/MethodHandle;", nullptr, $PRIVATE | $STATIC, $staticMethod(VarHandles, joinDuplicateArgs, $MethodHandle*, $MethodHandle*, int32_t, int32_t, int32_t)},
+	{"lambda$collectCoordinates$4", "(ILjava/lang/invoke/MethodHandle;Ljava/lang/invoke/VarHandle$AccessMode;Ljava/lang/invoke/MethodHandle;)Ljava/lang/invoke/MethodHandle;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(VarHandles, lambda$collectCoordinates$4, $MethodHandle*, int32_t, $MethodHandle*, $VarHandle$AccessMode*, $MethodHandle*)},
+	{"lambda$dropCoordinates$5", "(I[Ljava/lang/Class;Ljava/lang/invoke/VarHandle$AccessMode;Ljava/lang/invoke/MethodHandle;)Ljava/lang/invoke/MethodHandle;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(VarHandles, lambda$dropCoordinates$5, $MethodHandle*, int32_t, $ClassArray*, $VarHandle$AccessMode*, $MethodHandle*)},
+	{"lambda$filterCoordinates$1", "(I[Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/VarHandle$AccessMode;Ljava/lang/invoke/MethodHandle;)Ljava/lang/invoke/MethodHandle;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(VarHandles, lambda$filterCoordinates$1, $MethodHandle*, int32_t, $MethodHandleArray*, $VarHandle$AccessMode*, $MethodHandle*)},
+	{"lambda$filterValue$0", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandle;Ljava/util/List;Ljava/lang/invoke/VarHandle$AccessMode;Ljava/lang/invoke/MethodHandle;)Ljava/lang/invoke/MethodHandle;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(VarHandles, lambda$filterValue$0, $MethodHandle*, $MethodHandle*, $MethodHandle*, $List*, $VarHandle$AccessMode*, $MethodHandle*)},
+	{"lambda$insertCoordinates$2", "(I[Ljava/lang/Object;Ljava/lang/invoke/VarHandle$AccessMode;Ljava/lang/invoke/MethodHandle;)Ljava/lang/invoke/MethodHandle;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(VarHandles, lambda$insertCoordinates$2, $MethodHandle*, int32_t, $ObjectArray*, $VarHandle$AccessMode*, $MethodHandle*)},
+	{"lambda$permuteCoordinates$3", "(Ljava/util/List;Ljava/util/List;[ILjava/lang/invoke/VarHandle$AccessMode;Ljava/lang/invoke/MethodHandle;)Ljava/lang/invoke/MethodHandle;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(VarHandles, lambda$permuteCoordinates$3, $MethodHandle*, $List*, $List*, $ints*, $VarHandle$AccessMode*, $MethodHandle*)},
+	{"makeArrayElementHandle", "(Ljava/lang/Class;)Ljava/lang/invoke/VarHandle;", "(Ljava/lang/Class<*>;)Ljava/lang/invoke/VarHandle;", $STATIC, $staticMethod(VarHandles, makeArrayElementHandle, $VarHandle*, $Class*)},
+	{"makeByteBufferViewHandle", "(Ljava/lang/Class;Z)Ljava/lang/invoke/VarHandle;", "(Ljava/lang/Class<*>;Z)Ljava/lang/invoke/VarHandle;", $STATIC, $staticMethod(VarHandles, makeByteBufferViewHandle, $VarHandle*, $Class*, bool)},
+	{"makeFieldHandle", "(Ljava/lang/invoke/MemberName;Ljava/lang/Class;Ljava/lang/Class;Z)Ljava/lang/invoke/VarHandle;", "(Ljava/lang/invoke/MemberName;Ljava/lang/Class<*>;Ljava/lang/Class<*>;Z)Ljava/lang/invoke/VarHandle;", $STATIC, $staticMethod(VarHandles, makeFieldHandle, $VarHandle*, $MemberName*, $Class*, $Class*, bool)},
+	{"makeMemoryAddressViewHandle", "(Ljava/lang/Class;ZJLjava/nio/ByteOrder;)Ljava/lang/invoke/VarHandle;", "(Ljava/lang/Class<*>;ZJLjava/nio/ByteOrder;)Ljava/lang/invoke/VarHandle;", $STATIC, $staticMethod(VarHandles, makeMemoryAddressViewHandle, $VarHandle*, $Class*, bool, int64_t, $ByteOrder*)},
+	{"maybeAdapt", "(Ljava/lang/invoke/VarHandle;)Ljava/lang/invoke/VarHandle;", nullptr, $PRIVATE | $STATIC, $staticMethod(VarHandles, maybeAdapt, $VarHandle*, $VarHandle*)},
+	{"methodTypeFor", "(Ljava/lang/invoke/VarHandle$AccessType;Ljava/lang/invoke/MethodType;Ljava/util/List;Ljava/util/List;)Ljava/lang/invoke/MethodType;", "(Ljava/lang/invoke/VarHandle$AccessType;Ljava/lang/invoke/MethodType;Ljava/util/List<Ljava/lang/Class<*>;>;Ljava/util/List<Ljava/lang/Class<*>;>;)Ljava/lang/invoke/MethodType;", $PRIVATE | $STATIC, $staticMethod(VarHandles, methodTypeFor, $MethodType*, $VarHandle$AccessType*, $MethodType*, $List*, $List*)},
+	{"noCheckedExceptions", "(Ljava/lang/invoke/MethodHandle;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(VarHandles, noCheckedExceptions, void, $MethodHandle*)},
+	{"numTrailingArgs", "(Ljava/lang/invoke/VarHandle$AccessType;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(VarHandles, numTrailingArgs, int32_t, $VarHandle$AccessType*)},
+	{"permuteCoordinates", "(Ljava/lang/invoke/VarHandle;Ljava/util/List;[I)Ljava/lang/invoke/VarHandle;", "(Ljava/lang/invoke/VarHandle;Ljava/util/List<Ljava/lang/Class<*>;>;[I)Ljava/lang/invoke/VarHandle;", $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(VarHandles, permuteCoordinates, $VarHandle*, $VarHandle*, $List*, $ints*)},
+	{"reorderArrayFor", "(Ljava/lang/invoke/VarHandle$AccessType;Ljava/util/List;[I)[I", "(Ljava/lang/invoke/VarHandle$AccessType;Ljava/util/List<Ljava/lang/Class<*>;>;[I)[I", $PRIVATE | $STATIC, $staticMethod(VarHandles, reorderArrayFor, $ints*, $VarHandle$AccessType*, $List*, $ints*)},
 	{}
 };
 

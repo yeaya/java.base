@@ -20,8 +20,8 @@ $FieldInfo _TransferTo$1_FieldInfo_[] = {
 };
 
 $MethodInfo _TransferTo$1_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, 0, $method(static_cast<void(TransferTo$1::*)(int32_t)>(&TransferTo$1::init$))},
-	{"write", "(I)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(I)V", nullptr, 0, $method(TransferTo$1, init$, void, int32_t)},
+	{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(TransferTo$1, write, void, int32_t), "java.io.IOException"},
 	{}
 };
 

@@ -13,8 +13,8 @@ namespace sun {
 		namespace resources {
 
 $MethodInfo _BreakIteratorInfo_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(BreakIteratorInfo::*)()>(&BreakIteratorInfo::init$))},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(BreakIteratorInfo, init$, void)},
+	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(BreakIteratorInfo, getContents, $ObjectArray2*)},
 	{}
 };
 

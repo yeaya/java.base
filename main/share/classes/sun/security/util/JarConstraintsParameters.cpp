@@ -52,15 +52,15 @@ $FieldInfo _JarConstraintsParameters_FieldInfo_[] = {
 };
 
 $MethodInfo _JarConstraintsParameters_MethodInfo_[] = {
-	{"<init>", "([Ljava/security/CodeSigner;)V", nullptr, $PUBLIC, $method(static_cast<void(JarConstraintsParameters::*)($CodeSignerArray*)>(&JarConstraintsParameters::init$))},
-	{"anchorIsJdkCA", "()Z", nullptr, $PUBLIC},
-	{"extendedExceptionMsg", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getDate", "()Ljava/util/Date;", nullptr, $PUBLIC},
-	{"getKeys", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/security/Key;>;", $PUBLIC},
-	{"getVariant", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"init", "(Ljava/security/cert/CertPath;)V", nullptr, $PRIVATE, $method(static_cast<void(JarConstraintsParameters::*)($CertPath*)>(&JarConstraintsParameters::init))},
-	{"setExtendedExceptionMsg", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "([Ljava/security/CodeSigner;)V", nullptr, $PUBLIC, $method(JarConstraintsParameters, init$, void, $CodeSignerArray*)},
+	{"anchorIsJdkCA", "()Z", nullptr, $PUBLIC, $virtualMethod(JarConstraintsParameters, anchorIsJdkCA, bool)},
+	{"extendedExceptionMsg", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JarConstraintsParameters, extendedExceptionMsg, $String*)},
+	{"getDate", "()Ljava/util/Date;", nullptr, $PUBLIC, $virtualMethod(JarConstraintsParameters, getDate, $Date*)},
+	{"getKeys", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/security/Key;>;", $PUBLIC, $virtualMethod(JarConstraintsParameters, getKeys, $Set*)},
+	{"getVariant", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JarConstraintsParameters, getVariant, $String*)},
+	{"init", "(Ljava/security/cert/CertPath;)V", nullptr, $PRIVATE, $method(JarConstraintsParameters, init, void, $CertPath*)},
+	{"setExtendedExceptionMsg", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(JarConstraintsParameters, setExtendedExceptionMsg, void, $String*, $String*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JarConstraintsParameters, toString, $String*)},
 	{}
 };
 

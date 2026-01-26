@@ -26,9 +26,9 @@ namespace java {
 		namespace invoke {
 
 $MethodInfo _MethodHandleImpl$Makers$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(MethodHandleImpl$Makers$1::*)()>(&MethodHandleImpl$Makers$1::init$))},
-	{"apply", "(Ljava/lang/invoke/MethodHandle;)Ljava/lang/invoke/LambdaForm;", nullptr, $PUBLIC},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "()V", nullptr, 0, $method(MethodHandleImpl$Makers$1, init$, void)},
+	{"apply", "(Ljava/lang/invoke/MethodHandle;)Ljava/lang/invoke/LambdaForm;", nullptr, $PUBLIC, $virtualMethod(MethodHandleImpl$Makers$1, apply, $LambdaForm*, $MethodHandle*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(MethodHandleImpl$Makers$1, apply, $Object*, Object$*)},
 	{}
 };
 

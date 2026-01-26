@@ -19,9 +19,9 @@ $FieldInfo _WindowsNativeDispatcher$FirstStream_FieldInfo_[] = {
 };
 
 $MethodInfo _WindowsNativeDispatcher$FirstStream_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(WindowsNativeDispatcher$FirstStream::*)()>(&WindowsNativeDispatcher$FirstStream::init$))},
-	{"handle", "()J", nullptr, $PUBLIC},
-	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(WindowsNativeDispatcher$FirstStream, init$, void)},
+	{"handle", "()J", nullptr, $PUBLIC, $virtualMethod(WindowsNativeDispatcher$FirstStream, handle, int64_t)},
+	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(WindowsNativeDispatcher$FirstStream, name, $String*)},
 	{}
 };
 

@@ -7,13 +7,15 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $ForkJoinPool = ::java::util::concurrent::ForkJoinPool;
+using $ForkJoinWorkerThread = ::java::util::concurrent::ForkJoinWorkerThread;
 
 namespace java {
 	namespace util {
 		namespace concurrent {
 
 $MethodInfo _ForkJoinPool$ForkJoinWorkerThreadFactory_MethodInfo_[] = {
-	{"newThread", "(Ljava/util/concurrent/ForkJoinPool;)Ljava/util/concurrent/ForkJoinWorkerThread;", nullptr, $PUBLIC | $ABSTRACT},
+	{"newThread", "(Ljava/util/concurrent/ForkJoinPool;)Ljava/util/concurrent/ForkJoinWorkerThread;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ForkJoinPool$ForkJoinWorkerThreadFactory, newThread, $ForkJoinWorkerThread*, $ForkJoinPool*)},
 	{}
 };
 

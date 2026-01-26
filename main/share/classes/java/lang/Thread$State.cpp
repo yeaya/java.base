@@ -32,10 +32,10 @@ $FieldInfo _Thread$State_FieldInfo_[] = {
 };
 
 $MethodInfo _Thread$State_MethodInfo_[] = {
-	{"$values", "()[Ljava/lang/Thread$State;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Thread$StateArray*(*)()>(&Thread$State::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(Thread$State::*)($String*,int32_t)>(&Thread$State::init$))},
-	{"valueOf", "(Ljava/lang/String;)Ljava/lang/Thread$State;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Thread$State*(*)($String*)>(&Thread$State::valueOf))},
-	{"values", "()[Ljava/lang/Thread$State;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Thread$StateArray*(*)()>(&Thread$State::values))},
+	{"$values", "()[Ljava/lang/Thread$State;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Thread$State, $values, $Thread$StateArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Thread$State, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Ljava/lang/Thread$State;", nullptr, $PUBLIC | $STATIC, $staticMethod(Thread$State, valueOf, Thread$State*, $String*)},
+	{"values", "()[Ljava/lang/Thread$State;", nullptr, $PUBLIC | $STATIC, $staticMethod(Thread$State, values, $Thread$StateArray*)},
 	{}
 };
 

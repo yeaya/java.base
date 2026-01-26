@@ -124,14 +124,14 @@ $FieldInfo _URICertStore_FieldInfo_[] = {
 };
 
 $MethodInfo _URICertStore_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/cert/CertStoreParameters;)V", nullptr, 0, $method(static_cast<void(URICertStore::*)($CertStoreParameters*)>(&URICertStore::init$)), "java.security.InvalidAlgorithmParameterException,java.security.NoSuchAlgorithmException"},
-	{"engineGetCRLs", "(Ljava/security/cert/CRLSelector;)Ljava/util/Collection;", "(Ljava/security/cert/CRLSelector;)Ljava/util/Collection<Ljava/security/cert/X509CRL;>;", $PUBLIC | $SYNCHRONIZED, nullptr, "java.security.cert.CertStoreException"},
-	{"engineGetCertificates", "(Ljava/security/cert/CertSelector;)Ljava/util/Collection;", "(Ljava/security/cert/CertSelector;)Ljava/util/Collection<Ljava/security/cert/X509Certificate;>;", $PUBLIC | $SYNCHRONIZED, nullptr, "java.security.cert.CertStoreException"},
-	{"getInstance", "(Ljava/security/cert/URICertStoreParameters;)Ljava/security/cert/CertStore;", nullptr, $STATIC | $SYNCHRONIZED, $method(static_cast<$CertStore*(*)($URICertStoreParameters*)>(&URICertStore::getInstance)), "java.security.NoSuchAlgorithmException,java.security.InvalidAlgorithmParameterException"},
-	{"getInstance", "(Lsun/security/x509/AccessDescription;)Ljava/security/cert/CertStore;", nullptr, $STATIC, $method(static_cast<$CertStore*(*)($AccessDescription*)>(&URICertStore::getInstance))},
-	{"getMatchingCRLs", "(Ljava/security/cert/X509CRL;Ljava/security/cert/CRLSelector;)Ljava/util/Collection;", "(Ljava/security/cert/X509CRL;Ljava/security/cert/CRLSelector;)Ljava/util/Collection<Ljava/security/cert/X509CRL;>;", $PRIVATE | $STATIC, $method(static_cast<$Collection*(*)($X509CRL*,$CRLSelector*)>(&URICertStore::getMatchingCRLs))},
-	{"getMatchingCerts", "(Ljava/util/Collection;Ljava/security/cert/CertSelector;)Ljava/util/Collection;", "(Ljava/util/Collection<Ljava/security/cert/X509Certificate;>;Ljava/security/cert/CertSelector;)Ljava/util/Collection<Ljava/security/cert/X509Certificate;>;", $PRIVATE | $STATIC, $method(static_cast<$Collection*(*)($Collection*,$CertSelector*)>(&URICertStore::getMatchingCerts))},
-	{"initializeTimeout", "(Ljava/lang/String;I)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)($String*,int32_t)>(&URICertStore::initializeTimeout))},
+	{"<init>", "(Ljava/security/cert/CertStoreParameters;)V", nullptr, 0, $method(URICertStore, init$, void, $CertStoreParameters*), "java.security.InvalidAlgorithmParameterException,java.security.NoSuchAlgorithmException"},
+	{"engineGetCRLs", "(Ljava/security/cert/CRLSelector;)Ljava/util/Collection;", "(Ljava/security/cert/CRLSelector;)Ljava/util/Collection<Ljava/security/cert/X509CRL;>;", $PUBLIC | $SYNCHRONIZED, $virtualMethod(URICertStore, engineGetCRLs, $Collection*, $CRLSelector*), "java.security.cert.CertStoreException"},
+	{"engineGetCertificates", "(Ljava/security/cert/CertSelector;)Ljava/util/Collection;", "(Ljava/security/cert/CertSelector;)Ljava/util/Collection<Ljava/security/cert/X509Certificate;>;", $PUBLIC | $SYNCHRONIZED, $virtualMethod(URICertStore, engineGetCertificates, $Collection*, $CertSelector*), "java.security.cert.CertStoreException"},
+	{"getInstance", "(Ljava/security/cert/URICertStoreParameters;)Ljava/security/cert/CertStore;", nullptr, $STATIC | $SYNCHRONIZED, $staticMethod(URICertStore, getInstance, $CertStore*, $URICertStoreParameters*), "java.security.NoSuchAlgorithmException,java.security.InvalidAlgorithmParameterException"},
+	{"getInstance", "(Lsun/security/x509/AccessDescription;)Ljava/security/cert/CertStore;", nullptr, $STATIC, $staticMethod(URICertStore, getInstance, $CertStore*, $AccessDescription*)},
+	{"getMatchingCRLs", "(Ljava/security/cert/X509CRL;Ljava/security/cert/CRLSelector;)Ljava/util/Collection;", "(Ljava/security/cert/X509CRL;Ljava/security/cert/CRLSelector;)Ljava/util/Collection<Ljava/security/cert/X509CRL;>;", $PRIVATE | $STATIC, $staticMethod(URICertStore, getMatchingCRLs, $Collection*, $X509CRL*, $CRLSelector*)},
+	{"getMatchingCerts", "(Ljava/util/Collection;Ljava/security/cert/CertSelector;)Ljava/util/Collection;", "(Ljava/util/Collection<Ljava/security/cert/X509Certificate;>;Ljava/security/cert/CertSelector;)Ljava/util/Collection<Ljava/security/cert/X509Certificate;>;", $PRIVATE | $STATIC, $staticMethod(URICertStore, getMatchingCerts, $Collection*, $Collection*, $CertSelector*)},
+	{"initializeTimeout", "(Ljava/lang/String;I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(URICertStore, initializeTimeout, int32_t, $String*, int32_t)},
 	{}
 };
 

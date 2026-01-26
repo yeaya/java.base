@@ -11,9 +11,11 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $BigInteger = ::java::math::BigInteger;
 using $CRLException = ::java::security::cert::CRLException;
 using $CRLReason = ::java::security::cert::CRLReason;
 using $X509Extension = ::java::security::cert::X509Extension;
+using $Date = ::java::util::Date;
 using $X500Principal = ::javax::security::auth::x500::X500Principal;
 using $X509CRLEntryImpl = ::sun::security::x509::X509CRLEntryImpl;
 
@@ -22,15 +24,15 @@ namespace java {
 		namespace cert {
 
 $MethodInfo _X509CRLEntry_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(X509CRLEntry::*)()>(&X509CRLEntry::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getCertificateIssuer", "()Ljavax/security/auth/x500/X500Principal;", nullptr, $PUBLIC},
-	{"getEncoded", "()[B", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.security.cert.CRLException"},
-	{"getRevocationDate", "()Ljava/util/Date;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getRevocationReason", "()Ljava/security/cert/CRLReason;", nullptr, $PUBLIC},
-	{"getSerialNumber", "()Ljava/math/BigInteger;", nullptr, $PUBLIC | $ABSTRACT},
-	{"hasExtensions", "()Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"hashCode", "()I", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(X509CRLEntry, init$, void)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(X509CRLEntry, equals, bool, Object$*)},
+	{"getCertificateIssuer", "()Ljavax/security/auth/x500/X500Principal;", nullptr, $PUBLIC, $virtualMethod(X509CRLEntry, getCertificateIssuer, $X500Principal*)},
+	{"getEncoded", "()[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(X509CRLEntry, getEncoded, $bytes*), "java.security.cert.CRLException"},
+	{"getRevocationDate", "()Ljava/util/Date;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(X509CRLEntry, getRevocationDate, $Date*)},
+	{"getRevocationReason", "()Ljava/security/cert/CRLReason;", nullptr, $PUBLIC, $virtualMethod(X509CRLEntry, getRevocationReason, $CRLReason*)},
+	{"getSerialNumber", "()Ljava/math/BigInteger;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(X509CRLEntry, getSerialNumber, $BigInteger*)},
+	{"hasExtensions", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(X509CRLEntry, hasExtensions, bool)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(X509CRLEntry, hashCode, int32_t)},
 	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
 	{}
 };

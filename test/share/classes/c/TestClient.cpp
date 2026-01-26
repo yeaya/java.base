@@ -11,8 +11,8 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace c {
 
 $MethodInfo _TestClient_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TestClient::*)()>(&TestClient::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&TestClient::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TestClient, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TestClient, main, void, $StringArray*)},
 	{}
 };
 

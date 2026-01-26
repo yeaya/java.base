@@ -53,16 +53,16 @@ $FieldInfo _DateTimeFormatterBuilder$NumberPrinterParser_FieldInfo_[] = {
 };
 
 $MethodInfo _DateTimeFormatterBuilder$NumberPrinterParser_MethodInfo_[] = {
-	{"<init>", "(Ljava/time/temporal/TemporalField;IILjava/time/format/SignStyle;)V", nullptr, 0, $method(static_cast<void(DateTimeFormatterBuilder$NumberPrinterParser::*)($TemporalField*,int32_t,int32_t,$SignStyle*)>(&DateTimeFormatterBuilder$NumberPrinterParser::init$))},
-	{"<init>", "(Ljava/time/temporal/TemporalField;IILjava/time/format/SignStyle;I)V", nullptr, $PROTECTED, $method(static_cast<void(DateTimeFormatterBuilder$NumberPrinterParser::*)($TemporalField*,int32_t,int32_t,$SignStyle*,int32_t)>(&DateTimeFormatterBuilder$NumberPrinterParser::init$))},
-	{"format", "(Ljava/time/format/DateTimePrintContext;Ljava/lang/StringBuilder;)Z", nullptr, $PUBLIC},
-	{"getValue", "(Ljava/time/format/DateTimePrintContext;J)J", nullptr, 0},
-	{"isFixedWidth", "(Ljava/time/format/DateTimeParseContext;)Z", nullptr, 0},
-	{"parse", "(Ljava/time/format/DateTimeParseContext;Ljava/lang/CharSequence;I)I", nullptr, $PUBLIC},
-	{"setValue", "(Ljava/time/format/DateTimeParseContext;JII)I", nullptr, 0},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"withFixedWidth", "()Ljava/time/format/DateTimeFormatterBuilder$NumberPrinterParser;", nullptr, 0},
-	{"withSubsequentWidth", "(I)Ljava/time/format/DateTimeFormatterBuilder$NumberPrinterParser;", nullptr, 0},
+	{"<init>", "(Ljava/time/temporal/TemporalField;IILjava/time/format/SignStyle;)V", nullptr, 0, $method(DateTimeFormatterBuilder$NumberPrinterParser, init$, void, $TemporalField*, int32_t, int32_t, $SignStyle*)},
+	{"<init>", "(Ljava/time/temporal/TemporalField;IILjava/time/format/SignStyle;I)V", nullptr, $PROTECTED, $method(DateTimeFormatterBuilder$NumberPrinterParser, init$, void, $TemporalField*, int32_t, int32_t, $SignStyle*, int32_t)},
+	{"format", "(Ljava/time/format/DateTimePrintContext;Ljava/lang/StringBuilder;)Z", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$NumberPrinterParser, format, bool, $DateTimePrintContext*, $StringBuilder*)},
+	{"getValue", "(Ljava/time/format/DateTimePrintContext;J)J", nullptr, 0, $virtualMethod(DateTimeFormatterBuilder$NumberPrinterParser, getValue, int64_t, $DateTimePrintContext*, int64_t)},
+	{"isFixedWidth", "(Ljava/time/format/DateTimeParseContext;)Z", nullptr, 0, $virtualMethod(DateTimeFormatterBuilder$NumberPrinterParser, isFixedWidth, bool, $DateTimeParseContext*)},
+	{"parse", "(Ljava/time/format/DateTimeParseContext;Ljava/lang/CharSequence;I)I", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$NumberPrinterParser, parse, int32_t, $DateTimeParseContext*, $CharSequence*, int32_t)},
+	{"setValue", "(Ljava/time/format/DateTimeParseContext;JII)I", nullptr, 0, $virtualMethod(DateTimeFormatterBuilder$NumberPrinterParser, setValue, int32_t, $DateTimeParseContext*, int64_t, int32_t, int32_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$NumberPrinterParser, toString, $String*)},
+	{"withFixedWidth", "()Ljava/time/format/DateTimeFormatterBuilder$NumberPrinterParser;", nullptr, 0, $virtualMethod(DateTimeFormatterBuilder$NumberPrinterParser, withFixedWidth, DateTimeFormatterBuilder$NumberPrinterParser*)},
+	{"withSubsequentWidth", "(I)Ljava/time/format/DateTimeFormatterBuilder$NumberPrinterParser;", nullptr, 0, $virtualMethod(DateTimeFormatterBuilder$NumberPrinterParser, withSubsequentWidth, DateTimeFormatterBuilder$NumberPrinterParser*, int32_t)},
 	{}
 };
 

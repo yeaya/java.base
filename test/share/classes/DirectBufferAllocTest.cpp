@@ -83,8 +83,8 @@ $FieldInfo DirectBufferAllocTest$$Lambda$lambda$main$1::fieldInfos[3] = {
 	{}
 };
 $MethodInfo DirectBufferAllocTest$$Lambda$lambda$main$1::methodInfos[3] = {
-	{"<init>", "(II)V", nullptr, $PUBLIC, $method(static_cast<void(DirectBufferAllocTest$$Lambda$lambda$main$1::*)(int32_t,int32_t)>(&DirectBufferAllocTest$$Lambda$lambda$main$1::init$))},
-	{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(II)V", nullptr, $PUBLIC, $method(DirectBufferAllocTest$$Lambda$lambda$main$1, init$, void, int32_t, int32_t)},
+	{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DirectBufferAllocTest$$Lambda$lambda$main$1, apply, $Object*, int32_t)},
 	{}
 };
 $ClassInfo DirectBufferAllocTest$$Lambda$lambda$main$1::classInfo$ = {
@@ -123,8 +123,8 @@ $FieldInfo DirectBufferAllocTest$$Lambda$submit$1::fieldInfos[2] = {
 	{}
 };
 $MethodInfo DirectBufferAllocTest$$Lambda$submit$1::methodInfos[3] = {
-	{"<init>", "(Ljava/util/concurrent/ExecutorService;)V", nullptr, $PUBLIC, $method(static_cast<void(DirectBufferAllocTest$$Lambda$submit$1::*)($ExecutorService*)>(&DirectBufferAllocTest$$Lambda$submit$1::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/concurrent/ExecutorService;)V", nullptr, $PUBLIC, $method(DirectBufferAllocTest$$Lambda$submit$1, init$, void, $ExecutorService*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DirectBufferAllocTest$$Lambda$submit$1, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo DirectBufferAllocTest$$Lambda$submit$1::classInfo$ = {
@@ -156,8 +156,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo DirectBufferAllocTest$$Lambda$isDone$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DirectBufferAllocTest$$Lambda$isDone$2::*)()>(&DirectBufferAllocTest$$Lambda$isDone$2::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DirectBufferAllocTest$$Lambda$isDone$2, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(DirectBufferAllocTest$$Lambda$isDone$2, test, bool, Object$*)},
 	{}
 };
 $ClassInfo DirectBufferAllocTest$$Lambda$isDone$2::classInfo$ = {
@@ -202,8 +202,8 @@ $FieldInfo DirectBufferAllocTest$$Lambda$lambda$main$0$3::fieldInfos[4] = {
 	{}
 };
 $MethodInfo DirectBufferAllocTest$$Lambda$lambda$main$0$3::methodInfos[3] = {
-	{"<init>", "(III)V", nullptr, $PUBLIC, $method(static_cast<void(DirectBufferAllocTest$$Lambda$lambda$main$0$3::*)(int32_t,int32_t,int32_t)>(&DirectBufferAllocTest$$Lambda$lambda$main$0$3::init$))},
-	{"call", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(III)V", nullptr, $PUBLIC, $method(DirectBufferAllocTest$$Lambda$lambda$main$0$3, init$, void, int32_t, int32_t, int32_t)},
+	{"call", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DirectBufferAllocTest$$Lambda$lambda$main$0$3, call, $Object*)},
 	{}
 };
 $ClassInfo DirectBufferAllocTest$$Lambda$lambda$main$0$3::classInfo$ = {
@@ -229,10 +229,10 @@ $FieldInfo _DirectBufferAllocTest_FieldInfo_[] = {
 };
 
 $MethodInfo _DirectBufferAllocTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DirectBufferAllocTest::*)()>(&DirectBufferAllocTest::init$))},
-	{"lambda$main$0", "(III)Ljava/lang/Void;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Void*(*)(int32_t,int32_t,int32_t)>(&DirectBufferAllocTest::lambda$main$0)), "java.lang.Exception"},
-	{"lambda$main$1", "(III)Ljava/util/concurrent/Callable;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Callable*(*)(int32_t,int32_t,int32_t)>(&DirectBufferAllocTest::lambda$main$1))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&DirectBufferAllocTest::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DirectBufferAllocTest, init$, void)},
+	{"lambda$main$0", "(III)Ljava/lang/Void;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DirectBufferAllocTest, lambda$main$0, $Void*, int32_t, int32_t, int32_t), "java.lang.Exception"},
+	{"lambda$main$1", "(III)Ljava/util/concurrent/Callable;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DirectBufferAllocTest, lambda$main$1, $Callable*, int32_t, int32_t, int32_t)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(DirectBufferAllocTest, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

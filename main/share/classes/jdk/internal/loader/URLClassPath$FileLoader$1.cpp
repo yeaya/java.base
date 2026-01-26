@@ -33,12 +33,12 @@ $FieldInfo _URLClassPath$FileLoader$1_FieldInfo_[] = {
 };
 
 $MethodInfo _URLClassPath$FileLoader$1_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/loader/URLClassPath$FileLoader;Ljava/lang/String;Ljava/net/URL;Ljava/io/File;)V", nullptr, 0, $method(static_cast<void(URLClassPath$FileLoader$1::*)($URLClassPath$FileLoader*,$String*,$URL*,$File*)>(&URLClassPath$FileLoader$1::init$))},
-	{"getCodeSourceURL", "()Ljava/net/URL;", nullptr, $PUBLIC},
-	{"getContentLength", "()I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"getInputStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getURL", "()Ljava/net/URL;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/loader/URLClassPath$FileLoader;Ljava/lang/String;Ljava/net/URL;Ljava/io/File;)V", nullptr, 0, $method(URLClassPath$FileLoader$1, init$, void, $URLClassPath$FileLoader*, $String*, $URL*, $File*)},
+	{"getCodeSourceURL", "()Ljava/net/URL;", nullptr, $PUBLIC, $virtualMethod(URLClassPath$FileLoader$1, getCodeSourceURL, $URL*)},
+	{"getContentLength", "()I", nullptr, $PUBLIC, $virtualMethod(URLClassPath$FileLoader$1, getContentLength, int32_t), "java.io.IOException"},
+	{"getInputStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(URLClassPath$FileLoader$1, getInputStream, $InputStream*), "java.io.IOException"},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(URLClassPath$FileLoader$1, getName, $String*)},
+	{"getURL", "()Ljava/net/URL;", nullptr, $PUBLIC, $virtualMethod(URLClassPath$FileLoader$1, getURL, $URL*)},
 	{}
 };
 

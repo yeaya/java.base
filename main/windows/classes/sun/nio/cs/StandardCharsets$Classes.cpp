@@ -28,8 +28,8 @@ $FieldInfo _StandardCharsets$Classes_FieldInfo_[] = {
 };
 
 $MethodInfo _StandardCharsets$Classes_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(StandardCharsets$Classes::*)()>(&StandardCharsets$Classes::init$))},
-	{"init", "([Ljava/lang/Object;)V", nullptr, $PROTECTED},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(StandardCharsets$Classes, init$, void)},
+	{"init", "([Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(StandardCharsets$Classes, init, void, $ObjectArray*)},
 	{}
 };
 

@@ -46,8 +46,8 @@ $FieldInfo _CookieExtension$CookieSpec_FieldInfo_[] = {
 };
 
 $MethodInfo _CookieExtension$CookieSpec_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE, $method(static_cast<void(CookieExtension$CookieSpec::*)($HandshakeContext*,$ByteBuffer*)>(&CookieExtension$CookieSpec::init$)), "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE, $method(CookieExtension$CookieSpec, init$, void, $HandshakeContext*, $ByteBuffer*), "java.io.IOException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CookieExtension$CookieSpec, toString, $String*)},
 	{}
 };
 

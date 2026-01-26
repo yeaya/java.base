@@ -70,6 +70,7 @@ using namespace ::java::lang;
 using namespace ::java::lang::reflect;
 using namespace ::java::io;
 using namespace ::java::nio;
+using namespace ::java::nio::file;
 using namespace ::java::net;
 using namespace ::java::util;
 using namespace ::java::util::stream;
@@ -85,7 +86,7 @@ namespace java {
 };
 
 ::java::lang::MethodInfo _RuntimeModuleReader_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/file/Path;Ljava/net/URI;)V", nullptr, 0, $method(&RuntimeModuleReader::init$)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(RuntimeModuleReader, init$, void, $String*)},
 	{"find", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/net/URI;>;", 1025, nullptr, "java.io.IOException"},
 	{"list", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljava/lang/String;>;", 1025, nullptr, "java.io.IOException"},
 	{"open", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/io/InputStream;>;", 1, nullptr, "java.io.IOException"},

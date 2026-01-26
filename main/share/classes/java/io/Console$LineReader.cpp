@@ -27,10 +27,10 @@ $FieldInfo _Console$LineReader_FieldInfo_[] = {
 };
 
 $MethodInfo _Console$LineReader_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/Console;Ljava/io/Reader;)V", nullptr, 0, $method(static_cast<void(Console$LineReader::*)($Console*,$Reader*)>(&Console$LineReader::init$))},
-	{"close", "()V", nullptr, $PUBLIC},
-	{"read", "([CII)I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"ready", "()Z", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljava/io/Console;Ljava/io/Reader;)V", nullptr, 0, $method(Console$LineReader, init$, void, $Console*, $Reader*)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(Console$LineReader, close, void)},
+	{"read", "([CII)I", nullptr, $PUBLIC, $virtualMethod(Console$LineReader, read, int32_t, $chars*, int32_t, int32_t), "java.io.IOException"},
+	{"ready", "()Z", nullptr, $PUBLIC, $virtualMethod(Console$LineReader, ready, bool), "java.io.IOException"},
 	{}
 };
 

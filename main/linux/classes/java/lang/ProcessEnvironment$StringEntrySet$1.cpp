@@ -28,10 +28,10 @@ $FieldInfo _ProcessEnvironment$StringEntrySet$1_FieldInfo_[] = {
 };
 
 $MethodInfo _ProcessEnvironment$StringEntrySet$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/ProcessEnvironment$StringEntrySet;)V", nullptr, 0, $method(static_cast<void(ProcessEnvironment$StringEntrySet$1::*)($ProcessEnvironment$StringEntrySet*)>(&ProcessEnvironment$StringEntrySet$1::init$))},
-	{"hasNext", "()Z", nullptr, $PUBLIC},
-	{"next", "()Ljava/util/Map$Entry;", "()Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/String;>;", $PUBLIC},
-	{"remove", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/ProcessEnvironment$StringEntrySet;)V", nullptr, 0, $method(ProcessEnvironment$StringEntrySet$1, init$, void, $ProcessEnvironment$StringEntrySet*)},
+	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(ProcessEnvironment$StringEntrySet$1, hasNext, bool)},
+	{"next", "()Ljava/util/Map$Entry;", "()Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/String;>;", $PUBLIC, $virtualMethod(ProcessEnvironment$StringEntrySet$1, next, $Object*)},
+	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(ProcessEnvironment$StringEntrySet$1, remove, void)},
 	{}
 };
 

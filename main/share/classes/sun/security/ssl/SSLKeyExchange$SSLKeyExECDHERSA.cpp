@@ -31,7 +31,7 @@ $FieldInfo _SSLKeyExchange$SSLKeyExECDHERSA_FieldInfo_[] = {
 };
 
 $MethodInfo _SSLKeyExchange$SSLKeyExECDHERSA_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(SSLKeyExchange$SSLKeyExECDHERSA::*)()>(&SSLKeyExchange$SSLKeyExECDHERSA::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(SSLKeyExchange$SSLKeyExECDHERSA, init$, void)},
 	{}
 };
 

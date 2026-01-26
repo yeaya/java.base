@@ -3,6 +3,7 @@
 #include <java/io/ObjectInputStream.h>
 #include <jcpp.h>
 
+using $ObjectInputStream = ::java::io::ObjectInputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -17,7 +18,7 @@ $CompoundAttribute _JavaObjectInputStreamReadString_Annotations_[] = {
 };
 
 $MethodInfo _JavaObjectInputStreamReadString_MethodInfo_[] = {
-	{"readString", "(Ljava/io/ObjectInputStream;)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
+	{"readString", "(Ljava/io/ObjectInputStream;)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JavaObjectInputStreamReadString, readString, $String*, $ObjectInputStream*), "java.io.IOException"},
 	{}
 };
 

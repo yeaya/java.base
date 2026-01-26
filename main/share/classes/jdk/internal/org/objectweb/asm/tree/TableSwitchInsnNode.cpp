@@ -42,10 +42,10 @@ $FieldInfo _TableSwitchInsnNode_FieldInfo_[] = {
 };
 
 $MethodInfo _TableSwitchInsnNode_MethodInfo_[] = {
-	{"<init>", "(IILjdk/internal/org/objectweb/asm/tree/LabelNode;[Ljdk/internal/org/objectweb/asm/tree/LabelNode;)V", nullptr, $PUBLIC | $TRANSIENT, $method(static_cast<void(TableSwitchInsnNode::*)(int32_t,int32_t,$LabelNode*,$LabelNodeArray*)>(&TableSwitchInsnNode::init$))},
-	{"accept", "(Ljdk/internal/org/objectweb/asm/MethodVisitor;)V", nullptr, $PUBLIC},
-	{"clone", "(Ljava/util/Map;)Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;", "(Ljava/util/Map<Ljdk/internal/org/objectweb/asm/tree/LabelNode;Ljdk/internal/org/objectweb/asm/tree/LabelNode;>;)Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;", $PUBLIC},
-	{"getType", "()I", nullptr, $PUBLIC},
+	{"<init>", "(IILjdk/internal/org/objectweb/asm/tree/LabelNode;[Ljdk/internal/org/objectweb/asm/tree/LabelNode;)V", nullptr, $PUBLIC | $TRANSIENT, $method(TableSwitchInsnNode, init$, void, int32_t, int32_t, $LabelNode*, $LabelNodeArray*)},
+	{"accept", "(Ljdk/internal/org/objectweb/asm/MethodVisitor;)V", nullptr, $PUBLIC, $virtualMethod(TableSwitchInsnNode, accept, void, $MethodVisitor*)},
+	{"clone", "(Ljava/util/Map;)Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;", "(Ljava/util/Map<Ljdk/internal/org/objectweb/asm/tree/LabelNode;Ljdk/internal/org/objectweb/asm/tree/LabelNode;>;)Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;", $PUBLIC, $virtualMethod(TableSwitchInsnNode, clone, $AbstractInsnNode*, $Map*)},
+	{"getType", "()I", nullptr, $PUBLIC, $virtualMethod(TableSwitchInsnNode, getType, int32_t)},
 	{}
 };
 

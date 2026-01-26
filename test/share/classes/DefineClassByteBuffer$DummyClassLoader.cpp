@@ -61,10 +61,10 @@ $FieldInfo _DefineClassByteBuffer$DummyClassLoader_FieldInfo_[] = {
 };
 
 $MethodInfo _DefineClassByteBuffer$DummyClassLoader_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, 0, $method(static_cast<void(DefineClassByteBuffer$DummyClassLoader::*)(int32_t)>(&DefineClassByteBuffer$DummyClassLoader::init$))},
-	{"findClass", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $PROTECTED, nullptr, "java.lang.ClassNotFoundException"},
-	{"loadClass", "(Ljava/lang/String;Z)Ljava/lang/Class;", "(Ljava/lang/String;Z)Ljava/lang/Class<*>;", $PROTECTED, nullptr, "java.lang.ClassNotFoundException"},
-	{"readClassFile", "(Ljava/lang/String;)Ljava/nio/ByteBuffer;", nullptr, $STATIC, $method(static_cast<$ByteBuffer*(*)($String*)>(&DefineClassByteBuffer$DummyClassLoader::readClassFile))},
+	{"<init>", "(I)V", nullptr, 0, $method(DefineClassByteBuffer$DummyClassLoader, init$, void, int32_t)},
+	{"findClass", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $PROTECTED, $virtualMethod(DefineClassByteBuffer$DummyClassLoader, findClass, $Class*, $String*), "java.lang.ClassNotFoundException"},
+	{"loadClass", "(Ljava/lang/String;Z)Ljava/lang/Class;", "(Ljava/lang/String;Z)Ljava/lang/Class<*>;", $PROTECTED, $virtualMethod(DefineClassByteBuffer$DummyClassLoader, loadClass, $Class*, $String*, bool), "java.lang.ClassNotFoundException"},
+	{"readClassFile", "(Ljava/lang/String;)Ljava/nio/ByteBuffer;", nullptr, $STATIC, $staticMethod(DefineClassByteBuffer$DummyClassLoader, readClassFile, $ByteBuffer*, $String*)},
 	{}
 };
 

@@ -114,16 +114,16 @@ $CompoundAttribute _TestClass2_MethodAnnotations_method99[] = {
 };
 
 $MethodInfo _TestClass2_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(TestClass2::*)()>(&TestClass2::init$))},
-	{"method1", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(TE;TT;)TT;", $PUBLIC, nullptr, nullptr, nullptr, _TestClass2_MethodAnnotations_method11},
-	{"method2", "()V", "()V^TF;", $PUBLIC, nullptr, "java.lang.Exception", nullptr, _TestClass2_MethodAnnotations_method22},
-	{"method3", "()[Ljava/lang/Object;", "()[TE;", $PUBLIC, nullptr, nullptr, nullptr, _TestClass2_MethodAnnotations_method33},
-	{"method4", "()[[Ljava/lang/Object;", "()[[TE;", $PUBLIC, nullptr, nullptr, nullptr, _TestClass2_MethodAnnotations_method44},
-	{"method5", "()Ljava/util/List;", "()Ljava/util/List<[TE;>;", $PUBLIC, nullptr, nullptr, nullptr, _TestClass2_MethodAnnotations_method55},
-	{"method6", "()Ljava/util/List;", "()Ljava/util/List<*>;", $PUBLIC, nullptr, nullptr, nullptr, _TestClass2_MethodAnnotations_method66},
-	{"method7", "()[Ljava/util/List;", "()[Ljava/util/List<*>;", $PUBLIC, nullptr, nullptr, nullptr, _TestClass2_MethodAnnotations_method77},
-	{"method8", "()Ljava/util/Map;", "<K:Ljava/lang/Object;V:Ljava/lang/Object;>()Ljava/util/Map<TK;TV;>;", $PUBLIC, nullptr, nullptr, nullptr, _TestClass2_MethodAnnotations_method88},
-	{"method9", "(Ljava/lang/Number;)Ljava/util/Set;", "<V:Ljava/lang/Number;:Ljava/lang/Runnable;>(TV;)Ljava/util/Set<TV;>;", $PUBLIC, nullptr, nullptr, nullptr, _TestClass2_MethodAnnotations_method99},
+	{"<init>", "()V", nullptr, 0, $method(TestClass2, init$, void)},
+	{"method1", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(TE;TT;)TT;", $PUBLIC, $virtualMethod(TestClass2, method1, $Object*, Object$*, Object$*), nullptr, nullptr, _TestClass2_MethodAnnotations_method11},
+	{"method2", "()V", "()V^TF;", $PUBLIC, $virtualMethod(TestClass2, method2, void), "java.lang.Exception", nullptr, _TestClass2_MethodAnnotations_method22},
+	{"method3", "()[Ljava/lang/Object;", "()[TE;", $PUBLIC, $virtualMethod(TestClass2, method3, $ObjectArray*), nullptr, nullptr, _TestClass2_MethodAnnotations_method33},
+	{"method4", "()[[Ljava/lang/Object;", "()[[TE;", $PUBLIC, $virtualMethod(TestClass2, method4, $ObjectArray2*), nullptr, nullptr, _TestClass2_MethodAnnotations_method44},
+	{"method5", "()Ljava/util/List;", "()Ljava/util/List<[TE;>;", $PUBLIC, $virtualMethod(TestClass2, method5, $List*), nullptr, nullptr, _TestClass2_MethodAnnotations_method55},
+	{"method6", "()Ljava/util/List;", "()Ljava/util/List<*>;", $PUBLIC, $virtualMethod(TestClass2, method6, $List*), nullptr, nullptr, _TestClass2_MethodAnnotations_method66},
+	{"method7", "()[Ljava/util/List;", "()[Ljava/util/List<*>;", $PUBLIC, $virtualMethod(TestClass2, method7, $ListArray*), nullptr, nullptr, _TestClass2_MethodAnnotations_method77},
+	{"method8", "()Ljava/util/Map;", "<K:Ljava/lang/Object;V:Ljava/lang/Object;>()Ljava/util/Map<TK;TV;>;", $PUBLIC, $virtualMethod(TestClass2, method8, $Map*), nullptr, nullptr, _TestClass2_MethodAnnotations_method88},
+	{"method9", "(Ljava/lang/Number;)Ljava/util/Set;", "<V:Ljava/lang/Number;:Ljava/lang/Runnable;>(TV;)Ljava/util/Set<TV;>;", $PUBLIC, $virtualMethod(TestClass2, method9, $Set*, $Number*), nullptr, nullptr, _TestClass2_MethodAnnotations_method99},
 	{}
 };
 

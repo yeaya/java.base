@@ -21,10 +21,10 @@ $FieldInfo _RSAOtherPrimeInfo_FieldInfo_[] = {
 };
 
 $MethodInfo _RSAOtherPrimeInfo_MethodInfo_[] = {
-	{"<init>", "(Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;)V", nullptr, $PUBLIC, $method(static_cast<void(RSAOtherPrimeInfo::*)($BigInteger*,$BigInteger*,$BigInteger*)>(&RSAOtherPrimeInfo::init$))},
-	{"getCrtCoefficient", "()Ljava/math/BigInteger;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$BigInteger*(RSAOtherPrimeInfo::*)()>(&RSAOtherPrimeInfo::getCrtCoefficient))},
-	{"getExponent", "()Ljava/math/BigInteger;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$BigInteger*(RSAOtherPrimeInfo::*)()>(&RSAOtherPrimeInfo::getExponent))},
-	{"getPrime", "()Ljava/math/BigInteger;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$BigInteger*(RSAOtherPrimeInfo::*)()>(&RSAOtherPrimeInfo::getPrime))},
+	{"<init>", "(Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;)V", nullptr, $PUBLIC, $method(RSAOtherPrimeInfo, init$, void, $BigInteger*, $BigInteger*, $BigInteger*)},
+	{"getCrtCoefficient", "()Ljava/math/BigInteger;", nullptr, $PUBLIC | $FINAL, $method(RSAOtherPrimeInfo, getCrtCoefficient, $BigInteger*)},
+	{"getExponent", "()Ljava/math/BigInteger;", nullptr, $PUBLIC | $FINAL, $method(RSAOtherPrimeInfo, getExponent, $BigInteger*)},
+	{"getPrime", "()Ljava/math/BigInteger;", nullptr, $PUBLIC | $FINAL, $method(RSAOtherPrimeInfo, getPrime, $BigInteger*)},
 	{}
 };
 

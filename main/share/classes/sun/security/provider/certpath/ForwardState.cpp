@@ -73,13 +73,13 @@ $FieldInfo _ForwardState_FieldInfo_[] = {
 };
 
 $MethodInfo _ForwardState_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ForwardState::*)()>(&ForwardState::init$))},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"initState", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/security/cert/PKIXCertPathChecker;>;)V", $PUBLIC, nullptr, "java.security.cert.CertPathValidatorException"},
-	{"isInitial", "()Z", nullptr, $PUBLIC},
-	{"keyParamsNeeded", "()Z", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"updateState", "(Ljava/security/cert/X509Certificate;)V", nullptr, $PUBLIC, nullptr, "java.security.cert.CertificateException,java.io.IOException,java.security.cert.CertPathValidatorException"},
+	{"<init>", "()V", nullptr, 0, $method(ForwardState, init$, void)},
+	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ForwardState, clone, $Object*)},
+	{"initState", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/security/cert/PKIXCertPathChecker;>;)V", $PUBLIC, $virtualMethod(ForwardState, initState, void, $List*), "java.security.cert.CertPathValidatorException"},
+	{"isInitial", "()Z", nullptr, $PUBLIC, $virtualMethod(ForwardState, isInitial, bool)},
+	{"keyParamsNeeded", "()Z", nullptr, $PUBLIC, $virtualMethod(ForwardState, keyParamsNeeded, bool)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ForwardState, toString, $String*)},
+	{"updateState", "(Ljava/security/cert/X509Certificate;)V", nullptr, $PUBLIC, $virtualMethod(ForwardState, updateState, void, $X509Certificate*), "java.security.cert.CertificateException,java.io.IOException,java.security.cert.CertPathValidatorException"},
 	{}
 };
 

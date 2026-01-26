@@ -8,7 +8,7 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace testPkg {
 
 $MethodInfo _Singleton_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Singleton::*)()>(&Singleton::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Singleton, init$, void)},
 	{}
 };
 

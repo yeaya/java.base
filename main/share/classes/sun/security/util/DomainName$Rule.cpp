@@ -24,7 +24,7 @@ $FieldInfo _DomainName$Rule_FieldInfo_[] = {
 };
 
 $MethodInfo _DomainName$Rule_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Lsun/security/util/DomainName$Rule$Type;Lsun/security/util/RegisteredDomain$Type;)V", nullptr, 0, $method(static_cast<void(DomainName$Rule::*)($String*,$DomainName$Rule$Type*,$RegisteredDomain$Type*)>(&DomainName$Rule::init$))},
+	{"<init>", "(Ljava/lang/String;Lsun/security/util/DomainName$Rule$Type;Lsun/security/util/RegisteredDomain$Type;)V", nullptr, 0, $method(DomainName$Rule, init$, void, $String*, $DomainName$Rule$Type*, $RegisteredDomain$Type*)},
 	{}
 };
 

@@ -20,10 +20,10 @@ $FieldInfo _ReadAhead$LimitedReader_FieldInfo_[] = {
 };
 
 $MethodInfo _ReadAhead$LimitedReader_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(static_cast<void(ReadAhead$LimitedReader::*)($String*,int32_t)>(&ReadAhead$LimitedReader::init$))},
-	{"close", "()V", nullptr, $PUBLIC},
-	{"read", "()I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"read", "([CII)I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(ReadAhead$LimitedReader, init$, void, $String*, int32_t)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(ReadAhead$LimitedReader, close, void)},
+	{"read", "()I", nullptr, $PUBLIC, $virtualMethod(ReadAhead$LimitedReader, read, int32_t), "java.io.IOException"},
+	{"read", "([CII)I", nullptr, $PUBLIC, $virtualMethod(ReadAhead$LimitedReader, read, int32_t, $chars*, int32_t, int32_t), "java.io.IOException"},
 	{}
 };
 

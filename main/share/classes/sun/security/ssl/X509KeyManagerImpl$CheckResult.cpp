@@ -30,10 +30,10 @@ $FieldInfo _X509KeyManagerImpl$CheckResult_FieldInfo_[] = {
 };
 
 $MethodInfo _X509KeyManagerImpl$CheckResult_MethodInfo_[] = {
-	{"$values", "()[Lsun/security/ssl/X509KeyManagerImpl$CheckResult;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$X509KeyManagerImpl$CheckResultArray*(*)()>(&X509KeyManagerImpl$CheckResult::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(X509KeyManagerImpl$CheckResult::*)($String*,int32_t)>(&X509KeyManagerImpl$CheckResult::init$))},
-	{"valueOf", "(Ljava/lang/String;)Lsun/security/ssl/X509KeyManagerImpl$CheckResult;", nullptr, $PUBLIC | $STATIC, $method(static_cast<X509KeyManagerImpl$CheckResult*(*)($String*)>(&X509KeyManagerImpl$CheckResult::valueOf))},
-	{"values", "()[Lsun/security/ssl/X509KeyManagerImpl$CheckResult;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$X509KeyManagerImpl$CheckResultArray*(*)()>(&X509KeyManagerImpl$CheckResult::values))},
+	{"$values", "()[Lsun/security/ssl/X509KeyManagerImpl$CheckResult;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(X509KeyManagerImpl$CheckResult, $values, $X509KeyManagerImpl$CheckResultArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(X509KeyManagerImpl$CheckResult, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Lsun/security/ssl/X509KeyManagerImpl$CheckResult;", nullptr, $PUBLIC | $STATIC, $staticMethod(X509KeyManagerImpl$CheckResult, valueOf, X509KeyManagerImpl$CheckResult*, $String*)},
+	{"values", "()[Lsun/security/ssl/X509KeyManagerImpl$CheckResult;", nullptr, $PUBLIC | $STATIC, $staticMethod(X509KeyManagerImpl$CheckResult, values, $X509KeyManagerImpl$CheckResultArray*)},
 	{}
 };
 

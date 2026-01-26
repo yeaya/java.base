@@ -33,8 +33,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo DupIntf$$Lambda$lambda$main$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DupIntf$$Lambda$lambda$main$0::*)()>(&DupIntf$$Lambda$lambda$main$0::init$))},
-	{"m", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DupIntf$$Lambda$lambda$main$0, init$, void)},
+	{"m", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DupIntf$$Lambda$lambda$main$0, m, $Object*)},
 	{}
 };
 $ClassInfo DupIntf$$Lambda$lambda$main$0::classInfo$ = {
@@ -52,9 +52,9 @@ $Class* DupIntf$$Lambda$lambda$main$0::load$($String* name, bool initialize) {
 $Class* DupIntf$$Lambda$lambda$main$0::class$ = nullptr;
 
 $MethodInfo _DupIntf_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DupIntf::*)()>(&DupIntf::init$))},
-	{"lambda$main$0", "()Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Object*(*)()>(&DupIntf::lambda$main$0))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&DupIntf::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DupIntf, init$, void)},
+	{"lambda$main$0", "()Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DupIntf, lambda$main$0, $Object*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(DupIntf, main, void, $StringArray*)},
 	{}
 };
 

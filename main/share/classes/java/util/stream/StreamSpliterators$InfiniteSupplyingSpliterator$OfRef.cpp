@@ -27,9 +27,9 @@ $FieldInfo _StreamSpliterators$InfiniteSupplyingSpliterator$OfRef_FieldInfo_[] =
 };
 
 $MethodInfo _StreamSpliterators$InfiniteSupplyingSpliterator$OfRef_MethodInfo_[] = {
-	{"<init>", "(JLjava/util/function/Supplier;)V", "(JLjava/util/function/Supplier<+TT;>;)V", 0, $method(static_cast<void(StreamSpliterators$InfiniteSupplyingSpliterator$OfRef::*)(int64_t,$Supplier*)>(&StreamSpliterators$InfiniteSupplyingSpliterator$OfRef::init$))},
-	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-TT;>;)Z", $PUBLIC},
-	{"trySplit", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TT;>;", $PUBLIC},
+	{"<init>", "(JLjava/util/function/Supplier;)V", "(JLjava/util/function/Supplier<+TT;>;)V", 0, $method(StreamSpliterators$InfiniteSupplyingSpliterator$OfRef, init$, void, int64_t, $Supplier*)},
+	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-TT;>;)Z", $PUBLIC, $virtualMethod(StreamSpliterators$InfiniteSupplyingSpliterator$OfRef, tryAdvance, bool, $Consumer*)},
+	{"trySplit", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TT;>;", $PUBLIC, $virtualMethod(StreamSpliterators$InfiniteSupplyingSpliterator$OfRef, trySplit, $Spliterator*)},
 	{}
 };
 

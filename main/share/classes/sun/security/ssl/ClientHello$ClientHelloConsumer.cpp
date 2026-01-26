@@ -69,11 +69,11 @@ namespace sun {
 		namespace ssl {
 
 $MethodInfo _ClientHello$ClientHelloConsumer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(ClientHello$ClientHelloConsumer::*)()>(&ClientHello$ClientHelloConsumer::init$))},
-	{"consume", "(Lsun/security/ssl/ConnectionContext;Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"negotiateProtocol", "(Lsun/security/ssl/ServerHandshakeContext;I)Lsun/security/ssl/ProtocolVersion;", nullptr, $PRIVATE, $method(static_cast<$ProtocolVersion*(ClientHello$ClientHelloConsumer::*)($ServerHandshakeContext*,int32_t)>(&ClientHello$ClientHelloConsumer::negotiateProtocol)), "javax.net.ssl.SSLException"},
-	{"negotiateProtocol", "(Lsun/security/ssl/ServerHandshakeContext;[I)Lsun/security/ssl/ProtocolVersion;", nullptr, $PRIVATE, $method(static_cast<$ProtocolVersion*(ClientHello$ClientHelloConsumer::*)($ServerHandshakeContext*,$ints*)>(&ClientHello$ClientHelloConsumer::negotiateProtocol)), "javax.net.ssl.SSLException"},
-	{"onClientHello", "(Lsun/security/ssl/ServerHandshakeContext;Lsun/security/ssl/ClientHello$ClientHelloMessage;)V", nullptr, $PRIVATE, $method(static_cast<void(ClientHello$ClientHelloConsumer::*)($ServerHandshakeContext*,$ClientHello$ClientHelloMessage*)>(&ClientHello$ClientHelloConsumer::onClientHello)), "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(ClientHello$ClientHelloConsumer, init$, void)},
+	{"consume", "(Lsun/security/ssl/ConnectionContext;Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(ClientHello$ClientHelloConsumer, consume, void, $ConnectionContext*, $ByteBuffer*), "java.io.IOException"},
+	{"negotiateProtocol", "(Lsun/security/ssl/ServerHandshakeContext;I)Lsun/security/ssl/ProtocolVersion;", nullptr, $PRIVATE, $method(ClientHello$ClientHelloConsumer, negotiateProtocol, $ProtocolVersion*, $ServerHandshakeContext*, int32_t), "javax.net.ssl.SSLException"},
+	{"negotiateProtocol", "(Lsun/security/ssl/ServerHandshakeContext;[I)Lsun/security/ssl/ProtocolVersion;", nullptr, $PRIVATE, $method(ClientHello$ClientHelloConsumer, negotiateProtocol, $ProtocolVersion*, $ServerHandshakeContext*, $ints*), "javax.net.ssl.SSLException"},
+	{"onClientHello", "(Lsun/security/ssl/ServerHandshakeContext;Lsun/security/ssl/ClientHello$ClientHelloMessage;)V", nullptr, $PRIVATE, $method(ClientHello$ClientHelloConsumer, onClientHello, void, $ServerHandshakeContext*, $ClientHello$ClientHelloMessage*), "java.io.IOException"},
 	{}
 };
 

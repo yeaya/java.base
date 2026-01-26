@@ -50,9 +50,9 @@ $MethodInfo _Connect4DatagramChannel$Initiator_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/net/SocketAddress;)V", nullptr, 0, $method(static_cast<void(Connect4DatagramChannel$Initiator::*)($SocketAddress*)>(&Connect4DatagramChannel$Initiator::init$)), "java.io.IOException"},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/net/SocketAddress;)V", nullptr, 0, $method(Connect4DatagramChannel$Initiator, init$, void, $SocketAddress*), "java.io.IOException"},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(Connect4DatagramChannel$Initiator, close, void), "java.io.IOException"},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Connect4DatagramChannel$Initiator, run, void)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

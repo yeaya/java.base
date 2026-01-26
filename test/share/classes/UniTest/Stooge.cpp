@@ -24,10 +24,10 @@ $FieldInfo _Stooge_FieldInfo_[] = {
 };
 
 $MethodInfo _Stooge_MethodInfo_[] = {
-	{"$values", "()[LUniTest/Stooge;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$StoogeArray*(*)()>(&Stooge::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(Stooge::*)($String*,int32_t)>(&Stooge::init$))},
-	{"valueOf", "(Ljava/lang/String;)LUniTest/Stooge;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Stooge*(*)($String*)>(&Stooge::valueOf))},
-	{"values", "()[LUniTest/Stooge;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$StoogeArray*(*)()>(&Stooge::values))},
+	{"$values", "()[LUniTest/Stooge;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Stooge, $values, $StoogeArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Stooge, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)LUniTest/Stooge;", nullptr, $PUBLIC | $STATIC, $staticMethod(Stooge, valueOf, Stooge*, $String*)},
+	{"values", "()[LUniTest/Stooge;", nullptr, $PUBLIC | $STATIC, $staticMethod(Stooge, values, $StoogeArray*)},
 	{}
 };
 

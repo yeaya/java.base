@@ -46,18 +46,18 @@ $FieldInfo _UCharacter_FieldInfo_[] = {
 };
 
 $MethodInfo _UCharacter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(UCharacter::*)()>(&UCharacter::init$))},
-	{"digit", "(II)I", nullptr, $PUBLIC | $STATIC, $method(static_cast<int32_t(*)(int32_t,int32_t)>(&UCharacter::digit))},
-	{"digit", "(I)I", nullptr, $PUBLIC | $STATIC, $method(static_cast<int32_t(*)(int32_t)>(&UCharacter::digit))},
-	{"getAge", "(I)Ljdk/internal/icu/util/VersionInfo;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$VersionInfo*(*)(int32_t)>(&UCharacter::getAge))},
-	{"getBidiPairedBracket", "(I)I", nullptr, $PUBLIC | $STATIC, $method(static_cast<int32_t(*)(int32_t)>(&UCharacter::getBidiPairedBracket))},
-	{"getCodePoint", "(CC)I", nullptr, $PUBLIC | $STATIC, $method(static_cast<int32_t(*)(char16_t,char16_t)>(&UCharacter::getCodePoint))},
-	{"getCombiningClass", "(I)I", nullptr, $PUBLIC | $STATIC, $method(static_cast<int32_t(*)(int32_t)>(&UCharacter::getCombiningClass))},
-	{"getDirection", "(I)I", nullptr, $PUBLIC | $STATIC, $method(static_cast<int32_t(*)(int32_t)>(&UCharacter::getDirection))},
-	{"getIntPropertyValue", "(II)I", nullptr, $PUBLIC | $STATIC, $method(static_cast<int32_t(*)(int32_t,int32_t)>(&UCharacter::getIntPropertyValue))},
-	{"getMirror", "(I)I", nullptr, $PUBLIC | $STATIC, $method(static_cast<int32_t(*)(int32_t)>(&UCharacter::getMirror))},
-	{"getType", "(I)I", nullptr, $PUBLIC | $STATIC, $method(static_cast<int32_t(*)(int32_t)>(&UCharacter::getType))},
-	{"getUnicodeVersion", "()Ljdk/internal/icu/util/VersionInfo;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$VersionInfo*(*)()>(&UCharacter::getUnicodeVersion))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(UCharacter, init$, void)},
+	{"digit", "(II)I", nullptr, $PUBLIC | $STATIC, $staticMethod(UCharacter, digit, int32_t, int32_t, int32_t)},
+	{"digit", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(UCharacter, digit, int32_t, int32_t)},
+	{"getAge", "(I)Ljdk/internal/icu/util/VersionInfo;", nullptr, $PUBLIC | $STATIC, $staticMethod(UCharacter, getAge, $VersionInfo*, int32_t)},
+	{"getBidiPairedBracket", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(UCharacter, getBidiPairedBracket, int32_t, int32_t)},
+	{"getCodePoint", "(CC)I", nullptr, $PUBLIC | $STATIC, $staticMethod(UCharacter, getCodePoint, int32_t, char16_t, char16_t)},
+	{"getCombiningClass", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(UCharacter, getCombiningClass, int32_t, int32_t)},
+	{"getDirection", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(UCharacter, getDirection, int32_t, int32_t)},
+	{"getIntPropertyValue", "(II)I", nullptr, $PUBLIC | $STATIC, $staticMethod(UCharacter, getIntPropertyValue, int32_t, int32_t, int32_t)},
+	{"getMirror", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(UCharacter, getMirror, int32_t, int32_t)},
+	{"getType", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(UCharacter, getType, int32_t, int32_t)},
+	{"getUnicodeVersion", "()Ljdk/internal/icu/util/VersionInfo;", nullptr, $PUBLIC | $STATIC, $staticMethod(UCharacter, getUnicodeVersion, $VersionInfo*)},
 	{}
 };
 

@@ -24,8 +24,8 @@ $FieldInfo _Charset$2_FieldInfo_[] = {
 };
 
 $MethodInfo _Charset$2_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(Charset$2::*)($String*)>(&Charset$2::init$))},
-	{"run", "()Ljava/nio/charset/Charset;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(Charset$2, init$, void, $String*)},
+	{"run", "()Ljava/nio/charset/Charset;", nullptr, $PUBLIC, $virtualMethod(Charset$2, run, $Object*)},
 	{}
 };
 

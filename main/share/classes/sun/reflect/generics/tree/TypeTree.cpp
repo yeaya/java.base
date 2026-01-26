@@ -5,6 +5,7 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $TypeTreeVisitor = ::sun::reflect::generics::visitor::TypeTreeVisitor;
 
 namespace sun {
 	namespace reflect {
@@ -12,7 +13,7 @@ namespace sun {
 			namespace tree {
 
 $MethodInfo _TypeTree_MethodInfo_[] = {
-	{"accept", "(Lsun/reflect/generics/visitor/TypeTreeVisitor;)V", "(Lsun/reflect/generics/visitor/TypeTreeVisitor<*>;)V", $PUBLIC | $ABSTRACT},
+	{"accept", "(Lsun/reflect/generics/visitor/TypeTreeVisitor;)V", "(Lsun/reflect/generics/visitor/TypeTreeVisitor<*>;)V", $PUBLIC | $ABSTRACT, $virtualMethod(TypeTree, accept, void, $TypeTreeVisitor*)},
 	{}
 };
 

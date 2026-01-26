@@ -10,7 +10,7 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _AnotherEnum$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(static_cast<void(AnotherEnum$1::*)($String*,int32_t)>(&AnotherEnum$1::init$))},
+	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(AnotherEnum$1, init$, void, $String*, int32_t)},
 	{}
 };
 

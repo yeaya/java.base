@@ -52,12 +52,12 @@ $FieldInfo _SeedGenerator_FieldInfo_[] = {
 };
 
 $MethodInfo _SeedGenerator_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(SeedGenerator::*)()>(&SeedGenerator::init$))},
-	{"addNetworkAdapterInfo", "(Ljava/security/MessageDigest;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($MessageDigest*)>(&SeedGenerator::addNetworkAdapterInfo))},
-	{"generateSeed", "([B)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($bytes*)>(&SeedGenerator::generateSeed))},
-	{"getSeedBytes", "([B)V", nullptr, $ABSTRACT},
-	{"getSystemEntropy", "()[B", nullptr, $STATIC, $method(static_cast<$bytes*(*)()>(&SeedGenerator::getSystemEntropy))},
-	{"longToByteArray", "(J)[B", nullptr, $PRIVATE | $STATIC, $method(static_cast<$bytes*(*)(int64_t)>(&SeedGenerator::longToByteArray))},
+	{"<init>", "()V", nullptr, 0, $method(SeedGenerator, init$, void)},
+	{"addNetworkAdapterInfo", "(Ljava/security/MessageDigest;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(SeedGenerator, addNetworkAdapterInfo, void, $MessageDigest*)},
+	{"generateSeed", "([B)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SeedGenerator, generateSeed, void, $bytes*)},
+	{"getSeedBytes", "([B)V", nullptr, $ABSTRACT, $virtualMethod(SeedGenerator, getSeedBytes, void, $bytes*)},
+	{"getSystemEntropy", "()[B", nullptr, $STATIC, $staticMethod(SeedGenerator, getSystemEntropy, $bytes*)},
+	{"longToByteArray", "(J)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(SeedGenerator, longToByteArray, $bytes*, int64_t)},
 	{}
 };
 

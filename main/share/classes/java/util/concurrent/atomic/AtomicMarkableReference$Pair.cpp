@@ -20,8 +20,8 @@ $FieldInfo _AtomicMarkableReference$Pair_FieldInfo_[] = {
 };
 
 $MethodInfo _AtomicMarkableReference$Pair_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;Z)V", "(TT;Z)V", $PRIVATE, $method(static_cast<void(AtomicMarkableReference$Pair::*)(Object$*,bool)>(&AtomicMarkableReference$Pair::init$))},
-	{"of", "(Ljava/lang/Object;Z)Ljava/util/concurrent/atomic/AtomicMarkableReference$Pair;", "<T:Ljava/lang/Object;>(TT;Z)Ljava/util/concurrent/atomic/AtomicMarkableReference$Pair<TT;>;", $STATIC, $method(static_cast<AtomicMarkableReference$Pair*(*)(Object$*,bool)>(&AtomicMarkableReference$Pair::of))},
+	{"<init>", "(Ljava/lang/Object;Z)V", "(TT;Z)V", $PRIVATE, $method(AtomicMarkableReference$Pair, init$, void, Object$*, bool)},
+	{"of", "(Ljava/lang/Object;Z)Ljava/util/concurrent/atomic/AtomicMarkableReference$Pair;", "<T:Ljava/lang/Object;>(TT;Z)Ljava/util/concurrent/atomic/AtomicMarkableReference$Pair<TT;>;", $STATIC, $staticMethod(AtomicMarkableReference$Pair, of, AtomicMarkableReference$Pair*, Object$*, bool)},
 	{}
 };
 

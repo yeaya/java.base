@@ -55,8 +55,8 @@ $FieldInfo SubmissionPublisher$ConsumerSubscriber$$Lambda$lambda$onSubscribe$0::
 	{}
 };
 $MethodInfo SubmissionPublisher$ConsumerSubscriber$$Lambda$lambda$onSubscribe$0::methodInfos[3] = {
-	{"<init>", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PUBLIC, $method(static_cast<void(SubmissionPublisher$ConsumerSubscriber$$Lambda$lambda$onSubscribe$0::*)($Flow$Subscription*)>(&SubmissionPublisher$ConsumerSubscriber$$Lambda$lambda$onSubscribe$0::init$))},
-	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PUBLIC, $method(SubmissionPublisher$ConsumerSubscriber$$Lambda$lambda$onSubscribe$0, init$, void, $Flow$Subscription*)},
+	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(SubmissionPublisher$ConsumerSubscriber$$Lambda$lambda$onSubscribe$0, accept, void, Object$*, Object$*)},
 	{}
 };
 $ClassInfo SubmissionPublisher$ConsumerSubscriber$$Lambda$lambda$onSubscribe$0::classInfo$ = {
@@ -81,12 +81,12 @@ $FieldInfo _SubmissionPublisher$ConsumerSubscriber_FieldInfo_[] = {
 };
 
 $MethodInfo _SubmissionPublisher$ConsumerSubscriber_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/CompletableFuture;Ljava/util/function/Consumer;)V", "(Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;Ljava/util/function/Consumer<-TT;>;)V", 0, $method(static_cast<void(SubmissionPublisher$ConsumerSubscriber::*)($CompletableFuture*,$Consumer*)>(&SubmissionPublisher$ConsumerSubscriber::init$))},
-	{"lambda$onSubscribe$0", "(Ljava/util/concurrent/Flow$Subscription;Ljava/lang/Void;Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($Flow$Subscription*,$Void*,$Throwable*)>(&SubmissionPublisher$ConsumerSubscriber::lambda$onSubscribe$0))},
-	{"onComplete", "()V", nullptr, $PUBLIC | $FINAL},
-	{"onError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC | $FINAL},
-	{"onNext", "(Ljava/lang/Object;)V", "(TT;)V", $PUBLIC | $FINAL},
-	{"onSubscribe", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PUBLIC | $FINAL},
+	{"<init>", "(Ljava/util/concurrent/CompletableFuture;Ljava/util/function/Consumer;)V", "(Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;Ljava/util/function/Consumer<-TT;>;)V", 0, $method(SubmissionPublisher$ConsumerSubscriber, init$, void, $CompletableFuture*, $Consumer*)},
+	{"lambda$onSubscribe$0", "(Ljava/util/concurrent/Flow$Subscription;Ljava/lang/Void;Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SubmissionPublisher$ConsumerSubscriber, lambda$onSubscribe$0, void, $Flow$Subscription*, $Void*, $Throwable*)},
+	{"onComplete", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(SubmissionPublisher$ConsumerSubscriber, onComplete, void)},
+	{"onError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(SubmissionPublisher$ConsumerSubscriber, onError, void, $Throwable*)},
+	{"onNext", "(Ljava/lang/Object;)V", "(TT;)V", $PUBLIC | $FINAL, $virtualMethod(SubmissionPublisher$ConsumerSubscriber, onNext, void, Object$*)},
+	{"onSubscribe", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(SubmissionPublisher$ConsumerSubscriber, onSubscribe, void, $Flow$Subscription*)},
 	{}
 };
 

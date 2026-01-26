@@ -21,8 +21,8 @@ $FieldInfo _Class3$Class31_FieldInfo_[] = {
 };
 
 $MethodInfo _Class3$Class31_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Class3$Class31::*)()>(&Class3$Class31::init$))},
-	{"testAssert", "(Z)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)(bool)>(&Class3$Class31::testAssert))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Class3$Class31, init$, void)},
+	{"testAssert", "(Z)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Class3$Class31, testAssert, void, bool)},
 	{}
 };
 

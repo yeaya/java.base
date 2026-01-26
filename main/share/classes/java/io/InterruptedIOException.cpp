@@ -18,8 +18,8 @@ $FieldInfo _InterruptedIOException_FieldInfo_[] = {
 };
 
 $MethodInfo _InterruptedIOException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(InterruptedIOException::*)()>(&InterruptedIOException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(InterruptedIOException::*)($String*)>(&InterruptedIOException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(InterruptedIOException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InterruptedIOException, init$, void, $String*)},
 	{}
 };
 

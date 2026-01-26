@@ -27,16 +27,16 @@ $FieldInfo _AbstractList$SubList$1_FieldInfo_[] = {
 };
 
 $MethodInfo _AbstractList$SubList$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/AbstractList$SubList;I)V", "()V", 0, $method(static_cast<void(AbstractList$SubList$1::*)($AbstractList$SubList*,int32_t)>(&AbstractList$SubList$1::init$))},
-	{"add", "(Ljava/lang/Object;)V", "(TE;)V", $PUBLIC},
-	{"hasNext", "()Z", nullptr, $PUBLIC},
-	{"hasPrevious", "()Z", nullptr, $PUBLIC},
-	{"next", "()Ljava/lang/Object;", "()TE;", $PUBLIC},
-	{"nextIndex", "()I", nullptr, $PUBLIC},
-	{"previous", "()Ljava/lang/Object;", "()TE;", $PUBLIC},
-	{"previousIndex", "()I", nullptr, $PUBLIC},
-	{"remove", "()V", nullptr, $PUBLIC},
-	{"set", "(Ljava/lang/Object;)V", "(TE;)V", $PUBLIC},
+	{"<init>", "(Ljava/util/AbstractList$SubList;I)V", "()V", 0, $method(AbstractList$SubList$1, init$, void, $AbstractList$SubList*, int32_t)},
+	{"add", "(Ljava/lang/Object;)V", "(TE;)V", $PUBLIC, $virtualMethod(AbstractList$SubList$1, add, void, Object$*)},
+	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(AbstractList$SubList$1, hasNext, bool)},
+	{"hasPrevious", "()Z", nullptr, $PUBLIC, $virtualMethod(AbstractList$SubList$1, hasPrevious, bool)},
+	{"next", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(AbstractList$SubList$1, next, $Object*)},
+	{"nextIndex", "()I", nullptr, $PUBLIC, $virtualMethod(AbstractList$SubList$1, nextIndex, int32_t)},
+	{"previous", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(AbstractList$SubList$1, previous, $Object*)},
+	{"previousIndex", "()I", nullptr, $PUBLIC, $virtualMethod(AbstractList$SubList$1, previousIndex, int32_t)},
+	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(AbstractList$SubList$1, remove, void)},
+	{"set", "(Ljava/lang/Object;)V", "(TE;)V", $PUBLIC, $virtualMethod(AbstractList$SubList$1, set, void, Object$*)},
 	{}
 };
 

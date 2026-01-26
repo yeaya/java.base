@@ -36,14 +36,14 @@ $FieldInfo _TSRequest_FieldInfo_[] = {
 };
 
 $MethodInfo _TSRequest_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;[BLjava/security/MessageDigest;)V", nullptr, $PUBLIC, $method(static_cast<void(TSRequest::*)($String*,$bytes*,$MessageDigest*)>(&TSRequest::init$)), "java.security.NoSuchAlgorithmException"},
-	{"encode", "()[B", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"getHashedMessage", "()[B", nullptr, $PUBLIC},
-	{"requestCertificate", "(Z)V", nullptr, $PUBLIC},
-	{"setExtensions", "([Ljava/security/cert/X509Extension;)V", nullptr, $PUBLIC},
-	{"setNonce", "(Ljava/math/BigInteger;)V", nullptr, $PUBLIC},
-	{"setPolicyId", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"setVersion", "(I)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;[BLjava/security/MessageDigest;)V", nullptr, $PUBLIC, $method(TSRequest, init$, void, $String*, $bytes*, $MessageDigest*), "java.security.NoSuchAlgorithmException"},
+	{"encode", "()[B", nullptr, $PUBLIC, $virtualMethod(TSRequest, encode, $bytes*), "java.io.IOException"},
+	{"getHashedMessage", "()[B", nullptr, $PUBLIC, $virtualMethod(TSRequest, getHashedMessage, $bytes*)},
+	{"requestCertificate", "(Z)V", nullptr, $PUBLIC, $virtualMethod(TSRequest, requestCertificate, void, bool)},
+	{"setExtensions", "([Ljava/security/cert/X509Extension;)V", nullptr, $PUBLIC, $virtualMethod(TSRequest, setExtensions, void, $X509ExtensionArray*)},
+	{"setNonce", "(Ljava/math/BigInteger;)V", nullptr, $PUBLIC, $virtualMethod(TSRequest, setNonce, void, $BigInteger*)},
+	{"setPolicyId", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(TSRequest, setPolicyId, void, $String*)},
+	{"setVersion", "(I)V", nullptr, $PUBLIC, $virtualMethod(TSRequest, setVersion, void, int32_t)},
 	{}
 };
 

@@ -160,11 +160,11 @@ $FieldInfo _LambdaForm$Kind_FieldInfo_[] = {
 };
 
 $MethodInfo _LambdaForm$Kind_MethodInfo_[] = {
-	{"$values", "()[Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$LambdaForm$KindArray*(*)()>(&LambdaForm$Kind::$values))},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "(Ljava/lang/String;)V", $PRIVATE, $method(static_cast<void(LambdaForm$Kind::*)($String*,int32_t,$String*)>(&LambdaForm$Kind::init$))},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;)V", "(Ljava/lang/String;Ljava/lang/String;)V", $PRIVATE, $method(static_cast<void(LambdaForm$Kind::*)($String*,int32_t,$String*,$String*)>(&LambdaForm$Kind::init$))},
-	{"valueOf", "(Ljava/lang/String;)Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC, $method(static_cast<LambdaForm$Kind*(*)($String*)>(&LambdaForm$Kind::valueOf))},
-	{"values", "()[Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$LambdaForm$KindArray*(*)()>(&LambdaForm$Kind::values))},
+	{"$values", "()[Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LambdaForm$Kind, $values, $LambdaForm$KindArray*)},
+	{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "(Ljava/lang/String;)V", $PRIVATE, $method(LambdaForm$Kind, init$, void, $String*, int32_t, $String*)},
+	{"<init>", "(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;)V", "(Ljava/lang/String;Ljava/lang/String;)V", $PRIVATE, $method(LambdaForm$Kind, init$, void, $String*, int32_t, $String*, $String*)},
+	{"valueOf", "(Ljava/lang/String;)Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC, $staticMethod(LambdaForm$Kind, valueOf, LambdaForm$Kind*, $String*)},
+	{"values", "()[Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PUBLIC | $STATIC, $staticMethod(LambdaForm$Kind, values, $LambdaForm$KindArray*)},
 	{}
 };
 

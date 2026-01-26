@@ -16,8 +16,8 @@ $FieldInfo _IllegalMonitorStateException_FieldInfo_[] = {
 };
 
 $MethodInfo _IllegalMonitorStateException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(IllegalMonitorStateException::*)()>(&IllegalMonitorStateException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(IllegalMonitorStateException::*)($String*)>(&IllegalMonitorStateException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(IllegalMonitorStateException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(IllegalMonitorStateException, init$, void, $String*)},
 	{}
 };
 

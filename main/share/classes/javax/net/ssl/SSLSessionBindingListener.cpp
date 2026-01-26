@@ -5,14 +5,15 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $SSLSessionBindingEvent = ::javax::net::ssl::SSLSessionBindingEvent;
 
 namespace javax {
 	namespace net {
 		namespace ssl {
 
 $MethodInfo _SSLSessionBindingListener_MethodInfo_[] = {
-	{"valueBound", "(Ljavax/net/ssl/SSLSessionBindingEvent;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"valueUnbound", "(Ljavax/net/ssl/SSLSessionBindingEvent;)V", nullptr, $PUBLIC | $ABSTRACT},
+	{"valueBound", "(Ljavax/net/ssl/SSLSessionBindingEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SSLSessionBindingListener, valueBound, void, $SSLSessionBindingEvent*)},
+	{"valueUnbound", "(Ljavax/net/ssl/SSLSessionBindingEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SSLSessionBindingListener, valueUnbound, void, $SSLSessionBindingEvent*)},
 	{}
 };
 

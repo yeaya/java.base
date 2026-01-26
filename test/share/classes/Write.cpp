@@ -21,11 +21,11 @@ using $ByteBuffer = ::java::nio::ByteBuffer;
 using $FileChannel = ::java::nio::channels::FileChannel;
 
 $MethodInfo _Write_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Write::*)()>(&Write::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Write::main)), "java.lang.Exception"},
-	{"test1", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&Write::test1)), "java.lang.Exception"},
-	{"test2", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&Write::test2)), "java.lang.Exception"},
-	{"test3", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&Write::test3)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Write, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Write, main, void, $StringArray*), "java.lang.Exception"},
+	{"test1", "()V", nullptr, $STATIC, $staticMethod(Write, test1, void), "java.lang.Exception"},
+	{"test2", "()V", nullptr, $STATIC, $staticMethod(Write, test2, void), "java.lang.Exception"},
+	{"test3", "()V", nullptr, $STATIC, $staticMethod(Write, test3, void), "java.lang.Exception"},
 	{}
 };
 

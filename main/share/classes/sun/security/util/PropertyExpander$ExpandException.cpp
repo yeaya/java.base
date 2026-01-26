@@ -20,7 +20,7 @@ $FieldInfo _PropertyExpander$ExpandException_FieldInfo_[] = {
 };
 
 $MethodInfo _PropertyExpander$ExpandException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(PropertyExpander$ExpandException::*)($String*)>(&PropertyExpander$ExpandException::init$))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(PropertyExpander$ExpandException, init$, void, $String*)},
 	{}
 };
 

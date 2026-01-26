@@ -48,10 +48,10 @@ $CompoundAttribute _TestType1_MethodAnnotations_foo3[] = {
 };
 
 $MethodInfo _TestType1_MethodInfo_[] = {
-	{"bar", "()V", nullptr, $PUBLIC, nullptr, nullptr, nullptr, _TestType1_MethodAnnotations_bar0},
-	{"bar", "(I)V", nullptr, $PUBLIC, nullptr, nullptr, nullptr, _TestType1_MethodAnnotations_bar1},
-	{"bar", "(Ljava/lang/String;)V", nullptr, $PUBLIC, nullptr, nullptr, nullptr, _TestType1_MethodAnnotations_bar2},
-	{"foo", "()V", nullptr, $PUBLIC | $ABSTRACT, nullptr, nullptr, nullptr, _TestType1_MethodAnnotations_foo3},
+	{"bar", "()V", nullptr, $PUBLIC, $virtualMethod(TestType1, bar, void), nullptr, nullptr, _TestType1_MethodAnnotations_bar0},
+	{"bar", "(I)V", nullptr, $PUBLIC, $virtualMethod(TestType1, bar, void, int32_t), nullptr, nullptr, _TestType1_MethodAnnotations_bar1},
+	{"bar", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(TestType1, bar, void, $String*), nullptr, nullptr, _TestType1_MethodAnnotations_bar2},
+	{"foo", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TestType1, foo, void), nullptr, nullptr, _TestType1_MethodAnnotations_foo3},
 	{}
 };
 

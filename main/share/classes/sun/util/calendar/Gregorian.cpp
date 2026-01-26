@@ -22,14 +22,14 @@ namespace sun {
 		namespace calendar {
 
 $MethodInfo _Gregorian_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Gregorian::*)()>(&Gregorian::init$))},
-	{"getCalendarDate", "()Lsun/util/calendar/Gregorian$Date;", nullptr, $PUBLIC},
-	{"getCalendarDate", "(J)Lsun/util/calendar/Gregorian$Date;", nullptr, $PUBLIC},
-	{"getCalendarDate", "(JLsun/util/calendar/CalendarDate;)Lsun/util/calendar/Gregorian$Date;", nullptr, $PUBLIC},
-	{"getCalendarDate", "(JLjava/util/TimeZone;)Lsun/util/calendar/Gregorian$Date;", nullptr, $PUBLIC},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"newCalendarDate", "()Lsun/util/calendar/Gregorian$Date;", nullptr, $PUBLIC},
-	{"newCalendarDate", "(Ljava/util/TimeZone;)Lsun/util/calendar/Gregorian$Date;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(Gregorian, init$, void)},
+	{"getCalendarDate", "()Lsun/util/calendar/Gregorian$Date;", nullptr, $PUBLIC, $virtualMethod(Gregorian, getCalendarDate, $CalendarDate*)},
+	{"getCalendarDate", "(J)Lsun/util/calendar/Gregorian$Date;", nullptr, $PUBLIC, $virtualMethod(Gregorian, getCalendarDate, $CalendarDate*, int64_t)},
+	{"getCalendarDate", "(JLsun/util/calendar/CalendarDate;)Lsun/util/calendar/Gregorian$Date;", nullptr, $PUBLIC, $virtualMethod(Gregorian, getCalendarDate, $CalendarDate*, int64_t, $CalendarDate*)},
+	{"getCalendarDate", "(JLjava/util/TimeZone;)Lsun/util/calendar/Gregorian$Date;", nullptr, $PUBLIC, $virtualMethod(Gregorian, getCalendarDate, $CalendarDate*, int64_t, $TimeZone*)},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Gregorian, getName, $String*)},
+	{"newCalendarDate", "()Lsun/util/calendar/Gregorian$Date;", nullptr, $PUBLIC, $virtualMethod(Gregorian, newCalendarDate, $CalendarDate*)},
+	{"newCalendarDate", "(Ljava/util/TimeZone;)Lsun/util/calendar/Gregorian$Date;", nullptr, $PUBLIC, $virtualMethod(Gregorian, newCalendarDate, $CalendarDate*, $TimeZone*)},
 	{}
 };
 

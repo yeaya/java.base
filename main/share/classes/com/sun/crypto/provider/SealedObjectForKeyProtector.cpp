@@ -86,8 +86,8 @@ $FieldInfo SealedObjectForKeyProtector$$Lambda$lambda$getKey$0::fieldInfos[3] = 
 	{}
 };
 $MethodInfo SealedObjectForKeyProtector$$Lambda$lambda$getKey$0::methodInfos[3] = {
-	{"<init>", "(Ljava/io/ObjectInputStream;I)V", nullptr, $PUBLIC, $method(static_cast<void(SealedObjectForKeyProtector$$Lambda$lambda$getKey$0::*)($ObjectInputStream*,int32_t)>(&SealedObjectForKeyProtector$$Lambda$lambda$getKey$0::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/io/ObjectInputStream;I)V", nullptr, $PUBLIC, $method(SealedObjectForKeyProtector$$Lambda$lambda$getKey$0, init$, void, $ObjectInputStream*, int32_t)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SealedObjectForKeyProtector$$Lambda$lambda$getKey$0, run, $Object*)},
 	{}
 };
 $ClassInfo SealedObjectForKeyProtector$$Lambda$lambda$getKey$0::classInfo$ = {
@@ -111,11 +111,11 @@ $FieldInfo _SealedObjectForKeyProtector_FieldInfo_[] = {
 };
 
 $MethodInfo _SealedObjectForKeyProtector_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/Serializable;Ljavax/crypto/Cipher;)V", nullptr, 0, $method(static_cast<void(SealedObjectForKeyProtector::*)($Serializable*,$Cipher*)>(&SealedObjectForKeyProtector::init$)), "java.io.IOException,javax.crypto.IllegalBlockSizeException"},
-	{"<init>", "(Ljavax/crypto/SealedObject;)V", nullptr, 0, $method(static_cast<void(SealedObjectForKeyProtector::*)($SealedObject*)>(&SealedObjectForKeyProtector::init$))},
-	{"getKey", "(Ljavax/crypto/Cipher;I)Ljava/security/Key;", nullptr, $FINAL, $method(static_cast<$Key*(SealedObjectForKeyProtector::*)($Cipher*,int32_t)>(&SealedObjectForKeyProtector::getKey)), "java.io.IOException,java.lang.ClassNotFoundException,javax.crypto.IllegalBlockSizeException,javax.crypto.BadPaddingException"},
-	{"getParameters", "()Ljava/security/AlgorithmParameters;", nullptr, 0, $method(static_cast<$AlgorithmParameters*(SealedObjectForKeyProtector::*)()>(&SealedObjectForKeyProtector::getParameters))},
-	{"lambda$getKey$0", "(Ljava/io/ObjectInputStream;I)Ljava/lang/Void;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Void*(*)($ObjectInputStream*,int32_t)>(&SealedObjectForKeyProtector::lambda$getKey$0))},
+	{"<init>", "(Ljava/io/Serializable;Ljavax/crypto/Cipher;)V", nullptr, 0, $method(SealedObjectForKeyProtector, init$, void, $Serializable*, $Cipher*), "java.io.IOException,javax.crypto.IllegalBlockSizeException"},
+	{"<init>", "(Ljavax/crypto/SealedObject;)V", nullptr, 0, $method(SealedObjectForKeyProtector, init$, void, $SealedObject*)},
+	{"getKey", "(Ljavax/crypto/Cipher;I)Ljava/security/Key;", nullptr, $FINAL, $method(SealedObjectForKeyProtector, getKey, $Key*, $Cipher*, int32_t), "java.io.IOException,java.lang.ClassNotFoundException,javax.crypto.IllegalBlockSizeException,javax.crypto.BadPaddingException"},
+	{"getParameters", "()Ljava/security/AlgorithmParameters;", nullptr, 0, $method(SealedObjectForKeyProtector, getParameters, $AlgorithmParameters*)},
+	{"lambda$getKey$0", "(Ljava/io/ObjectInputStream;I)Ljava/lang/Void;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SealedObjectForKeyProtector, lambda$getKey$0, $Void*, $ObjectInputStream*, int32_t)},
 	{}
 };
 

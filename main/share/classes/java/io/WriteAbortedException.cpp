@@ -31,9 +31,9 @@ $FieldInfo _WriteAbortedException_FieldInfo_[] = {
 };
 
 $MethodInfo _WriteAbortedException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(static_cast<void(WriteAbortedException::*)($String*,$Exception*)>(&WriteAbortedException::init$))},
-	{"getCause", "()Ljava/lang/Throwable;", nullptr, $PUBLIC},
-	{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(WriteAbortedException, init$, void, $String*, $Exception*)},
+	{"getCause", "()Ljava/lang/Throwable;", nullptr, $PUBLIC, $virtualMethod(WriteAbortedException, getCause, $Throwable*)},
+	{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(WriteAbortedException, getMessage, $String*)},
 	{}
 };
 

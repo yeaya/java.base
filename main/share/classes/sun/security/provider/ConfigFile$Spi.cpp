@@ -127,21 +127,21 @@ $FieldInfo _ConfigFile$Spi_FieldInfo_[] = {
 };
 
 $MethodInfo _ConfigFile$Spi_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ConfigFile$Spi::*)()>(&ConfigFile$Spi::init$))},
-	{"<init>", "(Ljava/net/URI;)V", nullptr, $PUBLIC, $method(static_cast<void(ConfigFile$Spi::*)($URI*)>(&ConfigFile$Spi::init$))},
-	{"<init>", "(Ljavax/security/auth/login/Configuration$Parameters;)V", nullptr, $PUBLIC, $method(static_cast<void(ConfigFile$Spi::*)($Configuration$Parameters*)>(&ConfigFile$Spi::init$)), "java.io.IOException"},
-	{"engineGetAppConfigurationEntry", "(Ljava/lang/String;)[Ljavax/security/auth/login/AppConfigurationEntry;", nullptr, $PUBLIC},
-	{"engineRefresh", "()V", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"expand", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(ConfigFile$Spi::*)($String*)>(&ConfigFile$Spi::expand)), "sun.security.util.PropertyExpander$ExpandException,java.io.IOException"},
-	{"getInputStream", "(Ljava/net/URL;)Ljava/io/InputStream;", nullptr, $PRIVATE, $method(static_cast<$InputStream*(ConfigFile$Spi::*)($URL*)>(&ConfigFile$Spi::getInputStream)), "java.io.IOException"},
-	{"init", "()V", nullptr, $PRIVATE, $method(static_cast<void(ConfigFile$Spi::*)()>(&ConfigFile$Spi::init)), "java.io.IOException"},
-	{"init", "(Ljava/net/URL;Ljava/util/Map;)V", "(Ljava/net/URL;Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljavax/security/auth/login/AppConfigurationEntry;>;>;)V", $PRIVATE, $method(static_cast<void(ConfigFile$Spi::*)($URL*,$Map*)>(&ConfigFile$Spi::init)), "java.io.IOException"},
-	{"ioException", "(Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/IOException;", nullptr, $PRIVATE | $TRANSIENT, $method(static_cast<$IOException*(ConfigFile$Spi::*)($String*,$ObjectArray*)>(&ConfigFile$Spi::ioException))},
-	{"match", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(ConfigFile$Spi::*)($String*)>(&ConfigFile$Spi::match)), "java.io.IOException"},
-	{"nextToken", "()I", nullptr, $PRIVATE, $method(static_cast<int32_t(ConfigFile$Spi::*)()>(&ConfigFile$Spi::nextToken)), "java.io.IOException"},
-	{"parseLoginEntry", "(Ljava/util/Map;)V", "(Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljavax/security/auth/login/AppConfigurationEntry;>;>;)V", $PRIVATE, $method(static_cast<void(ConfigFile$Spi::*)($Map*)>(&ConfigFile$Spi::parseLoginEntry)), "java.io.IOException"},
-	{"peek", "(Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(static_cast<bool(ConfigFile$Spi::*)($String*)>(&ConfigFile$Spi::peek))},
-	{"readConfig", "(Ljava/io/Reader;Ljava/util/Map;)V", "(Ljava/io/Reader;Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljavax/security/auth/login/AppConfigurationEntry;>;>;)V", $PRIVATE, $method(static_cast<void(ConfigFile$Spi::*)($Reader*,$Map*)>(&ConfigFile$Spi::readConfig)), "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ConfigFile$Spi, init$, void)},
+	{"<init>", "(Ljava/net/URI;)V", nullptr, $PUBLIC, $method(ConfigFile$Spi, init$, void, $URI*)},
+	{"<init>", "(Ljavax/security/auth/login/Configuration$Parameters;)V", nullptr, $PUBLIC, $method(ConfigFile$Spi, init$, void, $Configuration$Parameters*), "java.io.IOException"},
+	{"engineGetAppConfigurationEntry", "(Ljava/lang/String;)[Ljavax/security/auth/login/AppConfigurationEntry;", nullptr, $PUBLIC, $virtualMethod(ConfigFile$Spi, engineGetAppConfigurationEntry, $AppConfigurationEntryArray*, $String*)},
+	{"engineRefresh", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ConfigFile$Spi, engineRefresh, void)},
+	{"expand", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(ConfigFile$Spi, expand, $String*, $String*), "sun.security.util.PropertyExpander$ExpandException,java.io.IOException"},
+	{"getInputStream", "(Ljava/net/URL;)Ljava/io/InputStream;", nullptr, $PRIVATE, $method(ConfigFile$Spi, getInputStream, $InputStream*, $URL*), "java.io.IOException"},
+	{"init", "()V", nullptr, $PRIVATE, $method(ConfigFile$Spi, init, void), "java.io.IOException"},
+	{"init", "(Ljava/net/URL;Ljava/util/Map;)V", "(Ljava/net/URL;Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljavax/security/auth/login/AppConfigurationEntry;>;>;)V", $PRIVATE, $method(ConfigFile$Spi, init, void, $URL*, $Map*), "java.io.IOException"},
+	{"ioException", "(Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/IOException;", nullptr, $PRIVATE | $TRANSIENT, $method(ConfigFile$Spi, ioException, $IOException*, $String*, $ObjectArray*)},
+	{"match", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(ConfigFile$Spi, match, $String*, $String*), "java.io.IOException"},
+	{"nextToken", "()I", nullptr, $PRIVATE, $method(ConfigFile$Spi, nextToken, int32_t), "java.io.IOException"},
+	{"parseLoginEntry", "(Ljava/util/Map;)V", "(Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljavax/security/auth/login/AppConfigurationEntry;>;>;)V", $PRIVATE, $method(ConfigFile$Spi, parseLoginEntry, void, $Map*), "java.io.IOException"},
+	{"peek", "(Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(ConfigFile$Spi, peek, bool, $String*)},
+	{"readConfig", "(Ljava/io/Reader;Ljava/util/Map;)V", "(Ljava/io/Reader;Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljavax/security/auth/login/AppConfigurationEntry;>;>;)V", $PRIVATE, $method(ConfigFile$Spi, readConfig, void, $Reader*, $Map*), "java.io.IOException"},
 	{}
 };
 

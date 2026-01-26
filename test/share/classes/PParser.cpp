@@ -67,8 +67,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo PParser$$Lambda$lambda$dump$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PParser$$Lambda$lambda$dump$0::*)()>(&PParser$$Lambda$lambda$dump$0::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PParser$$Lambda$lambda$dump$0, init$, void)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(PParser$$Lambda$lambda$dump$0, accept, void, Object$*)},
 	{}
 };
 $ClassInfo PParser$$Lambda$lambda$dump$0::classInfo$ = {
@@ -107,8 +107,8 @@ $FieldInfo PParser$$Lambda$lambda$dump$1$1::fieldInfos[2] = {
 	{}
 };
 $MethodInfo PParser$$Lambda$lambda$dump$1$1::methodInfos[3] = {
-	{"<init>", "(Ljava/util/Map;)V", nullptr, $PUBLIC, $method(static_cast<void(PParser$$Lambda$lambda$dump$1$1::*)($Map*)>(&PParser$$Lambda$lambda$dump$1$1::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/Map;)V", nullptr, $PUBLIC, $method(PParser$$Lambda$lambda$dump$1$1, init$, void, $Map*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(PParser$$Lambda$lambda$dump$1$1, accept, void, Object$*)},
 	{}
 };
 $ClassInfo PParser$$Lambda$lambda$dump$1$1::classInfo$ = {
@@ -145,19 +145,19 @@ $FieldInfo _PParser_FieldInfo_[] = {
 };
 
 $MethodInfo _PParser_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PParser::*)()>(&PParser::init$))},
-	{"dump", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)(Object$*)>(&PParser::dump))},
-	{"error", "(Ljava/lang/String;)V", nullptr, $PROTECTED},
-	{"getToken", "()I", nullptr, $PROTECTED, nullptr, "java.io.IOException"},
-	{"getToken", "(ZZ)I", nullptr, $PROTECTED, nullptr, "java.io.IOException"},
-	{"lambda$dump$0", "(Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)(Object$*)>(&PParser::lambda$dump$0))},
-	{"lambda$dump$1", "(Ljava/util/Map;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($Map*,$String*)>(&PParser::lambda$dump$1))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&PParser::main))},
-	{"parse", "(Ljava/io/Reader;)Ljava/util/Map;", "(Ljava/io/Reader;)Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;", $PUBLIC, nullptr, "java.io.IOException"},
-	{"parseArray", "()Ljava/lang/Object;", nullptr, $PROTECTED, nullptr, "java.io.IOException"},
-	{"parsePair", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;", $PROTECTED, nullptr, "java.io.IOException"},
-	{"parseValue", "(I)Ljava/lang/Object;", nullptr, $PROTECTED, nullptr, "java.io.IOException"},
-	{"ungetToken", "()V", nullptr, $PROTECTED},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PParser, init$, void)},
+	{"dump", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(PParser, dump, void, Object$*)},
+	{"error", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(PParser, error, void, $String*)},
+	{"getToken", "()I", nullptr, $PROTECTED, $virtualMethod(PParser, getToken, int32_t), "java.io.IOException"},
+	{"getToken", "(ZZ)I", nullptr, $PROTECTED, $virtualMethod(PParser, getToken, int32_t, bool, bool), "java.io.IOException"},
+	{"lambda$dump$0", "(Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(PParser, lambda$dump$0, void, Object$*)},
+	{"lambda$dump$1", "(Ljava/util/Map;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(PParser, lambda$dump$1, void, $Map*, $String*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(PParser, main, void, $StringArray*)},
+	{"parse", "(Ljava/io/Reader;)Ljava/util/Map;", "(Ljava/io/Reader;)Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;", $PUBLIC, $virtualMethod(PParser, parse, $Map*, $Reader*), "java.io.IOException"},
+	{"parseArray", "()Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(PParser, parseArray, $Object*), "java.io.IOException"},
+	{"parsePair", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;", $PROTECTED, $virtualMethod(PParser, parsePair, $Map*), "java.io.IOException"},
+	{"parseValue", "(I)Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(PParser, parseValue, $Object*, int32_t), "java.io.IOException"},
+	{"ungetToken", "()V", nullptr, $PROTECTED, $virtualMethod(PParser, ungetToken, void)},
 	{}
 };
 

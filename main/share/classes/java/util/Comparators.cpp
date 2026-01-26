@@ -12,7 +12,7 @@ namespace java {
 	namespace util {
 
 $MethodInfo _Comparators_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(Comparators::*)()>(&Comparators::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(Comparators, init$, void)},
 	{}
 };
 

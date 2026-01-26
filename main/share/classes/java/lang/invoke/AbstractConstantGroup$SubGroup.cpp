@@ -30,16 +30,16 @@ $FieldInfo _AbstractConstantGroup$SubGroup_FieldInfo_[] = {
 };
 
 $MethodInfo _AbstractConstantGroup$SubGroup_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/invoke/ConstantGroup;II)V", nullptr, 0, $method(static_cast<void(AbstractConstantGroup$SubGroup::*)($ConstantGroup*,int32_t,int32_t)>(&AbstractConstantGroup$SubGroup::init$))},
-	{"asList", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/Object;>;", $PUBLIC},
-	{"asList", "(Ljava/lang/Object;)Ljava/util/List;", "(Ljava/lang/Object;)Ljava/util/List<Ljava/lang/Object;>;", $PUBLIC},
-	{"copyConstants", "(II[Ljava/lang/Object;I)I", nullptr, $PUBLIC, nullptr, "java.lang.LinkageError"},
-	{"copyConstants", "(II[Ljava/lang/Object;ILjava/lang/Object;)I", nullptr, $PUBLIC},
-	{"get", "(I)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"get", "(ILjava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"isPresent", "(I)Z", nullptr, $PUBLIC},
-	{"mapIndex", "(I)I", nullptr, $PRIVATE, $method(static_cast<int32_t(AbstractConstantGroup$SubGroup::*)(int32_t)>(&AbstractConstantGroup$SubGroup::mapIndex))},
-	{"subGroup", "(II)Ljava/lang/invoke/ConstantGroup;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/invoke/ConstantGroup;II)V", nullptr, 0, $method(AbstractConstantGroup$SubGroup, init$, void, $ConstantGroup*, int32_t, int32_t)},
+	{"asList", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/Object;>;", $PUBLIC, $virtualMethod(AbstractConstantGroup$SubGroup, asList, $List*)},
+	{"asList", "(Ljava/lang/Object;)Ljava/util/List;", "(Ljava/lang/Object;)Ljava/util/List<Ljava/lang/Object;>;", $PUBLIC, $virtualMethod(AbstractConstantGroup$SubGroup, asList, $List*, Object$*)},
+	{"copyConstants", "(II[Ljava/lang/Object;I)I", nullptr, $PUBLIC, $virtualMethod(AbstractConstantGroup$SubGroup, copyConstants, int32_t, int32_t, int32_t, $ObjectArray*, int32_t), "java.lang.LinkageError"},
+	{"copyConstants", "(II[Ljava/lang/Object;ILjava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(AbstractConstantGroup$SubGroup, copyConstants, int32_t, int32_t, int32_t, $ObjectArray*, int32_t, Object$*)},
+	{"get", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AbstractConstantGroup$SubGroup, get, $Object*, int32_t)},
+	{"get", "(ILjava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AbstractConstantGroup$SubGroup, get, $Object*, int32_t, Object$*)},
+	{"isPresent", "(I)Z", nullptr, $PUBLIC, $virtualMethod(AbstractConstantGroup$SubGroup, isPresent, bool, int32_t)},
+	{"mapIndex", "(I)I", nullptr, $PRIVATE, $method(AbstractConstantGroup$SubGroup, mapIndex, int32_t, int32_t)},
+	{"subGroup", "(II)Ljava/lang/invoke/ConstantGroup;", nullptr, $PUBLIC, $virtualMethod(AbstractConstantGroup$SubGroup, subGroup, $ConstantGroup*, int32_t, int32_t)},
 	{}
 };
 

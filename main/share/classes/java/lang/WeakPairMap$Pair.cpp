@@ -17,12 +17,12 @@ namespace java {
 	namespace lang {
 
 $MethodInfo _WeakPairMap$Pair_MethodInfo_[] = {
-	{"equals", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/WeakPairMap$Pair;)Z", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/WeakPairMap$Pair<**>;)Z", $PUBLIC | $STATIC, $method(static_cast<bool(*)(Object$*,Object$*,WeakPairMap$Pair*)>(&WeakPairMap$Pair::equals))},
-	{"first", "()Ljava/lang/Object;", "()TK1;", $PUBLIC | $ABSTRACT},
-	{"hashCode", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC | $STATIC, $method(static_cast<int32_t(*)(Object$*,Object$*)>(&WeakPairMap$Pair::hashCode))},
-	{"lookup", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/WeakPairMap$Pair;", "<K1:Ljava/lang/Object;K2:Ljava/lang/Object;>(TK1;TK2;)Ljava/lang/WeakPairMap$Pair<TK1;TK2;>;", $PUBLIC | $STATIC, $method(static_cast<WeakPairMap$Pair*(*)(Object$*,Object$*)>(&WeakPairMap$Pair::lookup))},
-	{"second", "()Ljava/lang/Object;", "()TK2;", $PUBLIC | $ABSTRACT},
-	{"weak", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/ref/ReferenceQueue;)Ljava/lang/WeakPairMap$Pair;", "<K1:Ljava/lang/Object;K2:Ljava/lang/Object;>(TK1;TK2;Ljava/lang/ref/ReferenceQueue<Ljava/lang/Object;>;)Ljava/lang/WeakPairMap$Pair<TK1;TK2;>;", $PUBLIC | $STATIC, $method(static_cast<WeakPairMap$Pair*(*)(Object$*,Object$*,$ReferenceQueue*)>(&WeakPairMap$Pair::weak))},
+	{"equals", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/WeakPairMap$Pair;)Z", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/WeakPairMap$Pair<**>;)Z", $PUBLIC | $STATIC, $staticMethod(WeakPairMap$Pair, equals, bool, Object$*, Object$*, WeakPairMap$Pair*)},
+	{"first", "()Ljava/lang/Object;", "()TK1;", $PUBLIC | $ABSTRACT, $virtualMethod(WeakPairMap$Pair, first, $Object*)},
+	{"hashCode", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(WeakPairMap$Pair, hashCode, int32_t, Object$*, Object$*)},
+	{"lookup", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/WeakPairMap$Pair;", "<K1:Ljava/lang/Object;K2:Ljava/lang/Object;>(TK1;TK2;)Ljava/lang/WeakPairMap$Pair<TK1;TK2;>;", $PUBLIC | $STATIC, $staticMethod(WeakPairMap$Pair, lookup, WeakPairMap$Pair*, Object$*, Object$*)},
+	{"second", "()Ljava/lang/Object;", "()TK2;", $PUBLIC | $ABSTRACT, $virtualMethod(WeakPairMap$Pair, second, $Object*)},
+	{"weak", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/ref/ReferenceQueue;)Ljava/lang/WeakPairMap$Pair;", "<K1:Ljava/lang/Object;K2:Ljava/lang/Object;>(TK1;TK2;Ljava/lang/ref/ReferenceQueue<Ljava/lang/Object;>;)Ljava/lang/WeakPairMap$Pair<TK1;TK2;>;", $PUBLIC | $STATIC, $staticMethod(WeakPairMap$Pair, weak, WeakPairMap$Pair*, Object$*, Object$*, $ReferenceQueue*)},
 	{}
 };
 

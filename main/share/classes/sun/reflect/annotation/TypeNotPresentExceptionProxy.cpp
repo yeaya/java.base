@@ -23,11 +23,11 @@ $FieldInfo _TypeNotPresentExceptionProxy_FieldInfo_[] = {
 };
 
 $MethodInfo _TypeNotPresentExceptionProxy_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(TypeNotPresentExceptionProxy::*)($String*,$Throwable*)>(&TypeNotPresentExceptionProxy::init$))},
-	{"generateException", "()Ljava/lang/RuntimeException;", nullptr, $PROTECTED},
-	{"getCause", "()Ljava/lang/Throwable;", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"typeName", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(TypeNotPresentExceptionProxy, init$, void, $String*, $Throwable*)},
+	{"generateException", "()Ljava/lang/RuntimeException;", nullptr, $PROTECTED, $virtualMethod(TypeNotPresentExceptionProxy, generateException, $RuntimeException*)},
+	{"getCause", "()Ljava/lang/Throwable;", nullptr, $PUBLIC, $virtualMethod(TypeNotPresentExceptionProxy, getCause, $Throwable*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TypeNotPresentExceptionProxy, toString, $String*)},
+	{"typeName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TypeNotPresentExceptionProxy, typeName, $String*)},
 	{}
 };
 

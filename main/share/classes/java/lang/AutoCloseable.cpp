@@ -9,7 +9,7 @@ namespace java {
 	namespace lang {
 
 $MethodInfo _AutoCloseable_MethodInfo_[] = {
-	{"close", "()V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.lang.Exception"},
+	{"close", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AutoCloseable, close, void), "java.lang.Exception"},
 	{}
 };
 

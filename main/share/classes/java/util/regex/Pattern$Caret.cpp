@@ -18,8 +18,8 @@ namespace java {
 		namespace regex {
 
 $MethodInfo _Pattern$Caret_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Pattern$Caret::*)()>(&Pattern$Caret::init$))},
-	{"match", "(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z", nullptr, 0},
+	{"<init>", "()V", nullptr, 0, $method(Pattern$Caret, init$, void)},
+	{"match", "(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z", nullptr, 0, $virtualMethod(Pattern$Caret, match, bool, $Matcher*, int32_t, $CharSequence*)},
 	{}
 };
 

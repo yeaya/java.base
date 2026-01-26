@@ -23,7 +23,7 @@ $FieldInfo _EUC_KR$EncodeHolder_FieldInfo_[] = {
 };
 
 $MethodInfo _EUC_KR$EncodeHolder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(EUC_KR$EncodeHolder::*)()>(&EUC_KR$EncodeHolder::init$))},
+	{"<init>", "()V", nullptr, 0, $method(EUC_KR$EncodeHolder, init$, void)},
 	{}
 };
 

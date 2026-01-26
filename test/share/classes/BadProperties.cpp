@@ -8,8 +8,8 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $AsynchronousSocketChannel = ::java::nio::channels::AsynchronousSocketChannel;
 
 $MethodInfo _BadProperties_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(BadProperties::*)()>(&BadProperties::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&BadProperties::main)), "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(BadProperties, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(BadProperties, main, void, $StringArray*), "java.io.IOException"},
 	{}
 };
 

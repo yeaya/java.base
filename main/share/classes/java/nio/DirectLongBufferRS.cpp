@@ -34,18 +34,18 @@ $FieldInfo _DirectLongBufferRS_FieldInfo_[] = {
 };
 
 $MethodInfo _DirectLongBufferRS_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/ch/DirectBuffer;IIIIILjdk/internal/access/foreign/MemorySegmentProxy;)V", nullptr, 0, $method(static_cast<void(DirectLongBufferRS::*)($DirectBuffer*,int32_t,int32_t,int32_t,int32_t,int32_t,$MemorySegmentProxy*)>(&DirectLongBufferRS::init$))},
-	{"asReadOnlyBuffer", "()Ljava/nio/LongBuffer;", nullptr, $PUBLIC},
-	{"base", "()Ljava/lang/Object;", nullptr, 0},
-	{"compact", "()Ljava/nio/LongBuffer;", nullptr, $PUBLIC},
-	{"duplicate", "()Ljava/nio/LongBuffer;", nullptr, $PUBLIC},
-	{"isDirect", "()Z", nullptr, $PUBLIC},
-	{"isReadOnly", "()Z", nullptr, $PUBLIC},
-	{"order", "()Ljava/nio/ByteOrder;", nullptr, $PUBLIC},
-	{"put", "(J)Ljava/nio/LongBuffer;", nullptr, $PUBLIC},
-	{"put", "(IJ)Ljava/nio/LongBuffer;", nullptr, $PUBLIC},
-	{"slice", "()Ljava/nio/LongBuffer;", nullptr, $PUBLIC},
-	{"slice", "(II)Ljava/nio/LongBuffer;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/nio/ch/DirectBuffer;IIIIILjdk/internal/access/foreign/MemorySegmentProxy;)V", nullptr, 0, $method(DirectLongBufferRS, init$, void, $DirectBuffer*, int32_t, int32_t, int32_t, int32_t, int32_t, $MemorySegmentProxy*)},
+	{"asReadOnlyBuffer", "()Ljava/nio/LongBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectLongBufferRS, asReadOnlyBuffer, $LongBuffer*)},
+	{"base", "()Ljava/lang/Object;", nullptr, 0, $virtualMethod(DirectLongBufferRS, base, $Object*)},
+	{"compact", "()Ljava/nio/LongBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectLongBufferRS, compact, $LongBuffer*)},
+	{"duplicate", "()Ljava/nio/LongBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectLongBufferRS, duplicate, $LongBuffer*)},
+	{"isDirect", "()Z", nullptr, $PUBLIC, $virtualMethod(DirectLongBufferRS, isDirect, bool)},
+	{"isReadOnly", "()Z", nullptr, $PUBLIC, $virtualMethod(DirectLongBufferRS, isReadOnly, bool)},
+	{"order", "()Ljava/nio/ByteOrder;", nullptr, $PUBLIC, $virtualMethod(DirectLongBufferRS, order, $ByteOrder*)},
+	{"put", "(J)Ljava/nio/LongBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectLongBufferRS, put, $LongBuffer*, int64_t)},
+	{"put", "(IJ)Ljava/nio/LongBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectLongBufferRS, put, $LongBuffer*, int32_t, int64_t)},
+	{"slice", "()Ljava/nio/LongBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectLongBufferRS, slice, $LongBuffer*)},
+	{"slice", "(II)Ljava/nio/LongBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectLongBufferRS, slice, $LongBuffer*, int32_t, int32_t)},
 	{}
 };
 

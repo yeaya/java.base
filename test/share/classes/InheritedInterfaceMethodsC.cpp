@@ -6,7 +6,7 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _InheritedInterfaceMethodsC_MethodInfo_[] = {
-	{"c", "()V", nullptr, $PUBLIC | $ABSTRACT},
+	{"c", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(InheritedInterfaceMethodsC, c, void)},
 	{}
 };
 

@@ -18,7 +18,7 @@ namespace java {
 		namespace stream {
 
 $MethodInfo _Nodes$ToArrayTask$OfInt_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/stream/Node$OfInt;[II)V", nullptr, $PRIVATE, $method(static_cast<void(Nodes$ToArrayTask$OfInt::*)($Node$OfInt*,$ints*,int32_t)>(&Nodes$ToArrayTask$OfInt::init$))},
+	{"<init>", "(Ljava/util/stream/Node$OfInt;[II)V", nullptr, $PRIVATE, $method(Nodes$ToArrayTask$OfInt, init$, void, $Node$OfInt*, $ints*, int32_t)},
 	{}
 };
 

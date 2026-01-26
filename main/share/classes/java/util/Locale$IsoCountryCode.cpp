@@ -57,8 +57,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Locale$IsoCountryCode$$Lambda$createCountryCodeSet::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Locale$IsoCountryCode$$Lambda$createCountryCodeSet::*)()>(&Locale$IsoCountryCode$$Lambda$createCountryCodeSet::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Locale$IsoCountryCode$$Lambda$createCountryCodeSet, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Locale$IsoCountryCode$$Lambda$createCountryCodeSet, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Locale$IsoCountryCode$$Lambda$createCountryCodeSet::classInfo$ = {
@@ -85,12 +85,12 @@ $FieldInfo _Locale$IsoCountryCode_FieldInfo_[] = {
 };
 
 $MethodInfo _Locale$IsoCountryCode_MethodInfo_[] = {
-	{"$values", "()[Ljava/util/Locale$IsoCountryCode;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Locale$IsoCountryCodeArray*(*)()>(&Locale$IsoCountryCode::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(Locale$IsoCountryCode::*)($String*,int32_t)>(&Locale$IsoCountryCode::init$))},
-	{"createCountryCodeSet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $ABSTRACT},
-	{"retrieveISOCountryCodes", "(Ljava/util/Locale$IsoCountryCode;)Ljava/util/Set;", "(Ljava/util/Locale$IsoCountryCode;)Ljava/util/Set<Ljava/lang/String;>;", $STATIC, $method(static_cast<$Set*(*)(Locale$IsoCountryCode*)>(&Locale$IsoCountryCode::retrieveISOCountryCodes))},
-	{"valueOf", "(Ljava/lang/String;)Ljava/util/Locale$IsoCountryCode;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Locale$IsoCountryCode*(*)($String*)>(&Locale$IsoCountryCode::valueOf))},
-	{"values", "()[Ljava/util/Locale$IsoCountryCode;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Locale$IsoCountryCodeArray*(*)()>(&Locale$IsoCountryCode::values))},
+	{"$values", "()[Ljava/util/Locale$IsoCountryCode;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Locale$IsoCountryCode, $values, $Locale$IsoCountryCodeArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Locale$IsoCountryCode, init$, void, $String*, int32_t)},
+	{"createCountryCodeSet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $ABSTRACT, $virtualMethod(Locale$IsoCountryCode, createCountryCodeSet, $Set*)},
+	{"retrieveISOCountryCodes", "(Ljava/util/Locale$IsoCountryCode;)Ljava/util/Set;", "(Ljava/util/Locale$IsoCountryCode;)Ljava/util/Set<Ljava/lang/String;>;", $STATIC, $staticMethod(Locale$IsoCountryCode, retrieveISOCountryCodes, $Set*, Locale$IsoCountryCode*)},
+	{"valueOf", "(Ljava/lang/String;)Ljava/util/Locale$IsoCountryCode;", nullptr, $PUBLIC | $STATIC, $staticMethod(Locale$IsoCountryCode, valueOf, Locale$IsoCountryCode*, $String*)},
+	{"values", "()[Ljava/util/Locale$IsoCountryCode;", nullptr, $PUBLIC | $STATIC, $staticMethod(Locale$IsoCountryCode, values, $Locale$IsoCountryCodeArray*)},
 	{}
 };
 

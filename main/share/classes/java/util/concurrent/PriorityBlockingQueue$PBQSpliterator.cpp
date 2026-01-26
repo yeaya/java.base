@@ -32,14 +32,14 @@ $FieldInfo _PriorityBlockingQueue$PBQSpliterator_FieldInfo_[] = {
 };
 
 $MethodInfo _PriorityBlockingQueue$PBQSpliterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/PriorityBlockingQueue;)V", nullptr, 0, $method(static_cast<void(PriorityBlockingQueue$PBQSpliterator::*)($PriorityBlockingQueue*)>(&PriorityBlockingQueue$PBQSpliterator::init$))},
-	{"<init>", "(Ljava/util/concurrent/PriorityBlockingQueue;[Ljava/lang/Object;II)V", nullptr, 0, $method(static_cast<void(PriorityBlockingQueue$PBQSpliterator::*)($PriorityBlockingQueue*,$ObjectArray*,int32_t,int32_t)>(&PriorityBlockingQueue$PBQSpliterator::init$))},
-	{"characteristics", "()I", nullptr, $PUBLIC},
-	{"estimateSize", "()J", nullptr, $PUBLIC},
-	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC},
-	{"getFence", "()I", nullptr, $PRIVATE, $method(static_cast<int32_t(PriorityBlockingQueue$PBQSpliterator::*)()>(&PriorityBlockingQueue$PBQSpliterator::getFence))},
-	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-TE;>;)Z", $PUBLIC},
-	{"trySplit", "()Ljava/util/concurrent/PriorityBlockingQueue$PBQSpliterator;", "()Ljava/util/concurrent/PriorityBlockingQueue<TE;>.PBQSpliterator;", $PUBLIC},
+	{"<init>", "(Ljava/util/concurrent/PriorityBlockingQueue;)V", nullptr, 0, $method(PriorityBlockingQueue$PBQSpliterator, init$, void, $PriorityBlockingQueue*)},
+	{"<init>", "(Ljava/util/concurrent/PriorityBlockingQueue;[Ljava/lang/Object;II)V", nullptr, 0, $method(PriorityBlockingQueue$PBQSpliterator, init$, void, $PriorityBlockingQueue*, $ObjectArray*, int32_t, int32_t)},
+	{"characteristics", "()I", nullptr, $PUBLIC, $virtualMethod(PriorityBlockingQueue$PBQSpliterator, characteristics, int32_t)},
+	{"estimateSize", "()J", nullptr, $PUBLIC, $virtualMethod(PriorityBlockingQueue$PBQSpliterator, estimateSize, int64_t)},
+	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC, $virtualMethod(PriorityBlockingQueue$PBQSpliterator, forEachRemaining, void, $Consumer*)},
+	{"getFence", "()I", nullptr, $PRIVATE, $method(PriorityBlockingQueue$PBQSpliterator, getFence, int32_t)},
+	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-TE;>;)Z", $PUBLIC, $virtualMethod(PriorityBlockingQueue$PBQSpliterator, tryAdvance, bool, $Consumer*)},
+	{"trySplit", "()Ljava/util/concurrent/PriorityBlockingQueue$PBQSpliterator;", "()Ljava/util/concurrent/PriorityBlockingQueue<TE;>.PBQSpliterator;", $PUBLIC, $virtualMethod(PriorityBlockingQueue$PBQSpliterator, trySplit, PriorityBlockingQueue$PBQSpliterator*)},
 	{}
 };
 

@@ -36,11 +36,11 @@ $FieldInfo _TieRoundingTest_FieldInfo_[] = {
 };
 
 $MethodInfo _TieRoundingTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TieRoundingTest::*)()>(&TieRoundingTest::init$))},
-	{"formatOutputTestDouble", "(Ljava/text/NumberFormat;DLjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $STATIC, $method(static_cast<void(*)($NumberFormat*,double,$String*,$String*,$String*)>(&TieRoundingTest::formatOutputTestDouble))},
-	{"formatOutputTestLong", "(Ljava/text/NumberFormat;JLjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $STATIC, $method(static_cast<void(*)($NumberFormat*,int64_t,$String*,$String*,$String*)>(&TieRoundingTest::formatOutputTestLong))},
-	{"formatOutputTestObject", "(Ljava/text/NumberFormat;Ljava/lang/Object;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $STATIC, $method(static_cast<void(*)($NumberFormat*,Object$*,$String*,$String*,$String*)>(&TieRoundingTest::formatOutputTestObject))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&TieRoundingTest::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TieRoundingTest, init$, void)},
+	{"formatOutputTestDouble", "(Ljava/text/NumberFormat;DLjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(TieRoundingTest, formatOutputTestDouble, void, $NumberFormat*, double, $String*, $String*, $String*)},
+	{"formatOutputTestLong", "(Ljava/text/NumberFormat;JLjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(TieRoundingTest, formatOutputTestLong, void, $NumberFormat*, int64_t, $String*, $String*, $String*)},
+	{"formatOutputTestObject", "(Ljava/text/NumberFormat;Ljava/lang/Object;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(TieRoundingTest, formatOutputTestObject, void, $NumberFormat*, Object$*, $String*, $String*, $String*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TieRoundingTest, main, void, $StringArray*)},
 	{}
 };
 

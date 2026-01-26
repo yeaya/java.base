@@ -44,13 +44,13 @@ $FieldInfo _CheckRecordComponentAdapter_FieldInfo_[] = {
 };
 
 $MethodInfo _CheckRecordComponentAdapter_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/org/objectweb/asm/RecordComponentVisitor;)V", nullptr, $PUBLIC, $method(static_cast<void(CheckRecordComponentAdapter::*)($RecordComponentVisitor*)>(&CheckRecordComponentAdapter::init$))},
-	{"<init>", "(ILjdk/internal/org/objectweb/asm/RecordComponentVisitor;)V", nullptr, $PROTECTED, $method(static_cast<void(CheckRecordComponentAdapter::*)(int32_t,$RecordComponentVisitor*)>(&CheckRecordComponentAdapter::init$))},
-	{"checkVisitEndNotCalled", "()V", nullptr, $PRIVATE, $method(static_cast<void(CheckRecordComponentAdapter::*)()>(&CheckRecordComponentAdapter::checkVisitEndNotCalled))},
-	{"visitAnnotation", "(Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC},
-	{"visitAttribute", "(Ljdk/internal/org/objectweb/asm/Attribute;)V", nullptr, $PUBLIC},
-	{"visitEnd", "()V", nullptr, $PUBLIC},
-	{"visitTypeAnnotation", "(ILjdk/internal/org/objectweb/asm/TypePath;Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/org/objectweb/asm/RecordComponentVisitor;)V", nullptr, $PUBLIC, $method(CheckRecordComponentAdapter, init$, void, $RecordComponentVisitor*)},
+	{"<init>", "(ILjdk/internal/org/objectweb/asm/RecordComponentVisitor;)V", nullptr, $PROTECTED, $method(CheckRecordComponentAdapter, init$, void, int32_t, $RecordComponentVisitor*)},
+	{"checkVisitEndNotCalled", "()V", nullptr, $PRIVATE, $method(CheckRecordComponentAdapter, checkVisitEndNotCalled, void)},
+	{"visitAnnotation", "(Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(CheckRecordComponentAdapter, visitAnnotation, $AnnotationVisitor*, $String*, bool)},
+	{"visitAttribute", "(Ljdk/internal/org/objectweb/asm/Attribute;)V", nullptr, $PUBLIC, $virtualMethod(CheckRecordComponentAdapter, visitAttribute, void, $Attribute*)},
+	{"visitEnd", "()V", nullptr, $PUBLIC, $virtualMethod(CheckRecordComponentAdapter, visitEnd, void)},
+	{"visitTypeAnnotation", "(ILjdk/internal/org/objectweb/asm/TypePath;Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(CheckRecordComponentAdapter, visitTypeAnnotation, $AnnotationVisitor*, int32_t, $TypePath*, $String*, bool)},
 	{}
 };
 

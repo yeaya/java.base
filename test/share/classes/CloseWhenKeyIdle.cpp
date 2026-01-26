@@ -38,8 +38,8 @@ $FieldInfo _CloseWhenKeyIdle_FieldInfo_[] = {
 };
 
 $MethodInfo _CloseWhenKeyIdle_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CloseWhenKeyIdle::*)()>(&CloseWhenKeyIdle::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&CloseWhenKeyIdle::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CloseWhenKeyIdle, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(CloseWhenKeyIdle, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

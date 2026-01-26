@@ -49,14 +49,14 @@ $FieldInfo _LinkedHashMap$LinkedEntrySet_FieldInfo_[] = {
 };
 
 $MethodInfo _LinkedHashMap$LinkedEntrySet_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/LinkedHashMap;)V", nullptr, 0, $method(static_cast<void(LinkedHashMap$LinkedEntrySet::*)($LinkedHashMap*)>(&LinkedHashMap$LinkedEntrySet::init$))},
-	{"clear", "()V", nullptr, $PUBLIC | $FINAL},
-	{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
-	{"forEach", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-Ljava/util/Map$Entry<TK;TV;>;>;)V", $PUBLIC | $FINAL},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/util/Map$Entry<TK;TV;>;>;", $PUBLIC | $FINAL},
-	{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
-	{"size", "()I", nullptr, $PUBLIC | $FINAL},
-	{"spliterator", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<Ljava/util/Map$Entry<TK;TV;>;>;", $PUBLIC | $FINAL},
+	{"<init>", "(Ljava/util/LinkedHashMap;)V", nullptr, 0, $method(LinkedHashMap$LinkedEntrySet, init$, void, $LinkedHashMap*)},
+	{"clear", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(LinkedHashMap$LinkedEntrySet, clear, void)},
+	{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(LinkedHashMap$LinkedEntrySet, contains, bool, Object$*)},
+	{"forEach", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-Ljava/util/Map$Entry<TK;TV;>;>;)V", $PUBLIC | $FINAL, $virtualMethod(LinkedHashMap$LinkedEntrySet, forEach, void, $Consumer*)},
+	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/util/Map$Entry<TK;TV;>;>;", $PUBLIC | $FINAL, $virtualMethod(LinkedHashMap$LinkedEntrySet, iterator, $Iterator*)},
+	{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(LinkedHashMap$LinkedEntrySet, remove, bool, Object$*)},
+	{"size", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(LinkedHashMap$LinkedEntrySet, size, int32_t)},
+	{"spliterator", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<Ljava/util/Map$Entry<TK;TV;>;>;", $PUBLIC | $FINAL, $virtualMethod(LinkedHashMap$LinkedEntrySet, spliterator, $Spliterator*)},
 	{}
 };
 

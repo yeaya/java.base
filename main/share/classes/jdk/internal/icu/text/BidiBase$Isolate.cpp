@@ -22,7 +22,7 @@ $FieldInfo _BidiBase$Isolate_FieldInfo_[] = {
 };
 
 $MethodInfo _BidiBase$Isolate_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(BidiBase$Isolate::*)()>(&BidiBase$Isolate::init$))},
+	{"<init>", "()V", nullptr, 0, $method(BidiBase$Isolate, init$, void)},
 	{}
 };
 

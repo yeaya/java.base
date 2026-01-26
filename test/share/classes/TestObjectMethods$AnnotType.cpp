@@ -36,7 +36,7 @@ $Attribute _TestObjectMethods$AnnotType_DefaultValue_value0 = {
 };
 
 $MethodInfo _TestObjectMethods$AnnotType_MethodInfo_[] = {
-	{"value", "()I", nullptr, $PUBLIC | $ABSTRACT, nullptr, nullptr, &_TestObjectMethods$AnnotType_DefaultValue_value0},
+	{"value", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TestObjectMethods$AnnotType, value, int32_t), nullptr, &_TestObjectMethods$AnnotType_DefaultValue_value0},
 	{}
 };
 

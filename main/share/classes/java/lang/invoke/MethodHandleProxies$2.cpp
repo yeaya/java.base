@@ -29,8 +29,8 @@ $FieldInfo _MethodHandleProxies$2_FieldInfo_[] = {
 };
 
 $MethodInfo _MethodHandleProxies$2_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/ClassLoader;Ljava/lang/Class;Ljava/lang/reflect/InvocationHandler;)V", nullptr, 0, $method(static_cast<void(MethodHandleProxies$2::*)($ClassLoader*,$Class*,$InvocationHandler*)>(&MethodHandleProxies$2::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/ClassLoader;Ljava/lang/Class;Ljava/lang/reflect/InvocationHandler;)V", nullptr, 0, $method(MethodHandleProxies$2, init$, void, $ClassLoader*, $Class*, $InvocationHandler*)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MethodHandleProxies$2, run, $Object*)},
 	{}
 };
 

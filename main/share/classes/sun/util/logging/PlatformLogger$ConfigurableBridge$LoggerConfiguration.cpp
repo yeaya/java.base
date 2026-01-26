@@ -7,15 +7,16 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $PlatformLogger$Level = ::sun::util::logging::PlatformLogger$Level;
 
 namespace sun {
 	namespace util {
 		namespace logging {
 
 $MethodInfo _PlatformLogger$ConfigurableBridge$LoggerConfiguration_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PlatformLogger$ConfigurableBridge$LoggerConfiguration::*)()>(&PlatformLogger$ConfigurableBridge$LoggerConfiguration::init$))},
-	{"getPlatformLevel", "()Lsun/util/logging/PlatformLogger$Level;", nullptr, $PUBLIC | $ABSTRACT},
-	{"setPlatformLevel", "(Lsun/util/logging/PlatformLogger$Level;)V", nullptr, $PUBLIC | $ABSTRACT},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PlatformLogger$ConfigurableBridge$LoggerConfiguration, init$, void)},
+	{"getPlatformLevel", "()Lsun/util/logging/PlatformLogger$Level;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PlatformLogger$ConfigurableBridge$LoggerConfiguration, getPlatformLevel, $PlatformLogger$Level*)},
+	{"setPlatformLevel", "(Lsun/util/logging/PlatformLogger$Level;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PlatformLogger$ConfigurableBridge$LoggerConfiguration, setPlatformLevel, void, $PlatformLogger$Level*)},
 	{}
 };
 

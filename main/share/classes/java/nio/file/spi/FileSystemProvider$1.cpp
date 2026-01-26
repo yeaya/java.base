@@ -16,8 +16,8 @@ namespace java {
 			namespace spi {
 
 $MethodInfo _FileSystemProvider$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(FileSystemProvider$1::*)()>(&FileSystemProvider$1::init$))},
-	{"run", "()Ljava/util/List;", "()Ljava/util/List<Ljava/nio/file/spi/FileSystemProvider;>;", $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(FileSystemProvider$1, init$, void)},
+	{"run", "()Ljava/util/List;", "()Ljava/util/List<Ljava/nio/file/spi/FileSystemProvider;>;", $PUBLIC, $virtualMethod(FileSystemProvider$1, run, $Object*)},
 	{}
 };
 

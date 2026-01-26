@@ -16,9 +16,9 @@ namespace sun {
 		namespace fs {
 
 $MethodInfo _UTIFileTypeDetector_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(UTIFileTypeDetector::*)()>(&UTIFileTypeDetector::init$))},
-	{"implProbeContentType", "(Ljava/nio/file/Path;)Ljava/lang/String;", nullptr, $PROTECTED, nullptr, "java.io.IOException"},
-	{"probe0", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $NATIVE, $method(static_cast<$String*(UTIFileTypeDetector::*)($String*)>(&UTIFileTypeDetector::probe0)), "java.io.IOException"},
+	{"<init>", "()V", nullptr, 0, $method(UTIFileTypeDetector, init$, void)},
+	{"implProbeContentType", "(Ljava/nio/file/Path;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(UTIFileTypeDetector, implProbeContentType, $String*, $Path*), "java.io.IOException"},
+	{"probe0", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $NATIVE, $method(UTIFileTypeDetector, probe0, $String*, $String*), "java.io.IOException"},
 	{}
 };
 

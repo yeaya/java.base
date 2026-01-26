@@ -23,8 +23,8 @@ $FieldInfo _ClassLoader$1_FieldInfo_[] = {
 };
 
 $MethodInfo _ClassLoader$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/ClassLoader;Ljava/lang/SecurityManager;Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(ClassLoader$1::*)($ClassLoader*,$SecurityManager*,$String*)>(&ClassLoader$1::init$))},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/ClassLoader;Ljava/lang/SecurityManager;Ljava/lang/String;)V", nullptr, 0, $method(ClassLoader$1, init$, void, $ClassLoader*, $SecurityManager*, $String*)},
+	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(ClassLoader$1, run, $Object*)},
 	{}
 };
 

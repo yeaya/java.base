@@ -56,7 +56,7 @@ $FieldInfo _SignatureAlgorithmsExtension_FieldInfo_[] = {
 };
 
 $MethodInfo _SignatureAlgorithmsExtension_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(SignatureAlgorithmsExtension::*)()>(&SignatureAlgorithmsExtension::init$))},
+	{"<init>", "()V", nullptr, 0, $method(SignatureAlgorithmsExtension, init$, void)},
 	{}
 };
 

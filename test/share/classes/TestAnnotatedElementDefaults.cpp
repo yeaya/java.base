@@ -56,11 +56,11 @@ using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
 
 $MethodInfo _TestAnnotatedElementDefaults_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TestAnnotatedElementDefaults::*)()>(&TestAnnotatedElementDefaults::init$))},
-	{"annotationsToTest", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/Class<+Ljava/lang/annotation/Annotation;>;>;", $PRIVATE | $STATIC, $method(static_cast<$List*(*)()>(&TestAnnotatedElementDefaults::annotationsToTest))},
-	{"elementsToTest", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/reflect/AnnotatedElement;>;", $PRIVATE | $STATIC, $method(static_cast<$List*(*)()>(&TestAnnotatedElementDefaults::elementsToTest))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<void(*)($StringArray*)>(&TestAnnotatedElementDefaults::main)), "java.lang.SecurityException"},
-	{"testNullHandling", "(LAnnotatedElementDelegate;)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)($AnnotatedElementDelegate*)>(&TestAnnotatedElementDefaults::testNullHandling))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TestAnnotatedElementDefaults, init$, void)},
+	{"annotationsToTest", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/Class<+Ljava/lang/annotation/Annotation;>;>;", $PRIVATE | $STATIC, $staticMethod(TestAnnotatedElementDefaults, annotationsToTest, $List*)},
+	{"elementsToTest", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/reflect/AnnotatedElement;>;", $PRIVATE | $STATIC, $staticMethod(TestAnnotatedElementDefaults, elementsToTest, $List*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(TestAnnotatedElementDefaults, main, void, $StringArray*), "java.lang.SecurityException"},
+	{"testNullHandling", "(LAnnotatedElementDelegate;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(TestAnnotatedElementDefaults, testNullHandling, int32_t, $AnnotatedElementDelegate*)},
 	{}
 };
 

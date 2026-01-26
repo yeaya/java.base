@@ -19,9 +19,9 @@ $FieldInfo _LongSignature_FieldInfo_[] = {
 };
 
 $MethodInfo _LongSignature_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(LongSignature::*)()>(&LongSignature::init$))},
-	{"accept", "(Lsun/reflect/generics/visitor/TypeTreeVisitor;)V", "(Lsun/reflect/generics/visitor/TypeTreeVisitor<*>;)V", $PUBLIC},
-	{"make", "()Lsun/reflect/generics/tree/LongSignature;", nullptr, $PUBLIC | $STATIC, $method(static_cast<LongSignature*(*)()>(&LongSignature::make))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(LongSignature, init$, void)},
+	{"accept", "(Lsun/reflect/generics/visitor/TypeTreeVisitor;)V", "(Lsun/reflect/generics/visitor/TypeTreeVisitor<*>;)V", $PUBLIC, $virtualMethod(LongSignature, accept, void, $TypeTreeVisitor*)},
+	{"make", "()Lsun/reflect/generics/tree/LongSignature;", nullptr, $PUBLIC | $STATIC, $staticMethod(LongSignature, make, LongSignature*)},
 	{}
 };
 

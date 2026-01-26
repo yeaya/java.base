@@ -32,8 +32,8 @@ $FieldInfo _DefaultDatagramSocketImplFactory_FieldInfo_[] = {
 };
 
 $MethodInfo _DefaultDatagramSocketImplFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(DefaultDatagramSocketImplFactory::*)()>(&DefaultDatagramSocketImplFactory::init$))},
-	{"createDatagramSocketImpl", "(Z)Ljava/net/DatagramSocketImpl;", nullptr, $STATIC, $method(static_cast<$DatagramSocketImpl*(*)(bool)>(&DefaultDatagramSocketImplFactory::createDatagramSocketImpl)), "java.net.SocketException"},
+	{"<init>", "()V", nullptr, 0, $method(DefaultDatagramSocketImplFactory, init$, void)},
+	{"createDatagramSocketImpl", "(Z)Ljava/net/DatagramSocketImpl;", nullptr, $STATIC, $staticMethod(DefaultDatagramSocketImplFactory, createDatagramSocketImpl, $DatagramSocketImpl*, bool), "java.net.SocketException"},
 	{}
 };
 

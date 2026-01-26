@@ -47,8 +47,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo FileLengthTest$$Lambda$lambda$startLengthThread$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(FileLengthTest$$Lambda$lambda$startLengthThread$0::*)()>(&FileLengthTest$$Lambda$lambda$startLengthThread$0::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(FileLengthTest$$Lambda$lambda$startLengthThread$0, init$, void)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(FileLengthTest$$Lambda$lambda$startLengthThread$0, run, void)},
 	{}
 };
 $ClassInfo FileLengthTest$$Lambda$lambda$startLengthThread$0::classInfo$ = {
@@ -80,8 +80,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo FileLengthTest$$Lambda$lambda$startReaderThread$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(FileLengthTest$$Lambda$lambda$startReaderThread$1$1::*)()>(&FileLengthTest$$Lambda$lambda$startReaderThread$1$1::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(FileLengthTest$$Lambda$lambda$startReaderThread$1$1, init$, void)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(FileLengthTest$$Lambda$lambda$startReaderThread$1$1, run, void)},
 	{}
 };
 $ClassInfo FileLengthTest$$Lambda$lambda$startReaderThread$1$1::classInfo$ = {
@@ -109,13 +109,13 @@ $FieldInfo _FileLengthTest_FieldInfo_[] = {
 };
 
 $MethodInfo _FileLengthTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(FileLengthTest::*)()>(&FileLengthTest::init$))},
-	{"createDummyFile", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($String*)>(&FileLengthTest::createDummyFile)), "java.io.FileNotFoundException,java.io.IOException"},
-	{"lambda$startLengthThread$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)()>(&FileLengthTest::lambda$startLengthThread$0))},
-	{"lambda$startReaderThread$1", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)()>(&FileLengthTest::lambda$startReaderThread$1))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&FileLengthTest::main))},
-	{"startLengthThread", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&FileLengthTest::startLengthThread))},
-	{"startReaderThread", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&FileLengthTest::startReaderThread))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(FileLengthTest, init$, void)},
+	{"createDummyFile", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(FileLengthTest, createDummyFile, void, $String*), "java.io.FileNotFoundException,java.io.IOException"},
+	{"lambda$startLengthThread$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(FileLengthTest, lambda$startLengthThread$0, void)},
+	{"lambda$startReaderThread$1", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(FileLengthTest, lambda$startReaderThread$1, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(FileLengthTest, main, void, $StringArray*)},
+	{"startLengthThread", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(FileLengthTest, startLengthThread, void)},
+	{"startReaderThread", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(FileLengthTest, startReaderThread, void)},
 	{}
 };
 

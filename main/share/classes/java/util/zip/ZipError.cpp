@@ -18,7 +18,7 @@ $FieldInfo _ZipError_FieldInfo_[] = {
 };
 
 $MethodInfo _ZipError_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(ZipError::*)($String*)>(&ZipError::init$))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ZipError, init$, void, $String*)},
 	{}
 };
 

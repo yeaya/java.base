@@ -23,9 +23,9 @@ $FieldInfo _Trie2$Range_FieldInfo_[] = {
 };
 
 $MethodInfo _Trie2$Range_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Trie2$Range::*)()>(&Trie2$Range::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Trie2$Range, init$, void)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Trie2$Range, equals, bool, Object$*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Trie2$Range, hashCode, int32_t)},
 	{}
 };
 

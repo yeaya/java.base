@@ -16,8 +16,8 @@ namespace jdk {
 		namespace math {
 
 $MethodInfo _FloatingDecimal$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(FloatingDecimal$1::*)()>(&FloatingDecimal$1::init$))},
-	{"initialValue", "()Ljdk/internal/math/FloatingDecimal$BinaryToASCIIBuffer;", nullptr, $PROTECTED},
+	{"<init>", "()V", nullptr, 0, $method(FloatingDecimal$1, init$, void)},
+	{"initialValue", "()Ljdk/internal/math/FloatingDecimal$BinaryToASCIIBuffer;", nullptr, $PROTECTED, $virtualMethod(FloatingDecimal$1, initialValue, $Object*)},
 	{}
 };
 

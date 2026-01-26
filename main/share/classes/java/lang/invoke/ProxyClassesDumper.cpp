@@ -56,11 +56,11 @@ $FieldInfo _ProxyClassesDumper_FieldInfo_[] = {
 };
 
 $MethodInfo _ProxyClassesDumper_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/file/Path;)V", nullptr, $PRIVATE, $method(static_cast<void(ProxyClassesDumper::*)($Path*)>(&ProxyClassesDumper::init$))},
-	{"dumpClass", "(Ljava/lang/String;[B)V", nullptr, $PUBLIC, $method(static_cast<void(ProxyClassesDumper::*)($String*,$bytes*)>(&ProxyClassesDumper::dumpClass))},
-	{"encodeForFilename", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)($String*)>(&ProxyClassesDumper::encodeForFilename))},
-	{"getInstance", "(Ljava/lang/String;)Ljava/lang/invoke/ProxyClassesDumper;", nullptr, $PUBLIC | $STATIC, $method(static_cast<ProxyClassesDumper*(*)($String*)>(&ProxyClassesDumper::getInstance))},
-	{"validateDumpDir", "(Ljava/nio/file/Path;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($Path*)>(&ProxyClassesDumper::validateDumpDir))},
+	{"<init>", "(Ljava/nio/file/Path;)V", nullptr, $PRIVATE, $method(ProxyClassesDumper, init$, void, $Path*)},
+	{"dumpClass", "(Ljava/lang/String;[B)V", nullptr, $PUBLIC, $method(ProxyClassesDumper, dumpClass, void, $String*, $bytes*)},
+	{"encodeForFilename", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(ProxyClassesDumper, encodeForFilename, $String*, $String*)},
+	{"getInstance", "(Ljava/lang/String;)Ljava/lang/invoke/ProxyClassesDumper;", nullptr, $PUBLIC | $STATIC, $staticMethod(ProxyClassesDumper, getInstance, ProxyClassesDumper*, $String*)},
+	{"validateDumpDir", "(Ljava/nio/file/Path;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ProxyClassesDumper, validateDumpDir, void, $Path*)},
 	{}
 };
 

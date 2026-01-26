@@ -28,10 +28,10 @@ $FieldInfo _FtpClient$TransferType_FieldInfo_[] = {
 };
 
 $MethodInfo _FtpClient$TransferType_MethodInfo_[] = {
-	{"$values", "()[Lsun/net/ftp/FtpClient$TransferType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$FtpClient$TransferTypeArray*(*)()>(&FtpClient$TransferType::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(FtpClient$TransferType::*)($String*,int32_t)>(&FtpClient$TransferType::init$))},
-	{"valueOf", "(Ljava/lang/String;)Lsun/net/ftp/FtpClient$TransferType;", nullptr, $PUBLIC | $STATIC, $method(static_cast<FtpClient$TransferType*(*)($String*)>(&FtpClient$TransferType::valueOf))},
-	{"values", "()[Lsun/net/ftp/FtpClient$TransferType;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$FtpClient$TransferTypeArray*(*)()>(&FtpClient$TransferType::values))},
+	{"$values", "()[Lsun/net/ftp/FtpClient$TransferType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(FtpClient$TransferType, $values, $FtpClient$TransferTypeArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(FtpClient$TransferType, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Lsun/net/ftp/FtpClient$TransferType;", nullptr, $PUBLIC | $STATIC, $staticMethod(FtpClient$TransferType, valueOf, FtpClient$TransferType*, $String*)},
+	{"values", "()[Lsun/net/ftp/FtpClient$TransferType;", nullptr, $PUBLIC | $STATIC, $staticMethod(FtpClient$TransferType, values, $FtpClient$TransferTypeArray*)},
 	{}
 };
 

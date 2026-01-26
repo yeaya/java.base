@@ -17,7 +17,7 @@ $FieldInfo _IllegalSelectorException_FieldInfo_[] = {
 };
 
 $MethodInfo _IllegalSelectorException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(IllegalSelectorException::*)()>(&IllegalSelectorException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(IllegalSelectorException, init$, void)},
 	{}
 };
 

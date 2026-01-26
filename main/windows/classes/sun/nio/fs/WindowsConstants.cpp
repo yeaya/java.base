@@ -268,7 +268,7 @@ $FieldInfo _WindowsConstants_FieldInfo_[] = {
 };
 
 $MethodInfo _WindowsConstants_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(WindowsConstants::*)()>(&WindowsConstants::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(WindowsConstants, init$, void)},
 	{}
 };
 

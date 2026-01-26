@@ -17,9 +17,9 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _Fill4BufferedInputStream_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Fill4BufferedInputStream::*)()>(&Fill4BufferedInputStream::init$))},
-	{"go", "(I)V", nullptr, $STATIC, $method(static_cast<void(*)(int32_t)>(&Fill4BufferedInputStream::go)), "java.lang.Exception"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Fill4BufferedInputStream::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Fill4BufferedInputStream, init$, void)},
+	{"go", "(I)V", nullptr, $STATIC, $staticMethod(Fill4BufferedInputStream, go, void, int32_t), "java.lang.Exception"},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Fill4BufferedInputStream, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

@@ -25,8 +25,8 @@ $FieldInfo _MimeTable$DefaultInstanceHolder_FieldInfo_[] = {
 };
 
 $MethodInfo _MimeTable$DefaultInstanceHolder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(MimeTable$DefaultInstanceHolder::*)()>(&MimeTable$DefaultInstanceHolder::init$))},
-	{"getDefaultInstance", "()Lsun/net/www/MimeTable;", nullptr, $STATIC, $method(static_cast<$MimeTable*(*)()>(&MimeTable$DefaultInstanceHolder::getDefaultInstance))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(MimeTable$DefaultInstanceHolder, init$, void)},
+	{"getDefaultInstance", "()Lsun/net/www/MimeTable;", nullptr, $STATIC, $staticMethod(MimeTable$DefaultInstanceHolder, getDefaultInstance, $MimeTable*)},
 	{}
 };
 

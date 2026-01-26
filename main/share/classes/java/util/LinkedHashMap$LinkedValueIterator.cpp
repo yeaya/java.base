@@ -26,8 +26,8 @@ $MethodInfo _LinkedHashMap$LinkedValueIterator_MethodInfo_[] = {
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hasNext", "()Z", nullptr, $PUBLIC | $FINAL},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/util/LinkedHashMap;)V", nullptr, 0, $method(static_cast<void(LinkedHashMap$LinkedValueIterator::*)($LinkedHashMap*)>(&LinkedHashMap$LinkedValueIterator::init$))},
-	{"next", "()Ljava/lang/Object;", "()TV;", $PUBLIC | $FINAL},
+	{"<init>", "(Ljava/util/LinkedHashMap;)V", nullptr, 0, $method(LinkedHashMap$LinkedValueIterator, init$, void, $LinkedHashMap*)},
+	{"next", "()Ljava/lang/Object;", "()TV;", $PUBLIC | $FINAL, $virtualMethod(LinkedHashMap$LinkedValueIterator, next, $Object*)},
 	{"*remove", "()V", nullptr, $PUBLIC | $FINAL},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}

@@ -46,7 +46,7 @@ $FieldInfo _PKIXExtensions_FieldInfo_[] = {
 };
 
 $MethodInfo _PKIXExtensions_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PKIXExtensions::*)()>(&PKIXExtensions::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PKIXExtensions, init$, void)},
 	{}
 };
 

@@ -102,8 +102,8 @@ $FieldInfo MethodHandleProxies$$Lambda$lambda$callDefaultMethod$0::fieldInfos[3]
 	{}
 };
 $MethodInfo MethodHandleProxies$$Lambda$lambda$callDefaultMethod$0::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/Class;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(static_cast<void(MethodHandleProxies$$Lambda$lambda$callDefaultMethod$0::*)($Class*,Object$*)>(&MethodHandleProxies$$Lambda$lambda$callDefaultMethod$0::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Class;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(MethodHandleProxies$$Lambda$lambda$callDefaultMethod$0, init$, void, $Class*, Object$*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MethodHandleProxies$$Lambda$lambda$callDefaultMethod$0, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo MethodHandleProxies$$Lambda$lambda$callDefaultMethod$0::classInfo$ = {
@@ -131,20 +131,20 @@ $FieldInfo _MethodHandleProxies_FieldInfo_[] = {
 };
 
 $MethodInfo _MethodHandleProxies_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(MethodHandleProxies::*)()>(&MethodHandleProxies::init$))},
-	{"asInterfaceInstance", "(Ljava/lang/Class;Ljava/lang/invoke/MethodHandle;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/lang/Class<TT;>;Ljava/lang/invoke/MethodHandle;)TT;", $PUBLIC | $STATIC, $method(static_cast<$Object*(*)($Class*,$MethodHandle*)>(&MethodHandleProxies::asInterfaceInstance)), nullptr, nullptr, _MethodHandleProxies_MethodAnnotations_asInterfaceInstance1},
-	{"asWrapperInstance", "(Ljava/lang/Object;)Lsun/invoke/WrapperInstance;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$WrapperInstance*(*)(Object$*)>(&MethodHandleProxies::asWrapperInstance))},
-	{"bindCaller", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodHandle;", $PRIVATE | $STATIC, $method(static_cast<$MethodHandle*(*)($MethodHandle*,$Class*)>(&MethodHandleProxies::bindCaller))},
-	{"callDefaultMethod", "(Ljava/util/concurrent/ConcurrentHashMap;Ljava/lang/Object;Ljava/lang/Class;Ljava/lang/reflect/Method;[Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/util/concurrent/ConcurrentHashMap<Ljava/lang/reflect/Method;Ljava/lang/invoke/MethodHandle;>;Ljava/lang/Object;Ljava/lang/Class<*>;Ljava/lang/reflect/Method;[Ljava/lang/Object;)Ljava/lang/Object;", $PRIVATE | $STATIC, $method(static_cast<$Object*(*)($ConcurrentHashMap*,Object$*,$Class*,$Method*,$ObjectArray*)>(&MethodHandleProxies::callDefaultMethod)), "java.lang.Throwable"},
-	{"callObjectMethod", "(Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$Object*(*)(Object$*,$Method*,$ObjectArray*)>(&MethodHandleProxies::callObjectMethod))},
-	{"getSingleNameMethods", "(Ljava/lang/Class;)[Ljava/lang/reflect/Method;", "(Ljava/lang/Class<*>;)[Ljava/lang/reflect/Method;", $PRIVATE | $STATIC, $method(static_cast<$MethodArray*(*)($Class*)>(&MethodHandleProxies::getSingleNameMethods))},
-	{"hasDefaultMethods", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PRIVATE | $STATIC, $method(static_cast<bool(*)($Class*)>(&MethodHandleProxies::hasDefaultMethods))},
-	{"isDefaultMethod", "(Ljava/lang/reflect/Method;)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($Method*)>(&MethodHandleProxies::isDefaultMethod))},
-	{"isObjectMethod", "(Ljava/lang/reflect/Method;)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($Method*)>(&MethodHandleProxies::isObjectMethod))},
-	{"isWrapperInstance", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)(Object$*)>(&MethodHandleProxies::isWrapperInstance))},
-	{"lambda$callDefaultMethod$0", "(Ljava/lang/Class;Ljava/lang/Object;Ljava/lang/reflect/Method;)Ljava/lang/invoke/MethodHandle;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$MethodHandle*(*)($Class*,Object$*,$Method*)>(&MethodHandleProxies::lambda$callDefaultMethod$0))},
-	{"wrapperInstanceTarget", "(Ljava/lang/Object;)Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$MethodHandle*(*)(Object$*)>(&MethodHandleProxies::wrapperInstanceTarget))},
-	{"wrapperInstanceType", "(Ljava/lang/Object;)Ljava/lang/Class;", "(Ljava/lang/Object;)Ljava/lang/Class<*>;", $PUBLIC | $STATIC, $method(static_cast<$Class*(*)(Object$*)>(&MethodHandleProxies::wrapperInstanceType))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(MethodHandleProxies, init$, void)},
+	{"asInterfaceInstance", "(Ljava/lang/Class;Ljava/lang/invoke/MethodHandle;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/lang/Class<TT;>;Ljava/lang/invoke/MethodHandle;)TT;", $PUBLIC | $STATIC, $staticMethod(MethodHandleProxies, asInterfaceInstance, $Object*, $Class*, $MethodHandle*), nullptr, nullptr, _MethodHandleProxies_MethodAnnotations_asInterfaceInstance1},
+	{"asWrapperInstance", "(Ljava/lang/Object;)Lsun/invoke/WrapperInstance;", nullptr, $PRIVATE | $STATIC, $staticMethod(MethodHandleProxies, asWrapperInstance, $WrapperInstance*, Object$*)},
+	{"bindCaller", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodHandle;", $PRIVATE | $STATIC, $staticMethod(MethodHandleProxies, bindCaller, $MethodHandle*, $MethodHandle*, $Class*)},
+	{"callDefaultMethod", "(Ljava/util/concurrent/ConcurrentHashMap;Ljava/lang/Object;Ljava/lang/Class;Ljava/lang/reflect/Method;[Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/util/concurrent/ConcurrentHashMap<Ljava/lang/reflect/Method;Ljava/lang/invoke/MethodHandle;>;Ljava/lang/Object;Ljava/lang/Class<*>;Ljava/lang/reflect/Method;[Ljava/lang/Object;)Ljava/lang/Object;", $PRIVATE | $STATIC, $staticMethod(MethodHandleProxies, callDefaultMethod, $Object*, $ConcurrentHashMap*, Object$*, $Class*, $Method*, $ObjectArray*), "java.lang.Throwable"},
+	{"callObjectMethod", "(Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC, $staticMethod(MethodHandleProxies, callObjectMethod, $Object*, Object$*, $Method*, $ObjectArray*)},
+	{"getSingleNameMethods", "(Ljava/lang/Class;)[Ljava/lang/reflect/Method;", "(Ljava/lang/Class<*>;)[Ljava/lang/reflect/Method;", $PRIVATE | $STATIC, $staticMethod(MethodHandleProxies, getSingleNameMethods, $MethodArray*, $Class*)},
+	{"hasDefaultMethods", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PRIVATE | $STATIC, $staticMethod(MethodHandleProxies, hasDefaultMethods, bool, $Class*)},
+	{"isDefaultMethod", "(Ljava/lang/reflect/Method;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(MethodHandleProxies, isDefaultMethod, bool, $Method*)},
+	{"isObjectMethod", "(Ljava/lang/reflect/Method;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(MethodHandleProxies, isObjectMethod, bool, $Method*)},
+	{"isWrapperInstance", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(MethodHandleProxies, isWrapperInstance, bool, Object$*)},
+	{"lambda$callDefaultMethod$0", "(Ljava/lang/Class;Ljava/lang/Object;Ljava/lang/reflect/Method;)Ljava/lang/invoke/MethodHandle;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MethodHandleProxies, lambda$callDefaultMethod$0, $MethodHandle*, $Class*, Object$*, $Method*)},
+	{"wrapperInstanceTarget", "(Ljava/lang/Object;)Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC | $STATIC, $staticMethod(MethodHandleProxies, wrapperInstanceTarget, $MethodHandle*, Object$*)},
+	{"wrapperInstanceType", "(Ljava/lang/Object;)Ljava/lang/Class;", "(Ljava/lang/Object;)Ljava/lang/Class<*>;", $PUBLIC | $STATIC, $staticMethod(MethodHandleProxies, wrapperInstanceType, $Class*, Object$*)},
 	{}
 };
 

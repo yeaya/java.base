@@ -48,8 +48,8 @@ $FieldInfo _RacyDeregister_FieldInfo_[] = {
 };
 
 $MethodInfo _RacyDeregister_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(RacyDeregister::*)()>(&RacyDeregister::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&RacyDeregister::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(RacyDeregister, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(RacyDeregister, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

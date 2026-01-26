@@ -18,10 +18,10 @@ namespace jdk {
 		namespace loader {
 
 $MethodInfo _Loader$NullModuleReader_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(Loader$NullModuleReader::*)()>(&Loader$NullModuleReader::init$))},
-	{"close", "()V", nullptr, $PUBLIC},
-	{"find", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/net/URI;>;", $PUBLIC},
-	{"list", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljava/lang/String;>;", $PUBLIC},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(Loader$NullModuleReader, init$, void)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(Loader$NullModuleReader, close, void)},
+	{"find", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/net/URI;>;", $PUBLIC, $virtualMethod(Loader$NullModuleReader, find, $Optional*, $String*)},
+	{"list", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(Loader$NullModuleReader, list, $Stream*)},
 	{}
 };
 

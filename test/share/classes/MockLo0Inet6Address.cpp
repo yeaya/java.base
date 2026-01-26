@@ -28,15 +28,15 @@ $FieldInfo _MockLo0Inet6Address_FieldInfo_[] = {
 };
 
 $MethodInfo _MockLo0Inet6Address_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(MockLo0Inet6Address::*)()>(&MockLo0Inet6Address::init$))},
-	{"getAddress", "()[B", nullptr, $STATIC, $method(static_cast<$bytes*(*)()>(&MockLo0Inet6Address::getAddress))},
-	{"getBareHostAddress", "()Ljava/lang/String;", nullptr, $STATIC, $method(static_cast<$String*(*)()>(&MockLo0Inet6Address::getBareHostAddress))},
-	{"getHostAddress", "()Ljava/lang/String;", nullptr, $STATIC, $method(static_cast<$String*(*)()>(&MockLo0Inet6Address::getHostAddress))},
-	{"getHostAddressWithIndex", "()Ljava/lang/String;", nullptr, $STATIC, $method(static_cast<$String*(*)()>(&MockLo0Inet6Address::getHostAddressWithIndex))},
-	{"getHostName", "()Ljava/lang/String;", nullptr, $STATIC, $method(static_cast<$String*(*)()>(&MockLo0Inet6Address::getHostName))},
-	{"getScopeId", "()I", nullptr, $STATIC, $method(static_cast<int32_t(*)()>(&MockLo0Inet6Address::getScopeId))},
-	{"getScopeIfName", "()Ljava/lang/String;", nullptr, $STATIC, $method(static_cast<$String*(*)()>(&MockLo0Inet6Address::getScopeIfName))},
-	{"getScopeZero", "()I", nullptr, $STATIC, $method(static_cast<int32_t(*)()>(&MockLo0Inet6Address::getScopeZero))},
+	{"<init>", "()V", nullptr, 0, $method(MockLo0Inet6Address, init$, void)},
+	{"getAddress", "()[B", nullptr, $STATIC, $staticMethod(MockLo0Inet6Address, getAddress, $bytes*)},
+	{"getBareHostAddress", "()Ljava/lang/String;", nullptr, $STATIC, $staticMethod(MockLo0Inet6Address, getBareHostAddress, $String*)},
+	{"getHostAddress", "()Ljava/lang/String;", nullptr, $STATIC, $staticMethod(MockLo0Inet6Address, getHostAddress, $String*)},
+	{"getHostAddressWithIndex", "()Ljava/lang/String;", nullptr, $STATIC, $staticMethod(MockLo0Inet6Address, getHostAddressWithIndex, $String*)},
+	{"getHostName", "()Ljava/lang/String;", nullptr, $STATIC, $staticMethod(MockLo0Inet6Address, getHostName, $String*)},
+	{"getScopeId", "()I", nullptr, $STATIC, $staticMethod(MockLo0Inet6Address, getScopeId, int32_t)},
+	{"getScopeIfName", "()Ljava/lang/String;", nullptr, $STATIC, $staticMethod(MockLo0Inet6Address, getScopeIfName, $String*)},
+	{"getScopeZero", "()I", nullptr, $STATIC, $staticMethod(MockLo0Inet6Address, getScopeZero, int32_t)},
 	{}
 };
 

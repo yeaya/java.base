@@ -38,10 +38,10 @@ $FieldInfo _ModuleResolutionAttribute_FieldInfo_[] = {
 };
 
 $MethodInfo _ModuleResolutionAttribute_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(static_cast<void(ModuleResolutionAttribute::*)(int32_t)>(&ModuleResolutionAttribute::init$))},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ModuleResolutionAttribute::*)()>(&ModuleResolutionAttribute::init$))},
-	{"read", "(Ljdk/internal/org/objectweb/asm/ClassReader;II[CI[Ljdk/internal/org/objectweb/asm/Label;)Ljdk/internal/org/objectweb/asm/Attribute;", nullptr, $PROTECTED},
-	{"write", "(Ljdk/internal/org/objectweb/asm/ClassWriter;[BIII)Ljdk/internal/org/objectweb/asm/ByteVector;", nullptr, $PROTECTED},
+	{"<init>", "(I)V", nullptr, $PUBLIC, $method(ModuleResolutionAttribute, init$, void, int32_t)},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ModuleResolutionAttribute, init$, void)},
+	{"read", "(Ljdk/internal/org/objectweb/asm/ClassReader;II[CI[Ljdk/internal/org/objectweb/asm/Label;)Ljdk/internal/org/objectweb/asm/Attribute;", nullptr, $PROTECTED, $virtualMethod(ModuleResolutionAttribute, read, $Attribute*, $ClassReader*, int32_t, int32_t, $chars*, int32_t, $LabelArray*)},
+	{"write", "(Ljdk/internal/org/objectweb/asm/ClassWriter;[BIII)Ljdk/internal/org/objectweb/asm/ByteVector;", nullptr, $PROTECTED, $virtualMethod(ModuleResolutionAttribute, write, $ByteVector*, $ClassWriter*, $bytes*, int32_t, int32_t, int32_t)},
 	{}
 };
 

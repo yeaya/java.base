@@ -29,9 +29,9 @@ $FieldInfo _ResourceManager_FieldInfo_[] = {
 };
 
 $MethodInfo _ResourceManager_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ResourceManager::*)()>(&ResourceManager::init$))},
-	{"afterUdpClose", "()V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)()>(&ResourceManager::afterUdpClose))},
-	{"beforeUdpCreate", "()V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)()>(&ResourceManager::beforeUdpCreate)), "java.net.SocketException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ResourceManager, init$, void)},
+	{"afterUdpClose", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(ResourceManager, afterUdpClose, void)},
+	{"beforeUdpCreate", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(ResourceManager, beforeUdpCreate, void), "java.net.SocketException"},
 	{}
 };
 

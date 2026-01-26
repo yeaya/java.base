@@ -23,8 +23,8 @@ $FieldInfo _BoundMethodHandle$Specializer$Factory_FieldInfo_[] = {
 };
 
 $MethodInfo _BoundMethodHandle$Specializer$Factory_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/invoke/BoundMethodHandle$Specializer;)V", nullptr, 0, $method(static_cast<void(BoundMethodHandle$Specializer$Factory::*)($BoundMethodHandle$Specializer*)>(&BoundMethodHandle$Specializer$Factory::init$))},
-	{"chooseFieldName", "(Ljava/lang/Class;I)Ljava/lang/String;", "(Ljava/lang/Class<*>;I)Ljava/lang/String;", $PROTECTED},
+	{"<init>", "(Ljava/lang/invoke/BoundMethodHandle$Specializer;)V", nullptr, 0, $method(BoundMethodHandle$Specializer$Factory, init$, void, $BoundMethodHandle$Specializer*)},
+	{"chooseFieldName", "(Ljava/lang/Class;I)Ljava/lang/String;", "(Ljava/lang/Class<*>;I)Ljava/lang/String;", $PROTECTED, $virtualMethod(BoundMethodHandle$Specializer$Factory, chooseFieldName, $String*, $Class*, int32_t)},
 	{}
 };
 

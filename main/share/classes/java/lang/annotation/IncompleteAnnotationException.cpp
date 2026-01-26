@@ -19,9 +19,9 @@ $FieldInfo _IncompleteAnnotationException_FieldInfo_[] = {
 };
 
 $MethodInfo _IncompleteAnnotationException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Class;Ljava/lang/String;)V", "(Ljava/lang/Class<+Ljava/lang/annotation/Annotation;>;Ljava/lang/String;)V", $PUBLIC, $method(static_cast<void(IncompleteAnnotationException::*)($Class*,$String*)>(&IncompleteAnnotationException::init$))},
-	{"annotationType", "()Ljava/lang/Class;", "()Ljava/lang/Class<+Ljava/lang/annotation/Annotation;>;", $PUBLIC},
-	{"elementName", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Class;Ljava/lang/String;)V", "(Ljava/lang/Class<+Ljava/lang/annotation/Annotation;>;Ljava/lang/String;)V", $PUBLIC, $method(IncompleteAnnotationException, init$, void, $Class*, $String*)},
+	{"annotationType", "()Ljava/lang/Class;", "()Ljava/lang/Class<+Ljava/lang/annotation/Annotation;>;", $PUBLIC, $virtualMethod(IncompleteAnnotationException, annotationType, $Class*)},
+	{"elementName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IncompleteAnnotationException, elementName, $String*)},
 	{}
 };
 

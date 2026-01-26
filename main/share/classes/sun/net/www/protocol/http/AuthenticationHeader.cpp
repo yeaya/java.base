@@ -48,15 +48,15 @@ $FieldInfo _AuthenticationHeader_FieldInfo_[] = {
 };
 
 $MethodInfo _AuthenticationHeader_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Lsun/net/www/MessageHeader;Lsun/net/www/protocol/http/HttpCallerInfo;Z)V", nullptr, $PUBLIC, $method(static_cast<void(AuthenticationHeader::*)($String*,$MessageHeader*,$HttpCallerInfo*,bool)>(&AuthenticationHeader::init$))},
-	{"<init>", "(Ljava/lang/String;Lsun/net/www/MessageHeader;Lsun/net/www/protocol/http/HttpCallerInfo;ZLjava/util/Set;)V", "(Ljava/lang/String;Lsun/net/www/MessageHeader;Lsun/net/www/protocol/http/HttpCallerInfo;ZLjava/util/Set<Ljava/lang/String;>;)V", $PUBLIC, $method(static_cast<void(AuthenticationHeader::*)($String*,$MessageHeader*,$HttpCallerInfo*,bool,$Set*)>(&AuthenticationHeader::init$))},
-	{"getHttpCallerInfo", "()Lsun/net/www/protocol/http/HttpCallerInfo;", nullptr, $PUBLIC},
-	{"headerParser", "()Lsun/net/www/HeaderParser;", nullptr, $PUBLIC},
-	{"isPresent", "()Z", nullptr, $PUBLIC},
-	{"parse", "(Ljava/util/Set;)V", "(Ljava/util/Set<Ljava/lang/String;>;)V", $PRIVATE, $method(static_cast<void(AuthenticationHeader::*)($Set*)>(&AuthenticationHeader::parse))},
-	{"raw", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"scheme", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Lsun/net/www/MessageHeader;Lsun/net/www/protocol/http/HttpCallerInfo;Z)V", nullptr, $PUBLIC, $method(AuthenticationHeader, init$, void, $String*, $MessageHeader*, $HttpCallerInfo*, bool)},
+	{"<init>", "(Ljava/lang/String;Lsun/net/www/MessageHeader;Lsun/net/www/protocol/http/HttpCallerInfo;ZLjava/util/Set;)V", "(Ljava/lang/String;Lsun/net/www/MessageHeader;Lsun/net/www/protocol/http/HttpCallerInfo;ZLjava/util/Set<Ljava/lang/String;>;)V", $PUBLIC, $method(AuthenticationHeader, init$, void, $String*, $MessageHeader*, $HttpCallerInfo*, bool, $Set*)},
+	{"getHttpCallerInfo", "()Lsun/net/www/protocol/http/HttpCallerInfo;", nullptr, $PUBLIC, $virtualMethod(AuthenticationHeader, getHttpCallerInfo, $HttpCallerInfo*)},
+	{"headerParser", "()Lsun/net/www/HeaderParser;", nullptr, $PUBLIC, $virtualMethod(AuthenticationHeader, headerParser, $HeaderParser*)},
+	{"isPresent", "()Z", nullptr, $PUBLIC, $virtualMethod(AuthenticationHeader, isPresent, bool)},
+	{"parse", "(Ljava/util/Set;)V", "(Ljava/util/Set<Ljava/lang/String;>;)V", $PRIVATE, $method(AuthenticationHeader, parse, void, $Set*)},
+	{"raw", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AuthenticationHeader, raw, $String*)},
+	{"scheme", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AuthenticationHeader, scheme, $String*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AuthenticationHeader, toString, $String*)},
 	{}
 };
 

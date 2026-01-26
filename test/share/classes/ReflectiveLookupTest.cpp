@@ -19,10 +19,10 @@ using $MethodType = ::java::lang::invoke::MethodType;
 using $Method = ::java::lang::reflect::Method;
 
 $MethodInfo _ReflectiveLookupTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ReflectiveLookupTest::*)()>(&ReflectiveLookupTest::init$))},
-	{"assertEquals", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $STATIC, $method(static_cast<void(*)(Object$*,Object$*)>(&ReflectiveLookupTest::assertEquals))},
-	{"foo", "()Ljava/lang/String;", nullptr, $STATIC, $method(static_cast<$String*(*)()>(&ReflectiveLookupTest::foo))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<void(*)($StringArray*)>(&ReflectiveLookupTest::main)), "java.lang.Throwable"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ReflectiveLookupTest, init$, void)},
+	{"assertEquals", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $STATIC, $staticMethod(ReflectiveLookupTest, assertEquals, void, Object$*, Object$*)},
+	{"foo", "()Ljava/lang/String;", nullptr, $STATIC, $staticMethod(ReflectiveLookupTest, foo, $String*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(ReflectiveLookupTest, main, void, $StringArray*), "java.lang.Throwable"},
 	{}
 };
 

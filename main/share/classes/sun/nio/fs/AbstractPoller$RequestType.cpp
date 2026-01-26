@@ -28,10 +28,10 @@ $FieldInfo _AbstractPoller$RequestType_FieldInfo_[] = {
 };
 
 $MethodInfo _AbstractPoller$RequestType_MethodInfo_[] = {
-	{"$values", "()[Lsun/nio/fs/AbstractPoller$RequestType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$AbstractPoller$RequestTypeArray*(*)()>(&AbstractPoller$RequestType::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(AbstractPoller$RequestType::*)($String*,int32_t)>(&AbstractPoller$RequestType::init$))},
-	{"valueOf", "(Ljava/lang/String;)Lsun/nio/fs/AbstractPoller$RequestType;", nullptr, $PUBLIC | $STATIC, $method(static_cast<AbstractPoller$RequestType*(*)($String*)>(&AbstractPoller$RequestType::valueOf))},
-	{"values", "()[Lsun/nio/fs/AbstractPoller$RequestType;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$AbstractPoller$RequestTypeArray*(*)()>(&AbstractPoller$RequestType::values))},
+	{"$values", "()[Lsun/nio/fs/AbstractPoller$RequestType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AbstractPoller$RequestType, $values, $AbstractPoller$RequestTypeArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(AbstractPoller$RequestType, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Lsun/nio/fs/AbstractPoller$RequestType;", nullptr, $PUBLIC | $STATIC, $staticMethod(AbstractPoller$RequestType, valueOf, AbstractPoller$RequestType*, $String*)},
+	{"values", "()[Lsun/nio/fs/AbstractPoller$RequestType;", nullptr, $PUBLIC | $STATIC, $staticMethod(AbstractPoller$RequestType, values, $AbstractPoller$RequestTypeArray*)},
 	{}
 };
 

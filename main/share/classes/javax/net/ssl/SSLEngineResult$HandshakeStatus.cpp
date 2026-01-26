@@ -34,10 +34,10 @@ $FieldInfo _SSLEngineResult$HandshakeStatus_FieldInfo_[] = {
 };
 
 $MethodInfo _SSLEngineResult$HandshakeStatus_MethodInfo_[] = {
-	{"$values", "()[Ljavax/net/ssl/SSLEngineResult$HandshakeStatus;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$SSLEngineResult$HandshakeStatusArray*(*)()>(&SSLEngineResult$HandshakeStatus::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(SSLEngineResult$HandshakeStatus::*)($String*,int32_t)>(&SSLEngineResult$HandshakeStatus::init$))},
-	{"valueOf", "(Ljava/lang/String;)Ljavax/net/ssl/SSLEngineResult$HandshakeStatus;", nullptr, $PUBLIC | $STATIC, $method(static_cast<SSLEngineResult$HandshakeStatus*(*)($String*)>(&SSLEngineResult$HandshakeStatus::valueOf))},
-	{"values", "()[Ljavax/net/ssl/SSLEngineResult$HandshakeStatus;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$SSLEngineResult$HandshakeStatusArray*(*)()>(&SSLEngineResult$HandshakeStatus::values))},
+	{"$values", "()[Ljavax/net/ssl/SSLEngineResult$HandshakeStatus;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SSLEngineResult$HandshakeStatus, $values, $SSLEngineResult$HandshakeStatusArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(SSLEngineResult$HandshakeStatus, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Ljavax/net/ssl/SSLEngineResult$HandshakeStatus;", nullptr, $PUBLIC | $STATIC, $staticMethod(SSLEngineResult$HandshakeStatus, valueOf, SSLEngineResult$HandshakeStatus*, $String*)},
+	{"values", "()[Ljavax/net/ssl/SSLEngineResult$HandshakeStatus;", nullptr, $PUBLIC | $STATIC, $staticMethod(SSLEngineResult$HandshakeStatus, values, $SSLEngineResult$HandshakeStatusArray*)},
 	{}
 };
 

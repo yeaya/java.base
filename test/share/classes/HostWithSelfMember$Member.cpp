@@ -8,7 +8,7 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _HostWithSelfMember$Member_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(HostWithSelfMember$Member::*)()>(&HostWithSelfMember$Member::init$))},
+	{"<init>", "()V", nullptr, 0, $method(HostWithSelfMember$Member, init$, void)},
 	{}
 };
 

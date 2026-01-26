@@ -21,8 +21,8 @@ using $SecurityPermission = ::java::security::SecurityPermission;
 using $Enumeration = ::java::util::Enumeration;
 
 $MethodInfo _SocketPermissionCollection_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SocketPermissionCollection::*)()>(&SocketPermissionCollection::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&SocketPermissionCollection::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SocketPermissionCollection, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SocketPermissionCollection, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

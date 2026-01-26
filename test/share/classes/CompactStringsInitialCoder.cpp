@@ -18,9 +18,9 @@ $FieldInfo _CompactStringsInitialCoder_FieldInfo_[] = {
 };
 
 $MethodInfo _CompactStringsInitialCoder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CompactStringsInitialCoder::*)()>(&CompactStringsInitialCoder::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&CompactStringsInitialCoder::main)), "java.lang.Exception"},
-	{"test", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($String*,$String*)>(&CompactStringsInitialCoder::test))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CompactStringsInitialCoder, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(CompactStringsInitialCoder, main, void, $StringArray*), "java.lang.Exception"},
+	{"test", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(CompactStringsInitialCoder, test, void, $String*, $String*)},
 	{}
 };
 

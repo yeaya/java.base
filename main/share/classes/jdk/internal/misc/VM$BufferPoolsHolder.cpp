@@ -35,7 +35,7 @@ $FieldInfo _VM$BufferPoolsHolder_FieldInfo_[] = {
 };
 
 $MethodInfo _VM$BufferPoolsHolder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(VM$BufferPoolsHolder::*)()>(&VM$BufferPoolsHolder::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(VM$BufferPoolsHolder, init$, void)},
 	{}
 };
 

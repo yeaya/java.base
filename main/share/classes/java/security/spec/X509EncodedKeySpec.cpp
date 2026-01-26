@@ -12,10 +12,10 @@ namespace java {
 		namespace spec {
 
 $MethodInfo _X509EncodedKeySpec_MethodInfo_[] = {
-	{"<init>", "([B)V", nullptr, $PUBLIC, $method(static_cast<void(X509EncodedKeySpec::*)($bytes*)>(&X509EncodedKeySpec::init$))},
-	{"<init>", "([BLjava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(X509EncodedKeySpec::*)($bytes*,$String*)>(&X509EncodedKeySpec::init$))},
-	{"getEncoded", "()[B", nullptr, $PUBLIC},
-	{"getFormat", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL},
+	{"<init>", "([B)V", nullptr, $PUBLIC, $method(X509EncodedKeySpec, init$, void, $bytes*)},
+	{"<init>", "([BLjava/lang/String;)V", nullptr, $PUBLIC, $method(X509EncodedKeySpec, init$, void, $bytes*, $String*)},
+	{"getEncoded", "()[B", nullptr, $PUBLIC, $virtualMethod(X509EncodedKeySpec, getEncoded, $bytes*)},
+	{"getFormat", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(X509EncodedKeySpec, getFormat, $String*)},
 	{}
 };
 

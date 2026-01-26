@@ -29,8 +29,8 @@ $FieldInfo _WindowsAsynchronousFileChannelImpl$DefaultIocpHolder_FieldInfo_[] = 
 };
 
 $MethodInfo _WindowsAsynchronousFileChannelImpl$DefaultIocpHolder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(WindowsAsynchronousFileChannelImpl$DefaultIocpHolder::*)()>(&WindowsAsynchronousFileChannelImpl$DefaultIocpHolder::init$))},
-	{"defaultIocp", "()Lsun/nio/ch/Iocp;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$Iocp*(*)()>(&WindowsAsynchronousFileChannelImpl$DefaultIocpHolder::defaultIocp))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(WindowsAsynchronousFileChannelImpl$DefaultIocpHolder, init$, void)},
+	{"defaultIocp", "()Lsun/nio/ch/Iocp;", nullptr, $PRIVATE | $STATIC, $staticMethod(WindowsAsynchronousFileChannelImpl$DefaultIocpHolder, defaultIocp, $Iocp*)},
 	{}
 };
 

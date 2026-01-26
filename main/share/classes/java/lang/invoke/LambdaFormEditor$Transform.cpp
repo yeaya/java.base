@@ -32,12 +32,12 @@ $FieldInfo _LambdaFormEditor$Transform_FieldInfo_[] = {
 };
 
 $MethodInfo _LambdaFormEditor$Transform_MethodInfo_[] = {
-	{"<init>", "(J[BLjava/lang/invoke/LambdaForm;)V", nullptr, $PRIVATE, $method(static_cast<void(LambdaFormEditor$Transform::*)(int64_t,$bytes*,$LambdaForm*)>(&LambdaFormEditor$Transform::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"equals", "(Ljava/lang/invoke/LambdaFormEditor$TransformKey;)Z", nullptr, $PRIVATE, $method(static_cast<bool(LambdaFormEditor$Transform::*)($LambdaFormEditor$TransformKey*)>(&LambdaFormEditor$Transform::equals))},
-	{"equals", "(Ljava/lang/invoke/LambdaFormEditor$Transform;)Z", nullptr, $PRIVATE, $method(static_cast<bool(LambdaFormEditor$Transform::*)(LambdaFormEditor$Transform*)>(&LambdaFormEditor$Transform::equals))},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(J[BLjava/lang/invoke/LambdaForm;)V", nullptr, $PRIVATE, $method(LambdaFormEditor$Transform, init$, void, int64_t, $bytes*, $LambdaForm*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(LambdaFormEditor$Transform, equals, bool, Object$*)},
+	{"equals", "(Ljava/lang/invoke/LambdaFormEditor$TransformKey;)Z", nullptr, $PRIVATE, $method(LambdaFormEditor$Transform, equals, bool, $LambdaFormEditor$TransformKey*)},
+	{"equals", "(Ljava/lang/invoke/LambdaFormEditor$Transform;)Z", nullptr, $PRIVATE, $method(LambdaFormEditor$Transform, equals, bool, LambdaFormEditor$Transform*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(LambdaFormEditor$Transform, hashCode, int32_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LambdaFormEditor$Transform, toString, $String*)},
 	{}
 };
 

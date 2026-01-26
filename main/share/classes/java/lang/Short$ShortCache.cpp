@@ -21,7 +21,7 @@ $FieldInfo _Short$ShortCache_FieldInfo_[] = {
 };
 
 $MethodInfo _Short$ShortCache_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(Short$ShortCache::*)()>(&Short$ShortCache::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(Short$ShortCache, init$, void)},
 	{}
 };
 

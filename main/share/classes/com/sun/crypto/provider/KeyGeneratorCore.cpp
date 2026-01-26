@@ -37,11 +37,11 @@ $FieldInfo _KeyGeneratorCore_FieldInfo_[] = {
 };
 
 $MethodInfo _KeyGeneratorCore_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, 0, $method(static_cast<void(KeyGeneratorCore::*)($String*,int32_t)>(&KeyGeneratorCore::init$))},
-	{"implGenerateKey", "()Ljavax/crypto/SecretKey;", nullptr, 0, $method(static_cast<$SecretKey*(KeyGeneratorCore::*)()>(&KeyGeneratorCore::implGenerateKey))},
-	{"implInit", "(Ljava/security/SecureRandom;)V", nullptr, 0, $method(static_cast<void(KeyGeneratorCore::*)($SecureRandom*)>(&KeyGeneratorCore::implInit))},
-	{"implInit", "(Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, 0, $method(static_cast<void(KeyGeneratorCore::*)($AlgorithmParameterSpec*,$SecureRandom*)>(&KeyGeneratorCore::implInit)), "java.security.InvalidAlgorithmParameterException"},
-	{"implInit", "(ILjava/security/SecureRandom;)V", nullptr, 0, $method(static_cast<void(KeyGeneratorCore::*)(int32_t,$SecureRandom*)>(&KeyGeneratorCore::implInit))},
+	{"<init>", "(Ljava/lang/String;I)V", nullptr, 0, $method(KeyGeneratorCore, init$, void, $String*, int32_t)},
+	{"implGenerateKey", "()Ljavax/crypto/SecretKey;", nullptr, 0, $method(KeyGeneratorCore, implGenerateKey, $SecretKey*)},
+	{"implInit", "(Ljava/security/SecureRandom;)V", nullptr, 0, $method(KeyGeneratorCore, implInit, void, $SecureRandom*)},
+	{"implInit", "(Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, 0, $method(KeyGeneratorCore, implInit, void, $AlgorithmParameterSpec*, $SecureRandom*), "java.security.InvalidAlgorithmParameterException"},
+	{"implInit", "(ILjava/security/SecureRandom;)V", nullptr, 0, $method(KeyGeneratorCore, implInit, void, int32_t, $SecureRandom*)},
 	{}
 };
 

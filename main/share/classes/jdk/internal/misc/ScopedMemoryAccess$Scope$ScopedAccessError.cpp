@@ -23,7 +23,7 @@ $FieldInfo _ScopedMemoryAccess$Scope$ScopedAccessError_FieldInfo_[] = {
 };
 
 $MethodInfo _ScopedMemoryAccess$Scope$ScopedAccessError_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(ScopedMemoryAccess$Scope$ScopedAccessError::*)()>(&ScopedMemoryAccess$Scope$ScopedAccessError::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(ScopedMemoryAccess$Scope$ScopedAccessError, init$, void)},
 	{}
 };
 

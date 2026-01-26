@@ -42,11 +42,11 @@ $FieldInfo _WindowsFileSystem$FileStoreIterator_FieldInfo_[] = {
 };
 
 $MethodInfo _WindowsFileSystem$FileStoreIterator_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/fs/WindowsFileSystem;)V", nullptr, 0, $method(static_cast<void(WindowsFileSystem$FileStoreIterator::*)($WindowsFileSystem*)>(&WindowsFileSystem$FileStoreIterator::init$))},
-	{"hasNext", "()Z", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"next", "()Ljava/nio/file/FileStore;", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"readNext", "()Ljava/nio/file/FileStore;", nullptr, $PRIVATE, $method(static_cast<$FileStore*(WindowsFileSystem$FileStoreIterator::*)()>(&WindowsFileSystem$FileStoreIterator::readNext))},
-	{"remove", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/nio/fs/WindowsFileSystem;)V", nullptr, 0, $method(WindowsFileSystem$FileStoreIterator, init$, void, $WindowsFileSystem*)},
+	{"hasNext", "()Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(WindowsFileSystem$FileStoreIterator, hasNext, bool)},
+	{"next", "()Ljava/nio/file/FileStore;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(WindowsFileSystem$FileStoreIterator, next, $Object*)},
+	{"readNext", "()Ljava/nio/file/FileStore;", nullptr, $PRIVATE, $method(WindowsFileSystem$FileStoreIterator, readNext, $FileStore*)},
+	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(WindowsFileSystem$FileStoreIterator, remove, void)},
 	{}
 };
 

@@ -19,6 +19,7 @@
  */
 
 #include <jdk/internal/reflect/ConstantMethodHandle.h>
+#include <jdk/internal/reflect/ConstantPool.h>
 #include <jcpp.h>
 
 namespace jdk {
@@ -33,6 +34,9 @@ void ConstantMethodHandle::init$(int32_t index, int8_t kind, int32_t referenceIn
 	ConstantBase::init$(Tag_MethodHandle, index);
 	this->kind = kind;
 	this->referenceIndex = referenceIndex;
+}
+
+void ConstantMethodHandle::init(ConstantPool* cp) {
 }
 
 		}

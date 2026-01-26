@@ -13,8 +13,8 @@ namespace sun {
 		namespace resources {
 
 $MethodInfo _LocaleNames_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(LocaleNames::*)()>(&LocaleNames::init$))},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(LocaleNames, init$, void)},
+	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(LocaleNames, getContents, $ObjectArray2*)},
 	{}
 };
 

@@ -35,14 +35,14 @@ $MethodInfo _ReentrantReadWriteLock$ReadLock_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/util/concurrent/locks/ReentrantReadWriteLock;)V", nullptr, $PROTECTED, $method(static_cast<void(ReentrantReadWriteLock$ReadLock::*)($ReentrantReadWriteLock*)>(&ReentrantReadWriteLock$ReadLock::init$))},
-	{"lock", "()V", nullptr, $PUBLIC},
-	{"lockInterruptibly", "()V", nullptr, $PUBLIC, nullptr, "java.lang.InterruptedException"},
-	{"newCondition", "()Ljava/util/concurrent/locks/Condition;", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"tryLock", "()Z", nullptr, $PUBLIC},
-	{"tryLock", "(JLjava/util/concurrent/TimeUnit;)Z", nullptr, $PUBLIC, nullptr, "java.lang.InterruptedException"},
-	{"unlock", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/concurrent/locks/ReentrantReadWriteLock;)V", nullptr, $PROTECTED, $method(ReentrantReadWriteLock$ReadLock, init$, void, $ReentrantReadWriteLock*)},
+	{"lock", "()V", nullptr, $PUBLIC, $virtualMethod(ReentrantReadWriteLock$ReadLock, lock, void)},
+	{"lockInterruptibly", "()V", nullptr, $PUBLIC, $virtualMethod(ReentrantReadWriteLock$ReadLock, lockInterruptibly, void), "java.lang.InterruptedException"},
+	{"newCondition", "()Ljava/util/concurrent/locks/Condition;", nullptr, $PUBLIC, $virtualMethod(ReentrantReadWriteLock$ReadLock, newCondition, $Condition*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ReentrantReadWriteLock$ReadLock, toString, $String*)},
+	{"tryLock", "()Z", nullptr, $PUBLIC, $virtualMethod(ReentrantReadWriteLock$ReadLock, tryLock, bool)},
+	{"tryLock", "(JLjava/util/concurrent/TimeUnit;)Z", nullptr, $PUBLIC, $virtualMethod(ReentrantReadWriteLock$ReadLock, tryLock, bool, int64_t, $TimeUnit*), "java.lang.InterruptedException"},
+	{"unlock", "()V", nullptr, $PUBLIC, $virtualMethod(ReentrantReadWriteLock$ReadLock, unlock, void)},
 	{}
 };
 

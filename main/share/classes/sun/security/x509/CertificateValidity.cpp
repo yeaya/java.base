@@ -48,21 +48,21 @@ $FieldInfo _CertificateValidity_FieldInfo_[] = {
 };
 
 $MethodInfo _CertificateValidity_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CertificateValidity::*)()>(&CertificateValidity::init$))},
-	{"<init>", "(Ljava/util/Date;Ljava/util/Date;)V", nullptr, $PUBLIC, $method(static_cast<void(CertificateValidity::*)($Date*,$Date*)>(&CertificateValidity::init$))},
-	{"<init>", "(Lsun/security/util/DerInputStream;)V", nullptr, $PUBLIC, $method(static_cast<void(CertificateValidity::*)($DerInputStream*)>(&CertificateValidity::init$)), "java.io.IOException"},
-	{"construct", "(Lsun/security/util/DerValue;)V", nullptr, $PRIVATE, $method(static_cast<void(CertificateValidity::*)($DerValue*)>(&CertificateValidity::construct)), "java.io.IOException"},
-	{"delete", "(Ljava/lang/String;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"encode", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"get", "(Ljava/lang/String;)Ljava/util/Date;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"getElements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getNotAfter", "()Ljava/util/Date;", nullptr, $PRIVATE, $method(static_cast<$Date*(CertificateValidity::*)()>(&CertificateValidity::getNotAfter))},
-	{"getNotBefore", "()Ljava/util/Date;", nullptr, $PRIVATE, $method(static_cast<$Date*(CertificateValidity::*)()>(&CertificateValidity::getNotBefore))},
-	{"set", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"valid", "()V", nullptr, $PUBLIC, nullptr, "java.security.cert.CertificateNotYetValidException,java.security.cert.CertificateExpiredException"},
-	{"valid", "(Ljava/util/Date;)V", nullptr, $PUBLIC, nullptr, "java.security.cert.CertificateNotYetValidException,java.security.cert.CertificateExpiredException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CertificateValidity, init$, void)},
+	{"<init>", "(Ljava/util/Date;Ljava/util/Date;)V", nullptr, $PUBLIC, $method(CertificateValidity, init$, void, $Date*, $Date*)},
+	{"<init>", "(Lsun/security/util/DerInputStream;)V", nullptr, $PUBLIC, $method(CertificateValidity, init$, void, $DerInputStream*), "java.io.IOException"},
+	{"construct", "(Lsun/security/util/DerValue;)V", nullptr, $PRIVATE, $method(CertificateValidity, construct, void, $DerValue*), "java.io.IOException"},
+	{"delete", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CertificateValidity, delete$, void, $String*), "java.io.IOException"},
+	{"encode", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(CertificateValidity, encode, void, $OutputStream*), "java.io.IOException"},
+	{"get", "(Ljava/lang/String;)Ljava/util/Date;", nullptr, $PUBLIC, $virtualMethod(CertificateValidity, get, $Object*, $String*), "java.io.IOException"},
+	{"getElements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(CertificateValidity, getElements, $Enumeration*)},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CertificateValidity, getName, $String*)},
+	{"getNotAfter", "()Ljava/util/Date;", nullptr, $PRIVATE, $method(CertificateValidity, getNotAfter, $Date*)},
+	{"getNotBefore", "()Ljava/util/Date;", nullptr, $PRIVATE, $method(CertificateValidity, getNotBefore, $Date*)},
+	{"set", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(CertificateValidity, set, void, $String*, Object$*), "java.io.IOException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CertificateValidity, toString, $String*)},
+	{"valid", "()V", nullptr, $PUBLIC, $virtualMethod(CertificateValidity, valid, void), "java.security.cert.CertificateNotYetValidException,java.security.cert.CertificateExpiredException"},
+	{"valid", "(Ljava/util/Date;)V", nullptr, $PUBLIC, $virtualMethod(CertificateValidity, valid, void, $Date*), "java.security.cert.CertificateNotYetValidException,java.security.cert.CertificateExpiredException"},
 	{}
 };
 

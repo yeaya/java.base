@@ -27,8 +27,8 @@ $FieldInfo _BidiBase$NumericShapings_FieldInfo_[] = {
 };
 
 $MethodInfo _BidiBase$NumericShapings_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(BidiBase$NumericShapings::*)()>(&BidiBase$NumericShapings::init$))},
-	{"shape", "(Ljava/lang/Object;[CII)V", nullptr, $STATIC, $method(static_cast<void(*)(Object$*,$chars*,int32_t,int32_t)>(&BidiBase$NumericShapings::shape))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(BidiBase$NumericShapings, init$, void)},
+	{"shape", "(Ljava/lang/Object;[CII)V", nullptr, $STATIC, $staticMethod(BidiBase$NumericShapings, shape, void, Object$*, $chars*, int32_t, int32_t)},
 	{}
 };
 

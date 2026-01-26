@@ -22,11 +22,11 @@ namespace java {
 		namespace spi {
 
 $MethodInfo _LocaleServiceProvider_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Void;)V", nullptr, $PRIVATE, $method(static_cast<void(LocaleServiceProvider::*)($Void*)>(&LocaleServiceProvider::init$))},
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(LocaleServiceProvider::*)()>(&LocaleServiceProvider::init$))},
-	{"checkPermission", "()Ljava/lang/Void;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$Void*(*)()>(&LocaleServiceProvider::checkPermission))},
-	{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC | $ABSTRACT},
-	{"isSupportedLocale", "(Ljava/util/Locale;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Void;)V", nullptr, $PRIVATE, $method(LocaleServiceProvider, init$, void, $Void*)},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(LocaleServiceProvider, init$, void)},
+	{"checkPermission", "()Ljava/lang/Void;", nullptr, $PRIVATE | $STATIC, $staticMethod(LocaleServiceProvider, checkPermission, $Void*)},
+	{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LocaleServiceProvider, getAvailableLocales, $LocaleArray*)},
+	{"isSupportedLocale", "(Ljava/util/Locale;)Z", nullptr, $PUBLIC, $virtualMethod(LocaleServiceProvider, isSupportedLocale, bool, $Locale*)},
 	{}
 };
 

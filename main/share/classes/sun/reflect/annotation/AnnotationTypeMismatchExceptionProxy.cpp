@@ -25,10 +25,10 @@ $FieldInfo _AnnotationTypeMismatchExceptionProxy_FieldInfo_[] = {
 };
 
 $MethodInfo _AnnotationTypeMismatchExceptionProxy_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(AnnotationTypeMismatchExceptionProxy::*)($String*)>(&AnnotationTypeMismatchExceptionProxy::init$))},
-	{"generateException", "()Ljava/lang/RuntimeException;", nullptr, $PROTECTED},
-	{"setMember", "(Ljava/lang/reflect/Method;)Lsun/reflect/annotation/AnnotationTypeMismatchExceptionProxy;", nullptr, 0},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(AnnotationTypeMismatchExceptionProxy, init$, void, $String*)},
+	{"generateException", "()Ljava/lang/RuntimeException;", nullptr, $PROTECTED, $virtualMethod(AnnotationTypeMismatchExceptionProxy, generateException, $RuntimeException*)},
+	{"setMember", "(Ljava/lang/reflect/Method;)Lsun/reflect/annotation/AnnotationTypeMismatchExceptionProxy;", nullptr, 0, $virtualMethod(AnnotationTypeMismatchExceptionProxy, setMember, AnnotationTypeMismatchExceptionProxy*, $Method*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AnnotationTypeMismatchExceptionProxy, toString, $String*)},
 	{}
 };
 

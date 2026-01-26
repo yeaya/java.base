@@ -28,10 +28,10 @@ $FieldInfo _Inflater$InflaterZStreamRef_FieldInfo_[] = {
 };
 
 $MethodInfo _Inflater$InflaterZStreamRef_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/zip/Inflater;J)V", nullptr, $PRIVATE, $method(static_cast<void(Inflater$InflaterZStreamRef::*)($Inflater*,int64_t)>(&Inflater$InflaterZStreamRef::init$))},
-	{"address", "()J", nullptr, 0},
-	{"clean", "()V", nullptr, 0},
-	{"run", "()V", nullptr, $PUBLIC | $SYNCHRONIZED},
+	{"<init>", "(Ljava/util/zip/Inflater;J)V", nullptr, $PRIVATE, $method(Inflater$InflaterZStreamRef, init$, void, $Inflater*, int64_t)},
+	{"address", "()J", nullptr, 0, $virtualMethod(Inflater$InflaterZStreamRef, address, int64_t)},
+	{"clean", "()V", nullptr, 0, $virtualMethod(Inflater$InflaterZStreamRef, clean, void)},
+	{"run", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Inflater$InflaterZStreamRef, run, void)},
 	{}
 };
 

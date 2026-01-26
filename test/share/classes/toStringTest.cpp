@@ -22,9 +22,9 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $Modifier = ::java::lang::reflect::Modifier;
 
 $MethodInfo _toStringTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(toStringTest::*)()>(&toStringTest::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&toStringTest::main))},
-	{"testString", "(ILjava/lang/String;)V", nullptr, $STATIC, $method(static_cast<void(*)(int32_t,$String*)>(&toStringTest::testString))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(toStringTest, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(toStringTest, main, void, $StringArray*)},
+	{"testString", "(ILjava/lang/String;)V", nullptr, $STATIC, $staticMethod(toStringTest, testString, void, int32_t, $String*)},
 	{}
 };
 

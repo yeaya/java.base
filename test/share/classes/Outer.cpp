@@ -7,7 +7,7 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _Outer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Outer::*)()>(&Outer::init$))},
+	{"<init>", "()V", nullptr, 0, $method(Outer, init$, void)},
 	{}
 };
 

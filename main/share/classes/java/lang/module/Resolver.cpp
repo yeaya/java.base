@@ -138,8 +138,8 @@ $FieldInfo Resolver$$Lambda$lambda$resolve$0::fieldInfos[4] = {
 	{}
 };
 $MethodInfo Resolver$$Lambda$lambda$resolve$0::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/module/Resolver;Ljava/util/Deque;Ljava/lang/module/ModuleDescriptor;)V", nullptr, $PUBLIC, $method(static_cast<void(Resolver$$Lambda$lambda$resolve$0::*)(Resolver*,$Deque*,$ModuleDescriptor*)>(&Resolver$$Lambda$lambda$resolve$0::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/module/Resolver;Ljava/util/Deque;Ljava/lang/module/ModuleDescriptor;)V", nullptr, $PUBLIC, $method(Resolver$$Lambda$lambda$resolve$0, init$, void, Resolver*, $Deque*, $ModuleDescriptor*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Resolver$$Lambda$lambda$resolve$0, accept, void, Object$*)},
 	{}
 };
 $ClassInfo Resolver$$Lambda$lambda$resolve$0::classInfo$ = {
@@ -171,8 +171,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Resolver$$Lambda$configurations$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Resolver$$Lambda$configurations$1::*)()>(&Resolver$$Lambda$configurations$1::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Resolver$$Lambda$configurations$1, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Resolver$$Lambda$configurations$1, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Resolver$$Lambda$configurations$1::classInfo$ = {
@@ -204,8 +204,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Resolver$$Lambda$lambda$bind$1$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Resolver$$Lambda$lambda$bind$1$2::*)()>(&Resolver$$Lambda$lambda$bind$1$2::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Resolver$$Lambda$lambda$bind$1$2, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Resolver$$Lambda$lambda$bind$1$2, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Resolver$$Lambda$lambda$bind$1$2::classInfo$ = {
@@ -247,8 +247,8 @@ $FieldInfo Resolver$$Lambda$lambda$addFoundAutomaticModules$2$3::fieldInfos[3] =
 	{}
 };
 $MethodInfo Resolver$$Lambda$lambda$addFoundAutomaticModules$2$3::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/module/Resolver;Ljava/util/Set;)V", nullptr, $PUBLIC, $method(static_cast<void(Resolver$$Lambda$lambda$addFoundAutomaticModules$2$3::*)(Resolver*,$Set*)>(&Resolver$$Lambda$lambda$addFoundAutomaticModules$2$3::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/module/Resolver;Ljava/util/Set;)V", nullptr, $PUBLIC, $method(Resolver$$Lambda$lambda$addFoundAutomaticModules$2$3, init$, void, Resolver*, $Set*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Resolver$$Lambda$lambda$addFoundAutomaticModules$2$3, accept, void, Object$*)},
 	{}
 };
 $ClassInfo Resolver$$Lambda$lambda$addFoundAutomaticModules$2$3::classInfo$ = {
@@ -280,8 +280,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Resolver$$Lambda$name$4::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Resolver$$Lambda$name$4::*)()>(&Resolver$$Lambda$name$4::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Resolver$$Lambda$name$4, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Resolver$$Lambda$name$4, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Resolver$$Lambda$name$4::classInfo$ = {
@@ -313,8 +313,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Resolver$$Lambda$lambda$makeGraph$7$5::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Resolver$$Lambda$lambda$makeGraph$7$5::*)()>(&Resolver$$Lambda$lambda$makeGraph$7$5::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Resolver$$Lambda$lambda$makeGraph$7$5, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Resolver$$Lambda$lambda$makeGraph$7$5, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Resolver$$Lambda$lambda$makeGraph$7$5::classInfo$ = {
@@ -346,8 +346,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Resolver$$Lambda$getKey$6::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Resolver$$Lambda$getKey$6::*)()>(&Resolver$$Lambda$getKey$6::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Resolver$$Lambda$getKey$6, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Resolver$$Lambda$getKey$6, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Resolver$$Lambda$getKey$6::classInfo$ = {
@@ -379,8 +379,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Resolver$$Lambda$HashMap$7::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Resolver$$Lambda$HashMap$7::*)()>(&Resolver$$Lambda$HashMap$7::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Resolver$$Lambda$HashMap$7, init$, void)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Resolver$$Lambda$HashMap$7, get, $Object*)},
 	{}
 };
 $ClassInfo Resolver$$Lambda$HashMap$7::classInfo$ = {
@@ -412,8 +412,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Resolver$$Lambda$getValue$8::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Resolver$$Lambda$getValue$8::*)()>(&Resolver$$Lambda$getValue$8::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Resolver$$Lambda$getValue$8, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Resolver$$Lambda$getValue$8, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Resolver$$Lambda$getValue$8::classInfo$ = {
@@ -445,8 +445,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Resolver$$Lambda$lambda$makeGraph$8$9::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Resolver$$Lambda$lambda$makeGraph$8$9::*)()>(&Resolver$$Lambda$lambda$makeGraph$8$9::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Resolver$$Lambda$lambda$makeGraph$8$9, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Resolver$$Lambda$lambda$makeGraph$8$9, test, bool, Object$*)},
 	{}
 };
 $ClassInfo Resolver$$Lambda$lambda$makeGraph$8$9::classInfo$ = {
@@ -485,8 +485,8 @@ $FieldInfo Resolver$$Lambda$add$10::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Resolver$$Lambda$add$10::methodInfos[3] = {
-	{"<init>", "(Ljava/util/Set;)V", nullptr, $PUBLIC, $method(static_cast<void(Resolver$$Lambda$add$10::*)($Set*)>(&Resolver$$Lambda$add$10::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/Set;)V", nullptr, $PUBLIC, $method(Resolver$$Lambda$add$10, init$, void, $Set*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Resolver$$Lambda$add$10, accept, void, Object$*)},
 	{}
 };
 $ClassInfo Resolver$$Lambda$add$10::classInfo$ = {
@@ -518,8 +518,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Resolver$$Lambda$modules$11::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Resolver$$Lambda$modules$11::*)()>(&Resolver$$Lambda$modules$11::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Resolver$$Lambda$modules$11, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Resolver$$Lambda$modules$11, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Resolver$$Lambda$modules$11::classInfo$ = {
@@ -551,8 +551,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Resolver$$Lambda$stream$12::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Resolver$$Lambda$stream$12::*)()>(&Resolver$$Lambda$stream$12::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Resolver$$Lambda$stream$12, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Resolver$$Lambda$stream$12, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Resolver$$Lambda$stream$12::classInfo$ = {
@@ -594,8 +594,8 @@ $FieldInfo Resolver$$Lambda$lambda$makeGraph$9$13::fieldInfos[3] = {
 	{}
 };
 $MethodInfo Resolver$$Lambda$lambda$makeGraph$9$13::methodInfos[3] = {
-	{"<init>", "(Ljava/util/Set;Ljava/util/Set;)V", nullptr, $PUBLIC, $method(static_cast<void(Resolver$$Lambda$lambda$makeGraph$9$13::*)($Set*,$Set*)>(&Resolver$$Lambda$lambda$makeGraph$9$13::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/Set;Ljava/util/Set;)V", nullptr, $PUBLIC, $method(Resolver$$Lambda$lambda$makeGraph$9$13, init$, void, $Set*, $Set*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Resolver$$Lambda$lambda$makeGraph$9$13, accept, void, Object$*)},
 	{}
 };
 $ClassInfo Resolver$$Lambda$lambda$makeGraph$9$13::classInfo$ = {
@@ -634,8 +634,8 @@ $FieldInfo Resolver$$Lambda$lambda$nameAndInfo$10$14::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Resolver$$Lambda$lambda$nameAndInfo$10$14::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/StringBuilder;)V", nullptr, $PUBLIC, $method(static_cast<void(Resolver$$Lambda$lambda$nameAndInfo$10$14::*)($StringBuilder*)>(&Resolver$$Lambda$lambda$nameAndInfo$10$14::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/StringBuilder;)V", nullptr, $PUBLIC, $method(Resolver$$Lambda$lambda$nameAndInfo$10$14, init$, void, $StringBuilder*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Resolver$$Lambda$lambda$nameAndInfo$10$14, accept, void, Object$*)},
 	{}
 };
 $ClassInfo Resolver$$Lambda$lambda$nameAndInfo$10$14::classInfo$ = {
@@ -674,8 +674,8 @@ $FieldInfo Resolver$$Lambda$lambda$makeGraph$6$15::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Resolver$$Lambda$lambda$makeGraph$6$15::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/module/Configuration;)V", nullptr, $PUBLIC, $method(static_cast<void(Resolver$$Lambda$lambda$makeGraph$6$15::*)($Configuration*)>(&Resolver$$Lambda$lambda$makeGraph$6$15::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/module/Configuration;)V", nullptr, $PUBLIC, $method(Resolver$$Lambda$lambda$makeGraph$6$15, init$, void, $Configuration*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Resolver$$Lambda$lambda$makeGraph$6$15, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Resolver$$Lambda$lambda$makeGraph$6$15::classInfo$ = {
@@ -707,8 +707,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Resolver$$Lambda$lambda$makeGraph$3$16::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Resolver$$Lambda$lambda$makeGraph$3$16::*)()>(&Resolver$$Lambda$lambda$makeGraph$3$16::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Resolver$$Lambda$lambda$makeGraph$3$16, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Resolver$$Lambda$lambda$makeGraph$3$16, test, bool, Object$*)},
 	{}
 };
 $ClassInfo Resolver$$Lambda$lambda$makeGraph$3$16::classInfo$ = {
@@ -747,8 +747,8 @@ $FieldInfo Resolver$$Lambda$lambda$makeGraph$4$17::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Resolver$$Lambda$lambda$makeGraph$4$17::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/module/Configuration;)V", nullptr, $PUBLIC, $method(static_cast<void(Resolver$$Lambda$lambda$makeGraph$4$17::*)($Configuration*)>(&Resolver$$Lambda$lambda$makeGraph$4$17::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/module/Configuration;)V", nullptr, $PUBLIC, $method(Resolver$$Lambda$lambda$makeGraph$4$17, init$, void, $Configuration*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Resolver$$Lambda$lambda$makeGraph$4$17, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Resolver$$Lambda$lambda$makeGraph$4$17::classInfo$ = {
@@ -787,8 +787,8 @@ $FieldInfo Resolver$$Lambda$lambda$makeGraph$5$18::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Resolver$$Lambda$lambda$makeGraph$5$18::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/module/ResolvedModule;)V", nullptr, $PUBLIC, $method(static_cast<void(Resolver$$Lambda$lambda$makeGraph$5$18::*)($ResolvedModule*)>(&Resolver$$Lambda$lambda$makeGraph$5$18::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/module/ResolvedModule;)V", nullptr, $PUBLIC, $method(Resolver$$Lambda$lambda$makeGraph$5$18, init$, void, $ResolvedModule*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Resolver$$Lambda$lambda$makeGraph$5$18, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Resolver$$Lambda$lambda$makeGraph$5$18::classInfo$ = {
@@ -820,45 +820,45 @@ $FieldInfo _Resolver_FieldInfo_[] = {
 };
 
 $MethodInfo _Resolver_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/module/ModuleFinder;Ljava/util/List;Ljava/lang/module/ModuleFinder;Ljava/io/PrintStream;)V", "(Ljava/lang/module/ModuleFinder;Ljava/util/List<Ljava/lang/module/Configuration;>;Ljava/lang/module/ModuleFinder;Ljava/io/PrintStream;)V", 0, $method(static_cast<void(Resolver::*)($ModuleFinder*,$List*,$ModuleFinder*,$PrintStream*)>(&Resolver::init$))},
-	{"addFoundAutomaticModules", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/module/ModuleReference;>;", $PRIVATE, $method(static_cast<$Set*(Resolver::*)()>(&Resolver::addFoundAutomaticModules))},
-	{"addFoundModule", "(Ljava/lang/module/ModuleReference;)V", nullptr, $PRIVATE, $method(static_cast<void(Resolver::*)($ModuleReference*)>(&Resolver::addFoundModule))},
-	{"bind", "()Ljava/lang/module/Resolver;", nullptr, 0, $method(static_cast<Resolver*(Resolver::*)()>(&Resolver::bind))},
-	{"bind", "(Z)Ljava/lang/module/Resolver;", nullptr, 0, $method(static_cast<Resolver*(Resolver::*)(bool)>(&Resolver::bind))},
-	{"checkExportSuppliers", "(Ljava/util/Map;)V", "(Ljava/util/Map<Ljava/lang/module/ResolvedModule;Ljava/util/Set<Ljava/lang/module/ResolvedModule;>;>;)V", $PRIVATE, $method(static_cast<void(Resolver::*)($Map*)>(&Resolver::checkExportSuppliers))},
-	{"checkHashes", "()V", nullptr, $PRIVATE, $method(static_cast<void(Resolver::*)()>(&Resolver::checkHashes))},
-	{"checkTargetPlatform", "(Ljava/lang/String;Ljdk/internal/module/ModuleTarget;)V", nullptr, $PRIVATE, $method(static_cast<void(Resolver::*)($String*,$ModuleTarget*)>(&Resolver::checkTargetPlatform))},
-	{"computeIfAbsent", "(Ljava/util/Map;Ljava/lang/String;Ljava/lang/module/Configuration;Ljava/lang/module/ModuleReference;)Ljava/lang/module/ResolvedModule;", "(Ljava/util/Map<Ljava/lang/String;Ljava/lang/module/ResolvedModule;>;Ljava/lang/String;Ljava/lang/module/Configuration;Ljava/lang/module/ModuleReference;)Ljava/lang/module/ResolvedModule;", $PRIVATE, $method(static_cast<$ResolvedModule*(Resolver::*)($Map*,$String*,$Configuration*,$ModuleReference*)>(&Resolver::computeIfAbsent))},
-	{"cycleAsString", "(Ljava/lang/module/ModuleDescriptor;)Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(Resolver::*)($ModuleDescriptor*)>(&Resolver::cycleAsString))},
-	{"detectCycles", "()V", nullptr, $PRIVATE, $method(static_cast<void(Resolver::*)()>(&Resolver::detectCycles))},
-	{"failTwoSuppliers", "(Ljava/lang/module/ModuleDescriptor;Ljava/lang/String;Ljava/lang/module/ModuleDescriptor;Ljava/lang/module/ModuleDescriptor;)V", nullptr, $PRIVATE, $method(static_cast<void(Resolver::*)($ModuleDescriptor*,$String*,$ModuleDescriptor*,$ModuleDescriptor*)>(&Resolver::failTwoSuppliers))},
-	{"findAll", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/module/ModuleReference;>;", $PRIVATE, $method(static_cast<$Set*(Resolver::*)()>(&Resolver::findAll))},
-	{"findFail", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $TRANSIENT, $method(static_cast<void(*)($String*,$ObjectArray*)>(&Resolver::findFail))},
-	{"findInParent", "(Ljava/lang/String;)Ljava/lang/module/ResolvedModule;", nullptr, $PRIVATE, $method(static_cast<$ResolvedModule*(Resolver::*)($String*)>(&Resolver::findInParent))},
-	{"findWithAfterFinder", "(Ljava/lang/String;)Ljava/lang/module/ModuleReference;", nullptr, $PRIVATE, $method(static_cast<$ModuleReference*(Resolver::*)($String*)>(&Resolver::findWithAfterFinder))},
-	{"findWithBeforeFinder", "(Ljava/lang/String;)Ljava/lang/module/ModuleReference;", nullptr, $PRIVATE, $method(static_cast<$ModuleReference*(Resolver::*)($String*)>(&Resolver::findWithBeforeFinder))},
-	{"finish", "(Ljava/lang/module/Configuration;)Ljava/util/Map;", "(Ljava/lang/module/Configuration;)Ljava/util/Map<Ljava/lang/module/ResolvedModule;Ljava/util/Set<Ljava/lang/module/ResolvedModule;>;>;", 0, $method(static_cast<$Map*(Resolver::*)($Configuration*)>(&Resolver::finish))},
-	{"isTracing", "()Z", nullptr, $PRIVATE, $method(static_cast<bool(Resolver::*)()>(&Resolver::isTracing))},
-	{"lambda$addFoundAutomaticModules$2", "(Ljava/util/Set;Ljava/lang/module/ModuleReference;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(Resolver::*)($Set*,$ModuleReference*)>(&Resolver::lambda$addFoundAutomaticModules$2))},
-	{"lambda$bind$1", "(Ljava/lang/module/Configuration;)Ljava/util/stream/Stream;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Stream*(*)($Configuration*)>(&Resolver::lambda$bind$1))},
-	{"lambda$makeGraph$3", "(Ljava/lang/module/ModuleDescriptor$Requires;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($ModuleDescriptor$Requires*)>(&Resolver::lambda$makeGraph$3))},
-	{"lambda$makeGraph$4", "(Ljava/lang/module/Configuration;Ljava/lang/module/ModuleDescriptor$Requires;)Ljava/util/stream/Stream;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Stream*(*)($Configuration*,$ModuleDescriptor$Requires*)>(&Resolver::lambda$makeGraph$4))},
-	{"lambda$makeGraph$5", "(Ljava/lang/module/ResolvedModule;Ljava/lang/module/ResolvedModule;)Ljava/util/Map$Entry;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Map$Entry*(*)($ResolvedModule*,$ResolvedModule*)>(&Resolver::lambda$makeGraph$5))},
-	{"lambda$makeGraph$6", "(Ljava/lang/module/Configuration;Ljava/lang/module/ResolvedModule;)Ljava/util/stream/Stream;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Stream*(*)($Configuration*,$ResolvedModule*)>(&Resolver::lambda$makeGraph$6))},
-	{"lambda$makeGraph$7", "(Ljava/lang/module/Configuration;)Ljava/util/stream/Stream;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Stream*(*)($Configuration*)>(&Resolver::lambda$makeGraph$7))},
-	{"lambda$makeGraph$8", "(Ljava/lang/module/ResolvedModule;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($ResolvedModule*)>(&Resolver::lambda$makeGraph$8))},
-	{"lambda$makeGraph$9", "(Ljava/util/Set;Ljava/util/Set;Ljava/lang/module/ResolvedModule;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($Set*,$Set*,$ResolvedModule*)>(&Resolver::lambda$makeGraph$9))},
-	{"lambda$nameAndInfo$10", "(Ljava/lang/StringBuilder;Ljava/net/URI;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($StringBuilder*,$URI*)>(&Resolver::lambda$nameAndInfo$10))},
-	{"lambda$resolve$0", "(Ljava/util/Deque;Ljava/lang/module/ModuleDescriptor;Ljava/lang/module/ModuleReference;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(Resolver::*)($Deque*,$ModuleDescriptor*,$ModuleReference*)>(&Resolver::lambda$resolve$0))},
-	{"makeGraph", "(Ljava/lang/module/Configuration;)Ljava/util/Map;", "(Ljava/lang/module/Configuration;)Ljava/util/Map<Ljava/lang/module/ResolvedModule;Ljava/util/Set<Ljava/lang/module/ResolvedModule;>;>;", $PRIVATE, $method(static_cast<$Map*(Resolver::*)($Configuration*)>(&Resolver::makeGraph))},
-	{"nameAndInfo", "(Ljava/lang/module/ModuleReference;)Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(Resolver::*)($ModuleReference*)>(&Resolver::nameAndInfo))},
-	{"packageName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($String*)>(&Resolver::packageName))},
-	{"resolve", "(Ljava/util/Collection;)Ljava/lang/module/Resolver;", "(Ljava/util/Collection<Ljava/lang/String;>;)Ljava/lang/module/Resolver;", 0, $method(static_cast<Resolver*(Resolver::*)($Collection*)>(&Resolver::resolve))},
-	{"resolve", "(Ljava/util/Deque;)Ljava/util/Set;", "(Ljava/util/Deque<Ljava/lang/module/ModuleDescriptor;>;)Ljava/util/Set<Ljava/lang/module/ModuleDescriptor;>;", $PRIVATE, $method(static_cast<$Set*(Resolver::*)($Deque*)>(&Resolver::resolve))},
-	{"resolveFail", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $TRANSIENT, $method(static_cast<void(*)($String*,$ObjectArray*)>(&Resolver::resolveFail))},
-	{"targetPlatform", "()Ljava/lang/String;", nullptr, 0, $method(static_cast<$String*(Resolver::*)()>(&Resolver::targetPlatform))},
-	{"trace", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PRIVATE | $TRANSIENT, $method(static_cast<void(Resolver::*)($String*,$ObjectArray*)>(&Resolver::trace))},
-	{"visit", "(Ljava/lang/module/ModuleDescriptor;)V", nullptr, $PRIVATE, $method(static_cast<void(Resolver::*)($ModuleDescriptor*)>(&Resolver::visit))},
+	{"<init>", "(Ljava/lang/module/ModuleFinder;Ljava/util/List;Ljava/lang/module/ModuleFinder;Ljava/io/PrintStream;)V", "(Ljava/lang/module/ModuleFinder;Ljava/util/List<Ljava/lang/module/Configuration;>;Ljava/lang/module/ModuleFinder;Ljava/io/PrintStream;)V", 0, $method(Resolver, init$, void, $ModuleFinder*, $List*, $ModuleFinder*, $PrintStream*)},
+	{"addFoundAutomaticModules", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/module/ModuleReference;>;", $PRIVATE, $method(Resolver, addFoundAutomaticModules, $Set*)},
+	{"addFoundModule", "(Ljava/lang/module/ModuleReference;)V", nullptr, $PRIVATE, $method(Resolver, addFoundModule, void, $ModuleReference*)},
+	{"bind", "()Ljava/lang/module/Resolver;", nullptr, 0, $method(Resolver, bind, Resolver*)},
+	{"bind", "(Z)Ljava/lang/module/Resolver;", nullptr, 0, $method(Resolver, bind, Resolver*, bool)},
+	{"checkExportSuppliers", "(Ljava/util/Map;)V", "(Ljava/util/Map<Ljava/lang/module/ResolvedModule;Ljava/util/Set<Ljava/lang/module/ResolvedModule;>;>;)V", $PRIVATE, $method(Resolver, checkExportSuppliers, void, $Map*)},
+	{"checkHashes", "()V", nullptr, $PRIVATE, $method(Resolver, checkHashes, void)},
+	{"checkTargetPlatform", "(Ljava/lang/String;Ljdk/internal/module/ModuleTarget;)V", nullptr, $PRIVATE, $method(Resolver, checkTargetPlatform, void, $String*, $ModuleTarget*)},
+	{"computeIfAbsent", "(Ljava/util/Map;Ljava/lang/String;Ljava/lang/module/Configuration;Ljava/lang/module/ModuleReference;)Ljava/lang/module/ResolvedModule;", "(Ljava/util/Map<Ljava/lang/String;Ljava/lang/module/ResolvedModule;>;Ljava/lang/String;Ljava/lang/module/Configuration;Ljava/lang/module/ModuleReference;)Ljava/lang/module/ResolvedModule;", $PRIVATE, $method(Resolver, computeIfAbsent, $ResolvedModule*, $Map*, $String*, $Configuration*, $ModuleReference*)},
+	{"cycleAsString", "(Ljava/lang/module/ModuleDescriptor;)Ljava/lang/String;", nullptr, $PRIVATE, $method(Resolver, cycleAsString, $String*, $ModuleDescriptor*)},
+	{"detectCycles", "()V", nullptr, $PRIVATE, $method(Resolver, detectCycles, void)},
+	{"failTwoSuppliers", "(Ljava/lang/module/ModuleDescriptor;Ljava/lang/String;Ljava/lang/module/ModuleDescriptor;Ljava/lang/module/ModuleDescriptor;)V", nullptr, $PRIVATE, $method(Resolver, failTwoSuppliers, void, $ModuleDescriptor*, $String*, $ModuleDescriptor*, $ModuleDescriptor*)},
+	{"findAll", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/module/ModuleReference;>;", $PRIVATE, $method(Resolver, findAll, $Set*)},
+	{"findFail", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $TRANSIENT, $staticMethod(Resolver, findFail, void, $String*, $ObjectArray*)},
+	{"findInParent", "(Ljava/lang/String;)Ljava/lang/module/ResolvedModule;", nullptr, $PRIVATE, $method(Resolver, findInParent, $ResolvedModule*, $String*)},
+	{"findWithAfterFinder", "(Ljava/lang/String;)Ljava/lang/module/ModuleReference;", nullptr, $PRIVATE, $method(Resolver, findWithAfterFinder, $ModuleReference*, $String*)},
+	{"findWithBeforeFinder", "(Ljava/lang/String;)Ljava/lang/module/ModuleReference;", nullptr, $PRIVATE, $method(Resolver, findWithBeforeFinder, $ModuleReference*, $String*)},
+	{"finish", "(Ljava/lang/module/Configuration;)Ljava/util/Map;", "(Ljava/lang/module/Configuration;)Ljava/util/Map<Ljava/lang/module/ResolvedModule;Ljava/util/Set<Ljava/lang/module/ResolvedModule;>;>;", 0, $method(Resolver, finish, $Map*, $Configuration*)},
+	{"isTracing", "()Z", nullptr, $PRIVATE, $method(Resolver, isTracing, bool)},
+	{"lambda$addFoundAutomaticModules$2", "(Ljava/util/Set;Ljava/lang/module/ModuleReference;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Resolver, lambda$addFoundAutomaticModules$2, void, $Set*, $ModuleReference*)},
+	{"lambda$bind$1", "(Ljava/lang/module/Configuration;)Ljava/util/stream/Stream;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Resolver, lambda$bind$1, $Stream*, $Configuration*)},
+	{"lambda$makeGraph$3", "(Ljava/lang/module/ModuleDescriptor$Requires;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Resolver, lambda$makeGraph$3, bool, $ModuleDescriptor$Requires*)},
+	{"lambda$makeGraph$4", "(Ljava/lang/module/Configuration;Ljava/lang/module/ModuleDescriptor$Requires;)Ljava/util/stream/Stream;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Resolver, lambda$makeGraph$4, $Stream*, $Configuration*, $ModuleDescriptor$Requires*)},
+	{"lambda$makeGraph$5", "(Ljava/lang/module/ResolvedModule;Ljava/lang/module/ResolvedModule;)Ljava/util/Map$Entry;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Resolver, lambda$makeGraph$5, $Map$Entry*, $ResolvedModule*, $ResolvedModule*)},
+	{"lambda$makeGraph$6", "(Ljava/lang/module/Configuration;Ljava/lang/module/ResolvedModule;)Ljava/util/stream/Stream;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Resolver, lambda$makeGraph$6, $Stream*, $Configuration*, $ResolvedModule*)},
+	{"lambda$makeGraph$7", "(Ljava/lang/module/Configuration;)Ljava/util/stream/Stream;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Resolver, lambda$makeGraph$7, $Stream*, $Configuration*)},
+	{"lambda$makeGraph$8", "(Ljava/lang/module/ResolvedModule;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Resolver, lambda$makeGraph$8, bool, $ResolvedModule*)},
+	{"lambda$makeGraph$9", "(Ljava/util/Set;Ljava/util/Set;Ljava/lang/module/ResolvedModule;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Resolver, lambda$makeGraph$9, void, $Set*, $Set*, $ResolvedModule*)},
+	{"lambda$nameAndInfo$10", "(Ljava/lang/StringBuilder;Ljava/net/URI;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Resolver, lambda$nameAndInfo$10, void, $StringBuilder*, $URI*)},
+	{"lambda$resolve$0", "(Ljava/util/Deque;Ljava/lang/module/ModuleDescriptor;Ljava/lang/module/ModuleReference;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Resolver, lambda$resolve$0, void, $Deque*, $ModuleDescriptor*, $ModuleReference*)},
+	{"makeGraph", "(Ljava/lang/module/Configuration;)Ljava/util/Map;", "(Ljava/lang/module/Configuration;)Ljava/util/Map<Ljava/lang/module/ResolvedModule;Ljava/util/Set<Ljava/lang/module/ResolvedModule;>;>;", $PRIVATE, $method(Resolver, makeGraph, $Map*, $Configuration*)},
+	{"nameAndInfo", "(Ljava/lang/module/ModuleReference;)Ljava/lang/String;", nullptr, $PRIVATE, $method(Resolver, nameAndInfo, $String*, $ModuleReference*)},
+	{"packageName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Resolver, packageName, $String*, $String*)},
+	{"resolve", "(Ljava/util/Collection;)Ljava/lang/module/Resolver;", "(Ljava/util/Collection<Ljava/lang/String;>;)Ljava/lang/module/Resolver;", 0, $method(Resolver, resolve, Resolver*, $Collection*)},
+	{"resolve", "(Ljava/util/Deque;)Ljava/util/Set;", "(Ljava/util/Deque<Ljava/lang/module/ModuleDescriptor;>;)Ljava/util/Set<Ljava/lang/module/ModuleDescriptor;>;", $PRIVATE, $method(Resolver, resolve, $Set*, $Deque*)},
+	{"resolveFail", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $TRANSIENT, $staticMethod(Resolver, resolveFail, void, $String*, $ObjectArray*)},
+	{"targetPlatform", "()Ljava/lang/String;", nullptr, 0, $method(Resolver, targetPlatform, $String*)},
+	{"trace", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PRIVATE | $TRANSIENT, $method(Resolver, trace, void, $String*, $ObjectArray*)},
+	{"visit", "(Ljava/lang/module/ModuleDescriptor;)V", nullptr, $PRIVATE, $method(Resolver, visit, void, $ModuleDescriptor*)},
 	{}
 };
 

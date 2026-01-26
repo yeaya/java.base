@@ -29,8 +29,8 @@ namespace jdk {
 			namespace util {
 
 $MethodInfo _CodePointTrie$Small8_MethodInfo_[] = {
-	{"<init>", "([C[BIII)V", nullptr, 0, $method(static_cast<void(CodePointTrie$Small8::*)($chars*,$bytes*,int32_t,int32_t,int32_t)>(&CodePointTrie$Small8::init$))},
-	{"fromBinary", "(Ljava/nio/ByteBuffer;)Ljdk/internal/icu/util/CodePointTrie$Small8;", nullptr, $PUBLIC | $STATIC, $method(static_cast<CodePointTrie$Small8*(*)($ByteBuffer*)>(&CodePointTrie$Small8::fromBinary))},
+	{"<init>", "([C[BIII)V", nullptr, 0, $method(CodePointTrie$Small8, init$, void, $chars*, $bytes*, int32_t, int32_t, int32_t)},
+	{"fromBinary", "(Ljava/nio/ByteBuffer;)Ljdk/internal/icu/util/CodePointTrie$Small8;", nullptr, $PUBLIC | $STATIC, $staticMethod(CodePointTrie$Small8, fromBinary, CodePointTrie$Small8*, $ByteBuffer*)},
 	{}
 };
 

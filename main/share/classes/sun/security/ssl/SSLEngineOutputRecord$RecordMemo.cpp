@@ -23,7 +23,7 @@ $FieldInfo _SSLEngineOutputRecord$RecordMemo_FieldInfo_[] = {
 };
 
 $MethodInfo _SSLEngineOutputRecord$RecordMemo_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(SSLEngineOutputRecord$RecordMemo::*)()>(&SSLEngineOutputRecord$RecordMemo::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(SSLEngineOutputRecord$RecordMemo, init$, void)},
 	{}
 };
 

@@ -27,18 +27,18 @@ $FieldInfo _HeaderParser_FieldInfo_[] = {
 };
 
 $MethodInfo _HeaderParser_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(HeaderParser::*)($String*)>(&HeaderParser::init$))},
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(HeaderParser::*)()>(&HeaderParser::init$))},
-	{"findInt", "(Ljava/lang/String;I)I", nullptr, $PUBLIC},
-	{"findKey", "(I)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"findValue", "(I)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"findValue", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"findValue", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"keys", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/lang/String;>;", $PUBLIC},
-	{"parse", "()V", nullptr, $PRIVATE, $method(static_cast<void(HeaderParser::*)()>(&HeaderParser::parse))},
-	{"subsequence", "(II)Lsun/net/www/HeaderParser;", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"values", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/lang/String;>;", $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(HeaderParser, init$, void, $String*)},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(HeaderParser, init$, void)},
+	{"findInt", "(Ljava/lang/String;I)I", nullptr, $PUBLIC, $virtualMethod(HeaderParser, findInt, int32_t, $String*, int32_t)},
+	{"findKey", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HeaderParser, findKey, $String*, int32_t)},
+	{"findValue", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HeaderParser, findValue, $String*, int32_t)},
+	{"findValue", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HeaderParser, findValue, $String*, $String*)},
+	{"findValue", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HeaderParser, findValue, $String*, $String*, $String*)},
+	{"keys", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(HeaderParser, keys, $Iterator*)},
+	{"parse", "()V", nullptr, $PRIVATE, $method(HeaderParser, parse, void)},
+	{"subsequence", "(II)Lsun/net/www/HeaderParser;", nullptr, $PUBLIC, $virtualMethod(HeaderParser, subsequence, HeaderParser*, int32_t, int32_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HeaderParser, toString, $String*)},
+	{"values", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(HeaderParser, values, $Iterator*)},
 	{}
 };
 

@@ -26,29 +26,21 @@
 
 namespace java {
 	namespace lang {
-		class Class;
-		class String;
 		class ModuleInfo;
 		class ClassEntry;
 	}
 }
 
 #define JCPP_LIB_EVENT_TYPE_PRELOAD_CLASS 1
-#define JCPP_LIB_EVENT_TYPE_THREAD_START 2
+#define JCPP_LIB_EVENT_TYPE_PREINIT_CLASS 2
 
 typedef void (*$LibEventAction)(int32_t eventType, void* eventData);
-typedef $Array<::java::lang::String>* (*$GetPackages)();
-typedef ::java::lang::ClassEntry* (*$GetClassEntry)(::java::lang::String* name);
-typedef $bytes* (*$GetResource)(::java::lang::String* name);
+typedef $StringArray* (*$GetPackages)();
+typedef ::java::lang::ClassEntry* (*$GetClassEntry)($String* name);
+typedef $bytes* (*$GetResource)($String* name);
 
 namespace java {
 	namespace lang {
-
-class $import PreloadClassEvent {
-public:
-	bool preload = false;
-	bool preinit = false;
-};
 
 class $import Library {
 public:

@@ -28,8 +28,8 @@ $FieldInfo _KeyManagerFactoryImpl_FieldInfo_[] = {
 };
 
 $MethodInfo _KeyManagerFactoryImpl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(KeyManagerFactoryImpl::*)()>(&KeyManagerFactoryImpl::init$))},
-	{"engineGetKeyManagers", "()[Ljavax/net/ssl/KeyManager;", nullptr, $PROTECTED},
+	{"<init>", "()V", nullptr, 0, $method(KeyManagerFactoryImpl, init$, void)},
+	{"engineGetKeyManagers", "()[Ljavax/net/ssl/KeyManager;", nullptr, $PROTECTED, $virtualMethod(KeyManagerFactoryImpl, engineGetKeyManagers, $KeyManagerArray*)},
 	{}
 };
 

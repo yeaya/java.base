@@ -17,7 +17,7 @@ $FieldInfo _IOError_FieldInfo_[] = {
 };
 
 $MethodInfo _IOError_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(IOError::*)($Throwable*)>(&IOError::init$))},
+	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(IOError, init$, void, $Throwable*)},
 	{}
 };
 

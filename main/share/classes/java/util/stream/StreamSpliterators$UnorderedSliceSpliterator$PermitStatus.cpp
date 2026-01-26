@@ -29,10 +29,10 @@ $FieldInfo _StreamSpliterators$UnorderedSliceSpliterator$PermitStatus_FieldInfo_
 };
 
 $MethodInfo _StreamSpliterators$UnorderedSliceSpliterator$PermitStatus_MethodInfo_[] = {
-	{"$values", "()[Ljava/util/stream/StreamSpliterators$UnorderedSliceSpliterator$PermitStatus;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$StreamSpliterators$UnorderedSliceSpliterator$PermitStatusArray*(*)()>(&StreamSpliterators$UnorderedSliceSpliterator$PermitStatus::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(StreamSpliterators$UnorderedSliceSpliterator$PermitStatus::*)($String*,int32_t)>(&StreamSpliterators$UnorderedSliceSpliterator$PermitStatus::init$))},
-	{"valueOf", "(Ljava/lang/String;)Ljava/util/stream/StreamSpliterators$UnorderedSliceSpliterator$PermitStatus;", nullptr, $PUBLIC | $STATIC, $method(static_cast<StreamSpliterators$UnorderedSliceSpliterator$PermitStatus*(*)($String*)>(&StreamSpliterators$UnorderedSliceSpliterator$PermitStatus::valueOf))},
-	{"values", "()[Ljava/util/stream/StreamSpliterators$UnorderedSliceSpliterator$PermitStatus;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$StreamSpliterators$UnorderedSliceSpliterator$PermitStatusArray*(*)()>(&StreamSpliterators$UnorderedSliceSpliterator$PermitStatus::values))},
+	{"$values", "()[Ljava/util/stream/StreamSpliterators$UnorderedSliceSpliterator$PermitStatus;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StreamSpliterators$UnorderedSliceSpliterator$PermitStatus, $values, $StreamSpliterators$UnorderedSliceSpliterator$PermitStatusArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(StreamSpliterators$UnorderedSliceSpliterator$PermitStatus, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Ljava/util/stream/StreamSpliterators$UnorderedSliceSpliterator$PermitStatus;", nullptr, $PUBLIC | $STATIC, $staticMethod(StreamSpliterators$UnorderedSliceSpliterator$PermitStatus, valueOf, StreamSpliterators$UnorderedSliceSpliterator$PermitStatus*, $String*)},
+	{"values", "()[Ljava/util/stream/StreamSpliterators$UnorderedSliceSpliterator$PermitStatus;", nullptr, $PUBLIC | $STATIC, $staticMethod(StreamSpliterators$UnorderedSliceSpliterator$PermitStatus, values, $StreamSpliterators$UnorderedSliceSpliterator$PermitStatusArray*)},
 	{}
 };
 

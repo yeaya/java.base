@@ -29,7 +29,7 @@ $FieldInfo _StatusResponseManager$StaplingParameters_FieldInfo_[] = {
 };
 
 $MethodInfo _StatusResponseManager$StaplingParameters_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/ssl/SSLExtension;Lsun/security/ssl/CertStatusExtension$CertStatusRequestType;Lsun/security/ssl/CertStatusExtension$CertStatusRequest;Ljava/util/Map;)V", "(Lsun/security/ssl/SSLExtension;Lsun/security/ssl/CertStatusExtension$CertStatusRequestType;Lsun/security/ssl/CertStatusExtension$CertStatusRequest;Ljava/util/Map<Ljava/security/cert/X509Certificate;[B>;)V", 0, $method(static_cast<void(StatusResponseManager$StaplingParameters::*)($SSLExtension*,$CertStatusExtension$CertStatusRequestType*,$CertStatusExtension$CertStatusRequest*,$Map*)>(&StatusResponseManager$StaplingParameters::init$))},
+	{"<init>", "(Lsun/security/ssl/SSLExtension;Lsun/security/ssl/CertStatusExtension$CertStatusRequestType;Lsun/security/ssl/CertStatusExtension$CertStatusRequest;Ljava/util/Map;)V", "(Lsun/security/ssl/SSLExtension;Lsun/security/ssl/CertStatusExtension$CertStatusRequestType;Lsun/security/ssl/CertStatusExtension$CertStatusRequest;Ljava/util/Map<Ljava/security/cert/X509Certificate;[B>;)V", 0, $method(StatusResponseManager$StaplingParameters, init$, void, $SSLExtension*, $CertStatusExtension$CertStatusRequestType*, $CertStatusExtension$CertStatusRequest*, $Map*)},
 	{}
 };
 

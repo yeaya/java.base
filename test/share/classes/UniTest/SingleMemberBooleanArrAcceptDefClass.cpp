@@ -14,7 +14,7 @@ $CompoundAttribute _SingleMemberBooleanArrAcceptDefClass_Annotations_[] = {
 };
 
 $MethodInfo _SingleMemberBooleanArrAcceptDefClass_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(SingleMemberBooleanArrAcceptDefClass::*)()>(&SingleMemberBooleanArrAcceptDefClass::init$))},
+	{"<init>", "()V", nullptr, 0, $method(SingleMemberBooleanArrAcceptDefClass, init$, void)},
 	{}
 };
 

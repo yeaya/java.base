@@ -45,13 +45,13 @@ namespace java {
 		namespace stream {
 
 $MethodInfo _Collector_MethodInfo_[] = {
-	{"accumulator", "()Ljava/util/function/BiConsumer;", "()Ljava/util/function/BiConsumer<TA;TT;>;", $PUBLIC | $ABSTRACT},
-	{"characteristics", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/util/stream/Collector$Characteristics;>;", $PUBLIC | $ABSTRACT},
-	{"combiner", "()Ljava/util/function/BinaryOperator;", "()Ljava/util/function/BinaryOperator<TA;>;", $PUBLIC | $ABSTRACT},
-	{"finisher", "()Ljava/util/function/Function;", "()Ljava/util/function/Function<TA;TR;>;", $PUBLIC | $ABSTRACT},
-	{"of", "(Ljava/util/function/Supplier;Ljava/util/function/BiConsumer;Ljava/util/function/BinaryOperator;[Ljava/util/stream/Collector$Characteristics;)Ljava/util/stream/Collector;", "<T:Ljava/lang/Object;R:Ljava/lang/Object;>(Ljava/util/function/Supplier<TR;>;Ljava/util/function/BiConsumer<TR;TT;>;Ljava/util/function/BinaryOperator<TR;>;[Ljava/util/stream/Collector$Characteristics;)Ljava/util/stream/Collector<TT;TR;TR;>;", $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<Collector*(*)($Supplier*,$BiConsumer*,$BinaryOperator*,$Collector$CharacteristicsArray*)>(&Collector::of))},
-	{"of", "(Ljava/util/function/Supplier;Ljava/util/function/BiConsumer;Ljava/util/function/BinaryOperator;Ljava/util/function/Function;[Ljava/util/stream/Collector$Characteristics;)Ljava/util/stream/Collector;", "<T:Ljava/lang/Object;A:Ljava/lang/Object;R:Ljava/lang/Object;>(Ljava/util/function/Supplier<TA;>;Ljava/util/function/BiConsumer<TA;TT;>;Ljava/util/function/BinaryOperator<TA;>;Ljava/util/function/Function<TA;TR;>;[Ljava/util/stream/Collector$Characteristics;)Ljava/util/stream/Collector<TT;TA;TR;>;", $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<Collector*(*)($Supplier*,$BiConsumer*,$BinaryOperator*,$Function*,$Collector$CharacteristicsArray*)>(&Collector::of))},
-	{"supplier", "()Ljava/util/function/Supplier;", "()Ljava/util/function/Supplier<TA;>;", $PUBLIC | $ABSTRACT},
+	{"accumulator", "()Ljava/util/function/BiConsumer;", "()Ljava/util/function/BiConsumer<TA;TT;>;", $PUBLIC | $ABSTRACT, $virtualMethod(Collector, accumulator, $BiConsumer*)},
+	{"characteristics", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/util/stream/Collector$Characteristics;>;", $PUBLIC | $ABSTRACT, $virtualMethod(Collector, characteristics, $Set*)},
+	{"combiner", "()Ljava/util/function/BinaryOperator;", "()Ljava/util/function/BinaryOperator<TA;>;", $PUBLIC | $ABSTRACT, $virtualMethod(Collector, combiner, $BinaryOperator*)},
+	{"finisher", "()Ljava/util/function/Function;", "()Ljava/util/function/Function<TA;TR;>;", $PUBLIC | $ABSTRACT, $virtualMethod(Collector, finisher, $Function*)},
+	{"of", "(Ljava/util/function/Supplier;Ljava/util/function/BiConsumer;Ljava/util/function/BinaryOperator;[Ljava/util/stream/Collector$Characteristics;)Ljava/util/stream/Collector;", "<T:Ljava/lang/Object;R:Ljava/lang/Object;>(Ljava/util/function/Supplier<TR;>;Ljava/util/function/BiConsumer<TR;TT;>;Ljava/util/function/BinaryOperator<TR;>;[Ljava/util/stream/Collector$Characteristics;)Ljava/util/stream/Collector<TT;TR;TR;>;", $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(Collector, of, Collector*, $Supplier*, $BiConsumer*, $BinaryOperator*, $Collector$CharacteristicsArray*)},
+	{"of", "(Ljava/util/function/Supplier;Ljava/util/function/BiConsumer;Ljava/util/function/BinaryOperator;Ljava/util/function/Function;[Ljava/util/stream/Collector$Characteristics;)Ljava/util/stream/Collector;", "<T:Ljava/lang/Object;A:Ljava/lang/Object;R:Ljava/lang/Object;>(Ljava/util/function/Supplier<TA;>;Ljava/util/function/BiConsumer<TA;TT;>;Ljava/util/function/BinaryOperator<TA;>;Ljava/util/function/Function<TA;TR;>;[Ljava/util/stream/Collector$Characteristics;)Ljava/util/stream/Collector<TT;TA;TR;>;", $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(Collector, of, Collector*, $Supplier*, $BiConsumer*, $BinaryOperator*, $Function*, $Collector$CharacteristicsArray*)},
+	{"supplier", "()Ljava/util/function/Supplier;", "()Ljava/util/function/Supplier<TA;>;", $PUBLIC | $ABSTRACT, $virtualMethod(Collector, supplier, $Supplier*)},
 	{}
 };
 

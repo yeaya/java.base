@@ -36,10 +36,10 @@ $FieldInfo _Bug7130335_FieldInfo_[] = {
 };
 
 $MethodInfo _Bug7130335_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Bug7130335::*)()>(&Bug7130335::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Bug7130335::main)), "java.lang.Exception"},
-	{"test", "(Ljava/text/SimpleDateFormat;Ljava/util/Calendar;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($SimpleDateFormat*,$Calendar*)>(&Bug7130335::test)), "java.lang.Exception"},
-	{"test8000529", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($String*)>(&Bug7130335::test8000529)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Bug7130335, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Bug7130335, main, void, $StringArray*), "java.lang.Exception"},
+	{"test", "(Ljava/text/SimpleDateFormat;Ljava/util/Calendar;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Bug7130335, test, void, $SimpleDateFormat*, $Calendar*), "java.lang.Exception"},
+	{"test8000529", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Bug7130335, test8000529, void, $String*), "java.lang.Exception"},
 	{}
 };
 

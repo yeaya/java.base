@@ -26,9 +26,9 @@ $MethodInfo _LanguageCallback_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(LanguageCallback::*)()>(&LanguageCallback::init$))},
-	{"getLocale", "()Ljava/util/Locale;", nullptr, $PUBLIC},
-	{"setLocale", "(Ljava/util/Locale;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(LanguageCallback, init$, void)},
+	{"getLocale", "()Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(LanguageCallback, getLocale, $Locale*)},
+	{"setLocale", "(Ljava/util/Locale;)V", nullptr, $PUBLIC, $virtualMethod(LanguageCallback, setLocale, void, $Locale*)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

@@ -14,8 +14,8 @@ namespace java {
 	namespace security {
 
 $MethodInfo _SecureRandom$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(SecureRandom$1::*)()>(&SecureRandom$1::init$))},
-	{"run", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(SecureRandom$1, init$, void)},
+	{"run", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SecureRandom$1, run, $Object*)},
 	{}
 };
 

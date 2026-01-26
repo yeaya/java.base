@@ -20,10 +20,10 @@ $FieldInfo _WindowsNativeDispatcher$FirstFile_FieldInfo_[] = {
 };
 
 $MethodInfo _WindowsNativeDispatcher$FirstFile_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(WindowsNativeDispatcher$FirstFile::*)()>(&WindowsNativeDispatcher$FirstFile::init$))},
-	{"attributes", "()I", nullptr, $PUBLIC},
-	{"handle", "()J", nullptr, $PUBLIC},
-	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(WindowsNativeDispatcher$FirstFile, init$, void)},
+	{"attributes", "()I", nullptr, $PUBLIC, $virtualMethod(WindowsNativeDispatcher$FirstFile, attributes, int32_t)},
+	{"handle", "()J", nullptr, $PUBLIC, $virtualMethod(WindowsNativeDispatcher$FirstFile, handle, int64_t)},
+	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(WindowsNativeDispatcher$FirstFile, name, $String*)},
 	{}
 };
 

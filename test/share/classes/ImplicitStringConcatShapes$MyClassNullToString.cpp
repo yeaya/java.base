@@ -8,8 +8,8 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _ImplicitStringConcatShapes$MyClassNullToString_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ImplicitStringConcatShapes$MyClassNullToString::*)()>(&ImplicitStringConcatShapes$MyClassNullToString::init$))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(ImplicitStringConcatShapes$MyClassNullToString, init$, void)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ImplicitStringConcatShapes$MyClassNullToString, toString, $String*)},
 	{}
 };
 

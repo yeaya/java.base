@@ -12,9 +12,9 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $BigDecimal = ::java::math::BigDecimal;
 
 $MethodInfo _MultiplyTests_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(MultiplyTests::*)()>(&MultiplyTests::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&MultiplyTests::main))},
-	{"multiplyTests", "()I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)()>(&MultiplyTests::multiplyTests))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(MultiplyTests, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(MultiplyTests, main, void, $StringArray*)},
+	{"multiplyTests", "()I", nullptr, $PRIVATE | $STATIC, $staticMethod(MultiplyTests, multiplyTests, int32_t)},
 	{}
 };
 

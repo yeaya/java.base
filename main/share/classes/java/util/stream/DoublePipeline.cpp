@@ -203,8 +203,8 @@ $FieldInfo DoublePipeline$$Lambda$accept::fieldInfos[2] = {
 	{}
 };
 $MethodInfo DoublePipeline$$Lambda$accept::methodInfos[3] = {
-	{"<init>", "(Ljava/util/stream/Sink;)V", nullptr, $PUBLIC, $method(static_cast<void(DoublePipeline$$Lambda$accept::*)($Sink*)>(&DoublePipeline$$Lambda$accept::init$))},
-	{"accept", "(D)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/stream/Sink;)V", nullptr, $PUBLIC, $method(DoublePipeline$$Lambda$accept, init$, void, $Sink*)},
+	{"accept", "(D)V", nullptr, $PUBLIC, $virtualMethod(DoublePipeline$$Lambda$accept, accept, void, double)},
 	{}
 };
 $ClassInfo DoublePipeline$$Lambda$accept::classInfo$ = {
@@ -236,8 +236,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo DoublePipeline$$Lambda$valueOf$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DoublePipeline$$Lambda$valueOf$1::*)()>(&DoublePipeline$$Lambda$valueOf$1::init$))},
-	{"apply", "(D)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DoublePipeline$$Lambda$valueOf$1, init$, void)},
+	{"apply", "(D)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DoublePipeline$$Lambda$valueOf$1, apply, $Object*, double)},
 	{}
 };
 $ClassInfo DoublePipeline$$Lambda$valueOf$1::classInfo$ = {
@@ -269,8 +269,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo DoublePipeline$$Lambda$lambda$distinct$0$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DoublePipeline$$Lambda$lambda$distinct$0$2::*)()>(&DoublePipeline$$Lambda$lambda$distinct$0$2::init$))},
-	{"applyAsDouble", "(Ljava/lang/Object;)D", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DoublePipeline$$Lambda$lambda$distinct$0$2, init$, void)},
+	{"applyAsDouble", "(Ljava/lang/Object;)D", nullptr, $PUBLIC, $virtualMethod(DoublePipeline$$Lambda$lambda$distinct$0$2, applyAsDouble, double, Object$*)},
 	{}
 };
 $ClassInfo DoublePipeline$$Lambda$lambda$distinct$0$2::classInfo$ = {
@@ -302,8 +302,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo DoublePipeline$$Lambda$lambda$sum$1$3::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DoublePipeline$$Lambda$lambda$sum$1$3::*)()>(&DoublePipeline$$Lambda$lambda$sum$1$3::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DoublePipeline$$Lambda$lambda$sum$1$3, init$, void)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DoublePipeline$$Lambda$lambda$sum$1$3, get, $Object*)},
 	{}
 };
 $ClassInfo DoublePipeline$$Lambda$lambda$sum$1$3::classInfo$ = {
@@ -335,8 +335,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo DoublePipeline$$Lambda$lambda$sum$2$4::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DoublePipeline$$Lambda$lambda$sum$2$4::*)()>(&DoublePipeline$$Lambda$lambda$sum$2$4::init$))},
-	{"accept", "(Ljava/lang/Object;D)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DoublePipeline$$Lambda$lambda$sum$2$4, init$, void)},
+	{"accept", "(Ljava/lang/Object;D)V", nullptr, $PUBLIC, $virtualMethod(DoublePipeline$$Lambda$lambda$sum$2$4, accept, void, Object$*, double)},
 	{}
 };
 $ClassInfo DoublePipeline$$Lambda$lambda$sum$2$4::classInfo$ = {
@@ -368,8 +368,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo DoublePipeline$$Lambda$lambda$sum$3$5::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DoublePipeline$$Lambda$lambda$sum$3$5::*)()>(&DoublePipeline$$Lambda$lambda$sum$3$5::init$))},
-	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DoublePipeline$$Lambda$lambda$sum$3$5, init$, void)},
+	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(DoublePipeline$$Lambda$lambda$sum$3$5, accept, void, Object$*, Object$*)},
 	{}
 };
 $ClassInfo DoublePipeline$$Lambda$lambda$sum$3$5::classInfo$ = {
@@ -401,8 +401,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo DoublePipeline$$Lambda$min$6::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DoublePipeline$$Lambda$min$6::*)()>(&DoublePipeline$$Lambda$min$6::init$))},
-	{"applyAsDouble", "(DD)D", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DoublePipeline$$Lambda$min$6, init$, void)},
+	{"applyAsDouble", "(DD)D", nullptr, $PUBLIC, $virtualMethod(DoublePipeline$$Lambda$min$6, applyAsDouble, double, double, double)},
 	{}
 };
 $ClassInfo DoublePipeline$$Lambda$min$6::classInfo$ = {
@@ -434,8 +434,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo DoublePipeline$$Lambda$max$7::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DoublePipeline$$Lambda$max$7::*)()>(&DoublePipeline$$Lambda$max$7::init$))},
-	{"applyAsDouble", "(DD)D", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DoublePipeline$$Lambda$max$7, init$, void)},
+	{"applyAsDouble", "(DD)D", nullptr, $PUBLIC, $virtualMethod(DoublePipeline$$Lambda$max$7, applyAsDouble, double, double, double)},
 	{}
 };
 $ClassInfo DoublePipeline$$Lambda$max$7::classInfo$ = {
@@ -467,8 +467,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo DoublePipeline$$Lambda$lambda$average$4$8::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DoublePipeline$$Lambda$lambda$average$4$8::*)()>(&DoublePipeline$$Lambda$lambda$average$4$8::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DoublePipeline$$Lambda$lambda$average$4$8, init$, void)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DoublePipeline$$Lambda$lambda$average$4$8, get, $Object*)},
 	{}
 };
 $ClassInfo DoublePipeline$$Lambda$lambda$average$4$8::classInfo$ = {
@@ -500,8 +500,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo DoublePipeline$$Lambda$lambda$average$5$9::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DoublePipeline$$Lambda$lambda$average$5$9::*)()>(&DoublePipeline$$Lambda$lambda$average$5$9::init$))},
-	{"accept", "(Ljava/lang/Object;D)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DoublePipeline$$Lambda$lambda$average$5$9, init$, void)},
+	{"accept", "(Ljava/lang/Object;D)V", nullptr, $PUBLIC, $virtualMethod(DoublePipeline$$Lambda$lambda$average$5$9, accept, void, Object$*, double)},
 	{}
 };
 $ClassInfo DoublePipeline$$Lambda$lambda$average$5$9::classInfo$ = {
@@ -533,8 +533,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo DoublePipeline$$Lambda$lambda$average$6$10::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DoublePipeline$$Lambda$lambda$average$6$10::*)()>(&DoublePipeline$$Lambda$lambda$average$6$10::init$))},
-	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DoublePipeline$$Lambda$lambda$average$6$10, init$, void)},
+	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(DoublePipeline$$Lambda$lambda$average$6$10, accept, void, Object$*, Object$*)},
 	{}
 };
 $ClassInfo DoublePipeline$$Lambda$lambda$average$6$10::classInfo$ = {
@@ -566,8 +566,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo DoublePipeline$$Lambda$DoubleSummaryStatistics$11::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DoublePipeline$$Lambda$DoubleSummaryStatistics$11::*)()>(&DoublePipeline$$Lambda$DoubleSummaryStatistics$11::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DoublePipeline$$Lambda$DoubleSummaryStatistics$11, init$, void)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DoublePipeline$$Lambda$DoubleSummaryStatistics$11, get, $Object*)},
 	{}
 };
 $ClassInfo DoublePipeline$$Lambda$DoubleSummaryStatistics$11::classInfo$ = {
@@ -599,8 +599,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo DoublePipeline$$Lambda$accept$12::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DoublePipeline$$Lambda$accept$12::*)()>(&DoublePipeline$$Lambda$accept$12::init$))},
-	{"accept", "(Ljava/lang/Object;D)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DoublePipeline$$Lambda$accept$12, init$, void)},
+	{"accept", "(Ljava/lang/Object;D)V", nullptr, $PUBLIC, $virtualMethod(DoublePipeline$$Lambda$accept$12, accept, void, Object$*, double)},
 	{}
 };
 $ClassInfo DoublePipeline$$Lambda$accept$12::classInfo$ = {
@@ -632,8 +632,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo DoublePipeline$$Lambda$combine$13::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DoublePipeline$$Lambda$combine$13::*)()>(&DoublePipeline$$Lambda$combine$13::init$))},
-	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DoublePipeline$$Lambda$combine$13, init$, void)},
+	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(DoublePipeline$$Lambda$combine$13, accept, void, Object$*, Object$*)},
 	{}
 };
 $ClassInfo DoublePipeline$$Lambda$combine$13::classInfo$ = {
@@ -672,8 +672,8 @@ $FieldInfo DoublePipeline$$Lambda$lambda$collect$7$14::fieldInfos[2] = {
 	{}
 };
 $MethodInfo DoublePipeline$$Lambda$lambda$collect$7$14::methodInfos[3] = {
-	{"<init>", "(Ljava/util/function/BiConsumer;)V", nullptr, $PUBLIC, $method(static_cast<void(DoublePipeline$$Lambda$lambda$collect$7$14::*)($BiConsumer*)>(&DoublePipeline$$Lambda$lambda$collect$7$14::init$))},
-	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/function/BiConsumer;)V", nullptr, $PUBLIC, $method(DoublePipeline$$Lambda$lambda$collect$7$14, init$, void, $BiConsumer*)},
+	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DoublePipeline$$Lambda$lambda$collect$7$14, apply, $Object*, Object$*, Object$*)},
 	{}
 };
 $ClassInfo DoublePipeline$$Lambda$lambda$collect$7$14::classInfo$ = {
@@ -705,8 +705,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo DoublePipeline$$Lambda$lambda$toArray$8$15::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DoublePipeline$$Lambda$lambda$toArray$8$15::*)()>(&DoublePipeline$$Lambda$lambda$toArray$8$15::init$))},
-	{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DoublePipeline$$Lambda$lambda$toArray$8$15, init$, void)},
+	{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DoublePipeline$$Lambda$lambda$toArray$8$15, apply, $Object*, int32_t)},
 	{}
 };
 $ClassInfo DoublePipeline$$Lambda$lambda$toArray$8$15::classInfo$ = {
@@ -729,67 +729,67 @@ $MethodInfo _DoublePipeline_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/util/function/Supplier;IZ)V", "(Ljava/util/function/Supplier<+Ljava/util/Spliterator<Ljava/lang/Double;>;>;IZ)V", 0, $method(static_cast<void(DoublePipeline::*)($Supplier*,int32_t,bool)>(&DoublePipeline::init$))},
-	{"<init>", "(Ljava/util/Spliterator;IZ)V", "(Ljava/util/Spliterator<Ljava/lang/Double;>;IZ)V", 0, $method(static_cast<void(DoublePipeline::*)($Spliterator*,int32_t,bool)>(&DoublePipeline::init$))},
-	{"<init>", "(Ljava/util/stream/AbstractPipeline;I)V", "(Ljava/util/stream/AbstractPipeline<*TE_IN;*>;I)V", 0, $method(static_cast<void(DoublePipeline::*)($AbstractPipeline*,int32_t)>(&DoublePipeline::init$))},
-	{"adapt", "(Ljava/util/stream/Sink;)Ljava/util/function/DoubleConsumer;", "(Ljava/util/stream/Sink<Ljava/lang/Double;>;)Ljava/util/function/DoubleConsumer;", $PRIVATE | $STATIC, $method(static_cast<$DoubleConsumer*(*)($Sink*)>(&DoublePipeline::adapt))},
-	{"adapt", "(Ljava/util/Spliterator;)Ljava/util/Spliterator$OfDouble;", "(Ljava/util/Spliterator<Ljava/lang/Double;>;)Ljava/util/Spliterator$OfDouble;", $PRIVATE | $STATIC, $method(static_cast<$Spliterator$OfDouble*(*)($Spliterator*)>(&DoublePipeline::adapt))},
-	{"allMatch", "(Ljava/util/function/DoublePredicate;)Z", nullptr, $PUBLIC | $FINAL, $method(static_cast<bool(DoublePipeline::*)($DoublePredicate*)>(&DoublePipeline::allMatch))},
-	{"anyMatch", "(Ljava/util/function/DoublePredicate;)Z", nullptr, $PUBLIC | $FINAL, $method(static_cast<bool(DoublePipeline::*)($DoublePredicate*)>(&DoublePipeline::anyMatch))},
-	{"average", "()Ljava/util/OptionalDouble;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$OptionalDouble*(DoublePipeline::*)()>(&DoublePipeline::average))},
-	{"boxed", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljava/lang/Double;>;", $PUBLIC | $FINAL, $method(static_cast<$Stream*(DoublePipeline::*)()>(&DoublePipeline::boxed))},
-	{"collect", "(Ljava/util/function/Supplier;Ljava/util/function/ObjDoubleConsumer;Ljava/util/function/BiConsumer;)Ljava/lang/Object;", "<R:Ljava/lang/Object;>(Ljava/util/function/Supplier<TR;>;Ljava/util/function/ObjDoubleConsumer<TR;>;Ljava/util/function/BiConsumer<TR;TR;>;)TR;", $PUBLIC | $FINAL, $method(static_cast<$Object*(DoublePipeline::*)($Supplier*,$ObjDoubleConsumer*,$BiConsumer*)>(&DoublePipeline::collect))},
-	{"count", "()J", nullptr, $PUBLIC | $FINAL, $method(static_cast<int64_t(DoublePipeline::*)()>(&DoublePipeline::count))},
-	{"distinct", "()Ljava/util/stream/DoubleStream;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$DoubleStream*(DoublePipeline::*)()>(&DoublePipeline::distinct))},
-	{"dropWhile", "(Ljava/util/function/DoublePredicate;)Ljava/util/stream/DoubleStream;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$DoubleStream*(DoublePipeline::*)($DoublePredicate*)>(&DoublePipeline::dropWhile))},
-	{"evaluateToNode", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;ZLjava/util/function/IntFunction;)Ljava/util/stream/Node;", "<P_IN:Ljava/lang/Object;>(Ljava/util/stream/PipelineHelper<Ljava/lang/Double;>;Ljava/util/Spliterator<TP_IN;>;ZLjava/util/function/IntFunction<[Ljava/lang/Double;>;)Ljava/util/stream/Node<Ljava/lang/Double;>;", $FINAL},
-	{"filter", "(Ljava/util/function/DoublePredicate;)Ljava/util/stream/DoubleStream;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$DoubleStream*(DoublePipeline::*)($DoublePredicate*)>(&DoublePipeline::filter))},
-	{"findAny", "()Ljava/util/OptionalDouble;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$OptionalDouble*(DoublePipeline::*)()>(&DoublePipeline::findAny))},
-	{"findFirst", "()Ljava/util/OptionalDouble;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$OptionalDouble*(DoublePipeline::*)()>(&DoublePipeline::findFirst))},
-	{"flatMap", "(Ljava/util/function/DoubleFunction;)Ljava/util/stream/DoubleStream;", "(Ljava/util/function/DoubleFunction<+Ljava/util/stream/DoubleStream;>;)Ljava/util/stream/DoubleStream;", $PUBLIC | $FINAL, $method(static_cast<$DoubleStream*(DoublePipeline::*)($DoubleFunction*)>(&DoublePipeline::flatMap))},
-	{"forEach", "(Ljava/util/function/DoubleConsumer;)V", nullptr, $PUBLIC},
-	{"forEachOrdered", "(Ljava/util/function/DoubleConsumer;)V", nullptr, $PUBLIC},
-	{"forEachWithCancel", "(Ljava/util/Spliterator;Ljava/util/stream/Sink;)Z", "(Ljava/util/Spliterator<Ljava/lang/Double;>;Ljava/util/stream/Sink<Ljava/lang/Double;>;)Z", $FINAL},
-	{"getOutputShape", "()Ljava/util/stream/StreamShape;", nullptr, $FINAL},
+	{"<init>", "(Ljava/util/function/Supplier;IZ)V", "(Ljava/util/function/Supplier<+Ljava/util/Spliterator<Ljava/lang/Double;>;>;IZ)V", 0, $method(DoublePipeline, init$, void, $Supplier*, int32_t, bool)},
+	{"<init>", "(Ljava/util/Spliterator;IZ)V", "(Ljava/util/Spliterator<Ljava/lang/Double;>;IZ)V", 0, $method(DoublePipeline, init$, void, $Spliterator*, int32_t, bool)},
+	{"<init>", "(Ljava/util/stream/AbstractPipeline;I)V", "(Ljava/util/stream/AbstractPipeline<*TE_IN;*>;I)V", 0, $method(DoublePipeline, init$, void, $AbstractPipeline*, int32_t)},
+	{"adapt", "(Ljava/util/stream/Sink;)Ljava/util/function/DoubleConsumer;", "(Ljava/util/stream/Sink<Ljava/lang/Double;>;)Ljava/util/function/DoubleConsumer;", $PRIVATE | $STATIC, $staticMethod(DoublePipeline, adapt, $DoubleConsumer*, $Sink*)},
+	{"adapt", "(Ljava/util/Spliterator;)Ljava/util/Spliterator$OfDouble;", "(Ljava/util/Spliterator<Ljava/lang/Double;>;)Ljava/util/Spliterator$OfDouble;", $PRIVATE | $STATIC, $staticMethod(DoublePipeline, adapt, $Spliterator$OfDouble*, $Spliterator*)},
+	{"allMatch", "(Ljava/util/function/DoublePredicate;)Z", nullptr, $PUBLIC | $FINAL, $method(DoublePipeline, allMatch, bool, $DoublePredicate*)},
+	{"anyMatch", "(Ljava/util/function/DoublePredicate;)Z", nullptr, $PUBLIC | $FINAL, $method(DoublePipeline, anyMatch, bool, $DoublePredicate*)},
+	{"average", "()Ljava/util/OptionalDouble;", nullptr, $PUBLIC | $FINAL, $method(DoublePipeline, average, $OptionalDouble*)},
+	{"boxed", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljava/lang/Double;>;", $PUBLIC | $FINAL, $method(DoublePipeline, boxed, $Stream*)},
+	{"collect", "(Ljava/util/function/Supplier;Ljava/util/function/ObjDoubleConsumer;Ljava/util/function/BiConsumer;)Ljava/lang/Object;", "<R:Ljava/lang/Object;>(Ljava/util/function/Supplier<TR;>;Ljava/util/function/ObjDoubleConsumer<TR;>;Ljava/util/function/BiConsumer<TR;TR;>;)TR;", $PUBLIC | $FINAL, $method(DoublePipeline, collect, $Object*, $Supplier*, $ObjDoubleConsumer*, $BiConsumer*)},
+	{"count", "()J", nullptr, $PUBLIC | $FINAL, $method(DoublePipeline, count, int64_t)},
+	{"distinct", "()Ljava/util/stream/DoubleStream;", nullptr, $PUBLIC | $FINAL, $method(DoublePipeline, distinct, $DoubleStream*)},
+	{"dropWhile", "(Ljava/util/function/DoublePredicate;)Ljava/util/stream/DoubleStream;", nullptr, $PUBLIC | $FINAL, $method(DoublePipeline, dropWhile, $DoubleStream*, $DoublePredicate*)},
+	{"evaluateToNode", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;ZLjava/util/function/IntFunction;)Ljava/util/stream/Node;", "<P_IN:Ljava/lang/Object;>(Ljava/util/stream/PipelineHelper<Ljava/lang/Double;>;Ljava/util/Spliterator<TP_IN;>;ZLjava/util/function/IntFunction<[Ljava/lang/Double;>;)Ljava/util/stream/Node<Ljava/lang/Double;>;", $FINAL, $virtualMethod(DoublePipeline, evaluateToNode, $Node*, $PipelineHelper*, $Spliterator*, bool, $IntFunction*)},
+	{"filter", "(Ljava/util/function/DoublePredicate;)Ljava/util/stream/DoubleStream;", nullptr, $PUBLIC | $FINAL, $method(DoublePipeline, filter, $DoubleStream*, $DoublePredicate*)},
+	{"findAny", "()Ljava/util/OptionalDouble;", nullptr, $PUBLIC | $FINAL, $method(DoublePipeline, findAny, $OptionalDouble*)},
+	{"findFirst", "()Ljava/util/OptionalDouble;", nullptr, $PUBLIC | $FINAL, $method(DoublePipeline, findFirst, $OptionalDouble*)},
+	{"flatMap", "(Ljava/util/function/DoubleFunction;)Ljava/util/stream/DoubleStream;", "(Ljava/util/function/DoubleFunction<+Ljava/util/stream/DoubleStream;>;)Ljava/util/stream/DoubleStream;", $PUBLIC | $FINAL, $method(DoublePipeline, flatMap, $DoubleStream*, $DoubleFunction*)},
+	{"forEach", "(Ljava/util/function/DoubleConsumer;)V", nullptr, $PUBLIC, $virtualMethod(DoublePipeline, forEach, void, $DoubleConsumer*)},
+	{"forEachOrdered", "(Ljava/util/function/DoubleConsumer;)V", nullptr, $PUBLIC, $virtualMethod(DoublePipeline, forEachOrdered, void, $DoubleConsumer*)},
+	{"forEachWithCancel", "(Ljava/util/Spliterator;Ljava/util/stream/Sink;)Z", "(Ljava/util/Spliterator<Ljava/lang/Double;>;Ljava/util/stream/Sink<Ljava/lang/Double;>;)Z", $FINAL, $virtualMethod(DoublePipeline, forEachWithCancel, bool, $Spliterator*, $Sink*)},
+	{"getOutputShape", "()Ljava/util/stream/StreamShape;", nullptr, $FINAL, $virtualMethod(DoublePipeline, getOutputShape, $StreamShape*)},
 	{"*isParallel", "()Z", nullptr, $PUBLIC | $FINAL},
-	{"iterator", "()Ljava/util/PrimitiveIterator$OfDouble;", nullptr, $PUBLIC | $FINAL},
-	{"lambda$average$4", "()[D", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$doubles*(*)()>(&DoublePipeline::lambda$average$4))},
-	{"lambda$average$5", "([DD)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($doubles*,double)>(&DoublePipeline::lambda$average$5))},
-	{"lambda$average$6", "([D[D)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($doubles*,$doubles*)>(&DoublePipeline::lambda$average$6))},
-	{"lambda$collect$7", "(Ljava/util/function/BiConsumer;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Object*(*)($BiConsumer*,Object$*,Object$*)>(&DoublePipeline::lambda$collect$7))},
-	{"lambda$distinct$0", "(Ljava/lang/Double;)D", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<double(*)($Double*)>(&DoublePipeline::lambda$distinct$0))},
-	{"lambda$sum$1", "()[D", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$doubles*(*)()>(&DoublePipeline::lambda$sum$1))},
-	{"lambda$sum$2", "([DD)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($doubles*,double)>(&DoublePipeline::lambda$sum$2))},
-	{"lambda$sum$3", "([D[D)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($doubles*,$doubles*)>(&DoublePipeline::lambda$sum$3))},
-	{"lambda$toArray$8", "(I)[Ljava/lang/Double;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$DoubleArray*(*)(int32_t)>(&DoublePipeline::lambda$toArray$8))},
-	{"lazySpliterator", "(Ljava/util/function/Supplier;)Ljava/util/Spliterator$OfDouble;", "(Ljava/util/function/Supplier<+Ljava/util/Spliterator<Ljava/lang/Double;>;>;)Ljava/util/Spliterator$OfDouble;", $FINAL},
-	{"limit", "(J)Ljava/util/stream/DoubleStream;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$DoubleStream*(DoublePipeline::*)(int64_t)>(&DoublePipeline::limit))},
-	{"makeNodeBuilder", "(JLjava/util/function/IntFunction;)Ljava/util/stream/Node$Builder;", "(JLjava/util/function/IntFunction<[Ljava/lang/Double;>;)Ljava/util/stream/Node$Builder<Ljava/lang/Double;>;", $FINAL},
-	{"map", "(Ljava/util/function/DoubleUnaryOperator;)Ljava/util/stream/DoubleStream;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$DoubleStream*(DoublePipeline::*)($DoubleUnaryOperator*)>(&DoublePipeline::map))},
-	{"mapMulti", "(Ljava/util/stream/DoubleStream$DoubleMapMultiConsumer;)Ljava/util/stream/DoubleStream;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$DoubleStream*(DoublePipeline::*)($DoubleStream$DoubleMapMultiConsumer*)>(&DoublePipeline::mapMulti))},
-	{"mapToInt", "(Ljava/util/function/DoubleToIntFunction;)Ljava/util/stream/IntStream;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$IntStream*(DoublePipeline::*)($DoubleToIntFunction*)>(&DoublePipeline::mapToInt))},
-	{"mapToLong", "(Ljava/util/function/DoubleToLongFunction;)Ljava/util/stream/LongStream;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$LongStream*(DoublePipeline::*)($DoubleToLongFunction*)>(&DoublePipeline::mapToLong))},
-	{"mapToObj", "(Ljava/util/function/DoubleFunction;I)Ljava/util/stream/Stream;", "<U:Ljava/lang/Object;>(Ljava/util/function/DoubleFunction<+TU;>;I)Ljava/util/stream/Stream<TU;>;", $PRIVATE, $method(static_cast<$Stream*(DoublePipeline::*)($DoubleFunction*,int32_t)>(&DoublePipeline::mapToObj))},
-	{"mapToObj", "(Ljava/util/function/DoubleFunction;)Ljava/util/stream/Stream;", "<U:Ljava/lang/Object;>(Ljava/util/function/DoubleFunction<+TU;>;)Ljava/util/stream/Stream<TU;>;", $PUBLIC | $FINAL, $method(static_cast<$Stream*(DoublePipeline::*)($DoubleFunction*)>(&DoublePipeline::mapToObj))},
-	{"max", "()Ljava/util/OptionalDouble;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$OptionalDouble*(DoublePipeline::*)()>(&DoublePipeline::max))},
-	{"min", "()Ljava/util/OptionalDouble;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$OptionalDouble*(DoublePipeline::*)()>(&DoublePipeline::min))},
-	{"noneMatch", "(Ljava/util/function/DoublePredicate;)Z", nullptr, $PUBLIC | $FINAL, $method(static_cast<bool(DoublePipeline::*)($DoublePredicate*)>(&DoublePipeline::noneMatch))},
+	{"iterator", "()Ljava/util/PrimitiveIterator$OfDouble;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DoublePipeline, iterator, $Iterator*)},
+	{"lambda$average$4", "()[D", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DoublePipeline, lambda$average$4, $doubles*)},
+	{"lambda$average$5", "([DD)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DoublePipeline, lambda$average$5, void, $doubles*, double)},
+	{"lambda$average$6", "([D[D)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DoublePipeline, lambda$average$6, void, $doubles*, $doubles*)},
+	{"lambda$collect$7", "(Ljava/util/function/BiConsumer;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DoublePipeline, lambda$collect$7, $Object*, $BiConsumer*, Object$*, Object$*)},
+	{"lambda$distinct$0", "(Ljava/lang/Double;)D", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DoublePipeline, lambda$distinct$0, double, $Double*)},
+	{"lambda$sum$1", "()[D", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DoublePipeline, lambda$sum$1, $doubles*)},
+	{"lambda$sum$2", "([DD)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DoublePipeline, lambda$sum$2, void, $doubles*, double)},
+	{"lambda$sum$3", "([D[D)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DoublePipeline, lambda$sum$3, void, $doubles*, $doubles*)},
+	{"lambda$toArray$8", "(I)[Ljava/lang/Double;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DoublePipeline, lambda$toArray$8, $DoubleArray*, int32_t)},
+	{"lazySpliterator", "(Ljava/util/function/Supplier;)Ljava/util/Spliterator$OfDouble;", "(Ljava/util/function/Supplier<+Ljava/util/Spliterator<Ljava/lang/Double;>;>;)Ljava/util/Spliterator$OfDouble;", $FINAL, $virtualMethod(DoublePipeline, lazySpliterator, $Spliterator*, $Supplier*)},
+	{"limit", "(J)Ljava/util/stream/DoubleStream;", nullptr, $PUBLIC | $FINAL, $method(DoublePipeline, limit, $DoubleStream*, int64_t)},
+	{"makeNodeBuilder", "(JLjava/util/function/IntFunction;)Ljava/util/stream/Node$Builder;", "(JLjava/util/function/IntFunction<[Ljava/lang/Double;>;)Ljava/util/stream/Node$Builder<Ljava/lang/Double;>;", $FINAL, $virtualMethod(DoublePipeline, makeNodeBuilder, $Node$Builder*, int64_t, $IntFunction*)},
+	{"map", "(Ljava/util/function/DoubleUnaryOperator;)Ljava/util/stream/DoubleStream;", nullptr, $PUBLIC | $FINAL, $method(DoublePipeline, map, $DoubleStream*, $DoubleUnaryOperator*)},
+	{"mapMulti", "(Ljava/util/stream/DoubleStream$DoubleMapMultiConsumer;)Ljava/util/stream/DoubleStream;", nullptr, $PUBLIC | $FINAL, $method(DoublePipeline, mapMulti, $DoubleStream*, $DoubleStream$DoubleMapMultiConsumer*)},
+	{"mapToInt", "(Ljava/util/function/DoubleToIntFunction;)Ljava/util/stream/IntStream;", nullptr, $PUBLIC | $FINAL, $method(DoublePipeline, mapToInt, $IntStream*, $DoubleToIntFunction*)},
+	{"mapToLong", "(Ljava/util/function/DoubleToLongFunction;)Ljava/util/stream/LongStream;", nullptr, $PUBLIC | $FINAL, $method(DoublePipeline, mapToLong, $LongStream*, $DoubleToLongFunction*)},
+	{"mapToObj", "(Ljava/util/function/DoubleFunction;I)Ljava/util/stream/Stream;", "<U:Ljava/lang/Object;>(Ljava/util/function/DoubleFunction<+TU;>;I)Ljava/util/stream/Stream<TU;>;", $PRIVATE, $method(DoublePipeline, mapToObj, $Stream*, $DoubleFunction*, int32_t)},
+	{"mapToObj", "(Ljava/util/function/DoubleFunction;)Ljava/util/stream/Stream;", "<U:Ljava/lang/Object;>(Ljava/util/function/DoubleFunction<+TU;>;)Ljava/util/stream/Stream<TU;>;", $PUBLIC | $FINAL, $method(DoublePipeline, mapToObj, $Stream*, $DoubleFunction*)},
+	{"max", "()Ljava/util/OptionalDouble;", nullptr, $PUBLIC | $FINAL, $method(DoublePipeline, max, $OptionalDouble*)},
+	{"min", "()Ljava/util/OptionalDouble;", nullptr, $PUBLIC | $FINAL, $method(DoublePipeline, min, $OptionalDouble*)},
+	{"noneMatch", "(Ljava/util/function/DoublePredicate;)Z", nullptr, $PUBLIC | $FINAL, $method(DoublePipeline, noneMatch, bool, $DoublePredicate*)},
 	{"*onClose", "(Ljava/lang/Runnable;)Ljava/util/stream/BaseStream;", nullptr, $PUBLIC},
-	{"parallel", "()Ljava/util/stream/DoubleStream;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"peek", "(Ljava/util/function/DoubleConsumer;)Ljava/util/stream/DoubleStream;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$DoubleStream*(DoublePipeline::*)($DoubleConsumer*)>(&DoublePipeline::peek))},
-	{"reduce", "(DLjava/util/function/DoubleBinaryOperator;)D", nullptr, $PUBLIC | $FINAL, $method(static_cast<double(DoublePipeline::*)(double,$DoubleBinaryOperator*)>(&DoublePipeline::reduce))},
-	{"reduce", "(Ljava/util/function/DoubleBinaryOperator;)Ljava/util/OptionalDouble;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$OptionalDouble*(DoublePipeline::*)($DoubleBinaryOperator*)>(&DoublePipeline::reduce))},
-	{"sequential", "()Ljava/util/stream/DoubleStream;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"skip", "(J)Ljava/util/stream/DoubleStream;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$DoubleStream*(DoublePipeline::*)(int64_t)>(&DoublePipeline::skip))},
-	{"sorted", "()Ljava/util/stream/DoubleStream;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$DoubleStream*(DoublePipeline::*)()>(&DoublePipeline::sorted))},
-	{"spliterator", "()Ljava/util/Spliterator$OfDouble;", nullptr, $PUBLIC | $FINAL},
-	{"sum", "()D", nullptr, $PUBLIC | $FINAL, $method(static_cast<double(DoublePipeline::*)()>(&DoublePipeline::sum))},
-	{"summaryStatistics", "()Ljava/util/DoubleSummaryStatistics;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$DoubleSummaryStatistics*(DoublePipeline::*)()>(&DoublePipeline::summaryStatistics))},
-	{"takeWhile", "(Ljava/util/function/DoublePredicate;)Ljava/util/stream/DoubleStream;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$DoubleStream*(DoublePipeline::*)($DoublePredicate*)>(&DoublePipeline::takeWhile))},
-	{"toArray", "()[D", nullptr, $PUBLIC | $FINAL, $method(static_cast<$doubles*(DoublePipeline::*)()>(&DoublePipeline::toArray))},
+	{"parallel", "()Ljava/util/stream/DoubleStream;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DoublePipeline, parallel, $BaseStream*)},
+	{"peek", "(Ljava/util/function/DoubleConsumer;)Ljava/util/stream/DoubleStream;", nullptr, $PUBLIC | $FINAL, $method(DoublePipeline, peek, $DoubleStream*, $DoubleConsumer*)},
+	{"reduce", "(DLjava/util/function/DoubleBinaryOperator;)D", nullptr, $PUBLIC | $FINAL, $method(DoublePipeline, reduce, double, double, $DoubleBinaryOperator*)},
+	{"reduce", "(Ljava/util/function/DoubleBinaryOperator;)Ljava/util/OptionalDouble;", nullptr, $PUBLIC | $FINAL, $method(DoublePipeline, reduce, $OptionalDouble*, $DoubleBinaryOperator*)},
+	{"sequential", "()Ljava/util/stream/DoubleStream;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DoublePipeline, sequential, $BaseStream*)},
+	{"skip", "(J)Ljava/util/stream/DoubleStream;", nullptr, $PUBLIC | $FINAL, $method(DoublePipeline, skip, $DoubleStream*, int64_t)},
+	{"sorted", "()Ljava/util/stream/DoubleStream;", nullptr, $PUBLIC | $FINAL, $method(DoublePipeline, sorted, $DoubleStream*)},
+	{"spliterator", "()Ljava/util/Spliterator$OfDouble;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DoublePipeline, spliterator, $Spliterator*)},
+	{"sum", "()D", nullptr, $PUBLIC | $FINAL, $method(DoublePipeline, sum, double)},
+	{"summaryStatistics", "()Ljava/util/DoubleSummaryStatistics;", nullptr, $PUBLIC | $FINAL, $method(DoublePipeline, summaryStatistics, $DoubleSummaryStatistics*)},
+	{"takeWhile", "(Ljava/util/function/DoublePredicate;)Ljava/util/stream/DoubleStream;", nullptr, $PUBLIC | $FINAL, $method(DoublePipeline, takeWhile, $DoubleStream*, $DoublePredicate*)},
+	{"toArray", "()[D", nullptr, $PUBLIC | $FINAL, $method(DoublePipeline, toArray, $doubles*)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"unordered", "()Ljava/util/stream/DoubleStream;", nullptr, $PUBLIC},
-	{"wrap", "(Ljava/util/stream/PipelineHelper;Ljava/util/function/Supplier;Z)Ljava/util/Spliterator;", "<P_IN:Ljava/lang/Object;>(Ljava/util/stream/PipelineHelper<Ljava/lang/Double;>;Ljava/util/function/Supplier<Ljava/util/Spliterator<TP_IN;>;>;Z)Ljava/util/Spliterator<Ljava/lang/Double;>;", $FINAL},
+	{"unordered", "()Ljava/util/stream/DoubleStream;", nullptr, $PUBLIC, $virtualMethod(DoublePipeline, unordered, $BaseStream*)},
+	{"wrap", "(Ljava/util/stream/PipelineHelper;Ljava/util/function/Supplier;Z)Ljava/util/Spliterator;", "<P_IN:Ljava/lang/Object;>(Ljava/util/stream/PipelineHelper<Ljava/lang/Double;>;Ljava/util/function/Supplier<Ljava/util/Spliterator<TP_IN;>;>;Z)Ljava/util/Spliterator<Ljava/lang/Double;>;", $FINAL, $virtualMethod(DoublePipeline, wrap, $Spliterator*, $PipelineHelper*, $Supplier*, bool)},
 	{}
 };
 

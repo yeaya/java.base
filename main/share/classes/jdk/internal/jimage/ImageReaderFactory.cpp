@@ -46,9 +46,9 @@ $FieldInfo _ImageReaderFactory_FieldInfo_[] = {
 };
 
 $MethodInfo _ImageReaderFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(ImageReaderFactory::*)()>(&ImageReaderFactory::init$))},
-	{"get", "(Ljava/nio/file/Path;)Ljdk/internal/jimage/ImageReader;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$ImageReader*(*)($Path*)>(&ImageReaderFactory::get)), "java.io.IOException"},
-	{"getImageReader", "()Ljdk/internal/jimage/ImageReader;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$ImageReader*(*)()>(&ImageReaderFactory::getImageReader))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(ImageReaderFactory, init$, void)},
+	{"get", "(Ljava/nio/file/Path;)Ljdk/internal/jimage/ImageReader;", nullptr, $PUBLIC | $STATIC, $staticMethod(ImageReaderFactory, get, $ImageReader*, $Path*), "java.io.IOException"},
+	{"getImageReader", "()Ljdk/internal/jimage/ImageReader;", nullptr, $PUBLIC | $STATIC, $staticMethod(ImageReaderFactory, getImageReader, $ImageReader*)},
 	{}
 };
 

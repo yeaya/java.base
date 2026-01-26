@@ -31,10 +31,10 @@ $FieldInfo _BootstrapLogger$LoggingBackend_FieldInfo_[] = {
 };
 
 $MethodInfo _BootstrapLogger$LoggingBackend_MethodInfo_[] = {
-	{"$values", "()[Ljdk/internal/logger/BootstrapLogger$LoggingBackend;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$BootstrapLogger$LoggingBackendArray*(*)()>(&BootstrapLogger$LoggingBackend::$values))},
-	{"<init>", "(Ljava/lang/String;IZ)V", "(Z)V", $PRIVATE, $method(static_cast<void(BootstrapLogger$LoggingBackend::*)($String*,int32_t,bool)>(&BootstrapLogger$LoggingBackend::init$))},
-	{"valueOf", "(Ljava/lang/String;)Ljdk/internal/logger/BootstrapLogger$LoggingBackend;", nullptr, $PUBLIC | $STATIC, $method(static_cast<BootstrapLogger$LoggingBackend*(*)($String*)>(&BootstrapLogger$LoggingBackend::valueOf))},
-	{"values", "()[Ljdk/internal/logger/BootstrapLogger$LoggingBackend;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$BootstrapLogger$LoggingBackendArray*(*)()>(&BootstrapLogger$LoggingBackend::values))},
+	{"$values", "()[Ljdk/internal/logger/BootstrapLogger$LoggingBackend;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(BootstrapLogger$LoggingBackend, $values, $BootstrapLogger$LoggingBackendArray*)},
+	{"<init>", "(Ljava/lang/String;IZ)V", "(Z)V", $PRIVATE, $method(BootstrapLogger$LoggingBackend, init$, void, $String*, int32_t, bool)},
+	{"valueOf", "(Ljava/lang/String;)Ljdk/internal/logger/BootstrapLogger$LoggingBackend;", nullptr, $PUBLIC | $STATIC, $staticMethod(BootstrapLogger$LoggingBackend, valueOf, BootstrapLogger$LoggingBackend*, $String*)},
+	{"values", "()[Ljdk/internal/logger/BootstrapLogger$LoggingBackend;", nullptr, $PUBLIC | $STATIC, $staticMethod(BootstrapLogger$LoggingBackend, values, $BootstrapLogger$LoggingBackendArray*)},
 	{}
 };
 

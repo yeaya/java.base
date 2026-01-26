@@ -30,10 +30,10 @@ $FieldInfo _FormattedFloatingDecimal$Form_FieldInfo_[] = {
 };
 
 $MethodInfo _FormattedFloatingDecimal$Form_MethodInfo_[] = {
-	{"$values", "()[Ljdk/internal/math/FormattedFloatingDecimal$Form;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$FormattedFloatingDecimal$FormArray*(*)()>(&FormattedFloatingDecimal$Form::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(FormattedFloatingDecimal$Form::*)($String*,int32_t)>(&FormattedFloatingDecimal$Form::init$))},
-	{"valueOf", "(Ljava/lang/String;)Ljdk/internal/math/FormattedFloatingDecimal$Form;", nullptr, $PUBLIC | $STATIC, $method(static_cast<FormattedFloatingDecimal$Form*(*)($String*)>(&FormattedFloatingDecimal$Form::valueOf))},
-	{"values", "()[Ljdk/internal/math/FormattedFloatingDecimal$Form;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$FormattedFloatingDecimal$FormArray*(*)()>(&FormattedFloatingDecimal$Form::values))},
+	{"$values", "()[Ljdk/internal/math/FormattedFloatingDecimal$Form;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(FormattedFloatingDecimal$Form, $values, $FormattedFloatingDecimal$FormArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(FormattedFloatingDecimal$Form, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Ljdk/internal/math/FormattedFloatingDecimal$Form;", nullptr, $PUBLIC | $STATIC, $staticMethod(FormattedFloatingDecimal$Form, valueOf, FormattedFloatingDecimal$Form*, $String*)},
+	{"values", "()[Ljdk/internal/math/FormattedFloatingDecimal$Form;", nullptr, $PUBLIC | $STATIC, $staticMethod(FormattedFloatingDecimal$Form, values, $FormattedFloatingDecimal$FormArray*)},
 	{}
 };
 

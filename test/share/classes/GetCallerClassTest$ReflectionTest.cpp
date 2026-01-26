@@ -44,12 +44,12 @@ $FieldInfo _GetCallerClassTest$ReflectionTest_FieldInfo_[] = {
 };
 
 $MethodInfo _GetCallerClassTest$ReflectionTest_MethodInfo_[] = {
-	{"<init>", "(LGetCallerClassTest;)V", nullptr, 0, $method(static_cast<void(GetCallerClassTest$ReflectionTest::*)($GetCallerClassTest*)>(&GetCallerClassTest$ReflectionTest::init$))},
-	{"callMethodHandle", "()V", nullptr, 0},
-	{"callMethodHandleRefl", "()V", nullptr, 0},
-	{"callMethodInvoke", "()V", nullptr, 0},
-	{"callMethodInvokeRefl", "()V", nullptr, 0},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(LGetCallerClassTest;)V", nullptr, 0, $method(GetCallerClassTest$ReflectionTest, init$, void, $GetCallerClassTest*)},
+	{"callMethodHandle", "()V", nullptr, 0, $virtualMethod(GetCallerClassTest$ReflectionTest, callMethodHandle, void)},
+	{"callMethodHandleRefl", "()V", nullptr, 0, $virtualMethod(GetCallerClassTest$ReflectionTest, callMethodHandleRefl, void)},
+	{"callMethodInvoke", "()V", nullptr, 0, $virtualMethod(GetCallerClassTest$ReflectionTest, callMethodInvoke, void)},
+	{"callMethodInvokeRefl", "()V", nullptr, 0, $virtualMethod(GetCallerClassTest$ReflectionTest, callMethodInvokeRefl, void)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(GetCallerClassTest$ReflectionTest, run, void)},
 	{}
 };
 

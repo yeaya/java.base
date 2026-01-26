@@ -19,7 +19,7 @@ $FieldInfo _ObjectIdentifier$HugeOidNotSupportedByOldJDK_FieldInfo_[] = {
 };
 
 $MethodInfo _ObjectIdentifier$HugeOidNotSupportedByOldJDK_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ObjectIdentifier$HugeOidNotSupportedByOldJDK::*)()>(&ObjectIdentifier$HugeOidNotSupportedByOldJDK::init$))},
+	{"<init>", "()V", nullptr, 0, $method(ObjectIdentifier$HugeOidNotSupportedByOldJDK, init$, void)},
 	{}
 };
 

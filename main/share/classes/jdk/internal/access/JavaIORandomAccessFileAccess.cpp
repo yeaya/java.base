@@ -4,6 +4,8 @@
 #include <java/io/RandomAccessFile.h>
 #include <jcpp.h>
 
+using $File = ::java::io::File;
+using $RandomAccessFile = ::java::io::RandomAccessFile;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
@@ -12,7 +14,7 @@ namespace jdk {
 		namespace access {
 
 $MethodInfo _JavaIORandomAccessFileAccess_MethodInfo_[] = {
-	{"openAndDelete", "(Ljava/io/File;Ljava/lang/String;)Ljava/io/RandomAccessFile;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
+	{"openAndDelete", "(Ljava/io/File;Ljava/lang/String;)Ljava/io/RandomAccessFile;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JavaIORandomAccessFileAccess, openAndDelete, $RandomAccessFile*, $File*, $String*), "java.io.IOException"},
 	{}
 };
 

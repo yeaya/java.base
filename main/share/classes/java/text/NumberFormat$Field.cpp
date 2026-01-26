@@ -56,8 +56,8 @@ $FieldInfo _NumberFormat$Field_FieldInfo_[] = {
 };
 
 $MethodInfo _NumberFormat$Field_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $method(static_cast<void(NumberFormat$Field::*)($String*)>(&NumberFormat$Field::init$))},
-	{"readResolve", "()Ljava/lang/Object;", nullptr, $PROTECTED, nullptr, "java.io.InvalidObjectException"},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $method(NumberFormat$Field, init$, void, $String*)},
+	{"readResolve", "()Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(NumberFormat$Field, readResolve, $Object*), "java.io.InvalidObjectException"},
 	{}
 };
 

@@ -68,8 +68,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo DefaultLoggerFinder$$Lambda$makeSimpleLogger::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DefaultLoggerFinder$$Lambda$makeSimpleLogger::*)()>(&DefaultLoggerFinder$$Lambda$makeSimpleLogger::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DefaultLoggerFinder$$Lambda$makeSimpleLogger, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DefaultLoggerFinder$$Lambda$makeSimpleLogger, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo DefaultLoggerFinder$$Lambda$makeSimpleLogger::classInfo$ = {
@@ -92,13 +92,13 @@ $FieldInfo _DefaultLoggerFinder_FieldInfo_[] = {
 };
 
 $MethodInfo _DefaultLoggerFinder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(DefaultLoggerFinder::*)()>(&DefaultLoggerFinder::init$))},
-	{"<init>", "(Ljava/lang/Void;)V", nullptr, $PRIVATE, $method(static_cast<void(DefaultLoggerFinder::*)($Void*)>(&DefaultLoggerFinder::init$))},
-	{"checkPermission", "()Ljava/lang/Void;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$Void*(*)()>(&DefaultLoggerFinder::checkPermission))},
-	{"demandLoggerFor", "(Ljava/lang/String;Ljava/lang/Module;)Ljava/lang/System$Logger;", nullptr, $PROTECTED},
-	{"getLocalizedLogger", "(Ljava/lang/String;Ljava/util/ResourceBundle;Ljava/lang/Module;)Ljava/lang/System$Logger;", nullptr, $PUBLIC | $FINAL},
-	{"getLogger", "(Ljava/lang/String;Ljava/lang/Module;)Ljava/lang/System$Logger;", nullptr, $PUBLIC | $FINAL},
-	{"isSystem", "(Ljava/lang/Module;)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)($Module*)>(&DefaultLoggerFinder::isSystem))},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(DefaultLoggerFinder, init$, void)},
+	{"<init>", "(Ljava/lang/Void;)V", nullptr, $PRIVATE, $method(DefaultLoggerFinder, init$, void, $Void*)},
+	{"checkPermission", "()Ljava/lang/Void;", nullptr, $PRIVATE | $STATIC, $staticMethod(DefaultLoggerFinder, checkPermission, $Void*)},
+	{"demandLoggerFor", "(Ljava/lang/String;Ljava/lang/Module;)Ljava/lang/System$Logger;", nullptr, $PROTECTED, $virtualMethod(DefaultLoggerFinder, demandLoggerFor, $System$Logger*, $String*, $Module*)},
+	{"getLocalizedLogger", "(Ljava/lang/String;Ljava/util/ResourceBundle;Ljava/lang/Module;)Ljava/lang/System$Logger;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DefaultLoggerFinder, getLocalizedLogger, $System$Logger*, $String*, $ResourceBundle*, $Module*)},
+	{"getLogger", "(Ljava/lang/String;Ljava/lang/Module;)Ljava/lang/System$Logger;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DefaultLoggerFinder, getLogger, $System$Logger*, $String*, $Module*)},
+	{"isSystem", "(Ljava/lang/Module;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(DefaultLoggerFinder, isSystem, bool, $Module*)},
 	{}
 };
 

@@ -5,16 +5,17 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Set = ::java::util::Set;
 
 namespace java {
 	namespace security {
 		namespace cert {
 
 $MethodInfo _X509Extension_MethodInfo_[] = {
-	{"getCriticalExtensionOIDs", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC | $ABSTRACT},
-	{"getExtensionValue", "(Ljava/lang/String;)[B", nullptr, $PUBLIC | $ABSTRACT},
-	{"getNonCriticalExtensionOIDs", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC | $ABSTRACT},
-	{"hasUnsupportedCriticalExtension", "()Z", nullptr, $PUBLIC | $ABSTRACT},
+	{"getCriticalExtensionOIDs", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC | $ABSTRACT, $virtualMethod(X509Extension, getCriticalExtensionOIDs, $Set*)},
+	{"getExtensionValue", "(Ljava/lang/String;)[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(X509Extension, getExtensionValue, $bytes*, $String*)},
+	{"getNonCriticalExtensionOIDs", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC | $ABSTRACT, $virtualMethod(X509Extension, getNonCriticalExtensionOIDs, $Set*)},
+	{"hasUnsupportedCriticalExtension", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(X509Extension, hasUnsupportedCriticalExtension, bool)},
 	{}
 };
 

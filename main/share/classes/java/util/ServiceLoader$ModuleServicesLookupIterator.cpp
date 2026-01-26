@@ -86,8 +86,8 @@ $FieldInfo ServiceLoader$ModuleServicesLookupIterator$$Lambda$getClassLoader::fi
 	{}
 };
 $MethodInfo ServiceLoader$ModuleServicesLookupIterator$$Lambda$getClassLoader::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/Module;)V", nullptr, $PUBLIC, $method(static_cast<void(ServiceLoader$ModuleServicesLookupIterator$$Lambda$getClassLoader::*)($Module*)>(&ServiceLoader$ModuleServicesLookupIterator$$Lambda$getClassLoader::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Module;)V", nullptr, $PUBLIC, $method(ServiceLoader$ModuleServicesLookupIterator$$Lambda$getClassLoader, init$, void, $Module*)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ServiceLoader$ModuleServicesLookupIterator$$Lambda$getClassLoader, run, $Object*)},
 	{}
 };
 $ClassInfo ServiceLoader$ModuleServicesLookupIterator$$Lambda$getClassLoader::classInfo$ = {
@@ -115,12 +115,12 @@ $FieldInfo _ServiceLoader$ModuleServicesLookupIterator_FieldInfo_[] = {
 };
 
 $MethodInfo _ServiceLoader$ModuleServicesLookupIterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/ServiceLoader;)V", nullptr, 0, $method(static_cast<void(ServiceLoader$ModuleServicesLookupIterator::*)($ServiceLoader*)>(&ServiceLoader$ModuleServicesLookupIterator::init$))},
-	{"hasNext", "()Z", nullptr, $PUBLIC},
-	{"iteratorFor", "(Ljava/lang/ClassLoader;)Ljava/util/Iterator;", "(Ljava/lang/ClassLoader;)Ljava/util/Iterator<Ljdk/internal/module/ServicesCatalog$ServiceProvider;>;", $PRIVATE, $method(static_cast<$Iterator*(ServiceLoader$ModuleServicesLookupIterator::*)($ClassLoader*)>(&ServiceLoader$ModuleServicesLookupIterator::iteratorFor))},
-	{"loaderFor", "(Ljava/lang/Module;)Ljava/lang/ClassLoader;", nullptr, $PRIVATE, $method(static_cast<$ClassLoader*(ServiceLoader$ModuleServicesLookupIterator::*)($Module*)>(&ServiceLoader$ModuleServicesLookupIterator::loaderFor))},
-	{"next", "()Ljava/util/ServiceLoader$Provider;", "()Ljava/util/ServiceLoader$Provider<TT;>;", $PUBLIC},
-	{"providers", "(Ljava/lang/ModuleLayer;)Ljava/util/List;", "(Ljava/lang/ModuleLayer;)Ljava/util/List<Ljdk/internal/module/ServicesCatalog$ServiceProvider;>;", $PRIVATE, $method(static_cast<$List*(ServiceLoader$ModuleServicesLookupIterator::*)($ModuleLayer*)>(&ServiceLoader$ModuleServicesLookupIterator::providers))},
+	{"<init>", "(Ljava/util/ServiceLoader;)V", nullptr, 0, $method(ServiceLoader$ModuleServicesLookupIterator, init$, void, $ServiceLoader*)},
+	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(ServiceLoader$ModuleServicesLookupIterator, hasNext, bool)},
+	{"iteratorFor", "(Ljava/lang/ClassLoader;)Ljava/util/Iterator;", "(Ljava/lang/ClassLoader;)Ljava/util/Iterator<Ljdk/internal/module/ServicesCatalog$ServiceProvider;>;", $PRIVATE, $method(ServiceLoader$ModuleServicesLookupIterator, iteratorFor, $Iterator*, $ClassLoader*)},
+	{"loaderFor", "(Ljava/lang/Module;)Ljava/lang/ClassLoader;", nullptr, $PRIVATE, $method(ServiceLoader$ModuleServicesLookupIterator, loaderFor, $ClassLoader*, $Module*)},
+	{"next", "()Ljava/util/ServiceLoader$Provider;", "()Ljava/util/ServiceLoader$Provider<TT;>;", $PUBLIC, $virtualMethod(ServiceLoader$ModuleServicesLookupIterator, next, $Object*)},
+	{"providers", "(Ljava/lang/ModuleLayer;)Ljava/util/List;", "(Ljava/lang/ModuleLayer;)Ljava/util/List<Ljdk/internal/module/ServicesCatalog$ServiceProvider;>;", $PRIVATE, $method(ServiceLoader$ModuleServicesLookupIterator, providers, $List*, $ModuleLayer*)},
 	{}
 };
 

@@ -63,15 +63,15 @@ $FieldInfo _Punycode_FieldInfo_[] = {
 };
 
 $MethodInfo _Punycode_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Punycode::*)()>(&Punycode::init$))},
-	{"adaptBias", "(IIZ)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)(int32_t,int32_t,bool)>(&Punycode::adaptBias))},
-	{"asciiCaseMap", "(CZ)C", nullptr, $PRIVATE | $STATIC, $method(static_cast<char16_t(*)(char16_t,bool)>(&Punycode::asciiCaseMap))},
-	{"decode", "(Ljava/lang/StringBuffer;[Z)Ljava/lang/StringBuffer;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$StringBuffer*(*)($StringBuffer*,$booleans*)>(&Punycode::decode)), "java.text.ParseException"},
-	{"digitToBasic", "(IZ)C", nullptr, $PRIVATE | $STATIC, $method(static_cast<char16_t(*)(int32_t,bool)>(&Punycode::digitToBasic))},
-	{"encode", "(Ljava/lang/StringBuffer;[Z)Ljava/lang/StringBuffer;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$StringBuffer*(*)($StringBuffer*,$booleans*)>(&Punycode::encode)), "java.text.ParseException"},
-	{"isBasic", "(I)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)(int32_t)>(&Punycode::isBasic))},
-	{"isBasicUpperCase", "(I)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)(int32_t)>(&Punycode::isBasicUpperCase))},
-	{"isSurrogate", "(I)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)(int32_t)>(&Punycode::isSurrogate))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Punycode, init$, void)},
+	{"adaptBias", "(IIZ)I", nullptr, $PRIVATE | $STATIC, $staticMethod(Punycode, adaptBias, int32_t, int32_t, int32_t, bool)},
+	{"asciiCaseMap", "(CZ)C", nullptr, $PRIVATE | $STATIC, $staticMethod(Punycode, asciiCaseMap, char16_t, char16_t, bool)},
+	{"decode", "(Ljava/lang/StringBuffer;[Z)Ljava/lang/StringBuffer;", nullptr, $PUBLIC | $STATIC, $staticMethod(Punycode, decode, $StringBuffer*, $StringBuffer*, $booleans*), "java.text.ParseException"},
+	{"digitToBasic", "(IZ)C", nullptr, $PRIVATE | $STATIC, $staticMethod(Punycode, digitToBasic, char16_t, int32_t, bool)},
+	{"encode", "(Ljava/lang/StringBuffer;[Z)Ljava/lang/StringBuffer;", nullptr, $PUBLIC | $STATIC, $staticMethod(Punycode, encode, $StringBuffer*, $StringBuffer*, $booleans*), "java.text.ParseException"},
+	{"isBasic", "(I)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Punycode, isBasic, bool, int32_t)},
+	{"isBasicUpperCase", "(I)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Punycode, isBasicUpperCase, bool, int32_t)},
+	{"isSurrogate", "(I)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Punycode, isSurrogate, bool, int32_t)},
 	{}
 };
 

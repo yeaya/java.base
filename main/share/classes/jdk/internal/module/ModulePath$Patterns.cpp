@@ -30,7 +30,7 @@ $FieldInfo _ModulePath$Patterns_FieldInfo_[] = {
 };
 
 $MethodInfo _ModulePath$Patterns_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(ModulePath$Patterns::*)()>(&ModulePath$Patterns::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(ModulePath$Patterns, init$, void)},
 	{}
 };
 

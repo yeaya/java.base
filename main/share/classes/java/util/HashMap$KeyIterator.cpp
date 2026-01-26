@@ -26,8 +26,8 @@ $MethodInfo _HashMap$KeyIterator_MethodInfo_[] = {
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hasNext", "()Z", nullptr, $PUBLIC | $FINAL},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/util/HashMap;)V", nullptr, 0, $method(static_cast<void(HashMap$KeyIterator::*)($HashMap*)>(&HashMap$KeyIterator::init$))},
-	{"next", "()Ljava/lang/Object;", "()TK;", $PUBLIC | $FINAL},
+	{"<init>", "(Ljava/util/HashMap;)V", nullptr, 0, $method(HashMap$KeyIterator, init$, void, $HashMap*)},
+	{"next", "()Ljava/lang/Object;", "()TK;", $PUBLIC | $FINAL, $virtualMethod(HashMap$KeyIterator, next, $Object*)},
 	{"*remove", "()V", nullptr, $PUBLIC | $FINAL},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}

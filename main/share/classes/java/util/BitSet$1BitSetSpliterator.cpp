@@ -41,16 +41,16 @@ $FieldInfo _BitSet$1BitSetSpliterator_FieldInfo_[] = {
 };
 
 $MethodInfo _BitSet$1BitSetSpliterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/BitSet;IIIZ)V", nullptr, 0, $method(static_cast<void(BitSet$1BitSetSpliterator::*)($BitSet*,int32_t,int32_t,int32_t,bool)>(&BitSet$1BitSetSpliterator::init$))},
-	{"characteristics", "()I", nullptr, $PUBLIC},
-	{"estimateSize", "()J", nullptr, $PUBLIC},
-	{"forEachRemaining", "(Ljava/util/function/IntConsumer;)V", nullptr, $PUBLIC},
-	{"forEachRemaining", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"getComparator", "()Ljava/util/Comparator;", "()Ljava/util/Comparator<-Ljava/lang/Integer;>;", $PUBLIC},
-	{"getFence", "()I", nullptr, $PRIVATE, $method(static_cast<int32_t(BitSet$1BitSetSpliterator::*)()>(&BitSet$1BitSetSpliterator::getFence))},
-	{"tryAdvance", "(Ljava/util/function/IntConsumer;)Z", nullptr, $PUBLIC},
-	{"tryAdvance", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"trySplit", "()Ljava/util/Spliterator$OfInt;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/BitSet;IIIZ)V", nullptr, 0, $method(BitSet$1BitSetSpliterator, init$, void, $BitSet*, int32_t, int32_t, int32_t, bool)},
+	{"characteristics", "()I", nullptr, $PUBLIC, $virtualMethod(BitSet$1BitSetSpliterator, characteristics, int32_t)},
+	{"estimateSize", "()J", nullptr, $PUBLIC, $virtualMethod(BitSet$1BitSetSpliterator, estimateSize, int64_t)},
+	{"forEachRemaining", "(Ljava/util/function/IntConsumer;)V", nullptr, $PUBLIC, $virtualMethod(BitSet$1BitSetSpliterator, forEachRemaining, void, $IntConsumer*)},
+	{"forEachRemaining", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(BitSet$1BitSetSpliterator, forEachRemaining, void, Object$*)},
+	{"getComparator", "()Ljava/util/Comparator;", "()Ljava/util/Comparator<-Ljava/lang/Integer;>;", $PUBLIC, $virtualMethod(BitSet$1BitSetSpliterator, getComparator, $Comparator*)},
+	{"getFence", "()I", nullptr, $PRIVATE, $method(BitSet$1BitSetSpliterator, getFence, int32_t)},
+	{"tryAdvance", "(Ljava/util/function/IntConsumer;)Z", nullptr, $PUBLIC, $virtualMethod(BitSet$1BitSetSpliterator, tryAdvance, bool, $IntConsumer*)},
+	{"tryAdvance", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(BitSet$1BitSetSpliterator, tryAdvance, bool, Object$*)},
+	{"trySplit", "()Ljava/util/Spliterator$OfInt;", nullptr, $PUBLIC, $virtualMethod(BitSet$1BitSetSpliterator, trySplit, $Spliterator$OfInt*)},
 	{}
 };
 

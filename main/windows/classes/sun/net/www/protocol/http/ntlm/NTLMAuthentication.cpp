@@ -77,20 +77,20 @@ $FieldInfo _NTLMAuthentication_FieldInfo_[] = {
 };
 
 $MethodInfo _NTLMAuthentication_MethodInfo_[] = {
-	{"<init>", "(ZLjava/net/URL;Ljava/net/PasswordAuthentication;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(NTLMAuthentication::*)(bool,$URL*,$PasswordAuthentication*,$String*)>(&NTLMAuthentication::init$))},
-	{"<init>", "(ZLjava/lang/String;ILjava/net/PasswordAuthentication;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(NTLMAuthentication::*)(bool,$String*,int32_t,$PasswordAuthentication*,$String*)>(&NTLMAuthentication::init$))},
-	{"getHeaderValue", "(Ljava/net/URL;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"init", "(Ljava/net/PasswordAuthentication;)V", nullptr, $PRIVATE, $method(static_cast<void(NTLMAuthentication::*)($PasswordAuthentication*)>(&NTLMAuthentication::init))},
-	{"init0", "()V", nullptr, $PRIVATE, $method(static_cast<void(NTLMAuthentication::*)()>(&NTLMAuthentication::init0))},
-	{"isAuthorizationStale", "(Ljava/lang/String;)Z", nullptr, $PUBLIC},
-	{"isTrustedSite", "(Ljava/net/URL;)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)($URL*)>(&NTLMAuthentication::isTrustedSite))},
-	{"isTrustedSite", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($String*)>(&NTLMAuthentication::isTrustedSite))},
-	{"isTrustedSite0", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $method(static_cast<bool(*)($String*)>(&NTLMAuthentication::isTrustedSite0))},
-	{"isTrustedSiteAvailable", "()Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $method(static_cast<bool(*)()>(&NTLMAuthentication::isTrustedSiteAvailable))},
-	{"setHeaders", "(Lsun/net/www/protocol/http/HttpURLConnection;Lsun/net/www/HeaderParser;Ljava/lang/String;)Z", nullptr, $PUBLIC},
-	{"supportsPreemptiveAuthorization", "()Z", nullptr, $PUBLIC},
-	{"supportsTransparentAuth", "()Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)()>(&NTLMAuthentication::supportsTransparentAuth))},
-	{"useAuthCache", "()Z", nullptr, $PROTECTED},
+	{"<init>", "(ZLjava/net/URL;Ljava/net/PasswordAuthentication;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NTLMAuthentication, init$, void, bool, $URL*, $PasswordAuthentication*, $String*)},
+	{"<init>", "(ZLjava/lang/String;ILjava/net/PasswordAuthentication;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NTLMAuthentication, init$, void, bool, $String*, int32_t, $PasswordAuthentication*, $String*)},
+	{"getHeaderValue", "(Ljava/net/URL;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NTLMAuthentication, getHeaderValue, $String*, $URL*, $String*)},
+	{"init", "(Ljava/net/PasswordAuthentication;)V", nullptr, $PRIVATE, $method(NTLMAuthentication, init, void, $PasswordAuthentication*)},
+	{"init0", "()V", nullptr, $PRIVATE, $method(NTLMAuthentication, init0, void)},
+	{"isAuthorizationStale", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(NTLMAuthentication, isAuthorizationStale, bool, $String*)},
+	{"isTrustedSite", "(Ljava/net/URL;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(NTLMAuthentication, isTrustedSite, bool, $URL*)},
+	{"isTrustedSite", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(NTLMAuthentication, isTrustedSite, bool, $String*)},
+	{"isTrustedSite0", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(NTLMAuthentication, isTrustedSite0, bool, $String*)},
+	{"isTrustedSiteAvailable", "()Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(NTLMAuthentication, isTrustedSiteAvailable, bool)},
+	{"setHeaders", "(Lsun/net/www/protocol/http/HttpURLConnection;Lsun/net/www/HeaderParser;Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(NTLMAuthentication, setHeaders, bool, $HttpURLConnection*, $HeaderParser*, $String*)},
+	{"supportsPreemptiveAuthorization", "()Z", nullptr, $PUBLIC, $virtualMethod(NTLMAuthentication, supportsPreemptiveAuthorization, bool)},
+	{"supportsTransparentAuth", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(NTLMAuthentication, supportsTransparentAuth, bool)},
+	{"useAuthCache", "()Z", nullptr, $PROTECTED, $virtualMethod(NTLMAuthentication, useAuthCache, bool)},
 	{}
 };
 

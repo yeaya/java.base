@@ -16,9 +16,9 @@ namespace javax {
 		namespace auth {
 
 $MethodInfo _SubjectDomainCombiner$WeakKeyValueMap_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(SubjectDomainCombiner$WeakKeyValueMap::*)()>(&SubjectDomainCombiner$WeakKeyValueMap::init$))},
-	{"getValue", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TK;)TV;", $PUBLIC},
-	{"putValue", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", "(TK;TV;)TV;", $PUBLIC},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(SubjectDomainCombiner$WeakKeyValueMap, init$, void)},
+	{"getValue", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TK;)TV;", $PUBLIC, $virtualMethod(SubjectDomainCombiner$WeakKeyValueMap, getValue, $Object*, Object$*)},
+	{"putValue", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", "(TK;TV;)TV;", $PUBLIC, $virtualMethod(SubjectDomainCombiner$WeakKeyValueMap, putValue, $Object*, Object$*, Object$*)},
 	{}
 };
 

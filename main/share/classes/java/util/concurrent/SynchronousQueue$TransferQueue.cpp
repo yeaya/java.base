@@ -50,12 +50,12 @@ $FieldInfo _SynchronousQueue$TransferQueue_FieldInfo_[] = {
 };
 
 $MethodInfo _SynchronousQueue$TransferQueue_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(SynchronousQueue$TransferQueue::*)()>(&SynchronousQueue$TransferQueue::init$))},
-	{"advanceHead", "(Ljava/util/concurrent/SynchronousQueue$TransferQueue$QNode;Ljava/util/concurrent/SynchronousQueue$TransferQueue$QNode;)V", nullptr, 0, $method(static_cast<void(SynchronousQueue$TransferQueue::*)($SynchronousQueue$TransferQueue$QNode*,$SynchronousQueue$TransferQueue$QNode*)>(&SynchronousQueue$TransferQueue::advanceHead))},
-	{"advanceTail", "(Ljava/util/concurrent/SynchronousQueue$TransferQueue$QNode;Ljava/util/concurrent/SynchronousQueue$TransferQueue$QNode;)V", nullptr, 0, $method(static_cast<void(SynchronousQueue$TransferQueue::*)($SynchronousQueue$TransferQueue$QNode*,$SynchronousQueue$TransferQueue$QNode*)>(&SynchronousQueue$TransferQueue::advanceTail))},
-	{"casCleanMe", "(Ljava/util/concurrent/SynchronousQueue$TransferQueue$QNode;Ljava/util/concurrent/SynchronousQueue$TransferQueue$QNode;)Z", nullptr, 0, $method(static_cast<bool(SynchronousQueue$TransferQueue::*)($SynchronousQueue$TransferQueue$QNode*,$SynchronousQueue$TransferQueue$QNode*)>(&SynchronousQueue$TransferQueue::casCleanMe))},
-	{"clean", "(Ljava/util/concurrent/SynchronousQueue$TransferQueue$QNode;Ljava/util/concurrent/SynchronousQueue$TransferQueue$QNode;)V", nullptr, 0, $method(static_cast<void(SynchronousQueue$TransferQueue::*)($SynchronousQueue$TransferQueue$QNode*,$SynchronousQueue$TransferQueue$QNode*)>(&SynchronousQueue$TransferQueue::clean))},
-	{"transfer", "(Ljava/lang/Object;ZJ)Ljava/lang/Object;", "(TE;ZJ)TE;", 0},
+	{"<init>", "()V", nullptr, 0, $method(SynchronousQueue$TransferQueue, init$, void)},
+	{"advanceHead", "(Ljava/util/concurrent/SynchronousQueue$TransferQueue$QNode;Ljava/util/concurrent/SynchronousQueue$TransferQueue$QNode;)V", nullptr, 0, $method(SynchronousQueue$TransferQueue, advanceHead, void, $SynchronousQueue$TransferQueue$QNode*, $SynchronousQueue$TransferQueue$QNode*)},
+	{"advanceTail", "(Ljava/util/concurrent/SynchronousQueue$TransferQueue$QNode;Ljava/util/concurrent/SynchronousQueue$TransferQueue$QNode;)V", nullptr, 0, $method(SynchronousQueue$TransferQueue, advanceTail, void, $SynchronousQueue$TransferQueue$QNode*, $SynchronousQueue$TransferQueue$QNode*)},
+	{"casCleanMe", "(Ljava/util/concurrent/SynchronousQueue$TransferQueue$QNode;Ljava/util/concurrent/SynchronousQueue$TransferQueue$QNode;)Z", nullptr, 0, $method(SynchronousQueue$TransferQueue, casCleanMe, bool, $SynchronousQueue$TransferQueue$QNode*, $SynchronousQueue$TransferQueue$QNode*)},
+	{"clean", "(Ljava/util/concurrent/SynchronousQueue$TransferQueue$QNode;Ljava/util/concurrent/SynchronousQueue$TransferQueue$QNode;)V", nullptr, 0, $method(SynchronousQueue$TransferQueue, clean, void, $SynchronousQueue$TransferQueue$QNode*, $SynchronousQueue$TransferQueue$QNode*)},
+	{"transfer", "(Ljava/lang/Object;ZJ)Ljava/lang/Object;", "(TE;ZJ)TE;", 0, $virtualMethod(SynchronousQueue$TransferQueue, transfer, $Object*, Object$*, bool, int64_t)},
 	{}
 };
 

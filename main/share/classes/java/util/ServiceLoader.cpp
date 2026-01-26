@@ -125,8 +125,8 @@ $FieldInfo ServiceLoader$$Lambda$lambda$findStaticProviderMethod$0::fieldInfos[2
 	{}
 };
 $MethodInfo ServiceLoader$$Lambda$lambda$findStaticProviderMethod$0::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/reflect/Method;)V", nullptr, $PUBLIC, $method(static_cast<void(ServiceLoader$$Lambda$lambda$findStaticProviderMethod$0::*)($Method*)>(&ServiceLoader$$Lambda$lambda$findStaticProviderMethod$0::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/reflect/Method;)V", nullptr, $PUBLIC, $method(ServiceLoader$$Lambda$lambda$findStaticProviderMethod$0, init$, void, $Method*)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ServiceLoader$$Lambda$lambda$findStaticProviderMethod$0, run, $Object*)},
 	{}
 };
 $ClassInfo ServiceLoader$$Lambda$lambda$findStaticProviderMethod$0::classInfo$ = {
@@ -168,8 +168,8 @@ $FieldInfo ServiceLoader$$Lambda$lambda$loadProvider$1$1::fieldInfos[3] = {
 	{}
 };
 $MethodInfo ServiceLoader$$Lambda$lambda$loadProvider$1$1::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/Module;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(ServiceLoader$$Lambda$lambda$loadProvider$1$1::*)($Module*,$String*)>(&ServiceLoader$$Lambda$lambda$loadProvider$1$1::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Module;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ServiceLoader$$Lambda$lambda$loadProvider$1$1, init$, void, $Module*, $String*)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ServiceLoader$$Lambda$lambda$loadProvider$1$1, run, $Object*)},
 	{}
 };
 $ClassInfo ServiceLoader$$Lambda$lambda$loadProvider$1$1::classInfo$ = {
@@ -224,30 +224,30 @@ $FieldInfo _ServiceLoader_FieldInfo_[] = {
 };
 
 $MethodInfo _ServiceLoader_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Class;Ljava/lang/ModuleLayer;Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;Ljava/lang/ModuleLayer;Ljava/lang/Class<TS;>;)V", $PRIVATE, $method(static_cast<void(ServiceLoader::*)($Class*,$ModuleLayer*,$Class*)>(&ServiceLoader::init$))},
-	{"<init>", "(Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/ClassLoader;)V", "(Ljava/lang/Class<*>;Ljava/lang/Class<TS;>;Ljava/lang/ClassLoader;)V", $PRIVATE, $method(static_cast<void(ServiceLoader::*)($Class*,$Class*,$ClassLoader*)>(&ServiceLoader::init$))},
-	{"<init>", "(Ljava/lang/Module;Ljava/lang/Class;Ljava/lang/ClassLoader;)V", "(Ljava/lang/Module;Ljava/lang/Class<TS;>;Ljava/lang/ClassLoader;)V", $PRIVATE, $method(static_cast<void(ServiceLoader::*)($Module*,$Class*,$ClassLoader*)>(&ServiceLoader::init$))},
-	{"checkCaller", "(Ljava/lang/Class;Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)V", $PRIVATE | $STATIC, $method(static_cast<void(*)($Class*,$Class*)>(&ServiceLoader::checkCaller))},
-	{"fail", "(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/Throwable;)V", "(Ljava/lang/Class<*>;Ljava/lang/String;Ljava/lang/Throwable;)V", $PRIVATE | $STATIC, $method(static_cast<void(*)($Class*,$String*,$Throwable*)>(&ServiceLoader::fail)), "java.util.ServiceConfigurationError"},
-	{"fail", "(Ljava/lang/Class;Ljava/lang/String;)V", "(Ljava/lang/Class<*>;Ljava/lang/String;)V", $PRIVATE | $STATIC, $method(static_cast<void(*)($Class*,$String*)>(&ServiceLoader::fail)), "java.util.ServiceConfigurationError"},
-	{"fail", "(Ljava/lang/Class;Ljava/net/URL;ILjava/lang/String;)V", "(Ljava/lang/Class<*>;Ljava/net/URL;ILjava/lang/String;)V", $PRIVATE | $STATIC, $method(static_cast<void(*)($Class*,$URL*,int32_t,$String*)>(&ServiceLoader::fail)), "java.util.ServiceConfigurationError"},
-	{"findFirst", "()Ljava/util/Optional;", "()Ljava/util/Optional<TS;>;", $PUBLIC, $method(static_cast<$Optional*(ServiceLoader::*)()>(&ServiceLoader::findFirst))},
-	{"findStaticProviderMethod", "(Ljava/lang/Class;)Ljava/lang/reflect/Method;", "(Ljava/lang/Class<*>;)Ljava/lang/reflect/Method;", $PRIVATE, $method(static_cast<$Method*(ServiceLoader::*)($Class*)>(&ServiceLoader::findStaticProviderMethod))},
-	{"getConstructor", "(Ljava/lang/Class;)Ljava/lang/reflect/Constructor;", "(Ljava/lang/Class<*>;)Ljava/lang/reflect/Constructor<*>;", $PRIVATE, $method(static_cast<$Constructor*(ServiceLoader::*)($Class*)>(&ServiceLoader::getConstructor))},
-	{"inExplicitModule", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PRIVATE, $method(static_cast<bool(ServiceLoader::*)($Class*)>(&ServiceLoader::inExplicitModule))},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TS;>;", $PUBLIC},
-	{"lambda$findStaticProviderMethod$0", "(Ljava/lang/reflect/Method;)Ljava/lang/Void;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Void*(*)($Method*)>(&ServiceLoader::lambda$findStaticProviderMethod$0))},
-	{"lambda$loadProvider$1", "(Ljava/lang/Module;Ljava/lang/String;)Ljava/lang/Class;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Class*(*)($Module*,$String*)>(&ServiceLoader::lambda$loadProvider$1)), "java.lang.Exception"},
-	{"load", "(Ljava/lang/Class;Ljava/lang/ClassLoader;Ljava/lang/Module;)Ljava/util/ServiceLoader;", "<S:Ljava/lang/Object;>(Ljava/lang/Class<TS;>;Ljava/lang/ClassLoader;Ljava/lang/Module;)Ljava/util/ServiceLoader<TS;>;", $STATIC, $method(static_cast<ServiceLoader*(*)($Class*,$ClassLoader*,$Module*)>(&ServiceLoader::load))},
-	{"load", "(Ljava/lang/Class;Ljava/lang/ClassLoader;)Ljava/util/ServiceLoader;", "<S:Ljava/lang/Object;>(Ljava/lang/Class<TS;>;Ljava/lang/ClassLoader;)Ljava/util/ServiceLoader<TS;>;", $PUBLIC | $STATIC, $method(static_cast<ServiceLoader*(*)($Class*,$ClassLoader*)>(&ServiceLoader::load)), nullptr, nullptr, _ServiceLoader_MethodAnnotations_load15},
-	{"load", "(Ljava/lang/Class;)Ljava/util/ServiceLoader;", "<S:Ljava/lang/Object;>(Ljava/lang/Class<TS;>;)Ljava/util/ServiceLoader<TS;>;", $PUBLIC | $STATIC, $method(static_cast<ServiceLoader*(*)($Class*)>(&ServiceLoader::load)), nullptr, nullptr, _ServiceLoader_MethodAnnotations_load16},
-	{"load", "(Ljava/lang/ModuleLayer;Ljava/lang/Class;)Ljava/util/ServiceLoader;", "<S:Ljava/lang/Object;>(Ljava/lang/ModuleLayer;Ljava/lang/Class<TS;>;)Ljava/util/ServiceLoader<TS;>;", $PUBLIC | $STATIC, $method(static_cast<ServiceLoader*(*)($ModuleLayer*,$Class*)>(&ServiceLoader::load)), nullptr, nullptr, _ServiceLoader_MethodAnnotations_load17},
-	{"loadInstalled", "(Ljava/lang/Class;)Ljava/util/ServiceLoader;", "<S:Ljava/lang/Object;>(Ljava/lang/Class<TS;>;)Ljava/util/ServiceLoader<TS;>;", $PUBLIC | $STATIC, $method(static_cast<ServiceLoader*(*)($Class*)>(&ServiceLoader::loadInstalled)), nullptr, nullptr, _ServiceLoader_MethodAnnotations_loadInstalled18},
-	{"loadProvider", "(Ljdk/internal/module/ServicesCatalog$ServiceProvider;)Ljava/util/ServiceLoader$Provider;", "(Ljdk/internal/module/ServicesCatalog$ServiceProvider;)Ljava/util/ServiceLoader$Provider<TS;>;", $PRIVATE, $method(static_cast<$ServiceLoader$Provider*(ServiceLoader::*)($ServicesCatalog$ServiceProvider*)>(&ServiceLoader::loadProvider))},
-	{"newLookupIterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/util/ServiceLoader$Provider<TS;>;>;", $PRIVATE, $method(static_cast<$Iterator*(ServiceLoader::*)()>(&ServiceLoader::newLookupIterator))},
-	{"reload", "()V", nullptr, $PUBLIC, $method(static_cast<void(ServiceLoader::*)()>(&ServiceLoader::reload))},
-	{"stream", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljava/util/ServiceLoader$Provider<TS;>;>;", $PUBLIC, $method(static_cast<$Stream*(ServiceLoader::*)()>(&ServiceLoader::stream))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Class;Ljava/lang/ModuleLayer;Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;Ljava/lang/ModuleLayer;Ljava/lang/Class<TS;>;)V", $PRIVATE, $method(ServiceLoader, init$, void, $Class*, $ModuleLayer*, $Class*)},
+	{"<init>", "(Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/ClassLoader;)V", "(Ljava/lang/Class<*>;Ljava/lang/Class<TS;>;Ljava/lang/ClassLoader;)V", $PRIVATE, $method(ServiceLoader, init$, void, $Class*, $Class*, $ClassLoader*)},
+	{"<init>", "(Ljava/lang/Module;Ljava/lang/Class;Ljava/lang/ClassLoader;)V", "(Ljava/lang/Module;Ljava/lang/Class<TS;>;Ljava/lang/ClassLoader;)V", $PRIVATE, $method(ServiceLoader, init$, void, $Module*, $Class*, $ClassLoader*)},
+	{"checkCaller", "(Ljava/lang/Class;Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)V", $PRIVATE | $STATIC, $staticMethod(ServiceLoader, checkCaller, void, $Class*, $Class*)},
+	{"fail", "(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/Throwable;)V", "(Ljava/lang/Class<*>;Ljava/lang/String;Ljava/lang/Throwable;)V", $PRIVATE | $STATIC, $staticMethod(ServiceLoader, fail, void, $Class*, $String*, $Throwable*), "java.util.ServiceConfigurationError"},
+	{"fail", "(Ljava/lang/Class;Ljava/lang/String;)V", "(Ljava/lang/Class<*>;Ljava/lang/String;)V", $PRIVATE | $STATIC, $staticMethod(ServiceLoader, fail, void, $Class*, $String*), "java.util.ServiceConfigurationError"},
+	{"fail", "(Ljava/lang/Class;Ljava/net/URL;ILjava/lang/String;)V", "(Ljava/lang/Class<*>;Ljava/net/URL;ILjava/lang/String;)V", $PRIVATE | $STATIC, $staticMethod(ServiceLoader, fail, void, $Class*, $URL*, int32_t, $String*), "java.util.ServiceConfigurationError"},
+	{"findFirst", "()Ljava/util/Optional;", "()Ljava/util/Optional<TS;>;", $PUBLIC, $method(ServiceLoader, findFirst, $Optional*)},
+	{"findStaticProviderMethod", "(Ljava/lang/Class;)Ljava/lang/reflect/Method;", "(Ljava/lang/Class<*>;)Ljava/lang/reflect/Method;", $PRIVATE, $method(ServiceLoader, findStaticProviderMethod, $Method*, $Class*)},
+	{"getConstructor", "(Ljava/lang/Class;)Ljava/lang/reflect/Constructor;", "(Ljava/lang/Class<*>;)Ljava/lang/reflect/Constructor<*>;", $PRIVATE, $method(ServiceLoader, getConstructor, $Constructor*, $Class*)},
+	{"inExplicitModule", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PRIVATE, $method(ServiceLoader, inExplicitModule, bool, $Class*)},
+	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TS;>;", $PUBLIC, $virtualMethod(ServiceLoader, iterator, $Iterator*)},
+	{"lambda$findStaticProviderMethod$0", "(Ljava/lang/reflect/Method;)Ljava/lang/Void;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ServiceLoader, lambda$findStaticProviderMethod$0, $Void*, $Method*)},
+	{"lambda$loadProvider$1", "(Ljava/lang/Module;Ljava/lang/String;)Ljava/lang/Class;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ServiceLoader, lambda$loadProvider$1, $Class*, $Module*, $String*), "java.lang.Exception"},
+	{"load", "(Ljava/lang/Class;Ljava/lang/ClassLoader;Ljava/lang/Module;)Ljava/util/ServiceLoader;", "<S:Ljava/lang/Object;>(Ljava/lang/Class<TS;>;Ljava/lang/ClassLoader;Ljava/lang/Module;)Ljava/util/ServiceLoader<TS;>;", $STATIC, $staticMethod(ServiceLoader, load, ServiceLoader*, $Class*, $ClassLoader*, $Module*)},
+	{"load", "(Ljava/lang/Class;Ljava/lang/ClassLoader;)Ljava/util/ServiceLoader;", "<S:Ljava/lang/Object;>(Ljava/lang/Class<TS;>;Ljava/lang/ClassLoader;)Ljava/util/ServiceLoader<TS;>;", $PUBLIC | $STATIC, $staticMethod(ServiceLoader, load, ServiceLoader*, $Class*, $ClassLoader*), nullptr, nullptr, _ServiceLoader_MethodAnnotations_load15},
+	{"load", "(Ljava/lang/Class;)Ljava/util/ServiceLoader;", "<S:Ljava/lang/Object;>(Ljava/lang/Class<TS;>;)Ljava/util/ServiceLoader<TS;>;", $PUBLIC | $STATIC, $staticMethod(ServiceLoader, load, ServiceLoader*, $Class*), nullptr, nullptr, _ServiceLoader_MethodAnnotations_load16},
+	{"load", "(Ljava/lang/ModuleLayer;Ljava/lang/Class;)Ljava/util/ServiceLoader;", "<S:Ljava/lang/Object;>(Ljava/lang/ModuleLayer;Ljava/lang/Class<TS;>;)Ljava/util/ServiceLoader<TS;>;", $PUBLIC | $STATIC, $staticMethod(ServiceLoader, load, ServiceLoader*, $ModuleLayer*, $Class*), nullptr, nullptr, _ServiceLoader_MethodAnnotations_load17},
+	{"loadInstalled", "(Ljava/lang/Class;)Ljava/util/ServiceLoader;", "<S:Ljava/lang/Object;>(Ljava/lang/Class<TS;>;)Ljava/util/ServiceLoader<TS;>;", $PUBLIC | $STATIC, $staticMethod(ServiceLoader, loadInstalled, ServiceLoader*, $Class*), nullptr, nullptr, _ServiceLoader_MethodAnnotations_loadInstalled18},
+	{"loadProvider", "(Ljdk/internal/module/ServicesCatalog$ServiceProvider;)Ljava/util/ServiceLoader$Provider;", "(Ljdk/internal/module/ServicesCatalog$ServiceProvider;)Ljava/util/ServiceLoader$Provider<TS;>;", $PRIVATE, $method(ServiceLoader, loadProvider, $ServiceLoader$Provider*, $ServicesCatalog$ServiceProvider*)},
+	{"newLookupIterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/util/ServiceLoader$Provider<TS;>;>;", $PRIVATE, $method(ServiceLoader, newLookupIterator, $Iterator*)},
+	{"reload", "()V", nullptr, $PUBLIC, $method(ServiceLoader, reload, void)},
+	{"stream", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljava/util/ServiceLoader$Provider<TS;>;>;", $PUBLIC, $method(ServiceLoader, stream, $Stream*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ServiceLoader, toString, $String*)},
 	{}
 };
 

@@ -90,18 +90,18 @@ $FieldInfo _SerialVersionUIDAdder_FieldInfo_[] = {
 };
 
 $MethodInfo _SerialVersionUIDAdder_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/org/objectweb/asm/ClassVisitor;)V", nullptr, $PUBLIC, $method(static_cast<void(SerialVersionUIDAdder::*)($ClassVisitor*)>(&SerialVersionUIDAdder::init$))},
-	{"<init>", "(ILjdk/internal/org/objectweb/asm/ClassVisitor;)V", nullptr, $PROTECTED, $method(static_cast<void(SerialVersionUIDAdder::*)(int32_t,$ClassVisitor*)>(&SerialVersionUIDAdder::init$))},
-	{"addSVUID", "(J)V", nullptr, $PROTECTED},
-	{"computeSHAdigest", "([B)[B", nullptr, $PROTECTED},
-	{"computeSVUID", "()J", nullptr, $PROTECTED, nullptr, "java.io.IOException"},
-	{"hasSVUID", "()Z", nullptr, $PUBLIC},
-	{"visit", "(IILjava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"visitEnd", "()V", nullptr, $PUBLIC},
-	{"visitField", "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;)Ljdk/internal/org/objectweb/asm/FieldVisitor;", nullptr, $PUBLIC},
-	{"visitInnerClass", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PUBLIC},
-	{"visitMethod", "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)Ljdk/internal/org/objectweb/asm/MethodVisitor;", nullptr, $PUBLIC},
-	{"writeItems", "(Ljava/util/Collection;Ljava/io/DataOutput;Z)V", "(Ljava/util/Collection<Ljdk/internal/org/objectweb/asm/commons/SerialVersionUIDAdder$Item;>;Ljava/io/DataOutput;Z)V", $PRIVATE | $STATIC, $method(static_cast<void(*)($Collection*,$DataOutput*,bool)>(&SerialVersionUIDAdder::writeItems)), "java.io.IOException"},
+	{"<init>", "(Ljdk/internal/org/objectweb/asm/ClassVisitor;)V", nullptr, $PUBLIC, $method(SerialVersionUIDAdder, init$, void, $ClassVisitor*)},
+	{"<init>", "(ILjdk/internal/org/objectweb/asm/ClassVisitor;)V", nullptr, $PROTECTED, $method(SerialVersionUIDAdder, init$, void, int32_t, $ClassVisitor*)},
+	{"addSVUID", "(J)V", nullptr, $PROTECTED, $virtualMethod(SerialVersionUIDAdder, addSVUID, void, int64_t)},
+	{"computeSHAdigest", "([B)[B", nullptr, $PROTECTED, $virtualMethod(SerialVersionUIDAdder, computeSHAdigest, $bytes*, $bytes*)},
+	{"computeSVUID", "()J", nullptr, $PROTECTED, $virtualMethod(SerialVersionUIDAdder, computeSVUID, int64_t), "java.io.IOException"},
+	{"hasSVUID", "()Z", nullptr, $PUBLIC, $virtualMethod(SerialVersionUIDAdder, hasSVUID, bool)},
+	{"visit", "(IILjava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SerialVersionUIDAdder, visit, void, int32_t, int32_t, $String*, $String*, $String*, $StringArray*)},
+	{"visitEnd", "()V", nullptr, $PUBLIC, $virtualMethod(SerialVersionUIDAdder, visitEnd, void)},
+	{"visitField", "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;)Ljdk/internal/org/objectweb/asm/FieldVisitor;", nullptr, $PUBLIC, $virtualMethod(SerialVersionUIDAdder, visitField, $FieldVisitor*, int32_t, $String*, $String*, $String*, Object$*)},
+	{"visitInnerClass", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PUBLIC, $virtualMethod(SerialVersionUIDAdder, visitInnerClass, void, $String*, $String*, $String*, int32_t)},
+	{"visitMethod", "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)Ljdk/internal/org/objectweb/asm/MethodVisitor;", nullptr, $PUBLIC, $virtualMethod(SerialVersionUIDAdder, visitMethod, $MethodVisitor*, int32_t, $String*, $String*, $String*, $StringArray*)},
+	{"writeItems", "(Ljava/util/Collection;Ljava/io/DataOutput;Z)V", "(Ljava/util/Collection<Ljdk/internal/org/objectweb/asm/commons/SerialVersionUIDAdder$Item;>;Ljava/io/DataOutput;Z)V", $PRIVATE | $STATIC, $staticMethod(SerialVersionUIDAdder, writeItems, void, $Collection*, $DataOutput*, bool), "java.io.IOException"},
 	{}
 };
 

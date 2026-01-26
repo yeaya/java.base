@@ -79,8 +79,8 @@ $FieldInfo Security$$Lambda$lambda$testPolicy1$0::fieldInfos[3] = {
 	{}
 };
 $MethodInfo Security$$Lambda$lambda$testPolicy1$0::methodInfos[3] = {
-	{"<init>", "(Ljava/nio/channels/ServerSocketChannel;Ljava/net/UnixDomainSocketAddress;)V", nullptr, $PUBLIC, $method(static_cast<void(Security$$Lambda$lambda$testPolicy1$0::*)($ServerSocketChannel*,$UnixDomainSocketAddress*)>(&Security$$Lambda$lambda$testPolicy1$0::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/nio/channels/ServerSocketChannel;Ljava/net/UnixDomainSocketAddress;)V", nullptr, $PUBLIC, $method(Security$$Lambda$lambda$testPolicy1$0, init$, void, $ServerSocketChannel*, $UnixDomainSocketAddress*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Security$$Lambda$lambda$testPolicy1$0, run, void)},
 	{}
 };
 $ClassInfo Security$$Lambda$lambda$testPolicy1$0::classInfo$ = {
@@ -122,8 +122,8 @@ $FieldInfo Security$$Lambda$lambda$testPolicy1$1$1::fieldInfos[3] = {
 	{}
 };
 $MethodInfo Security$$Lambda$lambda$testPolicy1$1$1::methodInfos[3] = {
-	{"<init>", "(Ljava/nio/channels/SocketChannel;Ljava/net/UnixDomainSocketAddress;)V", nullptr, $PUBLIC, $method(static_cast<void(Security$$Lambda$lambda$testPolicy1$1$1::*)($SocketChannel*,$UnixDomainSocketAddress*)>(&Security$$Lambda$lambda$testPolicy1$1$1::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/nio/channels/SocketChannel;Ljava/net/UnixDomainSocketAddress;)V", nullptr, $PUBLIC, $method(Security$$Lambda$lambda$testPolicy1$1$1, init$, void, $SocketChannel*, $UnixDomainSocketAddress*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Security$$Lambda$lambda$testPolicy1$1$1, run, void)},
 	{}
 };
 $ClassInfo Security$$Lambda$lambda$testPolicy1$1$1::classInfo$ = {
@@ -147,16 +147,16 @@ $FieldInfo _Security_FieldInfo_[] = {
 };
 
 $MethodInfo _Security_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Security::*)()>(&Security::init$))},
-	{"call", "(LSecurity$Command;Ljava/lang/Class;)V", "<T:Ljava/lang/Exception;>(LSecurity$Command;Ljava/lang/Class<+Ljava/lang/Exception;>;)V", $STATIC, $method(static_cast<void(*)($Security$Command*,$Class*)>(&Security::call))},
-	{"close", "([Ljava/nio/channels/NetworkChannel;)V", nullptr, $STATIC | $TRANSIENT, $method(static_cast<void(*)($NetworkChannelArray*)>(&Security::close))},
-	{"lambda$testPolicy1$0", "(Ljava/nio/channels/ServerSocketChannel;Ljava/net/UnixDomainSocketAddress;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($ServerSocketChannel*,$UnixDomainSocketAddress*)>(&Security::lambda$testPolicy1$0)), "java.lang.Exception"},
-	{"lambda$testPolicy1$1", "(Ljava/nio/channels/SocketChannel;Ljava/net/UnixDomainSocketAddress;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($SocketChannel*,$UnixDomainSocketAddress*)>(&Security::lambda$testPolicy1$1)), "java.lang.Exception"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Security::main)), "java.lang.Exception"},
-	{"setSecurityManager", "(Ljava/lang/String;)V", nullptr, $STATIC, $method(static_cast<void(*)($String*)>(&Security::setSecurityManager))},
-	{"testPolicy1", "()V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)()>(&Security::testPolicy1)), "java.lang.Exception"},
-	{"testPolicy2", "()V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)()>(&Security::testPolicy2)), "java.lang.Exception"},
-	{"testPolicy3", "()V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)()>(&Security::testPolicy3)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Security, init$, void)},
+	{"call", "(LSecurity$Command;Ljava/lang/Class;)V", "<T:Ljava/lang/Exception;>(LSecurity$Command;Ljava/lang/Class<+Ljava/lang/Exception;>;)V", $STATIC, $staticMethod(Security, call, void, $Security$Command*, $Class*)},
+	{"close", "([Ljava/nio/channels/NetworkChannel;)V", nullptr, $STATIC | $TRANSIENT, $staticMethod(Security, close, void, $NetworkChannelArray*)},
+	{"lambda$testPolicy1$0", "(Ljava/nio/channels/ServerSocketChannel;Ljava/net/UnixDomainSocketAddress;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Security, lambda$testPolicy1$0, void, $ServerSocketChannel*, $UnixDomainSocketAddress*), "java.lang.Exception"},
+	{"lambda$testPolicy1$1", "(Ljava/nio/channels/SocketChannel;Ljava/net/UnixDomainSocketAddress;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Security, lambda$testPolicy1$1, void, $SocketChannel*, $UnixDomainSocketAddress*), "java.lang.Exception"},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Security, main, void, $StringArray*), "java.lang.Exception"},
+	{"setSecurityManager", "(Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(Security, setSecurityManager, void, $String*)},
+	{"testPolicy1", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(Security, testPolicy1, void), "java.lang.Exception"},
+	{"testPolicy2", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(Security, testPolicy2, void), "java.lang.Exception"},
+	{"testPolicy3", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(Security, testPolicy3, void), "java.lang.Exception"},
 	{}
 };
 

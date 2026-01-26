@@ -31,9 +31,9 @@ using $ArrayList = ::java::util::ArrayList;
 using $List = ::java::util::List;
 
 $MethodInfo _BadProxySelector$HTTPProxySelector_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(BadProxySelector$HTTPProxySelector::*)()>(&BadProxySelector$HTTPProxySelector::init$))},
-	{"connectFailed", "(Ljava/net/URI;Ljava/net/SocketAddress;Ljava/io/IOException;)V", nullptr, $PUBLIC},
-	{"select", "(Ljava/net/URI;)Ljava/util/List;", "(Ljava/net/URI;)Ljava/util/List<Ljava/net/Proxy;>;", $PUBLIC},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(BadProxySelector$HTTPProxySelector, init$, void)},
+	{"connectFailed", "(Ljava/net/URI;Ljava/net/SocketAddress;Ljava/io/IOException;)V", nullptr, $PUBLIC, $virtualMethod(BadProxySelector$HTTPProxySelector, connectFailed, void, $URI*, $SocketAddress*, $IOException*)},
+	{"select", "(Ljava/net/URI;)Ljava/util/List;", "(Ljava/net/URI;)Ljava/util/List<Ljava/net/Proxy;>;", $PUBLIC, $virtualMethod(BadProxySelector$HTTPProxySelector, select, $List*, $URI*)},
 	{}
 };
 

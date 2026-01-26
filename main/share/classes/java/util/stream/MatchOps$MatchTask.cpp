@@ -35,11 +35,11 @@ $FieldInfo _MatchOps$MatchTask_FieldInfo_[] = {
 };
 
 $MethodInfo _MatchOps$MatchTask_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/stream/MatchOps$MatchOp;Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;)V", "(Ljava/util/stream/MatchOps$MatchOp<TP_OUT;>;Ljava/util/stream/PipelineHelper<TP_OUT;>;Ljava/util/Spliterator<TP_IN;>;)V", 0, $method(static_cast<void(MatchOps$MatchTask::*)($MatchOps$MatchOp*,$PipelineHelper*,$Spliterator*)>(&MatchOps$MatchTask::init$))},
-	{"<init>", "(Ljava/util/stream/MatchOps$MatchTask;Ljava/util/Spliterator;)V", "(Ljava/util/stream/MatchOps$MatchTask<TP_IN;TP_OUT;>;Ljava/util/Spliterator<TP_IN;>;)V", 0, $method(static_cast<void(MatchOps$MatchTask::*)(MatchOps$MatchTask*,$Spliterator*)>(&MatchOps$MatchTask::init$))},
-	{"doLeaf", "()Ljava/lang/Boolean;", nullptr, $PROTECTED},
-	{"getEmptyResult", "()Ljava/lang/Boolean;", nullptr, $PROTECTED},
-	{"makeChild", "(Ljava/util/Spliterator;)Ljava/util/stream/MatchOps$MatchTask;", "(Ljava/util/Spliterator<TP_IN;>;)Ljava/util/stream/MatchOps$MatchTask<TP_IN;TP_OUT;>;", $PROTECTED},
+	{"<init>", "(Ljava/util/stream/MatchOps$MatchOp;Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;)V", "(Ljava/util/stream/MatchOps$MatchOp<TP_OUT;>;Ljava/util/stream/PipelineHelper<TP_OUT;>;Ljava/util/Spliterator<TP_IN;>;)V", 0, $method(MatchOps$MatchTask, init$, void, $MatchOps$MatchOp*, $PipelineHelper*, $Spliterator*)},
+	{"<init>", "(Ljava/util/stream/MatchOps$MatchTask;Ljava/util/Spliterator;)V", "(Ljava/util/stream/MatchOps$MatchTask<TP_IN;TP_OUT;>;Ljava/util/Spliterator<TP_IN;>;)V", 0, $method(MatchOps$MatchTask, init$, void, MatchOps$MatchTask*, $Spliterator*)},
+	{"doLeaf", "()Ljava/lang/Boolean;", nullptr, $PROTECTED, $virtualMethod(MatchOps$MatchTask, doLeaf, $Object*)},
+	{"getEmptyResult", "()Ljava/lang/Boolean;", nullptr, $PROTECTED, $virtualMethod(MatchOps$MatchTask, getEmptyResult, $Object*)},
+	{"makeChild", "(Ljava/util/Spliterator;)Ljava/util/stream/MatchOps$MatchTask;", "(Ljava/util/Spliterator<TP_IN;>;)Ljava/util/stream/MatchOps$MatchTask<TP_IN;TP_OUT;>;", $PROTECTED, $virtualMethod(MatchOps$MatchTask, makeChild, MatchOps$MatchTask*, $Spliterator*)},
 	{}
 };
 

@@ -8,8 +8,8 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _MetafactoryArityTest$C_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(MetafactoryArityTest$C::*)()>(&MetafactoryArityTest$C::init$))},
-	{"m", "(I)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)(int32_t)>(&MetafactoryArityTest$C::m))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(MetafactoryArityTest$C, init$, void)},
+	{"m", "(I)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetafactoryArityTest$C, m, $String*, int32_t)},
 	{}
 };
 

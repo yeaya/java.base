@@ -25,8 +25,8 @@ namespace java {
 	namespace lang {
 
 $MethodInfo _StackStreamFactory$LiveStackInfoTraverser_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/StackWalker;Ljava/util/function/Function;)V", "(Ljava/lang/StackWalker;Ljava/util/function/Function<-Ljava/util/stream/Stream<Ljava/lang/StackWalker$StackFrame;>;+TT;>;)V", 0, $method(static_cast<void(StackStreamFactory$LiveStackInfoTraverser::*)($StackWalker*,$Function*)>(&StackStreamFactory$LiveStackInfoTraverser::init$))},
-	{"initFrameBuffer", "()V", nullptr, $PROTECTED},
+	{"<init>", "(Ljava/lang/StackWalker;Ljava/util/function/Function;)V", "(Ljava/lang/StackWalker;Ljava/util/function/Function<-Ljava/util/stream/Stream<Ljava/lang/StackWalker$StackFrame;>;+TT;>;)V", 0, $method(StackStreamFactory$LiveStackInfoTraverser, init$, void, $StackWalker*, $Function*)},
+	{"initFrameBuffer", "()V", nullptr, $PROTECTED, $virtualMethod(StackStreamFactory$LiveStackInfoTraverser, initFrameBuffer, void)},
 	{}
 };
 

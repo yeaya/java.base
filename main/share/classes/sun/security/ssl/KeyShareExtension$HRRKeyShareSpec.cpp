@@ -44,9 +44,9 @@ $FieldInfo _KeyShareExtension$HRRKeyShareSpec_FieldInfo_[] = {
 };
 
 $MethodInfo _KeyShareExtension$HRRKeyShareSpec_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/ssl/NamedGroup;)V", nullptr, 0, $method(static_cast<void(KeyShareExtension$HRRKeyShareSpec::*)($NamedGroup*)>(&KeyShareExtension$HRRKeyShareSpec::init$))},
-	{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE, $method(static_cast<void(KeyShareExtension$HRRKeyShareSpec::*)($HandshakeContext*,$ByteBuffer*)>(&KeyShareExtension$HRRKeyShareSpec::init$)), "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/security/ssl/NamedGroup;)V", nullptr, 0, $method(KeyShareExtension$HRRKeyShareSpec, init$, void, $NamedGroup*)},
+	{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE, $method(KeyShareExtension$HRRKeyShareSpec, init$, void, $HandshakeContext*, $ByteBuffer*), "java.io.IOException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KeyShareExtension$HRRKeyShareSpec, toString, $String*)},
 	{}
 };
 

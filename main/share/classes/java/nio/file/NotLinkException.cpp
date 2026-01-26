@@ -18,8 +18,8 @@ $FieldInfo _NotLinkException_FieldInfo_[] = {
 };
 
 $MethodInfo _NotLinkException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(NotLinkException::*)($String*)>(&NotLinkException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(NotLinkException::*)($String*,$String*,$String*)>(&NotLinkException::init$))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NotLinkException, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NotLinkException, init$, void, $String*, $String*, $String*)},
 	{}
 };
 

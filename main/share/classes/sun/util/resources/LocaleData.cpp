@@ -53,20 +53,20 @@ $FieldInfo _LocaleData_FieldInfo_[] = {
 };
 
 $MethodInfo _LocaleData_MethodInfo_[] = {
-	{"<init>", "(Lsun/util/locale/provider/LocaleProviderAdapter$Type;)V", nullptr, $PUBLIC, $method(static_cast<void(LocaleData::*)($LocaleProviderAdapter$Type*)>(&LocaleData::init$))},
-	{"getBreakIteratorInfo", "(Ljava/util/Locale;)Ljava/util/ResourceBundle;", nullptr, $PUBLIC},
-	{"getBreakIteratorResources", "(Ljava/util/Locale;)Ljava/util/ResourceBundle;", nullptr, $PUBLIC},
-	{"getBundle", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/util/ResourceBundle;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$ResourceBundle*(*)($String*,$Locale*)>(&LocaleData::getBundle))},
-	{"getCalendarData", "(Ljava/util/Locale;)Ljava/util/ResourceBundle;", nullptr, $PUBLIC},
-	{"getCollationData", "(Ljava/util/Locale;)Ljava/util/ResourceBundle;", nullptr, $PUBLIC},
-	{"getCurrencyNames", "(Ljava/util/Locale;)Lsun/util/resources/OpenListResourceBundle;", nullptr, $PUBLIC},
-	{"getDateFormatData", "(Ljava/util/Locale;)Ljava/util/ResourceBundle;", nullptr, $PUBLIC},
-	{"getLocaleNames", "(Ljava/util/Locale;)Lsun/util/resources/OpenListResourceBundle;", nullptr, $PUBLIC},
-	{"getNumberFormatData", "(Ljava/util/Locale;)Ljava/util/ResourceBundle;", nullptr, $PUBLIC},
-	{"getSupplementary", "(Ljava/lang/String;Ljava/util/Locale;)Lsun/util/resources/OpenListResourceBundle;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$OpenListResourceBundle*(*)($String*,$Locale*)>(&LocaleData::getSupplementary))},
-	{"getTimeZoneNames", "(Ljava/util/Locale;)Lsun/util/resources/TimeZoneNamesBundle;", nullptr, $PUBLIC},
-	{"setSupplementary", "(Lsun/util/resources/ParallelListResourceBundle;)V", nullptr, $PUBLIC},
-	{"setSupplementary", "(Ljava/lang/String;Lsun/util/resources/ParallelListResourceBundle;)Z", nullptr, $PRIVATE, $method(static_cast<bool(LocaleData::*)($String*,$ParallelListResourceBundle*)>(&LocaleData::setSupplementary))},
+	{"<init>", "(Lsun/util/locale/provider/LocaleProviderAdapter$Type;)V", nullptr, $PUBLIC, $method(LocaleData, init$, void, $LocaleProviderAdapter$Type*)},
+	{"getBreakIteratorInfo", "(Ljava/util/Locale;)Ljava/util/ResourceBundle;", nullptr, $PUBLIC, $virtualMethod(LocaleData, getBreakIteratorInfo, $ResourceBundle*, $Locale*)},
+	{"getBreakIteratorResources", "(Ljava/util/Locale;)Ljava/util/ResourceBundle;", nullptr, $PUBLIC, $virtualMethod(LocaleData, getBreakIteratorResources, $ResourceBundle*, $Locale*)},
+	{"getBundle", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/util/ResourceBundle;", nullptr, $PUBLIC | $STATIC, $staticMethod(LocaleData, getBundle, $ResourceBundle*, $String*, $Locale*)},
+	{"getCalendarData", "(Ljava/util/Locale;)Ljava/util/ResourceBundle;", nullptr, $PUBLIC, $virtualMethod(LocaleData, getCalendarData, $ResourceBundle*, $Locale*)},
+	{"getCollationData", "(Ljava/util/Locale;)Ljava/util/ResourceBundle;", nullptr, $PUBLIC, $virtualMethod(LocaleData, getCollationData, $ResourceBundle*, $Locale*)},
+	{"getCurrencyNames", "(Ljava/util/Locale;)Lsun/util/resources/OpenListResourceBundle;", nullptr, $PUBLIC, $virtualMethod(LocaleData, getCurrencyNames, $OpenListResourceBundle*, $Locale*)},
+	{"getDateFormatData", "(Ljava/util/Locale;)Ljava/util/ResourceBundle;", nullptr, $PUBLIC, $virtualMethod(LocaleData, getDateFormatData, $ResourceBundle*, $Locale*)},
+	{"getLocaleNames", "(Ljava/util/Locale;)Lsun/util/resources/OpenListResourceBundle;", nullptr, $PUBLIC, $virtualMethod(LocaleData, getLocaleNames, $OpenListResourceBundle*, $Locale*)},
+	{"getNumberFormatData", "(Ljava/util/Locale;)Ljava/util/ResourceBundle;", nullptr, $PUBLIC, $virtualMethod(LocaleData, getNumberFormatData, $ResourceBundle*, $Locale*)},
+	{"getSupplementary", "(Ljava/lang/String;Ljava/util/Locale;)Lsun/util/resources/OpenListResourceBundle;", nullptr, $PRIVATE | $STATIC, $staticMethod(LocaleData, getSupplementary, $OpenListResourceBundle*, $String*, $Locale*)},
+	{"getTimeZoneNames", "(Ljava/util/Locale;)Lsun/util/resources/TimeZoneNamesBundle;", nullptr, $PUBLIC, $virtualMethod(LocaleData, getTimeZoneNames, $TimeZoneNamesBundle*, $Locale*)},
+	{"setSupplementary", "(Lsun/util/resources/ParallelListResourceBundle;)V", nullptr, $PUBLIC, $virtualMethod(LocaleData, setSupplementary, void, $ParallelListResourceBundle*)},
+	{"setSupplementary", "(Ljava/lang/String;Lsun/util/resources/ParallelListResourceBundle;)Z", nullptr, $PRIVATE, $method(LocaleData, setSupplementary, bool, $String*, $ParallelListResourceBundle*)},
 	{}
 };
 

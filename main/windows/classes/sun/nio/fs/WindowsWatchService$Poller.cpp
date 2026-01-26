@@ -120,8 +120,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo WindowsWatchService$Poller$$Lambda$invalidate::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(WindowsWatchService$Poller$$Lambda$invalidate::*)()>(&WindowsWatchService$Poller$$Lambda$invalidate::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsWatchService$Poller$$Lambda$invalidate, init$, void)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(WindowsWatchService$Poller$$Lambda$invalidate, accept, void, Object$*)},
 	{}
 };
 $ClassInfo WindowsWatchService$Poller$$Lambda$invalidate::classInfo$ = {
@@ -158,17 +158,17 @@ $FieldInfo _WindowsWatchService$Poller_FieldInfo_[] = {
 };
 
 $MethodInfo _WindowsWatchService$Poller_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/fs/WindowsFileSystem;Lsun/nio/fs/WindowsWatchService;J)V", nullptr, 0, $method(static_cast<void(WindowsWatchService$Poller::*)($WindowsFileSystem*,$WindowsWatchService*,int64_t)>(&WindowsWatchService$Poller::init$))},
-	{"closeAttachedEvent", "(J)V", nullptr, $PRIVATE, $method(static_cast<void(WindowsWatchService$Poller::*)(int64_t)>(&WindowsWatchService$Poller::closeAttachedEvent))},
-	{"createAndAttachEvent", "(J)V", nullptr, $PRIVATE, $method(static_cast<void(WindowsWatchService$Poller::*)(int64_t)>(&WindowsWatchService$Poller::createAndAttachEvent)), "sun.nio.fs.WindowsException"},
-	{"implCancelKey", "(Ljava/nio/file/WatchKey;)V", nullptr, 0},
-	{"implCloseAll", "()V", nullptr, 0},
-	{"implRegister", "(Ljava/nio/file/Path;Ljava/util/Set;[Ljava/nio/file/WatchEvent$Modifier;)Ljava/lang/Object;", "(Ljava/nio/file/Path;Ljava/util/Set<+Ljava/nio/file/WatchEvent$Kind<*>;>;[Ljava/nio/file/WatchEvent$Modifier;)Ljava/lang/Object;", $TRANSIENT},
-	{"processEvents", "(Lsun/nio/fs/WindowsWatchService$WindowsWatchKey;I)V", nullptr, $PRIVATE, $method(static_cast<void(WindowsWatchService$Poller::*)($WindowsWatchService$WindowsWatchKey*,int32_t)>(&WindowsWatchService$Poller::processEvents))},
-	{"releaseResources", "(Lsun/nio/fs/WindowsWatchService$WindowsWatchKey;)V", nullptr, $PRIVATE, $method(static_cast<void(WindowsWatchService$Poller::*)($WindowsWatchService$WindowsWatchKey*)>(&WindowsWatchService$Poller::releaseResources))},
-	{"run", "()V", nullptr, $PUBLIC},
-	{"translateActionToEvent", "(I)Ljava/nio/file/WatchEvent$Kind;", "(I)Ljava/nio/file/WatchEvent$Kind<*>;", $PRIVATE, $method(static_cast<$WatchEvent$Kind*(WindowsWatchService$Poller::*)(int32_t)>(&WindowsWatchService$Poller::translateActionToEvent))},
-	{"wakeup", "()V", nullptr, 0, nullptr, "java.io.IOException"},
+	{"<init>", "(Lsun/nio/fs/WindowsFileSystem;Lsun/nio/fs/WindowsWatchService;J)V", nullptr, 0, $method(WindowsWatchService$Poller, init$, void, $WindowsFileSystem*, $WindowsWatchService*, int64_t)},
+	{"closeAttachedEvent", "(J)V", nullptr, $PRIVATE, $method(WindowsWatchService$Poller, closeAttachedEvent, void, int64_t)},
+	{"createAndAttachEvent", "(J)V", nullptr, $PRIVATE, $method(WindowsWatchService$Poller, createAndAttachEvent, void, int64_t), "sun.nio.fs.WindowsException"},
+	{"implCancelKey", "(Ljava/nio/file/WatchKey;)V", nullptr, 0, $virtualMethod(WindowsWatchService$Poller, implCancelKey, void, $WatchKey*)},
+	{"implCloseAll", "()V", nullptr, 0, $virtualMethod(WindowsWatchService$Poller, implCloseAll, void)},
+	{"implRegister", "(Ljava/nio/file/Path;Ljava/util/Set;[Ljava/nio/file/WatchEvent$Modifier;)Ljava/lang/Object;", "(Ljava/nio/file/Path;Ljava/util/Set<+Ljava/nio/file/WatchEvent$Kind<*>;>;[Ljava/nio/file/WatchEvent$Modifier;)Ljava/lang/Object;", $TRANSIENT, $virtualMethod(WindowsWatchService$Poller, implRegister, $Object*, $Path*, $Set*, $WatchEvent$ModifierArray*)},
+	{"processEvents", "(Lsun/nio/fs/WindowsWatchService$WindowsWatchKey;I)V", nullptr, $PRIVATE, $method(WindowsWatchService$Poller, processEvents, void, $WindowsWatchService$WindowsWatchKey*, int32_t)},
+	{"releaseResources", "(Lsun/nio/fs/WindowsWatchService$WindowsWatchKey;)V", nullptr, $PRIVATE, $method(WindowsWatchService$Poller, releaseResources, void, $WindowsWatchService$WindowsWatchKey*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(WindowsWatchService$Poller, run, void)},
+	{"translateActionToEvent", "(I)Ljava/nio/file/WatchEvent$Kind;", "(I)Ljava/nio/file/WatchEvent$Kind<*>;", $PRIVATE, $method(WindowsWatchService$Poller, translateActionToEvent, $WatchEvent$Kind*, int32_t)},
+	{"wakeup", "()V", nullptr, 0, $virtualMethod(WindowsWatchService$Poller, wakeup, void), "java.io.IOException"},
 	{}
 };
 

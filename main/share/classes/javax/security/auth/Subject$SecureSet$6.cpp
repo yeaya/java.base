@@ -23,8 +23,8 @@ $FieldInfo _Subject$SecureSet$6_FieldInfo_[] = {
 };
 
 $MethodInfo _Subject$SecureSet$6_MethodInfo_[] = {
-	{"<init>", "(Ljavax/security/auth/Subject$SecureSet;Ljava/util/Iterator;)V", "()V", 0, $method(static_cast<void(Subject$SecureSet$6::*)($Subject$SecureSet*,$Iterator*)>(&Subject$SecureSet$6::init$))},
-	{"run", "()Ljava/lang/Object;", "()TE;", $PUBLIC},
+	{"<init>", "(Ljavax/security/auth/Subject$SecureSet;Ljava/util/Iterator;)V", "()V", 0, $method(Subject$SecureSet$6, init$, void, $Subject$SecureSet*, $Iterator*)},
+	{"run", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(Subject$SecureSet$6, run, $Object*)},
 	{}
 };
 

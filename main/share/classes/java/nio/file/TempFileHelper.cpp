@@ -48,11 +48,11 @@ $FieldInfo _TempFileHelper_FieldInfo_[] = {
 };
 
 $MethodInfo _TempFileHelper_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(TempFileHelper::*)()>(&TempFileHelper::init$))},
-	{"create", "(Ljava/nio/file/Path;Ljava/lang/String;Ljava/lang/String;Z[Ljava/nio/file/attribute/FileAttribute;)Ljava/nio/file/Path;", "(Ljava/nio/file/Path;Ljava/lang/String;Ljava/lang/String;Z[Ljava/nio/file/attribute/FileAttribute<*>;)Ljava/nio/file/Path;", $PRIVATE | $STATIC, $method(static_cast<$Path*(*)($Path*,$String*,$String*,bool,$FileAttributeArray*)>(&TempFileHelper::create)), "java.io.IOException"},
-	{"createTempDirectory", "(Ljava/nio/file/Path;Ljava/lang/String;[Ljava/nio/file/attribute/FileAttribute;)Ljava/nio/file/Path;", "(Ljava/nio/file/Path;Ljava/lang/String;[Ljava/nio/file/attribute/FileAttribute<*>;)Ljava/nio/file/Path;", $STATIC, $method(static_cast<$Path*(*)($Path*,$String*,$FileAttributeArray*)>(&TempFileHelper::createTempDirectory)), "java.io.IOException"},
-	{"createTempFile", "(Ljava/nio/file/Path;Ljava/lang/String;Ljava/lang/String;[Ljava/nio/file/attribute/FileAttribute;)Ljava/nio/file/Path;", "(Ljava/nio/file/Path;Ljava/lang/String;Ljava/lang/String;[Ljava/nio/file/attribute/FileAttribute<*>;)Ljava/nio/file/Path;", $STATIC, $method(static_cast<$Path*(*)($Path*,$String*,$String*,$FileAttributeArray*)>(&TempFileHelper::createTempFile)), "java.io.IOException"},
-	{"generatePath", "(Ljava/lang/String;Ljava/lang/String;Ljava/nio/file/Path;)Ljava/nio/file/Path;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$Path*(*)($String*,$String*,$Path*)>(&TempFileHelper::generatePath))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(TempFileHelper, init$, void)},
+	{"create", "(Ljava/nio/file/Path;Ljava/lang/String;Ljava/lang/String;Z[Ljava/nio/file/attribute/FileAttribute;)Ljava/nio/file/Path;", "(Ljava/nio/file/Path;Ljava/lang/String;Ljava/lang/String;Z[Ljava/nio/file/attribute/FileAttribute<*>;)Ljava/nio/file/Path;", $PRIVATE | $STATIC, $staticMethod(TempFileHelper, create, $Path*, $Path*, $String*, $String*, bool, $FileAttributeArray*), "java.io.IOException"},
+	{"createTempDirectory", "(Ljava/nio/file/Path;Ljava/lang/String;[Ljava/nio/file/attribute/FileAttribute;)Ljava/nio/file/Path;", "(Ljava/nio/file/Path;Ljava/lang/String;[Ljava/nio/file/attribute/FileAttribute<*>;)Ljava/nio/file/Path;", $STATIC, $staticMethod(TempFileHelper, createTempDirectory, $Path*, $Path*, $String*, $FileAttributeArray*), "java.io.IOException"},
+	{"createTempFile", "(Ljava/nio/file/Path;Ljava/lang/String;Ljava/lang/String;[Ljava/nio/file/attribute/FileAttribute;)Ljava/nio/file/Path;", "(Ljava/nio/file/Path;Ljava/lang/String;Ljava/lang/String;[Ljava/nio/file/attribute/FileAttribute<*>;)Ljava/nio/file/Path;", $STATIC, $staticMethod(TempFileHelper, createTempFile, $Path*, $Path*, $String*, $String*, $FileAttributeArray*), "java.io.IOException"},
+	{"generatePath", "(Ljava/lang/String;Ljava/lang/String;Ljava/nio/file/Path;)Ljava/nio/file/Path;", nullptr, $PRIVATE | $STATIC, $staticMethod(TempFileHelper, generatePath, $Path*, $String*, $String*, $Path*)},
 	{}
 };
 

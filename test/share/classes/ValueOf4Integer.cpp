@@ -18,8 +18,8 @@ $FieldInfo _ValueOf4Integer_FieldInfo_[] = {
 };
 
 $MethodInfo _ValueOf4Integer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ValueOf4Integer::*)()>(&ValueOf4Integer::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&ValueOf4Integer::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ValueOf4Integer, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ValueOf4Integer, main, void, $StringArray*)},
 	{}
 };
 

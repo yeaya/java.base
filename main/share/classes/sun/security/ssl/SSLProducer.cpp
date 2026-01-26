@@ -5,13 +5,14 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $ConnectionContext = ::sun::security::ssl::ConnectionContext;
 
 namespace sun {
 	namespace security {
 		namespace ssl {
 
 $MethodInfo _SSLProducer_MethodInfo_[] = {
-	{"produce", "(Lsun/security/ssl/ConnectionContext;)[B", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
+	{"produce", "(Lsun/security/ssl/ConnectionContext;)[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SSLProducer, produce, $bytes*, $ConnectionContext*), "java.io.IOException"},
 	{}
 };
 

@@ -17,8 +17,8 @@ namespace java {
 			namespace locks {
 
 $MethodInfo _ReentrantReadWriteLock$Sync$ThreadLocalHoldCounter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ReentrantReadWriteLock$Sync$ThreadLocalHoldCounter::*)()>(&ReentrantReadWriteLock$Sync$ThreadLocalHoldCounter::init$))},
-	{"initialValue", "()Ljava/util/concurrent/locks/ReentrantReadWriteLock$Sync$HoldCounter;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(ReentrantReadWriteLock$Sync$ThreadLocalHoldCounter, init$, void)},
+	{"initialValue", "()Ljava/util/concurrent/locks/ReentrantReadWriteLock$Sync$HoldCounter;", nullptr, $PUBLIC, $virtualMethod(ReentrantReadWriteLock$Sync$ThreadLocalHoldCounter, initialValue, $Object*)},
 	{}
 };
 

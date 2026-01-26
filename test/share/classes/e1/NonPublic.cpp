@@ -8,8 +8,8 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace e1 {
 
 $MethodInfo _NonPublic_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(NonPublic::*)()>(&NonPublic::init$))},
-	{"publicStatic", "()V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)()>(&NonPublic::publicStatic))},
+	{"<init>", "()V", nullptr, 0, $method(NonPublic, init$, void)},
+	{"publicStatic", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(NonPublic, publicStatic, void)},
 	{}
 };
 

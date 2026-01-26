@@ -15,6 +15,7 @@
 #include <sun/security/ssl/NamedGroupPossession.h>
 #include <sun/security/ssl/SSLCredentials.h>
 #include <sun/security/ssl/SSLKeyDerivation.h>
+#include <sun/security/ssl/SSLPossession.h>
 #include <jcpp.h>
 
 #undef KEY_AGREEMENT
@@ -27,21 +28,28 @@ using $AlgorithmConstraints = ::java::security::AlgorithmConstraints;
 using $CryptoPrimitive = ::java::security::CryptoPrimitive;
 using $Key = ::java::security::Key;
 using $PublicKey = ::java::security::PublicKey;
+using $SecureRandom = ::java::security::SecureRandom;
 using $AbstractSet = ::java::util::AbstractSet;
 using $EnumSet = ::java::util::EnumSet;
 using $Set = ::java::util::Set;
+using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
+using $NamedGroup = ::sun::security::ssl::NamedGroup;
 using $NamedGroup$ExceptionSupplier = ::sun::security::ssl::NamedGroup$ExceptionSupplier;
+using $NamedGroupPossession = ::sun::security::ssl::NamedGroupPossession;
+using $SSLCredentials = ::sun::security::ssl::SSLCredentials;
+using $SSLKeyDerivation = ::sun::security::ssl::SSLKeyDerivation;
+using $SSLPossession = ::sun::security::ssl::SSLPossession;
 
 namespace sun {
 	namespace security {
 		namespace ssl {
 
 $MethodInfo _NamedGroup$NamedGroupScheme_MethodInfo_[] = {
-	{"checkConstraints", "(Ljava/security/PublicKey;Ljava/security/AlgorithmConstraints;Lsun/security/ssl/NamedGroup$ExceptionSupplier;)V", nullptr, $PUBLIC, nullptr, "javax.net.ssl.SSLException"},
-	{"createKeyDerivation", "(Lsun/security/ssl/HandshakeContext;)Lsun/security/ssl/SSLKeyDerivation;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"createPossession", "(Lsun/security/ssl/NamedGroup;Ljava/security/SecureRandom;)Lsun/security/ssl/SSLPossession;", nullptr, $PUBLIC | $ABSTRACT},
-	{"decodeCredentials", "(Lsun/security/ssl/NamedGroup;[BLjava/security/AlgorithmConstraints;Lsun/security/ssl/NamedGroup$ExceptionSupplier;)Lsun/security/ssl/SSLCredentials;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException,java.security.GeneralSecurityException"},
-	{"encodePossessionPublicKey", "(Lsun/security/ssl/NamedGroupPossession;)[B", nullptr, $PUBLIC | $ABSTRACT},
+	{"checkConstraints", "(Ljava/security/PublicKey;Ljava/security/AlgorithmConstraints;Lsun/security/ssl/NamedGroup$ExceptionSupplier;)V", nullptr, $PUBLIC, $virtualMethod(NamedGroup$NamedGroupScheme, checkConstraints, void, $PublicKey*, $AlgorithmConstraints*, $NamedGroup$ExceptionSupplier*), "javax.net.ssl.SSLException"},
+	{"createKeyDerivation", "(Lsun/security/ssl/HandshakeContext;)Lsun/security/ssl/SSLKeyDerivation;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NamedGroup$NamedGroupScheme, createKeyDerivation, $SSLKeyDerivation*, $HandshakeContext*), "java.io.IOException"},
+	{"createPossession", "(Lsun/security/ssl/NamedGroup;Ljava/security/SecureRandom;)Lsun/security/ssl/SSLPossession;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NamedGroup$NamedGroupScheme, createPossession, $SSLPossession*, $NamedGroup*, $SecureRandom*)},
+	{"decodeCredentials", "(Lsun/security/ssl/NamedGroup;[BLjava/security/AlgorithmConstraints;Lsun/security/ssl/NamedGroup$ExceptionSupplier;)Lsun/security/ssl/SSLCredentials;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NamedGroup$NamedGroupScheme, decodeCredentials, $SSLCredentials*, $NamedGroup*, $bytes*, $AlgorithmConstraints*, $NamedGroup$ExceptionSupplier*), "java.io.IOException,java.security.GeneralSecurityException"},
+	{"encodePossessionPublicKey", "(Lsun/security/ssl/NamedGroupPossession;)[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NamedGroup$NamedGroupScheme, encodePossessionPublicKey, $bytes*, $NamedGroupPossession*)},
 	{}
 };
 

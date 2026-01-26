@@ -46,8 +46,8 @@ $FieldInfo Consumer$$Lambda$lambda$andThen$0::fieldInfos[3] = {
 	{}
 };
 $MethodInfo Consumer$$Lambda$lambda$andThen$0::methodInfos[3] = {
-	{"<init>", "(Ljava/util/function/Consumer;Ljava/util/function/Consumer;)V", nullptr, $PUBLIC, $method(static_cast<void(Consumer$$Lambda$lambda$andThen$0::*)(Consumer*,Consumer*)>(&Consumer$$Lambda$lambda$andThen$0::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/function/Consumer;Ljava/util/function/Consumer;)V", nullptr, $PUBLIC, $method(Consumer$$Lambda$lambda$andThen$0, init$, void, Consumer*, Consumer*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Consumer$$Lambda$lambda$andThen$0, accept, void, Object$*)},
 	{}
 };
 $ClassInfo Consumer$$Lambda$lambda$andThen$0::classInfo$ = {
@@ -70,9 +70,9 @@ $CompoundAttribute _Consumer_Annotations_[] = {
 };
 
 $MethodInfo _Consumer_MethodInfo_[] = {
-	{"accept", "(Ljava/lang/Object;)V", "(TT;)V", $PUBLIC | $ABSTRACT},
-	{"andThen", "(Ljava/util/function/Consumer;)Ljava/util/function/Consumer;", "(Ljava/util/function/Consumer<-TT;>;)Ljava/util/function/Consumer<TT;>;", $PUBLIC},
-	{"lambda$andThen$0", "(Ljava/util/function/Consumer;Ljava/lang/Object;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(Consumer::*)(Consumer*,Object$*)>(&Consumer::lambda$andThen$0))},
+	{"accept", "(Ljava/lang/Object;)V", "(TT;)V", $PUBLIC | $ABSTRACT, $virtualMethod(Consumer, accept, void, Object$*)},
+	{"andThen", "(Ljava/util/function/Consumer;)Ljava/util/function/Consumer;", "(Ljava/util/function/Consumer<-TT;>;)Ljava/util/function/Consumer<TT;>;", $PUBLIC, $virtualMethod(Consumer, andThen, Consumer*, Consumer*)},
+	{"lambda$andThen$0", "(Ljava/util/function/Consumer;Ljava/lang/Object;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Consumer, lambda$andThen$0, void, Consumer*, Object$*)},
 	{}
 };
 

@@ -8,6 +8,7 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Normalizer2 = ::jdk::internal::icu::text::Normalizer2;
 
 namespace jdk {
 	namespace internal {
@@ -25,8 +26,8 @@ $CompoundAttribute _NormalizerBase$Mode_MethodAnnotations_getNormalizer21[] = {
 };
 
 $MethodInfo _NormalizerBase$Mode_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED | $DEPRECATED, $method(static_cast<void(NormalizerBase$Mode::*)()>(&NormalizerBase$Mode::init$)), nullptr, nullptr, _NormalizerBase$Mode_MethodAnnotations_init$0},
-	{"getNormalizer2", "(I)Ljdk/internal/icu/text/Normalizer2;", nullptr, $PROTECTED | $ABSTRACT | $DEPRECATED, nullptr, nullptr, nullptr, _NormalizerBase$Mode_MethodAnnotations_getNormalizer21},
+	{"<init>", "()V", nullptr, $PROTECTED | $DEPRECATED, $method(NormalizerBase$Mode, init$, void), nullptr, nullptr, _NormalizerBase$Mode_MethodAnnotations_init$0},
+	{"getNormalizer2", "(I)Ljdk/internal/icu/text/Normalizer2;", nullptr, $PROTECTED | $ABSTRACT | $DEPRECATED, $virtualMethod(NormalizerBase$Mode, getNormalizer2, $Normalizer2*, int32_t), nullptr, nullptr, _NormalizerBase$Mode_MethodAnnotations_getNormalizer21},
 	{}
 };
 

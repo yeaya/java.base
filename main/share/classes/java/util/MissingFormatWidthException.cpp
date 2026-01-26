@@ -19,9 +19,9 @@ $FieldInfo _MissingFormatWidthException_FieldInfo_[] = {
 };
 
 $MethodInfo _MissingFormatWidthException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(MissingFormatWidthException::*)($String*)>(&MissingFormatWidthException::init$))},
-	{"getFormatSpecifier", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(MissingFormatWidthException, init$, void, $String*)},
+	{"getFormatSpecifier", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MissingFormatWidthException, getFormatSpecifier, $String*)},
+	{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MissingFormatWidthException, getMessage, $String*)},
 	{}
 };
 

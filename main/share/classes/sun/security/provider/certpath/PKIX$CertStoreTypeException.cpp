@@ -22,8 +22,8 @@ $FieldInfo _PKIX$CertStoreTypeException_FieldInfo_[] = {
 };
 
 $MethodInfo _PKIX$CertStoreTypeException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/security/cert/CertStoreException;)V", nullptr, 0, $method(static_cast<void(PKIX$CertStoreTypeException::*)($String*,$CertStoreException*)>(&PKIX$CertStoreTypeException::init$))},
-	{"getType", "()Ljava/lang/String;", nullptr, 0},
+	{"<init>", "(Ljava/lang/String;Ljava/security/cert/CertStoreException;)V", nullptr, 0, $method(PKIX$CertStoreTypeException, init$, void, $String*, $CertStoreException*)},
+	{"getType", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(PKIX$CertStoreTypeException, getType, $String*)},
 	{}
 };
 

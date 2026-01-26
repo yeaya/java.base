@@ -21,10 +21,10 @@ $FieldInfo _ArchivedBootLayer_FieldInfo_[] = {
 };
 
 $MethodInfo _ArchivedBootLayer_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/ModuleLayer;)V", nullptr, $PRIVATE, $method(static_cast<void(ArchivedBootLayer::*)($ModuleLayer*)>(&ArchivedBootLayer::init$))},
-	{"archive", "(Ljava/lang/ModuleLayer;)V", nullptr, $STATIC, $method(static_cast<void(*)($ModuleLayer*)>(&ArchivedBootLayer::archive))},
-	{"bootLayer", "()Ljava/lang/ModuleLayer;", nullptr, 0},
-	{"get", "()Ljdk/internal/module/ArchivedBootLayer;", nullptr, $STATIC, $method(static_cast<ArchivedBootLayer*(*)()>(&ArchivedBootLayer::get))},
+	{"<init>", "(Ljava/lang/ModuleLayer;)V", nullptr, $PRIVATE, $method(ArchivedBootLayer, init$, void, $ModuleLayer*)},
+	{"archive", "(Ljava/lang/ModuleLayer;)V", nullptr, $STATIC, $staticMethod(ArchivedBootLayer, archive, void, $ModuleLayer*)},
+	{"bootLayer", "()Ljava/lang/ModuleLayer;", nullptr, 0, $virtualMethod(ArchivedBootLayer, bootLayer, $ModuleLayer*)},
+	{"get", "()Ljdk/internal/module/ArchivedBootLayer;", nullptr, $STATIC, $staticMethod(ArchivedBootLayer, get, ArchivedBootLayer*)},
 	{}
 };
 

@@ -33,8 +33,8 @@ $FieldInfo _PatternEntry$Parser_FieldInfo_[] = {
 };
 
 $MethodInfo _PatternEntry$Parser_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(PatternEntry$Parser::*)($String*)>(&PatternEntry$Parser::init$))},
-	{"next", "()Ljava/text/PatternEntry;", nullptr, $PUBLIC, nullptr, "java.text.ParseException"},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(PatternEntry$Parser, init$, void, $String*)},
+	{"next", "()Ljava/text/PatternEntry;", nullptr, $PUBLIC, $virtualMethod(PatternEntry$Parser, next, $PatternEntry*), "java.text.ParseException"},
 	{}
 };
 

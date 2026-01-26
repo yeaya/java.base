@@ -11,8 +11,8 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $DatagramSocket = ::java::net::DatagramSocket;
 
 $MethodInfo _SetBufferSize_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SetBufferSize::*)()>(&SetBufferSize::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&SetBufferSize::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SetBufferSize, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SetBufferSize, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

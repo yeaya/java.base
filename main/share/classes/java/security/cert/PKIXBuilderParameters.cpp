@@ -26,11 +26,11 @@ $FieldInfo _PKIXBuilderParameters_FieldInfo_[] = {
 };
 
 $MethodInfo _PKIXBuilderParameters_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Set;Ljava/security/cert/CertSelector;)V", "(Ljava/util/Set<Ljava/security/cert/TrustAnchor;>;Ljava/security/cert/CertSelector;)V", $PUBLIC, $method(static_cast<void(PKIXBuilderParameters::*)($Set*,$CertSelector*)>(&PKIXBuilderParameters::init$)), "java.security.InvalidAlgorithmParameterException"},
-	{"<init>", "(Ljava/security/KeyStore;Ljava/security/cert/CertSelector;)V", nullptr, $PUBLIC, $method(static_cast<void(PKIXBuilderParameters::*)($KeyStore*,$CertSelector*)>(&PKIXBuilderParameters::init$)), "java.security.KeyStoreException,java.security.InvalidAlgorithmParameterException"},
-	{"getMaxPathLength", "()I", nullptr, $PUBLIC},
-	{"setMaxPathLength", "(I)V", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/Set;Ljava/security/cert/CertSelector;)V", "(Ljava/util/Set<Ljava/security/cert/TrustAnchor;>;Ljava/security/cert/CertSelector;)V", $PUBLIC, $method(PKIXBuilderParameters, init$, void, $Set*, $CertSelector*), "java.security.InvalidAlgorithmParameterException"},
+	{"<init>", "(Ljava/security/KeyStore;Ljava/security/cert/CertSelector;)V", nullptr, $PUBLIC, $method(PKIXBuilderParameters, init$, void, $KeyStore*, $CertSelector*), "java.security.KeyStoreException,java.security.InvalidAlgorithmParameterException"},
+	{"getMaxPathLength", "()I", nullptr, $PUBLIC, $virtualMethod(PKIXBuilderParameters, getMaxPathLength, int32_t)},
+	{"setMaxPathLength", "(I)V", nullptr, $PUBLIC, $virtualMethod(PKIXBuilderParameters, setMaxPathLength, void, int32_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PKIXBuilderParameters, toString, $String*)},
 	{}
 };
 

@@ -23,8 +23,8 @@ $FieldInfo _WindowsAsynchronousSocketChannelImpl$2_FieldInfo_[] = {
 };
 
 $MethodInfo _WindowsAsynchronousSocketChannelImpl$2_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/ch/WindowsAsynchronousSocketChannelImpl;Lsun/nio/ch/WindowsAsynchronousSocketChannelImpl$ReadTask;)V", "()V", 0, $method(static_cast<void(WindowsAsynchronousSocketChannelImpl$2::*)($WindowsAsynchronousSocketChannelImpl*,$WindowsAsynchronousSocketChannelImpl$ReadTask*)>(&WindowsAsynchronousSocketChannelImpl$2::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/nio/ch/WindowsAsynchronousSocketChannelImpl;Lsun/nio/ch/WindowsAsynchronousSocketChannelImpl$ReadTask;)V", "()V", 0, $method(WindowsAsynchronousSocketChannelImpl$2, init$, void, $WindowsAsynchronousSocketChannelImpl*, $WindowsAsynchronousSocketChannelImpl$ReadTask*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(WindowsAsynchronousSocketChannelImpl$2, run, void)},
 	{}
 };
 

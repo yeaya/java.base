@@ -27,10 +27,10 @@ $FieldInfo _Formatter$FixedString_FieldInfo_[] = {
 };
 
 $MethodInfo _Formatter$FixedString_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Formatter;Ljava/lang/String;II)V", nullptr, 0, $method(static_cast<void(Formatter$FixedString::*)($Formatter*,$String*,int32_t,int32_t)>(&Formatter$FixedString::init$))},
-	{"index", "()I", nullptr, $PUBLIC},
-	{"print", "(Ljava/lang/Object;Ljava/util/Locale;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/Formatter;Ljava/lang/String;II)V", nullptr, 0, $method(Formatter$FixedString, init$, void, $Formatter*, $String*, int32_t, int32_t)},
+	{"index", "()I", nullptr, $PUBLIC, $virtualMethod(Formatter$FixedString, index, int32_t)},
+	{"print", "(Ljava/lang/Object;Ljava/util/Locale;)V", nullptr, $PUBLIC, $virtualMethod(Formatter$FixedString, print, void, Object$*, $Locale*), "java.io.IOException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Formatter$FixedString, toString, $String*)},
 	{}
 };
 

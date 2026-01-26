@@ -23,9 +23,9 @@ $FieldInfo _SocksProxy_FieldInfo_[] = {
 };
 
 $MethodInfo _SocksProxy_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/SocketAddress;I)V", nullptr, $PRIVATE, $method(static_cast<void(SocksProxy::*)($SocketAddress*,int32_t)>(&SocksProxy::init$))},
-	{"create", "(Ljava/net/SocketAddress;I)Lsun/net/SocksProxy;", nullptr, $PUBLIC | $STATIC, $method(static_cast<SocksProxy*(*)($SocketAddress*,int32_t)>(&SocksProxy::create))},
-	{"protocolVersion", "()I", nullptr, $PUBLIC, $method(static_cast<int32_t(SocksProxy::*)()>(&SocksProxy::protocolVersion))},
+	{"<init>", "(Ljava/net/SocketAddress;I)V", nullptr, $PRIVATE, $method(SocksProxy, init$, void, $SocketAddress*, int32_t)},
+	{"create", "(Ljava/net/SocketAddress;I)Lsun/net/SocksProxy;", nullptr, $PUBLIC | $STATIC, $staticMethod(SocksProxy, create, SocksProxy*, $SocketAddress*, int32_t)},
+	{"protocolVersion", "()I", nullptr, $PUBLIC, $method(SocksProxy, protocolVersion, int32_t)},
 	{}
 };
 

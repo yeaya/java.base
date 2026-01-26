@@ -4,12 +4,13 @@
 #include <MetafactoryParameterCastTest.h>
 #include <jcpp.h>
 
+using $MetafactoryParameterCastTest$B = ::MetafactoryParameterCastTest$B;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _MetafactoryParameterCastTest$BSink_MethodInfo_[] = {
-	{"take", "(LMetafactoryParameterCastTest$B;)V", nullptr, $PUBLIC | $ABSTRACT},
+	{"take", "(LMetafactoryParameterCastTest$B;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MetafactoryParameterCastTest$BSink, take, void, $MetafactoryParameterCastTest$B*)},
 	{}
 };
 

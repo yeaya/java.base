@@ -39,10 +39,10 @@ $FieldInfo _KeyShareExtension$KeyShareEntry_FieldInfo_[] = {
 };
 
 $MethodInfo _KeyShareExtension$KeyShareEntry_MethodInfo_[] = {
-	{"<init>", "(I[B)V", nullptr, $PRIVATE, $method(static_cast<void(KeyShareExtension$KeyShareEntry::*)(int32_t,$bytes*)>(&KeyShareExtension$KeyShareEntry::init$))},
-	{"getEncoded", "()[B", nullptr, $PRIVATE, $method(static_cast<$bytes*(KeyShareExtension$KeyShareEntry::*)()>(&KeyShareExtension$KeyShareEntry::getEncoded))},
-	{"getEncodedSize", "()I", nullptr, $PRIVATE, $method(static_cast<int32_t(KeyShareExtension$KeyShareEntry::*)()>(&KeyShareExtension$KeyShareEntry::getEncodedSize))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(I[B)V", nullptr, $PRIVATE, $method(KeyShareExtension$KeyShareEntry, init$, void, int32_t, $bytes*)},
+	{"getEncoded", "()[B", nullptr, $PRIVATE, $method(KeyShareExtension$KeyShareEntry, getEncoded, $bytes*)},
+	{"getEncodedSize", "()I", nullptr, $PRIVATE, $method(KeyShareExtension$KeyShareEntry, getEncodedSize, int32_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KeyShareExtension$KeyShareEntry, toString, $String*)},
 	{}
 };
 

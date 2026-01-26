@@ -24,9 +24,9 @@ $FieldInfo _DirectMethodHandle$1_FieldInfo_[] = {
 };
 
 $MethodInfo _DirectMethodHandle$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/invoke/DirectMethodHandle;)V", nullptr, 0, $method(static_cast<void(DirectMethodHandle$1::*)($DirectMethodHandle*)>(&DirectMethodHandle$1::init$))},
-	{"apply", "(Ljava/lang/invoke/LambdaForm;)Ljava/lang/invoke/LambdaForm;", nullptr, $PUBLIC},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "(Ljava/lang/invoke/DirectMethodHandle;)V", nullptr, 0, $method(DirectMethodHandle$1, init$, void, $DirectMethodHandle*)},
+	{"apply", "(Ljava/lang/invoke/LambdaForm;)Ljava/lang/invoke/LambdaForm;", nullptr, $PUBLIC, $virtualMethod(DirectMethodHandle$1, apply, $LambdaForm*, $LambdaForm*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DirectMethodHandle$1, apply, $Object*, Object$*)},
 	{}
 };
 

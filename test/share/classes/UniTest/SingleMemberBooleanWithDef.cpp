@@ -25,7 +25,7 @@ $Attribute _SingleMemberBooleanWithDef_DefaultValue_value0 = {
 };
 
 $MethodInfo _SingleMemberBooleanWithDef_MethodInfo_[] = {
-	{"value", "()Z", nullptr, $PUBLIC | $ABSTRACT, nullptr, nullptr, &_SingleMemberBooleanWithDef_DefaultValue_value0},
+	{"value", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SingleMemberBooleanWithDef, value, bool), nullptr, &_SingleMemberBooleanWithDef_DefaultValue_value0},
 	{}
 };
 

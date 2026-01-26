@@ -34,13 +34,13 @@ namespace java {
 		namespace constant {
 
 $MethodInfo _MethodHandleDesc_MethodInfo_[] = {
-	{"asType", "(Ljava/lang/constant/MethodTypeDesc;)Ljava/lang/constant/MethodHandleDesc;", nullptr, $PUBLIC},
+	{"asType", "(Ljava/lang/constant/MethodTypeDesc;)Ljava/lang/constant/MethodHandleDesc;", nullptr, $PUBLIC, $virtualMethod(MethodHandleDesc, asType, MethodHandleDesc*, $MethodTypeDesc*)},
 	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"invocationType", "()Ljava/lang/constant/MethodTypeDesc;", nullptr, $PUBLIC | $ABSTRACT},
-	{"of", "(Ljava/lang/constant/DirectMethodHandleDesc$Kind;Ljava/lang/constant/ClassDesc;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/constant/DirectMethodHandleDesc;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$DirectMethodHandleDesc*(*)($DirectMethodHandleDesc$Kind*,$ClassDesc*,$String*,$String*)>(&MethodHandleDesc::of))},
-	{"ofConstructor", "(Ljava/lang/constant/ClassDesc;[Ljava/lang/constant/ClassDesc;)Ljava/lang/constant/DirectMethodHandleDesc;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<$DirectMethodHandleDesc*(*)($ClassDesc*,$ClassDescArray*)>(&MethodHandleDesc::ofConstructor))},
-	{"ofField", "(Ljava/lang/constant/DirectMethodHandleDesc$Kind;Ljava/lang/constant/ClassDesc;Ljava/lang/String;Ljava/lang/constant/ClassDesc;)Ljava/lang/constant/DirectMethodHandleDesc;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$DirectMethodHandleDesc*(*)($DirectMethodHandleDesc$Kind*,$ClassDesc*,$String*,$ClassDesc*)>(&MethodHandleDesc::ofField))},
-	{"ofMethod", "(Ljava/lang/constant/DirectMethodHandleDesc$Kind;Ljava/lang/constant/ClassDesc;Ljava/lang/String;Ljava/lang/constant/MethodTypeDesc;)Ljava/lang/constant/DirectMethodHandleDesc;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$DirectMethodHandleDesc*(*)($DirectMethodHandleDesc$Kind*,$ClassDesc*,$String*,$MethodTypeDesc*)>(&MethodHandleDesc::ofMethod))},
+	{"invocationType", "()Ljava/lang/constant/MethodTypeDesc;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MethodHandleDesc, invocationType, $MethodTypeDesc*)},
+	{"of", "(Ljava/lang/constant/DirectMethodHandleDesc$Kind;Ljava/lang/constant/ClassDesc;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/constant/DirectMethodHandleDesc;", nullptr, $PUBLIC | $STATIC, $staticMethod(MethodHandleDesc, of, $DirectMethodHandleDesc*, $DirectMethodHandleDesc$Kind*, $ClassDesc*, $String*, $String*)},
+	{"ofConstructor", "(Ljava/lang/constant/ClassDesc;[Ljava/lang/constant/ClassDesc;)Ljava/lang/constant/DirectMethodHandleDesc;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(MethodHandleDesc, ofConstructor, $DirectMethodHandleDesc*, $ClassDesc*, $ClassDescArray*)},
+	{"ofField", "(Ljava/lang/constant/DirectMethodHandleDesc$Kind;Ljava/lang/constant/ClassDesc;Ljava/lang/String;Ljava/lang/constant/ClassDesc;)Ljava/lang/constant/DirectMethodHandleDesc;", nullptr, $PUBLIC | $STATIC, $staticMethod(MethodHandleDesc, ofField, $DirectMethodHandleDesc*, $DirectMethodHandleDesc$Kind*, $ClassDesc*, $String*, $ClassDesc*)},
+	{"ofMethod", "(Ljava/lang/constant/DirectMethodHandleDesc$Kind;Ljava/lang/constant/ClassDesc;Ljava/lang/String;Ljava/lang/constant/MethodTypeDesc;)Ljava/lang/constant/DirectMethodHandleDesc;", nullptr, $PUBLIC | $STATIC, $staticMethod(MethodHandleDesc, ofMethod, $DirectMethodHandleDesc*, $DirectMethodHandleDesc$Kind*, $ClassDesc*, $String*, $MethodTypeDesc*)},
 	{}
 };
 

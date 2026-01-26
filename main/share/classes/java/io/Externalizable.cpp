@@ -4,6 +4,8 @@
 #include <java/io/ObjectOutput.h>
 #include <jcpp.h>
 
+using $ObjectInput = ::java::io::ObjectInput;
+using $ObjectOutput = ::java::io::ObjectOutput;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
@@ -11,8 +13,8 @@ namespace java {
 	namespace io {
 
 $MethodInfo _Externalizable_MethodInfo_[] = {
-	{"readExternal", "(Ljava/io/ObjectInput;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"writeExternal", "(Ljava/io/ObjectOutput;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
+	{"readExternal", "(Ljava/io/ObjectInput;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Externalizable, readExternal, void, $ObjectInput*), "java.io.IOException,java.lang.ClassNotFoundException"},
+	{"writeExternal", "(Ljava/io/ObjectOutput;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Externalizable, writeExternal, void, $ObjectOutput*), "java.io.IOException"},
 	{}
 };
 

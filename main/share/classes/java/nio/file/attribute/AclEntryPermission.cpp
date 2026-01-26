@@ -55,10 +55,10 @@ $FieldInfo _AclEntryPermission_FieldInfo_[] = {
 };
 
 $MethodInfo _AclEntryPermission_MethodInfo_[] = {
-	{"$values", "()[Ljava/nio/file/attribute/AclEntryPermission;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$AclEntryPermissionArray*(*)()>(&AclEntryPermission::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(AclEntryPermission::*)($String*,int32_t)>(&AclEntryPermission::init$))},
-	{"valueOf", "(Ljava/lang/String;)Ljava/nio/file/attribute/AclEntryPermission;", nullptr, $PUBLIC | $STATIC, $method(static_cast<AclEntryPermission*(*)($String*)>(&AclEntryPermission::valueOf))},
-	{"values", "()[Ljava/nio/file/attribute/AclEntryPermission;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$AclEntryPermissionArray*(*)()>(&AclEntryPermission::values))},
+	{"$values", "()[Ljava/nio/file/attribute/AclEntryPermission;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AclEntryPermission, $values, $AclEntryPermissionArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(AclEntryPermission, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Ljava/nio/file/attribute/AclEntryPermission;", nullptr, $PUBLIC | $STATIC, $staticMethod(AclEntryPermission, valueOf, AclEntryPermission*, $String*)},
+	{"values", "()[Ljava/nio/file/attribute/AclEntryPermission;", nullptr, $PUBLIC | $STATIC, $staticMethod(AclEntryPermission, values, $AclEntryPermissionArray*)},
 	{}
 };
 

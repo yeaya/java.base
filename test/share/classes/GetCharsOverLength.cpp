@@ -12,8 +12,8 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $StringBuffer = ::java::lang::StringBuffer;
 
 $MethodInfo _GetCharsOverLength_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(GetCharsOverLength::*)()>(&GetCharsOverLength::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&GetCharsOverLength::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(GetCharsOverLength, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(GetCharsOverLength, main, void, $StringArray*)},
 	{}
 };
 

@@ -21,12 +21,12 @@ using $SocketChannel = ::java::nio::channels::SocketChannel;
 using $SelectorProvider = ::java::nio::channels::spi::SelectorProvider;
 
 $MethodInfo _Open_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Open::*)()>(&Open::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Open::main)), "java.lang.Exception"},
-	{"test1", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&Open::test1))},
-	{"test2", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&Open::test2))},
-	{"test3", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&Open::test3))},
-	{"test4", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&Open::test4))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Open, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Open, main, void, $StringArray*), "java.lang.Exception"},
+	{"test1", "()V", nullptr, $STATIC, $staticMethod(Open, test1, void)},
+	{"test2", "()V", nullptr, $STATIC, $staticMethod(Open, test2, void)},
+	{"test3", "()V", nullptr, $STATIC, $staticMethod(Open, test3, void)},
+	{"test4", "()V", nullptr, $STATIC, $staticMethod(Open, test4, void)},
 	{}
 };
 

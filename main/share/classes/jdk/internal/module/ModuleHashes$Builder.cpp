@@ -28,9 +28,9 @@ $FieldInfo _ModuleHashes$Builder_FieldInfo_[] = {
 };
 
 $MethodInfo _ModuleHashes$Builder_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, 0, $method(static_cast<void(ModuleHashes$Builder::*)($String*,int32_t)>(&ModuleHashes$Builder::init$))},
-	{"build", "()Ljdk/internal/module/ModuleHashes;", nullptr, $PUBLIC},
-	{"hashForModule", "(Ljava/lang/String;[B)Ljdk/internal/module/ModuleHashes$Builder;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;I)V", nullptr, 0, $method(ModuleHashes$Builder, init$, void, $String*, int32_t)},
+	{"build", "()Ljdk/internal/module/ModuleHashes;", nullptr, $PUBLIC, $virtualMethod(ModuleHashes$Builder, build, $ModuleHashes*)},
+	{"hashForModule", "(Ljava/lang/String;[B)Ljdk/internal/module/ModuleHashes$Builder;", nullptr, $PUBLIC, $virtualMethod(ModuleHashes$Builder, hashForModule, ModuleHashes$Builder*, $String*, $bytes*)},
 	{}
 };
 

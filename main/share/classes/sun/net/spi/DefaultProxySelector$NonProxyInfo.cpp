@@ -27,7 +27,7 @@ $FieldInfo _DefaultProxySelector$NonProxyInfo_FieldInfo_[] = {
 };
 
 $MethodInfo _DefaultProxySelector$NonProxyInfo_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/regex/Pattern;Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(DefaultProxySelector$NonProxyInfo::*)($String*,$String*,$Pattern*,$String*)>(&DefaultProxySelector$NonProxyInfo::init$))},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/regex/Pattern;Ljava/lang/String;)V", nullptr, 0, $method(DefaultProxySelector$NonProxyInfo, init$, void, $String*, $String*, $Pattern*, $String*)},
 	{}
 };
 

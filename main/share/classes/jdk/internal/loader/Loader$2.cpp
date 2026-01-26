@@ -25,8 +25,8 @@ $FieldInfo _Loader$2_FieldInfo_[] = {
 };
 
 $MethodInfo _Loader$2_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/loader/Loader;Ljava/net/URL;)V", "()V", 0, $method(static_cast<void(Loader$2::*)($Loader*,$URL*)>(&Loader$2::init$))},
-	{"run", "()Ljava/net/URL;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljdk/internal/loader/Loader;Ljava/net/URL;)V", "()V", 0, $method(Loader$2, init$, void, $Loader*, $URL*)},
+	{"run", "()Ljava/net/URL;", nullptr, $PUBLIC, $virtualMethod(Loader$2, run, $Object*), "java.io.IOException"},
 	{}
 };
 

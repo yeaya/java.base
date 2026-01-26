@@ -12,8 +12,8 @@ using $InetAddress = ::java::net::InetAddress;
 using $UnknownHostException = ::java::net::UnknownHostException;
 
 $MethodInfo _IPv4Formats_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(IPv4Formats::*)()>(&IPv4Formats::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&IPv4Formats::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(IPv4Formats, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(IPv4Formats, main, void, $StringArray*)},
 	{}
 };
 

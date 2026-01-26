@@ -30,14 +30,14 @@ $FieldInfo _ProviderList$PreferredList_FieldInfo_[] = {
 };
 
 $MethodInfo _ProviderList$PreferredList_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ProviderList$PreferredList::*)()>(&ProviderList$PreferredList::init$))},
-	{"add", "(Lsun/security/jca/ProviderList$PreferredEntry;)Z", nullptr, $PUBLIC, $method(static_cast<bool(ProviderList$PreferredList::*)($ProviderList$PreferredEntry*)>(&ProviderList$PreferredList::add))},
-	{"get", "(I)Lsun/security/jca/ProviderList$PreferredEntry;", nullptr, $PUBLIC, $method(static_cast<$ProviderList$PreferredEntry*(ProviderList$PreferredList::*)(int32_t)>(&ProviderList$PreferredList::get))},
-	{"getAll", "(Lsun/security/jca/ProviderList$ServiceList;)Ljava/util/ArrayList;", "(Lsun/security/jca/ProviderList$ServiceList;)Ljava/util/ArrayList<Lsun/security/jca/ProviderList$PreferredEntry;>;", 0, $method(static_cast<$ArrayList*(ProviderList$PreferredList::*)($ProviderList$ServiceList*)>(&ProviderList$PreferredList::getAll))},
-	{"getAll", "(Ljava/lang/String;Ljava/lang/String;)Ljava/util/ArrayList;", "(Ljava/lang/String;Ljava/lang/String;)Ljava/util/ArrayList<Lsun/security/jca/ProviderList$PreferredEntry;>;", 0, $method(static_cast<$ArrayList*(ProviderList$PreferredList::*)($String*,$String*)>(&ProviderList$PreferredList::getAll))},
-	{"implGetAll", "(Ljava/util/ArrayList;Ljava/lang/String;Ljava/lang/String;)V", "(Ljava/util/ArrayList<Lsun/security/jca/ProviderList$PreferredEntry;>;Ljava/lang/String;Ljava/lang/String;)V", $PRIVATE, $method(static_cast<void(ProviderList$PreferredList::*)($ArrayList*,$String*,$String*)>(&ProviderList$PreferredList::implGetAll))},
-	{"size", "()I", nullptr, $PUBLIC, $method(static_cast<int32_t(ProviderList$PreferredList::*)()>(&ProviderList$PreferredList::size))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(ProviderList$PreferredList, init$, void)},
+	{"add", "(Lsun/security/jca/ProviderList$PreferredEntry;)Z", nullptr, $PUBLIC, $method(ProviderList$PreferredList, add, bool, $ProviderList$PreferredEntry*)},
+	{"get", "(I)Lsun/security/jca/ProviderList$PreferredEntry;", nullptr, $PUBLIC, $method(ProviderList$PreferredList, get, $ProviderList$PreferredEntry*, int32_t)},
+	{"getAll", "(Lsun/security/jca/ProviderList$ServiceList;)Ljava/util/ArrayList;", "(Lsun/security/jca/ProviderList$ServiceList;)Ljava/util/ArrayList<Lsun/security/jca/ProviderList$PreferredEntry;>;", 0, $method(ProviderList$PreferredList, getAll, $ArrayList*, $ProviderList$ServiceList*)},
+	{"getAll", "(Ljava/lang/String;Ljava/lang/String;)Ljava/util/ArrayList;", "(Ljava/lang/String;Ljava/lang/String;)Ljava/util/ArrayList<Lsun/security/jca/ProviderList$PreferredEntry;>;", 0, $method(ProviderList$PreferredList, getAll, $ArrayList*, $String*, $String*)},
+	{"implGetAll", "(Ljava/util/ArrayList;Ljava/lang/String;Ljava/lang/String;)V", "(Ljava/util/ArrayList<Lsun/security/jca/ProviderList$PreferredEntry;>;Ljava/lang/String;Ljava/lang/String;)V", $PRIVATE, $method(ProviderList$PreferredList, implGetAll, void, $ArrayList*, $String*, $String*)},
+	{"size", "()I", nullptr, $PUBLIC, $method(ProviderList$PreferredList, size, int32_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ProviderList$PreferredList, toString, $String*)},
 	{}
 };
 

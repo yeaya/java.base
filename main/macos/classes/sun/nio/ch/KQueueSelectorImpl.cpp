@@ -81,16 +81,16 @@ $FieldInfo _KQueueSelectorImpl_FieldInfo_[] = {
 };
 
 $MethodInfo _KQueueSelectorImpl_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/channels/spi/SelectorProvider;)V", nullptr, 0, $method(static_cast<void(KQueueSelectorImpl::*)($SelectorProvider*)>(&KQueueSelectorImpl::init$)), "java.io.IOException"},
-	{"clearInterrupt", "()V", nullptr, $PRIVATE, $method(static_cast<void(KQueueSelectorImpl::*)()>(&KQueueSelectorImpl::clearInterrupt)), "java.io.IOException"},
-	{"doSelect", "(Ljava/util/function/Consumer;J)I", "(Ljava/util/function/Consumer<Ljava/nio/channels/SelectionKey;>;J)I", $PROTECTED, nullptr, "java.io.IOException"},
-	{"ensureOpen", "()V", nullptr, $PRIVATE, $method(static_cast<void(KQueueSelectorImpl::*)()>(&KQueueSelectorImpl::ensureOpen))},
-	{"implClose", "()V", nullptr, $PROTECTED, nullptr, "java.io.IOException"},
-	{"implDereg", "(Lsun/nio/ch/SelectionKeyImpl;)V", nullptr, $PROTECTED, nullptr, "java.io.IOException"},
-	{"processEvents", "(ILjava/util/function/Consumer;)I", "(ILjava/util/function/Consumer<Ljava/nio/channels/SelectionKey;>;)I", $PRIVATE, $method(static_cast<int32_t(KQueueSelectorImpl::*)(int32_t,$Consumer*)>(&KQueueSelectorImpl::processEvents)), "java.io.IOException"},
-	{"processUpdateQueue", "()V", nullptr, $PRIVATE, $method(static_cast<void(KQueueSelectorImpl::*)()>(&KQueueSelectorImpl::processUpdateQueue))},
-	{"setEventOps", "(Lsun/nio/ch/SelectionKeyImpl;)V", nullptr, $PUBLIC},
-	{"wakeup", "()Ljava/nio/channels/Selector;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/nio/channels/spi/SelectorProvider;)V", nullptr, 0, $method(KQueueSelectorImpl, init$, void, $SelectorProvider*), "java.io.IOException"},
+	{"clearInterrupt", "()V", nullptr, $PRIVATE, $method(KQueueSelectorImpl, clearInterrupt, void), "java.io.IOException"},
+	{"doSelect", "(Ljava/util/function/Consumer;J)I", "(Ljava/util/function/Consumer<Ljava/nio/channels/SelectionKey;>;J)I", $PROTECTED, $virtualMethod(KQueueSelectorImpl, doSelect, int32_t, $Consumer*, int64_t), "java.io.IOException"},
+	{"ensureOpen", "()V", nullptr, $PRIVATE, $method(KQueueSelectorImpl, ensureOpen, void)},
+	{"implClose", "()V", nullptr, $PROTECTED, $virtualMethod(KQueueSelectorImpl, implClose, void), "java.io.IOException"},
+	{"implDereg", "(Lsun/nio/ch/SelectionKeyImpl;)V", nullptr, $PROTECTED, $virtualMethod(KQueueSelectorImpl, implDereg, void, $SelectionKeyImpl*), "java.io.IOException"},
+	{"processEvents", "(ILjava/util/function/Consumer;)I", "(ILjava/util/function/Consumer<Ljava/nio/channels/SelectionKey;>;)I", $PRIVATE, $method(KQueueSelectorImpl, processEvents, int32_t, int32_t, $Consumer*), "java.io.IOException"},
+	{"processUpdateQueue", "()V", nullptr, $PRIVATE, $method(KQueueSelectorImpl, processUpdateQueue, void)},
+	{"setEventOps", "(Lsun/nio/ch/SelectionKeyImpl;)V", nullptr, $PUBLIC, $virtualMethod(KQueueSelectorImpl, setEventOps, void, $SelectionKeyImpl*)},
+	{"wakeup", "()Ljava/nio/channels/Selector;", nullptr, $PUBLIC, $virtualMethod(KQueueSelectorImpl, wakeup, $Selector*)},
 	{}
 };
 

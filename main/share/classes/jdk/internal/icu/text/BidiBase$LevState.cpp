@@ -26,7 +26,7 @@ $FieldInfo _BidiBase$LevState_FieldInfo_[] = {
 };
 
 $MethodInfo _BidiBase$LevState_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(BidiBase$LevState::*)()>(&BidiBase$LevState::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(BidiBase$LevState, init$, void)},
 	{}
 };
 

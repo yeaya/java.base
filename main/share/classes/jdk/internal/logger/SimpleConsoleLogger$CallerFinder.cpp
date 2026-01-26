@@ -64,8 +64,8 @@ $FieldInfo SimpleConsoleLogger$CallerFinder$$Lambda$lambda$get$0::fieldInfos[2] 
 	{}
 };
 $MethodInfo SimpleConsoleLogger$CallerFinder$$Lambda$lambda$get$0::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/logger/SimpleConsoleLogger$CallerFinder;)V", nullptr, $PUBLIC, $method(static_cast<void(SimpleConsoleLogger$CallerFinder$$Lambda$lambda$get$0::*)(SimpleConsoleLogger$CallerFinder*)>(&SimpleConsoleLogger$CallerFinder$$Lambda$lambda$get$0::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/logger/SimpleConsoleLogger$CallerFinder;)V", nullptr, $PUBLIC, $method(SimpleConsoleLogger$CallerFinder$$Lambda$lambda$get$0, init$, void, SimpleConsoleLogger$CallerFinder*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SimpleConsoleLogger$CallerFinder$$Lambda$lambda$get$0, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo SimpleConsoleLogger$CallerFinder$$Lambda$lambda$get$0::classInfo$ = {
@@ -89,12 +89,12 @@ $FieldInfo _SimpleConsoleLogger$CallerFinder_FieldInfo_[] = {
 };
 
 $MethodInfo _SimpleConsoleLogger$CallerFinder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(SimpleConsoleLogger$CallerFinder::*)()>(&SimpleConsoleLogger$CallerFinder::init$))},
-	{"get", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/lang/StackWalker$StackFrame;>;", 0, $method(static_cast<$Optional*(SimpleConsoleLogger$CallerFinder::*)()>(&SimpleConsoleLogger$CallerFinder::get))},
-	{"isLoggerImplFrame", "(Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(static_cast<bool(SimpleConsoleLogger$CallerFinder::*)($String*)>(&SimpleConsoleLogger$CallerFinder::isLoggerImplFrame))},
-	{"lambda$get$0", "(Ljava/util/stream/Stream;)Ljava/util/Optional;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$Optional*(SimpleConsoleLogger$CallerFinder::*)($Stream*)>(&SimpleConsoleLogger$CallerFinder::lambda$get$0))},
-	{"test", "(Ljava/lang/StackWalker$StackFrame;)Z", nullptr, $PUBLIC, $method(static_cast<bool(SimpleConsoleLogger$CallerFinder::*)($StackWalker$StackFrame*)>(&SimpleConsoleLogger$CallerFinder::test))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "()V", nullptr, 0, $method(SimpleConsoleLogger$CallerFinder, init$, void)},
+	{"get", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/lang/StackWalker$StackFrame;>;", 0, $method(SimpleConsoleLogger$CallerFinder, get, $Optional*)},
+	{"isLoggerImplFrame", "(Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(SimpleConsoleLogger$CallerFinder, isLoggerImplFrame, bool, $String*)},
+	{"lambda$get$0", "(Ljava/util/stream/Stream;)Ljava/util/Optional;", nullptr, $PRIVATE | $SYNTHETIC, $method(SimpleConsoleLogger$CallerFinder, lambda$get$0, $Optional*, $Stream*)},
+	{"test", "(Ljava/lang/StackWalker$StackFrame;)Z", nullptr, $PUBLIC, $method(SimpleConsoleLogger$CallerFinder, test, bool, $StackWalker$StackFrame*)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(SimpleConsoleLogger$CallerFinder, test, bool, Object$*)},
 	{}
 };
 

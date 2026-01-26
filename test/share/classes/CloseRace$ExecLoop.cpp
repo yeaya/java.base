@@ -22,8 +22,8 @@ using $ProcessBuilder = ::java::lang::ProcessBuilder;
 using $CountDownLatch = ::java::util::concurrent::CountDownLatch;
 
 $MethodInfo _CloseRace$ExecLoop_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(CloseRace$ExecLoop::*)()>(&CloseRace$ExecLoop::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(CloseRace$ExecLoop, init$, void)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(CloseRace$ExecLoop, run, void)},
 	{}
 };
 

@@ -12,10 +12,10 @@ namespace java {
 		namespace spec {
 
 $MethodInfo _PKCS8EncodedKeySpec_MethodInfo_[] = {
-	{"<init>", "([B)V", nullptr, $PUBLIC, $method(static_cast<void(PKCS8EncodedKeySpec::*)($bytes*)>(&PKCS8EncodedKeySpec::init$))},
-	{"<init>", "([BLjava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(PKCS8EncodedKeySpec::*)($bytes*,$String*)>(&PKCS8EncodedKeySpec::init$))},
-	{"getEncoded", "()[B", nullptr, $PUBLIC},
-	{"getFormat", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL},
+	{"<init>", "([B)V", nullptr, $PUBLIC, $method(PKCS8EncodedKeySpec, init$, void, $bytes*)},
+	{"<init>", "([BLjava/lang/String;)V", nullptr, $PUBLIC, $method(PKCS8EncodedKeySpec, init$, void, $bytes*, $String*)},
+	{"getEncoded", "()[B", nullptr, $PUBLIC, $virtualMethod(PKCS8EncodedKeySpec, getEncoded, $bytes*)},
+	{"getFormat", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(PKCS8EncodedKeySpec, getFormat, $String*)},
 	{}
 };
 

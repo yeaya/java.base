@@ -16,10 +16,10 @@ $FieldInfo _IllegalCallerException_FieldInfo_[] = {
 };
 
 $MethodInfo _IllegalCallerException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(IllegalCallerException::*)()>(&IllegalCallerException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(IllegalCallerException::*)($String*)>(&IllegalCallerException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(IllegalCallerException::*)($String*,$Throwable*)>(&IllegalCallerException::init$))},
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(IllegalCallerException::*)($Throwable*)>(&IllegalCallerException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(IllegalCallerException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(IllegalCallerException, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(IllegalCallerException, init$, void, $String*, $Throwable*)},
+	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(IllegalCallerException, init$, void, $Throwable*)},
 	{}
 };
 

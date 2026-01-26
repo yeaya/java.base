@@ -41,8 +41,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ClassAttributesTest$$Lambda$lambda$main$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ClassAttributesTest$$Lambda$lambda$main$0::*)()>(&ClassAttributesTest$$Lambda$lambda$main$0::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ClassAttributesTest$$Lambda$lambda$main$0, init$, void)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ClassAttributesTest$$Lambda$lambda$main$0, run, void)},
 	{}
 };
 $ClassInfo ClassAttributesTest$$Lambda$lambda$main$0::classInfo$ = {
@@ -60,10 +60,10 @@ $Class* ClassAttributesTest$$Lambda$lambda$main$0::load$($String* name, bool ini
 $Class* ClassAttributesTest$$Lambda$lambda$main$0::class$ = nullptr;
 
 $MethodInfo _ClassAttributesTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ClassAttributesTest::*)()>(&ClassAttributesTest::init$))},
-	{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)()>(&ClassAttributesTest::lambda$main$0))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&ClassAttributesTest::main))},
-	{"test", "(Ljava/lang/Class;ZZZ)I", "(Ljava/lang/Class<*>;ZZZ)I", $STATIC, $method(static_cast<int32_t(*)($Class*,bool,bool,bool)>(&ClassAttributesTest::test))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ClassAttributesTest, init$, void)},
+	{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ClassAttributesTest, lambda$main$0, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ClassAttributesTest, main, void, $StringArray*)},
+	{"test", "(Ljava/lang/Class;ZZZ)I", "(Ljava/lang/Class<*>;ZZZ)I", $STATIC, $staticMethod(ClassAttributesTest, test, int32_t, $Class*, bool, bool, bool)},
 	{}
 };
 

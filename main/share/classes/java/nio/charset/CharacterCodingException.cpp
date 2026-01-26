@@ -18,7 +18,7 @@ $FieldInfo _CharacterCodingException_FieldInfo_[] = {
 };
 
 $MethodInfo _CharacterCodingException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CharacterCodingException::*)()>(&CharacterCodingException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CharacterCodingException, init$, void)},
 	{}
 };
 

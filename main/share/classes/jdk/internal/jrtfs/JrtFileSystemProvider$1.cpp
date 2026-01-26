@@ -23,8 +23,8 @@ $FieldInfo _JrtFileSystemProvider$1_FieldInfo_[] = {
 };
 
 $MethodInfo _JrtFileSystemProvider$1_MethodInfo_[] = {
-	{"<init>", "([Ljava/net/URL;)V", "()V", 0, $method(static_cast<void(JrtFileSystemProvider$1::*)($URLArray*)>(&JrtFileSystemProvider$1::init$))},
-	{"run", "()Ljava/net/URLClassLoader;", nullptr, $PUBLIC},
+	{"<init>", "([Ljava/net/URL;)V", "()V", 0, $method(JrtFileSystemProvider$1, init$, void, $URLArray*)},
+	{"run", "()Ljava/net/URLClassLoader;", nullptr, $PUBLIC, $virtualMethod(JrtFileSystemProvider$1, run, $Object*)},
 	{}
 };
 

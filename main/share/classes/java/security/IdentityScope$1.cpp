@@ -14,8 +14,8 @@ namespace java {
 	namespace security {
 
 $MethodInfo _IdentityScope$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(IdentityScope$1::*)()>(&IdentityScope$1::init$))},
-	{"run", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(IdentityScope$1, init$, void)},
+	{"run", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IdentityScope$1, run, $Object*)},
 	{}
 };
 

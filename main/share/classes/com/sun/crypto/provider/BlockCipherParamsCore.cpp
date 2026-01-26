@@ -38,14 +38,14 @@ $FieldInfo _BlockCipherParamsCore_FieldInfo_[] = {
 };
 
 $MethodInfo _BlockCipherParamsCore_MethodInfo_[] = {
-	{"<init>", "(I[I)V", nullptr, $TRANSIENT, $method(static_cast<void(BlockCipherParamsCore::*)(int32_t,$ints*)>(&BlockCipherParamsCore::init$))},
-	{"getEncoded", "()[B", nullptr, 0, $method(static_cast<$bytes*(BlockCipherParamsCore::*)()>(&BlockCipherParamsCore::getEncoded)), "java.io.IOException"},
-	{"getEncoded", "(Ljava/lang/String;)[B", nullptr, 0, $method(static_cast<$bytes*(BlockCipherParamsCore::*)($String*)>(&BlockCipherParamsCore::getEncoded)), "java.io.IOException"},
-	{"getParameterSpec", "(Ljava/lang/Class;)Ljava/security/spec/AlgorithmParameterSpec;", "<T::Ljava/security/spec/AlgorithmParameterSpec;>(Ljava/lang/Class<TT;>;)TT;", 0, $method(static_cast<$AlgorithmParameterSpec*(BlockCipherParamsCore::*)($Class*)>(&BlockCipherParamsCore::getParameterSpec)), "java.security.spec.InvalidParameterSpecException"},
-	{"init", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, 0, $method(static_cast<void(BlockCipherParamsCore::*)($AlgorithmParameterSpec*)>(&BlockCipherParamsCore::init)), "java.security.spec.InvalidParameterSpecException"},
-	{"init", "([B)V", nullptr, 0, $method(static_cast<void(BlockCipherParamsCore::*)($bytes*)>(&BlockCipherParamsCore::init)), "java.io.IOException"},
-	{"init", "([BLjava/lang/String;)V", nullptr, 0, $method(static_cast<void(BlockCipherParamsCore::*)($bytes*,$String*)>(&BlockCipherParamsCore::init)), "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(I[I)V", nullptr, $TRANSIENT, $method(BlockCipherParamsCore, init$, void, int32_t, $ints*)},
+	{"getEncoded", "()[B", nullptr, 0, $method(BlockCipherParamsCore, getEncoded, $bytes*), "java.io.IOException"},
+	{"getEncoded", "(Ljava/lang/String;)[B", nullptr, 0, $method(BlockCipherParamsCore, getEncoded, $bytes*, $String*), "java.io.IOException"},
+	{"getParameterSpec", "(Ljava/lang/Class;)Ljava/security/spec/AlgorithmParameterSpec;", "<T::Ljava/security/spec/AlgorithmParameterSpec;>(Ljava/lang/Class<TT;>;)TT;", 0, $method(BlockCipherParamsCore, getParameterSpec, $AlgorithmParameterSpec*, $Class*), "java.security.spec.InvalidParameterSpecException"},
+	{"init", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, 0, $method(BlockCipherParamsCore, init, void, $AlgorithmParameterSpec*), "java.security.spec.InvalidParameterSpecException"},
+	{"init", "([B)V", nullptr, 0, $method(BlockCipherParamsCore, init, void, $bytes*), "java.io.IOException"},
+	{"init", "([BLjava/lang/String;)V", nullptr, 0, $method(BlockCipherParamsCore, init, void, $bytes*, $String*), "java.io.IOException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BlockCipherParamsCore, toString, $String*)},
 	{}
 };
 

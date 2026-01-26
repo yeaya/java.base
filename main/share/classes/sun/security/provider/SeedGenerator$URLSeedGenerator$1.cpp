@@ -30,8 +30,8 @@ $FieldInfo _SeedGenerator$URLSeedGenerator$1_FieldInfo_[] = {
 };
 
 $MethodInfo _SeedGenerator$URLSeedGenerator$1_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/provider/SeedGenerator$URLSeedGenerator;Ljava/net/URL;)V", nullptr, 0, $method(static_cast<void(SeedGenerator$URLSeedGenerator$1::*)($SeedGenerator$URLSeedGenerator*,$URL*)>(&SeedGenerator$URLSeedGenerator$1::init$))},
-	{"run", "()Ljava/io/InputStream;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Lsun/security/provider/SeedGenerator$URLSeedGenerator;Ljava/net/URL;)V", nullptr, 0, $method(SeedGenerator$URLSeedGenerator$1, init$, void, $SeedGenerator$URLSeedGenerator*, $URL*)},
+	{"run", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(SeedGenerator$URLSeedGenerator$1, run, $Object*), "java.io.IOException"},
 	{}
 };
 

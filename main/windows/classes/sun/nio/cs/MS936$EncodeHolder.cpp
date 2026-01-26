@@ -23,7 +23,7 @@ $FieldInfo _MS936$EncodeHolder_FieldInfo_[] = {
 };
 
 $MethodInfo _MS936$EncodeHolder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(MS936$EncodeHolder::*)()>(&MS936$EncodeHolder::init$))},
+	{"<init>", "()V", nullptr, 0, $method(MS936$EncodeHolder, init$, void)},
 	{}
 };
 

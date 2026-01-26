@@ -26,7 +26,7 @@ $FieldInfo _DeserializationEvent_FieldInfo_[] = {
 };
 
 $MethodInfo _DeserializationEvent_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DeserializationEvent::*)()>(&DeserializationEvent::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DeserializationEvent, init$, void)},
 	{}
 };
 

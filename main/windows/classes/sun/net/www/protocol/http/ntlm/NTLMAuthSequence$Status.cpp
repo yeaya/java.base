@@ -21,7 +21,7 @@ $FieldInfo _NTLMAuthSequence$Status_FieldInfo_[] = {
 };
 
 $MethodInfo _NTLMAuthSequence$Status_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(NTLMAuthSequence$Status::*)()>(&NTLMAuthSequence$Status::init$))},
+	{"<init>", "()V", nullptr, 0, $method(NTLMAuthSequence$Status, init$, void)},
 	{}
 };
 

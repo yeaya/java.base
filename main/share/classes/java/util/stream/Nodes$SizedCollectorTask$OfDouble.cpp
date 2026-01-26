@@ -41,10 +41,10 @@ $MethodInfo _Nodes$SizedCollectorTask$OfDouble_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/util/Spliterator;Ljava/util/stream/PipelineHelper;[D)V", "(Ljava/util/Spliterator<TP_IN;>;Ljava/util/stream/PipelineHelper<Ljava/lang/Double;>;[D)V", 0, $method(static_cast<void(Nodes$SizedCollectorTask$OfDouble::*)($Spliterator*,$PipelineHelper*,$doubles*)>(&Nodes$SizedCollectorTask$OfDouble::init$))},
-	{"<init>", "(Ljava/util/stream/Nodes$SizedCollectorTask$OfDouble;Ljava/util/Spliterator;JJ)V", "(Ljava/util/stream/Nodes$SizedCollectorTask$OfDouble<TP_IN;>;Ljava/util/Spliterator<TP_IN;>;JJ)V", 0, $method(static_cast<void(Nodes$SizedCollectorTask$OfDouble::*)(Nodes$SizedCollectorTask$OfDouble*,$Spliterator*,int64_t,int64_t)>(&Nodes$SizedCollectorTask$OfDouble::init$))},
-	{"accept", "(D)V", nullptr, $PUBLIC},
-	{"makeChild", "(Ljava/util/Spliterator;JJ)Ljava/util/stream/Nodes$SizedCollectorTask$OfDouble;", "(Ljava/util/Spliterator<TP_IN;>;JJ)Ljava/util/stream/Nodes$SizedCollectorTask$OfDouble<TP_IN;>;", 0},
+	{"<init>", "(Ljava/util/Spliterator;Ljava/util/stream/PipelineHelper;[D)V", "(Ljava/util/Spliterator<TP_IN;>;Ljava/util/stream/PipelineHelper<Ljava/lang/Double;>;[D)V", 0, $method(Nodes$SizedCollectorTask$OfDouble, init$, void, $Spliterator*, $PipelineHelper*, $doubles*)},
+	{"<init>", "(Ljava/util/stream/Nodes$SizedCollectorTask$OfDouble;Ljava/util/Spliterator;JJ)V", "(Ljava/util/stream/Nodes$SizedCollectorTask$OfDouble<TP_IN;>;Ljava/util/Spliterator<TP_IN;>;JJ)V", 0, $method(Nodes$SizedCollectorTask$OfDouble, init$, void, Nodes$SizedCollectorTask$OfDouble*, $Spliterator*, int64_t, int64_t)},
+	{"accept", "(D)V", nullptr, $PUBLIC, $virtualMethod(Nodes$SizedCollectorTask$OfDouble, accept, void, double)},
+	{"makeChild", "(Ljava/util/Spliterator;JJ)Ljava/util/stream/Nodes$SizedCollectorTask$OfDouble;", "(Ljava/util/Spliterator<TP_IN;>;JJ)Ljava/util/stream/Nodes$SizedCollectorTask$OfDouble<TP_IN;>;", 0, $virtualMethod(Nodes$SizedCollectorTask$OfDouble, makeChild, Nodes$SizedCollectorTask$OfDouble*, $Spliterator*, int64_t, int64_t)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

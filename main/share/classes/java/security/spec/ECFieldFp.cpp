@@ -19,11 +19,11 @@ $FieldInfo _ECFieldFp_FieldInfo_[] = {
 };
 
 $MethodInfo _ECFieldFp_MethodInfo_[] = {
-	{"<init>", "(Ljava/math/BigInteger;)V", nullptr, $PUBLIC, $method(static_cast<void(ECFieldFp::*)($BigInteger*)>(&ECFieldFp::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getFieldSize", "()I", nullptr, $PUBLIC},
-	{"getP", "()Ljava/math/BigInteger;", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/math/BigInteger;)V", nullptr, $PUBLIC, $method(ECFieldFp, init$, void, $BigInteger*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ECFieldFp, equals, bool, Object$*)},
+	{"getFieldSize", "()I", nullptr, $PUBLIC, $virtualMethod(ECFieldFp, getFieldSize, int32_t)},
+	{"getP", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(ECFieldFp, getP, $BigInteger*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ECFieldFp, hashCode, int32_t)},
 	{}
 };
 

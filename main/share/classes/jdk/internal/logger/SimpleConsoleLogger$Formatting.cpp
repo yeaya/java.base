@@ -41,10 +41,10 @@ $FieldInfo _SimpleConsoleLogger$Formatting_FieldInfo_[] = {
 };
 
 $MethodInfo _SimpleConsoleLogger$Formatting_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(SimpleConsoleLogger$Formatting::*)()>(&SimpleConsoleLogger$Formatting::init$))},
-	{"formatMessage", "(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;", nullptr, $STATIC | $TRANSIENT, $method(static_cast<$String*(*)($String*,$ObjectArray*)>(&SimpleConsoleLogger$Formatting::formatMessage))},
-	{"getSimpleFormat", "(Ljava/lang/String;Ljava/util/function/Function;)Ljava/lang/String;", "(Ljava/lang/String;Ljava/util/function/Function<Ljava/lang/String;Ljava/lang/String;>;)Ljava/lang/String;", $STATIC, $method(static_cast<$String*(*)($String*,$Function*)>(&SimpleConsoleLogger$Formatting::getSimpleFormat))},
-	{"isFilteredFrame", "(Ljava/lang/StackWalker$StackFrame;)Z", nullptr, $STATIC, $method(static_cast<bool(*)($StackWalker$StackFrame*)>(&SimpleConsoleLogger$Formatting::isFilteredFrame))},
+	{"<init>", "()V", nullptr, 0, $method(SimpleConsoleLogger$Formatting, init$, void)},
+	{"formatMessage", "(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;", nullptr, $STATIC | $TRANSIENT, $staticMethod(SimpleConsoleLogger$Formatting, formatMessage, $String*, $String*, $ObjectArray*)},
+	{"getSimpleFormat", "(Ljava/lang/String;Ljava/util/function/Function;)Ljava/lang/String;", "(Ljava/lang/String;Ljava/util/function/Function<Ljava/lang/String;Ljava/lang/String;>;)Ljava/lang/String;", $STATIC, $staticMethod(SimpleConsoleLogger$Formatting, getSimpleFormat, $String*, $String*, $Function*)},
+	{"isFilteredFrame", "(Ljava/lang/StackWalker$StackFrame;)Z", nullptr, $STATIC, $staticMethod(SimpleConsoleLogger$Formatting, isFilteredFrame, bool, $StackWalker$StackFrame*)},
 	{}
 };
 

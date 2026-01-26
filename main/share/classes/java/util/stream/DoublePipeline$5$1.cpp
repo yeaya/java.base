@@ -57,8 +57,8 @@ $FieldInfo DoublePipeline$5$1$$Lambda$accept::fieldInfos[2] = {
 	{}
 };
 $MethodInfo DoublePipeline$5$1$$Lambda$accept::methodInfos[3] = {
-	{"<init>", "(Ljava/util/stream/Sink;)V", nullptr, $PUBLIC, $method(static_cast<void(DoublePipeline$5$1$$Lambda$accept::*)($Sink*)>(&DoublePipeline$5$1$$Lambda$accept::init$))},
-	{"accept", "(D)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/stream/Sink;)V", nullptr, $PUBLIC, $method(DoublePipeline$5$1$$Lambda$accept, init$, void, $Sink*)},
+	{"accept", "(D)V", nullptr, $PUBLIC, $virtualMethod(DoublePipeline$5$1$$Lambda$accept, accept, void, double)},
 	{}
 };
 $ClassInfo DoublePipeline$5$1$$Lambda$accept::classInfo$ = {
@@ -83,10 +83,10 @@ $FieldInfo _DoublePipeline$5$1_FieldInfo_[] = {
 };
 
 $MethodInfo _DoublePipeline$5$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/stream/DoublePipeline$5;Ljava/util/stream/Sink;)V", nullptr, 0, $method(static_cast<void(DoublePipeline$5$1::*)($DoublePipeline$5*,$Sink*)>(&DoublePipeline$5$1::init$))},
-	{"accept", "(D)V", nullptr, $PUBLIC},
-	{"begin", "(J)V", nullptr, $PUBLIC},
-	{"cancellationRequested", "()Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/stream/DoublePipeline$5;Ljava/util/stream/Sink;)V", nullptr, 0, $method(DoublePipeline$5$1, init$, void, $DoublePipeline$5*, $Sink*)},
+	{"accept", "(D)V", nullptr, $PUBLIC, $virtualMethod(DoublePipeline$5$1, accept, void, double)},
+	{"begin", "(J)V", nullptr, $PUBLIC, $virtualMethod(DoublePipeline$5$1, begin, void, int64_t)},
+	{"cancellationRequested", "()Z", nullptr, $PUBLIC, $virtualMethod(DoublePipeline$5$1, cancellationRequested, bool)},
 	{}
 };
 

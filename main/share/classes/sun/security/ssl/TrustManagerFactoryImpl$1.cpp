@@ -25,8 +25,8 @@ $FieldInfo _TrustManagerFactoryImpl$1_FieldInfo_[] = {
 };
 
 $MethodInfo _TrustManagerFactoryImpl$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/File;)V", "()V", 0, $method(static_cast<void(TrustManagerFactoryImpl$1::*)($File*)>(&TrustManagerFactoryImpl$1::init$))},
-	{"run", "()Ljava/io/FileInputStream;", nullptr, $PUBLIC, nullptr, "java.lang.Exception"},
+	{"<init>", "(Ljava/io/File;)V", "()V", 0, $method(TrustManagerFactoryImpl$1, init$, void, $File*)},
+	{"run", "()Ljava/io/FileInputStream;", nullptr, $PUBLIC, $virtualMethod(TrustManagerFactoryImpl$1, run, $Object*), "java.lang.Exception"},
 	{}
 };
 

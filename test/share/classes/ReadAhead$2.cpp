@@ -15,8 +15,8 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _ReadAhead$2_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ReadAhead$2::*)()>(&ReadAhead$2::init$))},
-	{"create", "(Ljava/lang/String;I)Ljava/io/StreamTokenizer;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(ReadAhead$2, init$, void)},
+	{"create", "(Ljava/lang/String;I)Ljava/io/StreamTokenizer;", nullptr, $PUBLIC, $virtualMethod(ReadAhead$2, create, $StreamTokenizer*, $String*, int32_t)},
 	{}
 };
 

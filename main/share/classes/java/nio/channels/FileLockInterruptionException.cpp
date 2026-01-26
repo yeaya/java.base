@@ -18,7 +18,7 @@ $FieldInfo _FileLockInterruptionException_FieldInfo_[] = {
 };
 
 $MethodInfo _FileLockInterruptionException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(FileLockInterruptionException::*)()>(&FileLockInterruptionException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(FileLockInterruptionException, init$, void)},
 	{}
 };
 

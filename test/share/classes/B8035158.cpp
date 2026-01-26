@@ -37,14 +37,14 @@ using $Set = ::java::util::Set;
 using $Callable = ::java::util::concurrent::Callable;
 
 $MethodInfo _B8035158_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(B8035158::*)()>(&B8035158::init$))},
-	{"backupAndSetProperties", "(Ljava/util/Map;Ljava/util/Map;)V", "(Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;)V", $PRIVATE | $STATIC, $method(static_cast<void(*)($Map*,$Map*)>(&B8035158::backupAndSetProperties))},
-	{"emptyNonProxiesHosts", "()Ljava/util/Collection;", "()Ljava/util/Collection<LB8035158$TestCase;>;", $PRIVATE | $STATIC, $method(static_cast<$Collection*(*)()>(&B8035158::emptyNonProxiesHosts))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&B8035158::main))},
-	{"misc", "()Ljava/util/Collection;", "()Ljava/util/Collection<LB8035158$TestCase;>;", $PRIVATE | $STATIC, $method(static_cast<$Collection*(*)()>(&B8035158::misc))},
-	{"nonEmptyNonProxiesHosts", "()Ljava/util/Collection;", "()Ljava/util/Collection<LB8035158$TestCase;>;", $PRIVATE | $STATIC, $method(static_cast<$Collection*(*)()>(&B8035158::nonEmptyNonProxiesHosts))},
-	{"restoreProperties", "(Ljava/util/Map;)V", "(Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;)V", $PRIVATE | $STATIC, $method(static_cast<void(*)($Map*)>(&B8035158::restoreProperties))},
-	{"withSystemPropertiesSet", "(Ljava/util/Map;Ljava/util/concurrent/Callable;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;Ljava/util/concurrent/Callable<+TT;>;)TT;", $PRIVATE | $STATIC, $method(static_cast<$Object*(*)($Map*,$Callable*)>(&B8035158::withSystemPropertiesSet))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(B8035158, init$, void)},
+	{"backupAndSetProperties", "(Ljava/util/Map;Ljava/util/Map;)V", "(Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;)V", $PRIVATE | $STATIC, $staticMethod(B8035158, backupAndSetProperties, void, $Map*, $Map*)},
+	{"emptyNonProxiesHosts", "()Ljava/util/Collection;", "()Ljava/util/Collection<LB8035158$TestCase;>;", $PRIVATE | $STATIC, $staticMethod(B8035158, emptyNonProxiesHosts, $Collection*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(B8035158, main, void, $StringArray*)},
+	{"misc", "()Ljava/util/Collection;", "()Ljava/util/Collection<LB8035158$TestCase;>;", $PRIVATE | $STATIC, $staticMethod(B8035158, misc, $Collection*)},
+	{"nonEmptyNonProxiesHosts", "()Ljava/util/Collection;", "()Ljava/util/Collection<LB8035158$TestCase;>;", $PRIVATE | $STATIC, $staticMethod(B8035158, nonEmptyNonProxiesHosts, $Collection*)},
+	{"restoreProperties", "(Ljava/util/Map;)V", "(Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;)V", $PRIVATE | $STATIC, $staticMethod(B8035158, restoreProperties, void, $Map*)},
+	{"withSystemPropertiesSet", "(Ljava/util/Map;Ljava/util/concurrent/Callable;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;Ljava/util/concurrent/Callable<+TT;>;)TT;", $PRIVATE | $STATIC, $staticMethod(B8035158, withSystemPropertiesSet, $Object*, $Map*, $Callable*)},
 	{}
 };
 

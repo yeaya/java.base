@@ -42,10 +42,10 @@ $FieldInfo _CRLReason_FieldInfo_[] = {
 };
 
 $MethodInfo _CRLReason_MethodInfo_[] = {
-	{"$values", "()[Ljava/security/cert/CRLReason;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$CRLReasonArray*(*)()>(&CRLReason::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(CRLReason::*)($String*,int32_t)>(&CRLReason::init$))},
-	{"valueOf", "(Ljava/lang/String;)Ljava/security/cert/CRLReason;", nullptr, $PUBLIC | $STATIC, $method(static_cast<CRLReason*(*)($String*)>(&CRLReason::valueOf))},
-	{"values", "()[Ljava/security/cert/CRLReason;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$CRLReasonArray*(*)()>(&CRLReason::values))},
+	{"$values", "()[Ljava/security/cert/CRLReason;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CRLReason, $values, $CRLReasonArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(CRLReason, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Ljava/security/cert/CRLReason;", nullptr, $PUBLIC | $STATIC, $staticMethod(CRLReason, valueOf, CRLReason*, $String*)},
+	{"values", "()[Ljava/security/cert/CRLReason;", nullptr, $PUBLIC | $STATIC, $staticMethod(CRLReason, values, $CRLReasonArray*)},
 	{}
 };
 

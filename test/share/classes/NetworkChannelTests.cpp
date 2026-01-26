@@ -39,11 +39,11 @@ using $SocketChannel = ::java::nio::channels::SocketChannel;
 using $UnsupportedAddressTypeException = ::java::nio::channels::UnsupportedAddressTypeException;
 
 $MethodInfo _NetworkChannelTests_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(NetworkChannelTests::*)()>(&NetworkChannelTests::init$))},
-	{"bindTests", "(LNetworkChannelTests$ChannelFactory;)V", nullptr, $STATIC, $method(static_cast<void(*)($NetworkChannelTests$ChannelFactory*)>(&NetworkChannelTests::bindTests)), "java.io.IOException"},
-	{"connectedAddressTests", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&NetworkChannelTests::connectedAddressTests)), "java.io.IOException"},
-	{"localAddressTests", "(LNetworkChannelTests$ChannelFactory;)V", nullptr, $STATIC, $method(static_cast<void(*)($NetworkChannelTests$ChannelFactory*)>(&NetworkChannelTests::localAddressTests)), "java.io.IOException"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&NetworkChannelTests::main)), "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(NetworkChannelTests, init$, void)},
+	{"bindTests", "(LNetworkChannelTests$ChannelFactory;)V", nullptr, $STATIC, $staticMethod(NetworkChannelTests, bindTests, void, $NetworkChannelTests$ChannelFactory*), "java.io.IOException"},
+	{"connectedAddressTests", "()V", nullptr, $STATIC, $staticMethod(NetworkChannelTests, connectedAddressTests, void), "java.io.IOException"},
+	{"localAddressTests", "(LNetworkChannelTests$ChannelFactory;)V", nullptr, $STATIC, $staticMethod(NetworkChannelTests, localAddressTests, void, $NetworkChannelTests$ChannelFactory*), "java.io.IOException"},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(NetworkChannelTests, main, void, $StringArray*), "java.io.IOException"},
 	{}
 };
 

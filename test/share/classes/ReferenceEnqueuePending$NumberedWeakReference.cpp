@@ -19,7 +19,7 @@ $FieldInfo _ReferenceEnqueuePending$NumberedWeakReference_FieldInfo_[] = {
 };
 
 $MethodInfo _ReferenceEnqueuePending$NumberedWeakReference_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Integer;Ljava/lang/ref/ReferenceQueue;I)V", "(Ljava/lang/Integer;Ljava/lang/ref/ReferenceQueue<Ljava/lang/Integer;>;I)V", 0, $method(static_cast<void(ReferenceEnqueuePending$NumberedWeakReference::*)($Integer*,$ReferenceQueue*,int32_t)>(&ReferenceEnqueuePending$NumberedWeakReference::init$))},
+	{"<init>", "(Ljava/lang/Integer;Ljava/lang/ref/ReferenceQueue;I)V", "(Ljava/lang/Integer;Ljava/lang/ref/ReferenceQueue<Ljava/lang/Integer;>;I)V", 0, $method(ReferenceEnqueuePending$NumberedWeakReference, init$, void, $Integer*, $ReferenceQueue*, int32_t)},
 	{}
 };
 

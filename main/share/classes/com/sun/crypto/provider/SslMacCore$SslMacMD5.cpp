@@ -32,14 +32,14 @@ $FieldInfo _SslMacCore$SslMacMD5_FieldInfo_[] = {
 };
 
 $MethodInfo _SslMacCore$SslMacMD5_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SslMacCore$SslMacMD5::*)()>(&SslMacCore$SslMacMD5::init$)), "java.security.NoSuchAlgorithmException"},
-	{"engineDoFinal", "()[B", nullptr, $PROTECTED},
-	{"engineGetMacLength", "()I", nullptr, $PROTECTED},
-	{"engineInit", "(Ljava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PROTECTED, nullptr, "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
-	{"engineReset", "()V", nullptr, $PROTECTED},
-	{"engineUpdate", "(B)V", nullptr, $PROTECTED},
-	{"engineUpdate", "([BII)V", nullptr, $PROTECTED},
-	{"engineUpdate", "(Ljava/nio/ByteBuffer;)V", nullptr, $PROTECTED},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SslMacCore$SslMacMD5, init$, void), "java.security.NoSuchAlgorithmException"},
+	{"engineDoFinal", "()[B", nullptr, $PROTECTED, $virtualMethod(SslMacCore$SslMacMD5, engineDoFinal, $bytes*)},
+	{"engineGetMacLength", "()I", nullptr, $PROTECTED, $virtualMethod(SslMacCore$SslMacMD5, engineGetMacLength, int32_t)},
+	{"engineInit", "(Ljava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PROTECTED, $virtualMethod(SslMacCore$SslMacMD5, engineInit, void, $Key*, $AlgorithmParameterSpec*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
+	{"engineReset", "()V", nullptr, $PROTECTED, $virtualMethod(SslMacCore$SslMacMD5, engineReset, void)},
+	{"engineUpdate", "(B)V", nullptr, $PROTECTED, $virtualMethod(SslMacCore$SslMacMD5, engineUpdate, void, int8_t)},
+	{"engineUpdate", "([BII)V", nullptr, $PROTECTED, $virtualMethod(SslMacCore$SslMacMD5, engineUpdate, void, $bytes*, int32_t, int32_t)},
+	{"engineUpdate", "(Ljava/nio/ByteBuffer;)V", nullptr, $PROTECTED, $virtualMethod(SslMacCore$SslMacMD5, engineUpdate, void, $ByteBuffer*)},
 	{}
 };
 

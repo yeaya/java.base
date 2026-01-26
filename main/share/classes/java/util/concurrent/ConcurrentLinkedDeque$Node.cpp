@@ -20,7 +20,7 @@ $FieldInfo _ConcurrentLinkedDeque$Node_FieldInfo_[] = {
 };
 
 $MethodInfo _ConcurrentLinkedDeque$Node_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ConcurrentLinkedDeque$Node::*)()>(&ConcurrentLinkedDeque$Node::init$))},
+	{"<init>", "()V", nullptr, 0, $method(ConcurrentLinkedDeque$Node, init$, void)},
 	{}
 };
 

@@ -86,20 +86,20 @@ $FieldInfo _MemberFactory_FieldInfo_[] = {
 };
 
 $MethodInfo _MemberFactory_MethodInfo_[] = {
-	{"$values", "()[Lutil/MemberFactory;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$MemberFactoryArray*(*)()>(&MemberFactory::$values))},
+	{"$values", "()[Lutil/MemberFactory;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MemberFactory, $values, $MemberFactoryArray*)},
 	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
 	{"*finalize", "()V", nullptr, $PROTECTED | $FINAL},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"<init>", "(Ljava/lang/String;ILutil/MemberFactory$Kind;Ljava/lang/String;[Ljava/lang/Class;)V", "(Lutil/MemberFactory$Kind;Ljava/lang/String;[Ljava/lang/Class<*>;)V", $PRIVATE | $TRANSIENT, $method(static_cast<void(MemberFactory::*)($String*,int32_t,$MemberFactory$Kind*,$String*,$ClassArray*)>(&MemberFactory::init$))},
-	{"apply", "(Ljava/lang/Class;)Ljava/lang/reflect/AccessibleObject;", "(Ljava/lang/Class<*>;)Ljava/lang/reflect/AccessibleObject;", $PUBLIC, $method(static_cast<$AccessibleObject*(MemberFactory::*)($Class*)>(&MemberFactory::apply))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"asSet", "([Lutil/MemberFactory;)Ljava/util/EnumSet;", "([Lutil/MemberFactory;)Ljava/util/EnumSet<Lutil/MemberFactory;>;", $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<$EnumSet*(*)($MemberFactoryArray*)>(&MemberFactory::asSet))},
-	{"groupsToMembers", "(Ljava/util/EnumSet;)Ljava/util/EnumSet;", "(Ljava/util/EnumSet<Lutil/MemberFactory$Group;>;)Ljava/util/EnumSet<Lutil/MemberFactory;>;", $PUBLIC | $STATIC, $method(static_cast<$EnumSet*(*)($EnumSet*)>(&MemberFactory::groupsToMembers))},
-	{"membersToGroupsOrNull", "(Ljava/util/EnumSet;)Ljava/util/EnumSet;", "(Ljava/util/EnumSet<Lutil/MemberFactory;>;)Ljava/util/EnumSet<Lutil/MemberFactory$Group;>;", $PUBLIC | $STATIC, $method(static_cast<$EnumSet*(*)($EnumSet*)>(&MemberFactory::membersToGroupsOrNull))},
+	{"<init>", "(Ljava/lang/String;ILutil/MemberFactory$Kind;Ljava/lang/String;[Ljava/lang/Class;)V", "(Lutil/MemberFactory$Kind;Ljava/lang/String;[Ljava/lang/Class<*>;)V", $PRIVATE | $TRANSIENT, $method(MemberFactory, init$, void, $String*, int32_t, $MemberFactory$Kind*, $String*, $ClassArray*)},
+	{"apply", "(Ljava/lang/Class;)Ljava/lang/reflect/AccessibleObject;", "(Ljava/lang/Class<*>;)Ljava/lang/reflect/AccessibleObject;", $PUBLIC, $method(MemberFactory, apply, $AccessibleObject*, $Class*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(MemberFactory, apply, $Object*, Object$*)},
+	{"asSet", "([Lutil/MemberFactory;)Ljava/util/EnumSet;", "([Lutil/MemberFactory;)Ljava/util/EnumSet<Lutil/MemberFactory;>;", $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(MemberFactory, asSet, $EnumSet*, $MemberFactoryArray*)},
+	{"groupsToMembers", "(Ljava/util/EnumSet;)Ljava/util/EnumSet;", "(Ljava/util/EnumSet<Lutil/MemberFactory$Group;>;)Ljava/util/EnumSet<Lutil/MemberFactory;>;", $PUBLIC | $STATIC, $staticMethod(MemberFactory, groupsToMembers, $EnumSet*, $EnumSet*)},
+	{"membersToGroupsOrNull", "(Ljava/util/EnumSet;)Ljava/util/EnumSet;", "(Ljava/util/EnumSet<Lutil/MemberFactory;>;)Ljava/util/EnumSet<Lutil/MemberFactory$Group;>;", $PUBLIC | $STATIC, $staticMethod(MemberFactory, membersToGroupsOrNull, $EnumSet*, $EnumSet*)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"valueOf", "(Ljava/lang/String;)Lutil/MemberFactory;", nullptr, $PUBLIC | $STATIC, $method(static_cast<MemberFactory*(*)($String*)>(&MemberFactory::valueOf))},
-	{"values", "()[Lutil/MemberFactory;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$MemberFactoryArray*(*)()>(&MemberFactory::values))},
+	{"valueOf", "(Ljava/lang/String;)Lutil/MemberFactory;", nullptr, $PUBLIC | $STATIC, $staticMethod(MemberFactory, valueOf, MemberFactory*, $String*)},
+	{"values", "()[Lutil/MemberFactory;", nullptr, $PUBLIC | $STATIC, $staticMethod(MemberFactory, values, $MemberFactoryArray*)},
 	{}
 };
 

@@ -24,12 +24,12 @@ $FieldInfo _StreamOpFlag$MaskBuilder_FieldInfo_[] = {
 };
 
 $MethodInfo _StreamOpFlag$MaskBuilder_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Map;)V", "(Ljava/util/Map<Ljava/util/stream/StreamOpFlag$Type;Ljava/lang/Integer;>;)V", 0, $method(static_cast<void(StreamOpFlag$MaskBuilder::*)($Map*)>(&StreamOpFlag$MaskBuilder::init$))},
-	{"build", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/util/stream/StreamOpFlag$Type;Ljava/lang/Integer;>;", 0},
-	{"clear", "(Ljava/util/stream/StreamOpFlag$Type;)Ljava/util/stream/StreamOpFlag$MaskBuilder;", nullptr, 0},
-	{"mask", "(Ljava/util/stream/StreamOpFlag$Type;Ljava/lang/Integer;)Ljava/util/stream/StreamOpFlag$MaskBuilder;", nullptr, 0},
-	{"set", "(Ljava/util/stream/StreamOpFlag$Type;)Ljava/util/stream/StreamOpFlag$MaskBuilder;", nullptr, 0},
-	{"setAndClear", "(Ljava/util/stream/StreamOpFlag$Type;)Ljava/util/stream/StreamOpFlag$MaskBuilder;", nullptr, 0},
+	{"<init>", "(Ljava/util/Map;)V", "(Ljava/util/Map<Ljava/util/stream/StreamOpFlag$Type;Ljava/lang/Integer;>;)V", 0, $method(StreamOpFlag$MaskBuilder, init$, void, $Map*)},
+	{"build", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/util/stream/StreamOpFlag$Type;Ljava/lang/Integer;>;", 0, $virtualMethod(StreamOpFlag$MaskBuilder, build, $Map*)},
+	{"clear", "(Ljava/util/stream/StreamOpFlag$Type;)Ljava/util/stream/StreamOpFlag$MaskBuilder;", nullptr, 0, $virtualMethod(StreamOpFlag$MaskBuilder, clear, StreamOpFlag$MaskBuilder*, $StreamOpFlag$Type*)},
+	{"mask", "(Ljava/util/stream/StreamOpFlag$Type;Ljava/lang/Integer;)Ljava/util/stream/StreamOpFlag$MaskBuilder;", nullptr, 0, $virtualMethod(StreamOpFlag$MaskBuilder, mask, StreamOpFlag$MaskBuilder*, $StreamOpFlag$Type*, $Integer*)},
+	{"set", "(Ljava/util/stream/StreamOpFlag$Type;)Ljava/util/stream/StreamOpFlag$MaskBuilder;", nullptr, 0, $virtualMethod(StreamOpFlag$MaskBuilder, set, StreamOpFlag$MaskBuilder*, $StreamOpFlag$Type*)},
+	{"setAndClear", "(Ljava/util/stream/StreamOpFlag$Type;)Ljava/util/stream/StreamOpFlag$MaskBuilder;", nullptr, 0, $virtualMethod(StreamOpFlag$MaskBuilder, setAndClear, StreamOpFlag$MaskBuilder*, $StreamOpFlag$Type*)},
 	{}
 };
 

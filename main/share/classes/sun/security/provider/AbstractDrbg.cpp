@@ -72,8 +72,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo AbstractDrbg$$Lambda$lambda$static$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(AbstractDrbg$$Lambda$lambda$static$0::*)()>(&AbstractDrbg$$Lambda$lambda$static$0::init$))},
-	{"getEntropy", "(IIIZ)[B", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(AbstractDrbg$$Lambda$lambda$static$0, init$, void)},
+	{"getEntropy", "(IIIZ)[B", nullptr, $PUBLIC, $virtualMethod(AbstractDrbg$$Lambda$lambda$static$0, getEntropy, $bytes*, int32_t, int32_t, int32_t, bool)},
 	{}
 };
 $ClassInfo AbstractDrbg$$Lambda$lambda$static$0::classInfo$ = {
@@ -120,26 +120,26 @@ $FieldInfo _AbstractDrbg_FieldInfo_[] = {
 };
 
 $MethodInfo _AbstractDrbg_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(AbstractDrbg::*)()>(&AbstractDrbg::init$))},
-	{"<init>", "(Ljava/security/SecureRandomParameters;)V", nullptr, $PROTECTED, $method(static_cast<void(AbstractDrbg::*)($SecureRandomParameters*)>(&AbstractDrbg::init$))},
-	{"chooseAlgorithmAndStrength", "()V", nullptr, $PROTECTED | $ABSTRACT},
-	{"configure", "(Ljava/security/SecureRandomParameters;)V", nullptr, $PROTECTED | $FINAL, $method(static_cast<void(AbstractDrbg::*)($SecureRandomParameters*)>(&AbstractDrbg::configure))},
-	{"engineGenerateSeed", "(I)[B", nullptr, $PUBLIC | $FINAL, $method(static_cast<$bytes*(AbstractDrbg::*)(int32_t)>(&AbstractDrbg::engineGenerateSeed))},
-	{"engineGetParameters", "()Ljava/security/SecureRandomParameters;", nullptr, $PROTECTED},
-	{"engineNextBytes", "([B)V", nullptr, $PROTECTED | $FINAL, $method(static_cast<void(AbstractDrbg::*)($bytes*)>(&AbstractDrbg::engineNextBytes))},
-	{"engineNextBytes", "([BLjava/security/SecureRandomParameters;)V", nullptr, $PROTECTED | $FINAL, $method(static_cast<void(AbstractDrbg::*)($bytes*,$SecureRandomParameters*)>(&AbstractDrbg::engineNextBytes))},
-	{"engineReseed", "(Ljava/security/SecureRandomParameters;)V", nullptr, $PUBLIC | $FINAL, $method(static_cast<void(AbstractDrbg::*)($SecureRandomParameters*)>(&AbstractDrbg::engineReseed))},
-	{"engineSetSeed", "([B)V", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $method(static_cast<void(AbstractDrbg::*)($bytes*)>(&AbstractDrbg::engineSetSeed))},
-	{"generateAlgorithm", "([B[B)V", nullptr, $PROTECTED | $ABSTRACT},
-	{"getEntropyInput", "(Z)[B", nullptr, $PRIVATE, $method(static_cast<$bytes*(AbstractDrbg::*)(bool)>(&AbstractDrbg::getEntropyInput))},
-	{"getEntropyInput", "(IIIZ)[B", nullptr, $PRIVATE, $method(static_cast<$bytes*(AbstractDrbg::*)(int32_t,int32_t,int32_t,bool)>(&AbstractDrbg::getEntropyInput))},
-	{"getStandardStrength", "(I)I", nullptr, $PROTECTED | $STATIC, $method(static_cast<int32_t(*)(int32_t)>(&AbstractDrbg::getStandardStrength))},
-	{"initEngine", "()V", nullptr, $PROTECTED | $ABSTRACT},
-	{"instantiateAlgorithm", "([B)V", nullptr, $PROTECTED | $ABSTRACT},
-	{"instantiateIfNecessary", "([B)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(static_cast<void(AbstractDrbg::*)($bytes*)>(&AbstractDrbg::instantiateIfNecessary))},
-	{"lambda$static$0", "(IIIZ)[B", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$bytes*(*)(int32_t,int32_t,int32_t,bool)>(&AbstractDrbg::lambda$static$0))},
-	{"reseedAlgorithm", "([B[B)V", nullptr, $PROTECTED},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(AbstractDrbg, init$, void)},
+	{"<init>", "(Ljava/security/SecureRandomParameters;)V", nullptr, $PROTECTED, $method(AbstractDrbg, init$, void, $SecureRandomParameters*)},
+	{"chooseAlgorithmAndStrength", "()V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(AbstractDrbg, chooseAlgorithmAndStrength, void)},
+	{"configure", "(Ljava/security/SecureRandomParameters;)V", nullptr, $PROTECTED | $FINAL, $method(AbstractDrbg, configure, void, $SecureRandomParameters*)},
+	{"engineGenerateSeed", "(I)[B", nullptr, $PUBLIC | $FINAL, $method(AbstractDrbg, engineGenerateSeed, $bytes*, int32_t)},
+	{"engineGetParameters", "()Ljava/security/SecureRandomParameters;", nullptr, $PROTECTED, $virtualMethod(AbstractDrbg, engineGetParameters, $SecureRandomParameters*)},
+	{"engineNextBytes", "([B)V", nullptr, $PROTECTED | $FINAL, $method(AbstractDrbg, engineNextBytes, void, $bytes*)},
+	{"engineNextBytes", "([BLjava/security/SecureRandomParameters;)V", nullptr, $PROTECTED | $FINAL, $method(AbstractDrbg, engineNextBytes, void, $bytes*, $SecureRandomParameters*)},
+	{"engineReseed", "(Ljava/security/SecureRandomParameters;)V", nullptr, $PUBLIC | $FINAL, $method(AbstractDrbg, engineReseed, void, $SecureRandomParameters*)},
+	{"engineSetSeed", "([B)V", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $method(AbstractDrbg, engineSetSeed, void, $bytes*)},
+	{"generateAlgorithm", "([B[B)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(AbstractDrbg, generateAlgorithm, void, $bytes*, $bytes*)},
+	{"getEntropyInput", "(Z)[B", nullptr, $PRIVATE, $method(AbstractDrbg, getEntropyInput, $bytes*, bool)},
+	{"getEntropyInput", "(IIIZ)[B", nullptr, $PRIVATE, $method(AbstractDrbg, getEntropyInput, $bytes*, int32_t, int32_t, int32_t, bool)},
+	{"getStandardStrength", "(I)I", nullptr, $PROTECTED | $STATIC, $staticMethod(AbstractDrbg, getStandardStrength, int32_t, int32_t)},
+	{"initEngine", "()V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(AbstractDrbg, initEngine, void)},
+	{"instantiateAlgorithm", "([B)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(AbstractDrbg, instantiateAlgorithm, void, $bytes*)},
+	{"instantiateIfNecessary", "([B)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(AbstractDrbg, instantiateIfNecessary, void, $bytes*)},
+	{"lambda$static$0", "(IIIZ)[B", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AbstractDrbg, lambda$static$0, $bytes*, int32_t, int32_t, int32_t, bool)},
+	{"reseedAlgorithm", "([B[B)V", nullptr, $PROTECTED, $virtualMethod(AbstractDrbg, reseedAlgorithm, void, $bytes*, $bytes*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractDrbg, toString, $String*)},
 	{}
 };
 

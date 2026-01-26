@@ -17,8 +17,8 @@ $FieldInfo _TypeNotPresentException_FieldInfo_[] = {
 };
 
 $MethodInfo _TypeNotPresentException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(TypeNotPresentException::*)($String*,$Throwable*)>(&TypeNotPresentException::init$))},
-	{"typeName", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(TypeNotPresentException, init$, void, $String*, $Throwable*)},
+	{"typeName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TypeNotPresentException, typeName, $String*)},
 	{}
 };
 

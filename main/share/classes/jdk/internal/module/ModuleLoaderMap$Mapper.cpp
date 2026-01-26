@@ -48,9 +48,9 @@ $FieldInfo _ModuleLoaderMap$Mapper_FieldInfo_[] = {
 };
 
 $MethodInfo _ModuleLoaderMap$Mapper_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/module/Configuration;)V", nullptr, 0, $method(static_cast<void(ModuleLoaderMap$Mapper::*)($Configuration*)>(&ModuleLoaderMap$Mapper::init$))},
-	{"apply", "(Ljava/lang/String;)Ljava/lang/ClassLoader;", nullptr, $PUBLIC, $method(static_cast<$ClassLoader*(ModuleLoaderMap$Mapper::*)($String*)>(&ModuleLoaderMap$Mapper::apply))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "(Ljava/lang/module/Configuration;)V", nullptr, 0, $method(ModuleLoaderMap$Mapper, init$, void, $Configuration*)},
+	{"apply", "(Ljava/lang/String;)Ljava/lang/ClassLoader;", nullptr, $PUBLIC, $method(ModuleLoaderMap$Mapper, apply, $ClassLoader*, $String*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ModuleLoaderMap$Mapper, apply, $Object*, Object$*)},
 	{}
 };
 

@@ -53,16 +53,16 @@ $FieldInfo _ZeroScalingTests_FieldInfo_[] = {
 };
 
 $MethodInfo _ZeroScalingTests_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ZeroScalingTests::*)()>(&ZeroScalingTests::init$))},
-	{"addTests", "()I", nullptr, $STATIC, $method(static_cast<int32_t(*)()>(&ZeroScalingTests::addTests))},
-	{"divideTests", "()I", nullptr, $STATIC, $method(static_cast<int32_t(*)()>(&ZeroScalingTests::divideTests))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&ZeroScalingTests::main))},
-	{"multiplyTests", "()I", nullptr, $STATIC, $method(static_cast<int32_t(*)()>(&ZeroScalingTests::multiplyTests))},
-	{"setScaleDoesNotMutateTest", "()I", nullptr, $STATIC, $method(static_cast<int32_t(*)()>(&ZeroScalingTests::setScaleDoesNotMutateTest))},
-	{"setScaleTests", "()I", nullptr, $STATIC, $method(static_cast<int32_t(*)()>(&ZeroScalingTests::setScaleTests))},
-	{"subtractTests", "()I", nullptr, $STATIC, $method(static_cast<int32_t(*)()>(&ZeroScalingTests::subtractTests))},
-	{"toEngineeringStringTests", "()I", nullptr, $STATIC, $method(static_cast<int32_t(*)()>(&ZeroScalingTests::toEngineeringStringTests))},
-	{"ulpTests", "()I", nullptr, $STATIC, $method(static_cast<int32_t(*)()>(&ZeroScalingTests::ulpTests))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ZeroScalingTests, init$, void)},
+	{"addTests", "()I", nullptr, $STATIC, $staticMethod(ZeroScalingTests, addTests, int32_t)},
+	{"divideTests", "()I", nullptr, $STATIC, $staticMethod(ZeroScalingTests, divideTests, int32_t)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ZeroScalingTests, main, void, $StringArray*)},
+	{"multiplyTests", "()I", nullptr, $STATIC, $staticMethod(ZeroScalingTests, multiplyTests, int32_t)},
+	{"setScaleDoesNotMutateTest", "()I", nullptr, $STATIC, $staticMethod(ZeroScalingTests, setScaleDoesNotMutateTest, int32_t)},
+	{"setScaleTests", "()I", nullptr, $STATIC, $staticMethod(ZeroScalingTests, setScaleTests, int32_t)},
+	{"subtractTests", "()I", nullptr, $STATIC, $staticMethod(ZeroScalingTests, subtractTests, int32_t)},
+	{"toEngineeringStringTests", "()I", nullptr, $STATIC, $staticMethod(ZeroScalingTests, toEngineeringStringTests, int32_t)},
+	{"ulpTests", "()I", nullptr, $STATIC, $staticMethod(ZeroScalingTests, ulpTests, int32_t)},
 	{}
 };
 

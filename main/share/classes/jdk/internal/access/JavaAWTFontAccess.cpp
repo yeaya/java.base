@@ -10,8 +10,8 @@ namespace jdk {
 		namespace access {
 
 $MethodInfo _JavaAWTFontAccess_MethodInfo_[] = {
-	{"getTextAttributeConstant", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
-	{"shape", "(Ljava/lang/Object;[CII)V", nullptr, $PUBLIC | $ABSTRACT},
+	{"getTextAttributeConstant", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JavaAWTFontAccess, getTextAttributeConstant, $Object*, $String*)},
+	{"shape", "(Ljava/lang/Object;[CII)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JavaAWTFontAccess, shape, void, Object$*, $chars*, int32_t, int32_t)},
 	{}
 };
 

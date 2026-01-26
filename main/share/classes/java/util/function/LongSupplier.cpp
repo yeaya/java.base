@@ -16,7 +16,7 @@ $CompoundAttribute _LongSupplier_Annotations_[] = {
 };
 
 $MethodInfo _LongSupplier_MethodInfo_[] = {
-	{"getAsLong", "()J", nullptr, $PUBLIC | $ABSTRACT},
+	{"getAsLong", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LongSupplier, getAsLong, int64_t)},
 	{}
 };
 

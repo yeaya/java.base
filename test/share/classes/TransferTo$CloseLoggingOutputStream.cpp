@@ -18,9 +18,9 @@ $FieldInfo _TransferTo$CloseLoggingOutputStream_FieldInfo_[] = {
 };
 
 $MethodInfo _TransferTo$CloseLoggingOutputStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/OutputStream;)V", nullptr, 0, $method(static_cast<void(TransferTo$CloseLoggingOutputStream::*)($OutputStream*)>(&TransferTo$CloseLoggingOutputStream::init$))},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"wasClosed", "()Z", nullptr, 0},
+	{"<init>", "(Ljava/io/OutputStream;)V", nullptr, 0, $method(TransferTo$CloseLoggingOutputStream, init$, void, $OutputStream*)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(TransferTo$CloseLoggingOutputStream, close, void), "java.io.IOException"},
+	{"wasClosed", "()Z", nullptr, 0, $virtualMethod(TransferTo$CloseLoggingOutputStream, wasClosed, bool)},
 	{}
 };
 

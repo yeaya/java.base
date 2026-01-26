@@ -21,8 +21,8 @@ $CompoundAttribute _TestType6_MethodAnnotations_foo1[] = {
 };
 
 $MethodInfo _TestType6_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(TestType6::*)()>(&TestType6::init$))},
-	{"foo", "(LTestType6$nestedTestType6;)V", nullptr, 0, nullptr, nullptr, nullptr, _TestType6_MethodAnnotations_foo1},
+	{"<init>", "()V", nullptr, 0, $method(TestType6, init$, void)},
+	{"foo", "(LTestType6$nestedTestType6;)V", nullptr, 0, $virtualMethod(TestType6, foo, void, $TestType6$nestedTestType6*), nullptr, nullptr, _TestType6_MethodAnnotations_foo1},
 	{}
 };
 

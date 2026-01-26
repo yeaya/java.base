@@ -29,9 +29,9 @@ $FieldInfo _RevocationChecker$RejectKeySelector_FieldInfo_[] = {
 };
 
 $MethodInfo _RevocationChecker$RejectKeySelector_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Set;)V", "(Ljava/util/Set<Ljava/security/PublicKey;>;)V", 0, $method(static_cast<void(RevocationChecker$RejectKeySelector::*)($Set*)>(&RevocationChecker$RejectKeySelector::init$))},
-	{"match", "(Ljava/security/cert/Certificate;)Z", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/Set;)V", "(Ljava/util/Set<Ljava/security/PublicKey;>;)V", 0, $method(RevocationChecker$RejectKeySelector, init$, void, $Set*)},
+	{"match", "(Ljava/security/cert/Certificate;)Z", nullptr, $PUBLIC, $virtualMethod(RevocationChecker$RejectKeySelector, match, bool, $Certificate*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RevocationChecker$RejectKeySelector, toString, $String*)},
 	{}
 };
 

@@ -23,22 +23,22 @@ namespace java {
 	namespace util {
 
 $MethodInfo _AbstractCollection_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(AbstractCollection::*)()>(&AbstractCollection::init$))},
-	{"add", "(Ljava/lang/Object;)Z", "(TE;)Z", $PUBLIC},
-	{"addAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<+TE;>;)Z", $PUBLIC},
-	{"clear", "()V", nullptr, $PUBLIC},
-	{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"containsAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC},
-	{"finishToArray", "([Ljava/lang/Object;Ljava/util/Iterator;)[Ljava/lang/Object;", "<T:Ljava/lang/Object;>([TT;Ljava/util/Iterator<*>;)[TT;", $PRIVATE | $STATIC, $method(static_cast<$ObjectArray*(*)($ObjectArray*,$Iterator*)>(&AbstractCollection::finishToArray))},
-	{"isEmpty", "()Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(AbstractCollection, init$, void)},
+	{"add", "(Ljava/lang/Object;)Z", "(TE;)Z", $PUBLIC, $virtualMethod(AbstractCollection, add, bool, Object$*)},
+	{"addAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<+TE;>;)Z", $PUBLIC, $virtualMethod(AbstractCollection, addAll, bool, $Collection*)},
+	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(AbstractCollection, clear, void)},
+	{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(AbstractCollection, contains, bool, Object$*)},
+	{"containsAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC, $virtualMethod(AbstractCollection, containsAll, bool, $Collection*)},
+	{"finishToArray", "([Ljava/lang/Object;Ljava/util/Iterator;)[Ljava/lang/Object;", "<T:Ljava/lang/Object;>([TT;Ljava/util/Iterator<*>;)[TT;", $PRIVATE | $STATIC, $staticMethod(AbstractCollection, finishToArray, $ObjectArray*, $ObjectArray*, $Iterator*)},
+	{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(AbstractCollection, isEmpty, bool)},
 	{"iterator", "()Ljava/util/Iterator;", nullptr, $PUBLIC | $ABSTRACT},
-	{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"removeAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC},
-	{"retainAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC},
+	{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(AbstractCollection, remove, bool, Object$*)},
+	{"removeAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC, $virtualMethod(AbstractCollection, removeAll, bool, $Collection*)},
+	{"retainAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC, $virtualMethod(AbstractCollection, retainAll, bool, $Collection*)},
 	{"size", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", "<T:Ljava/lang/Object;>([TT;)[TT;", $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AbstractCollection, toArray, $ObjectArray*)},
+	{"toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", "<T:Ljava/lang/Object;>([TT;)[TT;", $PUBLIC, $virtualMethod(AbstractCollection, toArray, $ObjectArray*, $ObjectArray*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractCollection, toString, $String*)},
 	{}
 };
 

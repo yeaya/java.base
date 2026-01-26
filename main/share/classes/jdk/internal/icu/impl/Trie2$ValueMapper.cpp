@@ -13,7 +13,7 @@ namespace jdk {
 			namespace impl {
 
 $MethodInfo _Trie2$ValueMapper_MethodInfo_[] = {
-	{"map", "(I)I", nullptr, $PUBLIC | $ABSTRACT},
+	{"map", "(I)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Trie2$ValueMapper, map, int32_t, int32_t)},
 	{}
 };
 

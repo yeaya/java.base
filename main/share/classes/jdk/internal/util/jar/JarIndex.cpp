@@ -73,19 +73,19 @@ $FieldInfo _JarIndex_FieldInfo_[] = {
 };
 
 $MethodInfo _JarIndex_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(JarIndex::*)()>(&JarIndex::init$))},
-	{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(static_cast<void(JarIndex::*)($InputStream*)>(&JarIndex::init$)), "java.io.IOException"},
-	{"<init>", "([Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(JarIndex::*)($StringArray*)>(&JarIndex::init$)), "java.io.IOException"},
-	{"add", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"addMapping", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(static_cast<void(JarIndex::*)($String*,$String*)>(&JarIndex::addMapping))},
-	{"addToList", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/HashMap;)V", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/HashMap<Ljava/lang/String;Ljava/util/LinkedList<Ljava/lang/String;>;>;)V", $PRIVATE, $method(static_cast<void(JarIndex::*)($String*,$String*,$HashMap*)>(&JarIndex::addToList))},
-	{"get", "(Ljava/lang/String;)Ljava/util/LinkedList;", "(Ljava/lang/String;)Ljava/util/LinkedList<Ljava/lang/String;>;", $PUBLIC},
-	{"getJarFiles", "()[Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getJarIndex", "(Ljava/util/jar/JarFile;)Ljdk/internal/util/jar/JarIndex;", nullptr, $PUBLIC | $STATIC, $method(static_cast<JarIndex*(*)($JarFile*)>(&JarIndex::getJarIndex)), "java.io.IOException"},
-	{"merge", "(Ljdk/internal/util/jar/JarIndex;Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"parseJars", "([Ljava/lang/String;)V", nullptr, $PRIVATE, $method(static_cast<void(JarIndex::*)($StringArray*)>(&JarIndex::parseJars)), "java.io.IOException"},
-	{"read", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"write", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(JarIndex, init$, void)},
+	{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(JarIndex, init$, void, $InputStream*), "java.io.IOException"},
+	{"<init>", "([Ljava/lang/String;)V", nullptr, $PUBLIC, $method(JarIndex, init$, void, $StringArray*), "java.io.IOException"},
+	{"add", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(JarIndex, add, void, $String*, $String*)},
+	{"addMapping", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(JarIndex, addMapping, void, $String*, $String*)},
+	{"addToList", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/HashMap;)V", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/HashMap<Ljava/lang/String;Ljava/util/LinkedList<Ljava/lang/String;>;>;)V", $PRIVATE, $method(JarIndex, addToList, void, $String*, $String*, $HashMap*)},
+	{"get", "(Ljava/lang/String;)Ljava/util/LinkedList;", "(Ljava/lang/String;)Ljava/util/LinkedList<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(JarIndex, get, $LinkedList*, $String*)},
+	{"getJarFiles", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JarIndex, getJarFiles, $StringArray*)},
+	{"getJarIndex", "(Ljava/util/jar/JarFile;)Ljdk/internal/util/jar/JarIndex;", nullptr, $PUBLIC | $STATIC, $staticMethod(JarIndex, getJarIndex, JarIndex*, $JarFile*), "java.io.IOException"},
+	{"merge", "(Ljdk/internal/util/jar/JarIndex;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(JarIndex, merge, void, JarIndex*, $String*)},
+	{"parseJars", "([Ljava/lang/String;)V", nullptr, $PRIVATE, $method(JarIndex, parseJars, void, $StringArray*), "java.io.IOException"},
+	{"read", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $virtualMethod(JarIndex, read, void, $InputStream*), "java.io.IOException"},
+	{"write", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(JarIndex, write, void, $OutputStream*), "java.io.IOException"},
 	{}
 };
 

@@ -22,13 +22,13 @@ $FieldInfo _Globs_FieldInfo_[] = {
 };
 
 $MethodInfo _Globs_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(Globs::*)()>(&Globs::init$))},
-	{"isGlobMeta", "(C)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)(char16_t)>(&Globs::isGlobMeta))},
-	{"isRegexMeta", "(C)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)(char16_t)>(&Globs::isRegexMeta))},
-	{"next", "(Ljava/lang/String;I)C", nullptr, $PRIVATE | $STATIC, $method(static_cast<char16_t(*)($String*,int32_t)>(&Globs::next))},
-	{"toRegexPattern", "(Ljava/lang/String;Z)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($String*,bool)>(&Globs::toRegexPattern))},
-	{"toUnixRegexPattern", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $method(static_cast<$String*(*)($String*)>(&Globs::toUnixRegexPattern))},
-	{"toWindowsRegexPattern", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $method(static_cast<$String*(*)($String*)>(&Globs::toWindowsRegexPattern))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(Globs, init$, void)},
+	{"isGlobMeta", "(C)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Globs, isGlobMeta, bool, char16_t)},
+	{"isRegexMeta", "(C)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Globs, isRegexMeta, bool, char16_t)},
+	{"next", "(Ljava/lang/String;I)C", nullptr, $PRIVATE | $STATIC, $staticMethod(Globs, next, char16_t, $String*, int32_t)},
+	{"toRegexPattern", "(Ljava/lang/String;Z)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Globs, toRegexPattern, $String*, $String*, bool)},
+	{"toUnixRegexPattern", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(Globs, toUnixRegexPattern, $String*, $String*)},
+	{"toWindowsRegexPattern", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(Globs, toWindowsRegexPattern, $String*, $String*)},
 	{}
 };
 

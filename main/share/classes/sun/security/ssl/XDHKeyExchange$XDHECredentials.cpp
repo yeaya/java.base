@@ -44,10 +44,10 @@ $FieldInfo _XDHKeyExchange$XDHECredentials_FieldInfo_[] = {
 };
 
 $MethodInfo _XDHKeyExchange$XDHECredentials_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/interfaces/XECPublicKey;Lsun/security/ssl/NamedGroup;)V", nullptr, 0, $method(static_cast<void(XDHKeyExchange$XDHECredentials::*)($XECPublicKey*,$NamedGroup*)>(&XDHKeyExchange$XDHECredentials::init$))},
-	{"getNamedGroup", "()Lsun/security/ssl/NamedGroup;", nullptr, $PUBLIC},
-	{"getPublicKey", "()Ljava/security/PublicKey;", nullptr, $PUBLIC},
-	{"valueOf", "(Lsun/security/ssl/NamedGroup;[B)Lsun/security/ssl/XDHKeyExchange$XDHECredentials;", nullptr, $STATIC, $method(static_cast<XDHKeyExchange$XDHECredentials*(*)($NamedGroup*,$bytes*)>(&XDHKeyExchange$XDHECredentials::valueOf)), "java.io.IOException,java.security.GeneralSecurityException"},
+	{"<init>", "(Ljava/security/interfaces/XECPublicKey;Lsun/security/ssl/NamedGroup;)V", nullptr, 0, $method(XDHKeyExchange$XDHECredentials, init$, void, $XECPublicKey*, $NamedGroup*)},
+	{"getNamedGroup", "()Lsun/security/ssl/NamedGroup;", nullptr, $PUBLIC, $virtualMethod(XDHKeyExchange$XDHECredentials, getNamedGroup, $NamedGroup*)},
+	{"getPublicKey", "()Ljava/security/PublicKey;", nullptr, $PUBLIC, $virtualMethod(XDHKeyExchange$XDHECredentials, getPublicKey, $PublicKey*)},
+	{"valueOf", "(Lsun/security/ssl/NamedGroup;[B)Lsun/security/ssl/XDHKeyExchange$XDHECredentials;", nullptr, $STATIC, $staticMethod(XDHKeyExchange$XDHECredentials, valueOf, XDHKeyExchange$XDHECredentials*, $NamedGroup*, $bytes*), "java.io.IOException,java.security.GeneralSecurityException"},
 	{}
 };
 

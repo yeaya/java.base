@@ -74,8 +74,8 @@ $FieldInfo WinNTFileSystem$$Lambda$lambda$listRoots$0::fieldInfos[2] = {
 	{}
 };
 $MethodInfo WinNTFileSystem$$Lambda$lambda$listRoots$0::methodInfos[3] = {
-	{"<init>", "(Ljava/io/WinNTFileSystem;)V", nullptr, $PUBLIC, $method(static_cast<void(WinNTFileSystem$$Lambda$lambda$listRoots$0::*)(WinNTFileSystem*)>(&WinNTFileSystem$$Lambda$lambda$listRoots$0::init$))},
-	{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/io/WinNTFileSystem;)V", nullptr, $PUBLIC, $method(WinNTFileSystem$$Lambda$lambda$listRoots$0, init$, void, WinNTFileSystem*)},
+	{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WinNTFileSystem$$Lambda$lambda$listRoots$0, apply, $Object*, int32_t)},
 	{}
 };
 $ClassInfo WinNTFileSystem$$Lambda$lambda$listRoots$0::classInfo$ = {
@@ -114,8 +114,8 @@ $FieldInfo WinNTFileSystem$$Lambda$lambda$listRoots$1$1::fieldInfos[2] = {
 	{}
 };
 $MethodInfo WinNTFileSystem$$Lambda$lambda$listRoots$1$1::methodInfos[3] = {
-	{"<init>", "(Ljava/io/WinNTFileSystem;)V", nullptr, $PUBLIC, $method(static_cast<void(WinNTFileSystem$$Lambda$lambda$listRoots$1$1::*)(WinNTFileSystem*)>(&WinNTFileSystem$$Lambda$lambda$listRoots$1$1::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/io/WinNTFileSystem;)V", nullptr, $PUBLIC, $method(WinNTFileSystem$$Lambda$lambda$listRoots$1$1, init$, void, WinNTFileSystem*)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(WinNTFileSystem$$Lambda$lambda$listRoots$1$1, test, bool, Object$*)},
 	{}
 };
 $ClassInfo WinNTFileSystem$$Lambda$lambda$listRoots$1$1::classInfo$ = {
@@ -147,8 +147,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo WinNTFileSystem$$Lambda$lambda$listRoots$2$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(WinNTFileSystem$$Lambda$lambda$listRoots$2$2::*)()>(&WinNTFileSystem$$Lambda$lambda$listRoots$2$2::init$))},
-	{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(WinNTFileSystem$$Lambda$lambda$listRoots$2$2, init$, void)},
+	{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WinNTFileSystem$$Lambda$lambda$listRoots$2$2, apply, $Object*, int32_t)},
 	{}
 };
 $ClassInfo WinNTFileSystem$$Lambda$lambda$listRoots$2$2::classInfo$ = {
@@ -177,58 +177,58 @@ $FieldInfo _WinNTFileSystem_FieldInfo_[] = {
 };
 
 $MethodInfo _WinNTFileSystem_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(WinNTFileSystem::*)()>(&WinNTFileSystem::init$))},
-	{"access", "(Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(static_cast<bool(WinNTFileSystem::*)($String*)>(&WinNTFileSystem::access))},
-	{"canonicalize", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"canonicalize0", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $NATIVE, $method(static_cast<$String*(WinNTFileSystem::*)($String*)>(&WinNTFileSystem::canonicalize0)), "java.io.IOException"},
-	{"canonicalizeWithPrefix", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(WinNTFileSystem::*)($String*,$String*)>(&WinNTFileSystem::canonicalizeWithPrefix)), "java.io.IOException"},
-	{"canonicalizeWithPrefix0", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $NATIVE, $method(static_cast<$String*(WinNTFileSystem::*)($String*,$String*)>(&WinNTFileSystem::canonicalizeWithPrefix0)), "java.io.IOException"},
-	{"checkAccess", "(Ljava/io/File;I)Z", nullptr, $PUBLIC | $NATIVE},
-	{"compare", "(Ljava/io/File;Ljava/io/File;)I", nullptr, $PUBLIC},
-	{"createDirectory", "(Ljava/io/File;)Z", nullptr, $PUBLIC | $NATIVE},
-	{"createFileExclusively", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $NATIVE, nullptr, "java.io.IOException"},
-	{"delete", "(Ljava/io/File;)Z", nullptr, $PUBLIC},
-	{"delete0", "(Ljava/io/File;)Z", nullptr, $PRIVATE | $NATIVE, $method(static_cast<bool(WinNTFileSystem::*)($File*)>(&WinNTFileSystem::delete0))},
-	{"driveIndex", "(C)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)(char16_t)>(&WinNTFileSystem::driveIndex))},
-	{"fromURIPath", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getBooleanAttributes", "(Ljava/io/File;)I", nullptr, $PUBLIC | $NATIVE},
-	{"getDefaultParent", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getDrive", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(WinNTFileSystem::*)($String*)>(&WinNTFileSystem::getDrive))},
-	{"getDriveDirectory", "(I)Ljava/lang/String;", nullptr, $PRIVATE | $NATIVE, $method(static_cast<$String*(WinNTFileSystem::*)(int32_t)>(&WinNTFileSystem::getDriveDirectory))},
-	{"getDriveDirectory", "(C)Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(WinNTFileSystem::*)(char16_t)>(&WinNTFileSystem::getDriveDirectory))},
-	{"getLastModifiedTime", "(Ljava/io/File;)J", nullptr, $PUBLIC | $NATIVE},
-	{"getLength", "(Ljava/io/File;)J", nullptr, $PUBLIC | $NATIVE},
-	{"getNameMax", "(Ljava/lang/String;)I", nullptr, $PUBLIC},
-	{"getNameMax0", "(Ljava/lang/String;)I", nullptr, $PRIVATE | $NATIVE, $method(static_cast<int32_t(WinNTFileSystem::*)($String*)>(&WinNTFileSystem::getNameMax0))},
-	{"getPathSeparator", "()C", nullptr, $PUBLIC},
-	{"getSeparator", "()C", nullptr, $PUBLIC},
-	{"getSpace", "(Ljava/io/File;I)J", nullptr, $PUBLIC},
-	{"getSpace0", "(Ljava/io/File;I)J", nullptr, $PRIVATE | $NATIVE, $method(static_cast<int64_t(WinNTFileSystem::*)($File*,int32_t)>(&WinNTFileSystem::getSpace0))},
-	{"getUserPath", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(WinNTFileSystem::*)()>(&WinNTFileSystem::getUserPath))},
-	{"hashCode", "(Ljava/io/File;)I", nullptr, $PUBLIC},
-	{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $method(static_cast<void(*)()>(&WinNTFileSystem::initIDs))},
-	{"isAbsolute", "(Ljava/io/File;)Z", nullptr, $PUBLIC},
-	{"isLetter", "(C)Z", nullptr, $PRIVATE, $method(static_cast<bool(WinNTFileSystem::*)(char16_t)>(&WinNTFileSystem::isLetter))},
-	{"isSlash", "(C)Z", nullptr, $PRIVATE, $method(static_cast<bool(WinNTFileSystem::*)(char16_t)>(&WinNTFileSystem::isSlash))},
-	{"lambda$listRoots$0", "(I)Ljava/io/File;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$File*(WinNTFileSystem::*)(int32_t)>(&WinNTFileSystem::lambda$listRoots$0))},
-	{"lambda$listRoots$1", "(Ljava/io/File;)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<bool(WinNTFileSystem::*)($File*)>(&WinNTFileSystem::lambda$listRoots$1))},
-	{"lambda$listRoots$2", "(I)[Ljava/io/File;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$FileArray*(*)(int32_t)>(&WinNTFileSystem::lambda$listRoots$2))},
-	{"list", "(Ljava/io/File;)[Ljava/lang/String;", nullptr, $PUBLIC | $NATIVE},
-	{"listRoots", "()[Ljava/io/File;", nullptr, $PUBLIC},
-	{"listRoots0", "()I", nullptr, $PRIVATE | $STATIC | $NATIVE, $method(static_cast<int32_t(*)()>(&WinNTFileSystem::listRoots0))},
-	{"normalize", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"normalize", "(Ljava/lang/String;II)Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(WinNTFileSystem::*)($String*,int32_t,int32_t)>(&WinNTFileSystem::normalize))},
-	{"normalizePrefix", "(Ljava/lang/String;ILjava/lang/StringBuilder;)I", nullptr, $PRIVATE, $method(static_cast<int32_t(WinNTFileSystem::*)($String*,int32_t,$StringBuilder*)>(&WinNTFileSystem::normalizePrefix))},
-	{"parentOrNull", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($String*)>(&WinNTFileSystem::parentOrNull))},
-	{"prefixLength", "(Ljava/lang/String;)I", nullptr, $PUBLIC},
-	{"rename", "(Ljava/io/File;Ljava/io/File;)Z", nullptr, $PUBLIC},
-	{"rename0", "(Ljava/io/File;Ljava/io/File;)Z", nullptr, $PRIVATE | $NATIVE, $method(static_cast<bool(WinNTFileSystem::*)($File*,$File*)>(&WinNTFileSystem::rename0))},
-	{"resolve", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"resolve", "(Ljava/io/File;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"setLastModifiedTime", "(Ljava/io/File;J)Z", nullptr, $PUBLIC | $NATIVE},
-	{"setPermission", "(Ljava/io/File;IZZ)Z", nullptr, $PUBLIC | $NATIVE},
-	{"setReadOnly", "(Ljava/io/File;)Z", nullptr, $PUBLIC | $NATIVE},
-	{"slashify", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(WinNTFileSystem::*)($String*)>(&WinNTFileSystem::slashify))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(WinNTFileSystem, init$, void)},
+	{"access", "(Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(WinNTFileSystem, access, bool, $String*)},
+	{"canonicalize", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(WinNTFileSystem, canonicalize, $String*, $String*), "java.io.IOException"},
+	{"canonicalize0", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $NATIVE, $method(WinNTFileSystem, canonicalize0, $String*, $String*), "java.io.IOException"},
+	{"canonicalizeWithPrefix", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(WinNTFileSystem, canonicalizeWithPrefix, $String*, $String*, $String*), "java.io.IOException"},
+	{"canonicalizeWithPrefix0", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $NATIVE, $method(WinNTFileSystem, canonicalizeWithPrefix0, $String*, $String*, $String*), "java.io.IOException"},
+	{"checkAccess", "(Ljava/io/File;I)Z", nullptr, $PUBLIC | $NATIVE, $virtualMethod(WinNTFileSystem, checkAccess, bool, $File*, int32_t)},
+	{"compare", "(Ljava/io/File;Ljava/io/File;)I", nullptr, $PUBLIC, $virtualMethod(WinNTFileSystem, compare, int32_t, $File*, $File*)},
+	{"createDirectory", "(Ljava/io/File;)Z", nullptr, $PUBLIC | $NATIVE, $virtualMethod(WinNTFileSystem, createDirectory, bool, $File*)},
+	{"createFileExclusively", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $NATIVE, $virtualMethod(WinNTFileSystem, createFileExclusively, bool, $String*), "java.io.IOException"},
+	{"delete", "(Ljava/io/File;)Z", nullptr, $PUBLIC, $virtualMethod(WinNTFileSystem, delete$, bool, $File*)},
+	{"delete0", "(Ljava/io/File;)Z", nullptr, $PRIVATE | $NATIVE, $method(WinNTFileSystem, delete0, bool, $File*)},
+	{"driveIndex", "(C)I", nullptr, $PRIVATE | $STATIC, $staticMethod(WinNTFileSystem, driveIndex, int32_t, char16_t)},
+	{"fromURIPath", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(WinNTFileSystem, fromURIPath, $String*, $String*)},
+	{"getBooleanAttributes", "(Ljava/io/File;)I", nullptr, $PUBLIC | $NATIVE, $virtualMethod(WinNTFileSystem, getBooleanAttributes, int32_t, $File*)},
+	{"getDefaultParent", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(WinNTFileSystem, getDefaultParent, $String*)},
+	{"getDrive", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(WinNTFileSystem, getDrive, $String*, $String*)},
+	{"getDriveDirectory", "(I)Ljava/lang/String;", nullptr, $PRIVATE | $NATIVE, $method(WinNTFileSystem, getDriveDirectory, $String*, int32_t)},
+	{"getDriveDirectory", "(C)Ljava/lang/String;", nullptr, $PRIVATE, $method(WinNTFileSystem, getDriveDirectory, $String*, char16_t)},
+	{"getLastModifiedTime", "(Ljava/io/File;)J", nullptr, $PUBLIC | $NATIVE, $virtualMethod(WinNTFileSystem, getLastModifiedTime, int64_t, $File*)},
+	{"getLength", "(Ljava/io/File;)J", nullptr, $PUBLIC | $NATIVE, $virtualMethod(WinNTFileSystem, getLength, int64_t, $File*)},
+	{"getNameMax", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(WinNTFileSystem, getNameMax, int32_t, $String*)},
+	{"getNameMax0", "(Ljava/lang/String;)I", nullptr, $PRIVATE | $NATIVE, $method(WinNTFileSystem, getNameMax0, int32_t, $String*)},
+	{"getPathSeparator", "()C", nullptr, $PUBLIC, $virtualMethod(WinNTFileSystem, getPathSeparator, char16_t)},
+	{"getSeparator", "()C", nullptr, $PUBLIC, $virtualMethod(WinNTFileSystem, getSeparator, char16_t)},
+	{"getSpace", "(Ljava/io/File;I)J", nullptr, $PUBLIC, $virtualMethod(WinNTFileSystem, getSpace, int64_t, $File*, int32_t)},
+	{"getSpace0", "(Ljava/io/File;I)J", nullptr, $PRIVATE | $NATIVE, $method(WinNTFileSystem, getSpace0, int64_t, $File*, int32_t)},
+	{"getUserPath", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(WinNTFileSystem, getUserPath, $String*)},
+	{"hashCode", "(Ljava/io/File;)I", nullptr, $PUBLIC, $virtualMethod(WinNTFileSystem, hashCode, int32_t, $File*)},
+	{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(WinNTFileSystem, initIDs, void)},
+	{"isAbsolute", "(Ljava/io/File;)Z", nullptr, $PUBLIC, $virtualMethod(WinNTFileSystem, isAbsolute, bool, $File*)},
+	{"isLetter", "(C)Z", nullptr, $PRIVATE, $method(WinNTFileSystem, isLetter, bool, char16_t)},
+	{"isSlash", "(C)Z", nullptr, $PRIVATE, $method(WinNTFileSystem, isSlash, bool, char16_t)},
+	{"lambda$listRoots$0", "(I)Ljava/io/File;", nullptr, $PRIVATE | $SYNTHETIC, $method(WinNTFileSystem, lambda$listRoots$0, $File*, int32_t)},
+	{"lambda$listRoots$1", "(Ljava/io/File;)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(WinNTFileSystem, lambda$listRoots$1, bool, $File*)},
+	{"lambda$listRoots$2", "(I)[Ljava/io/File;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(WinNTFileSystem, lambda$listRoots$2, $FileArray*, int32_t)},
+	{"list", "(Ljava/io/File;)[Ljava/lang/String;", nullptr, $PUBLIC | $NATIVE, $virtualMethod(WinNTFileSystem, list, $StringArray*, $File*)},
+	{"listRoots", "()[Ljava/io/File;", nullptr, $PUBLIC, $virtualMethod(WinNTFileSystem, listRoots, $FileArray*)},
+	{"listRoots0", "()I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(WinNTFileSystem, listRoots0, int32_t)},
+	{"normalize", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(WinNTFileSystem, normalize, $String*, $String*)},
+	{"normalize", "(Ljava/lang/String;II)Ljava/lang/String;", nullptr, $PRIVATE, $method(WinNTFileSystem, normalize, $String*, $String*, int32_t, int32_t)},
+	{"normalizePrefix", "(Ljava/lang/String;ILjava/lang/StringBuilder;)I", nullptr, $PRIVATE, $method(WinNTFileSystem, normalizePrefix, int32_t, $String*, int32_t, $StringBuilder*)},
+	{"parentOrNull", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(WinNTFileSystem, parentOrNull, $String*, $String*)},
+	{"prefixLength", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(WinNTFileSystem, prefixLength, int32_t, $String*)},
+	{"rename", "(Ljava/io/File;Ljava/io/File;)Z", nullptr, $PUBLIC, $virtualMethod(WinNTFileSystem, rename, bool, $File*, $File*)},
+	{"rename0", "(Ljava/io/File;Ljava/io/File;)Z", nullptr, $PRIVATE | $NATIVE, $method(WinNTFileSystem, rename0, bool, $File*, $File*)},
+	{"resolve", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(WinNTFileSystem, resolve, $String*, $String*, $String*)},
+	{"resolve", "(Ljava/io/File;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(WinNTFileSystem, resolve, $String*, $File*)},
+	{"setLastModifiedTime", "(Ljava/io/File;J)Z", nullptr, $PUBLIC | $NATIVE, $virtualMethod(WinNTFileSystem, setLastModifiedTime, bool, $File*, int64_t)},
+	{"setPermission", "(Ljava/io/File;IZZ)Z", nullptr, $PUBLIC | $NATIVE, $virtualMethod(WinNTFileSystem, setPermission, bool, $File*, int32_t, bool, bool)},
+	{"setReadOnly", "(Ljava/io/File;)Z", nullptr, $PUBLIC | $NATIVE, $virtualMethod(WinNTFileSystem, setReadOnly, bool, $File*)},
+	{"slashify", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(WinNTFileSystem, slashify, $String*, $String*)},
 	{}
 };
 

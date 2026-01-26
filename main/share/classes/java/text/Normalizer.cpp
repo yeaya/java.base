@@ -16,9 +16,9 @@ namespace java {
 	namespace text {
 
 $MethodInfo _Normalizer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(Normalizer::*)()>(&Normalizer::init$))},
-	{"isNormalized", "(Ljava/lang/CharSequence;Ljava/text/Normalizer$Form;)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)($CharSequence*,$Normalizer$Form*)>(&Normalizer::isNormalized))},
-	{"normalize", "(Ljava/lang/CharSequence;Ljava/text/Normalizer$Form;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)($CharSequence*,$Normalizer$Form*)>(&Normalizer::normalize))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(Normalizer, init$, void)},
+	{"isNormalized", "(Ljava/lang/CharSequence;Ljava/text/Normalizer$Form;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Normalizer, isNormalized, bool, $CharSequence*, $Normalizer$Form*)},
+	{"normalize", "(Ljava/lang/CharSequence;Ljava/text/Normalizer$Form;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Normalizer, normalize, $String*, $CharSequence*, $Normalizer$Form*)},
 	{}
 };
 

@@ -32,10 +32,10 @@ $FieldInfo _JrtFileAttributeView$AttrID_FieldInfo_[] = {
 };
 
 $MethodInfo _JrtFileAttributeView$AttrID_MethodInfo_[] = {
-	{"$values", "()[Ljdk/internal/jrtfs/JrtFileAttributeView$AttrID;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$JrtFileAttributeView$AttrIDArray*(*)()>(&JrtFileAttributeView$AttrID::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(JrtFileAttributeView$AttrID::*)($String*,int32_t)>(&JrtFileAttributeView$AttrID::init$))},
-	{"valueOf", "(Ljava/lang/String;)Ljdk/internal/jrtfs/JrtFileAttributeView$AttrID;", nullptr, $PUBLIC | $STATIC, $method(static_cast<JrtFileAttributeView$AttrID*(*)($String*)>(&JrtFileAttributeView$AttrID::valueOf))},
-	{"values", "()[Ljdk/internal/jrtfs/JrtFileAttributeView$AttrID;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$JrtFileAttributeView$AttrIDArray*(*)()>(&JrtFileAttributeView$AttrID::values))},
+	{"$values", "()[Ljdk/internal/jrtfs/JrtFileAttributeView$AttrID;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JrtFileAttributeView$AttrID, $values, $JrtFileAttributeView$AttrIDArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(JrtFileAttributeView$AttrID, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Ljdk/internal/jrtfs/JrtFileAttributeView$AttrID;", nullptr, $PUBLIC | $STATIC, $staticMethod(JrtFileAttributeView$AttrID, valueOf, JrtFileAttributeView$AttrID*, $String*)},
+	{"values", "()[Ljdk/internal/jrtfs/JrtFileAttributeView$AttrID;", nullptr, $PUBLIC | $STATIC, $staticMethod(JrtFileAttributeView$AttrID, values, $JrtFileAttributeView$AttrIDArray*)},
 	{}
 };
 

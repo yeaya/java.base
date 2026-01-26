@@ -47,14 +47,14 @@ $FieldInfo _JSRInlinerAdapter$Instantiation_FieldInfo_[] = {
 };
 
 $MethodInfo _JSRInlinerAdapter$Instantiation_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/org/objectweb/asm/commons/JSRInlinerAdapter;Ljdk/internal/org/objectweb/asm/commons/JSRInlinerAdapter$Instantiation;Ljava/util/BitSet;)V", nullptr, 0, $method(static_cast<void(JSRInlinerAdapter$Instantiation::*)($JSRInlinerAdapter*,JSRInlinerAdapter$Instantiation*,$BitSet*)>(&JSRInlinerAdapter$Instantiation::init$))},
-	{"entrySet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/util/Map$Entry<Ljdk/internal/org/objectweb/asm/tree/LabelNode;Ljdk/internal/org/objectweb/asm/tree/LabelNode;>;>;", $PUBLIC},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"findOwner", "(I)Ljdk/internal/org/objectweb/asm/commons/JSRInlinerAdapter$Instantiation;", nullptr, 0},
-	{"get", "(Ljava/lang/Object;)Ljdk/internal/org/objectweb/asm/tree/LabelNode;", nullptr, $PUBLIC},
-	{"getClonedLabel", "(Ljdk/internal/org/objectweb/asm/tree/LabelNode;)Ljdk/internal/org/objectweb/asm/tree/LabelNode;", nullptr, 0},
-	{"getClonedLabelForJumpInsn", "(Ljdk/internal/org/objectweb/asm/tree/LabelNode;)Ljdk/internal/org/objectweb/asm/tree/LabelNode;", nullptr, 0},
-	{"hashCode", "()I", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/org/objectweb/asm/commons/JSRInlinerAdapter;Ljdk/internal/org/objectweb/asm/commons/JSRInlinerAdapter$Instantiation;Ljava/util/BitSet;)V", nullptr, 0, $method(JSRInlinerAdapter$Instantiation, init$, void, $JSRInlinerAdapter*, JSRInlinerAdapter$Instantiation*, $BitSet*)},
+	{"entrySet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/util/Map$Entry<Ljdk/internal/org/objectweb/asm/tree/LabelNode;Ljdk/internal/org/objectweb/asm/tree/LabelNode;>;>;", $PUBLIC, $virtualMethod(JSRInlinerAdapter$Instantiation, entrySet, $Set*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(JSRInlinerAdapter$Instantiation, equals, bool, Object$*)},
+	{"findOwner", "(I)Ljdk/internal/org/objectweb/asm/commons/JSRInlinerAdapter$Instantiation;", nullptr, 0, $virtualMethod(JSRInlinerAdapter$Instantiation, findOwner, JSRInlinerAdapter$Instantiation*, int32_t)},
+	{"get", "(Ljava/lang/Object;)Ljdk/internal/org/objectweb/asm/tree/LabelNode;", nullptr, $PUBLIC, $virtualMethod(JSRInlinerAdapter$Instantiation, get, $Object*, Object$*)},
+	{"getClonedLabel", "(Ljdk/internal/org/objectweb/asm/tree/LabelNode;)Ljdk/internal/org/objectweb/asm/tree/LabelNode;", nullptr, 0, $virtualMethod(JSRInlinerAdapter$Instantiation, getClonedLabel, $LabelNode*, $LabelNode*)},
+	{"getClonedLabelForJumpInsn", "(Ljdk/internal/org/objectweb/asm/tree/LabelNode;)Ljdk/internal/org/objectweb/asm/tree/LabelNode;", nullptr, 0, $virtualMethod(JSRInlinerAdapter$Instantiation, getClonedLabelForJumpInsn, $LabelNode*, $LabelNode*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(JSRInlinerAdapter$Instantiation, hashCode, int32_t)},
 	{}
 };
 

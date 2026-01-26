@@ -46,15 +46,15 @@ $FieldInfo _UnixDirectoryStream_FieldInfo_[] = {
 };
 
 $MethodInfo _UnixDirectoryStream_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/fs/UnixPath;JLjava/nio/file/DirectoryStream$Filter;)V", "(Lsun/nio/fs/UnixPath;JLjava/nio/file/DirectoryStream$Filter<-Ljava/nio/file/Path;>;)V", 0, $method(static_cast<void(UnixDirectoryStream::*)($UnixPath*,int64_t,$DirectoryStream$Filter*)>(&UnixDirectoryStream::init$))},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"closeImpl", "()Z", nullptr, $PROTECTED | $FINAL, $method(static_cast<bool(UnixDirectoryStream::*)()>(&UnixDirectoryStream::closeImpl)), "java.io.IOException"},
-	{"directory", "()Lsun/nio/fs/UnixPath;", nullptr, $PROTECTED | $FINAL, $method(static_cast<$UnixPath*(UnixDirectoryStream::*)()>(&UnixDirectoryStream::directory))},
-	{"isOpen", "()Z", nullptr, $PROTECTED | $FINAL, $method(static_cast<bool(UnixDirectoryStream::*)()>(&UnixDirectoryStream::isOpen))},
-	{"iterator", "(Ljava/nio/file/DirectoryStream;)Ljava/util/Iterator;", "(Ljava/nio/file/DirectoryStream<Ljava/nio/file/Path;>;)Ljava/util/Iterator<Ljava/nio/file/Path;>;", $PROTECTED | $FINAL, $method(static_cast<$Iterator*(UnixDirectoryStream::*)($DirectoryStream*)>(&UnixDirectoryStream::iterator))},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/nio/file/Path;>;", $PUBLIC},
-	{"readLock", "()Ljava/util/concurrent/locks/Lock;", nullptr, $PROTECTED | $FINAL, $method(static_cast<$Lock*(UnixDirectoryStream::*)()>(&UnixDirectoryStream::readLock))},
-	{"writeLock", "()Ljava/util/concurrent/locks/Lock;", nullptr, $PROTECTED | $FINAL, $method(static_cast<$Lock*(UnixDirectoryStream::*)()>(&UnixDirectoryStream::writeLock))},
+	{"<init>", "(Lsun/nio/fs/UnixPath;JLjava/nio/file/DirectoryStream$Filter;)V", "(Lsun/nio/fs/UnixPath;JLjava/nio/file/DirectoryStream$Filter<-Ljava/nio/file/Path;>;)V", 0, $method(UnixDirectoryStream, init$, void, $UnixPath*, int64_t, $DirectoryStream$Filter*)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(UnixDirectoryStream, close, void), "java.io.IOException"},
+	{"closeImpl", "()Z", nullptr, $PROTECTED | $FINAL, $method(UnixDirectoryStream, closeImpl, bool), "java.io.IOException"},
+	{"directory", "()Lsun/nio/fs/UnixPath;", nullptr, $PROTECTED | $FINAL, $method(UnixDirectoryStream, directory, $UnixPath*)},
+	{"isOpen", "()Z", nullptr, $PROTECTED | $FINAL, $method(UnixDirectoryStream, isOpen, bool)},
+	{"iterator", "(Ljava/nio/file/DirectoryStream;)Ljava/util/Iterator;", "(Ljava/nio/file/DirectoryStream<Ljava/nio/file/Path;>;)Ljava/util/Iterator<Ljava/nio/file/Path;>;", $PROTECTED | $FINAL, $method(UnixDirectoryStream, iterator, $Iterator*, $DirectoryStream*)},
+	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/nio/file/Path;>;", $PUBLIC, $virtualMethod(UnixDirectoryStream, iterator, $Iterator*)},
+	{"readLock", "()Ljava/util/concurrent/locks/Lock;", nullptr, $PROTECTED | $FINAL, $method(UnixDirectoryStream, readLock, $Lock*)},
+	{"writeLock", "()Ljava/util/concurrent/locks/Lock;", nullptr, $PROTECTED | $FINAL, $method(UnixDirectoryStream, writeLock, $Lock*)},
 	{}
 };
 

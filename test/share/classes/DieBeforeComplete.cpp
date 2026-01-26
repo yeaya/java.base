@@ -49,9 +49,9 @@ using $TimeoutException = ::java::util::concurrent::TimeoutException;
 using $AtomicReference = ::java::util::concurrent::atomic::AtomicReference;
 
 $MethodInfo _DieBeforeComplete_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DieBeforeComplete::*)()>(&DieBeforeComplete::init$))},
-	{"initiateAndDie", "(LDieBeforeComplete$Task;)Ljava/util/concurrent/Future;", "<T:Ljava/lang/Object;>(LDieBeforeComplete$Task<TT;>;)Ljava/util/concurrent/Future<TT;>;", $STATIC, $method(static_cast<$Future*(*)($DieBeforeComplete$Task*)>(&DieBeforeComplete::initiateAndDie))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&DieBeforeComplete::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DieBeforeComplete, init$, void)},
+	{"initiateAndDie", "(LDieBeforeComplete$Task;)Ljava/util/concurrent/Future;", "<T:Ljava/lang/Object;>(LDieBeforeComplete$Task<TT;>;)Ljava/util/concurrent/Future<TT;>;", $STATIC, $staticMethod(DieBeforeComplete, initiateAndDie, $Future*, $DieBeforeComplete$Task*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(DieBeforeComplete, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

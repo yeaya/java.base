@@ -46,8 +46,8 @@ $FieldInfo BiPredicate$$Lambda$lambda$and$0::fieldInfos[3] = {
 	{}
 };
 $MethodInfo BiPredicate$$Lambda$lambda$and$0::methodInfos[3] = {
-	{"<init>", "(Ljava/util/function/BiPredicate;Ljava/util/function/BiPredicate;)V", nullptr, $PUBLIC, $method(static_cast<void(BiPredicate$$Lambda$lambda$and$0::*)(BiPredicate*,BiPredicate*)>(&BiPredicate$$Lambda$lambda$and$0::init$))},
-	{"test", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/function/BiPredicate;Ljava/util/function/BiPredicate;)V", nullptr, $PUBLIC, $method(BiPredicate$$Lambda$lambda$and$0, init$, void, BiPredicate*, BiPredicate*)},
+	{"test", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(BiPredicate$$Lambda$lambda$and$0, test, bool, Object$*, Object$*)},
 	{}
 };
 $ClassInfo BiPredicate$$Lambda$lambda$and$0::classInfo$ = {
@@ -86,8 +86,8 @@ $FieldInfo BiPredicate$$Lambda$lambda$negate$1$1::fieldInfos[2] = {
 	{}
 };
 $MethodInfo BiPredicate$$Lambda$lambda$negate$1$1::methodInfos[3] = {
-	{"<init>", "(Ljava/util/function/BiPredicate;)V", nullptr, $PUBLIC, $method(static_cast<void(BiPredicate$$Lambda$lambda$negate$1$1::*)(BiPredicate*)>(&BiPredicate$$Lambda$lambda$negate$1$1::init$))},
-	{"test", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/function/BiPredicate;)V", nullptr, $PUBLIC, $method(BiPredicate$$Lambda$lambda$negate$1$1, init$, void, BiPredicate*)},
+	{"test", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(BiPredicate$$Lambda$lambda$negate$1$1, test, bool, Object$*, Object$*)},
 	{}
 };
 $ClassInfo BiPredicate$$Lambda$lambda$negate$1$1::classInfo$ = {
@@ -129,8 +129,8 @@ $FieldInfo BiPredicate$$Lambda$lambda$or$2$2::fieldInfos[3] = {
 	{}
 };
 $MethodInfo BiPredicate$$Lambda$lambda$or$2$2::methodInfos[3] = {
-	{"<init>", "(Ljava/util/function/BiPredicate;Ljava/util/function/BiPredicate;)V", nullptr, $PUBLIC, $method(static_cast<void(BiPredicate$$Lambda$lambda$or$2$2::*)(BiPredicate*,BiPredicate*)>(&BiPredicate$$Lambda$lambda$or$2$2::init$))},
-	{"test", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/function/BiPredicate;Ljava/util/function/BiPredicate;)V", nullptr, $PUBLIC, $method(BiPredicate$$Lambda$lambda$or$2$2, init$, void, BiPredicate*, BiPredicate*)},
+	{"test", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(BiPredicate$$Lambda$lambda$or$2$2, test, bool, Object$*, Object$*)},
 	{}
 };
 $ClassInfo BiPredicate$$Lambda$lambda$or$2$2::classInfo$ = {
@@ -153,13 +153,13 @@ $CompoundAttribute _BiPredicate_Annotations_[] = {
 };
 
 $MethodInfo _BiPredicate_MethodInfo_[] = {
-	{"and", "(Ljava/util/function/BiPredicate;)Ljava/util/function/BiPredicate;", "(Ljava/util/function/BiPredicate<-TT;-TU;>;)Ljava/util/function/BiPredicate<TT;TU;>;", $PUBLIC},
-	{"lambda$and$0", "(Ljava/util/function/BiPredicate;Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<bool(BiPredicate::*)(BiPredicate*,Object$*,Object$*)>(&BiPredicate::lambda$and$0))},
-	{"lambda$negate$1", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<bool(BiPredicate::*)(Object$*,Object$*)>(&BiPredicate::lambda$negate$1))},
-	{"lambda$or$2", "(Ljava/util/function/BiPredicate;Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<bool(BiPredicate::*)(BiPredicate*,Object$*,Object$*)>(&BiPredicate::lambda$or$2))},
-	{"negate", "()Ljava/util/function/BiPredicate;", "()Ljava/util/function/BiPredicate<TT;TU;>;", $PUBLIC},
-	{"or", "(Ljava/util/function/BiPredicate;)Ljava/util/function/BiPredicate;", "(Ljava/util/function/BiPredicate<-TT;-TU;>;)Ljava/util/function/BiPredicate<TT;TU;>;", $PUBLIC},
-	{"test", "(Ljava/lang/Object;Ljava/lang/Object;)Z", "(TT;TU;)Z", $PUBLIC | $ABSTRACT},
+	{"and", "(Ljava/util/function/BiPredicate;)Ljava/util/function/BiPredicate;", "(Ljava/util/function/BiPredicate<-TT;-TU;>;)Ljava/util/function/BiPredicate<TT;TU;>;", $PUBLIC, $virtualMethod(BiPredicate, and$, BiPredicate*, BiPredicate*)},
+	{"lambda$and$0", "(Ljava/util/function/BiPredicate;Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(BiPredicate, lambda$and$0, bool, BiPredicate*, Object$*, Object$*)},
+	{"lambda$negate$1", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(BiPredicate, lambda$negate$1, bool, Object$*, Object$*)},
+	{"lambda$or$2", "(Ljava/util/function/BiPredicate;Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(BiPredicate, lambda$or$2, bool, BiPredicate*, Object$*, Object$*)},
+	{"negate", "()Ljava/util/function/BiPredicate;", "()Ljava/util/function/BiPredicate<TT;TU;>;", $PUBLIC, $virtualMethod(BiPredicate, negate, BiPredicate*)},
+	{"or", "(Ljava/util/function/BiPredicate;)Ljava/util/function/BiPredicate;", "(Ljava/util/function/BiPredicate<-TT;-TU;>;)Ljava/util/function/BiPredicate<TT;TU;>;", $PUBLIC, $virtualMethod(BiPredicate, or$, BiPredicate*, BiPredicate*)},
+	{"test", "(Ljava/lang/Object;Ljava/lang/Object;)Z", "(TT;TU;)Z", $PUBLIC | $ABSTRACT, $virtualMethod(BiPredicate, test, bool, Object$*, Object$*)},
 	{}
 };
 

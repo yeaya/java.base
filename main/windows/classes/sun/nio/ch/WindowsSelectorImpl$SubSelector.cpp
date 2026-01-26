@@ -51,14 +51,14 @@ $FieldInfo _WindowsSelectorImpl$SubSelector_FieldInfo_[] = {
 };
 
 $MethodInfo _WindowsSelectorImpl$SubSelector_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/ch/WindowsSelectorImpl;)V", nullptr, $PRIVATE, $method(static_cast<void(WindowsSelectorImpl$SubSelector::*)($WindowsSelectorImpl*)>(&WindowsSelectorImpl$SubSelector::init$))},
-	{"<init>", "(Lsun/nio/ch/WindowsSelectorImpl;I)V", nullptr, $PRIVATE, $method(static_cast<void(WindowsSelectorImpl$SubSelector::*)($WindowsSelectorImpl*,int32_t)>(&WindowsSelectorImpl$SubSelector::init$))},
-	{"freeFDSetBuffer", "()V", nullptr, $PRIVATE, $method(static_cast<void(WindowsSelectorImpl$SubSelector::*)()>(&WindowsSelectorImpl$SubSelector::freeFDSetBuffer))},
-	{"poll", "()I", nullptr, $PRIVATE, $method(static_cast<int32_t(WindowsSelectorImpl$SubSelector::*)()>(&WindowsSelectorImpl$SubSelector::poll)), "java.io.IOException"},
-	{"poll", "(I)I", nullptr, $PRIVATE, $method(static_cast<int32_t(WindowsSelectorImpl$SubSelector::*)(int32_t)>(&WindowsSelectorImpl$SubSelector::poll)), "java.io.IOException"},
-	{"poll0", "(JI[I[I[IJJ)I", nullptr, $PRIVATE | $NATIVE, $method(static_cast<int32_t(WindowsSelectorImpl$SubSelector::*)(int64_t,int32_t,$ints*,$ints*,$ints*,int64_t,int64_t)>(&WindowsSelectorImpl$SubSelector::poll0))},
-	{"processFDSet", "(JLjava/util/function/Consumer;[IIZ)I", "(JLjava/util/function/Consumer<Ljava/nio/channels/SelectionKey;>;[IIZ)I", $PRIVATE, $method(static_cast<int32_t(WindowsSelectorImpl$SubSelector::*)(int64_t,$Consumer*,$ints*,int32_t,bool)>(&WindowsSelectorImpl$SubSelector::processFDSet)), "java.io.IOException"},
-	{"processSelectedKeys", "(JLjava/util/function/Consumer;)I", "(JLjava/util/function/Consumer<Ljava/nio/channels/SelectionKey;>;)I", $PRIVATE, $method(static_cast<int32_t(WindowsSelectorImpl$SubSelector::*)(int64_t,$Consumer*)>(&WindowsSelectorImpl$SubSelector::processSelectedKeys)), "java.io.IOException"},
+	{"<init>", "(Lsun/nio/ch/WindowsSelectorImpl;)V", nullptr, $PRIVATE, $method(WindowsSelectorImpl$SubSelector, init$, void, $WindowsSelectorImpl*)},
+	{"<init>", "(Lsun/nio/ch/WindowsSelectorImpl;I)V", nullptr, $PRIVATE, $method(WindowsSelectorImpl$SubSelector, init$, void, $WindowsSelectorImpl*, int32_t)},
+	{"freeFDSetBuffer", "()V", nullptr, $PRIVATE, $method(WindowsSelectorImpl$SubSelector, freeFDSetBuffer, void)},
+	{"poll", "()I", nullptr, $PRIVATE, $method(WindowsSelectorImpl$SubSelector, poll, int32_t), "java.io.IOException"},
+	{"poll", "(I)I", nullptr, $PRIVATE, $method(WindowsSelectorImpl$SubSelector, poll, int32_t, int32_t), "java.io.IOException"},
+	{"poll0", "(JI[I[I[IJJ)I", nullptr, $PRIVATE | $NATIVE, $method(WindowsSelectorImpl$SubSelector, poll0, int32_t, int64_t, int32_t, $ints*, $ints*, $ints*, int64_t, int64_t)},
+	{"processFDSet", "(JLjava/util/function/Consumer;[IIZ)I", "(JLjava/util/function/Consumer<Ljava/nio/channels/SelectionKey;>;[IIZ)I", $PRIVATE, $method(WindowsSelectorImpl$SubSelector, processFDSet, int32_t, int64_t, $Consumer*, $ints*, int32_t, bool), "java.io.IOException"},
+	{"processSelectedKeys", "(JLjava/util/function/Consumer;)I", "(JLjava/util/function/Consumer<Ljava/nio/channels/SelectionKey;>;)I", $PRIVATE, $method(WindowsSelectorImpl$SubSelector, processSelectedKeys, int32_t, int64_t, $Consumer*), "java.io.IOException"},
 	{}
 };
 

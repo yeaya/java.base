@@ -42,16 +42,16 @@ $FieldInfo _WeakHashMap$EntrySet_FieldInfo_[] = {
 };
 
 $MethodInfo _WeakHashMap$EntrySet_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/WeakHashMap;)V", nullptr, $PRIVATE, $method(static_cast<void(WeakHashMap$EntrySet::*)($WeakHashMap*)>(&WeakHashMap$EntrySet::init$))},
-	{"clear", "()V", nullptr, $PUBLIC},
-	{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"deepCopy", "()Ljava/util/List;", "()Ljava/util/List<Ljava/util/Map$Entry<TK;TV;>;>;", $PRIVATE, $method(static_cast<$List*(WeakHashMap$EntrySet::*)()>(&WeakHashMap$EntrySet::deepCopy))},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/util/Map$Entry<TK;TV;>;>;", $PUBLIC},
-	{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"size", "()I", nullptr, $PUBLIC},
-	{"spliterator", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<Ljava/util/Map$Entry<TK;TV;>;>;", $PUBLIC},
-	{"toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", "<T:Ljava/lang/Object;>([TT;)[TT;", $PUBLIC},
+	{"<init>", "(Ljava/util/WeakHashMap;)V", nullptr, $PRIVATE, $method(WeakHashMap$EntrySet, init$, void, $WeakHashMap*)},
+	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(WeakHashMap$EntrySet, clear, void)},
+	{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(WeakHashMap$EntrySet, contains, bool, Object$*)},
+	{"deepCopy", "()Ljava/util/List;", "()Ljava/util/List<Ljava/util/Map$Entry<TK;TV;>;>;", $PRIVATE, $method(WeakHashMap$EntrySet, deepCopy, $List*)},
+	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/util/Map$Entry<TK;TV;>;>;", $PUBLIC, $virtualMethod(WeakHashMap$EntrySet, iterator, $Iterator*)},
+	{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(WeakHashMap$EntrySet, remove, bool, Object$*)},
+	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(WeakHashMap$EntrySet, size, int32_t)},
+	{"spliterator", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<Ljava/util/Map$Entry<TK;TV;>;>;", $PUBLIC, $virtualMethod(WeakHashMap$EntrySet, spliterator, $Spliterator*)},
+	{"toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WeakHashMap$EntrySet, toArray, $ObjectArray*)},
+	{"toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", "<T:Ljava/lang/Object;>([TT;)[TT;", $PUBLIC, $virtualMethod(WeakHashMap$EntrySet, toArray, $ObjectArray*, $ObjectArray*)},
 	{}
 };
 

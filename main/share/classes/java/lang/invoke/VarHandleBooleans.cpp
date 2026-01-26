@@ -11,7 +11,7 @@ namespace java {
 		namespace invoke {
 
 $MethodInfo _VarHandleBooleans_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(VarHandleBooleans::*)()>(&VarHandleBooleans::init$))},
+	{"<init>", "()V", nullptr, 0, $method(VarHandleBooleans, init$, void)},
 	{}
 };
 

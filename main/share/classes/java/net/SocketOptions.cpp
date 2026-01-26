@@ -45,8 +45,8 @@ $FieldInfo _SocketOptions_FieldInfo_[] = {
 };
 
 $MethodInfo _SocketOptions_MethodInfo_[] = {
-	{"getOption", "(I)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.net.SocketException"},
-	{"setOption", "(ILjava/lang/Object;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.net.SocketException"},
+	{"getOption", "(I)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SocketOptions, getOption, $Object*, int32_t), "java.net.SocketException"},
+	{"setOption", "(ILjava/lang/Object;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SocketOptions, setOption, void, int32_t, Object$*), "java.net.SocketException"},
 	{}
 };
 

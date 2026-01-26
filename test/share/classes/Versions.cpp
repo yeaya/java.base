@@ -37,10 +37,10 @@ $FieldInfo _Versions_FieldInfo_[] = {
 };
 
 $MethodInfo _Versions_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Versions::*)()>(&Versions::init$))},
-	{"checkClassVersion", "(IIZ)V", nullptr, $STATIC, $method(static_cast<void(*)(int32_t,int32_t,bool)>(&Versions::checkClassVersion)), "java.lang.Exception"},
-	{"getProperty", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $method(static_cast<$String*(*)($String*)>(&Versions::getProperty)), "java.lang.Exception"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Versions::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Versions, init$, void)},
+	{"checkClassVersion", "(IIZ)V", nullptr, $STATIC, $staticMethod(Versions, checkClassVersion, void, int32_t, int32_t, bool), "java.lang.Exception"},
+	{"getProperty", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(Versions, getProperty, $String*, $String*), "java.lang.Exception"},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Versions, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

@@ -133,8 +133,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ModulePatcher$$Lambda$lambda$new$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ModulePatcher$$Lambda$lambda$new$0::*)()>(&ModulePatcher$$Lambda$lambda$new$0::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ModulePatcher$$Lambda$lambda$new$0, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ModulePatcher$$Lambda$lambda$new$0, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo ModulePatcher$$Lambda$lambda$new$0::classInfo$ = {
@@ -173,8 +173,8 @@ $FieldInfo ModulePatcher$$Lambda$lambda$patchIfNeeded$1$1::fieldInfos[2] = {
 	{}
 };
 $MethodInfo ModulePatcher$$Lambda$lambda$patchIfNeeded$1$1::methodInfos[3] = {
-	{"<init>", "(Z)V", nullptr, $PUBLIC, $method(static_cast<void(ModulePatcher$$Lambda$lambda$patchIfNeeded$1$1::*)(bool)>(&ModulePatcher$$Lambda$lambda$patchIfNeeded$1$1::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Z)V", nullptr, $PUBLIC, $method(ModulePatcher$$Lambda$lambda$patchIfNeeded$1$1, init$, void, bool)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ModulePatcher$$Lambda$lambda$patchIfNeeded$1$1, test, bool, Object$*)},
 	{}
 };
 $ClassInfo ModulePatcher$$Lambda$lambda$patchIfNeeded$1$1::classInfo$ = {
@@ -213,8 +213,8 @@ $FieldInfo ModulePatcher$$Lambda$lambda$patchIfNeeded$2$2::fieldInfos[2] = {
 	{}
 };
 $MethodInfo ModulePatcher$$Lambda$lambda$patchIfNeeded$2$2::methodInfos[3] = {
-	{"<init>", "(Ljava/nio/file/Path;)V", nullptr, $PUBLIC, $method(static_cast<void(ModulePatcher$$Lambda$lambda$patchIfNeeded$2$2::*)($Path*)>(&ModulePatcher$$Lambda$lambda$patchIfNeeded$2$2::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/nio/file/Path;)V", nullptr, $PUBLIC, $method(ModulePatcher$$Lambda$lambda$patchIfNeeded$2$2, init$, void, $Path*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ModulePatcher$$Lambda$lambda$patchIfNeeded$2$2, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo ModulePatcher$$Lambda$lambda$patchIfNeeded$2$2::classInfo$ = {
@@ -246,8 +246,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ModulePatcher$$Lambda$isPackageName$3::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ModulePatcher$$Lambda$isPackageName$3::*)()>(&ModulePatcher$$Lambda$isPackageName$3::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ModulePatcher$$Lambda$isPackageName$3, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ModulePatcher$$Lambda$isPackageName$3, test, bool, Object$*)},
 	{}
 };
 $ClassInfo ModulePatcher$$Lambda$isPackageName$3::classInfo$ = {
@@ -286,8 +286,8 @@ $FieldInfo ModulePatcher$$Lambda$add$4::fieldInfos[2] = {
 	{}
 };
 $MethodInfo ModulePatcher$$Lambda$add$4::methodInfos[3] = {
-	{"<init>", "(Ljava/util/Set;)V", nullptr, $PUBLIC, $method(static_cast<void(ModulePatcher$$Lambda$add$4::*)($Set*)>(&ModulePatcher$$Lambda$add$4::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/Set;)V", nullptr, $PUBLIC, $method(ModulePatcher$$Lambda$add$4, init$, void, $Set*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ModulePatcher$$Lambda$add$4, accept, void, Object$*)},
 	{}
 };
 $ClassInfo ModulePatcher$$Lambda$add$4::classInfo$ = {
@@ -319,8 +319,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ModulePatcher$$Lambda$lambda$patchIfNeeded$3$5::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ModulePatcher$$Lambda$lambda$patchIfNeeded$3$5::*)()>(&ModulePatcher$$Lambda$lambda$patchIfNeeded$3$5::init$))},
-	{"test", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ModulePatcher$$Lambda$lambda$patchIfNeeded$3$5, init$, void)},
+	{"test", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ModulePatcher$$Lambda$lambda$patchIfNeeded$3$5, test, bool, Object$*, Object$*)},
 	{}
 };
 $ClassInfo ModulePatcher$$Lambda$lambda$patchIfNeeded$3$5::classInfo$ = {
@@ -362,8 +362,8 @@ $FieldInfo ModulePatcher$$Lambda$lambda$patchIfNeeded$4$6::fieldInfos[3] = {
 	{}
 };
 $MethodInfo ModulePatcher$$Lambda$lambda$patchIfNeeded$4$6::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/module/ModulePatcher;Z)V", nullptr, $PUBLIC, $method(static_cast<void(ModulePatcher$$Lambda$lambda$patchIfNeeded$4$6::*)(ModulePatcher*,bool)>(&ModulePatcher$$Lambda$lambda$patchIfNeeded$4$6::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/module/ModulePatcher;Z)V", nullptr, $PUBLIC, $method(ModulePatcher$$Lambda$lambda$patchIfNeeded$4$6, init$, void, ModulePatcher*, bool)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ModulePatcher$$Lambda$lambda$patchIfNeeded$4$6, test, bool, Object$*)},
 	{}
 };
 $ClassInfo ModulePatcher$$Lambda$lambda$patchIfNeeded$4$6::classInfo$ = {
@@ -402,8 +402,8 @@ $FieldInfo ModulePatcher$$Lambda$lambda$patchIfNeeded$5$7::fieldInfos[2] = {
 	{}
 };
 $MethodInfo ModulePatcher$$Lambda$lambda$patchIfNeeded$5$7::methodInfos[3] = {
-	{"<init>", "(Ljava/nio/file/Path;)V", nullptr, $PUBLIC, $method(static_cast<void(ModulePatcher$$Lambda$lambda$patchIfNeeded$5$7::*)($Path*)>(&ModulePatcher$$Lambda$lambda$patchIfNeeded$5$7::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/nio/file/Path;)V", nullptr, $PUBLIC, $method(ModulePatcher$$Lambda$lambda$patchIfNeeded$5$7, init$, void, $Path*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ModulePatcher$$Lambda$lambda$patchIfNeeded$5$7, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo ModulePatcher$$Lambda$lambda$patchIfNeeded$5$7::classInfo$ = {
@@ -442,8 +442,8 @@ $FieldInfo ModulePatcher$$Lambda$requires$8::fieldInfos[2] = {
 	{}
 };
 $MethodInfo ModulePatcher$$Lambda$requires$8::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/module/ModuleDescriptor$Builder;)V", nullptr, $PUBLIC, $method(static_cast<void(ModulePatcher$$Lambda$requires$8::*)($ModuleDescriptor$Builder*)>(&ModulePatcher$$Lambda$requires$8::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/module/ModuleDescriptor$Builder;)V", nullptr, $PUBLIC, $method(ModulePatcher$$Lambda$requires$8, init$, void, $ModuleDescriptor$Builder*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ModulePatcher$$Lambda$requires$8, accept, void, Object$*)},
 	{}
 };
 $ClassInfo ModulePatcher$$Lambda$requires$8::classInfo$ = {
@@ -482,8 +482,8 @@ $FieldInfo ModulePatcher$$Lambda$exports$9::fieldInfos[2] = {
 	{}
 };
 $MethodInfo ModulePatcher$$Lambda$exports$9::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/module/ModuleDescriptor$Builder;)V", nullptr, $PUBLIC, $method(static_cast<void(ModulePatcher$$Lambda$exports$9::*)($ModuleDescriptor$Builder*)>(&ModulePatcher$$Lambda$exports$9::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/module/ModuleDescriptor$Builder;)V", nullptr, $PUBLIC, $method(ModulePatcher$$Lambda$exports$9, init$, void, $ModuleDescriptor$Builder*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ModulePatcher$$Lambda$exports$9, accept, void, Object$*)},
 	{}
 };
 $ClassInfo ModulePatcher$$Lambda$exports$9::classInfo$ = {
@@ -522,8 +522,8 @@ $FieldInfo ModulePatcher$$Lambda$opens$10::fieldInfos[2] = {
 	{}
 };
 $MethodInfo ModulePatcher$$Lambda$opens$10::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/module/ModuleDescriptor$Builder;)V", nullptr, $PUBLIC, $method(static_cast<void(ModulePatcher$$Lambda$opens$10::*)($ModuleDescriptor$Builder*)>(&ModulePatcher$$Lambda$opens$10::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/module/ModuleDescriptor$Builder;)V", nullptr, $PUBLIC, $method(ModulePatcher$$Lambda$opens$10, init$, void, $ModuleDescriptor$Builder*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ModulePatcher$$Lambda$opens$10, accept, void, Object$*)},
 	{}
 };
 $ClassInfo ModulePatcher$$Lambda$opens$10::classInfo$ = {
@@ -562,8 +562,8 @@ $FieldInfo ModulePatcher$$Lambda$uses$11::fieldInfos[2] = {
 	{}
 };
 $MethodInfo ModulePatcher$$Lambda$uses$11::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/module/ModuleDescriptor$Builder;)V", nullptr, $PUBLIC, $method(static_cast<void(ModulePatcher$$Lambda$uses$11::*)($ModuleDescriptor$Builder*)>(&ModulePatcher$$Lambda$uses$11::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/module/ModuleDescriptor$Builder;)V", nullptr, $PUBLIC, $method(ModulePatcher$$Lambda$uses$11, init$, void, $ModuleDescriptor$Builder*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ModulePatcher$$Lambda$uses$11, accept, void, Object$*)},
 	{}
 };
 $ClassInfo ModulePatcher$$Lambda$uses$11::classInfo$ = {
@@ -602,8 +602,8 @@ $FieldInfo ModulePatcher$$Lambda$provides$12::fieldInfos[2] = {
 	{}
 };
 $MethodInfo ModulePatcher$$Lambda$provides$12::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/module/ModuleDescriptor$Builder;)V", nullptr, $PUBLIC, $method(static_cast<void(ModulePatcher$$Lambda$provides$12::*)($ModuleDescriptor$Builder*)>(&ModulePatcher$$Lambda$provides$12::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/module/ModuleDescriptor$Builder;)V", nullptr, $PUBLIC, $method(ModulePatcher$$Lambda$provides$12, init$, void, $ModuleDescriptor$Builder*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ModulePatcher$$Lambda$provides$12, accept, void, Object$*)},
 	{}
 };
 $ClassInfo ModulePatcher$$Lambda$provides$12::classInfo$ = {
@@ -642,8 +642,8 @@ $FieldInfo ModulePatcher$$Lambda$version$13::fieldInfos[2] = {
 	{}
 };
 $MethodInfo ModulePatcher$$Lambda$version$13::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/module/ModuleDescriptor$Builder;)V", nullptr, $PUBLIC, $method(static_cast<void(ModulePatcher$$Lambda$version$13::*)($ModuleDescriptor$Builder*)>(&ModulePatcher$$Lambda$version$13::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/module/ModuleDescriptor$Builder;)V", nullptr, $PUBLIC, $method(ModulePatcher$$Lambda$version$13, init$, void, $ModuleDescriptor$Builder*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ModulePatcher$$Lambda$version$13, accept, void, Object$*)},
 	{}
 };
 $ClassInfo ModulePatcher$$Lambda$version$13::classInfo$ = {
@@ -682,8 +682,8 @@ $FieldInfo ModulePatcher$$Lambda$mainClass$14::fieldInfos[2] = {
 	{}
 };
 $MethodInfo ModulePatcher$$Lambda$mainClass$14::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/module/ModuleDescriptor$Builder;)V", nullptr, $PUBLIC, $method(static_cast<void(ModulePatcher$$Lambda$mainClass$14::*)($ModuleDescriptor$Builder*)>(&ModulePatcher$$Lambda$mainClass$14::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/module/ModuleDescriptor$Builder;)V", nullptr, $PUBLIC, $method(ModulePatcher$$Lambda$mainClass$14, init$, void, $ModuleDescriptor$Builder*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ModulePatcher$$Lambda$mainClass$14, accept, void, Object$*)},
 	{}
 };
 $ClassInfo ModulePatcher$$Lambda$mainClass$14::classInfo$ = {
@@ -725,8 +725,8 @@ $FieldInfo ModulePatcher$$Lambda$lambda$patchIfNeeded$6$15::fieldInfos[3] = {
 	{}
 };
 $MethodInfo ModulePatcher$$Lambda$lambda$patchIfNeeded$6$15::methodInfos[3] = {
-	{"<init>", "(Ljava/util/List;Ljava/lang/module/ModuleReference;)V", nullptr, $PUBLIC, $method(static_cast<void(ModulePatcher$$Lambda$lambda$patchIfNeeded$6$15::*)($List*,$ModuleReference*)>(&ModulePatcher$$Lambda$lambda$patchIfNeeded$6$15::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/List;Ljava/lang/module/ModuleReference;)V", nullptr, $PUBLIC, $method(ModulePatcher$$Lambda$lambda$patchIfNeeded$6$15, init$, void, $List*, $ModuleReference*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ModulePatcher$$Lambda$lambda$patchIfNeeded$6$15, get, $Object*)},
 	{}
 };
 $ClassInfo ModulePatcher$$Lambda$lambda$patchIfNeeded$6$15::classInfo$ = {
@@ -750,21 +750,21 @@ $FieldInfo _ModulePatcher_FieldInfo_[] = {
 };
 
 $MethodInfo _ModulePatcher_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Map;)V", "(Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;)V", $PUBLIC, $method(static_cast<void(ModulePatcher::*)($Map*)>(&ModulePatcher::init$))},
-	{"hasPatches", "()Z", nullptr, $PUBLIC, $method(static_cast<bool(ModulePatcher::*)()>(&ModulePatcher::hasPatches))},
-	{"isHidden", "(Ljava/nio/file/Path;)Z", nullptr, $PRIVATE, $method(static_cast<bool(ModulePatcher::*)($Path*)>(&ModulePatcher::isHidden))},
-	{"lambda$new$0", "(Ljava/lang/String;)Ljava/nio/file/Path;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Path*(*)($String*)>(&ModulePatcher::lambda$new$0))},
-	{"lambda$patchIfNeeded$1", "(ZLjava/util/jar/JarEntry;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)(bool,$JarEntry*)>(&ModulePatcher::lambda$patchIfNeeded$1))},
-	{"lambda$patchIfNeeded$2", "(Ljava/nio/file/Path;Ljava/util/jar/JarEntry;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$String*(*)($Path*,$JarEntry*)>(&ModulePatcher::lambda$patchIfNeeded$2))},
-	{"lambda$patchIfNeeded$3", "(Ljava/nio/file/Path;Ljava/nio/file/attribute/BasicFileAttributes;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($Path*,$BasicFileAttributes*)>(&ModulePatcher::lambda$patchIfNeeded$3))},
-	{"lambda$patchIfNeeded$4", "(ZLjava/nio/file/Path;)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<bool(ModulePatcher::*)(bool,$Path*)>(&ModulePatcher::lambda$patchIfNeeded$4))},
-	{"lambda$patchIfNeeded$5", "(Ljava/nio/file/Path;Ljava/nio/file/Path;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$String*(*)($Path*,$Path*)>(&ModulePatcher::lambda$patchIfNeeded$5))},
-	{"lambda$patchIfNeeded$6", "(Ljava/util/List;Ljava/lang/module/ModuleReference;)Ljava/lang/module/ModuleReader;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$ModuleReader*(*)($List*,$ModuleReference*)>(&ModulePatcher::lambda$patchIfNeeded$6))},
-	{"patchIfNeeded", "(Ljava/lang/module/ModuleReference;)Ljava/lang/module/ModuleReference;", nullptr, $PUBLIC, $method(static_cast<$ModuleReference*(ModulePatcher::*)($ModuleReference*)>(&ModulePatcher::patchIfNeeded))},
-	{"patchedModules", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", 0, $method(static_cast<$Set*(ModulePatcher::*)()>(&ModulePatcher::patchedModules))},
-	{"toPackageName", "(Ljava/nio/file/Path;Ljava/nio/file/Path;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($Path*,$Path*)>(&ModulePatcher::toPackageName))},
-	{"toPackageName", "(Ljava/nio/file/Path;Ljava/util/jar/JarEntry;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($Path*,$JarEntry*)>(&ModulePatcher::toPackageName))},
-	{"warnIfModuleInfo", "(Ljava/nio/file/Path;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($Path*,$String*)>(&ModulePatcher::warnIfModuleInfo))},
+	{"<init>", "(Ljava/util/Map;)V", "(Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;)V", $PUBLIC, $method(ModulePatcher, init$, void, $Map*)},
+	{"hasPatches", "()Z", nullptr, $PUBLIC, $method(ModulePatcher, hasPatches, bool)},
+	{"isHidden", "(Ljava/nio/file/Path;)Z", nullptr, $PRIVATE, $method(ModulePatcher, isHidden, bool, $Path*)},
+	{"lambda$new$0", "(Ljava/lang/String;)Ljava/nio/file/Path;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ModulePatcher, lambda$new$0, $Path*, $String*)},
+	{"lambda$patchIfNeeded$1", "(ZLjava/util/jar/JarEntry;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ModulePatcher, lambda$patchIfNeeded$1, bool, bool, $JarEntry*)},
+	{"lambda$patchIfNeeded$2", "(Ljava/nio/file/Path;Ljava/util/jar/JarEntry;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ModulePatcher, lambda$patchIfNeeded$2, $String*, $Path*, $JarEntry*)},
+	{"lambda$patchIfNeeded$3", "(Ljava/nio/file/Path;Ljava/nio/file/attribute/BasicFileAttributes;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ModulePatcher, lambda$patchIfNeeded$3, bool, $Path*, $BasicFileAttributes*)},
+	{"lambda$patchIfNeeded$4", "(ZLjava/nio/file/Path;)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(ModulePatcher, lambda$patchIfNeeded$4, bool, bool, $Path*)},
+	{"lambda$patchIfNeeded$5", "(Ljava/nio/file/Path;Ljava/nio/file/Path;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ModulePatcher, lambda$patchIfNeeded$5, $String*, $Path*, $Path*)},
+	{"lambda$patchIfNeeded$6", "(Ljava/util/List;Ljava/lang/module/ModuleReference;)Ljava/lang/module/ModuleReader;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ModulePatcher, lambda$patchIfNeeded$6, $ModuleReader*, $List*, $ModuleReference*)},
+	{"patchIfNeeded", "(Ljava/lang/module/ModuleReference;)Ljava/lang/module/ModuleReference;", nullptr, $PUBLIC, $method(ModulePatcher, patchIfNeeded, $ModuleReference*, $ModuleReference*)},
+	{"patchedModules", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", 0, $method(ModulePatcher, patchedModules, $Set*)},
+	{"toPackageName", "(Ljava/nio/file/Path;Ljava/nio/file/Path;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(ModulePatcher, toPackageName, $String*, $Path*, $Path*)},
+	{"toPackageName", "(Ljava/nio/file/Path;Ljava/util/jar/JarEntry;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(ModulePatcher, toPackageName, $String*, $Path*, $JarEntry*)},
+	{"warnIfModuleInfo", "(Ljava/nio/file/Path;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(ModulePatcher, warnIfModuleInfo, $String*, $Path*, $String*)},
 	{}
 };
 

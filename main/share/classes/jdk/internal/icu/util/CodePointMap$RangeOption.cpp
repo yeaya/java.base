@@ -29,10 +29,10 @@ $FieldInfo _CodePointMap$RangeOption_FieldInfo_[] = {
 };
 
 $MethodInfo _CodePointMap$RangeOption_MethodInfo_[] = {
-	{"$values", "()[Ljdk/internal/icu/util/CodePointMap$RangeOption;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$CodePointMap$RangeOptionArray*(*)()>(&CodePointMap$RangeOption::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(CodePointMap$RangeOption::*)($String*,int32_t)>(&CodePointMap$RangeOption::init$))},
-	{"valueOf", "(Ljava/lang/String;)Ljdk/internal/icu/util/CodePointMap$RangeOption;", nullptr, $PUBLIC | $STATIC, $method(static_cast<CodePointMap$RangeOption*(*)($String*)>(&CodePointMap$RangeOption::valueOf))},
-	{"values", "()[Ljdk/internal/icu/util/CodePointMap$RangeOption;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$CodePointMap$RangeOptionArray*(*)()>(&CodePointMap$RangeOption::values))},
+	{"$values", "()[Ljdk/internal/icu/util/CodePointMap$RangeOption;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CodePointMap$RangeOption, $values, $CodePointMap$RangeOptionArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(CodePointMap$RangeOption, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Ljdk/internal/icu/util/CodePointMap$RangeOption;", nullptr, $PUBLIC | $STATIC, $staticMethod(CodePointMap$RangeOption, valueOf, CodePointMap$RangeOption*, $String*)},
+	{"values", "()[Ljdk/internal/icu/util/CodePointMap$RangeOption;", nullptr, $PUBLIC | $STATIC, $staticMethod(CodePointMap$RangeOption, values, $CodePointMap$RangeOptionArray*)},
 	{}
 };
 

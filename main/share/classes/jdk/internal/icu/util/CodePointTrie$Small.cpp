@@ -36,11 +36,11 @@ $CompoundAttribute _CodePointTrie$Small_MethodAnnotations_cpIndex1[] = {
 };
 
 $MethodInfo _CodePointTrie$Small_MethodInfo_[] = {
-	{"<init>", "([CLjdk/internal/icu/util/CodePointTrie$Data;III)V", nullptr, $PRIVATE, $method(static_cast<void(CodePointTrie$Small::*)($chars*,$CodePointTrie$Data*,int32_t,int32_t,int32_t)>(&CodePointTrie$Small::init$))},
-	{"cpIndex", "(I)I", nullptr, $PROTECTED | $FINAL | $DEPRECATED, nullptr, nullptr, nullptr, _CodePointTrie$Small_MethodAnnotations_cpIndex1},
-	{"fromBinary", "(Ljdk/internal/icu/util/CodePointTrie$ValueWidth;Ljava/nio/ByteBuffer;)Ljdk/internal/icu/util/CodePointTrie$Small;", nullptr, $PUBLIC | $STATIC, $method(static_cast<CodePointTrie$Small*(*)($CodePointTrie$ValueWidth*,$ByteBuffer*)>(&CodePointTrie$Small::fromBinary))},
-	{"getType", "()Ljdk/internal/icu/util/CodePointTrie$Type;", nullptr, $PUBLIC | $FINAL},
-	{"stringIterator", "(Ljava/lang/CharSequence;I)Ljdk/internal/icu/util/CodePointMap$StringIterator;", nullptr, $PUBLIC | $FINAL},
+	{"<init>", "([CLjdk/internal/icu/util/CodePointTrie$Data;III)V", nullptr, $PRIVATE, $method(CodePointTrie$Small, init$, void, $chars*, $CodePointTrie$Data*, int32_t, int32_t, int32_t)},
+	{"cpIndex", "(I)I", nullptr, $PROTECTED | $FINAL | $DEPRECATED, $virtualMethod(CodePointTrie$Small, cpIndex, int32_t, int32_t), nullptr, nullptr, _CodePointTrie$Small_MethodAnnotations_cpIndex1},
+	{"fromBinary", "(Ljdk/internal/icu/util/CodePointTrie$ValueWidth;Ljava/nio/ByteBuffer;)Ljdk/internal/icu/util/CodePointTrie$Small;", nullptr, $PUBLIC | $STATIC, $staticMethod(CodePointTrie$Small, fromBinary, CodePointTrie$Small*, $CodePointTrie$ValueWidth*, $ByteBuffer*)},
+	{"getType", "()Ljdk/internal/icu/util/CodePointTrie$Type;", nullptr, $PUBLIC | $FINAL, $virtualMethod(CodePointTrie$Small, getType, $CodePointTrie$Type*)},
+	{"stringIterator", "(Ljava/lang/CharSequence;I)Ljdk/internal/icu/util/CodePointMap$StringIterator;", nullptr, $PUBLIC | $FINAL, $virtualMethod(CodePointTrie$Small, stringIterator, $CodePointMap$StringIterator*, $CharSequence*, int32_t)},
 	{}
 };
 

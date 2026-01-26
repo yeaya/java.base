@@ -40,12 +40,12 @@ $FieldInfo _PolicyParser$DomainEntry_FieldInfo_[] = {
 };
 
 $MethodInfo _PolicyParser$DomainEntry_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/util/Map;)V", "(Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;)V", 0, $method(static_cast<void(PolicyParser$DomainEntry::*)($String*,$Map*)>(&PolicyParser$DomainEntry::init$))},
-	{"add", "(Lsun/security/provider/PolicyParser$KeyStoreEntry;)V", nullptr, 0, nullptr, "sun.security.provider.PolicyParser$ParsingException"},
-	{"getEntries", "()Ljava/util/Collection;", "()Ljava/util/Collection<Lsun/security/provider/PolicyParser$KeyStoreEntry;>;", 0},
-	{"getName", "()Ljava/lang/String;", nullptr, 0},
-	{"getProperties", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", 0},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Ljava/util/Map;)V", "(Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;)V", 0, $method(PolicyParser$DomainEntry, init$, void, $String*, $Map*)},
+	{"add", "(Lsun/security/provider/PolicyParser$KeyStoreEntry;)V", nullptr, 0, $virtualMethod(PolicyParser$DomainEntry, add, void, $PolicyParser$KeyStoreEntry*), "sun.security.provider.PolicyParser$ParsingException"},
+	{"getEntries", "()Ljava/util/Collection;", "()Ljava/util/Collection<Lsun/security/provider/PolicyParser$KeyStoreEntry;>;", 0, $virtualMethod(PolicyParser$DomainEntry, getEntries, $Collection*)},
+	{"getName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(PolicyParser$DomainEntry, getName, $String*)},
+	{"getProperties", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", 0, $virtualMethod(PolicyParser$DomainEntry, getProperties, $Map*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PolicyParser$DomainEntry, toString, $String*)},
 	{}
 };
 

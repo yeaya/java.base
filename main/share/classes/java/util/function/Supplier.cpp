@@ -16,7 +16,7 @@ $CompoundAttribute _Supplier_Annotations_[] = {
 };
 
 $MethodInfo _Supplier_MethodInfo_[] = {
-	{"get", "()Ljava/lang/Object;", "()TT;", $PUBLIC | $ABSTRACT},
+	{"get", "()Ljava/lang/Object;", "()TT;", $PUBLIC | $ABSTRACT, $virtualMethod(Supplier, get, $Object*)},
 	{}
 };
 

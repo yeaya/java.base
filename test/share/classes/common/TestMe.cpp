@@ -29,11 +29,11 @@ $Attribute _TestMe_DefaultValue_hasCanonical3 = {
 };
 
 $MethodInfo _TestMe_MethodInfo_[] = {
-	{"canonical", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, nullptr, nullptr, &_TestMe_DefaultValue_canonical0},
-	{"desc", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"encl", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"hasCanonical", "()Z", nullptr, $PUBLIC | $ABSTRACT, nullptr, nullptr, &_TestMe_DefaultValue_hasCanonical3},
-	{"simple", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
+	{"canonical", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TestMe, canonical, $String*), nullptr, &_TestMe_DefaultValue_canonical0},
+	{"desc", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TestMe, desc, $String*)},
+	{"encl", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TestMe, encl, $String*)},
+	{"hasCanonical", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TestMe, hasCanonical, bool), nullptr, &_TestMe_DefaultValue_hasCanonical3},
+	{"simple", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TestMe, simple, $String*)},
 	{}
 };
 

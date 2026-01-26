@@ -92,19 +92,19 @@ $FieldInfo _NTLM_FieldInfo_[] = {
 };
 
 $MethodInfo _NTLM_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $method(static_cast<void(NTLM::*)($String*)>(&NTLM::init$)), "com.sun.security.ntlm.NTLMException"},
-	{"calcLMHash", "([B)[B", nullptr, 0},
-	{"calcNTHash", "([B)[B", nullptr, 0},
-	{"calcResponse", "([B[B)[B", nullptr, 0},
-	{"calcV2", "([BLjava/lang/String;[B[B)[B", nullptr, 0},
-	{"debug", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $TRANSIENT},
-	{"debug", "([B)V", nullptr, $PUBLIC},
-	{"getP1", "([C)[B", nullptr, $STATIC, $method(static_cast<$bytes*(*)($chars*)>(&NTLM::getP1))},
-	{"getP2", "([C)[B", nullptr, $STATIC, $method(static_cast<$bytes*(*)($chars*)>(&NTLM::getP2))},
-	{"hmacMD5", "([B[B)[B", nullptr, 0},
-	{"makeDesKey", "([BI)[B", nullptr, 0},
-	{"ntlm2LM", "([B)[B", nullptr, $STATIC, $method(static_cast<$bytes*(*)($bytes*)>(&NTLM::ntlm2LM))},
-	{"ntlm2NTLM", "([B[B[B)[B", nullptr, 0},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $method(NTLM, init$, void, $String*), "com.sun.security.ntlm.NTLMException"},
+	{"calcLMHash", "([B)[B", nullptr, 0, $virtualMethod(NTLM, calcLMHash, $bytes*, $bytes*)},
+	{"calcNTHash", "([B)[B", nullptr, 0, $virtualMethod(NTLM, calcNTHash, $bytes*, $bytes*)},
+	{"calcResponse", "([B[B)[B", nullptr, 0, $virtualMethod(NTLM, calcResponse, $bytes*, $bytes*, $bytes*)},
+	{"calcV2", "([BLjava/lang/String;[B[B)[B", nullptr, 0, $virtualMethod(NTLM, calcV2, $bytes*, $bytes*, $String*, $bytes*, $bytes*)},
+	{"debug", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(NTLM, debug, void, $String*, $ObjectArray*)},
+	{"debug", "([B)V", nullptr, $PUBLIC, $virtualMethod(NTLM, debug, void, $bytes*)},
+	{"getP1", "([C)[B", nullptr, $STATIC, $staticMethod(NTLM, getP1, $bytes*, $chars*)},
+	{"getP2", "([C)[B", nullptr, $STATIC, $staticMethod(NTLM, getP2, $bytes*, $chars*)},
+	{"hmacMD5", "([B[B)[B", nullptr, 0, $virtualMethod(NTLM, hmacMD5, $bytes*, $bytes*, $bytes*)},
+	{"makeDesKey", "([BI)[B", nullptr, 0, $virtualMethod(NTLM, makeDesKey, $bytes*, $bytes*, int32_t)},
+	{"ntlm2LM", "([B)[B", nullptr, $STATIC, $staticMethod(NTLM, ntlm2LM, $bytes*, $bytes*)},
+	{"ntlm2NTLM", "([B[B[B)[B", nullptr, 0, $virtualMethod(NTLM, ntlm2NTLM, $bytes*, $bytes*, $bytes*, $bytes*)},
 	{}
 };
 

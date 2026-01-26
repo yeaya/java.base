@@ -19,8 +19,8 @@ $FieldInfo _ExtendedOptions$Wrapper_FieldInfo_[] = {
 };
 
 $MethodInfo _ExtendedOptions$Wrapper_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;Ljava/lang/Object;)V", "(Ljava/lang/Object;TT;)V", 0, $method(static_cast<void(ExtendedOptions$Wrapper::*)(Object$*,Object$*)>(&ExtendedOptions$Wrapper::init$))},
-	{"parameter", "()Ljava/lang/Object;", "()TT;", 0, $method(static_cast<$Object*(ExtendedOptions$Wrapper::*)()>(&ExtendedOptions$Wrapper::parameter))},
+	{"<init>", "(Ljava/lang/Object;Ljava/lang/Object;)V", "(Ljava/lang/Object;TT;)V", 0, $method(ExtendedOptions$Wrapper, init$, void, Object$*, Object$*)},
+	{"parameter", "()Ljava/lang/Object;", "()TT;", 0, $method(ExtendedOptions$Wrapper, parameter, $Object*)},
 	{}
 };
 

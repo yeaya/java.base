@@ -25,8 +25,8 @@ $FieldInfo _CompletableFuture$UniHandle_FieldInfo_[] = {
 };
 
 $MethodInfo _CompletableFuture$UniHandle_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/Executor;Ljava/util/concurrent/CompletableFuture;Ljava/util/concurrent/CompletableFuture;Ljava/util/function/BiFunction;)V", "(Ljava/util/concurrent/Executor;Ljava/util/concurrent/CompletableFuture<TV;>;Ljava/util/concurrent/CompletableFuture<TT;>;Ljava/util/function/BiFunction<-TT;Ljava/lang/Throwable;+TV;>;)V", 0, $method(static_cast<void(CompletableFuture$UniHandle::*)($Executor*,$CompletableFuture*,$CompletableFuture*,$BiFunction*)>(&CompletableFuture$UniHandle::init$))},
-	{"tryFire", "(I)Ljava/util/concurrent/CompletableFuture;", "(I)Ljava/util/concurrent/CompletableFuture<TV;>;", $FINAL},
+	{"<init>", "(Ljava/util/concurrent/Executor;Ljava/util/concurrent/CompletableFuture;Ljava/util/concurrent/CompletableFuture;Ljava/util/function/BiFunction;)V", "(Ljava/util/concurrent/Executor;Ljava/util/concurrent/CompletableFuture<TV;>;Ljava/util/concurrent/CompletableFuture<TT;>;Ljava/util/function/BiFunction<-TT;Ljava/lang/Throwable;+TV;>;)V", 0, $method(CompletableFuture$UniHandle, init$, void, $Executor*, $CompletableFuture*, $CompletableFuture*, $BiFunction*)},
+	{"tryFire", "(I)Ljava/util/concurrent/CompletableFuture;", "(I)Ljava/util/concurrent/CompletableFuture<TV;>;", $FINAL, $virtualMethod(CompletableFuture$UniHandle, tryFire, $CompletableFuture*, int32_t)},
 	{}
 };
 

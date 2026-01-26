@@ -8,14 +8,16 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $DomainName$Rule$Type = ::sun::security::util::DomainName$Rule$Type;
+using $RegisteredDomain = ::sun::security::util::RegisteredDomain;
 
 namespace sun {
 	namespace security {
 		namespace util {
 
 $MethodInfo _DomainName$Match_MethodInfo_[] = {
-	{"registeredDomain", "()Lsun/security/util/RegisteredDomain;", nullptr, $PUBLIC | $ABSTRACT},
-	{"type", "()Lsun/security/util/DomainName$Rule$Type;", nullptr, $PUBLIC | $ABSTRACT},
+	{"registeredDomain", "()Lsun/security/util/RegisteredDomain;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DomainName$Match, registeredDomain, $RegisteredDomain*)},
+	{"type", "()Lsun/security/util/DomainName$Rule$Type;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DomainName$Match, type, $DomainName$Rule$Type*)},
 	{}
 };
 

@@ -12,7 +12,7 @@ namespace sun {
 		namespace fs {
 
 $MethodInfo _WindowsChannelFactory$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(WindowsChannelFactory$1::*)()>(&WindowsChannelFactory$1::init$))},
+	{"<init>", "()V", nullptr, 0, $method(WindowsChannelFactory$1, init$, void)},
 	{}
 };
 

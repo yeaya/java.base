@@ -11,7 +11,7 @@ namespace java {
 		namespace invoke {
 
 $MethodInfo _VarHandleLongs_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(VarHandleLongs::*)()>(&VarHandleLongs::init$))},
+	{"<init>", "()V", nullptr, 0, $method(VarHandleLongs, init$, void)},
 	{}
 };
 

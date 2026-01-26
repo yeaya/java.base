@@ -46,8 +46,8 @@ $FieldInfo BiConsumer$$Lambda$lambda$andThen$0::fieldInfos[3] = {
 	{}
 };
 $MethodInfo BiConsumer$$Lambda$lambda$andThen$0::methodInfos[3] = {
-	{"<init>", "(Ljava/util/function/BiConsumer;Ljava/util/function/BiConsumer;)V", nullptr, $PUBLIC, $method(static_cast<void(BiConsumer$$Lambda$lambda$andThen$0::*)(BiConsumer*,BiConsumer*)>(&BiConsumer$$Lambda$lambda$andThen$0::init$))},
-	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/function/BiConsumer;Ljava/util/function/BiConsumer;)V", nullptr, $PUBLIC, $method(BiConsumer$$Lambda$lambda$andThen$0, init$, void, BiConsumer*, BiConsumer*)},
+	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(BiConsumer$$Lambda$lambda$andThen$0, accept, void, Object$*, Object$*)},
 	{}
 };
 $ClassInfo BiConsumer$$Lambda$lambda$andThen$0::classInfo$ = {
@@ -70,9 +70,9 @@ $CompoundAttribute _BiConsumer_Annotations_[] = {
 };
 
 $MethodInfo _BiConsumer_MethodInfo_[] = {
-	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", "(TT;TU;)V", $PUBLIC | $ABSTRACT},
-	{"andThen", "(Ljava/util/function/BiConsumer;)Ljava/util/function/BiConsumer;", "(Ljava/util/function/BiConsumer<-TT;-TU;>;)Ljava/util/function/BiConsumer<TT;TU;>;", $PUBLIC},
-	{"lambda$andThen$0", "(Ljava/util/function/BiConsumer;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(BiConsumer::*)(BiConsumer*,Object$*,Object$*)>(&BiConsumer::lambda$andThen$0))},
+	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", "(TT;TU;)V", $PUBLIC | $ABSTRACT, $virtualMethod(BiConsumer, accept, void, Object$*, Object$*)},
+	{"andThen", "(Ljava/util/function/BiConsumer;)Ljava/util/function/BiConsumer;", "(Ljava/util/function/BiConsumer<-TT;-TU;>;)Ljava/util/function/BiConsumer<TT;TU;>;", $PUBLIC, $virtualMethod(BiConsumer, andThen, BiConsumer*, BiConsumer*)},
+	{"lambda$andThen$0", "(Ljava/util/function/BiConsumer;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(BiConsumer, lambda$andThen$0, void, BiConsumer*, Object$*, Object$*)},
 	{}
 };
 

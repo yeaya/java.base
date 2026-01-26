@@ -16,8 +16,8 @@ $FieldInfo _TestUndefinedTitleCase_FieldInfo_[] = {
 };
 
 $MethodInfo _TestUndefinedTitleCase_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TestUndefinedTitleCase::*)()>(&TestUndefinedTitleCase::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&TestUndefinedTitleCase::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TestUndefinedTitleCase, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TestUndefinedTitleCase, main, void, $StringArray*)},
 	{}
 };
 

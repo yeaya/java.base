@@ -41,12 +41,12 @@ $FieldInfo _LinkedBlockingQueue$LBQSpliterator_FieldInfo_[] = {
 };
 
 $MethodInfo _LinkedBlockingQueue$LBQSpliterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/LinkedBlockingQueue;)V", nullptr, 0, $method(static_cast<void(LinkedBlockingQueue$LBQSpliterator::*)($LinkedBlockingQueue*)>(&LinkedBlockingQueue$LBQSpliterator::init$))},
-	{"characteristics", "()I", nullptr, $PUBLIC},
-	{"estimateSize", "()J", nullptr, $PUBLIC},
-	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC},
-	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-TE;>;)Z", $PUBLIC},
-	{"trySplit", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TE;>;", $PUBLIC},
+	{"<init>", "(Ljava/util/concurrent/LinkedBlockingQueue;)V", nullptr, 0, $method(LinkedBlockingQueue$LBQSpliterator, init$, void, $LinkedBlockingQueue*)},
+	{"characteristics", "()I", nullptr, $PUBLIC, $virtualMethod(LinkedBlockingQueue$LBQSpliterator, characteristics, int32_t)},
+	{"estimateSize", "()J", nullptr, $PUBLIC, $virtualMethod(LinkedBlockingQueue$LBQSpliterator, estimateSize, int64_t)},
+	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC, $virtualMethod(LinkedBlockingQueue$LBQSpliterator, forEachRemaining, void, $Consumer*)},
+	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-TE;>;)Z", $PUBLIC, $virtualMethod(LinkedBlockingQueue$LBQSpliterator, tryAdvance, bool, $Consumer*)},
+	{"trySplit", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TE;>;", $PUBLIC, $virtualMethod(LinkedBlockingQueue$LBQSpliterator, trySplit, $Spliterator*)},
 	{}
 };
 

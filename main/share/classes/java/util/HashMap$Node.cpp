@@ -24,13 +24,13 @@ $FieldInfo _HashMap$Node_FieldInfo_[] = {
 };
 
 $MethodInfo _HashMap$Node_MethodInfo_[] = {
-	{"<init>", "(ILjava/lang/Object;Ljava/lang/Object;Ljava/util/HashMap$Node;)V", "(ITK;TV;Ljava/util/HashMap$Node<TK;TV;>;)V", 0, $method(static_cast<void(HashMap$Node::*)(int32_t,Object$*,Object$*,HashMap$Node*)>(&HashMap$Node::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
-	{"getKey", "()Ljava/lang/Object;", "()TK;", $PUBLIC | $FINAL},
-	{"getValue", "()Ljava/lang/Object;", "()TV;", $PUBLIC | $FINAL},
-	{"hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"setValue", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TV;)TV;", $PUBLIC | $FINAL},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL},
+	{"<init>", "(ILjava/lang/Object;Ljava/lang/Object;Ljava/util/HashMap$Node;)V", "(ITK;TV;Ljava/util/HashMap$Node<TK;TV;>;)V", 0, $method(HashMap$Node, init$, void, int32_t, Object$*, Object$*, HashMap$Node*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(HashMap$Node, equals, bool, Object$*)},
+	{"getKey", "()Ljava/lang/Object;", "()TK;", $PUBLIC | $FINAL, $virtualMethod(HashMap$Node, getKey, $Object*)},
+	{"getValue", "()Ljava/lang/Object;", "()TV;", $PUBLIC | $FINAL, $virtualMethod(HashMap$Node, getValue, $Object*)},
+	{"hashCode", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(HashMap$Node, hashCode, int32_t)},
+	{"setValue", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TV;)TV;", $PUBLIC | $FINAL, $virtualMethod(HashMap$Node, setValue, $Object*, Object$*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(HashMap$Node, toString, $String*)},
 	{}
 };
 

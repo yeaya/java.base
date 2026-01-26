@@ -54,21 +54,21 @@ $FieldInfo _AtomicLongFieldUpdater$CASUpdater_FieldInfo_[] = {
 };
 
 $MethodInfo _AtomicLongFieldUpdater$CASUpdater_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/Class;)V", "(Ljava/lang/Class<TT;>;Ljava/lang/String;Ljava/lang/Class<*>;)V", 0, $method(static_cast<void(AtomicLongFieldUpdater$CASUpdater::*)($Class*,$String*,$Class*)>(&AtomicLongFieldUpdater$CASUpdater::init$))},
-	{"accessCheck", "(Ljava/lang/Object;)V", "(TT;)V", $PRIVATE | $FINAL, $method(static_cast<void(AtomicLongFieldUpdater$CASUpdater::*)(Object$*)>(&AtomicLongFieldUpdater$CASUpdater::accessCheck))},
-	{"addAndGet", "(Ljava/lang/Object;J)J", "(TT;J)J", $PUBLIC | $FINAL},
-	{"compareAndSet", "(Ljava/lang/Object;JJ)Z", "(TT;JJ)Z", $PUBLIC | $FINAL},
-	{"decrementAndGet", "(Ljava/lang/Object;)J", "(TT;)J", $PUBLIC | $FINAL},
-	{"get", "(Ljava/lang/Object;)J", "(TT;)J", $PUBLIC | $FINAL},
-	{"getAndAdd", "(Ljava/lang/Object;J)J", "(TT;J)J", $PUBLIC | $FINAL},
-	{"getAndDecrement", "(Ljava/lang/Object;)J", "(TT;)J", $PUBLIC | $FINAL},
-	{"getAndIncrement", "(Ljava/lang/Object;)J", "(TT;)J", $PUBLIC | $FINAL},
-	{"getAndSet", "(Ljava/lang/Object;J)J", "(TT;J)J", $PUBLIC | $FINAL},
-	{"incrementAndGet", "(Ljava/lang/Object;)J", "(TT;)J", $PUBLIC | $FINAL},
-	{"lazySet", "(Ljava/lang/Object;J)V", "(TT;J)V", $PUBLIC | $FINAL},
-	{"set", "(Ljava/lang/Object;J)V", "(TT;J)V", $PUBLIC | $FINAL},
-	{"throwAccessCheckException", "(Ljava/lang/Object;)V", "(TT;)V", $PRIVATE | $FINAL, $method(static_cast<void(AtomicLongFieldUpdater$CASUpdater::*)(Object$*)>(&AtomicLongFieldUpdater$CASUpdater::throwAccessCheckException))},
-	{"weakCompareAndSet", "(Ljava/lang/Object;JJ)Z", "(TT;JJ)Z", $PUBLIC | $FINAL},
+	{"<init>", "(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/Class;)V", "(Ljava/lang/Class<TT;>;Ljava/lang/String;Ljava/lang/Class<*>;)V", 0, $method(AtomicLongFieldUpdater$CASUpdater, init$, void, $Class*, $String*, $Class*)},
+	{"accessCheck", "(Ljava/lang/Object;)V", "(TT;)V", $PRIVATE | $FINAL, $method(AtomicLongFieldUpdater$CASUpdater, accessCheck, void, Object$*)},
+	{"addAndGet", "(Ljava/lang/Object;J)J", "(TT;J)J", $PUBLIC | $FINAL, $virtualMethod(AtomicLongFieldUpdater$CASUpdater, addAndGet, int64_t, Object$*, int64_t)},
+	{"compareAndSet", "(Ljava/lang/Object;JJ)Z", "(TT;JJ)Z", $PUBLIC | $FINAL, $virtualMethod(AtomicLongFieldUpdater$CASUpdater, compareAndSet, bool, Object$*, int64_t, int64_t)},
+	{"decrementAndGet", "(Ljava/lang/Object;)J", "(TT;)J", $PUBLIC | $FINAL, $virtualMethod(AtomicLongFieldUpdater$CASUpdater, decrementAndGet, int64_t, Object$*)},
+	{"get", "(Ljava/lang/Object;)J", "(TT;)J", $PUBLIC | $FINAL, $virtualMethod(AtomicLongFieldUpdater$CASUpdater, get, int64_t, Object$*)},
+	{"getAndAdd", "(Ljava/lang/Object;J)J", "(TT;J)J", $PUBLIC | $FINAL, $virtualMethod(AtomicLongFieldUpdater$CASUpdater, getAndAdd, int64_t, Object$*, int64_t)},
+	{"getAndDecrement", "(Ljava/lang/Object;)J", "(TT;)J", $PUBLIC | $FINAL, $virtualMethod(AtomicLongFieldUpdater$CASUpdater, getAndDecrement, int64_t, Object$*)},
+	{"getAndIncrement", "(Ljava/lang/Object;)J", "(TT;)J", $PUBLIC | $FINAL, $virtualMethod(AtomicLongFieldUpdater$CASUpdater, getAndIncrement, int64_t, Object$*)},
+	{"getAndSet", "(Ljava/lang/Object;J)J", "(TT;J)J", $PUBLIC | $FINAL, $virtualMethod(AtomicLongFieldUpdater$CASUpdater, getAndSet, int64_t, Object$*, int64_t)},
+	{"incrementAndGet", "(Ljava/lang/Object;)J", "(TT;)J", $PUBLIC | $FINAL, $virtualMethod(AtomicLongFieldUpdater$CASUpdater, incrementAndGet, int64_t, Object$*)},
+	{"lazySet", "(Ljava/lang/Object;J)V", "(TT;J)V", $PUBLIC | $FINAL, $virtualMethod(AtomicLongFieldUpdater$CASUpdater, lazySet, void, Object$*, int64_t)},
+	{"set", "(Ljava/lang/Object;J)V", "(TT;J)V", $PUBLIC | $FINAL, $virtualMethod(AtomicLongFieldUpdater$CASUpdater, set, void, Object$*, int64_t)},
+	{"throwAccessCheckException", "(Ljava/lang/Object;)V", "(TT;)V", $PRIVATE | $FINAL, $method(AtomicLongFieldUpdater$CASUpdater, throwAccessCheckException, void, Object$*)},
+	{"weakCompareAndSet", "(Ljava/lang/Object;JJ)Z", "(TT;JJ)Z", $PUBLIC | $FINAL, $virtualMethod(AtomicLongFieldUpdater$CASUpdater, weakCompareAndSet, bool, Object$*, int64_t, int64_t)},
 	{}
 };
 

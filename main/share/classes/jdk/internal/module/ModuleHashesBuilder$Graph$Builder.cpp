@@ -50,8 +50,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ModuleHashesBuilder$Graph$Builder$$Lambda$lambda$addNode$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ModuleHashesBuilder$Graph$Builder$$Lambda$lambda$addNode$0::*)()>(&ModuleHashesBuilder$Graph$Builder$$Lambda$lambda$addNode$0::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ModuleHashesBuilder$Graph$Builder$$Lambda$lambda$addNode$0, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ModuleHashesBuilder$Graph$Builder$$Lambda$lambda$addNode$0, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo ModuleHashesBuilder$Graph$Builder$$Lambda$lambda$addNode$0::classInfo$ = {
@@ -75,11 +75,11 @@ $FieldInfo _ModuleHashesBuilder$Graph$Builder_FieldInfo_[] = {
 };
 
 $MethodInfo _ModuleHashesBuilder$Graph$Builder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ModuleHashesBuilder$Graph$Builder::*)()>(&ModuleHashesBuilder$Graph$Builder::init$))},
-	{"addEdge", "(Ljava/lang/Object;Ljava/lang/Object;)V", "(TT;TT;)V", $PUBLIC},
-	{"addNode", "(Ljava/lang/Object;)V", "(TT;)V", $PUBLIC},
-	{"build", "()Ljdk/internal/module/ModuleHashesBuilder$Graph;", "()Ljdk/internal/module/ModuleHashesBuilder$Graph<TT;>;", $PUBLIC},
-	{"lambda$addNode$0", "(Ljava/lang/Object;)Ljava/util/Set;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Set*(*)(Object$*)>(&ModuleHashesBuilder$Graph$Builder::lambda$addNode$0))},
+	{"<init>", "()V", nullptr, 0, $method(ModuleHashesBuilder$Graph$Builder, init$, void)},
+	{"addEdge", "(Ljava/lang/Object;Ljava/lang/Object;)V", "(TT;TT;)V", $PUBLIC, $virtualMethod(ModuleHashesBuilder$Graph$Builder, addEdge, void, Object$*, Object$*)},
+	{"addNode", "(Ljava/lang/Object;)V", "(TT;)V", $PUBLIC, $virtualMethod(ModuleHashesBuilder$Graph$Builder, addNode, void, Object$*)},
+	{"build", "()Ljdk/internal/module/ModuleHashesBuilder$Graph;", "()Ljdk/internal/module/ModuleHashesBuilder$Graph<TT;>;", $PUBLIC, $virtualMethod(ModuleHashesBuilder$Graph$Builder, build, $ModuleHashesBuilder$Graph*)},
+	{"lambda$addNode$0", "(Ljava/lang/Object;)Ljava/util/Set;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ModuleHashesBuilder$Graph$Builder, lambda$addNode$0, $Set*, Object$*)},
 	{}
 };
 

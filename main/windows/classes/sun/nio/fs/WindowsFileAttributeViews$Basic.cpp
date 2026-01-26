@@ -43,11 +43,11 @@ $FieldInfo _WindowsFileAttributeViews$Basic_FieldInfo_[] = {
 };
 
 $MethodInfo _WindowsFileAttributeViews$Basic_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/fs/WindowsPath;Z)V", nullptr, 0, $method(static_cast<void(WindowsFileAttributeViews$Basic::*)($WindowsPath*,bool)>(&WindowsFileAttributeViews$Basic::init$))},
-	{"adjustForFatEpoch", "(J)J", nullptr, $PRIVATE, $method(static_cast<int64_t(WindowsFileAttributeViews$Basic::*)(int64_t)>(&WindowsFileAttributeViews$Basic::adjustForFatEpoch))},
-	{"readAttributes", "()Lsun/nio/fs/WindowsFileAttributes;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"setFileTimes", "(JJJ)V", nullptr, 0, nullptr, "java.io.IOException"},
-	{"setTimes", "(Ljava/nio/file/attribute/FileTime;Ljava/nio/file/attribute/FileTime;Ljava/nio/file/attribute/FileTime;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Lsun/nio/fs/WindowsPath;Z)V", nullptr, 0, $method(WindowsFileAttributeViews$Basic, init$, void, $WindowsPath*, bool)},
+	{"adjustForFatEpoch", "(J)J", nullptr, $PRIVATE, $method(WindowsFileAttributeViews$Basic, adjustForFatEpoch, int64_t, int64_t)},
+	{"readAttributes", "()Lsun/nio/fs/WindowsFileAttributes;", nullptr, $PUBLIC, $virtualMethod(WindowsFileAttributeViews$Basic, readAttributes, $BasicFileAttributes*), "java.io.IOException"},
+	{"setFileTimes", "(JJJ)V", nullptr, 0, $virtualMethod(WindowsFileAttributeViews$Basic, setFileTimes, void, int64_t, int64_t, int64_t), "java.io.IOException"},
+	{"setTimes", "(Ljava/nio/file/attribute/FileTime;Ljava/nio/file/attribute/FileTime;Ljava/nio/file/attribute/FileTime;)V", nullptr, $PUBLIC, $virtualMethod(WindowsFileAttributeViews$Basic, setTimes, void, $FileTime*, $FileTime*, $FileTime*), "java.io.IOException"},
 	{}
 };
 

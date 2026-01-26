@@ -10,8 +10,8 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _StackStreamTest$A_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(StackStreamTest$A::*)()>(&StackStreamTest$A::init$))},
-	{"a", "()V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)()>(&StackStreamTest$A::a))},
+	{"<init>", "()V", nullptr, 0, $method(StackStreamTest$A, init$, void)},
+	{"a", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(StackStreamTest$A, a, void)},
 	{}
 };
 

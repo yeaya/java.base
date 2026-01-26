@@ -32,8 +32,8 @@ $FieldInfo _PhantomReferentClearing_FieldInfo_[] = {
 };
 
 $MethodInfo _PhantomReferentClearing_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PhantomReferentClearing::*)()>(&PhantomReferentClearing::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&PhantomReferentClearing::main)), "java.lang.InterruptedException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PhantomReferentClearing, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(PhantomReferentClearing, main, void, $StringArray*), "java.lang.InterruptedException"},
 	{}
 };
 

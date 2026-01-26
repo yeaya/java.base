@@ -27,8 +27,8 @@ $FieldInfo _Authenticator$TLS13Authenticator_FieldInfo_[] = {
 };
 
 $MethodInfo _Authenticator$TLS13Authenticator_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/ssl/ProtocolVersion;)V", nullptr, $PRIVATE, $method(static_cast<void(Authenticator$TLS13Authenticator::*)($ProtocolVersion*)>(&Authenticator$TLS13Authenticator::init$))},
-	{"acquireAuthenticationBytes", "(BI[B)[B", nullptr, 0},
+	{"<init>", "(Lsun/security/ssl/ProtocolVersion;)V", nullptr, $PRIVATE, $method(Authenticator$TLS13Authenticator, init$, void, $ProtocolVersion*)},
+	{"acquireAuthenticationBytes", "(BI[B)[B", nullptr, 0, $virtualMethod(Authenticator$TLS13Authenticator, acquireAuthenticationBytes, $bytes*, int8_t, int32_t, $bytes*)},
 	{}
 };
 

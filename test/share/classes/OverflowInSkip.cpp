@@ -12,8 +12,8 @@ using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _OverflowInSkip_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(OverflowInSkip::*)()>(&OverflowInSkip::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&OverflowInSkip::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(OverflowInSkip, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(OverflowInSkip, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

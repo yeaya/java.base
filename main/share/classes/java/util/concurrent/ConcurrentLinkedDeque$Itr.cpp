@@ -23,9 +23,9 @@ $FieldInfo _ConcurrentLinkedDeque$Itr_FieldInfo_[] = {
 };
 
 $MethodInfo _ConcurrentLinkedDeque$Itr_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/ConcurrentLinkedDeque;)V", nullptr, 0, $method(static_cast<void(ConcurrentLinkedDeque$Itr::*)($ConcurrentLinkedDeque*)>(&ConcurrentLinkedDeque$Itr::init$))},
-	{"nextNode", "(Ljava/util/concurrent/ConcurrentLinkedDeque$Node;)Ljava/util/concurrent/ConcurrentLinkedDeque$Node;", "(Ljava/util/concurrent/ConcurrentLinkedDeque$Node<TE;>;)Ljava/util/concurrent/ConcurrentLinkedDeque$Node<TE;>;", 0},
-	{"startNode", "()Ljava/util/concurrent/ConcurrentLinkedDeque$Node;", "()Ljava/util/concurrent/ConcurrentLinkedDeque$Node<TE;>;", 0},
+	{"<init>", "(Ljava/util/concurrent/ConcurrentLinkedDeque;)V", nullptr, 0, $method(ConcurrentLinkedDeque$Itr, init$, void, $ConcurrentLinkedDeque*)},
+	{"nextNode", "(Ljava/util/concurrent/ConcurrentLinkedDeque$Node;)Ljava/util/concurrent/ConcurrentLinkedDeque$Node;", "(Ljava/util/concurrent/ConcurrentLinkedDeque$Node<TE;>;)Ljava/util/concurrent/ConcurrentLinkedDeque$Node<TE;>;", 0, $virtualMethod(ConcurrentLinkedDeque$Itr, nextNode, $ConcurrentLinkedDeque$Node*, $ConcurrentLinkedDeque$Node*)},
+	{"startNode", "()Ljava/util/concurrent/ConcurrentLinkedDeque$Node;", "()Ljava/util/concurrent/ConcurrentLinkedDeque$Node<TE;>;", 0, $virtualMethod(ConcurrentLinkedDeque$Itr, startNode, $ConcurrentLinkedDeque$Node*)},
 	{}
 };
 

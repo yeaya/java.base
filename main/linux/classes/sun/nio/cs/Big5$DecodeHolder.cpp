@@ -26,7 +26,7 @@ $FieldInfo _Big5$DecodeHolder_FieldInfo_[] = {
 };
 
 $MethodInfo _Big5$DecodeHolder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Big5$DecodeHolder::*)()>(&Big5$DecodeHolder::init$))},
+	{"<init>", "()V", nullptr, 0, $method(Big5$DecodeHolder, init$, void)},
 	{}
 };
 

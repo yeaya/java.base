@@ -19,8 +19,8 @@ namespace jdk {
 		namespace logger {
 
 $MethodInfo _SimpleConsoleLogger$CallerFinder$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(SimpleConsoleLogger$CallerFinder$1::*)()>(&SimpleConsoleLogger$CallerFinder$1::init$))},
-	{"run", "()Ljava/lang/StackWalker;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(SimpleConsoleLogger$CallerFinder$1, init$, void)},
+	{"run", "()Ljava/lang/StackWalker;", nullptr, $PUBLIC, $virtualMethod(SimpleConsoleLogger$CallerFinder$1, run, $Object*)},
 	{}
 };
 

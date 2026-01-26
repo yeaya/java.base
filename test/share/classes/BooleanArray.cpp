@@ -18,7 +18,7 @@ $CompoundAttribute _BooleanArray_Annotations_[] = {
 };
 
 $MethodInfo _BooleanArray_MethodInfo_[] = {
-	{"value", "()[Z", nullptr, $PUBLIC | $ABSTRACT},
+	{"value", "()[Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(BooleanArray, value, $booleans*)},
 	{}
 };
 

@@ -20,10 +20,10 @@ $FieldInfo _DrbgParameters$NextBytes_FieldInfo_[] = {
 };
 
 $MethodInfo _DrbgParameters$NextBytes_MethodInfo_[] = {
-	{"<init>", "(IZ[B)V", nullptr, $PRIVATE, $method(static_cast<void(DrbgParameters$NextBytes::*)(int32_t,bool,$bytes*)>(&DrbgParameters$NextBytes::init$))},
-	{"getAdditionalInput", "()[B", nullptr, $PUBLIC, $method(static_cast<$bytes*(DrbgParameters$NextBytes::*)()>(&DrbgParameters$NextBytes::getAdditionalInput))},
-	{"getPredictionResistance", "()Z", nullptr, $PUBLIC, $method(static_cast<bool(DrbgParameters$NextBytes::*)()>(&DrbgParameters$NextBytes::getPredictionResistance))},
-	{"getStrength", "()I", nullptr, $PUBLIC, $method(static_cast<int32_t(DrbgParameters$NextBytes::*)()>(&DrbgParameters$NextBytes::getStrength))},
+	{"<init>", "(IZ[B)V", nullptr, $PRIVATE, $method(DrbgParameters$NextBytes, init$, void, int32_t, bool, $bytes*)},
+	{"getAdditionalInput", "()[B", nullptr, $PUBLIC, $method(DrbgParameters$NextBytes, getAdditionalInput, $bytes*)},
+	{"getPredictionResistance", "()Z", nullptr, $PUBLIC, $method(DrbgParameters$NextBytes, getPredictionResistance, bool)},
+	{"getStrength", "()I", nullptr, $PUBLIC, $method(DrbgParameters$NextBytes, getStrength, int32_t)},
 	{}
 };
 

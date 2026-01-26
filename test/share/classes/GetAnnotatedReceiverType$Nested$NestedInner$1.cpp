@@ -16,7 +16,7 @@ $FieldInfo _GetAnnotatedReceiverType$Nested$NestedInner$1_FieldInfo_[] = {
 };
 
 $MethodInfo _GetAnnotatedReceiverType$Nested$NestedInner$1_MethodInfo_[] = {
-	{"<init>", "(LGetAnnotatedReceiverType$Nested$NestedInner;)V", nullptr, 0, $method(static_cast<void(GetAnnotatedReceiverType$Nested$NestedInner$1::*)($GetAnnotatedReceiverType$Nested$NestedInner*)>(&GetAnnotatedReceiverType$Nested$NestedInner$1::init$))},
+	{"<init>", "(LGetAnnotatedReceiverType$Nested$NestedInner;)V", nullptr, 0, $method(GetAnnotatedReceiverType$Nested$NestedInner$1, init$, void, $GetAnnotatedReceiverType$Nested$NestedInner*)},
 	{}
 };
 

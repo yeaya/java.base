@@ -14,8 +14,8 @@ namespace sun {
 		namespace ch {
 
 $MethodInfo _Invoker$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Invoker$1::*)()>(&Invoker$1::init$))},
-	{"initialValue", "()Lsun/nio/ch/Invoker$GroupAndInvokeCount;", nullptr, $PROTECTED},
+	{"<init>", "()V", nullptr, 0, $method(Invoker$1, init$, void)},
+	{"initialValue", "()Lsun/nio/ch/Invoker$GroupAndInvokeCount;", nullptr, $PROTECTED, $virtualMethod(Invoker$1, initialValue, $Object*)},
 	{}
 };
 

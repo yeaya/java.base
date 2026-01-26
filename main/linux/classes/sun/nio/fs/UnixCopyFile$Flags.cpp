@@ -47,9 +47,9 @@ $FieldInfo _UnixCopyFile$Flags_FieldInfo_[] = {
 };
 
 $MethodInfo _UnixCopyFile$Flags_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(UnixCopyFile$Flags::*)()>(&UnixCopyFile$Flags::init$))},
-	{"fromCopyOptions", "([Ljava/nio/file/CopyOption;)Lsun/nio/fs/UnixCopyFile$Flags;", nullptr, $STATIC | $TRANSIENT, $method(static_cast<UnixCopyFile$Flags*(*)($CopyOptionArray*)>(&UnixCopyFile$Flags::fromCopyOptions))},
-	{"fromMoveOptions", "([Ljava/nio/file/CopyOption;)Lsun/nio/fs/UnixCopyFile$Flags;", nullptr, $STATIC | $TRANSIENT, $method(static_cast<UnixCopyFile$Flags*(*)($CopyOptionArray*)>(&UnixCopyFile$Flags::fromMoveOptions))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(UnixCopyFile$Flags, init$, void)},
+	{"fromCopyOptions", "([Ljava/nio/file/CopyOption;)Lsun/nio/fs/UnixCopyFile$Flags;", nullptr, $STATIC | $TRANSIENT, $staticMethod(UnixCopyFile$Flags, fromCopyOptions, UnixCopyFile$Flags*, $CopyOptionArray*)},
+	{"fromMoveOptions", "([Ljava/nio/file/CopyOption;)Lsun/nio/fs/UnixCopyFile$Flags;", nullptr, $STATIC | $TRANSIENT, $staticMethod(UnixCopyFile$Flags, fromMoveOptions, UnixCopyFile$Flags*, $CopyOptionArray*)},
 	{}
 };
 

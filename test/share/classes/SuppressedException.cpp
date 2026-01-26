@@ -33,10 +33,10 @@ $FieldInfo _SuppressedException_FieldInfo_[] = {
 };
 
 $MethodInfo _SuppressedException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SuppressedException::*)()>(&SuppressedException::init$))},
-	{"createOutputStream", "(Ljava/io/OutputStream;Z)Ljava/io/FilterOutputStream;", nullptr, $PRIVATE, $method(static_cast<$FilterOutputStream*(SuppressedException::*)($OutputStream*,bool)>(&SuppressedException::createOutputStream))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&SuppressedException::main)), "java.io.IOException"},
-	{"test", "()V", nullptr, $PRIVATE, $method(static_cast<void(SuppressedException::*)()>(&SuppressedException::test))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SuppressedException, init$, void)},
+	{"createOutputStream", "(Ljava/io/OutputStream;Z)Ljava/io/FilterOutputStream;", nullptr, $PRIVATE, $method(SuppressedException, createOutputStream, $FilterOutputStream*, $OutputStream*, bool)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SuppressedException, main, void, $StringArray*), "java.io.IOException"},
+	{"test", "()V", nullptr, $PRIVATE, $method(SuppressedException, test, void)},
 	{}
 };
 

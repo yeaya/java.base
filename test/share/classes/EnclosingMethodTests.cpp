@@ -50,10 +50,10 @@ $FieldInfo _EnclosingMethodTests_FieldInfo_[] = {
 };
 
 $MethodInfo _EnclosingMethodTests_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(EnclosingMethodTests::*)()>(&EnclosingMethodTests::init$))},
-	{"examine", "(Ljava/lang/Class;Ljava/lang/String;)I", nullptr, $STATIC, $method(static_cast<int32_t(*)($Class*,$String*)>(&EnclosingMethodTests::examine))},
-	{"getLocalClass", "(Ljava/lang/Object;)Ljava/lang/Class;", nullptr, 0, nullptr, nullptr, nullptr, _EnclosingMethodTests_MethodAnnotations_getLocalClass2},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&EnclosingMethodTests::main)), nullptr, nullptr, _EnclosingMethodTests_MethodAnnotations_main3},
+	{"<init>", "()V", nullptr, 0, $method(EnclosingMethodTests, init$, void)},
+	{"examine", "(Ljava/lang/Class;Ljava/lang/String;)I", nullptr, $STATIC, $staticMethod(EnclosingMethodTests, examine, int32_t, $Class*, $String*)},
+	{"getLocalClass", "(Ljava/lang/Object;)Ljava/lang/Class;", nullptr, 0, $virtualMethod(EnclosingMethodTests, getLocalClass, $Class*, Object$*), nullptr, nullptr, _EnclosingMethodTests_MethodAnnotations_getLocalClass2},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(EnclosingMethodTests, main, void, $StringArray*), nullptr, nullptr, _EnclosingMethodTests_MethodAnnotations_main3},
 	{}
 };
 

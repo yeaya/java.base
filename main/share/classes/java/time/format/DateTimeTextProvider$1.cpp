@@ -14,9 +14,9 @@ namespace java {
 		namespace format {
 
 $MethodInfo _DateTimeTextProvider$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(DateTimeTextProvider$1::*)()>(&DateTimeTextProvider$1::init$))},
-	{"compare", "(Ljava/util/Map$Entry;Ljava/util/Map$Entry;)I", "(Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/Long;>;Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/Long;>;)I", $PUBLIC},
-	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "()V", nullptr, 0, $method(DateTimeTextProvider$1, init$, void)},
+	{"compare", "(Ljava/util/Map$Entry;Ljava/util/Map$Entry;)I", "(Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/Long;>;Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/Long;>;)I", $PUBLIC, $virtualMethod(DateTimeTextProvider$1, compare, int32_t, $Map$Entry*, $Map$Entry*)},
+	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DateTimeTextProvider$1, compare, int32_t, Object$*, Object$*)},
 	{}
 };
 

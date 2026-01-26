@@ -20,7 +20,7 @@ $FieldInfo _ConcurrentSkipListMap$Node_FieldInfo_[] = {
 };
 
 $MethodInfo _ConcurrentSkipListMap$Node_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/util/concurrent/ConcurrentSkipListMap$Node;)V", "(TK;TV;Ljava/util/concurrent/ConcurrentSkipListMap$Node<TK;TV;>;)V", 0, $method(static_cast<void(ConcurrentSkipListMap$Node::*)(Object$*,Object$*,ConcurrentSkipListMap$Node*)>(&ConcurrentSkipListMap$Node::init$))},
+	{"<init>", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/util/concurrent/ConcurrentSkipListMap$Node;)V", "(TK;TV;Ljava/util/concurrent/ConcurrentSkipListMap$Node<TK;TV;>;)V", 0, $method(ConcurrentSkipListMap$Node, init$, void, Object$*, Object$*, ConcurrentSkipListMap$Node*)},
 	{}
 };
 

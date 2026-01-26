@@ -47,19 +47,19 @@ $FieldInfo _InflaterInputStream_FieldInfo_[] = {
 };
 
 $MethodInfo _InflaterInputStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/InputStream;Ljava/util/zip/Inflater;I)V", nullptr, $PUBLIC, $method(static_cast<void(InflaterInputStream::*)($InputStream*,$Inflater*,int32_t)>(&InflaterInputStream::init$))},
-	{"<init>", "(Ljava/io/InputStream;Ljava/util/zip/Inflater;)V", nullptr, $PUBLIC, $method(static_cast<void(InflaterInputStream::*)($InputStream*,$Inflater*)>(&InflaterInputStream::init$))},
-	{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(static_cast<void(InflaterInputStream::*)($InputStream*)>(&InflaterInputStream::init$))},
-	{"available", "()I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"ensureOpen", "()V", nullptr, $PRIVATE, $method(static_cast<void(InflaterInputStream::*)()>(&InflaterInputStream::ensureOpen)), "java.io.IOException"},
-	{"fill", "()V", nullptr, $PROTECTED, nullptr, "java.io.IOException"},
-	{"mark", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"markSupported", "()Z", nullptr, $PUBLIC},
-	{"read", "()I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"read", "([BII)I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"reset", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, nullptr, "java.io.IOException"},
-	{"skip", "(J)J", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljava/io/InputStream;Ljava/util/zip/Inflater;I)V", nullptr, $PUBLIC, $method(InflaterInputStream, init$, void, $InputStream*, $Inflater*, int32_t)},
+	{"<init>", "(Ljava/io/InputStream;Ljava/util/zip/Inflater;)V", nullptr, $PUBLIC, $method(InflaterInputStream, init$, void, $InputStream*, $Inflater*)},
+	{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(InflaterInputStream, init$, void, $InputStream*)},
+	{"available", "()I", nullptr, $PUBLIC, $virtualMethod(InflaterInputStream, available, int32_t), "java.io.IOException"},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(InflaterInputStream, close, void), "java.io.IOException"},
+	{"ensureOpen", "()V", nullptr, $PRIVATE, $method(InflaterInputStream, ensureOpen, void), "java.io.IOException"},
+	{"fill", "()V", nullptr, $PROTECTED, $virtualMethod(InflaterInputStream, fill, void), "java.io.IOException"},
+	{"mark", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(InflaterInputStream, mark, void, int32_t)},
+	{"markSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(InflaterInputStream, markSupported, bool)},
+	{"read", "()I", nullptr, $PUBLIC, $virtualMethod(InflaterInputStream, read, int32_t), "java.io.IOException"},
+	{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(InflaterInputStream, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
+	{"reset", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(InflaterInputStream, reset, void), "java.io.IOException"},
+	{"skip", "(J)J", nullptr, $PUBLIC, $virtualMethod(InflaterInputStream, skip, int64_t, int64_t), "java.io.IOException"},
 	{}
 };
 

@@ -8,8 +8,8 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _StartOOMTest$SleepRunnable_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(StartOOMTest$SleepRunnable::*)()>(&StartOOMTest$SleepRunnable::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(StartOOMTest$SleepRunnable, init$, void)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(StartOOMTest$SleepRunnable, run, void)},
 	{}
 };
 

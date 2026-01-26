@@ -88,8 +88,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo DateTimeFormatterBuilder$DayPeriod$$Lambda$lambda$static$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DateTimeFormatterBuilder$DayPeriod$$Lambda$lambda$static$0::*)()>(&DateTimeFormatterBuilder$DayPeriod$$Lambda$lambda$static$0::init$))},
-	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DateTimeFormatterBuilder$DayPeriod$$Lambda$lambda$static$0, init$, void)},
+	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$DayPeriod$$Lambda$lambda$static$0, compare, int32_t, Object$*, Object$*)},
 	{}
 };
 $ClassInfo DateTimeFormatterBuilder$DayPeriod$$Lambda$lambda$static$0::classInfo$ = {
@@ -121,8 +121,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo DateTimeFormatterBuilder$DayPeriod$$Lambda$lambda$getDayPeriodMap$2$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DateTimeFormatterBuilder$DayPeriod$$Lambda$lambda$getDayPeriodMap$2$1::*)()>(&DateTimeFormatterBuilder$DayPeriod$$Lambda$lambda$getDayPeriodMap$2$1::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DateTimeFormatterBuilder$DayPeriod$$Lambda$lambda$getDayPeriodMap$2$1, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$DayPeriod$$Lambda$lambda$getDayPeriodMap$2$1, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo DateTimeFormatterBuilder$DayPeriod$$Lambda$lambda$getDayPeriodMap$2$1::classInfo$ = {
@@ -161,8 +161,8 @@ $FieldInfo DateTimeFormatterBuilder$DayPeriod$$Lambda$lambda$ofLocale$3$2::field
 	{}
 };
 $MethodInfo DateTimeFormatterBuilder$DayPeriod$$Lambda$lambda$ofLocale$3$2::methodInfos[3] = {
-	{"<init>", "(J)V", nullptr, $PUBLIC, $method(static_cast<void(DateTimeFormatterBuilder$DayPeriod$$Lambda$lambda$ofLocale$3$2::*)(int64_t)>(&DateTimeFormatterBuilder$DayPeriod$$Lambda$lambda$ofLocale$3$2::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "(J)V", nullptr, $PUBLIC, $method(DateTimeFormatterBuilder$DayPeriod$$Lambda$lambda$ofLocale$3$2, init$, void, int64_t)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$DayPeriod$$Lambda$lambda$ofLocale$3$2, test, bool, Object$*)},
 	{}
 };
 $ClassInfo DateTimeFormatterBuilder$DayPeriod$$Lambda$lambda$ofLocale$3$2::classInfo$ = {
@@ -204,8 +204,8 @@ $FieldInfo DateTimeFormatterBuilder$DayPeriod$$Lambda$lambda$ofLocale$4$3::field
 	{}
 };
 $MethodInfo DateTimeFormatterBuilder$DayPeriod$$Lambda$lambda$ofLocale$4$3::methodInfos[3] = {
-	{"<init>", "(Ljava/util/Locale;J)V", nullptr, $PUBLIC, $method(static_cast<void(DateTimeFormatterBuilder$DayPeriod$$Lambda$lambda$ofLocale$4$3::*)($Locale*,int64_t)>(&DateTimeFormatterBuilder$DayPeriod$$Lambda$lambda$ofLocale$4$3::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/Locale;J)V", nullptr, $PUBLIC, $method(DateTimeFormatterBuilder$DayPeriod$$Lambda$lambda$ofLocale$4$3, init$, void, $Locale*, int64_t)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$DayPeriod$$Lambda$lambda$ofLocale$4$3, get, $Object*)},
 	{}
 };
 $ClassInfo DateTimeFormatterBuilder$DayPeriod$$Lambda$lambda$ofLocale$4$3::classInfo$ = {
@@ -244,8 +244,8 @@ $FieldInfo DateTimeFormatterBuilder$DayPeriod$$Lambda$lambda$getDayPeriodMap$1$4
 	{}
 };
 $MethodInfo DateTimeFormatterBuilder$DayPeriod$$Lambda$lambda$getDayPeriodMap$1$4::methodInfos[3] = {
-	{"<init>", "(Ljava/util/Map;)V", nullptr, $PUBLIC, $method(static_cast<void(DateTimeFormatterBuilder$DayPeriod$$Lambda$lambda$getDayPeriodMap$1$4::*)($Map*)>(&DateTimeFormatterBuilder$DayPeriod$$Lambda$lambda$getDayPeriodMap$1$4::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/Map;)V", nullptr, $PUBLIC, $method(DateTimeFormatterBuilder$DayPeriod$$Lambda$lambda$getDayPeriodMap$1$4, init$, void, $Map*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$DayPeriod$$Lambda$lambda$getDayPeriodMap$1$4, accept, void, Object$*)},
 	{}
 };
 $ClassInfo DateTimeFormatterBuilder$DayPeriod$$Lambda$lambda$getDayPeriodMap$1$4::classInfo$ = {
@@ -273,22 +273,22 @@ $FieldInfo _DateTimeFormatterBuilder$DayPeriod_FieldInfo_[] = {
 };
 
 $MethodInfo _DateTimeFormatterBuilder$DayPeriod_MethodInfo_[] = {
-	{"<init>", "(JJJ)V", nullptr, $PRIVATE, $method(static_cast<void(DateTimeFormatterBuilder$DayPeriod::*)(int64_t,int64_t,int64_t)>(&DateTimeFormatterBuilder$DayPeriod::init$))},
-	{"duration", "()J", nullptr, $PRIVATE, $method(static_cast<int64_t(DateTimeFormatterBuilder$DayPeriod::*)()>(&DateTimeFormatterBuilder$DayPeriod::duration))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getDayPeriodMap", "(Ljava/util/Locale;)Ljava/util/Map;", "(Ljava/util/Locale;)Ljava/util/Map<Ljava/time/format/DateTimeFormatterBuilder$DayPeriod;Ljava/lang/Long;>;", $STATIC, $method(static_cast<$Map*(*)($Locale*)>(&DateTimeFormatterBuilder$DayPeriod::getDayPeriodMap))},
-	{"getIndex", "()J", nullptr, 0, $method(static_cast<int64_t(DateTimeFormatterBuilder$DayPeriod::*)()>(&DateTimeFormatterBuilder$DayPeriod::getIndex))},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"includes", "(J)Z", nullptr, 0, $method(static_cast<bool(DateTimeFormatterBuilder$DayPeriod::*)(int64_t)>(&DateTimeFormatterBuilder$DayPeriod::includes))},
-	{"lambda$getDayPeriodMap$1", "(Ljava/util/Map;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($Map*,$String*)>(&DateTimeFormatterBuilder$DayPeriod::lambda$getDayPeriodMap$1))},
-	{"lambda$getDayPeriodMap$2", "(Ljava/util/Locale;)Ljava/util/Map;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Map*(*)($Locale*)>(&DateTimeFormatterBuilder$DayPeriod::lambda$getDayPeriodMap$2))},
-	{"lambda$ofLocale$3", "(JLjava/time/format/DateTimeFormatterBuilder$DayPeriod;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)(int64_t,DateTimeFormatterBuilder$DayPeriod*)>(&DateTimeFormatterBuilder$DayPeriod::lambda$ofLocale$3))},
-	{"lambda$ofLocale$4", "(Ljava/util/Locale;J)Ljava/time/DateTimeException;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$DateTimeException*(*)($Locale*,int64_t)>(&DateTimeFormatterBuilder$DayPeriod::lambda$ofLocale$4))},
-	{"lambda$static$0", "(Ljava/time/format/DateTimeFormatterBuilder$DayPeriod;Ljava/time/format/DateTimeFormatterBuilder$DayPeriod;)I", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<int32_t(*)(DateTimeFormatterBuilder$DayPeriod*,DateTimeFormatterBuilder$DayPeriod*)>(&DateTimeFormatterBuilder$DayPeriod::lambda$static$0))},
-	{"mapToIndex", "(Ljava/lang/String;)J", nullptr, $STATIC, $method(static_cast<int64_t(*)($String*)>(&DateTimeFormatterBuilder$DayPeriod::mapToIndex))},
-	{"mid", "()J", nullptr, 0, $method(static_cast<int64_t(DateTimeFormatterBuilder$DayPeriod::*)()>(&DateTimeFormatterBuilder$DayPeriod::mid))},
-	{"ofLocale", "(Ljava/util/Locale;J)Ljava/time/format/DateTimeFormatterBuilder$DayPeriod;", nullptr, $STATIC, $method(static_cast<DateTimeFormatterBuilder$DayPeriod*(*)($Locale*,int64_t)>(&DateTimeFormatterBuilder$DayPeriod::ofLocale))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(JJJ)V", nullptr, $PRIVATE, $method(DateTimeFormatterBuilder$DayPeriod, init$, void, int64_t, int64_t, int64_t)},
+	{"duration", "()J", nullptr, $PRIVATE, $method(DateTimeFormatterBuilder$DayPeriod, duration, int64_t)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$DayPeriod, equals, bool, Object$*)},
+	{"getDayPeriodMap", "(Ljava/util/Locale;)Ljava/util/Map;", "(Ljava/util/Locale;)Ljava/util/Map<Ljava/time/format/DateTimeFormatterBuilder$DayPeriod;Ljava/lang/Long;>;", $STATIC, $staticMethod(DateTimeFormatterBuilder$DayPeriod, getDayPeriodMap, $Map*, $Locale*)},
+	{"getIndex", "()J", nullptr, 0, $method(DateTimeFormatterBuilder$DayPeriod, getIndex, int64_t)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$DayPeriod, hashCode, int32_t)},
+	{"includes", "(J)Z", nullptr, 0, $method(DateTimeFormatterBuilder$DayPeriod, includes, bool, int64_t)},
+	{"lambda$getDayPeriodMap$1", "(Ljava/util/Map;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DateTimeFormatterBuilder$DayPeriod, lambda$getDayPeriodMap$1, void, $Map*, $String*)},
+	{"lambda$getDayPeriodMap$2", "(Ljava/util/Locale;)Ljava/util/Map;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DateTimeFormatterBuilder$DayPeriod, lambda$getDayPeriodMap$2, $Map*, $Locale*)},
+	{"lambda$ofLocale$3", "(JLjava/time/format/DateTimeFormatterBuilder$DayPeriod;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DateTimeFormatterBuilder$DayPeriod, lambda$ofLocale$3, bool, int64_t, DateTimeFormatterBuilder$DayPeriod*)},
+	{"lambda$ofLocale$4", "(Ljava/util/Locale;J)Ljava/time/DateTimeException;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DateTimeFormatterBuilder$DayPeriod, lambda$ofLocale$4, $DateTimeException*, $Locale*, int64_t)},
+	{"lambda$static$0", "(Ljava/time/format/DateTimeFormatterBuilder$DayPeriod;Ljava/time/format/DateTimeFormatterBuilder$DayPeriod;)I", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DateTimeFormatterBuilder$DayPeriod, lambda$static$0, int32_t, DateTimeFormatterBuilder$DayPeriod*, DateTimeFormatterBuilder$DayPeriod*)},
+	{"mapToIndex", "(Ljava/lang/String;)J", nullptr, $STATIC, $staticMethod(DateTimeFormatterBuilder$DayPeriod, mapToIndex, int64_t, $String*)},
+	{"mid", "()J", nullptr, 0, $method(DateTimeFormatterBuilder$DayPeriod, mid, int64_t)},
+	{"ofLocale", "(Ljava/util/Locale;J)Ljava/time/format/DateTimeFormatterBuilder$DayPeriod;", nullptr, $STATIC, $staticMethod(DateTimeFormatterBuilder$DayPeriod, ofLocale, DateTimeFormatterBuilder$DayPeriod*, $Locale*, int64_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$DayPeriod, toString, $String*)},
 	{}
 };
 

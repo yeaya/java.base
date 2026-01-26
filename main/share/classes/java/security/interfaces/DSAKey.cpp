@@ -5,13 +5,14 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $DSAParams = ::java::security::interfaces::DSAParams;
 
 namespace java {
 	namespace security {
 		namespace interfaces {
 
 $MethodInfo _DSAKey_MethodInfo_[] = {
-	{"getParams", "()Ljava/security/interfaces/DSAParams;", nullptr, $PUBLIC | $ABSTRACT},
+	{"getParams", "()Ljava/security/interfaces/DSAParams;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DSAKey, getParams, $DSAParams*)},
 	{}
 };
 

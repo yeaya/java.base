@@ -44,9 +44,9 @@ $FieldInfo _ProxyGenerator$PrimitiveTypeInfo_FieldInfo_[] = {
 };
 
 $MethodInfo _ProxyGenerator$PrimitiveTypeInfo_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Class;Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)V", $PRIVATE, $method(static_cast<void(ProxyGenerator$PrimitiveTypeInfo::*)($Class*,$Class*)>(&ProxyGenerator$PrimitiveTypeInfo::init$))},
-	{"add", "(Ljava/lang/Class;Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)V", $PRIVATE | $STATIC, $method(static_cast<void(*)($Class*,$Class*)>(&ProxyGenerator$PrimitiveTypeInfo::add))},
-	{"get", "(Ljava/lang/Class;)Ljava/lang/reflect/ProxyGenerator$PrimitiveTypeInfo;", "(Ljava/lang/Class<*>;)Ljava/lang/reflect/ProxyGenerator$PrimitiveTypeInfo;", $PUBLIC | $STATIC, $method(static_cast<ProxyGenerator$PrimitiveTypeInfo*(*)($Class*)>(&ProxyGenerator$PrimitiveTypeInfo::get))},
+	{"<init>", "(Ljava/lang/Class;Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)V", $PRIVATE, $method(ProxyGenerator$PrimitiveTypeInfo, init$, void, $Class*, $Class*)},
+	{"add", "(Ljava/lang/Class;Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)V", $PRIVATE | $STATIC, $staticMethod(ProxyGenerator$PrimitiveTypeInfo, add, void, $Class*, $Class*)},
+	{"get", "(Ljava/lang/Class;)Ljava/lang/reflect/ProxyGenerator$PrimitiveTypeInfo;", "(Ljava/lang/Class<*>;)Ljava/lang/reflect/ProxyGenerator$PrimitiveTypeInfo;", $PUBLIC | $STATIC, $staticMethod(ProxyGenerator$PrimitiveTypeInfo, get, ProxyGenerator$PrimitiveTypeInfo*, $Class*)},
 	{}
 };
 

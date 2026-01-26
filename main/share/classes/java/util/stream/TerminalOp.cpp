@@ -21,10 +21,10 @@ namespace java {
 		namespace stream {
 
 $MethodInfo _TerminalOp_MethodInfo_[] = {
-	{"evaluateParallel", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;)Ljava/lang/Object;", "<P_IN:Ljava/lang/Object;>(Ljava/util/stream/PipelineHelper<TE_IN;>;Ljava/util/Spliterator<TP_IN;>;)TR;", $PUBLIC},
-	{"evaluateSequential", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;)Ljava/lang/Object;", "<P_IN:Ljava/lang/Object;>(Ljava/util/stream/PipelineHelper<TE_IN;>;Ljava/util/Spliterator<TP_IN;>;)TR;", $PUBLIC | $ABSTRACT},
-	{"getOpFlags", "()I", nullptr, $PUBLIC},
-	{"inputShape", "()Ljava/util/stream/StreamShape;", nullptr, $PUBLIC},
+	{"evaluateParallel", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;)Ljava/lang/Object;", "<P_IN:Ljava/lang/Object;>(Ljava/util/stream/PipelineHelper<TE_IN;>;Ljava/util/Spliterator<TP_IN;>;)TR;", $PUBLIC, $virtualMethod(TerminalOp, evaluateParallel, $Object*, $PipelineHelper*, $Spliterator*)},
+	{"evaluateSequential", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;)Ljava/lang/Object;", "<P_IN:Ljava/lang/Object;>(Ljava/util/stream/PipelineHelper<TE_IN;>;Ljava/util/Spliterator<TP_IN;>;)TR;", $PUBLIC | $ABSTRACT, $virtualMethod(TerminalOp, evaluateSequential, $Object*, $PipelineHelper*, $Spliterator*)},
+	{"getOpFlags", "()I", nullptr, $PUBLIC, $virtualMethod(TerminalOp, getOpFlags, int32_t)},
+	{"inputShape", "()Ljava/util/stream/StreamShape;", nullptr, $PUBLIC, $virtualMethod(TerminalOp, inputShape, $StreamShape*)},
 	{}
 };
 

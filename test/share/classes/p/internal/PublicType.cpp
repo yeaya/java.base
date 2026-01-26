@@ -9,7 +9,7 @@ namespace p {
 	namespace internal {
 
 $MethodInfo _PublicType_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PublicType::*)()>(&PublicType::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PublicType, init$, void)},
 	{}
 };
 

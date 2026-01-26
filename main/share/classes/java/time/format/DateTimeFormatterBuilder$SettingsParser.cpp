@@ -38,17 +38,17 @@ $FieldInfo _DateTimeFormatterBuilder$SettingsParser_FieldInfo_[] = {
 };
 
 $MethodInfo _DateTimeFormatterBuilder$SettingsParser_MethodInfo_[] = {
-	{"$values", "()[Ljava/time/format/DateTimeFormatterBuilder$SettingsParser;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$DateTimeFormatterBuilder$SettingsParserArray*(*)()>(&DateTimeFormatterBuilder$SettingsParser::$values))},
+	{"$values", "()[Ljava/time/format/DateTimeFormatterBuilder$SettingsParser;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DateTimeFormatterBuilder$SettingsParser, $values, $DateTimeFormatterBuilder$SettingsParserArray*)},
 	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
 	{"*finalize", "()V", nullptr, $PROTECTED | $FINAL},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(DateTimeFormatterBuilder$SettingsParser::*)($String*,int32_t)>(&DateTimeFormatterBuilder$SettingsParser::init$))},
-	{"format", "(Ljava/time/format/DateTimePrintContext;Ljava/lang/StringBuilder;)Z", nullptr, $PUBLIC},
-	{"parse", "(Ljava/time/format/DateTimeParseContext;Ljava/lang/CharSequence;I)I", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"valueOf", "(Ljava/lang/String;)Ljava/time/format/DateTimeFormatterBuilder$SettingsParser;", nullptr, $PUBLIC | $STATIC, $method(static_cast<DateTimeFormatterBuilder$SettingsParser*(*)($String*)>(&DateTimeFormatterBuilder$SettingsParser::valueOf))},
-	{"values", "()[Ljava/time/format/DateTimeFormatterBuilder$SettingsParser;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$DateTimeFormatterBuilder$SettingsParserArray*(*)()>(&DateTimeFormatterBuilder$SettingsParser::values))},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(DateTimeFormatterBuilder$SettingsParser, init$, void, $String*, int32_t)},
+	{"format", "(Ljava/time/format/DateTimePrintContext;Ljava/lang/StringBuilder;)Z", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$SettingsParser, format, bool, $DateTimePrintContext*, $StringBuilder*)},
+	{"parse", "(Ljava/time/format/DateTimeParseContext;Ljava/lang/CharSequence;I)I", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$SettingsParser, parse, int32_t, $DateTimeParseContext*, $CharSequence*, int32_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$SettingsParser, toString, $String*)},
+	{"valueOf", "(Ljava/lang/String;)Ljava/time/format/DateTimeFormatterBuilder$SettingsParser;", nullptr, $PUBLIC | $STATIC, $staticMethod(DateTimeFormatterBuilder$SettingsParser, valueOf, DateTimeFormatterBuilder$SettingsParser*, $String*)},
+	{"values", "()[Ljava/time/format/DateTimeFormatterBuilder$SettingsParser;", nullptr, $PUBLIC | $STATIC, $staticMethod(DateTimeFormatterBuilder$SettingsParser, values, $DateTimeFormatterBuilder$SettingsParserArray*)},
 	{}
 };
 

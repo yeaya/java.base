@@ -43,11 +43,11 @@ $FieldInfo _MatchOps$MatchOp_FieldInfo_[] = {
 };
 
 $MethodInfo _MatchOps$MatchOp_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/stream/StreamShape;Ljava/util/stream/MatchOps$MatchKind;Ljava/util/function/Supplier;)V", "(Ljava/util/stream/StreamShape;Ljava/util/stream/MatchOps$MatchKind;Ljava/util/function/Supplier<Ljava/util/stream/MatchOps$BooleanTerminalSink<TT;>;>;)V", 0, $method(static_cast<void(MatchOps$MatchOp::*)($StreamShape*,$MatchOps$MatchKind*,$Supplier*)>(&MatchOps$MatchOp::init$))},
-	{"evaluateParallel", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;)Ljava/lang/Boolean;", "<S:Ljava/lang/Object;>(Ljava/util/stream/PipelineHelper<TT;>;Ljava/util/Spliterator<TS;>;)Ljava/lang/Boolean;", $PUBLIC},
-	{"evaluateSequential", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;)Ljava/lang/Boolean;", "<S:Ljava/lang/Object;>(Ljava/util/stream/PipelineHelper<TT;>;Ljava/util/Spliterator<TS;>;)Ljava/lang/Boolean;", $PUBLIC},
-	{"getOpFlags", "()I", nullptr, $PUBLIC},
-	{"inputShape", "()Ljava/util/stream/StreamShape;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/stream/StreamShape;Ljava/util/stream/MatchOps$MatchKind;Ljava/util/function/Supplier;)V", "(Ljava/util/stream/StreamShape;Ljava/util/stream/MatchOps$MatchKind;Ljava/util/function/Supplier<Ljava/util/stream/MatchOps$BooleanTerminalSink<TT;>;>;)V", 0, $method(MatchOps$MatchOp, init$, void, $StreamShape*, $MatchOps$MatchKind*, $Supplier*)},
+	{"evaluateParallel", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;)Ljava/lang/Boolean;", "<S:Ljava/lang/Object;>(Ljava/util/stream/PipelineHelper<TT;>;Ljava/util/Spliterator<TS;>;)Ljava/lang/Boolean;", $PUBLIC, $virtualMethod(MatchOps$MatchOp, evaluateParallel, $Object*, $PipelineHelper*, $Spliterator*)},
+	{"evaluateSequential", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;)Ljava/lang/Boolean;", "<S:Ljava/lang/Object;>(Ljava/util/stream/PipelineHelper<TT;>;Ljava/util/Spliterator<TS;>;)Ljava/lang/Boolean;", $PUBLIC, $virtualMethod(MatchOps$MatchOp, evaluateSequential, $Object*, $PipelineHelper*, $Spliterator*)},
+	{"getOpFlags", "()I", nullptr, $PUBLIC, $virtualMethod(MatchOps$MatchOp, getOpFlags, int32_t)},
+	{"inputShape", "()Ljava/util/stream/StreamShape;", nullptr, $PUBLIC, $virtualMethod(MatchOps$MatchOp, inputShape, $StreamShape*)},
 	{}
 };
 

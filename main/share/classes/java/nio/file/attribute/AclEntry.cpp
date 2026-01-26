@@ -44,17 +44,17 @@ $FieldInfo _AclEntry_FieldInfo_[] = {
 };
 
 $MethodInfo _AclEntry_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/file/attribute/AclEntryType;Ljava/nio/file/attribute/UserPrincipal;Ljava/util/Set;Ljava/util/Set;)V", "(Ljava/nio/file/attribute/AclEntryType;Ljava/nio/file/attribute/UserPrincipal;Ljava/util/Set<Ljava/nio/file/attribute/AclEntryPermission;>;Ljava/util/Set<Ljava/nio/file/attribute/AclEntryFlag;>;)V", $PRIVATE, $method(static_cast<void(AclEntry::*)($AclEntryType*,$UserPrincipal*,$Set*,$Set*)>(&AclEntry::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"flags", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/nio/file/attribute/AclEntryFlag;>;", $PUBLIC, $method(static_cast<$Set*(AclEntry::*)()>(&AclEntry::flags))},
-	{"hash", "(ILjava/lang/Object;)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)(int32_t,Object$*)>(&AclEntry::hash))},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"newBuilder", "()Ljava/nio/file/attribute/AclEntry$Builder;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$AclEntry$Builder*(*)()>(&AclEntry::newBuilder))},
-	{"newBuilder", "(Ljava/nio/file/attribute/AclEntry;)Ljava/nio/file/attribute/AclEntry$Builder;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$AclEntry$Builder*(*)(AclEntry*)>(&AclEntry::newBuilder))},
-	{"permissions", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/nio/file/attribute/AclEntryPermission;>;", $PUBLIC, $method(static_cast<$Set*(AclEntry::*)()>(&AclEntry::permissions))},
-	{"principal", "()Ljava/nio/file/attribute/UserPrincipal;", nullptr, $PUBLIC, $method(static_cast<$UserPrincipal*(AclEntry::*)()>(&AclEntry::principal))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"type", "()Ljava/nio/file/attribute/AclEntryType;", nullptr, $PUBLIC, $method(static_cast<$AclEntryType*(AclEntry::*)()>(&AclEntry::type))},
+	{"<init>", "(Ljava/nio/file/attribute/AclEntryType;Ljava/nio/file/attribute/UserPrincipal;Ljava/util/Set;Ljava/util/Set;)V", "(Ljava/nio/file/attribute/AclEntryType;Ljava/nio/file/attribute/UserPrincipal;Ljava/util/Set<Ljava/nio/file/attribute/AclEntryPermission;>;Ljava/util/Set<Ljava/nio/file/attribute/AclEntryFlag;>;)V", $PRIVATE, $method(AclEntry, init$, void, $AclEntryType*, $UserPrincipal*, $Set*, $Set*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(AclEntry, equals, bool, Object$*)},
+	{"flags", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/nio/file/attribute/AclEntryFlag;>;", $PUBLIC, $method(AclEntry, flags, $Set*)},
+	{"hash", "(ILjava/lang/Object;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(AclEntry, hash, int32_t, int32_t, Object$*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(AclEntry, hashCode, int32_t)},
+	{"newBuilder", "()Ljava/nio/file/attribute/AclEntry$Builder;", nullptr, $PUBLIC | $STATIC, $staticMethod(AclEntry, newBuilder, $AclEntry$Builder*)},
+	{"newBuilder", "(Ljava/nio/file/attribute/AclEntry;)Ljava/nio/file/attribute/AclEntry$Builder;", nullptr, $PUBLIC | $STATIC, $staticMethod(AclEntry, newBuilder, $AclEntry$Builder*, AclEntry*)},
+	{"permissions", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/nio/file/attribute/AclEntryPermission;>;", $PUBLIC, $method(AclEntry, permissions, $Set*)},
+	{"principal", "()Ljava/nio/file/attribute/UserPrincipal;", nullptr, $PUBLIC, $method(AclEntry, principal, $UserPrincipal*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AclEntry, toString, $String*)},
+	{"type", "()Ljava/nio/file/attribute/AclEntryType;", nullptr, $PUBLIC, $method(AclEntry, type, $AclEntryType*)},
 	{}
 };
 

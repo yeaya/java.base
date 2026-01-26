@@ -13,8 +13,8 @@ using $NetworkChannel = ::java::nio::channels::NetworkChannel;
 using $ServerSocketChannel = ::java::nio::channels::ServerSocketChannel;
 
 $MethodInfo _NetworkChannelTests$2_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(NetworkChannelTests$2::*)()>(&NetworkChannelTests$2::init$))},
-	{"open", "()Ljava/nio/channels/NetworkChannel;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, 0, $method(NetworkChannelTests$2, init$, void)},
+	{"open", "()Ljava/nio/channels/NetworkChannel;", nullptr, $PUBLIC, $virtualMethod(NetworkChannelTests$2, open, $NetworkChannel*), "java.io.IOException"},
 	{}
 };
 

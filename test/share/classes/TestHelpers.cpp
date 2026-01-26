@@ -7,7 +7,7 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _TestHelpers_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(TestHelpers::*)()>(&TestHelpers::init$))},
+	{"<init>", "()V", nullptr, 0, $method(TestHelpers, init$, void)},
 	{}
 };
 

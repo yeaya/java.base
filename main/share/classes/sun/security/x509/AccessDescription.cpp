@@ -36,14 +36,14 @@ $FieldInfo _AccessDescription_FieldInfo_[] = {
 };
 
 $MethodInfo _AccessDescription_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/util/ObjectIdentifier;Lsun/security/x509/GeneralName;)V", nullptr, $PUBLIC, $method(static_cast<void(AccessDescription::*)($ObjectIdentifier*,$GeneralName*)>(&AccessDescription::init$))},
-	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(static_cast<void(AccessDescription::*)($DerValue*)>(&AccessDescription::init$)), "java.io.IOException"},
-	{"encode", "(Lsun/security/util/DerOutputStream;)V", nullptr, $PUBLIC, $method(static_cast<void(AccessDescription::*)($DerOutputStream*)>(&AccessDescription::encode)), "java.io.IOException"},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getAccessLocation", "()Lsun/security/x509/GeneralName;", nullptr, $PUBLIC, $method(static_cast<$GeneralName*(AccessDescription::*)()>(&AccessDescription::getAccessLocation))},
-	{"getAccessMethod", "()Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC, $method(static_cast<$ObjectIdentifier*(AccessDescription::*)()>(&AccessDescription::getAccessMethod))},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/security/util/ObjectIdentifier;Lsun/security/x509/GeneralName;)V", nullptr, $PUBLIC, $method(AccessDescription, init$, void, $ObjectIdentifier*, $GeneralName*)},
+	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(AccessDescription, init$, void, $DerValue*), "java.io.IOException"},
+	{"encode", "(Lsun/security/util/DerOutputStream;)V", nullptr, $PUBLIC, $method(AccessDescription, encode, void, $DerOutputStream*), "java.io.IOException"},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(AccessDescription, equals, bool, Object$*)},
+	{"getAccessLocation", "()Lsun/security/x509/GeneralName;", nullptr, $PUBLIC, $method(AccessDescription, getAccessLocation, $GeneralName*)},
+	{"getAccessMethod", "()Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC, $method(AccessDescription, getAccessMethod, $ObjectIdentifier*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(AccessDescription, hashCode, int32_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AccessDescription, toString, $String*)},
 	{}
 };
 

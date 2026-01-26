@@ -19,10 +19,10 @@ $FieldInfo _GetAnnotatedReceiverType$Inner2_FieldInfo_[] = {
 };
 
 $MethodInfo _GetAnnotatedReceiverType$Inner2_MethodInfo_[] = {
-	{"<init>", "(LGetAnnotatedReceiverType;)V", nullptr, $PUBLIC, $method(static_cast<void(GetAnnotatedReceiverType$Inner2::*)($GetAnnotatedReceiverType*)>(&GetAnnotatedReceiverType$Inner2::init$))},
-	{"getAnonymousClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC},
-	{"getLocalClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC},
-	{"innerMethod2", "()V", nullptr, $PUBLIC},
+	{"<init>", "(LGetAnnotatedReceiverType;)V", nullptr, $PUBLIC, $method(GetAnnotatedReceiverType$Inner2, init$, void, $GetAnnotatedReceiverType*)},
+	{"getAnonymousClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(GetAnnotatedReceiverType$Inner2, getAnonymousClass, $Class*)},
+	{"getLocalClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(GetAnnotatedReceiverType$Inner2, getLocalClass, $Class*)},
+	{"innerMethod2", "()V", nullptr, $PUBLIC, $virtualMethod(GetAnnotatedReceiverType$Inner2, innerMethod2, void)},
 	{}
 };
 

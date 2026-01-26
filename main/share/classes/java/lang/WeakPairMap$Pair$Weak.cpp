@@ -28,13 +28,13 @@ $FieldInfo _WeakPairMap$Pair$Weak_FieldInfo_[] = {
 $MethodInfo _WeakPairMap$Pair$Weak_MethodInfo_[] = {
 	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/ref/ReferenceQueue;)V", "(TK1;TK2;Ljava/lang/ref/ReferenceQueue<Ljava/lang/Object;>;)V", 0, $method(static_cast<void(WeakPairMap$Pair$Weak::*)(Object$*,Object$*,$ReferenceQueue*)>(&WeakPairMap$Pair$Weak::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"first", "()Ljava/lang/Object;", "()TK1;", $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"second", "()Ljava/lang/Object;", "()TK2;", $PUBLIC},
+	{"<init>", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/ref/ReferenceQueue;)V", "(TK1;TK2;Ljava/lang/ref/ReferenceQueue<Ljava/lang/Object;>;)V", 0, $method(WeakPairMap$Pair$Weak, init$, void, Object$*, Object$*, $ReferenceQueue*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(WeakPairMap$Pair$Weak, equals, bool, Object$*)},
+	{"first", "()Ljava/lang/Object;", "()TK1;", $PUBLIC, $virtualMethod(WeakPairMap$Pair$Weak, first, $Object*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(WeakPairMap$Pair$Weak, hashCode, int32_t)},
+	{"second", "()Ljava/lang/Object;", "()TK2;", $PUBLIC, $virtualMethod(WeakPairMap$Pair$Weak, second, $Object*)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"weakPair", "()Ljava/lang/WeakPairMap$Pair$Weak;", "()Ljava/lang/WeakPairMap$Pair$Weak<**>;", 0},
+	{"weakPair", "()Ljava/lang/WeakPairMap$Pair$Weak;", "()Ljava/lang/WeakPairMap$Pair$Weak<**>;", 0, $virtualMethod(WeakPairMap$Pair$Weak, weakPair, WeakPairMap$Pair$Weak*)},
 	{}
 };
 

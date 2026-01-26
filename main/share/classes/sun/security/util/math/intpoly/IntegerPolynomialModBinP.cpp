@@ -35,16 +35,16 @@ $FieldInfo _IntegerPolynomialModBinP_FieldInfo_[] = {
 };
 
 $MethodInfo _IntegerPolynomialModBinP_MethodInfo_[] = {
-	{"<init>", "(IIILjava/math/BigInteger;)V", nullptr, $PUBLIC, $method(static_cast<void(IntegerPolynomialModBinP::*)(int32_t,int32_t,int32_t,$BigInteger*)>(&IntegerPolynomialModBinP::init$))},
-	{"carryReduce", "([J[J)V", nullptr, $PRIVATE, $method(static_cast<void(IntegerPolynomialModBinP::*)($longs*,$longs*)>(&IntegerPolynomialModBinP::carryReduce))},
-	{"finalCarryReduceLast", "([J)V", nullptr, $PROTECTED},
-	{"getElement", "([BIIB)Lsun/security/util/math/intpoly/IntegerPolynomial$ImmutableElement;", nullptr, $PUBLIC},
-	{"modReduceInBits", "([JIIJ)V", nullptr, $PRIVATE, $method(static_cast<void(IntegerPolynomialModBinP::*)($longs*,int32_t,int32_t,int64_t)>(&IntegerPolynomialModBinP::modReduceInBits))},
-	{"mult", "([J[J[J)V", nullptr, $PROTECTED},
-	{"multOnly", "([J[J[J)V", nullptr, $PRIVATE, $method(static_cast<void(IntegerPolynomialModBinP::*)($longs*,$longs*,$longs*)>(&IntegerPolynomialModBinP::multOnly))},
-	{"reduce", "([J)V", nullptr, $PROTECTED},
-	{"reduceIn", "([JJI)V", nullptr, $PROTECTED},
-	{"square", "([J[J)V", nullptr, $PROTECTED},
+	{"<init>", "(IIILjava/math/BigInteger;)V", nullptr, $PUBLIC, $method(IntegerPolynomialModBinP, init$, void, int32_t, int32_t, int32_t, $BigInteger*)},
+	{"carryReduce", "([J[J)V", nullptr, $PRIVATE, $method(IntegerPolynomialModBinP, carryReduce, void, $longs*, $longs*)},
+	{"finalCarryReduceLast", "([J)V", nullptr, $PROTECTED, $virtualMethod(IntegerPolynomialModBinP, finalCarryReduceLast, void, $longs*)},
+	{"getElement", "([BIIB)Lsun/security/util/math/intpoly/IntegerPolynomial$ImmutableElement;", nullptr, $PUBLIC, $virtualMethod(IntegerPolynomialModBinP, getElement, $ImmutableIntegerModuloP*, $bytes*, int32_t, int32_t, int8_t)},
+	{"modReduceInBits", "([JIIJ)V", nullptr, $PRIVATE, $method(IntegerPolynomialModBinP, modReduceInBits, void, $longs*, int32_t, int32_t, int64_t)},
+	{"mult", "([J[J[J)V", nullptr, $PROTECTED, $virtualMethod(IntegerPolynomialModBinP, mult, void, $longs*, $longs*, $longs*)},
+	{"multOnly", "([J[J[J)V", nullptr, $PRIVATE, $method(IntegerPolynomialModBinP, multOnly, void, $longs*, $longs*, $longs*)},
+	{"reduce", "([J)V", nullptr, $PROTECTED, $virtualMethod(IntegerPolynomialModBinP, reduce, void, $longs*)},
+	{"reduceIn", "([JJI)V", nullptr, $PROTECTED, $virtualMethod(IntegerPolynomialModBinP, reduceIn, void, $longs*, int64_t, int32_t)},
+	{"square", "([J[J)V", nullptr, $PROTECTED, $virtualMethod(IntegerPolynomialModBinP, square, void, $longs*, $longs*)},
 	{}
 };
 

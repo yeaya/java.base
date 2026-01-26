@@ -23,11 +23,11 @@ $FieldInfo _PolicyParser$PermissionEntry_FieldInfo_[] = {
 };
 
 $MethodInfo _PolicyParser$PermissionEntry_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PolicyParser$PermissionEntry::*)()>(&PolicyParser$PermissionEntry::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(PolicyParser$PermissionEntry::*)($String*,$String*,$String*)>(&PolicyParser$PermissionEntry::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"write", "(Ljava/io/PrintWriter;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PolicyParser$PermissionEntry, init$, void)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(PolicyParser$PermissionEntry, init$, void, $String*, $String*, $String*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(PolicyParser$PermissionEntry, equals, bool, Object$*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(PolicyParser$PermissionEntry, hashCode, int32_t)},
+	{"write", "(Ljava/io/PrintWriter;)V", nullptr, $PUBLIC, $virtualMethod(PolicyParser$PermissionEntry, write, void, $PrintWriter*)},
 	{}
 };
 

@@ -23,12 +23,12 @@ $FieldInfo _UnixFileStoreAttributes_FieldInfo_[] = {
 };
 
 $MethodInfo _UnixFileStoreAttributes_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(UnixFileStoreAttributes::*)()>(&UnixFileStoreAttributes::init$))},
-	{"availableBlocks", "()J", nullptr, 0},
-	{"blockSize", "()J", nullptr, 0},
-	{"freeBlocks", "()J", nullptr, 0},
-	{"get", "(Lsun/nio/fs/UnixPath;)Lsun/nio/fs/UnixFileStoreAttributes;", nullptr, $STATIC, $method(static_cast<UnixFileStoreAttributes*(*)($UnixPath*)>(&UnixFileStoreAttributes::get)), "sun.nio.fs.UnixException"},
-	{"totalBlocks", "()J", nullptr, 0},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(UnixFileStoreAttributes, init$, void)},
+	{"availableBlocks", "()J", nullptr, 0, $virtualMethod(UnixFileStoreAttributes, availableBlocks, int64_t)},
+	{"blockSize", "()J", nullptr, 0, $virtualMethod(UnixFileStoreAttributes, blockSize, int64_t)},
+	{"freeBlocks", "()J", nullptr, 0, $virtualMethod(UnixFileStoreAttributes, freeBlocks, int64_t)},
+	{"get", "(Lsun/nio/fs/UnixPath;)Lsun/nio/fs/UnixFileStoreAttributes;", nullptr, $STATIC, $staticMethod(UnixFileStoreAttributes, get, UnixFileStoreAttributes*, $UnixPath*), "sun.nio.fs.UnixException"},
+	{"totalBlocks", "()J", nullptr, 0, $virtualMethod(UnixFileStoreAttributes, totalBlocks, int64_t)},
 	{}
 };
 

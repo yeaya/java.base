@@ -17,9 +17,9 @@ $FieldInfo _ImplicitStringConcatArgCount_FieldInfo_[] = {
 };
 
 $MethodInfo _ImplicitStringConcatArgCount_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ImplicitStringConcatArgCount::*)()>(&ImplicitStringConcatArgCount::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&ImplicitStringConcatArgCount::main)), "java.lang.Exception"},
-	{"test", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($String*,$String*)>(&ImplicitStringConcatArgCount::test))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ImplicitStringConcatArgCount, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ImplicitStringConcatArgCount, main, void, $StringArray*), "java.lang.Exception"},
+	{"test", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ImplicitStringConcatArgCount, test, void, $String*, $String*)},
 	{}
 };
 

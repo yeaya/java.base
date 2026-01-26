@@ -38,13 +38,13 @@ $FieldInfo _CertException_FieldInfo_[] = {
 };
 
 $MethodInfo _CertException_MethodInfo_[] = {
-	{"<init>", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(CertException::*)(int32_t,$String*)>(&CertException::init$))},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(static_cast<void(CertException::*)(int32_t)>(&CertException::init$))},
-	{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getMoreData", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getVerfCode", "()I", nullptr, $PUBLIC},
-	{"getVerfDescription", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $method(CertException, init$, void, int32_t, $String*)},
+	{"<init>", "(I)V", nullptr, $PUBLIC, $method(CertException, init$, void, int32_t)},
+	{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CertException, getMessage, $String*)},
+	{"getMoreData", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CertException, getMoreData, $String*)},
+	{"getVerfCode", "()I", nullptr, $PUBLIC, $virtualMethod(CertException, getVerfCode, int32_t)},
+	{"getVerfDescription", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CertException, getVerfDescription, $String*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CertException, toString, $String*)},
 	{}
 };
 

@@ -50,14 +50,14 @@ $FieldInfo _WhileOps$TakeWhileTask_FieldInfo_[] = {
 };
 
 $MethodInfo _WhileOps$TakeWhileTask_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/stream/AbstractPipeline;Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;Ljava/util/function/IntFunction;)V", "(Ljava/util/stream/AbstractPipeline<TP_OUT;TP_OUT;*>;Ljava/util/stream/PipelineHelper<TP_OUT;>;Ljava/util/Spliterator<TP_IN;>;Ljava/util/function/IntFunction<[TP_OUT;>;)V", 0, $method(static_cast<void(WhileOps$TakeWhileTask::*)($AbstractPipeline*,$PipelineHelper*,$Spliterator*,$IntFunction*)>(&WhileOps$TakeWhileTask::init$))},
-	{"<init>", "(Ljava/util/stream/WhileOps$TakeWhileTask;Ljava/util/Spliterator;)V", "(Ljava/util/stream/WhileOps$TakeWhileTask<TP_IN;TP_OUT;>;Ljava/util/Spliterator<TP_IN;>;)V", 0, $method(static_cast<void(WhileOps$TakeWhileTask::*)(WhileOps$TakeWhileTask*,$Spliterator*)>(&WhileOps$TakeWhileTask::init$))},
-	{"cancel", "()V", nullptr, $PROTECTED},
-	{"doLeaf", "()Ljava/util/stream/Node;", "()Ljava/util/stream/Node<TP_OUT;>;", $PROTECTED | $FINAL},
-	{"getEmptyResult", "()Ljava/util/stream/Node;", "()Ljava/util/stream/Node<TP_OUT;>;", $PROTECTED | $FINAL},
-	{"makeChild", "(Ljava/util/Spliterator;)Ljava/util/stream/WhileOps$TakeWhileTask;", "(Ljava/util/Spliterator<TP_IN;>;)Ljava/util/stream/WhileOps$TakeWhileTask<TP_IN;TP_OUT;>;", $PROTECTED},
-	{"merge", "()Ljava/util/stream/Node;", "()Ljava/util/stream/Node<TP_OUT;>;", 0, $method(static_cast<$Node*(WhileOps$TakeWhileTask::*)()>(&WhileOps$TakeWhileTask::merge))},
-	{"onCompletion", "(Ljava/util/concurrent/CountedCompleter;)V", "(Ljava/util/concurrent/CountedCompleter<*>;)V", $PUBLIC | $FINAL},
+	{"<init>", "(Ljava/util/stream/AbstractPipeline;Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;Ljava/util/function/IntFunction;)V", "(Ljava/util/stream/AbstractPipeline<TP_OUT;TP_OUT;*>;Ljava/util/stream/PipelineHelper<TP_OUT;>;Ljava/util/Spliterator<TP_IN;>;Ljava/util/function/IntFunction<[TP_OUT;>;)V", 0, $method(WhileOps$TakeWhileTask, init$, void, $AbstractPipeline*, $PipelineHelper*, $Spliterator*, $IntFunction*)},
+	{"<init>", "(Ljava/util/stream/WhileOps$TakeWhileTask;Ljava/util/Spliterator;)V", "(Ljava/util/stream/WhileOps$TakeWhileTask<TP_IN;TP_OUT;>;Ljava/util/Spliterator<TP_IN;>;)V", 0, $method(WhileOps$TakeWhileTask, init$, void, WhileOps$TakeWhileTask*, $Spliterator*)},
+	{"cancel", "()V", nullptr, $PROTECTED, $virtualMethod(WhileOps$TakeWhileTask, cancel, void)},
+	{"doLeaf", "()Ljava/util/stream/Node;", "()Ljava/util/stream/Node<TP_OUT;>;", $PROTECTED | $FINAL, $virtualMethod(WhileOps$TakeWhileTask, doLeaf, $Object*)},
+	{"getEmptyResult", "()Ljava/util/stream/Node;", "()Ljava/util/stream/Node<TP_OUT;>;", $PROTECTED | $FINAL, $virtualMethod(WhileOps$TakeWhileTask, getEmptyResult, $Object*)},
+	{"makeChild", "(Ljava/util/Spliterator;)Ljava/util/stream/WhileOps$TakeWhileTask;", "(Ljava/util/Spliterator<TP_IN;>;)Ljava/util/stream/WhileOps$TakeWhileTask<TP_IN;TP_OUT;>;", $PROTECTED, $virtualMethod(WhileOps$TakeWhileTask, makeChild, WhileOps$TakeWhileTask*, $Spliterator*)},
+	{"merge", "()Ljava/util/stream/Node;", "()Ljava/util/stream/Node<TP_OUT;>;", 0, $method(WhileOps$TakeWhileTask, merge, $Node*)},
+	{"onCompletion", "(Ljava/util/concurrent/CountedCompleter;)V", "(Ljava/util/concurrent/CountedCompleter<*>;)V", $PUBLIC | $FINAL, $virtualMethod(WhileOps$TakeWhileTask, onCompletion, void, $CountedCompleter*)},
 	{}
 };
 

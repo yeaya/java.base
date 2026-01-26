@@ -26,8 +26,8 @@ $MethodInfo _Collections$CheckedRandomAccessList_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "(Ljava/util/List;Ljava/lang/Class;)V", "(Ljava/util/List<TE;>;Ljava/lang/Class<TE;>;)V", 0, $method(static_cast<void(Collections$CheckedRandomAccessList::*)($List*,$Class*)>(&Collections$CheckedRandomAccessList::init$))},
-	{"subList", "(II)Ljava/util/List;", "(II)Ljava/util/List<TE;>;", $PUBLIC},
+	{"<init>", "(Ljava/util/List;Ljava/lang/Class;)V", "(Ljava/util/List<TE;>;Ljava/lang/Class<TE;>;)V", 0, $method(Collections$CheckedRandomAccessList, init$, void, $List*, $Class*)},
+	{"subList", "(II)Ljava/util/List;", "(II)Ljava/util/List<TE;>;", $PUBLIC, $virtualMethod(Collections$CheckedRandomAccessList, subList, $List*, int32_t, int32_t)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

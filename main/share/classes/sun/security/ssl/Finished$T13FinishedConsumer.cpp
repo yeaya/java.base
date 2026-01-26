@@ -104,10 +104,10 @@ namespace sun {
 		namespace ssl {
 
 $MethodInfo _Finished$T13FinishedConsumer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(Finished$T13FinishedConsumer::*)()>(&Finished$T13FinishedConsumer::init$))},
-	{"consume", "(Lsun/security/ssl/ConnectionContext;Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"onConsumeFinished", "(Lsun/security/ssl/ClientHandshakeContext;Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE, $method(static_cast<void(Finished$T13FinishedConsumer::*)($ClientHandshakeContext*,$ByteBuffer*)>(&Finished$T13FinishedConsumer::onConsumeFinished)), "java.io.IOException"},
-	{"onConsumeFinished", "(Lsun/security/ssl/ServerHandshakeContext;Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE, $method(static_cast<void(Finished$T13FinishedConsumer::*)($ServerHandshakeContext*,$ByteBuffer*)>(&Finished$T13FinishedConsumer::onConsumeFinished)), "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(Finished$T13FinishedConsumer, init$, void)},
+	{"consume", "(Lsun/security/ssl/ConnectionContext;Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(Finished$T13FinishedConsumer, consume, void, $ConnectionContext*, $ByteBuffer*), "java.io.IOException"},
+	{"onConsumeFinished", "(Lsun/security/ssl/ClientHandshakeContext;Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE, $method(Finished$T13FinishedConsumer, onConsumeFinished, void, $ClientHandshakeContext*, $ByteBuffer*), "java.io.IOException"},
+	{"onConsumeFinished", "(Lsun/security/ssl/ServerHandshakeContext;Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE, $method(Finished$T13FinishedConsumer, onConsumeFinished, void, $ServerHandshakeContext*, $ByteBuffer*), "java.io.IOException"},
 	{}
 };
 

@@ -13,8 +13,8 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Reference = ::java::lang::ref::Reference;
 
 $MethodInfo _Basic4ref$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Basic4ref$1::*)()>(&Basic4ref$1::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(Basic4ref$1, init$, void)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Basic4ref$1, run, void)},
 	{}
 };
 

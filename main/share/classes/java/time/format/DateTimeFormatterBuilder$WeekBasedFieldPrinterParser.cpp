@@ -49,14 +49,14 @@ $FieldInfo _DateTimeFormatterBuilder$WeekBasedFieldPrinterParser_FieldInfo_[] = 
 };
 
 $MethodInfo _DateTimeFormatterBuilder$WeekBasedFieldPrinterParser_MethodInfo_[] = {
-	{"<init>", "(CIII)V", nullptr, 0, $method(static_cast<void(DateTimeFormatterBuilder$WeekBasedFieldPrinterParser::*)(char16_t,int32_t,int32_t,int32_t)>(&DateTimeFormatterBuilder$WeekBasedFieldPrinterParser::init$))},
-	{"<init>", "(CIIII)V", nullptr, 0, $method(static_cast<void(DateTimeFormatterBuilder$WeekBasedFieldPrinterParser::*)(char16_t,int32_t,int32_t,int32_t,int32_t)>(&DateTimeFormatterBuilder$WeekBasedFieldPrinterParser::init$))},
-	{"format", "(Ljava/time/format/DateTimePrintContext;Ljava/lang/StringBuilder;)Z", nullptr, $PUBLIC},
-	{"parse", "(Ljava/time/format/DateTimeParseContext;Ljava/lang/CharSequence;I)I", nullptr, $PUBLIC},
-	{"printerParser", "(Ljava/util/Locale;)Ljava/time/format/DateTimeFormatterBuilder$DateTimePrinterParser;", nullptr, $PRIVATE, $method(static_cast<$DateTimeFormatterBuilder$DateTimePrinterParser*(DateTimeFormatterBuilder$WeekBasedFieldPrinterParser::*)($Locale*)>(&DateTimeFormatterBuilder$WeekBasedFieldPrinterParser::printerParser))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"withFixedWidth", "()Ljava/time/format/DateTimeFormatterBuilder$WeekBasedFieldPrinterParser;", nullptr, 0},
-	{"withSubsequentWidth", "(I)Ljava/time/format/DateTimeFormatterBuilder$WeekBasedFieldPrinterParser;", nullptr, 0},
+	{"<init>", "(CIII)V", nullptr, 0, $method(DateTimeFormatterBuilder$WeekBasedFieldPrinterParser, init$, void, char16_t, int32_t, int32_t, int32_t)},
+	{"<init>", "(CIIII)V", nullptr, 0, $method(DateTimeFormatterBuilder$WeekBasedFieldPrinterParser, init$, void, char16_t, int32_t, int32_t, int32_t, int32_t)},
+	{"format", "(Ljava/time/format/DateTimePrintContext;Ljava/lang/StringBuilder;)Z", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$WeekBasedFieldPrinterParser, format, bool, $DateTimePrintContext*, $StringBuilder*)},
+	{"parse", "(Ljava/time/format/DateTimeParseContext;Ljava/lang/CharSequence;I)I", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$WeekBasedFieldPrinterParser, parse, int32_t, $DateTimeParseContext*, $CharSequence*, int32_t)},
+	{"printerParser", "(Ljava/util/Locale;)Ljava/time/format/DateTimeFormatterBuilder$DateTimePrinterParser;", nullptr, $PRIVATE, $method(DateTimeFormatterBuilder$WeekBasedFieldPrinterParser, printerParser, $DateTimeFormatterBuilder$DateTimePrinterParser*, $Locale*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$WeekBasedFieldPrinterParser, toString, $String*)},
+	{"withFixedWidth", "()Ljava/time/format/DateTimeFormatterBuilder$WeekBasedFieldPrinterParser;", nullptr, 0, $virtualMethod(DateTimeFormatterBuilder$WeekBasedFieldPrinterParser, withFixedWidth, DateTimeFormatterBuilder$WeekBasedFieldPrinterParser*)},
+	{"withSubsequentWidth", "(I)Ljava/time/format/DateTimeFormatterBuilder$WeekBasedFieldPrinterParser;", nullptr, 0, $virtualMethod(DateTimeFormatterBuilder$WeekBasedFieldPrinterParser, withSubsequentWidth, DateTimeFormatterBuilder$WeekBasedFieldPrinterParser*, int32_t)},
 	{}
 };
 

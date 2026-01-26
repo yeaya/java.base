@@ -17,8 +17,8 @@ $FieldInfo _StreamCorruptedException_FieldInfo_[] = {
 };
 
 $MethodInfo _StreamCorruptedException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(StreamCorruptedException::*)($String*)>(&StreamCorruptedException::init$))},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(StreamCorruptedException::*)()>(&StreamCorruptedException::init$))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(StreamCorruptedException, init$, void, $String*)},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(StreamCorruptedException, init$, void)},
 	{}
 };
 

@@ -26,17 +26,17 @@ $FieldInfo _ConstantDynamic_FieldInfo_[] = {
 };
 
 $MethodInfo _ConstantDynamic_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljdk/internal/org/objectweb/asm/Handle;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $TRANSIENT, $method(static_cast<void(ConstantDynamic::*)($String*,$String*,$Handle*,$ObjectArray*)>(&ConstantDynamic::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getBootstrapMethod", "()Ljdk/internal/org/objectweb/asm/Handle;", nullptr, $PUBLIC, $method(static_cast<$Handle*(ConstantDynamic::*)()>(&ConstantDynamic::getBootstrapMethod))},
-	{"getBootstrapMethodArgument", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $method(static_cast<$Object*(ConstantDynamic::*)(int32_t)>(&ConstantDynamic::getBootstrapMethodArgument))},
-	{"getBootstrapMethodArgumentCount", "()I", nullptr, $PUBLIC, $method(static_cast<int32_t(ConstantDynamic::*)()>(&ConstantDynamic::getBootstrapMethodArgumentCount))},
-	{"getBootstrapMethodArgumentsUnsafe", "()[Ljava/lang/Object;", nullptr, 0, $method(static_cast<$ObjectArray*(ConstantDynamic::*)()>(&ConstantDynamic::getBootstrapMethodArgumentsUnsafe))},
-	{"getDescriptor", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(static_cast<$String*(ConstantDynamic::*)()>(&ConstantDynamic::getDescriptor))},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(static_cast<$String*(ConstantDynamic::*)()>(&ConstantDynamic::getName))},
-	{"getSize", "()I", nullptr, $PUBLIC, $method(static_cast<int32_t(ConstantDynamic::*)()>(&ConstantDynamic::getSize))},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljdk/internal/org/objectweb/asm/Handle;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $TRANSIENT, $method(ConstantDynamic, init$, void, $String*, $String*, $Handle*, $ObjectArray*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ConstantDynamic, equals, bool, Object$*)},
+	{"getBootstrapMethod", "()Ljdk/internal/org/objectweb/asm/Handle;", nullptr, $PUBLIC, $method(ConstantDynamic, getBootstrapMethod, $Handle*)},
+	{"getBootstrapMethodArgument", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $method(ConstantDynamic, getBootstrapMethodArgument, $Object*, int32_t)},
+	{"getBootstrapMethodArgumentCount", "()I", nullptr, $PUBLIC, $method(ConstantDynamic, getBootstrapMethodArgumentCount, int32_t)},
+	{"getBootstrapMethodArgumentsUnsafe", "()[Ljava/lang/Object;", nullptr, 0, $method(ConstantDynamic, getBootstrapMethodArgumentsUnsafe, $ObjectArray*)},
+	{"getDescriptor", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(ConstantDynamic, getDescriptor, $String*)},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(ConstantDynamic, getName, $String*)},
+	{"getSize", "()I", nullptr, $PUBLIC, $method(ConstantDynamic, getSize, int32_t)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ConstantDynamic, hashCode, int32_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ConstantDynamic, toString, $String*)},
 	{}
 };
 

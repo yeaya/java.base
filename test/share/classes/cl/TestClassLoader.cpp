@@ -10,7 +10,7 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace cl {
 
 $MethodInfo _TestClassLoader_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/ClassLoader;)V", nullptr, $PUBLIC, $method(static_cast<void(TestClassLoader::*)($ClassLoader*)>(&TestClassLoader::init$))},
+	{"<init>", "(Ljava/lang/ClassLoader;)V", nullptr, $PUBLIC, $method(TestClassLoader, init$, void, $ClassLoader*)},
 	{}
 };
 

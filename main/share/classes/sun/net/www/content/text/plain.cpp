@@ -22,8 +22,8 @@ namespace sun {
 				namespace text {
 
 $MethodInfo _plain_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(plain::*)()>(&plain::init$))},
-	{"getContent", "(Ljava/net/URLConnection;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(plain, init$, void)},
+	{"getContent", "(Ljava/net/URLConnection;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(plain, getContent, $Object*, $URLConnection*)},
 	{}
 };
 

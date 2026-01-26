@@ -13,10 +13,10 @@ using $Package = ::java::lang::Package;
 using $URL = ::java::net::URL;
 
 $MethodInfo _TestClassLoader_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TestClassLoader::*)()>(&TestClassLoader::init$))},
-	{"<init>", "(Ljava/lang/ClassLoader;)V", nullptr, $PUBLIC, $method(static_cast<void(TestClassLoader::*)($ClassLoader*)>(&TestClassLoader::init$))},
-	{"defineEmptyPackage", "(Ljava/lang/String;)Ljava/lang/Package;", nullptr, $PUBLIC},
-	{"testPackageView", "(Ljava/lang/String;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TestClassLoader, init$, void)},
+	{"<init>", "(Ljava/lang/ClassLoader;)V", nullptr, $PUBLIC, $method(TestClassLoader, init$, void, $ClassLoader*)},
+	{"defineEmptyPackage", "(Ljava/lang/String;)Ljava/lang/Package;", nullptr, $PUBLIC, $virtualMethod(TestClassLoader, defineEmptyPackage, $Package*, $String*)},
+	{"testPackageView", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(TestClassLoader, testPackageView, bool, $String*)},
 	{}
 };
 

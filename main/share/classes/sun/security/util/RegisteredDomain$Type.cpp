@@ -26,10 +26,10 @@ $FieldInfo _RegisteredDomain$Type_FieldInfo_[] = {
 };
 
 $MethodInfo _RegisteredDomain$Type_MethodInfo_[] = {
-	{"$values", "()[Lsun/security/util/RegisteredDomain$Type;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$RegisteredDomain$TypeArray*(*)()>(&RegisteredDomain$Type::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(RegisteredDomain$Type::*)($String*,int32_t)>(&RegisteredDomain$Type::init$))},
-	{"valueOf", "(Ljava/lang/String;)Lsun/security/util/RegisteredDomain$Type;", nullptr, $PUBLIC | $STATIC, $method(static_cast<RegisteredDomain$Type*(*)($String*)>(&RegisteredDomain$Type::valueOf))},
-	{"values", "()[Lsun/security/util/RegisteredDomain$Type;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$RegisteredDomain$TypeArray*(*)()>(&RegisteredDomain$Type::values))},
+	{"$values", "()[Lsun/security/util/RegisteredDomain$Type;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(RegisteredDomain$Type, $values, $RegisteredDomain$TypeArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(RegisteredDomain$Type, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Lsun/security/util/RegisteredDomain$Type;", nullptr, $PUBLIC | $STATIC, $staticMethod(RegisteredDomain$Type, valueOf, RegisteredDomain$Type*, $String*)},
+	{"values", "()[Lsun/security/util/RegisteredDomain$Type;", nullptr, $PUBLIC | $STATIC, $staticMethod(RegisteredDomain$Type, values, $RegisteredDomain$TypeArray*)},
 	{}
 };
 

@@ -6,7 +6,7 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _Class4_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Class4::*)()>(&Class4::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Class4, init$, void)},
 	{}
 };
 

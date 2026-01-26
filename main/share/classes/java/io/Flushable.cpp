@@ -9,7 +9,7 @@ namespace java {
 	namespace io {
 
 $MethodInfo _Flushable_MethodInfo_[] = {
-	{"flush", "()V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
+	{"flush", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Flushable, flush, void), "java.io.IOException"},
 	{}
 };
 

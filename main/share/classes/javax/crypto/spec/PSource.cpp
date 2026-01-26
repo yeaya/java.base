@@ -18,8 +18,8 @@ $FieldInfo _PSource_FieldInfo_[] = {
 };
 
 $MethodInfo _PSource_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $method(static_cast<void(PSource::*)($String*)>(&PSource::init$))},
-	{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $method(PSource, init$, void, $String*)},
+	{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PSource, getAlgorithm, $String*)},
 	{}
 };
 

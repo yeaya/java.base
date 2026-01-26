@@ -29,10 +29,10 @@ $FieldInfo _DualPivotQuicksort$RunMerger_FieldInfo_[] = {
 };
 
 $MethodInfo _DualPivotQuicksort$RunMerger_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;Ljava/lang/Object;II[III)V", nullptr, $PRIVATE, $method(static_cast<void(DualPivotQuicksort$RunMerger::*)(Object$*,Object$*,int32_t,int32_t,$ints*,int32_t,int32_t)>(&DualPivotQuicksort$RunMerger::init$))},
-	{"compute", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
-	{"forkMe", "()Ljava/util/DualPivotQuicksort$RunMerger;", nullptr, $PRIVATE, $method(static_cast<DualPivotQuicksort$RunMerger*(DualPivotQuicksort$RunMerger::*)()>(&DualPivotQuicksort$RunMerger::forkMe))},
-	{"getDestination", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(static_cast<$Object*(DualPivotQuicksort$RunMerger::*)()>(&DualPivotQuicksort$RunMerger::getDestination))},
+	{"<init>", "(Ljava/lang/Object;Ljava/lang/Object;II[III)V", nullptr, $PRIVATE, $method(DualPivotQuicksort$RunMerger, init$, void, Object$*, Object$*, int32_t, int32_t, $ints*, int32_t, int32_t)},
+	{"compute", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(DualPivotQuicksort$RunMerger, compute, $Object*)},
+	{"forkMe", "()Ljava/util/DualPivotQuicksort$RunMerger;", nullptr, $PRIVATE, $method(DualPivotQuicksort$RunMerger, forkMe, DualPivotQuicksort$RunMerger*)},
+	{"getDestination", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(DualPivotQuicksort$RunMerger, getDestination, $Object*)},
 	{}
 };
 

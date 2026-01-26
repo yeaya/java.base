@@ -44,8 +44,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo WalkFunction$$Lambda$count::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(WalkFunction$$Lambda$count::*)()>(&WalkFunction$$Lambda$count::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(WalkFunction$$Lambda$count, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WalkFunction$$Lambda$count, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo WalkFunction$$Lambda$count::classInfo$ = {
@@ -77,8 +77,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo WalkFunction$$Lambda$reduce$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(WalkFunction$$Lambda$reduce$1::*)()>(&WalkFunction$$Lambda$reduce$1::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(WalkFunction$$Lambda$reduce$1, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WalkFunction$$Lambda$reduce$1, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo WalkFunction$$Lambda$reduce$1::classInfo$ = {
@@ -110,8 +110,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo WalkFunction$$Lambda$lambda$reduce$0$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(WalkFunction$$Lambda$lambda$reduce$0$2::*)()>(&WalkFunction$$Lambda$lambda$reduce$0$2::init$))},
-	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(WalkFunction$$Lambda$lambda$reduce$0$2, init$, void)},
+	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WalkFunction$$Lambda$lambda$reduce$0$2, apply, $Object*, Object$*, Object$*)},
 	{}
 };
 $ClassInfo WalkFunction$$Lambda$lambda$reduce$0$2::classInfo$ = {
@@ -143,8 +143,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo WalkFunction$$Lambda$function$3::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(WalkFunction$$Lambda$function$3::*)()>(&WalkFunction$$Lambda$function$3::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(WalkFunction$$Lambda$function$3, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WalkFunction$$Lambda$function$3, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo WalkFunction$$Lambda$function$3::classInfo$ = {
@@ -167,15 +167,15 @@ $FieldInfo _WalkFunction_FieldInfo_[] = {
 };
 
 $MethodInfo _WalkFunction_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(WalkFunction::*)()>(&WalkFunction::init$))},
-	{"counter", "()Ljava/util/function/Function;", "<T:Ljava/lang/Object;>()Ljava/util/function/Function<Ljava/util/stream/Stream<TT;>;Ljava/lang/Long;>;", $PRIVATE | $STATIC, $method(static_cast<$Function*(*)()>(&WalkFunction::counter))},
-	{"function", "(Ljava/util/stream/Stream;)Ljava/lang/Void;", "(Ljava/util/stream/Stream<*>;)Ljava/lang/Void;", $PRIVATE | $STATIC, $method(static_cast<$Void*(*)($Stream*)>(&WalkFunction::function))},
-	{"lambda$reduce$0", "(Ljava/lang/StackWalker$StackFrame;Ljava/lang/StackWalker$StackFrame;)Ljava/lang/StackWalker$StackFrame;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$StackWalker$StackFrame*(*)($StackWalker$StackFrame*,$StackWalker$StackFrame*)>(&WalkFunction::lambda$reduce$0))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<void(*)($StringArray*)>(&WalkFunction::main)), "java.lang.Exception"},
-	{"reduce", "(Ljava/util/stream/Stream;)Ljava/util/Optional;", "(Ljava/util/stream/Stream<Ljava/lang/StackWalker$StackFrame;>;)Ljava/util/Optional<Ljava/lang/StackWalker$StackFrame;>;", $STATIC, $method(static_cast<$Optional*(*)($Stream*)>(&WalkFunction::reduce))},
-	{"testFunctions", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&WalkFunction::testFunctions))},
-	{"testWildcards", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&WalkFunction::testWildcards))},
-	{"wildCounter", "()Ljava/util/function/Function;", "()Ljava/util/function/Function<Ljava/util/stream/Stream<*>;Ljava/lang/Long;>;", $PRIVATE | $STATIC, $method(static_cast<$Function*(*)()>(&WalkFunction::wildCounter))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(WalkFunction, init$, void)},
+	{"counter", "()Ljava/util/function/Function;", "<T:Ljava/lang/Object;>()Ljava/util/function/Function<Ljava/util/stream/Stream<TT;>;Ljava/lang/Long;>;", $PRIVATE | $STATIC, $staticMethod(WalkFunction, counter, $Function*)},
+	{"function", "(Ljava/util/stream/Stream;)Ljava/lang/Void;", "(Ljava/util/stream/Stream<*>;)Ljava/lang/Void;", $PRIVATE | $STATIC, $staticMethod(WalkFunction, function, $Void*, $Stream*)},
+	{"lambda$reduce$0", "(Ljava/lang/StackWalker$StackFrame;Ljava/lang/StackWalker$StackFrame;)Ljava/lang/StackWalker$StackFrame;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(WalkFunction, lambda$reduce$0, $StackWalker$StackFrame*, $StackWalker$StackFrame*, $StackWalker$StackFrame*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(WalkFunction, main, void, $StringArray*), "java.lang.Exception"},
+	{"reduce", "(Ljava/util/stream/Stream;)Ljava/util/Optional;", "(Ljava/util/stream/Stream<Ljava/lang/StackWalker$StackFrame;>;)Ljava/util/Optional<Ljava/lang/StackWalker$StackFrame;>;", $STATIC, $staticMethod(WalkFunction, reduce, $Optional*, $Stream*)},
+	{"testFunctions", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(WalkFunction, testFunctions, void)},
+	{"testWildcards", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(WalkFunction, testWildcards, void)},
+	{"wildCounter", "()Ljava/util/function/Function;", "()Ljava/util/function/Function<Ljava/util/stream/Stream<*>;Ljava/lang/Long;>;", $PRIVATE | $STATIC, $staticMethod(WalkFunction, wildCounter, $Function*)},
 	{}
 };
 

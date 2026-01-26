@@ -28,9 +28,9 @@ $FieldInfo _ModuleBootstrap$1_FieldInfo_[] = {
 };
 
 $MethodInfo _ModuleBootstrap$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Map;Ljava/util/Set;)V", "()V", 0, $method(static_cast<void(ModuleBootstrap$1::*)($Map*,$Set*)>(&ModuleBootstrap$1::init$))},
-	{"find", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/lang/module/ModuleReference;>;", $PUBLIC},
-	{"findAll", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/module/ModuleReference;>;", $PUBLIC},
+	{"<init>", "(Ljava/util/Map;Ljava/util/Set;)V", "()V", 0, $method(ModuleBootstrap$1, init$, void, $Map*, $Set*)},
+	{"find", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/lang/module/ModuleReference;>;", $PUBLIC, $virtualMethod(ModuleBootstrap$1, find, $Optional*, $String*)},
+	{"findAll", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/module/ModuleReference;>;", $PUBLIC, $virtualMethod(ModuleBootstrap$1, findAll, $Set*)},
 	{}
 };
 

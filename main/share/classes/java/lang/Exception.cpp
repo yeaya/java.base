@@ -15,11 +15,11 @@ $FieldInfo _Exception_FieldInfo_[] = {
 };
 
 $MethodInfo _Exception_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Exception::*)()>(&Exception::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(Exception::*)($String*)>(&Exception::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(Exception::*)($String*,$Throwable*)>(&Exception::init$))},
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(Exception::*)($Throwable*)>(&Exception::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;ZZ)V", nullptr, $PROTECTED, $method(static_cast<void(Exception::*)($String*,$Throwable*,bool,bool)>(&Exception::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Exception, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Exception, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(Exception, init$, void, $String*, $Throwable*)},
+	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(Exception, init$, void, $Throwable*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;ZZ)V", nullptr, $PROTECTED, $method(Exception, init$, void, $String*, $Throwable*, bool, bool)},
 	{}
 };
 

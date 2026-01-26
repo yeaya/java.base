@@ -6,13 +6,15 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Locale = ::java::util::Locale;
+using $ResourceBundle = ::java::util::ResourceBundle;
 
 namespace java {
 	namespace util {
 		namespace spi {
 
 $MethodInfo _ResourceBundleProvider_MethodInfo_[] = {
-	{"getBundle", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/util/ResourceBundle;", nullptr, $PUBLIC | $ABSTRACT},
+	{"getBundle", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/util/ResourceBundle;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ResourceBundleProvider, getBundle, $ResourceBundle*, $String*, $Locale*)},
 	{}
 };
 

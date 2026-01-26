@@ -33,13 +33,13 @@ $FieldInfo _AbstractQueuedSynchronizer$Node_FieldInfo_[] = {
 };
 
 $MethodInfo _AbstractQueuedSynchronizer$Node_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(AbstractQueuedSynchronizer$Node::*)()>(&AbstractQueuedSynchronizer$Node::init$))},
-	{"casNext", "(Ljava/util/concurrent/locks/AbstractQueuedSynchronizer$Node;Ljava/util/concurrent/locks/AbstractQueuedSynchronizer$Node;)Z", nullptr, $FINAL, $method(static_cast<bool(AbstractQueuedSynchronizer$Node::*)(AbstractQueuedSynchronizer$Node*,AbstractQueuedSynchronizer$Node*)>(&AbstractQueuedSynchronizer$Node::casNext))},
-	{"casPrev", "(Ljava/util/concurrent/locks/AbstractQueuedSynchronizer$Node;Ljava/util/concurrent/locks/AbstractQueuedSynchronizer$Node;)Z", nullptr, $FINAL, $method(static_cast<bool(AbstractQueuedSynchronizer$Node::*)(AbstractQueuedSynchronizer$Node*,AbstractQueuedSynchronizer$Node*)>(&AbstractQueuedSynchronizer$Node::casPrev))},
-	{"clearStatus", "()V", nullptr, $FINAL, $method(static_cast<void(AbstractQueuedSynchronizer$Node::*)()>(&AbstractQueuedSynchronizer$Node::clearStatus))},
-	{"getAndUnsetStatus", "(I)I", nullptr, $FINAL, $method(static_cast<int32_t(AbstractQueuedSynchronizer$Node::*)(int32_t)>(&AbstractQueuedSynchronizer$Node::getAndUnsetStatus))},
-	{"setPrevRelaxed", "(Ljava/util/concurrent/locks/AbstractQueuedSynchronizer$Node;)V", nullptr, $FINAL, $method(static_cast<void(AbstractQueuedSynchronizer$Node::*)(AbstractQueuedSynchronizer$Node*)>(&AbstractQueuedSynchronizer$Node::setPrevRelaxed))},
-	{"setStatusRelaxed", "(I)V", nullptr, $FINAL, $method(static_cast<void(AbstractQueuedSynchronizer$Node::*)(int32_t)>(&AbstractQueuedSynchronizer$Node::setStatusRelaxed))},
+	{"<init>", "()V", nullptr, 0, $method(AbstractQueuedSynchronizer$Node, init$, void)},
+	{"casNext", "(Ljava/util/concurrent/locks/AbstractQueuedSynchronizer$Node;Ljava/util/concurrent/locks/AbstractQueuedSynchronizer$Node;)Z", nullptr, $FINAL, $method(AbstractQueuedSynchronizer$Node, casNext, bool, AbstractQueuedSynchronizer$Node*, AbstractQueuedSynchronizer$Node*)},
+	{"casPrev", "(Ljava/util/concurrent/locks/AbstractQueuedSynchronizer$Node;Ljava/util/concurrent/locks/AbstractQueuedSynchronizer$Node;)Z", nullptr, $FINAL, $method(AbstractQueuedSynchronizer$Node, casPrev, bool, AbstractQueuedSynchronizer$Node*, AbstractQueuedSynchronizer$Node*)},
+	{"clearStatus", "()V", nullptr, $FINAL, $method(AbstractQueuedSynchronizer$Node, clearStatus, void)},
+	{"getAndUnsetStatus", "(I)I", nullptr, $FINAL, $method(AbstractQueuedSynchronizer$Node, getAndUnsetStatus, int32_t, int32_t)},
+	{"setPrevRelaxed", "(Ljava/util/concurrent/locks/AbstractQueuedSynchronizer$Node;)V", nullptr, $FINAL, $method(AbstractQueuedSynchronizer$Node, setPrevRelaxed, void, AbstractQueuedSynchronizer$Node*)},
+	{"setStatusRelaxed", "(I)V", nullptr, $FINAL, $method(AbstractQueuedSynchronizer$Node, setStatusRelaxed, void, int32_t)},
 	{}
 };
 

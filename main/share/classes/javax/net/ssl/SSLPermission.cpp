@@ -18,8 +18,8 @@ $FieldInfo _SSLPermission_FieldInfo_[] = {
 };
 
 $MethodInfo _SSLPermission_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(SSLPermission::*)($String*)>(&SSLPermission::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(SSLPermission::*)($String*,$String*)>(&SSLPermission::init$))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SSLPermission, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SSLPermission, init$, void, $String*, $String*)},
 	{}
 };
 

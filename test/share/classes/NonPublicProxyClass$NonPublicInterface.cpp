@@ -8,7 +8,7 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _NonPublicProxyClass$NonPublicInterface_MethodInfo_[] = {
-	{"bar", "()V", nullptr, $PUBLIC | $ABSTRACT},
+	{"bar", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NonPublicProxyClass$NonPublicInterface, bar, void)},
 	{}
 };
 

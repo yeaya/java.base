@@ -19,8 +19,8 @@ $FieldInfo _MacOSXNativeDispatcher_FieldInfo_[] = {
 };
 
 $MethodInfo _MacOSXNativeDispatcher_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(MacOSXNativeDispatcher::*)()>(&MacOSXNativeDispatcher::init$))},
-	{"normalizepath", "([CI)[C", nullptr, $STATIC | $NATIVE, $method(static_cast<$chars*(*)($chars*,int32_t)>(&MacOSXNativeDispatcher::normalizepath))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(MacOSXNativeDispatcher, init$, void)},
+	{"normalizepath", "([CI)[C", nullptr, $STATIC | $NATIVE, $staticMethod(MacOSXNativeDispatcher, normalizepath, $chars*, $chars*, int32_t)},
 	{}
 };
 

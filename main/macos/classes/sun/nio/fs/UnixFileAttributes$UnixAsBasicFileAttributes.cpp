@@ -22,18 +22,18 @@ $FieldInfo _UnixFileAttributes$UnixAsBasicFileAttributes_FieldInfo_[] = {
 };
 
 $MethodInfo _UnixFileAttributes$UnixAsBasicFileAttributes_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/fs/UnixFileAttributes;)V", nullptr, $PRIVATE, $method(static_cast<void(UnixFileAttributes$UnixAsBasicFileAttributes::*)($UnixFileAttributes*)>(&UnixFileAttributes$UnixAsBasicFileAttributes::init$))},
-	{"creationTime", "()Ljava/nio/file/attribute/FileTime;", nullptr, $PUBLIC},
-	{"fileKey", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"isDirectory", "()Z", nullptr, $PUBLIC},
-	{"isOther", "()Z", nullptr, $PUBLIC},
-	{"isRegularFile", "()Z", nullptr, $PUBLIC},
-	{"isSymbolicLink", "()Z", nullptr, $PUBLIC},
-	{"lastAccessTime", "()Ljava/nio/file/attribute/FileTime;", nullptr, $PUBLIC},
-	{"lastModifiedTime", "()Ljava/nio/file/attribute/FileTime;", nullptr, $PUBLIC},
-	{"size", "()J", nullptr, $PUBLIC},
-	{"unwrap", "()Lsun/nio/fs/UnixFileAttributes;", nullptr, 0},
-	{"wrap", "(Lsun/nio/fs/UnixFileAttributes;)Lsun/nio/fs/UnixFileAttributes$UnixAsBasicFileAttributes;", nullptr, $STATIC, $method(static_cast<UnixFileAttributes$UnixAsBasicFileAttributes*(*)($UnixFileAttributes*)>(&UnixFileAttributes$UnixAsBasicFileAttributes::wrap))},
+	{"<init>", "(Lsun/nio/fs/UnixFileAttributes;)V", nullptr, $PRIVATE, $method(UnixFileAttributes$UnixAsBasicFileAttributes, init$, void, $UnixFileAttributes*)},
+	{"creationTime", "()Ljava/nio/file/attribute/FileTime;", nullptr, $PUBLIC, $virtualMethod(UnixFileAttributes$UnixAsBasicFileAttributes, creationTime, $FileTime*)},
+	{"fileKey", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(UnixFileAttributes$UnixAsBasicFileAttributes, fileKey, $Object*)},
+	{"isDirectory", "()Z", nullptr, $PUBLIC, $virtualMethod(UnixFileAttributes$UnixAsBasicFileAttributes, isDirectory, bool)},
+	{"isOther", "()Z", nullptr, $PUBLIC, $virtualMethod(UnixFileAttributes$UnixAsBasicFileAttributes, isOther, bool)},
+	{"isRegularFile", "()Z", nullptr, $PUBLIC, $virtualMethod(UnixFileAttributes$UnixAsBasicFileAttributes, isRegularFile, bool)},
+	{"isSymbolicLink", "()Z", nullptr, $PUBLIC, $virtualMethod(UnixFileAttributes$UnixAsBasicFileAttributes, isSymbolicLink, bool)},
+	{"lastAccessTime", "()Ljava/nio/file/attribute/FileTime;", nullptr, $PUBLIC, $virtualMethod(UnixFileAttributes$UnixAsBasicFileAttributes, lastAccessTime, $FileTime*)},
+	{"lastModifiedTime", "()Ljava/nio/file/attribute/FileTime;", nullptr, $PUBLIC, $virtualMethod(UnixFileAttributes$UnixAsBasicFileAttributes, lastModifiedTime, $FileTime*)},
+	{"size", "()J", nullptr, $PUBLIC, $virtualMethod(UnixFileAttributes$UnixAsBasicFileAttributes, size, int64_t)},
+	{"unwrap", "()Lsun/nio/fs/UnixFileAttributes;", nullptr, 0, $virtualMethod(UnixFileAttributes$UnixAsBasicFileAttributes, unwrap, $UnixFileAttributes*)},
+	{"wrap", "(Lsun/nio/fs/UnixFileAttributes;)Lsun/nio/fs/UnixFileAttributes$UnixAsBasicFileAttributes;", nullptr, $STATIC, $staticMethod(UnixFileAttributes$UnixAsBasicFileAttributes, wrap, UnixFileAttributes$UnixAsBasicFileAttributes*, $UnixFileAttributes*)},
 	{}
 };
 

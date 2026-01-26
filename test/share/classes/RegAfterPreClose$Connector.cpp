@@ -28,8 +28,8 @@ $FieldInfo _RegAfterPreClose$Connector_FieldInfo_[] = {
 };
 
 $MethodInfo _RegAfterPreClose$Connector_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, 0, $method(static_cast<void(RegAfterPreClose$Connector::*)(int32_t)>(&RegAfterPreClose$Connector::init$)), "java.io.IOException"},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(I)V", nullptr, 0, $method(RegAfterPreClose$Connector, init$, void, int32_t), "java.io.IOException"},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(RegAfterPreClose$Connector, run, void)},
 	{}
 };
 

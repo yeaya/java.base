@@ -20,8 +20,8 @@ namespace jdk {
 		namespace jrtfs {
 
 $MethodInfo _SystemImage$2_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(SystemImage$2::*)()>(&SystemImage$2::init$))},
-	{"run", "()Ljava/lang/Boolean;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(SystemImage$2, init$, void)},
+	{"run", "()Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(SystemImage$2, run, $Object*)},
 	{}
 };
 

@@ -20,9 +20,9 @@ using $Path = ::java::nio::file::Path;
 using $Paths = ::java::nio::file::Paths;
 
 $MethodInfo _SpecialTempFile_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SpecialTempFile::*)()>(&SpecialTempFile::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&SpecialTempFile::main)), "java.lang.Exception"},
-	{"test", "(Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;Z)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($String*,$StringArray*,$StringArray*,bool)>(&SpecialTempFile::test)), "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SpecialTempFile, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SpecialTempFile, main, void, $StringArray*), "java.lang.Exception"},
+	{"test", "(Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;Z)V", nullptr, $PRIVATE | $STATIC, $staticMethod(SpecialTempFile, test, void, $String*, $StringArray*, $StringArray*, bool), "java.io.IOException"},
 	{}
 };
 

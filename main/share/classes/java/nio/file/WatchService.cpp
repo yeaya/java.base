@@ -6,6 +6,8 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $WatchKey = ::java::nio::file::WatchKey;
+using $TimeUnit = ::java::util::concurrent::TimeUnit;
 
 namespace java {
 	namespace nio {
@@ -13,9 +15,9 @@ namespace java {
 
 $MethodInfo _WatchService_MethodInfo_[] = {
 	{"close", "()V", nullptr, $PUBLIC | $ABSTRACT},
-	{"poll", "()Ljava/nio/file/WatchKey;", nullptr, $PUBLIC | $ABSTRACT},
-	{"poll", "(JLjava/util/concurrent/TimeUnit;)Ljava/nio/file/WatchKey;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.lang.InterruptedException"},
-	{"take", "()Ljava/nio/file/WatchKey;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.lang.InterruptedException"},
+	{"poll", "()Ljava/nio/file/WatchKey;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(WatchService, poll, $WatchKey*)},
+	{"poll", "(JLjava/util/concurrent/TimeUnit;)Ljava/nio/file/WatchKey;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(WatchService, poll, $WatchKey*, int64_t, $TimeUnit*), "java.lang.InterruptedException"},
+	{"take", "()Ljava/nio/file/WatchKey;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(WatchService, take, $WatchKey*), "java.lang.InterruptedException"},
 	{}
 };
 

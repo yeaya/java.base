@@ -31,11 +31,11 @@ $FieldInfo _CipherSuite$HashAlg_FieldInfo_[] = {
 };
 
 $MethodInfo _CipherSuite$HashAlg_MethodInfo_[] = {
-	{"$values", "()[Lsun/security/ssl/CipherSuite$HashAlg;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$CipherSuite$HashAlgArray*(*)()>(&CipherSuite$HashAlg::$values))},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;II)V", "(Ljava/lang/String;II)V", $PRIVATE, $method(static_cast<void(CipherSuite$HashAlg::*)($String*,int32_t,$String*,int32_t,int32_t)>(&CipherSuite$HashAlg::init$))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"valueOf", "(Ljava/lang/String;)Lsun/security/ssl/CipherSuite$HashAlg;", nullptr, $PUBLIC | $STATIC, $method(static_cast<CipherSuite$HashAlg*(*)($String*)>(&CipherSuite$HashAlg::valueOf))},
-	{"values", "()[Lsun/security/ssl/CipherSuite$HashAlg;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$CipherSuite$HashAlgArray*(*)()>(&CipherSuite$HashAlg::values))},
+	{"$values", "()[Lsun/security/ssl/CipherSuite$HashAlg;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CipherSuite$HashAlg, $values, $CipherSuite$HashAlgArray*)},
+	{"<init>", "(Ljava/lang/String;ILjava/lang/String;II)V", "(Ljava/lang/String;II)V", $PRIVATE, $method(CipherSuite$HashAlg, init$, void, $String*, int32_t, $String*, int32_t, int32_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CipherSuite$HashAlg, toString, $String*)},
+	{"valueOf", "(Ljava/lang/String;)Lsun/security/ssl/CipherSuite$HashAlg;", nullptr, $PUBLIC | $STATIC, $staticMethod(CipherSuite$HashAlg, valueOf, CipherSuite$HashAlg*, $String*)},
+	{"values", "()[Lsun/security/ssl/CipherSuite$HashAlg;", nullptr, $PUBLIC | $STATIC, $staticMethod(CipherSuite$HashAlg, values, $CipherSuite$HashAlgArray*)},
 	{}
 };
 

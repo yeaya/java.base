@@ -21,8 +21,8 @@ $FieldInfo _ServiceLoader$ProviderImpl$1_FieldInfo_[] = {
 };
 
 $MethodInfo _ServiceLoader$ProviderImpl$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/ServiceLoader$ProviderImpl;)V", nullptr, 0, $method(static_cast<void(ServiceLoader$ProviderImpl$1::*)($ServiceLoader$ProviderImpl*)>(&ServiceLoader$ProviderImpl$1::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, nullptr, "java.lang.Exception"},
+	{"<init>", "(Ljava/util/ServiceLoader$ProviderImpl;)V", nullptr, 0, $method(ServiceLoader$ProviderImpl$1, init$, void, $ServiceLoader$ProviderImpl*)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ServiceLoader$ProviderImpl$1, run, $Object*), "java.lang.Exception"},
 	{}
 };
 

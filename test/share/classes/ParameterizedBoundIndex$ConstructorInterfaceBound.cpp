@@ -14,7 +14,7 @@ $TypeAnnotation _ParameterizedBoundIndex$ConstructorInterfaceBound_MethodTypeAnn
 };
 
 $MethodInfo _ParameterizedBoundIndex$ConstructorInterfaceBound_MethodInfo_[] = {
-	{"<init>", "()V", "<T::Ljava/lang/Runnable;>()V", 0, $method(static_cast<void(ParameterizedBoundIndex$ConstructorInterfaceBound::*)()>(&ParameterizedBoundIndex$ConstructorInterfaceBound::init$)), nullptr, nullptr, nullptr, _ParameterizedBoundIndex$ConstructorInterfaceBound_MethodTypeAnnotations_init$0},
+	{"<init>", "()V", "<T::Ljava/lang/Runnable;>()V", 0, $method(ParameterizedBoundIndex$ConstructorInterfaceBound, init$, void), nullptr, nullptr, nullptr, _ParameterizedBoundIndex$ConstructorInterfaceBound_MethodTypeAnnotations_init$0},
 	{}
 };
 

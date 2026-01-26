@@ -13,8 +13,8 @@ using $SecurityException = ::java::lang::SecurityException;
 using $AccessControlException = ::java::security::AccessControlException;
 
 $MethodInfo _SecurityTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SecurityTest::*)()>(&SecurityTest::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&SecurityTest::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SecurityTest, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SecurityTest, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

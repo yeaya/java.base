@@ -36,9 +36,9 @@ $FieldInfo _PublicMethods_FieldInfo_[] = {
 };
 
 $MethodInfo _PublicMethods_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(PublicMethods::*)()>(&PublicMethods::init$))},
-	{"merge", "(Ljava/lang/reflect/Method;)V", nullptr, 0, $method(static_cast<void(PublicMethods::*)($Method*)>(&PublicMethods::merge))},
-	{"toArray", "()[Ljava/lang/reflect/Method;", nullptr, 0, $method(static_cast<$MethodArray*(PublicMethods::*)()>(&PublicMethods::toArray))},
+	{"<init>", "()V", nullptr, 0, $method(PublicMethods, init$, void)},
+	{"merge", "(Ljava/lang/reflect/Method;)V", nullptr, 0, $method(PublicMethods, merge, void, $Method*)},
+	{"toArray", "()[Ljava/lang/reflect/Method;", nullptr, 0, $method(PublicMethods, toArray, $MethodArray*)},
 	{}
 };
 

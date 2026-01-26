@@ -30,7 +30,7 @@ $Attribute _SingleMemberLongArrayDef_DefaultValue_value0 = {
 };
 
 $MethodInfo _SingleMemberLongArrayDef_MethodInfo_[] = {
-	{"value", "()[J", nullptr, $PUBLIC | $ABSTRACT, nullptr, nullptr, &_SingleMemberLongArrayDef_DefaultValue_value0},
+	{"value", "()[J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SingleMemberLongArrayDef, value, $longs*), nullptr, &_SingleMemberLongArrayDef_DefaultValue_value0},
 	{}
 };
 

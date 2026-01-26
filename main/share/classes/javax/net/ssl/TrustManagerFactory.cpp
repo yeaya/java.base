@@ -41,16 +41,16 @@ $FieldInfo _TrustManagerFactory_FieldInfo_[] = {
 };
 
 $MethodInfo _TrustManagerFactory_MethodInfo_[] = {
-	{"<init>", "(Ljavax/net/ssl/TrustManagerFactorySpi;Ljava/security/Provider;Ljava/lang/String;)V", nullptr, $PROTECTED, $method(static_cast<void(TrustManagerFactory::*)($TrustManagerFactorySpi*,$Provider*,$String*)>(&TrustManagerFactory::init$))},
-	{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$String*(TrustManagerFactory::*)()>(&TrustManagerFactory::getAlgorithm))},
-	{"getDefaultAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $method(static_cast<$String*(*)()>(&TrustManagerFactory::getDefaultAlgorithm))},
-	{"getInstance", "(Ljava/lang/String;)Ljavax/net/ssl/TrustManagerFactory;", nullptr, $PUBLIC | $STATIC | $FINAL, $method(static_cast<TrustManagerFactory*(*)($String*)>(&TrustManagerFactory::getInstance)), "java.security.NoSuchAlgorithmException"},
-	{"getInstance", "(Ljava/lang/String;Ljava/lang/String;)Ljavax/net/ssl/TrustManagerFactory;", nullptr, $PUBLIC | $STATIC | $FINAL, $method(static_cast<TrustManagerFactory*(*)($String*,$String*)>(&TrustManagerFactory::getInstance)), "java.security.NoSuchAlgorithmException,java.security.NoSuchProviderException"},
-	{"getInstance", "(Ljava/lang/String;Ljava/security/Provider;)Ljavax/net/ssl/TrustManagerFactory;", nullptr, $PUBLIC | $STATIC | $FINAL, $method(static_cast<TrustManagerFactory*(*)($String*,$Provider*)>(&TrustManagerFactory::getInstance)), "java.security.NoSuchAlgorithmException"},
-	{"getProvider", "()Ljava/security/Provider;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$Provider*(TrustManagerFactory::*)()>(&TrustManagerFactory::getProvider))},
-	{"getTrustManagers", "()[Ljavax/net/ssl/TrustManager;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$TrustManagerArray*(TrustManagerFactory::*)()>(&TrustManagerFactory::getTrustManagers))},
-	{"init", "(Ljava/security/KeyStore;)V", nullptr, $PUBLIC | $FINAL, $method(static_cast<void(TrustManagerFactory::*)($KeyStore*)>(&TrustManagerFactory::init)), "java.security.KeyStoreException"},
-	{"init", "(Ljavax/net/ssl/ManagerFactoryParameters;)V", nullptr, $PUBLIC | $FINAL, $method(static_cast<void(TrustManagerFactory::*)($ManagerFactoryParameters*)>(&TrustManagerFactory::init)), "java.security.InvalidAlgorithmParameterException"},
+	{"<init>", "(Ljavax/net/ssl/TrustManagerFactorySpi;Ljava/security/Provider;Ljava/lang/String;)V", nullptr, $PROTECTED, $method(TrustManagerFactory, init$, void, $TrustManagerFactorySpi*, $Provider*, $String*)},
+	{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(TrustManagerFactory, getAlgorithm, $String*)},
+	{"getDefaultAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(TrustManagerFactory, getDefaultAlgorithm, $String*)},
+	{"getInstance", "(Ljava/lang/String;)Ljavax/net/ssl/TrustManagerFactory;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(TrustManagerFactory, getInstance, TrustManagerFactory*, $String*), "java.security.NoSuchAlgorithmException"},
+	{"getInstance", "(Ljava/lang/String;Ljava/lang/String;)Ljavax/net/ssl/TrustManagerFactory;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(TrustManagerFactory, getInstance, TrustManagerFactory*, $String*, $String*), "java.security.NoSuchAlgorithmException,java.security.NoSuchProviderException"},
+	{"getInstance", "(Ljava/lang/String;Ljava/security/Provider;)Ljavax/net/ssl/TrustManagerFactory;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(TrustManagerFactory, getInstance, TrustManagerFactory*, $String*, $Provider*), "java.security.NoSuchAlgorithmException"},
+	{"getProvider", "()Ljava/security/Provider;", nullptr, $PUBLIC | $FINAL, $method(TrustManagerFactory, getProvider, $Provider*)},
+	{"getTrustManagers", "()[Ljavax/net/ssl/TrustManager;", nullptr, $PUBLIC | $FINAL, $method(TrustManagerFactory, getTrustManagers, $TrustManagerArray*)},
+	{"init", "(Ljava/security/KeyStore;)V", nullptr, $PUBLIC | $FINAL, $method(TrustManagerFactory, init, void, $KeyStore*), "java.security.KeyStoreException"},
+	{"init", "(Ljavax/net/ssl/ManagerFactoryParameters;)V", nullptr, $PUBLIC | $FINAL, $method(TrustManagerFactory, init, void, $ManagerFactoryParameters*), "java.security.InvalidAlgorithmParameterException"},
 	{}
 };
 

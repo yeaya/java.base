@@ -24,9 +24,9 @@ $FieldInfo _WindowsSelectorImpl$StartLock_FieldInfo_[] = {
 };
 
 $MethodInfo _WindowsSelectorImpl$StartLock_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/ch/WindowsSelectorImpl;)V", nullptr, $PRIVATE, $method(static_cast<void(WindowsSelectorImpl$StartLock::*)($WindowsSelectorImpl*)>(&WindowsSelectorImpl$StartLock::init$))},
-	{"startThreads", "()V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(static_cast<void(WindowsSelectorImpl$StartLock::*)()>(&WindowsSelectorImpl$StartLock::startThreads))},
-	{"waitForStart", "(Lsun/nio/ch/WindowsSelectorImpl$SelectThread;)Z", nullptr, $PRIVATE | $SYNCHRONIZED, $method(static_cast<bool(WindowsSelectorImpl$StartLock::*)($WindowsSelectorImpl$SelectThread*)>(&WindowsSelectorImpl$StartLock::waitForStart))},
+	{"<init>", "(Lsun/nio/ch/WindowsSelectorImpl;)V", nullptr, $PRIVATE, $method(WindowsSelectorImpl$StartLock, init$, void, $WindowsSelectorImpl*)},
+	{"startThreads", "()V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(WindowsSelectorImpl$StartLock, startThreads, void)},
+	{"waitForStart", "(Lsun/nio/ch/WindowsSelectorImpl$SelectThread;)Z", nullptr, $PRIVATE | $SYNCHRONIZED, $method(WindowsSelectorImpl$StartLock, waitForStart, bool, $WindowsSelectorImpl$SelectThread*)},
 	{}
 };
 

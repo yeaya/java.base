@@ -25,6 +25,7 @@
 #include <sun/security/jca/GetInstance.h>
 #include <jcpp.h>
 
+using $AppConfigurationEntryArray = $Array<::javax::security::auth::login::AppConfigurationEntry>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -66,19 +67,19 @@ $FieldInfo _Configuration_FieldInfo_[] = {
 };
 
 $MethodInfo _Configuration_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(Configuration::*)()>(&Configuration::init$))},
-	{"checkPermission", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($String*)>(&Configuration::checkPermission))},
-	{"getAppConfigurationEntry", "(Ljava/lang/String;)[Ljavax/security/auth/login/AppConfigurationEntry;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getConfiguration", "()Ljavax/security/auth/login/Configuration;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Configuration*(*)()>(&Configuration::getConfiguration))},
-	{"getInstance", "(Ljava/lang/String;Ljavax/security/auth/login/Configuration$Parameters;)Ljavax/security/auth/login/Configuration;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Configuration*(*)($String*,$Configuration$Parameters*)>(&Configuration::getInstance)), "java.security.NoSuchAlgorithmException"},
-	{"getInstance", "(Ljava/lang/String;Ljavax/security/auth/login/Configuration$Parameters;Ljava/lang/String;)Ljavax/security/auth/login/Configuration;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Configuration*(*)($String*,$Configuration$Parameters*,$String*)>(&Configuration::getInstance)), "java.security.NoSuchProviderException,java.security.NoSuchAlgorithmException"},
-	{"getInstance", "(Ljava/lang/String;Ljavax/security/auth/login/Configuration$Parameters;Ljava/security/Provider;)Ljavax/security/auth/login/Configuration;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Configuration*(*)($String*,$Configuration$Parameters*,$Provider*)>(&Configuration::getInstance)), "java.security.NoSuchAlgorithmException"},
-	{"getParameters", "()Ljavax/security/auth/login/Configuration$Parameters;", nullptr, $PUBLIC},
-	{"getProvider", "()Ljava/security/Provider;", nullptr, $PUBLIC},
-	{"getType", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"handleException", "(Ljava/security/NoSuchAlgorithmException;)Ljavax/security/auth/login/Configuration;", nullptr, $PRIVATE | $STATIC, $method(static_cast<Configuration*(*)($NoSuchAlgorithmException*)>(&Configuration::handleException)), "java.security.NoSuchAlgorithmException"},
-	{"refresh", "()V", nullptr, $PUBLIC},
-	{"setConfiguration", "(Ljavax/security/auth/login/Configuration;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)(Configuration*)>(&Configuration::setConfiguration))},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(Configuration, init$, void)},
+	{"checkPermission", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Configuration, checkPermission, void, $String*)},
+	{"getAppConfigurationEntry", "(Ljava/lang/String;)[Ljavax/security/auth/login/AppConfigurationEntry;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Configuration, getAppConfigurationEntry, $AppConfigurationEntryArray*, $String*)},
+	{"getConfiguration", "()Ljavax/security/auth/login/Configuration;", nullptr, $PUBLIC | $STATIC, $staticMethod(Configuration, getConfiguration, Configuration*)},
+	{"getInstance", "(Ljava/lang/String;Ljavax/security/auth/login/Configuration$Parameters;)Ljavax/security/auth/login/Configuration;", nullptr, $PUBLIC | $STATIC, $staticMethod(Configuration, getInstance, Configuration*, $String*, $Configuration$Parameters*), "java.security.NoSuchAlgorithmException"},
+	{"getInstance", "(Ljava/lang/String;Ljavax/security/auth/login/Configuration$Parameters;Ljava/lang/String;)Ljavax/security/auth/login/Configuration;", nullptr, $PUBLIC | $STATIC, $staticMethod(Configuration, getInstance, Configuration*, $String*, $Configuration$Parameters*, $String*), "java.security.NoSuchProviderException,java.security.NoSuchAlgorithmException"},
+	{"getInstance", "(Ljava/lang/String;Ljavax/security/auth/login/Configuration$Parameters;Ljava/security/Provider;)Ljavax/security/auth/login/Configuration;", nullptr, $PUBLIC | $STATIC, $staticMethod(Configuration, getInstance, Configuration*, $String*, $Configuration$Parameters*, $Provider*), "java.security.NoSuchAlgorithmException"},
+	{"getParameters", "()Ljavax/security/auth/login/Configuration$Parameters;", nullptr, $PUBLIC, $virtualMethod(Configuration, getParameters, $Configuration$Parameters*)},
+	{"getProvider", "()Ljava/security/Provider;", nullptr, $PUBLIC, $virtualMethod(Configuration, getProvider, $Provider*)},
+	{"getType", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Configuration, getType, $String*)},
+	{"handleException", "(Ljava/security/NoSuchAlgorithmException;)Ljavax/security/auth/login/Configuration;", nullptr, $PRIVATE | $STATIC, $staticMethod(Configuration, handleException, Configuration*, $NoSuchAlgorithmException*), "java.security.NoSuchAlgorithmException"},
+	{"refresh", "()V", nullptr, $PUBLIC, $virtualMethod(Configuration, refresh, void)},
+	{"setConfiguration", "(Ljavax/security/auth/login/Configuration;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Configuration, setConfiguration, void, Configuration*)},
 	{}
 };
 

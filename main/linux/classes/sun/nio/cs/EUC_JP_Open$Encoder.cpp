@@ -30,8 +30,8 @@ $FieldInfo _EUC_JP_Open$Encoder_FieldInfo_[] = {
 };
 
 $MethodInfo _EUC_JP_Open$Encoder_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PRIVATE, $method(static_cast<void(EUC_JP_Open$Encoder::*)($Charset*)>(&EUC_JP_Open$Encoder::init$))},
-	{"encodeDouble", "(C)I", nullptr, $PROTECTED},
+	{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PRIVATE, $method(EUC_JP_Open$Encoder, init$, void, $Charset*)},
+	{"encodeDouble", "(C)I", nullptr, $PROTECTED, $virtualMethod(EUC_JP_Open$Encoder, encodeDouble, int32_t, char16_t)},
 	{}
 };
 

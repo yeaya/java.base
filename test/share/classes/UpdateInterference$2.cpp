@@ -37,8 +37,8 @@ $FieldInfo _UpdateInterference$2_FieldInfo_[] = {
 };
 
 $MethodInfo _UpdateInterference$2_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/file/Path;Ljava/nio/file/WatchService;)V", nullptr, 0, $method(static_cast<void(UpdateInterference$2::*)($Path*,$WatchService*)>(&UpdateInterference$2::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/nio/file/Path;Ljava/nio/file/WatchService;)V", nullptr, 0, $method(UpdateInterference$2, init$, void, $Path*, $WatchService*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(UpdateInterference$2, run, void)},
 	{}
 };
 

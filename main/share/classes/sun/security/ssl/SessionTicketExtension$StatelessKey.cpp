@@ -35,9 +35,9 @@ $FieldInfo _SessionTicketExtension$StatelessKey_FieldInfo_[] = {
 };
 
 $MethodInfo _SessionTicketExtension$StatelessKey_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/ssl/HandshakeContext;I)V", nullptr, 0, $method(static_cast<void(SessionTicketExtension$StatelessKey::*)($HandshakeContext*,int32_t)>(&SessionTicketExtension$StatelessKey::init$))},
-	{"isExpired", "()Z", nullptr, 0, $method(static_cast<bool(SessionTicketExtension$StatelessKey::*)()>(&SessionTicketExtension$StatelessKey::isExpired))},
-	{"isInvalid", "(J)Z", nullptr, 0, $method(static_cast<bool(SessionTicketExtension$StatelessKey::*)(int64_t)>(&SessionTicketExtension$StatelessKey::isInvalid))},
+	{"<init>", "(Lsun/security/ssl/HandshakeContext;I)V", nullptr, 0, $method(SessionTicketExtension$StatelessKey, init$, void, $HandshakeContext*, int32_t)},
+	{"isExpired", "()Z", nullptr, 0, $method(SessionTicketExtension$StatelessKey, isExpired, bool)},
+	{"isInvalid", "(J)Z", nullptr, 0, $method(SessionTicketExtension$StatelessKey, isInvalid, bool, int64_t)},
 	{}
 };
 

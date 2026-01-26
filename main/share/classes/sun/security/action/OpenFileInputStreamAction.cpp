@@ -20,9 +20,9 @@ $FieldInfo _OpenFileInputStreamAction_FieldInfo_[] = {
 };
 
 $MethodInfo _OpenFileInputStreamAction_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/File;)V", nullptr, $PUBLIC, $method(static_cast<void(OpenFileInputStreamAction::*)($File*)>(&OpenFileInputStreamAction::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(OpenFileInputStreamAction::*)($String*)>(&OpenFileInputStreamAction::init$))},
-	{"run", "()Ljava/io/FileInputStream;", nullptr, $PUBLIC, nullptr, "java.lang.Exception"},
+	{"<init>", "(Ljava/io/File;)V", nullptr, $PUBLIC, $method(OpenFileInputStreamAction, init$, void, $File*)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(OpenFileInputStreamAction, init$, void, $String*)},
+	{"run", "()Ljava/io/FileInputStream;", nullptr, $PUBLIC, $virtualMethod(OpenFileInputStreamAction, run, $Object*), "java.lang.Exception"},
 	{}
 };
 

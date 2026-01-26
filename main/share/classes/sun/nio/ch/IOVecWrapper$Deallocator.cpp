@@ -20,8 +20,8 @@ $FieldInfo _IOVecWrapper$Deallocator_FieldInfo_[] = {
 };
 
 $MethodInfo _IOVecWrapper$Deallocator_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/ch/AllocatedNativeObject;)V", nullptr, 0, $method(static_cast<void(IOVecWrapper$Deallocator::*)($AllocatedNativeObject*)>(&IOVecWrapper$Deallocator::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/nio/ch/AllocatedNativeObject;)V", nullptr, 0, $method(IOVecWrapper$Deallocator, init$, void, $AllocatedNativeObject*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(IOVecWrapper$Deallocator, run, void)},
 	{}
 };
 

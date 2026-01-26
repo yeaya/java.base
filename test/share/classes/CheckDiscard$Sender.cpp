@@ -25,11 +25,11 @@ $FieldInfo _CheckDiscard$Sender_FieldInfo_[] = {
 };
 
 $MethodInfo _CheckDiscard$Sender_MethodInfo_[] = {
-	{"<init>", "(LCheckDiscard;I)V", nullptr, 0, $method(static_cast<void(CheckDiscard$Sender::*)($CheckDiscard*,int32_t)>(&CheckDiscard$Sender::init$)), "java.lang.Exception"},
-	{"getException", "()Ljava/lang/Exception;", nullptr, $PUBLIC},
-	{"getLocalPort", "()I", nullptr, $PUBLIC},
-	{"run", "()V", nullptr, $PUBLIC},
-	{"setException", "(Ljava/lang/Exception;)V", nullptr, $PUBLIC},
+	{"<init>", "(LCheckDiscard;I)V", nullptr, 0, $method(CheckDiscard$Sender, init$, void, $CheckDiscard*, int32_t), "java.lang.Exception"},
+	{"getException", "()Ljava/lang/Exception;", nullptr, $PUBLIC, $virtualMethod(CheckDiscard$Sender, getException, $Exception*)},
+	{"getLocalPort", "()I", nullptr, $PUBLIC, $virtualMethod(CheckDiscard$Sender, getLocalPort, int32_t)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(CheckDiscard$Sender, run, void)},
+	{"setException", "(Ljava/lang/Exception;)V", nullptr, $PUBLIC, $virtualMethod(CheckDiscard$Sender, setException, void, $Exception*)},
 	{}
 };
 

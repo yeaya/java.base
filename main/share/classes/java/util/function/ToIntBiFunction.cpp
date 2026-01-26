@@ -16,7 +16,7 @@ $CompoundAttribute _ToIntBiFunction_Annotations_[] = {
 };
 
 $MethodInfo _ToIntBiFunction_MethodInfo_[] = {
-	{"applyAsInt", "(Ljava/lang/Object;Ljava/lang/Object;)I", "(TT;TU;)I", $PUBLIC | $ABSTRACT},
+	{"applyAsInt", "(Ljava/lang/Object;Ljava/lang/Object;)I", "(TT;TU;)I", $PUBLIC | $ABSTRACT, $virtualMethod(ToIntBiFunction, applyAsInt, int32_t, Object$*, Object$*)},
 	{}
 };
 

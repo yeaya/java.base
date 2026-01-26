@@ -25,8 +25,8 @@ $FieldInfo _EnqueuePollRace$WeakRef_FieldInfo_[] = {
 };
 
 $MethodInfo _EnqueuePollRace$WeakRef_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(EnqueuePollRace$WeakRef::*)()>(&EnqueuePollRace$WeakRef::init$))},
-	{"run", "()V", nullptr, 0, nullptr, "java.lang.InterruptedException"},
+	{"<init>", "()V", nullptr, 0, $method(EnqueuePollRace$WeakRef, init$, void)},
+	{"run", "()V", nullptr, 0, $virtualMethod(EnqueuePollRace$WeakRef, run, void), "java.lang.InterruptedException"},
 	{}
 };
 

@@ -37,7 +37,7 @@ $FieldInfo _SSLContextImpl$DefaultSSLContextHolder_FieldInfo_[] = {
 };
 
 $MethodInfo _SSLContextImpl$DefaultSSLContextHolder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(SSLContextImpl$DefaultSSLContextHolder::*)()>(&SSLContextImpl$DefaultSSLContextHolder::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(SSLContextImpl$DefaultSSLContextHolder, init$, void)},
 	{}
 };
 

@@ -40,9 +40,9 @@ using $ServerSocketChannel = ::java::nio::channels::ServerSocketChannel;
 using $SocketChannel = ::java::nio::channels::SocketChannel;
 
 $MethodInfo _LingerOnClose_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(LingerOnClose::*)()>(&LingerOnClose::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&LingerOnClose::main)), "java.io.IOException"},
-	{"test", "(LLingerOnClose$TestMode;I)V", nullptr, $STATIC, $method(static_cast<void(*)($LingerOnClose$TestMode*,int32_t)>(&LingerOnClose::test)), "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(LingerOnClose, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(LingerOnClose, main, void, $StringArray*), "java.io.IOException"},
+	{"test", "(LLingerOnClose$TestMode;I)V", nullptr, $STATIC, $staticMethod(LingerOnClose, test, void, $LingerOnClose$TestMode*, int32_t), "java.io.IOException"},
 	{}
 };
 

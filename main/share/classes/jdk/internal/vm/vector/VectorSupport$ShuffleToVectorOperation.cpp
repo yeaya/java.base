@@ -13,7 +13,7 @@ namespace jdk {
 			namespace vector {
 
 $MethodInfo _VectorSupport$ShuffleToVectorOperation_MethodInfo_[] = {
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TSh;)TVM;", $PUBLIC | $ABSTRACT},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TSh;)TVM;", $PUBLIC | $ABSTRACT, $virtualMethod(VectorSupport$ShuffleToVectorOperation, apply, $Object*, Object$*)},
 	{}
 };
 

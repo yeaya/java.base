@@ -17,7 +17,7 @@ $FieldInfo _InvalidMarkException_FieldInfo_[] = {
 };
 
 $MethodInfo _InvalidMarkException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(InvalidMarkException::*)()>(&InvalidMarkException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(InvalidMarkException, init$, void)},
 	{}
 };
 

@@ -22,7 +22,7 @@ $FieldInfo _SimpleAsynchronousFileChannelImpl$DefaultExecutorHolder_FieldInfo_[]
 };
 
 $MethodInfo _SimpleAsynchronousFileChannelImpl$DefaultExecutorHolder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(SimpleAsynchronousFileChannelImpl$DefaultExecutorHolder::*)()>(&SimpleAsynchronousFileChannelImpl$DefaultExecutorHolder::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(SimpleAsynchronousFileChannelImpl$DefaultExecutorHolder, init$, void)},
 	{}
 };
 

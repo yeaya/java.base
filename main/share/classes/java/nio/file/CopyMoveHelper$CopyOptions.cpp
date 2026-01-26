@@ -34,8 +34,8 @@ $FieldInfo _CopyMoveHelper$CopyOptions_FieldInfo_[] = {
 };
 
 $MethodInfo _CopyMoveHelper$CopyOptions_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(CopyMoveHelper$CopyOptions::*)()>(&CopyMoveHelper$CopyOptions::init$))},
-	{"parse", "([Ljava/nio/file/CopyOption;)Ljava/nio/file/CopyMoveHelper$CopyOptions;", nullptr, $STATIC | $TRANSIENT, $method(static_cast<CopyMoveHelper$CopyOptions*(*)($CopyOptionArray*)>(&CopyMoveHelper$CopyOptions::parse))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(CopyMoveHelper$CopyOptions, init$, void)},
+	{"parse", "([Ljava/nio/file/CopyOption;)Ljava/nio/file/CopyMoveHelper$CopyOptions;", nullptr, $STATIC | $TRANSIENT, $staticMethod(CopyMoveHelper$CopyOptions, parse, CopyMoveHelper$CopyOptions*, $CopyOptionArray*)},
 	{}
 };
 

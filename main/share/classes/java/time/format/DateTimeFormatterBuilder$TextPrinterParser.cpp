@@ -65,11 +65,11 @@ $FieldInfo _DateTimeFormatterBuilder$TextPrinterParser_FieldInfo_[] = {
 };
 
 $MethodInfo _DateTimeFormatterBuilder$TextPrinterParser_MethodInfo_[] = {
-	{"<init>", "(Ljava/time/temporal/TemporalField;Ljava/time/format/TextStyle;Ljava/time/format/DateTimeTextProvider;)V", nullptr, 0, $method(static_cast<void(DateTimeFormatterBuilder$TextPrinterParser::*)($TemporalField*,$TextStyle*,$DateTimeTextProvider*)>(&DateTimeFormatterBuilder$TextPrinterParser::init$))},
-	{"format", "(Ljava/time/format/DateTimePrintContext;Ljava/lang/StringBuilder;)Z", nullptr, $PUBLIC},
-	{"numberPrinterParser", "()Ljava/time/format/DateTimeFormatterBuilder$NumberPrinterParser;", nullptr, $PRIVATE, $method(static_cast<$DateTimeFormatterBuilder$NumberPrinterParser*(DateTimeFormatterBuilder$TextPrinterParser::*)()>(&DateTimeFormatterBuilder$TextPrinterParser::numberPrinterParser))},
-	{"parse", "(Ljava/time/format/DateTimeParseContext;Ljava/lang/CharSequence;I)I", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/time/temporal/TemporalField;Ljava/time/format/TextStyle;Ljava/time/format/DateTimeTextProvider;)V", nullptr, 0, $method(DateTimeFormatterBuilder$TextPrinterParser, init$, void, $TemporalField*, $TextStyle*, $DateTimeTextProvider*)},
+	{"format", "(Ljava/time/format/DateTimePrintContext;Ljava/lang/StringBuilder;)Z", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$TextPrinterParser, format, bool, $DateTimePrintContext*, $StringBuilder*)},
+	{"numberPrinterParser", "()Ljava/time/format/DateTimeFormatterBuilder$NumberPrinterParser;", nullptr, $PRIVATE, $method(DateTimeFormatterBuilder$TextPrinterParser, numberPrinterParser, $DateTimeFormatterBuilder$NumberPrinterParser*)},
+	{"parse", "(Ljava/time/format/DateTimeParseContext;Ljava/lang/CharSequence;I)I", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$TextPrinterParser, parse, int32_t, $DateTimeParseContext*, $CharSequence*, int32_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$TextPrinterParser, toString, $String*)},
 	{}
 };
 

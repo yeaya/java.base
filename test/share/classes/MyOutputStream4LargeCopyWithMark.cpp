@@ -8,10 +8,10 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _MyOutputStream4LargeCopyWithMark_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(MyOutputStream4LargeCopyWithMark::*)()>(&MyOutputStream4LargeCopyWithMark::init$))},
-	{"write", "(I)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"write", "([B)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"write", "([BII)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, 0, $method(MyOutputStream4LargeCopyWithMark, init$, void)},
+	{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(MyOutputStream4LargeCopyWithMark, write, void, int32_t), "java.io.IOException"},
+	{"write", "([B)V", nullptr, $PUBLIC, $virtualMethod(MyOutputStream4LargeCopyWithMark, write, void, $bytes*), "java.io.IOException"},
+	{"write", "([BII)V", nullptr, $PUBLIC, $virtualMethod(MyOutputStream4LargeCopyWithMark, write, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
 	{}
 };
 

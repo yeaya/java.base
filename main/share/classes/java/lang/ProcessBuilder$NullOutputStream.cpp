@@ -23,8 +23,8 @@ $FieldInfo _ProcessBuilder$NullOutputStream_FieldInfo_[] = {
 };
 
 $MethodInfo _ProcessBuilder$NullOutputStream_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(ProcessBuilder$NullOutputStream::*)()>(&ProcessBuilder$NullOutputStream::init$))},
-	{"write", "(I)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(ProcessBuilder$NullOutputStream, init$, void)},
+	{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(ProcessBuilder$NullOutputStream, write, void, int32_t), "java.io.IOException"},
 	{}
 };
 

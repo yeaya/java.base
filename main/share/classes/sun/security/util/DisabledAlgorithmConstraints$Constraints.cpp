@@ -85,11 +85,11 @@ $FieldInfo _DisabledAlgorithmConstraints$Constraints_FieldInfo_[] = {
 };
 
 $MethodInfo _DisabledAlgorithmConstraints$Constraints_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/util/List;)V", "(Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;)V", $PUBLIC, $method(static_cast<void(DisabledAlgorithmConstraints$Constraints::*)($String*,$List*)>(&DisabledAlgorithmConstraints$Constraints::init$))},
-	{"getConstraints", "(Ljava/lang/String;)Ljava/util/List;", "(Ljava/lang/String;)Ljava/util/List<Lsun/security/util/DisabledAlgorithmConstraints$Constraint;>;", $PRIVATE, $method(static_cast<$List*(DisabledAlgorithmConstraints$Constraints::*)($String*)>(&DisabledAlgorithmConstraints$Constraints::getConstraints))},
-	{"permits", "(Ljava/security/Key;)Z", nullptr, $PUBLIC},
-	{"permits", "(Ljava/lang/String;Ljava/security/AlgorithmParameters;)Z", nullptr, $PUBLIC},
-	{"permits", "(Ljava/lang/String;Lsun/security/util/ConstraintsParameters;)V", nullptr, $PUBLIC, nullptr, "java.security.cert.CertPathValidatorException"},
+	{"<init>", "(Ljava/lang/String;Ljava/util/List;)V", "(Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;)V", $PUBLIC, $method(DisabledAlgorithmConstraints$Constraints, init$, void, $String*, $List*)},
+	{"getConstraints", "(Ljava/lang/String;)Ljava/util/List;", "(Ljava/lang/String;)Ljava/util/List<Lsun/security/util/DisabledAlgorithmConstraints$Constraint;>;", $PRIVATE, $method(DisabledAlgorithmConstraints$Constraints, getConstraints, $List*, $String*)},
+	{"permits", "(Ljava/security/Key;)Z", nullptr, $PUBLIC, $virtualMethod(DisabledAlgorithmConstraints$Constraints, permits, bool, $Key*)},
+	{"permits", "(Ljava/lang/String;Ljava/security/AlgorithmParameters;)Z", nullptr, $PUBLIC, $virtualMethod(DisabledAlgorithmConstraints$Constraints, permits, bool, $String*, $AlgorithmParameters*)},
+	{"permits", "(Ljava/lang/String;Lsun/security/util/ConstraintsParameters;)V", nullptr, $PUBLIC, $virtualMethod(DisabledAlgorithmConstraints$Constraints, permits, void, $String*, $ConstraintsParameters*), "java.security.cert.CertPathValidatorException"},
 	{}
 };
 

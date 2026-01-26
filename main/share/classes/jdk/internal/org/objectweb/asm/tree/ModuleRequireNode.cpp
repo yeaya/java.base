@@ -23,8 +23,8 @@ $FieldInfo _ModuleRequireNode_FieldInfo_[] = {
 };
 
 $MethodInfo _ModuleRequireNode_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(ModuleRequireNode::*)($String*,int32_t,$String*)>(&ModuleRequireNode::init$))},
-	{"accept", "(Ljdk/internal/org/objectweb/asm/ModuleVisitor;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", nullptr, $PUBLIC, $method(ModuleRequireNode, init$, void, $String*, int32_t, $String*)},
+	{"accept", "(Ljdk/internal/org/objectweb/asm/ModuleVisitor;)V", nullptr, $PUBLIC, $virtualMethod(ModuleRequireNode, accept, void, $ModuleVisitor*)},
 	{}
 };
 

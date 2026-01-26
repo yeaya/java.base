@@ -19,8 +19,8 @@ $FieldInfo _LoginException_FieldInfo_[] = {
 };
 
 $MethodInfo _LoginException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(LoginException::*)()>(&LoginException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(LoginException::*)($String*)>(&LoginException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(LoginException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(LoginException, init$, void, $String*)},
 	{}
 };
 

@@ -35,12 +35,12 @@ $MethodInfo _ZipFile$ZipEntryIterator_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/util/zip/ZipFile;I)V", nullptr, $PUBLIC, $method(static_cast<void(ZipFile$ZipEntryIterator::*)($ZipFile*,int32_t)>(&ZipFile$ZipEntryIterator::init$))},
-	{"asIterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TT;>;", $PUBLIC},
-	{"hasMoreElements", "()Z", nullptr, $PUBLIC},
-	{"hasNext", "()Z", nullptr, $PUBLIC},
-	{"next", "()Ljava/util/zip/ZipEntry;", "()TT;", $PUBLIC},
-	{"nextElement", "()Ljava/util/zip/ZipEntry;", "()TT;", $PUBLIC},
+	{"<init>", "(Ljava/util/zip/ZipFile;I)V", nullptr, $PUBLIC, $method(ZipFile$ZipEntryIterator, init$, void, $ZipFile*, int32_t)},
+	{"asIterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TT;>;", $PUBLIC, $virtualMethod(ZipFile$ZipEntryIterator, asIterator, $Iterator*)},
+	{"hasMoreElements", "()Z", nullptr, $PUBLIC, $virtualMethod(ZipFile$ZipEntryIterator, hasMoreElements, bool)},
+	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(ZipFile$ZipEntryIterator, hasNext, bool)},
+	{"next", "()Ljava/util/zip/ZipEntry;", "()TT;", $PUBLIC, $virtualMethod(ZipFile$ZipEntryIterator, next, $Object*)},
+	{"nextElement", "()Ljava/util/zip/ZipEntry;", "()TT;", $PUBLIC, $virtualMethod(ZipFile$ZipEntryIterator, nextElement, $Object*)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

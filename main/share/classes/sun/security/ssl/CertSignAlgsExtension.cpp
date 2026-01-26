@@ -45,7 +45,7 @@ $FieldInfo _CertSignAlgsExtension_FieldInfo_[] = {
 };
 
 $MethodInfo _CertSignAlgsExtension_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(CertSignAlgsExtension::*)()>(&CertSignAlgsExtension::init$))},
+	{"<init>", "()V", nullptr, 0, $method(CertSignAlgsExtension, init$, void)},
 	{}
 };
 

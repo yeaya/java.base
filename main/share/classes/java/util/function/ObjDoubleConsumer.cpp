@@ -16,7 +16,7 @@ $CompoundAttribute _ObjDoubleConsumer_Annotations_[] = {
 };
 
 $MethodInfo _ObjDoubleConsumer_MethodInfo_[] = {
-	{"accept", "(Ljava/lang/Object;D)V", "(TT;D)V", $PUBLIC | $ABSTRACT},
+	{"accept", "(Ljava/lang/Object;D)V", "(TT;D)V", $PUBLIC | $ABSTRACT, $virtualMethod(ObjDoubleConsumer, accept, void, Object$*, double)},
 	{}
 };
 

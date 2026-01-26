@@ -4,6 +4,7 @@
 #include <indify/Indify.h>
 #include <jcpp.h>
 
+using $Indify$Outer = ::indify::Indify$Outer;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -11,8 +12,8 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace indify {
 
 $MethodInfo _Indify$Inner_MethodInfo_[] = {
-	{"linkOuter", "(Lindify/Indify$Outer;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"outer", "()Lindify/Indify$Outer;", nullptr, $PUBLIC | $ABSTRACT},
+	{"linkOuter", "(Lindify/Indify$Outer;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Indify$Inner, linkOuter, void, $Indify$Outer*)},
+	{"outer", "()Lindify/Indify$Outer;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Indify$Inner, outer, $Indify$Outer*)},
 	{}
 };
 

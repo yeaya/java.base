@@ -17,7 +17,7 @@ $FieldInfo _ServiceId_FieldInfo_[] = {
 };
 
 $MethodInfo _ServiceId_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(ServiceId::*)($String*,$String*)>(&ServiceId::init$))},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ServiceId, init$, void, $String*, $String*)},
 	{}
 };
 

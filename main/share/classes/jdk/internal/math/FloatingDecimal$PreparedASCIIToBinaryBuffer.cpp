@@ -19,9 +19,9 @@ $FieldInfo _FloatingDecimal$PreparedASCIIToBinaryBuffer_FieldInfo_[] = {
 };
 
 $MethodInfo _FloatingDecimal$PreparedASCIIToBinaryBuffer_MethodInfo_[] = {
-	{"<init>", "(DF)V", nullptr, $PUBLIC, $method(static_cast<void(FloatingDecimal$PreparedASCIIToBinaryBuffer::*)(double,float)>(&FloatingDecimal$PreparedASCIIToBinaryBuffer::init$))},
-	{"doubleValue", "()D", nullptr, $PUBLIC},
-	{"floatValue", "()F", nullptr, $PUBLIC},
+	{"<init>", "(DF)V", nullptr, $PUBLIC, $method(FloatingDecimal$PreparedASCIIToBinaryBuffer, init$, void, double, float)},
+	{"doubleValue", "()D", nullptr, $PUBLIC, $virtualMethod(FloatingDecimal$PreparedASCIIToBinaryBuffer, doubleValue, double)},
+	{"floatValue", "()F", nullptr, $PUBLIC, $virtualMethod(FloatingDecimal$PreparedASCIIToBinaryBuffer, floatValue, float)},
 	{}
 };
 

@@ -29,9 +29,9 @@ $FieldInfo _Label_FieldInfo_[] = {
 };
 
 $MethodInfo _Label_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Label::*)()>(&Label::init$))},
-	{"add", "(Ljdk/internal/reflect/ClassFileAssembler;SSI)V", nullptr, 0},
-	{"bind", "()V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Label, init$, void)},
+	{"add", "(Ljdk/internal/reflect/ClassFileAssembler;SSI)V", nullptr, 0, $virtualMethod(Label, add, void, $ClassFileAssembler*, int16_t, int16_t, int32_t)},
+	{"bind", "()V", nullptr, $PUBLIC, $virtualMethod(Label, bind, void)},
 	{}
 };
 

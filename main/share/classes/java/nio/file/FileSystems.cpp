@@ -41,15 +41,15 @@ namespace java {
 		namespace file {
 
 $MethodInfo _FileSystems_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(FileSystems::*)()>(&FileSystems::init$))},
-	{"getDefault", "()Ljava/nio/file/FileSystem;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$FileSystem*(*)()>(&FileSystems::getDefault))},
-	{"getFileSystem", "(Ljava/net/URI;)Ljava/nio/file/FileSystem;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$FileSystem*(*)($URI*)>(&FileSystems::getFileSystem))},
-	{"newFileSystem", "(Ljava/net/URI;Ljava/util/Map;)Ljava/nio/file/FileSystem;", "(Ljava/net/URI;Ljava/util/Map<Ljava/lang/String;*>;)Ljava/nio/file/FileSystem;", $PUBLIC | $STATIC, $method(static_cast<$FileSystem*(*)($URI*,$Map*)>(&FileSystems::newFileSystem)), "java.io.IOException"},
-	{"newFileSystem", "(Ljava/net/URI;Ljava/util/Map;Ljava/lang/ClassLoader;)Ljava/nio/file/FileSystem;", "(Ljava/net/URI;Ljava/util/Map<Ljava/lang/String;*>;Ljava/lang/ClassLoader;)Ljava/nio/file/FileSystem;", $PUBLIC | $STATIC, $method(static_cast<$FileSystem*(*)($URI*,$Map*,$ClassLoader*)>(&FileSystems::newFileSystem)), "java.io.IOException"},
-	{"newFileSystem", "(Ljava/nio/file/Path;Ljava/lang/ClassLoader;)Ljava/nio/file/FileSystem;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$FileSystem*(*)($Path*,$ClassLoader*)>(&FileSystems::newFileSystem)), "java.io.IOException"},
-	{"newFileSystem", "(Ljava/nio/file/Path;Ljava/util/Map;)Ljava/nio/file/FileSystem;", "(Ljava/nio/file/Path;Ljava/util/Map<Ljava/lang/String;*>;)Ljava/nio/file/FileSystem;", $PUBLIC | $STATIC, $method(static_cast<$FileSystem*(*)($Path*,$Map*)>(&FileSystems::newFileSystem)), "java.io.IOException"},
-	{"newFileSystem", "(Ljava/nio/file/Path;)Ljava/nio/file/FileSystem;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$FileSystem*(*)($Path*)>(&FileSystems::newFileSystem)), "java.io.IOException"},
-	{"newFileSystem", "(Ljava/nio/file/Path;Ljava/util/Map;Ljava/lang/ClassLoader;)Ljava/nio/file/FileSystem;", "(Ljava/nio/file/Path;Ljava/util/Map<Ljava/lang/String;*>;Ljava/lang/ClassLoader;)Ljava/nio/file/FileSystem;", $PUBLIC | $STATIC, $method(static_cast<$FileSystem*(*)($Path*,$Map*,$ClassLoader*)>(&FileSystems::newFileSystem)), "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(FileSystems, init$, void)},
+	{"getDefault", "()Ljava/nio/file/FileSystem;", nullptr, $PUBLIC | $STATIC, $staticMethod(FileSystems, getDefault, $FileSystem*)},
+	{"getFileSystem", "(Ljava/net/URI;)Ljava/nio/file/FileSystem;", nullptr, $PUBLIC | $STATIC, $staticMethod(FileSystems, getFileSystem, $FileSystem*, $URI*)},
+	{"newFileSystem", "(Ljava/net/URI;Ljava/util/Map;)Ljava/nio/file/FileSystem;", "(Ljava/net/URI;Ljava/util/Map<Ljava/lang/String;*>;)Ljava/nio/file/FileSystem;", $PUBLIC | $STATIC, $staticMethod(FileSystems, newFileSystem, $FileSystem*, $URI*, $Map*), "java.io.IOException"},
+	{"newFileSystem", "(Ljava/net/URI;Ljava/util/Map;Ljava/lang/ClassLoader;)Ljava/nio/file/FileSystem;", "(Ljava/net/URI;Ljava/util/Map<Ljava/lang/String;*>;Ljava/lang/ClassLoader;)Ljava/nio/file/FileSystem;", $PUBLIC | $STATIC, $staticMethod(FileSystems, newFileSystem, $FileSystem*, $URI*, $Map*, $ClassLoader*), "java.io.IOException"},
+	{"newFileSystem", "(Ljava/nio/file/Path;Ljava/lang/ClassLoader;)Ljava/nio/file/FileSystem;", nullptr, $PUBLIC | $STATIC, $staticMethod(FileSystems, newFileSystem, $FileSystem*, $Path*, $ClassLoader*), "java.io.IOException"},
+	{"newFileSystem", "(Ljava/nio/file/Path;Ljava/util/Map;)Ljava/nio/file/FileSystem;", "(Ljava/nio/file/Path;Ljava/util/Map<Ljava/lang/String;*>;)Ljava/nio/file/FileSystem;", $PUBLIC | $STATIC, $staticMethod(FileSystems, newFileSystem, $FileSystem*, $Path*, $Map*), "java.io.IOException"},
+	{"newFileSystem", "(Ljava/nio/file/Path;)Ljava/nio/file/FileSystem;", nullptr, $PUBLIC | $STATIC, $staticMethod(FileSystems, newFileSystem, $FileSystem*, $Path*), "java.io.IOException"},
+	{"newFileSystem", "(Ljava/nio/file/Path;Ljava/util/Map;Ljava/lang/ClassLoader;)Ljava/nio/file/FileSystem;", "(Ljava/nio/file/Path;Ljava/util/Map<Ljava/lang/String;*>;Ljava/lang/ClassLoader;)Ljava/nio/file/FileSystem;", $PUBLIC | $STATIC, $staticMethod(FileSystems, newFileSystem, $FileSystem*, $Path*, $Map*, $ClassLoader*), "java.io.IOException"},
 	{}
 };
 

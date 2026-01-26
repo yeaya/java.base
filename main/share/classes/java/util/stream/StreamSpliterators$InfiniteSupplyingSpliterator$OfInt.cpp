@@ -45,12 +45,12 @@ $MethodInfo _StreamSpliterators$InfiniteSupplyingSpliterator$OfInt_MethodInfo_[]
 	{"*getExactSizeIfKnown", "()J", nullptr, $PUBLIC | $ABSTRACT},
 	{"*hasCharacteristics", "(I)Z", nullptr, $PUBLIC | $ABSTRACT},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(JLjava/util/function/IntSupplier;)V", nullptr, 0, $method(static_cast<void(StreamSpliterators$InfiniteSupplyingSpliterator$OfInt::*)(int64_t,$IntSupplier*)>(&StreamSpliterators$InfiniteSupplyingSpliterator$OfInt::init$))},
+	{"<init>", "(JLjava/util/function/IntSupplier;)V", nullptr, 0, $method(StreamSpliterators$InfiniteSupplyingSpliterator$OfInt, init$, void, int64_t, $IntSupplier*)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{"*tryAdvance", "(Ljava/util/function/Consumer;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"tryAdvance", "(Ljava/util/function/IntConsumer;)Z", nullptr, $PUBLIC, $method(static_cast<bool(StreamSpliterators$InfiniteSupplyingSpliterator$OfInt::*)($IntConsumer*)>(&StreamSpliterators$InfiniteSupplyingSpliterator$OfInt::tryAdvance))},
-	{"tryAdvance", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $method(static_cast<bool(StreamSpliterators$InfiniteSupplyingSpliterator$OfInt::*)(Object$*)>(&StreamSpliterators$InfiniteSupplyingSpliterator$OfInt::tryAdvance))},
-	{"trySplit", "()Ljava/util/Spliterator$OfInt;", nullptr, $PUBLIC},
+	{"tryAdvance", "(Ljava/util/function/IntConsumer;)Z", nullptr, $PUBLIC, $method(StreamSpliterators$InfiniteSupplyingSpliterator$OfInt, tryAdvance, bool, $IntConsumer*)},
+	{"tryAdvance", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $method(StreamSpliterators$InfiniteSupplyingSpliterator$OfInt, tryAdvance, bool, Object$*)},
+	{"trySplit", "()Ljava/util/Spliterator$OfInt;", nullptr, $PUBLIC, $virtualMethod(StreamSpliterators$InfiniteSupplyingSpliterator$OfInt, trySplit, $Spliterator*)},
 	{}
 };
 

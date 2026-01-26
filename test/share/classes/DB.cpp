@@ -50,11 +50,11 @@ $CompoundAttribute _DB_MethodAnnotations_wombat4[] = {
 };
 
 $MethodInfo _DB_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(DB::*)()>(&DB::init$))},
-	{"baz", "()V", nullptr, $PUBLIC, nullptr, nullptr, nullptr, _DB_MethodAnnotations_baz1},
-	{"foo", "()V", nullptr, $PUBLIC, nullptr, nullptr, nullptr, _DB_MethodAnnotations_foo2},
-	{"quux", "()V", nullptr, $PUBLIC, nullptr, nullptr, nullptr, _DB_MethodAnnotations_quux3},
-	{"wombat", "()V", nullptr, $PUBLIC, nullptr, nullptr, nullptr, _DB_MethodAnnotations_wombat4},
+	{"<init>", "()V", nullptr, 0, $method(DB, init$, void)},
+	{"baz", "()V", nullptr, $PUBLIC, $virtualMethod(DB, baz, void), nullptr, nullptr, _DB_MethodAnnotations_baz1},
+	{"foo", "()V", nullptr, $PUBLIC, $virtualMethod(DB, foo, void), nullptr, nullptr, _DB_MethodAnnotations_foo2},
+	{"quux", "()V", nullptr, $PUBLIC, $virtualMethod(DB, quux, void), nullptr, nullptr, _DB_MethodAnnotations_quux3},
+	{"wombat", "()V", nullptr, $PUBLIC, $virtualMethod(DB, wombat, void), nullptr, nullptr, _DB_MethodAnnotations_wombat4},
 	{}
 };
 

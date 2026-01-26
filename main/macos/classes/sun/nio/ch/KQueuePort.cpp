@@ -66,13 +66,13 @@ $FieldInfo _KQueuePort_FieldInfo_[] = {
 };
 
 $MethodInfo _KQueuePort_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/channels/spi/AsynchronousChannelProvider;Lsun/nio/ch/ThreadPool;)V", nullptr, 0, $method(static_cast<void(KQueuePort::*)($AsynchronousChannelProvider*,$ThreadPool*)>(&KQueuePort::init$)), "java.io.IOException"},
-	{"executeOnHandlerTask", "(Ljava/lang/Runnable;)V", nullptr, 0},
-	{"implClose", "()V", nullptr, $PRIVATE, $method(static_cast<void(KQueuePort::*)()>(&KQueuePort::implClose))},
-	{"shutdownHandlerTasks", "()V", nullptr, 0},
-	{"start", "()Lsun/nio/ch/KQueuePort;", nullptr, 0, $method(static_cast<KQueuePort*(KQueuePort::*)()>(&KQueuePort::start))},
-	{"startPoll", "(II)V", nullptr, 0},
-	{"wakeup", "()V", nullptr, $PRIVATE, $method(static_cast<void(KQueuePort::*)()>(&KQueuePort::wakeup))},
+	{"<init>", "(Ljava/nio/channels/spi/AsynchronousChannelProvider;Lsun/nio/ch/ThreadPool;)V", nullptr, 0, $method(KQueuePort, init$, void, $AsynchronousChannelProvider*, $ThreadPool*), "java.io.IOException"},
+	{"executeOnHandlerTask", "(Ljava/lang/Runnable;)V", nullptr, 0, $virtualMethod(KQueuePort, executeOnHandlerTask, void, $Runnable*)},
+	{"implClose", "()V", nullptr, $PRIVATE, $method(KQueuePort, implClose, void)},
+	{"shutdownHandlerTasks", "()V", nullptr, 0, $virtualMethod(KQueuePort, shutdownHandlerTasks, void)},
+	{"start", "()Lsun/nio/ch/KQueuePort;", nullptr, 0, $method(KQueuePort, start, KQueuePort*)},
+	{"startPoll", "(II)V", nullptr, 0, $virtualMethod(KQueuePort, startPoll, void, int32_t, int32_t)},
+	{"wakeup", "()V", nullptr, $PRIVATE, $method(KQueuePort, wakeup, void)},
 	{}
 };
 

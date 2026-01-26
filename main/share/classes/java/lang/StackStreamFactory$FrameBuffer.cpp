@@ -34,21 +34,21 @@ $FieldInfo _StackStreamFactory$FrameBuffer_FieldInfo_[] = {
 };
 
 $MethodInfo _StackStreamFactory$FrameBuffer_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, 0, $method(static_cast<void(StackStreamFactory$FrameBuffer::*)(int32_t)>(&StackStreamFactory$FrameBuffer::init$))},
-	{"at", "(I)Ljava/lang/Class;", "(I)Ljava/lang/Class<*>;", $ABSTRACT},
-	{"check", "(I)V", nullptr, $FINAL, $method(static_cast<void(StackStreamFactory$FrameBuffer::*)(int32_t)>(&StackStreamFactory$FrameBuffer::check))},
-	{"curBatchFrameCount", "()I", nullptr, $FINAL, $method(static_cast<int32_t(StackStreamFactory$FrameBuffer::*)()>(&StackStreamFactory$FrameBuffer::curBatchFrameCount))},
-	{"frames", "()[Ljava/lang/Object;", "()[TF;", $ABSTRACT},
-	{"freeze", "()V", nullptr, $FINAL, $method(static_cast<void(StackStreamFactory$FrameBuffer::*)()>(&StackStreamFactory$FrameBuffer::freeze))},
-	{"get", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $FINAL, $method(static_cast<$Class*(StackStreamFactory$FrameBuffer::*)()>(&StackStreamFactory$FrameBuffer::get))},
-	{"getIndex", "()I", nullptr, $FINAL, $method(static_cast<int32_t(StackStreamFactory$FrameBuffer::*)()>(&StackStreamFactory$FrameBuffer::getIndex))},
-	{"isActive", "()Z", nullptr, $FINAL, $method(static_cast<bool(StackStreamFactory$FrameBuffer::*)()>(&StackStreamFactory$FrameBuffer::isActive))},
-	{"isEmpty", "()Z", nullptr, $FINAL, $method(static_cast<bool(StackStreamFactory$FrameBuffer::*)()>(&StackStreamFactory$FrameBuffer::isEmpty))},
-	{"next", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $FINAL, $method(static_cast<$Class*(StackStreamFactory$FrameBuffer::*)()>(&StackStreamFactory$FrameBuffer::next))},
-	{"nextStackFrame", "()Ljava/lang/Object;", "()TF;", 0},
-	{"resize", "(II)V", nullptr, $ABSTRACT},
-	{"setBatch", "(III)V", nullptr, $FINAL, $method(static_cast<void(StackStreamFactory$FrameBuffer::*)(int32_t,int32_t,int32_t)>(&StackStreamFactory$FrameBuffer::setBatch))},
-	{"startIndex", "()I", nullptr, 0},
+	{"<init>", "(I)V", nullptr, 0, $method(StackStreamFactory$FrameBuffer, init$, void, int32_t)},
+	{"at", "(I)Ljava/lang/Class;", "(I)Ljava/lang/Class<*>;", $ABSTRACT, $virtualMethod(StackStreamFactory$FrameBuffer, at, $Class*, int32_t)},
+	{"check", "(I)V", nullptr, $FINAL, $method(StackStreamFactory$FrameBuffer, check, void, int32_t)},
+	{"curBatchFrameCount", "()I", nullptr, $FINAL, $method(StackStreamFactory$FrameBuffer, curBatchFrameCount, int32_t)},
+	{"frames", "()[Ljava/lang/Object;", "()[TF;", $ABSTRACT, $virtualMethod(StackStreamFactory$FrameBuffer, frames, $ObjectArray*)},
+	{"freeze", "()V", nullptr, $FINAL, $method(StackStreamFactory$FrameBuffer, freeze, void)},
+	{"get", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $FINAL, $method(StackStreamFactory$FrameBuffer, get, $Class*)},
+	{"getIndex", "()I", nullptr, $FINAL, $method(StackStreamFactory$FrameBuffer, getIndex, int32_t)},
+	{"isActive", "()Z", nullptr, $FINAL, $method(StackStreamFactory$FrameBuffer, isActive, bool)},
+	{"isEmpty", "()Z", nullptr, $FINAL, $method(StackStreamFactory$FrameBuffer, isEmpty, bool)},
+	{"next", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $FINAL, $method(StackStreamFactory$FrameBuffer, next, $Class*)},
+	{"nextStackFrame", "()Ljava/lang/Object;", "()TF;", 0, $virtualMethod(StackStreamFactory$FrameBuffer, nextStackFrame, $Object*)},
+	{"resize", "(II)V", nullptr, $ABSTRACT, $virtualMethod(StackStreamFactory$FrameBuffer, resize, void, int32_t, int32_t)},
+	{"setBatch", "(III)V", nullptr, $FINAL, $method(StackStreamFactory$FrameBuffer, setBatch, void, int32_t, int32_t, int32_t)},
+	{"startIndex", "()I", nullptr, 0, $virtualMethod(StackStreamFactory$FrameBuffer, startIndex, int32_t)},
 	{}
 };
 

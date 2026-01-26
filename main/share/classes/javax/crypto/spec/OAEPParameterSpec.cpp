@@ -32,12 +32,12 @@ $FieldInfo _OAEPParameterSpec_FieldInfo_[] = {
 };
 
 $MethodInfo _OAEPParameterSpec_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(OAEPParameterSpec::*)()>(&OAEPParameterSpec::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/security/spec/AlgorithmParameterSpec;Ljavax/crypto/spec/PSource;)V", nullptr, $PUBLIC, $method(static_cast<void(OAEPParameterSpec::*)($String*,$String*,$AlgorithmParameterSpec*,$PSource*)>(&OAEPParameterSpec::init$))},
-	{"getDigestAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getMGFAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getMGFParameters", "()Ljava/security/spec/AlgorithmParameterSpec;", nullptr, $PUBLIC},
-	{"getPSource", "()Ljavax/crypto/spec/PSource;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(OAEPParameterSpec, init$, void)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/security/spec/AlgorithmParameterSpec;Ljavax/crypto/spec/PSource;)V", nullptr, $PUBLIC, $method(OAEPParameterSpec, init$, void, $String*, $String*, $AlgorithmParameterSpec*, $PSource*)},
+	{"getDigestAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(OAEPParameterSpec, getDigestAlgorithm, $String*)},
+	{"getMGFAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(OAEPParameterSpec, getMGFAlgorithm, $String*)},
+	{"getMGFParameters", "()Ljava/security/spec/AlgorithmParameterSpec;", nullptr, $PUBLIC, $virtualMethod(OAEPParameterSpec, getMGFParameters, $AlgorithmParameterSpec*)},
+	{"getPSource", "()Ljavax/crypto/spec/PSource;", nullptr, $PUBLIC, $virtualMethod(OAEPParameterSpec, getPSource, $PSource*)},
 	{}
 };
 

@@ -17,8 +17,8 @@ namespace sun {
 				namespace http {
 
 $MethodInfo _DigestAuthentication$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(DigestAuthentication$1::*)()>(&DigestAuthentication$1::init$))},
-	{"run", "()Ljava/lang/Boolean;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(DigestAuthentication$1, init$, void)},
+	{"run", "()Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(DigestAuthentication$1, run, $Object*)},
 	{}
 };
 

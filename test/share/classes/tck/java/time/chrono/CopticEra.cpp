@@ -27,17 +27,17 @@ $FieldInfo _CopticEra_FieldInfo_[] = {
 };
 
 $MethodInfo _CopticEra_MethodInfo_[] = {
-	{"$values", "()[Ltck/java/time/chrono/CopticEra;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$CopticEraArray*(*)()>(&CopticEra::$values))},
+	{"$values", "()[Ltck/java/time/chrono/CopticEra;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CopticEra, $values, $CopticEraArray*)},
 	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
 	{"*finalize", "()V", nullptr, $PROTECTED | $FINAL},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(CopticEra::*)($String*,int32_t)>(&CopticEra::init$))},
-	{"getValue", "()I", nullptr, $PUBLIC},
-	{"of", "(I)Ltck/java/time/chrono/CopticEra;", nullptr, $PUBLIC | $STATIC, $method(static_cast<CopticEra*(*)(int32_t)>(&CopticEra::of))},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(CopticEra, init$, void, $String*, int32_t)},
+	{"getValue", "()I", nullptr, $PUBLIC, $virtualMethod(CopticEra, getValue, int32_t)},
+	{"of", "(I)Ltck/java/time/chrono/CopticEra;", nullptr, $PUBLIC | $STATIC, $staticMethod(CopticEra, of, CopticEra*, int32_t)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"valueOf", "(Ljava/lang/String;)Ltck/java/time/chrono/CopticEra;", nullptr, $PUBLIC | $STATIC, $method(static_cast<CopticEra*(*)($String*)>(&CopticEra::valueOf))},
-	{"values", "()[Ltck/java/time/chrono/CopticEra;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$CopticEraArray*(*)()>(&CopticEra::values))},
+	{"valueOf", "(Ljava/lang/String;)Ltck/java/time/chrono/CopticEra;", nullptr, $PUBLIC | $STATIC, $staticMethod(CopticEra, valueOf, CopticEra*, $String*)},
+	{"values", "()[Ltck/java/time/chrono/CopticEra;", nullptr, $PUBLIC | $STATIC, $staticMethod(CopticEra, values, $CopticEraArray*)},
 	{}
 };
 

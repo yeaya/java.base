@@ -49,9 +49,9 @@ $FieldInfo _SocketChannelImpl$DefaultOptionsHolder_FieldInfo_[] = {
 };
 
 $MethodInfo _SocketChannelImpl$DefaultOptionsHolder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(SocketChannelImpl$DefaultOptionsHolder::*)()>(&SocketChannelImpl$DefaultOptionsHolder::init$))},
-	{"defaultInetOptions", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/net/SocketOption<*>;>;", $PRIVATE | $STATIC, $method(static_cast<$Set*(*)()>(&SocketChannelImpl$DefaultOptionsHolder::defaultInetOptions))},
-	{"defaultUnixOptions", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/net/SocketOption<*>;>;", $PRIVATE | $STATIC, $method(static_cast<$Set*(*)()>(&SocketChannelImpl$DefaultOptionsHolder::defaultUnixOptions))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(SocketChannelImpl$DefaultOptionsHolder, init$, void)},
+	{"defaultInetOptions", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/net/SocketOption<*>;>;", $PRIVATE | $STATIC, $staticMethod(SocketChannelImpl$DefaultOptionsHolder, defaultInetOptions, $Set*)},
+	{"defaultUnixOptions", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/net/SocketOption<*>;>;", $PRIVATE | $STATIC, $staticMethod(SocketChannelImpl$DefaultOptionsHolder, defaultUnixOptions, $Set*)},
 	{}
 };
 

@@ -29,8 +29,8 @@ $FieldInfo _ResourceBundle$Control$2_FieldInfo_[] = {
 };
 
 $MethodInfo _ResourceBundle$Control$2_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/ResourceBundle$Control;Ljava/lang/ClassLoader;Ljava/lang/String;Z)V", nullptr, 0, $method(static_cast<void(ResourceBundle$Control$2::*)($ResourceBundle$Control*,$ClassLoader*,$String*,bool)>(&ResourceBundle$Control$2::init$))},
-	{"run", "()Ljava/io/InputStream;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljava/util/ResourceBundle$Control;Ljava/lang/ClassLoader;Ljava/lang/String;Z)V", nullptr, 0, $method(ResourceBundle$Control$2, init$, void, $ResourceBundle$Control*, $ClassLoader*, $String*, bool)},
+	{"run", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(ResourceBundle$Control$2, run, $Object*), "java.io.IOException"},
 	{}
 };
 

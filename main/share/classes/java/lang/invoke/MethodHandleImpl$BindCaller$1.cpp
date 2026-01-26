@@ -17,8 +17,8 @@ namespace java {
 		namespace invoke {
 
 $MethodInfo _MethodHandleImpl$BindCaller$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(MethodHandleImpl$BindCaller$1::*)()>(&MethodHandleImpl$BindCaller$1::init$))},
-	{"computeValue", "(Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodHandle;", $PROTECTED},
+	{"<init>", "()V", nullptr, 0, $method(MethodHandleImpl$BindCaller$1, init$, void)},
+	{"computeValue", "(Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodHandle;", $PROTECTED, $virtualMethod(MethodHandleImpl$BindCaller$1, computeValue, $Object*, $Class*)},
 	{}
 };
 

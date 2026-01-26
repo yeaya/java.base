@@ -26,9 +26,9 @@ using $Proxy = ::java::net::Proxy;
 using $URL = ::java::net::URL;
 
 $MethodInfo _Responses_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Responses::*)()>(&Responses::init$))},
-	{"getTests", "()[[Ljava/lang/Object;", nullptr, $STATIC, $method(static_cast<$ObjectArray2*(*)()>(&Responses::getTests))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Responses::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Responses, init$, void)},
+	{"getTests", "()[[Ljava/lang/Object;", nullptr, $STATIC, $staticMethod(Responses, getTests, $ObjectArray2*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Responses, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

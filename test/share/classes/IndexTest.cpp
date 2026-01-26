@@ -35,9 +35,9 @@ $FieldInfo _IndexTest_FieldInfo_[] = {
 };
 
 $MethodInfo _IndexTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(IndexTest::*)()>(&IndexTest::init$))},
-	{"displayInterfaceInformation", "(Ljava/net/NetworkInterface;)V", nullptr, $STATIC, $method(static_cast<void(*)($NetworkInterface*)>(&IndexTest::displayInterfaceInformation)), "java.net.SocketException"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&IndexTest::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(IndexTest, init$, void)},
+	{"displayInterfaceInformation", "(Ljava/net/NetworkInterface;)V", nullptr, $STATIC, $staticMethod(IndexTest, displayInterfaceInformation, void, $NetworkInterface*), "java.net.SocketException"},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(IndexTest, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

@@ -35,13 +35,13 @@ $MethodInfo _ConcurrentHashMap$ValueSpliterator_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "([Ljava/util/concurrent/ConcurrentHashMap$Node;IIIJ)V", "([Ljava/util/concurrent/ConcurrentHashMap$Node<TK;TV;>;IIIJ)V", 0, $method(static_cast<void(ConcurrentHashMap$ValueSpliterator::*)($ConcurrentHashMap$NodeArray*,int32_t,int32_t,int32_t,int64_t)>(&ConcurrentHashMap$ValueSpliterator::init$))},
-	{"characteristics", "()I", nullptr, $PUBLIC},
-	{"estimateSize", "()J", nullptr, $PUBLIC},
-	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TV;>;)V", $PUBLIC},
+	{"<init>", "([Ljava/util/concurrent/ConcurrentHashMap$Node;IIIJ)V", "([Ljava/util/concurrent/ConcurrentHashMap$Node<TK;TV;>;IIIJ)V", 0, $method(ConcurrentHashMap$ValueSpliterator, init$, void, $ConcurrentHashMap$NodeArray*, int32_t, int32_t, int32_t, int64_t)},
+	{"characteristics", "()I", nullptr, $PUBLIC, $virtualMethod(ConcurrentHashMap$ValueSpliterator, characteristics, int32_t)},
+	{"estimateSize", "()J", nullptr, $PUBLIC, $virtualMethod(ConcurrentHashMap$ValueSpliterator, estimateSize, int64_t)},
+	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TV;>;)V", $PUBLIC, $virtualMethod(ConcurrentHashMap$ValueSpliterator, forEachRemaining, void, $Consumer*)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-TV;>;)Z", $PUBLIC},
-	{"trySplit", "()Ljava/util/concurrent/ConcurrentHashMap$ValueSpliterator;", "()Ljava/util/concurrent/ConcurrentHashMap$ValueSpliterator<TK;TV;>;", $PUBLIC},
+	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-TV;>;)Z", $PUBLIC, $virtualMethod(ConcurrentHashMap$ValueSpliterator, tryAdvance, bool, $Consumer*)},
+	{"trySplit", "()Ljava/util/concurrent/ConcurrentHashMap$ValueSpliterator;", "()Ljava/util/concurrent/ConcurrentHashMap$ValueSpliterator<TK;TV;>;", $PUBLIC, $virtualMethod(ConcurrentHashMap$ValueSpliterator, trySplit, $Spliterator*)},
 	{}
 };
 

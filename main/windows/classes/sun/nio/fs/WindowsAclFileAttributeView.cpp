@@ -64,13 +64,13 @@ $FieldInfo _WindowsAclFileAttributeView_FieldInfo_[] = {
 };
 
 $MethodInfo _WindowsAclFileAttributeView_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/fs/WindowsPath;Z)V", nullptr, 0, $method(static_cast<void(WindowsAclFileAttributeView::*)($WindowsPath*,bool)>(&WindowsAclFileAttributeView::init$))},
-	{"checkAccess", "(Lsun/nio/fs/WindowsPath;ZZ)V", nullptr, $PRIVATE, $method(static_cast<void(WindowsAclFileAttributeView::*)($WindowsPath*,bool,bool)>(&WindowsAclFileAttributeView::checkAccess))},
-	{"getAcl", "()Ljava/util/List;", "()Ljava/util/List<Ljava/nio/file/attribute/AclEntry;>;", $PUBLIC, nullptr, "java.io.IOException"},
-	{"getFileSecurity", "(Ljava/lang/String;I)Lsun/nio/fs/NativeBuffer;", nullptr, $STATIC, $method(static_cast<$NativeBuffer*(*)($String*,int32_t)>(&WindowsAclFileAttributeView::getFileSecurity)), "java.io.IOException"},
-	{"getOwner", "()Ljava/nio/file/attribute/UserPrincipal;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"setAcl", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/file/attribute/AclEntry;>;)V", $PUBLIC, nullptr, "java.io.IOException"},
-	{"setOwner", "(Ljava/nio/file/attribute/UserPrincipal;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Lsun/nio/fs/WindowsPath;Z)V", nullptr, 0, $method(WindowsAclFileAttributeView, init$, void, $WindowsPath*, bool)},
+	{"checkAccess", "(Lsun/nio/fs/WindowsPath;ZZ)V", nullptr, $PRIVATE, $method(WindowsAclFileAttributeView, checkAccess, void, $WindowsPath*, bool, bool)},
+	{"getAcl", "()Ljava/util/List;", "()Ljava/util/List<Ljava/nio/file/attribute/AclEntry;>;", $PUBLIC, $virtualMethod(WindowsAclFileAttributeView, getAcl, $List*), "java.io.IOException"},
+	{"getFileSecurity", "(Ljava/lang/String;I)Lsun/nio/fs/NativeBuffer;", nullptr, $STATIC, $staticMethod(WindowsAclFileAttributeView, getFileSecurity, $NativeBuffer*, $String*, int32_t), "java.io.IOException"},
+	{"getOwner", "()Ljava/nio/file/attribute/UserPrincipal;", nullptr, $PUBLIC, $virtualMethod(WindowsAclFileAttributeView, getOwner, $UserPrincipal*), "java.io.IOException"},
+	{"setAcl", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/file/attribute/AclEntry;>;)V", $PUBLIC, $virtualMethod(WindowsAclFileAttributeView, setAcl, void, $List*), "java.io.IOException"},
+	{"setOwner", "(Ljava/nio/file/attribute/UserPrincipal;)V", nullptr, $PUBLIC, $virtualMethod(WindowsAclFileAttributeView, setOwner, void, $UserPrincipal*), "java.io.IOException"},
 	{}
 };
 

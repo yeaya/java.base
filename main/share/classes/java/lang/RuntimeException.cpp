@@ -16,11 +16,11 @@ $FieldInfo _RuntimeException_FieldInfo_[] = {
 };
 
 $MethodInfo _RuntimeException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(RuntimeException::*)()>(&RuntimeException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(RuntimeException::*)($String*)>(&RuntimeException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(RuntimeException::*)($String*,$Throwable*)>(&RuntimeException::init$))},
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(RuntimeException::*)($Throwable*)>(&RuntimeException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;ZZ)V", nullptr, $PROTECTED, $method(static_cast<void(RuntimeException::*)($String*,$Throwable*,bool,bool)>(&RuntimeException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(RuntimeException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(RuntimeException, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(RuntimeException, init$, void, $String*, $Throwable*)},
+	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(RuntimeException, init$, void, $Throwable*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;ZZ)V", nullptr, $PROTECTED, $method(RuntimeException, init$, void, $String*, $Throwable*, bool, bool)},
 	{}
 };
 

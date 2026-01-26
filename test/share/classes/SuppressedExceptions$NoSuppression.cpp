@@ -8,7 +8,7 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _SuppressedExceptions$NoSuppression_MethodInfo_[] = {
-	{"<init>", "(Z)V", nullptr, $PUBLIC, $method(static_cast<void(SuppressedExceptions$NoSuppression::*)(bool)>(&SuppressedExceptions$NoSuppression::init$))},
+	{"<init>", "(Z)V", nullptr, $PUBLIC, $method(SuppressedExceptions$NoSuppression, init$, void, bool)},
 	{}
 };
 

@@ -20,12 +20,12 @@ $FieldInfo _MemoryCache$HardCacheEntry_FieldInfo_[] = {
 };
 
 $MethodInfo _MemoryCache$HardCacheEntry_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;Ljava/lang/Object;J)V", "(TK;TV;J)V", 0, $method(static_cast<void(MemoryCache$HardCacheEntry::*)(Object$*,Object$*,int64_t)>(&MemoryCache$HardCacheEntry::init$))},
-	{"getExpirationTime", "()J", nullptr, $PUBLIC},
-	{"getKey", "()Ljava/lang/Object;", "()TK;", $PUBLIC},
-	{"getValue", "()Ljava/lang/Object;", "()TV;", $PUBLIC},
-	{"invalidate", "()V", nullptr, $PUBLIC},
-	{"isValid", "(J)Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Object;Ljava/lang/Object;J)V", "(TK;TV;J)V", 0, $method(MemoryCache$HardCacheEntry, init$, void, Object$*, Object$*, int64_t)},
+	{"getExpirationTime", "()J", nullptr, $PUBLIC, $virtualMethod(MemoryCache$HardCacheEntry, getExpirationTime, int64_t)},
+	{"getKey", "()Ljava/lang/Object;", "()TK;", $PUBLIC, $virtualMethod(MemoryCache$HardCacheEntry, getKey, $Object*)},
+	{"getValue", "()Ljava/lang/Object;", "()TV;", $PUBLIC, $virtualMethod(MemoryCache$HardCacheEntry, getValue, $Object*)},
+	{"invalidate", "()V", nullptr, $PUBLIC, $virtualMethod(MemoryCache$HardCacheEntry, invalidate, void)},
+	{"isValid", "(J)Z", nullptr, $PUBLIC, $virtualMethod(MemoryCache$HardCacheEntry, isValid, bool, int64_t)},
 	{}
 };
 

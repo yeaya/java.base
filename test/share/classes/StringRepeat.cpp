@@ -23,12 +23,12 @@ $FieldInfo _StringRepeat_FieldInfo_[] = {
 };
 
 $MethodInfo _StringRepeat_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(StringRepeat::*)()>(&StringRepeat::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<void(*)($StringArray*)>(&StringRepeat::main))},
-	{"test1", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&StringRepeat::test1))},
-	{"test2", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&StringRepeat::test2))},
-	{"truncate", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $method(static_cast<$String*(*)($String*)>(&StringRepeat::truncate))},
-	{"verify", "(Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $STATIC, $method(static_cast<void(*)($String*,$String*,int32_t)>(&StringRepeat::verify))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(StringRepeat, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(StringRepeat, main, void, $StringArray*)},
+	{"test1", "()V", nullptr, $STATIC, $staticMethod(StringRepeat, test1, void)},
+	{"test2", "()V", nullptr, $STATIC, $staticMethod(StringRepeat, test2, void)},
+	{"truncate", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StringRepeat, truncate, $String*, $String*)},
+	{"verify", "(Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $STATIC, $staticMethod(StringRepeat, verify, void, $String*, $String*, int32_t)},
 	{}
 };
 

@@ -43,8 +43,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo DHKeyAgreement$AllowKDF$$Lambda$lambda$getValue$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DHKeyAgreement$AllowKDF$$Lambda$lambda$getValue$0::*)()>(&DHKeyAgreement$AllowKDF$$Lambda$lambda$getValue$0::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DHKeyAgreement$AllowKDF$$Lambda$lambda$getValue$0, init$, void)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DHKeyAgreement$AllowKDF$$Lambda$lambda$getValue$0, run, $Object*)},
 	{}
 };
 $ClassInfo DHKeyAgreement$AllowKDF$$Lambda$lambda$getValue$0::classInfo$ = {
@@ -67,9 +67,9 @@ $FieldInfo _DHKeyAgreement$AllowKDF_FieldInfo_[] = {
 };
 
 $MethodInfo _DHKeyAgreement$AllowKDF_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(DHKeyAgreement$AllowKDF::*)()>(&DHKeyAgreement$AllowKDF::init$))},
-	{"getValue", "()Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)()>(&DHKeyAgreement$AllowKDF::getValue))},
-	{"lambda$getValue$0", "()Ljava/lang/Boolean;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Boolean*(*)()>(&DHKeyAgreement$AllowKDF::lambda$getValue$0))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(DHKeyAgreement$AllowKDF, init$, void)},
+	{"getValue", "()Z", nullptr, $PRIVATE | $STATIC, $staticMethod(DHKeyAgreement$AllowKDF, getValue, bool)},
+	{"lambda$getValue$0", "()Ljava/lang/Boolean;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DHKeyAgreement$AllowKDF, lambda$getValue$0, $Boolean*)},
 	{}
 };
 

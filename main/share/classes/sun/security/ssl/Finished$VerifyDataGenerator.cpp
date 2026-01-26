@@ -7,13 +7,14 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
 
 namespace sun {
 	namespace security {
 		namespace ssl {
 
 $MethodInfo _Finished$VerifyDataGenerator_MethodInfo_[] = {
-	{"createVerifyData", "(Lsun/security/ssl/HandshakeContext;Z)[B", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
+	{"createVerifyData", "(Lsun/security/ssl/HandshakeContext;Z)[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Finished$VerifyDataGenerator, createVerifyData, $bytes*, $HandshakeContext*, bool), "java.io.IOException"},
 	{}
 };
 

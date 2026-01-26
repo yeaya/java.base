@@ -33,8 +33,8 @@ $FieldInfo _UnixFileSystem$1_FieldInfo_[] = {
 };
 
 $MethodInfo _UnixFileSystem$1_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/fs/UnixFileSystem;Ljava/util/List;)V", nullptr, 0, $method(static_cast<void(UnixFileSystem$1::*)($UnixFileSystem*,$List*)>(&UnixFileSystem$1::init$))},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/nio/file/Path;>;", $PUBLIC},
+	{"<init>", "(Lsun/nio/fs/UnixFileSystem;Ljava/util/List;)V", nullptr, 0, $method(UnixFileSystem$1, init$, void, $UnixFileSystem*, $List*)},
+	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/nio/file/Path;>;", $PUBLIC, $virtualMethod(UnixFileSystem$1, iterator, $Iterator*)},
 	{}
 };
 

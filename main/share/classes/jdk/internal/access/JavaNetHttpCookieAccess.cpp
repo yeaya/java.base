@@ -6,14 +6,16 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $HttpCookie = ::java::net::HttpCookie;
+using $List = ::java::util::List;
 
 namespace jdk {
 	namespace internal {
 		namespace access {
 
 $MethodInfo _JavaNetHttpCookieAccess_MethodInfo_[] = {
-	{"header", "(Ljava/net/HttpCookie;)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"parse", "(Ljava/lang/String;)Ljava/util/List;", "(Ljava/lang/String;)Ljava/util/List<Ljava/net/HttpCookie;>;", $PUBLIC | $ABSTRACT},
+	{"header", "(Ljava/net/HttpCookie;)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JavaNetHttpCookieAccess, header, $String*, $HttpCookie*)},
+	{"parse", "(Ljava/lang/String;)Ljava/util/List;", "(Ljava/lang/String;)Ljava/util/List<Ljava/net/HttpCookie;>;", $PUBLIC | $ABSTRACT, $virtualMethod(JavaNetHttpCookieAccess, parse, $List*, $String*)},
 	{}
 };
 

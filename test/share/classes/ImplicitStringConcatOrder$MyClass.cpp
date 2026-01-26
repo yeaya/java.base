@@ -14,8 +14,8 @@ $FieldInfo _ImplicitStringConcatOrder$MyClass_FieldInfo_[] = {
 };
 
 $MethodInfo _ImplicitStringConcatOrder$MyClass_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ImplicitStringConcatOrder$MyClass::*)()>(&ImplicitStringConcatOrder$MyClass::init$))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(ImplicitStringConcatOrder$MyClass, init$, void)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ImplicitStringConcatOrder$MyClass, toString, $String*)},
 	{}
 };
 

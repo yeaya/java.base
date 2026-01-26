@@ -36,13 +36,13 @@ $FieldInfo _Streams$ConcatSpliterator_FieldInfo_[] = {
 };
 
 $MethodInfo _Streams$ConcatSpliterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Spliterator;Ljava/util/Spliterator;)V", "(TT_SPLITR;TT_SPLITR;)V", $PUBLIC, $method(static_cast<void(Streams$ConcatSpliterator::*)($Spliterator*,$Spliterator*)>(&Streams$ConcatSpliterator::init$))},
-	{"characteristics", "()I", nullptr, $PUBLIC},
-	{"estimateSize", "()J", nullptr, $PUBLIC},
-	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TT;>;)V", $PUBLIC},
-	{"getComparator", "()Ljava/util/Comparator;", "()Ljava/util/Comparator<-TT;>;", $PUBLIC},
-	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-TT;>;)Z", $PUBLIC},
-	{"trySplit", "()Ljava/util/Spliterator;", "()TT_SPLITR;", $PUBLIC},
+	{"<init>", "(Ljava/util/Spliterator;Ljava/util/Spliterator;)V", "(TT_SPLITR;TT_SPLITR;)V", $PUBLIC, $method(Streams$ConcatSpliterator, init$, void, $Spliterator*, $Spliterator*)},
+	{"characteristics", "()I", nullptr, $PUBLIC, $virtualMethod(Streams$ConcatSpliterator, characteristics, int32_t)},
+	{"estimateSize", "()J", nullptr, $PUBLIC, $virtualMethod(Streams$ConcatSpliterator, estimateSize, int64_t)},
+	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TT;>;)V", $PUBLIC, $virtualMethod(Streams$ConcatSpliterator, forEachRemaining, void, $Consumer*)},
+	{"getComparator", "()Ljava/util/Comparator;", "()Ljava/util/Comparator<-TT;>;", $PUBLIC, $virtualMethod(Streams$ConcatSpliterator, getComparator, $Comparator*)},
+	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-TT;>;)Z", $PUBLIC, $virtualMethod(Streams$ConcatSpliterator, tryAdvance, bool, $Consumer*)},
+	{"trySplit", "()Ljava/util/Spliterator;", "()TT_SPLITR;", $PUBLIC, $virtualMethod(Streams$ConcatSpliterator, trySplit, $Spliterator*)},
 	{}
 };
 

@@ -21,7 +21,7 @@ $FieldInfo _MD4$1_FieldInfo_[] = {
 };
 
 $MethodInfo _MD4$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(MD4$1::*)($String*,$String*,$String*)>(&MD4$1::init$))},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(MD4$1, init$, void, $String*, $String*, $String*)},
 	{}
 };
 

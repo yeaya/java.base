@@ -65,10 +65,10 @@ $FieldInfo _JsseJce_FieldInfo_[] = {
 };
 
 $MethodInfo _JsseJce_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(JsseJce::*)()>(&JsseJce::init$))},
-	{"getRSAKeyLength", "(Ljava/security/PublicKey;)I", nullptr, $STATIC, $method(static_cast<int32_t(*)($PublicKey*)>(&JsseJce::getRSAKeyLength))},
-	{"getRSAPublicKeySpec", "(Ljava/security/PublicKey;)Ljava/security/spec/RSAPublicKeySpec;", nullptr, $STATIC, $method(static_cast<$RSAPublicKeySpec*(*)($PublicKey*)>(&JsseJce::getRSAPublicKeySpec))},
-	{"isEcAvailable", "()Z", nullptr, $STATIC, $method(static_cast<bool(*)()>(&JsseJce::isEcAvailable))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(JsseJce, init$, void)},
+	{"getRSAKeyLength", "(Ljava/security/PublicKey;)I", nullptr, $STATIC, $staticMethod(JsseJce, getRSAKeyLength, int32_t, $PublicKey*)},
+	{"getRSAPublicKeySpec", "(Ljava/security/PublicKey;)Ljava/security/spec/RSAPublicKeySpec;", nullptr, $STATIC, $staticMethod(JsseJce, getRSAPublicKeySpec, $RSAPublicKeySpec*, $PublicKey*)},
+	{"isEcAvailable", "()Z", nullptr, $STATIC, $staticMethod(JsseJce, isEcAvailable, bool)},
 	{}
 };
 

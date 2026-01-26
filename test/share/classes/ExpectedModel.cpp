@@ -27,9 +27,9 @@ $Attribute _ExpectedModel_DefaultValue_modifiers2 = {
 };
 
 $MethodInfo _ExpectedModel_MethodInfo_[] = {
-	{"declaringClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC | $ABSTRACT},
-	{"isDefault", "()Z", nullptr, $PUBLIC | $ABSTRACT, nullptr, nullptr, &_ExpectedModel_DefaultValue_isDefault1},
-	{"modifiers", "()I", nullptr, $PUBLIC | $ABSTRACT, nullptr, nullptr, &_ExpectedModel_DefaultValue_modifiers2},
+	{"declaringClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC | $ABSTRACT, $virtualMethod(ExpectedModel, declaringClass, $Class*)},
+	{"isDefault", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ExpectedModel, isDefault, bool), nullptr, &_ExpectedModel_DefaultValue_isDefault1},
+	{"modifiers", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ExpectedModel, modifiers, int32_t), nullptr, &_ExpectedModel_DefaultValue_modifiers2},
 	{}
 };
 

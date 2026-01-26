@@ -14,8 +14,8 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _Sharing$BadFileInputStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/FileDescriptor;)V", nullptr, 0, $method(static_cast<void(Sharing$BadFileInputStream::*)($FileDescriptor*)>(&Sharing$BadFileInputStream::init$))},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljava/io/FileDescriptor;)V", nullptr, 0, $method(Sharing$BadFileInputStream, init$, void, $FileDescriptor*)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(Sharing$BadFileInputStream, close, void), "java.io.IOException"},
 	{}
 };
 

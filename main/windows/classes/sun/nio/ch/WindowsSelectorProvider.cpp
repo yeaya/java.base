@@ -20,8 +20,8 @@ namespace sun {
 		namespace ch {
 
 $MethodInfo _WindowsSelectorProvider_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(WindowsSelectorProvider::*)()>(&WindowsSelectorProvider::init$))},
-	{"openSelector", "()Ljava/nio/channels/spi/AbstractSelector;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsSelectorProvider, init$, void)},
+	{"openSelector", "()Ljava/nio/channels/spi/AbstractSelector;", nullptr, $PUBLIC, $virtualMethod(WindowsSelectorProvider, openSelector, $AbstractSelector*), "java.io.IOException"},
 	{}
 };
 
